@@ -14,18 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  RegisterImageRequest,
-  RegisterImageRequestFilterSensitiveLog,
-  RegisterImageResult,
-  RegisterImageResultFilterSensitiveLog,
-} from "../models/models_6";
-import { deserializeAws_ec2RegisterImageCommand, serializeAws_ec2RegisterImageCommand } from "../protocols/Aws_ec2";
+import { RegisterImageRequest, RegisterImageResult } from "../models/models_6";
+import { de_RegisterImageCommand, se_RegisterImageCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link RegisterImageCommand}.
+ */
 export interface RegisterImageCommandInput extends RegisterImageRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RegisterImageCommand}.
+ */
 export interface RegisterImageCommandOutput extends RegisterImageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers an AMI. When you're creating an AMI, this is the final step you must complete
  *       before you can launch an instance from the AMI. For more information about creating AMIs, see
  *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html">Create your
@@ -81,13 +87,54 @@ export interface RegisterImageCommandOutput extends RegisterImageResult, __Metad
  * import { EC2Client, RegisterImageCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, RegisterImageCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // RegisterImageRequest
+ *   ImageLocation: "STRING_VALUE",
+ *   Architecture: "i386" || "x86_64" || "arm64" || "x86_64_mac" || "arm64_mac",
+ *   BlockDeviceMappings: [ // BlockDeviceMappingRequestList
+ *     { // BlockDeviceMapping
+ *       DeviceName: "STRING_VALUE",
+ *       VirtualName: "STRING_VALUE",
+ *       Ebs: { // EbsBlockDevice
+ *         DeleteOnTermination: true || false,
+ *         Iops: Number("int"),
+ *         SnapshotId: "STRING_VALUE",
+ *         VolumeSize: Number("int"),
+ *         VolumeType: "standard" || "io1" || "io2" || "gp2" || "sc1" || "st1" || "gp3",
+ *         KmsKeyId: "STRING_VALUE",
+ *         Throughput: Number("int"),
+ *         OutpostArn: "STRING_VALUE",
+ *         Encrypted: true || false,
+ *       },
+ *       NoDevice: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Description: "STRING_VALUE",
+ *   DryRun: true || false,
+ *   EnaSupport: true || false,
+ *   KernelId: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ *   BillingProducts: [ // BillingProductList
+ *     "STRING_VALUE",
+ *   ],
+ *   RamdiskId: "STRING_VALUE",
+ *   RootDeviceName: "STRING_VALUE",
+ *   SriovNetSupport: "STRING_VALUE",
+ *   VirtualizationType: "STRING_VALUE",
+ *   BootMode: "legacy-bios" || "uefi" || "uefi-preferred",
+ *   TpmSupport: "v2.0",
+ *   UefiData: "STRING_VALUE",
+ *   ImdsSupport: "v2.0",
+ * };
  * const command = new RegisterImageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterImageCommandInput - {@link RegisterImageCommandInput}
+ * @returns {@link RegisterImageCommandOutput}
  * @see {@link RegisterImageCommandInput} for command's `input` shape.
  * @see {@link RegisterImageCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class RegisterImageCommand extends $Command<
@@ -107,6 +154,9 @@ export class RegisterImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,8 +183,8 @@ export class RegisterImageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterImageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterImageResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -144,12 +194,18 @@ export class RegisterImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2RegisterImageCommand(input, context);
+    return se_RegisterImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterImageCommandOutput> {
-    return deserializeAws_ec2RegisterImageCommand(output, context);
+    return de_RegisterImageCommand(output, context);
   }
 
   // Start section: command_body_extra

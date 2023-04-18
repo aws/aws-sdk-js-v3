@@ -20,15 +20,23 @@ import {
   CreateSipMediaApplicationResponse,
   CreateSipMediaApplicationResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateSipMediaApplicationCommand,
-  serializeAws_restJson1CreateSipMediaApplicationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateSipMediaApplicationCommand, se_CreateSipMediaApplicationCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateSipMediaApplicationCommand}.
+ */
 export interface CreateSipMediaApplicationCommandInput extends CreateSipMediaApplicationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateSipMediaApplicationCommand}.
+ */
 export interface CreateSipMediaApplicationCommandOutput extends CreateSipMediaApplicationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a SIP media application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +44,53 @@ export interface CreateSipMediaApplicationCommandOutput extends CreateSipMediaAp
  * import { ChimeClient, CreateSipMediaApplicationCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, CreateSipMediaApplicationCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // CreateSipMediaApplicationRequest
+ *   AwsRegion: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Endpoints: [ // SipMediaApplicationEndpointList // required
+ *     { // SipMediaApplicationEndpoint
+ *       LambdaArn: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateSipMediaApplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSipMediaApplicationCommandInput - {@link CreateSipMediaApplicationCommandInput}
+ * @returns {@link CreateSipMediaApplicationCommandOutput}
  * @see {@link CreateSipMediaApplicationCommandInput} for command's `input` shape.
  * @see {@link CreateSipMediaApplicationCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have permissions to perform the requested operation.</p>
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be processed because of conflict in the current state of the
+ *          resource.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link ResourceLimitExceededException} (client fault)
+ *  <p>The request exceeds the resource limit.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The client exceeded its request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client is not currently authorized to make the request.</p>
+ *
  *
  */
 export class CreateSipMediaApplicationCommand extends $Command<
@@ -62,6 +110,9 @@ export class CreateSipMediaApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSipMediaApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,15 +152,21 @@ export class CreateSipMediaApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSipMediaApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateSipMediaApplicationCommand(input, context);
+    return se_CreateSipMediaApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateSipMediaApplicationCommandOutput> {
-    return deserializeAws_restJson1CreateSipMediaApplicationCommand(output, context);
+    return de_CreateSipMediaApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

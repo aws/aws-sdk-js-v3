@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisVideoArchivedMediaClient";
-import {
-  GetHLSStreamingSessionURLInput,
-  GetHLSStreamingSessionURLInputFilterSensitiveLog,
-  GetHLSStreamingSessionURLOutput,
-  GetHLSStreamingSessionURLOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetHLSStreamingSessionURLCommand,
-  serializeAws_restJson1GetHLSStreamingSessionURLCommand,
-} from "../protocols/Aws_restJson1";
+import { GetHLSStreamingSessionURLInput, GetHLSStreamingSessionURLOutput } from "../models/models_0";
+import { de_GetHLSStreamingSessionURLCommand, se_GetHLSStreamingSessionURLCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetHLSStreamingSessionURLCommand}.
+ */
 export interface GetHLSStreamingSessionURLCommandInput extends GetHLSStreamingSessionURLInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetHLSStreamingSessionURLCommand}.
+ */
 export interface GetHLSStreamingSessionURLCommandOutput extends GetHLSStreamingSessionURLOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves an HTTP Live Streaming (HLS) URL for the stream. You can then open the URL
  *             in a browser or media player to view the stream contents.</p>
  *         <p>Both the <code>StreamName</code> and the <code>StreamARN</code> parameters are
@@ -219,13 +222,73 @@ export interface GetHLSStreamingSessionURLCommandOutput extends GetHLSStreamingS
  * import { KinesisVideoArchivedMediaClient, GetHLSStreamingSessionURLCommand } from "@aws-sdk/client-kinesis-video-archived-media"; // ES Modules import
  * // const { KinesisVideoArchivedMediaClient, GetHLSStreamingSessionURLCommand } = require("@aws-sdk/client-kinesis-video-archived-media"); // CommonJS import
  * const client = new KinesisVideoArchivedMediaClient(config);
+ * const input = { // GetHLSStreamingSessionURLInput
+ *   StreamName: "STRING_VALUE",
+ *   StreamARN: "STRING_VALUE",
+ *   PlaybackMode: "STRING_VALUE",
+ *   HLSFragmentSelector: { // HLSFragmentSelector
+ *     FragmentSelectorType: "STRING_VALUE",
+ *     TimestampRange: { // HLSTimestampRange
+ *       StartTimestamp: new Date("TIMESTAMP"),
+ *       EndTimestamp: new Date("TIMESTAMP"),
+ *     },
+ *   },
+ *   ContainerFormat: "STRING_VALUE",
+ *   DiscontinuityMode: "STRING_VALUE",
+ *   DisplayFragmentTimestamp: "STRING_VALUE",
+ *   Expires: Number("int"),
+ *   MaxMediaPlaylistFragmentResults: Number("long"),
+ * };
  * const command = new GetHLSStreamingSessionURLCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetHLSStreamingSessionURLCommandInput - {@link GetHLSStreamingSessionURLCommandInput}
+ * @returns {@link GetHLSStreamingSessionURLCommandOutput}
  * @see {@link GetHLSStreamingSessionURLCommandInput} for command's `input` shape.
  * @see {@link GetHLSStreamingSessionURLCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoArchivedMediaClientResolvedConfig | config} for KinesisVideoArchivedMediaClient's `config` shape.
+ *
+ * @throws {@link ClientLimitExceededException} (client fault)
+ *  <p>Kinesis Video Streams has throttled the request because you have exceeded a limit. Try making the call later. For information about limits, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/limits.html">Kinesis Video Streams Limits</a>.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>A specified parameter exceeds its restrictions, is not supported, or can't be
+ *             used.</p>
+ *
+ * @throws {@link InvalidCodecPrivateDataException} (client fault)
+ *  <p>The codec private data in at least one of the tracks of the video stream is not valid
+ *             for this operation.</p>
+ *
+ * @throws {@link MissingCodecPrivateDataException} (client fault)
+ *  <p>No codec private data was found in at least one of tracks of the video stream.</p>
+ *
+ * @throws {@link NoDataRetentionException} (client fault)
+ *  <p>A streaming session was requested for a stream that does not retain data (that is, has
+ *             a <code>DataRetentionInHours</code> of 0). </p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>Status Code: 403, The caller is not authorized to perform an operation on the given
+ *             stream, or the token has expired.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>
+ *             <code>GetMedia</code> throws this error when Kinesis Video Streams can't find the stream
+ *             that you specified.</p>
+ *         <p>
+ *             <code>GetHLSStreamingSessionURL</code> and <code>GetDASHStreamingSessionURL</code> throw
+ *             this error if a session with a <code>PlaybackMode</code> of <code>ON_DEMAND</code> or
+ *                 <code>LIVE_REPLAY</code>is requested for a stream that has no fragments within the
+ *             requested time range, or if a session with a <code>PlaybackMode</code> of
+ *                 <code>LIVE</code> is requested for a stream that has no fragments within the last 30
+ *             seconds.</p>
+ *
+ * @throws {@link UnsupportedStreamMediaTypeException} (client fault)
+ *  <p>The type of the media (for example, h.264 or h.265 video or ACC or G.711 audio) could
+ *             not be determined from the codec IDs of the tracks in the first fragment for a playback
+ *             session. The codec ID for track 1 should be <code>V_MPEG/ISO/AVC</code> and, optionally,
+ *             the codec ID for track 2 should be <code>A_AAC</code>.</p>
+ *
  *
  */
 export class GetHLSStreamingSessionURLCommand extends $Command<
@@ -245,6 +308,9 @@ export class GetHLSStreamingSessionURLCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetHLSStreamingSessionURLCommandInput) {
     // Start section: command_constructor
     super();
@@ -273,8 +339,8 @@ export class GetHLSStreamingSessionURLCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetHLSStreamingSessionURLInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetHLSStreamingSessionURLOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -284,15 +350,21 @@ export class GetHLSStreamingSessionURLCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetHLSStreamingSessionURLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetHLSStreamingSessionURLCommand(input, context);
+    return se_GetHLSStreamingSessionURLCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetHLSStreamingSessionURLCommandOutput> {
-    return deserializeAws_restJson1GetHLSStreamingSessionURLCommand(output, context);
+    return de_GetHLSStreamingSessionURLCommand(output, context);
   }
 
   // Start section: command_body_extra

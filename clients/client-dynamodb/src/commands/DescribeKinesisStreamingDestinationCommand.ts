@@ -16,21 +16,30 @@ import {
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import {
   DescribeKinesisStreamingDestinationInput,
-  DescribeKinesisStreamingDestinationInputFilterSensitiveLog,
   DescribeKinesisStreamingDestinationOutput,
-  DescribeKinesisStreamingDestinationOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0DescribeKinesisStreamingDestinationCommand,
-  serializeAws_json1_0DescribeKinesisStreamingDestinationCommand,
+  de_DescribeKinesisStreamingDestinationCommand,
+  se_DescribeKinesisStreamingDestinationCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeKinesisStreamingDestinationCommand}.
+ */
 export interface DescribeKinesisStreamingDestinationCommandInput extends DescribeKinesisStreamingDestinationInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeKinesisStreamingDestinationCommand}.
+ */
 export interface DescribeKinesisStreamingDestinationCommandOutput
   extends DescribeKinesisStreamingDestinationOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the status of Kinesis streaming.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +47,28 @@ export interface DescribeKinesisStreamingDestinationCommandOutput
  * import { DynamoDBClient, DescribeKinesisStreamingDestinationCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, DescribeKinesisStreamingDestinationCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = { // DescribeKinesisStreamingDestinationInput
+ *   TableName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeKinesisStreamingDestinationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeKinesisStreamingDestinationCommandInput - {@link DescribeKinesisStreamingDestinationCommandInput}
+ * @returns {@link DescribeKinesisStreamingDestinationCommandOutput}
  * @see {@link DescribeKinesisStreamingDestinationCommandInput} for command's `input` shape.
  * @see {@link DescribeKinesisStreamingDestinationCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidEndpointException} (client fault)
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The operation tried to access a nonexistent table or index. The resource might not
+ *             be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+ *
  *
  */
 export class DescribeKinesisStreamingDestinationCommand extends $Command<
@@ -64,6 +88,9 @@ export class DescribeKinesisStreamingDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeKinesisStreamingDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +119,8 @@ export class DescribeKinesisStreamingDestinationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeKinesisStreamingDestinationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeKinesisStreamingDestinationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +130,24 @@ export class DescribeKinesisStreamingDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeKinesisStreamingDestinationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeKinesisStreamingDestinationCommand(input, context);
+    return se_DescribeKinesisStreamingDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeKinesisStreamingDestinationCommandOutput> {
-    return deserializeAws_json1_0DescribeKinesisStreamingDestinationCommand(output, context);
+    return de_DescribeKinesisStreamingDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

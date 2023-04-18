@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetAnnotationStoreRequest,
-  GetAnnotationStoreRequestFilterSensitiveLog,
-  GetAnnotationStoreResponse,
-  GetAnnotationStoreResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetAnnotationStoreRequest, GetAnnotationStoreResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1GetAnnotationStoreCommand,
-  serializeAws_restJson1GetAnnotationStoreCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetAnnotationStoreCommand, se_GetAnnotationStoreCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetAnnotationStoreCommand}.
+ */
 export interface GetAnnotationStoreCommandInput extends GetAnnotationStoreRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetAnnotationStoreCommand}.
+ */
 export interface GetAnnotationStoreCommandOutput extends GetAnnotationStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about an annotation store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,34 @@ export interface GetAnnotationStoreCommandOutput extends GetAnnotationStoreRespo
  * import { OmicsClient, GetAnnotationStoreCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, GetAnnotationStoreCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = { // GetAnnotationStoreRequest
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new GetAnnotationStoreCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAnnotationStoreCommandInput - {@link GetAnnotationStoreCommandInput}
+ * @returns {@link GetAnnotationStoreCommandOutput}
  * @see {@link GetAnnotationStoreCommandInput} for command's `input` shape.
  * @see {@link GetAnnotationStoreCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred. Try the request again.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The target resource was not found in the current Region.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
  *
  */
 export class GetAnnotationStoreCommand extends $Command<
@@ -62,6 +86,9 @@ export class GetAnnotationStoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAnnotationStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +117,8 @@ export class GetAnnotationStoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAnnotationStoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAnnotationStoreResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +128,18 @@ export class GetAnnotationStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAnnotationStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAnnotationStoreCommand(input, context);
+    return se_GetAnnotationStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAnnotationStoreCommandOutput> {
-    return deserializeAws_restJson1GetAnnotationStoreCommand(output, context);
+    return de_GetAnnotationStoreCommand(output, context);
   }
 
   // Start section: command_body_extra

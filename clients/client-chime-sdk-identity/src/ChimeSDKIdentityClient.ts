@@ -26,12 +26,14 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
@@ -51,6 +53,10 @@ import {
   CreateAppInstanceAdminCommandInput,
   CreateAppInstanceAdminCommandOutput,
 } from "./commands/CreateAppInstanceAdminCommand";
+import {
+  CreateAppInstanceBotCommandInput,
+  CreateAppInstanceBotCommandOutput,
+} from "./commands/CreateAppInstanceBotCommand";
 import { CreateAppInstanceCommandInput, CreateAppInstanceCommandOutput } from "./commands/CreateAppInstanceCommand";
 import {
   CreateAppInstanceUserCommandInput,
@@ -60,6 +66,10 @@ import {
   DeleteAppInstanceAdminCommandInput,
   DeleteAppInstanceAdminCommandOutput,
 } from "./commands/DeleteAppInstanceAdminCommand";
+import {
+  DeleteAppInstanceBotCommandInput,
+  DeleteAppInstanceBotCommandOutput,
+} from "./commands/DeleteAppInstanceBotCommand";
 import { DeleteAppInstanceCommandInput, DeleteAppInstanceCommandOutput } from "./commands/DeleteAppInstanceCommand";
 import {
   DeleteAppInstanceUserCommandInput,
@@ -73,6 +83,10 @@ import {
   DescribeAppInstanceAdminCommandInput,
   DescribeAppInstanceAdminCommandOutput,
 } from "./commands/DescribeAppInstanceAdminCommand";
+import {
+  DescribeAppInstanceBotCommandInput,
+  DescribeAppInstanceBotCommandOutput,
+} from "./commands/DescribeAppInstanceBotCommand";
 import {
   DescribeAppInstanceCommandInput,
   DescribeAppInstanceCommandOutput,
@@ -93,6 +107,10 @@ import {
   ListAppInstanceAdminsCommandInput,
   ListAppInstanceAdminsCommandOutput,
 } from "./commands/ListAppInstanceAdminsCommand";
+import {
+  ListAppInstanceBotsCommandInput,
+  ListAppInstanceBotsCommandOutput,
+} from "./commands/ListAppInstanceBotsCommand";
 import { ListAppInstancesCommandInput, ListAppInstancesCommandOutput } from "./commands/ListAppInstancesCommand";
 import {
   ListAppInstanceUserEndpointsCommandInput,
@@ -111,11 +129,19 @@ import {
   PutAppInstanceRetentionSettingsCommandOutput,
 } from "./commands/PutAppInstanceRetentionSettingsCommand";
 import {
+  PutAppInstanceUserExpirationSettingsCommandInput,
+  PutAppInstanceUserExpirationSettingsCommandOutput,
+} from "./commands/PutAppInstanceUserExpirationSettingsCommand";
+import {
   RegisterAppInstanceUserEndpointCommandInput,
   RegisterAppInstanceUserEndpointCommandOutput,
 } from "./commands/RegisterAppInstanceUserEndpointCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdateAppInstanceBotCommandInput,
+  UpdateAppInstanceBotCommandOutput,
+} from "./commands/UpdateAppInstanceBotCommand";
 import { UpdateAppInstanceCommandInput, UpdateAppInstanceCommandOutput } from "./commands/UpdateAppInstanceCommand";
 import {
   UpdateAppInstanceUserCommandInput,
@@ -133,58 +159,79 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CreateAppInstanceAdminCommandInput
+  | CreateAppInstanceBotCommandInput
   | CreateAppInstanceCommandInput
   | CreateAppInstanceUserCommandInput
   | DeleteAppInstanceAdminCommandInput
+  | DeleteAppInstanceBotCommandInput
   | DeleteAppInstanceCommandInput
   | DeleteAppInstanceUserCommandInput
   | DeregisterAppInstanceUserEndpointCommandInput
   | DescribeAppInstanceAdminCommandInput
+  | DescribeAppInstanceBotCommandInput
   | DescribeAppInstanceCommandInput
   | DescribeAppInstanceUserCommandInput
   | DescribeAppInstanceUserEndpointCommandInput
   | GetAppInstanceRetentionSettingsCommandInput
   | ListAppInstanceAdminsCommandInput
+  | ListAppInstanceBotsCommandInput
   | ListAppInstanceUserEndpointsCommandInput
   | ListAppInstanceUsersCommandInput
   | ListAppInstancesCommandInput
   | ListTagsForResourceCommandInput
   | PutAppInstanceRetentionSettingsCommandInput
+  | PutAppInstanceUserExpirationSettingsCommandInput
   | RegisterAppInstanceUserEndpointCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateAppInstanceBotCommandInput
   | UpdateAppInstanceCommandInput
   | UpdateAppInstanceUserCommandInput
   | UpdateAppInstanceUserEndpointCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CreateAppInstanceAdminCommandOutput
+  | CreateAppInstanceBotCommandOutput
   | CreateAppInstanceCommandOutput
   | CreateAppInstanceUserCommandOutput
   | DeleteAppInstanceAdminCommandOutput
+  | DeleteAppInstanceBotCommandOutput
   | DeleteAppInstanceCommandOutput
   | DeleteAppInstanceUserCommandOutput
   | DeregisterAppInstanceUserEndpointCommandOutput
   | DescribeAppInstanceAdminCommandOutput
+  | DescribeAppInstanceBotCommandOutput
   | DescribeAppInstanceCommandOutput
   | DescribeAppInstanceUserCommandOutput
   | DescribeAppInstanceUserEndpointCommandOutput
   | GetAppInstanceRetentionSettingsCommandOutput
   | ListAppInstanceAdminsCommandOutput
+  | ListAppInstanceBotsCommandOutput
   | ListAppInstanceUserEndpointsCommandOutput
   | ListAppInstanceUsersCommandOutput
   | ListAppInstancesCommandOutput
   | ListTagsForResourceCommandOutput
   | PutAppInstanceRetentionSettingsCommandOutput
+  | PutAppInstanceUserExpirationSettingsCommandOutput
   | RegisterAppInstanceUserEndpointCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateAppInstanceBotCommandOutput
   | UpdateAppInstanceCommandOutput
   | UpdateAppInstanceUserCommandOutput
   | UpdateAppInstanceUserEndpointCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -192,11 +239,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -253,19 +300,10 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
-   * Value for how many times a request will be made at most in case of retry.
+   * Unique service identifier.
+   * @internal
    */
-  maxAttempts?: number | __Provider<number>;
-
-  /**
-   * Specifies which retry algorithm to use.
-   */
-  retryMode?: string | __Provider<string>;
-
-  /**
-   * Optional logger for logging debug/info/warn/error.
-   */
-  logger?: __Logger;
+  serviceId?: string;
 
   /**
    * Enables IPv6/IPv4 dualstack endpoint.
@@ -276,12 +314,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Enables FIPS compatible endpoints.
    */
   useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
 
   /**
    * The AWS region to which this client will send requests
@@ -301,11 +333,29 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * Value for how many times a request will be made at most in case of retry.
    */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Specifies which retry algorithm to use.
+   */
+  retryMode?: string | __Provider<string>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
+
+  /**
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   */
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type ChimeSDKIdentityClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -316,10 +366,15 @@ type ChimeSDKIdentityClientConfigType = Partial<__SmithyConfiguration<__HttpHand
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of ChimeSDKIdentityClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of ChimeSDKIdentityClient class constructor that set the region, credentials and other options.
  */
 export interface ChimeSDKIdentityClientConfig extends ChimeSDKIdentityClientConfigType {}
 
+/**
+ * @public
+ */
 type ChimeSDKIdentityClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -330,11 +385,14 @@ type ChimeSDKIdentityClientResolvedConfigType = __SmithyResolvedConfiguration<__
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of ChimeSDKIdentityClient class. This is resolved and normalized from the {@link ChimeSDKIdentityClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of ChimeSDKIdentityClient class. This is resolved and normalized from the {@link ChimeSDKIdentityClientConfig | constructor configuration interface}.
  */
 export interface ChimeSDKIdentityClientResolvedConfig extends ChimeSDKIdentityClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>The Amazon Chime SDK Identity APIs in this section allow software developers to create
  *          and manage unique instances of their messaging applications. These APIs provide the
  *          overarching framework for creating and sending messages. For more information about the

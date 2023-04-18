@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import {
-  CreateBackendEnvironmentRequest,
-  CreateBackendEnvironmentRequestFilterSensitiveLog,
-  CreateBackendEnvironmentResult,
-  CreateBackendEnvironmentResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateBackendEnvironmentCommand,
-  serializeAws_restJson1CreateBackendEnvironmentCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateBackendEnvironmentRequest, CreateBackendEnvironmentResult } from "../models/models_0";
+import { de_CreateBackendEnvironmentCommand, se_CreateBackendEnvironmentCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateBackendEnvironmentCommand}.
+ */
 export interface CreateBackendEnvironmentCommandInput extends CreateBackendEnvironmentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateBackendEnvironmentCommand}.
+ */
 export interface CreateBackendEnvironmentCommandOutput extends CreateBackendEnvironmentResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Creates a new backend environment for an Amplify app. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,37 @@ export interface CreateBackendEnvironmentCommandOutput extends CreateBackendEnvi
  * import { AmplifyClient, CreateBackendEnvironmentCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, CreateBackendEnvironmentCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
+ * const input = { // CreateBackendEnvironmentRequest
+ *   appId: "STRING_VALUE", // required
+ *   environmentName: "STRING_VALUE", // required
+ *   stackName: "STRING_VALUE",
+ *   deploymentArtifacts: "STRING_VALUE",
+ * };
  * const command = new CreateBackendEnvironmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBackendEnvironmentCommandInput - {@link CreateBackendEnvironmentCommandInput}
+ * @returns {@link CreateBackendEnvironmentCommandOutput}
  * @see {@link CreateBackendEnvironmentCommandInput} for command's `input` shape.
  * @see {@link CreateBackendEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p> A request contains unexpected data. </p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p> The service failed to perform an operation due to an internal issue. </p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p> A resource could not be created because service quotas were exceeded. </p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p> An entity was not found during an operation. </p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p> An operation failed due to a lack of access. </p>
+ *
  *
  */
 export class CreateBackendEnvironmentCommand extends $Command<
@@ -62,6 +89,9 @@ export class CreateBackendEnvironmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBackendEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +120,8 @@ export class CreateBackendEnvironmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateBackendEnvironmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateBackendEnvironmentResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +131,18 @@ export class CreateBackendEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBackendEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateBackendEnvironmentCommand(input, context);
+    return se_CreateBackendEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBackendEnvironmentCommandOutput> {
-    return deserializeAws_restJson1CreateBackendEnvironmentCommand(output, context);
+    return de_CreateBackendEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { SimSpaceWeaverServiceException as __BaseException } from "./SimSpaceWeaverServiceException";
 
 /**
+ * @public
  * <p/>
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,6 +26,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A collection of TCP/UDP ports for a custom or service app.</p>
  */
 export interface SimulationAppPortMapping {
@@ -44,21 +46,40 @@ export interface SimulationAppPortMapping {
   Actual?: number;
 }
 
-export enum ClockStatus {
-  STARTED = "STARTED",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  UNKNOWN = "UNKNOWN",
-}
-
-export enum ClockTargetStatus {
-  STARTED = "STARTED",
-  STOPPED = "STOPPED",
-  UNKNOWN = "UNKNOWN",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ClockStatus = {
+  STARTED: "STARTED",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  UNKNOWN: "UNKNOWN",
+} as const;
 
 /**
+ * @public
+ */
+export type ClockStatus = (typeof ClockStatus)[keyof typeof ClockStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ClockTargetStatus = {
+  STARTED: "STARTED",
+  STOPPED: "STOPPED",
+  UNKNOWN: "UNKNOWN",
+} as const;
+
+/**
+ * @public
+ */
+export type ClockTargetStatus = (typeof ClockTargetStatus)[keyof typeof ClockTargetStatus];
+
+/**
+ * @public
  * <p>The Amazon CloudWatch Logs log group for the simulation. For more information about log groups, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html">Working with log
  *    groups and log streams</a> in the <i>Amazon CloudWatch Logs User Guide</i>.</p>
  */
@@ -73,6 +94,7 @@ export interface CloudWatchLogsLogGroup {
 }
 
 /**
+ * @public
  * <p/>
  */
 export class ConflictException extends __BaseException {
@@ -93,6 +115,9 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteAppInput {
   /**
    * <p>The name of the simulation of the app.</p>
@@ -110,9 +135,13 @@ export interface DeleteAppInput {
   App: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAppOutput {}
 
 /**
+ * @public
  * <p/>
  */
 export class InternalServerException extends __BaseException {
@@ -134,6 +163,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p/>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -155,6 +185,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p/>
  */
 export class ValidationException extends __BaseException {
@@ -175,6 +206,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteSimulationInput {
   /**
    * <p>The name of the simulation.</p>
@@ -182,8 +216,14 @@ export interface DeleteSimulationInput {
   Simulation: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSimulationOutput {}
 
+/**
+ * @public
+ */
 export interface DescribeAppInput {
   /**
    * <p>The name of the simulation of the app.</p>
@@ -202,6 +242,7 @@ export interface DescribeAppInput {
 }
 
 /**
+ * @public
  * <p>Information about the network endpoint that you can use to connect to your custom or
  *          service app.</p>
  */
@@ -220,6 +261,7 @@ export interface SimulationAppEndpointInfo {
 }
 
 /**
+ * @public
  * <p>Options that apply when the app starts. These optiAons override default behavior.</p>
  */
 export interface LaunchOverrides {
@@ -230,21 +272,42 @@ export interface LaunchOverrides {
   LaunchCommands?: string[];
 }
 
-export enum SimulationAppStatus {
-  ERROR = "ERROR",
-  STARTED = "STARTED",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  UNKNOWN = "UNKNOWN",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SimulationAppStatus = {
+  ERROR: "ERROR",
+  STARTED: "STARTED",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  UNKNOWN: "UNKNOWN",
+} as const;
 
-export enum SimulationAppTargetStatus {
-  STARTED = "STARTED",
-  STOPPED = "STOPPED",
-  UNKNOWN = "UNKNOWN",
-}
+/**
+ * @public
+ */
+export type SimulationAppStatus = (typeof SimulationAppStatus)[keyof typeof SimulationAppStatus];
 
+/**
+ * @public
+ * @enum
+ */
+export const SimulationAppTargetStatus = {
+  STARTED: "STARTED",
+  STOPPED: "STOPPED",
+  UNKNOWN: "UNKNOWN",
+} as const;
+
+/**
+ * @public
+ */
+export type SimulationAppTargetStatus = (typeof SimulationAppTargetStatus)[keyof typeof SimulationAppTargetStatus];
+
+/**
+ * @public
+ */
 export interface DescribeAppOutput {
   /**
    * <p>The name of the app.</p>
@@ -287,6 +350,9 @@ export interface DescribeAppOutput {
   EndpointInfo?: SimulationAppEndpointInfo;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSimulationInput {
   /**
    * <p>The name of the simulation.</p>
@@ -295,6 +361,7 @@ export interface DescribeSimulationInput {
 }
 
 /**
+ * @public
  * <p>Status information about the simulation clock.</p>
  */
 export interface SimulationClock {
@@ -309,14 +376,25 @@ export interface SimulationClock {
   TargetStatus?: ClockTargetStatus | string;
 }
 
-export enum LifecycleManagementStrategy {
-  ByRequest = "ByRequest",
-  BySpatialSubdivision = "BySpatialSubdivision",
-  PerWorker = "PerWorker",
-  Unknown = "Unknown",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LifecycleManagementStrategy = {
+  ByRequest: "ByRequest",
+  BySpatialSubdivision: "BySpatialSubdivision",
+  PerWorker: "PerWorker",
+  Unknown: "Unknown",
+} as const;
 
 /**
+ * @public
+ */
+export type LifecycleManagementStrategy =
+  (typeof LifecycleManagementStrategy)[keyof typeof LifecycleManagementStrategy];
+
+/**
+ * @public
  * <p>A collection of app instances that run the same executable app code and have the same
  *          launch options and commands.</p>
  *          <p>For more information about domains, see <a href="https://docs.aws.amazon.com/simspaceweaver/latest/userguide/what-is_key-concepts.html">Key concepts</a>
@@ -358,6 +436,7 @@ export interface Domain {
 }
 
 /**
+ * @public
  * <p>A collection of additional state information, such as
  * domain and clock configuration.</p>
  */
@@ -378,6 +457,7 @@ export interface LiveSimulationState {
 }
 
 /**
+ * @public
  * <p>The location where SimSpace Weaver sends simulation log data.</p>
  */
 export interface LogDestination {
@@ -389,6 +469,7 @@ export interface LogDestination {
 }
 
 /**
+ * @public
  * <p>The logging configuration for a simulation.</p>
  */
 export interface LoggingConfiguration {
@@ -399,6 +480,7 @@ export interface LoggingConfiguration {
 }
 
 /**
+ * @public
  * <p>A location in Amazon Simple Storage Service (Amazon S3) where SimSpace Weaver stores simulation data, such as your app zip
  *          files and schema file. For more information about Amazon S3, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html">
  *                <i>Amazon Simple Storage Service User Guide</i>
@@ -421,24 +503,45 @@ export interface S3Location {
   ObjectKey?: string;
 }
 
-export enum SimulationStatus {
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  STARTED = "STARTED",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  UNKNOWN = "UNKNOWN",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SimulationStatus = {
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  STARTED: "STARTED",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  UNKNOWN: "UNKNOWN",
+} as const;
 
-export enum SimulationTargetStatus {
-  DELETED = "DELETED",
-  STARTED = "STARTED",
-  STOPPED = "STOPPED",
-  UNKNOWN = "UNKNOWN",
-}
+/**
+ * @public
+ */
+export type SimulationStatus = (typeof SimulationStatus)[keyof typeof SimulationStatus];
 
+/**
+ * @public
+ * @enum
+ */
+export const SimulationTargetStatus = {
+  DELETED: "DELETED",
+  STARTED: "STARTED",
+  STOPPED: "STOPPED",
+  UNKNOWN: "UNKNOWN",
+} as const;
+
+/**
+ * @public
+ */
+export type SimulationTargetStatus = (typeof SimulationTargetStatus)[keyof typeof SimulationTargetStatus];
+
+/**
+ * @public
+ */
 export interface DescribeSimulationOutput {
   /**
    * <p>The name of the simulation.</p>
@@ -519,6 +622,9 @@ export interface DescribeSimulationOutput {
   MaximumDuration?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAppsInput {
   /**
    * <p>The name of the simulation that you want to list apps for.</p>
@@ -546,6 +652,7 @@ export interface ListAppsInput {
 }
 
 /**
+ * @public
  * <p>A collection of metadata about an app.</p>
  */
 export interface SimulationAppMetadata {
@@ -576,6 +683,9 @@ export interface SimulationAppMetadata {
   TargetStatus?: SimulationAppTargetStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListAppsOutput {
   /**
    * <p>The list of apps for the given simulation and domain.</p>
@@ -592,6 +702,9 @@ export interface ListAppsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSimulationsInput {
   /**
    * <p>The maximum number of simulations to list.</p>
@@ -609,6 +722,7 @@ export interface ListSimulationsInput {
 }
 
 /**
+ * @public
  * <p>A collection of data about the simulation.</p>
  */
 export interface SimulationMetadata {
@@ -640,6 +754,9 @@ export interface SimulationMetadata {
   TargetStatus?: SimulationTargetStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListSimulationsOutput {
   /**
    * <p>The list of simulations.</p>
@@ -656,6 +773,9 @@ export interface ListSimulationsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource. For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>
@@ -664,6 +784,9 @@ export interface ListTagsForResourceInput {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceOutput {
   /**
    * <p>The list of tags for the resource.</p>
@@ -672,6 +795,7 @@ export interface ListTagsForResourceOutput {
 }
 
 /**
+ * @public
  * <p/>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -692,6 +816,9 @@ export class ServiceQuotaExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface StartAppInput {
   /**
    * <p>A value that you provide to ensure that repeated calls to this
@@ -726,6 +853,9 @@ export interface StartAppInput {
   LaunchOverrides?: LaunchOverrides;
 }
 
+/**
+ * @public
+ */
 export interface StartAppOutput {
   /**
    * <p>The name of the app.</p>
@@ -743,6 +873,9 @@ export interface StartAppOutput {
   Simulation?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartClockInput {
   /**
    * <p>The name of the simulation.</p>
@@ -750,8 +883,14 @@ export interface StartClockInput {
   Simulation: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartClockOutput {}
 
+/**
+ * @public
+ */
 export interface StartSimulationInput {
   /**
    * <p>A value that you provide to ensure that repeated calls to this
@@ -801,6 +940,9 @@ export interface StartSimulationInput {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface StartSimulationOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the simulation. For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>
@@ -820,6 +962,9 @@ export interface StartSimulationOutput {
   CreationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface StopAppInput {
   /**
    * <p>The name of the simulation of the app.</p>
@@ -837,8 +982,14 @@ export interface StopAppInput {
   App: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopAppOutput {}
 
+/**
+ * @public
+ */
 export interface StopClockInput {
   /**
    * <p>The name of the simulation.</p>
@@ -846,8 +997,14 @@ export interface StopClockInput {
   Simulation: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopClockOutput {}
 
+/**
+ * @public
+ */
 export interface StopSimulationInput {
   /**
    * <p>The name of the simulation.</p>
@@ -855,8 +1012,14 @@ export interface StopSimulationInput {
   Simulation: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopSimulationOutput {}
 
+/**
+ * @public
+ */
 export interface TagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want to add tags to.
@@ -871,9 +1034,13 @@ export interface TagResourceInput {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceOutput {}
 
 /**
+ * @public
  * <p/>
  */
 export class TooManyTagsException extends __BaseException {
@@ -894,6 +1061,9 @@ export class TooManyTagsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want to remove tags from.
@@ -908,189 +1078,10 @@ export interface UntagResourceInput {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceOutput {}
-
-/**
- * @internal
- */
-export const SimulationAppPortMappingFilterSensitiveLog = (obj: SimulationAppPortMapping): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CloudWatchLogsLogGroupFilterSensitiveLog = (obj: CloudWatchLogsLogGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAppInputFilterSensitiveLog = (obj: DeleteAppInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAppOutputFilterSensitiveLog = (obj: DeleteAppOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSimulationInputFilterSensitiveLog = (obj: DeleteSimulationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSimulationOutputFilterSensitiveLog = (obj: DeleteSimulationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAppInputFilterSensitiveLog = (obj: DescribeAppInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SimulationAppEndpointInfoFilterSensitiveLog = (obj: SimulationAppEndpointInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchOverridesFilterSensitiveLog = (obj: LaunchOverrides): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAppOutputFilterSensitiveLog = (obj: DescribeAppOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSimulationInputFilterSensitiveLog = (obj: DescribeSimulationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SimulationClockFilterSensitiveLog = (obj: SimulationClock): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DomainFilterSensitiveLog = (obj: Domain): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LiveSimulationStateFilterSensitiveLog = (obj: LiveSimulationState): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LogDestinationFilterSensitiveLog = (obj: LogDestination): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LoggingConfigurationFilterSensitiveLog = (obj: LoggingConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3LocationFilterSensitiveLog = (obj: S3Location): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSimulationOutputFilterSensitiveLog = (obj: DescribeSimulationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAppsInputFilterSensitiveLog = (obj: ListAppsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SimulationAppMetadataFilterSensitiveLog = (obj: SimulationAppMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAppsOutputFilterSensitiveLog = (obj: ListAppsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSimulationsInputFilterSensitiveLog = (obj: ListSimulationsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SimulationMetadataFilterSensitiveLog = (obj: SimulationMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSimulationsOutputFilterSensitiveLog = (obj: ListSimulationsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceInputFilterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceOutputFilterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
-  ...obj,
-});
 
 /**
  * @internal
@@ -1103,105 +1094,7 @@ export const StartAppInputFilterSensitiveLog = (obj: StartAppInput): any => ({
 /**
  * @internal
  */
-export const StartAppOutputFilterSensitiveLog = (obj: StartAppOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartClockInputFilterSensitiveLog = (obj: StartClockInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartClockOutputFilterSensitiveLog = (obj: StartClockOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const StartSimulationInputFilterSensitiveLog = (obj: StartSimulationInput): any => ({
   ...obj,
   ...(obj.ClientToken && { ClientToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const StartSimulationOutputFilterSensitiveLog = (obj: StartSimulationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopAppInputFilterSensitiveLog = (obj: StopAppInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopAppOutputFilterSensitiveLog = (obj: StopAppOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopClockInputFilterSensitiveLog = (obj: StopClockInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopClockOutputFilterSensitiveLog = (obj: StopClockOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopSimulationInputFilterSensitiveLog = (obj: StopSimulationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopSimulationOutputFilterSensitiveLog = (obj: StopSimulationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceInputFilterSensitiveLog = (obj: TagResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceOutputFilterSensitiveLog = (obj: TagResourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceInputFilterSensitiveLog = (obj: UntagResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceOutputFilterSensitiveLog = (obj: UntagResourceOutput): any => ({
-  ...obj,
 });

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import {
-  UpdateSystemTemplateRequest,
-  UpdateSystemTemplateRequestFilterSensitiveLog,
-  UpdateSystemTemplateResponse,
-  UpdateSystemTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateSystemTemplateCommand,
-  serializeAws_json1_1UpdateSystemTemplateCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateSystemTemplateRequest, UpdateSystemTemplateResponse } from "../models/models_0";
+import { de_UpdateSystemTemplateCommand, se_UpdateSystemTemplateCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateSystemTemplateCommand}.
+ */
 export interface UpdateSystemTemplateCommandInput extends UpdateSystemTemplateRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateSystemTemplateCommand}.
+ */
 export interface UpdateSystemTemplateCommandOutput extends UpdateSystemTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Updates the specified system. You don't need to run this action after updating a workflow. Any deployment that uses the system will see the changes in the system when it is redeployed.</p>
@@ -38,13 +41,36 @@ export interface UpdateSystemTemplateCommandOutput extends UpdateSystemTemplateR
  * import { IoTThingsGraphClient, UpdateSystemTemplateCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, UpdateSystemTemplateCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
+ * const input = { // UpdateSystemTemplateRequest
+ *   id: "STRING_VALUE", // required
+ *   definition: { // DefinitionDocument
+ *     language: "STRING_VALUE", // required
+ *     text: "STRING_VALUE", // required
+ *   },
+ *   compatibleNamespaceVersion: Number("long"),
+ * };
  * const command = new UpdateSystemTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSystemTemplateCommandInput - {@link UpdateSystemTemplateCommandInput}
+ * @returns {@link UpdateSystemTemplateCommandOutput}
  * @see {@link UpdateSystemTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateSystemTemplateCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p></p>
+ *
  *
  */
 export class UpdateSystemTemplateCommand extends $Command<
@@ -64,6 +90,9 @@ export class UpdateSystemTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSystemTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +121,8 @@ export class UpdateSystemTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSystemTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSystemTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +132,18 @@ export class UpdateSystemTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSystemTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateSystemTemplateCommand(input, context);
+    return se_UpdateSystemTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSystemTemplateCommandOutput> {
-    return deserializeAws_json1_1UpdateSystemTemplateCommand(output, context);
+    return de_UpdateSystemTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

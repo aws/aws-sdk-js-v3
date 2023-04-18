@@ -14,39 +14,79 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import {
-  BatchDeleteDocumentRequest,
-  BatchDeleteDocumentRequestFilterSensitiveLog,
-  BatchDeleteDocumentResponse,
-  BatchDeleteDocumentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchDeleteDocumentCommand,
-  serializeAws_json1_1BatchDeleteDocumentCommand,
-} from "../protocols/Aws_json1_1";
+import { BatchDeleteDocumentRequest, BatchDeleteDocumentResponse } from "../models/models_0";
+import { de_BatchDeleteDocumentCommand, se_BatchDeleteDocumentCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchDeleteDocumentCommand}.
+ */
 export interface BatchDeleteDocumentCommandInput extends BatchDeleteDocumentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link BatchDeleteDocumentCommand}.
+ */
 export interface BatchDeleteDocumentCommandOutput extends BatchDeleteDocumentResponse, __MetadataBearer {}
 
 /**
- * <p>Removes one or more documents from an index. The documents must have
- *       been added with the <code>BatchPutDocument</code> API.</p>
- *          <p>The documents are deleted asynchronously. You can see the progress of
- *       the deletion by using Amazon Web Services CloudWatch. Any error messages related to the
- *       processing of the batch are sent to you CloudWatch log.</p>
+ * @public
+ * <p>Removes one or more documents from an index. The documents must have been added with
+ *             the <code>BatchPutDocument</code> API.</p>
+ *          <p>The documents are deleted asynchronously. You can see the progress of the deletion by
+ *             using Amazon Web Services CloudWatch. Any error messages related to the processing of the
+ *             batch are sent to you CloudWatch log.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { KendraClient, BatchDeleteDocumentCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, BatchDeleteDocumentCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
+ * const input = { // BatchDeleteDocumentRequest
+ *   IndexId: "STRING_VALUE", // required
+ *   DocumentIdList: [ // DocumentIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   DataSourceSyncJobMetricTarget: { // DataSourceSyncJobMetricTarget
+ *     DataSourceId: "STRING_VALUE", // required
+ *     DataSourceSyncJobId: "STRING_VALUE",
+ *   },
+ * };
  * const command = new BatchDeleteDocumentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDeleteDocumentCommandInput - {@link BatchDeleteDocumentCommandInput}
+ * @returns {@link BatchDeleteDocumentCommandOutput}
  * @see {@link BatchDeleteDocumentCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteDocumentCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient access to perform this action. Please ensure you have the
+ *             required permission policies and user accounts and try again.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>A conflict occurred with the request. Please fix any inconsistences with your
+ *             resources and try again.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
+ *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource you want to use doesn’t exist. Please check you have provided the correct
+ *             resource and try again.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling. Please reduce the number of requests
+ *             and try again.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
+ *             Please provide the correct input and try again.</p>
+ *
  *
  */
 export class BatchDeleteDocumentCommand extends $Command<
@@ -66,6 +106,9 @@ export class BatchDeleteDocumentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDeleteDocumentCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +137,8 @@ export class BatchDeleteDocumentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDeleteDocumentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchDeleteDocumentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +148,18 @@ export class BatchDeleteDocumentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDeleteDocumentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchDeleteDocumentCommand(input, context);
+    return se_BatchDeleteDocumentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteDocumentCommandOutput> {
-    return deserializeAws_json1_1BatchDeleteDocumentCommand(output, context);
+    return de_BatchDeleteDocumentCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  IndexFacesRequest,
-  IndexFacesRequestFilterSensitiveLog,
-  IndexFacesResponse,
-  IndexFacesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1IndexFacesCommand,
-  serializeAws_json1_1IndexFacesCommand,
-} from "../protocols/Aws_json1_1";
+import { IndexFacesRequest, IndexFacesResponse } from "../models/models_0";
+import { de_IndexFacesCommand, se_IndexFacesCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
+/**
+ * @public
+ *
+ * The input for {@link IndexFacesCommand}.
+ */
 export interface IndexFacesCommandInput extends IndexFacesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link IndexFacesCommand}.
+ */
 export interface IndexFacesCommandOutput extends IndexFacesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detects faces in the input image and adds them to the specified collection. </p>
  *          <p>Amazon Rekognition doesn't save the actual faces that are detected. Instead, the underlying
  *       detection algorithm first detects the faces in the input image. For each face, the algorithm
@@ -126,13 +129,212 @@ export interface IndexFacesCommandOutput extends IndexFacesResponse, __MetadataB
  * import { RekognitionClient, IndexFacesCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, IndexFacesCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // IndexFacesRequest
+ *   CollectionId: "STRING_VALUE", // required
+ *   Image: { // Image
+ *     Bytes: "BLOB_VALUE",
+ *     S3Object: { // S3Object
+ *       Bucket: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   },
+ *   ExternalImageId: "STRING_VALUE",
+ *   DetectionAttributes: [ // Attributes
+ *     "DEFAULT" || "ALL",
+ *   ],
+ *   MaxFaces: Number("int"),
+ *   QualityFilter: "NONE" || "AUTO" || "LOW" || "MEDIUM" || "HIGH",
+ * };
  * const command = new IndexFacesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param IndexFacesCommandInput - {@link IndexFacesCommandInput}
+ * @returns {@link IndexFacesCommandOutput}
  * @see {@link IndexFacesCommandInput} for command's `input` shape.
  * @see {@link IndexFacesCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to perform the action.</p>
+ *
+ * @throws {@link ImageTooLargeException} (client fault)
+ *  <p>The input image size exceeds the allowed limit. If you are calling
+ *       DetectProtectiveEquipment, the image size or resolution exceeds the allowed limit. For more
+ *       information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide.
+ *     </p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidImageFormatException} (client fault)
+ *  <p>The provided image format is not supported. </p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
+ *       operation again.</p>
+ *
+ * @throws {@link InvalidS3ObjectException} (client fault)
+ *  <p>Amazon Rekognition is unable to access the S3 object specified in the request.</p>
+ *
+ * @throws {@link ProvisionedThroughputExceededException} (client fault)
+ *  <p>The number of requests exceeded your throughput limit. If you want to increase this
+ *       limit, contact Amazon Rekognition.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request cannot be found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p></p>
+ *          <p>The size of the collection exceeds the allowed limit. For more information,
+ *       see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
+ *
+ * @throws {@link ThrottlingException} (server fault)
+ *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
+ *
+ * @example To add a face to a collection
+ * ```javascript
+ * // This operation detects faces in an image and adds them to the specified Rekognition collection.
+ * const input = {
+ *   "CollectionId": "myphotos",
+ *   "DetectionAttributes": [],
+ *   "ExternalImageId": "myphotoid",
+ *   "Image": {
+ *     "S3Object": {
+ *       "Bucket": "mybucket",
+ *       "Name": "myphoto"
+ *     }
+ *   }
+ * };
+ * const command = new IndexFacesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "FaceRecords": [
+ *     {
+ *       "Face": {
+ *         "BoundingBox": {
+ *           "Height": 0.33481481671333313,
+ *           "Left": 0.31888890266418457,
+ *           "Top": 0.4933333396911621,
+ *           "Width": 0.25
+ *         },
+ *         "Confidence": 99.9991226196289,
+ *         "FaceId": "ff43d742-0c13-5d16-a3e8-03d3f58e980b",
+ *         "ImageId": "465f4e93-763e-51d0-b030-b9667a2d94b1"
+ *       },
+ *       "FaceDetail": {
+ *         "BoundingBox": {
+ *           "Height": 0.33481481671333313,
+ *           "Left": 0.31888890266418457,
+ *           "Top": 0.4933333396911621,
+ *           "Width": 0.25
+ *         },
+ *         "Confidence": 99.9991226196289,
+ *         "Landmarks": [
+ *           {
+ *             "Type": "eyeLeft",
+ *             "X": 0.3976764678955078,
+ *             "Y": 0.6248345971107483
+ *           },
+ *           {
+ *             "Type": "eyeRight",
+ *             "X": 0.4810936450958252,
+ *             "Y": 0.6317117214202881
+ *           },
+ *           {
+ *             "Type": "noseLeft",
+ *             "X": 0.41986238956451416,
+ *             "Y": 0.7111940383911133
+ *           },
+ *           {
+ *             "Type": "mouthDown",
+ *             "X": 0.40525302290916443,
+ *             "Y": 0.7497701048851013
+ *           },
+ *           {
+ *             "Type": "mouthUp",
+ *             "X": 0.4753248989582062,
+ *             "Y": 0.7558549642562866
+ *           }
+ *         ],
+ *         "Pose": {
+ *           "Pitch": -9.713645935058594,
+ *           "Roll": 4.707281112670898,
+ *           "Yaw": -24.438663482666016
+ *         },
+ *         "Quality": {
+ *           "Brightness": 29.23358917236328,
+ *           "Sharpness": 80
+ *         }
+ *       }
+ *     },
+ *     {
+ *       "Face": {
+ *         "BoundingBox": {
+ *           "Height": 0.32592591643333435,
+ *           "Left": 0.5144444704055786,
+ *           "Top": 0.15111111104488373,
+ *           "Width": 0.24444444477558136
+ *         },
+ *         "Confidence": 99.99950408935547,
+ *         "FaceId": "8be04dba-4e58-520d-850e-9eae4af70eb2",
+ *         "ImageId": "465f4e93-763e-51d0-b030-b9667a2d94b1"
+ *       },
+ *       "FaceDetail": {
+ *         "BoundingBox": {
+ *           "Height": 0.32592591643333435,
+ *           "Left": 0.5144444704055786,
+ *           "Top": 0.15111111104488373,
+ *           "Width": 0.24444444477558136
+ *         },
+ *         "Confidence": 99.99950408935547,
+ *         "Landmarks": [
+ *           {
+ *             "Type": "eyeLeft",
+ *             "X": 0.6006892323493958,
+ *             "Y": 0.290842205286026
+ *           },
+ *           {
+ *             "Type": "eyeRight",
+ *             "X": 0.6808141469955444,
+ *             "Y": 0.29609042406082153
+ *           },
+ *           {
+ *             "Type": "noseLeft",
+ *             "X": 0.6395332217216492,
+ *             "Y": 0.3522595763206482
+ *           },
+ *           {
+ *             "Type": "mouthDown",
+ *             "X": 0.5892083048820496,
+ *             "Y": 0.38689887523651123
+ *           },
+ *           {
+ *             "Type": "mouthUp",
+ *             "X": 0.674560010433197,
+ *             "Y": 0.394125759601593
+ *           }
+ *         ],
+ *         "Pose": {
+ *           "Pitch": -4.683138370513916,
+ *           "Roll": 2.1029529571533203,
+ *           "Yaw": 6.716655254364014
+ *         },
+ *         "Quality": {
+ *           "Brightness": 34.951698303222656,
+ *           "Sharpness": 160
+ *         }
+ *       }
+ *     }
+ *   ],
+ *   "OrientationCorrection": "ROTATE_0"
+ * }
+ * *\/
+ * // example id: to-add-a-face-to-a-collection-1482179542923
+ * ```
  *
  */
 export class IndexFacesCommand extends $Command<
@@ -152,6 +354,9 @@ export class IndexFacesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: IndexFacesCommandInput) {
     // Start section: command_constructor
     super();
@@ -178,8 +383,8 @@ export class IndexFacesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: IndexFacesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: IndexFacesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -189,12 +394,18 @@ export class IndexFacesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: IndexFacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1IndexFacesCommand(input, context);
+    return se_IndexFacesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<IndexFacesCommandOutput> {
-    return deserializeAws_json1_1IndexFacesCommand(output, context);
+    return de_IndexFacesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,18 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import {
-  GetAppRequest,
-  GetAppRequestFilterSensitiveLog,
-  GetAppResult,
-  GetAppResultFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_restJson1GetAppCommand, serializeAws_restJson1GetAppCommand } from "../protocols/Aws_restJson1";
+import { GetAppRequest, GetAppResult, GetAppResultFilterSensitiveLog } from "../models/models_0";
+import { de_GetAppCommand, se_GetAppCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetAppCommand}.
+ */
 export interface GetAppCommandInput extends GetAppRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetAppCommand}.
+ */
 export interface GetAppCommandOutput extends GetAppResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns an existing Amplify app by appID. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -33,13 +39,31 @@ export interface GetAppCommandOutput extends GetAppResult, __MetadataBearer {}
  * import { AmplifyClient, GetAppCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, GetAppCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
+ * const input = { // GetAppRequest
+ *   appId: "STRING_VALUE", // required
+ * };
  * const command = new GetAppCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAppCommandInput - {@link GetAppCommandInput}
+ * @returns {@link GetAppCommandOutput}
  * @see {@link GetAppCommandInput} for command's `input` shape.
  * @see {@link GetAppCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p> A request contains unexpected data. </p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p> The service failed to perform an operation due to an internal issue. </p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p> An entity was not found during an operation. </p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p> An operation failed due to a lack of access. </p>
+ *
  *
  */
 export class GetAppCommand extends $Command<GetAppCommandInput, GetAppCommandOutput, AmplifyClientResolvedConfig> {
@@ -55,6 +79,9 @@ export class GetAppCommand extends $Command<GetAppCommandInput, GetAppCommandOut
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAppCommandInput) {
     // Start section: command_constructor
     super();
@@ -81,7 +108,7 @@ export class GetAppCommand extends $Command<GetAppCommandInput, GetAppCommandOut
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAppRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetAppResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -92,12 +119,18 @@ export class GetAppCommand extends $Command<GetAppCommandInput, GetAppCommandOut
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAppCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAppCommand(input, context);
+    return se_GetAppCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAppCommandOutput> {
-    return deserializeAws_restJson1GetAppCommand(output, context);
+    return de_GetAppCommand(output, context);
   }
 
   // Start section: command_body_extra

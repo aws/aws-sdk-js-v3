@@ -14,28 +14,30 @@ import {
 } from "@aws-sdk/types";
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
-import {
-  EvaluateFeatureRequest,
-  EvaluateFeatureRequestFilterSensitiveLog,
-  EvaluateFeatureResponse,
-  EvaluateFeatureResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1EvaluateFeatureCommand,
-  serializeAws_restJson1EvaluateFeatureCommand,
-} from "../protocols/Aws_restJson1";
+import { EvaluateFeatureRequest, EvaluateFeatureResponse } from "../models/models_0";
+import { de_EvaluateFeatureCommand, se_EvaluateFeatureCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link EvaluateFeatureCommand}.
+ */
 export interface EvaluateFeatureCommandInput extends EvaluateFeatureRequest {}
+/**
+ * @public
+ *
+ * The output of {@link EvaluateFeatureCommand}.
+ */
 export interface EvaluateFeatureCommandOutput extends EvaluateFeatureResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation assigns a feature variation to one given user session. You pass in an
  *         <code>entityID</code> that represents the user. Evidently then checks the evaluation rules
  *       and assigns the variation.</p>
  *          <p>The first rules that are evaluated are the override rules. If the user's
  *         <code>entityID</code> matches an override rule, the user is served the variation specified
  *       by that rule.</p>
- *
  *          <p>If there is a current launch with this feature that uses segment overrides, and
  *       if the user session's <code>evaluationContext</code> matches a segment rule defined in a
  *       segment override, the configuration in the segment overrides is used. For more information
@@ -61,13 +63,34 @@ export interface EvaluateFeatureCommandOutput extends EvaluateFeatureResponse, _
  * import { EvidentlyClient, EvaluateFeatureCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, EvaluateFeatureCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
+ * const input = { // EvaluateFeatureRequest
+ *   project: "STRING_VALUE", // required
+ *   feature: "STRING_VALUE", // required
+ *   entityId: "STRING_VALUE", // required
+ *   evaluationContext: "STRING_VALUE",
+ * };
  * const command = new EvaluateFeatureCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EvaluateFeatureCommandInput - {@link EvaluateFeatureCommandInput}
+ * @returns {@link EvaluateFeatureCommandOutput}
  * @see {@link EvaluateFeatureCommandInput} for command's `input` shape.
  * @see {@link EvaluateFeatureCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a resource that does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because of request throttling. Retry the request.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The value of a parameter in the request caused an error.</p>
+ *
  *
  */
 export class EvaluateFeatureCommand extends $Command<
@@ -87,6 +110,9 @@ export class EvaluateFeatureCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EvaluateFeatureCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +141,8 @@ export class EvaluateFeatureCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EvaluateFeatureRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: EvaluateFeatureResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +152,18 @@ export class EvaluateFeatureCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EvaluateFeatureCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1EvaluateFeatureCommand(input, context);
+    return se_EvaluateFeatureCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EvaluateFeatureCommandOutput> {
-    return deserializeAws_restJson1EvaluateFeatureCommand(output, context);
+    return de_EvaluateFeatureCommand(output, context);
   }
 
   // Start section: command_body_extra

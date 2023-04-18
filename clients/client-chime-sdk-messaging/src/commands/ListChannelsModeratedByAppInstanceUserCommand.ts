@@ -25,22 +25,32 @@ import {
   ListChannelsModeratedByAppInstanceUserResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListChannelsModeratedByAppInstanceUserCommand,
-  serializeAws_restJson1ListChannelsModeratedByAppInstanceUserCommand,
+  de_ListChannelsModeratedByAppInstanceUserCommand,
+  se_ListChannelsModeratedByAppInstanceUserCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListChannelsModeratedByAppInstanceUserCommand}.
+ */
 export interface ListChannelsModeratedByAppInstanceUserCommandInput
   extends ListChannelsModeratedByAppInstanceUserRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListChannelsModeratedByAppInstanceUserCommand}.
+ */
 export interface ListChannelsModeratedByAppInstanceUserCommandOutput
   extends ListChannelsModeratedByAppInstanceUserResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>A list of the channels moderated by an <code>AppInstanceUser</code>.</p>
- *
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
- *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+ *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
  *             the header.</p>
  *          </note>
  * @example
@@ -49,13 +59,40 @@ export interface ListChannelsModeratedByAppInstanceUserCommandOutput
  * import { ChimeSDKMessagingClient, ListChannelsModeratedByAppInstanceUserCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, ListChannelsModeratedByAppInstanceUserCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
+ * const input = { // ListChannelsModeratedByAppInstanceUserRequest
+ *   AppInstanceUserArn: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   ChimeBearer: "STRING_VALUE", // required
+ * };
  * const command = new ListChannelsModeratedByAppInstanceUserCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListChannelsModeratedByAppInstanceUserCommandInput - {@link ListChannelsModeratedByAppInstanceUserCommandInput}
+ * @returns {@link ListChannelsModeratedByAppInstanceUserCommandOutput}
  * @see {@link ListChannelsModeratedByAppInstanceUserCommandInput} for command's `input` shape.
  * @see {@link ListChannelsModeratedByAppInstanceUserCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The client exceeded its request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client is not currently authorized to make the request.</p>
+ *
  *
  */
 export class ListChannelsModeratedByAppInstanceUserCommand extends $Command<
@@ -75,6 +112,9 @@ export class ListChannelsModeratedByAppInstanceUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListChannelsModeratedByAppInstanceUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,18 +154,24 @@ export class ListChannelsModeratedByAppInstanceUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListChannelsModeratedByAppInstanceUserCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListChannelsModeratedByAppInstanceUserCommand(input, context);
+    return se_ListChannelsModeratedByAppInstanceUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListChannelsModeratedByAppInstanceUserCommandOutput> {
-    return deserializeAws_restJson1ListChannelsModeratedByAppInstanceUserCommand(output, context);
+    return de_ListChannelsModeratedByAppInstanceUserCommand(output, context);
   }
 
   // Start section: command_body_extra

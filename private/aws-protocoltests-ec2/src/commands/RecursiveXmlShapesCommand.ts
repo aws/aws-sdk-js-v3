@@ -13,16 +13,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
-import { RecursiveXmlShapesOutput, RecursiveXmlShapesOutputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_ec2RecursiveXmlShapesCommand,
-  serializeAws_ec2RecursiveXmlShapesCommand,
-} from "../protocols/Aws_ec2";
+import { RecursiveXmlShapesOutput } from "../models/models_0";
+import { de_RecursiveXmlShapesCommand, se_RecursiveXmlShapesCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link RecursiveXmlShapesCommand}.
+ */
 export interface RecursiveXmlShapesCommandInput {}
+/**
+ * @public
+ *
+ * The output of {@link RecursiveXmlShapesCommand}.
+ */
 export interface RecursiveXmlShapesCommandOutput extends RecursiveXmlShapesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * Recursive shapes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -30,13 +38,17 @@ export interface RecursiveXmlShapesCommandOutput extends RecursiveXmlShapesOutpu
  * import { EC2ProtocolClient, RecursiveXmlShapesCommand } from "@aws-sdk/aws-protocoltests-ec2"; // ES Modules import
  * // const { EC2ProtocolClient, RecursiveXmlShapesCommand } = require("@aws-sdk/aws-protocoltests-ec2"); // CommonJS import
  * const client = new EC2ProtocolClient(config);
+ * const input = {};
  * const command = new RecursiveXmlShapesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RecursiveXmlShapesCommandInput - {@link RecursiveXmlShapesCommandInput}
+ * @returns {@link RecursiveXmlShapesCommandOutput}
  * @see {@link RecursiveXmlShapesCommandInput} for command's `input` shape.
  * @see {@link RecursiveXmlShapesCommandOutput} for command's `response` shape.
  * @see {@link EC2ProtocolClientResolvedConfig | config} for EC2ProtocolClient's `config` shape.
+ *
  *
  */
 export class RecursiveXmlShapesCommand extends $Command<
@@ -47,6 +59,9 @@ export class RecursiveXmlShapesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: RecursiveXmlShapesCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,8 +87,8 @@ export class RecursiveXmlShapesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: RecursiveXmlShapesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +98,18 @@ export class RecursiveXmlShapesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RecursiveXmlShapesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2RecursiveXmlShapesCommand(input, context);
+    return se_RecursiveXmlShapesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RecursiveXmlShapesCommandOutput> {
-    return deserializeAws_ec2RecursiveXmlShapesCommand(output, context);
+    return de_RecursiveXmlShapesCommand(output, context);
   }
 
   // Start section: command_body_extra

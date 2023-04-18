@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeRegistryRequest,
-  DescribeRegistryRequestFilterSensitiveLog,
-  DescribeRegistryResponse,
-  DescribeRegistryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeRegistryCommand,
-  serializeAws_restJson1DescribeRegistryCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeRegistryRequest, DescribeRegistryResponse } from "../models/models_0";
+import { de_DescribeRegistryCommand, se_DescribeRegistryCommand } from "../protocols/Aws_restJson1";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeRegistryCommand}.
+ */
 export interface DescribeRegistryCommandInput extends DescribeRegistryRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeRegistryCommand}.
+ */
 export interface DescribeRegistryCommandOutput extends DescribeRegistryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the registry.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,31 @@ export interface DescribeRegistryCommandOutput extends DescribeRegistryResponse,
  * import { SchemasClient, DescribeRegistryCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, DescribeRegistryCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
  * const client = new SchemasClient(config);
+ * const input = { // DescribeRegistryRequest
+ *   RegistryName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeRegistryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRegistryCommandInput - {@link DescribeRegistryCommandInput}
+ * @returns {@link DescribeRegistryCommandOutput}
  * @see {@link DescribeRegistryCommandInput} for command's `input` shape.
  * @see {@link DescribeRegistryCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *
  *
  */
 export class DescribeRegistryCommand extends $Command<
@@ -62,6 +83,9 @@ export class DescribeRegistryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRegistryCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +114,8 @@ export class DescribeRegistryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRegistryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRegistryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +125,18 @@ export class DescribeRegistryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRegistryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeRegistryCommand(input, context);
+    return se_DescribeRegistryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRegistryCommandOutput> {
-    return deserializeAws_restJson1DescribeRegistryCommand(output, context);
+    return de_DescribeRegistryCommand(output, context);
   }
 
   // Start section: command_body_extra

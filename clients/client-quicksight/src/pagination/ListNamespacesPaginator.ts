@@ -6,12 +6,11 @@ import {
   ListNamespacesCommandInput,
   ListNamespacesCommandOutput,
 } from "../commands/ListNamespacesCommand";
-import { QuickSight } from "../QuickSight";
 import { QuickSightClient } from "../QuickSightClient";
 import { QuickSightPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: QuickSightClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListNamespacesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: QuickSight,
-  input: ListNamespacesCommandInput,
-  ...args: any
-): Promise<ListNamespacesCommandOutput> => {
-  // @ts-ignore
-  return await client.listNamespaces(input, ...args);
-};
 export async function* paginateListNamespaces(
   config: QuickSightPaginationConfiguration,
   input: ListNamespacesCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListNamespaces(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof QuickSight) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof QuickSightClient) {
+    if (config.client instanceof QuickSightClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected QuickSight | QuickSightClient");

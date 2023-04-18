@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import {
-  BuildSuggestersRequest,
-  BuildSuggestersRequestFilterSensitiveLog,
-  BuildSuggestersResponse,
-  BuildSuggestersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryBuildSuggestersCommand,
-  serializeAws_queryBuildSuggestersCommand,
-} from "../protocols/Aws_query";
+import { BuildSuggestersRequest, BuildSuggestersResponse } from "../models/models_0";
+import { de_BuildSuggestersCommand, se_BuildSuggestersCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link BuildSuggestersCommand}.
+ */
 export interface BuildSuggestersCommandInput extends BuildSuggestersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link BuildSuggestersCommand}.
+ */
 export interface BuildSuggestersCommandOutput extends BuildSuggestersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Indexes the search suggestions. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html#configuring-suggesters">Configuring Suggesters</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,32 @@ export interface BuildSuggestersCommandOutput extends BuildSuggestersResponse, _
  * import { CloudSearchClient, BuildSuggestersCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
  * // const { CloudSearchClient, BuildSuggestersCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
  * const client = new CloudSearchClient(config);
+ * const input = { // BuildSuggestersRequest
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new BuildSuggestersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BuildSuggestersCommandInput - {@link BuildSuggestersCommandInput}
+ * @returns {@link BuildSuggestersCommandOutput}
  * @see {@link BuildSuggestersCommandInput} for command's `input` shape.
  * @see {@link BuildSuggestersCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
+ *
+ * @throws {@link BaseException} (client fault)
+ *  <p>An error occurred while processing the request.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>An internal error occurred while processing the request. If this problem persists,
+ *       report an issue from the <a href="http://status.aws.amazon.com/" target="_blank">Service Health Dashboard</a>.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request was rejected because it attempted to reference a resource that does not exist.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request was rejected because it has invalid parameters.</p>
+ *
  *
  */
 export class BuildSuggestersCommand extends $Command<
@@ -62,6 +84,9 @@ export class BuildSuggestersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BuildSuggestersCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +115,8 @@ export class BuildSuggestersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BuildSuggestersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BuildSuggestersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +126,18 @@ export class BuildSuggestersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BuildSuggestersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryBuildSuggestersCommand(input, context);
+    return se_BuildSuggestersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BuildSuggestersCommandOutput> {
-    return deserializeAws_queryBuildSuggestersCommand(output, context);
+    return de_BuildSuggestersCommand(output, context);
   }
 
   // Start section: command_body_extra

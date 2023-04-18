@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import {
-  UpdateEndpointGroupRequest,
-  UpdateEndpointGroupRequestFilterSensitiveLog,
-  UpdateEndpointGroupResponse,
-  UpdateEndpointGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateEndpointGroupCommand,
-  serializeAws_json1_1UpdateEndpointGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateEndpointGroupRequest, UpdateEndpointGroupResponse } from "../models/models_0";
+import { de_UpdateEndpointGroupCommand, se_UpdateEndpointGroupCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateEndpointGroupCommand}.
+ */
 export interface UpdateEndpointGroupCommandInput extends UpdateEndpointGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateEndpointGroupCommand}.
+ */
 export interface UpdateEndpointGroupCommandOutput extends UpdateEndpointGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update an endpoint group. A resource must be valid and active when you add it as an endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,53 @@ export interface UpdateEndpointGroupCommandOutput extends UpdateEndpointGroupRes
  * import { GlobalAcceleratorClient, UpdateEndpointGroupCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, UpdateEndpointGroupCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
+ * const input = { // UpdateEndpointGroupRequest
+ *   EndpointGroupArn: "STRING_VALUE", // required
+ *   EndpointConfigurations: [ // EndpointConfigurations
+ *     { // EndpointConfiguration
+ *       EndpointId: "STRING_VALUE",
+ *       Weight: Number("int"),
+ *       ClientIPPreservationEnabled: true || false,
+ *     },
+ *   ],
+ *   TrafficDialPercentage: Number("float"),
+ *   HealthCheckPort: Number("int"),
+ *   HealthCheckProtocol: "TCP" || "HTTP" || "HTTPS",
+ *   HealthCheckPath: "STRING_VALUE",
+ *   HealthCheckIntervalSeconds: Number("int"),
+ *   ThresholdCount: Number("int"),
+ *   PortOverrides: [ // PortOverrides
+ *     { // PortOverride
+ *       ListenerPort: Number("int"),
+ *       EndpointPort: Number("int"),
+ *     },
+ *   ],
+ * };
  * const command = new UpdateEndpointGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEndpointGroupCommandInput - {@link UpdateEndpointGroupCommandInput}
+ * @returns {@link UpdateEndpointGroupCommandOutput}
  * @see {@link UpdateEndpointGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateEndpointGroupCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have access permission.</p>
+ *
+ * @throws {@link EndpointGroupNotFoundException} (client fault)
+ *  <p>The endpoint group that you specified doesn't exist.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>There was an internal error for Global Accelerator.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>An argument that you specified is invalid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>Processing your request would cause you to exceed an Global Accelerator limit.</p>
+ *
  *
  */
 export class UpdateEndpointGroupCommand extends $Command<
@@ -66,6 +109,9 @@ export class UpdateEndpointGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEndpointGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +140,8 @@ export class UpdateEndpointGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateEndpointGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateEndpointGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +151,18 @@ export class UpdateEndpointGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateEndpointGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateEndpointGroupCommand(input, context);
+    return se_UpdateEndpointGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEndpointGroupCommandOutput> {
-    return deserializeAws_json1_1UpdateEndpointGroupCommand(output, context);
+    return de_UpdateEndpointGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

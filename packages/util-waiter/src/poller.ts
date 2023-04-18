@@ -2,6 +2,8 @@ import { sleep } from "./utils/sleep";
 import { WaiterOptions, WaiterResult, WaiterState } from "./waiter";
 
 /**
+ * @internal
+ *
  * Reference: https://smithy.io/2.0/additional-specs/waiters.html#waiter-retries
  */
 const exponentialBackoffWithJitter = (minDelay: number, maxDelay: number, attemptCeiling: number, attempt: number) => {
@@ -15,10 +17,10 @@ const randomInRange = (min: number, max: number) => min + Math.random() * (max -
 /**
  * Function that runs polling as part of waiters. This will make one inital attempt and then
  * subsequent attempts with an increasing delay.
- * @param params options passed to the waiter.
- * @param client AWS SDK Client
- * @param input client input
- * @param stateChecker function that checks the acceptor states on each poll.
+ * @param params - options passed to the waiter.
+ * @param client - AWS SDK Client
+ * @param input - client input
+ * @param stateChecker - function that checks the acceptor states on each poll.
  */
 export const runPolling = async <Client, Input>(
   { minDelay, maxDelay, maxWaitTime, abortController, client, abortSignal }: WaiterOptions<Client>,

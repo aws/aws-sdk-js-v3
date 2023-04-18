@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import {
-  CreateSignalCatalogRequest,
-  CreateSignalCatalogRequestFilterSensitiveLog,
-  CreateSignalCatalogResponse,
-  CreateSignalCatalogResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateSignalCatalogCommand,
-  serializeAws_json1_0CreateSignalCatalogCommand,
-} from "../protocols/Aws_json1_0";
+import { CreateSignalCatalogRequest, CreateSignalCatalogResponse } from "../models/models_0";
+import { de_CreateSignalCatalogCommand, se_CreateSignalCatalogCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateSignalCatalogCommand}.
+ */
 export interface CreateSignalCatalogCommandInput extends CreateSignalCatalogRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateSignalCatalogCommand}.
+ */
 export interface CreateSignalCatalogCommandOutput extends CreateSignalCatalogResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Creates a collection of standardized signals that can be reused to create vehicle
  *             models.</p>
  * @example
@@ -37,13 +40,96 @@ export interface CreateSignalCatalogCommandOutput extends CreateSignalCatalogRes
  * import { IoTFleetWiseClient, CreateSignalCatalogCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, CreateSignalCatalogCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = { // CreateSignalCatalogRequest
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   nodes: [ // Nodes
+ *     { // Node Union: only one key present
+ *       branch: { // Branch
+ *         fullyQualifiedName: "STRING_VALUE", // required
+ *         description: "STRING_VALUE",
+ *       },
+ *       sensor: { // Sensor
+ *         fullyQualifiedName: "STRING_VALUE", // required
+ *         dataType: "STRING_VALUE", // required
+ *         description: "STRING_VALUE",
+ *         unit: "STRING_VALUE",
+ *         allowedValues: [ // listOfStrings
+ *           "STRING_VALUE",
+ *         ],
+ *         min: Number("double"),
+ *         max: Number("double"),
+ *       },
+ *       actuator: { // Actuator
+ *         fullyQualifiedName: "STRING_VALUE", // required
+ *         dataType: "STRING_VALUE", // required
+ *         description: "STRING_VALUE",
+ *         unit: "STRING_VALUE",
+ *         allowedValues: [
+ *           "STRING_VALUE",
+ *         ],
+ *         min: Number("double"),
+ *         max: Number("double"),
+ *         assignedValue: "STRING_VALUE",
+ *       },
+ *       attribute: { // Attribute
+ *         fullyQualifiedName: "STRING_VALUE", // required
+ *         dataType: "STRING_VALUE", // required
+ *         description: "STRING_VALUE",
+ *         unit: "STRING_VALUE",
+ *         allowedValues: [
+ *           "STRING_VALUE",
+ *         ],
+ *         min: Number("double"),
+ *         max: Number("double"),
+ *         assignedValue: "STRING_VALUE",
+ *         defaultValue: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateSignalCatalogCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSignalCatalogCommandInput - {@link CreateSignalCatalogCommandInput}
+ * @returns {@link CreateSignalCatalogCommandOutput}
  * @see {@link CreateSignalCatalogCommandInput} for command's `input` shape.
  * @see {@link CreateSignalCatalogCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient permission to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request has conflicting operations. This can occur if you're trying to perform
+ *             more than one operation on the same resource at the same time.</p>
+ *
+ * @throws {@link InvalidNodeException} (client fault)
+ *  <p>The specified node type doesn't match the expected node type for a node. You can
+ *             specify the node type as branch, sensor, actuator, or attribute.</p>
+ *
+ * @throws {@link InvalidSignalsException} (client fault)
+ *  <p>The request couldn't be completed because it contains signals that aren't valid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A service quota was exceeded. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request couldn't be completed due to throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request couldn't be completed because the server temporarily failed.</p>
+ *
  *
  */
 export class CreateSignalCatalogCommand extends $Command<
@@ -63,6 +149,9 @@ export class CreateSignalCatalogCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSignalCatalogCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +180,8 @@ export class CreateSignalCatalogCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSignalCatalogRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSignalCatalogResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +191,18 @@ export class CreateSignalCatalogCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSignalCatalogCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateSignalCatalogCommand(input, context);
+    return se_CreateSignalCatalogCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSignalCatalogCommandOutput> {
-    return deserializeAws_json1_0CreateSignalCatalogCommand(output, context);
+    return de_CreateSignalCatalogCommand(output, context);
   }
 
   // Start section: command_body_extra

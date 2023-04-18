@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetHostnameSuggestionRequest,
-  GetHostnameSuggestionRequestFilterSensitiveLog,
-  GetHostnameSuggestionResult,
-  GetHostnameSuggestionResultFilterSensitiveLog,
-} from "../models/models_0";
+import { GetHostnameSuggestionRequest, GetHostnameSuggestionResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1GetHostnameSuggestionCommand,
-  serializeAws_json1_1GetHostnameSuggestionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetHostnameSuggestionCommand, se_GetHostnameSuggestionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetHostnameSuggestionCommand}.
+ */
 export interface GetHostnameSuggestionCommandInput extends GetHostnameSuggestionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetHostnameSuggestionCommand}.
+ */
 export interface GetHostnameSuggestionCommandOutput extends GetHostnameSuggestionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a generated host name for the specified layer, based on the current host name theme.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
@@ -41,13 +44,25 @@ export interface GetHostnameSuggestionCommandOutput extends GetHostnameSuggestio
  * import { OpsWorksClient, GetHostnameSuggestionCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, GetHostnameSuggestionCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // GetHostnameSuggestionRequest
+ *   LayerId: "STRING_VALUE", // required
+ * };
  * const command = new GetHostnameSuggestionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetHostnameSuggestionCommandInput - {@link GetHostnameSuggestionCommandInput}
+ * @returns {@link GetHostnameSuggestionCommandOutput}
  * @see {@link GetHostnameSuggestionCommandInput} for command's `input` shape.
  * @see {@link GetHostnameSuggestionCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Indicates that a resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that a request was not valid.</p>
+ *
  *
  */
 export class GetHostnameSuggestionCommand extends $Command<
@@ -67,6 +82,9 @@ export class GetHostnameSuggestionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetHostnameSuggestionCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +113,8 @@ export class GetHostnameSuggestionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetHostnameSuggestionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetHostnameSuggestionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +124,18 @@ export class GetHostnameSuggestionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetHostnameSuggestionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetHostnameSuggestionCommand(input, context);
+    return se_GetHostnameSuggestionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetHostnameSuggestionCommandOutput> {
-    return deserializeAws_json1_1GetHostnameSuggestionCommand(output, context);
+    return de_GetHostnameSuggestionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SearchFacesByImageRequest,
-  SearchFacesByImageRequestFilterSensitiveLog,
-  SearchFacesByImageResponse,
-  SearchFacesByImageResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1SearchFacesByImageCommand,
-  serializeAws_json1_1SearchFacesByImageCommand,
-} from "../protocols/Aws_json1_1";
+import { SearchFacesByImageRequest, SearchFacesByImageResponse } from "../models/models_0";
+import { de_SearchFacesByImageCommand, se_SearchFacesByImageCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
+/**
+ * @public
+ *
+ * The input for {@link SearchFacesByImageCommand}.
+ */
 export interface SearchFacesByImageCommandInput extends SearchFacesByImageRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SearchFacesByImageCommand}.
+ */
 export interface SearchFacesByImageCommandOutput extends SearchFacesByImageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>For a given input image, first detects the largest face in the image, and then searches
  *       the specified collection for matching faces. The operation compares the features of the input
  *       face with faces in the specified collection. </p>
@@ -72,13 +75,108 @@ export interface SearchFacesByImageCommandOutput extends SearchFacesByImageRespo
  * import { RekognitionClient, SearchFacesByImageCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, SearchFacesByImageCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // SearchFacesByImageRequest
+ *   CollectionId: "STRING_VALUE", // required
+ *   Image: { // Image
+ *     Bytes: "BLOB_VALUE",
+ *     S3Object: { // S3Object
+ *       Bucket: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   },
+ *   MaxFaces: Number("int"),
+ *   FaceMatchThreshold: Number("float"),
+ *   QualityFilter: "NONE" || "AUTO" || "LOW" || "MEDIUM" || "HIGH",
+ * };
  * const command = new SearchFacesByImageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchFacesByImageCommandInput - {@link SearchFacesByImageCommandInput}
+ * @returns {@link SearchFacesByImageCommandOutput}
  * @see {@link SearchFacesByImageCommandInput} for command's `input` shape.
  * @see {@link SearchFacesByImageCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to perform the action.</p>
+ *
+ * @throws {@link ImageTooLargeException} (client fault)
+ *  <p>The input image size exceeds the allowed limit. If you are calling
+ *       DetectProtectiveEquipment, the image size or resolution exceeds the allowed limit. For more
+ *       information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide.
+ *     </p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidImageFormatException} (client fault)
+ *  <p>The provided image format is not supported. </p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
+ *       operation again.</p>
+ *
+ * @throws {@link InvalidS3ObjectException} (client fault)
+ *  <p>Amazon Rekognition is unable to access the S3 object specified in the request.</p>
+ *
+ * @throws {@link ProvisionedThroughputExceededException} (client fault)
+ *  <p>The number of requests exceeded your throughput limit. If you want to increase this
+ *       limit, contact Amazon Rekognition.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request cannot be found.</p>
+ *
+ * @throws {@link ThrottlingException} (server fault)
+ *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
+ *
+ * @example To search for faces matching a supplied image
+ * ```javascript
+ * // This operation searches for faces in a Rekognition collection that match the largest face in an S3 bucket stored image.
+ * const input = {
+ *   "CollectionId": "myphotos",
+ *   "FaceMatchThreshold": 95,
+ *   "Image": {
+ *     "S3Object": {
+ *       "Bucket": "mybucket",
+ *       "Name": "myphoto"
+ *     }
+ *   },
+ *   "MaxFaces": 5
+ * };
+ * const command = new SearchFacesByImageCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "FaceMatches": [
+ *     {
+ *       "Face": {
+ *         "BoundingBox": {
+ *           "Height": 0.3234420120716095,
+ *           "Left": 0.3233329951763153,
+ *           "Top": 0.5,
+ *           "Width": 0.24222199618816376
+ *         },
+ *         "Confidence": 99.99829864501953,
+ *         "FaceId": "38271d79-7bc2-5efb-b752-398a8d575b85",
+ *         "ImageId": "d5631190-d039-54e4-b267-abd22c8647c5"
+ *       },
+ *       "Similarity": 99.97036743164062
+ *     }
+ *   ],
+ *   "SearchedFaceBoundingBox": {
+ *     "Height": 0.33481481671333313,
+ *     "Left": 0.31888890266418457,
+ *     "Top": 0.4933333396911621,
+ *     "Width": 0.25
+ *   },
+ *   "SearchedFaceConfidence": 99.9991226196289
+ * }
+ * *\/
+ * // example id: to-search-for-faces-matching-a-supplied-image-1482175994491
+ * ```
  *
  */
 export class SearchFacesByImageCommand extends $Command<
@@ -98,6 +196,9 @@ export class SearchFacesByImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchFacesByImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +227,8 @@ export class SearchFacesByImageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchFacesByImageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchFacesByImageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +238,18 @@ export class SearchFacesByImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchFacesByImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SearchFacesByImageCommand(input, context);
+    return se_SearchFacesByImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchFacesByImageCommandOutput> {
-    return deserializeAws_json1_1SearchFacesByImageCommand(output, context);
+    return de_SearchFacesByImageCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteDBSecurityGroupMessage, DeleteDBSecurityGroupMessageFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteDBSecurityGroupCommand,
-  serializeAws_queryDeleteDBSecurityGroupCommand,
-} from "../protocols/Aws_query";
+import { DeleteDBSecurityGroupMessage } from "../models/models_0";
+import { de_DeleteDBSecurityGroupCommand, se_DeleteDBSecurityGroupCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteDBSecurityGroupCommand}.
+ */
 export interface DeleteDBSecurityGroupCommandInput extends DeleteDBSecurityGroupMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteDBSecurityGroupCommand}.
+ */
 export interface DeleteDBSecurityGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a DB security group.</p>
  *          <p>The specified DB security group must not be associated with any DB instances.</p>
  *          <note>
@@ -39,13 +47,37 @@ export interface DeleteDBSecurityGroupCommandOutput extends __MetadataBearer {}
  * import { RDSClient, DeleteDBSecurityGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DeleteDBSecurityGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // DeleteDBSecurityGroupMessage
+ *   DBSecurityGroupName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDBSecurityGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDBSecurityGroupCommandInput - {@link DeleteDBSecurityGroupCommandInput}
+ * @returns {@link DeleteDBSecurityGroupCommandOutput}
  * @see {@link DeleteDBSecurityGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteDBSecurityGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ * @throws {@link DBSecurityGroupNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBSecurityGroupName</code> doesn't refer to an existing DB security group.</p>
+ *
+ * @throws {@link InvalidDBSecurityGroupStateFault} (client fault)
+ *  <p>The state of the DB security group doesn't allow deletion.</p>
+ *
+ *
+ * @example To delete a DB security group
+ * ```javascript
+ * // The following example deletes a DB security group.
+ * const input = {
+ *   "DBSecurityGroupName": "mysecgroup"
+ * };
+ * const command = new DeleteDBSecurityGroupCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-a-db-security-group-1473960141889
+ * ```
  *
  */
 export class DeleteDBSecurityGroupCommand extends $Command<
@@ -65,6 +97,9 @@ export class DeleteDBSecurityGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDBSecurityGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +128,8 @@ export class DeleteDBSecurityGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDBSecurityGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +139,18 @@ export class DeleteDBSecurityGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDBSecurityGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteDBSecurityGroupCommand(input, context);
+    return se_DeleteDBSecurityGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDBSecurityGroupCommandOutput> {
-    return deserializeAws_queryDeleteDBSecurityGroupCommand(output, context);
+    return de_DeleteDBSecurityGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

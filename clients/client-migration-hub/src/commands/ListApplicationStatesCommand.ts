@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
-import {
-  ListApplicationStatesRequest,
-  ListApplicationStatesRequestFilterSensitiveLog,
-  ListApplicationStatesResult,
-  ListApplicationStatesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListApplicationStatesCommand,
-  serializeAws_json1_1ListApplicationStatesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListApplicationStatesRequest, ListApplicationStatesResult } from "../models/models_0";
+import { de_ListApplicationStatesCommand, se_ListApplicationStatesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListApplicationStatesCommand}.
+ */
 export interface ListApplicationStatesCommandInput extends ListApplicationStatesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListApplicationStatesCommand}.
+ */
 export interface ListApplicationStatesCommandOutput extends ListApplicationStatesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the migration statuses for your applications. If you use the optional
  *             <code>ApplicationIds</code> parameter, only the migration statuses for those
  *          applications will be returned.</p>
@@ -38,13 +41,44 @@ export interface ListApplicationStatesCommandOutput extends ListApplicationState
  * import { MigrationHubClient, ListApplicationStatesCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
  * // const { MigrationHubClient, ListApplicationStatesCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
  * const client = new MigrationHubClient(config);
+ * const input = { // ListApplicationStatesRequest
+ *   ApplicationIds: [ // ApplicationIds
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListApplicationStatesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListApplicationStatesCommandInput - {@link ListApplicationStatesCommandInput}
+ * @returns {@link ListApplicationStatesCommandOutput}
  * @see {@link ListApplicationStatesCommandInput} for command's `input` shape.
  * @see {@link ListApplicationStatesCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link HomeRegionNotSetException} (client fault)
+ *  <p>The home region is not set. Set the home region to continue.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Exception raised when an internal, configuration, or dependency error is
+ *          encountered.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Exception raised when the provided input violates a policy constraint or is entered in
+ *          the wrong format or data type.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>Exception raised when there is an internal, configuration, or dependency error
+ *          encountered.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
  *
  */
 export class ListApplicationStatesCommand extends $Command<
@@ -64,6 +98,9 @@ export class ListApplicationStatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListApplicationStatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +129,8 @@ export class ListApplicationStatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListApplicationStatesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListApplicationStatesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +140,18 @@ export class ListApplicationStatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListApplicationStatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListApplicationStatesCommand(input, context);
+    return se_ListApplicationStatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListApplicationStatesCommandOutput> {
-    return deserializeAws_json1_1ListApplicationStatesCommand(output, context);
+    return de_ListApplicationStatesCommand(output, context);
   }
 
   // Start section: command_body_extra

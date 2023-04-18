@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
-import {
-  CreateComputeEnvironmentRequest,
-  CreateComputeEnvironmentRequestFilterSensitiveLog,
-  CreateComputeEnvironmentResponse,
-  CreateComputeEnvironmentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateComputeEnvironmentCommand,
-  serializeAws_restJson1CreateComputeEnvironmentCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateComputeEnvironmentRequest, CreateComputeEnvironmentResponse } from "../models/models_0";
+import { de_CreateComputeEnvironmentCommand, se_CreateComputeEnvironmentCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateComputeEnvironmentCommand}.
+ */
 export interface CreateComputeEnvironmentCommandInput extends CreateComputeEnvironmentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateComputeEnvironmentCommand}.
+ */
 export interface CreateComputeEnvironmentCommandOutput extends CreateComputeEnvironmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Batch compute environment. You can create <code>MANAGED</code> or <code>UNMANAGED</code> compute
  *    environments. <code>MANAGED</code> compute environments can use Amazon EC2 or Fargate resources.
  *     <code>UNMANAGED</code> compute environments can only use EC2 resources.</p>
@@ -114,13 +117,165 @@ export interface CreateComputeEnvironmentCommandOutput extends CreateComputeEnvi
  * import { BatchClient, CreateComputeEnvironmentCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, CreateComputeEnvironmentCommand } = require("@aws-sdk/client-batch"); // CommonJS import
  * const client = new BatchClient(config);
+ * const input = { // CreateComputeEnvironmentRequest
+ *   computeEnvironmentName: "STRING_VALUE", // required
+ *   type: "MANAGED" || "UNMANAGED", // required
+ *   state: "ENABLED" || "DISABLED",
+ *   unmanagedvCpus: Number("int"),
+ *   computeResources: { // ComputeResource
+ *     type: "EC2" || "SPOT" || "FARGATE" || "FARGATE_SPOT", // required
+ *     allocationStrategy: "BEST_FIT" || "BEST_FIT_PROGRESSIVE" || "SPOT_CAPACITY_OPTIMIZED",
+ *     minvCpus: Number("int"),
+ *     maxvCpus: Number("int"), // required
+ *     desiredvCpus: Number("int"),
+ *     instanceTypes: [ // StringList
+ *       "STRING_VALUE",
+ *     ],
+ *     imageId: "STRING_VALUE",
+ *     subnets: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     securityGroupIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     ec2KeyPair: "STRING_VALUE",
+ *     instanceRole: "STRING_VALUE",
+ *     tags: { // TagsMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     placementGroup: "STRING_VALUE",
+ *     bidPercentage: Number("int"),
+ *     spotIamFleetRole: "STRING_VALUE",
+ *     launchTemplate: { // LaunchTemplateSpecification
+ *       launchTemplateId: "STRING_VALUE",
+ *       launchTemplateName: "STRING_VALUE",
+ *       version: "STRING_VALUE",
+ *     },
+ *     ec2Configuration: [ // Ec2ConfigurationList
+ *       { // Ec2Configuration
+ *         imageType: "STRING_VALUE", // required
+ *         imageIdOverride: "STRING_VALUE",
+ *         imageKubernetesVersion: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ *   serviceRole: "STRING_VALUE",
+ *   tags: { // TagrisTagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   eksConfiguration: { // EksConfiguration
+ *     eksClusterArn: "STRING_VALUE", // required
+ *     kubernetesNamespace: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new CreateComputeEnvironmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateComputeEnvironmentCommandInput - {@link CreateComputeEnvironmentCommandInput}
+ * @returns {@link CreateComputeEnvironmentCommandOutput}
  * @see {@link CreateComputeEnvironmentCommandInput} for command's `input` shape.
  * @see {@link CreateComputeEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf
+ *    of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier
+ *    that's not valid.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server issue.</p>
+ *
+ *
+ * @example To create a managed EC2 compute environment
+ * ```javascript
+ * // This example creates a managed compute environment with specific C4 instance types that are launched on demand. The compute environment is called C4OnDemand.
+ * const input = {
+ *   "type": "MANAGED",
+ *   "computeEnvironmentName": "C4OnDemand",
+ *   "computeResources": {
+ *     "type": "EC2",
+ *     "desiredvCpus": 48,
+ *     "ec2KeyPair": "id_rsa",
+ *     "instanceRole": "ecsInstanceRole",
+ *     "instanceTypes": [
+ *       "c4.large",
+ *       "c4.xlarge",
+ *       "c4.2xlarge",
+ *       "c4.4xlarge",
+ *       "c4.8xlarge"
+ *     ],
+ *     "maxvCpus": 128,
+ *     "minvCpus": 0,
+ *     "securityGroupIds": [
+ *       "sg-cf5093b2"
+ *     ],
+ *     "subnets": [
+ *       "subnet-220c0e0a",
+ *       "subnet-1a95556d",
+ *       "subnet-978f6dce"
+ *     ],
+ *     "tags": {
+ *       "Name": "Batch Instance - C4OnDemand"
+ *     }
+ *   },
+ *   "serviceRole": "arn:aws:iam::012345678910:role/AWSBatchServiceRole",
+ *   "state": "ENABLED"
+ * };
+ * const command = new CreateComputeEnvironmentCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "computeEnvironmentArn": "arn:aws:batch:us-east-1:012345678910:compute-environment/C4OnDemand",
+ *   "computeEnvironmentName": "C4OnDemand"
+ * }
+ * *\/
+ * // example id: to-create-a-managed-ec2-compute-environment-1481152600017
+ * ```
+ *
+ * @example To create a managed EC2 Spot compute environment
+ * ```javascript
+ * // This example creates a managed compute environment with the M4 instance type that is launched when the Spot bid price is at or below 20% of the On-Demand price for the instance type. The compute environment is called M4Spot.
+ * const input = {
+ *   "type": "MANAGED",
+ *   "computeEnvironmentName": "M4Spot",
+ *   "computeResources": {
+ *     "type": "SPOT",
+ *     "bidPercentage": 20,
+ *     "desiredvCpus": 4,
+ *     "ec2KeyPair": "id_rsa",
+ *     "instanceRole": "ecsInstanceRole",
+ *     "instanceTypes": [
+ *       "m4"
+ *     ],
+ *     "maxvCpus": 128,
+ *     "minvCpus": 0,
+ *     "securityGroupIds": [
+ *       "sg-cf5093b2"
+ *     ],
+ *     "spotIamFleetRole": "arn:aws:iam::012345678910:role/aws-ec2-spot-fleet-role",
+ *     "subnets": [
+ *       "subnet-220c0e0a",
+ *       "subnet-1a95556d",
+ *       "subnet-978f6dce"
+ *     ],
+ *     "tags": {
+ *       "Name": "Batch Instance - M4Spot"
+ *     }
+ *   },
+ *   "serviceRole": "arn:aws:iam::012345678910:role/AWSBatchServiceRole",
+ *   "state": "ENABLED"
+ * };
+ * const command = new CreateComputeEnvironmentCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "computeEnvironmentArn": "arn:aws:batch:us-east-1:012345678910:compute-environment/M4Spot",
+ *   "computeEnvironmentName": "M4Spot"
+ * }
+ * *\/
+ * // example id: to-create-a-managed-ec2-spot-compute-environment-1481152844190
+ * ```
  *
  */
 export class CreateComputeEnvironmentCommand extends $Command<
@@ -140,6 +295,9 @@ export class CreateComputeEnvironmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateComputeEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -168,8 +326,8 @@ export class CreateComputeEnvironmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateComputeEnvironmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateComputeEnvironmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -179,12 +337,18 @@ export class CreateComputeEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateComputeEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateComputeEnvironmentCommand(input, context);
+    return se_CreateComputeEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateComputeEnvironmentCommandOutput> {
-    return deserializeAws_restJson1CreateComputeEnvironmentCommand(output, context);
+    return de_CreateComputeEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

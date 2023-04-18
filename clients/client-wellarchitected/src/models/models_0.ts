@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { WellArchitectedServiceException as __BaseException } from "./WellArchitectedServiceException";
 
 /**
+ * @public
  * <p>User does not have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,15 +28,25 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
-export enum CheckStatus {
-  ERROR = "ERROR",
-  FETCH_FAILED = "FETCH_FAILED",
-  NOT_AVAILABLE = "NOT_AVAILABLE",
-  OKAY = "OKAY",
-  WARNING = "WARNING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CheckStatus = {
+  ERROR: "ERROR",
+  FETCH_FAILED: "FETCH_FAILED",
+  NOT_AVAILABLE: "NOT_AVAILABLE",
+  OKAY: "OKAY",
+  WARNING: "WARNING",
+} as const;
 
 /**
+ * @public
+ */
+export type CheckStatus = (typeof CheckStatus)[keyof typeof CheckStatus];
+
+/**
+ * @public
  * <p>The choice content.</p>
  */
 export interface ChoiceContent {
@@ -50,41 +61,71 @@ export interface ChoiceContent {
   Url?: string;
 }
 
-export enum AdditionalResourceType {
-  HELPFUL_RESOURCE = "HELPFUL_RESOURCE",
-  IMPROVEMENT_PLAN = "IMPROVEMENT_PLAN",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AdditionalResourceType = {
+  HELPFUL_RESOURCE: "HELPFUL_RESOURCE",
+  IMPROVEMENT_PLAN: "IMPROVEMENT_PLAN",
+} as const;
 
 /**
- * <p>The choice level additional resources.</p>
+ * @public
+ */
+export type AdditionalResourceType = (typeof AdditionalResourceType)[keyof typeof AdditionalResourceType];
+
+/**
+ * @public
+ * <p>The choice level additional resources for a custom lens.</p>
+ *          <p>This field does not apply to Amazon Web Services official lenses.</p>
  */
 export interface AdditionalResources {
   /**
-   * <p>Type of additional resource.</p>
+   * <p>Type of additional resource for a custom lens.</p>
    */
   Type?: AdditionalResourceType | string;
 
   /**
-   * <p>The URLs for additional resources, either helpful resources or improvement plans. Up to five additional URLs can be specified.</p>
+   * <p>The URLs for additional resources, either helpful resources or improvement plans, for a custom lens. Up to five additional URLs can be specified.</p>
    */
   Content?: ChoiceContent[];
 }
 
-export enum ChoiceReason {
-  ARCHITECTURE_CONSTRAINTS = "ARCHITECTURE_CONSTRAINTS",
-  BUSINESS_PRIORITIES = "BUSINESS_PRIORITIES",
-  NONE = "NONE",
-  OTHER = "OTHER",
-  OUT_OF_SCOPE = "OUT_OF_SCOPE",
-}
-
-export enum ChoiceStatus {
-  NOT_APPLICABLE = "NOT_APPLICABLE",
-  SELECTED = "SELECTED",
-  UNSELECTED = "UNSELECTED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ChoiceReason = {
+  ARCHITECTURE_CONSTRAINTS: "ARCHITECTURE_CONSTRAINTS",
+  BUSINESS_PRIORITIES: "BUSINESS_PRIORITIES",
+  NONE: "NONE",
+  OTHER: "OTHER",
+  OUT_OF_SCOPE: "OUT_OF_SCOPE",
+} as const;
 
 /**
+ * @public
+ */
+export type ChoiceReason = (typeof ChoiceReason)[keyof typeof ChoiceReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const ChoiceStatus = {
+  NOT_APPLICABLE: "NOT_APPLICABLE",
+  SELECTED: "SELECTED",
+  UNSELECTED: "UNSELECTED",
+} as const;
+
+/**
+ * @public
+ */
+export type ChoiceStatus = (typeof ChoiceStatus)[keyof typeof ChoiceStatus];
+
+/**
+ * @public
  * <p>A choice that has been answered on a question in your workload.</p>
  */
 export interface ChoiceAnswer {
@@ -110,6 +151,7 @@ export interface ChoiceAnswer {
 }
 
 /**
+ * @public
  * <p>A choice available to answer question.</p>
  */
 export interface Choice {
@@ -129,39 +171,61 @@ export interface Choice {
   Description?: string;
 
   /**
-   * <p>The choice level helpful resource.</p>
+   * <p>The helpful resource (both text and URL) for a particular choice.</p>
+   *          <p>This field only applies to custom lenses. Each choice can have only one helpful resource.</p>
    */
   HelpfulResource?: ChoiceContent;
 
   /**
-   * <p>The choice level improvement plan.</p>
+   * <p>The improvement plan (both text and URL) for a particular choice.</p>
+   *          <p>This field only applies to custom lenses. Each choice can have only one improvement plan.</p>
    */
   ImprovementPlan?: ChoiceContent;
 
   /**
-   * <p>The additional resources for a choice. A choice can have up to two additional resources: one of type <code>HELPFUL_RESOURCE</code>,
+   * <p>The additional resources for a choice in a custom lens.</p>
+   *          <p>A choice can have up to two additional resources: one of type <code>HELPFUL_RESOURCE</code>,
    *             one of type <code>IMPROVEMENT_PLAN</code>, or both.</p>
    */
   AdditionalResources?: AdditionalResources[];
 }
 
-export enum AnswerReason {
-  ARCHITECTURE_CONSTRAINTS = "ARCHITECTURE_CONSTRAINTS",
-  BUSINESS_PRIORITIES = "BUSINESS_PRIORITIES",
-  NONE = "NONE",
-  OTHER = "OTHER",
-  OUT_OF_SCOPE = "OUT_OF_SCOPE",
-}
-
-export enum Risk {
-  HIGH = "HIGH",
-  MEDIUM = "MEDIUM",
-  NONE = "NONE",
-  NOT_APPLICABLE = "NOT_APPLICABLE",
-  UNANSWERED = "UNANSWERED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AnswerReason = {
+  ARCHITECTURE_CONSTRAINTS: "ARCHITECTURE_CONSTRAINTS",
+  BUSINESS_PRIORITIES: "BUSINESS_PRIORITIES",
+  NONE: "NONE",
+  OTHER: "OTHER",
+  OUT_OF_SCOPE: "OUT_OF_SCOPE",
+} as const;
 
 /**
+ * @public
+ */
+export type AnswerReason = (typeof AnswerReason)[keyof typeof AnswerReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const Risk = {
+  HIGH: "HIGH",
+  MEDIUM: "MEDIUM",
+  NONE: "NONE",
+  NOT_APPLICABLE: "NOT_APPLICABLE",
+  UNANSWERED: "UNANSWERED",
+} as const;
+
+/**
+ * @public
+ */
+export type Risk = (typeof Risk)[keyof typeof Risk];
+
+/**
+ * @public
  * <p>An answer of the question.</p>
  */
 export interface Answer {
@@ -172,7 +236,7 @@ export interface Answer {
 
   /**
    * <p>The ID used to identify a pillar, for example, <code>security</code>.</p>
-   *         <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>
+   *          <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>
    */
   PillarId?: string;
 
@@ -187,18 +251,23 @@ export interface Answer {
   QuestionDescription?: string;
 
   /**
-   * <p>The improvement plan URL for a question.</p>
-   *         <p>This value is only available if the question has been answered.</p>
+   * <p>The improvement plan URL for a question in an Amazon Web Services official lenses.</p>
+   *          <p>This value is only available if the question has been answered.</p>
+   *          <p>This value does not apply to custom lenses.</p>
    */
   ImprovementPlanUrl?: string;
 
   /**
-   * <p>The helpful resource URL for a question.</p>
+   * <p>The helpful resource URL.</p>
+   *          <p>For Amazon Web Services official lenses, this is the helpful resource URL for a question or choice.</p>
+   *          <p>For custom lenses, this is the helpful resource URL for a question and is only provided
+   *             if <code>HelpfulResourceDisplayText</code> was specified for the question.</p>
    */
   HelpfulResourceUrl?: string;
 
   /**
-   * <p>The helpful resource text to be displayed.</p>
+   * <p>The helpful resource text to be displayed for a custom lens.</p>
+   *          <p>This field does not apply to Amazon Web Services official lenses.</p>
    */
   HelpfulResourceDisplayText?: string;
 
@@ -209,7 +278,7 @@ export interface Answer {
 
   /**
    * <p>List of selected choice IDs in a question answer.</p>
-   *         <p>The values entered replace the previously selected choices.</p>
+   *          <p>The values entered replace the previously selected choices.</p>
    */
   SelectedChoices?: string[];
 
@@ -240,6 +309,7 @@ export interface Answer {
 }
 
 /**
+ * @public
  * <p>A choice summary that has been answered on a question in your workload.</p>
  */
 export interface ChoiceAnswerSummary {
@@ -260,6 +330,7 @@ export interface ChoiceAnswerSummary {
 }
 
 /**
+ * @public
  * <p>An answer summary of a lens review in a workload.</p>
  */
 export interface AnswerSummary {
@@ -270,7 +341,7 @@ export interface AnswerSummary {
 
   /**
    * <p>The ID used to identify a pillar, for example, <code>security</code>.</p>
-   *         <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>
+   *          <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>
    */
   PillarId?: string;
 
@@ -286,7 +357,7 @@ export interface AnswerSummary {
 
   /**
    * <p>List of selected choice IDs in a question answer.</p>
-   *         <p>The values entered replace the previously selected choices.</p>
+   *          <p>The values entered replace the previously selected choices.</p>
    */
   SelectedChoices?: string[];
 
@@ -312,6 +383,7 @@ export interface AnswerSummary {
 }
 
 /**
+ * @public
  * <p>Input to associate lens reviews.</p>
  */
 export interface AssociateLensesInput {
@@ -322,13 +394,14 @@ export interface AssociateLensesInput {
 
   /**
    * <p>List of lens aliases to associate or disassociate with a workload. Up to 10 lenses can be specified.</p>
-   *         <p>Identify a lens using its <a>LensSummary$LensAlias</a>.</p>
+   *          <p>Identify a lens using its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAliases: string[] | undefined;
 }
 
 /**
- * <p>The resource already exists.</p>
+ * @public
+ * <p>The resource has already been processed, was deleted, or is too large.</p>
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
@@ -364,6 +437,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>There is a problem with the Well-Architected Tool API service.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -388,6 +462,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested resource was not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -424,6 +499,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -460,6 +536,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Stores information about a field passed inside a request that resulted in an exception.</p>
  */
 export interface ValidationExceptionField {
@@ -474,14 +551,24 @@ export interface ValidationExceptionField {
   Message: string | undefined;
 }
 
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "CANNOT_PARSE",
-  FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
-  OTHER = "OTHER",
-  UNKNOWN_OPERATION = "UNKNOWN_OPERATION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "CANNOT_PARSE",
+  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
+  OTHER: "OTHER",
+  UNKNOWN_OPERATION: "UNKNOWN_OPERATION",
+} as const;
 
 /**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
+
+/**
+ * @public
  * <p>The user input is not valid.</p>
  */
 export class ValidationException extends __BaseException {
@@ -517,18 +604,53 @@ export class ValidationException extends __BaseException {
   }
 }
 
-export enum CheckProvider {
-  TRUSTED_ADVISOR = "TRUSTED_ADVISOR",
-}
+/**
+ * @public
+ * <p>A best practice, or question choice, that has been identified as a risk in this question.</p>
+ */
+export interface BestPractice {
+  /**
+   * <p>The ID of a choice.</p>
+   */
+  ChoiceId?: string;
 
-export enum CheckFailureReason {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  ASSUME_ROLE_ERROR = "ASSUME_ROLE_ERROR",
-  PREMIUM_SUPPORT_REQUIRED = "PREMIUM_SUPPORT_REQUIRED",
-  UNKNOWN_ERROR = "UNKNOWN_ERROR",
+  /**
+   * <p>The title of a choice.</p>
+   */
+  ChoiceTitle?: string;
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const CheckProvider = {
+  TRUSTED_ADVISOR: "TRUSTED_ADVISOR",
+} as const;
+
+/**
+ * @public
+ */
+export type CheckProvider = (typeof CheckProvider)[keyof typeof CheckProvider];
+
+/**
+ * @public
+ * @enum
+ */
+export const CheckFailureReason = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  ASSUME_ROLE_ERROR: "ASSUME_ROLE_ERROR",
+  PREMIUM_SUPPORT_REQUIRED: "PREMIUM_SUPPORT_REQUIRED",
+  UNKNOWN_ERROR: "UNKNOWN_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type CheckFailureReason = (typeof CheckFailureReason)[keyof typeof CheckFailureReason];
+
+/**
+ * @public
  * <p>Account details for a Well-Architected best practice in relation to Trusted Advisor checks.</p>
  */
 export interface CheckDetail {
@@ -559,7 +681,7 @@ export interface CheckDetail {
 
   /**
    * <p>The ID used to identify a pillar, for example, <code>security</code>.</p>
-   *         <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>
+   *          <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>
    */
   PillarId?: string;
 
@@ -600,6 +722,7 @@ export interface CheckDetail {
 }
 
 /**
+ * @public
  * <p>Trusted Advisor check summary.</p>
  */
 export interface CheckSummary {
@@ -635,7 +758,7 @@ export interface CheckSummary {
 
   /**
    * <p>The ID used to identify a pillar, for example, <code>security</code>.</p>
-   *         <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>
+   *          <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>
    */
   PillarId?: string;
 
@@ -661,6 +784,7 @@ export interface CheckSummary {
 }
 
 /**
+ * @public
  * <p>The choice level improvement plan.</p>
  */
 export interface ChoiceImprovementPlan {
@@ -675,13 +799,15 @@ export interface ChoiceImprovementPlan {
   DisplayText?: string;
 
   /**
-   * <p>The improvement plan URL for a question.</p>
-   *         <p>This value is only available if the question has been answered.</p>
+   * <p>The improvement plan URL for a question in an Amazon Web Services official lenses.</p>
+   *          <p>This value is only available if the question has been answered.</p>
+   *          <p>This value does not apply to custom lenses.</p>
    */
   ImprovementPlanUrl?: string;
 }
 
 /**
+ * @public
  * <p>A list of choices to be updated.</p>
  */
 export interface ChoiceUpdate {
@@ -701,13 +827,144 @@ export interface ChoiceUpdate {
   Notes?: string;
 }
 
+/**
+ * @public
+ * <p>A metric for a particular question in the pillar. </p>
+ */
+export interface QuestionMetric {
+  /**
+   * <p>The ID of the question.</p>
+   */
+  QuestionId?: string;
+
+  /**
+   * <p>The risk for a given workload, lens review, pillar, or question.</p>
+   */
+  Risk?: Risk | string;
+
+  /**
+   * <p>The best practices, or choices, that have been identified as contributing to risk in a question.</p>
+   */
+  BestPractices?: BestPractice[];
+}
+
+/**
+ * @public
+ * <p>A metric for a particular pillar in a lens.</p>
+ */
+export interface PillarMetric {
+  /**
+   * <p>The ID used to identify a pillar, for example, <code>security</code>.</p>
+   *          <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>
+   */
+  PillarId?: string;
+
+  /**
+   * <p>A map from risk names to the count of how many questions have that rating.</p>
+   */
+  RiskCounts?: Record<string, number>;
+
+  /**
+   * <p>The questions that have been identified as risks in the pillar.</p>
+   */
+  Questions?: QuestionMetric[];
+}
+
+/**
+ * @public
+ * <p>A metric for a particular lens in a workload.</p>
+ */
+export interface LensMetric {
+  /**
+   * <p>The lens ARN.</p>
+   */
+  LensArn?: string;
+
+  /**
+   * <p>The metrics for the pillars in a lens.</p>
+   */
+  Pillars?: PillarMetric[];
+
+  /**
+   * <p>A map from risk names to the count of how many questions have that rating.</p>
+   */
+  RiskCounts?: Record<string, number>;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MetricType = {
+  WORKLOAD: "WORKLOAD",
+} as const;
+
+/**
+ * @public
+ */
+export type MetricType = (typeof MetricType)[keyof typeof MetricType];
+
+/**
+ * @public
+ * <p>A metric that contributes to the consolidated report.</p>
+ */
+export interface ConsolidatedReportMetric {
+  /**
+   * <p>The metric type of a metric in the consolidated report. Currently only WORKLOAD metric types are supported.</p>
+   */
+  MetricType?: MetricType | string;
+
+  /**
+   * <p>A map from risk names to the count of how many questions have that rating.</p>
+   */
+  RiskCounts?: Record<string, number>;
+
+  /**
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   */
+  WorkloadId?: string;
+
+  /**
+   * <p>The name of the workload.</p>
+   *          <p>The name must be unique within an account within an Amazon Web Services Region. Spaces and capitalization
+   *             are ignored when checking for uniqueness.</p>
+   */
+  WorkloadName?: string;
+
+  /**
+   * <p>The ARN for the workload.</p>
+   */
+  WorkloadArn?: string;
+
+  /**
+   * <p>The date and time recorded.</p>
+   */
+  UpdatedAt?: Date;
+
+  /**
+   * <p>The metrics for the lenses in the workload.</p>
+   */
+  Lenses?: LensMetric[];
+
+  /**
+   * <p>The total number of lenses applied to the workload.</p>
+   */
+  LensesAppliedCount?: number;
+}
+
+/**
+ * @public
+ */
 export interface CreateLensShareInput {
   /**
    * <p>The alias of the lens.</p>
-   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
-   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
-   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
-   *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   *          <p>For Amazon Web Services official lenses, this is either the lens alias, such as
+   *                 <code>serverless</code>, or the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some
+   *             operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p>
+   *          <p>For custom lenses, this is the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p>
+   *          <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias: string | undefined;
 
@@ -719,18 +976,21 @@ export interface CreateLensShareInput {
   /**
    * <p>A unique case-sensitive string used to ensure that this request is idempotent
    *             (executes only once).</p>
-   *         <p>You should not reuse the same token for other requests. If you retry a request with
-   *             the same client request token and the same parameters after it has completed
-   *             successfully, the result of the original request is returned. </p>
-   *         <important>
+   *          <p>You should not reuse the same token for other requests. If you retry a request with
+   *             the same client request token and the same parameters after the original request has completed
+   *             successfully, the result of the original request is returned.</p>
+   *          <important>
    *             <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs
    *                 automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI,
    *                 you must provide this token or the request will fail.</p>
-   *         </important>
+   *          </important>
    */
   ClientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateLensShareOutput {
   /**
    * <p>The ID associated with the workload share.</p>
@@ -739,6 +999,7 @@ export interface CreateLensShareOutput {
 }
 
 /**
+ * @public
  * <p>The user has reached their resource quota.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -786,13 +1047,19 @@ export class ServiceQuotaExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateLensVersionInput {
   /**
    * <p>The alias of the lens.</p>
-   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
-   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
-   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
-   *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   *          <p>For Amazon Web Services official lenses, this is either the lens alias, such as
+   *                 <code>serverless</code>, or the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some
+   *             operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p>
+   *          <p>For custom lenses, this is the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p>
+   *          <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias: string | undefined;
 
@@ -809,18 +1076,21 @@ export interface CreateLensVersionInput {
   /**
    * <p>A unique case-sensitive string used to ensure that this request is idempotent
    *             (executes only once).</p>
-   *         <p>You should not reuse the same token for other requests. If you retry a request with
-   *             the same client request token and the same parameters after it has completed
-   *             successfully, the result of the original request is returned. </p>
-   *         <important>
+   *          <p>You should not reuse the same token for other requests. If you retry a request with
+   *             the same client request token and the same parameters after the original request has completed
+   *             successfully, the result of the original request is returned.</p>
+   *          <important>
    *             <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs
    *                 automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI,
    *                 you must provide this token or the request will fail.</p>
-   *         </important>
+   *          </important>
    */
   ClientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateLensVersionOutput {
   /**
    * <p>The ARN for the lens.</p>
@@ -834,6 +1104,7 @@ export interface CreateLensVersionOutput {
 }
 
 /**
+ * @public
  * <p>Input for milestone creation.</p>
  */
 export interface CreateMilestoneInput {
@@ -844,26 +1115,27 @@ export interface CreateMilestoneInput {
 
   /**
    * <p>The name of the milestone in a workload.</p>
-   *         <p>Milestone names must be unique within a workload.</p>
+   *          <p>Milestone names must be unique within a workload.</p>
    */
   MilestoneName: string | undefined;
 
   /**
    * <p>A unique case-sensitive string used to ensure that this request is idempotent
    *             (executes only once).</p>
-   *         <p>You should not reuse the same token for other requests. If you retry a request with
-   *             the same client request token and the same parameters after it has completed
-   *             successfully, the result of the original request is returned. </p>
-   *         <important>
+   *          <p>You should not reuse the same token for other requests. If you retry a request with
+   *             the same client request token and the same parameters after the original request has completed
+   *             successfully, the result of the original request is returned.</p>
+   *          <important>
    *             <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs
    *                 automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI,
    *                 you must provide this token or the request will fail.</p>
-   *         </important>
+   *          </important>
    */
   ClientRequestToken?: string;
 }
 
 /**
+ * @public
  * <p>Output of a create milestone call.</p>
  */
 export interface CreateMilestoneOutput {
@@ -874,17 +1146,28 @@ export interface CreateMilestoneOutput {
 
   /**
    * <p>The milestone number.</p>
-   *         <p>A workload can have a maximum of 100 milestones.</p>
+   *          <p>A workload can have a maximum of 100 milestones.</p>
    */
   MilestoneNumber?: number;
 }
 
-export enum TrustedAdvisorIntegrationStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TrustedAdvisorIntegrationStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type TrustedAdvisorIntegrationStatus =
+  (typeof TrustedAdvisorIntegrationStatus)[keyof typeof TrustedAdvisorIntegrationStatus];
+
+/**
+ * @public
  * <p>Discovery configuration associated to the workload.</p>
  */
 export interface WorkloadDiscoveryConfig {
@@ -894,18 +1177,28 @@ export interface WorkloadDiscoveryConfig {
   TrustedAdvisorIntegrationStatus?: TrustedAdvisorIntegrationStatus | string;
 }
 
-export enum WorkloadEnvironment {
-  PREPRODUCTION = "PREPRODUCTION",
-  PRODUCTION = "PRODUCTION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const WorkloadEnvironment = {
+  PREPRODUCTION: "PREPRODUCTION",
+  PRODUCTION: "PRODUCTION",
+} as const;
 
 /**
+ * @public
+ */
+export type WorkloadEnvironment = (typeof WorkloadEnvironment)[keyof typeof WorkloadEnvironment];
+
+/**
+ * @public
  * <p>Input for workload creation.</p>
  */
 export interface CreateWorkloadInput {
   /**
    * <p>The name of the workload.</p>
-   *         <p>The name must be unique within an account within an Amazon Web Services Region. Spaces and capitalization
+   *          <p>The name must be unique within an account within an Amazon Web Services Region. Spaces and capitalization
    *             are ignored when checking for uniqueness.</p>
    */
   WorkloadName: string | undefined;
@@ -955,140 +1248,140 @@ export interface CreateWorkloadInput {
 
   /**
    * <p>The industry type for the workload.</p>
-   *         <p>If specified, must be one of the following:</p>
-   *         <ul>
+   *          <p>If specified, must be one of the following:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Agriculture</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Automobile</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Defense</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Design and Engineering</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Digital Advertising</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Education</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Environmental Protection</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Financial Services</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Gaming</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>General Public Services</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Healthcare</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Hospitality</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>InfoTech</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Justice and Public Safety</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Life Sciences</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Manufacturing</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Media & Entertainment</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Mining & Resources</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Oil & Gas</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Power & Utilities</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Professional Services</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Real Estate & Construction</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Retail & Wholesale</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Social Protection</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Telecommunications</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Travel, Transportation & Logistics</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Other</code>
    *                </p>
    *             </li>
@@ -1114,14 +1407,14 @@ export interface CreateWorkloadInput {
   /**
    * <p>A unique case-sensitive string used to ensure that this request is idempotent
    *             (executes only once).</p>
-   *         <p>You should not reuse the same token for other requests. If you retry a request with
-   *             the same client request token and the same parameters after it has completed
-   *             successfully, the result of the original request is returned. </p>
-   *         <important>
+   *          <p>You should not reuse the same token for other requests. If you retry a request with
+   *             the same client request token and the same parameters after the original request has completed
+   *             successfully, the result of the original request is returned.</p>
+   *          <important>
    *             <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs
    *                 automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI,
    *                 you must provide this token or the request will fail.</p>
-   *         </important>
+   *          </important>
    */
   ClientRequestToken?: string;
 
@@ -1142,6 +1435,7 @@ export interface CreateWorkloadInput {
 }
 
 /**
+ * @public
  * <p>Output of a create workload call.</p>
  */
 export interface CreateWorkloadOutput {
@@ -1156,12 +1450,22 @@ export interface CreateWorkloadOutput {
   WorkloadArn?: string;
 }
 
-export enum PermissionType {
-  CONTRIBUTOR = "CONTRIBUTOR",
-  READONLY = "READONLY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PermissionType = {
+  CONTRIBUTOR: "CONTRIBUTOR",
+  READONLY: "READONLY",
+} as const;
 
 /**
+ * @public
+ */
+export type PermissionType = (typeof PermissionType)[keyof typeof PermissionType];
+
+/**
+ * @public
  * <p>Input for Create Workload Share</p>
  */
 export interface CreateWorkloadShareInput {
@@ -1183,19 +1487,20 @@ export interface CreateWorkloadShareInput {
   /**
    * <p>A unique case-sensitive string used to ensure that this request is idempotent
    *             (executes only once).</p>
-   *         <p>You should not reuse the same token for other requests. If you retry a request with
-   *             the same client request token and the same parameters after it has completed
-   *             successfully, the result of the original request is returned. </p>
-   *         <important>
+   *          <p>You should not reuse the same token for other requests. If you retry a request with
+   *             the same client request token and the same parameters after the original request has completed
+   *             successfully, the result of the original request is returned.</p>
+   *          <important>
    *             <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs
    *                 automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI,
    *                 you must provide this token or the request will fail.</p>
-   *         </important>
+   *          </important>
    */
   ClientRequestToken?: string;
 }
 
 /**
+ * @public
  * <p>Input for Create Workload Share</p>
  */
 export interface CreateWorkloadShareOutput {
@@ -1210,33 +1515,48 @@ export interface CreateWorkloadShareOutput {
   ShareId?: string;
 }
 
-export enum LensStatusType {
-  ALL = "ALL",
-  DRAFT = "DRAFT",
-  PUBLISHED = "PUBLISHED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LensStatusType = {
+  ALL: "ALL",
+  DRAFT: "DRAFT",
+  PUBLISHED: "PUBLISHED",
+} as const;
 
+/**
+ * @public
+ */
+export type LensStatusType = (typeof LensStatusType)[keyof typeof LensStatusType];
+
+/**
+ * @public
+ */
 export interface DeleteLensInput {
   /**
    * <p>The alias of the lens.</p>
-   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
-   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
-   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
-   *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   *          <p>For Amazon Web Services official lenses, this is either the lens alias, such as
+   *                 <code>serverless</code>, or the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some
+   *             operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p>
+   *          <p>For custom lenses, this is the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p>
+   *          <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias: string | undefined;
 
   /**
    * <p>A unique case-sensitive string used to ensure that this request is idempotent
    *             (executes only once).</p>
-   *         <p>You should not reuse the same token for other requests. If you retry a request with
-   *             the same client request token and the same parameters after it has completed
-   *             successfully, the result of the original request is returned. </p>
-   *         <important>
+   *          <p>You should not reuse the same token for other requests. If you retry a request with
+   *             the same client request token and the same parameters after the original request has completed
+   *             successfully, the result of the original request is returned.</p>
+   *          <important>
    *             <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs
    *                 automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI,
    *                 you must provide this token or the request will fail.</p>
-   *         </important>
+   *          </important>
    */
   ClientRequestToken?: string;
 
@@ -1246,6 +1566,9 @@ export interface DeleteLensInput {
   LensStatus: LensStatusType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLensShareInput {
   /**
    * <p>The ID associated with the workload share.</p>
@@ -1254,29 +1577,33 @@ export interface DeleteLensShareInput {
 
   /**
    * <p>The alias of the lens.</p>
-   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
-   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
-   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
-   *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   *          <p>For Amazon Web Services official lenses, this is either the lens alias, such as
+   *                 <code>serverless</code>, or the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some
+   *             operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p>
+   *          <p>For custom lenses, this is the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p>
+   *          <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias: string | undefined;
 
   /**
    * <p>A unique case-sensitive string used to ensure that this request is idempotent
    *             (executes only once).</p>
-   *         <p>You should not reuse the same token for other requests. If you retry a request with
-   *             the same client request token and the same parameters after it has completed
-   *             successfully, the result of the original request is returned. </p>
-   *         <important>
+   *          <p>You should not reuse the same token for other requests. If you retry a request with
+   *             the same client request token and the same parameters after the original request has completed
+   *             successfully, the result of the original request is returned.</p>
+   *          <important>
    *             <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs
    *                 automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI,
    *                 you must provide this token or the request will fail.</p>
-   *         </important>
+   *          </important>
    */
   ClientRequestToken?: string;
 }
 
 /**
+ * @public
  * <p>Input for workload deletion.</p>
  */
 export interface DeleteWorkloadInput {
@@ -1288,19 +1615,20 @@ export interface DeleteWorkloadInput {
   /**
    * <p>A unique case-sensitive string used to ensure that this request is idempotent
    *             (executes only once).</p>
-   *         <p>You should not reuse the same token for other requests. If you retry a request with
-   *             the same client request token and the same parameters after it has completed
-   *             successfully, the result of the original request is returned. </p>
-   *         <important>
+   *          <p>You should not reuse the same token for other requests. If you retry a request with
+   *             the same client request token and the same parameters after the original request has completed
+   *             successfully, the result of the original request is returned.</p>
+   *          <important>
    *             <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs
    *                 automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI,
    *                 you must provide this token or the request will fail.</p>
-   *         </important>
+   *          </important>
    */
   ClientRequestToken?: string;
 }
 
 /**
+ * @public
  * <p>Input for Delete Workload Share</p>
  */
 export interface DeleteWorkloadShareInput {
@@ -1317,25 +1645,35 @@ export interface DeleteWorkloadShareInput {
   /**
    * <p>A unique case-sensitive string used to ensure that this request is idempotent
    *             (executes only once).</p>
-   *         <p>You should not reuse the same token for other requests. If you retry a request with
-   *             the same client request token and the same parameters after it has completed
-   *             successfully, the result of the original request is returned. </p>
-   *         <important>
+   *          <p>You should not reuse the same token for other requests. If you retry a request with
+   *             the same client request token and the same parameters after the original request has completed
+   *             successfully, the result of the original request is returned.</p>
+   *          <important>
    *             <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs
    *                 automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI,
    *                 you must provide this token or the request will fail.</p>
-   *         </important>
+   *          </important>
    */
   ClientRequestToken?: string;
 }
 
-export enum DifferenceStatus {
-  DELETED = "DELETED",
-  NEW = "NEW",
-  UPDATED = "UPDATED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DifferenceStatus = {
+  DELETED: "DELETED",
+  NEW: "NEW",
+  UPDATED: "UPDATED",
+} as const;
 
 /**
+ * @public
+ */
+export type DifferenceStatus = (typeof DifferenceStatus)[keyof typeof DifferenceStatus];
+
+/**
+ * @public
  * <p>Input to disassociate lens reviews.</p>
  */
 export interface DisassociateLensesInput {
@@ -1346,18 +1684,24 @@ export interface DisassociateLensesInput {
 
   /**
    * <p>List of lens aliases to associate or disassociate with a workload. Up to 10 lenses can be specified.</p>
-   *         <p>Identify a lens using its <a>LensSummary$LensAlias</a>.</p>
+   *          <p>Identify a lens using its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAliases: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ExportLensInput {
   /**
    * <p>The alias of the lens.</p>
-   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
-   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
-   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
-   *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   *          <p>For Amazon Web Services official lenses, this is either the lens alias, such as
+   *                 <code>serverless</code>, or the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some
+   *             operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p>
+   *          <p>For custom lenses, this is the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p>
+   *          <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias: string | undefined;
 
@@ -1367,14 +1711,18 @@ export interface ExportLensInput {
   LensVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface ExportLensOutput {
   /**
-   * <p>The JSON for the lens.</p>
+   * <p>The JSON representation of a lens.</p>
    */
   LensJSON?: string;
 }
 
 /**
+ * @public
  * <p>Input to get answer.</p>
  */
 export interface GetAnswerInput {
@@ -1385,10 +1733,13 @@ export interface GetAnswerInput {
 
   /**
    * <p>The alias of the lens.</p>
-   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
-   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
-   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
-   *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   *          <p>For Amazon Web Services official lenses, this is either the lens alias, such as
+   *                 <code>serverless</code>, or the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some
+   *             operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p>
+   *          <p>For custom lenses, this is the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p>
+   *          <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias: string | undefined;
 
@@ -1399,12 +1750,13 @@ export interface GetAnswerInput {
 
   /**
    * <p>The milestone number.</p>
-   *         <p>A workload can have a maximum of 100 milestones.</p>
+   *          <p>A workload can have a maximum of 100 milestones.</p>
    */
   MilestoneNumber?: number;
 }
 
 /**
+ * @public
  * <p>Output of a get answer call.</p>
  */
 export interface GetAnswerOutput {
@@ -1415,16 +1767,19 @@ export interface GetAnswerOutput {
 
   /**
    * <p>The milestone number.</p>
-   *         <p>A workload can have a maximum of 100 milestones.</p>
+   *          <p>A workload can have a maximum of 100 milestones.</p>
    */
   MilestoneNumber?: number;
 
   /**
    * <p>The alias of the lens.</p>
-   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
-   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
-   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
-   *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   *          <p>For Amazon Web Services official lenses, this is either the lens alias, such as
+   *                 <code>serverless</code>, or the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some
+   *             operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p>
+   *          <p>For custom lenses, this is the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p>
+   *          <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias?: string;
 
@@ -1439,13 +1794,84 @@ export interface GetAnswerOutput {
   Answer?: Answer;
 }
 
+/**
+ * @public
+ * @enum
+ */
+export const ReportFormat = {
+  JSON: "JSON",
+  PDF: "PDF",
+} as const;
+
+/**
+ * @public
+ */
+export type ReportFormat = (typeof ReportFormat)[keyof typeof ReportFormat];
+
+/**
+ * @public
+ */
+export interface GetConsolidatedReportInput {
+  /**
+   * <p>The format of the consolidated report.</p>
+   *          <p>For <code>PDF</code>, <code>Base64String</code> is returned. For <code>JSON</code>,
+   *             <code>Metrics</code> is returned.</p>
+   */
+  Format: ReportFormat | string | undefined;
+
+  /**
+   * <p>Set to <code>true</code> to have shared resources included in the report.</p>
+   */
+  IncludeSharedResources?: boolean;
+
+  /**
+   * <p>The token to use to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return for this request.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface GetConsolidatedReportOutput {
+  /**
+   * <p>The metrics that make up the consolidated report.</p>
+   *          <p>Only returned when <code>JSON</code> format is requested.</p>
+   */
+  Metrics?: ConsolidatedReportMetric[];
+
+  /**
+   * <p>The token to use to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The Base64-encoded string representation of a lens review report.</p>
+   *          <p>This data can be used to create a PDF file.</p>
+   *          <p>Only returned by <a>GetConsolidatedReport</a>
+   *          when <code>PDF</code> format is requested.</p>
+   */
+  Base64String?: string;
+}
+
+/**
+ * @public
+ */
 export interface GetLensInput {
   /**
    * <p>The alias of the lens.</p>
-   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
-   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
-   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
-   *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   *          <p>For Amazon Web Services official lenses, this is either the lens alias, such as
+   *                 <code>serverless</code>, or the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some
+   *             operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p>
+   *          <p>For custom lenses, this is the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p>
+   *          <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias: string | undefined;
 
@@ -1456,6 +1882,7 @@ export interface GetLensInput {
 }
 
 /**
+ * @public
  * <p>A lens return object.</p>
  */
 export interface Lens {
@@ -1495,6 +1922,9 @@ export interface Lens {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetLensOutput {
   /**
    * <p>A lens return object.</p>
@@ -1503,6 +1933,7 @@ export interface GetLensOutput {
 }
 
 /**
+ * @public
  * <p>Input to get lens review.</p>
  */
 export interface GetLensReviewInput {
@@ -1513,35 +1944,48 @@ export interface GetLensReviewInput {
 
   /**
    * <p>The alias of the lens.</p>
-   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
-   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
-   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
-   *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   *          <p>For Amazon Web Services official lenses, this is either the lens alias, such as
+   *                 <code>serverless</code>, or the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some
+   *             operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p>
+   *          <p>For custom lenses, this is the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p>
+   *          <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias: string | undefined;
 
   /**
    * <p>The milestone number.</p>
-   *         <p>A workload can have a maximum of 100 milestones.</p>
+   *          <p>A workload can have a maximum of 100 milestones.</p>
    */
   MilestoneNumber?: number;
 }
 
-export enum LensStatus {
-  CURRENT = "CURRENT",
-  DELETED = "DELETED",
-  DEPRECATED = "DEPRECATED",
-  NOT_CURRENT = "NOT_CURRENT",
-  UNSHARED = "UNSHARED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LensStatus = {
+  CURRENT: "CURRENT",
+  DELETED: "DELETED",
+  DEPRECATED: "DEPRECATED",
+  NOT_CURRENT: "NOT_CURRENT",
+  UNSHARED: "UNSHARED",
+} as const;
 
 /**
+ * @public
+ */
+export type LensStatus = (typeof LensStatus)[keyof typeof LensStatus];
+
+/**
+ * @public
  * <p>A pillar review summary of a lens review.</p>
  */
 export interface PillarReviewSummary {
   /**
    * <p>The ID used to identify a pillar, for example, <code>security</code>.</p>
-   *         <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>
+   *          <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>
    */
   PillarId?: string;
 
@@ -1556,21 +2000,25 @@ export interface PillarReviewSummary {
   Notes?: string;
 
   /**
-   * <p>A map from risk names to the count of how questions have that rating.</p>
+   * <p>A map from risk names to the count of how many questions have that rating.</p>
    */
   RiskCounts?: Record<string, number>;
 }
 
 /**
+ * @public
  * <p>A lens review of a question.</p>
  */
 export interface LensReview {
   /**
    * <p>The alias of the lens.</p>
-   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
-   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
-   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
-   *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   *          <p>For Amazon Web Services official lenses, this is either the lens alias, such as
+   *                 <code>serverless</code>, or the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some
+   *             operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p>
+   *          <p>For custom lenses, this is the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p>
+   *          <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias?: string;
 
@@ -1610,7 +2058,7 @@ export interface LensReview {
   Notes?: string;
 
   /**
-   * <p>A map from risk names to the count of how questions have that rating.</p>
+   * <p>A map from risk names to the count of how many questions have that rating.</p>
    */
   RiskCounts?: Record<string, number>;
 
@@ -1621,6 +2069,7 @@ export interface LensReview {
 }
 
 /**
+ * @public
  * <p>Output of a get lens review call.</p>
  */
 export interface GetLensReviewOutput {
@@ -1631,7 +2080,7 @@ export interface GetLensReviewOutput {
 
   /**
    * <p>The milestone number.</p>
-   *         <p>A workload can have a maximum of 100 milestones.</p>
+   *          <p>A workload can have a maximum of 100 milestones.</p>
    */
   MilestoneNumber?: number;
 
@@ -1642,6 +2091,7 @@ export interface GetLensReviewOutput {
 }
 
 /**
+ * @public
  * <p>Input to get lens review report.</p>
  */
 export interface GetLensReviewReportInput {
@@ -1652,30 +2102,37 @@ export interface GetLensReviewReportInput {
 
   /**
    * <p>The alias of the lens.</p>
-   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
-   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
-   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
-   *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   *          <p>For Amazon Web Services official lenses, this is either the lens alias, such as
+   *                 <code>serverless</code>, or the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some
+   *             operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p>
+   *          <p>For custom lenses, this is the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p>
+   *          <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias: string | undefined;
 
   /**
    * <p>The milestone number.</p>
-   *         <p>A workload can have a maximum of 100 milestones.</p>
+   *          <p>A workload can have a maximum of 100 milestones.</p>
    */
   MilestoneNumber?: number;
 }
 
 /**
+ * @public
  * <p>A report of a lens review.</p>
  */
 export interface LensReviewReport {
   /**
    * <p>The alias of the lens.</p>
-   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
-   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
-   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
-   *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   *          <p>For Amazon Web Services official lenses, this is either the lens alias, such as
+   *                 <code>serverless</code>, or the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some
+   *             operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p>
+   *          <p>For custom lenses, this is the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p>
+   *          <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias?: string;
 
@@ -1686,12 +2143,15 @@ export interface LensReviewReport {
 
   /**
    * <p>The Base64-encoded string representation of a lens review report.</p>
-   *         <p>This data can be used to create a PDF file.</p>
+   *          <p>This data can be used to create a PDF file.</p>
+   *          <p>Only returned by <a>GetConsolidatedReport</a>
+   *          when <code>PDF</code> format is requested.</p>
    */
   Base64String?: string;
 }
 
 /**
+ * @public
  * <p>Output of a get lens review report call.</p>
  */
 export interface GetLensReviewReportOutput {
@@ -1702,7 +2162,7 @@ export interface GetLensReviewReportOutput {
 
   /**
    * <p>The milestone number.</p>
-   *         <p>A workload can have a maximum of 100 milestones.</p>
+   *          <p>A workload can have a maximum of 100 milestones.</p>
    */
   MilestoneNumber?: number;
 
@@ -1712,13 +2172,19 @@ export interface GetLensReviewReportOutput {
   LensReviewReport?: LensReviewReport;
 }
 
+/**
+ * @public
+ */
 export interface GetLensVersionDifferenceInput {
   /**
    * <p>The alias of the lens.</p>
-   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
-   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
-   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
-   *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   *          <p>For Amazon Web Services official lenses, this is either the lens alias, such as
+   *                 <code>serverless</code>, or the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some
+   *             operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p>
+   *          <p>For custom lenses, this is the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p>
+   *          <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias: string | undefined;
 
@@ -1734,6 +2200,7 @@ export interface GetLensVersionDifferenceInput {
 }
 
 /**
+ * @public
  * <p>A question difference return object.</p>
  */
 export interface QuestionDifference {
@@ -1754,12 +2221,13 @@ export interface QuestionDifference {
 }
 
 /**
+ * @public
  * <p>A pillar difference return object.</p>
  */
 export interface PillarDifference {
   /**
    * <p>The ID used to identify a pillar, for example, <code>security</code>.</p>
-   *         <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>
+   *          <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>
    */
   PillarId?: string;
 
@@ -1780,6 +2248,7 @@ export interface PillarDifference {
 }
 
 /**
+ * @public
  * <p>The differences between the base and latest versions of the lens.</p>
  */
 export interface VersionDifferences {
@@ -1789,13 +2258,19 @@ export interface VersionDifferences {
   PillarDifferences?: PillarDifference[];
 }
 
+/**
+ * @public
+ */
 export interface GetLensVersionDifferenceOutput {
   /**
    * <p>The alias of the lens.</p>
-   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
-   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
-   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
-   *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   *          <p>For Amazon Web Services official lenses, this is either the lens alias, such as
+   *                 <code>serverless</code>, or the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some
+   *             operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p>
+   *          <p>For custom lenses, this is the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p>
+   *          <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias?: string;
 
@@ -1826,6 +2301,7 @@ export interface GetLensVersionDifferenceOutput {
 }
 
 /**
+ * @public
  * <p>Input to get a milestone.</p>
  */
 export interface GetMilestoneInput {
@@ -1836,20 +2312,30 @@ export interface GetMilestoneInput {
 
   /**
    * <p>The milestone number.</p>
-   *         <p>A workload can have a maximum of 100 milestones.</p>
+   *          <p>A workload can have a maximum of 100 milestones.</p>
    */
   MilestoneNumber: number | undefined;
 }
 
-export enum WorkloadImprovementStatus {
-  COMPLETE = "COMPLETE",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_APPLICABLE = "NOT_APPLICABLE",
-  NOT_STARTED = "NOT_STARTED",
-  RISK_ACKNOWLEDGED = "RISK_ACKNOWLEDGED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const WorkloadImprovementStatus = {
+  COMPLETE: "COMPLETE",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_APPLICABLE: "NOT_APPLICABLE",
+  NOT_STARTED: "NOT_STARTED",
+  RISK_ACKNOWLEDGED: "RISK_ACKNOWLEDGED",
+} as const;
 
 /**
+ * @public
+ */
+export type WorkloadImprovementStatus = (typeof WorkloadImprovementStatus)[keyof typeof WorkloadImprovementStatus];
+
+/**
+ * @public
  * <p>A workload return object.</p>
  */
 export interface Workload {
@@ -1865,7 +2351,7 @@ export interface Workload {
 
   /**
    * <p>The name of the workload.</p>
-   *         <p>The name must be unique within an account within an Amazon Web Services Region. Spaces and capitalization
+   *          <p>The name must be unique within an account within an Amazon Web Services Region. Spaces and capitalization
    *             are ignored when checking for uniqueness.</p>
    */
   WorkloadName?: string;
@@ -1920,7 +2406,7 @@ export interface Workload {
   /**
    * <p>Flag indicating whether the workload owner has acknowledged that the <i>Review
    *                 owner</i> field is required.</p>
-   *         <p>If a <b>Review owner</b> is not added to the workload within
+   *          <p>If a <b>Review owner</b> is not added to the workload within
    *             60 days of acknowledgement, access to the workload is restricted until an owner is
    *             added.</p>
    */
@@ -1928,140 +2414,140 @@ export interface Workload {
 
   /**
    * <p>The industry type for the workload.</p>
-   *         <p>If specified, must be one of the following:</p>
-   *         <ul>
+   *          <p>If specified, must be one of the following:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Agriculture</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Automobile</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Defense</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Design and Engineering</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Digital Advertising</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Education</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Environmental Protection</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Financial Services</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Gaming</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>General Public Services</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Healthcare</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Hospitality</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>InfoTech</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Justice and Public Safety</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Life Sciences</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Manufacturing</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Media & Entertainment</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Mining & Resources</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Oil & Gas</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Power & Utilities</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Professional Services</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Real Estate & Construction</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Retail & Wholesale</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Social Protection</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Telecommunications</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Travel, Transportation & Logistics</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Other</code>
    *                </p>
    *             </li>
@@ -2085,7 +2571,7 @@ export interface Workload {
   ImprovementStatus?: WorkloadImprovementStatus | string;
 
   /**
-   * <p>A map from risk names to the count of how questions have that rating.</p>
+   * <p>A map from risk names to the count of how many questions have that rating.</p>
    */
   RiskCounts?: Record<string, number>;
 
@@ -2127,18 +2613,19 @@ export interface Workload {
 }
 
 /**
+ * @public
  * <p>A milestone return object.</p>
  */
 export interface Milestone {
   /**
    * <p>The milestone number.</p>
-   *         <p>A workload can have a maximum of 100 milestones.</p>
+   *          <p>A workload can have a maximum of 100 milestones.</p>
    */
   MilestoneNumber?: number;
 
   /**
    * <p>The name of the milestone in a workload.</p>
-   *         <p>Milestone names must be unique within a workload.</p>
+   *          <p>Milestone names must be unique within a workload.</p>
    */
   MilestoneName?: string;
 
@@ -2154,6 +2641,7 @@ export interface Milestone {
 }
 
 /**
+ * @public
  * <p>Output of a get milestone call.</p>
  */
 export interface GetMilestoneOutput {
@@ -2169,6 +2657,7 @@ export interface GetMilestoneOutput {
 }
 
 /**
+ * @public
  * <p>Input to get a workload.</p>
  */
 export interface GetWorkloadInput {
@@ -2179,6 +2668,7 @@ export interface GetWorkloadInput {
 }
 
 /**
+ * @public
  * <p>Output of a get workload call.</p>
  */
 export interface GetWorkloadOutput {
@@ -2188,13 +2678,19 @@ export interface GetWorkloadOutput {
   Workload?: Workload;
 }
 
+/**
+ * @public
+ */
 export interface ImportLensInput {
   /**
    * <p>The alias of the lens.</p>
-   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
-   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
-   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
-   *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   *          <p>For Amazon Web Services official lenses, this is either the lens alias, such as
+   *                 <code>serverless</code>, or the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some
+   *             operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p>
+   *          <p>For custom lenses, this is the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p>
+   *          <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias?: string;
 
@@ -2206,14 +2702,14 @@ export interface ImportLensInput {
   /**
    * <p>A unique case-sensitive string used to ensure that this request is idempotent
    *             (executes only once).</p>
-   *         <p>You should not reuse the same token for other requests. If you retry a request with
-   *             the same client request token and the same parameters after it has completed
-   *             successfully, the result of the original request is returned. </p>
-   *         <important>
+   *          <p>You should not reuse the same token for other requests. If you retry a request with
+   *             the same client request token and the same parameters after the original request has completed
+   *             successfully, the result of the original request is returned.</p>
+   *          <important>
    *             <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs
    *                 automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI,
    *                 you must provide this token or the request will fail.</p>
-   *         </important>
+   *          </important>
    */
   ClientRequestToken?: string;
 
@@ -2223,15 +2719,27 @@ export interface ImportLensInput {
   Tags?: Record<string, string>;
 }
 
-export enum ImportLensStatus {
-  COMPLETE = "COMPLETE",
-  ERROR = "ERROR",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ImportLensStatus = {
+  COMPLETE: "COMPLETE",
+  ERROR: "ERROR",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
 
+/**
+ * @public
+ */
+export type ImportLensStatus = (typeof ImportLensStatus)[keyof typeof ImportLensStatus];
+
+/**
+ * @public
+ */
 export interface ImportLensOutput {
   /**
-   * <p>The ARN for the lens.</p>
+   * <p>The ARN for the lens that was created or updated.</p>
    */
   LensArn?: string;
 
@@ -2242,6 +2750,7 @@ export interface ImportLensOutput {
 }
 
 /**
+ * @public
  * <p>An improvement summary of a lens review in a workload.</p>
  */
 export interface ImprovementSummary {
@@ -2252,7 +2761,7 @@ export interface ImprovementSummary {
 
   /**
    * <p>The ID used to identify a pillar, for example, <code>security</code>.</p>
-   *         <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>
+   *          <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>
    */
   PillarId?: string;
 
@@ -2267,8 +2776,9 @@ export interface ImprovementSummary {
   Risk?: Risk | string;
 
   /**
-   * <p>The improvement plan URL for a question.</p>
-   *         <p>This value is only available if the question has been answered.</p>
+   * <p>The improvement plan URL for a question in an Amazon Web Services official lenses.</p>
+   *          <p>This value is only available if the question has been answered.</p>
+   *          <p>This value does not apply to custom lenses.</p>
    */
   ImprovementPlanUrl?: string;
 
@@ -2279,15 +2789,19 @@ export interface ImprovementSummary {
 }
 
 /**
+ * @public
  * <p>A lens review summary of a workload.</p>
  */
 export interface LensReviewSummary {
   /**
    * <p>The alias of the lens.</p>
-   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
-   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
-   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
-   *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   *          <p>For Amazon Web Services official lenses, this is either the lens alias, such as
+   *                 <code>serverless</code>, or the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some
+   *             operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p>
+   *          <p>For custom lenses, this is the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p>
+   *          <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias?: string;
 
@@ -2317,23 +2831,33 @@ export interface LensReviewSummary {
   UpdatedAt?: Date;
 
   /**
-   * <p>A map from risk names to the count of how questions have that rating.</p>
+   * <p>A map from risk names to the count of how many questions have that rating.</p>
    */
   RiskCounts?: Record<string, number>;
 }
 
-export enum ShareStatus {
-  ACCEPTED = "ACCEPTED",
-  ASSOCIATED = "ASSOCIATED",
-  ASSOCIATING = "ASSOCIATING",
-  EXPIRED = "EXPIRED",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  REJECTED = "REJECTED",
-  REVOKED = "REVOKED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ShareStatus = {
+  ACCEPTED: "ACCEPTED",
+  ASSOCIATED: "ASSOCIATED",
+  ASSOCIATING: "ASSOCIATING",
+  EXPIRED: "EXPIRED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  REJECTED: "REJECTED",
+  REVOKED: "REVOKED",
+} as const;
 
 /**
+ * @public
+ */
+export type ShareStatus = (typeof ShareStatus)[keyof typeof ShareStatus];
+
+/**
+ * @public
  * <p>A lens share summary return object.</p>
  */
 export interface LensShareSummary {
@@ -2358,13 +2882,23 @@ export interface LensShareSummary {
   StatusMessage?: string;
 }
 
-export enum LensType {
-  AWS_OFFICIAL = "AWS_OFFICIAL",
-  CUSTOM_SELF = "CUSTOM_SELF",
-  CUSTOM_SHARED = "CUSTOM_SHARED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LensType = {
+  AWS_OFFICIAL: "AWS_OFFICIAL",
+  CUSTOM_SELF: "CUSTOM_SELF",
+  CUSTOM_SHARED: "CUSTOM_SHARED",
+} as const;
 
 /**
+ * @public
+ */
+export type LensType = (typeof LensType)[keyof typeof LensType];
+
+/**
+ * @public
  * <p>A lens summary of a lens.</p>
  */
 export interface LensSummary {
@@ -2375,10 +2909,13 @@ export interface LensSummary {
 
   /**
    * <p>The alias of the lens.</p>
-   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
-   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
-   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
-   *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   *          <p>For Amazon Web Services official lenses, this is either the lens alias, such as
+   *                 <code>serverless</code>, or the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some
+   *             operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p>
+   *          <p>For custom lenses, this is the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p>
+   *          <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias?: string;
 
@@ -2424,6 +2961,7 @@ export interface LensSummary {
 }
 
 /**
+ * @public
  * <p>Lens upgrade summary return object.</p>
  */
 export interface LensUpgradeSummary {
@@ -2434,17 +2972,20 @@ export interface LensUpgradeSummary {
 
   /**
    * <p>The name of the workload.</p>
-   *         <p>The name must be unique within an account within an Amazon Web Services Region. Spaces and capitalization
+   *          <p>The name must be unique within an account within an Amazon Web Services Region. Spaces and capitalization
    *             are ignored when checking for uniqueness.</p>
    */
   WorkloadName?: string;
 
   /**
    * <p>The alias of the lens.</p>
-   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
-   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
-   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
-   *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   *          <p>For Amazon Web Services official lenses, this is either the lens alias, such as
+   *                 <code>serverless</code>, or the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some
+   *             operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p>
+   *          <p>For custom lenses, this is the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p>
+   *          <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias?: string;
 
@@ -2465,6 +3006,7 @@ export interface LensUpgradeSummary {
 }
 
 /**
+ * @public
  * <p>Input to list answers.</p>
  */
 export interface ListAnswersInput {
@@ -2475,22 +3017,25 @@ export interface ListAnswersInput {
 
   /**
    * <p>The alias of the lens.</p>
-   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
-   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
-   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
-   *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   *          <p>For Amazon Web Services official lenses, this is either the lens alias, such as
+   *                 <code>serverless</code>, or the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some
+   *             operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p>
+   *          <p>For custom lenses, this is the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p>
+   *          <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias: string | undefined;
 
   /**
    * <p>The ID used to identify a pillar, for example, <code>security</code>.</p>
-   *         <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>
+   *          <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>
    */
   PillarId?: string;
 
   /**
    * <p>The milestone number.</p>
-   *         <p>A workload can have a maximum of 100 milestones.</p>
+   *          <p>A workload can have a maximum of 100 milestones.</p>
    */
   MilestoneNumber?: number;
 
@@ -2506,6 +3051,7 @@ export interface ListAnswersInput {
 }
 
 /**
+ * @public
  * <p>Output of a list answers call.</p>
  */
 export interface ListAnswersOutput {
@@ -2516,16 +3062,19 @@ export interface ListAnswersOutput {
 
   /**
    * <p>The milestone number.</p>
-   *         <p>A workload can have a maximum of 100 milestones.</p>
+   *          <p>A workload can have a maximum of 100 milestones.</p>
    */
   MilestoneNumber?: number;
 
   /**
    * <p>The alias of the lens.</p>
-   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
-   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
-   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
-   *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   *          <p>For Amazon Web Services official lenses, this is either the lens alias, such as
+   *                 <code>serverless</code>, or the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some
+   *             operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p>
+   *          <p>For custom lenses, this is the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p>
+   *          <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias?: string;
 
@@ -2545,6 +3094,9 @@ export interface ListAnswersOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCheckDetailsInput {
   /**
    * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
@@ -2568,7 +3120,7 @@ export interface ListCheckDetailsInput {
 
   /**
    * <p>The ID used to identify a pillar, for example, <code>security</code>.</p>
-   *         <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>
+   *          <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>
    */
   PillarId: string | undefined;
 
@@ -2583,6 +3135,9 @@ export interface ListCheckDetailsInput {
   ChoiceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListCheckDetailsOutput {
   /**
    * <p>The details about the Trusted Advisor checks related to the Well-Architected best practice.</p>
@@ -2595,6 +3150,9 @@ export interface ListCheckDetailsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCheckSummariesInput {
   /**
    * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
@@ -2618,7 +3176,7 @@ export interface ListCheckSummariesInput {
 
   /**
    * <p>The ID used to identify a pillar, for example, <code>security</code>.</p>
-   *         <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>
+   *          <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>
    */
   PillarId: string | undefined;
 
@@ -2633,6 +3191,9 @@ export interface ListCheckSummariesInput {
   ChoiceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListCheckSummariesOutput {
   /**
    * <p>List of Trusted Advisor summaries related to the Well-Architected best practice.</p>
@@ -2646,6 +3207,7 @@ export interface ListCheckSummariesOutput {
 }
 
 /**
+ * @public
  * <p>Input to list lenses.</p>
  */
 export interface ListLensesInput {
@@ -2676,6 +3238,7 @@ export interface ListLensesInput {
 }
 
 /**
+ * @public
  * <p>Output of a list lenses call.</p>
  */
 export interface ListLensesOutput {
@@ -2691,6 +3254,7 @@ export interface ListLensesOutput {
 }
 
 /**
+ * @public
  * <p>Input to list lens review improvements.</p>
  */
 export interface ListLensReviewImprovementsInput {
@@ -2701,22 +3265,25 @@ export interface ListLensReviewImprovementsInput {
 
   /**
    * <p>The alias of the lens.</p>
-   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
-   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
-   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
-   *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   *          <p>For Amazon Web Services official lenses, this is either the lens alias, such as
+   *                 <code>serverless</code>, or the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some
+   *             operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p>
+   *          <p>For custom lenses, this is the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p>
+   *          <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias: string | undefined;
 
   /**
    * <p>The ID used to identify a pillar, for example, <code>security</code>.</p>
-   *         <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>
+   *          <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>
    */
   PillarId?: string;
 
   /**
    * <p>The milestone number.</p>
-   *         <p>A workload can have a maximum of 100 milestones.</p>
+   *          <p>A workload can have a maximum of 100 milestones.</p>
    */
   MilestoneNumber?: number;
 
@@ -2732,6 +3299,7 @@ export interface ListLensReviewImprovementsInput {
 }
 
 /**
+ * @public
  * <p>Output of a list lens review improvements call.</p>
  */
 export interface ListLensReviewImprovementsOutput {
@@ -2742,16 +3310,19 @@ export interface ListLensReviewImprovementsOutput {
 
   /**
    * <p>The milestone number.</p>
-   *         <p>A workload can have a maximum of 100 milestones.</p>
+   *          <p>A workload can have a maximum of 100 milestones.</p>
    */
   MilestoneNumber?: number;
 
   /**
    * <p>The alias of the lens.</p>
-   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
-   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
-   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
-   *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   *          <p>For Amazon Web Services official lenses, this is either the lens alias, such as
+   *                 <code>serverless</code>, or the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some
+   *             operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p>
+   *          <p>For custom lenses, this is the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p>
+   *          <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias?: string;
 
@@ -2772,6 +3343,7 @@ export interface ListLensReviewImprovementsOutput {
 }
 
 /**
+ * @public
  * <p>Input to list lens reviews.</p>
  */
 export interface ListLensReviewsInput {
@@ -2782,7 +3354,7 @@ export interface ListLensReviewsInput {
 
   /**
    * <p>The milestone number.</p>
-   *         <p>A workload can have a maximum of 100 milestones.</p>
+   *          <p>A workload can have a maximum of 100 milestones.</p>
    */
   MilestoneNumber?: number;
 
@@ -2798,6 +3370,7 @@ export interface ListLensReviewsInput {
 }
 
 /**
+ * @public
  * <p>Output of a list lens reviews call.</p>
  */
 export interface ListLensReviewsOutput {
@@ -2808,7 +3381,7 @@ export interface ListLensReviewsOutput {
 
   /**
    * <p>The milestone number.</p>
-   *         <p>A workload can have a maximum of 100 milestones.</p>
+   *          <p>A workload can have a maximum of 100 milestones.</p>
    */
   MilestoneNumber?: number;
 
@@ -2823,13 +3396,19 @@ export interface ListLensReviewsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListLensSharesInput {
   /**
    * <p>The alias of the lens.</p>
-   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
-   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
-   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
-   *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   *          <p>For Amazon Web Services official lenses, this is either the lens alias, such as
+   *                 <code>serverless</code>, or the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some
+   *             operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p>
+   *          <p>For custom lenses, this is the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p>
+   *          <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias: string | undefined;
 
@@ -2854,6 +3433,9 @@ export interface ListLensSharesInput {
   Status?: ShareStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListLensSharesOutput {
   /**
    * <p>A list of lens share summaries.</p>
@@ -2867,6 +3449,7 @@ export interface ListLensSharesOutput {
 }
 
 /**
+ * @public
  * <p>Input to list all milestones for a workload.</p>
  */
 export interface ListMilestonesInput {
@@ -2887,6 +3470,7 @@ export interface ListMilestonesInput {
 }
 
 /**
+ * @public
  * <p>A workload summary return object.</p>
  */
 export interface WorkloadSummary {
@@ -2902,7 +3486,7 @@ export interface WorkloadSummary {
 
   /**
    * <p>The name of the workload.</p>
-   *         <p>The name must be unique within an account within an Amazon Web Services Region. Spaces and capitalization
+   *          <p>The name must be unique within an account within an Amazon Web Services Region. Spaces and capitalization
    *             are ignored when checking for uniqueness.</p>
    */
   WorkloadName?: string;
@@ -2923,7 +3507,7 @@ export interface WorkloadSummary {
   Lenses?: string[];
 
   /**
-   * <p>A map from risk names to the count of how questions have that rating.</p>
+   * <p>A map from risk names to the count of how many questions have that rating.</p>
    */
   RiskCounts?: Record<string, number>;
 
@@ -2934,18 +3518,19 @@ export interface WorkloadSummary {
 }
 
 /**
+ * @public
  * <p>A milestone summary return object.</p>
  */
 export interface MilestoneSummary {
   /**
    * <p>The milestone number.</p>
-   *         <p>A workload can have a maximum of 100 milestones.</p>
+   *          <p>A workload can have a maximum of 100 milestones.</p>
    */
   MilestoneNumber?: number;
 
   /**
    * <p>The name of the milestone in a workload.</p>
-   *         <p>Milestone names must be unique within a workload.</p>
+   *          <p>Milestone names must be unique within a workload.</p>
    */
   MilestoneName?: string;
 
@@ -2961,6 +3546,7 @@ export interface MilestoneSummary {
 }
 
 /**
+ * @public
  * <p>Output of a list milestones call.</p>
  */
 export interface ListMilestonesOutput {
@@ -2980,6 +3566,9 @@ export interface ListMilestonesOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListNotificationsInput {
   /**
    * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
@@ -2997,12 +3586,22 @@ export interface ListNotificationsInput {
   MaxResults?: number;
 }
 
-export enum NotificationType {
-  LENS_VERSION_DEPRECATED = "LENS_VERSION_DEPRECATED",
-  LENS_VERSION_UPGRADED = "LENS_VERSION_UPGRADED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NotificationType = {
+  LENS_VERSION_DEPRECATED: "LENS_VERSION_DEPRECATED",
+  LENS_VERSION_UPGRADED: "LENS_VERSION_UPGRADED",
+} as const;
 
 /**
+ * @public
+ */
+export type NotificationType = (typeof NotificationType)[keyof typeof NotificationType];
+
+/**
+ * @public
  * <p>A notification summary return object.</p>
  */
 export interface NotificationSummary {
@@ -3017,6 +3616,9 @@ export interface NotificationSummary {
   LensUpgradeSummary?: LensUpgradeSummary;
 }
 
+/**
+ * @public
+ */
 export interface ListNotificationsOutput {
   /**
    * <p>List of lens notification summaries in a workload.</p>
@@ -3029,12 +3631,22 @@ export interface ListNotificationsOutput {
   NextToken?: string;
 }
 
-export enum ShareResourceType {
-  LENS = "LENS",
-  WORKLOAD = "WORKLOAD",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ShareResourceType = {
+  LENS: "LENS",
+  WORKLOAD: "WORKLOAD",
+} as const;
 
 /**
+ * @public
+ */
+export type ShareResourceType = (typeof ShareResourceType)[keyof typeof ShareResourceType];
+
+/**
+ * @public
  * <p>Input for List Share Invitations</p>
  */
 export interface ListShareInvitationsInput {
@@ -3066,6 +3678,7 @@ export interface ListShareInvitationsInput {
 }
 
 /**
+ * @public
  * <p>A share invitation summary return object.</p>
  */
 export interface ShareInvitationSummary {
@@ -3096,7 +3709,7 @@ export interface ShareInvitationSummary {
 
   /**
    * <p>The name of the workload.</p>
-   *         <p>The name must be unique within an account within an Amazon Web Services Region. Spaces and capitalization
+   *          <p>The name must be unique within an account within an Amazon Web Services Region. Spaces and capitalization
    *             are ignored when checking for uniqueness.</p>
    */
   WorkloadName?: string;
@@ -3118,6 +3731,7 @@ export interface ShareInvitationSummary {
 }
 
 /**
+ * @public
  * <p>Input for List Share Invitations</p>
  */
 export interface ListShareInvitationsOutput {
@@ -3132,6 +3746,9 @@ export interface ListShareInvitationsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceInput {
   /**
    * <p>The ARN for the workload.</p>
@@ -3139,6 +3756,9 @@ export interface ListTagsForResourceInput {
   WorkloadArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceOutput {
   /**
    * <p>The tags for the resource.</p>
@@ -3147,6 +3767,7 @@ export interface ListTagsForResourceOutput {
 }
 
 /**
+ * @public
  * <p>Input to list all workloads.</p>
  */
 export interface ListWorkloadsInput {
@@ -3168,6 +3789,7 @@ export interface ListWorkloadsInput {
 }
 
 /**
+ * @public
  * <p>Output of a list workloads call.</p>
  */
 export interface ListWorkloadsOutput {
@@ -3183,6 +3805,7 @@ export interface ListWorkloadsOutput {
 }
 
 /**
+ * @public
  * <p>Input for List Workload Share</p>
  */
 export interface ListWorkloadSharesInput {
@@ -3213,6 +3836,7 @@ export interface ListWorkloadSharesInput {
 }
 
 /**
+ * @public
  * <p>A workload share summary return object.</p>
  */
 export interface WorkloadShareSummary {
@@ -3243,6 +3867,7 @@ export interface WorkloadShareSummary {
 }
 
 /**
+ * @public
  * <p>Input for List Workload Share</p>
  */
 export interface ListWorkloadSharesOutput {
@@ -3262,12 +3887,22 @@ export interface ListWorkloadSharesOutput {
   NextToken?: string;
 }
 
-export enum OrganizationSharingStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OrganizationSharingStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type OrganizationSharingStatus = (typeof OrganizationSharingStatus)[keyof typeof OrganizationSharingStatus];
+
+/**
+ * @public
  * <p>The share invitation.</p>
  */
 export interface ShareInvitation {
@@ -3288,10 +3923,13 @@ export interface ShareInvitation {
 
   /**
    * <p>The alias of the lens.</p>
-   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
-   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
-   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
-   *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   *          <p>For Amazon Web Services official lenses, this is either the lens alias, such as
+   *                 <code>serverless</code>, or the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some
+   *             operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p>
+   *          <p>For custom lenses, this is the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p>
+   *          <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias?: string;
 
@@ -3301,11 +3939,23 @@ export interface ShareInvitation {
   LensArn?: string;
 }
 
-export enum ShareInvitationAction {
-  ACCEPT = "ACCEPT",
-  REJECT = "REJECT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ShareInvitationAction = {
+  ACCEPT: "ACCEPT",
+  REJECT: "REJECT",
+} as const;
 
+/**
+ * @public
+ */
+export type ShareInvitationAction = (typeof ShareInvitationAction)[keyof typeof ShareInvitationAction];
+
+/**
+ * @public
+ */
 export interface TagResourceInput {
   /**
    * <p>The ARN for the workload.</p>
@@ -3318,8 +3968,14 @@ export interface TagResourceInput {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceOutput {}
 
+/**
+ * @public
+ */
 export interface UntagResourceInput {
   /**
    * <p>The ARN for the workload.</p>
@@ -3333,9 +3989,13 @@ export interface UntagResourceInput {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceOutput {}
 
 /**
+ * @public
  * <p>Input to update answer.</p>
  */
 export interface UpdateAnswerInput {
@@ -3346,10 +4006,13 @@ export interface UpdateAnswerInput {
 
   /**
    * <p>The alias of the lens.</p>
-   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
-   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
-   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
-   *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   *          <p>For Amazon Web Services official lenses, this is either the lens alias, such as
+   *                 <code>serverless</code>, or the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some
+   *             operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p>
+   *          <p>For custom lenses, this is the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p>
+   *          <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias: string | undefined;
 
@@ -3360,7 +4023,7 @@ export interface UpdateAnswerInput {
 
   /**
    * <p>List of selected choice IDs in a question answer.</p>
-   *         <p>The values entered replace the previously selected choices.</p>
+   *          <p>The values entered replace the previously selected choices.</p>
    */
   SelectedChoices?: string[];
 
@@ -3387,6 +4050,7 @@ export interface UpdateAnswerInput {
 }
 
 /**
+ * @public
  * <p>Output of a update answer call.</p>
  */
 export interface UpdateAnswerOutput {
@@ -3397,10 +4061,13 @@ export interface UpdateAnswerOutput {
 
   /**
    * <p>The alias of the lens.</p>
-   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
-   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
-   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
-   *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   *          <p>For Amazon Web Services official lenses, this is either the lens alias, such as
+   *                 <code>serverless</code>, or the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some
+   *             operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p>
+   *          <p>For custom lenses, this is the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p>
+   *          <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias?: string;
 
@@ -3415,6 +4082,9 @@ export interface UpdateAnswerOutput {
   Answer?: Answer;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGlobalSettingsInput {
   /**
    * <p>The status of organization sharing settings.</p>
@@ -3423,6 +4093,7 @@ export interface UpdateGlobalSettingsInput {
 }
 
 /**
+ * @public
  * <p>Input for update lens review.</p>
  */
 export interface UpdateLensReviewInput {
@@ -3433,10 +4104,13 @@ export interface UpdateLensReviewInput {
 
   /**
    * <p>The alias of the lens.</p>
-   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
-   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
-   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
-   *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   *          <p>For Amazon Web Services official lenses, this is either the lens alias, such as
+   *                 <code>serverless</code>, or the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some
+   *             operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p>
+   *          <p>For custom lenses, this is the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p>
+   *          <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias: string | undefined;
 
@@ -3452,6 +4126,7 @@ export interface UpdateLensReviewInput {
 }
 
 /**
+ * @public
  * <p>Output of a update lens review call.</p>
  */
 export interface UpdateLensReviewOutput {
@@ -3467,6 +4142,7 @@ export interface UpdateLensReviewOutput {
 }
 
 /**
+ * @public
  * <p>Input for Update Share Invitation</p>
  */
 export interface UpdateShareInvitationInput {
@@ -3481,6 +4157,9 @@ export interface UpdateShareInvitationInput {
   ShareInvitationAction: ShareInvitationAction | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateShareInvitationOutput {
   /**
    * <p>The updated workload or custom lens share invitation.</p>
@@ -3489,6 +4168,7 @@ export interface UpdateShareInvitationOutput {
 }
 
 /**
+ * @public
  * <p>Input to update a workload.</p>
  */
 export interface UpdateWorkloadInput {
@@ -3499,7 +4179,7 @@ export interface UpdateWorkloadInput {
 
   /**
    * <p>The name of the workload.</p>
-   *         <p>The name must be unique within an account within an Amazon Web Services Region. Spaces and capitalization
+   *          <p>The name must be unique within an account within an Amazon Web Services Region. Spaces and capitalization
    *             are ignored when checking for uniqueness.</p>
    */
   WorkloadName?: string;
@@ -3550,7 +4230,7 @@ export interface UpdateWorkloadInput {
   /**
    * <p>Flag indicating whether the workload owner has acknowledged that the <i>Review
    *                 owner</i> field is required.</p>
-   *         <p>If a <b>Review owner</b> is not added to the workload within
+   *          <p>If a <b>Review owner</b> is not added to the workload within
    *             60 days of acknowledgement, access to the workload is restricted until an owner is
    *             added.</p>
    */
@@ -3558,140 +4238,140 @@ export interface UpdateWorkloadInput {
 
   /**
    * <p>The industry type for the workload.</p>
-   *         <p>If specified, must be one of the following:</p>
-   *         <ul>
+   *          <p>If specified, must be one of the following:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Agriculture</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Automobile</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Defense</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Design and Engineering</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Digital Advertising</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Education</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Environmental Protection</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Financial Services</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Gaming</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>General Public Services</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Healthcare</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Hospitality</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>InfoTech</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Justice and Public Safety</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Life Sciences</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Manufacturing</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Media & Entertainment</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Mining & Resources</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Oil & Gas</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Power & Utilities</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Professional Services</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Real Estate & Construction</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Retail & Wholesale</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Social Protection</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Telecommunications</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Travel, Transportation & Logistics</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Other</code>
    *                </p>
    *             </li>
@@ -3726,6 +4406,7 @@ export interface UpdateWorkloadInput {
 }
 
 /**
+ * @public
  * <p>Output of an update workload call.</p>
  */
 export interface UpdateWorkloadOutput {
@@ -3736,6 +4417,7 @@ export interface UpdateWorkloadOutput {
 }
 
 /**
+ * @public
  * <p>Input for Update Workload Share</p>
  */
 export interface UpdateWorkloadShareInput {
@@ -3756,6 +4438,7 @@ export interface UpdateWorkloadShareInput {
 }
 
 /**
+ * @public
  * <p>A workload share return object.</p>
  */
 export interface WorkloadShare {
@@ -3786,7 +4469,7 @@ export interface WorkloadShare {
 
   /**
    * <p>The name of the workload.</p>
-   *         <p>The name must be unique within an account within an Amazon Web Services Region. Spaces and capitalization
+   *          <p>The name must be unique within an account within an Amazon Web Services Region. Spaces and capitalization
    *             are ignored when checking for uniqueness.</p>
    */
   WorkloadName?: string;
@@ -3798,6 +4481,7 @@ export interface WorkloadShare {
 }
 
 /**
+ * @public
  * <p>Input for Update Workload Share</p>
  */
 export interface UpdateWorkloadShareOutput {
@@ -3812,6 +4496,9 @@ export interface UpdateWorkloadShareOutput {
   WorkloadShare?: WorkloadShare;
 }
 
+/**
+ * @public
+ */
 export interface UpgradeLensReviewInput {
   /**
    * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
@@ -3820,800 +4507,33 @@ export interface UpgradeLensReviewInput {
 
   /**
    * <p>The alias of the lens.</p>
-   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
-   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
-   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
-   *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   *          <p>For Amazon Web Services official lenses, this is either the lens alias, such as
+   *                 <code>serverless</code>, or the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some
+   *             operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p>
+   *          <p>For custom lenses, this is the lens ARN, such as
+   *                 <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p>
+   *          <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias: string | undefined;
 
   /**
    * <p>The name of the milestone in a workload.</p>
-   *         <p>Milestone names must be unique within a workload.</p>
+   *          <p>Milestone names must be unique within a workload.</p>
    */
   MilestoneName: string | undefined;
 
   /**
    * <p>A unique case-sensitive string used to ensure that this request is idempotent
    *             (executes only once).</p>
-   *         <p>You should not reuse the same token for other requests. If you retry a request with
-   *             the same client request token and the same parameters after it has completed
-   *             successfully, the result of the original request is returned. </p>
-   *         <important>
+   *          <p>You should not reuse the same token for other requests. If you retry a request with
+   *             the same client request token and the same parameters after the original request has completed
+   *             successfully, the result of the original request is returned.</p>
+   *          <important>
    *             <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs
    *                 automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI,
    *                 you must provide this token or the request will fail.</p>
-   *         </important>
+   *          </important>
    */
   ClientRequestToken?: string;
 }
-
-/**
- * @internal
- */
-export const ChoiceContentFilterSensitiveLog = (obj: ChoiceContent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AdditionalResourcesFilterSensitiveLog = (obj: AdditionalResources): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChoiceAnswerFilterSensitiveLog = (obj: ChoiceAnswer): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChoiceFilterSensitiveLog = (obj: Choice): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnswerFilterSensitiveLog = (obj: Answer): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChoiceAnswerSummaryFilterSensitiveLog = (obj: ChoiceAnswerSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnswerSummaryFilterSensitiveLog = (obj: AnswerSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateLensesInputFilterSensitiveLog = (obj: AssociateLensesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CheckDetailFilterSensitiveLog = (obj: CheckDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CheckSummaryFilterSensitiveLog = (obj: CheckSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChoiceImprovementPlanFilterSensitiveLog = (obj: ChoiceImprovementPlan): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChoiceUpdateFilterSensitiveLog = (obj: ChoiceUpdate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLensShareInputFilterSensitiveLog = (obj: CreateLensShareInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLensShareOutputFilterSensitiveLog = (obj: CreateLensShareOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLensVersionInputFilterSensitiveLog = (obj: CreateLensVersionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLensVersionOutputFilterSensitiveLog = (obj: CreateLensVersionOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateMilestoneInputFilterSensitiveLog = (obj: CreateMilestoneInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateMilestoneOutputFilterSensitiveLog = (obj: CreateMilestoneOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorkloadDiscoveryConfigFilterSensitiveLog = (obj: WorkloadDiscoveryConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateWorkloadInputFilterSensitiveLog = (obj: CreateWorkloadInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateWorkloadOutputFilterSensitiveLog = (obj: CreateWorkloadOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateWorkloadShareInputFilterSensitiveLog = (obj: CreateWorkloadShareInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateWorkloadShareOutputFilterSensitiveLog = (obj: CreateWorkloadShareOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteLensInputFilterSensitiveLog = (obj: DeleteLensInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteLensShareInputFilterSensitiveLog = (obj: DeleteLensShareInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteWorkloadInputFilterSensitiveLog = (obj: DeleteWorkloadInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteWorkloadShareInputFilterSensitiveLog = (obj: DeleteWorkloadShareInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateLensesInputFilterSensitiveLog = (obj: DisassociateLensesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportLensInputFilterSensitiveLog = (obj: ExportLensInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportLensOutputFilterSensitiveLog = (obj: ExportLensOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAnswerInputFilterSensitiveLog = (obj: GetAnswerInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAnswerOutputFilterSensitiveLog = (obj: GetAnswerOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLensInputFilterSensitiveLog = (obj: GetLensInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LensFilterSensitiveLog = (obj: Lens): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLensOutputFilterSensitiveLog = (obj: GetLensOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLensReviewInputFilterSensitiveLog = (obj: GetLensReviewInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PillarReviewSummaryFilterSensitiveLog = (obj: PillarReviewSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LensReviewFilterSensitiveLog = (obj: LensReview): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLensReviewOutputFilterSensitiveLog = (obj: GetLensReviewOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLensReviewReportInputFilterSensitiveLog = (obj: GetLensReviewReportInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LensReviewReportFilterSensitiveLog = (obj: LensReviewReport): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLensReviewReportOutputFilterSensitiveLog = (obj: GetLensReviewReportOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLensVersionDifferenceInputFilterSensitiveLog = (obj: GetLensVersionDifferenceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const QuestionDifferenceFilterSensitiveLog = (obj: QuestionDifference): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PillarDifferenceFilterSensitiveLog = (obj: PillarDifference): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VersionDifferencesFilterSensitiveLog = (obj: VersionDifferences): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLensVersionDifferenceOutputFilterSensitiveLog = (obj: GetLensVersionDifferenceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMilestoneInputFilterSensitiveLog = (obj: GetMilestoneInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorkloadFilterSensitiveLog = (obj: Workload): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MilestoneFilterSensitiveLog = (obj: Milestone): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMilestoneOutputFilterSensitiveLog = (obj: GetMilestoneOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetWorkloadInputFilterSensitiveLog = (obj: GetWorkloadInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetWorkloadOutputFilterSensitiveLog = (obj: GetWorkloadOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportLensInputFilterSensitiveLog = (obj: ImportLensInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportLensOutputFilterSensitiveLog = (obj: ImportLensOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImprovementSummaryFilterSensitiveLog = (obj: ImprovementSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LensReviewSummaryFilterSensitiveLog = (obj: LensReviewSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LensShareSummaryFilterSensitiveLog = (obj: LensShareSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LensSummaryFilterSensitiveLog = (obj: LensSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LensUpgradeSummaryFilterSensitiveLog = (obj: LensUpgradeSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAnswersInputFilterSensitiveLog = (obj: ListAnswersInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAnswersOutputFilterSensitiveLog = (obj: ListAnswersOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCheckDetailsInputFilterSensitiveLog = (obj: ListCheckDetailsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCheckDetailsOutputFilterSensitiveLog = (obj: ListCheckDetailsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCheckSummariesInputFilterSensitiveLog = (obj: ListCheckSummariesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCheckSummariesOutputFilterSensitiveLog = (obj: ListCheckSummariesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLensesInputFilterSensitiveLog = (obj: ListLensesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLensesOutputFilterSensitiveLog = (obj: ListLensesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLensReviewImprovementsInputFilterSensitiveLog = (obj: ListLensReviewImprovementsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLensReviewImprovementsOutputFilterSensitiveLog = (obj: ListLensReviewImprovementsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLensReviewsInputFilterSensitiveLog = (obj: ListLensReviewsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLensReviewsOutputFilterSensitiveLog = (obj: ListLensReviewsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLensSharesInputFilterSensitiveLog = (obj: ListLensSharesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLensSharesOutputFilterSensitiveLog = (obj: ListLensSharesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMilestonesInputFilterSensitiveLog = (obj: ListMilestonesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorkloadSummaryFilterSensitiveLog = (obj: WorkloadSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MilestoneSummaryFilterSensitiveLog = (obj: MilestoneSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMilestonesOutputFilterSensitiveLog = (obj: ListMilestonesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNotificationsInputFilterSensitiveLog = (obj: ListNotificationsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NotificationSummaryFilterSensitiveLog = (obj: NotificationSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNotificationsOutputFilterSensitiveLog = (obj: ListNotificationsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListShareInvitationsInputFilterSensitiveLog = (obj: ListShareInvitationsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ShareInvitationSummaryFilterSensitiveLog = (obj: ShareInvitationSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListShareInvitationsOutputFilterSensitiveLog = (obj: ListShareInvitationsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceInputFilterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceOutputFilterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListWorkloadsInputFilterSensitiveLog = (obj: ListWorkloadsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListWorkloadsOutputFilterSensitiveLog = (obj: ListWorkloadsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListWorkloadSharesInputFilterSensitiveLog = (obj: ListWorkloadSharesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorkloadShareSummaryFilterSensitiveLog = (obj: WorkloadShareSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListWorkloadSharesOutputFilterSensitiveLog = (obj: ListWorkloadSharesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ShareInvitationFilterSensitiveLog = (obj: ShareInvitation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceInputFilterSensitiveLog = (obj: TagResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceOutputFilterSensitiveLog = (obj: TagResourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceInputFilterSensitiveLog = (obj: UntagResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceOutputFilterSensitiveLog = (obj: UntagResourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAnswerInputFilterSensitiveLog = (obj: UpdateAnswerInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAnswerOutputFilterSensitiveLog = (obj: UpdateAnswerOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateGlobalSettingsInputFilterSensitiveLog = (obj: UpdateGlobalSettingsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateLensReviewInputFilterSensitiveLog = (obj: UpdateLensReviewInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateLensReviewOutputFilterSensitiveLog = (obj: UpdateLensReviewOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateShareInvitationInputFilterSensitiveLog = (obj: UpdateShareInvitationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateShareInvitationOutputFilterSensitiveLog = (obj: UpdateShareInvitationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateWorkloadInputFilterSensitiveLog = (obj: UpdateWorkloadInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateWorkloadOutputFilterSensitiveLog = (obj: UpdateWorkloadOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateWorkloadShareInputFilterSensitiveLog = (obj: UpdateWorkloadShareInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorkloadShareFilterSensitiveLog = (obj: WorkloadShare): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateWorkloadShareOutputFilterSensitiveLog = (obj: UpdateWorkloadShareOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpgradeLensReviewInputFilterSensitiveLog = (obj: UpgradeLensReviewInput): any => ({
-  ...obj,
-});

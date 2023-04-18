@@ -13,24 +13,27 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListLabelingJobsForWorkteamRequest,
-  ListLabelingJobsForWorkteamRequestFilterSensitiveLog,
-  ListLabelingJobsForWorkteamResponse,
-  ListLabelingJobsForWorkteamResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1ListLabelingJobsForWorkteamCommand,
-  serializeAws_json1_1ListLabelingJobsForWorkteamCommand,
-} from "../protocols/Aws_json1_1";
+import { ListLabelingJobsForWorkteamRequest, ListLabelingJobsForWorkteamResponse } from "../models/models_3";
+import { de_ListLabelingJobsForWorkteamCommand, se_ListLabelingJobsForWorkteamCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListLabelingJobsForWorkteamCommand}.
+ */
 export interface ListLabelingJobsForWorkteamCommandInput extends ListLabelingJobsForWorkteamRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListLabelingJobsForWorkteamCommand}.
+ */
 export interface ListLabelingJobsForWorkteamCommandOutput
   extends ListLabelingJobsForWorkteamResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of labeling jobs assigned to a specified work team.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +41,29 @@ export interface ListLabelingJobsForWorkteamCommandOutput
  * import { SageMakerClient, ListLabelingJobsForWorkteamCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListLabelingJobsForWorkteamCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListLabelingJobsForWorkteamRequest
+ *   WorkteamArn: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   CreationTimeAfter: new Date("TIMESTAMP"),
+ *   CreationTimeBefore: new Date("TIMESTAMP"),
+ *   JobReferenceCodeContains: "STRING_VALUE",
+ *   SortBy: "CreationTime",
+ *   SortOrder: "Ascending" || "Descending",
+ * };
  * const command = new ListLabelingJobsForWorkteamCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLabelingJobsForWorkteamCommandInput - {@link ListLabelingJobsForWorkteamCommandInput}
+ * @returns {@link ListLabelingJobsForWorkteamCommandOutput}
  * @see {@link ListLabelingJobsForWorkteamCommandInput} for command's `input` shape.
  * @see {@link ListLabelingJobsForWorkteamCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class ListLabelingJobsForWorkteamCommand extends $Command<
@@ -64,6 +83,9 @@ export class ListLabelingJobsForWorkteamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLabelingJobsForWorkteamCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +114,8 @@ export class ListLabelingJobsForWorkteamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLabelingJobsForWorkteamRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListLabelingJobsForWorkteamResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +125,21 @@ export class ListLabelingJobsForWorkteamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLabelingJobsForWorkteamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListLabelingJobsForWorkteamCommand(input, context);
+    return se_ListLabelingJobsForWorkteamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListLabelingJobsForWorkteamCommandOutput> {
-    return deserializeAws_json1_1ListLabelingJobsForWorkteamCommand(output, context);
+    return de_ListLabelingJobsForWorkteamCommand(output, context);
   }
 
   // Start section: command_body_extra

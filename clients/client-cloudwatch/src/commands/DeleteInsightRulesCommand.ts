@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import {
-  DeleteInsightRulesInput,
-  DeleteInsightRulesInputFilterSensitiveLog,
-  DeleteInsightRulesOutput,
-  DeleteInsightRulesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteInsightRulesCommand,
-  serializeAws_queryDeleteInsightRulesCommand,
-} from "../protocols/Aws_query";
+import { DeleteInsightRulesInput, DeleteInsightRulesOutput } from "../models/models_0";
+import { de_DeleteInsightRulesCommand, se_DeleteInsightRulesCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteInsightRulesCommand}.
+ */
 export interface DeleteInsightRulesCommandInput extends DeleteInsightRulesInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteInsightRulesCommand}.
+ */
 export interface DeleteInsightRulesCommandOutput extends DeleteInsightRulesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Permanently deletes the specified Contributor Insights rules.</p>
  *          <p>If you create a rule, delete it, and then re-create it with the same name, historical data from the first time
  * 			the rule was created might
@@ -39,13 +42,27 @@ export interface DeleteInsightRulesCommandOutput extends DeleteInsightRulesOutpu
  * import { CloudWatchClient, DeleteInsightRulesCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, DeleteInsightRulesCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
+ * const input = { // DeleteInsightRulesInput
+ *   RuleNames: [ // InsightRuleNames // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DeleteInsightRulesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteInsightRulesCommandInput - {@link DeleteInsightRulesCommandInput}
+ * @returns {@link DeleteInsightRulesCommandOutput}
  * @see {@link DeleteInsightRulesCommandInput} for command's `input` shape.
  * @see {@link DeleteInsightRulesCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value of an input parameter is bad or out-of-range.</p>
+ *
+ * @throws {@link MissingRequiredParameterException} (client fault)
+ *  <p>An input parameter that is required is missing.</p>
+ *
  *
  */
 export class DeleteInsightRulesCommand extends $Command<
@@ -65,6 +82,9 @@ export class DeleteInsightRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteInsightRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +113,8 @@ export class DeleteInsightRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteInsightRulesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteInsightRulesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +124,18 @@ export class DeleteInsightRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteInsightRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteInsightRulesCommand(input, context);
+    return se_DeleteInsightRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInsightRulesCommandOutput> {
-    return deserializeAws_queryDeleteInsightRulesCommand(output, context);
+    return de_DeleteInsightRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import {
-  ModifyDBClusterMessage,
-  ModifyDBClusterMessageFilterSensitiveLog,
-  ModifyDBClusterResult,
-  ModifyDBClusterResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryModifyDBClusterCommand,
-  serializeAws_queryModifyDBClusterCommand,
-} from "../protocols/Aws_query";
+import { ModifyDBClusterMessage, ModifyDBClusterResult } from "../models/models_0";
+import { de_ModifyDBClusterCommand, se_ModifyDBClusterCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link ModifyDBClusterCommand}.
+ */
 export interface ModifyDBClusterCommandInput extends ModifyDBClusterMessage {}
+/**
+ * @public
+ *
+ * The output of {@link ModifyDBClusterCommand}.
+ */
 export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies a setting for an Amazon DocumentDB cluster. You can change one or more database
  *             configuration parameters by specifying these parameters and the new values in the
  *             request. </p>
@@ -38,13 +41,80 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  * import { DocDBClient, ModifyDBClusterCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, ModifyDBClusterCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = { // ModifyDBClusterMessage
+ *   DBClusterIdentifier: "STRING_VALUE", // required
+ *   NewDBClusterIdentifier: "STRING_VALUE",
+ *   ApplyImmediately: true || false,
+ *   BackupRetentionPeriod: Number("int"),
+ *   DBClusterParameterGroupName: "STRING_VALUE",
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   Port: Number("int"),
+ *   MasterUserPassword: "STRING_VALUE",
+ *   PreferredBackupWindow: "STRING_VALUE",
+ *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   CloudwatchLogsExportConfiguration: { // CloudwatchLogsExportConfiguration
+ *     EnableLogTypes: [ // LogTypeList
+ *       "STRING_VALUE",
+ *     ],
+ *     DisableLogTypes: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   EngineVersion: "STRING_VALUE",
+ *   DeletionProtection: true || false,
+ * };
  * const command = new ModifyDBClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyDBClusterCommandInput - {@link ModifyDBClusterCommandInput}
+ * @returns {@link ModifyDBClusterCommandOutput}
  * @see {@link ModifyDBClusterCommandInput} for command's `input` shape.
  * @see {@link ModifyDBClusterCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
+ *
+ * @throws {@link DBClusterAlreadyExistsFault} (client fault)
+ *  <p>You already have a cluster with the given identifier.</p>
+ *
+ * @throws {@link DBClusterNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBClusterIdentifier</code> doesn't refer to an existing cluster. </p>
+ *
+ * @throws {@link DBClusterParameterGroupNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBClusterParameterGroupName</code> doesn't refer to an existing cluster parameter group. </p>
+ *
+ * @throws {@link DBSubnetGroupNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBSubnetGroupName</code> doesn't refer to an existing subnet group. </p>
+ *
+ * @throws {@link InvalidDBClusterStateFault} (client fault)
+ *  <p>The cluster isn't in a valid state.</p>
+ *
+ * @throws {@link InvalidDBInstanceStateFault} (client fault)
+ *  <p> The specified instance isn't in the <i>available</i> state.
+ *         </p>
+ *
+ * @throws {@link InvalidDBSecurityGroupStateFault} (client fault)
+ *  <p>The state of the security group doesn't allow deletion.</p>
+ *
+ * @throws {@link InvalidDBSubnetGroupStateFault} (client fault)
+ *  <p>The subnet group can't be deleted because it's in use.</p>
+ *
+ * @throws {@link InvalidSubnet} (client fault)
+ *  <p>The requested subnet is not valid, or multiple subnets were requested that are not all
+ *             in a common virtual private cloud (VPC).</p>
+ *
+ * @throws {@link InvalidVPCNetworkStateFault} (client fault)
+ *  <p>The subnet group doesn't cover all Availability Zones after it is created
+ *             because of changes that were made.</p>
+ *
+ * @throws {@link StorageQuotaExceededFault} (client fault)
+ *  <p>The request would cause you to exceed the allowed amount of storage available across
+ *             all instances.</p>
+ *
  *
  */
 export class ModifyDBClusterCommand extends $Command<
@@ -64,6 +134,9 @@ export class ModifyDBClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyDBClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +165,8 @@ export class ModifyDBClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyDBClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyDBClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +176,18 @@ export class ModifyDBClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyDBClusterCommand(input, context);
+    return se_ModifyDBClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyDBClusterCommandOutput> {
-    return deserializeAws_queryModifyDBClusterCommand(output, context);
+    return de_ModifyDBClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

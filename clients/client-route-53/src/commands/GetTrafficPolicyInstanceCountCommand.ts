@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { GetTrafficPolicyInstanceCountRequest, GetTrafficPolicyInstanceCountResponse } from "../models/models_0";
 import {
-  GetTrafficPolicyInstanceCountRequest,
-  GetTrafficPolicyInstanceCountRequestFilterSensitiveLog,
-  GetTrafficPolicyInstanceCountResponse,
-  GetTrafficPolicyInstanceCountResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlGetTrafficPolicyInstanceCountCommand,
-  serializeAws_restXmlGetTrafficPolicyInstanceCountCommand,
+  de_GetTrafficPolicyInstanceCountCommand,
+  se_GetTrafficPolicyInstanceCountCommand,
 } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * @public
+ *
+ * The input for {@link GetTrafficPolicyInstanceCountCommand}.
+ */
 export interface GetTrafficPolicyInstanceCountCommandInput extends GetTrafficPolicyInstanceCountRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetTrafficPolicyInstanceCountCommand}.
+ */
 export interface GetTrafficPolicyInstanceCountCommandOutput
   extends GetTrafficPolicyInstanceCountResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the number of traffic policy instances that are associated with the current
  * 				Amazon Web Services account.</p>
  * @example
@@ -39,13 +45,17 @@ export interface GetTrafficPolicyInstanceCountCommandOutput
  * import { Route53Client, GetTrafficPolicyInstanceCountCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, GetTrafficPolicyInstanceCountCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = {};
  * const command = new GetTrafficPolicyInstanceCountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTrafficPolicyInstanceCountCommandInput - {@link GetTrafficPolicyInstanceCountCommandInput}
+ * @returns {@link GetTrafficPolicyInstanceCountCommandOutput}
  * @see {@link GetTrafficPolicyInstanceCountCommandInput} for command's `input` shape.
  * @see {@link GetTrafficPolicyInstanceCountCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
+ *
  *
  */
 export class GetTrafficPolicyInstanceCountCommand extends $Command<
@@ -65,6 +75,9 @@ export class GetTrafficPolicyInstanceCountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTrafficPolicyInstanceCountCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +106,8 @@ export class GetTrafficPolicyInstanceCountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTrafficPolicyInstanceCountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTrafficPolicyInstanceCountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,15 +117,21 @@ export class GetTrafficPolicyInstanceCountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTrafficPolicyInstanceCountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetTrafficPolicyInstanceCountCommand(input, context);
+    return se_GetTrafficPolicyInstanceCountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetTrafficPolicyInstanceCountCommandOutput> {
-    return deserializeAws_restXmlGetTrafficPolicyInstanceCountCommand(output, context);
+    return de_GetTrafficPolicyInstanceCountCommand(output, context);
   }
 
   // Start section: command_body_extra

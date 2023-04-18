@@ -14,36 +14,60 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  DeleteBillingGroupRequest,
-  DeleteBillingGroupRequestFilterSensitiveLog,
-  DeleteBillingGroupResponse,
-  DeleteBillingGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteBillingGroupCommand,
-  serializeAws_restJson1DeleteBillingGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteBillingGroupRequest, DeleteBillingGroupResponse } from "../models/models_0";
+import { de_DeleteBillingGroupCommand, se_DeleteBillingGroupCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteBillingGroupCommand}.
+ */
 export interface DeleteBillingGroupCommandInput extends DeleteBillingGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteBillingGroupCommand}.
+ */
 export interface DeleteBillingGroupCommandOutput extends DeleteBillingGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the billing group.</p>
- * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteBillingGroup</a> action.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteBillingGroup</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, DeleteBillingGroupCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeleteBillingGroupCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // DeleteBillingGroupRequest
+ *   billingGroupName: "STRING_VALUE", // required
+ *   expectedVersion: Number("long"),
+ * };
  * const command = new DeleteBillingGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBillingGroupCommandInput - {@link DeleteBillingGroupCommandInput}
+ * @returns {@link DeleteBillingGroupCommandOutput}
  * @see {@link DeleteBillingGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteBillingGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
+ * @throws {@link VersionConflictException} (client fault)
+ *  <p>An exception thrown when the version of an entity specified with the
+ *             <code>expectedVersion</code> parameter does not match the latest version in the
+ *          system.</p>
+ *
  *
  */
 export class DeleteBillingGroupCommand extends $Command<
@@ -63,6 +87,9 @@ export class DeleteBillingGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBillingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +118,8 @@ export class DeleteBillingGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBillingGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteBillingGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +129,18 @@ export class DeleteBillingGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBillingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteBillingGroupCommand(input, context);
+    return se_DeleteBillingGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBillingGroupCommandOutput> {
-    return deserializeAws_restJson1DeleteBillingGroupCommand(output, context);
+    return de_DeleteBillingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

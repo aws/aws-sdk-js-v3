@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IotDeviceAdvisorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IotDeviceAdvisorClient";
-import {
-  GetSuiteRunRequest,
-  GetSuiteRunRequestFilterSensitiveLog,
-  GetSuiteRunResponse,
-  GetSuiteRunResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSuiteRunCommand,
-  serializeAws_restJson1GetSuiteRunCommand,
-} from "../protocols/Aws_restJson1";
+import { GetSuiteRunRequest, GetSuiteRunResponse } from "../models/models_0";
+import { de_GetSuiteRunCommand, se_GetSuiteRunCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetSuiteRunCommand}.
+ */
 export interface GetSuiteRunCommandInput extends GetSuiteRunRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetSuiteRunCommand}.
+ */
 export interface GetSuiteRunCommandOutput extends GetSuiteRunResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a Device Advisor test suite run.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetSuiteRun</a> action.</p>
  * @example
@@ -37,13 +40,29 @@ export interface GetSuiteRunCommandOutput extends GetSuiteRunResponse, __Metadat
  * import { IotDeviceAdvisorClient, GetSuiteRunCommand } from "@aws-sdk/client-iotdeviceadvisor"; // ES Modules import
  * // const { IotDeviceAdvisorClient, GetSuiteRunCommand } = require("@aws-sdk/client-iotdeviceadvisor"); // CommonJS import
  * const client = new IotDeviceAdvisorClient(config);
+ * const input = { // GetSuiteRunRequest
+ *   suiteDefinitionId: "STRING_VALUE", // required
+ *   suiteRunId: "STRING_VALUE", // required
+ * };
  * const command = new GetSuiteRunCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSuiteRunCommandInput - {@link GetSuiteRunCommandInput}
+ * @returns {@link GetSuiteRunCommandOutput}
  * @see {@link GetSuiteRunCommandInput} for command's `input` shape.
  * @see {@link GetSuiteRunCommandOutput} for command's `response` shape.
  * @see {@link IotDeviceAdvisorClientResolvedConfig | config} for IotDeviceAdvisorClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Sends an Internal Failure exception.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Sends a Resource Not Found exception.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Sends a validation exception.</p>
+ *
  *
  */
 export class GetSuiteRunCommand extends $Command<
@@ -63,6 +82,9 @@ export class GetSuiteRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSuiteRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +111,8 @@ export class GetSuiteRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSuiteRunRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSuiteRunResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +122,18 @@ export class GetSuiteRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSuiteRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSuiteRunCommand(input, context);
+    return se_GetSuiteRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSuiteRunCommandOutput> {
-    return deserializeAws_restJson1GetSuiteRunCommand(output, context);
+    return de_GetSuiteRunCommand(output, context);
   }
 
   // Start section: command_body_extra

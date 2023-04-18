@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { MqServiceException as __BaseException } from "./MqServiceException";
 
 /**
+ * @public
  * <p>The action required to resolve a broker issue when the broker is in a CRITICAL_ACTION_REQUIRED state.</p>
  */
 export interface ActionRequired {
@@ -19,6 +20,7 @@ export interface ActionRequired {
 }
 
 /**
+ * @public
  * <p>Name of the availability zone.</p>
  */
 export interface AvailabilityZone {
@@ -28,12 +30,22 @@ export interface AvailabilityZone {
   Name?: string;
 }
 
-export enum EngineType {
-  ACTIVEMQ = "ACTIVEMQ",
-  RABBITMQ = "RABBITMQ",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EngineType = {
+  ACTIVEMQ: "ACTIVEMQ",
+  RABBITMQ: "RABBITMQ",
+} as const;
 
 /**
+ * @public
+ */
+export type EngineType = (typeof EngineType)[keyof typeof EngineType];
+
+/**
+ * @public
  * <p>Id of the engine version.</p>
  */
 export interface EngineVersion {
@@ -44,6 +56,7 @@ export interface EngineVersion {
 }
 
 /**
+ * @public
  * <p>Types of broker engines.</p>
  */
 export interface BrokerEngineType {
@@ -59,6 +72,7 @@ export interface BrokerEngineType {
 }
 
 /**
+ * @public
  * <p>Returns information about all brokers.</p>
  */
 export interface BrokerInstance {
@@ -78,18 +92,37 @@ export interface BrokerInstance {
   IpAddress?: string;
 }
 
-export enum BrokerStorageType {
-  EBS = "EBS",
-  EFS = "EFS",
-}
-
-export enum DeploymentMode {
-  ACTIVE_STANDBY_MULTI_AZ = "ACTIVE_STANDBY_MULTI_AZ",
-  CLUSTER_MULTI_AZ = "CLUSTER_MULTI_AZ",
-  SINGLE_INSTANCE = "SINGLE_INSTANCE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BrokerStorageType = {
+  EBS: "EBS",
+  EFS: "EFS",
+} as const;
 
 /**
+ * @public
+ */
+export type BrokerStorageType = (typeof BrokerStorageType)[keyof typeof BrokerStorageType];
+
+/**
+ * @public
+ * @enum
+ */
+export const DeploymentMode = {
+  ACTIVE_STANDBY_MULTI_AZ: "ACTIVE_STANDBY_MULTI_AZ",
+  CLUSTER_MULTI_AZ: "CLUSTER_MULTI_AZ",
+  SINGLE_INSTANCE: "SINGLE_INSTANCE",
+} as const;
+
+/**
+ * @public
+ */
+export type DeploymentMode = (typeof DeploymentMode)[keyof typeof DeploymentMode];
+
+/**
+ * @public
  * <p>Option for host instance type.</p>
  */
 export interface BrokerInstanceOption {
@@ -124,16 +157,26 @@ export interface BrokerInstanceOption {
   SupportedEngineVersions?: string[];
 }
 
-export enum BrokerState {
-  CREATION_FAILED = "CREATION_FAILED",
-  CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS",
-  CRITICAL_ACTION_REQUIRED = "CRITICAL_ACTION_REQUIRED",
-  DELETION_IN_PROGRESS = "DELETION_IN_PROGRESS",
-  REBOOT_IN_PROGRESS = "REBOOT_IN_PROGRESS",
-  RUNNING = "RUNNING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BrokerState = {
+  CREATION_FAILED: "CREATION_FAILED",
+  CREATION_IN_PROGRESS: "CREATION_IN_PROGRESS",
+  CRITICAL_ACTION_REQUIRED: "CRITICAL_ACTION_REQUIRED",
+  DELETION_IN_PROGRESS: "DELETION_IN_PROGRESS",
+  REBOOT_IN_PROGRESS: "REBOOT_IN_PROGRESS",
+  RUNNING: "RUNNING",
+} as const;
 
 /**
+ * @public
+ */
+export type BrokerState = (typeof BrokerState)[keyof typeof BrokerState];
+
+/**
+ * @public
  * <p>Returns information about all brokers.</p>
  */
 export interface BrokerSummary {
@@ -178,12 +221,22 @@ export interface BrokerSummary {
   HostInstanceType?: string;
 }
 
-export enum AuthenticationStrategy {
-  LDAP = "LDAP",
-  SIMPLE = "SIMPLE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AuthenticationStrategy = {
+  LDAP: "LDAP",
+  SIMPLE: "SIMPLE",
+} as const;
 
 /**
+ * @public
+ */
+export type AuthenticationStrategy = (typeof AuthenticationStrategy)[keyof typeof AuthenticationStrategy];
+
+/**
+ * @public
  * <p>Returns information about the specified configuration revision.</p>
  */
 export interface ConfigurationRevision {
@@ -204,6 +257,7 @@ export interface ConfigurationRevision {
 }
 
 /**
+ * @public
  * <p>Returns information about all configurations.</p>
  */
 export interface Configuration {
@@ -259,6 +313,7 @@ export interface Configuration {
 }
 
 /**
+ * @public
  * <p>A list of information about the configuration.</p> <important><p>Does not apply to RabbitMQ brokers.</p></important>
  */
 export interface ConfigurationId {
@@ -273,13 +328,23 @@ export interface ConfigurationId {
   Revision?: number;
 }
 
-export enum SanitizationWarningReason {
-  DISALLOWED_ATTRIBUTE_REMOVED = "DISALLOWED_ATTRIBUTE_REMOVED",
-  DISALLOWED_ELEMENT_REMOVED = "DISALLOWED_ELEMENT_REMOVED",
-  INVALID_ATTRIBUTE_VALUE_REMOVED = "INVALID_ATTRIBUTE_VALUE_REMOVED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SanitizationWarningReason = {
+  DISALLOWED_ATTRIBUTE_REMOVED: "DISALLOWED_ATTRIBUTE_REMOVED",
+  DISALLOWED_ELEMENT_REMOVED: "DISALLOWED_ELEMENT_REMOVED",
+  INVALID_ATTRIBUTE_VALUE_REMOVED: "INVALID_ATTRIBUTE_VALUE_REMOVED",
+} as const;
 
 /**
+ * @public
+ */
+export type SanitizationWarningReason = (typeof SanitizationWarningReason)[keyof typeof SanitizationWarningReason];
+
+/**
+ * @public
  * <p>Returns information about the XML element or attribute that was sanitized in the configuration.</p>
  */
 export interface SanitizationWarning {
@@ -300,6 +365,7 @@ export interface SanitizationWarning {
 }
 
 /**
+ * @public
  * <p>A user associated with the broker. For RabbitMQ brokers, one and only one administrative user is accepted and created when a broker is first provisioned. All subsequent broker users are created by making RabbitMQ API calls directly to brokers or via the RabbitMQ web console.</p>
  */
 export interface User {
@@ -324,13 +390,23 @@ export interface User {
   Username: string | undefined;
 }
 
-export enum ChangeType {
-  CREATE = "CREATE",
-  DELETE = "DELETE",
-  UPDATE = "UPDATE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ChangeType = {
+  CREATE: "CREATE",
+  DELETE: "DELETE",
+  UPDATE: "UPDATE",
+} as const;
 
 /**
+ * @public
+ */
+export type ChangeType = (typeof ChangeType)[keyof typeof ChangeType];
+
+/**
+ * @public
  * <p>Returns a list of all broker users. Does not apply to RabbitMQ brokers.</p>
  */
 export interface UserSummary {
@@ -346,6 +422,7 @@ export interface UserSummary {
 }
 
 /**
+ * @public
  * <p>Returns information about an error.</p>
  */
 export class BadRequestException extends __BaseException {
@@ -376,6 +453,7 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Broker configuration information</p>
  */
 export interface Configurations {
@@ -396,6 +474,7 @@ export interface Configurations {
 }
 
 /**
+ * @public
  * <p>Returns information about an error.</p>
  */
 export class ConflictException extends __BaseException {
@@ -426,6 +505,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <important><p>Does not apply to RabbitMQ brokers.</p></important> <p>Encryption options for the broker.</p>
  */
 export interface EncryptionOptions {
@@ -441,6 +521,7 @@ export interface EncryptionOptions {
 }
 
 /**
+ * @public
  * <p>Optional. The metadata of the LDAP server used to authenticate and authorize connections to the broker.</p> <important><p>Does not apply to RabbitMQ brokers.</p></important>
  */
 export interface LdapServerMetadataInput {
@@ -461,7 +542,7 @@ export interface LdapServerMetadataInput {
   RoleName?: string;
 
   /**
-   * <p>The LDAP search filter used to find roles within the roleBase. The distinguished name of the user matched by userSearchMatching is substituted into the {0} placeholder in the search filter. The client's username is substituted into the {1} placeholder. For example, if you set this option to (member=uid={1})for the user janedoe, the search filter becomes (member=uid=janedoe) after string substitution. It matches all role entries that have a member attribute equal to uid=janedoe under the subtree selected by the roleBase.</p>
+   * <p>The LDAP search filter used to find roles within the roleBase. The distinguished name of the user matched by userSearchMatching is substituted into the \{0\} placeholder in the search filter. The client's username is substituted into the \{1\} placeholder. For example, if you set this option to (member=uid=\{1\})for the user janedoe, the search filter becomes (member=uid=janedoe) after string substitution. It matches all role entries that have a member attribute equal to uid=janedoe under the subtree selected by the roleBase.</p>
    */
   RoleSearchMatching: string | undefined;
 
@@ -494,7 +575,7 @@ export interface LdapServerMetadataInput {
   UserRoleName?: string;
 
   /**
-   * <p>The LDAP search filter used to find users within the userBase. The client's username is substituted into the {0} placeholder in the search filter. For example, if this option is set to (uid={0}) and the received username is janedoe, the search filter becomes (uid=janedoe) after string substitution. It will result in matching an entry like uid=janedoe, ou=Users,ou=corp, dc=corp, dc=example,
+   * <p>The LDAP search filter used to find users within the userBase. The client's username is substituted into the \{0\} placeholder in the search filter. For example, if this option is set to (uid=\{0\}) and the received username is janedoe, the search filter becomes (uid=janedoe) after string substitution. It will result in matching an entry like uid=janedoe, ou=Users,ou=corp, dc=corp, dc=example,
    *                   dc=com.</p>
    */
   UserSearchMatching: string | undefined;
@@ -506,6 +587,7 @@ export interface LdapServerMetadataInput {
 }
 
 /**
+ * @public
  * <p>The list of information about logs to be enabled for the specified broker.</p>
  */
 export interface Logs {
@@ -520,17 +602,27 @@ export interface Logs {
   General?: boolean;
 }
 
-export enum DayOfWeek {
-  FRIDAY = "FRIDAY",
-  MONDAY = "MONDAY",
-  SATURDAY = "SATURDAY",
-  SUNDAY = "SUNDAY",
-  THURSDAY = "THURSDAY",
-  TUESDAY = "TUESDAY",
-  WEDNESDAY = "WEDNESDAY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DayOfWeek = {
+  FRIDAY: "FRIDAY",
+  MONDAY: "MONDAY",
+  SATURDAY: "SATURDAY",
+  SUNDAY: "SUNDAY",
+  THURSDAY: "THURSDAY",
+  TUESDAY: "TUESDAY",
+  WEDNESDAY: "WEDNESDAY",
+} as const;
 
 /**
+ * @public
+ */
+export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
+
+/**
+ * @public
  * <p>The scheduled time period relative to UTC during which Amazon MQ begins to apply pending updates or patches to the broker.</p>
  */
 export interface WeeklyStartTime {
@@ -551,6 +643,7 @@ export interface WeeklyStartTime {
 }
 
 /**
+ * @public
  * <p>Creates a broker using the specified properties.</p>
  */
 export interface CreateBrokerRequest {
@@ -650,6 +743,9 @@ export interface CreateBrokerRequest {
   Users: User[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateBrokerResponse {
   /**
    * <p>The broker's Amazon Resource Name (ARN).</p>
@@ -663,6 +759,7 @@ export interface CreateBrokerResponse {
 }
 
 /**
+ * @public
  * <p>Returns information about an error.</p>
  */
 export class ForbiddenException extends __BaseException {
@@ -693,6 +790,7 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Returns information about an error.</p>
  */
 export class InternalServerErrorException extends __BaseException {
@@ -723,6 +821,7 @@ export class InternalServerErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Returns information about an error.</p>
  */
 export class UnauthorizedException extends __BaseException {
@@ -753,6 +852,7 @@ export class UnauthorizedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Creates a new configuration for the specified configuration name. Amazon MQ uses the default configuration (the engine type and version).</p>
  */
 export interface CreateConfigurationRequest {
@@ -782,6 +882,9 @@ export interface CreateConfigurationRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateConfigurationResponse {
   /**
    * <p>Required. The Amazon Resource Name (ARN) of the configuration.</p>
@@ -815,6 +918,7 @@ export interface CreateConfigurationResponse {
 }
 
 /**
+ * @public
  * <p>A map of the key-value pairs for the resource tag.</p>
  */
 export interface CreateTagsRequest {
@@ -830,6 +934,7 @@ export interface CreateTagsRequest {
 }
 
 /**
+ * @public
  * <p>Returns information about an error.</p>
  */
 export class NotFoundException extends __BaseException {
@@ -860,6 +965,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Creates a new ActiveMQ user.</p>
  */
 export interface CreateUserRequest {
@@ -889,8 +995,14 @@ export interface CreateUserRequest {
   Username: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateUserResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteBrokerRequest {
   /**
    * <p>The unique ID that Amazon MQ generates for the broker.</p>
@@ -898,6 +1010,9 @@ export interface DeleteBrokerRequest {
   BrokerId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBrokerResponse {
   /**
    * <p>The unique ID that Amazon MQ generates for the broker.</p>
@@ -905,6 +1020,9 @@ export interface DeleteBrokerResponse {
   BrokerId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTagsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource tag.</p>
@@ -917,6 +1035,9 @@ export interface DeleteTagsRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteUserRequest {
   /**
    * <p>The unique ID that Amazon MQ generates for the broker.</p>
@@ -929,8 +1050,14 @@ export interface DeleteUserRequest {
   Username: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteUserResponse {}
 
+/**
+ * @public
+ */
 export interface DescribeBrokerRequest {
   /**
    * <p>The unique ID that Amazon MQ generates for the broker.</p>
@@ -939,6 +1066,7 @@ export interface DescribeBrokerRequest {
 }
 
 /**
+ * @public
  * <p>Optional. The metadata of the LDAP server used to authenticate and authorize connections to the broker.</p>
  */
 export interface LdapServerMetadataOutput {
@@ -959,7 +1087,7 @@ export interface LdapServerMetadataOutput {
   RoleName?: string;
 
   /**
-   * <p>The LDAP search filter used to find roles within the roleBase. The distinguished name of the user matched by userSearchMatching is substituted into the {0} placeholder in the search filter. The client's username is substituted into the {1} placeholder. For example, if you set this option to (member=uid={1})for the user janedoe, the search filter becomes (member=uid=janedoe) after string substitution. It matches all role entries that have a member attribute equal to uid=janedoe under the subtree selected by the roleBase.</p>
+   * <p>The LDAP search filter used to find roles within the roleBase. The distinguished name of the user matched by userSearchMatching is substituted into the \{0\} placeholder in the search filter. The client's username is substituted into the \{1\} placeholder. For example, if you set this option to (member=uid=\{1\})for the user janedoe, the search filter becomes (member=uid=janedoe) after string substitution. It matches all role entries that have a member attribute equal to uid=janedoe under the subtree selected by the roleBase.</p>
    */
   RoleSearchMatching: string | undefined;
 
@@ -986,7 +1114,7 @@ export interface LdapServerMetadataOutput {
   UserRoleName?: string;
 
   /**
-   * <p>The LDAP search filter used to find users within the userBase. The client's username is substituted into the {0} placeholder in the search filter. For example, if this option is set to (uid={0}) and the received username is janedoe, the search filter becomes (uid=janedoe) after string substitution. It will result in matching an entry like uid=janedoe, ou=Users,ou=corp, dc=corp, dc=example,
+   * <p>The LDAP search filter used to find users within the userBase. The client's username is substituted into the \{0\} placeholder in the search filter. For example, if this option is set to (uid=\{0\}) and the received username is janedoe, the search filter becomes (uid=janedoe) after string substitution. It will result in matching an entry like uid=janedoe, ou=Users,ou=corp, dc=corp, dc=example,
    *                dc=com.</p>
    */
   UserSearchMatching: string | undefined;
@@ -998,6 +1126,7 @@ export interface LdapServerMetadataOutput {
 }
 
 /**
+ * @public
  * <p>The list of information about logs to be enabled for the specified broker.</p>
  */
 export interface PendingLogs {
@@ -1013,6 +1142,7 @@ export interface PendingLogs {
 }
 
 /**
+ * @public
  * <p>The list of information about logs currently enabled and pending to be deployed for the specified broker.</p>
  */
 export interface LogsSummary {
@@ -1042,6 +1172,9 @@ export interface LogsSummary {
   Pending?: PendingLogs;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBrokerResponse {
   /**
    * <p>A list of actions required for a broker.</p>
@@ -1189,6 +1322,9 @@ export interface DescribeBrokerResponse {
   Users?: UserSummary[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeBrokerEngineTypesRequest {
   /**
    * <p>Filter response by engine type.</p>
@@ -1206,6 +1342,9 @@ export interface DescribeBrokerEngineTypesRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBrokerEngineTypesResponse {
   /**
    * <p>List of available engine types and versions.</p>
@@ -1223,6 +1362,9 @@ export interface DescribeBrokerEngineTypesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBrokerInstanceOptionsRequest {
   /**
    * <p>Filter response by engine type.</p>
@@ -1250,6 +1392,9 @@ export interface DescribeBrokerInstanceOptionsRequest {
   StorageType?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBrokerInstanceOptionsResponse {
   /**
    * <p>List of available broker instance options.</p>
@@ -1267,6 +1412,9 @@ export interface DescribeBrokerInstanceOptionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeConfigurationRequest {
   /**
    * <p>The unique ID that Amazon MQ generates for the configuration.</p>
@@ -1274,6 +1422,9 @@ export interface DescribeConfigurationRequest {
   ConfigurationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeConfigurationResponse {
   /**
    * <p>Required. The ARN of the configuration.</p>
@@ -1326,6 +1477,9 @@ export interface DescribeConfigurationResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeConfigurationRevisionRequest {
   /**
    * <p>The unique ID that Amazon MQ generates for the configuration.</p>
@@ -1338,6 +1492,9 @@ export interface DescribeConfigurationRevisionRequest {
   ConfigurationRevision: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeConfigurationRevisionResponse {
   /**
    * <p>Required. The unique ID that Amazon MQ generates for the configuration.</p>
@@ -1360,6 +1517,9 @@ export interface DescribeConfigurationRevisionResponse {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeUserRequest {
   /**
    * <p>The unique ID that Amazon MQ generates for the broker.</p>
@@ -1373,6 +1533,7 @@ export interface DescribeUserRequest {
 }
 
 /**
+ * @public
  * <p>Returns information about the status of the changes pending for the ActiveMQ user.</p>
  */
 export interface UserPendingChanges {
@@ -1392,6 +1553,9 @@ export interface UserPendingChanges {
   PendingChange: ChangeType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeUserResponse {
   /**
    * <p>Required. The unique ID that Amazon MQ generates for the broker.</p>
@@ -1419,6 +1583,9 @@ export interface DescribeUserResponse {
   Username?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListBrokersRequest {
   /**
    * <p>The maximum number of brokers that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.</p>
@@ -1431,6 +1598,9 @@ export interface ListBrokersRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListBrokersResponse {
   /**
    * <p>A list of information about all brokers.</p>
@@ -1443,6 +1613,9 @@ export interface ListBrokersResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListConfigurationRevisionsRequest {
   /**
    * <p>The unique ID that Amazon MQ generates for the configuration.</p>
@@ -1460,6 +1633,9 @@ export interface ListConfigurationRevisionsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListConfigurationRevisionsResponse {
   /**
    * <p>The unique ID that Amazon MQ generates for the configuration.</p>
@@ -1482,6 +1658,9 @@ export interface ListConfigurationRevisionsResponse {
   Revisions?: ConfigurationRevision[];
 }
 
+/**
+ * @public
+ */
 export interface ListConfigurationsRequest {
   /**
    * <p>The maximum number of brokers that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.</p>
@@ -1494,6 +1673,9 @@ export interface ListConfigurationsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListConfigurationsResponse {
   /**
    * <p>The list of all revisions for the specified configuration.</p>
@@ -1511,6 +1693,9 @@ export interface ListConfigurationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource tag.</p>
@@ -1518,6 +1703,9 @@ export interface ListTagsRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsResponse {
   /**
    * <p>The key-value pair for the resource tag.</p>
@@ -1525,6 +1713,9 @@ export interface ListTagsResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListUsersRequest {
   /**
    * <p>The unique ID that Amazon MQ generates for the broker.</p>
@@ -1542,6 +1733,9 @@ export interface ListUsersRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListUsersResponse {
   /**
    * <p>Required. The unique ID that Amazon MQ generates for the broker.</p>
@@ -1564,6 +1758,9 @@ export interface ListUsersResponse {
   Users?: UserSummary[];
 }
 
+/**
+ * @public
+ */
 export interface RebootBrokerRequest {
   /**
    * <p>The unique ID that Amazon MQ generates for the broker.</p>
@@ -1571,9 +1768,13 @@ export interface RebootBrokerRequest {
   BrokerId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RebootBrokerResponse {}
 
 /**
+ * @public
  * <p>Updates the broker using the specified properties.</p>
  */
 export interface UpdateBrokerRequest {
@@ -1628,6 +1829,9 @@ export interface UpdateBrokerRequest {
   SecurityGroups?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateBrokerResponse {
   /**
    * <p>Optional. The authentication strategy used to secure the broker. The default is SIMPLE.</p>
@@ -1681,6 +1885,7 @@ export interface UpdateBrokerResponse {
 }
 
 /**
+ * @public
  * <p>Updates the specified configuration.</p>
  */
 export interface UpdateConfigurationRequest {
@@ -1700,6 +1905,9 @@ export interface UpdateConfigurationRequest {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateConfigurationResponse {
   /**
    * <p>Required. The Amazon Resource Name (ARN) of the configuration.</p>
@@ -1733,6 +1941,7 @@ export interface UpdateConfigurationResponse {
 }
 
 /**
+ * @public
  * <p>Updates the information for an ActiveMQ user.</p>
  */
 export interface UpdateUserRequest {
@@ -1762,460 +1971,7 @@ export interface UpdateUserRequest {
   Username: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateUserResponse {}
-
-/**
- * @internal
- */
-export const ActionRequiredFilterSensitiveLog = (obj: ActionRequired): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AvailabilityZoneFilterSensitiveLog = (obj: AvailabilityZone): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EngineVersionFilterSensitiveLog = (obj: EngineVersion): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BrokerEngineTypeFilterSensitiveLog = (obj: BrokerEngineType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BrokerInstanceFilterSensitiveLog = (obj: BrokerInstance): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BrokerInstanceOptionFilterSensitiveLog = (obj: BrokerInstanceOption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BrokerSummaryFilterSensitiveLog = (obj: BrokerSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConfigurationRevisionFilterSensitiveLog = (obj: ConfigurationRevision): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConfigurationFilterSensitiveLog = (obj: Configuration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConfigurationIdFilterSensitiveLog = (obj: ConfigurationId): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SanitizationWarningFilterSensitiveLog = (obj: SanitizationWarning): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UserFilterSensitiveLog = (obj: User): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UserSummaryFilterSensitiveLog = (obj: UserSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConfigurationsFilterSensitiveLog = (obj: Configurations): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EncryptionOptionsFilterSensitiveLog = (obj: EncryptionOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LdapServerMetadataInputFilterSensitiveLog = (obj: LdapServerMetadataInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LogsFilterSensitiveLog = (obj: Logs): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WeeklyStartTimeFilterSensitiveLog = (obj: WeeklyStartTime): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateBrokerRequestFilterSensitiveLog = (obj: CreateBrokerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateBrokerResponseFilterSensitiveLog = (obj: CreateBrokerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateConfigurationRequestFilterSensitiveLog = (obj: CreateConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateConfigurationResponseFilterSensitiveLog = (obj: CreateConfigurationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTagsRequestFilterSensitiveLog = (obj: CreateTagsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateUserRequestFilterSensitiveLog = (obj: CreateUserRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateUserResponseFilterSensitiveLog = (obj: CreateUserResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteBrokerRequestFilterSensitiveLog = (obj: DeleteBrokerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteBrokerResponseFilterSensitiveLog = (obj: DeleteBrokerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTagsRequestFilterSensitiveLog = (obj: DeleteTagsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteUserRequestFilterSensitiveLog = (obj: DeleteUserRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteUserResponseFilterSensitiveLog = (obj: DeleteUserResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeBrokerRequestFilterSensitiveLog = (obj: DescribeBrokerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LdapServerMetadataOutputFilterSensitiveLog = (obj: LdapServerMetadataOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PendingLogsFilterSensitiveLog = (obj: PendingLogs): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LogsSummaryFilterSensitiveLog = (obj: LogsSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeBrokerResponseFilterSensitiveLog = (obj: DescribeBrokerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeBrokerEngineTypesRequestFilterSensitiveLog = (obj: DescribeBrokerEngineTypesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeBrokerEngineTypesResponseFilterSensitiveLog = (obj: DescribeBrokerEngineTypesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeBrokerInstanceOptionsRequestFilterSensitiveLog = (
-  obj: DescribeBrokerInstanceOptionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeBrokerInstanceOptionsResponseFilterSensitiveLog = (
-  obj: DescribeBrokerInstanceOptionsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeConfigurationRequestFilterSensitiveLog = (obj: DescribeConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeConfigurationResponseFilterSensitiveLog = (obj: DescribeConfigurationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeConfigurationRevisionRequestFilterSensitiveLog = (
-  obj: DescribeConfigurationRevisionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeConfigurationRevisionResponseFilterSensitiveLog = (
-  obj: DescribeConfigurationRevisionResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeUserRequestFilterSensitiveLog = (obj: DescribeUserRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UserPendingChangesFilterSensitiveLog = (obj: UserPendingChanges): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeUserResponseFilterSensitiveLog = (obj: DescribeUserResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListBrokersRequestFilterSensitiveLog = (obj: ListBrokersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListBrokersResponseFilterSensitiveLog = (obj: ListBrokersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListConfigurationRevisionsRequestFilterSensitiveLog = (obj: ListConfigurationRevisionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListConfigurationRevisionsResponseFilterSensitiveLog = (obj: ListConfigurationRevisionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListConfigurationsRequestFilterSensitiveLog = (obj: ListConfigurationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListConfigurationsResponseFilterSensitiveLog = (obj: ListConfigurationsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsRequestFilterSensitiveLog = (obj: ListTagsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsResponseFilterSensitiveLog = (obj: ListTagsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListUsersRequestFilterSensitiveLog = (obj: ListUsersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListUsersResponseFilterSensitiveLog = (obj: ListUsersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RebootBrokerRequestFilterSensitiveLog = (obj: RebootBrokerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RebootBrokerResponseFilterSensitiveLog = (obj: RebootBrokerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBrokerRequestFilterSensitiveLog = (obj: UpdateBrokerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBrokerResponseFilterSensitiveLog = (obj: UpdateBrokerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateConfigurationRequestFilterSensitiveLog = (obj: UpdateConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateConfigurationResponseFilterSensitiveLog = (obj: UpdateConfigurationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateUserRequestFilterSensitiveLog = (obj: UpdateUserRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateUserResponseFilterSensitiveLog = (obj: UpdateUserResponse): any => ({
-  ...obj,
-});

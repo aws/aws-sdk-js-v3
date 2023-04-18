@@ -16,22 +16,31 @@ import {
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import {
   DescribeGatewayCapabilityConfigurationRequest,
-  DescribeGatewayCapabilityConfigurationRequestFilterSensitiveLog,
   DescribeGatewayCapabilityConfigurationResponse,
-  DescribeGatewayCapabilityConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeGatewayCapabilityConfigurationCommand,
-  serializeAws_restJson1DescribeGatewayCapabilityConfigurationCommand,
+  de_DescribeGatewayCapabilityConfigurationCommand,
+  se_DescribeGatewayCapabilityConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeGatewayCapabilityConfigurationCommand}.
+ */
 export interface DescribeGatewayCapabilityConfigurationCommandInput
   extends DescribeGatewayCapabilityConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeGatewayCapabilityConfigurationCommand}.
+ */
 export interface DescribeGatewayCapabilityConfigurationCommandOutput
   extends DescribeGatewayCapabilityConfigurationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about a gateway capability configuration.
  *       Each gateway capability defines data sources for a gateway. A capability configuration
  *       can contain multiple data source configurations. If you define OPC-UA sources for a gateway in
@@ -43,13 +52,36 @@ export interface DescribeGatewayCapabilityConfigurationCommandOutput
  * import { IoTSiteWiseClient, DescribeGatewayCapabilityConfigurationCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, DescribeGatewayCapabilityConfigurationCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = { // DescribeGatewayCapabilityConfigurationRequest
+ *   gatewayId: "STRING_VALUE", // required
+ *   capabilityNamespace: "STRING_VALUE", // required
+ * };
  * const command = new DescribeGatewayCapabilityConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeGatewayCapabilityConfigurationCommandInput - {@link DescribeGatewayCapabilityConfigurationCommandInput}
+ * @returns {@link DescribeGatewayCapabilityConfigurationCommandOutput}
  * @see {@link DescribeGatewayCapabilityConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeGatewayCapabilityConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>IoT SiteWise can't process your request right now. Try again later.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
+ *       unsupported characters. Check your request and try again.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource can't be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Your request exceeded a rate limit. For example, you might have exceeded the number of
+ *       IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so
+ *       on.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ *
  *
  */
 export class DescribeGatewayCapabilityConfigurationCommand extends $Command<
@@ -69,6 +101,9 @@ export class DescribeGatewayCapabilityConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeGatewayCapabilityConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +132,8 @@ export class DescribeGatewayCapabilityConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeGatewayCapabilityConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeGatewayCapabilityConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,18 +143,24 @@ export class DescribeGatewayCapabilityConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeGatewayCapabilityConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeGatewayCapabilityConfigurationCommand(input, context);
+    return se_DescribeGatewayCapabilityConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeGatewayCapabilityConfigurationCommandOutput> {
-    return deserializeAws_restJson1DescribeGatewayCapabilityConfigurationCommand(output, context);
+    return de_DescribeGatewayCapabilityConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
-import { DeleteCertificateRequest, DeleteCertificateRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteCertificateCommand,
-  serializeAws_json1_1DeleteCertificateCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteCertificateRequest } from "../models/models_0";
+import { de_DeleteCertificateCommand, se_DeleteCertificateCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteCertificateCommand}.
+ */
 export interface DeleteCertificateCommandInput extends DeleteCertificateRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteCertificateCommand}.
+ */
 export interface DeleteCertificateCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a certificate and its associated private key. If this action succeeds, the
  *       certificate no longer appears in the list that can be displayed by calling the <a>ListCertificates</a> action or be retrieved by calling the <a>GetCertificate</a> action. The certificate will not be available for use by Amazon Web Services
  *       services integrated with ACM. </p>
@@ -38,13 +46,40 @@ export interface DeleteCertificateCommandOutput extends __MetadataBearer {}
  * import { ACMClient, DeleteCertificateCommand } from "@aws-sdk/client-acm"; // ES Modules import
  * // const { ACMClient, DeleteCertificateCommand } = require("@aws-sdk/client-acm"); // CommonJS import
  * const client = new ACMClient(config);
+ * const input = { // DeleteCertificateRequest
+ *   CertificateArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteCertificateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCertificateCommandInput - {@link DeleteCertificateCommandInput}
+ * @returns {@link DeleteCertificateCommandOutput}
  * @see {@link DeleteCertificateCommandInput} for command's `input` shape.
  * @see {@link DeleteCertificateCommandOutput} for command's `response` shape.
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have access required to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>You are trying to update a resource or configuration that is already being created or
+ *       updated. Wait for the previous operation to finish and try again.</p>
+ *
+ * @throws {@link InvalidArnException} (client fault)
+ *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The certificate is in use by another Amazon Web Services service in the caller's account. Remove the
+ *       association and try again.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified certificate cannot be found in the caller's account or the caller's account
+ *       cannot be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because it exceeded a quota.</p>
+ *
  *
  */
 export class DeleteCertificateCommand extends $Command<
@@ -64,6 +99,9 @@ export class DeleteCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +130,8 @@ export class DeleteCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +141,18 @@ export class DeleteCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteCertificateCommand(input, context);
+    return se_DeleteCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCertificateCommandOutput> {
-    return deserializeAws_json1_1DeleteCertificateCommand(output, context);
+    return de_DeleteCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ARCZonalShiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ARCZonalShiftClient";
-import {
-  ListZonalShiftsRequest,
-  ListZonalShiftsRequestFilterSensitiveLog,
-  ListZonalShiftsResponse,
-  ListZonalShiftsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListZonalShiftsCommand,
-  serializeAws_restJson1ListZonalShiftsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListZonalShiftsRequest, ListZonalShiftsResponse } from "../models/models_0";
+import { de_ListZonalShiftsCommand, se_ListZonalShiftsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListZonalShiftsCommand}.
+ */
 export interface ListZonalShiftsCommandInput extends ListZonalShiftsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListZonalShiftsCommand}.
+ */
 export interface ListZonalShiftsCommandOutput extends ListZonalShiftsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the active zonal shifts in Amazon Route 53 Application Recovery Controller in your AWS account in this AWS Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,33 @@ export interface ListZonalShiftsCommandOutput extends ListZonalShiftsResponse, _
  * import { ARCZonalShiftClient, ListZonalShiftsCommand } from "@aws-sdk/client-arc-zonal-shift"; // ES Modules import
  * // const { ARCZonalShiftClient, ListZonalShiftsCommand } = require("@aws-sdk/client-arc-zonal-shift"); // CommonJS import
  * const client = new ARCZonalShiftClient(config);
+ * const input = { // ListZonalShiftsRequest
+ *   nextToken: "STRING_VALUE",
+ *   status: "ACTIVE" || "EXPIRED" || "CANCELED",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListZonalShiftsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListZonalShiftsCommandInput - {@link ListZonalShiftsCommandInput}
+ * @returns {@link ListZonalShiftsCommandOutput}
  * @see {@link ListZonalShiftsCommandInput} for command's `input` shape.
  * @see {@link ListZonalShiftsCommandOutput} for command's `response` shape.
  * @see {@link ARCZonalShiftClientResolvedConfig | config} for ARCZonalShiftClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There was an internal server error.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
  *
  */
 export class ListZonalShiftsCommand extends $Command<
@@ -62,6 +85,9 @@ export class ListZonalShiftsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListZonalShiftsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +116,8 @@ export class ListZonalShiftsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListZonalShiftsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListZonalShiftsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +127,18 @@ export class ListZonalShiftsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListZonalShiftsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListZonalShiftsCommand(input, context);
+    return se_ListZonalShiftsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListZonalShiftsCommandOutput> {
-    return deserializeAws_restJson1ListZonalShiftsCommand(output, context);
+    return de_ListZonalShiftsCommand(output, context);
   }
 
   // Start section: command_body_extra

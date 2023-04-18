@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  DeleteSecurityProfileRequest,
-  DeleteSecurityProfileRequestFilterSensitiveLog,
-  DeleteSecurityProfileResponse,
-  DeleteSecurityProfileResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1DeleteSecurityProfileCommand,
-  serializeAws_restJson1DeleteSecurityProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteSecurityProfileRequest, DeleteSecurityProfileResponse } from "../models/models_1";
+import { de_DeleteSecurityProfileCommand, se_DeleteSecurityProfileCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteSecurityProfileCommand}.
+ */
 export interface DeleteSecurityProfileCommandInput extends DeleteSecurityProfileRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteSecurityProfileCommand}.
+ */
 export interface DeleteSecurityProfileCommandOutput extends DeleteSecurityProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Device Defender security profile.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteSecurityProfile</a> action.</p>
  * @example
@@ -37,13 +40,34 @@ export interface DeleteSecurityProfileCommandOutput extends DeleteSecurityProfil
  * import { IoTClient, DeleteSecurityProfileCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeleteSecurityProfileCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // DeleteSecurityProfileRequest
+ *   securityProfileName: "STRING_VALUE", // required
+ *   expectedVersion: Number("long"),
+ * };
  * const command = new DeleteSecurityProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSecurityProfileCommandInput - {@link DeleteSecurityProfileCommandInput}
+ * @returns {@link DeleteSecurityProfileCommandOutput}
  * @see {@link DeleteSecurityProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteSecurityProfileCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
+ * @throws {@link VersionConflictException} (client fault)
+ *  <p>An exception thrown when the version of an entity specified with the
+ *             <code>expectedVersion</code> parameter does not match the latest version in the
+ *          system.</p>
+ *
  *
  */
 export class DeleteSecurityProfileCommand extends $Command<
@@ -63,6 +87,9 @@ export class DeleteSecurityProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSecurityProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +118,8 @@ export class DeleteSecurityProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSecurityProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSecurityProfileResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +129,18 @@ export class DeleteSecurityProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSecurityProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSecurityProfileCommand(input, context);
+    return se_DeleteSecurityProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSecurityProfileCommandOutput> {
-    return deserializeAws_restJson1DeleteSecurityProfileCommand(output, context);
+    return de_DeleteSecurityProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyUIBuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyUIBuilderClient";
-import {
-  ExportComponentsRequest,
-  ExportComponentsRequestFilterSensitiveLog,
-  ExportComponentsResponse,
-  ExportComponentsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ExportComponentsCommand,
-  serializeAws_restJson1ExportComponentsCommand,
-} from "../protocols/Aws_restJson1";
+import { ExportComponentsRequest, ExportComponentsResponse } from "../models/models_0";
+import { de_ExportComponentsCommand, se_ExportComponentsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ExportComponentsCommand}.
+ */
 export interface ExportComponentsCommandInput extends ExportComponentsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ExportComponentsCommand}.
+ */
 export interface ExportComponentsCommandOutput extends ExportComponentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Exports component configurations to code that is ready to integrate into an Amplify app.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,27 @@ export interface ExportComponentsCommandOutput extends ExportComponentsResponse,
  * import { AmplifyUIBuilderClient, ExportComponentsCommand } from "@aws-sdk/client-amplifyuibuilder"; // ES Modules import
  * // const { AmplifyUIBuilderClient, ExportComponentsCommand } = require("@aws-sdk/client-amplifyuibuilder"); // CommonJS import
  * const client = new AmplifyUIBuilderClient(config);
+ * const input = { // ExportComponentsRequest
+ *   appId: "STRING_VALUE", // required
+ *   environmentName: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ExportComponentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ExportComponentsCommandInput - {@link ExportComponentsCommandInput}
+ * @returns {@link ExportComponentsCommandOutput}
  * @see {@link ExportComponentsCommandInput} for command's `input` shape.
  * @see {@link ExportComponentsCommandOutput} for command's `response` shape.
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error has occurred. Please retry your request.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>An invalid or out-of-range value was supplied for the input parameter.</p>
+ *
  *
  */
 export class ExportComponentsCommand extends $Command<
@@ -62,6 +79,9 @@ export class ExportComponentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExportComponentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +110,8 @@ export class ExportComponentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExportComponentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ExportComponentsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +121,18 @@ export class ExportComponentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExportComponentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ExportComponentsCommand(input, context);
+    return se_ExportComponentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExportComponentsCommandOutput> {
-    return deserializeAws_restJson1ExportComponentsCommand(output, context);
+    return de_ExportComponentsCommand(output, context);
   }
 
   // Start section: command_body_extra

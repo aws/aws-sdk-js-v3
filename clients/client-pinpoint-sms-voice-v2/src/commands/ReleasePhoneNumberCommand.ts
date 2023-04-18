@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ReleasePhoneNumberRequest,
-  ReleasePhoneNumberRequestFilterSensitiveLog,
-  ReleasePhoneNumberResult,
-  ReleasePhoneNumberResultFilterSensitiveLog,
-} from "../models/models_0";
+import { ReleasePhoneNumberRequest, ReleasePhoneNumberResult } from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import {
-  deserializeAws_json1_0ReleasePhoneNumberCommand,
-  serializeAws_json1_0ReleasePhoneNumberCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ReleasePhoneNumberCommand, se_ReleasePhoneNumberCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link ReleasePhoneNumberCommand}.
+ */
 export interface ReleasePhoneNumberCommandInput extends ReleasePhoneNumberRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ReleasePhoneNumberCommand}.
+ */
 export interface ReleasePhoneNumberCommandOutput extends ReleasePhoneNumberResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Releases an existing origination phone number in your account. Once released, a phone
  *             number is no longer available for sending messages.</p>
  *         <p>If the origination phone number has deletion protection enabled or is associated with
@@ -43,13 +46,43 @@ export interface ReleasePhoneNumberCommandOutput extends ReleasePhoneNumberResul
  * import { PinpointSMSVoiceV2Client, ReleasePhoneNumberCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, ReleasePhoneNumberCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
+ * const input = { // ReleasePhoneNumberRequest
+ *   PhoneNumberId: "STRING_VALUE", // required
+ * };
  * const command = new ReleasePhoneNumberCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ReleasePhoneNumberCommandInput - {@link ReleasePhoneNumberCommandInput}
+ * @returns {@link ReleasePhoneNumberCommandOutput}
  * @see {@link ReleasePhoneNumberCommandInput} for command's `input` shape.
  * @see {@link ReleasePhoneNumberCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The request was denied because you don't have sufficient permissions to access the
+ *             resource.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Your request has conflicting operations. This can occur if you're trying to perform
+ *             more than one operation on the same resource at the same time or it could be that the
+ *             requested action isn't valid for the current state or configuration of the
+ *             resource.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The API encountered an unexpected error and couldn't complete the request. You might
+ *             be able to successfully issue the request again in the future.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A requested resource couldn't be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>An error that occurred because too many requests were sent during a certain amount of
+ *             time.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>A validation exception for a field.</p>
+ *
  *
  */
 export class ReleasePhoneNumberCommand extends $Command<
@@ -69,6 +102,9 @@ export class ReleasePhoneNumberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReleasePhoneNumberCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +133,8 @@ export class ReleasePhoneNumberCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReleasePhoneNumberRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ReleasePhoneNumberResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +144,18 @@ export class ReleasePhoneNumberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReleasePhoneNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ReleasePhoneNumberCommand(input, context);
+    return se_ReleasePhoneNumberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReleasePhoneNumberCommandOutput> {
-    return deserializeAws_json1_0ReleasePhoneNumberCommand(output, context);
+    return de_ReleasePhoneNumberCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
+import { GetOriginAccessControlConfigRequest, GetOriginAccessControlConfigResult } from "../models/models_1";
 import {
-  GetOriginAccessControlConfigRequest,
-  GetOriginAccessControlConfigRequestFilterSensitiveLog,
-  GetOriginAccessControlConfigResult,
-  GetOriginAccessControlConfigResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlGetOriginAccessControlConfigCommand,
-  serializeAws_restXmlGetOriginAccessControlConfigCommand,
+  de_GetOriginAccessControlConfigCommand,
+  se_GetOriginAccessControlConfigCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * @public
+ *
+ * The input for {@link GetOriginAccessControlConfigCommand}.
+ */
 export interface GetOriginAccessControlConfigCommandInput extends GetOriginAccessControlConfigRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetOriginAccessControlConfigCommand}.
+ */
 export interface GetOriginAccessControlConfigCommandOutput
   extends GetOriginAccessControlConfigResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a CloudFront origin access control configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,25 @@ export interface GetOriginAccessControlConfigCommandOutput
  * import { CloudFrontClient, GetOriginAccessControlConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, GetOriginAccessControlConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // GetOriginAccessControlConfigRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetOriginAccessControlConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetOriginAccessControlConfigCommandInput - {@link GetOriginAccessControlConfigCommandInput}
+ * @returns {@link GetOriginAccessControlConfigCommandOutput}
  * @see {@link GetOriginAccessControlConfigCommandInput} for command's `input` shape.
  * @see {@link GetOriginAccessControlConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link NoSuchOriginAccessControl} (client fault)
+ *  <p>The origin access control does not exist.</p>
+ *
  *
  */
 export class GetOriginAccessControlConfigCommand extends $Command<
@@ -64,6 +82,9 @@ export class GetOriginAccessControlConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetOriginAccessControlConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +113,8 @@ export class GetOriginAccessControlConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetOriginAccessControlConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetOriginAccessControlConfigResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +124,21 @@ export class GetOriginAccessControlConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetOriginAccessControlConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetOriginAccessControlConfigCommand(input, context);
+    return se_GetOriginAccessControlConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetOriginAccessControlConfigCommandOutput> {
-    return deserializeAws_restXmlGetOriginAccessControlConfigCommand(output, context);
+    return de_GetOriginAccessControlConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

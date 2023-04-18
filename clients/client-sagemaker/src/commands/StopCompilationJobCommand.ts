@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StopCompilationJobRequest, StopCompilationJobRequestFilterSensitiveLog } from "../models/models_3";
-import {
-  deserializeAws_json1_1StopCompilationJobCommand,
-  serializeAws_json1_1StopCompilationJobCommand,
-} from "../protocols/Aws_json1_1";
+import { StopCompilationJobRequest } from "../models/models_3";
+import { de_StopCompilationJobCommand, se_StopCompilationJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link StopCompilationJobCommand}.
+ */
 export interface StopCompilationJobCommandInput extends StopCompilationJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StopCompilationJobCommand}.
+ */
 export interface StopCompilationJobCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a model compilation job.</p>
  *          <p> To stop a job, Amazon SageMaker sends the algorithm the SIGTERM signal. This gracefully shuts the
  *             job down. If the job hasn't stopped, it sends the SIGKILL signal.</p>
@@ -36,13 +44,22 @@ export interface StopCompilationJobCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, StopCompilationJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, StopCompilationJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // StopCompilationJobRequest
+ *   CompilationJobName: "STRING_VALUE", // required
+ * };
  * const command = new StopCompilationJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopCompilationJobCommandInput - {@link StopCompilationJobCommandInput}
+ * @returns {@link StopCompilationJobCommandOutput}
  * @see {@link StopCompilationJobCommandInput} for command's `input` shape.
  * @see {@link StopCompilationJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class StopCompilationJobCommand extends $Command<
@@ -62,6 +79,9 @@ export class StopCompilationJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopCompilationJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +110,8 @@ export class StopCompilationJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopCompilationJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +121,18 @@ export class StopCompilationJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopCompilationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopCompilationJobCommand(input, context);
+    return se_StopCompilationJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopCompilationJobCommandOutput> {
-    return deserializeAws_json1_1StopCompilationJobCommand(output, context);
+    return de_StopCompilationJobCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,35 +14,77 @@ import {
 } from "@aws-sdk/types";
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
-import {
-  CreateGrantRequest,
-  CreateGrantRequestFilterSensitiveLog,
-  CreateGrantResponse,
-  CreateGrantResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateGrantCommand,
-  serializeAws_json1_1CreateGrantCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateGrantRequest, CreateGrantResponse } from "../models/models_0";
+import { de_CreateGrantCommand, se_CreateGrantCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateGrantCommand}.
+ */
 export interface CreateGrantCommandInput extends CreateGrantRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateGrantCommand}.
+ */
 export interface CreateGrantCommandOutput extends CreateGrantResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a grant for the specified license. A grant shares the use of license entitlements with specific Amazon Web Services accounts.</p>
+ * @public
+ * <p>Creates a grant for the specified license. A grant shares the use of license
+ *          entitlements with a specific Amazon Web Services account, an organization, or an
+ *          organizational unit (OU). For more information, see <a href="https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html">Granted licenses in License Manager</a> in the <i>License Manager User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LicenseManagerClient, CreateGrantCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, CreateGrantCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = { // CreateGrantRequest
+ *   ClientToken: "STRING_VALUE", // required
+ *   GrantName: "STRING_VALUE", // required
+ *   LicenseArn: "STRING_VALUE", // required
+ *   Principals: [ // PrincipalArnList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   HomeRegion: "STRING_VALUE", // required
+ *   AllowedOperations: [ // AllowedOperationList // required
+ *     "CreateGrant" || "CheckoutLicense" || "CheckoutBorrowLicense" || "CheckInLicense" || "ExtendConsumptionLicense" || "ListPurchasedLicenses" || "CreateToken",
+ *   ],
+ * };
  * const command = new CreateGrantCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGrantCommandInput - {@link CreateGrantCommandInput}
+ * @returns {@link CreateGrantCommandOutput}
  * @see {@link CreateGrantCommandInput} for command's `input` shape.
  * @see {@link CreateGrantCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to resource denied.</p>
+ *
+ * @throws {@link AuthorizationException} (client fault)
+ *  <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM
+ *          policy associated with this account.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ * @throws {@link RateLimitExceededException} (client fault)
+ *  <p>Too many requests have been submitted. Try again after a brief wait.</p>
+ *
+ * @throws {@link ResourceLimitExceededException} (client fault)
+ *  <p>Your resource limits have been exceeded.</p>
+ *
+ * @throws {@link ServerInternalException} (server fault)
+ *  <p>The server experienced an internal error. Try again.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The provided input is not valid. Try your request again.</p>
+ *
  *
  */
 export class CreateGrantCommand extends $Command<
@@ -62,6 +104,9 @@ export class CreateGrantCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGrantCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +133,8 @@ export class CreateGrantCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateGrantRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateGrantResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +144,18 @@ export class CreateGrantCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateGrantCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateGrantCommand(input, context);
+    return se_CreateGrantCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGrantCommandOutput> {
-    return deserializeAws_json1_1CreateGrantCommand(output, context);
+    return de_CreateGrantCommand(output, context);
   }
 
   // Start section: command_body_extra

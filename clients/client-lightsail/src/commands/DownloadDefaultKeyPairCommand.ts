@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  DownloadDefaultKeyPairRequest,
-  DownloadDefaultKeyPairRequestFilterSensitiveLog,
-  DownloadDefaultKeyPairResult,
-  DownloadDefaultKeyPairResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DownloadDefaultKeyPairCommand,
-  serializeAws_json1_1DownloadDefaultKeyPairCommand,
-} from "../protocols/Aws_json1_1";
+import { DownloadDefaultKeyPairRequest, DownloadDefaultKeyPairResult } from "../models/models_0";
+import { de_DownloadDefaultKeyPairCommand, se_DownloadDefaultKeyPairCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DownloadDefaultKeyPairCommand}.
+ */
 export interface DownloadDefaultKeyPairCommandInput extends DownloadDefaultKeyPairRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DownloadDefaultKeyPairCommand}.
+ */
 export interface DownloadDefaultKeyPairCommandOutput extends DownloadDefaultKeyPairResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Downloads the regional Amazon Lightsail default key pair.</p>
  *          <p>This action also creates a Lightsail default key pair if a default key pair
  *       does not currently exist in the Amazon Web Services Region.</p>
@@ -38,13 +41,47 @@ export interface DownloadDefaultKeyPairCommandOutput extends DownloadDefaultKeyP
  * import { LightsailClient, DownloadDefaultKeyPairCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DownloadDefaultKeyPairCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {};
  * const command = new DownloadDefaultKeyPairCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DownloadDefaultKeyPairCommandInput - {@link DownloadDefaultKeyPairCommandInput}
+ * @returns {@link DownloadDefaultKeyPairCommandOutput}
  * @see {@link DownloadDefaultKeyPairCommandInput} for command's `input` shape.
  * @see {@link DownloadDefaultKeyPairCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
+ *       credentials to access a resource.</p>
+ *
+ * @throws {@link AccountSetupInProgressException} (client fault)
+ *  <p>Lightsail throws this exception when an account is still in the setup in progress
+ *       state.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Lightsail throws this exception when user input does not conform to the validation rules
+ *       of an input field.</p>
+ *          <note>
+ *             <p>Domain and distribution APIs are only available in the N. Virginia
+ *           (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services
+ *         Region configuration to <code>us-east-1</code> to create, view, or edit these
+ *         resources.</p>
+ *          </note>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Lightsail throws this exception when it cannot find a resource.</p>
+ *
+ * @throws {@link OperationFailureException} (client fault)
+ *  <p>Lightsail throws this exception when an operation fails to execute.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>A general service exception.</p>
+ *
+ * @throws {@link UnauthenticatedException} (client fault)
+ *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
+ *
  *
  */
 export class DownloadDefaultKeyPairCommand extends $Command<
@@ -64,6 +101,9 @@ export class DownloadDefaultKeyPairCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DownloadDefaultKeyPairCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +132,8 @@ export class DownloadDefaultKeyPairCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DownloadDefaultKeyPairRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DownloadDefaultKeyPairResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +143,18 @@ export class DownloadDefaultKeyPairCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DownloadDefaultKeyPairCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DownloadDefaultKeyPairCommand(input, context);
+    return se_DownloadDefaultKeyPairCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DownloadDefaultKeyPairCommandOutput> {
-    return deserializeAws_json1_1DownloadDefaultKeyPairCommand(output, context);
+    return de_DownloadDefaultKeyPairCommand(output, context);
   }
 
   // Start section: command_body_extra

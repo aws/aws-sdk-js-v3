@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
-import {
-  ListHypervisorsInput,
-  ListHypervisorsInputFilterSensitiveLog,
-  ListHypervisorsOutput,
-  ListHypervisorsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListHypervisorsCommand,
-  serializeAws_json1_0ListHypervisorsCommand,
-} from "../protocols/Aws_json1_0";
+import { ListHypervisorsInput, ListHypervisorsOutput } from "../models/models_0";
+import { de_ListHypervisorsCommand, se_ListHypervisorsCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link ListHypervisorsCommand}.
+ */
 export interface ListHypervisorsCommandInput extends ListHypervisorsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListHypervisorsCommand}.
+ */
 export interface ListHypervisorsCommandOutput extends ListHypervisorsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists your hypervisors.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,30 @@ export interface ListHypervisorsCommandOutput extends ListHypervisorsOutput, __M
  * import { BackupGatewayClient, ListHypervisorsCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
  * // const { BackupGatewayClient, ListHypervisorsCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
  * const client = new BackupGatewayClient(config);
+ * const input = { // ListHypervisorsInput
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListHypervisorsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListHypervisorsCommandInput - {@link ListHypervisorsCommandInput}
+ * @returns {@link ListHypervisorsCommandOutput}
  * @see {@link ListHypervisorsCommandInput} for command's `input` shape.
  * @see {@link ListHypervisorsCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The operation did not succeed because an internal error occurred. Try again later.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>TPS has been limited to protect against intentional or unintentional
+ *     high request volumes.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The operation did not succeed because a validation error occurred.</p>
+ *
  *
  */
 export class ListHypervisorsCommand extends $Command<
@@ -62,6 +82,9 @@ export class ListHypervisorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListHypervisorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +113,8 @@ export class ListHypervisorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListHypervisorsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListHypervisorsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +124,18 @@ export class ListHypervisorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListHypervisorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListHypervisorsCommand(input, context);
+    return se_ListHypervisorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHypervisorsCommandOutput> {
-    return deserializeAws_json1_0ListHypervisorsCommand(output, context);
+    return de_ListHypervisorsCommand(output, context);
   }
 
   // Start section: command_body_extra

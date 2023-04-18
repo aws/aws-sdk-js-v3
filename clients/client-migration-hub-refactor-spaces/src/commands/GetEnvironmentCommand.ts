@@ -20,19 +20,26 @@ import {
 } from "../MigrationHubRefactorSpacesClient";
 import {
   GetEnvironmentRequest,
-  GetEnvironmentRequestFilterSensitiveLog,
   GetEnvironmentResponse,
   GetEnvironmentResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetEnvironmentCommand,
-  serializeAws_restJson1GetEnvironmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetEnvironmentCommand, se_GetEnvironmentCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetEnvironmentCommand}.
+ */
 export interface GetEnvironmentCommandInput extends GetEnvironmentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetEnvironmentCommand}.
+ */
 export interface GetEnvironmentCommandOutput extends GetEnvironmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets an Amazon Web Services Migration Hub Refactor Spaces environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +47,35 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentResponse, __M
  * import { MigrationHubRefactorSpacesClient, GetEnvironmentCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
  * // const { MigrationHubRefactorSpacesClient, GetEnvironmentCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
  * const client = new MigrationHubRefactorSpacesClient(config);
+ * const input = { // GetEnvironmentRequest
+ *   EnvironmentIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new GetEnvironmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEnvironmentCommandInput - {@link GetEnvironmentCommandInput}
+ * @returns {@link GetEnvironmentCommandOutput}
  * @see {@link GetEnvironmentCommandInput} for command's `input` shape.
  * @see {@link GetEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubRefactorSpacesClientResolvedConfig | config} for MigrationHubRefactorSpacesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The user does not have sufficient access to perform this action. </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred while processing the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a resource that does not exist. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Request was denied because the request was throttled. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input does not satisfy the constraints specified by an Amazon Web Service.
+ *     </p>
+ *
  *
  */
 export class GetEnvironmentCommand extends $Command<
@@ -66,6 +95,9 @@ export class GetEnvironmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,7 +126,7 @@ export class GetEnvironmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEnvironmentRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetEnvironmentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -105,12 +137,18 @@ export class GetEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetEnvironmentCommand(input, context);
+    return se_GetEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEnvironmentCommandOutput> {
-    return deserializeAws_restJson1GetEnvironmentCommand(output, context);
+    return de_GetEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

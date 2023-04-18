@@ -20,15 +20,23 @@ import {
   CreateAttendeeResponse,
   CreateAttendeeResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateAttendeeCommand,
-  serializeAws_restJson1CreateAttendeeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateAttendeeCommand, se_CreateAttendeeCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateAttendeeCommand}.
+ */
 export interface CreateAttendeeCommandInput extends CreateAttendeeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateAttendeeCommand}.
+ */
 export interface CreateAttendeeCommandOutput extends CreateAttendeeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *            Creates a new attendee for an active Amazon Chime SDK meeting. For more information about the Amazon Chime SDK, see
  *            <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
@@ -41,13 +49,52 @@ export interface CreateAttendeeCommandOutput extends CreateAttendeeResponse, __M
  * import { ChimeSDKMeetingsClient, CreateAttendeeCommand } from "@aws-sdk/client-chime-sdk-meetings"; // ES Modules import
  * // const { ChimeSDKMeetingsClient, CreateAttendeeCommand } = require("@aws-sdk/client-chime-sdk-meetings"); // CommonJS import
  * const client = new ChimeSDKMeetingsClient(config);
+ * const input = { // CreateAttendeeRequest
+ *   MeetingId: "STRING_VALUE", // required
+ *   ExternalUserId: "STRING_VALUE", // required
+ *   Capabilities: { // AttendeeCapabilities
+ *     Audio: "SendReceive" || "Send" || "Receive" || "None", // required
+ *     Video: "SendReceive" || "Send" || "Receive" || "None", // required
+ *     Content: "SendReceive" || "Send" || "Receive" || "None", // required
+ *   },
+ * };
  * const command = new CreateAttendeeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAttendeeCommandInput - {@link CreateAttendeeCommandInput}
+ * @returns {@link CreateAttendeeCommandOutput}
  * @see {@link CreateAttendeeCommandInput} for command's `input` shape.
  * @see {@link CreateAttendeeCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMeetingsClientResolvedConfig | config} for ChimeSDKMeetingsClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request exceeds the resource limit.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>One or more of the resources in the request does not exist in the system.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The number of customer requests exceeds the request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The user isn't authorized to request a resource.</p>
+ *
+ * @throws {@link UnprocessableEntityException} (client fault)
+ *  <p>The request was well-formed but was unable to be followed due to semantic errors.</p>
+ *
  *
  */
 export class CreateAttendeeCommand extends $Command<
@@ -67,6 +114,9 @@ export class CreateAttendeeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAttendeeCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,12 +156,18 @@ export class CreateAttendeeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAttendeeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAttendeeCommand(input, context);
+    return se_CreateAttendeeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAttendeeCommandOutput> {
-    return deserializeAws_restJson1CreateAttendeeCommand(output, context);
+    return de_CreateAttendeeCommand(output, context);
   }
 
   // Start section: command_body_extra

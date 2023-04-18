@@ -19,16 +19,24 @@ import {
   StartSyncExecutionOutput,
   StartSyncExecutionOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0StartSyncExecutionCommand,
-  serializeAws_json1_0StartSyncExecutionCommand,
-} from "../protocols/Aws_json1_0";
+import { de_StartSyncExecutionCommand, se_StartSyncExecutionCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
+/**
+ * @public
+ *
+ * The input for {@link StartSyncExecutionCommand}.
+ */
 export interface StartSyncExecutionCommandInput extends StartSyncExecutionInput {}
+/**
+ * @public
+ *
+ * The output of {@link StartSyncExecutionCommand}.
+ */
 export interface StartSyncExecutionCommandOutput extends StartSyncExecutionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a Synchronous Express state machine execution. <code>StartSyncExecution</code>
  * 			  is not available for <code>STANDARD</code> workflows.</p>
  *          <note>
@@ -48,13 +56,40 @@ export interface StartSyncExecutionCommandOutput extends StartSyncExecutionOutpu
  * import { SFNClient, StartSyncExecutionCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, StartSyncExecutionCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
+ * const input = { // StartSyncExecutionInput
+ *   stateMachineArn: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   input: "STRING_VALUE",
+ *   traceHeader: "STRING_VALUE",
+ * };
  * const command = new StartSyncExecutionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartSyncExecutionCommandInput - {@link StartSyncExecutionCommandInput}
+ * @returns {@link StartSyncExecutionCommandOutput}
  * @see {@link StartSyncExecutionCommandInput} for command's `input` shape.
  * @see {@link StartSyncExecutionCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
+ *
+ * @throws {@link InvalidArn} (client fault)
+ *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * @throws {@link InvalidExecutionInput} (client fault)
+ *  <p>The provided JSON input data is not valid.</p>
+ *
+ * @throws {@link InvalidName} (client fault)
+ *  <p>The provided name is not valid.</p>
+ *
+ * @throws {@link StateMachineDeleting} (client fault)
+ *  <p>The specified state machine is being deleted.</p>
+ *
+ * @throws {@link StateMachineDoesNotExist} (client fault)
+ *  <p>The specified state machine does not exist.</p>
+ *
+ * @throws {@link StateMachineTypeNotSupported} (client fault)
+ *  <p></p>
+ *
  *
  */
 export class StartSyncExecutionCommand extends $Command<
@@ -74,6 +109,9 @@ export class StartSyncExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartSyncExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,12 +151,18 @@ export class StartSyncExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartSyncExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0StartSyncExecutionCommand(input, context);
+    return se_StartSyncExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartSyncExecutionCommandOutput> {
-    return deserializeAws_json1_0StartSyncExecutionCommand(output, context);
+    return de_StartSyncExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

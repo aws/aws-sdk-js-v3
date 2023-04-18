@@ -16,21 +16,30 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DisassociateTransitGatewayRouteTableRequest,
-  DisassociateTransitGatewayRouteTableRequestFilterSensitiveLog,
   DisassociateTransitGatewayRouteTableResult,
-  DisassociateTransitGatewayRouteTableResultFilterSensitiveLog,
 } from "../models/models_5";
 import {
-  deserializeAws_ec2DisassociateTransitGatewayRouteTableCommand,
-  serializeAws_ec2DisassociateTransitGatewayRouteTableCommand,
+  de_DisassociateTransitGatewayRouteTableCommand,
+  se_DisassociateTransitGatewayRouteTableCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DisassociateTransitGatewayRouteTableCommand}.
+ */
 export interface DisassociateTransitGatewayRouteTableCommandInput extends DisassociateTransitGatewayRouteTableRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateTransitGatewayRouteTableCommand}.
+ */
 export interface DisassociateTransitGatewayRouteTableCommandOutput
   extends DisassociateTransitGatewayRouteTableResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a resource attachment from a transit gateway route table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +47,21 @@ export interface DisassociateTransitGatewayRouteTableCommandOutput
  * import { EC2Client, DisassociateTransitGatewayRouteTableCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DisassociateTransitGatewayRouteTableCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DisassociateTransitGatewayRouteTableRequest
+ *   TransitGatewayRouteTableId: "STRING_VALUE", // required
+ *   TransitGatewayAttachmentId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DisassociateTransitGatewayRouteTableCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateTransitGatewayRouteTableCommandInput - {@link DisassociateTransitGatewayRouteTableCommandInput}
+ * @returns {@link DisassociateTransitGatewayRouteTableCommandOutput}
  * @see {@link DisassociateTransitGatewayRouteTableCommandInput} for command's `input` shape.
  * @see {@link DisassociateTransitGatewayRouteTableCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class DisassociateTransitGatewayRouteTableCommand extends $Command<
@@ -64,6 +81,9 @@ export class DisassociateTransitGatewayRouteTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateTransitGatewayRouteTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +112,8 @@ export class DisassociateTransitGatewayRouteTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateTransitGatewayRouteTableRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateTransitGatewayRouteTableResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +123,24 @@ export class DisassociateTransitGatewayRouteTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateTransitGatewayRouteTableCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DisassociateTransitGatewayRouteTableCommand(input, context);
+    return se_DisassociateTransitGatewayRouteTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateTransitGatewayRouteTableCommandOutput> {
-    return deserializeAws_ec2DisassociateTransitGatewayRouteTableCommand(output, context);
+    return de_DisassociateTransitGatewayRouteTableCommand(output, context);
   }
 
   // Start section: command_body_extra

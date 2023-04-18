@@ -6,12 +6,11 @@ import {
   ListComponentVersionsCommandInput,
   ListComponentVersionsCommandOutput,
 } from "../commands/ListComponentVersionsCommand";
-import { GreengrassV2 } from "../GreengrassV2";
 import { GreengrassV2Client } from "../GreengrassV2Client";
 import { GreengrassV2PaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: GreengrassV2Client,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListComponentVersionsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: GreengrassV2,
-  input: ListComponentVersionsCommandInput,
-  ...args: any
-): Promise<ListComponentVersionsCommandOutput> => {
-  // @ts-ignore
-  return await client.listComponentVersions(input, ...args);
-};
 export async function* paginateListComponentVersions(
   config: GreengrassV2PaginationConfiguration,
   input: ListComponentVersionsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListComponentVersions(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof GreengrassV2) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof GreengrassV2Client) {
+    if (config.client instanceof GreengrassV2Client) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected GreengrassV2 | GreengrassV2Client");

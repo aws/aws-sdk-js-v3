@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeGuruReviewerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruReviewerClient";
-import {
-  PutRecommendationFeedbackRequest,
-  PutRecommendationFeedbackRequestFilterSensitiveLog,
-  PutRecommendationFeedbackResponse,
-  PutRecommendationFeedbackResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutRecommendationFeedbackCommand,
-  serializeAws_restJson1PutRecommendationFeedbackCommand,
-} from "../protocols/Aws_restJson1";
+import { PutRecommendationFeedbackRequest, PutRecommendationFeedbackResponse } from "../models/models_0";
+import { de_PutRecommendationFeedbackCommand, se_PutRecommendationFeedbackCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutRecommendationFeedbackCommand}.
+ */
 export interface PutRecommendationFeedbackCommandInput extends PutRecommendationFeedbackRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutRecommendationFeedbackCommand}.
+ */
 export interface PutRecommendationFeedbackCommandOutput extends PutRecommendationFeedbackResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stores customer feedback for a CodeGuru Reviewer recommendation. When this API is called again with
  *          different reactions the previous feedback is overwritten.</p>
  * @example
@@ -37,13 +40,38 @@ export interface PutRecommendationFeedbackCommandOutput extends PutRecommendatio
  * import { CodeGuruReviewerClient, PutRecommendationFeedbackCommand } from "@aws-sdk/client-codeguru-reviewer"; // ES Modules import
  * // const { CodeGuruReviewerClient, PutRecommendationFeedbackCommand } = require("@aws-sdk/client-codeguru-reviewer"); // CommonJS import
  * const client = new CodeGuruReviewerClient(config);
+ * const input = { // PutRecommendationFeedbackRequest
+ *   CodeReviewArn: "STRING_VALUE", // required
+ *   RecommendationId: "STRING_VALUE", // required
+ *   Reactions: [ // Reactions // required
+ *     "ThumbsUp" || "ThumbsDown",
+ *   ],
+ * };
  * const command = new PutRecommendationFeedbackCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutRecommendationFeedbackCommandInput - {@link PutRecommendationFeedbackCommandInput}
+ * @returns {@link PutRecommendationFeedbackCommandOutput}
  * @see {@link PutRecommendationFeedbackCommandInput} for command's `input` shape.
  * @see {@link PutRecommendationFeedbackCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruReviewerClientResolvedConfig | config} for CodeGuruReviewerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The server encountered an internal error and is unable to complete the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p> The resource specified in the request was not found. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the specified constraints.</p>
+ *
  *
  */
 export class PutRecommendationFeedbackCommand extends $Command<
@@ -63,6 +91,9 @@ export class PutRecommendationFeedbackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutRecommendationFeedbackCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +122,8 @@ export class PutRecommendationFeedbackCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutRecommendationFeedbackRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutRecommendationFeedbackResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,15 +133,21 @@ export class PutRecommendationFeedbackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutRecommendationFeedbackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutRecommendationFeedbackCommand(input, context);
+    return se_PutRecommendationFeedbackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutRecommendationFeedbackCommandOutput> {
-    return deserializeAws_restJson1PutRecommendationFeedbackCommand(output, context);
+    return de_PutRecommendationFeedbackCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
+import { DisassociateExternalConnectionRequest, DisassociateExternalConnectionResult } from "../models/models_0";
 import {
-  DisassociateExternalConnectionRequest,
-  DisassociateExternalConnectionRequestFilterSensitiveLog,
-  DisassociateExternalConnectionResult,
-  DisassociateExternalConnectionResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateExternalConnectionCommand,
-  serializeAws_restJson1DisassociateExternalConnectionCommand,
+  de_DisassociateExternalConnectionCommand,
+  se_DisassociateExternalConnectionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DisassociateExternalConnectionCommand}.
+ */
 export interface DisassociateExternalConnectionCommandInput extends DisassociateExternalConnectionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateExternalConnectionCommand}.
+ */
 export interface DisassociateExternalConnectionCommandOutput
   extends DisassociateExternalConnectionResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Removes an existing external connection from a repository.
  *     </p>
@@ -40,13 +46,55 @@ export interface DisassociateExternalConnectionCommandOutput
  * import { CodeartifactClient, DisassociateExternalConnectionCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, DisassociateExternalConnectionCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
+ * const input = { // DisassociateExternalConnectionRequest
+ *   domain: "STRING_VALUE", // required
+ *   domainOwner: "STRING_VALUE",
+ *   repository: "STRING_VALUE", // required
+ *   externalConnection: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateExternalConnectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateExternalConnectionCommandInput - {@link DisassociateExternalConnectionCommandInput}
+ * @returns {@link DisassociateExternalConnectionCommandOutput}
  * @see {@link DisassociateExternalConnectionCommandInput} for command's `input` shape.
  * @see {@link DisassociateExternalConnectionCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>
+ *         The operation did not succeed because of an unauthorized access attempt.
+ *       </p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>
+ *         The operation did not succeed because prerequisites are not met.
+ *       </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>
+ *       The operation did not succeed because the resource requested is not found in the service.
+ *     </p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>
+ *         The operation did not succeed because it would have exceeded a service limit for your account.
+ *       </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>
+ *       The operation did not succeed because too many requests are sent to the service.
+ *     </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>
+ *       The operation did not succeed because a parameter in the request was sent with an invalid value.
+ *     </p>
+ *
  *
  */
 export class DisassociateExternalConnectionCommand extends $Command<
@@ -66,6 +114,9 @@ export class DisassociateExternalConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateExternalConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +145,8 @@ export class DisassociateExternalConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateExternalConnectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateExternalConnectionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,18 +156,24 @@ export class DisassociateExternalConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateExternalConnectionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateExternalConnectionCommand(input, context);
+    return se_DisassociateExternalConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateExternalConnectionCommandOutput> {
-    return deserializeAws_restJson1DisassociateExternalConnectionCommand(output, context);
+    return de_DisassociateExternalConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

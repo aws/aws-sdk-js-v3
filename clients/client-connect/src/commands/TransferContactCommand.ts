@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  TransferContactRequest,
-  TransferContactRequestFilterSensitiveLog,
-  TransferContactResponse,
-  TransferContactResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1TransferContactCommand,
-  serializeAws_restJson1TransferContactCommand,
-} from "../protocols/Aws_restJson1";
+import { TransferContactRequest, TransferContactResponse } from "../models/models_1";
+import { de_TransferContactCommand, se_TransferContactCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link TransferContactCommand}.
+ */
 export interface TransferContactCommandInput extends TransferContactRequest {}
+/**
+ * @public
+ *
+ * The output of {@link TransferContactCommand}.
+ */
 export interface TransferContactCommandOutput extends TransferContactResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Transfers contacts from one agent or queue to another agent or queue at any point after a
  *    contact is created. You can transfer a contact to another queue by providing the flow which
  *    orchestrates the contact to the destination queue. This gives you more control over contact
@@ -59,13 +62,45 @@ export interface TransferContactCommandOutput extends TransferContactResponse, _
  * import { ConnectClient, TransferContactCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, TransferContactCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // TransferContactRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   ContactId: "STRING_VALUE", // required
+ *   QueueId: "STRING_VALUE",
+ *   UserId: "STRING_VALUE",
+ *   ContactFlowId: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new TransferContactCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TransferContactCommandInput - {@link TransferContactCommandInput}
+ * @returns {@link TransferContactCommandOutput}
  * @see {@link TransferContactCommandInput} for command's `input` shape.
  * @see {@link TransferContactCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * @throws {@link IdempotencyException} (client fault)
+ *  <p>An entity with the same name already exists.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The service quota has been exceeded.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
  *
  */
 export class TransferContactCommand extends $Command<
@@ -85,6 +120,9 @@ export class TransferContactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TransferContactCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +151,8 @@ export class TransferContactCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TransferContactRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: TransferContactResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +162,18 @@ export class TransferContactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TransferContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1TransferContactCommand(input, context);
+    return se_TransferContactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TransferContactCommandOutput> {
-    return deserializeAws_restJson1TransferContactCommand(output, context);
+    return de_TransferContactCommand(output, context);
   }
 
   // Start section: command_body_extra

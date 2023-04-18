@@ -15,23 +15,32 @@ import {
 
 import {
   PromoteResourceShareCreatedFromPolicyRequest,
-  PromoteResourceShareCreatedFromPolicyRequestFilterSensitiveLog,
   PromoteResourceShareCreatedFromPolicyResponse,
-  PromoteResourceShareCreatedFromPolicyResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1PromoteResourceShareCreatedFromPolicyCommand,
-  serializeAws_restJson1PromoteResourceShareCreatedFromPolicyCommand,
+  de_PromoteResourceShareCreatedFromPolicyCommand,
+  se_PromoteResourceShareCreatedFromPolicyCommand,
 } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link PromoteResourceShareCreatedFromPolicyCommand}.
+ */
 export interface PromoteResourceShareCreatedFromPolicyCommandInput
   extends PromoteResourceShareCreatedFromPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PromoteResourceShareCreatedFromPolicyCommand}.
+ */
 export interface PromoteResourceShareCreatedFromPolicyCommandOutput
   extends PromoteResourceShareCreatedFromPolicyResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>When you attach a resource-based permission policy to a resource, it automatically
  *             creates a resource share. However, resource shares created this way are visible only to the resource share owner, and
  *             the resource share can't be modified in RAM.</p>
@@ -44,13 +53,43 @@ export interface PromoteResourceShareCreatedFromPolicyCommandOutput
  * import { RAMClient, PromoteResourceShareCreatedFromPolicyCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, PromoteResourceShareCreatedFromPolicyCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
+ * const input = { // PromoteResourceShareCreatedFromPolicyRequest
+ *   resourceShareArn: "STRING_VALUE", // required
+ * };
  * const command = new PromoteResourceShareCreatedFromPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PromoteResourceShareCreatedFromPolicyCommandInput - {@link PromoteResourceShareCreatedFromPolicyCommandInput}
+ * @returns {@link PromoteResourceShareCreatedFromPolicyCommandOutput}
  * @see {@link PromoteResourceShareCreatedFromPolicyCommandInput} for command's `input` shape.
  * @see {@link PromoteResourceShareCreatedFromPolicyCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter is not valid.</p>
+ *
+ * @throws {@link MalformedArnException} (client fault)
+ *  <p>The format of an Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * @throws {@link MissingRequiredParameterException} (client fault)
+ *  <p>A required input parameter is missing.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>The requested operation is not permitted.</p>
+ *
+ * @throws {@link ResourceShareLimitExceededException} (client fault)
+ *  <p>This request would exceed the limit for resource shares for your account.</p>
+ *
+ * @throws {@link ServerInternalException} (server fault)
+ *  <p>The service could not respond to the request due to an internal problem.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is not available.</p>
+ *
+ * @throws {@link UnknownResourceException} (client fault)
+ *  <p>A specified resource was not found.</p>
+ *
  *
  */
 export class PromoteResourceShareCreatedFromPolicyCommand extends $Command<
@@ -70,6 +109,9 @@ export class PromoteResourceShareCreatedFromPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PromoteResourceShareCreatedFromPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +140,8 @@ export class PromoteResourceShareCreatedFromPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PromoteResourceShareCreatedFromPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PromoteResourceShareCreatedFromPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,18 +151,24 @@ export class PromoteResourceShareCreatedFromPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PromoteResourceShareCreatedFromPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PromoteResourceShareCreatedFromPolicyCommand(input, context);
+    return se_PromoteResourceShareCreatedFromPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PromoteResourceShareCreatedFromPolicyCommandOutput> {
-    return deserializeAws_restJson1PromoteResourceShareCreatedFromPolicyCommand(output, context);
+    return de_PromoteResourceShareCreatedFromPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

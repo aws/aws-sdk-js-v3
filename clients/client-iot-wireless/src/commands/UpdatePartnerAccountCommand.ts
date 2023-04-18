@@ -18,17 +18,24 @@ import {
   UpdatePartnerAccountRequest,
   UpdatePartnerAccountRequestFilterSensitiveLog,
   UpdatePartnerAccountResponse,
-  UpdatePartnerAccountResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdatePartnerAccountCommand,
-  serializeAws_restJson1UpdatePartnerAccountCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdatePartnerAccountCommand, se_UpdatePartnerAccountCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdatePartnerAccountCommand}.
+ */
 export interface UpdatePartnerAccountCommandInput extends UpdatePartnerAccountRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdatePartnerAccountCommand}.
+ */
 export interface UpdatePartnerAccountCommandOutput extends UpdatePartnerAccountResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates properties of a partner account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +43,35 @@ export interface UpdatePartnerAccountCommandOutput extends UpdatePartnerAccountR
  * import { IoTWirelessClient, UpdatePartnerAccountCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, UpdatePartnerAccountCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // UpdatePartnerAccountRequest
+ *   Sidewalk: { // SidewalkUpdateAccount
+ *     AppServerPrivateKey: "STRING_VALUE",
+ *   },
+ *   PartnerAccountId: "STRING_VALUE", // required
+ *   PartnerType: "Sidewalk", // required
+ * };
  * const command = new UpdatePartnerAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePartnerAccountCommandInput - {@link UpdatePartnerAccountCommandInput}
+ * @returns {@link UpdatePartnerAccountCommandOutput}
  * @see {@link UpdatePartnerAccountCommandInput} for command's `input` shape.
  * @see {@link UpdatePartnerAccountCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred while processing a request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because it exceeded the allowed API request rate.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input did not meet the specified constraints.</p>
+ *
  *
  */
 export class UpdatePartnerAccountCommand extends $Command<
@@ -62,6 +91,9 @@ export class UpdatePartnerAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePartnerAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,7 +123,7 @@ export class UpdatePartnerAccountCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdatePartnerAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePartnerAccountResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +133,18 @@ export class UpdatePartnerAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePartnerAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdatePartnerAccountCommand(input, context);
+    return se_UpdatePartnerAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePartnerAccountCommandOutput> {
-    return deserializeAws_restJson1UpdatePartnerAccountCommand(output, context);
+    return de_UpdatePartnerAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

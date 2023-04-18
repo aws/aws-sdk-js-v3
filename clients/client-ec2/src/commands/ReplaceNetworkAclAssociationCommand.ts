@@ -14,23 +14,26 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ReplaceNetworkAclAssociationRequest,
-  ReplaceNetworkAclAssociationRequestFilterSensitiveLog,
-  ReplaceNetworkAclAssociationResult,
-  ReplaceNetworkAclAssociationResultFilterSensitiveLog,
-} from "../models/models_6";
-import {
-  deserializeAws_ec2ReplaceNetworkAclAssociationCommand,
-  serializeAws_ec2ReplaceNetworkAclAssociationCommand,
-} from "../protocols/Aws_ec2";
+import { ReplaceNetworkAclAssociationRequest, ReplaceNetworkAclAssociationResult } from "../models/models_6";
+import { de_ReplaceNetworkAclAssociationCommand, se_ReplaceNetworkAclAssociationCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link ReplaceNetworkAclAssociationCommand}.
+ */
 export interface ReplaceNetworkAclAssociationCommandInput extends ReplaceNetworkAclAssociationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ReplaceNetworkAclAssociationCommand}.
+ */
 export interface ReplaceNetworkAclAssociationCommandOutput
   extends ReplaceNetworkAclAssociationResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes which network ACL a subnet is associated with. By default when you create a
  * 			subnet, it's automatically associated with the default network ACL. For more
  * 			information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html">Network
@@ -42,13 +45,38 @@ export interface ReplaceNetworkAclAssociationCommandOutput
  * import { EC2Client, ReplaceNetworkAclAssociationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ReplaceNetworkAclAssociationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ReplaceNetworkAclAssociationRequest
+ *   AssociationId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ *   NetworkAclId: "STRING_VALUE", // required
+ * };
  * const command = new ReplaceNetworkAclAssociationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ReplaceNetworkAclAssociationCommandInput - {@link ReplaceNetworkAclAssociationCommandInput}
+ * @returns {@link ReplaceNetworkAclAssociationCommandOutput}
  * @see {@link ReplaceNetworkAclAssociationCommandInput} for command's `input` shape.
  * @see {@link ReplaceNetworkAclAssociationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ *
+ * @example To replace the network ACL associated with a subnet
+ * ```javascript
+ * // This example associates the specified network ACL with the subnet for the specified network ACL association.
+ * const input = {
+ *   "AssociationId": "aclassoc-e5b95c8c",
+ *   "NetworkAclId": "acl-5fb85d36"
+ * };
+ * const command = new ReplaceNetworkAclAssociationCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "NewAssociationId": "aclassoc-3999875b"
+ * }
+ * *\/
+ * // example id: ec2-replace-network-acl-association-1
+ * ```
  *
  */
 export class ReplaceNetworkAclAssociationCommand extends $Command<
@@ -68,6 +96,9 @@ export class ReplaceNetworkAclAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReplaceNetworkAclAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +127,8 @@ export class ReplaceNetworkAclAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReplaceNetworkAclAssociationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ReplaceNetworkAclAssociationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,15 +138,21 @@ export class ReplaceNetworkAclAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReplaceNetworkAclAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ReplaceNetworkAclAssociationCommand(input, context);
+    return se_ReplaceNetworkAclAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ReplaceNetworkAclAssociationCommandOutput> {
-    return deserializeAws_ec2ReplaceNetworkAclAssociationCommand(output, context);
+    return de_ReplaceNetworkAclAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -31,12 +31,14 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
@@ -168,6 +170,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | BatchExecuteStatementCommandInput
   | BatchGetItemCommandInput
@@ -223,6 +228,9 @@ export type ServiceInputTypes =
   | UpdateTableReplicaAutoScalingCommandInput
   | UpdateTimeToLiveCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | BatchExecuteStatementCommandOutput
   | BatchGetItemCommandOutput
@@ -278,6 +286,9 @@ export type ServiceOutputTypes =
   | UpdateTableReplicaAutoScalingCommandOutput
   | UpdateTimeToLiveCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -285,11 +296,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -346,19 +357,10 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
-   * Value for how many times a request will be made at most in case of retry.
+   * Unique service identifier.
+   * @internal
    */
-  maxAttempts?: number | __Provider<number>;
-
-  /**
-   * Specifies which retry algorithm to use.
-   */
-  retryMode?: string | __Provider<string>;
-
-  /**
-   * Optional logger for logging debug/info/warn/error.
-   */
-  logger?: __Logger;
+  serviceId?: string;
 
   /**
    * Enables IPv6/IPv4 dualstack endpoint.
@@ -369,12 +371,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Enables FIPS compatible endpoints.
    */
   useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
 
   /**
    * The AWS region to which this client will send requests
@@ -401,11 +397,29 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   endpointDiscoveryEnabledProvider?: __Provider<boolean | undefined>;
 
   /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * Value for how many times a request will be made at most in case of retry.
    */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Specifies which retry algorithm to use.
+   */
+  retryMode?: string | __Provider<string>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
+
+  /**
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   */
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type DynamoDBClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -417,10 +431,15 @@ type DynamoDBClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptio
   EndpointDiscoveryInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of DynamoDBClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of DynamoDBClient class constructor that set the region, credentials and other options.
  */
 export interface DynamoDBClientConfig extends DynamoDBClientConfigType {}
 
+/**
+ * @public
+ */
 type DynamoDBClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -432,26 +451,26 @@ type DynamoDBClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHand
   EndpointDiscoveryResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of DynamoDBClient class. This is resolved and normalized from the {@link DynamoDBClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of DynamoDBClient class. This is resolved and normalized from the {@link DynamoDBClientConfig | constructor configuration interface}.
  */
 export interface DynamoDBClientResolvedConfig extends DynamoDBClientResolvedConfigType {}
 
 /**
+ * @public
  * <fullname>Amazon DynamoDB</fullname>
- *
- *         <p>Amazon DynamoDB is a fully managed NoSQL database service that provides fast
+ *          <p>Amazon DynamoDB is a fully managed NoSQL database service that provides fast
  *             and predictable performance with seamless scalability. DynamoDB lets you
  *             offload the administrative burdens of operating and scaling a distributed database, so
  *             that you don't have to worry about hardware provisioning, setup and configuration,
  *             replication, software patching, or cluster scaling.</p>
- *
- *         <p>With DynamoDB, you can create database tables that can store and retrieve
+ *          <p>With DynamoDB, you can create database tables that can store and retrieve
  *             any amount of data, and serve any level of request traffic. You can scale up or scale
  *             down your tables' throughput capacity without downtime or performance degradation, and
  *             use the Amazon Web Services Management Console to monitor resource utilization and performance
  *             metrics.</p>
- *
- *         <p>DynamoDB automatically spreads the data and traffic for your tables over
+ *          <p>DynamoDB automatically spreads the data and traffic for your tables over
  *             a sufficient number of servers to handle your throughput and storage requirements, while
  *             maintaining consistent and fast performance. All of your data is stored on solid state
  *             disks (SSDs) and automatically replicated across multiple Availability Zones in an

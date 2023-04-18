@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import {
-  BackupPolicyDescription,
-  BackupPolicyDescriptionFilterSensitiveLog,
-  PutBackupPolicyRequest,
-  PutBackupPolicyRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutBackupPolicyCommand,
-  serializeAws_restJson1PutBackupPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { BackupPolicyDescription, PutBackupPolicyRequest } from "../models/models_0";
+import { de_PutBackupPolicyCommand, se_PutBackupPolicyCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutBackupPolicyCommand}.
+ */
 export interface PutBackupPolicyCommandInput extends PutBackupPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutBackupPolicyCommand}.
+ */
 export interface PutBackupPolicyCommandOutput extends BackupPolicyDescription, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the file system's backup policy. Use this action to start or stop automatic backups of the file system. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,39 @@ export interface PutBackupPolicyCommandOutput extends BackupPolicyDescription, _
  * import { EFSClient, PutBackupPolicyCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, PutBackupPolicyCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
+ * const input = { // PutBackupPolicyRequest
+ *   FileSystemId: "STRING_VALUE", // required
+ *   BackupPolicy: { // BackupPolicy
+ *     Status: "ENABLED" || "ENABLING" || "DISABLED" || "DISABLING", // required
+ *   },
+ * };
  * const command = new PutBackupPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBackupPolicyCommandInput - {@link PutBackupPolicyCommandInput}
+ * @returns {@link PutBackupPolicyCommandOutput}
  * @see {@link PutBackupPolicyCommandInput} for command's `input` shape.
  * @see {@link PutBackupPolicyCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
+ *
+ * @throws {@link BadRequest} (client fault)
+ *  <p>Returned if the request is malformed or contains an error such as an invalid
+ *             parameter value or a missing required parameter.</p>
+ *
+ * @throws {@link FileSystemNotFound} (client fault)
+ *  <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the
+ *             requester's Amazon Web Services account.</p>
+ *
+ * @throws {@link IncorrectFileSystemLifeCycleState} (client fault)
+ *  <p>Returned if the file system's lifecycle state is not "available".</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Returned if an error occurred on the server side.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Returned if the Backup service is not available in the Amazon Web Services Region in which the request was made.</p>
+ *
  *
  */
 export class PutBackupPolicyCommand extends $Command<
@@ -62,6 +91,9 @@ export class PutBackupPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBackupPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +122,8 @@ export class PutBackupPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutBackupPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BackupPolicyDescriptionFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +133,18 @@ export class PutBackupPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutBackupPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutBackupPolicyCommand(input, context);
+    return se_PutBackupPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBackupPolicyCommandOutput> {
-    return deserializeAws_restJson1PutBackupPolicyCommand(output, context);
+    return de_PutBackupPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

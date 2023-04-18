@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
+import { ApplyPendingMaintenanceActionMessage, ApplyPendingMaintenanceActionResult } from "../models/models_0";
 import {
-  ApplyPendingMaintenanceActionMessage,
-  ApplyPendingMaintenanceActionMessageFilterSensitiveLog,
-  ApplyPendingMaintenanceActionResult,
-  ApplyPendingMaintenanceActionResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryApplyPendingMaintenanceActionCommand,
-  serializeAws_queryApplyPendingMaintenanceActionCommand,
+  de_ApplyPendingMaintenanceActionCommand,
+  se_ApplyPendingMaintenanceActionCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link ApplyPendingMaintenanceActionCommand}.
+ */
 export interface ApplyPendingMaintenanceActionCommandInput extends ApplyPendingMaintenanceActionMessage {}
+/**
+ * @public
+ *
+ * The output of {@link ApplyPendingMaintenanceActionCommand}.
+ */
 export interface ApplyPendingMaintenanceActionCommandOutput
   extends ApplyPendingMaintenanceActionResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Applies a pending maintenance action to a resource (for example,
  *             to an Amazon DocumentDB instance).</p>
  * @example
@@ -39,13 +45,31 @@ export interface ApplyPendingMaintenanceActionCommandOutput
  * import { DocDBClient, ApplyPendingMaintenanceActionCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, ApplyPendingMaintenanceActionCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = { // ApplyPendingMaintenanceActionMessage
+ *   ResourceIdentifier: "STRING_VALUE", // required
+ *   ApplyAction: "STRING_VALUE", // required
+ *   OptInType: "STRING_VALUE", // required
+ * };
  * const command = new ApplyPendingMaintenanceActionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ApplyPendingMaintenanceActionCommandInput - {@link ApplyPendingMaintenanceActionCommandInput}
+ * @returns {@link ApplyPendingMaintenanceActionCommandOutput}
  * @see {@link ApplyPendingMaintenanceActionCommandInput} for command's `input` shape.
  * @see {@link ApplyPendingMaintenanceActionCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
+ *
+ * @throws {@link InvalidDBClusterStateFault} (client fault)
+ *  <p>The cluster isn't in a valid state.</p>
+ *
+ * @throws {@link InvalidDBInstanceStateFault} (client fault)
+ *  <p> The specified instance isn't in the <i>available</i> state.
+ *         </p>
+ *
+ * @throws {@link ResourceNotFoundFault} (client fault)
+ *  <p>The specified resource ID was not found.</p>
+ *
  *
  */
 export class ApplyPendingMaintenanceActionCommand extends $Command<
@@ -65,6 +89,9 @@ export class ApplyPendingMaintenanceActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ApplyPendingMaintenanceActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +120,8 @@ export class ApplyPendingMaintenanceActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ApplyPendingMaintenanceActionMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ApplyPendingMaintenanceActionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,15 +131,21 @@ export class ApplyPendingMaintenanceActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ApplyPendingMaintenanceActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryApplyPendingMaintenanceActionCommand(input, context);
+    return se_ApplyPendingMaintenanceActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ApplyPendingMaintenanceActionCommandOutput> {
-    return deserializeAws_queryApplyPendingMaintenanceActionCommand(output, context);
+    return de_ApplyPendingMaintenanceActionCommand(output, context);
   }
 
   // Start section: command_body_extra

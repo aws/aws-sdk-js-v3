@@ -6,12 +6,11 @@ import {
   DescribeVpcEndpointConnectionNotificationsCommandInput,
   DescribeVpcEndpointConnectionNotificationsCommandOutput,
 } from "../commands/DescribeVpcEndpointConnectionNotificationsCommand";
-import { EC2 } from "../EC2";
 import { EC2Client } from "../EC2Client";
 import { EC2PaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: EC2Client,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeVpcEndpointConnectionNotificationsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: EC2,
-  input: DescribeVpcEndpointConnectionNotificationsCommandInput,
-  ...args: any
-): Promise<DescribeVpcEndpointConnectionNotificationsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeVpcEndpointConnectionNotifications(input, ...args);
-};
 export async function* paginateDescribeVpcEndpointConnectionNotifications(
   config: EC2PaginationConfiguration,
   input: DescribeVpcEndpointConnectionNotificationsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateDescribeVpcEndpointConnectionNotifications(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof EC2) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof EC2Client) {
+    if (config.client instanceof EC2Client) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected EC2 | EC2Client");

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import {
-  ListNotebookExecutionsInput,
-  ListNotebookExecutionsInputFilterSensitiveLog,
-  ListNotebookExecutionsOutput,
-  ListNotebookExecutionsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListNotebookExecutionsCommand,
-  serializeAws_json1_1ListNotebookExecutionsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListNotebookExecutionsInput, ListNotebookExecutionsOutput } from "../models/models_0";
+import { de_ListNotebookExecutionsCommand, se_ListNotebookExecutionsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListNotebookExecutionsCommand}.
+ */
 export interface ListNotebookExecutionsCommandInput extends ListNotebookExecutionsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListNotebookExecutionsCommand}.
+ */
 export interface ListNotebookExecutionsCommandOutput extends ListNotebookExecutionsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides summaries of all notebook executions. You can filter the list based on multiple
  *          criteria such as status, time range, and editor id. Returns a maximum of 50 notebook
  *          executions and a marker to track the paging of a longer notebook execution list across
@@ -39,13 +42,30 @@ export interface ListNotebookExecutionsCommandOutput extends ListNotebookExecuti
  * import { EMRClient, ListNotebookExecutionsCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, ListNotebookExecutionsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = { // ListNotebookExecutionsInput
+ *   EditorId: "STRING_VALUE",
+ *   Status: "START_PENDING" || "STARTING" || "RUNNING" || "FINISHING" || "FINISHED" || "FAILING" || "FAILED" || "STOP_PENDING" || "STOPPING" || "STOPPED",
+ *   From: new Date("TIMESTAMP"),
+ *   To: new Date("TIMESTAMP"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new ListNotebookExecutionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListNotebookExecutionsCommandInput - {@link ListNotebookExecutionsCommandInput}
+ * @returns {@link ListNotebookExecutionsCommandOutput}
  * @see {@link ListNotebookExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListNotebookExecutionsCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Indicates that an error occurred while processing the request and that the request was
+ *          not completed.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception occurs when there is something wrong with user input.</p>
+ *
  *
  */
 export class ListNotebookExecutionsCommand extends $Command<
@@ -65,6 +85,9 @@ export class ListNotebookExecutionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListNotebookExecutionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +116,8 @@ export class ListNotebookExecutionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListNotebookExecutionsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListNotebookExecutionsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +127,18 @@ export class ListNotebookExecutionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListNotebookExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListNotebookExecutionsCommand(input, context);
+    return se_ListNotebookExecutionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNotebookExecutionsCommandOutput> {
-    return deserializeAws_json1_1ListNotebookExecutionsCommand(output, context);
+    return de_ListNotebookExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

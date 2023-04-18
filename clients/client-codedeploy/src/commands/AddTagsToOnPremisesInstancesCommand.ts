@@ -14,19 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
+import { AddTagsToOnPremisesInstancesInput } from "../models/models_0";
 import {
-  AddTagsToOnPremisesInstancesInput,
-  AddTagsToOnPremisesInstancesInputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AddTagsToOnPremisesInstancesCommand,
-  serializeAws_json1_1AddTagsToOnPremisesInstancesCommand,
+  de_AddTagsToOnPremisesInstancesCommand,
+  se_AddTagsToOnPremisesInstancesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link AddTagsToOnPremisesInstancesCommand}.
+ */
 export interface AddTagsToOnPremisesInstancesCommandInput extends AddTagsToOnPremisesInstancesInput {}
+/**
+ * @public
+ *
+ * The output of {@link AddTagsToOnPremisesInstancesCommand}.
+ */
 export interface AddTagsToOnPremisesInstancesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds tags to on-premises instances.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -34,13 +42,49 @@ export interface AddTagsToOnPremisesInstancesCommandOutput extends __MetadataBea
  * import { CodeDeployClient, AddTagsToOnPremisesInstancesCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, AddTagsToOnPremisesInstancesCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
+ * const input = { // AddTagsToOnPremisesInstancesInput
+ *   tags: [ // TagList // required
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   instanceNames: [ // InstanceNameList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new AddTagsToOnPremisesInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AddTagsToOnPremisesInstancesCommandInput - {@link AddTagsToOnPremisesInstancesCommandInput}
+ * @returns {@link AddTagsToOnPremisesInstancesCommandOutput}
  * @see {@link AddTagsToOnPremisesInstancesCommandInput} for command's `input` shape.
  * @see {@link AddTagsToOnPremisesInstancesCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
+ *
+ * @throws {@link InstanceLimitExceededException} (client fault)
+ *  <p>The maximum number of allowed on-premises instances in a single call was
+ *             exceeded.</p>
+ *
+ * @throws {@link InstanceNameRequiredException} (client fault)
+ *  <p>An on-premises instance name was not specified.</p>
+ *
+ * @throws {@link InstanceNotRegisteredException} (client fault)
+ *  <p>The specified on-premises instance is not registered.</p>
+ *
+ * @throws {@link InvalidInstanceNameException} (client fault)
+ *  <p>The on-premises instance name was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidTagException} (client fault)
+ *  <p>The tag was specified in an invalid format.</p>
+ *
+ * @throws {@link TagLimitExceededException} (client fault)
+ *  <p>The maximum allowed number of tags was exceeded.</p>
+ *
+ * @throws {@link TagRequiredException} (client fault)
+ *  <p>A tag was not specified.</p>
+ *
  *
  */
 export class AddTagsToOnPremisesInstancesCommand extends $Command<
@@ -60,6 +104,9 @@ export class AddTagsToOnPremisesInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddTagsToOnPremisesInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +135,8 @@ export class AddTagsToOnPremisesInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddTagsToOnPremisesInstancesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,15 +146,21 @@ export class AddTagsToOnPremisesInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddTagsToOnPremisesInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AddTagsToOnPremisesInstancesCommand(input, context);
+    return se_AddTagsToOnPremisesInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AddTagsToOnPremisesInstancesCommandOutput> {
-    return deserializeAws_json1_1AddTagsToOnPremisesInstancesCommand(output, context);
+    return de_AddTagsToOnPremisesInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

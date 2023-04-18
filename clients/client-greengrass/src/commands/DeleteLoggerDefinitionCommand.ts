@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import {
-  DeleteLoggerDefinitionRequest,
-  DeleteLoggerDefinitionRequestFilterSensitiveLog,
-  DeleteLoggerDefinitionResponse,
-  DeleteLoggerDefinitionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteLoggerDefinitionCommand,
-  serializeAws_restJson1DeleteLoggerDefinitionCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteLoggerDefinitionRequest, DeleteLoggerDefinitionResponse } from "../models/models_0";
+import { de_DeleteLoggerDefinitionCommand, se_DeleteLoggerDefinitionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteLoggerDefinitionCommand}.
+ */
 export interface DeleteLoggerDefinitionCommandInput extends DeleteLoggerDefinitionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteLoggerDefinitionCommand}.
+ */
 export interface DeleteLoggerDefinitionCommandOutput extends DeleteLoggerDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Deletes a logger definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,22 @@ export interface DeleteLoggerDefinitionCommandOutput extends DeleteLoggerDefinit
  * import { GreengrassClient, DeleteLoggerDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, DeleteLoggerDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // DeleteLoggerDefinitionRequest
+ *   LoggerDefinitionId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteLoggerDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLoggerDefinitionCommandInput - {@link DeleteLoggerDefinitionCommandInput}
+ * @returns {@link DeleteLoggerDefinitionCommandOutput}
  * @see {@link DeleteLoggerDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteLoggerDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  General error information.
+ *
  *
  */
 export class DeleteLoggerDefinitionCommand extends $Command<
@@ -62,6 +74,9 @@ export class DeleteLoggerDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLoggerDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +105,8 @@ export class DeleteLoggerDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLoggerDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLoggerDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +116,18 @@ export class DeleteLoggerDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLoggerDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteLoggerDefinitionCommand(input, context);
+    return se_DeleteLoggerDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLoggerDefinitionCommandOutput> {
-    return deserializeAws_restJson1DeleteLoggerDefinitionCommand(output, context);
+    return de_DeleteLoggerDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

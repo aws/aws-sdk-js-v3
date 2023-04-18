@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import {
-  DescribeAlarmsForMetricInput,
-  DescribeAlarmsForMetricInputFilterSensitiveLog,
-  DescribeAlarmsForMetricOutput,
-  DescribeAlarmsForMetricOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeAlarmsForMetricCommand,
-  serializeAws_queryDescribeAlarmsForMetricCommand,
-} from "../protocols/Aws_query";
+import { DescribeAlarmsForMetricInput, DescribeAlarmsForMetricOutput } from "../models/models_0";
+import { de_DescribeAlarmsForMetricCommand, se_DescribeAlarmsForMetricCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeAlarmsForMetricCommand}.
+ */
 export interface DescribeAlarmsForMetricCommandInput extends DescribeAlarmsForMetricInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeAlarmsForMetricCommand}.
+ */
 export interface DescribeAlarmsForMetricCommandOutput extends DescribeAlarmsForMetricOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the alarms for the specified metric. To
  * 			filter the results, specify a statistic, period, or unit.</p>
  *          <p>This operation retrieves only standard alarms that are based on
@@ -40,13 +43,30 @@ export interface DescribeAlarmsForMetricCommandOutput extends DescribeAlarmsForM
  * import { CloudWatchClient, DescribeAlarmsForMetricCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, DescribeAlarmsForMetricCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
+ * const input = { // DescribeAlarmsForMetricInput
+ *   MetricName: "STRING_VALUE", // required
+ *   Namespace: "STRING_VALUE", // required
+ *   Statistic: "SampleCount" || "Average" || "Sum" || "Minimum" || "Maximum",
+ *   ExtendedStatistic: "STRING_VALUE",
+ *   Dimensions: [ // Dimensions
+ *     { // Dimension
+ *       Name: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Period: Number("int"),
+ *   Unit: "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",
+ * };
  * const command = new DescribeAlarmsForMetricCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAlarmsForMetricCommandInput - {@link DescribeAlarmsForMetricCommandInput}
+ * @returns {@link DescribeAlarmsForMetricCommandOutput}
  * @see {@link DescribeAlarmsForMetricCommandInput} for command's `input` shape.
  * @see {@link DescribeAlarmsForMetricCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
+ *
  *
  */
 export class DescribeAlarmsForMetricCommand extends $Command<
@@ -66,6 +86,9 @@ export class DescribeAlarmsForMetricCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAlarmsForMetricCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +117,8 @@ export class DescribeAlarmsForMetricCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAlarmsForMetricInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAlarmsForMetricOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +128,18 @@ export class DescribeAlarmsForMetricCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAlarmsForMetricCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeAlarmsForMetricCommand(input, context);
+    return se_DescribeAlarmsForMetricCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAlarmsForMetricCommandOutput> {
-    return deserializeAws_queryDescribeAlarmsForMetricCommand(output, context);
+    return de_DescribeAlarmsForMetricCommand(output, context);
   }
 
   // Start section: command_body_extra

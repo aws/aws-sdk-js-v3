@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ResetSnapshotAttributeRequest, ResetSnapshotAttributeRequestFilterSensitiveLog } from "../models/models_6";
-import {
-  deserializeAws_ec2ResetSnapshotAttributeCommand,
-  serializeAws_ec2ResetSnapshotAttributeCommand,
-} from "../protocols/Aws_ec2";
+import { ResetSnapshotAttributeRequest } from "../models/models_6";
+import { de_ResetSnapshotAttributeCommand, se_ResetSnapshotAttributeCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link ResetSnapshotAttributeCommand}.
+ */
 export interface ResetSnapshotAttributeCommandInput extends ResetSnapshotAttributeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ResetSnapshotAttributeCommand}.
+ */
 export interface ResetSnapshotAttributeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Resets permission settings for the specified snapshot.</p>
  *          <p>For more information about modifying snapshot permissions, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html">Share a snapshot</a> in the
  *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -33,13 +41,33 @@ export interface ResetSnapshotAttributeCommandOutput extends __MetadataBearer {}
  * import { EC2Client, ResetSnapshotAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ResetSnapshotAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ResetSnapshotAttributeRequest
+ *   Attribute: "productCodes" || "createVolumePermission", // required
+ *   SnapshotId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new ResetSnapshotAttributeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ResetSnapshotAttributeCommandInput - {@link ResetSnapshotAttributeCommandInput}
+ * @returns {@link ResetSnapshotAttributeCommandOutput}
  * @see {@link ResetSnapshotAttributeCommandInput} for command's `input` shape.
  * @see {@link ResetSnapshotAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ *
+ * @example To reset a snapshot attribute
+ * ```javascript
+ * // This example resets the create volume permissions for snapshot ``snap-1234567890abcdef0``. If the command succeeds, no output is returned.
+ * const input = {
+ *   "Attribute": "createVolumePermission",
+ *   "SnapshotId": "snap-1234567890abcdef0"
+ * };
+ * const command = new ResetSnapshotAttributeCommand(input);
+ * await client.send(command);
+ * // example id: to-reset-a-snapshot-attribute-1472508825735
+ * ```
  *
  */
 export class ResetSnapshotAttributeCommand extends $Command<
@@ -59,6 +87,9 @@ export class ResetSnapshotAttributeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResetSnapshotAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -87,8 +118,8 @@ export class ResetSnapshotAttributeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResetSnapshotAttributeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -98,12 +129,18 @@ export class ResetSnapshotAttributeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResetSnapshotAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ResetSnapshotAttributeCommand(input, context);
+    return se_ResetSnapshotAttributeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetSnapshotAttributeCommandOutput> {
-    return deserializeAws_ec2ResetSnapshotAttributeCommand(output, context);
+    return de_ResetSnapshotAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

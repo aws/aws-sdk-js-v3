@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MacieClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MacieClient";
-import {
-  AssociateS3ResourcesRequest,
-  AssociateS3ResourcesRequestFilterSensitiveLog,
-  AssociateS3ResourcesResult,
-  AssociateS3ResourcesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateS3ResourcesCommand,
-  serializeAws_json1_1AssociateS3ResourcesCommand,
-} from "../protocols/Aws_json1_1";
+import { AssociateS3ResourcesRequest, AssociateS3ResourcesResult } from "../models/models_0";
+import { de_AssociateS3ResourcesCommand, se_AssociateS3ResourcesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link AssociateS3ResourcesCommand}.
+ */
 export interface AssociateS3ResourcesCommandInput extends AssociateS3ResourcesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AssociateS3ResourcesCommand}.
+ */
 export interface AssociateS3ResourcesCommandOutput extends AssociateS3ResourcesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>(Discontinued) Associates specified S3 resources with Amazon Macie Classic for
  *       monitoring and data classification. If <code>memberAccountId</code> isn't specified, the action associates
  *       specified S3 resources with Macie Classic for the current Macie Classic administrator account.
@@ -40,13 +43,43 @@ export interface AssociateS3ResourcesCommandOutput extends AssociateS3ResourcesR
  * import { MacieClient, AssociateS3ResourcesCommand } from "@aws-sdk/client-macie"; // ES Modules import
  * // const { MacieClient, AssociateS3ResourcesCommand } = require("@aws-sdk/client-macie"); // CommonJS import
  * const client = new MacieClient(config);
+ * const input = { // AssociateS3ResourcesRequest
+ *   memberAccountId: "STRING_VALUE",
+ *   s3Resources: [ // S3ResourcesClassification // required
+ *     { // S3ResourceClassification
+ *       bucketName: "STRING_VALUE", // required
+ *       prefix: "STRING_VALUE",
+ *       classificationType: { // ClassificationType
+ *         oneTime: "STRING_VALUE", // required
+ *         continuous: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new AssociateS3ResourcesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateS3ResourcesCommandInput - {@link AssociateS3ResourcesCommandInput}
+ * @returns {@link AssociateS3ResourcesCommandOutput}
  * @see {@link AssociateS3ResourcesCommandInput} for command's `input` shape.
  * @see {@link AssociateS3ResourcesCommandOutput} for command's `response` shape.
  * @see {@link MacieClientResolvedConfig | config} for MacieClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>(Discontinued) You do not have required permissions to access the requested resource.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>(Discontinued) Internal server error.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>(Discontinued) The request was rejected because an invalid or out-of-range value was supplied for an
+ *       input parameter.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>(Discontinued) The request was rejected because it attempted to create resources beyond the current
+ *       Amazon Web Services account quotas. The error code describes the quota exceeded.</p>
+ *
  *
  */
 export class AssociateS3ResourcesCommand extends $Command<
@@ -66,6 +99,9 @@ export class AssociateS3ResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateS3ResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +130,8 @@ export class AssociateS3ResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateS3ResourcesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateS3ResourcesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +141,18 @@ export class AssociateS3ResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateS3ResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateS3ResourcesCommand(input, context);
+    return se_AssociateS3ResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateS3ResourcesCommandOutput> {
-    return deserializeAws_json1_1AssociateS3ResourcesCommand(output, context);
+    return de_AssociateS3ResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

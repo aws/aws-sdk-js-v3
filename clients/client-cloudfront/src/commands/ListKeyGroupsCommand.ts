@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  ListKeyGroupsRequest,
-  ListKeyGroupsRequestFilterSensitiveLog,
-  ListKeyGroupsResult,
-  ListKeyGroupsResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlListKeyGroupsCommand,
-  serializeAws_restXmlListKeyGroupsCommand,
-} from "../protocols/Aws_restXml";
+import { ListKeyGroupsRequest, ListKeyGroupsResult } from "../models/models_1";
+import { de_ListKeyGroupsCommand, se_ListKeyGroupsCommand } from "../protocols/Aws_restXml";
 
+/**
+ * @public
+ *
+ * The input for {@link ListKeyGroupsCommand}.
+ */
 export interface ListKeyGroupsCommandInput extends ListKeyGroupsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListKeyGroupsCommand}.
+ */
 export interface ListKeyGroupsCommandOutput extends ListKeyGroupsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of key groups.</p>
  *          <p>You can optionally specify the maximum number of items to receive in the response. If
  * 			the total number of items in the list exceeds the maximum that you specify, or the
@@ -41,13 +44,23 @@ export interface ListKeyGroupsCommandOutput extends ListKeyGroupsResult, __Metad
  * import { CloudFrontClient, ListKeyGroupsCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListKeyGroupsCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // ListKeyGroupsRequest
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListKeyGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListKeyGroupsCommandInput - {@link ListKeyGroupsCommandInput}
+ * @returns {@link ListKeyGroupsCommandOutput}
  * @see {@link ListKeyGroupsCommandInput} for command's `input` shape.
  * @see {@link ListKeyGroupsCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
  *
  */
 export class ListKeyGroupsCommand extends $Command<
@@ -67,6 +80,9 @@ export class ListKeyGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListKeyGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +109,8 @@ export class ListKeyGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListKeyGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListKeyGroupsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +120,18 @@ export class ListKeyGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListKeyGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListKeyGroupsCommand(input, context);
+    return se_ListKeyGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListKeyGroupsCommandOutput> {
-    return deserializeAws_restXmlListKeyGroupsCommand(output, context);
+    return de_ListKeyGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

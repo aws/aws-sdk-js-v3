@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetClassifiersRequest,
-  GetClassifiersRequestFilterSensitiveLog,
-  GetClassifiersResponse,
-  GetClassifiersResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetClassifiersCommand,
-  serializeAws_json1_1GetClassifiersCommand,
-} from "../protocols/Aws_json1_1";
+import { GetClassifiersRequest, GetClassifiersResponse } from "../models/models_1";
+import { de_GetClassifiersCommand, se_GetClassifiersCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetClassifiersCommand}.
+ */
 export interface GetClassifiersCommandInput extends GetClassifiersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetClassifiersCommand}.
+ */
 export interface GetClassifiersCommandOutput extends GetClassifiersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all classifier objects in the Data Catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,23 @@ export interface GetClassifiersCommandOutput extends GetClassifiersResponse, __M
  * import { GlueClient, GetClassifiersCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetClassifiersCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // GetClassifiersRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetClassifiersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetClassifiersCommandInput - {@link GetClassifiersCommandInput}
+ * @returns {@link GetClassifiersCommandOutput}
  * @see {@link GetClassifiersCommandInput} for command's `input` shape.
  * @see {@link GetClassifiersCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class GetClassifiersCommand extends $Command<
@@ -62,6 +75,9 @@ export class GetClassifiersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetClassifiersCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +106,8 @@ export class GetClassifiersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetClassifiersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetClassifiersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +117,18 @@ export class GetClassifiersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetClassifiersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetClassifiersCommand(input, context);
+    return se_GetClassifiersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetClassifiersCommandOutput> {
-    return deserializeAws_json1_1GetClassifiersCommand(output, context);
+    return de_GetClassifiersCommand(output, context);
   }
 
   // Start section: command_body_extra

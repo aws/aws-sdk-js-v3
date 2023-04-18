@@ -14,22 +14,25 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  DescribeContributorInsightsInput,
-  DescribeContributorInsightsInputFilterSensitiveLog,
-  DescribeContributorInsightsOutput,
-  DescribeContributorInsightsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeContributorInsightsCommand,
-  serializeAws_json1_0DescribeContributorInsightsCommand,
-} from "../protocols/Aws_json1_0";
+import { DescribeContributorInsightsInput, DescribeContributorInsightsOutput } from "../models/models_0";
+import { de_DescribeContributorInsightsCommand, se_DescribeContributorInsightsCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeContributorInsightsCommand}.
+ */
 export interface DescribeContributorInsightsCommandInput extends DescribeContributorInsightsInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeContributorInsightsCommand}.
+ */
 export interface DescribeContributorInsightsCommandOutput extends DescribeContributorInsightsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns information about contributor insights, for a given table or global secondary
+ * @public
+ * <p>Returns information about contributor insights for a given table or global secondary
  *             index.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,13 +40,27 @@ export interface DescribeContributorInsightsCommandOutput extends DescribeContri
  * import { DynamoDBClient, DescribeContributorInsightsCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, DescribeContributorInsightsCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = { // DescribeContributorInsightsInput
+ *   TableName: "STRING_VALUE", // required
+ *   IndexName: "STRING_VALUE",
+ * };
  * const command = new DescribeContributorInsightsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeContributorInsightsCommandInput - {@link DescribeContributorInsightsCommandInput}
+ * @returns {@link DescribeContributorInsightsCommandOutput}
  * @see {@link DescribeContributorInsightsCommandInput} for command's `input` shape.
  * @see {@link DescribeContributorInsightsCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The operation tried to access a nonexistent table or index. The resource might not
+ *             be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+ *
  *
  */
 export class DescribeContributorInsightsCommand extends $Command<
@@ -63,6 +80,9 @@ export class DescribeContributorInsightsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeContributorInsightsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +111,8 @@ export class DescribeContributorInsightsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeContributorInsightsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeContributorInsightsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,15 +122,21 @@ export class DescribeContributorInsightsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeContributorInsightsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeContributorInsightsCommand(input, context);
+    return se_DescribeContributorInsightsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeContributorInsightsCommandOutput> {
-    return deserializeAws_json1_0DescribeContributorInsightsCommand(output, context);
+    return de_DescribeContributorInsightsCommand(output, context);
   }
 
   // Start section: command_body_extra

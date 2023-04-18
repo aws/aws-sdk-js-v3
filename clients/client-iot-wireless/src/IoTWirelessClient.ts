@@ -26,12 +26,14 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
@@ -140,6 +142,10 @@ import {
   DeleteWirelessDeviceCommandOutput,
 } from "./commands/DeleteWirelessDeviceCommand";
 import {
+  DeleteWirelessDeviceImportTaskCommandInput,
+  DeleteWirelessDeviceImportTaskCommandOutput,
+} from "./commands/DeleteWirelessDeviceImportTaskCommand";
+import {
   DeleteWirelessGatewayCommandInput,
   DeleteWirelessGatewayCommandOutput,
 } from "./commands/DeleteWirelessGatewayCommand";
@@ -151,6 +157,10 @@ import {
   DeleteWirelessGatewayTaskDefinitionCommandInput,
   DeleteWirelessGatewayTaskDefinitionCommandOutput,
 } from "./commands/DeleteWirelessGatewayTaskDefinitionCommand";
+import {
+  DeregisterWirelessDeviceCommandInput,
+  DeregisterWirelessDeviceCommandOutput,
+} from "./commands/DeregisterWirelessDeviceCommand";
 import {
   DisassociateAwsAccountFromPartnerAccountCommandInput,
   DisassociateAwsAccountFromPartnerAccountCommandOutput,
@@ -225,6 +235,10 @@ import { GetServiceEndpointCommandInput, GetServiceEndpointCommandOutput } from 
 import { GetServiceProfileCommandInput, GetServiceProfileCommandOutput } from "./commands/GetServiceProfileCommand";
 import { GetWirelessDeviceCommandInput, GetWirelessDeviceCommandOutput } from "./commands/GetWirelessDeviceCommand";
 import {
+  GetWirelessDeviceImportTaskCommandInput,
+  GetWirelessDeviceImportTaskCommandOutput,
+} from "./commands/GetWirelessDeviceImportTaskCommand";
+import {
   GetWirelessDeviceStatisticsCommandInput,
   GetWirelessDeviceStatisticsCommandOutput,
 } from "./commands/GetWirelessDeviceStatisticsCommand";
@@ -251,6 +265,10 @@ import {
 } from "./commands/GetWirelessGatewayTaskDefinitionCommand";
 import { ListDestinationsCommandInput, ListDestinationsCommandOutput } from "./commands/ListDestinationsCommand";
 import { ListDeviceProfilesCommandInput, ListDeviceProfilesCommandOutput } from "./commands/ListDeviceProfilesCommand";
+import {
+  ListDevicesForWirelessDeviceImportTaskCommandInput,
+  ListDevicesForWirelessDeviceImportTaskCommandOutput,
+} from "./commands/ListDevicesForWirelessDeviceImportTaskCommand";
 import {
   ListEventConfigurationsCommandInput,
   ListEventConfigurationsCommandOutput,
@@ -285,6 +303,10 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ListWirelessDeviceImportTasksCommandInput,
+  ListWirelessDeviceImportTasksCommandOutput,
+} from "./commands/ListWirelessDeviceImportTasksCommand";
 import {
   ListWirelessDevicesCommandInput,
   ListWirelessDevicesCommandOutput,
@@ -334,6 +356,14 @@ import {
   StartMulticastGroupSessionCommandInput,
   StartMulticastGroupSessionCommandOutput,
 } from "./commands/StartMulticastGroupSessionCommand";
+import {
+  StartSingleWirelessDeviceImportTaskCommandInput,
+  StartSingleWirelessDeviceImportTaskCommandOutput,
+} from "./commands/StartSingleWirelessDeviceImportTaskCommand";
+import {
+  StartWirelessDeviceImportTaskCommandInput,
+  StartWirelessDeviceImportTaskCommandOutput,
+} from "./commands/StartWirelessDeviceImportTaskCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { TestWirelessDeviceCommandInput, TestWirelessDeviceCommandOutput } from "./commands/TestWirelessDeviceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
@@ -373,6 +403,10 @@ import {
   UpdateWirelessDeviceCommandOutput,
 } from "./commands/UpdateWirelessDeviceCommand";
 import {
+  UpdateWirelessDeviceImportTaskCommandInput,
+  UpdateWirelessDeviceImportTaskCommandOutput,
+} from "./commands/UpdateWirelessDeviceImportTaskCommand";
+import {
   UpdateWirelessGatewayCommandInput,
   UpdateWirelessGatewayCommandOutput,
 } from "./commands/UpdateWirelessGatewayCommand";
@@ -384,6 +418,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AssociateAwsAccountWithPartnerAccountCommandInput
   | AssociateMulticastGroupWithFuotaTaskCommandInput
@@ -411,9 +448,11 @@ export type ServiceInputTypes =
   | DeleteQueuedMessagesCommandInput
   | DeleteServiceProfileCommandInput
   | DeleteWirelessDeviceCommandInput
+  | DeleteWirelessDeviceImportTaskCommandInput
   | DeleteWirelessGatewayCommandInput
   | DeleteWirelessGatewayTaskCommandInput
   | DeleteWirelessGatewayTaskDefinitionCommandInput
+  | DeregisterWirelessDeviceCommandInput
   | DisassociateAwsAccountFromPartnerAccountCommandInput
   | DisassociateMulticastGroupFromFuotaTaskCommandInput
   | DisassociateWirelessDeviceFromFuotaTaskCommandInput
@@ -439,6 +478,7 @@ export type ServiceInputTypes =
   | GetServiceEndpointCommandInput
   | GetServiceProfileCommandInput
   | GetWirelessDeviceCommandInput
+  | GetWirelessDeviceImportTaskCommandInput
   | GetWirelessDeviceStatisticsCommandInput
   | GetWirelessGatewayCertificateCommandInput
   | GetWirelessGatewayCommandInput
@@ -448,6 +488,7 @@ export type ServiceInputTypes =
   | GetWirelessGatewayTaskDefinitionCommandInput
   | ListDestinationsCommandInput
   | ListDeviceProfilesCommandInput
+  | ListDevicesForWirelessDeviceImportTaskCommandInput
   | ListEventConfigurationsCommandInput
   | ListFuotaTasksCommandInput
   | ListMulticastGroupsByFuotaTaskCommandInput
@@ -458,6 +499,7 @@ export type ServiceInputTypes =
   | ListQueuedMessagesCommandInput
   | ListServiceProfilesCommandInput
   | ListTagsForResourceCommandInput
+  | ListWirelessDeviceImportTasksCommandInput
   | ListWirelessDevicesCommandInput
   | ListWirelessGatewayTaskDefinitionsCommandInput
   | ListWirelessGatewaysCommandInput
@@ -471,6 +513,8 @@ export type ServiceInputTypes =
   | StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandInput
   | StartFuotaTaskCommandInput
   | StartMulticastGroupSessionCommandInput
+  | StartSingleWirelessDeviceImportTaskCommandInput
+  | StartWirelessDeviceImportTaskCommandInput
   | TagResourceCommandInput
   | TestWirelessDeviceCommandInput
   | UntagResourceCommandInput
@@ -485,8 +529,12 @@ export type ServiceInputTypes =
   | UpdateResourceEventConfigurationCommandInput
   | UpdateResourcePositionCommandInput
   | UpdateWirelessDeviceCommandInput
+  | UpdateWirelessDeviceImportTaskCommandInput
   | UpdateWirelessGatewayCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AssociateAwsAccountWithPartnerAccountCommandOutput
   | AssociateMulticastGroupWithFuotaTaskCommandOutput
@@ -514,9 +562,11 @@ export type ServiceOutputTypes =
   | DeleteQueuedMessagesCommandOutput
   | DeleteServiceProfileCommandOutput
   | DeleteWirelessDeviceCommandOutput
+  | DeleteWirelessDeviceImportTaskCommandOutput
   | DeleteWirelessGatewayCommandOutput
   | DeleteWirelessGatewayTaskCommandOutput
   | DeleteWirelessGatewayTaskDefinitionCommandOutput
+  | DeregisterWirelessDeviceCommandOutput
   | DisassociateAwsAccountFromPartnerAccountCommandOutput
   | DisassociateMulticastGroupFromFuotaTaskCommandOutput
   | DisassociateWirelessDeviceFromFuotaTaskCommandOutput
@@ -542,6 +592,7 @@ export type ServiceOutputTypes =
   | GetServiceEndpointCommandOutput
   | GetServiceProfileCommandOutput
   | GetWirelessDeviceCommandOutput
+  | GetWirelessDeviceImportTaskCommandOutput
   | GetWirelessDeviceStatisticsCommandOutput
   | GetWirelessGatewayCertificateCommandOutput
   | GetWirelessGatewayCommandOutput
@@ -551,6 +602,7 @@ export type ServiceOutputTypes =
   | GetWirelessGatewayTaskDefinitionCommandOutput
   | ListDestinationsCommandOutput
   | ListDeviceProfilesCommandOutput
+  | ListDevicesForWirelessDeviceImportTaskCommandOutput
   | ListEventConfigurationsCommandOutput
   | ListFuotaTasksCommandOutput
   | ListMulticastGroupsByFuotaTaskCommandOutput
@@ -561,6 +613,7 @@ export type ServiceOutputTypes =
   | ListQueuedMessagesCommandOutput
   | ListServiceProfilesCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListWirelessDeviceImportTasksCommandOutput
   | ListWirelessDevicesCommandOutput
   | ListWirelessGatewayTaskDefinitionsCommandOutput
   | ListWirelessGatewaysCommandOutput
@@ -574,6 +627,8 @@ export type ServiceOutputTypes =
   | StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOutput
   | StartFuotaTaskCommandOutput
   | StartMulticastGroupSessionCommandOutput
+  | StartSingleWirelessDeviceImportTaskCommandOutput
+  | StartWirelessDeviceImportTaskCommandOutput
   | TagResourceCommandOutput
   | TestWirelessDeviceCommandOutput
   | UntagResourceCommandOutput
@@ -588,8 +643,12 @@ export type ServiceOutputTypes =
   | UpdateResourceEventConfigurationCommandOutput
   | UpdateResourcePositionCommandOutput
   | UpdateWirelessDeviceCommandOutput
+  | UpdateWirelessDeviceImportTaskCommandOutput
   | UpdateWirelessGatewayCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -597,11 +656,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -658,19 +717,10 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
-   * Value for how many times a request will be made at most in case of retry.
+   * Unique service identifier.
+   * @internal
    */
-  maxAttempts?: number | __Provider<number>;
-
-  /**
-   * Specifies which retry algorithm to use.
-   */
-  retryMode?: string | __Provider<string>;
-
-  /**
-   * Optional logger for logging debug/info/warn/error.
-   */
-  logger?: __Logger;
+  serviceId?: string;
 
   /**
    * Enables IPv6/IPv4 dualstack endpoint.
@@ -681,12 +731,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Enables FIPS compatible endpoints.
    */
   useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
 
   /**
    * The AWS region to which this client will send requests
@@ -706,11 +750,29 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * Value for how many times a request will be made at most in case of retry.
    */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Specifies which retry algorithm to use.
+   */
+  retryMode?: string | __Provider<string>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
+
+  /**
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   */
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type IoTWirelessClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -721,10 +783,15 @@ type IoTWirelessClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOp
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of IoTWirelessClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of IoTWirelessClient class constructor that set the region, credentials and other options.
  */
 export interface IoTWirelessClientConfig extends IoTWirelessClientConfigType {}
 
+/**
+ * @public
+ */
 type IoTWirelessClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -735,19 +802,22 @@ type IoTWirelessClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpH
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of IoTWirelessClient class. This is resolved and normalized from the {@link IoTWirelessClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of IoTWirelessClient class. This is resolved and normalized from the {@link IoTWirelessClientConfig | constructor configuration interface}.
  */
 export interface IoTWirelessClientResolvedConfig extends IoTWirelessClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>AWS IoT Wireless provides bi-directional communication between internet-connected wireless
  * 	        devices and the AWS Cloud. To onboard both LoRaWAN and Sidewalk devices to AWS IoT, use the
  * 	        IoT Wireless API. These wireless devices use the Low Power Wide Area Networking (LPWAN)
  * 	        communication protocol to communicate with AWS IoT.</p>
- * 	        <p>Using the API, you can perform create, read, update, and delete operations for your wireless
+ *          <p>Using the API, you can perform create, read, update, and delete operations for your wireless
  * 	        devices, gateways, destinations, and profiles. After onboarding your devices, you
  * 	        can use the API operations to set log levels and monitor your devices with CloudWatch.</p>
- * 	        <p>You can also use the API operations to create multicast groups and schedule a multicast session for
+ *          <p>You can also use the API operations to create multicast groups and schedule a multicast session for
  * 	        sending a downlink message to devices in the group. By using Firmware Updates Over-The-Air
  * 	        (FUOTA) API operations, you can create a FUOTA task and schedule a session to update the firmware
  * 	        of individual devices or an entire group of devices in a multicast group.</p>

@@ -16,22 +16,31 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeScheduledInstanceAvailabilityRequest,
-  DescribeScheduledInstanceAvailabilityRequestFilterSensitiveLog,
   DescribeScheduledInstanceAvailabilityResult,
-  DescribeScheduledInstanceAvailabilityResultFilterSensitiveLog,
 } from "../models/models_4";
 import {
-  deserializeAws_ec2DescribeScheduledInstanceAvailabilityCommand,
-  serializeAws_ec2DescribeScheduledInstanceAvailabilityCommand,
+  de_DescribeScheduledInstanceAvailabilityCommand,
+  se_DescribeScheduledInstanceAvailabilityCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeScheduledInstanceAvailabilityCommand}.
+ */
 export interface DescribeScheduledInstanceAvailabilityCommandInput
   extends DescribeScheduledInstanceAvailabilityRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeScheduledInstanceAvailabilityCommand}.
+ */
 export interface DescribeScheduledInstanceAvailabilityCommandOutput
   extends DescribeScheduledInstanceAvailabilityResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Finds available schedules that meet the specified criteria.</p>
  *          <p>You can search for an available schedule no more than 3 months in advance. You must meet the minimum required duration of 1,200 hours per year. For example, the minimum daily schedule is 4 hours, the minimum weekly schedule is 24 hours, and the minimum monthly schedule is 100 hours.</p>
  *          <p>After you find a schedule that meets your needs, call <a>PurchaseScheduledInstances</a>
@@ -42,13 +51,93 @@ export interface DescribeScheduledInstanceAvailabilityCommandOutput
  * import { EC2Client, DescribeScheduledInstanceAvailabilityCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeScheduledInstanceAvailabilityCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeScheduledInstanceAvailabilityRequest
+ *   DryRun: true || false,
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   FirstSlotStartTimeRange: { // SlotDateTimeRangeRequest
+ *     EarliestTime: new Date("TIMESTAMP"), // required
+ *     LatestTime: new Date("TIMESTAMP"), // required
+ *   },
+ *   MaxResults: Number("int"),
+ *   MaxSlotDurationInHours: Number("int"),
+ *   MinSlotDurationInHours: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Recurrence: { // ScheduledInstanceRecurrenceRequest
+ *     Frequency: "STRING_VALUE",
+ *     Interval: Number("int"),
+ *     OccurrenceDays: [ // OccurrenceDayRequestSet
+ *       Number("int"),
+ *     ],
+ *     OccurrenceRelativeToEnd: true || false,
+ *     OccurrenceUnit: "STRING_VALUE",
+ *   },
+ * };
  * const command = new DescribeScheduledInstanceAvailabilityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeScheduledInstanceAvailabilityCommandInput - {@link DescribeScheduledInstanceAvailabilityCommandInput}
+ * @returns {@link DescribeScheduledInstanceAvailabilityCommandOutput}
  * @see {@link DescribeScheduledInstanceAvailabilityCommandInput} for command's `input` shape.
  * @see {@link DescribeScheduledInstanceAvailabilityCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ *
+ * @example To describe an available schedule
+ * ```javascript
+ * // This example describes a schedule that occurs every week on Sunday, starting on the specified date. Note that the output contains a single schedule as an example.
+ * const input = {
+ *   "FirstSlotStartTimeRange": {
+ *     "EarliestTime": "2016-01-31T00:00:00Z",
+ *     "LatestTime": "2016-01-31T04:00:00Z"
+ *   },
+ *   "Recurrence": {
+ *     "Frequency": "Weekly",
+ *     "Interval": 1,
+ *     "OccurrenceDays": [
+ *       1
+ *     ]
+ *   }
+ * };
+ * const command = new DescribeScheduledInstanceAvailabilityCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ScheduledInstanceAvailabilitySet": [
+ *     {
+ *       "AvailabilityZone": "us-west-2b",
+ *       "AvailableInstanceCount": 20,
+ *       "FirstSlotStartTime": "2016-01-31T00:00:00Z",
+ *       "HourlyPrice": "0.095",
+ *       "InstanceType": "c4.large",
+ *       "MaxTermDurationInDays": 366,
+ *       "MinTermDurationInDays": 366,
+ *       "NetworkPlatform": "EC2-VPC",
+ *       "Platform": "Linux/UNIX",
+ *       "PurchaseToken": "eyJ2IjoiMSIsInMiOjEsImMiOi...",
+ *       "Recurrence": {
+ *         "Frequency": "Weekly",
+ *         "Interval": 1,
+ *         "OccurrenceDaySet": [
+ *           1
+ *         ],
+ *         "OccurrenceRelativeToEnd": false
+ *       },
+ *       "SlotDurationInHours": 23,
+ *       "TotalScheduledInstanceHours": 1219
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: ec2-describe-scheduled-instance-availability-1
+ * ```
  *
  */
 export class DescribeScheduledInstanceAvailabilityCommand extends $Command<
@@ -68,6 +157,9 @@ export class DescribeScheduledInstanceAvailabilityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeScheduledInstanceAvailabilityCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +188,8 @@ export class DescribeScheduledInstanceAvailabilityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeScheduledInstanceAvailabilityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeScheduledInstanceAvailabilityResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,18 +199,24 @@ export class DescribeScheduledInstanceAvailabilityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeScheduledInstanceAvailabilityCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeScheduledInstanceAvailabilityCommand(input, context);
+    return se_DescribeScheduledInstanceAvailabilityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeScheduledInstanceAvailabilityCommandOutput> {
-    return deserializeAws_ec2DescribeScheduledInstanceAvailabilityCommand(output, context);
+    return de_DescribeScheduledInstanceAvailabilityCommand(output, context);
   }
 
   // Start section: command_body_extra

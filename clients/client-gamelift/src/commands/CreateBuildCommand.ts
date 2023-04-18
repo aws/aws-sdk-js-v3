@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  CreateBuildInput,
-  CreateBuildInputFilterSensitiveLog,
-  CreateBuildOutput,
-  CreateBuildOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateBuildCommand,
-  serializeAws_json1_1CreateBuildCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateBuildInput, CreateBuildOutput, CreateBuildOutputFilterSensitiveLog } from "../models/models_0";
+import { de_CreateBuildCommand, se_CreateBuildCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateBuildCommand}.
+ */
 export interface CreateBuildCommandInput extends CreateBuildInput {}
+/**
+ * @public
+ *
+ * The output of {@link CreateBuildCommand}.
+ */
 export interface CreateBuildCommandOutput extends CreateBuildOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new Amazon GameLift build resource for your game server binary files. Combine game
  *             server binaries into a zip file for use with Amazon GameLift. </p>
  *         <important>
@@ -78,13 +81,56 @@ export interface CreateBuildCommandOutput extends CreateBuildOutput, __MetadataB
  * import { GameLiftClient, CreateBuildCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, CreateBuildCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // CreateBuildInput
+ *   Name: "STRING_VALUE",
+ *   Version: "STRING_VALUE",
+ *   StorageLocation: { // S3Location
+ *     Bucket: "STRING_VALUE",
+ *     Key: "STRING_VALUE",
+ *     RoleArn: "STRING_VALUE",
+ *     ObjectVersion: "STRING_VALUE",
+ *   },
+ *   OperatingSystem: "WINDOWS_2012" || "AMAZON_LINUX" || "AMAZON_LINUX_2",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ServerSdkVersion: "STRING_VALUE",
+ * };
  * const command = new CreateBuildCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBuildCommandInput - {@link CreateBuildCommandInput}
+ * @returns {@link CreateBuildCommandOutput}
  * @see {@link CreateBuildCommandInput} for command's `input` shape.
  * @see {@link CreateBuildCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The requested operation would cause a conflict with the current state of a service
+ *             resource associated with the request. Resolve the conflict before retrying this
+ *             request.</p>
+ *         <p></p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an unrecoverable internal failure while processing the
+ *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
+ *             values before retrying.</p>
+ *
+ * @throws {@link TaggingFailedException} (client fault)
+ *  <p>The requested tagging operation did not succeed. This may be due to invalid tag format
+ *             or the maximum tag limit may have been exceeded. Resolve the issue before
+ *             retrying.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
  *
  */
 export class CreateBuildCommand extends $Command<
@@ -104,6 +150,9 @@ export class CreateBuildCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBuildCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,7 +179,7 @@ export class CreateBuildCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateBuildInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CreateBuildOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -141,12 +190,18 @@ export class CreateBuildCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBuildCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateBuildCommand(input, context);
+    return se_CreateBuildCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBuildCommandOutput> {
-    return deserializeAws_json1_1CreateBuildCommand(output, context);
+    return de_CreateBuildCommand(output, context);
   }
 
   // Start section: command_body_extra

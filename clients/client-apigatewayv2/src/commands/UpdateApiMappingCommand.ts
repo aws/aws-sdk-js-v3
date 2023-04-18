@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import {
-  UpdateApiMappingRequest,
-  UpdateApiMappingRequestFilterSensitiveLog,
-  UpdateApiMappingResponse,
-  UpdateApiMappingResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateApiMappingCommand,
-  serializeAws_restJson1UpdateApiMappingCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateApiMappingRequest, UpdateApiMappingResponse } from "../models/models_0";
+import { de_UpdateApiMappingCommand, se_UpdateApiMappingCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateApiMappingCommand}.
+ */
 export interface UpdateApiMappingCommandInput extends UpdateApiMappingRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateApiMappingCommand}.
+ */
 export interface UpdateApiMappingCommandOutput extends UpdateApiMappingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The API mapping.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,35 @@ export interface UpdateApiMappingCommandOutput extends UpdateApiMappingResponse,
  * import { ApiGatewayV2Client, UpdateApiMappingCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, UpdateApiMappingCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = { // UpdateApiMappingRequest
+ *   ApiId: "STRING_VALUE", // required
+ *   ApiMappingId: "STRING_VALUE", // required
+ *   ApiMappingKey: "STRING_VALUE",
+ *   DomainName: "STRING_VALUE", // required
+ *   Stage: "STRING_VALUE",
+ * };
  * const command = new UpdateApiMappingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateApiMappingCommandInput - {@link UpdateApiMappingCommandInput}
+ * @returns {@link UpdateApiMappingCommandOutput}
  * @see {@link UpdateApiMappingCommandInput} for command's `input` shape.
  * @see {@link UpdateApiMappingCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource specified in the request was not found. See the message field for more information.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
+ *
  *
  */
 export class UpdateApiMappingCommand extends $Command<
@@ -62,6 +87,9 @@ export class UpdateApiMappingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateApiMappingCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +118,8 @@ export class UpdateApiMappingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateApiMappingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateApiMappingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +129,18 @@ export class UpdateApiMappingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateApiMappingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateApiMappingCommand(input, context);
+    return se_UpdateApiMappingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateApiMappingCommandOutput> {
-    return deserializeAws_restJson1UpdateApiMappingCommand(output, context);
+    return de_UpdateApiMappingCommand(output, context);
   }
 
   // Start section: command_body_extra

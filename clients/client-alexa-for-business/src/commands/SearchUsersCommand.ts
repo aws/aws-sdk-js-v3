@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  SearchUsersRequest,
-  SearchUsersRequestFilterSensitiveLog,
-  SearchUsersResponse,
-  SearchUsersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1SearchUsersCommand,
-  serializeAws_json1_1SearchUsersCommand,
-} from "../protocols/Aws_json1_1";
+import { SearchUsersRequest, SearchUsersResponse } from "../models/models_0";
+import { de_SearchUsersCommand, se_SearchUsersCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link SearchUsersCommand}.
+ */
 export interface SearchUsersCommandInput extends SearchUsersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SearchUsersCommand}.
+ */
 export interface SearchUsersCommandOutput extends SearchUsersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Searches users and lists the ones that meet a set of filter and sort
  *          criteria.</p>
  * @example
@@ -37,13 +40,34 @@ export interface SearchUsersCommandOutput extends SearchUsersResponse, __Metadat
  * import { AlexaForBusinessClient, SearchUsersCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, SearchUsersCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // SearchUsersRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Key: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   SortCriteria: [ // SortList
+ *     { // Sort
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new SearchUsersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchUsersCommandInput - {@link SearchUsersCommandInput}
+ * @returns {@link SearchUsersCommandOutput}
  * @see {@link SearchUsersCommandInput} for command's `input` shape.
  * @see {@link SearchUsersCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
  *
  */
 export class SearchUsersCommand extends $Command<
@@ -63,6 +87,9 @@ export class SearchUsersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchUsersCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +116,8 @@ export class SearchUsersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchUsersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchUsersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +127,18 @@ export class SearchUsersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchUsersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SearchUsersCommand(input, context);
+    return se_SearchUsersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchUsersCommandOutput> {
-    return deserializeAws_json1_1SearchUsersCommand(output, context);
+    return de_SearchUsersCommand(output, context);
   }
 
   // Start section: command_body_extra

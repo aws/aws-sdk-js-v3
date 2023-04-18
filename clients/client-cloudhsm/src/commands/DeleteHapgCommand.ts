@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
-import {
-  DeleteHapgRequest,
-  DeleteHapgRequestFilterSensitiveLog,
-  DeleteHapgResponse,
-  DeleteHapgResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteHapgCommand,
-  serializeAws_json1_1DeleteHapgCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteHapgRequest, DeleteHapgResponse } from "../models/models_0";
+import { de_DeleteHapgCommand, se_DeleteHapgCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteHapgCommand}.
+ */
 export interface DeleteHapgCommandInput extends DeleteHapgRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteHapgCommand}.
+ */
 export interface DeleteHapgCommandOutput extends DeleteHapgResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
  *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
  *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
@@ -46,13 +49,28 @@ export interface DeleteHapgCommandOutput extends DeleteHapgResponse, __MetadataB
  * import { CloudHSMClient, DeleteHapgCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
  * // const { CloudHSMClient, DeleteHapgCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
  * const client = new CloudHSMClient(config);
+ * const input = { // DeleteHapgRequest
+ *   HapgArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteHapgCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteHapgCommandInput - {@link DeleteHapgCommandInput}
+ * @returns {@link DeleteHapgCommandOutput}
  * @see {@link DeleteHapgCommandInput} for command's `input` shape.
  * @see {@link DeleteHapgCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMClientResolvedConfig | config} for CloudHSMClient's `config` shape.
+ *
+ * @throws {@link CloudHsmInternalException} (server fault)
+ *  <p>Indicates that an internal error occurred.</p>
+ *
+ * @throws {@link CloudHsmServiceException} (client fault)
+ *  <p>Indicates that an exception occurred in the AWS CloudHSM service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>Indicates that one or more of the request parameters are not valid.</p>
+ *
  *
  */
 export class DeleteHapgCommand extends $Command<
@@ -72,6 +90,9 @@ export class DeleteHapgCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteHapgCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +119,8 @@ export class DeleteHapgCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteHapgRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteHapgResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +130,18 @@ export class DeleteHapgCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteHapgCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteHapgCommand(input, context);
+    return se_DeleteHapgCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteHapgCommandOutput> {
-    return deserializeAws_json1_1DeleteHapgCommand(output, context);
+    return de_DeleteHapgCommand(output, context);
   }
 
   // Start section: command_body_extra

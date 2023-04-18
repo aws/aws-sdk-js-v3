@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  ListClustersRequest,
-  ListClustersRequestFilterSensitiveLog,
-  ListClustersResponse,
-  ListClustersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListClustersCommand,
-  serializeAws_json1_1ListClustersCommand,
-} from "../protocols/Aws_json1_1";
+import { ListClustersRequest, ListClustersResponse } from "../models/models_0";
+import { de_ListClustersCommand, se_ListClustersCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListClustersCommand}.
+ */
 export interface ListClustersCommandInput extends ListClustersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListClustersCommand}.
+ */
 export interface ListClustersCommandOutput extends ListClustersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of existing clusters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,49 @@ export interface ListClustersCommandOutput extends ListClustersResponse, __Metad
  * import { ECSClient, ListClustersCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, ListClustersCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // ListClustersRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListClustersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListClustersCommandInput - {@link ListClustersCommandInput}
+ * @returns {@link ListClustersCommandOutput}
  * @see {@link ListClustersCommandInput} for command's `input` shape.
  * @see {@link ListClustersCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action. This client action might be using
+ * 			an action or resource on behalf of a user that doesn't have permissions to use the
+ * 			action or resource,. Or, it might be specifying an identifier that isn't valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter isn't valid. Review the available parameters for the API
+ * 			request.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server issue.</p>
+ *
+ *
+ * @example To list your available clusters
+ * ```javascript
+ * // This example lists all of your available clusters in your default region.
+ * const input = {};
+ * const command = new ListClustersCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "clusterArns": [
+ *     "arn:aws:ecs:us-east-1:<aws_account_id>:cluster/test",
+ *     "arn:aws:ecs:us-east-1:<aws_account_id>:cluster/default"
+ *   ]
+ * }
+ * *\/
+ * // example id: e337d059-134f-4125-ba8e-4f499139facf
+ * ```
  *
  */
 export class ListClustersCommand extends $Command<
@@ -62,6 +101,9 @@ export class ListClustersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListClustersCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +130,8 @@ export class ListClustersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListClustersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListClustersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +141,18 @@ export class ListClustersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListClustersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListClustersCommand(input, context);
+    return se_ListClustersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListClustersCommandOutput> {
-    return deserializeAws_json1_1ListClustersCommand(output, context);
+    return de_ListClustersCommand(output, context);
   }
 
   // Start section: command_body_extra

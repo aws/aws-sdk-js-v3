@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import {
-  DescribeTaskRequest,
-  DescribeTaskRequestFilterSensitiveLog,
-  DescribeTaskResponse,
-  DescribeTaskResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeTaskCommand,
-  serializeAws_json1_1DescribeTaskCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeTaskRequest, DescribeTaskResponse } from "../models/models_0";
+import { de_DescribeTaskCommand, se_DescribeTaskCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeTaskCommand}.
+ */
 export interface DescribeTaskCommandInput extends DescribeTaskRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeTaskCommand}.
+ */
 export interface DescribeTaskCommandOutput extends DescribeTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns metadata about a task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,25 @@ export interface DescribeTaskCommandOutput extends DescribeTaskResponse, __Metad
  * import { DataSyncClient, DescribeTaskCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, DescribeTaskCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = { // DescribeTaskRequest
+ *   TaskArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTaskCommandInput - {@link DescribeTaskCommandInput}
+ * @returns {@link DescribeTaskCommandOutput}
  * @see {@link DescribeTaskCommandInput} for command's `input` shape.
  * @see {@link DescribeTaskCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception is thrown when an error occurs in the DataSync service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
  *
  */
 export class DescribeTaskCommand extends $Command<
@@ -62,6 +77,9 @@ export class DescribeTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +106,8 @@ export class DescribeTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTaskResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +117,18 @@ export class DescribeTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeTaskCommand(input, context);
+    return se_DescribeTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTaskCommandOutput> {
-    return deserializeAws_json1_1DescribeTaskCommand(output, context);
+    return de_DescribeTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

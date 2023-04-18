@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListProvisionedProductPlansInput,
-  ListProvisionedProductPlansInputFilterSensitiveLog,
-  ListProvisionedProductPlansOutput,
-  ListProvisionedProductPlansOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListProvisionedProductPlansCommand,
-  serializeAws_json1_1ListProvisionedProductPlansCommand,
-} from "../protocols/Aws_json1_1";
+import { ListProvisionedProductPlansInput, ListProvisionedProductPlansOutput } from "../models/models_0";
+import { de_ListProvisionedProductPlansCommand, se_ListProvisionedProductPlansCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListProvisionedProductPlansCommand}.
+ */
 export interface ListProvisionedProductPlansCommandInput extends ListProvisionedProductPlansInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListProvisionedProductPlansCommand}.
+ */
 export interface ListProvisionedProductPlansCommandOutput extends ListProvisionedProductPlansOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the plans for the specified provisioned product or all plans to which the user has access.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,32 @@ export interface ListProvisionedProductPlansCommandOutput extends ListProvisione
  * import { ServiceCatalogClient, ListProvisionedProductPlansCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, ListProvisionedProductPlansCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // ListProvisionedProductPlansInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   ProvisionProductId: "STRING_VALUE",
+ *   PageSize: Number("int"),
+ *   PageToken: "STRING_VALUE",
+ *   AccessLevelFilter: { // AccessLevelFilter
+ *     Key: "Account" || "Role" || "User",
+ *     Value: "STRING_VALUE",
+ *   },
+ * };
  * const command = new ListProvisionedProductPlansCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProvisionedProductPlansCommandInput - {@link ListProvisionedProductPlansCommandInput}
+ * @returns {@link ListProvisionedProductPlansCommandOutput}
  * @see {@link ListProvisionedProductPlansCommandInput} for command's `input` shape.
  * @see {@link ListProvisionedProductPlansCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
+ *
+ * @throws {@link InvalidParametersException} (client fault)
+ *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class ListProvisionedProductPlansCommand extends $Command<
@@ -62,6 +84,9 @@ export class ListProvisionedProductPlansCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProvisionedProductPlansCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +115,8 @@ export class ListProvisionedProductPlansCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListProvisionedProductPlansInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListProvisionedProductPlansOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +126,21 @@ export class ListProvisionedProductPlansCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListProvisionedProductPlansCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListProvisionedProductPlansCommand(input, context);
+    return se_ListProvisionedProductPlansCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListProvisionedProductPlansCommandOutput> {
-    return deserializeAws_json1_1ListProvisionedProductPlansCommand(output, context);
+    return de_ListProvisionedProductPlansCommand(output, context);
   }
 
   // Start section: command_body_extra

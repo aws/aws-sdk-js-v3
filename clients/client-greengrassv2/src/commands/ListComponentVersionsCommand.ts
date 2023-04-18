@@ -14,35 +14,64 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassV2Client";
-import {
-  ListComponentVersionsRequest,
-  ListComponentVersionsRequestFilterSensitiveLog,
-  ListComponentVersionsResponse,
-  ListComponentVersionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListComponentVersionsCommand,
-  serializeAws_restJson1ListComponentVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListComponentVersionsRequest, ListComponentVersionsResponse } from "../models/models_0";
+import { de_ListComponentVersionsCommand, se_ListComponentVersionsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListComponentVersionsCommand}.
+ */
 export interface ListComponentVersionsCommandInput extends ListComponentVersionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListComponentVersionsCommand}.
+ */
 export interface ListComponentVersionsCommandOutput extends ListComponentVersionsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a paginated list of all versions for a component. Greater versions are listed first.</p>
+ * @public
+ * <p>Retrieves a paginated list of all versions for a component. Greater versions are listed
+ *       first.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GreengrassV2Client, ListComponentVersionsCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
  * // const { GreengrassV2Client, ListComponentVersionsCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
  * const client = new GreengrassV2Client(config);
+ * const input = { // ListComponentVersionsRequest
+ *   arn: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListComponentVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListComponentVersionsCommandInput - {@link ListComponentVersionsCommandInput}
+ * @returns {@link ListComponentVersionsCommandOutput}
  * @see {@link ListComponentVersionsCommandInput} for command's `input` shape.
  * @see {@link ListComponentVersionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have permission to perform the action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>IoT Greengrass can't process your request right now. Try again later.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource can't be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Your request exceeded a request rate quota. For example, you might have exceeded the
+ *       amount of times that you can retrieve device or deployment status per second.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
+ *       unsupported characters.</p>
+ *
  *
  */
 export class ListComponentVersionsCommand extends $Command<
@@ -62,6 +91,9 @@ export class ListComponentVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListComponentVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +122,8 @@ export class ListComponentVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListComponentVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListComponentVersionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +133,18 @@ export class ListComponentVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListComponentVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListComponentVersionsCommand(input, context);
+    return se_ListComponentVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListComponentVersionsCommandOutput> {
-    return deserializeAws_restJson1ListComponentVersionsCommand(output, context);
+    return de_ListComponentVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

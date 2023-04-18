@@ -14,24 +14,32 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { RemoveClientIDFromOpenIDConnectProviderRequest } from "../models/models_0";
 import {
-  RemoveClientIDFromOpenIDConnectProviderRequest,
-  RemoveClientIDFromOpenIDConnectProviderRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryRemoveClientIDFromOpenIDConnectProviderCommand,
-  serializeAws_queryRemoveClientIDFromOpenIDConnectProviderCommand,
+  de_RemoveClientIDFromOpenIDConnectProviderCommand,
+  se_RemoveClientIDFromOpenIDConnectProviderCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link RemoveClientIDFromOpenIDConnectProviderCommand}.
+ */
 export interface RemoveClientIDFromOpenIDConnectProviderCommandInput
   extends RemoveClientIDFromOpenIDConnectProviderRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RemoveClientIDFromOpenIDConnectProviderCommand}.
+ */
 export interface RemoveClientIDFromOpenIDConnectProviderCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified client ID (also known as audience) from the list of client IDs
  *             registered for the specified IAM OpenID Connect (OIDC) provider resource
  *             object.</p>
- *         <p>This operation is idempotent; it does not fail or return an error if you try to remove
+ *          <p>This operation is idempotent; it does not fail or return an error if you try to remove
  *             a client ID that does not exist.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +47,32 @@ export interface RemoveClientIDFromOpenIDConnectProviderCommandOutput extends __
  * import { IAMClient, RemoveClientIDFromOpenIDConnectProviderCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, RemoveClientIDFromOpenIDConnectProviderCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // RemoveClientIDFromOpenIDConnectProviderRequest
+ *   OpenIDConnectProviderArn: "STRING_VALUE", // required
+ *   ClientID: "STRING_VALUE", // required
+ * };
  * const command = new RemoveClientIDFromOpenIDConnectProviderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveClientIDFromOpenIDConnectProviderCommandInput - {@link RemoveClientIDFromOpenIDConnectProviderCommandInput}
+ * @returns {@link RemoveClientIDFromOpenIDConnectProviderCommandOutput}
  * @see {@link RemoveClientIDFromOpenIDConnectProviderCommandInput} for command's `input` shape.
  * @see {@link RemoveClientIDFromOpenIDConnectProviderCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
+ *       input parameter.</p>
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
  *
  */
 export class RemoveClientIDFromOpenIDConnectProviderCommand extends $Command<
@@ -65,6 +92,9 @@ export class RemoveClientIDFromOpenIDConnectProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveClientIDFromOpenIDConnectProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +129,8 @@ export class RemoveClientIDFromOpenIDConnectProviderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveClientIDFromOpenIDConnectProviderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,18 +140,24 @@ export class RemoveClientIDFromOpenIDConnectProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RemoveClientIDFromOpenIDConnectProviderCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryRemoveClientIDFromOpenIDConnectProviderCommand(input, context);
+    return se_RemoveClientIDFromOpenIDConnectProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveClientIDFromOpenIDConnectProviderCommandOutput> {
-    return deserializeAws_queryRemoveClientIDFromOpenIDConnectProviderCommand(output, context);
+    return de_RemoveClientIDFromOpenIDConnectProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

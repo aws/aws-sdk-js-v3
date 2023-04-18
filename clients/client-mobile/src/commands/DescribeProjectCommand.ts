@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MobileClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MobileClient";
-import {
-  DescribeProjectRequest,
-  DescribeProjectRequestFilterSensitiveLog,
-  DescribeProjectResult,
-  DescribeProjectResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeProjectCommand,
-  serializeAws_restJson1DescribeProjectCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeProjectRequest, DescribeProjectResult } from "../models/models_0";
+import { de_DescribeProjectCommand, se_DescribeProjectCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeProjectCommand}.
+ */
 export interface DescribeProjectCommandInput extends DescribeProjectRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeProjectCommand}.
+ */
 export interface DescribeProjectCommandOutput extends DescribeProjectResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             Gets details about a project in AWS Mobile Hub.
  *         </p>
@@ -38,13 +41,54 @@ export interface DescribeProjectCommandOutput extends DescribeProjectResult, __M
  * import { MobileClient, DescribeProjectCommand } from "@aws-sdk/client-mobile"; // ES Modules import
  * // const { MobileClient, DescribeProjectCommand } = require("@aws-sdk/client-mobile"); // CommonJS import
  * const client = new MobileClient(config);
+ * const input = { // DescribeProjectRequest
+ *   projectId: "STRING_VALUE", // required
+ *   syncFromResources: true || false,
+ * };
  * const command = new DescribeProjectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeProjectCommandInput - {@link DescribeProjectCommandInput}
+ * @returns {@link DescribeProjectCommandOutput}
  * @see {@link DescribeProjectCommandInput} for command's `input` shape.
  * @see {@link DescribeProjectCommandOutput} for command's `response` shape.
  * @see {@link MobileClientResolvedConfig | config} for MobileClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>
+ *             The request cannot be processed because some parameter is not valid or the project
+ *             state prevents the operation from being performed.
+ *         </p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>
+ *             The service has encountered an unexpected error condition which prevents it from
+ *             servicing the request.
+ *         </p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>
+ *             No entity can be found with the specified identifier.
+ *         </p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>
+ *             The service is temporarily unavailable. The request should be retried after some
+ *             time delay.
+ *         </p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>
+ *             Too many requests have been received for this AWS account in too short a time. The
+ *             request should be retried after some time delay.
+ *         </p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>
+ *             Credentials of the caller are insufficient to authorize the request.
+ *         </p>
+ *
  *
  */
 export class DescribeProjectCommand extends $Command<
@@ -64,6 +108,9 @@ export class DescribeProjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeProjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +139,8 @@ export class DescribeProjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeProjectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeProjectResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +150,18 @@ export class DescribeProjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeProjectCommand(input, context);
+    return se_DescribeProjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeProjectCommandOutput> {
-    return deserializeAws_restJson1DescribeProjectCommand(output, context);
+    return de_DescribeProjectCommand(output, context);
   }
 
   // Start section: command_body_extra

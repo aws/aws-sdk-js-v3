@@ -25,14 +25,16 @@ import {
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
-  DefaultsMode,
   Client as __Client,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   Provider,
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   Hash as __Hash,
@@ -45,10 +47,19 @@ import {
   UserAgent as __UserAgent,
 } from "@aws-sdk/types";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes = EchoCommandInput | LengthCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes = EchoCommandOutput | LengthCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -56,11 +67,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -117,6 +128,12 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
+   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
+   * @internal
+   */
+  defaultUserAgentProvider?: Provider<__UserAgent>;
+
+  /**
    * Value for how many times a request will be made at most in case of retry.
    */
   maxAttempts?: number | __Provider<number>;
@@ -132,27 +149,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * Enables IPv6/IPv4 dualstack endpoint.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
-  useDualstackEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Enables FIPS compatible endpoints.
-   */
-  useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
-   * @internal
-   */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
-
-  /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
-   */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type EchoServiceClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   CustomEndpointsInputConfig &
@@ -160,10 +164,15 @@ type EchoServiceClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOp
   HostHeaderInputConfig &
   UserAgentInputConfig;
 /**
- * The configuration interface of EchoServiceClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of EchoServiceClient class constructor that set the region, credentials and other options.
  */
 export interface EchoServiceClientConfig extends EchoServiceClientConfigType {}
 
+/**
+ * @public
+ */
 type EchoServiceClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   CustomEndpointsResolvedConfig &
@@ -171,10 +180,15 @@ type EchoServiceClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpH
   HostHeaderResolvedConfig &
   UserAgentResolvedConfig;
 /**
- * The resolved configuration interface of EchoServiceClient class. This is resolved and normalized from the {@link EchoServiceClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of EchoServiceClient class. This is resolved and normalized from the {@link EchoServiceClientConfig | constructor configuration interface}.
  */
 export interface EchoServiceClientResolvedConfig extends EchoServiceClientResolvedConfigType {}
 
+/**
+ * @public
+ */
 export class EchoServiceClient extends __Client<
   __HttpHandlerOptions,
   ServiceInputTypes,

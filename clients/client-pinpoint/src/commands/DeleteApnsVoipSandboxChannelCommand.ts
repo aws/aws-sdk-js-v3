@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteApnsVoipSandboxChannelRequest,
-  DeleteApnsVoipSandboxChannelRequestFilterSensitiveLog,
-  DeleteApnsVoipSandboxChannelResponse,
-  DeleteApnsVoipSandboxChannelResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteApnsVoipSandboxChannelRequest, DeleteApnsVoipSandboxChannelResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
-  deserializeAws_restJson1DeleteApnsVoipSandboxChannelCommand,
-  serializeAws_restJson1DeleteApnsVoipSandboxChannelCommand,
+  de_DeleteApnsVoipSandboxChannelCommand,
+  se_DeleteApnsVoipSandboxChannelCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteApnsVoipSandboxChannelCommand}.
+ */
 export interface DeleteApnsVoipSandboxChannelCommandInput extends DeleteApnsVoipSandboxChannelRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteApnsVoipSandboxChannelCommand}.
+ */
 export interface DeleteApnsVoipSandboxChannelCommandOutput
   extends DeleteApnsVoipSandboxChannelResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables the APNs VoIP sandbox channel for an application and deletes any existing settings for the channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,40 @@ export interface DeleteApnsVoipSandboxChannelCommandOutput
  * import { PinpointClient, DeleteApnsVoipSandboxChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, DeleteApnsVoipSandboxChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // DeleteApnsVoipSandboxChannelRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteApnsVoipSandboxChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteApnsVoipSandboxChannelCommandInput - {@link DeleteApnsVoipSandboxChannelCommandInput}
+ * @returns {@link DeleteApnsVoipSandboxChannelCommandOutput}
  * @see {@link DeleteApnsVoipSandboxChannelCommandInput} for command's `input` shape.
  * @see {@link DeleteApnsVoipSandboxChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link MethodNotAllowedException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link PayloadTooLargeException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
  *
  */
 export class DeleteApnsVoipSandboxChannelCommand extends $Command<
@@ -64,6 +97,9 @@ export class DeleteApnsVoipSandboxChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteApnsVoipSandboxChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +128,8 @@ export class DeleteApnsVoipSandboxChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteApnsVoipSandboxChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteApnsVoipSandboxChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +139,21 @@ export class DeleteApnsVoipSandboxChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteApnsVoipSandboxChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteApnsVoipSandboxChannelCommand(input, context);
+    return se_DeleteApnsVoipSandboxChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteApnsVoipSandboxChannelCommandOutput> {
-    return deserializeAws_restJson1DeleteApnsVoipSandboxChannelCommand(output, context);
+    return de_DeleteApnsVoipSandboxChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

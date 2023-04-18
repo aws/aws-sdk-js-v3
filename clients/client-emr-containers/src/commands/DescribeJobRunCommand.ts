@@ -16,19 +16,26 @@ import {
 import { EMRContainersClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRContainersClient";
 import {
   DescribeJobRunRequest,
-  DescribeJobRunRequestFilterSensitiveLog,
   DescribeJobRunResponse,
   DescribeJobRunResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeJobRunCommand,
-  serializeAws_restJson1DescribeJobRunCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeJobRunCommand, se_DescribeJobRunCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeJobRunCommand}.
+ */
 export interface DescribeJobRunCommandInput extends DescribeJobRunRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeJobRunCommand}.
+ */
 export interface DescribeJobRunCommandOutput extends DescribeJobRunResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Displays detailed information about a job run. A job run is a unit of work, such as a
  *          Spark jar, PySpark script, or SparkSQL query, that you submit to Amazon EMR on EKS.</p>
  * @example
@@ -37,13 +44,29 @@ export interface DescribeJobRunCommandOutput extends DescribeJobRunResponse, __M
  * import { EMRContainersClient, DescribeJobRunCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
  * // const { EMRContainersClient, DescribeJobRunCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
  * const client = new EMRContainersClient(config);
+ * const input = { // DescribeJobRunRequest
+ *   id: "STRING_VALUE", // required
+ *   virtualClusterId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeJobRunCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeJobRunCommandInput - {@link DescribeJobRunCommandInput}
+ * @returns {@link DescribeJobRunCommandOutput}
  * @see {@link DescribeJobRunCommandInput} for command's `input` shape.
  * @see {@link DescribeJobRunCommandOutput} for command's `response` shape.
  * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>This is an internal server exception.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There are invalid parameters in the client request.</p>
+ *
  *
  */
 export class DescribeJobRunCommand extends $Command<
@@ -63,6 +86,9 @@ export class DescribeJobRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeJobRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,7 +117,7 @@ export class DescribeJobRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeJobRunRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeJobRunResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -102,12 +128,18 @@ export class DescribeJobRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeJobRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeJobRunCommand(input, context);
+    return se_DescribeJobRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeJobRunCommandOutput> {
-    return deserializeAws_restJson1DescribeJobRunCommand(output, context);
+    return de_DescribeJobRunCommand(output, context);
   }
 
   // Start section: command_body_extra

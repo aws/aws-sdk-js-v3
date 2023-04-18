@@ -19,16 +19,24 @@ import {
   DescribeCommentsResponse,
   DescribeCommentsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeCommentsCommand,
-  serializeAws_restJson1DescribeCommentsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeCommentsCommand, se_DescribeCommentsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeCommentsCommand}.
+ */
 export interface DescribeCommentsCommandInput extends DescribeCommentsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeCommentsCommand}.
+ */
 export interface DescribeCommentsCommandOutput extends DescribeCommentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List all the comments for the specified document version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +44,43 @@ export interface DescribeCommentsCommandOutput extends DescribeCommentsResponse,
  * import { WorkDocsClient, DescribeCommentsCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, DescribeCommentsCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
+ * const input = { // DescribeCommentsRequest
+ *   AuthenticationToken: "STRING_VALUE",
+ *   DocumentId: "STRING_VALUE", // required
+ *   VersionId: "STRING_VALUE", // required
+ *   Limit: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeCommentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCommentsCommandInput - {@link DescribeCommentsCommandInput}
+ * @returns {@link DescribeCommentsCommandOutput}
  * @see {@link DescribeCommentsCommandInput} for command's `input` shape.
  * @see {@link DescribeCommentsCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
+ *
+ * @throws {@link EntityNotExistsException} (client fault)
+ *  <p>The resource does not exist.</p>
+ *
+ * @throws {@link FailedDependencyException} (client fault)
+ *  <p>The Directory Service cannot reach an on-premises instance. Or a dependency
+ *             under the control of the organization is failing, such as a connected Active
+ *             Directory.</p>
+ *
+ * @throws {@link ProhibitedStateException} (client fault)
+ *  <p>The specified document version is not in the INITIALIZED state.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>One or more of the dependencies is unavailable.</p>
+ *
+ * @throws {@link UnauthorizedOperationException} (client fault)
+ *  <p>The operation is not permitted.</p>
+ *
+ * @throws {@link UnauthorizedResourceAccessException} (client fault)
+ *  <p>The caller does not have access to perform the action on the resource.</p>
+ *
  *
  */
 export class DescribeCommentsCommand extends $Command<
@@ -62,6 +100,9 @@ export class DescribeCommentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCommentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,12 +142,18 @@ export class DescribeCommentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCommentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeCommentsCommand(input, context);
+    return se_DescribeCommentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCommentsCommandOutput> {
-    return deserializeAws_restJson1DescribeCommentsCommand(output, context);
+    return de_DescribeCommentsCommand(output, context);
   }
 
   // Start section: command_body_extra

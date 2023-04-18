@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteProjectRequest,
-  DeleteProjectRequestFilterSensitiveLog,
-  DeleteProjectResponse,
-  DeleteProjectResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteProjectCommand,
-  serializeAws_json1_1DeleteProjectCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteProjectRequest, DeleteProjectResponse } from "../models/models_0";
+import { de_DeleteProjectCommand, se_DeleteProjectCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteProjectCommand}.
+ */
 export interface DeleteProjectCommandInput extends DeleteProjectRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteProjectCommand}.
+ */
 export interface DeleteProjectCommandOutput extends DeleteProjectResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Amazon Rekognition Custom Labels project.  To delete a project you must first delete all models associated
  *          with the project. To delete a model, see <a>DeleteProjectVersion</a>.</p>
  *          <p>
@@ -44,13 +47,42 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResponse, __Met
  * import { RekognitionClient, DeleteProjectCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DeleteProjectCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // DeleteProjectRequest
+ *   ProjectArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteProjectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteProjectCommandInput - {@link DeleteProjectCommandInput}
+ * @returns {@link DeleteProjectCommandOutput}
  * @see {@link DeleteProjectCommandInput} for command's `input` shape.
  * @see {@link DeleteProjectCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to perform the action.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
+ *       operation again.</p>
+ *
+ * @throws {@link ProvisionedThroughputExceededException} (client fault)
+ *  <p>The number of requests exceeded your throughput limit. If you want to increase this
+ *       limit, contact Amazon Rekognition.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is already being used.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request cannot be found.</p>
+ *
+ * @throws {@link ThrottlingException} (server fault)
+ *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
  *
  */
 export class DeleteProjectCommand extends $Command<
@@ -70,6 +102,9 @@ export class DeleteProjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteProjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +131,8 @@ export class DeleteProjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteProjectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteProjectResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +142,18 @@ export class DeleteProjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteProjectCommand(input, context);
+    return se_DeleteProjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteProjectCommandOutput> {
-    return deserializeAws_json1_1DeleteProjectCommand(output, context);
+    return de_DeleteProjectCommand(output, context);
   }
 
   // Start section: command_body_extra

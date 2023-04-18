@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  ResolveAliasInput,
-  ResolveAliasInputFilterSensitiveLog,
-  ResolveAliasOutput,
-  ResolveAliasOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ResolveAliasCommand,
-  serializeAws_json1_1ResolveAliasCommand,
-} from "../protocols/Aws_json1_1";
+import { ResolveAliasInput, ResolveAliasOutput } from "../models/models_0";
+import { de_ResolveAliasCommand, se_ResolveAliasCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ResolveAliasCommand}.
+ */
 export interface ResolveAliasCommandInput extends ResolveAliasInput {}
+/**
+ * @public
+ *
+ * The output of {@link ResolveAliasCommand}.
+ */
 export interface ResolveAliasCommandOutput extends ResolveAliasOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the fleet ID that an alias is currently pointing to.</p>
  *          <p>
  *             <b>Related actions</b>
@@ -42,13 +45,39 @@ export interface ResolveAliasCommandOutput extends ResolveAliasOutput, __Metadat
  * import { GameLiftClient, ResolveAliasCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, ResolveAliasCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // ResolveAliasInput
+ *   AliasId: "STRING_VALUE", // required
+ * };
  * const command = new ResolveAliasCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ResolveAliasCommandInput - {@link ResolveAliasCommandInput}
+ * @returns {@link ResolveAliasCommandOutput}
  * @see {@link ResolveAliasCommandInput} for command's `input` shape.
  * @see {@link ResolveAliasCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an unrecoverable internal failure while processing the
+ *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
+ *             values before retrying.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *
+ * @throws {@link TerminalRoutingStrategyException} (client fault)
+ *  <p>The service is unable to resolve the routing for a particular alias because it has a
+ *             terminal <code>RoutingStrategy</code> associated with it. The message returned in this
+ *             exception is the message defined in the routing strategy itself. Such requests should
+ *             only be retried if the routing strategy for the specified alias is modified. </p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
  *
  */
 export class ResolveAliasCommand extends $Command<
@@ -68,6 +97,9 @@ export class ResolveAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResolveAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +126,8 @@ export class ResolveAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResolveAliasInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ResolveAliasOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +137,18 @@ export class ResolveAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResolveAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ResolveAliasCommand(input, context);
+    return se_ResolveAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResolveAliasCommandOutput> {
-    return deserializeAws_json1_1ResolveAliasCommand(output, context);
+    return de_ResolveAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

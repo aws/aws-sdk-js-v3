@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FisClient";
-import {
-  CreateExperimentTemplateRequest,
-  CreateExperimentTemplateRequestFilterSensitiveLog,
-  CreateExperimentTemplateResponse,
-  CreateExperimentTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateExperimentTemplateCommand,
-  serializeAws_restJson1CreateExperimentTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateExperimentTemplateRequest, CreateExperimentTemplateResponse } from "../models/models_0";
+import { de_CreateExperimentTemplateCommand, se_CreateExperimentTemplateCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateExperimentTemplateCommand}.
+ */
 export interface CreateExperimentTemplateCommandInput extends CreateExperimentTemplateRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateExperimentTemplateCommand}.
+ */
 export interface CreateExperimentTemplateCommandOutput extends CreateExperimentTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an experiment template. </p>
  *          <p>An experiment template includes the following components:</p>
  *          <ul>
@@ -58,13 +61,90 @@ export interface CreateExperimentTemplateCommandOutput extends CreateExperimentT
  * import { FisClient, CreateExperimentTemplateCommand } from "@aws-sdk/client-fis"; // ES Modules import
  * // const { FisClient, CreateExperimentTemplateCommand } = require("@aws-sdk/client-fis"); // CommonJS import
  * const client = new FisClient(config);
+ * const input = { // CreateExperimentTemplateRequest
+ *   clientToken: "STRING_VALUE", // required
+ *   description: "STRING_VALUE", // required
+ *   stopConditions: [ // CreateExperimentTemplateStopConditionInputList // required
+ *     { // CreateExperimentTemplateStopConditionInput
+ *       source: "STRING_VALUE", // required
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   targets: { // CreateExperimentTemplateTargetInputMap
+ *     "<keys>": { // CreateExperimentTemplateTargetInput
+ *       resourceType: "STRING_VALUE", // required
+ *       resourceArns: [ // ResourceArnList
+ *         "STRING_VALUE",
+ *       ],
+ *       resourceTags: { // TagMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       filters: [ // ExperimentTemplateTargetFilterInputList
+ *         { // ExperimentTemplateTargetInputFilter
+ *           path: "STRING_VALUE", // required
+ *           values: [ // ExperimentTemplateTargetFilterValues // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *       selectionMode: "STRING_VALUE", // required
+ *       parameters: { // ExperimentTemplateTargetParameterMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   actions: { // CreateExperimentTemplateActionInputMap // required
+ *     "<keys>": { // CreateExperimentTemplateActionInput
+ *       actionId: "STRING_VALUE", // required
+ *       description: "STRING_VALUE",
+ *       parameters: { // ExperimentTemplateActionParameterMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       targets: { // ExperimentTemplateActionTargetMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       startAfter: [ // ExperimentTemplateActionStartAfterList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ *   roleArn: "STRING_VALUE", // required
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   logConfiguration: { // CreateExperimentTemplateLogConfigurationInput
+ *     cloudWatchLogsConfiguration: { // ExperimentTemplateCloudWatchLogsLogConfigurationInput
+ *       logGroupArn: "STRING_VALUE", // required
+ *     },
+ *     s3Configuration: { // ExperimentTemplateS3LogConfigurationInput
+ *       bucketName: "STRING_VALUE", // required
+ *       prefix: "STRING_VALUE",
+ *     },
+ *     logSchemaVersion: Number("int"), // required
+ *   },
+ * };
  * const command = new CreateExperimentTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateExperimentTemplateCommandInput - {@link CreateExperimentTemplateCommandInput}
+ * @returns {@link CreateExperimentTemplateCommandOutput}
  * @see {@link CreateExperimentTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateExperimentTemplateCommandOutput} for command's `response` shape.
  * @see {@link FisClientResolvedConfig | config} for FisClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be processed because of a conflict.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource cannot be found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>You have exceeded your service quota.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
+ *
  *
  */
 export class CreateExperimentTemplateCommand extends $Command<
@@ -84,6 +164,9 @@ export class CreateExperimentTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateExperimentTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +195,8 @@ export class CreateExperimentTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateExperimentTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateExperimentTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +206,18 @@ export class CreateExperimentTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateExperimentTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateExperimentTemplateCommand(input, context);
+    return se_CreateExperimentTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateExperimentTemplateCommandOutput> {
-    return deserializeAws_restJson1CreateExperimentTemplateCommand(output, context);
+    return de_CreateExperimentTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

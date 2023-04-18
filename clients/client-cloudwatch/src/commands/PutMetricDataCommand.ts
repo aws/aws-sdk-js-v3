@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import { PutMetricDataInput, PutMetricDataInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryPutMetricDataCommand,
-  serializeAws_queryPutMetricDataCommand,
-} from "../protocols/Aws_query";
+import { PutMetricDataInput } from "../models/models_0";
+import { de_PutMetricDataCommand, se_PutMetricDataCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link PutMetricDataCommand}.
+ */
 export interface PutMetricDataCommandInput extends PutMetricDataInput {}
+/**
+ * @public
+ *
+ * The output of {@link PutMetricDataCommand}.
+ */
 export interface PutMetricDataCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Publishes metric data points to Amazon CloudWatch. CloudWatch associates
  * 			the data points with the specified metric. If the specified metric does not exist,
  * 			CloudWatch creates the metric. When CloudWatch creates a metric, it can
@@ -73,13 +81,58 @@ export interface PutMetricDataCommandOutput extends __MetadataBearer {}
  * import { CloudWatchClient, PutMetricDataCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, PutMetricDataCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
+ * const input = { // PutMetricDataInput
+ *   Namespace: "STRING_VALUE", // required
+ *   MetricData: [ // MetricData // required
+ *     { // MetricDatum
+ *       MetricName: "STRING_VALUE", // required
+ *       Dimensions: [ // Dimensions
+ *         { // Dimension
+ *           Name: "STRING_VALUE", // required
+ *           Value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       Timestamp: new Date("TIMESTAMP"),
+ *       Value: Number("double"),
+ *       StatisticValues: { // StatisticSet
+ *         SampleCount: Number("double"), // required
+ *         Sum: Number("double"), // required
+ *         Minimum: Number("double"), // required
+ *         Maximum: Number("double"), // required
+ *       },
+ *       Values: [ // Values
+ *         Number("double"),
+ *       ],
+ *       Counts: [ // Counts
+ *         Number("double"),
+ *       ],
+ *       Unit: "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",
+ *       StorageResolution: Number("int"),
+ *     },
+ *   ],
+ * };
  * const command = new PutMetricDataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutMetricDataCommandInput - {@link PutMetricDataCommandInput}
+ * @returns {@link PutMetricDataCommandOutput}
  * @see {@link PutMetricDataCommandInput} for command's `input` shape.
  * @see {@link PutMetricDataCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
+ *
+ * @throws {@link InternalServiceFault} (server fault)
+ *  <p>Request processing has failed due to some unknown error, exception, or failure.</p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Parameters were used together that cannot be used together.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value of an input parameter is bad or out-of-range.</p>
+ *
+ * @throws {@link MissingRequiredParameterException} (client fault)
+ *  <p>An input parameter that is required is missing.</p>
+ *
  *
  */
 export class PutMetricDataCommand extends $Command<
@@ -99,6 +152,9 @@ export class PutMetricDataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutMetricDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +181,8 @@ export class PutMetricDataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutMetricDataInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +192,18 @@ export class PutMetricDataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutMetricDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryPutMetricDataCommand(input, context);
+    return se_PutMetricDataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutMetricDataCommandOutput> {
-    return deserializeAws_queryPutMetricDataCommand(output, context);
+    return de_PutMetricDataCommand(output, context);
   }
 
   // Start section: command_body_extra

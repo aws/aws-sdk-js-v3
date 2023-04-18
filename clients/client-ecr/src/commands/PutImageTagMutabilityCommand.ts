@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import {
-  PutImageTagMutabilityRequest,
-  PutImageTagMutabilityRequestFilterSensitiveLog,
-  PutImageTagMutabilityResponse,
-  PutImageTagMutabilityResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutImageTagMutabilityCommand,
-  serializeAws_json1_1PutImageTagMutabilityCommand,
-} from "../protocols/Aws_json1_1";
+import { PutImageTagMutabilityRequest, PutImageTagMutabilityResponse } from "../models/models_0";
+import { de_PutImageTagMutabilityCommand, se_PutImageTagMutabilityCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutImageTagMutabilityCommand}.
+ */
 export interface PutImageTagMutabilityCommandInput extends PutImageTagMutabilityRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutImageTagMutabilityCommand}.
+ */
 export interface PutImageTagMutabilityCommandOutput extends PutImageTagMutabilityResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the image tag mutability settings for the specified repository. For more
  *             information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-tag-mutability.html">Image tag
  *                 mutability</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
@@ -38,13 +41,32 @@ export interface PutImageTagMutabilityCommandOutput extends PutImageTagMutabilit
  * import { ECRClient, PutImageTagMutabilityCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, PutImageTagMutabilityCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
+ * const input = { // PutImageTagMutabilityRequest
+ *   registryId: "STRING_VALUE",
+ *   repositoryName: "STRING_VALUE", // required
+ *   imageTagMutability: "STRING_VALUE", // required
+ * };
  * const command = new PutImageTagMutabilityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutImageTagMutabilityCommandInput - {@link PutImageTagMutabilityCommandInput}
+ * @returns {@link PutImageTagMutabilityCommandOutput}
  * @see {@link PutImageTagMutabilityCommandInput} for command's `input` shape.
  * @see {@link PutImageTagMutabilityCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *             request.</p>
+ *
+ * @throws {@link RepositoryNotFoundException} (client fault)
+ *  <p>The specified repository could not be found. Check the spelling of the specified
+ *             repository and ensure that you are performing operations on the correct registry.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
  *
  */
 export class PutImageTagMutabilityCommand extends $Command<
@@ -64,6 +86,9 @@ export class PutImageTagMutabilityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutImageTagMutabilityCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +117,8 @@ export class PutImageTagMutabilityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutImageTagMutabilityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutImageTagMutabilityResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +128,18 @@ export class PutImageTagMutabilityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutImageTagMutabilityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutImageTagMutabilityCommand(input, context);
+    return se_PutImageTagMutabilityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutImageTagMutabilityCommandOutput> {
-    return deserializeAws_json1_1PutImageTagMutabilityCommand(output, context);
+    return de_PutImageTagMutabilityCommand(output, context);
   }
 
   // Start section: command_body_extra

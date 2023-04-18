@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListQualificationTypesRequest,
-  ListQualificationTypesRequestFilterSensitiveLog,
-  ListQualificationTypesResponse,
-  ListQualificationTypesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListQualificationTypesRequest, ListQualificationTypesResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import {
-  deserializeAws_json1_1ListQualificationTypesCommand,
-  serializeAws_json1_1ListQualificationTypesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListQualificationTypesCommand, se_ListQualificationTypesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListQualificationTypesCommand}.
+ */
 export interface ListQualificationTypesCommandInput extends ListQualificationTypesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListQualificationTypesCommand}.
+ */
 export interface ListQualificationTypesCommandOutput extends ListQualificationTypesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The
  *             <code>ListQualificationTypes</code>
@@ -41,13 +44,29 @@ export interface ListQualificationTypesCommandOutput extends ListQualificationTy
  * import { MTurkClient, ListQualificationTypesCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, ListQualificationTypesCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = { // ListQualificationTypesRequest
+ *   Query: "STRING_VALUE",
+ *   MustBeRequestable: true || false, // required
+ *   MustBeOwnedByCaller: true || false,
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListQualificationTypesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListQualificationTypesCommandInput - {@link ListQualificationTypesCommandInput}
+ * @returns {@link ListQualificationTypesCommandOutput}
  * @see {@link ListQualificationTypesCommandInput} for command's `input` shape.
  * @see {@link ListQualificationTypesCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
+ *
+ * @throws {@link RequestError} (client fault)
+ *  <p>Your request is invalid.</p>
+ *
+ * @throws {@link ServiceFault} (server fault)
+ *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
  *
  */
 export class ListQualificationTypesCommand extends $Command<
@@ -67,6 +86,9 @@ export class ListQualificationTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListQualificationTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +117,8 @@ export class ListQualificationTypesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListQualificationTypesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListQualificationTypesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +128,18 @@ export class ListQualificationTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListQualificationTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListQualificationTypesCommand(input, context);
+    return se_ListQualificationTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListQualificationTypesCommandOutput> {
-    return deserializeAws_json1_1ListQualificationTypesCommand(output, context);
+    return de_ListQualificationTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

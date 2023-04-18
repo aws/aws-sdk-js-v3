@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateMyUserProfileRequest, UpdateMyUserProfileRequestFilterSensitiveLog } from "../models/models_0";
+import { UpdateMyUserProfileRequest } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1UpdateMyUserProfileCommand,
-  serializeAws_json1_1UpdateMyUserProfileCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateMyUserProfileCommand, se_UpdateMyUserProfileCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateMyUserProfileCommand}.
+ */
 export interface UpdateMyUserProfileCommandInput extends UpdateMyUserProfileRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateMyUserProfileCommand}.
+ */
 export interface UpdateMyUserProfileCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a user's SSH public key.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have self-management
@@ -36,13 +44,22 @@ export interface UpdateMyUserProfileCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, UpdateMyUserProfileCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, UpdateMyUserProfileCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // UpdateMyUserProfileRequest
+ *   SshPublicKey: "STRING_VALUE",
+ * };
  * const command = new UpdateMyUserProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateMyUserProfileCommandInput - {@link UpdateMyUserProfileCommandInput}
+ * @returns {@link UpdateMyUserProfileCommandOutput}
  * @see {@link UpdateMyUserProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateMyUserProfileCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that a request was not valid.</p>
+ *
  *
  */
 export class UpdateMyUserProfileCommand extends $Command<
@@ -62,6 +79,9 @@ export class UpdateMyUserProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateMyUserProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +110,8 @@ export class UpdateMyUserProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateMyUserProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +121,18 @@ export class UpdateMyUserProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateMyUserProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateMyUserProfileCommand(input, context);
+    return se_UpdateMyUserProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMyUserProfileCommandOutput> {
-    return deserializeAws_json1_1UpdateMyUserProfileCommand(output, context);
+    return de_UpdateMyUserProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

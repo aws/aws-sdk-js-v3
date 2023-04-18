@@ -6,12 +6,11 @@ import {
   ListPoliciesCommandInput,
   ListPoliciesCommandOutput,
 } from "../commands/ListPoliciesCommand";
-import { FMS } from "../FMS";
 import { FMSClient } from "../FMSClient";
 import { FMSPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: FMSClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListPoliciesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: FMS,
-  input: ListPoliciesCommandInput,
-  ...args: any
-): Promise<ListPoliciesCommandOutput> => {
-  // @ts-ignore
-  return await client.listPolicies(input, ...args);
-};
 export async function* paginateListPolicies(
   config: FMSPaginationConfiguration,
   input: ListPoliciesCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListPolicies(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof FMS) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof FMSClient) {
+    if (config.client instanceof FMSClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected FMS | FMSClient");

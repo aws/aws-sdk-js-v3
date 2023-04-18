@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTRoboRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTRoboRunnerClient";
-import {
-  DeleteSiteRequest,
-  DeleteSiteRequestFilterSensitiveLog,
-  DeleteSiteResponse,
-  DeleteSiteResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteSiteCommand,
-  serializeAws_restJson1DeleteSiteCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteSiteRequest, DeleteSiteResponse } from "../models/models_0";
+import { de_DeleteSiteCommand, se_DeleteSiteCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteSiteCommand}.
+ */
 export interface DeleteSiteCommandInput extends DeleteSiteRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteSiteCommand}.
+ */
 export interface DeleteSiteCommandOutput extends DeleteSiteResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Grants permission to delete a site
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,37 @@ export interface DeleteSiteCommandOutput extends DeleteSiteResponse, __MetadataB
  * import { IoTRoboRunnerClient, DeleteSiteCommand } from "@aws-sdk/client-iot-roborunner"; // ES Modules import
  * // const { IoTRoboRunnerClient, DeleteSiteCommand } = require("@aws-sdk/client-iot-roborunner"); // CommonJS import
  * const client = new IoTRoboRunnerClient(config);
+ * const input = { // DeleteSiteRequest
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSiteCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSiteCommandInput - {@link DeleteSiteCommandInput}
+ * @returns {@link DeleteSiteCommandOutput}
  * @see {@link DeleteSiteCommandInput} for command's `input` shape.
  * @see {@link DeleteSiteCommandOutput} for command's `response` shape.
  * @see {@link IoTRoboRunnerClientResolvedConfig | config} for IoTRoboRunnerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *   User does not have sufficient access to perform this action.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  Exception thrown if a resource in a create request already exists.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  Exception thrown if something goes wrong within the service.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  Exception thrown if a resource referenced in the request doesn't exist.
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  Exception thrown if the api has been called too quickly be the client.
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  Exception thrown if an invalid parameter is provided to an API.
+ *
  *
  */
 export class DeleteSiteCommand extends $Command<
@@ -62,6 +89,9 @@ export class DeleteSiteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSiteCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +118,8 @@ export class DeleteSiteCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSiteRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSiteResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +129,18 @@ export class DeleteSiteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSiteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSiteCommand(input, context);
+    return se_DeleteSiteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSiteCommandOutput> {
-    return deserializeAws_restJson1DeleteSiteCommand(output, context);
+    return de_DeleteSiteCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -6,12 +6,11 @@ import {
   ListScheduleGroupsCommandInput,
   ListScheduleGroupsCommandOutput,
 } from "../commands/ListScheduleGroupsCommand";
-import { Scheduler } from "../Scheduler";
 import { SchedulerClient } from "../SchedulerClient";
 import { SchedulerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SchedulerClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListScheduleGroupsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Scheduler,
-  input: ListScheduleGroupsCommandInput,
-  ...args: any
-): Promise<ListScheduleGroupsCommandOutput> => {
-  // @ts-ignore
-  return await client.listScheduleGroups(input, ...args);
-};
 export async function* paginateListScheduleGroups(
   config: SchedulerPaginationConfiguration,
   input: ListScheduleGroupsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListScheduleGroups(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Scheduler) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SchedulerClient) {
+    if (config.client instanceof SchedulerClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Scheduler | SchedulerClient");

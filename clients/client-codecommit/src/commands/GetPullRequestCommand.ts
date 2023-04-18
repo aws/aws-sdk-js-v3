@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import {
-  GetPullRequestInput,
-  GetPullRequestInputFilterSensitiveLog,
-  GetPullRequestOutput,
-  GetPullRequestOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetPullRequestCommand,
-  serializeAws_json1_1GetPullRequestCommand,
-} from "../protocols/Aws_json1_1";
+import { GetPullRequestInput, GetPullRequestOutput } from "../models/models_0";
+import { de_GetPullRequestCommand, se_GetPullRequestCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetPullRequestCommand}.
+ */
 export interface GetPullRequestCommandInput extends GetPullRequestInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetPullRequestCommand}.
+ */
 export interface GetPullRequestCommandOutput extends GetPullRequestOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a pull request in a specified repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,43 @@ export interface GetPullRequestCommandOutput extends GetPullRequestOutput, __Met
  * import { CodeCommitClient, GetPullRequestCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, GetPullRequestCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // GetPullRequestInput
+ *   pullRequestId: "STRING_VALUE", // required
+ * };
  * const command = new GetPullRequestCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPullRequestCommandInput - {@link GetPullRequestCommandInput}
+ * @returns {@link GetPullRequestCommandOutput}
  * @see {@link GetPullRequestCommandInput} for command's `input` shape.
  * @see {@link GetPullRequestCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
+ *
+ * @throws {@link EncryptionIntegrityChecksFailedException} (server fault)
+ *  <p>An encryption integrity check failed.</p>
+ *
+ * @throws {@link EncryptionKeyAccessDeniedException} (client fault)
+ *  <p>An encryption key could not be accessed.</p>
+ *
+ * @throws {@link EncryptionKeyDisabledException} (client fault)
+ *  <p>The encryption key is disabled.</p>
+ *
+ * @throws {@link EncryptionKeyNotFoundException} (client fault)
+ *  <p>No encryption key was found.</p>
+ *
+ * @throws {@link EncryptionKeyUnavailableException} (client fault)
+ *  <p>The encryption key is not available.</p>
+ *
+ * @throws {@link InvalidPullRequestIdException} (client fault)
+ *  <p>The pull request ID is not valid. Make sure that you have provided the full ID and that the pull request is in the specified repository, and then try again.</p>
+ *
+ * @throws {@link PullRequestDoesNotExistException} (client fault)
+ *  <p>The pull request ID could not be found. Make sure that you have specified the correct repository name and pull request ID, and then try again.</p>
+ *
+ * @throws {@link PullRequestIdRequiredException} (client fault)
+ *  <p>A pull request ID is required, but none was provided.</p>
+ *
  *
  */
 export class GetPullRequestCommand extends $Command<
@@ -62,6 +95,9 @@ export class GetPullRequestCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPullRequestCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +126,8 @@ export class GetPullRequestCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPullRequestInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPullRequestOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +137,18 @@ export class GetPullRequestCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPullRequestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetPullRequestCommand(input, context);
+    return se_GetPullRequestCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPullRequestCommandOutput> {
-    return deserializeAws_json1_1GetPullRequestCommand(output, context);
+    return de_GetPullRequestCommand(output, context);
   }
 
   // Start section: command_body_extra

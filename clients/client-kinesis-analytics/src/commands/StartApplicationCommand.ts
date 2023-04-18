@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisAnalyticsClient";
-import {
-  StartApplicationRequest,
-  StartApplicationRequestFilterSensitiveLog,
-  StartApplicationResponse,
-  StartApplicationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartApplicationCommand,
-  serializeAws_json1_1StartApplicationCommand,
-} from "../protocols/Aws_json1_1";
+import { StartApplicationRequest, StartApplicationResponse } from "../models/models_0";
+import { de_StartApplicationCommand, se_StartApplicationCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link StartApplicationCommand}.
+ */
 export interface StartApplicationCommandInput extends StartApplicationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartApplicationCommand}.
+ */
 export interface StartApplicationCommandOutput extends StartApplicationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
  *          </note>
@@ -47,13 +50,42 @@ export interface StartApplicationCommandOutput extends StartApplicationResponse,
  * import { KinesisAnalyticsClient, StartApplicationCommand } from "@aws-sdk/client-kinesis-analytics"; // ES Modules import
  * // const { KinesisAnalyticsClient, StartApplicationCommand } = require("@aws-sdk/client-kinesis-analytics"); // CommonJS import
  * const client = new KinesisAnalyticsClient(config);
+ * const input = { // StartApplicationRequest
+ *   ApplicationName: "STRING_VALUE", // required
+ *   InputConfigurations: [ // InputConfigurations // required
+ *     { // InputConfiguration
+ *       Id: "STRING_VALUE", // required
+ *       InputStartingPositionConfiguration: { // InputStartingPositionConfiguration
+ *         InputStartingPosition: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new StartApplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartApplicationCommandInput - {@link StartApplicationCommandInput}
+ * @returns {@link StartApplicationCommandOutput}
  * @see {@link StartApplicationCommandInput} for command's `input` shape.
  * @see {@link StartApplicationCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsClientResolvedConfig | config} for KinesisAnalyticsClient's `config` shape.
+ *
+ * @throws {@link InvalidApplicationConfigurationException} (client fault)
+ *  <p>User-provided application configuration is not valid.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>Specified input parameter value is invalid.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>Application is not available for this operation.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Specified application can't be found.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation. </p>
+ *
  *
  */
 export class StartApplicationCommand extends $Command<
@@ -73,6 +105,9 @@ export class StartApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +136,8 @@ export class StartApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartApplicationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartApplicationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +147,18 @@ export class StartApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartApplicationCommand(input, context);
+    return se_StartApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartApplicationCommandOutput> {
-    return deserializeAws_json1_1StartApplicationCommand(output, context);
+    return de_StartApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

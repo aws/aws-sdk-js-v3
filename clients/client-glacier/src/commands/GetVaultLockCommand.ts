@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import {
-  GetVaultLockInput,
-  GetVaultLockInputFilterSensitiveLog,
-  GetVaultLockOutput,
-  GetVaultLockOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetVaultLockCommand,
-  serializeAws_restJson1GetVaultLockCommand,
-} from "../protocols/Aws_restJson1";
+import { GetVaultLockInput, GetVaultLockOutput } from "../models/models_0";
+import { de_GetVaultLockCommand, se_GetVaultLockCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetVaultLockCommand}.
+ */
 export interface GetVaultLockCommandInput extends GetVaultLockInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetVaultLockCommand}.
+ */
 export interface GetVaultLockCommandOutput extends GetVaultLockOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation retrieves the following attributes from the <code>lock-policy</code>
  *          subresource set on the specified vault: </p>
  *          <ul>
@@ -63,13 +66,53 @@ export interface GetVaultLockCommandOutput extends GetVaultLockOutput, __Metadat
  * import { GlacierClient, GetVaultLockCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, GetVaultLockCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
+ * const input = { // GetVaultLockInput
+ *   accountId: "STRING_VALUE", // required
+ *   vaultName: "STRING_VALUE", // required
+ * };
  * const command = new GetVaultLockCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetVaultLockCommandInput - {@link GetVaultLockCommandInput}
+ * @returns {@link GetVaultLockCommandOutput}
  * @see {@link GetVaultLockCommandInput} for command's `input` shape.
  * @see {@link GetVaultLockCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>Returned if a parameter of the request is incorrectly specified.</p>
+ *
+ * @throws {@link MissingParameterValueException} (client fault)
+ *  <p>Returned if a required header or parameter is missing from the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't
+ *          exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>Returned if the service cannot complete the request.</p>
+ *
+ *
+ * @example To retrieve vault lock-policy related attributes that are set on a vault
+ * ```javascript
+ * // The example retrieves the attributes from the lock-policy subresource set on the vault named examplevault.
+ * const input = {
+ *   "accountId": "-",
+ *   "vaultName": "examplevault"
+ * };
+ * const command = new GetVaultLockCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "CreationDate": "exampledate",
+ *   "ExpirationDate": "exampledate",
+ *   "Policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"Define-vault-lock\",\"Effect\":\"Deny\",\"Principal\":{\"AWS\":\"arn:aws:iam::999999999999:root\"},\"Action\":\"glacier:DeleteArchive\",\"Resource\":\"arn:aws:glacier:us-west-2:999999999999:vaults/examplevault\",\"Condition\":{\"NumericLessThanEquals\":{\"glacier:ArchiveAgeinDays\":\"365\"}}}]}",
+ *   "State": "InProgress"
+ * }
+ * *\/
+ * // example id: to-retrieve-vault-lock-policy-related-attributes-that-are-set-on-a-vault-1481851363097
+ * ```
  *
  */
 export class GetVaultLockCommand extends $Command<
@@ -89,6 +132,9 @@ export class GetVaultLockCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetVaultLockCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +161,8 @@ export class GetVaultLockCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetVaultLockInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetVaultLockOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +172,18 @@ export class GetVaultLockCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetVaultLockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetVaultLockCommand(input, context);
+    return se_GetVaultLockCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVaultLockCommandOutput> {
-    return deserializeAws_restJson1GetVaultLockCommand(output, context);
+    return de_GetVaultLockCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyBackendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyBackendClient";
-import {
-  CreateBackendConfigRequest,
-  CreateBackendConfigRequestFilterSensitiveLog,
-  CreateBackendConfigResponse,
-  CreateBackendConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateBackendConfigCommand,
-  serializeAws_restJson1CreateBackendConfigCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateBackendConfigRequest, CreateBackendConfigResponse } from "../models/models_0";
+import { de_CreateBackendConfigCommand, se_CreateBackendConfigCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateBackendConfigCommand}.
+ */
 export interface CreateBackendConfigCommandInput extends CreateBackendConfigRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateBackendConfigCommand}.
+ */
 export interface CreateBackendConfigCommandOutput extends CreateBackendConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a config object for a backend.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,32 @@ export interface CreateBackendConfigCommandOutput extends CreateBackendConfigRes
  * import { AmplifyBackendClient, CreateBackendConfigCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, CreateBackendConfigCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
  * const client = new AmplifyBackendClient(config);
+ * const input = { // CreateBackendConfigRequest
+ *   AppId: "STRING_VALUE", // required
+ *   BackendManagerAppId: "STRING_VALUE",
+ * };
  * const command = new CreateBackendConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBackendConfigCommandInput - {@link CreateBackendConfigCommandInput}
+ * @returns {@link CreateBackendConfigCommandOutput}
  * @see {@link CreateBackendConfigCommandInput} for command's `input` shape.
  * @see {@link CreateBackendConfigCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>An error returned if a request is not formed properly.</p>
+ *
+ * @throws {@link GatewayTimeoutException} (server fault)
+ *  <p>An error returned if there's a temporary issue with the service.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>An error returned when a specific resource type is not found.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>An error that is returned when a limit of a specific type has been exceeded.</p>
+ *
  *
  */
 export class CreateBackendConfigCommand extends $Command<
@@ -62,6 +84,9 @@ export class CreateBackendConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBackendConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +115,8 @@ export class CreateBackendConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateBackendConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateBackendConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +126,18 @@ export class CreateBackendConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBackendConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateBackendConfigCommand(input, context);
+    return se_CreateBackendConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBackendConfigCommandOutput> {
-    return deserializeAws_restJson1CreateBackendConfigCommand(output, context);
+    return de_CreateBackendConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

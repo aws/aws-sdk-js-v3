@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
-import {
-  ListPipelinesInput,
-  ListPipelinesInputFilterSensitiveLog,
-  ListPipelinesOutput,
-  ListPipelinesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListPipelinesCommand,
-  serializeAws_json1_1ListPipelinesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListPipelinesInput, ListPipelinesOutput } from "../models/models_0";
+import { de_ListPipelinesCommand, se_ListPipelinesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListPipelinesCommand}.
+ */
 export interface ListPipelinesCommandInput extends ListPipelinesInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListPipelinesCommand}.
+ */
 export interface ListPipelinesCommandOutput extends ListPipelinesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the pipeline identifiers for all active pipelines that you have permission to access.</p>
  *
  *         <examples>
@@ -42,7 +45,7 @@ export interface ListPipelinesCommandOutput extends ListPipelinesOutput, __Metad
  * X-Amz-Date: Mon, 12 Nov 2012 17:49:52 GMT
  * Authorization: AuthParams
  *
- * {}</request>
+ * \{\}</request>
  *
  *             <response>
  *
@@ -52,14 +55,14 @@ export interface ListPipelinesCommandOutput extends ListPipelinesOutput, __Metad
  * Content-Length: 39
  * Date: Mon, 12 Nov 2012 17:50:53 GMT
  *
- * {"PipelineIdList":
+ * \{"PipelineIdList":
  *   [
- *     {"id": "df-08785951KAKJEXAMPLE",
- *      "name": "MyPipeline"},
- *     {"id": "df-08662578ISYEXAMPLE",
- *      "name": "MySecondPipeline"}
+ *     \{"id": "df-08785951KAKJEXAMPLE",
+ *      "name": "MyPipeline"\},
+ *     \{"id": "df-08662578ISYEXAMPLE",
+ *      "name": "MySecondPipeline"\}
  *   ]
- * }</response>
+ * \}</response>
  *         </examples>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,13 +70,25 @@ export interface ListPipelinesCommandOutput extends ListPipelinesOutput, __Metad
  * import { DataPipelineClient, ListPipelinesCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
  * // const { DataPipelineClient, ListPipelinesCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import
  * const client = new DataPipelineClient(config);
+ * const input = { // ListPipelinesInput
+ *   marker: "STRING_VALUE",
+ * };
  * const command = new ListPipelinesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPipelinesCommandInput - {@link ListPipelinesCommandInput}
+ * @returns {@link ListPipelinesCommandOutput}
  * @see {@link ListPipelinesCommandInput} for command's `input` shape.
  * @see {@link ListPipelinesCommandOutput} for command's `response` shape.
  * @see {@link DataPipelineClientResolvedConfig | config} for DataPipelineClient's `config` shape.
+ *
+ * @throws {@link InternalServiceError} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.</p>
+ *
  *
  */
 export class ListPipelinesCommand extends $Command<
@@ -93,6 +108,9 @@ export class ListPipelinesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPipelinesCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +137,8 @@ export class ListPipelinesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPipelinesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPipelinesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +148,18 @@ export class ListPipelinesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPipelinesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListPipelinesCommand(input, context);
+    return se_ListPipelinesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPipelinesCommandOutput> {
-    return deserializeAws_json1_1ListPipelinesCommand(output, context);
+    return de_ListPipelinesCommand(output, context);
   }
 
   // Start section: command_body_extra

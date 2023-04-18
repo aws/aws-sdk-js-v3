@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
-import {
-  GetMissionProfileRequest,
-  GetMissionProfileRequestFilterSensitiveLog,
-  GetMissionProfileResponse,
-  GetMissionProfileResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetMissionProfileCommand,
-  serializeAws_restJson1GetMissionProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { GetMissionProfileRequest, GetMissionProfileResponse } from "../models/models_0";
+import { de_GetMissionProfileCommand, se_GetMissionProfileCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetMissionProfileCommand}.
+ */
 export interface GetMissionProfileCommandInput extends GetMissionProfileRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetMissionProfileCommand}.
+ */
 export interface GetMissionProfileCommandOutput extends GetMissionProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a mission profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,28 @@ export interface GetMissionProfileCommandOutput extends GetMissionProfileRespons
  * import { GroundStationClient, GetMissionProfileCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, GetMissionProfileCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
+ * const input = { // GetMissionProfileRequest
+ *   missionProfileId: "STRING_VALUE", // required
+ * };
  * const command = new GetMissionProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMissionProfileCommandInput - {@link GetMissionProfileCommandInput}
+ * @returns {@link GetMissionProfileCommandOutput}
  * @see {@link GetMissionProfileCommandInput} for command's `input` shape.
  * @see {@link GetMissionProfileCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
+ *
+ * @throws {@link DependencyException} (server fault)
+ *  <p>Dependency encountered an error.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource was not found.</p>
+ *
  *
  */
 export class GetMissionProfileCommand extends $Command<
@@ -62,6 +80,9 @@ export class GetMissionProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMissionProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +111,8 @@ export class GetMissionProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMissionProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMissionProfileResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +122,18 @@ export class GetMissionProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMissionProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMissionProfileCommand(input, context);
+    return se_GetMissionProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMissionProfileCommandOutput> {
-    return deserializeAws_restJson1GetMissionProfileCommand(output, context);
+    return de_GetMissionProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

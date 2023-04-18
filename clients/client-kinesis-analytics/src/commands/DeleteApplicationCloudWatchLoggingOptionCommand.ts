@@ -16,22 +16,31 @@ import {
 import { KinesisAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisAnalyticsClient";
 import {
   DeleteApplicationCloudWatchLoggingOptionRequest,
-  DeleteApplicationCloudWatchLoggingOptionRequestFilterSensitiveLog,
   DeleteApplicationCloudWatchLoggingOptionResponse,
-  DeleteApplicationCloudWatchLoggingOptionResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionCommand,
-  serializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionCommand,
+  de_DeleteApplicationCloudWatchLoggingOptionCommand,
+  se_DeleteApplicationCloudWatchLoggingOptionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteApplicationCloudWatchLoggingOptionCommand}.
+ */
 export interface DeleteApplicationCloudWatchLoggingOptionCommandInput
   extends DeleteApplicationCloudWatchLoggingOptionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteApplicationCloudWatchLoggingOptionCommand}.
+ */
 export interface DeleteApplicationCloudWatchLoggingOptionCommandOutput
   extends DeleteApplicationCloudWatchLoggingOptionResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
  *          </note>
@@ -44,13 +53,36 @@ export interface DeleteApplicationCloudWatchLoggingOptionCommandOutput
  * import { KinesisAnalyticsClient, DeleteApplicationCloudWatchLoggingOptionCommand } from "@aws-sdk/client-kinesis-analytics"; // ES Modules import
  * // const { KinesisAnalyticsClient, DeleteApplicationCloudWatchLoggingOptionCommand } = require("@aws-sdk/client-kinesis-analytics"); // CommonJS import
  * const client = new KinesisAnalyticsClient(config);
+ * const input = { // DeleteApplicationCloudWatchLoggingOptionRequest
+ *   ApplicationName: "STRING_VALUE", // required
+ *   CurrentApplicationVersionId: Number("long"), // required
+ *   CloudWatchLoggingOptionId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteApplicationCloudWatchLoggingOptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteApplicationCloudWatchLoggingOptionCommandInput - {@link DeleteApplicationCloudWatchLoggingOptionCommandInput}
+ * @returns {@link DeleteApplicationCloudWatchLoggingOptionCommandOutput}
  * @see {@link DeleteApplicationCloudWatchLoggingOptionCommandInput} for command's `input` shape.
  * @see {@link DeleteApplicationCloudWatchLoggingOptionCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsClientResolvedConfig | config} for KinesisAnalyticsClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>Specified input parameter value is invalid.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>Application is not available for this operation.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Specified application can't be found.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation. </p>
+ *
  *
  */
 export class DeleteApplicationCloudWatchLoggingOptionCommand extends $Command<
@@ -70,6 +102,9 @@ export class DeleteApplicationCloudWatchLoggingOptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteApplicationCloudWatchLoggingOptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +139,8 @@ export class DeleteApplicationCloudWatchLoggingOptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteApplicationCloudWatchLoggingOptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteApplicationCloudWatchLoggingOptionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,18 +150,24 @@ export class DeleteApplicationCloudWatchLoggingOptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteApplicationCloudWatchLoggingOptionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionCommand(input, context);
+    return se_DeleteApplicationCloudWatchLoggingOptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteApplicationCloudWatchLoggingOptionCommandOutput> {
-    return deserializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionCommand(output, context);
+    return de_DeleteApplicationCloudWatchLoggingOptionCommand(output, context);
   }
 
   // Start section: command_body_extra

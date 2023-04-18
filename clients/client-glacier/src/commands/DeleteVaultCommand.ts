@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import { DeleteVaultInput, DeleteVaultInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteVaultCommand,
-  serializeAws_restJson1DeleteVaultCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteVaultInput } from "../models/models_0";
+import { de_DeleteVaultCommand, se_DeleteVaultCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteVaultCommand}.
+ */
 export interface DeleteVaultCommandInput extends DeleteVaultInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteVaultCommand}.
+ */
 export interface DeleteVaultCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation deletes a vault. Amazon S3 Glacier will delete a vault only if there are
  *          no archives in the vault as of the last inventory and there have been no writes to the
  *          vault since the last inventory. If either of these conditions is not satisfied, the vault
@@ -50,13 +58,45 @@ export interface DeleteVaultCommandOutput extends __MetadataBearer {}
  * import { GlacierClient, DeleteVaultCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, DeleteVaultCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
+ * const input = { // DeleteVaultInput
+ *   accountId: "STRING_VALUE", // required
+ *   vaultName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteVaultCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVaultCommandInput - {@link DeleteVaultCommandInput}
+ * @returns {@link DeleteVaultCommandOutput}
  * @see {@link DeleteVaultCommandInput} for command's `input` shape.
  * @see {@link DeleteVaultCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>Returned if a parameter of the request is incorrectly specified.</p>
+ *
+ * @throws {@link MissingParameterValueException} (client fault)
+ *  <p>Returned if a required header or parameter is missing from the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't
+ *          exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>Returned if the service cannot complete the request.</p>
+ *
+ *
+ * @example To delete a vault
+ * ```javascript
+ * // The example deletes a vault named my-vault:
+ * const input = {
+ *   "accountId": "-",
+ *   "vaultName": "my-vault"
+ * };
+ * const command = new DeleteVaultCommand(input);
+ * await client.send(command);
+ * // example id: 7f7f000b-4bdb-40d2-91e6-7c902f60f60f
+ * ```
  *
  */
 export class DeleteVaultCommand extends $Command<
@@ -76,6 +116,9 @@ export class DeleteVaultCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVaultCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +145,8 @@ export class DeleteVaultCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVaultInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +156,18 @@ export class DeleteVaultCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVaultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteVaultCommand(input, context);
+    return se_DeleteVaultCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVaultCommandOutput> {
-    return deserializeAws_restJson1DeleteVaultCommand(output, context);
+    return de_DeleteVaultCommand(output, context);
   }
 
   // Start section: command_body_extra

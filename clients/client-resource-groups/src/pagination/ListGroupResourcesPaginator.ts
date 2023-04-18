@@ -6,12 +6,11 @@ import {
   ListGroupResourcesCommandInput,
   ListGroupResourcesCommandOutput,
 } from "../commands/ListGroupResourcesCommand";
-import { ResourceGroups } from "../ResourceGroups";
 import { ResourceGroupsClient } from "../ResourceGroupsClient";
 import { ResourceGroupsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ResourceGroupsClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListGroupResourcesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ResourceGroups,
-  input: ListGroupResourcesCommandInput,
-  ...args: any
-): Promise<ListGroupResourcesCommandOutput> => {
-  // @ts-ignore
-  return await client.listGroupResources(input, ...args);
-};
 export async function* paginateListGroupResources(
   config: ResourceGroupsPaginationConfiguration,
   input: ListGroupResourcesCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListGroupResources(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof ResourceGroups) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ResourceGroupsClient) {
+    if (config.client instanceof ResourceGroupsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ResourceGroups | ResourceGroupsClient");

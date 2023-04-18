@@ -6,12 +6,11 @@ import {
   QueryTableRowsCommandInput,
   QueryTableRowsCommandOutput,
 } from "../commands/QueryTableRowsCommand";
-import { Honeycode } from "../Honeycode";
 import { HoneycodeClient } from "../HoneycodeClient";
 import { HoneycodePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: HoneycodeClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new QueryTableRowsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Honeycode,
-  input: QueryTableRowsCommandInput,
-  ...args: any
-): Promise<QueryTableRowsCommandOutput> => {
-  // @ts-ignore
-  return await client.queryTableRows(input, ...args);
-};
 export async function* paginateQueryTableRows(
   config: HoneycodePaginationConfiguration,
   input: QueryTableRowsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateQueryTableRows(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Honeycode) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof HoneycodeClient) {
+    if (config.client instanceof HoneycodeClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Honeycode | HoneycodeClient");

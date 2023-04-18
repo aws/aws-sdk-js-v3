@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteArtifactRequest,
-  DeleteArtifactRequestFilterSensitiveLog,
-  DeleteArtifactResponse,
-  DeleteArtifactResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteArtifactCommand,
-  serializeAws_json1_1DeleteArtifactCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteArtifactRequest, DeleteArtifactResponse } from "../models/models_1";
+import { de_DeleteArtifactCommand, se_DeleteArtifactCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteArtifactCommand}.
+ */
 export interface DeleteArtifactCommandInput extends DeleteArtifactRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteArtifactCommand}.
+ */
 export interface DeleteArtifactCommandOutput extends DeleteArtifactResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an artifact. Either <code>ArtifactArn</code> or <code>Source</code> must be
  *         specified.</p>
  * @example
@@ -37,13 +40,31 @@ export interface DeleteArtifactCommandOutput extends DeleteArtifactResponse, __M
  * import { SageMakerClient, DeleteArtifactCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteArtifactCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DeleteArtifactRequest
+ *   ArtifactArn: "STRING_VALUE",
+ *   Source: { // ArtifactSource
+ *     SourceUri: "STRING_VALUE", // required
+ *     SourceTypes: [ // ArtifactSourceTypes
+ *       { // ArtifactSourceType
+ *         SourceIdType: "MD5Hash" || "S3ETag" || "S3Version" || "Custom", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new DeleteArtifactCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteArtifactCommandInput - {@link DeleteArtifactCommandInput}
+ * @returns {@link DeleteArtifactCommandOutput}
  * @see {@link DeleteArtifactCommandInput} for command's `input` shape.
  * @see {@link DeleteArtifactCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class DeleteArtifactCommand extends $Command<
@@ -63,6 +84,9 @@ export class DeleteArtifactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteArtifactCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +115,8 @@ export class DeleteArtifactCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteArtifactRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteArtifactResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +126,18 @@ export class DeleteArtifactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteArtifactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteArtifactCommand(input, context);
+    return se_DeleteArtifactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteArtifactCommandOutput> {
-    return deserializeAws_json1_1DeleteArtifactCommand(output, context);
+    return de_DeleteArtifactCommand(output, context);
   }
 
   // Start section: command_body_extra

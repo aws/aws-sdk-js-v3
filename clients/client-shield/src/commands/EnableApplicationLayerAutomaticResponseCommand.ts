@@ -15,23 +15,32 @@ import {
 
 import {
   EnableApplicationLayerAutomaticResponseRequest,
-  EnableApplicationLayerAutomaticResponseRequestFilterSensitiveLog,
   EnableApplicationLayerAutomaticResponseResponse,
-  EnableApplicationLayerAutomaticResponseResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1EnableApplicationLayerAutomaticResponseCommand,
-  serializeAws_json1_1EnableApplicationLayerAutomaticResponseCommand,
+  de_EnableApplicationLayerAutomaticResponseCommand,
+  se_EnableApplicationLayerAutomaticResponseCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
+/**
+ * @public
+ *
+ * The input for {@link EnableApplicationLayerAutomaticResponseCommand}.
+ */
 export interface EnableApplicationLayerAutomaticResponseCommandInput
   extends EnableApplicationLayerAutomaticResponseRequest {}
+/**
+ * @public
+ *
+ * The output of {@link EnableApplicationLayerAutomaticResponseCommand}.
+ */
 export interface EnableApplicationLayerAutomaticResponseCommandOutput
   extends EnableApplicationLayerAutomaticResponseResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enable the Shield Advanced automatic application layer DDoS mitigation for the protected resource. </p>
  *          <note>
  *             <p>This feature is available for Amazon CloudFront distributions and Application Load Balancers only.</p>
@@ -53,13 +62,42 @@ export interface EnableApplicationLayerAutomaticResponseCommandOutput
  * import { ShieldClient, EnableApplicationLayerAutomaticResponseCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, EnableApplicationLayerAutomaticResponseCommand } = require("@aws-sdk/client-shield"); // CommonJS import
  * const client = new ShieldClient(config);
+ * const input = { // EnableApplicationLayerAutomaticResponseRequest
+ *   ResourceArn: "STRING_VALUE", // required
+ *   Action: { // ResponseAction
+ *     Block: {},
+ *     Count: {},
+ *   },
+ * };
  * const command = new EnableApplicationLayerAutomaticResponseCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableApplicationLayerAutomaticResponseCommandInput - {@link EnableApplicationLayerAutomaticResponseCommandInput}
+ * @returns {@link EnableApplicationLayerAutomaticResponseCommandOutput}
  * @see {@link EnableApplicationLayerAutomaticResponseCommandInput} for command's `input` shape.
  * @see {@link EnableApplicationLayerAutomaticResponseCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+ *
+ * @throws {@link InvalidOperationException} (client fault)
+ *  <p>Exception that indicates that the operation would not cause any change to occur.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>Exception that indicates that the parameters passed to the API are invalid. If available, this exception includes details in additional properties. </p>
+ *
+ * @throws {@link LimitsExceededException} (client fault)
+ *  <p>Exception that indicates that the operation would exceed a limit.</p>
+ *
+ * @throws {@link OptimisticLockException} (client fault)
+ *  <p>Exception that indicates that the resource state has been modified by another
+ *          client. Retrieve the resource and then retry your request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+ *
  *
  */
 export class EnableApplicationLayerAutomaticResponseCommand extends $Command<
@@ -79,6 +117,9 @@ export class EnableApplicationLayerAutomaticResponseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableApplicationLayerAutomaticResponseCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +154,8 @@ export class EnableApplicationLayerAutomaticResponseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableApplicationLayerAutomaticResponseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: EnableApplicationLayerAutomaticResponseResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,18 +165,24 @@ export class EnableApplicationLayerAutomaticResponseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: EnableApplicationLayerAutomaticResponseCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1EnableApplicationLayerAutomaticResponseCommand(input, context);
+    return se_EnableApplicationLayerAutomaticResponseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EnableApplicationLayerAutomaticResponseCommandOutput> {
-    return deserializeAws_json1_1EnableApplicationLayerAutomaticResponseCommand(output, context);
+    return de_EnableApplicationLayerAutomaticResponseCommand(output, context);
   }
 
   // Start section: command_body_extra

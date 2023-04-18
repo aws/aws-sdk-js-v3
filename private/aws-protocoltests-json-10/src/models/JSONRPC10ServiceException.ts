@@ -5,6 +5,8 @@ import {
 } from "@aws-sdk/smithy-client";
 
 /**
+ * @public
+ *
  * Base exception class for all service exceptions from JSONRPC10 service.
  */
 export class JSONRPC10ServiceException extends __ServiceException {

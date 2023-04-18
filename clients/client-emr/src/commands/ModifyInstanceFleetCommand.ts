@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { ModifyInstanceFleetInput, ModifyInstanceFleetInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1ModifyInstanceFleetCommand,
-  serializeAws_json1_1ModifyInstanceFleetCommand,
-} from "../protocols/Aws_json1_1";
+import { ModifyInstanceFleetInput } from "../models/models_0";
+import { de_ModifyInstanceFleetCommand, se_ModifyInstanceFleetCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ModifyInstanceFleetCommand}.
+ */
 export interface ModifyInstanceFleetCommandInput extends ModifyInstanceFleetInput {}
+/**
+ * @public
+ *
+ * The output of {@link ModifyInstanceFleetCommand}.
+ */
 export interface ModifyInstanceFleetCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the target On-Demand and target Spot capacities for the instance fleet with the
  *          specified InstanceFleetID within the cluster specified using ClusterID. The call either
  *          succeeds or fails atomically.</p>
@@ -37,13 +45,39 @@ export interface ModifyInstanceFleetCommandOutput extends __MetadataBearer {}
  * import { EMRClient, ModifyInstanceFleetCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, ModifyInstanceFleetCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = { // ModifyInstanceFleetInput
+ *   ClusterId: "STRING_VALUE", // required
+ *   InstanceFleet: { // InstanceFleetModifyConfig
+ *     InstanceFleetId: "STRING_VALUE", // required
+ *     TargetOnDemandCapacity: Number("int"),
+ *     TargetSpotCapacity: Number("int"),
+ *     ResizeSpecifications: { // InstanceFleetResizingSpecifications
+ *       SpotResizeSpecification: { // SpotResizingSpecification
+ *         TimeoutDurationMinutes: Number("int"), // required
+ *       },
+ *       OnDemandResizeSpecification: { // OnDemandResizingSpecification
+ *         TimeoutDurationMinutes: Number("int"), // required
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new ModifyInstanceFleetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyInstanceFleetCommandInput - {@link ModifyInstanceFleetCommandInput}
+ * @returns {@link ModifyInstanceFleetCommandOutput}
  * @see {@link ModifyInstanceFleetCommandInput} for command's `input` shape.
  * @see {@link ModifyInstanceFleetCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>This exception occurs when there is an internal failure in the Amazon EMR
+ *          service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception occurs when there is something wrong with user input.</p>
+ *
  *
  */
 export class ModifyInstanceFleetCommand extends $Command<
@@ -63,6 +97,9 @@ export class ModifyInstanceFleetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyInstanceFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +128,8 @@ export class ModifyInstanceFleetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyInstanceFleetInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +139,18 @@ export class ModifyInstanceFleetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyInstanceFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ModifyInstanceFleetCommand(input, context);
+    return se_ModifyInstanceFleetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyInstanceFleetCommandOutput> {
-    return deserializeAws_json1_1ModifyInstanceFleetCommand(output, context);
+    return de_ModifyInstanceFleetCommand(output, context);
   }
 
   // Start section: command_body_extra

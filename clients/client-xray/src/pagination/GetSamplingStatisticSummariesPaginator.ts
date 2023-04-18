@@ -6,12 +6,11 @@ import {
   GetSamplingStatisticSummariesCommandInput,
   GetSamplingStatisticSummariesCommandOutput,
 } from "../commands/GetSamplingStatisticSummariesCommand";
-import { XRay } from "../XRay";
 import { XRayClient } from "../XRayClient";
 import { XRayPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: XRayClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new GetSamplingStatisticSummariesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: XRay,
-  input: GetSamplingStatisticSummariesCommandInput,
-  ...args: any
-): Promise<GetSamplingStatisticSummariesCommandOutput> => {
-  // @ts-ignore
-  return await client.getSamplingStatisticSummaries(input, ...args);
-};
 export async function* paginateGetSamplingStatisticSummaries(
   config: XRayPaginationConfiguration,
   input: GetSamplingStatisticSummariesCommandInput,
@@ -43,9 +34,7 @@ export async function* paginateGetSamplingStatisticSummaries(
   let page: GetSamplingStatisticSummariesCommandOutput;
   while (hasNext) {
     input.NextToken = token;
-    if (config.client instanceof XRay) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof XRayClient) {
+    if (config.client instanceof XRayClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected XRay | XRayClient");

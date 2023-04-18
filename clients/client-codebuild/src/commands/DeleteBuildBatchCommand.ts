@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import {
-  DeleteBuildBatchInput,
-  DeleteBuildBatchInputFilterSensitiveLog,
-  DeleteBuildBatchOutput,
-  DeleteBuildBatchOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteBuildBatchCommand,
-  serializeAws_json1_1DeleteBuildBatchCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteBuildBatchInput, DeleteBuildBatchOutput } from "../models/models_0";
+import { de_DeleteBuildBatchCommand, se_DeleteBuildBatchCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteBuildBatchCommand}.
+ */
 export interface DeleteBuildBatchCommandInput extends DeleteBuildBatchInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteBuildBatchCommand}.
+ */
 export interface DeleteBuildBatchCommandOutput extends DeleteBuildBatchOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a batch build.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,22 @@ export interface DeleteBuildBatchCommandOutput extends DeleteBuildBatchOutput, _
  * import { CodeBuildClient, DeleteBuildBatchCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, DeleteBuildBatchCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = { // DeleteBuildBatchInput
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteBuildBatchCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBuildBatchCommandInput - {@link DeleteBuildBatchCommandInput}
+ * @returns {@link DeleteBuildBatchCommandOutput}
  * @see {@link DeleteBuildBatchCommandInput} for command's `input` shape.
  * @see {@link DeleteBuildBatchCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input value that was provided is not valid.</p>
+ *
  *
  */
 export class DeleteBuildBatchCommand extends $Command<
@@ -62,6 +74,9 @@ export class DeleteBuildBatchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBuildBatchCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +105,8 @@ export class DeleteBuildBatchCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBuildBatchInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteBuildBatchOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +116,18 @@ export class DeleteBuildBatchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBuildBatchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteBuildBatchCommand(input, context);
+    return se_DeleteBuildBatchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBuildBatchCommandOutput> {
-    return deserializeAws_json1_1DeleteBuildBatchCommand(output, context);
+    return de_DeleteBuildBatchCommand(output, context);
   }
 
   // Start section: command_body_extra

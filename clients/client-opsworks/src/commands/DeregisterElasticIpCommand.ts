@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeregisterElasticIpRequest, DeregisterElasticIpRequestFilterSensitiveLog } from "../models/models_0";
+import { DeregisterElasticIpRequest } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1DeregisterElasticIpCommand,
-  serializeAws_json1_1DeregisterElasticIpCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeregisterElasticIpCommand, se_DeregisterElasticIpCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeregisterElasticIpCommand}.
+ */
 export interface DeregisterElasticIpCommandInput extends DeregisterElasticIpRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeregisterElasticIpCommand}.
+ */
 export interface DeregisterElasticIpCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deregisters a specified Elastic IP address. The address can then be registered by another
  *       stack. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource Management</a>.</p>
  *          <p>
@@ -37,13 +45,25 @@ export interface DeregisterElasticIpCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, DeregisterElasticIpCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DeregisterElasticIpCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // DeregisterElasticIpRequest
+ *   ElasticIp: "STRING_VALUE", // required
+ * };
  * const command = new DeregisterElasticIpCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterElasticIpCommandInput - {@link DeregisterElasticIpCommandInput}
+ * @returns {@link DeregisterElasticIpCommandOutput}
  * @see {@link DeregisterElasticIpCommandInput} for command's `input` shape.
  * @see {@link DeregisterElasticIpCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Indicates that a resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that a request was not valid.</p>
+ *
  *
  */
 export class DeregisterElasticIpCommand extends $Command<
@@ -63,6 +83,9 @@ export class DeregisterElasticIpCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterElasticIpCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +114,8 @@ export class DeregisterElasticIpCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterElasticIpRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +125,18 @@ export class DeregisterElasticIpCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterElasticIpCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeregisterElasticIpCommand(input, context);
+    return se_DeregisterElasticIpCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterElasticIpCommandOutput> {
-    return deserializeAws_json1_1DeregisterElasticIpCommand(output, context);
+    return de_DeregisterElasticIpCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import {
-  CopyBackupRequest,
-  CopyBackupRequestFilterSensitiveLog,
-  CopyBackupResponse,
-  CopyBackupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CopyBackupCommand,
-  serializeAws_json1_1CopyBackupCommand,
-} from "../protocols/Aws_json1_1";
+import { CopyBackupRequest, CopyBackupResponse } from "../models/models_0";
+import { de_CopyBackupCommand, se_CopyBackupCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CopyBackupCommand}.
+ */
 export interface CopyBackupCommandInput extends CopyBackupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CopyBackupCommand}.
+ */
 export interface CopyBackupCommandOutput extends CopyBackupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Copies an existing backup within the same Amazon Web Services account to another Amazon Web Services Region
  *          (cross-Region copy) or within the same Amazon Web Services Region (in-Region copy). You can have up to five
  *          backup copy requests in progress to a single destination Region per account.</p>
@@ -56,13 +59,114 @@ export interface CopyBackupCommandOutput extends CopyBackupResponse, __MetadataB
  * import { FSxClient, CopyBackupCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, CopyBackupCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = { // CopyBackupRequest
+ *   ClientRequestToken: "STRING_VALUE",
+ *   SourceBackupId: "STRING_VALUE", // required
+ *   SourceRegion: "STRING_VALUE",
+ *   KmsKeyId: "STRING_VALUE",
+ *   CopyTags: true || false,
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CopyBackupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CopyBackupCommandInput - {@link CopyBackupCommandInput}
+ * @returns {@link CopyBackupCommandOutput}
  * @see {@link CopyBackupCommandInput} for command's `input` shape.
  * @see {@link CopyBackupCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
+ *
+ * @throws {@link BackupNotFound} (client fault)
+ *  <p>No Amazon FSx backups were found based upon the supplied parameters.</p>
+ *
+ * @throws {@link BadRequest} (client fault)
+ *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * @throws {@link IncompatibleParameterError} (client fault)
+ *  <p>The error returned when a second request is received with the same client request
+ *             token but different parameters settings. A client request token should always uniquely
+ *             identify a single request.</p>
+ *
+ * @throws {@link IncompatibleRegionForMultiAZ} (client fault)
+ *  <p>Amazon FSx doesn't support Multi-AZ Windows File Server copy backup in the
+ *          destination Region, so the copied backup can't be restored.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>A generic error indicating a server-side failure.</p>
+ *
+ * @throws {@link InvalidDestinationKmsKey} (client fault)
+ *  <p>The Key Management Service (KMS) key of the destination backup is not
+ *          valid.</p>
+ *
+ * @throws {@link InvalidRegion} (client fault)
+ *  <p>The Region provided for <code>SourceRegion</code> is not valid or is in a different
+ *             Amazon Web Services partition.</p>
+ *
+ * @throws {@link InvalidSourceKmsKey} (client fault)
+ *  <p>The Key Management Service (KMS) key of the source backup is not
+ *          valid.</p>
+ *
+ * @throws {@link ServiceLimitExceeded} (client fault)
+ *  <p>An error indicating that a particular service limit was exceeded. You can increase
+ *             some service limits by contacting Amazon Web Services Support.</p>
+ *
+ * @throws {@link SourceBackupUnavailable} (client fault)
+ *  <p>The request was rejected because the lifecycle status of the source backup isn't
+ *             <code>AVAILABLE</code>.</p>
+ *
+ * @throws {@link UnsupportedOperation} (client fault)
+ *  <p>The requested operation is not supported for this resource or API.</p>
+ *
+ *
+ * @example To copy a backup
+ * ```javascript
+ * // This operation copies an Amazon FSx backup.
+ * const input = {
+ *   "SourceBackupId": "backup-03e3c82e0183b7b6b",
+ *   "SourceRegion": "us-east-2"
+ * };
+ * const command = new CopyBackupCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Backup": {
+ *     "BackupId": "backup-0a3364eded1014b28",
+ *     "CreationTime": 1617954808.068,
+ *     "FileSystem": {
+ *       "FileSystemId": "fs-0498eed5fe91001ec",
+ *       "FileSystemType": "LUSTRE",
+ *       "LustreConfiguration": {
+ *         "AutomaticBackupRetentionDays": 0,
+ *         "DeploymentType": "PERSISTENT_1",
+ *         "PerUnitStorageThroughput": 50,
+ *         "WeeklyMaintenanceStartTime": "1:05:00"
+ *       },
+ *       "ResourceARN": "arn:aws:fsx:us-east-1:012345678912:file-system/fs-0f5179e395f597e66",
+ *       "StorageCapacity": 2400,
+ *       "StorageType": "SSD"
+ *     },
+ *     "KmsKeyId": "arn:aws:fsx:us-east-1:012345678912:key/d1234e22-543a-12b7-a98f-e12c2b54001a",
+ *     "Lifecycle": "COPYING",
+ *     "OwnerId": "123456789012",
+ *     "ResourceARN": "arn:aws:fsx:us-east-1:012345678912:backup/backup-0a3364eded1014b28",
+ *     "Tags": [
+ *       {
+ *         "Key": "Name",
+ *         "Value": "MyBackup"
+ *       }
+ *     ],
+ *     "Type": "USER_INITIATED"
+ *   }
+ * }
+ * *\/
+ * // example id: to-copy-a-backup-1481847318640
+ * ```
  *
  */
 export class CopyBackupCommand extends $Command<
@@ -82,6 +186,9 @@ export class CopyBackupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CopyBackupCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +215,8 @@ export class CopyBackupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CopyBackupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CopyBackupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +226,18 @@ export class CopyBackupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CopyBackupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CopyBackupCommand(input, context);
+    return se_CopyBackupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyBackupCommandOutput> {
-    return deserializeAws_json1_1CopyBackupCommand(output, context);
+    return de_CopyBackupCommand(output, context);
   }
 
   // Start section: command_body_extra

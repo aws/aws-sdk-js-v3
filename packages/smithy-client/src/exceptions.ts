@@ -11,11 +11,16 @@ export type ExceptionOptionType<ExceptionType extends Error, BaseExceptionType e
   Exclude<keyof BaseExceptionType, "$metadata" | "message">
 >;
 
+/**
+ * @internal
+ */
 export interface ServiceExceptionOptions extends SmithyException, MetadataBearer {
   message?: string;
 }
 
 /**
+ * @internal
+ *
  * Base exception class for the exceptions from the server-side.
  */
 export class ServiceException extends Error implements SmithyException, MetadataBearer {

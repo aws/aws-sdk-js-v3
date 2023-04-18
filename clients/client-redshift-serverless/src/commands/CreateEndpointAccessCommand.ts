@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateEndpointAccessRequest,
-  CreateEndpointAccessRequestFilterSensitiveLog,
-  CreateEndpointAccessResponse,
-  CreateEndpointAccessResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateEndpointAccessCommand,
-  serializeAws_json1_1CreateEndpointAccessCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateEndpointAccessRequest, CreateEndpointAccessResponse } from "../models/models_0";
+import { de_CreateEndpointAccessCommand, se_CreateEndpointAccessCommand } from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateEndpointAccessCommand}.
+ */
 export interface CreateEndpointAccessCommandInput extends CreateEndpointAccessRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateEndpointAccessCommand}.
+ */
 export interface CreateEndpointAccessCommandOutput extends CreateEndpointAccessResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon Redshift Serverless managed VPC endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,44 @@ export interface CreateEndpointAccessCommandOutput extends CreateEndpointAccessR
  * import { RedshiftServerlessClient, CreateEndpointAccessCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, CreateEndpointAccessCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
+ * const input = { // CreateEndpointAccessRequest
+ *   endpointName: "STRING_VALUE", // required
+ *   subnetIds: [ // SubnetIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   workgroupName: "STRING_VALUE", // required
+ *   vpcSecurityGroupIds: [ // VpcSecurityGroupIdList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new CreateEndpointAccessCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEndpointAccessCommandInput - {@link CreateEndpointAccessCommandInput}
+ * @returns {@link CreateEndpointAccessCommandOutput}
  * @see {@link CreateEndpointAccessCommandInput} for command's `input` shape.
  * @see {@link CreateEndpointAccessCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The submitted action has conflicts.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The service limit was exceeded.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
+ *
  *
  */
 export class CreateEndpointAccessCommand extends $Command<
@@ -66,6 +100,9 @@ export class CreateEndpointAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEndpointAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +131,8 @@ export class CreateEndpointAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateEndpointAccessRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateEndpointAccessResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +142,18 @@ export class CreateEndpointAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEndpointAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateEndpointAccessCommand(input, context);
+    return se_CreateEndpointAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEndpointAccessCommandOutput> {
-    return deserializeAws_json1_1CreateEndpointAccessCommand(output, context);
+    return de_CreateEndpointAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

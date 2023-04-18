@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import {
-  CreateEndpointRequest,
-  CreateEndpointRequestFilterSensitiveLog,
-  CreateEndpointResponse,
-  CreateEndpointResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateEndpointCommand,
-  serializeAws_json1_1CreateEndpointCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateEndpointRequest, CreateEndpointResponse } from "../models/models_0";
+import { de_CreateEndpointCommand, se_CreateEndpointCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateEndpointCommand}.
+ */
 export interface CreateEndpointCommandInput extends CreateEndpointRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateEndpointCommand}.
+ */
 export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a model-specific endpoint for synchronous inference for a previously trained
  *       custom model
  *       For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
@@ -38,13 +41,59 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  * import { ComprehendClient, CreateEndpointCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, CreateEndpointCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // CreateEndpointRequest
+ *   EndpointName: "STRING_VALUE", // required
+ *   ModelArn: "STRING_VALUE",
+ *   DesiredInferenceUnits: Number("int"), // required
+ *   ClientRequestToken: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   DataAccessRoleArn: "STRING_VALUE",
+ *   FlywheelArn: "STRING_VALUE",
+ * };
  * const command = new CreateEndpointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEndpointCommandInput - {@link CreateEndpointCommandInput}
+ * @returns {@link CreateEndpointCommandOutput}
  * @see {@link CreateEndpointCommandInput} for command's `input` shape.
  * @see {@link CreateEndpointCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource name is already in use. Use a different name and try your request
+ *       again.</p>
+ *
+ * @throws {@link ResourceLimitExceededException} (client fault)
+ *  <p>The maximum number of resources per account has been exceeded. Review the resources, and
+ *       then try your request again.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+ *
+ * @throws {@link ResourceUnavailableException} (client fault)
+ *  <p>The specified resource is not available. Check the resource and try your request
+ *       again.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ *
+ * @throws {@link TooManyTagsException} (client fault)
+ *  <p>The request contains more tags than can be associated with a resource (50 tags per
+ *       resource). The maximum number of tags includes both existing tags and those included in your
+ *       current request. </p>
+ *
  *
  */
 export class CreateEndpointCommand extends $Command<
@@ -64,6 +113,9 @@ export class CreateEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +144,8 @@ export class CreateEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateEndpointRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateEndpointResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +155,18 @@ export class CreateEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateEndpointCommand(input, context);
+    return se_CreateEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEndpointCommandOutput> {
-    return deserializeAws_json1_1CreateEndpointCommand(output, context);
+    return de_CreateEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

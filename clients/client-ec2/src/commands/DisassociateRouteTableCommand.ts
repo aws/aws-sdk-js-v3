@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DisassociateRouteTableRequest, DisassociateRouteTableRequestFilterSensitiveLog } from "../models/models_5";
-import {
-  deserializeAws_ec2DisassociateRouteTableCommand,
-  serializeAws_ec2DisassociateRouteTableCommand,
-} from "../protocols/Aws_ec2";
+import { DisassociateRouteTableRequest } from "../models/models_5";
+import { de_DisassociateRouteTableCommand, se_DisassociateRouteTableCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DisassociateRouteTableCommand}.
+ */
 export interface DisassociateRouteTableCommandInput extends DisassociateRouteTableRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateRouteTableCommand}.
+ */
 export interface DisassociateRouteTableCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a subnet or gateway from a route table.</p>
  *          <p>After you perform this action, the subnet no longer uses the routes in the route table.
  * 				Instead, it uses the routes in the VPC's main route table. For more information
@@ -35,13 +43,31 @@ export interface DisassociateRouteTableCommandOutput extends __MetadataBearer {}
  * import { EC2Client, DisassociateRouteTableCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DisassociateRouteTableCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DisassociateRouteTableRequest
+ *   AssociationId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DisassociateRouteTableCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateRouteTableCommandInput - {@link DisassociateRouteTableCommandInput}
+ * @returns {@link DisassociateRouteTableCommandOutput}
  * @see {@link DisassociateRouteTableCommandInput} for command's `input` shape.
  * @see {@link DisassociateRouteTableCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ *
+ * @example To disassociate a route table
+ * ```javascript
+ * // This example disassociates the specified route table from its associated subnet.
+ * const input = {
+ *   "AssociationId": "rtbassoc-781d0d1a"
+ * };
+ * const command = new DisassociateRouteTableCommand(input);
+ * await client.send(command);
+ * // example id: ec2-disassociate-route-table-1
+ * ```
  *
  */
 export class DisassociateRouteTableCommand extends $Command<
@@ -61,6 +87,9 @@ export class DisassociateRouteTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateRouteTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +118,8 @@ export class DisassociateRouteTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateRouteTableRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +129,18 @@ export class DisassociateRouteTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateRouteTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DisassociateRouteTableCommand(input, context);
+    return se_DisassociateRouteTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateRouteTableCommandOutput> {
-    return deserializeAws_ec2DisassociateRouteTableCommand(output, context);
+    return de_DisassociateRouteTableCommand(output, context);
   }
 
   // Start section: command_body_extra

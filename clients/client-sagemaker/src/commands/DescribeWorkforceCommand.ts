@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeWorkforceRequest,
-  DescribeWorkforceRequestFilterSensitiveLog,
-  DescribeWorkforceResponse,
-  DescribeWorkforceResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeWorkforceCommand,
-  serializeAws_json1_1DescribeWorkforceCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeWorkforceRequest, DescribeWorkforceResponse } from "../models/models_2";
+import { de_DescribeWorkforceCommand, se_DescribeWorkforceCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeWorkforceCommand}.
+ */
 export interface DescribeWorkforceCommandInput extends DescribeWorkforceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeWorkforceCommand}.
+ */
 export interface DescribeWorkforceCommandOutput extends DescribeWorkforceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists private workforce information, including workforce name, Amazon Resource Name
  *             (ARN), and, if applicable, allowed IP address ranges (<a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">CIDRs</a>). Allowable IP address
  *             ranges are the IP addresses that workers can use to access tasks. </p>
@@ -41,13 +44,19 @@ export interface DescribeWorkforceCommandOutput extends DescribeWorkforceRespons
  * import { SageMakerClient, DescribeWorkforceCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeWorkforceCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DescribeWorkforceRequest
+ *   WorkforceName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeWorkforceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeWorkforceCommandInput - {@link DescribeWorkforceCommandInput}
+ * @returns {@link DescribeWorkforceCommandOutput}
  * @see {@link DescribeWorkforceCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkforceCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
  *
  */
 export class DescribeWorkforceCommand extends $Command<
@@ -67,6 +76,9 @@ export class DescribeWorkforceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeWorkforceCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +107,8 @@ export class DescribeWorkforceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeWorkforceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeWorkforceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +118,18 @@ export class DescribeWorkforceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeWorkforceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeWorkforceCommand(input, context);
+    return se_DescribeWorkforceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeWorkforceCommandOutput> {
-    return deserializeAws_json1_1DescribeWorkforceCommand(output, context);
+    return de_DescribeWorkforceCommand(output, context);
   }
 
   // Start section: command_body_extra

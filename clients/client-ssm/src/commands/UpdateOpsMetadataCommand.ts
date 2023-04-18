@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateOpsMetadataRequest,
-  UpdateOpsMetadataRequestFilterSensitiveLog,
-  UpdateOpsMetadataResult,
-  UpdateOpsMetadataResultFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1UpdateOpsMetadataCommand,
-  serializeAws_json1_1UpdateOpsMetadataCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateOpsMetadataRequest, UpdateOpsMetadataResult } from "../models/models_2";
+import { de_UpdateOpsMetadataCommand, se_UpdateOpsMetadataCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateOpsMetadataCommand}.
+ */
 export interface UpdateOpsMetadataCommandInput extends UpdateOpsMetadataRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateOpsMetadataCommand}.
+ */
 export interface UpdateOpsMetadataCommandOutput extends UpdateOpsMetadataResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Amazon Web Services Systems Manager calls this API operation when you edit OpsMetadata in Application Manager.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,44 @@ export interface UpdateOpsMetadataCommandOutput extends UpdateOpsMetadataResult,
  * import { SSMClient, UpdateOpsMetadataCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, UpdateOpsMetadataCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // UpdateOpsMetadataRequest
+ *   OpsMetadataArn: "STRING_VALUE", // required
+ *   MetadataToUpdate: { // MetadataMap
+ *     "<keys>": { // MetadataValue
+ *       Value: "STRING_VALUE",
+ *     },
+ *   },
+ *   KeysToDelete: [ // MetadataKeysToDeleteList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateOpsMetadataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateOpsMetadataCommandInput - {@link UpdateOpsMetadataCommandInput}
+ * @returns {@link UpdateOpsMetadataCommandOutput}
  * @see {@link UpdateOpsMetadataCommandInput} for command's `input` shape.
  * @see {@link UpdateOpsMetadataCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link OpsMetadataInvalidArgumentException} (client fault)
+ *  <p>One of the arguments passed is invalid. </p>
+ *
+ * @throws {@link OpsMetadataKeyLimitExceededException} (client fault)
+ *  <p>The OpsMetadata object exceeds the maximum number of OpsMetadata keys that you can assign to
+ *    an application in Application Manager.</p>
+ *
+ * @throws {@link OpsMetadataNotFoundException} (client fault)
+ *  <p>The OpsMetadata object doesn't exist. </p>
+ *
+ * @throws {@link OpsMetadataTooManyUpdatesException} (client fault)
+ *  <p>The system is processing too many concurrent updates. Wait a few moments and try
+ *    again.</p>
+ *
  *
  */
 export class UpdateOpsMetadataCommand extends $Command<
@@ -62,6 +96,9 @@ export class UpdateOpsMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateOpsMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +127,8 @@ export class UpdateOpsMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateOpsMetadataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateOpsMetadataResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +138,18 @@ export class UpdateOpsMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateOpsMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateOpsMetadataCommand(input, context);
+    return se_UpdateOpsMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateOpsMetadataCommandOutput> {
-    return deserializeAws_json1_1UpdateOpsMetadataCommand(output, context);
+    return de_UpdateOpsMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

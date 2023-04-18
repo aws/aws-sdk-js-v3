@@ -14,22 +14,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutPublicAccessBlockRequest, PutPublicAccessBlockRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_restXmlPutPublicAccessBlockCommand,
-  serializeAws_restXmlPutPublicAccessBlockCommand,
-} from "../protocols/Aws_restXml";
+import { PutPublicAccessBlockRequest } from "../models/models_1";
+import { de_PutPublicAccessBlockCommand, se_PutPublicAccessBlockCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * @public
+ *
+ * The input for {@link PutPublicAccessBlockCommand}.
+ */
 export interface PutPublicAccessBlockCommandInput extends PutPublicAccessBlockRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutPublicAccessBlockCommand}.
+ */
 export interface PutPublicAccessBlockCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or modifies the <code>PublicAccessBlock</code> configuration for an Amazon S3 bucket.
  *          To use this operation, you must have the <code>s3:PutBucketPublicAccessBlock</code>
  *          permission. For more information about Amazon S3 permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying Permissions in a
- *          Policy</a>.</p>
- *
+ *             Policy</a>.</p>
  *          <important>
  *             <p>When Amazon S3 evaluates the <code>PublicAccessBlock</code> configuration for a bucket or
  *             an object, it checks the <code>PublicAccessBlock</code> configuration for both the
@@ -38,12 +45,7 @@ export interface PutPublicAccessBlockCommandOutput extends __MetadataBearer {}
  *             the account, Amazon S3 uses the most restrictive combination of the bucket-level and
  *             account-level settings.</p>
  *          </important>
- *
- *
  *          <p>For more information about when Amazon S3 considers a bucket or an object public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a>.</p>
- *
- *
- *
  *          <p class="title">
  *             <b>Related Resources</b>
  *          </p>
@@ -76,13 +78,28 @@ export interface PutPublicAccessBlockCommandOutput extends __MetadataBearer {}
  * import { S3Client, PutPublicAccessBlockCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutPublicAccessBlockCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // PutPublicAccessBlockRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   ContentMD5: "STRING_VALUE",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   PublicAccessBlockConfiguration: { // PublicAccessBlockConfiguration
+ *     BlockPublicAcls: true || false,
+ *     IgnorePublicAcls: true || false,
+ *     BlockPublicPolicy: true || false,
+ *     RestrictPublicBuckets: true || false,
+ *   },
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new PutPublicAccessBlockCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutPublicAccessBlockCommandInput - {@link PutPublicAccessBlockCommandInput}
+ * @returns {@link PutPublicAccessBlockCommandOutput}
  * @see {@link PutPublicAccessBlockCommandInput} for command's `input` shape.
  * @see {@link PutPublicAccessBlockCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
+ *
  *
  */
 export class PutPublicAccessBlockCommand extends $Command<
@@ -108,6 +125,9 @@ export class PutPublicAccessBlockCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutPublicAccessBlockCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,8 +163,8 @@ export class PutPublicAccessBlockCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutPublicAccessBlockRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -154,12 +174,18 @@ export class PutPublicAccessBlockCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutPublicAccessBlockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutPublicAccessBlockCommand(input, context);
+    return se_PutPublicAccessBlockCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutPublicAccessBlockCommandOutput> {
-    return deserializeAws_restXmlPutPublicAccessBlockCommand(output, context);
+    return de_PutPublicAccessBlockCommand(output, context);
   }
 
   // Start section: command_body_extra

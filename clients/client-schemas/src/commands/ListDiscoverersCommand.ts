@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListDiscoverersRequest,
-  ListDiscoverersRequestFilterSensitiveLog,
-  ListDiscoverersResponse,
-  ListDiscoverersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDiscoverersCommand,
-  serializeAws_restJson1ListDiscoverersCommand,
-} from "../protocols/Aws_restJson1";
+import { ListDiscoverersRequest, ListDiscoverersResponse } from "../models/models_0";
+import { de_ListDiscoverersCommand, se_ListDiscoverersCommand } from "../protocols/Aws_restJson1";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListDiscoverersCommand}.
+ */
 export interface ListDiscoverersCommandInput extends ListDiscoverersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDiscoverersCommand}.
+ */
 export interface ListDiscoverersCommandOutput extends ListDiscoverersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the discoverers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,32 @@ export interface ListDiscoverersCommandOutput extends ListDiscoverersResponse, _
  * import { SchemasClient, ListDiscoverersCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, ListDiscoverersCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
  * const client = new SchemasClient(config);
+ * const input = { // ListDiscoverersRequest
+ *   DiscovererIdPrefix: "STRING_VALUE",
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   SourceArnPrefix: "STRING_VALUE",
+ * };
  * const command = new ListDiscoverersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDiscoverersCommandInput - {@link ListDiscoverersCommandInput}
+ * @returns {@link ListDiscoverersCommandOutput}
  * @see {@link ListDiscoverersCommandInput} for command's `input` shape.
  * @see {@link ListDiscoverersCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *
  *
  */
 export class ListDiscoverersCommand extends $Command<
@@ -62,6 +84,9 @@ export class ListDiscoverersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDiscoverersCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +115,8 @@ export class ListDiscoverersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDiscoverersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDiscoverersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +126,18 @@ export class ListDiscoverersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDiscoverersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDiscoverersCommand(input, context);
+    return se_ListDiscoverersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDiscoverersCommandOutput> {
-    return deserializeAws_restJson1ListDiscoverersCommand(output, context);
+    return de_ListDiscoverersCommand(output, context);
   }
 
   // Start section: command_body_extra

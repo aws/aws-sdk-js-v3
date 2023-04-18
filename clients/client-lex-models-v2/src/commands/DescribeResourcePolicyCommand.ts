@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import {
-  DescribeResourcePolicyRequest,
-  DescribeResourcePolicyRequestFilterSensitiveLog,
-  DescribeResourcePolicyResponse,
-  DescribeResourcePolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeResourcePolicyCommand,
-  serializeAws_restJson1DescribeResourcePolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeResourcePolicyRequest, DescribeResourcePolicyResponse } from "../models/models_0";
+import { de_DescribeResourcePolicyCommand, se_DescribeResourcePolicyCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeResourcePolicyCommand}.
+ */
 export interface DescribeResourcePolicyCommandInput extends DescribeResourcePolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeResourcePolicyCommand}.
+ */
 export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the resource policy and policy revision for a bot or bot
  *          alias.</p>
  * @example
@@ -37,13 +40,31 @@ export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePol
  * import { LexModelsV2Client, DescribeResourcePolicyCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, DescribeResourcePolicyCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = { // DescribeResourcePolicyRequest
+ *   resourceArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeResourcePolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeResourcePolicyCommandInput - {@link DescribeResourcePolicyCommandInput}
+ * @returns {@link DescribeResourcePolicyCommandOutput}
  * @see {@link DescribeResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link DescribeResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The service encountered an unexpected condition. Try your request
+ *          again.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>You asked to describe a resource that doesn't exist. Check the
+ *          resource that you are requesting and try again.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Your request rate is too high. Reduce the frequency of
+ *          requests.</p>
+ *
  *
  */
 export class DescribeResourcePolicyCommand extends $Command<
@@ -63,6 +84,9 @@ export class DescribeResourcePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeResourcePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +115,8 @@ export class DescribeResourcePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeResourcePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeResourcePolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +126,18 @@ export class DescribeResourcePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeResourcePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeResourcePolicyCommand(input, context);
+    return se_DescribeResourcePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeResourcePolicyCommandOutput> {
-    return deserializeAws_restJson1DescribeResourcePolicyCommand(output, context);
+    return de_DescribeResourcePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

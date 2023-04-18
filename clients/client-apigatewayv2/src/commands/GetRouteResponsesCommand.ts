@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import {
-  GetRouteResponsesRequest,
-  GetRouteResponsesRequestFilterSensitiveLog,
-  GetRouteResponsesResponse,
-  GetRouteResponsesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetRouteResponsesCommand,
-  serializeAws_restJson1GetRouteResponsesCommand,
-} from "../protocols/Aws_restJson1";
+import { GetRouteResponsesRequest, GetRouteResponsesResponse } from "../models/models_0";
+import { de_GetRouteResponsesCommand, se_GetRouteResponsesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetRouteResponsesCommand}.
+ */
 export interface GetRouteResponsesCommandInput extends GetRouteResponsesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetRouteResponsesCommand}.
+ */
 export interface GetRouteResponsesCommandOutput extends GetRouteResponsesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the RouteResponses for a Route.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,31 @@ export interface GetRouteResponsesCommandOutput extends GetRouteResponsesRespons
  * import { ApiGatewayV2Client, GetRouteResponsesCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, GetRouteResponsesCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = { // GetRouteResponsesRequest
+ *   ApiId: "STRING_VALUE", // required
+ *   MaxResults: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   RouteId: "STRING_VALUE", // required
+ * };
  * const command = new GetRouteResponsesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRouteResponsesCommandInput - {@link GetRouteResponsesCommandInput}
+ * @returns {@link GetRouteResponsesCommandOutput}
  * @see {@link GetRouteResponsesCommandInput} for command's `input` shape.
  * @see {@link GetRouteResponsesCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource specified in the request was not found. See the message field for more information.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
+ *
  *
  */
 export class GetRouteResponsesCommand extends $Command<
@@ -62,6 +83,9 @@ export class GetRouteResponsesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRouteResponsesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +114,8 @@ export class GetRouteResponsesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRouteResponsesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRouteResponsesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +125,18 @@ export class GetRouteResponsesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRouteResponsesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRouteResponsesCommand(input, context);
+    return se_GetRouteResponsesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRouteResponsesCommandOutput> {
-    return deserializeAws_restJson1GetRouteResponsesCommand(output, context);
+    return de_GetRouteResponsesCommand(output, context);
   }
 
   // Start section: command_body_extra

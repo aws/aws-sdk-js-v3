@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import { DeleteEventBusRequest, DeleteEventBusRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteEventBusCommand,
-  serializeAws_json1_1DeleteEventBusCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteEventBusRequest } from "../models/models_0";
+import { de_DeleteEventBusCommand, se_DeleteEventBusCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteEventBusCommand}.
+ */
 export interface DeleteEventBusCommandInput extends DeleteEventBusRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteEventBusCommand}.
+ */
 export interface DeleteEventBusCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified custom event bus or partner event bus. All rules associated with
  *       this event bus need to be deleted. You can't delete your account's default event bus.</p>
  * @example
@@ -32,13 +40,25 @@ export interface DeleteEventBusCommandOutput extends __MetadataBearer {}
  * import { CloudWatchEventsClient, DeleteEventBusCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, DeleteEventBusCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
+ * const input = { // DeleteEventBusRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEventBusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEventBusCommandInput - {@link DeleteEventBusCommandInput}
+ * @returns {@link DeleteEventBusCommandOutput}
  * @see {@link DeleteEventBusCommandInput} for command's `input` shape.
  * @see {@link DeleteEventBusCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception occurs due to unexpected causes.</p>
+ *
  *
  */
 export class DeleteEventBusCommand extends $Command<
@@ -58,6 +78,9 @@ export class DeleteEventBusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEventBusCommandInput) {
     // Start section: command_constructor
     super();
@@ -86,8 +109,8 @@ export class DeleteEventBusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEventBusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -97,12 +120,18 @@ export class DeleteEventBusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEventBusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteEventBusCommand(input, context);
+    return se_DeleteEventBusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEventBusCommandOutput> {
-    return deserializeAws_json1_1DeleteEventBusCommand(output, context);
+    return de_DeleteEventBusCommand(output, context);
   }
 
   // Start section: command_body_extra

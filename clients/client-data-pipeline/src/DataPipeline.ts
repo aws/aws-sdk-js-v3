@@ -83,6 +83,7 @@ import {
 import { DataPipelineClient } from "./DataPipelineClient";
 
 /**
+ * @public
  * <p>AWS Data Pipeline configures and manages a data-driven workflow called a pipeline. AWS Data Pipeline
  *             handles the details of scheduling and ensuring that data dependencies are met so that your application
  *             can focus on processing the data.</p>
@@ -103,6 +104,7 @@ import { DataPipelineClient } from "./DataPipelineClient";
  */
 export class DataPipeline extends DataPipelineClient {
   /**
+   * @public
    * <p>Validates the specified pipeline and starts processing pipeline tasks. If the pipeline does not pass validation,
    *            activation fails.</p>
    *         <p>If you need to pause the pipeline to investigate an issue with a component, such as a data source or script,
@@ -119,7 +121,7 @@ export class DataPipeline extends DataPipelineClient {
    * X-Amz-Date: Mon, 12 Nov 2012 17:49:52 GMT
    * Authorization: AuthParams
    *
-   * {"pipelineId": "df-06372391ZG65EXAMPLE"}
+   * \{"pipelineId": "df-06372391ZG65EXAMPLE"\}
    *
    *             </request>
    *             <response>
@@ -130,7 +132,7 @@ export class DataPipeline extends DataPipelineClient {
    * Content-Length: 2
    * Date: Mon, 12 Nov 2012 17:50:53 GMT
    *
-   * {}
+   * \{\}
    *
    *             </response>
    *         </examples>
@@ -165,6 +167,7 @@ export class DataPipeline extends DataPipelineClient {
   }
 
   /**
+   * @public
    * <p>Adds or modifies tags for the specified pipeline.</p>
    */
   public addTags(args: AddTagsCommandInput, options?: __HttpHandlerOptions): Promise<AddTagsCommandOutput>;
@@ -191,6 +194,7 @@ export class DataPipeline extends DataPipelineClient {
   }
 
   /**
+   * @public
    * <p>Creates a new, empty pipeline. Use <a>PutPipelineDefinition</a> to populate the pipeline.</p>
    *
    *         <examples>
@@ -204,9 +208,9 @@ export class DataPipeline extends DataPipelineClient {
    * X-Amz-Date: Mon, 12 Nov 2012 17:49:52 GMT
    * Authorization: AuthParams
    *
-   * {"name": "myPipeline",
+   * \{"name": "myPipeline",
    *  "uniqueId": "123456789",
-   *  "description": "This is my first pipeline"}
+   *  "description": "This is my first pipeline"\}
    *
    *             </request>
    *
@@ -218,7 +222,7 @@ export class DataPipeline extends DataPipelineClient {
    * Content-Length: 40
    * Date: Mon, 12 Nov 2012 17:50:53 GMT
    *
-   * {"pipelineId": "df-06372391ZG65EXAMPLE"}
+   * \{"pipelineId": "df-06372391ZG65EXAMPLE"\}
    *
    *             </response>
    *         </examples>
@@ -253,6 +257,7 @@ export class DataPipeline extends DataPipelineClient {
   }
 
   /**
+   * @public
    * <p>Deactivates the specified running pipeline. The pipeline is set to the <code>DEACTIVATING</code>
    *           state until the deactivation process completes.</p>
    *         <p>To resume a deactivated pipeline, use <a>ActivatePipeline</a>. By default, the pipeline resumes from the last completed execution.
@@ -288,6 +293,7 @@ export class DataPipeline extends DataPipelineClient {
   }
 
   /**
+   * @public
    * <p>Deletes a pipeline, its pipeline definition, and its run history.
    *            AWS Data Pipeline attempts to cancel instances associated with the pipeline that are currently being processed by task runners.</p>
    *         <p>Deleting a pipeline cannot be undone. You cannot query or restore a deleted pipeline.
@@ -305,7 +311,7 @@ export class DataPipeline extends DataPipelineClient {
    * X-Amz-Date: Mon, 12 Nov 2012 17:49:52 GMT
    * Authorization: AuthParams
    *
-   * {"pipelineId": "df-06372391ZG65EXAMPLE"}
+   * \{"pipelineId": "df-06372391ZG65EXAMPLE"\}
    *
    *             </request>
    *
@@ -351,6 +357,7 @@ export class DataPipeline extends DataPipelineClient {
   }
 
   /**
+   * @public
    * <p>Gets the object definitions for a set of objects associated with the pipeline. Object definitions are composed of
    *             a set of fields that define the properties of the object.</p>
    *
@@ -365,10 +372,10 @@ export class DataPipeline extends DataPipelineClient {
    * X-Amz-Date: Mon, 12 Nov 2012 17:49:52 GMT
    * Authorization: AuthParams
    *
-   * {"pipelineId": "df-06372391ZG65EXAMPLE",
+   * \{"pipelineId": "df-06372391ZG65EXAMPLE",
    *  "objectIds":
    *   ["Schedule"],
-   *  "evaluateExpressions": true}
+   *  "evaluateExpressions": true\}
    *
    *             </request>
    *
@@ -379,34 +386,34 @@ export class DataPipeline extends DataPipelineClient {
    * Content-Length: 1488
    * Date: Mon, 12 Nov 2012 17:50:53 GMT
    *
-   * {"hasMoreResults": false,
+   * \{"hasMoreResults": false,
    *  "pipelineObjects":
    *   [
-   *     {"fields":
+   *     \{"fields":
    *       [
-   *         {"key": "startDateTime",
-   *          "stringValue": "2012-12-12T00:00:00"},
-   *         {"key": "parent",
-   *          "refValue": "Default"},
-   *         {"key": "@sphere",
-   *          "stringValue": "COMPONENT"},
-   *         {"key": "type",
-   *          "stringValue": "Schedule"},
-   *         {"key": "period",
-   *          "stringValue": "1 hour"},
-   *         {"key": "endDateTime",
-   *          "stringValue": "2012-12-21T18:00:00"},
-   *         {"key": "@version",
-   *          "stringValue": "1"},
-   *         {"key": "@status",
-   *          "stringValue": "PENDING"},
-   *         {"key": "@pipelineId",
-   *          "stringValue": "df-06372391ZG65EXAMPLE"}
+   *         \{"key": "startDateTime",
+   *          "stringValue": "2012-12-12T00:00:00"\},
+   *         \{"key": "parent",
+   *          "refValue": "Default"\},
+   *         \{"key": "@sphere",
+   *          "stringValue": "COMPONENT"\},
+   *         \{"key": "type",
+   *          "stringValue": "Schedule"\},
+   *         \{"key": "period",
+   *          "stringValue": "1 hour"\},
+   *         \{"key": "endDateTime",
+   *          "stringValue": "2012-12-21T18:00:00"\},
+   *         \{"key": "@version",
+   *          "stringValue": "1"\},
+   *         \{"key": "@status",
+   *          "stringValue": "PENDING"\},
+   *         \{"key": "@pipelineId",
+   *          "stringValue": "df-06372391ZG65EXAMPLE"\}
    *       ],
    *      "id": "Schedule",
-   *      "name": "Schedule"}
+   *      "name": "Schedule"\}
    *   ]
-   * }
+   * \}
    *
    *             </response>
    *         </examples>
@@ -441,6 +448,7 @@ export class DataPipeline extends DataPipelineClient {
   }
 
   /**
+   * @public
    * <p>Retrieves metadata about one or more pipelines. The information retrieved includes the name of the pipeline, the pipeline identifier,
    *             its current state, and the user account that owns the pipeline. Using account credentials, you can retrieve metadata about pipelines
    *             that you or your IAM users have created. If you are using an IAM user account, you can retrieve metadata about only those pipelines
@@ -458,9 +466,9 @@ export class DataPipeline extends DataPipelineClient {
    * X-Amz-Date: Mon, 12 Nov 2012 17:49:52 GMT
    * Authorization: AuthParams
    *
-   * {"pipelineIds":
+   * \{"pipelineIds":
    *   ["df-08785951KAKJEXAMPLE"]
-   * }
+   * \}
    *
    *             </request>
    *
@@ -471,36 +479,36 @@ export class DataPipeline extends DataPipelineClient {
    * Content-Length: 767
    * Date: Mon, 12 Nov 2012 17:50:53 GMT
    *
-   * {"pipelineDescriptionList":
+   * \{"pipelineDescriptionList":
    *   [
-   *     {"description": "This is my first pipeline",
+   *     \{"description": "This is my first pipeline",
    *      "fields":
    *       [
-   *         {"key": "@pipelineState",
-   *          "stringValue": "SCHEDULED"},
-   *         {"key": "description",
-   *          "stringValue": "This is my first pipeline"},
-   *         {"key": "name",
-   *          "stringValue": "myPipeline"},
-   *         {"key": "@creationTime",
-   *          "stringValue": "2012-12-13T01:24:06"},
-   *         {"key": "@id",
-   *          "stringValue": "df-0937003356ZJEXAMPLE"},
-   *         {"key": "@sphere",
-   *          "stringValue": "PIPELINE"},
-   *         {"key": "@version",
-   *          "stringValue": "1"},
-   *         {"key": "@userId",
-   *          "stringValue": "924374875933"},
-   *         {"key": "@accountId",
-   *          "stringValue": "924374875933"},
-   *         {"key": "uniqueId",
-   *          "stringValue": "1234567890"}
+   *         \{"key": "@pipelineState",
+   *          "stringValue": "SCHEDULED"\},
+   *         \{"key": "description",
+   *          "stringValue": "This is my first pipeline"\},
+   *         \{"key": "name",
+   *          "stringValue": "myPipeline"\},
+   *         \{"key": "@creationTime",
+   *          "stringValue": "2012-12-13T01:24:06"\},
+   *         \{"key": "@id",
+   *          "stringValue": "df-0937003356ZJEXAMPLE"\},
+   *         \{"key": "@sphere",
+   *          "stringValue": "PIPELINE"\},
+   *         \{"key": "@version",
+   *          "stringValue": "1"\},
+   *         \{"key": "@userId",
+   *          "stringValue": "924374875933"\},
+   *         \{"key": "@accountId",
+   *          "stringValue": "924374875933"\},
+   *         \{"key": "uniqueId",
+   *          "stringValue": "1234567890"\}
    *       ],
    *      "name": "myPipeline",
-   *      "pipelineId": "df-0937003356ZJEXAMPLE"}
+   *      "pipelineId": "df-0937003356ZJEXAMPLE"\}
    *   ]
-   * }
+   * \}
    * </response>
    *         </examples>
    */
@@ -534,6 +542,7 @@ export class DataPipeline extends DataPipelineClient {
   }
 
   /**
+   * @public
    * <p>Task runners call <code>EvaluateExpression</code> to evaluate a string in the context of the specified object.
    *             For example, a task runner can evaluate SQL queries stored in Amazon S3.</p>
    *
@@ -548,9 +557,9 @@ export class DataPipeline extends DataPipelineClient {
    * X-Amz-Date: Mon, 12 Nov 2012 17:49:52 GMT
    * Authorization: AuthParams
    *
-   * {"pipelineId": "df-08785951KAKJEXAMPLE",
+   * \{"pipelineId": "df-08785951KAKJEXAMPLE",
    *         "objectId": "Schedule",
-   *         "expression": "Transform started at #{startDateTime} and finished at #{endDateTime}"}
+   *         "expression": "Transform started at #\{startDateTime\} and finished at #\{endDateTime\}"\}
    *
    *             </request>
    *
@@ -562,7 +571,7 @@ export class DataPipeline extends DataPipelineClient {
    * Content-Length: 103
    * Date: Mon, 12 Nov 2012 17:50:53 GMT
    *
-   * {"evaluatedExpression": "Transform started at 2012-12-12T00:00:00 and finished at 2012-12-21T18:00:00"}
+   * \{"evaluatedExpression": "Transform started at 2012-12-12T00:00:00 and finished at 2012-12-21T18:00:00"\}
    * </response>
    *         </examples>
    */
@@ -596,6 +605,7 @@ export class DataPipeline extends DataPipelineClient {
   }
 
   /**
+   * @public
    * <p>Gets the definition of the specified pipeline. You can call <code>GetPipelineDefinition</code> to retrieve
    *             the pipeline definition that you provided using <a>PutPipelineDefinition</a>.</p>
    *
@@ -611,7 +621,7 @@ export class DataPipeline extends DataPipelineClient {
    * Authorization: AuthParams
    *
    *
-   * {"pipelineId": "df-06372391ZG65EXAMPLE"}
+   * \{"pipelineId": "df-06372391ZG65EXAMPLE"\}
    *
    *             </request>
    *             <response>
@@ -621,43 +631,43 @@ export class DataPipeline extends DataPipelineClient {
    * Content-Length: 890
    * Date: Mon, 12 Nov 2012 17:50:53 GMT
    *
-   * {"pipelineObjects":
+   * \{"pipelineObjects":
    *   [
-   *     {"fields":
+   *     \{"fields":
    *       [
-   *         {"key": "workerGroup",
-   *          "stringValue": "workerGroup"}
+   *         \{"key": "workerGroup",
+   *          "stringValue": "workerGroup"\}
    *       ],
    *      "id": "Default",
-   *      "name": "Default"},
-   *     {"fields":
+   *      "name": "Default"\},
+   *     \{"fields":
    *       [
-   *         {"key": "startDateTime",
-   *          "stringValue": "2012-09-25T17:00:00"},
-   *         {"key": "type",
-   *          "stringValue": "Schedule"},
-   *         {"key": "period",
-   *          "stringValue": "1 hour"},
-   *         {"key": "endDateTime",
-   *          "stringValue": "2012-09-25T18:00:00"}
+   *         \{"key": "startDateTime",
+   *          "stringValue": "2012-09-25T17:00:00"\},
+   *         \{"key": "type",
+   *          "stringValue": "Schedule"\},
+   *         \{"key": "period",
+   *          "stringValue": "1 hour"\},
+   *         \{"key": "endDateTime",
+   *          "stringValue": "2012-09-25T18:00:00"\}
    *       ],
    *      "id": "Schedule",
-   *      "name": "Schedule"},
-   *     {"fields":
+   *      "name": "Schedule"\},
+   *     \{"fields":
    *       [
-   *         {"key": "schedule",
-   *          "refValue": "Schedule"},
-   *         {"key": "command",
-   *          "stringValue": "echo hello"},
-   *         {"key": "parent",
-   *          "refValue": "Default"},
-   *         {"key": "type",
-   *          "stringValue": "ShellCommandActivity"}
+   *         \{"key": "schedule",
+   *          "refValue": "Schedule"\},
+   *         \{"key": "command",
+   *          "stringValue": "echo hello"\},
+   *         \{"key": "parent",
+   *          "refValue": "Default"\},
+   *         \{"key": "type",
+   *          "stringValue": "ShellCommandActivity"\}
    *       ],
    *      "id": "SayHello",
-   *      "name": "SayHello"}
+   *      "name": "SayHello"\}
    *   ]
-   * }
+   * \}
    *
    *             </response>
    *         </examples>
@@ -692,6 +702,7 @@ export class DataPipeline extends DataPipelineClient {
   }
 
   /**
+   * @public
    * <p>Lists the pipeline identifiers for all active pipelines that you have permission to access.</p>
    *
    *         <examples>
@@ -705,7 +716,7 @@ export class DataPipeline extends DataPipelineClient {
    * X-Amz-Date: Mon, 12 Nov 2012 17:49:52 GMT
    * Authorization: AuthParams
    *
-   * {}</request>
+   * \{\}</request>
    *
    *             <response>
    *
@@ -715,14 +726,14 @@ export class DataPipeline extends DataPipelineClient {
    * Content-Length: 39
    * Date: Mon, 12 Nov 2012 17:50:53 GMT
    *
-   * {"PipelineIdList":
+   * \{"PipelineIdList":
    *   [
-   *     {"id": "df-08785951KAKJEXAMPLE",
-   *      "name": "MyPipeline"},
-   *     {"id": "df-08662578ISYEXAMPLE",
-   *      "name": "MySecondPipeline"}
+   *     \{"id": "df-08785951KAKJEXAMPLE",
+   *      "name": "MyPipeline"\},
+   *     \{"id": "df-08662578ISYEXAMPLE",
+   *      "name": "MySecondPipeline"\}
    *   ]
-   * }</response>
+   * \}</response>
    *         </examples>
    */
   public listPipelines(
@@ -755,6 +766,7 @@ export class DataPipeline extends DataPipelineClient {
   }
 
   /**
+   * @public
    * <p>Task runners call <code>PollForTask</code> to receive a task to perform from AWS Data Pipeline. The task runner specifies which tasks it can perform
    *             by setting a value for the <code>workerGroup</code> parameter. The task returned can come from any of the pipelines that
    *             match the <code>workerGroup</code> value passed in by the task runner and that was launched using the IAM user credentials
@@ -776,8 +788,8 @@ export class DataPipeline extends DataPipelineClient {
    * X-Amz-Date: Mon, 12 Nov 2012 17:49:52 GMT
    * Authorization: AuthParams
    *
-   * {"workerGroup": "MyworkerGroup",
-   *  "hostname": "example.com"}
+   * \{"workerGroup": "MyworkerGroup",
+   *  "hostname": "example.com"\}
    *
    *             </request>
    *
@@ -788,49 +800,49 @@ export class DataPipeline extends DataPipelineClient {
    * Content-Length: 39
    * Date: Mon, 12 Nov 2012 17:50:53 GMT
    *
-   * {"taskObject":
-   *   {"attemptId": "@SayHello_2012-12-12T00:00:00_Attempt=1",
+   * \{"taskObject":
+   *   \{"attemptId": "@SayHello_2012-12-12T00:00:00_Attempt=1",
    *    "objects":
-   *     {"@SayHello_2012-12-12T00:00:00_Attempt=1":
-   *       {"fields":
+   *     \{"@SayHello_2012-12-12T00:00:00_Attempt=1":
+   *       \{"fields":
    *         [
-   *           {"key": "@componentParent",
-   *            "refValue": "SayHello"},
-   *           {"key": "@scheduledStartTime",
-   *            "stringValue": "2012-12-12T00:00:00"},
-   *           {"key": "parent",
-   *            "refValue": "SayHello"},
-   *           {"key": "@sphere",
-   *            "stringValue": "ATTEMPT"},
-   *           {"key": "workerGroup",
-   *            "stringValue": "workerGroup"},
-   *           {"key": "@instanceParent",
-   *            "refValue": "@SayHello_2012-12-12T00:00:00"},
-   *           {"key": "type",
-   *            "stringValue": "ShellCommandActivity"},
-   *           {"key": "@status",
-   *            "stringValue": "WAITING_FOR_RUNNER"},
-   *           {"key": "@version",
-   *            "stringValue": "1"},
-   *           {"key": "schedule",
-   *            "refValue": "Schedule"},
-   *           {"key": "@actualStartTime",
-   *            "stringValue": "2012-12-13T01:40:50"},
-   *           {"key": "command",
-   *            "stringValue": "echo hello"},
-   *           {"key": "@scheduledEndTime",
-   *            "stringValue": "2012-12-12T01:00:00"},
-   *           {"key": "@activeInstances",
-   *            "refValue": "@SayHello_2012-12-12T00:00:00"},
-   *           {"key": "@pipelineId",
-   *            "stringValue": "df-0937003356ZJEXAMPLE"}
+   *           \{"key": "@componentParent",
+   *            "refValue": "SayHello"\},
+   *           \{"key": "@scheduledStartTime",
+   *            "stringValue": "2012-12-12T00:00:00"\},
+   *           \{"key": "parent",
+   *            "refValue": "SayHello"\},
+   *           \{"key": "@sphere",
+   *            "stringValue": "ATTEMPT"\},
+   *           \{"key": "workerGroup",
+   *            "stringValue": "workerGroup"\},
+   *           \{"key": "@instanceParent",
+   *            "refValue": "@SayHello_2012-12-12T00:00:00"\},
+   *           \{"key": "type",
+   *            "stringValue": "ShellCommandActivity"\},
+   *           \{"key": "@status",
+   *            "stringValue": "WAITING_FOR_RUNNER"\},
+   *           \{"key": "@version",
+   *            "stringValue": "1"\},
+   *           \{"key": "schedule",
+   *            "refValue": "Schedule"\},
+   *           \{"key": "@actualStartTime",
+   *            "stringValue": "2012-12-13T01:40:50"\},
+   *           \{"key": "command",
+   *            "stringValue": "echo hello"\},
+   *           \{"key": "@scheduledEndTime",
+   *            "stringValue": "2012-12-12T01:00:00"\},
+   *           \{"key": "@activeInstances",
+   *            "refValue": "@SayHello_2012-12-12T00:00:00"\},
+   *           \{"key": "@pipelineId",
+   *            "stringValue": "df-0937003356ZJEXAMPLE"\}
    *         ],
    *        "id": "@SayHello_2012-12-12T00:00:00_Attempt=1",
-   *        "name": "@SayHello_2012-12-12T00:00:00_Attempt=1"}
-   *     },
+   *        "name": "@SayHello_2012-12-12T00:00:00_Attempt=1"\}
+   *     \},
    *    "pipelineId": "df-0937003356ZJEXAMPLE",
-   *    "taskId": "2xaM4wRs5zOsIH+g9U3oVHfAgAlbSqU6XduncB0HhZ3xMnmvfePZPn4dIbYXHyWyRK+cU15MqDHwdrvftx/4wv+sNS4w34vJfv7QA9aOoOazW28l1GYSb2ZRR0N0paiQp+d1MhSKo10hOTWOsVK5S5Lnx9Qm6omFgXHyIvZRIvTlrQMpr1xuUrflyGOfbFOGpOLpvPE172MYdqpZKnbSS4TcuqgQKSWV2833fEubI57DPOP7ghWa2TcYeSIv4pdLYG53fTuwfbnbdc98g2LNUQzSVhSnt7BoqyNwht2aQ6b/UHg9A80+KVpuXuqmz3m1MXwHFgxjdmuesXNOrrlGpeLCcRWD+aGo0RN1NqhQRzNAig8V4GlaPTQzMsRCljKqvrIyAoP3Tt2XEGsHkkQo12rEX8Z90957XX2qKRwhruwYzqGkSLWjINoLdAxUJdpRXRc5DJTrBd3D5mdzn7kY1l7NEh4kFHJDt3Cx4Z3Mk8MYCACyCk/CEyy9DwuPi66cLz0NBcgbCM5LKjTBOwo1m+am+pvM1kSposE9FPP1+RFGb8k6jQBTJx3TRz1yKilnGXQTZ5xvdOFpJrklIT0OXP1MG3+auM9FlJA+1dX90QoNJE5z7axmK//MOGXUdkqFe2kiDkorqjxwDvc0Js9pVKfKvAmW8YqUbmI9l0ERpWCXXnLVHNmPWz3jaPY+OBAmuJWDmxB/Z8p94aEDg4BVXQ7LvsKQ3DLYhaB7yJ390CJT+i0mm+EBqY60V6YikPSWDFrYQ/NPi2b1DgE19mX8zHqw8qprIl4yh1Ckx2Iige4En/N5ktOoIxnASxAw/TzcE2skxdw5KlHDF+UTj71m16CR/dIaKlXijlfNlNzUBo/bNSadCQn3G5NoO501wPKI:XO50TgDNyo8EXAMPLE/g==:1"}
-   * }
+   *    "taskId": "2xaM4wRs5zOsIH+g9U3oVHfAgAlbSqU6XduncB0HhZ3xMnmvfePZPn4dIbYXHyWyRK+cU15MqDHwdrvftx/4wv+sNS4w34vJfv7QA9aOoOazW28l1GYSb2ZRR0N0paiQp+d1MhSKo10hOTWOsVK5S5Lnx9Qm6omFgXHyIvZRIvTlrQMpr1xuUrflyGOfbFOGpOLpvPE172MYdqpZKnbSS4TcuqgQKSWV2833fEubI57DPOP7ghWa2TcYeSIv4pdLYG53fTuwfbnbdc98g2LNUQzSVhSnt7BoqyNwht2aQ6b/UHg9A80+KVpuXuqmz3m1MXwHFgxjdmuesXNOrrlGpeLCcRWD+aGo0RN1NqhQRzNAig8V4GlaPTQzMsRCljKqvrIyAoP3Tt2XEGsHkkQo12rEX8Z90957XX2qKRwhruwYzqGkSLWjINoLdAxUJdpRXRc5DJTrBd3D5mdzn7kY1l7NEh4kFHJDt3Cx4Z3Mk8MYCACyCk/CEyy9DwuPi66cLz0NBcgbCM5LKjTBOwo1m+am+pvM1kSposE9FPP1+RFGb8k6jQBTJx3TRz1yKilnGXQTZ5xvdOFpJrklIT0OXP1MG3+auM9FlJA+1dX90QoNJE5z7axmK//MOGXUdkqFe2kiDkorqjxwDvc0Js9pVKfKvAmW8YqUbmI9l0ERpWCXXnLVHNmPWz3jaPY+OBAmuJWDmxB/Z8p94aEDg4BVXQ7LvsKQ3DLYhaB7yJ390CJT+i0mm+EBqY60V6YikPSWDFrYQ/NPi2b1DgE19mX8zHqw8qprIl4yh1Ckx2Iige4En/N5ktOoIxnASxAw/TzcE2skxdw5KlHDF+UTj71m16CR/dIaKlXijlfNlNzUBo/bNSadCQn3G5NoO501wPKI:XO50TgDNyo8EXAMPLE/g==:1"\}
+   * \}
    *
    *             </response>
    *         </examples>
@@ -859,6 +871,7 @@ export class DataPipeline extends DataPipelineClient {
   }
 
   /**
+   * @public
    * <p>Adds tasks, schedules, and preconditions to the specified pipeline. You can use <code>PutPipelineDefinition</code> to populate a new pipeline.</p>
    *         <p>
    *             <code>PutPipelineDefinition</code> also validates the configuration as it adds it to the pipeline. Changes to the pipeline are saved unless one
@@ -889,47 +902,47 @@ export class DataPipeline extends DataPipelineClient {
    * X-Amz-Date: Mon, 12 Nov 2012 17:49:52 GMT
    * Authorization: AuthParams
    *
-   * {"pipelineId": "df-0937003356ZJEXAMPLE",
+   * \{"pipelineId": "df-0937003356ZJEXAMPLE",
    *  "pipelineObjects":
    *   [
-   *    {"id": "Default",
+   *    \{"id": "Default",
    *      "name": "Default",
    *      "fields":
    *       [
-   *         {"key": "workerGroup",
-   *          "stringValue": "workerGroup"}
+   *         \{"key": "workerGroup",
+   *          "stringValue": "workerGroup"\}
    *       ]
-   *     },
-   *     {"id": "Schedule",
+   *     \},
+   *     \{"id": "Schedule",
    *      "name": "Schedule",
    *      "fields":
    *       [
-   *        {"key": "startDateTime",
-   *          "stringValue": "2012-12-12T00:00:00"},
-   *         {"key": "type",
-   *          "stringValue": "Schedule"},
-   *         {"key": "period",
-   *          "stringValue": "1 hour"},
-   *         {"key": "endDateTime",
-   *          "stringValue": "2012-12-21T18:00:00"}
+   *        \{"key": "startDateTime",
+   *          "stringValue": "2012-12-12T00:00:00"\},
+   *         \{"key": "type",
+   *          "stringValue": "Schedule"\},
+   *         \{"key": "period",
+   *          "stringValue": "1 hour"\},
+   *         \{"key": "endDateTime",
+   *          "stringValue": "2012-12-21T18:00:00"\}
    *       ]
-   *     },
-   *     {"id": "SayHello",
+   *     \},
+   *     \{"id": "SayHello",
    *      "name": "SayHello",
    *      "fields":
    *       [
-   *         {"key": "type",
-   *          "stringValue": "ShellCommandActivity"},
-   *         {"key": "command",
-   *          "stringValue": "echo hello"},
-   *         {"key": "parent",
-   *          "refValue": "Default"},
-   *         {"key": "schedule",
-   *          "refValue": "Schedule"}
+   *         \{"key": "type",
+   *          "stringValue": "ShellCommandActivity"\},
+   *         \{"key": "command",
+   *          "stringValue": "echo hello"\},
+   *         \{"key": "parent",
+   *          "refValue": "Default"\},
+   *         \{"key": "schedule",
+   *          "refValue": "Schedule"\}
    *       ]
-   *     }
+   *     \}
    *   ]
-   * }
+   * \}
    *
    *             </request>
    *             <response>
@@ -940,7 +953,7 @@ export class DataPipeline extends DataPipelineClient {
    * Content-Length: 18
    * Date: Mon, 12 Nov 2012 17:50:53 GMT
    *
-   * {"errored": false}
+   * \{"errored": false\}
    *
    *
    *             </response>
@@ -960,48 +973,48 @@ export class DataPipeline extends DataPipelineClient {
    * X-Amz-Date: Mon, 12 Nov 2012 17:49:52 GMT
    * Authorization: AuthParams
    *
-   * {"pipelineId": "df-06372391ZG65EXAMPLE",
+   * \{"pipelineId": "df-06372391ZG65EXAMPLE",
    *  "pipelineObjects":
    *   [
-   *     {"id": "Default",
+   *     \{"id": "Default",
    *      "name": "Default",
    *      "fields":
    *       [
-   *         {"key": "workerGroup",
-   *          "stringValue": ""}
+   *         \{"key": "workerGroup",
+   *          "stringValue": ""\}
    *       ]
-   *     },
-   *     {"id": "Schedule",
+   *     \},
+   *     \{"id": "Schedule",
    *      "name": "Schedule",
    *      "fields":
    *       [
-   *        {"key": "startDateTime",
-   *          "stringValue": "2012-09-25T17:00:00"},
-   *         {"key": "type",
-   *          "stringValue": "Schedule"},
-   *         {"key": "period",
-   *          "stringValue": "1 hour"},
-   *         {"key": "endDateTime",
-   *          "stringValue": "2012-09-25T18:00:00"}
+   *        \{"key": "startDateTime",
+   *          "stringValue": "2012-09-25T17:00:00"\},
+   *         \{"key": "type",
+   *          "stringValue": "Schedule"\},
+   *         \{"key": "period",
+   *          "stringValue": "1 hour"\},
+   *         \{"key": "endDateTime",
+   *          "stringValue": "2012-09-25T18:00:00"\}
    *       ]
-   *     },
-   *     {"id": "SayHello",
+   *     \},
+   *     \{"id": "SayHello",
    *      "name": "SayHello",
    *      "fields":
    *       [
-   *         {"key": "type",
-   *          "stringValue": "ShellCommandActivity"},
-   *         {"key": "command",
-   *          "stringValue": "echo hello"},
-   *         {"key": "parent",
-   *          "refValue": "Default"},
-   *         {"key": "schedule",
-   *          "refValue": "Schedule"}
+   *         \{"key": "type",
+   *          "stringValue": "ShellCommandActivity"\},
+   *         \{"key": "command",
+   *          "stringValue": "echo hello"\},
+   *         \{"key": "parent",
+   *          "refValue": "Default"\},
+   *         \{"key": "schedule",
+   *          "refValue": "Schedule"\}
    *
    *       ]
-   *     }
+   *     \}
    *   ]
-   * }
+   * \}
    *
    *                 </request>
    *                 <response>
@@ -1012,8 +1025,8 @@ export class DataPipeline extends DataPipelineClient {
    * Content-Length: 18
    * Date: Mon, 12 Nov 2012 17:50:53 GMT
    *
-   * {"__type": "com.amazon.setl.webservice#InvalidRequestException",
-   *  "message": "Pipeline definition has errors: Could not save the pipeline definition due to FATAL errors: [com.amazon.setl.webservice.ValidationError@108d7ea9] Please call Validate to validate your pipeline"}
+   * \{"__type": "com.amazon.setl.webservice#InvalidRequestException",
+   *  "message": "Pipeline definition has errors: Could not save the pipeline definition due to FATAL errors: [com.amazon.setl.webservice.ValidationError@108d7ea9] Please call Validate to validate your pipeline"\}
    *
    *
    *                 </response>
@@ -1050,6 +1063,7 @@ export class DataPipeline extends DataPipelineClient {
   }
 
   /**
+   * @public
    * <p>Queries the specified pipeline for the names of objects that match the specified set of conditions.</p>
    *
    *         <examples>
@@ -1063,15 +1077,15 @@ export class DataPipeline extends DataPipelineClient {
    * X-Amz-Date: Mon, 12 Nov 2012 17:49:52 GMT
    * Authorization: AuthParams
    *
-   * {"pipelineId": "df-06372391ZG65EXAMPLE",
+   * \{"pipelineId": "df-06372391ZG65EXAMPLE",
    *  "query":
-   *   {"selectors":
+   *   \{"selectors":
    *     [
    *     ]
-   *   },
+   *   \},
    *  "sphere": "INSTANCE",
    *  "marker": "",
-   *  "limit": 10}
+   *  "limit": 10\}
    *
    *             </request>
    *
@@ -1083,10 +1097,10 @@ export class DataPipeline extends DataPipelineClient {
    * Content-Length: 72
    * Date: Mon, 12 Nov 2012 17:50:53 GMT
    *
-   * {"hasMoreResults": false,
+   * \{"hasMoreResults": false,
    *  "ids":
    *   ["@SayHello_1_2012-09-25T17:00:00"]
-   * }
+   * \}
    *          </response>
    *         </examples>
    */
@@ -1117,6 +1131,7 @@ export class DataPipeline extends DataPipelineClient {
   }
 
   /**
+   * @public
    * <p>Removes existing tags from the specified pipeline.</p>
    */
   public removeTags(args: RemoveTagsCommandInput, options?: __HttpHandlerOptions): Promise<RemoveTagsCommandOutput>;
@@ -1143,6 +1158,7 @@ export class DataPipeline extends DataPipelineClient {
   }
 
   /**
+   * @public
    * <p>Task runners call <code>ReportTaskProgress</code> when assigned a task to acknowledge that it has the task. If the web service does not
    *             receive this acknowledgement within 2 minutes, it assigns the task in a subsequent <a>PollForTask</a> call. After this initial acknowledgement,
    *             the task runner only needs to report progress every 15 minutes to maintain its ownership of the task. You can change this reporting time
@@ -1160,13 +1176,13 @@ export class DataPipeline extends DataPipelineClient {
    * X-Amz-Date: Mon, 12 Nov 2012 17:49:52 GMT
    * Authorization: AuthParams
    *
-   * {"taskId": "aaGgHT4LuH0T0Y0oLrJRjas5qH0d8cDPADxqq3tn+zCWGELkCdV2JprLreXm1oxeP5EFZHFLJ69kjSsLYE0iYHYBYVGBrB+E/pYq7ANEEeGJFnSBMRiXZVA+8UJ3OzcInvXeinqBmBaKwii7hnnKb/AXjXiNTXyxgydX1KAyg1AxkwBYG4cfPYMZbuEbQJFJvv5C/2+GVXz1w94nKYTeUeepwUOFOuRLS6JVtZoYwpF56E+Yfk1IcGpFOvCZ01B4Bkuu7x3J+MD/j6kJgZLAgbCJQtI3eiW3kdGmX0p0I2BdY1ZsX6b4UiSvM3OMj6NEHJCJL4E0ZfitnhCoe24Kvjo6C2hFbZq+ei/HPgSXBQMSagkr4vS9c0ChzxH2+LNYvec6bY4kymkaZI1dvOzmpa0FcnGf5AjSK4GpsViZ/ujz6zxFv81qBXzjF0/4M1775rjV1VUdyKaixiA/sJiACNezqZqETidp8d24BDPRhGsj6pBCrnelqGFrk/gXEXUsJ+xwMifRC8UVwiKekpAvHUywVk7Ku4jH/n3i2VoLRP6FXwpUbelu34iiZ9czpXyLtyPKwxa87dlrnRVURwkcVjOt2Mcrcaqe+cbWHvNRhyrPkkdfSF3ac8/wfgVbXvLEB2k9mKc67aD9rvdc1PKX09Tk8BKklsMTpZ3TRCd4NzQlJKigMe8Jat9+1tKj4Ole5ZzW6uyTu2s2iFjEV8KXu4MaiRJyNKCdKeGhhZWY37Qk4NBK4Ppgu+C6Y41dpfOh288SLDEVx0/UySlqOEdhba7c6BiPp5r3hKj3mk9lFy5OYp1aoGLeeFmjXveTnPdf2gkWqXXg7AUbJ7jEs1F0lKZQg4szep2gcKyAJXgvXLfJJHcha8Lfb/Ee7wYmyOcAaRpDBoFNSbtoVXar46teIrpho+ZDvynUXvU0grHWGOk=:wn3SgymHZM99bEXAMPLE",
+   * \{"taskId": "aaGgHT4LuH0T0Y0oLrJRjas5qH0d8cDPADxqq3tn+zCWGELkCdV2JprLreXm1oxeP5EFZHFLJ69kjSsLYE0iYHYBYVGBrB+E/pYq7ANEEeGJFnSBMRiXZVA+8UJ3OzcInvXeinqBmBaKwii7hnnKb/AXjXiNTXyxgydX1KAyg1AxkwBYG4cfPYMZbuEbQJFJvv5C/2+GVXz1w94nKYTeUeepwUOFOuRLS6JVtZoYwpF56E+Yfk1IcGpFOvCZ01B4Bkuu7x3J+MD/j6kJgZLAgbCJQtI3eiW3kdGmX0p0I2BdY1ZsX6b4UiSvM3OMj6NEHJCJL4E0ZfitnhCoe24Kvjo6C2hFbZq+ei/HPgSXBQMSagkr4vS9c0ChzxH2+LNYvec6bY4kymkaZI1dvOzmpa0FcnGf5AjSK4GpsViZ/ujz6zxFv81qBXzjF0/4M1775rjV1VUdyKaixiA/sJiACNezqZqETidp8d24BDPRhGsj6pBCrnelqGFrk/gXEXUsJ+xwMifRC8UVwiKekpAvHUywVk7Ku4jH/n3i2VoLRP6FXwpUbelu34iiZ9czpXyLtyPKwxa87dlrnRVURwkcVjOt2Mcrcaqe+cbWHvNRhyrPkkdfSF3ac8/wfgVbXvLEB2k9mKc67aD9rvdc1PKX09Tk8BKklsMTpZ3TRCd4NzQlJKigMe8Jat9+1tKj4Ole5ZzW6uyTu2s2iFjEV8KXu4MaiRJyNKCdKeGhhZWY37Qk4NBK4Ppgu+C6Y41dpfOh288SLDEVx0/UySlqOEdhba7c6BiPp5r3hKj3mk9lFy5OYp1aoGLeeFmjXveTnPdf2gkWqXXg7AUbJ7jEs1F0lKZQg4szep2gcKyAJXgvXLfJJHcha8Lfb/Ee7wYmyOcAaRpDBoFNSbtoVXar46teIrpho+ZDvynUXvU0grHWGOk=:wn3SgymHZM99bEXAMPLE",
    *  "fields":
    *   [
-   *     {"key": "percentComplete",
-   *      "stringValue": "50"}
+   *     \{"key": "percentComplete",
+   *      "stringValue": "50"\}
    *   ]
-   * }
+   * \}
    *
    *             </request>
    *
@@ -1177,7 +1193,7 @@ export class DataPipeline extends DataPipelineClient {
    * Content-Length: 18
    * Date: Mon, 12 Nov 2012 17:50:53 GMT
    *
-   * {"canceled": false}
+   * \{"canceled": false\}
    *
    * </response>
    *         </examples>
@@ -1212,6 +1228,7 @@ export class DataPipeline extends DataPipelineClient {
   }
 
   /**
+   * @public
    * <p>Task runners call <code>ReportTaskRunnerHeartbeat</code> every 15 minutes to indicate that they are operational.
    *             If the AWS Data Pipeline Task Runner is launched on a resource managed by AWS Data Pipeline, the web service can use
    *             this call to detect when the task runner application has failed and restart a new instance.</p>
@@ -1227,9 +1244,9 @@ export class DataPipeline extends DataPipelineClient {
    * X-Amz-Date: Mon, 12 Nov 2012 17:49:52 GMT
    * Authorization: AuthParams
    *
-   * {"taskrunnerId": "1234567890",
+   * \{"taskrunnerId": "1234567890",
    *  "workerGroup": "wg-12345",
-   *  "hostname": "example.com"}
+   *  "hostname": "example.com"\}
    *
    *             </request>
    *
@@ -1241,7 +1258,7 @@ export class DataPipeline extends DataPipelineClient {
    * Content-Length: 20
    * Date: Mon, 12 Nov 2012 17:50:53 GMT
    *
-   * {"terminate": false}
+   * \{"terminate": false\}
    *
    *             </response>
    *         </examples>
@@ -1276,6 +1293,7 @@ export class DataPipeline extends DataPipelineClient {
   }
 
   /**
+   * @public
    * <p>Requests that the status of the specified physical or logical pipeline objects be updated in the specified pipeline.
    *             This update might not occur immediately, but is eventually consistent. The status that can be set depends on the type of object (for example, DataNode or Activity).
    *             You cannot perform this operation on <code>FINISHED</code> pipelines and attempting to do so returns <code>InvalidRequestException</code>.</p>
@@ -1291,10 +1309,10 @@ export class DataPipeline extends DataPipelineClient {
    * X-Amz-Date: Mon, 12 Nov 2012 17:49:52 GMT
    * Authorization: AuthParams
    *
-   * {"pipelineId": "df-0634701J7KEXAMPLE",
+   * \{"pipelineId": "df-0634701J7KEXAMPLE",
    *  "objectIds":
    *   ["o-08600941GHJWMBR9E2"],
-   *  "status": "pause"}
+   *  "status": "pause"\}
    *
    *             </request>
    *
@@ -1334,6 +1352,7 @@ export class DataPipeline extends DataPipelineClient {
   }
 
   /**
+   * @public
    * <p>Task runners call <code>SetTaskStatus</code> to notify AWS Data Pipeline that a task is completed and provide information about the final status.
    *             A task runner makes this call regardless of whether the task was sucessful. A task runner does not need to call <code>SetTaskStatus</code> for
    *             tasks that are canceled by the web service during a call to <a>ReportTaskProgress</a>.</p>
@@ -1349,8 +1368,8 @@ export class DataPipeline extends DataPipelineClient {
    * X-Amz-Date: Mon, 12 Nov 2012 17:49:52 GMT
    * Authorization: AuthParams
    *
-   * {"taskId": "aaGgHT4LuH0T0Y0oLrJRjas5qH0d8cDPADxqq3tn+zCWGELkCdV2JprLreXm1oxeP5EFZHFLJ69kjSsLYE0iYHYBYVGBrB+E/pYq7ANEEeGJFnSBMRiXZVA+8UJ3OzcInvXeinqBmBaKwii7hnnKb/AXjXiNTXyxgydX1KAyg1AxkwBYG4cfPYMZbuEbQJFJvv5C/2+GVXz1w94nKYTeUeepwUOFOuRLS6JVtZoYwpF56E+Yfk1IcGpFOvCZ01B4Bkuu7x3J+MD/j6kJgZLAgbCJQtI3eiW3kdGmX0p0I2BdY1ZsX6b4UiSvM3OMj6NEHJCJL4E0ZfitnhCoe24Kvjo6C2hFbZq+ei/HPgSXBQMSagkr4vS9c0ChzxH2+LNYvec6bY4kymkaZI1dvOzmpa0FcnGf5AjSK4GpsViZ/ujz6zxFv81qBXzjF0/4M1775rjV1VUdyKaixiA/sJiACNezqZqETidp8d24BDPRhGsj6pBCrnelqGFrk/gXEXUsJ+xwMifRC8UVwiKekpAvHUywVk7Ku4jH/n3i2VoLRP6FXwpUbelu34iiZ9czpXyLtyPKwxa87dlrnRVURwkcVjOt2Mcrcaqe+cbWHvNRhyrPkkdfSF3ac8/wfgVbXvLEB2k9mKc67aD9rvdc1PKX09Tk8BKklsMTpZ3TRCd4NzQlJKigMe8Jat9+1tKj4Ole5ZzW6uyTu2s2iFjEV8KXu4MaiRJyNKCdKeGhhZWY37Qk4NBK4Ppgu+C6Y41dpfOh288SLDEVx0/UySlqOEdhba7c6BiPp5r3hKj3mk9lFy5OYp1aoGLeeFmjXveTnPdf2gkWqXXg7AUbJ7jEs1F0lKZQg4szep2gcKyAJXgvXLfJJHcha8Lfb/Ee7wYmyOcAaRpDBoFNSbtoVXar46teIrpho+ZDvynUXvU0grHWGOk=:wn3SgymHZM99bEXAMPLE",
-   *  "taskStatus": "FINISHED"}
+   * \{"taskId": "aaGgHT4LuH0T0Y0oLrJRjas5qH0d8cDPADxqq3tn+zCWGELkCdV2JprLreXm1oxeP5EFZHFLJ69kjSsLYE0iYHYBYVGBrB+E/pYq7ANEEeGJFnSBMRiXZVA+8UJ3OzcInvXeinqBmBaKwii7hnnKb/AXjXiNTXyxgydX1KAyg1AxkwBYG4cfPYMZbuEbQJFJvv5C/2+GVXz1w94nKYTeUeepwUOFOuRLS6JVtZoYwpF56E+Yfk1IcGpFOvCZ01B4Bkuu7x3J+MD/j6kJgZLAgbCJQtI3eiW3kdGmX0p0I2BdY1ZsX6b4UiSvM3OMj6NEHJCJL4E0ZfitnhCoe24Kvjo6C2hFbZq+ei/HPgSXBQMSagkr4vS9c0ChzxH2+LNYvec6bY4kymkaZI1dvOzmpa0FcnGf5AjSK4GpsViZ/ujz6zxFv81qBXzjF0/4M1775rjV1VUdyKaixiA/sJiACNezqZqETidp8d24BDPRhGsj6pBCrnelqGFrk/gXEXUsJ+xwMifRC8UVwiKekpAvHUywVk7Ku4jH/n3i2VoLRP6FXwpUbelu34iiZ9czpXyLtyPKwxa87dlrnRVURwkcVjOt2Mcrcaqe+cbWHvNRhyrPkkdfSF3ac8/wfgVbXvLEB2k9mKc67aD9rvdc1PKX09Tk8BKklsMTpZ3TRCd4NzQlJKigMe8Jat9+1tKj4Ole5ZzW6uyTu2s2iFjEV8KXu4MaiRJyNKCdKeGhhZWY37Qk4NBK4Ppgu+C6Y41dpfOh288SLDEVx0/UySlqOEdhba7c6BiPp5r3hKj3mk9lFy5OYp1aoGLeeFmjXveTnPdf2gkWqXXg7AUbJ7jEs1F0lKZQg4szep2gcKyAJXgvXLfJJHcha8Lfb/Ee7wYmyOcAaRpDBoFNSbtoVXar46teIrpho+ZDvynUXvU0grHWGOk=:wn3SgymHZM99bEXAMPLE",
+   *  "taskStatus": "FINISHED"\}
    *
    *             </request>
    *
@@ -1361,7 +1380,7 @@ export class DataPipeline extends DataPipelineClient {
    * Content-Length: 0
    * Date: Mon, 12 Nov 2012 17:50:53 GMT
    *
-   * {}
+   * \{\}
    *
    *             </response>
    *         </examples>
@@ -1396,6 +1415,7 @@ export class DataPipeline extends DataPipelineClient {
   }
 
   /**
+   * @public
    * <p>Validates the specified pipeline definition to ensure that it is well formed and can be run without error.</p>
    *
    *         <examples>
@@ -1414,48 +1434,48 @@ export class DataPipeline extends DataPipelineClient {
    * X-Amz-Date: Mon, 12 Nov 2012 17:49:52 GMT
    * Authorization: AuthParams
    *
-   * {"pipelineId": "df-06372391ZG65EXAMPLE",
+   * \{"pipelineId": "df-06372391ZG65EXAMPLE",
    *  "pipelineObjects":
    *   [
-   *     {"id": "Default",
+   *     \{"id": "Default",
    *      "name": "Default",
    *      "fields":
    *       [
-   *         {"key": "workerGroup",
-   *          "stringValue": "MyworkerGroup"}
+   *         \{"key": "workerGroup",
+   *          "stringValue": "MyworkerGroup"\}
    *       ]
-   *     },
-   *     {"id": "Schedule",
+   *     \},
+   *     \{"id": "Schedule",
    *      "name": "Schedule",
    *      "fields":
    *       [
-   *        {"key": "startDateTime",
-   *          "stringValue": "2012-09-25T17:00:00"},
-   *         {"key": "type",
-   *          "stringValue": "Schedule"},
-   *         {"key": "period",
-   *          "stringValue": "1 hour"},
-   *         {"key": "endDateTime",
-   *          "stringValue": "2012-09-25T18:00:00"}
+   *        \{"key": "startDateTime",
+   *          "stringValue": "2012-09-25T17:00:00"\},
+   *         \{"key": "type",
+   *          "stringValue": "Schedule"\},
+   *         \{"key": "period",
+   *          "stringValue": "1 hour"\},
+   *         \{"key": "endDateTime",
+   *          "stringValue": "2012-09-25T18:00:00"\}
    *       ]
-   *     },
-   *     {"id": "SayHello",
+   *     \},
+   *     \{"id": "SayHello",
    *      "name": "SayHello",
    *      "fields":
    *       [
-   *         {"key": "type",
-   *          "stringValue": "ShellCommandActivity"},
-   *         {"key": "command",
-   *          "stringValue": "echo hello"},
-   *         {"key": "parent",
-   *          "refValue": "Default"},
-   *         {"key": "schedule",
-   *          "refValue": "Schedule"}
+   *         \{"key": "type",
+   *          "stringValue": "ShellCommandActivity"\},
+   *         \{"key": "command",
+   *          "stringValue": "echo hello"\},
+   *         \{"key": "parent",
+   *          "refValue": "Default"\},
+   *         \{"key": "schedule",
+   *          "refValue": "Schedule"\}
    *
    *       ]
-   *     }
+   *     \}
    *   ]
-   * }
+   * \}
    *
    *             </request>
    *             <response>
@@ -1465,7 +1485,7 @@ export class DataPipeline extends DataPipelineClient {
    * Content-Length: 18
    * Date: Mon, 12 Nov 2012 17:50:53 GMT
    *
-   * {"errored": false}
+   * \{"errored": false\}
    *
    *             </response>
    *             </example>
@@ -1485,48 +1505,48 @@ export class DataPipeline extends DataPipelineClient {
    * X-Amz-Date: Mon, 12 Nov 2012 17:49:52 GMT
    * Authorization: AuthParams
    *
-   * {"pipelineId": "df-06372391ZG65EXAMPLE",
+   * \{"pipelineId": "df-06372391ZG65EXAMPLE",
    *  "pipelineObjects":
    *   [
-   *     {"id": "Default",
+   *     \{"id": "Default",
    *      "name": "Default",
    *      "fields":
    *       [
-   *         {"key": "workerGroup",
-   *          "stringValue": "MyworkerGroup"}
+   *         \{"key": "workerGroup",
+   *          "stringValue": "MyworkerGroup"\}
    *       ]
-   *     },
-   *     {"id": "Schedule",
+   *     \},
+   *     \{"id": "Schedule",
    *      "name": "Schedule",
    *      "fields":
    *       [
-   *        {"key": "startDateTime",
-   *          "stringValue": "bad-time"},
-   *         {"key": "type",
-   *          "stringValue": "Schedule"},
-   *         {"key": "period",
-   *          "stringValue": "1 hour"},
-   *         {"key": "endDateTime",
-   *          "stringValue": "2012-09-25T18:00:00"}
+   *        \{"key": "startDateTime",
+   *          "stringValue": "bad-time"\},
+   *         \{"key": "type",
+   *          "stringValue": "Schedule"\},
+   *         \{"key": "period",
+   *          "stringValue": "1 hour"\},
+   *         \{"key": "endDateTime",
+   *          "stringValue": "2012-09-25T18:00:00"\}
    *       ]
-   *     },
-   *     {"id": "SayHello",
+   *     \},
+   *     \{"id": "SayHello",
    *      "name": "SayHello",
    *      "fields":
    *       [
-   *         {"key": "type",
-   *          "stringValue": "ShellCommandActivity"},
-   *         {"key": "command",
-   *          "stringValue": "echo hello"},
-   *         {"key": "parent",
-   *          "refValue": "Default"},
-   *         {"key": "schedule",
-   *          "refValue": "Schedule"}
+   *         \{"key": "type",
+   *          "stringValue": "ShellCommandActivity"\},
+   *         \{"key": "command",
+   *          "stringValue": "echo hello"\},
+   *         \{"key": "parent",
+   *          "refValue": "Default"\},
+   *         \{"key": "schedule",
+   *          "refValue": "Schedule"\}
    *
    *       ]
-   *     }
+   *     \}
    *   ]
-   * }
+   * \}
    *
    *             </request>
    *             <response>
@@ -1536,14 +1556,14 @@ export class DataPipeline extends DataPipelineClient {
    * Content-Length: 278
    * Date: Mon, 12 Nov 2012 17:50:53 GMT
    *
-   * {"errored": true,
+   * \{"errored": true,
    *  "validationErrors":
    *   [
-   *     {"errors":
+   *     \{"errors":
    *       ["INVALID_FIELD_VALUE:  'startDateTime' value must be a literal datetime value."],
-   *      "id": "Schedule"}
+   *      "id": "Schedule"\}
    *   ]
-   * }
+   * \}
    *
    *             </response>
    *                 </example>

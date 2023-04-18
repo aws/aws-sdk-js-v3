@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
-import {
-  DeleteVpcIngressConnectionRequest,
-  DeleteVpcIngressConnectionRequestFilterSensitiveLog,
-  DeleteVpcIngressConnectionResponse,
-  DeleteVpcIngressConnectionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteVpcIngressConnectionCommand,
-  serializeAws_json1_0DeleteVpcIngressConnectionCommand,
-} from "../protocols/Aws_json1_0";
+import { DeleteVpcIngressConnectionRequest, DeleteVpcIngressConnectionResponse } from "../models/models_0";
+import { de_DeleteVpcIngressConnectionCommand, se_DeleteVpcIngressConnectionCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteVpcIngressConnectionCommand}.
+ */
 export interface DeleteVpcIngressConnectionCommandInput extends DeleteVpcIngressConnectionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteVpcIngressConnectionCommand}.
+ */
 export interface DeleteVpcIngressConnectionCommandOutput extends DeleteVpcIngressConnectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete an App Runner VPC Ingress Connection resource that's associated with an App Runner service. The VPC Ingress Connection must be in one of the following states to be deleted:
  *     </p>
  *          <ul>
@@ -59,13 +62,31 @@ export interface DeleteVpcIngressConnectionCommandOutput extends DeleteVpcIngres
  * import { AppRunnerClient, DeleteVpcIngressConnectionCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, DeleteVpcIngressConnectionCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
+ * const input = { // DeleteVpcIngressConnectionRequest
+ *   VpcIngressConnectionArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteVpcIngressConnectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVpcIngressConnectionCommandInput - {@link DeleteVpcIngressConnectionCommandInput}
+ * @returns {@link DeleteVpcIngressConnectionCommandOutput}
  * @see {@link DeleteVpcIngressConnectionCommandInput} for command's `input` shape.
  * @see {@link DeleteVpcIngressConnectionCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>An unexpected service exception occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+ *
+ * @throws {@link InvalidStateException} (client fault)
+ *  <p>You can't perform this action when the resource is in its current state.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
+ *
  *
  */
 export class DeleteVpcIngressConnectionCommand extends $Command<
@@ -85,6 +106,9 @@ export class DeleteVpcIngressConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVpcIngressConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +137,8 @@ export class DeleteVpcIngressConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVpcIngressConnectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteVpcIngressConnectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,15 +148,21 @@ export class DeleteVpcIngressConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVpcIngressConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteVpcIngressConnectionCommand(input, context);
+    return se_DeleteVpcIngressConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteVpcIngressConnectionCommandOutput> {
-    return deserializeAws_json1_0DeleteVpcIngressConnectionCommand(output, context);
+    return de_DeleteVpcIngressConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

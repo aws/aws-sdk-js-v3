@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppIntegrationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppIntegrationsClient";
-import {
-  DeleteEventIntegrationRequest,
-  DeleteEventIntegrationRequestFilterSensitiveLog,
-  DeleteEventIntegrationResponse,
-  DeleteEventIntegrationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteEventIntegrationCommand,
-  serializeAws_restJson1DeleteEventIntegrationCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteEventIntegrationRequest, DeleteEventIntegrationResponse } from "../models/models_0";
+import { de_DeleteEventIntegrationCommand, se_DeleteEventIntegrationCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteEventIntegrationCommand}.
+ */
 export interface DeleteEventIntegrationCommandInput extends DeleteEventIntegrationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteEventIntegrationCommand}.
+ */
 export interface DeleteEventIntegrationCommandOutput extends DeleteEventIntegrationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified existing event integration. If the event integration is associated
  *       with clients, the request is rejected.</p>
  * @example
@@ -37,13 +40,34 @@ export interface DeleteEventIntegrationCommandOutput extends DeleteEventIntegrat
  * import { AppIntegrationsClient, DeleteEventIntegrationCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
  * // const { AppIntegrationsClient, DeleteEventIntegrationCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import
  * const client = new AppIntegrationsClient(config);
+ * const input = { // DeleteEventIntegrationRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEventIntegrationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEventIntegrationCommandInput - {@link DeleteEventIntegrationCommandInput}
+ * @returns {@link DeleteEventIntegrationCommandOutput}
  * @see {@link DeleteEventIntegrationCommandInput} for command's `input` shape.
  * @see {@link DeleteEventIntegrationCommandOutput} for command's `response` shape.
  * @see {@link AppIntegrationsClientResolvedConfig | config} for AppIntegrationsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServiceError} (server fault)
+ *  <p>Request processing failed due to an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
  *
  */
 export class DeleteEventIntegrationCommand extends $Command<
@@ -63,6 +87,9 @@ export class DeleteEventIntegrationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEventIntegrationCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +118,8 @@ export class DeleteEventIntegrationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEventIntegrationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteEventIntegrationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +129,18 @@ export class DeleteEventIntegrationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEventIntegrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteEventIntegrationCommand(input, context);
+    return se_DeleteEventIntegrationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEventIntegrationCommandOutput> {
-    return deserializeAws_restJson1DeleteEventIntegrationCommand(output, context);
+    return de_DeleteEventIntegrationCommand(output, context);
   }
 
   // Start section: command_body_extra

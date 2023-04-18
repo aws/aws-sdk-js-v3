@@ -19,16 +19,24 @@ import {
   QueryAssistantResponse,
   QueryAssistantResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1QueryAssistantCommand,
-  serializeAws_restJson1QueryAssistantCommand,
-} from "../protocols/Aws_restJson1";
+import { de_QueryAssistantCommand, se_QueryAssistantCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
+/**
+ * @public
+ *
+ * The input for {@link QueryAssistantCommand}.
+ */
 export interface QueryAssistantCommandInput extends QueryAssistantRequest {}
+/**
+ * @public
+ *
+ * The output of {@link QueryAssistantCommand}.
+ */
 export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Performs a manual search against the specified assistant. To retrieve recommendations for
  *       an assistant, use <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetRecommendations.html">GetRecommendations</a>.
  *     </p>
@@ -38,13 +46,31 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  * import { WisdomClient, QueryAssistantCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, QueryAssistantCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
+ * const input = { // QueryAssistantRequest
+ *   assistantId: "STRING_VALUE", // required
+ *   queryText: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new QueryAssistantCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param QueryAssistantCommandInput - {@link QueryAssistantCommandInput}
+ * @returns {@link QueryAssistantCommandOutput}
  * @see {@link QueryAssistantCommandInput} for command's `input` shape.
  * @see {@link QueryAssistantCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by a service.</p>
+ *
  *
  */
 export class QueryAssistantCommand extends $Command<
@@ -64,6 +90,9 @@ export class QueryAssistantCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: QueryAssistantCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,12 +132,18 @@ export class QueryAssistantCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: QueryAssistantCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1QueryAssistantCommand(input, context);
+    return se_QueryAssistantCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<QueryAssistantCommandOutput> {
-    return deserializeAws_restJson1QueryAssistantCommand(output, context);
+    return de_QueryAssistantCommand(output, context);
   }
 
   // Start section: command_body_extra

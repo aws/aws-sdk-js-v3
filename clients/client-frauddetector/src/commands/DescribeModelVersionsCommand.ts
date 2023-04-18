@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  DescribeModelVersionsRequest,
-  DescribeModelVersionsRequestFilterSensitiveLog,
-  DescribeModelVersionsResult,
-  DescribeModelVersionsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeModelVersionsCommand,
-  serializeAws_json1_1DescribeModelVersionsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeModelVersionsRequest, DescribeModelVersionsResult } from "../models/models_0";
+import { de_DescribeModelVersionsCommand, se_DescribeModelVersionsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeModelVersionsCommand}.
+ */
 export interface DescribeModelVersionsCommandInput extends DescribeModelVersionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeModelVersionsCommand}.
+ */
 export interface DescribeModelVersionsCommandOutput extends DescribeModelVersionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets all of the model versions for the specified model type or for the specified model type and model ID. You can also get details for a single, specified model version. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,38 @@ export interface DescribeModelVersionsCommandOutput extends DescribeModelVersion
  * import { FraudDetectorClient, DescribeModelVersionsCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, DescribeModelVersionsCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = { // DescribeModelVersionsRequest
+ *   modelId: "STRING_VALUE",
+ *   modelVersionNumber: "STRING_VALUE",
+ *   modelType: "ONLINE_FRAUD_INSIGHTS" || "TRANSACTION_FRAUD_INSIGHTS" || "ACCOUNT_TAKEOVER_INSIGHTS",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new DescribeModelVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeModelVersionsCommandInput - {@link DescribeModelVersionsCommandInput}
+ * @returns {@link DescribeModelVersionsCommandOutput}
  * @see {@link DescribeModelVersionsCommandInput} for command's `input` shape.
  * @see {@link DescribeModelVersionsCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An exception indicating an internal server error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An exception indicating the specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>An exception indicating a throttling error.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An exception indicating a specified value is not allowed.</p>
+ *
  *
  */
 export class DescribeModelVersionsCommand extends $Command<
@@ -62,6 +90,9 @@ export class DescribeModelVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeModelVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +121,8 @@ export class DescribeModelVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeModelVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeModelVersionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +132,18 @@ export class DescribeModelVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeModelVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeModelVersionsCommand(input, context);
+    return se_DescribeModelVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeModelVersionsCommandOutput> {
-    return deserializeAws_json1_1DescribeModelVersionsCommand(output, context);
+    return de_DescribeModelVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

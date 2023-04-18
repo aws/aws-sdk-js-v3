@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  BatchEnableStandardsRequest,
-  BatchEnableStandardsRequestFilterSensitiveLog,
-  BatchEnableStandardsResponse,
-  BatchEnableStandardsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1BatchEnableStandardsCommand,
-  serializeAws_restJson1BatchEnableStandardsCommand,
-} from "../protocols/Aws_restJson1";
+import { BatchEnableStandardsRequest, BatchEnableStandardsResponse } from "../models/models_1";
+import { de_BatchEnableStandardsCommand, se_BatchEnableStandardsCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchEnableStandardsCommand}.
+ */
 export interface BatchEnableStandardsCommandInput extends BatchEnableStandardsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link BatchEnableStandardsCommand}.
+ */
 export interface BatchEnableStandardsCommandOutput extends BatchEnableStandardsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables the standards specified by the provided <code>StandardsArn</code>. To obtain the
  *          ARN for a standard, use the <code>DescribeStandards</code>
  *          operation.</p>
@@ -40,13 +43,40 @@ export interface BatchEnableStandardsCommandOutput extends BatchEnableStandardsR
  * import { SecurityHubClient, BatchEnableStandardsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, BatchEnableStandardsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = { // BatchEnableStandardsRequest
+ *   StandardsSubscriptionRequests: [ // StandardsSubscriptionRequests // required
+ *     { // StandardsSubscriptionRequest
+ *       StandardsArn: "STRING_VALUE", // required
+ *       StandardsInput: { // StandardsInputParameterMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new BatchEnableStandardsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchEnableStandardsCommandInput - {@link BatchEnableStandardsCommandInput}
+ * @returns {@link BatchEnableStandardsCommandOutput}
  * @see {@link BatchEnableStandardsCommandInput} for command's `input` shape.
  * @see {@link BatchEnableStandardsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>Internal server error.</p>
+ *
+ * @throws {@link InvalidAccessException} (client fault)
+ *  <p>The account doesn't have permission to perform this action.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because you supplied an invalid or out-of-range value for an
+ *          input parameter.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
+ *          account or throttling limits. The error code describes the limit exceeded.</p>
+ *
  *
  */
 export class BatchEnableStandardsCommand extends $Command<
@@ -66,6 +96,9 @@ export class BatchEnableStandardsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchEnableStandardsCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +127,8 @@ export class BatchEnableStandardsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchEnableStandardsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchEnableStandardsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +138,18 @@ export class BatchEnableStandardsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchEnableStandardsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchEnableStandardsCommand(input, context);
+    return se_BatchEnableStandardsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchEnableStandardsCommandOutput> {
-    return deserializeAws_restJson1BatchEnableStandardsCommand(output, context);
+    return de_BatchEnableStandardsCommand(output, context);
   }
 
   // Start section: command_body_extra

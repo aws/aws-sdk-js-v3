@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateRecommenderRequest,
-  UpdateRecommenderRequestFilterSensitiveLog,
-  UpdateRecommenderResponse,
-  UpdateRecommenderResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateRecommenderRequest, UpdateRecommenderResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1UpdateRecommenderCommand,
-  serializeAws_json1_1UpdateRecommenderCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateRecommenderCommand, se_UpdateRecommenderCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateRecommenderCommand}.
+ */
 export interface UpdateRecommenderCommandInput extends UpdateRecommenderRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateRecommenderCommand}.
+ */
 export interface UpdateRecommenderCommandOutput extends UpdateRecommenderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the recommender to modify the recommender configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,34 @@ export interface UpdateRecommenderCommandOutput extends UpdateRecommenderRespons
  * import { PersonalizeClient, UpdateRecommenderCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, UpdateRecommenderCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // UpdateRecommenderRequest
+ *   recommenderArn: "STRING_VALUE", // required
+ *   recommenderConfig: { // RecommenderConfig
+ *     itemExplorationConfig: { // HyperParameters
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     minRecommendationRequestsPerSecond: Number("int"),
+ *   },
+ * };
  * const command = new UpdateRecommenderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRecommenderCommandInput - {@link UpdateRecommenderCommandInput}
+ * @returns {@link UpdateRecommenderCommandOutput}
  * @see {@link UpdateRecommenderCommandInput} for command's `input` shape.
  * @see {@link UpdateRecommenderCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is in use.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Could not find the specified resource.</p>
+ *
  *
  */
 export class UpdateRecommenderCommand extends $Command<
@@ -62,6 +86,9 @@ export class UpdateRecommenderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRecommenderCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +117,8 @@ export class UpdateRecommenderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRecommenderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateRecommenderResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +128,18 @@ export class UpdateRecommenderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRecommenderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateRecommenderCommand(input, context);
+    return se_UpdateRecommenderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRecommenderCommandOutput> {
-    return deserializeAws_json1_1UpdateRecommenderCommand(output, context);
+    return de_UpdateRecommenderCommand(output, context);
   }
 
   // Start section: command_body_extra

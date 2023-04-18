@@ -18,26 +18,28 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import {
-  AddListenerCertificatesInput,
-  AddListenerCertificatesInputFilterSensitiveLog,
-  AddListenerCertificatesOutput,
-  AddListenerCertificatesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryAddListenerCertificatesCommand,
-  serializeAws_queryAddListenerCertificatesCommand,
-} from "../protocols/Aws_query";
+import { AddListenerCertificatesInput, AddListenerCertificatesOutput } from "../models/models_0";
+import { de_AddListenerCertificatesCommand, se_AddListenerCertificatesCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link AddListenerCertificatesCommand}.
+ */
 export interface AddListenerCertificatesCommandInput extends AddListenerCertificatesInput {}
+/**
+ * @public
+ *
+ * The output of {@link AddListenerCertificatesCommand}.
+ */
 export interface AddListenerCertificatesCommandOutput extends AddListenerCertificatesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds the specified SSL server certificate to the certificate list for the specified HTTPS
  *       or TLS listener.</p>
  *          <p>If the certificate in already in the certificate list, the call is successful but the
  *       certificate is not added again.</p>
- *
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html">HTTPS
  *         listeners</a> in the <i>Application Load Balancers Guide</i> or <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html">TLS
  *         listeners</a> in the <i>Network Load Balancers Guide</i>.</p>
@@ -47,13 +49,34 @@ export interface AddListenerCertificatesCommandOutput extends AddListenerCertifi
  * import { ElasticLoadBalancingV2Client, AddListenerCertificatesCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, AddListenerCertificatesCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
+ * const input = { // AddListenerCertificatesInput
+ *   ListenerArn: "STRING_VALUE", // required
+ *   Certificates: [ // CertificateList // required
+ *     { // Certificate
+ *       CertificateArn: "STRING_VALUE",
+ *       IsDefault: true || false,
+ *     },
+ *   ],
+ * };
  * const command = new AddListenerCertificatesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AddListenerCertificatesCommandInput - {@link AddListenerCertificatesCommandInput}
+ * @returns {@link AddListenerCertificatesCommandOutput}
  * @see {@link AddListenerCertificatesCommandInput} for command's `input` shape.
  * @see {@link AddListenerCertificatesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
+ *
+ * @throws {@link CertificateNotFoundException} (client fault)
+ *  <p>The specified certificate does not exist.</p>
+ *
+ * @throws {@link ListenerNotFoundException} (client fault)
+ *  <p>The specified listener does not exist.</p>
+ *
+ * @throws {@link TooManyCertificatesException} (client fault)
+ *  <p>You've reached the limit on the number of certificates per load balancer.</p>
+ *
  *
  */
 export class AddListenerCertificatesCommand extends $Command<
@@ -73,6 +96,9 @@ export class AddListenerCertificatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddListenerCertificatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +127,8 @@ export class AddListenerCertificatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddListenerCertificatesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: AddListenerCertificatesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +138,18 @@ export class AddListenerCertificatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddListenerCertificatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryAddListenerCertificatesCommand(input, context);
+    return se_AddListenerCertificatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddListenerCertificatesCommandOutput> {
-    return deserializeAws_queryAddListenerCertificatesCommand(output, context);
+    return de_AddListenerCertificatesCommand(output, context);
   }
 
   // Start section: command_body_extra

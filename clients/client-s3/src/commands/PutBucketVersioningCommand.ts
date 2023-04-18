@@ -14,37 +14,40 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutBucketVersioningRequest, PutBucketVersioningRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restXmlPutBucketVersioningCommand,
-  serializeAws_restXmlPutBucketVersioningCommand,
-} from "../protocols/Aws_restXml";
+import { PutBucketVersioningRequest } from "../models/models_0";
+import { de_PutBucketVersioningCommand, se_PutBucketVersioningCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * @public
+ *
+ * The input for {@link PutBucketVersioningCommand}.
+ */
 export interface PutBucketVersioningCommandInput extends PutBucketVersioningRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutBucketVersioningCommand}.
+ */
 export interface PutBucketVersioningCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the versioning state of an existing bucket.</p>
  *          <p>You can set the versioning state with one of the following values:</p>
- *
  *          <p>
  *             <b>Enabled</b>—Enables versioning for the objects in the
  *          bucket. All objects added to the bucket receive a unique version ID.</p>
- *
  *          <p>
  *             <b>Suspended</b>—Disables versioning for the objects in the
  *          bucket. All objects added to the bucket receive the version ID null.</p>
- *
  *          <p>If the versioning state has never been set on a bucket, it has no versioning state; a
  *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketVersioning.html">GetBucketVersioning</a> request does not return a versioning state value.</p>
- *
  *          <p>In order to enable MFA Delete, you must be the bucket owner. If you are the bucket owner
- *          and want to enable MFA Delete in the bucket versioning configuration, you must
- *          include the <code>x-amz-mfa request</code> header and the
- *             <code>Status</code> and the <code>MfaDelete</code> request elements in a request to set
- *          the versioning state of the bucket.</p>
- *
+ *          and want to enable MFA Delete in the bucket versioning configuration, you must include the
+ *             <code>x-amz-mfa request</code> header and the <code>Status</code> and the
+ *             <code>MfaDelete</code> request elements in a request to set the versioning state of the
+ *          bucket.</p>
  *          <important>
  *             <p>If you have an object expiration lifecycle policy in your non-versioned bucket and
  *             you want to maintain the same permanent delete behavior when you enable versioning, you
@@ -53,7 +56,6 @@ export interface PutBucketVersioningCommandOutput extends __MetadataBearer {}
  *             version-enabled bucket maintains one current and zero or more noncurrent object
  *             versions.) For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html#lifecycle-and-other-bucket-config">Lifecycle and Versioning</a>.</p>
  *          </important>
- *
  *          <p class="title">
  *             <b>Related Resources</b>
  *          </p>
@@ -80,13 +82,42 @@ export interface PutBucketVersioningCommandOutput extends __MetadataBearer {}
  * import { S3Client, PutBucketVersioningCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutBucketVersioningCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // PutBucketVersioningRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   ContentMD5: "STRING_VALUE",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   MFA: "STRING_VALUE",
+ *   VersioningConfiguration: { // VersioningConfiguration
+ *     MFADelete: "Enabled" || "Disabled",
+ *     Status: "Enabled" || "Suspended",
+ *   },
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new PutBucketVersioningCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBucketVersioningCommandInput - {@link PutBucketVersioningCommandInput}
+ * @returns {@link PutBucketVersioningCommandOutput}
  * @see {@link PutBucketVersioningCommandInput} for command's `input` shape.
  * @see {@link PutBucketVersioningCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
+ *
+ *
+ * @example Set versioning configuration on a bucket
+ * ```javascript
+ * // The following example sets versioning configuration on bucket. The configuration enables versioning on the bucket.
+ * const input = {
+ *   "Bucket": "examplebucket",
+ *   "VersioningConfiguration": {
+ *     "MFADelete": "Disabled",
+ *     "Status": "Enabled"
+ *   }
+ * };
+ * const command = new PutBucketVersioningCommand(input);
+ * await client.send(command);
+ * // example id: set-versioning-configuration-on-a-bucket-1482344186279
+ * ```
  *
  */
 export class PutBucketVersioningCommand extends $Command<
@@ -112,6 +143,9 @@ export class PutBucketVersioningCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBucketVersioningCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,8 +181,8 @@ export class PutBucketVersioningCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutBucketVersioningRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -158,12 +192,18 @@ export class PutBucketVersioningCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutBucketVersioningCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutBucketVersioningCommand(input, context);
+    return se_PutBucketVersioningCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBucketVersioningCommandOutput> {
-    return deserializeAws_restXmlPutBucketVersioningCommand(output, context);
+    return de_PutBucketVersioningCommand(output, context);
   }
 
   // Start section: command_body_extra

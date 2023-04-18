@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListAccountsRequest,
-  ListAccountsRequestFilterSensitiveLog,
-  ListAccountsResponse,
-  ListAccountsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAccountsCommand,
-  serializeAws_restJson1ListAccountsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListAccountsRequest, ListAccountsRequestFilterSensitiveLog, ListAccountsResponse } from "../models/models_0";
+import { de_ListAccountsCommand, se_ListAccountsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOClientResolvedConfig } from "../SSOClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListAccountsCommand}.
+ */
 export interface ListAccountsCommandInput extends ListAccountsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListAccountsCommand}.
+ */
 export interface ListAccountsCommandOutput extends ListAccountsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all AWS accounts assigned to the user. These AWS accounts are assigned by the
  *       administrator of the account. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/useraccess.html#assignusers">Assign User Access</a> in the <i>IAM Identity Center User Guide</i>. This operation
  *       returns a paginated response.</p>
@@ -38,13 +41,36 @@ export interface ListAccountsCommandOutput extends ListAccountsResponse, __Metad
  * import { SSOClient, ListAccountsCommand } from "@aws-sdk/client-sso"; // ES Modules import
  * // const { SSOClient, ListAccountsCommand } = require("@aws-sdk/client-sso"); // CommonJS import
  * const client = new SSOClient(config);
+ * const input = { // ListAccountsRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   accessToken: "STRING_VALUE", // required
+ * };
  * const command = new ListAccountsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAccountsCommandInput - {@link ListAccountsCommandInput}
+ * @returns {@link ListAccountsCommandOutput}
  * @see {@link ListAccountsCommandInput} for command's `input` shape.
  * @see {@link ListAccountsCommandOutput} for command's `response` shape.
  * @see {@link SSOClientResolvedConfig | config} for SSOClient's `config` shape.
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>Indicates that a problem occurred with the input to the request. For example, a required
+ *       parameter might be missing or out of range.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource doesn't exist.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Indicates that the request is being made too frequently and is more than what the server
+ *       can handle.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>Indicates that the request is not authorized. This can happen due to an invalid access
+ *       token in the request.</p>
+ *
  *
  */
 export class ListAccountsCommand extends $Command<
@@ -64,6 +90,9 @@ export class ListAccountsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAccountsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,7 +120,7 @@ export class ListAccountsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: ListAccountsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAccountsResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +130,18 @@ export class ListAccountsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAccountsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAccountsCommand(input, context);
+    return se_ListAccountsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccountsCommandOutput> {
-    return deserializeAws_restJson1ListAccountsCommand(output, context);
+    return de_ListAccountsCommand(output, context);
   }
 
   // Start section: command_body_extra

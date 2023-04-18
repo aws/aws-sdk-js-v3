@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import { UntagLogGroupRequest, UntagLogGroupRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1UntagLogGroupCommand,
-  serializeAws_json1_1UntagLogGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { UntagLogGroupRequest } from "../models/models_0";
+import { de_UntagLogGroupCommand, se_UntagLogGroupCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UntagLogGroupCommand}.
+ */
 export interface UntagLogGroupCommandInput extends UntagLogGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UntagLogGroupCommand}.
+ */
 export interface UntagLogGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <important>
@@ -43,13 +51,25 @@ export interface UntagLogGroupCommandOutput extends __MetadataBearer {}
  * import { CloudWatchLogsClient, UntagLogGroupCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, UntagLogGroupCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = { // UntagLogGroupRequest
+ *   logGroupName: "STRING_VALUE", // required
+ *   tags: [ // TagList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagLogGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UntagLogGroupCommandInput - {@link UntagLogGroupCommandInput}
+ * @returns {@link UntagLogGroupCommandOutput}
  * @see {@link UntagLogGroupCommandInput} for command's `input` shape.
  * @see {@link UntagLogGroupCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
  *
  */
 export class UntagLogGroupCommand extends $Command<
@@ -69,6 +89,9 @@ export class UntagLogGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UntagLogGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +118,8 @@ export class UntagLogGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UntagLogGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +129,18 @@ export class UntagLogGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UntagLogGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UntagLogGroupCommand(input, context);
+    return se_UntagLogGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagLogGroupCommandOutput> {
-    return deserializeAws_json1_1UntagLogGroupCommand(output, context);
+    return de_UntagLogGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

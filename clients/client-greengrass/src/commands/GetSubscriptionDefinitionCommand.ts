@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import {
-  GetSubscriptionDefinitionRequest,
-  GetSubscriptionDefinitionRequestFilterSensitiveLog,
-  GetSubscriptionDefinitionResponse,
-  GetSubscriptionDefinitionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSubscriptionDefinitionCommand,
-  serializeAws_restJson1GetSubscriptionDefinitionCommand,
-} from "../protocols/Aws_restJson1";
+import { GetSubscriptionDefinitionRequest, GetSubscriptionDefinitionResponse } from "../models/models_0";
+import { de_GetSubscriptionDefinitionCommand, se_GetSubscriptionDefinitionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetSubscriptionDefinitionCommand}.
+ */
 export interface GetSubscriptionDefinitionCommandInput extends GetSubscriptionDefinitionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetSubscriptionDefinitionCommand}.
+ */
 export interface GetSubscriptionDefinitionCommandOutput extends GetSubscriptionDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Retrieves information about a subscription definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,22 @@ export interface GetSubscriptionDefinitionCommandOutput extends GetSubscriptionD
  * import { GreengrassClient, GetSubscriptionDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, GetSubscriptionDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // GetSubscriptionDefinitionRequest
+ *   SubscriptionDefinitionId: "STRING_VALUE", // required
+ * };
  * const command = new GetSubscriptionDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSubscriptionDefinitionCommandInput - {@link GetSubscriptionDefinitionCommandInput}
+ * @returns {@link GetSubscriptionDefinitionCommandOutput}
  * @see {@link GetSubscriptionDefinitionCommandInput} for command's `input` shape.
  * @see {@link GetSubscriptionDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  General error information.
+ *
  *
  */
 export class GetSubscriptionDefinitionCommand extends $Command<
@@ -62,6 +74,9 @@ export class GetSubscriptionDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSubscriptionDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +105,8 @@ export class GetSubscriptionDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSubscriptionDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSubscriptionDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +116,21 @@ export class GetSubscriptionDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSubscriptionDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSubscriptionDefinitionCommand(input, context);
+    return se_GetSubscriptionDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSubscriptionDefinitionCommandOutput> {
-    return deserializeAws_restJson1GetSubscriptionDefinitionCommand(output, context);
+    return de_GetSubscriptionDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

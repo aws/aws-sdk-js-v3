@@ -1,9 +1,11 @@
 // smithy-typescript generated code
 import { PaginationConfiguration } from "@aws-sdk/types";
 
-import { CodeGuruReviewer } from "../CodeGuruReviewer";
 import { CodeGuruReviewerClient } from "../CodeGuruReviewerClient";
 
+/**
+ * @public
+ */
 export interface CodeGuruReviewerPaginationConfiguration extends PaginationConfiguration {
-  client: CodeGuruReviewer | CodeGuruReviewerClient;
+  client: CodeGuruReviewerClient;
 }

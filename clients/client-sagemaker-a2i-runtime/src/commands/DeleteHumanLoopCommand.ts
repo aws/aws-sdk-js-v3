@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteHumanLoopRequest,
-  DeleteHumanLoopRequestFilterSensitiveLog,
-  DeleteHumanLoopResponse,
-  DeleteHumanLoopResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteHumanLoopCommand,
-  serializeAws_restJson1DeleteHumanLoopCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteHumanLoopRequest, DeleteHumanLoopResponse } from "../models/models_0";
+import { de_DeleteHumanLoopCommand, se_DeleteHumanLoopCommand } from "../protocols/Aws_restJson1";
 import {
   SageMakerA2IRuntimeClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../SageMakerA2IRuntimeClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteHumanLoopCommand}.
+ */
 export interface DeleteHumanLoopCommandInput extends DeleteHumanLoopRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteHumanLoopCommand}.
+ */
 export interface DeleteHumanLoopCommandOutput extends DeleteHumanLoopResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified human loop for a flow definition.</p>
  *          <p>If the human loop was deleted, this operation will return a
  *         <code>ResourceNotFoundException</code>. </p>
@@ -42,13 +45,36 @@ export interface DeleteHumanLoopCommandOutput extends DeleteHumanLoopResponse, _
  * import { SageMakerA2IRuntimeClient, DeleteHumanLoopCommand } from "@aws-sdk/client-sagemaker-a2i-runtime"; // ES Modules import
  * // const { SageMakerA2IRuntimeClient, DeleteHumanLoopCommand } = require("@aws-sdk/client-sagemaker-a2i-runtime"); // CommonJS import
  * const client = new SageMakerA2IRuntimeClient(config);
+ * const input = { // DeleteHumanLoopRequest
+ *   HumanLoopName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteHumanLoopCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteHumanLoopCommandInput - {@link DeleteHumanLoopCommandInput}
+ * @returns {@link DeleteHumanLoopCommandOutput}
  * @see {@link DeleteHumanLoopCommandInput} for command's `input` shape.
  * @see {@link DeleteHumanLoopCommandOutput} for command's `response` shape.
  * @see {@link SageMakerA2IRuntimeClientResolvedConfig | config} for SageMakerA2IRuntimeClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>We couldn't process your request because of an issue with the server. Try again
+ *       later.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>We couldn't find the requested resource. Check that your resources exists and were created
+ *       in the same AWS Region as your request, and try your request again. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>You exceeded
+ *       the
+ *       maximum number of requests.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The
+ *       request isn't valid. Check the syntax and try again.</p>
+ *
  *
  */
 export class DeleteHumanLoopCommand extends $Command<
@@ -68,6 +94,9 @@ export class DeleteHumanLoopCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteHumanLoopCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +125,8 @@ export class DeleteHumanLoopCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteHumanLoopRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteHumanLoopResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +136,18 @@ export class DeleteHumanLoopCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteHumanLoopCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteHumanLoopCommand(input, context);
+    return se_DeleteHumanLoopCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteHumanLoopCommandOutput> {
-    return deserializeAws_restJson1DeleteHumanLoopCommand(output, context);
+    return de_DeleteHumanLoopCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -228,6 +228,7 @@ import {
 } from "./commands/UntagResourceCommand";
 
 /**
+ * @public
  * <p>You can use Amazon CloudWatch Logs to monitor, store, and access your log files from
  *       EC2 instances, CloudTrail, and other sources. You can then retrieve the associated
  *       log data from CloudWatch Logs using the CloudWatch console. Alternatively, you can use
@@ -266,6 +267,7 @@ import {
  */
 export class CloudWatchLogs extends CloudWatchLogsClient {
   /**
+   * @public
    * <p>Associates the specified KMS key with the specified log
    *       group.</p>
    *          <p>Associating a KMS key with a log group overrides any existing
@@ -311,6 +313,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
+   * @public
    * <p>Cancels the specified export task.</p>
    *          <p>The task must be in the <code>PENDING</code> or <code>RUNNING</code> state.</p>
    */
@@ -344,6 +347,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
+   * @public
    * <p>Creates an export task so that you can efficiently export data from a log group to an
    *       Amazon S3 bucket. When you perform a <code>CreateExportTask</code> operation, you must use
    *       credentials that have permission to write to the S3 bucket that you specify as the
@@ -395,6 +399,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
+   * @public
    * <p>Creates a log group with the specified name. You can create up to 20,000 log groups per account.</p>
    *          <p>You must use the following guidelines when naming a log group:</p>
    *          <ul>
@@ -455,6 +460,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
+   * @public
    * <p>Creates a log stream for the specified log group. A log stream is a sequence of log events
    *       that originate from a single source, such as an application instance or a resource that is
    *       being monitored.</p>
@@ -503,6 +509,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
+   * @public
    * <p>Deletes the data protection policy from the specified log group. </p>
    *          <p>For more information about data protection policies, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDataProtectionPolicy.html">PutDataProtectionPolicy</a>.</p>
    */
@@ -536,6 +543,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified destination, and eventually disables all the
    *       subscription filters that publish to it. This operation does not delete the
    *       physical resource encapsulated by the destination.</p>
@@ -570,6 +578,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified log group and permanently deletes all the archived
    *       log events associated with the log group.</p>
    */
@@ -603,6 +612,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified log stream and permanently deletes all the archived log events associated
    *       with the log stream.</p>
    */
@@ -636,6 +646,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified metric filter.</p>
    */
   public deleteMetricFilter(
@@ -668,6 +679,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
+   * @public
    * <p>Deletes a saved CloudWatch Logs Insights query definition.
    *       A query definition contains details about a saved CloudWatch Logs Insights query.</p>
    *          <p>Each <code>DeleteQueryDefinition</code> operation can delete one query definition.</p>
@@ -704,6 +716,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
+   * @public
    * <p>Deletes a resource policy from this account. This revokes
    *     the access of the identities in that policy to put log events to this account.</p>
    */
@@ -737,6 +750,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified retention policy.</p>
    *          <p>Log events do not expire if they belong to log groups without a retention policy.</p>
    */
@@ -770,6 +784,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified subscription filter.</p>
    */
   public deleteSubscriptionFilter(
@@ -802,6 +817,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
+   * @public
    * <p>Lists all your destinations. The results are ASCII-sorted by destination name.</p>
    */
   public describeDestinations(
@@ -834,6 +850,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
+   * @public
    * <p>Lists the specified export tasks. You can list all your export tasks or filter
    *       the results based on task ID or task status.</p>
    */
@@ -867,6 +884,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
+   * @public
    * <p>Lists the specified log groups. You can list all your log groups or filter the results by prefix.
    *       The results are ASCII-sorted by log group name.</p>
    *          <p>CloudWatch Logs doesn’t support IAM policies that control access to the <code>DescribeLogGroups</code> action by using the
@@ -910,6 +928,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
+   * @public
    * <p>Lists the log streams for the specified log group.
    *       You can list all the log streams or filter the results by prefix.
    *       You can also control how the results are ordered.</p>
@@ -951,6 +970,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
+   * @public
    * <p>Lists the specified metric filters. You can list all of the metric filters or filter
    *       the results by log name, prefix, metric name, or metric namespace. The results are
    *       ASCII-sorted by filter name.</p>
@@ -985,6 +1005,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of CloudWatch Logs Insights queries that are scheduled, running, or have
    *       been run recently in this account. You can request all queries or limit it to queries of a
    *       specific log group or queries with a certain status.</p>
@@ -1019,6 +1040,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
+   * @public
    * <p>This operation returns a paginated list of your saved CloudWatch Logs Insights query definitions.</p>
    *          <p>You can use the <code>queryDefinitionNamePrefix</code> parameter to limit the results to only the
    *       query definitions that have names that start with a certain string.</p>
@@ -1053,6 +1075,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
+   * @public
    * <p>Lists the resource policies in this account.</p>
    */
   public describeResourcePolicies(
@@ -1085,6 +1108,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
+   * @public
    * <p>Lists the subscription filters for the specified log group. You can list all the subscription filters or filter the results by prefix.
    *       The results are ASCII-sorted by filter name.</p>
    */
@@ -1118,6 +1142,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
+   * @public
    * <p>Disassociates the associated KMS key from the specified log
    *       group.</p>
    *          <p>After the KMS key is disassociated from the log group, CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data
@@ -1155,6 +1180,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
+   * @public
    * <p>Lists log events from the specified log group. You can list all the log events or filter the results
    *       using a filter pattern, a time range, and the name of the log stream.</p>
    *          <p>You must have the <code>logs;FilterLogEvents</code> permission to perform this operation.</p>
@@ -1202,6 +1228,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a log group data protection policy.</p>
    */
   public getDataProtectionPolicy(
@@ -1234,6 +1261,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
+   * @public
    * <p>Lists log events from the specified log stream. You can list all of the log events or
    *       filter using a time range.</p>
    *          <p>By default, this operation returns as many log events as can fit in a response size of 1MB (up to 10,000 log events).
@@ -1273,6 +1301,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of the fields that are included in log events in the specified log group.
    *       Includes the percentage of log events that contain each field. The search is limited to a time
    *       period that you specify.</p>
@@ -1319,6 +1348,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves all of the fields and values of a single log event. All fields are retrieved,
    *       even if the original query that produced the <code>logRecordPointer</code> retrieved only a
    *       subset of fields. Fields are returned as field name/field value pairs.</p>
@@ -1351,6 +1381,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
+   * @public
    * <p>Returns the results from the specified query.</p>
    *          <p>Only the fields requested in the query are returned, along with a <code>@ptr</code>
    *       field, which is the identifier for the log record. You can use the value of <code>@ptr</code>
@@ -1395,6 +1426,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
+   * @public
    * <p>Displays the tags associated with a CloudWatch Logs resource. Currently, log groups
    *       and destinations support tagging.</p>
    */
@@ -1428,6 +1460,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <important>
@@ -1466,6 +1499,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
+   * @public
    * <p>Creates a data protection policy for the specified log group. A data protection policy can help safeguard sensitive
    *       data that's ingested by the log group by auditing and masking the sensitive log data.</p>
    *          <important>
@@ -1512,6 +1546,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
+   * @public
    * <p>Creates or updates a destination. This operation is used only to create destinations for cross-account subscriptions.</p>
    *          <p>A destination encapsulates a physical resource (such as an Amazon Kinesis stream). With
    *       a destination, you can subscribe to a real-time stream of log events for a different account,
@@ -1553,6 +1588,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
+   * @public
    * <p>Creates or updates an access policy associated with an existing
    *       destination. An access policy is an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies_overview.html">IAM policy document</a> that is used
    *       to authorize claims to register a subscription filter against a given destination.</p>
@@ -1587,6 +1623,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
+   * @public
    * <p>Uploads a batch of log events to the specified log stream.</p>
    *          <important>
    *             <p>The sequence token is now ignored in <code>PutLogEvents</code>
@@ -1661,6 +1698,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
+   * @public
    * <p>Creates or updates a metric filter and associates it with the specified log group. With
    *       metric filters, you can configure rules to extract metric data from log events ingested
    *       through <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html">PutLogEvents</a>.</p>
@@ -1715,6 +1753,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
+   * @public
    * <p>Creates or updates a query definition for CloudWatch Logs Insights. For
    *       more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html">Analyzing Log Data with CloudWatch Logs Insights</a>.</p>
    *          <p>To update a query definition, specify its <code>queryDefinitionId</code> in your request.
@@ -1757,6 +1796,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
+   * @public
    * <p>Creates or updates a resource policy allowing other Amazon Web Services services to put log events to
    *       this account, such as Amazon Route 53. An account can have up to 10 resource policies per Amazon Web Services
    *       Region.</p>
@@ -1791,6 +1831,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
+   * @public
    * <p>Sets the retention of the specified log group. With a retention policy, you can
    *       configure the number of days for which to retain log events in the specified log
    *       group.</p>
@@ -1837,6 +1878,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
+   * @public
    * <p>Creates or updates a subscription filter and associates it with the specified log
    *       group. With subscription filters, you can subscribe to a real-time stream of log events
    *       ingested through <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html">PutLogEvents</a>
@@ -1896,6 +1938,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
+   * @public
    * <p>Schedules a query of a log group using CloudWatch Logs Insights. You specify the log group
    *       and time range to query and the query string to use.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch Logs Insights Query Syntax</a>.</p>
@@ -1933,6 +1976,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
+   * @public
    * <p>Stops a CloudWatch Logs Insights query that is in progress. If the query has already ended, the operation
    *     returns an error indicating that the specified query is not running.</p>
    */
@@ -1960,6 +2004,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <important>
@@ -2001,6 +2046,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
+   * @public
    * <p>Assigns one or more tags (key-value pairs) to the specified CloudWatch Logs resource.
    *         Currently, the only CloudWatch Logs resources that
    *         can be tagged are log groups and destinations. </p>
@@ -2038,6 +2084,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
+   * @public
    * <p>Tests the filter pattern of a metric filter against a sample of log event messages. You
    *       can use this operation to validate the correctness of a metric filter pattern.</p>
    */
@@ -2071,6 +2118,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <important>
@@ -2115,6 +2163,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
+   * @public
    * <p>Removes one or more tags from the specified resource.</p>
    */
   public untagResource(

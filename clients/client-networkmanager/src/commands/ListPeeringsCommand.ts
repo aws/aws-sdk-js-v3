@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListPeeringsRequest,
-  ListPeeringsRequestFilterSensitiveLog,
-  ListPeeringsResponse,
-  ListPeeringsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListPeeringsRequest, ListPeeringsResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1ListPeeringsCommand,
-  serializeAws_restJson1ListPeeringsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListPeeringsCommand, se_ListPeeringsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListPeeringsCommand}.
+ */
 export interface ListPeeringsCommandInput extends ListPeeringsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListPeeringsCommand}.
+ */
 export interface ListPeeringsCommandOutput extends ListPeeringsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the peerings for a core network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,36 @@ export interface ListPeeringsCommandOutput extends ListPeeringsResponse, __Metad
  * import { NetworkManagerClient, ListPeeringsCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, ListPeeringsCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // ListPeeringsRequest
+ *   CoreNetworkId: "STRING_VALUE",
+ *   PeeringType: "TRANSIT_GATEWAY",
+ *   EdgeLocation: "STRING_VALUE",
+ *   State: "CREATING" || "FAILED" || "AVAILABLE" || "DELETING",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListPeeringsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPeeringsCommandInput - {@link ListPeeringsCommandInput}
+ * @returns {@link ListPeeringsCommandOutput}
  * @see {@link ListPeeringsCommandInput} for command's `input` shape.
  * @see {@link ListPeeringsCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request has failed due to an internal error.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints.</p>
+ *
  *
  */
 export class ListPeeringsCommand extends $Command<
@@ -62,6 +88,9 @@ export class ListPeeringsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPeeringsCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +117,8 @@ export class ListPeeringsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPeeringsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPeeringsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +128,18 @@ export class ListPeeringsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPeeringsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPeeringsCommand(input, context);
+    return se_ListPeeringsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPeeringsCommandOutput> {
-    return deserializeAws_restJson1ListPeeringsCommand(output, context);
+    return de_ListPeeringsCommand(output, context);
   }
 
   // Start section: command_body_extra

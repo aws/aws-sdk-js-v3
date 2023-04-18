@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  GetGatewayGroupRequest,
-  GetGatewayGroupRequestFilterSensitiveLog,
-  GetGatewayGroupResponse,
-  GetGatewayGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetGatewayGroupCommand,
-  serializeAws_json1_1GetGatewayGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { GetGatewayGroupRequest, GetGatewayGroupResponse } from "../models/models_0";
+import { de_GetGatewayGroupCommand, se_GetGatewayGroupCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetGatewayGroupCommand}.
+ */
 export interface GetGatewayGroupCommandInput extends GetGatewayGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetGatewayGroupCommand}.
+ */
 export interface GetGatewayGroupCommandOutput extends GetGatewayGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the details of a gateway group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,22 @@ export interface GetGatewayGroupCommandOutput extends GetGatewayGroupResponse, _
  * import { AlexaForBusinessClient, GetGatewayGroupCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, GetGatewayGroupCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // GetGatewayGroupRequest
+ *   GatewayGroupArn: "STRING_VALUE", // required
+ * };
  * const command = new GetGatewayGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetGatewayGroupCommandInput - {@link GetGatewayGroupCommandInput}
+ * @returns {@link GetGatewayGroupCommandOutput}
  * @see {@link GetGatewayGroupCommandInput} for command's `input` shape.
  * @see {@link GetGatewayGroupCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
  *
  */
 export class GetGatewayGroupCommand extends $Command<
@@ -62,6 +74,9 @@ export class GetGatewayGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetGatewayGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +105,8 @@ export class GetGatewayGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetGatewayGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetGatewayGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +116,18 @@ export class GetGatewayGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetGatewayGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetGatewayGroupCommand(input, context);
+    return se_GetGatewayGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGatewayGroupCommandOutput> {
-    return deserializeAws_json1_1GetGatewayGroupCommand(output, context);
+    return de_GetGatewayGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

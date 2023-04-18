@@ -1,5 +1,8 @@
 import { Storage } from "./Storage";
 
+/**
+ * @internal
+ */
 export class InMemoryStorage implements Storage {
   constructor(private store: Record<string, string> = {}) {}
 

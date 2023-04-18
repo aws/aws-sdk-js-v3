@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetNetworkRequest,
-  GetNetworkRequestFilterSensitiveLog,
-  GetNetworkResponse,
-  GetNetworkResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetNetworkRequest, GetNetworkResponse, GetNetworkResponseFilterSensitiveLog } from "../models/models_0";
 import { PrivateNetworksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PrivateNetworksClient";
-import {
-  deserializeAws_restJson1GetNetworkCommand,
-  serializeAws_restJson1GetNetworkCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetNetworkCommand, se_GetNetworkCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetNetworkCommand}.
+ */
 export interface GetNetworkCommandInput extends GetNetworkRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetNetworkCommand}.
+ */
 export interface GetNetworkCommandOutput extends GetNetworkResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the specified network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,28 @@ export interface GetNetworkCommandOutput extends GetNetworkResponse, __MetadataB
  * import { PrivateNetworksClient, GetNetworkCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
  * // const { PrivateNetworksClient, GetNetworkCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
  * const client = new PrivateNetworksClient(config);
+ * const input = { // GetNetworkRequest
+ *   networkArn: "STRING_VALUE", // required
+ * };
  * const command = new GetNetworkCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetNetworkCommandInput - {@link GetNetworkCommandInput}
+ * @returns {@link GetNetworkCommandOutput}
  * @see {@link GetNetworkCommandInput} for command's `input` shape.
  * @see {@link GetNetworkCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Information about an internal error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request failed validation.</p>
+ *
  *
  */
 export class GetNetworkCommand extends $Command<
@@ -62,6 +80,9 @@ export class GetNetworkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetNetworkCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,7 +109,7 @@ export class GetNetworkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetNetworkRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetNetworkResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -99,12 +120,18 @@ export class GetNetworkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetNetworkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetNetworkCommand(input, context);
+    return se_GetNetworkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetNetworkCommandOutput> {
-    return deserializeAws_restJson1GetNetworkCommand(output, context);
+    return de_GetNetworkCommand(output, context);
   }
 
   // Start section: command_body_extra

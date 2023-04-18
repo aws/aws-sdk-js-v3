@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
+import { ListCuratedEnvironmentImagesInput, ListCuratedEnvironmentImagesOutput } from "../models/models_0";
 import {
-  ListCuratedEnvironmentImagesInput,
-  ListCuratedEnvironmentImagesInputFilterSensitiveLog,
-  ListCuratedEnvironmentImagesOutput,
-  ListCuratedEnvironmentImagesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListCuratedEnvironmentImagesCommand,
-  serializeAws_json1_1ListCuratedEnvironmentImagesCommand,
+  de_ListCuratedEnvironmentImagesCommand,
+  se_ListCuratedEnvironmentImagesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListCuratedEnvironmentImagesCommand}.
+ */
 export interface ListCuratedEnvironmentImagesCommandInput extends ListCuratedEnvironmentImagesInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListCuratedEnvironmentImagesCommand}.
+ */
 export interface ListCuratedEnvironmentImagesCommandOutput
   extends ListCuratedEnvironmentImagesOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about Docker images that are managed by CodeBuild.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,17 @@ export interface ListCuratedEnvironmentImagesCommandOutput
  * import { CodeBuildClient, ListCuratedEnvironmentImagesCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, ListCuratedEnvironmentImagesCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = {};
  * const command = new ListCuratedEnvironmentImagesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCuratedEnvironmentImagesCommandInput - {@link ListCuratedEnvironmentImagesCommandInput}
+ * @returns {@link ListCuratedEnvironmentImagesCommandOutput}
  * @see {@link ListCuratedEnvironmentImagesCommandInput} for command's `input` shape.
  * @see {@link ListCuratedEnvironmentImagesCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
+ *
  *
  */
 export class ListCuratedEnvironmentImagesCommand extends $Command<
@@ -64,6 +74,9 @@ export class ListCuratedEnvironmentImagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCuratedEnvironmentImagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +105,8 @@ export class ListCuratedEnvironmentImagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCuratedEnvironmentImagesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCuratedEnvironmentImagesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +116,21 @@ export class ListCuratedEnvironmentImagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCuratedEnvironmentImagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCuratedEnvironmentImagesCommand(input, context);
+    return se_ListCuratedEnvironmentImagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListCuratedEnvironmentImagesCommandOutput> {
-    return deserializeAws_json1_1ListCuratedEnvironmentImagesCommand(output, context);
+    return de_ListCuratedEnvironmentImagesCommand(output, context);
   }
 
   // Start section: command_body_extra

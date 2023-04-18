@@ -6,12 +6,11 @@ import {
   DescribeModelVersionsCommandInput,
   DescribeModelVersionsCommandOutput,
 } from "../commands/DescribeModelVersionsCommand";
-import { FraudDetector } from "../FraudDetector";
 import { FraudDetectorClient } from "../FraudDetectorClient";
 import { FraudDetectorPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: FraudDetectorClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeModelVersionsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: FraudDetector,
-  input: DescribeModelVersionsCommandInput,
-  ...args: any
-): Promise<DescribeModelVersionsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeModelVersions(input, ...args);
-};
 export async function* paginateDescribeModelVersions(
   config: FraudDetectorPaginationConfiguration,
   input: DescribeModelVersionsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateDescribeModelVersions(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof FraudDetector) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof FraudDetectorClient) {
+    if (config.client instanceof FraudDetectorClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected FraudDetector | FraudDetectorClient");

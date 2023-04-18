@@ -6,12 +6,11 @@ import {
   ListExperimentTemplatesCommandInput,
   ListExperimentTemplatesCommandOutput,
 } from "../commands/ListExperimentTemplatesCommand";
-import { Fis } from "../Fis";
 import { FisClient } from "../FisClient";
 import { FisPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: FisClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListExperimentTemplatesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Fis,
-  input: ListExperimentTemplatesCommandInput,
-  ...args: any
-): Promise<ListExperimentTemplatesCommandOutput> => {
-  // @ts-ignore
-  return await client.listExperimentTemplates(input, ...args);
-};
 export async function* paginateListExperimentTemplates(
   config: FisPaginationConfiguration,
   input: ListExperimentTemplatesCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListExperimentTemplates(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Fis) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof FisClient) {
+    if (config.client instanceof FisClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Fis | FisClient");

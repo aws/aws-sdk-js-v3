@@ -5,6 +5,8 @@ import {
 } from "@aws-sdk/smithy-client";
 
 /**
+ * @public
+ *
  * Base exception class for all service exceptions from ChimeSDKVoice service.
  */
 export class ChimeSDKVoiceServiceException extends __ServiceException {

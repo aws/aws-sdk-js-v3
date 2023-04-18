@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticTranscoderClient";
-import {
-  ListPipelinesRequest,
-  ListPipelinesRequestFilterSensitiveLog,
-  ListPipelinesResponse,
-  ListPipelinesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListPipelinesCommand,
-  serializeAws_restJson1ListPipelinesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListPipelinesRequest, ListPipelinesResponse } from "../models/models_0";
+import { de_ListPipelinesCommand, se_ListPipelinesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListPipelinesCommand}.
+ */
 export interface ListPipelinesCommandInput extends ListPipelinesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListPipelinesCommand}.
+ */
 export interface ListPipelinesCommandOutput extends ListPipelinesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The ListPipelines operation gets a list of the pipelines associated with the current AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,31 @@ export interface ListPipelinesCommandOutput extends ListPipelinesResponse, __Met
  * import { ElasticTranscoderClient, ListPipelinesCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
  * // const { ElasticTranscoderClient, ListPipelinesCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import
  * const client = new ElasticTranscoderClient(config);
+ * const input = { // ListPipelinesRequest
+ *   Ascending: "STRING_VALUE",
+ *   PageToken: "STRING_VALUE",
+ * };
  * const command = new ListPipelinesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPipelinesCommandInput - {@link ListPipelinesCommandInput}
+ * @returns {@link ListPipelinesCommandOutput}
  * @see {@link ListPipelinesCommandInput} for command's `input` shape.
  * @see {@link ListPipelinesCommandOutput} for command's `response` shape.
  * @see {@link ElasticTranscoderClientResolvedConfig | config} for ElasticTranscoderClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>General authentication failure. The request was not signed correctly.</p>
+ *
+ * @throws {@link IncompatibleVersionException} (client fault)
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Elastic Transcoder encountered an unexpected exception while trying to fulfill the request.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One or more required parameter values were not provided in the request.</p>
+ *
  *
  */
 export class ListPipelinesCommand extends $Command<
@@ -66,6 +87,9 @@ export class ListPipelinesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPipelinesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +116,8 @@ export class ListPipelinesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPipelinesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPipelinesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +127,18 @@ export class ListPipelinesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPipelinesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPipelinesCommand(input, context);
+    return se_ListPipelinesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPipelinesCommandOutput> {
-    return deserializeAws_restJson1ListPipelinesCommand(output, context);
+    return de_ListPipelinesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import {
-  GetCalculationExecutionRequest,
-  GetCalculationExecutionRequestFilterSensitiveLog,
-  GetCalculationExecutionResponse,
-  GetCalculationExecutionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetCalculationExecutionCommand,
-  serializeAws_json1_1GetCalculationExecutionCommand,
-} from "../protocols/Aws_json1_1";
+import { GetCalculationExecutionRequest, GetCalculationExecutionResponse } from "../models/models_0";
+import { de_GetCalculationExecutionCommand, se_GetCalculationExecutionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetCalculationExecutionCommand}.
+ */
 export interface GetCalculationExecutionCommandInput extends GetCalculationExecutionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetCalculationExecutionCommand}.
+ */
 export interface GetCalculationExecutionCommandOutput extends GetCalculationExecutionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a previously submitted calculation execution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,30 @@ export interface GetCalculationExecutionCommandOutput extends GetCalculationExec
  * import { AthenaClient, GetCalculationExecutionCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, GetCalculationExecutionCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = { // GetCalculationExecutionRequest
+ *   CalculationExecutionId: "STRING_VALUE", // required
+ * };
  * const command = new GetCalculationExecutionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCalculationExecutionCommandInput - {@link GetCalculationExecutionCommandInput}
+ * @returns {@link GetCalculationExecutionCommandOutput}
  * @see {@link GetCalculationExecutionCommandInput} for command's `input` shape.
  * @see {@link GetCalculationExecutionCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Indicates a platform issue, which may be due to a transient condition or
+ *             outage.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>Indicates that something is wrong with the input to the request. For example, a
+ *             required parameter may be missing or out of range.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource, such as a workgroup, was not found.</p>
+ *
  *
  */
 export class GetCalculationExecutionCommand extends $Command<
@@ -62,6 +82,9 @@ export class GetCalculationExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCalculationExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +113,8 @@ export class GetCalculationExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCalculationExecutionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCalculationExecutionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +124,18 @@ export class GetCalculationExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCalculationExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetCalculationExecutionCommand(input, context);
+    return se_GetCalculationExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCalculationExecutionCommandOutput> {
-    return deserializeAws_json1_1GetCalculationExecutionCommand(output, context);
+    return de_GetCalculationExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

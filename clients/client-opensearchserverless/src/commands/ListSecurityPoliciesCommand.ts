@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListSecurityPoliciesRequest,
-  ListSecurityPoliciesRequestFilterSensitiveLog,
-  ListSecurityPoliciesResponse,
-  ListSecurityPoliciesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListSecurityPoliciesRequest, ListSecurityPoliciesResponse } from "../models/models_0";
 import {
   OpenSearchServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import {
-  deserializeAws_json1_0ListSecurityPoliciesCommand,
-  serializeAws_json1_0ListSecurityPoliciesCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListSecurityPoliciesCommand, se_ListSecurityPoliciesCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link ListSecurityPoliciesCommand}.
+ */
 export interface ListSecurityPoliciesCommandInput extends ListSecurityPoliciesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListSecurityPoliciesCommand}.
+ */
 export interface ListSecurityPoliciesCommandOutput extends ListSecurityPoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about configured OpenSearch Serverless security policies.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,31 @@ export interface ListSecurityPoliciesCommandOutput extends ListSecurityPoliciesR
  * import { OpenSearchServerlessClient, ListSecurityPoliciesCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, ListSecurityPoliciesCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
+ * const input = { // ListSecurityPoliciesRequest
+ *   type: "STRING_VALUE", // required
+ *   resource: [ // ResourceFilter
+ *     "STRING_VALUE",
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListSecurityPoliciesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSecurityPoliciesCommandInput - {@link ListSecurityPoliciesCommandInput}
+ * @returns {@link ListSecurityPoliciesCommandOutput}
  * @see {@link ListSecurityPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListSecurityPoliciesCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Thrown when an error internal to the service occurs while processing a request.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Thrown when the HTTP request contains invalid input or is missing required
+ *             input.</p>
+ *
  *
  */
 export class ListSecurityPoliciesCommand extends $Command<
@@ -66,6 +87,9 @@ export class ListSecurityPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSecurityPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +118,8 @@ export class ListSecurityPoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSecurityPoliciesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSecurityPoliciesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +129,18 @@ export class ListSecurityPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSecurityPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListSecurityPoliciesCommand(input, context);
+    return se_ListSecurityPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSecurityPoliciesCommandOutput> {
-    return deserializeAws_json1_0ListSecurityPoliciesCommand(output, context);
+    return de_ListSecurityPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

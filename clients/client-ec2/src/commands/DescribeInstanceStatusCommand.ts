@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeInstanceStatusRequest,
-  DescribeInstanceStatusRequestFilterSensitiveLog,
-  DescribeInstanceStatusResult,
-  DescribeInstanceStatusResultFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeInstanceStatusCommand,
-  serializeAws_ec2DescribeInstanceStatusCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeInstanceStatusRequest, DescribeInstanceStatusResult } from "../models/models_4";
+import { de_DescribeInstanceStatusCommand, se_DescribeInstanceStatusCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeInstanceStatusCommand}.
+ */
 export interface DescribeInstanceStatusCommandInput extends DescribeInstanceStatusRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeInstanceStatusCommand}.
+ */
 export interface DescribeInstanceStatusCommandOutput extends DescribeInstanceStatusResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the status of the specified instances or all of your instances. By default,
  *             only running instances are described, unless you specifically indicate to return the
  *             status of all instances.</p>
@@ -64,13 +67,78 @@ export interface DescribeInstanceStatusCommandOutput extends DescribeInstanceSta
  * import { EC2Client, DescribeInstanceStatusCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeInstanceStatusCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeInstanceStatusRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   InstanceIds: [ // InstanceIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   DryRun: true || false,
+ *   IncludeAllInstances: true || false,
+ * };
  * const command = new DescribeInstanceStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInstanceStatusCommandInput - {@link DescribeInstanceStatusCommandInput}
+ * @returns {@link DescribeInstanceStatusCommandOutput}
  * @see {@link DescribeInstanceStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceStatusCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ *
+ * @example To describe the status of an instance
+ * ```javascript
+ * // This example describes the current status of the specified instance.
+ * const input = {
+ *   "InstanceIds": [
+ *     "i-1234567890abcdef0"
+ *   ]
+ * };
+ * const command = new DescribeInstanceStatusCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "InstanceStatuses": [
+ *     {
+ *       "AvailabilityZone": "us-east-1d",
+ *       "InstanceId": "i-1234567890abcdef0",
+ *       "InstanceState": {
+ *         "Code": 16,
+ *         "Name": "running"
+ *       },
+ *       "InstanceStatus": {
+ *         "Details": [
+ *           {
+ *             "Name": "reachability",
+ *             "Status": "passed"
+ *           }
+ *         ],
+ *         "Status": "ok"
+ *       },
+ *       "SystemStatus": {
+ *         "Details": [
+ *           {
+ *             "Name": "reachability",
+ *             "Status": "passed"
+ *           }
+ *         ],
+ *         "Status": "ok"
+ *       }
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-the-status-of-an-instance-1529025696830
+ * ```
  *
  */
 export class DescribeInstanceStatusCommand extends $Command<
@@ -90,6 +158,9 @@ export class DescribeInstanceStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInstanceStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +189,8 @@ export class DescribeInstanceStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInstanceStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeInstanceStatusResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +200,18 @@ export class DescribeInstanceStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInstanceStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeInstanceStatusCommand(input, context);
+    return se_DescribeInstanceStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeInstanceStatusCommandOutput> {
-    return deserializeAws_ec2DescribeInstanceStatusCommand(output, context);
+    return de_DescribeInstanceStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

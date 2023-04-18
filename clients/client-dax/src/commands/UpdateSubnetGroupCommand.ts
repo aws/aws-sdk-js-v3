@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
-import {
-  UpdateSubnetGroupRequest,
-  UpdateSubnetGroupRequestFilterSensitiveLog,
-  UpdateSubnetGroupResponse,
-  UpdateSubnetGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateSubnetGroupCommand,
-  serializeAws_json1_1UpdateSubnetGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateSubnetGroupRequest, UpdateSubnetGroupResponse } from "../models/models_0";
+import { de_UpdateSubnetGroupCommand, se_UpdateSubnetGroupCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateSubnetGroupCommand}.
+ */
 export interface UpdateSubnetGroupCommandInput extends UpdateSubnetGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateSubnetGroupCommand}.
+ */
 export interface UpdateSubnetGroupCommandOutput extends UpdateSubnetGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies an existing subnet group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,40 @@ export interface UpdateSubnetGroupCommandOutput extends UpdateSubnetGroupRespons
  * import { DAXClient, UpdateSubnetGroupCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, UpdateSubnetGroupCommand } = require("@aws-sdk/client-dax"); // CommonJS import
  * const client = new DAXClient(config);
+ * const input = { // UpdateSubnetGroupRequest
+ *   SubnetGroupName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   SubnetIds: [ // SubnetIdentifierList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateSubnetGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSubnetGroupCommandInput - {@link UpdateSubnetGroupCommandInput}
+ * @returns {@link UpdateSubnetGroupCommandOutput}
  * @see {@link UpdateSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
+ *
+ * @throws {@link InvalidSubnet} (client fault)
+ *  <p>An invalid subnet identifier was specified.</p>
+ *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p>The specified service linked role (SLR) was not found.</p>
+ *
+ * @throws {@link SubnetGroupNotFoundFault} (client fault)
+ *  <p>The requested subnet group name does not refer to an existing subnet
+ *             group.</p>
+ *
+ * @throws {@link SubnetInUse} (client fault)
+ *  <p>The requested subnet is being used by another subnet group.</p>
+ *
+ * @throws {@link SubnetQuotaExceededFault} (client fault)
+ *  <p>The request cannot be processed because it would exceed the allowed number of
+ *             subnets in a subnet group.</p>
+ *
  *
  */
 export class UpdateSubnetGroupCommand extends $Command<
@@ -62,6 +92,9 @@ export class UpdateSubnetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSubnetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +123,8 @@ export class UpdateSubnetGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSubnetGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSubnetGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +134,18 @@ export class UpdateSubnetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateSubnetGroupCommand(input, context);
+    return se_UpdateSubnetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSubnetGroupCommandOutput> {
-    return deserializeAws_json1_1UpdateSubnetGroupCommand(output, context);
+    return de_UpdateSubnetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

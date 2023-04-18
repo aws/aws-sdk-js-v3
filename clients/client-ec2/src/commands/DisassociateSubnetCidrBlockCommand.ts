@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DisassociateSubnetCidrBlockRequest,
-  DisassociateSubnetCidrBlockRequestFilterSensitiveLog,
-  DisassociateSubnetCidrBlockResult,
-  DisassociateSubnetCidrBlockResultFilterSensitiveLog,
-} from "../models/models_5";
-import {
-  deserializeAws_ec2DisassociateSubnetCidrBlockCommand,
-  serializeAws_ec2DisassociateSubnetCidrBlockCommand,
-} from "../protocols/Aws_ec2";
+import { DisassociateSubnetCidrBlockRequest, DisassociateSubnetCidrBlockResult } from "../models/models_5";
+import { de_DisassociateSubnetCidrBlockCommand, se_DisassociateSubnetCidrBlockCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DisassociateSubnetCidrBlockCommand}.
+ */
 export interface DisassociateSubnetCidrBlockCommandInput extends DisassociateSubnetCidrBlockRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateSubnetCidrBlockCommand}.
+ */
 export interface DisassociateSubnetCidrBlockCommandOutput extends DisassociateSubnetCidrBlockResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a CIDR block from a subnet. Currently, you can disassociate an IPv6 CIDR block only. You must detach or delete all gateways and resources that are associated with the CIDR block before you can disassociate it. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,19 @@ export interface DisassociateSubnetCidrBlockCommandOutput extends DisassociateSu
  * import { EC2Client, DisassociateSubnetCidrBlockCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DisassociateSubnetCidrBlockCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DisassociateSubnetCidrBlockRequest
+ *   AssociationId: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateSubnetCidrBlockCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateSubnetCidrBlockCommandInput - {@link DisassociateSubnetCidrBlockCommandInput}
+ * @returns {@link DisassociateSubnetCidrBlockCommandOutput}
  * @see {@link DisassociateSubnetCidrBlockCommandInput} for command's `input` shape.
  * @see {@link DisassociateSubnetCidrBlockCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class DisassociateSubnetCidrBlockCommand extends $Command<
@@ -62,6 +71,9 @@ export class DisassociateSubnetCidrBlockCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateSubnetCidrBlockCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +102,8 @@ export class DisassociateSubnetCidrBlockCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateSubnetCidrBlockRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateSubnetCidrBlockResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +113,21 @@ export class DisassociateSubnetCidrBlockCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateSubnetCidrBlockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DisassociateSubnetCidrBlockCommand(input, context);
+    return se_DisassociateSubnetCidrBlockCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateSubnetCidrBlockCommandOutput> {
-    return deserializeAws_ec2DisassociateSubnetCidrBlockCommand(output, context);
+    return de_DisassociateSubnetCidrBlockCommand(output, context);
   }
 
   // Start section: command_body_extra

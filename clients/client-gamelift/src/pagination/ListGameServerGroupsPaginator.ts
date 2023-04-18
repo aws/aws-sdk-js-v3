@@ -6,12 +6,11 @@ import {
   ListGameServerGroupsCommandInput,
   ListGameServerGroupsCommandOutput,
 } from "../commands/ListGameServerGroupsCommand";
-import { GameLift } from "../GameLift";
 import { GameLiftClient } from "../GameLiftClient";
 import { GameLiftPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: GameLiftClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListGameServerGroupsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: GameLift,
-  input: ListGameServerGroupsCommandInput,
-  ...args: any
-): Promise<ListGameServerGroupsCommandOutput> => {
-  // @ts-ignore
-  return await client.listGameServerGroups(input, ...args);
-};
 export async function* paginateListGameServerGroups(
   config: GameLiftPaginationConfiguration,
   input: ListGameServerGroupsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListGameServerGroups(
   while (hasNext) {
     input.NextToken = token;
     input["Limit"] = config.pageSize;
-    if (config.client instanceof GameLift) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof GameLiftClient) {
+    if (config.client instanceof GameLiftClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected GameLift | GameLiftClient");

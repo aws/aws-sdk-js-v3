@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameSparksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameSparksClient";
-import {
-  ExportSnapshotRequest,
-  ExportSnapshotRequestFilterSensitiveLog,
-  ExportSnapshotResult,
-  ExportSnapshotResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ExportSnapshotCommand,
-  serializeAws_restJson1ExportSnapshotCommand,
-} from "../protocols/Aws_restJson1";
+import { ExportSnapshotRequest, ExportSnapshotResult } from "../models/models_0";
+import { de_ExportSnapshotCommand, se_ExportSnapshotCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ExportSnapshotCommand}.
+ */
 export interface ExportSnapshotCommandInput extends ExportSnapshotRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ExportSnapshotCommand}.
+ */
 export interface ExportSnapshotCommandOutput extends ExportSnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Exports a game configuration snapshot.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,35 @@ export interface ExportSnapshotCommandOutput extends ExportSnapshotResult, __Met
  * import { GameSparksClient, ExportSnapshotCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, ExportSnapshotCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
+ * const input = { // ExportSnapshotRequest
+ *   GameName: "STRING_VALUE", // required
+ *   SnapshotId: "STRING_VALUE", // required
+ * };
  * const command = new ExportSnapshotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ExportSnapshotCommandInput - {@link ExportSnapshotCommandInput}
+ * @returns {@link ExportSnapshotCommandOutput}
  * @see {@link ExportSnapshotCommandInput} for command's `input` shape.
  * @see {@link ExportSnapshotCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The service encountered an internal error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request throughput limit was exceeded.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One of the parameters in the request is invalid.</p>
+ *
  *
  */
 export class ExportSnapshotCommand extends $Command<
@@ -62,6 +87,9 @@ export class ExportSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExportSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +118,8 @@ export class ExportSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExportSnapshotRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ExportSnapshotResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +129,18 @@ export class ExportSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExportSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ExportSnapshotCommand(input, context);
+    return se_ExportSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExportSnapshotCommandOutput> {
-    return deserializeAws_restJson1ExportSnapshotCommand(output, context);
+    return de_ExportSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

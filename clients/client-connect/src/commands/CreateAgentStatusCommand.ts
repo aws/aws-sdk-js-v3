@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  CreateAgentStatusRequest,
-  CreateAgentStatusRequestFilterSensitiveLog,
-  CreateAgentStatusResponse,
-  CreateAgentStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateAgentStatusCommand,
-  serializeAws_restJson1CreateAgentStatusCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateAgentStatusRequest, CreateAgentStatusResponse } from "../models/models_0";
+import { de_CreateAgentStatusCommand, se_CreateAgentStatusCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateAgentStatusCommand}.
+ */
 export interface CreateAgentStatusCommandInput extends CreateAgentStatusRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateAgentStatusCommand}.
+ */
 export interface CreateAgentStatusCommandOutput extends CreateAgentStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Creates an agent status for the specified Amazon Connect instance.</p>
  * @example
@@ -37,13 +40,47 @@ export interface CreateAgentStatusCommandOutput extends CreateAgentStatusRespons
  * import { ConnectClient, CreateAgentStatusCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, CreateAgentStatusCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // CreateAgentStatusRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   State: "ENABLED" || "DISABLED", // required
+ *   DisplayOrder: Number("int"),
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateAgentStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAgentStatusCommandInput - {@link CreateAgentStatusCommandInput}
+ * @returns {@link CreateAgentStatusCommandOutput}
  * @see {@link CreateAgentStatusCommandInput} for command's `input` shape.
  * @see {@link CreateAgentStatusCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link DuplicateResourceException} (client fault)
+ *  <p>A resource with the specified name already exists.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The allowed limit for the resource has been exceeded.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
  *
  */
 export class CreateAgentStatusCommand extends $Command<
@@ -63,6 +100,9 @@ export class CreateAgentStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAgentStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +131,8 @@ export class CreateAgentStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAgentStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAgentStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +142,18 @@ export class CreateAgentStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAgentStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAgentStatusCommand(input, context);
+    return se_CreateAgentStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAgentStatusCommandOutput> {
-    return deserializeAws_restJson1CreateAgentStatusCommand(output, context);
+    return de_CreateAgentStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

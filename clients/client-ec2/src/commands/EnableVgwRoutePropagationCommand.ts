@@ -14,19 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  EnableVgwRoutePropagationRequest,
-  EnableVgwRoutePropagationRequestFilterSensitiveLog,
-} from "../models/models_5";
-import {
-  deserializeAws_ec2EnableVgwRoutePropagationCommand,
-  serializeAws_ec2EnableVgwRoutePropagationCommand,
-} from "../protocols/Aws_ec2";
+import { EnableVgwRoutePropagationRequest } from "../models/models_5";
+import { de_EnableVgwRoutePropagationCommand, se_EnableVgwRoutePropagationCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link EnableVgwRoutePropagationCommand}.
+ */
 export interface EnableVgwRoutePropagationCommandInput extends EnableVgwRoutePropagationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link EnableVgwRoutePropagationCommand}.
+ */
 export interface EnableVgwRoutePropagationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables a virtual private gateway (VGW) to propagate routes to the specified route
  *             table of a VPC.</p>
  * @example
@@ -35,13 +40,33 @@ export interface EnableVgwRoutePropagationCommandOutput extends __MetadataBearer
  * import { EC2Client, EnableVgwRoutePropagationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, EnableVgwRoutePropagationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // EnableVgwRoutePropagationRequest
+ *   GatewayId: "STRING_VALUE", // required
+ *   RouteTableId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new EnableVgwRoutePropagationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableVgwRoutePropagationCommandInput - {@link EnableVgwRoutePropagationCommandInput}
+ * @returns {@link EnableVgwRoutePropagationCommandOutput}
  * @see {@link EnableVgwRoutePropagationCommandInput} for command's `input` shape.
  * @see {@link EnableVgwRoutePropagationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ *
+ * @example To enable route propagation
+ * ```javascript
+ * // This example enables the specified virtual private gateway to propagate static routes to the specified route table.
+ * const input = {
+ *   "GatewayId": "vgw-9a4cacf3",
+ *   "RouteTableId": "rtb-22574640"
+ * };
+ * const command = new EnableVgwRoutePropagationCommand(input);
+ * await client.send(command);
+ * // example id: ec2-enable-vgw-route-propagation-1
+ * ```
  *
  */
 export class EnableVgwRoutePropagationCommand extends $Command<
@@ -61,6 +86,9 @@ export class EnableVgwRoutePropagationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableVgwRoutePropagationCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +117,8 @@ export class EnableVgwRoutePropagationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableVgwRoutePropagationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,15 +128,21 @@ export class EnableVgwRoutePropagationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableVgwRoutePropagationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2EnableVgwRoutePropagationCommand(input, context);
+    return se_EnableVgwRoutePropagationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EnableVgwRoutePropagationCommandOutput> {
-    return deserializeAws_ec2EnableVgwRoutePropagationCommand(output, context);
+    return de_EnableVgwRoutePropagationCommand(output, context);
   }
 
   // Start section: command_body_extra

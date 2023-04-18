@@ -122,7 +122,7 @@ describe(EventStreamPayloadHandler.name, () => {
       eventSigner: expect.anything(),
     });
   });
-  
+
   it("should start piping to request payload through event signer if downstream middleware returns", async () => {
     const authorization =
       "AWS4-HMAC-SHA256 Credential=AKID/20200510/us-west-2/foo/aws4_request, SignedHeaders=host, Signature=1234567890";

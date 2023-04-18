@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DeleteInstanceRequest, DeleteInstanceRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteInstanceCommand,
-  serializeAws_restJson1DeleteInstanceCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteInstanceRequest } from "../models/models_0";
+import { de_DeleteInstanceCommand, se_DeleteInstanceCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteInstanceCommand}.
+ */
 export interface DeleteInstanceCommandInput extends DeleteInstanceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteInstanceCommand}.
+ */
 export interface DeleteInstanceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Deletes the Amazon Connect instance.</p>
  *          <p>Amazon Connect enforces a limit on the total number of instances that you can create or delete in 30 days.
@@ -35,13 +43,28 @@ export interface DeleteInstanceCommandOutput extends __MetadataBearer {}
  * import { ConnectClient, DeleteInstanceCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DeleteInstanceCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // DeleteInstanceRequest
+ *   InstanceId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteInstanceCommandInput - {@link DeleteInstanceCommandInput}
+ * @returns {@link DeleteInstanceCommandOutput}
  * @see {@link DeleteInstanceCommandInput} for command's `input` shape.
  * @see {@link DeleteInstanceCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class DeleteInstanceCommand extends $Command<
@@ -61,6 +84,9 @@ export class DeleteInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +115,8 @@ export class DeleteInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteInstanceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +126,18 @@ export class DeleteInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteInstanceCommand(input, context);
+    return se_DeleteInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInstanceCommandOutput> {
-    return deserializeAws_restJson1DeleteInstanceCommand(output, context);
+    return de_DeleteInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

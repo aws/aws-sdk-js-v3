@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteCommentRequest, DeleteCommentRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteCommentCommand,
-  serializeAws_restJson1DeleteCommentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteCommentCommand, se_DeleteCommentCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteCommentCommand}.
+ */
 export interface DeleteCommentCommandInput extends DeleteCommentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteCommentCommand}.
+ */
 export interface DeleteCommentCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified comment from the document version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +39,46 @@ export interface DeleteCommentCommandOutput extends __MetadataBearer {}
  * import { WorkDocsClient, DeleteCommentCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, DeleteCommentCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
+ * const input = { // DeleteCommentRequest
+ *   AuthenticationToken: "STRING_VALUE",
+ *   DocumentId: "STRING_VALUE", // required
+ *   VersionId: "STRING_VALUE", // required
+ *   CommentId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteCommentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCommentCommandInput - {@link DeleteCommentCommandInput}
+ * @returns {@link DeleteCommentCommandOutput}
  * @see {@link DeleteCommentCommandInput} for command's `input` shape.
  * @see {@link DeleteCommentCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
+ *
+ * @throws {@link DocumentLockedForCommentsException} (client fault)
+ *  <p>This exception is thrown when the document is locked for comments and user tries to
+ *             create or delete a comment on that document.</p>
+ *
+ * @throws {@link EntityNotExistsException} (client fault)
+ *  <p>The resource does not exist.</p>
+ *
+ * @throws {@link FailedDependencyException} (client fault)
+ *  <p>The Directory Service cannot reach an on-premises instance. Or a dependency
+ *             under the control of the organization is failing, such as a connected Active
+ *             Directory.</p>
+ *
+ * @throws {@link ProhibitedStateException} (client fault)
+ *  <p>The specified document version is not in the INITIALIZED state.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>One or more of the dependencies is unavailable.</p>
+ *
+ * @throws {@link UnauthorizedOperationException} (client fault)
+ *  <p>The operation is not permitted.</p>
+ *
+ * @throws {@link UnauthorizedResourceAccessException} (client fault)
+ *  <p>The caller does not have access to perform the action on the resource.</p>
+ *
  *
  */
 export class DeleteCommentCommand extends $Command<
@@ -57,6 +98,9 @@ export class DeleteCommentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCommentCommandInput) {
     // Start section: command_constructor
     super();
@@ -84,7 +128,7 @@ export class DeleteCommentCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: DeleteCommentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -94,12 +138,18 @@ export class DeleteCommentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCommentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteCommentCommand(input, context);
+    return se_DeleteCommentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCommentCommandOutput> {
-    return deserializeAws_restJson1DeleteCommentCommand(output, context);
+    return de_DeleteCommentCommand(output, context);
   }
 
   // Start section: command_body_extra

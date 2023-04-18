@@ -14,19 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
+import { SkipWaitTimeForInstanceTerminationInput } from "../models/models_0";
 import {
-  SkipWaitTimeForInstanceTerminationInput,
-  SkipWaitTimeForInstanceTerminationInputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1SkipWaitTimeForInstanceTerminationCommand,
-  serializeAws_json1_1SkipWaitTimeForInstanceTerminationCommand,
+  de_SkipWaitTimeForInstanceTerminationCommand,
+  se_SkipWaitTimeForInstanceTerminationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link SkipWaitTimeForInstanceTerminationCommand}.
+ */
 export interface SkipWaitTimeForInstanceTerminationCommandInput extends SkipWaitTimeForInstanceTerminationInput {}
+/**
+ * @public
+ *
+ * The output of {@link SkipWaitTimeForInstanceTerminationCommand}.
+ */
 export interface SkipWaitTimeForInstanceTerminationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>In a blue/green deployment, overrides any specified wait time and starts terminating
@@ -37,13 +45,38 @@ export interface SkipWaitTimeForInstanceTerminationCommandOutput extends __Metad
  * import { CodeDeployClient, SkipWaitTimeForInstanceTerminationCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, SkipWaitTimeForInstanceTerminationCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
+ * const input = { // SkipWaitTimeForInstanceTerminationInput
+ *   deploymentId: "STRING_VALUE",
+ * };
  * const command = new SkipWaitTimeForInstanceTerminationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SkipWaitTimeForInstanceTerminationCommandInput - {@link SkipWaitTimeForInstanceTerminationCommandInput}
+ * @returns {@link SkipWaitTimeForInstanceTerminationCommandOutput}
  * @see {@link SkipWaitTimeForInstanceTerminationCommandInput} for command's `input` shape.
  * @see {@link SkipWaitTimeForInstanceTerminationCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
+ *
+ * @throws {@link DeploymentAlreadyCompletedException} (client fault)
+ *  <p>The deployment is already complete.</p>
+ *
+ * @throws {@link DeploymentDoesNotExistException} (client fault)
+ *  <p>The deployment with the IAM user or Amazon Web Services account does not
+ *             exist.</p>
+ *
+ * @throws {@link DeploymentIdRequiredException} (client fault)
+ *  <p>At least one deployment ID must be specified.</p>
+ *
+ * @throws {@link DeploymentNotStartedException} (client fault)
+ *  <p>The specified deployment has not started.</p>
+ *
+ * @throws {@link InvalidDeploymentIdException} (client fault)
+ *  <p>At least one of the deployment IDs was specified in an invalid format.</p>
+ *
+ * @throws {@link UnsupportedActionForDeploymentTypeException} (client fault)
+ *  <p>A call was submitted that is not supported for the specified deployment type.</p>
+ *
  *
  */
 export class SkipWaitTimeForInstanceTerminationCommand extends $Command<
@@ -63,6 +96,9 @@ export class SkipWaitTimeForInstanceTerminationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SkipWaitTimeForInstanceTerminationCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +127,8 @@ export class SkipWaitTimeForInstanceTerminationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SkipWaitTimeForInstanceTerminationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,18 +138,24 @@ export class SkipWaitTimeForInstanceTerminationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: SkipWaitTimeForInstanceTerminationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1SkipWaitTimeForInstanceTerminationCommand(input, context);
+    return se_SkipWaitTimeForInstanceTerminationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SkipWaitTimeForInstanceTerminationCommandOutput> {
-    return deserializeAws_json1_1SkipWaitTimeForInstanceTerminationCommand(output, context);
+    return de_SkipWaitTimeForInstanceTerminationCommand(output, context);
   }
 
   // Start section: command_body_extra

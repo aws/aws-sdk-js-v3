@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  GetNetworkProfileRequest,
-  GetNetworkProfileRequestFilterSensitiveLog,
-  GetNetworkProfileResult,
-  GetNetworkProfileResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetNetworkProfileCommand,
-  serializeAws_json1_1GetNetworkProfileCommand,
-} from "../protocols/Aws_json1_1";
+import { GetNetworkProfileRequest, GetNetworkProfileResult } from "../models/models_0";
+import { de_GetNetworkProfileCommand, se_GetNetworkProfileCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetNetworkProfileCommand}.
+ */
 export interface GetNetworkProfileCommandInput extends GetNetworkProfileRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetNetworkProfileCommand}.
+ */
 export interface GetNetworkProfileCommandOutput extends GetNetworkProfileResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a network profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,31 @@ export interface GetNetworkProfileCommandOutput extends GetNetworkProfileResult,
  * import { DeviceFarmClient, GetNetworkProfileCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, GetNetworkProfileCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // GetNetworkProfileRequest
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new GetNetworkProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetNetworkProfileCommandInput - {@link GetNetworkProfileCommandInput}
+ * @returns {@link GetNetworkProfileCommandOutput}
  * @see {@link GetNetworkProfileCommandInput} for command's `input` shape.
  * @see {@link GetNetworkProfileCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
+ *
+ * @throws {@link ArgumentException} (client fault)
+ *  <p>An invalid argument was specified.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A limit was exceeded.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The specified entity was not found.</p>
+ *
+ * @throws {@link ServiceAccountException} (client fault)
+ *  <p>There was a problem with the service account.</p>
+ *
  *
  */
 export class GetNetworkProfileCommand extends $Command<
@@ -62,6 +83,9 @@ export class GetNetworkProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetNetworkProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +114,8 @@ export class GetNetworkProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetNetworkProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetNetworkProfileResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +125,18 @@ export class GetNetworkProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetNetworkProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetNetworkProfileCommand(input, context);
+    return se_GetNetworkProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetNetworkProfileCommandOutput> {
-    return deserializeAws_json1_1GetNetworkProfileCommand(output, context);
+    return de_GetNetworkProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import { CancelExportTaskRequest, CancelExportTaskRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1CancelExportTaskCommand,
-  serializeAws_json1_1CancelExportTaskCommand,
-} from "../protocols/Aws_json1_1";
+import { CancelExportTaskRequest } from "../models/models_0";
+import { de_CancelExportTaskCommand, se_CancelExportTaskCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CancelExportTaskCommand}.
+ */
 export interface CancelExportTaskCommandInput extends CancelExportTaskRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CancelExportTaskCommand}.
+ */
 export interface CancelExportTaskCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels the specified export task.</p>
  *          <p>The task must be in the <code>PENDING</code> or <code>RUNNING</code> state.</p>
  * @example
@@ -32,13 +40,31 @@ export interface CancelExportTaskCommandOutput extends __MetadataBearer {}
  * import { CloudWatchLogsClient, CancelExportTaskCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, CancelExportTaskCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = { // CancelExportTaskRequest
+ *   taskId: "STRING_VALUE", // required
+ * };
  * const command = new CancelExportTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelExportTaskCommandInput - {@link CancelExportTaskCommandInput}
+ * @returns {@link CancelExportTaskCommandOutput}
  * @see {@link CancelExportTaskCommandInput} for command's `input` shape.
  * @see {@link CancelExportTaskCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
+ *
+ * @throws {@link InvalidOperationException} (client fault)
+ *  <p>The operation is not valid on the specified resource.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter is specified incorrectly.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service cannot complete the request.</p>
+ *
  *
  */
 export class CancelExportTaskCommand extends $Command<
@@ -58,6 +84,9 @@ export class CancelExportTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelExportTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -86,8 +115,8 @@ export class CancelExportTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelExportTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -97,12 +126,18 @@ export class CancelExportTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelExportTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CancelExportTaskCommand(input, context);
+    return se_CancelExportTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelExportTaskCommandOutput> {
-    return deserializeAws_json1_1CancelExportTaskCommand(output, context);
+    return de_CancelExportTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

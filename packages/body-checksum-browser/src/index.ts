@@ -1,14 +1,18 @@
 import { blobReader } from "@aws-sdk/chunked-blob-reader";
 import { TreeHash } from "@aws-sdk/sha256-tree-hash";
-import { Decoder, HashConstructor, HttpRequest } from "@aws-sdk/types";
+import { ChecksumConstructor, Decoder, HashConstructor, HttpRequest } from "@aws-sdk/types";
 import { toHex } from "@aws-sdk/util-hex-encoding";
+import { toUint8Array } from "@aws-sdk/util-utf8";
 
 const MiB = 1024 * 1024;
 
+/**
+ * @internal
+ */
 export async function bodyChecksumGenerator(
   request: HttpRequest,
   options: {
-    sha256: HashConstructor;
+    sha256: ChecksumConstructor | HashConstructor;
     utf8Decoder: Decoder;
   }
 ): Promise<[string, string]> {
@@ -16,7 +20,7 @@ export async function bodyChecksumGenerator(
   const treeHash = new TreeHash(options.sha256, options.utf8Decoder);
   const { body } = request;
   if (typeof body === "string") {
-    contentHash.update(body);
+    contentHash.update(toUint8Array(body));
     treeHash.update(body);
   } else {
     if (Boolean(body) && Object.prototype.toString.call(body) === "[object Blob]") {

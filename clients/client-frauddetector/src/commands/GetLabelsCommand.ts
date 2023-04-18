@@ -14,18 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  GetLabelsRequest,
-  GetLabelsRequestFilterSensitiveLog,
-  GetLabelsResult,
-  GetLabelsResultFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1GetLabelsCommand, serializeAws_json1_1GetLabelsCommand } from "../protocols/Aws_json1_1";
+import { GetLabelsRequest, GetLabelsResult } from "../models/models_0";
+import { de_GetLabelsCommand, se_GetLabelsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetLabelsCommand}.
+ */
 export interface GetLabelsCommandInput extends GetLabelsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetLabelsCommand}.
+ */
 export interface GetLabelsCommandOutput extends GetLabelsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets all labels or a specific label if name is provided. This is a paginated API. If you
  *          provide a null <code>maxResults</code>, this action retrieves a maximum of 50 records
  *          per page. If you provide a <code>maxResults</code>, the value must be between 10 and 50.
@@ -38,13 +44,36 @@ export interface GetLabelsCommandOutput extends GetLabelsResult, __MetadataBeare
  * import { FraudDetectorClient, GetLabelsCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, GetLabelsCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = { // GetLabelsRequest
+ *   name: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new GetLabelsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLabelsCommandInput - {@link GetLabelsCommandInput}
+ * @returns {@link GetLabelsCommandOutput}
  * @see {@link GetLabelsCommandInput} for command's `input` shape.
  * @see {@link GetLabelsCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An exception indicating an internal server error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An exception indicating the specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>An exception indicating a throttling error.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An exception indicating a specified value is not allowed.</p>
+ *
  *
  */
 export class GetLabelsCommand extends $Command<
@@ -64,6 +93,9 @@ export class GetLabelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLabelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +122,8 @@ export class GetLabelsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLabelsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetLabelsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +133,18 @@ export class GetLabelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLabelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetLabelsCommand(input, context);
+    return se_GetLabelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLabelsCommandOutput> {
-    return deserializeAws_json1_1GetLabelsCommand(output, context);
+    return de_GetLabelsCommand(output, context);
   }
 
   // Start section: command_body_extra

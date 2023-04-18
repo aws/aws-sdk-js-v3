@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { PrivateNetworksServiceException as __BaseException } from "./PrivateNetworksServiceException";
 
 /**
+ * @public
  * <p>You do not have permission to perform this operation.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -22,6 +23,9 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AcknowledgeOrderReceiptRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the order.</p>
@@ -29,13 +33,23 @@ export interface AcknowledgeOrderReceiptRequest {
   orderArn: string | undefined;
 }
 
-export enum AcknowledgmentStatus {
-  ACKNOWLEDGED = "ACKNOWLEDGED",
-  ACKNOWLEDGING = "ACKNOWLEDGING",
-  UNACKNOWLEDGED = "UNACKNOWLEDGED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AcknowledgmentStatus = {
+  ACKNOWLEDGED: "ACKNOWLEDGED",
+  ACKNOWLEDGING: "ACKNOWLEDGING",
+  UNACKNOWLEDGED: "UNACKNOWLEDGED",
+} as const;
 
 /**
+ * @public
+ */
+export type AcknowledgmentStatus = (typeof AcknowledgmentStatus)[keyof typeof AcknowledgmentStatus];
+
+/**
+ * @public
  * <p>Information about an address.</p>
  */
 export interface Address {
@@ -91,6 +105,7 @@ export interface Address {
 }
 
 /**
+ * @public
  * <p>Information about tracking a shipment.</p>
  */
 export interface TrackingInformation {
@@ -101,6 +116,7 @@ export interface TrackingInformation {
 }
 
 /**
+ * @public
  * <p>Information about an order.</p>
  */
 export interface Order {
@@ -140,6 +156,9 @@ export interface Order {
   createdAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface AcknowledgeOrderReceiptResponse {
   /**
    * <p>Information about the order.</p>
@@ -148,6 +167,7 @@ export interface AcknowledgeOrderReceiptResponse {
 }
 
 /**
+ * @public
  * <p>Information about an internal error.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -174,6 +194,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource was not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -205,6 +226,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Information about a field that failed validation.</p>
  */
 export interface ValidationExceptionField {
@@ -219,15 +241,25 @@ export interface ValidationExceptionField {
   message: string | undefined;
 }
 
-export enum ValidationExceptionReason {
-  CANNOT_ASSUME_ROLE = "CANNOT_ASSUME_ROLE",
-  CANNOT_PARSE = "CANNOT_PARSE",
-  FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
-  OTHER = "OTHER",
-  UNKNOWN_OPERATION = "UNKNOWN_OPERATION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ValidationExceptionReason = {
+  CANNOT_ASSUME_ROLE: "CANNOT_ASSUME_ROLE",
+  CANNOT_PARSE: "CANNOT_PARSE",
+  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
+  OTHER: "OTHER",
+  UNKNOWN_OPERATION: "UNKNOWN_OPERATION",
+} as const;
 
 /**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
+
+/**
+ * @public
  * <p>The request failed validation.</p>
  */
 export class ValidationException extends __BaseException {
@@ -258,6 +290,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ActivateDeviceIdentifierRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the device identifier.</p>
@@ -272,12 +307,22 @@ export interface ActivateDeviceIdentifierRequest {
   clientToken?: string;
 }
 
-export enum DeviceIdentifierStatus {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeviceIdentifierStatus = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+} as const;
 
 /**
+ * @public
+ */
+export type DeviceIdentifierStatus = (typeof DeviceIdentifierStatus)[keyof typeof DeviceIdentifierStatus];
+
+/**
+ * @public
  * <p>Information about a subscriber of a device that can use a network.</p>
  */
 export interface DeviceIdentifier {
@@ -327,6 +372,9 @@ export interface DeviceIdentifier {
   createdAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ActivateDeviceIdentifierResponse {
   /**
    * <p>Information about the device identifier.</p>
@@ -341,6 +389,9 @@ export interface ActivateDeviceIdentifierResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ActivateNetworkSiteRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the network site.</p>
@@ -361,6 +412,7 @@ export interface ActivateNetworkSiteRequest {
 }
 
 /**
+ * @public
  * <p>Information about a name/value pair.</p>
  */
 export interface NameValuePair {
@@ -375,12 +427,23 @@ export interface NameValuePair {
   value?: string;
 }
 
-export enum NetworkResourceDefinitionType {
-  DEVICE_IDENTIFIER = "DEVICE_IDENTIFIER",
-  RADIO_UNIT = "RADIO_UNIT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NetworkResourceDefinitionType = {
+  DEVICE_IDENTIFIER: "DEVICE_IDENTIFIER",
+  RADIO_UNIT: "RADIO_UNIT",
+} as const;
 
 /**
+ * @public
+ */
+export type NetworkResourceDefinitionType =
+  (typeof NetworkResourceDefinitionType)[keyof typeof NetworkResourceDefinitionType];
+
+/**
+ * @public
  * <p>Information about a network resource definition.</p>
  */
 export interface NetworkResourceDefinition {
@@ -401,6 +464,7 @@ export interface NetworkResourceDefinition {
 }
 
 /**
+ * @public
  * <p>Information about a site plan.</p>
  */
 export interface SitePlan {
@@ -415,15 +479,25 @@ export interface SitePlan {
   options?: NameValuePair[];
 }
 
-export enum NetworkSiteStatus {
-  AVAILABLE = "AVAILABLE",
-  CREATED = "CREATED",
-  DELETED = "DELETED",
-  DEPROVISIONING = "DEPROVISIONING",
-  PROVISIONING = "PROVISIONING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NetworkSiteStatus = {
+  AVAILABLE: "AVAILABLE",
+  CREATED: "CREATED",
+  DELETED: "DELETED",
+  DEPROVISIONING: "DEPROVISIONING",
+  PROVISIONING: "PROVISIONING",
+} as const;
 
 /**
+ * @public
+ */
+export type NetworkSiteStatus = (typeof NetworkSiteStatus)[keyof typeof NetworkSiteStatus];
+
+/**
+ * @public
  * <p>Information about a network site.</p>
  */
 export interface NetworkSite {
@@ -487,6 +561,9 @@ export interface NetworkSite {
   availabilityZoneId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ActivateNetworkSiteResponse {
   /**
    * <p>Information about the network site.</p>
@@ -494,19 +571,38 @@ export interface ActivateNetworkSiteResponse {
   networkSite?: NetworkSite;
 }
 
-export enum ElevationReference {
-  AGL = "AGL",
-  AMSL = "AMSL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ElevationReference = {
+  AGL: "AGL",
+  AMSL: "AMSL",
+} as const;
 
-export enum ElevationUnit {
+/**
+ * @public
+ */
+export type ElevationReference = (typeof ElevationReference)[keyof typeof ElevationReference];
+
+/**
+ * @public
+ * @enum
+ */
+export const ElevationUnit = {
   /**
    * Feet.
    */
-  FEET = "FEET",
-}
+  FEET: "FEET",
+} as const;
 
 /**
+ * @public
+ */
+export type ElevationUnit = (typeof ElevationUnit)[keyof typeof ElevationUnit];
+
+/**
+ * @public
  * <p>Information about a position.</p>
  */
 export interface Position {
@@ -536,6 +632,9 @@ export interface Position {
   elevationReference?: ElevationReference | string;
 }
 
+/**
+ * @public
+ */
 export interface ConfigureAccessPointRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the network resource.</p>
@@ -571,28 +670,86 @@ export interface ConfigureAccessPointRequest {
   cpiSecretKey?: string;
 }
 
-export enum HealthStatus {
-  HEALTHY = "HEALTHY",
-  INITIAL = "INITIAL",
-  UNHEALTHY = "UNHEALTHY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const HealthStatus = {
+  HEALTHY: "HEALTHY",
+  INITIAL: "INITIAL",
+  UNHEALTHY: "UNHEALTHY",
+} as const;
 
-export enum NetworkResourceStatus {
-  AVAILABLE = "AVAILABLE",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  PENDING = "PENDING",
-  PENDING_RETURN = "PENDING_RETURN",
-  PROVISIONED = "PROVISIONED",
-  PROVISIONING = "PROVISIONING",
-  SHIPPED = "SHIPPED",
-}
+/**
+ * @public
+ */
+export type HealthStatus = (typeof HealthStatus)[keyof typeof HealthStatus];
 
-export enum NetworkResourceType {
-  RADIO_UNIT = "RADIO_UNIT",
+/**
+ * @public
+ * <p>Information about a request to return a network resource.</p>
+ */
+export interface ReturnInformation {
+  /**
+   * <p>The shipping address.</p>
+   */
+  shippingAddress?: Address;
+
+  /**
+   * <p>The reason for the return. If the return request did not include a
+   *            reason for the return, this value is null.</p>
+   */
+  returnReason?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the replacement order.</p>
+   */
+  replacementOrderArn?: string;
+
+  /**
+   * <p>The URL of the shipping label. The shipping label is available for download
+   *             only if the status of the network resource is <code>PENDING_RETURN</code>.
+   *             For more information, see <a href="https://docs.aws.amazon.com/private-networks/latest/userguide/radio-units.html#return-radio-unit">Return a radio unit</a>.</p>
+   */
+  shippingLabel?: string;
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const NetworkResourceStatus = {
+  AVAILABLE: "AVAILABLE",
+  CREATING_SHIPPING_LABEL: "CREATING_SHIPPING_LABEL",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  PENDING: "PENDING",
+  PENDING_RETURN: "PENDING_RETURN",
+  PROVISIONED: "PROVISIONED",
+  PROVISIONING: "PROVISIONING",
+  SHIPPED: "SHIPPED",
+} as const;
+
+/**
+ * @public
+ */
+export type NetworkResourceStatus = (typeof NetworkResourceStatus)[keyof typeof NetworkResourceStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const NetworkResourceType = {
+  RADIO_UNIT: "RADIO_UNIT",
+} as const;
+
+/**
+ * @public
+ */
+export type NetworkResourceType = (typeof NetworkResourceType)[keyof typeof NetworkResourceType];
+
+/**
+ * @public
  * <p>Information about a network resource.</p>
  */
 export interface NetworkResource {
@@ -671,8 +828,16 @@ export interface NetworkResource {
    * <p>The creation time of the network resource.</p>
    */
   createdAt?: Date;
+
+  /**
+   * <p>Information about a request to return the network resource.</p>
+   */
+  returnInformation?: ReturnInformation;
 }
 
+/**
+ * @public
+ */
 export interface ConfigureAccessPointResponse {
   /**
    * <p>Information about the network resource.</p>
@@ -680,6 +845,9 @@ export interface ConfigureAccessPointResponse {
   accessPoint: NetworkResource | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateNetworkRequest {
   /**
    * <p>The name of the network. You can't change the name after you create the network.</p>
@@ -706,15 +874,25 @@ export interface CreateNetworkRequest {
   tags?: Record<string, string>;
 }
 
-export enum NetworkStatus {
-  AVAILABLE = "AVAILABLE",
-  CREATED = "CREATED",
-  DELETED = "DELETED",
-  DEPROVISIONING = "DEPROVISIONING",
-  PROVISIONING = "PROVISIONING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NetworkStatus = {
+  AVAILABLE: "AVAILABLE",
+  CREATED: "CREATED",
+  DELETED: "DELETED",
+  DEPROVISIONING: "DEPROVISIONING",
+  PROVISIONING: "PROVISIONING",
+} as const;
 
 /**
+ * @public
+ */
+export type NetworkStatus = (typeof NetworkStatus)[keyof typeof NetworkStatus];
+
+/**
+ * @public
  * <p>Information about a network.</p>
  */
 export interface Network {
@@ -749,6 +927,9 @@ export interface Network {
   createdAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateNetworkResponse {
   /**
    * <p>Information about the network.</p>
@@ -764,6 +945,7 @@ export interface CreateNetworkResponse {
 }
 
 /**
+ * @public
  * <p>The limit was exceeded.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -782,6 +964,9 @@ export class LimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateNetworkSiteRequest {
   /**
    * <p>The name of the site. You can't change the name after you create the site.</p>
@@ -830,6 +1015,9 @@ export interface CreateNetworkSiteRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateNetworkSiteResponse {
   /**
    * <p>Information about the network site.</p>
@@ -844,6 +1032,9 @@ export interface CreateNetworkSiteResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DeactivateDeviceIdentifierRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the device identifier.</p>
@@ -858,6 +1049,9 @@ export interface DeactivateDeviceIdentifierRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeactivateDeviceIdentifierResponse {
   /**
    * <p>Information about the device identifier.</p>
@@ -865,6 +1059,9 @@ export interface DeactivateDeviceIdentifierResponse {
   deviceIdentifier: DeviceIdentifier | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteNetworkRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the network.</p>
@@ -879,6 +1076,9 @@ export interface DeleteNetworkRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteNetworkResponse {
   /**
    * <p>Information about the network.</p>
@@ -886,6 +1086,9 @@ export interface DeleteNetworkResponse {
   network: Network | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteNetworkSiteRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the network site.</p>
@@ -900,6 +1103,9 @@ export interface DeleteNetworkSiteRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteNetworkSiteResponse {
   /**
    * <p>Information about the network site.</p>
@@ -907,12 +1113,24 @@ export interface DeleteNetworkSiteResponse {
   networkSite?: NetworkSite;
 }
 
-export enum DeviceIdentifierFilterKeys {
-  ORDER = "ORDER",
-  STATUS = "STATUS",
-  TRAFFIC_GROUP = "TRAFFIC_GROUP",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeviceIdentifierFilterKeys = {
+  ORDER: "ORDER",
+  STATUS: "STATUS",
+  TRAFFIC_GROUP: "TRAFFIC_GROUP",
+} as const;
 
+/**
+ * @public
+ */
+export type DeviceIdentifierFilterKeys = (typeof DeviceIdentifierFilterKeys)[keyof typeof DeviceIdentifierFilterKeys];
+
+/**
+ * @public
+ */
 export interface GetDeviceIdentifierRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the device identifier.</p>
@@ -920,6 +1138,9 @@ export interface GetDeviceIdentifierRequest {
   deviceIdentifierArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDeviceIdentifierResponse {
   /**
    * <p>Information about the device identifier.</p>
@@ -934,6 +1155,9 @@ export interface GetDeviceIdentifierResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetNetworkRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the network.</p>
@@ -941,6 +1165,9 @@ export interface GetNetworkRequest {
   networkArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetNetworkResponse {
   /**
    * <p>Information about the network.</p>
@@ -955,6 +1182,9 @@ export interface GetNetworkResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetNetworkResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the network resource.</p>
@@ -962,6 +1192,9 @@ export interface GetNetworkResourceRequest {
   networkResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetNetworkResourceResponse {
   /**
    * <p>Information about the network resource.</p>
@@ -976,6 +1209,9 @@ export interface GetNetworkResourceResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetNetworkSiteRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the network site.</p>
@@ -983,6 +1219,9 @@ export interface GetNetworkSiteRequest {
   networkSiteArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetNetworkSiteResponse {
   /**
    * <p>Information about the network site.</p>
@@ -997,6 +1236,9 @@ export interface GetNetworkSiteResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetOrderRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the order.</p>
@@ -1004,6 +1246,9 @@ export interface GetOrderRequest {
   orderArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetOrderResponse {
   /**
    * <p>Information about the order.</p>
@@ -1018,24 +1263,27 @@ export interface GetOrderResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListDeviceIdentifiersRequest {
   /**
    * <p>The filters.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ORDER</code> - The Amazon Resource Name (ARN) of the order.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>STATUS</code> - The status (<code>ACTIVE</code> | <code>INACTIVE</code>).</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>TRAFFIC_GROUP</code> - The Amazon Resource Name (ARN) of the traffic group.</p>
    *             </li>
    *          </ul>
-   *         <p>Filter values are case sensitive. If you specify multiple
+   *          <p>Filter values are case sensitive. If you specify multiple
    *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
    *          all results that match any of the specified values.</p>
    */
@@ -1057,6 +1305,9 @@ export interface ListDeviceIdentifiersRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListDeviceIdentifiersResponse {
   /**
    * <p>Information about the device identifiers.</p>
@@ -1069,27 +1320,39 @@ export interface ListDeviceIdentifiersResponse {
   nextToken?: string;
 }
 
-export enum NetworkResourceFilterKeys {
-  ORDER = "ORDER",
-  STATUS = "STATUS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NetworkResourceFilterKeys = {
+  ORDER: "ORDER",
+  STATUS: "STATUS",
+} as const;
 
+/**
+ * @public
+ */
+export type NetworkResourceFilterKeys = (typeof NetworkResourceFilterKeys)[keyof typeof NetworkResourceFilterKeys];
+
+/**
+ * @public
+ */
 export interface ListNetworkResourcesRequest {
   /**
    * <p>The filters.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ORDER</code> - The Amazon Resource Name (ARN) of the order.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>STATUS</code> - The status (<code>AVAILABLE</code> | <code>DELETED</code>
    *                     | <code>DELETING</code> | <code>PENDING</code> | <code>PENDING_RETURN</code>
    *                     | <code>PROVISIONING</code> | <code>SHIPPED</code>).</p>
    *             </li>
    *          </ul>
-   *         <p>Filter values are case sensitive. If you specify multiple
+   *          <p>Filter values are case sensitive. If you specify multiple
    *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
    *          all results that match any of the specified values.</p>
    */
@@ -1111,6 +1374,9 @@ export interface ListNetworkResourcesRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListNetworkResourcesResponse {
   /**
    * <p>Information about network resources.</p>
@@ -1123,21 +1389,33 @@ export interface ListNetworkResourcesResponse {
   nextToken?: string;
 }
 
-export enum NetworkFilterKeys {
-  STATUS = "STATUS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NetworkFilterKeys = {
+  STATUS: "STATUS",
+} as const;
 
+/**
+ * @public
+ */
+export type NetworkFilterKeys = (typeof NetworkFilterKeys)[keyof typeof NetworkFilterKeys];
+
+/**
+ * @public
+ */
 export interface ListNetworksRequest {
   /**
    * <p>The filters.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>STATUS</code> - The status (<code>AVAILABLE</code> | <code>CREATED</code>
    *                     | <code>DELETED</code> | <code>DEPROVISIONING</code> | <code>PROVISIONING</code>).</p>
    *             </li>
    *          </ul>
-   *         <p>Filter values are case sensitive. If you specify multiple
+   *          <p>Filter values are case sensitive. If you specify multiple
    *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
    *          all results that match any of the specified values.</p>
    */
@@ -1154,6 +1432,9 @@ export interface ListNetworksRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListNetworksResponse {
   /**
    * <p>The networks.</p>
@@ -1166,22 +1447,34 @@ export interface ListNetworksResponse {
   nextToken?: string;
 }
 
-export enum NetworkSiteFilterKeys {
-  STATUS = "STATUS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NetworkSiteFilterKeys = {
+  STATUS: "STATUS",
+} as const;
 
+/**
+ * @public
+ */
+export type NetworkSiteFilterKeys = (typeof NetworkSiteFilterKeys)[keyof typeof NetworkSiteFilterKeys];
+
+/**
+ * @public
+ */
 export interface ListNetworkSitesRequest {
   /**
    * <p>The filters. Add filters to your request to return a more
    *             specific list of results. Use filters to match the status of the network sites.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>STATUS</code> - The status (<code>AVAILABLE</code> | <code>CREATED</code>
    *                     | <code>DELETED</code> | <code>DEPROVISIONING</code> | <code>PROVISIONING</code>).</p>
    *             </li>
    *          </ul>
-   *         <p>Filter values are case sensitive. If you specify multiple
+   *          <p>Filter values are case sensitive. If you specify multiple
    *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
    *          all results that match any of the specified values.</p>
    */
@@ -1203,6 +1496,9 @@ export interface ListNetworkSitesRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListNetworkSitesResponse {
   /**
    * <p>Information about the network sites.</p>
@@ -1215,11 +1511,23 @@ export interface ListNetworkSitesResponse {
   nextToken?: string;
 }
 
-export enum OrderFilterKeys {
-  NETWORK_SITE = "NETWORK_SITE",
-  STATUS = "STATUS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OrderFilterKeys = {
+  NETWORK_SITE: "NETWORK_SITE",
+  STATUS: "STATUS",
+} as const;
 
+/**
+ * @public
+ */
+export type OrderFilterKeys = (typeof OrderFilterKeys)[keyof typeof OrderFilterKeys];
+
+/**
+ * @public
+ */
 export interface ListOrdersRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the network.</p>
@@ -1238,24 +1546,27 @@ export interface ListOrdersRequest {
 
   /**
    * <p>The filters.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>NETWORK_SITE</code> - The Amazon Resource Name (ARN) of the network site.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>STATUS</code> - The status (<code>ACKNOWLEDGING</code> | <code>ACKNOWLEDGED</code>
    *                     | <code>UNACKNOWLEDGED</code>).</p>
    *             </li>
    *          </ul>
-   *         <p>Filter values are case sensitive. If you specify multiple
+   *          <p>Filter values are case sensitive. If you specify multiple
    *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
    *          all results that match any of the specified values.</p>
    */
   filters?: Record<string, string[]>;
 }
 
+/**
+ * @public
+ */
 export interface ListOrdersResponse {
   /**
    * <p>Information about the orders.</p>
@@ -1268,6 +1579,9 @@ export interface ListOrdersResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -1275,6 +1589,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The resource tags.</p>
@@ -1283,6 +1600,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * <p>
  *             The request was denied due to request throttling.
  *         </p>
@@ -1306,6 +1624,9 @@ export class ThrottlingException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface PingResponse {
   /**
    * <p>Information about the health of the service.</p>
@@ -1313,6 +1634,74 @@ export interface PingResponse {
   status?: string;
 }
 
+/**
+ * @public
+ * @enum
+ */
+export const UpdateType = {
+  REPLACE: "REPLACE",
+  RETURN: "RETURN",
+} as const;
+
+/**
+ * @public
+ */
+export type UpdateType = (typeof UpdateType)[keyof typeof UpdateType];
+
+/**
+ * @public
+ */
+export interface StartNetworkResourceUpdateRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the network resource.</p>
+   */
+  networkResourceArn: string | undefined;
+
+  /**
+   * <p>The update type.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>REPLACE</code> - Submits a request to replace a defective
+   *                    radio unit. We provide a shipping label that you can use for the
+   *                    return process and we ship a replacement radio unit to you.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RETURN</code> - Submits a request to replace a radio unit
+   *                    that you no longer need. We provide a shipping label that you can
+   *                     use for the return process.</p>
+   *             </li>
+   *          </ul>
+   */
+  updateType: UpdateType | string | undefined;
+
+  /**
+   * <p>The shipping address. If you don't provide a shipping address when replacing or
+   *             returning a network resource, we use the address from the original order for the
+   *             network resource.</p>
+   */
+  shippingAddress?: Address;
+
+  /**
+   * <p>The reason for the return. Providing a reason for a return is optional.</p>
+   */
+  returnReason?: string;
+}
+
+/**
+ * @public
+ */
+export interface StartNetworkResourceUpdateResponse {
+  /**
+   * <p>The network resource.</p>
+   */
+  networkResource?: NetworkResource;
+}
+
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>
@@ -1327,8 +1716,14 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -1341,8 +1736,14 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateNetworkSiteRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the network site.</p>
@@ -1362,6 +1763,9 @@ export interface UpdateNetworkSiteRequest {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateNetworkSiteResponse {
   /**
    * <p>Information about the network site.</p>
@@ -1376,6 +1780,9 @@ export interface UpdateNetworkSiteResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface UpdateNetworkSitePlanRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the network site.</p>
@@ -1398,13 +1805,6 @@ export interface UpdateNetworkSitePlanRequest {
 /**
  * @internal
  */
-export const AcknowledgeOrderReceiptRequestFilterSensitiveLog = (obj: AcknowledgeOrderReceiptRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const AddressFilterSensitiveLog = (obj: Address): any => ({
   ...obj,
   ...(obj.city && { city: SENSITIVE_STRING }),
@@ -1422,13 +1822,6 @@ export const AddressFilterSensitiveLog = (obj: Address): any => ({
 /**
  * @internal
  */
-export const TrackingInformationFilterSensitiveLog = (obj: TrackingInformation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const OrderFilterSensitiveLog = (obj: Order): any => ({
   ...obj,
   ...(obj.shippingAddress && { shippingAddress: AddressFilterSensitiveLog(obj.shippingAddress) }),
@@ -1440,20 +1833,6 @@ export const OrderFilterSensitiveLog = (obj: Order): any => ({
 export const AcknowledgeOrderReceiptResponseFilterSensitiveLog = (obj: AcknowledgeOrderReceiptResponse): any => ({
   ...obj,
   ...(obj.order && { order: OrderFilterSensitiveLog(obj.order) }),
-});
-
-/**
- * @internal
- */
-export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ActivateDeviceIdentifierRequestFilterSensitiveLog = (obj: ActivateDeviceIdentifierRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -1484,48 +1863,6 @@ export const ActivateNetworkSiteRequestFilterSensitiveLog = (obj: ActivateNetwor
 /**
  * @internal
  */
-export const NameValuePairFilterSensitiveLog = (obj: NameValuePair): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkResourceDefinitionFilterSensitiveLog = (obj: NetworkResourceDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SitePlanFilterSensitiveLog = (obj: SitePlan): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkSiteFilterSensitiveLog = (obj: NetworkSite): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ActivateNetworkSiteResponseFilterSensitiveLog = (obj: ActivateNetworkSiteResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PositionFilterSensitiveLog = (obj: Position): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ConfigureAccessPointRequestFilterSensitiveLog = (obj: ConfigureAccessPointRequest): any => ({
   ...obj,
   ...(obj.cpiUsername && { cpiUsername: SENSITIVE_STRING }),
@@ -1537,8 +1874,17 @@ export const ConfigureAccessPointRequestFilterSensitiveLog = (obj: ConfigureAcce
 /**
  * @internal
  */
+export const ReturnInformationFilterSensitiveLog = (obj: ReturnInformation): any => ({
+  ...obj,
+  ...(obj.shippingAddress && { shippingAddress: AddressFilterSensitiveLog(obj.shippingAddress) }),
+});
+
+/**
+ * @internal
+ */
 export const NetworkResourceFilterSensitiveLog = (obj: NetworkResource): any => ({
   ...obj,
+  ...(obj.returnInformation && { returnInformation: ReturnInformationFilterSensitiveLog(obj.returnInformation) }),
 });
 
 /**
@@ -1546,6 +1892,7 @@ export const NetworkResourceFilterSensitiveLog = (obj: NetworkResource): any => 
  */
 export const ConfigureAccessPointResponseFilterSensitiveLog = (obj: ConfigureAccessPointResponse): any => ({
   ...obj,
+  ...(obj.accessPoint && { accessPoint: NetworkResourceFilterSensitiveLog(obj.accessPoint) }),
 });
 
 /**
@@ -1554,13 +1901,6 @@ export const ConfigureAccessPointResponseFilterSensitiveLog = (obj: ConfigureAcc
 export const CreateNetworkRequestFilterSensitiveLog = (obj: CreateNetworkRequest): any => ({
   ...obj,
   ...(obj.tags && { tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const NetworkFilterSensitiveLog = (obj: Network): any => ({
-  ...obj,
 });
 
 /**
@@ -1590,51 +1930,9 @@ export const CreateNetworkSiteResponseFilterSensitiveLog = (obj: CreateNetworkSi
 /**
  * @internal
  */
-export const DeactivateDeviceIdentifierRequestFilterSensitiveLog = (obj: DeactivateDeviceIdentifierRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DeactivateDeviceIdentifierResponseFilterSensitiveLog = (obj: DeactivateDeviceIdentifierResponse): any => ({
   ...obj,
   ...(obj.deviceIdentifier && { deviceIdentifier: DeviceIdentifierFilterSensitiveLog(obj.deviceIdentifier) }),
-});
-
-/**
- * @internal
- */
-export const DeleteNetworkRequestFilterSensitiveLog = (obj: DeleteNetworkRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteNetworkResponseFilterSensitiveLog = (obj: DeleteNetworkResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteNetworkSiteRequestFilterSensitiveLog = (obj: DeleteNetworkSiteRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteNetworkSiteResponseFilterSensitiveLog = (obj: DeleteNetworkSiteResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDeviceIdentifierRequestFilterSensitiveLog = (obj: GetDeviceIdentifierRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -1649,13 +1947,6 @@ export const GetDeviceIdentifierResponseFilterSensitiveLog = (obj: GetDeviceIden
 /**
  * @internal
  */
-export const GetNetworkRequestFilterSensitiveLog = (obj: GetNetworkRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetNetworkResponseFilterSensitiveLog = (obj: GetNetworkResponse): any => ({
   ...obj,
   ...(obj.tags && { tags: SENSITIVE_STRING }),
@@ -1664,23 +1955,10 @@ export const GetNetworkResponseFilterSensitiveLog = (obj: GetNetworkResponse): a
 /**
  * @internal
  */
-export const GetNetworkResourceRequestFilterSensitiveLog = (obj: GetNetworkResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetNetworkResourceResponseFilterSensitiveLog = (obj: GetNetworkResourceResponse): any => ({
   ...obj,
+  ...(obj.networkResource && { networkResource: NetworkResourceFilterSensitiveLog(obj.networkResource) }),
   ...(obj.tags && { tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetNetworkSiteRequestFilterSensitiveLog = (obj: GetNetworkSiteRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -1694,24 +1972,10 @@ export const GetNetworkSiteResponseFilterSensitiveLog = (obj: GetNetworkSiteResp
 /**
  * @internal
  */
-export const GetOrderRequestFilterSensitiveLog = (obj: GetOrderRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetOrderResponseFilterSensitiveLog = (obj: GetOrderResponse): any => ({
   ...obj,
   ...(obj.order && { order: OrderFilterSensitiveLog(obj.order) }),
   ...(obj.tags && { tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ListDeviceIdentifiersRequestFilterSensitiveLog = (obj: ListDeviceIdentifiersRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -1727,50 +1991,11 @@ export const ListDeviceIdentifiersResponseFilterSensitiveLog = (obj: ListDeviceI
 /**
  * @internal
  */
-export const ListNetworkResourcesRequestFilterSensitiveLog = (obj: ListNetworkResourcesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListNetworkResourcesResponseFilterSensitiveLog = (obj: ListNetworkResourcesResponse): any => ({
   ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNetworksRequestFilterSensitiveLog = (obj: ListNetworksRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNetworksResponseFilterSensitiveLog = (obj: ListNetworksResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNetworkSitesRequestFilterSensitiveLog = (obj: ListNetworkSitesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNetworkSitesResponseFilterSensitiveLog = (obj: ListNetworkSitesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListOrdersRequestFilterSensitiveLog = (obj: ListOrdersRequest): any => ({
-  ...obj,
+  ...(obj.networkResources && {
+    networkResources: obj.networkResources.map((item) => NetworkResourceFilterSensitiveLog(item)),
+  }),
 });
 
 /**
@@ -1784,13 +2009,6 @@ export const ListOrdersResponseFilterSensitiveLog = (obj: ListOrdersResponse): a
 /**
  * @internal
  */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
   ...obj,
   ...(obj.tags && { tags: SENSITIVE_STRING }),
@@ -1799,8 +2017,17 @@ export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForRe
 /**
  * @internal
  */
-export const PingResponseFilterSensitiveLog = (obj: PingResponse): any => ({
+export const StartNetworkResourceUpdateRequestFilterSensitiveLog = (obj: StartNetworkResourceUpdateRequest): any => ({
   ...obj,
+  ...(obj.shippingAddress && { shippingAddress: AddressFilterSensitiveLog(obj.shippingAddress) }),
+});
+
+/**
+ * @internal
+ */
+export const StartNetworkResourceUpdateResponseFilterSensitiveLog = (obj: StartNetworkResourceUpdateResponse): any => ({
+  ...obj,
+  ...(obj.networkResource && { networkResource: NetworkResourceFilterSensitiveLog(obj.networkResource) }),
 });
 
 /**
@@ -1814,13 +2041,6 @@ export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): a
 /**
  * @internal
  */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
   ...obj,
   ...(obj.tagKeys && { tagKeys: SENSITIVE_STRING }),
@@ -1829,28 +2049,7 @@ export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest
 /**
  * @internal
  */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateNetworkSiteRequestFilterSensitiveLog = (obj: UpdateNetworkSiteRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateNetworkSiteResponseFilterSensitiveLog = (obj: UpdateNetworkSiteResponse): any => ({
   ...obj,
   ...(obj.tags && { tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateNetworkSitePlanRequestFilterSensitiveLog = (obj: UpdateNetworkSitePlanRequest): any => ({
-  ...obj,
 });

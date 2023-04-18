@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRPUBLICClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRPUBLICClient";
-import {
-  InitiateLayerUploadRequest,
-  InitiateLayerUploadRequestFilterSensitiveLog,
-  InitiateLayerUploadResponse,
-  InitiateLayerUploadResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1InitiateLayerUploadCommand,
-  serializeAws_json1_1InitiateLayerUploadCommand,
-} from "../protocols/Aws_json1_1";
+import { InitiateLayerUploadRequest, InitiateLayerUploadResponse } from "../models/models_0";
+import { de_InitiateLayerUploadCommand, se_InitiateLayerUploadCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link InitiateLayerUploadCommand}.
+ */
 export interface InitiateLayerUploadCommandInput extends InitiateLayerUploadRequest {}
+/**
+ * @public
+ *
+ * The output of {@link InitiateLayerUploadCommand}.
+ */
 export interface InitiateLayerUploadCommandOutput extends InitiateLayerUploadResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Notifies Amazon ECR that you intend to upload an image layer.</p>
  *          <p>When an image is pushed, the InitiateLayerUpload API is called once for each image layer
  *          that hasn't already been uploaded. Whether an image layer uploads is determined by the
@@ -42,13 +45,37 @@ export interface InitiateLayerUploadCommandOutput extends InitiateLayerUploadRes
  * import { ECRPUBLICClient, InitiateLayerUploadCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
  * // const { ECRPUBLICClient, InitiateLayerUploadCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
  * const client = new ECRPUBLICClient(config);
+ * const input = { // InitiateLayerUploadRequest
+ *   registryId: "STRING_VALUE",
+ *   repositoryName: "STRING_VALUE", // required
+ * };
  * const command = new InitiateLayerUploadCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param InitiateLayerUploadCommandInput - {@link InitiateLayerUploadCommandInput}
+ * @returns {@link InitiateLayerUploadCommandOutput}
  * @see {@link InitiateLayerUploadCommandInput} for command's `input` shape.
  * @see {@link InitiateLayerUploadCommandOutput} for command's `response` shape.
  * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *          request.</p>
+ *
+ * @throws {@link RegistryNotFoundException} (client fault)
+ *  <p>The registry doesn't exist.</p>
+ *
+ * @throws {@link RepositoryNotFoundException} (client fault)
+ *  <p>The specified repository can't be found. Check the spelling of the specified repository
+ *          and ensure that you're performing operations on the correct registry.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * @throws {@link UnsupportedCommandException} (client fault)
+ *  <p>The action isn't supported in this Region.</p>
+ *
  *
  */
 export class InitiateLayerUploadCommand extends $Command<
@@ -68,6 +95,9 @@ export class InitiateLayerUploadCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: InitiateLayerUploadCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +126,8 @@ export class InitiateLayerUploadCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: InitiateLayerUploadRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: InitiateLayerUploadResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +137,18 @@ export class InitiateLayerUploadCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: InitiateLayerUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1InitiateLayerUploadCommand(input, context);
+    return se_InitiateLayerUploadCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InitiateLayerUploadCommandOutput> {
-    return deserializeAws_json1_1InitiateLayerUploadCommand(output, context);
+    return de_InitiateLayerUploadCommand(output, context);
   }
 
   // Start section: command_body_extra

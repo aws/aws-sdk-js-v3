@@ -6,12 +6,11 @@ import {
   ListReadSetActivationJobsCommandInput,
   ListReadSetActivationJobsCommandOutput,
 } from "../commands/ListReadSetActivationJobsCommand";
-import { Omics } from "../Omics";
 import { OmicsClient } from "../OmicsClient";
 import { OmicsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: OmicsClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListReadSetActivationJobsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Omics,
-  input: ListReadSetActivationJobsCommandInput,
-  ...args: any
-): Promise<ListReadSetActivationJobsCommandOutput> => {
-  // @ts-ignore
-  return await client.listReadSetActivationJobs(input, ...args);
-};
 export async function* paginateListReadSetActivationJobs(
   config: OmicsPaginationConfiguration,
   input: ListReadSetActivationJobsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListReadSetActivationJobs(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Omics) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof OmicsClient) {
+    if (config.client instanceof OmicsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Omics | OmicsClient");

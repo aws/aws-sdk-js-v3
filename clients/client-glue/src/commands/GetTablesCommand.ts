@@ -14,18 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetTablesRequest,
-  GetTablesRequestFilterSensitiveLog,
-  GetTablesResponse,
-  GetTablesResponseFilterSensitiveLog,
-} from "../models/models_1";
-import { deserializeAws_json1_1GetTablesCommand, serializeAws_json1_1GetTablesCommand } from "../protocols/Aws_json1_1";
+import { GetTablesRequest, GetTablesResponse } from "../models/models_1";
+import { de_GetTablesCommand, se_GetTablesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetTablesCommand}.
+ */
 export interface GetTablesCommandInput extends GetTablesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetTablesCommand}.
+ */
 export interface GetTablesCommandOutput extends GetTablesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the definitions of some or all of the tables in a given
  *       <code>Database</code>.</p>
  * @example
@@ -34,13 +40,45 @@ export interface GetTablesCommandOutput extends GetTablesResponse, __MetadataBea
  * import { GlueClient, GetTablesCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetTablesCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // GetTablesRequest
+ *   CatalogId: "STRING_VALUE",
+ *   DatabaseName: "STRING_VALUE", // required
+ *   Expression: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   TransactionId: "STRING_VALUE",
+ *   QueryAsOfTime: new Date("TIMESTAMP"),
+ * };
  * const command = new GetTablesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTablesCommandInput - {@link GetTablesCommandInput}
+ * @returns {@link GetTablesCommandOutput}
  * @see {@link GetTablesCommandInput} for command's `input` shape.
  * @see {@link GetTablesCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link FederationSourceException} (client fault)
+ *  <p>A federation source failed.</p>
+ *
+ * @throws {@link FederationSourceRetryableException} (client fault)
+ *
+ * @throws {@link GlueEncryptionException} (client fault)
+ *  <p>An encryption operation failed.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class GetTablesCommand extends $Command<
@@ -60,6 +98,9 @@ export class GetTablesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTablesCommandInput) {
     // Start section: command_constructor
     super();
@@ -86,8 +127,8 @@ export class GetTablesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTablesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTablesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -97,12 +138,18 @@ export class GetTablesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTablesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetTablesCommand(input, context);
+    return se_GetTablesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTablesCommandOutput> {
-    return deserializeAws_json1_1GetTablesCommand(output, context);
+    return de_GetTablesCommand(output, context);
   }
 
   // Start section: command_body_extra

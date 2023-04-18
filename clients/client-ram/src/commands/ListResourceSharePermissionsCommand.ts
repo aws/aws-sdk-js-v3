@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ListResourceSharePermissionsRequest, ListResourceSharePermissionsResponse } from "../models/models_0";
 import {
-  ListResourceSharePermissionsRequest,
-  ListResourceSharePermissionsRequestFilterSensitiveLog,
-  ListResourceSharePermissionsResponse,
-  ListResourceSharePermissionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListResourceSharePermissionsCommand,
-  serializeAws_restJson1ListResourceSharePermissionsCommand,
+  de_ListResourceSharePermissionsCommand,
+  se_ListResourceSharePermissionsCommand,
 } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListResourceSharePermissionsCommand}.
+ */
 export interface ListResourceSharePermissionsCommandInput extends ListResourceSharePermissionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListResourceSharePermissionsCommand}.
+ */
 export interface ListResourceSharePermissionsCommandOutput
   extends ListResourceSharePermissionsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the RAM permissions that are associated with a resource share.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,42 @@ export interface ListResourceSharePermissionsCommandOutput
  * import { RAMClient, ListResourceSharePermissionsCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, ListResourceSharePermissionsCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
+ * const input = { // ListResourceSharePermissionsRequest
+ *   resourceShareArn: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListResourceSharePermissionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResourceSharePermissionsCommandInput - {@link ListResourceSharePermissionsCommandInput}
+ * @returns {@link ListResourceSharePermissionsCommandOutput}
  * @see {@link ListResourceSharePermissionsCommandInput} for command's `input` shape.
  * @see {@link ListResourceSharePermissionsCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The specified value for <code>NextToken</code> is not valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter is not valid.</p>
+ *
+ * @throws {@link MalformedArnException} (client fault)
+ *  <p>The format of an Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>The requested operation is not permitted.</p>
+ *
+ * @throws {@link ServerInternalException} (server fault)
+ *  <p>The service could not respond to the request due to an internal problem.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is not available.</p>
+ *
+ * @throws {@link UnknownResourceException} (client fault)
+ *  <p>A specified resource was not found.</p>
+ *
  *
  */
 export class ListResourceSharePermissionsCommand extends $Command<
@@ -64,6 +99,9 @@ export class ListResourceSharePermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResourceSharePermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +130,8 @@ export class ListResourceSharePermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListResourceSharePermissionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListResourceSharePermissionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +141,21 @@ export class ListResourceSharePermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResourceSharePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListResourceSharePermissionsCommand(input, context);
+    return se_ListResourceSharePermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListResourceSharePermissionsCommandOutput> {
-    return deserializeAws_restJson1ListResourceSharePermissionsCommand(output, context);
+    return de_ListResourceSharePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

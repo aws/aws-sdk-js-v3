@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateRulesOfIpGroupRequest,
-  UpdateRulesOfIpGroupRequestFilterSensitiveLog,
-  UpdateRulesOfIpGroupResult,
-  UpdateRulesOfIpGroupResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateRulesOfIpGroupCommand,
-  serializeAws_json1_1UpdateRulesOfIpGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateRulesOfIpGroupRequest, UpdateRulesOfIpGroupResult } from "../models/models_0";
+import { de_UpdateRulesOfIpGroupCommand, se_UpdateRulesOfIpGroupCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateRulesOfIpGroupCommand}.
+ */
 export interface UpdateRulesOfIpGroupCommandInput extends UpdateRulesOfIpGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateRulesOfIpGroupCommand}.
+ */
 export interface UpdateRulesOfIpGroupCommandOutput extends UpdateRulesOfIpGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Replaces the current rules of the specified IP access control group with the specified
  *          rules.</p>
  * @example
@@ -37,13 +40,40 @@ export interface UpdateRulesOfIpGroupCommandOutput extends UpdateRulesOfIpGroupR
  * import { WorkSpacesClient, UpdateRulesOfIpGroupCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, UpdateRulesOfIpGroupCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // UpdateRulesOfIpGroupRequest
+ *   GroupId: "STRING_VALUE", // required
+ *   UserRules: [ // IpRuleList // required
+ *     { // IpRuleItem
+ *       ipRule: "STRING_VALUE",
+ *       ruleDesc: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateRulesOfIpGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRulesOfIpGroupCommandInput - {@link UpdateRulesOfIpGroupCommandInput}
+ * @returns {@link UpdateRulesOfIpGroupCommandOutput}
  * @see {@link UpdateRulesOfIpGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateRulesOfIpGroupCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The user is not authorized to access a resource.</p>
+ *
+ * @throws {@link InvalidParameterValuesException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ * @throws {@link InvalidResourceStateException} (client fault)
+ *  <p>The state of the resource is not valid for this operation.</p>
+ *
+ * @throws {@link ResourceLimitExceededException} (client fault)
+ *  <p>Your resource limits have been exceeded.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
  *
  */
 export class UpdateRulesOfIpGroupCommand extends $Command<
@@ -63,6 +93,9 @@ export class UpdateRulesOfIpGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRulesOfIpGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +124,8 @@ export class UpdateRulesOfIpGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRulesOfIpGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateRulesOfIpGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +135,18 @@ export class UpdateRulesOfIpGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRulesOfIpGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateRulesOfIpGroupCommand(input, context);
+    return se_UpdateRulesOfIpGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRulesOfIpGroupCommandOutput> {
-    return deserializeAws_json1_1UpdateRulesOfIpGroupCommand(output, context);
+    return de_UpdateRulesOfIpGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

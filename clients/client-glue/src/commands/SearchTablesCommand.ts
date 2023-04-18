@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  SearchTablesRequest,
-  SearchTablesRequestFilterSensitiveLog,
-  SearchTablesResponse,
-  SearchTablesResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1SearchTablesCommand,
-  serializeAws_json1_1SearchTablesCommand,
-} from "../protocols/Aws_json1_1";
+import { SearchTablesRequest, SearchTablesResponse } from "../models/models_2";
+import { de_SearchTablesCommand, se_SearchTablesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link SearchTablesCommand}.
+ */
 export interface SearchTablesCommandInput extends SearchTablesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SearchTablesCommand}.
+ */
 export interface SearchTablesCommandOutput extends SearchTablesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Searches a set of tables based on properties in the table metadata as well as on the parent database. You can search against text or filter conditions. </p>
  *          <p>You can only get tables that you have access to based on the security policies defined in Lake Formation. You need at least a read-only access to the table for it to be returned. If you do not have access to all the columns in the table, these columns will not be searched against when returning the list of tables back to you. If you have access to the columns but not the data in the columns, those columns and the associated metadata for those columns will be included in the search. </p>
  * @example
@@ -37,13 +40,45 @@ export interface SearchTablesCommandOutput extends SearchTablesResponse, __Metad
  * import { GlueClient, SearchTablesCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, SearchTablesCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // SearchTablesRequest
+ *   CatalogId: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   Filters: [ // SearchPropertyPredicates
+ *     { // PropertyPredicate
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *       Comparator: "EQUALS" || "GREATER_THAN" || "LESS_THAN" || "GREATER_THAN_EQUALS" || "LESS_THAN_EQUALS",
+ *     },
+ *   ],
+ *   SearchText: "STRING_VALUE",
+ *   SortCriteria: [ // SortCriteria
+ *     { // SortCriterion
+ *       FieldName: "STRING_VALUE",
+ *       Sort: "ASC" || "DESC",
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   ResourceShareType: "FOREIGN" || "ALL" || "FEDERATED",
+ * };
  * const command = new SearchTablesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchTablesCommandInput - {@link SearchTablesCommandInput}
+ * @returns {@link SearchTablesCommandOutput}
  * @see {@link SearchTablesCommandInput} for command's `input` shape.
  * @see {@link SearchTablesCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class SearchTablesCommand extends $Command<
@@ -63,6 +98,9 @@ export class SearchTablesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchTablesCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +127,8 @@ export class SearchTablesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchTablesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchTablesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +138,18 @@ export class SearchTablesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchTablesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SearchTablesCommand(input, context);
+    return se_SearchTablesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchTablesCommandOutput> {
-    return deserializeAws_json1_1SearchTablesCommand(output, context);
+    return de_SearchTablesCommand(output, context);
   }
 
   // Start section: command_body_extra

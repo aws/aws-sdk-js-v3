@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
-import {
-  GetFeatureRequest,
-  GetFeatureRequestFilterSensitiveLog,
-  GetFeatureResponse,
-  GetFeatureResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetFeatureCommand,
-  serializeAws_restJson1GetFeatureCommand,
-} from "../protocols/Aws_restJson1";
+import { GetFeatureRequest, GetFeatureResponse } from "../models/models_0";
+import { de_GetFeatureCommand, se_GetFeatureCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetFeatureCommand}.
+ */
 export interface GetFeatureCommandInput extends GetFeatureRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetFeatureCommand}.
+ */
 export interface GetFeatureCommandOutput extends GetFeatureResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the details about one feature. You must already know the feature name. To
  *       retrieve a list of features in your account, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListFeatures.html">ListFeatures</a>.</p>
  * @example
@@ -37,13 +40,32 @@ export interface GetFeatureCommandOutput extends GetFeatureResponse, __MetadataB
  * import { EvidentlyClient, GetFeatureCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, GetFeatureCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
+ * const input = { // GetFeatureRequest
+ *   project: "STRING_VALUE", // required
+ *   feature: "STRING_VALUE", // required
+ * };
  * const command = new GetFeatureCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFeatureCommandInput - {@link GetFeatureCommandInput}
+ * @returns {@link GetFeatureCommandOutput}
  * @see {@link GetFeatureCommandInput} for command's `input` shape.
  * @see {@link GetFeatureCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a resource that does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because of request throttling. Retry the request.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The value of a parameter in the request caused an error.</p>
+ *
  *
  */
 export class GetFeatureCommand extends $Command<
@@ -63,6 +85,9 @@ export class GetFeatureCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFeatureCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +114,8 @@ export class GetFeatureCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFeatureRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetFeatureResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +125,18 @@ export class GetFeatureCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFeatureCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetFeatureCommand(input, context);
+    return se_GetFeatureCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFeatureCommandOutput> {
-    return deserializeAws_restJson1GetFeatureCommand(output, context);
+    return de_GetFeatureCommand(output, context);
   }
 
   // Start section: command_body_extra

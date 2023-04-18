@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import { UpdateStreamModeInput, UpdateStreamModeInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateStreamModeCommand,
-  serializeAws_json1_1UpdateStreamModeCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateStreamModeInput } from "../models/models_0";
+import { de_UpdateStreamModeCommand, se_UpdateStreamModeCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateStreamModeCommand}.
+ */
 export interface UpdateStreamModeCommandInput extends UpdateStreamModeInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateStreamModeCommand}.
+ */
 export interface UpdateStreamModeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p> Updates the capacity mode of the data stream. Currently, in Kinesis Data Streams, you
  *             can choose between an <b>on-demand</b> capacity mode and a
  *                 <b>provisioned</b> capacity mode for your data stream.
@@ -34,13 +42,38 @@ export interface UpdateStreamModeCommandOutput extends __MetadataBearer {}
  * import { KinesisClient, UpdateStreamModeCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, UpdateStreamModeCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
+ * const input = { // UpdateStreamModeInput
+ *   StreamARN: "STRING_VALUE", // required
+ *   StreamModeDetails: { // StreamModeDetails
+ *     StreamMode: "PROVISIONED" || "ON_DEMAND", // required
+ *   },
+ * };
  * const command = new UpdateStreamModeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateStreamModeCommandInput - {@link UpdateStreamModeCommandInput}
+ * @returns {@link UpdateStreamModeCommandOutput}
  * @see {@link UpdateStreamModeCommandInput} for command's `input` shape.
  * @see {@link UpdateStreamModeCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>A specified parameter exceeds its restrictions, is not supported, or can't be used.
+ *             For more information, see the returned message.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
+ *             stream requests exceeds the maximum number allowed. </p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The resource is not available for this operation. For successful operation, the
+ *             resource must be in the <code>ACTIVE</code> state.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource could not be found. The stream might not be specified
+ *             correctly.</p>
+ *
  *
  */
 export class UpdateStreamModeCommand extends $Command<
@@ -62,6 +95,9 @@ export class UpdateStreamModeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateStreamModeCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +126,8 @@ export class UpdateStreamModeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateStreamModeInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +137,18 @@ export class UpdateStreamModeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateStreamModeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateStreamModeCommand(input, context);
+    return se_UpdateStreamModeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateStreamModeCommandOutput> {
-    return deserializeAws_json1_1UpdateStreamModeCommand(output, context);
+    return de_UpdateStreamModeCommand(output, context);
   }
 
   // Start section: command_body_extra

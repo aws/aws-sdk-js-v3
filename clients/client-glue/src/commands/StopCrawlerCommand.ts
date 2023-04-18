@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  StopCrawlerRequest,
-  StopCrawlerRequestFilterSensitiveLog,
-  StopCrawlerResponse,
-  StopCrawlerResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1StopCrawlerCommand,
-  serializeAws_json1_1StopCrawlerCommand,
-} from "../protocols/Aws_json1_1";
+import { StopCrawlerRequest, StopCrawlerResponse } from "../models/models_2";
+import { de_StopCrawlerCommand, se_StopCrawlerCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link StopCrawlerCommand}.
+ */
 export interface StopCrawlerCommandInput extends StopCrawlerRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StopCrawlerCommand}.
+ */
 export interface StopCrawlerCommandOutput extends StopCrawlerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>If the specified crawler is running, stops the crawl.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,31 @@ export interface StopCrawlerCommandOutput extends StopCrawlerResponse, __Metadat
  * import { GlueClient, StopCrawlerCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, StopCrawlerCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // StopCrawlerRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new StopCrawlerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopCrawlerCommandInput - {@link StopCrawlerCommandInput}
+ * @returns {@link StopCrawlerCommandOutput}
  * @see {@link StopCrawlerCommandInput} for command's `input` shape.
  * @see {@link StopCrawlerCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link CrawlerNotRunningException} (client fault)
+ *  <p>The specified crawler is not running.</p>
+ *
+ * @throws {@link CrawlerStoppingException} (client fault)
+ *  <p>The specified crawler is stopping.</p>
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class StopCrawlerCommand extends $Command<
@@ -62,6 +83,9 @@ export class StopCrawlerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopCrawlerCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +112,8 @@ export class StopCrawlerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopCrawlerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopCrawlerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +123,18 @@ export class StopCrawlerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopCrawlerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopCrawlerCommand(input, context);
+    return se_StopCrawlerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopCrawlerCommandOutput> {
-    return deserializeAws_json1_1StopCrawlerCommand(output, context);
+    return de_StopCrawlerCommand(output, context);
   }
 
   // Start section: command_body_extra

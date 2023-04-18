@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AssumeRoleWithSAMLRequest,
-  AssumeRoleWithSAMLRequestFilterSensitiveLog,
-  AssumeRoleWithSAMLResponse,
-  AssumeRoleWithSAMLResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryAssumeRoleWithSAMLCommand,
-  serializeAws_queryAssumeRoleWithSAMLCommand,
-} from "../protocols/Aws_query";
+import { AssumeRoleWithSAMLRequest, AssumeRoleWithSAMLResponse } from "../models/models_0";
+import { de_AssumeRoleWithSAMLCommand, se_AssumeRoleWithSAMLCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link AssumeRoleWithSAMLCommand}.
+ */
 export interface AssumeRoleWithSAMLCommandInput extends AssumeRoleWithSAMLRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AssumeRoleWithSAMLCommand}.
+ */
 export interface AssumeRoleWithSAMLCommandOutput extends AssumeRoleWithSAMLResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a set of temporary security credentials for users who have been authenticated
  *          via a SAML authentication response. This operation provides a mechanism for tying an
  *          enterprise identity store or directory to role-based Amazon Web Services access without user-specific
@@ -108,7 +111,6 @@ export interface AssumeRoleWithSAMLCommandOutput extends AssumeRoleWithSAMLRespo
  *          characters and the values can’t exceed 256 characters. For these and additional limits, see
  *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length">IAM
  *             and STS Character Limits</a> in the <i>IAM User Guide</i>.</p>
- *
  *          <note>
  *             <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
  *             and session tags into a packed binary format that has a separate limit. Your request can
@@ -116,7 +118,6 @@ export interface AssumeRoleWithSAMLCommandOutput extends AssumeRoleWithSAMLRespo
  *                <code>PackedPolicySize</code> response element indicates by percentage how close the
  *             policies and tags for your request are to the upper size limit.</p>
  *          </note>
- *
  *          <p>You can pass a session tag with the same key as a tag that is attached to the role. When
  *          you do, session tags override the role's tags with the same key.</p>
  *          <p>An administrator must grant you the permissions necessary to pass session tags. The
@@ -166,13 +167,98 @@ export interface AssumeRoleWithSAMLCommandOutput extends AssumeRoleWithSAMLRespo
  * import { STSClient, AssumeRoleWithSAMLCommand } from "@aws-sdk/client-sts"; // ES Modules import
  * // const { STSClient, AssumeRoleWithSAMLCommand } = require("@aws-sdk/client-sts"); // CommonJS import
  * const client = new STSClient(config);
+ * const input = { // AssumeRoleWithSAMLRequest
+ *   RoleArn: "STRING_VALUE", // required
+ *   PrincipalArn: "STRING_VALUE", // required
+ *   SAMLAssertion: "STRING_VALUE", // required
+ *   PolicyArns: [ // policyDescriptorListType
+ *     { // PolicyDescriptorType
+ *       arn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Policy: "STRING_VALUE",
+ *   DurationSeconds: Number("int"),
+ * };
  * const command = new AssumeRoleWithSAMLCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssumeRoleWithSAMLCommandInput - {@link AssumeRoleWithSAMLCommandInput}
+ * @returns {@link AssumeRoleWithSAMLCommandOutput}
  * @see {@link AssumeRoleWithSAMLCommandInput} for command's `input` shape.
  * @see {@link AssumeRoleWithSAMLCommandOutput} for command's `response` shape.
  * @see {@link STSClientResolvedConfig | config} for STSClient's `config` shape.
+ *
+ * @throws {@link ExpiredTokenException} (client fault)
+ *  <p>The web identity token that was passed is expired or is not valid. Get a new identity
+ *             token from the identity provider and then retry the request.</p>
+ *
+ * @throws {@link IDPRejectedClaimException} (client fault)
+ *  <p>The identity provider (IdP) reported that authentication failed. This might be because
+ *             the claim is invalid.</p>
+ *          <p>If this error is returned for the <code>AssumeRoleWithWebIdentity</code> operation, it
+ *             can also mean that the claim has expired or has been explicitly revoked. </p>
+ *
+ * @throws {@link InvalidIdentityTokenException} (client fault)
+ *  <p>The web identity token that was passed could not be validated by Amazon Web Services. Get a new
+ *             identity token from the identity provider and then retry the request.</p>
+ *
+ * @throws {@link MalformedPolicyDocumentException} (client fault)
+ *  <p>The request was rejected because the policy document was malformed. The error message
+ *             describes the specific error.</p>
+ *
+ * @throws {@link PackedPolicyTooLargeException} (client fault)
+ *  <p>The request was rejected because the total packed size of the session policies and
+ *             session tags combined was too large. An Amazon Web Services conversion compresses the session policy
+ *             document, session policy ARNs, and session tags into a packed binary format that has a
+ *             separate limit. The error message indicates by percentage how close the policies and
+ *             tags are to the upper size limit. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html">Passing Session Tags in STS</a> in
+ *             the <i>IAM User Guide</i>.</p>
+ *          <p>You could receive this error even though you meet other defined session policy and
+ *             session tag limits. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-limits-entity-length">IAM and STS Entity
+ *                 Character Limits</a> in the <i>IAM User Guide</i>.</p>
+ *
+ * @throws {@link RegionDisabledException} (client fault)
+ *  <p>STS is not activated in the requested region for the account that is being asked to
+ *             generate credentials. The account administrator must use the IAM console to activate STS
+ *             in that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
+ *                 Deactivating Amazon Web Services STS in an Amazon Web Services Region</a> in the <i>IAM User
+ *                     Guide</i>.</p>
+ *
+ *
+ * @example To assume a role using a SAML assertion
+ * ```javascript
+ * //
+ * const input = {
+ *   "DurationSeconds": 3600,
+ *   "PrincipalArn": "arn:aws:iam::123456789012:saml-provider/SAML-test",
+ *   "RoleArn": "arn:aws:iam::123456789012:role/TestSaml",
+ *   "SAMLAssertion": "VERYLONGENCODEDASSERTIONEXAMPLExzYW1sOkF1ZGllbmNlPmJsYW5rPC9zYW1sOkF1ZGllbmNlPjwvc2FtbDpBdWRpZW5jZVJlc3RyaWN0aW9uPjwvc2FtbDpDb25kaXRpb25zPjxzYW1sOlN1YmplY3Q+PHNhbWw6TmFtZUlEIEZvcm1hdD0idXJuOm9hc2lzOm5hbWVzOnRjOlNBTUw6Mi4wOm5hbWVpZC1mb3JtYXQ6dHJhbnNpZW50Ij5TYW1sRXhhbXBsZTwvc2FtbDpOYW1lSUQ+PHNhbWw6U3ViamVjdENvbmZpcm1hdGlvbiBNZXRob2Q9InVybjpvYXNpczpuYW1lczp0YzpTQU1MOjIuMDpjbTpiZWFyZXIiPjxzYW1sOlN1YmplY3RDb25maXJtYXRpb25EYXRhIE5vdE9uT3JBZnRlcj0iMjAxOS0xMS0wMVQyMDoyNTowNS4xNDVaIiBSZWNpcGllbnQ9Imh0dHBzOi8vc2lnbmluLmF3cy5hbWF6b24uY29tL3NhbWwiLz48L3NhbWw6U3ViamVjdENvbmZpcm1hdGlvbj48L3NhbWw6U3ViamVjdD48c2FtbDpBdXRoblN0YXRlbWVudCBBdXRoPD94bWwgdmpSZXNwb25zZT4="
+ * };
+ * const command = new AssumeRoleWithSAMLCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AssumedRoleUser": {
+ *     "Arn": "arn:aws:sts::123456789012:assumed-role/TestSaml",
+ *     "AssumedRoleId": "ARO456EXAMPLE789:TestSaml"
+ *   },
+ *   "Audience": "https://signin.aws.amazon.com/saml",
+ *   "Credentials": {
+ *     "AccessKeyId": "ASIAV3ZUEFP6EXAMPLE",
+ *     "Expiration": "2019-11-01T20:26:47Z",
+ *     "SecretAccessKey": "8P+SQvWIuLnKhh8d++jpw0nNmQRBZvNEXAMPLEKEY",
+ *     "SessionToken": "IQoJb3JpZ2luX2VjEOz////////////////////wEXAMPLEtMSJHMEUCIDoKK3JH9uGQE1z0sINr5M4jk+Na8KHDcCYRVjJCZEvOAiEA3OvJGtw1EcViOleS2vhs8VdCKFJQWPQrmGdeehM4IC1NtBmUpp2wUE8phUZampKsburEDy0KPkyQDYwT7WZ0wq5VSXDvp75YU9HFvlRd8Tx6q6fE8YQcHNVXAkiY9q6d+xo0rKwT38xVqr7ZD0u0iPPkUL64lIZbqBAz+scqKmlzm8FDrypNC9Yjc8fPOLn9FX9KSYvKTr4rvx3iSIlTJabIQwj2ICCR/oLxBA=="
+ *   },
+ *   "Issuer": "https://integ.example.com/idp/shibboleth",
+ *   "NameQualifier": "SbdGOnUkh1i4+EXAMPLExL/jEvs=",
+ *   "PackedPolicySize": 6,
+ *   "Subject": "SamlExample",
+ *   "SubjectType": "transient"
+ * }
+ * *\/
+ * // example id: to-assume-role-with-saml-14882749597814
+ * ```
  *
  */
 export class AssumeRoleWithSAMLCommand extends $Command<
@@ -193,6 +279,9 @@ export class AssumeRoleWithSAMLCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssumeRoleWithSAMLCommandInput) {
     // Start section: command_constructor
     super();
@@ -221,8 +310,8 @@ export class AssumeRoleWithSAMLCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssumeRoleWithSAMLRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssumeRoleWithSAMLResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -232,12 +321,18 @@ export class AssumeRoleWithSAMLCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssumeRoleWithSAMLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryAssumeRoleWithSAMLCommand(input, context);
+    return se_AssumeRoleWithSAMLCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssumeRoleWithSAMLCommandOutput> {
-    return deserializeAws_queryAssumeRoleWithSAMLCommand(output, context);
+    return de_AssumeRoleWithSAMLCommand(output, context);
   }
 
   // Start section: command_body_extra

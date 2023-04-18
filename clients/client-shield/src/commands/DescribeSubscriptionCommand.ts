@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeSubscriptionRequest,
-  DescribeSubscriptionRequestFilterSensitiveLog,
-  DescribeSubscriptionResponse,
-  DescribeSubscriptionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeSubscriptionCommand,
-  serializeAws_json1_1DescribeSubscriptionCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeSubscriptionRequest, DescribeSubscriptionResponse } from "../models/models_0";
+import { de_DescribeSubscriptionCommand, se_DescribeSubscriptionCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeSubscriptionCommand}.
+ */
 export interface DescribeSubscriptionCommandInput extends DescribeSubscriptionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeSubscriptionCommand}.
+ */
 export interface DescribeSubscriptionCommandOutput extends DescribeSubscriptionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides details about the Shield Advanced subscription for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,23 @@ export interface DescribeSubscriptionCommandOutput extends DescribeSubscriptionR
  * import { ShieldClient, DescribeSubscriptionCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, DescribeSubscriptionCommand } = require("@aws-sdk/client-shield"); // CommonJS import
  * const client = new ShieldClient(config);
+ * const input = {};
  * const command = new DescribeSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSubscriptionCommandInput - {@link DescribeSubscriptionCommandInput}
+ * @returns {@link DescribeSubscriptionCommandOutput}
  * @see {@link DescribeSubscriptionCommandInput} for command's `input` shape.
  * @see {@link DescribeSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+ *
  *
  */
 export class DescribeSubscriptionCommand extends $Command<
@@ -62,6 +75,9 @@ export class DescribeSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +106,8 @@ export class DescribeSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSubscriptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSubscriptionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +117,18 @@ export class DescribeSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeSubscriptionCommand(input, context);
+    return se_DescribeSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSubscriptionCommandOutput> {
-    return deserializeAws_json1_1DescribeSubscriptionCommand(output, context);
+    return de_DescribeSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

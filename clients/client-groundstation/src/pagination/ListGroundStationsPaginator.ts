@@ -6,12 +6,11 @@ import {
   ListGroundStationsCommandInput,
   ListGroundStationsCommandOutput,
 } from "../commands/ListGroundStationsCommand";
-import { GroundStation } from "../GroundStation";
 import { GroundStationClient } from "../GroundStationClient";
 import { GroundStationPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: GroundStationClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListGroundStationsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: GroundStation,
-  input: ListGroundStationsCommandInput,
-  ...args: any
-): Promise<ListGroundStationsCommandOutput> => {
-  // @ts-ignore
-  return await client.listGroundStations(input, ...args);
-};
 export async function* paginateListGroundStations(
   config: GroundStationPaginationConfiguration,
   input: ListGroundStationsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListGroundStations(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof GroundStation) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof GroundStationClient) {
+    if (config.client instanceof GroundStationClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected GroundStation | GroundStationClient");

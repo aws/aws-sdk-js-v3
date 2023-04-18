@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeAccountAttributesRequest,
-  DescribeAccountAttributesRequestFilterSensitiveLog,
-  DescribeAccountAttributesResult,
-  DescribeAccountAttributesResultFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeAccountAttributesCommand,
-  serializeAws_ec2DescribeAccountAttributesCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeAccountAttributesRequest, DescribeAccountAttributesResult } from "../models/models_3";
+import { de_DescribeAccountAttributesCommand, se_DescribeAccountAttributesCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeAccountAttributesCommand}.
+ */
 export interface DescribeAccountAttributesCommandInput extends DescribeAccountAttributesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeAccountAttributesCommand}.
+ */
 export interface DescribeAccountAttributesCommandOutput extends DescribeAccountAttributesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes attributes of your Amazon Web Services account. The following are the supported account attributes:</p>
  *          <ul>
  *             <li>
@@ -73,13 +76,118 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  * import { EC2Client, DescribeAccountAttributesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeAccountAttributesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeAccountAttributesRequest
+ *   AttributeNames: [ // AccountAttributeNameStringList
+ *     "supported-platforms" || "default-vpc",
+ *   ],
+ *   DryRun: true || false,
+ * };
  * const command = new DescribeAccountAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAccountAttributesCommandInput - {@link DescribeAccountAttributesCommandInput}
+ * @returns {@link DescribeAccountAttributesCommandOutput}
  * @see {@link DescribeAccountAttributesCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountAttributesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ *
+ * @example To describe a single attribute for your AWS account
+ * ```javascript
+ * // This example describes the supported-platforms attribute for your AWS account.
+ * const input = {
+ *   "AttributeNames": [
+ *     "supported-platforms"
+ *   ]
+ * };
+ * const command = new DescribeAccountAttributesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AccountAttributes": [
+ *     {
+ *       "AttributeName": "supported-platforms",
+ *       "AttributeValues": [
+ *         {
+ *           "AttributeValue": "EC2"
+ *         },
+ *         {
+ *           "AttributeValue": "VPC"
+ *         }
+ *       ]
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: ec2-describe-account-attributes-1
+ * ```
+ *
+ * @example To describe all attributes for your AWS account
+ * ```javascript
+ * // This example describes the attributes for your AWS account.
+ * const input = undefined;
+ * const command = new DescribeAccountAttributesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AccountAttributes": [
+ *     {
+ *       "AttributeName": "supported-platforms",
+ *       "AttributeValues": [
+ *         {
+ *           "AttributeValue": "EC2"
+ *         },
+ *         {
+ *           "AttributeValue": "VPC"
+ *         }
+ *       ]
+ *     },
+ *     {
+ *       "AttributeName": "vpc-max-security-groups-per-interface",
+ *       "AttributeValues": [
+ *         {
+ *           "AttributeValue": "5"
+ *         }
+ *       ]
+ *     },
+ *     {
+ *       "AttributeName": "max-elastic-ips",
+ *       "AttributeValues": [
+ *         {
+ *           "AttributeValue": "5"
+ *         }
+ *       ]
+ *     },
+ *     {
+ *       "AttributeName": "max-instances",
+ *       "AttributeValues": [
+ *         {
+ *           "AttributeValue": "20"
+ *         }
+ *       ]
+ *     },
+ *     {
+ *       "AttributeName": "vpc-max-elastic-ips",
+ *       "AttributeValues": [
+ *         {
+ *           "AttributeValue": "5"
+ *         }
+ *       ]
+ *     },
+ *     {
+ *       "AttributeName": "default-vpc",
+ *       "AttributeValues": [
+ *         {
+ *           "AttributeValue": "none"
+ *         }
+ *       ]
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: ec2-describe-account-attributes-2
+ * ```
  *
  */
 export class DescribeAccountAttributesCommand extends $Command<
@@ -99,6 +207,9 @@ export class DescribeAccountAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAccountAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +238,8 @@ export class DescribeAccountAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAccountAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAccountAttributesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,15 +249,21 @@ export class DescribeAccountAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAccountAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeAccountAttributesCommand(input, context);
+    return se_DescribeAccountAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAccountAttributesCommandOutput> {
-    return deserializeAws_ec2DescribeAccountAttributesCommand(output, context);
+    return de_DescribeAccountAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

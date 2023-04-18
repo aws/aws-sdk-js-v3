@@ -13,47 +13,65 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetEmailIdentityPoliciesRequest,
-  GetEmailIdentityPoliciesRequestFilterSensitiveLog,
-  GetEmailIdentityPoliciesResponse,
-  GetEmailIdentityPoliciesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetEmailIdentityPoliciesCommand,
-  serializeAws_restJson1GetEmailIdentityPoliciesCommand,
-} from "../protocols/Aws_restJson1";
+import { GetEmailIdentityPoliciesRequest, GetEmailIdentityPoliciesResponse } from "../models/models_0";
+import { de_GetEmailIdentityPoliciesCommand, se_GetEmailIdentityPoliciesCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
+/**
+ * @public
+ *
+ * The input for {@link GetEmailIdentityPoliciesCommand}.
+ */
 export interface GetEmailIdentityPoliciesCommandInput extends GetEmailIdentityPoliciesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetEmailIdentityPoliciesCommand}.
+ */
 export interface GetEmailIdentityPoliciesCommandOutput extends GetEmailIdentityPoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the requested sending authorization policies for the given identity (an email
  *             address or a domain). The policies are returned as a map of policy names to policy
  *             contents. You can retrieve a maximum of 20 policies at a time.</p>
- *         <note>
+ *          <note>
  *             <p>This API is for the identity owner only. If you have not verified the identity,
  *                 this API will return an error.</p>
- *         </note>
- *         <p>Sending authorization is a feature that enables an identity owner to authorize other
+ *          </note>
+ *          <p>Sending authorization is a feature that enables an identity owner to authorize other
  *             senders to use its identities. For information about using sending authorization, see
  *             the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
  *                 Guide</a>.</p>
- *         <p>You can execute this operation no more than once per second.</p>
+ *          <p>You can execute this operation no more than once per second.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SESv2Client, GetEmailIdentityPoliciesCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, GetEmailIdentityPoliciesCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = { // GetEmailIdentityPoliciesRequest
+ *   EmailIdentity: "STRING_VALUE", // required
+ * };
  * const command = new GetEmailIdentityPoliciesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEmailIdentityPoliciesCommandInput - {@link GetEmailIdentityPoliciesCommandInput}
+ * @returns {@link GetEmailIdentityPoliciesCommandOutput}
  * @see {@link GetEmailIdentityPoliciesCommandInput} for command's `input` shape.
  * @see {@link GetEmailIdentityPoliciesCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input you provided is invalid.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource you attempted to access doesn't exist.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Too many requests have been made to the operation.</p>
+ *
  *
  */
 export class GetEmailIdentityPoliciesCommand extends $Command<
@@ -73,6 +91,9 @@ export class GetEmailIdentityPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEmailIdentityPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +122,8 @@ export class GetEmailIdentityPoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEmailIdentityPoliciesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetEmailIdentityPoliciesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +133,18 @@ export class GetEmailIdentityPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEmailIdentityPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetEmailIdentityPoliciesCommand(input, context);
+    return se_GetEmailIdentityPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEmailIdentityPoliciesCommandOutput> {
-    return deserializeAws_restJson1GetEmailIdentityPoliciesCommand(output, context);
+    return de_GetEmailIdentityPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

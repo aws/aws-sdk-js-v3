@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetVariantStoreRequest,
-  GetVariantStoreRequestFilterSensitiveLog,
-  GetVariantStoreResponse,
-  GetVariantStoreResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetVariantStoreRequest, GetVariantStoreResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1GetVariantStoreCommand,
-  serializeAws_restJson1GetVariantStoreCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetVariantStoreCommand, se_GetVariantStoreCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetVariantStoreCommand}.
+ */
 export interface GetVariantStoreCommandInput extends GetVariantStoreRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetVariantStoreCommand}.
+ */
 export interface GetVariantStoreCommandOutput extends GetVariantStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a variant store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,34 @@ export interface GetVariantStoreCommandOutput extends GetVariantStoreResponse, _
  * import { OmicsClient, GetVariantStoreCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, GetVariantStoreCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = { // GetVariantStoreRequest
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new GetVariantStoreCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetVariantStoreCommandInput - {@link GetVariantStoreCommandInput}
+ * @returns {@link GetVariantStoreCommandOutput}
  * @see {@link GetVariantStoreCommandInput} for command's `input` shape.
  * @see {@link GetVariantStoreCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred. Try the request again.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The target resource was not found in the current Region.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
  *
  */
 export class GetVariantStoreCommand extends $Command<
@@ -62,6 +86,9 @@ export class GetVariantStoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetVariantStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +117,8 @@ export class GetVariantStoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetVariantStoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetVariantStoreResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +128,18 @@ export class GetVariantStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetVariantStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetVariantStoreCommand(input, context);
+    return se_GetVariantStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVariantStoreCommandOutput> {
-    return deserializeAws_restJson1GetVariantStoreCommand(output, context);
+    return de_GetVariantStoreCommand(output, context);
   }
 
   // Start section: command_body_extra

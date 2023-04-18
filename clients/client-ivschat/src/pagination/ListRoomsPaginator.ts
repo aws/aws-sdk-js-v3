@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListRoomsCommand, ListRoomsCommandInput, ListRoomsCommandOutput } from "../commands/ListRoomsCommand";
-import { Ivschat } from "../Ivschat";
 import { IvschatClient } from "../IvschatClient";
 import { IvschatPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: IvschatClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListRoomsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Ivschat,
-  input: ListRoomsCommandInput,
-  ...args: any
-): Promise<ListRoomsCommandOutput> => {
-  // @ts-ignore
-  return await client.listRooms(input, ...args);
-};
 export async function* paginateListRooms(
   config: IvschatPaginationConfiguration,
   input: ListRoomsCommandInput,
@@ -40,9 +31,7 @@ export async function* paginateListRooms(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Ivschat) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IvschatClient) {
+    if (config.client instanceof IvschatClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Ivschat | IvschatClient");

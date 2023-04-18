@@ -6,12 +6,11 @@ import {
   ListSyncJobsCommandInput,
   ListSyncJobsCommandOutput,
 } from "../commands/ListSyncJobsCommand";
-import { IoTTwinMaker } from "../IoTTwinMaker";
 import { IoTTwinMakerClient } from "../IoTTwinMakerClient";
 import { IoTTwinMakerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: IoTTwinMakerClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListSyncJobsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: IoTTwinMaker,
-  input: ListSyncJobsCommandInput,
-  ...args: any
-): Promise<ListSyncJobsCommandOutput> => {
-  // @ts-ignore
-  return await client.listSyncJobs(input, ...args);
-};
 export async function* paginateListSyncJobs(
   config: IoTTwinMakerPaginationConfiguration,
   input: ListSyncJobsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListSyncJobs(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof IoTTwinMaker) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IoTTwinMakerClient) {
+    if (config.client instanceof IoTTwinMakerClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected IoTTwinMaker | IoTTwinMakerClient");

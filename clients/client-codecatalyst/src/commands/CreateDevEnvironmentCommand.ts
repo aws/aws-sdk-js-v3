@@ -14,36 +14,89 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
-import {
-  CreateDevEnvironmentRequest,
-  CreateDevEnvironmentRequestFilterSensitiveLog,
-  CreateDevEnvironmentResponse,
-  CreateDevEnvironmentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDevEnvironmentCommand,
-  serializeAws_restJson1CreateDevEnvironmentCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateDevEnvironmentRequest, CreateDevEnvironmentResponse } from "../models/models_0";
+import { de_CreateDevEnvironmentCommand, se_CreateDevEnvironmentCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateDevEnvironmentCommand}.
+ */
 export interface CreateDevEnvironmentCommandInput extends CreateDevEnvironmentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateDevEnvironmentCommand}.
+ */
 export interface CreateDevEnvironmentCommandOutput extends CreateDevEnvironmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Dev Environment in Amazon CodeCatalyst, a cloud-based development Dev Environment that you can use to quickly work on the code stored in the source repositories of your project.
- *       By default, a Dev Environment is configured to have a 2 core processor, 4GB of RAM, and 16GB of persistent storage. </p>
+ *       </p>
+ *          <note>
+ *             <p>When created in the Amazon CodeCatalyst console, by default a Dev Environment is configured to have a 2 core processor, 4GB of RAM, and 16GB of persistent storage. None of these
+ *       defaults apply to a Dev Environment created programmatically.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeCatalystClient, CreateDevEnvironmentCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
  * // const { CodeCatalystClient, CreateDevEnvironmentCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
  * const client = new CodeCatalystClient(config);
+ * const input = { // CreateDevEnvironmentRequest
+ *   spaceName: "STRING_VALUE", // required
+ *   projectName: "STRING_VALUE", // required
+ *   repositories: [ // RepositoriesInput
+ *     { // RepositoryInput
+ *       repositoryName: "STRING_VALUE", // required
+ *       branchName: "STRING_VALUE",
+ *     },
+ *   ],
+ *   clientToken: "STRING_VALUE",
+ *   alias: "STRING_VALUE",
+ *   ides: [ // IdeConfigurationList
+ *     { // IdeConfiguration
+ *       runtime: "STRING_VALUE",
+ *       name: "STRING_VALUE",
+ *     },
+ *   ],
+ *   instanceType: "STRING_VALUE", // required
+ *   inactivityTimeoutMinutes: Number("int"),
+ *   persistentStorage: { // PersistentStorageConfiguration
+ *     sizeInGiB: Number("int"), // required
+ *   },
+ * };
  * const command = new CreateDevEnvironmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDevEnvironmentCommandInput - {@link CreateDevEnvironmentCommandInput}
+ * @returns {@link CreateDevEnvironmentCommandOutput}
  * @see {@link CreateDevEnvironmentCommandInput} for command's `input` shape.
  * @see {@link CreateDevEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The request was denied because you don't have sufficient access to perform this action. Verify that you are a member of a role that allows this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request was denied because the requested operation would cause a conflict with the current state of a service resource associated with the request.
+ *        Another user might have updated the resource. Reload, make sure you have the latest data, and then try again.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request was denied because the specified resource was not found. Verify that the spelling is correct and that you have access to the resource.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request was denied because one or more resources has reached its limits for the tier the space belongs to. Either reduce
+ *       the number of resources, or change the tier if applicable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request was denied because an input failed to satisfy the constraints specified by the service. Check the spelling and input requirements, and then try again.</p>
+ *
  *
  */
 export class CreateDevEnvironmentCommand extends $Command<
@@ -62,6 +115,9 @@ export class CreateDevEnvironmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDevEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +146,8 @@ export class CreateDevEnvironmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDevEnvironmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDevEnvironmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +157,18 @@ export class CreateDevEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDevEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDevEnvironmentCommand(input, context);
+    return se_CreateDevEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDevEnvironmentCommandOutput> {
-    return deserializeAws_restJson1CreateDevEnvironmentCommand(output, context);
+    return de_CreateDevEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

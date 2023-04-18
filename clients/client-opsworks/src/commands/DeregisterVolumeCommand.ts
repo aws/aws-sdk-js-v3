@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeregisterVolumeRequest, DeregisterVolumeRequestFilterSensitiveLog } from "../models/models_0";
+import { DeregisterVolumeRequest } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1DeregisterVolumeCommand,
-  serializeAws_json1_1DeregisterVolumeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeregisterVolumeCommand, se_DeregisterVolumeCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeregisterVolumeCommand}.
+ */
 export interface DeregisterVolumeCommandInput extends DeregisterVolumeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeregisterVolumeCommand}.
+ */
 export interface DeregisterVolumeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deregisters an Amazon EBS volume. The volume can then be registered by another stack. For more
  *       information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource
  *         Management</a>.</p>
@@ -38,13 +46,25 @@ export interface DeregisterVolumeCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, DeregisterVolumeCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DeregisterVolumeCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // DeregisterVolumeRequest
+ *   VolumeId: "STRING_VALUE", // required
+ * };
  * const command = new DeregisterVolumeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterVolumeCommandInput - {@link DeregisterVolumeCommandInput}
+ * @returns {@link DeregisterVolumeCommandOutput}
  * @see {@link DeregisterVolumeCommandInput} for command's `input` shape.
  * @see {@link DeregisterVolumeCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Indicates that a resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that a request was not valid.</p>
+ *
  *
  */
 export class DeregisterVolumeCommand extends $Command<
@@ -64,6 +84,9 @@ export class DeregisterVolumeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterVolumeCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +115,8 @@ export class DeregisterVolumeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterVolumeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +126,18 @@ export class DeregisterVolumeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeregisterVolumeCommand(input, context);
+    return se_DeregisterVolumeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterVolumeCommandOutput> {
-    return deserializeAws_json1_1DeregisterVolumeCommand(output, context);
+    return de_DeregisterVolumeCommand(output, context);
   }
 
   // Start section: command_body_extra

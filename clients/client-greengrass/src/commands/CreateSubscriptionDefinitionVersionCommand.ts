@@ -16,21 +16,30 @@ import {
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import {
   CreateSubscriptionDefinitionVersionRequest,
-  CreateSubscriptionDefinitionVersionRequestFilterSensitiveLog,
   CreateSubscriptionDefinitionVersionResponse,
-  CreateSubscriptionDefinitionVersionResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateSubscriptionDefinitionVersionCommand,
-  serializeAws_restJson1CreateSubscriptionDefinitionVersionCommand,
+  de_CreateSubscriptionDefinitionVersionCommand,
+  se_CreateSubscriptionDefinitionVersionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateSubscriptionDefinitionVersionCommand}.
+ */
 export interface CreateSubscriptionDefinitionVersionCommandInput extends CreateSubscriptionDefinitionVersionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateSubscriptionDefinitionVersionCommand}.
+ */
 export interface CreateSubscriptionDefinitionVersionCommandOutput
   extends CreateSubscriptionDefinitionVersionResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * Creates a version of a subscription definition which has already been defined.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +47,31 @@ export interface CreateSubscriptionDefinitionVersionCommandOutput
  * import { GreengrassClient, CreateSubscriptionDefinitionVersionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, CreateSubscriptionDefinitionVersionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // CreateSubscriptionDefinitionVersionRequest
+ *   AmznClientToken: "STRING_VALUE",
+ *   SubscriptionDefinitionId: "STRING_VALUE", // required
+ *   Subscriptions: [ // __listOfSubscription
+ *     { // Subscription
+ *       Id: "STRING_VALUE", // required
+ *       Source: "STRING_VALUE", // required
+ *       Subject: "STRING_VALUE", // required
+ *       Target: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateSubscriptionDefinitionVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSubscriptionDefinitionVersionCommandInput - {@link CreateSubscriptionDefinitionVersionCommandInput}
+ * @returns {@link CreateSubscriptionDefinitionVersionCommandOutput}
  * @see {@link CreateSubscriptionDefinitionVersionCommandInput} for command's `input` shape.
  * @see {@link CreateSubscriptionDefinitionVersionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  General error information.
+ *
  *
  */
 export class CreateSubscriptionDefinitionVersionCommand extends $Command<
@@ -64,6 +91,9 @@ export class CreateSubscriptionDefinitionVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSubscriptionDefinitionVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +122,8 @@ export class CreateSubscriptionDefinitionVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSubscriptionDefinitionVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSubscriptionDefinitionVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +133,24 @@ export class CreateSubscriptionDefinitionVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateSubscriptionDefinitionVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateSubscriptionDefinitionVersionCommand(input, context);
+    return se_CreateSubscriptionDefinitionVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateSubscriptionDefinitionVersionCommandOutput> {
-    return deserializeAws_restJson1CreateSubscriptionDefinitionVersionCommand(output, context);
+    return de_CreateSubscriptionDefinitionVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

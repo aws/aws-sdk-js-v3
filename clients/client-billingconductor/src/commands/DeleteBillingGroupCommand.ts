@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
-import {
-  DeleteBillingGroupInput,
-  DeleteBillingGroupInputFilterSensitiveLog,
-  DeleteBillingGroupOutput,
-  DeleteBillingGroupOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteBillingGroupCommand,
-  serializeAws_restJson1DeleteBillingGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteBillingGroupInput, DeleteBillingGroupOutput } from "../models/models_0";
+import { de_DeleteBillingGroupCommand, se_DeleteBillingGroupCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteBillingGroupCommand}.
+ */
 export interface DeleteBillingGroupCommandInput extends DeleteBillingGroupInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteBillingGroupCommand}.
+ */
 export interface DeleteBillingGroupCommandOutput extends DeleteBillingGroupOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Deletes a billing group.
  *     </p>
@@ -38,13 +41,34 @@ export interface DeleteBillingGroupCommandOutput extends DeleteBillingGroupOutpu
  * import { BillingconductorClient, DeleteBillingGroupCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, DeleteBillingGroupCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
  * const client = new BillingconductorClient(config);
+ * const input = { // DeleteBillingGroupInput
+ *   Arn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteBillingGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBillingGroupCommandInput - {@link DeleteBillingGroupCommandInput}
+ * @returns {@link DeleteBillingGroupCommandOutput}
  * @see {@link DeleteBillingGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteBillingGroupCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.
+ *     </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred while processing a request.
+ *     </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.
+ *     </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+ *
  *
  */
 export class DeleteBillingGroupCommand extends $Command<
@@ -64,6 +88,9 @@ export class DeleteBillingGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBillingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +119,8 @@ export class DeleteBillingGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBillingGroupInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteBillingGroupOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +130,18 @@ export class DeleteBillingGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBillingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteBillingGroupCommand(input, context);
+    return se_DeleteBillingGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBillingGroupCommandOutput> {
-    return deserializeAws_restJson1DeleteBillingGroupCommand(output, context);
+    return de_DeleteBillingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

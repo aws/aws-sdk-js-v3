@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import {
-  DescribeCertificatesMessage,
-  DescribeCertificatesMessageFilterSensitiveLog,
-  DescribeCertificatesResponse,
-  DescribeCertificatesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeCertificatesCommand,
-  serializeAws_json1_1DescribeCertificatesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeCertificatesMessage, DescribeCertificatesResponse } from "../models/models_0";
+import { de_DescribeCertificatesCommand, se_DescribeCertificatesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeCertificatesCommand}.
+ */
 export interface DescribeCertificatesCommandInput extends DescribeCertificatesMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeCertificatesCommand}.
+ */
 export interface DescribeCertificatesCommandOutput extends DescribeCertificatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a description of the certificate.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,58 @@ export interface DescribeCertificatesCommandOutput extends DescribeCertificatesR
  * import { DatabaseMigrationServiceClient, DescribeCertificatesCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DescribeCertificatesCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // DescribeCertificatesMessage
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeCertificatesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCertificatesCommandInput - {@link DescribeCertificatesCommandInput}
+ * @returns {@link DescribeCertificatesCommandOutput}
  * @see {@link DescribeCertificatesCommandInput} for command's `input` shape.
  * @see {@link DescribeCertificatesCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundFault} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ *
+ * @example Describe certificates
+ * ```javascript
+ * // Provides a description of the certificate.
+ * const input = {
+ *   "Filters": [
+ *     {
+ *       "Name": "string",
+ *       "Values": [
+ *         "string",
+ *         "string"
+ *       ]
+ *     }
+ *   ],
+ *   "Marker": "",
+ *   "MaxRecords": 123
+ * };
+ * const command = new DescribeCertificatesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Certificates": [],
+ *   "Marker": ""
+ * }
+ * *\/
+ * // example id: describe-certificates-1481753186244
+ * ```
  *
  */
 export class DescribeCertificatesCommand extends $Command<
@@ -66,6 +114,9 @@ export class DescribeCertificatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCertificatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +145,8 @@ export class DescribeCertificatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCertificatesMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeCertificatesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +156,18 @@ export class DescribeCertificatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCertificatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeCertificatesCommand(input, context);
+    return se_DescribeCertificatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCertificatesCommandOutput> {
-    return deserializeAws_json1_1DescribeCertificatesCommand(output, context);
+    return de_DescribeCertificatesCommand(output, context);
   }
 
   // Start section: command_body_extra

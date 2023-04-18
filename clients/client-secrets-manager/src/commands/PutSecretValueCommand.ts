@@ -17,18 +17,25 @@ import {
   PutSecretValueRequest,
   PutSecretValueRequestFilterSensitiveLog,
   PutSecretValueResponse,
-  PutSecretValueResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutSecretValueCommand,
-  serializeAws_json1_1PutSecretValueCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutSecretValueCommand, se_PutSecretValueCommand } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link PutSecretValueCommand}.
+ */
 export interface PutSecretValueCommandInput extends PutSecretValueRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutSecretValueCommand}.
+ */
 export interface PutSecretValueCommandOutput extends PutSecretValueResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new version with a new encrypted secret value and attaches it to the secret. The
  *       version can contain a new <code>SecretString</code> value or a new <code>SecretBinary</code> value. </p>
  *          <p>We recommend you avoid calling <code>PutSecretValue</code> at a sustained rate of more than
@@ -63,13 +70,89 @@ export interface PutSecretValueCommandOutput extends PutSecretValueResponse, __M
  * import { SecretsManagerClient, PutSecretValueCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, PutSecretValueCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
  * const client = new SecretsManagerClient(config);
+ * const input = { // PutSecretValueRequest
+ *   SecretId: "STRING_VALUE", // required
+ *   ClientRequestToken: "STRING_VALUE",
+ *   SecretBinary: "BLOB_VALUE",
+ *   SecretString: "STRING_VALUE",
+ *   VersionStages: [ // SecretVersionStagesType
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new PutSecretValueCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutSecretValueCommandInput - {@link PutSecretValueCommandInput}
+ * @returns {@link PutSecretValueCommandOutput}
  * @see {@link PutSecretValueCommandInput} for command's `input` shape.
  * @see {@link PutSecretValueCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
+ *
+ * @throws {@link DecryptionFailure} (client fault)
+ *  <p>Secrets Manager can't decrypt the protected secret text using the provided KMS key. </p>
+ *
+ * @throws {@link EncryptionFailure} (client fault)
+ *  <p>Secrets Manager can't encrypt the protected secret text using the provided KMS key. Check that the
+ *       KMS key is available, enabled, and not in an invalid state. For more
+ *       information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key state: Effect on your KMS key</a>.</p>
+ *
+ * @throws {@link InternalServiceError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The parameter name or value is invalid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>A parameter value is not valid for the current state of the
+ *       resource.</p>
+ *          <p>Possible causes:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The secret is scheduled for deletion.</p>
+ *             </li>
+ *             <li>
+ *                <p>You tried to enable rotation on a secret that doesn't already have a Lambda function
+ *           ARN configured and you didn't include such an ARN as a parameter in this call. </p>
+ *             </li>
+ *             <li>
+ *                <p>The secret is managed by another service, and you must use that service to update it.
+ *           For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html">Secrets managed by other Amazon Web Services services</a>.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request failed because it would exceed one of the Secrets Manager quotas.</p>
+ *
+ * @throws {@link ResourceExistsException} (client fault)
+ *  <p>A resource with the ID you requested already exists.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Secrets Manager can't find the resource that you asked for.</p>
+ *
+ *
+ * @example To store a secret value in a new version of a secret
+ * ```javascript
+ * // The following example shows how to create a new version of the secret. Alternatively, you can use the update-secret command.
+ * const input = {
+ *   "ClientRequestToken": "EXAMPLE2-90ab-cdef-fedc-ba987EXAMPLE",
+ *   "SecretId": "MyTestDatabaseSecret",
+ *   "SecretString": "{\"username\":\"david\",\"password\":\"EXAMPLE-PASSWORD\"}"
+ * };
+ * const command = new PutSecretValueCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ARN": "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
+ *   "Name": "MyTestDatabaseSecret",
+ *   "VersionId": "EXAMPLE2-90ab-cdef-fedc-ba987EXAMPLE",
+ *   "VersionStages": [
+ *     "AWSCURRENT"
+ *   ]
+ * }
+ * *\/
+ * // example id: to-store-a-secret-value-in-a-new-version-of-a-secret-1524001393971
+ * ```
  *
  */
 export class PutSecretValueCommand extends $Command<
@@ -89,6 +172,9 @@ export class PutSecretValueCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutSecretValueCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,7 +204,7 @@ export class PutSecretValueCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: PutSecretValueRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutSecretValueResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +214,18 @@ export class PutSecretValueCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutSecretValueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutSecretValueCommand(input, context);
+    return se_PutSecretValueCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutSecretValueCommandOutput> {
-    return deserializeAws_json1_1PutSecretValueCommand(output, context);
+    return de_PutSecretValueCommand(output, context);
   }
 
   // Start section: command_body_extra

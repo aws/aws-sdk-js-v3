@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { AssociateDhcpOptionsRequest, AssociateDhcpOptionsRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_ec2AssociateDhcpOptionsCommand,
-  serializeAws_ec2AssociateDhcpOptionsCommand,
-} from "../protocols/Aws_ec2";
+import { AssociateDhcpOptionsRequest } from "../models/models_0";
+import { de_AssociateDhcpOptionsCommand, se_AssociateDhcpOptionsCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link AssociateDhcpOptionsCommand}.
+ */
 export interface AssociateDhcpOptionsCommandInput extends AssociateDhcpOptionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AssociateDhcpOptionsCommand}.
+ */
 export interface AssociateDhcpOptionsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a set of DHCP options (that you've previously created) with the specified VPC, or associates no DHCP options with the VPC.</p>
  *          <p>After you associate the options with the VPC, any existing instances and all new instances that you launch in that VPC use the options. You don't need to restart or relaunch the instances. They automatically pick up the changes within a few hours, depending on how frequently the instance renews its DHCP lease. You can explicitly renew the lease using the operating system on the instance.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP options sets</a>
@@ -34,13 +42,45 @@ export interface AssociateDhcpOptionsCommandOutput extends __MetadataBearer {}
  * import { EC2Client, AssociateDhcpOptionsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AssociateDhcpOptionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // AssociateDhcpOptionsRequest
+ *   DhcpOptionsId: "STRING_VALUE", // required
+ *   VpcId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new AssociateDhcpOptionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateDhcpOptionsCommandInput - {@link AssociateDhcpOptionsCommandInput}
+ * @returns {@link AssociateDhcpOptionsCommandOutput}
  * @see {@link AssociateDhcpOptionsCommandInput} for command's `input` shape.
  * @see {@link AssociateDhcpOptionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ *
+ * @example To associate a DHCP options set with a VPC
+ * ```javascript
+ * // This example associates the specified DHCP options set with the specified VPC.
+ * const input = {
+ *   "DhcpOptionsId": "dopt-d9070ebb",
+ *   "VpcId": "vpc-a01106c2"
+ * };
+ * const command = new AssociateDhcpOptionsCommand(input);
+ * await client.send(command);
+ * // example id: ec2-associate-dhcp-options-1
+ * ```
+ *
+ * @example To associate the default DHCP options set with a VPC
+ * ```javascript
+ * // This example associates the default DHCP options set with the specified VPC.
+ * const input = {
+ *   "DhcpOptionsId": "default",
+ *   "VpcId": "vpc-a01106c2"
+ * };
+ * const command = new AssociateDhcpOptionsCommand(input);
+ * await client.send(command);
+ * // example id: ec2-associate-dhcp-options-2
+ * ```
  *
  */
 export class AssociateDhcpOptionsCommand extends $Command<
@@ -60,6 +100,9 @@ export class AssociateDhcpOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateDhcpOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +131,8 @@ export class AssociateDhcpOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateDhcpOptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +142,18 @@ export class AssociateDhcpOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateDhcpOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2AssociateDhcpOptionsCommand(input, context);
+    return se_AssociateDhcpOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateDhcpOptionsCommandOutput> {
-    return deserializeAws_ec2AssociateDhcpOptionsCommand(output, context);
+    return de_AssociateDhcpOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

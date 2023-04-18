@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateDBClusterEndpointMessage,
-  CreateDBClusterEndpointMessageFilterSensitiveLog,
-  CreateDBClusterEndpointOutput,
-  CreateDBClusterEndpointOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateDBClusterEndpointMessage, CreateDBClusterEndpointOutput } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryCreateDBClusterEndpointCommand,
-  serializeAws_queryCreateDBClusterEndpointCommand,
-} from "../protocols/Aws_query";
+import { de_CreateDBClusterEndpointCommand, se_CreateDBClusterEndpointCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateDBClusterEndpointCommand}.
+ */
 export interface CreateDBClusterEndpointCommandInput extends CreateDBClusterEndpointMessage {}
+/**
+ * @public
+ *
+ * The output of {@link CreateDBClusterEndpointCommand}.
+ */
 export interface CreateDBClusterEndpointCommandOutput extends CreateDBClusterEndpointOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new custom endpoint and associates it with an Amazon Neptune DB cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,53 @@ export interface CreateDBClusterEndpointCommandOutput extends CreateDBClusterEnd
  * import { NeptuneClient, CreateDBClusterEndpointCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, CreateDBClusterEndpointCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = { // CreateDBClusterEndpointMessage
+ *   DBClusterIdentifier: "STRING_VALUE", // required
+ *   DBClusterEndpointIdentifier: "STRING_VALUE", // required
+ *   EndpointType: "STRING_VALUE", // required
+ *   StaticMembers: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ *   ExcludedMembers: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateDBClusterEndpointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDBClusterEndpointCommandInput - {@link CreateDBClusterEndpointCommandInput}
+ * @returns {@link CreateDBClusterEndpointCommandOutput}
  * @see {@link CreateDBClusterEndpointCommandInput} for command's `input` shape.
  * @see {@link CreateDBClusterEndpointCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
+ *
+ * @throws {@link DBClusterEndpointAlreadyExistsFault} (client fault)
+ *  <p>The specified custom endpoint cannot be created because it already exists.</p>
+ *
+ * @throws {@link DBClusterEndpointQuotaExceededFault} (client fault)
+ *  <p>The cluster already has the maximum number of custom endpoints.</p>
+ *
+ * @throws {@link DBClusterNotFoundFault} (client fault)
+ *  <p>
+ *             <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
+ *
+ * @throws {@link DBInstanceNotFoundFault} (client fault)
+ *  <p>
+ *             <i>DBInstanceIdentifier</i> does not refer to an existing DB instance.</p>
+ *
+ * @throws {@link InvalidDBClusterStateFault} (client fault)
+ *  <p>The DB cluster is not in a valid state.</p>
+ *
+ * @throws {@link InvalidDBInstanceStateFault} (client fault)
+ *  <p>The specified DB instance is not in the <i>available</i> state.</p>
+ *
  *
  */
 export class CreateDBClusterEndpointCommand extends $Command<
@@ -62,6 +105,9 @@ export class CreateDBClusterEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDBClusterEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +136,8 @@ export class CreateDBClusterEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDBClusterEndpointMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDBClusterEndpointOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +147,18 @@ export class CreateDBClusterEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDBClusterEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateDBClusterEndpointCommand(input, context);
+    return se_CreateDBClusterEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDBClusterEndpointCommandOutput> {
-    return deserializeAws_queryCreateDBClusterEndpointCommand(output, context);
+    return de_CreateDBClusterEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

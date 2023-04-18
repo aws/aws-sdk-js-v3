@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTJobsDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTJobsDataPlaneClient";
+import { StartNextPendingJobExecutionRequest, StartNextPendingJobExecutionResponse } from "../models/models_0";
 import {
-  StartNextPendingJobExecutionRequest,
-  StartNextPendingJobExecutionRequestFilterSensitiveLog,
-  StartNextPendingJobExecutionResponse,
-  StartNextPendingJobExecutionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StartNextPendingJobExecutionCommand,
-  serializeAws_restJson1StartNextPendingJobExecutionCommand,
+  de_StartNextPendingJobExecutionCommand,
+  se_StartNextPendingJobExecutionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link StartNextPendingJobExecutionCommand}.
+ */
 export interface StartNextPendingJobExecutionCommandInput extends StartNextPendingJobExecutionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartNextPendingJobExecutionCommand}.
+ */
 export interface StartNextPendingJobExecutionCommandOutput
   extends StartNextPendingJobExecutionResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets and starts the next pending (status IN_PROGRESS or QUEUED) job execution for a thing.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,38 @@ export interface StartNextPendingJobExecutionCommandOutput
  * import { IoTJobsDataPlaneClient, StartNextPendingJobExecutionCommand } from "@aws-sdk/client-iot-jobs-data-plane"; // ES Modules import
  * // const { IoTJobsDataPlaneClient, StartNextPendingJobExecutionCommand } = require("@aws-sdk/client-iot-jobs-data-plane"); // CommonJS import
  * const client = new IoTJobsDataPlaneClient(config);
+ * const input = { // StartNextPendingJobExecutionRequest
+ *   thingName: "STRING_VALUE", // required
+ *   statusDetails: { // DetailsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   stepTimeoutInMinutes: Number("long"),
+ * };
  * const command = new StartNextPendingJobExecutionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartNextPendingJobExecutionCommandInput - {@link StartNextPendingJobExecutionCommandInput}
+ * @returns {@link StartNextPendingJobExecutionCommandOutput}
  * @see {@link StartNextPendingJobExecutionCommandInput} for command's `input` shape.
  * @see {@link StartNextPendingJobExecutionCommandOutput} for command's `response` shape.
  * @see {@link IoTJobsDataPlaneClientResolvedConfig | config} for IoTJobsDataPlaneClient's `config` shape.
+ *
+ * @throws {@link CertificateValidationException} (client fault)
+ *  <p>The certificate is invalid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The contents of the request were invalid. For example, this code is returned when an UpdateJobExecution request contains invalid status details. The message contains details about the error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
  *
  */
 export class StartNextPendingJobExecutionCommand extends $Command<
@@ -64,6 +95,9 @@ export class StartNextPendingJobExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartNextPendingJobExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +126,8 @@ export class StartNextPendingJobExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartNextPendingJobExecutionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartNextPendingJobExecutionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +137,21 @@ export class StartNextPendingJobExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartNextPendingJobExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartNextPendingJobExecutionCommand(input, context);
+    return se_StartNextPendingJobExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartNextPendingJobExecutionCommandOutput> {
-    return deserializeAws_restJson1StartNextPendingJobExecutionCommand(output, context);
+    return de_StartNextPendingJobExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

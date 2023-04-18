@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { CodeCommit } from "../CodeCommit";
 import { CodeCommitClient } from "../CodeCommitClient";
 import {
   ListPullRequestsCommand,
@@ -11,7 +10,7 @@ import {
 import { CodeCommitPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CodeCommitClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListPullRequestsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: CodeCommit,
-  input: ListPullRequestsCommandInput,
-  ...args: any
-): Promise<ListPullRequestsCommandOutput> => {
-  // @ts-ignore
-  return await client.listPullRequests(input, ...args);
-};
 export async function* paginateListPullRequests(
   config: CodeCommitPaginationConfiguration,
   input: ListPullRequestsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListPullRequests(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof CodeCommit) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof CodeCommitClient) {
+    if (config.client instanceof CodeCommitClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected CodeCommit | CodeCommitClient");

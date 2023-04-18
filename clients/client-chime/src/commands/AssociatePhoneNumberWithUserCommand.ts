@@ -18,19 +18,29 @@ import {
   AssociatePhoneNumberWithUserRequest,
   AssociatePhoneNumberWithUserRequestFilterSensitiveLog,
   AssociatePhoneNumberWithUserResponse,
-  AssociatePhoneNumberWithUserResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1AssociatePhoneNumberWithUserCommand,
-  serializeAws_restJson1AssociatePhoneNumberWithUserCommand,
+  de_AssociatePhoneNumberWithUserCommand,
+  se_AssociatePhoneNumberWithUserCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link AssociatePhoneNumberWithUserCommand}.
+ */
 export interface AssociatePhoneNumberWithUserCommandInput extends AssociatePhoneNumberWithUserRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AssociatePhoneNumberWithUserCommand}.
+ */
 export interface AssociatePhoneNumberWithUserCommandOutput
   extends AssociatePhoneNumberWithUserResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a phone number with the specified Amazon Chime user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +48,45 @@ export interface AssociatePhoneNumberWithUserCommandOutput
  * import { ChimeClient, AssociatePhoneNumberWithUserCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, AssociatePhoneNumberWithUserCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // AssociatePhoneNumberWithUserRequest
+ *   AccountId: "STRING_VALUE", // required
+ *   UserId: "STRING_VALUE", // required
+ *   E164PhoneNumber: "STRING_VALUE", // required
+ * };
  * const command = new AssociatePhoneNumberWithUserCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociatePhoneNumberWithUserCommandInput - {@link AssociatePhoneNumberWithUserCommandInput}
+ * @returns {@link AssociatePhoneNumberWithUserCommandOutput}
  * @see {@link AssociatePhoneNumberWithUserCommandInput} for command's `input` shape.
  * @see {@link AssociatePhoneNumberWithUserCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have permissions to perform the requested operation.</p>
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>One or more of the resources in the request does not exist in the system.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The client exceeded its request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client is not currently authorized to make the request.</p>
+ *
  *
  */
 export class AssociatePhoneNumberWithUserCommand extends $Command<
@@ -64,6 +106,9 @@ export class AssociatePhoneNumberWithUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociatePhoneNumberWithUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,7 +138,7 @@ export class AssociatePhoneNumberWithUserCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: AssociatePhoneNumberWithUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociatePhoneNumberWithUserResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +148,21 @@ export class AssociatePhoneNumberWithUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociatePhoneNumberWithUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociatePhoneNumberWithUserCommand(input, context);
+    return se_AssociatePhoneNumberWithUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociatePhoneNumberWithUserCommandOutput> {
-    return deserializeAws_restJson1AssociatePhoneNumberWithUserCommand(output, context);
+    return de_AssociatePhoneNumberWithUserCommand(output, context);
   }
 
   // Start section: command_body_extra

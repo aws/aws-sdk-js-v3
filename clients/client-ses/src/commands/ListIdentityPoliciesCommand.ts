@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListIdentityPoliciesRequest,
-  ListIdentityPoliciesRequestFilterSensitiveLog,
-  ListIdentityPoliciesResponse,
-  ListIdentityPoliciesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryListIdentityPoliciesCommand,
-  serializeAws_queryListIdentityPoliciesCommand,
-} from "../protocols/Aws_query";
+import { ListIdentityPoliciesRequest, ListIdentityPoliciesResponse } from "../models/models_0";
+import { de_ListIdentityPoliciesCommand, se_ListIdentityPoliciesCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListIdentityPoliciesCommand}.
+ */
 export interface ListIdentityPoliciesCommandInput extends ListIdentityPoliciesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListIdentityPoliciesCommand}.
+ */
 export interface ListIdentityPoliciesCommandOutput extends ListIdentityPoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of sending authorization policies that are attached to the given
  *             identity (an email address or a domain). This API returns only a list. If you want the
  *             actual policy content, you can use <code>GetIdentityPolicies</code>.</p>
@@ -47,13 +50,37 @@ export interface ListIdentityPoliciesCommandOutput extends ListIdentityPoliciesR
  * import { SESClient, ListIdentityPoliciesCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, ListIdentityPoliciesCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // ListIdentityPoliciesRequest
+ *   Identity: "STRING_VALUE", // required
+ * };
  * const command = new ListIdentityPoliciesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListIdentityPoliciesCommandInput - {@link ListIdentityPoliciesCommandInput}
+ * @returns {@link ListIdentityPoliciesCommandOutput}
  * @see {@link ListIdentityPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListIdentityPoliciesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
+ *
+ *
+ * @example ListIdentityPolicies
+ * ```javascript
+ * // The following example returns a list of sending authorization policies that are attached to an identity:
+ * const input = {
+ *   "Identity": "example.com"
+ * };
+ * const command = new ListIdentityPoliciesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "PolicyNames": [
+ *     "MyPolicy"
+ *   ]
+ * }
+ * *\/
+ * // example id: listidentitypolicies-1469124417674
+ * ```
  *
  */
 export class ListIdentityPoliciesCommand extends $Command<
@@ -73,6 +100,9 @@ export class ListIdentityPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListIdentityPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +131,8 @@ export class ListIdentityPoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListIdentityPoliciesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListIdentityPoliciesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +142,18 @@ export class ListIdentityPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListIdentityPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListIdentityPoliciesCommand(input, context);
+    return se_ListIdentityPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListIdentityPoliciesCommandOutput> {
-    return deserializeAws_queryListIdentityPoliciesCommand(output, context);
+    return de_ListIdentityPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -17,18 +17,25 @@ import {
   CreateNetworkSettingsRequest,
   CreateNetworkSettingsRequestFilterSensitiveLog,
   CreateNetworkSettingsResponse,
-  CreateNetworkSettingsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateNetworkSettingsCommand,
-  serializeAws_restJson1CreateNetworkSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateNetworkSettingsCommand, se_CreateNetworkSettingsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateNetworkSettingsCommand}.
+ */
 export interface CreateNetworkSettingsCommandInput extends CreateNetworkSettingsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateNetworkSettingsCommand}.
+ */
 export interface CreateNetworkSettingsCommandOutput extends CreateNetworkSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a network settings resource that can be associated with a web portal. Once
  *          associated with a web portal, network settings define how streaming instances will connect
  *          with your specified VPC. </p>
@@ -38,13 +45,50 @@ export interface CreateNetworkSettingsCommandOutput extends CreateNetworkSetting
  * import { WorkSpacesWebClient, CreateNetworkSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, CreateNetworkSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = { // CreateNetworkSettingsRequest
+ *   vpcId: "STRING_VALUE", // required
+ *   subnetIds: [ // SubnetIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   securityGroupIds: [ // SecurityGroupIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new CreateNetworkSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateNetworkSettingsCommandInput - {@link CreateNetworkSettingsCommandInput}
+ * @returns {@link CreateNetworkSettingsCommandOutput}
  * @see {@link CreateNetworkSettingsCommandInput} for command's `input` shape.
  * @see {@link CreateNetworkSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access is denied.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There is a conflict.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There is an internal server error.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The service quota has been exceeded.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>There is a throttling error.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There is a validation error.</p>
+ *
  *
  */
 export class CreateNetworkSettingsCommand extends $Command<
@@ -64,6 +108,9 @@ export class CreateNetworkSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateNetworkSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,7 +140,7 @@ export class CreateNetworkSettingsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateNetworkSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateNetworkSettingsResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +150,18 @@ export class CreateNetworkSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateNetworkSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateNetworkSettingsCommand(input, context);
+    return se_CreateNetworkSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateNetworkSettingsCommandOutput> {
-    return deserializeAws_restJson1CreateNetworkSettingsCommand(output, context);
+    return de_CreateNetworkSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

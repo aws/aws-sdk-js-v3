@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyBackendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyBackendClient";
-import {
-  CloneBackendRequest,
-  CloneBackendRequestFilterSensitiveLog,
-  CloneBackendResponse,
-  CloneBackendResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CloneBackendCommand,
-  serializeAws_restJson1CloneBackendCommand,
-} from "../protocols/Aws_restJson1";
+import { CloneBackendRequest, CloneBackendResponse } from "../models/models_0";
+import { de_CloneBackendCommand, se_CloneBackendCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CloneBackendCommand}.
+ */
 export interface CloneBackendCommandInput extends CloneBackendRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CloneBackendCommand}.
+ */
 export interface CloneBackendCommandOutput extends CloneBackendResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation clones an existing backend.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,33 @@ export interface CloneBackendCommandOutput extends CloneBackendResponse, __Metad
  * import { AmplifyBackendClient, CloneBackendCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, CloneBackendCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
  * const client = new AmplifyBackendClient(config);
+ * const input = { // CloneBackendRequest
+ *   AppId: "STRING_VALUE", // required
+ *   BackendEnvironmentName: "STRING_VALUE", // required
+ *   TargetEnvironmentName: "STRING_VALUE", // required
+ * };
  * const command = new CloneBackendCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CloneBackendCommandInput - {@link CloneBackendCommandInput}
+ * @returns {@link CloneBackendCommandOutput}
  * @see {@link CloneBackendCommandInput} for command's `input` shape.
  * @see {@link CloneBackendCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>An error returned if a request is not formed properly.</p>
+ *
+ * @throws {@link GatewayTimeoutException} (server fault)
+ *  <p>An error returned if there's a temporary issue with the service.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>An error returned when a specific resource type is not found.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>An error that is returned when a limit of a specific type has been exceeded.</p>
+ *
  *
  */
 export class CloneBackendCommand extends $Command<
@@ -62,6 +85,9 @@ export class CloneBackendCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CloneBackendCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +114,8 @@ export class CloneBackendCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CloneBackendRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CloneBackendResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +125,18 @@ export class CloneBackendCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CloneBackendCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CloneBackendCommand(input, context);
+    return se_CloneBackendCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CloneBackendCommandOutput> {
-    return deserializeAws_restJson1CloneBackendCommand(output, context);
+    return de_CloneBackendCommand(output, context);
   }
 
   // Start section: command_body_extra

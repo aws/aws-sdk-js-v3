@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteFirewallRuleRequest,
-  DeleteFirewallRuleRequestFilterSensitiveLog,
-  DeleteFirewallRuleResponse,
-  DeleteFirewallRuleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteFirewallRuleCommand,
-  serializeAws_json1_1DeleteFirewallRuleCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteFirewallRuleRequest, DeleteFirewallRuleResponse } from "../models/models_0";
+import { de_DeleteFirewallRuleCommand, se_DeleteFirewallRuleCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteFirewallRuleCommand}.
+ */
 export interface DeleteFirewallRuleCommandInput extends DeleteFirewallRuleRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteFirewallRuleCommand}.
+ */
 export interface DeleteFirewallRuleCommandOutput extends DeleteFirewallRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified firewall rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,32 @@ export interface DeleteFirewallRuleCommandOutput extends DeleteFirewallRuleRespo
  * import { Route53ResolverClient, DeleteFirewallRuleCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, DeleteFirewallRuleCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = { // DeleteFirewallRuleRequest
+ *   FirewallRuleGroupId: "STRING_VALUE", // required
+ *   FirewallDomainListId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteFirewallRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFirewallRuleCommandInput - {@link DeleteFirewallRuleCommandInput}
+ * @returns {@link DeleteFirewallRuleCommandOutput}
  * @see {@link DeleteFirewallRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteFirewallRuleCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (client fault)
+ *  <p>We encountered an unknown error. Try again in a few minutes.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource doesn't exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was throttled. Try again in a few minutes.</p>
+ *
  *
  */
 export class DeleteFirewallRuleCommand extends $Command<
@@ -62,6 +84,9 @@ export class DeleteFirewallRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFirewallRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +115,8 @@ export class DeleteFirewallRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFirewallRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFirewallRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +126,18 @@ export class DeleteFirewallRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFirewallRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteFirewallRuleCommand(input, context);
+    return se_DeleteFirewallRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFirewallRuleCommandOutput> {
-    return deserializeAws_json1_1DeleteFirewallRuleCommand(output, context);
+    return de_DeleteFirewallRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

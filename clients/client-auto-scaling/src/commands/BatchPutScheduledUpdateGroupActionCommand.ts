@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
+import { BatchPutScheduledUpdateGroupActionAnswer, BatchPutScheduledUpdateGroupActionType } from "../models/models_0";
 import {
-  BatchPutScheduledUpdateGroupActionAnswer,
-  BatchPutScheduledUpdateGroupActionAnswerFilterSensitiveLog,
-  BatchPutScheduledUpdateGroupActionType,
-  BatchPutScheduledUpdateGroupActionTypeFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryBatchPutScheduledUpdateGroupActionCommand,
-  serializeAws_queryBatchPutScheduledUpdateGroupActionCommand,
+  de_BatchPutScheduledUpdateGroupActionCommand,
+  se_BatchPutScheduledUpdateGroupActionCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchPutScheduledUpdateGroupActionCommand}.
+ */
 export interface BatchPutScheduledUpdateGroupActionCommandInput extends BatchPutScheduledUpdateGroupActionType {}
+/**
+ * @public
+ *
+ * The output of {@link BatchPutScheduledUpdateGroupActionCommand}.
+ */
 export interface BatchPutScheduledUpdateGroupActionCommandOutput
   extends BatchPutScheduledUpdateGroupActionAnswer,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates one or more scheduled scaling actions for an Auto Scaling group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,44 @@ export interface BatchPutScheduledUpdateGroupActionCommandOutput
  * import { AutoScalingClient, BatchPutScheduledUpdateGroupActionCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, BatchPutScheduledUpdateGroupActionCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = { // BatchPutScheduledUpdateGroupActionType
+ *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   ScheduledUpdateGroupActions: [ // ScheduledUpdateGroupActionRequests // required
+ *     { // ScheduledUpdateGroupActionRequest
+ *       ScheduledActionName: "STRING_VALUE", // required
+ *       StartTime: new Date("TIMESTAMP"),
+ *       EndTime: new Date("TIMESTAMP"),
+ *       Recurrence: "STRING_VALUE",
+ *       MinSize: Number("int"),
+ *       MaxSize: Number("int"),
+ *       DesiredCapacity: Number("int"),
+ *       TimeZone: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new BatchPutScheduledUpdateGroupActionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchPutScheduledUpdateGroupActionCommandInput - {@link BatchPutScheduledUpdateGroupActionCommandInput}
+ * @returns {@link BatchPutScheduledUpdateGroupActionCommandOutput}
  * @see {@link BatchPutScheduledUpdateGroupActionCommandInput} for command's `input` shape.
  * @see {@link BatchPutScheduledUpdateGroupActionCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
+ *
+ * @throws {@link AlreadyExistsFault} (client fault)
+ *  <p>You already have an Auto Scaling group or launch configuration with this name.</p>
+ *
+ * @throws {@link LimitExceededFault} (client fault)
+ *  <p>You have already reached a limit for your Amazon EC2 Auto Scaling
+ *             resources (for example, Auto Scaling groups, launch configurations, or lifecycle hooks). For
+ *             more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html">DescribeAccountLimits</a> in the <i>Amazon EC2 Auto Scaling API
+ *             Reference</i>.</p>
+ *
+ * @throws {@link ResourceContentionFault} (server fault)
+ *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
+ *             instance, or load balancer).</p>
+ *
  *
  */
 export class BatchPutScheduledUpdateGroupActionCommand extends $Command<
@@ -64,6 +101,9 @@ export class BatchPutScheduledUpdateGroupActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchPutScheduledUpdateGroupActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +132,8 @@ export class BatchPutScheduledUpdateGroupActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchPutScheduledUpdateGroupActionTypeFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchPutScheduledUpdateGroupActionAnswerFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +143,24 @@ export class BatchPutScheduledUpdateGroupActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchPutScheduledUpdateGroupActionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryBatchPutScheduledUpdateGroupActionCommand(input, context);
+    return se_BatchPutScheduledUpdateGroupActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchPutScheduledUpdateGroupActionCommandOutput> {
-    return deserializeAws_queryBatchPutScheduledUpdateGroupActionCommand(output, context);
+    return de_BatchPutScheduledUpdateGroupActionCommand(output, context);
   }
 
   // Start section: command_body_extra

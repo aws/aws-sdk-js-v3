@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import {
-  SetRulePrioritiesInput,
-  SetRulePrioritiesInputFilterSensitiveLog,
-  SetRulePrioritiesOutput,
-  SetRulePrioritiesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_querySetRulePrioritiesCommand,
-  serializeAws_querySetRulePrioritiesCommand,
-} from "../protocols/Aws_query";
+import { SetRulePrioritiesInput, SetRulePrioritiesOutput } from "../models/models_0";
+import { de_SetRulePrioritiesCommand, se_SetRulePrioritiesCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link SetRulePrioritiesCommand}.
+ */
 export interface SetRulePrioritiesCommandInput extends SetRulePrioritiesInput {}
+/**
+ * @public
+ *
+ * The output of {@link SetRulePrioritiesCommand}.
+ */
 export interface SetRulePrioritiesCommandOutput extends SetRulePrioritiesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the priorities of the specified rules.</p>
  *          <p>You can reorder the rules as long as there are no priority conflicts in the new order. Any
  *       existing rules that you do not specify retain their current priority.</p>
@@ -42,13 +45,74 @@ export interface SetRulePrioritiesCommandOutput extends SetRulePrioritiesOutput,
  * import { ElasticLoadBalancingV2Client, SetRulePrioritiesCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, SetRulePrioritiesCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
+ * const input = { // SetRulePrioritiesInput
+ *   RulePriorities: [ // RulePriorityList // required
+ *     { // RulePriorityPair
+ *       RuleArn: "STRING_VALUE",
+ *       Priority: Number("int"),
+ *     },
+ *   ],
+ * };
  * const command = new SetRulePrioritiesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SetRulePrioritiesCommandInput - {@link SetRulePrioritiesCommandInput}
+ * @returns {@link SetRulePrioritiesCommandOutput}
  * @see {@link SetRulePrioritiesCommandInput} for command's `input` shape.
  * @see {@link SetRulePrioritiesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This operation is not allowed.</p>
+ *
+ * @throws {@link PriorityInUseException} (client fault)
+ *  <p>The specified priority is in use.</p>
+ *
+ * @throws {@link RuleNotFoundException} (client fault)
+ *  <p>The specified rule does not exist.</p>
+ *
+ *
+ * @example To set the rule priority
+ * ```javascript
+ * // This example sets the priority of the specified rule.
+ * const input = {
+ *   "RulePriorities": [
+ *     {
+ *       "Priority": 5,
+ *       "RuleArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener-rule/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2/1291d13826f405c3"
+ *     }
+ *   ]
+ * };
+ * const command = new SetRulePrioritiesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Rules": [
+ *     {
+ *       "Actions": [
+ *         {
+ *           "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
+ *           "Type": "forward"
+ *         }
+ *       ],
+ *       "Conditions": [
+ *         {
+ *           "Field": "path-pattern",
+ *           "Values": [
+ *             "/img/*"
+ *           ]
+ *         }
+ *       ],
+ *       "IsDefault": false,
+ *       "Priority": "5",
+ *       "RuleArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener-rule/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2/1291d13826f405c3"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: elbv2-set-rule-priorities-1
+ * ```
  *
  */
 export class SetRulePrioritiesCommand extends $Command<
@@ -68,6 +132,9 @@ export class SetRulePrioritiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetRulePrioritiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +163,8 @@ export class SetRulePrioritiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetRulePrioritiesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: SetRulePrioritiesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +174,18 @@ export class SetRulePrioritiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetRulePrioritiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySetRulePrioritiesCommand(input, context);
+    return se_SetRulePrioritiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetRulePrioritiesCommandOutput> {
-    return deserializeAws_querySetRulePrioritiesCommand(output, context);
+    return de_SetRulePrioritiesCommand(output, context);
   }
 
   // Start section: command_body_extra

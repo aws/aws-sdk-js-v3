@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  GetResourceRequest,
-  GetResourceRequestFilterSensitiveLog,
-  Resource,
-  ResourceFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetResourceCommand,
-  serializeAws_restJson1GetResourceCommand,
-} from "../protocols/Aws_restJson1";
+import { GetResourceRequest, Resource } from "../models/models_0";
+import { de_GetResourceCommand, se_GetResourceCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetResourceCommand}.
+ */
 export interface GetResourceCommandInput extends GetResourceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetResourceCommand}.
+ */
 export interface GetResourceCommandOutput extends Resource, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists information about a resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,32 @@ export interface GetResourceCommandOutput extends Resource, __MetadataBearer {}
  * import { APIGatewayClient, GetResourceCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetResourceCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // GetResourceRequest
+ *   restApiId: "STRING_VALUE", // required
+ *   resourceId: "STRING_VALUE", // required
+ *   embed: [ // ListOfString
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResourceCommandInput - {@link GetResourceCommandInput}
+ * @returns {@link GetResourceCommandOutput}
  * @see {@link GetResourceCommandInput} for command's `input` shape.
  * @see {@link GetResourceCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The request is denied because the caller has insufficient permissions.</p>
+ *
  *
  */
 export class GetResourceCommand extends $Command<
@@ -62,6 +84,9 @@ export class GetResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +113,8 @@ export class GetResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ResourceFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +124,18 @@ export class GetResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetResourceCommand(input, context);
+    return se_GetResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourceCommandOutput> {
-    return deserializeAws_restJson1GetResourceCommand(output, context);
+    return de_GetResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

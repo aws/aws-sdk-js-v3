@@ -20,15 +20,23 @@ import {
   ListPipesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { PipesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PipesClient";
-import {
-  deserializeAws_restJson1ListPipesCommand,
-  serializeAws_restJson1ListPipesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListPipesCommand, se_ListPipesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListPipesCommand}.
+ */
 export interface ListPipesCommandInput extends ListPipesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListPipesCommand}.
+ */
 export interface ListPipesCommandOutput extends ListPipesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get the pipes associated with this account. For more information about pipes, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html">Amazon EventBridge Pipes</a> in the Amazon EventBridge User Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +44,34 @@ export interface ListPipesCommandOutput extends ListPipesResponse, __MetadataBea
  * import { PipesClient, ListPipesCommand } from "@aws-sdk/client-pipes"; // ES Modules import
  * // const { PipesClient, ListPipesCommand } = require("@aws-sdk/client-pipes"); // CommonJS import
  * const client = new PipesClient(config);
+ * const input = { // ListPipesRequest
+ *   NamePrefix: "STRING_VALUE",
+ *   DesiredState: "STRING_VALUE",
+ *   CurrentState: "STRING_VALUE",
+ *   SourcePrefix: "STRING_VALUE",
+ *   TargetPrefix: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListPipesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPipesCommandInput - {@link ListPipesCommandInput}
+ * @returns {@link ListPipesCommandOutput}
  * @see {@link ListPipesCommandInput} for command's `input` shape.
  * @see {@link ListPipesCommandOutput} for command's `response` shape.
  * @see {@link PipesClientResolvedConfig | config} for PipesClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>An action was throttled.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that an error has occurred while performing a validate operation.</p>
+ *
  *
  */
 export class ListPipesCommand extends $Command<
@@ -62,6 +91,9 @@ export class ListPipesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPipesCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,12 +131,18 @@ export class ListPipesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPipesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPipesCommand(input, context);
+    return se_ListPipesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPipesCommandOutput> {
-    return deserializeAws_restJson1ListPipesCommand(output, context);
+    return de_ListPipesCommand(output, context);
   }
 
   // Start section: command_body_extra

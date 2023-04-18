@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import {
-  GetLifecyclePolicyRequest,
-  GetLifecyclePolicyRequestFilterSensitiveLog,
-  GetLifecyclePolicyResponse,
-  GetLifecyclePolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetLifecyclePolicyCommand,
-  serializeAws_json1_1GetLifecyclePolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { GetLifecyclePolicyRequest, GetLifecyclePolicyResponse } from "../models/models_0";
+import { de_GetLifecyclePolicyCommand, se_GetLifecyclePolicyCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetLifecyclePolicyCommand}.
+ */
 export interface GetLifecyclePolicyCommandInput extends GetLifecyclePolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetLifecyclePolicyCommand}.
+ */
 export interface GetLifecyclePolicyCommandOutput extends GetLifecyclePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the lifecycle policy for the specified repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,35 @@ export interface GetLifecyclePolicyCommandOutput extends GetLifecyclePolicyRespo
  * import { ECRClient, GetLifecyclePolicyCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, GetLifecyclePolicyCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
+ * const input = { // GetLifecyclePolicyRequest
+ *   registryId: "STRING_VALUE",
+ *   repositoryName: "STRING_VALUE", // required
+ * };
  * const command = new GetLifecyclePolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLifecyclePolicyCommandInput - {@link GetLifecyclePolicyCommandInput}
+ * @returns {@link GetLifecyclePolicyCommandOutput}
  * @see {@link GetLifecyclePolicyCommandInput} for command's `input` shape.
  * @see {@link GetLifecyclePolicyCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *             request.</p>
+ *
+ * @throws {@link LifecyclePolicyNotFoundException} (client fault)
+ *  <p>The lifecycle policy could not be found, and no policy is set to the
+ *             repository.</p>
+ *
+ * @throws {@link RepositoryNotFoundException} (client fault)
+ *  <p>The specified repository could not be found. Check the spelling of the specified
+ *             repository and ensure that you are performing operations on the correct registry.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
  *
  */
 export class GetLifecyclePolicyCommand extends $Command<
@@ -62,6 +87,9 @@ export class GetLifecyclePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLifecyclePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +118,8 @@ export class GetLifecyclePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLifecyclePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetLifecyclePolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +129,18 @@ export class GetLifecyclePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLifecyclePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetLifecyclePolicyCommand(input, context);
+    return se_GetLifecyclePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLifecyclePolicyCommandOutput> {
-    return deserializeAws_json1_1GetLifecyclePolicyCommand(output, context);
+    return de_GetLifecyclePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

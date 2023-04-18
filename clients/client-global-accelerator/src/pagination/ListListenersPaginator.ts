@@ -6,12 +6,11 @@ import {
   ListListenersCommandInput,
   ListListenersCommandOutput,
 } from "../commands/ListListenersCommand";
-import { GlobalAccelerator } from "../GlobalAccelerator";
 import { GlobalAcceleratorClient } from "../GlobalAcceleratorClient";
 import { GlobalAcceleratorPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: GlobalAcceleratorClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListListenersCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: GlobalAccelerator,
-  input: ListListenersCommandInput,
-  ...args: any
-): Promise<ListListenersCommandOutput> => {
-  // @ts-ignore
-  return await client.listListeners(input, ...args);
-};
 export async function* paginateListListeners(
   config: GlobalAcceleratorPaginationConfiguration,
   input: ListListenersCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListListeners(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof GlobalAccelerator) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof GlobalAcceleratorClient) {
+    if (config.client instanceof GlobalAcceleratorClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected GlobalAccelerator | GlobalAcceleratorClient");

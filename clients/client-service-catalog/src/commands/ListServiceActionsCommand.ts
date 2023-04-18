@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListServiceActionsInput,
-  ListServiceActionsInputFilterSensitiveLog,
-  ListServiceActionsOutput,
-  ListServiceActionsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListServiceActionsCommand,
-  serializeAws_json1_1ListServiceActionsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListServiceActionsInput, ListServiceActionsOutput } from "../models/models_0";
+import { de_ListServiceActionsCommand, se_ListServiceActionsCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListServiceActionsCommand}.
+ */
 export interface ListServiceActionsCommandInput extends ListServiceActionsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListServiceActionsCommand}.
+ */
 export interface ListServiceActionsCommandOutput extends ListServiceActionsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all self-service actions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,24 @@ export interface ListServiceActionsCommandOutput extends ListServiceActionsOutpu
  * import { ServiceCatalogClient, ListServiceActionsCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, ListServiceActionsCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // ListServiceActionsInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   PageSize: Number("int"),
+ *   PageToken: "STRING_VALUE",
+ * };
  * const command = new ListServiceActionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListServiceActionsCommandInput - {@link ListServiceActionsCommandInput}
+ * @returns {@link ListServiceActionsCommandOutput}
  * @see {@link ListServiceActionsCommandInput} for command's `input` shape.
  * @see {@link ListServiceActionsCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
+ *
+ * @throws {@link InvalidParametersException} (client fault)
+ *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
  *
  */
 export class ListServiceActionsCommand extends $Command<
@@ -62,6 +76,9 @@ export class ListServiceActionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListServiceActionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +107,8 @@ export class ListServiceActionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListServiceActionsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListServiceActionsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +118,18 @@ export class ListServiceActionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListServiceActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListServiceActionsCommand(input, context);
+    return se_ListServiceActionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListServiceActionsCommandOutput> {
-    return deserializeAws_json1_1ListServiceActionsCommand(output, context);
+    return de_ListServiceActionsCommand(output, context);
   }
 
   // Start section: command_body_extra

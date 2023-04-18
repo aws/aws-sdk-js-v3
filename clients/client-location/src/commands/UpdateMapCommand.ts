@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  UpdateMapRequest,
-  UpdateMapRequestFilterSensitiveLog,
-  UpdateMapResponse,
-  UpdateMapResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateMapCommand,
-  serializeAws_restJson1UpdateMapCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateMapRequest, UpdateMapResponse } from "../models/models_0";
+import { de_UpdateMapCommand, se_UpdateMapCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateMapCommand}.
+ */
 export interface UpdateMapCommandInput extends UpdateMapRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateMapCommand}.
+ */
 export interface UpdateMapCommandOutput extends UpdateMapResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified properties of a given map resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,37 @@ export interface UpdateMapCommandOutput extends UpdateMapResponse, __MetadataBea
  * import { LocationClient, UpdateMapCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, UpdateMapCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = { // UpdateMapRequest
+ *   MapName: "STRING_VALUE", // required
+ *   PricingPlan: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ * };
  * const command = new UpdateMapCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateMapCommandInput - {@link UpdateMapCommandInput}
+ * @returns {@link UpdateMapCommandOutput}
  * @see {@link UpdateMapCommandInput} for command's `input` shape.
  * @see {@link UpdateMapCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The request was denied because of insufficient access or permissions. Check with an
+ *       administrator to verify your permissions.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource that you've entered was not found in your AWS account.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because of request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input failed to meet the constraints specified by the AWS service. </p>
+ *
  *
  */
 export class UpdateMapCommand extends $Command<
@@ -62,6 +89,9 @@ export class UpdateMapCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateMapCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +118,8 @@ export class UpdateMapCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateMapRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateMapResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +129,18 @@ export class UpdateMapCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateMapCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateMapCommand(input, context);
+    return se_UpdateMapCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMapCommandOutput> {
-    return deserializeAws_restJson1UpdateMapCommand(output, context);
+    return de_UpdateMapCommand(output, context);
   }
 
   // Start section: command_body_extra

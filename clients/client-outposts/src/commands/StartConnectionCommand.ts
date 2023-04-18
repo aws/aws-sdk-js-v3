@@ -13,29 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartConnectionRequest,
-  StartConnectionRequestFilterSensitiveLog,
-  StartConnectionResponse,
-  StartConnectionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StartConnectionRequest, StartConnectionResponse } from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import {
-  deserializeAws_restJson1StartConnectionCommand,
-  serializeAws_restJson1StartConnectionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartConnectionCommand, se_StartConnectionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link StartConnectionCommand}.
+ */
 export interface StartConnectionCommandInput extends StartConnectionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartConnectionCommand}.
+ */
 export interface StartConnectionCommandOutput extends StartConnectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>
  *       Amazon Web Services uses this action to install Outpost servers.</p>
  *          </note>
- *          <p>
- *       Starts the connection required for Outpost server installation.
- *     </p>
+ *          <p> Starts the connection required for Outpost server installation. </p>
  *          <p>
  *       Use CloudTrail to monitor this action or Amazon Web Services managed policy for Amazon Web Services Outposts to secure it. For
  *       more information, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/security-iam-awsmanpol.html">
@@ -48,13 +49,34 @@ export interface StartConnectionCommandOutput extends StartConnectionResponse, _
  * import { OutpostsClient, StartConnectionCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, StartConnectionCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
+ * const input = { // StartConnectionRequest
+ *   DeviceSerialNumber: "STRING_VALUE", // required
+ *   AssetId: "STRING_VALUE", // required
+ *   ClientPublicKey: "STRING_VALUE", // required
+ *   NetworkInterfaceDeviceIndex: Number("int"), // required
+ * };
  * const command = new StartConnectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartConnectionCommandInput - {@link StartConnectionCommandInput}
+ * @returns {@link StartConnectionCommandOutput}
  * @see {@link StartConnectionCommandInput} for command's `input` shape.
  * @see {@link StartConnectionCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have permission to perform this operation.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error has occurred.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The specified request is not valid.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>A parameter is not valid.</p>
+ *
  *
  */
 export class StartConnectionCommand extends $Command<
@@ -74,6 +96,9 @@ export class StartConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +127,8 @@ export class StartConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartConnectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartConnectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +138,18 @@ export class StartConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartConnectionCommand(input, context);
+    return se_StartConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartConnectionCommandOutput> {
-    return deserializeAws_restJson1StartConnectionCommand(output, context);
+    return de_StartConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

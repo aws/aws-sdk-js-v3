@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import {
-  GetStageRequest,
-  GetStageRequestFilterSensitiveLog,
-  GetStageResponse,
-  GetStageResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetStageCommand,
-  serializeAws_restJson1GetStageCommand,
-} from "../protocols/Aws_restJson1";
+import { GetStageRequest, GetStageResponse } from "../models/models_0";
+import { de_GetStageCommand, se_GetStageCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetStageCommand}.
+ */
 export interface GetStageCommandInput extends GetStageRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetStageCommand}.
+ */
 export interface GetStageCommandOutput extends GetStageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a Stage.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,26 @@ export interface GetStageCommandOutput extends GetStageResponse, __MetadataBeare
  * import { ApiGatewayV2Client, GetStageCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, GetStageCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = { // GetStageRequest
+ *   ApiId: "STRING_VALUE", // required
+ *   StageName: "STRING_VALUE", // required
+ * };
  * const command = new GetStageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetStageCommandInput - {@link GetStageCommandInput}
+ * @returns {@link GetStageCommandOutput}
  * @see {@link GetStageCommandInput} for command's `input` shape.
  * @see {@link GetStageCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource specified in the request was not found. See the message field for more information.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
+ *
  *
  */
 export class GetStageCommand extends $Command<
@@ -62,6 +78,9 @@ export class GetStageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetStageCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +107,8 @@ export class GetStageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetStageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetStageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +118,18 @@ export class GetStageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetStageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetStageCommand(input, context);
+    return se_GetStageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetStageCommandOutput> {
-    return deserializeAws_restJson1GetStageCommand(output, context);
+    return de_GetStageCommand(output, context);
   }
 
   // Start section: command_body_extra

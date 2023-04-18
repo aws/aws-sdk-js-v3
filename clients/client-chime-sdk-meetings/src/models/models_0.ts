@@ -3,33 +3,42 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { ChimeSDKMeetingsServiceException as __BaseException } from "./ChimeSDKMeetingsServiceException";
 
-export enum MediaCapabilities {
-  NONE = "None",
-  RECEIVE = "Receive",
-  SEND = "Send",
-  SEND_RECEIVE = "SendReceive",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MediaCapabilities = {
+  NONE: "None",
+  RECEIVE: "Receive",
+  SEND: "Send",
+  SEND_RECEIVE: "SendReceive",
+} as const;
 
 /**
+ * @public
+ */
+export type MediaCapabilities = (typeof MediaCapabilities)[keyof typeof MediaCapabilities];
+
+/**
+ * @public
  * <p>The media capabilities of an attendee: audio, video, or content. </p>
- *         <note>
+ *          <note>
  *             <p>You use the capabilities with a set of values that control what the capabilities can do, such as <code>SendReceive</code> data. For more information about those values, see
  *             .</p>
  *          </note>
- *
- *         <p>When using capabilities, be aware of these corner cases:</p>
- *         <ul>
+ *          <p>When using capabilities, be aware of these corner cases:</p>
+ *          <ul>
  *             <li>
- *                 <p>You can't set <code>content</code> capabilities to <code>SendReceive</code> or <code>Receive</code> unless you also set <code>video</code> capabilities to <code>SendReceive</code>
+ *                <p>You can't set <code>content</code> capabilities to <code>SendReceive</code> or <code>Receive</code> unless you also set <code>video</code> capabilities to <code>SendReceive</code>
  *                     or <code>Receive</code>. If you don't set the <code>video</code> capability to receive, the response will contain an HTTP 400 Bad Request status code. However, you can set your <code>video</code> capability
  *                     to receive and you set your <code>content</code> capability to not receive.</p>
  *             </li>
  *             <li>
- *                 <p>When you change an <code>audio</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
+ *                <p>When you change an <code>audio</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
  *                     and if the attendee left their microphone unmuted, audio will flow from the attendee to the other meeting participants.</p>
  *             </li>
  *             <li>
- *                 <p>When you change a <code>video</code> or <code>content</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
+ *                <p>When you change a <code>video</code> or <code>content</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
  *                     and if the attendee turned on their video or content streams, remote attendess can receive those streams, but only after media renegotiation between the client and the Amazon Chime back-end server.</p>
  *             </li>
  *          </ul>
@@ -52,6 +61,7 @@ export interface AttendeeCapabilities {
 }
 
 /**
+ * @public
  * <p>An Amazon Chime SDK meeting attendee. Includes a unique
  *            <code>AttendeeId</code> and <code>JoinToken</code>. The
  *            <code>JoinToken</code>
@@ -61,7 +71,6 @@ export interface AttendeeCapabilities {
  *            <a>DeleteAttendee</a>
  *            is called. After that, the attendee is unable to join the meeting.
  *        </p>
- *
  *          <p>We recommend securely transferring each <code>JoinToken</code> from your server application
  *            to the client so that no other client has access to the token except for the one
  *            authorized to represent the attendee.</p>
@@ -69,6 +78,10 @@ export interface AttendeeCapabilities {
 export interface Attendee {
   /**
    * <p>The Amazon Chime SDK external user ID. An idempotency token. Links the attendee to an identity managed by a builder application.</p>
+   *          <p>Pattern: <code>[-_&@+=,()\{\}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*</code>
+   *          </p>
+   *          <p>Values that begin with <code>aws:</code> are reserved. You can't configure a value that uses this prefix.
+   *             Case insensitive.</p>
    */
   ExternalUserId?: string;
 
@@ -84,24 +97,23 @@ export interface Attendee {
 
   /**
    * <p>The capabilities assigned to an attendee: audio, video, or content.</p>
-   *         <note>
+   *          <note>
    *             <p>You use the capabilities with a set of values that control what the capabilities can do, such as <code>SendReceive</code> data. For more information about those values, see
    *             .</p>
    *          </note>
-   *
-   *         <p>When using capabilities, be aware of these corner cases:</p>
-   *         <ul>
+   *          <p>When using capabilities, be aware of these corner cases:</p>
+   *          <ul>
    *             <li>
-   *                 <p>You can't set <code>content</code> capabilities to <code>SendReceive</code> or <code>Receive</code> unless you also set <code>video</code> capabilities to <code>SendReceive</code>
+   *                <p>You can't set <code>content</code> capabilities to <code>SendReceive</code> or <code>Receive</code> unless you also set <code>video</code> capabilities to <code>SendReceive</code>
    *                     or <code>Receive</code>. If you don't set the <code>video</code> capability to receive, the response will contain an HTTP 400 Bad Request status code. However, you can set your <code>video</code> capability
    *                     to receive and you set your <code>content</code> capability to not receive.</p>
    *             </li>
    *             <li>
-   *                 <p>When you change an <code>audio</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
+   *                <p>When you change an <code>audio</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
    *                     and if the attendee left their microphone unmuted, audio will flow from the attendee to the other meeting participants.</p>
    *             </li>
    *             <li>
-   *                 <p>When you change a <code>video</code> or <code>content</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
+   *                <p>When you change a <code>video</code> or <code>content</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
    *                     and if the attendee turned on their video or content streams, remote attendess can receive those streams, but only after media renegotiation between the client and the Amazon Chime back-end server.</p>
    *             </li>
    *          </ul>
@@ -110,6 +122,7 @@ export interface Attendee {
 }
 
 /**
+ * @public
  * <p>A structure that contains one or more attendee IDs.</p>
  */
 export interface AttendeeIdItem {
@@ -119,12 +132,22 @@ export interface AttendeeIdItem {
   AttendeeId: string | undefined;
 }
 
-export enum MeetingFeatureStatus {
-  AVAILABLE = "AVAILABLE",
-  UNAVAILABLE = "UNAVAILABLE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MeetingFeatureStatus = {
+  AVAILABLE: "AVAILABLE",
+  UNAVAILABLE: "UNAVAILABLE",
+} as const;
 
 /**
+ * @public
+ */
+export type MeetingFeatureStatus = (typeof MeetingFeatureStatus)[keyof typeof MeetingFeatureStatus];
+
+/**
+ * @public
  * <p>An optional category of meeting features that contains audio-specific configurations, such as operating parameters for Amazon Voice Focus. </p>
  */
 export interface AudioFeatures {
@@ -135,6 +158,7 @@ export interface AudioFeatures {
 }
 
 /**
+ * @public
  * <p>The input parameters don't match the service's restrictions.</p>
  */
 export class BadRequestException extends __BaseException {
@@ -163,11 +187,16 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The Amazon Chime SDK attendee fields to create, used with the BatchCreateAttendee action.</p>
  */
 export interface CreateAttendeeRequestItem {
   /**
    * <p>The Amazon Chime SDK external user ID. An idempotency token. Links the attendee to an identity managed by a builder application.</p>
+   *          <p>Pattern: <code>[-_&@+=,()\{\}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*</code>
+   *          </p>
+   *          <p>Values that begin with <code>aws:</code> are reserved. You can't configure a value that uses this prefix.
+   *             Case insensitive.</p>
    */
   ExternalUserId: string | undefined;
 
@@ -177,6 +206,9 @@ export interface CreateAttendeeRequestItem {
   Capabilities?: AttendeeCapabilities;
 }
 
+/**
+ * @public
+ */
 export interface BatchCreateAttendeeRequest {
   /**
    * <p>The Amazon Chime SDK ID of the meeting to which you're adding attendees.</p>
@@ -190,11 +222,16 @@ export interface BatchCreateAttendeeRequest {
 }
 
 /**
+ * @public
  * <p>The list of errors returned when errors are encountered during the BatchCreateAttendee and CreateAttendee actions. This includes external user IDs, error codes, and error messages.</p>
  */
 export interface CreateAttendeeError {
   /**
    * <p>The Amazon Chime SDK external user ID. An idempotency token. Links the attendee to an identity managed by a builder application.</p>
+   *          <p>Pattern: <code>[-_&@+=,()\{\}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*</code>
+   *          </p>
+   *          <p>Values that begin with <code>aws:</code> are reserved. You can't configure a value that uses this prefix.
+   *             Case insensitive.</p>
    */
   ExternalUserId?: string;
 
@@ -209,6 +246,9 @@ export interface CreateAttendeeError {
   ErrorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchCreateAttendeeResponse {
   /**
    * <p>The attendee information, including attendees' IDs and join tokens.</p>
@@ -222,6 +262,7 @@ export interface BatchCreateAttendeeResponse {
 }
 
 /**
+ * @public
  * <p>The client is permanently forbidden from making the request.</p>
  */
 export class ForbiddenException extends __BaseException {
@@ -250,6 +291,7 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request exceeds the resource limit.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -278,6 +320,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One or more of the resources in the request does not exist in the system.</p>
  */
 export class NotFoundException extends __BaseException {
@@ -306,6 +349,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The service encountered an unexpected error.</p>
  */
 export class ServiceFailureException extends __BaseException {
@@ -334,6 +378,7 @@ export class ServiceFailureException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The service is currently unavailable.</p>
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -368,6 +413,7 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The number of customer requests exceeds the request rate limit.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -396,6 +442,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The user isn't authorized to request a resource.</p>
  */
 export class UnauthorizedException extends __BaseException {
@@ -424,6 +471,7 @@ export class UnauthorizedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was well-formed but was unable to be followed due to semantic errors.</p>
  */
 export class UnprocessableEntityException extends __BaseException {
@@ -451,6 +499,9 @@ export class UnprocessableEntityException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface BatchUpdateAttendeeCapabilitiesExceptRequest {
   /**
    * <p>The ID of the meeting associated with the update request.</p>
@@ -469,6 +520,7 @@ export interface BatchUpdateAttendeeCapabilitiesExceptRequest {
 }
 
 /**
+ * @public
  * <p>Multiple instances of the same request have been made simultaneously.</p>
  */
 export class ConflictException extends __BaseException {
@@ -496,6 +548,9 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateAttendeeRequest {
   /**
    * <p>The unique ID of the meeting.</p>
@@ -504,38 +559,43 @@ export interface CreateAttendeeRequest {
 
   /**
    * <p>The Amazon Chime SDK external user ID. An idempotency token. Links the attendee to an identity managed by a builder application.</p>
+   *          <p>Pattern: <code>[-_&@+=,()\{\}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*</code>
+   *          </p>
+   *          <p>Values that begin with <code>aws:</code> are reserved. You can't configure a value that
+   *             uses this prefix.</p>
    */
   ExternalUserId: string | undefined;
 
   /**
    * <p>The capabilities (<code>audio</code>, <code>video</code>, or <code>content</code>) that you want to grant an attendee. If you don't specify capabilities, all users have send and receive capabilities on
    *             all media channels by default.</p>
-   *
-   *         <note>
+   *          <note>
    *             <p>You use the capabilities with a set of values that control what the capabilities can do, such as <code>SendReceive</code> data. For more information about those values, see
    *             .</p>
    *          </note>
-   *
-   *             <p>When using capabilities, be aware of these corner cases:</p>
-   *             <ul>
+   *          <p>When using capabilities, be aware of these corner cases:</p>
+   *          <ul>
    *             <li>
-   *                     <p>You can't set <code>content</code> capabilities to <code>SendReceive</code> or <code>Receive</code> unless you also set <code>video</code> capabilities to <code>SendReceive</code>
+   *                <p>You can't set <code>content</code> capabilities to <code>SendReceive</code> or <code>Receive</code> unless you also set <code>video</code> capabilities to <code>SendReceive</code>
    *                     or <code>Receive</code>. If you don't set the <code>video</code> capability to receive, the response will contain an HTTP 400 Bad Request status code. However, you can set your <code>video</code> capability
    *                     to receive and you set your <code>content</code> capability to not receive.</p>
-   *                 </li>
+   *             </li>
    *             <li>
-   *                     <p>When you change an <code>audio</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
+   *                <p>When you change an <code>audio</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
    *                     and if the attendee left their microphone unmuted, audio will flow from the attendee to the other meeting participants.</p>
-   *                 </li>
+   *             </li>
    *             <li>
-   *                     <p>When you change a <code>video</code> or <code>content</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
+   *                <p>When you change a <code>video</code> or <code>content</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
    *                    and if the attendee turned on their video or content streams, remote attendess can receive those streams, but only after media renegotiation between the client and the Amazon Chime back-end server.</p>
-   *                 </li>
+   *             </li>
    *          </ul>
    */
   Capabilities?: AttendeeCapabilities;
 }
 
+/**
+ * @public
+ */
 export interface CreateAttendeeResponse {
   /**
    * <p>The attendee information, including attendee ID and join token.</p>
@@ -544,16 +604,18 @@ export interface CreateAttendeeResponse {
 }
 
 /**
- * <p>The configuration settings of the features available to a meeting.></p>
+ * @public
+ * <p>The configuration settings of the features available to a meeting.</p>
  */
 export interface MeetingFeaturesConfiguration {
   /**
-   * <p>The configuration settings for the audio features available to a meeting. </p>
+   * <p>The configuration settings for the audio features available to a meeting.</p>
    */
   Audio?: AudioFeatures;
 }
 
 /**
+ * @public
  * <p>The configuration for resource targets to receive notifications when meeting and attendee events occur.</p>
  */
 export interface NotificationsConfiguration {
@@ -574,6 +636,7 @@ export interface NotificationsConfiguration {
 }
 
 /**
+ * @public
  * <p>A key-value pair that you define.</p>
  */
 export interface Tag {
@@ -588,6 +651,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateMeetingRequest {
   /**
    * <p>The unique identifier for the client request. Use a different token for different meetings.</p>
@@ -596,7 +662,6 @@ export interface CreateMeetingRequest {
 
   /**
    * <p>The Region in which to create the meeting.</p>
-   *
    *          <p>
    *            Available values:
    *            <code>af-south-1</code>,
@@ -629,6 +694,10 @@ export interface CreateMeetingRequest {
 
   /**
    * <p>The external meeting ID.</p>
+   *          <p>Pattern: <code>[-_&@+=,()\{\}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*</code>
+   *          </p>
+   *          <p>Values that begin with <code>aws:</code> are reserved. You can't configure a value that uses this prefix.
+   *            Case insensitive.</p>
    */
   ExternalMeetingId: string | undefined;
 
@@ -672,26 +741,22 @@ export interface CreateMeetingRequest {
    *         documentation for each service.</p>
    *             </li>
    *          </ul>
-   *             <important>
+   *          <important>
    *             <p>Do not store personally identifiable information (PII) or other confidential or sensitive information in tags. We use tags to provide you with billing and administration services. Tags are not intended to be
    *             used for private or sensitive data.</p>
    *          </important>
-   *             <p>
+   *          <p>
    *             <b>Minimum permissions</b>
    *          </p>
-   *
-   *                <p> In addition to the <code>tag:TagResources </code>permission required by this operation, you must also have the tagging permission defined by the service that created the resource. For example,
-   *                    to tag a <code>ChimeSDKMeetings</code> instance  using the <code>TagResources</code> operation, you must have both of the following permissions:</p>
-   *
-   *                 <p>
+   *          <p>In addition to the <code>tag:TagResources</code> permission required by this operation, you must also have the tagging permission defined by the service that created the resource. For example,
+   *                    to tag a <code>ChimeSDKMeetings</code> instance using the <code>TagResources</code> operation, you must have both of the following permissions:</p>
+   *          <p>
    *             <code>tag:TagResources</code>
    *          </p>
-   *
-   *                 <p>
+   *          <p>
    *             <code>ChimeSDKMeetings:CreateTags</code>
    *          </p>
-   *
-   *                 <note>
+   *          <note>
    *             <p>Some services might have specific requirements for tagging some resources. For example, to tag an Amazon S3 bucket, you must also have the <code>s3:GetBucketTagging</code> permission.
    *                 If the expected minimum permissions don't work, check the documentation for that service's tagging APIs for more information.</p>
    *          </note>
@@ -700,6 +765,7 @@ export interface CreateMeetingRequest {
 }
 
 /**
+ * @public
  * <p>A set of endpoints used by clients to connect to the media service group for an Amazon Chime SDK meeting.</p>
  */
 export interface MediaPlacement {
@@ -745,6 +811,7 @@ export interface MediaPlacement {
 }
 
 /**
+ * @public
  * <p>A meeting created using the Amazon Chime SDK.</p>
  */
 export interface Meeting {
@@ -760,6 +827,10 @@ export interface Meeting {
 
   /**
    * <p>The external meeting ID.</p>
+   *          <p>Pattern: <code>[-_&@+=,()\{\}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*</code>
+   *          </p>
+   *          <p>Values that begin with <code>aws:</code> are reserved. You can't configure a value that uses this prefix.
+   *             Case insensitive.</p>
    */
   ExternalMeetingId?: string;
 
@@ -770,7 +841,7 @@ export interface Meeting {
    *             <code>eu-west-1</code>, <code>eu-west-2</code>, <code>eu-west-3</code>,
    *             <code>sa-east-1</code>, <code>us-east-1</code>, <code>us-east-2</code>,
    *             <code>us-west-1</code>, <code>us-west-2</code>.</p>
-   *         <p>Available values in AWS GovCloud (US) Regions: <code>us-gov-east-1</code>, <code>us-gov-west-1</code>.</p>
+   *          <p>Available values in AWS GovCloud (US) Regions: <code>us-gov-east-1</code>, <code>us-gov-west-1</code>.</p>
    */
   MediaRegion?: string;
 
@@ -780,7 +851,7 @@ export interface Meeting {
   MediaPlacement?: MediaPlacement;
 
   /**
-   * <p>The features available to a meeting, such as Amazon Voice Focus.</p>
+   * <p>The features available to a meeting, such as echo reduction.</p>
    */
   MeetingFeatures?: MeetingFeaturesConfiguration;
 
@@ -800,6 +871,9 @@ export interface Meeting {
   MeetingArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateMeetingResponse {
   /**
    * <p>The meeting information, including the meeting ID and
@@ -808,6 +882,9 @@ export interface CreateMeetingResponse {
   Meeting?: Meeting;
 }
 
+/**
+ * @public
+ */
 export interface CreateMeetingWithAttendeesRequest {
   /**
    * <p>The unique identifier for the client request. Use a different token for different meetings.</p>
@@ -816,7 +893,6 @@ export interface CreateMeetingWithAttendeesRequest {
 
   /**
    * <p>The Region in which to create the meeting.</p>
-   *
    *          <p>
    *            Available values:
    *            <code>af-south-1</code>,
@@ -849,6 +925,10 @@ export interface CreateMeetingWithAttendeesRequest {
 
   /**
    * <p>The external meeting ID.</p>
+   *          <p>Pattern: <code>[-_&@+=,()\{\}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*</code>
+   *          </p>
+   *          <p>Values that begin with <code>aws:</code> are reserved. You can't configure a value that uses this prefix.
+   *            Case insensitive.</p>
    */
   ExternalMeetingId: string | undefined;
 
@@ -883,6 +963,9 @@ export interface CreateMeetingWithAttendeesRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateMeetingWithAttendeesResponse {
   /**
    * <p>The meeting information, including the meeting ID and
@@ -901,6 +984,9 @@ export interface CreateMeetingWithAttendeesResponse {
   Errors?: CreateAttendeeError[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteAttendeeRequest {
   /**
    * <p>The Amazon Chime SDK meeting ID.</p>
@@ -913,6 +999,9 @@ export interface DeleteAttendeeRequest {
   AttendeeId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMeetingRequest {
   /**
    * <p>The Amazon Chime SDK meeting ID.</p>
@@ -920,6 +1009,9 @@ export interface DeleteMeetingRequest {
   MeetingId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAttendeeRequest {
   /**
    * <p>The Amazon Chime SDK meeting ID.</p>
@@ -932,6 +1024,9 @@ export interface GetAttendeeRequest {
   AttendeeId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAttendeeResponse {
   /**
    * <p>The Amazon Chime SDK attendee information.</p>
@@ -939,6 +1034,9 @@ export interface GetAttendeeResponse {
   Attendee?: Attendee;
 }
 
+/**
+ * @public
+ */
 export interface GetMeetingRequest {
   /**
    * <p>The Amazon Chime SDK meeting ID.</p>
@@ -946,6 +1044,9 @@ export interface GetMeetingRequest {
   MeetingId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetMeetingResponse {
   /**
    * <p>The Amazon Chime SDK meeting information.</p>
@@ -953,6 +1054,9 @@ export interface GetMeetingResponse {
   Meeting?: Meeting;
 }
 
+/**
+ * @public
+ */
 export interface ListAttendeesRequest {
   /**
    * <p>The Amazon Chime SDK meeting ID.</p>
@@ -970,6 +1074,9 @@ export interface ListAttendeesRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListAttendeesResponse {
   /**
    * <p>The Amazon Chime SDK attendee information.</p>
@@ -982,6 +1089,9 @@ export interface ListAttendeesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -989,6 +1099,9 @@ export interface ListTagsForResourceRequest {
   ResourceARN: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags requested for the specified resource.</p>
@@ -997,6 +1110,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * <p>The resource that you want to tag couldn't be found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -1030,39 +1144,87 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
-export enum TranscribeMedicalContentIdentificationType {
-  PHI = "PHI",
-}
-
-export enum TranscribeMedicalLanguageCode {
-  EN_US = "en-US",
-}
-
-export enum TranscribeMedicalRegion {
-  AP_SOUTHEAST_2 = "ap-southeast-2",
-  AUTO = "auto",
-  CA_CENTRAL_1 = "ca-central-1",
-  EU_WEST_1 = "eu-west-1",
-  US_EAST_1 = "us-east-1",
-  US_EAST_2 = "us-east-2",
-  US_WEST_2 = "us-west-2",
-}
-
-export enum TranscribeMedicalSpecialty {
-  CARDIOLOGY = "CARDIOLOGY",
-  NEUROLOGY = "NEUROLOGY",
-  ONCOLOGY = "ONCOLOGY",
-  PRIMARYCARE = "PRIMARYCARE",
-  RADIOLOGY = "RADIOLOGY",
-  UROLOGY = "UROLOGY",
-}
-
-export enum TranscribeMedicalType {
-  CONVERSATION = "CONVERSATION",
-  DICTATION = "DICTATION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TranscribeMedicalContentIdentificationType = {
+  PHI: "PHI",
+} as const;
 
 /**
+ * @public
+ */
+export type TranscribeMedicalContentIdentificationType =
+  (typeof TranscribeMedicalContentIdentificationType)[keyof typeof TranscribeMedicalContentIdentificationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TranscribeMedicalLanguageCode = {
+  EN_US: "en-US",
+} as const;
+
+/**
+ * @public
+ */
+export type TranscribeMedicalLanguageCode =
+  (typeof TranscribeMedicalLanguageCode)[keyof typeof TranscribeMedicalLanguageCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const TranscribeMedicalRegion = {
+  AP_SOUTHEAST_2: "ap-southeast-2",
+  AUTO: "auto",
+  CA_CENTRAL_1: "ca-central-1",
+  EU_WEST_1: "eu-west-1",
+  US_EAST_1: "us-east-1",
+  US_EAST_2: "us-east-2",
+  US_WEST_2: "us-west-2",
+} as const;
+
+/**
+ * @public
+ */
+export type TranscribeMedicalRegion = (typeof TranscribeMedicalRegion)[keyof typeof TranscribeMedicalRegion];
+
+/**
+ * @public
+ * @enum
+ */
+export const TranscribeMedicalSpecialty = {
+  CARDIOLOGY: "CARDIOLOGY",
+  NEUROLOGY: "NEUROLOGY",
+  ONCOLOGY: "ONCOLOGY",
+  PRIMARYCARE: "PRIMARYCARE",
+  RADIOLOGY: "RADIOLOGY",
+  UROLOGY: "UROLOGY",
+} as const;
+
+/**
+ * @public
+ */
+export type TranscribeMedicalSpecialty = (typeof TranscribeMedicalSpecialty)[keyof typeof TranscribeMedicalSpecialty];
+
+/**
+ * @public
+ * @enum
+ */
+export const TranscribeMedicalType = {
+  CONVERSATION: "CONVERSATION",
+  DICTATION: "DICTATION",
+} as const;
+
+/**
+ * @public
+ */
+export type TranscribeMedicalType = (typeof TranscribeMedicalType)[keyof typeof TranscribeMedicalType];
+
+/**
+ * @public
  * <p>Settings specific to the Amazon Transcribe Medical engine.</p>
  */
 export interface EngineTranscribeMedicalSettings {
@@ -1097,58 +1259,117 @@ export interface EngineTranscribeMedicalSettings {
   ContentIdentificationType?: TranscribeMedicalContentIdentificationType | string;
 }
 
-export enum TranscribeContentIdentificationType {
-  PII = "PII",
-}
-
-export enum TranscribeContentRedactionType {
-  PII = "PII",
-}
-
-export enum TranscribeLanguageCode {
-  DE_DE = "de-DE",
-  EN_AU = "en-AU",
-  EN_GB = "en-GB",
-  EN_US = "en-US",
-  ES_US = "es-US",
-  FR_CA = "fr-CA",
-  FR_FR = "fr-FR",
-  IT_IT = "it-IT",
-  JA_JP = "ja-JP",
-  KO_KR = "ko-KR",
-  PT_BR = "pt-BR",
-  ZH_CN = "zh-CN",
-}
-
-export enum TranscribePartialResultsStability {
-  HIGH = "high",
-  LOW = "low",
-  MEDIUM = "medium",
-}
-
-export enum TranscribeRegion {
-  AP_NORTHEAST_1 = "ap-northeast-1",
-  AP_NORTHEAST_2 = "ap-northeast-2",
-  AP_SOUTHEAST_2 = "ap-southeast-2",
-  AUTO = "auto",
-  CA_CENTRAL_1 = "ca-central-1",
-  EU_CENTRAL_1 = "eu-central-1",
-  EU_WEST_1 = "eu-west-1",
-  EU_WEST_2 = "eu-west-2",
-  SA_EAST_1 = "sa-east-1",
-  US_EAST_1 = "us-east-1",
-  US_EAST_2 = "us-east-2",
-  US_GOV_WEST_1 = "us-gov-west-1",
-  US_WEST_2 = "us-west-2",
-}
-
-export enum TranscribeVocabularyFilterMethod {
-  MASK = "mask",
-  REMOVE = "remove",
-  TAG = "tag",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TranscribeContentIdentificationType = {
+  PII: "PII",
+} as const;
 
 /**
+ * @public
+ */
+export type TranscribeContentIdentificationType =
+  (typeof TranscribeContentIdentificationType)[keyof typeof TranscribeContentIdentificationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TranscribeContentRedactionType = {
+  PII: "PII",
+} as const;
+
+/**
+ * @public
+ */
+export type TranscribeContentRedactionType =
+  (typeof TranscribeContentRedactionType)[keyof typeof TranscribeContentRedactionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TranscribeLanguageCode = {
+  DE_DE: "de-DE",
+  EN_AU: "en-AU",
+  EN_GB: "en-GB",
+  EN_US: "en-US",
+  ES_US: "es-US",
+  FR_CA: "fr-CA",
+  FR_FR: "fr-FR",
+  IT_IT: "it-IT",
+  JA_JP: "ja-JP",
+  KO_KR: "ko-KR",
+  PT_BR: "pt-BR",
+  ZH_CN: "zh-CN",
+} as const;
+
+/**
+ * @public
+ */
+export type TranscribeLanguageCode = (typeof TranscribeLanguageCode)[keyof typeof TranscribeLanguageCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const TranscribePartialResultsStability = {
+  HIGH: "high",
+  LOW: "low",
+  MEDIUM: "medium",
+} as const;
+
+/**
+ * @public
+ */
+export type TranscribePartialResultsStability =
+  (typeof TranscribePartialResultsStability)[keyof typeof TranscribePartialResultsStability];
+
+/**
+ * @public
+ * @enum
+ */
+export const TranscribeRegion = {
+  AP_NORTHEAST_1: "ap-northeast-1",
+  AP_NORTHEAST_2: "ap-northeast-2",
+  AP_SOUTHEAST_2: "ap-southeast-2",
+  AUTO: "auto",
+  CA_CENTRAL_1: "ca-central-1",
+  EU_CENTRAL_1: "eu-central-1",
+  EU_WEST_1: "eu-west-1",
+  EU_WEST_2: "eu-west-2",
+  SA_EAST_1: "sa-east-1",
+  US_EAST_1: "us-east-1",
+  US_EAST_2: "us-east-2",
+  US_GOV_WEST_1: "us-gov-west-1",
+  US_WEST_2: "us-west-2",
+} as const;
+
+/**
+ * @public
+ */
+export type TranscribeRegion = (typeof TranscribeRegion)[keyof typeof TranscribeRegion];
+
+/**
+ * @public
+ * @enum
+ */
+export const TranscribeVocabularyFilterMethod = {
+  MASK: "mask",
+  REMOVE: "remove",
+  TAG: "tag",
+} as const;
+
+/**
+ * @public
+ */
+export type TranscribeVocabularyFilterMethod =
+  (typeof TranscribeVocabularyFilterMethod)[keyof typeof TranscribeVocabularyFilterMethod];
+
+/**
+ * @public
  * <p>Settings specific to the Amazon Transcribe engine.</p>
  */
 export interface EngineTranscribeSettings {
@@ -1194,20 +1415,17 @@ export interface EngineTranscribeSettings {
 
   /**
    * <p>Set this field to <code>PII</code> to redact personally identifiable information in the transcription output. Content redaction is performed only upon complete transcription of the audio segments.</p>
-   *
-   *             <p>You can’t set <code>ContentRedactionType</code> and <code>ContentIdentificationType</code> in the same request. If you set both, your request returns a <code>BadRequestException</code>.</p>
+   *          <p>You can’t set <code>ContentRedactionType</code> and <code>ContentIdentificationType</code> in the same request. If you set both, your request returns a <code>BadRequestException</code>.</p>
    */
   ContentRedactionType?: TranscribeContentRedactionType | string;
 
   /**
    * <p>Lists the PII entity types you want to identify or redact. To specify entity types, you must enable <code>ContentIdentificationType</code> or <code>ContentRedactionType</code>.</p>
-   *
-   *         <p>
+   *          <p>
    *             <code>PIIEntityTypes</code> must be comma-separated. The available values are:
    *             <code>BANK_ACCOUNT_NUMBER</code>, <code>BANK_ROUTING, CREDIT_DEBIT_NUMBER</code>, <code>CREDIT_DEBIT_CVV</code>, <code>CREDIT_DEBIT_EXPIRY</code>, <code>PIN</code>, <code>EMAIL</code>,
    *             <code>ADDRESS</code>, <code>NAME</code>, <code>PHONE</code>, <code>SSN</code>, and <code>ALL</code>.</p>
-   *
-   *         <p>
+   *          <p>
    *             <code>PiiEntityTypes</code> is an optional parameter with a default value of <code>ALL</code>.</p>
    */
   PiiEntityTypes?: string;
@@ -1234,6 +1452,7 @@ export interface EngineTranscribeSettings {
 }
 
 /**
+ * @public
  * <p>The configuration for the current transcription operation. Must contain <code>EngineTranscribeSettings</code> or <code>EngineTranscribeMedicalSettings</code>.</p>
  */
 export interface TranscriptionConfiguration {
@@ -1248,6 +1467,9 @@ export interface TranscriptionConfiguration {
   EngineTranscribeMedicalSettings?: EngineTranscribeMedicalSettings;
 }
 
+/**
+ * @public
+ */
 export interface StartMeetingTranscriptionRequest {
   /**
    * <p>The unique ID of the meeting being transcribed.</p>
@@ -1261,6 +1483,9 @@ export interface StartMeetingTranscriptionRequest {
   TranscriptionConfiguration: TranscriptionConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopMeetingTranscriptionRequest {
   /**
    * <p>The unique ID of the meeting for which you stop transcription.</p>
@@ -1268,6 +1493,9 @@ export interface StopMeetingTranscriptionRequest {
   MeetingId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -1280,9 +1508,13 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
 /**
+ * @public
  * <p>Too many tags were added to the specified resource.</p>
  */
 export class TooManyTagsException extends __BaseException {
@@ -1316,6 +1548,9 @@ export class TooManyTagsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The ARN of the resource that you're removing tags from.</p>
@@ -1328,8 +1563,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateAttendeeCapabilitiesRequest {
   /**
    * <p>The ID of the meeting associated with the update request.</p>
@@ -1347,6 +1588,9 @@ export interface UpdateAttendeeCapabilitiesRequest {
   Capabilities: AttendeeCapabilities | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAttendeeCapabilitiesResponse {
   /**
    * <p>The updated attendee data.</p>
@@ -1357,31 +1601,10 @@ export interface UpdateAttendeeCapabilitiesResponse {
 /**
  * @internal
  */
-export const AttendeeCapabilitiesFilterSensitiveLog = (obj: AttendeeCapabilities): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const AttendeeFilterSensitiveLog = (obj: Attendee): any => ({
   ...obj,
   ...(obj.ExternalUserId && { ExternalUserId: SENSITIVE_STRING }),
   ...(obj.JoinToken && { JoinToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const AttendeeIdItemFilterSensitiveLog = (obj: AttendeeIdItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AudioFeaturesFilterSensitiveLog = (obj: AudioFeatures): any => ({
-  ...obj,
 });
 
 /**
@@ -1420,15 +1643,6 @@ export const BatchCreateAttendeeResponseFilterSensitiveLog = (obj: BatchCreateAt
 /**
  * @internal
  */
-export const BatchUpdateAttendeeCapabilitiesExceptRequestFilterSensitiveLog = (
-  obj: BatchUpdateAttendeeCapabilitiesExceptRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateAttendeeRequestFilterSensitiveLog = (obj: CreateAttendeeRequest): any => ({
   ...obj,
   ...(obj.ExternalUserId && { ExternalUserId: SENSITIVE_STRING }),
@@ -1445,25 +1659,11 @@ export const CreateAttendeeResponseFilterSensitiveLog = (obj: CreateAttendeeResp
 /**
  * @internal
  */
-export const MeetingFeaturesConfigurationFilterSensitiveLog = (obj: MeetingFeaturesConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const NotificationsConfigurationFilterSensitiveLog = (obj: NotificationsConfiguration): any => ({
   ...obj,
   ...(obj.LambdaFunctionArn && { LambdaFunctionArn: SENSITIVE_STRING }),
   ...(obj.SnsTopicArn && { SnsTopicArn: SENSITIVE_STRING }),
   ...(obj.SqsQueueArn && { SqsQueueArn: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
 });
 
 /**
@@ -1477,13 +1677,6 @@ export const CreateMeetingRequestFilterSensitiveLog = (obj: CreateMeetingRequest
   ...(obj.NotificationsConfiguration && {
     NotificationsConfiguration: NotificationsConfigurationFilterSensitiveLog(obj.NotificationsConfiguration),
   }),
-});
-
-/**
- * @internal
- */
-export const MediaPlacementFilterSensitiveLog = (obj: MediaPlacement): any => ({
-  ...obj,
 });
 
 /**
@@ -1530,37 +1723,9 @@ export const CreateMeetingWithAttendeesResponseFilterSensitiveLog = (obj: Create
 /**
  * @internal
  */
-export const DeleteAttendeeRequestFilterSensitiveLog = (obj: DeleteAttendeeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMeetingRequestFilterSensitiveLog = (obj: DeleteMeetingRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAttendeeRequestFilterSensitiveLog = (obj: GetAttendeeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetAttendeeResponseFilterSensitiveLog = (obj: GetAttendeeResponse): any => ({
   ...obj,
   ...(obj.Attendee && { Attendee: AttendeeFilterSensitiveLog(obj.Attendee) }),
-});
-
-/**
- * @internal
- */
-export const GetMeetingRequestFilterSensitiveLog = (obj: GetMeetingRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -1574,100 +1739,9 @@ export const GetMeetingResponseFilterSensitiveLog = (obj: GetMeetingResponse): a
 /**
  * @internal
  */
-export const ListAttendeesRequestFilterSensitiveLog = (obj: ListAttendeesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListAttendeesResponseFilterSensitiveLog = (obj: ListAttendeesResponse): any => ({
   ...obj,
   ...(obj.Attendees && { Attendees: obj.Attendees.map((item) => AttendeeFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EngineTranscribeMedicalSettingsFilterSensitiveLog = (obj: EngineTranscribeMedicalSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EngineTranscribeSettingsFilterSensitiveLog = (obj: EngineTranscribeSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TranscriptionConfigurationFilterSensitiveLog = (obj: TranscriptionConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartMeetingTranscriptionRequestFilterSensitiveLog = (obj: StartMeetingTranscriptionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopMeetingTranscriptionRequestFilterSensitiveLog = (obj: StopMeetingTranscriptionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAttendeeCapabilitiesRequestFilterSensitiveLog = (obj: UpdateAttendeeCapabilitiesRequest): any => ({
-  ...obj,
 });
 
 /**

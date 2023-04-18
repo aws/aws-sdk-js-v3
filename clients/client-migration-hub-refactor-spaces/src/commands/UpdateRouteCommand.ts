@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubRefactorSpacesClient";
-import {
-  UpdateRouteRequest,
-  UpdateRouteRequestFilterSensitiveLog,
-  UpdateRouteResponse,
-  UpdateRouteResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateRouteCommand,
-  serializeAws_restJson1UpdateRouteCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateRouteRequest, UpdateRouteResponse } from "../models/models_0";
+import { de_UpdateRouteCommand, se_UpdateRouteCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateRouteCommand}.
+ */
 export interface UpdateRouteCommandInput extends UpdateRouteRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateRouteCommand}.
+ */
 export interface UpdateRouteCommandOutput extends UpdateRouteResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Updates an Amazon Web Services Migration Hub Refactor Spaces route. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,38 @@ export interface UpdateRouteCommandOutput extends UpdateRouteResponse, __Metadat
  * import { MigrationHubRefactorSpacesClient, UpdateRouteCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
  * // const { MigrationHubRefactorSpacesClient, UpdateRouteCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
  * const client = new MigrationHubRefactorSpacesClient(config);
+ * const input = { // UpdateRouteRequest
+ *   EnvironmentIdentifier: "STRING_VALUE", // required
+ *   ApplicationIdentifier: "STRING_VALUE", // required
+ *   RouteIdentifier: "STRING_VALUE", // required
+ *   ActivationState: "STRING_VALUE", // required
+ * };
  * const command = new UpdateRouteCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRouteCommandInput - {@link UpdateRouteCommandInput}
+ * @returns {@link UpdateRouteCommandOutput}
  * @see {@link UpdateRouteCommandInput} for command's `input` shape.
  * @see {@link UpdateRouteCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubRefactorSpacesClientResolvedConfig | config} for MigrationHubRefactorSpacesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The user does not have sufficient access to perform this action. </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred while processing the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a resource that does not exist. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Request was denied because the request was throttled. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input does not satisfy the constraints specified by an Amazon Web Service.
+ *     </p>
+ *
  *
  */
 export class UpdateRouteCommand extends $Command<
@@ -66,6 +94,9 @@ export class UpdateRouteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRouteCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +123,8 @@ export class UpdateRouteCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRouteRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateRouteResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +134,18 @@ export class UpdateRouteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateRouteCommand(input, context);
+    return se_UpdateRouteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRouteCommandOutput> {
-    return deserializeAws_restJson1UpdateRouteCommand(output, context);
+    return de_UpdateRouteCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  DeleteRegistryInput,
-  DeleteRegistryInputFilterSensitiveLog,
-  DeleteRegistryResponse,
-  DeleteRegistryResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteRegistryCommand,
-  serializeAws_json1_1DeleteRegistryCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteRegistryInput, DeleteRegistryResponse } from "../models/models_1";
+import { de_DeleteRegistryCommand, se_DeleteRegistryCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteRegistryCommand}.
+ */
 export interface DeleteRegistryCommandInput extends DeleteRegistryInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteRegistryCommand}.
+ */
 export interface DeleteRegistryCommandOutput extends DeleteRegistryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete the entire registry including schema and all of its versions. To get the status of the delete operation, you can call the <code>GetRegistry</code> API after the asynchronous call. Deleting a registry will deactivate all online operations for the registry such as the <code>UpdateRegistry</code>, <code>CreateSchema</code>, <code>UpdateSchema</code>, and <code>RegisterSchemaVersion</code> APIs. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,34 @@ export interface DeleteRegistryCommandOutput extends DeleteRegistryResponse, __M
  * import { GlueClient, DeleteRegistryCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DeleteRegistryCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // DeleteRegistryInput
+ *   RegistryId: { // RegistryId
+ *     RegistryName: "STRING_VALUE",
+ *     RegistryArn: "STRING_VALUE",
+ *   },
+ * };
  * const command = new DeleteRegistryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRegistryCommandInput - {@link DeleteRegistryCommandInput}
+ * @returns {@link DeleteRegistryCommandOutput}
  * @see {@link DeleteRegistryCommandInput} for command's `input` shape.
  * @see {@link DeleteRegistryCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to a resource was denied.</p>
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>Two processes are trying to modify a resource simultaneously.</p>
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
  *
  */
 export class DeleteRegistryCommand extends $Command<
@@ -62,6 +86,9 @@ export class DeleteRegistryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRegistryCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +117,8 @@ export class DeleteRegistryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRegistryInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRegistryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +128,18 @@ export class DeleteRegistryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRegistryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteRegistryCommand(input, context);
+    return se_DeleteRegistryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRegistryCommandOutput> {
-    return deserializeAws_json1_1DeleteRegistryCommand(output, context);
+    return de_DeleteRegistryCommand(output, context);
   }
 
   // Start section: command_body_extra

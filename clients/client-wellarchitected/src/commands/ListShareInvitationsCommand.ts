@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListShareInvitationsInput,
-  ListShareInvitationsInputFilterSensitiveLog,
-  ListShareInvitationsOutput,
-  ListShareInvitationsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListShareInvitationsCommand,
-  serializeAws_restJson1ListShareInvitationsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListShareInvitationsInput, ListShareInvitationsOutput } from "../models/models_0";
+import { de_ListShareInvitationsCommand, se_ListShareInvitationsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListShareInvitationsCommand}.
+ */
 export interface ListShareInvitationsCommandInput extends ListShareInvitationsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListShareInvitationsCommand}.
+ */
 export interface ListShareInvitationsCommandOutput extends ListShareInvitationsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List  the workload invitations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,35 @@ export interface ListShareInvitationsCommandOutput extends ListShareInvitationsO
  * import { WellArchitectedClient, ListShareInvitationsCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, ListShareInvitationsCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
+ * const input = { // ListShareInvitationsInput
+ *   WorkloadNamePrefix: "STRING_VALUE",
+ *   LensNamePrefix: "STRING_VALUE",
+ *   ShareResourceType: "WORKLOAD" || "LENS",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListShareInvitationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListShareInvitationsCommandInput - {@link ListShareInvitationsCommandInput}
+ * @returns {@link ListShareInvitationsCommandOutput}
  * @see {@link ListShareInvitationsCommandInput} for command's `input` shape.
  * @see {@link ListShareInvitationsCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>User does not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There is a problem with the Well-Architected Tool API service.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The user input is not valid.</p>
+ *
  *
  */
 export class ListShareInvitationsCommand extends $Command<
@@ -62,6 +87,9 @@ export class ListShareInvitationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListShareInvitationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +118,8 @@ export class ListShareInvitationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListShareInvitationsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListShareInvitationsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +129,18 @@ export class ListShareInvitationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListShareInvitationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListShareInvitationsCommand(input, context);
+    return se_ListShareInvitationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListShareInvitationsCommandOutput> {
-    return deserializeAws_restJson1ListShareInvitationsCommand(output, context);
+    return de_ListShareInvitationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticTranscoderClient";
-import {
-  ReadPresetRequest,
-  ReadPresetRequestFilterSensitiveLog,
-  ReadPresetResponse,
-  ReadPresetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ReadPresetCommand,
-  serializeAws_restJson1ReadPresetCommand,
-} from "../protocols/Aws_restJson1";
+import { ReadPresetRequest, ReadPresetResponse } from "../models/models_0";
+import { de_ReadPresetCommand, se_ReadPresetCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ReadPresetCommand}.
+ */
 export interface ReadPresetCommandInput extends ReadPresetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ReadPresetCommand}.
+ */
 export interface ReadPresetCommandOutput extends ReadPresetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The ReadPreset operation gets detailed information about a preset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,34 @@ export interface ReadPresetCommandOutput extends ReadPresetResponse, __MetadataB
  * import { ElasticTranscoderClient, ReadPresetCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
  * // const { ElasticTranscoderClient, ReadPresetCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import
  * const client = new ElasticTranscoderClient(config);
+ * const input = { // ReadPresetRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new ReadPresetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ReadPresetCommandInput - {@link ReadPresetCommandInput}
+ * @returns {@link ReadPresetCommandOutput}
  * @see {@link ReadPresetCommandInput} for command's `input` shape.
  * @see {@link ReadPresetCommandOutput} for command's `response` shape.
  * @see {@link ElasticTranscoderClientResolvedConfig | config} for ElasticTranscoderClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>General authentication failure. The request was not signed correctly.</p>
+ *
+ * @throws {@link IncompatibleVersionException} (client fault)
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Elastic Transcoder encountered an unexpected exception while trying to fulfill the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource does not exist or is not available. For example, the pipeline
+ *             to which you're trying to add a job doesn't exist or is still being created.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One or more required parameter values were not provided in the request.</p>
+ *
  *
  */
 export class ReadPresetCommand extends $Command<
@@ -66,6 +90,9 @@ export class ReadPresetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReadPresetCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +119,8 @@ export class ReadPresetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReadPresetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ReadPresetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +130,18 @@ export class ReadPresetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReadPresetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ReadPresetCommand(input, context);
+    return se_ReadPresetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReadPresetCommandOutput> {
-    return deserializeAws_restJson1ReadPresetCommand(output, context);
+    return de_ReadPresetCommand(output, context);
   }
 
   // Start section: command_body_extra

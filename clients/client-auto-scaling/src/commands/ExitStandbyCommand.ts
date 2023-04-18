@@ -14,18 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import {
-  ExitStandbyAnswer,
-  ExitStandbyAnswerFilterSensitiveLog,
-  ExitStandbyQuery,
-  ExitStandbyQueryFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_queryExitStandbyCommand, serializeAws_queryExitStandbyCommand } from "../protocols/Aws_query";
+import { ExitStandbyAnswer, ExitStandbyQuery } from "../models/models_0";
+import { de_ExitStandbyCommand, se_ExitStandbyCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link ExitStandbyCommand}.
+ */
 export interface ExitStandbyCommandInput extends ExitStandbyQuery {}
+/**
+ * @public
+ *
+ * The output of {@link ExitStandbyCommand}.
+ */
 export interface ExitStandbyCommandOutput extends ExitStandbyAnswer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Moves the specified instances out of the standby state.</p>
  *          <p>After you put the instances back in service, the desired capacity is
  *             incremented.</p>
@@ -38,13 +44,56 @@ export interface ExitStandbyCommandOutput extends ExitStandbyAnswer, __MetadataB
  * import { AutoScalingClient, ExitStandbyCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, ExitStandbyCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = { // ExitStandbyQuery
+ *   InstanceIds: [ // InstanceIds
+ *     "STRING_VALUE",
+ *   ],
+ *   AutoScalingGroupName: "STRING_VALUE", // required
+ * };
  * const command = new ExitStandbyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ExitStandbyCommandInput - {@link ExitStandbyCommandInput}
+ * @returns {@link ExitStandbyCommandOutput}
  * @see {@link ExitStandbyCommandInput} for command's `input` shape.
  * @see {@link ExitStandbyCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
+ *
+ * @throws {@link ResourceContentionFault} (server fault)
+ *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
+ *             instance, or load balancer).</p>
+ *
+ *
+ * @example To move instances out of standby mode
+ * ```javascript
+ * // This example moves the specified instance out of standby mode.
+ * const input = {
+ *   "AutoScalingGroupName": "my-auto-scaling-group",
+ *   "InstanceIds": [
+ *     "i-93633f9b"
+ *   ]
+ * };
+ * const command = new ExitStandbyCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Activities": [
+ *     {
+ *       "ActivityId": "142928e1-a2dc-453a-9b24-b85ad6735928",
+ *       "AutoScalingGroupName": "my-auto-scaling-group",
+ *       "Cause": "At 2015-04-12T15:14:29Z instance i-93633f9b was moved out of standby in response to a user request, increasing the capacity from 1 to 2.",
+ *       "Description": "Moving EC2 instance out of Standby: i-93633f9b",
+ *       "Details": "details",
+ *       "Progress": 30,
+ *       "StartTime": "2015-04-12T15:14:29.886Z",
+ *       "StatusCode": "PreInService"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: autoscaling-exit-standby-1
+ * ```
  *
  */
 export class ExitStandbyCommand extends $Command<
@@ -64,6 +113,9 @@ export class ExitStandbyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExitStandbyCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +142,8 @@ export class ExitStandbyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExitStandbyQueryFilterSensitiveLog,
-      outputFilterSensitiveLog: ExitStandbyAnswerFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +153,18 @@ export class ExitStandbyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExitStandbyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryExitStandbyCommand(input, context);
+    return se_ExitStandbyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExitStandbyCommandOutput> {
-    return deserializeAws_queryExitStandbyCommand(output, context);
+    return de_ExitStandbyCommand(output, context);
   }
 
   // Start section: command_body_extra

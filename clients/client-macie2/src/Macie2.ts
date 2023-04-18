@@ -379,10 +379,12 @@ import {
 import { Macie2Client } from "./Macie2Client";
 
 /**
+ * @public
  * <p>Amazon Macie</p>
  */
 export class Macie2 extends Macie2Client {
   /**
+   * @public
    * <p>Accepts an Amazon Macie membership invitation that was received from a specific account.</p>
    */
   public acceptInvitation(
@@ -415,6 +417,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves information about one or more custom data identifiers.</p>
    */
   public batchGetCustomDataIdentifiers(
@@ -447,6 +450,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Creates and defines the settings for an allow list.</p>
    */
   public createAllowList(
@@ -479,6 +483,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Creates and defines the settings for a classification job.</p>
    */
   public createClassificationJob(
@@ -511,6 +516,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Creates and defines the criteria and other settings for a custom data identifier.</p>
    */
   public createCustomDataIdentifier(
@@ -543,6 +549,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Creates and defines the criteria and other settings for a findings filter.</p>
    */
   public createFindingsFilter(
@@ -575,6 +582,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Sends an Amazon Macie membership invitation to one or more accounts.</p>
    */
   public createInvitations(
@@ -607,6 +615,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Associates an account with an Amazon Macie administrator account.</p>
    */
   public createMember(
@@ -636,6 +645,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Creates sample findings.</p>
    */
   public createSampleFindings(
@@ -668,6 +678,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Declines Amazon Macie membership invitations that were received from specific accounts.</p>
    */
   public declineInvitations(
@@ -700,6 +711,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Deletes an allow list.</p>
    */
   public deleteAllowList(
@@ -732,6 +744,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Soft deletes a custom data identifier.</p>
    */
   public deleteCustomDataIdentifier(
@@ -764,6 +777,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Deletes a findings filter.</p>
    */
   public deleteFindingsFilter(
@@ -796,6 +810,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Deletes Amazon Macie membership invitations that were received from specific accounts.</p>
    */
   public deleteInvitations(
@@ -828,6 +843,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the association between an Amazon Macie administrator account and an account.</p>
    */
   public deleteMember(
@@ -857,6 +873,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves (queries) statistical data and other information about one or more S3 buckets that Amazon Macie monitors and analyzes for an account.</p>
    */
   public describeBuckets(
@@ -889,6 +906,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves the status and settings for a classification job.</p>
    */
   public describeClassificationJob(
@@ -921,6 +939,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves the Amazon Macie configuration settings for an organization in Organizations.</p>
    */
   public describeOrganizationConfiguration(
@@ -953,6 +972,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Disables Amazon Macie and deletes all settings and resources for a Macie account.</p>
    */
   public disableMacie(
@@ -982,6 +1002,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Disables an account as the delegated Amazon Macie administrator account for an organization in Organizations.</p>
    */
   public disableOrganizationAdminAccount(
@@ -1014,6 +1035,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Disassociates a member account from its Amazon Macie administrator account.</p>
    */
   public disassociateFromAdministratorAccount(
@@ -1046,6 +1068,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>(Deprecated) Disassociates a member account from its Amazon Macie administrator account. This operation has been replaced by the <link  linkend="DisassociateFromAdministratorAccount">DisassociateFromAdministratorAccount</link> operation.</p>
    */
   public disassociateFromMasterAccount(
@@ -1078,6 +1101,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Disassociates an Amazon Macie administrator account from a member account.</p>
    */
   public disassociateMember(
@@ -1110,6 +1134,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Enables Amazon Macie and specifies the configuration settings for a Macie account.</p>
    */
   public enableMacie(args: EnableMacieCommandInput, options?: __HttpHandlerOptions): Promise<EnableMacieCommandOutput>;
@@ -1136,6 +1161,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Designates an account as the delegated Amazon Macie administrator account for an organization in Organizations.</p>
    */
   public enableOrganizationAdminAccount(
@@ -1168,6 +1194,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the Amazon Macie administrator account for an account.</p>
    */
   public getAdministratorAccount(
@@ -1200,6 +1227,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves the settings and status of an allow list.</p>
    */
   public getAllowList(
@@ -1229,6 +1257,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves the configuration settings and status of automated sensitive data discovery for an account.</p>
    */
   public getAutomatedDiscoveryConfiguration(
@@ -1261,6 +1290,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves (queries) aggregated statistical data about all the S3 buckets that Amazon Macie monitors and analyzes for an account.</p>
    */
   public getBucketStatistics(
@@ -1293,6 +1323,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves the configuration settings for storing data classification results.</p>
    */
   public getClassificationExportConfiguration(
@@ -1325,6 +1356,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves the classification scope settings for an account.</p>
    */
   public getClassificationScope(
@@ -1357,6 +1389,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves the criteria and other settings for a custom data identifier.</p>
    */
   public getCustomDataIdentifier(
@@ -1389,6 +1422,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves the details of one or more findings.</p>
    */
   public getFindings(args: GetFindingsCommandInput, options?: __HttpHandlerOptions): Promise<GetFindingsCommandOutput>;
@@ -1415,6 +1449,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves the criteria and other settings for a findings filter.</p>
    */
   public getFindingsFilter(
@@ -1447,6 +1482,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves the configuration settings for publishing findings to Security Hub.</p>
    */
   public getFindingsPublicationConfiguration(
@@ -1479,6 +1515,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves (queries) aggregated statistical data about findings.</p>
    */
   public getFindingStatistics(
@@ -1511,6 +1548,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves the count of Amazon Macie membership invitations that were received by an account.</p>
    */
   public getInvitationsCount(
@@ -1543,6 +1581,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves the status and configuration settings for an Amazon Macie account.</p>
    */
   public getMacieSession(
@@ -1575,6 +1614,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>(Deprecated) Retrieves information about the Amazon Macie administrator account for an account. This operation has been replaced by the <link  linkend="GetAdministratorAccount">GetAdministratorAccount</link> operation.</p>
    */
   public getMasterAccount(
@@ -1607,6 +1647,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves information about an account that's associated with an Amazon Macie administrator account.</p>
    */
   public getMember(args: GetMemberCommandInput, options?: __HttpHandlerOptions): Promise<GetMemberCommandOutput>;
@@ -1633,6 +1674,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves (queries) sensitive data discovery statistics and the sensitivity score for an S3 bucket.</p>
    */
   public getResourceProfile(
@@ -1665,6 +1707,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves the status and configuration settings for retrieving occurrences of sensitive data reported by findings.</p>
    */
   public getRevealConfiguration(
@@ -1697,6 +1740,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves occurrences of sensitive data reported by a finding.</p>
    */
   public getSensitiveDataOccurrences(
@@ -1729,6 +1773,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Checks whether occurrences of sensitive data can be retrieved for a finding.</p>
    */
   public getSensitiveDataOccurrencesAvailability(
@@ -1763,6 +1808,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves the settings for the sensitivity inspection template for an account.</p>
    */
   public getSensitivityInspectionTemplate(
@@ -1795,6 +1841,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves (queries) quotas and aggregated usage data for one or more accounts.</p>
    */
   public getUsageStatistics(
@@ -1827,6 +1874,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves (queries) aggregated usage data for an account.</p>
    */
   public getUsageTotals(
@@ -1859,6 +1907,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves a subset of information about all the allow lists for an account.</p>
    */
   public listAllowLists(
@@ -1891,6 +1940,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves a subset of information about one or more classification jobs.</p>
    */
   public listClassificationJobs(
@@ -1923,6 +1973,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves a subset of information about the classification scope for an account.</p>
    */
   public listClassificationScopes(
@@ -1955,6 +2006,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves a subset of information about all the custom data identifiers for an account.</p>
    */
   public listCustomDataIdentifiers(
@@ -1987,6 +2039,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves a subset of information about one or more findings.</p>
    */
   public listFindings(
@@ -2016,6 +2069,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves a subset of information about all the findings filters for an account.</p>
    */
   public listFindingsFilters(
@@ -2048,6 +2102,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the Amazon Macie membership invitations that were received by an account.</p>
    */
   public listInvitations(
@@ -2080,6 +2135,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves information about all the managed data identifiers that Amazon Macie currently provides.</p>
    */
   public listManagedDataIdentifiers(
@@ -2112,6 +2168,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the accounts that are associated with an Amazon Macie administrator account.</p>
    */
   public listMembers(args: ListMembersCommandInput, options?: __HttpHandlerOptions): Promise<ListMembersCommandOutput>;
@@ -2138,6 +2195,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the delegated Amazon Macie administrator account for an organization in Organizations.</p>
    */
   public listOrganizationAdminAccounts(
@@ -2170,6 +2228,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves information about objects that were selected from an S3 bucket for automated sensitive data discovery.</p>
    */
   public listResourceProfileArtifacts(
@@ -2202,6 +2261,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the types and amount of sensitive data that Amazon Macie found in an S3 bucket.</p>
    */
   public listResourceProfileDetections(
@@ -2234,6 +2294,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves a subset of information about the sensitivity inspection template for an account.</p>
    */
   public listSensitivityInspectionTemplates(
@@ -2266,6 +2327,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves the tags (keys and values) that are associated with an Amazon Macie resource.</p>
    */
   public listTagsForResource(
@@ -2298,6 +2360,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Creates or updates the configuration settings for storing data classification results.</p>
    */
   public putClassificationExportConfiguration(
@@ -2330,6 +2393,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Updates the configuration settings for publishing findings to Security Hub.</p>
    */
   public putFindingsPublicationConfiguration(
@@ -2362,6 +2426,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves (queries) statistical data and other information about Amazon Web Services resources that Amazon Macie monitors and analyzes.</p>
    */
   public searchResources(
@@ -2394,6 +2459,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Adds or updates one or more tags (keys and values) that are associated with an Amazon Macie resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -2420,6 +2486,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Tests a custom data identifier.</p>
    */
   public testCustomDataIdentifier(
@@ -2452,6 +2519,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Removes one or more tags (keys and values) from an Amazon Macie resource.</p>
    */
   public untagResource(
@@ -2484,6 +2552,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Updates the settings for an allow list.</p>
    */
   public updateAllowList(
@@ -2516,6 +2585,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Enables or disables automated sensitive data discovery for an account.</p>
    */
   public updateAutomatedDiscoveryConfiguration(
@@ -2550,6 +2620,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Changes the status of a classification job.</p>
    */
   public updateClassificationJob(
@@ -2582,6 +2653,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Updates the classification scope settings for an account.</p>
    */
   public updateClassificationScope(
@@ -2614,6 +2686,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Updates the criteria and other settings for a findings filter.</p>
    */
   public updateFindingsFilter(
@@ -2646,6 +2719,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Suspends or re-enables Amazon Macie, or updates the configuration settings for a Macie account.</p>
    */
   public updateMacieSession(
@@ -2678,6 +2752,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Enables an Amazon Macie administrator to suspend or re-enable Macie for a member account.</p>
    */
   public updateMemberSession(
@@ -2710,6 +2785,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Updates the Amazon Macie configuration settings for an organization in Organizations.</p>
    */
   public updateOrganizationConfiguration(
@@ -2742,6 +2818,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Updates the sensitivity score for an S3 bucket.</p>
    */
   public updateResourceProfile(
@@ -2774,6 +2851,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Updates the sensitivity scoring settings for an S3 bucket.</p>
    */
   public updateResourceProfileDetections(
@@ -2806,6 +2884,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Updates the status and configuration settings for retrieving occurrences of sensitive data reported by findings.</p>
    */
   public updateRevealConfiguration(
@@ -2838,6 +2917,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * @public
    * <p>Updates the settings for the sensitivity inspection template for an account.</p>
    */
   public updateSensitivityInspectionTemplate(

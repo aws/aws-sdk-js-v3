@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
-import {
-  ListCertificateAuthoritiesRequest,
-  ListCertificateAuthoritiesRequestFilterSensitiveLog,
-  ListCertificateAuthoritiesResponse,
-  ListCertificateAuthoritiesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListCertificateAuthoritiesCommand,
-  serializeAws_json1_1ListCertificateAuthoritiesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListCertificateAuthoritiesRequest, ListCertificateAuthoritiesResponse } from "../models/models_0";
+import { de_ListCertificateAuthoritiesCommand, se_ListCertificateAuthoritiesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListCertificateAuthoritiesCommand}.
+ */
 export interface ListCertificateAuthoritiesCommandInput extends ListCertificateAuthoritiesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListCertificateAuthoritiesCommand}.
+ */
 export interface ListCertificateAuthoritiesCommandOutput extends ListCertificateAuthoritiesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the private certificate authorities that you created by using the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,25 @@ export interface ListCertificateAuthoritiesCommandOutput extends ListCertificate
  * import { ACMPCAClient, ListCertificateAuthoritiesCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
  * // const { ACMPCAClient, ListCertificateAuthoritiesCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
  * const client = new ACMPCAClient(config);
+ * const input = { // ListCertificateAuthoritiesRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   ResourceOwner: "SELF" || "OTHER_ACCOUNTS",
+ * };
  * const command = new ListCertificateAuthoritiesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCertificateAuthoritiesCommandInput - {@link ListCertificateAuthoritiesCommandInput}
+ * @returns {@link ListCertificateAuthoritiesCommandOutput}
  * @see {@link ListCertificateAuthoritiesCommandInput} for command's `input` shape.
  * @see {@link ListCertificateAuthoritiesCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The token specified in the <code>NextToken</code> argument is not valid. Use the token
+ * 			returned from your previous call to <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html">ListCertificateAuthorities</a>.</p>
+ *
  *
  */
 export class ListCertificateAuthoritiesCommand extends $Command<
@@ -62,6 +77,9 @@ export class ListCertificateAuthoritiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCertificateAuthoritiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +108,8 @@ export class ListCertificateAuthoritiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCertificateAuthoritiesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCertificateAuthoritiesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +119,21 @@ export class ListCertificateAuthoritiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCertificateAuthoritiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCertificateAuthoritiesCommand(input, context);
+    return se_ListCertificateAuthoritiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListCertificateAuthoritiesCommandOutput> {
-    return deserializeAws_json1_1ListCertificateAuthoritiesCommand(output, context);
+    return de_ListCertificateAuthoritiesCommand(output, context);
   }
 
   // Start section: command_body_extra

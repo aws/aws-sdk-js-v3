@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteProtectionGroupRequest,
-  DeleteProtectionGroupRequestFilterSensitiveLog,
-  DeleteProtectionGroupResponse,
-  DeleteProtectionGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteProtectionGroupCommand,
-  serializeAws_json1_1DeleteProtectionGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteProtectionGroupRequest, DeleteProtectionGroupResponse } from "../models/models_0";
+import { de_DeleteProtectionGroupCommand, se_DeleteProtectionGroupCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteProtectionGroupCommand}.
+ */
 export interface DeleteProtectionGroupCommandInput extends DeleteProtectionGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteProtectionGroupCommand}.
+ */
 export interface DeleteProtectionGroupCommandOutput extends DeleteProtectionGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified protection group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,29 @@ export interface DeleteProtectionGroupCommandOutput extends DeleteProtectionGrou
  * import { ShieldClient, DeleteProtectionGroupCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, DeleteProtectionGroupCommand } = require("@aws-sdk/client-shield"); // CommonJS import
  * const client = new ShieldClient(config);
+ * const input = { // DeleteProtectionGroupRequest
+ *   ProtectionGroupId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteProtectionGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteProtectionGroupCommandInput - {@link DeleteProtectionGroupCommandInput}
+ * @returns {@link DeleteProtectionGroupCommandOutput}
  * @see {@link DeleteProtectionGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteProtectionGroupCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+ *
+ * @throws {@link OptimisticLockException} (client fault)
+ *  <p>Exception that indicates that the resource state has been modified by another
+ *          client. Retrieve the resource and then retry your request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+ *
  *
  */
 export class DeleteProtectionGroupCommand extends $Command<
@@ -62,6 +81,9 @@ export class DeleteProtectionGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteProtectionGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +112,8 @@ export class DeleteProtectionGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteProtectionGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteProtectionGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +123,18 @@ export class DeleteProtectionGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteProtectionGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteProtectionGroupCommand(input, context);
+    return se_DeleteProtectionGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteProtectionGroupCommandOutput> {
-    return deserializeAws_json1_1DeleteProtectionGroupCommand(output, context);
+    return de_DeleteProtectionGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

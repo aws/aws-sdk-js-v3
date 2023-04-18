@@ -292,6 +292,7 @@ import {
 } from "./commands/UpdateWorkGroupCommand";
 
 /**
+ * @public
  * <p>Amazon Athena is an interactive query service that lets you use standard SQL
  *             to analyze data directly in Amazon S3. You can point Athena at your
  *             data in Amazon S3 and run ad-hoc queries and get results in seconds. Athena is serverless, so there is no infrastructure to set up or manage. You pay
@@ -309,6 +310,7 @@ import {
  */
 export class Athena extends AthenaClient {
   /**
+   * @public
    * <p>Returns the details of a single named query or a list of up to 50 queries, which you
    *             provide as an array of query ID strings. Requires you to have access to the workgroup in
    *             which the queries were saved. Use <a>ListNamedQueriesInput</a> to get the
@@ -349,6 +351,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Returns the details of a single prepared statement or a list of up to 256 prepared
    *             statements for the array of prepared statement names that you provide. Requires you to
    *             have access to the workgroup to which the prepared statements belong. If a prepared
@@ -385,6 +388,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Returns the details of a single query execution or a list of up to 50 query
    *             executions, which you provide as an array of query execution ID strings. Requires you to
    *             have access to the workgroup in which the queries ran. To get a list of query execution
@@ -422,6 +426,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Creates (registers) a data catalog with the specified name and properties. Catalogs
    *             created are visible to all users of the same Amazon Web Services account.</p>
    */
@@ -455,6 +460,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Creates a named query in the specified workgroup. Requires that you have access to the
    *             workgroup.</p>
    *          <p>For code samples using the Amazon Web Services SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
@@ -491,6 +497,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Creates an empty <code>ipynb</code> file in the specified Apache Spark enabled
    *             workgroup. Throws an error if a file in the workgroup with the same name already
    *             exists.</p>
@@ -525,6 +532,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Creates a prepared statement for use with SQL queries in Athena.</p>
    */
   public createPreparedStatement(
@@ -557,9 +565,12 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Gets an authentication token and the URL at which the notebook can be accessed. During
    *             programmatic access, <code>CreatePresignedNotebookUrl</code> must be called every 10
-   *             minutes to refresh the authentication token.</p>
+   *             minutes to refresh the authentication token. For information about granting programmatic
+   *             access, see <a href="https://docs.aws.amazon.com/athena/latest/ug/setting-up.html#setting-up-grant-programmatic-access">Grant
+   *                 programmatic access</a>.</p>
    */
   public createPresignedNotebookUrl(
     args: CreatePresignedNotebookUrlCommandInput,
@@ -591,10 +602,9 @@ export class Athena extends AthenaClient {
   }
 
   /**
-   * <p>Creates a workgroup with the specified name. Only one of <code>Configurations</code>
-   *             or <code>Configuration</code> can be specified; <code>Configurations</code> for a
-   *             workgroup with multi engine support (for example, an Apache Spark enabled workgroup) or
-   *                 <code>Configuration</code> for an Athena SQL workgroup.</p>
+   * @public
+   * <p>Creates a workgroup with the specified name. A workgroup can be an Apache Spark
+   *             enabled workgroup or an Athena SQL workgroup.</p>
    */
   public createWorkGroup(
     args: CreateWorkGroupCommandInput,
@@ -626,6 +636,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Deletes a data catalog.</p>
    */
   public deleteDataCatalog(
@@ -658,6 +669,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Deletes the named query if you have access to the workgroup in which the query was
    *             saved.</p>
    *          <p>For code samples using the Amazon Web Services SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
@@ -694,6 +706,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified notebook.</p>
    */
   public deleteNotebook(
@@ -726,6 +739,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Deletes the prepared statement with the specified name from the specified
    *             workgroup.</p>
    */
@@ -759,6 +773,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Deletes the workgroup with the specified name. The primary workgroup cannot be
    *             deleted.</p>
    */
@@ -792,6 +807,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Exports the specified notebook and its metadata.</p>
    */
   public exportNotebook(
@@ -824,6 +840,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Describes a previously submitted calculation execution.</p>
    */
   public getCalculationExecution(
@@ -856,8 +873,8 @@ export class Athena extends AthenaClient {
   }
 
   /**
-   * <p>Retrieves a pre-signed URL to a copy of the code that was executed for the
-   *             calculation.</p>
+   * @public
+   * <p>Retrieves the unencrypted code that was executed for the calculation.</p>
    */
   public getCalculationExecutionCode(
     args: GetCalculationExecutionCodeCommandInput,
@@ -889,6 +906,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Gets the status of a current calculation.</p>
    */
   public getCalculationExecutionStatus(
@@ -921,6 +939,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Returns a database object for the specified database and data catalog.</p>
    */
   public getDatabase(args: GetDatabaseCommandInput, options?: __HttpHandlerOptions): Promise<GetDatabaseCommandOutput>;
@@ -947,6 +966,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Returns the specified data catalog.</p>
    */
   public getDataCatalog(
@@ -979,6 +999,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a single query. Requires that you have access to the
    *             workgroup in which the query was saved.</p>
    */
@@ -1012,6 +1033,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Retrieves notebook metadata for the specified notebook ID.</p>
    */
   public getNotebookMetadata(
@@ -1044,6 +1066,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the prepared statement with the specified name from the specified
    *             workgroup.</p>
    */
@@ -1077,6 +1100,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a single execution of a query if you have access to the
    *             workgroup in which the query ran. Each time a query executes, information about the
    *             query execution is saved with a unique ID.</p>
@@ -1111,10 +1135,12 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Streams the results of a single query execution specified by
    *                 <code>QueryExecutionId</code> from the Athena query results location in
-   *                 Amazon S3. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Query Results</a> in the <i>Amazon Athena User Guide</i>. This request does not execute the query
-   *             but returns results. Use <a>StartQueryExecution</a> to run a query.</p>
+   *                 Amazon S3. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Working with query results, recent queries, and
+   *                 output files</a> in the <i>Amazon Athena User Guide</i>.
+   *             This request does not execute the query but returns results. Use <a>StartQueryExecution</a> to run a query.</p>
    *          <p>To stream query results successfully, the IAM principal with permission to call
    *                 <code>GetQueryResults</code> also must have permissions to the Amazon S3
    *             <code>GetObject</code> action for the Athena query results location.</p>
@@ -1157,6 +1183,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Returns query execution runtime statistics related to a single execution of a query if
    *             you have access to the workgroup in which the query ran. Query execution runtime
    *             statistics are returned only when <a>QueryExecutionStatus$State</a> is in a
@@ -1194,6 +1221,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Gets the full details of a previously created session, including the session status
    *             and configuration.</p>
    */
@@ -1221,6 +1249,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Gets the current status of a session.</p>
    */
   public getSessionStatus(
@@ -1253,6 +1282,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Returns table metadata for the specified catalog, database, and table.</p>
    */
   public getTableMetadata(
@@ -1285,6 +1315,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the workgroup with the specified name.</p>
    */
   public getWorkGroup(
@@ -1314,6 +1345,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Imports a single <code>ipynb</code> file to a Spark enabled workgroup. The maximum
    *             file size that can be imported is 10 megabytes. If an <code>ipynb</code> file with the
    *             same name already exists in the workgroup, throws an error.</p>
@@ -1348,8 +1380,9 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Returns the supported DPU sizes for the supported application runtimes (for example,
-   *                 <code>Jupyter 1.0</code>). </p>
+   *                 <code>Athena notebook version 1</code>). </p>
    */
   public listApplicationDPUSizes(
     args: ListApplicationDPUSizesCommandInput,
@@ -1381,6 +1414,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Lists the calculations that have been submitted to a session in descending order.
    *             Newer calculations are listed first; older calculations are listed later.</p>
    */
@@ -1414,6 +1448,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Lists the databases in the specified data catalog.</p>
    */
   public listDatabases(
@@ -1446,7 +1481,12 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Lists the data catalogs in the current Amazon Web Services account.</p>
+   *          <note>
+   *             <p>In the Athena console, data catalogs are listed as "data sources" on
+   *                 the <b>Data sources</b> page under the <b>Data source name</b> column.</p>
+   *          </note>
    */
   public listDataCatalogs(
     args: ListDataCatalogsCommandInput,
@@ -1478,6 +1518,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of engine versions that are available to choose from, including the
    *             Auto option.</p>
    */
@@ -1511,9 +1552,10 @@ export class Athena extends AthenaClient {
   }
 
   /**
-   * <p>Lists, in descending order, the executors that have been submitted to a session. Newer
-   *             executors are listed first; older executors are listed later. The result can be
-   *             optionally filtered by state.</p>
+   * @public
+   * <p>Lists, in descending order, the executors that joined a session. Newer executors are
+   *             listed first; older executors are listed later. The result can be optionally filtered by
+   *             state.</p>
    */
   public listExecutors(
     args: ListExecutorsCommandInput,
@@ -1545,6 +1587,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Provides a list of available query IDs only for queries saved in the specified
    *             workgroup. Requires that you have access to the specified workgroup. If a workgroup is
    *             not specified, lists the saved queries for the primary workgroup.</p>
@@ -1582,6 +1625,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Displays the notebook files for the specified workgroup in paginated format.</p>
    */
   public listNotebookMetadata(
@@ -1614,6 +1658,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Lists, in descending order, the sessions that have been created in a notebook that are
    *             in an active state like <code>CREATING</code>, <code>CREATED</code>, <code>IDLE</code>
    *             or <code>BUSY</code>. Newer sessions are listed first; older sessions are listed
@@ -1649,6 +1694,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Lists the prepared statements in the specified workgroup.</p>
    */
   public listPreparedStatements(
@@ -1681,6 +1727,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Provides a list of available query execution IDs for the queries in the specified
    *             workgroup. If a workgroup is not specified, returns a list of query execution IDs for
    *             the primary workgroup. Requires you to have access to the workgroup in which the queries
@@ -1719,6 +1766,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Lists the sessions in a workgroup that are in an active state like
    *                 <code>CREATING</code>, <code>CREATED</code>, <code>IDLE</code>, or
    *             <code>BUSY</code>. Newer sessions are listed first; older sessions are listed
@@ -1751,6 +1799,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Lists the metadata for the tables in the specified data catalog database.</p>
    */
   public listTableMetadata(
@@ -1783,6 +1832,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags associated with an Athena workgroup or data catalog
    *             resource.</p>
    */
@@ -1816,6 +1866,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Lists available workgroups for the account.</p>
    */
   public listWorkGroups(
@@ -1848,8 +1899,9 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Submits calculations for execution within a session. You can supply the code to run as
-   *             an inline code block within the request or as an Amazon S3 URL.</p>
+   *             an inline code block within the request.</p>
    */
   public startCalculationExecution(
     args: StartCalculationExecutionCommandInput,
@@ -1881,6 +1933,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Runs the SQL query statements contained in the <code>Query</code>. Requires you to
    *             have access to the workgroup in which the query ran. Running queries against an external
    *             catalog requires <a>GetDataCatalog</a> permission to the catalog. For code
@@ -1918,6 +1971,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Creates a session for running calculations within a workgroup. The session is ready
    *             when it reaches an <code>IDLE</code> state.</p>
    */
@@ -1948,6 +2002,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Requests the cancellation of a calculation. A <code>StopCalculationExecution</code>
    *             call on a calculation that is already in a terminal state (for example,
    *                 <code>STOPPED</code>, <code>FAILED</code>, or <code>COMPLETED</code>) succeeds but
@@ -1989,6 +2044,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Stops a query execution. Requires you to have access to the workgroup in which the
    *             query ran.</p>
    *          <p>For code samples using the Amazon Web Services SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
@@ -2025,13 +2081,14 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Adds one or more tags to an Athena resource. A tag is a label that you
    *             assign to a resource. In Athena, a resource can be a workgroup or data
    *             catalog. Each tag consists of a key and an optional value, both of which you define. For
    *             example, you can use tags to categorize Athena workgroups or data catalogs
    *             by purpose, owner, or environment. Use a consistent set of tag keys to make it easier to
    *             search and filter workgroups or data catalogs in your account. For best practices, see
-   *                 <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">Tagging Best Practices</a>. Tag keys can be from 1 to 128 UTF-8 Unicode
+   *             <a href="https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/tagging-best-practices.html">Tagging Best Practices</a>. Tag keys can be from 1 to 128 UTF-8 Unicode
    *             characters, and tag values can be from 0 to 256 UTF-8 Unicode characters. Tags can use
    *             letters and numbers representable in UTF-8, and the following characters: + - = . _ : /
    *             @. Tag keys and values are case-sensitive. Tag keys must be unique per resource. If you
@@ -2061,6 +2118,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Terminates an active session. A <code>TerminateSession</code> call on a session that
    *             is already inactive (for example, in a <code>FAILED</code>, <code>TERMINATED</code> or
    *                 <code>TERMINATING</code> state) succeeds but has no effect. Calculations running in
@@ -2097,6 +2155,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Removes one or more tags from a data catalog or workgroup resource.</p>
    */
   public untagResource(
@@ -2129,6 +2188,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Updates the data catalog that has the specified name.</p>
    */
   public updateDataCatalog(
@@ -2161,6 +2221,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Updates a <a>NamedQuery</a> object. The database or workgroup cannot be
    *             updated.</p>
    */
@@ -2194,6 +2255,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Updates the contents of a Spark notebook.</p>
    */
   public updateNotebook(
@@ -2226,6 +2288,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Updates the metadata for a notebook.</p>
    */
   public updateNotebookMetadata(
@@ -2258,6 +2321,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Updates a prepared statement.</p>
    */
   public updatePreparedStatement(
@@ -2290,11 +2354,9 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * @public
    * <p>Updates the workgroup with the specified name. The workgroup's name cannot be changed.
-   *             Only one of <code>ConfigurationsUpdates</code> or <code>ConfigurationUpdates</code> can
-   *             be specified; <code>ConfigurationsUpdates</code> for a workgroup with multi engine
-   *             support (for example, an Apache Spark enabled workgroup) or
-   *                 <code>ConfigurationUpdates</code> for an Athena SQL workgroup.</p>
+   *             Only <code>ConfigurationUpdates</code> can be specified.</p>
    */
   public updateWorkGroup(
     args: UpdateWorkGroupCommandInput,

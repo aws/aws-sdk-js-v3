@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateAnswerInput,
-  UpdateAnswerInputFilterSensitiveLog,
-  UpdateAnswerOutput,
-  UpdateAnswerOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateAnswerCommand,
-  serializeAws_restJson1UpdateAnswerCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateAnswerInput, UpdateAnswerOutput } from "../models/models_0";
+import { de_UpdateAnswerCommand, se_UpdateAnswerCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateAnswerCommand}.
+ */
 export interface UpdateAnswerCommandInput extends UpdateAnswerInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateAnswerCommand}.
+ */
 export interface UpdateAnswerCommandOutput extends UpdateAnswerOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update the answer to a specific question in a workload review.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,52 @@ export interface UpdateAnswerCommandOutput extends UpdateAnswerOutput, __Metadat
  * import { WellArchitectedClient, UpdateAnswerCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, UpdateAnswerCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
+ * const input = { // UpdateAnswerInput
+ *   WorkloadId: "STRING_VALUE", // required
+ *   LensAlias: "STRING_VALUE", // required
+ *   QuestionId: "STRING_VALUE", // required
+ *   SelectedChoices: [ // SelectedChoices
+ *     "STRING_VALUE",
+ *   ],
+ *   ChoiceUpdates: { // ChoiceUpdates
+ *     "<keys>": { // ChoiceUpdate
+ *       Status: "SELECTED" || "NOT_APPLICABLE" || "UNSELECTED", // required
+ *       Reason: "OUT_OF_SCOPE" || "BUSINESS_PRIORITIES" || "ARCHITECTURE_CONSTRAINTS" || "OTHER" || "NONE",
+ *       Notes: "STRING_VALUE",
+ *     },
+ *   },
+ *   Notes: "STRING_VALUE",
+ *   IsApplicable: true || false,
+ *   Reason: "OUT_OF_SCOPE" || "BUSINESS_PRIORITIES" || "ARCHITECTURE_CONSTRAINTS" || "OTHER" || "NONE",
+ * };
  * const command = new UpdateAnswerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAnswerCommandInput - {@link UpdateAnswerCommandInput}
+ * @returns {@link UpdateAnswerCommandOutput}
  * @see {@link UpdateAnswerCommandInput} for command's `input` shape.
  * @see {@link UpdateAnswerCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>User does not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The resource has already been processed, was deleted, or is too large.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There is a problem with the Well-Architected Tool API service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The user input is not valid.</p>
+ *
  *
  */
 export class UpdateAnswerCommand extends $Command<
@@ -62,6 +104,9 @@ export class UpdateAnswerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAnswerCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +133,8 @@ export class UpdateAnswerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAnswerInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAnswerOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +144,18 @@ export class UpdateAnswerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAnswerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateAnswerCommand(input, context);
+    return se_UpdateAnswerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAnswerCommandOutput> {
-    return deserializeAws_restJson1UpdateAnswerCommand(output, context);
+    return de_UpdateAnswerCommand(output, context);
   }
 
   // Start section: command_body_extra

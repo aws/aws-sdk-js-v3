@@ -6,12 +6,11 @@ import {
   ListGroupsOlderThanOrderingIdCommandInput,
   ListGroupsOlderThanOrderingIdCommandOutput,
 } from "../commands/ListGroupsOlderThanOrderingIdCommand";
-import { Kendra } from "../Kendra";
 import { KendraClient } from "../KendraClient";
 import { KendraPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: KendraClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListGroupsOlderThanOrderingIdCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Kendra,
-  input: ListGroupsOlderThanOrderingIdCommandInput,
-  ...args: any
-): Promise<ListGroupsOlderThanOrderingIdCommandOutput> => {
-  // @ts-ignore
-  return await client.listGroupsOlderThanOrderingId(input, ...args);
-};
 export async function* paginateListGroupsOlderThanOrderingId(
   config: KendraPaginationConfiguration,
   input: ListGroupsOlderThanOrderingIdCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListGroupsOlderThanOrderingId(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Kendra) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof KendraClient) {
+    if (config.client instanceof KendraClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Kendra | KendraClient");

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeExperimentRequest,
-  DescribeExperimentRequestFilterSensitiveLog,
-  DescribeExperimentResponse,
-  DescribeExperimentResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeExperimentCommand,
-  serializeAws_json1_1DescribeExperimentCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeExperimentRequest, DescribeExperimentResponse } from "../models/models_2";
+import { de_DescribeExperimentCommand, se_DescribeExperimentCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeExperimentCommand}.
+ */
 export interface DescribeExperimentCommandInput extends DescribeExperimentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeExperimentCommand}.
+ */
 export interface DescribeExperimentCommandOutput extends DescribeExperimentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a list of an experiment's properties.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,22 @@ export interface DescribeExperimentCommandOutput extends DescribeExperimentRespo
  * import { SageMakerClient, DescribeExperimentCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeExperimentCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DescribeExperimentRequest
+ *   ExperimentName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeExperimentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeExperimentCommandInput - {@link DescribeExperimentCommandInput}
+ * @returns {@link DescribeExperimentCommandOutput}
  * @see {@link DescribeExperimentCommandInput} for command's `input` shape.
  * @see {@link DescribeExperimentCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class DescribeExperimentCommand extends $Command<
@@ -62,6 +74,9 @@ export class DescribeExperimentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeExperimentCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +105,8 @@ export class DescribeExperimentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeExperimentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeExperimentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +116,18 @@ export class DescribeExperimentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeExperimentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeExperimentCommand(input, context);
+    return se_DescribeExperimentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeExperimentCommandOutput> {
-    return deserializeAws_json1_1DescribeExperimentCommand(output, context);
+    return de_DescribeExperimentCommand(output, context);
   }
 
   // Start section: command_body_extra

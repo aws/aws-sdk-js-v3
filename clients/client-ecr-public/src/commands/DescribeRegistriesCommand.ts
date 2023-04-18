@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRPUBLICClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRPUBLICClient";
-import {
-  DescribeRegistriesRequest,
-  DescribeRegistriesRequestFilterSensitiveLog,
-  DescribeRegistriesResponse,
-  DescribeRegistriesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeRegistriesCommand,
-  serializeAws_json1_1DescribeRegistriesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeRegistriesRequest, DescribeRegistriesResponse } from "../models/models_0";
+import { de_DescribeRegistriesCommand, se_DescribeRegistriesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeRegistriesCommand}.
+ */
 export interface DescribeRegistriesCommandInput extends DescribeRegistriesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeRegistriesCommand}.
+ */
 export interface DescribeRegistriesCommandOutput extends DescribeRegistriesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns details for a public registry.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,30 @@ export interface DescribeRegistriesCommandOutput extends DescribeRegistriesRespo
  * import { ECRPUBLICClient, DescribeRegistriesCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
  * // const { ECRPUBLICClient, DescribeRegistriesCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
  * const client = new ECRPUBLICClient(config);
+ * const input = { // DescribeRegistriesRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new DescribeRegistriesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRegistriesCommandInput - {@link DescribeRegistriesCommandInput}
+ * @returns {@link DescribeRegistriesCommandOutput}
  * @see {@link DescribeRegistriesCommandInput} for command's `input` shape.
  * @see {@link DescribeRegistriesCommandOutput} for command's `response` shape.
  * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *          request.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * @throws {@link UnsupportedCommandException} (client fault)
+ *  <p>The action isn't supported in this Region.</p>
+ *
  *
  */
 export class DescribeRegistriesCommand extends $Command<
@@ -62,6 +82,9 @@ export class DescribeRegistriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRegistriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +113,8 @@ export class DescribeRegistriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRegistriesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRegistriesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +124,18 @@ export class DescribeRegistriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRegistriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeRegistriesCommand(input, context);
+    return se_DescribeRegistriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRegistriesCommandOutput> {
-    return deserializeAws_json1_1DescribeRegistriesCommand(output, context);
+    return de_DescribeRegistriesCommand(output, context);
   }
 
   // Start section: command_body_extra

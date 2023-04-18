@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import {
-  ListCoreDefinitionVersionsRequest,
-  ListCoreDefinitionVersionsRequestFilterSensitiveLog,
-  ListCoreDefinitionVersionsResponse,
-  ListCoreDefinitionVersionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListCoreDefinitionVersionsCommand,
-  serializeAws_restJson1ListCoreDefinitionVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListCoreDefinitionVersionsRequest, ListCoreDefinitionVersionsResponse } from "../models/models_0";
+import { de_ListCoreDefinitionVersionsCommand, se_ListCoreDefinitionVersionsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListCoreDefinitionVersionsCommand}.
+ */
 export interface ListCoreDefinitionVersionsCommandInput extends ListCoreDefinitionVersionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListCoreDefinitionVersionsCommand}.
+ */
 export interface ListCoreDefinitionVersionsCommandOutput extends ListCoreDefinitionVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Lists the versions of a core definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,24 @@ export interface ListCoreDefinitionVersionsCommandOutput extends ListCoreDefinit
  * import { GreengrassClient, ListCoreDefinitionVersionsCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, ListCoreDefinitionVersionsCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // ListCoreDefinitionVersionsRequest
+ *   CoreDefinitionId: "STRING_VALUE", // required
+ *   MaxResults: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListCoreDefinitionVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCoreDefinitionVersionsCommandInput - {@link ListCoreDefinitionVersionsCommandInput}
+ * @returns {@link ListCoreDefinitionVersionsCommandOutput}
  * @see {@link ListCoreDefinitionVersionsCommandInput} for command's `input` shape.
  * @see {@link ListCoreDefinitionVersionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  General error information.
+ *
  *
  */
 export class ListCoreDefinitionVersionsCommand extends $Command<
@@ -62,6 +76,9 @@ export class ListCoreDefinitionVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCoreDefinitionVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +107,8 @@ export class ListCoreDefinitionVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCoreDefinitionVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCoreDefinitionVersionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +118,21 @@ export class ListCoreDefinitionVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCoreDefinitionVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListCoreDefinitionVersionsCommand(input, context);
+    return se_ListCoreDefinitionVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListCoreDefinitionVersionsCommandOutput> {
-    return deserializeAws_restJson1ListCoreDefinitionVersionsCommand(output, context);
+    return de_ListCoreDefinitionVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

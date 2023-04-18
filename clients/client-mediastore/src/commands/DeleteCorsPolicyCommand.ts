@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
-import {
-  DeleteCorsPolicyInput,
-  DeleteCorsPolicyInputFilterSensitiveLog,
-  DeleteCorsPolicyOutput,
-  DeleteCorsPolicyOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteCorsPolicyCommand,
-  serializeAws_json1_1DeleteCorsPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteCorsPolicyInput, DeleteCorsPolicyOutput } from "../models/models_0";
+import { de_DeleteCorsPolicyCommand, se_DeleteCorsPolicyCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteCorsPolicyCommand}.
+ */
 export interface DeleteCorsPolicyCommandInput extends DeleteCorsPolicyInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteCorsPolicyCommand}.
+ */
 export interface DeleteCorsPolicyCommandOutput extends DeleteCorsPolicyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the cross-origin resource sharing (CORS) configuration information that is
  *          set for the container.</p>
  *          <p>To use this operation, you must have permission to perform the
@@ -40,13 +43,32 @@ export interface DeleteCorsPolicyCommandOutput extends DeleteCorsPolicyOutput, _
  * import { MediaStoreClient, DeleteCorsPolicyCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
  * // const { MediaStoreClient, DeleteCorsPolicyCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
  * const client = new MediaStoreClient(config);
+ * const input = { // DeleteCorsPolicyInput
+ *   ContainerName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteCorsPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCorsPolicyCommandInput - {@link DeleteCorsPolicyCommandInput}
+ * @returns {@link DeleteCorsPolicyCommandOutput}
  * @see {@link DeleteCorsPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteCorsPolicyCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
+ *
+ * @throws {@link ContainerInUseException} (client fault)
+ *  <p>The container that you specified in the request already exists or is being
+ *          updated.</p>
+ *
+ * @throws {@link ContainerNotFoundException} (client fault)
+ *  <p>The container that you specified in the request does not exist.</p>
+ *
+ * @throws {@link CorsPolicyNotFoundException} (client fault)
+ *  <p>The CORS policy that you specified in the request does not exist.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
  *
  */
 export class DeleteCorsPolicyCommand extends $Command<
@@ -66,6 +88,9 @@ export class DeleteCorsPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCorsPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +119,8 @@ export class DeleteCorsPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCorsPolicyInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCorsPolicyOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +130,18 @@ export class DeleteCorsPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCorsPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteCorsPolicyCommand(input, context);
+    return se_DeleteCorsPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCorsPolicyCommandOutput> {
-    return deserializeAws_json1_1DeleteCorsPolicyCommand(output, context);
+    return de_DeleteCorsPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,21 +16,30 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeClientVpnAuthorizationRulesRequest,
-  DescribeClientVpnAuthorizationRulesRequestFilterSensitiveLog,
   DescribeClientVpnAuthorizationRulesResult,
-  DescribeClientVpnAuthorizationRulesResultFilterSensitiveLog,
 } from "../models/models_3";
 import {
-  deserializeAws_ec2DescribeClientVpnAuthorizationRulesCommand,
-  serializeAws_ec2DescribeClientVpnAuthorizationRulesCommand,
+  de_DescribeClientVpnAuthorizationRulesCommand,
+  se_DescribeClientVpnAuthorizationRulesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeClientVpnAuthorizationRulesCommand}.
+ */
 export interface DescribeClientVpnAuthorizationRulesCommandInput extends DescribeClientVpnAuthorizationRulesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeClientVpnAuthorizationRulesCommand}.
+ */
 export interface DescribeClientVpnAuthorizationRulesCommandOutput
   extends DescribeClientVpnAuthorizationRulesResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the authorization rules for a specified Client VPN endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +47,30 @@ export interface DescribeClientVpnAuthorizationRulesCommandOutput
  * import { EC2Client, DescribeClientVpnAuthorizationRulesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeClientVpnAuthorizationRulesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeClientVpnAuthorizationRulesRequest
+ *   ClientVpnEndpointId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ *   NextToken: "STRING_VALUE",
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeClientVpnAuthorizationRulesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeClientVpnAuthorizationRulesCommandInput - {@link DescribeClientVpnAuthorizationRulesCommandInput}
+ * @returns {@link DescribeClientVpnAuthorizationRulesCommandOutput}
  * @see {@link DescribeClientVpnAuthorizationRulesCommandInput} for command's `input` shape.
  * @see {@link DescribeClientVpnAuthorizationRulesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class DescribeClientVpnAuthorizationRulesCommand extends $Command<
@@ -64,6 +90,9 @@ export class DescribeClientVpnAuthorizationRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeClientVpnAuthorizationRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +121,8 @@ export class DescribeClientVpnAuthorizationRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeClientVpnAuthorizationRulesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeClientVpnAuthorizationRulesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +132,24 @@ export class DescribeClientVpnAuthorizationRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeClientVpnAuthorizationRulesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeClientVpnAuthorizationRulesCommand(input, context);
+    return se_DescribeClientVpnAuthorizationRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeClientVpnAuthorizationRulesCommandOutput> {
-    return deserializeAws_ec2DescribeClientVpnAuthorizationRulesCommand(output, context);
+    return de_DescribeClientVpnAuthorizationRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

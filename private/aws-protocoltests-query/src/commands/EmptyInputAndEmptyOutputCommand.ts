@@ -12,22 +12,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  EmptyInputAndEmptyOutputInput,
-  EmptyInputAndEmptyOutputInputFilterSensitiveLog,
-  EmptyInputAndEmptyOutputOutput,
-  EmptyInputAndEmptyOutputOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryEmptyInputAndEmptyOutputCommand,
-  serializeAws_queryEmptyInputAndEmptyOutputCommand,
-} from "../protocols/Aws_query";
+import { EmptyInputAndEmptyOutputInput, EmptyInputAndEmptyOutputOutput } from "../models/models_0";
+import { de_EmptyInputAndEmptyOutputCommand, se_EmptyInputAndEmptyOutputCommand } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
+/**
+ * @public
+ *
+ * The input for {@link EmptyInputAndEmptyOutputCommand}.
+ */
 export interface EmptyInputAndEmptyOutputCommandInput extends EmptyInputAndEmptyOutputInput {}
+/**
+ * @public
+ *
+ * The output of {@link EmptyInputAndEmptyOutputCommand}.
+ */
 export interface EmptyInputAndEmptyOutputCommandOutput extends EmptyInputAndEmptyOutputOutput, __MetadataBearer {}
 
 /**
+ * @public
  * The example tests how requests and responses are serialized when there's
  * no request or response members.
  *
@@ -38,13 +41,17 @@ export interface EmptyInputAndEmptyOutputCommandOutput extends EmptyInputAndEmpt
  * import { QueryProtocolClient, EmptyInputAndEmptyOutputCommand } from "@aws-sdk/aws-protocoltests-query"; // ES Modules import
  * // const { QueryProtocolClient, EmptyInputAndEmptyOutputCommand } = require("@aws-sdk/aws-protocoltests-query"); // CommonJS import
  * const client = new QueryProtocolClient(config);
+ * const input = {};
  * const command = new EmptyInputAndEmptyOutputCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EmptyInputAndEmptyOutputCommandInput - {@link EmptyInputAndEmptyOutputCommandInput}
+ * @returns {@link EmptyInputAndEmptyOutputCommandOutput}
  * @see {@link EmptyInputAndEmptyOutputCommandInput} for command's `input` shape.
  * @see {@link EmptyInputAndEmptyOutputCommandOutput} for command's `response` shape.
  * @see {@link QueryProtocolClientResolvedConfig | config} for QueryProtocolClient's `config` shape.
+ *
  *
  */
 export class EmptyInputAndEmptyOutputCommand extends $Command<
@@ -55,6 +62,9 @@ export class EmptyInputAndEmptyOutputCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: EmptyInputAndEmptyOutputCommandInput) {
     // Start section: command_constructor
     super();
@@ -80,8 +90,8 @@ export class EmptyInputAndEmptyOutputCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EmptyInputAndEmptyOutputInputFilterSensitiveLog,
-      outputFilterSensitiveLog: EmptyInputAndEmptyOutputOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -91,12 +101,18 @@ export class EmptyInputAndEmptyOutputCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EmptyInputAndEmptyOutputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryEmptyInputAndEmptyOutputCommand(input, context);
+    return se_EmptyInputAndEmptyOutputCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EmptyInputAndEmptyOutputCommandOutput> {
-    return deserializeAws_queryEmptyInputAndEmptyOutputCommand(output, context);
+    return de_EmptyInputAndEmptyOutputCommand(output, context);
   }
 
   // Start section: command_body_extra

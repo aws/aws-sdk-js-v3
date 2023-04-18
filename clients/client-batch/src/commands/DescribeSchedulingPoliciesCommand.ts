@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
-import {
-  DescribeSchedulingPoliciesRequest,
-  DescribeSchedulingPoliciesRequestFilterSensitiveLog,
-  DescribeSchedulingPoliciesResponse,
-  DescribeSchedulingPoliciesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeSchedulingPoliciesCommand,
-  serializeAws_restJson1DescribeSchedulingPoliciesCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeSchedulingPoliciesRequest, DescribeSchedulingPoliciesResponse } from "../models/models_0";
+import { de_DescribeSchedulingPoliciesCommand, se_DescribeSchedulingPoliciesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeSchedulingPoliciesCommand}.
+ */
 export interface DescribeSchedulingPoliciesCommandInput extends DescribeSchedulingPoliciesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeSchedulingPoliciesCommand}.
+ */
 export interface DescribeSchedulingPoliciesCommandOutput extends DescribeSchedulingPoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more of your scheduling policies.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,29 @@ export interface DescribeSchedulingPoliciesCommandOutput extends DescribeSchedul
  * import { BatchClient, DescribeSchedulingPoliciesCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, DescribeSchedulingPoliciesCommand } = require("@aws-sdk/client-batch"); // CommonJS import
  * const client = new BatchClient(config);
+ * const input = { // DescribeSchedulingPoliciesRequest
+ *   arns: [ // StringList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeSchedulingPoliciesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSchedulingPoliciesCommandInput - {@link DescribeSchedulingPoliciesCommandInput}
+ * @returns {@link DescribeSchedulingPoliciesCommandOutput}
  * @see {@link DescribeSchedulingPoliciesCommandInput} for command's `input` shape.
  * @see {@link DescribeSchedulingPoliciesCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf
+ *    of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier
+ *    that's not valid.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server issue.</p>
+ *
  *
  */
 export class DescribeSchedulingPoliciesCommand extends $Command<
@@ -62,6 +81,9 @@ export class DescribeSchedulingPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSchedulingPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +112,8 @@ export class DescribeSchedulingPoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSchedulingPoliciesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSchedulingPoliciesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +123,21 @@ export class DescribeSchedulingPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSchedulingPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeSchedulingPoliciesCommand(input, context);
+    return se_DescribeSchedulingPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSchedulingPoliciesCommandOutput> {
-    return deserializeAws_restJson1DescribeSchedulingPoliciesCommand(output, context);
+    return de_DescribeSchedulingPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

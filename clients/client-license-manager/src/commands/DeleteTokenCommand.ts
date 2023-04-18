@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
-import {
-  DeleteTokenRequest,
-  DeleteTokenRequestFilterSensitiveLog,
-  DeleteTokenResponse,
-  DeleteTokenResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteTokenCommand,
-  serializeAws_json1_1DeleteTokenCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteTokenRequest, DeleteTokenResponse } from "../models/models_0";
+import { de_DeleteTokenCommand, se_DeleteTokenCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteTokenCommand}.
+ */
 export interface DeleteTokenCommandInput extends DeleteTokenRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteTokenCommand}.
+ */
 export interface DeleteTokenCommandOutput extends DeleteTokenResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified token. Must be called in the license home Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,41 @@ export interface DeleteTokenCommandOutput extends DeleteTokenResponse, __Metadat
  * import { LicenseManagerClient, DeleteTokenCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, DeleteTokenCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = { // DeleteTokenRequest
+ *   TokenId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteTokenCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTokenCommandInput - {@link DeleteTokenCommandInput}
+ * @returns {@link DeleteTokenCommandOutput}
  * @see {@link DeleteTokenCommandInput} for command's `input` shape.
  * @see {@link DeleteTokenCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to resource denied.</p>
+ *
+ * @throws {@link AuthorizationException} (client fault)
+ *  <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM
+ *          policy associated with this account.</p>
+ *
+ * @throws {@link RateLimitExceededException} (client fault)
+ *  <p>Too many requests have been submitted. Try again after a brief wait.</p>
+ *
+ * @throws {@link RedirectException} (client fault)
+ *  <p>This is not the correct Region for the resource. Try again.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource cannot be found.</p>
+ *
+ * @throws {@link ServerInternalException} (server fault)
+ *  <p>The server experienced an internal error. Try again.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The provided input is not valid. Try your request again.</p>
+ *
  *
  */
 export class DeleteTokenCommand extends $Command<
@@ -62,6 +93,9 @@ export class DeleteTokenCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +122,8 @@ export class DeleteTokenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTokenRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTokenResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +133,18 @@ export class DeleteTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteTokenCommand(input, context);
+    return se_DeleteTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTokenCommandOutput> {
-    return deserializeAws_json1_1DeleteTokenCommand(output, context);
+    return de_DeleteTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

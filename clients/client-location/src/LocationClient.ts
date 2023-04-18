@@ -26,12 +26,14 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
@@ -81,6 +83,7 @@ import {
   CreateGeofenceCollectionCommandInput,
   CreateGeofenceCollectionCommandOutput,
 } from "./commands/CreateGeofenceCollectionCommand";
+import { CreateKeyCommandInput, CreateKeyCommandOutput } from "./commands/CreateKeyCommand";
 import { CreateMapCommandInput, CreateMapCommandOutput } from "./commands/CreateMapCommand";
 import { CreatePlaceIndexCommandInput, CreatePlaceIndexCommandOutput } from "./commands/CreatePlaceIndexCommand";
 import {
@@ -92,6 +95,7 @@ import {
   DeleteGeofenceCollectionCommandInput,
   DeleteGeofenceCollectionCommandOutput,
 } from "./commands/DeleteGeofenceCollectionCommand";
+import { DeleteKeyCommandInput, DeleteKeyCommandOutput } from "./commands/DeleteKeyCommand";
 import { DeleteMapCommandInput, DeleteMapCommandOutput } from "./commands/DeleteMapCommand";
 import { DeletePlaceIndexCommandInput, DeletePlaceIndexCommandOutput } from "./commands/DeletePlaceIndexCommand";
 import {
@@ -103,6 +107,7 @@ import {
   DescribeGeofenceCollectionCommandInput,
   DescribeGeofenceCollectionCommandOutput,
 } from "./commands/DescribeGeofenceCollectionCommand";
+import { DescribeKeyCommandInput, DescribeKeyCommandOutput } from "./commands/DescribeKeyCommand";
 import { DescribeMapCommandInput, DescribeMapCommandOutput } from "./commands/DescribeMapCommand";
 import { DescribePlaceIndexCommandInput, DescribePlaceIndexCommandOutput } from "./commands/DescribePlaceIndexCommand";
 import {
@@ -137,6 +142,7 @@ import {
   ListGeofenceCollectionsCommandOutput,
 } from "./commands/ListGeofenceCollectionsCommand";
 import { ListGeofencesCommandInput, ListGeofencesCommandOutput } from "./commands/ListGeofencesCommand";
+import { ListKeysCommandInput, ListKeysCommandOutput } from "./commands/ListKeysCommand";
 import { ListMapsCommandInput, ListMapsCommandOutput } from "./commands/ListMapsCommand";
 import { ListPlaceIndexesCommandInput, ListPlaceIndexesCommandOutput } from "./commands/ListPlaceIndexesCommand";
 import {
@@ -171,6 +177,7 @@ import {
   UpdateGeofenceCollectionCommandInput,
   UpdateGeofenceCollectionCommandOutput,
 } from "./commands/UpdateGeofenceCollectionCommand";
+import { UpdateKeyCommandInput, UpdateKeyCommandOutput } from "./commands/UpdateKeyCommand";
 import { UpdateMapCommandInput, UpdateMapCommandOutput } from "./commands/UpdateMapCommand";
 import { UpdatePlaceIndexCommandInput, UpdatePlaceIndexCommandOutput } from "./commands/UpdatePlaceIndexCommand";
 import {
@@ -186,6 +193,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AssociateTrackerConsumerCommandInput
   | BatchDeleteDevicePositionHistoryCommandInput
@@ -197,16 +207,19 @@ export type ServiceInputTypes =
   | CalculateRouteCommandInput
   | CalculateRouteMatrixCommandInput
   | CreateGeofenceCollectionCommandInput
+  | CreateKeyCommandInput
   | CreateMapCommandInput
   | CreatePlaceIndexCommandInput
   | CreateRouteCalculatorCommandInput
   | CreateTrackerCommandInput
   | DeleteGeofenceCollectionCommandInput
+  | DeleteKeyCommandInput
   | DeleteMapCommandInput
   | DeletePlaceIndexCommandInput
   | DeleteRouteCalculatorCommandInput
   | DeleteTrackerCommandInput
   | DescribeGeofenceCollectionCommandInput
+  | DescribeKeyCommandInput
   | DescribeMapCommandInput
   | DescribePlaceIndexCommandInput
   | DescribeRouteCalculatorCommandInput
@@ -223,6 +236,7 @@ export type ServiceInputTypes =
   | ListDevicePositionsCommandInput
   | ListGeofenceCollectionsCommandInput
   | ListGeofencesCommandInput
+  | ListKeysCommandInput
   | ListMapsCommandInput
   | ListPlaceIndexesCommandInput
   | ListRouteCalculatorsCommandInput
@@ -236,11 +250,15 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateGeofenceCollectionCommandInput
+  | UpdateKeyCommandInput
   | UpdateMapCommandInput
   | UpdatePlaceIndexCommandInput
   | UpdateRouteCalculatorCommandInput
   | UpdateTrackerCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AssociateTrackerConsumerCommandOutput
   | BatchDeleteDevicePositionHistoryCommandOutput
@@ -252,16 +270,19 @@ export type ServiceOutputTypes =
   | CalculateRouteCommandOutput
   | CalculateRouteMatrixCommandOutput
   | CreateGeofenceCollectionCommandOutput
+  | CreateKeyCommandOutput
   | CreateMapCommandOutput
   | CreatePlaceIndexCommandOutput
   | CreateRouteCalculatorCommandOutput
   | CreateTrackerCommandOutput
   | DeleteGeofenceCollectionCommandOutput
+  | DeleteKeyCommandOutput
   | DeleteMapCommandOutput
   | DeletePlaceIndexCommandOutput
   | DeleteRouteCalculatorCommandOutput
   | DeleteTrackerCommandOutput
   | DescribeGeofenceCollectionCommandOutput
+  | DescribeKeyCommandOutput
   | DescribeMapCommandOutput
   | DescribePlaceIndexCommandOutput
   | DescribeRouteCalculatorCommandOutput
@@ -278,6 +299,7 @@ export type ServiceOutputTypes =
   | ListDevicePositionsCommandOutput
   | ListGeofenceCollectionsCommandOutput
   | ListGeofencesCommandOutput
+  | ListKeysCommandOutput
   | ListMapsCommandOutput
   | ListPlaceIndexesCommandOutput
   | ListRouteCalculatorsCommandOutput
@@ -291,11 +313,15 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateGeofenceCollectionCommandOutput
+  | UpdateKeyCommandOutput
   | UpdateMapCommandOutput
   | UpdatePlaceIndexCommandOutput
   | UpdateRouteCalculatorCommandOutput
   | UpdateTrackerCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -303,11 +329,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -364,19 +390,10 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
-   * Value for how many times a request will be made at most in case of retry.
+   * Unique service identifier.
+   * @internal
    */
-  maxAttempts?: number | __Provider<number>;
-
-  /**
-   * Specifies which retry algorithm to use.
-   */
-  retryMode?: string | __Provider<string>;
-
-  /**
-   * Optional logger for logging debug/info/warn/error.
-   */
-  logger?: __Logger;
+  serviceId?: string;
 
   /**
    * Enables IPv6/IPv4 dualstack endpoint.
@@ -387,12 +404,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Enables FIPS compatible endpoints.
    */
   useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
 
   /**
    * The AWS region to which this client will send requests
@@ -412,11 +423,29 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * Value for how many times a request will be made at most in case of retry.
    */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Specifies which retry algorithm to use.
+   */
+  retryMode?: string | __Provider<string>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
+
+  /**
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   */
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type LocationClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -427,10 +456,15 @@ type LocationClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptio
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of LocationClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of LocationClient class constructor that set the region, credentials and other options.
  */
 export interface LocationClientConfig extends LocationClientConfigType {}
 
+/**
+ * @public
+ */
 type LocationClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -441,11 +475,14 @@ type LocationClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHand
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of LocationClient class. This is resolved and normalized from the {@link LocationClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of LocationClient class. This is resolved and normalized from the {@link LocationClientConfig | constructor configuration interface}.
  */
 export interface LocationClientResolvedConfig extends LocationClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>"Suite of geospatial services including Maps, Places, Routes, Tracking, and Geofencing"</p>
  */
 export class LocationClient extends __Client<

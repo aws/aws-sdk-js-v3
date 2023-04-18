@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  BatchApplyUpdateActionMessage,
-  BatchApplyUpdateActionMessageFilterSensitiveLog,
-  UpdateActionResultsMessage,
-  UpdateActionResultsMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryBatchApplyUpdateActionCommand,
-  serializeAws_queryBatchApplyUpdateActionCommand,
-} from "../protocols/Aws_query";
+import { BatchApplyUpdateActionMessage, UpdateActionResultsMessage } from "../models/models_0";
+import { de_BatchApplyUpdateActionCommand, se_BatchApplyUpdateActionCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchApplyUpdateActionCommand}.
+ */
 export interface BatchApplyUpdateActionCommandInput extends BatchApplyUpdateActionMessage {}
+/**
+ * @public
+ *
+ * The output of {@link BatchApplyUpdateActionCommand}.
+ */
 export interface BatchApplyUpdateActionCommandOutput extends UpdateActionResultsMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Apply the service update. For more information on service updates and applying them, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/applying-updates.html">Applying Service Updates</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,31 @@ export interface BatchApplyUpdateActionCommandOutput extends UpdateActionResults
  * import { ElastiCacheClient, BatchApplyUpdateActionCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, BatchApplyUpdateActionCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // BatchApplyUpdateActionMessage
+ *   ReplicationGroupIds: [ // ReplicationGroupIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   CacheClusterIds: [ // CacheClusterIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   ServiceUpdateName: "STRING_VALUE", // required
+ * };
  * const command = new BatchApplyUpdateActionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchApplyUpdateActionCommandInput - {@link BatchApplyUpdateActionCommandInput}
+ * @returns {@link BatchApplyUpdateActionCommandOutput}
  * @see {@link BatchApplyUpdateActionCommandInput} for command's `input` shape.
  * @see {@link BatchApplyUpdateActionCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
+ * @throws {@link ServiceUpdateNotFoundFault} (client fault)
+ *  <p>The service update doesn't exist</p>
+ *
  *
  */
 export class BatchApplyUpdateActionCommand extends $Command<
@@ -62,6 +83,9 @@ export class BatchApplyUpdateActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchApplyUpdateActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +114,8 @@ export class BatchApplyUpdateActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchApplyUpdateActionMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateActionResultsMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +125,18 @@ export class BatchApplyUpdateActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchApplyUpdateActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryBatchApplyUpdateActionCommand(input, context);
+    return se_BatchApplyUpdateActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchApplyUpdateActionCommandOutput> {
-    return deserializeAws_queryBatchApplyUpdateActionCommand(output, context);
+    return de_BatchApplyUpdateActionCommand(output, context);
   }
 
   // Start section: command_body_extra

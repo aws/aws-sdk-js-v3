@@ -14,14 +14,25 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { VolumeAttachment, VolumeAttachmentFilterSensitiveLog } from "../models/models_0";
-import { DetachVolumeRequest, DetachVolumeRequestFilterSensitiveLog } from "../models/models_5";
-import { deserializeAws_ec2DetachVolumeCommand, serializeAws_ec2DetachVolumeCommand } from "../protocols/Aws_ec2";
+import { VolumeAttachment } from "../models/models_0";
+import { DetachVolumeRequest } from "../models/models_5";
+import { de_DetachVolumeCommand, se_DetachVolumeCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DetachVolumeCommand}.
+ */
 export interface DetachVolumeCommandInput extends DetachVolumeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DetachVolumeCommand}.
+ */
 export interface DetachVolumeCommandOutput extends VolumeAttachment, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detaches an EBS volume from an instance. Make sure to unmount any file systems on the
  *       device within your operating system before detaching the volume. Failure to do so can result
  *       in the volume becoming stuck in the <code>busy</code> state while detaching. If this happens,
@@ -39,13 +50,43 @@ export interface DetachVolumeCommandOutput extends VolumeAttachment, __MetadataB
  * import { EC2Client, DetachVolumeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DetachVolumeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DetachVolumeRequest
+ *   Device: "STRING_VALUE",
+ *   Force: true || false,
+ *   InstanceId: "STRING_VALUE",
+ *   VolumeId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DetachVolumeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DetachVolumeCommandInput - {@link DetachVolumeCommandInput}
+ * @returns {@link DetachVolumeCommandOutput}
  * @see {@link DetachVolumeCommandInput} for command's `input` shape.
  * @see {@link DetachVolumeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ *
+ * @example To detach a volume from an instance
+ * ```javascript
+ * // This example detaches the volume (``vol-049df61146c4d7901``) from the instance it is attached to.
+ * const input = {
+ *   "VolumeId": "vol-1234567890abcdef0"
+ * };
+ * const command = new DetachVolumeCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AttachTime": "2014-02-27T19:23:06.000Z",
+ *   "Device": "/dev/sdb",
+ *   "InstanceId": "i-1234567890abcdef0",
+ *   "State": "detaching",
+ *   "VolumeId": "vol-049df61146c4d7901"
+ * }
+ * *\/
+ * // example id: to-detach-a-volume-from-an-instance-1472507977694
+ * ```
  *
  */
 export class DetachVolumeCommand extends $Command<
@@ -65,6 +106,9 @@ export class DetachVolumeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetachVolumeCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +135,8 @@ export class DetachVolumeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetachVolumeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: VolumeAttachmentFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +146,18 @@ export class DetachVolumeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetachVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DetachVolumeCommand(input, context);
+    return se_DetachVolumeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachVolumeCommandOutput> {
-    return deserializeAws_ec2DetachVolumeCommand(output, context);
+    return de_DetachVolumeCommand(output, context);
   }
 
   // Start section: command_body_extra

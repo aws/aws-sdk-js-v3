@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import {
-  DescribeBulkImportJobRequest,
-  DescribeBulkImportJobRequestFilterSensitiveLog,
-  DescribeBulkImportJobResponse,
-  DescribeBulkImportJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeBulkImportJobCommand,
-  serializeAws_restJson1DescribeBulkImportJobCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeBulkImportJobRequest, DescribeBulkImportJobResponse } from "../models/models_0";
+import { de_DescribeBulkImportJobCommand, se_DescribeBulkImportJobCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeBulkImportJobCommand}.
+ */
 export interface DescribeBulkImportJobCommandInput extends DescribeBulkImportJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeBulkImportJobCommand}.
+ */
 export interface DescribeBulkImportJobCommandOutput extends DescribeBulkImportJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about a bulk import job request. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/DescribeBulkImportJob.html">Describe
  *         a bulk import job (CLI)</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
  * @example
@@ -37,13 +40,35 @@ export interface DescribeBulkImportJobCommandOutput extends DescribeBulkImportJo
  * import { IoTSiteWiseClient, DescribeBulkImportJobCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, DescribeBulkImportJobCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = { // DescribeBulkImportJobRequest
+ *   jobId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeBulkImportJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBulkImportJobCommandInput - {@link DescribeBulkImportJobCommandInput}
+ * @returns {@link DescribeBulkImportJobCommandOutput}
  * @see {@link DescribeBulkImportJobCommandInput} for command's `input` shape.
  * @see {@link DescribeBulkImportJobCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>IoT SiteWise can't process your request right now. Try again later.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
+ *       unsupported characters. Check your request and try again.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource can't be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Your request exceeded a rate limit. For example, you might have exceeded the number of
+ *       IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so
+ *       on.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ *
  *
  */
 export class DescribeBulkImportJobCommand extends $Command<
@@ -63,6 +88,9 @@ export class DescribeBulkImportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBulkImportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +119,8 @@ export class DescribeBulkImportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeBulkImportJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeBulkImportJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +130,18 @@ export class DescribeBulkImportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeBulkImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeBulkImportJobCommand(input, context);
+    return se_DescribeBulkImportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBulkImportJobCommandOutput> {
-    return deserializeAws_restJson1DescribeBulkImportJobCommand(output, context);
+    return de_DescribeBulkImportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

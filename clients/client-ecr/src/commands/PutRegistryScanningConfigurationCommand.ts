@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
+import { PutRegistryScanningConfigurationRequest, PutRegistryScanningConfigurationResponse } from "../models/models_0";
 import {
-  PutRegistryScanningConfigurationRequest,
-  PutRegistryScanningConfigurationRequestFilterSensitiveLog,
-  PutRegistryScanningConfigurationResponse,
-  PutRegistryScanningConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutRegistryScanningConfigurationCommand,
-  serializeAws_json1_1PutRegistryScanningConfigurationCommand,
+  de_PutRegistryScanningConfigurationCommand,
+  se_PutRegistryScanningConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutRegistryScanningConfigurationCommand}.
+ */
 export interface PutRegistryScanningConfigurationCommandInput extends PutRegistryScanningConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutRegistryScanningConfigurationCommand}.
+ */
 export interface PutRegistryScanningConfigurationCommandOutput
   extends PutRegistryScanningConfigurationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates the scanning configuration for your private registry.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,40 @@ export interface PutRegistryScanningConfigurationCommandOutput
  * import { ECRClient, PutRegistryScanningConfigurationCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, PutRegistryScanningConfigurationCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
+ * const input = { // PutRegistryScanningConfigurationRequest
+ *   scanType: "STRING_VALUE",
+ *   rules: [ // RegistryScanningRuleList
+ *     { // RegistryScanningRule
+ *       scanFrequency: "STRING_VALUE", // required
+ *       repositoryFilters: [ // ScanningRepositoryFilterList // required
+ *         { // ScanningRepositoryFilter
+ *           filter: "STRING_VALUE", // required
+ *           filterType: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new PutRegistryScanningConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutRegistryScanningConfigurationCommandInput - {@link PutRegistryScanningConfigurationCommandInput}
+ * @returns {@link PutRegistryScanningConfigurationCommandOutput}
  * @see {@link PutRegistryScanningConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutRegistryScanningConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *             request.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There was an exception validating this request.</p>
+ *
  *
  */
 export class PutRegistryScanningConfigurationCommand extends $Command<
@@ -64,6 +97,9 @@ export class PutRegistryScanningConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutRegistryScanningConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +128,8 @@ export class PutRegistryScanningConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutRegistryScanningConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutRegistryScanningConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +139,24 @@ export class PutRegistryScanningConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutRegistryScanningConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutRegistryScanningConfigurationCommand(input, context);
+    return se_PutRegistryScanningConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutRegistryScanningConfigurationCommandOutput> {
-    return deserializeAws_json1_1PutRegistryScanningConfigurationCommand(output, context);
+    return de_PutRegistryScanningConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

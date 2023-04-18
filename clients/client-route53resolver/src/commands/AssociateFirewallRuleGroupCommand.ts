@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AssociateFirewallRuleGroupRequest,
-  AssociateFirewallRuleGroupRequestFilterSensitiveLog,
-  AssociateFirewallRuleGroupResponse,
-  AssociateFirewallRuleGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateFirewallRuleGroupCommand,
-  serializeAws_json1_1AssociateFirewallRuleGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { AssociateFirewallRuleGroupRequest, AssociateFirewallRuleGroupResponse } from "../models/models_0";
+import { de_AssociateFirewallRuleGroupCommand, se_AssociateFirewallRuleGroupCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
+/**
+ * @public
+ *
+ * The input for {@link AssociateFirewallRuleGroupCommand}.
+ */
 export interface AssociateFirewallRuleGroupCommandInput extends AssociateFirewallRuleGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AssociateFirewallRuleGroupCommand}.
+ */
 export interface AssociateFirewallRuleGroupCommandOutput extends AssociateFirewallRuleGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a <a>FirewallRuleGroup</a> with a VPC, to provide DNS filtering for the VPC. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,54 @@ export interface AssociateFirewallRuleGroupCommandOutput extends AssociateFirewa
  * import { Route53ResolverClient, AssociateFirewallRuleGroupCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, AssociateFirewallRuleGroupCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = { // AssociateFirewallRuleGroupRequest
+ *   CreatorRequestId: "STRING_VALUE", // required
+ *   FirewallRuleGroupId: "STRING_VALUE", // required
+ *   VpcId: "STRING_VALUE", // required
+ *   Priority: Number("int"), // required
+ *   Name: "STRING_VALUE", // required
+ *   MutationProtection: "ENABLED" || "DISABLED",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new AssociateFirewallRuleGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateFirewallRuleGroupCommandInput - {@link AssociateFirewallRuleGroupCommandInput}
+ * @returns {@link AssociateFirewallRuleGroupCommandOutput}
  * @see {@link AssociateFirewallRuleGroupCommandInput} for command's `input` shape.
  * @see {@link AssociateFirewallRuleGroupCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The requested state transition isn't valid. For example, you can't delete a firewall
+ * 			domain list if it is in the process of being deleted, or you can't import domains into a
+ * 			domain list that is in the process of being deleted.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (client fault)
+ *  <p>We encountered an unknown error. Try again in a few minutes.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request caused one or more limits to be exceeded.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource doesn't exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was throttled. Try again in a few minutes.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>You have provided an invalid command. Supported values are <code>ADD</code>,
+ * 			<code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
+ *
  *
  */
 export class AssociateFirewallRuleGroupCommand extends $Command<
@@ -62,6 +106,9 @@ export class AssociateFirewallRuleGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateFirewallRuleGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +137,8 @@ export class AssociateFirewallRuleGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateFirewallRuleGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateFirewallRuleGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +148,21 @@ export class AssociateFirewallRuleGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateFirewallRuleGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateFirewallRuleGroupCommand(input, context);
+    return se_AssociateFirewallRuleGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateFirewallRuleGroupCommandOutput> {
-    return deserializeAws_json1_1AssociateFirewallRuleGroupCommand(output, context);
+    return de_AssociateFirewallRuleGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

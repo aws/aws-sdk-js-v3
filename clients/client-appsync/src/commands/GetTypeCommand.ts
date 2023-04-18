@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import {
-  GetTypeRequest,
-  GetTypeRequestFilterSensitiveLog,
-  GetTypeResponse,
-  GetTypeResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetTypeCommand,
-  serializeAws_restJson1GetTypeCommand,
-} from "../protocols/Aws_restJson1";
+import { GetTypeRequest, GetTypeResponse } from "../models/models_0";
+import { de_GetTypeCommand, se_GetTypeCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetTypeCommand}.
+ */
 export interface GetTypeCommandInput extends GetTypeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetTypeCommand}.
+ */
 export interface GetTypeCommandOutput extends GetTypeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a <code>Type</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,38 @@ export interface GetTypeCommandOutput extends GetTypeResponse, __MetadataBearer 
  * import { AppSyncClient, GetTypeCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, GetTypeCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
+ * const input = { // GetTypeRequest
+ *   apiId: "STRING_VALUE", // required
+ *   typeName: "STRING_VALUE", // required
+ *   format: "SDL" || "JSON", // required
+ * };
  * const command = new GetTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTypeCommandInput - {@link GetTypeCommandInput}
+ * @returns {@link GetTypeCommandOutput}
  * @see {@link GetTypeCommandInput} for command's `input` shape.
  * @see {@link GetTypeCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the
+ *          field values, and then try again.</p>
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>Another modification is in progress at this time and it must complete before you can make your
+ *          change.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal AppSync error occurred. Try your request again.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource specified in the request was not found. Check the resource, and then try again.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You aren't authorized to perform this operation.</p>
+ *
  *
  */
 export class GetTypeCommand extends $Command<GetTypeCommandInput, GetTypeCommandOutput, AppSyncClientResolvedConfig> {
@@ -58,6 +86,9 @@ export class GetTypeCommand extends $Command<GetTypeCommandInput, GetTypeCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -84,8 +115,8 @@ export class GetTypeCommand extends $Command<GetTypeCommandInput, GetTypeCommand
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTypeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTypeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -95,12 +126,18 @@ export class GetTypeCommand extends $Command<GetTypeCommandInput, GetTypeCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTypeCommand(input, context);
+    return se_GetTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTypeCommandOutput> {
-    return deserializeAws_restJson1GetTypeCommand(output, context);
+    return de_GetTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

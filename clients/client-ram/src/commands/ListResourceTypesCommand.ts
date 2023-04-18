@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListResourceTypesRequest,
-  ListResourceTypesRequestFilterSensitiveLog,
-  ListResourceTypesResponse,
-  ListResourceTypesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListResourceTypesCommand,
-  serializeAws_restJson1ListResourceTypesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListResourceTypesRequest, ListResourceTypesResponse } from "../models/models_0";
+import { de_ListResourceTypesCommand, se_ListResourceTypesCommand } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListResourceTypesCommand}.
+ */
 export interface ListResourceTypesCommandInput extends ListResourceTypesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListResourceTypesCommand}.
+ */
 export interface ListResourceTypesCommandOutput extends ListResourceTypesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the resource types that can be shared by RAM.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,33 @@ export interface ListResourceTypesCommandOutput extends ListResourceTypesRespons
  * import { RAMClient, ListResourceTypesCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, ListResourceTypesCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
+ * const input = { // ListResourceTypesRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   resourceRegionScope: "ALL" || "REGIONAL" || "GLOBAL",
+ * };
  * const command = new ListResourceTypesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResourceTypesCommandInput - {@link ListResourceTypesCommandInput}
+ * @returns {@link ListResourceTypesCommandOutput}
  * @see {@link ListResourceTypesCommandInput} for command's `input` shape.
  * @see {@link ListResourceTypesCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The specified value for <code>NextToken</code> is not valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter is not valid.</p>
+ *
+ * @throws {@link ServerInternalException} (server fault)
+ *  <p>The service could not respond to the request due to an internal problem.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is not available.</p>
+ *
  *
  */
 export class ListResourceTypesCommand extends $Command<
@@ -62,6 +85,9 @@ export class ListResourceTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResourceTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +116,8 @@ export class ListResourceTypesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListResourceTypesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListResourceTypesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +127,18 @@ export class ListResourceTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResourceTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListResourceTypesCommand(input, context);
+    return se_ListResourceTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResourceTypesCommandOutput> {
-    return deserializeAws_restJson1ListResourceTypesCommand(output, context);
+    return de_ListResourceTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

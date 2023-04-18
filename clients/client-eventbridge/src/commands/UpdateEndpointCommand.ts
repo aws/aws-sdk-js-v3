@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import {
-  UpdateEndpointRequest,
-  UpdateEndpointRequestFilterSensitiveLog,
-  UpdateEndpointResponse,
-  UpdateEndpointResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateEndpointCommand,
-  serializeAws_json1_1UpdateEndpointCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateEndpointRequest, UpdateEndpointResponse } from "../models/models_0";
+import { de_UpdateEndpointCommand, se_UpdateEndpointCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateEndpointCommand}.
+ */
 export interface UpdateEndpointCommandInput extends UpdateEndpointRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateEndpointCommand}.
+ */
 export interface UpdateEndpointCommandOutput extends UpdateEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update an existing endpoint. For more information about global endpoints, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html">Making applications Regional-fault tolerant with global endpoints and event replication</a> in the Amazon EventBridge User Guide..</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,48 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointResponse, __M
  * import { EventBridgeClient, UpdateEndpointCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, UpdateEndpointCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
+ * const input = { // UpdateEndpointRequest
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   RoutingConfig: { // RoutingConfig
+ *     FailoverConfig: { // FailoverConfig
+ *       Primary: { // Primary
+ *         HealthCheck: "STRING_VALUE", // required
+ *       },
+ *       Secondary: { // Secondary
+ *         Route: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   },
+ *   ReplicationConfig: { // ReplicationConfig
+ *     State: "ENABLED" || "DISABLED",
+ *   },
+ *   EventBuses: [ // EndpointEventBusList
+ *     { // EndpointEventBus
+ *       EventBusArn: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   RoleArn: "STRING_VALUE",
+ * };
  * const command = new UpdateEndpointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEndpointCommandInput - {@link UpdateEndpointCommandInput}
+ * @returns {@link UpdateEndpointCommandOutput}
  * @see {@link UpdateEndpointCommandInput} for command's `input` shape.
  * @see {@link UpdateEndpointCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An entity that you specified does not exist.</p>
+ *
  *
  */
 export class UpdateEndpointCommand extends $Command<
@@ -62,6 +100,9 @@ export class UpdateEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +131,8 @@ export class UpdateEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateEndpointRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateEndpointResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +142,18 @@ export class UpdateEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateEndpointCommand(input, context);
+    return se_UpdateEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEndpointCommandOutput> {
-    return deserializeAws_json1_1UpdateEndpointCommand(output, context);
+    return de_UpdateEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

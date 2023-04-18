@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetAWSDefaultServiceQuotaRequest,
-  GetAWSDefaultServiceQuotaRequestFilterSensitiveLog,
-  GetAWSDefaultServiceQuotaResponse,
-  GetAWSDefaultServiceQuotaResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetAWSDefaultServiceQuotaCommand,
-  serializeAws_json1_1GetAWSDefaultServiceQuotaCommand,
-} from "../protocols/Aws_json1_1";
+import { GetAWSDefaultServiceQuotaRequest, GetAWSDefaultServiceQuotaResponse } from "../models/models_0";
+import { de_GetAWSDefaultServiceQuotaCommand, se_GetAWSDefaultServiceQuotaCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetAWSDefaultServiceQuotaCommand}.
+ */
 export interface GetAWSDefaultServiceQuotaCommandInput extends GetAWSDefaultServiceQuotaRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetAWSDefaultServiceQuotaCommand}.
+ */
 export interface GetAWSDefaultServiceQuotaCommandOutput extends GetAWSDefaultServiceQuotaResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the default value for the specified quota. The default value does not reflect
  *       any quota increases.</p>
  * @example
@@ -37,13 +40,36 @@ export interface GetAWSDefaultServiceQuotaCommandOutput extends GetAWSDefaultSer
  * import { ServiceQuotasClient, GetAWSDefaultServiceQuotaCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
  * // const { ServiceQuotasClient, GetAWSDefaultServiceQuotaCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import
  * const client = new ServiceQuotasClient(config);
+ * const input = { // GetAWSDefaultServiceQuotaRequest
+ *   ServiceCode: "STRING_VALUE", // required
+ *   QuotaCode: "STRING_VALUE", // required
+ * };
  * const command = new GetAWSDefaultServiceQuotaCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAWSDefaultServiceQuotaCommandInput - {@link GetAWSDefaultServiceQuotaCommandInput}
+ * @returns {@link GetAWSDefaultServiceQuotaCommandOutput}
  * @see {@link GetAWSDefaultServiceQuotaCommandInput} for command's `input` shape.
  * @see {@link GetAWSDefaultServiceQuotaCommandOutput} for command's `response` shape.
  * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permission to perform this action.</p>
+ *
+ * @throws {@link IllegalArgumentException} (client fault)
+ *  <p>Invalid input was provided.</p>
+ *
+ * @throws {@link NoSuchResourceException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>Something went wrong.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request
+ *       an increase for this quota.</p>
+ *
  *
  */
 export class GetAWSDefaultServiceQuotaCommand extends $Command<
@@ -63,6 +89,9 @@ export class GetAWSDefaultServiceQuotaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAWSDefaultServiceQuotaCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +120,8 @@ export class GetAWSDefaultServiceQuotaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAWSDefaultServiceQuotaRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAWSDefaultServiceQuotaResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,15 +131,21 @@ export class GetAWSDefaultServiceQuotaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAWSDefaultServiceQuotaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAWSDefaultServiceQuotaCommand(input, context);
+    return se_GetAWSDefaultServiceQuotaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetAWSDefaultServiceQuotaCommandOutput> {
-    return deserializeAws_json1_1GetAWSDefaultServiceQuotaCommand(output, context);
+    return de_GetAWSDefaultServiceQuotaCommand(output, context);
   }
 
   // Start section: command_body_extra

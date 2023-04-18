@@ -6,12 +6,11 @@ import {
   ListFunctionUrlConfigsCommandInput,
   ListFunctionUrlConfigsCommandOutput,
 } from "../commands/ListFunctionUrlConfigsCommand";
-import { Lambda } from "../Lambda";
 import { LambdaClient } from "../LambdaClient";
 import { LambdaPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: LambdaClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListFunctionUrlConfigsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Lambda,
-  input: ListFunctionUrlConfigsCommandInput,
-  ...args: any
-): Promise<ListFunctionUrlConfigsCommandOutput> => {
-  // @ts-ignore
-  return await client.listFunctionUrlConfigs(input, ...args);
-};
 export async function* paginateListFunctionUrlConfigs(
   config: LambdaPaginationConfiguration,
   input: ListFunctionUrlConfigsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListFunctionUrlConfigs(
   while (hasNext) {
     input.Marker = token;
     input["MaxItems"] = config.pageSize;
-    if (config.client instanceof Lambda) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof LambdaClient) {
+    if (config.client instanceof LambdaClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Lambda | LambdaClient");

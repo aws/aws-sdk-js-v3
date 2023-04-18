@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetComponentInput,
-  GetComponentInputFilterSensitiveLog,
-  GetComponentOutput,
-  GetComponentOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetComponentCommand,
-  serializeAws_restJson1GetComponentCommand,
-} from "../protocols/Aws_restJson1";
+import { GetComponentInput, GetComponentOutput } from "../models/models_0";
+import { de_GetComponentCommand, se_GetComponentCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetComponentCommand}.
+ */
 export interface GetComponentCommandInput extends GetComponentInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetComponentCommand}.
+ */
 export interface GetComponentCommandOutput extends GetComponentOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the component of an application registered with AWS Systems Manager for
  *          SAP.</p>
  * @example
@@ -37,13 +40,26 @@ export interface GetComponentCommandOutput extends GetComponentOutput, __Metadat
  * import { SsmSapClient, GetComponentCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
  * // const { SsmSapClient, GetComponentCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
  * const client = new SsmSapClient(config);
+ * const input = { // GetComponentInput
+ *   ApplicationId: "STRING_VALUE", // required
+ *   ComponentId: "STRING_VALUE", // required
+ * };
  * const command = new GetComponentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetComponentCommandInput - {@link GetComponentCommandInput}
+ * @returns {@link GetComponentCommandOutput}
  * @see {@link GetComponentCommandInput} for command's `input` shape.
  * @see {@link GetComponentCommandOutput} for command's `response` shape.
  * @see {@link SsmSapClientResolvedConfig | config} for SsmSapClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error has occurred.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an AWS service. </p>
+ *
  *
  */
 export class GetComponentCommand extends $Command<
@@ -63,6 +79,9 @@ export class GetComponentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetComponentCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +108,8 @@ export class GetComponentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetComponentInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetComponentOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +119,18 @@ export class GetComponentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetComponentCommand(input, context);
+    return se_GetComponentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetComponentCommandOutput> {
-    return deserializeAws_restJson1GetComponentCommand(output, context);
+    return de_GetComponentCommand(output, context);
   }
 
   // Start section: command_body_extra

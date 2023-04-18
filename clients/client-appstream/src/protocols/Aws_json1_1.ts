@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -8,7 +9,8 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -166,25 +168,16 @@ import {
   AppBlock,
   Application,
   ApplicationAttribute,
-  ApplicationFleetAssociation,
   ApplicationSettings,
-  ApplicationSettingsResponse,
   AssociateApplicationFleetRequest,
-  AssociateApplicationFleetResult,
   AssociateApplicationToEntitlementRequest,
-  AssociateApplicationToEntitlementResult,
   AssociateFleetRequest,
-  AssociateFleetResult,
   BatchAssociateUserStackRequest,
-  BatchAssociateUserStackResult,
   BatchDisassociateUserStackRequest,
-  BatchDisassociateUserStackResult,
   CertificateBasedAuthProperties,
   ComputeCapacity,
-  ComputeCapacityStatus,
   ConcurrentModificationException,
   CopyImageRequest,
-  CopyImageResponse,
   CreateAppBlockRequest,
   CreateAppBlockResult,
   CreateApplicationRequest,
@@ -206,35 +199,23 @@ import {
   CreateUpdatedImageRequest,
   CreateUpdatedImageResult,
   CreateUsageReportSubscriptionRequest,
-  CreateUsageReportSubscriptionResult,
   CreateUserRequest,
-  CreateUserResult,
   DeleteAppBlockRequest,
-  DeleteAppBlockResult,
   DeleteApplicationRequest,
-  DeleteApplicationResult,
   DeleteDirectoryConfigRequest,
-  DeleteDirectoryConfigResult,
   DeleteEntitlementRequest,
-  DeleteEntitlementResult,
   DeleteFleetRequest,
-  DeleteFleetResult,
   DeleteImageBuilderRequest,
   DeleteImageBuilderResult,
   DeleteImagePermissionsRequest,
-  DeleteImagePermissionsResult,
   DeleteImageRequest,
   DeleteImageResult,
   DeleteStackRequest,
-  DeleteStackResult,
   DeleteUsageReportSubscriptionRequest,
-  DeleteUsageReportSubscriptionResult,
   DeleteUserRequest,
-  DeleteUserResult,
   DescribeAppBlocksRequest,
   DescribeAppBlocksResult,
   DescribeApplicationFleetAssociationsRequest,
-  DescribeApplicationFleetAssociationsResult,
   DescribeApplicationsRequest,
   DescribeApplicationsResult,
   DescribeDirectoryConfigsRequest,
@@ -246,7 +227,6 @@ import {
   DescribeImageBuildersRequest,
   DescribeImageBuildersResult,
   DescribeImagePermissionsRequest,
-  DescribeImagePermissionsResult,
   DescribeImagesRequest,
   DescribeImagesResult,
   DescribeSessionsRequest,
@@ -258,49 +238,32 @@ import {
   DescribeUsersRequest,
   DescribeUsersResult,
   DescribeUserStackAssociationsRequest,
-  DescribeUserStackAssociationsResult,
   DirectoryConfig,
   DisableUserRequest,
-  DisableUserResult,
   DisassociateApplicationFleetRequest,
-  DisassociateApplicationFleetResult,
   DisassociateApplicationFromEntitlementRequest,
-  DisassociateApplicationFromEntitlementResult,
   DisassociateFleetRequest,
-  DisassociateFleetResult,
   DomainJoinInfo,
   EnableUserRequest,
-  EnableUserResult,
-  EntitledApplication,
   Entitlement,
   EntitlementAlreadyExistsException,
   EntitlementAttribute,
   EntitlementNotFoundException,
   ExpireSessionRequest,
-  ExpireSessionResult,
   Fleet,
   FleetAttribute,
-  FleetError,
   Image,
   ImageBuilder,
-  ImageBuilderStateChangeReason,
   ImagePermissions,
-  ImageStateChangeReason,
   IncompatibleImageException,
   InvalidAccountStatusException,
   InvalidParameterCombinationException,
   InvalidRoleException,
-  LastReportGenerationExecutionError,
   LimitExceededException,
   ListAssociatedFleetsRequest,
-  ListAssociatedFleetsResult,
   ListAssociatedStacksRequest,
-  ListAssociatedStacksResult,
   ListEntitledApplicationsRequest,
-  ListEntitledApplicationsResult,
   ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  NetworkAccessConfiguration,
   OperationNotPermittedException,
   PlatformType,
   RequestLimitExceededException,
@@ -313,24 +276,18 @@ import {
   ScriptDetails,
   ServiceAccountCredentials,
   Session,
-  SharedImagePermissions,
   Stack,
   StackAttribute,
-  StackError,
   StartFleetRequest,
-  StartFleetResult,
   StartImageBuilderRequest,
   StartImageBuilderResult,
   StopFleetRequest,
-  StopFleetResult,
   StopImageBuilderRequest,
   StopImageBuilderResult,
   StorageConnector,
   StreamingExperienceSettings,
   TagResourceRequest,
-  TagResourceResponse,
   UntagResourceRequest,
-  UntagResourceResponse,
   UpdateApplicationRequest,
   UpdateApplicationResult,
   UpdateDirectoryConfigRequest,
@@ -340,880 +297,884 @@ import {
   UpdateFleetRequest,
   UpdateFleetResult,
   UpdateImagePermissionsRequest,
-  UpdateImagePermissionsResult,
   UpdateStackRequest,
   UpdateStackResult,
   UsageReportSubscription,
   User,
   UserSetting,
   UserStackAssociation,
-  UserStackAssociationError,
   VpcConfig,
 } from "../models/models_0";
 
-export const serializeAws_json1_1AssociateApplicationFleetCommand = async (
+/**
+ * serializeAws_json1_1AssociateApplicationFleetCommand
+ */
+export const se_AssociateApplicationFleetCommand = async (
   input: AssociateApplicationFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.AssociateApplicationFleet",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateApplicationFleet");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AssociateApplicationFleetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AssociateApplicationToEntitlementCommand = async (
+/**
+ * serializeAws_json1_1AssociateApplicationToEntitlementCommand
+ */
+export const se_AssociateApplicationToEntitlementCommand = async (
   input: AssociateApplicationToEntitlementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.AssociateApplicationToEntitlement",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateApplicationToEntitlement");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AssociateApplicationToEntitlementRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AssociateFleetCommand = async (
+/**
+ * serializeAws_json1_1AssociateFleetCommand
+ */
+export const se_AssociateFleetCommand = async (
   input: AssociateFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.AssociateFleet",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateFleet");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AssociateFleetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1BatchAssociateUserStackCommand = async (
+/**
+ * serializeAws_json1_1BatchAssociateUserStackCommand
+ */
+export const se_BatchAssociateUserStackCommand = async (
   input: BatchAssociateUserStackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.BatchAssociateUserStack",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchAssociateUserStack");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1BatchAssociateUserStackRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1BatchDisassociateUserStackCommand = async (
+/**
+ * serializeAws_json1_1BatchDisassociateUserStackCommand
+ */
+export const se_BatchDisassociateUserStackCommand = async (
   input: BatchDisassociateUserStackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.BatchDisassociateUserStack",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchDisassociateUserStack");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1BatchDisassociateUserStackRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CopyImageCommand = async (
+/**
+ * serializeAws_json1_1CopyImageCommand
+ */
+export const se_CopyImageCommand = async (
   input: CopyImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.CopyImage",
-  };
+  const headers: __HeaderBag = sharedHeaders("CopyImage");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CopyImageRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateAppBlockCommand = async (
+/**
+ * serializeAws_json1_1CreateAppBlockCommand
+ */
+export const se_CreateAppBlockCommand = async (
   input: CreateAppBlockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.CreateAppBlock",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateAppBlock");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateAppBlockRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateApplicationCommand = async (
+/**
+ * serializeAws_json1_1CreateApplicationCommand
+ */
+export const se_CreateApplicationCommand = async (
   input: CreateApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.CreateApplication",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateApplication");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateApplicationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateDirectoryConfigCommand = async (
+/**
+ * serializeAws_json1_1CreateDirectoryConfigCommand
+ */
+export const se_CreateDirectoryConfigCommand = async (
   input: CreateDirectoryConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.CreateDirectoryConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateDirectoryConfig");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateDirectoryConfigRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateEntitlementCommand = async (
+/**
+ * serializeAws_json1_1CreateEntitlementCommand
+ */
+export const se_CreateEntitlementCommand = async (
   input: CreateEntitlementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.CreateEntitlement",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateEntitlement");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateEntitlementRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateFleetCommand = async (
+/**
+ * serializeAws_json1_1CreateFleetCommand
+ */
+export const se_CreateFleetCommand = async (
   input: CreateFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.CreateFleet",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateFleet");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateFleetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateImageBuilderCommand = async (
+/**
+ * serializeAws_json1_1CreateImageBuilderCommand
+ */
+export const se_CreateImageBuilderCommand = async (
   input: CreateImageBuilderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.CreateImageBuilder",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateImageBuilder");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateImageBuilderRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateImageBuilderStreamingURLCommand = async (
+/**
+ * serializeAws_json1_1CreateImageBuilderStreamingURLCommand
+ */
+export const se_CreateImageBuilderStreamingURLCommand = async (
   input: CreateImageBuilderStreamingURLCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.CreateImageBuilderStreamingURL",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateImageBuilderStreamingURL");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateImageBuilderStreamingURLRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateStackCommand = async (
+/**
+ * serializeAws_json1_1CreateStackCommand
+ */
+export const se_CreateStackCommand = async (
   input: CreateStackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.CreateStack",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateStack");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateStackRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateStreamingURLCommand = async (
+/**
+ * serializeAws_json1_1CreateStreamingURLCommand
+ */
+export const se_CreateStreamingURLCommand = async (
   input: CreateStreamingURLCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.CreateStreamingURL",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateStreamingURL");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateStreamingURLRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateUpdatedImageCommand = async (
+/**
+ * serializeAws_json1_1CreateUpdatedImageCommand
+ */
+export const se_CreateUpdatedImageCommand = async (
   input: CreateUpdatedImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.CreateUpdatedImage",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateUpdatedImage");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateUpdatedImageRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateUsageReportSubscriptionCommand = async (
+/**
+ * serializeAws_json1_1CreateUsageReportSubscriptionCommand
+ */
+export const se_CreateUsageReportSubscriptionCommand = async (
   input: CreateUsageReportSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.CreateUsageReportSubscription",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateUsageReportSubscription");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateUsageReportSubscriptionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateUserCommand = async (
+/**
+ * serializeAws_json1_1CreateUserCommand
+ */
+export const se_CreateUserCommand = async (
   input: CreateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.CreateUser",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateUser");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateUserRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteAppBlockCommand = async (
+/**
+ * serializeAws_json1_1DeleteAppBlockCommand
+ */
+export const se_DeleteAppBlockCommand = async (
   input: DeleteAppBlockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DeleteAppBlock",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteAppBlock");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteAppBlockRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteApplicationCommand = async (
+/**
+ * serializeAws_json1_1DeleteApplicationCommand
+ */
+export const se_DeleteApplicationCommand = async (
   input: DeleteApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DeleteApplication",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteApplication");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteApplicationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteDirectoryConfigCommand = async (
+/**
+ * serializeAws_json1_1DeleteDirectoryConfigCommand
+ */
+export const se_DeleteDirectoryConfigCommand = async (
   input: DeleteDirectoryConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DeleteDirectoryConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteDirectoryConfig");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteDirectoryConfigRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteEntitlementCommand = async (
+/**
+ * serializeAws_json1_1DeleteEntitlementCommand
+ */
+export const se_DeleteEntitlementCommand = async (
   input: DeleteEntitlementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DeleteEntitlement",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteEntitlement");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteEntitlementRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteFleetCommand = async (
+/**
+ * serializeAws_json1_1DeleteFleetCommand
+ */
+export const se_DeleteFleetCommand = async (
   input: DeleteFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DeleteFleet",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteFleet");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteFleetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteImageCommand = async (
+/**
+ * serializeAws_json1_1DeleteImageCommand
+ */
+export const se_DeleteImageCommand = async (
   input: DeleteImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DeleteImage",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteImage");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteImageRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteImageBuilderCommand = async (
+/**
+ * serializeAws_json1_1DeleteImageBuilderCommand
+ */
+export const se_DeleteImageBuilderCommand = async (
   input: DeleteImageBuilderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DeleteImageBuilder",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteImageBuilder");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteImageBuilderRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteImagePermissionsCommand = async (
+/**
+ * serializeAws_json1_1DeleteImagePermissionsCommand
+ */
+export const se_DeleteImagePermissionsCommand = async (
   input: DeleteImagePermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DeleteImagePermissions",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteImagePermissions");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteImagePermissionsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteStackCommand = async (
+/**
+ * serializeAws_json1_1DeleteStackCommand
+ */
+export const se_DeleteStackCommand = async (
   input: DeleteStackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DeleteStack",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteStack");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteStackRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteUsageReportSubscriptionCommand = async (
+/**
+ * serializeAws_json1_1DeleteUsageReportSubscriptionCommand
+ */
+export const se_DeleteUsageReportSubscriptionCommand = async (
   input: DeleteUsageReportSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DeleteUsageReportSubscription",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteUsageReportSubscription");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteUsageReportSubscriptionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteUserCommand = async (
+/**
+ * serializeAws_json1_1DeleteUserCommand
+ */
+export const se_DeleteUserCommand = async (
   input: DeleteUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DeleteUser",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteUser");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteUserRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeAppBlocksCommand = async (
+/**
+ * serializeAws_json1_1DescribeAppBlocksCommand
+ */
+export const se_DescribeAppBlocksCommand = async (
   input: DescribeAppBlocksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DescribeAppBlocks",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAppBlocks");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeAppBlocksRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeApplicationFleetAssociationsCommand = async (
+/**
+ * serializeAws_json1_1DescribeApplicationFleetAssociationsCommand
+ */
+export const se_DescribeApplicationFleetAssociationsCommand = async (
   input: DescribeApplicationFleetAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DescribeApplicationFleetAssociations",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeApplicationFleetAssociations");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeApplicationFleetAssociationsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeApplicationsCommand = async (
+/**
+ * serializeAws_json1_1DescribeApplicationsCommand
+ */
+export const se_DescribeApplicationsCommand = async (
   input: DescribeApplicationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DescribeApplications",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeApplications");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeApplicationsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeDirectoryConfigsCommand = async (
+/**
+ * serializeAws_json1_1DescribeDirectoryConfigsCommand
+ */
+export const se_DescribeDirectoryConfigsCommand = async (
   input: DescribeDirectoryConfigsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DescribeDirectoryConfigs",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeDirectoryConfigs");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeDirectoryConfigsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeEntitlementsCommand = async (
+/**
+ * serializeAws_json1_1DescribeEntitlementsCommand
+ */
+export const se_DescribeEntitlementsCommand = async (
   input: DescribeEntitlementsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DescribeEntitlements",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEntitlements");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeEntitlementsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeFleetsCommand = async (
+/**
+ * serializeAws_json1_1DescribeFleetsCommand
+ */
+export const se_DescribeFleetsCommand = async (
   input: DescribeFleetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DescribeFleets",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeFleets");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeFleetsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeImageBuildersCommand = async (
+/**
+ * serializeAws_json1_1DescribeImageBuildersCommand
+ */
+export const se_DescribeImageBuildersCommand = async (
   input: DescribeImageBuildersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DescribeImageBuilders",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeImageBuilders");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeImageBuildersRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeImagePermissionsCommand = async (
+/**
+ * serializeAws_json1_1DescribeImagePermissionsCommand
+ */
+export const se_DescribeImagePermissionsCommand = async (
   input: DescribeImagePermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DescribeImagePermissions",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeImagePermissions");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeImagePermissionsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeImagesCommand = async (
+/**
+ * serializeAws_json1_1DescribeImagesCommand
+ */
+export const se_DescribeImagesCommand = async (
   input: DescribeImagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DescribeImages",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeImages");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeImagesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeSessionsCommand = async (
+/**
+ * serializeAws_json1_1DescribeSessionsCommand
+ */
+export const se_DescribeSessionsCommand = async (
   input: DescribeSessionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DescribeSessions",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeSessions");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeSessionsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeStacksCommand = async (
+/**
+ * serializeAws_json1_1DescribeStacksCommand
+ */
+export const se_DescribeStacksCommand = async (
   input: DescribeStacksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DescribeStacks",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeStacks");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeStacksRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeUsageReportSubscriptionsCommand = async (
+/**
+ * serializeAws_json1_1DescribeUsageReportSubscriptionsCommand
+ */
+export const se_DescribeUsageReportSubscriptionsCommand = async (
   input: DescribeUsageReportSubscriptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DescribeUsageReportSubscriptions",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeUsageReportSubscriptions");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeUsageReportSubscriptionsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeUsersCommand = async (
+/**
+ * serializeAws_json1_1DescribeUsersCommand
+ */
+export const se_DescribeUsersCommand = async (
   input: DescribeUsersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DescribeUsers",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeUsers");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeUsersRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeUserStackAssociationsCommand = async (
+/**
+ * serializeAws_json1_1DescribeUserStackAssociationsCommand
+ */
+export const se_DescribeUserStackAssociationsCommand = async (
   input: DescribeUserStackAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DescribeUserStackAssociations",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeUserStackAssociations");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeUserStackAssociationsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DisableUserCommand = async (
+/**
+ * serializeAws_json1_1DisableUserCommand
+ */
+export const se_DisableUserCommand = async (
   input: DisableUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DisableUser",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisableUser");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DisableUserRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DisassociateApplicationFleetCommand = async (
+/**
+ * serializeAws_json1_1DisassociateApplicationFleetCommand
+ */
+export const se_DisassociateApplicationFleetCommand = async (
   input: DisassociateApplicationFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DisassociateApplicationFleet",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateApplicationFleet");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DisassociateApplicationFleetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DisassociateApplicationFromEntitlementCommand = async (
+/**
+ * serializeAws_json1_1DisassociateApplicationFromEntitlementCommand
+ */
+export const se_DisassociateApplicationFromEntitlementCommand = async (
   input: DisassociateApplicationFromEntitlementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DisassociateApplicationFromEntitlement",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateApplicationFromEntitlement");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DisassociateApplicationFromEntitlementRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DisassociateFleetCommand = async (
+/**
+ * serializeAws_json1_1DisassociateFleetCommand
+ */
+export const se_DisassociateFleetCommand = async (
   input: DisassociateFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DisassociateFleet",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateFleet");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DisassociateFleetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1EnableUserCommand = async (
+/**
+ * serializeAws_json1_1EnableUserCommand
+ */
+export const se_EnableUserCommand = async (
   input: EnableUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.EnableUser",
-  };
+  const headers: __HeaderBag = sharedHeaders("EnableUser");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1EnableUserRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ExpireSessionCommand = async (
+/**
+ * serializeAws_json1_1ExpireSessionCommand
+ */
+export const se_ExpireSessionCommand = async (
   input: ExpireSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.ExpireSession",
-  };
+  const headers: __HeaderBag = sharedHeaders("ExpireSession");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ExpireSessionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListAssociatedFleetsCommand = async (
+/**
+ * serializeAws_json1_1ListAssociatedFleetsCommand
+ */
+export const se_ListAssociatedFleetsCommand = async (
   input: ListAssociatedFleetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.ListAssociatedFleets",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAssociatedFleets");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListAssociatedFleetsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListAssociatedStacksCommand = async (
+/**
+ * serializeAws_json1_1ListAssociatedStacksCommand
+ */
+export const se_ListAssociatedStacksCommand = async (
   input: ListAssociatedStacksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.ListAssociatedStacks",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAssociatedStacks");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListAssociatedStacksRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListEntitledApplicationsCommand = async (
+/**
+ * serializeAws_json1_1ListEntitledApplicationsCommand
+ */
+export const se_ListEntitledApplicationsCommand = async (
   input: ListEntitledApplicationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.ListEntitledApplications",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListEntitledApplications");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListEntitledApplicationsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_json1_1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1StartFleetCommand = async (
+/**
+ * serializeAws_json1_1StartFleetCommand
+ */
+export const se_StartFleetCommand = async (
   input: StartFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.StartFleet",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartFleet");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1StartFleetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1StartImageBuilderCommand = async (
+/**
+ * serializeAws_json1_1StartImageBuilderCommand
+ */
+export const se_StartImageBuilderCommand = async (
   input: StartImageBuilderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.StartImageBuilder",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartImageBuilder");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1StartImageBuilderRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1StopFleetCommand = async (
+/**
+ * serializeAws_json1_1StopFleetCommand
+ */
+export const se_StopFleetCommand = async (
   input: StopFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.StopFleet",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopFleet");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1StopFleetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1StopImageBuilderCommand = async (
+/**
+ * serializeAws_json1_1StopImageBuilderCommand
+ */
+export const se_StopImageBuilderCommand = async (
   input: StopImageBuilderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.StopImageBuilder",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopImageBuilder");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1StopImageBuilderRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1TagResourceCommand = async (
+/**
+ * serializeAws_json1_1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UntagResourceCommand = async (
+/**
+ * serializeAws_json1_1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateApplicationCommand = async (
+/**
+ * serializeAws_json1_1UpdateApplicationCommand
+ */
+export const se_UpdateApplicationCommand = async (
   input: UpdateApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.UpdateApplication",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateApplication");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateApplicationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateDirectoryConfigCommand = async (
+/**
+ * serializeAws_json1_1UpdateDirectoryConfigCommand
+ */
+export const se_UpdateDirectoryConfigCommand = async (
   input: UpdateDirectoryConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.UpdateDirectoryConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateDirectoryConfig");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateDirectoryConfigRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateEntitlementCommand = async (
+/**
+ * serializeAws_json1_1UpdateEntitlementCommand
+ */
+export const se_UpdateEntitlementCommand = async (
   input: UpdateEntitlementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.UpdateEntitlement",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateEntitlement");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateEntitlementRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateFleetCommand = async (
+/**
+ * serializeAws_json1_1UpdateFleetCommand
+ */
+export const se_UpdateFleetCommand = async (
   input: UpdateFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.UpdateFleet",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateFleet");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateFleetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateImagePermissionsCommand = async (
+/**
+ * serializeAws_json1_1UpdateImagePermissionsCommand
+ */
+export const se_UpdateImagePermissionsCommand = async (
   input: UpdateImagePermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.UpdateImagePermissions",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateImagePermissions");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateImagePermissionsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateStackCommand = async (
+/**
+ * serializeAws_json1_1UpdateStackCommand
+ */
+export const se_UpdateStackCommand = async (
   input: UpdateStackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.UpdateStack",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateStack");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateStackRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_1AssociateApplicationFleetCommand = async (
+/**
+ * deserializeAws_json1_1AssociateApplicationFleetCommand
+ */
+export const de_AssociateApplicationFleetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateApplicationFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AssociateApplicationFleetCommandError(output, context);
+    return de_AssociateApplicationFleetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AssociateApplicationFleetResult(data, context);
+  contents = _json(data);
   const response: AssociateApplicationFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1AssociateApplicationFleetCommandError = async (
+/**
+ * deserializeAws_json1_1AssociateApplicationFleetCommandError
+ */
+const de_AssociateApplicationFleetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateApplicationFleetCommandOutput> => {
@@ -1225,48 +1186,53 @@ const deserializeAws_json1_1AssociateApplicationFleetCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.appstream#InvalidParameterCombinationException":
-      throw await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.appstream#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1AssociateApplicationToEntitlementCommand = async (
+/**
+ * deserializeAws_json1_1AssociateApplicationToEntitlementCommand
+ */
+export const de_AssociateApplicationToEntitlementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateApplicationToEntitlementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AssociateApplicationToEntitlementCommandError(output, context);
+    return de_AssociateApplicationToEntitlementCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AssociateApplicationToEntitlementResult(data, context);
+  contents = _json(data);
   const response: AssociateApplicationToEntitlementCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1AssociateApplicationToEntitlementCommandError = async (
+/**
+ * deserializeAws_json1_1AssociateApplicationToEntitlementCommandError
+ */
+const de_AssociateApplicationToEntitlementCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateApplicationToEntitlementCommandOutput> => {
@@ -1278,45 +1244,50 @@ const deserializeAws_json1_1AssociateApplicationToEntitlementCommandError = asyn
   switch (errorCode) {
     case "EntitlementNotFoundException":
     case "com.amazonaws.appstream#EntitlementNotFoundException":
-      throw await deserializeAws_json1_1EntitlementNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EntitlementNotFoundExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.appstream#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1AssociateFleetCommand = async (
+/**
+ * deserializeAws_json1_1AssociateFleetCommand
+ */
+export const de_AssociateFleetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AssociateFleetCommandError(output, context);
+    return de_AssociateFleetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AssociateFleetResult(data, context);
+  contents = _json(data);
   const response: AssociateFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1AssociateFleetCommandError = async (
+/**
+ * deserializeAws_json1_1AssociateFleetCommandError
+ */
+const de_AssociateFleetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateFleetCommandOutput> => {
@@ -1328,51 +1299,56 @@ const deserializeAws_json1_1AssociateFleetCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "IncompatibleImageException":
     case "com.amazonaws.appstream#IncompatibleImageException":
-      throw await deserializeAws_json1_1IncompatibleImageExceptionResponse(parsedOutput, context);
+      throw await de_IncompatibleImageExceptionRes(parsedOutput, context);
     case "InvalidAccountStatusException":
     case "com.amazonaws.appstream#InvalidAccountStatusException":
-      throw await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context);
+      throw await de_InvalidAccountStatusExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.appstream#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1BatchAssociateUserStackCommand = async (
+/**
+ * deserializeAws_json1_1BatchAssociateUserStackCommand
+ */
+export const de_BatchAssociateUserStackCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchAssociateUserStackCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1BatchAssociateUserStackCommandError(output, context);
+    return de_BatchAssociateUserStackCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchAssociateUserStackResult(data, context);
+  contents = _json(data);
   const response: BatchAssociateUserStackCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1BatchAssociateUserStackCommandError = async (
+/**
+ * deserializeAws_json1_1BatchAssociateUserStackCommandError
+ */
+const de_BatchAssociateUserStackCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchAssociateUserStackCommandOutput> => {
@@ -1384,39 +1360,44 @@ const deserializeAws_json1_1BatchAssociateUserStackCommandError = async (
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazonaws.appstream#InvalidParameterCombinationException":
-      throw await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1BatchDisassociateUserStackCommand = async (
+/**
+ * deserializeAws_json1_1BatchDisassociateUserStackCommand
+ */
+export const de_BatchDisassociateUserStackCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchDisassociateUserStackCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1BatchDisassociateUserStackCommandError(output, context);
+    return de_BatchDisassociateUserStackCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchDisassociateUserStackResult(data, context);
+  contents = _json(data);
   const response: BatchDisassociateUserStackCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1BatchDisassociateUserStackCommandError = async (
+/**
+ * deserializeAws_json1_1BatchDisassociateUserStackCommandError
+ */
+const de_BatchDisassociateUserStackCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchDisassociateUserStackCommandOutput> => {
@@ -1428,39 +1409,44 @@ const deserializeAws_json1_1BatchDisassociateUserStackCommandError = async (
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazonaws.appstream#InvalidParameterCombinationException":
-      throw await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1CopyImageCommand = async (
+/**
+ * deserializeAws_json1_1CopyImageCommand
+ */
+export const de_CopyImageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CopyImageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CopyImageCommandError(output, context);
+    return de_CopyImageCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CopyImageResponse(data, context);
+  contents = _json(data);
   const response: CopyImageCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CopyImageCommandError = async (
+/**
+ * deserializeAws_json1_1CopyImageCommandError
+ */
+const de_CopyImageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CopyImageCommandOutput> => {
@@ -1472,51 +1458,56 @@ const deserializeAws_json1_1CopyImageCommandError = async (
   switch (errorCode) {
     case "IncompatibleImageException":
     case "com.amazonaws.appstream#IncompatibleImageException":
-      throw await deserializeAws_json1_1IncompatibleImageExceptionResponse(parsedOutput, context);
+      throw await de_IncompatibleImageExceptionRes(parsedOutput, context);
     case "InvalidAccountStatusException":
     case "com.amazonaws.appstream#InvalidAccountStatusException":
-      throw await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context);
+      throw await de_InvalidAccountStatusExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.appstream#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.appstream#ResourceAlreadyExistsException":
-      throw await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     case "ResourceNotAvailableException":
     case "com.amazonaws.appstream#ResourceNotAvailableException":
-      throw await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotAvailableExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1CreateAppBlockCommand = async (
+/**
+ * deserializeAws_json1_1CreateAppBlockCommand
+ */
+export const de_CreateAppBlockCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAppBlockCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateAppBlockCommandError(output, context);
+    return de_CreateAppBlockCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateAppBlockResult(data, context);
+  contents = de_CreateAppBlockResult(data, context);
   const response: CreateAppBlockCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateAppBlockCommandError = async (
+/**
+ * deserializeAws_json1_1CreateAppBlockCommandError
+ */
+const de_CreateAppBlockCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAppBlockCommandOutput> => {
@@ -1528,45 +1519,50 @@ const deserializeAws_json1_1CreateAppBlockCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.appstream#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.appstream#ResourceAlreadyExistsException":
-      throw await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1CreateApplicationCommand = async (
+/**
+ * deserializeAws_json1_1CreateApplicationCommand
+ */
+export const de_CreateApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateApplicationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateApplicationCommandError(output, context);
+    return de_CreateApplicationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateApplicationResult(data, context);
+  contents = de_CreateApplicationResult(data, context);
   const response: CreateApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateApplicationCommandError = async (
+/**
+ * deserializeAws_json1_1CreateApplicationCommandError
+ */
+const de_CreateApplicationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateApplicationCommandOutput> => {
@@ -1578,48 +1574,53 @@ const deserializeAws_json1_1CreateApplicationCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.appstream#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.appstream#ResourceAlreadyExistsException":
-      throw await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1CreateDirectoryConfigCommand = async (
+/**
+ * deserializeAws_json1_1CreateDirectoryConfigCommand
+ */
+export const de_CreateDirectoryConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDirectoryConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateDirectoryConfigCommandError(output, context);
+    return de_CreateDirectoryConfigCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateDirectoryConfigResult(data, context);
+  contents = de_CreateDirectoryConfigResult(data, context);
   const response: CreateDirectoryConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateDirectoryConfigCommandError = async (
+/**
+ * deserializeAws_json1_1CreateDirectoryConfigCommandError
+ */
+const de_CreateDirectoryConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDirectoryConfigCommandOutput> => {
@@ -1631,51 +1632,56 @@ const deserializeAws_json1_1CreateDirectoryConfigCommandError = async (
   switch (errorCode) {
     case "InvalidAccountStatusException":
     case "com.amazonaws.appstream#InvalidAccountStatusException":
-      throw await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context);
+      throw await de_InvalidAccountStatusExceptionRes(parsedOutput, context);
     case "InvalidRoleException":
     case "com.amazonaws.appstream#InvalidRoleException":
-      throw await deserializeAws_json1_1InvalidRoleExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRoleExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.appstream#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.appstream#ResourceAlreadyExistsException":
-      throw await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1CreateEntitlementCommand = async (
+/**
+ * deserializeAws_json1_1CreateEntitlementCommand
+ */
+export const de_CreateEntitlementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateEntitlementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateEntitlementCommandError(output, context);
+    return de_CreateEntitlementCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateEntitlementResult(data, context);
+  contents = de_CreateEntitlementResult(data, context);
   const response: CreateEntitlementCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateEntitlementCommandError = async (
+/**
+ * deserializeAws_json1_1CreateEntitlementCommandError
+ */
+const de_CreateEntitlementCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateEntitlementCommandOutput> => {
@@ -1687,45 +1693,50 @@ const deserializeAws_json1_1CreateEntitlementCommandError = async (
   switch (errorCode) {
     case "EntitlementAlreadyExistsException":
     case "com.amazonaws.appstream#EntitlementAlreadyExistsException":
-      throw await deserializeAws_json1_1EntitlementAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntitlementAlreadyExistsExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.appstream#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1CreateFleetCommand = async (
+/**
+ * deserializeAws_json1_1CreateFleetCommand
+ */
+export const de_CreateFleetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateFleetCommandError(output, context);
+    return de_CreateFleetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateFleetResult(data, context);
+  contents = de_CreateFleetResult(data, context);
   const response: CreateFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateFleetCommandError = async (
+/**
+ * deserializeAws_json1_1CreateFleetCommandError
+ */
+const de_CreateFleetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFleetCommandOutput> => {
@@ -1737,66 +1748,71 @@ const deserializeAws_json1_1CreateFleetCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "IncompatibleImageException":
     case "com.amazonaws.appstream#IncompatibleImageException":
-      throw await deserializeAws_json1_1IncompatibleImageExceptionResponse(parsedOutput, context);
+      throw await de_IncompatibleImageExceptionRes(parsedOutput, context);
     case "InvalidAccountStatusException":
     case "com.amazonaws.appstream#InvalidAccountStatusException":
-      throw await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context);
+      throw await de_InvalidAccountStatusExceptionRes(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.appstream#InvalidParameterCombinationException":
-      throw await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
     case "InvalidRoleException":
     case "com.amazonaws.appstream#InvalidRoleException":
-      throw await deserializeAws_json1_1InvalidRoleExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRoleExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.appstream#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
     case "RequestLimitExceededException":
     case "com.amazonaws.appstream#RequestLimitExceededException":
-      throw await deserializeAws_json1_1RequestLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RequestLimitExceededExceptionRes(parsedOutput, context);
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.appstream#ResourceAlreadyExistsException":
-      throw await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     case "ResourceNotAvailableException":
     case "com.amazonaws.appstream#ResourceNotAvailableException":
-      throw await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotAvailableExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1CreateImageBuilderCommand = async (
+/**
+ * deserializeAws_json1_1CreateImageBuilderCommand
+ */
+export const de_CreateImageBuilderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateImageBuilderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateImageBuilderCommandError(output, context);
+    return de_CreateImageBuilderCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateImageBuilderResult(data, context);
+  contents = de_CreateImageBuilderResult(data, context);
   const response: CreateImageBuilderCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateImageBuilderCommandError = async (
+/**
+ * deserializeAws_json1_1CreateImageBuilderCommandError
+ */
+const de_CreateImageBuilderCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateImageBuilderCommandOutput> => {
@@ -1808,66 +1824,71 @@ const deserializeAws_json1_1CreateImageBuilderCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "IncompatibleImageException":
     case "com.amazonaws.appstream#IncompatibleImageException":
-      throw await deserializeAws_json1_1IncompatibleImageExceptionResponse(parsedOutput, context);
+      throw await de_IncompatibleImageExceptionRes(parsedOutput, context);
     case "InvalidAccountStatusException":
     case "com.amazonaws.appstream#InvalidAccountStatusException":
-      throw await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context);
+      throw await de_InvalidAccountStatusExceptionRes(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.appstream#InvalidParameterCombinationException":
-      throw await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
     case "InvalidRoleException":
     case "com.amazonaws.appstream#InvalidRoleException":
-      throw await deserializeAws_json1_1InvalidRoleExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRoleExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.appstream#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
     case "RequestLimitExceededException":
     case "com.amazonaws.appstream#RequestLimitExceededException":
-      throw await deserializeAws_json1_1RequestLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RequestLimitExceededExceptionRes(parsedOutput, context);
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.appstream#ResourceAlreadyExistsException":
-      throw await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     case "ResourceNotAvailableException":
     case "com.amazonaws.appstream#ResourceNotAvailableException":
-      throw await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotAvailableExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1CreateImageBuilderStreamingURLCommand = async (
+/**
+ * deserializeAws_json1_1CreateImageBuilderStreamingURLCommand
+ */
+export const de_CreateImageBuilderStreamingURLCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateImageBuilderStreamingURLCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateImageBuilderStreamingURLCommandError(output, context);
+    return de_CreateImageBuilderStreamingURLCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateImageBuilderStreamingURLResult(data, context);
+  contents = de_CreateImageBuilderStreamingURLResult(data, context);
   const response: CreateImageBuilderStreamingURLCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateImageBuilderStreamingURLCommandError = async (
+/**
+ * deserializeAws_json1_1CreateImageBuilderStreamingURLCommandError
+ */
+const de_CreateImageBuilderStreamingURLCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateImageBuilderStreamingURLCommandOutput> => {
@@ -1879,39 +1900,44 @@ const deserializeAws_json1_1CreateImageBuilderStreamingURLCommandError = async (
   switch (errorCode) {
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1CreateStackCommand = async (
+/**
+ * deserializeAws_json1_1CreateStackCommand
+ */
+export const de_CreateStackCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateStackCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateStackCommandError(output, context);
+    return de_CreateStackCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateStackResult(data, context);
+  contents = de_CreateStackResult(data, context);
   const response: CreateStackCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateStackCommandError = async (
+/**
+ * deserializeAws_json1_1CreateStackCommandError
+ */
+const de_CreateStackCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateStackCommandOutput> => {
@@ -1923,54 +1949,59 @@ const deserializeAws_json1_1CreateStackCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InvalidAccountStatusException":
     case "com.amazonaws.appstream#InvalidAccountStatusException":
-      throw await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context);
+      throw await de_InvalidAccountStatusExceptionRes(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.appstream#InvalidParameterCombinationException":
-      throw await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
     case "InvalidRoleException":
     case "com.amazonaws.appstream#InvalidRoleException":
-      throw await deserializeAws_json1_1InvalidRoleExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRoleExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.appstream#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.appstream#ResourceAlreadyExistsException":
-      throw await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1CreateStreamingURLCommand = async (
+/**
+ * deserializeAws_json1_1CreateStreamingURLCommand
+ */
+export const de_CreateStreamingURLCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateStreamingURLCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateStreamingURLCommandError(output, context);
+    return de_CreateStreamingURLCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateStreamingURLResult(data, context);
+  contents = de_CreateStreamingURLResult(data, context);
   const response: CreateStreamingURLCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateStreamingURLCommandError = async (
+/**
+ * deserializeAws_json1_1CreateStreamingURLCommandError
+ */
+const de_CreateStreamingURLCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateStreamingURLCommandOutput> => {
@@ -1982,45 +2013,50 @@ const deserializeAws_json1_1CreateStreamingURLCommandError = async (
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazonaws.appstream#InvalidParameterCombinationException":
-      throw await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
     case "ResourceNotAvailableException":
     case "com.amazonaws.appstream#ResourceNotAvailableException":
-      throw await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotAvailableExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1CreateUpdatedImageCommand = async (
+/**
+ * deserializeAws_json1_1CreateUpdatedImageCommand
+ */
+export const de_CreateUpdatedImageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUpdatedImageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateUpdatedImageCommandError(output, context);
+    return de_CreateUpdatedImageCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateUpdatedImageResult(data, context);
+  contents = de_CreateUpdatedImageResult(data, context);
   const response: CreateUpdatedImageCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateUpdatedImageCommandError = async (
+/**
+ * deserializeAws_json1_1CreateUpdatedImageCommandError
+ */
+const de_CreateUpdatedImageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUpdatedImageCommandOutput> => {
@@ -2032,54 +2068,59 @@ const deserializeAws_json1_1CreateUpdatedImageCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "IncompatibleImageException":
     case "com.amazonaws.appstream#IncompatibleImageException":
-      throw await deserializeAws_json1_1IncompatibleImageExceptionResponse(parsedOutput, context);
+      throw await de_IncompatibleImageExceptionRes(parsedOutput, context);
     case "InvalidAccountStatusException":
     case "com.amazonaws.appstream#InvalidAccountStatusException":
-      throw await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context);
+      throw await de_InvalidAccountStatusExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.appstream#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.appstream#ResourceAlreadyExistsException":
-      throw await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1CreateUsageReportSubscriptionCommand = async (
+/**
+ * deserializeAws_json1_1CreateUsageReportSubscriptionCommand
+ */
+export const de_CreateUsageReportSubscriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUsageReportSubscriptionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateUsageReportSubscriptionCommandError(output, context);
+    return de_CreateUsageReportSubscriptionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateUsageReportSubscriptionResult(data, context);
+  contents = _json(data);
   const response: CreateUsageReportSubscriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateUsageReportSubscriptionCommandError = async (
+/**
+ * deserializeAws_json1_1CreateUsageReportSubscriptionCommandError
+ */
+const de_CreateUsageReportSubscriptionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUsageReportSubscriptionCommandOutput> => {
@@ -2091,42 +2132,47 @@ const deserializeAws_json1_1CreateUsageReportSubscriptionCommandError = async (
   switch (errorCode) {
     case "InvalidAccountStatusException":
     case "com.amazonaws.appstream#InvalidAccountStatusException":
-      throw await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context);
+      throw await de_InvalidAccountStatusExceptionRes(parsedOutput, context);
     case "InvalidRoleException":
     case "com.amazonaws.appstream#InvalidRoleException":
-      throw await deserializeAws_json1_1InvalidRoleExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRoleExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.appstream#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1CreateUserCommand = async (
+/**
+ * deserializeAws_json1_1CreateUserCommand
+ */
+export const de_CreateUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateUserCommandError(output, context);
+    return de_CreateUserCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateUserResult(data, context);
+  contents = _json(data);
   const response: CreateUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateUserCommandError = async (
+/**
+ * deserializeAws_json1_1CreateUserCommandError
+ */
+const de_CreateUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUserCommandOutput> => {
@@ -2138,48 +2184,53 @@ const deserializeAws_json1_1CreateUserCommandError = async (
   switch (errorCode) {
     case "InvalidAccountStatusException":
     case "com.amazonaws.appstream#InvalidAccountStatusException":
-      throw await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context);
+      throw await de_InvalidAccountStatusExceptionRes(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.appstream#InvalidParameterCombinationException":
-      throw await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.appstream#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.appstream#ResourceAlreadyExistsException":
-      throw await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteAppBlockCommand = async (
+/**
+ * deserializeAws_json1_1DeleteAppBlockCommand
+ */
+export const de_DeleteAppBlockCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAppBlockCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteAppBlockCommandError(output, context);
+    return de_DeleteAppBlockCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteAppBlockResult(data, context);
+  contents = _json(data);
   const response: DeleteAppBlockCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteAppBlockCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteAppBlockCommandError
+ */
+const de_DeleteAppBlockCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAppBlockCommandOutput> => {
@@ -2191,42 +2242,47 @@ const deserializeAws_json1_1DeleteAppBlockCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.appstream#ResourceInUseException":
-      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteApplicationCommand = async (
+/**
+ * deserializeAws_json1_1DeleteApplicationCommand
+ */
+export const de_DeleteApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApplicationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteApplicationCommandError(output, context);
+    return de_DeleteApplicationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteApplicationResult(data, context);
+  contents = _json(data);
   const response: DeleteApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteApplicationCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteApplicationCommandError
+ */
+const de_DeleteApplicationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApplicationCommandOutput> => {
@@ -2238,45 +2294,50 @@ const deserializeAws_json1_1DeleteApplicationCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.appstream#ResourceInUseException":
-      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteDirectoryConfigCommand = async (
+/**
+ * deserializeAws_json1_1DeleteDirectoryConfigCommand
+ */
+export const de_DeleteDirectoryConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDirectoryConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteDirectoryConfigCommandError(output, context);
+    return de_DeleteDirectoryConfigCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteDirectoryConfigResult(data, context);
+  contents = _json(data);
   const response: DeleteDirectoryConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteDirectoryConfigCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteDirectoryConfigCommandError
+ */
+const de_DeleteDirectoryConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDirectoryConfigCommandOutput> => {
@@ -2288,39 +2349,44 @@ const deserializeAws_json1_1DeleteDirectoryConfigCommandError = async (
   switch (errorCode) {
     case "ResourceInUseException":
     case "com.amazonaws.appstream#ResourceInUseException":
-      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteEntitlementCommand = async (
+/**
+ * deserializeAws_json1_1DeleteEntitlementCommand
+ */
+export const de_DeleteEntitlementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEntitlementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteEntitlementCommandError(output, context);
+    return de_DeleteEntitlementCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteEntitlementResult(data, context);
+  contents = _json(data);
   const response: DeleteEntitlementCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteEntitlementCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteEntitlementCommandError
+ */
+const de_DeleteEntitlementCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEntitlementCommandOutput> => {
@@ -2332,45 +2398,50 @@ const deserializeAws_json1_1DeleteEntitlementCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "EntitlementNotFoundException":
     case "com.amazonaws.appstream#EntitlementNotFoundException":
-      throw await deserializeAws_json1_1EntitlementNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EntitlementNotFoundExceptionRes(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteFleetCommand = async (
+/**
+ * deserializeAws_json1_1DeleteFleetCommand
+ */
+export const de_DeleteFleetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteFleetCommandError(output, context);
+    return de_DeleteFleetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteFleetResult(data, context);
+  contents = _json(data);
   const response: DeleteFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteFleetCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteFleetCommandError
+ */
+const de_DeleteFleetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFleetCommandOutput> => {
@@ -2382,42 +2453,47 @@ const deserializeAws_json1_1DeleteFleetCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.appstream#ResourceInUseException":
-      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteImageCommand = async (
+/**
+ * deserializeAws_json1_1DeleteImageCommand
+ */
+export const de_DeleteImageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteImageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteImageCommandError(output, context);
+    return de_DeleteImageCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteImageResult(data, context);
+  contents = de_DeleteImageResult(data, context);
   const response: DeleteImageCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteImageCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteImageCommandError
+ */
+const de_DeleteImageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteImageCommandOutput> => {
@@ -2429,45 +2505,50 @@ const deserializeAws_json1_1DeleteImageCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.appstream#ResourceInUseException":
-      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteImageBuilderCommand = async (
+/**
+ * deserializeAws_json1_1DeleteImageBuilderCommand
+ */
+export const de_DeleteImageBuilderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteImageBuilderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteImageBuilderCommandError(output, context);
+    return de_DeleteImageBuilderCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteImageBuilderResult(data, context);
+  contents = de_DeleteImageBuilderResult(data, context);
   const response: DeleteImageBuilderCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteImageBuilderCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteImageBuilderCommandError
+ */
+const de_DeleteImageBuilderCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteImageBuilderCommandOutput> => {
@@ -2479,42 +2560,47 @@ const deserializeAws_json1_1DeleteImageBuilderCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteImagePermissionsCommand = async (
+/**
+ * deserializeAws_json1_1DeleteImagePermissionsCommand
+ */
+export const de_DeleteImagePermissionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteImagePermissionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteImagePermissionsCommandError(output, context);
+    return de_DeleteImagePermissionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteImagePermissionsResult(data, context);
+  contents = _json(data);
   const response: DeleteImagePermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteImagePermissionsCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteImagePermissionsCommandError
+ */
+const de_DeleteImagePermissionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteImagePermissionsCommandOutput> => {
@@ -2526,39 +2612,44 @@ const deserializeAws_json1_1DeleteImagePermissionsCommandError = async (
   switch (errorCode) {
     case "ResourceNotAvailableException":
     case "com.amazonaws.appstream#ResourceNotAvailableException":
-      throw await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotAvailableExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteStackCommand = async (
+/**
+ * deserializeAws_json1_1DeleteStackCommand
+ */
+export const de_DeleteStackCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteStackCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteStackCommandError(output, context);
+    return de_DeleteStackCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteStackResult(data, context);
+  contents = _json(data);
   const response: DeleteStackCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteStackCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteStackCommandError
+ */
+const de_DeleteStackCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteStackCommandOutput> => {
@@ -2570,45 +2661,50 @@ const deserializeAws_json1_1DeleteStackCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.appstream#ResourceInUseException":
-      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteUsageReportSubscriptionCommand = async (
+/**
+ * deserializeAws_json1_1DeleteUsageReportSubscriptionCommand
+ */
+export const de_DeleteUsageReportSubscriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUsageReportSubscriptionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteUsageReportSubscriptionCommandError(output, context);
+    return de_DeleteUsageReportSubscriptionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteUsageReportSubscriptionResult(data, context);
+  contents = _json(data);
   const response: DeleteUsageReportSubscriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteUsageReportSubscriptionCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteUsageReportSubscriptionCommandError
+ */
+const de_DeleteUsageReportSubscriptionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUsageReportSubscriptionCommandOutput> => {
@@ -2620,39 +2716,44 @@ const deserializeAws_json1_1DeleteUsageReportSubscriptionCommandError = async (
   switch (errorCode) {
     case "InvalidAccountStatusException":
     case "com.amazonaws.appstream#InvalidAccountStatusException":
-      throw await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context);
+      throw await de_InvalidAccountStatusExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteUserCommand = async (
+/**
+ * deserializeAws_json1_1DeleteUserCommand
+ */
+export const de_DeleteUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteUserCommandError(output, context);
+    return de_DeleteUserCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteUserResult(data, context);
+  contents = _json(data);
   const response: DeleteUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteUserCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteUserCommandError
+ */
+const de_DeleteUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserCommandOutput> => {
@@ -2664,36 +2765,41 @@ const deserializeAws_json1_1DeleteUserCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeAppBlocksCommand = async (
+/**
+ * deserializeAws_json1_1DescribeAppBlocksCommand
+ */
+export const de_DescribeAppBlocksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAppBlocksCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeAppBlocksCommandError(output, context);
+    return de_DescribeAppBlocksCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeAppBlocksResult(data, context);
+  contents = de_DescribeAppBlocksResult(data, context);
   const response: DescribeAppBlocksCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeAppBlocksCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeAppBlocksCommandError
+ */
+const de_DescribeAppBlocksCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAppBlocksCommandOutput> => {
@@ -2705,39 +2811,44 @@ const deserializeAws_json1_1DescribeAppBlocksCommandError = async (
   switch (errorCode) {
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeApplicationFleetAssociationsCommand = async (
+/**
+ * deserializeAws_json1_1DescribeApplicationFleetAssociationsCommand
+ */
+export const de_DescribeApplicationFleetAssociationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeApplicationFleetAssociationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeApplicationFleetAssociationsCommandError(output, context);
+    return de_DescribeApplicationFleetAssociationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeApplicationFleetAssociationsResult(data, context);
+  contents = _json(data);
   const response: DescribeApplicationFleetAssociationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeApplicationFleetAssociationsCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeApplicationFleetAssociationsCommandError
+ */
+const de_DescribeApplicationFleetAssociationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeApplicationFleetAssociationsCommandOutput> => {
@@ -2749,39 +2860,44 @@ const deserializeAws_json1_1DescribeApplicationFleetAssociationsCommandError = a
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazonaws.appstream#InvalidParameterCombinationException":
-      throw await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeApplicationsCommand = async (
+/**
+ * deserializeAws_json1_1DescribeApplicationsCommand
+ */
+export const de_DescribeApplicationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeApplicationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeApplicationsCommandError(output, context);
+    return de_DescribeApplicationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeApplicationsResult(data, context);
+  contents = de_DescribeApplicationsResult(data, context);
   const response: DescribeApplicationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeApplicationsCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeApplicationsCommandError
+ */
+const de_DescribeApplicationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeApplicationsCommandOutput> => {
@@ -2793,39 +2909,44 @@ const deserializeAws_json1_1DescribeApplicationsCommandError = async (
   switch (errorCode) {
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeDirectoryConfigsCommand = async (
+/**
+ * deserializeAws_json1_1DescribeDirectoryConfigsCommand
+ */
+export const de_DescribeDirectoryConfigsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDirectoryConfigsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeDirectoryConfigsCommandError(output, context);
+    return de_DescribeDirectoryConfigsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeDirectoryConfigsResult(data, context);
+  contents = de_DescribeDirectoryConfigsResult(data, context);
   const response: DescribeDirectoryConfigsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeDirectoryConfigsCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeDirectoryConfigsCommandError
+ */
+const de_DescribeDirectoryConfigsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDirectoryConfigsCommandOutput> => {
@@ -2837,36 +2958,41 @@ const deserializeAws_json1_1DescribeDirectoryConfigsCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeEntitlementsCommand = async (
+/**
+ * deserializeAws_json1_1DescribeEntitlementsCommand
+ */
+export const de_DescribeEntitlementsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEntitlementsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeEntitlementsCommandError(output, context);
+    return de_DescribeEntitlementsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeEntitlementsResult(data, context);
+  contents = de_DescribeEntitlementsResult(data, context);
   const response: DescribeEntitlementsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeEntitlementsCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeEntitlementsCommandError
+ */
+const de_DescribeEntitlementsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEntitlementsCommandOutput> => {
@@ -2878,42 +3004,47 @@ const deserializeAws_json1_1DescribeEntitlementsCommandError = async (
   switch (errorCode) {
     case "EntitlementNotFoundException":
     case "com.amazonaws.appstream#EntitlementNotFoundException":
-      throw await deserializeAws_json1_1EntitlementNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EntitlementNotFoundExceptionRes(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeFleetsCommand = async (
+/**
+ * deserializeAws_json1_1DescribeFleetsCommand
+ */
+export const de_DescribeFleetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFleetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeFleetsCommandError(output, context);
+    return de_DescribeFleetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeFleetsResult(data, context);
+  contents = de_DescribeFleetsResult(data, context);
   const response: DescribeFleetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeFleetsCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeFleetsCommandError
+ */
+const de_DescribeFleetsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFleetsCommandOutput> => {
@@ -2925,36 +3056,41 @@ const deserializeAws_json1_1DescribeFleetsCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeImageBuildersCommand = async (
+/**
+ * deserializeAws_json1_1DescribeImageBuildersCommand
+ */
+export const de_DescribeImageBuildersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeImageBuildersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeImageBuildersCommandError(output, context);
+    return de_DescribeImageBuildersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeImageBuildersResult(data, context);
+  contents = de_DescribeImageBuildersResult(data, context);
   const response: DescribeImageBuildersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeImageBuildersCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeImageBuildersCommandError
+ */
+const de_DescribeImageBuildersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeImageBuildersCommandOutput> => {
@@ -2966,36 +3102,41 @@ const deserializeAws_json1_1DescribeImageBuildersCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeImagePermissionsCommand = async (
+/**
+ * deserializeAws_json1_1DescribeImagePermissionsCommand
+ */
+export const de_DescribeImagePermissionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeImagePermissionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeImagePermissionsCommandError(output, context);
+    return de_DescribeImagePermissionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeImagePermissionsResult(data, context);
+  contents = _json(data);
   const response: DescribeImagePermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeImagePermissionsCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeImagePermissionsCommandError
+ */
+const de_DescribeImagePermissionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeImagePermissionsCommandOutput> => {
@@ -3007,36 +3148,41 @@ const deserializeAws_json1_1DescribeImagePermissionsCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeImagesCommand = async (
+/**
+ * deserializeAws_json1_1DescribeImagesCommand
+ */
+export const de_DescribeImagesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeImagesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeImagesCommandError(output, context);
+    return de_DescribeImagesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeImagesResult(data, context);
+  contents = de_DescribeImagesResult(data, context);
   const response: DescribeImagesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeImagesCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeImagesCommandError
+ */
+const de_DescribeImagesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeImagesCommandOutput> => {
@@ -3048,39 +3194,44 @@ const deserializeAws_json1_1DescribeImagesCommandError = async (
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazonaws.appstream#InvalidParameterCombinationException":
-      throw await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeSessionsCommand = async (
+/**
+ * deserializeAws_json1_1DescribeSessionsCommand
+ */
+export const de_DescribeSessionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSessionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeSessionsCommandError(output, context);
+    return de_DescribeSessionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeSessionsResult(data, context);
+  contents = de_DescribeSessionsResult(data, context);
   const response: DescribeSessionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeSessionsCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeSessionsCommandError
+ */
+const de_DescribeSessionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSessionsCommandOutput> => {
@@ -3092,36 +3243,41 @@ const deserializeAws_json1_1DescribeSessionsCommandError = async (
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazonaws.appstream#InvalidParameterCombinationException":
-      throw await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeStacksCommand = async (
+/**
+ * deserializeAws_json1_1DescribeStacksCommand
+ */
+export const de_DescribeStacksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeStacksCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeStacksCommandError(output, context);
+    return de_DescribeStacksCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeStacksResult(data, context);
+  contents = de_DescribeStacksResult(data, context);
   const response: DescribeStacksCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeStacksCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeStacksCommandError
+ */
+const de_DescribeStacksCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeStacksCommandOutput> => {
@@ -3133,36 +3289,41 @@ const deserializeAws_json1_1DescribeStacksCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeUsageReportSubscriptionsCommand = async (
+/**
+ * deserializeAws_json1_1DescribeUsageReportSubscriptionsCommand
+ */
+export const de_DescribeUsageReportSubscriptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUsageReportSubscriptionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeUsageReportSubscriptionsCommandError(output, context);
+    return de_DescribeUsageReportSubscriptionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeUsageReportSubscriptionsResult(data, context);
+  contents = de_DescribeUsageReportSubscriptionsResult(data, context);
   const response: DescribeUsageReportSubscriptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeUsageReportSubscriptionsCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeUsageReportSubscriptionsCommandError
+ */
+const de_DescribeUsageReportSubscriptionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUsageReportSubscriptionsCommandOutput> => {
@@ -3174,39 +3335,44 @@ const deserializeAws_json1_1DescribeUsageReportSubscriptionsCommandError = async
   switch (errorCode) {
     case "InvalidAccountStatusException":
     case "com.amazonaws.appstream#InvalidAccountStatusException":
-      throw await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context);
+      throw await de_InvalidAccountStatusExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeUsersCommand = async (
+/**
+ * deserializeAws_json1_1DescribeUsersCommand
+ */
+export const de_DescribeUsersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUsersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeUsersCommandError(output, context);
+    return de_DescribeUsersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeUsersResult(data, context);
+  contents = de_DescribeUsersResult(data, context);
   const response: DescribeUsersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeUsersCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeUsersCommandError
+ */
+const de_DescribeUsersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUsersCommandOutput> => {
@@ -3218,42 +3384,47 @@ const deserializeAws_json1_1DescribeUsersCommandError = async (
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazonaws.appstream#InvalidParameterCombinationException":
-      throw await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeUserStackAssociationsCommand = async (
+/**
+ * deserializeAws_json1_1DescribeUserStackAssociationsCommand
+ */
+export const de_DescribeUserStackAssociationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUserStackAssociationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeUserStackAssociationsCommandError(output, context);
+    return de_DescribeUserStackAssociationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeUserStackAssociationsResult(data, context);
+  contents = _json(data);
   const response: DescribeUserStackAssociationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeUserStackAssociationsCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeUserStackAssociationsCommandError
+ */
+const de_DescribeUserStackAssociationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUserStackAssociationsCommandOutput> => {
@@ -3265,39 +3436,44 @@ const deserializeAws_json1_1DescribeUserStackAssociationsCommandError = async (
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazonaws.appstream#InvalidParameterCombinationException":
-      throw await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DisableUserCommand = async (
+/**
+ * deserializeAws_json1_1DisableUserCommand
+ */
+export const de_DisableUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DisableUserCommandError(output, context);
+    return de_DisableUserCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DisableUserResult(data, context);
+  contents = _json(data);
   const response: DisableUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DisableUserCommandError = async (
+/**
+ * deserializeAws_json1_1DisableUserCommandError
+ */
+const de_DisableUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableUserCommandOutput> => {
@@ -3309,36 +3485,41 @@ const deserializeAws_json1_1DisableUserCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DisassociateApplicationFleetCommand = async (
+/**
+ * deserializeAws_json1_1DisassociateApplicationFleetCommand
+ */
+export const de_DisassociateApplicationFleetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateApplicationFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DisassociateApplicationFleetCommandError(output, context);
+    return de_DisassociateApplicationFleetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DisassociateApplicationFleetResult(data, context);
+  contents = _json(data);
   const response: DisassociateApplicationFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DisassociateApplicationFleetCommandError = async (
+/**
+ * deserializeAws_json1_1DisassociateApplicationFleetCommandError
+ */
+const de_DisassociateApplicationFleetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateApplicationFleetCommandOutput> => {
@@ -3350,42 +3531,47 @@ const deserializeAws_json1_1DisassociateApplicationFleetCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.appstream#InvalidParameterCombinationException":
-      throw await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DisassociateApplicationFromEntitlementCommand = async (
+/**
+ * deserializeAws_json1_1DisassociateApplicationFromEntitlementCommand
+ */
+export const de_DisassociateApplicationFromEntitlementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateApplicationFromEntitlementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DisassociateApplicationFromEntitlementCommandError(output, context);
+    return de_DisassociateApplicationFromEntitlementCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DisassociateApplicationFromEntitlementResult(data, context);
+  contents = _json(data);
   const response: DisassociateApplicationFromEntitlementCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DisassociateApplicationFromEntitlementCommandError = async (
+/**
+ * deserializeAws_json1_1DisassociateApplicationFromEntitlementCommandError
+ */
+const de_DisassociateApplicationFromEntitlementCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateApplicationFromEntitlementCommandOutput> => {
@@ -3397,42 +3583,47 @@ const deserializeAws_json1_1DisassociateApplicationFromEntitlementCommandError =
   switch (errorCode) {
     case "EntitlementNotFoundException":
     case "com.amazonaws.appstream#EntitlementNotFoundException":
-      throw await deserializeAws_json1_1EntitlementNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EntitlementNotFoundExceptionRes(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DisassociateFleetCommand = async (
+/**
+ * deserializeAws_json1_1DisassociateFleetCommand
+ */
+export const de_DisassociateFleetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DisassociateFleetCommandError(output, context);
+    return de_DisassociateFleetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DisassociateFleetResult(data, context);
+  contents = _json(data);
   const response: DisassociateFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DisassociateFleetCommandError = async (
+/**
+ * deserializeAws_json1_1DisassociateFleetCommandError
+ */
+const de_DisassociateFleetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateFleetCommandOutput> => {
@@ -3444,45 +3635,50 @@ const deserializeAws_json1_1DisassociateFleetCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.appstream#ResourceInUseException":
-      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1EnableUserCommand = async (
+/**
+ * deserializeAws_json1_1EnableUserCommand
+ */
+export const de_EnableUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1EnableUserCommandError(output, context);
+    return de_EnableUserCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1EnableUserResult(data, context);
+  contents = _json(data);
   const response: EnableUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1EnableUserCommandError = async (
+/**
+ * deserializeAws_json1_1EnableUserCommandError
+ */
+const de_EnableUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableUserCommandOutput> => {
@@ -3494,39 +3690,44 @@ const deserializeAws_json1_1EnableUserCommandError = async (
   switch (errorCode) {
     case "InvalidAccountStatusException":
     case "com.amazonaws.appstream#InvalidAccountStatusException":
-      throw await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context);
+      throw await de_InvalidAccountStatusExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ExpireSessionCommand = async (
+/**
+ * deserializeAws_json1_1ExpireSessionCommand
+ */
+export const de_ExpireSessionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExpireSessionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ExpireSessionCommandError(output, context);
+    return de_ExpireSessionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ExpireSessionResult(data, context);
+  contents = _json(data);
   const response: ExpireSessionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ExpireSessionCommandError = async (
+/**
+ * deserializeAws_json1_1ExpireSessionCommandError
+ */
+const de_ExpireSessionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExpireSessionCommandOutput> => {
@@ -3536,32 +3737,37 @@ const deserializeAws_json1_1ExpireSessionCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
 
-export const deserializeAws_json1_1ListAssociatedFleetsCommand = async (
+/**
+ * deserializeAws_json1_1ListAssociatedFleetsCommand
+ */
+export const de_ListAssociatedFleetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAssociatedFleetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListAssociatedFleetsCommandError(output, context);
+    return de_ListAssociatedFleetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListAssociatedFleetsResult(data, context);
+  contents = _json(data);
   const response: ListAssociatedFleetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListAssociatedFleetsCommandError = async (
+/**
+ * deserializeAws_json1_1ListAssociatedFleetsCommandError
+ */
+const de_ListAssociatedFleetsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAssociatedFleetsCommandOutput> => {
@@ -3571,32 +3777,37 @@ const deserializeAws_json1_1ListAssociatedFleetsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
 
-export const deserializeAws_json1_1ListAssociatedStacksCommand = async (
+/**
+ * deserializeAws_json1_1ListAssociatedStacksCommand
+ */
+export const de_ListAssociatedStacksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAssociatedStacksCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListAssociatedStacksCommandError(output, context);
+    return de_ListAssociatedStacksCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListAssociatedStacksResult(data, context);
+  contents = _json(data);
   const response: ListAssociatedStacksCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListAssociatedStacksCommandError = async (
+/**
+ * deserializeAws_json1_1ListAssociatedStacksCommandError
+ */
+const de_ListAssociatedStacksCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAssociatedStacksCommandOutput> => {
@@ -3606,32 +3817,37 @@ const deserializeAws_json1_1ListAssociatedStacksCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
 
-export const deserializeAws_json1_1ListEntitledApplicationsCommand = async (
+/**
+ * deserializeAws_json1_1ListEntitledApplicationsCommand
+ */
+export const de_ListEntitledApplicationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEntitledApplicationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListEntitledApplicationsCommandError(output, context);
+    return de_ListEntitledApplicationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListEntitledApplicationsResult(data, context);
+  contents = _json(data);
   const response: ListEntitledApplicationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListEntitledApplicationsCommandError = async (
+/**
+ * deserializeAws_json1_1ListEntitledApplicationsCommandError
+ */
+const de_ListEntitledApplicationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEntitledApplicationsCommandOutput> => {
@@ -3643,42 +3859,47 @@ const deserializeAws_json1_1ListEntitledApplicationsCommandError = async (
   switch (errorCode) {
     case "EntitlementNotFoundException":
     case "com.amazonaws.appstream#EntitlementNotFoundException":
-      throw await deserializeAws_json1_1EntitlementNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EntitlementNotFoundExceptionRes(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -3690,36 +3911,41 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1StartFleetCommand = async (
+/**
+ * deserializeAws_json1_1StartFleetCommand
+ */
+export const de_StartFleetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1StartFleetCommandError(output, context);
+    return de_StartFleetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartFleetResult(data, context);
+  contents = _json(data);
   const response: StartFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1StartFleetCommandError = async (
+/**
+ * deserializeAws_json1_1StartFleetCommandError
+ */
+const de_StartFleetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartFleetCommandOutput> => {
@@ -3731,57 +3957,62 @@ const deserializeAws_json1_1StartFleetCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InvalidAccountStatusException":
     case "com.amazonaws.appstream#InvalidAccountStatusException":
-      throw await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context);
+      throw await de_InvalidAccountStatusExceptionRes(parsedOutput, context);
     case "InvalidRoleException":
     case "com.amazonaws.appstream#InvalidRoleException":
-      throw await deserializeAws_json1_1InvalidRoleExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRoleExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.appstream#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
     case "RequestLimitExceededException":
     case "com.amazonaws.appstream#RequestLimitExceededException":
-      throw await deserializeAws_json1_1RequestLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RequestLimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotAvailableException":
     case "com.amazonaws.appstream#ResourceNotAvailableException":
-      throw await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotAvailableExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1StartImageBuilderCommand = async (
+/**
+ * deserializeAws_json1_1StartImageBuilderCommand
+ */
+export const de_StartImageBuilderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartImageBuilderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1StartImageBuilderCommandError(output, context);
+    return de_StartImageBuilderCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartImageBuilderResult(data, context);
+  contents = de_StartImageBuilderResult(data, context);
   const response: StartImageBuilderCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1StartImageBuilderCommandError = async (
+/**
+ * deserializeAws_json1_1StartImageBuilderCommandError
+ */
+const de_StartImageBuilderCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartImageBuilderCommandOutput> => {
@@ -3793,48 +4024,53 @@ const deserializeAws_json1_1StartImageBuilderCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "IncompatibleImageException":
     case "com.amazonaws.appstream#IncompatibleImageException":
-      throw await deserializeAws_json1_1IncompatibleImageExceptionResponse(parsedOutput, context);
+      throw await de_IncompatibleImageExceptionRes(parsedOutput, context);
     case "InvalidAccountStatusException":
     case "com.amazonaws.appstream#InvalidAccountStatusException":
-      throw await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context);
+      throw await de_InvalidAccountStatusExceptionRes(parsedOutput, context);
     case "ResourceNotAvailableException":
     case "com.amazonaws.appstream#ResourceNotAvailableException":
-      throw await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotAvailableExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1StopFleetCommand = async (
+/**
+ * deserializeAws_json1_1StopFleetCommand
+ */
+export const de_StopFleetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1StopFleetCommandError(output, context);
+    return de_StopFleetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StopFleetResult(data, context);
+  contents = _json(data);
   const response: StopFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1StopFleetCommandError = async (
+/**
+ * deserializeAws_json1_1StopFleetCommandError
+ */
+const de_StopFleetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopFleetCommandOutput> => {
@@ -3846,39 +4082,44 @@ const deserializeAws_json1_1StopFleetCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1StopImageBuilderCommand = async (
+/**
+ * deserializeAws_json1_1StopImageBuilderCommand
+ */
+export const de_StopImageBuilderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopImageBuilderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1StopImageBuilderCommandError(output, context);
+    return de_StopImageBuilderCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StopImageBuilderResult(data, context);
+  contents = de_StopImageBuilderResult(data, context);
   const response: StopImageBuilderCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1StopImageBuilderCommandError = async (
+/**
+ * deserializeAws_json1_1StopImageBuilderCommandError
+ */
+const de_StopImageBuilderCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopImageBuilderCommandOutput> => {
@@ -3890,42 +4131,47 @@ const deserializeAws_json1_1StopImageBuilderCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1TagResourceCommand = async (
+/**
+ * deserializeAws_json1_1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceResponse(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1TagResourceCommandError = async (
+/**
+ * deserializeAws_json1_1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -3937,42 +4183,47 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   switch (errorCode) {
     case "InvalidAccountStatusException":
     case "com.amazonaws.appstream#InvalidAccountStatusException":
-      throw await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context);
+      throw await de_InvalidAccountStatusExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.appstream#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UntagResourceCommand = async (
+/**
+ * deserializeAws_json1_1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UntagResourceCommandError = async (
+/**
+ * deserializeAws_json1_1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -3984,36 +4235,41 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UpdateApplicationCommand = async (
+/**
+ * deserializeAws_json1_1UpdateApplicationCommand
+ */
+export const de_UpdateApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApplicationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateApplicationCommandError(output, context);
+    return de_UpdateApplicationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateApplicationResult(data, context);
+  contents = de_UpdateApplicationResult(data, context);
   const response: UpdateApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdateApplicationCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateApplicationCommandError
+ */
+const de_UpdateApplicationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApplicationCommandOutput> => {
@@ -4025,42 +4281,47 @@ const deserializeAws_json1_1UpdateApplicationCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UpdateDirectoryConfigCommand = async (
+/**
+ * deserializeAws_json1_1UpdateDirectoryConfigCommand
+ */
+export const de_UpdateDirectoryConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDirectoryConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateDirectoryConfigCommandError(output, context);
+    return de_UpdateDirectoryConfigCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateDirectoryConfigResult(data, context);
+  contents = de_UpdateDirectoryConfigResult(data, context);
   const response: UpdateDirectoryConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdateDirectoryConfigCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateDirectoryConfigCommandError
+ */
+const de_UpdateDirectoryConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDirectoryConfigCommandOutput> => {
@@ -4072,48 +4333,53 @@ const deserializeAws_json1_1UpdateDirectoryConfigCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InvalidRoleException":
     case "com.amazonaws.appstream#InvalidRoleException":
-      throw await deserializeAws_json1_1InvalidRoleExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRoleExceptionRes(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.appstream#ResourceInUseException":
-      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UpdateEntitlementCommand = async (
+/**
+ * deserializeAws_json1_1UpdateEntitlementCommand
+ */
+export const de_UpdateEntitlementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEntitlementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateEntitlementCommandError(output, context);
+    return de_UpdateEntitlementCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateEntitlementResult(data, context);
+  contents = de_UpdateEntitlementResult(data, context);
   const response: UpdateEntitlementCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdateEntitlementCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateEntitlementCommandError
+ */
+const de_UpdateEntitlementCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEntitlementCommandOutput> => {
@@ -4125,45 +4391,50 @@ const deserializeAws_json1_1UpdateEntitlementCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "EntitlementNotFoundException":
     case "com.amazonaws.appstream#EntitlementNotFoundException":
-      throw await deserializeAws_json1_1EntitlementNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EntitlementNotFoundExceptionRes(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UpdateFleetCommand = async (
+/**
+ * deserializeAws_json1_1UpdateFleetCommand
+ */
+export const de_UpdateFleetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateFleetCommandError(output, context);
+    return de_UpdateFleetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateFleetResult(data, context);
+  contents = de_UpdateFleetResult(data, context);
   const response: UpdateFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdateFleetCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateFleetCommandError
+ */
+const de_UpdateFleetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFleetCommandOutput> => {
@@ -4175,66 +4446,71 @@ const deserializeAws_json1_1UpdateFleetCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "IncompatibleImageException":
     case "com.amazonaws.appstream#IncompatibleImageException":
-      throw await deserializeAws_json1_1IncompatibleImageExceptionResponse(parsedOutput, context);
+      throw await de_IncompatibleImageExceptionRes(parsedOutput, context);
     case "InvalidAccountStatusException":
     case "com.amazonaws.appstream#InvalidAccountStatusException":
-      throw await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context);
+      throw await de_InvalidAccountStatusExceptionRes(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.appstream#InvalidParameterCombinationException":
-      throw await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
     case "InvalidRoleException":
     case "com.amazonaws.appstream#InvalidRoleException":
-      throw await deserializeAws_json1_1InvalidRoleExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRoleExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.appstream#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
     case "RequestLimitExceededException":
     case "com.amazonaws.appstream#RequestLimitExceededException":
-      throw await deserializeAws_json1_1RequestLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RequestLimitExceededExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.appstream#ResourceInUseException":
-      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotAvailableException":
     case "com.amazonaws.appstream#ResourceNotAvailableException":
-      throw await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotAvailableExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UpdateImagePermissionsCommand = async (
+/**
+ * deserializeAws_json1_1UpdateImagePermissionsCommand
+ */
+export const de_UpdateImagePermissionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateImagePermissionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateImagePermissionsCommandError(output, context);
+    return de_UpdateImagePermissionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateImagePermissionsResult(data, context);
+  contents = _json(data);
   const response: UpdateImagePermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdateImagePermissionsCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateImagePermissionsCommandError
+ */
+const de_UpdateImagePermissionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateImagePermissionsCommandOutput> => {
@@ -4246,42 +4522,47 @@ const deserializeAws_json1_1UpdateImagePermissionsCommandError = async (
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazonaws.appstream#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotAvailableException":
     case "com.amazonaws.appstream#ResourceNotAvailableException":
-      throw await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotAvailableExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UpdateStackCommand = async (
+/**
+ * deserializeAws_json1_1UpdateStackCommand
+ */
+export const de_UpdateStackCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateStackCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateStackCommandError(output, context);
+    return de_UpdateStackCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateStackResult(data, context);
+  contents = de_UpdateStackResult(data, context);
   const response: UpdateStackCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdateStackCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateStackCommandError
+ */
+const de_UpdateStackCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateStackCommandOutput> => {
@@ -4293,48 +4574,50 @@ const deserializeAws_json1_1UpdateStackCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "IncompatibleImageException":
     case "com.amazonaws.appstream#IncompatibleImageException":
-      throw await deserializeAws_json1_1IncompatibleImageExceptionResponse(parsedOutput, context);
+      throw await de_IncompatibleImageExceptionRes(parsedOutput, context);
     case "InvalidAccountStatusException":
     case "com.amazonaws.appstream#InvalidAccountStatusException":
-      throw await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context);
+      throw await de_InvalidAccountStatusExceptionRes(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.appstream#InvalidParameterCombinationException":
-      throw await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
     case "InvalidRoleException":
     case "com.amazonaws.appstream#InvalidRoleException":
-      throw await deserializeAws_json1_1InvalidRoleExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRoleExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.appstream#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.appstream#ResourceInUseException":
-      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ConcurrentModificationExceptionRes
+ */
+const de_ConcurrentModificationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ConcurrentModificationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ConcurrentModificationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ConcurrentModificationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4342,12 +4625,15 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1EntitlementAlreadyExistsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1EntitlementAlreadyExistsExceptionRes
+ */
+const de_EntitlementAlreadyExistsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<EntitlementAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1EntitlementAlreadyExistsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new EntitlementAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4355,12 +4641,15 @@ const deserializeAws_json1_1EntitlementAlreadyExistsExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1EntitlementNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1EntitlementNotFoundExceptionRes
+ */
+const de_EntitlementNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<EntitlementNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1EntitlementNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new EntitlementNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4368,12 +4657,15 @@ const deserializeAws_json1_1EntitlementNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1IncompatibleImageExceptionResponse = async (
+/**
+ * deserializeAws_json1_1IncompatibleImageExceptionRes
+ */
+const de_IncompatibleImageExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<IncompatibleImageException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1IncompatibleImageException(body, context);
+  const deserialized: any = _json(body);
   const exception = new IncompatibleImageException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4381,12 +4673,15 @@ const deserializeAws_json1_1IncompatibleImageExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidAccountStatusExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidAccountStatusExceptionRes
+ */
+const de_InvalidAccountStatusExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidAccountStatusException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidAccountStatusException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidAccountStatusException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4394,12 +4689,15 @@ const deserializeAws_json1_1InvalidAccountStatusExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidParameterCombinationExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidParameterCombinationExceptionRes
+ */
+const de_InvalidParameterCombinationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidParameterCombinationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidParameterCombinationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidParameterCombinationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4407,12 +4705,15 @@ const deserializeAws_json1_1InvalidParameterCombinationExceptionResponse = async
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidRoleExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidRoleExceptionRes
+ */
+const de_InvalidRoleExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRoleException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidRoleException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidRoleException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4420,12 +4721,15 @@ const deserializeAws_json1_1InvalidRoleExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1LimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1LimitExceededExceptionRes
+ */
+const de_LimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4433,12 +4737,15 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1OperationNotPermittedExceptionResponse = async (
+/**
+ * deserializeAws_json1_1OperationNotPermittedExceptionRes
+ */
+const de_OperationNotPermittedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<OperationNotPermittedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1OperationNotPermittedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new OperationNotPermittedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4446,12 +4753,15 @@ const deserializeAws_json1_1OperationNotPermittedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1RequestLimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1RequestLimitExceededExceptionRes
+ */
+const de_RequestLimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<RequestLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1RequestLimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new RequestLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4459,12 +4769,15 @@ const deserializeAws_json1_1RequestLimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ResourceAlreadyExistsExceptionRes
+ */
+const de_ResourceAlreadyExistsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceAlreadyExistsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4472,12 +4785,15 @@ const deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ResourceInUseExceptionRes
+ */
+const de_ResourceInUseExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceInUseException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4485,12 +4801,15 @@ const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourceNotAvailableExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ResourceNotAvailableExceptionRes
+ */
+const de_ResourceNotAvailableExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotAvailableException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceNotAvailableException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotAvailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4498,12 +4817,15 @@ const deserializeAws_json1_1ResourceNotAvailableExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4511,2720 +4833,1061 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1AccessEndpoint = (input: AccessEndpoint, context: __SerdeContext): any => {
-  return {
-    ...(input.EndpointType != null && { EndpointType: input.EndpointType }),
-    ...(input.VpceId != null && { VpceId: input.VpceId }),
-  };
-};
+// se_AccessEndpoint omitted.
 
-const serializeAws_json1_1AccessEndpointList = (input: AccessEndpoint[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_1AccessEndpoint(entry, context);
-    });
-};
+// se_AccessEndpointList omitted.
 
-const serializeAws_json1_1ApplicationAttributes = (
-  input: (ApplicationAttribute | string)[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ApplicationAttributes omitted.
 
-const serializeAws_json1_1ApplicationSettings = (input: ApplicationSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.Enabled != null && { Enabled: input.Enabled }),
-    ...(input.SettingsGroup != null && { SettingsGroup: input.SettingsGroup }),
-  };
-};
+// se_ApplicationSettings omitted.
 
-const serializeAws_json1_1ArnList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ArnList omitted.
 
-const serializeAws_json1_1AssociateApplicationFleetRequest = (
-  input: AssociateApplicationFleetRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ApplicationArn != null && { ApplicationArn: input.ApplicationArn }),
-    ...(input.FleetName != null && { FleetName: input.FleetName }),
-  };
-};
+// se_AssociateApplicationFleetRequest omitted.
 
-const serializeAws_json1_1AssociateApplicationToEntitlementRequest = (
-  input: AssociateApplicationToEntitlementRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ApplicationIdentifier != null && { ApplicationIdentifier: input.ApplicationIdentifier }),
-    ...(input.EntitlementName != null && { EntitlementName: input.EntitlementName }),
-    ...(input.StackName != null && { StackName: input.StackName }),
-  };
-};
+// se_AssociateApplicationToEntitlementRequest omitted.
 
-const serializeAws_json1_1AssociateFleetRequest = (input: AssociateFleetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.FleetName != null && { FleetName: input.FleetName }),
-    ...(input.StackName != null && { StackName: input.StackName }),
-  };
-};
+// se_AssociateFleetRequest omitted.
 
-const serializeAws_json1_1AwsAccountIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AwsAccountIdList omitted.
 
-const serializeAws_json1_1BatchAssociateUserStackRequest = (
-  input: BatchAssociateUserStackRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.UserStackAssociations != null && {
-      UserStackAssociations: serializeAws_json1_1UserStackAssociationList(input.UserStackAssociations, context),
-    }),
-  };
-};
+// se_BatchAssociateUserStackRequest omitted.
 
-const serializeAws_json1_1BatchDisassociateUserStackRequest = (
-  input: BatchDisassociateUserStackRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.UserStackAssociations != null && {
-      UserStackAssociations: serializeAws_json1_1UserStackAssociationList(input.UserStackAssociations, context),
-    }),
-  };
-};
+// se_BatchDisassociateUserStackRequest omitted.
 
-const serializeAws_json1_1CertificateBasedAuthProperties = (
-  input: CertificateBasedAuthProperties,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CertificateAuthorityArn != null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
-    ...(input.Status != null && { Status: input.Status }),
-  };
-};
+// se_CertificateBasedAuthProperties omitted.
 
-const serializeAws_json1_1ComputeCapacity = (input: ComputeCapacity, context: __SerdeContext): any => {
-  return {
-    ...(input.DesiredInstances != null && { DesiredInstances: input.DesiredInstances }),
-  };
-};
+// se_ComputeCapacity omitted.
 
-const serializeAws_json1_1CopyImageRequest = (input: CopyImageRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DestinationImageDescription != null && {
-      DestinationImageDescription: input.DestinationImageDescription,
-    }),
-    ...(input.DestinationImageName != null && { DestinationImageName: input.DestinationImageName }),
-    ...(input.DestinationRegion != null && { DestinationRegion: input.DestinationRegion }),
-    ...(input.SourceImageName != null && { SourceImageName: input.SourceImageName }),
-  };
-};
+// se_CopyImageRequest omitted.
 
-const serializeAws_json1_1CreateAppBlockRequest = (input: CreateAppBlockRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.DisplayName != null && { DisplayName: input.DisplayName }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.SetupScriptDetails != null && {
-      SetupScriptDetails: serializeAws_json1_1ScriptDetails(input.SetupScriptDetails, context),
-    }),
-    ...(input.SourceS3Location != null && {
-      SourceS3Location: serializeAws_json1_1S3Location(input.SourceS3Location, context),
-    }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
-  };
-};
+// se_CreateAppBlockRequest omitted.
 
-const serializeAws_json1_1CreateApplicationRequest = (
-  input: CreateApplicationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AppBlockArn != null && { AppBlockArn: input.AppBlockArn }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.DisplayName != null && { DisplayName: input.DisplayName }),
-    ...(input.IconS3Location != null && {
-      IconS3Location: serializeAws_json1_1S3Location(input.IconS3Location, context),
-    }),
-    ...(input.InstanceFamilies != null && {
-      InstanceFamilies: serializeAws_json1_1StringList(input.InstanceFamilies, context),
-    }),
-    ...(input.LaunchParameters != null && { LaunchParameters: input.LaunchParameters }),
-    ...(input.LaunchPath != null && { LaunchPath: input.LaunchPath }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Platforms != null && { Platforms: serializeAws_json1_1Platforms(input.Platforms, context) }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
-    ...(input.WorkingDirectory != null && { WorkingDirectory: input.WorkingDirectory }),
-  };
-};
+// se_CreateApplicationRequest omitted.
 
-const serializeAws_json1_1CreateDirectoryConfigRequest = (
-  input: CreateDirectoryConfigRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CertificateBasedAuthProperties != null && {
-      CertificateBasedAuthProperties: serializeAws_json1_1CertificateBasedAuthProperties(
-        input.CertificateBasedAuthProperties,
-        context
-      ),
-    }),
-    ...(input.DirectoryName != null && { DirectoryName: input.DirectoryName }),
-    ...(input.OrganizationalUnitDistinguishedNames != null && {
-      OrganizationalUnitDistinguishedNames: serializeAws_json1_1OrganizationalUnitDistinguishedNamesList(
-        input.OrganizationalUnitDistinguishedNames,
-        context
-      ),
-    }),
-    ...(input.ServiceAccountCredentials != null && {
-      ServiceAccountCredentials: serializeAws_json1_1ServiceAccountCredentials(
-        input.ServiceAccountCredentials,
-        context
-      ),
-    }),
-  };
-};
+// se_CreateDirectoryConfigRequest omitted.
 
-const serializeAws_json1_1CreateEntitlementRequest = (
-  input: CreateEntitlementRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AppVisibility != null && { AppVisibility: input.AppVisibility }),
-    ...(input.Attributes != null && {
-      Attributes: serializeAws_json1_1EntitlementAttributeList(input.Attributes, context),
-    }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.StackName != null && { StackName: input.StackName }),
-  };
-};
+// se_CreateEntitlementRequest omitted.
 
-const serializeAws_json1_1CreateFleetRequest = (input: CreateFleetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ComputeCapacity != null && {
-      ComputeCapacity: serializeAws_json1_1ComputeCapacity(input.ComputeCapacity, context),
-    }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.DisconnectTimeoutInSeconds != null && { DisconnectTimeoutInSeconds: input.DisconnectTimeoutInSeconds }),
-    ...(input.DisplayName != null && { DisplayName: input.DisplayName }),
-    ...(input.DomainJoinInfo != null && {
-      DomainJoinInfo: serializeAws_json1_1DomainJoinInfo(input.DomainJoinInfo, context),
-    }),
-    ...(input.EnableDefaultInternetAccess != null && {
-      EnableDefaultInternetAccess: input.EnableDefaultInternetAccess,
-    }),
-    ...(input.FleetType != null && { FleetType: input.FleetType }),
-    ...(input.IamRoleArn != null && { IamRoleArn: input.IamRoleArn }),
-    ...(input.IdleDisconnectTimeoutInSeconds != null && {
-      IdleDisconnectTimeoutInSeconds: input.IdleDisconnectTimeoutInSeconds,
-    }),
-    ...(input.ImageArn != null && { ImageArn: input.ImageArn }),
-    ...(input.ImageName != null && { ImageName: input.ImageName }),
-    ...(input.InstanceType != null && { InstanceType: input.InstanceType }),
-    ...(input.MaxConcurrentSessions != null && { MaxConcurrentSessions: input.MaxConcurrentSessions }),
-    ...(input.MaxUserDurationInSeconds != null && { MaxUserDurationInSeconds: input.MaxUserDurationInSeconds }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Platform != null && { Platform: input.Platform }),
-    ...(input.SessionScriptS3Location != null && {
-      SessionScriptS3Location: serializeAws_json1_1S3Location(input.SessionScriptS3Location, context),
-    }),
-    ...(input.StreamView != null && { StreamView: input.StreamView }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
-    ...(input.UsbDeviceFilterStrings != null && {
-      UsbDeviceFilterStrings: serializeAws_json1_1UsbDeviceFilterStrings(input.UsbDeviceFilterStrings, context),
-    }),
-    ...(input.VpcConfig != null && { VpcConfig: serializeAws_json1_1VpcConfig(input.VpcConfig, context) }),
-  };
-};
+// se_CreateFleetRequest omitted.
 
-const serializeAws_json1_1CreateImageBuilderRequest = (
-  input: CreateImageBuilderRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AccessEndpoints != null && {
-      AccessEndpoints: serializeAws_json1_1AccessEndpointList(input.AccessEndpoints, context),
-    }),
-    ...(input.AppstreamAgentVersion != null && { AppstreamAgentVersion: input.AppstreamAgentVersion }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.DisplayName != null && { DisplayName: input.DisplayName }),
-    ...(input.DomainJoinInfo != null && {
-      DomainJoinInfo: serializeAws_json1_1DomainJoinInfo(input.DomainJoinInfo, context),
-    }),
-    ...(input.EnableDefaultInternetAccess != null && {
-      EnableDefaultInternetAccess: input.EnableDefaultInternetAccess,
-    }),
-    ...(input.IamRoleArn != null && { IamRoleArn: input.IamRoleArn }),
-    ...(input.ImageArn != null && { ImageArn: input.ImageArn }),
-    ...(input.ImageName != null && { ImageName: input.ImageName }),
-    ...(input.InstanceType != null && { InstanceType: input.InstanceType }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
-    ...(input.VpcConfig != null && { VpcConfig: serializeAws_json1_1VpcConfig(input.VpcConfig, context) }),
-  };
-};
+// se_CreateImageBuilderRequest omitted.
 
-const serializeAws_json1_1CreateImageBuilderStreamingURLRequest = (
-  input: CreateImageBuilderStreamingURLRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Validity != null && { Validity: input.Validity }),
-  };
-};
+// se_CreateImageBuilderStreamingURLRequest omitted.
 
-const serializeAws_json1_1CreateStackRequest = (input: CreateStackRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccessEndpoints != null && {
-      AccessEndpoints: serializeAws_json1_1AccessEndpointList(input.AccessEndpoints, context),
-    }),
-    ...(input.ApplicationSettings != null && {
-      ApplicationSettings: serializeAws_json1_1ApplicationSettings(input.ApplicationSettings, context),
-    }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.DisplayName != null && { DisplayName: input.DisplayName }),
-    ...(input.EmbedHostDomains != null && {
-      EmbedHostDomains: serializeAws_json1_1EmbedHostDomains(input.EmbedHostDomains, context),
-    }),
-    ...(input.FeedbackURL != null && { FeedbackURL: input.FeedbackURL }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.RedirectURL != null && { RedirectURL: input.RedirectURL }),
-    ...(input.StorageConnectors != null && {
-      StorageConnectors: serializeAws_json1_1StorageConnectorList(input.StorageConnectors, context),
-    }),
-    ...(input.StreamingExperienceSettings != null && {
-      StreamingExperienceSettings: serializeAws_json1_1StreamingExperienceSettings(
-        input.StreamingExperienceSettings,
-        context
-      ),
-    }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
-    ...(input.UserSettings != null && {
-      UserSettings: serializeAws_json1_1UserSettingList(input.UserSettings, context),
-    }),
-  };
-};
+// se_CreateStackRequest omitted.
 
-const serializeAws_json1_1CreateStreamingURLRequest = (
-  input: CreateStreamingURLRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ApplicationId != null && { ApplicationId: input.ApplicationId }),
-    ...(input.FleetName != null && { FleetName: input.FleetName }),
-    ...(input.SessionContext != null && { SessionContext: input.SessionContext }),
-    ...(input.StackName != null && { StackName: input.StackName }),
-    ...(input.UserId != null && { UserId: input.UserId }),
-    ...(input.Validity != null && { Validity: input.Validity }),
-  };
-};
+// se_CreateStreamingURLRequest omitted.
 
-const serializeAws_json1_1CreateUpdatedImageRequest = (
-  input: CreateUpdatedImageRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.dryRun != null && { dryRun: input.dryRun }),
-    ...(input.existingImageName != null && { existingImageName: input.existingImageName }),
-    ...(input.newImageDescription != null && { newImageDescription: input.newImageDescription }),
-    ...(input.newImageDisplayName != null && { newImageDisplayName: input.newImageDisplayName }),
-    ...(input.newImageName != null && { newImageName: input.newImageName }),
-    ...(input.newImageTags != null && { newImageTags: serializeAws_json1_1Tags(input.newImageTags, context) }),
-  };
-};
+// se_CreateUpdatedImageRequest omitted.
 
-const serializeAws_json1_1CreateUsageReportSubscriptionRequest = (
-  input: CreateUsageReportSubscriptionRequest,
-  context: __SerdeContext
-): any => {
-  return {};
-};
+// se_CreateUsageReportSubscriptionRequest omitted.
 
-const serializeAws_json1_1CreateUserRequest = (input: CreateUserRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AuthenticationType != null && { AuthenticationType: input.AuthenticationType }),
-    ...(input.FirstName != null && { FirstName: input.FirstName }),
-    ...(input.LastName != null && { LastName: input.LastName }),
-    ...(input.MessageAction != null && { MessageAction: input.MessageAction }),
-    ...(input.UserName != null && { UserName: input.UserName }),
-  };
-};
+// se_CreateUserRequest omitted.
 
-const serializeAws_json1_1DeleteAppBlockRequest = (input: DeleteAppBlockRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
+// se_DeleteAppBlockRequest omitted.
 
-const serializeAws_json1_1DeleteApplicationRequest = (
-  input: DeleteApplicationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
+// se_DeleteApplicationRequest omitted.
 
-const serializeAws_json1_1DeleteDirectoryConfigRequest = (
-  input: DeleteDirectoryConfigRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DirectoryName != null && { DirectoryName: input.DirectoryName }),
-  };
-};
+// se_DeleteDirectoryConfigRequest omitted.
 
-const serializeAws_json1_1DeleteEntitlementRequest = (
-  input: DeleteEntitlementRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.StackName != null && { StackName: input.StackName }),
-  };
-};
+// se_DeleteEntitlementRequest omitted.
 
-const serializeAws_json1_1DeleteFleetRequest = (input: DeleteFleetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
+// se_DeleteFleetRequest omitted.
 
-const serializeAws_json1_1DeleteImageBuilderRequest = (
-  input: DeleteImageBuilderRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
+// se_DeleteImageBuilderRequest omitted.
 
-const serializeAws_json1_1DeleteImagePermissionsRequest = (
-  input: DeleteImagePermissionsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.SharedAccountId != null && { SharedAccountId: input.SharedAccountId }),
-  };
-};
+// se_DeleteImagePermissionsRequest omitted.
 
-const serializeAws_json1_1DeleteImageRequest = (input: DeleteImageRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
+// se_DeleteImageRequest omitted.
 
-const serializeAws_json1_1DeleteStackRequest = (input: DeleteStackRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
+// se_DeleteStackRequest omitted.
 
-const serializeAws_json1_1DeleteUsageReportSubscriptionRequest = (
-  input: DeleteUsageReportSubscriptionRequest,
-  context: __SerdeContext
-): any => {
-  return {};
-};
+// se_DeleteUsageReportSubscriptionRequest omitted.
 
-const serializeAws_json1_1DeleteUserRequest = (input: DeleteUserRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AuthenticationType != null && { AuthenticationType: input.AuthenticationType }),
-    ...(input.UserName != null && { UserName: input.UserName }),
-  };
-};
+// se_DeleteUserRequest omitted.
 
-const serializeAws_json1_1DescribeAppBlocksRequest = (
-  input: DescribeAppBlocksRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Arns != null && { Arns: serializeAws_json1_1ArnList(input.Arns, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_DescribeAppBlocksRequest omitted.
 
-const serializeAws_json1_1DescribeApplicationFleetAssociationsRequest = (
-  input: DescribeApplicationFleetAssociationsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ApplicationArn != null && { ApplicationArn: input.ApplicationArn }),
-    ...(input.FleetName != null && { FleetName: input.FleetName }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_DescribeApplicationFleetAssociationsRequest omitted.
 
-const serializeAws_json1_1DescribeApplicationsRequest = (
-  input: DescribeApplicationsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Arns != null && { Arns: serializeAws_json1_1ArnList(input.Arns, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_DescribeApplicationsRequest omitted.
 
-const serializeAws_json1_1DescribeDirectoryConfigsRequest = (
-  input: DescribeDirectoryConfigsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DirectoryNames != null && {
-      DirectoryNames: serializeAws_json1_1DirectoryNameList(input.DirectoryNames, context),
-    }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_DescribeDirectoryConfigsRequest omitted.
 
-const serializeAws_json1_1DescribeEntitlementsRequest = (
-  input: DescribeEntitlementsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.StackName != null && { StackName: input.StackName }),
-  };
-};
+// se_DescribeEntitlementsRequest omitted.
 
-const serializeAws_json1_1DescribeFleetsRequest = (input: DescribeFleetsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Names != null && { Names: serializeAws_json1_1StringList(input.Names, context) }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_DescribeFleetsRequest omitted.
 
-const serializeAws_json1_1DescribeImageBuildersRequest = (
-  input: DescribeImageBuildersRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.Names != null && { Names: serializeAws_json1_1StringList(input.Names, context) }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_DescribeImageBuildersRequest omitted.
 
-const serializeAws_json1_1DescribeImagePermissionsRequest = (
-  input: DescribeImagePermissionsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.SharedAwsAccountIds != null && {
-      SharedAwsAccountIds: serializeAws_json1_1AwsAccountIdList(input.SharedAwsAccountIds, context),
-    }),
-  };
-};
+// se_DescribeImagePermissionsRequest omitted.
 
-const serializeAws_json1_1DescribeImagesRequest = (input: DescribeImagesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Arns != null && { Arns: serializeAws_json1_1ArnList(input.Arns, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.Names != null && { Names: serializeAws_json1_1StringList(input.Names, context) }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_DescribeImagesRequest omitted.
 
-const serializeAws_json1_1DescribeSessionsRequest = (input: DescribeSessionsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AuthenticationType != null && { AuthenticationType: input.AuthenticationType }),
-    ...(input.FleetName != null && { FleetName: input.FleetName }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.StackName != null && { StackName: input.StackName }),
-    ...(input.UserId != null && { UserId: input.UserId }),
-  };
-};
+// se_DescribeSessionsRequest omitted.
 
-const serializeAws_json1_1DescribeStacksRequest = (input: DescribeStacksRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Names != null && { Names: serializeAws_json1_1StringList(input.Names, context) }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_DescribeStacksRequest omitted.
 
-const serializeAws_json1_1DescribeUsageReportSubscriptionsRequest = (
-  input: DescribeUsageReportSubscriptionsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_DescribeUsageReportSubscriptionsRequest omitted.
 
-const serializeAws_json1_1DescribeUsersRequest = (input: DescribeUsersRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AuthenticationType != null && { AuthenticationType: input.AuthenticationType }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_DescribeUsersRequest omitted.
 
-const serializeAws_json1_1DescribeUserStackAssociationsRequest = (
-  input: DescribeUserStackAssociationsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AuthenticationType != null && { AuthenticationType: input.AuthenticationType }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.StackName != null && { StackName: input.StackName }),
-    ...(input.UserName != null && { UserName: input.UserName }),
-  };
-};
+// se_DescribeUserStackAssociationsRequest omitted.
 
-const serializeAws_json1_1DirectoryNameList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_DirectoryNameList omitted.
 
-const serializeAws_json1_1DisableUserRequest = (input: DisableUserRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AuthenticationType != null && { AuthenticationType: input.AuthenticationType }),
-    ...(input.UserName != null && { UserName: input.UserName }),
-  };
-};
+// se_DisableUserRequest omitted.
 
-const serializeAws_json1_1DisassociateApplicationFleetRequest = (
-  input: DisassociateApplicationFleetRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ApplicationArn != null && { ApplicationArn: input.ApplicationArn }),
-    ...(input.FleetName != null && { FleetName: input.FleetName }),
-  };
-};
+// se_DisassociateApplicationFleetRequest omitted.
 
-const serializeAws_json1_1DisassociateApplicationFromEntitlementRequest = (
-  input: DisassociateApplicationFromEntitlementRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ApplicationIdentifier != null && { ApplicationIdentifier: input.ApplicationIdentifier }),
-    ...(input.EntitlementName != null && { EntitlementName: input.EntitlementName }),
-    ...(input.StackName != null && { StackName: input.StackName }),
-  };
-};
+// se_DisassociateApplicationFromEntitlementRequest omitted.
 
-const serializeAws_json1_1DisassociateFleetRequest = (
-  input: DisassociateFleetRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.FleetName != null && { FleetName: input.FleetName }),
-    ...(input.StackName != null && { StackName: input.StackName }),
-  };
-};
+// se_DisassociateFleetRequest omitted.
 
-const serializeAws_json1_1DomainJoinInfo = (input: DomainJoinInfo, context: __SerdeContext): any => {
-  return {
-    ...(input.DirectoryName != null && { DirectoryName: input.DirectoryName }),
-    ...(input.OrganizationalUnitDistinguishedName != null && {
-      OrganizationalUnitDistinguishedName: input.OrganizationalUnitDistinguishedName,
-    }),
-  };
-};
+// se_DomainJoinInfo omitted.
 
-const serializeAws_json1_1DomainList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_DomainList omitted.
 
-const serializeAws_json1_1EmbedHostDomains = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_EmbedHostDomains omitted.
 
-const serializeAws_json1_1EnableUserRequest = (input: EnableUserRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AuthenticationType != null && { AuthenticationType: input.AuthenticationType }),
-    ...(input.UserName != null && { UserName: input.UserName }),
-  };
-};
+// se_EnableUserRequest omitted.
 
-const serializeAws_json1_1EntitlementAttribute = (input: EntitlementAttribute, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_EntitlementAttribute omitted.
 
-const serializeAws_json1_1EntitlementAttributeList = (input: EntitlementAttribute[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_1EntitlementAttribute(entry, context);
-    });
-};
+// se_EntitlementAttributeList omitted.
 
-const serializeAws_json1_1ExpireSessionRequest = (input: ExpireSessionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.SessionId != null && { SessionId: input.SessionId }),
-  };
-};
+// se_ExpireSessionRequest omitted.
 
-const serializeAws_json1_1FleetAttributes = (input: (FleetAttribute | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_FleetAttributes omitted.
 
-const serializeAws_json1_1ImagePermissions = (input: ImagePermissions, context: __SerdeContext): any => {
-  return {
-    ...(input.allowFleet != null && { allowFleet: input.allowFleet }),
-    ...(input.allowImageBuilder != null && { allowImageBuilder: input.allowImageBuilder }),
-  };
-};
+// se_ImagePermissions omitted.
 
-const serializeAws_json1_1ListAssociatedFleetsRequest = (
-  input: ListAssociatedFleetsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.StackName != null && { StackName: input.StackName }),
-  };
-};
+// se_ListAssociatedFleetsRequest omitted.
 
-const serializeAws_json1_1ListAssociatedStacksRequest = (
-  input: ListAssociatedStacksRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.FleetName != null && { FleetName: input.FleetName }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListAssociatedStacksRequest omitted.
 
-const serializeAws_json1_1ListEntitledApplicationsRequest = (
-  input: ListEntitledApplicationsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.EntitlementName != null && { EntitlementName: input.EntitlementName }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.StackName != null && { StackName: input.StackName }),
-  };
-};
+// se_ListEntitledApplicationsRequest omitted.
 
-const serializeAws_json1_1ListTagsForResourceRequest = (
-  input: ListTagsForResourceRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  };
-};
+// se_ListTagsForResourceRequest omitted.
 
-const serializeAws_json1_1OrganizationalUnitDistinguishedNamesList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_OrganizationalUnitDistinguishedNamesList omitted.
 
-const serializeAws_json1_1Platforms = (input: (PlatformType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_Platforms omitted.
 
-const serializeAws_json1_1S3Location = (input: S3Location, context: __SerdeContext): any => {
-  return {
-    ...(input.S3Bucket != null && { S3Bucket: input.S3Bucket }),
-    ...(input.S3Key != null && { S3Key: input.S3Key }),
-  };
-};
+// se_S3Location omitted.
 
-const serializeAws_json1_1ScriptDetails = (input: ScriptDetails, context: __SerdeContext): any => {
-  return {
-    ...(input.ExecutableParameters != null && { ExecutableParameters: input.ExecutableParameters }),
-    ...(input.ExecutablePath != null && { ExecutablePath: input.ExecutablePath }),
-    ...(input.ScriptS3Location != null && {
-      ScriptS3Location: serializeAws_json1_1S3Location(input.ScriptS3Location, context),
-    }),
-    ...(input.TimeoutInSeconds != null && { TimeoutInSeconds: input.TimeoutInSeconds }),
-  };
-};
+// se_ScriptDetails omitted.
 
-const serializeAws_json1_1SecurityGroupIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SecurityGroupIdList omitted.
 
-const serializeAws_json1_1ServiceAccountCredentials = (
-  input: ServiceAccountCredentials,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AccountName != null && { AccountName: input.AccountName }),
-    ...(input.AccountPassword != null && { AccountPassword: input.AccountPassword }),
-  };
-};
+// se_ServiceAccountCredentials omitted.
 
-const serializeAws_json1_1StackAttributes = (input: (StackAttribute | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_StackAttributes omitted.
 
-const serializeAws_json1_1StartFleetRequest = (input: StartFleetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
+// se_StartFleetRequest omitted.
 
-const serializeAws_json1_1StartImageBuilderRequest = (
-  input: StartImageBuilderRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AppstreamAgentVersion != null && { AppstreamAgentVersion: input.AppstreamAgentVersion }),
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
+// se_StartImageBuilderRequest omitted.
 
-const serializeAws_json1_1StopFleetRequest = (input: StopFleetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
+// se_StopFleetRequest omitted.
 
-const serializeAws_json1_1StopImageBuilderRequest = (input: StopImageBuilderRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
+// se_StopImageBuilderRequest omitted.
 
-const serializeAws_json1_1StorageConnector = (input: StorageConnector, context: __SerdeContext): any => {
-  return {
-    ...(input.ConnectorType != null && { ConnectorType: input.ConnectorType }),
-    ...(input.Domains != null && { Domains: serializeAws_json1_1DomainList(input.Domains, context) }),
-    ...(input.ResourceIdentifier != null && { ResourceIdentifier: input.ResourceIdentifier }),
-  };
-};
+// se_StorageConnector omitted.
 
-const serializeAws_json1_1StorageConnectorList = (input: StorageConnector[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_1StorageConnector(entry, context);
-    });
-};
+// se_StorageConnectorList omitted.
 
-const serializeAws_json1_1StreamingExperienceSettings = (
-  input: StreamingExperienceSettings,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.PreferredProtocol != null && { PreferredProtocol: input.PreferredProtocol }),
-  };
-};
+// se_StreamingExperienceSettings omitted.
 
-const serializeAws_json1_1StringList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_StringList omitted.
 
-const serializeAws_json1_1SubnetIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SubnetIdList omitted.
 
-const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyList omitted.
 
-const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
-  };
-};
+// se_TagResourceRequest omitted.
 
-const serializeAws_json1_1Tags = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_Tags omitted.
 
-const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
-  };
-};
+// se_UntagResourceRequest omitted.
 
-const serializeAws_json1_1UpdateApplicationRequest = (
-  input: UpdateApplicationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AppBlockArn != null && { AppBlockArn: input.AppBlockArn }),
-    ...(input.AttributesToDelete != null && {
-      AttributesToDelete: serializeAws_json1_1ApplicationAttributes(input.AttributesToDelete, context),
-    }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.DisplayName != null && { DisplayName: input.DisplayName }),
-    ...(input.IconS3Location != null && {
-      IconS3Location: serializeAws_json1_1S3Location(input.IconS3Location, context),
-    }),
-    ...(input.LaunchParameters != null && { LaunchParameters: input.LaunchParameters }),
-    ...(input.LaunchPath != null && { LaunchPath: input.LaunchPath }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.WorkingDirectory != null && { WorkingDirectory: input.WorkingDirectory }),
-  };
-};
+// se_UpdateApplicationRequest omitted.
 
-const serializeAws_json1_1UpdateDirectoryConfigRequest = (
-  input: UpdateDirectoryConfigRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CertificateBasedAuthProperties != null && {
-      CertificateBasedAuthProperties: serializeAws_json1_1CertificateBasedAuthProperties(
-        input.CertificateBasedAuthProperties,
-        context
-      ),
-    }),
-    ...(input.DirectoryName != null && { DirectoryName: input.DirectoryName }),
-    ...(input.OrganizationalUnitDistinguishedNames != null && {
-      OrganizationalUnitDistinguishedNames: serializeAws_json1_1OrganizationalUnitDistinguishedNamesList(
-        input.OrganizationalUnitDistinguishedNames,
-        context
-      ),
-    }),
-    ...(input.ServiceAccountCredentials != null && {
-      ServiceAccountCredentials: serializeAws_json1_1ServiceAccountCredentials(
-        input.ServiceAccountCredentials,
-        context
-      ),
-    }),
-  };
-};
+// se_UpdateDirectoryConfigRequest omitted.
 
-const serializeAws_json1_1UpdateEntitlementRequest = (
-  input: UpdateEntitlementRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AppVisibility != null && { AppVisibility: input.AppVisibility }),
-    ...(input.Attributes != null && {
-      Attributes: serializeAws_json1_1EntitlementAttributeList(input.Attributes, context),
-    }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.StackName != null && { StackName: input.StackName }),
-  };
-};
+// se_UpdateEntitlementRequest omitted.
 
-const serializeAws_json1_1UpdateFleetRequest = (input: UpdateFleetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AttributesToDelete != null && {
-      AttributesToDelete: serializeAws_json1_1FleetAttributes(input.AttributesToDelete, context),
-    }),
-    ...(input.ComputeCapacity != null && {
-      ComputeCapacity: serializeAws_json1_1ComputeCapacity(input.ComputeCapacity, context),
-    }),
-    ...(input.DeleteVpcConfig != null && { DeleteVpcConfig: input.DeleteVpcConfig }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.DisconnectTimeoutInSeconds != null && { DisconnectTimeoutInSeconds: input.DisconnectTimeoutInSeconds }),
-    ...(input.DisplayName != null && { DisplayName: input.DisplayName }),
-    ...(input.DomainJoinInfo != null && {
-      DomainJoinInfo: serializeAws_json1_1DomainJoinInfo(input.DomainJoinInfo, context),
-    }),
-    ...(input.EnableDefaultInternetAccess != null && {
-      EnableDefaultInternetAccess: input.EnableDefaultInternetAccess,
-    }),
-    ...(input.IamRoleArn != null && { IamRoleArn: input.IamRoleArn }),
-    ...(input.IdleDisconnectTimeoutInSeconds != null && {
-      IdleDisconnectTimeoutInSeconds: input.IdleDisconnectTimeoutInSeconds,
-    }),
-    ...(input.ImageArn != null && { ImageArn: input.ImageArn }),
-    ...(input.ImageName != null && { ImageName: input.ImageName }),
-    ...(input.InstanceType != null && { InstanceType: input.InstanceType }),
-    ...(input.MaxConcurrentSessions != null && { MaxConcurrentSessions: input.MaxConcurrentSessions }),
-    ...(input.MaxUserDurationInSeconds != null && { MaxUserDurationInSeconds: input.MaxUserDurationInSeconds }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Platform != null && { Platform: input.Platform }),
-    ...(input.SessionScriptS3Location != null && {
-      SessionScriptS3Location: serializeAws_json1_1S3Location(input.SessionScriptS3Location, context),
-    }),
-    ...(input.StreamView != null && { StreamView: input.StreamView }),
-    ...(input.UsbDeviceFilterStrings != null && {
-      UsbDeviceFilterStrings: serializeAws_json1_1UsbDeviceFilterStrings(input.UsbDeviceFilterStrings, context),
-    }),
-    ...(input.VpcConfig != null && { VpcConfig: serializeAws_json1_1VpcConfig(input.VpcConfig, context) }),
-  };
-};
+// se_UpdateFleetRequest omitted.
 
-const serializeAws_json1_1UpdateImagePermissionsRequest = (
-  input: UpdateImagePermissionsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ImagePermissions != null && {
-      ImagePermissions: serializeAws_json1_1ImagePermissions(input.ImagePermissions, context),
-    }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.SharedAccountId != null && { SharedAccountId: input.SharedAccountId }),
-  };
-};
+// se_UpdateImagePermissionsRequest omitted.
 
-const serializeAws_json1_1UpdateStackRequest = (input: UpdateStackRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AccessEndpoints != null && {
-      AccessEndpoints: serializeAws_json1_1AccessEndpointList(input.AccessEndpoints, context),
-    }),
-    ...(input.ApplicationSettings != null && {
-      ApplicationSettings: serializeAws_json1_1ApplicationSettings(input.ApplicationSettings, context),
-    }),
-    ...(input.AttributesToDelete != null && {
-      AttributesToDelete: serializeAws_json1_1StackAttributes(input.AttributesToDelete, context),
-    }),
-    ...(input.DeleteStorageConnectors != null && { DeleteStorageConnectors: input.DeleteStorageConnectors }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.DisplayName != null && { DisplayName: input.DisplayName }),
-    ...(input.EmbedHostDomains != null && {
-      EmbedHostDomains: serializeAws_json1_1EmbedHostDomains(input.EmbedHostDomains, context),
-    }),
-    ...(input.FeedbackURL != null && { FeedbackURL: input.FeedbackURL }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.RedirectURL != null && { RedirectURL: input.RedirectURL }),
-    ...(input.StorageConnectors != null && {
-      StorageConnectors: serializeAws_json1_1StorageConnectorList(input.StorageConnectors, context),
-    }),
-    ...(input.StreamingExperienceSettings != null && {
-      StreamingExperienceSettings: serializeAws_json1_1StreamingExperienceSettings(
-        input.StreamingExperienceSettings,
-        context
-      ),
-    }),
-    ...(input.UserSettings != null && {
-      UserSettings: serializeAws_json1_1UserSettingList(input.UserSettings, context),
-    }),
-  };
-};
+// se_UpdateStackRequest omitted.
 
-const serializeAws_json1_1UsbDeviceFilterStrings = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_UsbDeviceFilterStrings omitted.
 
-const serializeAws_json1_1UserSetting = (input: UserSetting, context: __SerdeContext): any => {
-  return {
-    ...(input.Action != null && { Action: input.Action }),
-    ...(input.Permission != null && { Permission: input.Permission }),
-  };
-};
+// se_UserSetting omitted.
 
-const serializeAws_json1_1UserSettingList = (input: UserSetting[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_1UserSetting(entry, context);
-    });
-};
+// se_UserSettingList omitted.
 
-const serializeAws_json1_1UserStackAssociation = (input: UserStackAssociation, context: __SerdeContext): any => {
-  return {
-    ...(input.AuthenticationType != null && { AuthenticationType: input.AuthenticationType }),
-    ...(input.SendEmailNotification != null && { SendEmailNotification: input.SendEmailNotification }),
-    ...(input.StackName != null && { StackName: input.StackName }),
-    ...(input.UserName != null && { UserName: input.UserName }),
-  };
-};
+// se_UserStackAssociation omitted.
 
-const serializeAws_json1_1UserStackAssociationList = (input: UserStackAssociation[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_1UserStackAssociation(entry, context);
-    });
-};
+// se_UserStackAssociationList omitted.
 
-const serializeAws_json1_1VpcConfig = (input: VpcConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.SecurityGroupIds != null && {
-      SecurityGroupIds: serializeAws_json1_1SecurityGroupIdList(input.SecurityGroupIds, context),
-    }),
-    ...(input.SubnetIds != null && { SubnetIds: serializeAws_json1_1SubnetIdList(input.SubnetIds, context) }),
-  };
-};
+// se_VpcConfig omitted.
+
+// de_AccessEndpoint omitted.
+
+// de_AccessEndpointList omitted.
 
-const deserializeAws_json1_1AccessEndpoint = (output: any, context: __SerdeContext): AccessEndpoint => {
-  return {
-    EndpointType: __expectString(output.EndpointType),
-    VpceId: __expectString(output.VpceId),
-  } as any;
+/**
+ * deserializeAws_json1_1AppBlock
+ */
+const de_AppBlock = (output: any, context: __SerdeContext): AppBlock => {
+  return take(output, {
+    Arn: __expectString,
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    DisplayName: __expectString,
+    Name: __expectString,
+    SetupScriptDetails: _json,
+    SourceS3Location: _json,
+  }) as any;
 };
 
-const deserializeAws_json1_1AccessEndpointList = (output: any, context: __SerdeContext): AccessEndpoint[] => {
+/**
+ * deserializeAws_json1_1AppBlocks
+ */
+const de_AppBlocks = (output: any, context: __SerdeContext): AppBlock[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1AccessEndpoint(entry, context);
+      return de_AppBlock(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1AppBlock = (output: any, context: __SerdeContext): AppBlock => {
-  return {
-    Arn: __expectString(output.Arn),
-    CreatedTime:
-      output.CreatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
-        : undefined,
-    Description: __expectString(output.Description),
-    DisplayName: __expectString(output.DisplayName),
-    Name: __expectString(output.Name),
-    SetupScriptDetails:
-      output.SetupScriptDetails != null
-        ? deserializeAws_json1_1ScriptDetails(output.SetupScriptDetails, context)
-        : undefined,
-    SourceS3Location:
-      output.SourceS3Location != null ? deserializeAws_json1_1S3Location(output.SourceS3Location, context) : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1Application
+ */
+const de_Application = (output: any, context: __SerdeContext): Application => {
+  return take(output, {
+    AppBlockArn: __expectString,
+    Arn: __expectString,
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    DisplayName: __expectString,
+    Enabled: __expectBoolean,
+    IconS3Location: _json,
+    IconURL: __expectString,
+    InstanceFamilies: _json,
+    LaunchParameters: __expectString,
+    LaunchPath: __expectString,
+    Metadata: _json,
+    Name: __expectString,
+    Platforms: _json,
+    WorkingDirectory: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1AppBlocks = (output: any, context: __SerdeContext): AppBlock[] => {
+// de_ApplicationFleetAssociation omitted.
+
+// de_ApplicationFleetAssociationList omitted.
+
+/**
+ * deserializeAws_json1_1Applications
+ */
+const de_Applications = (output: any, context: __SerdeContext): Application[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1AppBlock(entry, context);
+      return de_Application(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1Application = (output: any, context: __SerdeContext): Application => {
-  return {
-    AppBlockArn: __expectString(output.AppBlockArn),
-    Arn: __expectString(output.Arn),
-    CreatedTime:
-      output.CreatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
-        : undefined,
-    Description: __expectString(output.Description),
-    DisplayName: __expectString(output.DisplayName),
-    Enabled: __expectBoolean(output.Enabled),
-    IconS3Location:
-      output.IconS3Location != null ? deserializeAws_json1_1S3Location(output.IconS3Location, context) : undefined,
-    IconURL: __expectString(output.IconURL),
-    InstanceFamilies:
-      output.InstanceFamilies != null ? deserializeAws_json1_1StringList(output.InstanceFamilies, context) : undefined,
-    LaunchParameters: __expectString(output.LaunchParameters),
-    LaunchPath: __expectString(output.LaunchPath),
-    Metadata: output.Metadata != null ? deserializeAws_json1_1Metadata(output.Metadata, context) : undefined,
-    Name: __expectString(output.Name),
-    Platforms: output.Platforms != null ? deserializeAws_json1_1Platforms(output.Platforms, context) : undefined,
-    WorkingDirectory: __expectString(output.WorkingDirectory),
-  } as any;
+// de_ApplicationSettingsResponse omitted.
+
+// de_AssociateApplicationFleetResult omitted.
+
+// de_AssociateApplicationToEntitlementResult omitted.
+
+// de_AssociateFleetResult omitted.
+
+// de_BatchAssociateUserStackResult omitted.
+
+// de_BatchDisassociateUserStackResult omitted.
+
+// de_CertificateBasedAuthProperties omitted.
+
+// de_ComputeCapacityStatus omitted.
+
+// de_ConcurrentModificationException omitted.
+
+// de_CopyImageResponse omitted.
+
+/**
+ * deserializeAws_json1_1CreateAppBlockResult
+ */
+const de_CreateAppBlockResult = (output: any, context: __SerdeContext): CreateAppBlockResult => {
+  return take(output, {
+    AppBlock: (_: any) => de_AppBlock(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1ApplicationFleetAssociation = (
-  output: any,
-  context: __SerdeContext
-): ApplicationFleetAssociation => {
-  return {
-    ApplicationArn: __expectString(output.ApplicationArn),
-    FleetName: __expectString(output.FleetName),
-  } as any;
+/**
+ * deserializeAws_json1_1CreateApplicationResult
+ */
+const de_CreateApplicationResult = (output: any, context: __SerdeContext): CreateApplicationResult => {
+  return take(output, {
+    Application: (_: any) => de_Application(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1ApplicationFleetAssociationList = (
-  output: any,
-  context: __SerdeContext
-): ApplicationFleetAssociation[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1ApplicationFleetAssociation(entry, context);
-    });
-  return retVal;
+/**
+ * deserializeAws_json1_1CreateDirectoryConfigResult
+ */
+const de_CreateDirectoryConfigResult = (output: any, context: __SerdeContext): CreateDirectoryConfigResult => {
+  return take(output, {
+    DirectoryConfig: (_: any) => de_DirectoryConfig(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1Applications = (output: any, context: __SerdeContext): Application[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Application(entry, context);
-    });
-  return retVal;
+/**
+ * deserializeAws_json1_1CreateEntitlementResult
+ */
+const de_CreateEntitlementResult = (output: any, context: __SerdeContext): CreateEntitlementResult => {
+  return take(output, {
+    Entitlement: (_: any) => de_Entitlement(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1ApplicationSettingsResponse = (
-  output: any,
-  context: __SerdeContext
-): ApplicationSettingsResponse => {
-  return {
-    Enabled: __expectBoolean(output.Enabled),
-    S3BucketName: __expectString(output.S3BucketName),
-    SettingsGroup: __expectString(output.SettingsGroup),
-  } as any;
+/**
+ * deserializeAws_json1_1CreateFleetResult
+ */
+const de_CreateFleetResult = (output: any, context: __SerdeContext): CreateFleetResult => {
+  return take(output, {
+    Fleet: (_: any) => de_Fleet(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1AssociateApplicationFleetResult = (
-  output: any,
-  context: __SerdeContext
-): AssociateApplicationFleetResult => {
-  return {
-    ApplicationFleetAssociation:
-      output.ApplicationFleetAssociation != null
-        ? deserializeAws_json1_1ApplicationFleetAssociation(output.ApplicationFleetAssociation, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1CreateImageBuilderResult
+ */
+const de_CreateImageBuilderResult = (output: any, context: __SerdeContext): CreateImageBuilderResult => {
+  return take(output, {
+    ImageBuilder: (_: any) => de_ImageBuilder(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1AssociateApplicationToEntitlementResult = (
-  output: any,
-  context: __SerdeContext
-): AssociateApplicationToEntitlementResult => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1AssociateFleetResult = (output: any, context: __SerdeContext): AssociateFleetResult => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1BatchAssociateUserStackResult = (
-  output: any,
-  context: __SerdeContext
-): BatchAssociateUserStackResult => {
-  return {
-    errors:
-      output.errors != null ? deserializeAws_json1_1UserStackAssociationErrorList(output.errors, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1BatchDisassociateUserStackResult = (
-  output: any,
-  context: __SerdeContext
-): BatchDisassociateUserStackResult => {
-  return {
-    errors:
-      output.errors != null ? deserializeAws_json1_1UserStackAssociationErrorList(output.errors, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1CertificateBasedAuthProperties = (
-  output: any,
-  context: __SerdeContext
-): CertificateBasedAuthProperties => {
-  return {
-    CertificateAuthorityArn: __expectString(output.CertificateAuthorityArn),
-    Status: __expectString(output.Status),
-  } as any;
-};
-
-const deserializeAws_json1_1ComputeCapacityStatus = (output: any, context: __SerdeContext): ComputeCapacityStatus => {
-  return {
-    Available: __expectInt32(output.Available),
-    Desired: __expectInt32(output.Desired),
-    InUse: __expectInt32(output.InUse),
-    Running: __expectInt32(output.Running),
-  } as any;
-};
-
-const deserializeAws_json1_1ConcurrentModificationException = (
-  output: any,
-  context: __SerdeContext
-): ConcurrentModificationException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_1CopyImageResponse = (output: any, context: __SerdeContext): CopyImageResponse => {
-  return {
-    DestinationImageName: __expectString(output.DestinationImageName),
-  } as any;
-};
-
-const deserializeAws_json1_1CreateAppBlockResult = (output: any, context: __SerdeContext): CreateAppBlockResult => {
-  return {
-    AppBlock: output.AppBlock != null ? deserializeAws_json1_1AppBlock(output.AppBlock, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1CreateApplicationResult = (
-  output: any,
-  context: __SerdeContext
-): CreateApplicationResult => {
-  return {
-    Application:
-      output.Application != null ? deserializeAws_json1_1Application(output.Application, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1CreateDirectoryConfigResult = (
-  output: any,
-  context: __SerdeContext
-): CreateDirectoryConfigResult => {
-  return {
-    DirectoryConfig:
-      output.DirectoryConfig != null
-        ? deserializeAws_json1_1DirectoryConfig(output.DirectoryConfig, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1CreateEntitlementResult = (
-  output: any,
-  context: __SerdeContext
-): CreateEntitlementResult => {
-  return {
-    Entitlement:
-      output.Entitlement != null ? deserializeAws_json1_1Entitlement(output.Entitlement, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1CreateFleetResult = (output: any, context: __SerdeContext): CreateFleetResult => {
-  return {
-    Fleet: output.Fleet != null ? deserializeAws_json1_1Fleet(output.Fleet, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1CreateImageBuilderResult = (
-  output: any,
-  context: __SerdeContext
-): CreateImageBuilderResult => {
-  return {
-    ImageBuilder:
-      output.ImageBuilder != null ? deserializeAws_json1_1ImageBuilder(output.ImageBuilder, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1CreateImageBuilderStreamingURLResult = (
+/**
+ * deserializeAws_json1_1CreateImageBuilderStreamingURLResult
+ */
+const de_CreateImageBuilderStreamingURLResult = (
   output: any,
   context: __SerdeContext
 ): CreateImageBuilderStreamingURLResult => {
-  return {
-    Expires:
-      output.Expires != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Expires))) : undefined,
-    StreamingURL: __expectString(output.StreamingURL),
-  } as any;
+  return take(output, {
+    Expires: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StreamingURL: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1CreateStackResult = (output: any, context: __SerdeContext): CreateStackResult => {
-  return {
-    Stack: output.Stack != null ? deserializeAws_json1_1Stack(output.Stack, context) : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1CreateStackResult
+ */
+const de_CreateStackResult = (output: any, context: __SerdeContext): CreateStackResult => {
+  return take(output, {
+    Stack: (_: any) => de_Stack(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1CreateStreamingURLResult = (
-  output: any,
-  context: __SerdeContext
-): CreateStreamingURLResult => {
-  return {
-    Expires:
-      output.Expires != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Expires))) : undefined,
-    StreamingURL: __expectString(output.StreamingURL),
-  } as any;
+/**
+ * deserializeAws_json1_1CreateStreamingURLResult
+ */
+const de_CreateStreamingURLResult = (output: any, context: __SerdeContext): CreateStreamingURLResult => {
+  return take(output, {
+    Expires: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StreamingURL: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1CreateUpdatedImageResult = (
-  output: any,
-  context: __SerdeContext
-): CreateUpdatedImageResult => {
-  return {
-    canUpdateImage: __expectBoolean(output.canUpdateImage),
-    image: output.image != null ? deserializeAws_json1_1Image(output.image, context) : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1CreateUpdatedImageResult
+ */
+const de_CreateUpdatedImageResult = (output: any, context: __SerdeContext): CreateUpdatedImageResult => {
+  return take(output, {
+    canUpdateImage: __expectBoolean,
+    image: (_: any) => de_Image(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1CreateUsageReportSubscriptionResult = (
-  output: any,
-  context: __SerdeContext
-): CreateUsageReportSubscriptionResult => {
-  return {
-    S3BucketName: __expectString(output.S3BucketName),
-    Schedule: __expectString(output.Schedule),
-  } as any;
+// de_CreateUsageReportSubscriptionResult omitted.
+
+// de_CreateUserResult omitted.
+
+// de_DeleteAppBlockResult omitted.
+
+// de_DeleteApplicationResult omitted.
+
+// de_DeleteDirectoryConfigResult omitted.
+
+// de_DeleteEntitlementResult omitted.
+
+// de_DeleteFleetResult omitted.
+
+/**
+ * deserializeAws_json1_1DeleteImageBuilderResult
+ */
+const de_DeleteImageBuilderResult = (output: any, context: __SerdeContext): DeleteImageBuilderResult => {
+  return take(output, {
+    ImageBuilder: (_: any) => de_ImageBuilder(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1CreateUserResult = (output: any, context: __SerdeContext): CreateUserResult => {
-  return {} as any;
+// de_DeleteImagePermissionsResult omitted.
+
+/**
+ * deserializeAws_json1_1DeleteImageResult
+ */
+const de_DeleteImageResult = (output: any, context: __SerdeContext): DeleteImageResult => {
+  return take(output, {
+    Image: (_: any) => de_Image(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1DeleteAppBlockResult = (output: any, context: __SerdeContext): DeleteAppBlockResult => {
-  return {} as any;
+// de_DeleteStackResult omitted.
+
+// de_DeleteUsageReportSubscriptionResult omitted.
+
+// de_DeleteUserResult omitted.
+
+/**
+ * deserializeAws_json1_1DescribeAppBlocksResult
+ */
+const de_DescribeAppBlocksResult = (output: any, context: __SerdeContext): DescribeAppBlocksResult => {
+  return take(output, {
+    AppBlocks: (_: any) => de_AppBlocks(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1DeleteApplicationResult = (
-  output: any,
-  context: __SerdeContext
-): DeleteApplicationResult => {
-  return {} as any;
+// de_DescribeApplicationFleetAssociationsResult omitted.
+
+/**
+ * deserializeAws_json1_1DescribeApplicationsResult
+ */
+const de_DescribeApplicationsResult = (output: any, context: __SerdeContext): DescribeApplicationsResult => {
+  return take(output, {
+    Applications: (_: any) => de_Applications(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1DeleteDirectoryConfigResult = (
-  output: any,
-  context: __SerdeContext
-): DeleteDirectoryConfigResult => {
-  return {} as any;
+/**
+ * deserializeAws_json1_1DescribeDirectoryConfigsResult
+ */
+const de_DescribeDirectoryConfigsResult = (output: any, context: __SerdeContext): DescribeDirectoryConfigsResult => {
+  return take(output, {
+    DirectoryConfigs: (_: any) => de_DirectoryConfigList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1DeleteEntitlementResult = (
-  output: any,
-  context: __SerdeContext
-): DeleteEntitlementResult => {
-  return {} as any;
+/**
+ * deserializeAws_json1_1DescribeEntitlementsResult
+ */
+const de_DescribeEntitlementsResult = (output: any, context: __SerdeContext): DescribeEntitlementsResult => {
+  return take(output, {
+    Entitlements: (_: any) => de_EntitlementList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1DeleteFleetResult = (output: any, context: __SerdeContext): DeleteFleetResult => {
-  return {} as any;
+/**
+ * deserializeAws_json1_1DescribeFleetsResult
+ */
+const de_DescribeFleetsResult = (output: any, context: __SerdeContext): DescribeFleetsResult => {
+  return take(output, {
+    Fleets: (_: any) => de_FleetList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1DeleteImageBuilderResult = (
-  output: any,
-  context: __SerdeContext
-): DeleteImageBuilderResult => {
-  return {
-    ImageBuilder:
-      output.ImageBuilder != null ? deserializeAws_json1_1ImageBuilder(output.ImageBuilder, context) : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1DescribeImageBuildersResult
+ */
+const de_DescribeImageBuildersResult = (output: any, context: __SerdeContext): DescribeImageBuildersResult => {
+  return take(output, {
+    ImageBuilders: (_: any) => de_ImageBuilderList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1DeleteImagePermissionsResult = (
-  output: any,
-  context: __SerdeContext
-): DeleteImagePermissionsResult => {
-  return {} as any;
+// de_DescribeImagePermissionsResult omitted.
+
+/**
+ * deserializeAws_json1_1DescribeImagesResult
+ */
+const de_DescribeImagesResult = (output: any, context: __SerdeContext): DescribeImagesResult => {
+  return take(output, {
+    Images: (_: any) => de_ImageList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1DeleteImageResult = (output: any, context: __SerdeContext): DeleteImageResult => {
-  return {
-    Image: output.Image != null ? deserializeAws_json1_1Image(output.Image, context) : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1DescribeSessionsResult
+ */
+const de_DescribeSessionsResult = (output: any, context: __SerdeContext): DescribeSessionsResult => {
+  return take(output, {
+    NextToken: __expectString,
+    Sessions: (_: any) => de_SessionList(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1DeleteStackResult = (output: any, context: __SerdeContext): DeleteStackResult => {
-  return {} as any;
+/**
+ * deserializeAws_json1_1DescribeStacksResult
+ */
+const de_DescribeStacksResult = (output: any, context: __SerdeContext): DescribeStacksResult => {
+  return take(output, {
+    NextToken: __expectString,
+    Stacks: (_: any) => de_StackList(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1DeleteUsageReportSubscriptionResult = (
-  output: any,
-  context: __SerdeContext
-): DeleteUsageReportSubscriptionResult => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1DeleteUserResult = (output: any, context: __SerdeContext): DeleteUserResult => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1DescribeAppBlocksResult = (
-  output: any,
-  context: __SerdeContext
-): DescribeAppBlocksResult => {
-  return {
-    AppBlocks: output.AppBlocks != null ? deserializeAws_json1_1AppBlocks(output.AppBlocks, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeApplicationFleetAssociationsResult = (
-  output: any,
-  context: __SerdeContext
-): DescribeApplicationFleetAssociationsResult => {
-  return {
-    ApplicationFleetAssociations:
-      output.ApplicationFleetAssociations != null
-        ? deserializeAws_json1_1ApplicationFleetAssociationList(output.ApplicationFleetAssociations, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeApplicationsResult = (
-  output: any,
-  context: __SerdeContext
-): DescribeApplicationsResult => {
-  return {
-    Applications:
-      output.Applications != null ? deserializeAws_json1_1Applications(output.Applications, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeDirectoryConfigsResult = (
-  output: any,
-  context: __SerdeContext
-): DescribeDirectoryConfigsResult => {
-  return {
-    DirectoryConfigs:
-      output.DirectoryConfigs != null
-        ? deserializeAws_json1_1DirectoryConfigList(output.DirectoryConfigs, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeEntitlementsResult = (
-  output: any,
-  context: __SerdeContext
-): DescribeEntitlementsResult => {
-  return {
-    Entitlements:
-      output.Entitlements != null ? deserializeAws_json1_1EntitlementList(output.Entitlements, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeFleetsResult = (output: any, context: __SerdeContext): DescribeFleetsResult => {
-  return {
-    Fleets: output.Fleets != null ? deserializeAws_json1_1FleetList(output.Fleets, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeImageBuildersResult = (
-  output: any,
-  context: __SerdeContext
-): DescribeImageBuildersResult => {
-  return {
-    ImageBuilders:
-      output.ImageBuilders != null ? deserializeAws_json1_1ImageBuilderList(output.ImageBuilders, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeImagePermissionsResult = (
-  output: any,
-  context: __SerdeContext
-): DescribeImagePermissionsResult => {
-  return {
-    Name: __expectString(output.Name),
-    NextToken: __expectString(output.NextToken),
-    SharedImagePermissionsList:
-      output.SharedImagePermissionsList != null
-        ? deserializeAws_json1_1SharedImagePermissionsList(output.SharedImagePermissionsList, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeImagesResult = (output: any, context: __SerdeContext): DescribeImagesResult => {
-  return {
-    Images: output.Images != null ? deserializeAws_json1_1ImageList(output.Images, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeSessionsResult = (output: any, context: __SerdeContext): DescribeSessionsResult => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Sessions: output.Sessions != null ? deserializeAws_json1_1SessionList(output.Sessions, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeStacksResult = (output: any, context: __SerdeContext): DescribeStacksResult => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Stacks: output.Stacks != null ? deserializeAws_json1_1StackList(output.Stacks, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeUsageReportSubscriptionsResult = (
+/**
+ * deserializeAws_json1_1DescribeUsageReportSubscriptionsResult
+ */
+const de_DescribeUsageReportSubscriptionsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeUsageReportSubscriptionsResult => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    UsageReportSubscriptions:
-      output.UsageReportSubscriptions != null
-        ? deserializeAws_json1_1UsageReportSubscriptionList(output.UsageReportSubscriptions, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    UsageReportSubscriptions: (_: any) => de_UsageReportSubscriptionList(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1DescribeUsersResult = (output: any, context: __SerdeContext): DescribeUsersResult => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Users: output.Users != null ? deserializeAws_json1_1UserList(output.Users, context) : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1DescribeUsersResult
+ */
+const de_DescribeUsersResult = (output: any, context: __SerdeContext): DescribeUsersResult => {
+  return take(output, {
+    NextToken: __expectString,
+    Users: (_: any) => de_UserList(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1DescribeUserStackAssociationsResult = (
-  output: any,
-  context: __SerdeContext
-): DescribeUserStackAssociationsResult => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    UserStackAssociations:
-      output.UserStackAssociations != null
-        ? deserializeAws_json1_1UserStackAssociationList(output.UserStackAssociations, context)
-        : undefined,
-  } as any;
+// de_DescribeUserStackAssociationsResult omitted.
+
+/**
+ * deserializeAws_json1_1DirectoryConfig
+ */
+const de_DirectoryConfig = (output: any, context: __SerdeContext): DirectoryConfig => {
+  return take(output, {
+    CertificateBasedAuthProperties: _json,
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DirectoryName: __expectString,
+    OrganizationalUnitDistinguishedNames: _json,
+    ServiceAccountCredentials: _json,
+  }) as any;
 };
 
-const deserializeAws_json1_1DirectoryConfig = (output: any, context: __SerdeContext): DirectoryConfig => {
-  return {
-    CertificateBasedAuthProperties:
-      output.CertificateBasedAuthProperties != null
-        ? deserializeAws_json1_1CertificateBasedAuthProperties(output.CertificateBasedAuthProperties, context)
-        : undefined,
-    CreatedTime:
-      output.CreatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
-        : undefined,
-    DirectoryName: __expectString(output.DirectoryName),
-    OrganizationalUnitDistinguishedNames:
-      output.OrganizationalUnitDistinguishedNames != null
-        ? deserializeAws_json1_1OrganizationalUnitDistinguishedNamesList(
-            output.OrganizationalUnitDistinguishedNames,
-            context
-          )
-        : undefined,
-    ServiceAccountCredentials:
-      output.ServiceAccountCredentials != null
-        ? deserializeAws_json1_1ServiceAccountCredentials(output.ServiceAccountCredentials, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1DirectoryConfigList = (output: any, context: __SerdeContext): DirectoryConfig[] => {
+/**
+ * deserializeAws_json1_1DirectoryConfigList
+ */
+const de_DirectoryConfigList = (output: any, context: __SerdeContext): DirectoryConfig[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1DirectoryConfig(entry, context);
+      return de_DirectoryConfig(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1DisableUserResult = (output: any, context: __SerdeContext): DisableUserResult => {
-  return {} as any;
+// de_DisableUserResult omitted.
+
+// de_DisassociateApplicationFleetResult omitted.
+
+// de_DisassociateApplicationFromEntitlementResult omitted.
+
+// de_DisassociateFleetResult omitted.
+
+// de_DomainJoinInfo omitted.
+
+// de_DomainList omitted.
+
+// de_EmbedHostDomains omitted.
+
+// de_EnableUserResult omitted.
+
+// de_EntitledApplication omitted.
+
+// de_EntitledApplicationList omitted.
+
+/**
+ * deserializeAws_json1_1Entitlement
+ */
+const de_Entitlement = (output: any, context: __SerdeContext): Entitlement => {
+  return take(output, {
+    AppVisibility: __expectString,
+    Attributes: _json,
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    StackName: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1DisassociateApplicationFleetResult = (
-  output: any,
-  context: __SerdeContext
-): DisassociateApplicationFleetResult => {
-  return {} as any;
-};
+// de_EntitlementAlreadyExistsException omitted.
 
-const deserializeAws_json1_1DisassociateApplicationFromEntitlementResult = (
-  output: any,
-  context: __SerdeContext
-): DisassociateApplicationFromEntitlementResult => {
-  return {} as any;
-};
+// de_EntitlementAttribute omitted.
 
-const deserializeAws_json1_1DisassociateFleetResult = (
-  output: any,
-  context: __SerdeContext
-): DisassociateFleetResult => {
-  return {} as any;
-};
+// de_EntitlementAttributeList omitted.
 
-const deserializeAws_json1_1DomainJoinInfo = (output: any, context: __SerdeContext): DomainJoinInfo => {
-  return {
-    DirectoryName: __expectString(output.DirectoryName),
-    OrganizationalUnitDistinguishedName: __expectString(output.OrganizationalUnitDistinguishedName),
-  } as any;
-};
-
-const deserializeAws_json1_1DomainList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1EntitlementList
+ */
+const de_EntitlementList = (output: any, context: __SerdeContext): Entitlement[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
+      return de_Entitlement(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1EmbedHostDomains = (output: any, context: __SerdeContext): string[] => {
+// de_EntitlementNotFoundException omitted.
+
+// de_ExpireSessionResult omitted.
+
+/**
+ * deserializeAws_json1_1Fleet
+ */
+const de_Fleet = (output: any, context: __SerdeContext): Fleet => {
+  return take(output, {
+    Arn: __expectString,
+    ComputeCapacityStatus: _json,
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    DisconnectTimeoutInSeconds: __expectInt32,
+    DisplayName: __expectString,
+    DomainJoinInfo: _json,
+    EnableDefaultInternetAccess: __expectBoolean,
+    FleetErrors: _json,
+    FleetType: __expectString,
+    IamRoleArn: __expectString,
+    IdleDisconnectTimeoutInSeconds: __expectInt32,
+    ImageArn: __expectString,
+    ImageName: __expectString,
+    InstanceType: __expectString,
+    MaxConcurrentSessions: __expectInt32,
+    MaxUserDurationInSeconds: __expectInt32,
+    Name: __expectString,
+    Platform: __expectString,
+    SessionScriptS3Location: _json,
+    State: __expectString,
+    StreamView: __expectString,
+    UsbDeviceFilterStrings: _json,
+    VpcConfig: _json,
+  }) as any;
+};
+
+// de_FleetError omitted.
+
+// de_FleetErrors omitted.
+
+/**
+ * deserializeAws_json1_1FleetList
+ */
+const de_FleetList = (output: any, context: __SerdeContext): Fleet[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
+      return de_Fleet(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1EnableUserResult = (output: any, context: __SerdeContext): EnableUserResult => {
-  return {} as any;
+/**
+ * deserializeAws_json1_1Image
+ */
+const de_Image = (output: any, context: __SerdeContext): Image => {
+  return take(output, {
+    Applications: (_: any) => de_Applications(_, context),
+    AppstreamAgentVersion: __expectString,
+    Arn: __expectString,
+    BaseImageArn: __expectString,
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    DisplayName: __expectString,
+    ImageBuilderName: __expectString,
+    ImageBuilderSupported: __expectBoolean,
+    ImageErrors: (_: any) => de_ResourceErrors(_, context),
+    ImagePermissions: _json,
+    Name: __expectString,
+    Platform: __expectString,
+    PublicBaseImageReleasedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    State: __expectString,
+    StateChangeReason: _json,
+    Visibility: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1EntitledApplication = (output: any, context: __SerdeContext): EntitledApplication => {
-  return {
-    ApplicationIdentifier: __expectString(output.ApplicationIdentifier),
-  } as any;
+/**
+ * deserializeAws_json1_1ImageBuilder
+ */
+const de_ImageBuilder = (output: any, context: __SerdeContext): ImageBuilder => {
+  return take(output, {
+    AccessEndpoints: _json,
+    AppstreamAgentVersion: __expectString,
+    Arn: __expectString,
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    DisplayName: __expectString,
+    DomainJoinInfo: _json,
+    EnableDefaultInternetAccess: __expectBoolean,
+    IamRoleArn: __expectString,
+    ImageArn: __expectString,
+    ImageBuilderErrors: (_: any) => de_ResourceErrors(_, context),
+    InstanceType: __expectString,
+    Name: __expectString,
+    NetworkAccessConfiguration: _json,
+    Platform: __expectString,
+    State: __expectString,
+    StateChangeReason: _json,
+    VpcConfig: _json,
+  }) as any;
 };
 
-const deserializeAws_json1_1EntitledApplicationList = (output: any, context: __SerdeContext): EntitledApplication[] => {
+/**
+ * deserializeAws_json1_1ImageBuilderList
+ */
+const de_ImageBuilderList = (output: any, context: __SerdeContext): ImageBuilder[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1EntitledApplication(entry, context);
+      return de_ImageBuilder(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1Entitlement = (output: any, context: __SerdeContext): Entitlement => {
-  return {
-    AppVisibility: __expectString(output.AppVisibility),
-    Attributes:
-      output.Attributes != null
-        ? deserializeAws_json1_1EntitlementAttributeList(output.Attributes, context)
-        : undefined,
-    CreatedTime:
-      output.CreatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
-        : undefined,
-    Description: __expectString(output.Description),
-    LastModifiedTime:
-      output.LastModifiedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
-        : undefined,
-    Name: __expectString(output.Name),
-    StackName: __expectString(output.StackName),
-  } as any;
-};
+// de_ImageBuilderStateChangeReason omitted.
 
-const deserializeAws_json1_1EntitlementAlreadyExistsException = (
-  output: any,
-  context: __SerdeContext
-): EntitlementAlreadyExistsException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_1EntitlementAttribute = (output: any, context: __SerdeContext): EntitlementAttribute => {
-  return {
-    Name: __expectString(output.Name),
-    Value: __expectString(output.Value),
-  } as any;
-};
-
-const deserializeAws_json1_1EntitlementAttributeList = (
-  output: any,
-  context: __SerdeContext
-): EntitlementAttribute[] => {
+/**
+ * deserializeAws_json1_1ImageList
+ */
+const de_ImageList = (output: any, context: __SerdeContext): Image[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1EntitlementAttribute(entry, context);
+      return de_Image(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1EntitlementList = (output: any, context: __SerdeContext): Entitlement[] => {
+// de_ImagePermissions omitted.
+
+// de_ImageStateChangeReason omitted.
+
+// de_IncompatibleImageException omitted.
+
+// de_InvalidAccountStatusException omitted.
+
+// de_InvalidParameterCombinationException omitted.
+
+// de_InvalidRoleException omitted.
+
+// de_LastReportGenerationExecutionError omitted.
+
+// de_LastReportGenerationExecutionErrors omitted.
+
+// de_LimitExceededException omitted.
+
+// de_ListAssociatedFleetsResult omitted.
+
+// de_ListAssociatedStacksResult omitted.
+
+// de_ListEntitledApplicationsResult omitted.
+
+// de_ListTagsForResourceResponse omitted.
+
+// de_Metadata omitted.
+
+// de_NetworkAccessConfiguration omitted.
+
+// de_OperationNotPermittedException omitted.
+
+// de_OrganizationalUnitDistinguishedNamesList omitted.
+
+// de_Platforms omitted.
+
+// de_RequestLimitExceededException omitted.
+
+// de_ResourceAlreadyExistsException omitted.
+
+/**
+ * deserializeAws_json1_1ResourceError
+ */
+const de_ResourceError = (output: any, context: __SerdeContext): ResourceError => {
+  return take(output, {
+    ErrorCode: __expectString,
+    ErrorMessage: __expectString,
+    ErrorTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ResourceErrors
+ */
+const de_ResourceErrors = (output: any, context: __SerdeContext): ResourceError[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Entitlement(entry, context);
+      return de_ResourceError(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1EntitlementNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): EntitlementNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
+// de_ResourceInUseException omitted.
+
+// de_ResourceNotAvailableException omitted.
+
+// de_ResourceNotFoundException omitted.
+
+// de_S3Location omitted.
+
+// de_ScriptDetails omitted.
+
+// de_SecurityGroupIdList omitted.
+
+// de_ServiceAccountCredentials omitted.
+
+/**
+ * deserializeAws_json1_1Session
+ */
+const de_Session = (output: any, context: __SerdeContext): Session => {
+  return take(output, {
+    AuthenticationType: __expectString,
+    ConnectionState: __expectString,
+    FleetName: __expectString,
+    Id: __expectString,
+    MaxExpirationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    NetworkAccessConfiguration: _json,
+    StackName: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    State: __expectString,
+    UserId: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1ExpireSessionResult = (output: any, context: __SerdeContext): ExpireSessionResult => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1Fleet = (output: any, context: __SerdeContext): Fleet => {
-  return {
-    Arn: __expectString(output.Arn),
-    ComputeCapacityStatus:
-      output.ComputeCapacityStatus != null
-        ? deserializeAws_json1_1ComputeCapacityStatus(output.ComputeCapacityStatus, context)
-        : undefined,
-    CreatedTime:
-      output.CreatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
-        : undefined,
-    Description: __expectString(output.Description),
-    DisconnectTimeoutInSeconds: __expectInt32(output.DisconnectTimeoutInSeconds),
-    DisplayName: __expectString(output.DisplayName),
-    DomainJoinInfo:
-      output.DomainJoinInfo != null ? deserializeAws_json1_1DomainJoinInfo(output.DomainJoinInfo, context) : undefined,
-    EnableDefaultInternetAccess: __expectBoolean(output.EnableDefaultInternetAccess),
-    FleetErrors:
-      output.FleetErrors != null ? deserializeAws_json1_1FleetErrors(output.FleetErrors, context) : undefined,
-    FleetType: __expectString(output.FleetType),
-    IamRoleArn: __expectString(output.IamRoleArn),
-    IdleDisconnectTimeoutInSeconds: __expectInt32(output.IdleDisconnectTimeoutInSeconds),
-    ImageArn: __expectString(output.ImageArn),
-    ImageName: __expectString(output.ImageName),
-    InstanceType: __expectString(output.InstanceType),
-    MaxConcurrentSessions: __expectInt32(output.MaxConcurrentSessions),
-    MaxUserDurationInSeconds: __expectInt32(output.MaxUserDurationInSeconds),
-    Name: __expectString(output.Name),
-    Platform: __expectString(output.Platform),
-    SessionScriptS3Location:
-      output.SessionScriptS3Location != null
-        ? deserializeAws_json1_1S3Location(output.SessionScriptS3Location, context)
-        : undefined,
-    State: __expectString(output.State),
-    StreamView: __expectString(output.StreamView),
-    UsbDeviceFilterStrings:
-      output.UsbDeviceFilterStrings != null
-        ? deserializeAws_json1_1UsbDeviceFilterStrings(output.UsbDeviceFilterStrings, context)
-        : undefined,
-    VpcConfig: output.VpcConfig != null ? deserializeAws_json1_1VpcConfig(output.VpcConfig, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1FleetError = (output: any, context: __SerdeContext): FleetError => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    ErrorMessage: __expectString(output.ErrorMessage),
-  } as any;
-};
-
-const deserializeAws_json1_1FleetErrors = (output: any, context: __SerdeContext): FleetError[] => {
+/**
+ * deserializeAws_json1_1SessionList
+ */
+const de_SessionList = (output: any, context: __SerdeContext): Session[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1FleetError(entry, context);
+      return de_Session(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1FleetList = (output: any, context: __SerdeContext): Fleet[] => {
+// de_SharedImagePermissions omitted.
+
+// de_SharedImagePermissionsList omitted.
+
+/**
+ * deserializeAws_json1_1Stack
+ */
+const de_Stack = (output: any, context: __SerdeContext): Stack => {
+  return take(output, {
+    AccessEndpoints: _json,
+    ApplicationSettings: _json,
+    Arn: __expectString,
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    DisplayName: __expectString,
+    EmbedHostDomains: _json,
+    FeedbackURL: __expectString,
+    Name: __expectString,
+    RedirectURL: __expectString,
+    StackErrors: _json,
+    StorageConnectors: _json,
+    StreamingExperienceSettings: _json,
+    UserSettings: _json,
+  }) as any;
+};
+
+// de_StackError omitted.
+
+// de_StackErrors omitted.
+
+/**
+ * deserializeAws_json1_1StackList
+ */
+const de_StackList = (output: any, context: __SerdeContext): Stack[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Fleet(entry, context);
+      return de_Stack(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1Image = (output: any, context: __SerdeContext): Image => {
-  return {
-    Applications:
-      output.Applications != null ? deserializeAws_json1_1Applications(output.Applications, context) : undefined,
-    AppstreamAgentVersion: __expectString(output.AppstreamAgentVersion),
-    Arn: __expectString(output.Arn),
-    BaseImageArn: __expectString(output.BaseImageArn),
-    CreatedTime:
-      output.CreatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
-        : undefined,
-    Description: __expectString(output.Description),
-    DisplayName: __expectString(output.DisplayName),
-    ImageBuilderName: __expectString(output.ImageBuilderName),
-    ImageBuilderSupported: __expectBoolean(output.ImageBuilderSupported),
-    ImageErrors:
-      output.ImageErrors != null ? deserializeAws_json1_1ResourceErrors(output.ImageErrors, context) : undefined,
-    ImagePermissions:
-      output.ImagePermissions != null
-        ? deserializeAws_json1_1ImagePermissions(output.ImagePermissions, context)
-        : undefined,
-    Name: __expectString(output.Name),
-    Platform: __expectString(output.Platform),
-    PublicBaseImageReleasedDate:
-      output.PublicBaseImageReleasedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.PublicBaseImageReleasedDate)))
-        : undefined,
-    State: __expectString(output.State),
-    StateChangeReason:
-      output.StateChangeReason != null
-        ? deserializeAws_json1_1ImageStateChangeReason(output.StateChangeReason, context)
-        : undefined,
-    Visibility: __expectString(output.Visibility),
-  } as any;
+// de_StartFleetResult omitted.
+
+/**
+ * deserializeAws_json1_1StartImageBuilderResult
+ */
+const de_StartImageBuilderResult = (output: any, context: __SerdeContext): StartImageBuilderResult => {
+  return take(output, {
+    ImageBuilder: (_: any) => de_ImageBuilder(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1ImageBuilder = (output: any, context: __SerdeContext): ImageBuilder => {
-  return {
-    AccessEndpoints:
-      output.AccessEndpoints != null
-        ? deserializeAws_json1_1AccessEndpointList(output.AccessEndpoints, context)
-        : undefined,
-    AppstreamAgentVersion: __expectString(output.AppstreamAgentVersion),
-    Arn: __expectString(output.Arn),
-    CreatedTime:
-      output.CreatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
-        : undefined,
-    Description: __expectString(output.Description),
-    DisplayName: __expectString(output.DisplayName),
-    DomainJoinInfo:
-      output.DomainJoinInfo != null ? deserializeAws_json1_1DomainJoinInfo(output.DomainJoinInfo, context) : undefined,
-    EnableDefaultInternetAccess: __expectBoolean(output.EnableDefaultInternetAccess),
-    IamRoleArn: __expectString(output.IamRoleArn),
-    ImageArn: __expectString(output.ImageArn),
-    ImageBuilderErrors:
-      output.ImageBuilderErrors != null
-        ? deserializeAws_json1_1ResourceErrors(output.ImageBuilderErrors, context)
-        : undefined,
-    InstanceType: __expectString(output.InstanceType),
-    Name: __expectString(output.Name),
-    NetworkAccessConfiguration:
-      output.NetworkAccessConfiguration != null
-        ? deserializeAws_json1_1NetworkAccessConfiguration(output.NetworkAccessConfiguration, context)
-        : undefined,
-    Platform: __expectString(output.Platform),
-    State: __expectString(output.State),
-    StateChangeReason:
-      output.StateChangeReason != null
-        ? deserializeAws_json1_1ImageBuilderStateChangeReason(output.StateChangeReason, context)
-        : undefined,
-    VpcConfig: output.VpcConfig != null ? deserializeAws_json1_1VpcConfig(output.VpcConfig, context) : undefined,
-  } as any;
+// de_StopFleetResult omitted.
+
+/**
+ * deserializeAws_json1_1StopImageBuilderResult
+ */
+const de_StopImageBuilderResult = (output: any, context: __SerdeContext): StopImageBuilderResult => {
+  return take(output, {
+    ImageBuilder: (_: any) => de_ImageBuilder(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1ImageBuilderList = (output: any, context: __SerdeContext): ImageBuilder[] => {
+// de_StorageConnector omitted.
+
+// de_StorageConnectorList omitted.
+
+// de_StreamingExperienceSettings omitted.
+
+// de_StringList omitted.
+
+// de_SubnetIdList omitted.
+
+// de_TagResourceResponse omitted.
+
+// de_Tags omitted.
+
+// de_UntagResourceResponse omitted.
+
+/**
+ * deserializeAws_json1_1UpdateApplicationResult
+ */
+const de_UpdateApplicationResult = (output: any, context: __SerdeContext): UpdateApplicationResult => {
+  return take(output, {
+    Application: (_: any) => de_Application(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1UpdateDirectoryConfigResult
+ */
+const de_UpdateDirectoryConfigResult = (output: any, context: __SerdeContext): UpdateDirectoryConfigResult => {
+  return take(output, {
+    DirectoryConfig: (_: any) => de_DirectoryConfig(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1UpdateEntitlementResult
+ */
+const de_UpdateEntitlementResult = (output: any, context: __SerdeContext): UpdateEntitlementResult => {
+  return take(output, {
+    Entitlement: (_: any) => de_Entitlement(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1UpdateFleetResult
+ */
+const de_UpdateFleetResult = (output: any, context: __SerdeContext): UpdateFleetResult => {
+  return take(output, {
+    Fleet: (_: any) => de_Fleet(_, context),
+  }) as any;
+};
+
+// de_UpdateImagePermissionsResult omitted.
+
+/**
+ * deserializeAws_json1_1UpdateStackResult
+ */
+const de_UpdateStackResult = (output: any, context: __SerdeContext): UpdateStackResult => {
+  return take(output, {
+    Stack: (_: any) => de_Stack(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1UsageReportSubscription
+ */
+const de_UsageReportSubscription = (output: any, context: __SerdeContext): UsageReportSubscription => {
+  return take(output, {
+    LastGeneratedReportDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    S3BucketName: __expectString,
+    Schedule: __expectString,
+    SubscriptionErrors: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1UsageReportSubscriptionList
+ */
+const de_UsageReportSubscriptionList = (output: any, context: __SerdeContext): UsageReportSubscription[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1ImageBuilder(entry, context);
+      return de_UsageReportSubscription(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ImageBuilderStateChangeReason = (
-  output: any,
-  context: __SerdeContext
-): ImageBuilderStateChangeReason => {
-  return {
-    Code: __expectString(output.Code),
-    Message: __expectString(output.Message),
-  } as any;
+// de_UsbDeviceFilterStrings omitted.
+
+/**
+ * deserializeAws_json1_1User
+ */
+const de_User = (output: any, context: __SerdeContext): User => {
+  return take(output, {
+    Arn: __expectString,
+    AuthenticationType: __expectString,
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Enabled: __expectBoolean,
+    FirstName: __expectString,
+    LastName: __expectString,
+    Status: __expectString,
+    UserName: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1ImageList = (output: any, context: __SerdeContext): Image[] => {
+/**
+ * deserializeAws_json1_1UserList
+ */
+const de_UserList = (output: any, context: __SerdeContext): User[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Image(entry, context);
+      return de_User(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ImagePermissions = (output: any, context: __SerdeContext): ImagePermissions => {
-  return {
-    allowFleet: __expectBoolean(output.allowFleet),
-    allowImageBuilder: __expectBoolean(output.allowImageBuilder),
-  } as any;
-};
+// de_UserSetting omitted.
 
-const deserializeAws_json1_1ImageStateChangeReason = (output: any, context: __SerdeContext): ImageStateChangeReason => {
-  return {
-    Code: __expectString(output.Code),
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_UserSettingList omitted.
 
-const deserializeAws_json1_1IncompatibleImageException = (
-  output: any,
-  context: __SerdeContext
-): IncompatibleImageException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_UserStackAssociation omitted.
 
-const deserializeAws_json1_1InvalidAccountStatusException = (
-  output: any,
-  context: __SerdeContext
-): InvalidAccountStatusException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_UserStackAssociationError omitted.
 
-const deserializeAws_json1_1InvalidParameterCombinationException = (
-  output: any,
-  context: __SerdeContext
-): InvalidParameterCombinationException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_UserStackAssociationErrorList omitted.
 
-const deserializeAws_json1_1InvalidRoleException = (output: any, context: __SerdeContext): InvalidRoleException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_UserStackAssociationList omitted.
 
-const deserializeAws_json1_1LastReportGenerationExecutionError = (
-  output: any,
-  context: __SerdeContext
-): LastReportGenerationExecutionError => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    ErrorMessage: __expectString(output.ErrorMessage),
-  } as any;
-};
-
-const deserializeAws_json1_1LastReportGenerationExecutionErrors = (
-  output: any,
-  context: __SerdeContext
-): LastReportGenerationExecutionError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1LastReportGenerationExecutionError(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_1ListAssociatedFleetsResult = (
-  output: any,
-  context: __SerdeContext
-): ListAssociatedFleetsResult => {
-  return {
-    Names: output.Names != null ? deserializeAws_json1_1StringList(output.Names, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
-
-const deserializeAws_json1_1ListAssociatedStacksResult = (
-  output: any,
-  context: __SerdeContext
-): ListAssociatedStacksResult => {
-  return {
-    Names: output.Names != null ? deserializeAws_json1_1StringList(output.Names, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
-
-const deserializeAws_json1_1ListEntitledApplicationsResult = (
-  output: any,
-  context: __SerdeContext
-): ListEntitledApplicationsResult => {
-  return {
-    EntitledApplications:
-      output.EntitledApplications != null
-        ? deserializeAws_json1_1EntitledApplicationList(output.EntitledApplications, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
-
-const deserializeAws_json1_1ListTagsForResourceResponse = (
-  output: any,
-  context: __SerdeContext
-): ListTagsForResourceResponse => {
-  return {
-    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1Metadata = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
-
-const deserializeAws_json1_1NetworkAccessConfiguration = (
-  output: any,
-  context: __SerdeContext
-): NetworkAccessConfiguration => {
-  return {
-    EniId: __expectString(output.EniId),
-    EniPrivateIpAddress: __expectString(output.EniPrivateIpAddress),
-  } as any;
-};
-
-const deserializeAws_json1_1OperationNotPermittedException = (
-  output: any,
-  context: __SerdeContext
-): OperationNotPermittedException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_1OrganizationalUnitDistinguishedNamesList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1Platforms = (output: any, context: __SerdeContext): (PlatformType | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1RequestLimitExceededException = (
-  output: any,
-  context: __SerdeContext
-): RequestLimitExceededException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_1ResourceAlreadyExistsException = (
-  output: any,
-  context: __SerdeContext
-): ResourceAlreadyExistsException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_1ResourceError = (output: any, context: __SerdeContext): ResourceError => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    ErrorMessage: __expectString(output.ErrorMessage),
-    ErrorTimestamp:
-      output.ErrorTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ErrorTimestamp)))
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1ResourceErrors = (output: any, context: __SerdeContext): ResourceError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1ResourceError(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1ResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_1ResourceNotAvailableException = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotAvailableException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_1ResourceNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_1S3Location = (output: any, context: __SerdeContext): S3Location => {
-  return {
-    S3Bucket: __expectString(output.S3Bucket),
-    S3Key: __expectString(output.S3Key),
-  } as any;
-};
-
-const deserializeAws_json1_1ScriptDetails = (output: any, context: __SerdeContext): ScriptDetails => {
-  return {
-    ExecutableParameters: __expectString(output.ExecutableParameters),
-    ExecutablePath: __expectString(output.ExecutablePath),
-    ScriptS3Location:
-      output.ScriptS3Location != null ? deserializeAws_json1_1S3Location(output.ScriptS3Location, context) : undefined,
-    TimeoutInSeconds: __expectInt32(output.TimeoutInSeconds),
-  } as any;
-};
-
-const deserializeAws_json1_1SecurityGroupIdList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1ServiceAccountCredentials = (
-  output: any,
-  context: __SerdeContext
-): ServiceAccountCredentials => {
-  return {
-    AccountName: __expectString(output.AccountName),
-    AccountPassword: __expectString(output.AccountPassword),
-  } as any;
-};
-
-const deserializeAws_json1_1Session = (output: any, context: __SerdeContext): Session => {
-  return {
-    AuthenticationType: __expectString(output.AuthenticationType),
-    ConnectionState: __expectString(output.ConnectionState),
-    FleetName: __expectString(output.FleetName),
-    Id: __expectString(output.Id),
-    MaxExpirationTime:
-      output.MaxExpirationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.MaxExpirationTime)))
-        : undefined,
-    NetworkAccessConfiguration:
-      output.NetworkAccessConfiguration != null
-        ? deserializeAws_json1_1NetworkAccessConfiguration(output.NetworkAccessConfiguration, context)
-        : undefined,
-    StackName: __expectString(output.StackName),
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-    State: __expectString(output.State),
-    UserId: __expectString(output.UserId),
-  } as any;
-};
-
-const deserializeAws_json1_1SessionList = (output: any, context: __SerdeContext): Session[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Session(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1SharedImagePermissions = (output: any, context: __SerdeContext): SharedImagePermissions => {
-  return {
-    imagePermissions:
-      output.imagePermissions != null
-        ? deserializeAws_json1_1ImagePermissions(output.imagePermissions, context)
-        : undefined,
-    sharedAccountId: __expectString(output.sharedAccountId),
-  } as any;
-};
-
-const deserializeAws_json1_1SharedImagePermissionsList = (
-  output: any,
-  context: __SerdeContext
-): SharedImagePermissions[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1SharedImagePermissions(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1Stack = (output: any, context: __SerdeContext): Stack => {
-  return {
-    AccessEndpoints:
-      output.AccessEndpoints != null
-        ? deserializeAws_json1_1AccessEndpointList(output.AccessEndpoints, context)
-        : undefined,
-    ApplicationSettings:
-      output.ApplicationSettings != null
-        ? deserializeAws_json1_1ApplicationSettingsResponse(output.ApplicationSettings, context)
-        : undefined,
-    Arn: __expectString(output.Arn),
-    CreatedTime:
-      output.CreatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
-        : undefined,
-    Description: __expectString(output.Description),
-    DisplayName: __expectString(output.DisplayName),
-    EmbedHostDomains:
-      output.EmbedHostDomains != null
-        ? deserializeAws_json1_1EmbedHostDomains(output.EmbedHostDomains, context)
-        : undefined,
-    FeedbackURL: __expectString(output.FeedbackURL),
-    Name: __expectString(output.Name),
-    RedirectURL: __expectString(output.RedirectURL),
-    StackErrors:
-      output.StackErrors != null ? deserializeAws_json1_1StackErrors(output.StackErrors, context) : undefined,
-    StorageConnectors:
-      output.StorageConnectors != null
-        ? deserializeAws_json1_1StorageConnectorList(output.StorageConnectors, context)
-        : undefined,
-    StreamingExperienceSettings:
-      output.StreamingExperienceSettings != null
-        ? deserializeAws_json1_1StreamingExperienceSettings(output.StreamingExperienceSettings, context)
-        : undefined,
-    UserSettings:
-      output.UserSettings != null ? deserializeAws_json1_1UserSettingList(output.UserSettings, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1StackError = (output: any, context: __SerdeContext): StackError => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    ErrorMessage: __expectString(output.ErrorMessage),
-  } as any;
-};
-
-const deserializeAws_json1_1StackErrors = (output: any, context: __SerdeContext): StackError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1StackError(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1StackList = (output: any, context: __SerdeContext): Stack[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Stack(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1StartFleetResult = (output: any, context: __SerdeContext): StartFleetResult => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1StartImageBuilderResult = (
-  output: any,
-  context: __SerdeContext
-): StartImageBuilderResult => {
-  return {
-    ImageBuilder:
-      output.ImageBuilder != null ? deserializeAws_json1_1ImageBuilder(output.ImageBuilder, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1StopFleetResult = (output: any, context: __SerdeContext): StopFleetResult => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1StopImageBuilderResult = (output: any, context: __SerdeContext): StopImageBuilderResult => {
-  return {
-    ImageBuilder:
-      output.ImageBuilder != null ? deserializeAws_json1_1ImageBuilder(output.ImageBuilder, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1StorageConnector = (output: any, context: __SerdeContext): StorageConnector => {
-  return {
-    ConnectorType: __expectString(output.ConnectorType),
-    Domains: output.Domains != null ? deserializeAws_json1_1DomainList(output.Domains, context) : undefined,
-    ResourceIdentifier: __expectString(output.ResourceIdentifier),
-  } as any;
-};
-
-const deserializeAws_json1_1StorageConnectorList = (output: any, context: __SerdeContext): StorageConnector[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1StorageConnector(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1StreamingExperienceSettings = (
-  output: any,
-  context: __SerdeContext
-): StreamingExperienceSettings => {
-  return {
-    PreferredProtocol: __expectString(output.PreferredProtocol),
-  } as any;
-};
-
-const deserializeAws_json1_1StringList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1SubnetIdList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
-
-const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1UpdateApplicationResult = (
-  output: any,
-  context: __SerdeContext
-): UpdateApplicationResult => {
-  return {
-    Application:
-      output.Application != null ? deserializeAws_json1_1Application(output.Application, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1UpdateDirectoryConfigResult = (
-  output: any,
-  context: __SerdeContext
-): UpdateDirectoryConfigResult => {
-  return {
-    DirectoryConfig:
-      output.DirectoryConfig != null
-        ? deserializeAws_json1_1DirectoryConfig(output.DirectoryConfig, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1UpdateEntitlementResult = (
-  output: any,
-  context: __SerdeContext
-): UpdateEntitlementResult => {
-  return {
-    Entitlement:
-      output.Entitlement != null ? deserializeAws_json1_1Entitlement(output.Entitlement, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1UpdateFleetResult = (output: any, context: __SerdeContext): UpdateFleetResult => {
-  return {
-    Fleet: output.Fleet != null ? deserializeAws_json1_1Fleet(output.Fleet, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1UpdateImagePermissionsResult = (
-  output: any,
-  context: __SerdeContext
-): UpdateImagePermissionsResult => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1UpdateStackResult = (output: any, context: __SerdeContext): UpdateStackResult => {
-  return {
-    Stack: output.Stack != null ? deserializeAws_json1_1Stack(output.Stack, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1UsageReportSubscription = (
-  output: any,
-  context: __SerdeContext
-): UsageReportSubscription => {
-  return {
-    LastGeneratedReportDate:
-      output.LastGeneratedReportDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastGeneratedReportDate)))
-        : undefined,
-    S3BucketName: __expectString(output.S3BucketName),
-    Schedule: __expectString(output.Schedule),
-    SubscriptionErrors:
-      output.SubscriptionErrors != null
-        ? deserializeAws_json1_1LastReportGenerationExecutionErrors(output.SubscriptionErrors, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1UsageReportSubscriptionList = (
-  output: any,
-  context: __SerdeContext
-): UsageReportSubscription[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1UsageReportSubscription(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1UsbDeviceFilterStrings = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1User = (output: any, context: __SerdeContext): User => {
-  return {
-    Arn: __expectString(output.Arn),
-    AuthenticationType: __expectString(output.AuthenticationType),
-    CreatedTime:
-      output.CreatedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
-        : undefined,
-    Enabled: __expectBoolean(output.Enabled),
-    FirstName: __expectString(output.FirstName),
-    LastName: __expectString(output.LastName),
-    Status: __expectString(output.Status),
-    UserName: __expectString(output.UserName),
-  } as any;
-};
-
-const deserializeAws_json1_1UserList = (output: any, context: __SerdeContext): User[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1User(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1UserSetting = (output: any, context: __SerdeContext): UserSetting => {
-  return {
-    Action: __expectString(output.Action),
-    Permission: __expectString(output.Permission),
-  } as any;
-};
-
-const deserializeAws_json1_1UserSettingList = (output: any, context: __SerdeContext): UserSetting[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1UserSetting(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1UserStackAssociation = (output: any, context: __SerdeContext): UserStackAssociation => {
-  return {
-    AuthenticationType: __expectString(output.AuthenticationType),
-    SendEmailNotification: __expectBoolean(output.SendEmailNotification),
-    StackName: __expectString(output.StackName),
-    UserName: __expectString(output.UserName),
-  } as any;
-};
-
-const deserializeAws_json1_1UserStackAssociationError = (
-  output: any,
-  context: __SerdeContext
-): UserStackAssociationError => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    ErrorMessage: __expectString(output.ErrorMessage),
-    UserStackAssociation:
-      output.UserStackAssociation != null
-        ? deserializeAws_json1_1UserStackAssociation(output.UserStackAssociation, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1UserStackAssociationErrorList = (
-  output: any,
-  context: __SerdeContext
-): UserStackAssociationError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1UserStackAssociationError(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1UserStackAssociationList = (
-  output: any,
-  context: __SerdeContext
-): UserStackAssociation[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1UserStackAssociation(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1VpcConfig = (output: any, context: __SerdeContext): VpcConfig => {
-  return {
-    SecurityGroupIds:
-      output.SecurityGroupIds != null
-        ? deserializeAws_json1_1SecurityGroupIdList(output.SecurityGroupIds, context)
-        : undefined,
-    SubnetIds: output.SubnetIds != null ? deserializeAws_json1_1SubnetIdList(output.SubnetIds, context) : undefined,
-  } as any;
-};
+// de_VpcConfig omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -7246,6 +5909,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,
@@ -7270,6 +5934,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `PhotonAdminProxyService.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

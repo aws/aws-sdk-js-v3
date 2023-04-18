@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import {
-  LifecycleConfigurationDescription,
-  LifecycleConfigurationDescriptionFilterSensitiveLog,
-  PutLifecycleConfigurationRequest,
-  PutLifecycleConfigurationRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutLifecycleConfigurationCommand,
-  serializeAws_restJson1PutLifecycleConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { LifecycleConfigurationDescription, PutLifecycleConfigurationRequest } from "../models/models_0";
+import { de_PutLifecycleConfigurationCommand, se_PutLifecycleConfigurationCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutLifecycleConfigurationCommand}.
+ */
 export interface PutLifecycleConfigurationCommandInput extends PutLifecycleConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutLifecycleConfigurationCommand}.
+ */
 export interface PutLifecycleConfigurationCommandOutput extends LifecycleConfigurationDescription, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this action to manage EFS lifecycle management and EFS Intelligent-Tiering. A
  *         <code>LifecycleConfiguration</code> consists of one or more <code>LifecyclePolicy</code>
  *       objects that define the following:</p>
@@ -49,7 +52,6 @@ export interface PutLifecycleConfigurationCommandOutput extends LifecycleConfigu
  *             <code>TransitionToPrimaryStorageClass</code> to <code>AFTER_1_ACCESS</code>.</p>
  *             </li>
  *          </ul>
- *
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html">EFS Lifecycle Management</a>.</p>
  *          <p>Each Amazon EFS file system supports one lifecycle configuration, which applies to
  *       all files in the file system. If a <code>LifecycleConfiguration</code> object already exists
@@ -74,7 +76,6 @@ export interface PutLifecycleConfigurationCommandOutput extends LifecycleConfigu
  *                </note>
  *             </li>
  *          </ul>
- *
  *          <p>This operation requires permissions for the <code>elasticfilesystem:PutLifecycleConfiguration</code> operation.</p>
  *          <p>To apply a <code>LifecycleConfiguration</code> object to an encrypted file system, you
  *       need the same Key Management Service permissions as when you created the encrypted file system.</p>
@@ -84,13 +85,64 @@ export interface PutLifecycleConfigurationCommandOutput extends LifecycleConfigu
  * import { EFSClient, PutLifecycleConfigurationCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, PutLifecycleConfigurationCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
+ * const input = { // PutLifecycleConfigurationRequest
+ *   FileSystemId: "STRING_VALUE", // required
+ *   LifecyclePolicies: [ // LifecyclePolicies // required
+ *     { // LifecyclePolicy
+ *       TransitionToIA: "AFTER_7_DAYS" || "AFTER_14_DAYS" || "AFTER_30_DAYS" || "AFTER_60_DAYS" || "AFTER_90_DAYS" || "AFTER_1_DAY",
+ *       TransitionToPrimaryStorageClass: "AFTER_1_ACCESS",
+ *     },
+ *   ],
+ * };
  * const command = new PutLifecycleConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutLifecycleConfigurationCommandInput - {@link PutLifecycleConfigurationCommandInput}
+ * @returns {@link PutLifecycleConfigurationCommandOutput}
  * @see {@link PutLifecycleConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutLifecycleConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
+ *
+ * @throws {@link BadRequest} (client fault)
+ *  <p>Returned if the request is malformed or contains an error such as an invalid
+ *             parameter value or a missing required parameter.</p>
+ *
+ * @throws {@link FileSystemNotFound} (client fault)
+ *  <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the
+ *             requester's Amazon Web Services account.</p>
+ *
+ * @throws {@link IncorrectFileSystemLifeCycleState} (client fault)
+ *  <p>Returned if the file system's lifecycle state is not "available".</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Returned if an error occurred on the server side.</p>
+ *
+ *
+ * @example Creates a new lifecycleconfiguration object for a file system
+ * ```javascript
+ * // This operation enables lifecycle management on a file system by creating a new LifecycleConfiguration object. A LifecycleConfiguration object defines when files in an Amazon EFS file system are automatically transitioned to the lower-cost EFS Infrequent Access (IA) storage class. A LifecycleConfiguration applies to all files in a file system.
+ * const input = {
+ *   "FileSystemId": "fs-01234567",
+ *   "LifecyclePolicies": [
+ *     {
+ *       "TransitionToIA": "AFTER_30_DAYS"
+ *     }
+ *   ]
+ * };
+ * const command = new PutLifecycleConfigurationCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "LifecyclePolicies": [
+ *     {
+ *       "TransitionToIA": "AFTER_30_DAYS"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: creates-a-new-lifecycleconfiguration-object-for-a-file-system-1551201594692
+ * ```
  *
  */
 export class PutLifecycleConfigurationCommand extends $Command<
@@ -110,6 +162,9 @@ export class PutLifecycleConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutLifecycleConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,8 +193,8 @@ export class PutLifecycleConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutLifecycleConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: LifecycleConfigurationDescriptionFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -149,15 +204,21 @@ export class PutLifecycleConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutLifecycleConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutLifecycleConfigurationCommand(input, context);
+    return se_PutLifecycleConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutLifecycleConfigurationCommandOutput> {
-    return deserializeAws_restJson1PutLifecycleConfigurationCommand(output, context);
+    return de_PutLifecycleConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

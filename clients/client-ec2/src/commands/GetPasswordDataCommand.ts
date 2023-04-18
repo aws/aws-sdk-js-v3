@@ -14,18 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  GetPasswordDataRequest,
-  GetPasswordDataRequestFilterSensitiveLog,
-  GetPasswordDataResult,
-  GetPasswordDataResultFilterSensitiveLog,
-} from "../models/models_5";
-import { deserializeAws_ec2GetPasswordDataCommand, serializeAws_ec2GetPasswordDataCommand } from "../protocols/Aws_ec2";
+import { GetPasswordDataRequest, GetPasswordDataResult } from "../models/models_5";
+import { de_GetPasswordDataCommand, se_GetPasswordDataCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link GetPasswordDataCommand}.
+ */
 export interface GetPasswordDataCommandInput extends GetPasswordDataRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetPasswordDataCommand}.
+ */
 export interface GetPasswordDataCommandOutput extends GetPasswordDataResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the encrypted administrator password for a running Windows instance.</p>
  *          <p>The Windows password is generated at boot by the <code>EC2Config</code> service or
  *                 <code>EC2Launch</code> scripts (Windows Server 2016 and later). This usually only
@@ -45,13 +51,20 @@ export interface GetPasswordDataCommandOutput extends GetPasswordDataResult, __M
  * import { EC2Client, GetPasswordDataCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetPasswordDataCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // GetPasswordDataRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new GetPasswordDataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPasswordDataCommandInput - {@link GetPasswordDataCommandInput}
+ * @returns {@link GetPasswordDataCommandOutput}
  * @see {@link GetPasswordDataCommandInput} for command's `input` shape.
  * @see {@link GetPasswordDataCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class GetPasswordDataCommand extends $Command<
@@ -71,6 +84,9 @@ export class GetPasswordDataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPasswordDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +115,8 @@ export class GetPasswordDataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPasswordDataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPasswordDataResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +126,18 @@ export class GetPasswordDataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPasswordDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2GetPasswordDataCommand(input, context);
+    return se_GetPasswordDataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPasswordDataCommandOutput> {
-    return deserializeAws_ec2GetPasswordDataCommand(output, context);
+    return de_GetPasswordDataCommand(output, context);
   }
 
   // Start section: command_body_extra

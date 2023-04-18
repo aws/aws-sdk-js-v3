@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import { RemoveTagsFromStreamInput, RemoveTagsFromStreamInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1RemoveTagsFromStreamCommand,
-  serializeAws_json1_1RemoveTagsFromStreamCommand,
-} from "../protocols/Aws_json1_1";
+import { RemoveTagsFromStreamInput } from "../models/models_0";
+import { de_RemoveTagsFromStreamCommand, se_RemoveTagsFromStreamCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link RemoveTagsFromStreamCommand}.
+ */
 export interface RemoveTagsFromStreamCommandInput extends RemoveTagsFromStreamInput {}
+/**
+ * @public
+ *
+ * The output of {@link RemoveTagsFromStreamCommand}.
+ */
 export interface RemoveTagsFromStreamCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes tags from the specified Kinesis data stream. Removed tags are deleted and
  *             cannot be recovered after this operation successfully completes.</p>
  *          <note>
@@ -40,13 +48,43 @@ export interface RemoveTagsFromStreamCommandOutput extends __MetadataBearer {}
  * import { KinesisClient, RemoveTagsFromStreamCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, RemoveTagsFromStreamCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
+ * const input = { // RemoveTagsFromStreamInput
+ *   StreamName: "STRING_VALUE",
+ *   TagKeys: [ // TagKeyList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   StreamARN: "STRING_VALUE",
+ * };
  * const command = new RemoveTagsFromStreamCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveTagsFromStreamCommandInput - {@link RemoveTagsFromStreamCommandInput}
+ * @returns {@link RemoveTagsFromStreamCommandOutput}
  * @see {@link RemoveTagsFromStreamCommandInput} for command's `input` shape.
  * @see {@link RemoveTagsFromStreamCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Specifies that you do not have the permissions required to perform this
+ *             operation.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>A specified parameter exceeds its restrictions, is not supported, or can't be used.
+ *             For more information, see the returned message.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
+ *             stream requests exceeds the maximum number allowed. </p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The resource is not available for this operation. For successful operation, the
+ *             resource must be in the <code>ACTIVE</code> state.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource could not be found. The stream might not be specified
+ *             correctly.</p>
+ *
  *
  */
 export class RemoveTagsFromStreamCommand extends $Command<
@@ -68,6 +106,9 @@ export class RemoveTagsFromStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveTagsFromStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +137,8 @@ export class RemoveTagsFromStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveTagsFromStreamInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +148,18 @@ export class RemoveTagsFromStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveTagsFromStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RemoveTagsFromStreamCommand(input, context);
+    return se_RemoveTagsFromStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveTagsFromStreamCommandOutput> {
-    return deserializeAws_json1_1RemoveTagsFromStreamCommand(output, context);
+    return de_RemoveTagsFromStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

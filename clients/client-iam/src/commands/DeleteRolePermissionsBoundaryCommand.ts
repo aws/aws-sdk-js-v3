@@ -14,38 +14,67 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { DeleteRolePermissionsBoundaryRequest } from "../models/models_0";
 import {
-  DeleteRolePermissionsBoundaryRequest,
-  DeleteRolePermissionsBoundaryRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteRolePermissionsBoundaryCommand,
-  serializeAws_queryDeleteRolePermissionsBoundaryCommand,
+  de_DeleteRolePermissionsBoundaryCommand,
+  se_DeleteRolePermissionsBoundaryCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteRolePermissionsBoundaryCommand}.
+ */
 export interface DeleteRolePermissionsBoundaryCommandInput extends DeleteRolePermissionsBoundaryRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteRolePermissionsBoundaryCommand}.
+ */
 export interface DeleteRolePermissionsBoundaryCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the permissions boundary for the specified IAM role. </p>
- *         <important>
+ *          <p>You cannot set the boundary for a service-linked role.</p>
+ *          <important>
  *             <p>Deleting the permissions boundary for a role might increase its permissions. For
  *                 example, it might allow anyone who assumes the role to perform all the actions
- *                 granted in its permissions policies. </p>
- *         </important>
+ *                 granted in its permissions policies.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IAMClient, DeleteRolePermissionsBoundaryCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, DeleteRolePermissionsBoundaryCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // DeleteRolePermissionsBoundaryRequest
+ *   RoleName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRolePermissionsBoundaryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRolePermissionsBoundaryCommandInput - {@link DeleteRolePermissionsBoundaryCommandInput}
+ * @returns {@link DeleteRolePermissionsBoundaryCommandOutput}
  * @see {@link DeleteRolePermissionsBoundaryCommandInput} for command's `input` shape.
  * @see {@link DeleteRolePermissionsBoundaryCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
+ * @throws {@link UnmodifiableEntityException} (client fault)
+ *  <p>The request was rejected because service-linked roles are protected Amazon Web Services resources. Only
+ *       the service that depends on the service-linked role can modify or delete the role on your
+ *       behalf. The error message includes the name of the service that depends on this service-linked
+ *       role. You must request the change through that service.</p>
+ *
  *
  */
 export class DeleteRolePermissionsBoundaryCommand extends $Command<
@@ -65,6 +94,9 @@ export class DeleteRolePermissionsBoundaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRolePermissionsBoundaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +125,8 @@ export class DeleteRolePermissionsBoundaryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRolePermissionsBoundaryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,15 +136,21 @@ export class DeleteRolePermissionsBoundaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRolePermissionsBoundaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteRolePermissionsBoundaryCommand(input, context);
+    return se_DeleteRolePermissionsBoundaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteRolePermissionsBoundaryCommandOutput> {
-    return deserializeAws_queryDeleteRolePermissionsBoundaryCommand(output, context);
+    return de_DeleteRolePermissionsBoundaryCommand(output, context);
   }
 
   // Start section: command_body_extra

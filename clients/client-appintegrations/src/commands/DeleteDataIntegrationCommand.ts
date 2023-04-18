@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppIntegrationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppIntegrationsClient";
-import {
-  DeleteDataIntegrationRequest,
-  DeleteDataIntegrationRequestFilterSensitiveLog,
-  DeleteDataIntegrationResponse,
-  DeleteDataIntegrationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteDataIntegrationCommand,
-  serializeAws_restJson1DeleteDataIntegrationCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteDataIntegrationRequest, DeleteDataIntegrationResponse } from "../models/models_0";
+import { de_DeleteDataIntegrationCommand, se_DeleteDataIntegrationCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteDataIntegrationCommand}.
+ */
 export interface DeleteDataIntegrationCommandInput extends DeleteDataIntegrationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteDataIntegrationCommand}.
+ */
 export interface DeleteDataIntegrationCommandOutput extends DeleteDataIntegrationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the DataIntegration. Only DataIntegrations that don't have any
  *       DataIntegrationAssociations can be deleted. Deleting a DataIntegration also deletes the
  *       underlying Amazon AppFlow flow and service linked role. </p>
@@ -43,13 +46,34 @@ export interface DeleteDataIntegrationCommandOutput extends DeleteDataIntegratio
  * import { AppIntegrationsClient, DeleteDataIntegrationCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
  * // const { AppIntegrationsClient, DeleteDataIntegrationCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import
  * const client = new AppIntegrationsClient(config);
+ * const input = { // DeleteDataIntegrationRequest
+ *   DataIntegrationIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDataIntegrationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDataIntegrationCommandInput - {@link DeleteDataIntegrationCommandInput}
+ * @returns {@link DeleteDataIntegrationCommandOutput}
  * @see {@link DeleteDataIntegrationCommandInput} for command's `input` shape.
  * @see {@link DeleteDataIntegrationCommandOutput} for command's `response` shape.
  * @see {@link AppIntegrationsClientResolvedConfig | config} for AppIntegrationsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServiceError} (server fault)
+ *  <p>Request processing failed due to an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
  *
  */
 export class DeleteDataIntegrationCommand extends $Command<
@@ -69,6 +93,9 @@ export class DeleteDataIntegrationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDataIntegrationCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +124,8 @@ export class DeleteDataIntegrationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDataIntegrationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDataIntegrationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +135,18 @@ export class DeleteDataIntegrationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDataIntegrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDataIntegrationCommand(input, context);
+    return se_DeleteDataIntegrationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDataIntegrationCommandOutput> {
-    return deserializeAws_restJson1DeleteDataIntegrationCommand(output, context);
+    return de_DeleteDataIntegrationCommand(output, context);
   }
 
   // Start section: command_body_extra

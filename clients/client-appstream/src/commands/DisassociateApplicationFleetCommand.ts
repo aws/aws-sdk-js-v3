@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
+import { DisassociateApplicationFleetRequest, DisassociateApplicationFleetResult } from "../models/models_0";
 import {
-  DisassociateApplicationFleetRequest,
-  DisassociateApplicationFleetRequestFilterSensitiveLog,
-  DisassociateApplicationFleetResult,
-  DisassociateApplicationFleetResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DisassociateApplicationFleetCommand,
-  serializeAws_json1_1DisassociateApplicationFleetCommand,
+  de_DisassociateApplicationFleetCommand,
+  se_DisassociateApplicationFleetCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DisassociateApplicationFleetCommand}.
+ */
 export interface DisassociateApplicationFleetCommandInput extends DisassociateApplicationFleetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateApplicationFleetCommand}.
+ */
 export interface DisassociateApplicationFleetCommandOutput
   extends DisassociateApplicationFleetResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates the specified application from the fleet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,29 @@ export interface DisassociateApplicationFleetCommandOutput
  * import { AppStreamClient, DisassociateApplicationFleetCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DisassociateApplicationFleetCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = { // DisassociateApplicationFleetRequest
+ *   FleetName: "STRING_VALUE", // required
+ *   ApplicationArn: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateApplicationFleetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateApplicationFleetCommandInput - {@link DisassociateApplicationFleetCommandInput}
+ * @returns {@link DisassociateApplicationFleetCommandOutput}
  * @see {@link DisassociateApplicationFleetCommandInput} for command's `input` shape.
  * @see {@link DisassociateApplicationFleetCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>An API error occurred. Wait a few minutes and try again.</p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>The attempted operation is not permitted.</p>
+ *
  *
  */
 export class DisassociateApplicationFleetCommand extends $Command<
@@ -64,6 +86,9 @@ export class DisassociateApplicationFleetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateApplicationFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +117,8 @@ export class DisassociateApplicationFleetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateApplicationFleetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateApplicationFleetResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +128,21 @@ export class DisassociateApplicationFleetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateApplicationFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateApplicationFleetCommand(input, context);
+    return se_DisassociateApplicationFleetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateApplicationFleetCommandOutput> {
-    return deserializeAws_json1_1DisassociateApplicationFleetCommand(output, context);
+    return de_DisassociateApplicationFleetCommand(output, context);
   }
 
   // Start section: command_body_extra

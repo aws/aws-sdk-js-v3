@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import {
-  ListTimeSeriesRequest,
-  ListTimeSeriesRequestFilterSensitiveLog,
-  ListTimeSeriesResponse,
-  ListTimeSeriesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListTimeSeriesCommand,
-  serializeAws_restJson1ListTimeSeriesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListTimeSeriesRequest, ListTimeSeriesResponse } from "../models/models_0";
+import { de_ListTimeSeriesCommand, se_ListTimeSeriesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListTimeSeriesCommand}.
+ */
 export interface ListTimeSeriesCommandInput extends ListTimeSeriesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListTimeSeriesCommand}.
+ */
 export interface ListTimeSeriesCommandOutput extends ListTimeSeriesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a paginated list of time series (data streams).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,39 @@ export interface ListTimeSeriesCommandOutput extends ListTimeSeriesResponse, __M
  * import { IoTSiteWiseClient, ListTimeSeriesCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, ListTimeSeriesCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = { // ListTimeSeriesRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   assetId: "STRING_VALUE",
+ *   aliasPrefix: "STRING_VALUE",
+ *   timeSeriesType: "ASSOCIATED" || "DISASSOCIATED",
+ * };
  * const command = new ListTimeSeriesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTimeSeriesCommandInput - {@link ListTimeSeriesCommandInput}
+ * @returns {@link ListTimeSeriesCommandOutput}
  * @see {@link ListTimeSeriesCommandInput} for command's `input` shape.
  * @see {@link ListTimeSeriesCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>IoT SiteWise can't process your request right now. Try again later.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
+ *       unsupported characters. Check your request and try again.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource can't be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Your request exceeded a rate limit. For example, you might have exceeded the number of
+ *       IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so
+ *       on.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ *
  *
  */
 export class ListTimeSeriesCommand extends $Command<
@@ -62,6 +91,9 @@ export class ListTimeSeriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTimeSeriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +122,8 @@ export class ListTimeSeriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTimeSeriesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTimeSeriesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +133,18 @@ export class ListTimeSeriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTimeSeriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListTimeSeriesCommand(input, context);
+    return se_ListTimeSeriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTimeSeriesCommandOutput> {
-    return deserializeAws_restJson1ListTimeSeriesCommand(output, context);
+    return de_ListTimeSeriesCommand(output, context);
   }
 
   // Start section: command_body_extra

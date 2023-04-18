@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import {
-  CreateGroupVersionRequest,
-  CreateGroupVersionRequestFilterSensitiveLog,
-  CreateGroupVersionResponse,
-  CreateGroupVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateGroupVersionCommand,
-  serializeAws_restJson1CreateGroupVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateGroupVersionRequest, CreateGroupVersionResponse } from "../models/models_0";
+import { de_CreateGroupVersionCommand, se_CreateGroupVersionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateGroupVersionCommand}.
+ */
 export interface CreateGroupVersionCommandInput extends CreateGroupVersionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateGroupVersionCommand}.
+ */
 export interface CreateGroupVersionCommandOutput extends CreateGroupVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Creates a version of a group which has already been defined.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,30 @@ export interface CreateGroupVersionCommandOutput extends CreateGroupVersionRespo
  * import { GreengrassClient, CreateGroupVersionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, CreateGroupVersionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // CreateGroupVersionRequest
+ *   AmznClientToken: "STRING_VALUE",
+ *   ConnectorDefinitionVersionArn: "STRING_VALUE",
+ *   CoreDefinitionVersionArn: "STRING_VALUE",
+ *   DeviceDefinitionVersionArn: "STRING_VALUE",
+ *   FunctionDefinitionVersionArn: "STRING_VALUE",
+ *   GroupId: "STRING_VALUE", // required
+ *   LoggerDefinitionVersionArn: "STRING_VALUE",
+ *   ResourceDefinitionVersionArn: "STRING_VALUE",
+ *   SubscriptionDefinitionVersionArn: "STRING_VALUE",
+ * };
  * const command = new CreateGroupVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGroupVersionCommandInput - {@link CreateGroupVersionCommandInput}
+ * @returns {@link CreateGroupVersionCommandOutput}
  * @see {@link CreateGroupVersionCommandInput} for command's `input` shape.
  * @see {@link CreateGroupVersionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  General error information.
+ *
  *
  */
 export class CreateGroupVersionCommand extends $Command<
@@ -62,6 +82,9 @@ export class CreateGroupVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGroupVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +113,8 @@ export class CreateGroupVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateGroupVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateGroupVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +124,18 @@ export class CreateGroupVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateGroupVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateGroupVersionCommand(input, context);
+    return se_CreateGroupVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGroupVersionCommandOutput> {
-    return deserializeAws_restJson1CreateGroupVersionCommand(output, context);
+    return de_CreateGroupVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

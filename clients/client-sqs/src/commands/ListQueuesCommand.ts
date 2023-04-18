@@ -13,19 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListQueuesRequest,
-  ListQueuesRequestFilterSensitiveLog,
-  ListQueuesResult,
-  ListQueuesResultFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_queryListQueuesCommand, serializeAws_queryListQueuesCommand } from "../protocols/Aws_query";
+import { ListQueuesRequest, ListQueuesResult } from "../models/models_0";
+import { de_ListQueuesCommand, se_ListQueuesCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListQueuesCommand}.
+ */
 export interface ListQueuesCommandInput extends ListQueuesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListQueuesCommand}.
+ */
 export interface ListQueuesCommandOutput extends ListQueuesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of your queues in the current region. The response includes a maximum of 1,000 results. If you specify a value for the optional
  *           <code>QueueNamePrefix</code> parameter, only queues with a name that begins with the specified value are returned.</p>
  *          <p> The <code>listQueues</code> methods supports
@@ -46,13 +52,21 @@ export interface ListQueuesCommandOutput extends ListQueuesResult, __MetadataBea
  * import { SQSClient, ListQueuesCommand } from "@aws-sdk/client-sqs"; // ES Modules import
  * // const { SQSClient, ListQueuesCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
  * const client = new SQSClient(config);
+ * const input = { // ListQueuesRequest
+ *   QueueNamePrefix: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListQueuesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListQueuesCommandInput - {@link ListQueuesCommandInput}
+ * @returns {@link ListQueuesCommandOutput}
  * @see {@link ListQueuesCommandInput} for command's `input` shape.
  * @see {@link ListQueuesCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
+ *
  *
  */
 export class ListQueuesCommand extends $Command<
@@ -72,6 +86,9 @@ export class ListQueuesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListQueuesCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +115,8 @@ export class ListQueuesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListQueuesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListQueuesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +126,18 @@ export class ListQueuesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListQueuesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListQueuesCommand(input, context);
+    return se_ListQueuesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListQueuesCommandOutput> {
-    return deserializeAws_queryListQueuesCommand(output, context);
+    return de_ListQueuesCommand(output, context);
   }
 
   // Start section: command_body_extra

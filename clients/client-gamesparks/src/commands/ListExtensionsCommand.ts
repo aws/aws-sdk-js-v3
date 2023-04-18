@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameSparksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameSparksClient";
-import {
-  ListExtensionsRequest,
-  ListExtensionsRequestFilterSensitiveLog,
-  ListExtensionsResult,
-  ListExtensionsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListExtensionsCommand,
-  serializeAws_restJson1ListExtensionsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListExtensionsRequest, ListExtensionsResult } from "../models/models_0";
+import { de_ListExtensionsCommand, se_ListExtensionsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListExtensionsCommand}.
+ */
 export interface ListExtensionsCommandInput extends ListExtensionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListExtensionsCommand}.
+ */
 export interface ListExtensionsCommandOutput extends ListExtensionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a paginated list of available extensions.</p>
  *          <p>
  *       Extensions provide features that games can use from scripts.
@@ -39,13 +42,32 @@ export interface ListExtensionsCommandOutput extends ListExtensionsResult, __Met
  * import { GameSparksClient, ListExtensionsCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, ListExtensionsCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
+ * const input = { // ListExtensionsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListExtensionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListExtensionsCommandInput - {@link ListExtensionsCommandInput}
+ * @returns {@link ListExtensionsCommandOutput}
  * @see {@link ListExtensionsCommandInput} for command's `input` shape.
  * @see {@link ListExtensionsCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The service encountered an internal error.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request throughput limit was exceeded.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One of the parameters in the request is invalid.</p>
+ *
  *
  */
 export class ListExtensionsCommand extends $Command<
@@ -65,6 +87,9 @@ export class ListExtensionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListExtensionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +118,8 @@ export class ListExtensionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListExtensionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListExtensionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +129,18 @@ export class ListExtensionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListExtensionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListExtensionsCommand(input, context);
+    return se_ListExtensionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListExtensionsCommandOutput> {
-    return deserializeAws_restJson1ListExtensionsCommand(output, context);
+    return de_ListExtensionsCommand(output, context);
   }
 
   // Start section: command_body_extra

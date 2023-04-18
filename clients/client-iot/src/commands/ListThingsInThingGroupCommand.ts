@@ -14,36 +14,60 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  ListThingsInThingGroupRequest,
-  ListThingsInThingGroupRequestFilterSensitiveLog,
-  ListThingsInThingGroupResponse,
-  ListThingsInThingGroupResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1ListThingsInThingGroupCommand,
-  serializeAws_restJson1ListThingsInThingGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { ListThingsInThingGroupRequest, ListThingsInThingGroupResponse } from "../models/models_2";
+import { de_ListThingsInThingGroupCommand, se_ListThingsInThingGroupCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListThingsInThingGroupCommand}.
+ */
 export interface ListThingsInThingGroupCommandInput extends ListThingsInThingGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListThingsInThingGroupCommand}.
+ */
 export interface ListThingsInThingGroupCommandOutput extends ListThingsInThingGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the things in the specified group.</p>
- * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListThingsInThingGroup</a> action.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListThingsInThingGroup</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, ListThingsInThingGroupCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListThingsInThingGroupCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // ListThingsInThingGroupRequest
+ *   thingGroupName: "STRING_VALUE", // required
+ *   recursive: true || false,
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListThingsInThingGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListThingsInThingGroupCommandInput - {@link ListThingsInThingGroupCommandInput}
+ * @returns {@link ListThingsInThingGroupCommandOutput}
  * @see {@link ListThingsInThingGroupCommandInput} for command's `input` shape.
  * @see {@link ListThingsInThingGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
  *
  */
 export class ListThingsInThingGroupCommand extends $Command<
@@ -63,6 +87,9 @@ export class ListThingsInThingGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListThingsInThingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +118,8 @@ export class ListThingsInThingGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListThingsInThingGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListThingsInThingGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +129,18 @@ export class ListThingsInThingGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListThingsInThingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListThingsInThingGroupCommand(input, context);
+    return se_ListThingsInThingGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListThingsInThingGroupCommandOutput> {
-    return deserializeAws_restJson1ListThingsInThingGroupCommand(output, context);
+    return de_ListThingsInThingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

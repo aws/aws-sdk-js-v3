@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
+import { DescribeIdentityProviderConfigRequest, DescribeIdentityProviderConfigResponse } from "../models/models_0";
 import {
-  DescribeIdentityProviderConfigRequest,
-  DescribeIdentityProviderConfigRequestFilterSensitiveLog,
-  DescribeIdentityProviderConfigResponse,
-  DescribeIdentityProviderConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeIdentityProviderConfigCommand,
-  serializeAws_restJson1DescribeIdentityProviderConfigCommand,
+  de_DescribeIdentityProviderConfigCommand,
+  se_DescribeIdentityProviderConfigCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeIdentityProviderConfigCommand}.
+ */
 export interface DescribeIdentityProviderConfigCommandInput extends DescribeIdentityProviderConfigRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeIdentityProviderConfigCommand}.
+ */
 export interface DescribeIdentityProviderConfigCommandOutput
   extends DescribeIdentityProviderConfigResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns descriptive information about an identity provider configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,44 @@ export interface DescribeIdentityProviderConfigCommandOutput
  * import { EKSClient, DescribeIdentityProviderConfigCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, DescribeIdentityProviderConfigCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
+ * const input = { // DescribeIdentityProviderConfigRequest
+ *   clusterName: "STRING_VALUE", // required
+ *   identityProviderConfig: { // IdentityProviderConfig
+ *     type: "STRING_VALUE", // required
+ *     name: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new DescribeIdentityProviderConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeIdentityProviderConfigCommandInput - {@link DescribeIdentityProviderConfigCommandInput}
+ * @returns {@link DescribeIdentityProviderConfigCommandOutput}
  * @see {@link DescribeIdentityProviderConfigCommandInput} for command's `input` shape.
  * @see {@link DescribeIdentityProviderConfigCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action. Actions can include using an
+ *             action or resource on behalf of a user that doesn't have permissions to use the action
+ *             or resource or specifying an identifier that is not valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *             request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found. You can view your available clusters with
+ *                 <a>ListClusters</a>. You can view your available managed node groups with
+ *                 <a>ListNodegroups</a>. Amazon EKS clusters and node groups are
+ *             Region-specific.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is unavailable. Back off and retry the operation.</p>
+ *
  *
  */
 export class DescribeIdentityProviderConfigCommand extends $Command<
@@ -64,6 +101,9 @@ export class DescribeIdentityProviderConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeIdentityProviderConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +132,8 @@ export class DescribeIdentityProviderConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeIdentityProviderConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeIdentityProviderConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +143,24 @@ export class DescribeIdentityProviderConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeIdentityProviderConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeIdentityProviderConfigCommand(input, context);
+    return se_DescribeIdentityProviderConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeIdentityProviderConfigCommandOutput> {
-    return deserializeAws_restJson1DescribeIdentityProviderConfigCommand(output, context);
+    return de_DescribeIdentityProviderConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

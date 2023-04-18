@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import {
-  GetLFTagRequest,
-  GetLFTagRequestFilterSensitiveLog,
-  GetLFTagResponse,
-  GetLFTagResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetLFTagCommand,
-  serializeAws_restJson1GetLFTagCommand,
-} from "../protocols/Aws_restJson1";
+import { GetLFTagRequest, GetLFTagResponse } from "../models/models_0";
+import { de_GetLFTagCommand, se_GetLFTagCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetLFTagCommand}.
+ */
 export interface GetLFTagCommandInput extends GetLFTagRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetLFTagCommand}.
+ */
 export interface GetLFTagCommandOutput extends GetLFTagResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an LF-tag definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,35 @@ export interface GetLFTagCommandOutput extends GetLFTagResponse, __MetadataBeare
  * import { LakeFormationClient, GetLFTagCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, GetLFTagCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
+ * const input = { // GetLFTagRequest
+ *   CatalogId: "STRING_VALUE",
+ *   TagKey: "STRING_VALUE", // required
+ * };
  * const command = new GetLFTagCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLFTagCommandInput - {@link GetLFTagCommandInput}
+ * @returns {@link GetLFTagCommandOutput}
  * @see {@link GetLFTagCommandInput} for command's `input` shape.
  * @see {@link GetLFTagCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to a resource was denied.</p>
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class GetLFTagCommand extends $Command<
@@ -62,6 +87,9 @@ export class GetLFTagCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLFTagCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +116,8 @@ export class GetLFTagCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLFTagRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetLFTagResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +127,18 @@ export class GetLFTagCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLFTagCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetLFTagCommand(input, context);
+    return se_GetLFTagCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLFTagCommandOutput> {
-    return deserializeAws_restJson1GetLFTagCommand(output, context);
+    return de_GetLFTagCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
-import {
-  DeleteElasticsearchDomainRequest,
-  DeleteElasticsearchDomainRequestFilterSensitiveLog,
-  DeleteElasticsearchDomainResponse,
-  DeleteElasticsearchDomainResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteElasticsearchDomainCommand,
-  serializeAws_restJson1DeleteElasticsearchDomainCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteElasticsearchDomainRequest, DeleteElasticsearchDomainResponse } from "../models/models_0";
+import { de_DeleteElasticsearchDomainCommand, se_DeleteElasticsearchDomainCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteElasticsearchDomainCommand}.
+ */
 export interface DeleteElasticsearchDomainCommandInput extends DeleteElasticsearchDomainRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteElasticsearchDomainCommand}.
+ */
 export interface DeleteElasticsearchDomainCommandOutput extends DeleteElasticsearchDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Permanently deletes the specified Elasticsearch domain and all of its data. Once a domain is deleted, it cannot be recovered.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,31 @@ export interface DeleteElasticsearchDomainCommandOutput extends DeleteElasticsea
  * import { ElasticsearchServiceClient, DeleteElasticsearchDomainCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, DeleteElasticsearchDomainCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
+ * const input = { // DeleteElasticsearchDomainRequest
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteElasticsearchDomainCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteElasticsearchDomainCommandInput - {@link DeleteElasticsearchDomainCommandInput}
+ * @returns {@link DeleteElasticsearchDomainCommandOutput}
  * @see {@link DeleteElasticsearchDomainCommandInput} for command's `input` shape.
  * @see {@link DeleteElasticsearchDomainCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
+ *
+ * @throws {@link BaseException} (client fault)
+ *  <p>An error occurred while processing the request.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+ *
  *
  */
 export class DeleteElasticsearchDomainCommand extends $Command<
@@ -66,6 +87,9 @@ export class DeleteElasticsearchDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteElasticsearchDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +118,8 @@ export class DeleteElasticsearchDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteElasticsearchDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteElasticsearchDomainResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,15 +129,21 @@ export class DeleteElasticsearchDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteElasticsearchDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteElasticsearchDomainCommand(input, context);
+    return se_DeleteElasticsearchDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteElasticsearchDomainCommandOutput> {
-    return deserializeAws_restJson1DeleteElasticsearchDomainCommand(output, context);
+    return de_DeleteElasticsearchDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

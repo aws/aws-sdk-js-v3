@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListAppsCommand, ListAppsCommandInput, ListAppsCommandOutput } from "../commands/ListAppsCommand";
-import { SimSpaceWeaver } from "../SimSpaceWeaver";
 import { SimSpaceWeaverClient } from "../SimSpaceWeaverClient";
 import { SimSpaceWeaverPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SimSpaceWeaverClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListAppsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: SimSpaceWeaver,
-  input: ListAppsCommandInput,
-  ...args: any
-): Promise<ListAppsCommandOutput> => {
-  // @ts-ignore
-  return await client.listApps(input, ...args);
-};
 export async function* paginateListApps(
   config: SimSpaceWeaverPaginationConfiguration,
   input: ListAppsCommandInput,
@@ -40,9 +31,7 @@ export async function* paginateListApps(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof SimSpaceWeaver) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SimSpaceWeaverClient) {
+    if (config.client instanceof SimSpaceWeaverClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SimSpaceWeaver | SimSpaceWeaverClient");

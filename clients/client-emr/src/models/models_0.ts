@@ -3,26 +3,46 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { EMRServiceException as __BaseException } from "./EMRServiceException";
 
-export enum ActionOnFailure {
-  CANCEL_AND_WAIT = "CANCEL_AND_WAIT",
-  CONTINUE = "CONTINUE",
-  TERMINATE_CLUSTER = "TERMINATE_CLUSTER",
-  TERMINATE_JOB_FLOW = "TERMINATE_JOB_FLOW",
-}
-
-export enum InstanceFleetType {
-  CORE = "CORE",
-  MASTER = "MASTER",
-  TASK = "TASK",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ActionOnFailure = {
+  CANCEL_AND_WAIT: "CANCEL_AND_WAIT",
+  CONTINUE: "CONTINUE",
+  TERMINATE_CLUSTER: "TERMINATE_CLUSTER",
+  TERMINATE_JOB_FLOW: "TERMINATE_JOB_FLOW",
+} as const;
 
 /**
- * <p>EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s) that are
- *          requested for the EBS volume attached to an EC2 instance in the cluster.</p>
+ * @public
+ */
+export type ActionOnFailure = (typeof ActionOnFailure)[keyof typeof ActionOnFailure];
+
+/**
+ * @public
+ * @enum
+ */
+export const InstanceFleetType = {
+  CORE: "CORE",
+  MASTER: "MASTER",
+  TASK: "TASK",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceFleetType = (typeof InstanceFleetType)[keyof typeof InstanceFleetType];
+
+/**
+ * @public
+ * <p>EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s)
+ *          that are requested for the EBS volume attached to an EC2 instance in the cluster.</p>
  */
 export interface VolumeSpecification {
   /**
-   * <p>The volume type. Volume types supported are gp3, gp2, io1, st1, sc1, and standard.</p>
+   * <p>The volume type. Volume types supported are gp3, gp2, io1, st1, sc1, and
+   *          standard.</p>
    */
   VolumeType: string | undefined;
 
@@ -39,19 +59,20 @@ export interface VolumeSpecification {
 
   /**
    * <p>The throughput, in mebibyte per second (MiB/s). This optional parameter can be a number
-   *            from 125 - 1000 and is valid only for gp3 volumes.</p>
+   *          from 125 - 1000 and is valid only for gp3 volumes.</p>
    */
   Throughput?: number;
 }
 
 /**
+ * @public
  * <p>Configuration of requested EBS block device associated with the instance group with
  *          count of volumes that are associated to every instance.</p>
  */
 export interface EbsBlockDeviceConfig {
   /**
-   * <p>EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s) that are
-   *          requested for the EBS volume attached to an EC2 instance in the cluster.</p>
+   * <p>EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s)
+   *          that are requested for the EBS volume attached to an EC2 instance in the cluster.</p>
    */
   VolumeSpecification: VolumeSpecification | undefined;
 
@@ -63,6 +84,7 @@ export interface EbsBlockDeviceConfig {
 }
 
 /**
+ * @public
  * <p>The Amazon EBS configuration of a cluster instance.</p>
  */
 export interface EbsConfiguration {
@@ -78,20 +100,51 @@ export interface EbsConfiguration {
   EbsOptimized?: boolean;
 }
 
-export enum OnDemandProvisioningAllocationStrategy {
-  LOWEST_PRICE = "lowest-price",
-}
-
-export enum OnDemandCapacityReservationPreference {
-  NONE = "none",
-  OPEN = "open",
-}
-
-export enum OnDemandCapacityReservationUsageStrategy {
-  USE_CAPACITY_RESERVATIONS_FIRST = "use-capacity-reservations-first",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OnDemandProvisioningAllocationStrategy = {
+  LOWEST_PRICE: "lowest-price",
+} as const;
 
 /**
+ * @public
+ */
+export type OnDemandProvisioningAllocationStrategy =
+  (typeof OnDemandProvisioningAllocationStrategy)[keyof typeof OnDemandProvisioningAllocationStrategy];
+
+/**
+ * @public
+ * @enum
+ */
+export const OnDemandCapacityReservationPreference = {
+  NONE: "none",
+  OPEN: "open",
+} as const;
+
+/**
+ * @public
+ */
+export type OnDemandCapacityReservationPreference =
+  (typeof OnDemandCapacityReservationPreference)[keyof typeof OnDemandCapacityReservationPreference];
+
+/**
+ * @public
+ * @enum
+ */
+export const OnDemandCapacityReservationUsageStrategy = {
+  USE_CAPACITY_RESERVATIONS_FIRST: "use-capacity-reservations-first",
+} as const;
+
+/**
+ * @public
+ */
+export type OnDemandCapacityReservationUsageStrategy =
+  (typeof OnDemandCapacityReservationUsageStrategy)[keyof typeof OnDemandCapacityReservationUsageStrategy];
+
+/**
+ * @public
  * <p>Describes the strategy for using unused Capacity Reservations for fulfilling On-Demand
  *          capacity.</p>
  */
@@ -136,6 +189,7 @@ export interface OnDemandCapacityReservationOptions {
 }
 
 /**
+ * @public
  * <p> The launch specification for On-Demand Instances in the instance fleet, which
  *          determines the allocation strategy. </p>
  *          <note>
@@ -159,16 +213,37 @@ export interface OnDemandProvisioningSpecification {
   CapacityReservationOptions?: OnDemandCapacityReservationOptions;
 }
 
-export enum SpotProvisioningAllocationStrategy {
-  CAPACITY_OPTIMIZED = "capacity-optimized",
-}
-
-export enum SpotProvisioningTimeoutAction {
-  SWITCH_TO_ON_DEMAND = "SWITCH_TO_ON_DEMAND",
-  TERMINATE_CLUSTER = "TERMINATE_CLUSTER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SpotProvisioningAllocationStrategy = {
+  CAPACITY_OPTIMIZED: "capacity-optimized",
+} as const;
 
 /**
+ * @public
+ */
+export type SpotProvisioningAllocationStrategy =
+  (typeof SpotProvisioningAllocationStrategy)[keyof typeof SpotProvisioningAllocationStrategy];
+
+/**
+ * @public
+ * @enum
+ */
+export const SpotProvisioningTimeoutAction = {
+  SWITCH_TO_ON_DEMAND: "SWITCH_TO_ON_DEMAND",
+  TERMINATE_CLUSTER: "TERMINATE_CLUSTER",
+} as const;
+
+/**
+ * @public
+ */
+export type SpotProvisioningTimeoutAction =
+  (typeof SpotProvisioningTimeoutAction)[keyof typeof SpotProvisioningTimeoutAction];
+
+/**
+ * @public
  * <p>The launch specification for Spot Instances in the instance fleet, which determines the
  *          defined duration, provisioning timeout behavior, and allocation strategy.</p>
  *          <note>
@@ -185,7 +260,7 @@ export enum SpotProvisioningTimeoutAction {
  */
 export interface SpotProvisioningSpecification {
   /**
-   * <p>The spot provisioning timeout period in minutes. If Spot Instances are not provisioned
+   * <p>The Spot provisioning timeout period in minutes. If Spot Instances are not provisioned
    *          within this time period, the <code>TimeOutAction</code> is taken. Minimum value is 5 and
    *          maximum value is 1440. The timeout applies only during initial provisioning, when the
    *          cluster is first created.</p>
@@ -228,17 +303,18 @@ export interface SpotProvisioningSpecification {
 }
 
 /**
+ * @public
  * <p>The launch specification for Spot Instances in the fleet, which determines the defined
  *          duration, provisioning timeout behavior, and allocation strategy.</p>
  *          <note>
  *             <p>The instance fleet configuration is available only in Amazon EMR versions
- *             4.8.0 and later, excluding 5.0.x versions. On-Demand and Spot Instance allocation
+ *             4.8.0 and later, excluding 5.0.x versions. On-Demand and Spot instance allocation
  *             strategies are available in Amazon EMR version 5.12.1 and later.</p>
  *          </note>
  */
 export interface InstanceFleetProvisioningSpecifications {
   /**
-   * <p>The launch specification for Spot Instances in the fleet, which determines the defined
+   * <p>The launch specification for Spot instances in the fleet, which determines the defined
    *          duration, provisioning timeout behavior, and allocation strategy.</p>
    */
   SpotSpecification?: SpotProvisioningSpecification;
@@ -255,6 +331,61 @@ export interface InstanceFleetProvisioningSpecifications {
   OnDemandSpecification?: OnDemandProvisioningSpecification;
 }
 
+/**
+ * @public
+ * <p>The resize specification for On-Demand Instances in the instance fleet, which contains
+ *          the resize timeout period. </p>
+ */
+export interface OnDemandResizingSpecification {
+  /**
+   * <p>On-Demand resize timeout in minutes. If On-Demand Instances are not provisioned within
+   *          this time, the resize workflow stops. The minimum value is 5 minutes, and the maximum value
+   *          is 10,080 minutes (7 days). The timeout applies to all resize workflows on the Instance
+   *          Fleet. The resize could be triggered by Amazon EMR Managed Scaling
+   *          or by the customer (via Amazon EMR Console, Amazon EMR CLI
+   *          modify-instance-fleet or Amazon EMR SDK ModifyInstanceFleet API) or by Amazon EMR due to Amazon EC2 Spot Reclamation.</p>
+   */
+  TimeoutDurationMinutes: number | undefined;
+}
+
+/**
+ * @public
+ * <p>The resize specification for Spot Instances in the instance fleet, which contains the
+ *          resize timeout period. </p>
+ */
+export interface SpotResizingSpecification {
+  /**
+   * <p>Spot resize timeout in minutes. If Spot Instances are not provisioned within this time,
+   *          the resize workflow will stop provisioning of Spot instances. Minimum value is 5 minutes
+   *          and maximum value is 10,080 minutes (7 days). The timeout applies to all resize workflows
+   *          on the Instance Fleet. The resize could be triggered by Amazon EMR Managed Scaling
+   *          or by the customer (via Amazon EMR Console, Amazon EMR CLI
+   *          modify-instance-fleet or Amazon EMR SDK ModifyInstanceFleet API) or by Amazon EMR due to Amazon EC2 Spot Reclamation.</p>
+   */
+  TimeoutDurationMinutes: number | undefined;
+}
+
+/**
+ * @public
+ * <p>The resize specification for On-Demand and Spot Instances in the fleet.</p>
+ */
+export interface InstanceFleetResizingSpecifications {
+  /**
+   * <p>The resize specification for Spot Instances in the instance fleet, which contains the
+   *          resize timeout period. </p>
+   */
+  SpotResizeSpecification?: SpotResizingSpecification;
+
+  /**
+   * <p>The resize specification for On-Demand Instances in the instance fleet, which contains
+   *          the resize timeout period. </p>
+   */
+  OnDemandResizeSpecification?: OnDemandResizingSpecification;
+}
+
+/**
+ * @public
+ */
 export interface AddInstanceFleetOutput {
   /**
    * <p>The unique identifier of the cluster.</p>
@@ -273,6 +404,7 @@ export interface AddInstanceFleetOutput {
 }
 
 /**
+ * @public
  * <p>This exception occurs when there is an internal failure in the Amazon EMR
  *          service.</p>
  */
@@ -298,6 +430,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception occurs when there is something wrong with user input.</p>
  */
 export class InvalidRequestException extends __BaseException {
@@ -328,6 +461,7 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The upper and lower EC2 instance limits for an automatic scaling policy. Automatic
  *          scaling activities triggered by automatic scaling rules will not cause an instance group to
  *          grow above or below these limits.</p>
@@ -348,18 +482,37 @@ export interface ScalingConstraints {
   MaxCapacity: number | undefined;
 }
 
-export enum MarketType {
-  ON_DEMAND = "ON_DEMAND",
-  SPOT = "SPOT",
-}
-
-export enum AdjustmentType {
-  CHANGE_IN_CAPACITY = "CHANGE_IN_CAPACITY",
-  EXACT_CAPACITY = "EXACT_CAPACITY",
-  PERCENT_CHANGE_IN_CAPACITY = "PERCENT_CHANGE_IN_CAPACITY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MarketType = {
+  ON_DEMAND: "ON_DEMAND",
+  SPOT: "SPOT",
+} as const;
 
 /**
+ * @public
+ */
+export type MarketType = (typeof MarketType)[keyof typeof MarketType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AdjustmentType = {
+  CHANGE_IN_CAPACITY: "CHANGE_IN_CAPACITY",
+  EXACT_CAPACITY: "EXACT_CAPACITY",
+  PERCENT_CHANGE_IN_CAPACITY: "PERCENT_CHANGE_IN_CAPACITY",
+} as const;
+
+/**
+ * @public
+ */
+export type AdjustmentType = (typeof AdjustmentType)[keyof typeof AdjustmentType];
+
+/**
+ * @public
  * <p>An automatic scaling configuration, which describes how the policy adds or removes
  *          instances, the cooldown period, and the number of EC2 instances that will be added each
  *          time the CloudWatch metric alarm condition is satisfied.</p>
@@ -399,6 +552,7 @@ export interface SimpleScalingPolicyConfiguration {
 }
 
 /**
+ * @public
  * <p>The type of adjustment the automatic scaling activity makes when triggered, and the
  *          periodicity of the adjustment.</p>
  */
@@ -416,18 +570,28 @@ export interface ScalingAction {
   SimpleScalingPolicyConfiguration: SimpleScalingPolicyConfiguration | undefined;
 }
 
-export enum ComparisonOperator {
-  GREATER_THAN = "GREATER_THAN",
-  GREATER_THAN_OR_EQUAL = "GREATER_THAN_OR_EQUAL",
-  LESS_THAN = "LESS_THAN",
-  LESS_THAN_OR_EQUAL = "LESS_THAN_OR_EQUAL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ComparisonOperator = {
+  GREATER_THAN: "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL: "GREATER_THAN_OR_EQUAL",
+  LESS_THAN: "LESS_THAN",
+  LESS_THAN_OR_EQUAL: "LESS_THAN_OR_EQUAL",
+} as const;
 
 /**
+ * @public
+ */
+export type ComparisonOperator = (typeof ComparisonOperator)[keyof typeof ComparisonOperator];
+
+/**
+ * @public
  * <p>A CloudWatch dimension, which is specified using a <code>Key</code> (known as a
  *             <code>Name</code> in CloudWatch), <code>Value</code> pair. By default, Amazon EMR uses one dimension whose <code>Key</code> is <code>JobFlowID</code> and
  *             <code>Value</code> is a variable representing the cluster ID, which is
- *             <code>${emr.clusterId}</code>. This enables the rule to bootstrap when the cluster ID
+ *             <code>$\{emr.clusterId\}</code>. This enables the rule to bootstrap when the cluster ID
  *          becomes available.</p>
  */
 export interface MetricDimension {
@@ -442,45 +606,64 @@ export interface MetricDimension {
   Value?: string;
 }
 
-export enum Statistic {
-  AVERAGE = "AVERAGE",
-  MAXIMUM = "MAXIMUM",
-  MINIMUM = "MINIMUM",
-  SAMPLE_COUNT = "SAMPLE_COUNT",
-  SUM = "SUM",
-}
-
-export enum Unit {
-  BITS = "BITS",
-  BITS_PER_SECOND = "BITS_PER_SECOND",
-  BYTES = "BYTES",
-  BYTES_PER_SECOND = "BYTES_PER_SECOND",
-  COUNT = "COUNT",
-  COUNT_PER_SECOND = "COUNT_PER_SECOND",
-  GIGA_BITS = "GIGA_BITS",
-  GIGA_BITS_PER_SECOND = "GIGA_BITS_PER_SECOND",
-  GIGA_BYTES = "GIGA_BYTES",
-  GIGA_BYTES_PER_SECOND = "GIGA_BYTES_PER_SECOND",
-  KILO_BITS = "KILO_BITS",
-  KILO_BITS_PER_SECOND = "KILO_BITS_PER_SECOND",
-  KILO_BYTES = "KILO_BYTES",
-  KILO_BYTES_PER_SECOND = "KILO_BYTES_PER_SECOND",
-  MEGA_BITS = "MEGA_BITS",
-  MEGA_BITS_PER_SECOND = "MEGA_BITS_PER_SECOND",
-  MEGA_BYTES = "MEGA_BYTES",
-  MEGA_BYTES_PER_SECOND = "MEGA_BYTES_PER_SECOND",
-  MICRO_SECONDS = "MICRO_SECONDS",
-  MILLI_SECONDS = "MILLI_SECONDS",
-  NONE = "NONE",
-  PERCENT = "PERCENT",
-  SECONDS = "SECONDS",
-  TERA_BITS = "TERA_BITS",
-  TERA_BITS_PER_SECOND = "TERA_BITS_PER_SECOND",
-  TERA_BYTES = "TERA_BYTES",
-  TERA_BYTES_PER_SECOND = "TERA_BYTES_PER_SECOND",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Statistic = {
+  AVERAGE: "AVERAGE",
+  MAXIMUM: "MAXIMUM",
+  MINIMUM: "MINIMUM",
+  SAMPLE_COUNT: "SAMPLE_COUNT",
+  SUM: "SUM",
+} as const;
 
 /**
+ * @public
+ */
+export type Statistic = (typeof Statistic)[keyof typeof Statistic];
+
+/**
+ * @public
+ * @enum
+ */
+export const Unit = {
+  BITS: "BITS",
+  BITS_PER_SECOND: "BITS_PER_SECOND",
+  BYTES: "BYTES",
+  BYTES_PER_SECOND: "BYTES_PER_SECOND",
+  COUNT: "COUNT",
+  COUNT_PER_SECOND: "COUNT_PER_SECOND",
+  GIGA_BITS: "GIGA_BITS",
+  GIGA_BITS_PER_SECOND: "GIGA_BITS_PER_SECOND",
+  GIGA_BYTES: "GIGA_BYTES",
+  GIGA_BYTES_PER_SECOND: "GIGA_BYTES_PER_SECOND",
+  KILO_BITS: "KILO_BITS",
+  KILO_BITS_PER_SECOND: "KILO_BITS_PER_SECOND",
+  KILO_BYTES: "KILO_BYTES",
+  KILO_BYTES_PER_SECOND: "KILO_BYTES_PER_SECOND",
+  MEGA_BITS: "MEGA_BITS",
+  MEGA_BITS_PER_SECOND: "MEGA_BITS_PER_SECOND",
+  MEGA_BYTES: "MEGA_BYTES",
+  MEGA_BYTES_PER_SECOND: "MEGA_BYTES_PER_SECOND",
+  MICRO_SECONDS: "MICRO_SECONDS",
+  MILLI_SECONDS: "MILLI_SECONDS",
+  NONE: "NONE",
+  PERCENT: "PERCENT",
+  SECONDS: "SECONDS",
+  TERA_BITS: "TERA_BITS",
+  TERA_BITS_PER_SECOND: "TERA_BITS_PER_SECOND",
+  TERA_BYTES: "TERA_BYTES",
+  TERA_BYTES_PER_SECOND: "TERA_BYTES_PER_SECOND",
+} as const;
+
+/**
+ * @public
+ */
+export type Unit = (typeof Unit)[keyof typeof Unit];
+
+/**
+ * @public
  * <p>The definition of a CloudWatch metric alarm, which determines when an automatic scaling
  *          activity is triggered. When the defined alarm conditions are satisfied, scaling activity
  *          begins.</p>
@@ -543,6 +726,7 @@ export interface CloudWatchAlarmDefinition {
 }
 
 /**
+ * @public
  * <p>The conditions that trigger an automatic scaling activity.</p>
  */
 export interface ScalingTrigger {
@@ -554,6 +738,7 @@ export interface ScalingTrigger {
 }
 
 /**
+ * @public
  * <p>A scale-in or scale-out rule that defines scaling activity, including the CloudWatch
  *          metric alarm that triggers activity, how EC2 instances are added or removed, and the
  *          periodicity of adjustments. The automatic scaling policy for an instance group can comprise
@@ -584,6 +769,7 @@ export interface ScalingRule {
 }
 
 /**
+ * @public
  * <p>An automatic scaling policy for a core instance group or task instance group in an
  *             Amazon EMR cluster. An automatic scaling policy defines how an instance group
  *          dynamically adds and terminates EC2 instances in response to the value of a CloudWatch
@@ -603,13 +789,23 @@ export interface AutoScalingPolicy {
   Rules: ScalingRule[] | undefined;
 }
 
-export enum InstanceRoleType {
-  CORE = "CORE",
-  MASTER = "MASTER",
-  TASK = "TASK",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InstanceRoleType = {
+  CORE: "CORE",
+  MASTER: "MASTER",
+  TASK: "TASK",
+} as const;
 
 /**
+ * @public
+ */
+export type InstanceRoleType = (typeof InstanceRoleType)[keyof typeof InstanceRoleType];
+
+/**
+ * @public
  * <p>Output from an AddInstanceGroups call.</p>
  */
 export interface AddInstanceGroupsOutput {
@@ -630,6 +826,7 @@ export interface AddInstanceGroupsOutput {
 }
 
 /**
+ * @public
  * <p>Indicates that an error occurred while processing the request and that the request was
  *          not completed.</p>
  */
@@ -650,6 +847,7 @@ export class InternalServerError extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A key-value pair.</p>
  */
 export interface KeyValue {
@@ -665,6 +863,7 @@ export interface KeyValue {
 }
 
 /**
+ * @public
  * <p>A job flow step consisting of a JAR file whose main function will be executed. The main
  *          function submits a job for Hadoop to execute and waits for the job to finish or
  *          fail.</p>
@@ -695,6 +894,7 @@ export interface HadoopJarStepConfig {
 }
 
 /**
+ * @public
  * <p>Specification for a cluster (job flow) step.</p>
  */
 export interface StepConfig {
@@ -747,6 +947,7 @@ export interface StepConfig {
 }
 
 /**
+ * @public
  * <p> The input argument to the <a>AddJobFlowSteps</a> operation. </p>
  */
 export interface AddJobFlowStepsInput {
@@ -773,6 +974,7 @@ export interface AddJobFlowStepsInput {
 }
 
 /**
+ * @public
  * <p> The output for the <a>AddJobFlowSteps</a> operation. </p>
  */
 export interface AddJobFlowStepsOutput {
@@ -783,6 +985,7 @@ export interface AddJobFlowStepsOutput {
 }
 
 /**
+ * @public
  * <p>A key-value pair containing user-defined metadata that you can associate with an Amazon EMR resource. Tags make it easier to associate clusters in various ways, such as
  *          grouping clusters to track your Amazon EMR resource allocation costs. For more
  *          information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html">Tag Clusters</a>. </p>
@@ -802,6 +1005,7 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>This input identifies an Amazon EMR resource and a list of tags to
  *          attach.</p>
  */
@@ -821,11 +1025,13 @@ export interface AddTagsInput {
 }
 
 /**
+ * @public
  * <p>This output indicates the result of adding tags to a resource.</p>
  */
 export interface AddTagsOutput {}
 
 /**
+ * @public
  * <p>With Amazon EMR release version 4.0 and later, the only accepted parameter is
  *          the application name. To pass arguments to applications, you use configuration
  *          classifications specified using configuration JSON objects. For more information, see
@@ -858,27 +1064,56 @@ export interface Application {
   AdditionalInfo?: Record<string, string>;
 }
 
-export enum AuthMode {
-  IAM = "IAM",
-  SSO = "SSO",
-}
-
-export enum AutoScalingPolicyState {
-  ATTACHED = "ATTACHED",
-  ATTACHING = "ATTACHING",
-  DETACHED = "DETACHED",
-  DETACHING = "DETACHING",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-}
-
-export enum AutoScalingPolicyStateChangeReasonCode {
-  CLEANUP_FAILURE = "CLEANUP_FAILURE",
-  PROVISION_FAILURE = "PROVISION_FAILURE",
-  USER_REQUEST = "USER_REQUEST",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AuthMode = {
+  IAM: "IAM",
+  SSO: "SSO",
+} as const;
 
 /**
+ * @public
+ */
+export type AuthMode = (typeof AuthMode)[keyof typeof AuthMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const AutoScalingPolicyState = {
+  ATTACHED: "ATTACHED",
+  ATTACHING: "ATTACHING",
+  DETACHED: "DETACHED",
+  DETACHING: "DETACHING",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type AutoScalingPolicyState = (typeof AutoScalingPolicyState)[keyof typeof AutoScalingPolicyState];
+
+/**
+ * @public
+ * @enum
+ */
+export const AutoScalingPolicyStateChangeReasonCode = {
+  CLEANUP_FAILURE: "CLEANUP_FAILURE",
+  PROVISION_FAILURE: "PROVISION_FAILURE",
+  USER_REQUEST: "USER_REQUEST",
+} as const;
+
+/**
+ * @public
+ */
+export type AutoScalingPolicyStateChangeReasonCode =
+  (typeof AutoScalingPolicyStateChangeReasonCode)[keyof typeof AutoScalingPolicyStateChangeReasonCode];
+
+/**
+ * @public
  * <p>The reason for an <a>AutoScalingPolicyStatus</a> change.</p>
  */
 export interface AutoScalingPolicyStateChangeReason {
@@ -898,6 +1133,7 @@ export interface AutoScalingPolicyStateChangeReason {
 }
 
 /**
+ * @public
  * <p>The status of an automatic scaling policy.
  *          </p>
  */
@@ -914,6 +1150,7 @@ export interface AutoScalingPolicyStatus {
 }
 
 /**
+ * @public
  * <p>An automatic scaling policy for a core instance group or task instance group in an
  *             Amazon EMR cluster. The automatic scaling policy defines how an instance group
  *          dynamically adds and terminates EC2 instances in response to the value of a CloudWatch
@@ -939,6 +1176,7 @@ export interface AutoScalingPolicyDescription {
 }
 
 /**
+ * @public
  * <p>An auto-termination policy for an Amazon EMR cluster. An auto-termination policy
  *          defines the amount of idle time in seconds after which a cluster automatically terminates.
  *          For alternative cluster termination options, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-termination.html">Control cluster
@@ -954,6 +1192,7 @@ export interface AutoTerminationPolicy {
 }
 
 /**
+ * @public
  * <p>A list of port ranges that are permitted to allow inbound traffic from all public IP
  *          addresses. To specify a single port, use the same value for <code>MinRange</code> and
  *             <code>MaxRange</code>.</p>
@@ -971,6 +1210,7 @@ export interface PortRange {
 }
 
 /**
+ * @public
  * <p>Properties that describe the Amazon Web Services principal that created the
  *             <code>BlockPublicAccessConfiguration</code> using the
  *             <code>PutBlockPublicAccessConfiguration</code> action as well as the date and time that
@@ -990,6 +1230,7 @@ export interface BlockPublicAccessConfigurationMetadata {
 }
 
 /**
+ * @public
  * <p>Configuration of the script to run during a bootstrap action.</p>
  */
 export interface ScriptBootstrapActionConfig {
@@ -1005,6 +1246,7 @@ export interface ScriptBootstrapActionConfig {
 }
 
 /**
+ * @public
  * <p>Configuration of a bootstrap action.</p>
  */
 export interface BootstrapActionConfig {
@@ -1020,6 +1262,7 @@ export interface BootstrapActionConfig {
 }
 
 /**
+ * @public
  * <p>Reports the configuration of a bootstrap action in a cluster (job flow).</p>
  */
 export interface BootstrapActionDetail {
@@ -1029,12 +1272,22 @@ export interface BootstrapActionDetail {
   BootstrapActionConfig?: BootstrapActionConfig;
 }
 
-export enum StepCancellationOption {
-  SEND_INTERRUPT = "SEND_INTERRUPT",
-  TERMINATE_PROCESS = "TERMINATE_PROCESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StepCancellationOption = {
+  SEND_INTERRUPT: "SEND_INTERRUPT",
+  TERMINATE_PROCESS: "TERMINATE_PROCESS",
+} as const;
 
 /**
+ * @public
+ */
+export type StepCancellationOption = (typeof StepCancellationOption)[keyof typeof StepCancellationOption];
+
+/**
+ * @public
  * <p>The input argument to the <a>CancelSteps</a> operation.</p>
  */
 export interface CancelStepsInput {
@@ -1056,12 +1309,22 @@ export interface CancelStepsInput {
   StepCancellationOption?: StepCancellationOption | string;
 }
 
-export enum CancelStepsRequestStatus {
-  FAILED = "FAILED",
-  SUBMITTED = "SUBMITTED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CancelStepsRequestStatus = {
+  FAILED: "FAILED",
+  SUBMITTED: "SUBMITTED",
+} as const;
 
 /**
+ * @public
+ */
+export type CancelStepsRequestStatus = (typeof CancelStepsRequestStatus)[keyof typeof CancelStepsRequestStatus];
+
+/**
+ * @public
  * <p>Specification of the status of a CancelSteps request. Available only in Amazon EMR version 4.8.0 and later, excluding version 5.0.0.</p>
  */
 export interface CancelStepsInfo {
@@ -1082,6 +1345,7 @@ export interface CancelStepsInfo {
 }
 
 /**
+ * @public
  * <p> The output for the <a>CancelSteps</a> operation. </p>
  */
 export interface CancelStepsOutput {
@@ -1093,6 +1357,7 @@ export interface CancelStepsOutput {
 }
 
 /**
+ * @public
  * <p>Provides information about the EC2 instances in a cluster grouped by category. For
  *          example, key name, subnet ID, IAM instance profile, and so on.</p>
  */
@@ -1176,12 +1441,22 @@ export interface Ec2InstanceAttributes {
   AdditionalSlaveSecurityGroups?: string[];
 }
 
-export enum InstanceCollectionType {
-  INSTANCE_FLEET = "INSTANCE_FLEET",
-  INSTANCE_GROUP = "INSTANCE_GROUP",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InstanceCollectionType = {
+  INSTANCE_FLEET: "INSTANCE_FLEET",
+  INSTANCE_GROUP: "INSTANCE_GROUP",
+} as const;
 
 /**
+ * @public
+ */
+export type InstanceCollectionType = (typeof InstanceCollectionType)[keyof typeof InstanceCollectionType];
+
+/**
+ * @public
  * <p>Attributes for Kerberos configuration when Kerberos authentication is enabled using a
  *          security configuration. For more information see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html">Use Kerberos Authentication</a>
  *          in the <i>Amazon EMR Management Guide</i>.</p>
@@ -1218,14 +1493,24 @@ export interface KerberosAttributes {
   ADDomainJoinPassword?: string;
 }
 
-export enum PlacementGroupStrategy {
-  CLUSTER = "CLUSTER",
-  NONE = "NONE",
-  PARTITION = "PARTITION",
-  SPREAD = "SPREAD",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PlacementGroupStrategy = {
+  CLUSTER: "CLUSTER",
+  NONE: "NONE",
+  PARTITION: "PARTITION",
+  SPREAD: "SPREAD",
+} as const;
 
 /**
+ * @public
+ */
+export type PlacementGroupStrategy = (typeof PlacementGroupStrategy)[keyof typeof PlacementGroupStrategy];
+
+/**
+ * @public
  * <p>Placement group configuration for an Amazon EMR cluster. The configuration
  *          specifies the placement strategy that can be applied to instance roles during cluster
  *          creation.</p>
@@ -1248,38 +1533,97 @@ export interface PlacementGroupConfig {
   PlacementStrategy?: PlacementGroupStrategy | string;
 }
 
-export enum RepoUpgradeOnBoot {
-  NONE = "NONE",
-  SECURITY = "SECURITY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RepoUpgradeOnBoot = {
+  NONE: "NONE",
+  SECURITY: "SECURITY",
+} as const;
 
-export enum ScaleDownBehavior {
-  TERMINATE_AT_INSTANCE_HOUR = "TERMINATE_AT_INSTANCE_HOUR",
-  TERMINATE_AT_TASK_COMPLETION = "TERMINATE_AT_TASK_COMPLETION",
-}
+/**
+ * @public
+ */
+export type RepoUpgradeOnBoot = (typeof RepoUpgradeOnBoot)[keyof typeof RepoUpgradeOnBoot];
 
-export enum ClusterState {
-  BOOTSTRAPPING = "BOOTSTRAPPING",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  TERMINATED = "TERMINATED",
-  TERMINATED_WITH_ERRORS = "TERMINATED_WITH_ERRORS",
-  TERMINATING = "TERMINATING",
-  WAITING = "WAITING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ScaleDownBehavior = {
+  TERMINATE_AT_INSTANCE_HOUR: "TERMINATE_AT_INSTANCE_HOUR",
+  TERMINATE_AT_TASK_COMPLETION: "TERMINATE_AT_TASK_COMPLETION",
+} as const;
 
-export enum ClusterStateChangeReasonCode {
-  ALL_STEPS_COMPLETED = "ALL_STEPS_COMPLETED",
-  BOOTSTRAP_FAILURE = "BOOTSTRAP_FAILURE",
-  INSTANCE_FAILURE = "INSTANCE_FAILURE",
-  INSTANCE_FLEET_TIMEOUT = "INSTANCE_FLEET_TIMEOUT",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  STEP_FAILURE = "STEP_FAILURE",
-  USER_REQUEST = "USER_REQUEST",
-  VALIDATION_ERROR = "VALIDATION_ERROR",
+/**
+ * @public
+ */
+export type ScaleDownBehavior = (typeof ScaleDownBehavior)[keyof typeof ScaleDownBehavior];
+
+/**
+ * @public
+ * <p>A tuple that provides information about an error that caused a cluster to terminate.</p>
+ */
+export interface ErrorDetail {
+  /**
+   * <p>The name or code that's associated with the error.</p>
+   */
+  ErrorCode?: string;
+
+  /**
+   * <p>A list of key value pairs that provide contextual information to explain why the error may have occured.</p>
+   */
+  ErrorData?: Record<string, string>[];
+
+  /**
+   * <p>A message describing the error that occured.</p>
+   */
+  ErrorMessage?: string;
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const ClusterState = {
+  BOOTSTRAPPING: "BOOTSTRAPPING",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  TERMINATED: "TERMINATED",
+  TERMINATED_WITH_ERRORS: "TERMINATED_WITH_ERRORS",
+  TERMINATING: "TERMINATING",
+  WAITING: "WAITING",
+} as const;
+
+/**
+ * @public
+ */
+export type ClusterState = (typeof ClusterState)[keyof typeof ClusterState];
+
+/**
+ * @public
+ * @enum
+ */
+export const ClusterStateChangeReasonCode = {
+  ALL_STEPS_COMPLETED: "ALL_STEPS_COMPLETED",
+  BOOTSTRAP_FAILURE: "BOOTSTRAP_FAILURE",
+  INSTANCE_FAILURE: "INSTANCE_FAILURE",
+  INSTANCE_FLEET_TIMEOUT: "INSTANCE_FLEET_TIMEOUT",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  STEP_FAILURE: "STEP_FAILURE",
+  USER_REQUEST: "USER_REQUEST",
+  VALIDATION_ERROR: "VALIDATION_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type ClusterStateChangeReasonCode =
+  (typeof ClusterStateChangeReasonCode)[keyof typeof ClusterStateChangeReasonCode];
+
+/**
+ * @public
  * <p>The reason that the cluster changed to its current state.</p>
  */
 export interface ClusterStateChangeReason {
@@ -1295,6 +1639,7 @@ export interface ClusterStateChangeReason {
 }
 
 /**
+ * @public
  * <p>Represents the timeline of the cluster's lifecycle.</p>
  */
 export interface ClusterTimeline {
@@ -1315,6 +1660,7 @@ export interface ClusterTimeline {
 }
 
 /**
+ * @public
  * <p>The detailed status of the cluster.</p>
  */
 export interface ClusterStatus {
@@ -1333,9 +1679,15 @@ export interface ClusterStatus {
    *          cluster.</p>
    */
   Timeline?: ClusterTimeline;
+
+  /**
+   * <p>A list of tuples that provide information about the errors that caused a cluster termination. This structure may have up to 10 different <code>ErrorDetail</code> tuples.</p>
+   */
+  ErrorDetails?: ErrorDetail[];
 }
 
 /**
+ * @public
  * <p>The summary description of the cluster.</p>
  */
 export interface ClusterSummary {
@@ -1375,6 +1727,7 @@ export interface ClusterSummary {
 }
 
 /**
+ * @public
  * <p>An entity describing an executable that runs on a cluster.</p>
  */
 export interface Command {
@@ -1394,13 +1747,23 @@ export interface Command {
   Args?: string[];
 }
 
-export enum ComputeLimitsUnitType {
-  InstanceFleetUnits = "InstanceFleetUnits",
-  Instances = "Instances",
-  VCPU = "VCPU",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ComputeLimitsUnitType = {
+  InstanceFleetUnits: "InstanceFleetUnits",
+  Instances: "Instances",
+  VCPU: "VCPU",
+} as const;
 
 /**
+ * @public
+ */
+export type ComputeLimitsUnitType = (typeof ComputeLimitsUnitType)[keyof typeof ComputeLimitsUnitType];
+
+/**
+ * @public
  * <p> The EC2 unit limits for a managed scaling policy. The managed scaling activity of a
  *          cluster can not be above or below these limits. The limit only applies to the core and task
  *          nodes. The master node cannot be scaled after initial configuration. </p>
@@ -1444,6 +1807,9 @@ export interface ComputeLimits {
   MaximumCoreCapacityUnits?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateSecurityConfigurationInput {
   /**
    * <p>The name of the security configuration.</p>
@@ -1459,6 +1825,9 @@ export interface CreateSecurityConfigurationInput {
   SecurityConfiguration: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateSecurityConfigurationOutput {
   /**
    * <p>The name of the security configuration.</p>
@@ -1471,6 +1840,9 @@ export interface CreateSecurityConfigurationOutput {
   CreationDateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateStudioInput {
   /**
    * <p>A descriptive name for the Amazon EMR Studio.</p>
@@ -1560,6 +1932,9 @@ export interface CreateStudioInput {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateStudioOutput {
   /**
    * <p>The ID of the Amazon EMR Studio.</p>
@@ -1572,11 +1947,23 @@ export interface CreateStudioOutput {
   Url?: string;
 }
 
-export enum IdentityType {
-  GROUP = "GROUP",
-  USER = "USER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const IdentityType = {
+  GROUP: "GROUP",
+  USER: "USER",
+} as const;
 
+/**
+ * @public
+ */
+export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
+
+/**
+ * @public
+ */
 export interface CreateStudioSessionMappingInput {
   /**
    * <p>The ID of the Amazon EMR Studio to which the user or group will be
@@ -1615,6 +2002,7 @@ export interface CreateStudioSessionMappingInput {
 }
 
 /**
+ * @public
  * <p>The username and password that you use to connect to cluster endpoints.</p>
  */
 export interface UsernamePassword {
@@ -1630,10 +2018,14 @@ export interface UsernamePassword {
 }
 
 /**
+ * @public
  * <p>The credentials that you can use to connect to cluster endpoints. Credentials consist of a username and a password.</p>
  */
 export type Credentials = Credentials.UsernamePasswordMember | Credentials.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace Credentials {
   /**
    * <p>The username and password that you use to connect to cluster endpoints.</p>
@@ -1659,6 +2051,9 @@ export namespace Credentials {
   };
 }
 
+/**
+ * @public
+ */
 export interface DeleteSecurityConfigurationInput {
   /**
    * <p>The name of the security configuration.</p>
@@ -1666,8 +2061,14 @@ export interface DeleteSecurityConfigurationInput {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSecurityConfigurationOutput {}
 
+/**
+ * @public
+ */
 export interface DeleteStudioInput {
   /**
    * <p>The ID of the Amazon EMR Studio.</p>
@@ -1675,6 +2076,9 @@ export interface DeleteStudioInput {
   StudioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteStudioSessionMappingInput {
   /**
    * <p>The ID of the Amazon EMR Studio.</p>
@@ -1703,6 +2107,7 @@ export interface DeleteStudioSessionMappingInput {
 }
 
 /**
+ * @public
  * <p>This input determines which cluster to describe.</p>
  */
 export interface DescribeClusterInput {
@@ -1712,18 +2117,28 @@ export interface DescribeClusterInput {
   ClusterId: string | undefined;
 }
 
-export enum JobFlowExecutionState {
-  BOOTSTRAPPING = "BOOTSTRAPPING",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  SHUTTING_DOWN = "SHUTTING_DOWN",
-  STARTING = "STARTING",
-  TERMINATED = "TERMINATED",
-  WAITING = "WAITING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const JobFlowExecutionState = {
+  BOOTSTRAPPING: "BOOTSTRAPPING",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  SHUTTING_DOWN: "SHUTTING_DOWN",
+  STARTING: "STARTING",
+  TERMINATED: "TERMINATED",
+  WAITING: "WAITING",
+} as const;
 
 /**
+ * @public
+ */
+export type JobFlowExecutionState = (typeof JobFlowExecutionState)[keyof typeof JobFlowExecutionState];
+
+/**
+ * @public
  * <p> The input for the <a>DescribeJobFlows</a> operation. </p>
  */
 export interface DescribeJobFlowsInput {
@@ -1749,6 +2164,7 @@ export interface DescribeJobFlowsInput {
 }
 
 /**
+ * @public
  * <p>Describes the status of the cluster (job flow).</p>
  */
 export interface JobFlowExecutionStatusDetail {
@@ -1783,21 +2199,31 @@ export interface JobFlowExecutionStatusDetail {
   LastStateChangeReason?: string;
 }
 
-export enum InstanceGroupState {
-  ARRESTED = "ARRESTED",
-  BOOTSTRAPPING = "BOOTSTRAPPING",
-  ENDED = "ENDED",
-  PROVISIONING = "PROVISIONING",
-  RECONFIGURING = "RECONFIGURING",
-  RESIZING = "RESIZING",
-  RUNNING = "RUNNING",
-  SHUTTING_DOWN = "SHUTTING_DOWN",
-  SUSPENDED = "SUSPENDED",
-  TERMINATED = "TERMINATED",
-  TERMINATING = "TERMINATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InstanceGroupState = {
+  ARRESTED: "ARRESTED",
+  BOOTSTRAPPING: "BOOTSTRAPPING",
+  ENDED: "ENDED",
+  PROVISIONING: "PROVISIONING",
+  RECONFIGURING: "RECONFIGURING",
+  RESIZING: "RESIZING",
+  RUNNING: "RUNNING",
+  SHUTTING_DOWN: "SHUTTING_DOWN",
+  SUSPENDED: "SUSPENDED",
+  TERMINATED: "TERMINATED",
+  TERMINATING: "TERMINATING",
+} as const;
 
 /**
+ * @public
+ */
+export type InstanceGroupState = (typeof InstanceGroupState)[keyof typeof InstanceGroupState];
+
+/**
+ * @public
  * <p>Detailed information about an instance group.</p>
  */
 export interface InstanceGroupDetail {
@@ -1881,6 +2307,7 @@ export interface InstanceGroupDetail {
 }
 
 /**
+ * @public
  * <p>The Amazon EC2 Availability Zone configuration of the cluster (job flow).</p>
  */
 export interface PlacementType {
@@ -1905,6 +2332,7 @@ export interface PlacementType {
 }
 
 /**
+ * @public
  * <p>Specify the type of Amazon EC2 instances that the cluster (job flow) runs
  *          on.</p>
  */
@@ -1986,17 +2414,27 @@ export interface JobFlowInstancesDetail {
   HadoopVersion?: string;
 }
 
-export enum StepExecutionState {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-  CONTINUE = "CONTINUE",
-  FAILED = "FAILED",
-  INTERRUPTED = "INTERRUPTED",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StepExecutionState = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  CONTINUE: "CONTINUE",
+  FAILED: "FAILED",
+  INTERRUPTED: "INTERRUPTED",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+} as const;
 
 /**
+ * @public
+ */
+export type StepExecutionState = (typeof StepExecutionState)[keyof typeof StepExecutionState];
+
+/**
+ * @public
  * <p>The execution state of a step.</p>
  */
 export interface StepExecutionStatusDetail {
@@ -2027,6 +2465,7 @@ export interface StepExecutionStatusDetail {
 }
 
 /**
+ * @public
  * <p>Combines the execution state and configuration of a step.</p>
  */
 export interface StepDetail {
@@ -2042,6 +2481,7 @@ export interface StepDetail {
 }
 
 /**
+ * @public
  * <p>A description of a cluster (job flow).</p>
  */
 export interface JobFlowDetail {
@@ -2146,6 +2586,7 @@ export interface JobFlowDetail {
 }
 
 /**
+ * @public
  * <p> The output for the <a>DescribeJobFlows</a> operation. </p>
  */
 export interface DescribeJobFlowsOutput {
@@ -2155,6 +2596,9 @@ export interface DescribeJobFlowsOutput {
   JobFlows?: JobFlowDetail[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeNotebookExecutionInput {
   /**
    * <p>The unique identifier of the notebook execution.</p>
@@ -2162,11 +2606,21 @@ export interface DescribeNotebookExecutionInput {
   NotebookExecutionId: string | undefined;
 }
 
-export enum ExecutionEngineType {
-  EMR = "EMR",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ExecutionEngineType = {
+  EMR: "EMR",
+} as const;
 
 /**
+ * @public
+ */
+export type ExecutionEngineType = (typeof ExecutionEngineType)[keyof typeof ExecutionEngineType];
+
+/**
+ * @public
  * <p>Specifies the execution engine (cluster) to run the notebook and perform the notebook
  *          execution, for example, an EMR cluster.</p>
  */
@@ -2192,20 +2646,30 @@ export interface ExecutionEngineConfig {
   MasterInstanceSecurityGroupId?: string;
 }
 
-export enum NotebookExecutionStatus {
-  FAILED = "FAILED",
-  FAILING = "FAILING",
-  FINISHED = "FINISHED",
-  FINISHING = "FINISHING",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  START_PENDING = "START_PENDING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  STOP_PENDING = "STOP_PENDING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NotebookExecutionStatus = {
+  FAILED: "FAILED",
+  FAILING: "FAILING",
+  FINISHED: "FINISHED",
+  FINISHING: "FINISHING",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  START_PENDING: "START_PENDING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  STOP_PENDING: "STOP_PENDING",
+} as const;
 
 /**
+ * @public
+ */
+export type NotebookExecutionStatus = (typeof NotebookExecutionStatus)[keyof typeof NotebookExecutionStatus];
+
+/**
+ * @public
  * <p>A notebook execution. An execution is a specific instance that an EMR Notebook is run
  *          using the <code>StartNotebookExecution</code> action.</p>
  */
@@ -2335,6 +2799,9 @@ export interface NotebookExecution {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeNotebookExecutionOutput {
   /**
    * <p>Properties of the notebook execution.</p>
@@ -2342,6 +2809,9 @@ export interface DescribeNotebookExecutionOutput {
   NotebookExecution?: NotebookExecution;
 }
 
+/**
+ * @public
+ */
 export interface DescribeReleaseLabelInput {
   /**
    * <p>The target release label to be described.</p>
@@ -2360,6 +2830,7 @@ export interface DescribeReleaseLabelInput {
 }
 
 /**
+ * @public
  * <p>The returned release label application names or versions.</p>
  */
 export interface SimplifiedApplication {
@@ -2375,17 +2846,23 @@ export interface SimplifiedApplication {
 }
 
 /**
+ * @public
  * <p>The Amazon Linux release specified for a cluster in the RunJobFlow request.</p>
  */
 export interface OSRelease {
   /**
-   * <p>The Amazon Linux release specified for a cluster in the RunJobFlow request. The format is as shown in <a href="https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-20220218.html">
+   * <p>The Amazon Linux release specified for a cluster in the RunJobFlow request. The format
+   *          is as shown in <a href="https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-20220218.html">
    *                <i>Amazon Linux 2 Release Notes</i>
-   *             </a>. For example, 2.0.20220218.1.</p>
+   *             </a>. For example,
+   *          2.0.20220218.1.</p>
    */
   Label?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeReleaseLabelOutput {
   /**
    * <p>The target release label described in the response.</p>
@@ -2407,12 +2884,16 @@ export interface DescribeReleaseLabelOutput {
   /**
    * <p>The list of available Amazon Linux release versions for an Amazon EMR release.
    *          Contains a Label field that is formatted as shown in <a href="https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-al2.html">
-   *                <i>Amazon Linux 2 Release Notes</i>
+   *                <i>Amazon Linux 2 Release
+   *                Notes</i>
    *             </a>. For example, <a href="https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-20220218.html">2.0.20220218.1</a>.</p>
    */
   AvailableOSReleases?: OSRelease[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeSecurityConfigurationInput {
   /**
    * <p>The name of the security configuration.</p>
@@ -2420,6 +2901,9 @@ export interface DescribeSecurityConfigurationInput {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSecurityConfigurationOutput {
   /**
    * <p>The name of the security configuration.</p>
@@ -2438,6 +2922,7 @@ export interface DescribeSecurityConfigurationOutput {
 }
 
 /**
+ * @public
  * <p>This input determines which step to describe.</p>
  */
 export interface DescribeStepInput {
@@ -2453,6 +2938,7 @@ export interface DescribeStepInput {
 }
 
 /**
+ * @public
  * <p>A cluster step consisting of a JAR file whose main function will be executed. The main
  *          function submits a job for Hadoop to execute and waits for the job to finish or
  *          fail.</p>
@@ -2483,6 +2969,7 @@ export interface HadoopStepConfig {
 }
 
 /**
+ * @public
  * <p>The details of the step failure. The service attempts to detect the root cause for many
  *          common failures.</p>
  */
@@ -2507,21 +2994,40 @@ export interface FailureDetails {
   LogFile?: string;
 }
 
-export enum StepState {
-  CANCELLED = "CANCELLED",
-  CANCEL_PENDING = "CANCEL_PENDING",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  INTERRUPTED = "INTERRUPTED",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-}
-
-export enum StepStateChangeReasonCode {
-  NONE = "NONE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StepState = {
+  CANCELLED: "CANCELLED",
+  CANCEL_PENDING: "CANCEL_PENDING",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  INTERRUPTED: "INTERRUPTED",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+} as const;
 
 /**
+ * @public
+ */
+export type StepState = (typeof StepState)[keyof typeof StepState];
+
+/**
+ * @public
+ * @enum
+ */
+export const StepStateChangeReasonCode = {
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type StepStateChangeReasonCode = (typeof StepStateChangeReasonCode)[keyof typeof StepStateChangeReasonCode];
+
+/**
+ * @public
  * <p>The details of the step state change reason.</p>
  */
 export interface StepStateChangeReason {
@@ -2538,6 +3044,7 @@ export interface StepStateChangeReason {
 }
 
 /**
+ * @public
  * <p>The timeline of the cluster step lifecycle.</p>
  */
 export interface StepTimeline {
@@ -2558,6 +3065,7 @@ export interface StepTimeline {
 }
 
 /**
+ * @public
  * <p>The execution status details of the cluster step.</p>
  */
 export interface StepStatus {
@@ -2584,6 +3092,7 @@ export interface StepStatus {
 }
 
 /**
+ * @public
  * <p>This represents a step in a cluster.</p>
  */
 export interface Step {
@@ -2638,6 +3147,7 @@ export interface Step {
 }
 
 /**
+ * @public
  * <p>This output contains the description of the cluster step.</p>
  */
 export interface DescribeStepOutput {
@@ -2647,6 +3157,9 @@ export interface DescribeStepOutput {
   Step?: Step;
 }
 
+/**
+ * @public
+ */
 export interface DescribeStudioInput {
   /**
    * <p>The Amazon EMR Studio ID.</p>
@@ -2655,6 +3168,7 @@ export interface DescribeStudioInput {
 }
 
 /**
+ * @public
  * <p>Details for an Amazon EMR Studio including ID, creation time, name, and so
  *          on.</p>
  */
@@ -2754,6 +3268,9 @@ export interface Studio {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeStudioOutput {
   /**
    * <p>The Amazon EMR Studio details.</p>
@@ -2762,12 +3279,13 @@ export interface DescribeStudioOutput {
 }
 
 /**
+ * @public
  * <p>Configuration of requested EBS block device associated with the instance group.</p>
  */
 export interface EbsBlockDevice {
   /**
-   * <p>EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s) that are
-   *          requested for the EBS volume attached to an EC2 instance in the cluster.</p>
+   * <p>EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s)
+   *          that are requested for the EBS volume attached to an EC2 instance in the cluster.</p>
    */
   VolumeSpecification?: VolumeSpecification;
 
@@ -2778,6 +3296,7 @@ export interface EbsBlockDevice {
 }
 
 /**
+ * @public
  * <p>EBS block device that's attached to an EC2 instance.</p>
  */
 export interface EbsVolume {
@@ -2792,6 +3311,9 @@ export interface EbsVolume {
   VolumeId?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetAutoTerminationPolicyInput {
   /**
    * <p>Specifies the ID of the Amazon EMR cluster for which the auto-termination policy
@@ -2800,6 +3322,9 @@ export interface GetAutoTerminationPolicyInput {
   ClusterId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAutoTerminationPolicyOutput {
   /**
    * <p>Specifies the auto-termination policy that is attached to an Amazon EMR cluster.
@@ -2808,8 +3333,14 @@ export interface GetAutoTerminationPolicyOutput {
   AutoTerminationPolicy?: AutoTerminationPolicy;
 }
 
+/**
+ * @public
+ */
 export interface GetBlockPublicAccessConfigurationInput {}
 
+/**
+ * @public
+ */
 export interface GetClusterSessionCredentialsInput {
   /**
    * <p>The unique identifier of the cluster.</p>
@@ -2824,9 +3355,12 @@ export interface GetClusterSessionCredentialsInput {
   ExecutionRoleArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetClusterSessionCredentialsOutput {
   /**
-   * <p>The credentials that you can use to connect to cluster endpoints that support username-based and password-based authentication.</p>
+   * <p>The credentials that you can use to connect to cluster endpoints that support username and password authentication.</p>
    */
   Credentials?: Credentials;
 
@@ -2836,6 +3370,9 @@ export interface GetClusterSessionCredentialsOutput {
   ExpiresAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetManagedScalingPolicyInput {
   /**
    * <p>Specifies the ID of the cluster for which the managed scaling policy will be fetched.
@@ -2845,6 +3382,7 @@ export interface GetManagedScalingPolicyInput {
 }
 
 /**
+ * @public
  * <p> Managed scaling policy for an Amazon EMR cluster. The policy specifies the
  *          limits for resources that can be added or terminated from a cluster. The policy only
  *          applies to the core and task nodes. The master node cannot be scaled after initial
@@ -2859,6 +3397,9 @@ export interface ManagedScalingPolicy {
   ComputeLimits?: ComputeLimits;
 }
 
+/**
+ * @public
+ */
 export interface GetManagedScalingPolicyOutput {
   /**
    * <p>Specifies the managed scaling policy that is attached to an Amazon EMR cluster.
@@ -2867,6 +3408,9 @@ export interface GetManagedScalingPolicyOutput {
   ManagedScalingPolicy?: ManagedScalingPolicy;
 }
 
+/**
+ * @public
+ */
 export interface GetStudioSessionMappingInput {
   /**
    * <p>The ID of the Amazon EMR Studio.</p>
@@ -2895,6 +3439,7 @@ export interface GetStudioSessionMappingInput {
 }
 
 /**
+ * @public
  * <p>Details for an Amazon EMR Studio session mapping including creation time, user
  *          or group ID, Studio ID, and so on.</p>
  */
@@ -2938,6 +3483,9 @@ export interface SessionMappingDetail {
   LastModifiedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetStudioSessionMappingOutput {
   /**
    * <p>The session mapping details for the specified Amazon EMR Studio and identity,
@@ -2947,6 +3495,7 @@ export interface GetStudioSessionMappingOutput {
 }
 
 /**
+ * @public
  * <p>This input determines which bootstrap actions to retrieve.</p>
  */
 export interface ListBootstrapActionsInput {
@@ -2962,6 +3511,7 @@ export interface ListBootstrapActionsInput {
 }
 
 /**
+ * @public
  * <p>This output contains the bootstrap actions detail.</p>
  */
 export interface ListBootstrapActionsOutput {
@@ -2977,6 +3527,7 @@ export interface ListBootstrapActionsOutput {
 }
 
 /**
+ * @public
  * <p>This input determines how the ListClusters action filters the list of clusters that it
  *          returns.</p>
  */
@@ -3004,6 +3555,7 @@ export interface ListClustersInput {
 }
 
 /**
+ * @public
  * <p>This contains a ClusterSummaryList with the cluster details; for example, the cluster
  *          IDs, names, and status.</p>
  */
@@ -3019,6 +3571,9 @@ export interface ListClustersOutput {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListInstanceFleetsInput {
   /**
    * <p>The unique identifier of the cluster.</p>
@@ -3031,24 +3586,44 @@ export interface ListInstanceFleetsInput {
   Marker?: string;
 }
 
-export enum InstanceFleetState {
-  BOOTSTRAPPING = "BOOTSTRAPPING",
-  PROVISIONING = "PROVISIONING",
-  RESIZING = "RESIZING",
-  RUNNING = "RUNNING",
-  SUSPENDED = "SUSPENDED",
-  TERMINATED = "TERMINATED",
-  TERMINATING = "TERMINATING",
-}
-
-export enum InstanceFleetStateChangeReasonCode {
-  CLUSTER_TERMINATED = "CLUSTER_TERMINATED",
-  INSTANCE_FAILURE = "INSTANCE_FAILURE",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  VALIDATION_ERROR = "VALIDATION_ERROR",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InstanceFleetState = {
+  BOOTSTRAPPING: "BOOTSTRAPPING",
+  PROVISIONING: "PROVISIONING",
+  RESIZING: "RESIZING",
+  RUNNING: "RUNNING",
+  SUSPENDED: "SUSPENDED",
+  TERMINATED: "TERMINATED",
+  TERMINATING: "TERMINATING",
+} as const;
 
 /**
+ * @public
+ */
+export type InstanceFleetState = (typeof InstanceFleetState)[keyof typeof InstanceFleetState];
+
+/**
+ * @public
+ * @enum
+ */
+export const InstanceFleetStateChangeReasonCode = {
+  CLUSTER_TERMINATED: "CLUSTER_TERMINATED",
+  INSTANCE_FAILURE: "INSTANCE_FAILURE",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  VALIDATION_ERROR: "VALIDATION_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceFleetStateChangeReasonCode =
+  (typeof InstanceFleetStateChangeReasonCode)[keyof typeof InstanceFleetStateChangeReasonCode];
+
+/**
+ * @public
  * <p>Provides status change reason details for the instance fleet.</p>
  *          <note>
  *             <p>The instance fleet configuration is available only in Amazon EMR versions
@@ -3068,6 +3643,7 @@ export interface InstanceFleetStateChangeReason {
 }
 
 /**
+ * @public
  * <p>Provides historical timestamps for the instance fleet, including the time of creation,
  *          the time it became ready to run jobs, and the time of termination.</p>
  *          <note>
@@ -3093,6 +3669,7 @@ export interface InstanceFleetTimeline {
 }
 
 /**
+ * @public
  * <p>The status of the instance fleet.</p>
  *          <note>
  *             <p>The instance fleet configuration is available only in Amazon EMR versions
@@ -3154,6 +3731,7 @@ export interface InstanceFleetStatus {
 }
 
 /**
+ * @public
  * <p>This input determines which instance groups to retrieve.</p>
  */
 export interface ListInstanceGroupsInput {
@@ -3168,13 +3746,23 @@ export interface ListInstanceGroupsInput {
   Marker?: string;
 }
 
-export enum InstanceGroupType {
-  CORE = "CORE",
-  MASTER = "MASTER",
-  TASK = "TASK",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InstanceGroupType = {
+  CORE: "CORE",
+  MASTER: "MASTER",
+  TASK: "TASK",
+} as const;
 
 /**
+ * @public
+ */
+export type InstanceGroupType = (typeof InstanceGroupType)[keyof typeof InstanceGroupType];
+
+/**
+ * @public
  * <p>Custom policy for requesting termination protection or termination of specific instances
  *          when shrinking an instance group.</p>
  */
@@ -3197,6 +3785,7 @@ export interface InstanceResizePolicy {
 }
 
 /**
+ * @public
  * <p>Policy for customizing shrink operations. Allows configuration of decommissioning
  *          timeout and targeted instance shrinking.</p>
  */
@@ -3214,14 +3803,25 @@ export interface ShrinkPolicy {
   InstanceResizePolicy?: InstanceResizePolicy;
 }
 
-export enum InstanceGroupStateChangeReasonCode {
-  CLUSTER_TERMINATED = "CLUSTER_TERMINATED",
-  INSTANCE_FAILURE = "INSTANCE_FAILURE",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  VALIDATION_ERROR = "VALIDATION_ERROR",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InstanceGroupStateChangeReasonCode = {
+  CLUSTER_TERMINATED: "CLUSTER_TERMINATED",
+  INSTANCE_FAILURE: "INSTANCE_FAILURE",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  VALIDATION_ERROR: "VALIDATION_ERROR",
+} as const;
 
 /**
+ * @public
+ */
+export type InstanceGroupStateChangeReasonCode =
+  (typeof InstanceGroupStateChangeReasonCode)[keyof typeof InstanceGroupStateChangeReasonCode];
+
+/**
+ * @public
  * <p>The status change reason details for the instance group.</p>
  */
 export interface InstanceGroupStateChangeReason {
@@ -3237,6 +3837,7 @@ export interface InstanceGroupStateChangeReason {
 }
 
 /**
+ * @public
  * <p>The timeline of the instance group lifecycle.</p>
  */
 export interface InstanceGroupTimeline {
@@ -3257,6 +3858,7 @@ export interface InstanceGroupTimeline {
 }
 
 /**
+ * @public
  * <p>The details of the instance group status.</p>
  */
 export interface InstanceGroupStatus {
@@ -3276,15 +3878,25 @@ export interface InstanceGroupStatus {
   Timeline?: InstanceGroupTimeline;
 }
 
-export enum InstanceState {
-  AWAITING_FULFILLMENT = "AWAITING_FULFILLMENT",
-  BOOTSTRAPPING = "BOOTSTRAPPING",
-  PROVISIONING = "PROVISIONING",
-  RUNNING = "RUNNING",
-  TERMINATED = "TERMINATED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InstanceState = {
+  AWAITING_FULFILLMENT: "AWAITING_FULFILLMENT",
+  BOOTSTRAPPING: "BOOTSTRAPPING",
+  PROVISIONING: "PROVISIONING",
+  RUNNING: "RUNNING",
+  TERMINATED: "TERMINATED",
+} as const;
 
 /**
+ * @public
+ */
+export type InstanceState = (typeof InstanceState)[keyof typeof InstanceState];
+
+/**
+ * @public
  * <p>This input determines which instances to list.</p>
  */
 export interface ListInstancesInput {
@@ -3325,15 +3937,26 @@ export interface ListInstancesInput {
   Marker?: string;
 }
 
-export enum InstanceStateChangeReasonCode {
-  BOOTSTRAP_FAILURE = "BOOTSTRAP_FAILURE",
-  CLUSTER_TERMINATED = "CLUSTER_TERMINATED",
-  INSTANCE_FAILURE = "INSTANCE_FAILURE",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  VALIDATION_ERROR = "VALIDATION_ERROR",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InstanceStateChangeReasonCode = {
+  BOOTSTRAP_FAILURE: "BOOTSTRAP_FAILURE",
+  CLUSTER_TERMINATED: "CLUSTER_TERMINATED",
+  INSTANCE_FAILURE: "INSTANCE_FAILURE",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  VALIDATION_ERROR: "VALIDATION_ERROR",
+} as const;
 
 /**
+ * @public
+ */
+export type InstanceStateChangeReasonCode =
+  (typeof InstanceStateChangeReasonCode)[keyof typeof InstanceStateChangeReasonCode];
+
+/**
+ * @public
  * <p>The details of the status change reason for the instance.</p>
  */
 export interface InstanceStateChangeReason {
@@ -3349,6 +3972,7 @@ export interface InstanceStateChangeReason {
 }
 
 /**
+ * @public
  * <p>The timeline of the instance lifecycle.</p>
  */
 export interface InstanceTimeline {
@@ -3369,6 +3993,7 @@ export interface InstanceTimeline {
 }
 
 /**
+ * @public
  * <p>The instance status details.</p>
  */
 export interface InstanceStatus {
@@ -3389,6 +4014,7 @@ export interface InstanceStatus {
 }
 
 /**
+ * @public
  * <p>Represents an EC2 instance provisioned as part of cluster.</p>
  */
 export interface Instance {
@@ -3455,6 +4081,7 @@ export interface Instance {
 }
 
 /**
+ * @public
  * <p>This output contains the list of instances.</p>
  */
 export interface ListInstancesOutput {
@@ -3469,6 +4096,9 @@ export interface ListInstancesOutput {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListNotebookExecutionsInput {
   /**
    * <p>The unique ID of the editor associated with the notebook execution.</p>
@@ -3552,6 +4182,7 @@ export interface ListNotebookExecutionsInput {
 }
 
 /**
+ * @public
  * <p>Details for a notebook execution. The details include information such as the unique ID
  *          and status of the notebook execution.</p>
  */
@@ -3638,6 +4269,9 @@ export interface NotebookExecutionSummary {
   EndTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListNotebookExecutionsOutput {
   /**
    * <p>A list of notebook executions.</p>
@@ -3652,6 +4286,7 @@ export interface ListNotebookExecutionsOutput {
 }
 
 /**
+ * @public
  * <p>The release label filters by application or version prefix.</p>
  */
 export interface ReleaseLabelFilter {
@@ -3666,6 +4301,9 @@ export interface ReleaseLabelFilter {
   Application?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListReleaseLabelsInput {
   /**
    * <p>Filters the results of the request. <code>Prefix</code> specifies the prefix of release
@@ -3691,6 +4329,9 @@ export interface ListReleaseLabelsInput {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListReleaseLabelsOutput {
   /**
    * <p>The returned release labels.</p>
@@ -3704,6 +4345,9 @@ export interface ListReleaseLabelsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSecurityConfigurationsInput {
   /**
    * <p>The pagination token that indicates the set of results to retrieve.</p>
@@ -3712,6 +4356,7 @@ export interface ListSecurityConfigurationsInput {
 }
 
 /**
+ * @public
  * <p>The creation date and time, and name, of a security configuration.</p>
  */
 export interface SecurityConfigurationSummary {
@@ -3726,6 +4371,9 @@ export interface SecurityConfigurationSummary {
   CreationDateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListSecurityConfigurationsOutput {
   /**
    * <p>The creation date and time, and name, of each security configuration.</p>
@@ -3741,6 +4389,7 @@ export interface ListSecurityConfigurationsOutput {
 }
 
 /**
+ * @public
  * <p>This input determines which steps to list.</p>
  */
 export interface ListStepsInput {
@@ -3771,6 +4420,7 @@ export interface ListStepsInput {
 }
 
 /**
+ * @public
  * <p>The summary of the cluster step.</p>
  */
 export interface StepSummary {
@@ -3803,6 +4453,7 @@ export interface StepSummary {
 }
 
 /**
+ * @public
  * <p>This output contains the list of steps returned in reverse order. This means that the
  *          last step is the first element in the list.</p>
  */
@@ -3821,6 +4472,9 @@ export interface ListStepsOutput {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListStudiosInput {
   /**
    * <p>The pagination token that indicates the set of results to retrieve.</p>
@@ -3829,6 +4483,7 @@ export interface ListStudiosInput {
 }
 
 /**
+ * @public
  * <p>Details for an Amazon EMR Studio, including ID, Name, VPC, and Description. The
  *          details do not include subnets, IAM roles, security groups, or tags associated with the
  *          Studio.</p>
@@ -3870,6 +4525,9 @@ export interface StudioSummary {
   CreationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListStudiosOutput {
   /**
    * <p>The list of Studio summary objects.</p>
@@ -3882,6 +4540,9 @@ export interface ListStudiosOutput {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListStudioSessionMappingsInput {
   /**
    * <p>The ID of the Amazon EMR Studio.</p>
@@ -3901,6 +4562,7 @@ export interface ListStudioSessionMappingsInput {
 }
 
 /**
+ * @public
  * <p>Details for an Amazon EMR Studio session mapping. The details do not include the
  *          time the session mapping was last modified.</p>
  */
@@ -3940,6 +4602,9 @@ export interface SessionMappingSummary {
   CreationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListStudioSessionMappingsOutput {
   /**
    * <p>A list of session mapping summary objects. Each object includes session mapping details
@@ -3954,6 +4619,9 @@ export interface ListStudioSessionMappingsOutput {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ModifyClusterInput {
   /**
    * <p>The unique identifier of the cluster.</p>
@@ -3969,6 +4637,9 @@ export interface ModifyClusterInput {
   StepConcurrencyLevel?: number;
 }
 
+/**
+ * @public
+ */
 export interface ModifyClusterOutput {
   /**
    * <p>The number of steps that can be executed concurrently.</p>
@@ -3977,6 +4648,7 @@ export interface ModifyClusterOutput {
 }
 
 /**
+ * @public
  * <p>Configuration parameters for an instance fleet modification request.</p>
  *          <note>
  *             <p>The instance fleet configuration is available only in Amazon EMR versions
@@ -4000,8 +4672,16 @@ export interface InstanceFleetModifyConfig {
    *             <a>InstanceFleetConfig$TargetSpotCapacity</a>.</p>
    */
   TargetSpotCapacity?: number;
+
+  /**
+   * <p>The resize specification for the instance fleet.</p>
+   */
+  ResizeSpecifications?: InstanceFleetResizingSpecifications;
 }
 
+/**
+ * @public
+ */
 export interface ModifyInstanceFleetInput {
   /**
    * <p>The unique identifier of the cluster.</p>
@@ -4014,11 +4694,23 @@ export interface ModifyInstanceFleetInput {
   InstanceFleet: InstanceFleetModifyConfig | undefined;
 }
 
-export enum ReconfigurationType {
-  MERGE = "MERGE",
-  OVERWRITE = "OVERWRITE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReconfigurationType = {
+  MERGE: "MERGE",
+  OVERWRITE: "OVERWRITE",
+} as const;
 
+/**
+ * @public
+ */
+export type ReconfigurationType = (typeof ReconfigurationType)[keyof typeof ReconfigurationType];
+
+/**
+ * @public
+ */
 export interface PutAutoScalingPolicyInput {
   /**
    * <p>Specifies the ID of a cluster. The instance group to which the automatic scaling policy
@@ -4038,6 +4730,9 @@ export interface PutAutoScalingPolicyInput {
   AutoScalingPolicy: AutoScalingPolicy | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutAutoScalingPolicyOutput {
   /**
    * <p>Specifies the ID of a cluster. The instance group to which the automatic scaling policy
@@ -4061,6 +4756,9 @@ export interface PutAutoScalingPolicyOutput {
   ClusterArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutAutoTerminationPolicyInput {
   /**
    * <p>Specifies the ID of the Amazon EMR cluster to which the auto-termination policy
@@ -4074,10 +4772,19 @@ export interface PutAutoTerminationPolicyInput {
   AutoTerminationPolicy?: AutoTerminationPolicy;
 }
 
+/**
+ * @public
+ */
 export interface PutAutoTerminationPolicyOutput {}
 
+/**
+ * @public
+ */
 export interface PutBlockPublicAccessConfigurationOutput {}
 
+/**
+ * @public
+ */
 export interface PutManagedScalingPolicyInput {
   /**
    * <p>Specifies the ID of an EMR cluster where the managed scaling policy is attached. </p>
@@ -4090,8 +4797,14 @@ export interface PutManagedScalingPolicyInput {
   ManagedScalingPolicy: ManagedScalingPolicy | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutManagedScalingPolicyOutput {}
 
+/**
+ * @public
+ */
 export interface RemoveAutoScalingPolicyInput {
   /**
    * <p>Specifies the ID of a cluster. The instance group to which the automatic scaling policy
@@ -4105,8 +4818,14 @@ export interface RemoveAutoScalingPolicyInput {
   InstanceGroupId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RemoveAutoScalingPolicyOutput {}
 
+/**
+ * @public
+ */
 export interface RemoveAutoTerminationPolicyInput {
   /**
    * <p>Specifies the ID of the Amazon EMR cluster from which the auto-termination
@@ -4115,8 +4834,14 @@ export interface RemoveAutoTerminationPolicyInput {
   ClusterId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RemoveAutoTerminationPolicyOutput {}
 
+/**
+ * @public
+ */
 export interface RemoveManagedScalingPolicyInput {
   /**
    * <p> Specifies the ID of the cluster from which the managed scaling policy will be removed.
@@ -4125,9 +4850,13 @@ export interface RemoveManagedScalingPolicyInput {
   ClusterId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RemoveManagedScalingPolicyOutput {}
 
 /**
+ * @public
  * <p>This input identifies an Amazon EMR resource and a list of tags to
  *          remove.</p>
  */
@@ -4145,11 +4874,13 @@ export interface RemoveTagsInput {
 }
 
 /**
+ * @public
  * <p>This output indicates the result of removing tags from the resource.</p>
  */
 export interface RemoveTagsOutput {}
 
 /**
+ * @public
  * <p>The list of supported product configurations that allow user-supplied arguments. EMR
  *          accepts these arguments and forwards them to the corresponding installation script as
  *          bootstrap action arguments.</p>
@@ -4167,6 +4898,7 @@ export interface SupportedProductConfig {
 }
 
 /**
+ * @public
  * <p> The result of the <a>RunJobFlow</a> operation. </p>
  */
 export interface RunJobFlowOutput {
@@ -4182,6 +4914,7 @@ export interface RunJobFlowOutput {
 }
 
 /**
+ * @public
  * <p> The input argument to the <a>TerminationProtection</a> operation. </p>
  */
 export interface SetTerminationProtectionInput {
@@ -4199,6 +4932,7 @@ export interface SetTerminationProtectionInput {
 }
 
 /**
+ * @public
  * <p>The input to the SetVisibleToAllUsers action.</p>
  */
 export interface SetVisibleToAllUsersInput {
@@ -4216,6 +4950,9 @@ export interface SetVisibleToAllUsersInput {
   VisibleToAllUsers: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartNotebookExecutionInput {
   /**
    * <p>The unique identifier of the EMR Notebook to use for notebook execution.</p>
@@ -4270,6 +5007,9 @@ export interface StartNotebookExecutionInput {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface StartNotebookExecutionOutput {
   /**
    * <p>The unique identifier of the notebook execution.</p>
@@ -4277,6 +5017,9 @@ export interface StartNotebookExecutionOutput {
   NotebookExecutionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopNotebookExecutionInput {
   /**
    * <p>The unique identifier of the notebook execution.</p>
@@ -4285,6 +5028,7 @@ export interface StopNotebookExecutionInput {
 }
 
 /**
+ * @public
  * <p> Input to the <a>TerminateJobFlows</a> operation. </p>
  */
 export interface TerminateJobFlowsInput {
@@ -4294,6 +5038,9 @@ export interface TerminateJobFlowsInput {
   JobFlowIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateStudioInput {
   /**
    * <p>The ID of the Amazon EMR Studio to update.</p>
@@ -4324,6 +5071,9 @@ export interface UpdateStudioInput {
   DefaultS3Location?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateStudioSessionMappingInput {
   /**
    * <p>The ID of the Amazon EMR Studio.</p>
@@ -4358,6 +5108,7 @@ export interface UpdateStudioSessionMappingInput {
 }
 
 /**
+ * @public
  * <note>
  *             <p>Amazon EMR releases 4.x or later.</p>
  *          </note>
@@ -4385,6 +5136,7 @@ export interface Configuration {
 }
 
 /**
+ * @public
  * <p>A configuration for Amazon EMR block public access. When
  *             <code>BlockPublicSecurityGroupRules</code> is set to <code>true</code>, Amazon EMR prevents cluster creation if one of the cluster's security groups has a rule that allows
  *          inbound traffic from 0.0.0.0/0 or ::/0 on a port, unless the port is specified as an
@@ -4428,6 +5180,7 @@ export interface BlockPublicAccessConfiguration {
 }
 
 /**
+ * @public
  * <p>The detailed description of the cluster.</p>
  */
 export interface Cluster {
@@ -4630,12 +5383,15 @@ export interface Cluster {
   PlacementGroups?: PlacementGroupConfig[];
 
   /**
-   * <p>The Amazon Linux release specified in a cluster launch RunJobFlow request. If no Amazon Linux release was specified, the default Amazon Linux release is shown in the response.</p>
+   * <p>The Amazon Linux release specified in a cluster launch RunJobFlow request. If no Amazon
+   *          Linux release was specified, the default Amazon Linux release is shown in the
+   *          response.</p>
    */
   OSReleaseLabel?: string;
 }
 
 /**
+ * @public
  * <p>Configuration defining a new instance group.</p>
  */
 export interface InstanceGroupConfig {
@@ -4701,6 +5457,7 @@ export interface InstanceGroupConfig {
 }
 
 /**
+ * @public
  * <p>Modify the size or configurations of an instance group.</p>
  */
 export interface InstanceGroupModifyConfig {
@@ -4737,6 +5494,7 @@ export interface InstanceGroupModifyConfig {
 }
 
 /**
+ * @public
  * <p>An instance type configuration for each instance type in an instance fleet, which
  *          determines the EC2 instances Amazon EMR attempts to provision to fulfill On-Demand
  *          and Spot target capacities. When you use an allocation strategy, you can include a maximum
@@ -4798,6 +5556,7 @@ export interface InstanceTypeConfig {
 }
 
 /**
+ * @public
  * <p>The configuration specification for each instance type in an instance fleet.</p>
  *          <note>
  *             <p>The instance fleet configuration is available only in Amazon EMR versions
@@ -4855,6 +5614,7 @@ export interface InstanceTypeSpecification {
 }
 
 /**
+ * @public
  * <p>This output contains the description of the cluster.</p>
  */
 export interface DescribeClusterOutput {
@@ -4864,6 +5624,9 @@ export interface DescribeClusterOutput {
   Cluster?: Cluster;
 }
 
+/**
+ * @public
+ */
 export interface GetBlockPublicAccessConfigurationOutput {
   /**
    * <p>A configuration for Amazon EMR block public access. The configuration applies to
@@ -4894,6 +5657,9 @@ export interface GetBlockPublicAccessConfigurationOutput {
   BlockPublicAccessConfigurationMetadata: BlockPublicAccessConfigurationMetadata | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutBlockPublicAccessConfigurationInput {
   /**
    * <p>A configuration for Amazon EMR block public access. The configuration applies to
@@ -4916,6 +5682,7 @@ export interface PutBlockPublicAccessConfigurationInput {
 }
 
 /**
+ * @public
  * <p>Input to an AddInstanceGroups call.</p>
  */
 export interface AddInstanceGroupsInput {
@@ -4931,6 +5698,7 @@ export interface AddInstanceGroupsInput {
 }
 
 /**
+ * @public
  * <p>Describes an instance fleet, which is a group of EC2 instances that host a particular
  *          node type (master, core, or task) in an Amazon EMR cluster. Instance fleets can
  *          consist of a mix of instance types and On-Demand and Spot Instances, which are provisioned
@@ -5030,9 +5798,15 @@ export interface InstanceFleet {
    * <p>Describes the launch specification for an instance fleet. </p>
    */
   LaunchSpecifications?: InstanceFleetProvisioningSpecifications;
+
+  /**
+   * <p>The resize specification for the instance fleet.</p>
+   */
+  ResizeSpecifications?: InstanceFleetResizingSpecifications;
 }
 
 /**
+ * @public
  * <p>The configuration that defines an instance fleet.</p>
  *          <note>
  *             <p>The instance fleet configuration is available only in Amazon EMR versions
@@ -5103,9 +5877,15 @@ export interface InstanceFleetConfig {
    * <p>The launch specification for the instance fleet.</p>
    */
   LaunchSpecifications?: InstanceFleetProvisioningSpecifications;
+
+  /**
+   * <p>The resize specification for the instance fleet.</p>
+   */
+  ResizeSpecifications?: InstanceFleetResizingSpecifications;
 }
 
 /**
+ * @public
  * <p>Change the size of some instance groups.</p>
  */
 export interface ModifyInstanceGroupsInput {
@@ -5120,6 +5900,9 @@ export interface ModifyInstanceGroupsInput {
   InstanceGroups?: InstanceGroupModifyConfig[];
 }
 
+/**
+ * @public
+ */
 export interface AddInstanceFleetInput {
   /**
    * <p>The unique identifier of the cluster.</p>
@@ -5133,6 +5916,7 @@ export interface AddInstanceFleetInput {
 }
 
 /**
+ * @public
  * <p>This entity represents an instance group, which is a group of instances that have common
  *          purpose. For example, CORE instance group is used for HDFS.</p>
  */
@@ -5243,6 +6027,9 @@ export interface InstanceGroup {
   CustomAmiId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListInstanceFleetsOutput {
   /**
    * <p>The list of instance fleets for the cluster and given filters.</p>
@@ -5256,6 +6043,7 @@ export interface ListInstanceFleetsOutput {
 }
 
 /**
+ * @public
  * <p>This input determines which instance groups to retrieve.</p>
  */
 export interface ListInstanceGroupsOutput {
@@ -5271,6 +6059,7 @@ export interface ListInstanceGroupsOutput {
 }
 
 /**
+ * @public
  * <p>A description of the Amazon EC2 instance on which the cluster (job flow) runs. A
  *          valid JobFlowInstancesConfig must contain either InstanceGroups or InstanceFleets. They
  *          cannot be used together. You may also have MasterInstanceType, SlaveInstanceType, and
@@ -5397,6 +6186,7 @@ export interface JobFlowInstancesConfig {
 }
 
 /**
+ * @public
  * <p> Input to the <a>RunJobFlow</a> operation. </p>
  */
 export interface RunJobFlowInput {
@@ -5556,7 +6346,8 @@ export interface RunJobFlowInput {
 
   /**
    * <p>The IAM role that Amazon EMR assumes in order to access Amazon Web Services
-   *          resources on your behalf. If you've created a custom service role path, you must specify it for the service role when you launch your cluster.</p>
+   *          resources on your behalf. If you've created a custom service role path, you must specify it
+   *          for the service role when you launch your cluster.</p>
    */
   ServiceRole?: string;
 
@@ -5654,378 +6445,12 @@ export interface RunJobFlowInput {
   AutoTerminationPolicy?: AutoTerminationPolicy;
 
   /**
-   * <p>Specifies a particular Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If a release is not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.</p>
+   * <p>Specifies a particular Amazon Linux release for all nodes in a cluster launch RunJobFlow
+   *          request. If a release is not specified, Amazon EMR uses the latest validated Amazon
+   *          Linux release for cluster launch.</p>
    */
   OSReleaseLabel?: string;
 }
-
-/**
- * @internal
- */
-export const VolumeSpecificationFilterSensitiveLog = (obj: VolumeSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EbsBlockDeviceConfigFilterSensitiveLog = (obj: EbsBlockDeviceConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EbsConfigurationFilterSensitiveLog = (obj: EbsConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OnDemandCapacityReservationOptionsFilterSensitiveLog = (obj: OnDemandCapacityReservationOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OnDemandProvisioningSpecificationFilterSensitiveLog = (obj: OnDemandProvisioningSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SpotProvisioningSpecificationFilterSensitiveLog = (obj: SpotProvisioningSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceFleetProvisioningSpecificationsFilterSensitiveLog = (
-  obj: InstanceFleetProvisioningSpecifications
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddInstanceFleetOutputFilterSensitiveLog = (obj: AddInstanceFleetOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScalingConstraintsFilterSensitiveLog = (obj: ScalingConstraints): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SimpleScalingPolicyConfigurationFilterSensitiveLog = (obj: SimpleScalingPolicyConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScalingActionFilterSensitiveLog = (obj: ScalingAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetricDimensionFilterSensitiveLog = (obj: MetricDimension): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CloudWatchAlarmDefinitionFilterSensitiveLog = (obj: CloudWatchAlarmDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScalingTriggerFilterSensitiveLog = (obj: ScalingTrigger): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScalingRuleFilterSensitiveLog = (obj: ScalingRule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoScalingPolicyFilterSensitiveLog = (obj: AutoScalingPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddInstanceGroupsOutputFilterSensitiveLog = (obj: AddInstanceGroupsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KeyValueFilterSensitiveLog = (obj: KeyValue): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HadoopJarStepConfigFilterSensitiveLog = (obj: HadoopJarStepConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StepConfigFilterSensitiveLog = (obj: StepConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddJobFlowStepsInputFilterSensitiveLog = (obj: AddJobFlowStepsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddJobFlowStepsOutputFilterSensitiveLog = (obj: AddJobFlowStepsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddTagsInputFilterSensitiveLog = (obj: AddTagsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddTagsOutputFilterSensitiveLog = (obj: AddTagsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApplicationFilterSensitiveLog = (obj: Application): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoScalingPolicyStateChangeReasonFilterSensitiveLog = (obj: AutoScalingPolicyStateChangeReason): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoScalingPolicyStatusFilterSensitiveLog = (obj: AutoScalingPolicyStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoScalingPolicyDescriptionFilterSensitiveLog = (obj: AutoScalingPolicyDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoTerminationPolicyFilterSensitiveLog = (obj: AutoTerminationPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PortRangeFilterSensitiveLog = (obj: PortRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BlockPublicAccessConfigurationMetadataFilterSensitiveLog = (
-  obj: BlockPublicAccessConfigurationMetadata
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScriptBootstrapActionConfigFilterSensitiveLog = (obj: ScriptBootstrapActionConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BootstrapActionConfigFilterSensitiveLog = (obj: BootstrapActionConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BootstrapActionDetailFilterSensitiveLog = (obj: BootstrapActionDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelStepsInputFilterSensitiveLog = (obj: CancelStepsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelStepsInfoFilterSensitiveLog = (obj: CancelStepsInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelStepsOutputFilterSensitiveLog = (obj: CancelStepsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Ec2InstanceAttributesFilterSensitiveLog = (obj: Ec2InstanceAttributes): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KerberosAttributesFilterSensitiveLog = (obj: KerberosAttributes): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PlacementGroupConfigFilterSensitiveLog = (obj: PlacementGroupConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClusterStateChangeReasonFilterSensitiveLog = (obj: ClusterStateChangeReason): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClusterTimelineFilterSensitiveLog = (obj: ClusterTimeline): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClusterStatusFilterSensitiveLog = (obj: ClusterStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClusterSummaryFilterSensitiveLog = (obj: ClusterSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CommandFilterSensitiveLog = (obj: Command): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ComputeLimitsFilterSensitiveLog = (obj: ComputeLimits): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSecurityConfigurationInputFilterSensitiveLog = (obj: CreateSecurityConfigurationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSecurityConfigurationOutputFilterSensitiveLog = (obj: CreateSecurityConfigurationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateStudioInputFilterSensitiveLog = (obj: CreateStudioInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateStudioOutputFilterSensitiveLog = (obj: CreateStudioOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateStudioSessionMappingInputFilterSensitiveLog = (obj: CreateStudioSessionMappingInput): any => ({
-  ...obj,
-});
 
 /**
  * @internal
@@ -6045,955 +6470,7 @@ export const CredentialsFilterSensitiveLog = (obj: Credentials): any => {
 /**
  * @internal
  */
-export const DeleteSecurityConfigurationInputFilterSensitiveLog = (obj: DeleteSecurityConfigurationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSecurityConfigurationOutputFilterSensitiveLog = (obj: DeleteSecurityConfigurationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteStudioInputFilterSensitiveLog = (obj: DeleteStudioInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteStudioSessionMappingInputFilterSensitiveLog = (obj: DeleteStudioSessionMappingInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeClusterInputFilterSensitiveLog = (obj: DescribeClusterInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeJobFlowsInputFilterSensitiveLog = (obj: DescribeJobFlowsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobFlowExecutionStatusDetailFilterSensitiveLog = (obj: JobFlowExecutionStatusDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceGroupDetailFilterSensitiveLog = (obj: InstanceGroupDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PlacementTypeFilterSensitiveLog = (obj: PlacementType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobFlowInstancesDetailFilterSensitiveLog = (obj: JobFlowInstancesDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StepExecutionStatusDetailFilterSensitiveLog = (obj: StepExecutionStatusDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StepDetailFilterSensitiveLog = (obj: StepDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobFlowDetailFilterSensitiveLog = (obj: JobFlowDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeJobFlowsOutputFilterSensitiveLog = (obj: DescribeJobFlowsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeNotebookExecutionInputFilterSensitiveLog = (obj: DescribeNotebookExecutionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExecutionEngineConfigFilterSensitiveLog = (obj: ExecutionEngineConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NotebookExecutionFilterSensitiveLog = (obj: NotebookExecution): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeNotebookExecutionOutputFilterSensitiveLog = (obj: DescribeNotebookExecutionOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReleaseLabelInputFilterSensitiveLog = (obj: DescribeReleaseLabelInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SimplifiedApplicationFilterSensitiveLog = (obj: SimplifiedApplication): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OSReleaseFilterSensitiveLog = (obj: OSRelease): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReleaseLabelOutputFilterSensitiveLog = (obj: DescribeReleaseLabelOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSecurityConfigurationInputFilterSensitiveLog = (obj: DescribeSecurityConfigurationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSecurityConfigurationOutputFilterSensitiveLog = (
-  obj: DescribeSecurityConfigurationOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeStepInputFilterSensitiveLog = (obj: DescribeStepInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HadoopStepConfigFilterSensitiveLog = (obj: HadoopStepConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FailureDetailsFilterSensitiveLog = (obj: FailureDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StepStateChangeReasonFilterSensitiveLog = (obj: StepStateChangeReason): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StepTimelineFilterSensitiveLog = (obj: StepTimeline): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StepStatusFilterSensitiveLog = (obj: StepStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StepFilterSensitiveLog = (obj: Step): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeStepOutputFilterSensitiveLog = (obj: DescribeStepOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeStudioInputFilterSensitiveLog = (obj: DescribeStudioInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StudioFilterSensitiveLog = (obj: Studio): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeStudioOutputFilterSensitiveLog = (obj: DescribeStudioOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EbsBlockDeviceFilterSensitiveLog = (obj: EbsBlockDevice): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EbsVolumeFilterSensitiveLog = (obj: EbsVolume): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAutoTerminationPolicyInputFilterSensitiveLog = (obj: GetAutoTerminationPolicyInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAutoTerminationPolicyOutputFilterSensitiveLog = (obj: GetAutoTerminationPolicyOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetBlockPublicAccessConfigurationInputFilterSensitiveLog = (
-  obj: GetBlockPublicAccessConfigurationInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetClusterSessionCredentialsInputFilterSensitiveLog = (obj: GetClusterSessionCredentialsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetClusterSessionCredentialsOutputFilterSensitiveLog = (obj: GetClusterSessionCredentialsOutput): any => ({
   ...obj,
   ...(obj.Credentials && { Credentials: CredentialsFilterSensitiveLog(obj.Credentials) }),
-});
-
-/**
- * @internal
- */
-export const GetManagedScalingPolicyInputFilterSensitiveLog = (obj: GetManagedScalingPolicyInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ManagedScalingPolicyFilterSensitiveLog = (obj: ManagedScalingPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetManagedScalingPolicyOutputFilterSensitiveLog = (obj: GetManagedScalingPolicyOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetStudioSessionMappingInputFilterSensitiveLog = (obj: GetStudioSessionMappingInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SessionMappingDetailFilterSensitiveLog = (obj: SessionMappingDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetStudioSessionMappingOutputFilterSensitiveLog = (obj: GetStudioSessionMappingOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListBootstrapActionsInputFilterSensitiveLog = (obj: ListBootstrapActionsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListBootstrapActionsOutputFilterSensitiveLog = (obj: ListBootstrapActionsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListClustersInputFilterSensitiveLog = (obj: ListClustersInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListClustersOutputFilterSensitiveLog = (obj: ListClustersOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListInstanceFleetsInputFilterSensitiveLog = (obj: ListInstanceFleetsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceFleetStateChangeReasonFilterSensitiveLog = (obj: InstanceFleetStateChangeReason): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceFleetTimelineFilterSensitiveLog = (obj: InstanceFleetTimeline): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceFleetStatusFilterSensitiveLog = (obj: InstanceFleetStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListInstanceGroupsInputFilterSensitiveLog = (obj: ListInstanceGroupsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceResizePolicyFilterSensitiveLog = (obj: InstanceResizePolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ShrinkPolicyFilterSensitiveLog = (obj: ShrinkPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceGroupStateChangeReasonFilterSensitiveLog = (obj: InstanceGroupStateChangeReason): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceGroupTimelineFilterSensitiveLog = (obj: InstanceGroupTimeline): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceGroupStatusFilterSensitiveLog = (obj: InstanceGroupStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListInstancesInputFilterSensitiveLog = (obj: ListInstancesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceStateChangeReasonFilterSensitiveLog = (obj: InstanceStateChangeReason): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceTimelineFilterSensitiveLog = (obj: InstanceTimeline): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceStatusFilterSensitiveLog = (obj: InstanceStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceFilterSensitiveLog = (obj: Instance): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListInstancesOutputFilterSensitiveLog = (obj: ListInstancesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNotebookExecutionsInputFilterSensitiveLog = (obj: ListNotebookExecutionsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NotebookExecutionSummaryFilterSensitiveLog = (obj: NotebookExecutionSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNotebookExecutionsOutputFilterSensitiveLog = (obj: ListNotebookExecutionsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReleaseLabelFilterFilterSensitiveLog = (obj: ReleaseLabelFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListReleaseLabelsInputFilterSensitiveLog = (obj: ListReleaseLabelsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListReleaseLabelsOutputFilterSensitiveLog = (obj: ListReleaseLabelsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSecurityConfigurationsInputFilterSensitiveLog = (obj: ListSecurityConfigurationsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SecurityConfigurationSummaryFilterSensitiveLog = (obj: SecurityConfigurationSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSecurityConfigurationsOutputFilterSensitiveLog = (obj: ListSecurityConfigurationsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStepsInputFilterSensitiveLog = (obj: ListStepsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StepSummaryFilterSensitiveLog = (obj: StepSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStepsOutputFilterSensitiveLog = (obj: ListStepsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStudiosInputFilterSensitiveLog = (obj: ListStudiosInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StudioSummaryFilterSensitiveLog = (obj: StudioSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStudiosOutputFilterSensitiveLog = (obj: ListStudiosOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStudioSessionMappingsInputFilterSensitiveLog = (obj: ListStudioSessionMappingsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SessionMappingSummaryFilterSensitiveLog = (obj: SessionMappingSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStudioSessionMappingsOutputFilterSensitiveLog = (obj: ListStudioSessionMappingsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyClusterInputFilterSensitiveLog = (obj: ModifyClusterInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyClusterOutputFilterSensitiveLog = (obj: ModifyClusterOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceFleetModifyConfigFilterSensitiveLog = (obj: InstanceFleetModifyConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyInstanceFleetInputFilterSensitiveLog = (obj: ModifyInstanceFleetInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutAutoScalingPolicyInputFilterSensitiveLog = (obj: PutAutoScalingPolicyInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutAutoScalingPolicyOutputFilterSensitiveLog = (obj: PutAutoScalingPolicyOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutAutoTerminationPolicyInputFilterSensitiveLog = (obj: PutAutoTerminationPolicyInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutAutoTerminationPolicyOutputFilterSensitiveLog = (obj: PutAutoTerminationPolicyOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutBlockPublicAccessConfigurationOutputFilterSensitiveLog = (
-  obj: PutBlockPublicAccessConfigurationOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutManagedScalingPolicyInputFilterSensitiveLog = (obj: PutManagedScalingPolicyInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutManagedScalingPolicyOutputFilterSensitiveLog = (obj: PutManagedScalingPolicyOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveAutoScalingPolicyInputFilterSensitiveLog = (obj: RemoveAutoScalingPolicyInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveAutoScalingPolicyOutputFilterSensitiveLog = (obj: RemoveAutoScalingPolicyOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveAutoTerminationPolicyInputFilterSensitiveLog = (obj: RemoveAutoTerminationPolicyInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveAutoTerminationPolicyOutputFilterSensitiveLog = (obj: RemoveAutoTerminationPolicyOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveManagedScalingPolicyInputFilterSensitiveLog = (obj: RemoveManagedScalingPolicyInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveManagedScalingPolicyOutputFilterSensitiveLog = (obj: RemoveManagedScalingPolicyOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveTagsInputFilterSensitiveLog = (obj: RemoveTagsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveTagsOutputFilterSensitiveLog = (obj: RemoveTagsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SupportedProductConfigFilterSensitiveLog = (obj: SupportedProductConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RunJobFlowOutputFilterSensitiveLog = (obj: RunJobFlowOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetTerminationProtectionInputFilterSensitiveLog = (obj: SetTerminationProtectionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetVisibleToAllUsersInputFilterSensitiveLog = (obj: SetVisibleToAllUsersInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartNotebookExecutionInputFilterSensitiveLog = (obj: StartNotebookExecutionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartNotebookExecutionOutputFilterSensitiveLog = (obj: StartNotebookExecutionOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopNotebookExecutionInputFilterSensitiveLog = (obj: StopNotebookExecutionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TerminateJobFlowsInputFilterSensitiveLog = (obj: TerminateJobFlowsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateStudioInputFilterSensitiveLog = (obj: UpdateStudioInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateStudioSessionMappingInputFilterSensitiveLog = (obj: UpdateStudioSessionMappingInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConfigurationFilterSensitiveLog = (obj: Configuration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BlockPublicAccessConfigurationFilterSensitiveLog = (obj: BlockPublicAccessConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClusterFilterSensitiveLog = (obj: Cluster): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceGroupConfigFilterSensitiveLog = (obj: InstanceGroupConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceGroupModifyConfigFilterSensitiveLog = (obj: InstanceGroupModifyConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceTypeConfigFilterSensitiveLog = (obj: InstanceTypeConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceTypeSpecificationFilterSensitiveLog = (obj: InstanceTypeSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeClusterOutputFilterSensitiveLog = (obj: DescribeClusterOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetBlockPublicAccessConfigurationOutputFilterSensitiveLog = (
-  obj: GetBlockPublicAccessConfigurationOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutBlockPublicAccessConfigurationInputFilterSensitiveLog = (
-  obj: PutBlockPublicAccessConfigurationInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddInstanceGroupsInputFilterSensitiveLog = (obj: AddInstanceGroupsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceFleetFilterSensitiveLog = (obj: InstanceFleet): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceFleetConfigFilterSensitiveLog = (obj: InstanceFleetConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyInstanceGroupsInputFilterSensitiveLog = (obj: ModifyInstanceGroupsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddInstanceFleetInputFilterSensitiveLog = (obj: AddInstanceFleetInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceGroupFilterSensitiveLog = (obj: InstanceGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListInstanceFleetsOutputFilterSensitiveLog = (obj: ListInstanceFleetsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListInstanceGroupsOutputFilterSensitiveLog = (obj: ListInstanceGroupsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobFlowInstancesConfigFilterSensitiveLog = (obj: JobFlowInstancesConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RunJobFlowInputFilterSensitiveLog = (obj: RunJobFlowInput): any => ({
-  ...obj,
 });

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import {
-  CreateDataCellsFilterRequest,
-  CreateDataCellsFilterRequestFilterSensitiveLog,
-  CreateDataCellsFilterResponse,
-  CreateDataCellsFilterResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDataCellsFilterCommand,
-  serializeAws_restJson1CreateDataCellsFilterCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateDataCellsFilterRequest, CreateDataCellsFilterResponse } from "../models/models_0";
+import { de_CreateDataCellsFilterCommand, se_CreateDataCellsFilterCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateDataCellsFilterCommand}.
+ */
 export interface CreateDataCellsFilterCommandInput extends CreateDataCellsFilterRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateDataCellsFilterCommand}.
+ */
 export interface CreateDataCellsFilterCommandOutput extends CreateDataCellsFilterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a data cell filter to allow one to grant access to certain columns on certain rows.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,58 @@ export interface CreateDataCellsFilterCommandOutput extends CreateDataCellsFilte
  * import { LakeFormationClient, CreateDataCellsFilterCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, CreateDataCellsFilterCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
+ * const input = { // CreateDataCellsFilterRequest
+ *   TableData: { // DataCellsFilter
+ *     TableCatalogId: "STRING_VALUE", // required
+ *     DatabaseName: "STRING_VALUE", // required
+ *     TableName: "STRING_VALUE", // required
+ *     Name: "STRING_VALUE", // required
+ *     RowFilter: { // RowFilter
+ *       FilterExpression: "STRING_VALUE",
+ *       AllRowsWildcard: {},
+ *     },
+ *     ColumnNames: [ // ColumnNames
+ *       "STRING_VALUE",
+ *     ],
+ *     ColumnWildcard: { // ColumnWildcard
+ *       ExcludedColumnNames: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     VersionId: "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateDataCellsFilterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDataCellsFilterCommandInput - {@link CreateDataCellsFilterCommandInput}
+ * @returns {@link CreateDataCellsFilterCommandOutput}
  * @see {@link CreateDataCellsFilterCommandInput} for command's `input` shape.
  * @see {@link CreateDataCellsFilterCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to a resource was denied.</p>
+ *
+ * @throws {@link AlreadyExistsException} (client fault)
+ *  <p>A resource to be created or added already exists.</p>
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ * @throws {@link ResourceNumberLimitExceededException} (client fault)
+ *  <p>A resource numerical limit was exceeded.</p>
+ *
  *
  */
 export class CreateDataCellsFilterCommand extends $Command<
@@ -62,6 +110,9 @@ export class CreateDataCellsFilterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDataCellsFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +141,8 @@ export class CreateDataCellsFilterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDataCellsFilterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDataCellsFilterResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +152,18 @@ export class CreateDataCellsFilterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDataCellsFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDataCellsFilterCommand(input, context);
+    return se_CreateDataCellsFilterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDataCellsFilterCommandOutput> {
-    return deserializeAws_restJson1CreateDataCellsFilterCommand(output, context);
+    return de_CreateDataCellsFilterCommand(output, context);
   }
 
   // Start section: command_body_extra

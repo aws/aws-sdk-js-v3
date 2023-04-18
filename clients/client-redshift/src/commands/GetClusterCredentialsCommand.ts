@@ -14,17 +14,25 @@ import {
 } from "@aws-sdk/types";
 
 import { ClusterCredentials, ClusterCredentialsFilterSensitiveLog } from "../models/models_0";
-import { GetClusterCredentialsMessage, GetClusterCredentialsMessageFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_queryGetClusterCredentialsCommand,
-  serializeAws_queryGetClusterCredentialsCommand,
-} from "../protocols/Aws_query";
+import { GetClusterCredentialsMessage } from "../models/models_1";
+import { de_GetClusterCredentialsCommand, se_GetClusterCredentialsCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetClusterCredentialsCommand}.
+ */
 export interface GetClusterCredentialsCommandInput extends GetClusterCredentialsMessage {}
+/**
+ * @public
+ *
+ * The output of {@link GetClusterCredentialsCommand}.
+ */
 export interface GetClusterCredentialsCommandOutput extends ClusterCredentials, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a database user name and temporary password with temporary authorization to
  *             log on to an Amazon Redshift database. The action returns the database user name
  *             prefixed with <code>IAM:</code> if <code>AutoCreate</code> is <code>False</code> or
@@ -34,17 +42,17 @@ export interface GetClusterCredentialsCommandOutput extends ClusterCredentials, 
  *             a duration between 900 seconds (15 minutes) and 3600 seconds (60 minutes). For more
  *             information, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/generating-user-credentials.html">Using IAM Authentication
  *                 to Generate Database User Credentials</a> in the Amazon Redshift Cluster Management Guide.</p>
- *         <p>The Identity and Access Management (IAM) user or role that runs
+ *          <p>The Identity and Access Management (IAM) user or role that runs
  *             GetClusterCredentials must have an IAM policy attached that allows access to all
  *             necessary actions and resources. For more information about permissions, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html#redshift-policy-resources.getclustercredentials-resources">Resource Policies for GetClusterCredentials</a> in the
  *             Amazon Redshift Cluster Management Guide.</p>
- *         <p>If the <code>DbGroups</code> parameter is specified, the IAM policy must allow the
+ *          <p>If the <code>DbGroups</code> parameter is specified, the IAM policy must allow the
  *                 <code>redshift:JoinGroup</code> action with access to the listed
  *                 <code>dbgroups</code>. </p>
- *         <p>In addition, if the <code>AutoCreate</code> parameter is set to <code>True</code>,
+ *          <p>In addition, if the <code>AutoCreate</code> parameter is set to <code>True</code>,
  *             then the policy must include the <code>redshift:CreateClusterUser</code>
  *             permission.</p>
- *         <p>If the <code>DbName</code> parameter is specified, the IAM policy must allow access
+ *          <p>If the <code>DbName</code> parameter is specified, the IAM policy must allow access
  *             to the resource <code>dbname</code> for the specified database name. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,13 +60,33 @@ export interface GetClusterCredentialsCommandOutput extends ClusterCredentials, 
  * import { RedshiftClient, GetClusterCredentialsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, GetClusterCredentialsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // GetClusterCredentialsMessage
+ *   DbUser: "STRING_VALUE", // required
+ *   DbName: "STRING_VALUE",
+ *   ClusterIdentifier: "STRING_VALUE", // required
+ *   DurationSeconds: Number("int"),
+ *   AutoCreate: true || false,
+ *   DbGroups: [ // DbGroupList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetClusterCredentialsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetClusterCredentialsCommandInput - {@link GetClusterCredentialsCommandInput}
+ * @returns {@link GetClusterCredentialsCommandOutput}
  * @see {@link GetClusterCredentialsCommandInput} for command's `input` shape.
  * @see {@link GetClusterCredentialsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
+ *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+ *         </p>
+ *
+ * @throws {@link UnsupportedOperationFault} (client fault)
+ *  <p>The requested operation isn't supported.</p>
+ *
  *
  */
 export class GetClusterCredentialsCommand extends $Command<
@@ -78,6 +106,9 @@ export class GetClusterCredentialsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetClusterCredentialsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,7 +137,7 @@ export class GetClusterCredentialsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetClusterCredentialsMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ClusterCredentialsFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -117,12 +148,18 @@ export class GetClusterCredentialsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetClusterCredentialsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetClusterCredentialsCommand(input, context);
+    return se_GetClusterCredentialsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetClusterCredentialsCommandOutput> {
-    return deserializeAws_queryGetClusterCredentialsCommand(output, context);
+    return de_GetClusterCredentialsCommand(output, context);
   }
 
   // Start section: command_body_extra

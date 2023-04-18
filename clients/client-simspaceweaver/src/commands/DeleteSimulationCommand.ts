@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteSimulationInput,
-  DeleteSimulationInputFilterSensitiveLog,
-  DeleteSimulationOutput,
-  DeleteSimulationOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteSimulationCommand,
-  serializeAws_restJson1DeleteSimulationCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteSimulationInput, DeleteSimulationOutput } from "../models/models_0";
+import { de_DeleteSimulationCommand, se_DeleteSimulationCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SimSpaceWeaverClientResolvedConfig } from "../SimSpaceWeaverClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteSimulationCommand}.
+ */
 export interface DeleteSimulationCommandInput extends DeleteSimulationInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteSimulationCommand}.
+ */
 export interface DeleteSimulationCommandOutput extends DeleteSimulationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes all SimSpace Weaver resources assigned to the given simulation.</p>
  *          <note>
  *             <p>Your simulation uses resources in other Amazon Web Services services. This API operation doesn't delete
@@ -40,13 +43,34 @@ export interface DeleteSimulationCommandOutput extends DeleteSimulationOutput, _
  * import { SimSpaceWeaverClient, DeleteSimulationCommand } from "@aws-sdk/client-simspaceweaver"; // ES Modules import
  * // const { SimSpaceWeaverClient, DeleteSimulationCommand } = require("@aws-sdk/client-simspaceweaver"); // CommonJS import
  * const client = new SimSpaceWeaverClient(config);
+ * const input = { // DeleteSimulationInput
+ *   Simulation: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSimulationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSimulationCommandInput - {@link DeleteSimulationCommandInput}
+ * @returns {@link DeleteSimulationCommandOutput}
  * @see {@link DeleteSimulationCommandInput} for command's `input` shape.
  * @see {@link DeleteSimulationCommandOutput} for command's `response` shape.
  * @see {@link SimSpaceWeaverClientResolvedConfig | config} for SimSpaceWeaverClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p/>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p/>
+ *
  *
  */
 export class DeleteSimulationCommand extends $Command<
@@ -66,6 +90,9 @@ export class DeleteSimulationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSimulationCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +121,8 @@ export class DeleteSimulationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSimulationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSimulationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +132,18 @@ export class DeleteSimulationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSimulationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSimulationCommand(input, context);
+    return se_DeleteSimulationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSimulationCommandOutput> {
-    return deserializeAws_restJson1DeleteSimulationCommand(output, context);
+    return de_DeleteSimulationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  ResumeGameServerGroupInput,
-  ResumeGameServerGroupInputFilterSensitiveLog,
-  ResumeGameServerGroupOutput,
-  ResumeGameServerGroupOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ResumeGameServerGroupCommand,
-  serializeAws_json1_1ResumeGameServerGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { ResumeGameServerGroupInput, ResumeGameServerGroupOutput } from "../models/models_0";
+import { de_ResumeGameServerGroupCommand, se_ResumeGameServerGroupCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ResumeGameServerGroupCommand}.
+ */
 export interface ResumeGameServerGroupCommandInput extends ResumeGameServerGroupInput {}
+/**
+ * @public
+ *
+ * The output of {@link ResumeGameServerGroupCommand}.
+ */
 export interface ResumeGameServerGroupCommandOutput extends ResumeGameServerGroupOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
  *          </p>
@@ -55,13 +58,36 @@ export interface ResumeGameServerGroupCommandOutput extends ResumeGameServerGrou
  * import { GameLiftClient, ResumeGameServerGroupCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, ResumeGameServerGroupCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // ResumeGameServerGroupInput
+ *   GameServerGroupName: "STRING_VALUE", // required
+ *   ResumeActions: [ // GameServerGroupActions // required
+ *     "REPLACE_INSTANCE_TYPES",
+ *   ],
+ * };
  * const command = new ResumeGameServerGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ResumeGameServerGroupCommandInput - {@link ResumeGameServerGroupCommandInput}
+ * @returns {@link ResumeGameServerGroupCommandOutput}
  * @see {@link ResumeGameServerGroupCommandInput} for command's `input` shape.
  * @see {@link ResumeGameServerGroupCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an unrecoverable internal failure while processing the
+ *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
+ *             values before retrying.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
  *
  */
 export class ResumeGameServerGroupCommand extends $Command<
@@ -81,6 +107,9 @@ export class ResumeGameServerGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResumeGameServerGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +138,8 @@ export class ResumeGameServerGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResumeGameServerGroupInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ResumeGameServerGroupOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +149,18 @@ export class ResumeGameServerGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResumeGameServerGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ResumeGameServerGroupCommand(input, context);
+    return se_ResumeGameServerGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResumeGameServerGroupCommandOutput> {
-    return deserializeAws_json1_1ResumeGameServerGroupCommand(output, context);
+    return de_ResumeGameServerGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

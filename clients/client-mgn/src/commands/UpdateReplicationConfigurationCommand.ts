@@ -21,14 +21,25 @@ import {
   UpdateReplicationConfigurationRequestFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateReplicationConfigurationCommand,
-  serializeAws_restJson1UpdateReplicationConfigurationCommand,
+  de_UpdateReplicationConfigurationCommand,
+  se_UpdateReplicationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateReplicationConfigurationCommand}.
+ */
 export interface UpdateReplicationConfigurationCommandInput extends UpdateReplicationConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateReplicationConfigurationCommand}.
+ */
 export interface UpdateReplicationConfigurationCommandOutput extends ReplicationConfiguration, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows you to update multiple ReplicationConfigurations by Source Server ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +47,60 @@ export interface UpdateReplicationConfigurationCommandOutput extends Replication
  * import { MgnClient, UpdateReplicationConfigurationCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, UpdateReplicationConfigurationCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = { // UpdateReplicationConfigurationRequest
+ *   sourceServerID: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   stagingAreaSubnetId: "STRING_VALUE",
+ *   associateDefaultSecurityGroup: true || false,
+ *   replicationServersSecurityGroupsIDs: [ // ReplicationServersSecurityGroupsIDs
+ *     "STRING_VALUE",
+ *   ],
+ *   replicationServerInstanceType: "STRING_VALUE",
+ *   useDedicatedReplicationServer: true || false,
+ *   defaultLargeStagingDiskType: "STRING_VALUE",
+ *   replicatedDisks: [ // ReplicationConfigurationReplicatedDisks
+ *     { // ReplicationConfigurationReplicatedDisk
+ *       deviceName: "STRING_VALUE",
+ *       isBootDisk: true || false,
+ *       stagingDiskType: "STRING_VALUE",
+ *       iops: Number("long"),
+ *       throughput: Number("long"),
+ *     },
+ *   ],
+ *   ebsEncryption: "STRING_VALUE",
+ *   ebsEncryptionKeyArn: "STRING_VALUE",
+ *   bandwidthThrottling: Number("long"),
+ *   dataPlaneRouting: "STRING_VALUE",
+ *   createPublicIP: true || false,
+ *   stagingAreaTags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateReplicationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateReplicationConfigurationCommandInput - {@link UpdateReplicationConfigurationCommandInput}
+ * @returns {@link UpdateReplicationConfigurationCommandOutput}
  * @see {@link UpdateReplicationConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateReplicationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Operating denied due to a file permission or access check error.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource not found exception.</p>
+ *
+ * @throws {@link UninitializedAccountException} (client fault)
+ *  <p>Uninitialized account exception.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Validate exception.</p>
+ *
  *
  */
 export class UpdateReplicationConfigurationCommand extends $Command<
@@ -62,6 +120,9 @@ export class UpdateReplicationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateReplicationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,18 +162,24 @@ export class UpdateReplicationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateReplicationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateReplicationConfigurationCommand(input, context);
+    return se_UpdateReplicationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateReplicationConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateReplicationConfigurationCommand(output, context);
+    return de_UpdateReplicationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

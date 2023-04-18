@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticTranscoderClient";
-import {
-  UpdatePipelineStatusRequest,
-  UpdatePipelineStatusRequestFilterSensitiveLog,
-  UpdatePipelineStatusResponse,
-  UpdatePipelineStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdatePipelineStatusCommand,
-  serializeAws_restJson1UpdatePipelineStatusCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdatePipelineStatusRequest, UpdatePipelineStatusResponse } from "../models/models_0";
+import { de_UpdatePipelineStatusCommand, se_UpdatePipelineStatusCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdatePipelineStatusCommand}.
+ */
 export interface UpdatePipelineStatusCommandInput extends UpdatePipelineStatusRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdatePipelineStatusCommand}.
+ */
 export interface UpdatePipelineStatusCommandOutput extends UpdatePipelineStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The UpdatePipelineStatus operation pauses or reactivates a pipeline, so that the pipeline
  *             stops or restarts the processing of jobs.</p>
  *         <p>Changing the pipeline status is useful if you want to cancel one or more jobs. You can't
@@ -45,13 +48,39 @@ export interface UpdatePipelineStatusCommandOutput extends UpdatePipelineStatusR
  * import { ElasticTranscoderClient, UpdatePipelineStatusCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
  * // const { ElasticTranscoderClient, UpdatePipelineStatusCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import
  * const client = new ElasticTranscoderClient(config);
+ * const input = { // UpdatePipelineStatusRequest
+ *   Id: "STRING_VALUE", // required
+ *   Status: "STRING_VALUE", // required
+ * };
  * const command = new UpdatePipelineStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePipelineStatusCommandInput - {@link UpdatePipelineStatusCommandInput}
+ * @returns {@link UpdatePipelineStatusCommandOutput}
  * @see {@link UpdatePipelineStatusCommandInput} for command's `input` shape.
  * @see {@link UpdatePipelineStatusCommandOutput} for command's `response` shape.
  * @see {@link ElasticTranscoderClientResolvedConfig | config} for ElasticTranscoderClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>General authentication failure. The request was not signed correctly.</p>
+ *
+ * @throws {@link IncompatibleVersionException} (client fault)
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Elastic Transcoder encountered an unexpected exception while trying to fulfill the request.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The resource you are attempting to change is in use. For example, you are attempting
+ *             to delete a pipeline that is currently in use.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource does not exist or is not available. For example, the pipeline
+ *             to which you're trying to add a job doesn't exist or is still being created.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One or more required parameter values were not provided in the request.</p>
+ *
  *
  */
 export class UpdatePipelineStatusCommand extends $Command<
@@ -71,6 +100,9 @@ export class UpdatePipelineStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePipelineStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +131,8 @@ export class UpdatePipelineStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePipelineStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePipelineStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +142,18 @@ export class UpdatePipelineStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePipelineStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdatePipelineStatusCommand(input, context);
+    return se_UpdatePipelineStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePipelineStatusCommandOutput> {
-    return deserializeAws_restJson1UpdatePipelineStatusCommand(output, context);
+    return de_UpdatePipelineStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

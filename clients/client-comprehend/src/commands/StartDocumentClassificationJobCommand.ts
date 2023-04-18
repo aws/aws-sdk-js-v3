@@ -14,38 +14,110 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
+import { StartDocumentClassificationJobRequest, StartDocumentClassificationJobResponse } from "../models/models_0";
 import {
-  StartDocumentClassificationJobRequest,
-  StartDocumentClassificationJobRequestFilterSensitiveLog,
-  StartDocumentClassificationJobResponse,
-  StartDocumentClassificationJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartDocumentClassificationJobCommand,
-  serializeAws_json1_1StartDocumentClassificationJobCommand,
+  de_StartDocumentClassificationJobCommand,
+  se_StartDocumentClassificationJobCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link StartDocumentClassificationJobCommand}.
+ */
 export interface StartDocumentClassificationJobCommandInput extends StartDocumentClassificationJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartDocumentClassificationJobCommand}.
+ */
 export interface StartDocumentClassificationJobCommandOutput
   extends StartDocumentClassificationJobResponse,
     __MetadataBearer {}
 
 /**
- * <p>Starts an asynchronous document classification job. Use the  operation to track the progress of the
- *       job.</p>
+ * @public
+ * <p>Starts an asynchronous document classification job. Use the
+ *       <code>DescribeDocumentClassificationJob</code>
+ *           operation to track the progress of the job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ComprehendClient, StartDocumentClassificationJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, StartDocumentClassificationJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // StartDocumentClassificationJobRequest
+ *   JobName: "STRING_VALUE",
+ *   DocumentClassifierArn: "STRING_VALUE",
+ *   InputDataConfig: { // InputDataConfig
+ *     S3Uri: "STRING_VALUE", // required
+ *     InputFormat: "ONE_DOC_PER_FILE" || "ONE_DOC_PER_LINE",
+ *     DocumentReaderConfig: { // DocumentReaderConfig
+ *       DocumentReadAction: "TEXTRACT_DETECT_DOCUMENT_TEXT" || "TEXTRACT_ANALYZE_DOCUMENT", // required
+ *       DocumentReadMode: "SERVICE_DEFAULT" || "FORCE_DOCUMENT_READ_ACTION",
+ *       FeatureTypes: [ // ListOfDocumentReadFeatureTypes
+ *         "TABLES" || "FORMS",
+ *       ],
+ *     },
+ *   },
+ *   OutputDataConfig: { // OutputDataConfig
+ *     S3Uri: "STRING_VALUE", // required
+ *     KmsKeyId: "STRING_VALUE",
+ *   },
+ *   DataAccessRoleArn: "STRING_VALUE", // required
+ *   ClientRequestToken: "STRING_VALUE",
+ *   VolumeKmsKeyId: "STRING_VALUE",
+ *   VpcConfig: { // VpcConfig
+ *     SecurityGroupIds: [ // SecurityGroupIds // required
+ *       "STRING_VALUE",
+ *     ],
+ *     Subnets: [ // Subnets // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   FlywheelArn: "STRING_VALUE",
+ * };
  * const command = new StartDocumentClassificationJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartDocumentClassificationJobCommandInput - {@link StartDocumentClassificationJobCommandInput}
+ * @returns {@link StartDocumentClassificationJobCommandOutput}
  * @see {@link StartDocumentClassificationJobCommandInput} for command's `input` shape.
  * @see {@link StartDocumentClassificationJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid.</p>
+ *
+ * @throws {@link KmsKeyValidationException} (client fault)
+ *  <p>The KMS customer managed key (CMK) entered cannot be validated. Verify the key and
+ *       re-enter it.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+ *
+ * @throws {@link ResourceUnavailableException} (client fault)
+ *  <p>The specified resource is not available. Check the resource and try your request
+ *       again.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ *
+ * @throws {@link TooManyTagsException} (client fault)
+ *  <p>The request contains more tags than can be associated with a resource (50 tags per
+ *       resource). The maximum number of tags includes both existing tags and those included in your
+ *       current request. </p>
+ *
  *
  */
 export class StartDocumentClassificationJobCommand extends $Command<
@@ -65,6 +137,9 @@ export class StartDocumentClassificationJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartDocumentClassificationJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +168,8 @@ export class StartDocumentClassificationJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartDocumentClassificationJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartDocumentClassificationJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,18 +179,24 @@ export class StartDocumentClassificationJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StartDocumentClassificationJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartDocumentClassificationJobCommand(input, context);
+    return se_StartDocumentClassificationJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartDocumentClassificationJobCommandOutput> {
-    return deserializeAws_json1_1StartDocumentClassificationJobCommand(output, context);
+    return de_StartDocumentClassificationJobCommand(output, context);
   }
 
   // Start section: command_body_extra

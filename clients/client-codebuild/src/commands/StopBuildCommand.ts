@@ -14,18 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import {
-  StopBuildInput,
-  StopBuildInputFilterSensitiveLog,
-  StopBuildOutput,
-  StopBuildOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1StopBuildCommand, serializeAws_json1_1StopBuildCommand } from "../protocols/Aws_json1_1";
+import { StopBuildInput, StopBuildOutput } from "../models/models_0";
+import { de_StopBuildCommand, se_StopBuildCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link StopBuildCommand}.
+ */
 export interface StopBuildCommandInput extends StopBuildInput {}
+/**
+ * @public
+ *
+ * The output of {@link StopBuildCommand}.
+ */
 export interface StopBuildCommandOutput extends StopBuildOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attempts to stop running a build.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -33,13 +39,25 @@ export interface StopBuildCommandOutput extends StopBuildOutput, __MetadataBeare
  * import { CodeBuildClient, StopBuildCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, StopBuildCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = { // StopBuildInput
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new StopBuildCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopBuildCommandInput - {@link StopBuildCommandInput}
+ * @returns {@link StopBuildCommandOutput}
  * @see {@link StopBuildCommandInput} for command's `input` shape.
  * @see {@link StopBuildCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input value that was provided is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified Amazon Web Services resource cannot be found.</p>
+ *
  *
  */
 export class StopBuildCommand extends $Command<
@@ -59,6 +77,9 @@ export class StopBuildCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopBuildCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +106,8 @@ export class StopBuildCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopBuildInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StopBuildOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +117,18 @@ export class StopBuildCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopBuildCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopBuildCommand(input, context);
+    return se_StopBuildCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopBuildCommandOutput> {
-    return deserializeAws_json1_1StopBuildCommand(output, context);
+    return de_StopBuildCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -12,17 +12,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { HttpPayloadTraitsInputOutput, HttpPayloadTraitsInputOutputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1HttpPayloadTraitsCommand,
-  serializeAws_restJson1HttpPayloadTraitsCommand,
-} from "../protocols/Aws_restJson1";
+import { HttpPayloadTraitsInputOutput } from "../models/models_0";
+import { de_HttpPayloadTraitsCommand, se_HttpPayloadTraitsCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * @public
+ *
+ * The input for {@link HttpPayloadTraitsCommand}.
+ */
 export interface HttpPayloadTraitsCommandInput extends HttpPayloadTraitsInputOutput {}
+/**
+ * @public
+ *
+ * The output of {@link HttpPayloadTraitsCommand}.
+ */
 export interface HttpPayloadTraitsCommandOutput extends HttpPayloadTraitsInputOutput, __MetadataBearer {}
 
 /**
+ * @public
  * This examples serializes a blob shape in the payload.
  *
  * In this example, no JSON document is synthesized because the payload is
@@ -33,13 +41,20 @@ export interface HttpPayloadTraitsCommandOutput extends HttpPayloadTraitsInputOu
  * import { RestJsonProtocolClient, HttpPayloadTraitsCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, HttpPayloadTraitsCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
+ * const input = { // HttpPayloadTraitsInputOutput
+ *   foo: "STRING_VALUE",
+ *   blob: "BLOB_VALUE",
+ * };
  * const command = new HttpPayloadTraitsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param HttpPayloadTraitsCommandInput - {@link HttpPayloadTraitsCommandInput}
+ * @returns {@link HttpPayloadTraitsCommandOutput}
  * @see {@link HttpPayloadTraitsCommandInput} for command's `input` shape.
  * @see {@link HttpPayloadTraitsCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
+ *
  *
  */
 export class HttpPayloadTraitsCommand extends $Command<
@@ -50,6 +65,9 @@ export class HttpPayloadTraitsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: HttpPayloadTraitsCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,8 +93,8 @@ export class HttpPayloadTraitsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: HttpPayloadTraitsInputOutputFilterSensitiveLog,
-      outputFilterSensitiveLog: HttpPayloadTraitsInputOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,12 +104,18 @@ export class HttpPayloadTraitsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: HttpPayloadTraitsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1HttpPayloadTraitsCommand(input, context);
+    return se_HttpPayloadTraitsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<HttpPayloadTraitsCommandOutput> {
-    return deserializeAws_restJson1HttpPayloadTraitsCommand(output, context);
+    return de_HttpPayloadTraitsCommand(output, context);
   }
 
   // Start section: command_body_extra

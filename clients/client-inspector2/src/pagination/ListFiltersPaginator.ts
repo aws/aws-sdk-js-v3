@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListFiltersCommand, ListFiltersCommandInput, ListFiltersCommandOutput } from "../commands/ListFiltersCommand";
-import { Inspector2 } from "../Inspector2";
 import { Inspector2Client } from "../Inspector2Client";
 import { Inspector2PaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: Inspector2Client,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListFiltersCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Inspector2,
-  input: ListFiltersCommandInput,
-  ...args: any
-): Promise<ListFiltersCommandOutput> => {
-  // @ts-ignore
-  return await client.listFilters(input, ...args);
-};
 export async function* paginateListFilters(
   config: Inspector2PaginationConfiguration,
   input: ListFiltersCommandInput,
@@ -40,9 +31,7 @@ export async function* paginateListFilters(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Inspector2) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof Inspector2Client) {
+    if (config.client instanceof Inspector2Client) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Inspector2 | Inspector2Client");

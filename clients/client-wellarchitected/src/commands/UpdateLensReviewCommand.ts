@@ -13,36 +13,68 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateLensReviewInput,
-  UpdateLensReviewInputFilterSensitiveLog,
-  UpdateLensReviewOutput,
-  UpdateLensReviewOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateLensReviewCommand,
-  serializeAws_restJson1UpdateLensReviewCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateLensReviewInput, UpdateLensReviewOutput } from "../models/models_0";
+import { de_UpdateLensReviewCommand, se_UpdateLensReviewCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateLensReviewCommand}.
+ */
 export interface UpdateLensReviewCommandInput extends UpdateLensReviewInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateLensReviewCommand}.
+ */
 export interface UpdateLensReviewCommandOutput extends UpdateLensReviewOutput, __MetadataBearer {}
 
 /**
- * <p>Update lens review.</p>
+ * @public
+ * <p>Update lens review for a particular workload.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WellArchitectedClient, UpdateLensReviewCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, UpdateLensReviewCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
+ * const input = { // UpdateLensReviewInput
+ *   WorkloadId: "STRING_VALUE", // required
+ *   LensAlias: "STRING_VALUE", // required
+ *   LensNotes: "STRING_VALUE",
+ *   PillarNotes: { // PillarNotes
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateLensReviewCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateLensReviewCommandInput - {@link UpdateLensReviewCommandInput}
+ * @returns {@link UpdateLensReviewCommandOutput}
  * @see {@link UpdateLensReviewCommandInput} for command's `input` shape.
  * @see {@link UpdateLensReviewCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>User does not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The resource has already been processed, was deleted, or is too large.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There is a problem with the Well-Architected Tool API service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The user input is not valid.</p>
+ *
  *
  */
 export class UpdateLensReviewCommand extends $Command<
@@ -62,6 +94,9 @@ export class UpdateLensReviewCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateLensReviewCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +125,8 @@ export class UpdateLensReviewCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateLensReviewInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateLensReviewOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +136,18 @@ export class UpdateLensReviewCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateLensReviewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateLensReviewCommand(input, context);
+    return se_UpdateLensReviewCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLensReviewCommandOutput> {
-    return deserializeAws_restJson1UpdateLensReviewCommand(output, context);
+    return de_UpdateLensReviewCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -2,6 +2,11 @@
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
+  DatetimeOffsetsCommand,
+  DatetimeOffsetsCommandInput,
+  DatetimeOffsetsCommandOutput,
+} from "./commands/DatetimeOffsetsCommand";
+import {
   EmptyOperationCommand,
   EmptyOperationCommandInput,
   EmptyOperationCommandOutput,
@@ -16,6 +21,11 @@ import {
   EndpointWithHostLabelOperationCommandInput,
   EndpointWithHostLabelOperationCommandOutput,
 } from "./commands/EndpointWithHostLabelOperationCommand";
+import {
+  FractionalSecondsCommand,
+  FractionalSecondsCommandInput,
+  FractionalSecondsCommandOutput,
+} from "./commands/FractionalSecondsCommand";
 import {
   GreetingWithErrorsCommand,
   GreetingWithErrorsCommandInput,
@@ -55,7 +65,45 @@ import {
 } from "./commands/SimpleScalarPropertiesCommand";
 import { JsonProtocolClient } from "./JsonProtocolClient";
 
+/**
+ * @public
+ */
 export class JsonProtocol extends JsonProtocolClient {
+  /**
+   * @public
+   */
+  public datetimeOffsets(
+    args: DatetimeOffsetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DatetimeOffsetsCommandOutput>;
+  public datetimeOffsets(
+    args: DatetimeOffsetsCommandInput,
+    cb: (err: any, data?: DatetimeOffsetsCommandOutput) => void
+  ): void;
+  public datetimeOffsets(
+    args: DatetimeOffsetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DatetimeOffsetsCommandOutput) => void
+  ): void;
+  public datetimeOffsets(
+    args: DatetimeOffsetsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DatetimeOffsetsCommandOutput) => void),
+    cb?: (err: any, data?: DatetimeOffsetsCommandOutput) => void
+  ): Promise<DatetimeOffsetsCommandOutput> | void {
+    const command = new DatetimeOffsetsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   */
   public emptyOperation(
     args: EmptyOperationCommandInput,
     options?: __HttpHandlerOptions
@@ -85,6 +133,9 @@ export class JsonProtocol extends JsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public endpointOperation(
     args: EndpointOperationCommandInput,
     options?: __HttpHandlerOptions
@@ -114,6 +165,9 @@ export class JsonProtocol extends JsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public endpointWithHostLabelOperation(
     args: EndpointWithHostLabelOperationCommandInput,
     options?: __HttpHandlerOptions
@@ -144,6 +198,39 @@ export class JsonProtocol extends JsonProtocolClient {
   }
 
   /**
+   * @public
+   */
+  public fractionalSeconds(
+    args: FractionalSecondsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<FractionalSecondsCommandOutput>;
+  public fractionalSeconds(
+    args: FractionalSecondsCommandInput,
+    cb: (err: any, data?: FractionalSecondsCommandOutput) => void
+  ): void;
+  public fractionalSeconds(
+    args: FractionalSecondsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: FractionalSecondsCommandOutput) => void
+  ): void;
+  public fractionalSeconds(
+    args: FractionalSecondsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: FractionalSecondsCommandOutput) => void),
+    cb?: (err: any, data?: FractionalSecondsCommandOutput) => void
+  ): Promise<FractionalSecondsCommandOutput> | void {
+    const command = new FractionalSecondsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * This operation has three possible return values:
    *
    * 1. A successful response in the form of GreetingWithErrorsOutput
@@ -182,6 +269,9 @@ export class JsonProtocol extends JsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public hostWithPathOperation(
     args: HostWithPathOperationCommandInput,
     options?: __HttpHandlerOptions
@@ -212,6 +302,7 @@ export class JsonProtocol extends JsonProtocolClient {
   }
 
   /**
+   * @public
    * This example serializes enums as top level properties, in lists, sets, and maps.
    */
   public jsonEnums(args: JsonEnumsCommandInput, options?: __HttpHandlerOptions): Promise<JsonEnumsCommandOutput>;
@@ -238,6 +329,7 @@ export class JsonProtocol extends JsonProtocolClient {
   }
 
   /**
+   * @public
    * This operation uses unions for inputs and outputs.
    */
   public jsonUnions(args: JsonUnionsCommandInput, options?: __HttpHandlerOptions): Promise<JsonUnionsCommandOutput>;
@@ -263,6 +355,9 @@ export class JsonProtocol extends JsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public kitchenSinkOperation(
     args: KitchenSinkOperationCommandInput,
     options?: __HttpHandlerOptions
@@ -292,6 +387,9 @@ export class JsonProtocol extends JsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public nullOperation(
     args: NullOperationCommandInput,
     options?: __HttpHandlerOptions
@@ -321,6 +419,9 @@ export class JsonProtocol extends JsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public operationWithOptionalInputOutput(
     args: OperationWithOptionalInputOutputCommandInput,
     options?: __HttpHandlerOptions
@@ -351,6 +452,7 @@ export class JsonProtocol extends JsonProtocolClient {
   }
 
   /**
+   * @public
    * This example serializes an inline document as part of the payload.
    */
   public putAndGetInlineDocuments(
@@ -382,6 +484,9 @@ export class JsonProtocol extends JsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public simpleScalarProperties(
     args: SimpleScalarPropertiesCommandInput,
     options?: __HttpHandlerOptions

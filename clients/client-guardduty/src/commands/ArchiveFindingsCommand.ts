@@ -14,25 +14,28 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import {
-  ArchiveFindingsRequest,
-  ArchiveFindingsRequestFilterSensitiveLog,
-  ArchiveFindingsResponse,
-  ArchiveFindingsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ArchiveFindingsCommand,
-  serializeAws_restJson1ArchiveFindingsCommand,
-} from "../protocols/Aws_restJson1";
+import { ArchiveFindingsRequest, ArchiveFindingsResponse } from "../models/models_0";
+import { de_ArchiveFindingsCommand, se_ArchiveFindingsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ArchiveFindingsCommand}.
+ */
 export interface ArchiveFindingsCommandInput extends ArchiveFindingsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ArchiveFindingsCommand}.
+ */
 export interface ArchiveFindingsCommandOutput extends ArchiveFindingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Archives GuardDuty findings that are specified by the list of finding IDs.</p>
  *          <note>
- *             <p>Only the administrator account can archive findings. Member accounts don't have permission to
- *         archive findings from their accounts.</p>
+ *             <p>Only the administrator account can archive findings. Member accounts don't have
+ *         permission to archive findings from their accounts.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,28 @@ export interface ArchiveFindingsCommandOutput extends ArchiveFindingsResponse, _
  * import { GuardDutyClient, ArchiveFindingsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, ArchiveFindingsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = { // ArchiveFindingsRequest
+ *   DetectorId: "STRING_VALUE", // required
+ *   FindingIds: [ // FindingIds // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ArchiveFindingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ArchiveFindingsCommandInput - {@link ArchiveFindingsCommandInput}
+ * @returns {@link ArchiveFindingsCommandOutput}
  * @see {@link ArchiveFindingsCommandInput} for command's `input` shape.
  * @see {@link ArchiveFindingsCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>A bad request exception object.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>An internal server error exception object.</p>
+ *
  *
  */
 export class ArchiveFindingsCommand extends $Command<
@@ -66,6 +84,9 @@ export class ArchiveFindingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ArchiveFindingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +115,8 @@ export class ArchiveFindingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ArchiveFindingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ArchiveFindingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +126,18 @@ export class ArchiveFindingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ArchiveFindingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ArchiveFindingsCommand(input, context);
+    return se_ArchiveFindingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ArchiveFindingsCommandOutput> {
-    return deserializeAws_restJson1ArchiveFindingsCommand(output, context);
+    return de_ArchiveFindingsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,22 +3,32 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { AppConfigDataServiceException as __BaseException } from "./AppConfigDataServiceException";
 
-export enum InvalidParameterProblem {
+/**
+ * @public
+ * @enum
+ */
+export const InvalidParameterProblem = {
   /**
    * The parameter was corrupted and could not be understood by the service.
    */
-  CORRUPTED = "Corrupted",
+  CORRUPTED: "Corrupted",
   /**
    * The parameter was expired and can no longer be used.
    */
-  EXPIRED = "Expired",
+  EXPIRED: "Expired",
   /**
    * The client called the service before the time specified in the poll interval.
    */
-  POLL_INTERVAL_NOT_SATISFIED = "PollIntervalNotSatisfied",
-}
+  POLL_INTERVAL_NOT_SATISFIED: "PollIntervalNotSatisfied",
+} as const;
 
 /**
+ * @public
+ */
+export type InvalidParameterProblem = (typeof InvalidParameterProblem)[keyof typeof InvalidParameterProblem];
+
+/**
+ * @public
  * <p>Information about an invalid parameter.</p>
  */
 export interface InvalidParameterDetail {
@@ -29,11 +39,15 @@ export interface InvalidParameterDetail {
 }
 
 /**
+ * @public
  * <p>Detailed information about the input that failed to satisfy the constraints specified by
  *          a call.</p>
  */
 export type BadRequestDetails = BadRequestDetails.InvalidParametersMember | BadRequestDetails.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace BadRequestDetails {
   /**
    * <p>One or more specified parameters are not valid for the call.</p>
@@ -59,15 +73,25 @@ export namespace BadRequestDetails {
   };
 }
 
-export enum BadRequestReason {
+/**
+ * @public
+ * @enum
+ */
+export const BadRequestReason = {
   /**
    * Indicates there was a problem with one or more of the parameters.
    * See InvalidParameters in the BadRequestDetails for more information.
    */
-  INVALID_PARAMETERS = "InvalidParameters",
-}
+  INVALID_PARAMETERS: "InvalidParameters",
+} as const;
 
 /**
+ * @public
+ */
+export type BadRequestReason = (typeof BadRequestReason)[keyof typeof BadRequestReason];
+
+/**
+ * @public
  * <p>The input fails to satisfy the constraints specified by the service.</p>
  */
 export class BadRequestException extends __BaseException {
@@ -100,6 +124,7 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>There was an internal failure in the service.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -120,30 +145,40 @@ export class InternalServerException extends __BaseException {
   }
 }
 
-export enum ResourceType {
+/**
+ * @public
+ * @enum
+ */
+export const ResourceType = {
   /**
    * Resource type value for the Application resource.
    */
-  APPLICATION = "Application",
+  APPLICATION: "Application",
   /**
    * Resource type value for the Configuration resource.
    */
-  CONFIGURATION = "Configuration",
+  CONFIGURATION: "Configuration",
   /**
    * Resource type value for the ConfigurationProfile resource.
    */
-  CONFIGURATION_PROFILE = "ConfigurationProfile",
+  CONFIGURATION_PROFILE: "ConfigurationProfile",
   /**
    * Resource type value for the Deployment resource.
    */
-  DEPLOYMENT = "Deployment",
+  DEPLOYMENT: "Deployment",
   /**
    * Resource type value for the Environment resource.
    */
-  ENVIRONMENT = "Environment",
-}
+  ENVIRONMENT: "Environment",
+} as const;
 
 /**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+
+/**
+ * @public
  * <p>The requested resource could not be found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -156,7 +191,8 @@ export class ResourceNotFoundException extends __BaseException {
   ResourceType?: ResourceType | string;
 
   /**
-   * <p>A map indicating which parameters in the request reference the resource that was not found.</p>
+   * <p>A map indicating which parameters in the request reference the resource that was not
+   *          found.</p>
    */
   ReferencedBy?: Record<string, string>;
   /**
@@ -175,6 +211,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface StartConfigurationSessionRequest {
   /**
    * <p>The application ID or the application name.</p>
@@ -194,27 +233,36 @@ export interface StartConfigurationSessionRequest {
   /**
    * <p>Sets a constraint on a session. If you specify a value of, for example, 60 seconds, then
    *          the client that established the session can't call <a>GetLatestConfiguration</a>
-   *          more frequently then every 60 seconds.</p>
+   *          more frequently than every 60 seconds.</p>
    */
   RequiredMinimumPollIntervalInSeconds?: number;
 }
 
+/**
+ * @public
+ */
 export interface StartConfigurationSessionResponse {
   /**
    * <p>Token encapsulating state about the configuration session. Provide this token to the
    *             <code>GetLatestConfiguration</code> API to retrieve configuration data.</p>
    *          <important>
    *             <p>This token should only be used once in your first call to
-   *                <code>GetLatestConfiguration</code>. You MUST use the new token in the
-   *                <code>GetLatestConfiguration</code> response
-   *             (<code>NextPollConfigurationToken</code>) in each subsequent call to
+   *                <code>GetLatestConfiguration</code>. You <i>must</i> use the new token
+   *             in the <code>GetLatestConfiguration</code> response
+   *                (<code>NextPollConfigurationToken</code>) in each subsequent call to
    *                <code>GetLatestConfiguration</code>.</p>
+   *             <p>The <code>InitialConfigurationToken</code> and
+   *             <code>NextPollConfigurationToken</code> should only be used once. To support long poll
+   *             use cases, the tokens are valid for up to 24 hours. If a
+   *             <code>GetLatestConfiguration</code> call uses an expired token, the system returns
+   *             <code>BadRequestException</code>.</p>
    *          </important>
    */
   InitialConfigurationToken?: string;
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -235,22 +283,41 @@ export class ThrottlingException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetLatestConfigurationRequest {
   /**
    * <p>Token describing the current state of the configuration session. To obtain a token,
    *          first call the <a>StartConfigurationSession</a> API. Note that every call to
    *             <code>GetLatestConfiguration</code> will return a new <code>ConfigurationToken</code>
-   *             (<code>NextPollConfigurationToken</code> in the response) and MUST be provided to
-   *          subsequent <code>GetLatestConfiguration</code> API calls.</p>
+   *             (<code>NextPollConfigurationToken</code> in the response) and <i>must</i>
+   *          be provided to subsequent <code>GetLatestConfiguration</code> API calls.</p>
+   *          <important>
+   *             <p>This token should only be used once. To support long poll
+   *             use cases, the token is valid for up to 24 hours. If a
+   *             <code>GetLatestConfiguration</code> call uses an expired token, the system returns
+   *             <code>BadRequestException</code>.</p>
+   *          </important>
    */
   ConfigurationToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetLatestConfigurationResponse {
   /**
-   * <p>The latest token describing the current state of the configuration session. This MUST be
-   *          provided to the next call to <code>GetLatestConfiguration.</code>
+   * <p>The latest token describing the current state of the configuration session. This
+   *             <i>must</i> be provided to the next call to
+   *             <code>GetLatestConfiguration.</code>
    *          </p>
+   *          <important>
+   *             <p>This token should only be used once. To support long poll
+   *             use cases, the token is valid for up to 24 hours. If a
+   *             <code>GetLatestConfiguration</code> call uses an expired token, the system returns
+   *             <code>BadRequestException</code>.</p>
+   *          </important>
    */
   NextPollConfigurationToken?: string;
 
@@ -271,51 +338,12 @@ export interface GetLatestConfigurationResponse {
    *          version of configuration.</p>
    */
   Configuration?: Uint8Array;
+
+  /**
+   * <p>The user-defined label for the AppConfig hosted configuration version. This attribute doesn't apply if the configuration is not from an AppConfig hosted configuration version. If the client already has the latest version of the configuration data, this value is empty.</p>
+   */
+  VersionLabel?: string;
 }
-
-/**
- * @internal
- */
-export const InvalidParameterDetailFilterSensitiveLog = (obj: InvalidParameterDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BadRequestDetailsFilterSensitiveLog = (obj: BadRequestDetails): any => {
-  if (obj.InvalidParameters !== undefined)
-    return {
-      InvalidParameters: Object.entries(obj.InvalidParameters).reduce(
-        (acc: any, [key, value]: [string, InvalidParameterDetail]) => (
-          (acc[key] = InvalidParameterDetailFilterSensitiveLog(value)), acc
-        ),
-        {}
-      ),
-    };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const StartConfigurationSessionRequestFilterSensitiveLog = (obj: StartConfigurationSessionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartConfigurationSessionResponseFilterSensitiveLog = (obj: StartConfigurationSessionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLatestConfigurationRequestFilterSensitiveLog = (obj: GetLatestConfigurationRequest): any => ({
-  ...obj,
-});
 
 /**
  * @internal

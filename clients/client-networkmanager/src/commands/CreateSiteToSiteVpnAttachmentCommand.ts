@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateSiteToSiteVpnAttachmentRequest,
-  CreateSiteToSiteVpnAttachmentRequestFilterSensitiveLog,
-  CreateSiteToSiteVpnAttachmentResponse,
-  CreateSiteToSiteVpnAttachmentResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateSiteToSiteVpnAttachmentRequest, CreateSiteToSiteVpnAttachmentResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
-  deserializeAws_restJson1CreateSiteToSiteVpnAttachmentCommand,
-  serializeAws_restJson1CreateSiteToSiteVpnAttachmentCommand,
+  de_CreateSiteToSiteVpnAttachmentCommand,
+  se_CreateSiteToSiteVpnAttachmentCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateSiteToSiteVpnAttachmentCommand}.
+ */
 export interface CreateSiteToSiteVpnAttachmentCommandInput extends CreateSiteToSiteVpnAttachmentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateSiteToSiteVpnAttachmentCommand}.
+ */
 export interface CreateSiteToSiteVpnAttachmentCommandOutput
   extends CreateSiteToSiteVpnAttachmentResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon Web Services site-to-site VPN attachment on an edge location of a core network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,46 @@ export interface CreateSiteToSiteVpnAttachmentCommandOutput
  * import { NetworkManagerClient, CreateSiteToSiteVpnAttachmentCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, CreateSiteToSiteVpnAttachmentCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // CreateSiteToSiteVpnAttachmentRequest
+ *   CoreNetworkId: "STRING_VALUE", // required
+ *   VpnConnectionArn: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new CreateSiteToSiteVpnAttachmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSiteToSiteVpnAttachmentCommandInput - {@link CreateSiteToSiteVpnAttachmentCommandInput}
+ * @returns {@link CreateSiteToSiteVpnAttachmentCommandOutput}
  * @see {@link CreateSiteToSiteVpnAttachmentCommandInput} for command's `input` shape.
  * @see {@link CreateSiteToSiteVpnAttachmentCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There was a conflict processing the request. Updating or deleting the resource can
+ *             cause an inconsistent state.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request has failed due to an internal error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints.</p>
+ *
  *
  */
 export class CreateSiteToSiteVpnAttachmentCommand extends $Command<
@@ -64,6 +103,9 @@ export class CreateSiteToSiteVpnAttachmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSiteToSiteVpnAttachmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +134,8 @@ export class CreateSiteToSiteVpnAttachmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSiteToSiteVpnAttachmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSiteToSiteVpnAttachmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +145,21 @@ export class CreateSiteToSiteVpnAttachmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSiteToSiteVpnAttachmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateSiteToSiteVpnAttachmentCommand(input, context);
+    return se_CreateSiteToSiteVpnAttachmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateSiteToSiteVpnAttachmentCommandOutput> {
-    return deserializeAws_restJson1CreateSiteToSiteVpnAttachmentCommand(output, context);
+    return de_CreateSiteToSiteVpnAttachmentCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AddAssociationRequest,
-  AddAssociationRequestFilterSensitiveLog,
-  AddAssociationResponse,
-  AddAssociationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AddAssociationCommand,
-  serializeAws_json1_1AddAssociationCommand,
-} from "../protocols/Aws_json1_1";
+import { AddAssociationRequest, AddAssociationResponse } from "../models/models_0";
+import { de_AddAssociationCommand, se_AddAssociationCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link AddAssociationCommand}.
+ */
 export interface AddAssociationCommandInput extends AddAssociationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AddAssociationCommand}.
+ */
 export interface AddAssociationCommandOutput extends AddAssociationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an <i>association</i> between the source and the destination. A
  *         source can be associated with multiple destinations, and a destination can be associated
  *         with multiple sources. An association is a lineage tracking entity. For more information, see
@@ -40,13 +43,28 @@ export interface AddAssociationCommandOutput extends AddAssociationResponse, __M
  * import { SageMakerClient, AddAssociationCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, AddAssociationCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // AddAssociationRequest
+ *   SourceArn: "STRING_VALUE", // required
+ *   DestinationArn: "STRING_VALUE", // required
+ *   AssociationType: "ContributedTo" || "AssociatedWith" || "DerivedFrom" || "Produced",
+ * };
  * const command = new AddAssociationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AddAssociationCommandInput - {@link AddAssociationCommandInput}
+ * @returns {@link AddAssociationCommandOutput}
  * @see {@link AddAssociationCommandInput} for command's `input` shape.
  * @see {@link AddAssociationCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceLimitExceeded} (client fault)
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
+ *             training jobs created. </p>
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class AddAssociationCommand extends $Command<
@@ -66,6 +84,9 @@ export class AddAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +115,8 @@ export class AddAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddAssociationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AddAssociationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +126,18 @@ export class AddAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AddAssociationCommand(input, context);
+    return se_AddAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddAssociationCommandOutput> {
-    return deserializeAws_json1_1AddAssociationCommand(output, context);
+    return de_AddAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

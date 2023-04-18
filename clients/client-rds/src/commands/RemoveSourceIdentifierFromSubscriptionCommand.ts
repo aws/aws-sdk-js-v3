@@ -15,23 +15,32 @@ import {
 
 import {
   RemoveSourceIdentifierFromSubscriptionMessage,
-  RemoveSourceIdentifierFromSubscriptionMessageFilterSensitiveLog,
   RemoveSourceIdentifierFromSubscriptionResult,
-  RemoveSourceIdentifierFromSubscriptionResultFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand,
-  serializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand,
+  de_RemoveSourceIdentifierFromSubscriptionCommand,
+  se_RemoveSourceIdentifierFromSubscriptionCommand,
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link RemoveSourceIdentifierFromSubscriptionCommand}.
+ */
 export interface RemoveSourceIdentifierFromSubscriptionCommandInput
   extends RemoveSourceIdentifierFromSubscriptionMessage {}
+/**
+ * @public
+ *
+ * The output of {@link RemoveSourceIdentifierFromSubscriptionCommand}.
+ */
 export interface RemoveSourceIdentifierFromSubscriptionCommandOutput
   extends RemoveSourceIdentifierFromSubscriptionResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a source identifier from an existing RDS event notification subscription.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +48,59 @@ export interface RemoveSourceIdentifierFromSubscriptionCommandOutput
  * import { RDSClient, RemoveSourceIdentifierFromSubscriptionCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, RemoveSourceIdentifierFromSubscriptionCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // RemoveSourceIdentifierFromSubscriptionMessage
+ *   SubscriptionName: "STRING_VALUE", // required
+ *   SourceIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new RemoveSourceIdentifierFromSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveSourceIdentifierFromSubscriptionCommandInput - {@link RemoveSourceIdentifierFromSubscriptionCommandInput}
+ * @returns {@link RemoveSourceIdentifierFromSubscriptionCommandOutput}
  * @see {@link RemoveSourceIdentifierFromSubscriptionCommandInput} for command's `input` shape.
  * @see {@link RemoveSourceIdentifierFromSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ * @throws {@link SourceNotFoundFault} (client fault)
+ *  <p>The requested source could not be found.</p>
+ *
+ * @throws {@link SubscriptionNotFoundFault} (client fault)
+ *  <p>The subscription name does not exist.</p>
+ *
+ *
+ * @example To remove a source identifier from a subscription
+ * ```javascript
+ * // The following example removes the specified source identifier from an existing subscription.
+ * const input = {
+ *   "SourceIdentifier": "test-instance-repl",
+ *   "SubscriptionName": "my-instance-events"
+ * };
+ * const command = new RemoveSourceIdentifierFromSubscriptionCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "EventSubscription": {
+ *     "CustSubscriptionId": "my-instance-events",
+ *     "CustomerAwsId": "123456789012",
+ *     "Enabled": false,
+ *     "EventCategoriesList": [
+ *       "backup",
+ *       "recovery"
+ *     ],
+ *     "EventSubscriptionArn": "arn:aws:rds:us-east-1:123456789012:es:my-instance-events",
+ *     "SnsTopicArn": "arn:aws:sns:us-east-1:123456789012:interesting-events",
+ *     "SourceIdsList": [
+ *       "test-instance"
+ *     ],
+ *     "SourceType": "db-instance",
+ *     "Status": "modifying",
+ *     "SubscriptionCreationTime": "Tue Jul 31 23:22:01 UTC 2018"
+ *   }
+ * }
+ * *\/
+ * // example id: to-remove-a-source-identifier-from-a-subscription-1680072062459
+ * ```
  *
  */
 export class RemoveSourceIdentifierFromSubscriptionCommand extends $Command<
@@ -65,6 +120,9 @@ export class RemoveSourceIdentifierFromSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveSourceIdentifierFromSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +151,8 @@ export class RemoveSourceIdentifierFromSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveSourceIdentifierFromSubscriptionMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: RemoveSourceIdentifierFromSubscriptionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,18 +162,24 @@ export class RemoveSourceIdentifierFromSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RemoveSourceIdentifierFromSubscriptionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand(input, context);
+    return se_RemoveSourceIdentifierFromSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveSourceIdentifierFromSubscriptionCommandOutput> {
-    return deserializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand(output, context);
+    return de_RemoveSourceIdentifierFromSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

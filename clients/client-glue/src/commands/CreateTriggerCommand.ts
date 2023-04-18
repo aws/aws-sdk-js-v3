@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  CreateTriggerRequest,
-  CreateTriggerRequestFilterSensitiveLog,
-  CreateTriggerResponse,
-  CreateTriggerResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1CreateTriggerCommand,
-  serializeAws_json1_1CreateTriggerCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateTriggerRequest, CreateTriggerResponse } from "../models/models_1";
+import { de_CreateTriggerCommand, se_CreateTriggerCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateTriggerCommand}.
+ */
 export interface CreateTriggerCommandInput extends CreateTriggerRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateTriggerCommand}.
+ */
 export interface CreateTriggerCommandOutput extends CreateTriggerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new trigger.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,81 @@ export interface CreateTriggerCommandOutput extends CreateTriggerResponse, __Met
  * import { GlueClient, CreateTriggerCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateTriggerCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // CreateTriggerRequest
+ *   Name: "STRING_VALUE", // required
+ *   WorkflowName: "STRING_VALUE",
+ *   Type: "SCHEDULED" || "CONDITIONAL" || "ON_DEMAND" || "EVENT", // required
+ *   Schedule: "STRING_VALUE",
+ *   Predicate: { // Predicate
+ *     Logical: "AND" || "ANY",
+ *     Conditions: [ // ConditionList
+ *       { // Condition
+ *         LogicalOperator: "EQUALS",
+ *         JobName: "STRING_VALUE",
+ *         State: "STARTING" || "RUNNING" || "STOPPING" || "STOPPED" || "SUCCEEDED" || "FAILED" || "TIMEOUT" || "ERROR" || "WAITING",
+ *         CrawlerName: "STRING_VALUE",
+ *         CrawlState: "RUNNING" || "CANCELLING" || "CANCELLED" || "SUCCEEDED" || "FAILED" || "ERROR",
+ *       },
+ *     ],
+ *   },
+ *   Actions: [ // ActionList // required
+ *     { // Action
+ *       JobName: "STRING_VALUE",
+ *       Arguments: { // GenericMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       Timeout: Number("int"),
+ *       SecurityConfiguration: "STRING_VALUE",
+ *       NotificationProperty: { // NotificationProperty
+ *         NotifyDelayAfter: Number("int"),
+ *       },
+ *       CrawlerName: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Description: "STRING_VALUE",
+ *   StartOnCreation: true || false,
+ *   Tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   EventBatchingCondition: { // EventBatchingCondition
+ *     BatchSize: Number("int"), // required
+ *     BatchWindow: Number("int"),
+ *   },
+ * };
  * const command = new CreateTriggerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTriggerCommandInput - {@link CreateTriggerCommandInput}
+ * @returns {@link CreateTriggerCommandOutput}
  * @see {@link CreateTriggerCommandInput} for command's `input` shape.
  * @see {@link CreateTriggerCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link AlreadyExistsException} (client fault)
+ *  <p>A resource to be created or added already exists.</p>
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>Two processes are trying to modify a resource simultaneously.</p>
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link IdempotentParameterMismatchException} (client fault)
+ *  <p>The same unique identifier was associated with two different records.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ * @throws {@link ResourceNumberLimitExceededException} (client fault)
+ *  <p>A resource numerical limit was exceeded.</p>
+ *
  *
  */
 export class CreateTriggerCommand extends $Command<
@@ -62,6 +133,9 @@ export class CreateTriggerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTriggerCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +162,8 @@ export class CreateTriggerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTriggerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateTriggerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +173,18 @@ export class CreateTriggerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTriggerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateTriggerCommand(input, context);
+    return se_CreateTriggerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTriggerCommandOutput> {
-    return deserializeAws_json1_1CreateTriggerCommand(output, context);
+    return de_CreateTriggerCommand(output, context);
   }
 
   // Start section: command_body_extra

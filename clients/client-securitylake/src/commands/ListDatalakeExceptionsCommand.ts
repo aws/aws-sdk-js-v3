@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListDatalakeExceptionsRequest,
-  ListDatalakeExceptionsRequestFilterSensitiveLog,
-  ListDatalakeExceptionsResponse,
-  ListDatalakeExceptionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDatalakeExceptionsCommand,
-  serializeAws_restJson1ListDatalakeExceptionsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListDatalakeExceptionsRequest, ListDatalakeExceptionsResponse } from "../models/models_0";
+import { de_ListDatalakeExceptionsCommand, se_ListDatalakeExceptionsCommand } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListDatalakeExceptionsCommand}.
+ */
 export interface ListDatalakeExceptionsCommandInput extends ListDatalakeExceptionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDatalakeExceptionsCommand}.
+ */
 export interface ListDatalakeExceptionsCommandOutput extends ListDatalakeExceptionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the Amazon Security Lake exceptions that you can use to find the source of problems and
  *          fix them.</p>
  * @example
@@ -37,13 +40,41 @@ export interface ListDatalakeExceptionsCommandOutput extends ListDatalakeExcepti
  * import { SecurityLakeClient, ListDatalakeExceptionsCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, ListDatalakeExceptionsCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
+ * const input = { // ListDatalakeExceptionsRequest
+ *   regionSet: [ // RegionSet
+ *     "STRING_VALUE",
+ *   ],
+ *   maxFailures: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListDatalakeExceptionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDatalakeExceptionsCommandInput - {@link ListDatalakeExceptionsCommandInput}
+ * @returns {@link ListDatalakeExceptionsCommandOutput}
  * @see {@link ListDatalakeExceptionsCommandInput} for command's `input` shape.
  * @see {@link ListDatalakeExceptionsCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action. Access denied errors appear when Amazon Security Lake explicitly or implicitly denies an authorization
+ *          request. An explicit denial occurs when a policy contains a Deny statement for the specific
+ *          Amazon Web Services action. An implicit denial occurs when there is no applicable Deny statement and also
+ *          no applicable Allow statement.</p>
+ *
+ * @throws {@link AccountNotFoundException} (client fault)
+ *  <p>Amazon Security Lake cannot find an Amazon Web Services account with the accountID that you
+ *          specified, or the account whose credentials you used to make this request isn't a member of
+ *          an organization.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Internal service exceptions are sometimes caused by transient issues. Before you start
+ *          troubleshooting, perform the operation again. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Your signing certificate could not be validated. </p>
+ *
  *
  */
 export class ListDatalakeExceptionsCommand extends $Command<
@@ -63,6 +94,9 @@ export class ListDatalakeExceptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDatalakeExceptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +125,8 @@ export class ListDatalakeExceptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDatalakeExceptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDatalakeExceptionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +136,18 @@ export class ListDatalakeExceptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDatalakeExceptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDatalakeExceptionsCommand(input, context);
+    return se_ListDatalakeExceptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDatalakeExceptionsCommandOutput> {
-    return deserializeAws_restJson1ListDatalakeExceptionsCommand(output, context);
+    return de_ListDatalakeExceptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

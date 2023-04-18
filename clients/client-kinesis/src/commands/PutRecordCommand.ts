@@ -14,18 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import {
-  PutRecordInput,
-  PutRecordInputFilterSensitiveLog,
-  PutRecordOutput,
-  PutRecordOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1PutRecordCommand, serializeAws_json1_1PutRecordCommand } from "../protocols/Aws_json1_1";
+import { PutRecordInput, PutRecordOutput } from "../models/models_0";
+import { de_PutRecordCommand, se_PutRecordCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutRecordCommand}.
+ */
 export interface PutRecordCommandInput extends PutRecordInput {}
+/**
+ * @public
+ *
+ * The output of {@link PutRecordCommand}.
+ */
 export interface PutRecordCommandOutput extends PutRecordOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Writes a single data record into an Amazon Kinesis data stream. Call
  *                 <code>PutRecord</code> to send data into the stream for real-time ingestion and
  *             subsequent processing, one record at a time. Each shard can support writes up to 1,000
@@ -72,13 +78,70 @@ export interface PutRecordCommandOutput extends PutRecordOutput, __MetadataBeare
  * import { KinesisClient, PutRecordCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, PutRecordCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
+ * const input = { // PutRecordInput
+ *   StreamName: "STRING_VALUE",
+ *   Data: "BLOB_VALUE", // required
+ *   PartitionKey: "STRING_VALUE", // required
+ *   ExplicitHashKey: "STRING_VALUE",
+ *   SequenceNumberForOrdering: "STRING_VALUE",
+ *   StreamARN: "STRING_VALUE",
+ * };
  * const command = new PutRecordCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutRecordCommandInput - {@link PutRecordCommandInput}
+ * @returns {@link PutRecordCommandOutput}
  * @see {@link PutRecordCommandInput} for command's `input` shape.
  * @see {@link PutRecordCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Specifies that you do not have the permissions required to perform this
+ *             operation.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>A specified parameter exceeds its restrictions, is not supported, or can't be used.
+ *             For more information, see the returned message.</p>
+ *
+ * @throws {@link KMSAccessDeniedException} (client fault)
+ *  <p>The ciphertext references a key that doesn't exist or that you don't have access
+ *             to.</p>
+ *
+ * @throws {@link KMSDisabledException} (client fault)
+ *  <p>The request was rejected because the specified customer master key (CMK) isn't
+ *             enabled.</p>
+ *
+ * @throws {@link KMSInvalidStateException} (client fault)
+ *  <p>The request was rejected because the state of the specified resource isn't valid for
+ *             this request. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use of a
+ *                 Customer Master Key</a> in the <i>Amazon Web Services Key Management
+ *                 Service Developer Guide</i>.</p>
+ *
+ * @throws {@link KMSNotFoundException} (client fault)
+ *  <p>The request was rejected because the specified entity or resource can't be
+ *             found.</p>
+ *
+ * @throws {@link KMSOptInRequired} (client fault)
+ *  <p>The Amazon Web Services access key ID needs a subscription for the service.</p>
+ *
+ * @throws {@link KMSThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling. For more information about
+ *             throttling, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second">Limits</a> in
+ *             the <i>Amazon Web Services Key Management Service Developer
+ *             Guide</i>.</p>
+ *
+ * @throws {@link ProvisionedThroughputExceededException} (client fault)
+ *  <p>The request rate for the stream is too high, or the requested data is too large for
+ *             the available throughput. Reduce the frequency or size of your requests. For more
+ *             information, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html">Streams Limits</a> in the
+ *                 <i>Amazon Kinesis Data Streams Developer Guide</i>, and <a href="https://docs.aws.amazon.com/general/latest/gr/api-retries.html">Error Retries and
+ *                 Exponential Backoff in Amazon Web Services</a> in the <i>Amazon Web Services General Reference</i>.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource could not be found. The stream might not be specified
+ *             correctly.</p>
+ *
  *
  */
 export class PutRecordCommand extends $Command<
@@ -100,6 +163,9 @@ export class PutRecordCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutRecordCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +192,8 @@ export class PutRecordCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutRecordInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutRecordOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +203,18 @@ export class PutRecordCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutRecordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutRecordCommand(input, context);
+    return se_PutRecordCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRecordCommandOutput> {
-    return deserializeAws_json1_1PutRecordCommand(output, context);
+    return de_PutRecordCommand(output, context);
   }
 
   // Start section: command_body_extra

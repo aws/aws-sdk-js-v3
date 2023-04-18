@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutAccountSendingAttributesRequest,
-  PutAccountSendingAttributesRequestFilterSensitiveLog,
-  PutAccountSendingAttributesResponse,
-  PutAccountSendingAttributesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutAccountSendingAttributesRequest, PutAccountSendingAttributesResponse } from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
 import {
-  deserializeAws_restJson1PutAccountSendingAttributesCommand,
-  serializeAws_restJson1PutAccountSendingAttributesCommand,
+  de_PutAccountSendingAttributesCommand,
+  se_PutAccountSendingAttributesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutAccountSendingAttributesCommand}.
+ */
 export interface PutAccountSendingAttributesCommandInput extends PutAccountSendingAttributesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutAccountSendingAttributesCommand}.
+ */
 export interface PutAccountSendingAttributesCommandOutput
   extends PutAccountSendingAttributesResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enable or disable the ability of your account to send email.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,25 @@ export interface PutAccountSendingAttributesCommandOutput
  * import { PinpointEmailClient, PutAccountSendingAttributesCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, PutAccountSendingAttributesCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
+ * const input = { // PutAccountSendingAttributesRequest
+ *   SendingEnabled: true || false,
+ * };
  * const command = new PutAccountSendingAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAccountSendingAttributesCommandInput - {@link PutAccountSendingAttributesCommandInput}
+ * @returns {@link PutAccountSendingAttributesCommandOutput}
  * @see {@link PutAccountSendingAttributesCommandInput} for command's `input` shape.
  * @see {@link PutAccountSendingAttributesCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input you provided is invalid.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Too many requests have been made to the operation.</p>
+ *
  *
  */
 export class PutAccountSendingAttributesCommand extends $Command<
@@ -64,6 +82,9 @@ export class PutAccountSendingAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAccountSendingAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +113,8 @@ export class PutAccountSendingAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutAccountSendingAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutAccountSendingAttributesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +124,21 @@ export class PutAccountSendingAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutAccountSendingAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutAccountSendingAttributesCommand(input, context);
+    return se_PutAccountSendingAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutAccountSendingAttributesCommandOutput> {
-    return deserializeAws_restJson1PutAccountSendingAttributesCommand(output, context);
+    return de_PutAccountSendingAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutApplicationPolicyRequest,
-  PutApplicationPolicyRequestFilterSensitiveLog,
-  PutApplicationPolicyResponse,
-  PutApplicationPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutApplicationPolicyCommand,
-  serializeAws_restJson1PutApplicationPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { PutApplicationPolicyRequest, PutApplicationPolicyResponse } from "../models/models_0";
+import { de_PutApplicationPolicyCommand, se_PutApplicationPolicyCommand } from "../protocols/Aws_restJson1";
 import {
   ServerlessApplicationRepositoryClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ServerlessApplicationRepositoryClient";
 
+/**
+ * @public
+ *
+ * The input for {@link PutApplicationPolicyCommand}.
+ */
 export interface PutApplicationPolicyCommandInput extends PutApplicationPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutApplicationPolicyCommand}.
+ */
 export interface PutApplicationPolicyCommandOutput extends PutApplicationPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the permission policy for an application. For the list of actions supported for this operation, see
  *  <a href="https://docs.aws.amazon.com/serverlessrepo/latest/devguide/access-control-resource-based.html#application-permissions">Application
  *  Permissions</a>
@@ -43,13 +46,48 @@ export interface PutApplicationPolicyCommandOutput extends PutApplicationPolicyR
  * import { ServerlessApplicationRepositoryClient, PutApplicationPolicyCommand } from "@aws-sdk/client-serverlessapplicationrepository"; // ES Modules import
  * // const { ServerlessApplicationRepositoryClient, PutApplicationPolicyCommand } = require("@aws-sdk/client-serverlessapplicationrepository"); // CommonJS import
  * const client = new ServerlessApplicationRepositoryClient(config);
+ * const input = { // PutApplicationPolicyRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   Statements: [ // __listOfApplicationPolicyStatement // required
+ *     { // ApplicationPolicyStatement
+ *       Actions: [ // __listOf__string // required
+ *         "STRING_VALUE",
+ *       ],
+ *       PrincipalOrgIDs: [
+ *         "STRING_VALUE",
+ *       ],
+ *       Principals: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *       StatementId: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new PutApplicationPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutApplicationPolicyCommandInput - {@link PutApplicationPolicyCommandInput}
+ * @returns {@link PutApplicationPolicyCommandOutput}
  * @see {@link PutApplicationPolicyCommandInput} for command's `input` shape.
  * @see {@link PutApplicationPolicyCommandOutput} for command's `response` shape.
  * @see {@link ServerlessApplicationRepositoryClientResolvedConfig | config} for ServerlessApplicationRepositoryClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>One of the parameters in the request is invalid.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is not authenticated.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>The AWS Serverless Application Repository service encountered an internal error.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource (for example, an access policy statement) specified in the request doesn't exist.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The client is sending more than the allowed number of requests per unit of time.</p>
+ *
  *
  */
 export class PutApplicationPolicyCommand extends $Command<
@@ -69,6 +107,9 @@ export class PutApplicationPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutApplicationPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +138,8 @@ export class PutApplicationPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutApplicationPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutApplicationPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +149,18 @@ export class PutApplicationPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutApplicationPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutApplicationPolicyCommand(input, context);
+    return se_PutApplicationPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutApplicationPolicyCommandOutput> {
-    return deserializeAws_restJson1PutApplicationPolicyCommand(output, context);
+    return de_PutApplicationPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

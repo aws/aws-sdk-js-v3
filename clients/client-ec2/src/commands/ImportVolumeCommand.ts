@@ -14,18 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ImportVolumeRequest,
-  ImportVolumeRequestFilterSensitiveLog,
-  ImportVolumeResult,
-  ImportVolumeResultFilterSensitiveLog,
-} from "../models/models_5";
-import { deserializeAws_ec2ImportVolumeCommand, serializeAws_ec2ImportVolumeCommand } from "../protocols/Aws_ec2";
+import { ImportVolumeRequest, ImportVolumeRequestFilterSensitiveLog, ImportVolumeResult } from "../models/models_6";
+import { de_ImportVolumeCommand, se_ImportVolumeCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link ImportVolumeCommand}.
+ */
 export interface ImportVolumeCommandInput extends ImportVolumeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ImportVolumeCommand}.
+ */
 export interface ImportVolumeCommandOutput extends ImportVolumeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an import volume task using metadata from the specified disk image.</p>
  *          <p>This API action supports only single-volume VMs. To import multi-volume VMs, use
  *    <a>ImportImage</a> instead. To import a disk to a snapshot, use
@@ -39,13 +45,29 @@ export interface ImportVolumeCommandOutput extends ImportVolumeResult, __Metadat
  * import { EC2Client, ImportVolumeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ImportVolumeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ImportVolumeRequest
+ *   AvailabilityZone: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   DryRun: true || false,
+ *   Image: { // DiskImageDetail
+ *     Bytes: Number("long"), // required
+ *     Format: "VMDK" || "RAW" || "VHD", // required
+ *     ImportManifestUrl: "STRING_VALUE", // required
+ *   },
+ *   Volume: { // VolumeDetail
+ *     Size: Number("long"), // required
+ *   },
+ * };
  * const command = new ImportVolumeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportVolumeCommandInput - {@link ImportVolumeCommandInput}
+ * @returns {@link ImportVolumeCommandOutput}
  * @see {@link ImportVolumeCommandInput} for command's `input` shape.
  * @see {@link ImportVolumeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class ImportVolumeCommand extends $Command<
@@ -65,6 +87,9 @@ export class ImportVolumeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportVolumeCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,7 +117,7 @@ export class ImportVolumeCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: ImportVolumeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ImportVolumeResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +127,18 @@ export class ImportVolumeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ImportVolumeCommand(input, context);
+    return se_ImportVolumeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportVolumeCommandOutput> {
-    return deserializeAws_ec2ImportVolumeCommand(output, context);
+    return de_ImportVolumeCommand(output, context);
   }
 
   // Start section: command_body_extra

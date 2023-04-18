@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import {
-  ListNotebookSessionsRequest,
-  ListNotebookSessionsRequestFilterSensitiveLog,
-  ListNotebookSessionsResponse,
-  ListNotebookSessionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListNotebookSessionsCommand,
-  serializeAws_json1_1ListNotebookSessionsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListNotebookSessionsRequest, ListNotebookSessionsResponse } from "../models/models_0";
+import { de_ListNotebookSessionsCommand, se_ListNotebookSessionsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListNotebookSessionsCommand}.
+ */
 export interface ListNotebookSessionsCommandInput extends ListNotebookSessionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListNotebookSessionsCommand}.
+ */
 export interface ListNotebookSessionsCommandOutput extends ListNotebookSessionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists, in descending order, the sessions that have been created in a notebook that are
  *             in an active state like <code>CREATING</code>, <code>CREATED</code>, <code>IDLE</code>
  *             or <code>BUSY</code>. Newer sessions are listed first; older sessions are listed
@@ -39,13 +42,32 @@ export interface ListNotebookSessionsCommandOutput extends ListNotebookSessionsR
  * import { AthenaClient, ListNotebookSessionsCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, ListNotebookSessionsCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = { // ListNotebookSessionsRequest
+ *   NotebookId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListNotebookSessionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListNotebookSessionsCommandInput - {@link ListNotebookSessionsCommandInput}
+ * @returns {@link ListNotebookSessionsCommandOutput}
  * @see {@link ListNotebookSessionsCommandInput} for command's `input` shape.
  * @see {@link ListNotebookSessionsCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Indicates a platform issue, which may be due to a transient condition or
+ *             outage.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>Indicates that something is wrong with the input to the request. For example, a
+ *             required parameter may be missing or out of range.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource, such as a workgroup, was not found.</p>
+ *
  *
  */
 export class ListNotebookSessionsCommand extends $Command<
@@ -65,6 +87,9 @@ export class ListNotebookSessionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListNotebookSessionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +118,8 @@ export class ListNotebookSessionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListNotebookSessionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListNotebookSessionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +129,18 @@ export class ListNotebookSessionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListNotebookSessionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListNotebookSessionsCommand(input, context);
+    return se_ListNotebookSessionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNotebookSessionsCommandOutput> {
-    return deserializeAws_json1_1ListNotebookSessionsCommand(output, context);
+    return de_ListNotebookSessionsCommand(output, context);
   }
 
   // Start section: command_body_extra

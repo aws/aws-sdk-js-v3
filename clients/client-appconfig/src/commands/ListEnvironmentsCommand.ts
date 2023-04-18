@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import {
-  Environments,
-  EnvironmentsFilterSensitiveLog,
-  ListEnvironmentsRequest,
-  ListEnvironmentsRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListEnvironmentsCommand,
-  serializeAws_restJson1ListEnvironmentsCommand,
-} from "../protocols/Aws_restJson1";
+import { Environments, ListEnvironmentsRequest } from "../models/models_0";
+import { de_ListEnvironmentsCommand, se_ListEnvironmentsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListEnvironmentsCommand}.
+ */
 export interface ListEnvironmentsCommandInput extends ListEnvironmentsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListEnvironmentsCommand}.
+ */
 export interface ListEnvironmentsCommandOutput extends Environments, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the environments for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,53 @@ export interface ListEnvironmentsCommandOutput extends Environments, __MetadataB
  * import { AppConfigClient, ListEnvironmentsCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, ListEnvironmentsCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = { // ListEnvironmentsRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListEnvironmentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEnvironmentsCommandInput - {@link ListEnvironmentsCommandInput}
+ * @returns {@link ListEnvironmentsCommandOutput}
  * @see {@link ListEnvironmentsCommandInput} for command's `input` shape.
  * @see {@link ListEnvironmentsCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There was an internal failure in the AppConfig service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource could not be found.</p>
+ *
+ *
+ * @example To list the available environments
+ * ```javascript
+ * // The following list-environments example lists the available environments in your AWS account for the specified application.
+ * const input = {
+ *   "ApplicationId": "339ohji"
+ * };
+ * const command = new ListEnvironmentsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Items": [
+ *     {
+ *       "ApplicationId": "339ohji",
+ *       "Id": "54j1r29",
+ *       "Name": "Example-Environment",
+ *       "State": "READY_FOR_DEPLOYMENT"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-list-the-available-environments-1632267474389
+ * ```
  *
  */
 export class ListEnvironmentsCommand extends $Command<
@@ -62,6 +105,9 @@ export class ListEnvironmentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEnvironmentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +136,8 @@ export class ListEnvironmentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEnvironmentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: EnvironmentsFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +147,18 @@ export class ListEnvironmentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEnvironmentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListEnvironmentsCommand(input, context);
+    return se_ListEnvironmentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEnvironmentsCommandOutput> {
-    return deserializeAws_restJson1ListEnvironmentsCommand(output, context);
+    return de_ListEnvironmentsCommand(output, context);
   }
 
   // Start section: command_body_extra

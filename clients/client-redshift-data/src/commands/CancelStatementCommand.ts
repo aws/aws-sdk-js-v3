@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CancelStatementRequest,
-  CancelStatementRequestFilterSensitiveLog,
-  CancelStatementResponse,
-  CancelStatementResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CancelStatementCommand,
-  serializeAws_json1_1CancelStatementCommand,
-} from "../protocols/Aws_json1_1";
+import { CancelStatementRequest, CancelStatementResponse } from "../models/models_0";
+import { de_CancelStatementCommand, se_CancelStatementCommand } from "../protocols/Aws_json1_1";
 import { RedshiftDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftDataClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CancelStatementCommand}.
+ */
 export interface CancelStatementCommandInput extends CancelStatementRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CancelStatementCommand}.
+ */
 export interface CancelStatementCommandOutput extends CancelStatementResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels a running query. To be canceled, a query must be running. </p>
  *          <p>For more information about the Amazon Redshift Data API and CLI usage examples, see
  *        <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html">Using the Amazon Redshift Data API</a> in the
@@ -39,13 +42,31 @@ export interface CancelStatementCommandOutput extends CancelStatementResponse, _
  * import { RedshiftDataClient, CancelStatementCommand } from "@aws-sdk/client-redshift-data"; // ES Modules import
  * // const { RedshiftDataClient, CancelStatementCommand } = require("@aws-sdk/client-redshift-data"); // CommonJS import
  * const client = new RedshiftDataClient(config);
+ * const input = { // CancelStatementRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new CancelStatementCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelStatementCommandInput - {@link CancelStatementCommandInput}
+ * @returns {@link CancelStatementCommandOutput}
  * @see {@link CancelStatementCommandInput} for command's `input` shape.
  * @see {@link CancelStatementCommandOutput} for command's `response` shape.
  * @see {@link RedshiftDataClientResolvedConfig | config} for RedshiftDataClient's `config` shape.
+ *
+ * @throws {@link DatabaseConnectionException} (server fault)
+ *  <p>Connection to a database failed.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The Amazon Redshift Data API operation failed due to a missing resource. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
+ *
  *
  */
 export class CancelStatementCommand extends $Command<
@@ -65,6 +86,9 @@ export class CancelStatementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelStatementCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +117,8 @@ export class CancelStatementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelStatementRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelStatementResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +128,18 @@ export class CancelStatementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelStatementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CancelStatementCommand(input, context);
+    return se_CancelStatementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelStatementCommandOutput> {
-    return deserializeAws_json1_1CancelStatementCommand(output, context);
+    return de_CancelStatementCommand(output, context);
   }
 
   // Start section: command_body_extra

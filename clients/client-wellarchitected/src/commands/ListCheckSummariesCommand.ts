@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListCheckSummariesInput,
-  ListCheckSummariesInputFilterSensitiveLog,
-  ListCheckSummariesOutput,
-  ListCheckSummariesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListCheckSummariesCommand,
-  serializeAws_restJson1ListCheckSummariesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListCheckSummariesInput, ListCheckSummariesOutput } from "../models/models_0";
+import { de_ListCheckSummariesCommand, se_ListCheckSummariesCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListCheckSummariesCommand}.
+ */
 export interface ListCheckSummariesCommandInput extends ListCheckSummariesInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListCheckSummariesCommand}.
+ */
 export interface ListCheckSummariesCommandOutput extends ListCheckSummariesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List of Trusted Advisor checks summarized for all accounts related to the workload.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,40 @@ export interface ListCheckSummariesCommandOutput extends ListCheckSummariesOutpu
  * import { WellArchitectedClient, ListCheckSummariesCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, ListCheckSummariesCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
+ * const input = { // ListCheckSummariesInput
+ *   WorkloadId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   LensArn: "STRING_VALUE", // required
+ *   PillarId: "STRING_VALUE", // required
+ *   QuestionId: "STRING_VALUE", // required
+ *   ChoiceId: "STRING_VALUE", // required
+ * };
  * const command = new ListCheckSummariesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCheckSummariesCommandInput - {@link ListCheckSummariesCommandInput}
+ * @returns {@link ListCheckSummariesCommandOutput}
  * @see {@link ListCheckSummariesCommandInput} for command's `input` shape.
  * @see {@link ListCheckSummariesCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>User does not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There is a problem with the Well-Architected Tool API service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The user input is not valid.</p>
+ *
  *
  */
 export class ListCheckSummariesCommand extends $Command<
@@ -62,6 +92,9 @@ export class ListCheckSummariesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCheckSummariesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +123,8 @@ export class ListCheckSummariesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCheckSummariesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCheckSummariesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +134,18 @@ export class ListCheckSummariesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCheckSummariesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListCheckSummariesCommand(input, context);
+    return se_ListCheckSummariesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCheckSummariesCommandOutput> {
-    return deserializeAws_restJson1ListCheckSummariesCommand(output, context);
+    return de_ListCheckSummariesCommand(output, context);
   }
 
   // Start section: command_body_extra

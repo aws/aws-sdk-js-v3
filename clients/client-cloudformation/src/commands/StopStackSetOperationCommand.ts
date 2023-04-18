@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  StopStackSetOperationInput,
-  StopStackSetOperationInputFilterSensitiveLog,
-  StopStackSetOperationOutput,
-  StopStackSetOperationOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryStopStackSetOperationCommand,
-  serializeAws_queryStopStackSetOperationCommand,
-} from "../protocols/Aws_query";
+import { StopStackSetOperationInput, StopStackSetOperationOutput } from "../models/models_0";
+import { de_StopStackSetOperationCommand, se_StopStackSetOperationCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link StopStackSetOperationCommand}.
+ */
 export interface StopStackSetOperationCommandInput extends StopStackSetOperationInput {}
+/**
+ * @public
+ *
+ * The output of {@link StopStackSetOperationCommand}.
+ */
 export interface StopStackSetOperationCommandOutput extends StopStackSetOperationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops an in-progress operation on a stack set and its associated stack instances.
  *          StackSets will cancel all the unstarted stack instance deployments and wait for those are
  *          in-progress to complete.</p>
@@ -38,13 +41,30 @@ export interface StopStackSetOperationCommandOutput extends StopStackSetOperatio
  * import { CloudFormationClient, StopStackSetOperationCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, StopStackSetOperationCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // StopStackSetOperationInput
+ *   StackSetName: "STRING_VALUE", // required
+ *   OperationId: "STRING_VALUE", // required
+ *   CallAs: "SELF" || "DELEGATED_ADMIN",
+ * };
  * const command = new StopStackSetOperationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopStackSetOperationCommandInput - {@link StopStackSetOperationCommandInput}
+ * @returns {@link StopStackSetOperationCommandOutput}
  * @see {@link StopStackSetOperationCommandInput} for command's `input` shape.
  * @see {@link StopStackSetOperationCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
+ *
+ * @throws {@link InvalidOperationException} (client fault)
+ *  <p>The specified operation isn't valid.</p>
+ *
+ * @throws {@link OperationNotFoundException} (client fault)
+ *  <p>The specified ID refers to an operation that doesn't exist.</p>
+ *
+ * @throws {@link StackSetNotFoundException} (client fault)
+ *  <p>The specified stack set doesn't exist.</p>
+ *
  *
  */
 export class StopStackSetOperationCommand extends $Command<
@@ -64,6 +84,9 @@ export class StopStackSetOperationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopStackSetOperationCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +115,8 @@ export class StopStackSetOperationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopStackSetOperationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StopStackSetOperationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +126,18 @@ export class StopStackSetOperationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopStackSetOperationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryStopStackSetOperationCommand(input, context);
+    return se_StopStackSetOperationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopStackSetOperationCommandOutput> {
-    return deserializeAws_queryStopStackSetOperationCommand(output, context);
+    return de_StopStackSetOperationCommand(output, context);
   }
 
   // Start section: command_body_extra

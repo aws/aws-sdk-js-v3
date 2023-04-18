@@ -14,23 +14,26 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import {
-  ListKeyPhrasesDetectionJobsRequest,
-  ListKeyPhrasesDetectionJobsRequestFilterSensitiveLog,
-  ListKeyPhrasesDetectionJobsResponse,
-  ListKeyPhrasesDetectionJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListKeyPhrasesDetectionJobsCommand,
-  serializeAws_json1_1ListKeyPhrasesDetectionJobsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListKeyPhrasesDetectionJobsRequest, ListKeyPhrasesDetectionJobsResponse } from "../models/models_0";
+import { de_ListKeyPhrasesDetectionJobsCommand, se_ListKeyPhrasesDetectionJobsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListKeyPhrasesDetectionJobsCommand}.
+ */
 export interface ListKeyPhrasesDetectionJobsCommandInput extends ListKeyPhrasesDetectionJobsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListKeyPhrasesDetectionJobsCommand}.
+ */
 export interface ListKeyPhrasesDetectionJobsCommandOutput
   extends ListKeyPhrasesDetectionJobsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get a list of key phrase detection jobs that you have submitted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +41,39 @@ export interface ListKeyPhrasesDetectionJobsCommandOutput
  * import { ComprehendClient, ListKeyPhrasesDetectionJobsCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, ListKeyPhrasesDetectionJobsCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // ListKeyPhrasesDetectionJobsRequest
+ *   Filter: { // KeyPhrasesDetectionJobFilter
+ *     JobName: "STRING_VALUE",
+ *     JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
+ *     SubmitTimeBefore: new Date("TIMESTAMP"),
+ *     SubmitTimeAfter: new Date("TIMESTAMP"),
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListKeyPhrasesDetectionJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListKeyPhrasesDetectionJobsCommandInput - {@link ListKeyPhrasesDetectionJobsCommandInput}
+ * @returns {@link ListKeyPhrasesDetectionJobsCommandOutput}
  * @see {@link ListKeyPhrasesDetectionJobsCommandInput} for command's `input` shape.
  * @see {@link ListKeyPhrasesDetectionJobsCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * @throws {@link InvalidFilterException} (client fault)
+ *  <p>The filter specified for the operation is invalid. Specify a different
+ *       filter.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ *
  *
  */
 export class ListKeyPhrasesDetectionJobsCommand extends $Command<
@@ -64,6 +93,9 @@ export class ListKeyPhrasesDetectionJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListKeyPhrasesDetectionJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +124,8 @@ export class ListKeyPhrasesDetectionJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListKeyPhrasesDetectionJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListKeyPhrasesDetectionJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +135,21 @@ export class ListKeyPhrasesDetectionJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListKeyPhrasesDetectionJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListKeyPhrasesDetectionJobsCommand(input, context);
+    return se_ListKeyPhrasesDetectionJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListKeyPhrasesDetectionJobsCommandOutput> {
-    return deserializeAws_json1_1ListKeyPhrasesDetectionJobsCommand(output, context);
+    return de_ListKeyPhrasesDetectionJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

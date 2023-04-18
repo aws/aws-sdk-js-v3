@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListVpcEndpointsRequest,
-  ListVpcEndpointsRequestFilterSensitiveLog,
-  ListVpcEndpointsResponse,
-  ListVpcEndpointsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListVpcEndpointsRequest, ListVpcEndpointsResponse } from "../models/models_0";
 import {
   OpenSearchServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import {
-  deserializeAws_json1_0ListVpcEndpointsCommand,
-  serializeAws_json1_0ListVpcEndpointsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListVpcEndpointsCommand, se_ListVpcEndpointsCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link ListVpcEndpointsCommand}.
+ */
 export interface ListVpcEndpointsCommandInput extends ListVpcEndpointsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListVpcEndpointsCommand}.
+ */
 export interface ListVpcEndpointsCommandOutput extends ListVpcEndpointsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the OpenSearch Serverless-managed interface VPC endpoints associated with the current
  *             account. For more information, see
  *             <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html">Access Amazon OpenSearch Serverless using an interface endpoint</a>.</p>
@@ -42,13 +45,30 @@ export interface ListVpcEndpointsCommandOutput extends ListVpcEndpointsResponse,
  * import { OpenSearchServerlessClient, ListVpcEndpointsCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, ListVpcEndpointsCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
+ * const input = { // ListVpcEndpointsRequest
+ *   vpcEndpointFilters: { // VpcEndpointFilters
+ *     status: "STRING_VALUE",
+ *   },
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListVpcEndpointsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListVpcEndpointsCommandInput - {@link ListVpcEndpointsCommandInput}
+ * @returns {@link ListVpcEndpointsCommandOutput}
  * @see {@link ListVpcEndpointsCommandInput} for command's `input` shape.
  * @see {@link ListVpcEndpointsCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Thrown when an error internal to the service occurs while processing a request.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Thrown when the HTTP request contains invalid input or is missing required
+ *             input.</p>
+ *
  *
  */
 export class ListVpcEndpointsCommand extends $Command<
@@ -68,6 +88,9 @@ export class ListVpcEndpointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListVpcEndpointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +119,8 @@ export class ListVpcEndpointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListVpcEndpointsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListVpcEndpointsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +130,18 @@ export class ListVpcEndpointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListVpcEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListVpcEndpointsCommand(input, context);
+    return se_ListVpcEndpointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVpcEndpointsCommandOutput> {
-    return deserializeAws_json1_0ListVpcEndpointsCommand(output, context);
+    return de_ListVpcEndpointsCommand(output, context);
   }
 
   // Start section: command_body_extra

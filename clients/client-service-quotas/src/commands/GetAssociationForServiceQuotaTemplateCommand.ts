@@ -15,23 +15,32 @@ import {
 
 import {
   GetAssociationForServiceQuotaTemplateRequest,
-  GetAssociationForServiceQuotaTemplateRequestFilterSensitiveLog,
   GetAssociationForServiceQuotaTemplateResponse,
-  GetAssociationForServiceQuotaTemplateResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetAssociationForServiceQuotaTemplateCommand,
-  serializeAws_json1_1GetAssociationForServiceQuotaTemplateCommand,
+  de_GetAssociationForServiceQuotaTemplateCommand,
+  se_GetAssociationForServiceQuotaTemplateCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetAssociationForServiceQuotaTemplateCommand}.
+ */
 export interface GetAssociationForServiceQuotaTemplateCommandInput
   extends GetAssociationForServiceQuotaTemplateRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetAssociationForServiceQuotaTemplateCommand}.
+ */
 export interface GetAssociationForServiceQuotaTemplateCommandOutput
   extends GetAssociationForServiceQuotaTemplateResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the status of the association for the quota request template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +48,43 @@ export interface GetAssociationForServiceQuotaTemplateCommandOutput
  * import { ServiceQuotasClient, GetAssociationForServiceQuotaTemplateCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
  * // const { ServiceQuotasClient, GetAssociationForServiceQuotaTemplateCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import
  * const client = new ServiceQuotasClient(config);
+ * const input = {};
  * const command = new GetAssociationForServiceQuotaTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAssociationForServiceQuotaTemplateCommandInput - {@link GetAssociationForServiceQuotaTemplateCommandInput}
+ * @returns {@link GetAssociationForServiceQuotaTemplateCommandOutput}
  * @see {@link GetAssociationForServiceQuotaTemplateCommandInput} for command's `input` shape.
  * @see {@link GetAssociationForServiceQuotaTemplateCommandOutput} for command's `response` shape.
  * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permission to perform this action.</p>
+ *
+ * @throws {@link AWSServiceAccessNotEnabledException} (client fault)
+ *  <p>The action you attempted is not allowed unless Service Access with Service Quotas is
+ *       enabled in your organization.</p>
+ *
+ * @throws {@link DependencyAccessDeniedException} (client fault)
+ *  <p>You can't perform this action because a dependency does not have access.</p>
+ *
+ * @throws {@link NoAvailableOrganizationException} (client fault)
+ *  <p>The account making this call is not a member of an organization.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>Something went wrong.</p>
+ *
+ * @throws {@link ServiceQuotaTemplateNotInUseException} (client fault)
+ *  <p>The quota request template is not associated with your organization.</p>
+ *
+ * @throws {@link TemplatesNotAvailableInRegionException} (client fault)
+ *  <p>The Service Quotas template is not available in this AWS Region.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request
+ *       an increase for this quota.</p>
+ *
  *
  */
 export class GetAssociationForServiceQuotaTemplateCommand extends $Command<
@@ -65,6 +104,9 @@ export class GetAssociationForServiceQuotaTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAssociationForServiceQuotaTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +135,8 @@ export class GetAssociationForServiceQuotaTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAssociationForServiceQuotaTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAssociationForServiceQuotaTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,18 +146,24 @@ export class GetAssociationForServiceQuotaTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetAssociationForServiceQuotaTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAssociationForServiceQuotaTemplateCommand(input, context);
+    return se_GetAssociationForServiceQuotaTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetAssociationForServiceQuotaTemplateCommandOutput> {
-    return deserializeAws_json1_1GetAssociationForServiceQuotaTemplateCommand(output, context);
+    return de_GetAssociationForServiceQuotaTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

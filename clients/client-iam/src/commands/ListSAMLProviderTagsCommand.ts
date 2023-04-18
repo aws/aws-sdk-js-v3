@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  ListSAMLProviderTagsRequest,
-  ListSAMLProviderTagsRequestFilterSensitiveLog,
-  ListSAMLProviderTagsResponse,
-  ListSAMLProviderTagsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryListSAMLProviderTagsCommand,
-  serializeAws_queryListSAMLProviderTagsCommand,
-} from "../protocols/Aws_query";
+import { ListSAMLProviderTagsRequest, ListSAMLProviderTagsResponse } from "../models/models_0";
+import { de_ListSAMLProviderTagsCommand, se_ListSAMLProviderTagsCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link ListSAMLProviderTagsCommand}.
+ */
 export interface ListSAMLProviderTagsCommandInput extends ListSAMLProviderTagsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListSAMLProviderTagsCommand}.
+ */
 export interface ListSAMLProviderTagsCommandOutput extends ListSAMLProviderTagsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the tags that are attached to the specified Security Assertion Markup Language
  *       (SAML) identity provider. The returned list of tags is sorted by tag key. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html">About SAML 2.0-based
  *       federation</a>.</p>
@@ -40,13 +43,33 @@ export interface ListSAMLProviderTagsCommandOutput extends ListSAMLProviderTagsR
  * import { IAMClient, ListSAMLProviderTagsCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListSAMLProviderTagsCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // ListSAMLProviderTagsRequest
+ *   SAMLProviderArn: "STRING_VALUE", // required
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListSAMLProviderTagsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSAMLProviderTagsCommandInput - {@link ListSAMLProviderTagsCommandInput}
+ * @returns {@link ListSAMLProviderTagsCommandOutput}
  * @see {@link ListSAMLProviderTagsCommandInput} for command's `input` shape.
  * @see {@link ListSAMLProviderTagsCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
+ *       input parameter.</p>
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
  *
  */
 export class ListSAMLProviderTagsCommand extends $Command<
@@ -66,6 +89,9 @@ export class ListSAMLProviderTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSAMLProviderTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +120,8 @@ export class ListSAMLProviderTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSAMLProviderTagsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSAMLProviderTagsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +131,18 @@ export class ListSAMLProviderTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSAMLProviderTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListSAMLProviderTagsCommand(input, context);
+    return se_ListSAMLProviderTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSAMLProviderTagsCommandOutput> {
-    return deserializeAws_queryListSAMLProviderTagsCommand(output, context);
+    return de_ListSAMLProviderTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

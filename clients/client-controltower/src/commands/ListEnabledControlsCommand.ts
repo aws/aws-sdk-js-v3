@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ControlTowerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ControlTowerClient";
-import {
-  ListEnabledControlsInput,
-  ListEnabledControlsInputFilterSensitiveLog,
-  ListEnabledControlsOutput,
-  ListEnabledControlsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListEnabledControlsCommand,
-  serializeAws_restJson1ListEnabledControlsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListEnabledControlsInput, ListEnabledControlsOutput } from "../models/models_0";
+import { de_ListEnabledControlsCommand, se_ListEnabledControlsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListEnabledControlsCommand}.
+ */
 export interface ListEnabledControlsCommandInput extends ListEnabledControlsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListEnabledControlsCommand}.
+ */
 export interface ListEnabledControlsCommandOutput extends ListEnabledControlsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the controls enabled by AWS Control Tower on the specified organizational unit and
  *       the accounts it contains.</p>
  * @example
@@ -37,13 +40,37 @@ export interface ListEnabledControlsCommandOutput extends ListEnabledControlsOut
  * import { ControlTowerClient, ListEnabledControlsCommand } from "@aws-sdk/client-controltower"; // ES Modules import
  * // const { ControlTowerClient, ListEnabledControlsCommand } = require("@aws-sdk/client-controltower"); // CommonJS import
  * const client = new ControlTowerClient(config);
+ * const input = { // ListEnabledControlsInput
+ *   targetIdentifier: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListEnabledControlsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEnabledControlsCommandInput - {@link ListEnabledControlsCommandInput}
+ * @returns {@link ListEnabledControlsCommandOutput}
  * @see {@link ListEnabledControlsCommandInput} for command's `input` shape.
  * @see {@link ListEnabledControlsCommandOutput} for command's `response` shape.
  * @see {@link ControlTowerClientResolvedConfig | config} for ControlTowerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>User does not have sufficient access to perform this action.
+ *       </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Unexpected error during processing of request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Request references a resource which does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p> Request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
  *
  */
 export class ListEnabledControlsCommand extends $Command<
@@ -63,6 +90,9 @@ export class ListEnabledControlsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEnabledControlsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +121,8 @@ export class ListEnabledControlsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEnabledControlsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEnabledControlsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +132,18 @@ export class ListEnabledControlsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEnabledControlsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListEnabledControlsCommand(input, context);
+    return se_ListEnabledControlsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEnabledControlsCommandOutput> {
-    return deserializeAws_restJson1ListEnabledControlsCommand(output, context);
+    return de_ListEnabledControlsCommand(output, context);
   }
 
   // Start section: command_body_extra

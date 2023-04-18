@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { AuditManager } from "../AuditManager";
 import { AuditManagerClient } from "../AuditManagerClient";
 import {
   GetEvidenceByEvidenceFolderCommand,
@@ -11,7 +10,7 @@ import {
 import { AuditManagerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: AuditManagerClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new GetEvidenceByEvidenceFolderCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: AuditManager,
-  input: GetEvidenceByEvidenceFolderCommandInput,
-  ...args: any
-): Promise<GetEvidenceByEvidenceFolderCommandOutput> => {
-  // @ts-ignore
-  return await client.getEvidenceByEvidenceFolder(input, ...args);
-};
 export async function* paginateGetEvidenceByEvidenceFolder(
   config: AuditManagerPaginationConfiguration,
   input: GetEvidenceByEvidenceFolderCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateGetEvidenceByEvidenceFolder(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof AuditManager) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof AuditManagerClient) {
+    if (config.client instanceof AuditManagerClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected AuditManager | AuditManagerClient");

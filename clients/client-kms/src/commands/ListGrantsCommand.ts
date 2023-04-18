@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import {
-  ListGrantsRequest,
-  ListGrantsRequestFilterSensitiveLog,
-  ListGrantsResponse,
-  ListGrantsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListGrantsCommand,
-  serializeAws_json1_1ListGrantsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListGrantsRequest, ListGrantsResponse } from "../models/models_0";
+import { de_ListGrantsCommand, se_ListGrantsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListGrantsCommand}.
+ */
 export interface ListGrantsCommandInput extends ListGrantsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListGrantsCommand}.
+ */
 export interface ListGrantsCommandOutput extends ListGrantsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of all grants for the specified KMS key. </p>
  *          <p>You must specify the KMS key in all requests. You can filter the grant list by grant ID or
  *       grantee principal.</p>
@@ -47,7 +50,6 @@ export interface ListGrantsCommandOutput extends ListGrantsResponse, __MetadataB
  *          <p>
  *             <b>Cross-account use</b>: Yes. To perform this operation on a KMS key in a different Amazon Web Services account, specify the key
  *   ARN in the value of the <code>KeyId</code> parameter.</p>
- *
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ListGrants</a> (key policy)</p>
  *          <p>
@@ -81,13 +83,133 @@ export interface ListGrantsCommandOutput extends ListGrantsResponse, __MetadataB
  * import { KMSClient, ListGrantsCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, ListGrantsCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // ListGrantsRequest
+ *   Limit: Number("int"),
+ *   Marker: "STRING_VALUE",
+ *   KeyId: "STRING_VALUE", // required
+ *   GrantId: "STRING_VALUE",
+ *   GranteePrincipal: "STRING_VALUE",
+ * };
  * const command = new ListGrantsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListGrantsCommandInput - {@link ListGrantsCommandInput}
+ * @returns {@link ListGrantsCommandOutput}
  * @see {@link ListGrantsCommandInput} for command's `input` shape.
  * @see {@link ListGrantsCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
+ *
+ * @throws {@link DependencyTimeoutException} (server fault)
+ *  <p>The system timed out while trying to fulfill the request. You can retry the
+ *       request.</p>
+ *
+ * @throws {@link InvalidArnException} (client fault)
+ *  <p>The request was rejected because a specified ARN, or an ARN in a key policy, is not
+ *       valid.</p>
+ *
+ * @throws {@link InvalidGrantIdException} (client fault)
+ *  <p>The request was rejected because the specified <code>GrantId</code> is not valid.</p>
+ *
+ * @throws {@link InvalidMarkerException} (client fault)
+ *  <p>The request was rejected because the marker that specifies where pagination should next
+ *       begin is not valid.</p>
+ *
+ * @throws {@link KMSInternalException} (server fault)
+ *  <p>The request was rejected because an internal exception occurred. The request can be
+ *       retried.</p>
+ *
+ * @throws {@link KMSInvalidStateException} (client fault)
+ *  <p>The request was rejected because the state of the specified resource is not valid for this
+ *       request.</p>
+ *          <p>This exceptions means one of the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The key state of the KMS key is not compatible with the operation. </p>
+ *                <p>To find the key state, use the <a>DescribeKey</a> operation. For more
+ *           information about which key states are compatible with each KMS operation, see
+ *           <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>
+ *                      <i>Key Management Service Developer Guide</i>
+ *                   </i>.</p>
+ *             </li>
+ *             <li>
+ *                <p>For cryptographic operations on KMS keys in custom key stores, this exception represents a general failure with many possible causes. To identify the cause, see the error message that accompanies the exception.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The request was rejected because the specified entity or resource could not be
+ *       found.</p>
+ *
+ *
+ * @example To list grants for a KMS key
+ * ```javascript
+ * // The following example lists grants for the specified KMS key.
+ * const input = {
+ *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
+ * };
+ * const command = new ListGrantsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Grants": [
+ *     {
+ *       "CreationDate": "2016-10-25T14:37:41-07:00",
+ *       "GrantId": "91ad875e49b04a9d1f3bdeb84d821f9db6ea95e1098813f6d47f0c65fbe2a172",
+ *       "GranteePrincipal": "acm.us-east-2.amazonaws.com",
+ *       "IssuingAccount": "arn:aws:iam::111122223333:root",
+ *       "KeyId": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+ *       "Operations": [
+ *         "Encrypt",
+ *         "ReEncryptFrom",
+ *         "ReEncryptTo"
+ *       ],
+ *       "RetiringPrincipal": "acm.us-east-2.amazonaws.com"
+ *     },
+ *     {
+ *       "CreationDate": "2016-10-25T14:37:41-07:00",
+ *       "GrantId": "a5d67d3e207a8fc1f4928749ee3e52eb0440493a8b9cf05bbfad91655b056200",
+ *       "GranteePrincipal": "acm.us-east-2.amazonaws.com",
+ *       "IssuingAccount": "arn:aws:iam::111122223333:root",
+ *       "KeyId": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+ *       "Operations": [
+ *         "ReEncryptFrom",
+ *         "ReEncryptTo"
+ *       ],
+ *       "RetiringPrincipal": "acm.us-east-2.amazonaws.com"
+ *     },
+ *     {
+ *       "CreationDate": "2016-10-25T14:37:41-07:00",
+ *       "GrantId": "c541aaf05d90cb78846a73b346fc43e65be28b7163129488c738e0c9e0628f4f",
+ *       "GranteePrincipal": "acm.us-east-2.amazonaws.com",
+ *       "IssuingAccount": "arn:aws:iam::111122223333:root",
+ *       "KeyId": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+ *       "Operations": [
+ *         "Encrypt",
+ *         "ReEncryptFrom",
+ *         "ReEncryptTo"
+ *       ],
+ *       "RetiringPrincipal": "acm.us-east-2.amazonaws.com"
+ *     },
+ *     {
+ *       "CreationDate": "2016-10-25T14:37:41-07:00",
+ *       "GrantId": "dd2052c67b4c76ee45caf1dc6a1e2d24e8dc744a51b36ae2f067dc540ce0105c",
+ *       "GranteePrincipal": "acm.us-east-2.amazonaws.com",
+ *       "IssuingAccount": "arn:aws:iam::111122223333:root",
+ *       "KeyId": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+ *       "Operations": [
+ *         "Encrypt",
+ *         "ReEncryptFrom",
+ *         "ReEncryptTo"
+ *       ],
+ *       "RetiringPrincipal": "acm.us-east-2.amazonaws.com"
+ *     }
+ *   ],
+ *   "Truncated": true
+ * }
+ * *\/
+ * // example id: to-list-grants-for-a-cmk-1481067365389
+ * ```
  *
  */
 export class ListGrantsCommand extends $Command<
@@ -107,6 +229,9 @@ export class ListGrantsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListGrantsCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,8 +258,8 @@ export class ListGrantsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListGrantsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListGrantsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -144,12 +269,18 @@ export class ListGrantsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListGrantsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListGrantsCommand(input, context);
+    return se_ListGrantsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGrantsCommandOutput> {
-    return deserializeAws_json1_1ListGrantsCommand(output, context);
+    return de_ListGrantsCommand(output, context);
   }
 
   // Start section: command_body_extra

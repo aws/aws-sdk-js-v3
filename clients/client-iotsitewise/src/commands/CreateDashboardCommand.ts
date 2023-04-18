@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import {
-  CreateDashboardRequest,
-  CreateDashboardRequestFilterSensitiveLog,
-  CreateDashboardResponse,
-  CreateDashboardResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDashboardCommand,
-  serializeAws_restJson1CreateDashboardCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateDashboardRequest, CreateDashboardResponse } from "../models/models_0";
+import { de_CreateDashboardCommand, se_CreateDashboardCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateDashboardCommand}.
+ */
 export interface CreateDashboardCommandInput extends CreateDashboardRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateDashboardCommand}.
+ */
 export interface CreateDashboardCommandOutput extends CreateDashboardResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a dashboard in an IoT SiteWise Monitor project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,48 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  * import { IoTSiteWiseClient, CreateDashboardCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, CreateDashboardCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = { // CreateDashboardRequest
+ *   projectId: "STRING_VALUE", // required
+ *   dashboardName: "STRING_VALUE", // required
+ *   dashboardDescription: "STRING_VALUE",
+ *   dashboardDefinition: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateDashboardCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDashboardCommandInput - {@link CreateDashboardCommandInput}
+ * @returns {@link CreateDashboardCommandOutput}
  * @see {@link CreateDashboardCommandInput} for command's `input` shape.
  * @see {@link CreateDashboardCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>IoT SiteWise can't process your request right now. Try again later.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
+ *       unsupported characters. Check your request and try again.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You've reached the limit for a resource. For example, this can occur if you're trying to
+ *       associate more than the allowed number of child assets or attempting to create more than the
+ *       allowed number of properties for an asset model.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource can't be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Your request exceeded a rate limit. For example, you might have exceeded the number of
+ *       IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so
+ *       on.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ *
  *
  */
 export class CreateDashboardCommand extends $Command<
@@ -62,6 +100,9 @@ export class CreateDashboardCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDashboardCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +131,8 @@ export class CreateDashboardCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDashboardRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDashboardResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +142,18 @@ export class CreateDashboardCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDashboardCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDashboardCommand(input, context);
+    return se_CreateDashboardCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDashboardCommandOutput> {
-    return deserializeAws_restJson1CreateDashboardCommand(output, context);
+    return de_CreateDashboardCommand(output, context);
   }
 
   // Start section: command_body_extra

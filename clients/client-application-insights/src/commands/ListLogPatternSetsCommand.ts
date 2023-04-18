@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient";
-import {
-  ListLogPatternSetsRequest,
-  ListLogPatternSetsRequestFilterSensitiveLog,
-  ListLogPatternSetsResponse,
-  ListLogPatternSetsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListLogPatternSetsCommand,
-  serializeAws_json1_1ListLogPatternSetsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListLogPatternSetsRequest, ListLogPatternSetsResponse } from "../models/models_0";
+import { de_ListLogPatternSetsCommand, se_ListLogPatternSetsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListLogPatternSetsCommand}.
+ */
 export interface ListLogPatternSetsCommandInput extends ListLogPatternSetsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListLogPatternSetsCommand}.
+ */
 export interface ListLogPatternSetsCommandOutput extends ListLogPatternSetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the log pattern sets in the specific application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,30 @@ export interface ListLogPatternSetsCommandOutput extends ListLogPatternSetsRespo
  * import { ApplicationInsightsClient, ListLogPatternSetsCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
  * // const { ApplicationInsightsClient, ListLogPatternSetsCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
+ * const input = { // ListLogPatternSetsRequest
+ *   ResourceGroupName: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListLogPatternSetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLogPatternSetsCommandInput - {@link ListLogPatternSetsCommandInput}
+ * @returns {@link ListLogPatternSetsCommandOutput}
  * @see {@link ListLogPatternSetsCommandInput} for command's `input` shape.
  * @see {@link ListLogPatternSetsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The server encountered an internal error and is unable to complete the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource does not exist in the customer account.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The parameter is not valid.</p>
+ *
  *
  */
 export class ListLogPatternSetsCommand extends $Command<
@@ -66,6 +86,9 @@ export class ListLogPatternSetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLogPatternSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +117,8 @@ export class ListLogPatternSetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLogPatternSetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListLogPatternSetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +128,18 @@ export class ListLogPatternSetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLogPatternSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListLogPatternSetsCommand(input, context);
+    return se_ListLogPatternSetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLogPatternSetsCommandOutput> {
-    return deserializeAws_json1_1ListLogPatternSetsCommand(output, context);
+    return de_ListLogPatternSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

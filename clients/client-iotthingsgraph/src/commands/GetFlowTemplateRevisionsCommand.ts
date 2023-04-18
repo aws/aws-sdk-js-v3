@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import {
-  GetFlowTemplateRevisionsRequest,
-  GetFlowTemplateRevisionsRequestFilterSensitiveLog,
-  GetFlowTemplateRevisionsResponse,
-  GetFlowTemplateRevisionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetFlowTemplateRevisionsCommand,
-  serializeAws_json1_1GetFlowTemplateRevisionsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetFlowTemplateRevisionsRequest, GetFlowTemplateRevisionsResponse } from "../models/models_0";
+import { de_GetFlowTemplateRevisionsCommand, se_GetFlowTemplateRevisionsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetFlowTemplateRevisionsCommand}.
+ */
 export interface GetFlowTemplateRevisionsCommandInput extends GetFlowTemplateRevisionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetFlowTemplateRevisionsCommand}.
+ */
 export interface GetFlowTemplateRevisionsCommandOutput extends GetFlowTemplateRevisionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Gets revisions of the specified workflow. Only the last 100 revisions are stored. If the workflow has been deprecated,
@@ -39,13 +42,33 @@ export interface GetFlowTemplateRevisionsCommandOutput extends GetFlowTemplateRe
  * import { IoTThingsGraphClient, GetFlowTemplateRevisionsCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, GetFlowTemplateRevisionsCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
+ * const input = { // GetFlowTemplateRevisionsRequest
+ *   id: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new GetFlowTemplateRevisionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFlowTemplateRevisionsCommandInput - {@link GetFlowTemplateRevisionsCommandInput}
+ * @returns {@link GetFlowTemplateRevisionsCommandOutput}
  * @see {@link GetFlowTemplateRevisionsCommandInput} for command's `input` shape.
  * @see {@link GetFlowTemplateRevisionsCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p></p>
+ *
  *
  */
 export class GetFlowTemplateRevisionsCommand extends $Command<
@@ -65,6 +88,9 @@ export class GetFlowTemplateRevisionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFlowTemplateRevisionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +119,8 @@ export class GetFlowTemplateRevisionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFlowTemplateRevisionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetFlowTemplateRevisionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +130,18 @@ export class GetFlowTemplateRevisionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFlowTemplateRevisionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetFlowTemplateRevisionsCommand(input, context);
+    return se_GetFlowTemplateRevisionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFlowTemplateRevisionsCommandOutput> {
-    return deserializeAws_json1_1GetFlowTemplateRevisionsCommand(output, context);
+    return de_GetFlowTemplateRevisionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateMonitoringAlertRequest,
-  UpdateMonitoringAlertRequestFilterSensitiveLog,
-  UpdateMonitoringAlertResponse,
-  UpdateMonitoringAlertResponseFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_json1_1UpdateMonitoringAlertCommand,
-  serializeAws_json1_1UpdateMonitoringAlertCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateMonitoringAlertRequest, UpdateMonitoringAlertResponse } from "../models/models_4";
+import { de_UpdateMonitoringAlertCommand, se_UpdateMonitoringAlertCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateMonitoringAlertCommand}.
+ */
 export interface UpdateMonitoringAlertCommandInput extends UpdateMonitoringAlertRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateMonitoringAlertCommand}.
+ */
 export interface UpdateMonitoringAlertCommandOutput extends UpdateMonitoringAlertResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update the parameters of a model monitor alert.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,29 @@ export interface UpdateMonitoringAlertCommandOutput extends UpdateMonitoringAler
  * import { SageMakerClient, UpdateMonitoringAlertCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateMonitoringAlertCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // UpdateMonitoringAlertRequest
+ *   MonitoringScheduleName: "STRING_VALUE", // required
+ *   MonitoringAlertName: "STRING_VALUE", // required
+ *   DatapointsToAlert: Number("int"), // required
+ *   EvaluationPeriod: Number("int"), // required
+ * };
  * const command = new UpdateMonitoringAlertCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateMonitoringAlertCommandInput - {@link UpdateMonitoringAlertCommandInput}
+ * @returns {@link UpdateMonitoringAlertCommandOutput}
  * @see {@link UpdateMonitoringAlertCommandInput} for command's `input` shape.
  * @see {@link UpdateMonitoringAlertCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceLimitExceeded} (client fault)
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
+ *             training jobs created. </p>
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class UpdateMonitoringAlertCommand extends $Command<
@@ -62,6 +81,9 @@ export class UpdateMonitoringAlertCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateMonitoringAlertCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +112,8 @@ export class UpdateMonitoringAlertCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateMonitoringAlertRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateMonitoringAlertResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +123,18 @@ export class UpdateMonitoringAlertCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateMonitoringAlertCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateMonitoringAlertCommand(input, context);
+    return se_UpdateMonitoringAlertCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMonitoringAlertCommandOutput> {
-    return deserializeAws_json1_1UpdateMonitoringAlertCommand(output, context);
+    return de_UpdateMonitoringAlertCommand(output, context);
   }
 
   // Start section: command_body_extra

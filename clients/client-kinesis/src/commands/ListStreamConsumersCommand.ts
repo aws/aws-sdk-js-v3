@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import {
-  ListStreamConsumersInput,
-  ListStreamConsumersInputFilterSensitiveLog,
-  ListStreamConsumersOutput,
-  ListStreamConsumersOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListStreamConsumersCommand,
-  serializeAws_json1_1ListStreamConsumersCommand,
-} from "../protocols/Aws_json1_1";
+import { ListStreamConsumersInput, ListStreamConsumersOutput } from "../models/models_0";
+import { de_ListStreamConsumersCommand, se_ListStreamConsumersCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListStreamConsumersCommand}.
+ */
 export interface ListStreamConsumersCommandInput extends ListStreamConsumersInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListStreamConsumersCommand}.
+ */
 export interface ListStreamConsumersCommandOutput extends ListStreamConsumersOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the consumers registered to receive data from a stream using enhanced fan-out,
  *             and provides information about each consumer.</p>
  *          <p>This operation has a limit of 5 transactions per second per stream.</p>
@@ -38,13 +41,41 @@ export interface ListStreamConsumersCommandOutput extends ListStreamConsumersOut
  * import { KinesisClient, ListStreamConsumersCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, ListStreamConsumersCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
+ * const input = { // ListStreamConsumersInput
+ *   StreamARN: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   StreamCreationTimestamp: new Date("TIMESTAMP"),
+ * };
  * const command = new ListStreamConsumersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStreamConsumersCommandInput - {@link ListStreamConsumersCommandInput}
+ * @returns {@link ListStreamConsumersCommandOutput}
  * @see {@link ListStreamConsumersCommandInput} for command's `input` shape.
  * @see {@link ListStreamConsumersCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
+ *
+ * @throws {@link ExpiredNextTokenException} (client fault)
+ *  <p>The pagination token passed to the operation is expired.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>A specified parameter exceeds its restrictions, is not supported, or can't be used.
+ *             For more information, see the returned message.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
+ *             stream requests exceeds the maximum number allowed. </p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The resource is not available for this operation. For successful operation, the
+ *             resource must be in the <code>ACTIVE</code> state.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource could not be found. The stream might not be specified
+ *             correctly.</p>
+ *
  *
  */
 export class ListStreamConsumersCommand extends $Command<
@@ -66,6 +97,9 @@ export class ListStreamConsumersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStreamConsumersCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +128,8 @@ export class ListStreamConsumersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListStreamConsumersInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListStreamConsumersOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +139,18 @@ export class ListStreamConsumersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStreamConsumersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListStreamConsumersCommand(input, context);
+    return se_ListStreamConsumersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStreamConsumersCommandOutput> {
-    return deserializeAws_json1_1ListStreamConsumersCommand(output, context);
+    return de_ListStreamConsumersCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -26,12 +26,14 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
@@ -450,6 +452,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AcceptReservedNodeExchangeCommandInput
   | AddPartnerCommandInput
@@ -571,6 +576,9 @@ export type ServiceInputTypes =
   | RotateEncryptionKeyCommandInput
   | UpdatePartnerStatusCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AcceptReservedNodeExchangeCommandOutput
   | AddPartnerCommandOutput
@@ -692,6 +700,9 @@ export type ServiceOutputTypes =
   | RotateEncryptionKeyCommandOutput
   | UpdatePartnerStatusCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -699,11 +710,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -760,19 +771,10 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
-   * Value for how many times a request will be made at most in case of retry.
+   * Unique service identifier.
+   * @internal
    */
-  maxAttempts?: number | __Provider<number>;
-
-  /**
-   * Specifies which retry algorithm to use.
-   */
-  retryMode?: string | __Provider<string>;
-
-  /**
-   * Optional logger for logging debug/info/warn/error.
-   */
-  logger?: __Logger;
+  serviceId?: string;
 
   /**
    * Enables IPv6/IPv4 dualstack endpoint.
@@ -783,12 +785,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Enables FIPS compatible endpoints.
    */
   useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
 
   /**
    * The AWS region to which this client will send requests
@@ -808,11 +804,29 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * Value for how many times a request will be made at most in case of retry.
    */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Specifies which retry algorithm to use.
+   */
+  retryMode?: string | __Provider<string>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
+
+  /**
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   */
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type RedshiftClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -823,10 +837,15 @@ type RedshiftClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptio
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of RedshiftClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of RedshiftClient class constructor that set the region, credentials and other options.
  */
 export interface RedshiftClientConfig extends RedshiftClientConfigType {}
 
+/**
+ * @public
+ */
 type RedshiftClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -837,16 +856,19 @@ type RedshiftClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHand
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of RedshiftClient class. This is resolved and normalized from the {@link RedshiftClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of RedshiftClient class. This is resolved and normalized from the {@link RedshiftClientConfig | constructor configuration interface}.
  */
 export interface RedshiftClientResolvedConfig extends RedshiftClientResolvedConfigType {}
 
 /**
+ * @public
  * <fullname>Amazon Redshift</fullname>
- *         <p>
+ *          <p>
  *             <b>Overview</b>
- *         </p>
- *         <p>This is an interface reference for Amazon Redshift. It contains documentation for one of
+ *          </p>
+ *          <p>This is an interface reference for Amazon Redshift. It contains documentation for one of
  *             the programming or command line interfaces you can use to manage Amazon Redshift clusters.
  *             Note that Amazon Redshift is asynchronous, which means that some interfaces may require
  *             techniques, such as polling or asynchronous callback handlers, to determine when a
@@ -855,14 +877,13 @@ export interface RedshiftClientResolvedConfig extends RedshiftClientResolvedConf
  *             maintenance window. For a summary of the Amazon Redshift cluster management interfaces, go to
  *                 <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/using-aws-sdk.html">Using the
  *                 Amazon Redshift Management Interfaces</a>.</p>
- *         <p>Amazon Redshift manages all the work of setting up, operating, and scaling a data
+ *          <p>Amazon Redshift manages all the work of setting up, operating, and scaling a data
  *             warehouse: provisioning capacity, monitoring and backing up the cluster, and applying
  *             patches and upgrades to the Amazon Redshift engine. You can focus on using your data to
  *             acquire new insights for your business and customers.</p>
- *         <p>If you are a first-time user of Amazon Redshift, we recommend that you begin by reading
+ *          <p>If you are a first-time user of Amazon Redshift, we recommend that you begin by reading
  *             the <a href="https://docs.aws.amazon.com/redshift/latest/gsg/getting-started.html">Amazon Redshift Getting Started Guide</a>.</p>
- *
- *         <p>If you are a database developer, the <a href="https://docs.aws.amazon.com/redshift/latest/dg/welcome.html">Amazon Redshift Database Developer Guide</a> explains how to design,
+ *          <p>If you are a database developer, the <a href="https://docs.aws.amazon.com/redshift/latest/dg/welcome.html">Amazon Redshift Database Developer Guide</a> explains how to design,
  *             build, query, and maintain the databases that make up your data warehouse. </p>
  */
 export class RedshiftClient extends __Client<

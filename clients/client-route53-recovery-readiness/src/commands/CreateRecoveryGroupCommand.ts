@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateRecoveryGroupRequest,
-  CreateRecoveryGroupRequestFilterSensitiveLog,
-  CreateRecoveryGroupResponse,
-  CreateRecoveryGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateRecoveryGroupCommand,
-  serializeAws_restJson1CreateRecoveryGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateRecoveryGroupRequest, CreateRecoveryGroupResponse } from "../models/models_0";
+import { de_CreateRecoveryGroupCommand, se_CreateRecoveryGroupCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryReadinessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53RecoveryReadinessClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateRecoveryGroupCommand}.
+ */
 export interface CreateRecoveryGroupCommandInput extends CreateRecoveryGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateRecoveryGroupCommand}.
+ */
 export interface CreateRecoveryGroupCommandOutput extends CreateRecoveryGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a recovery group in an account. A recovery group corresponds to an application and includes a list of the cells that make up the application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,40 @@ export interface CreateRecoveryGroupCommandOutput extends CreateRecoveryGroupRes
  * import { Route53RecoveryReadinessClient, CreateRecoveryGroupCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
  * // const { Route53RecoveryReadinessClient, CreateRecoveryGroupCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
+ * const input = { // CreateRecoveryGroupRequest
+ *   Cells: [ // __listOf__string
+ *     "STRING_VALUE",
+ *   ],
+ *   RecoveryGroupName: "STRING_VALUE", // required
+ *   Tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateRecoveryGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRecoveryGroupCommandInput - {@link CreateRecoveryGroupCommandInput}
+ * @returns {@link CreateRecoveryGroupCommandOutput}
  * @see {@link CreateRecoveryGroupCommandInput} for command's `input` shape.
  * @see {@link CreateRecoveryGroupCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  User does not have sufficient access to perform this action.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  Updating or deleting a resource can cause an inconsistent state.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  An unexpected error occurred.
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  Request was denied due to request throttling.
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  The input fails to satisfy the constraints specified by an AWS service.
+ *
  *
  */
 export class CreateRecoveryGroupCommand extends $Command<
@@ -66,6 +96,9 @@ export class CreateRecoveryGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRecoveryGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +127,8 @@ export class CreateRecoveryGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRecoveryGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRecoveryGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +138,18 @@ export class CreateRecoveryGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRecoveryGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateRecoveryGroupCommand(input, context);
+    return se_CreateRecoveryGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRecoveryGroupCommandOutput> {
-    return deserializeAws_restJson1CreateRecoveryGroupCommand(output, context);
+    return de_CreateRecoveryGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

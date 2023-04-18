@@ -14,36 +14,57 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  DescribeBillingGroupRequest,
-  DescribeBillingGroupRequestFilterSensitiveLog,
-  DescribeBillingGroupResponse,
-  DescribeBillingGroupResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1DescribeBillingGroupCommand,
-  serializeAws_restJson1DescribeBillingGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeBillingGroupRequest, DescribeBillingGroupResponse } from "../models/models_1";
+import { de_DescribeBillingGroupCommand, se_DescribeBillingGroupCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeBillingGroupCommand}.
+ */
 export interface DescribeBillingGroupCommandInput extends DescribeBillingGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeBillingGroupCommand}.
+ */
 export interface DescribeBillingGroupCommandOutput extends DescribeBillingGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a billing group.</p>
- * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeBillingGroup</a> action.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeBillingGroup</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, DescribeBillingGroupCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeBillingGroupCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // DescribeBillingGroupRequest
+ *   billingGroupName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeBillingGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBillingGroupCommandInput - {@link DescribeBillingGroupCommandInput}
+ * @returns {@link DescribeBillingGroupCommandOutput}
  * @see {@link DescribeBillingGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeBillingGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
  *
  */
 export class DescribeBillingGroupCommand extends $Command<
@@ -63,6 +84,9 @@ export class DescribeBillingGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBillingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +115,8 @@ export class DescribeBillingGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeBillingGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeBillingGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +126,18 @@ export class DescribeBillingGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeBillingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeBillingGroupCommand(input, context);
+    return se_DescribeBillingGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBillingGroupCommandOutput> {
-    return deserializeAws_restJson1DescribeBillingGroupCommand(output, context);
+    return de_DescribeBillingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

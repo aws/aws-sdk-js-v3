@@ -6,12 +6,11 @@ import {
   ListPermissionSetProvisioningStatusCommandInput,
   ListPermissionSetProvisioningStatusCommandOutput,
 } from "../commands/ListPermissionSetProvisioningStatusCommand";
-import { SSOAdmin } from "../SSOAdmin";
 import { SSOAdminClient } from "../SSOAdminClient";
 import { SSOAdminPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SSOAdminClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListPermissionSetProvisioningStatusCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: SSOAdmin,
-  input: ListPermissionSetProvisioningStatusCommandInput,
-  ...args: any
-): Promise<ListPermissionSetProvisioningStatusCommandOutput> => {
-  // @ts-ignore
-  return await client.listPermissionSetProvisioningStatus(input, ...args);
-};
 export async function* paginateListPermissionSetProvisioningStatus(
   config: SSOAdminPaginationConfiguration,
   input: ListPermissionSetProvisioningStatusCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListPermissionSetProvisioningStatus(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof SSOAdmin) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SSOAdminClient) {
+    if (config.client instanceof SSOAdminClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SSOAdmin | SSOAdminClient");

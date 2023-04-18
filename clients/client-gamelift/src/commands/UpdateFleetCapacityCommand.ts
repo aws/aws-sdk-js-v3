@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  UpdateFleetCapacityInput,
-  UpdateFleetCapacityInputFilterSensitiveLog,
-  UpdateFleetCapacityOutput,
-  UpdateFleetCapacityOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateFleetCapacityCommand,
-  serializeAws_json1_1UpdateFleetCapacityCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateFleetCapacityInput, UpdateFleetCapacityOutput } from "../models/models_0";
+import { de_UpdateFleetCapacityCommand, se_UpdateFleetCapacityCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateFleetCapacityCommand}.
+ */
 export interface UpdateFleetCapacityCommandInput extends UpdateFleetCapacityInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateFleetCapacityCommand}.
+ */
 export interface UpdateFleetCapacityCommandOutput extends UpdateFleetCapacityOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates capacity settings for a fleet. For fleets with multiple locations, use this
  *             operation to manage capacity settings in each location individually. Fleet capacity
  *             determines the number of game sessions and players that can be hosted based on the fleet
@@ -80,13 +83,55 @@ export interface UpdateFleetCapacityCommandOutput extends UpdateFleetCapacityOut
  * import { GameLiftClient, UpdateFleetCapacityCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, UpdateFleetCapacityCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // UpdateFleetCapacityInput
+ *   FleetId: "STRING_VALUE", // required
+ *   DesiredInstances: Number("int"),
+ *   MinSize: Number("int"),
+ *   MaxSize: Number("int"),
+ *   Location: "STRING_VALUE",
+ * };
  * const command = new UpdateFleetCapacityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFleetCapacityCommandInput - {@link UpdateFleetCapacityCommandInput}
+ * @returns {@link UpdateFleetCapacityCommandOutput}
  * @see {@link UpdateFleetCapacityCommandInput} for command's `input` shape.
  * @see {@link UpdateFleetCapacityCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The requested operation would cause a conflict with the current state of a service
+ *             resource associated with the request. Resolve the conflict before retrying this
+ *             request.</p>
+ *         <p></p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an unrecoverable internal failure while processing the
+ *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * @throws {@link InvalidFleetStatusException} (client fault)
+ *  <p>The requested operation would cause a conflict with the current state of a resource
+ *             associated with the request and/or the fleet. Resolve the conflict before
+ *             retrying.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
+ *             values before retrying.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The requested operation would cause the resource to exceed the allowed service limit.
+ *             Resolve the issue before retrying.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
+ * @throws {@link UnsupportedRegionException} (client fault)
+ *  <p>The requested operation is not supported in the Region specified.</p>
+ *
  *
  */
 export class UpdateFleetCapacityCommand extends $Command<
@@ -106,6 +151,9 @@ export class UpdateFleetCapacityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFleetCapacityCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +182,8 @@ export class UpdateFleetCapacityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFleetCapacityInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFleetCapacityOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,12 +193,18 @@ export class UpdateFleetCapacityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFleetCapacityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateFleetCapacityCommand(input, context);
+    return se_UpdateFleetCapacityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFleetCapacityCommandOutput> {
-    return deserializeAws_json1_1UpdateFleetCapacityCommand(output, context);
+    return de_UpdateFleetCapacityCommand(output, context);
   }
 
   // Start section: command_body_extra

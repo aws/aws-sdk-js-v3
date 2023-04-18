@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameSparksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameSparksClient";
-import {
-  GetGeneratedCodeJobRequest,
-  GetGeneratedCodeJobRequestFilterSensitiveLog,
-  GetGeneratedCodeJobResult,
-  GetGeneratedCodeJobResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetGeneratedCodeJobCommand,
-  serializeAws_restJson1GetGeneratedCodeJobCommand,
-} from "../protocols/Aws_restJson1";
+import { GetGeneratedCodeJobRequest, GetGeneratedCodeJobResult } from "../models/models_0";
+import { de_GetGeneratedCodeJobCommand, se_GetGeneratedCodeJobCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetGeneratedCodeJobCommand}.
+ */
 export interface GetGeneratedCodeJobCommandInput extends GetGeneratedCodeJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetGeneratedCodeJobCommand}.
+ */
 export interface GetGeneratedCodeJobCommandOutput extends GetGeneratedCodeJobResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets details about a job that is generating code for a snapshot.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,36 @@ export interface GetGeneratedCodeJobCommandOutput extends GetGeneratedCodeJobRes
  * import { GameSparksClient, GetGeneratedCodeJobCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, GetGeneratedCodeJobCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
+ * const input = { // GetGeneratedCodeJobRequest
+ *   GameName: "STRING_VALUE", // required
+ *   SnapshotId: "STRING_VALUE", // required
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new GetGeneratedCodeJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetGeneratedCodeJobCommandInput - {@link GetGeneratedCodeJobCommandInput}
+ * @returns {@link GetGeneratedCodeJobCommandOutput}
  * @see {@link GetGeneratedCodeJobCommandInput} for command's `input` shape.
  * @see {@link GetGeneratedCodeJobCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The service encountered an internal error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request throughput limit was exceeded.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One of the parameters in the request is invalid.</p>
+ *
  *
  */
 export class GetGeneratedCodeJobCommand extends $Command<
@@ -62,6 +88,9 @@ export class GetGeneratedCodeJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetGeneratedCodeJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +119,8 @@ export class GetGeneratedCodeJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetGeneratedCodeJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetGeneratedCodeJobResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +130,18 @@ export class GetGeneratedCodeJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetGeneratedCodeJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetGeneratedCodeJobCommand(input, context);
+    return se_GetGeneratedCodeJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGeneratedCodeJobCommandOutput> {
-    return deserializeAws_restJson1GetGeneratedCodeJobCommand(output, context);
+    return de_GetGeneratedCodeJobCommand(output, context);
   }
 
   // Start section: command_body_extra

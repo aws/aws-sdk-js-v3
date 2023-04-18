@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteUserSettingsRequest,
-  DeleteUserSettingsRequestFilterSensitiveLog,
-  DeleteUserSettingsResponse,
-  DeleteUserSettingsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteUserSettingsCommand,
-  serializeAws_restJson1DeleteUserSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteUserSettingsRequest, DeleteUserSettingsResponse } from "../models/models_0";
+import { de_DeleteUserSettingsCommand, se_DeleteUserSettingsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteUserSettingsCommand}.
+ */
 export interface DeleteUserSettingsCommandInput extends DeleteUserSettingsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteUserSettingsCommand}.
+ */
 export interface DeleteUserSettingsCommandOutput extends DeleteUserSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes user settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,34 @@ export interface DeleteUserSettingsCommandOutput extends DeleteUserSettingsRespo
  * import { WorkSpacesWebClient, DeleteUserSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, DeleteUserSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = { // DeleteUserSettingsRequest
+ *   userSettingsArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteUserSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteUserSettingsCommandInput - {@link DeleteUserSettingsCommandInput}
+ * @returns {@link DeleteUserSettingsCommandOutput}
  * @see {@link DeleteUserSettingsCommandInput} for command's `input` shape.
  * @see {@link DeleteUserSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access is denied.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There is a conflict.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There is an internal server error.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>There is a throttling error.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There is a validation error.</p>
+ *
  *
  */
 export class DeleteUserSettingsCommand extends $Command<
@@ -62,6 +86,9 @@ export class DeleteUserSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteUserSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +117,8 @@ export class DeleteUserSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteUserSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteUserSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +128,18 @@ export class DeleteUserSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteUserSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteUserSettingsCommand(input, context);
+    return se_DeleteUserSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteUserSettingsCommandOutput> {
-    return deserializeAws_restJson1DeleteUserSettingsCommand(output, context);
+    return de_DeleteUserSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

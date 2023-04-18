@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeSnapshotsRequest,
-  DescribeSnapshotsRequestFilterSensitiveLog,
-  DescribeSnapshotsResult,
-  DescribeSnapshotsResultFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeSnapshotsCommand,
-  serializeAws_ec2DescribeSnapshotsCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeSnapshotsRequest, DescribeSnapshotsResult } from "../models/models_4";
+import { de_DescribeSnapshotsCommand, se_DescribeSnapshotsCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeSnapshotsCommand}.
+ */
 export interface DescribeSnapshotsCommandInput extends DescribeSnapshotsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeSnapshotsCommand}.
+ */
 export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified EBS snapshots available to you or all of the EBS snapshots
  *       available to you.</p>
  *          <p>The snapshots available to you include public snapshots, private snapshots that you own,
@@ -69,11 +72,7 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsResult,
  *         <code>self</code> for snapshots for which you own or have explicit permissions, or
  *         <code>all</code> for public snapshots.</p>
  *          <p>If you are describing a long list of snapshots, we recommend that you paginate the output to make the
- *       list more manageable. The <code>MaxResults</code> parameter sets the maximum number of results
- *       returned in a single page. If the list of results exceeds your <code>MaxResults</code> value,
- *       then that number of results is returned along with a <code>NextToken</code> value that can be
- *       passed to a subsequent <code>DescribeSnapshots</code> request to retrieve the remaining
- *       results.</p>
+ *       list more manageable. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
  *          <p>To get the state of fast snapshot restores for a snapshot, use <a>DescribeFastSnapshotRestores</a>.</p>
  *          <p>For more information about EBS snapshots, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html">Amazon EBS snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  * @example
@@ -82,13 +81,106 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsResult,
  * import { EC2Client, DescribeSnapshotsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeSnapshotsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeSnapshotsRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   OwnerIds: [ // OwnerStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   RestorableByUserIds: [ // RestorableByStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   SnapshotIds: [ // SnapshotIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   DryRun: true || false,
+ * };
  * const command = new DescribeSnapshotsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSnapshotsCommandInput - {@link DescribeSnapshotsCommandInput}
+ * @returns {@link DescribeSnapshotsCommandOutput}
  * @see {@link DescribeSnapshotsCommandInput} for command's `input` shape.
  * @see {@link DescribeSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ *
+ * @example To describe a snapshot
+ * ```javascript
+ * // This example describes a snapshot with the snapshot ID of ``snap-1234567890abcdef0``.
+ * const input = {
+ *   "SnapshotIds": [
+ *     "snap-1234567890abcdef0"
+ *   ]
+ * };
+ * const command = new DescribeSnapshotsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "NextToken": "",
+ *   "Snapshots": [
+ *     {
+ *       "Description": "This is my snapshot.",
+ *       "OwnerId": "012345678910",
+ *       "Progress": "100%",
+ *       "SnapshotId": "snap-1234567890abcdef0",
+ *       "StartTime": "2014-02-28T21:28:32.000Z",
+ *       "State": "completed",
+ *       "VolumeId": "vol-049df61146c4d7901",
+ *       "VolumeSize": 8
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-a-snapshot-1472503807850
+ * ```
+ *
+ * @example To describe snapshots using filters
+ * ```javascript
+ * // This example describes all snapshots owned by the ID 012345678910 that are in the ``pending`` status.
+ * const input = {
+ *   "Filters": [
+ *     {
+ *       "Name": "status",
+ *       "Values": [
+ *         "pending"
+ *       ]
+ *     }
+ *   ],
+ *   "OwnerIds": [
+ *     "012345678910"
+ *   ]
+ * };
+ * const command = new DescribeSnapshotsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "NextToken": "",
+ *   "Snapshots": [
+ *     {
+ *       "Description": "This is my copied snapshot.",
+ *       "OwnerId": "012345678910",
+ *       "Progress": "87%",
+ *       "SnapshotId": "snap-066877671789bd71b",
+ *       "StartTime": "2014-02-28T21:37:27.000Z",
+ *       "State": "pending",
+ *       "VolumeId": "vol-1234567890abcdef0",
+ *       "VolumeSize": 8
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-snapshots-using-filters-1472503929793
+ * ```
  *
  */
 export class DescribeSnapshotsCommand extends $Command<
@@ -108,6 +200,9 @@ export class DescribeSnapshotsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSnapshotsCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,8 +231,8 @@ export class DescribeSnapshotsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSnapshotsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSnapshotsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -147,12 +242,18 @@ export class DescribeSnapshotsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSnapshotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeSnapshotsCommand(input, context);
+    return se_DescribeSnapshotsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSnapshotsCommandOutput> {
-    return deserializeAws_ec2DescribeSnapshotsCommand(output, context);
+    return de_DescribeSnapshotsCommand(output, context);
   }
 
   // Start section: command_body_extra

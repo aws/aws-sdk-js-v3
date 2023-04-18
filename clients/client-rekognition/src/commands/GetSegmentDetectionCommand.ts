@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetSegmentDetectionRequest,
-  GetSegmentDetectionRequestFilterSensitiveLog,
-  GetSegmentDetectionResponse,
-  GetSegmentDetectionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetSegmentDetectionCommand,
-  serializeAws_json1_1GetSegmentDetectionCommand,
-} from "../protocols/Aws_json1_1";
+import { GetSegmentDetectionRequest, GetSegmentDetectionResponse } from "../models/models_0";
+import { de_GetSegmentDetectionCommand, se_GetSegmentDetectionCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetSegmentDetectionCommand}.
+ */
 export interface GetSegmentDetectionCommandInput extends GetSegmentDetectionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetSegmentDetectionCommand}.
+ */
 export interface GetSegmentDetectionCommandOutput extends GetSegmentDetectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the segment detection results of a Amazon Rekognition Video analysis started by <a>StartSegmentDetection</a>.</p>
  *          <p>Segment detection with Amazon Rekognition Video is an asynchronous operation. You start segment detection by
  *       calling <a>StartSegmentDetection</a> which returns a job identifier (<code>JobId</code>).
@@ -57,13 +60,44 @@ export interface GetSegmentDetectionCommandOutput extends GetSegmentDetectionRes
  * import { RekognitionClient, GetSegmentDetectionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, GetSegmentDetectionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // GetSegmentDetectionRequest
+ *   JobId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetSegmentDetectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSegmentDetectionCommandInput - {@link GetSegmentDetectionCommandInput}
+ * @returns {@link GetSegmentDetectionCommandOutput}
  * @see {@link GetSegmentDetectionCommandInput} for command's `input` shape.
  * @see {@link GetSegmentDetectionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to perform the action.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidPaginationTokenException} (client fault)
+ *  <p>Pagination token in the request is not valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
+ *       operation again.</p>
+ *
+ * @throws {@link ProvisionedThroughputExceededException} (client fault)
+ *  <p>The number of requests exceeded your throughput limit. If you want to increase this
+ *       limit, contact Amazon Rekognition.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request cannot be found.</p>
+ *
+ * @throws {@link ThrottlingException} (server fault)
+ *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
  *
  */
 export class GetSegmentDetectionCommand extends $Command<
@@ -83,6 +117,9 @@ export class GetSegmentDetectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSegmentDetectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +148,8 @@ export class GetSegmentDetectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSegmentDetectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSegmentDetectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +159,18 @@ export class GetSegmentDetectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSegmentDetectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSegmentDetectionCommand(input, context);
+    return se_GetSegmentDetectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSegmentDetectionCommandOutput> {
-    return deserializeAws_json1_1GetSegmentDetectionCommand(output, context);
+    return de_GetSegmentDetectionCommand(output, context);
   }
 
   // Start section: command_body_extra

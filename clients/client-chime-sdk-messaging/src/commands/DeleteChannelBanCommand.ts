@@ -18,21 +18,28 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ChimeSDKMessagingClient";
-import { DeleteChannelBanRequest, DeleteChannelBanRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteChannelBanCommand,
-  serializeAws_restJson1DeleteChannelBanCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteChannelBanRequest } from "../models/models_0";
+import { de_DeleteChannelBanCommand, se_DeleteChannelBanCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteChannelBanCommand}.
+ */
 export interface DeleteChannelBanCommandInput extends DeleteChannelBanRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteChannelBanCommand}.
+ */
 export interface DeleteChannelBanCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Removes a user from a channel's ban list.</p>
- *
+ * @public
+ * <p>Removes a member from a channel's ban list.</p>
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
- *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+ *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
  *             the header.</p>
  *          </note>
  * @example
@@ -41,13 +48,39 @@ export interface DeleteChannelBanCommandOutput extends __MetadataBearer {}
  * import { ChimeSDKMessagingClient, DeleteChannelBanCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, DeleteChannelBanCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
+ * const input = { // DeleteChannelBanRequest
+ *   ChannelArn: "STRING_VALUE", // required
+ *   MemberArn: "STRING_VALUE", // required
+ *   ChimeBearer: "STRING_VALUE", // required
+ * };
  * const command = new DeleteChannelBanCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteChannelBanCommandInput - {@link DeleteChannelBanCommandInput}
+ * @returns {@link DeleteChannelBanCommandOutput}
  * @see {@link DeleteChannelBanCommandInput} for command's `input` shape.
  * @see {@link DeleteChannelBanCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The client exceeded its request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client is not currently authorized to make the request.</p>
+ *
  *
  */
 export class DeleteChannelBanCommand extends $Command<
@@ -67,6 +100,9 @@ export class DeleteChannelBanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteChannelBanCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +131,8 @@ export class DeleteChannelBanCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteChannelBanRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +142,18 @@ export class DeleteChannelBanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteChannelBanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteChannelBanCommand(input, context);
+    return se_DeleteChannelBanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteChannelBanCommandOutput> {
-    return deserializeAws_restJson1DeleteChannelBanCommand(output, context);
+    return de_DeleteChannelBanCommand(output, context);
   }
 
   // Start section: command_body_extra

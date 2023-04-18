@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import {
-  DescribeUsersRequest,
-  DescribeUsersRequestFilterSensitiveLog,
-  DescribeUsersResult,
-  DescribeUsersResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeUsersCommand,
-  serializeAws_json1_1DescribeUsersCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeUsersRequest, DescribeUsersResult, DescribeUsersResultFilterSensitiveLog } from "../models/models_0";
+import { de_DescribeUsersCommand, se_DescribeUsersCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeUsersCommand}.
+ */
 export interface DescribeUsersCommandInput extends DescribeUsersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeUsersCommand}.
+ */
 export interface DescribeUsersCommandOutput extends DescribeUsersResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list that describes one or more specified users in the user pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,30 @@ export interface DescribeUsersCommandOutput extends DescribeUsersResult, __Metad
  * import { AppStreamClient, DescribeUsersCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DescribeUsersCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = { // DescribeUsersRequest
+ *   AuthenticationType: "API" || "SAML" || "USERPOOL" || "AWS_AD", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeUsersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeUsersCommandInput - {@link DescribeUsersCommandInput}
+ * @returns {@link DescribeUsersCommandOutput}
  * @see {@link DescribeUsersCommandInput} for command's `input` shape.
  * @see {@link DescribeUsersCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>The attempted operation is not permitted.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class DescribeUsersCommand extends $Command<
@@ -62,6 +82,9 @@ export class DescribeUsersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeUsersCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,7 +111,7 @@ export class DescribeUsersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeUsersRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeUsersResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -99,12 +122,18 @@ export class DescribeUsersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeUsersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeUsersCommand(input, context);
+    return se_DescribeUsersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeUsersCommandOutput> {
-    return deserializeAws_json1_1DescribeUsersCommand(output, context);
+    return de_DescribeUsersCommand(output, context);
   }
 
   // Start section: command_body_extra

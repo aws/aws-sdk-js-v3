@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeConnectClientAddInsRequest,
-  DescribeConnectClientAddInsRequestFilterSensitiveLog,
-  DescribeConnectClientAddInsResult,
-  DescribeConnectClientAddInsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeConnectClientAddInsCommand,
-  serializeAws_json1_1DescribeConnectClientAddInsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeConnectClientAddInsRequest, DescribeConnectClientAddInsResult } from "../models/models_0";
+import { de_DescribeConnectClientAddInsCommand, se_DescribeConnectClientAddInsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeConnectClientAddInsCommand}.
+ */
 export interface DescribeConnectClientAddInsCommandInput extends DescribeConnectClientAddInsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeConnectClientAddInsCommand}.
+ */
 export interface DescribeConnectClientAddInsCommandOutput extends DescribeConnectClientAddInsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of Amazon Connect client add-ins that have been created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,30 @@ export interface DescribeConnectClientAddInsCommandOutput extends DescribeConnec
  * import { WorkSpacesClient, DescribeConnectClientAddInsCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DescribeConnectClientAddInsCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // DescribeConnectClientAddInsRequest
+ *   ResourceId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeConnectClientAddInsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConnectClientAddInsCommandInput - {@link DescribeConnectClientAddInsCommandInput}
+ * @returns {@link DescribeConnectClientAddInsCommandOutput}
  * @see {@link DescribeConnectClientAddInsCommandInput} for command's `input` shape.
  * @see {@link DescribeConnectClientAddInsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The user is not authorized to access a resource.</p>
+ *
+ * @throws {@link InvalidParameterValuesException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
  *
  */
 export class DescribeConnectClientAddInsCommand extends $Command<
@@ -62,6 +82,9 @@ export class DescribeConnectClientAddInsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConnectClientAddInsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +113,8 @@ export class DescribeConnectClientAddInsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeConnectClientAddInsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeConnectClientAddInsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +124,21 @@ export class DescribeConnectClientAddInsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeConnectClientAddInsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeConnectClientAddInsCommand(input, context);
+    return se_DescribeConnectClientAddInsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeConnectClientAddInsCommandOutput> {
-    return deserializeAws_json1_1DescribeConnectClientAddInsCommand(output, context);
+    return de_DescribeConnectClientAddInsCommand(output, context);
   }
 
   // Start section: command_body_extra

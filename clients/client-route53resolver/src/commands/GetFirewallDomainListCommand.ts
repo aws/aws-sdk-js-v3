@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetFirewallDomainListRequest,
-  GetFirewallDomainListRequestFilterSensitiveLog,
-  GetFirewallDomainListResponse,
-  GetFirewallDomainListResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetFirewallDomainListCommand,
-  serializeAws_json1_1GetFirewallDomainListCommand,
-} from "../protocols/Aws_json1_1";
+import { GetFirewallDomainListRequest, GetFirewallDomainListResponse } from "../models/models_0";
+import { de_GetFirewallDomainListCommand, se_GetFirewallDomainListCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetFirewallDomainListCommand}.
+ */
 export interface GetFirewallDomainListCommandInput extends GetFirewallDomainListRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetFirewallDomainListCommand}.
+ */
 export interface GetFirewallDomainListCommandOutput extends GetFirewallDomainListResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the specified firewall domain list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,31 @@ export interface GetFirewallDomainListCommandOutput extends GetFirewallDomainLis
  * import { Route53ResolverClient, GetFirewallDomainListCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, GetFirewallDomainListCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = { // GetFirewallDomainListRequest
+ *   FirewallDomainListId: "STRING_VALUE", // required
+ * };
  * const command = new GetFirewallDomainListCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFirewallDomainListCommandInput - {@link GetFirewallDomainListCommandInput}
+ * @returns {@link GetFirewallDomainListCommandOutput}
  * @see {@link GetFirewallDomainListCommandInput} for command's `input` shape.
  * @see {@link GetFirewallDomainListCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (client fault)
+ *  <p>We encountered an unknown error. Try again in a few minutes.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource doesn't exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was throttled. Try again in a few minutes.</p>
+ *
  *
  */
 export class GetFirewallDomainListCommand extends $Command<
@@ -62,6 +83,9 @@ export class GetFirewallDomainListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFirewallDomainListCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +114,8 @@ export class GetFirewallDomainListCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFirewallDomainListRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetFirewallDomainListResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +125,18 @@ export class GetFirewallDomainListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFirewallDomainListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetFirewallDomainListCommand(input, context);
+    return se_GetFirewallDomainListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFirewallDomainListCommandOutput> {
-    return deserializeAws_json1_1GetFirewallDomainListCommand(output, context);
+    return de_GetFirewallDomainListCommand(output, context);
   }
 
   // Start section: command_body_extra

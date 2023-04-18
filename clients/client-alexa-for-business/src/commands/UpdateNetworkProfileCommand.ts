@@ -18,17 +18,24 @@ import {
   UpdateNetworkProfileRequest,
   UpdateNetworkProfileRequestFilterSensitiveLog,
   UpdateNetworkProfileResponse,
-  UpdateNetworkProfileResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateNetworkProfileCommand,
-  serializeAws_json1_1UpdateNetworkProfileCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateNetworkProfileCommand, se_UpdateNetworkProfileCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateNetworkProfileCommand}.
+ */
 export interface UpdateNetworkProfileCommandInput extends UpdateNetworkProfileRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateNetworkProfileCommand}.
+ */
 export interface UpdateNetworkProfileCommandOutput extends UpdateNetworkProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a network profile by the network profile ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +43,42 @@ export interface UpdateNetworkProfileCommandOutput extends UpdateNetworkProfileR
  * import { AlexaForBusinessClient, UpdateNetworkProfileCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, UpdateNetworkProfileCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // UpdateNetworkProfileRequest
+ *   NetworkProfileArn: "STRING_VALUE", // required
+ *   NetworkProfileName: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   CurrentPassword: "STRING_VALUE",
+ *   NextPassword: "STRING_VALUE",
+ *   CertificateAuthorityArn: "STRING_VALUE",
+ *   TrustAnchors: [ // TrustAnchorList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateNetworkProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateNetworkProfileCommandInput - {@link UpdateNetworkProfileCommandInput}
+ * @returns {@link UpdateNetworkProfileCommandOutput}
  * @see {@link UpdateNetworkProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateNetworkProfileCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is a concurrent modification of resources.</p>
+ *
+ * @throws {@link InvalidCertificateAuthorityException} (client fault)
+ *  <p>The Certificate Authority can't issue or revoke a certificate.</p>
+ *
+ * @throws {@link InvalidSecretsManagerResourceException} (client fault)
+ *  <p>A password in SecretsManager is in an invalid state.</p>
+ *
+ * @throws {@link NameInUseException} (client fault)
+ *  <p>The name sent in the request is already in use.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
  *
  */
 export class UpdateNetworkProfileCommand extends $Command<
@@ -62,6 +98,9 @@ export class UpdateNetworkProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateNetworkProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,7 +130,7 @@ export class UpdateNetworkProfileCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateNetworkProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateNetworkProfileResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +140,18 @@ export class UpdateNetworkProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateNetworkProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateNetworkProfileCommand(input, context);
+    return se_UpdateNetworkProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateNetworkProfileCommandOutput> {
-    return deserializeAws_json1_1UpdateNetworkProfileCommand(output, context);
+    return de_UpdateNetworkProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

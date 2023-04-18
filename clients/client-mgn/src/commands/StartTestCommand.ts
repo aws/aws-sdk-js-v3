@@ -20,15 +20,23 @@ import {
   StartTestResponse,
   StartTestResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartTestCommand,
-  serializeAws_restJson1StartTestCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartTestCommand, se_StartTestCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link StartTestCommand}.
+ */
 export interface StartTestCommandInput extends StartTestRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartTestCommand}.
+ */
 export interface StartTestCommandOutput extends StartTestResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Launches a Test Instance for specific Source Servers. This command starts a LAUNCH job whose initiatedBy property is StartTest and changes the SourceServer.lifeCycle.state property to TESTING.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +44,33 @@ export interface StartTestCommandOutput extends StartTestResponse, __MetadataBea
  * import { MgnClient, StartTestCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, StartTestCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = { // StartTestRequest
+ *   sourceServerIDs: [ // StartTestRequestSourceServerIDs // required
+ *     "STRING_VALUE",
+ *   ],
+ *   tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new StartTestCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartTestCommandInput - {@link StartTestCommandInput}
+ * @returns {@link StartTestCommandOutput}
  * @see {@link StartTestCommandInput} for command's `input` shape.
  * @see {@link StartTestCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+ *
+ * @throws {@link UninitializedAccountException} (client fault)
+ *  <p>Uninitialized account exception.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Validate exception.</p>
+ *
  *
  */
 export class StartTestCommand extends $Command<StartTestCommandInput, StartTestCommandOutput, MgnClientResolvedConfig> {
@@ -58,6 +86,9 @@ export class StartTestCommand extends $Command<StartTestCommandInput, StartTestC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartTestCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,12 +126,18 @@ export class StartTestCommand extends $Command<StartTestCommandInput, StartTestC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartTestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartTestCommand(input, context);
+    return se_StartTestCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartTestCommandOutput> {
-    return deserializeAws_restJson1StartTestCommand(output, context);
+    return de_StartTestCommand(output, context);
   }
 
   // Start section: command_body_extra

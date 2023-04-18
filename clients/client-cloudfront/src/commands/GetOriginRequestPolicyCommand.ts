@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  GetOriginRequestPolicyRequest,
-  GetOriginRequestPolicyRequestFilterSensitiveLog,
-  GetOriginRequestPolicyResult,
-  GetOriginRequestPolicyResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlGetOriginRequestPolicyCommand,
-  serializeAws_restXmlGetOriginRequestPolicyCommand,
-} from "../protocols/Aws_restXml";
+import { GetOriginRequestPolicyRequest, GetOriginRequestPolicyResult } from "../models/models_1";
+import { de_GetOriginRequestPolicyCommand, se_GetOriginRequestPolicyCommand } from "../protocols/Aws_restXml";
 
+/**
+ * @public
+ *
+ * The input for {@link GetOriginRequestPolicyCommand}.
+ */
 export interface GetOriginRequestPolicyCommandInput extends GetOriginRequestPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetOriginRequestPolicyCommand}.
+ */
 export interface GetOriginRequestPolicyCommandOutput extends GetOriginRequestPolicyResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets an origin request policy, including the following metadata:</p>
  *          <ul>
  *             <li>
@@ -50,13 +53,25 @@ export interface GetOriginRequestPolicyCommandOutput extends GetOriginRequestPol
  * import { CloudFrontClient, GetOriginRequestPolicyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, GetOriginRequestPolicyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // GetOriginRequestPolicyRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetOriginRequestPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetOriginRequestPolicyCommandInput - {@link GetOriginRequestPolicyCommandInput}
+ * @returns {@link GetOriginRequestPolicyCommandOutput}
  * @see {@link GetOriginRequestPolicyCommandInput} for command's `input` shape.
  * @see {@link GetOriginRequestPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link NoSuchOriginRequestPolicy} (client fault)
+ *  <p>The origin request policy does not exist.</p>
+ *
  *
  */
 export class GetOriginRequestPolicyCommand extends $Command<
@@ -76,6 +91,9 @@ export class GetOriginRequestPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetOriginRequestPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +122,8 @@ export class GetOriginRequestPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetOriginRequestPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetOriginRequestPolicyResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +133,18 @@ export class GetOriginRequestPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetOriginRequestPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetOriginRequestPolicyCommand(input, context);
+    return se_GetOriginRequestPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetOriginRequestPolicyCommandOutput> {
-    return deserializeAws_restXmlGetOriginRequestPolicyCommand(output, context);
+    return de_GetOriginRequestPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

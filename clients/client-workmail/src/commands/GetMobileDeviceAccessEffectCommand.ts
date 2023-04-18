@@ -13,24 +13,27 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetMobileDeviceAccessEffectRequest,
-  GetMobileDeviceAccessEffectRequestFilterSensitiveLog,
-  GetMobileDeviceAccessEffectResponse,
-  GetMobileDeviceAccessEffectResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetMobileDeviceAccessEffectCommand,
-  serializeAws_json1_1GetMobileDeviceAccessEffectCommand,
-} from "../protocols/Aws_json1_1";
+import { GetMobileDeviceAccessEffectRequest, GetMobileDeviceAccessEffectResponse } from "../models/models_0";
+import { de_GetMobileDeviceAccessEffectCommand, se_GetMobileDeviceAccessEffectCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetMobileDeviceAccessEffectCommand}.
+ */
 export interface GetMobileDeviceAccessEffectCommandInput extends GetMobileDeviceAccessEffectRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetMobileDeviceAccessEffectCommand}.
+ */
 export interface GetMobileDeviceAccessEffectCommandOutput
   extends GetMobileDeviceAccessEffectResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Simulates the effect of the mobile device access rules for the given attributes of a sample access event. Use this method to test the effects of the current set of mobile device access
  *          rules for the WorkMail organization for a particular user's attributes.</p>
  * @example
@@ -39,13 +42,34 @@ export interface GetMobileDeviceAccessEffectCommandOutput
  * import { WorkMailClient, GetMobileDeviceAccessEffectCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, GetMobileDeviceAccessEffectCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = { // GetMobileDeviceAccessEffectRequest
+ *   OrganizationId: "STRING_VALUE", // required
+ *   DeviceType: "STRING_VALUE",
+ *   DeviceModel: "STRING_VALUE",
+ *   DeviceOperatingSystem: "STRING_VALUE",
+ *   DeviceUserAgent: "STRING_VALUE",
+ * };
  * const command = new GetMobileDeviceAccessEffectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMobileDeviceAccessEffectCommandInput - {@link GetMobileDeviceAccessEffectCommandInput}
+ * @returns {@link GetMobileDeviceAccessEffectCommandOutput}
  * @see {@link GetMobileDeviceAccessEffectCommandInput} for command's `input` shape.
  * @see {@link GetMobileDeviceAccessEffectCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link OrganizationNotFoundException} (client fault)
+ *  <p>An operation received a valid organization identifier that either doesn't belong or
+ *          exist in the system.</p>
+ *
+ * @throws {@link OrganizationStateException} (client fault)
+ *  <p>The organization must have a valid state to perform certain
+ *          operations on the organization or its members.</p>
+ *
  *
  */
 export class GetMobileDeviceAccessEffectCommand extends $Command<
@@ -65,6 +89,9 @@ export class GetMobileDeviceAccessEffectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMobileDeviceAccessEffectCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +120,8 @@ export class GetMobileDeviceAccessEffectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMobileDeviceAccessEffectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMobileDeviceAccessEffectResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,15 +131,21 @@ export class GetMobileDeviceAccessEffectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMobileDeviceAccessEffectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetMobileDeviceAccessEffectCommand(input, context);
+    return se_GetMobileDeviceAccessEffectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetMobileDeviceAccessEffectCommandOutput> {
-    return deserializeAws_json1_1GetMobileDeviceAccessEffectCommand(output, context);
+    return de_GetMobileDeviceAccessEffectCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { IvsServiceException as __BaseException } from "./IvsServiceException";
 
 /**
+ * @public
  * <p/>
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,6 +28,9 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface BatchGetChannelRequest {
   /**
    * <p>Array of ARNs, one per channel.</p>
@@ -34,17 +38,36 @@ export interface BatchGetChannelRequest {
   arns: string[] | undefined;
 }
 
-export enum ChannelLatencyMode {
-  LowLatency = "LOW",
-  NormalLatency = "NORMAL",
-}
-
-export enum ChannelType {
-  BasicChannelType = "BASIC",
-  StandardChannelType = "STANDARD",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ChannelLatencyMode = {
+  LowLatency: "LOW",
+  NormalLatency: "NORMAL",
+} as const;
 
 /**
+ * @public
+ */
+export type ChannelLatencyMode = (typeof ChannelLatencyMode)[keyof typeof ChannelLatencyMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const ChannelType = {
+  BasicChannelType: "BASIC",
+  StandardChannelType: "STANDARD",
+} as const;
+
+/**
+ * @public
+ */
+export type ChannelType = (typeof ChannelType)[keyof typeof ChannelType];
+
+/**
+ * @public
  * <p>Object specifying a channel.</p>
  */
 export interface Channel {
@@ -115,15 +138,21 @@ export interface Channel {
   authorized?: boolean;
 
   /**
-   * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
-   *       more information, including restrictions that apply to tags and "Tag naming limits and
-   *       requirements"; Amazon IVS has no service-specific constraints beyond what is documented
-   *       there.</p>
+   * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string
+   *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for more information, including restrictions
+   *       that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no
+   *       service-specific constraints beyond what is documented there.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>Whether the channel allows insecure RTMP ingest. Default: <code>false</code>.</p>
+   */
+  insecureIngest?: boolean;
 }
 
 /**
+ * @public
  * <p>Error related to a specific channel, specified by its ARN.</p>
  */
 export interface BatchError {
@@ -143,6 +172,9 @@ export interface BatchError {
   message?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetChannelResponse {
   /**
    * <p/>
@@ -155,14 +187,18 @@ export interface BatchGetChannelResponse {
   errors?: BatchError[];
 }
 
+/**
+ * @public
+ */
 export interface BatchGetStreamKeyRequest {
   /**
-   * <p>Array of ARNs, one per channel.</p>
+   * <p>Array of ARNs, one per stream key.</p>
    */
   arns: string[] | undefined;
 }
 
 /**
+ * @public
  * <p>Object specifying a stream key.</p>
  */
 export interface StreamKey {
@@ -182,14 +218,17 @@ export interface StreamKey {
   channelArn?: string;
 
   /**
-   * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
-   *       more information, including restrictions that apply to tags and "Tag naming limits and
-   *       requirements"; Amazon IVS has no service-specific constraints beyond what is documented
-   *       there.</p>
+   * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string
+   *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for more information, including restrictions
+   *       that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no
+   *       service-specific constraints beyond what is documented there.</p>
    */
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetStreamKeyResponse {
   /**
    * <p/>
@@ -202,6 +241,9 @@ export interface BatchGetStreamKeyResponse {
   errors?: BatchError[];
 }
 
+/**
+ * @public
+ */
 export interface CreateChannelRequest {
   /**
    * <p>Channel name.</p>
@@ -259,8 +301,16 @@ export interface CreateChannelRequest {
    *       there.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>Whether the channel allows insecure RTMP ingest. Default: <code>false</code>.</p>
+   */
+  insecureIngest?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateChannelResponse {
   /**
    * <p/>
@@ -274,6 +324,7 @@ export interface CreateChannelResponse {
 }
 
 /**
+ * @public
  * <p/>
  */
 export class PendingVerification extends __BaseException {
@@ -298,6 +349,7 @@ export class PendingVerification extends __BaseException {
 }
 
 /**
+ * @public
  * <p/>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -322,6 +374,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p/>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -346,6 +399,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p/>
  */
 export class ValidationException extends __BaseException {
@@ -370,6 +424,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p/>
  */
 export class ConflictException extends __BaseException {
@@ -394,6 +449,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A complex type that describes an S3 location where recorded videos will be stored.</p>
  */
 export interface S3DestinationConfiguration {
@@ -404,6 +460,7 @@ export interface S3DestinationConfiguration {
 }
 
 /**
+ * @public
  * <p>A complex type that describes a location where recorded videos will be stored. Each member
  *       represents a type of destination configuration. For recording, you define one and only one
  *       type of destination configuration.</p>
@@ -415,12 +472,22 @@ export interface DestinationConfiguration {
   s3?: S3DestinationConfiguration;
 }
 
-export enum RecordingMode {
-  Disabled = "DISABLED",
-  Interval = "INTERVAL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RecordingMode = {
+  Disabled: "DISABLED",
+  Interval: "INTERVAL",
+} as const;
 
 /**
+ * @public
+ */
+export type RecordingMode = (typeof RecordingMode)[keyof typeof RecordingMode];
+
+/**
+ * @public
  * <p>An object representing a configuration of thumbnails for recorded video.</p>
  */
 export interface ThumbnailConfiguration {
@@ -444,6 +511,9 @@ export interface ThumbnailConfiguration {
   targetIntervalSeconds?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateRecordingConfigurationRequest {
   /**
    * <p>Recording-configuration name. The value does not need to be unique.</p>
@@ -477,13 +547,24 @@ export interface CreateRecordingConfigurationRequest {
   recordingReconnectWindowSeconds?: number;
 }
 
-export enum RecordingConfigurationState {
-  Active = "ACTIVE",
-  CreateFailed = "CREATE_FAILED",
-  Creating = "CREATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RecordingConfigurationState = {
+  Active: "ACTIVE",
+  CreateFailed: "CREATE_FAILED",
+  Creating: "CREATING",
+} as const;
 
 /**
+ * @public
+ */
+export type RecordingConfigurationState =
+  (typeof RecordingConfigurationState)[keyof typeof RecordingConfigurationState];
+
+/**
+ * @public
  * <p>An object representing a configuration to record a channel stream.</p>
  */
 export interface RecordingConfiguration {
@@ -509,10 +590,10 @@ export interface RecordingConfiguration {
   state: RecordingConfigurationState | string | undefined;
 
   /**
-   * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
-   *       more information, including restrictions that apply to tags and "Tag naming limits and
-   *       requirements"; Amazon IVS has no service-specific constraints beyond what is documented
-   *       there.</p>
+   * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string
+   *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for more information, including restrictions
+   *       that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no
+   *       service-specific constraints beyond what is documented there.</p>
    */
   tags?: Record<string, string>;
 
@@ -529,6 +610,9 @@ export interface RecordingConfiguration {
   recordingReconnectWindowSeconds?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateRecordingConfigurationResponse {
   /**
    *
@@ -537,6 +621,7 @@ export interface CreateRecordingConfigurationResponse {
 }
 
 /**
+ * @public
  * <p/>
  */
 export class InternalServerException extends __BaseException {
@@ -560,6 +645,9 @@ export class InternalServerException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateStreamKeyRequest {
   /**
    * <p>ARN of the channel for which to create the stream key.</p>
@@ -575,6 +663,9 @@ export interface CreateStreamKeyRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateStreamKeyResponse {
   /**
    * <p>Stream key used to authenticate an RTMPS stream for ingestion.</p>
@@ -582,6 +673,9 @@ export interface CreateStreamKeyResponse {
   streamKey?: StreamKey;
 }
 
+/**
+ * @public
+ */
 export interface DeleteChannelRequest {
   /**
    * <p>ARN of the channel to be deleted.</p>
@@ -589,6 +683,9 @@ export interface DeleteChannelRequest {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePlaybackKeyPairRequest {
   /**
    * <p>ARN of the key pair to be deleted.</p>
@@ -596,8 +693,14 @@ export interface DeletePlaybackKeyPairRequest {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePlaybackKeyPairResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteRecordingConfigurationRequest {
   /**
    * <p>ARN of the recording configuration to be deleted.</p>
@@ -605,6 +708,9 @@ export interface DeleteRecordingConfigurationRequest {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteStreamKeyRequest {
   /**
    * <p>ARN of the stream key to be deleted.</p>
@@ -612,6 +718,9 @@ export interface DeleteStreamKeyRequest {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetChannelRequest {
   /**
    * <p>ARN of the channel for which the configuration is to be retrieved.</p>
@@ -619,6 +728,9 @@ export interface GetChannelRequest {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetChannelResponse {
   /**
    * <p/>
@@ -626,6 +738,9 @@ export interface GetChannelResponse {
   channel?: Channel;
 }
 
+/**
+ * @public
+ */
 export interface GetPlaybackKeyPairRequest {
   /**
    * <p>ARN of the key pair to be returned.</p>
@@ -634,6 +749,7 @@ export interface GetPlaybackKeyPairRequest {
 }
 
 /**
+ * @public
  * <p>A key pair used to sign and validate a playback authorization token.</p>
  */
 export interface PlaybackKeyPair {
@@ -653,14 +769,17 @@ export interface PlaybackKeyPair {
   fingerprint?: string;
 
   /**
-   * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
-   *       more information, including restrictions that apply to tags and "Tag naming limits and
-   *       requirements"; Amazon IVS has no service-specific constraints beyond what is documented
-   *       there.</p>
+   * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string
+   *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for more information, including restrictions
+   *       that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no
+   *       service-specific constraints beyond what is documented there.</p>
    */
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetPlaybackKeyPairResponse {
   /**
    *
@@ -668,6 +787,9 @@ export interface GetPlaybackKeyPairResponse {
   keyPair?: PlaybackKeyPair;
 }
 
+/**
+ * @public
+ */
 export interface GetRecordingConfigurationRequest {
   /**
    * <p>ARN of the recording configuration to be retrieved.</p>
@@ -675,6 +797,9 @@ export interface GetRecordingConfigurationRequest {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetRecordingConfigurationResponse {
   /**
    *
@@ -683,6 +808,7 @@ export interface GetRecordingConfigurationResponse {
 }
 
 /**
+ * @public
  * <p/>
  */
 export class ChannelNotBroadcasting extends __BaseException {
@@ -706,6 +832,9 @@ export class ChannelNotBroadcasting extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetStreamRequest {
   /**
    * <p>Channel ARN for stream to be accessed.</p>
@@ -713,18 +842,37 @@ export interface GetStreamRequest {
   channelArn: string | undefined;
 }
 
-export enum StreamHealth {
-  Starving = "STARVING",
-  StreamHealthy = "HEALTHY",
-  Unknown = "UNKNOWN",
-}
-
-export enum StreamState {
-  StreamLive = "LIVE",
-  StreamOffline = "OFFLINE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StreamHealth = {
+  Starving: "STARVING",
+  StreamHealthy: "HEALTHY",
+  Unknown: "UNKNOWN",
+} as const;
 
 /**
+ * @public
+ */
+export type StreamHealth = (typeof StreamHealth)[keyof typeof StreamHealth];
+
+/**
+ * @public
+ * @enum
+ */
+export const StreamState = {
+  StreamLive: "LIVE",
+  StreamOffline: "OFFLINE",
+} as const;
+
+/**
+ * @public
+ */
+export type StreamState = (typeof StreamState)[keyof typeof StreamState];
+
+/**
+ * @public
  * <p>Specifies a live video stream that has been ingested and distributed.</p>
  */
 export interface _Stream {
@@ -750,7 +898,9 @@ export interface _Stream {
   startTime?: Date;
 
   /**
-   * <p>The stream’s state.</p>
+   * <p>The stream’s state. Do not rely on the <code>OFFLINE</code> state, as the API may not
+   *       return it; instead, a "NotBroadcasting" error will indicate that the stream is not
+   *       live.</p>
    */
   state?: StreamState | string;
 
@@ -768,6 +918,9 @@ export interface _Stream {
   viewerCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetStreamResponse {
   /**
    * <p/>
@@ -775,6 +928,9 @@ export interface GetStreamResponse {
   stream?: _Stream;
 }
 
+/**
+ * @public
+ */
 export interface GetStreamKeyRequest {
   /**
    * <p>ARN for the stream key to be retrieved.</p>
@@ -782,6 +938,9 @@ export interface GetStreamKeyRequest {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetStreamKeyResponse {
   /**
    *
@@ -789,6 +948,9 @@ export interface GetStreamKeyResponse {
   streamKey?: StreamKey;
 }
 
+/**
+ * @public
+ */
 export interface GetStreamSessionRequest {
   /**
    * <p>ARN of the channel resource</p>
@@ -804,6 +966,7 @@ export interface GetStreamSessionRequest {
 }
 
 /**
+ * @public
  * <p>Object specifying a stream’s audio configuration, as set up by the broadcaster (usually in
  *       an encoder). This is part of the <a>IngestConfiguration</a> object and used for
  *       monitoring stream health.</p>
@@ -831,6 +994,7 @@ export interface AudioConfiguration {
 }
 
 /**
+ * @public
  * <p>Object specifying a stream’s video configuration, as set up by the broadcaster (usually in
  *       an encoder). This is part of the <a>IngestConfiguration</a> object and used for
  *       monitoring stream health.</p>
@@ -880,6 +1044,7 @@ export interface VideoConfiguration {
 }
 
 /**
+ * @public
  * <p>Object specifying the ingest configuration set up by the broadcaster, usually in an
  *       encoder.</p>
  */
@@ -896,6 +1061,7 @@ export interface IngestConfiguration {
 }
 
 /**
+ * @public
  * <p>Object specifying a stream’s events. For a list of events, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/eventbridge.html">Using Amazon EventBridge with Amazon
  *       IVS</a>.</p>
  */
@@ -918,6 +1084,7 @@ export interface StreamEvent {
 }
 
 /**
+ * @public
  * <p>Object that captures the Amazon IVS configuration that the customer provisioned, the
  *       ingest configurations that the broadcaster used, and the most recent Amazon IVS stream events
  *       it encountered.</p>
@@ -963,6 +1130,9 @@ export interface StreamSession {
   truncatedEvents?: StreamEvent[];
 }
 
+/**
+ * @public
+ */
 export interface GetStreamSessionResponse {
   /**
    * <p>List of stream details.</p>
@@ -970,6 +1140,9 @@ export interface GetStreamSessionResponse {
   streamSession?: StreamSession;
 }
 
+/**
+ * @public
+ */
 export interface ImportPlaybackKeyPairRequest {
   /**
    * <p>The public portion of a customer-generated key pair.</p>
@@ -990,6 +1163,9 @@ export interface ImportPlaybackKeyPairRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ImportPlaybackKeyPairResponse {
   /**
    * <p/>
@@ -997,6 +1173,9 @@ export interface ImportPlaybackKeyPairResponse {
   keyPair?: PlaybackKeyPair;
 }
 
+/**
+ * @public
+ */
 export interface ListChannelsRequest {
   /**
    * <p>Filters the channel list to match the specified name.</p>
@@ -1021,6 +1200,7 @@ export interface ListChannelsRequest {
 }
 
 /**
+ * @public
  * <p>Summary information about a channel.</p>
  */
 export interface ChannelSummary {
@@ -1055,14 +1235,22 @@ export interface ChannelSummary {
   recordingConfigurationArn?: string;
 
   /**
-   * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
-   *       more information, including restrictions that apply to tags and "Tag naming limits and
-   *       requirements"; Amazon IVS has no service-specific constraints beyond what is documented
-   *       there.</p>
+   * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string
+   *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for more information, including restrictions
+   *       that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no
+   *       service-specific constraints beyond what is documented there.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>Whether the channel allows insecure RTMP ingest. Default: <code>false</code>.</p>
+   */
+  insecureIngest?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ListChannelsResponse {
   /**
    * <p>List of the matching channels.</p>
@@ -1076,6 +1264,9 @@ export interface ListChannelsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPlaybackKeyPairsRequest {
   /**
    * <p>The first key pair to retrieve. This is used for pagination; see the
@@ -1091,6 +1282,7 @@ export interface ListPlaybackKeyPairsRequest {
 }
 
 /**
+ * @public
  * <p>Summary information about a playback key pair.</p>
  */
 export interface PlaybackKeyPairSummary {
@@ -1105,14 +1297,17 @@ export interface PlaybackKeyPairSummary {
   name?: string;
 
   /**
-   * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
-   *       more information, including restrictions that apply to tags and "Tag naming limits and
-   *       requirements"; Amazon IVS has no service-specific constraints beyond what is documented
-   *       there.</p>
+   * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string
+   *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for more information, including restrictions
+   *       that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no
+   *       service-specific constraints beyond what is documented there.</p>
    */
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListPlaybackKeyPairsResponse {
   /**
    * <p>List of key pairs.</p>
@@ -1126,6 +1321,9 @@ export interface ListPlaybackKeyPairsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRecordingConfigurationsRequest {
   /**
    * <p>The first recording configuration to retrieve. This is used for pagination; see the
@@ -1141,6 +1339,7 @@ export interface ListRecordingConfigurationsRequest {
 }
 
 /**
+ * @public
  * <p>Summary information about a RecordingConfiguration.</p>
  */
 export interface RecordingConfigurationSummary {
@@ -1166,14 +1365,17 @@ export interface RecordingConfigurationSummary {
   state: RecordingConfigurationState | string | undefined;
 
   /**
-   * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
-   *       more information, including restrictions that apply to tags and "Tag naming limits and
-   *       requirements"; Amazon IVS has no service-specific constraints beyond what is documented
-   *       there.</p>
+   * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string
+   *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for more information, including restrictions
+   *       that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no
+   *       service-specific constraints beyond what is documented there.</p>
    */
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListRecordingConfigurationsResponse {
   /**
    * <p>List of the matching recording configurations.</p>
@@ -1187,6 +1389,9 @@ export interface ListRecordingConfigurationsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListStreamKeysRequest {
   /**
    * <p>Channel ARN used to filter the list.</p>
@@ -1206,6 +1411,7 @@ export interface ListStreamKeysRequest {
 }
 
 /**
+ * @public
  * <p>Summary information about a stream key.</p>
  */
 export interface StreamKeySummary {
@@ -1220,14 +1426,17 @@ export interface StreamKeySummary {
   channelArn?: string;
 
   /**
-   * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
-   *       more information, including restrictions that apply to tags and "Tag naming limits and
-   *       requirements"; Amazon IVS has no service-specific constraints beyond what is documented
-   *       there.</p>
+   * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string
+   *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for more information, including restrictions
+   *       that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no
+   *       service-specific constraints beyond what is documented there.</p>
    */
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListStreamKeysResponse {
   /**
    * <p>List of stream keys.</p>
@@ -1242,6 +1451,7 @@ export interface ListStreamKeysResponse {
 }
 
 /**
+ * @public
  * <p>Object specifying the stream attribute on which to filter.</p>
  */
 export interface StreamFilters {
@@ -1251,6 +1461,9 @@ export interface StreamFilters {
   health?: StreamHealth | string;
 }
 
+/**
+ * @public
+ */
 export interface ListStreamsRequest {
   /**
    * <p>Filters the stream list to match the specified criterion.</p>
@@ -1270,6 +1483,7 @@ export interface ListStreamsRequest {
 }
 
 /**
+ * @public
  * <p>Summary information about a stream.</p>
  */
 export interface StreamSummary {
@@ -1284,7 +1498,8 @@ export interface StreamSummary {
   streamId?: string;
 
   /**
-   * <p>The stream’s state.</p>
+   * <p>The stream’s state. Do not rely on the <code>OFFLINE</code> state, as the API may not return it;
+   *       instead, a "NotBroadcasting" error will indicate that the stream is not live.</p>
    */
   state?: StreamState | string;
 
@@ -1308,6 +1523,9 @@ export interface StreamSummary {
   startTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListStreamsResponse {
   /**
    * <p>List of streams.</p>
@@ -1321,6 +1539,9 @@ export interface ListStreamsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListStreamSessionsRequest {
   /**
    * <p>Channel ARN used to filter the list.</p>
@@ -1340,6 +1561,7 @@ export interface ListStreamSessionsRequest {
 }
 
 /**
+ * @public
  * <p>Summary information about a stream session.</p>
  */
 export interface StreamSessionSummary {
@@ -1366,6 +1588,9 @@ export interface StreamSessionSummary {
   hasErrorEvent?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ListStreamSessionsResponse {
   /**
    * <p>List of stream sessions.</p>
@@ -1379,6 +1604,9 @@ export interface ListStreamSessionsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the resource to be retrieved. The ARN must be URL-encoded.</p>
@@ -1386,13 +1614,19 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
-   * <p/>
+   * <p>Tags attached to the resource. Array of maps, each of the form <code>string:string (key:value)</code>.</p>
    */
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutMetadataRequest {
   /**
    * <p>ARN of the channel into which metadata is inserted. This channel must have an active
@@ -1407,6 +1641,7 @@ export interface PutMetadataRequest {
 }
 
 /**
+ * @public
  * <p/>
  */
 export class ThrottlingException extends __BaseException {
@@ -1430,6 +1665,9 @@ export class ThrottlingException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface StopStreamRequest {
   /**
    * <p>ARN of the channel for which the stream is to be stopped.</p>
@@ -1437,9 +1675,13 @@ export interface StopStreamRequest {
   channelArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopStreamResponse {}
 
 /**
+ * @public
  * <p/>
  */
 export class StreamUnavailable extends __BaseException {
@@ -1463,6 +1705,9 @@ export class StreamUnavailable extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>ARN of the resource for which tags are to be added or updated. The ARN must be
@@ -1471,7 +1716,7 @@ export interface TagResourceRequest {
   resourceArn: string | undefined;
 
   /**
-   * <p>Array of tags to be added or updated. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
+   * <p>Array of tags to be added or updated. Array of maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
    *       more information, including restrictions that apply to tags and "Tag naming limits and
    *       requirements"; Amazon IVS has no service-specific constraints beyond what is documented
    *       there.</p>
@@ -1479,8 +1724,14 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>ARN of the resource for which tags are to be removed. The ARN must be URL-encoded.</p>
@@ -1488,7 +1739,7 @@ export interface UntagResourceRequest {
   resourceArn: string | undefined;
 
   /**
-   * <p>Array of tags to be removed. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
+   * <p>Array of tags to be removed. Array of maps, each of the form s<code>tring:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
    *       more information, including restrictions that apply to tags and "Tag naming limits and
    *       requirements"; Amazon IVS has no service-specific constraints beyond what is documented
    *       there.</p>
@@ -1496,8 +1747,14 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateChannelRequest {
   /**
    * <p>ARN of the channel to be updated.</p>
@@ -1552,49 +1809,22 @@ export interface UpdateChannelRequest {
    *       value other than an empty string indicates that recording is enabled</p>
    */
   recordingConfigurationArn?: string;
+
+  /**
+   * <p>Whether the channel allows insecure RTMP ingest. Default: <code>false</code>.</p>
+   */
+  insecureIngest?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdateChannelResponse {
   /**
    * <p>Object specifying a channel.</p>
    */
   channel?: Channel;
 }
-
-/**
- * @internal
- */
-export const BatchGetChannelRequestFilterSensitiveLog = (obj: BatchGetChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChannelFilterSensitiveLog = (obj: Channel): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchErrorFilterSensitiveLog = (obj: BatchError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetChannelResponseFilterSensitiveLog = (obj: BatchGetChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetStreamKeyRequestFilterSensitiveLog = (obj: BatchGetStreamKeyRequest): any => ({
-  ...obj,
-});
 
 /**
  * @internal
@@ -1615,69 +1845,9 @@ export const BatchGetStreamKeyResponseFilterSensitiveLog = (obj: BatchGetStreamK
 /**
  * @internal
  */
-export const CreateChannelRequestFilterSensitiveLog = (obj: CreateChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateChannelResponseFilterSensitiveLog = (obj: CreateChannelResponse): any => ({
   ...obj,
   ...(obj.streamKey && { streamKey: StreamKeyFilterSensitiveLog(obj.streamKey) }),
-});
-
-/**
- * @internal
- */
-export const S3DestinationConfigurationFilterSensitiveLog = (obj: S3DestinationConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DestinationConfigurationFilterSensitiveLog = (obj: DestinationConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ThumbnailConfigurationFilterSensitiveLog = (obj: ThumbnailConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRecordingConfigurationRequestFilterSensitiveLog = (
-  obj: CreateRecordingConfigurationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecordingConfigurationFilterSensitiveLog = (obj: RecordingConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRecordingConfigurationResponseFilterSensitiveLog = (
-  obj: CreateRecordingConfigurationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateStreamKeyRequestFilterSensitiveLog = (obj: CreateStreamKeyRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -1691,120 +1861,6 @@ export const CreateStreamKeyResponseFilterSensitiveLog = (obj: CreateStreamKeyRe
 /**
  * @internal
  */
-export const DeleteChannelRequestFilterSensitiveLog = (obj: DeleteChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePlaybackKeyPairRequestFilterSensitiveLog = (obj: DeletePlaybackKeyPairRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePlaybackKeyPairResponseFilterSensitiveLog = (obj: DeletePlaybackKeyPairResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRecordingConfigurationRequestFilterSensitiveLog = (
-  obj: DeleteRecordingConfigurationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteStreamKeyRequestFilterSensitiveLog = (obj: DeleteStreamKeyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetChannelRequestFilterSensitiveLog = (obj: GetChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetChannelResponseFilterSensitiveLog = (obj: GetChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPlaybackKeyPairRequestFilterSensitiveLog = (obj: GetPlaybackKeyPairRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PlaybackKeyPairFilterSensitiveLog = (obj: PlaybackKeyPair): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPlaybackKeyPairResponseFilterSensitiveLog = (obj: GetPlaybackKeyPairResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRecordingConfigurationRequestFilterSensitiveLog = (obj: GetRecordingConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRecordingConfigurationResponseFilterSensitiveLog = (obj: GetRecordingConfigurationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetStreamRequestFilterSensitiveLog = (obj: GetStreamRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const _StreamFilterSensitiveLog = (obj: _Stream): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetStreamResponseFilterSensitiveLog = (obj: GetStreamResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetStreamKeyRequestFilterSensitiveLog = (obj: GetStreamKeyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetStreamKeyResponseFilterSensitiveLog = (obj: GetStreamKeyResponse): any => ({
   ...obj,
   ...(obj.streamKey && { streamKey: StreamKeyFilterSensitiveLog(obj.streamKey) }),
@@ -1813,275 +1869,7 @@ export const GetStreamKeyResponseFilterSensitiveLog = (obj: GetStreamKeyResponse
 /**
  * @internal
  */
-export const GetStreamSessionRequestFilterSensitiveLog = (obj: GetStreamSessionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AudioConfigurationFilterSensitiveLog = (obj: AudioConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VideoConfigurationFilterSensitiveLog = (obj: VideoConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IngestConfigurationFilterSensitiveLog = (obj: IngestConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StreamEventFilterSensitiveLog = (obj: StreamEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StreamSessionFilterSensitiveLog = (obj: StreamSession): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetStreamSessionResponseFilterSensitiveLog = (obj: GetStreamSessionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportPlaybackKeyPairRequestFilterSensitiveLog = (obj: ImportPlaybackKeyPairRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportPlaybackKeyPairResponseFilterSensitiveLog = (obj: ImportPlaybackKeyPairResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListChannelsRequestFilterSensitiveLog = (obj: ListChannelsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChannelSummaryFilterSensitiveLog = (obj: ChannelSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListChannelsResponseFilterSensitiveLog = (obj: ListChannelsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPlaybackKeyPairsRequestFilterSensitiveLog = (obj: ListPlaybackKeyPairsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PlaybackKeyPairSummaryFilterSensitiveLog = (obj: PlaybackKeyPairSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPlaybackKeyPairsResponseFilterSensitiveLog = (obj: ListPlaybackKeyPairsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRecordingConfigurationsRequestFilterSensitiveLog = (obj: ListRecordingConfigurationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecordingConfigurationSummaryFilterSensitiveLog = (obj: RecordingConfigurationSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRecordingConfigurationsResponseFilterSensitiveLog = (
-  obj: ListRecordingConfigurationsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStreamKeysRequestFilterSensitiveLog = (obj: ListStreamKeysRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StreamKeySummaryFilterSensitiveLog = (obj: StreamKeySummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStreamKeysResponseFilterSensitiveLog = (obj: ListStreamKeysResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StreamFiltersFilterSensitiveLog = (obj: StreamFilters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStreamsRequestFilterSensitiveLog = (obj: ListStreamsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StreamSummaryFilterSensitiveLog = (obj: StreamSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStreamsResponseFilterSensitiveLog = (obj: ListStreamsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStreamSessionsRequestFilterSensitiveLog = (obj: ListStreamSessionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StreamSessionSummaryFilterSensitiveLog = (obj: StreamSessionSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStreamSessionsResponseFilterSensitiveLog = (obj: ListStreamSessionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const PutMetadataRequestFilterSensitiveLog = (obj: PutMetadataRequest): any => ({
   ...obj,
   ...(obj.metadata && { metadata: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const StopStreamRequestFilterSensitiveLog = (obj: StopStreamRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopStreamResponseFilterSensitiveLog = (obj: StopStreamResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateChannelRequestFilterSensitiveLog = (obj: UpdateChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateChannelResponseFilterSensitiveLog = (obj: UpdateChannelResponse): any => ({
-  ...obj,
 });

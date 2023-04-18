@@ -40,16 +40,18 @@ import {
 import { DLMClient } from "./DLMClient";
 
 /**
+ * @public
  * <fullname>Amazon Data Lifecycle Manager</fullname>
- * 		       <p>With Amazon Data Lifecycle Manager, you can manage the lifecycle of your Amazon Web Services resources. You create
+ *          <p>With Amazon Data Lifecycle Manager, you can manage the lifecycle of your Amazon Web Services resources. You create
  * 			lifecycle policies, which are used to automate operations on the specified
  * 			resources.</p>
- * 		       <p>Amazon Data Lifecycle Manager supports Amazon EBS volumes and snapshots. For information about using Amazon Data Lifecycle Manager
+ *          <p>Amazon Data Lifecycle Manager supports Amazon EBS volumes and snapshots. For information about using Amazon Data Lifecycle Manager
  * 			with Amazon EBS, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html">
  * 				Amazon Data Lifecycle Manager</a> in the <i>Amazon EC2 User Guide</i>.</p>
  */
 export class DLM extends DLMClient {
   /**
+   * @public
    * <p>Creates a policy to manage the lifecycle of the specified Amazon Web Services resources. You can
    * 			create up to 100 lifecycle policies.</p>
    */
@@ -83,9 +85,10 @@ export class DLM extends DLMClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified lifecycle policy and halts the automated operations that the
    * 			policy specified.</p>
-   * 		       <p>For more information about deleting a policy, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/view-modify-delete.html#delete">Delete lifecycle
+   *          <p>For more information about deleting a policy, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/view-modify-delete.html#delete">Delete lifecycle
    * 			policies</a>.</p>
    */
   public deleteLifecyclePolicy(
@@ -118,8 +121,9 @@ export class DLM extends DLMClient {
   }
 
   /**
+   * @public
    * <p>Gets summary information about all or the specified data lifecycle policies.</p>
-   * 		       <p>To get complete information about a policy, use <a>GetLifecyclePolicy</a>.</p>
+   *          <p>To get complete information about a policy, use <a>GetLifecyclePolicy</a>.</p>
    */
   public getLifecyclePolicies(
     args: GetLifecyclePoliciesCommandInput,
@@ -151,6 +155,7 @@ export class DLM extends DLMClient {
   }
 
   /**
+   * @public
    * <p>Gets detailed information about the specified lifecycle policy.</p>
    */
   public getLifecyclePolicy(
@@ -183,6 +188,7 @@ export class DLM extends DLMClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags for the specified resource.</p>
    */
   public listTagsForResource(
@@ -215,6 +221,7 @@ export class DLM extends DLMClient {
   }
 
   /**
+   * @public
    * <p>Adds the specified tags to the specified resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -241,6 +248,7 @@ export class DLM extends DLMClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified tags from the specified resource.</p>
    */
   public untagResource(
@@ -273,8 +281,9 @@ export class DLM extends DLMClient {
   }
 
   /**
+   * @public
    * <p>Updates the specified lifecycle policy.</p>
-   * 		       <p>For more information about updating a policy, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/view-modify-delete.html#modify">Modify lifecycle
+   *          <p>For more information about updating a policy, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/view-modify-delete.html#modify">Modify lifecycle
    * 			policies</a>.</p>
    */
   public updateLifecyclePolicy(

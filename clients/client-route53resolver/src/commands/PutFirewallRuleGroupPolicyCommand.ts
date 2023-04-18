@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutFirewallRuleGroupPolicyRequest,
-  PutFirewallRuleGroupPolicyRequestFilterSensitiveLog,
-  PutFirewallRuleGroupPolicyResponse,
-  PutFirewallRuleGroupPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutFirewallRuleGroupPolicyCommand,
-  serializeAws_json1_1PutFirewallRuleGroupPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { PutFirewallRuleGroupPolicyRequest, PutFirewallRuleGroupPolicyResponse } from "../models/models_0";
+import { de_PutFirewallRuleGroupPolicyCommand, se_PutFirewallRuleGroupPolicyCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
+/**
+ * @public
+ *
+ * The input for {@link PutFirewallRuleGroupPolicyCommand}.
+ */
 export interface PutFirewallRuleGroupPolicyCommandInput extends PutFirewallRuleGroupPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutFirewallRuleGroupPolicyCommand}.
+ */
 export interface PutFirewallRuleGroupPolicyCommandOutput extends PutFirewallRuleGroupPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches an Identity and Access Management (Amazon Web Services IAM) policy for sharing the rule
  * 			group. You can use the policy to share the rule group using Resource Access Manager
  * 			(RAM). </p>
@@ -38,13 +41,36 @@ export interface PutFirewallRuleGroupPolicyCommandOutput extends PutFirewallRule
  * import { Route53ResolverClient, PutFirewallRuleGroupPolicyCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, PutFirewallRuleGroupPolicyCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = { // PutFirewallRuleGroupPolicyRequest
+ *   Arn: "STRING_VALUE", // required
+ *   FirewallRuleGroupPolicy: "STRING_VALUE", // required
+ * };
  * const command = new PutFirewallRuleGroupPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutFirewallRuleGroupPolicyCommandInput - {@link PutFirewallRuleGroupPolicyCommandInput}
+ * @returns {@link PutFirewallRuleGroupPolicyCommandOutput}
  * @see {@link PutFirewallRuleGroupPolicyCommandInput} for command's `input` shape.
  * @see {@link PutFirewallRuleGroupPolicyCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (client fault)
+ *  <p>We encountered an unknown error. Try again in a few minutes.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource doesn't exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was throttled. Try again in a few minutes.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>You have provided an invalid command. Supported values are <code>ADD</code>,
+ * 			<code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
+ *
  *
  */
 export class PutFirewallRuleGroupPolicyCommand extends $Command<
@@ -64,6 +90,9 @@ export class PutFirewallRuleGroupPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutFirewallRuleGroupPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +121,8 @@ export class PutFirewallRuleGroupPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutFirewallRuleGroupPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutFirewallRuleGroupPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +132,21 @@ export class PutFirewallRuleGroupPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutFirewallRuleGroupPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutFirewallRuleGroupPolicyCommand(input, context);
+    return se_PutFirewallRuleGroupPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutFirewallRuleGroupPolicyCommandOutput> {
-    return deserializeAws_json1_1PutFirewallRuleGroupPolicyCommand(output, context);
+    return de_PutFirewallRuleGroupPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

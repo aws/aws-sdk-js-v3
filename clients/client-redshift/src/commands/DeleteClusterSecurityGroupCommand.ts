@@ -13,26 +13,31 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteClusterSecurityGroupMessage,
-  DeleteClusterSecurityGroupMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteClusterSecurityGroupCommand,
-  serializeAws_queryDeleteClusterSecurityGroupCommand,
-} from "../protocols/Aws_query";
+import { DeleteClusterSecurityGroupMessage } from "../models/models_0";
+import { de_DeleteClusterSecurityGroupCommand, se_DeleteClusterSecurityGroupCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteClusterSecurityGroupCommand}.
+ */
 export interface DeleteClusterSecurityGroupCommandInput extends DeleteClusterSecurityGroupMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteClusterSecurityGroupCommand}.
+ */
 export interface DeleteClusterSecurityGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Amazon Redshift security group.</p>
- *         <note>
+ *          <note>
  *             <p>You cannot delete a security group that is associated with any clusters. You
  *                 cannot delete the default security group.</p>
- *         </note>
- *         <p>
+ *          </note>
+ *          <p>
  * For information about managing security groups, go to
  * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html">Amazon Redshift Cluster Security Groups</a> in the
  * <i>Amazon Redshift Cluster Management Guide</i>.</p>
@@ -42,13 +47,26 @@ export interface DeleteClusterSecurityGroupCommandOutput extends __MetadataBeare
  * import { RedshiftClient, DeleteClusterSecurityGroupCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DeleteClusterSecurityGroupCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DeleteClusterSecurityGroupMessage
+ *   ClusterSecurityGroupName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteClusterSecurityGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteClusterSecurityGroupCommandInput - {@link DeleteClusterSecurityGroupCommandInput}
+ * @returns {@link DeleteClusterSecurityGroupCommandOutput}
  * @see {@link DeleteClusterSecurityGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteClusterSecurityGroupCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
+ *
+ * @throws {@link ClusterSecurityGroupNotFoundFault} (client fault)
+ *  <p>The cluster security group name does not refer to an existing cluster security
+ *             group.</p>
+ *
+ * @throws {@link InvalidClusterSecurityGroupStateFault} (client fault)
+ *  <p>The state of the cluster security group is not <code>available</code>. </p>
+ *
  *
  */
 export class DeleteClusterSecurityGroupCommand extends $Command<
@@ -68,6 +86,9 @@ export class DeleteClusterSecurityGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteClusterSecurityGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +117,8 @@ export class DeleteClusterSecurityGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteClusterSecurityGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,15 +128,21 @@ export class DeleteClusterSecurityGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteClusterSecurityGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteClusterSecurityGroupCommand(input, context);
+    return se_DeleteClusterSecurityGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteClusterSecurityGroupCommandOutput> {
-    return deserializeAws_queryDeleteClusterSecurityGroupCommand(output, context);
+    return de_DeleteClusterSecurityGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,19 +16,26 @@ import {
 import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
 import {
   ListCustomLineItemVersionsInput,
-  ListCustomLineItemVersionsInputFilterSensitiveLog,
   ListCustomLineItemVersionsOutput,
   ListCustomLineItemVersionsOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListCustomLineItemVersionsCommand,
-  serializeAws_restJson1ListCustomLineItemVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListCustomLineItemVersionsCommand, se_ListCustomLineItemVersionsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListCustomLineItemVersionsCommand}.
+ */
 export interface ListCustomLineItemVersionsCommandInput extends ListCustomLineItemVersionsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListCustomLineItemVersionsCommand}.
+ */
 export interface ListCustomLineItemVersionsCommandOutput extends ListCustomLineItemVersionsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>A paginated call to get a list of all custom line item versions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +43,42 @@ export interface ListCustomLineItemVersionsCommandOutput extends ListCustomLineI
  * import { BillingconductorClient, ListCustomLineItemVersionsCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, ListCustomLineItemVersionsCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
  * const client = new BillingconductorClient(config);
+ * const input = { // ListCustomLineItemVersionsInput
+ *   Arn: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Filters: { // ListCustomLineItemVersionsFilter
+ *     BillingPeriodRange: { // ListCustomLineItemVersionsBillingPeriodRangeFilter
+ *       StartBillingPeriod: "STRING_VALUE",
+ *       EndBillingPeriod: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new ListCustomLineItemVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCustomLineItemVersionsCommandInput - {@link ListCustomLineItemVersionsCommandInput}
+ * @returns {@link ListCustomLineItemVersionsCommandOutput}
  * @see {@link ListCustomLineItemVersionsCommandInput} for command's `input` shape.
  * @see {@link ListCustomLineItemVersionsCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.
+ *     </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred while processing a request.
+ *     </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.
+ *     </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+ *
  *
  */
 export class ListCustomLineItemVersionsCommand extends $Command<
@@ -62,6 +98,9 @@ export class ListCustomLineItemVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCustomLineItemVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +129,7 @@ export class ListCustomLineItemVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCustomLineItemVersionsInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListCustomLineItemVersionsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -101,15 +140,21 @@ export class ListCustomLineItemVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCustomLineItemVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListCustomLineItemVersionsCommand(input, context);
+    return se_ListCustomLineItemVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListCustomLineItemVersionsCommandOutput> {
-    return deserializeAws_restJson1ListCustomLineItemVersionsCommand(output, context);
+    return de_ListCustomLineItemVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

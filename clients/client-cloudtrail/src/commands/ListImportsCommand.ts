@@ -14,37 +14,65 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import {
-  ListImportsRequest,
-  ListImportsRequestFilterSensitiveLog,
-  ListImportsResponse,
-  ListImportsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListImportsCommand,
-  serializeAws_json1_1ListImportsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListImportsRequest, ListImportsResponse } from "../models/models_0";
+import { de_ListImportsCommand, se_ListImportsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListImportsCommand}.
+ */
 export interface ListImportsCommandInput extends ListImportsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListImportsCommand}.
+ */
 export interface ListImportsCommandOutput extends ListImportsResponse, __MetadataBearer {}
 
 /**
- * <p>
- *          Returns information on all imports, or a select set of imports by <code>ImportStatus</code> or <code>Destination</code>.
- *       </p>
+ * @public
+ * <p> Returns information on all imports, or a select set of imports by
+ *             <code>ImportStatus</code> or <code>Destination</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudTrailClient, ListImportsCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, ListImportsCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = { // ListImportsRequest
+ *   MaxResults: Number("int"),
+ *   Destination: "STRING_VALUE",
+ *   ImportStatus: "INITIALIZING" || "IN_PROGRESS" || "FAILED" || "STOPPED" || "COMPLETED",
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListImportsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListImportsCommandInput - {@link ListImportsCommandInput}
+ * @returns {@link ListImportsCommandOutput}
  * @see {@link ListImportsCommandInput} for command's `input` shape.
  * @see {@link ListImportsCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
+ *
+ * @throws {@link EventDataStoreARNInvalidException} (client fault)
+ *  <p>The specified event data store ARN is not valid or does not map to an event data store
+ *          in your account.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>A token that is not valid, or a token that was previously used in a request with
+ *          different parameters. This exception is thrown if the token is not valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The request includes a parameter that is not valid.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not permitted.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not supported.</p>
+ *
  *
  */
 export class ListImportsCommand extends $Command<
@@ -64,6 +92,9 @@ export class ListImportsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListImportsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +121,8 @@ export class ListImportsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListImportsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListImportsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +132,18 @@ export class ListImportsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListImportsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListImportsCommand(input, context);
+    return se_ListImportsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListImportsCommandOutput> {
-    return deserializeAws_json1_1ListImportsCommand(output, context);
+    return de_ListImportsCommand(output, context);
   }
 
   // Start section: command_body_extra

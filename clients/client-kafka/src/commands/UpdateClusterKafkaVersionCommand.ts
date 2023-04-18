@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
-import {
-  UpdateClusterKafkaVersionRequest,
-  UpdateClusterKafkaVersionRequestFilterSensitiveLog,
-  UpdateClusterKafkaVersionResponse,
-  UpdateClusterKafkaVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateClusterKafkaVersionCommand,
-  serializeAws_restJson1UpdateClusterKafkaVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateClusterKafkaVersionRequest, UpdateClusterKafkaVersionResponse } from "../models/models_0";
+import { de_UpdateClusterKafkaVersionCommand, se_UpdateClusterKafkaVersionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateClusterKafkaVersionCommand}.
+ */
 export interface UpdateClusterKafkaVersionCommandInput extends UpdateClusterKafkaVersionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateClusterKafkaVersionCommand}.
+ */
 export interface UpdateClusterKafkaVersionCommandOutput extends UpdateClusterKafkaVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the Apache Kafka version for the cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,46 @@ export interface UpdateClusterKafkaVersionCommandOutput extends UpdateClusterKaf
  * import { KafkaClient, UpdateClusterKafkaVersionCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, UpdateClusterKafkaVersionCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
+ * const input = { // UpdateClusterKafkaVersionRequest
+ *   ClusterArn: "STRING_VALUE", // required
+ *   ConfigurationInfo: { // ConfigurationInfo
+ *     Arn: "STRING_VALUE", // required
+ *     Revision: Number("long"), // required
+ *   },
+ *   CurrentVersion: "STRING_VALUE", // required
+ *   TargetKafkaVersion: "STRING_VALUE", // required
+ * };
  * const command = new UpdateClusterKafkaVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateClusterKafkaVersionCommandInput - {@link UpdateClusterKafkaVersionCommandInput}
+ * @returns {@link UpdateClusterKafkaVersionCommandOutput}
  * @see {@link UpdateClusterKafkaVersionCommandInput} for command's `input` shape.
  * @see {@link UpdateClusterKafkaVersionCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
  *
  */
 export class UpdateClusterKafkaVersionCommand extends $Command<
@@ -62,6 +98,9 @@ export class UpdateClusterKafkaVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateClusterKafkaVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +129,8 @@ export class UpdateClusterKafkaVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateClusterKafkaVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateClusterKafkaVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +140,21 @@ export class UpdateClusterKafkaVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateClusterKafkaVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateClusterKafkaVersionCommand(input, context);
+    return se_UpdateClusterKafkaVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateClusterKafkaVersionCommandOutput> {
-    return deserializeAws_restJson1UpdateClusterKafkaVersionCommand(output, context);
+    return de_UpdateClusterKafkaVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

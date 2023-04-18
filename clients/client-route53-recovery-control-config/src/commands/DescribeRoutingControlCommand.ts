@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeRoutingControlRequest,
-  DescribeRoutingControlRequestFilterSensitiveLog,
-  DescribeRoutingControlResponse,
-  DescribeRoutingControlResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeRoutingControlCommand,
-  serializeAws_restJson1DescribeRoutingControlCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeRoutingControlRequest, DescribeRoutingControlResponse } from "../models/models_0";
+import { de_DescribeRoutingControlCommand, se_DescribeRoutingControlCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryControlConfigClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53RecoveryControlConfigClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeRoutingControlCommand}.
+ */
 export interface DescribeRoutingControlCommandInput extends DescribeRoutingControlRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeRoutingControlCommand}.
+ */
 export interface DescribeRoutingControlCommandOutput extends DescribeRoutingControlResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Displays details about a routing control. A routing control has one of two states: ON and OFF. You can map the routing control state to the state of an Amazon Route 53 health check, which can be used to control routing.</p> <p>To get or update the routing control state, see the Recovery Cluster (data plane) API actions for Amazon Route 53 Application Recovery Controller.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,37 @@ export interface DescribeRoutingControlCommandOutput extends DescribeRoutingCont
  * import { Route53RecoveryControlConfigClient, DescribeRoutingControlCommand } from "@aws-sdk/client-route53-recovery-control-config"; // ES Modules import
  * // const { Route53RecoveryControlConfigClient, DescribeRoutingControlCommand } = require("@aws-sdk/client-route53-recovery-control-config"); // CommonJS import
  * const client = new Route53RecoveryControlConfigClient(config);
+ * const input = { // DescribeRoutingControlRequest
+ *   RoutingControlArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeRoutingControlCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRoutingControlCommandInput - {@link DescribeRoutingControlCommandInput}
+ * @returns {@link DescribeRoutingControlCommandOutput}
  * @see {@link DescribeRoutingControlCommandInput} for command's `input` shape.
  * @see {@link DescribeRoutingControlCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>403 response - You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>409 response - ConflictException. You might be using a predefined variable.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>500 response - InternalServiceError. Temporary service error. Retry the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>404 response - MalformedQueryString. The query string contains a syntax error or resource not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>429 response - LimitExceededException or TooManyRequestsException.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
+ *
  *
  */
 export class DescribeRoutingControlCommand extends $Command<
@@ -66,6 +93,9 @@ export class DescribeRoutingControlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRoutingControlCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +124,8 @@ export class DescribeRoutingControlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRoutingControlRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRoutingControlResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +135,18 @@ export class DescribeRoutingControlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRoutingControlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeRoutingControlCommand(input, context);
+    return se_DescribeRoutingControlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRoutingControlCommandOutput> {
-    return deserializeAws_restJson1DescribeRoutingControlCommand(output, context);
+    return de_DescribeRoutingControlCommand(output, context);
   }
 
   // Start section: command_body_extra

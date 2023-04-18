@@ -14,25 +14,31 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  CreateServiceRequest,
-  CreateServiceRequestFilterSensitiveLog,
-  CreateServiceResponse,
-  CreateServiceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateServiceCommand,
-  serializeAws_json1_1CreateServiceCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateServiceRequest, CreateServiceResponse } from "../models/models_0";
+import { de_CreateServiceCommand, se_CreateServiceCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateServiceCommand}.
+ */
 export interface CreateServiceCommandInput extends CreateServiceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateServiceCommand}.
+ */
 export interface CreateServiceCommandOutput extends CreateServiceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Runs and maintains your desired number of tasks from a specified task definition. If
  * 			the number of tasks running in a service drops below the <code>desiredCount</code>,
  * 			Amazon ECS runs another copy of the task in the specified cluster. To update an existing
  * 			service, see the <a>UpdateService</a> action.</p>
+ *          <note>
+ *             <p>Starting April 15, 2023, Amazon Web Services will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance. After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service. </p>
+ *          </note>
  *          <p>In addition to maintaining the desired count of tasks in your service, you can
  * 			optionally run your service behind one or more load balancers. The load balancers
  * 			distribute traffic across the tasks that are associated with the service. For more
@@ -112,13 +118,278 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * import { ECSClient, CreateServiceCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, CreateServiceCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // CreateServiceRequest
+ *   cluster: "STRING_VALUE",
+ *   serviceName: "STRING_VALUE", // required
+ *   taskDefinition: "STRING_VALUE",
+ *   loadBalancers: [ // LoadBalancers
+ *     { // LoadBalancer
+ *       targetGroupArn: "STRING_VALUE",
+ *       loadBalancerName: "STRING_VALUE",
+ *       containerName: "STRING_VALUE",
+ *       containerPort: Number("int"),
+ *     },
+ *   ],
+ *   serviceRegistries: [ // ServiceRegistries
+ *     { // ServiceRegistry
+ *       registryArn: "STRING_VALUE",
+ *       port: Number("int"),
+ *       containerName: "STRING_VALUE",
+ *       containerPort: Number("int"),
+ *     },
+ *   ],
+ *   desiredCount: Number("int"),
+ *   clientToken: "STRING_VALUE",
+ *   launchType: "EC2" || "FARGATE" || "EXTERNAL",
+ *   capacityProviderStrategy: [ // CapacityProviderStrategy
+ *     { // CapacityProviderStrategyItem
+ *       capacityProvider: "STRING_VALUE", // required
+ *       weight: Number("int"),
+ *       base: Number("int"),
+ *     },
+ *   ],
+ *   platformVersion: "STRING_VALUE",
+ *   role: "STRING_VALUE",
+ *   deploymentConfiguration: { // DeploymentConfiguration
+ *     deploymentCircuitBreaker: { // DeploymentCircuitBreaker
+ *       enable: true || false, // required
+ *       rollback: true || false, // required
+ *     },
+ *     maximumPercent: Number("int"),
+ *     minimumHealthyPercent: Number("int"),
+ *     alarms: { // DeploymentAlarms
+ *       alarmNames: [ // StringList // required
+ *         "STRING_VALUE",
+ *       ],
+ *       enable: true || false, // required
+ *       rollback: true || false, // required
+ *     },
+ *   },
+ *   placementConstraints: [ // PlacementConstraints
+ *     { // PlacementConstraint
+ *       type: "distinctInstance" || "memberOf",
+ *       expression: "STRING_VALUE",
+ *     },
+ *   ],
+ *   placementStrategy: [ // PlacementStrategies
+ *     { // PlacementStrategy
+ *       type: "random" || "spread" || "binpack",
+ *       field: "STRING_VALUE",
+ *     },
+ *   ],
+ *   networkConfiguration: { // NetworkConfiguration
+ *     awsvpcConfiguration: { // AwsVpcConfiguration
+ *       subnets: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *       securityGroups: [
+ *         "STRING_VALUE",
+ *       ],
+ *       assignPublicIp: "ENABLED" || "DISABLED",
+ *     },
+ *   },
+ *   healthCheckGracePeriodSeconds: Number("int"),
+ *   schedulingStrategy: "REPLICA" || "DAEMON",
+ *   deploymentController: { // DeploymentController
+ *     type: "ECS" || "CODE_DEPLOY" || "EXTERNAL", // required
+ *   },
+ *   tags: [ // Tags
+ *     { // Tag
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   enableECSManagedTags: true || false,
+ *   propagateTags: "TASK_DEFINITION" || "SERVICE" || "NONE",
+ *   enableExecuteCommand: true || false,
+ *   serviceConnectConfiguration: { // ServiceConnectConfiguration
+ *     enabled: true || false, // required
+ *     namespace: "STRING_VALUE",
+ *     services: [ // ServiceConnectServiceList
+ *       { // ServiceConnectService
+ *         portName: "STRING_VALUE", // required
+ *         discoveryName: "STRING_VALUE",
+ *         clientAliases: [ // ServiceConnectClientAliasList
+ *           { // ServiceConnectClientAlias
+ *             port: Number("int"), // required
+ *             dnsName: "STRING_VALUE",
+ *           },
+ *         ],
+ *         ingressPortOverride: Number("int"),
+ *       },
+ *     ],
+ *     logConfiguration: { // LogConfiguration
+ *       logDriver: "json-file" || "syslog" || "journald" || "gelf" || "fluentd" || "awslogs" || "splunk" || "awsfirelens", // required
+ *       options: { // LogConfigurationOptionsMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       secretOptions: [ // SecretList
+ *         { // Secret
+ *           name: "STRING_VALUE", // required
+ *           valueFrom: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *   },
+ * };
  * const command = new CreateServiceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateServiceCommandInput - {@link CreateServiceCommandInput}
+ * @returns {@link CreateServiceCommandOutput}
  * @see {@link CreateServiceCommandInput} for command's `input` shape.
  * @see {@link CreateServiceCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have authorization to perform the requested action.</p>
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action. This client action might be using
+ * 			an action or resource on behalf of a user that doesn't have permissions to use the
+ * 			action or resource,. Or, it might be specifying an identifier that isn't valid.</p>
+ *
+ * @throws {@link ClusterNotFoundException} (client fault)
+ *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter isn't valid. Review the available parameters for the API
+ * 			request.</p>
+ *
+ * @throws {@link NamespaceNotFoundException} (client fault)
+ *  <p>The specified namespace wasn't found.</p>
+ *
+ * @throws {@link PlatformTaskDefinitionIncompatibilityException} (client fault)
+ *  <p>The specified platform version doesn't satisfy the required capabilities of the task
+ * 			definition.</p>
+ *
+ * @throws {@link PlatformUnknownException} (client fault)
+ *  <p>The specified platform version doesn't exist.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server issue.</p>
+ *
+ * @throws {@link UnsupportedFeatureException} (client fault)
+ *  <p>The specified task isn't supported in this Region.</p>
+ *
+ *
+ * @example To create a new service
+ * ```javascript
+ * // This example creates a service in your default region called ``ecs-simple-service``. The service uses the ``hello_world`` task definition and it maintains 10 copies of that task.
+ * const input = {
+ *   "desiredCount": 10,
+ *   "serviceName": "ecs-simple-service",
+ *   "taskDefinition": "hello_world"
+ * };
+ * const command = new CreateServiceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "service": {
+ *     "clusterArn": "arn:aws:ecs:us-east-1:012345678910:cluster/default",
+ *     "createdAt": "2016-08-29T16:13:47.298Z",
+ *     "deploymentConfiguration": {
+ *       "maximumPercent": 200,
+ *       "minimumHealthyPercent": 100
+ *     },
+ *     "deployments": [
+ *       {
+ *         "createdAt": "2016-08-29T16:13:47.298Z",
+ *         "desiredCount": 10,
+ *         "id": "ecs-svc/9223370564342348388",
+ *         "pendingCount": 0,
+ *         "runningCount": 0,
+ *         "status": "PRIMARY",
+ *         "taskDefinition": "arn:aws:ecs:us-east-1:012345678910:task-definition/hello_world:6",
+ *         "updatedAt": "2016-08-29T16:13:47.298Z"
+ *       },
+ *       {
+ *         "createdAt": "2016-08-29T15:52:44.481Z",
+ *         "desiredCount": 0,
+ *         "id": "ecs-svc/9223370564343611322",
+ *         "pendingCount": 0,
+ *         "runningCount": 0,
+ *         "status": "ACTIVE",
+ *         "taskDefinition": "arn:aws:ecs:us-east-1:012345678910:task-definition/hello_world:6",
+ *         "updatedAt": "2016-08-29T16:11:38.941Z"
+ *       }
+ *     ],
+ *     "desiredCount": 10,
+ *     "events": [],
+ *     "loadBalancers": [],
+ *     "pendingCount": 0,
+ *     "runningCount": 0,
+ *     "serviceArn": "arn:aws:ecs:us-east-1:012345678910:service/ecs-simple-service",
+ *     "serviceName": "ecs-simple-service",
+ *     "status": "ACTIVE",
+ *     "taskDefinition": "arn:aws:ecs:us-east-1:012345678910:task-definition/hello_world:6"
+ *   }
+ * }
+ * *\/
+ * // example id: to-create-a-new-service-1472512584282
+ * ```
+ *
+ * @example To create a new service behind a load balancer
+ * ```javascript
+ * // This example creates a service in your default region called ``ecs-simple-service-elb``. The service uses the ``ecs-demo`` task definition and it maintains 10 copies of that task. You must reference an existing load balancer in the same region by its name.
+ * const input = {
+ *   "desiredCount": 10,
+ *   "loadBalancers": [
+ *     {
+ *       "containerName": "simple-app",
+ *       "containerPort": 80,
+ *       "loadBalancerName": "EC2Contai-EcsElast-15DCDAURT3ZO2"
+ *     }
+ *   ],
+ *   "role": "ecsServiceRole",
+ *   "serviceName": "ecs-simple-service-elb",
+ *   "taskDefinition": "console-sample-app-static"
+ * };
+ * const command = new CreateServiceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "service": {
+ *     "clusterArn": "arn:aws:ecs:us-east-1:012345678910:cluster/default",
+ *     "createdAt": "2016-08-29T16:02:54.884Z",
+ *     "deploymentConfiguration": {
+ *       "maximumPercent": 200,
+ *       "minimumHealthyPercent": 100
+ *     },
+ *     "deployments": [
+ *       {
+ *         "createdAt": "2016-08-29T16:02:54.884Z",
+ *         "desiredCount": 10,
+ *         "id": "ecs-svc/9223370564343000923",
+ *         "pendingCount": 0,
+ *         "runningCount": 0,
+ *         "status": "PRIMARY",
+ *         "taskDefinition": "arn:aws:ecs:us-east-1:012345678910:task-definition/console-sample-app-static:6",
+ *         "updatedAt": "2016-08-29T16:02:54.884Z"
+ *       }
+ *     ],
+ *     "desiredCount": 10,
+ *     "events": [],
+ *     "loadBalancers": [
+ *       {
+ *         "containerName": "simple-app",
+ *         "containerPort": 80,
+ *         "loadBalancerName": "EC2Contai-EcsElast-15DCDAURT3ZO2"
+ *       }
+ *     ],
+ *     "pendingCount": 0,
+ *     "roleArn": "arn:aws:iam::012345678910:role/ecsServiceRole",
+ *     "runningCount": 0,
+ *     "serviceArn": "arn:aws:ecs:us-east-1:012345678910:service/ecs-simple-service-elb",
+ *     "serviceName": "ecs-simple-service-elb",
+ *     "status": "ACTIVE",
+ *     "taskDefinition": "arn:aws:ecs:us-east-1:012345678910:task-definition/console-sample-app-static:6"
+ *   }
+ * }
+ * *\/
+ * // example id: to-create-a-new-service-behind-a-load-balancer-1472512484823
+ * ```
  *
  */
 export class CreateServiceCommand extends $Command<
@@ -138,6 +409,9 @@ export class CreateServiceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateServiceCommandInput) {
     // Start section: command_constructor
     super();
@@ -164,8 +438,8 @@ export class CreateServiceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateServiceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateServiceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -175,12 +449,18 @@ export class CreateServiceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateServiceCommand(input, context);
+    return se_CreateServiceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateServiceCommandOutput> {
-    return deserializeAws_json1_1CreateServiceCommand(output, context);
+    return de_CreateServiceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  BatchGetTracesRequest,
-  BatchGetTracesRequestFilterSensitiveLog,
-  BatchGetTracesResult,
-  BatchGetTracesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchGetTracesCommand,
-  serializeAws_restJson1BatchGetTracesCommand,
-} from "../protocols/Aws_restJson1";
+import { BatchGetTracesRequest, BatchGetTracesResult } from "../models/models_0";
+import { de_BatchGetTracesCommand, se_BatchGetTracesCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchGetTracesCommand}.
+ */
 export interface BatchGetTracesCommandInput extends BatchGetTracesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link BatchGetTracesCommand}.
+ */
 export interface BatchGetTracesCommandOutput extends BatchGetTracesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of traces specified by ID. Each trace is a collection of segment
  *       documents that originates from a single request. Use <code>GetTraceSummaries</code> to get a
  *       list of trace IDs.</p>
@@ -38,13 +41,28 @@ export interface BatchGetTracesCommandOutput extends BatchGetTracesResult, __Met
  * import { XRayClient, BatchGetTracesCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, BatchGetTracesCommand } = require("@aws-sdk/client-xray"); // CommonJS import
  * const client = new XRayClient(config);
+ * const input = { // BatchGetTracesRequest
+ *   TraceIds: [ // TraceIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new BatchGetTracesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetTracesCommandInput - {@link BatchGetTracesCommandInput}
+ * @returns {@link BatchGetTracesCommandOutput}
  * @see {@link BatchGetTracesCommandInput} for command's `input` shape.
  * @see {@link BatchGetTracesCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is missing required parameters or has invalid parameters.</p>
+ *
+ * @throws {@link ThrottledException} (client fault)
+ *  <p>The request exceeds the maximum number of requests per second.</p>
+ *
  *
  */
 export class BatchGetTracesCommand extends $Command<
@@ -64,6 +82,9 @@ export class BatchGetTracesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetTracesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +113,8 @@ export class BatchGetTracesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetTracesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetTracesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +124,18 @@ export class BatchGetTracesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetTracesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchGetTracesCommand(input, context);
+    return se_BatchGetTracesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetTracesCommandOutput> {
-    return deserializeAws_restJson1BatchGetTracesCommand(output, context);
+    return de_BatchGetTracesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ModifySecurityGroupRulesRequest,
-  ModifySecurityGroupRulesRequestFilterSensitiveLog,
-  ModifySecurityGroupRulesResult,
-  ModifySecurityGroupRulesResultFilterSensitiveLog,
-} from "../models/models_6";
-import {
-  deserializeAws_ec2ModifySecurityGroupRulesCommand,
-  serializeAws_ec2ModifySecurityGroupRulesCommand,
-} from "../protocols/Aws_ec2";
+import { ModifySecurityGroupRulesRequest, ModifySecurityGroupRulesResult } from "../models/models_6";
+import { de_ModifySecurityGroupRulesCommand, se_ModifySecurityGroupRulesCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link ModifySecurityGroupRulesCommand}.
+ */
 export interface ModifySecurityGroupRulesCommandInput extends ModifySecurityGroupRulesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ModifySecurityGroupRulesCommand}.
+ */
 export interface ModifySecurityGroupRulesCommandOutput extends ModifySecurityGroupRulesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the rules of a security group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,35 @@ export interface ModifySecurityGroupRulesCommandOutput extends ModifySecurityGro
  * import { EC2Client, ModifySecurityGroupRulesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifySecurityGroupRulesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ModifySecurityGroupRulesRequest
+ *   GroupId: "STRING_VALUE", // required
+ *   SecurityGroupRules: [ // SecurityGroupRuleUpdateList // required
+ *     { // SecurityGroupRuleUpdate
+ *       SecurityGroupRuleId: "STRING_VALUE", // required
+ *       SecurityGroupRule: { // SecurityGroupRuleRequest
+ *         IpProtocol: "STRING_VALUE",
+ *         FromPort: Number("int"),
+ *         ToPort: Number("int"),
+ *         CidrIpv4: "STRING_VALUE",
+ *         CidrIpv6: "STRING_VALUE",
+ *         PrefixListId: "STRING_VALUE",
+ *         ReferencedGroupId: "STRING_VALUE",
+ *         Description: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   DryRun: true || false,
+ * };
  * const command = new ModifySecurityGroupRulesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifySecurityGroupRulesCommandInput - {@link ModifySecurityGroupRulesCommandInput}
+ * @returns {@link ModifySecurityGroupRulesCommandOutput}
  * @see {@link ModifySecurityGroupRulesCommandInput} for command's `input` shape.
  * @see {@link ModifySecurityGroupRulesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class ModifySecurityGroupRulesCommand extends $Command<
@@ -62,6 +87,9 @@ export class ModifySecurityGroupRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifySecurityGroupRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +118,8 @@ export class ModifySecurityGroupRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifySecurityGroupRulesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifySecurityGroupRulesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +129,18 @@ export class ModifySecurityGroupRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifySecurityGroupRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifySecurityGroupRulesCommand(input, context);
+    return se_ModifySecurityGroupRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifySecurityGroupRulesCommandOutput> {
-    return deserializeAws_ec2ModifySecurityGroupRulesCommand(output, context);
+    return de_ModifySecurityGroupRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

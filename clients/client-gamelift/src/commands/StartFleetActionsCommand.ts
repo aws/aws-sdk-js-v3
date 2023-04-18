@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  StartFleetActionsInput,
-  StartFleetActionsInputFilterSensitiveLog,
-  StartFleetActionsOutput,
-  StartFleetActionsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartFleetActionsCommand,
-  serializeAws_json1_1StartFleetActionsCommand,
-} from "../protocols/Aws_json1_1";
+import { StartFleetActionsInput, StartFleetActionsOutput } from "../models/models_0";
+import { de_StartFleetActionsCommand, se_StartFleetActionsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link StartFleetActionsCommand}.
+ */
 export interface StartFleetActionsCommandInput extends StartFleetActionsInput {}
+/**
+ * @public
+ *
+ * The output of {@link StartFleetActionsCommand}.
+ */
 export interface StartFleetActionsCommandOutput extends StartFleetActionsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Resumes certain types of activity on fleet instances that were suspended with <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StopFleetActions.html">StopFleetActions</a>. For multi-location fleets, fleet actions are managed
  *             separately for each location. Currently, this operation is used to restart a fleet's
  *             auto-scaling activity.</p>
@@ -59,13 +62,40 @@ export interface StartFleetActionsCommandOutput extends StartFleetActionsOutput,
  * import { GameLiftClient, StartFleetActionsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, StartFleetActionsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // StartFleetActionsInput
+ *   FleetId: "STRING_VALUE", // required
+ *   Actions: [ // FleetActionList // required
+ *     "AUTO_SCALING",
+ *   ],
+ *   Location: "STRING_VALUE",
+ * };
  * const command = new StartFleetActionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartFleetActionsCommandInput - {@link StartFleetActionsCommandInput}
+ * @returns {@link StartFleetActionsCommandOutput}
  * @see {@link StartFleetActionsCommandInput} for command's `input` shape.
  * @see {@link StartFleetActionsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an unrecoverable internal failure while processing the
+ *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
+ *             values before retrying.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
+ * @throws {@link UnsupportedRegionException} (client fault)
+ *  <p>The requested operation is not supported in the Region specified.</p>
+ *
  *
  */
 export class StartFleetActionsCommand extends $Command<
@@ -85,6 +115,9 @@ export class StartFleetActionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartFleetActionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +146,8 @@ export class StartFleetActionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartFleetActionsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StartFleetActionsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +157,18 @@ export class StartFleetActionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartFleetActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartFleetActionsCommand(input, context);
+    return se_StartFleetActionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartFleetActionsCommandOutput> {
-    return deserializeAws_json1_1StartFleetActionsCommand(output, context);
+    return de_StartFleetActionsCommand(output, context);
   }
 
   // Start section: command_body_extra

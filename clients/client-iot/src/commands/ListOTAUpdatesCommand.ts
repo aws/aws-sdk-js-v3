@@ -14,36 +14,62 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  ListOTAUpdatesRequest,
-  ListOTAUpdatesRequestFilterSensitiveLog,
-  ListOTAUpdatesResponse,
-  ListOTAUpdatesResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListOTAUpdatesCommand,
-  serializeAws_restJson1ListOTAUpdatesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListOTAUpdatesRequest, ListOTAUpdatesResponse } from "../models/models_1";
+import { de_ListOTAUpdatesCommand, se_ListOTAUpdatesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListOTAUpdatesCommand}.
+ */
 export interface ListOTAUpdatesCommandInput extends ListOTAUpdatesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListOTAUpdatesCommand}.
+ */
 export interface ListOTAUpdatesCommandOutput extends ListOTAUpdatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists OTA updates.</p>
- *         <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListOTAUpdates</a> action.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListOTAUpdates</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, ListOTAUpdatesCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListOTAUpdatesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // ListOTAUpdatesRequest
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   otaUpdateStatus: "CREATE_PENDING" || "CREATE_IN_PROGRESS" || "CREATE_COMPLETE" || "CREATE_FAILED",
+ * };
  * const command = new ListOTAUpdatesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOTAUpdatesCommandInput - {@link ListOTAUpdatesCommandInput}
+ * @returns {@link ListOTAUpdatesCommandOutput}
  * @see {@link ListOTAUpdatesCommandInput} for command's `input` shape.
  * @see {@link ListOTAUpdatesCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You are not authorized to perform this operation.</p>
+ *
  *
  */
 export class ListOTAUpdatesCommand extends $Command<
@@ -63,6 +89,9 @@ export class ListOTAUpdatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOTAUpdatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +120,8 @@ export class ListOTAUpdatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListOTAUpdatesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListOTAUpdatesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +131,18 @@ export class ListOTAUpdatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListOTAUpdatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListOTAUpdatesCommand(input, context);
+    return se_ListOTAUpdatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOTAUpdatesCommandOutput> {
-    return deserializeAws_restJson1ListOTAUpdatesCommand(output, context);
+    return de_ListOTAUpdatesCommand(output, context);
   }
 
   // Start section: command_body_extra

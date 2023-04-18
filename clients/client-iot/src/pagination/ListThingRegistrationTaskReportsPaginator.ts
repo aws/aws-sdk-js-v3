@@ -6,12 +6,11 @@ import {
   ListThingRegistrationTaskReportsCommandInput,
   ListThingRegistrationTaskReportsCommandOutput,
 } from "../commands/ListThingRegistrationTaskReportsCommand";
-import { IoT } from "../IoT";
 import { IoTClient } from "../IoTClient";
 import { IoTPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: IoTClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListThingRegistrationTaskReportsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: IoT,
-  input: ListThingRegistrationTaskReportsCommandInput,
-  ...args: any
-): Promise<ListThingRegistrationTaskReportsCommandOutput> => {
-  // @ts-ignore
-  return await client.listThingRegistrationTaskReports(input, ...args);
-};
 export async function* paginateListThingRegistrationTaskReports(
   config: IoTPaginationConfiguration,
   input: ListThingRegistrationTaskReportsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListThingRegistrationTaskReports(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof IoT) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IoTClient) {
+    if (config.client instanceof IoTClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected IoT | IoTClient");

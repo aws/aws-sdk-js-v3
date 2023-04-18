@@ -709,6 +709,7 @@ import {
 import { RDSClient } from "./RDSClient";
 
 /**
+ * @public
  * <fullname>Amazon Relational Database Service</fullname>
  *          <p></p>
  *          <p>Amazon Relational Database Service (Amazon RDS) is a web service that makes it easier to set up, operate, and
@@ -765,6 +766,7 @@ import { RDSClient } from "./RDSClient";
  */
 export class RDS extends RDSClient {
   /**
+   * @public
    * <p>Associates an Identity and Access Management (IAM) role with a DB cluster.</p>
    */
   public addRoleToDBCluster(
@@ -797,6 +799,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Associates an Amazon Web Services Identity and Access Management (IAM) role with a DB instance.</p>
    *          <note>
    *             <p>To add a role to a DB instance, the status of the DB instance must be <code>available</code>.</p>
@@ -833,6 +836,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Adds a source identifier to an existing RDS event notification subscription.</p>
    */
   public addSourceIdentifierToSubscription(
@@ -865,6 +869,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Adds metadata tags to an Amazon RDS resource. These tags can also be used with cost allocation reporting to track cost associated with Amazon RDS resources, or used in a Condition statement in an IAM policy for Amazon RDS.</p>
    *          <p>For an overview on tagging Amazon RDS resources,
    *             see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html">Tagging Amazon RDS Resources</a>.</p>
@@ -899,6 +904,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Applies a pending maintenance action to a resource (for example, to a DB instance).</p>
    */
   public applyPendingMaintenanceAction(
@@ -931,6 +937,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Enables ingress to a DBSecurityGroup using one of two forms of authorization. First, EC2 or VPC security
    *           groups can be added to the DBSecurityGroup if the application using the database is running on EC2 or VPC
    *           instances. Second, IP ranges are available if the application accessing your database is running on the internet.
@@ -978,6 +985,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Backtracks a DB cluster to a specific time, without creating a new DB cluster.</p>
    *          <p>For more information on backtracking, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.Backtrack.html">
@@ -1017,7 +1025,8 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <p>Cancels an export task in progress that is exporting a snapshot to Amazon S3.
+   * @public
+   * <p>Cancels an export task in progress that is exporting a snapshot or cluster to Amazon S3.
    *             Any data that has already been written to the S3 bucket isn't removed.</p>
    */
   public cancelExportTask(
@@ -1050,6 +1059,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Copies the specified DB cluster parameter group.</p>
    */
   public copyDBClusterParameterGroup(
@@ -1082,6 +1092,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Copies a snapshot of a DB cluster.</p>
    *          <p>To copy a DB cluster snapshot from a shared manual DB cluster snapshot, <code>SourceDBClusterSnapshotIdentifier</code>
    *           must be the Amazon Resource Name (ARN) of the shared DB cluster snapshot.</p>
@@ -1116,9 +1127,9 @@ export class RDS extends RDSClient {
    *          <p>For more information on Amazon Aurora DB clusters, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
    *                 What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
-   *          <p>For more information on Multi-AZ DB clusters, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
-   *                 Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *          <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB
+   *                 cluster deployments</a> in the <i>Amazon RDS User
+   *             Guide</i>.</p>
    */
   public copyDBClusterSnapshot(
     args: CopyDBClusterSnapshotCommandInput,
@@ -1150,6 +1161,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Copies the specified DB parameter group.</p>
    */
   public copyDBParameterGroup(
@@ -1182,6 +1194,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Copies the specified DB snapshot. The source DB snapshot must be in the <code>available</code> state.</p>
    *          <p>You can copy a snapshot from one Amazon Web Services Region to another. In that case, the
    *             Amazon Web Services Region where you call the <code>CopyDBSnapshot</code> operation is the destination
@@ -1220,6 +1233,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Copies the specified option group.</p>
    */
   public copyOptionGroup(
@@ -1252,6 +1266,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Creates a blue/green deployment.</p>
    *          <p>A blue/green deployment creates a staging environment that copies the production environment.
    *             In a blue/green deployment, the blue environment is the current production environment.
@@ -1298,6 +1313,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Creates a custom DB engine version (CEV).</p>
    */
   public createCustomDBEngineVersion(
@@ -1330,16 +1346,21 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Creates a new Amazon Aurora DB cluster or Multi-AZ DB cluster.</p>
+   *          <p>If you create an Aurora DB cluster, the request creates an empty cluster. You must
+   *             explicitly create the writer instance for your DB cluster using the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html">CreateDBInstance</a> operation. If you create a Multi-AZ DB cluster, the
+   *             request creates a writer and two reader DB instances for you, each in a different
+   *             Availability Zone.</p>
    *          <p>You can use the <code>ReplicationSourceIdentifier</code> parameter to create an Amazon
-   *             Aurora DB cluster as a read replica of another DB cluster or Amazon RDS MySQL or
-   *             PostgreSQL DB instance.</p>
-   *          <p>For more information on Amazon Aurora, see
-   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
-   *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
-   *          <p>For more information on Multi-AZ DB clusters, see
-   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
-   *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *             Aurora DB cluster as a read replica of another DB cluster or Amazon RDS for MySQL or
+   *             PostgreSQL DB instance. For more information about Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">What is Amazon Aurora?</a> in the <i>Amazon Aurora User
+   *             Guide</i>.</p>
+   *          <p>You can also use the <code>ReplicationSourceIdentifier</code> parameter to create a
+   *             Multi-AZ DB cluster read replica with an RDS for MySQL or PostgreSQL DB instance as the
+   *             source. For more information about Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">Multi-AZ DB
+   *                 cluster deployments</a> in the <i>Amazon RDS User
+   *             Guide</i>.</p>
    */
   public createDBCluster(
     args: CreateDBClusterCommandInput,
@@ -1371,6 +1392,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Creates a new custom endpoint and associates it with an Amazon Aurora DB cluster.</p>
    *          <note>
    *             <p>This action applies only to Aurora DB clusters.</p>
@@ -1406,6 +1428,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Creates a new DB cluster parameter group.</p>
    *          <p>Parameters in a DB cluster parameter group apply to all of the instances in a DB cluster.</p>
    *          <p>A DB cluster parameter group is initially created with the default parameters for the
@@ -1433,9 +1456,9 @@ export class RDS extends RDSClient {
    *          <p>For more information on Amazon Aurora, see
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
    *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
-   *          <p>For more information on Multi-AZ DB clusters, see
-   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
-   *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *          <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB
+   *                 cluster deployments</a> in the <i>Amazon RDS User
+   *             Guide</i>.</p>
    */
   public createDBClusterParameterGroup(
     args: CreateDBClusterParameterGroupCommandInput,
@@ -1467,12 +1490,13 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Creates a snapshot of a DB cluster.</p>
    *          <p>For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html"> What is Amazon
    *                 Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
-   *          <p>For more information on Multi-AZ DB clusters, see
-   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
-   *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *          <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB
+   *                 cluster deployments</a> in the <i>Amazon RDS User
+   *             Guide</i>.</p>
    */
   public createDBClusterSnapshot(
     args: CreateDBClusterSnapshotCommandInput,
@@ -1504,6 +1528,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Creates a new DB instance.</p>
    *          <p>The new DB instance can be an RDS DB instance, or it can be a DB instance in an Aurora DB cluster.
    *            For an Aurora DB cluster, you can call this operation multiple times to add more than one DB instance
@@ -1544,17 +1569,19 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Creates a new DB instance that acts as a read replica for an existing source DB
-   *             instance. You can create a read replica for a DB instance running MySQL, MariaDB,
-   *             Oracle, PostgreSQL, or SQL Server. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html">Working with Read
-   *                 Replicas</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *             instance or Multi-AZ DB cluster. You can create a read replica for a DB instance running
+   *             MySQL, MariaDB, Oracle, PostgreSQL, or SQL Server. You can create a read replica for a
+   *             Multi-AZ DB cluster running MySQL or PostgreSQL. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html">Working
+   *                 with read replicas</a> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html#multi-az-db-clusters-migrating-to-instance-with-read-replica">Migrating from a Multi-AZ DB cluster to a DB instance using a read replica</a> in the <i>Amazon RDS User Guide</i>.</p>
    *          <p>Amazon Aurora doesn't support this operation. Call the <code>CreateDBInstance</code>
    *             operation to create a DB instance for an Aurora DB cluster.</p>
-   *          <p>All read replica DB instances are created with backups disabled. All other DB
-   *             instance attributes (including DB security groups and DB parameter groups) are inherited
-   *             from the source DB instance, except as specified.</p>
+   *          <p>All read replica DB instances are created with backups disabled. All other attributes
+   *             (including DB security groups and DB parameter groups) are inherited from the source DB
+   *             instance or cluster, except as specified.</p>
    *          <important>
-   *             <p>Your source DB instance must have backup retention enabled.</p>
+   *             <p>Your source DB instance or cluster must have backup retention enabled.</p>
    *          </important>
    */
   public createDBInstanceReadReplica(
@@ -1587,6 +1614,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Creates a new DB parameter group.</p>
    *          <p>A DB parameter group is initially created with the default parameters for the
    *             database engine used by the DB instance. To provide custom values for any of the
@@ -1638,6 +1666,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Creates a new DB proxy.</p>
    */
   public createDBProxy(
@@ -1670,6 +1699,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Creates a <code>DBProxyEndpoint</code>. Only applies to proxies that are associated with Aurora DB clusters.
    *         You can use DB proxy endpoints to specify read/write or read-only access to the DB cluster. You can also use
    *         DB proxy endpoints to access a DB proxy through a different VPC than the proxy's default VPC.</p>
@@ -1704,6 +1734,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Creates a new DB security group. DB security groups control access to a DB instance.</p>
    *          <p>A DB security group controls access to EC2-Classic DB instances that are not in a VPC.</p>
    *          <note>
@@ -1744,6 +1775,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Creates a snapshot of a DB instance. The source DB instance must be in the <code>available</code> or
    *                 <code>storage-optimization</code> state.</p>
    */
@@ -1777,6 +1809,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Creates a new DB subnet group. DB subnet groups must contain at least one subnet in at least two AZs in the Amazon Web Services Region.</p>
    */
   public createDBSubnetGroup(
@@ -1809,6 +1842,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Creates an RDS event notification subscription. This operation requires a topic Amazon
    *             Resource Name (ARN) created by either the RDS console, the SNS console, or the SNS API.
    *             To obtain an ARN with SNS, you must create a topic in Amazon SNS and subscribe to the
@@ -1864,6 +1898,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Creates an Aurora global database
    *         spread across multiple Amazon Web Services Regions. The global database
    *         contains a single primary cluster with read-write capability,
@@ -1908,6 +1943,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Creates a new option group. You can create up to 20 option groups.</p>
    *          <p>This command doesn't apply to RDS Custom.</p>
    */
@@ -1941,12 +1977,13 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Deletes a blue/green deployment.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using Amazon RDS Blue/Green Deployments
    *             for database updates</a> in the <i>Amazon RDS User Guide</i> and
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html">
-   *             Using Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon Aurora
-   *             User Guide</i>.</p>
+   *                 Using Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon Aurora
+   *                     User Guide</i>.</p>
    */
   public deleteBlueGreenDeployment(
     args: DeleteBlueGreenDeploymentCommandInput,
@@ -1978,6 +2015,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Deletes a custom engine version. To run this command, make sure you meet the following prerequisites:</p>
    *          <ul>
    *             <li>
@@ -1997,8 +2035,8 @@ export class RDS extends RDSClient {
    *             API gateway that accesses your Amazon S3 bucket. These calls originate from the MediaImport service for
    *             the <code>DeleteCustomDbEngineVersion</code> event.</p>
    *          </note>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.delete">
-   *             Deleting a CEV</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.delete">Deleting a
+   *                 CEV</a> in the <i>Amazon RDS User Guide</i>.</p>
    */
   public deleteCustomDBEngineVersion(
     args: DeleteCustomDBEngineVersionCommandInput,
@@ -2030,15 +2068,18 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>The DeleteDBCluster action deletes a previously provisioned DB cluster.
    *           When you delete a DB cluster, all automated backups for that DB cluster are deleted and can't be recovered.
    *           Manual DB cluster snapshots of the specified DB cluster are not deleted.</p>
+   *          <p>If you're deleting a Multi-AZ DB cluster with read replicas, all cluster members are
+   *             terminated and read replicas are promoted to standalone instances.</p>
    *          <p>For more information on Amazon Aurora, see
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
    *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
-   *          <p>For more information on Multi-AZ DB clusters, see
-   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
-   *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *          <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB
+   *                 cluster deployments</a> in the <i>Amazon RDS User
+   *             Guide</i>.</p>
    */
   public deleteDBCluster(
     args: DeleteDBClusterCommandInput,
@@ -2070,6 +2111,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Deletes a custom endpoint and removes it from an Amazon Aurora DB cluster.</p>
    *          <note>
    *             <p>This action only applies to Aurora DB clusters.</p>
@@ -2105,13 +2147,14 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Deletes a specified DB cluster parameter group. The DB cluster parameter group to be deleted can't be associated with any DB clusters.</p>
    *          <p>For more information on Amazon Aurora, see
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
    *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
-   *          <p>For more information on Multi-AZ DB clusters, see
-   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
-   *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *          <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB
+   *                 cluster deployments</a> in the <i>Amazon RDS User
+   *             Guide</i>.</p>
    */
   public deleteDBClusterParameterGroup(
     args: DeleteDBClusterParameterGroupCommandInput,
@@ -2143,6 +2186,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Deletes a DB cluster snapshot. If the snapshot is being copied, the copy operation is terminated.</p>
    *          <note>
    *             <p>The DB cluster snapshot must be in the <code>available</code> state to be
@@ -2151,9 +2195,9 @@ export class RDS extends RDSClient {
    *          <p>For more information on Amazon Aurora, see
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
    *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
-   *          <p>For more information on Multi-AZ DB clusters, see
-   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
-   *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *          <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB
+   *                 cluster deployments</a> in the <i>Amazon RDS User
+   *             Guide</i>.</p>
    */
   public deleteDBClusterSnapshot(
     args: DeleteDBClusterSnapshotCommandInput,
@@ -2185,6 +2229,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>The DeleteDBInstance action deletes a previously provisioned DB instance.
    *           When you delete a DB instance, all automated backups for that instance are deleted and can't be recovered.
    *           Manual DB snapshots of the DB instance to be deleted by <code>DeleteDBInstance</code> are not deleted.</p>
@@ -2239,6 +2284,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Deletes automated backups using the <code>DbiResourceId</code> value of the source DB instance or the Amazon Resource Name (ARN) of the automated backups.</p>
    */
   public deleteDBInstanceAutomatedBackup(
@@ -2271,6 +2317,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Deletes a specified DB parameter group. The DB parameter group to be deleted can't be associated with any DB instances.</p>
    */
   public deleteDBParameterGroup(
@@ -2303,6 +2350,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Deletes an existing DB proxy.</p>
    */
   public deleteDBProxy(
@@ -2335,6 +2383,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Deletes a <code>DBProxyEndpoint</code>. Doing so removes the ability to access the DB proxy using the
    *         endpoint that you defined. The endpoint that you delete might have provided capabilities such as read/write
    *         or read-only operations, or using a different VPC than the DB proxy's default VPC.</p>
@@ -2369,6 +2418,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Deletes a DB security group.</p>
    *          <p>The specified DB security group must not be associated with any DB instances.</p>
    *          <note>
@@ -2409,6 +2459,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Deletes a DB snapshot. If the snapshot is being copied, the copy operation is
    *             terminated.</p>
    *          <note>
@@ -2445,6 +2496,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Deletes a DB subnet group.</p>
    *          <note>
    *             <p>The specified database subnet group must not be associated with any DB instances.</p>
@@ -2480,6 +2532,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Deletes an RDS event notification subscription.</p>
    */
   public deleteEventSubscription(
@@ -2512,6 +2565,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Deletes a global database cluster. The primary and secondary clusters must already be detached or
    *         destroyed first.</p>
    *          <note>
@@ -2548,6 +2602,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Deletes an existing option group.</p>
    */
   public deleteOptionGroup(
@@ -2580,6 +2635,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Remove the association between one or more <code>DBProxyTarget</code> data structures and a <code>DBProxyTargetGroup</code>.</p>
    */
   public deregisterDBProxyTargets(
@@ -2612,6 +2668,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Lists all of the attributes for a customer account. The attributes include Amazon RDS quotas for the account, such as the number of DB instances allowed. The description for a quota includes the quota name, current usage toward that quota, and the quota's maximum value.</p>
    *          <p>This command doesn't take any parameters.</p>
    */
@@ -2645,6 +2702,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Returns information about blue/green deployments.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using Amazon RDS Blue/Green Deployments
    *             for database updates</a> in the <i>Amazon RDS User Guide</i> and
@@ -2682,6 +2740,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Lists the set of CA certificates provided by Amazon RDS for this Amazon Web Services account.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html">Using SSL/TLS to encrypt a connection to a DB
    *             instance</a> in the <i>Amazon RDS User Guide</i> and
@@ -2719,6 +2778,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Returns information about backtracks for a DB cluster.</p>
    *          <p>For more information on Amazon Aurora, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
@@ -2757,6 +2817,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Returns information about endpoints for an Amazon Aurora DB cluster.</p>
    *          <note>
    *             <p>This action only applies to Aurora DB clusters.</p>
@@ -2792,15 +2853,16 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of <code>DBClusterParameterGroup</code> descriptions. If a
    *             <code>DBClusterParameterGroupName</code> parameter is specified,
    *             the list will contain only the description of the specified DB cluster parameter group.</p>
    *          <p>For more information on Amazon Aurora, see
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
    *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
-   *          <p>For more information on Multi-AZ DB clusters, see
-   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
-   *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *          <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB
+   *                 cluster deployments</a> in the <i>Amazon RDS User
+   *             Guide</i>.</p>
    */
   public describeDBClusterParameterGroups(
     args: DescribeDBClusterParameterGroupsCommandInput,
@@ -2832,13 +2894,14 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Returns the detailed parameter list for a particular DB cluster parameter group.</p>
    *          <p>For more information on Amazon Aurora, see
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
    *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
-   *          <p>For more information on Multi-AZ DB clusters, see
-   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
-   *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *          <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB
+   *                 cluster deployments</a> in the <i>Amazon RDS User
+   *             Guide</i>.</p>
    */
   public describeDBClusterParameters(
     args: DescribeDBClusterParametersCommandInput,
@@ -2870,13 +2933,14 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Returns information about Amazon Aurora DB clusters and Multi-AZ DB clusters. This API supports pagination.</p>
    *          <p>For more information on Amazon Aurora DB clusters, see
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
    *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
-   *          <p>For more information on Multi-AZ DB clusters, see
-   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
-   *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *          <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB
+   *                 cluster deployments</a> in the <i>Amazon RDS User
+   *             Guide</i>.</p>
    *          <p>This operation can also return information for Amazon Neptune DB instances and Amazon DocumentDB instances.</p>
    */
   public describeDBClusters(
@@ -2909,6 +2973,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of DB cluster snapshot attribute names and values for a manual DB cluster snapshot.</p>
    *          <p>When sharing snapshots with other Amazon Web Services accounts, <code>DescribeDBClusterSnapshotAttributes</code>
    *             returns the <code>restore</code> attribute and a list of IDs for the Amazon Web Services accounts that are
@@ -2948,13 +3013,14 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Returns information about DB cluster snapshots. This API action supports pagination.</p>
    *          <p>For more information on Amazon Aurora DB clusters, see
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
    *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
-   *          <p>For more information on Multi-AZ DB clusters, see
-   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
-   *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *          <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB
+   *                 cluster deployments</a> in the <i>Amazon RDS User
+   *             Guide</i>.</p>
    */
   public describeDBClusterSnapshots(
     args: DescribeDBClusterSnapshotsCommandInput,
@@ -2986,6 +3052,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of the available DB engines.</p>
    */
   public describeDBEngineVersions(
@@ -3018,6 +3085,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Displays backups for both current and deleted
    *             instances. For example, use this operation to
    *             find details about automated backups for previously deleted instances. Current instances
@@ -3056,6 +3124,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Returns information about provisioned RDS instances. This API supports pagination.</p>
    *          <note>
    *             <p>This operation can also return information for Amazon Neptune DB instances and Amazon DocumentDB instances.</p>
@@ -3091,6 +3160,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of DB log files for the DB instance.</p>
    *          <p>This command doesn't apply to RDS Custom.</p>
    */
@@ -3124,6 +3194,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of <code>DBParameterGroup</code> descriptions. If a <code>DBParameterGroupName</code> is specified,
    *             the list will contain only the description of the specified DB parameter group.</p>
    */
@@ -3157,6 +3228,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Returns the detailed parameter list for a particular DB parameter group.</p>
    */
   public describeDBParameters(
@@ -3189,6 +3261,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Returns information about DB proxies.</p>
    */
   public describeDBProxies(
@@ -3221,6 +3294,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Returns information about DB proxy endpoints.</p>
    */
   public describeDBProxyEndpoints(
@@ -3253,6 +3327,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Returns information about DB proxy target groups, represented by <code>DBProxyTargetGroup</code> data structures.</p>
    */
   public describeDBProxyTargetGroups(
@@ -3285,6 +3360,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Returns information about <code>DBProxyTarget</code> objects. This API supports pagination.</p>
    */
   public describeDBProxyTargets(
@@ -3317,6 +3393,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of <code>DBSecurityGroup</code> descriptions. If a <code>DBSecurityGroupName</code> is specified,
    *             the list will contain only the descriptions of the specified DB security group.</p>
    *          <note>
@@ -3357,6 +3434,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of DB snapshot attribute names and values for a manual DB snapshot.</p>
    *          <p>When sharing snapshots with other Amazon Web Services accounts, <code>DescribeDBSnapshotAttributes</code>
    *       returns the <code>restore</code> attribute and a list of IDs for the Amazon Web Services accounts that are
@@ -3396,6 +3474,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Returns information about DB snapshots. This API action supports pagination.</p>
    */
   public describeDBSnapshots(
@@ -3428,6 +3507,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of DBSubnetGroup descriptions. If a DBSubnetGroupName is specified, the list will contain only the descriptions of the specified DBSubnetGroup.</p>
    *          <p>For an overview of CIDR ranges, go to the
    *             <a href="http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Wikipedia Tutorial</a>.</p>
@@ -3462,6 +3542,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Returns the default engine and system parameter information for the cluster database engine.</p>
    *          <p>For more information on Amazon Aurora, see
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
@@ -3499,6 +3580,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Returns the default engine and system parameter information for the specified database engine.</p>
    */
   public describeEngineDefaultParameters(
@@ -3531,6 +3613,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Displays a list of categories for all event source types, or, if specified, for a specified source type.
    *             You can also see this list in the "Amazon RDS event categories and event messages" section of the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.Messages.html">
    *                <i>Amazon RDS User Guide</i>
@@ -3569,6 +3652,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Returns events related to DB instances, DB clusters, DB parameter groups, DB security groups, DB snapshots, DB cluster snapshots, and RDS Proxies for the past 14 days.
    *           Events specific to a particular DB instance, DB cluster, DB parameter group, DB security group, DB snapshot, DB cluster snapshot group, or RDS Proxy can be
    *           obtained by providing the name as a parameter.</p>
@@ -3608,6 +3692,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Lists all the subscription descriptions for a customer account. The description for a subscription includes
    *           <code>SubscriptionName</code>, <code>SNSTopicARN</code>, <code>CustomerID</code>, <code>SourceType</code>, <code>SourceID</code>, <code>CreationTime</code>, and <code>Status</code>.</p>
    *          <p>If you specify a <code>SubscriptionName</code>, lists the description for that subscription.</p>
@@ -3642,7 +3727,8 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <p>Returns information about a snapshot export to Amazon S3. This API operation supports
+   * @public
+   * <p>Returns information about a snapshot or cluster export to Amazon S3. This API operation supports
    *             pagination.</p>
    */
   public describeExportTasks(
@@ -3675,6 +3761,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Returns information about Aurora global database clusters. This API supports pagination.</p>
    *          <p>For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html"> What is Amazon Aurora?</a> in the
    *         <i>Amazon Aurora User Guide</i>.</p>
@@ -3712,6 +3799,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Describes all available options.</p>
    */
   public describeOptionGroupOptions(
@@ -3744,6 +3832,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Describes the available option groups.</p>
    */
   public describeOptionGroups(
@@ -3776,6 +3865,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of orderable DB instance options for the specified DB engine, DB engine version, and DB instance class.</p>
    */
   public describeOrderableDBInstanceOptions(
@@ -3808,6 +3898,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of resources (for example, DB instances) that have at least one pending maintenance action.</p>
    */
   public describePendingMaintenanceActions(
@@ -3840,6 +3931,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Returns information about reserved DB instances for this account, or about a specified reserved DB instance.</p>
    */
   public describeReservedDBInstances(
@@ -3872,6 +3964,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Lists available reserved DB instance offerings.</p>
    */
   public describeReservedDBInstancesOfferings(
@@ -3904,6 +3997,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of the source Amazon Web Services Regions where the current Amazon Web Services Region can create a read replica,
    *          copy a DB snapshot from, or replicate automated backups from.</p>
    *          <p>Use this operation to determine whether cross-Region features are supported between other Regions
@@ -3943,6 +4037,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>You can call <code>DescribeValidDBInstanceModifications</code> to learn what modifications you can make to
    *             your DB instance. You can use this information when you call <code>ModifyDBInstance</code>.</p>
    *          <p>This command doesn't apply to RDS Custom.</p>
@@ -3977,6 +4072,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Downloads all or a portion of the specified log file, up to 1 MB in size.</p>
    *          <p>This command doesn't apply to RDS Custom.</p>
    */
@@ -4010,6 +4106,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Forces a failover for a DB cluster.</p>
    *          <p>For an Aurora DB cluster, failover for a DB cluster promotes one of the Aurora Replicas (read-only instances)
    *           in the DB cluster to be the primary DB instance (the cluster writer).</p>
@@ -4024,9 +4121,9 @@ export class RDS extends RDSClient {
    *          <p>For more information on Amazon Aurora DB clusters, see
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
    *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
-   *          <p>For more information on Multi-AZ DB clusters, see
-   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
-   *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *          <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB
+   *                 cluster deployments</a> in the <i>Amazon RDS User
+   *             Guide</i>.</p>
    */
   public failoverDBCluster(
     args: FailoverDBClusterCommandInput,
@@ -4058,6 +4155,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Initiates the failover process for an Aurora global database (<a>GlobalCluster</a>).</p>
    *          <p>A failover for an Aurora global database promotes one of secondary read-only DB clusters to be
    *        the primary DB cluster and demotes the primary DB cluster to being a secondary (read-only) DB cluster. In other words,
@@ -4102,6 +4200,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Lists all tags on an Amazon RDS resource.</p>
    *          <p>For an overview on tagging an Amazon RDS resource,
    *           see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html">Tagging Amazon RDS Resources</a>
@@ -4137,11 +4236,12 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Changes the audit policy state of a database activity stream to either locked (default) or unlocked. A locked policy is read-only,
    *             whereas an unlocked policy is read/write. If your activity stream is started and locked, you can unlock it, customize your audit policy,
    *             and then lock your activity stream. Restarting the activity stream isn't required. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/DBActivityStreams.Modifying.html"> Modifying a database activity stream</a> in the
    *                 <i>Amazon RDS User Guide</i>. </p>
-   *          <p>This operation is supported for RDS for Oracle only.</p>
+   *          <p>This operation is supported for RDS for Oracle and Microsoft SQL Server.</p>
    */
   public modifyActivityStream(
     args: ModifyActivityStreamCommandInput,
@@ -4173,6 +4273,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Override the system-default Secure Sockets Layer/Transport Layer Security (SSL/TLS)
    *           certificate for Amazon RDS for new DB instances, or remove the override.</p>
    *          <p>By using this operation, you can specify an RDS-approved SSL/TLS certificate for new DB
@@ -4229,6 +4330,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Set the capacity of an Aurora Serverless v1 DB cluster to a specific value.</p>
    *          <p>Aurora Serverless v1 scales seamlessly based on the workload on the DB cluster. In some cases, the capacity might not scale
    *         fast enough to meet a sudden change in workload, such as a large number of new transactions. Call <code>ModifyCurrentDBClusterCapacity</code>
@@ -4278,6 +4380,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Modifies the status of a custom engine version (CEV). You can find CEVs to modify by calling
    *             <code>DescribeDBEngineVersions</code>.</p>
    *          <note>
@@ -4320,15 +4423,16 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Modify the settings for an Amazon Aurora DB cluster or a Multi-AZ DB cluster.
    *            You can change one or more settings by specifying these parameters and the new values in the
    *            request.</p>
    *          <p>For more information on Amazon Aurora DB clusters, see
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
    *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
-   *          <p>For more information on Multi-AZ DB clusters, see
-   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
-   *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *          <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB
+   *                 cluster deployments</a> in the <i>Amazon RDS User
+   *             Guide</i>.</p>
    */
   public modifyDBCluster(
     args: ModifyDBClusterCommandInput,
@@ -4360,6 +4464,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Modifies the properties of an endpoint in an Amazon Aurora DB cluster.</p>
    *          <note>
    *             <p>This action only applies to Aurora DB clusters.</p>
@@ -4395,6 +4500,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Modifies the parameters of a DB cluster parameter group. To modify more than one parameter,
    *             submit a list of the following: <code>ParameterName</code>, <code>ParameterValue</code>,
    *             and <code>ApplyMethod</code>. A maximum of 20
@@ -4417,9 +4523,9 @@ export class RDS extends RDSClient {
    *          <p>For more information on Amazon Aurora DB clusters, see
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
    *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
-   *          <p>For more information on Multi-AZ DB clusters, see
-   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
-   *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
+   *          <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB
+   *                 cluster deployments</a> in the <i>Amazon RDS User
+   *             Guide.</i>
    *          </p>
    */
   public modifyDBClusterParameterGroup(
@@ -4452,6 +4558,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Adds an attribute and values to, or removes an attribute and values from, a manual DB cluster snapshot.</p>
    *          <p>To share a manual DB cluster snapshot with other Amazon Web Services accounts, specify
    *                 <code>restore</code> as the <code>AttributeName</code> and use the
@@ -4502,6 +4609,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Modifies settings for a DB instance.
    *           You can change one or more database configuration parameters by specifying these parameters and the new values in the request.
    *             To learn what modifications you can make to your DB instance,
@@ -4538,6 +4646,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Modifies the parameters of a DB parameter group. To modify more than one parameter,
    *         submit a list of the following: <code>ParameterName</code>, <code>ParameterValue</code>, and
    *         <code>ApplyMethod</code>. A maximum of 20 parameters can be modified in a single request.</p>
@@ -4583,6 +4692,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Changes the settings for an existing DB proxy.</p>
    */
   public modifyDBProxy(
@@ -4615,6 +4725,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Changes the settings for an existing DB proxy endpoint.</p>
    */
   public modifyDBProxyEndpoint(
@@ -4647,6 +4758,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Modifies the properties of a <code>DBProxyTargetGroup</code>.</p>
    */
   public modifyDBProxyTargetGroup(
@@ -4679,6 +4791,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Updates a manual DB snapshot with a new engine version. The snapshot can be encrypted
    *             or unencrypted, but not shared or public.
    *
@@ -4716,6 +4829,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Adds an attribute and values to, or removes an attribute and values from, a manual DB snapshot.</p>
    *          <p>To share a manual DB snapshot with other Amazon Web Services accounts, specify <code>restore</code>
    *             as the <code>AttributeName</code> and use the <code>ValuesToAdd</code> parameter to add
@@ -4764,6 +4878,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Modifies an existing DB subnet group. DB subnet groups must contain at least one subnet in at least two AZs in the Amazon Web Services Region.</p>
    */
   public modifyDBSubnetGroup(
@@ -4796,6 +4911,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Modifies an existing RDS event notification subscription. You can't modify the source identifiers using this call. To change
    *         source identifiers for a subscription, use the <code>AddSourceIdentifierToSubscription</code> and <code>RemoveSourceIdentifierFromSubscription</code> calls.</p>
    *          <p>You can see a list of the event categories for a given source type (<code>SourceType</code>)
@@ -4832,6 +4948,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Modify a setting for an Amazon Aurora global cluster. You can change one or more database configuration
    *         parameters by specifying these parameters and the new values in the request. For more information on
    *         Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html"> What is Amazon Aurora?</a> in the
@@ -4870,6 +4987,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Modifies an existing option group.</p>
    */
   public modifyOptionGroup(
@@ -4902,6 +5020,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Promotes a read replica DB instance to a standalone DB instance.</p>
    *          <note>
    *             <ul>
@@ -4951,6 +5070,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Promotes a read replica DB cluster to a standalone DB cluster.</p>
    */
   public promoteReadReplicaDBCluster(
@@ -4983,6 +5103,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Purchases a reserved DB instance offering.</p>
    */
   public purchaseReservedDBInstancesOffering(
@@ -5015,6 +5136,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>You might need to reboot your DB cluster, usually for maintenance reasons.
    *           For example, if you make certain modifications,
    *           or if you change the DB cluster parameter group associated with the DB cluster,
@@ -5022,10 +5144,9 @@ export class RDS extends RDSClient {
    *          <p>Rebooting a DB cluster restarts the database engine service. Rebooting a DB
    *           cluster results in a momentary outage, during which the DB cluster status is set to rebooting.</p>
    *          <p>Use this operation only for a non-Aurora Multi-AZ DB cluster.</p>
-   *          <p>For more information on Multi-AZ DB clusters, see
-   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
-   *               Multi-AZ deployments with two readable standby DB instances</a> in the
-   *           <i>Amazon RDS User Guide.</i>
+   *          <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB
+   *                 cluster deployments</a> in the <i>Amazon RDS User
+   *             Guide.</i>
    *          </p>
    */
   public rebootDBCluster(
@@ -5058,6 +5179,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>You might need to reboot your DB instance, usually for maintenance reasons.
    *         For example, if you make certain modifications,
    *         or if you change the DB parameter group associated with the DB instance,
@@ -5099,6 +5221,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Associate one or more <code>DBProxyTarget</code> data structures with a <code>DBProxyTargetGroup</code>.</p>
    */
   public registerDBProxyTargets(
@@ -5131,6 +5254,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Detaches an Aurora secondary cluster from an Aurora global database cluster. The cluster becomes a
    *         standalone cluster with read-write capability instead of being read-only and receiving data from a
    *         primary cluster in a different Region.</p>
@@ -5168,14 +5292,15 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Removes the asssociation of an Amazon Web Services Identity and Access Management (IAM) role from a
    *             DB cluster.</p>
    *          <p>For more information on Amazon Aurora DB clusters, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
    *                 What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
-   *          <p>For more information on Multi-AZ DB clusters, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
-   *                 Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
+   *          <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB
+   *                 cluster deployments</a> in the <i>Amazon RDS User
+   *             Guide.</i>
    *          </p>
    */
   public removeRoleFromDBCluster(
@@ -5208,6 +5333,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Disassociates an Amazon Web Services Identity and Access Management (IAM) role from a DB instance.</p>
    */
   public removeRoleFromDBInstance(
@@ -5240,6 +5366,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Removes a source identifier from an existing RDS event notification subscription.</p>
    */
   public removeSourceIdentifierFromSubscription(
@@ -5274,6 +5401,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Removes metadata tags from an Amazon RDS resource.</p>
    *          <p>For an overview on tagging an Amazon RDS resource,
    *           see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html">Tagging Amazon RDS Resources</a>
@@ -5310,6 +5438,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Modifies the parameters of a DB cluster parameter group to the default value. To
    *             reset specific parameters submit a list of the following: <code>ParameterName</code>
    *             and <code>ApplyMethod</code>. To reset the
@@ -5322,9 +5451,9 @@ export class RDS extends RDSClient {
    *          <p>For more information on Amazon Aurora DB clusters, see
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
    *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
-   *          <p>For more information on Multi-AZ DB clusters, see
-   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
-   *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
+   *          <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB
+   *                 cluster deployments</a> in the <i>Amazon RDS User
+   *             Guide.</i>
    *          </p>
    */
   public resetDBClusterParameterGroup(
@@ -5357,6 +5486,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Modifies the parameters of a DB parameter group to the engine/system default value.
    *             To reset specific parameters, provide a list of the following:
    *                 <code>ParameterName</code> and <code>ApplyMethod</code>. To reset the entire DB
@@ -5396,6 +5526,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Creates an Amazon Aurora DB cluster from MySQL data stored in an Amazon S3 bucket.
    *             Amazon RDS must be authorized to access the Amazon S3 bucket and the data must be
    *             created using the Percona XtraBackup utility as described in <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3"> Migrating Data from MySQL by Using an Amazon S3 Bucket</a> in the
@@ -5412,8 +5543,7 @@ export class RDS extends RDSClient {
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
    *                 What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
    *          <note>
-   *             <p>This action only applies to Aurora DB clusters. The source DB engine must be
-   *                 MySQL.</p>
+   *             <p>This action only applies to Aurora DB clusters. The source DB engine must be MySQL.</p>
    *          </note>
    */
   public restoreDBClusterFromS3(
@@ -5446,6 +5576,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Creates a new DB cluster from a DB snapshot or DB cluster snapshot.</p>
    *          <p>The target DB cluster is created from the source snapshot with a default
    *             configuration. If you don't specify a security group, the new DB cluster is
@@ -5461,9 +5592,9 @@ export class RDS extends RDSClient {
    *          <p>For more information on Amazon Aurora DB clusters, see
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
    *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
-   *          <p>For more information on Multi-AZ DB clusters, see
-   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
-   *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
+   *          <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB
+   *                 cluster deployments</a> in the <i>Amazon RDS User
+   *             Guide.</i>
    *          </p>
    */
   public restoreDBClusterFromSnapshot(
@@ -5496,6 +5627,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Restores a DB cluster to an arbitrary point in time. Users can restore to any point
    *             in time before <code>LatestRestorableTime</code> for up to
    *                 <code>BackupRetentionPeriod</code> days. The target DB cluster is created from the
@@ -5512,9 +5644,9 @@ export class RDS extends RDSClient {
    *          <p>For more information on Amazon Aurora DB clusters, see
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
    *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
-   *          <p>For more information on Multi-AZ DB clusters, see
-   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
-   *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
+   *          <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB
+   *                 cluster deployments</a> in the <i>Amazon RDS User
+   *             Guide.</i>
    *          </p>
    */
   public restoreDBClusterToPointInTime(
@@ -5547,6 +5679,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Creates a new DB instance from a DB snapshot. The target database is created from the source database restore point with most
    *             of the source's original configuration, including the default security group and DB parameter group. By default, the new DB
    *             instance is created as a Single-AZ deployment, except when the instance is a SQL Server instance that has an option group
@@ -5592,6 +5725,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Amazon Relational Database Service (Amazon RDS)
    *             supports importing MySQL databases by using backup files.
    *             You can create a backup of your on-premises database,
@@ -5632,6 +5766,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Restores a DB instance to an arbitrary point in time. You can restore to any point in time before the time identified by the LatestRestorableTime property. You can restore to a point up to the number of days specified by the BackupRetentionPeriod property.</p>
    *          <p>The target database is created with most of the original configuration, but in a
    *             system-selected Availability Zone, with the default security group, the default subnet
@@ -5673,6 +5808,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Revokes ingress from a DBSecurityGroup for previously authorized IP ranges or EC2 or VPC security groups. Required
    *             parameters for this API are one of CIDRIP, EC2SecurityGroupId for VPC, or (EC2SecurityGroupOwnerId and either
    *             EC2SecurityGroupName or EC2SecurityGroupId).</p>
@@ -5714,6 +5850,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Starts a database activity stream to monitor activity on the database.
    *             For more information, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html">
@@ -5753,6 +5890,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Starts an Amazon Aurora DB cluster that was stopped using the Amazon Web Services console, the stop-db-cluster
    *        CLI command, or the StopDBCluster action.</p>
    *          <p>For more information, see
@@ -5792,6 +5930,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Starts an Amazon RDS DB instance that was stopped using the Amazon Web Services console, the stop-db-instance CLI command, or the StopDBInstance action.</p>
    *          <p>For more information, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StartInstance.html">
@@ -5833,6 +5972,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Enables replication of automated backups to a different Amazon Web Services Region.</p>
    *          <p>This command doesn't apply to RDS Custom.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html">
@@ -5871,9 +6011,19 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <p>Starts an export of a snapshot to Amazon S3.
+   * @public
+   * <p>Starts an export of DB snapshot or DB cluster data to Amazon S3.
    *             The provided IAM role must have access to the S3 bucket.</p>
-   *          <p>This command doesn't apply to RDS Custom.</p>
+   *          <p>You can't export snapshot data from RDS Custom DB instances.</p>
+   *          <p>You can't export cluster data from Multi-AZ DB clusters.</p>
+   *          <p>For more information on exporting DB snapshot data, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ExportSnapshot.html">Exporting DB snapshot
+   *             data to Amazon S3</a> in the <i>Amazon RDS User Guide</i>
+   *             or <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-export-snapshot.html">Exporting DB
+   *             cluster snapshot data to Amazon S3</a> in the <i>Amazon Aurora User Guide</i>.</p>
+   *          <p>For more information on exporting DB cluster data, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/export-cluster-data.html">Exporting DB
+   *             cluster data to Amazon S3</a> in the <i>Amazon Aurora User Guide</i>.</p>
    */
   public startExportTask(
     args: StartExportTaskCommandInput,
@@ -5905,6 +6055,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Stops a database activity stream that was started using the Amazon Web Services console,
    *             the <code>start-activity-stream</code> CLI command, or the <code>StartActivityStream</code> action.</p>
    *          <p>For more information, see
@@ -5945,6 +6096,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Stops an Amazon Aurora DB cluster. When you stop a DB cluster, Aurora retains the DB cluster's
    *        metadata, including its endpoints and DB parameter groups. Aurora also
    *        retains the transaction logs so you can do a point-in-time restore if necessary.</p>
@@ -5985,6 +6137,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Stops an Amazon RDS DB instance. When you stop a DB instance, Amazon RDS retains the DB instance's metadata, including its endpoint,
    *             DB parameter group, and option group membership. Amazon RDS also retains the transaction logs so you can do a point-in-time restore if
    *             necessary.</p>
@@ -6028,6 +6181,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Stops automated backup replication for a DB instance.</p>
    *          <p>This command doesn't apply to RDS Custom, Aurora MySQL, and Aurora PostgreSQL.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html">
@@ -6066,6 +6220,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Switches over a blue/green deployment.</p>
    *          <p>Before you switch over, production traffic is routed to the databases in the blue environment.
    *             After you switch over, production traffic is routed to the databases in the green environment.</p>
@@ -6105,6 +6260,7 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * @public
    * <p>Switches over an Oracle standby database in an Oracle Data Guard environment, making it the new
    *             primary database. Issue this command in the Region that hosts the current standby database.</p>
    */

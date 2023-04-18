@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartExecutionInput,
-  StartExecutionInputFilterSensitiveLog,
-  StartExecutionOutput,
-  StartExecutionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0StartExecutionCommand,
-  serializeAws_json1_0StartExecutionCommand,
-} from "../protocols/Aws_json1_0";
+import { StartExecutionInput, StartExecutionInputFilterSensitiveLog, StartExecutionOutput } from "../models/models_0";
+import { de_StartExecutionCommand, se_StartExecutionCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
+/**
+ * @public
+ *
+ * The input for {@link StartExecutionCommand}.
+ */
 export interface StartExecutionCommandInput extends StartExecutionInput {}
+/**
+ * @public
+ *
+ * The output of {@link StartExecutionCommand}.
+ */
 export interface StartExecutionCommandOutput extends StartExecutionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a state machine execution. If the given state machine Amazon Resource Name (ARN) is a qualified state machine ARN, it will fail with ValidationException.</p>
  *
  *          <p>A qualified state machine ARN refers to a <i>Distributed Map state</i> defined within a state machine. For example, the qualified state machine ARN <code>arn:partition:states:region:account-id:stateMachine:stateMachineName/mapStateLabel</code> refers to a <i>Distributed Map state</i> with a label <code>mapStateLabel</code> in the state machine named <code>stateMachineName</code>.</p>
@@ -49,13 +52,52 @@ export interface StartExecutionCommandOutput extends StartExecutionOutput, __Met
  * import { SFNClient, StartExecutionCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, StartExecutionCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
+ * const input = { // StartExecutionInput
+ *   stateMachineArn: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   input: "STRING_VALUE",
+ *   traceHeader: "STRING_VALUE",
+ * };
  * const command = new StartExecutionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartExecutionCommandInput - {@link StartExecutionCommandInput}
+ * @returns {@link StartExecutionCommandOutput}
  * @see {@link StartExecutionCommandInput} for command's `input` shape.
  * @see {@link StartExecutionCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
+ *
+ * @throws {@link ExecutionAlreadyExists} (client fault)
+ *  <p>The execution has the same <code>name</code> as another execution (but a different
+ *         <code>input</code>).</p>
+ *          <note>
+ *             <p>Executions with the same <code>name</code> and <code>input</code> are considered
+ *         idempotent.</p>
+ *          </note>
+ *
+ * @throws {@link ExecutionLimitExceeded} (client fault)
+ *  <p>The maximum number of running executions has been reached. Running executions must end or
+ *       be stopped before a new execution can be started.</p>
+ *
+ * @throws {@link InvalidArn} (client fault)
+ *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * @throws {@link InvalidExecutionInput} (client fault)
+ *  <p>The provided JSON input data is not valid.</p>
+ *
+ * @throws {@link InvalidName} (client fault)
+ *  <p>The provided name is not valid.</p>
+ *
+ * @throws {@link StateMachineDeleting} (client fault)
+ *  <p>The specified state machine is being deleted.</p>
+ *
+ * @throws {@link StateMachineDoesNotExist} (client fault)
+ *  <p>The specified state machine does not exist.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
  *
  */
 export class StartExecutionCommand extends $Command<
@@ -75,6 +117,9 @@ export class StartExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,7 +149,7 @@ export class StartExecutionCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: StartExecutionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StartExecutionOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +159,18 @@ export class StartExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0StartExecutionCommand(input, context);
+    return se_StartExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartExecutionCommandOutput> {
-    return deserializeAws_json1_0StartExecutionCommand(output, context);
+    return de_StartExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

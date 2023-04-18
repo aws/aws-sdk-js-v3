@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { MigrationHubServiceException as __BaseException } from "./MigrationHubServiceException";
 
 /**
+ * @public
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -24,13 +25,23 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
-export enum ApplicationStatus {
-  COMPLETED = "COMPLETED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ApplicationStatus = {
+  COMPLETED: "COMPLETED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+} as const;
 
 /**
+ * @public
+ */
+export type ApplicationStatus = (typeof ApplicationStatus)[keyof typeof ApplicationStatus];
+
+/**
+ * @public
  * <p>The state of an application discovered through Migration Hub import, the AWS Agentless
  *          Discovery Connector, or the AWS Application Discovery Agent.</p>
  */
@@ -53,6 +64,7 @@ export interface ApplicationState {
 }
 
 /**
+ * @public
  * <p>An ARN of the AWS cloud resource target receiving the migration (e.g., AMI, EC2
  *          instance, RDS instance, etc.).</p>
  */
@@ -69,6 +81,9 @@ export interface CreatedArtifact {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateCreatedArtifactRequest {
   /**
    * <p>The name of the ProgressUpdateStream. </p>
@@ -95,9 +110,13 @@ export interface AssociateCreatedArtifactRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface AssociateCreatedArtifactResult {}
 
 /**
+ * @public
  * <p>Exception raised to indicate a successfully authorized action when the
  *             <code>DryRun</code> flag is set to "true".</p>
  */
@@ -120,6 +139,7 @@ export class DryRunOperation extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The home region is not set. Set the home region to continue.</p>
  */
 export class HomeRegionNotSetException extends __BaseException {
@@ -141,6 +161,7 @@ export class HomeRegionNotSetException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Exception raised when an internal, configuration, or dependency error is
  *          encountered.</p>
  */
@@ -163,6 +184,7 @@ export class InternalServerError extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Exception raised when the provided input violates a policy constraint or is entered in
  *          the wrong format or data type.</p>
  */
@@ -185,6 +207,7 @@ export class InvalidInputException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Exception raised when the request references a resource (Application Discovery Service
  *          configuration, update stream, migration task, etc.) that does not exist in Application
  *          Discovery Service (Application Discovery Service) or in Migration Hub's repository.</p>
@@ -208,6 +231,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Exception raised when there is an internal, configuration, or dependency error
  *          encountered.</p>
  */
@@ -230,6 +254,7 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -260,6 +285,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Exception raised to indicate a request was not authorized when the <code>DryRun</code>
  *          flag is set to "true".</p>
  */
@@ -282,6 +308,7 @@ export class UnauthorizedOperation extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Object representing the on-premises resource being migrated.</p>
  */
 export interface DiscoveredResource {
@@ -298,6 +325,9 @@ export interface DiscoveredResource {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateDiscoveredResourceRequest {
   /**
    * <p>The name of the ProgressUpdateStream.</p>
@@ -323,9 +353,13 @@ export interface AssociateDiscoveredResourceRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface AssociateDiscoveredResourceResult {}
 
 /**
+ * @public
  * <p>Exception raised when there are problems accessing Application Discovery Service
  *          (Application Discovery Service); most likely due to a misconfigured policy or the
  *             <code>migrationhub-discovery</code> role is missing or not configured correctly.</p>
@@ -348,6 +382,9 @@ export class PolicyErrorException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateProgressUpdateStreamRequest {
   /**
    * <p>The name of the ProgressUpdateStream. <i>Do not store personal data in this
@@ -363,8 +400,14 @@ export interface CreateProgressUpdateStreamRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateProgressUpdateStreamResult {}
 
+/**
+ * @public
+ */
 export interface DeleteProgressUpdateStreamRequest {
   /**
    * <p>The name of the ProgressUpdateStream. <i>Do not store personal data in this
@@ -380,8 +423,14 @@ export interface DeleteProgressUpdateStreamRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteProgressUpdateStreamResult {}
 
+/**
+ * @public
+ */
 export interface DescribeApplicationStateRequest {
   /**
    * <p>The configurationId in Application Discovery Service that uniquely identifies the
@@ -390,6 +439,9 @@ export interface DescribeApplicationStateRequest {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeApplicationStateResult {
   /**
    * <p>Status of the application - Not Started, In-Progress, Complete.</p>
@@ -402,6 +454,9 @@ export interface DescribeApplicationStateResult {
   LastUpdatedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMigrationTaskRequest {
   /**
    * <p>The name of the ProgressUpdateStream. </p>
@@ -416,20 +471,30 @@ export interface DescribeMigrationTaskRequest {
   MigrationTaskName: string | undefined;
 }
 
-export enum ResourceAttributeType {
-  BIOS_ID = "BIOS_ID",
-  FQDN = "FQDN",
-  IPV4_ADDRESS = "IPV4_ADDRESS",
-  IPV6_ADDRESS = "IPV6_ADDRESS",
-  MAC_ADDRESS = "MAC_ADDRESS",
-  MOTHERBOARD_SERIAL_NUMBER = "MOTHERBOARD_SERIAL_NUMBER",
-  VM_MANAGED_OBJECT_REFERENCE = "VM_MANAGED_OBJECT_REFERENCE",
-  VM_MANAGER_ID = "VM_MANAGER_ID",
-  VM_NAME = "VM_NAME",
-  VM_PATH = "VM_PATH",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResourceAttributeType = {
+  BIOS_ID: "BIOS_ID",
+  FQDN: "FQDN",
+  IPV4_ADDRESS: "IPV4_ADDRESS",
+  IPV6_ADDRESS: "IPV6_ADDRESS",
+  MAC_ADDRESS: "MAC_ADDRESS",
+  MOTHERBOARD_SERIAL_NUMBER: "MOTHERBOARD_SERIAL_NUMBER",
+  VM_MANAGED_OBJECT_REFERENCE: "VM_MANAGED_OBJECT_REFERENCE",
+  VM_MANAGER_ID: "VM_MANAGER_ID",
+  VM_NAME: "VM_NAME",
+  VM_PATH: "VM_PATH",
+} as const;
 
 /**
+ * @public
+ */
+export type ResourceAttributeType = (typeof ResourceAttributeType)[keyof typeof ResourceAttributeType];
+
+/**
+ * @public
  * <p>Attribute associated with a resource.</p>
  *          <p>Note the corresponding format required per type listed below:</p>
  *
@@ -457,13 +522,13 @@ export enum ResourceAttributeType {
  *             <dt>MAC_ADDRESS</dt>
  *             <dd>
  *                <p>
- *                   <code>^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$</code>
+ *                   <code>^([0-9A-Fa-f]\{2\}[:-])\{5\}([0-9A-Fa-f]\{2\})$</code>
  *                </p>
  *             </dd>
  *             <dt>FQDN</dt>
  *             <dd>
  *                <p>
- *                   <code>^[^<>{}\\\\/?,=\\p{Cntrl}]{1,256}$</code>
+ *                   <code>^[^<>\{\}\\\\/?,=\\p\{Cntrl\}]\{1,256\}$</code>
  *                </p>
  *             </dd>
  *          </dl>
@@ -480,14 +545,24 @@ export interface ResourceAttribute {
   Value: string | undefined;
 }
 
-export enum Status {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Status = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+} as const;
 
 /**
+ * @public
+ */
+export type Status = (typeof Status)[keyof typeof Status];
+
+/**
+ * @public
  * <p>Task object encapsulating task information.</p>
  */
 export interface Task {
@@ -510,6 +585,7 @@ export interface Task {
 }
 
 /**
+ * @public
  * <p>Represents a migration task in a migration tool.</p>
  */
 export interface MigrationTask {
@@ -542,6 +618,9 @@ export interface MigrationTask {
   ResourceAttributeList?: ResourceAttribute[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeMigrationTaskResult {
   /**
    * <p>Object encapsulating information about the migration task.</p>
@@ -549,6 +628,9 @@ export interface DescribeMigrationTaskResult {
   MigrationTask?: MigrationTask;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateCreatedArtifactRequest {
   /**
    * <p>The name of the ProgressUpdateStream. </p>
@@ -575,8 +657,14 @@ export interface DisassociateCreatedArtifactRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateCreatedArtifactResult {}
 
+/**
+ * @public
+ */
 export interface DisassociateDiscoveredResourceRequest {
   /**
    * <p>The name of the ProgressUpdateStream.</p>
@@ -603,8 +691,14 @@ export interface DisassociateDiscoveredResourceRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateDiscoveredResourceResult {}
 
+/**
+ * @public
+ */
 export interface ImportMigrationTaskRequest {
   /**
    * <p>The name of the ProgressUpdateStream. ></p>
@@ -625,8 +719,14 @@ export interface ImportMigrationTaskRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ImportMigrationTaskResult {}
 
+/**
+ * @public
+ */
 export interface ListApplicationStatesRequest {
   /**
    * <p>The configurationIds from the Application Discovery Service that uniquely identifies
@@ -647,6 +747,9 @@ export interface ListApplicationStatesRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationStatesResult {
   /**
    * <p>A list of Applications that exist in Application Discovery Service.</p>
@@ -661,6 +764,9 @@ export interface ListApplicationStatesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCreatedArtifactsRequest {
   /**
    * <p>The name of the ProgressUpdateStream. </p>
@@ -687,6 +793,9 @@ export interface ListCreatedArtifactsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListCreatedArtifactsResult {
   /**
    * <p>If there are more created artifacts than the max result, return the next token to be
@@ -701,6 +810,9 @@ export interface ListCreatedArtifactsResult {
   CreatedArtifactList?: CreatedArtifact[];
 }
 
+/**
+ * @public
+ */
 export interface ListDiscoveredResourcesRequest {
   /**
    * <p>The name of the ProgressUpdateStream.</p>
@@ -727,6 +839,9 @@ export interface ListDiscoveredResourcesRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListDiscoveredResourcesResult {
   /**
    * <p>If there are more discovered resources than the max result, return the next token to be
@@ -740,6 +855,9 @@ export interface ListDiscoveredResourcesResult {
   DiscoveredResourceList?: DiscoveredResource[];
 }
 
+/**
+ * @public
+ */
 export interface ListMigrationTasksRequest {
   /**
    * <p>If a <code>NextToken</code> was returned by a previous call, there are more results
@@ -760,6 +878,7 @@ export interface ListMigrationTasksRequest {
 }
 
 /**
+ * @public
  * <p>MigrationTaskSummary includes <code>MigrationTaskName</code>,
  *             <code>ProgressPercent</code>, <code>ProgressUpdateStream</code>, <code>Status</code>,
  *          and <code>UpdateDateTime</code> for each task.</p>
@@ -799,6 +918,9 @@ export interface MigrationTaskSummary {
   UpdateDateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListMigrationTasksResult {
   /**
    * <p>If there are more migration tasks than the max result, return the next token to be
@@ -814,6 +936,9 @@ export interface ListMigrationTasksResult {
   MigrationTaskSummaryList?: MigrationTaskSummary[];
 }
 
+/**
+ * @public
+ */
 export interface ListProgressUpdateStreamsRequest {
   /**
    * <p>If a <code>NextToken</code> was returned by a previous call, there are more results
@@ -829,6 +954,7 @@ export interface ListProgressUpdateStreamsRequest {
 }
 
 /**
+ * @public
  * <p>Summary of the AWS resource used for access control that is implicitly linked to your
  *          AWS account.</p>
  */
@@ -841,6 +967,9 @@ export interface ProgressUpdateStreamSummary {
   ProgressUpdateStreamName?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListProgressUpdateStreamsResult {
   /**
    * <p>List of progress update streams up to the max number of results passed in the
@@ -855,6 +984,9 @@ export interface ListProgressUpdateStreamsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface NotifyApplicationStateRequest {
   /**
    * <p>The configurationId in Application Discovery Service that uniquely identifies the
@@ -879,8 +1011,14 @@ export interface NotifyApplicationStateRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface NotifyApplicationStateResult {}
 
+/**
+ * @public
+ */
 export interface NotifyMigrationTaskStateRequest {
   /**
    * <p>The name of the ProgressUpdateStream. </p>
@@ -918,8 +1056,14 @@ export interface NotifyMigrationTaskStateRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface NotifyMigrationTaskStateResult {}
 
+/**
+ * @public
+ */
 export interface PutResourceAttributesRequest {
   /**
    * <p>The name of the ProgressUpdateStream. </p>
@@ -972,302 +1116,7 @@ export interface PutResourceAttributesRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface PutResourceAttributesResult {}
-
-/**
- * @internal
- */
-export const ApplicationStateFilterSensitiveLog = (obj: ApplicationState): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatedArtifactFilterSensitiveLog = (obj: CreatedArtifact): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateCreatedArtifactRequestFilterSensitiveLog = (obj: AssociateCreatedArtifactRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateCreatedArtifactResultFilterSensitiveLog = (obj: AssociateCreatedArtifactResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DiscoveredResourceFilterSensitiveLog = (obj: DiscoveredResource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateDiscoveredResourceRequestFilterSensitiveLog = (obj: AssociateDiscoveredResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateDiscoveredResourceResultFilterSensitiveLog = (obj: AssociateDiscoveredResourceResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateProgressUpdateStreamRequestFilterSensitiveLog = (obj: CreateProgressUpdateStreamRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateProgressUpdateStreamResultFilterSensitiveLog = (obj: CreateProgressUpdateStreamResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteProgressUpdateStreamRequestFilterSensitiveLog = (obj: DeleteProgressUpdateStreamRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteProgressUpdateStreamResultFilterSensitiveLog = (obj: DeleteProgressUpdateStreamResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeApplicationStateRequestFilterSensitiveLog = (obj: DescribeApplicationStateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeApplicationStateResultFilterSensitiveLog = (obj: DescribeApplicationStateResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeMigrationTaskRequestFilterSensitiveLog = (obj: DescribeMigrationTaskRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceAttributeFilterSensitiveLog = (obj: ResourceAttribute): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TaskFilterSensitiveLog = (obj: Task): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MigrationTaskFilterSensitiveLog = (obj: MigrationTask): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeMigrationTaskResultFilterSensitiveLog = (obj: DescribeMigrationTaskResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateCreatedArtifactRequestFilterSensitiveLog = (obj: DisassociateCreatedArtifactRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateCreatedArtifactResultFilterSensitiveLog = (obj: DisassociateCreatedArtifactResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateDiscoveredResourceRequestFilterSensitiveLog = (
-  obj: DisassociateDiscoveredResourceRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateDiscoveredResourceResultFilterSensitiveLog = (
-  obj: DisassociateDiscoveredResourceResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportMigrationTaskRequestFilterSensitiveLog = (obj: ImportMigrationTaskRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportMigrationTaskResultFilterSensitiveLog = (obj: ImportMigrationTaskResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListApplicationStatesRequestFilterSensitiveLog = (obj: ListApplicationStatesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListApplicationStatesResultFilterSensitiveLog = (obj: ListApplicationStatesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCreatedArtifactsRequestFilterSensitiveLog = (obj: ListCreatedArtifactsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCreatedArtifactsResultFilterSensitiveLog = (obj: ListCreatedArtifactsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDiscoveredResourcesRequestFilterSensitiveLog = (obj: ListDiscoveredResourcesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDiscoveredResourcesResultFilterSensitiveLog = (obj: ListDiscoveredResourcesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMigrationTasksRequestFilterSensitiveLog = (obj: ListMigrationTasksRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MigrationTaskSummaryFilterSensitiveLog = (obj: MigrationTaskSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMigrationTasksResultFilterSensitiveLog = (obj: ListMigrationTasksResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListProgressUpdateStreamsRequestFilterSensitiveLog = (obj: ListProgressUpdateStreamsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProgressUpdateStreamSummaryFilterSensitiveLog = (obj: ProgressUpdateStreamSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListProgressUpdateStreamsResultFilterSensitiveLog = (obj: ListProgressUpdateStreamsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NotifyApplicationStateRequestFilterSensitiveLog = (obj: NotifyApplicationStateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NotifyApplicationStateResultFilterSensitiveLog = (obj: NotifyApplicationStateResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NotifyMigrationTaskStateRequestFilterSensitiveLog = (obj: NotifyMigrationTaskStateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NotifyMigrationTaskStateResultFilterSensitiveLog = (obj: NotifyMigrationTaskStateResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutResourceAttributesRequestFilterSensitiveLog = (obj: PutResourceAttributesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutResourceAttributesResultFilterSensitiveLog = (obj: PutResourceAttributesResult): any => ({
-  ...obj,
-});

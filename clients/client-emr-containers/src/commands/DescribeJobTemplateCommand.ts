@@ -16,19 +16,26 @@ import {
 import { EMRContainersClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRContainersClient";
 import {
   DescribeJobTemplateRequest,
-  DescribeJobTemplateRequestFilterSensitiveLog,
   DescribeJobTemplateResponse,
   DescribeJobTemplateResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeJobTemplateCommand,
-  serializeAws_restJson1DescribeJobTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeJobTemplateCommand, se_DescribeJobTemplateCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeJobTemplateCommand}.
+ */
 export interface DescribeJobTemplateCommandInput extends DescribeJobTemplateRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeJobTemplateCommand}.
+ */
 export interface DescribeJobTemplateCommandOutput extends DescribeJobTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Displays detailed information about a specified job template. Job template stores values
  *          of StartJobRun API request in a template and can be used to start a job run. Job template
  *          allows two use cases: avoid repeating recurring StartJobRun API request values, enforcing
@@ -39,13 +46,28 @@ export interface DescribeJobTemplateCommandOutput extends DescribeJobTemplateRes
  * import { EMRContainersClient, DescribeJobTemplateCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
  * // const { EMRContainersClient, DescribeJobTemplateCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
  * const client = new EMRContainersClient(config);
+ * const input = { // DescribeJobTemplateRequest
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new DescribeJobTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeJobTemplateCommandInput - {@link DescribeJobTemplateCommandInput}
+ * @returns {@link DescribeJobTemplateCommandOutput}
  * @see {@link DescribeJobTemplateCommandInput} for command's `input` shape.
  * @see {@link DescribeJobTemplateCommandOutput} for command's `response` shape.
  * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>This is an internal server exception.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There are invalid parameters in the client request.</p>
+ *
  *
  */
 export class DescribeJobTemplateCommand extends $Command<
@@ -65,6 +87,9 @@ export class DescribeJobTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeJobTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,7 +118,7 @@ export class DescribeJobTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeJobTemplateRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeJobTemplateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -104,12 +129,18 @@ export class DescribeJobTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeJobTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeJobTemplateCommand(input, context);
+    return se_DescribeJobTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeJobTemplateCommandOutput> {
-    return deserializeAws_restJson1DescribeJobTemplateCommand(output, context);
+    return de_DescribeJobTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

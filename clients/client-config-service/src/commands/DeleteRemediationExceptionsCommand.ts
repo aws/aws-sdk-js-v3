@@ -14,25 +14,28 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import {
-  DeleteRemediationExceptionsRequest,
-  DeleteRemediationExceptionsRequestFilterSensitiveLog,
-  DeleteRemediationExceptionsResponse,
-  DeleteRemediationExceptionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteRemediationExceptionsCommand,
-  serializeAws_json1_1DeleteRemediationExceptionsCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteRemediationExceptionsRequest, DeleteRemediationExceptionsResponse } from "../models/models_0";
+import { de_DeleteRemediationExceptionsCommand, se_DeleteRemediationExceptionsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteRemediationExceptionsCommand}.
+ */
 export interface DeleteRemediationExceptionsCommandInput extends DeleteRemediationExceptionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteRemediationExceptionsCommand}.
+ */
 export interface DeleteRemediationExceptionsCommandOutput
   extends DeleteRemediationExceptionsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes one or more remediation exceptions mentioned in the resource keys.</p>
- * 		       <note>
+ *          <note>
  *             <p>Config generates a remediation exception when a problem occurs executing a remediation action to a specific resource.
  * 			Remediation exceptions blocks auto-remediation until the exception is cleared.</p>
  *          </note>
@@ -42,13 +45,28 @@ export interface DeleteRemediationExceptionsCommandOutput
  * import { ConfigServiceClient, DeleteRemediationExceptionsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DeleteRemediationExceptionsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // DeleteRemediationExceptionsRequest
+ *   ConfigRuleName: "STRING_VALUE", // required
+ *   ResourceKeys: [ // RemediationExceptionResourceKeys // required
+ *     { // RemediationExceptionResourceKey
+ *       ResourceType: "STRING_VALUE",
+ *       ResourceId: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new DeleteRemediationExceptionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRemediationExceptionsCommandInput - {@link DeleteRemediationExceptionsCommandInput}
+ * @returns {@link DeleteRemediationExceptionsCommandOutput}
  * @see {@link DeleteRemediationExceptionsCommandInput} for command's `input` shape.
  * @see {@link DeleteRemediationExceptionsCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
+ *
+ * @throws {@link NoSuchRemediationExceptionException} (client fault)
+ *  <p>You tried to delete a remediation exception that does not exist.</p>
+ *
  *
  */
 export class DeleteRemediationExceptionsCommand extends $Command<
@@ -68,6 +86,9 @@ export class DeleteRemediationExceptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRemediationExceptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +117,8 @@ export class DeleteRemediationExceptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRemediationExceptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRemediationExceptionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,15 +128,21 @@ export class DeleteRemediationExceptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRemediationExceptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteRemediationExceptionsCommand(input, context);
+    return se_DeleteRemediationExceptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteRemediationExceptionsCommandOutput> {
-    return deserializeAws_json1_1DeleteRemediationExceptionsCommand(output, context);
+    return de_DeleteRemediationExceptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

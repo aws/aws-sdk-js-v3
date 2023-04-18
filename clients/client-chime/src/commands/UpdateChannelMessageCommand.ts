@@ -18,17 +18,24 @@ import {
   UpdateChannelMessageRequest,
   UpdateChannelMessageRequestFilterSensitiveLog,
   UpdateChannelMessageResponse,
-  UpdateChannelMessageResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateChannelMessageCommand,
-  serializeAws_restJson1UpdateChannelMessageCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateChannelMessageCommand, se_UpdateChannelMessageCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateChannelMessageCommand}.
+ */
 export interface UpdateChannelMessageCommandInput extends UpdateChannelMessageRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateChannelMessageCommand}.
+ */
 export interface UpdateChannelMessageCommandOutput extends UpdateChannelMessageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the content of a message.</p>
  *
  *          <note>
@@ -42,13 +49,45 @@ export interface UpdateChannelMessageCommandOutput extends UpdateChannelMessageR
  * import { ChimeClient, UpdateChannelMessageCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, UpdateChannelMessageCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // UpdateChannelMessageRequest
+ *   ChannelArn: "STRING_VALUE", // required
+ *   MessageId: "STRING_VALUE", // required
+ *   Content: "STRING_VALUE",
+ *   Metadata: "STRING_VALUE",
+ *   ChimeBearer: "STRING_VALUE",
+ * };
  * const command = new UpdateChannelMessageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateChannelMessageCommandInput - {@link UpdateChannelMessageCommandInput}
+ * @returns {@link UpdateChannelMessageCommandOutput}
  * @see {@link UpdateChannelMessageCommandInput} for command's `input` shape.
  * @see {@link UpdateChannelMessageCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be processed because of conflict in the current state of the
+ *          resource.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The client exceeded its request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client is not currently authorized to make the request.</p>
+ *
  *
  */
 export class UpdateChannelMessageCommand extends $Command<
@@ -68,6 +107,9 @@ export class UpdateChannelMessageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateChannelMessageCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,7 +139,7 @@ export class UpdateChannelMessageCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateChannelMessageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateChannelMessageResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +149,18 @@ export class UpdateChannelMessageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateChannelMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateChannelMessageCommand(input, context);
+    return se_UpdateChannelMessageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateChannelMessageCommandOutput> {
-    return deserializeAws_restJson1UpdateChannelMessageCommand(output, context);
+    return de_UpdateChannelMessageCommand(output, context);
   }
 
   // Start section: command_body_extra

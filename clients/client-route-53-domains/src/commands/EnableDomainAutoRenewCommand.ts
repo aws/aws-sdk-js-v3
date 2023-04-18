@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  EnableDomainAutoRenewRequest,
-  EnableDomainAutoRenewRequestFilterSensitiveLog,
-  EnableDomainAutoRenewResponse,
-  EnableDomainAutoRenewResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1EnableDomainAutoRenewCommand,
-  serializeAws_json1_1EnableDomainAutoRenewCommand,
-} from "../protocols/Aws_json1_1";
+import { EnableDomainAutoRenewRequest, EnableDomainAutoRenewResponse } from "../models/models_0";
+import { de_EnableDomainAutoRenewCommand, se_EnableDomainAutoRenewCommand } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
+/**
+ * @public
+ *
+ * The input for {@link EnableDomainAutoRenewCommand}.
+ */
 export interface EnableDomainAutoRenewCommandInput extends EnableDomainAutoRenewRequest {}
+/**
+ * @public
+ *
+ * The output of {@link EnableDomainAutoRenewCommand}.
+ */
 export interface EnableDomainAutoRenewCommandOutput extends EnableDomainAutoRenewResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation configures Amazon Route 53 to automatically renew the specified domain
  * 			before the domain registration expires. The cost of renewing your domain registration is
  * 			billed to your Amazon Web Services account.</p>
@@ -43,13 +46,31 @@ export interface EnableDomainAutoRenewCommandOutput extends EnableDomainAutoRene
  * import { Route53DomainsClient, EnableDomainAutoRenewCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, EnableDomainAutoRenewCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
+ * const input = { // EnableDomainAutoRenewRequest
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new EnableDomainAutoRenewCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableDomainAutoRenewCommandInput - {@link EnableDomainAutoRenewCommandInput}
+ * @returns {@link EnableDomainAutoRenewCommandOutput}
  * @see {@link EnableDomainAutoRenewCommandInput} for command's `input` shape.
  * @see {@link EnableDomainAutoRenewCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The requested item is not acceptable. For example, for APIs that accept a domain name,
+ * 			the request might specify a domain name that doesn't belong to the account that
+ * 			submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the
+ * 			password might be invalid.</p>
+ *
+ * @throws {@link TLDRulesViolation} (client fault)
+ *  <p>The top-level domain does not support this operation.</p>
+ *
+ * @throws {@link UnsupportedTLD} (client fault)
+ *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+ *
  *
  */
 export class EnableDomainAutoRenewCommand extends $Command<
@@ -69,6 +90,9 @@ export class EnableDomainAutoRenewCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableDomainAutoRenewCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +121,8 @@ export class EnableDomainAutoRenewCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableDomainAutoRenewRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: EnableDomainAutoRenewResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +132,18 @@ export class EnableDomainAutoRenewCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableDomainAutoRenewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1EnableDomainAutoRenewCommand(input, context);
+    return se_EnableDomainAutoRenewCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableDomainAutoRenewCommandOutput> {
-    return deserializeAws_json1_1EnableDomainAutoRenewCommand(output, context);
+    return de_EnableDomainAutoRenewCommand(output, context);
   }
 
   // Start section: command_body_extra

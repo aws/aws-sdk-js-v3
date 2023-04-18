@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeConfigurationSetRequest,
-  DescribeConfigurationSetRequestFilterSensitiveLog,
-  DescribeConfigurationSetResponse,
-  DescribeConfigurationSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeConfigurationSetCommand,
-  serializeAws_queryDescribeConfigurationSetCommand,
-} from "../protocols/Aws_query";
+import { DescribeConfigurationSetRequest, DescribeConfigurationSetResponse } from "../models/models_0";
+import { de_DescribeConfigurationSetCommand, se_DescribeConfigurationSetCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeConfigurationSetCommand}.
+ */
 export interface DescribeConfigurationSetCommandInput extends DescribeConfigurationSetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeConfigurationSetCommand}.
+ */
 export interface DescribeConfigurationSetCommandOutput extends DescribeConfigurationSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the details of the specified configuration set. For information about using
  *             configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer
  *                 Guide</a>.</p>
@@ -39,13 +42,25 @@ export interface DescribeConfigurationSetCommandOutput extends DescribeConfigura
  * import { SESClient, DescribeConfigurationSetCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, DescribeConfigurationSetCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // DescribeConfigurationSetRequest
+ *   ConfigurationSetName: "STRING_VALUE", // required
+ *   ConfigurationSetAttributeNames: [ // ConfigurationSetAttributeList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeConfigurationSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConfigurationSetCommandInput - {@link DescribeConfigurationSetCommandInput}
+ * @returns {@link DescribeConfigurationSetCommandOutput}
  * @see {@link DescribeConfigurationSetCommandInput} for command's `input` shape.
  * @see {@link DescribeConfigurationSetCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
+ *
+ * @throws {@link ConfigurationSetDoesNotExistException} (client fault)
+ *  <p>Indicates that the configuration set does not exist.</p>
+ *
  *
  */
 export class DescribeConfigurationSetCommand extends $Command<
@@ -65,6 +80,9 @@ export class DescribeConfigurationSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConfigurationSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +111,8 @@ export class DescribeConfigurationSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeConfigurationSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeConfigurationSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +122,18 @@ export class DescribeConfigurationSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeConfigurationSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeConfigurationSetCommand(input, context);
+    return se_DescribeConfigurationSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeConfigurationSetCommandOutput> {
-    return deserializeAws_queryDescribeConfigurationSetCommand(output, context);
+    return de_DescribeConfigurationSetCommand(output, context);
   }
 
   // Start section: command_body_extra

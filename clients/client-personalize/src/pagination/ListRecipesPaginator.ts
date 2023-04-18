@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListRecipesCommand, ListRecipesCommandInput, ListRecipesCommandOutput } from "../commands/ListRecipesCommand";
-import { Personalize } from "../Personalize";
 import { PersonalizeClient } from "../PersonalizeClient";
 import { PersonalizePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: PersonalizeClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListRecipesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Personalize,
-  input: ListRecipesCommandInput,
-  ...args: any
-): Promise<ListRecipesCommandOutput> => {
-  // @ts-ignore
-  return await client.listRecipes(input, ...args);
-};
 export async function* paginateListRecipes(
   config: PersonalizePaginationConfiguration,
   input: ListRecipesCommandInput,
@@ -40,9 +31,7 @@ export async function* paginateListRecipes(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Personalize) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof PersonalizeClient) {
+    if (config.client instanceof PersonalizeClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Personalize | PersonalizeClient");

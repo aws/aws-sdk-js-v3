@@ -14,17 +14,25 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { BatchGetJobsRequest, BatchGetJobsRequestFilterSensitiveLog } from "../models/models_0";
+import { BatchGetJobsRequest } from "../models/models_0";
 import { BatchGetJobsResponse, BatchGetJobsResponseFilterSensitiveLog } from "../models/models_2";
-import {
-  deserializeAws_json1_1BatchGetJobsCommand,
-  serializeAws_json1_1BatchGetJobsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_BatchGetJobsCommand, se_BatchGetJobsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchGetJobsCommand}.
+ */
 export interface BatchGetJobsCommandInput extends BatchGetJobsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link BatchGetJobsCommand}.
+ */
 export interface BatchGetJobsCommandOutput extends BatchGetJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of resource metadata for a given list of job names. After calling the <code>ListJobs</code> operation, you can call this operation to access the data to which you have been granted permissions. This operation supports all IAM permissions, including permission conditions that uses tags.
  * </p>
  * @example
@@ -33,13 +41,30 @@ export interface BatchGetJobsCommandOutput extends BatchGetJobsResponse, __Metad
  * import { GlueClient, BatchGetJobsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, BatchGetJobsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // BatchGetJobsRequest
+ *   JobNames: [ // JobNameList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchGetJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetJobsCommandInput - {@link BatchGetJobsCommandInput}
+ * @returns {@link BatchGetJobsCommandOutput}
  * @see {@link BatchGetJobsCommandInput} for command's `input` shape.
  * @see {@link BatchGetJobsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class BatchGetJobsCommand extends $Command<
@@ -59,6 +84,9 @@ export class BatchGetJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,7 +113,7 @@ export class BatchGetJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetJobsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: BatchGetJobsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -96,12 +124,18 @@ export class BatchGetJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchGetJobsCommand(input, context);
+    return se_BatchGetJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetJobsCommandOutput> {
-    return deserializeAws_json1_1BatchGetJobsCommand(output, context);
+    return de_BatchGetJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

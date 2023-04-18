@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ReplaceTransitGatewayRouteRequest,
-  ReplaceTransitGatewayRouteRequestFilterSensitiveLog,
-  ReplaceTransitGatewayRouteResult,
-  ReplaceTransitGatewayRouteResultFilterSensitiveLog,
-} from "../models/models_6";
-import {
-  deserializeAws_ec2ReplaceTransitGatewayRouteCommand,
-  serializeAws_ec2ReplaceTransitGatewayRouteCommand,
-} from "../protocols/Aws_ec2";
+import { ReplaceTransitGatewayRouteRequest, ReplaceTransitGatewayRouteResult } from "../models/models_6";
+import { de_ReplaceTransitGatewayRouteCommand, se_ReplaceTransitGatewayRouteCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link ReplaceTransitGatewayRouteCommand}.
+ */
 export interface ReplaceTransitGatewayRouteCommandInput extends ReplaceTransitGatewayRouteRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ReplaceTransitGatewayRouteCommand}.
+ */
 export interface ReplaceTransitGatewayRouteCommandOutput extends ReplaceTransitGatewayRouteResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Replaces the specified route in the specified transit gateway route table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,23 @@ export interface ReplaceTransitGatewayRouteCommandOutput extends ReplaceTransitG
  * import { EC2Client, ReplaceTransitGatewayRouteCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ReplaceTransitGatewayRouteCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ReplaceTransitGatewayRouteRequest
+ *   DestinationCidrBlock: "STRING_VALUE", // required
+ *   TransitGatewayRouteTableId: "STRING_VALUE", // required
+ *   TransitGatewayAttachmentId: "STRING_VALUE",
+ *   Blackhole: true || false,
+ *   DryRun: true || false,
+ * };
  * const command = new ReplaceTransitGatewayRouteCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ReplaceTransitGatewayRouteCommandInput - {@link ReplaceTransitGatewayRouteCommandInput}
+ * @returns {@link ReplaceTransitGatewayRouteCommandOutput}
  * @see {@link ReplaceTransitGatewayRouteCommandInput} for command's `input` shape.
  * @see {@link ReplaceTransitGatewayRouteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class ReplaceTransitGatewayRouteCommand extends $Command<
@@ -62,6 +75,9 @@ export class ReplaceTransitGatewayRouteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReplaceTransitGatewayRouteCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +106,8 @@ export class ReplaceTransitGatewayRouteCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReplaceTransitGatewayRouteRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ReplaceTransitGatewayRouteResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +117,21 @@ export class ReplaceTransitGatewayRouteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReplaceTransitGatewayRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ReplaceTransitGatewayRouteCommand(input, context);
+    return se_ReplaceTransitGatewayRouteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ReplaceTransitGatewayRouteCommandOutput> {
-    return deserializeAws_ec2ReplaceTransitGatewayRouteCommand(output, context);
+    return de_ReplaceTransitGatewayRouteCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import {
-  UpdateClassificationScopeRequest,
-  UpdateClassificationScopeRequestFilterSensitiveLog,
-  UpdateClassificationScopeResponse,
-  UpdateClassificationScopeResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateClassificationScopeCommand,
-  serializeAws_restJson1UpdateClassificationScopeCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateClassificationScopeRequest, UpdateClassificationScopeResponse } from "../models/models_1";
+import { de_UpdateClassificationScopeCommand, se_UpdateClassificationScopeCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateClassificationScopeCommand}.
+ */
 export interface UpdateClassificationScopeCommandInput extends UpdateClassificationScopeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateClassificationScopeCommand}.
+ */
 export interface UpdateClassificationScopeCommandOutput extends UpdateClassificationScopeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the classification scope settings for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,42 @@ export interface UpdateClassificationScopeCommandOutput extends UpdateClassifica
  * import { Macie2Client, UpdateClassificationScopeCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, UpdateClassificationScopeCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = { // UpdateClassificationScopeRequest
+ *   id: "STRING_VALUE", // required
+ *   s3: { // S3ClassificationScopeUpdate
+ *     excludes: { // S3ClassificationScopeExclusionUpdate
+ *       bucketNames: [ // __listOfS3BucketName // required
+ *         "STRING_VALUE",
+ *       ],
+ *       operation: "ADD" || "REPLACE" || "REMOVE", // required
+ *     },
+ *   },
+ * };
  * const command = new UpdateClassificationScopeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateClassificationScopeCommandInput - {@link UpdateClassificationScopeCommandInput}
+ * @returns {@link UpdateClassificationScopeCommandOutput}
  * @see {@link UpdateClassificationScopeCommandInput} for command's `input` shape.
  * @see {@link UpdateClassificationScopeCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+ *
  *
  */
 export class UpdateClassificationScopeCommand extends $Command<
@@ -62,6 +94,9 @@ export class UpdateClassificationScopeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateClassificationScopeCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +125,8 @@ export class UpdateClassificationScopeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateClassificationScopeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateClassificationScopeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +136,21 @@ export class UpdateClassificationScopeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateClassificationScopeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateClassificationScopeCommand(input, context);
+    return se_UpdateClassificationScopeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateClassificationScopeCommandOutput> {
-    return deserializeAws_restJson1UpdateClassificationScopeCommand(output, context);
+    return de_UpdateClassificationScopeCommand(output, context);
   }
 
   // Start section: command_body_extra

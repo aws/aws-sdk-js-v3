@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PushDomainRequest, PushDomainRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1PushDomainCommand,
-  serializeAws_json1_1PushDomainCommand,
-} from "../protocols/Aws_json1_1";
+import { PushDomainRequest } from "../models/models_0";
+import { de_PushDomainCommand, se_PushDomainCommand } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
+/**
+ * @public
+ *
+ * The input for {@link PushDomainCommand}.
+ */
 export interface PushDomainCommandInput extends PushDomainRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PushDomainCommand}.
+ */
 export interface PushDomainCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p> Moves a domain from Amazon Web Services to another registrar. </p>
  *          <p>Supported actions:</p>
  *          <ul>
@@ -38,13 +46,33 @@ export interface PushDomainCommandOutput extends __MetadataBearer {}
  * import { Route53DomainsClient, PushDomainCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, PushDomainCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
+ * const input = { // PushDomainRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   Target: "STRING_VALUE", // required
+ * };
  * const command = new PushDomainCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PushDomainCommandInput - {@link PushDomainCommandInput}
+ * @returns {@link PushDomainCommandOutput}
  * @see {@link PushDomainCommandInput} for command's `input` shape.
  * @see {@link PushDomainCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The requested item is not acceptable. For example, for APIs that accept a domain name,
+ * 			the request might specify a domain name that doesn't belong to the account that
+ * 			submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the
+ * 			password might be invalid.</p>
+ *
+ * @throws {@link OperationLimitExceeded} (client fault)
+ *  <p>The number of operations or jobs running exceeded the allowed threshold for the
+ * 			account.</p>
+ *
+ * @throws {@link UnsupportedTLD} (client fault)
+ *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+ *
  *
  */
 export class PushDomainCommand extends $Command<
@@ -64,6 +92,9 @@ export class PushDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PushDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +121,8 @@ export class PushDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PushDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +132,18 @@ export class PushDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PushDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PushDomainCommand(input, context);
+    return se_PushDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PushDomainCommandOutput> {
-    return deserializeAws_json1_1PushDomainCommand(output, context);
+    return de_PushDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

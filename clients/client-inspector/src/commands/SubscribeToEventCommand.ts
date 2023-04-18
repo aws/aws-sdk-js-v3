@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import { SubscribeToEventRequest, SubscribeToEventRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1SubscribeToEventCommand,
-  serializeAws_json1_1SubscribeToEventCommand,
-} from "../protocols/Aws_json1_1";
+import { SubscribeToEventRequest } from "../models/models_0";
+import { de_SubscribeToEventCommand, se_SubscribeToEventCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link SubscribeToEventCommand}.
+ */
 export interface SubscribeToEventCommandInput extends SubscribeToEventRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SubscribeToEventCommand}.
+ */
 export interface SubscribeToEventCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables the process of sending Amazon Simple Notification Service (SNS) notifications
  *          about a specified event to a specified SNS topic.</p>
  * @example
@@ -32,13 +40,55 @@ export interface SubscribeToEventCommandOutput extends __MetadataBearer {}
  * import { InspectorClient, SubscribeToEventCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, SubscribeToEventCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = { // SubscribeToEventRequest
+ *   resourceArn: "STRING_VALUE", // required
+ *   event: "STRING_VALUE", // required
+ *   topicArn: "STRING_VALUE", // required
+ * };
  * const command = new SubscribeToEventCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SubscribeToEventCommandInput - {@link SubscribeToEventCommandInput}
+ * @returns {@link SubscribeToEventCommandOutput}
  * @see {@link SubscribeToEventCommandInput} for command's `input` shape.
  * @see {@link SubscribeToEventCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have required permissions to access the requested resource.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>Internal server error.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
+ *          input parameter.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request was rejected because it attempted to create resources beyond the current
+ *          AWS account limits. The error code describes the limit exceeded.</p>
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced an entity that does not exist. The
+ *          error code describes the entity.</p>
+ *
+ * @throws {@link ServiceTemporarilyUnavailableException} (server fault)
+ *  <p>The serice is temporary unavailable.</p>
+ *
+ *
+ * @example Subscribe to event
+ * ```javascript
+ * // Enables the process of sending Amazon Simple Notification Service (SNS) notifications about a specified event to a specified SNS topic.
+ * const input = {
+ *   "event": "ASSESSMENT_RUN_COMPLETED",
+ *   "resourceArn": "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX/template/0-7sbz2Kz0",
+ *   "topicArn": "arn:aws:sns:us-west-2:123456789012:exampletopic"
+ * };
+ * const command = new SubscribeToEventCommand(input);
+ * await client.send(command);
+ * // example id: subscribe-to-event-1481067686031
+ * ```
  *
  */
 export class SubscribeToEventCommand extends $Command<
@@ -58,6 +108,9 @@ export class SubscribeToEventCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SubscribeToEventCommandInput) {
     // Start section: command_constructor
     super();
@@ -86,8 +139,8 @@ export class SubscribeToEventCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SubscribeToEventRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -97,12 +150,18 @@ export class SubscribeToEventCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SubscribeToEventCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SubscribeToEventCommand(input, context);
+    return se_SubscribeToEventCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SubscribeToEventCommandOutput> {
-    return deserializeAws_json1_1SubscribeToEventCommand(output, context);
+    return de_SubscribeToEventCommand(output, context);
   }
 
   // Start section: command_body_extra

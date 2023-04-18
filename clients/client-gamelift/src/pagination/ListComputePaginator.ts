@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListComputeCommand, ListComputeCommandInput, ListComputeCommandOutput } from "../commands/ListComputeCommand";
-import { GameLift } from "../GameLift";
 import { GameLiftClient } from "../GameLiftClient";
 import { GameLiftPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: GameLiftClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListComputeCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: GameLift,
-  input: ListComputeCommandInput,
-  ...args: any
-): Promise<ListComputeCommandOutput> => {
-  // @ts-ignore
-  return await client.listCompute(input, ...args);
-};
 export async function* paginateListCompute(
   config: GameLiftPaginationConfiguration,
   input: ListComputeCommandInput,
@@ -40,9 +31,7 @@ export async function* paginateListCompute(
   while (hasNext) {
     input.NextToken = token;
     input["Limit"] = config.pageSize;
-    if (config.client instanceof GameLift) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof GameLiftClient) {
+    if (config.client instanceof GameLiftClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected GameLift | GameLiftClient");

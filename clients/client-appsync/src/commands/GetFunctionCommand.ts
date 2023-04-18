@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import {
-  GetFunctionRequest,
-  GetFunctionRequestFilterSensitiveLog,
-  GetFunctionResponse,
-  GetFunctionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetFunctionCommand,
-  serializeAws_restJson1GetFunctionCommand,
-} from "../protocols/Aws_restJson1";
+import { GetFunctionRequest, GetFunctionResponse } from "../models/models_0";
+import { de_GetFunctionCommand, se_GetFunctionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetFunctionCommand}.
+ */
 export interface GetFunctionCommandInput extends GetFunctionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetFunctionCommand}.
+ */
 export interface GetFunctionCommandOutput extends GetFunctionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get a <code>Function</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,30 @@ export interface GetFunctionCommandOutput extends GetFunctionResponse, __Metadat
  * import { AppSyncClient, GetFunctionCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, GetFunctionCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
+ * const input = { // GetFunctionRequest
+ *   apiId: "STRING_VALUE", // required
+ *   functionId: "STRING_VALUE", // required
+ * };
  * const command = new GetFunctionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFunctionCommandInput - {@link GetFunctionCommandInput}
+ * @returns {@link GetFunctionCommandOutput}
  * @see {@link GetFunctionCommandInput} for command's `input` shape.
  * @see {@link GetFunctionCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>Another modification is in progress at this time and it must complete before you can make your
+ *          change.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource specified in the request was not found. Check the resource, and then try again.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You aren't authorized to perform this operation.</p>
+ *
  *
  */
 export class GetFunctionCommand extends $Command<
@@ -62,6 +82,9 @@ export class GetFunctionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFunctionCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +111,8 @@ export class GetFunctionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFunctionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetFunctionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +122,18 @@ export class GetFunctionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetFunctionCommand(input, context);
+    return se_GetFunctionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFunctionCommandOutput> {
-    return deserializeAws_restJson1GetFunctionCommand(output, context);
+    return de_GetFunctionCommand(output, context);
   }
 
   // Start section: command_body_extra

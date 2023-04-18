@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetResourceMetadataRequest,
-  GetResourceMetadataRequestFilterSensitiveLog,
-  GetResourceMetadataResponse,
-  GetResourceMetadataResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetResourceMetadataRequest, GetResourceMetadataResponse } from "../models/models_0";
 import { PIClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PIClient";
-import {
-  deserializeAws_json1_1GetResourceMetadataCommand,
-  serializeAws_json1_1GetResourceMetadataCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetResourceMetadataCommand, se_GetResourceMetadataCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetResourceMetadataCommand}.
+ */
 export interface GetResourceMetadataCommandInput extends GetResourceMetadataRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetResourceMetadataCommand}.
+ */
 export interface GetResourceMetadataCommandOutput extends GetResourceMetadataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieve the metadata for different features. For example, the metadata might indicate
  *             that a feature is turned on or off on a specific DB instance.
  *         </p>
@@ -38,13 +41,29 @@ export interface GetResourceMetadataCommandOutput extends GetResourceMetadataRes
  * import { PIClient, GetResourceMetadataCommand } from "@aws-sdk/client-pi"; // ES Modules import
  * // const { PIClient, GetResourceMetadataCommand } = require("@aws-sdk/client-pi"); // CommonJS import
  * const client = new PIClient(config);
+ * const input = { // GetResourceMetadataRequest
+ *   ServiceType: "RDS" || "DOCDB", // required
+ *   Identifier: "STRING_VALUE", // required
+ * };
  * const command = new GetResourceMetadataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResourceMetadataCommandInput - {@link GetResourceMetadataCommandInput}
+ * @returns {@link GetResourceMetadataCommandOutput}
  * @see {@link GetResourceMetadataCommandInput} for command's `input` shape.
  * @see {@link GetResourceMetadataCommandOutput} for command's `response` shape.
  * @see {@link PIClientResolvedConfig | config} for PIClient's `config` shape.
+ *
+ * @throws {@link InternalServiceError} (server fault)
+ *  <p>The request failed due to an unknown error.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>One of the arguments provided is invalid for this request.</p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>The user is not authorized to perform this request.</p>
+ *
  *
  */
 export class GetResourceMetadataCommand extends $Command<
@@ -64,6 +83,9 @@ export class GetResourceMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResourceMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +114,8 @@ export class GetResourceMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetResourceMetadataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetResourceMetadataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +125,18 @@ export class GetResourceMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResourceMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetResourceMetadataCommand(input, context);
+    return se_GetResourceMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourceMetadataCommandOutput> {
-    return deserializeAws_json1_1GetResourceMetadataCommand(output, context);
+    return de_GetResourceMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

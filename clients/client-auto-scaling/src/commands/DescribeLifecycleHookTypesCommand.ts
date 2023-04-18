@@ -14,19 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import {
-  DescribeLifecycleHookTypesAnswer,
-  DescribeLifecycleHookTypesAnswerFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeLifecycleHookTypesCommand,
-  serializeAws_queryDescribeLifecycleHookTypesCommand,
-} from "../protocols/Aws_query";
+import { DescribeLifecycleHookTypesAnswer } from "../models/models_0";
+import { de_DescribeLifecycleHookTypesCommand, se_DescribeLifecycleHookTypesCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeLifecycleHookTypesCommand}.
+ */
 export interface DescribeLifecycleHookTypesCommandInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeLifecycleHookTypesCommand}.
+ */
 export interface DescribeLifecycleHookTypesCommandOutput extends DescribeLifecycleHookTypesAnswer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the available types of lifecycle hooks.</p>
  *          <p>The following hook types are supported:</p>
  *          <ul>
@@ -47,13 +52,38 @@ export interface DescribeLifecycleHookTypesCommandOutput extends DescribeLifecyc
  * import { AutoScalingClient, DescribeLifecycleHookTypesCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DescribeLifecycleHookTypesCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = {};
  * const command = new DescribeLifecycleHookTypesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLifecycleHookTypesCommandInput - {@link DescribeLifecycleHookTypesCommandInput}
+ * @returns {@link DescribeLifecycleHookTypesCommandOutput}
  * @see {@link DescribeLifecycleHookTypesCommandInput} for command's `input` shape.
  * @see {@link DescribeLifecycleHookTypesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
+ *
+ * @throws {@link ResourceContentionFault} (server fault)
+ *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
+ *             instance, or load balancer).</p>
+ *
+ *
+ * @example To describe the available types of lifecycle hooks
+ * ```javascript
+ * // This example describes the available lifecycle hook types.
+ * const input = undefined;
+ * const command = new DescribeLifecycleHookTypesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "LifecycleHookTypes": [
+ *     "autoscaling:EC2_INSTANCE_LAUNCHING",
+ *     "autoscaling:EC2_INSTANCE_TERMINATING"
+ *   ]
+ * }
+ * *\/
+ * // example id: autoscaling-describe-lifecycle-hook-types-1
+ * ```
  *
  */
 export class DescribeLifecycleHookTypesCommand extends $Command<
@@ -73,6 +103,9 @@ export class DescribeLifecycleHookTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLifecycleHookTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +134,8 @@ export class DescribeLifecycleHookTypesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: DescribeLifecycleHookTypesAnswerFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,15 +145,21 @@ export class DescribeLifecycleHookTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLifecycleHookTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeLifecycleHookTypesCommand(input, context);
+    return se_DescribeLifecycleHookTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeLifecycleHookTypesCommandOutput> {
-    return deserializeAws_queryDescribeLifecycleHookTypesCommand(output, context);
+    return de_DescribeLifecycleHookTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,23 +14,26 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ModifyInstanceEventStartTimeRequest,
-  ModifyInstanceEventStartTimeRequestFilterSensitiveLog,
-  ModifyInstanceEventStartTimeResult,
-  ModifyInstanceEventStartTimeResultFilterSensitiveLog,
-} from "../models/models_6";
-import {
-  deserializeAws_ec2ModifyInstanceEventStartTimeCommand,
-  serializeAws_ec2ModifyInstanceEventStartTimeCommand,
-} from "../protocols/Aws_ec2";
+import { ModifyInstanceEventStartTimeRequest, ModifyInstanceEventStartTimeResult } from "../models/models_6";
+import { de_ModifyInstanceEventStartTimeCommand, se_ModifyInstanceEventStartTimeCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link ModifyInstanceEventStartTimeCommand}.
+ */
 export interface ModifyInstanceEventStartTimeCommandInput extends ModifyInstanceEventStartTimeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ModifyInstanceEventStartTimeCommand}.
+ */
 export interface ModifyInstanceEventStartTimeCommandOutput
   extends ModifyInstanceEventStartTimeResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the start time for a scheduled Amazon EC2 instance event.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +41,22 @@ export interface ModifyInstanceEventStartTimeCommandOutput
  * import { EC2Client, ModifyInstanceEventStartTimeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyInstanceEventStartTimeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ModifyInstanceEventStartTimeRequest
+ *   DryRun: true || false,
+ *   InstanceId: "STRING_VALUE", // required
+ *   InstanceEventId: "STRING_VALUE", // required
+ *   NotBefore: new Date("TIMESTAMP"), // required
+ * };
  * const command = new ModifyInstanceEventStartTimeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyInstanceEventStartTimeCommandInput - {@link ModifyInstanceEventStartTimeCommandInput}
+ * @returns {@link ModifyInstanceEventStartTimeCommandOutput}
  * @see {@link ModifyInstanceEventStartTimeCommandInput} for command's `input` shape.
  * @see {@link ModifyInstanceEventStartTimeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class ModifyInstanceEventStartTimeCommand extends $Command<
@@ -64,6 +76,9 @@ export class ModifyInstanceEventStartTimeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyInstanceEventStartTimeCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +107,8 @@ export class ModifyInstanceEventStartTimeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyInstanceEventStartTimeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyInstanceEventStartTimeResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +118,21 @@ export class ModifyInstanceEventStartTimeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyInstanceEventStartTimeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyInstanceEventStartTimeCommand(input, context);
+    return se_ModifyInstanceEventStartTimeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyInstanceEventStartTimeCommandOutput> {
-    return deserializeAws_ec2ModifyInstanceEventStartTimeCommand(output, context);
+    return de_ModifyInstanceEventStartTimeCommand(output, context);
   }
 
   // Start section: command_body_extra

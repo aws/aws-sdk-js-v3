@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetTransitGatewayRegistrationsRequest,
-  GetTransitGatewayRegistrationsRequestFilterSensitiveLog,
-  GetTransitGatewayRegistrationsResponse,
-  GetTransitGatewayRegistrationsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetTransitGatewayRegistrationsRequest, GetTransitGatewayRegistrationsResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
-  deserializeAws_restJson1GetTransitGatewayRegistrationsCommand,
-  serializeAws_restJson1GetTransitGatewayRegistrationsCommand,
+  de_GetTransitGatewayRegistrationsCommand,
+  se_GetTransitGatewayRegistrationsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetTransitGatewayRegistrationsCommand}.
+ */
 export interface GetTransitGatewayRegistrationsCommandInput extends GetTransitGatewayRegistrationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetTransitGatewayRegistrationsCommand}.
+ */
 export interface GetTransitGatewayRegistrationsCommandOutput
   extends GetTransitGatewayRegistrationsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the transit gateway registrations in a specified
  *             global network.</p>
  * @example
@@ -39,13 +45,39 @@ export interface GetTransitGatewayRegistrationsCommandOutput
  * import { NetworkManagerClient, GetTransitGatewayRegistrationsCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetTransitGatewayRegistrationsCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // GetTransitGatewayRegistrationsRequest
+ *   GlobalNetworkId: "STRING_VALUE", // required
+ *   TransitGatewayArns: [ // TransitGatewayArnList
+ *     "STRING_VALUE",
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetTransitGatewayRegistrationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTransitGatewayRegistrationsCommandInput - {@link GetTransitGatewayRegistrationsCommandInput}
+ * @returns {@link GetTransitGatewayRegistrationsCommandOutput}
  * @see {@link GetTransitGatewayRegistrationsCommandInput} for command's `input` shape.
  * @see {@link GetTransitGatewayRegistrationsCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request has failed due to an internal error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints.</p>
+ *
  *
  */
 export class GetTransitGatewayRegistrationsCommand extends $Command<
@@ -65,6 +97,9 @@ export class GetTransitGatewayRegistrationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTransitGatewayRegistrationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +128,8 @@ export class GetTransitGatewayRegistrationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTransitGatewayRegistrationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTransitGatewayRegistrationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,18 +139,24 @@ export class GetTransitGatewayRegistrationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetTransitGatewayRegistrationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTransitGatewayRegistrationsCommand(input, context);
+    return se_GetTransitGatewayRegistrationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetTransitGatewayRegistrationsCommandOutput> {
-    return deserializeAws_restJson1GetTransitGatewayRegistrationsCommand(output, context);
+    return de_GetTransitGatewayRegistrationsCommand(output, context);
   }
 
   // Start section: command_body_extra

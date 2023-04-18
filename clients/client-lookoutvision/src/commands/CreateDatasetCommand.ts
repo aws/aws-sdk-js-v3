@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutVisionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutVisionClient";
-import {
-  CreateDatasetRequest,
-  CreateDatasetRequestFilterSensitiveLog,
-  CreateDatasetResponse,
-  CreateDatasetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDatasetCommand,
-  serializeAws_restJson1CreateDatasetCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateDatasetRequest, CreateDatasetResponse } from "../models/models_0";
+import { de_CreateDatasetCommand, se_CreateDatasetCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateDatasetCommand}.
+ */
 export interface CreateDatasetCommandInput extends CreateDatasetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateDatasetCommand}.
+ */
 export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new dataset  in an Amazon Lookout for Vision project. <code>CreateDataset</code> can create a
  *       training or a test dataset from a valid dataset source (<code>DatasetSource</code>).</p>
  *          <p>If you want a single dataset project, specify <code>train</code> for the value of
@@ -45,13 +48,53 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * import { LookoutVisionClient, CreateDatasetCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
  * // const { LookoutVisionClient, CreateDatasetCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
  * const client = new LookoutVisionClient(config);
+ * const input = { // CreateDatasetRequest
+ *   ProjectName: "STRING_VALUE", // required
+ *   DatasetType: "STRING_VALUE", // required
+ *   DatasetSource: { // DatasetSource
+ *     GroundTruthManifest: { // DatasetGroundTruthManifest
+ *       S3Object: { // InputS3Object
+ *         Bucket: "STRING_VALUE", // required
+ *         Key: "STRING_VALUE", // required
+ *         VersionId: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new CreateDatasetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDatasetCommandInput - {@link CreateDatasetCommandInput}
+ * @returns {@link CreateDatasetCommandOutput}
  * @see {@link CreateDatasetCommandInput} for command's `input` shape.
  * @see {@link CreateDatasetCommandOutput} for command's `response` shape.
  * @see {@link LookoutVisionClientResolvedConfig | config} for LookoutVisionClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to perform the action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The update or deletion of a resource caused an inconsistent state.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Amazon Lookout for Vision experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>A service quota was exceeded the allowed limit. For more information, see
+ *         Limits in Amazon Lookout for Vision in the Amazon Lookout for Vision Developer Guide. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Amazon Lookout for Vision is temporarily unable to process the request. Try your call again.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An input validation error occured. For example, invalid characters in a project name,
+ *       or if a pagination token is invalid.</p>
+ *
  *
  */
 export class CreateDatasetCommand extends $Command<
@@ -71,6 +114,9 @@ export class CreateDatasetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDatasetCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +143,8 @@ export class CreateDatasetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDatasetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDatasetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +154,18 @@ export class CreateDatasetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDatasetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDatasetCommand(input, context);
+    return se_CreateDatasetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDatasetCommandOutput> {
-    return deserializeAws_restJson1CreateDatasetCommand(output, context);
+    return de_CreateDatasetCommand(output, context);
   }
 
   // Start section: command_body_extra

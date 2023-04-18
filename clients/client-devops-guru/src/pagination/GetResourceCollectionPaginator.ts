@@ -6,12 +6,11 @@ import {
   GetResourceCollectionCommandInput,
   GetResourceCollectionCommandOutput,
 } from "../commands/GetResourceCollectionCommand";
-import { DevOpsGuru } from "../DevOpsGuru";
 import { DevOpsGuruClient } from "../DevOpsGuruClient";
 import { DevOpsGuruPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DevOpsGuruClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new GetResourceCollectionCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: DevOpsGuru,
-  input: GetResourceCollectionCommandInput,
-  ...args: any
-): Promise<GetResourceCollectionCommandOutput> => {
-  // @ts-ignore
-  return await client.getResourceCollection(input, ...args);
-};
 export async function* paginateGetResourceCollection(
   config: DevOpsGuruPaginationConfiguration,
   input: GetResourceCollectionCommandInput,
@@ -43,9 +34,7 @@ export async function* paginateGetResourceCollection(
   let page: GetResourceCollectionCommandOutput;
   while (hasNext) {
     input.NextToken = token;
-    if (config.client instanceof DevOpsGuru) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DevOpsGuruClient) {
+    if (config.client instanceof DevOpsGuruClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected DevOpsGuru | DevOpsGuruClient");

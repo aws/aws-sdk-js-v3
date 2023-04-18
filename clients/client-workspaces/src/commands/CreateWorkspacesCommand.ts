@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateWorkspacesRequest,
-  CreateWorkspacesRequestFilterSensitiveLog,
-  CreateWorkspacesResult,
-  CreateWorkspacesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateWorkspacesCommand,
-  serializeAws_json1_1CreateWorkspacesCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateWorkspacesRequest, CreateWorkspacesResult } from "../models/models_0";
+import { de_CreateWorkspacesCommand, se_CreateWorkspacesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateWorkspacesCommand}.
+ */
 export interface CreateWorkspacesCommandInput extends CreateWorkspacesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateWorkspacesCommand}.
+ */
 export interface CreateWorkspacesCommandOutput extends CreateWorkspacesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates one or more WorkSpaces.</p>
  *          <p>This operation is asynchronous and returns before the WorkSpaces are created.</p>
  *          <note>
@@ -43,13 +46,50 @@ export interface CreateWorkspacesCommandOutput extends CreateWorkspacesResult, _
  * import { WorkSpacesClient, CreateWorkspacesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, CreateWorkspacesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // CreateWorkspacesRequest
+ *   Workspaces: [ // WorkspaceRequestList // required
+ *     { // WorkspaceRequest
+ *       DirectoryId: "STRING_VALUE", // required
+ *       UserName: "STRING_VALUE", // required
+ *       BundleId: "STRING_VALUE", // required
+ *       VolumeEncryptionKey: "STRING_VALUE",
+ *       UserVolumeEncryptionEnabled: true || false,
+ *       RootVolumeEncryptionEnabled: true || false,
+ *       WorkspaceProperties: { // WorkspaceProperties
+ *         RunningMode: "AUTO_STOP" || "ALWAYS_ON" || "MANUAL",
+ *         RunningModeAutoStopTimeoutInMinutes: Number("int"),
+ *         RootVolumeSizeGib: Number("int"),
+ *         UserVolumeSizeGib: Number("int"),
+ *         ComputeTypeName: "VALUE" || "STANDARD" || "PERFORMANCE" || "POWER" || "GRAPHICS" || "POWERPRO" || "GRAPHICSPRO" || "GRAPHICS_G4DN" || "GRAPHICSPRO_G4DN",
+ *         Protocols: [ // ProtocolList
+ *           "PCOIP" || "WSP",
+ *         ],
+ *       },
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: "STRING_VALUE", // required
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new CreateWorkspacesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWorkspacesCommandInput - {@link CreateWorkspacesCommandInput}
+ * @returns {@link CreateWorkspacesCommandOutput}
  * @see {@link CreateWorkspacesCommandInput} for command's `input` shape.
  * @see {@link CreateWorkspacesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValuesException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ * @throws {@link ResourceLimitExceededException} (client fault)
+ *  <p>Your resource limits have been exceeded.</p>
+ *
  *
  */
 export class CreateWorkspacesCommand extends $Command<
@@ -69,6 +109,9 @@ export class CreateWorkspacesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWorkspacesCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +140,8 @@ export class CreateWorkspacesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateWorkspacesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateWorkspacesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +151,18 @@ export class CreateWorkspacesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWorkspacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateWorkspacesCommand(input, context);
+    return se_CreateWorkspacesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWorkspacesCommandOutput> {
-    return deserializeAws_json1_1CreateWorkspacesCommand(output, context);
+    return de_CreateWorkspacesCommand(output, context);
   }
 
   // Start section: command_body_extra

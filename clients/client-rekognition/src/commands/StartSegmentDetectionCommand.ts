@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartSegmentDetectionRequest,
-  StartSegmentDetectionRequestFilterSensitiveLog,
-  StartSegmentDetectionResponse,
-  StartSegmentDetectionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartSegmentDetectionCommand,
-  serializeAws_json1_1StartSegmentDetectionCommand,
-} from "../protocols/Aws_json1_1";
+import { StartSegmentDetectionRequest, StartSegmentDetectionResponse } from "../models/models_0";
+import { de_StartSegmentDetectionCommand, se_StartSegmentDetectionCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
+/**
+ * @public
+ *
+ * The input for {@link StartSegmentDetectionCommand}.
+ */
 export interface StartSegmentDetectionCommandInput extends StartSegmentDetectionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartSegmentDetectionCommand}.
+ */
 export interface StartSegmentDetectionCommandOutput extends StartSegmentDetectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts asynchronous detection of segment detection in a stored video.</p>
  *          <p>Amazon Rekognition Video can detect segments in a video stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket name and
  *       the filename of the video. <code>StartSegmentDetection</code> returns a job identifier (<code>JobId</code>) which you use to get
@@ -49,13 +52,79 @@ export interface StartSegmentDetectionCommandOutput extends StartSegmentDetectio
  * import { RekognitionClient, StartSegmentDetectionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, StartSegmentDetectionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // StartSegmentDetectionRequest
+ *   Video: { // Video
+ *     S3Object: { // S3Object
+ *       Bucket: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   },
+ *   ClientRequestToken: "STRING_VALUE",
+ *   NotificationChannel: { // NotificationChannel
+ *     SNSTopicArn: "STRING_VALUE", // required
+ *     RoleArn: "STRING_VALUE", // required
+ *   },
+ *   JobTag: "STRING_VALUE",
+ *   Filters: { // StartSegmentDetectionFilters
+ *     TechnicalCueFilter: { // StartTechnicalCueDetectionFilter
+ *       MinSegmentConfidence: Number("float"),
+ *       BlackFrame: { // BlackFrame
+ *         MaxPixelThreshold: Number("float"),
+ *         MinCoveragePercentage: Number("float"),
+ *       },
+ *     },
+ *     ShotFilter: { // StartShotDetectionFilter
+ *       MinSegmentConfidence: Number("float"),
+ *     },
+ *   },
+ *   SegmentTypes: [ // SegmentTypes // required
+ *     "TECHNICAL_CUE" || "SHOT",
+ *   ],
+ * };
  * const command = new StartSegmentDetectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartSegmentDetectionCommandInput - {@link StartSegmentDetectionCommandInput}
+ * @returns {@link StartSegmentDetectionCommandOutput}
  * @see {@link StartSegmentDetectionCommandInput} for command's `input` shape.
  * @see {@link StartSegmentDetectionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to perform the action.</p>
+ *
+ * @throws {@link IdempotentParameterMismatchException} (client fault)
+ *  <p>A <code>ClientRequestToken</code> input parameter was reused with an operation, but at least one of the other input
+ *         parameters is different from the previous call to the operation.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
+ *       operation again.</p>
+ *
+ * @throws {@link InvalidS3ObjectException} (client fault)
+ *  <p>Amazon Rekognition is unable to access the S3 object specified in the request.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many Amazon Rekognition Video jobs concurrently, calls to start operations
+ *             (<code>StartLabelDetection</code>, for example) will raise a <code>LimitExceededException</code> exception (HTTP status code: 400) until
+ *             the number of concurrently running jobs is below the Amazon Rekognition service limit.  </p>
+ *
+ * @throws {@link ProvisionedThroughputExceededException} (client fault)
+ *  <p>The number of requests exceeded your throughput limit. If you want to increase this
+ *       limit, contact Amazon Rekognition.</p>
+ *
+ * @throws {@link ThrottlingException} (server fault)
+ *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
+ * @throws {@link VideoTooLargeException} (client fault)
+ *  <p>The file size or duration of the supplied media is too large. The maximum file size is 10GB.
+ *         The maximum duration is 6 hours. </p>
+ *
  *
  */
 export class StartSegmentDetectionCommand extends $Command<
@@ -75,6 +144,9 @@ export class StartSegmentDetectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartSegmentDetectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +175,8 @@ export class StartSegmentDetectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartSegmentDetectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartSegmentDetectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +186,18 @@ export class StartSegmentDetectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartSegmentDetectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartSegmentDetectionCommand(input, context);
+    return se_StartSegmentDetectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartSegmentDetectionCommandOutput> {
-    return deserializeAws_json1_1StartSegmentDetectionCommand(output, context);
+    return de_StartSegmentDetectionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,31 +14,71 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { AssociateLexBotRequest, AssociateLexBotRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateLexBotCommand,
-  serializeAws_restJson1AssociateLexBotCommand,
-} from "../protocols/Aws_restJson1";
+import { AssociateLexBotRequest } from "../models/models_0";
+import { de_AssociateLexBotCommand, se_AssociateLexBotCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link AssociateLexBotCommand}.
+ */
 export interface AssociateLexBotCommandInput extends AssociateLexBotRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AssociateLexBotCommand}.
+ */
 export interface AssociateLexBotCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Allows the specified Amazon Connect instance to access the specified Amazon Lex bot.</p>
+ *          <p>Allows the specified Amazon Connect instance to access the specified Amazon Lex
+ *    V1 bot. This API only supports the association of Amazon Lex V1 bots.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ConnectClient, AssociateLexBotCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, AssociateLexBotCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // AssociateLexBotRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   LexBot: { // LexBot
+ *     Name: "STRING_VALUE", // required
+ *     LexRegion: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new AssociateLexBotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateLexBotCommandInput - {@link AssociateLexBotCommandInput}
+ * @returns {@link AssociateLexBotCommandOutput}
  * @see {@link AssociateLexBotCommandInput} for command's `input` shape.
  * @see {@link AssociateLexBotCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceConflictException} (client fault)
+ *  <p>A resource already has that name.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The service quota has been exceeded.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
  *
  */
 export class AssociateLexBotCommand extends $Command<
@@ -58,6 +98,9 @@ export class AssociateLexBotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateLexBotCommandInput) {
     // Start section: command_constructor
     super();
@@ -86,8 +129,8 @@ export class AssociateLexBotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateLexBotRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -97,12 +140,18 @@ export class AssociateLexBotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateLexBotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateLexBotCommand(input, context);
+    return se_AssociateLexBotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateLexBotCommandOutput> {
-    return deserializeAws_restJson1AssociateLexBotCommand(output, context);
+    return de_AssociateLexBotCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,35 +14,44 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  DescribeEndpointsRequest,
-  DescribeEndpointsRequestFilterSensitiveLog,
-  DescribeEndpointsResponse,
-  DescribeEndpointsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeEndpointsCommand,
-  serializeAws_json1_0DescribeEndpointsCommand,
-} from "../protocols/Aws_json1_0";
+import { DescribeEndpointsRequest, DescribeEndpointsResponse } from "../models/models_0";
+import { de_DescribeEndpointsCommand, se_DescribeEndpointsCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeEndpointsCommand}.
+ */
 export interface DescribeEndpointsCommandInput extends DescribeEndpointsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeEndpointsCommand}.
+ */
 export interface DescribeEndpointsCommandOutput extends DescribeEndpointsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the regional endpoint information.</p>
+ * @public
+ * <p>Returns the regional endpoint information. This action must be included in your VPC
+ *             endpoint policies, or access to the DescribeEndpoints API will be denied. For more information
+ *             on policy permissions, please see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/inter-network-traffic-privacy.html#inter-network-traffic-DescribeEndpoints">Internetwork traffic privacy</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DynamoDBClient, DescribeEndpointsCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, DescribeEndpointsCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = {};
  * const command = new DescribeEndpointsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEndpointsCommandInput - {@link DescribeEndpointsCommandInput}
+ * @returns {@link DescribeEndpointsCommandOutput}
  * @see {@link DescribeEndpointsCommandInput} for command's `input` shape.
  * @see {@link DescribeEndpointsCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
+ *
  *
  */
 export class DescribeEndpointsCommand extends $Command<
@@ -62,6 +71,9 @@ export class DescribeEndpointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEndpointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +102,8 @@ export class DescribeEndpointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEndpointsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEndpointsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +113,18 @@ export class DescribeEndpointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeEndpointsCommand(input, context);
+    return se_DescribeEndpointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEndpointsCommandOutput> {
-    return deserializeAws_json1_0DescribeEndpointsCommand(output, context);
+    return de_DescribeEndpointsCommand(output, context);
   }
 
   // Start section: command_body_extra

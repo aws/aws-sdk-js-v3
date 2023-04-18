@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
+import { DisassociateFileSystemAliasesRequest, DisassociateFileSystemAliasesResponse } from "../models/models_0";
 import {
-  DisassociateFileSystemAliasesRequest,
-  DisassociateFileSystemAliasesRequestFilterSensitiveLog,
-  DisassociateFileSystemAliasesResponse,
-  DisassociateFileSystemAliasesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DisassociateFileSystemAliasesCommand,
-  serializeAws_json1_1DisassociateFileSystemAliasesCommand,
+  de_DisassociateFileSystemAliasesCommand,
+  se_DisassociateFileSystemAliasesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DisassociateFileSystemAliasesCommand}.
+ */
 export interface DisassociateFileSystemAliasesCommandInput extends DisassociateFileSystemAliasesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateFileSystemAliasesCommand}.
+ */
 export interface DisassociateFileSystemAliasesCommandOutput
   extends DisassociateFileSystemAliasesResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this action to disassociate, or remove, one or more Domain Name Service (DNS) aliases
  *             from an Amazon FSx for Windows File Server file system. If you attempt to disassociate a DNS alias that is not
  *             associated with the file system, Amazon FSx responds with a 400 Bad Request. For more information, see
@@ -46,13 +52,32 @@ export interface DisassociateFileSystemAliasesCommandOutput
  * import { FSxClient, DisassociateFileSystemAliasesCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, DisassociateFileSystemAliasesCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = { // DisassociateFileSystemAliasesRequest
+ *   ClientRequestToken: "STRING_VALUE",
+ *   FileSystemId: "STRING_VALUE", // required
+ *   Aliases: [ // AlternateDNSNames // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DisassociateFileSystemAliasesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateFileSystemAliasesCommandInput - {@link DisassociateFileSystemAliasesCommandInput}
+ * @returns {@link DisassociateFileSystemAliasesCommandOutput}
  * @see {@link DisassociateFileSystemAliasesCommandInput} for command's `input` shape.
  * @see {@link DisassociateFileSystemAliasesCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
+ *
+ * @throws {@link BadRequest} (client fault)
+ *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * @throws {@link FileSystemNotFound} (client fault)
+ *  <p>No Amazon FSx file systems were found based upon supplied parameters.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>A generic error indicating a server-side failure.</p>
+ *
  *
  */
 export class DisassociateFileSystemAliasesCommand extends $Command<
@@ -72,6 +97,9 @@ export class DisassociateFileSystemAliasesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateFileSystemAliasesCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +128,8 @@ export class DisassociateFileSystemAliasesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateFileSystemAliasesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateFileSystemAliasesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,15 +139,21 @@ export class DisassociateFileSystemAliasesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateFileSystemAliasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateFileSystemAliasesCommand(input, context);
+    return se_DisassociateFileSystemAliasesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateFileSystemAliasesCommandOutput> {
-    return deserializeAws_json1_1DisassociateFileSystemAliasesCommand(output, context);
+    return de_DisassociateFileSystemAliasesCommand(output, context);
   }
 
   // Start section: command_body_extra

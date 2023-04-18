@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
-import { CreatePermissionRequest, CreatePermissionRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreatePermissionCommand,
-  serializeAws_json1_1CreatePermissionCommand,
-} from "../protocols/Aws_json1_1";
+import { CreatePermissionRequest } from "../models/models_0";
+import { de_CreatePermissionCommand, se_CreatePermissionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreatePermissionCommand}.
+ */
 export interface CreatePermissionCommandInput extends CreatePermissionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreatePermissionCommand}.
+ */
 export interface CreatePermissionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Grants one or more permissions on a private CA to the Certificate Manager (ACM) service
  * 			principal (<code>acm.amazonaws.com</code>). These permissions allow ACM to issue and
  * 			renew ACM certificates that reside in the same Amazon Web Services account as the CA.</p>
@@ -57,13 +65,45 @@ export interface CreatePermissionCommandOutput extends __MetadataBearer {}
  * import { ACMPCAClient, CreatePermissionCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
  * // const { ACMPCAClient, CreatePermissionCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
  * const client = new ACMPCAClient(config);
+ * const input = { // CreatePermissionRequest
+ *   CertificateAuthorityArn: "STRING_VALUE", // required
+ *   Principal: "STRING_VALUE", // required
+ *   SourceAccount: "STRING_VALUE",
+ *   Actions: [ // ActionList // required
+ *     "IssueCertificate" || "GetCertificate" || "ListPermissions",
+ *   ],
+ * };
  * const command = new CreatePermissionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePermissionCommandInput - {@link CreatePermissionCommandInput}
+ * @returns {@link CreatePermissionCommandOutput}
  * @see {@link CreatePermissionCommandInput} for command's `input` shape.
  * @see {@link CreatePermissionCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
+ *
+ * @throws {@link InvalidArnException} (client fault)
+ *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing
+ * 			resource.</p>
+ *
+ * @throws {@link InvalidStateException} (client fault)
+ *  <p>The state of the private CA does not allow this action to occur.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>An Amazon Web Services Private CA quota has been exceeded. See the exception message returned to determine
+ * 			the quota that was exceeded.</p>
+ *
+ * @throws {@link PermissionAlreadyExistsException} (client fault)
+ *  <p>The designated permission has already been given to the user.</p>
+ *
+ * @throws {@link RequestFailedException} (client fault)
+ *  <p>The request has failed for an unspecified reason.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy
+ * 			cannot be found.</p>
+ *
  *
  */
 export class CreatePermissionCommand extends $Command<
@@ -83,6 +123,9 @@ export class CreatePermissionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +154,8 @@ export class CreatePermissionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePermissionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +165,18 @@ export class CreatePermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreatePermissionCommand(input, context);
+    return se_CreatePermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePermissionCommandOutput> {
-    return deserializeAws_json1_1CreatePermissionCommand(output, context);
+    return de_CreatePermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

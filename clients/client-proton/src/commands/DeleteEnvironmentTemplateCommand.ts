@@ -15,20 +15,27 @@ import {
 
 import {
   DeleteEnvironmentTemplateInput,
-  DeleteEnvironmentTemplateInputFilterSensitiveLog,
   DeleteEnvironmentTemplateOutput,
   DeleteEnvironmentTemplateOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteEnvironmentTemplateCommand,
-  serializeAws_json1_0DeleteEnvironmentTemplateCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteEnvironmentTemplateCommand, se_DeleteEnvironmentTemplateCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteEnvironmentTemplateCommand}.
+ */
 export interface DeleteEnvironmentTemplateCommandInput extends DeleteEnvironmentTemplateInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteEnvironmentTemplateCommand}.
+ */
 export interface DeleteEnvironmentTemplateCommandOutput extends DeleteEnvironmentTemplateOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>If no other major or minor versions of an environment template exist, delete the environment template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +43,37 @@ export interface DeleteEnvironmentTemplateCommandOutput extends DeleteEnvironmen
  * import { ProtonClient, DeleteEnvironmentTemplateCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, DeleteEnvironmentTemplateCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // DeleteEnvironmentTemplateInput
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEnvironmentTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEnvironmentTemplateCommandInput - {@link DeleteEnvironmentTemplateCommandInput}
+ * @returns {@link DeleteEnvironmentTemplateCommandOutput}
  * @see {@link DeleteEnvironmentTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteEnvironmentTemplateCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>There <i>isn't</i> sufficient access for performing this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request <i>couldn't</i> be made due to a conflicting operation or resource.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request failed to register with the service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource <i>wasn't</i> found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+ *
  *
  */
 export class DeleteEnvironmentTemplateCommand extends $Command<
@@ -62,6 +93,9 @@ export class DeleteEnvironmentTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEnvironmentTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +124,7 @@ export class DeleteEnvironmentTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEnvironmentTemplateInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DeleteEnvironmentTemplateOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -101,15 +135,21 @@ export class DeleteEnvironmentTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEnvironmentTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteEnvironmentTemplateCommand(input, context);
+    return se_DeleteEnvironmentTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteEnvironmentTemplateCommandOutput> {
-    return deserializeAws_json1_0DeleteEnvironmentTemplateCommand(output, context);
+    return de_DeleteEnvironmentTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

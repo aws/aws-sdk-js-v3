@@ -18,17 +18,24 @@ import {
   CreateLocationFsxWindowsRequest,
   CreateLocationFsxWindowsRequestFilterSensitiveLog,
   CreateLocationFsxWindowsResponse,
-  CreateLocationFsxWindowsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateLocationFsxWindowsCommand,
-  serializeAws_json1_1CreateLocationFsxWindowsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateLocationFsxWindowsCommand, se_CreateLocationFsxWindowsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateLocationFsxWindowsCommand}.
+ */
 export interface CreateLocationFsxWindowsCommandInput extends CreateLocationFsxWindowsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateLocationFsxWindowsCommand}.
+ */
 export interface CreateLocationFsxWindowsCommandOutput extends CreateLocationFsxWindowsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an endpoint for an Amazon FSx for Windows File Server file system.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +43,38 @@ export interface CreateLocationFsxWindowsCommandOutput extends CreateLocationFsx
  * import { DataSyncClient, CreateLocationFsxWindowsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, CreateLocationFsxWindowsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = { // CreateLocationFsxWindowsRequest
+ *   Subdirectory: "STRING_VALUE",
+ *   FsxFilesystemArn: "STRING_VALUE", // required
+ *   SecurityGroupArns: [ // Ec2SecurityGroupArnList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [ // InputTagList
+ *     { // TagListEntry
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   User: "STRING_VALUE", // required
+ *   Domain: "STRING_VALUE",
+ *   Password: "STRING_VALUE", // required
+ * };
  * const command = new CreateLocationFsxWindowsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLocationFsxWindowsCommandInput - {@link CreateLocationFsxWindowsCommandInput}
+ * @returns {@link CreateLocationFsxWindowsCommandOutput}
  * @see {@link CreateLocationFsxWindowsCommandInput} for command's `input` shape.
  * @see {@link CreateLocationFsxWindowsCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception is thrown when an error occurs in the DataSync service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
  *
  */
 export class CreateLocationFsxWindowsCommand extends $Command<
@@ -62,6 +94,9 @@ export class CreateLocationFsxWindowsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLocationFsxWindowsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,7 +126,7 @@ export class CreateLocationFsxWindowsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateLocationFsxWindowsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLocationFsxWindowsResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +136,18 @@ export class CreateLocationFsxWindowsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLocationFsxWindowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateLocationFsxWindowsCommand(input, context);
+    return se_CreateLocationFsxWindowsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLocationFsxWindowsCommandOutput> {
-    return deserializeAws_json1_1CreateLocationFsxWindowsCommand(output, context);
+    return de_CreateLocationFsxWindowsCommand(output, context);
   }
 
   // Start section: command_body_extra

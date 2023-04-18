@@ -13,24 +13,27 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartOnDemandAppReplicationRequest,
-  StartOnDemandAppReplicationRequestFilterSensitiveLog,
-  StartOnDemandAppReplicationResponse,
-  StartOnDemandAppReplicationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartOnDemandAppReplicationCommand,
-  serializeAws_json1_1StartOnDemandAppReplicationCommand,
-} from "../protocols/Aws_json1_1";
+import { StartOnDemandAppReplicationRequest, StartOnDemandAppReplicationResponse } from "../models/models_0";
+import { de_StartOnDemandAppReplicationCommand, se_StartOnDemandAppReplicationCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link StartOnDemandAppReplicationCommand}.
+ */
 export interface StartOnDemandAppReplicationCommandInput extends StartOnDemandAppReplicationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartOnDemandAppReplicationCommand}.
+ */
 export interface StartOnDemandAppReplicationCommandOutput
   extends StartOnDemandAppReplicationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an on-demand replication run for the specified application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +41,36 @@ export interface StartOnDemandAppReplicationCommandOutput
  * import { SMSClient, StartOnDemandAppReplicationCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, StartOnDemandAppReplicationCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
+ * const input = { // StartOnDemandAppReplicationRequest
+ *   appId: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ * };
  * const command = new StartOnDemandAppReplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartOnDemandAppReplicationCommandInput - {@link StartOnDemandAppReplicationCommandInput}
+ * @returns {@link StartOnDemandAppReplicationCommandOutput}
  * @see {@link StartOnDemandAppReplicationCommandInput} for command's `input` shape.
  * @see {@link StartOnDemandAppReplicationCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
+ *
+ * @throws {@link InternalError} (server fault)
+ *  <p>An internal error occurred.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A specified parameter is not valid.</p>
+ *
+ * @throws {@link MissingRequiredParameterException} (client fault)
+ *  <p>A required parameter is missing.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This operation is not allowed.</p>
+ *
+ * @throws {@link UnauthorizedOperationException} (client fault)
+ *  <p>You lack permissions needed to perform this operation. Check your IAM policies,
+ *             and ensure that you are using the correct access keys.</p>
+ *
  *
  */
 export class StartOnDemandAppReplicationCommand extends $Command<
@@ -64,6 +90,9 @@ export class StartOnDemandAppReplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartOnDemandAppReplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +121,8 @@ export class StartOnDemandAppReplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartOnDemandAppReplicationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartOnDemandAppReplicationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +132,21 @@ export class StartOnDemandAppReplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartOnDemandAppReplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartOnDemandAppReplicationCommand(input, context);
+    return se_StartOnDemandAppReplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartOnDemandAppReplicationCommandOutput> {
-    return deserializeAws_json1_1StartOnDemandAppReplicationCommand(output, context);
+    return de_StartOnDemandAppReplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -75,6 +75,7 @@ export * from "./GetCurrentMetricDataCommand";
 export * from "./GetCurrentUserDataCommand";
 export * from "./GetFederationTokenCommand";
 export * from "./GetMetricDataCommand";
+export * from "./GetMetricDataV2Command";
 export * from "./GetTaskTemplateCommand";
 export * from "./GetTrafficDistributionCommand";
 export * from "./ListAgentStatusesCommand";

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListStageDevicesRequest,
-  ListStageDevicesRequestFilterSensitiveLog,
-  ListStageDevicesResponse,
-  ListStageDevicesResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1ListStageDevicesCommand,
-  serializeAws_json1_1ListStageDevicesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListStageDevicesRequest, ListStageDevicesResponse } from "../models/models_3";
+import { de_ListStageDevicesCommand, se_ListStageDevicesCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListStageDevicesCommand}.
+ */
 export interface ListStageDevicesCommandInput extends ListStageDevicesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListStageDevicesCommand}.
+ */
 export interface ListStageDevicesCommandOutput extends ListStageDevicesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists devices allocated to the stage, containing detailed device information and deployment status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,23 @@ export interface ListStageDevicesCommandOutput extends ListStageDevicesResponse,
  * import { SageMakerClient, ListStageDevicesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListStageDevicesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListStageDevicesRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   EdgeDeploymentPlanName: "STRING_VALUE", // required
+ *   ExcludeDevicesDeployedInOtherStage: true || false,
+ *   StageName: "STRING_VALUE", // required
+ * };
  * const command = new ListStageDevicesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStageDevicesCommandInput - {@link ListStageDevicesCommandInput}
+ * @returns {@link ListStageDevicesCommandOutput}
  * @see {@link ListStageDevicesCommandInput} for command's `input` shape.
  * @see {@link ListStageDevicesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
  *
  */
 export class ListStageDevicesCommand extends $Command<
@@ -62,6 +75,9 @@ export class ListStageDevicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStageDevicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +106,8 @@ export class ListStageDevicesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListStageDevicesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListStageDevicesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +117,18 @@ export class ListStageDevicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStageDevicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListStageDevicesCommand(input, context);
+    return se_ListStageDevicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStageDevicesCommandOutput> {
-    return deserializeAws_json1_1ListStageDevicesCommand(output, context);
+    return de_ListStageDevicesCommand(output, context);
   }
 
   // Start section: command_body_extra

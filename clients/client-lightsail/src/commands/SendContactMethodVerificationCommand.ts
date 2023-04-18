@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { SendContactMethodVerificationRequest, SendContactMethodVerificationResult } from "../models/models_1";
 import {
-  SendContactMethodVerificationRequest,
-  SendContactMethodVerificationRequestFilterSensitiveLog,
-  SendContactMethodVerificationResult,
-  SendContactMethodVerificationResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1SendContactMethodVerificationCommand,
-  serializeAws_json1_1SendContactMethodVerificationCommand,
+  de_SendContactMethodVerificationCommand,
+  se_SendContactMethodVerificationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link SendContactMethodVerificationCommand}.
+ */
 export interface SendContactMethodVerificationCommandInput extends SendContactMethodVerificationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SendContactMethodVerificationCommand}.
+ */
 export interface SendContactMethodVerificationCommandOutput
   extends SendContactMethodVerificationResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends a verification request to an email contact method to ensure it's owned by the
  *       requester. SMS contact methods don't need to be verified.</p>
  *          <p>A contact method is used to send you notifications about your Amazon Lightsail resources.
@@ -50,13 +56,45 @@ export interface SendContactMethodVerificationCommandOutput
  * import { LightsailClient, SendContactMethodVerificationCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, SendContactMethodVerificationCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // SendContactMethodVerificationRequest
+ *   protocol: "Email", // required
+ * };
  * const command = new SendContactMethodVerificationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SendContactMethodVerificationCommandInput - {@link SendContactMethodVerificationCommandInput}
+ * @returns {@link SendContactMethodVerificationCommandOutput}
  * @see {@link SendContactMethodVerificationCommandInput} for command's `input` shape.
  * @see {@link SendContactMethodVerificationCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
+ *       credentials to access a resource.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Lightsail throws this exception when user input does not conform to the validation rules
+ *       of an input field.</p>
+ *          <note>
+ *             <p>Domain and distribution APIs are only available in the N. Virginia
+ *           (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services
+ *         Region configuration to <code>us-east-1</code> to create, view, or edit these
+ *         resources.</p>
+ *          </note>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Lightsail throws this exception when it cannot find a resource.</p>
+ *
+ * @throws {@link OperationFailureException} (client fault)
+ *  <p>Lightsail throws this exception when an operation fails to execute.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>A general service exception.</p>
+ *
+ * @throws {@link UnauthenticatedException} (client fault)
+ *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
+ *
  *
  */
 export class SendContactMethodVerificationCommand extends $Command<
@@ -76,6 +114,9 @@ export class SendContactMethodVerificationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendContactMethodVerificationCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +145,8 @@ export class SendContactMethodVerificationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendContactMethodVerificationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SendContactMethodVerificationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,15 +156,21 @@ export class SendContactMethodVerificationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendContactMethodVerificationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SendContactMethodVerificationCommand(input, context);
+    return se_SendContactMethodVerificationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SendContactMethodVerificationCommandOutput> {
-    return deserializeAws_json1_1SendContactMethodVerificationCommand(output, context);
+    return de_SendContactMethodVerificationCommand(output, context);
   }
 
   // Start section: command_body_extra

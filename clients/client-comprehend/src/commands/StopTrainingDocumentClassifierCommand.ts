@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
+import { StopTrainingDocumentClassifierRequest, StopTrainingDocumentClassifierResponse } from "../models/models_1";
 import {
-  StopTrainingDocumentClassifierRequest,
-  StopTrainingDocumentClassifierRequestFilterSensitiveLog,
-  StopTrainingDocumentClassifierResponse,
-  StopTrainingDocumentClassifierResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StopTrainingDocumentClassifierCommand,
-  serializeAws_json1_1StopTrainingDocumentClassifierCommand,
+  de_StopTrainingDocumentClassifierCommand,
+  se_StopTrainingDocumentClassifierCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link StopTrainingDocumentClassifierCommand}.
+ */
 export interface StopTrainingDocumentClassifierCommandInput extends StopTrainingDocumentClassifierRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StopTrainingDocumentClassifierCommand}.
+ */
 export interface StopTrainingDocumentClassifierCommandOutput
   extends StopTrainingDocumentClassifierResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a document classifier training job while in progress.</p>
  *          <p>If the training job state is <code>TRAINING</code>, the job is marked for termination and
  *       put into the <code>STOP_REQUESTED</code> state. If the training job completes before it can be
@@ -43,13 +49,31 @@ export interface StopTrainingDocumentClassifierCommandOutput
  * import { ComprehendClient, StopTrainingDocumentClassifierCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, StopTrainingDocumentClassifierCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // StopTrainingDocumentClassifierRequest
+ *   DocumentClassifierArn: "STRING_VALUE", // required
+ * };
  * const command = new StopTrainingDocumentClassifierCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopTrainingDocumentClassifierCommandInput - {@link StopTrainingDocumentClassifierCommandInput}
+ * @returns {@link StopTrainingDocumentClassifierCommandOutput}
  * @see {@link StopTrainingDocumentClassifierCommandInput} for command's `input` shape.
  * @see {@link StopTrainingDocumentClassifierCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ *
  *
  */
 export class StopTrainingDocumentClassifierCommand extends $Command<
@@ -69,6 +93,9 @@ export class StopTrainingDocumentClassifierCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopTrainingDocumentClassifierCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +124,8 @@ export class StopTrainingDocumentClassifierCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopTrainingDocumentClassifierRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopTrainingDocumentClassifierResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,18 +135,24 @@ export class StopTrainingDocumentClassifierCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StopTrainingDocumentClassifierCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopTrainingDocumentClassifierCommand(input, context);
+    return se_StopTrainingDocumentClassifierCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopTrainingDocumentClassifierCommandOutput> {
-    return deserializeAws_json1_1StopTrainingDocumentClassifierCommand(output, context);
+    return de_StopTrainingDocumentClassifierCommand(output, context);
   }
 
   // Start section: command_body_extra

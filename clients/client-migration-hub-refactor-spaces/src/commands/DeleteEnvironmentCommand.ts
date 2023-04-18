@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubRefactorSpacesClient";
-import {
-  DeleteEnvironmentRequest,
-  DeleteEnvironmentRequestFilterSensitiveLog,
-  DeleteEnvironmentResponse,
-  DeleteEnvironmentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteEnvironmentCommand,
-  serializeAws_restJson1DeleteEnvironmentCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteEnvironmentRequest, DeleteEnvironmentResponse } from "../models/models_0";
+import { de_DeleteEnvironmentCommand, se_DeleteEnvironmentCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteEnvironmentCommand}.
+ */
 export interface DeleteEnvironmentCommandInput extends DeleteEnvironmentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteEnvironmentCommand}.
+ */
 export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Amazon Web Services Migration Hub Refactor Spaces environment. Before you can delete an environment, you must first
  *       delete any applications and services within the environment.</p>
  * @example
@@ -41,13 +44,38 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentRespons
  * import { MigrationHubRefactorSpacesClient, DeleteEnvironmentCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
  * // const { MigrationHubRefactorSpacesClient, DeleteEnvironmentCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
  * const client = new MigrationHubRefactorSpacesClient(config);
+ * const input = { // DeleteEnvironmentRequest
+ *   EnvironmentIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEnvironmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEnvironmentCommandInput - {@link DeleteEnvironmentCommandInput}
+ * @returns {@link DeleteEnvironmentCommandOutput}
  * @see {@link DeleteEnvironmentCommandInput} for command's `input` shape.
  * @see {@link DeleteEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubRefactorSpacesClientResolvedConfig | config} for MigrationHubRefactorSpacesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The user does not have sufficient access to perform this action. </p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred while processing the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a resource that does not exist. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Request was denied because the request was throttled. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input does not satisfy the constraints specified by an Amazon Web Service.
+ *     </p>
+ *
  *
  */
 export class DeleteEnvironmentCommand extends $Command<
@@ -67,6 +95,9 @@ export class DeleteEnvironmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +126,8 @@ export class DeleteEnvironmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEnvironmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteEnvironmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +137,18 @@ export class DeleteEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteEnvironmentCommand(input, context);
+    return se_DeleteEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEnvironmentCommandOutput> {
-    return deserializeAws_restJson1DeleteEnvironmentCommand(output, context);
+    return de_DeleteEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

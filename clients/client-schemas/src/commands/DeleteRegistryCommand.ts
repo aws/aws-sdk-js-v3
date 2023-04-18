@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteRegistryRequest, DeleteRegistryRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteRegistryCommand,
-  serializeAws_restJson1DeleteRegistryCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteRegistryRequest } from "../models/models_0";
+import { de_DeleteRegistryCommand, se_DeleteRegistryCommand } from "../protocols/Aws_restJson1";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteRegistryCommand}.
+ */
 export interface DeleteRegistryCommandInput extends DeleteRegistryRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteRegistryCommand}.
+ */
 export interface DeleteRegistryCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Registry.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +39,31 @@ export interface DeleteRegistryCommandOutput extends __MetadataBearer {}
  * import { SchemasClient, DeleteRegistryCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, DeleteRegistryCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
  * const client = new SchemasClient(config);
+ * const input = { // DeleteRegistryRequest
+ *   RegistryName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRegistryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRegistryCommandInput - {@link DeleteRegistryCommandInput}
+ * @returns {@link DeleteRegistryCommandOutput}
  * @see {@link DeleteRegistryCommandInput} for command's `input` shape.
  * @see {@link DeleteRegistryCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *
  *
  */
 export class DeleteRegistryCommand extends $Command<
@@ -57,6 +83,9 @@ export class DeleteRegistryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRegistryCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +114,8 @@ export class DeleteRegistryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRegistryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +125,18 @@ export class DeleteRegistryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRegistryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteRegistryCommand(input, context);
+    return se_DeleteRegistryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRegistryCommandOutput> {
-    return deserializeAws_restJson1DeleteRegistryCommand(output, context);
+    return de_DeleteRegistryCommand(output, context);
   }
 
   // Start section: command_body_extra

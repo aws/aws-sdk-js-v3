@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartTranscriptionJobRequest,
-  StartTranscriptionJobRequestFilterSensitiveLog,
-  StartTranscriptionJobResponse,
-  StartTranscriptionJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartTranscriptionJobCommand,
-  serializeAws_json1_1StartTranscriptionJobCommand,
-} from "../protocols/Aws_json1_1";
+import { StartTranscriptionJobRequest, StartTranscriptionJobResponse } from "../models/models_0";
+import { de_StartTranscriptionJobCommand, se_StartTranscriptionJobCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
+/**
+ * @public
+ *
+ * The input for {@link StartTranscriptionJobCommand}.
+ */
 export interface StartTranscriptionJobCommandInput extends StartTranscriptionJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartTranscriptionJobCommand}.
+ */
 export interface StartTranscriptionJobCommandOutput extends StartTranscriptionJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Transcribes the audio from a media file and applies any additional Request Parameters
  *             you choose to include in your request.</p>
  *          <p>To make a <code>StartTranscriptionJob</code> request, you must first upload your media
@@ -70,13 +73,98 @@ export interface StartTranscriptionJobCommandOutput extends StartTranscriptionJo
  * import { TranscribeClient, StartTranscriptionJobCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, StartTranscriptionJobCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
+ * const input = { // StartTranscriptionJobRequest
+ *   TranscriptionJobName: "STRING_VALUE", // required
+ *   LanguageCode: "af-ZA" || "ar-AE" || "ar-SA" || "da-DK" || "de-CH" || "de-DE" || "en-AB" || "en-AU" || "en-GB" || "en-IE" || "en-IN" || "en-US" || "en-WL" || "es-ES" || "es-US" || "fa-IR" || "fr-CA" || "fr-FR" || "he-IL" || "hi-IN" || "id-ID" || "it-IT" || "ja-JP" || "ko-KR" || "ms-MY" || "nl-NL" || "pt-BR" || "pt-PT" || "ru-RU" || "ta-IN" || "te-IN" || "tr-TR" || "zh-CN" || "zh-TW" || "th-TH" || "en-ZA" || "en-NZ" || "vi-VN" || "sv-SE",
+ *   MediaSampleRateHertz: Number("int"),
+ *   MediaFormat: "mp3" || "mp4" || "wav" || "flac" || "ogg" || "amr" || "webm",
+ *   Media: { // Media
+ *     MediaFileUri: "STRING_VALUE",
+ *     RedactedMediaFileUri: "STRING_VALUE",
+ *   },
+ *   OutputBucketName: "STRING_VALUE",
+ *   OutputKey: "STRING_VALUE",
+ *   OutputEncryptionKMSKeyId: "STRING_VALUE",
+ *   KMSEncryptionContext: { // KMSEncryptionContextMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Settings: { // Settings
+ *     VocabularyName: "STRING_VALUE",
+ *     ShowSpeakerLabels: true || false,
+ *     MaxSpeakerLabels: Number("int"),
+ *     ChannelIdentification: true || false,
+ *     ShowAlternatives: true || false,
+ *     MaxAlternatives: Number("int"),
+ *     VocabularyFilterName: "STRING_VALUE",
+ *     VocabularyFilterMethod: "remove" || "mask" || "tag",
+ *   },
+ *   ModelSettings: { // ModelSettings
+ *     LanguageModelName: "STRING_VALUE",
+ *   },
+ *   JobExecutionSettings: { // JobExecutionSettings
+ *     AllowDeferredExecution: true || false,
+ *     DataAccessRoleArn: "STRING_VALUE",
+ *   },
+ *   ContentRedaction: { // ContentRedaction
+ *     RedactionType: "PII", // required
+ *     RedactionOutput: "redacted" || "redacted_and_unredacted", // required
+ *     PiiEntityTypes: [ // PiiEntityTypes
+ *       "BANK_ACCOUNT_NUMBER" || "BANK_ROUTING" || "CREDIT_DEBIT_NUMBER" || "CREDIT_DEBIT_CVV" || "CREDIT_DEBIT_EXPIRY" || "PIN" || "EMAIL" || "ADDRESS" || "NAME" || "PHONE" || "SSN" || "ALL",
+ *     ],
+ *   },
+ *   IdentifyLanguage: true || false,
+ *   IdentifyMultipleLanguages: true || false,
+ *   LanguageOptions: [ // LanguageOptions
+ *     "af-ZA" || "ar-AE" || "ar-SA" || "da-DK" || "de-CH" || "de-DE" || "en-AB" || "en-AU" || "en-GB" || "en-IE" || "en-IN" || "en-US" || "en-WL" || "es-ES" || "es-US" || "fa-IR" || "fr-CA" || "fr-FR" || "he-IL" || "hi-IN" || "id-ID" || "it-IT" || "ja-JP" || "ko-KR" || "ms-MY" || "nl-NL" || "pt-BR" || "pt-PT" || "ru-RU" || "ta-IN" || "te-IN" || "tr-TR" || "zh-CN" || "zh-TW" || "th-TH" || "en-ZA" || "en-NZ" || "vi-VN" || "sv-SE",
+ *   ],
+ *   Subtitles: { // Subtitles
+ *     Formats: [ // SubtitleFormats
+ *       "vtt" || "srt",
+ *     ],
+ *     OutputStartIndex: Number("int"),
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   LanguageIdSettings: { // LanguageIdSettingsMap
+ *     "<keys>": { // LanguageIdSettings
+ *       VocabularyName: "STRING_VALUE",
+ *       VocabularyFilterName: "STRING_VALUE",
+ *       LanguageModelName: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new StartTranscriptionJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartTranscriptionJobCommandInput - {@link StartTranscriptionJobCommandInput}
+ * @returns {@link StartTranscriptionJobCommandOutput}
  * @see {@link StartTranscriptionJobCommandInput} for command's `input` shape.
  * @see {@link StartTranscriptionJobCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>Your request didn't pass one or more validation tests. This can occur when the entity
+ *             you're trying to delete doesn't exist or if it's in a non-terminal state (such as
+ *                 <code>IN PROGRESS</code>). See the exception message field for more
+ *             information.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>A resource already exists with this name. Resource names must be unique within an
+ *                 Amazon Web Services account.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>There was an internal error. Check the error message, correct the issue, and try your
+ *             request again.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You've either sent too many requests or your input file is too long. Wait before
+ *             retrying your request, or use a smaller file and try your request again.</p>
+ *
  *
  */
 export class StartTranscriptionJobCommand extends $Command<
@@ -96,6 +184,9 @@ export class StartTranscriptionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartTranscriptionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +215,8 @@ export class StartTranscriptionJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartTranscriptionJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartTranscriptionJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +226,18 @@ export class StartTranscriptionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartTranscriptionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartTranscriptionJobCommand(input, context);
+    return se_StartTranscriptionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartTranscriptionJobCommandOutput> {
-    return deserializeAws_json1_1StartTranscriptionJobCommand(output, context);
+    return de_StartTranscriptionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

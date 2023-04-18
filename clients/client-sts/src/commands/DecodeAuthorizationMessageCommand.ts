@@ -14,22 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DecodeAuthorizationMessageRequest,
-  DecodeAuthorizationMessageRequestFilterSensitiveLog,
-  DecodeAuthorizationMessageResponse,
-  DecodeAuthorizationMessageResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDecodeAuthorizationMessageCommand,
-  serializeAws_queryDecodeAuthorizationMessageCommand,
-} from "../protocols/Aws_query";
+import { DecodeAuthorizationMessageRequest, DecodeAuthorizationMessageResponse } from "../models/models_0";
+import { de_DecodeAuthorizationMessageCommand, se_DecodeAuthorizationMessageCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DecodeAuthorizationMessageCommand}.
+ */
 export interface DecodeAuthorizationMessageCommandInput extends DecodeAuthorizationMessageRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DecodeAuthorizationMessageCommand}.
+ */
 export interface DecodeAuthorizationMessageCommandOutput extends DecodeAuthorizationMessageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Decodes additional information about the authorization status of a request from an
  *          encoded message returned in response to an Amazon Web Services request.</p>
  *          <p>For example, if a user is not authorized to perform an operation that he or she has
@@ -72,13 +75,40 @@ export interface DecodeAuthorizationMessageCommandOutput extends DecodeAuthoriza
  * import { STSClient, DecodeAuthorizationMessageCommand } from "@aws-sdk/client-sts"; // ES Modules import
  * // const { STSClient, DecodeAuthorizationMessageCommand } = require("@aws-sdk/client-sts"); // CommonJS import
  * const client = new STSClient(config);
+ * const input = { // DecodeAuthorizationMessageRequest
+ *   EncodedMessage: "STRING_VALUE", // required
+ * };
  * const command = new DecodeAuthorizationMessageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DecodeAuthorizationMessageCommandInput - {@link DecodeAuthorizationMessageCommandInput}
+ * @returns {@link DecodeAuthorizationMessageCommandOutput}
  * @see {@link DecodeAuthorizationMessageCommandInput} for command's `input` shape.
  * @see {@link DecodeAuthorizationMessageCommandOutput} for command's `response` shape.
  * @see {@link STSClientResolvedConfig | config} for STSClient's `config` shape.
+ *
+ * @throws {@link InvalidAuthorizationMessageException} (client fault)
+ *  <p>The error returned if the message passed to <code>DecodeAuthorizationMessage</code>
+ *             was invalid. This can happen if the token contains invalid characters, such as
+ *             linebreaks. </p>
+ *
+ *
+ * @example To decode information about an authorization status of a request
+ * ```javascript
+ * //
+ * const input = {
+ *   "EncodedMessage": "<encoded-message>"
+ * };
+ * const command = new DecodeAuthorizationMessageCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DecodedMessage": "{\"allowed\": \"false\",\"explicitDeny\": \"false\",\"matchedStatements\": \"\",\"failures\": \"\",\"context\": {\"principal\": {\"id\": \"AIDACKCEVSQ6C2EXAMPLE\",\"name\": \"Bob\",\"arn\": \"arn:aws:iam::123456789012:user/Bob\"},\"action\": \"ec2:StopInstances\",\"resource\": \"arn:aws:ec2:us-east-1:123456789012:instance/i-dd01c9bd\",\"conditions\": [{\"item\": {\"key\": \"ec2:Tenancy\",\"values\": [\"default\"]},{\"item\": {\"key\": \"ec2:ResourceTag/elasticbeanstalk:environment-name\",\"values\": [\"Default-Environment\"]}},(Additional items ...)]}}"
+ * }
+ * *\/
+ * // example id: to-decode-information-about-an-authorization-status-of-a-request-1480533854499
+ * ```
  *
  */
 export class DecodeAuthorizationMessageCommand extends $Command<
@@ -99,6 +129,9 @@ export class DecodeAuthorizationMessageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DecodeAuthorizationMessageCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +161,8 @@ export class DecodeAuthorizationMessageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DecodeAuthorizationMessageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DecodeAuthorizationMessageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,15 +172,21 @@ export class DecodeAuthorizationMessageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DecodeAuthorizationMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDecodeAuthorizationMessageCommand(input, context);
+    return se_DecodeAuthorizationMessageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DecodeAuthorizationMessageCommandOutput> {
-    return deserializeAws_queryDecodeAuthorizationMessageCommand(output, context);
+    return de_DecodeAuthorizationMessageCommand(output, context);
   }
 
   // Start section: command_body_extra

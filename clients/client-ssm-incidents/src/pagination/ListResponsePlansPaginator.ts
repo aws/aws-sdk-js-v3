@@ -6,12 +6,11 @@ import {
   ListResponsePlansCommandInput,
   ListResponsePlansCommandOutput,
 } from "../commands/ListResponsePlansCommand";
-import { SSMIncidents } from "../SSMIncidents";
 import { SSMIncidentsClient } from "../SSMIncidentsClient";
 import { SSMIncidentsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SSMIncidentsClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListResponsePlansCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: SSMIncidents,
-  input: ListResponsePlansCommandInput,
-  ...args: any
-): Promise<ListResponsePlansCommandOutput> => {
-  // @ts-ignore
-  return await client.listResponsePlans(input, ...args);
-};
 export async function* paginateListResponsePlans(
   config: SSMIncidentsPaginationConfiguration,
   input: ListResponsePlansCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListResponsePlans(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof SSMIncidents) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SSMIncidentsClient) {
+    if (config.client instanceof SSMIncidentsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SSMIncidents | SSMIncidentsClient");

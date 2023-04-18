@@ -14,25 +14,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteJobTaggingRequest,
-  DeleteJobTaggingRequestFilterSensitiveLog,
-  DeleteJobTaggingResult,
-  DeleteJobTaggingResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlDeleteJobTaggingCommand,
-  serializeAws_restXmlDeleteJobTaggingCommand,
-} from "../protocols/Aws_restXml";
+import { DeleteJobTaggingRequest, DeleteJobTaggingResult } from "../models/models_0";
+import { de_DeleteJobTaggingCommand, se_DeleteJobTaggingCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteJobTaggingCommand}.
+ */
 export interface DeleteJobTaggingCommandInput extends DeleteJobTaggingRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteJobTaggingCommand}.
+ */
 export interface DeleteJobTaggingCommandOutput extends DeleteJobTaggingResult, __MetadataBearer {}
 
 /**
- * <p>Removes the entire tag set from the specified S3 Batch Operations job. To use this operation,
- *          you must have permission to perform the <code>s3:DeleteJobTagging</code> action. For more
- *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags">Controlling
+ * @public
+ * <p>Removes the entire tag set from the specified S3 Batch Operations job. To use
+ *          the
+ *             <code>DeleteJobTagging</code> operation, you must have permission to
+ *          perform the <code>s3:DeleteJobTagging</code> action. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags">Controlling
  *             access and labeling jobs using tags</a> in the
  *          <i>Amazon S3 User Guide</i>.</p>
  *          <p></p>
@@ -60,13 +64,29 @@ export interface DeleteJobTaggingCommandOutput extends DeleteJobTaggingResult, _
  * import { S3ControlClient, DeleteJobTaggingCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, DeleteJobTaggingCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = { // DeleteJobTaggingRequest
+ *   AccountId: "STRING_VALUE",
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteJobTaggingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteJobTaggingCommandInput - {@link DeleteJobTaggingCommandInput}
+ * @returns {@link DeleteJobTaggingCommandOutput}
  * @see {@link DeleteJobTaggingCommandInput} for command's `input` shape.
  * @see {@link DeleteJobTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p></p>
+ *
  *
  */
 export class DeleteJobTaggingCommand extends $Command<
@@ -89,6 +109,9 @@ export class DeleteJobTaggingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteJobTaggingCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +141,8 @@ export class DeleteJobTaggingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteJobTaggingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteJobTaggingResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +152,18 @@ export class DeleteJobTaggingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteJobTaggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteJobTaggingCommand(input, context);
+    return se_DeleteJobTaggingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteJobTaggingCommandOutput> {
-    return deserializeAws_restXmlDeleteJobTaggingCommand(output, context);
+    return de_DeleteJobTaggingCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import {
-  DescribeVirtualNodeInput,
-  DescribeVirtualNodeInputFilterSensitiveLog,
-  DescribeVirtualNodeOutput,
-  DescribeVirtualNodeOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeVirtualNodeCommand,
-  serializeAws_restJson1DescribeVirtualNodeCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeVirtualNodeInput, DescribeVirtualNodeOutput } from "../models/models_0";
+import { de_DescribeVirtualNodeCommand, se_DescribeVirtualNodeCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeVirtualNodeCommand}.
+ */
 export interface DescribeVirtualNodeCommandInput extends DescribeVirtualNodeInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeVirtualNodeCommand}.
+ */
 export interface DescribeVirtualNodeCommandOutput extends DescribeVirtualNodeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes an existing virtual node.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,42 @@ export interface DescribeVirtualNodeCommandOutput extends DescribeVirtualNodeOut
  * import { AppMeshClient, DescribeVirtualNodeCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, DescribeVirtualNodeCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
+ * const input = { // DescribeVirtualNodeInput
+ *   virtualNodeName: "STRING_VALUE", // required
+ *   meshName: "STRING_VALUE", // required
+ *   meshOwner: "STRING_VALUE",
+ * };
  * const command = new DescribeVirtualNodeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVirtualNodeCommandInput - {@link DescribeVirtualNodeCommandInput}
+ * @returns {@link DescribeVirtualNodeCommandOutput}
  * @see {@link DescribeVirtualNodeCommandInput} for command's `input` shape.
  * @see {@link DescribeVirtualNodeCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request syntax was malformed. Check your request syntax and try again.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>You don't have permissions to perform this action.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception, or
+ *          failure.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The specified resource doesn't exist. Check your request syntax and try again.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request has failed due to a temporary failure of the service.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The maximum request rate permitted by the App Mesh APIs has been exceeded for
+ *          your account. For best results, use an increasing or variable sleep interval between
+ *          requests.</p>
+ *
  *
  */
 export class DescribeVirtualNodeCommand extends $Command<
@@ -62,6 +94,9 @@ export class DescribeVirtualNodeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVirtualNodeCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +125,8 @@ export class DescribeVirtualNodeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVirtualNodeInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeVirtualNodeOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +136,18 @@ export class DescribeVirtualNodeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVirtualNodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeVirtualNodeCommand(input, context);
+    return se_DescribeVirtualNodeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVirtualNodeCommandOutput> {
-    return deserializeAws_restJson1DescribeVirtualNodeCommand(output, context);
+    return de_DescribeVirtualNodeCommand(output, context);
   }
 
   // Start section: command_body_extra

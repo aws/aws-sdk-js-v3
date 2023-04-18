@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ModifyVpnTunnelOptionsRequest,
-  ModifyVpnTunnelOptionsRequestFilterSensitiveLog,
-  ModifyVpnTunnelOptionsResult,
-  ModifyVpnTunnelOptionsResultFilterSensitiveLog,
-} from "../models/models_6";
-import {
-  deserializeAws_ec2ModifyVpnTunnelOptionsCommand,
-  serializeAws_ec2ModifyVpnTunnelOptionsCommand,
-} from "../protocols/Aws_ec2";
+import { ModifyVpnTunnelOptionsRequest, ModifyVpnTunnelOptionsResult } from "../models/models_6";
+import { de_ModifyVpnTunnelOptionsCommand, se_ModifyVpnTunnelOptionsCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link ModifyVpnTunnelOptionsCommand}.
+ */
 export interface ModifyVpnTunnelOptionsCommandInput extends ModifyVpnTunnelOptionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ModifyVpnTunnelOptionsCommand}.
+ */
 export interface ModifyVpnTunnelOptionsCommandOutput extends ModifyVpnTunnelOptionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the options for a VPN tunnel in an Amazon Web Services Site-to-Site VPN connection. You can modify
  *             multiple options for a tunnel in a single request, but you can only modify one tunnel at
  *             a time. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPNTunnels.html">Site-to-Site VPN tunnel options for your Site-to-Site VPN
@@ -39,13 +42,78 @@ export interface ModifyVpnTunnelOptionsCommandOutput extends ModifyVpnTunnelOpti
  * import { EC2Client, ModifyVpnTunnelOptionsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyVpnTunnelOptionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ModifyVpnTunnelOptionsRequest
+ *   VpnConnectionId: "STRING_VALUE", // required
+ *   VpnTunnelOutsideIpAddress: "STRING_VALUE", // required
+ *   TunnelOptions: { // ModifyVpnTunnelOptionsSpecification
+ *     TunnelInsideCidr: "STRING_VALUE",
+ *     TunnelInsideIpv6Cidr: "STRING_VALUE",
+ *     PreSharedKey: "STRING_VALUE",
+ *     Phase1LifetimeSeconds: Number("int"),
+ *     Phase2LifetimeSeconds: Number("int"),
+ *     RekeyMarginTimeSeconds: Number("int"),
+ *     RekeyFuzzPercentage: Number("int"),
+ *     ReplayWindowSize: Number("int"),
+ *     DPDTimeoutSeconds: Number("int"),
+ *     DPDTimeoutAction: "STRING_VALUE",
+ *     Phase1EncryptionAlgorithms: [ // Phase1EncryptionAlgorithmsRequestList
+ *       { // Phase1EncryptionAlgorithmsRequestListValue
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *     Phase2EncryptionAlgorithms: [ // Phase2EncryptionAlgorithmsRequestList
+ *       { // Phase2EncryptionAlgorithmsRequestListValue
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *     Phase1IntegrityAlgorithms: [ // Phase1IntegrityAlgorithmsRequestList
+ *       { // Phase1IntegrityAlgorithmsRequestListValue
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *     Phase2IntegrityAlgorithms: [ // Phase2IntegrityAlgorithmsRequestList
+ *       { // Phase2IntegrityAlgorithmsRequestListValue
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *     Phase1DHGroupNumbers: [ // Phase1DHGroupNumbersRequestList
+ *       { // Phase1DHGroupNumbersRequestListValue
+ *         Value: Number("int"),
+ *       },
+ *     ],
+ *     Phase2DHGroupNumbers: [ // Phase2DHGroupNumbersRequestList
+ *       { // Phase2DHGroupNumbersRequestListValue
+ *         Value: Number("int"),
+ *       },
+ *     ],
+ *     IKEVersions: [ // IKEVersionsRequestList
+ *       { // IKEVersionsRequestListValue
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *     StartupAction: "STRING_VALUE",
+ *     LogOptions: { // VpnTunnelLogOptionsSpecification
+ *       CloudWatchLogOptions: { // CloudWatchLogOptionsSpecification
+ *         LogEnabled: true || false,
+ *         LogGroupArn: "STRING_VALUE",
+ *         LogOutputFormat: "STRING_VALUE",
+ *       },
+ *     },
+ *     EnableTunnelLifecycleControl: true || false,
+ *   },
+ *   DryRun: true || false,
+ *   SkipTunnelReplacement: true || false,
+ * };
  * const command = new ModifyVpnTunnelOptionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyVpnTunnelOptionsCommandInput - {@link ModifyVpnTunnelOptionsCommandInput}
+ * @returns {@link ModifyVpnTunnelOptionsCommandOutput}
  * @see {@link ModifyVpnTunnelOptionsCommandInput} for command's `input` shape.
  * @see {@link ModifyVpnTunnelOptionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class ModifyVpnTunnelOptionsCommand extends $Command<
@@ -65,6 +133,9 @@ export class ModifyVpnTunnelOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyVpnTunnelOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +164,8 @@ export class ModifyVpnTunnelOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyVpnTunnelOptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyVpnTunnelOptionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +175,18 @@ export class ModifyVpnTunnelOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyVpnTunnelOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyVpnTunnelOptionsCommand(input, context);
+    return se_ModifyVpnTunnelOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyVpnTunnelOptionsCommandOutput> {
-    return deserializeAws_ec2ModifyVpnTunnelOptionsCommand(output, context);
+    return de_ModifyVpnTunnelOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

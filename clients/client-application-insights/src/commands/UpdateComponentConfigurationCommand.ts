@@ -18,23 +18,29 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient";
+import { UpdateComponentConfigurationRequest, UpdateComponentConfigurationResponse } from "../models/models_0";
 import {
-  UpdateComponentConfigurationRequest,
-  UpdateComponentConfigurationRequestFilterSensitiveLog,
-  UpdateComponentConfigurationResponse,
-  UpdateComponentConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateComponentConfigurationCommand,
-  serializeAws_json1_1UpdateComponentConfigurationCommand,
+  de_UpdateComponentConfigurationCommand,
+  se_UpdateComponentConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateComponentConfigurationCommand}.
+ */
 export interface UpdateComponentConfigurationCommandInput extends UpdateComponentConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateComponentConfigurationCommand}.
+ */
 export interface UpdateComponentConfigurationCommandOutput
   extends UpdateComponentConfigurationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the monitoring configurations for the component. The configuration input
  *          parameter is an escaped JSON of the configuration and should match the schema of what is
  *          returned by <code>DescribeComponentConfigurationRecommendation</code>. </p>
@@ -44,13 +50,33 @@ export interface UpdateComponentConfigurationCommandOutput
  * import { ApplicationInsightsClient, UpdateComponentConfigurationCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
  * // const { ApplicationInsightsClient, UpdateComponentConfigurationCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
+ * const input = { // UpdateComponentConfigurationRequest
+ *   ResourceGroupName: "STRING_VALUE", // required
+ *   ComponentName: "STRING_VALUE", // required
+ *   Monitor: true || false,
+ *   Tier: "STRING_VALUE",
+ *   ComponentConfiguration: "STRING_VALUE",
+ *   AutoConfigEnabled: true || false,
+ * };
  * const command = new UpdateComponentConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateComponentConfigurationCommandInput - {@link UpdateComponentConfigurationCommandInput}
+ * @returns {@link UpdateComponentConfigurationCommandOutput}
  * @see {@link UpdateComponentConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateComponentConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The server encountered an internal error and is unable to complete the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource does not exist in the customer account.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The parameter is not valid.</p>
+ *
  *
  */
 export class UpdateComponentConfigurationCommand extends $Command<
@@ -70,6 +96,9 @@ export class UpdateComponentConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateComponentConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +127,8 @@ export class UpdateComponentConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateComponentConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateComponentConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,15 +138,21 @@ export class UpdateComponentConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateComponentConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateComponentConfigurationCommand(input, context);
+    return se_UpdateComponentConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateComponentConfigurationCommandOutput> {
-    return deserializeAws_json1_1UpdateComponentConfigurationCommand(output, context);
+    return de_UpdateComponentConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

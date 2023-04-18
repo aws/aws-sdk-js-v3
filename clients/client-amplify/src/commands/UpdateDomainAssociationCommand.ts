@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import {
-  UpdateDomainAssociationRequest,
-  UpdateDomainAssociationRequestFilterSensitiveLog,
-  UpdateDomainAssociationResult,
-  UpdateDomainAssociationResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateDomainAssociationCommand,
-  serializeAws_restJson1UpdateDomainAssociationCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateDomainAssociationRequest, UpdateDomainAssociationResult } from "../models/models_0";
+import { de_UpdateDomainAssociationCommand, se_UpdateDomainAssociationCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateDomainAssociationCommand}.
+ */
 export interface UpdateDomainAssociationCommandInput extends UpdateDomainAssociationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateDomainAssociationCommand}.
+ */
 export interface UpdateDomainAssociationCommandOutput extends UpdateDomainAssociationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Creates a new domain association for an Amplify app.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,46 @@ export interface UpdateDomainAssociationCommandOutput extends UpdateDomainAssoci
  * import { AmplifyClient, UpdateDomainAssociationCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, UpdateDomainAssociationCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
+ * const input = { // UpdateDomainAssociationRequest
+ *   appId: "STRING_VALUE", // required
+ *   domainName: "STRING_VALUE", // required
+ *   enableAutoSubDomain: true || false,
+ *   subDomainSettings: [ // SubDomainSettings
+ *     { // SubDomainSetting
+ *       prefix: "STRING_VALUE", // required
+ *       branchName: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   autoSubDomainCreationPatterns: [ // AutoSubDomainCreationPatterns
+ *     "STRING_VALUE",
+ *   ],
+ *   autoSubDomainIAMRole: "STRING_VALUE",
+ * };
  * const command = new UpdateDomainAssociationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDomainAssociationCommandInput - {@link UpdateDomainAssociationCommandInput}
+ * @returns {@link UpdateDomainAssociationCommandOutput}
  * @see {@link UpdateDomainAssociationCommandInput} for command's `input` shape.
  * @see {@link UpdateDomainAssociationCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p> A request contains unexpected data. </p>
+ *
+ * @throws {@link DependentServiceFailureException} (server fault)
+ *  <p> An operation failed because a dependent service threw an exception. </p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p> The service failed to perform an operation due to an internal issue. </p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p> An entity was not found during an operation. </p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p> An operation failed due to a lack of access. </p>
+ *
  *
  */
 export class UpdateDomainAssociationCommand extends $Command<
@@ -62,6 +98,9 @@ export class UpdateDomainAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDomainAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +129,8 @@ export class UpdateDomainAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDomainAssociationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDomainAssociationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +140,18 @@ export class UpdateDomainAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDomainAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDomainAssociationCommand(input, context);
+    return se_UpdateDomainAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDomainAssociationCommandOutput> {
-    return deserializeAws_restJson1UpdateDomainAssociationCommand(output, context);
+    return de_UpdateDomainAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

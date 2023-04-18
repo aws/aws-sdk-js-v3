@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
-import {
-  ListSyncJobsRequest,
-  ListSyncJobsRequestFilterSensitiveLog,
-  ListSyncJobsResponse,
-  ListSyncJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSyncJobsCommand,
-  serializeAws_restJson1ListSyncJobsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListSyncJobsRequest, ListSyncJobsResponse } from "../models/models_0";
+import { de_ListSyncJobsCommand, se_ListSyncJobsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListSyncJobsCommand}.
+ */
 export interface ListSyncJobsCommandInput extends ListSyncJobsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListSyncJobsCommand}.
+ */
 export interface ListSyncJobsCommandOutput extends ListSyncJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List all SyncJobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,36 @@ export interface ListSyncJobsCommandOutput extends ListSyncJobsResponse, __Metad
  * import { IoTTwinMakerClient, ListSyncJobsCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, ListSyncJobsCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
+ * const input = { // ListSyncJobsRequest
+ *   workspaceId: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListSyncJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSyncJobsCommandInput - {@link ListSyncJobsCommandInput}
+ * @returns {@link ListSyncJobsCommandOutput}
  * @see {@link ListSyncJobsCommandInput} for command's `input` shape.
  * @see {@link ListSyncJobsCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access is denied.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The service quota was exceeded.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Failed</p>
+ *
  *
  */
 export class ListSyncJobsCommand extends $Command<
@@ -62,6 +88,9 @@ export class ListSyncJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSyncJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +117,8 @@ export class ListSyncJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSyncJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSyncJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +128,18 @@ export class ListSyncJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSyncJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSyncJobsCommand(input, context);
+    return se_ListSyncJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSyncJobsCommandOutput> {
-    return deserializeAws_restJson1ListSyncJobsCommand(output, context);
+    return de_ListSyncJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

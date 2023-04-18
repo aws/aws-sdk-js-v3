@@ -14,38 +14,54 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import {
-  DeleteDBClusterSnapshotMessage,
-  DeleteDBClusterSnapshotMessageFilterSensitiveLog,
-  DeleteDBClusterSnapshotResult,
-  DeleteDBClusterSnapshotResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteDBClusterSnapshotCommand,
-  serializeAws_queryDeleteDBClusterSnapshotCommand,
-} from "../protocols/Aws_query";
+import { DeleteDBClusterSnapshotMessage, DeleteDBClusterSnapshotResult } from "../models/models_0";
+import { de_DeleteDBClusterSnapshotCommand, se_DeleteDBClusterSnapshotCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteDBClusterSnapshotCommand}.
+ */
 export interface DeleteDBClusterSnapshotCommandInput extends DeleteDBClusterSnapshotMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteDBClusterSnapshotCommand}.
+ */
 export interface DeleteDBClusterSnapshotCommandOutput extends DeleteDBClusterSnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a cluster snapshot. If the snapshot is being copied, the copy operation is terminated.</p>
- *         <note>
+ *          <note>
  *             <p>The cluster snapshot must be in the <code>available</code> state to be deleted.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DocDBClient, DeleteDBClusterSnapshotCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, DeleteDBClusterSnapshotCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = { // DeleteDBClusterSnapshotMessage
+ *   DBClusterSnapshotIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDBClusterSnapshotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDBClusterSnapshotCommandInput - {@link DeleteDBClusterSnapshotCommandInput}
+ * @returns {@link DeleteDBClusterSnapshotCommandOutput}
  * @see {@link DeleteDBClusterSnapshotCommandInput} for command's `input` shape.
  * @see {@link DeleteDBClusterSnapshotCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
+ *
+ * @throws {@link DBClusterSnapshotNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing cluster snapshot. </p>
+ *
+ * @throws {@link InvalidDBClusterSnapshotStateFault} (client fault)
+ *  <p>The provided value isn't a valid cluster snapshot state.</p>
+ *
  *
  */
 export class DeleteDBClusterSnapshotCommand extends $Command<
@@ -65,6 +81,9 @@ export class DeleteDBClusterSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDBClusterSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +112,8 @@ export class DeleteDBClusterSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDBClusterSnapshotMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDBClusterSnapshotResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +123,18 @@ export class DeleteDBClusterSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDBClusterSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteDBClusterSnapshotCommand(input, context);
+    return se_DeleteDBClusterSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDBClusterSnapshotCommandOutput> {
-    return deserializeAws_queryDeleteDBClusterSnapshotCommand(output, context);
+    return de_DeleteDBClusterSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

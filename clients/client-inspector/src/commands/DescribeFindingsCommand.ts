@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import {
-  DescribeFindingsRequest,
-  DescribeFindingsRequestFilterSensitiveLog,
-  DescribeFindingsResponse,
-  DescribeFindingsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeFindingsCommand,
-  serializeAws_json1_1DescribeFindingsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeFindingsRequest, DescribeFindingsResponse } from "../models/models_0";
+import { de_DescribeFindingsCommand, se_DescribeFindingsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeFindingsCommand}.
+ */
 export interface DescribeFindingsCommandInput extends DescribeFindingsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeFindingsCommand}.
+ */
 export interface DescribeFindingsCommandOutput extends DescribeFindingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the findings that are specified by the ARNs of the findings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,75 @@ export interface DescribeFindingsCommandOutput extends DescribeFindingsResponse,
  * import { InspectorClient, DescribeFindingsCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, DescribeFindingsCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = { // DescribeFindingsRequest
+ *   findingArns: [ // BatchDescribeArnList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   locale: "STRING_VALUE",
+ * };
  * const command = new DescribeFindingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFindingsCommandInput - {@link DescribeFindingsCommandInput}
+ * @returns {@link DescribeFindingsCommandOutput}
  * @see {@link DescribeFindingsCommandInput} for command's `input` shape.
  * @see {@link DescribeFindingsCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>Internal server error.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
+ *          input parameter.</p>
+ *
+ *
+ * @example Describe findings
+ * ```javascript
+ * // Describes the findings that are specified by the ARNs of the findings.
+ * const input = {
+ *   "findingArns": [
+ *     "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-4r1V2mAw/run/0-MKkpXXPE/finding/0-HwPnsDm4"
+ *   ]
+ * };
+ * const command = new DescribeFindingsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "failedItems": {},
+ *   "findings": [
+ *     {
+ *       "arn": "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-4r1V2mAw/run/0-MKkpXXPE/finding/0-HwPnsDm4",
+ *       "assetAttributes": {
+ *         "ipv4Addresses": [],
+ *         "schemaVersion": 1
+ *       },
+ *       "assetType": "ec2-instance",
+ *       "attributes": [],
+ *       "confidence": 10,
+ *       "createdAt": "1458680301.37",
+ *       "description": "Amazon Inspector did not find any potential security issues during this assessment.",
+ *       "indicatorOfCompromise": false,
+ *       "numericSeverity": 0,
+ *       "recommendation": "No remediation needed.",
+ *       "schemaVersion": 1,
+ *       "service": "Inspector",
+ *       "serviceAttributes": {
+ *         "assessmentRunArn": "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-4r1V2mAw/run/0-MKkpXXPE",
+ *         "rulesPackageArn": "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-X1KXtawP",
+ *         "schemaVersion": 1
+ *       },
+ *       "severity": "Informational",
+ *       "title": "No potential security issues found",
+ *       "updatedAt": "1458680301.37",
+ *       "userAttributes": []
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: describte-findings-1481064771803
+ * ```
  *
  */
 export class DescribeFindingsCommand extends $Command<
@@ -62,6 +127,9 @@ export class DescribeFindingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFindingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +158,8 @@ export class DescribeFindingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFindingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFindingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +169,18 @@ export class DescribeFindingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFindingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeFindingsCommand(input, context);
+    return se_DescribeFindingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFindingsCommandOutput> {
-    return deserializeAws_json1_1DescribeFindingsCommand(output, context);
+    return de_DescribeFindingsCommand(output, context);
   }
 
   // Start section: command_body_extra

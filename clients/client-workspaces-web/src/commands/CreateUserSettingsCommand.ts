@@ -17,18 +17,25 @@ import {
   CreateUserSettingsRequest,
   CreateUserSettingsRequestFilterSensitiveLog,
   CreateUserSettingsResponse,
-  CreateUserSettingsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateUserSettingsCommand,
-  serializeAws_restJson1CreateUserSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateUserSettingsCommand, se_CreateUserSettingsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateUserSettingsCommand}.
+ */
 export interface CreateUserSettingsCommandInput extends CreateUserSettingsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateUserSettingsCommand}.
+ */
 export interface CreateUserSettingsCommandOutput extends CreateUserSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a user settings resource that can be associated with a web portal. Once
  *          associated with a web portal, user settings control how users can transfer data between a
  *          streaming session and the their local devices. </p>
@@ -38,13 +45,50 @@ export interface CreateUserSettingsCommandOutput extends CreateUserSettingsRespo
  * import { WorkSpacesWebClient, CreateUserSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, CreateUserSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = { // CreateUserSettingsRequest
+ *   copyAllowed: "STRING_VALUE", // required
+ *   pasteAllowed: "STRING_VALUE", // required
+ *   downloadAllowed: "STRING_VALUE", // required
+ *   uploadAllowed: "STRING_VALUE", // required
+ *   printAllowed: "STRING_VALUE", // required
+ *   tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   disconnectTimeoutInMinutes: Number("int"),
+ *   idleDisconnectTimeoutInMinutes: Number("int"),
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new CreateUserSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateUserSettingsCommandInput - {@link CreateUserSettingsCommandInput}
+ * @returns {@link CreateUserSettingsCommandOutput}
  * @see {@link CreateUserSettingsCommandInput} for command's `input` shape.
  * @see {@link CreateUserSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access is denied.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There is a conflict.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There is an internal server error.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The service quota has been exceeded.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>There is a throttling error.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There is a validation error.</p>
+ *
  *
  */
 export class CreateUserSettingsCommand extends $Command<
@@ -64,6 +108,9 @@ export class CreateUserSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateUserSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,7 +140,7 @@ export class CreateUserSettingsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateUserSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateUserSettingsResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +150,18 @@ export class CreateUserSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateUserSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateUserSettingsCommand(input, context);
+    return se_CreateUserSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateUserSettingsCommandOutput> {
-    return deserializeAws_restJson1CreateUserSettingsCommand(output, context);
+    return de_CreateUserSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

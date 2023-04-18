@@ -16,21 +16,30 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeNetworkInsightsAccessScopesRequest,
-  DescribeNetworkInsightsAccessScopesRequestFilterSensitiveLog,
   DescribeNetworkInsightsAccessScopesResult,
-  DescribeNetworkInsightsAccessScopesResultFilterSensitiveLog,
 } from "../models/models_4";
 import {
-  deserializeAws_ec2DescribeNetworkInsightsAccessScopesCommand,
-  serializeAws_ec2DescribeNetworkInsightsAccessScopesCommand,
+  de_DescribeNetworkInsightsAccessScopesCommand,
+  se_DescribeNetworkInsightsAccessScopesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeNetworkInsightsAccessScopesCommand}.
+ */
 export interface DescribeNetworkInsightsAccessScopesCommandInput extends DescribeNetworkInsightsAccessScopesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeNetworkInsightsAccessScopesCommand}.
+ */
 export interface DescribeNetworkInsightsAccessScopesCommandOutput
   extends DescribeNetworkInsightsAccessScopesResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified Network Access Scopes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +47,32 @@ export interface DescribeNetworkInsightsAccessScopesCommandOutput
  * import { EC2Client, DescribeNetworkInsightsAccessScopesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeNetworkInsightsAccessScopesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeNetworkInsightsAccessScopesRequest
+ *   NetworkInsightsAccessScopeIds: [ // NetworkInsightsAccessScopeIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   DryRun: true || false,
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeNetworkInsightsAccessScopesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeNetworkInsightsAccessScopesCommandInput - {@link DescribeNetworkInsightsAccessScopesCommandInput}
+ * @returns {@link DescribeNetworkInsightsAccessScopesCommandOutput}
  * @see {@link DescribeNetworkInsightsAccessScopesCommandInput} for command's `input` shape.
  * @see {@link DescribeNetworkInsightsAccessScopesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class DescribeNetworkInsightsAccessScopesCommand extends $Command<
@@ -64,6 +92,9 @@ export class DescribeNetworkInsightsAccessScopesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeNetworkInsightsAccessScopesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +123,8 @@ export class DescribeNetworkInsightsAccessScopesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeNetworkInsightsAccessScopesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeNetworkInsightsAccessScopesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +134,24 @@ export class DescribeNetworkInsightsAccessScopesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeNetworkInsightsAccessScopesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeNetworkInsightsAccessScopesCommand(input, context);
+    return se_DescribeNetworkInsightsAccessScopesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeNetworkInsightsAccessScopesCommandOutput> {
-    return deserializeAws_ec2DescribeNetworkInsightsAccessScopesCommand(output, context);
+    return de_DescribeNetworkInsightsAccessScopesCommand(output, context);
   }
 
   // Start section: command_body_extra

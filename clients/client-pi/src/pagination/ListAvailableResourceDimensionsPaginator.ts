@@ -6,12 +6,11 @@ import {
   ListAvailableResourceDimensionsCommandInput,
   ListAvailableResourceDimensionsCommandOutput,
 } from "../commands/ListAvailableResourceDimensionsCommand";
-import { PI } from "../PI";
 import { PIClient } from "../PIClient";
 import { PIPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: PIClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListAvailableResourceDimensionsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: PI,
-  input: ListAvailableResourceDimensionsCommandInput,
-  ...args: any
-): Promise<ListAvailableResourceDimensionsCommandOutput> => {
-  // @ts-ignore
-  return await client.listAvailableResourceDimensions(input, ...args);
-};
 export async function* paginateListAvailableResourceDimensions(
   config: PIPaginationConfiguration,
   input: ListAvailableResourceDimensionsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListAvailableResourceDimensions(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof PI) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof PIClient) {
+    if (config.client instanceof PIClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected PI | PIClient");

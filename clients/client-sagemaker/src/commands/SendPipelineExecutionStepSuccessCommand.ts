@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { SendPipelineExecutionStepSuccessRequest, SendPipelineExecutionStepSuccessResponse } from "../models/models_3";
 import {
-  SendPipelineExecutionStepSuccessRequest,
-  SendPipelineExecutionStepSuccessRequestFilterSensitiveLog,
-  SendPipelineExecutionStepSuccessResponse,
-  SendPipelineExecutionStepSuccessResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1SendPipelineExecutionStepSuccessCommand,
-  serializeAws_json1_1SendPipelineExecutionStepSuccessCommand,
+  de_SendPipelineExecutionStepSuccessCommand,
+  se_SendPipelineExecutionStepSuccessCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link SendPipelineExecutionStepSuccessCommand}.
+ */
 export interface SendPipelineExecutionStepSuccessCommandInput extends SendPipelineExecutionStepSuccessRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SendPipelineExecutionStepSuccessCommand}.
+ */
 export interface SendPipelineExecutionStepSuccessCommandOutput
   extends SendPipelineExecutionStepSuccessResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Notifies the pipeline that the execution of a callback step succeeded and provides a
  *         list of the step's output parameters. When a callback step is run, the pipeline generates
  *         a callback token and includes the token in a message sent to Amazon Simple Queue Service (Amazon SQS).</p>
@@ -40,13 +46,33 @@ export interface SendPipelineExecutionStepSuccessCommandOutput
  * import { SageMakerClient, SendPipelineExecutionStepSuccessCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, SendPipelineExecutionStepSuccessCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // SendPipelineExecutionStepSuccessRequest
+ *   CallbackToken: "STRING_VALUE", // required
+ *   OutputParameters: [ // OutputParameterList
+ *     { // OutputParameter
+ *       Name: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ClientRequestToken: "STRING_VALUE",
+ * };
  * const command = new SendPipelineExecutionStepSuccessCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SendPipelineExecutionStepSuccessCommandInput - {@link SendPipelineExecutionStepSuccessCommandInput}
+ * @returns {@link SendPipelineExecutionStepSuccessCommandOutput}
  * @see {@link SendPipelineExecutionStepSuccessCommandInput} for command's `input` shape.
  * @see {@link SendPipelineExecutionStepSuccessCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceLimitExceeded} (client fault)
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
+ *             training jobs created. </p>
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class SendPipelineExecutionStepSuccessCommand extends $Command<
@@ -66,6 +92,9 @@ export class SendPipelineExecutionStepSuccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendPipelineExecutionStepSuccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +123,8 @@ export class SendPipelineExecutionStepSuccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendPipelineExecutionStepSuccessRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SendPipelineExecutionStepSuccessResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,18 +134,24 @@ export class SendPipelineExecutionStepSuccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: SendPipelineExecutionStepSuccessCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1SendPipelineExecutionStepSuccessCommand(input, context);
+    return se_SendPipelineExecutionStepSuccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SendPipelineExecutionStepSuccessCommandOutput> {
-    return deserializeAws_json1_1SendPipelineExecutionStepSuccessCommand(output, context);
+    return de_SendPipelineExecutionStepSuccessCommand(output, context);
   }
 
   // Start section: command_body_extra

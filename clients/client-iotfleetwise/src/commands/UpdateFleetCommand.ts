@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import {
-  UpdateFleetRequest,
-  UpdateFleetRequestFilterSensitiveLog,
-  UpdateFleetResponse,
-  UpdateFleetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateFleetCommand,
-  serializeAws_json1_0UpdateFleetCommand,
-} from "../protocols/Aws_json1_0";
+import { UpdateFleetRequest, UpdateFleetResponse } from "../models/models_0";
+import { de_UpdateFleetCommand, se_UpdateFleetCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateFleetCommand}.
+ */
 export interface UpdateFleetCommandInput extends UpdateFleetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateFleetCommand}.
+ */
 export interface UpdateFleetCommandOutput extends UpdateFleetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Updates the description of an existing fleet. </p>
  *         <note>
  *             <p>If the fleet is successfully updated, Amazon Web Services IoT FleetWise sends back an HTTP 200 response
@@ -40,13 +43,39 @@ export interface UpdateFleetCommandOutput extends UpdateFleetResponse, __Metadat
  * import { IoTFleetWiseClient, UpdateFleetCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, UpdateFleetCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = { // UpdateFleetRequest
+ *   fleetId: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ * };
  * const command = new UpdateFleetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFleetCommandInput - {@link UpdateFleetCommandInput}
+ * @returns {@link UpdateFleetCommandOutput}
  * @see {@link UpdateFleetCommandInput} for command's `input` shape.
  * @see {@link UpdateFleetCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient permission to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request has conflicting operations. This can occur if you're trying to perform
+ *             more than one operation on the same resource at the same time.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request couldn't be completed because the server temporarily failed.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource wasn't found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request couldn't be completed due to throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
  *
  */
 export class UpdateFleetCommand extends $Command<
@@ -66,6 +95,9 @@ export class UpdateFleetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +124,8 @@ export class UpdateFleetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFleetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFleetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +135,18 @@ export class UpdateFleetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateFleetCommand(input, context);
+    return se_UpdateFleetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFleetCommandOutput> {
-    return deserializeAws_json1_0UpdateFleetCommand(output, context);
+    return de_UpdateFleetCommand(output, context);
   }
 
   // Start section: command_body_extra

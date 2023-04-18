@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DescribeStudioLifecycleConfigRequest, DescribeStudioLifecycleConfigResponse } from "../models/models_2";
 import {
-  DescribeStudioLifecycleConfigRequest,
-  DescribeStudioLifecycleConfigRequestFilterSensitiveLog,
-  DescribeStudioLifecycleConfigResponse,
-  DescribeStudioLifecycleConfigResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeStudioLifecycleConfigCommand,
-  serializeAws_json1_1DescribeStudioLifecycleConfigCommand,
+  de_DescribeStudioLifecycleConfigCommand,
+  se_DescribeStudioLifecycleConfigCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeStudioLifecycleConfigCommand}.
+ */
 export interface DescribeStudioLifecycleConfigCommandInput extends DescribeStudioLifecycleConfigRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeStudioLifecycleConfigCommand}.
+ */
 export interface DescribeStudioLifecycleConfigCommandOutput
   extends DescribeStudioLifecycleConfigResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the Studio Lifecycle Configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,22 @@ export interface DescribeStudioLifecycleConfigCommandOutput
  * import { SageMakerClient, DescribeStudioLifecycleConfigCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeStudioLifecycleConfigCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DescribeStudioLifecycleConfigRequest
+ *   StudioLifecycleConfigName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeStudioLifecycleConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStudioLifecycleConfigCommandInput - {@link DescribeStudioLifecycleConfigCommandInput}
+ * @returns {@link DescribeStudioLifecycleConfigCommandOutput}
  * @see {@link DescribeStudioLifecycleConfigCommandInput} for command's `input` shape.
  * @see {@link DescribeStudioLifecycleConfigCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class DescribeStudioLifecycleConfigCommand extends $Command<
@@ -64,6 +79,9 @@ export class DescribeStudioLifecycleConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStudioLifecycleConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +110,8 @@ export class DescribeStudioLifecycleConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeStudioLifecycleConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeStudioLifecycleConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +121,21 @@ export class DescribeStudioLifecycleConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeStudioLifecycleConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeStudioLifecycleConfigCommand(input, context);
+    return se_DescribeStudioLifecycleConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeStudioLifecycleConfigCommandOutput> {
-    return deserializeAws_json1_1DescribeStudioLifecycleConfigCommand(output, context);
+    return de_DescribeStudioLifecycleConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

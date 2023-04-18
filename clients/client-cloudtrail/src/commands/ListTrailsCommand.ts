@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import {
-  ListTrailsRequest,
-  ListTrailsRequestFilterSensitiveLog,
-  ListTrailsResponse,
-  ListTrailsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListTrailsCommand,
-  serializeAws_json1_1ListTrailsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListTrailsRequest, ListTrailsResponse } from "../models/models_0";
+import { de_ListTrailsCommand, se_ListTrailsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListTrailsCommand}.
+ */
 export interface ListTrailsCommandInput extends ListTrailsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListTrailsCommand}.
+ */
 export interface ListTrailsCommandOutput extends ListTrailsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists trails that are in the current account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,25 @@ export interface ListTrailsCommandOutput extends ListTrailsResponse, __MetadataB
  * import { CloudTrailClient, ListTrailsCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, ListTrailsCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = { // ListTrailsRequest
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListTrailsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTrailsCommandInput - {@link ListTrailsCommandInput}
+ * @returns {@link ListTrailsCommandOutput}
  * @see {@link ListTrailsCommandInput} for command's `input` shape.
  * @see {@link ListTrailsCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not permitted.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not supported.</p>
+ *
  *
  */
 export class ListTrailsCommand extends $Command<
@@ -62,6 +77,9 @@ export class ListTrailsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTrailsCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +106,8 @@ export class ListTrailsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTrailsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTrailsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +117,18 @@ export class ListTrailsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTrailsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTrailsCommand(input, context);
+    return se_ListTrailsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTrailsCommandOutput> {
-    return deserializeAws_json1_1ListTrailsCommand(output, context);
+    return de_ListTrailsCommand(output, context);
   }
 
   // Start section: command_body_extra

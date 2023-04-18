@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteDBInstanceMessage,
-  DeleteDBInstanceMessageFilterSensitiveLog,
-  DeleteDBInstanceResult,
-  DeleteDBInstanceResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteDBInstanceCommand,
-  serializeAws_queryDeleteDBInstanceCommand,
-} from "../protocols/Aws_query";
+import { DeleteDBInstanceMessage, DeleteDBInstanceResult } from "../models/models_0";
+import { de_DeleteDBInstanceCommand, se_DeleteDBInstanceCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteDBInstanceCommand}.
+ */
 export interface DeleteDBInstanceCommandInput extends DeleteDBInstanceMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteDBInstanceCommand}.
+ */
 export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The DeleteDBInstance action deletes a previously provisioned DB instance.
  *           When you delete a DB instance, all automated backups for that instance are deleted and can't be recovered.
  *           Manual DB snapshots of the DB instance to be deleted by <code>DeleteDBInstance</code> are not deleted.</p>
@@ -58,13 +61,66 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
  * import { RDSClient, DeleteDBInstanceCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DeleteDBInstanceCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // DeleteDBInstanceMessage
+ *   DBInstanceIdentifier: "STRING_VALUE", // required
+ *   SkipFinalSnapshot: true || false,
+ *   FinalDBSnapshotIdentifier: "STRING_VALUE",
+ *   DeleteAutomatedBackups: true || false,
+ * };
  * const command = new DeleteDBInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDBInstanceCommandInput - {@link DeleteDBInstanceCommandInput}
+ * @returns {@link DeleteDBInstanceCommandOutput}
  * @see {@link DeleteDBInstanceCommandInput} for command's `input` shape.
  * @see {@link DeleteDBInstanceCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ * @throws {@link DBInstanceAutomatedBackupQuotaExceededFault} (client fault)
+ *  <p>The quota for retained automated backups was exceeded. This prevents you
+ *             from retaining any additional automated backups. The retained automated backups
+ *             quota is the same as your DB Instance quota.</p>
+ *
+ * @throws {@link DBInstanceNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *
+ * @throws {@link DBSnapshotAlreadyExistsFault} (client fault)
+ *  <p>
+ *             <code>DBSnapshotIdentifier</code> is already used by an existing snapshot.</p>
+ *
+ * @throws {@link InvalidDBClusterStateFault} (client fault)
+ *  <p>The requested operation can't be performed while the cluster is in this state.</p>
+ *
+ * @throws {@link InvalidDBInstanceStateFault} (client fault)
+ *  <p>The DB instance isn't in a valid state.</p>
+ *
+ * @throws {@link SnapshotQuotaExceededFault} (client fault)
+ *  <p>The request would result in the user exceeding the allowed number of DB
+ *             snapshots.</p>
+ *
+ *
+ * @example To delete a DB instance
+ * ```javascript
+ * // The following example deletes the specified DB instance after creating a final DB snapshot named test-instance-final-snap.
+ * const input = {
+ *   "DBInstanceIdentifier": "test-instance",
+ *   "FinalDBSnapshotIdentifier": "test-instance-final-snap",
+ *   "SkipFinalSnapshot": false
+ * };
+ * const command = new DeleteDBInstanceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBInstance": {
+ *     "DBInstanceIdentifier": "test-instance",
+ *     "DBInstanceStatus": "deleting"
+ *   }
+ * }
+ * *\/
+ * // example id: to-delete-a-db-instance-1680197458232
+ * ```
  *
  */
 export class DeleteDBInstanceCommand extends $Command<
@@ -84,6 +140,9 @@ export class DeleteDBInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDBInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +171,8 @@ export class DeleteDBInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDBInstanceMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDBInstanceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +182,18 @@ export class DeleteDBInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDBInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteDBInstanceCommand(input, context);
+    return se_DeleteDBInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDBInstanceCommandOutput> {
-    return deserializeAws_queryDeleteDBInstanceCommand(output, context);
+    return de_DeleteDBInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

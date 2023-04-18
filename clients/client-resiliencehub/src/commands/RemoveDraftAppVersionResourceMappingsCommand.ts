@@ -15,23 +15,32 @@ import {
 
 import {
   RemoveDraftAppVersionResourceMappingsRequest,
-  RemoveDraftAppVersionResourceMappingsRequestFilterSensitiveLog,
   RemoveDraftAppVersionResourceMappingsResponse,
-  RemoveDraftAppVersionResourceMappingsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1RemoveDraftAppVersionResourceMappingsCommand,
-  serializeAws_restJson1RemoveDraftAppVersionResourceMappingsCommand,
+  de_RemoveDraftAppVersionResourceMappingsCommand,
+  se_RemoveDraftAppVersionResourceMappingsCommand,
 } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
+/**
+ * @public
+ *
+ * The input for {@link RemoveDraftAppVersionResourceMappingsCommand}.
+ */
 export interface RemoveDraftAppVersionResourceMappingsCommandInput
   extends RemoveDraftAppVersionResourceMappingsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RemoveDraftAppVersionResourceMappingsCommand}.
+ */
 export interface RemoveDraftAppVersionResourceMappingsCommandOutput
   extends RemoveDraftAppVersionResourceMappingsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes resource mappings from a draft application version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +48,61 @@ export interface RemoveDraftAppVersionResourceMappingsCommandOutput
  * import { ResiliencehubClient, RemoveDraftAppVersionResourceMappingsCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, RemoveDraftAppVersionResourceMappingsCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = { // RemoveDraftAppVersionResourceMappingsRequest
+ *   appArn: "STRING_VALUE", // required
+ *   resourceNames: [ // EntityNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   logicalStackNames: [ // String255List
+ *     "STRING_VALUE",
+ *   ],
+ *   appRegistryAppNames: [
+ *     "STRING_VALUE",
+ *   ],
+ *   resourceGroupNames: [
+ *     "STRING_VALUE",
+ *   ],
+ *   terraformSourceNames: [
+ *     "STRING_VALUE",
+ *   ],
+ *   eksSourceNames: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new RemoveDraftAppVersionResourceMappingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveDraftAppVersionResourceMappingsCommandInput - {@link RemoveDraftAppVersionResourceMappingsCommandInput}
+ * @returns {@link RemoveDraftAppVersionResourceMappingsCommandOutput}
  * @see {@link RemoveDraftAppVersionResourceMappingsCommandInput} for command's `input` shape.
  * @see {@link RemoveDraftAppVersionResourceMappingsCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have permissions to perform the requested operation. The user or role that is
+ *       making the request must have at least one IAM permissions policy attached that grants the
+ *       required permissions.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>This exception occurs when a conflict with a previous successful write is detected. This generally occurs
+ *       when the previous write did not have time to propagate to the host serving the current
+ *       request. A retry (with appropriate backoff logic) is the recommended response to this
+ *       exception.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
+ *       service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception occurs when the specified resource could not be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>This exception occurs when a request is not valid.</p>
+ *
  *
  */
 export class RemoveDraftAppVersionResourceMappingsCommand extends $Command<
@@ -65,6 +122,9 @@ export class RemoveDraftAppVersionResourceMappingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveDraftAppVersionResourceMappingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +153,8 @@ export class RemoveDraftAppVersionResourceMappingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveDraftAppVersionResourceMappingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RemoveDraftAppVersionResourceMappingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,18 +164,24 @@ export class RemoveDraftAppVersionResourceMappingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RemoveDraftAppVersionResourceMappingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1RemoveDraftAppVersionResourceMappingsCommand(input, context);
+    return se_RemoveDraftAppVersionResourceMappingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveDraftAppVersionResourceMappingsCommandOutput> {
-    return deserializeAws_restJson1RemoveDraftAppVersionResourceMappingsCommand(output, context);
+    return de_RemoveDraftAppVersionResourceMappingsCommand(output, context);
   }
 
   // Start section: command_body_extra

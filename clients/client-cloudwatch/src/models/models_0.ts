@@ -3,24 +3,52 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { CloudWatchServiceException as __BaseException } from "./CloudWatchServiceException";
 
-export enum ActionsSuppressedBy {
-  Alarm = "Alarm",
-  ExtensionPeriod = "ExtensionPeriod",
-  WaitPeriod = "WaitPeriod",
-}
-
-export enum AlarmType {
-  CompositeAlarm = "CompositeAlarm",
-  MetricAlarm = "MetricAlarm",
-}
-
-export enum HistoryItemType {
-  Action = "Action",
-  ConfigurationUpdate = "ConfigurationUpdate",
-  StateUpdate = "StateUpdate",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ActionsSuppressedBy = {
+  Alarm: "Alarm",
+  ExtensionPeriod: "ExtensionPeriod",
+  WaitPeriod: "WaitPeriod",
+} as const;
 
 /**
+ * @public
+ */
+export type ActionsSuppressedBy = (typeof ActionsSuppressedBy)[keyof typeof ActionsSuppressedBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const AlarmType = {
+  CompositeAlarm: "CompositeAlarm",
+  MetricAlarm: "MetricAlarm",
+} as const;
+
+/**
+ * @public
+ */
+export type AlarmType = (typeof AlarmType)[keyof typeof AlarmType];
+
+/**
+ * @public
+ * @enum
+ */
+export const HistoryItemType = {
+  Action: "Action",
+  ConfigurationUpdate: "ConfigurationUpdate",
+  StateUpdate: "StateUpdate",
+} as const;
+
+/**
+ * @public
+ */
+export type HistoryItemType = (typeof HistoryItemType)[keyof typeof HistoryItemType];
+
+/**
+ * @public
  * <p>Represents the history of a specific alarm.</p>
  */
 export interface AlarmHistoryItem {
@@ -56,6 +84,7 @@ export interface AlarmHistoryItem {
 }
 
 /**
+ * @public
  * <p>Specifies one range of days or times to exclude from use for training an
  * 		anomaly detection model.</p>
  */
@@ -74,6 +103,7 @@ export interface Range {
 }
 
 /**
+ * @public
  * <p>The configuration specifies details about how the anomaly detection model is to be trained,
  * 			including time ranges to exclude from use for training the model and the time zone to
  * 			use for the metric.</p>
@@ -97,6 +127,7 @@ export interface AnomalyDetectorConfiguration {
 }
 
 /**
+ * @public
  * <p>A dimension is a name/value pair that is part of the identity of a metric. Because dimensions are part of the unique
  * 			identifier for a metric, whenever you add a unique name/value pair to one of
  * 			your metrics, you are creating a new variation of that metric. For example, many Amazon EC2 metrics publish
@@ -107,18 +138,22 @@ export interface AnomalyDetectorConfiguration {
 export interface Dimension {
   /**
    * <p>The name of the dimension. Dimension names must contain only ASCII characters, must include
-   * 			at least one non-whitespace character, and cannot start with a colon (<code>:</code>).</p>
+   * 			at least one non-whitespace character, and cannot start with a colon (<code>:</code>).
+   * 			ASCII
+   * 			control characters are not supported as part of dimension names.</p>
    */
   Name: string | undefined;
 
   /**
    * <p>The value of the dimension. Dimension values must contain only ASCII characters and must include
-   * 			at least one non-whitespace character.</p>
+   * 			at least one non-whitespace character. ASCII
+   * 			control characters are not supported as part of dimension values.</p>
    */
   Value: string | undefined;
 }
 
 /**
+ * @public
  * <p>Represents a specific metric.</p>
  */
 export interface Metric {
@@ -138,37 +173,47 @@ export interface Metric {
   Dimensions?: Dimension[];
 }
 
-export enum StandardUnit {
-  Bits = "Bits",
-  Bits_Second = "Bits/Second",
-  Bytes = "Bytes",
-  Bytes_Second = "Bytes/Second",
-  Count = "Count",
-  Count_Second = "Count/Second",
-  Gigabits = "Gigabits",
-  Gigabits_Second = "Gigabits/Second",
-  Gigabytes = "Gigabytes",
-  Gigabytes_Second = "Gigabytes/Second",
-  Kilobits = "Kilobits",
-  Kilobits_Second = "Kilobits/Second",
-  Kilobytes = "Kilobytes",
-  Kilobytes_Second = "Kilobytes/Second",
-  Megabits = "Megabits",
-  Megabits_Second = "Megabits/Second",
-  Megabytes = "Megabytes",
-  Megabytes_Second = "Megabytes/Second",
-  Microseconds = "Microseconds",
-  Milliseconds = "Milliseconds",
-  None = "None",
-  Percent = "Percent",
-  Seconds = "Seconds",
-  Terabits = "Terabits",
-  Terabits_Second = "Terabits/Second",
-  Terabytes = "Terabytes",
-  Terabytes_Second = "Terabytes/Second",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StandardUnit = {
+  Bits: "Bits",
+  Bits_Second: "Bits/Second",
+  Bytes: "Bytes",
+  Bytes_Second: "Bytes/Second",
+  Count: "Count",
+  Count_Second: "Count/Second",
+  Gigabits: "Gigabits",
+  Gigabits_Second: "Gigabits/Second",
+  Gigabytes: "Gigabytes",
+  Gigabytes_Second: "Gigabytes/Second",
+  Kilobits: "Kilobits",
+  Kilobits_Second: "Kilobits/Second",
+  Kilobytes: "Kilobytes",
+  Kilobytes_Second: "Kilobytes/Second",
+  Megabits: "Megabits",
+  Megabits_Second: "Megabits/Second",
+  Megabytes: "Megabytes",
+  Megabytes_Second: "Megabytes/Second",
+  Microseconds: "Microseconds",
+  Milliseconds: "Milliseconds",
+  None: "None",
+  Percent: "Percent",
+  Seconds: "Seconds",
+  Terabits: "Terabits",
+  Terabits_Second: "Terabits/Second",
+  Terabytes: "Terabytes",
+  Terabytes_Second: "Terabytes/Second",
+} as const;
 
 /**
+ * @public
+ */
+export type StandardUnit = (typeof StandardUnit)[keyof typeof StandardUnit];
+
+/**
+ * @public
  * <p>This structure defines the metric to be returned, along with the statistics, period, and units.</p>
  */
 export interface MetricStat {
@@ -213,6 +258,7 @@ export interface MetricStat {
 }
 
 /**
+ * @public
  * <p>This structure is used in both <code>GetMetricData</code> and <code>PutMetricAlarm</code>. The supported
  * 			use of this structure is different for those two operations.</p>
  *          <p>When used in <code>GetMetricData</code>, it indicates the metric data to return, and whether this call is just retrieving
@@ -310,6 +356,7 @@ export interface MetricDataQuery {
 }
 
 /**
+ * @public
  * <p>Indicates the CloudWatch math expression that provides the time series the anomaly detector
  * 			uses as input.
  * 			The designated math expression must return a single time series.</p>
@@ -333,6 +380,7 @@ export interface MetricMathAnomalyDetector {
 }
 
 /**
+ * @public
  * <p>Designates the CloudWatch metric and statistic that provides the time series the anomaly detector
  * 			uses as input.</p>
  */
@@ -358,13 +406,23 @@ export interface SingleMetricAnomalyDetector {
   Stat?: string;
 }
 
-export enum AnomalyDetectorStateValue {
-  PENDING_TRAINING = "PENDING_TRAINING",
-  TRAINED = "TRAINED",
-  TRAINED_INSUFFICIENT_DATA = "TRAINED_INSUFFICIENT_DATA",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AnomalyDetectorStateValue = {
+  PENDING_TRAINING: "PENDING_TRAINING",
+  TRAINED: "TRAINED",
+  TRAINED_INSUFFICIENT_DATA: "TRAINED_INSUFFICIENT_DATA",
+} as const;
 
 /**
+ * @public
+ */
+export type AnomalyDetectorStateValue = (typeof AnomalyDetectorStateValue)[keyof typeof AnomalyDetectorStateValue];
+
+/**
+ * @public
  * <p>An anomaly detection model associated with a particular CloudWatch metric, statistic, or metric math expression.
  * 			You can use the model to display a band of expected, normal values
  * 			when the metric is graphed.</p>
@@ -423,12 +481,22 @@ export interface AnomalyDetector {
   MetricMathAnomalyDetector?: MetricMathAnomalyDetector;
 }
 
-export enum AnomalyDetectorType {
-  METRIC_MATH = "METRIC_MATH",
-  SINGLE_METRIC = "SINGLE_METRIC",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AnomalyDetectorType = {
+  METRIC_MATH: "METRIC_MATH",
+  SINGLE_METRIC: "SINGLE_METRIC",
+} as const;
 
 /**
+ * @public
+ */
+export type AnomalyDetectorType = (typeof AnomalyDetectorType)[keyof typeof AnomalyDetectorType];
+
+/**
+ * @public
  * <p>This array is empty if the API operation was successful for all the rules specified in the request. If the operation could
  * 		not process one of the rules, the following data is returned for each of those rules.</p>
  */
@@ -454,23 +522,42 @@ export interface PartialFailure {
   FailureDescription?: string;
 }
 
-export enum ComparisonOperator {
-  GreaterThanOrEqualToThreshold = "GreaterThanOrEqualToThreshold",
-  GreaterThanThreshold = "GreaterThanThreshold",
-  GreaterThanUpperThreshold = "GreaterThanUpperThreshold",
-  LessThanLowerOrGreaterThanUpperThreshold = "LessThanLowerOrGreaterThanUpperThreshold",
-  LessThanLowerThreshold = "LessThanLowerThreshold",
-  LessThanOrEqualToThreshold = "LessThanOrEqualToThreshold",
-  LessThanThreshold = "LessThanThreshold",
-}
-
-export enum StateValue {
-  ALARM = "ALARM",
-  INSUFFICIENT_DATA = "INSUFFICIENT_DATA",
-  OK = "OK",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ComparisonOperator = {
+  GreaterThanOrEqualToThreshold: "GreaterThanOrEqualToThreshold",
+  GreaterThanThreshold: "GreaterThanThreshold",
+  GreaterThanUpperThreshold: "GreaterThanUpperThreshold",
+  LessThanLowerOrGreaterThanUpperThreshold: "LessThanLowerOrGreaterThanUpperThreshold",
+  LessThanLowerThreshold: "LessThanLowerThreshold",
+  LessThanOrEqualToThreshold: "LessThanOrEqualToThreshold",
+  LessThanThreshold: "LessThanThreshold",
+} as const;
 
 /**
+ * @public
+ */
+export type ComparisonOperator = (typeof ComparisonOperator)[keyof typeof ComparisonOperator];
+
+/**
+ * @public
+ * @enum
+ */
+export const StateValue = {
+  ALARM: "ALARM",
+  INSUFFICIENT_DATA: "INSUFFICIENT_DATA",
+  OK: "OK",
+} as const;
+
+/**
+ * @public
+ */
+export type StateValue = (typeof StateValue)[keyof typeof StateValue];
+
+/**
+ * @public
  * <p>The details about a composite alarm.</p>
  */
 export interface CompositeAlarm {
@@ -642,6 +729,7 @@ export interface CompositeAlarm {
 }
 
 /**
+ * @public
  * <p>More than one process tried to modify a resource at the same time.</p>
  */
 export class ConcurrentModificationException extends __BaseException {
@@ -663,6 +751,7 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents a specific dashboard.</p>
  */
 export interface DashboardEntry {
@@ -689,6 +778,7 @@ export interface DashboardEntry {
 }
 
 /**
+ * @public
  * <p>An error or warning for the operation.</p>
  */
 export interface DashboardValidationMessage {
@@ -704,6 +794,7 @@ export interface DashboardValidationMessage {
 }
 
 /**
+ * @public
  * <p>Some part of the dashboard data is invalid.</p>
  */
 export class DashboardInvalidInputError extends __BaseException {
@@ -725,6 +816,7 @@ export class DashboardInvalidInputError extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified dashboard does not exist.</p>
  */
 export class DashboardNotFoundError extends __BaseException {
@@ -744,6 +836,7 @@ export class DashboardNotFoundError extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Encapsulates the statistical data that CloudWatch computes from metric data.</p>
  */
 export interface Datapoint {
@@ -789,14 +882,18 @@ export interface Datapoint {
   ExtendedStatistics?: Record<string, number>;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAlarmsInput {
   /**
-   * <p>The alarms to be deleted.</p>
+   * <p>The alarms to be deleted. Do not enclose the alarm names in quote marks.</p>
    */
   AlarmNames: string[] | undefined;
 }
 
 /**
+ * @public
  * <p>The named resource does not exist.</p>
  */
 export class ResourceNotFound extends __BaseException {
@@ -815,6 +912,9 @@ export class ResourceNotFound extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteAnomalyDetectorInput {
   /**
    * @deprecated
@@ -912,9 +1012,13 @@ export interface DeleteAnomalyDetectorInput {
   MetricMathAnomalyDetector?: MetricMathAnomalyDetector;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAnomalyDetectorOutput {}
 
 /**
+ * @public
  * <p>Request processing has failed due to some unknown error, exception, or failure.</p>
  */
 export class InternalServiceFault extends __BaseException {
@@ -939,6 +1043,7 @@ export class InternalServiceFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Parameters were used together that cannot be used together.</p>
  */
 export class InvalidParameterCombinationException extends __BaseException {
@@ -958,6 +1063,7 @@ export class InvalidParameterCombinationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The value of an input parameter is bad or out-of-range.</p>
  */
 export class InvalidParameterValueException extends __BaseException {
@@ -977,6 +1083,7 @@ export class InvalidParameterValueException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An input parameter that is required is missing.</p>
  */
 export class MissingRequiredParameterException extends __BaseException {
@@ -996,6 +1103,7 @@ export class MissingRequiredParameterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The named resource does not exist.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -1020,6 +1128,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteDashboardsInput {
   /**
    * <p>The dashboards to be deleted. This parameter is required.</p>
@@ -1027,8 +1138,14 @@ export interface DeleteDashboardsInput {
   DashboardNames: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDashboardsOutput {}
 
+/**
+ * @public
+ */
 export interface DeleteInsightRulesInput {
   /**
    * <p>An array of the rule names to delete. If you need to find out the names of your rules, use <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeInsightRules.html">DescribeInsightRules</a>.</p>
@@ -1036,6 +1153,9 @@ export interface DeleteInsightRulesInput {
   RuleNames: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteInsightRulesOutput {
   /**
    * <p>An array listing the rules that could not be deleted. You cannot delete built-in rules.</p>
@@ -1043,6 +1163,9 @@ export interface DeleteInsightRulesOutput {
   Failures?: PartialFailure[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteMetricStreamInput {
   /**
    * <p>The name of the metric stream to delete.</p>
@@ -1050,13 +1173,28 @@ export interface DeleteMetricStreamInput {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMetricStreamOutput {}
 
-export enum ScanBy {
-  TIMESTAMP_ASCENDING = "TimestampAscending",
-  TIMESTAMP_DESCENDING = "TimestampDescending",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ScanBy = {
+  TIMESTAMP_ASCENDING: "TimestampAscending",
+  TIMESTAMP_DESCENDING: "TimestampDescending",
+} as const;
 
+/**
+ * @public
+ */
+export type ScanBy = (typeof ScanBy)[keyof typeof ScanBy];
+
+/**
+ * @public
+ */
 export interface DescribeAlarmHistoryInput {
   /**
    * <p>The name of the alarm.</p>
@@ -1102,6 +1240,9 @@ export interface DescribeAlarmHistoryInput {
   ScanBy?: ScanBy | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAlarmHistoryOutput {
   /**
    * <p>The alarm histories, in JSON format.</p>
@@ -1115,6 +1256,7 @@ export interface DescribeAlarmHistoryOutput {
 }
 
 /**
+ * @public
  * <p>The next token specified is invalid.</p>
  */
 export class InvalidNextToken extends __BaseException {
@@ -1133,6 +1275,9 @@ export class InvalidNextToken extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeAlarmsInput {
   /**
    * <p>The names of the alarms to retrieve information about.</p>
@@ -1216,19 +1361,38 @@ export interface DescribeAlarmsInput {
   NextToken?: string;
 }
 
-export enum EvaluationState {
-  PARTIAL_DATA = "PARTIAL_DATA",
-}
-
-export enum Statistic {
-  Average = "Average",
-  Maximum = "Maximum",
-  Minimum = "Minimum",
-  SampleCount = "SampleCount",
-  Sum = "Sum",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EvaluationState = {
+  PARTIAL_DATA: "PARTIAL_DATA",
+} as const;
 
 /**
+ * @public
+ */
+export type EvaluationState = (typeof EvaluationState)[keyof typeof EvaluationState];
+
+/**
+ * @public
+ * @enum
+ */
+export const Statistic = {
+  Average: "Average",
+  Maximum: "Maximum",
+  Minimum: "Minimum",
+  SampleCount: "SampleCount",
+  Sum: "Sum",
+} as const;
+
+/**
+ * @public
+ */
+export type Statistic = (typeof Statistic)[keyof typeof Statistic];
+
+/**
+ * @public
  * <p>The details about a metric alarm.</p>
  */
 export interface MetricAlarm {
@@ -1406,6 +1570,9 @@ export interface MetricAlarm {
   StateTransitionedTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAlarmsOutput {
   /**
    * <p>The information about any composite alarms returned by the operation.</p>
@@ -1423,6 +1590,9 @@ export interface DescribeAlarmsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAlarmsForMetricInput {
   /**
    * <p>The name of the metric.</p>
@@ -1463,6 +1633,9 @@ export interface DescribeAlarmsForMetricInput {
   Unit?: StandardUnit | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAlarmsForMetricOutput {
   /**
    * <p>The information for each alarm with the specified metric.</p>
@@ -1470,6 +1643,9 @@ export interface DescribeAlarmsForMetricOutput {
   MetricAlarms?: MetricAlarm[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeAnomalyDetectorsInput {
   /**
    * <p>Use the token returned by the previous operation to request the next page of results.</p>
@@ -1511,6 +1687,9 @@ export interface DescribeAnomalyDetectorsInput {
   AnomalyDetectorTypes?: (AnomalyDetectorType | string)[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeAnomalyDetectorsOutput {
   /**
    * <p>The list of anomaly detection models returned by the operation.</p>
@@ -1524,6 +1703,9 @@ export interface DescribeAnomalyDetectorsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInsightRulesInput {
   /**
    * <p>Include this value, if it was returned by the previous operation, to get the next set of rules.</p>
@@ -1538,6 +1720,7 @@ export interface DescribeInsightRulesInput {
 }
 
 /**
+ * @public
  * <p>This structure contains the definition
  * 			for a Contributor Insights rule.
  * 			For more information about this rule,
@@ -1557,8 +1740,8 @@ export interface InsightRule {
   State: string | undefined;
 
   /**
-   * <p>For rules that you create, this is always <code>{"Name": "CloudWatchLogRule", "Version": 1}</code>. For managed rules,
-   * 			this is <code>{"Name": "ServiceLogRule", "Version": 1}</code>
+   * <p>For rules that you create, this is always <code>\{"Name": "CloudWatchLogRule", "Version": 1\}</code>. For managed rules,
+   * 			this is <code>\{"Name": "ServiceLogRule", "Version": 1\}</code>
    *          </p>
    */
   Schema: string | undefined;
@@ -1579,6 +1762,9 @@ export interface InsightRule {
   ManagedRule?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInsightRulesOutput {
   /**
    * <p>If this parameter is present, it is a token that marks the start of the next batch of returned results.      </p>
@@ -1592,6 +1778,7 @@ export interface DescribeInsightRulesOutput {
 }
 
 /**
+ * @public
  * <p>Represents filters for a dimension.</p>
  */
 export interface DimensionFilter {
@@ -1606,6 +1793,9 @@ export interface DimensionFilter {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export interface DisableAlarmActionsInput {
   /**
    * <p>The names of the alarms.</p>
@@ -1613,6 +1803,9 @@ export interface DisableAlarmActionsInput {
   AlarmNames: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisableInsightRulesInput {
   /**
    * <p>An array of the rule names to disable. If you need to find out the names of your rules, use <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeInsightRules.html">DescribeInsightRules</a>.</p>
@@ -1620,6 +1813,9 @@ export interface DisableInsightRulesInput {
   RuleNames: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisableInsightRulesOutput {
   /**
    * <p>An array listing the rules that could not be disabled. You cannot disable built-in rules.</p>
@@ -1627,6 +1823,9 @@ export interface DisableInsightRulesOutput {
   Failures?: PartialFailure[];
 }
 
+/**
+ * @public
+ */
 export interface EnableAlarmActionsInput {
   /**
    * <p>The names of the alarms.</p>
@@ -1634,6 +1833,9 @@ export interface EnableAlarmActionsInput {
   AlarmNames: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface EnableInsightRulesInput {
   /**
    * <p>An array of the rule names to enable. If you need to find out the names of your rules, use <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeInsightRules.html">DescribeInsightRules</a>.</p>
@@ -1641,6 +1843,9 @@ export interface EnableInsightRulesInput {
   RuleNames: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface EnableInsightRulesOutput {
   /**
    * <p>An array listing the rules that could not be enabled. You cannot disable or enable built-in rules.</p>
@@ -1649,6 +1854,7 @@ export interface EnableInsightRulesOutput {
 }
 
 /**
+ * @public
  * <p>The operation exceeded one or more limits.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -1669,6 +1875,9 @@ export class LimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetDashboardInput {
   /**
    * <p>The name of the dashboard to be described.</p>
@@ -1676,6 +1885,9 @@ export interface GetDashboardInput {
   DashboardName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDashboardOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the dashboard.</p>
@@ -1695,6 +1907,9 @@ export interface GetDashboardOutput {
   DashboardName?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetInsightRuleReportInput {
   /**
    * <p>The name of the rule that you want to see data from.</p>
@@ -1772,6 +1987,7 @@ export interface GetInsightRuleReportInput {
 }
 
 /**
+ * @public
  * <p>One data point related to one contributor.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetInsightRuleReport.html">GetInsightRuleReport</a> and
  * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_InsightRuleContributor.html">InsightRuleContributor</a>.</p>
@@ -1789,6 +2005,7 @@ export interface InsightRuleContributorDatapoint {
 }
 
 /**
+ * @public
  * <p>One of the unique contributors found by a Contributor Insights rule. If the rule contains multiple keys, then
  * 			a unique contributor is a unique combination of values from all the keys in the rule.</p>
  *          <p>If the rule contains a single key, then each unique contributor is each unique value for this key.</p>
@@ -1812,6 +2029,7 @@ export interface InsightRuleContributor {
 }
 
 /**
+ * @public
  * <p>One data point from the metric time series returned in a Contributor Insights rule report.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetInsightRuleReport.html">GetInsightRuleReport</a>.</p>
  */
@@ -1866,6 +2084,9 @@ export interface InsightRuleMetricDatapoint {
   Maximum?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetInsightRuleReportOutput {
   /**
    * <p>An array of the strings used as the keys for this rule. The keys are the dimensions used to classify contributors.
@@ -1901,6 +2122,7 @@ export interface GetInsightRuleReportOutput {
 }
 
 /**
+ * @public
  * <p>This structure includes the <code>Timezone</code> parameter, which you can use
  * 			to specify your time zone so that the labels that are associated with returned metrics display the
  * 			correct time
@@ -1920,6 +2142,9 @@ export interface LabelOptions {
   Timezone?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetMetricDataInput {
   /**
    * <p>The metric queries to be returned. A single <code>GetMetricData</code> call can
@@ -2003,6 +2228,7 @@ export interface GetMetricDataInput {
 }
 
 /**
+ * @public
  * <p>A message returned by the <code>GetMetricData</code>API, including a code and a description.</p>
  *          <p>If a cross-Region <code>GetMetricData</code> operation fails with a code of <code>Forbidden</code> and a
  * 			value of <code>Authentication too complex to
@@ -2021,14 +2247,24 @@ export interface MessageData {
   Value?: string;
 }
 
-export enum StatusCode {
-  COMPLETE = "Complete",
-  FORBIDDEN = "Forbidden",
-  INTERNAL_ERROR = "InternalError",
-  PARTIAL_DATA = "PartialData",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StatusCode = {
+  COMPLETE: "Complete",
+  FORBIDDEN: "Forbidden",
+  INTERNAL_ERROR: "InternalError",
+  PARTIAL_DATA: "PartialData",
+} as const;
 
 /**
+ * @public
+ */
+export type StatusCode = (typeof StatusCode)[keyof typeof StatusCode];
+
+/**
+ * @public
  * <p>A <code>GetMetricData</code> call returns an array of <code>MetricDataResult</code>
  * 			structures. Each of these structures includes the data points for that metric, along
  * 			with the timestamps of those data points and other identifying information.</p>
@@ -2073,6 +2309,9 @@ export interface MetricDataResult {
   Messages?: MessageData[];
 }
 
+/**
+ * @public
+ */
 export interface GetMetricDataOutput {
   /**
    * <p>The metrics that are returned, including the metric name, namespace, and dimensions.</p>
@@ -2095,6 +2334,9 @@ export interface GetMetricDataOutput {
   Messages?: MessageData[];
 }
 
+/**
+ * @public
+ */
 export interface GetMetricStatisticsInput {
   /**
    * <p>The namespace of the metric, with or without spaces.</p>
@@ -2198,6 +2440,9 @@ export interface GetMetricStatisticsInput {
   Unit?: StandardUnit | string;
 }
 
+/**
+ * @public
+ */
 export interface GetMetricStatisticsOutput {
   /**
    * <p>A label for the specified metric.</p>
@@ -2210,6 +2455,9 @@ export interface GetMetricStatisticsOutput {
   Datapoints?: Datapoint[];
 }
 
+/**
+ * @public
+ */
 export interface GetMetricStreamInput {
   /**
    * <p>The name of the metric stream to retrieve information about.</p>
@@ -2218,8 +2466,11 @@ export interface GetMetricStreamInput {
 }
 
 /**
+ * @public
  * <p>This structure contains the name of one of the metric namespaces that is listed in
  * 		a filter of a metric stream.</p>
+ *          <p>The namespace can contain only ASCII printable characters (ASCII range 32 through 126). It must
+ * 			contain at least one non-whitespace character.</p>
  */
 export interface MetricStreamFilter {
   /**
@@ -2228,12 +2479,22 @@ export interface MetricStreamFilter {
   Namespace?: string;
 }
 
-export enum MetricStreamOutputFormat {
-  JSON = "json",
-  OPEN_TELEMETRY_0_7 = "opentelemetry0.7",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MetricStreamOutputFormat = {
+  JSON: "json",
+  OPEN_TELEMETRY_0_7: "opentelemetry0.7",
+} as const;
 
 /**
+ * @public
+ */
+export type MetricStreamOutputFormat = (typeof MetricStreamOutputFormat)[keyof typeof MetricStreamOutputFormat];
+
+/**
+ * @public
  * <p>This object contains the information for one metric that is to be streamed with
  * 			additional statistics.</p>
  */
@@ -2250,6 +2511,7 @@ export interface MetricStreamStatisticsMetric {
 }
 
 /**
+ * @public
  * <p>By default, a metric stream always sends the <code>MAX</code>, <code>MIN</code>, <code>SUM</code>,
  * 			and <code>SAMPLECOUNT</code> statistics for each metric that is streamed. This structure contains information for
  * 			one metric that includes additional statistics in the stream. For more information about statistics,
@@ -2283,6 +2545,9 @@ export interface MetricStreamStatisticsConfiguration {
   AdditionalStatistics: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetMetricStreamOutput {
   /**
    * <p>The ARN of the metric stream.</p>
@@ -2350,8 +2615,17 @@ export interface GetMetricStreamOutput {
    * 				CloudWatch statistics definitions</a>. </p>
    */
   StatisticsConfigurations?: MetricStreamStatisticsConfiguration[];
+
+  /**
+   * <p>If this is <code>true</code> and this metric stream is in a monitoring account, then the stream includes
+   * 			metrics from source accounts that the monitoring account is linked to.</p>
+   */
+  IncludeLinkedAccountsMetrics?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetMetricWidgetImageInput {
   /**
    * <p>A JSON string that defines the bitmap graph to be retrieved. The string includes the
@@ -2408,6 +2682,9 @@ export interface GetMetricWidgetImageInput {
   OutputFormat?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetMetricWidgetImageOutput {
   /**
    * <p>The image of the graph, in the output format specified. The output is base64-encoded.</p>
@@ -2415,6 +2692,9 @@ export interface GetMetricWidgetImageOutput {
   MetricWidgetImage?: Uint8Array;
 }
 
+/**
+ * @public
+ */
 export interface ListDashboardsInput {
   /**
    * <p>If you specify this parameter, only
@@ -2431,6 +2711,9 @@ export interface ListDashboardsInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDashboardsOutput {
   /**
    * <p>The list of matching dashboards.</p>
@@ -2443,6 +2726,9 @@ export interface ListDashboardsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListManagedInsightRulesInput {
   /**
    * <p>
@@ -2480,6 +2766,7 @@ export interface ListManagedInsightRulesInput {
 }
 
 /**
+ * @public
  * <p>
  * 			The status
  * 			of a managed Contributor Insights rule.
@@ -2505,6 +2792,7 @@ export interface ManagedRuleState {
 }
 
 /**
+ * @public
  * <p>
  * 			Contains information
  * 			about managed Contributor Insights rules,
@@ -2547,6 +2835,9 @@ export interface ManagedRuleDescription {
   RuleState?: ManagedRuleState;
 }
 
+/**
+ * @public
+ */
 export interface ListManagedInsightRulesOutput {
   /**
    * <p>
@@ -2570,10 +2861,22 @@ export interface ListManagedInsightRulesOutput {
   NextToken?: string;
 }
 
-export enum RecentlyActive {
-  PT3H = "PT3H",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RecentlyActive = {
+  PT3H: "PT3H",
+} as const;
 
+/**
+ * @public
+ */
+export type RecentlyActive = (typeof RecentlyActive)[keyof typeof RecentlyActive];
+
+/**
+ * @public
+ */
 export interface ListMetricsInput {
   /**
    * <p>The metric namespace to filter against. Only the namespace that matches exactly
@@ -2625,6 +2928,9 @@ export interface ListMetricsInput {
   OwningAccount?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListMetricsOutput {
   /**
    * <p>The metrics that match your request. </p>
@@ -2645,6 +2951,9 @@ export interface ListMetricsOutput {
   OwningAccounts?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListMetricStreamsInput {
   /**
    * <p>Include this value, if it was returned by the previous call, to get the next set of metric streams.</p>
@@ -2658,6 +2967,7 @@ export interface ListMetricStreamsInput {
 }
 
 /**
+ * @public
  * <p>This structure contains the configuration information about one metric stream.</p>
  */
 export interface MetricStreamEntry {
@@ -2699,6 +3009,9 @@ export interface MetricStreamEntry {
   OutputFormat?: MetricStreamOutputFormat | string;
 }
 
+/**
+ * @public
+ */
 export interface ListMetricStreamsOutput {
   /**
    * <p>The token that marks the start of the next batch of returned results. You can use this
@@ -2712,6 +3025,9 @@ export interface ListMetricStreamsOutput {
   Entries?: MetricStreamEntry[];
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceInput {
   /**
    * <p>The ARN of the CloudWatch resource that you want to view tags for.</p>
@@ -2731,6 +3047,7 @@ export interface ListTagsForResourceInput {
 }
 
 /**
+ * @public
  * <p>A key-value pair associated with a CloudWatch resource.</p>
  */
 export interface Tag {
@@ -2746,6 +3063,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceOutput {
   /**
    * <p>The list of tag keys and values associated with the resource you specified.</p>
@@ -2753,6 +3073,9 @@ export interface ListTagsForResourceOutput {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface PutAnomalyDetectorInput {
   /**
    * @deprecated
@@ -2862,9 +3185,13 @@ export interface PutAnomalyDetectorInput {
   MetricMathAnomalyDetector?: MetricMathAnomalyDetector;
 }
 
+/**
+ * @public
+ */
 export interface PutAnomalyDetectorOutput {}
 
 /**
+ * @public
  * <p>The quota for alarms for this customer has already been reached.</p>
  */
 export class LimitExceededFault extends __BaseException {
@@ -2883,6 +3210,9 @@ export class LimitExceededFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface PutCompositeAlarmInput {
   /**
    * <p>Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. The default is
@@ -3057,6 +3387,9 @@ export interface PutCompositeAlarmInput {
   ActionsSuppressorExtensionPeriod?: number;
 }
 
+/**
+ * @public
+ */
 export interface PutDashboardInput {
   /**
    * <p>The name of the dashboard. If a dashboard with this name already exists, this call modifies that dashboard, replacing
@@ -3074,6 +3407,9 @@ export interface PutDashboardInput {
   DashboardBody: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutDashboardOutput {
   /**
    * <p>If the input for <code>PutDashboard</code> was correct and the dashboard was successfully created or modified, this result is empty.</p>
@@ -3085,6 +3421,9 @@ export interface PutDashboardOutput {
   DashboardValidationMessages?: DashboardValidationMessage[];
 }
 
+/**
+ * @public
+ */
 export interface PutInsightRuleInput {
   /**
    * <p>A unique name for the rule.</p>
@@ -3119,9 +3458,13 @@ export interface PutInsightRuleInput {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface PutInsightRuleOutput {}
 
 /**
+ * @public
  * <p>
  * 			Contains the information
  * 			that's required
@@ -3182,6 +3525,9 @@ export interface ManagedRule {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface PutManagedInsightRulesInput {
   /**
    * <p>
@@ -3193,6 +3539,9 @@ export interface PutManagedInsightRulesInput {
   ManagedRules: ManagedRule[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutManagedInsightRulesOutput {
   /**
    * <p>
@@ -3204,9 +3553,14 @@ export interface PutManagedInsightRulesOutput {
   Failures?: PartialFailure[];
 }
 
+/**
+ * @public
+ */
 export interface PutMetricAlarmInput {
   /**
    * <p>The name for the alarm. This name must be unique within the Region.</p>
+   *          <p>The name must contain only UTF-8
+   * 			characters, and can't contain ASCII control characters</p>
    */
   AlarmName: string | undefined;
 
@@ -3223,67 +3577,271 @@ export interface PutMetricAlarmInput {
 
   /**
    * <p>The actions to execute when this alarm transitions to an <code>OK</code> state
-   * 			from any other state. Each action is specified as an Amazon Resource Name (ARN).</p>
-   *          <p>Valid Values: <code>arn:aws:automate:<i>region</i>:ec2:stop</code> |
-   * 			<code>arn:aws:automate:<i>region</i>:ec2:terminate</code> |
-   * 			<code>arn:aws:automate:<i>region</i>:ec2:recover</code> |
-   * 			<code>arn:aws:automate:<i>region</i>:ec2:reboot</code> |
-   * 			<code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i>
-   *             </code> |
-   * 			<code>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i>
-   *             </code>
+   * 			from any other state. Each action is specified as an Amazon Resource Name (ARN). Valid values:</p>
+   *          <p>
+   *             <b>EC2 actions:</b>
    *          </p>
-   *          <p>Valid Values (for use with IAM roles):
-   * 			<code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</code> |
-   * 				<code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Terminate/1.0</code> |
-   * 				<code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code> |
-   * 			    <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Recover/1.0</code>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:automate:<i>region</i>:ec2:stop</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:automate:<i>region</i>:ec2:terminate</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:automate:<i>region</i>:ec2:reboot</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:automate:<i>region</i>:ec2:recover</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Terminate/1.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Recover/1.0</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <b>Autoscaling action:</b>
    *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <b>SSN notification action:</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <b>SSM integration actions:</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:ssm:<i>region</i>:<i>account-id</i>:opsitem:<i>severity</i>#CATEGORY=<i>category-name</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:ssm-incidents::<i>account-id</i>:responseplan/<i>response-plan-name</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   OKActions?: string[];
 
   /**
    * <p>The actions to execute when this alarm transitions to the <code>ALARM</code> state from any other state.
-   * 			Each action is specified as an Amazon Resource Name (ARN).</p>
-   *          <p>Valid Values: <code>arn:aws:automate:<i>region</i>:ec2:stop</code> |
-   * 			<code>arn:aws:automate:<i>region</i>:ec2:terminate</code> |
-   * 			<code>arn:aws:automate:<i>region</i>:ec2:recover</code> |
-   * 			<code>arn:aws:automate:<i>region</i>:ec2:reboot</code> |
-   * 			<code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i>
-   *             </code> |
-   * 			<code>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i>
-   *             </code>
-   * 			| <code>arn:aws:ssm:<i>region</i>:<i>account-id</i>:opsitem:<i>severity</i>
-   *             </code>
-   * 			| <code>arn:aws:ssm-incidents::<i>account-id</i>:response-plan:<i>response-plan-name</i>
-   *             </code>
+   * 			Each action is specified as an Amazon Resource Name (ARN). Valid values:</p>
+   *          <p>
+   *             <b>EC2 actions:</b>
    *          </p>
-   *          <p>Valid Values (for use with IAM roles):
-   * 			<code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</code> |
-   * 				<code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Terminate/1.0</code> |
-   * 				<code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code> |
-   * 			<code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Recover/1.0</code>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:automate:<i>region</i>:ec2:stop</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:automate:<i>region</i>:ec2:terminate</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:automate:<i>region</i>:ec2:reboot</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:automate:<i>region</i>:ec2:recover</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Terminate/1.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Recover/1.0</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <b>Autoscaling action:</b>
    *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <b>SSN notification action:</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <b>SSM integration actions:</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:ssm:<i>region</i>:<i>account-id</i>:opsitem:<i>severity</i>#CATEGORY=<i>category-name</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:ssm-incidents::<i>account-id</i>:responseplan/<i>response-plan-name</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   AlarmActions?: string[];
 
   /**
    * <p>The actions to execute when this alarm transitions to the <code>INSUFFICIENT_DATA</code> state from any other state.
-   * 			Each action is specified as an Amazon Resource Name (ARN).</p>
-   *          <p>Valid Values: <code>arn:aws:automate:<i>region</i>:ec2:stop</code> |
-   * 			<code>arn:aws:automate:<i>region</i>:ec2:terminate</code> |
-   * 			<code>arn:aws:automate:<i>region</i>:ec2:recover</code> |
-   * 			<code>arn:aws:automate:<i>region</i>:ec2:reboot</code> |
-   * 			<code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i>
-   *             </code> |
-   * 			<code>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i>
-   *             </code>
+   * 			Each action is specified as an Amazon Resource Name (ARN). Valid values:</p>
+   *          <p>
+   *             <b>EC2 actions:</b>
    *          </p>
-   *          <p>Valid Values (for use with IAM roles):
-   * 			<code>>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</code> |
-   * 				<code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Terminate/1.0</code> |
-   * 				<code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:automate:<i>region</i>:ec2:stop</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:automate:<i>region</i>:ec2:terminate</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:automate:<i>region</i>:ec2:reboot</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:automate:<i>region</i>:ec2:recover</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Terminate/1.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Recover/1.0</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <b>Autoscaling action:</b>
    *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <b>SSN notification action:</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <b>SSM integration actions:</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:ssm:<i>region</i>:<i>account-id</i>:opsitem:<i>severity</i>#CATEGORY=<i>category-name</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:ssm-incidents::<i>account-id</i>:responseplan/<i>response-plan-name</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   InsufficientDataActions?: string[];
 
@@ -3457,6 +4015,7 @@ export interface PutMetricAlarmInput {
 }
 
 /**
+ * @public
  * <p>Represents a set of statistics that describes a specific metric. </p>
  */
 export interface StatisticSet {
@@ -3482,6 +4041,7 @@ export interface StatisticSet {
 }
 
 /**
+ * @public
  * <p>Encapsulates the information sent to either create a metric or add new values
  * 			to be aggregated into an existing metric.</p>
  */
@@ -3492,7 +4052,7 @@ export interface MetricDatum {
   MetricName: string | undefined;
 
   /**
-   * <p>The dimensions associated with the metric.</p>
+   * <p>The dimensions associated with the metric. </p>
    */
   Dimensions?: Dimension[];
 
@@ -3553,9 +4113,13 @@ export interface MetricDatum {
   StorageResolution?: number;
 }
 
+/**
+ * @public
+ */
 export interface PutMetricDataInput {
   /**
-   * <p>The namespace for the metric data.</p>
+   * <p>The namespace for the metric data. You can use ASCII characters for the namespace, except for
+   * 		control characters which are not supported.</p>
    *          <p>To avoid conflicts
    * 			with Amazon Web Services service namespaces, you should not specify a namespace that begins with <code>AWS/</code>
    *          </p>
@@ -3568,6 +4132,9 @@ export interface PutMetricDataInput {
   MetricData: MetricDatum[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutMetricStreamInput {
   /**
    * <p>If you are creating a new metric stream, this is the name for the new stream. The name
@@ -3652,8 +4219,17 @@ export interface PutMetricStreamInput {
    * 			p99.9, and so on.</p>
    */
   StatisticsConfigurations?: MetricStreamStatisticsConfiguration[];
+
+  /**
+   * <p>If you are creating a metric stream in a monitoring account,
+   * 			specify <code>true</code> to include metrics from source accounts in the metric stream.</p>
+   */
+  IncludeLinkedAccountsMetrics?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface PutMetricStreamOutput {
   /**
    * <p>The ARN of the metric stream.</p>
@@ -3662,6 +4238,7 @@ export interface PutMetricStreamOutput {
 }
 
 /**
+ * @public
  * <p>Data was not syntactically valid JSON.</p>
  */
 export class InvalidFormatFault extends __BaseException {
@@ -3680,6 +4257,9 @@ export class InvalidFormatFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface SetAlarmStateInput {
   /**
    * <p>The name of the alarm.</p>
@@ -3704,6 +4284,9 @@ export interface SetAlarmStateInput {
   StateReasonData?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartMetricStreamsInput {
   /**
    * <p>The array of the names of metric streams to start streaming.</p>
@@ -3714,8 +4297,14 @@ export interface StartMetricStreamsInput {
   Names: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartMetricStreamsOutput {}
 
+/**
+ * @public
+ */
 export interface StopMetricStreamsInput {
   /**
    * <p>The array of the names of metric streams to stop streaming.</p>
@@ -3726,8 +4315,14 @@ export interface StopMetricStreamsInput {
   Names: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopMetricStreamsOutput {}
 
+/**
+ * @public
+ */
 export interface TagResourceInput {
   /**
    * <p>The ARN of the CloudWatch resource that you're adding tags to.</p>
@@ -3751,8 +4346,14 @@ export interface TagResourceInput {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceOutput {}
 
+/**
+ * @public
+ */
 export interface UntagResourceInput {
   /**
    * <p>The ARN of the CloudWatch resource that you're removing tags from.</p>
@@ -3776,727 +4377,7 @@ export interface UntagResourceInput {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceOutput {}
-
-/**
- * @internal
- */
-export const AlarmHistoryItemFilterSensitiveLog = (obj: AlarmHistoryItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RangeFilterSensitiveLog = (obj: Range): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnomalyDetectorConfigurationFilterSensitiveLog = (obj: AnomalyDetectorConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DimensionFilterSensitiveLog = (obj: Dimension): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetricFilterSensitiveLog = (obj: Metric): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetricStatFilterSensitiveLog = (obj: MetricStat): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetricDataQueryFilterSensitiveLog = (obj: MetricDataQuery): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetricMathAnomalyDetectorFilterSensitiveLog = (obj: MetricMathAnomalyDetector): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SingleMetricAnomalyDetectorFilterSensitiveLog = (obj: SingleMetricAnomalyDetector): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnomalyDetectorFilterSensitiveLog = (obj: AnomalyDetector): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PartialFailureFilterSensitiveLog = (obj: PartialFailure): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CompositeAlarmFilterSensitiveLog = (obj: CompositeAlarm): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DashboardEntryFilterSensitiveLog = (obj: DashboardEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DashboardValidationMessageFilterSensitiveLog = (obj: DashboardValidationMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DatapointFilterSensitiveLog = (obj: Datapoint): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAlarmsInputFilterSensitiveLog = (obj: DeleteAlarmsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAnomalyDetectorInputFilterSensitiveLog = (obj: DeleteAnomalyDetectorInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAnomalyDetectorOutputFilterSensitiveLog = (obj: DeleteAnomalyDetectorOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDashboardsInputFilterSensitiveLog = (obj: DeleteDashboardsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDashboardsOutputFilterSensitiveLog = (obj: DeleteDashboardsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteInsightRulesInputFilterSensitiveLog = (obj: DeleteInsightRulesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteInsightRulesOutputFilterSensitiveLog = (obj: DeleteInsightRulesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMetricStreamInputFilterSensitiveLog = (obj: DeleteMetricStreamInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMetricStreamOutputFilterSensitiveLog = (obj: DeleteMetricStreamOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAlarmHistoryInputFilterSensitiveLog = (obj: DescribeAlarmHistoryInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAlarmHistoryOutputFilterSensitiveLog = (obj: DescribeAlarmHistoryOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAlarmsInputFilterSensitiveLog = (obj: DescribeAlarmsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetricAlarmFilterSensitiveLog = (obj: MetricAlarm): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAlarmsOutputFilterSensitiveLog = (obj: DescribeAlarmsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAlarmsForMetricInputFilterSensitiveLog = (obj: DescribeAlarmsForMetricInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAlarmsForMetricOutputFilterSensitiveLog = (obj: DescribeAlarmsForMetricOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAnomalyDetectorsInputFilterSensitiveLog = (obj: DescribeAnomalyDetectorsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAnomalyDetectorsOutputFilterSensitiveLog = (obj: DescribeAnomalyDetectorsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInsightRulesInputFilterSensitiveLog = (obj: DescribeInsightRulesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InsightRuleFilterSensitiveLog = (obj: InsightRule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInsightRulesOutputFilterSensitiveLog = (obj: DescribeInsightRulesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DimensionFilterFilterSensitiveLog = (obj: DimensionFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableAlarmActionsInputFilterSensitiveLog = (obj: DisableAlarmActionsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableInsightRulesInputFilterSensitiveLog = (obj: DisableInsightRulesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableInsightRulesOutputFilterSensitiveLog = (obj: DisableInsightRulesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableAlarmActionsInputFilterSensitiveLog = (obj: EnableAlarmActionsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableInsightRulesInputFilterSensitiveLog = (obj: EnableInsightRulesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableInsightRulesOutputFilterSensitiveLog = (obj: EnableInsightRulesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDashboardInputFilterSensitiveLog = (obj: GetDashboardInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDashboardOutputFilterSensitiveLog = (obj: GetDashboardOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInsightRuleReportInputFilterSensitiveLog = (obj: GetInsightRuleReportInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InsightRuleContributorDatapointFilterSensitiveLog = (obj: InsightRuleContributorDatapoint): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InsightRuleContributorFilterSensitiveLog = (obj: InsightRuleContributor): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InsightRuleMetricDatapointFilterSensitiveLog = (obj: InsightRuleMetricDatapoint): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInsightRuleReportOutputFilterSensitiveLog = (obj: GetInsightRuleReportOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LabelOptionsFilterSensitiveLog = (obj: LabelOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMetricDataInputFilterSensitiveLog = (obj: GetMetricDataInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MessageDataFilterSensitiveLog = (obj: MessageData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetricDataResultFilterSensitiveLog = (obj: MetricDataResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMetricDataOutputFilterSensitiveLog = (obj: GetMetricDataOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMetricStatisticsInputFilterSensitiveLog = (obj: GetMetricStatisticsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMetricStatisticsOutputFilterSensitiveLog = (obj: GetMetricStatisticsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMetricStreamInputFilterSensitiveLog = (obj: GetMetricStreamInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetricStreamFilterFilterSensitiveLog = (obj: MetricStreamFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetricStreamStatisticsMetricFilterSensitiveLog = (obj: MetricStreamStatisticsMetric): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetricStreamStatisticsConfigurationFilterSensitiveLog = (
-  obj: MetricStreamStatisticsConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMetricStreamOutputFilterSensitiveLog = (obj: GetMetricStreamOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMetricWidgetImageInputFilterSensitiveLog = (obj: GetMetricWidgetImageInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMetricWidgetImageOutputFilterSensitiveLog = (obj: GetMetricWidgetImageOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDashboardsInputFilterSensitiveLog = (obj: ListDashboardsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDashboardsOutputFilterSensitiveLog = (obj: ListDashboardsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListManagedInsightRulesInputFilterSensitiveLog = (obj: ListManagedInsightRulesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ManagedRuleStateFilterSensitiveLog = (obj: ManagedRuleState): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ManagedRuleDescriptionFilterSensitiveLog = (obj: ManagedRuleDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListManagedInsightRulesOutputFilterSensitiveLog = (obj: ListManagedInsightRulesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMetricsInputFilterSensitiveLog = (obj: ListMetricsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMetricsOutputFilterSensitiveLog = (obj: ListMetricsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMetricStreamsInputFilterSensitiveLog = (obj: ListMetricStreamsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetricStreamEntryFilterSensitiveLog = (obj: MetricStreamEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMetricStreamsOutputFilterSensitiveLog = (obj: ListMetricStreamsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceInputFilterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceOutputFilterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutAnomalyDetectorInputFilterSensitiveLog = (obj: PutAnomalyDetectorInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutAnomalyDetectorOutputFilterSensitiveLog = (obj: PutAnomalyDetectorOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutCompositeAlarmInputFilterSensitiveLog = (obj: PutCompositeAlarmInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutDashboardInputFilterSensitiveLog = (obj: PutDashboardInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutDashboardOutputFilterSensitiveLog = (obj: PutDashboardOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutInsightRuleInputFilterSensitiveLog = (obj: PutInsightRuleInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutInsightRuleOutputFilterSensitiveLog = (obj: PutInsightRuleOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ManagedRuleFilterSensitiveLog = (obj: ManagedRule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutManagedInsightRulesInputFilterSensitiveLog = (obj: PutManagedInsightRulesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutManagedInsightRulesOutputFilterSensitiveLog = (obj: PutManagedInsightRulesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutMetricAlarmInputFilterSensitiveLog = (obj: PutMetricAlarmInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StatisticSetFilterSensitiveLog = (obj: StatisticSet): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetricDatumFilterSensitiveLog = (obj: MetricDatum): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutMetricDataInputFilterSensitiveLog = (obj: PutMetricDataInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutMetricStreamInputFilterSensitiveLog = (obj: PutMetricStreamInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutMetricStreamOutputFilterSensitiveLog = (obj: PutMetricStreamOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetAlarmStateInputFilterSensitiveLog = (obj: SetAlarmStateInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartMetricStreamsInputFilterSensitiveLog = (obj: StartMetricStreamsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartMetricStreamsOutputFilterSensitiveLog = (obj: StartMetricStreamsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopMetricStreamsInputFilterSensitiveLog = (obj: StopMetricStreamsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopMetricStreamsOutputFilterSensitiveLog = (obj: StopMetricStreamsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceInputFilterSensitiveLog = (obj: TagResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceOutputFilterSensitiveLog = (obj: TagResourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceInputFilterSensitiveLog = (obj: UntagResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceOutputFilterSensitiveLog = (obj: UntagResourceOutput): any => ({
-  ...obj,
-});

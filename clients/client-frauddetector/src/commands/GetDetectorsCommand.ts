@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  GetDetectorsRequest,
-  GetDetectorsRequestFilterSensitiveLog,
-  GetDetectorsResult,
-  GetDetectorsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetDetectorsCommand,
-  serializeAws_json1_1GetDetectorsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetDetectorsRequest, GetDetectorsResult } from "../models/models_0";
+import { de_GetDetectorsCommand, se_GetDetectorsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetDetectorsCommand}.
+ */
 export interface GetDetectorsCommandInput extends GetDetectorsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetDetectorsCommand}.
+ */
 export interface GetDetectorsCommandOutput extends GetDetectorsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets all detectors or a single detector if a <code>detectorId</code> is specified. This is a paginated API. If you
  *          provide a null <code>maxResults</code>, this action retrieves a maximum of 10 records
  *          per page. If you provide a <code>maxResults</code>, the value must be between 5 and 10.
@@ -41,13 +44,36 @@ export interface GetDetectorsCommandOutput extends GetDetectorsResult, __Metadat
  * import { FraudDetectorClient, GetDetectorsCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, GetDetectorsCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = { // GetDetectorsRequest
+ *   detectorId: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new GetDetectorsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDetectorsCommandInput - {@link GetDetectorsCommandInput}
+ * @returns {@link GetDetectorsCommandOutput}
  * @see {@link GetDetectorsCommandInput} for command's `input` shape.
  * @see {@link GetDetectorsCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An exception indicating an internal server error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An exception indicating the specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>An exception indicating a throttling error.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An exception indicating a specified value is not allowed.</p>
+ *
  *
  */
 export class GetDetectorsCommand extends $Command<
@@ -67,6 +93,9 @@ export class GetDetectorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDetectorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +122,8 @@ export class GetDetectorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDetectorsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDetectorsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +133,18 @@ export class GetDetectorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDetectorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDetectorsCommand(input, context);
+    return se_GetDetectorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDetectorsCommandOutput> {
-    return deserializeAws_json1_1GetDetectorsCommand(output, context);
+    return de_GetDetectorsCommand(output, context);
   }
 
   // Start section: command_body_extra

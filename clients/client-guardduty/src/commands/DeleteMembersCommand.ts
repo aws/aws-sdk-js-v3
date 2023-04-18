@@ -14,36 +14,57 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import {
-  DeleteMembersRequest,
-  DeleteMembersRequestFilterSensitiveLog,
-  DeleteMembersResponse,
-  DeleteMembersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteMembersCommand,
-  serializeAws_restJson1DeleteMembersCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteMembersRequest, DeleteMembersResponse } from "../models/models_0";
+import { de_DeleteMembersCommand, se_DeleteMembersCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteMembersCommand}.
+ */
 export interface DeleteMembersCommandInput extends DeleteMembersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteMembersCommand}.
+ */
 export interface DeleteMembersCommandOutput extends DeleteMembersResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes GuardDuty member accounts (to the current GuardDuty administrator account) specified by
- *       the account IDs.</p>
+ * @public
+ * <p>Deletes GuardDuty member accounts (to the current GuardDuty administrator account)
+ *       specified by the account IDs.</p>
+ *          <p>With <code>autoEnableOrganizationMembers</code> configuration for your organization set to
+ *         <code>ALL</code>, you'll receive an error if you attempt to disable GuardDuty for a member
+ *       account in your organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GuardDutyClient, DeleteMembersCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, DeleteMembersCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = { // DeleteMembersRequest
+ *   DetectorId: "STRING_VALUE", // required
+ *   AccountIds: [ // AccountIds // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DeleteMembersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMembersCommandInput - {@link DeleteMembersCommandInput}
+ * @returns {@link DeleteMembersCommandOutput}
  * @see {@link DeleteMembersCommandInput} for command's `input` shape.
  * @see {@link DeleteMembersCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>A bad request exception object.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>An internal server error exception object.</p>
+ *
  *
  */
 export class DeleteMembersCommand extends $Command<
@@ -63,6 +84,9 @@ export class DeleteMembersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMembersCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +113,8 @@ export class DeleteMembersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMembersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteMembersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +124,18 @@ export class DeleteMembersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteMembersCommand(input, context);
+    return se_DeleteMembersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMembersCommandOutput> {
-    return deserializeAws_restJson1DeleteMembersCommand(output, context);
+    return de_DeleteMembersCommand(output, context);
   }
 
   // Start section: command_body_extra

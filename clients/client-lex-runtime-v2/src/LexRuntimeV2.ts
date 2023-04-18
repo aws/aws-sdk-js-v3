@@ -26,10 +26,12 @@ import {
 import { LexRuntimeV2Client } from "./LexRuntimeV2Client";
 
 /**
- * <p></p>
+ * @public
+ * <p>This section contains documentation for the Amazon Lex V2 Runtime V2 API operations.</p>
  */
 export class LexRuntimeV2 extends LexRuntimeV2Client {
   /**
+   * @public
    * <p>Removes session information for a specified bot, alias, and user ID. </p>
    *          <p>You can use this operation to restart a conversation with a bot.
    *          When you remove a session, the entire history of the session is removed
@@ -75,6 +77,7 @@ export class LexRuntimeV2 extends LexRuntimeV2Client {
   }
 
   /**
+   * @public
    * <p>Returns session information for a specified bot, alias, and
    *          user.</p>
    *          <p>For example, you can use this operation to retrieve session
@@ -109,6 +112,7 @@ export class LexRuntimeV2 extends LexRuntimeV2Client {
   }
 
   /**
+   * @public
    * <p>Creates a new session or modifies an existing session with an Amazon Lex V2
    *          bot. Use this operation to enable your application to set the state of
    *          the bot.</p>
@@ -137,6 +141,7 @@ export class LexRuntimeV2 extends LexRuntimeV2Client {
   }
 
   /**
+   * @public
    * <p>Sends user input to Amazon Lex V2. Client applications use this API to send
    *          requests to Amazon Lex V2 at runtime. Amazon Lex V2 then interprets the user input
    *          using the machine learning model that it build for the bot.</p>
@@ -199,6 +204,7 @@ export class LexRuntimeV2 extends LexRuntimeV2Client {
   }
 
   /**
+   * @public
    * <p>Sends user input to Amazon Lex V2. You can send text or speech. Clients use
    *          this API to send text and audio requests to Amazon Lex V2 at runtime. Amazon Lex V2
    *          interprets the user input using the machine learning model built for
@@ -293,6 +299,7 @@ export class LexRuntimeV2 extends LexRuntimeV2Client {
   }
 
   /**
+   * @public
    * <p>Starts an HTTP/2 bidirectional event stream that enables you to send
    *          audio, text, or DTMF input in real time. After your application starts
    *          a conversation, users send input to Amazon Lex V2 as a stream of events. Amazon Lex V2

@@ -14,26 +14,32 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  ListRolesRequest,
-  ListRolesRequestFilterSensitiveLog,
-  ListRolesResponse,
-  ListRolesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_queryListRolesCommand, serializeAws_queryListRolesCommand } from "../protocols/Aws_query";
+import { ListRolesRequest, ListRolesResponse } from "../models/models_0";
+import { de_ListRolesCommand, se_ListRolesCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link ListRolesCommand}.
+ */
 export interface ListRolesCommandInput extends ListRolesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListRolesCommand}.
+ */
 export interface ListRolesCommandOutput extends ListRolesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the IAM roles that have the specified path prefix. If there are none, the
  *             operation returns an empty list. For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working with
  *                 roles</a>.</p>
- *         <note>
+ *          <note>
  *             <p>IAM resource-listing operations return a subset of the available
  *    attributes for the resource. For example, this operation does not return tags, even though they are an attribute of the returned object. To view all of the information for a role, see <a>GetRole</a>.</p>
- *         </note>
- *         <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
+ *          </note>
+ *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
  *             parameters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,13 +47,25 @@ export interface ListRolesCommandOutput extends ListRolesResponse, __MetadataBea
  * import { IAMClient, ListRolesCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListRolesCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // ListRolesRequest
+ *   PathPrefix: "STRING_VALUE",
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListRolesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRolesCommandInput - {@link ListRolesCommandInput}
+ * @returns {@link ListRolesCommandOutput}
  * @see {@link ListRolesCommandInput} for command's `input` shape.
  * @see {@link ListRolesCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
  *
  */
 export class ListRolesCommand extends $Command<ListRolesCommandInput, ListRolesCommandOutput, IAMClientResolvedConfig> {
@@ -63,6 +81,9 @@ export class ListRolesCommand extends $Command<ListRolesCommandInput, ListRolesC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRolesCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +110,8 @@ export class ListRolesCommand extends $Command<ListRolesCommandInput, ListRolesC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRolesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRolesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +121,18 @@ export class ListRolesCommand extends $Command<ListRolesCommandInput, ListRolesC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRolesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListRolesCommand(input, context);
+    return se_ListRolesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRolesCommandOutput> {
-    return deserializeAws_queryListRolesCommand(output, context);
+    return de_ListRolesCommand(output, context);
   }
 
   // Start section: command_body_extra

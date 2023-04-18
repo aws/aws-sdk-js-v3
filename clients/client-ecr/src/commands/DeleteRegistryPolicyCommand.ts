@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import {
-  DeleteRegistryPolicyRequest,
-  DeleteRegistryPolicyRequestFilterSensitiveLog,
-  DeleteRegistryPolicyResponse,
-  DeleteRegistryPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteRegistryPolicyCommand,
-  serializeAws_json1_1DeleteRegistryPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteRegistryPolicyRequest, DeleteRegistryPolicyResponse } from "../models/models_0";
+import { de_DeleteRegistryPolicyCommand, se_DeleteRegistryPolicyCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteRegistryPolicyCommand}.
+ */
 export interface DeleteRegistryPolicyCommandInput extends DeleteRegistryPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteRegistryPolicyCommand}.
+ */
 export interface DeleteRegistryPolicyCommandOutput extends DeleteRegistryPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the registry permissions policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,30 @@ export interface DeleteRegistryPolicyCommandOutput extends DeleteRegistryPolicyR
  * import { ECRClient, DeleteRegistryPolicyCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, DeleteRegistryPolicyCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
+ * const input = {};
  * const command = new DeleteRegistryPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRegistryPolicyCommandInput - {@link DeleteRegistryPolicyCommandInput}
+ * @returns {@link DeleteRegistryPolicyCommandOutput}
  * @see {@link DeleteRegistryPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteRegistryPolicyCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *             request.</p>
+ *
+ * @throws {@link RegistryPolicyNotFoundException} (client fault)
+ *  <p>The registry doesn't have an associated registry policy.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There was an exception validating this request.</p>
+ *
  *
  */
 export class DeleteRegistryPolicyCommand extends $Command<
@@ -62,6 +82,9 @@ export class DeleteRegistryPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRegistryPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +113,8 @@ export class DeleteRegistryPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRegistryPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRegistryPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +124,18 @@ export class DeleteRegistryPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRegistryPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteRegistryPolicyCommand(input, context);
+    return se_DeleteRegistryPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRegistryPolicyCommandOutput> {
-    return deserializeAws_json1_1DeleteRegistryPolicyCommand(output, context);
+    return de_DeleteRegistryPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

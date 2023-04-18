@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import {
-  CreateDomainNameRequest,
-  CreateDomainNameRequestFilterSensitiveLog,
-  CreateDomainNameResponse,
-  CreateDomainNameResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDomainNameCommand,
-  serializeAws_restJson1CreateDomainNameCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateDomainNameRequest, CreateDomainNameResponse } from "../models/models_0";
+import { de_CreateDomainNameCommand, se_CreateDomainNameCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateDomainNameCommand}.
+ */
 export interface CreateDomainNameCommandInput extends CreateDomainNameRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateDomainNameCommand}.
+ */
 export interface CreateDomainNameCommandOutput extends CreateDomainNameResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a custom <code>DomainName</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,31 @@ export interface CreateDomainNameCommandOutput extends CreateDomainNameResponse,
  * import { AppSyncClient, CreateDomainNameCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, CreateDomainNameCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
+ * const input = { // CreateDomainNameRequest
+ *   domainName: "STRING_VALUE", // required
+ *   certificateArn: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ * };
  * const command = new CreateDomainNameCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDomainNameCommandInput - {@link CreateDomainNameCommandInput}
+ * @returns {@link CreateDomainNameCommandOutput}
  * @see {@link CreateDomainNameCommandInput} for command's `input` shape.
  * @see {@link CreateDomainNameCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have access to perform this operation on this resource.</p>
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the
+ *          field values, and then try again.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal AppSync error occurred. Try your request again.</p>
+ *
  *
  */
 export class CreateDomainNameCommand extends $Command<
@@ -62,6 +83,9 @@ export class CreateDomainNameCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDomainNameCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +114,8 @@ export class CreateDomainNameCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDomainNameRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDomainNameResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +125,18 @@ export class CreateDomainNameCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDomainNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDomainNameCommand(input, context);
+    return se_CreateDomainNameCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDomainNameCommandOutput> {
-    return deserializeAws_restJson1CreateDomainNameCommand(output, context);
+    return de_CreateDomainNameCommand(output, context);
   }
 
   // Start section: command_body_extra

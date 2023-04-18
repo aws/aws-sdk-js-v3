@@ -16,26 +16,35 @@ import {
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import {
   DescribeDataRepositoryAssociationsRequest,
-  DescribeDataRepositoryAssociationsRequestFilterSensitiveLog,
   DescribeDataRepositoryAssociationsResponse,
-  DescribeDataRepositoryAssociationsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeDataRepositoryAssociationsCommand,
-  serializeAws_json1_1DescribeDataRepositoryAssociationsCommand,
+  de_DescribeDataRepositoryAssociationsCommand,
+  se_DescribeDataRepositoryAssociationsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeDataRepositoryAssociationsCommand}.
+ */
 export interface DescribeDataRepositoryAssociationsCommandInput extends DescribeDataRepositoryAssociationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeDataRepositoryAssociationsCommand}.
+ */
 export interface DescribeDataRepositoryAssociationsCommandOutput
   extends DescribeDataRepositoryAssociationsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the description of specific Amazon FSx for Lustre or Amazon File Cache
  *             data repository associations, if one or more <code>AssociationIds</code> values
  *             are provided in the request, or if filters are used in the request. Data repository
- *             associations are supported only for Amazon FSx for Lustre file systems with the
- *             <code>Persistent_2</code> deployment type and for Amazon File Cache resources.</p>
+ *             associations are supported on Amazon File Cache resources and all Amazon FSx for
+ *             Lustre file systems excluding <code>Scratch_1</code> deployment types.</p>
  *          <p>You can use filters to narrow the response to include just data repository
  *             associations for specific file systems (use the <code>file-system-id</code> filter with
  *             the ID of the file system) or caches (use the <code>file-cache-id</code> filter with
@@ -56,13 +65,46 @@ export interface DescribeDataRepositoryAssociationsCommandOutput
  * import { FSxClient, DescribeDataRepositoryAssociationsCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, DescribeDataRepositoryAssociationsCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = { // DescribeDataRepositoryAssociationsRequest
+ *   AssociationIds: [ // DataRepositoryAssociationIds
+ *     "STRING_VALUE",
+ *   ],
+ *   Filters: [ // Filters
+ *     { // Filter
+ *       Name: "file-system-id" || "backup-type" || "file-system-type" || "volume-id" || "data-repository-type" || "file-cache-id" || "file-cache-type",
+ *       Values: [ // FilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeDataRepositoryAssociationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDataRepositoryAssociationsCommandInput - {@link DescribeDataRepositoryAssociationsCommandInput}
+ * @returns {@link DescribeDataRepositoryAssociationsCommandOutput}
  * @see {@link DescribeDataRepositoryAssociationsCommandInput} for command's `input` shape.
  * @see {@link DescribeDataRepositoryAssociationsCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
+ *
+ * @throws {@link BadRequest} (client fault)
+ *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * @throws {@link DataRepositoryAssociationNotFound} (client fault)
+ *  <p>No data repository associations were found based upon the supplied parameters.</p>
+ *
+ * @throws {@link FileSystemNotFound} (client fault)
+ *  <p>No Amazon FSx file systems were found based upon supplied parameters.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>A generic error indicating a server-side failure.</p>
+ *
+ * @throws {@link InvalidDataRepositoryType} (client fault)
+ *  <p>You have filtered the response to a data repository type that is not supported.</p>
+ *
  *
  */
 export class DescribeDataRepositoryAssociationsCommand extends $Command<
@@ -82,6 +124,9 @@ export class DescribeDataRepositoryAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDataRepositoryAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +155,8 @@ export class DescribeDataRepositoryAssociationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDataRepositoryAssociationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDataRepositoryAssociationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,18 +166,24 @@ export class DescribeDataRepositoryAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeDataRepositoryAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDataRepositoryAssociationsCommand(input, context);
+    return se_DescribeDataRepositoryAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDataRepositoryAssociationsCommandOutput> {
-    return deserializeAws_json1_1DescribeDataRepositoryAssociationsCommand(output, context);
+    return de_DescribeDataRepositoryAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

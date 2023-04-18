@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeGlobalClustersMessage,
-  DescribeGlobalClustersMessageFilterSensitiveLog,
-  GlobalClustersMessage,
-  GlobalClustersMessageFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryDescribeGlobalClustersCommand,
-  serializeAws_queryDescribeGlobalClustersCommand,
-} from "../protocols/Aws_query";
+import { DescribeGlobalClustersMessage, GlobalClustersMessage } from "../models/models_1";
+import { de_DescribeGlobalClustersCommand, se_DescribeGlobalClustersCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeGlobalClustersCommand}.
+ */
 export interface DescribeGlobalClustersCommandInput extends DescribeGlobalClustersMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeGlobalClustersCommand}.
+ */
 export interface DescribeGlobalClustersCommandOutput extends GlobalClustersMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about Aurora global database clusters. This API supports pagination.</p>
  *          <p>For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html"> What is Amazon Aurora?</a> in the
  *         <i>Amazon Aurora User Guide</i>.</p>
@@ -41,13 +44,58 @@ export interface DescribeGlobalClustersCommandOutput extends GlobalClustersMessa
  * import { RDSClient, DescribeGlobalClustersCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeGlobalClustersCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // DescribeGlobalClustersMessage
+ *   GlobalClusterIdentifier: "STRING_VALUE",
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeGlobalClustersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeGlobalClustersCommandInput - {@link DescribeGlobalClustersCommandInput}
+ * @returns {@link DescribeGlobalClustersCommandOutput}
  * @see {@link DescribeGlobalClustersCommandInput} for command's `input` shape.
  * @see {@link DescribeGlobalClustersCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ * @throws {@link GlobalClusterNotFoundFault} (client fault)
+ *  <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database cluster.</p>
+ *
+ *
+ * @example To describe global DB clusters
+ * ```javascript
+ * // The following example lists Aurora global DB clusters in the current AWS Region.
+ * const input = {};
+ * const command = new DescribeGlobalClustersCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "GlobalClusters": [
+ *     {
+ *       "DeletionProtection": false,
+ *       "Engine": "aurora-mysql",
+ *       "EngineVersion": "5.7.mysql_aurora.2.07.2",
+ *       "GlobalClusterArn": "arn:aws:rds::123456789012:global-cluster:myglobalcluster",
+ *       "GlobalClusterIdentifier": "myglobalcluster",
+ *       "GlobalClusterMembers": [],
+ *       "GlobalClusterResourceId": "cluster-f5982077e3b5aabb",
+ *       "Status": "available",
+ *       "StorageEncrypted": false
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-global-db-clusters-1680282459184
+ * ```
  *
  */
 export class DescribeGlobalClustersCommand extends $Command<
@@ -67,6 +115,9 @@ export class DescribeGlobalClustersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeGlobalClustersCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +146,8 @@ export class DescribeGlobalClustersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeGlobalClustersMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: GlobalClustersMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +157,18 @@ export class DescribeGlobalClustersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeGlobalClustersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeGlobalClustersCommand(input, context);
+    return se_DescribeGlobalClustersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeGlobalClustersCommandOutput> {
-    return deserializeAws_queryDescribeGlobalClustersCommand(output, context);
+    return de_DescribeGlobalClustersCommand(output, context);
   }
 
   // Start section: command_body_extra

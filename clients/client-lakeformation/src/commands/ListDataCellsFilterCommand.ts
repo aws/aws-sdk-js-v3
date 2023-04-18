@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import {
-  ListDataCellsFilterRequest,
-  ListDataCellsFilterRequestFilterSensitiveLog,
-  ListDataCellsFilterResponse,
-  ListDataCellsFilterResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDataCellsFilterCommand,
-  serializeAws_restJson1ListDataCellsFilterCommand,
-} from "../protocols/Aws_restJson1";
+import { ListDataCellsFilterRequest, ListDataCellsFilterResponse } from "../models/models_0";
+import { de_ListDataCellsFilterCommand, se_ListDataCellsFilterCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListDataCellsFilterCommand}.
+ */
 export interface ListDataCellsFilterCommandInput extends ListDataCellsFilterRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDataCellsFilterCommand}.
+ */
 export interface ListDataCellsFilterCommandOutput extends ListDataCellsFilterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the data cell filters on a table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,38 @@ export interface ListDataCellsFilterCommandOutput extends ListDataCellsFilterRes
  * import { LakeFormationClient, ListDataCellsFilterCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, ListDataCellsFilterCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
+ * const input = { // ListDataCellsFilterRequest
+ *   Table: { // TableResource
+ *     CatalogId: "STRING_VALUE",
+ *     DatabaseName: "STRING_VALUE", // required
+ *     Name: "STRING_VALUE",
+ *     TableWildcard: {},
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListDataCellsFilterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDataCellsFilterCommandInput - {@link ListDataCellsFilterCommandInput}
+ * @returns {@link ListDataCellsFilterCommandOutput}
  * @see {@link ListDataCellsFilterCommandInput} for command's `input` shape.
  * @see {@link ListDataCellsFilterCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to a resource was denied.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class ListDataCellsFilterCommand extends $Command<
@@ -62,6 +90,9 @@ export class ListDataCellsFilterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDataCellsFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +121,8 @@ export class ListDataCellsFilterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDataCellsFilterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDataCellsFilterResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +132,18 @@ export class ListDataCellsFilterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDataCellsFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDataCellsFilterCommand(input, context);
+    return se_ListDataCellsFilterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDataCellsFilterCommandOutput> {
-    return deserializeAws_restJson1ListDataCellsFilterCommand(output, context);
+    return de_ListDataCellsFilterCommand(output, context);
   }
 
   // Start section: command_body_extra

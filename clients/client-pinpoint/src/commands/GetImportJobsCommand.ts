@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetImportJobsRequest,
-  GetImportJobsRequestFilterSensitiveLog,
-  GetImportJobsResponse,
-  GetImportJobsResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { GetImportJobsRequest, GetImportJobsResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1GetImportJobsCommand,
-  serializeAws_restJson1GetImportJobsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetImportJobsCommand, se_GetImportJobsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetImportJobsCommand}.
+ */
 export interface GetImportJobsCommandInput extends GetImportJobsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetImportJobsCommand}.
+ */
 export interface GetImportJobsCommandOutput extends GetImportJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the status and settings of all the import jobs for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,42 @@ export interface GetImportJobsCommandOutput extends GetImportJobsResponse, __Met
  * import { PinpointClient, GetImportJobsCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetImportJobsCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // GetImportJobsRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   PageSize: "STRING_VALUE",
+ *   Token: "STRING_VALUE",
+ * };
  * const command = new GetImportJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetImportJobsCommandInput - {@link GetImportJobsCommandInput}
+ * @returns {@link GetImportJobsCommandOutput}
  * @see {@link GetImportJobsCommandInput} for command's `input` shape.
  * @see {@link GetImportJobsCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link MethodNotAllowedException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link PayloadTooLargeException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
  *
  */
 export class GetImportJobsCommand extends $Command<
@@ -62,6 +94,9 @@ export class GetImportJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetImportJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +123,8 @@ export class GetImportJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetImportJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetImportJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +134,18 @@ export class GetImportJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetImportJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetImportJobsCommand(input, context);
+    return se_GetImportJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetImportJobsCommandOutput> {
-    return deserializeAws_restJson1GetImportJobsCommand(output, context);
+    return de_GetImportJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DeleteClientVpnEndpointRequest,
-  DeleteClientVpnEndpointRequestFilterSensitiveLog,
-  DeleteClientVpnEndpointResult,
-  DeleteClientVpnEndpointResultFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_ec2DeleteClientVpnEndpointCommand,
-  serializeAws_ec2DeleteClientVpnEndpointCommand,
-} from "../protocols/Aws_ec2";
+import { DeleteClientVpnEndpointRequest, DeleteClientVpnEndpointResult } from "../models/models_2";
+import { de_DeleteClientVpnEndpointCommand, se_DeleteClientVpnEndpointCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteClientVpnEndpointCommand}.
+ */
 export interface DeleteClientVpnEndpointCommandInput extends DeleteClientVpnEndpointRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteClientVpnEndpointCommand}.
+ */
 export interface DeleteClientVpnEndpointCommandOutput extends DeleteClientVpnEndpointResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified Client VPN endpoint. You must disassociate all target networks before you
  * 			can delete a Client VPN endpoint.</p>
  * @example
@@ -37,13 +40,20 @@ export interface DeleteClientVpnEndpointCommandOutput extends DeleteClientVpnEnd
  * import { EC2Client, DeleteClientVpnEndpointCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteClientVpnEndpointCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteClientVpnEndpointRequest
+ *   ClientVpnEndpointId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DeleteClientVpnEndpointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteClientVpnEndpointCommandInput - {@link DeleteClientVpnEndpointCommandInput}
+ * @returns {@link DeleteClientVpnEndpointCommandOutput}
  * @see {@link DeleteClientVpnEndpointCommandInput} for command's `input` shape.
  * @see {@link DeleteClientVpnEndpointCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class DeleteClientVpnEndpointCommand extends $Command<
@@ -63,6 +73,9 @@ export class DeleteClientVpnEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteClientVpnEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +104,8 @@ export class DeleteClientVpnEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteClientVpnEndpointRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteClientVpnEndpointResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +115,18 @@ export class DeleteClientVpnEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteClientVpnEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteClientVpnEndpointCommand(input, context);
+    return se_DeleteClientVpnEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteClientVpnEndpointCommandOutput> {
-    return deserializeAws_ec2DeleteClientVpnEndpointCommand(output, context);
+    return de_DeleteClientVpnEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

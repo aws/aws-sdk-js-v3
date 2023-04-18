@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import {
-  GetMetricDataInput,
-  GetMetricDataInputFilterSensitiveLog,
-  GetMetricDataOutput,
-  GetMetricDataOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryGetMetricDataCommand,
-  serializeAws_queryGetMetricDataCommand,
-} from "../protocols/Aws_query";
+import { GetMetricDataInput, GetMetricDataOutput } from "../models/models_0";
+import { de_GetMetricDataCommand, se_GetMetricDataCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link GetMetricDataCommand}.
+ */
 export interface GetMetricDataCommandInput extends GetMetricDataInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetMetricDataCommand}.
+ */
 export interface GetMetricDataCommandOutput extends GetMetricDataOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>You can use the <code>GetMetricData</code> API to retrieve CloudWatch metric values. The operation
  * 			can also include a CloudWatch Metrics Insights query, and one or more metric math functions.</p>
  *          <p>A <code>GetMetricData</code> operation that does not include a query can retrieve as many as 500 different
@@ -83,13 +86,54 @@ export interface GetMetricDataCommandOutput extends GetMetricDataOutput, __Metad
  * import { CloudWatchClient, GetMetricDataCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, GetMetricDataCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
+ * const input = { // GetMetricDataInput
+ *   MetricDataQueries: [ // MetricDataQueries // required
+ *     { // MetricDataQuery
+ *       Id: "STRING_VALUE", // required
+ *       MetricStat: { // MetricStat
+ *         Metric: { // Metric
+ *           Namespace: "STRING_VALUE",
+ *           MetricName: "STRING_VALUE",
+ *           Dimensions: [ // Dimensions
+ *             { // Dimension
+ *               Name: "STRING_VALUE", // required
+ *               Value: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
+ *         Period: Number("int"), // required
+ *         Stat: "STRING_VALUE", // required
+ *         Unit: "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",
+ *       },
+ *       Expression: "STRING_VALUE",
+ *       Label: "STRING_VALUE",
+ *       ReturnData: true || false,
+ *       Period: Number("int"),
+ *       AccountId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   StartTime: new Date("TIMESTAMP"), // required
+ *   EndTime: new Date("TIMESTAMP"), // required
+ *   NextToken: "STRING_VALUE",
+ *   ScanBy: "TimestampDescending" || "TimestampAscending",
+ *   MaxDatapoints: Number("int"),
+ *   LabelOptions: { // LabelOptions
+ *     Timezone: "STRING_VALUE",
+ *   },
+ * };
  * const command = new GetMetricDataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMetricDataCommandInput - {@link GetMetricDataCommandInput}
+ * @returns {@link GetMetricDataCommandOutput}
  * @see {@link GetMetricDataCommandInput} for command's `input` shape.
  * @see {@link GetMetricDataCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
+ *
+ * @throws {@link InvalidNextToken} (client fault)
+ *  <p>The next token specified is invalid.</p>
+ *
  *
  */
 export class GetMetricDataCommand extends $Command<
@@ -109,6 +153,9 @@ export class GetMetricDataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMetricDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,8 +182,8 @@ export class GetMetricDataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMetricDataInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMetricDataOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -146,12 +193,18 @@ export class GetMetricDataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMetricDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetMetricDataCommand(input, context);
+    return se_GetMetricDataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMetricDataCommandOutput> {
-    return deserializeAws_queryGetMetricDataCommand(output, context);
+    return de_GetMetricDataCommand(output, context);
   }
 
   // Start section: command_body_extra

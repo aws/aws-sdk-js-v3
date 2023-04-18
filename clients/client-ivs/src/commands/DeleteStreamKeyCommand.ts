@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
-import { DeleteStreamKeyRequest, DeleteStreamKeyRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteStreamKeyCommand,
-  serializeAws_restJson1DeleteStreamKeyCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteStreamKeyRequest } from "../models/models_0";
+import { de_DeleteStreamKeyCommand, se_DeleteStreamKeyCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteStreamKeyCommand}.
+ */
 export interface DeleteStreamKeyCommandInput extends DeleteStreamKeyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteStreamKeyCommand}.
+ */
 export interface DeleteStreamKeyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the stream key for the specified ARN, so it can no longer be used to
  *       stream.</p>
  * @example
@@ -32,13 +40,31 @@ export interface DeleteStreamKeyCommandOutput extends __MetadataBearer {}
  * import { IvsClient, DeleteStreamKeyCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, DeleteStreamKeyCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
  * const client = new IvsClient(config);
+ * const input = { // DeleteStreamKeyRequest
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteStreamKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteStreamKeyCommandInput - {@link DeleteStreamKeyCommandInput}
+ * @returns {@link DeleteStreamKeyCommandOutput}
  * @see {@link DeleteStreamKeyCommandInput} for command's `input` shape.
  * @see {@link DeleteStreamKeyCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link PendingVerification} (client fault)
+ *  <p/>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p/>
+ *
  *
  */
 export class DeleteStreamKeyCommand extends $Command<
@@ -58,6 +84,9 @@ export class DeleteStreamKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteStreamKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -86,8 +115,8 @@ export class DeleteStreamKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteStreamKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -97,12 +126,18 @@ export class DeleteStreamKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteStreamKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteStreamKeyCommand(input, context);
+    return se_DeleteStreamKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteStreamKeyCommandOutput> {
-    return deserializeAws_restJson1DeleteStreamKeyCommand(output, context);
+    return de_DeleteStreamKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

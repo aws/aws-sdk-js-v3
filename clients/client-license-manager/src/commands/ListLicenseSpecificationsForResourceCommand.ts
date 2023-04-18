@@ -16,21 +16,30 @@ import {
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
 import {
   ListLicenseSpecificationsForResourceRequest,
-  ListLicenseSpecificationsForResourceRequestFilterSensitiveLog,
   ListLicenseSpecificationsForResourceResponse,
-  ListLicenseSpecificationsForResourceResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListLicenseSpecificationsForResourceCommand,
-  serializeAws_json1_1ListLicenseSpecificationsForResourceCommand,
+  de_ListLicenseSpecificationsForResourceCommand,
+  se_ListLicenseSpecificationsForResourceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListLicenseSpecificationsForResourceCommand}.
+ */
 export interface ListLicenseSpecificationsForResourceCommandInput extends ListLicenseSpecificationsForResourceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListLicenseSpecificationsForResourceCommand}.
+ */
 export interface ListLicenseSpecificationsForResourceCommandOutput
   extends ListLicenseSpecificationsForResourceResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the license configurations for the specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +47,37 @@ export interface ListLicenseSpecificationsForResourceCommandOutput
  * import { LicenseManagerClient, ListLicenseSpecificationsForResourceCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, ListLicenseSpecificationsForResourceCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = { // ListLicenseSpecificationsForResourceRequest
+ *   ResourceArn: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListLicenseSpecificationsForResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLicenseSpecificationsForResourceCommandInput - {@link ListLicenseSpecificationsForResourceCommandInput}
+ * @returns {@link ListLicenseSpecificationsForResourceCommandOutput}
  * @see {@link ListLicenseSpecificationsForResourceCommandInput} for command's `input` shape.
  * @see {@link ListLicenseSpecificationsForResourceCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to resource denied.</p>
+ *
+ * @throws {@link AuthorizationException} (client fault)
+ *  <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM
+ *          policy associated with this account.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ * @throws {@link RateLimitExceededException} (client fault)
+ *  <p>Too many requests have been submitted. Try again after a brief wait.</p>
+ *
+ * @throws {@link ServerInternalException} (server fault)
+ *  <p>The server experienced an internal error. Try again.</p>
+ *
  *
  */
 export class ListLicenseSpecificationsForResourceCommand extends $Command<
@@ -64,6 +97,9 @@ export class ListLicenseSpecificationsForResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLicenseSpecificationsForResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +128,8 @@ export class ListLicenseSpecificationsForResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLicenseSpecificationsForResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListLicenseSpecificationsForResourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +139,24 @@ export class ListLicenseSpecificationsForResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListLicenseSpecificationsForResourceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListLicenseSpecificationsForResourceCommand(input, context);
+    return se_ListLicenseSpecificationsForResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListLicenseSpecificationsForResourceCommandOutput> {
-    return deserializeAws_json1_1ListLicenseSpecificationsForResourceCommand(output, context);
+    return de_ListLicenseSpecificationsForResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

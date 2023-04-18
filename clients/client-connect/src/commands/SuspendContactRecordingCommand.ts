@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  SuspendContactRecordingRequest,
-  SuspendContactRecordingRequestFilterSensitiveLog,
-  SuspendContactRecordingResponse,
-  SuspendContactRecordingResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1SuspendContactRecordingCommand,
-  serializeAws_restJson1SuspendContactRecordingCommand,
-} from "../protocols/Aws_restJson1";
+import { SuspendContactRecordingRequest, SuspendContactRecordingResponse } from "../models/models_1";
+import { de_SuspendContactRecordingCommand, se_SuspendContactRecordingCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link SuspendContactRecordingCommand}.
+ */
 export interface SuspendContactRecordingCommandInput extends SuspendContactRecordingRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SuspendContactRecordingCommand}.
+ */
 export interface SuspendContactRecordingCommandOutput extends SuspendContactRecordingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>When a contact is being recorded, this API suspends recording the call. For example, you
  *    might suspend the call recording while collecting sensitive information, such as a credit card
  *    number. Then use ResumeContactRecording to restart recording. </p>
@@ -41,13 +44,30 @@ export interface SuspendContactRecordingCommandOutput extends SuspendContactReco
  * import { ConnectClient, SuspendContactRecordingCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, SuspendContactRecordingCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // SuspendContactRecordingRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   ContactId: "STRING_VALUE", // required
+ *   InitialContactId: "STRING_VALUE", // required
+ * };
  * const command = new SuspendContactRecordingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SuspendContactRecordingCommandInput - {@link SuspendContactRecordingCommandInput}
+ * @returns {@link SuspendContactRecordingCommandOutput}
  * @see {@link SuspendContactRecordingCommandInput} for command's `input` shape.
  * @see {@link SuspendContactRecordingCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class SuspendContactRecordingCommand extends $Command<
@@ -67,6 +87,9 @@ export class SuspendContactRecordingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SuspendContactRecordingCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +118,8 @@ export class SuspendContactRecordingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SuspendContactRecordingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SuspendContactRecordingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +129,18 @@ export class SuspendContactRecordingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SuspendContactRecordingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SuspendContactRecordingCommand(input, context);
+    return se_SuspendContactRecordingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SuspendContactRecordingCommandOutput> {
-    return deserializeAws_restJson1SuspendContactRecordingCommand(output, context);
+    return de_SuspendContactRecordingCommand(output, context);
   }
 
   // Start section: command_body_extra

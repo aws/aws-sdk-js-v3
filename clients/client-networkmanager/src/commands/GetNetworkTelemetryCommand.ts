@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetNetworkTelemetryRequest,
-  GetNetworkTelemetryRequestFilterSensitiveLog,
-  GetNetworkTelemetryResponse,
-  GetNetworkTelemetryResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetNetworkTelemetryRequest, GetNetworkTelemetryResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1GetNetworkTelemetryCommand,
-  serializeAws_restJson1GetNetworkTelemetryCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetNetworkTelemetryCommand, se_GetNetworkTelemetryCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetNetworkTelemetryCommand}.
+ */
 export interface GetNetworkTelemetryCommandInput extends GetNetworkTelemetryRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetNetworkTelemetryCommand}.
+ */
 export interface GetNetworkTelemetryCommandOutput extends GetNetworkTelemetryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the network telemetry of the specified global network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,42 @@ export interface GetNetworkTelemetryCommandOutput extends GetNetworkTelemetryRes
  * import { NetworkManagerClient, GetNetworkTelemetryCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetNetworkTelemetryCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // GetNetworkTelemetryRequest
+ *   GlobalNetworkId: "STRING_VALUE", // required
+ *   CoreNetworkId: "STRING_VALUE",
+ *   RegisteredGatewayArn: "STRING_VALUE",
+ *   AwsRegion: "STRING_VALUE",
+ *   AccountId: "STRING_VALUE",
+ *   ResourceType: "STRING_VALUE",
+ *   ResourceArn: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetNetworkTelemetryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetNetworkTelemetryCommandInput - {@link GetNetworkTelemetryCommandInput}
+ * @returns {@link GetNetworkTelemetryCommandOutput}
  * @see {@link GetNetworkTelemetryCommandInput} for command's `input` shape.
  * @see {@link GetNetworkTelemetryCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request has failed due to an internal error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints.</p>
+ *
  *
  */
 export class GetNetworkTelemetryCommand extends $Command<
@@ -62,6 +94,9 @@ export class GetNetworkTelemetryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetNetworkTelemetryCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +125,8 @@ export class GetNetworkTelemetryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetNetworkTelemetryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetNetworkTelemetryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +136,18 @@ export class GetNetworkTelemetryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetNetworkTelemetryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetNetworkTelemetryCommand(input, context);
+    return se_GetNetworkTelemetryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetNetworkTelemetryCommandOutput> {
-    return deserializeAws_restJson1GetNetworkTelemetryCommand(output, context);
+    return de_GetNetworkTelemetryCommand(output, context);
   }
 
   // Start section: command_body_extra

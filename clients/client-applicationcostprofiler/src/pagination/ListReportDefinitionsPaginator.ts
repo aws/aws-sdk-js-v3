@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { ApplicationCostProfiler } from "../ApplicationCostProfiler";
 import { ApplicationCostProfilerClient } from "../ApplicationCostProfilerClient";
 import {
   ListReportDefinitionsCommand,
@@ -11,7 +10,7 @@ import {
 import { ApplicationCostProfilerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ApplicationCostProfilerClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListReportDefinitionsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ApplicationCostProfiler,
-  input: ListReportDefinitionsCommandInput,
-  ...args: any
-): Promise<ListReportDefinitionsCommandOutput> => {
-  // @ts-ignore
-  return await client.listReportDefinitions(input, ...args);
-};
 export async function* paginateListReportDefinitions(
   config: ApplicationCostProfilerPaginationConfiguration,
   input: ListReportDefinitionsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListReportDefinitions(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof ApplicationCostProfiler) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ApplicationCostProfilerClient) {
+    if (config.client instanceof ApplicationCostProfilerClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ApplicationCostProfiler | ApplicationCostProfilerClient");

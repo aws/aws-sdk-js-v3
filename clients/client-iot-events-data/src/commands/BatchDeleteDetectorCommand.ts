@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTEventsDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsDataClient";
-import {
-  BatchDeleteDetectorRequest,
-  BatchDeleteDetectorRequestFilterSensitiveLog,
-  BatchDeleteDetectorResponse,
-  BatchDeleteDetectorResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchDeleteDetectorCommand,
-  serializeAws_restJson1BatchDeleteDetectorCommand,
-} from "../protocols/Aws_restJson1";
+import { BatchDeleteDetectorRequest, BatchDeleteDetectorResponse } from "../models/models_0";
+import { de_BatchDeleteDetectorCommand, se_BatchDeleteDetectorCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchDeleteDetectorCommand}.
+ */
 export interface BatchDeleteDetectorCommandInput extends BatchDeleteDetectorRequest {}
+/**
+ * @public
+ *
+ * The output of {@link BatchDeleteDetectorCommand}.
+ */
 export interface BatchDeleteDetectorCommandOutput extends BatchDeleteDetectorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes one or more detectors that were created. When a detector is deleted, its state will be cleared and the detector will be removed from the list of detectors. The deleted detector will no longer appear if referenced in the <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_ListDetectors.html">ListDetectors</a> API call.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,37 @@ export interface BatchDeleteDetectorCommandOutput extends BatchDeleteDetectorRes
  * import { IoTEventsDataClient, BatchDeleteDetectorCommand } from "@aws-sdk/client-iot-events-data"; // ES Modules import
  * // const { IoTEventsDataClient, BatchDeleteDetectorCommand } = require("@aws-sdk/client-iot-events-data"); // CommonJS import
  * const client = new IoTEventsDataClient(config);
+ * const input = { // BatchDeleteDetectorRequest
+ *   detectors: [ // DeleteDetectorRequests // required
+ *     { // DeleteDetectorRequest
+ *       messageId: "STRING_VALUE", // required
+ *       detectorModelName: "STRING_VALUE", // required
+ *       keyValue: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new BatchDeleteDetectorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDeleteDetectorCommandInput - {@link BatchDeleteDetectorCommandInput}
+ * @returns {@link BatchDeleteDetectorCommandOutput}
  * @see {@link BatchDeleteDetectorCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteDetectorCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsDataClientResolvedConfig | config} for IoTEventsDataClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal failure occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request was invalid.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request could not be completed due to throttling.</p>
+ *
  *
  */
 export class BatchDeleteDetectorCommand extends $Command<
@@ -62,6 +89,9 @@ export class BatchDeleteDetectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDeleteDetectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +120,8 @@ export class BatchDeleteDetectorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDeleteDetectorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchDeleteDetectorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +131,18 @@ export class BatchDeleteDetectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDeleteDetectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchDeleteDetectorCommand(input, context);
+    return se_BatchDeleteDetectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteDetectorCommandOutput> {
-    return deserializeAws_restJson1BatchDeleteDetectorCommand(output, context);
+    return de_BatchDeleteDetectorCommand(output, context);
   }
 
   // Start section: command_body_extra

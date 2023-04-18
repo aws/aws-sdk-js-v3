@@ -14,35 +14,58 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  ListGeofenceCollectionsRequest,
-  ListGeofenceCollectionsRequestFilterSensitiveLog,
-  ListGeofenceCollectionsResponse,
-  ListGeofenceCollectionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListGeofenceCollectionsCommand,
-  serializeAws_restJson1ListGeofenceCollectionsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListGeofenceCollectionsRequest, ListGeofenceCollectionsResponse } from "../models/models_0";
+import { de_ListGeofenceCollectionsCommand, se_ListGeofenceCollectionsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListGeofenceCollectionsCommand}.
+ */
 export interface ListGeofenceCollectionsCommandInput extends ListGeofenceCollectionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListGeofenceCollectionsCommand}.
+ */
 export interface ListGeofenceCollectionsCommandOutput extends ListGeofenceCollectionsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists geofence collections in your AWS account.</p>
+ * @public
+ * <p>Lists geofence collections in your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LocationClient, ListGeofenceCollectionsCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, ListGeofenceCollectionsCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = { // ListGeofenceCollectionsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListGeofenceCollectionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListGeofenceCollectionsCommandInput - {@link ListGeofenceCollectionsCommandInput}
+ * @returns {@link ListGeofenceCollectionsCommandOutput}
  * @see {@link ListGeofenceCollectionsCommandInput} for command's `input` shape.
  * @see {@link ListGeofenceCollectionsCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The request was denied because of insufficient access or permissions. Check with an
+ *       administrator to verify your permissions.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because of request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input failed to meet the constraints specified by the AWS service. </p>
+ *
  *
  */
 export class ListGeofenceCollectionsCommand extends $Command<
@@ -62,6 +85,9 @@ export class ListGeofenceCollectionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListGeofenceCollectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +116,8 @@ export class ListGeofenceCollectionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListGeofenceCollectionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListGeofenceCollectionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +127,18 @@ export class ListGeofenceCollectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListGeofenceCollectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListGeofenceCollectionsCommand(input, context);
+    return se_ListGeofenceCollectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGeofenceCollectionsCommandOutput> {
-    return deserializeAws_restJson1ListGeofenceCollectionsCommand(output, context);
+    return de_ListGeofenceCollectionsCommand(output, context);
   }
 
   // Start section: command_body_extra

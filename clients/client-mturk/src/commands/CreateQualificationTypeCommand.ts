@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateQualificationTypeRequest,
-  CreateQualificationTypeRequestFilterSensitiveLog,
-  CreateQualificationTypeResponse,
-  CreateQualificationTypeResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateQualificationTypeRequest, CreateQualificationTypeResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import {
-  deserializeAws_json1_1CreateQualificationTypeCommand,
-  serializeAws_json1_1CreateQualificationTypeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateQualificationTypeCommand, se_CreateQualificationTypeCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateQualificationTypeCommand}.
+ */
 export interface CreateQualificationTypeCommandInput extends CreateQualificationTypeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateQualificationTypeCommand}.
+ */
 export interface CreateQualificationTypeCommandOutput extends CreateQualificationTypeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The
  *             <code>CreateQualificationType</code>
@@ -42,13 +45,34 @@ export interface CreateQualificationTypeCommandOutput extends CreateQualificatio
  * import { MTurkClient, CreateQualificationTypeCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, CreateQualificationTypeCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = { // CreateQualificationTypeRequest
+ *   Name: "STRING_VALUE", // required
+ *   Keywords: "STRING_VALUE",
+ *   Description: "STRING_VALUE", // required
+ *   QualificationTypeStatus: "STRING_VALUE", // required
+ *   RetryDelayInSeconds: Number("long"),
+ *   Test: "STRING_VALUE",
+ *   AnswerKey: "STRING_VALUE",
+ *   TestDurationInSeconds: Number("long"),
+ *   AutoGranted: true || false,
+ *   AutoGrantedValue: Number("int"),
+ * };
  * const command = new CreateQualificationTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateQualificationTypeCommandInput - {@link CreateQualificationTypeCommandInput}
+ * @returns {@link CreateQualificationTypeCommandOutput}
  * @see {@link CreateQualificationTypeCommandInput} for command's `input` shape.
  * @see {@link CreateQualificationTypeCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
+ *
+ * @throws {@link RequestError} (client fault)
+ *  <p>Your request is invalid.</p>
+ *
+ * @throws {@link ServiceFault} (server fault)
+ *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
  *
  */
 export class CreateQualificationTypeCommand extends $Command<
@@ -68,6 +92,9 @@ export class CreateQualificationTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateQualificationTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +123,8 @@ export class CreateQualificationTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateQualificationTypeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateQualificationTypeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +134,18 @@ export class CreateQualificationTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateQualificationTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateQualificationTypeCommand(input, context);
+    return se_CreateQualificationTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateQualificationTypeCommandOutput> {
-    return deserializeAws_json1_1CreateQualificationTypeCommand(output, context);
+    return de_CreateQualificationTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsClient";
-import {
-  ListDetectorModelVersionsRequest,
-  ListDetectorModelVersionsRequestFilterSensitiveLog,
-  ListDetectorModelVersionsResponse,
-  ListDetectorModelVersionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDetectorModelVersionsCommand,
-  serializeAws_restJson1ListDetectorModelVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListDetectorModelVersionsRequest, ListDetectorModelVersionsResponse } from "../models/models_0";
+import { de_ListDetectorModelVersionsCommand, se_ListDetectorModelVersionsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListDetectorModelVersionsCommand}.
+ */
 export interface ListDetectorModelVersionsCommandInput extends ListDetectorModelVersionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDetectorModelVersionsCommand}.
+ */
 export interface ListDetectorModelVersionsCommandOutput extends ListDetectorModelVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the versions of a detector model. Only the metadata associated with each
  *       detector model version is returned.</p>
  * @example
@@ -37,13 +40,36 @@ export interface ListDetectorModelVersionsCommandOutput extends ListDetectorMode
  * import { IoTEventsClient, ListDetectorModelVersionsCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
  * // const { IoTEventsClient, ListDetectorModelVersionsCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
  * const client = new IoTEventsClient(config);
+ * const input = { // ListDetectorModelVersionsRequest
+ *   detectorModelName: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListDetectorModelVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDetectorModelVersionsCommandInput - {@link ListDetectorModelVersionsCommandInput}
+ * @returns {@link ListDetectorModelVersionsCommandOutput}
  * @see {@link ListDetectorModelVersionsCommandInput} for command's `input` shape.
  * @see {@link ListDetectorModelVersionsCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsClientResolvedConfig | config} for IoTEventsClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal failure occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request was invalid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource was not found.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request could not be completed due to throttling.</p>
+ *
  *
  */
 export class ListDetectorModelVersionsCommand extends $Command<
@@ -63,6 +89,9 @@ export class ListDetectorModelVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDetectorModelVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +120,8 @@ export class ListDetectorModelVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDetectorModelVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDetectorModelVersionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,15 +131,21 @@ export class ListDetectorModelVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDetectorModelVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDetectorModelVersionsCommand(input, context);
+    return se_ListDetectorModelVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDetectorModelVersionsCommandOutput> {
-    return deserializeAws_restJson1ListDetectorModelVersionsCommand(output, context);
+    return de_ListDetectorModelVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

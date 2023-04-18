@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListDatasetLabelsRequest,
-  ListDatasetLabelsRequestFilterSensitiveLog,
-  ListDatasetLabelsResponse,
-  ListDatasetLabelsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListDatasetLabelsCommand,
-  serializeAws_json1_1ListDatasetLabelsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListDatasetLabelsRequest, ListDatasetLabelsResponse } from "../models/models_0";
+import { de_ListDatasetLabelsCommand, se_ListDatasetLabelsCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListDatasetLabelsCommand}.
+ */
 export interface ListDatasetLabelsCommandInput extends ListDatasetLabelsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDatasetLabelsCommand}.
+ */
 export interface ListDatasetLabelsCommandOutput extends ListDatasetLabelsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the labels in a dataset. Amazon Rekognition Custom Labels uses labels to describe images. For more information, see
  *    <a href="https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/md-labeling-images.html">Labeling images</a>.
  * </p>
@@ -41,13 +44,52 @@ export interface ListDatasetLabelsCommandOutput extends ListDatasetLabelsRespons
  * import { RekognitionClient, ListDatasetLabelsCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, ListDatasetLabelsCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // ListDatasetLabelsRequest
+ *   DatasetArn: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListDatasetLabelsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDatasetLabelsCommandInput - {@link ListDatasetLabelsCommandInput}
+ * @returns {@link ListDatasetLabelsCommandOutput}
  * @see {@link ListDatasetLabelsCommandInput} for command's `input` shape.
  * @see {@link ListDatasetLabelsCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to perform the action.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidPaginationTokenException} (client fault)
+ *  <p>Pagination token in the request is not valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
+ *       operation again.</p>
+ *
+ * @throws {@link ProvisionedThroughputExceededException} (client fault)
+ *  <p>The number of requests exceeded your throughput limit. If you want to increase this
+ *       limit, contact Amazon Rekognition.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is already being used.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request cannot be found.</p>
+ *
+ * @throws {@link ResourceNotReadyException} (client fault)
+ *  <p>The requested resource isn't ready. For example,
+ *          this exception occurs when you call <code>DetectCustomLabels</code> with a
+ *          model version that isn't deployed. </p>
+ *
+ * @throws {@link ThrottlingException} (server fault)
+ *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
  *
  */
 export class ListDatasetLabelsCommand extends $Command<
@@ -67,6 +109,9 @@ export class ListDatasetLabelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDatasetLabelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +140,8 @@ export class ListDatasetLabelsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDatasetLabelsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDatasetLabelsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +151,18 @@ export class ListDatasetLabelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDatasetLabelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDatasetLabelsCommand(input, context);
+    return se_ListDatasetLabelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDatasetLabelsCommandOutput> {
-    return deserializeAws_json1_1ListDatasetLabelsCommand(output, context);
+    return de_ListDatasetLabelsCommand(output, context);
   }
 
   // Start section: command_body_extra

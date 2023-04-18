@@ -13,36 +13,75 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ImportHubContentRequest,
-  ImportHubContentRequestFilterSensitiveLog,
-  ImportHubContentResponse,
-  ImportHubContentResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1ImportHubContentCommand,
-  serializeAws_json1_1ImportHubContentCommand,
-} from "../protocols/Aws_json1_1";
+import { ImportHubContentRequest, ImportHubContentResponse } from "../models/models_2";
+import { de_ImportHubContentCommand, se_ImportHubContentCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ImportHubContentCommand}.
+ */
 export interface ImportHubContentCommandInput extends ImportHubContentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ImportHubContentCommand}.
+ */
 export interface ImportHubContentCommandOutput extends ImportHubContentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Import hub content.</p>
+ *          <note>
+ *             <p>Hub APIs are only callable through SageMaker Studio.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, ImportHubContentCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ImportHubContentCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ImportHubContentRequest
+ *   HubContentName: "STRING_VALUE", // required
+ *   HubContentVersion: "STRING_VALUE",
+ *   HubContentType: "Model" || "Notebook", // required
+ *   DocumentSchemaVersion: "STRING_VALUE", // required
+ *   HubName: "STRING_VALUE", // required
+ *   HubContentDisplayName: "STRING_VALUE",
+ *   HubContentDescription: "STRING_VALUE",
+ *   HubContentMarkdown: "STRING_VALUE",
+ *   HubContentDocument: "STRING_VALUE", // required
+ *   HubContentSearchKeywords: [ // HubContentSearchKeywordList
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new ImportHubContentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportHubContentCommandInput - {@link ImportHubContentCommandInput}
+ * @returns {@link ImportHubContentCommandOutput}
  * @see {@link ImportHubContentCommandInput} for command's `input` shape.
  * @see {@link ImportHubContentCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceInUse} (client fault)
+ *  <p>Resource being accessed is in use.</p>
+ *
+ * @throws {@link ResourceLimitExceeded} (client fault)
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
+ *             training jobs created. </p>
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class ImportHubContentCommand extends $Command<
@@ -62,6 +101,9 @@ export class ImportHubContentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportHubContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +132,8 @@ export class ImportHubContentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ImportHubContentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ImportHubContentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +143,18 @@ export class ImportHubContentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportHubContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ImportHubContentCommand(input, context);
+    return se_ImportHubContentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportHubContentCommandOutput> {
-    return deserializeAws_json1_1ImportHubContentCommand(output, context);
+    return de_ImportHubContentCommand(output, context);
   }
 
   // Start section: command_body_extra

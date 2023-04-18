@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { SetQueueAttributesRequest, SetQueueAttributesRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_querySetQueueAttributesCommand,
-  serializeAws_querySetQueueAttributesCommand,
-} from "../protocols/Aws_query";
+import { SetQueueAttributesRequest } from "../models/models_0";
+import { de_SetQueueAttributesCommand, se_SetQueueAttributesCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link SetQueueAttributesCommand}.
+ */
 export interface SetQueueAttributesCommandInput extends SetQueueAttributesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SetQueueAttributesCommand}.
+ */
 export interface SetQueueAttributesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the value of one or more queue attributes. When you change a queue's attributes, the change can take up to 60 seconds for most of the attributes to propagate throughout the Amazon SQS system.
  *       Changes made to the <code>MessageRetentionPeriod</code> attribute can take up to 15 minutes.</p>
  *          <note>
@@ -47,13 +55,25 @@ export interface SetQueueAttributesCommandOutput extends __MetadataBearer {}
  * import { SQSClient, SetQueueAttributesCommand } from "@aws-sdk/client-sqs"; // ES Modules import
  * // const { SQSClient, SetQueueAttributesCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
  * const client = new SQSClient(config);
+ * const input = { // SetQueueAttributesRequest
+ *   QueueUrl: "STRING_VALUE", // required
+ *   Attributes: { // QueueAttributeMap // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new SetQueueAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SetQueueAttributesCommandInput - {@link SetQueueAttributesCommandInput}
+ * @returns {@link SetQueueAttributesCommandOutput}
  * @see {@link SetQueueAttributesCommandInput} for command's `input` shape.
  * @see {@link SetQueueAttributesCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
+ *
+ * @throws {@link InvalidAttributeName} (client fault)
+ *  <p>The specified attribute doesn't exist.</p>
+ *
  *
  */
 export class SetQueueAttributesCommand extends $Command<
@@ -73,6 +93,9 @@ export class SetQueueAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetQueueAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +124,8 @@ export class SetQueueAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetQueueAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +135,18 @@ export class SetQueueAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetQueueAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySetQueueAttributesCommand(input, context);
+    return se_SetQueueAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetQueueAttributesCommandOutput> {
-    return deserializeAws_querySetQueueAttributesCommand(output, context);
+    return de_SetQueueAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

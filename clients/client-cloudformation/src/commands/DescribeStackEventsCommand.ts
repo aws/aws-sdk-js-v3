@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  DescribeStackEventsInput,
-  DescribeStackEventsInputFilterSensitiveLog,
-  DescribeStackEventsOutput,
-  DescribeStackEventsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeStackEventsCommand,
-  serializeAws_queryDescribeStackEventsCommand,
-} from "../protocols/Aws_query";
+import { DescribeStackEventsInput, DescribeStackEventsOutput } from "../models/models_0";
+import { de_DescribeStackEventsCommand, se_DescribeStackEventsCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeStackEventsCommand}.
+ */
 export interface DescribeStackEventsCommandInput extends DescribeStackEventsInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeStackEventsCommand}.
+ */
 export interface DescribeStackEventsCommandOutput extends DescribeStackEventsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns all stack related events for a specified stack in reverse chronological order.
  *          For more information about a stack's event history, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/concept-stack.html">Stacks</a> in the
  *          CloudFormation User Guide.</p>
@@ -42,13 +45,20 @@ export interface DescribeStackEventsCommandOutput extends DescribeStackEventsOut
  * import { CloudFormationClient, DescribeStackEventsCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DescribeStackEventsCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // DescribeStackEventsInput
+ *   StackName: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeStackEventsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStackEventsCommandInput - {@link DescribeStackEventsCommandInput}
+ * @returns {@link DescribeStackEventsCommandOutput}
  * @see {@link DescribeStackEventsCommandInput} for command's `input` shape.
  * @see {@link DescribeStackEventsCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
+ *
  *
  */
 export class DescribeStackEventsCommand extends $Command<
@@ -68,6 +78,9 @@ export class DescribeStackEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStackEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +109,8 @@ export class DescribeStackEventsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeStackEventsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeStackEventsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +120,18 @@ export class DescribeStackEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeStackEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeStackEventsCommand(input, context);
+    return se_DescribeStackEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeStackEventsCommandOutput> {
-    return deserializeAws_queryDescribeStackEventsCommand(output, context);
+    return de_DescribeStackEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import { DeleteRouteRequest, DeleteRouteRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteRouteCommand,
-  serializeAws_restJson1DeleteRouteCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteRouteRequest } from "../models/models_0";
+import { de_DeleteRouteCommand, se_DeleteRouteCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteRouteCommand}.
+ */
 export interface DeleteRouteCommandInput extends DeleteRouteRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteRouteCommand}.
+ */
 export interface DeleteRouteCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Route.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +39,26 @@ export interface DeleteRouteCommandOutput extends __MetadataBearer {}
  * import { ApiGatewayV2Client, DeleteRouteCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, DeleteRouteCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = { // DeleteRouteRequest
+ *   ApiId: "STRING_VALUE", // required
+ *   RouteId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRouteCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRouteCommandInput - {@link DeleteRouteCommandInput}
+ * @returns {@link DeleteRouteCommandOutput}
  * @see {@link DeleteRouteCommandInput} for command's `input` shape.
  * @see {@link DeleteRouteCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource specified in the request was not found. See the message field for more information.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
+ *
  *
  */
 export class DeleteRouteCommand extends $Command<
@@ -57,6 +78,9 @@ export class DeleteRouteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRouteCommandInput) {
     // Start section: command_constructor
     super();
@@ -83,8 +107,8 @@ export class DeleteRouteCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRouteRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -94,12 +118,18 @@ export class DeleteRouteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteRouteCommand(input, context);
+    return se_DeleteRouteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRouteCommandOutput> {
-    return deserializeAws_restJson1DeleteRouteCommand(output, context);
+    return de_DeleteRouteCommand(output, context);
   }
 
   // Start section: command_body_extra

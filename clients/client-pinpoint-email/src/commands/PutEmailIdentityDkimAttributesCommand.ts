@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutEmailIdentityDkimAttributesRequest,
-  PutEmailIdentityDkimAttributesRequestFilterSensitiveLog,
-  PutEmailIdentityDkimAttributesResponse,
-  PutEmailIdentityDkimAttributesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutEmailIdentityDkimAttributesRequest, PutEmailIdentityDkimAttributesResponse } from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
 import {
-  deserializeAws_restJson1PutEmailIdentityDkimAttributesCommand,
-  serializeAws_restJson1PutEmailIdentityDkimAttributesCommand,
+  de_PutEmailIdentityDkimAttributesCommand,
+  se_PutEmailIdentityDkimAttributesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutEmailIdentityDkimAttributesCommand}.
+ */
 export interface PutEmailIdentityDkimAttributesCommandInput extends PutEmailIdentityDkimAttributesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutEmailIdentityDkimAttributesCommand}.
+ */
 export interface PutEmailIdentityDkimAttributesCommandOutput
   extends PutEmailIdentityDkimAttributesResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used to enable or disable DKIM authentication for an email identity.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,29 @@ export interface PutEmailIdentityDkimAttributesCommandOutput
  * import { PinpointEmailClient, PutEmailIdentityDkimAttributesCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, PutEmailIdentityDkimAttributesCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
+ * const input = { // PutEmailIdentityDkimAttributesRequest
+ *   EmailIdentity: "STRING_VALUE", // required
+ *   SigningEnabled: true || false,
+ * };
  * const command = new PutEmailIdentityDkimAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutEmailIdentityDkimAttributesCommandInput - {@link PutEmailIdentityDkimAttributesCommandInput}
+ * @returns {@link PutEmailIdentityDkimAttributesCommandOutput}
  * @see {@link PutEmailIdentityDkimAttributesCommandInput} for command's `input` shape.
  * @see {@link PutEmailIdentityDkimAttributesCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input you provided is invalid.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource you attempted to access doesn't exist.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Too many requests have been made to the operation.</p>
+ *
  *
  */
 export class PutEmailIdentityDkimAttributesCommand extends $Command<
@@ -64,6 +86,9 @@ export class PutEmailIdentityDkimAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutEmailIdentityDkimAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +117,8 @@ export class PutEmailIdentityDkimAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutEmailIdentityDkimAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutEmailIdentityDkimAttributesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +128,24 @@ export class PutEmailIdentityDkimAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutEmailIdentityDkimAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutEmailIdentityDkimAttributesCommand(input, context);
+    return se_PutEmailIdentityDkimAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutEmailIdentityDkimAttributesCommandOutput> {
-    return deserializeAws_restJson1PutEmailIdentityDkimAttributesCommand(output, context);
+    return de_PutEmailIdentityDkimAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

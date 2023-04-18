@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutResourcePolicyRequest,
-  PutResourcePolicyRequestFilterSensitiveLog,
-  PutResourcePolicyResult,
-  PutResourcePolicyResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutResourcePolicyCommand,
-  serializeAws_restJson1PutResourcePolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { PutResourcePolicyRequest, PutResourcePolicyResult } from "../models/models_0";
+import { de_PutResourcePolicyCommand, se_PutResourcePolicyCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
+/**
+ * @public
+ *
+ * The input for {@link PutResourcePolicyCommand}.
+ */
 export interface PutResourcePolicyCommandInput extends PutResourcePolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutResourcePolicyCommand}.
+ */
 export interface PutResourcePolicyCommandOutput extends PutResourcePolicyResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             Sets the resource policy to grant one or more Amazon Web Services services and accounts permissions to
  *             access X-Ray. Each resource policy will be associated with a specific Amazon Web Services account.
@@ -41,13 +44,41 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyResult,
  * import { XRayClient, PutResourcePolicyCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, PutResourcePolicyCommand } = require("@aws-sdk/client-xray"); // CommonJS import
  * const client = new XRayClient(config);
+ * const input = { // PutResourcePolicyRequest
+ *   PolicyName: "STRING_VALUE", // required
+ *   PolicyDocument: "STRING_VALUE", // required
+ *   PolicyRevisionId: "STRING_VALUE",
+ *   BypassPolicyLockoutCheck: true || false,
+ * };
  * const command = new PutResourcePolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutResourcePolicyCommandInput - {@link PutResourcePolicyCommandInput}
+ * @returns {@link PutResourcePolicyCommandOutput}
  * @see {@link PutResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link PutResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
+ *
+ * @throws {@link InvalidPolicyRevisionIdException} (client fault)
+ *  <p>A policy revision id was provided which does not match the latest policy revision. This exception is also
+ *     if a policy revision id of 0 is provided via <code>PutResourcePolicy</code> and a policy with the same name already exists.</p>
+ *
+ * @throws {@link LockoutPreventionException} (client fault)
+ *  <p>The provided resource policy would prevent the caller of this request from calling PutResourcePolicy in the future.</p>
+ *
+ * @throws {@link MalformedPolicyDocumentException} (client fault)
+ *  <p>Invalid policy document provided in request.</p>
+ *
+ * @throws {@link PolicyCountLimitExceededException} (client fault)
+ *  <p>Exceeded the maximum number of resource policies for a target Amazon Web Services account.</p>
+ *
+ * @throws {@link PolicySizeLimitExceededException} (client fault)
+ *  <p>Exceeded the maximum size for a resource policy.</p>
+ *
+ * @throws {@link ThrottledException} (client fault)
+ *  <p>The request exceeds the maximum number of requests per second.</p>
+ *
  *
  */
 export class PutResourcePolicyCommand extends $Command<
@@ -67,6 +98,9 @@ export class PutResourcePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutResourcePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +129,8 @@ export class PutResourcePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutResourcePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutResourcePolicyResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +140,18 @@ export class PutResourcePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutResourcePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutResourcePolicyCommand(input, context);
+    return se_PutResourcePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutResourcePolicyCommandOutput> {
-    return deserializeAws_restJson1PutResourcePolicyCommand(output, context);
+    return de_PutResourcePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

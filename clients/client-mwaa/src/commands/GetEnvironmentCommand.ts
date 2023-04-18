@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetEnvironmentInput,
-  GetEnvironmentInputFilterSensitiveLog,
-  GetEnvironmentOutput,
-  GetEnvironmentOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GetEnvironmentInput, GetEnvironmentOutput, GetEnvironmentOutputFilterSensitiveLog } from "../models/models_0";
 import { MWAAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MWAAClient";
-import {
-  deserializeAws_restJson1GetEnvironmentCommand,
-  serializeAws_restJson1GetEnvironmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetEnvironmentCommand, se_GetEnvironmentCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetEnvironmentCommand}.
+ */
 export interface GetEnvironmentCommandInput extends GetEnvironmentInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetEnvironmentCommand}.
+ */
 export interface GetEnvironmentCommandOutput extends GetEnvironmentOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes an Amazon Managed Workflows for Apache Airflow (MWAA) environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,28 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentOutput, __Met
  * import { MWAAClient, GetEnvironmentCommand } from "@aws-sdk/client-mwaa"; // ES Modules import
  * // const { MWAAClient, GetEnvironmentCommand } = require("@aws-sdk/client-mwaa"); // CommonJS import
  * const client = new MWAAClient(config);
+ * const input = { // GetEnvironmentInput
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new GetEnvironmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEnvironmentCommandInput - {@link GetEnvironmentCommandInput}
+ * @returns {@link GetEnvironmentCommandOutput}
  * @see {@link GetEnvironmentCommandInput} for command's `input` shape.
  * @see {@link GetEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link MWAAClientResolvedConfig | config} for MWAAClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>InternalServerException: An internal error has occurred.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>ResourceNotFoundException: The resource is not available.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>ValidationException: The provided input is not valid.</p>
+ *
  *
  */
 export class GetEnvironmentCommand extends $Command<
@@ -62,6 +80,9 @@ export class GetEnvironmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +111,7 @@ export class GetEnvironmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEnvironmentInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetEnvironmentOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -101,12 +122,18 @@ export class GetEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetEnvironmentCommand(input, context);
+    return se_GetEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEnvironmentCommandOutput> {
-    return deserializeAws_restJson1GetEnvironmentCommand(output, context);
+    return de_GetEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

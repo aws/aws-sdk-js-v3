@@ -16,58 +16,67 @@ import {
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import {
   ListPoliciesGrantingServiceAccessRequest,
-  ListPoliciesGrantingServiceAccessRequestFilterSensitiveLog,
   ListPoliciesGrantingServiceAccessResponse,
-  ListPoliciesGrantingServiceAccessResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_queryListPoliciesGrantingServiceAccessCommand,
-  serializeAws_queryListPoliciesGrantingServiceAccessCommand,
+  de_ListPoliciesGrantingServiceAccessCommand,
+  se_ListPoliciesGrantingServiceAccessCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link ListPoliciesGrantingServiceAccessCommand}.
+ */
 export interface ListPoliciesGrantingServiceAccessCommandInput extends ListPoliciesGrantingServiceAccessRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListPoliciesGrantingServiceAccessCommand}.
+ */
 export interface ListPoliciesGrantingServiceAccessCommandOutput
   extends ListPoliciesGrantingServiceAccessResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of policies that the IAM identity (user, group, or role) can use to
  *             access each specified service.</p>
- *         <note>
+ *          <note>
  *             <p>This operation does not use other policy types when determining whether a resource
  *                 could access a service. These other policy types include resource-based policies,
  *                 access control lists, Organizations policies, IAM permissions boundaries, and STS
  *                 assume role policies. It only applies permissions policy logic. For more about the
  *                 evaluation of policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics">Evaluating policies</a> in the
  *                 <i>IAM User Guide</i>.</p>
- *         </note>
- *         <p>The list of policies returned by the operation depends on the ARN of the identity that
+ *          </note>
+ *          <p>The list of policies returned by the operation depends on the ARN of the identity that
  *             you provide.</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <b>User</b> – The list of policies includes
  *                     the managed and inline policies that are attached to the user directly. The list
  *                     also includes any additional managed and inline policies that are attached to
  *                     the group to which the user belongs. </p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <b>Group</b> – The list of policies includes
  *                     only the managed and inline policies that are attached to the group directly.
  *                     Policies that are attached to the group’s user are not included.</p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <b>Role</b> – The list of policies includes
  *                     only the managed and inline policies that are attached to the role.</p>
  *             </li>
  *          </ul>
- *         <p>For each managed policy, this operation returns the ARN and policy name. For each
+ *          <p>For each managed policy, this operation returns the ARN and policy name. For each
  *             inline policy, it returns the policy name and the entity to which it is attached. Inline
  *             policies do not have an ARN. For more information about these policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html">Managed policies and inline policies</a> in the
  *                 <i>IAM User Guide</i>.</p>
- *         <p>Policies that are attached to users and roles as permissions boundaries are not
+ *          <p>Policies that are attached to users and roles as permissions boundaries are not
  *             returned. To view which managed policy is currently used to set the permissions boundary
  *             for a user or role, use the <a>GetUser</a> or <a>GetRole</a>
  *             operations.</p>
@@ -77,13 +86,79 @@ export interface ListPoliciesGrantingServiceAccessCommandOutput
  * import { IAMClient, ListPoliciesGrantingServiceAccessCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListPoliciesGrantingServiceAccessCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // ListPoliciesGrantingServiceAccessRequest
+ *   Marker: "STRING_VALUE",
+ *   Arn: "STRING_VALUE", // required
+ *   ServiceNamespaces: [ // serviceNamespaceListType // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ListPoliciesGrantingServiceAccessCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPoliciesGrantingServiceAccessCommandInput - {@link ListPoliciesGrantingServiceAccessCommandInput}
+ * @returns {@link ListPoliciesGrantingServiceAccessCommandOutput}
  * @see {@link ListPoliciesGrantingServiceAccessCommandInput} for command's `input` shape.
  * @see {@link ListPoliciesGrantingServiceAccessCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
+ *       input parameter.</p>
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ *
+ *
+ * @example To list policies that allow access to a service
+ * ```javascript
+ * // The following operation lists policies that allow ExampleUser01 to access IAM or EC2.
+ * const input = {
+ *   "Arn": "arn:aws:iam::123456789012:user/ExampleUser01",
+ *   "ServiceNamespaces": [
+ *     "iam",
+ *     "ec2"
+ *   ]
+ * };
+ * const command = new ListPoliciesGrantingServiceAccessCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "IsTruncated": false,
+ *   "PoliciesGrantingServiceAccess": [
+ *     {
+ *       "Policies": [
+ *         {
+ *           "PolicyArn": "arn:aws:iam::123456789012:policy/ExampleIamPolicy",
+ *           "PolicyName": "ExampleIamPolicy",
+ *           "PolicyType": "MANAGED"
+ *         },
+ *         {
+ *           "EntityName": "AWSExampleGroup1",
+ *           "EntityType": "GROUP",
+ *           "PolicyName": "ExampleGroup1Policy",
+ *           "PolicyType": "INLINE"
+ *         }
+ *       ],
+ *       "ServiceNamespace": "iam"
+ *     },
+ *     {
+ *       "Policies": [
+ *         {
+ *           "PolicyArn": "arn:aws:iam::123456789012:policy/ExampleEc2Policy",
+ *           "PolicyName": "ExampleEc2Policy",
+ *           "PolicyType": "MANAGED"
+ *         }
+ *       ],
+ *       "ServiceNamespace": "ec2"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: listpoliciesaccess-user-1541698749508
+ * ```
  *
  */
 export class ListPoliciesGrantingServiceAccessCommand extends $Command<
@@ -103,6 +178,9 @@ export class ListPoliciesGrantingServiceAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPoliciesGrantingServiceAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,8 +209,8 @@ export class ListPoliciesGrantingServiceAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPoliciesGrantingServiceAccessRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPoliciesGrantingServiceAccessResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,18 +220,24 @@ export class ListPoliciesGrantingServiceAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListPoliciesGrantingServiceAccessCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryListPoliciesGrantingServiceAccessCommand(input, context);
+    return se_ListPoliciesGrantingServiceAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListPoliciesGrantingServiceAccessCommandOutput> {
-    return deserializeAws_queryListPoliciesGrantingServiceAccessCommand(output, context);
+    return de_ListPoliciesGrantingServiceAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

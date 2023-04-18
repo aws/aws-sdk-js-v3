@@ -15,22 +15,31 @@ import {
 
 import {
   AssociateWebsiteCertificateAuthorityRequest,
-  AssociateWebsiteCertificateAuthorityRequestFilterSensitiveLog,
   AssociateWebsiteCertificateAuthorityResponse,
-  AssociateWebsiteCertificateAuthorityResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1AssociateWebsiteCertificateAuthorityCommand,
-  serializeAws_restJson1AssociateWebsiteCertificateAuthorityCommand,
+  de_AssociateWebsiteCertificateAuthorityCommand,
+  se_AssociateWebsiteCertificateAuthorityCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
+/**
+ * @public
+ *
+ * The input for {@link AssociateWebsiteCertificateAuthorityCommand}.
+ */
 export interface AssociateWebsiteCertificateAuthorityCommandInput extends AssociateWebsiteCertificateAuthorityRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AssociateWebsiteCertificateAuthorityCommand}.
+ */
 export interface AssociateWebsiteCertificateAuthorityCommandOutput
   extends AssociateWebsiteCertificateAuthorityResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Imports the root certificate of a certificate authority (CA) used to obtain TLS
@@ -41,13 +50,39 @@ export interface AssociateWebsiteCertificateAuthorityCommandOutput
  * import { WorkLinkClient, AssociateWebsiteCertificateAuthorityCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, AssociateWebsiteCertificateAuthorityCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
+ * const input = { // AssociateWebsiteCertificateAuthorityRequest
+ *   FleetArn: "STRING_VALUE", // required
+ *   Certificate: "STRING_VALUE", // required
+ *   DisplayName: "STRING_VALUE",
+ * };
  * const command = new AssociateWebsiteCertificateAuthorityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateWebsiteCertificateAuthorityCommandInput - {@link AssociateWebsiteCertificateAuthorityCommandInput}
+ * @returns {@link AssociateWebsiteCertificateAuthorityCommandOutput}
  * @see {@link AssociateWebsiteCertificateAuthorityCommandInput} for command's `input` shape.
  * @see {@link AssociateWebsiteCertificateAuthorityCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The resource already exists.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource was not found.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The number of requests exceeds the limit.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You are not authorized to perform this action.</p>
+ *
  *
  */
 export class AssociateWebsiteCertificateAuthorityCommand extends $Command<
@@ -67,6 +102,9 @@ export class AssociateWebsiteCertificateAuthorityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateWebsiteCertificateAuthorityCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +133,8 @@ export class AssociateWebsiteCertificateAuthorityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateWebsiteCertificateAuthorityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateWebsiteCertificateAuthorityResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,18 +144,24 @@ export class AssociateWebsiteCertificateAuthorityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateWebsiteCertificateAuthorityCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateWebsiteCertificateAuthorityCommand(input, context);
+    return se_AssociateWebsiteCertificateAuthorityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateWebsiteCertificateAuthorityCommandOutput> {
-    return deserializeAws_restJson1AssociateWebsiteCertificateAuthorityCommand(output, context);
+    return de_AssociateWebsiteCertificateAuthorityCommand(output, context);
   }
 
   // Start section: command_body_extra

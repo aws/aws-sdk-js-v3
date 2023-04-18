@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  CreateDataQualityRulesetRequest,
-  CreateDataQualityRulesetRequestFilterSensitiveLog,
-  CreateDataQualityRulesetResponse,
-  CreateDataQualityRulesetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateDataQualityRulesetCommand,
-  serializeAws_json1_1CreateDataQualityRulesetCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateDataQualityRulesetRequest, CreateDataQualityRulesetResponse } from "../models/models_0";
+import { de_CreateDataQualityRulesetCommand, se_CreateDataQualityRulesetCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateDataQualityRulesetCommand}.
+ */
 export interface CreateDataQualityRulesetCommandInput extends CreateDataQualityRulesetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateDataQualityRulesetCommand}.
+ */
 export interface CreateDataQualityRulesetCommandOutput extends CreateDataQualityRulesetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a data quality ruleset with DQDL rules applied to a specified Glue table.</p>
  *          <p>You create the ruleset using the Data Quality Definition Language (DQDL). For more information, see the Glue developer guide.</p>
  * @example
@@ -37,13 +40,44 @@ export interface CreateDataQualityRulesetCommandOutput extends CreateDataQuality
  * import { GlueClient, CreateDataQualityRulesetCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateDataQualityRulesetCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // CreateDataQualityRulesetRequest
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Ruleset: "STRING_VALUE", // required
+ *   Tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   TargetTable: { // DataQualityTargetTable
+ *     TableName: "STRING_VALUE", // required
+ *     DatabaseName: "STRING_VALUE", // required
+ *   },
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new CreateDataQualityRulesetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDataQualityRulesetCommandInput - {@link CreateDataQualityRulesetCommandInput}
+ * @returns {@link CreateDataQualityRulesetCommandOutput}
  * @see {@link CreateDataQualityRulesetCommandInput} for command's `input` shape.
  * @see {@link CreateDataQualityRulesetCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link AlreadyExistsException} (client fault)
+ *  <p>A resource to be created or added already exists.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ * @throws {@link ResourceNumberLimitExceededException} (client fault)
+ *  <p>A resource numerical limit was exceeded.</p>
+ *
  *
  */
 export class CreateDataQualityRulesetCommand extends $Command<
@@ -63,6 +97,9 @@ export class CreateDataQualityRulesetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDataQualityRulesetCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +128,8 @@ export class CreateDataQualityRulesetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDataQualityRulesetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDataQualityRulesetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +139,18 @@ export class CreateDataQualityRulesetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDataQualityRulesetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDataQualityRulesetCommand(input, context);
+    return se_CreateDataQualityRulesetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDataQualityRulesetCommandOutput> {
-    return deserializeAws_json1_1CreateDataQualityRulesetCommand(output, context);
+    return de_CreateDataQualityRulesetCommand(output, context);
   }
 
   // Start section: command_body_extra

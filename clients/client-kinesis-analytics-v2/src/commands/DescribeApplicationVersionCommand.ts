@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client";
-import {
-  DescribeApplicationVersionRequest,
-  DescribeApplicationVersionRequestFilterSensitiveLog,
-  DescribeApplicationVersionResponse,
-  DescribeApplicationVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeApplicationVersionCommand,
-  serializeAws_json1_1DescribeApplicationVersionCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeApplicationVersionRequest, DescribeApplicationVersionResponse } from "../models/models_0";
+import { de_DescribeApplicationVersionCommand, se_DescribeApplicationVersionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeApplicationVersionCommand}.
+ */
 export interface DescribeApplicationVersionCommandInput extends DescribeApplicationVersionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeApplicationVersionCommand}.
+ */
 export interface DescribeApplicationVersionCommandOutput extends DescribeApplicationVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a detailed description of a specified version of the application. To see a list of all the versions of an application, invoke the <a>ListApplicationVersions</a> operation.</p>
  *          <note>
  *             <p>This operation is supported only for Amazon Kinesis Data Analytics for Apache Flink.</p>
@@ -43,13 +46,30 @@ export interface DescribeApplicationVersionCommandOutput extends DescribeApplica
  * import { KinesisAnalyticsV2Client, DescribeApplicationVersionCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
  * // const { KinesisAnalyticsV2Client, DescribeApplicationVersionCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
+ * const input = { // DescribeApplicationVersionRequest
+ *   ApplicationName: "STRING_VALUE", // required
+ *   ApplicationVersionId: Number("long"), // required
+ * };
  * const command = new DescribeApplicationVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeApplicationVersionCommandInput - {@link DescribeApplicationVersionCommandInput}
+ * @returns {@link DescribeApplicationVersionCommandOutput}
  * @see {@link DescribeApplicationVersionCommandInput} for command's `input` shape.
  * @see {@link DescribeApplicationVersionCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>The specified input parameter value is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Specified application can't be found.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this
+ *       operation. </p>
+ *
  *
  */
 export class DescribeApplicationVersionCommand extends $Command<
@@ -69,6 +89,9 @@ export class DescribeApplicationVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeApplicationVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +120,8 @@ export class DescribeApplicationVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeApplicationVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeApplicationVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,15 +131,21 @@ export class DescribeApplicationVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeApplicationVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeApplicationVersionCommand(input, context);
+    return se_DescribeApplicationVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeApplicationVersionCommandOutput> {
-    return deserializeAws_json1_1DescribeApplicationVersionCommand(output, context);
+    return de_DescribeApplicationVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

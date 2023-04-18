@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { SSMServiceException as __BaseException } from "./SSMServiceException";
 
 /**
+ * @public
  * <p>Information includes the Amazon Web Services account ID where the current document is shared and the
  *    version shared with that account.</p>
  */
@@ -20,6 +21,7 @@ export interface AccountSharingInfo {
 }
 
 /**
+ * @public
  * <p>Metadata that you assign to your Amazon Web Services resources. Tags enable you to categorize your
  *    resources in different ways, for example, by purpose, owner, or environment. In Amazon Web Services Systems Manager, you
  *    can apply tags to Systems Manager documents (SSM documents), managed nodes, maintenance windows,
@@ -38,6 +40,7 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>An activation registers one or more on-premises servers or virtual machines (VMs) with Amazon Web Services
  *    so that you can configure those servers or VMs using Run Command. A server or VM that has been
  *    registered with Amazon Web Services Systems Manager is called a managed node.</p>
@@ -94,18 +97,30 @@ export interface Activation {
   Tags?: Tag[];
 }
 
-export enum ResourceTypeForTagging {
-  ASSOCIATION = "Association",
-  AUTOMATION = "Automation",
-  DOCUMENT = "Document",
-  MAINTENANCE_WINDOW = "MaintenanceWindow",
-  MANAGED_INSTANCE = "ManagedInstance",
-  OPSMETADATA = "OpsMetadata",
-  OPS_ITEM = "OpsItem",
-  PARAMETER = "Parameter",
-  PATCH_BASELINE = "PatchBaseline",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResourceTypeForTagging = {
+  ASSOCIATION: "Association",
+  AUTOMATION: "Automation",
+  DOCUMENT: "Document",
+  MAINTENANCE_WINDOW: "MaintenanceWindow",
+  MANAGED_INSTANCE: "ManagedInstance",
+  OPSMETADATA: "OpsMetadata",
+  OPS_ITEM: "OpsItem",
+  PARAMETER: "Parameter",
+  PATCH_BASELINE: "PatchBaseline",
+} as const;
 
+/**
+ * @public
+ */
+export type ResourceTypeForTagging = (typeof ResourceTypeForTagging)[keyof typeof ResourceTypeForTagging];
+
+/**
+ * @public
+ */
 export interface AddTagsToResourceRequest {
   /**
    * <p>Specifies the type of resource you are tagging.</p>
@@ -163,9 +178,13 @@ export interface AddTagsToResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AddTagsToResourceResult {}
 
 /**
+ * @public
  * <p>An error occurred on the server side.</p>
  */
 export class InternalServerError extends __BaseException {
@@ -187,6 +206,7 @@ export class InternalServerError extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource ID isn't valid. Verify that you entered the correct ID and try again.</p>
  */
 export class InvalidResourceId extends __BaseException {
@@ -206,6 +226,7 @@ export class InvalidResourceId extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource type isn't valid. For example, if you are attempting to tag an EC2 instance,
  *    the instance must be a registered managed node.</p>
  */
@@ -226,6 +247,7 @@ export class InvalidResourceType extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The <code>Targets</code> parameter includes too many tags. Remove one or more tags and try
  *    the command again.</p>
  */
@@ -246,6 +268,7 @@ export class TooManyTagsError extends __BaseException {
 }
 
 /**
+ * @public
  * <p>There are concurrent updates for a resource that supports one update at a time.</p>
  */
 export class TooManyUpdates extends __BaseException {
@@ -267,6 +290,7 @@ export class TooManyUpdates extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A CloudWatch alarm you apply to an automation or command.</p>
  */
 export interface Alarm {
@@ -277,14 +301,16 @@ export interface Alarm {
 }
 
 /**
+ * @public
  * <p>The details for the CloudWatch alarm you want to apply to an automation or
  *    command.</p>
  */
 export interface AlarmConfiguration {
   /**
-   * <p>If you specify <code>true</code> for this value, your automation or command continue to run
-   *    even if we can't gather information about the state of your CloudWatch alarm. The default
-   *    value is <code>false</code>.</p>
+   * <p>When this value is <i>true</i>, your automation or command continues to run in
+   *    cases where we can’t retrieve alarm status information from CloudWatch. In cases
+   *    where we successfully retrieve an alarm status of OK or INSUFFICIENT_DATA, the automation or
+   *    command continues to run, regardless of this value. Default is <i>false</i>.</p>
    */
   IgnorePollAlarmFailure?: boolean;
 
@@ -294,12 +320,22 @@ export interface AlarmConfiguration {
   Alarms: Alarm[] | undefined;
 }
 
-export enum ExternalAlarmState {
-  ALARM = "ALARM",
-  UNKNOWN = "UNKNOWN",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ExternalAlarmState = {
+  ALARM: "ALARM",
+  UNKNOWN: "UNKNOWN",
+} as const;
 
 /**
+ * @public
+ */
+export type ExternalAlarmState = (typeof ExternalAlarmState)[keyof typeof ExternalAlarmState];
+
+/**
+ * @public
  * <p>The details about the state of your CloudWatch alarm.</p>
  */
 export interface AlarmStateInformation {
@@ -315,6 +351,7 @@ export interface AlarmStateInformation {
 }
 
 /**
+ * @public
  * <p>Error returned if an attempt is made to register a patch group with a patch baseline that is
  *    already registered with a different patch baseline.</p>
  */
@@ -336,6 +373,9 @@ export class AlreadyExistsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AssociateOpsItemRelatedItemRequest {
   /**
    * <p>The ID of the OpsItem to which you want to associate a resource as a related item.</p>
@@ -365,6 +405,9 @@ export interface AssociateOpsItemRelatedItemRequest {
   ResourceUri: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateOpsItemRelatedItemResponse {
   /**
    * <p>The association ID.</p>
@@ -373,6 +416,7 @@ export interface AssociateOpsItemRelatedItemResponse {
 }
 
 /**
+ * @public
  * <p>A specified parameter argument isn't valid. Verify the available arguments and try
  *    again.</p>
  */
@@ -397,6 +441,7 @@ export class OpsItemInvalidParameterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request caused OpsItems to exceed one or more quotas. For information about OpsItem
  *    quotas, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-learn-more.html#OpsCenter-learn-more-limits">What are the resource limits for OpsCenter?</a>.</p>
  */
@@ -425,6 +470,7 @@ export class OpsItemLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified OpsItem ID doesn't exist. Verify the ID and try again.</p>
  */
 export class OpsItemNotFoundException extends __BaseException {
@@ -446,6 +492,7 @@ export class OpsItemNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The Amazon Resource Name (ARN) is already associated with the OpsItem.</p>
  */
 export class OpsItemRelatedItemAlreadyExistsException extends __BaseException {
@@ -471,6 +518,7 @@ export class OpsItemRelatedItemAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface CancelCommandRequest {
@@ -487,12 +535,14 @@ export interface CancelCommandRequest {
 }
 
 /**
+ * @public
  * <p>Whether or not the command was successfully canceled. There is no guarantee that a request
  *    can be canceled.</p>
  */
 export interface CancelCommandResult {}
 
 /**
+ * @public
  * <p>You can't specify a managed node ID in more than one association.</p>
  */
 export class DuplicateInstanceId extends __BaseException {
@@ -512,6 +562,7 @@ export class DuplicateInstanceId extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified command ID isn't valid. Verify the ID and try again.</p>
  */
 export class InvalidCommandId extends __BaseException {
@@ -531,6 +582,7 @@ export class InvalidCommandId extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The following problems can cause this exception:</p>
  *          <ul>
  *             <li>
@@ -568,6 +620,9 @@ export class InvalidInstanceId extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CancelMaintenanceWindowExecutionRequest {
   /**
    * <p>The ID of the maintenance window execution to stop.</p>
@@ -575,6 +630,9 @@ export interface CancelMaintenanceWindowExecutionRequest {
   WindowExecutionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelMaintenanceWindowExecutionResult {
   /**
    * <p>The ID of the maintenance window execution that has been stopped.</p>
@@ -583,6 +641,7 @@ export interface CancelMaintenanceWindowExecutionResult {
 }
 
 /**
+ * @public
  * <p>Error returned when the ID specified for a resource, such as a maintenance window or patch
  *    baseline, doesn't exist.</p>
  *          <p>For information about resource quotas in Amazon Web Services Systems Manager, see <a href="https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm">Systems Manager service quotas</a> in the
@@ -607,6 +666,7 @@ export class DoesNotExistException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Reserved for internal use.</p>
  */
 export interface RegistrationMetadataItem {
@@ -621,6 +681,9 @@ export interface RegistrationMetadataItem {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateActivationRequest {
   /**
    * <p>A user-defined description of the resource that you want to register with Systems Manager. </p>
@@ -701,6 +764,9 @@ export interface CreateActivationRequest {
   RegistrationMetadata?: RegistrationMetadataItem[];
 }
 
+/**
+ * @public
+ */
 export interface CreateActivationResult {
   /**
    * <p>The ID number generated by the system when it processed the activation. The activation ID
@@ -716,6 +782,7 @@ export interface CreateActivationResult {
 }
 
 /**
+ * @public
  * <p>You must specify values for all required parameters in the Amazon Web Services Systems Manager document (SSM
  *    document). You can only supply values to parameters defined in the SSM document.</p>
  */
@@ -738,6 +805,7 @@ export class InvalidParameters extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified association already exists.</p>
  */
 export class AssociationAlreadyExists extends __BaseException {
@@ -757,6 +825,7 @@ export class AssociationAlreadyExists extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You can have at most 2,000 active associations.</p>
  */
 export class AssociationLimitExceeded extends __BaseException {
@@ -775,15 +844,26 @@ export class AssociationLimitExceeded extends __BaseException {
   }
 }
 
-export enum AssociationComplianceSeverity {
-  Critical = "CRITICAL",
-  High = "HIGH",
-  Low = "LOW",
-  Medium = "MEDIUM",
-  Unspecified = "UNSPECIFIED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AssociationComplianceSeverity = {
+  Critical: "CRITICAL",
+  High: "HIGH",
+  Low: "LOW",
+  Medium: "MEDIUM",
+  Unspecified: "UNSPECIFIED",
+} as const;
 
 /**
+ * @public
+ */
+export type AssociationComplianceSeverity =
+  (typeof AssociationComplianceSeverity)[keyof typeof AssociationComplianceSeverity];
+
+/**
+ * @public
  * <p>An S3 bucket where you want to store the results of this request.</p>
  */
 export interface S3OutputLocation {
@@ -804,6 +884,7 @@ export interface S3OutputLocation {
 }
 
 /**
+ * @public
  * <p>An S3 bucket where you want to store the results of this request.</p>
  *          <p>For the minimal permissions required to enable Amazon S3 output for an association,
  *    see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-state-assoc.html">Creating associations</a> in the <i>Systems Manager User Guide</i>. </p>
@@ -815,12 +896,22 @@ export interface InstanceAssociationOutputLocation {
   S3Location?: S3OutputLocation;
 }
 
-export enum AssociationSyncCompliance {
-  Auto = "AUTO",
-  Manual = "MANUAL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AssociationSyncCompliance = {
+  Auto: "AUTO",
+  Manual: "MANUAL",
+} as const;
 
 /**
+ * @public
+ */
+export type AssociationSyncCompliance = (typeof AssociationSyncCompliance)[keyof typeof AssociationSyncCompliance];
+
+/**
+ * @public
  * <p>The combination of Amazon Web Services Regions and Amazon Web Services accounts targeted by the current Automation
  *    execution.</p>
  */
@@ -861,6 +952,7 @@ export interface TargetLocation {
 }
 
 /**
+ * @public
  * <p>An array of search criteria that targets managed nodes using a key-value pair that you
  *    specify.</p>
  *          <note>
@@ -974,12 +1066,15 @@ export interface Target {
   Values?: string[];
 }
 
+/**
+ * @public
+ */
 export interface CreateAssociationRequest {
   /**
    * <p>The name of the SSM Command document or Automation runbook that contains the configuration
    *    information for the managed node.</p>
    *          <p>You can specify Amazon Web Services-predefined documents, documents you created, or a document that is
-   *    shared with you from another account.</p>
+   *    shared with you from another Amazon Web Services account.</p>
    *          <p>For Systems Manager documents (SSM documents) that are shared with you from other Amazon Web Services accounts, you
    *    must specify the complete SSM document ARN, in the following format:</p>
    *          <p>
@@ -1164,6 +1259,7 @@ export interface CreateAssociationRequest {
 }
 
 /**
+ * @public
  * <p>Information about the association.</p>
  */
 export interface AssociationOverview {
@@ -1185,13 +1281,23 @@ export interface AssociationOverview {
   AssociationStatusAggregatedCount?: Record<string, number>;
 }
 
-export enum AssociationStatusName {
-  Failed = "Failed",
-  Pending = "Pending",
-  Success = "Success",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AssociationStatusName = {
+  Failed: "Failed",
+  Pending: "Pending",
+  Success: "Success",
+} as const;
 
 /**
+ * @public
+ */
+export type AssociationStatusName = (typeof AssociationStatusName)[keyof typeof AssociationStatusName];
+
+/**
+ * @public
  * <p>Describes an association status.</p>
  */
 export interface AssociationStatus {
@@ -1217,6 +1323,7 @@ export interface AssociationStatus {
 }
 
 /**
+ * @public
  * <p>Describes the parameters for a document.</p>
  */
 export interface AssociationDescription {
@@ -1397,6 +1504,9 @@ export interface AssociationDescription {
   TriggeredAlarms?: AlarmStateInformation[];
 }
 
+/**
+ * @public
+ */
 export interface CreateAssociationResult {
   /**
    * <p>Information about the association.</p>
@@ -1405,6 +1515,7 @@ export interface CreateAssociationResult {
 }
 
 /**
+ * @public
  * <p>The specified SSM document doesn't exist.</p>
  */
 export class InvalidDocument extends __BaseException {
@@ -1430,6 +1541,7 @@ export class InvalidDocument extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The document version isn't valid or doesn't exist.</p>
  */
 export class InvalidDocumentVersion extends __BaseException {
@@ -1451,6 +1563,7 @@ export class InvalidDocumentVersion extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The output location isn't valid or doesn't exist.</p>
  */
 export class InvalidOutputLocation extends __BaseException {
@@ -1470,6 +1583,7 @@ export class InvalidOutputLocation extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The schedule is invalid. Verify your cron or rate expression and try again.</p>
  */
 export class InvalidSchedule extends __BaseException {
@@ -1491,6 +1605,7 @@ export class InvalidSchedule extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified tag key or value isn't valid.</p>
  */
 export class InvalidTag extends __BaseException {
@@ -1512,6 +1627,7 @@ export class InvalidTag extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The target isn't valid or doesn't exist. It might not be configured for Systems Manager or you might
  *    not have permission to perform the operation.</p>
  */
@@ -1534,6 +1650,7 @@ export class InvalidTarget extends __BaseException {
 }
 
 /**
+ * @public
  * <p>TargetMap parameter isn't valid.</p>
  */
 export class InvalidTargetMaps extends __BaseException {
@@ -1555,6 +1672,7 @@ export class InvalidTargetMaps extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The document doesn't support the platform type of the given managed node ID(s). For example,
  *    you sent an document for a Windows managed node to a Linux node.</p>
  */
@@ -1577,6 +1695,7 @@ export class UnsupportedPlatformType extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Describes the association of a Amazon Web Services Systems Manager document (SSM document) and a managed node.</p>
  */
 export interface CreateAssociationBatchRequestEntry {
@@ -1738,6 +1857,9 @@ export interface CreateAssociationBatchRequestEntry {
   AlarmConfiguration?: AlarmConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface CreateAssociationBatchRequest {
   /**
    * <p>One or more associations.</p>
@@ -1745,13 +1867,23 @@ export interface CreateAssociationBatchRequest {
   Entries: CreateAssociationBatchRequestEntry[] | undefined;
 }
 
-export enum Fault {
-  Client = "Client",
-  Server = "Server",
-  Unknown = "Unknown",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Fault = {
+  Client: "Client",
+  Server: "Server",
+  Unknown: "Unknown",
+} as const;
 
 /**
+ * @public
+ */
+export type Fault = (typeof Fault)[keyof typeof Fault];
+
+/**
+ * @public
  * <p>Describes a failed association.</p>
  */
 export interface FailedCreateAssociation {
@@ -1771,6 +1903,9 @@ export interface FailedCreateAssociation {
   Fault?: Fault | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateAssociationBatchResult {
   /**
    * <p>Information about the associations that succeeded.</p>
@@ -1783,13 +1918,23 @@ export interface CreateAssociationBatchResult {
   Failed?: FailedCreateAssociation[];
 }
 
-export enum AttachmentsSourceKey {
-  AttachmentReference = "AttachmentReference",
-  S3FileUrl = "S3FileUrl",
-  SourceUrl = "SourceUrl",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AttachmentsSourceKey = {
+  AttachmentReference: "AttachmentReference",
+  S3FileUrl: "S3FileUrl",
+  SourceUrl: "SourceUrl",
+} as const;
 
 /**
+ * @public
+ */
+export type AttachmentsSourceKey = (typeof AttachmentsSourceKey)[keyof typeof AttachmentsSourceKey];
+
+/**
+ * @public
  * <p>Identifying information about a document attachment, including the file name and a key-value
  *    pair that identifies the location of an attachment to a document.</p>
  */
@@ -1844,31 +1989,50 @@ export interface AttachmentsSource {
   Name?: string;
 }
 
-export enum DocumentFormat {
-  JSON = "JSON",
-  TEXT = "TEXT",
-  YAML = "YAML",
-}
-
-export enum DocumentType {
-  ApplicationConfiguration = "ApplicationConfiguration",
-  ApplicationConfigurationSchema = "ApplicationConfigurationSchema",
-  Automation = "Automation",
-  ChangeCalendar = "ChangeCalendar",
-  ChangeTemplate = "Automation.ChangeTemplate",
-  CloudFormation = "CloudFormation",
-  Command = "Command",
-  ConformancePackTemplate = "ConformancePackTemplate",
-  DeploymentStrategy = "DeploymentStrategy",
-  Package = "Package",
-  Policy = "Policy",
-  ProblemAnalysis = "ProblemAnalysis",
-  ProblemAnalysisTemplate = "ProblemAnalysisTemplate",
-  QuickSetup = "QuickSetup",
-  Session = "Session",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DocumentFormat = {
+  JSON: "JSON",
+  TEXT: "TEXT",
+  YAML: "YAML",
+} as const;
 
 /**
+ * @public
+ */
+export type DocumentFormat = (typeof DocumentFormat)[keyof typeof DocumentFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const DocumentType = {
+  ApplicationConfiguration: "ApplicationConfiguration",
+  ApplicationConfigurationSchema: "ApplicationConfigurationSchema",
+  Automation: "Automation",
+  ChangeCalendar: "ChangeCalendar",
+  ChangeTemplate: "Automation.ChangeTemplate",
+  CloudFormation: "CloudFormation",
+  Command: "Command",
+  ConformancePackTemplate: "ConformancePackTemplate",
+  DeploymentStrategy: "DeploymentStrategy",
+  Package: "Package",
+  Policy: "Policy",
+  ProblemAnalysis: "ProblemAnalysis",
+  ProblemAnalysisTemplate: "ProblemAnalysisTemplate",
+  QuickSetup: "QuickSetup",
+  Session: "Session",
+} as const;
+
+/**
+ * @public
+ */
+export type DocumentType = (typeof DocumentType)[keyof typeof DocumentType];
+
+/**
+ * @public
  * <p>An SSM document required by the current document.</p>
  */
 export interface DocumentRequires {
@@ -1888,16 +2052,22 @@ export interface DocumentRequires {
   RequireType?: string;
 
   /**
-   * <p>An optional field specifying the version of the artifact associated with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document, and can't be changed.</p>
+   * <p>An optional field specifying the version of the artifact associated with the document. For
+   *    example, "Release 12, Update 6". This value is unique across all versions of a document, and
+   *    can't be changed.</p>
    */
   VersionName?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateDocumentRequest {
   /**
-   * <p>The content for the new SSM document in JSON or YAML format. We recommend storing the
-   *    contents for your new document in an external JSON or YAML file and referencing the file in a
-   *    command.</p>
+   * <p>The content for the new SSM document in JSON or YAML format. The content of the document
+   *    must not exceed 64KB. This quota also includes the content specified for input parameters at
+   *    runtime. We recommend storing the contents for your new document in an external JSON or YAML file
+   *    and referencing the file in a command.</p>
    *          <p>For examples, see the following topics in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    *          <ul>
    *             <li>
@@ -2026,6 +2196,7 @@ export interface CreateDocumentRequest {
 }
 
 /**
+ * @public
  * <p>An attribute of an attachment, such as the attachment name.</p>
  */
 export interface AttachmentInformation {
@@ -2035,19 +2206,38 @@ export interface AttachmentInformation {
   Name?: string;
 }
 
-export enum DocumentHashType {
-  SHA1 = "Sha1",
-  SHA256 = "Sha256",
-}
-
-export enum DocumentParameterType {
-  String = "String",
-  StringList = "StringList",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DocumentHashType = {
+  SHA1: "Sha1",
+  SHA256: "Sha256",
+} as const;
 
 /**
- * <p>Parameters specified in a System Manager document that run on the server when the command is
- *    run. </p>
+ * @public
+ */
+export type DocumentHashType = (typeof DocumentHashType)[keyof typeof DocumentHashType];
+
+/**
+ * @public
+ * @enum
+ */
+export const DocumentParameterType = {
+  String: "String",
+  StringList: "StringList",
+} as const;
+
+/**
+ * @public
+ */
+export type DocumentParameterType = (typeof DocumentParameterType)[keyof typeof DocumentParameterType];
+
+/**
+ * @public
+ * <p>Parameters specified in a Systems Manager document that run on the server when the command is run.
+ *   </p>
  */
 export interface DocumentParameter {
   /**
@@ -2073,20 +2263,39 @@ export interface DocumentParameter {
   DefaultValue?: string;
 }
 
-export enum PlatformType {
-  LINUX = "Linux",
-  MACOS = "MacOS",
-  WINDOWS = "Windows",
-}
-
-export enum ReviewStatus {
-  APPROVED = "APPROVED",
-  NOT_REVIEWED = "NOT_REVIEWED",
-  PENDING = "PENDING",
-  REJECTED = "REJECTED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PlatformType = {
+  LINUX: "Linux",
+  MACOS: "MacOS",
+  WINDOWS: "Windows",
+} as const;
 
 /**
+ * @public
+ */
+export type PlatformType = (typeof PlatformType)[keyof typeof PlatformType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReviewStatus = {
+  APPROVED: "APPROVED",
+  NOT_REVIEWED: "NOT_REVIEWED",
+  PENDING: "PENDING",
+  REJECTED: "REJECTED",
+} as const;
+
+/**
+ * @public
+ */
+export type ReviewStatus = (typeof ReviewStatus)[keyof typeof ReviewStatus];
+
+/**
+ * @public
  * <p>Information about the result of a document review request.</p>
  */
 export interface ReviewInformation {
@@ -2106,15 +2315,25 @@ export interface ReviewInformation {
   Reviewer?: string;
 }
 
-export enum DocumentStatus {
-  Active = "Active",
-  Creating = "Creating",
-  Deleting = "Deleting",
-  Failed = "Failed",
-  Updating = "Updating",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DocumentStatus = {
+  Active: "Active",
+  Creating: "Creating",
+  Deleting: "Deleting",
+  Failed: "Failed",
+  Updating: "Updating",
+} as const;
 
 /**
+ * @public
+ */
+export type DocumentStatus = (typeof DocumentStatus)[keyof typeof DocumentStatus];
+
+/**
+ * @public
  * <p>Describes an Amazon Web Services Systems Manager document (SSM document). </p>
  */
 export interface DocumentDescription {
@@ -2157,7 +2376,7 @@ export interface DocumentDescription {
   VersionName?: string;
 
   /**
-   * <p>The Amazon Web Services user account that created the document.</p>
+   * <p>The Amazon Web Services user that created the document.</p>
    */
   Owner?: string;
 
@@ -2283,6 +2502,9 @@ export interface DocumentDescription {
   CategoryEnum?: string[];
 }
 
+/**
+ * @public
+ */
 export interface CreateDocumentResult {
   /**
    * <p>Information about the SSM document.</p>
@@ -2291,6 +2513,7 @@ export interface CreateDocumentResult {
 }
 
 /**
+ * @public
  * <p>The specified document already exists.</p>
  */
 export class DocumentAlreadyExists extends __BaseException {
@@ -2312,6 +2535,7 @@ export class DocumentAlreadyExists extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You can have at most 500 active SSM documents.</p>
  */
 export class DocumentLimitExceeded extends __BaseException {
@@ -2333,6 +2557,7 @@ export class DocumentLimitExceeded extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The content for the document isn't valid.</p>
  */
 export class InvalidDocumentContent extends __BaseException {
@@ -2357,6 +2582,7 @@ export class InvalidDocumentContent extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The version of the document schema isn't supported.</p>
  */
 export class InvalidDocumentSchemaVersion extends __BaseException {
@@ -2378,6 +2604,7 @@ export class InvalidDocumentSchemaVersion extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The size limit of a document is 64 KB.</p>
  */
 export class MaxDocumentSizeExceeded extends __BaseException {
@@ -2398,6 +2625,9 @@ export class MaxDocumentSizeExceeded extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateMaintenanceWindowRequest {
   /**
    * <p>The name of the maintenance window.</p>
@@ -2505,6 +2735,9 @@ export interface CreateMaintenanceWindowRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateMaintenanceWindowResult {
   /**
    * <p>The ID of the created maintenance window.</p>
@@ -2513,6 +2746,7 @@ export interface CreateMaintenanceWindowResult {
 }
 
 /**
+ * @public
  * <p>Error returned when an idempotent operation is retried and the parameters don't match the
  *    original call to the API with the same idempotency token. </p>
  */
@@ -2535,6 +2769,7 @@ export class IdempotentParameterMismatch extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Error returned when the caller has exceeded the default resource quotas. For example, too
  *    many maintenance windows or patch baselines have been created.</p>
  *          <p>For information about resource quotas in Systems Manager, see <a href="https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm">Systems Manager service quotas</a> in the
@@ -2559,6 +2794,7 @@ export class ResourceLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A notification about the OpsItem.</p>
  */
 export interface OpsItemNotification {
@@ -2569,12 +2805,22 @@ export interface OpsItemNotification {
   Arn?: string;
 }
 
-export enum OpsItemDataType {
-  SEARCHABLE_STRING = "SearchableString",
-  STRING = "String",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OpsItemDataType = {
+  SEARCHABLE_STRING: "SearchableString",
+  STRING: "String",
+} as const;
 
 /**
+ * @public
+ */
+export type OpsItemDataType = (typeof OpsItemDataType)[keyof typeof OpsItemDataType];
+
+/**
+ * @public
  * <p>An object that defines the value of the key and its type in the OperationalData map.</p>
  */
 export interface OpsItemDataValue {
@@ -2591,6 +2837,7 @@ export interface OpsItemDataValue {
 }
 
 /**
+ * @public
  * <p>An OpsItems that shares something in common with the current OpsItem. For example, related
  *    OpsItems can include OpsItems with similar error messages, impacted resources, or statuses for
  *    the impacted resource.</p>
@@ -2602,6 +2849,9 @@ export interface RelatedOpsItem {
   OpsItemId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateOpsItemRequest {
   /**
    * <p>Information about the OpsItem. </p>
@@ -2748,6 +2998,9 @@ export interface CreateOpsItemRequest {
   AccountId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateOpsItemResponse {
   /**
    * <p>The ID of the OpsItem.</p>
@@ -2761,6 +3014,7 @@ export interface CreateOpsItemResponse {
 }
 
 /**
+ * @public
  * <p>You don't have permission to view OpsItems in the specified account. Verify that your account
  *    is configured either as a Systems Manager delegated administrator or that you are logged into the Organizations
  *    management account.</p>
@@ -2784,6 +3038,7 @@ export class OpsItemAccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The OpsItem already exists.</p>
  */
 export class OpsItemAlreadyExistsException extends __BaseException {
@@ -2807,6 +3062,7 @@ export class OpsItemAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Metadata to assign to an Application Manager application.</p>
  */
 export interface MetadataValue {
@@ -2816,6 +3072,9 @@ export interface MetadataValue {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateOpsMetadataRequest {
   /**
    * <p>A resource ID for a new Application Manager application.</p>
@@ -2849,6 +3108,9 @@ export interface CreateOpsMetadataRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateOpsMetadataResult {
   /**
    * <p>The Amazon Resource Name (ARN) of the OpsMetadata Object or blob created by the call.</p>
@@ -2857,6 +3119,7 @@ export interface CreateOpsMetadataResult {
 }
 
 /**
+ * @public
  * <p>An OpsMetadata object already exists for the selected resource.</p>
  */
 export class OpsMetadataAlreadyExistsException extends __BaseException {
@@ -2876,6 +3139,7 @@ export class OpsMetadataAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One of the arguments passed is invalid. </p>
  */
 export class OpsMetadataInvalidArgumentException extends __BaseException {
@@ -2895,6 +3159,7 @@ export class OpsMetadataInvalidArgumentException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Your account reached the maximum number of OpsMetadata objects allowed by Application Manager. The
  *    maximum is 200 OpsMetadata objects. Delete one or more OpsMetadata object and try again.</p>
  */
@@ -2915,6 +3180,7 @@ export class OpsMetadataLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The system is processing too many concurrent updates. Wait a few moments and try
  *    again.</p>
  */
@@ -2934,38 +3200,57 @@ export class OpsMetadataTooManyUpdatesException extends __BaseException {
   }
 }
 
-export enum PatchComplianceLevel {
-  Critical = "CRITICAL",
-  High = "HIGH",
-  Informational = "INFORMATIONAL",
-  Low = "LOW",
-  Medium = "MEDIUM",
-  Unspecified = "UNSPECIFIED",
-}
-
-export enum PatchFilterKey {
-  AdvisoryId = "ADVISORY_ID",
-  Arch = "ARCH",
-  BugzillaId = "BUGZILLA_ID",
-  CVEId = "CVE_ID",
-  Classification = "CLASSIFICATION",
-  Epoch = "EPOCH",
-  MsrcSeverity = "MSRC_SEVERITY",
-  Name = "NAME",
-  PatchId = "PATCH_ID",
-  PatchSet = "PATCH_SET",
-  Priority = "PRIORITY",
-  Product = "PRODUCT",
-  ProductFamily = "PRODUCT_FAMILY",
-  Release = "RELEASE",
-  Repository = "REPOSITORY",
-  Section = "SECTION",
-  Security = "SECURITY",
-  Severity = "SEVERITY",
-  Version = "VERSION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PatchComplianceLevel = {
+  Critical: "CRITICAL",
+  High: "HIGH",
+  Informational: "INFORMATIONAL",
+  Low: "LOW",
+  Medium: "MEDIUM",
+  Unspecified: "UNSPECIFIED",
+} as const;
 
 /**
+ * @public
+ */
+export type PatchComplianceLevel = (typeof PatchComplianceLevel)[keyof typeof PatchComplianceLevel];
+
+/**
+ * @public
+ * @enum
+ */
+export const PatchFilterKey = {
+  AdvisoryId: "ADVISORY_ID",
+  Arch: "ARCH",
+  BugzillaId: "BUGZILLA_ID",
+  CVEId: "CVE_ID",
+  Classification: "CLASSIFICATION",
+  Epoch: "EPOCH",
+  MsrcSeverity: "MSRC_SEVERITY",
+  Name: "NAME",
+  PatchId: "PATCH_ID",
+  PatchSet: "PATCH_SET",
+  Priority: "PRIORITY",
+  Product: "PRODUCT",
+  ProductFamily: "PRODUCT_FAMILY",
+  Release: "RELEASE",
+  Repository: "REPOSITORY",
+  Section: "SECTION",
+  Security: "SECURITY",
+  Severity: "SEVERITY",
+  Version: "VERSION",
+} as const;
+
+/**
+ * @public
+ */
+export type PatchFilterKey = (typeof PatchFilterKey)[keyof typeof PatchFilterKey];
+
+/**
+ * @public
  * <p> Defines which patches should be included in a patch baseline.</p>
  *          <p>A patch filter consists of a key and a set of values. The filter key is a patch property.
  *    For example, the available filter keys for <code>WINDOWS</code> are <code>PATCH_SET</code>,
@@ -2997,6 +3282,7 @@ export interface PatchFilter {
 }
 
 /**
+ * @public
  * <p>A set of patch filters, typically used for approval rules.</p>
  */
 export interface PatchFilterGroup {
@@ -3007,6 +3293,7 @@ export interface PatchFilterGroup {
 }
 
 /**
+ * @public
  * <p>Defines an approval rule for a patch baseline.</p>
  */
 export interface PatchRule {
@@ -3045,6 +3332,7 @@ export interface PatchRule {
 }
 
 /**
+ * @public
  * <p>A set of rules defining the approval rules for a patch baseline.</p>
  */
 export interface PatchRuleGroup {
@@ -3054,28 +3342,49 @@ export interface PatchRuleGroup {
   PatchRules: PatchRule[] | undefined;
 }
 
-export enum OperatingSystem {
-  AmazonLinux = "AMAZON_LINUX",
-  AmazonLinux2 = "AMAZON_LINUX_2",
-  AmazonLinux2022 = "AMAZON_LINUX_2022",
-  CentOS = "CENTOS",
-  Debian = "DEBIAN",
-  MacOS = "MACOS",
-  OracleLinux = "ORACLE_LINUX",
-  Raspbian = "RASPBIAN",
-  RedhatEnterpriseLinux = "REDHAT_ENTERPRISE_LINUX",
-  Rocky_Linux = "ROCKY_LINUX",
-  Suse = "SUSE",
-  Ubuntu = "UBUNTU",
-  Windows = "WINDOWS",
-}
-
-export enum PatchAction {
-  AllowAsDependency = "ALLOW_AS_DEPENDENCY",
-  Block = "BLOCK",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OperatingSystem = {
+  AlmaLinux: "ALMA_LINUX",
+  AmazonLinux: "AMAZON_LINUX",
+  AmazonLinux2: "AMAZON_LINUX_2",
+  AmazonLinux2022: "AMAZON_LINUX_2022",
+  AmazonLinux2023: "AMAZON_LINUX_2023",
+  CentOS: "CENTOS",
+  Debian: "DEBIAN",
+  MacOS: "MACOS",
+  OracleLinux: "ORACLE_LINUX",
+  Raspbian: "RASPBIAN",
+  RedhatEnterpriseLinux: "REDHAT_ENTERPRISE_LINUX",
+  Rocky_Linux: "ROCKY_LINUX",
+  Suse: "SUSE",
+  Ubuntu: "UBUNTU",
+  Windows: "WINDOWS",
+} as const;
 
 /**
+ * @public
+ */
+export type OperatingSystem = (typeof OperatingSystem)[keyof typeof OperatingSystem];
+
+/**
+ * @public
+ * @enum
+ */
+export const PatchAction = {
+  AllowAsDependency: "ALLOW_AS_DEPENDENCY",
+  Block: "BLOCK",
+} as const;
+
+/**
+ * @public
+ */
+export type PatchAction = (typeof PatchAction)[keyof typeof PatchAction];
+
+/**
+ * @public
  * <p>Information about the patches to use to update the managed nodes, including target operating
  *    systems and source repository. Applies to Linux managed nodes only.</p>
  */
@@ -3114,6 +3423,9 @@ export interface PatchSource {
   Configuration: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreatePatchBaselineRequest {
   /**
    * <p>Defines the operating system the patch baseline applies to. The default value is
@@ -3234,6 +3546,9 @@ export interface CreatePatchBaselineRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreatePatchBaselineResult {
   /**
    * <p>The ID of the created patch baseline.</p>
@@ -3242,6 +3557,7 @@ export interface CreatePatchBaselineResult {
 }
 
 /**
+ * @public
  * <p>Synchronize Amazon Web Services Systems Manager Inventory data from multiple Amazon Web Services accounts defined in Organizations to a
  *    centralized Amazon S3 bucket. Data is synchronized to individual key prefixes in the
  *    central bucket. Each key prefix represents a different Amazon Web Services account ID.</p>
@@ -3253,11 +3569,21 @@ export interface ResourceDataSyncDestinationDataSharing {
   DestinationDataSharingType?: string;
 }
 
-export enum ResourceDataSyncS3Format {
-  JSON_SERDE = "JsonSerDe",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResourceDataSyncS3Format = {
+  JSON_SERDE: "JsonSerDe",
+} as const;
 
 /**
+ * @public
+ */
+export type ResourceDataSyncS3Format = (typeof ResourceDataSyncS3Format)[keyof typeof ResourceDataSyncS3Format];
+
+/**
+ * @public
  * <p>Information about the target S3 bucket for the resource data sync.</p>
  */
 export interface ResourceDataSyncS3Destination {
@@ -3294,6 +3620,7 @@ export interface ResourceDataSyncS3Destination {
 }
 
 /**
+ * @public
  * <p>The Organizations organizational unit data source for the sync.</p>
  */
 export interface ResourceDataSyncOrganizationalUnit {
@@ -3304,6 +3631,7 @@ export interface ResourceDataSyncOrganizationalUnit {
 }
 
 /**
+ * @public
  * <p>Information about the <code>AwsOrganizationsSource</code> resource data sync source. A sync
  *    source of this type can synchronize data from Organizations or, if an Amazon Web Services organization isn't
  *    present, from multiple Amazon Web Services Regions.</p>
@@ -3324,6 +3652,7 @@ export interface ResourceDataSyncAwsOrganizationsSource {
 }
 
 /**
+ * @public
  * <p>Information about the source of the data included in the resource data sync.</p>
  */
 export interface ResourceDataSyncSource {
@@ -3360,6 +3689,9 @@ export interface ResourceDataSyncSource {
   EnableAllOpsDataSources?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateResourceDataSyncRequest {
   /**
    * <p>A name for the configuration.</p>
@@ -3389,9 +3721,13 @@ export interface CreateResourceDataSyncRequest {
   SyncSource?: ResourceDataSyncSource;
 }
 
+/**
+ * @public
+ */
 export interface CreateResourceDataSyncResult {}
 
 /**
+ * @public
  * <p>A sync configuration with the same name already exists.</p>
  */
 export class ResourceDataSyncAlreadyExistsException extends __BaseException {
@@ -3413,6 +3749,7 @@ export class ResourceDataSyncAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You have exceeded the allowed maximum sync configurations.</p>
  */
 export class ResourceDataSyncCountExceededException extends __BaseException {
@@ -3434,6 +3771,7 @@ export class ResourceDataSyncCountExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified sync configuration is invalid.</p>
  */
 export class ResourceDataSyncInvalidConfigurationException extends __BaseException {
@@ -3454,6 +3792,9 @@ export class ResourceDataSyncInvalidConfigurationException extends __BaseExcepti
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteActivationRequest {
   /**
    * <p>The ID of the activation that you want to delete.</p>
@@ -3461,9 +3802,13 @@ export interface DeleteActivationRequest {
   ActivationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteActivationResult {}
 
 /**
+ * @public
  * <p>The activation isn't valid. The activation might have been deleted, or the ActivationId and
  *    the ActivationCode don't match.</p>
  */
@@ -3486,6 +3831,7 @@ export class InvalidActivation extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The activation ID isn't valid. Verify the you entered the correct ActivationId or
  *    ActivationCode and try again.</p>
  */
@@ -3508,6 +3854,7 @@ export class InvalidActivationId extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified association doesn't exist.</p>
  */
 export class AssociationDoesNotExist extends __BaseException {
@@ -3528,6 +3875,9 @@ export class AssociationDoesNotExist extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteAssociationRequest {
   /**
    * <p>The name of the SSM document.</p>
@@ -3556,9 +3906,13 @@ export interface DeleteAssociationRequest {
   AssociationId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAssociationResult {}
 
 /**
+ * @public
  * <p>You must disassociate a document from all managed nodes before you can delete it.</p>
  */
 export class AssociatedInstances extends __BaseException {
@@ -3577,6 +3931,9 @@ export class AssociatedInstances extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteDocumentRequest {
   /**
    * <p>The name of the document.</p>
@@ -3604,9 +3961,13 @@ export interface DeleteDocumentRequest {
   Force?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDocumentResult {}
 
 /**
+ * @public
  * <p>You attempted to delete a document while it is still shared. You must stop sharing the
  *    document before you can delete it.</p>
  */
@@ -3628,11 +3989,24 @@ export class InvalidDocumentOperation extends __BaseException {
   }
 }
 
-export enum InventorySchemaDeleteOption {
-  DELETE_SCHEMA = "DeleteSchema",
-  DISABLE_SCHEMA = "DisableSchema",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InventorySchemaDeleteOption = {
+  DELETE_SCHEMA: "DeleteSchema",
+  DISABLE_SCHEMA: "DisableSchema",
+} as const;
 
+/**
+ * @public
+ */
+export type InventorySchemaDeleteOption =
+  (typeof InventorySchemaDeleteOption)[keyof typeof InventorySchemaDeleteOption];
+
+/**
+ * @public
+ */
 export interface DeleteInventoryRequest {
   /**
    * <p>The name of the custom inventory type for which you want to delete either all previously
@@ -3667,6 +4041,7 @@ export interface DeleteInventoryRequest {
 }
 
 /**
+ * @public
  * <p>Either a count, remaining count, or a version number in a delete inventory summary.</p>
  */
 export interface InventoryDeletionSummaryItem {
@@ -3687,6 +4062,7 @@ export interface InventoryDeletionSummaryItem {
 }
 
 /**
+ * @public
  * <p>Information about the delete operation.</p>
  */
 export interface InventoryDeletionSummary {
@@ -3707,6 +4083,9 @@ export interface InventoryDeletionSummary {
   SummaryItems?: InventoryDeletionSummaryItem[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteInventoryResult {
   /**
    * <p>Every <code>DeleteInventory</code> operation is assigned a unique ID. This option returns a
@@ -3727,6 +4106,7 @@ export interface DeleteInventoryResult {
 }
 
 /**
+ * @public
  * <p>One or more of the parameters specified for the delete operation isn't valid. Verify all
  *    parameters and try again.</p>
  */
@@ -3749,6 +4129,7 @@ export class InvalidDeleteInventoryParametersException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request isn't valid.</p>
  */
 export class InvalidInventoryRequestException extends __BaseException {
@@ -3770,6 +4151,7 @@ export class InvalidInventoryRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The delete inventory option specified isn't valid. Verify the option and try again.</p>
  */
 export class InvalidOptionException extends __BaseException {
@@ -3791,6 +4173,7 @@ export class InvalidOptionException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The parameter type name isn't valid.</p>
  */
 export class InvalidTypeNameException extends __BaseException {
@@ -3811,6 +4194,9 @@ export class InvalidTypeNameException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteMaintenanceWindowRequest {
   /**
    * <p>The ID of the maintenance window to delete.</p>
@@ -3818,6 +4204,9 @@ export interface DeleteMaintenanceWindowRequest {
   WindowId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMaintenanceWindowResult {
   /**
    * <p>The ID of the deleted maintenance window.</p>
@@ -3825,6 +4214,9 @@ export interface DeleteMaintenanceWindowResult {
   WindowId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteOpsMetadataRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of an OpsMetadata Object to delete.</p>
@@ -3832,9 +4224,13 @@ export interface DeleteOpsMetadataRequest {
   OpsMetadataArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteOpsMetadataResult {}
 
 /**
+ * @public
  * <p>The OpsMetadata object doesn't exist. </p>
  */
 export class OpsMetadataNotFoundException extends __BaseException {
@@ -3853,6 +4249,9 @@ export class OpsMetadataNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteParameterRequest {
   /**
    * <p>The name of the parameter to delete.</p>
@@ -3860,9 +4259,13 @@ export interface DeleteParameterRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteParameterResult {}
 
 /**
+ * @public
  * <p>The parameter couldn't be found. Verify the name and try again.</p>
  */
 export class ParameterNotFound extends __BaseException {
@@ -3881,6 +4284,9 @@ export class ParameterNotFound extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteParametersRequest {
   /**
    * <p>The names of the parameters to delete. After deleting a parameter, wait for at least 30
@@ -3889,6 +4295,9 @@ export interface DeleteParametersRequest {
   Names: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteParametersResult {
   /**
    * <p>The names of the deleted parameters.</p>
@@ -3901,6 +4310,9 @@ export interface DeleteParametersResult {
   InvalidParameters?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DeletePatchBaselineRequest {
   /**
    * <p>The ID of the patch baseline to delete.</p>
@@ -3908,6 +4320,9 @@ export interface DeletePatchBaselineRequest {
   BaselineId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePatchBaselineResult {
   /**
    * <p>The ID of the deleted patch baseline.</p>
@@ -3916,6 +4331,7 @@ export interface DeletePatchBaselineResult {
 }
 
 /**
+ * @public
  * <p>Error returned if an attempt is made to delete a patch baseline that is registered for a
  *    patch group.</p>
  */
@@ -3937,6 +4353,9 @@ export class ResourceInUseException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteResourceDataSyncRequest {
   /**
    * <p>The name of the configuration to delete.</p>
@@ -3949,9 +4368,13 @@ export interface DeleteResourceDataSyncRequest {
   SyncType?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteResourceDataSyncResult {}
 
 /**
+ * @public
  * <p>The specified sync name wasn't found.</p>
  */
 export class ResourceDataSyncNotFoundException extends __BaseException {
@@ -3976,6 +4399,9 @@ export class ResourceDataSyncNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteResourcePolicyRequest {
   /**
    * <p>Amazon Resource Name (ARN) of the resource to which the policies are attached.</p>
@@ -3994,9 +4420,13 @@ export interface DeleteResourcePolicyRequest {
   PolicyHash: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteResourcePolicyResponse {}
 
 /**
+ * @public
  * <p>The hash provided in the call doesn't match the stored hash. This exception is thrown when
  *    trying to update an obsolete policy version or when multiple requests to update a policy are
  *    sent.</p>
@@ -4020,6 +4450,7 @@ export class ResourcePolicyConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One or more parameters specified for the call aren't valid. Verify the parameters and their
  *    values and try again.</p>
  */
@@ -4043,6 +4474,9 @@ export class ResourcePolicyInvalidParameterException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeregisterManagedInstanceRequest {
   /**
    * <p>The ID assigned to the managed node when you registered it using the activation process.
@@ -4051,8 +4485,14 @@ export interface DeregisterManagedInstanceRequest {
   InstanceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterManagedInstanceResult {}
 
+/**
+ * @public
+ */
 export interface DeregisterPatchBaselineForPatchGroupRequest {
   /**
    * <p>The ID of the patch baseline to deregister the patch group from.</p>
@@ -4065,6 +4505,9 @@ export interface DeregisterPatchBaselineForPatchGroupRequest {
   PatchGroup: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterPatchBaselineForPatchGroupResult {
   /**
    * <p>The ID of the patch baseline the patch group was deregistered from.</p>
@@ -4077,6 +4520,9 @@ export interface DeregisterPatchBaselineForPatchGroupResult {
   PatchGroup?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterTargetFromMaintenanceWindowRequest {
   /**
    * <p>The ID of the maintenance window the target should be removed from.</p>
@@ -4096,6 +4542,9 @@ export interface DeregisterTargetFromMaintenanceWindowRequest {
   Safe?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterTargetFromMaintenanceWindowResult {
   /**
    * <p>The ID of the maintenance window the target was removed from.</p>
@@ -4109,6 +4558,7 @@ export interface DeregisterTargetFromMaintenanceWindowResult {
 }
 
 /**
+ * @public
  * <p>You specified the <code>Safe</code> option for the DeregisterTargetFromMaintenanceWindow
  *    operation, but the target is still referenced in a task.</p>
  */
@@ -4130,6 +4580,9 @@ export class TargetInUseException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeregisterTaskFromMaintenanceWindowRequest {
   /**
    * <p>The ID of the maintenance window the task should be removed from.</p>
@@ -4142,6 +4595,9 @@ export interface DeregisterTaskFromMaintenanceWindowRequest {
   WindowTaskId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterTaskFromMaintenanceWindowResult {
   /**
    * <p>The ID of the maintenance window the task was removed from.</p>
@@ -4154,13 +4610,24 @@ export interface DeregisterTaskFromMaintenanceWindowResult {
   WindowTaskId?: string;
 }
 
-export enum DescribeActivationsFilterKeys {
-  ACTIVATION_IDS = "ActivationIds",
-  DEFAULT_INSTANCE_NAME = "DefaultInstanceName",
-  IAM_ROLE = "IamRole",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DescribeActivationsFilterKeys = {
+  ACTIVATION_IDS: "ActivationIds",
+  DEFAULT_INSTANCE_NAME: "DefaultInstanceName",
+  IAM_ROLE: "IamRole",
+} as const;
 
 /**
+ * @public
+ */
+export type DescribeActivationsFilterKeys =
+  (typeof DescribeActivationsFilterKeys)[keyof typeof DescribeActivationsFilterKeys];
+
+/**
+ * @public
  * <p>Filter for the DescribeActivation API.</p>
  */
 export interface DescribeActivationsFilter {
@@ -4175,6 +4642,9 @@ export interface DescribeActivationsFilter {
   FilterValues?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeActivationsRequest {
   /**
    * <p>A filter to view information about your activations.</p>
@@ -4193,6 +4663,9 @@ export interface DescribeActivationsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeActivationsResult {
   /**
    * <p>A list of activations for your Amazon Web Services account.</p>
@@ -4207,6 +4680,7 @@ export interface DescribeActivationsResult {
 }
 
 /**
+ * @public
  * <p>The filter name isn't valid. Verify the you entered the correct name and try again.</p>
  */
 export class InvalidFilter extends __BaseException {
@@ -4228,6 +4702,7 @@ export class InvalidFilter extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified token isn't valid.</p>
  */
 export class InvalidNextToken extends __BaseException {
@@ -4248,6 +4723,9 @@ export class InvalidNextToken extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeAssociationRequest {
   /**
    * <p>The name of the SSM document.</p>
@@ -4273,6 +4751,9 @@ export interface DescribeAssociationRequest {
   AssociationVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAssociationResult {
   /**
    * <p>Information about the association.</p>
@@ -4281,6 +4762,7 @@ export interface DescribeAssociationResult {
 }
 
 /**
+ * @public
  * <p>The version you specified isn't valid. Use ListAssociationVersions to view all versions of
  *    an association according to the association ID. Or, use the <code>$LATEST</code> parameter to
  *    view the latest version of the association.</p>
@@ -4303,19 +4785,40 @@ export class InvalidAssociationVersion extends __BaseException {
   }
 }
 
-export enum AssociationExecutionFilterKey {
-  CreatedTime = "CreatedTime",
-  ExecutionId = "ExecutionId",
-  Status = "Status",
-}
-
-export enum AssociationFilterOperatorType {
-  Equal = "EQUAL",
-  GreaterThan = "GREATER_THAN",
-  LessThan = "LESS_THAN",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AssociationExecutionFilterKey = {
+  CreatedTime: "CreatedTime",
+  ExecutionId: "ExecutionId",
+  Status: "Status",
+} as const;
 
 /**
+ * @public
+ */
+export type AssociationExecutionFilterKey =
+  (typeof AssociationExecutionFilterKey)[keyof typeof AssociationExecutionFilterKey];
+
+/**
+ * @public
+ * @enum
+ */
+export const AssociationFilterOperatorType = {
+  Equal: "EQUAL",
+  GreaterThan: "GREATER_THAN",
+  LessThan: "LESS_THAN",
+} as const;
+
+/**
+ * @public
+ */
+export type AssociationFilterOperatorType =
+  (typeof AssociationFilterOperatorType)[keyof typeof AssociationFilterOperatorType];
+
+/**
+ * @public
  * <p>Filters used in the request.</p>
  */
 export interface AssociationExecutionFilter {
@@ -4335,6 +4838,9 @@ export interface AssociationExecutionFilter {
   Type: AssociationFilterOperatorType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAssociationExecutionsRequest {
   /**
    * <p>The association ID for which you want to view execution history details.</p>
@@ -4362,6 +4868,7 @@ export interface DescribeAssociationExecutionsRequest {
 }
 
 /**
+ * @public
  * <p>Includes information about the specified association.</p>
  */
 export interface AssociationExecution {
@@ -4417,6 +4924,9 @@ export interface AssociationExecution {
   TriggeredAlarms?: AlarmStateInformation[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeAssociationExecutionsResult {
   /**
    * <p>A list of the executions for the specified association ID.</p>
@@ -4431,6 +4941,7 @@ export interface DescribeAssociationExecutionsResult {
 }
 
 /**
+ * @public
  * <p>The specified execution ID doesn't exist. Verify the ID number and try again.</p>
  */
 export class AssociationExecutionDoesNotExist extends __BaseException {
@@ -4451,13 +4962,24 @@ export class AssociationExecutionDoesNotExist extends __BaseException {
   }
 }
 
-export enum AssociationExecutionTargetsFilterKey {
-  ResourceId = "ResourceId",
-  ResourceType = "ResourceType",
-  Status = "Status",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AssociationExecutionTargetsFilterKey = {
+  ResourceId: "ResourceId",
+  ResourceType: "ResourceType",
+  Status: "Status",
+} as const;
 
 /**
+ * @public
+ */
+export type AssociationExecutionTargetsFilterKey =
+  (typeof AssociationExecutionTargetsFilterKey)[keyof typeof AssociationExecutionTargetsFilterKey];
+
+/**
+ * @public
  * <p>Filters for the association execution.</p>
  */
 export interface AssociationExecutionTargetsFilter {
@@ -4472,6 +4994,9 @@ export interface AssociationExecutionTargetsFilter {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAssociationExecutionTargetsRequest {
   /**
    * <p>The association ID that includes the execution for which you want to view details.</p>
@@ -4504,6 +5029,7 @@ export interface DescribeAssociationExecutionTargetsRequest {
 }
 
 /**
+ * @public
  * <p>Information about the source where the association execution details are stored.</p>
  */
 export interface OutputSource {
@@ -4519,6 +5045,7 @@ export interface OutputSource {
 }
 
 /**
+ * @public
  * <p>Includes information about the specified association execution.</p>
  */
 export interface AssociationExecutionTarget {
@@ -4568,6 +5095,9 @@ export interface AssociationExecutionTarget {
   OutputSource?: OutputSource;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAssociationExecutionTargetsResult {
   /**
    * <p>Information about the execution.</p>
@@ -4581,22 +5111,33 @@ export interface DescribeAssociationExecutionTargetsResult {
   NextToken?: string;
 }
 
-export enum AutomationExecutionFilterKey {
-  AUTOMATION_SUBTYPE = "AutomationSubtype",
-  AUTOMATION_TYPE = "AutomationType",
-  CURRENT_ACTION = "CurrentAction",
-  DOCUMENT_NAME_PREFIX = "DocumentNamePrefix",
-  EXECUTION_ID = "ExecutionId",
-  EXECUTION_STATUS = "ExecutionStatus",
-  OPS_ITEM_ID = "OpsItemId",
-  PARENT_EXECUTION_ID = "ParentExecutionId",
-  START_TIME_AFTER = "StartTimeAfter",
-  START_TIME_BEFORE = "StartTimeBefore",
-  TAG_KEY = "TagKey",
-  TARGET_RESOURCE_GROUP = "TargetResourceGroup",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AutomationExecutionFilterKey = {
+  AUTOMATION_SUBTYPE: "AutomationSubtype",
+  AUTOMATION_TYPE: "AutomationType",
+  CURRENT_ACTION: "CurrentAction",
+  DOCUMENT_NAME_PREFIX: "DocumentNamePrefix",
+  EXECUTION_ID: "ExecutionId",
+  EXECUTION_STATUS: "ExecutionStatus",
+  OPS_ITEM_ID: "OpsItemId",
+  PARENT_EXECUTION_ID: "ParentExecutionId",
+  START_TIME_AFTER: "StartTimeAfter",
+  START_TIME_BEFORE: "StartTimeBefore",
+  TAG_KEY: "TagKey",
+  TARGET_RESOURCE_GROUP: "TargetResourceGroup",
+} as const;
 
 /**
+ * @public
+ */
+export type AutomationExecutionFilterKey =
+  (typeof AutomationExecutionFilterKey)[keyof typeof AutomationExecutionFilterKey];
+
+/**
+ * @public
  * <p>A filter used to match specific automation executions. This is used to limit the scope of
  *    Automation execution information returned.</p>
  */
@@ -4612,6 +5153,9 @@ export interface AutomationExecutionFilter {
   Values: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAutomationExecutionsRequest {
   /**
    * <p>Filters used to limit the scope of executions that are requested.</p>
@@ -4631,42 +5175,79 @@ export interface DescribeAutomationExecutionsRequest {
   NextToken?: string;
 }
 
-export enum AutomationExecutionStatus {
-  APPROVED = "Approved",
-  CANCELLED = "Cancelled",
-  CANCELLING = "Cancelling",
-  CHANGE_CALENDAR_OVERRIDE_APPROVED = "ChangeCalendarOverrideApproved",
-  CHANGE_CALENDAR_OVERRIDE_REJECTED = "ChangeCalendarOverrideRejected",
-  COMPLETED_WITH_FAILURE = "CompletedWithFailure",
-  COMPLETED_WITH_SUCCESS = "CompletedWithSuccess",
-  FAILED = "Failed",
-  INPROGRESS = "InProgress",
-  PENDING = "Pending",
-  PENDING_APPROVAL = "PendingApproval",
-  PENDING_CHANGE_CALENDAR_OVERRIDE = "PendingChangeCalendarOverride",
-  REJECTED = "Rejected",
-  RUNBOOK_INPROGRESS = "RunbookInProgress",
-  SCHEDULED = "Scheduled",
-  SUCCESS = "Success",
-  TIMEDOUT = "TimedOut",
-  WAITING = "Waiting",
-}
-
-export enum AutomationSubtype {
-  ChangeRequest = "ChangeRequest",
-}
-
-export enum AutomationType {
-  CrossAccount = "CrossAccount",
-  Local = "Local",
-}
-
-export enum ExecutionMode {
-  Auto = "Auto",
-  Interactive = "Interactive",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AutomationExecutionStatus = {
+  APPROVED: "Approved",
+  CANCELLED: "Cancelled",
+  CANCELLING: "Cancelling",
+  CHANGE_CALENDAR_OVERRIDE_APPROVED: "ChangeCalendarOverrideApproved",
+  CHANGE_CALENDAR_OVERRIDE_REJECTED: "ChangeCalendarOverrideRejected",
+  COMPLETED_WITH_FAILURE: "CompletedWithFailure",
+  COMPLETED_WITH_SUCCESS: "CompletedWithSuccess",
+  FAILED: "Failed",
+  INPROGRESS: "InProgress",
+  PENDING: "Pending",
+  PENDING_APPROVAL: "PendingApproval",
+  PENDING_CHANGE_CALENDAR_OVERRIDE: "PendingChangeCalendarOverride",
+  REJECTED: "Rejected",
+  RUNBOOK_INPROGRESS: "RunbookInProgress",
+  SCHEDULED: "Scheduled",
+  SUCCESS: "Success",
+  TIMEDOUT: "TimedOut",
+  WAITING: "Waiting",
+} as const;
 
 /**
+ * @public
+ */
+export type AutomationExecutionStatus = (typeof AutomationExecutionStatus)[keyof typeof AutomationExecutionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const AutomationSubtype = {
+  ChangeRequest: "ChangeRequest",
+} as const;
+
+/**
+ * @public
+ */
+export type AutomationSubtype = (typeof AutomationSubtype)[keyof typeof AutomationSubtype];
+
+/**
+ * @public
+ * @enum
+ */
+export const AutomationType = {
+  CrossAccount: "CrossAccount",
+  Local: "Local",
+} as const;
+
+/**
+ * @public
+ */
+export type AutomationType = (typeof AutomationType)[keyof typeof AutomationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExecutionMode = {
+  Auto: "Auto",
+  Interactive: "Interactive",
+} as const;
+
+/**
+ * @public
+ */
+export type ExecutionMode = (typeof ExecutionMode)[keyof typeof ExecutionMode];
+
+/**
+ * @public
  * <p>Information about targets that resolved during the Automation execution.</p>
  */
 export interface ResolvedTargets {
@@ -4683,6 +5264,7 @@ export interface ResolvedTargets {
 }
 
 /**
+ * @public
  * <p>Information about an Automation runbook used in a runbook workflow in Change Manager.</p>
  *          <note>
  *             <p>The Automation runbooks specified for the runbook workflow can't run until all required
@@ -4746,6 +5328,7 @@ export interface Runbook {
 }
 
 /**
+ * @public
  * <p>Details about a specific Automation execution.</p>
  */
 export interface AutomationExecutionMetadata {
@@ -4911,6 +5494,9 @@ export interface AutomationExecutionMetadata {
   ChangeRequestName?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAutomationExecutionsResult {
   /**
    * <p>The list of details about each automation execution which has occurred which matches the
@@ -4926,6 +5512,7 @@ export interface DescribeAutomationExecutionsResult {
 }
 
 /**
+ * @public
  * <p>The specified key isn't valid.</p>
  */
 export class InvalidFilterKey extends __BaseException {
@@ -4945,6 +5532,7 @@ export class InvalidFilterKey extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The filter value isn't valid. Verify the value and try again.</p>
  */
 export class InvalidFilterValue extends __BaseException {
@@ -4966,6 +5554,7 @@ export class InvalidFilterValue extends __BaseException {
 }
 
 /**
+ * @public
  * <p>There is no automation execution information for the requested automation execution
  *    ID.</p>
  */
@@ -4987,16 +5576,26 @@ export class AutomationExecutionNotFoundException extends __BaseException {
   }
 }
 
-export enum StepExecutionFilterKey {
-  ACTION = "Action",
-  START_TIME_AFTER = "StartTimeAfter",
-  START_TIME_BEFORE = "StartTimeBefore",
-  STEP_EXECUTION_ID = "StepExecutionId",
-  STEP_EXECUTION_STATUS = "StepExecutionStatus",
-  STEP_NAME = "StepName",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StepExecutionFilterKey = {
+  ACTION: "Action",
+  START_TIME_AFTER: "StartTimeAfter",
+  START_TIME_BEFORE: "StartTimeBefore",
+  STEP_EXECUTION_ID: "StepExecutionId",
+  STEP_EXECUTION_STATUS: "StepExecutionStatus",
+  STEP_NAME: "StepName",
+} as const;
 
 /**
+ * @public
+ */
+export type StepExecutionFilterKey = (typeof StepExecutionFilterKey)[keyof typeof StepExecutionFilterKey];
+
+/**
+ * @public
  * <p>A filter to limit the amount of step execution information returned by the call.</p>
  */
 export interface StepExecutionFilter {
@@ -5012,6 +5611,9 @@ export interface StepExecutionFilter {
   Values: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAutomationStepExecutionsRequest {
   /**
    * <p>The Automation execution ID for which you want step execution descriptions.</p>
@@ -5043,6 +5645,7 @@ export interface DescribeAutomationStepExecutionsRequest {
 }
 
 /**
+ * @public
  * <p>Information about an Automation failure.</p>
  */
 export interface FailureDetails {
@@ -5065,6 +5668,7 @@ export interface FailureDetails {
 }
 
 /**
+ * @public
  * <p>Detailed information about an the execution state of an Automation step.</p>
  */
 export interface StepExecution {
@@ -5193,6 +5797,9 @@ export interface StepExecution {
   TriggeredAlarms?: AlarmStateInformation[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeAutomationStepExecutionsResult {
   /**
    * <p>A list of details about the current state of all steps that make up an execution.</p>
@@ -5207,6 +5814,7 @@ export interface DescribeAutomationStepExecutionsResult {
 }
 
 /**
+ * @public
  * <p>Defines a filter used in Patch Manager APIs. Supported filter keys depend on the API
  *    operation that includes the filter. Patch Manager API operations that use
  *     <code>PatchOrchestratorFilter</code> include the following:</p>
@@ -5245,6 +5853,9 @@ export interface PatchOrchestratorFilter {
   Values?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeAvailablePatchesRequest {
   /**
    * <p>Each element in the array is a structure containing a key-value pair.</p>
@@ -5445,6 +6056,7 @@ export interface DescribeAvailablePatchesRequest {
 }
 
 /**
+ * @public
  * <p>Represents metadata about a patch.</p>
  */
 export interface Patch {
@@ -5586,6 +6198,9 @@ export interface Patch {
   Repository?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAvailablePatchesResult {
   /**
    * <p>An array of patches. Each entry in the array is a patch structure.</p>
@@ -5599,6 +6214,9 @@ export interface DescribeAvailablePatchesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDocumentRequest {
   /**
    * <p>The name of the SSM document.</p>
@@ -5619,6 +6237,9 @@ export interface DescribeDocumentRequest {
   VersionName?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDocumentResult {
   /**
    * <p>Information about the SSM document.</p>
@@ -5626,10 +6247,22 @@ export interface DescribeDocumentResult {
   Document?: DocumentDescription;
 }
 
-export enum DocumentPermissionType {
-  SHARE = "Share",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DocumentPermissionType = {
+  SHARE: "Share",
+} as const;
 
+/**
+ * @public
+ */
+export type DocumentPermissionType = (typeof DocumentPermissionType)[keyof typeof DocumentPermissionType];
+
+/**
+ * @public
+ */
 export interface DescribeDocumentPermissionRequest {
   /**
    * <p>The name of the document for which you are the owner.</p>
@@ -5655,6 +6288,9 @@ export interface DescribeDocumentPermissionRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDocumentPermissionResponse {
   /**
    * <p>The account IDs that have permission to use this document. The ID can be either an
@@ -5676,6 +6312,7 @@ export interface DescribeDocumentPermissionResponse {
 }
 
 /**
+ * @public
  * <p>The permission type isn't supported. <i>Share</i> is the only supported
  *    permission type.</p>
  */
@@ -5697,6 +6334,9 @@ export class InvalidPermissionType extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeEffectiveInstanceAssociationsRequest {
   /**
    * <p>The managed node ID for which you want to view all associations.</p>
@@ -5717,6 +6357,7 @@ export interface DescribeEffectiveInstanceAssociationsRequest {
 }
 
 /**
+ * @public
  * <p>One or more association documents on the managed node. </p>
  */
 export interface InstanceAssociation {
@@ -5741,6 +6382,9 @@ export interface InstanceAssociation {
   AssociationVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEffectiveInstanceAssociationsResult {
   /**
    * <p>The associations for the requested managed node.</p>
@@ -5754,6 +6398,9 @@ export interface DescribeEffectiveInstanceAssociationsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEffectivePatchesForPatchBaselineRequest {
   /**
    * <p>The ID of the patch baseline to retrieve the effective patches for.</p>
@@ -5772,14 +6419,24 @@ export interface DescribeEffectivePatchesForPatchBaselineRequest {
   NextToken?: string;
 }
 
-export enum PatchDeploymentStatus {
-  Approved = "APPROVED",
-  ExplicitApproved = "EXPLICIT_APPROVED",
-  ExplicitRejected = "EXPLICIT_REJECTED",
-  PendingApproval = "PENDING_APPROVAL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PatchDeploymentStatus = {
+  Approved: "APPROVED",
+  ExplicitApproved: "EXPLICIT_APPROVED",
+  ExplicitRejected: "EXPLICIT_REJECTED",
+  PendingApproval: "PENDING_APPROVAL",
+} as const;
 
 /**
+ * @public
+ */
+export type PatchDeploymentStatus = (typeof PatchDeploymentStatus)[keyof typeof PatchDeploymentStatus];
+
+/**
+ * @public
  * <p>Information about the approval status of a patch.</p>
  */
 export interface PatchStatus {
@@ -5801,6 +6458,7 @@ export interface PatchStatus {
 }
 
 /**
+ * @public
  * <p>The <code>EffectivePatch</code> structure defines metadata about a patch along with the
  *    approval state of the patch in a particular patch baseline. The approval state includes
  *    information about whether the patch is currently approved, due to be approved by a rule,
@@ -5822,6 +6480,9 @@ export interface EffectivePatch {
   PatchStatus?: PatchStatus;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEffectivePatchesForPatchBaselineResult {
   /**
    * <p>An array of patches and patch status.</p>
@@ -5836,6 +6497,7 @@ export interface DescribeEffectivePatchesForPatchBaselineResult {
 }
 
 /**
+ * @public
  * <p>The operating systems you specified isn't supported, or the operation isn't supported for
  *    the operating system.</p>
  */
@@ -5857,6 +6519,9 @@ export class UnsupportedOperatingSystem extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeInstanceAssociationsStatusRequest {
   /**
    * <p>The managed node IDs for which you want association status information.</p>
@@ -5877,6 +6542,7 @@ export interface DescribeInstanceAssociationsStatusRequest {
 }
 
 /**
+ * @public
  * <p>A URL for the Amazon Web Services Systems Manager (Systems Manager) bucket where you want to store the
  *    results of this request.</p>
  */
@@ -5888,6 +6554,7 @@ export interface S3OutputUrl {
 }
 
 /**
+ * @public
  * <p>The URL of S3 bucket where you want to store the results of this request.</p>
  */
 export interface InstanceAssociationOutputUrl {
@@ -5898,6 +6565,7 @@ export interface InstanceAssociationOutputUrl {
 }
 
 /**
+ * @public
  * <p>Status information about the association.</p>
  */
 export interface InstanceAssociationStatusInfo {
@@ -5962,6 +6630,9 @@ export interface InstanceAssociationStatusInfo {
   AssociationName?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInstanceAssociationsStatusResult {
   /**
    * <p>Status information about the association.</p>
@@ -5976,6 +6647,7 @@ export interface DescribeInstanceAssociationsStatusResult {
 }
 
 /**
+ * @public
  * <p>The filters to describe or get information about your managed nodes.</p>
  */
 export interface InstanceInformationStringFilter {
@@ -5983,7 +6655,7 @@ export interface InstanceInformationStringFilter {
    * <p>The filter key name to describe your managed nodes.</p>
    *          <p>Valid filter key values: ActivationIds | AgentVersion | AssociationStatus | IamRole |
    *    InstanceIds | PingStatus | PlatformTypes | ResourceType | SourceIds | SourceTypes | "tag-key" |
-   *     "tag:<code>{keyname}</code>
+   *     "tag:<code>\{keyname\}</code>
    *          </p>
    *          <ul>
    *             <li>
@@ -6019,18 +6691,29 @@ export interface InstanceInformationStringFilter {
   Values: string[] | undefined;
 }
 
-export enum InstanceInformationFilterKey {
-  ACTIVATION_IDS = "ActivationIds",
-  AGENT_VERSION = "AgentVersion",
-  ASSOCIATION_STATUS = "AssociationStatus",
-  IAM_ROLE = "IamRole",
-  INSTANCE_IDS = "InstanceIds",
-  PING_STATUS = "PingStatus",
-  PLATFORM_TYPES = "PlatformTypes",
-  RESOURCE_TYPE = "ResourceType",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InstanceInformationFilterKey = {
+  ACTIVATION_IDS: "ActivationIds",
+  AGENT_VERSION: "AgentVersion",
+  ASSOCIATION_STATUS: "AssociationStatus",
+  IAM_ROLE: "IamRole",
+  INSTANCE_IDS: "InstanceIds",
+  PING_STATUS: "PingStatus",
+  PLATFORM_TYPES: "PlatformTypes",
+  RESOURCE_TYPE: "ResourceType",
+} as const;
 
 /**
+ * @public
+ */
+export type InstanceInformationFilterKey =
+  (typeof InstanceInformationFilterKey)[keyof typeof InstanceInformationFilterKey];
+
+/**
+ * @public
  * <p>Describes a filter for a specific list of managed nodes. You can filter node information by
  *    using tags. You specify tags by using a key-value mapping.</p>
  *          <p>Use this operation instead of the <a>DescribeInstanceInformationRequest$InstanceInformationFilterList</a> method. The
@@ -6049,6 +6732,9 @@ export interface InstanceInformationFilter {
   valueSet: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInstanceInformationRequest {
   /**
    * <p>This is a legacy method. We recommend that you don't use this method. Instead, use the
@@ -6082,6 +6768,7 @@ export interface DescribeInstanceInformationRequest {
 }
 
 /**
+ * @public
  * <p>Status information about the aggregated associations.</p>
  */
 export interface InstanceAggregatedAssociationOverview {
@@ -6096,25 +6783,53 @@ export interface InstanceAggregatedAssociationOverview {
   InstanceAssociationStatusAggregatedCount?: Record<string, number>;
 }
 
-export enum PingStatus {
-  CONNECTION_LOST = "ConnectionLost",
-  INACTIVE = "Inactive",
-  ONLINE = "Online",
-}
-
-export enum ResourceType {
-  DOCUMENT = "Document",
-  EC2_INSTANCE = "EC2Instance",
-  MANAGED_INSTANCE = "ManagedInstance",
-}
-
-export enum SourceType {
-  AWS_EC2_INSTANCE = "AWS::EC2::Instance",
-  AWS_IOT_THING = "AWS::IoT::Thing",
-  AWS_SSM_MANAGEDINSTANCE = "AWS::SSM::ManagedInstance",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PingStatus = {
+  CONNECTION_LOST: "ConnectionLost",
+  INACTIVE: "Inactive",
+  ONLINE: "Online",
+} as const;
 
 /**
+ * @public
+ */
+export type PingStatus = (typeof PingStatus)[keyof typeof PingStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceType = {
+  DOCUMENT: "Document",
+  EC2_INSTANCE: "EC2Instance",
+  MANAGED_INSTANCE: "ManagedInstance",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SourceType = {
+  AWS_EC2_INSTANCE: "AWS::EC2::Instance",
+  AWS_IOT_THING: "AWS::IoT::Thing",
+  AWS_SSM_MANAGEDINSTANCE: "AWS::SSM::ManagedInstance",
+} as const;
+
+/**
+ * @public
+ */
+export type SourceType = (typeof SourceType)[keyof typeof SourceType];
+
+/**
+ * @public
  * <p>Describes a filter for a specific list of managed nodes. </p>
  */
 export interface InstanceInformation {
@@ -6245,6 +6960,9 @@ export interface InstanceInformation {
   SourceType?: SourceType | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInstanceInformationResult {
   /**
    * <p>The managed node information list.</p>
@@ -6259,6 +6977,7 @@ export interface DescribeInstanceInformationResult {
 }
 
 /**
+ * @public
  * <p>The specified filter value isn't valid.</p>
  */
 export class InvalidInstanceInformationFilterValue extends __BaseException {
@@ -6277,6 +6996,9 @@ export class InvalidInstanceInformationFilterValue extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeInstancePatchesRequest {
   /**
    * <p>The ID of the managed node whose patch state information should be retrieved.</p>
@@ -6340,17 +7062,27 @@ export interface DescribeInstancePatchesRequest {
   MaxResults?: number;
 }
 
-export enum PatchComplianceDataState {
-  Failed = "FAILED",
-  Installed = "INSTALLED",
-  InstalledOther = "INSTALLED_OTHER",
-  InstalledPendingReboot = "INSTALLED_PENDING_REBOOT",
-  InstalledRejected = "INSTALLED_REJECTED",
-  Missing = "MISSING",
-  NotApplicable = "NOT_APPLICABLE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PatchComplianceDataState = {
+  Failed: "FAILED",
+  Installed: "INSTALLED",
+  InstalledOther: "INSTALLED_OTHER",
+  InstalledPendingReboot: "INSTALLED_PENDING_REBOOT",
+  InstalledRejected: "INSTALLED_REJECTED",
+  Missing: "MISSING",
+  NotApplicable: "NOT_APPLICABLE",
+} as const;
 
 /**
+ * @public
+ */
+export type PatchComplianceDataState = (typeof PatchComplianceDataState)[keyof typeof PatchComplianceDataState];
+
+/**
+ * @public
  * <p>Information about the state of a patch on a particular managed node as it relates to the
  *    patch baseline used to patch the node.</p>
  */
@@ -6396,6 +7128,9 @@ export interface PatchComplianceData {
   CVEIds?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInstancePatchesResult {
   /**
    * <p>Each entry in the array is a structure containing:</p>
@@ -6432,6 +7167,9 @@ export interface DescribeInstancePatchesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInstancePatchStatesRequest {
   /**
    * <p>The ID of the managed node for which patch state information should be retrieved.</p>
@@ -6450,17 +7188,36 @@ export interface DescribeInstancePatchStatesRequest {
   MaxResults?: number;
 }
 
-export enum PatchOperationType {
-  INSTALL = "Install",
-  SCAN = "Scan",
-}
-
-export enum RebootOption {
-  NO_REBOOT = "NoReboot",
-  REBOOT_IF_NEEDED = "RebootIfNeeded",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PatchOperationType = {
+  INSTALL: "Install",
+  SCAN: "Scan",
+} as const;
 
 /**
+ * @public
+ */
+export type PatchOperationType = (typeof PatchOperationType)[keyof typeof PatchOperationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RebootOption = {
+  NO_REBOOT: "NoReboot",
+  REBOOT_IF_NEEDED: "RebootIfNeeded",
+} as const;
+
+/**
+ * @public
+ */
+export type RebootOption = (typeof RebootOption)[keyof typeof RebootOption];
+
+/**
+ * @public
  * <p>Defines the high-level patch compliance state for a managed node, providing information
  *    about the number of installed, missing, not applicable, and failed patches along with metadata
  *    about the operation when this information was gathered for the managed node.</p>
@@ -6640,6 +7397,9 @@ export interface InstancePatchState {
   OtherNonCompliantCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInstancePatchStatesResult {
   /**
    * <p>The high-level patch state for the requested managed nodes.</p>
@@ -6653,14 +7413,25 @@ export interface DescribeInstancePatchStatesResult {
   NextToken?: string;
 }
 
-export enum InstancePatchStateOperatorType {
-  EQUAL = "Equal",
-  GREATER_THAN = "GreaterThan",
-  LESS_THAN = "LessThan",
-  NOT_EQUAL = "NotEqual",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InstancePatchStateOperatorType = {
+  EQUAL: "Equal",
+  GREATER_THAN: "GreaterThan",
+  LESS_THAN: "LessThan",
+  NOT_EQUAL: "NotEqual",
+} as const;
 
 /**
+ * @public
+ */
+export type InstancePatchStateOperatorType =
+  (typeof InstancePatchStateOperatorType)[keyof typeof InstancePatchStateOperatorType];
+
+/**
+ * @public
  * <p>Defines a filter used in <a>DescribeInstancePatchStatesForPatchGroup</a> to scope
  *    down the information returned by the API.</p>
  *          <p>
@@ -6741,6 +7512,9 @@ export interface InstancePatchStateFilter {
   Type: InstancePatchStateOperatorType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInstancePatchStatesForPatchGroupRequest {
   /**
    * <p>The name of the patch group for which the patch state information should be
@@ -6776,6 +7550,9 @@ export interface DescribeInstancePatchStatesForPatchGroupRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInstancePatchStatesForPatchGroupResult {
   /**
    * <p>The high-level patch state for the requested managed nodes. </p>
@@ -6789,6 +7566,9 @@ export interface DescribeInstancePatchStatesForPatchGroupResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInventoryDeletionsRequest {
   /**
    * <p>Specify the delete inventory ID for which you want information. This ID was returned by the
@@ -6808,12 +7588,22 @@ export interface DescribeInventoryDeletionsRequest {
   MaxResults?: number;
 }
 
-export enum InventoryDeletionStatus {
-  COMPLETE = "Complete",
-  IN_PROGRESS = "InProgress",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InventoryDeletionStatus = {
+  COMPLETE: "Complete",
+  IN_PROGRESS: "InProgress",
+} as const;
 
 /**
+ * @public
+ */
+export type InventoryDeletionStatus = (typeof InventoryDeletionStatus)[keyof typeof InventoryDeletionStatus];
+
+/**
+ * @public
  * <p>Status information returned by the <code>DeleteInventory</code> operation.</p>
  */
 export interface InventoryDeletionStatusItem {
@@ -6854,6 +7644,9 @@ export interface InventoryDeletionStatusItem {
   LastStatusUpdateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInventoryDeletionsResult {
   /**
    * <p>A list of status items for deleted inventory.</p>
@@ -6868,6 +7661,7 @@ export interface DescribeInventoryDeletionsResult {
 }
 
 /**
+ * @public
  * <p>The ID specified for the delete operation doesn't exist or isn't valid. Verify the ID and
  *    try again.</p>
  */
@@ -6890,6 +7684,7 @@ export class InvalidDeletionIdException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Filter used in the request. Supported filter keys depend on the API operation that includes
  *    the filter. API operations that use <code>MaintenanceWindowFilter></code> include the
  *    following:</p>
@@ -6938,6 +7733,9 @@ export interface MaintenanceWindowFilter {
   Values?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeMaintenanceWindowExecutionsRequest {
   /**
    * <p>The ID of the maintenance window whose executions should be retrieved.</p>
@@ -6973,18 +7771,29 @@ export interface DescribeMaintenanceWindowExecutionsRequest {
   NextToken?: string;
 }
 
-export enum MaintenanceWindowExecutionStatus {
-  Cancelled = "CANCELLED",
-  Cancelling = "CANCELLING",
-  Failed = "FAILED",
-  InProgress = "IN_PROGRESS",
-  Pending = "PENDING",
-  SkippedOverlapping = "SKIPPED_OVERLAPPING",
-  Success = "SUCCESS",
-  TimedOut = "TIMED_OUT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MaintenanceWindowExecutionStatus = {
+  Cancelled: "CANCELLED",
+  Cancelling: "CANCELLING",
+  Failed: "FAILED",
+  InProgress: "IN_PROGRESS",
+  Pending: "PENDING",
+  SkippedOverlapping: "SKIPPED_OVERLAPPING",
+  Success: "SUCCESS",
+  TimedOut: "TIMED_OUT",
+} as const;
 
 /**
+ * @public
+ */
+export type MaintenanceWindowExecutionStatus =
+  (typeof MaintenanceWindowExecutionStatus)[keyof typeof MaintenanceWindowExecutionStatus];
+
+/**
+ * @public
  * <p>Describes the information about an execution of a maintenance window. </p>
  */
 export interface MaintenanceWindowExecution {
@@ -7019,6 +7828,9 @@ export interface MaintenanceWindowExecution {
   EndTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMaintenanceWindowExecutionsResult {
   /**
    * <p>Information about the maintenance window executions.</p>
@@ -7032,6 +7844,9 @@ export interface DescribeMaintenanceWindowExecutionsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMaintenanceWindowExecutionTaskInvocationsRequest {
   /**
    * <p>The ID of the maintenance window execution the task is part of.</p>
@@ -7064,14 +7879,24 @@ export interface DescribeMaintenanceWindowExecutionTaskInvocationsRequest {
   NextToken?: string;
 }
 
-export enum MaintenanceWindowTaskType {
-  Automation = "AUTOMATION",
-  Lambda = "LAMBDA",
-  RunCommand = "RUN_COMMAND",
-  StepFunctions = "STEP_FUNCTIONS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MaintenanceWindowTaskType = {
+  Automation: "AUTOMATION",
+  Lambda: "LAMBDA",
+  RunCommand: "RUN_COMMAND",
+  StepFunctions: "STEP_FUNCTIONS",
+} as const;
 
 /**
+ * @public
+ */
+export type MaintenanceWindowTaskType = (typeof MaintenanceWindowTaskType)[keyof typeof MaintenanceWindowTaskType];
+
+/**
+ * @public
  * <p>Describes the information about a task invocation for a particular target as part of a task
  *    execution performed as part of a maintenance window execution.</p>
  */
@@ -7142,6 +7967,9 @@ export interface MaintenanceWindowExecutionTaskInvocationIdentity {
   WindowTargetId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMaintenanceWindowExecutionTaskInvocationsResult {
   /**
    * <p>Information about the task invocation results per invocation.</p>
@@ -7155,6 +7983,9 @@ export interface DescribeMaintenanceWindowExecutionTaskInvocationsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMaintenanceWindowExecutionTasksRequest {
   /**
    * <p>The ID of the maintenance window execution whose task executions should be retrieved.</p>
@@ -7183,6 +8014,7 @@ export interface DescribeMaintenanceWindowExecutionTasksRequest {
 }
 
 /**
+ * @public
  * <p>Information about a task execution performed as part of a maintenance window
  *    execution.</p>
  */
@@ -7239,6 +8071,9 @@ export interface MaintenanceWindowExecutionTaskIdentity {
   TriggeredAlarms?: AlarmStateInformation[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeMaintenanceWindowExecutionTasksResult {
   /**
    * <p>Information about the task executions.</p>
@@ -7252,6 +8087,9 @@ export interface DescribeMaintenanceWindowExecutionTasksResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMaintenanceWindowsRequest {
   /**
    * <p>Optional filters used to narrow down the scope of the returned maintenance windows.
@@ -7274,6 +8112,7 @@ export interface DescribeMaintenanceWindowsRequest {
 }
 
 /**
+ * @public
  * <p>Information about the maintenance window.</p>
  */
 export interface MaintenanceWindowIdentity {
@@ -7344,6 +8183,9 @@ export interface MaintenanceWindowIdentity {
   NextExecutionTime?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMaintenanceWindowsResult {
   /**
    * <p>Information about the maintenance windows.</p>
@@ -7357,11 +8199,24 @@ export interface DescribeMaintenanceWindowsResult {
   NextToken?: string;
 }
 
-export enum MaintenanceWindowResourceType {
-  Instance = "INSTANCE",
-  ResourceGroup = "RESOURCE_GROUP",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MaintenanceWindowResourceType = {
+  Instance: "INSTANCE",
+  ResourceGroup: "RESOURCE_GROUP",
+} as const;
 
+/**
+ * @public
+ */
+export type MaintenanceWindowResourceType =
+  (typeof MaintenanceWindowResourceType)[keyof typeof MaintenanceWindowResourceType];
+
+/**
+ * @public
+ */
 export interface DescribeMaintenanceWindowScheduleRequest {
   /**
    * <p>The ID of the maintenance window to retrieve information about.</p>
@@ -7399,6 +8254,7 @@ export interface DescribeMaintenanceWindowScheduleRequest {
 }
 
 /**
+ * @public
  * <p>Information about a scheduled execution for a maintenance window.</p>
  */
 export interface ScheduledWindowExecution {
@@ -7419,6 +8275,9 @@ export interface ScheduledWindowExecution {
   ExecutionTime?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMaintenanceWindowScheduleResult {
   /**
    * <p>Information about maintenance window executions scheduled for the specified time
@@ -7432,6 +8291,9 @@ export interface DescribeMaintenanceWindowScheduleResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMaintenanceWindowsForTargetRequest {
   /**
    * <p>The managed node ID or key-value pair to retrieve information about.</p>
@@ -7458,6 +8320,7 @@ export interface DescribeMaintenanceWindowsForTargetRequest {
 }
 
 /**
+ * @public
  * <p>The maintenance window to which the specified target belongs.</p>
  */
 export interface MaintenanceWindowIdentityForTarget {
@@ -7472,6 +8335,9 @@ export interface MaintenanceWindowIdentityForTarget {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMaintenanceWindowsForTargetResult {
   /**
    * <p>Information about the maintenance window targets and tasks a managed node is associated
@@ -7485,6 +8351,9 @@ export interface DescribeMaintenanceWindowsForTargetResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMaintenanceWindowTargetsRequest {
   /**
    * <p>The ID of the maintenance window whose targets should be retrieved.</p>
@@ -7512,6 +8381,7 @@ export interface DescribeMaintenanceWindowTargetsRequest {
 }
 
 /**
+ * @public
  * <p>The target registered with the maintenance window.</p>
  */
 export interface MaintenanceWindowTarget {
@@ -7559,6 +8429,9 @@ export interface MaintenanceWindowTarget {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMaintenanceWindowTargetsResult {
   /**
    * <p>Information about the targets in the maintenance window.</p>
@@ -7572,6 +8445,9 @@ export interface DescribeMaintenanceWindowTargetsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMaintenanceWindowTasksRequest {
   /**
    * <p>The ID of the maintenance window whose tasks should be retrieved.</p>
@@ -7598,12 +8474,23 @@ export interface DescribeMaintenanceWindowTasksRequest {
   NextToken?: string;
 }
 
-export enum MaintenanceWindowTaskCutoffBehavior {
-  CancelTask = "CANCEL_TASK",
-  ContinueTask = "CONTINUE_TASK",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MaintenanceWindowTaskCutoffBehavior = {
+  CancelTask: "CANCEL_TASK",
+  ContinueTask: "CONTINUE_TASK",
+} as const;
 
 /**
+ * @public
+ */
+export type MaintenanceWindowTaskCutoffBehavior =
+  (typeof MaintenanceWindowTaskCutoffBehavior)[keyof typeof MaintenanceWindowTaskCutoffBehavior];
+
+/**
+ * @public
  * <p>Information about an Amazon Simple Storage Service (Amazon S3) bucket to write managed
  *    node-level logs to.</p>
  *          <note>
@@ -7632,6 +8519,7 @@ export interface LoggingInfo {
 }
 
 /**
+ * @public
  * <p>Defines the values for a task parameter.</p>
  */
 export interface MaintenanceWindowTaskParameterValueExpression {
@@ -7643,6 +8531,7 @@ export interface MaintenanceWindowTaskParameterValueExpression {
 }
 
 /**
+ * @public
  * <p>Information about a task defined for a maintenance window.</p>
  */
 export interface MaintenanceWindowTask {
@@ -7760,6 +8649,9 @@ export interface MaintenanceWindowTask {
   AlarmConfiguration?: AlarmConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMaintenanceWindowTasksResult {
   /**
    * <p>Information about the tasks in the maintenance window.</p>
@@ -7773,196 +8665,61 @@ export interface DescribeMaintenanceWindowTasksResult {
   NextToken?: string;
 }
 
-export enum OpsItemFilterKey {
-  ACCOUNT_ID = "AccountId",
-  ACTUAL_END_TIME = "ActualEndTime",
-  ACTUAL_START_TIME = "ActualStartTime",
-  AUTOMATION_ID = "AutomationId",
-  CATEGORY = "Category",
-  CHANGE_REQUEST_APPROVER_ARN = "ChangeRequestByApproverArn",
-  CHANGE_REQUEST_APPROVER_NAME = "ChangeRequestByApproverName",
-  CHANGE_REQUEST_REQUESTER_ARN = "ChangeRequestByRequesterArn",
-  CHANGE_REQUEST_REQUESTER_NAME = "ChangeRequestByRequesterName",
-  CHANGE_REQUEST_TARGETS_RESOURCE_GROUP = "ChangeRequestByTargetsResourceGroup",
-  CHANGE_REQUEST_TEMPLATE = "ChangeRequestByTemplate",
-  CREATED_BY = "CreatedBy",
-  CREATED_TIME = "CreatedTime",
-  INSIGHT_TYPE = "InsightByType",
-  LAST_MODIFIED_TIME = "LastModifiedTime",
-  OPERATIONAL_DATA = "OperationalData",
-  OPERATIONAL_DATA_KEY = "OperationalDataKey",
-  OPERATIONAL_DATA_VALUE = "OperationalDataValue",
-  OPSITEM_ID = "OpsItemId",
-  OPSITEM_TYPE = "OpsItemType",
-  PLANNED_END_TIME = "PlannedEndTime",
-  PLANNED_START_TIME = "PlannedStartTime",
-  PRIORITY = "Priority",
-  RESOURCE_ID = "ResourceId",
-  SEVERITY = "Severity",
-  SOURCE = "Source",
-  STATUS = "Status",
-  TITLE = "Title",
-}
-
-export enum OpsItemFilterOperator {
-  CONTAINS = "Contains",
-  EQUAL = "Equal",
-  GREATER_THAN = "GreaterThan",
-  LESS_THAN = "LessThan",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OpsItemFilterKey = {
+  ACCOUNT_ID: "AccountId",
+  ACTUAL_END_TIME: "ActualEndTime",
+  ACTUAL_START_TIME: "ActualStartTime",
+  AUTOMATION_ID: "AutomationId",
+  CATEGORY: "Category",
+  CHANGE_REQUEST_APPROVER_ARN: "ChangeRequestByApproverArn",
+  CHANGE_REQUEST_APPROVER_NAME: "ChangeRequestByApproverName",
+  CHANGE_REQUEST_REQUESTER_ARN: "ChangeRequestByRequesterArn",
+  CHANGE_REQUEST_REQUESTER_NAME: "ChangeRequestByRequesterName",
+  CHANGE_REQUEST_TARGETS_RESOURCE_GROUP: "ChangeRequestByTargetsResourceGroup",
+  CHANGE_REQUEST_TEMPLATE: "ChangeRequestByTemplate",
+  CREATED_BY: "CreatedBy",
+  CREATED_TIME: "CreatedTime",
+  INSIGHT_TYPE: "InsightByType",
+  LAST_MODIFIED_TIME: "LastModifiedTime",
+  OPERATIONAL_DATA: "OperationalData",
+  OPERATIONAL_DATA_KEY: "OperationalDataKey",
+  OPERATIONAL_DATA_VALUE: "OperationalDataValue",
+  OPSITEM_ID: "OpsItemId",
+  OPSITEM_TYPE: "OpsItemType",
+  PLANNED_END_TIME: "PlannedEndTime",
+  PLANNED_START_TIME: "PlannedStartTime",
+  PRIORITY: "Priority",
+  RESOURCE_ID: "ResourceId",
+  SEVERITY: "Severity",
+  SOURCE: "Source",
+  STATUS: "Status",
+  TITLE: "Title",
+} as const;
 
 /**
- * @internal
+ * @public
  */
-export const AccountSharingInfoFilterSensitiveLog = (obj: AccountSharingInfo): any => ({
-  ...obj,
-});
+export type OpsItemFilterKey = (typeof OpsItemFilterKey)[keyof typeof OpsItemFilterKey];
 
 /**
- * @internal
+ * @public
+ * @enum
  */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
+export const OpsItemFilterOperator = {
+  CONTAINS: "Contains",
+  EQUAL: "Equal",
+  GREATER_THAN: "GreaterThan",
+  LESS_THAN: "LessThan",
+} as const;
 
 /**
- * @internal
+ * @public
  */
-export const ActivationFilterSensitiveLog = (obj: Activation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddTagsToResourceRequestFilterSensitiveLog = (obj: AddTagsToResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddTagsToResourceResultFilterSensitiveLog = (obj: AddTagsToResourceResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AlarmFilterSensitiveLog = (obj: Alarm): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AlarmConfigurationFilterSensitiveLog = (obj: AlarmConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AlarmStateInformationFilterSensitiveLog = (obj: AlarmStateInformation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateOpsItemRelatedItemRequestFilterSensitiveLog = (obj: AssociateOpsItemRelatedItemRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateOpsItemRelatedItemResponseFilterSensitiveLog = (
-  obj: AssociateOpsItemRelatedItemResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelCommandRequestFilterSensitiveLog = (obj: CancelCommandRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelCommandResultFilterSensitiveLog = (obj: CancelCommandResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelMaintenanceWindowExecutionRequestFilterSensitiveLog = (
-  obj: CancelMaintenanceWindowExecutionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelMaintenanceWindowExecutionResultFilterSensitiveLog = (
-  obj: CancelMaintenanceWindowExecutionResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegistrationMetadataItemFilterSensitiveLog = (obj: RegistrationMetadataItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateActivationRequestFilterSensitiveLog = (obj: CreateActivationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateActivationResultFilterSensitiveLog = (obj: CreateActivationResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3OutputLocationFilterSensitiveLog = (obj: S3OutputLocation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceAssociationOutputLocationFilterSensitiveLog = (obj: InstanceAssociationOutputLocation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TargetLocationFilterSensitiveLog = (obj: TargetLocation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TargetFilterSensitiveLog = (obj: Target): any => ({
-  ...obj,
-});
+export type OpsItemFilterOperator = (typeof OpsItemFilterOperator)[keyof typeof OpsItemFilterOperator];
 
 /**
  * @internal
@@ -7970,20 +8727,6 @@ export const TargetFilterSensitiveLog = (obj: Target): any => ({
 export const CreateAssociationRequestFilterSensitiveLog = (obj: CreateAssociationRequest): any => ({
   ...obj,
   ...(obj.Parameters && { Parameters: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const AssociationOverviewFilterSensitiveLog = (obj: AssociationOverview): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociationStatusFilterSensitiveLog = (obj: AssociationStatus): any => ({
-  ...obj,
 });
 
 /**
@@ -8042,156 +8785,9 @@ export const CreateAssociationBatchResultFilterSensitiveLog = (obj: CreateAssoci
 /**
  * @internal
  */
-export const AttachmentsSourceFilterSensitiveLog = (obj: AttachmentsSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DocumentRequiresFilterSensitiveLog = (obj: DocumentRequires): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDocumentRequestFilterSensitiveLog = (obj: CreateDocumentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttachmentInformationFilterSensitiveLog = (obj: AttachmentInformation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DocumentParameterFilterSensitiveLog = (obj: DocumentParameter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReviewInformationFilterSensitiveLog = (obj: ReviewInformation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DocumentDescriptionFilterSensitiveLog = (obj: DocumentDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDocumentResultFilterSensitiveLog = (obj: CreateDocumentResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateMaintenanceWindowRequestFilterSensitiveLog = (obj: CreateMaintenanceWindowRequest): any => ({
   ...obj,
   ...(obj.Description && { Description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateMaintenanceWindowResultFilterSensitiveLog = (obj: CreateMaintenanceWindowResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OpsItemNotificationFilterSensitiveLog = (obj: OpsItemNotification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OpsItemDataValueFilterSensitiveLog = (obj: OpsItemDataValue): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RelatedOpsItemFilterSensitiveLog = (obj: RelatedOpsItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateOpsItemRequestFilterSensitiveLog = (obj: CreateOpsItemRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateOpsItemResponseFilterSensitiveLog = (obj: CreateOpsItemResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetadataValueFilterSensitiveLog = (obj: MetadataValue): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateOpsMetadataRequestFilterSensitiveLog = (obj: CreateOpsMetadataRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateOpsMetadataResultFilterSensitiveLog = (obj: CreateOpsMetadataResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PatchFilterFilterSensitiveLog = (obj: PatchFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PatchFilterGroupFilterSensitiveLog = (obj: PatchFilterGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PatchRuleFilterSensitiveLog = (obj: PatchRule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PatchRuleGroupFilterSensitiveLog = (obj: PatchRuleGroup): any => ({
-  ...obj,
 });
 
 /**
@@ -8213,713 +8809,11 @@ export const CreatePatchBaselineRequestFilterSensitiveLog = (obj: CreatePatchBas
 /**
  * @internal
  */
-export const CreatePatchBaselineResultFilterSensitiveLog = (obj: CreatePatchBaselineResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceDataSyncDestinationDataSharingFilterSensitiveLog = (
-  obj: ResourceDataSyncDestinationDataSharing
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceDataSyncS3DestinationFilterSensitiveLog = (obj: ResourceDataSyncS3Destination): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceDataSyncOrganizationalUnitFilterSensitiveLog = (obj: ResourceDataSyncOrganizationalUnit): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceDataSyncAwsOrganizationsSourceFilterSensitiveLog = (
-  obj: ResourceDataSyncAwsOrganizationsSource
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceDataSyncSourceFilterSensitiveLog = (obj: ResourceDataSyncSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateResourceDataSyncRequestFilterSensitiveLog = (obj: CreateResourceDataSyncRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateResourceDataSyncResultFilterSensitiveLog = (obj: CreateResourceDataSyncResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteActivationRequestFilterSensitiveLog = (obj: DeleteActivationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteActivationResultFilterSensitiveLog = (obj: DeleteActivationResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAssociationRequestFilterSensitiveLog = (obj: DeleteAssociationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAssociationResultFilterSensitiveLog = (obj: DeleteAssociationResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDocumentRequestFilterSensitiveLog = (obj: DeleteDocumentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDocumentResultFilterSensitiveLog = (obj: DeleteDocumentResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteInventoryRequestFilterSensitiveLog = (obj: DeleteInventoryRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InventoryDeletionSummaryItemFilterSensitiveLog = (obj: InventoryDeletionSummaryItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InventoryDeletionSummaryFilterSensitiveLog = (obj: InventoryDeletionSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteInventoryResultFilterSensitiveLog = (obj: DeleteInventoryResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMaintenanceWindowRequestFilterSensitiveLog = (obj: DeleteMaintenanceWindowRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMaintenanceWindowResultFilterSensitiveLog = (obj: DeleteMaintenanceWindowResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteOpsMetadataRequestFilterSensitiveLog = (obj: DeleteOpsMetadataRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteOpsMetadataResultFilterSensitiveLog = (obj: DeleteOpsMetadataResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteParameterRequestFilterSensitiveLog = (obj: DeleteParameterRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteParameterResultFilterSensitiveLog = (obj: DeleteParameterResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteParametersRequestFilterSensitiveLog = (obj: DeleteParametersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteParametersResultFilterSensitiveLog = (obj: DeleteParametersResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePatchBaselineRequestFilterSensitiveLog = (obj: DeletePatchBaselineRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePatchBaselineResultFilterSensitiveLog = (obj: DeletePatchBaselineResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteResourceDataSyncRequestFilterSensitiveLog = (obj: DeleteResourceDataSyncRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteResourceDataSyncResultFilterSensitiveLog = (obj: DeleteResourceDataSyncResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteResourcePolicyRequestFilterSensitiveLog = (obj: DeleteResourcePolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteResourcePolicyResponseFilterSensitiveLog = (obj: DeleteResourcePolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterManagedInstanceRequestFilterSensitiveLog = (obj: DeregisterManagedInstanceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterManagedInstanceResultFilterSensitiveLog = (obj: DeregisterManagedInstanceResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterPatchBaselineForPatchGroupRequestFilterSensitiveLog = (
-  obj: DeregisterPatchBaselineForPatchGroupRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterPatchBaselineForPatchGroupResultFilterSensitiveLog = (
-  obj: DeregisterPatchBaselineForPatchGroupResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterTargetFromMaintenanceWindowRequestFilterSensitiveLog = (
-  obj: DeregisterTargetFromMaintenanceWindowRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterTargetFromMaintenanceWindowResultFilterSensitiveLog = (
-  obj: DeregisterTargetFromMaintenanceWindowResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterTaskFromMaintenanceWindowRequestFilterSensitiveLog = (
-  obj: DeregisterTaskFromMaintenanceWindowRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterTaskFromMaintenanceWindowResultFilterSensitiveLog = (
-  obj: DeregisterTaskFromMaintenanceWindowResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeActivationsFilterFilterSensitiveLog = (obj: DescribeActivationsFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeActivationsRequestFilterSensitiveLog = (obj: DescribeActivationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeActivationsResultFilterSensitiveLog = (obj: DescribeActivationsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAssociationRequestFilterSensitiveLog = (obj: DescribeAssociationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeAssociationResultFilterSensitiveLog = (obj: DescribeAssociationResult): any => ({
   ...obj,
   ...(obj.AssociationDescription && {
     AssociationDescription: AssociationDescriptionFilterSensitiveLog(obj.AssociationDescription),
   }),
-});
-
-/**
- * @internal
- */
-export const AssociationExecutionFilterFilterSensitiveLog = (obj: AssociationExecutionFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAssociationExecutionsRequestFilterSensitiveLog = (
-  obj: DescribeAssociationExecutionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociationExecutionFilterSensitiveLog = (obj: AssociationExecution): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAssociationExecutionsResultFilterSensitiveLog = (
-  obj: DescribeAssociationExecutionsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociationExecutionTargetsFilterFilterSensitiveLog = (obj: AssociationExecutionTargetsFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAssociationExecutionTargetsRequestFilterSensitiveLog = (
-  obj: DescribeAssociationExecutionTargetsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OutputSourceFilterSensitiveLog = (obj: OutputSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociationExecutionTargetFilterSensitiveLog = (obj: AssociationExecutionTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAssociationExecutionTargetsResultFilterSensitiveLog = (
-  obj: DescribeAssociationExecutionTargetsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutomationExecutionFilterFilterSensitiveLog = (obj: AutomationExecutionFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAutomationExecutionsRequestFilterSensitiveLog = (
-  obj: DescribeAutomationExecutionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResolvedTargetsFilterSensitiveLog = (obj: ResolvedTargets): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RunbookFilterSensitiveLog = (obj: Runbook): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutomationExecutionMetadataFilterSensitiveLog = (obj: AutomationExecutionMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAutomationExecutionsResultFilterSensitiveLog = (obj: DescribeAutomationExecutionsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StepExecutionFilterFilterSensitiveLog = (obj: StepExecutionFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAutomationStepExecutionsRequestFilterSensitiveLog = (
-  obj: DescribeAutomationStepExecutionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FailureDetailsFilterSensitiveLog = (obj: FailureDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StepExecutionFilterSensitiveLog = (obj: StepExecution): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAutomationStepExecutionsResultFilterSensitiveLog = (
-  obj: DescribeAutomationStepExecutionsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PatchOrchestratorFilterFilterSensitiveLog = (obj: PatchOrchestratorFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAvailablePatchesRequestFilterSensitiveLog = (obj: DescribeAvailablePatchesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PatchFilterSensitiveLog = (obj: Patch): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAvailablePatchesResultFilterSensitiveLog = (obj: DescribeAvailablePatchesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDocumentRequestFilterSensitiveLog = (obj: DescribeDocumentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDocumentResultFilterSensitiveLog = (obj: DescribeDocumentResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDocumentPermissionRequestFilterSensitiveLog = (obj: DescribeDocumentPermissionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDocumentPermissionResponseFilterSensitiveLog = (obj: DescribeDocumentPermissionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEffectiveInstanceAssociationsRequestFilterSensitiveLog = (
-  obj: DescribeEffectiveInstanceAssociationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceAssociationFilterSensitiveLog = (obj: InstanceAssociation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEffectiveInstanceAssociationsResultFilterSensitiveLog = (
-  obj: DescribeEffectiveInstanceAssociationsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEffectivePatchesForPatchBaselineRequestFilterSensitiveLog = (
-  obj: DescribeEffectivePatchesForPatchBaselineRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PatchStatusFilterSensitiveLog = (obj: PatchStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EffectivePatchFilterSensitiveLog = (obj: EffectivePatch): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEffectivePatchesForPatchBaselineResultFilterSensitiveLog = (
-  obj: DescribeEffectivePatchesForPatchBaselineResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInstanceAssociationsStatusRequestFilterSensitiveLog = (
-  obj: DescribeInstanceAssociationsStatusRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3OutputUrlFilterSensitiveLog = (obj: S3OutputUrl): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceAssociationOutputUrlFilterSensitiveLog = (obj: InstanceAssociationOutputUrl): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceAssociationStatusInfoFilterSensitiveLog = (obj: InstanceAssociationStatusInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInstanceAssociationsStatusResultFilterSensitiveLog = (
-  obj: DescribeInstanceAssociationsStatusResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceInformationStringFilterFilterSensitiveLog = (obj: InstanceInformationStringFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceInformationFilterFilterSensitiveLog = (obj: InstanceInformationFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInstanceInformationRequestFilterSensitiveLog = (obj: DescribeInstanceInformationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceAggregatedAssociationOverviewFilterSensitiveLog = (
-  obj: InstanceAggregatedAssociationOverview
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceInformationFilterSensitiveLog = (obj: InstanceInformation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInstanceInformationResultFilterSensitiveLog = (obj: DescribeInstanceInformationResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInstancePatchesRequestFilterSensitiveLog = (obj: DescribeInstancePatchesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PatchComplianceDataFilterSensitiveLog = (obj: PatchComplianceData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInstancePatchesResultFilterSensitiveLog = (obj: DescribeInstancePatchesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInstancePatchStatesRequestFilterSensitiveLog = (obj: DescribeInstancePatchStatesRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -8943,22 +8837,6 @@ export const DescribeInstancePatchStatesResultFilterSensitiveLog = (obj: Describ
 /**
  * @internal
  */
-export const InstancePatchStateFilterFilterSensitiveLog = (obj: InstancePatchStateFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInstancePatchStatesForPatchGroupRequestFilterSensitiveLog = (
-  obj: DescribeInstancePatchStatesForPatchGroupRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeInstancePatchStatesForPatchGroupResultFilterSensitiveLog = (
   obj: DescribeInstancePatchStatesForPatchGroupResult
 ): any => ({
@@ -8966,68 +8844,6 @@ export const DescribeInstancePatchStatesForPatchGroupResultFilterSensitiveLog = 
   ...(obj.InstancePatchStates && {
     InstancePatchStates: obj.InstancePatchStates.map((item) => InstancePatchStateFilterSensitiveLog(item)),
   }),
-});
-
-/**
- * @internal
- */
-export const DescribeInventoryDeletionsRequestFilterSensitiveLog = (obj: DescribeInventoryDeletionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InventoryDeletionStatusItemFilterSensitiveLog = (obj: InventoryDeletionStatusItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInventoryDeletionsResultFilterSensitiveLog = (obj: DescribeInventoryDeletionsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MaintenanceWindowFilterFilterSensitiveLog = (obj: MaintenanceWindowFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeMaintenanceWindowExecutionsRequestFilterSensitiveLog = (
-  obj: DescribeMaintenanceWindowExecutionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MaintenanceWindowExecutionFilterSensitiveLog = (obj: MaintenanceWindowExecution): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeMaintenanceWindowExecutionsResultFilterSensitiveLog = (
-  obj: DescribeMaintenanceWindowExecutionsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeMaintenanceWindowExecutionTaskInvocationsRequestFilterSensitiveLog = (
-  obj: DescribeMaintenanceWindowExecutionTaskInvocationsRequest
-): any => ({
-  ...obj,
 });
 
 /**
@@ -9058,40 +8874,6 @@ export const DescribeMaintenanceWindowExecutionTaskInvocationsResultFilterSensit
 /**
  * @internal
  */
-export const DescribeMaintenanceWindowExecutionTasksRequestFilterSensitiveLog = (
-  obj: DescribeMaintenanceWindowExecutionTasksRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MaintenanceWindowExecutionTaskIdentityFilterSensitiveLog = (
-  obj: MaintenanceWindowExecutionTaskIdentity
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeMaintenanceWindowExecutionTasksResultFilterSensitiveLog = (
-  obj: DescribeMaintenanceWindowExecutionTasksResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeMaintenanceWindowsRequestFilterSensitiveLog = (obj: DescribeMaintenanceWindowsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const MaintenanceWindowIdentityFilterSensitiveLog = (obj: MaintenanceWindowIdentity): any => ({
   ...obj,
   ...(obj.Description && { Description: SENSITIVE_STRING }),
@@ -9105,65 +8887,6 @@ export const DescribeMaintenanceWindowsResultFilterSensitiveLog = (obj: Describe
   ...(obj.WindowIdentities && {
     WindowIdentities: obj.WindowIdentities.map((item) => MaintenanceWindowIdentityFilterSensitiveLog(item)),
   }),
-});
-
-/**
- * @internal
- */
-export const DescribeMaintenanceWindowScheduleRequestFilterSensitiveLog = (
-  obj: DescribeMaintenanceWindowScheduleRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScheduledWindowExecutionFilterSensitiveLog = (obj: ScheduledWindowExecution): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeMaintenanceWindowScheduleResultFilterSensitiveLog = (
-  obj: DescribeMaintenanceWindowScheduleResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeMaintenanceWindowsForTargetRequestFilterSensitiveLog = (
-  obj: DescribeMaintenanceWindowsForTargetRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MaintenanceWindowIdentityForTargetFilterSensitiveLog = (obj: MaintenanceWindowIdentityForTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeMaintenanceWindowsForTargetResultFilterSensitiveLog = (
-  obj: DescribeMaintenanceWindowsForTargetResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeMaintenanceWindowTargetsRequestFilterSensitiveLog = (
-  obj: DescribeMaintenanceWindowTargetsRequest
-): any => ({
-  ...obj,
 });
 
 /**
@@ -9183,22 +8906,6 @@ export const DescribeMaintenanceWindowTargetsResultFilterSensitiveLog = (
 ): any => ({
   ...obj,
   ...(obj.Targets && { Targets: obj.Targets.map((item) => MaintenanceWindowTargetFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const DescribeMaintenanceWindowTasksRequestFilterSensitiveLog = (
-  obj: DescribeMaintenanceWindowTasksRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LoggingInfoFilterSensitiveLog = (obj: LoggingInfo): any => ({
-  ...obj,
 });
 
 /**

@@ -18,18 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import {
-  DeleteRuleInput,
-  DeleteRuleInputFilterSensitiveLog,
-  DeleteRuleOutput,
-  DeleteRuleOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_queryDeleteRuleCommand, serializeAws_queryDeleteRuleCommand } from "../protocols/Aws_query";
+import { DeleteRuleInput, DeleteRuleOutput } from "../models/models_0";
+import { de_DeleteRuleCommand, se_DeleteRuleCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteRuleCommand}.
+ */
 export interface DeleteRuleCommandInput extends DeleteRuleInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteRuleCommand}.
+ */
 export interface DeleteRuleCommandOutput extends DeleteRuleOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified rule.</p>
  *          <p>You can't delete the default rule.</p>
  * @example
@@ -38,13 +44,36 @@ export interface DeleteRuleCommandOutput extends DeleteRuleOutput, __MetadataBea
  * import { ElasticLoadBalancingV2Client, DeleteRuleCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, DeleteRuleCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
+ * const input = { // DeleteRuleInput
+ *   RuleArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRuleCommandInput - {@link DeleteRuleCommandInput}
+ * @returns {@link DeleteRuleCommandOutput}
  * @see {@link DeleteRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteRuleCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This operation is not allowed.</p>
+ *
+ * @throws {@link RuleNotFoundException} (client fault)
+ *  <p>The specified rule does not exist.</p>
+ *
+ *
+ * @example To delete a rule
+ * ```javascript
+ * // This example deletes the specified rule.
+ * const input = {
+ *   "RuleArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener-rule/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2/1291d13826f405c3"
+ * };
+ * const command = new DeleteRuleCommand(input);
+ * await client.send(command);
+ * // example id: elbv2-delete-rule-1
+ * ```
  *
  */
 export class DeleteRuleCommand extends $Command<
@@ -64,6 +93,9 @@ export class DeleteRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +122,8 @@ export class DeleteRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRuleInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRuleOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +133,18 @@ export class DeleteRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteRuleCommand(input, context);
+    return se_DeleteRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRuleCommandOutput> {
-    return deserializeAws_queryDeleteRuleCommand(output, context);
+    return de_DeleteRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

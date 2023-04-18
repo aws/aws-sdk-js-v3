@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetReadSetExportJobRequest,
-  GetReadSetExportJobRequestFilterSensitiveLog,
-  GetReadSetExportJobResponse,
-  GetReadSetExportJobResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetReadSetExportJobRequest, GetReadSetExportJobResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1GetReadSetExportJobCommand,
-  serializeAws_restJson1GetReadSetExportJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetReadSetExportJobCommand, se_GetReadSetExportJobCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetReadSetExportJobCommand}.
+ */
 export interface GetReadSetExportJobCommandInput extends GetReadSetExportJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetReadSetExportJobCommand}.
+ */
 export interface GetReadSetExportJobCommandOutput extends GetReadSetExportJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a read set export job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,38 @@ export interface GetReadSetExportJobCommandOutput extends GetReadSetExportJobRes
  * import { OmicsClient, GetReadSetExportJobCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, GetReadSetExportJobCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = { // GetReadSetExportJobRequest
+ *   sequenceStoreId: "STRING_VALUE", // required
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new GetReadSetExportJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetReadSetExportJobCommandInput - {@link GetReadSetExportJobCommandInput}
+ * @returns {@link GetReadSetExportJobCommandOutput}
  * @see {@link GetReadSetExportJobCommandInput} for command's `input` shape.
  * @see {@link GetReadSetExportJobCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred. Try the request again.</p>
+ *
+ * @throws {@link RequestTimeoutException} (client fault)
+ *  <p>The request timed out.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The target resource was not found in the current Region.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
  *
  */
 export class GetReadSetExportJobCommand extends $Command<
@@ -62,6 +90,9 @@ export class GetReadSetExportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetReadSetExportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +121,8 @@ export class GetReadSetExportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetReadSetExportJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetReadSetExportJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +132,18 @@ export class GetReadSetExportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetReadSetExportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetReadSetExportJobCommand(input, context);
+    return se_GetReadSetExportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetReadSetExportJobCommandOutput> {
-    return deserializeAws_restJson1GetReadSetExportJobCommand(output, context);
+    return de_GetReadSetExportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

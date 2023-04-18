@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListHITsForQualificationTypeRequest,
-  ListHITsForQualificationTypeRequestFilterSensitiveLog,
-  ListHITsForQualificationTypeResponse,
-  ListHITsForQualificationTypeResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListHITsForQualificationTypeRequest, ListHITsForQualificationTypeResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import {
-  deserializeAws_json1_1ListHITsForQualificationTypeCommand,
-  serializeAws_json1_1ListHITsForQualificationTypeCommand,
+  de_ListHITsForQualificationTypeCommand,
+  se_ListHITsForQualificationTypeCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListHITsForQualificationTypeCommand}.
+ */
 export interface ListHITsForQualificationTypeCommandInput extends ListHITsForQualificationTypeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListHITsForQualificationTypeCommand}.
+ */
 export interface ListHITsForQualificationTypeCommandOutput
   extends ListHITsForQualificationTypeResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The <code>ListHITsForQualificationType</code> operation returns the HITs that use
  *             the given Qualification type for a Qualification requirement.
@@ -43,13 +49,27 @@ export interface ListHITsForQualificationTypeCommandOutput
  * import { MTurkClient, ListHITsForQualificationTypeCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, ListHITsForQualificationTypeCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = { // ListHITsForQualificationTypeRequest
+ *   QualificationTypeId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListHITsForQualificationTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListHITsForQualificationTypeCommandInput - {@link ListHITsForQualificationTypeCommandInput}
+ * @returns {@link ListHITsForQualificationTypeCommandOutput}
  * @see {@link ListHITsForQualificationTypeCommandInput} for command's `input` shape.
  * @see {@link ListHITsForQualificationTypeCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
+ *
+ * @throws {@link RequestError} (client fault)
+ *  <p>Your request is invalid.</p>
+ *
+ * @throws {@link ServiceFault} (server fault)
+ *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
  *
  */
 export class ListHITsForQualificationTypeCommand extends $Command<
@@ -69,6 +89,9 @@ export class ListHITsForQualificationTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListHITsForQualificationTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +120,8 @@ export class ListHITsForQualificationTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListHITsForQualificationTypeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListHITsForQualificationTypeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,15 +131,21 @@ export class ListHITsForQualificationTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListHITsForQualificationTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListHITsForQualificationTypeCommand(input, context);
+    return se_ListHITsForQualificationTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListHITsForQualificationTypeCommandOutput> {
-    return deserializeAws_json1_1ListHITsForQualificationTypeCommand(output, context);
+    return de_ListHITsForQualificationTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

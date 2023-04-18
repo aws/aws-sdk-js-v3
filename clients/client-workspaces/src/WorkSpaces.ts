@@ -321,6 +321,7 @@ import {
 import { WorkSpacesClient } from "./WorkSpacesClient";
 
 /**
+ * @public
  * <fullname>Amazon WorkSpaces Service</fullname>
  *          <p>Amazon WorkSpaces enables you to provision virtual, cloud-based Microsoft Windows
  *          or Amazon Linux desktops for your users, known as <i>WorkSpaces</i>.
@@ -341,6 +342,7 @@ import { WorkSpacesClient } from "./WorkSpacesClient";
  */
 export class WorkSpaces extends WorkSpacesClient {
   /**
+   * @public
    * <p>Associates the specified connection alias with the specified directory to enable
    *          cross-Region redirection. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html"> Cross-Region
    *             Redirection for Amazon WorkSpaces</a>.</p>
@@ -380,6 +382,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Associates the specified IP access control group with the specified directory.</p>
    */
   public associateIpGroups(
@@ -412,6 +415,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Adds one or more rules to the specified IP access control group.</p>
    *          <p>This action gives users permission to access their WorkSpaces from the CIDR address
    *          ranges specified in the rules.</p>
@@ -446,6 +450,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Copies the specified image from the specified Region to the current Region. For more
    *          information about copying images, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/copy-custom-image.html"> Copy a Custom WorkSpaces
    *             Image</a>.</p>
@@ -487,6 +492,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Creates a client-add-in for Amazon Connect within a directory. You can create only
    *          one Amazon Connect client add-in within a directory.</p>
    *          <p>This client add-in allows WorkSpaces users to seamlessly connect to Amazon Connect.</p>
@@ -521,6 +527,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Creates the specified connection alias for use with cross-Region redirection. For more
    *          information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html"> Cross-Region
    *             Redirection for Amazon WorkSpaces</a>.</p>
@@ -555,6 +562,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Creates an IP access control group.</p>
    *          <p>An IP access control group provides you with the ability to control the IP addresses
    *          from which users are allowed to access their WorkSpaces. To specify the CIDR address
@@ -595,7 +603,8 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   * <p>Creates a Standby WorkSpace in a secondary region.</p>
+   * @public
+   * <p>Creates a standby WorkSpace in a secondary Region.</p>
    */
   public createStandbyWorkspaces(
     args: CreateStandbyWorkspacesCommandInput,
@@ -627,6 +636,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Creates the specified tags for the specified WorkSpaces resource.</p>
    */
   public createTags(args: CreateTagsCommandInput, options?: __HttpHandlerOptions): Promise<CreateTagsCommandOutput>;
@@ -653,16 +663,17 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Creates a new updated WorkSpace image based on the specified source image. The new
-   *          updated WorkSpace image has the latest drivers and other updates required by the Amazon
-   *          WorkSpaces components.</p>
+   *          updated WorkSpace image has the latest drivers and other updates required by the
+   *          Amazon WorkSpaces components.</p>
    *          <p>To determine which WorkSpace images need to be updated with the latest Amazon WorkSpaces
    *          requirements, use <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImages.html">
    *             DescribeWorkspaceImages</a>.</p>
    *          <note>
    *             <ul>
    *                <li>
-   *                   <p>Only Windows 10, Windows Sever 2016, and Windows Server 2019 WorkSpace images
+   *                   <p>Only Windows 10, Windows Server 2016, and Windows Server 2019 WorkSpace images
    *                   can be programmatically updated at this time.</p>
    *                </li>
    *                <li>
@@ -706,6 +717,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Creates the specified WorkSpace bundle. For more information about creating WorkSpace bundles, see
    *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/create-custom-bundle.html">
    *             Create a Custom WorkSpaces Image and Bundle</a>.</p>
@@ -740,6 +752,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Creates a new WorkSpace image from an existing WorkSpace.</p>
    */
   public createWorkspaceImage(
@@ -772,6 +785,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Creates one or more WorkSpaces.</p>
    *          <p>This operation is asynchronous and returns before the WorkSpaces are created.</p>
    *          <note>
@@ -811,6 +825,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Deletes customized client branding. Client branding allows you to customize your
    *          WorkSpace's client login portal. You can tailor your login portal company logo, the support
    *          email address, support link, link to reset password, and a custom message for users trying
@@ -848,6 +863,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Deletes a client-add-in for Amazon Connect that is configured within a
    *          directory.</p>
    */
@@ -881,6 +897,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified connection alias. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html">
    *             Cross-Region Redirection for Amazon WorkSpaces</a>.</p>
    *          <important>
@@ -928,6 +945,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified IP access control group.</p>
    *          <p>You cannot delete an IP access control group that is associated with a directory.</p>
    */
@@ -961,6 +979,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified tags from the specified WorkSpaces resource.</p>
    */
   public deleteTags(args: DeleteTagsCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTagsCommandOutput>;
@@ -987,6 +1006,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified WorkSpace bundle. For more information about deleting WorkSpace bundles, see
    *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/delete_bundle.html">
    *             Delete a Custom WorkSpaces Bundle or Image</a>.</p>
@@ -1021,6 +1041,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified image from your account. To delete an image, you must first delete
    *          any bundles that are associated with the image and unshare the image if it is shared with
    *          other accounts. </p>
@@ -1055,6 +1076,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Deregisters the specified directory. This operation is asynchronous and returns before
    *          the WorkSpace directory is deregistered. If any WorkSpaces are registered to this
    *          directory, you must remove them before you can deregister the directory.</p>
@@ -1100,6 +1122,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list that describes the configuration of Bring Your Own License (BYOL) for
    *          the specified account.</p>
    */
@@ -1133,6 +1156,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list that describes modifications to the configuration of Bring Your Own
    *          License (BYOL) for the specified account.</p>
    */
@@ -1166,6 +1190,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Describes the specified client branding. Client branding allows you to customize the log
    *          in page of various device types for your users. You can add your company logo, the support
    *          email address, support link, link to reset password, and a custom message for users trying
@@ -1205,6 +1230,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list that describes one or more specified Amazon WorkSpaces clients.</p>
    */
   public describeClientProperties(
@@ -1237,6 +1263,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of Amazon Connect client add-ins that have been created.</p>
    */
   public describeConnectClientAddIns(
@@ -1269,6 +1296,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list that describes the connection aliases used for cross-Region
    *          redirection. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html"> Cross-Region
    *             Redirection for Amazon WorkSpaces</a>.</p>
@@ -1303,6 +1331,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Describes the permissions that the owner of a connection alias has granted to another
    *             Amazon Web Services account for the specified connection alias. For more information, see
    *             <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html"> Cross-Region
@@ -1338,6 +1367,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Describes one or more of your IP access control groups.</p>
    */
   public describeIpGroups(
@@ -1370,6 +1400,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Describes the specified tags for the specified WorkSpaces resource.</p>
    */
   public describeTags(
@@ -1399,6 +1430,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list that describes the available WorkSpace bundles.</p>
    *          <p>You can filter the results using either bundle ID or owner, but not both.</p>
    */
@@ -1432,6 +1464,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Describes the available directories that are registered with Amazon WorkSpaces.</p>
    */
   public describeWorkspaceDirectories(
@@ -1464,6 +1497,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Describes the permissions that the owner of an image has granted to other Amazon Web Services accounts for an image.</p>
    */
   public describeWorkspaceImagePermissions(
@@ -1496,6 +1530,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list that describes one or more specified images, if the image identifiers
    *          are provided. Otherwise, all images in the account are described. </p>
    */
@@ -1529,6 +1564,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Describes the specified WorkSpaces.</p>
    *          <p>You can filter the results by using the bundle identifier, directory identifier, or
    *          owner, but you can specify only one filter at a time.</p>
@@ -1563,6 +1599,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Describes the connection status of the specified WorkSpaces.</p>
    */
   public describeWorkspacesConnectionStatus(
@@ -1595,6 +1632,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Describes the snapshots for the specified WorkSpace.</p>
    */
   public describeWorkspaceSnapshots(
@@ -1627,6 +1665,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Disassociates a connection alias from a directory. Disassociating a connection alias
    *          disables cross-Region redirection between two directories in different Regions. For more
    *          information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html"> Cross-Region
@@ -1667,6 +1706,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Disassociates the specified IP access control group from the specified directory.</p>
    */
   public disassociateIpGroups(
@@ -1699,6 +1739,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Imports client branding. Client branding allows you to customize your WorkSpace's client
    *          login portal. You can tailor your login portal company logo, the support email address,
    *          support link, link to reset password, and a custom message for users trying to sign
@@ -1758,7 +1799,8 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   * <p>Imports the specified Windows 10 Bring Your Own License (BYOL) or Windows Server 2016 BYOL
+   * @public
+   * <p>Imports the specified Windows 10 Bring Your Own License (BYOL)
    *          image into Amazon WorkSpaces. The image must be an already licensed Amazon EC2 image that is
    *          in your Amazon Web Services account, and you must own the image. For more information about
    *          creating BYOL images, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html"> Bring Your Own Windows
@@ -1794,6 +1836,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of IP address ranges, specified as IPv4 CIDR blocks, that you can use
    *          for the network management interface when you enable Bring Your Own License (BYOL). </p>
    *          <p>This operation can be run only by Amazon Web Services accounts that are enabled for BYOL.
@@ -1833,6 +1876,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Migrates a WorkSpace from one operating system or bundle type to another, while
    *          retaining the data on the user volume.</p>
    *          <p>The migration process recreates the WorkSpace by using a new root volume from the target
@@ -1875,6 +1919,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Modifies the configuration of Bring Your Own License (BYOL) for the specified
    *          account.</p>
    */
@@ -1908,6 +1953,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Modifies the properties of the certificate-based authentication you want
    *          to use with your WorkSpaces.</p>
    */
@@ -1941,6 +1987,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Modifies the properties of the specified Amazon WorkSpaces clients.</p>
    */
   public modifyClientProperties(
@@ -1973,6 +2020,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Modifies multiple properties related to SAML 2.0 authentication, including the enablement status,
    *          user access URL, and relay state parameter name that are used for configuring federation with an
    *          SAML 2.0 identity provider.</p>
@@ -2007,6 +2055,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Modifies the self-service WorkSpace management capabilities for your users. For more
    *          information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/enable-user-self-service-workspace-management.html">Enable Self-Service WorkSpace Management Capabilities for Your Users</a>.</p>
    */
@@ -2040,6 +2089,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Specifies which devices and operating systems users can use to access their WorkSpaces.
    *          For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/update-directory-details.html#control-device-access">
    *             Control Device Access</a>.</p>
@@ -2074,6 +2124,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Modify the default properties used to create WorkSpaces.</p>
    */
   public modifyWorkspaceCreationProperties(
@@ -2106,6 +2157,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Modifies the specified WorkSpace properties. For important information about how to
    *          modify the size of the root and user volumes, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html"> Modify a WorkSpace</a>.
    *       </p>
@@ -2146,6 +2198,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Sets the state of the specified WorkSpace.</p>
    *          <p>To maintain a WorkSpace without being interrupted, set the WorkSpace state to
    *             <code>ADMIN_MAINTENANCE</code>. WorkSpaces in this state do not respond to requests to
@@ -2183,6 +2236,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Reboots the specified WorkSpaces.</p>
    *          <p>You cannot reboot a WorkSpace unless its state is <code>AVAILABLE</code> or
    *             <code>UNHEALTHY</code>.</p>
@@ -2218,6 +2272,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Rebuilds the specified WorkSpace.</p>
    *          <p>You cannot rebuild a WorkSpace unless its state is <code>AVAILABLE</code>,
    *             <code>ERROR</code>, <code>UNHEALTHY</code>, <code>STOPPED</code>, or
@@ -2258,6 +2313,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Registers the specified directory. This operation is asynchronous and returns before the
    *          WorkSpace directory is registered. If this is the first time you are registering a
    *          directory, you will need to create the workspaces_DefaultRole role before you can register
@@ -2294,6 +2350,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Restores the specified WorkSpace to its last known healthy state.</p>
    *          <p>You cannot restore a WorkSpace unless its state is <code> AVAILABLE</code>,
    *             <code>ERROR</code>, <code>UNHEALTHY</code>, or <code>STOPPED</code>.</p>
@@ -2333,6 +2390,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Removes one or more rules from the specified IP access control group.</p>
    */
   public revokeIpRules(
@@ -2365,6 +2423,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Starts the specified WorkSpaces.</p>
    *          <p>You cannot start a WorkSpace unless it has a running mode of <code>AutoStop</code> and a
    *          state of <code>STOPPED</code>.</p>
@@ -2399,6 +2458,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p> Stops the specified WorkSpaces.</p>
    *          <p>You cannot stop a WorkSpace unless it has a running mode of <code>AutoStop</code> and a
    *          state of <code>AVAILABLE</code>, <code>IMPAIRED</code>, <code>UNHEALTHY</code>, or
@@ -2434,6 +2494,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Terminates the specified WorkSpaces.</p>
    *          <important>
    *             <p>Terminating a WorkSpace is a permanent action and cannot be undone. The user's data
@@ -2490,6 +2551,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Updates a Amazon Connect client add-in. Use this action to update the name and
    *          endpoint URL of a Amazon Connect client add-in.</p>
    */
@@ -2523,6 +2585,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Shares or unshares a connection alias with one account by specifying whether that
    *          account has permission to associate the connection alias with a directory. If the
    *          association permission is granted, the connection alias is shared with that account. If the
@@ -2576,6 +2639,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Replaces the current rules of the specified IP access control group with the specified
    *          rules.</p>
    */
@@ -2609,10 +2673,10 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Updates a WorkSpace bundle with a new image. For more information about updating WorkSpace bundles, see
    *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/update-custom-bundle.html">
    *             Update a Custom WorkSpaces Bundle</a>.</p>
-   *
    *          <important>
    *             <p>Existing WorkSpaces aren't automatically updated when you update the bundle that they're
    *             based on. To update existing WorkSpaces that are based on a bundle that you've updated, you
@@ -2649,6 +2713,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * @public
    * <p>Shares or unshares an image with one account in the same Amazon Web Services Region by
    *          specifying whether that account has permission to copy the image. If the copy image
    *          permission is granted, the image is shared with that account. If the copy image permission

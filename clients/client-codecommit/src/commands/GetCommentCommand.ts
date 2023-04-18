@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import {
-  GetCommentInput,
-  GetCommentInputFilterSensitiveLog,
-  GetCommentOutput,
-  GetCommentOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetCommentCommand,
-  serializeAws_json1_1GetCommentCommand,
-} from "../protocols/Aws_json1_1";
+import { GetCommentInput, GetCommentOutput } from "../models/models_0";
+import { de_GetCommentCommand, se_GetCommentCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetCommentCommand}.
+ */
 export interface GetCommentCommandInput extends GetCommentInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetCommentCommand}.
+ */
 export interface GetCommentCommandOutput extends GetCommentOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the content of a comment made on a change, file, or commit in a repository. </p>
  *             <note>
  *             <p>Reaction counts might include numbers from user identities who were deleted after the reaction was made. For a count of
@@ -40,13 +43,47 @@ export interface GetCommentCommandOutput extends GetCommentOutput, __MetadataBea
  * import { CodeCommitClient, GetCommentCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, GetCommentCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // GetCommentInput
+ *   commentId: "STRING_VALUE", // required
+ * };
  * const command = new GetCommentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCommentCommandInput - {@link GetCommentCommandInput}
+ * @returns {@link GetCommentCommandOutput}
  * @see {@link GetCommentCommandInput} for command's `input` shape.
  * @see {@link GetCommentCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
+ *
+ * @throws {@link CommentDeletedException} (client fault)
+ *  <p>This comment has already been deleted. You cannot edit or delete a deleted comment.</p>
+ *
+ * @throws {@link CommentDoesNotExistException} (client fault)
+ *  <p>No comment exists with the provided ID. Verify that you have used the correct ID, and
+ *             then try again.</p>
+ *
+ * @throws {@link CommentIdRequiredException} (client fault)
+ *  <p>The comment ID is missing or null. A comment ID is required.</p>
+ *
+ * @throws {@link EncryptionIntegrityChecksFailedException} (server fault)
+ *  <p>An encryption integrity check failed.</p>
+ *
+ * @throws {@link EncryptionKeyAccessDeniedException} (client fault)
+ *  <p>An encryption key could not be accessed.</p>
+ *
+ * @throws {@link EncryptionKeyDisabledException} (client fault)
+ *  <p>The encryption key is disabled.</p>
+ *
+ * @throws {@link EncryptionKeyNotFoundException} (client fault)
+ *  <p>No encryption key was found.</p>
+ *
+ * @throws {@link EncryptionKeyUnavailableException} (client fault)
+ *  <p>The encryption key is not available.</p>
+ *
+ * @throws {@link InvalidCommentIdException} (client fault)
+ *  <p>The comment ID is not in a valid format. Make sure that you have provided the full comment ID.</p>
+ *
  *
  */
 export class GetCommentCommand extends $Command<
@@ -66,6 +103,9 @@ export class GetCommentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCommentCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +132,8 @@ export class GetCommentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCommentInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCommentOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +143,18 @@ export class GetCommentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCommentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetCommentCommand(input, context);
+    return se_GetCommentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCommentCommandOutput> {
-    return deserializeAws_json1_1GetCommentCommand(output, context);
+    return de_GetCommentCommand(output, context);
   }
 
   // Start section: command_body_extra

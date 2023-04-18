@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubOrchestratorClient";
-import {
-  GetMigrationWorkflowTemplateRequest,
-  GetMigrationWorkflowTemplateRequestFilterSensitiveLog,
-  GetMigrationWorkflowTemplateResponse,
-  GetMigrationWorkflowTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetTemplateCommand,
-  serializeAws_restJson1GetTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { GetMigrationWorkflowTemplateRequest, GetMigrationWorkflowTemplateResponse } from "../models/models_0";
+import { de_GetTemplateCommand, se_GetTemplateCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetTemplateCommand}.
+ */
 export interface GetTemplateCommandInput extends GetMigrationWorkflowTemplateRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetTemplateCommand}.
+ */
 export interface GetTemplateCommandOutput extends GetMigrationWorkflowTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get the template you want to use for creating a migration workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,31 @@ export interface GetTemplateCommandOutput extends GetMigrationWorkflowTemplateRe
  * import { MigrationHubOrchestratorClient, GetTemplateCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
  * // const { MigrationHubOrchestratorClient, GetTemplateCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
  * const client = new MigrationHubOrchestratorClient(config);
+ * const input = { // GetMigrationWorkflowTemplateRequest
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new GetTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTemplateCommandInput - {@link GetTemplateCommandInput}
+ * @returns {@link GetTemplateCommandOutput}
  * @see {@link GetTemplateCommandInput} for command's `input` shape.
  * @see {@link GetTemplateCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error has occurred.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource is not available.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
  *
  */
 export class GetTemplateCommand extends $Command<
@@ -66,6 +87,9 @@ export class GetTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +116,8 @@ export class GetTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMigrationWorkflowTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMigrationWorkflowTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +127,18 @@ export class GetTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTemplateCommand(input, context);
+    return se_GetTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTemplateCommandOutput> {
-    return deserializeAws_restJson1GetTemplateCommand(output, context);
+    return de_GetTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

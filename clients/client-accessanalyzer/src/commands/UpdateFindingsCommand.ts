@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
-import { UpdateFindingsRequest, UpdateFindingsRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateFindingsCommand,
-  serializeAws_restJson1UpdateFindingsCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateFindingsRequest } from "../models/models_0";
+import { de_UpdateFindingsCommand, se_UpdateFindingsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateFindingsCommand}.
+ */
 export interface UpdateFindingsCommandInput extends UpdateFindingsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateFindingsCommand}.
+ */
 export interface UpdateFindingsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the status for the specified findings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +39,40 @@ export interface UpdateFindingsCommandOutput extends __MetadataBearer {}
  * import { AccessAnalyzerClient, UpdateFindingsCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, UpdateFindingsCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
+ * const input = { // UpdateFindingsRequest
+ *   analyzerArn: "STRING_VALUE", // required
+ *   status: "STRING_VALUE", // required
+ *   ids: [ // FindingIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   resourceArn: "STRING_VALUE",
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new UpdateFindingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFindingsCommandInput - {@link UpdateFindingsCommandInput}
+ * @returns {@link UpdateFindingsCommandOutput}
  * @see {@link UpdateFindingsCommandInput} for command's `input` shape.
  * @see {@link UpdateFindingsCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Internal server error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Throttling limit exceeded error.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Validation exception error.</p>
+ *
  *
  */
 export class UpdateFindingsCommand extends $Command<
@@ -57,6 +92,9 @@ export class UpdateFindingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFindingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +123,8 @@ export class UpdateFindingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFindingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +134,18 @@ export class UpdateFindingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFindingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateFindingsCommand(input, context);
+    return se_UpdateFindingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFindingsCommandOutput> {
-    return deserializeAws_restJson1UpdateFindingsCommand(output, context);
+    return de_UpdateFindingsCommand(output, context);
   }
 
   // Start section: command_body_extra

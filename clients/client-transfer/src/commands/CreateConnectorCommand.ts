@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateConnectorRequest,
-  CreateConnectorRequestFilterSensitiveLog,
-  CreateConnectorResponse,
-  CreateConnectorResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateConnectorCommand,
-  serializeAws_json1_1CreateConnectorCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateConnectorRequest, CreateConnectorResponse } from "../models/models_0";
+import { de_CreateConnectorCommand, se_CreateConnectorCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateConnectorCommand}.
+ */
 export interface CreateConnectorCommandInput extends CreateConnectorRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateConnectorCommand}.
+ */
 export interface CreateConnectorCommandOutput extends CreateConnectorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates the connector, which captures the parameters for an outbound connection for the
  *       AS2 protocol. The connector is required for sending files to an externally hosted AS2 server.
  *       For more details about connectors, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/create-b2b-server.html#configure-as2-connector">Create AS2 connectors</a>.</p>
@@ -38,13 +41,56 @@ export interface CreateConnectorCommandOutput extends CreateConnectorResponse, _
  * import { TransferClient, CreateConnectorCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, CreateConnectorCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = { // CreateConnectorRequest
+ *   Url: "STRING_VALUE", // required
+ *   As2Config: { // As2ConnectorConfig
+ *     LocalProfileId: "STRING_VALUE",
+ *     PartnerProfileId: "STRING_VALUE",
+ *     MessageSubject: "STRING_VALUE",
+ *     Compression: "ZLIB" || "DISABLED",
+ *     EncryptionAlgorithm: "AES128_CBC" || "AES192_CBC" || "AES256_CBC" || "NONE",
+ *     SigningAlgorithm: "SHA256" || "SHA384" || "SHA512" || "SHA1" || "NONE",
+ *     MdnSigningAlgorithm: "SHA256" || "SHA384" || "SHA512" || "SHA1" || "NONE" || "DEFAULT",
+ *     MdnResponse: "SYNC" || "NONE",
+ *   },
+ *   AccessRole: "STRING_VALUE", // required
+ *   LoggingRole: "STRING_VALUE",
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateConnectorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateConnectorCommandInput - {@link CreateConnectorCommandInput}
+ * @returns {@link CreateConnectorCommandOutput}
  * @see {@link CreateConnectorCommandInput} for command's `input` shape.
  * @see {@link CreateConnectorCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
+ *
+ * @throws {@link InternalServiceError} (server fault)
+ *  <p>This exception is thrown when an error occurs in the Amazon Web ServicesTransfer Family service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * @throws {@link ResourceExistsException} (client fault)
+ *  <p>The requested resource does not exist.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
+ *       service.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
  *
  */
 export class CreateConnectorCommand extends $Command<
@@ -64,6 +110,9 @@ export class CreateConnectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateConnectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +141,8 @@ export class CreateConnectorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateConnectorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateConnectorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +152,18 @@ export class CreateConnectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateConnectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateConnectorCommand(input, context);
+    return se_CreateConnectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateConnectorCommandOutput> {
-    return deserializeAws_json1_1CreateConnectorCommand(output, context);
+    return de_CreateConnectorCommand(output, context);
   }
 
   // Start section: command_body_extra

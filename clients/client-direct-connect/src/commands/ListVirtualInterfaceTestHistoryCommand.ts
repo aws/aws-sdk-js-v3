@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
+import { ListVirtualInterfaceTestHistoryRequest, ListVirtualInterfaceTestHistoryResponse } from "../models/models_0";
 import {
-  ListVirtualInterfaceTestHistoryRequest,
-  ListVirtualInterfaceTestHistoryRequestFilterSensitiveLog,
-  ListVirtualInterfaceTestHistoryResponse,
-  ListVirtualInterfaceTestHistoryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListVirtualInterfaceTestHistoryCommand,
-  serializeAws_json1_1ListVirtualInterfaceTestHistoryCommand,
+  de_ListVirtualInterfaceTestHistoryCommand,
+  se_ListVirtualInterfaceTestHistoryCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListVirtualInterfaceTestHistoryCommand}.
+ */
 export interface ListVirtualInterfaceTestHistoryCommandInput extends ListVirtualInterfaceTestHistoryRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListVirtualInterfaceTestHistoryCommand}.
+ */
 export interface ListVirtualInterfaceTestHistoryCommandOutput
   extends ListVirtualInterfaceTestHistoryResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the virtual interface failover test history.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,32 @@ export interface ListVirtualInterfaceTestHistoryCommandOutput
  * import { DirectConnectClient, ListVirtualInterfaceTestHistoryCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, ListVirtualInterfaceTestHistoryCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // ListVirtualInterfaceTestHistoryRequest
+ *   testId: "STRING_VALUE",
+ *   virtualInterfaceId: "STRING_VALUE",
+ *   bgpPeers: [ // BGPPeerIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   status: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListVirtualInterfaceTestHistoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListVirtualInterfaceTestHistoryCommandInput - {@link ListVirtualInterfaceTestHistoryCommandInput}
+ * @returns {@link ListVirtualInterfaceTestHistoryCommandOutput}
  * @see {@link ListVirtualInterfaceTestHistoryCommandInput} for command's `input` shape.
  * @see {@link ListVirtualInterfaceTestHistoryCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
+ *
+ * @throws {@link DirectConnectClientException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link DirectConnectServerException} (server fault)
+ *  <p>A server-side error occurred.</p>
+ *
  *
  */
 export class ListVirtualInterfaceTestHistoryCommand extends $Command<
@@ -64,6 +89,9 @@ export class ListVirtualInterfaceTestHistoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListVirtualInterfaceTestHistoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +120,8 @@ export class ListVirtualInterfaceTestHistoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListVirtualInterfaceTestHistoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListVirtualInterfaceTestHistoryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +131,24 @@ export class ListVirtualInterfaceTestHistoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListVirtualInterfaceTestHistoryCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListVirtualInterfaceTestHistoryCommand(input, context);
+    return se_ListVirtualInterfaceTestHistoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListVirtualInterfaceTestHistoryCommandOutput> {
-    return deserializeAws_json1_1ListVirtualInterfaceTestHistoryCommand(output, context);
+    return de_ListVirtualInterfaceTestHistoryCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -6,12 +6,11 @@ import {
   ListInstanceAttributesCommandInput,
   ListInstanceAttributesCommandOutput,
 } from "../commands/ListInstanceAttributesCommand";
-import { Connect } from "../Connect";
 import { ConnectClient } from "../ConnectClient";
 import { ConnectPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ConnectClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListInstanceAttributesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Connect,
-  input: ListInstanceAttributesCommandInput,
-  ...args: any
-): Promise<ListInstanceAttributesCommandOutput> => {
-  // @ts-ignore
-  return await client.listInstanceAttributes(input, ...args);
-};
 export async function* paginateListInstanceAttributes(
   config: ConnectPaginationConfiguration,
   input: ListInstanceAttributesCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListInstanceAttributes(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Connect) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ConnectClient) {
+    if (config.client instanceof ConnectClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Connect | ConnectClient");

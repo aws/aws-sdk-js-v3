@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeAppInput,
-  DescribeAppInputFilterSensitiveLog,
-  DescribeAppOutput,
-  DescribeAppOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeAppCommand,
-  serializeAws_restJson1DescribeAppCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeAppInput, DescribeAppOutput } from "../models/models_0";
+import { de_DescribeAppCommand, se_DescribeAppCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SimSpaceWeaverClientResolvedConfig } from "../SimSpaceWeaverClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeAppCommand}.
+ */
 export interface DescribeAppCommandInput extends DescribeAppInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeAppCommand}.
+ */
 export interface DescribeAppCommandOutput extends DescribeAppOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the state of the given custom app.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,33 @@ export interface DescribeAppCommandOutput extends DescribeAppOutput, __MetadataB
  * import { SimSpaceWeaverClient, DescribeAppCommand } from "@aws-sdk/client-simspaceweaver"; // ES Modules import
  * // const { SimSpaceWeaverClient, DescribeAppCommand } = require("@aws-sdk/client-simspaceweaver"); // CommonJS import
  * const client = new SimSpaceWeaverClient(config);
+ * const input = { // DescribeAppInput
+ *   Simulation: "STRING_VALUE", // required
+ *   Domain: "STRING_VALUE", // required
+ *   App: "STRING_VALUE", // required
+ * };
  * const command = new DescribeAppCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAppCommandInput - {@link DescribeAppCommandInput}
+ * @returns {@link DescribeAppCommandOutput}
  * @see {@link DescribeAppCommandInput} for command's `input` shape.
  * @see {@link DescribeAppCommandOutput} for command's `response` shape.
  * @see {@link SimSpaceWeaverClientResolvedConfig | config} for SimSpaceWeaverClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p/>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p/>
+ *
  *
  */
 export class DescribeAppCommand extends $Command<
@@ -62,6 +85,9 @@ export class DescribeAppCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAppCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +114,8 @@ export class DescribeAppCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAppInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAppOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +125,18 @@ export class DescribeAppCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAppCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAppCommand(input, context);
+    return se_DescribeAppCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAppCommandOutput> {
-    return deserializeAws_restJson1DescribeAppCommand(output, context);
+    return de_DescribeAppCommand(output, context);
   }
 
   // Start section: command_body_extra

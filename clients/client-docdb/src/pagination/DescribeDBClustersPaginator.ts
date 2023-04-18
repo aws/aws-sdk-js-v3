@@ -6,12 +6,11 @@ import {
   DescribeDBClustersCommandInput,
   DescribeDBClustersCommandOutput,
 } from "../commands/DescribeDBClustersCommand";
-import { DocDB } from "../DocDB";
 import { DocDBClient } from "../DocDBClient";
 import { DocDBPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DocDBClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeDBClustersCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: DocDB,
-  input: DescribeDBClustersCommandInput,
-  ...args: any
-): Promise<DescribeDBClustersCommandOutput> => {
-  // @ts-ignore
-  return await client.describeDBClusters(input, ...args);
-};
 export async function* paginateDescribeDBClusters(
   config: DocDBPaginationConfiguration,
   input: DescribeDBClustersCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateDescribeDBClusters(
   while (hasNext) {
     input.Marker = token;
     input["MaxRecords"] = config.pageSize;
-    if (config.client instanceof DocDB) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DocDBClient) {
+    if (config.client instanceof DocDBClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected DocDB | DocDBClient");

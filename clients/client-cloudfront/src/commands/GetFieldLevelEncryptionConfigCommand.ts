@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
+import { GetFieldLevelEncryptionConfigRequest, GetFieldLevelEncryptionConfigResult } from "../models/models_1";
 import {
-  GetFieldLevelEncryptionConfigRequest,
-  GetFieldLevelEncryptionConfigRequestFilterSensitiveLog,
-  GetFieldLevelEncryptionConfigResult,
-  GetFieldLevelEncryptionConfigResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlGetFieldLevelEncryptionConfigCommand,
-  serializeAws_restXmlGetFieldLevelEncryptionConfigCommand,
+  de_GetFieldLevelEncryptionConfigCommand,
+  se_GetFieldLevelEncryptionConfigCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * @public
+ *
+ * The input for {@link GetFieldLevelEncryptionConfigCommand}.
+ */
 export interface GetFieldLevelEncryptionConfigCommandInput extends GetFieldLevelEncryptionConfigRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetFieldLevelEncryptionConfigCommand}.
+ */
 export interface GetFieldLevelEncryptionConfigCommandOutput
   extends GetFieldLevelEncryptionConfigResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get the field-level encryption configuration information.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,25 @@ export interface GetFieldLevelEncryptionConfigCommandOutput
  * import { CloudFrontClient, GetFieldLevelEncryptionConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, GetFieldLevelEncryptionConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // GetFieldLevelEncryptionConfigRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetFieldLevelEncryptionConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFieldLevelEncryptionConfigCommandInput - {@link GetFieldLevelEncryptionConfigCommandInput}
+ * @returns {@link GetFieldLevelEncryptionConfigCommandOutput}
  * @see {@link GetFieldLevelEncryptionConfigCommandInput} for command's `input` shape.
  * @see {@link GetFieldLevelEncryptionConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link NoSuchFieldLevelEncryptionConfig} (client fault)
+ *  <p>The specified configuration for field-level encryption doesn't exist.</p>
+ *
  *
  */
 export class GetFieldLevelEncryptionConfigCommand extends $Command<
@@ -64,6 +82,9 @@ export class GetFieldLevelEncryptionConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFieldLevelEncryptionConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +113,8 @@ export class GetFieldLevelEncryptionConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFieldLevelEncryptionConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetFieldLevelEncryptionConfigResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +124,21 @@ export class GetFieldLevelEncryptionConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFieldLevelEncryptionConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetFieldLevelEncryptionConfigCommand(input, context);
+    return se_GetFieldLevelEncryptionConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetFieldLevelEncryptionConfigCommandOutput> {
-    return deserializeAws_restXmlGetFieldLevelEncryptionConfigCommand(output, context);
+    return de_GetFieldLevelEncryptionConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

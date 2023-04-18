@@ -15,16 +15,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ExecuteScheduledQueryRequest, ExecuteScheduledQueryRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_0ExecuteScheduledQueryCommand,
-  serializeAws_json1_0ExecuteScheduledQueryCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ExecuteScheduledQueryCommand, se_ExecuteScheduledQueryCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamQueryClientResolvedConfig } from "../TimestreamQueryClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ExecuteScheduledQueryCommand}.
+ */
 export interface ExecuteScheduledQueryCommandInput extends ExecuteScheduledQueryRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ExecuteScheduledQueryCommand}.
+ */
 export interface ExecuteScheduledQueryCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p> You can use this API to run a scheduled query manually. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -32,13 +40,41 @@ export interface ExecuteScheduledQueryCommandOutput extends __MetadataBearer {}
  * import { TimestreamQueryClient, ExecuteScheduledQueryCommand } from "@aws-sdk/client-timestream-query"; // ES Modules import
  * // const { TimestreamQueryClient, ExecuteScheduledQueryCommand } = require("@aws-sdk/client-timestream-query"); // CommonJS import
  * const client = new TimestreamQueryClient(config);
+ * const input = { // ExecuteScheduledQueryRequest
+ *   ScheduledQueryArn: "STRING_VALUE", // required
+ *   InvocationTime: new Date("TIMESTAMP"), // required
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new ExecuteScheduledQueryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ExecuteScheduledQueryCommandInput - {@link ExecuteScheduledQueryCommandInput}
+ * @returns {@link ExecuteScheduledQueryCommandOutput}
  * @see {@link ExecuteScheduledQueryCommandInput} for command's `input` shape.
  * @see {@link ExecuteScheduledQueryCommandOutput} for command's `response` shape.
  * @see {@link TimestreamQueryClientResolvedConfig | config} for TimestreamQueryClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p> You are not authorized to perform this action. </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>
+ *             Timestream was unable to fully process this request because of an internal
+ *             server error. </p>
+ *
+ * @throws {@link InvalidEndpointException} (client fault)
+ *  <p>The requested endpoint was not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource could not be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p> Invalid or malformed request. </p>
+ *
  *
  */
 export class ExecuteScheduledQueryCommand extends $Command<
@@ -58,6 +94,9 @@ export class ExecuteScheduledQueryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExecuteScheduledQueryCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +129,7 @@ export class ExecuteScheduledQueryCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: ExecuteScheduledQueryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +139,18 @@ export class ExecuteScheduledQueryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExecuteScheduledQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ExecuteScheduledQueryCommand(input, context);
+    return se_ExecuteScheduledQueryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExecuteScheduledQueryCommandOutput> {
-    return deserializeAws_json1_0ExecuteScheduledQueryCommand(output, context);
+    return de_ExecuteScheduledQueryCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListPortfoliosInput,
-  ListPortfoliosInputFilterSensitiveLog,
-  ListPortfoliosOutput,
-  ListPortfoliosOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListPortfoliosCommand,
-  serializeAws_json1_1ListPortfoliosCommand,
-} from "../protocols/Aws_json1_1";
+import { ListPortfoliosInput, ListPortfoliosOutput } from "../models/models_0";
+import { de_ListPortfoliosCommand, se_ListPortfoliosCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListPortfoliosCommand}.
+ */
 export interface ListPortfoliosCommandInput extends ListPortfoliosInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListPortfoliosCommand}.
+ */
 export interface ListPortfoliosCommandOutput extends ListPortfoliosOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all portfolios in the catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,24 @@ export interface ListPortfoliosCommandOutput extends ListPortfoliosOutput, __Met
  * import { ServiceCatalogClient, ListPortfoliosCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, ListPortfoliosCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // ListPortfoliosInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   PageToken: "STRING_VALUE",
+ *   PageSize: Number("int"),
+ * };
  * const command = new ListPortfoliosCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPortfoliosCommandInput - {@link ListPortfoliosCommandInput}
+ * @returns {@link ListPortfoliosCommandOutput}
  * @see {@link ListPortfoliosCommandInput} for command's `input` shape.
  * @see {@link ListPortfoliosCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
+ *
+ * @throws {@link InvalidParametersException} (client fault)
+ *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
  *
  */
 export class ListPortfoliosCommand extends $Command<
@@ -62,6 +76,9 @@ export class ListPortfoliosCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPortfoliosCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +107,8 @@ export class ListPortfoliosCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPortfoliosInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPortfoliosOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +118,18 @@ export class ListPortfoliosCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPortfoliosCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListPortfoliosCommand(input, context);
+    return se_ListPortfoliosCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPortfoliosCommandOutput> {
-    return deserializeAws_json1_1ListPortfoliosCommand(output, context);
+    return de_ListPortfoliosCommand(output, context);
   }
 
   // Start section: command_body_extra

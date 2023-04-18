@@ -13,36 +13,63 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListPageReceiptsRequest,
-  ListPageReceiptsRequestFilterSensitiveLog,
-  ListPageReceiptsResult,
-  ListPageReceiptsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListPageReceiptsCommand,
-  serializeAws_json1_1ListPageReceiptsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListPageReceiptsRequest, ListPageReceiptsResult } from "../models/models_0";
+import { de_ListPageReceiptsCommand, se_ListPageReceiptsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListPageReceiptsCommand}.
+ */
 export interface ListPageReceiptsCommandInput extends ListPageReceiptsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListPageReceiptsCommand}.
+ */
 export interface ListPageReceiptsCommandOutput extends ListPageReceiptsResult, __MetadataBearer {}
 
 /**
- * <p>Lists all of the engagements to contact channels that have been acknowledged. </p>
+ * @public
+ * <p>Lists all of the engagements to contact channels that have been acknowledged.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SSMContactsClient, ListPageReceiptsCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, ListPageReceiptsCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
  * const client = new SSMContactsClient(config);
+ * const input = { // ListPageReceiptsRequest
+ *   PageId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListPageReceiptsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPageReceiptsCommandInput - {@link ListPageReceiptsCommandInput}
+ * @returns {@link ListPageReceiptsCommandOutput}
  * @see {@link ListPageReceiptsCommandInput} for command's `input` shape.
  * @see {@link ListPageReceiptsCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient access to perform this operation.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Unexpected error occurred while processing the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Request references a resource that doesn't exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
+ *          service.</p>
+ *
  *
  */
 export class ListPageReceiptsCommand extends $Command<
@@ -62,6 +89,9 @@ export class ListPageReceiptsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPageReceiptsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +120,8 @@ export class ListPageReceiptsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPageReceiptsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPageReceiptsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +131,18 @@ export class ListPageReceiptsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPageReceiptsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListPageReceiptsCommand(input, context);
+    return se_ListPageReceiptsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPageReceiptsCommandOutput> {
-    return deserializeAws_json1_1ListPageReceiptsCommand(output, context);
+    return de_ListPageReceiptsCommand(output, context);
   }
 
   // Start section: command_body_extra

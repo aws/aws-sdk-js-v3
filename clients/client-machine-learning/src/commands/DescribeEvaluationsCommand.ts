@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import {
-  DescribeEvaluationsInput,
-  DescribeEvaluationsInputFilterSensitiveLog,
-  DescribeEvaluationsOutput,
-  DescribeEvaluationsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeEvaluationsCommand,
-  serializeAws_json1_1DescribeEvaluationsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeEvaluationsInput, DescribeEvaluationsOutput } from "../models/models_0";
+import { de_DescribeEvaluationsCommand, se_DescribeEvaluationsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeEvaluationsCommand}.
+ */
 export interface DescribeEvaluationsCommandInput extends DescribeEvaluationsInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeEvaluationsCommand}.
+ */
 export interface DescribeEvaluationsCommandOutput extends DescribeEvaluationsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of <code>DescribeEvaluations</code> that match the search criteria in the request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,35 @@ export interface DescribeEvaluationsCommandOutput extends DescribeEvaluationsOut
  * import { MachineLearningClient, DescribeEvaluationsCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, DescribeEvaluationsCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
+ * const input = { // DescribeEvaluationsInput
+ *   FilterVariable: "STRING_VALUE",
+ *   EQ: "STRING_VALUE",
+ *   GT: "STRING_VALUE",
+ *   LT: "STRING_VALUE",
+ *   GE: "STRING_VALUE",
+ *   LE: "STRING_VALUE",
+ *   NE: "STRING_VALUE",
+ *   Prefix: "STRING_VALUE",
+ *   SortOrder: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new DescribeEvaluationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEvaluationsCommandInput - {@link DescribeEvaluationsCommandInput}
+ * @returns {@link DescribeEvaluationsCommandOutput}
  * @see {@link DescribeEvaluationsCommandInput} for command's `input` shape.
  * @see {@link DescribeEvaluationsCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An error on the server occurred when trying to process a request.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+ *
  *
  */
 export class DescribeEvaluationsCommand extends $Command<
@@ -62,6 +87,9 @@ export class DescribeEvaluationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEvaluationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +118,8 @@ export class DescribeEvaluationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEvaluationsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEvaluationsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +129,18 @@ export class DescribeEvaluationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEvaluationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEvaluationsCommand(input, context);
+    return se_DescribeEvaluationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEvaluationsCommandOutput> {
-    return deserializeAws_json1_1DescribeEvaluationsCommand(output, context);
+    return de_DescribeEvaluationsCommand(output, context);
   }
 
   // Start section: command_body_extra

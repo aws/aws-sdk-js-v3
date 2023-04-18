@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ListInferenceRecommendationsJobsRequest, ListInferenceRecommendationsJobsResponse } from "../models/models_3";
 import {
-  ListInferenceRecommendationsJobsRequest,
-  ListInferenceRecommendationsJobsRequestFilterSensitiveLog,
-  ListInferenceRecommendationsJobsResponse,
-  ListInferenceRecommendationsJobsResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1ListInferenceRecommendationsJobsCommand,
-  serializeAws_json1_1ListInferenceRecommendationsJobsCommand,
+  de_ListInferenceRecommendationsJobsCommand,
+  se_ListInferenceRecommendationsJobsCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListInferenceRecommendationsJobsCommand}.
+ */
 export interface ListInferenceRecommendationsJobsCommandInput extends ListInferenceRecommendationsJobsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListInferenceRecommendationsJobsCommand}.
+ */
 export interface ListInferenceRecommendationsJobsCommandOutput
   extends ListInferenceRecommendationsJobsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists recommendation jobs that satisfy various filters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,28 @@ export interface ListInferenceRecommendationsJobsCommandOutput
  * import { SageMakerClient, ListInferenceRecommendationsJobsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListInferenceRecommendationsJobsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListInferenceRecommendationsJobsRequest
+ *   CreationTimeAfter: new Date("TIMESTAMP"),
+ *   CreationTimeBefore: new Date("TIMESTAMP"),
+ *   LastModifiedTimeAfter: new Date("TIMESTAMP"),
+ *   LastModifiedTimeBefore: new Date("TIMESTAMP"),
+ *   NameContains: "STRING_VALUE",
+ *   StatusEquals: "PENDING" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOPPING" || "STOPPED",
+ *   SortBy: "Name" || "CreationTime" || "Status",
+ *   SortOrder: "Ascending" || "Descending",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListInferenceRecommendationsJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInferenceRecommendationsJobsCommandInput - {@link ListInferenceRecommendationsJobsCommandInput}
+ * @returns {@link ListInferenceRecommendationsJobsCommandOutput}
  * @see {@link ListInferenceRecommendationsJobsCommandInput} for command's `input` shape.
  * @see {@link ListInferenceRecommendationsJobsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
  *
  */
 export class ListInferenceRecommendationsJobsCommand extends $Command<
@@ -64,6 +85,9 @@ export class ListInferenceRecommendationsJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInferenceRecommendationsJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +116,8 @@ export class ListInferenceRecommendationsJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListInferenceRecommendationsJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListInferenceRecommendationsJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +127,24 @@ export class ListInferenceRecommendationsJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListInferenceRecommendationsJobsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListInferenceRecommendationsJobsCommand(input, context);
+    return se_ListInferenceRecommendationsJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListInferenceRecommendationsJobsCommandOutput> {
-    return deserializeAws_json1_1ListInferenceRecommendationsJobsCommand(output, context);
+    return de_ListInferenceRecommendationsJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

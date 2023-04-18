@@ -14,51 +14,101 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  SimulateCustomPolicyRequest,
-  SimulateCustomPolicyRequestFilterSensitiveLog,
-  SimulatePolicyResponse,
-  SimulatePolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_querySimulateCustomPolicyCommand,
-  serializeAws_querySimulateCustomPolicyCommand,
-} from "../protocols/Aws_query";
+import { SimulateCustomPolicyRequest, SimulatePolicyResponse } from "../models/models_0";
+import { de_SimulateCustomPolicyCommand, se_SimulateCustomPolicyCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link SimulateCustomPolicyCommand}.
+ */
 export interface SimulateCustomPolicyCommandInput extends SimulateCustomPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SimulateCustomPolicyCommand}.
+ */
 export interface SimulateCustomPolicyCommandOutput extends SimulatePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Simulate how a set of IAM policies and optionally a resource-based policy works with
  *             a list of API operations and Amazon Web Services resources to determine the policies' effective
  *             permissions. The policies are provided as strings.</p>
- *         <p>The simulation does not perform the API operations; it only checks the authorization
+ *          <p>The simulation does not perform the API operations; it only checks the authorization
  *             to determine if the simulated policies allow or deny the operations. You can simulate
  *             resources that don't exist in your account.</p>
- *         <p>If you want to simulate existing policies that are attached to an IAM user, group,
+ *          <p>If you want to simulate existing policies that are attached to an IAM user, group,
  *             or role, use <a>SimulatePrincipalPolicy</a> instead.</p>
- *         <p>Context keys are variables that are maintained by Amazon Web Services and its services and which
+ *          <p>Context keys are variables that are maintained by Amazon Web Services and its services and which
  *             provide details about the context of an API query request. You can use the
  *                 <code>Condition</code> element of an IAM policy to evaluate context keys. To get
  *             the list of context keys that the policies require for correct simulation, use <a>GetContextKeysForCustomPolicy</a>.</p>
- *         <p>If the output is long, you can use <code>MaxItems</code> and <code>Marker</code>
+ *          <p>If the output is long, you can use <code>MaxItems</code> and <code>Marker</code>
  *             parameters to paginate the results.</p>
- *         <p>For more information about using the policy simulator, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html">Testing IAM policies
- *                 with the IAM policy simulator </a>in the
- *             <i>IAM User Guide</i>.</p>
+ *          <note>
+ *             <p>The IAM policy simulator evaluates statements in the identity-based policy and
+ *                 the inputs that you provide during simulation. The policy simulator results can
+ *                 differ from your live Amazon Web Services environment. We recommend that you check your policies
+ *                 against your live Amazon Web Services environment after testing using the policy simulator to
+ *                 confirm that you have the desired results. For more information about using the
+ *                 policy simulator, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html">Testing IAM
+ *                     policies with the IAM policy simulator </a>in the
+ *                     <i>IAM User Guide</i>.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IAMClient, SimulateCustomPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, SimulateCustomPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // SimulateCustomPolicyRequest
+ *   PolicyInputList: [ // SimulationPolicyListType // required
+ *     "STRING_VALUE",
+ *   ],
+ *   PermissionsBoundaryPolicyInputList: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ActionNames: [ // ActionNameListType // required
+ *     "STRING_VALUE",
+ *   ],
+ *   ResourceArns: [ // ResourceNameListType
+ *     "STRING_VALUE",
+ *   ],
+ *   ResourcePolicy: "STRING_VALUE",
+ *   ResourceOwner: "STRING_VALUE",
+ *   CallerArn: "STRING_VALUE",
+ *   ContextEntries: [ // ContextEntryListType
+ *     { // ContextEntry
+ *       ContextKeyName: "STRING_VALUE",
+ *       ContextKeyValues: [ // ContextKeyValueListType
+ *         "STRING_VALUE",
+ *       ],
+ *       ContextKeyType: "string" || "stringList" || "numeric" || "numericList" || "boolean" || "booleanList" || "ip" || "ipList" || "binary" || "binaryList" || "date" || "dateList",
+ *     },
+ *   ],
+ *   ResourceHandlingOption: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new SimulateCustomPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SimulateCustomPolicyCommandInput - {@link SimulateCustomPolicyCommandInput}
+ * @returns {@link SimulateCustomPolicyCommandOutput}
  * @see {@link SimulateCustomPolicyCommandInput} for command's `input` shape.
  * @see {@link SimulateCustomPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
+ *       input parameter.</p>
+ *
+ * @throws {@link PolicyEvaluationException} (server fault)
+ *  <p>The request failed because a provided policy could not be successfully evaluated. An
+ *       additional detailed message indicates the source of the failure.</p>
+ *
  *
  */
 export class SimulateCustomPolicyCommand extends $Command<
@@ -78,6 +128,9 @@ export class SimulateCustomPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SimulateCustomPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +159,8 @@ export class SimulateCustomPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SimulateCustomPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SimulatePolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +170,18 @@ export class SimulateCustomPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SimulateCustomPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySimulateCustomPolicyCommand(input, context);
+    return se_SimulateCustomPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SimulateCustomPolicyCommandOutput> {
-    return deserializeAws_querySimulateCustomPolicyCommand(output, context);
+    return de_SimulateCustomPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

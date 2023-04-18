@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import {
-  ListAliasesRequest,
-  ListAliasesRequestFilterSensitiveLog,
-  ListAliasesResponse,
-  ListAliasesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListAliasesCommand,
-  serializeAws_json1_1ListAliasesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListAliasesRequest, ListAliasesResponse } from "../models/models_0";
+import { de_ListAliasesCommand, se_ListAliasesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListAliasesCommand}.
+ */
 export interface ListAliasesCommandInput extends ListAliasesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListAliasesCommand}.
+ */
 export interface ListAliasesCommandOutput extends ListAliasesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of aliases in the caller's Amazon Web Services account and region. For more information
  *       about aliases, see <a>CreateAlias</a>.</p>
  *          <p>By default, the <code>ListAliases</code> operation returns all aliases in the account and
@@ -46,8 +49,6 @@ export interface ListAliasesCommandOutput extends ListAliasesResponse, __Metadat
  *          <p>
  *             <b>Cross-account use</b>: No. <code>ListAliases</code> does not
  *       return aliases in other Amazon Web Services accounts.</p>
- *
- *
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ListAliases</a> (IAM policy)</p>
  *          <p>For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-alias.html#alias-access">Controlling access to aliases</a> in the
@@ -78,13 +79,97 @@ export interface ListAliasesCommandOutput extends ListAliasesResponse, __Metadat
  * import { KMSClient, ListAliasesCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, ListAliasesCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // ListAliasesRequest
+ *   KeyId: "STRING_VALUE",
+ *   Limit: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new ListAliasesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAliasesCommandInput - {@link ListAliasesCommandInput}
+ * @returns {@link ListAliasesCommandOutput}
  * @see {@link ListAliasesCommandInput} for command's `input` shape.
  * @see {@link ListAliasesCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
+ *
+ * @throws {@link DependencyTimeoutException} (server fault)
+ *  <p>The system timed out while trying to fulfill the request. You can retry the
+ *       request.</p>
+ *
+ * @throws {@link InvalidArnException} (client fault)
+ *  <p>The request was rejected because a specified ARN, or an ARN in a key policy, is not
+ *       valid.</p>
+ *
+ * @throws {@link InvalidMarkerException} (client fault)
+ *  <p>The request was rejected because the marker that specifies where pagination should next
+ *       begin is not valid.</p>
+ *
+ * @throws {@link KMSInternalException} (server fault)
+ *  <p>The request was rejected because an internal exception occurred. The request can be
+ *       retried.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The request was rejected because the specified entity or resource could not be
+ *       found.</p>
+ *
+ *
+ * @example To list aliases
+ * ```javascript
+ * // The following example lists aliases.
+ * const input = undefined;
+ * const command = new ListAliasesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Aliases": [
+ *     {
+ *       "AliasArn": "arn:aws:kms:us-east-2:111122223333:alias/aws/acm",
+ *       "AliasName": "alias/aws/acm",
+ *       "TargetKeyId": "da03f6f7-d279-427a-9cae-de48d07e5b66"
+ *     },
+ *     {
+ *       "AliasArn": "arn:aws:kms:us-east-2:111122223333:alias/aws/ebs",
+ *       "AliasName": "alias/aws/ebs",
+ *       "TargetKeyId": "25a217e7-7170-4b8c-8bf6-045ea5f70e5b"
+ *     },
+ *     {
+ *       "AliasArn": "arn:aws:kms:us-east-2:111122223333:alias/aws/rds",
+ *       "AliasName": "alias/aws/rds",
+ *       "TargetKeyId": "7ec3104e-c3f2-4b5c-bf42-bfc4772c6685"
+ *     },
+ *     {
+ *       "AliasArn": "arn:aws:kms:us-east-2:111122223333:alias/aws/redshift",
+ *       "AliasName": "alias/aws/redshift",
+ *       "TargetKeyId": "08f7a25a-69e2-4fb5-8f10-393db27326fa"
+ *     },
+ *     {
+ *       "AliasArn": "arn:aws:kms:us-east-2:111122223333:alias/aws/s3",
+ *       "AliasName": "alias/aws/s3",
+ *       "TargetKeyId": "d2b0f1a3-580d-4f79-b836-bc983be8cfa5"
+ *     },
+ *     {
+ *       "AliasArn": "arn:aws:kms:us-east-2:111122223333:alias/example1",
+ *       "AliasName": "alias/example1",
+ *       "TargetKeyId": "4da1e216-62d0-46c5-a7c0-5f3a3d2f8046"
+ *     },
+ *     {
+ *       "AliasArn": "arn:aws:kms:us-east-2:111122223333:alias/example2",
+ *       "AliasName": "alias/example2",
+ *       "TargetKeyId": "f32fef59-2cc2-445b-8573-2d73328acbee"
+ *     },
+ *     {
+ *       "AliasArn": "arn:aws:kms:us-east-2:111122223333:alias/example3",
+ *       "AliasName": "alias/example3",
+ *       "TargetKeyId": "1374ef38-d34e-4d5f-b2c9-4e0daee38855"
+ *     }
+ *   ],
+ *   "Truncated": false
+ * }
+ * *\/
+ * // example id: to-list-aliases-1480729693349
+ * ```
  *
  */
 export class ListAliasesCommand extends $Command<
@@ -104,6 +189,9 @@ export class ListAliasesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAliasesCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +218,8 @@ export class ListAliasesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAliasesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAliasesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +229,18 @@ export class ListAliasesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAliasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAliasesCommand(input, context);
+    return se_ListAliasesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAliasesCommandOutput> {
-    return deserializeAws_json1_1ListAliasesCommand(output, context);
+    return de_ListAliasesCommand(output, context);
   }
 
   // Start section: command_body_extra

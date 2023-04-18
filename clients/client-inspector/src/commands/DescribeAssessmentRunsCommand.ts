@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import {
-  DescribeAssessmentRunsRequest,
-  DescribeAssessmentRunsRequestFilterSensitiveLog,
-  DescribeAssessmentRunsResponse,
-  DescribeAssessmentRunsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeAssessmentRunsCommand,
-  serializeAws_json1_1DescribeAssessmentRunsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeAssessmentRunsRequest, DescribeAssessmentRunsResponse } from "../models/models_0";
+import { de_DescribeAssessmentRunsCommand, se_DescribeAssessmentRunsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeAssessmentRunsCommand}.
+ */
 export interface DescribeAssessmentRunsCommandInput extends DescribeAssessmentRunsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeAssessmentRunsCommand}.
+ */
 export interface DescribeAssessmentRunsCommandOutput extends DescribeAssessmentRunsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the assessment runs that are specified by the ARNs of the assessment
  *          runs.</p>
  * @example
@@ -37,13 +40,106 @@ export interface DescribeAssessmentRunsCommandOutput extends DescribeAssessmentR
  * import { InspectorClient, DescribeAssessmentRunsCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, DescribeAssessmentRunsCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = { // DescribeAssessmentRunsRequest
+ *   assessmentRunArns: [ // BatchDescribeArnList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeAssessmentRunsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAssessmentRunsCommandInput - {@link DescribeAssessmentRunsCommandInput}
+ * @returns {@link DescribeAssessmentRunsCommandOutput}
  * @see {@link DescribeAssessmentRunsCommandInput} for command's `input` shape.
  * @see {@link DescribeAssessmentRunsCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>Internal server error.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
+ *          input parameter.</p>
+ *
+ *
+ * @example Describte assessment runs
+ * ```javascript
+ * // Describes the assessment runs that are specified by the ARNs of the assessment runs.
+ * const input = {
+ *   "assessmentRunArns": [
+ *     "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-4r1V2mAw/run/0-MKkpXXPE"
+ *   ]
+ * };
+ * const command = new DescribeAssessmentRunsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "assessmentRuns": [
+ *     {
+ *       "name": "Run 1 for ExampleAssessmentTemplate",
+ *       "arn": "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-4r1V2mAw/run/0-MKkpXXPE",
+ *       "assessmentTemplateArn": "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-4r1V2mAw",
+ *       "completedAt": "1458680301.4",
+ *       "createdAt": "1458680170.035",
+ *       "dataCollected": true,
+ *       "durationInSeconds": 3600,
+ *       "findingCounts": {
+ *         "High": 14,
+ *         "Informational": 0,
+ *         "Low": 0,
+ *         "Medium": 2,
+ *         "Undefined": 0
+ *       },
+ *       "notifications": [],
+ *       "rulesPackageArns": [
+ *         "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-X1KXtawP"
+ *       ],
+ *       "startedAt": "1458680170.161",
+ *       "state": "COMPLETED",
+ *       "stateChangedAt": "1458680301.4",
+ *       "stateChanges": [
+ *         {
+ *           "state": "CREATED",
+ *           "stateChangedAt": "1458680170.035"
+ *         },
+ *         {
+ *           "state": "START_DATA_COLLECTION_PENDING",
+ *           "stateChangedAt": "1458680170.065"
+ *         },
+ *         {
+ *           "state": "START_DATA_COLLECTION_IN_PROGRESS",
+ *           "stateChangedAt": "1458680170.096"
+ *         },
+ *         {
+ *           "state": "COLLECTING_DATA",
+ *           "stateChangedAt": "1458680170.161"
+ *         },
+ *         {
+ *           "state": "STOP_DATA_COLLECTION_PENDING",
+ *           "stateChangedAt": "1458680239.883"
+ *         },
+ *         {
+ *           "state": "DATA_COLLECTED",
+ *           "stateChangedAt": "1458680299.847"
+ *         },
+ *         {
+ *           "state": "EVALUATING_RULES",
+ *           "stateChangedAt": "1458680300.099"
+ *         },
+ *         {
+ *           "state": "COMPLETED",
+ *           "stateChangedAt": "1458680301.4"
+ *         }
+ *       ],
+ *       "userAttributesForFindings": []
+ *     }
+ *   ],
+ *   "failedItems": {}
+ * }
+ * *\/
+ * // example id: describte-assessment-runs-1481064424352
+ * ```
  *
  */
 export class DescribeAssessmentRunsCommand extends $Command<
@@ -63,6 +159,9 @@ export class DescribeAssessmentRunsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAssessmentRunsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +190,8 @@ export class DescribeAssessmentRunsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAssessmentRunsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAssessmentRunsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +201,18 @@ export class DescribeAssessmentRunsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAssessmentRunsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAssessmentRunsCommand(input, context);
+    return se_DescribeAssessmentRunsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAssessmentRunsCommandOutput> {
-    return deserializeAws_json1_1DescribeAssessmentRunsCommand(output, context);
+    return de_DescribeAssessmentRunsCommand(output, context);
   }
 
   // Start section: command_body_extra

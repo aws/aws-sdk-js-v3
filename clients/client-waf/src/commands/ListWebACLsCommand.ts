@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListWebACLsRequest,
-  ListWebACLsRequestFilterSensitiveLog,
-  ListWebACLsResponse,
-  ListWebACLsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListWebACLsCommand,
-  serializeAws_json1_1ListWebACLsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListWebACLsRequest, ListWebACLsResponse } from "../models/models_0";
+import { de_ListWebACLsCommand, se_ListWebACLsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListWebACLsCommand}.
+ */
 export interface ListWebACLsCommandInput extends ListWebACLsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListWebACLsCommand}.
+ */
 export interface ListWebACLsCommandOutput extends ListWebACLsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -44,13 +47,47 @@ export interface ListWebACLsCommandOutput extends ListWebACLsResponse, __Metadat
  * import { WAFClient, ListWebACLsCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, ListWebACLsCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = { // ListWebACLsRequest
+ *   NextMarker: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListWebACLsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWebACLsCommandInput - {@link ListWebACLsCommandInput}
+ * @returns {@link ListWebACLsCommandOutput}
  * @see {@link ListWebACLsCommandInput} for command's `input` shape.
  * @see {@link ListWebACLsCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
+ *
+ * @throws {@link WAFInternalErrorException} (server fault)
+ *  <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+ *
+ * @throws {@link WAFInvalidAccountException} (client fault)
+ *  <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+ *
+ *
+ * @example To list Web ACLs
+ * ```javascript
+ * // The following example returns an array of up to 100 web ACLs.
+ * const input = {
+ *   "Limit": 100
+ * };
+ * const command = new ListWebACLsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "WebACLs": [
+ *     {
+ *       "Name": "WebACLexample",
+ *       "WebACLId": "webacl-1472061481310"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: listwebacls-1475258732691
+ * ```
  *
  */
 export class ListWebACLsCommand extends $Command<
@@ -70,6 +107,9 @@ export class ListWebACLsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWebACLsCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +136,8 @@ export class ListWebACLsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListWebACLsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListWebACLsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +147,18 @@ export class ListWebACLsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListWebACLsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListWebACLsCommand(input, context);
+    return se_ListWebACLsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWebACLsCommandOutput> {
-    return deserializeAws_json1_1ListWebACLsCommand(output, context);
+    return de_ListWebACLsCommand(output, context);
   }
 
   // Start section: command_body_extra

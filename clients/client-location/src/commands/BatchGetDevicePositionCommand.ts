@@ -16,19 +16,26 @@ import {
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import {
   BatchGetDevicePositionRequest,
-  BatchGetDevicePositionRequestFilterSensitiveLog,
   BatchGetDevicePositionResponse,
   BatchGetDevicePositionResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchGetDevicePositionCommand,
-  serializeAws_restJson1BatchGetDevicePositionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchGetDevicePositionCommand, se_BatchGetDevicePositionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchGetDevicePositionCommand}.
+ */
 export interface BatchGetDevicePositionCommandInput extends BatchGetDevicePositionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link BatchGetDevicePositionCommand}.
+ */
 export interface BatchGetDevicePositionCommandOutput extends BatchGetDevicePositionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the latest device positions for requested devices.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +43,38 @@ export interface BatchGetDevicePositionCommandOutput extends BatchGetDevicePosit
  * import { LocationClient, BatchGetDevicePositionCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, BatchGetDevicePositionCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = { // BatchGetDevicePositionRequest
+ *   TrackerName: "STRING_VALUE", // required
+ *   DeviceIds: [ // IdList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchGetDevicePositionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetDevicePositionCommandInput - {@link BatchGetDevicePositionCommandInput}
+ * @returns {@link BatchGetDevicePositionCommandOutput}
  * @see {@link BatchGetDevicePositionCommandInput} for command's `input` shape.
  * @see {@link BatchGetDevicePositionCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The request was denied because of insufficient access or permissions. Check with an
+ *       administrator to verify your permissions.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource that you've entered was not found in your AWS account.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because of request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input failed to meet the constraints specified by the AWS service. </p>
+ *
  *
  */
 export class BatchGetDevicePositionCommand extends $Command<
@@ -62,6 +94,9 @@ export class BatchGetDevicePositionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetDevicePositionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +125,7 @@ export class BatchGetDevicePositionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetDevicePositionRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: BatchGetDevicePositionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -101,12 +136,18 @@ export class BatchGetDevicePositionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetDevicePositionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchGetDevicePositionCommand(input, context);
+    return se_BatchGetDevicePositionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetDevicePositionCommandOutput> {
-    return deserializeAws_restJson1BatchGetDevicePositionCommand(output, context);
+    return de_BatchGetDevicePositionCommand(output, context);
   }
 
   // Start section: command_body_extra

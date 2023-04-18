@@ -364,6 +364,7 @@ import {
 import { WorkMailClient } from "./WorkMailClient";
 
 /**
+ * @public
  * <p>WorkMail is a secure, managed business email and calendaring service with support for
  *          existing desktop and mobile email clients. You can access your email, contacts, and
  *          calendars using Microsoft Outlook, your browser, or other native iOS and Android email
@@ -403,6 +404,7 @@ import { WorkMailClient } from "./WorkMailClient";
  */
 export class WorkMail extends WorkMailClient {
   /**
+   * @public
    * <p>Adds a member (user or group) to the resource's set of delegates.</p>
    */
   public associateDelegateToResource(
@@ -435,6 +437,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Adds a member (user or group) to the group's set.</p>
    */
   public associateMemberToGroup(
@@ -467,6 +470,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Assumes an impersonation role for the given WorkMail organization. This method returns an
    *          authentication token you can use to make impersonated calls.</p>
    */
@@ -500,6 +504,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Cancels a mailbox export job.</p>
    *          <note>
    *             <p>If the mailbox export job is near completion, it might not be possible to cancel
@@ -536,6 +541,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Adds an alias to the set of a given member (user or group) of WorkMail.</p>
    */
   public createAlias(args: CreateAliasCommandInput, options?: __HttpHandlerOptions): Promise<CreateAliasCommandOutput>;
@@ -562,6 +568,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Creates an <code>AvailabilityConfiguration</code> for the given WorkMail organization and domain.</p>
    */
   public createAvailabilityConfiguration(
@@ -594,6 +601,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Creates a group that can be used in WorkMail by calling the <a>RegisterToWorkMail</a> operation.</p>
    */
   public createGroup(args: CreateGroupCommandInput, options?: __HttpHandlerOptions): Promise<CreateGroupCommandOutput>;
@@ -620,6 +628,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Creates an impersonation role for the given WorkMail organization.</p>
    *          <p>
    *             <i>Idempotency</i> ensures that an API request completes no more than one
@@ -657,6 +666,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Creates a new mobile device access rule for the specified WorkMail organization.</p>
    */
   public createMobileDeviceAccessRule(
@@ -689,6 +699,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Creates a new WorkMail organization. Optionally, you can choose to associate an existing AWS Directory Service directory with your organization. If an AWS Directory Service directory ID is specified, the organization alias must match the directory alias. If you choose not to associate an existing directory with your organization, then we create a new WorkMail directory for you. For more information, see <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/add_new_organization.html">Adding an organization</a> in the <i>WorkMail Administrator Guide</i>.</p>
    *          <p>You can associate multiple email domains with an organization, then choose your
    *          default email domain from the WorkMail console. You can also associate a domain that is managed
@@ -729,6 +740,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Creates a new WorkMail resource.</p>
    */
   public createResource(
@@ -761,6 +773,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Creates a user who can be used in WorkMail by calling the <a>RegisterToWorkMail</a> operation.</p>
    */
   public createUser(args: CreateUserCommandInput, options?: __HttpHandlerOptions): Promise<CreateUserCommandOutput>;
@@ -787,6 +800,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Deletes an access control rule for the specified WorkMail organization.</p>
    *          <note>
    *             <p>Deleting already deleted and non-existing rules does not produce an error. In those cases, the service sends back an HTTP 200 response with an empty HTTP body.</p>
@@ -822,6 +836,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Remove one or more specified aliases from a set of aliases for a given
    *          user.</p>
    */
@@ -849,6 +864,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Deletes the <code>AvailabilityConfiguration</code> for the given WorkMail organization and domain.</p>
    */
   public deleteAvailabilityConfiguration(
@@ -881,6 +897,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Deletes the email monitoring configuration for a specified organization.</p>
    */
   public deleteEmailMonitoringConfiguration(
@@ -913,6 +930,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Deletes a group from WorkMail.</p>
    */
   public deleteGroup(args: DeleteGroupCommandInput, options?: __HttpHandlerOptions): Promise<DeleteGroupCommandOutput>;
@@ -939,6 +957,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Deletes an impersonation role for the given WorkMail organization.</p>
    */
   public deleteImpersonationRole(
@@ -971,6 +990,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Deletes permissions granted to a member (user or group).</p>
    */
   public deleteMailboxPermissions(
@@ -1003,6 +1023,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Deletes the mobile device access override for the given WorkMail organization, user, and device.</p>
    *          <note>
    *             <p>Deleting already deleted and non-existing overrides does not produce an error. In those cases, the service sends back an HTTP 200 response with an empty HTTP body.</p>
@@ -1038,6 +1059,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Deletes a mobile device access rule for the specified WorkMail organization.</p>
    *          <note>
    *             <p>Deleting already deleted and non-existing rules does not produce an error. In those cases, the service sends back an HTTP 200 response with an empty HTTP body.</p>
@@ -1073,6 +1095,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Deletes an WorkMail organization and all underlying AWS resources managed by WorkMail as part of the organization. You can choose whether to delete the associated directory. For more information, see <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/remove_organization.html">Removing an organization</a> in the <i>WorkMail Administrator Guide</i>.</p>
    */
   public deleteOrganization(
@@ -1105,6 +1128,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified resource.</p>
    */
   public deleteResource(
@@ -1137,6 +1161,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified retention policy from the specified organization.</p>
    */
   public deleteRetentionPolicy(
@@ -1169,6 +1194,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Deletes a user from WorkMail and all subsequent systems. Before you can delete a
    *          user, the user state must be <code>DISABLED</code>. Use the <a>DescribeUser</a>
    *          action to confirm the user state.</p>
@@ -1199,6 +1225,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Mark a user, group, or resource as no longer used in WorkMail. This action
    *          disassociates the mailbox and schedules it for clean-up. WorkMail keeps mailboxes for 30 days
    *          before they are permanently removed. The functionality in the console is
@@ -1234,6 +1261,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Removes a domain from WorkMail, stops email routing to WorkMail, and removes the authorization allowing WorkMail use. SES keeps the domain because other applications may use it. You must first
    *          remove any email address used by WorkMail entities before you remove the domain.</p>
    */
@@ -1267,6 +1295,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Describes the current email monitoring configuration for a specified organization.</p>
    */
   public describeEmailMonitoringConfiguration(
@@ -1299,6 +1328,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Returns the data available for the group.</p>
    */
   public describeGroup(
@@ -1331,6 +1361,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Lists the settings in a DMARC policy for a specified organization.</p>
    */
   public describeInboundDmarcSettings(
@@ -1363,6 +1394,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Describes the current status of a mailbox export job.</p>
    */
   public describeMailboxExportJob(
@@ -1395,6 +1427,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Provides more information regarding a given organization based on its
    *          identifier.</p>
    */
@@ -1428,6 +1461,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Returns the data available for the resource.</p>
    */
   public describeResource(
@@ -1460,6 +1494,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Provides information regarding the user.</p>
    */
   public describeUser(
@@ -1489,6 +1524,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Removes a member from the resource's set of delegates.</p>
    */
   public disassociateDelegateFromResource(
@@ -1521,6 +1557,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Removes a member from a group.</p>
    */
   public disassociateMemberFromGroup(
@@ -1553,6 +1590,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Gets the effects of an organization's access control rules as they apply to a
    *          specified IPv4 address, access protocol action, and  user ID or impersonation role ID. You must provide either the user ID or impersonation role ID. Impersonation role ID can only be used with Action EWS.</p>
    */
@@ -1586,6 +1624,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Gets the default retention policy details for the specified organization.</p>
    */
   public getDefaultRetentionPolicy(
@@ -1618,6 +1657,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Gets the impersonation role details for the given WorkMail organization.</p>
    */
   public getImpersonationRole(
@@ -1650,6 +1690,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Tests whether the given impersonation role can impersonate a target user.</p>
    */
   public getImpersonationRoleEffect(
@@ -1682,6 +1723,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Requests a user's mailbox details for a specified organization and user.</p>
    */
   public getMailboxDetails(
@@ -1714,6 +1756,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Gets details for a mail domain, including domain records required to configure your domain with recommended security.</p>
    */
   public getMailDomain(
@@ -1746,6 +1789,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Simulates the effect of the mobile device access rules for the given attributes of a sample access event. Use this method to test the effects of the current set of mobile device access
    *          rules for the WorkMail organization for a particular user's attributes.</p>
    */
@@ -1779,6 +1823,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Gets the mobile device access override for the given WorkMail organization, user, and device.</p>
    */
   public getMobileDeviceAccessOverride(
@@ -1811,6 +1856,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Lists the access control rules for the specified organization.</p>
    */
   public listAccessControlRules(
@@ -1843,6 +1889,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Creates a paginated call to list the aliases associated with a given
    *          entity.</p>
    */
@@ -1870,6 +1917,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>List all the <code>AvailabilityConfiguration</code>'s for the given WorkMail organization.</p>
    */
   public listAvailabilityConfigurations(
@@ -1902,6 +1950,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Returns an overview of the members of a group. Users and groups can be members of a
    *          group.</p>
    */
@@ -1935,6 +1984,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Returns summaries of the organization's groups.</p>
    */
   public listGroups(args: ListGroupsCommandInput, options?: __HttpHandlerOptions): Promise<ListGroupsCommandOutput>;
@@ -1961,6 +2011,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Lists all the impersonation roles for the given WorkMail organization.</p>
    */
   public listImpersonationRoles(
@@ -1993,6 +2044,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Lists the mailbox export jobs started for the specified organization within the last
    *          seven days.</p>
    */
@@ -2026,6 +2078,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Lists the mailbox permissions associated with a user, group, or resource
    *          mailbox.</p>
    */
@@ -2059,6 +2112,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Lists the mail domains in a given WorkMail organization.</p>
    */
   public listMailDomains(
@@ -2091,6 +2145,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Lists all the mobile device access overrides for any given combination of WorkMail organization, user, or device.</p>
    */
   public listMobileDeviceAccessOverrides(
@@ -2123,6 +2178,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Lists the mobile device access rules for the specified WorkMail organization.</p>
    */
   public listMobileDeviceAccessRules(
@@ -2155,6 +2211,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Returns summaries of the customer's organizations.</p>
    */
   public listOrganizations(
@@ -2187,6 +2244,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Lists the delegates associated with a resource. Users and groups can be resource
    *          delegates and answer requests on behalf of the resource.</p>
    */
@@ -2220,6 +2278,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Returns summaries of the organization's resources.</p>
    */
   public listResources(
@@ -2252,6 +2311,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags applied to an WorkMail organization resource.</p>
    */
   public listTagsForResource(
@@ -2284,6 +2344,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Returns summaries of the organization's users.</p>
    */
   public listUsers(args: ListUsersCommandInput, options?: __HttpHandlerOptions): Promise<ListUsersCommandOutput>;
@@ -2310,6 +2371,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Adds a new access control rule for the specified organization. The rule allows or
    *          denies access to the organization for the specified IPv4 addresses, access protocol
    *          actions, user IDs and impersonation IDs. Adding a new rule with the same name as an existing rule replaces
@@ -2345,6 +2407,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Creates or updates the email monitoring configuration for a specified organization.</p>
    */
   public putEmailMonitoringConfiguration(
@@ -2377,6 +2440,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Enables or disables a DMARC policy for a given organization.</p>
    */
   public putInboundDmarcSettings(
@@ -2409,6 +2473,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Sets permissions for a user, group, or resource. This replaces any pre-existing
    *          permissions.</p>
    */
@@ -2442,6 +2507,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Creates or updates a mobile device access override for the given WorkMail organization, user, and device.</p>
    */
   public putMobileDeviceAccessOverride(
@@ -2474,6 +2540,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Puts a retention policy to the specified organization.</p>
    */
   public putRetentionPolicy(
@@ -2506,6 +2573,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Registers a new domain in WorkMail and SES, and configures it for use by WorkMail. Emails received by SES for this domain are routed to the specified WorkMail organization, and WorkMail has
    *          permanent permission to use the specified domain for sending your users' emails.</p>
    */
@@ -2539,6 +2607,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Registers an existing and disabled user, group, or resource for WorkMail use by
    *          associating a mailbox and calendaring capabilities. It performs no change if the user,
    *          group, or resource is enabled and fails if the user, group, or resource is deleted. This
@@ -2577,6 +2646,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Allows the administrator to reset the password for a user.</p>
    */
   public resetPassword(
@@ -2609,6 +2679,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Starts a mailbox export job to export MIME-format email messages and calendar items
    *          from the specified mailbox to the specified Amazon Simple Storage Service (Amazon S3)
    *          bucket. For more information, see <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/mail-export.html">Exporting mailbox content</a> in
@@ -2644,6 +2715,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Applies the specified tags to the specified WorkMailorganization
    *          resource.</p>
    */
@@ -2671,6 +2743,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Performs a test on an availability provider to ensure that access is allowed. For EWS, it verifies the provided credentials can be used to successfully log in. For Lambda, it verifies that the Lambda function can be invoked and that the resource access
    *          policy was configured to deny anonymous access. An anonymous invocation is one done without providing either a <code>SourceArn</code> or <code>SourceAccount</code> header.</p>
    *          <note>
@@ -2710,6 +2783,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Untags the specified tags from the specified WorkMail organization
    *          resource.</p>
    */
@@ -2743,6 +2817,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing <code>AvailabilityConfiguration</code> for the given WorkMail
    *          organization and domain.</p>
    */
@@ -2776,6 +2851,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Updates the default mail domain for an organization. The default mail domain is used by the WorkMail AWS Console to suggest an email address when enabling a mail user. You can only have one default domain.</p>
    */
   public updateDefaultMailDomain(
@@ -2808,6 +2884,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Updates an impersonation role for the given WorkMail organization.</p>
    */
   public updateImpersonationRole(
@@ -2840,6 +2917,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Updates a user's current mailbox quota for a specified organization and
    *          user.</p>
    */
@@ -2873,6 +2951,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Updates a mobile device access rule for the specified WorkMail organization.</p>
    */
   public updateMobileDeviceAccessRule(
@@ -2905,6 +2984,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Updates the primary email for a user, group, or resource. The current email is moved
    *          into the list of aliases (or swapped between an existing alias and the current primary
    *          email), and the email provided in the input is promoted as the primary.</p>
@@ -2939,6 +3019,7 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * @public
    * <p>Updates data for the resource. To have the latest information, it must be preceded by
    *          a <a>DescribeResource</a> call. The dataset in the request should be the one
    *          expected when performing another <code>DescribeResource</code> call.</p>

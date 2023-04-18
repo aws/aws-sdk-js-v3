@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  StartChannelRequest,
-  StartChannelRequestFilterSensitiveLog,
-  StartChannelResponse,
-  StartChannelResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1StartChannelCommand,
-  serializeAws_restJson1StartChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { StartChannelRequest, StartChannelResponse } from "../models/models_1";
+import { de_StartChannelCommand, se_StartChannelCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link StartChannelCommand}.
+ */
 export interface StartChannelCommandInput extends StartChannelRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartChannelCommand}.
+ */
 export interface StartChannelCommandOutput extends StartChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Starts an existing channel
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,43 @@ export interface StartChannelCommandOutput extends StartChannelResponse, __Metad
  * import { MediaLiveClient, StartChannelCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, StartChannelCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = { // StartChannelRequest
+ *   ChannelId: "STRING_VALUE", // required
+ * };
  * const command = new StartChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartChannelCommandInput - {@link StartChannelCommandInput}
+ * @returns {@link StartChannelCommandOutput}
  * @see {@link StartChannelCommandInput} for command's `input` shape.
  * @see {@link StartChannelCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
+ *
+ * @throws {@link BadGatewayException} (server fault)
+ *  Placeholder documentation for BadGatewayException
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  Placeholder documentation for BadRequestException
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  Placeholder documentation for ConflictException
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  Placeholder documentation for ForbiddenException
+ *
+ * @throws {@link GatewayTimeoutException} (server fault)
+ *  Placeholder documentation for GatewayTimeoutException
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  Placeholder documentation for InternalServerErrorException
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  Placeholder documentation for NotFoundException
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  Placeholder documentation for TooManyRequestsException
+ *
  *
  */
 export class StartChannelCommand extends $Command<
@@ -62,6 +95,9 @@ export class StartChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +124,8 @@ export class StartChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +135,18 @@ export class StartChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartChannelCommand(input, context);
+    return se_StartChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartChannelCommandOutput> {
-    return deserializeAws_restJson1StartChannelCommand(output, context);
+    return de_StartChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

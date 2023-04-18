@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { Appflow } from "../Appflow";
 import { AppflowClient } from "../AppflowClient";
 import { ListFlowsCommand, ListFlowsCommandInput, ListFlowsCommandOutput } from "../commands/ListFlowsCommand";
 import { AppflowPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: AppflowClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListFlowsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Appflow,
-  input: ListFlowsCommandInput,
-  ...args: any
-): Promise<ListFlowsCommandOutput> => {
-  // @ts-ignore
-  return await client.listFlows(input, ...args);
-};
 export async function* paginateListFlows(
   config: AppflowPaginationConfiguration,
   input: ListFlowsCommandInput,
@@ -40,9 +31,7 @@ export async function* paginateListFlows(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Appflow) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof AppflowClient) {
+    if (config.client instanceof AppflowClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Appflow | AppflowClient");

@@ -6,12 +6,11 @@ import {
   GetChannelScheduleCommandInput,
   GetChannelScheduleCommandOutput,
 } from "../commands/GetChannelScheduleCommand";
-import { MediaTailor } from "../MediaTailor";
 import { MediaTailorClient } from "../MediaTailorClient";
 import { MediaTailorPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: MediaTailorClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new GetChannelScheduleCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: MediaTailor,
-  input: GetChannelScheduleCommandInput,
-  ...args: any
-): Promise<GetChannelScheduleCommandOutput> => {
-  // @ts-ignore
-  return await client.getChannelSchedule(input, ...args);
-};
 export async function* paginateGetChannelSchedule(
   config: MediaTailorPaginationConfiguration,
   input: GetChannelScheduleCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateGetChannelSchedule(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof MediaTailor) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof MediaTailorClient) {
+    if (config.client instanceof MediaTailorClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected MediaTailor | MediaTailorClient");

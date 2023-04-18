@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ApplyPendingMaintenanceActionMessage, ApplyPendingMaintenanceActionResult } from "../models/models_0";
 import {
-  ApplyPendingMaintenanceActionMessage,
-  ApplyPendingMaintenanceActionMessageFilterSensitiveLog,
-  ApplyPendingMaintenanceActionResult,
-  ApplyPendingMaintenanceActionResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryApplyPendingMaintenanceActionCommand,
-  serializeAws_queryApplyPendingMaintenanceActionCommand,
+  de_ApplyPendingMaintenanceActionCommand,
+  se_ApplyPendingMaintenanceActionCommand,
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ApplyPendingMaintenanceActionCommand}.
+ */
 export interface ApplyPendingMaintenanceActionCommandInput extends ApplyPendingMaintenanceActionMessage {}
+/**
+ * @public
+ *
+ * The output of {@link ApplyPendingMaintenanceActionCommand}.
+ */
 export interface ApplyPendingMaintenanceActionCommandOutput
   extends ApplyPendingMaintenanceActionResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Applies a pending maintenance action to a resource (for example, to a DB instance).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,58 @@ export interface ApplyPendingMaintenanceActionCommandOutput
  * import { RDSClient, ApplyPendingMaintenanceActionCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ApplyPendingMaintenanceActionCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // ApplyPendingMaintenanceActionMessage
+ *   ResourceIdentifier: "STRING_VALUE", // required
+ *   ApplyAction: "STRING_VALUE", // required
+ *   OptInType: "STRING_VALUE", // required
+ * };
  * const command = new ApplyPendingMaintenanceActionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ApplyPendingMaintenanceActionCommandInput - {@link ApplyPendingMaintenanceActionCommandInput}
+ * @returns {@link ApplyPendingMaintenanceActionCommandOutput}
  * @see {@link ApplyPendingMaintenanceActionCommandInput} for command's `input` shape.
  * @see {@link ApplyPendingMaintenanceActionCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ * @throws {@link InvalidDBClusterStateFault} (client fault)
+ *  <p>The requested operation can't be performed while the cluster is in this state.</p>
+ *
+ * @throws {@link InvalidDBInstanceStateFault} (client fault)
+ *  <p>The DB instance isn't in a valid state.</p>
+ *
+ * @throws {@link ResourceNotFoundFault} (client fault)
+ *  <p>The specified resource ID was not found.</p>
+ *
+ *
+ * @example To apply pending maintenance actions
+ * ```javascript
+ * // The following example applies the pending maintenance actions for a DB cluster.
+ * const input = {
+ *   "ApplyAction": "system-update",
+ *   "OptInType": "immediate",
+ *   "ResourceIdentifier": "arn:aws:rds:us-east-1:123456789012:cluster:my-db-cluster"
+ * };
+ * const command = new ApplyPendingMaintenanceActionCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ResourcePendingMaintenanceActions": {
+ *     "PendingMaintenanceActionDetails": [
+ *       {
+ *         "Action": "system-update",
+ *         "CurrentApplyDate": "2021-01-23T01:07:36.100Z",
+ *         "Description": "Upgrade to Aurora PostgreSQL 3.3.2",
+ *         "OptInStatus": "immediate"
+ *       }
+ *     ],
+ *     "ResourceIdentifier": "arn:aws:rds:us-east-1:123456789012:cluster:my-db-cluster"
+ *   }
+ * }
+ * *\/
+ * // example id: to-apply-pending-maintenance-actions-1679692228896
+ * ```
  *
  */
 export class ApplyPendingMaintenanceActionCommand extends $Command<
@@ -64,6 +115,9 @@ export class ApplyPendingMaintenanceActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ApplyPendingMaintenanceActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +146,8 @@ export class ApplyPendingMaintenanceActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ApplyPendingMaintenanceActionMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ApplyPendingMaintenanceActionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +157,21 @@ export class ApplyPendingMaintenanceActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ApplyPendingMaintenanceActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryApplyPendingMaintenanceActionCommand(input, context);
+    return se_ApplyPendingMaintenanceActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ApplyPendingMaintenanceActionCommandOutput> {
-    return deserializeAws_queryApplyPendingMaintenanceActionCommand(output, context);
+    return de_ApplyPendingMaintenanceActionCommand(output, context);
   }
 
   // Start section: command_body_extra

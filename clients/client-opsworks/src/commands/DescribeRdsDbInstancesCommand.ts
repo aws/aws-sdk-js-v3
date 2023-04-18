@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeRdsDbInstancesRequest,
-  DescribeRdsDbInstancesRequestFilterSensitiveLog,
-  DescribeRdsDbInstancesResult,
-  DescribeRdsDbInstancesResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeRdsDbInstancesRequest, DescribeRdsDbInstancesResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1DescribeRdsDbInstancesCommand,
-  serializeAws_json1_1DescribeRdsDbInstancesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeRdsDbInstancesCommand, se_DescribeRdsDbInstancesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeRdsDbInstancesCommand}.
+ */
 export interface DescribeRdsDbInstancesCommandInput extends DescribeRdsDbInstancesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeRdsDbInstancesCommand}.
+ */
 export interface DescribeRdsDbInstancesCommandOutput extends DescribeRdsDbInstancesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes Amazon RDS instances.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or
@@ -42,13 +45,28 @@ export interface DescribeRdsDbInstancesCommandOutput extends DescribeRdsDbInstan
  * import { OpsWorksClient, DescribeRdsDbInstancesCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DescribeRdsDbInstancesCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // DescribeRdsDbInstancesRequest
+ *   StackId: "STRING_VALUE", // required
+ *   RdsDbInstanceArns: [ // Strings
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeRdsDbInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRdsDbInstancesCommandInput - {@link DescribeRdsDbInstancesCommandInput}
+ * @returns {@link DescribeRdsDbInstancesCommandOutput}
  * @see {@link DescribeRdsDbInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeRdsDbInstancesCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Indicates that a resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that a request was not valid.</p>
+ *
  *
  */
 export class DescribeRdsDbInstancesCommand extends $Command<
@@ -68,6 +86,9 @@ export class DescribeRdsDbInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRdsDbInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +117,8 @@ export class DescribeRdsDbInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRdsDbInstancesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRdsDbInstancesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +128,18 @@ export class DescribeRdsDbInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRdsDbInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeRdsDbInstancesCommand(input, context);
+    return se_DescribeRdsDbInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRdsDbInstancesCommandOutput> {
-    return deserializeAws_json1_1DescribeRdsDbInstancesCommand(output, context);
+    return de_DescribeRdsDbInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

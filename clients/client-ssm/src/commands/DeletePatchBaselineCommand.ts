@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeletePatchBaselineRequest,
-  DeletePatchBaselineRequestFilterSensitiveLog,
-  DeletePatchBaselineResult,
-  DeletePatchBaselineResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeletePatchBaselineCommand,
-  serializeAws_json1_1DeletePatchBaselineCommand,
-} from "../protocols/Aws_json1_1";
+import { DeletePatchBaselineRequest, DeletePatchBaselineResult } from "../models/models_0";
+import { de_DeletePatchBaselineCommand, se_DeletePatchBaselineCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeletePatchBaselineCommand}.
+ */
 export interface DeletePatchBaselineCommandInput extends DeletePatchBaselineRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeletePatchBaselineCommand}.
+ */
 export interface DeletePatchBaselineCommandOutput extends DeletePatchBaselineResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a patch baseline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,26 @@ export interface DeletePatchBaselineCommandOutput extends DeletePatchBaselineRes
  * import { SSMClient, DeletePatchBaselineCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DeletePatchBaselineCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // DeletePatchBaselineRequest
+ *   BaselineId: "STRING_VALUE", // required
+ * };
  * const command = new DeletePatchBaselineCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePatchBaselineCommandInput - {@link DeletePatchBaselineCommandInput}
+ * @returns {@link DeletePatchBaselineCommandOutput}
  * @see {@link DeletePatchBaselineCommandInput} for command's `input` shape.
  * @see {@link DeletePatchBaselineCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>Error returned if an attempt is made to delete a patch baseline that is registered for a
+ *    patch group.</p>
+ *
  *
  */
 export class DeletePatchBaselineCommand extends $Command<
@@ -62,6 +78,9 @@ export class DeletePatchBaselineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePatchBaselineCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +109,8 @@ export class DeletePatchBaselineCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePatchBaselineRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeletePatchBaselineResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +120,18 @@ export class DeletePatchBaselineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePatchBaselineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeletePatchBaselineCommand(input, context);
+    return se_DeletePatchBaselineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePatchBaselineCommandOutput> {
-    return deserializeAws_json1_1DeletePatchBaselineCommand(output, context);
+    return de_DeletePatchBaselineCommand(output, context);
   }
 
   // Start section: command_body_extra

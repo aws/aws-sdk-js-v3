@@ -17,40 +17,46 @@ import {
   ListBucketInventoryConfigurationsOutput,
   ListBucketInventoryConfigurationsOutputFilterSensitiveLog,
   ListBucketInventoryConfigurationsRequest,
-  ListBucketInventoryConfigurationsRequestFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restXmlListBucketInventoryConfigurationsCommand,
-  serializeAws_restXmlListBucketInventoryConfigurationsCommand,
+  de_ListBucketInventoryConfigurationsCommand,
+  se_ListBucketInventoryConfigurationsCommand,
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * @public
+ *
+ * The input for {@link ListBucketInventoryConfigurationsCommand}.
+ */
 export interface ListBucketInventoryConfigurationsCommandInput extends ListBucketInventoryConfigurationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListBucketInventoryConfigurationsCommand}.
+ */
 export interface ListBucketInventoryConfigurationsCommandOutput
   extends ListBucketInventoryConfigurationsOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of inventory configurations for the bucket. You can have up to 1,000
  *          analytics configurations per bucket.</p>
- *
- *          <p>This action supports list pagination and does not return more than 100 configurations
- *          at a time. Always check the <code>IsTruncated</code> element in the response. If there are
- *          no more configurations to list, <code>IsTruncated</code> is set to false. If there are more
+ *          <p>This action supports list pagination and does not return more than 100 configurations at
+ *          a time. Always check the <code>IsTruncated</code> element in the response. If there are no
+ *          more configurations to list, <code>IsTruncated</code> is set to false. If there are more
  *          configurations to list, <code>IsTruncated</code> is set to true, and there is a value in
  *             <code>NextContinuationToken</code>. You use the <code>NextContinuationToken</code> value
  *          to continue the pagination of the list by passing the value in continuation-token in the
  *          request to <code>GET</code> the next page.</p>
- *
  *          <p> To use this operation, you must have permissions to perform the
  *             <code>s3:GetInventoryConfiguration</code> action. The bucket owner has this permission
  *          by default. The bucket owner can grant this permission to others. For more information
- *          about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access Permissions to Your Amazon S3
- *             Resources</a>.</p>
- *
+ *          about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
+ *             Access Permissions to Your Amazon S3 Resources</a>.</p>
  *          <p>For information about the Amazon S3 inventory feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html">Amazon S3 Inventory</a>
  *          </p>
- *
  *          <p>The following operations are related to
  *          <code>ListBucketInventoryConfigurations</code>:</p>
  *          <ul>
@@ -76,13 +82,21 @@ export interface ListBucketInventoryConfigurationsCommandOutput
  * import { S3Client, ListBucketInventoryConfigurationsCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, ListBucketInventoryConfigurationsCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // ListBucketInventoryConfigurationsRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   ContinuationToken: "STRING_VALUE",
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new ListBucketInventoryConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBucketInventoryConfigurationsCommandInput - {@link ListBucketInventoryConfigurationsCommandInput}
+ * @returns {@link ListBucketInventoryConfigurationsCommandOutput}
  * @see {@link ListBucketInventoryConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListBucketInventoryConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
+ *
  *
  */
 export class ListBucketInventoryConfigurationsCommand extends $Command<
@@ -108,6 +122,9 @@ export class ListBucketInventoryConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBucketInventoryConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,7 +153,7 @@ export class ListBucketInventoryConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBucketInventoryConfigurationsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListBucketInventoryConfigurationsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -147,18 +164,24 @@ export class ListBucketInventoryConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListBucketInventoryConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlListBucketInventoryConfigurationsCommand(input, context);
+    return se_ListBucketInventoryConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListBucketInventoryConfigurationsCommandOutput> {
-    return deserializeAws_restXmlListBucketInventoryConfigurationsCommand(output, context);
+    return de_ListBucketInventoryConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

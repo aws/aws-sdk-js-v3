@@ -1,8 +1,8 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
@@ -10,7 +10,8 @@ import {
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -137,38 +138,28 @@ import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../comman
 import { UploadLayerPartCommandInput, UploadLayerPartCommandOutput } from "../commands/UploadLayerPartCommand";
 import { ECRServiceException as __BaseException } from "../models/ECRServiceException";
 import {
-  Attribute,
   AuthorizationData,
   AwsEcrContainerImageDetails,
   BatchCheckLayerAvailabilityRequest,
-  BatchCheckLayerAvailabilityResponse,
   BatchDeleteImageRequest,
-  BatchDeleteImageResponse,
   BatchGetImageRequest,
-  BatchGetImageResponse,
   BatchGetRepositoryScanningConfigurationRequest,
-  BatchGetRepositoryScanningConfigurationResponse,
   CompleteLayerUploadRequest,
-  CompleteLayerUploadResponse,
   CreatePullThroughCacheRuleRequest,
   CreatePullThroughCacheRuleResponse,
   CreateRepositoryRequest,
   CreateRepositoryResponse,
   CvssScore,
-  CvssScoreAdjustment,
   CvssScoreDetails,
   DeleteLifecyclePolicyRequest,
   DeleteLifecyclePolicyResponse,
   DeletePullThroughCacheRuleRequest,
   DeletePullThroughCacheRuleResponse,
   DeleteRegistryPolicyRequest,
-  DeleteRegistryPolicyResponse,
   DeleteRepositoryPolicyRequest,
-  DeleteRepositoryPolicyResponse,
   DeleteRepositoryRequest,
   DeleteRepositoryResponse,
   DescribeImageReplicationStatusRequest,
-  DescribeImageReplicationStatusResponse,
   DescribeImageScanFindingsRequest,
   DescribeImageScanFindingsResponse,
   DescribeImagesFilter,
@@ -177,51 +168,37 @@ import {
   DescribePullThroughCacheRulesRequest,
   DescribePullThroughCacheRulesResponse,
   DescribeRegistryRequest,
-  DescribeRegistryResponse,
   DescribeRepositoriesRequest,
   DescribeRepositoriesResponse,
   EmptyUploadException,
   EncryptionConfiguration,
   EnhancedImageScanFinding,
-  FindingSeverity,
   GetAuthorizationTokenRequest,
   GetAuthorizationTokenResponse,
   GetDownloadUrlForLayerRequest,
-  GetDownloadUrlForLayerResponse,
   GetLifecyclePolicyPreviewRequest,
   GetLifecyclePolicyPreviewResponse,
   GetLifecyclePolicyRequest,
   GetLifecyclePolicyResponse,
   GetRegistryPolicyRequest,
-  GetRegistryPolicyResponse,
   GetRegistryScanningConfigurationRequest,
-  GetRegistryScanningConfigurationResponse,
   GetRepositoryPolicyRequest,
-  GetRepositoryPolicyResponse,
-  Image,
   ImageAlreadyExistsException,
   ImageDetail,
   ImageDigestDoesNotMatchException,
-  ImageFailure,
   ImageIdentifier,
   ImageNotFoundException,
-  ImageReplicationStatus,
-  ImageScanFinding,
   ImageScanFindings,
   ImageScanFindingsSummary,
   ImageScanningConfiguration,
-  ImageScanStatus,
   ImageTagAlreadyExistsException,
   InitiateLayerUploadRequest,
-  InitiateLayerUploadResponse,
   InvalidLayerException,
   InvalidLayerPartException,
   InvalidParameterException,
   InvalidTagParameterException,
   KmsException,
-  Layer,
   LayerAlreadyExistsException,
-  LayerFailure,
   LayerInaccessibleException,
   LayerPartTooSmallException,
   LayersNotFoundException,
@@ -230,38 +207,24 @@ import {
   LifecyclePolicyPreviewInProgressException,
   LifecyclePolicyPreviewNotFoundException,
   LifecyclePolicyPreviewResult,
-  LifecyclePolicyPreviewSummary,
-  LifecyclePolicyRuleAction,
   LimitExceededException,
   ListImagesFilter,
   ListImagesRequest,
-  ListImagesResponse,
   ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
   PackageVulnerabilityDetails,
   PullThroughCacheRule,
   PullThroughCacheRuleAlreadyExistsException,
   PullThroughCacheRuleNotFoundException,
   PutImageRequest,
-  PutImageResponse,
   PutImageScanningConfigurationRequest,
-  PutImageScanningConfigurationResponse,
   PutImageTagMutabilityRequest,
-  PutImageTagMutabilityResponse,
   PutLifecyclePolicyRequest,
-  PutLifecyclePolicyResponse,
   PutRegistryPolicyRequest,
-  PutRegistryPolicyResponse,
   PutRegistryScanningConfigurationRequest,
-  PutRegistryScanningConfigurationResponse,
   PutReplicationConfigurationRequest,
-  PutReplicationConfigurationResponse,
-  Recommendation,
   ReferencedImagesNotFoundException,
   RegistryPolicyNotFoundException,
-  RegistryScanningConfiguration,
   RegistryScanningRule,
-  Remediation,
   ReplicationConfiguration,
   ReplicationDestination,
   ReplicationRule,
@@ -271,8 +234,6 @@ import {
   RepositoryNotEmptyException,
   RepositoryNotFoundException,
   RepositoryPolicyNotFoundException,
-  RepositoryScanningConfiguration,
-  RepositoryScanningConfigurationFailure,
   Resource,
   ResourceDetails,
   ScanningRepositoryFilter,
@@ -280,577 +241,576 @@ import {
   ScoreDetails,
   ServerException,
   SetRepositoryPolicyRequest,
-  SetRepositoryPolicyResponse,
   StartImageScanRequest,
-  StartImageScanResponse,
   StartLifecyclePolicyPreviewRequest,
-  StartLifecyclePolicyPreviewResponse,
   Tag,
   TagResourceRequest,
-  TagResourceResponse,
   TooManyTagsException,
   UnsupportedImageTypeException,
   UnsupportedUpstreamRegistryException,
   UntagResourceRequest,
-  UntagResourceResponse,
   UploadLayerPartRequest,
-  UploadLayerPartResponse,
   UploadNotFoundException,
   ValidationException,
-  VulnerablePackage,
 } from "../models/models_0";
 
-export const serializeAws_json1_1BatchCheckLayerAvailabilityCommand = async (
+/**
+ * serializeAws_json1_1BatchCheckLayerAvailabilityCommand
+ */
+export const se_BatchCheckLayerAvailabilityCommand = async (
   input: BatchCheckLayerAvailabilityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.BatchCheckLayerAvailability",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchCheckLayerAvailability");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1BatchCheckLayerAvailabilityRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1BatchDeleteImageCommand = async (
+/**
+ * serializeAws_json1_1BatchDeleteImageCommand
+ */
+export const se_BatchDeleteImageCommand = async (
   input: BatchDeleteImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.BatchDeleteImage",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchDeleteImage");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1BatchDeleteImageRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1BatchGetImageCommand = async (
+/**
+ * serializeAws_json1_1BatchGetImageCommand
+ */
+export const se_BatchGetImageCommand = async (
   input: BatchGetImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.BatchGetImage",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchGetImage");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1BatchGetImageRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1BatchGetRepositoryScanningConfigurationCommand = async (
+/**
+ * serializeAws_json1_1BatchGetRepositoryScanningConfigurationCommand
+ */
+export const se_BatchGetRepositoryScanningConfigurationCommand = async (
   input: BatchGetRepositoryScanningConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.BatchGetRepositoryScanningConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchGetRepositoryScanningConfiguration");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1BatchGetRepositoryScanningConfigurationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CompleteLayerUploadCommand = async (
+/**
+ * serializeAws_json1_1CompleteLayerUploadCommand
+ */
+export const se_CompleteLayerUploadCommand = async (
   input: CompleteLayerUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.CompleteLayerUpload",
-  };
+  const headers: __HeaderBag = sharedHeaders("CompleteLayerUpload");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CompleteLayerUploadRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreatePullThroughCacheRuleCommand = async (
+/**
+ * serializeAws_json1_1CreatePullThroughCacheRuleCommand
+ */
+export const se_CreatePullThroughCacheRuleCommand = async (
   input: CreatePullThroughCacheRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.CreatePullThroughCacheRule",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreatePullThroughCacheRule");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreatePullThroughCacheRuleRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateRepositoryCommand = async (
+/**
+ * serializeAws_json1_1CreateRepositoryCommand
+ */
+export const se_CreateRepositoryCommand = async (
   input: CreateRepositoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.CreateRepository",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateRepository");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateRepositoryRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteLifecyclePolicyCommand = async (
+/**
+ * serializeAws_json1_1DeleteLifecyclePolicyCommand
+ */
+export const se_DeleteLifecyclePolicyCommand = async (
   input: DeleteLifecyclePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.DeleteLifecyclePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteLifecyclePolicy");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteLifecyclePolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeletePullThroughCacheRuleCommand = async (
+/**
+ * serializeAws_json1_1DeletePullThroughCacheRuleCommand
+ */
+export const se_DeletePullThroughCacheRuleCommand = async (
   input: DeletePullThroughCacheRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.DeletePullThroughCacheRule",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeletePullThroughCacheRule");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeletePullThroughCacheRuleRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteRegistryPolicyCommand = async (
+/**
+ * serializeAws_json1_1DeleteRegistryPolicyCommand
+ */
+export const se_DeleteRegistryPolicyCommand = async (
   input: DeleteRegistryPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.DeleteRegistryPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteRegistryPolicy");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteRegistryPolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteRepositoryCommand = async (
+/**
+ * serializeAws_json1_1DeleteRepositoryCommand
+ */
+export const se_DeleteRepositoryCommand = async (
   input: DeleteRepositoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.DeleteRepository",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteRepository");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteRepositoryRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteRepositoryPolicyCommand = async (
+/**
+ * serializeAws_json1_1DeleteRepositoryPolicyCommand
+ */
+export const se_DeleteRepositoryPolicyCommand = async (
   input: DeleteRepositoryPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.DeleteRepositoryPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteRepositoryPolicy");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteRepositoryPolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeImageReplicationStatusCommand = async (
+/**
+ * serializeAws_json1_1DescribeImageReplicationStatusCommand
+ */
+export const se_DescribeImageReplicationStatusCommand = async (
   input: DescribeImageReplicationStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.DescribeImageReplicationStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeImageReplicationStatus");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeImageReplicationStatusRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeImagesCommand = async (
+/**
+ * serializeAws_json1_1DescribeImagesCommand
+ */
+export const se_DescribeImagesCommand = async (
   input: DescribeImagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.DescribeImages",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeImages");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeImagesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeImageScanFindingsCommand = async (
+/**
+ * serializeAws_json1_1DescribeImageScanFindingsCommand
+ */
+export const se_DescribeImageScanFindingsCommand = async (
   input: DescribeImageScanFindingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.DescribeImageScanFindings",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeImageScanFindings");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeImageScanFindingsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribePullThroughCacheRulesCommand = async (
+/**
+ * serializeAws_json1_1DescribePullThroughCacheRulesCommand
+ */
+export const se_DescribePullThroughCacheRulesCommand = async (
   input: DescribePullThroughCacheRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.DescribePullThroughCacheRules",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribePullThroughCacheRules");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribePullThroughCacheRulesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeRegistryCommand = async (
+/**
+ * serializeAws_json1_1DescribeRegistryCommand
+ */
+export const se_DescribeRegistryCommand = async (
   input: DescribeRegistryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.DescribeRegistry",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeRegistry");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeRegistryRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeRepositoriesCommand = async (
+/**
+ * serializeAws_json1_1DescribeRepositoriesCommand
+ */
+export const se_DescribeRepositoriesCommand = async (
   input: DescribeRepositoriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.DescribeRepositories",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeRepositories");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeRepositoriesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetAuthorizationTokenCommand = async (
+/**
+ * serializeAws_json1_1GetAuthorizationTokenCommand
+ */
+export const se_GetAuthorizationTokenCommand = async (
   input: GetAuthorizationTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.GetAuthorizationToken",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetAuthorizationToken");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetAuthorizationTokenRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetDownloadUrlForLayerCommand = async (
+/**
+ * serializeAws_json1_1GetDownloadUrlForLayerCommand
+ */
+export const se_GetDownloadUrlForLayerCommand = async (
   input: GetDownloadUrlForLayerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.GetDownloadUrlForLayer",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDownloadUrlForLayer");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetDownloadUrlForLayerRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetLifecyclePolicyCommand = async (
+/**
+ * serializeAws_json1_1GetLifecyclePolicyCommand
+ */
+export const se_GetLifecyclePolicyCommand = async (
   input: GetLifecyclePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.GetLifecyclePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetLifecyclePolicy");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetLifecyclePolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetLifecyclePolicyPreviewCommand = async (
+/**
+ * serializeAws_json1_1GetLifecyclePolicyPreviewCommand
+ */
+export const se_GetLifecyclePolicyPreviewCommand = async (
   input: GetLifecyclePolicyPreviewCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.GetLifecyclePolicyPreview",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetLifecyclePolicyPreview");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetLifecyclePolicyPreviewRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetRegistryPolicyCommand = async (
+/**
+ * serializeAws_json1_1GetRegistryPolicyCommand
+ */
+export const se_GetRegistryPolicyCommand = async (
   input: GetRegistryPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.GetRegistryPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetRegistryPolicy");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetRegistryPolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetRegistryScanningConfigurationCommand = async (
+/**
+ * serializeAws_json1_1GetRegistryScanningConfigurationCommand
+ */
+export const se_GetRegistryScanningConfigurationCommand = async (
   input: GetRegistryScanningConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.GetRegistryScanningConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetRegistryScanningConfiguration");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetRegistryScanningConfigurationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetRepositoryPolicyCommand = async (
+/**
+ * serializeAws_json1_1GetRepositoryPolicyCommand
+ */
+export const se_GetRepositoryPolicyCommand = async (
   input: GetRepositoryPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.GetRepositoryPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetRepositoryPolicy");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetRepositoryPolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1InitiateLayerUploadCommand = async (
+/**
+ * serializeAws_json1_1InitiateLayerUploadCommand
+ */
+export const se_InitiateLayerUploadCommand = async (
   input: InitiateLayerUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.InitiateLayerUpload",
-  };
+  const headers: __HeaderBag = sharedHeaders("InitiateLayerUpload");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1InitiateLayerUploadRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListImagesCommand = async (
+/**
+ * serializeAws_json1_1ListImagesCommand
+ */
+export const se_ListImagesCommand = async (
   input: ListImagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.ListImages",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListImages");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListImagesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_json1_1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1PutImageCommand = async (
+/**
+ * serializeAws_json1_1PutImageCommand
+ */
+export const se_PutImageCommand = async (
   input: PutImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.PutImage",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutImage");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1PutImageRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1PutImageScanningConfigurationCommand = async (
+/**
+ * serializeAws_json1_1PutImageScanningConfigurationCommand
+ */
+export const se_PutImageScanningConfigurationCommand = async (
   input: PutImageScanningConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.PutImageScanningConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutImageScanningConfiguration");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1PutImageScanningConfigurationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1PutImageTagMutabilityCommand = async (
+/**
+ * serializeAws_json1_1PutImageTagMutabilityCommand
+ */
+export const se_PutImageTagMutabilityCommand = async (
   input: PutImageTagMutabilityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.PutImageTagMutability",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutImageTagMutability");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1PutImageTagMutabilityRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1PutLifecyclePolicyCommand = async (
+/**
+ * serializeAws_json1_1PutLifecyclePolicyCommand
+ */
+export const se_PutLifecyclePolicyCommand = async (
   input: PutLifecyclePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.PutLifecyclePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutLifecyclePolicy");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1PutLifecyclePolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1PutRegistryPolicyCommand = async (
+/**
+ * serializeAws_json1_1PutRegistryPolicyCommand
+ */
+export const se_PutRegistryPolicyCommand = async (
   input: PutRegistryPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.PutRegistryPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutRegistryPolicy");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1PutRegistryPolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1PutRegistryScanningConfigurationCommand = async (
+/**
+ * serializeAws_json1_1PutRegistryScanningConfigurationCommand
+ */
+export const se_PutRegistryScanningConfigurationCommand = async (
   input: PutRegistryScanningConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.PutRegistryScanningConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutRegistryScanningConfiguration");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1PutRegistryScanningConfigurationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1PutReplicationConfigurationCommand = async (
+/**
+ * serializeAws_json1_1PutReplicationConfigurationCommand
+ */
+export const se_PutReplicationConfigurationCommand = async (
   input: PutReplicationConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.PutReplicationConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutReplicationConfiguration");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1PutReplicationConfigurationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1SetRepositoryPolicyCommand = async (
+/**
+ * serializeAws_json1_1SetRepositoryPolicyCommand
+ */
+export const se_SetRepositoryPolicyCommand = async (
   input: SetRepositoryPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.SetRepositoryPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("SetRepositoryPolicy");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1SetRepositoryPolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1StartImageScanCommand = async (
+/**
+ * serializeAws_json1_1StartImageScanCommand
+ */
+export const se_StartImageScanCommand = async (
   input: StartImageScanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.StartImageScan",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartImageScan");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1StartImageScanRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1StartLifecyclePolicyPreviewCommand = async (
+/**
+ * serializeAws_json1_1StartLifecyclePolicyPreviewCommand
+ */
+export const se_StartLifecyclePolicyPreviewCommand = async (
   input: StartLifecyclePolicyPreviewCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.StartLifecyclePolicyPreview",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartLifecyclePolicyPreview");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1StartLifecyclePolicyPreviewRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1TagResourceCommand = async (
+/**
+ * serializeAws_json1_1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UntagResourceCommand = async (
+/**
+ * serializeAws_json1_1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UploadLayerPartCommand = async (
+/**
+ * serializeAws_json1_1UploadLayerPartCommand
+ */
+export const se_UploadLayerPartCommand = async (
   input: UploadLayerPartCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.UploadLayerPart",
-  };
+  const headers: __HeaderBag = sharedHeaders("UploadLayerPart");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UploadLayerPartRequest(input, context));
+  body = JSON.stringify(se_UploadLayerPartRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_1BatchCheckLayerAvailabilityCommand = async (
+/**
+ * deserializeAws_json1_1BatchCheckLayerAvailabilityCommand
+ */
+export const de_BatchCheckLayerAvailabilityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchCheckLayerAvailabilityCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1BatchCheckLayerAvailabilityCommandError(output, context);
+    return de_BatchCheckLayerAvailabilityCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchCheckLayerAvailabilityResponse(data, context);
+  contents = _json(data);
   const response: BatchCheckLayerAvailabilityCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1BatchCheckLayerAvailabilityCommandError = async (
+/**
+ * deserializeAws_json1_1BatchCheckLayerAvailabilityCommandError
+ */
+const de_BatchCheckLayerAvailabilityCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchCheckLayerAvailabilityCommandOutput> => {
@@ -862,42 +822,47 @@ const deserializeAws_json1_1BatchCheckLayerAvailabilityCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+      throw await de_ServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1BatchDeleteImageCommand = async (
+/**
+ * deserializeAws_json1_1BatchDeleteImageCommand
+ */
+export const de_BatchDeleteImageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchDeleteImageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1BatchDeleteImageCommandError(output, context);
+    return de_BatchDeleteImageCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchDeleteImageResponse(data, context);
+  contents = _json(data);
   const response: BatchDeleteImageCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1BatchDeleteImageCommandError = async (
+/**
+ * deserializeAws_json1_1BatchDeleteImageCommandError
+ */
+const de_BatchDeleteImageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchDeleteImageCommandOutput> => {
@@ -909,42 +874,47 @@ const deserializeAws_json1_1BatchDeleteImageCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+      throw await de_ServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1BatchGetImageCommand = async (
+/**
+ * deserializeAws_json1_1BatchGetImageCommand
+ */
+export const de_BatchGetImageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetImageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1BatchGetImageCommandError(output, context);
+    return de_BatchGetImageCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchGetImageResponse(data, context);
+  contents = _json(data);
   const response: BatchGetImageCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1BatchGetImageCommandError = async (
+/**
+ * deserializeAws_json1_1BatchGetImageCommandError
+ */
+const de_BatchGetImageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetImageCommandOutput> => {
@@ -956,42 +926,47 @@ const deserializeAws_json1_1BatchGetImageCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+      throw await de_ServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1BatchGetRepositoryScanningConfigurationCommand = async (
+/**
+ * deserializeAws_json1_1BatchGetRepositoryScanningConfigurationCommand
+ */
+export const de_BatchGetRepositoryScanningConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetRepositoryScanningConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1BatchGetRepositoryScanningConfigurationCommandError(output, context);
+    return de_BatchGetRepositoryScanningConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchGetRepositoryScanningConfigurationResponse(data, context);
+  contents = _json(data);
   const response: BatchGetRepositoryScanningConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1BatchGetRepositoryScanningConfigurationCommandError = async (
+/**
+ * deserializeAws_json1_1BatchGetRepositoryScanningConfigurationCommandError
+ */
+const de_BatchGetRepositoryScanningConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetRepositoryScanningConfigurationCommandOutput> => {
@@ -1003,45 +978,50 @@ const deserializeAws_json1_1BatchGetRepositoryScanningConfigurationCommandError 
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+      throw await de_ServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ecr#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1CompleteLayerUploadCommand = async (
+/**
+ * deserializeAws_json1_1CompleteLayerUploadCommand
+ */
+export const de_CompleteLayerUploadCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CompleteLayerUploadCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CompleteLayerUploadCommandError(output, context);
+    return de_CompleteLayerUploadCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CompleteLayerUploadResponse(data, context);
+  contents = _json(data);
   const response: CompleteLayerUploadCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CompleteLayerUploadCommandError = async (
+/**
+ * deserializeAws_json1_1CompleteLayerUploadCommandError
+ */
+const de_CompleteLayerUploadCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CompleteLayerUploadCommandOutput> => {
@@ -1053,60 +1033,65 @@ const deserializeAws_json1_1CompleteLayerUploadCommandError = async (
   switch (errorCode) {
     case "EmptyUploadException":
     case "com.amazonaws.ecr#EmptyUploadException":
-      throw await deserializeAws_json1_1EmptyUploadExceptionResponse(parsedOutput, context);
+      throw await de_EmptyUploadExceptionRes(parsedOutput, context);
     case "InvalidLayerException":
     case "com.amazonaws.ecr#InvalidLayerException":
-      throw await deserializeAws_json1_1InvalidLayerExceptionResponse(parsedOutput, context);
+      throw await de_InvalidLayerExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "KmsException":
     case "com.amazonaws.ecr#KmsException":
-      throw await deserializeAws_json1_1KmsExceptionResponse(parsedOutput, context);
+      throw await de_KmsExceptionRes(parsedOutput, context);
     case "LayerAlreadyExistsException":
     case "com.amazonaws.ecr#LayerAlreadyExistsException":
-      throw await deserializeAws_json1_1LayerAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_LayerAlreadyExistsExceptionRes(parsedOutput, context);
     case "LayerPartTooSmallException":
     case "com.amazonaws.ecr#LayerPartTooSmallException":
-      throw await deserializeAws_json1_1LayerPartTooSmallExceptionResponse(parsedOutput, context);
+      throw await de_LayerPartTooSmallExceptionRes(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+      throw await de_ServerExceptionRes(parsedOutput, context);
     case "UploadNotFoundException":
     case "com.amazonaws.ecr#UploadNotFoundException":
-      throw await deserializeAws_json1_1UploadNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UploadNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1CreatePullThroughCacheRuleCommand = async (
+/**
+ * deserializeAws_json1_1CreatePullThroughCacheRuleCommand
+ */
+export const de_CreatePullThroughCacheRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePullThroughCacheRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreatePullThroughCacheRuleCommandError(output, context);
+    return de_CreatePullThroughCacheRuleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreatePullThroughCacheRuleResponse(data, context);
+  contents = de_CreatePullThroughCacheRuleResponse(data, context);
   const response: CreatePullThroughCacheRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreatePullThroughCacheRuleCommandError = async (
+/**
+ * deserializeAws_json1_1CreatePullThroughCacheRuleCommandError
+ */
+const de_CreatePullThroughCacheRuleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePullThroughCacheRuleCommandOutput> => {
@@ -1118,51 +1103,56 @@ const deserializeAws_json1_1CreatePullThroughCacheRuleCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.ecr#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "PullThroughCacheRuleAlreadyExistsException":
     case "com.amazonaws.ecr#PullThroughCacheRuleAlreadyExistsException":
-      throw await deserializeAws_json1_1PullThroughCacheRuleAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_PullThroughCacheRuleAlreadyExistsExceptionRes(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+      throw await de_ServerExceptionRes(parsedOutput, context);
     case "UnsupportedUpstreamRegistryException":
     case "com.amazonaws.ecr#UnsupportedUpstreamRegistryException":
-      throw await deserializeAws_json1_1UnsupportedUpstreamRegistryExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedUpstreamRegistryExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ecr#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1CreateRepositoryCommand = async (
+/**
+ * deserializeAws_json1_1CreateRepositoryCommand
+ */
+export const de_CreateRepositoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRepositoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateRepositoryCommandError(output, context);
+    return de_CreateRepositoryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateRepositoryResponse(data, context);
+  contents = de_CreateRepositoryResponse(data, context);
   const response: CreateRepositoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateRepositoryCommandError = async (
+/**
+ * deserializeAws_json1_1CreateRepositoryCommandError
+ */
+const de_CreateRepositoryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRepositoryCommandOutput> => {
@@ -1174,54 +1164,59 @@ const deserializeAws_json1_1CreateRepositoryCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidTagParameterException":
     case "com.amazonaws.ecr#InvalidTagParameterException":
-      throw await deserializeAws_json1_1InvalidTagParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTagParameterExceptionRes(parsedOutput, context);
     case "KmsException":
     case "com.amazonaws.ecr#KmsException":
-      throw await deserializeAws_json1_1KmsExceptionResponse(parsedOutput, context);
+      throw await de_KmsExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.ecr#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "RepositoryAlreadyExistsException":
     case "com.amazonaws.ecr#RepositoryAlreadyExistsException":
-      throw await deserializeAws_json1_1RepositoryAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryAlreadyExistsExceptionRes(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+      throw await de_ServerExceptionRes(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.ecr#TooManyTagsException":
-      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteLifecyclePolicyCommand = async (
+/**
+ * deserializeAws_json1_1DeleteLifecyclePolicyCommand
+ */
+export const de_DeleteLifecyclePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLifecyclePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteLifecyclePolicyCommandError(output, context);
+    return de_DeleteLifecyclePolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteLifecyclePolicyResponse(data, context);
+  contents = de_DeleteLifecyclePolicyResponse(data, context);
   const response: DeleteLifecyclePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteLifecyclePolicyCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteLifecyclePolicyCommandError
+ */
+const de_DeleteLifecyclePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLifecyclePolicyCommandOutput> => {
@@ -1233,45 +1228,50 @@ const deserializeAws_json1_1DeleteLifecyclePolicyCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "LifecyclePolicyNotFoundException":
     case "com.amazonaws.ecr#LifecyclePolicyNotFoundException":
-      throw await deserializeAws_json1_1LifecyclePolicyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_LifecyclePolicyNotFoundExceptionRes(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+      throw await de_ServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeletePullThroughCacheRuleCommand = async (
+/**
+ * deserializeAws_json1_1DeletePullThroughCacheRuleCommand
+ */
+export const de_DeletePullThroughCacheRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePullThroughCacheRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeletePullThroughCacheRuleCommandError(output, context);
+    return de_DeletePullThroughCacheRuleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeletePullThroughCacheRuleResponse(data, context);
+  contents = de_DeletePullThroughCacheRuleResponse(data, context);
   const response: DeletePullThroughCacheRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeletePullThroughCacheRuleCommandError = async (
+/**
+ * deserializeAws_json1_1DeletePullThroughCacheRuleCommandError
+ */
+const de_DeletePullThroughCacheRuleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePullThroughCacheRuleCommandOutput> => {
@@ -1283,45 +1283,50 @@ const deserializeAws_json1_1DeletePullThroughCacheRuleCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "PullThroughCacheRuleNotFoundException":
     case "com.amazonaws.ecr#PullThroughCacheRuleNotFoundException":
-      throw await deserializeAws_json1_1PullThroughCacheRuleNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_PullThroughCacheRuleNotFoundExceptionRes(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+      throw await de_ServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ecr#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteRegistryPolicyCommand = async (
+/**
+ * deserializeAws_json1_1DeleteRegistryPolicyCommand
+ */
+export const de_DeleteRegistryPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRegistryPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteRegistryPolicyCommandError(output, context);
+    return de_DeleteRegistryPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteRegistryPolicyResponse(data, context);
+  contents = _json(data);
   const response: DeleteRegistryPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteRegistryPolicyCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteRegistryPolicyCommandError
+ */
+const de_DeleteRegistryPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRegistryPolicyCommandOutput> => {
@@ -1333,45 +1338,50 @@ const deserializeAws_json1_1DeleteRegistryPolicyCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "RegistryPolicyNotFoundException":
     case "com.amazonaws.ecr#RegistryPolicyNotFoundException":
-      throw await deserializeAws_json1_1RegistryPolicyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_RegistryPolicyNotFoundExceptionRes(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+      throw await de_ServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ecr#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteRepositoryCommand = async (
+/**
+ * deserializeAws_json1_1DeleteRepositoryCommand
+ */
+export const de_DeleteRepositoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRepositoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteRepositoryCommandError(output, context);
+    return de_DeleteRepositoryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteRepositoryResponse(data, context);
+  contents = de_DeleteRepositoryResponse(data, context);
   const response: DeleteRepositoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteRepositoryCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteRepositoryCommandError
+ */
+const de_DeleteRepositoryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRepositoryCommandOutput> => {
@@ -1383,48 +1393,53 @@ const deserializeAws_json1_1DeleteRepositoryCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "KmsException":
     case "com.amazonaws.ecr#KmsException":
-      throw await deserializeAws_json1_1KmsExceptionResponse(parsedOutput, context);
+      throw await de_KmsExceptionRes(parsedOutput, context);
     case "RepositoryNotEmptyException":
     case "com.amazonaws.ecr#RepositoryNotEmptyException":
-      throw await deserializeAws_json1_1RepositoryNotEmptyExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNotEmptyExceptionRes(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+      throw await de_ServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteRepositoryPolicyCommand = async (
+/**
+ * deserializeAws_json1_1DeleteRepositoryPolicyCommand
+ */
+export const de_DeleteRepositoryPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRepositoryPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteRepositoryPolicyCommandError(output, context);
+    return de_DeleteRepositoryPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteRepositoryPolicyResponse(data, context);
+  contents = _json(data);
   const response: DeleteRepositoryPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteRepositoryPolicyCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteRepositoryPolicyCommandError
+ */
+const de_DeleteRepositoryPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRepositoryPolicyCommandOutput> => {
@@ -1436,45 +1451,50 @@ const deserializeAws_json1_1DeleteRepositoryPolicyCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
     case "RepositoryPolicyNotFoundException":
     case "com.amazonaws.ecr#RepositoryPolicyNotFoundException":
-      throw await deserializeAws_json1_1RepositoryPolicyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryPolicyNotFoundExceptionRes(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+      throw await de_ServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeImageReplicationStatusCommand = async (
+/**
+ * deserializeAws_json1_1DescribeImageReplicationStatusCommand
+ */
+export const de_DescribeImageReplicationStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeImageReplicationStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeImageReplicationStatusCommandError(output, context);
+    return de_DescribeImageReplicationStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeImageReplicationStatusResponse(data, context);
+  contents = _json(data);
   const response: DescribeImageReplicationStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeImageReplicationStatusCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeImageReplicationStatusCommandError
+ */
+const de_DescribeImageReplicationStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeImageReplicationStatusCommandOutput> => {
@@ -1486,48 +1506,53 @@ const deserializeAws_json1_1DescribeImageReplicationStatusCommandError = async (
   switch (errorCode) {
     case "ImageNotFoundException":
     case "com.amazonaws.ecr#ImageNotFoundException":
-      throw await deserializeAws_json1_1ImageNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ImageNotFoundExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+      throw await de_ServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ecr#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeImagesCommand = async (
+/**
+ * deserializeAws_json1_1DescribeImagesCommand
+ */
+export const de_DescribeImagesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeImagesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeImagesCommandError(output, context);
+    return de_DescribeImagesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeImagesResponse(data, context);
+  contents = de_DescribeImagesResponse(data, context);
   const response: DescribeImagesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeImagesCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeImagesCommandError
+ */
+const de_DescribeImagesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeImagesCommandOutput> => {
@@ -1539,45 +1564,50 @@ const deserializeAws_json1_1DescribeImagesCommandError = async (
   switch (errorCode) {
     case "ImageNotFoundException":
     case "com.amazonaws.ecr#ImageNotFoundException":
-      throw await deserializeAws_json1_1ImageNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ImageNotFoundExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+      throw await de_ServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeImageScanFindingsCommand = async (
+/**
+ * deserializeAws_json1_1DescribeImageScanFindingsCommand
+ */
+export const de_DescribeImageScanFindingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeImageScanFindingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeImageScanFindingsCommandError(output, context);
+    return de_DescribeImageScanFindingsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeImageScanFindingsResponse(data, context);
+  contents = de_DescribeImageScanFindingsResponse(data, context);
   const response: DescribeImageScanFindingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeImageScanFindingsCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeImageScanFindingsCommandError
+ */
+const de_DescribeImageScanFindingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeImageScanFindingsCommandOutput> => {
@@ -1589,51 +1619,56 @@ const deserializeAws_json1_1DescribeImageScanFindingsCommandError = async (
   switch (errorCode) {
     case "ImageNotFoundException":
     case "com.amazonaws.ecr#ImageNotFoundException":
-      throw await deserializeAws_json1_1ImageNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ImageNotFoundExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
     case "ScanNotFoundException":
     case "com.amazonaws.ecr#ScanNotFoundException":
-      throw await deserializeAws_json1_1ScanNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ScanNotFoundExceptionRes(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+      throw await de_ServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ecr#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribePullThroughCacheRulesCommand = async (
+/**
+ * deserializeAws_json1_1DescribePullThroughCacheRulesCommand
+ */
+export const de_DescribePullThroughCacheRulesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePullThroughCacheRulesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribePullThroughCacheRulesCommandError(output, context);
+    return de_DescribePullThroughCacheRulesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribePullThroughCacheRulesResponse(data, context);
+  contents = de_DescribePullThroughCacheRulesResponse(data, context);
   const response: DescribePullThroughCacheRulesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribePullThroughCacheRulesCommandError = async (
+/**
+ * deserializeAws_json1_1DescribePullThroughCacheRulesCommandError
+ */
+const de_DescribePullThroughCacheRulesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePullThroughCacheRulesCommandOutput> => {
@@ -1645,45 +1680,50 @@ const deserializeAws_json1_1DescribePullThroughCacheRulesCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "PullThroughCacheRuleNotFoundException":
     case "com.amazonaws.ecr#PullThroughCacheRuleNotFoundException":
-      throw await deserializeAws_json1_1PullThroughCacheRuleNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_PullThroughCacheRuleNotFoundExceptionRes(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+      throw await de_ServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ecr#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeRegistryCommand = async (
+/**
+ * deserializeAws_json1_1DescribeRegistryCommand
+ */
+export const de_DescribeRegistryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRegistryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeRegistryCommandError(output, context);
+    return de_DescribeRegistryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeRegistryResponse(data, context);
+  contents = _json(data);
   const response: DescribeRegistryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeRegistryCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeRegistryCommandError
+ */
+const de_DescribeRegistryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRegistryCommandOutput> => {
@@ -1695,42 +1735,47 @@ const deserializeAws_json1_1DescribeRegistryCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+      throw await de_ServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ecr#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeRepositoriesCommand = async (
+/**
+ * deserializeAws_json1_1DescribeRepositoriesCommand
+ */
+export const de_DescribeRepositoriesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRepositoriesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeRepositoriesCommandError(output, context);
+    return de_DescribeRepositoriesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeRepositoriesResponse(data, context);
+  contents = de_DescribeRepositoriesResponse(data, context);
   const response: DescribeRepositoriesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeRepositoriesCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeRepositoriesCommandError
+ */
+const de_DescribeRepositoriesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRepositoriesCommandOutput> => {
@@ -1742,42 +1787,47 @@ const deserializeAws_json1_1DescribeRepositoriesCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+      throw await de_ServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1GetAuthorizationTokenCommand = async (
+/**
+ * deserializeAws_json1_1GetAuthorizationTokenCommand
+ */
+export const de_GetAuthorizationTokenCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAuthorizationTokenCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetAuthorizationTokenCommandError(output, context);
+    return de_GetAuthorizationTokenCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetAuthorizationTokenResponse(data, context);
+  contents = de_GetAuthorizationTokenResponse(data, context);
   const response: GetAuthorizationTokenCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetAuthorizationTokenCommandError = async (
+/**
+ * deserializeAws_json1_1GetAuthorizationTokenCommandError
+ */
+const de_GetAuthorizationTokenCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAuthorizationTokenCommandOutput> => {
@@ -1789,39 +1839,44 @@ const deserializeAws_json1_1GetAuthorizationTokenCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+      throw await de_ServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1GetDownloadUrlForLayerCommand = async (
+/**
+ * deserializeAws_json1_1GetDownloadUrlForLayerCommand
+ */
+export const de_GetDownloadUrlForLayerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDownloadUrlForLayerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetDownloadUrlForLayerCommandError(output, context);
+    return de_GetDownloadUrlForLayerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetDownloadUrlForLayerResponse(data, context);
+  contents = _json(data);
   const response: GetDownloadUrlForLayerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetDownloadUrlForLayerCommandError = async (
+/**
+ * deserializeAws_json1_1GetDownloadUrlForLayerCommandError
+ */
+const de_GetDownloadUrlForLayerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDownloadUrlForLayerCommandOutput> => {
@@ -1833,48 +1888,53 @@ const deserializeAws_json1_1GetDownloadUrlForLayerCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "LayerInaccessibleException":
     case "com.amazonaws.ecr#LayerInaccessibleException":
-      throw await deserializeAws_json1_1LayerInaccessibleExceptionResponse(parsedOutput, context);
+      throw await de_LayerInaccessibleExceptionRes(parsedOutput, context);
     case "LayersNotFoundException":
     case "com.amazonaws.ecr#LayersNotFoundException":
-      throw await deserializeAws_json1_1LayersNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_LayersNotFoundExceptionRes(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+      throw await de_ServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1GetLifecyclePolicyCommand = async (
+/**
+ * deserializeAws_json1_1GetLifecyclePolicyCommand
+ */
+export const de_GetLifecyclePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLifecyclePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetLifecyclePolicyCommandError(output, context);
+    return de_GetLifecyclePolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetLifecyclePolicyResponse(data, context);
+  contents = de_GetLifecyclePolicyResponse(data, context);
   const response: GetLifecyclePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetLifecyclePolicyCommandError = async (
+/**
+ * deserializeAws_json1_1GetLifecyclePolicyCommandError
+ */
+const de_GetLifecyclePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLifecyclePolicyCommandOutput> => {
@@ -1886,45 +1946,50 @@ const deserializeAws_json1_1GetLifecyclePolicyCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "LifecyclePolicyNotFoundException":
     case "com.amazonaws.ecr#LifecyclePolicyNotFoundException":
-      throw await deserializeAws_json1_1LifecyclePolicyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_LifecyclePolicyNotFoundExceptionRes(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+      throw await de_ServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1GetLifecyclePolicyPreviewCommand = async (
+/**
+ * deserializeAws_json1_1GetLifecyclePolicyPreviewCommand
+ */
+export const de_GetLifecyclePolicyPreviewCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLifecyclePolicyPreviewCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetLifecyclePolicyPreviewCommandError(output, context);
+    return de_GetLifecyclePolicyPreviewCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetLifecyclePolicyPreviewResponse(data, context);
+  contents = de_GetLifecyclePolicyPreviewResponse(data, context);
   const response: GetLifecyclePolicyPreviewCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetLifecyclePolicyPreviewCommandError = async (
+/**
+ * deserializeAws_json1_1GetLifecyclePolicyPreviewCommandError
+ */
+const de_GetLifecyclePolicyPreviewCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLifecyclePolicyPreviewCommandOutput> => {
@@ -1936,45 +2001,50 @@ const deserializeAws_json1_1GetLifecyclePolicyPreviewCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "LifecyclePolicyPreviewNotFoundException":
     case "com.amazonaws.ecr#LifecyclePolicyPreviewNotFoundException":
-      throw await deserializeAws_json1_1LifecyclePolicyPreviewNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_LifecyclePolicyPreviewNotFoundExceptionRes(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+      throw await de_ServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1GetRegistryPolicyCommand = async (
+/**
+ * deserializeAws_json1_1GetRegistryPolicyCommand
+ */
+export const de_GetRegistryPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRegistryPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetRegistryPolicyCommandError(output, context);
+    return de_GetRegistryPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetRegistryPolicyResponse(data, context);
+  contents = _json(data);
   const response: GetRegistryPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetRegistryPolicyCommandError = async (
+/**
+ * deserializeAws_json1_1GetRegistryPolicyCommandError
+ */
+const de_GetRegistryPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRegistryPolicyCommandOutput> => {
@@ -1986,45 +2056,50 @@ const deserializeAws_json1_1GetRegistryPolicyCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "RegistryPolicyNotFoundException":
     case "com.amazonaws.ecr#RegistryPolicyNotFoundException":
-      throw await deserializeAws_json1_1RegistryPolicyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_RegistryPolicyNotFoundExceptionRes(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+      throw await de_ServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ecr#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1GetRegistryScanningConfigurationCommand = async (
+/**
+ * deserializeAws_json1_1GetRegistryScanningConfigurationCommand
+ */
+export const de_GetRegistryScanningConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRegistryScanningConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetRegistryScanningConfigurationCommandError(output, context);
+    return de_GetRegistryScanningConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetRegistryScanningConfigurationResponse(data, context);
+  contents = _json(data);
   const response: GetRegistryScanningConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetRegistryScanningConfigurationCommandError = async (
+/**
+ * deserializeAws_json1_1GetRegistryScanningConfigurationCommandError
+ */
+const de_GetRegistryScanningConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRegistryScanningConfigurationCommandOutput> => {
@@ -2036,42 +2111,47 @@ const deserializeAws_json1_1GetRegistryScanningConfigurationCommandError = async
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+      throw await de_ServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ecr#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1GetRepositoryPolicyCommand = async (
+/**
+ * deserializeAws_json1_1GetRepositoryPolicyCommand
+ */
+export const de_GetRepositoryPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRepositoryPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetRepositoryPolicyCommandError(output, context);
+    return de_GetRepositoryPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetRepositoryPolicyResponse(data, context);
+  contents = _json(data);
   const response: GetRepositoryPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetRepositoryPolicyCommandError = async (
+/**
+ * deserializeAws_json1_1GetRepositoryPolicyCommandError
+ */
+const de_GetRepositoryPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRepositoryPolicyCommandOutput> => {
@@ -2083,45 +2163,50 @@ const deserializeAws_json1_1GetRepositoryPolicyCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
     case "RepositoryPolicyNotFoundException":
     case "com.amazonaws.ecr#RepositoryPolicyNotFoundException":
-      throw await deserializeAws_json1_1RepositoryPolicyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryPolicyNotFoundExceptionRes(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+      throw await de_ServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1InitiateLayerUploadCommand = async (
+/**
+ * deserializeAws_json1_1InitiateLayerUploadCommand
+ */
+export const de_InitiateLayerUploadCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InitiateLayerUploadCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1InitiateLayerUploadCommandError(output, context);
+    return de_InitiateLayerUploadCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1InitiateLayerUploadResponse(data, context);
+  contents = _json(data);
   const response: InitiateLayerUploadCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1InitiateLayerUploadCommandError = async (
+/**
+ * deserializeAws_json1_1InitiateLayerUploadCommandError
+ */
+const de_InitiateLayerUploadCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InitiateLayerUploadCommandOutput> => {
@@ -2133,45 +2218,50 @@ const deserializeAws_json1_1InitiateLayerUploadCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "KmsException":
     case "com.amazonaws.ecr#KmsException":
-      throw await deserializeAws_json1_1KmsExceptionResponse(parsedOutput, context);
+      throw await de_KmsExceptionRes(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+      throw await de_ServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListImagesCommand = async (
+/**
+ * deserializeAws_json1_1ListImagesCommand
+ */
+export const de_ListImagesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListImagesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListImagesCommandError(output, context);
+    return de_ListImagesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListImagesResponse(data, context);
+  contents = _json(data);
   const response: ListImagesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListImagesCommandError = async (
+/**
+ * deserializeAws_json1_1ListImagesCommandError
+ */
+const de_ListImagesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListImagesCommandOutput> => {
@@ -2183,42 +2273,47 @@ const deserializeAws_json1_1ListImagesCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+      throw await de_ServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -2230,42 +2325,47 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+      throw await de_ServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1PutImageCommand = async (
+/**
+ * deserializeAws_json1_1PutImageCommand
+ */
+export const de_PutImageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutImageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PutImageCommandError(output, context);
+    return de_PutImageCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutImageResponse(data, context);
+  contents = _json(data);
   const response: PutImageCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1PutImageCommandError = async (
+/**
+ * deserializeAws_json1_1PutImageCommandError
+ */
+const de_PutImageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutImageCommandOutput> => {
@@ -2277,63 +2377,68 @@ const deserializeAws_json1_1PutImageCommandError = async (
   switch (errorCode) {
     case "ImageAlreadyExistsException":
     case "com.amazonaws.ecr#ImageAlreadyExistsException":
-      throw await deserializeAws_json1_1ImageAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_ImageAlreadyExistsExceptionRes(parsedOutput, context);
     case "ImageDigestDoesNotMatchException":
     case "com.amazonaws.ecr#ImageDigestDoesNotMatchException":
-      throw await deserializeAws_json1_1ImageDigestDoesNotMatchExceptionResponse(parsedOutput, context);
+      throw await de_ImageDigestDoesNotMatchExceptionRes(parsedOutput, context);
     case "ImageTagAlreadyExistsException":
     case "com.amazonaws.ecr#ImageTagAlreadyExistsException":
-      throw await deserializeAws_json1_1ImageTagAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_ImageTagAlreadyExistsExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "KmsException":
     case "com.amazonaws.ecr#KmsException":
-      throw await deserializeAws_json1_1KmsExceptionResponse(parsedOutput, context);
+      throw await de_KmsExceptionRes(parsedOutput, context);
     case "LayersNotFoundException":
     case "com.amazonaws.ecr#LayersNotFoundException":
-      throw await deserializeAws_json1_1LayersNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_LayersNotFoundExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.ecr#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ReferencedImagesNotFoundException":
     case "com.amazonaws.ecr#ReferencedImagesNotFoundException":
-      throw await deserializeAws_json1_1ReferencedImagesNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ReferencedImagesNotFoundExceptionRes(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+      throw await de_ServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1PutImageScanningConfigurationCommand = async (
+/**
+ * deserializeAws_json1_1PutImageScanningConfigurationCommand
+ */
+export const de_PutImageScanningConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutImageScanningConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PutImageScanningConfigurationCommandError(output, context);
+    return de_PutImageScanningConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutImageScanningConfigurationResponse(data, context);
+  contents = _json(data);
   const response: PutImageScanningConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1PutImageScanningConfigurationCommandError = async (
+/**
+ * deserializeAws_json1_1PutImageScanningConfigurationCommandError
+ */
+const de_PutImageScanningConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutImageScanningConfigurationCommandOutput> => {
@@ -2345,45 +2450,50 @@ const deserializeAws_json1_1PutImageScanningConfigurationCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+      throw await de_ServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ecr#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1PutImageTagMutabilityCommand = async (
+/**
+ * deserializeAws_json1_1PutImageTagMutabilityCommand
+ */
+export const de_PutImageTagMutabilityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutImageTagMutabilityCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PutImageTagMutabilityCommandError(output, context);
+    return de_PutImageTagMutabilityCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutImageTagMutabilityResponse(data, context);
+  contents = _json(data);
   const response: PutImageTagMutabilityCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1PutImageTagMutabilityCommandError = async (
+/**
+ * deserializeAws_json1_1PutImageTagMutabilityCommandError
+ */
+const de_PutImageTagMutabilityCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutImageTagMutabilityCommandOutput> => {
@@ -2395,42 +2505,47 @@ const deserializeAws_json1_1PutImageTagMutabilityCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+      throw await de_ServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1PutLifecyclePolicyCommand = async (
+/**
+ * deserializeAws_json1_1PutLifecyclePolicyCommand
+ */
+export const de_PutLifecyclePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutLifecyclePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PutLifecyclePolicyCommandError(output, context);
+    return de_PutLifecyclePolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutLifecyclePolicyResponse(data, context);
+  contents = _json(data);
   const response: PutLifecyclePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1PutLifecyclePolicyCommandError = async (
+/**
+ * deserializeAws_json1_1PutLifecyclePolicyCommandError
+ */
+const de_PutLifecyclePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutLifecyclePolicyCommandOutput> => {
@@ -2442,42 +2557,47 @@ const deserializeAws_json1_1PutLifecyclePolicyCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+      throw await de_ServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1PutRegistryPolicyCommand = async (
+/**
+ * deserializeAws_json1_1PutRegistryPolicyCommand
+ */
+export const de_PutRegistryPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutRegistryPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PutRegistryPolicyCommandError(output, context);
+    return de_PutRegistryPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutRegistryPolicyResponse(data, context);
+  contents = _json(data);
   const response: PutRegistryPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1PutRegistryPolicyCommandError = async (
+/**
+ * deserializeAws_json1_1PutRegistryPolicyCommandError
+ */
+const de_PutRegistryPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutRegistryPolicyCommandOutput> => {
@@ -2489,42 +2609,47 @@ const deserializeAws_json1_1PutRegistryPolicyCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+      throw await de_ServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ecr#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1PutRegistryScanningConfigurationCommand = async (
+/**
+ * deserializeAws_json1_1PutRegistryScanningConfigurationCommand
+ */
+export const de_PutRegistryScanningConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutRegistryScanningConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PutRegistryScanningConfigurationCommandError(output, context);
+    return de_PutRegistryScanningConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutRegistryScanningConfigurationResponse(data, context);
+  contents = _json(data);
   const response: PutRegistryScanningConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1PutRegistryScanningConfigurationCommandError = async (
+/**
+ * deserializeAws_json1_1PutRegistryScanningConfigurationCommandError
+ */
+const de_PutRegistryScanningConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutRegistryScanningConfigurationCommandOutput> => {
@@ -2536,42 +2661,47 @@ const deserializeAws_json1_1PutRegistryScanningConfigurationCommandError = async
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+      throw await de_ServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ecr#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1PutReplicationConfigurationCommand = async (
+/**
+ * deserializeAws_json1_1PutReplicationConfigurationCommand
+ */
+export const de_PutReplicationConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutReplicationConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PutReplicationConfigurationCommandError(output, context);
+    return de_PutReplicationConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutReplicationConfigurationResponse(data, context);
+  contents = _json(data);
   const response: PutReplicationConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1PutReplicationConfigurationCommandError = async (
+/**
+ * deserializeAws_json1_1PutReplicationConfigurationCommandError
+ */
+const de_PutReplicationConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutReplicationConfigurationCommandOutput> => {
@@ -2583,42 +2713,47 @@ const deserializeAws_json1_1PutReplicationConfigurationCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+      throw await de_ServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ecr#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1SetRepositoryPolicyCommand = async (
+/**
+ * deserializeAws_json1_1SetRepositoryPolicyCommand
+ */
+export const de_SetRepositoryPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetRepositoryPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1SetRepositoryPolicyCommandError(output, context);
+    return de_SetRepositoryPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SetRepositoryPolicyResponse(data, context);
+  contents = _json(data);
   const response: SetRepositoryPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1SetRepositoryPolicyCommandError = async (
+/**
+ * deserializeAws_json1_1SetRepositoryPolicyCommandError
+ */
+const de_SetRepositoryPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetRepositoryPolicyCommandOutput> => {
@@ -2630,42 +2765,47 @@ const deserializeAws_json1_1SetRepositoryPolicyCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+      throw await de_ServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1StartImageScanCommand = async (
+/**
+ * deserializeAws_json1_1StartImageScanCommand
+ */
+export const de_StartImageScanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartImageScanCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1StartImageScanCommandError(output, context);
+    return de_StartImageScanCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartImageScanResponse(data, context);
+  contents = _json(data);
   const response: StartImageScanCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1StartImageScanCommandError = async (
+/**
+ * deserializeAws_json1_1StartImageScanCommandError
+ */
+const de_StartImageScanCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartImageScanCommandOutput> => {
@@ -2677,54 +2817,59 @@ const deserializeAws_json1_1StartImageScanCommandError = async (
   switch (errorCode) {
     case "ImageNotFoundException":
     case "com.amazonaws.ecr#ImageNotFoundException":
-      throw await deserializeAws_json1_1ImageNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ImageNotFoundExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.ecr#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+      throw await de_ServerExceptionRes(parsedOutput, context);
     case "UnsupportedImageTypeException":
     case "com.amazonaws.ecr#UnsupportedImageTypeException":
-      throw await deserializeAws_json1_1UnsupportedImageTypeExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedImageTypeExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ecr#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1StartLifecyclePolicyPreviewCommand = async (
+/**
+ * deserializeAws_json1_1StartLifecyclePolicyPreviewCommand
+ */
+export const de_StartLifecyclePolicyPreviewCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartLifecyclePolicyPreviewCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1StartLifecyclePolicyPreviewCommandError(output, context);
+    return de_StartLifecyclePolicyPreviewCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartLifecyclePolicyPreviewResponse(data, context);
+  contents = _json(data);
   const response: StartLifecyclePolicyPreviewCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1StartLifecyclePolicyPreviewCommandError = async (
+/**
+ * deserializeAws_json1_1StartLifecyclePolicyPreviewCommandError
+ */
+const de_StartLifecyclePolicyPreviewCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartLifecyclePolicyPreviewCommandOutput> => {
@@ -2736,48 +2881,53 @@ const deserializeAws_json1_1StartLifecyclePolicyPreviewCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "LifecyclePolicyNotFoundException":
     case "com.amazonaws.ecr#LifecyclePolicyNotFoundException":
-      throw await deserializeAws_json1_1LifecyclePolicyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_LifecyclePolicyNotFoundExceptionRes(parsedOutput, context);
     case "LifecyclePolicyPreviewInProgressException":
     case "com.amazonaws.ecr#LifecyclePolicyPreviewInProgressException":
-      throw await deserializeAws_json1_1LifecyclePolicyPreviewInProgressExceptionResponse(parsedOutput, context);
+      throw await de_LifecyclePolicyPreviewInProgressExceptionRes(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+      throw await de_ServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1TagResourceCommand = async (
+/**
+ * deserializeAws_json1_1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceResponse(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1TagResourceCommandError = async (
+/**
+ * deserializeAws_json1_1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -2789,48 +2939,53 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidTagParameterException":
     case "com.amazonaws.ecr#InvalidTagParameterException":
-      throw await deserializeAws_json1_1InvalidTagParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTagParameterExceptionRes(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+      throw await de_ServerExceptionRes(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.ecr#TooManyTagsException":
-      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UntagResourceCommand = async (
+/**
+ * deserializeAws_json1_1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UntagResourceCommandError = async (
+/**
+ * deserializeAws_json1_1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -2842,48 +2997,53 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidTagParameterException":
     case "com.amazonaws.ecr#InvalidTagParameterException":
-      throw await deserializeAws_json1_1InvalidTagParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTagParameterExceptionRes(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+      throw await de_ServerExceptionRes(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.ecr#TooManyTagsException":
-      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UploadLayerPartCommand = async (
+/**
+ * deserializeAws_json1_1UploadLayerPartCommand
+ */
+export const de_UploadLayerPartCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UploadLayerPartCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UploadLayerPartCommandError(output, context);
+    return de_UploadLayerPartCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UploadLayerPartResponse(data, context);
+  contents = _json(data);
   const response: UploadLayerPartCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UploadLayerPartCommandError = async (
+/**
+ * deserializeAws_json1_1UploadLayerPartCommandError
+ */
+const de_UploadLayerPartCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UploadLayerPartCommandOutput> => {
@@ -2895,42 +3055,44 @@ const deserializeAws_json1_1UploadLayerPartCommandError = async (
   switch (errorCode) {
     case "InvalidLayerPartException":
     case "com.amazonaws.ecr#InvalidLayerPartException":
-      throw await deserializeAws_json1_1InvalidLayerPartExceptionResponse(parsedOutput, context);
+      throw await de_InvalidLayerPartExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "KmsException":
     case "com.amazonaws.ecr#KmsException":
-      throw await deserializeAws_json1_1KmsExceptionResponse(parsedOutput, context);
+      throw await de_KmsExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.ecr#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+      throw await de_ServerExceptionRes(parsedOutput, context);
     case "UploadNotFoundException":
     case "com.amazonaws.ecr#UploadNotFoundException":
-      throw await deserializeAws_json1_1UploadNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_UploadNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const deserializeAws_json1_1EmptyUploadExceptionResponse = async (
+/**
+ * deserializeAws_json1_1EmptyUploadExceptionRes
+ */
+const de_EmptyUploadExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<EmptyUploadException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1EmptyUploadException(body, context);
+  const deserialized: any = _json(body);
   const exception = new EmptyUploadException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2938,12 +3100,15 @@ const deserializeAws_json1_1EmptyUploadExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ImageAlreadyExistsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ImageAlreadyExistsExceptionRes
+ */
+const de_ImageAlreadyExistsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ImageAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ImageAlreadyExistsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ImageAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2951,12 +3116,15 @@ const deserializeAws_json1_1ImageAlreadyExistsExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ImageDigestDoesNotMatchExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ImageDigestDoesNotMatchExceptionRes
+ */
+const de_ImageDigestDoesNotMatchExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ImageDigestDoesNotMatchException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ImageDigestDoesNotMatchException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ImageDigestDoesNotMatchException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2964,12 +3132,15 @@ const deserializeAws_json1_1ImageDigestDoesNotMatchExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ImageNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ImageNotFoundExceptionRes
+ */
+const de_ImageNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ImageNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ImageNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ImageNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2977,12 +3148,15 @@ const deserializeAws_json1_1ImageNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ImageTagAlreadyExistsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ImageTagAlreadyExistsExceptionRes
+ */
+const de_ImageTagAlreadyExistsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ImageTagAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ImageTagAlreadyExistsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ImageTagAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2990,12 +3164,15 @@ const deserializeAws_json1_1ImageTagAlreadyExistsExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidLayerExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidLayerExceptionRes
+ */
+const de_InvalidLayerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidLayerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidLayerException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidLayerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3003,12 +3180,15 @@ const deserializeAws_json1_1InvalidLayerExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidLayerPartExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidLayerPartExceptionRes
+ */
+const de_InvalidLayerPartExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidLayerPartException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidLayerPartException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidLayerPartException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3016,12 +3196,15 @@ const deserializeAws_json1_1InvalidLayerPartExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidParameterExceptionRes
+ */
+const de_InvalidParameterExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidParameterException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidParameterException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3029,12 +3212,15 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidTagParameterExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidTagParameterExceptionRes
+ */
+const de_InvalidTagParameterExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidTagParameterException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidTagParameterException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidTagParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3042,12 +3228,12 @@ const deserializeAws_json1_1InvalidTagParameterExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1KmsExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<KmsException> => {
+/**
+ * deserializeAws_json1_1KmsExceptionRes
+ */
+const de_KmsExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<KmsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1KmsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new KmsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3055,12 +3241,15 @@ const deserializeAws_json1_1KmsExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1LayerAlreadyExistsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1LayerAlreadyExistsExceptionRes
+ */
+const de_LayerAlreadyExistsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LayerAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LayerAlreadyExistsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LayerAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3068,12 +3257,15 @@ const deserializeAws_json1_1LayerAlreadyExistsExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1LayerInaccessibleExceptionResponse = async (
+/**
+ * deserializeAws_json1_1LayerInaccessibleExceptionRes
+ */
+const de_LayerInaccessibleExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LayerInaccessibleException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LayerInaccessibleException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LayerInaccessibleException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3081,12 +3273,15 @@ const deserializeAws_json1_1LayerInaccessibleExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1LayerPartTooSmallExceptionResponse = async (
+/**
+ * deserializeAws_json1_1LayerPartTooSmallExceptionRes
+ */
+const de_LayerPartTooSmallExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LayerPartTooSmallException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LayerPartTooSmallException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LayerPartTooSmallException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3094,12 +3289,15 @@ const deserializeAws_json1_1LayerPartTooSmallExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1LayersNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1LayersNotFoundExceptionRes
+ */
+const de_LayersNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LayersNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LayersNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LayersNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3107,12 +3305,15 @@ const deserializeAws_json1_1LayersNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1LifecyclePolicyNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1LifecyclePolicyNotFoundExceptionRes
+ */
+const de_LifecyclePolicyNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LifecyclePolicyNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LifecyclePolicyNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LifecyclePolicyNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3120,12 +3321,15 @@ const deserializeAws_json1_1LifecyclePolicyNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1LifecyclePolicyPreviewInProgressExceptionResponse = async (
+/**
+ * deserializeAws_json1_1LifecyclePolicyPreviewInProgressExceptionRes
+ */
+const de_LifecyclePolicyPreviewInProgressExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LifecyclePolicyPreviewInProgressException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LifecyclePolicyPreviewInProgressException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LifecyclePolicyPreviewInProgressException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3133,12 +3337,15 @@ const deserializeAws_json1_1LifecyclePolicyPreviewInProgressExceptionResponse = 
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1LifecyclePolicyPreviewNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1LifecyclePolicyPreviewNotFoundExceptionRes
+ */
+const de_LifecyclePolicyPreviewNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LifecyclePolicyPreviewNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LifecyclePolicyPreviewNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LifecyclePolicyPreviewNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3146,12 +3353,15 @@ const deserializeAws_json1_1LifecyclePolicyPreviewNotFoundExceptionResponse = as
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1LimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1LimitExceededExceptionRes
+ */
+const de_LimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3159,12 +3369,15 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1PullThroughCacheRuleAlreadyExistsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1PullThroughCacheRuleAlreadyExistsExceptionRes
+ */
+const de_PullThroughCacheRuleAlreadyExistsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PullThroughCacheRuleAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1PullThroughCacheRuleAlreadyExistsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new PullThroughCacheRuleAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3172,12 +3385,15 @@ const deserializeAws_json1_1PullThroughCacheRuleAlreadyExistsExceptionResponse =
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1PullThroughCacheRuleNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1PullThroughCacheRuleNotFoundExceptionRes
+ */
+const de_PullThroughCacheRuleNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PullThroughCacheRuleNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1PullThroughCacheRuleNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new PullThroughCacheRuleNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3185,12 +3401,15 @@ const deserializeAws_json1_1PullThroughCacheRuleNotFoundExceptionResponse = asyn
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ReferencedImagesNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ReferencedImagesNotFoundExceptionRes
+ */
+const de_ReferencedImagesNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ReferencedImagesNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ReferencedImagesNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ReferencedImagesNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3198,12 +3417,15 @@ const deserializeAws_json1_1ReferencedImagesNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1RegistryPolicyNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1RegistryPolicyNotFoundExceptionRes
+ */
+const de_RegistryPolicyNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<RegistryPolicyNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1RegistryPolicyNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new RegistryPolicyNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3211,12 +3433,15 @@ const deserializeAws_json1_1RegistryPolicyNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1RepositoryAlreadyExistsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1RepositoryAlreadyExistsExceptionRes
+ */
+const de_RepositoryAlreadyExistsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<RepositoryAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1RepositoryAlreadyExistsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new RepositoryAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3224,12 +3449,15 @@ const deserializeAws_json1_1RepositoryAlreadyExistsExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1RepositoryNotEmptyExceptionResponse = async (
+/**
+ * deserializeAws_json1_1RepositoryNotEmptyExceptionRes
+ */
+const de_RepositoryNotEmptyExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<RepositoryNotEmptyException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1RepositoryNotEmptyException(body, context);
+  const deserialized: any = _json(body);
   const exception = new RepositoryNotEmptyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3237,12 +3465,15 @@ const deserializeAws_json1_1RepositoryNotEmptyExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1RepositoryNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1RepositoryNotFoundExceptionRes
+ */
+const de_RepositoryNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<RepositoryNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1RepositoryNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new RepositoryNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3250,12 +3481,15 @@ const deserializeAws_json1_1RepositoryNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1RepositoryPolicyNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1RepositoryPolicyNotFoundExceptionRes
+ */
+const de_RepositoryPolicyNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<RepositoryPolicyNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1RepositoryPolicyNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new RepositoryPolicyNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3263,12 +3497,15 @@ const deserializeAws_json1_1RepositoryPolicyNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ScanNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ScanNotFoundExceptionRes
+ */
+const de_ScanNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ScanNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ScanNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ScanNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3276,12 +3513,12 @@ const deserializeAws_json1_1ScanNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ServerExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ServerException> => {
+/**
+ * deserializeAws_json1_1ServerExceptionRes
+ */
+const de_ServerExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ServerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ServerException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3289,12 +3526,15 @@ const deserializeAws_json1_1ServerExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1TooManyTagsExceptionRes
+ */
+const de_TooManyTagsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyTagsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TooManyTagsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TooManyTagsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3302,12 +3542,15 @@ const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1UnsupportedImageTypeExceptionResponse = async (
+/**
+ * deserializeAws_json1_1UnsupportedImageTypeExceptionRes
+ */
+const de_UnsupportedImageTypeExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnsupportedImageTypeException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1UnsupportedImageTypeException(body, context);
+  const deserialized: any = _json(body);
   const exception = new UnsupportedImageTypeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3315,12 +3558,15 @@ const deserializeAws_json1_1UnsupportedImageTypeExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1UnsupportedUpstreamRegistryExceptionResponse = async (
+/**
+ * deserializeAws_json1_1UnsupportedUpstreamRegistryExceptionRes
+ */
+const de_UnsupportedUpstreamRegistryExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnsupportedUpstreamRegistryException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1UnsupportedUpstreamRegistryException(body, context);
+  const deserialized: any = _json(body);
   const exception = new UnsupportedUpstreamRegistryException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3328,12 +3574,15 @@ const deserializeAws_json1_1UnsupportedUpstreamRegistryExceptionResponse = async
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1UploadNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1UploadNotFoundExceptionRes
+ */
+const de_UploadNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UploadNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1UploadNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new UploadNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3341,12 +3590,12 @@ const deserializeAws_json1_1UploadNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_json1_1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ValidationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3354,2317 +3603,833 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1BatchCheckLayerAvailabilityRequest = (
-  input: BatchCheckLayerAvailabilityRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.layerDigests != null && {
-      layerDigests: serializeAws_json1_1BatchedOperationLayerDigestList(input.layerDigests, context),
-    }),
-    ...(input.registryId != null && { registryId: input.registryId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_BatchCheckLayerAvailabilityRequest omitted.
 
-const serializeAws_json1_1BatchDeleteImageRequest = (input: BatchDeleteImageRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.imageIds != null && { imageIds: serializeAws_json1_1ImageIdentifierList(input.imageIds, context) }),
-    ...(input.registryId != null && { registryId: input.registryId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_BatchDeleteImageRequest omitted.
 
-const serializeAws_json1_1BatchedOperationLayerDigestList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_BatchedOperationLayerDigestList omitted.
 
-const serializeAws_json1_1BatchGetImageRequest = (input: BatchGetImageRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.acceptedMediaTypes != null && {
-      acceptedMediaTypes: serializeAws_json1_1MediaTypeList(input.acceptedMediaTypes, context),
-    }),
-    ...(input.imageIds != null && { imageIds: serializeAws_json1_1ImageIdentifierList(input.imageIds, context) }),
-    ...(input.registryId != null && { registryId: input.registryId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_BatchGetImageRequest omitted.
 
-const serializeAws_json1_1BatchGetRepositoryScanningConfigurationRequest = (
-  input: BatchGetRepositoryScanningConfigurationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.repositoryNames != null && {
-      repositoryNames: serializeAws_json1_1ScanningConfigurationRepositoryNameList(input.repositoryNames, context),
-    }),
-  };
-};
+// se_BatchGetRepositoryScanningConfigurationRequest omitted.
 
-const serializeAws_json1_1CompleteLayerUploadRequest = (
-  input: CompleteLayerUploadRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.layerDigests != null && {
-      layerDigests: serializeAws_json1_1LayerDigestList(input.layerDigests, context),
-    }),
-    ...(input.registryId != null && { registryId: input.registryId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-    ...(input.uploadId != null && { uploadId: input.uploadId }),
-  };
-};
+// se_CompleteLayerUploadRequest omitted.
 
-const serializeAws_json1_1CreatePullThroughCacheRuleRequest = (
-  input: CreatePullThroughCacheRuleRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ecrRepositoryPrefix != null && { ecrRepositoryPrefix: input.ecrRepositoryPrefix }),
-    ...(input.registryId != null && { registryId: input.registryId }),
-    ...(input.upstreamRegistryUrl != null && { upstreamRegistryUrl: input.upstreamRegistryUrl }),
-  };
-};
+// se_CreatePullThroughCacheRuleRequest omitted.
 
-const serializeAws_json1_1CreateRepositoryRequest = (input: CreateRepositoryRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.encryptionConfiguration != null && {
-      encryptionConfiguration: serializeAws_json1_1EncryptionConfiguration(input.encryptionConfiguration, context),
-    }),
-    ...(input.imageScanningConfiguration != null && {
-      imageScanningConfiguration: serializeAws_json1_1ImageScanningConfiguration(
-        input.imageScanningConfiguration,
-        context
-      ),
-    }),
-    ...(input.imageTagMutability != null && { imageTagMutability: input.imageTagMutability }),
-    ...(input.registryId != null && { registryId: input.registryId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-    ...(input.tags != null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
-  };
-};
+// se_CreateRepositoryRequest omitted.
 
-const serializeAws_json1_1DeleteLifecyclePolicyRequest = (
-  input: DeleteLifecyclePolicyRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.registryId != null && { registryId: input.registryId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_DeleteLifecyclePolicyRequest omitted.
 
-const serializeAws_json1_1DeletePullThroughCacheRuleRequest = (
-  input: DeletePullThroughCacheRuleRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ecrRepositoryPrefix != null && { ecrRepositoryPrefix: input.ecrRepositoryPrefix }),
-    ...(input.registryId != null && { registryId: input.registryId }),
-  };
-};
+// se_DeletePullThroughCacheRuleRequest omitted.
 
-const serializeAws_json1_1DeleteRegistryPolicyRequest = (
-  input: DeleteRegistryPolicyRequest,
-  context: __SerdeContext
-): any => {
-  return {};
-};
+// se_DeleteRegistryPolicyRequest omitted.
 
-const serializeAws_json1_1DeleteRepositoryPolicyRequest = (
-  input: DeleteRepositoryPolicyRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.registryId != null && { registryId: input.registryId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_DeleteRepositoryPolicyRequest omitted.
 
-const serializeAws_json1_1DeleteRepositoryRequest = (input: DeleteRepositoryRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.force != null && { force: input.force }),
-    ...(input.registryId != null && { registryId: input.registryId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_DeleteRepositoryRequest omitted.
 
-const serializeAws_json1_1DescribeImageReplicationStatusRequest = (
-  input: DescribeImageReplicationStatusRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.imageId != null && { imageId: serializeAws_json1_1ImageIdentifier(input.imageId, context) }),
-    ...(input.registryId != null && { registryId: input.registryId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_DescribeImageReplicationStatusRequest omitted.
 
-const serializeAws_json1_1DescribeImageScanFindingsRequest = (
-  input: DescribeImageScanFindingsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.imageId != null && { imageId: serializeAws_json1_1ImageIdentifier(input.imageId, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.registryId != null && { registryId: input.registryId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_DescribeImageScanFindingsRequest omitted.
 
-const serializeAws_json1_1DescribeImagesFilter = (input: DescribeImagesFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.tagStatus != null && { tagStatus: input.tagStatus }),
-  };
-};
+// se_DescribeImagesFilter omitted.
 
-const serializeAws_json1_1DescribeImagesRequest = (input: DescribeImagesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.filter != null && { filter: serializeAws_json1_1DescribeImagesFilter(input.filter, context) }),
-    ...(input.imageIds != null && { imageIds: serializeAws_json1_1ImageIdentifierList(input.imageIds, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.registryId != null && { registryId: input.registryId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_DescribeImagesRequest omitted.
 
-const serializeAws_json1_1DescribePullThroughCacheRulesRequest = (
-  input: DescribePullThroughCacheRulesRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ecrRepositoryPrefixes != null && {
-      ecrRepositoryPrefixes: serializeAws_json1_1PullThroughCacheRuleRepositoryPrefixList(
-        input.ecrRepositoryPrefixes,
-        context
-      ),
-    }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.registryId != null && { registryId: input.registryId }),
-  };
-};
+// se_DescribePullThroughCacheRulesRequest omitted.
 
-const serializeAws_json1_1DescribeRegistryRequest = (input: DescribeRegistryRequest, context: __SerdeContext): any => {
-  return {};
-};
+// se_DescribeRegistryRequest omitted.
 
-const serializeAws_json1_1DescribeRepositoriesRequest = (
-  input: DescribeRepositoriesRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.registryId != null && { registryId: input.registryId }),
-    ...(input.repositoryNames != null && {
-      repositoryNames: serializeAws_json1_1RepositoryNameList(input.repositoryNames, context),
-    }),
-  };
-};
+// se_DescribeRepositoriesRequest omitted.
 
-const serializeAws_json1_1EncryptionConfiguration = (input: EncryptionConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.encryptionType != null && { encryptionType: input.encryptionType }),
-    ...(input.kmsKey != null && { kmsKey: input.kmsKey }),
-  };
-};
+// se_EncryptionConfiguration omitted.
 
-const serializeAws_json1_1GetAuthorizationTokenRegistryIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_GetAuthorizationTokenRegistryIdList omitted.
 
-const serializeAws_json1_1GetAuthorizationTokenRequest = (
-  input: GetAuthorizationTokenRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.registryIds != null && {
-      registryIds: serializeAws_json1_1GetAuthorizationTokenRegistryIdList(input.registryIds, context),
-    }),
-  };
-};
+// se_GetAuthorizationTokenRequest omitted.
 
-const serializeAws_json1_1GetDownloadUrlForLayerRequest = (
-  input: GetDownloadUrlForLayerRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.layerDigest != null && { layerDigest: input.layerDigest }),
-    ...(input.registryId != null && { registryId: input.registryId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_GetDownloadUrlForLayerRequest omitted.
 
-const serializeAws_json1_1GetLifecyclePolicyPreviewRequest = (
-  input: GetLifecyclePolicyPreviewRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.filter != null && { filter: serializeAws_json1_1LifecyclePolicyPreviewFilter(input.filter, context) }),
-    ...(input.imageIds != null && { imageIds: serializeAws_json1_1ImageIdentifierList(input.imageIds, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.registryId != null && { registryId: input.registryId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_GetLifecyclePolicyPreviewRequest omitted.
 
-const serializeAws_json1_1GetLifecyclePolicyRequest = (
-  input: GetLifecyclePolicyRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.registryId != null && { registryId: input.registryId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_GetLifecyclePolicyRequest omitted.
 
-const serializeAws_json1_1GetRegistryPolicyRequest = (
-  input: GetRegistryPolicyRequest,
-  context: __SerdeContext
-): any => {
-  return {};
-};
+// se_GetRegistryPolicyRequest omitted.
 
-const serializeAws_json1_1GetRegistryScanningConfigurationRequest = (
-  input: GetRegistryScanningConfigurationRequest,
-  context: __SerdeContext
-): any => {
-  return {};
-};
+// se_GetRegistryScanningConfigurationRequest omitted.
 
-const serializeAws_json1_1GetRepositoryPolicyRequest = (
-  input: GetRepositoryPolicyRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.registryId != null && { registryId: input.registryId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_GetRepositoryPolicyRequest omitted.
 
-const serializeAws_json1_1ImageIdentifier = (input: ImageIdentifier, context: __SerdeContext): any => {
-  return {
-    ...(input.imageDigest != null && { imageDigest: input.imageDigest }),
-    ...(input.imageTag != null && { imageTag: input.imageTag }),
-  };
-};
+// se_ImageIdentifier omitted.
 
-const serializeAws_json1_1ImageIdentifierList = (input: ImageIdentifier[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_1ImageIdentifier(entry, context);
-    });
-};
+// se_ImageIdentifierList omitted.
 
-const serializeAws_json1_1ImageScanningConfiguration = (
-  input: ImageScanningConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.scanOnPush != null && { scanOnPush: input.scanOnPush }),
-  };
-};
+// se_ImageScanningConfiguration omitted.
 
-const serializeAws_json1_1InitiateLayerUploadRequest = (
-  input: InitiateLayerUploadRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.registryId != null && { registryId: input.registryId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_InitiateLayerUploadRequest omitted.
 
-const serializeAws_json1_1LayerDigestList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_LayerDigestList omitted.
 
-const serializeAws_json1_1LifecyclePolicyPreviewFilter = (
-  input: LifecyclePolicyPreviewFilter,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.tagStatus != null && { tagStatus: input.tagStatus }),
-  };
-};
+// se_LifecyclePolicyPreviewFilter omitted.
 
-const serializeAws_json1_1ListImagesFilter = (input: ListImagesFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.tagStatus != null && { tagStatus: input.tagStatus }),
-  };
-};
+// se_ListImagesFilter omitted.
 
-const serializeAws_json1_1ListImagesRequest = (input: ListImagesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.filter != null && { filter: serializeAws_json1_1ListImagesFilter(input.filter, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.registryId != null && { registryId: input.registryId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_ListImagesRequest omitted.
 
-const serializeAws_json1_1ListTagsForResourceRequest = (
-  input: ListTagsForResourceRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-  };
-};
+// se_ListTagsForResourceRequest omitted.
 
-const serializeAws_json1_1MediaTypeList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_MediaTypeList omitted.
 
-const serializeAws_json1_1PullThroughCacheRuleRepositoryPrefixList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_PullThroughCacheRuleRepositoryPrefixList omitted.
 
-const serializeAws_json1_1PutImageRequest = (input: PutImageRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.imageDigest != null && { imageDigest: input.imageDigest }),
-    ...(input.imageManifest != null && { imageManifest: input.imageManifest }),
-    ...(input.imageManifestMediaType != null && { imageManifestMediaType: input.imageManifestMediaType }),
-    ...(input.imageTag != null && { imageTag: input.imageTag }),
-    ...(input.registryId != null && { registryId: input.registryId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_PutImageRequest omitted.
 
-const serializeAws_json1_1PutImageScanningConfigurationRequest = (
-  input: PutImageScanningConfigurationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.imageScanningConfiguration != null && {
-      imageScanningConfiguration: serializeAws_json1_1ImageScanningConfiguration(
-        input.imageScanningConfiguration,
-        context
-      ),
-    }),
-    ...(input.registryId != null && { registryId: input.registryId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_PutImageScanningConfigurationRequest omitted.
 
-const serializeAws_json1_1PutImageTagMutabilityRequest = (
-  input: PutImageTagMutabilityRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.imageTagMutability != null && { imageTagMutability: input.imageTagMutability }),
-    ...(input.registryId != null && { registryId: input.registryId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_PutImageTagMutabilityRequest omitted.
 
-const serializeAws_json1_1PutLifecyclePolicyRequest = (
-  input: PutLifecyclePolicyRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.lifecyclePolicyText != null && { lifecyclePolicyText: input.lifecyclePolicyText }),
-    ...(input.registryId != null && { registryId: input.registryId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_PutLifecyclePolicyRequest omitted.
 
-const serializeAws_json1_1PutRegistryPolicyRequest = (
-  input: PutRegistryPolicyRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.policyText != null && { policyText: input.policyText }),
-  };
-};
+// se_PutRegistryPolicyRequest omitted.
 
-const serializeAws_json1_1PutRegistryScanningConfigurationRequest = (
-  input: PutRegistryScanningConfigurationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.rules != null && { rules: serializeAws_json1_1RegistryScanningRuleList(input.rules, context) }),
-    ...(input.scanType != null && { scanType: input.scanType }),
-  };
-};
+// se_PutRegistryScanningConfigurationRequest omitted.
 
-const serializeAws_json1_1PutReplicationConfigurationRequest = (
-  input: PutReplicationConfigurationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.replicationConfiguration != null && {
-      replicationConfiguration: serializeAws_json1_1ReplicationConfiguration(input.replicationConfiguration, context),
-    }),
-  };
-};
+// se_PutReplicationConfigurationRequest omitted.
 
-const serializeAws_json1_1RegistryScanningRule = (input: RegistryScanningRule, context: __SerdeContext): any => {
-  return {
-    ...(input.repositoryFilters != null && {
-      repositoryFilters: serializeAws_json1_1ScanningRepositoryFilterList(input.repositoryFilters, context),
-    }),
-    ...(input.scanFrequency != null && { scanFrequency: input.scanFrequency }),
-  };
-};
+// se_RegistryScanningRule omitted.
 
-const serializeAws_json1_1RegistryScanningRuleList = (input: RegistryScanningRule[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_1RegistryScanningRule(entry, context);
-    });
-};
+// se_RegistryScanningRuleList omitted.
 
-const serializeAws_json1_1ReplicationConfiguration = (
-  input: ReplicationConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.rules != null && { rules: serializeAws_json1_1ReplicationRuleList(input.rules, context) }),
-  };
-};
+// se_ReplicationConfiguration omitted.
 
-const serializeAws_json1_1ReplicationDestination = (input: ReplicationDestination, context: __SerdeContext): any => {
-  return {
-    ...(input.region != null && { region: input.region }),
-    ...(input.registryId != null && { registryId: input.registryId }),
-  };
-};
+// se_ReplicationDestination omitted.
 
-const serializeAws_json1_1ReplicationDestinationList = (
-  input: ReplicationDestination[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_1ReplicationDestination(entry, context);
-    });
-};
+// se_ReplicationDestinationList omitted.
 
-const serializeAws_json1_1ReplicationRule = (input: ReplicationRule, context: __SerdeContext): any => {
-  return {
-    ...(input.destinations != null && {
-      destinations: serializeAws_json1_1ReplicationDestinationList(input.destinations, context),
-    }),
-    ...(input.repositoryFilters != null && {
-      repositoryFilters: serializeAws_json1_1RepositoryFilterList(input.repositoryFilters, context),
-    }),
-  };
-};
+// se_ReplicationRule omitted.
 
-const serializeAws_json1_1ReplicationRuleList = (input: ReplicationRule[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_1ReplicationRule(entry, context);
-    });
-};
+// se_ReplicationRuleList omitted.
 
-const serializeAws_json1_1RepositoryFilter = (input: RepositoryFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.filter != null && { filter: input.filter }),
-    ...(input.filterType != null && { filterType: input.filterType }),
-  };
-};
+// se_RepositoryFilter omitted.
 
-const serializeAws_json1_1RepositoryFilterList = (input: RepositoryFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_1RepositoryFilter(entry, context);
-    });
-};
+// se_RepositoryFilterList omitted.
 
-const serializeAws_json1_1RepositoryNameList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_RepositoryNameList omitted.
 
-const serializeAws_json1_1ScanningConfigurationRepositoryNameList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ScanningConfigurationRepositoryNameList omitted.
 
-const serializeAws_json1_1ScanningRepositoryFilter = (
-  input: ScanningRepositoryFilter,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.filter != null && { filter: input.filter }),
-    ...(input.filterType != null && { filterType: input.filterType }),
-  };
-};
+// se_ScanningRepositoryFilter omitted.
 
-const serializeAws_json1_1ScanningRepositoryFilterList = (
-  input: ScanningRepositoryFilter[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_1ScanningRepositoryFilter(entry, context);
-    });
-};
+// se_ScanningRepositoryFilterList omitted.
 
-const serializeAws_json1_1SetRepositoryPolicyRequest = (
-  input: SetRepositoryPolicyRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.force != null && { force: input.force }),
-    ...(input.policyText != null && { policyText: input.policyText }),
-    ...(input.registryId != null && { registryId: input.registryId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_SetRepositoryPolicyRequest omitted.
 
-const serializeAws_json1_1StartImageScanRequest = (input: StartImageScanRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.imageId != null && { imageId: serializeAws_json1_1ImageIdentifier(input.imageId, context) }),
-    ...(input.registryId != null && { registryId: input.registryId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_StartImageScanRequest omitted.
 
-const serializeAws_json1_1StartLifecyclePolicyPreviewRequest = (
-  input: StartLifecyclePolicyPreviewRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.lifecyclePolicyText != null && { lifecyclePolicyText: input.lifecyclePolicyText }),
-    ...(input.registryId != null && { registryId: input.registryId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-  };
-};
+// se_StartLifecyclePolicyPreviewRequest omitted.
 
-const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyList omitted.
 
-const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_1Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
-const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.tags != null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
-  };
-};
+// se_TagResourceRequest omitted.
 
-const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.tagKeys != null && { tagKeys: serializeAws_json1_1TagKeyList(input.tagKeys, context) }),
-  };
-};
+// se_UntagResourceRequest omitted.
 
-const serializeAws_json1_1UploadLayerPartRequest = (input: UploadLayerPartRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.layerPartBlob != null && { layerPartBlob: context.base64Encoder(input.layerPartBlob) }),
-    ...(input.partFirstByte != null && { partFirstByte: input.partFirstByte }),
-    ...(input.partLastByte != null && { partLastByte: input.partLastByte }),
-    ...(input.registryId != null && { registryId: input.registryId }),
-    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
-    ...(input.uploadId != null && { uploadId: input.uploadId }),
-  };
+/**
+ * serializeAws_json1_1UploadLayerPartRequest
+ */
+const se_UploadLayerPartRequest = (input: UploadLayerPartRequest, context: __SerdeContext): any => {
+  return take(input, {
+    layerPartBlob: context.base64Encoder,
+    partFirstByte: [],
+    partLastByte: [],
+    registryId: [],
+    repositoryName: [],
+    uploadId: [],
+  });
 };
+
+// de_Attribute omitted.
+
+// de_AttributeList omitted.
 
-const deserializeAws_json1_1Attribute = (output: any, context: __SerdeContext): Attribute => {
-  return {
-    key: __expectString(output.key),
-    value: __expectString(output.value),
-  } as any;
+/**
+ * deserializeAws_json1_1AuthorizationData
+ */
+const de_AuthorizationData = (output: any, context: __SerdeContext): AuthorizationData => {
+  return take(output, {
+    authorizationToken: __expectString,
+    expiresAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    proxyEndpoint: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1AttributeList = (output: any, context: __SerdeContext): Attribute[] => {
+/**
+ * deserializeAws_json1_1AuthorizationDataList
+ */
+const de_AuthorizationDataList = (output: any, context: __SerdeContext): AuthorizationData[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Attribute(entry, context);
+      return de_AuthorizationData(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1AuthorizationData = (output: any, context: __SerdeContext): AuthorizationData => {
-  return {
-    authorizationToken: __expectString(output.authorizationToken),
-    expiresAt:
-      output.expiresAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.expiresAt))) : undefined,
-    proxyEndpoint: __expectString(output.proxyEndpoint),
-  } as any;
+/**
+ * deserializeAws_json1_1AwsEcrContainerImageDetails
+ */
+const de_AwsEcrContainerImageDetails = (output: any, context: __SerdeContext): AwsEcrContainerImageDetails => {
+  return take(output, {
+    architecture: __expectString,
+    author: __expectString,
+    imageHash: __expectString,
+    imageTags: _json,
+    platform: __expectString,
+    pushedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    registry: __expectString,
+    repositoryName: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1AuthorizationDataList = (output: any, context: __SerdeContext): AuthorizationData[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1AuthorizationData(entry, context);
-    });
-  return retVal;
-};
+// de_BatchCheckLayerAvailabilityResponse omitted.
 
-const deserializeAws_json1_1AwsEcrContainerImageDetails = (
-  output: any,
-  context: __SerdeContext
-): AwsEcrContainerImageDetails => {
-  return {
-    architecture: __expectString(output.architecture),
-    author: __expectString(output.author),
-    imageHash: __expectString(output.imageHash),
-    imageTags: output.imageTags != null ? deserializeAws_json1_1ImageTagsList(output.imageTags, context) : undefined,
-    platform: __expectString(output.platform),
-    pushedAt:
-      output.pushedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.pushedAt))) : undefined,
-    registry: __expectString(output.registry),
-    repositoryName: __expectString(output.repositoryName),
-  } as any;
-};
+// de_BatchDeleteImageResponse omitted.
 
-const deserializeAws_json1_1BatchCheckLayerAvailabilityResponse = (
-  output: any,
-  context: __SerdeContext
-): BatchCheckLayerAvailabilityResponse => {
-  return {
-    failures: output.failures != null ? deserializeAws_json1_1LayerFailureList(output.failures, context) : undefined,
-    layers: output.layers != null ? deserializeAws_json1_1LayerList(output.layers, context) : undefined,
-  } as any;
-};
+// de_BatchGetImageResponse omitted.
 
-const deserializeAws_json1_1BatchDeleteImageResponse = (
-  output: any,
-  context: __SerdeContext
-): BatchDeleteImageResponse => {
-  return {
-    failures: output.failures != null ? deserializeAws_json1_1ImageFailureList(output.failures, context) : undefined,
-    imageIds: output.imageIds != null ? deserializeAws_json1_1ImageIdentifierList(output.imageIds, context) : undefined,
-  } as any;
-};
+// de_BatchGetRepositoryScanningConfigurationResponse omitted.
 
-const deserializeAws_json1_1BatchGetImageResponse = (output: any, context: __SerdeContext): BatchGetImageResponse => {
-  return {
-    failures: output.failures != null ? deserializeAws_json1_1ImageFailureList(output.failures, context) : undefined,
-    images: output.images != null ? deserializeAws_json1_1ImageList(output.images, context) : undefined,
-  } as any;
-};
+// de_CompleteLayerUploadResponse omitted.
 
-const deserializeAws_json1_1BatchGetRepositoryScanningConfigurationResponse = (
-  output: any,
-  context: __SerdeContext
-): BatchGetRepositoryScanningConfigurationResponse => {
-  return {
-    failures:
-      output.failures != null
-        ? deserializeAws_json1_1RepositoryScanningConfigurationFailureList(output.failures, context)
-        : undefined,
-    scanningConfigurations:
-      output.scanningConfigurations != null
-        ? deserializeAws_json1_1RepositoryScanningConfigurationList(output.scanningConfigurations, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1CompleteLayerUploadResponse = (
-  output: any,
-  context: __SerdeContext
-): CompleteLayerUploadResponse => {
-  return {
-    layerDigest: __expectString(output.layerDigest),
-    registryId: __expectString(output.registryId),
-    repositoryName: __expectString(output.repositoryName),
-    uploadId: __expectString(output.uploadId),
-  } as any;
-};
-
-const deserializeAws_json1_1CreatePullThroughCacheRuleResponse = (
+/**
+ * deserializeAws_json1_1CreatePullThroughCacheRuleResponse
+ */
+const de_CreatePullThroughCacheRuleResponse = (
   output: any,
   context: __SerdeContext
 ): CreatePullThroughCacheRuleResponse => {
-  return {
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    ecrRepositoryPrefix: __expectString(output.ecrRepositoryPrefix),
-    registryId: __expectString(output.registryId),
-    upstreamRegistryUrl: __expectString(output.upstreamRegistryUrl),
-  } as any;
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ecrRepositoryPrefix: __expectString,
+    registryId: __expectString,
+    upstreamRegistryUrl: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1CreateRepositoryResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateRepositoryResponse => {
-  return {
-    repository: output.repository != null ? deserializeAws_json1_1Repository(output.repository, context) : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1CreateRepositoryResponse
+ */
+const de_CreateRepositoryResponse = (output: any, context: __SerdeContext): CreateRepositoryResponse => {
+  return take(output, {
+    repository: (_: any) => de_Repository(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1CvssScore = (output: any, context: __SerdeContext): CvssScore => {
-  return {
-    baseScore: __limitedParseDouble(output.baseScore),
-    scoringVector: __expectString(output.scoringVector),
-    source: __expectString(output.source),
-    version: __expectString(output.version),
-  } as any;
+/**
+ * deserializeAws_json1_1CvssScore
+ */
+const de_CvssScore = (output: any, context: __SerdeContext): CvssScore => {
+  return take(output, {
+    baseScore: __limitedParseDouble,
+    scoringVector: __expectString,
+    source: __expectString,
+    version: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1CvssScoreAdjustment = (output: any, context: __SerdeContext): CvssScoreAdjustment => {
-  return {
-    metric: __expectString(output.metric),
-    reason: __expectString(output.reason),
-  } as any;
+// de_CvssScoreAdjustment omitted.
+
+// de_CvssScoreAdjustmentList omitted.
+
+/**
+ * deserializeAws_json1_1CvssScoreDetails
+ */
+const de_CvssScoreDetails = (output: any, context: __SerdeContext): CvssScoreDetails => {
+  return take(output, {
+    adjustments: _json,
+    score: __limitedParseDouble,
+    scoreSource: __expectString,
+    scoringVector: __expectString,
+    version: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1CvssScoreAdjustmentList = (output: any, context: __SerdeContext): CvssScoreAdjustment[] => {
+/**
+ * deserializeAws_json1_1CvssScoreList
+ */
+const de_CvssScoreList = (output: any, context: __SerdeContext): CvssScore[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1CvssScoreAdjustment(entry, context);
+      return de_CvssScore(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1CvssScoreDetails = (output: any, context: __SerdeContext): CvssScoreDetails => {
-  return {
-    adjustments:
-      output.adjustments != null
-        ? deserializeAws_json1_1CvssScoreAdjustmentList(output.adjustments, context)
-        : undefined,
-    score: __limitedParseDouble(output.score),
-    scoreSource: __expectString(output.scoreSource),
-    scoringVector: __expectString(output.scoringVector),
-    version: __expectString(output.version),
-  } as any;
+/**
+ * deserializeAws_json1_1DeleteLifecyclePolicyResponse
+ */
+const de_DeleteLifecyclePolicyResponse = (output: any, context: __SerdeContext): DeleteLifecyclePolicyResponse => {
+  return take(output, {
+    lastEvaluatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lifecyclePolicyText: __expectString,
+    registryId: __expectString,
+    repositoryName: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1CvssScoreList = (output: any, context: __SerdeContext): CvssScore[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1CvssScore(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1DeleteLifecyclePolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteLifecyclePolicyResponse => {
-  return {
-    lastEvaluatedAt:
-      output.lastEvaluatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastEvaluatedAt)))
-        : undefined,
-    lifecyclePolicyText: __expectString(output.lifecyclePolicyText),
-    registryId: __expectString(output.registryId),
-    repositoryName: __expectString(output.repositoryName),
-  } as any;
-};
-
-const deserializeAws_json1_1DeletePullThroughCacheRuleResponse = (
+/**
+ * deserializeAws_json1_1DeletePullThroughCacheRuleResponse
+ */
+const de_DeletePullThroughCacheRuleResponse = (
   output: any,
   context: __SerdeContext
 ): DeletePullThroughCacheRuleResponse => {
-  return {
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    ecrRepositoryPrefix: __expectString(output.ecrRepositoryPrefix),
-    registryId: __expectString(output.registryId),
-    upstreamRegistryUrl: __expectString(output.upstreamRegistryUrl),
-  } as any;
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ecrRepositoryPrefix: __expectString,
+    registryId: __expectString,
+    upstreamRegistryUrl: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1DeleteRegistryPolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteRegistryPolicyResponse => {
-  return {
-    policyText: __expectString(output.policyText),
-    registryId: __expectString(output.registryId),
-  } as any;
+// de_DeleteRegistryPolicyResponse omitted.
+
+// de_DeleteRepositoryPolicyResponse omitted.
+
+/**
+ * deserializeAws_json1_1DeleteRepositoryResponse
+ */
+const de_DeleteRepositoryResponse = (output: any, context: __SerdeContext): DeleteRepositoryResponse => {
+  return take(output, {
+    repository: (_: any) => de_Repository(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1DeleteRepositoryPolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteRepositoryPolicyResponse => {
-  return {
-    policyText: __expectString(output.policyText),
-    registryId: __expectString(output.registryId),
-    repositoryName: __expectString(output.repositoryName),
-  } as any;
-};
+// de_DescribeImageReplicationStatusResponse omitted.
 
-const deserializeAws_json1_1DeleteRepositoryResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteRepositoryResponse => {
-  return {
-    repository: output.repository != null ? deserializeAws_json1_1Repository(output.repository, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeImageReplicationStatusResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeImageReplicationStatusResponse => {
-  return {
-    imageId: output.imageId != null ? deserializeAws_json1_1ImageIdentifier(output.imageId, context) : undefined,
-    replicationStatuses:
-      output.replicationStatuses != null
-        ? deserializeAws_json1_1ImageReplicationStatusList(output.replicationStatuses, context)
-        : undefined,
-    repositoryName: __expectString(output.repositoryName),
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeImageScanFindingsResponse = (
+/**
+ * deserializeAws_json1_1DescribeImageScanFindingsResponse
+ */
+const de_DescribeImageScanFindingsResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeImageScanFindingsResponse => {
-  return {
-    imageId: output.imageId != null ? deserializeAws_json1_1ImageIdentifier(output.imageId, context) : undefined,
-    imageScanFindings:
-      output.imageScanFindings != null
-        ? deserializeAws_json1_1ImageScanFindings(output.imageScanFindings, context)
-        : undefined,
-    imageScanStatus:
-      output.imageScanStatus != null
-        ? deserializeAws_json1_1ImageScanStatus(output.imageScanStatus, context)
-        : undefined,
-    nextToken: __expectString(output.nextToken),
-    registryId: __expectString(output.registryId),
-    repositoryName: __expectString(output.repositoryName),
-  } as any;
+  return take(output, {
+    imageId: _json,
+    imageScanFindings: (_: any) => de_ImageScanFindings(_, context),
+    imageScanStatus: _json,
+    nextToken: __expectString,
+    registryId: __expectString,
+    repositoryName: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1DescribeImagesResponse = (output: any, context: __SerdeContext): DescribeImagesResponse => {
-  return {
-    imageDetails:
-      output.imageDetails != null ? deserializeAws_json1_1ImageDetailList(output.imageDetails, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
+/**
+ * deserializeAws_json1_1DescribeImagesResponse
+ */
+const de_DescribeImagesResponse = (output: any, context: __SerdeContext): DescribeImagesResponse => {
+  return take(output, {
+    imageDetails: (_: any) => de_ImageDetailList(_, context),
+    nextToken: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1DescribePullThroughCacheRulesResponse = (
+/**
+ * deserializeAws_json1_1DescribePullThroughCacheRulesResponse
+ */
+const de_DescribePullThroughCacheRulesResponse = (
   output: any,
   context: __SerdeContext
 ): DescribePullThroughCacheRulesResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    pullThroughCacheRules:
-      output.pullThroughCacheRules != null
-        ? deserializeAws_json1_1PullThroughCacheRuleList(output.pullThroughCacheRules, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    nextToken: __expectString,
+    pullThroughCacheRules: (_: any) => de_PullThroughCacheRuleList(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1DescribeRegistryResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeRegistryResponse => {
-  return {
-    registryId: __expectString(output.registryId),
-    replicationConfiguration:
-      output.replicationConfiguration != null
-        ? deserializeAws_json1_1ReplicationConfiguration(output.replicationConfiguration, context)
-        : undefined,
-  } as any;
+// de_DescribeRegistryResponse omitted.
+
+/**
+ * deserializeAws_json1_1DescribeRepositoriesResponse
+ */
+const de_DescribeRepositoriesResponse = (output: any, context: __SerdeContext): DescribeRepositoriesResponse => {
+  return take(output, {
+    nextToken: __expectString,
+    repositories: (_: any) => de_RepositoryList(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1DescribeRepositoriesResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeRepositoriesResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    repositories:
-      output.repositories != null ? deserializeAws_json1_1RepositoryList(output.repositories, context) : undefined,
-  } as any;
+// de_EmptyUploadException omitted.
+
+// de_EncryptionConfiguration omitted.
+
+/**
+ * deserializeAws_json1_1EnhancedImageScanFinding
+ */
+const de_EnhancedImageScanFinding = (output: any, context: __SerdeContext): EnhancedImageScanFinding => {
+  return take(output, {
+    awsAccountId: __expectString,
+    description: __expectString,
+    findingArn: __expectString,
+    firstObservedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastObservedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    packageVulnerabilityDetails: (_: any) => de_PackageVulnerabilityDetails(_, context),
+    remediation: _json,
+    resources: (_: any) => de_ResourceList(_, context),
+    score: __limitedParseDouble,
+    scoreDetails: (_: any) => de_ScoreDetails(_, context),
+    severity: __expectString,
+    status: __expectString,
+    title: __expectString,
+    type: __expectString,
+    updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-const deserializeAws_json1_1EmptyUploadException = (output: any, context: __SerdeContext): EmptyUploadException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1EncryptionConfiguration = (
-  output: any,
-  context: __SerdeContext
-): EncryptionConfiguration => {
-  return {
-    encryptionType: __expectString(output.encryptionType),
-    kmsKey: __expectString(output.kmsKey),
-  } as any;
-};
-
-const deserializeAws_json1_1EnhancedImageScanFinding = (
-  output: any,
-  context: __SerdeContext
-): EnhancedImageScanFinding => {
-  return {
-    awsAccountId: __expectString(output.awsAccountId),
-    description: __expectString(output.description),
-    findingArn: __expectString(output.findingArn),
-    firstObservedAt:
-      output.firstObservedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.firstObservedAt)))
-        : undefined,
-    lastObservedAt:
-      output.lastObservedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastObservedAt)))
-        : undefined,
-    packageVulnerabilityDetails:
-      output.packageVulnerabilityDetails != null
-        ? deserializeAws_json1_1PackageVulnerabilityDetails(output.packageVulnerabilityDetails, context)
-        : undefined,
-    remediation:
-      output.remediation != null ? deserializeAws_json1_1Remediation(output.remediation, context) : undefined,
-    resources: output.resources != null ? deserializeAws_json1_1ResourceList(output.resources, context) : undefined,
-    score: __limitedParseDouble(output.score),
-    scoreDetails:
-      output.scoreDetails != null ? deserializeAws_json1_1ScoreDetails(output.scoreDetails, context) : undefined,
-    severity: __expectString(output.severity),
-    status: __expectString(output.status),
-    title: __expectString(output.title),
-    type: __expectString(output.type),
-    updatedAt:
-      output.updatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedAt))) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1EnhancedImageScanFindingList = (
-  output: any,
-  context: __SerdeContext
-): EnhancedImageScanFinding[] => {
+/**
+ * deserializeAws_json1_1EnhancedImageScanFindingList
+ */
+const de_EnhancedImageScanFindingList = (output: any, context: __SerdeContext): EnhancedImageScanFinding[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1EnhancedImageScanFinding(entry, context);
+      return de_EnhancedImageScanFinding(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1FindingSeverityCounts = (output: any, context: __SerdeContext): Record<string, number> => {
-  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [FindingSeverity | string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectInt32(value) as any;
-    return acc;
-  }, {});
+// de_FindingSeverityCounts omitted.
+
+/**
+ * deserializeAws_json1_1GetAuthorizationTokenResponse
+ */
+const de_GetAuthorizationTokenResponse = (output: any, context: __SerdeContext): GetAuthorizationTokenResponse => {
+  return take(output, {
+    authorizationData: (_: any) => de_AuthorizationDataList(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1GetAuthorizationTokenResponse = (
-  output: any,
-  context: __SerdeContext
-): GetAuthorizationTokenResponse => {
-  return {
-    authorizationData:
-      output.authorizationData != null
-        ? deserializeAws_json1_1AuthorizationDataList(output.authorizationData, context)
-        : undefined,
-  } as any;
-};
+// de_GetDownloadUrlForLayerResponse omitted.
 
-const deserializeAws_json1_1GetDownloadUrlForLayerResponse = (
-  output: any,
-  context: __SerdeContext
-): GetDownloadUrlForLayerResponse => {
-  return {
-    downloadUrl: __expectString(output.downloadUrl),
-    layerDigest: __expectString(output.layerDigest),
-  } as any;
-};
-
-const deserializeAws_json1_1GetLifecyclePolicyPreviewResponse = (
+/**
+ * deserializeAws_json1_1GetLifecyclePolicyPreviewResponse
+ */
+const de_GetLifecyclePolicyPreviewResponse = (
   output: any,
   context: __SerdeContext
 ): GetLifecyclePolicyPreviewResponse => {
-  return {
-    lifecyclePolicyText: __expectString(output.lifecyclePolicyText),
-    nextToken: __expectString(output.nextToken),
-    previewResults:
-      output.previewResults != null
-        ? deserializeAws_json1_1LifecyclePolicyPreviewResultList(output.previewResults, context)
-        : undefined,
-    registryId: __expectString(output.registryId),
-    repositoryName: __expectString(output.repositoryName),
-    status: __expectString(output.status),
-    summary:
-      output.summary != null ? deserializeAws_json1_1LifecyclePolicyPreviewSummary(output.summary, context) : undefined,
-  } as any;
+  return take(output, {
+    lifecyclePolicyText: __expectString,
+    nextToken: __expectString,
+    previewResults: (_: any) => de_LifecyclePolicyPreviewResultList(_, context),
+    registryId: __expectString,
+    repositoryName: __expectString,
+    status: __expectString,
+    summary: _json,
+  }) as any;
 };
 
-const deserializeAws_json1_1GetLifecyclePolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): GetLifecyclePolicyResponse => {
-  return {
-    lastEvaluatedAt:
-      output.lastEvaluatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastEvaluatedAt)))
-        : undefined,
-    lifecyclePolicyText: __expectString(output.lifecyclePolicyText),
-    registryId: __expectString(output.registryId),
-    repositoryName: __expectString(output.repositoryName),
-  } as any;
+/**
+ * deserializeAws_json1_1GetLifecyclePolicyResponse
+ */
+const de_GetLifecyclePolicyResponse = (output: any, context: __SerdeContext): GetLifecyclePolicyResponse => {
+  return take(output, {
+    lastEvaluatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lifecyclePolicyText: __expectString,
+    registryId: __expectString,
+    repositoryName: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1GetRegistryPolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): GetRegistryPolicyResponse => {
-  return {
-    policyText: __expectString(output.policyText),
-    registryId: __expectString(output.registryId),
-  } as any;
+// de_GetRegistryPolicyResponse omitted.
+
+// de_GetRegistryScanningConfigurationResponse omitted.
+
+// de_GetRepositoryPolicyResponse omitted.
+
+// de_Image omitted.
+
+// de_ImageAlreadyExistsException omitted.
+
+/**
+ * deserializeAws_json1_1ImageDetail
+ */
+const de_ImageDetail = (output: any, context: __SerdeContext): ImageDetail => {
+  return take(output, {
+    artifactMediaType: __expectString,
+    imageDigest: __expectString,
+    imageManifestMediaType: __expectString,
+    imagePushedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    imageScanFindingsSummary: (_: any) => de_ImageScanFindingsSummary(_, context),
+    imageScanStatus: _json,
+    imageSizeInBytes: __expectLong,
+    imageTags: _json,
+    lastRecordedPullTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    registryId: __expectString,
+    repositoryName: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1GetRegistryScanningConfigurationResponse = (
-  output: any,
-  context: __SerdeContext
-): GetRegistryScanningConfigurationResponse => {
-  return {
-    registryId: __expectString(output.registryId),
-    scanningConfiguration:
-      output.scanningConfiguration != null
-        ? deserializeAws_json1_1RegistryScanningConfiguration(output.scanningConfiguration, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1GetRepositoryPolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): GetRepositoryPolicyResponse => {
-  return {
-    policyText: __expectString(output.policyText),
-    registryId: __expectString(output.registryId),
-    repositoryName: __expectString(output.repositoryName),
-  } as any;
-};
-
-const deserializeAws_json1_1Image = (output: any, context: __SerdeContext): Image => {
-  return {
-    imageId: output.imageId != null ? deserializeAws_json1_1ImageIdentifier(output.imageId, context) : undefined,
-    imageManifest: __expectString(output.imageManifest),
-    imageManifestMediaType: __expectString(output.imageManifestMediaType),
-    registryId: __expectString(output.registryId),
-    repositoryName: __expectString(output.repositoryName),
-  } as any;
-};
-
-const deserializeAws_json1_1ImageAlreadyExistsException = (
-  output: any,
-  context: __SerdeContext
-): ImageAlreadyExistsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1ImageDetail = (output: any, context: __SerdeContext): ImageDetail => {
-  return {
-    artifactMediaType: __expectString(output.artifactMediaType),
-    imageDigest: __expectString(output.imageDigest),
-    imageManifestMediaType: __expectString(output.imageManifestMediaType),
-    imagePushedAt:
-      output.imagePushedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.imagePushedAt)))
-        : undefined,
-    imageScanFindingsSummary:
-      output.imageScanFindingsSummary != null
-        ? deserializeAws_json1_1ImageScanFindingsSummary(output.imageScanFindingsSummary, context)
-        : undefined,
-    imageScanStatus:
-      output.imageScanStatus != null
-        ? deserializeAws_json1_1ImageScanStatus(output.imageScanStatus, context)
-        : undefined,
-    imageSizeInBytes: __expectLong(output.imageSizeInBytes),
-    imageTags: output.imageTags != null ? deserializeAws_json1_1ImageTagList(output.imageTags, context) : undefined,
-    lastRecordedPullTime:
-      output.lastRecordedPullTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastRecordedPullTime)))
-        : undefined,
-    registryId: __expectString(output.registryId),
-    repositoryName: __expectString(output.repositoryName),
-  } as any;
-};
-
-const deserializeAws_json1_1ImageDetailList = (output: any, context: __SerdeContext): ImageDetail[] => {
+/**
+ * deserializeAws_json1_1ImageDetailList
+ */
+const de_ImageDetailList = (output: any, context: __SerdeContext): ImageDetail[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1ImageDetail(entry, context);
+      return de_ImageDetail(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ImageDigestDoesNotMatchException = (
-  output: any,
-  context: __SerdeContext
-): ImageDigestDoesNotMatchException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
+// de_ImageDigestDoesNotMatchException omitted.
+
+// de_ImageFailure omitted.
+
+// de_ImageFailureList omitted.
+
+// de_ImageIdentifier omitted.
+
+// de_ImageIdentifierList omitted.
+
+// de_ImageList omitted.
+
+// de_ImageNotFoundException omitted.
+
+// de_ImageReplicationStatus omitted.
+
+// de_ImageReplicationStatusList omitted.
+
+// de_ImageScanFinding omitted.
+
+// de_ImageScanFindingList omitted.
+
+/**
+ * deserializeAws_json1_1ImageScanFindings
+ */
+const de_ImageScanFindings = (output: any, context: __SerdeContext): ImageScanFindings => {
+  return take(output, {
+    enhancedFindings: (_: any) => de_EnhancedImageScanFindingList(_, context),
+    findingSeverityCounts: _json,
+    findings: _json,
+    imageScanCompletedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    vulnerabilitySourceUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-const deserializeAws_json1_1ImageFailure = (output: any, context: __SerdeContext): ImageFailure => {
-  return {
-    failureCode: __expectString(output.failureCode),
-    failureReason: __expectString(output.failureReason),
-    imageId: output.imageId != null ? deserializeAws_json1_1ImageIdentifier(output.imageId, context) : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1ImageScanFindingsSummary
+ */
+const de_ImageScanFindingsSummary = (output: any, context: __SerdeContext): ImageScanFindingsSummary => {
+  return take(output, {
+    findingSeverityCounts: _json,
+    imageScanCompletedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    vulnerabilitySourceUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-const deserializeAws_json1_1ImageFailureList = (output: any, context: __SerdeContext): ImageFailure[] => {
+// de_ImageScanningConfiguration omitted.
+
+// de_ImageScanStatus omitted.
+
+// de_ImageTagAlreadyExistsException omitted.
+
+// de_ImageTagList omitted.
+
+// de_ImageTagsList omitted.
+
+// de_InitiateLayerUploadResponse omitted.
+
+// de_InvalidLayerException omitted.
+
+// de_InvalidLayerPartException omitted.
+
+// de_InvalidParameterException omitted.
+
+// de_InvalidTagParameterException omitted.
+
+// de_KmsException omitted.
+
+// de_Layer omitted.
+
+// de_LayerAlreadyExistsException omitted.
+
+// de_LayerFailure omitted.
+
+// de_LayerFailureList omitted.
+
+// de_LayerInaccessibleException omitted.
+
+// de_LayerList omitted.
+
+// de_LayerPartTooSmallException omitted.
+
+// de_LayersNotFoundException omitted.
+
+// de_LifecyclePolicyNotFoundException omitted.
+
+// de_LifecyclePolicyPreviewInProgressException omitted.
+
+// de_LifecyclePolicyPreviewNotFoundException omitted.
+
+/**
+ * deserializeAws_json1_1LifecyclePolicyPreviewResult
+ */
+const de_LifecyclePolicyPreviewResult = (output: any, context: __SerdeContext): LifecyclePolicyPreviewResult => {
+  return take(output, {
+    action: _json,
+    appliedRulePriority: __expectInt32,
+    imageDigest: __expectString,
+    imagePushedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    imageTags: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1LifecyclePolicyPreviewResultList
+ */
+const de_LifecyclePolicyPreviewResultList = (output: any, context: __SerdeContext): LifecyclePolicyPreviewResult[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1ImageFailure(entry, context);
+      return de_LifecyclePolicyPreviewResult(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ImageIdentifier = (output: any, context: __SerdeContext): ImageIdentifier => {
-  return {
-    imageDigest: __expectString(output.imageDigest),
-    imageTag: __expectString(output.imageTag),
-  } as any;
+// de_LifecyclePolicyPreviewSummary omitted.
+
+// de_LifecyclePolicyRuleAction omitted.
+
+// de_LimitExceededException omitted.
+
+// de_ListImagesResponse omitted.
+
+// de_ListTagsForResourceResponse omitted.
+
+/**
+ * deserializeAws_json1_1PackageVulnerabilityDetails
+ */
+const de_PackageVulnerabilityDetails = (output: any, context: __SerdeContext): PackageVulnerabilityDetails => {
+  return take(output, {
+    cvss: (_: any) => de_CvssScoreList(_, context),
+    referenceUrls: _json,
+    relatedVulnerabilities: _json,
+    source: __expectString,
+    sourceUrl: __expectString,
+    vendorCreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    vendorSeverity: __expectString,
+    vendorUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    vulnerabilityId: __expectString,
+    vulnerablePackages: _json,
+  }) as any;
 };
 
-const deserializeAws_json1_1ImageIdentifierList = (output: any, context: __SerdeContext): ImageIdentifier[] => {
+/**
+ * deserializeAws_json1_1PullThroughCacheRule
+ */
+const de_PullThroughCacheRule = (output: any, context: __SerdeContext): PullThroughCacheRule => {
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ecrRepositoryPrefix: __expectString,
+    registryId: __expectString,
+    upstreamRegistryUrl: __expectString,
+  }) as any;
+};
+
+// de_PullThroughCacheRuleAlreadyExistsException omitted.
+
+/**
+ * deserializeAws_json1_1PullThroughCacheRuleList
+ */
+const de_PullThroughCacheRuleList = (output: any, context: __SerdeContext): PullThroughCacheRule[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1ImageIdentifier(entry, context);
+      return de_PullThroughCacheRule(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ImageList = (output: any, context: __SerdeContext): Image[] => {
+// de_PullThroughCacheRuleNotFoundException omitted.
+
+// de_PutImageResponse omitted.
+
+// de_PutImageScanningConfigurationResponse omitted.
+
+// de_PutImageTagMutabilityResponse omitted.
+
+// de_PutLifecyclePolicyResponse omitted.
+
+// de_PutRegistryPolicyResponse omitted.
+
+// de_PutRegistryScanningConfigurationResponse omitted.
+
+// de_PutReplicationConfigurationResponse omitted.
+
+// de_Recommendation omitted.
+
+// de_ReferencedImagesNotFoundException omitted.
+
+// de_ReferenceUrlsList omitted.
+
+// de_RegistryPolicyNotFoundException omitted.
+
+// de_RegistryScanningConfiguration omitted.
+
+// de_RegistryScanningRule omitted.
+
+// de_RegistryScanningRuleList omitted.
+
+// de_RelatedVulnerabilitiesList omitted.
+
+// de_Remediation omitted.
+
+// de_ReplicationConfiguration omitted.
+
+// de_ReplicationDestination omitted.
+
+// de_ReplicationDestinationList omitted.
+
+// de_ReplicationRule omitted.
+
+// de_ReplicationRuleList omitted.
+
+/**
+ * deserializeAws_json1_1Repository
+ */
+const de_Repository = (output: any, context: __SerdeContext): Repository => {
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    encryptionConfiguration: _json,
+    imageScanningConfiguration: _json,
+    imageTagMutability: __expectString,
+    registryId: __expectString,
+    repositoryArn: __expectString,
+    repositoryName: __expectString,
+    repositoryUri: __expectString,
+  }) as any;
+};
+
+// de_RepositoryAlreadyExistsException omitted.
+
+// de_RepositoryFilter omitted.
+
+// de_RepositoryFilterList omitted.
+
+/**
+ * deserializeAws_json1_1RepositoryList
+ */
+const de_RepositoryList = (output: any, context: __SerdeContext): Repository[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Image(entry, context);
+      return de_Repository(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ImageNotFoundException = (output: any, context: __SerdeContext): ImageNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
+// de_RepositoryNotEmptyException omitted.
+
+// de_RepositoryNotFoundException omitted.
+
+// de_RepositoryPolicyNotFoundException omitted.
+
+// de_RepositoryScanningConfiguration omitted.
+
+// de_RepositoryScanningConfigurationFailure omitted.
+
+// de_RepositoryScanningConfigurationFailureList omitted.
+
+// de_RepositoryScanningConfigurationList omitted.
+
+/**
+ * deserializeAws_json1_1Resource
+ */
+const de_Resource = (output: any, context: __SerdeContext): Resource => {
+  return take(output, {
+    details: (_: any) => de_ResourceDetails(_, context),
+    id: __expectString,
+    tags: _json,
+    type: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1ImageReplicationStatus = (output: any, context: __SerdeContext): ImageReplicationStatus => {
-  return {
-    failureCode: __expectString(output.failureCode),
-    region: __expectString(output.region),
-    registryId: __expectString(output.registryId),
-    status: __expectString(output.status),
-  } as any;
+/**
+ * deserializeAws_json1_1ResourceDetails
+ */
+const de_ResourceDetails = (output: any, context: __SerdeContext): ResourceDetails => {
+  return take(output, {
+    awsEcrContainerImage: (_: any) => de_AwsEcrContainerImageDetails(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1ImageReplicationStatusList = (
-  output: any,
-  context: __SerdeContext
-): ImageReplicationStatus[] => {
+/**
+ * deserializeAws_json1_1ResourceList
+ */
+const de_ResourceList = (output: any, context: __SerdeContext): Resource[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1ImageReplicationStatus(entry, context);
+      return de_Resource(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ImageScanFinding = (output: any, context: __SerdeContext): ImageScanFinding => {
-  return {
-    attributes: output.attributes != null ? deserializeAws_json1_1AttributeList(output.attributes, context) : undefined,
-    description: __expectString(output.description),
-    name: __expectString(output.name),
-    severity: __expectString(output.severity),
-    uri: __expectString(output.uri),
-  } as any;
-};
-
-const deserializeAws_json1_1ImageScanFindingList = (output: any, context: __SerdeContext): ImageScanFinding[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1ImageScanFinding(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1ImageScanFindings = (output: any, context: __SerdeContext): ImageScanFindings => {
-  return {
-    enhancedFindings:
-      output.enhancedFindings != null
-        ? deserializeAws_json1_1EnhancedImageScanFindingList(output.enhancedFindings, context)
-        : undefined,
-    findingSeverityCounts:
-      output.findingSeverityCounts != null
-        ? deserializeAws_json1_1FindingSeverityCounts(output.findingSeverityCounts, context)
-        : undefined,
-    findings:
-      output.findings != null ? deserializeAws_json1_1ImageScanFindingList(output.findings, context) : undefined,
-    imageScanCompletedAt:
-      output.imageScanCompletedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.imageScanCompletedAt)))
-        : undefined,
-    vulnerabilitySourceUpdatedAt:
-      output.vulnerabilitySourceUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.vulnerabilitySourceUpdatedAt)))
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1ImageScanFindingsSummary = (
-  output: any,
-  context: __SerdeContext
-): ImageScanFindingsSummary => {
-  return {
-    findingSeverityCounts:
-      output.findingSeverityCounts != null
-        ? deserializeAws_json1_1FindingSeverityCounts(output.findingSeverityCounts, context)
-        : undefined,
-    imageScanCompletedAt:
-      output.imageScanCompletedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.imageScanCompletedAt)))
-        : undefined,
-    vulnerabilitySourceUpdatedAt:
-      output.vulnerabilitySourceUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.vulnerabilitySourceUpdatedAt)))
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1ImageScanningConfiguration = (
-  output: any,
-  context: __SerdeContext
-): ImageScanningConfiguration => {
-  return {
-    scanOnPush: __expectBoolean(output.scanOnPush),
-  } as any;
-};
-
-const deserializeAws_json1_1ImageScanStatus = (output: any, context: __SerdeContext): ImageScanStatus => {
-  return {
-    description: __expectString(output.description),
-    status: __expectString(output.status),
-  } as any;
-};
-
-const deserializeAws_json1_1ImageTagAlreadyExistsException = (
-  output: any,
-  context: __SerdeContext
-): ImageTagAlreadyExistsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1ImageTagList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1ImageTagsList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1InitiateLayerUploadResponse = (
-  output: any,
-  context: __SerdeContext
-): InitiateLayerUploadResponse => {
-  return {
-    partSize: __expectLong(output.partSize),
-    uploadId: __expectString(output.uploadId),
-  } as any;
-};
-
-const deserializeAws_json1_1InvalidLayerException = (output: any, context: __SerdeContext): InvalidLayerException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1InvalidLayerPartException = (
-  output: any,
-  context: __SerdeContext
-): InvalidLayerPartException => {
-  return {
-    lastValidByteReceived: __expectLong(output.lastValidByteReceived),
-    message: __expectString(output.message),
-    registryId: __expectString(output.registryId),
-    repositoryName: __expectString(output.repositoryName),
-    uploadId: __expectString(output.uploadId),
-  } as any;
-};
-
-const deserializeAws_json1_1InvalidParameterException = (
-  output: any,
-  context: __SerdeContext
-): InvalidParameterException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1InvalidTagParameterException = (
-  output: any,
-  context: __SerdeContext
-): InvalidTagParameterException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1KmsException = (output: any, context: __SerdeContext): KmsException => {
-  return {
-    kmsError: __expectString(output.kmsError),
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1Layer = (output: any, context: __SerdeContext): Layer => {
-  return {
-    layerAvailability: __expectString(output.layerAvailability),
-    layerDigest: __expectString(output.layerDigest),
-    layerSize: __expectLong(output.layerSize),
-    mediaType: __expectString(output.mediaType),
-  } as any;
-};
-
-const deserializeAws_json1_1LayerAlreadyExistsException = (
-  output: any,
-  context: __SerdeContext
-): LayerAlreadyExistsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1LayerFailure = (output: any, context: __SerdeContext): LayerFailure => {
-  return {
-    failureCode: __expectString(output.failureCode),
-    failureReason: __expectString(output.failureReason),
-    layerDigest: __expectString(output.layerDigest),
-  } as any;
-};
-
-const deserializeAws_json1_1LayerFailureList = (output: any, context: __SerdeContext): LayerFailure[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1LayerFailure(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1LayerInaccessibleException = (
-  output: any,
-  context: __SerdeContext
-): LayerInaccessibleException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1LayerList = (output: any, context: __SerdeContext): Layer[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Layer(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1LayerPartTooSmallException = (
-  output: any,
-  context: __SerdeContext
-): LayerPartTooSmallException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1LayersNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): LayersNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1LifecyclePolicyNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): LifecyclePolicyNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1LifecyclePolicyPreviewInProgressException = (
-  output: any,
-  context: __SerdeContext
-): LifecyclePolicyPreviewInProgressException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1LifecyclePolicyPreviewNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): LifecyclePolicyPreviewNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1LifecyclePolicyPreviewResult = (
-  output: any,
-  context: __SerdeContext
-): LifecyclePolicyPreviewResult => {
-  return {
-    action: output.action != null ? deserializeAws_json1_1LifecyclePolicyRuleAction(output.action, context) : undefined,
-    appliedRulePriority: __expectInt32(output.appliedRulePriority),
-    imageDigest: __expectString(output.imageDigest),
-    imagePushedAt:
-      output.imagePushedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.imagePushedAt)))
-        : undefined,
-    imageTags: output.imageTags != null ? deserializeAws_json1_1ImageTagList(output.imageTags, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1LifecyclePolicyPreviewResultList = (
-  output: any,
-  context: __SerdeContext
-): LifecyclePolicyPreviewResult[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1LifecyclePolicyPreviewResult(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1LifecyclePolicyPreviewSummary = (
-  output: any,
-  context: __SerdeContext
-): LifecyclePolicyPreviewSummary => {
-  return {
-    expiringImageTotalCount: __expectInt32(output.expiringImageTotalCount),
-  } as any;
-};
-
-const deserializeAws_json1_1LifecyclePolicyRuleAction = (
-  output: any,
-  context: __SerdeContext
-): LifecyclePolicyRuleAction => {
-  return {
-    type: __expectString(output.type),
-  } as any;
-};
-
-const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1ListImagesResponse = (output: any, context: __SerdeContext): ListImagesResponse => {
-  return {
-    imageIds: output.imageIds != null ? deserializeAws_json1_1ImageIdentifierList(output.imageIds, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
-
-const deserializeAws_json1_1ListTagsForResourceResponse = (
-  output: any,
-  context: __SerdeContext
-): ListTagsForResourceResponse => {
-  return {
-    tags: output.tags != null ? deserializeAws_json1_1TagList(output.tags, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1PackageVulnerabilityDetails = (
-  output: any,
-  context: __SerdeContext
-): PackageVulnerabilityDetails => {
-  return {
-    cvss: output.cvss != null ? deserializeAws_json1_1CvssScoreList(output.cvss, context) : undefined,
-    referenceUrls:
-      output.referenceUrls != null ? deserializeAws_json1_1ReferenceUrlsList(output.referenceUrls, context) : undefined,
-    relatedVulnerabilities:
-      output.relatedVulnerabilities != null
-        ? deserializeAws_json1_1RelatedVulnerabilitiesList(output.relatedVulnerabilities, context)
-        : undefined,
-    source: __expectString(output.source),
-    sourceUrl: __expectString(output.sourceUrl),
-    vendorCreatedAt:
-      output.vendorCreatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.vendorCreatedAt)))
-        : undefined,
-    vendorSeverity: __expectString(output.vendorSeverity),
-    vendorUpdatedAt:
-      output.vendorUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.vendorUpdatedAt)))
-        : undefined,
-    vulnerabilityId: __expectString(output.vulnerabilityId),
-    vulnerablePackages:
-      output.vulnerablePackages != null
-        ? deserializeAws_json1_1VulnerablePackagesList(output.vulnerablePackages, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1PullThroughCacheRule = (output: any, context: __SerdeContext): PullThroughCacheRule => {
-  return {
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    ecrRepositoryPrefix: __expectString(output.ecrRepositoryPrefix),
-    registryId: __expectString(output.registryId),
-    upstreamRegistryUrl: __expectString(output.upstreamRegistryUrl),
-  } as any;
-};
-
-const deserializeAws_json1_1PullThroughCacheRuleAlreadyExistsException = (
-  output: any,
-  context: __SerdeContext
-): PullThroughCacheRuleAlreadyExistsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1PullThroughCacheRuleList = (
-  output: any,
-  context: __SerdeContext
-): PullThroughCacheRule[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1PullThroughCacheRule(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1PullThroughCacheRuleNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): PullThroughCacheRuleNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1PutImageResponse = (output: any, context: __SerdeContext): PutImageResponse => {
-  return {
-    image: output.image != null ? deserializeAws_json1_1Image(output.image, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1PutImageScanningConfigurationResponse = (
-  output: any,
-  context: __SerdeContext
-): PutImageScanningConfigurationResponse => {
-  return {
-    imageScanningConfiguration:
-      output.imageScanningConfiguration != null
-        ? deserializeAws_json1_1ImageScanningConfiguration(output.imageScanningConfiguration, context)
-        : undefined,
-    registryId: __expectString(output.registryId),
-    repositoryName: __expectString(output.repositoryName),
-  } as any;
-};
-
-const deserializeAws_json1_1PutImageTagMutabilityResponse = (
-  output: any,
-  context: __SerdeContext
-): PutImageTagMutabilityResponse => {
-  return {
-    imageTagMutability: __expectString(output.imageTagMutability),
-    registryId: __expectString(output.registryId),
-    repositoryName: __expectString(output.repositoryName),
-  } as any;
-};
-
-const deserializeAws_json1_1PutLifecyclePolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): PutLifecyclePolicyResponse => {
-  return {
-    lifecyclePolicyText: __expectString(output.lifecyclePolicyText),
-    registryId: __expectString(output.registryId),
-    repositoryName: __expectString(output.repositoryName),
-  } as any;
-};
-
-const deserializeAws_json1_1PutRegistryPolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): PutRegistryPolicyResponse => {
-  return {
-    policyText: __expectString(output.policyText),
-    registryId: __expectString(output.registryId),
-  } as any;
-};
-
-const deserializeAws_json1_1PutRegistryScanningConfigurationResponse = (
-  output: any,
-  context: __SerdeContext
-): PutRegistryScanningConfigurationResponse => {
-  return {
-    registryScanningConfiguration:
-      output.registryScanningConfiguration != null
-        ? deserializeAws_json1_1RegistryScanningConfiguration(output.registryScanningConfiguration, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1PutReplicationConfigurationResponse = (
-  output: any,
-  context: __SerdeContext
-): PutReplicationConfigurationResponse => {
-  return {
-    replicationConfiguration:
-      output.replicationConfiguration != null
-        ? deserializeAws_json1_1ReplicationConfiguration(output.replicationConfiguration, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1Recommendation = (output: any, context: __SerdeContext): Recommendation => {
-  return {
-    text: __expectString(output.text),
-    url: __expectString(output.url),
-  } as any;
-};
-
-const deserializeAws_json1_1ReferencedImagesNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ReferencedImagesNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1ReferenceUrlsList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1RegistryPolicyNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): RegistryPolicyNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1RegistryScanningConfiguration = (
-  output: any,
-  context: __SerdeContext
-): RegistryScanningConfiguration => {
-  return {
-    rules: output.rules != null ? deserializeAws_json1_1RegistryScanningRuleList(output.rules, context) : undefined,
-    scanType: __expectString(output.scanType),
-  } as any;
-};
-
-const deserializeAws_json1_1RegistryScanningRule = (output: any, context: __SerdeContext): RegistryScanningRule => {
-  return {
-    repositoryFilters:
-      output.repositoryFilters != null
-        ? deserializeAws_json1_1ScanningRepositoryFilterList(output.repositoryFilters, context)
-        : undefined,
-    scanFrequency: __expectString(output.scanFrequency),
-  } as any;
-};
-
-const deserializeAws_json1_1RegistryScanningRuleList = (
-  output: any,
-  context: __SerdeContext
-): RegistryScanningRule[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1RegistryScanningRule(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1RelatedVulnerabilitiesList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1Remediation = (output: any, context: __SerdeContext): Remediation => {
-  return {
-    recommendation:
-      output.recommendation != null ? deserializeAws_json1_1Recommendation(output.recommendation, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1ReplicationConfiguration = (
-  output: any,
-  context: __SerdeContext
-): ReplicationConfiguration => {
-  return {
-    rules: output.rules != null ? deserializeAws_json1_1ReplicationRuleList(output.rules, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1ReplicationDestination = (output: any, context: __SerdeContext): ReplicationDestination => {
-  return {
-    region: __expectString(output.region),
-    registryId: __expectString(output.registryId),
-  } as any;
-};
-
-const deserializeAws_json1_1ReplicationDestinationList = (
-  output: any,
-  context: __SerdeContext
-): ReplicationDestination[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1ReplicationDestination(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1ReplicationRule = (output: any, context: __SerdeContext): ReplicationRule => {
-  return {
-    destinations:
-      output.destinations != null
-        ? deserializeAws_json1_1ReplicationDestinationList(output.destinations, context)
-        : undefined,
-    repositoryFilters:
-      output.repositoryFilters != null
-        ? deserializeAws_json1_1RepositoryFilterList(output.repositoryFilters, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1ReplicationRuleList = (output: any, context: __SerdeContext): ReplicationRule[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1ReplicationRule(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1Repository = (output: any, context: __SerdeContext): Repository => {
-  return {
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    encryptionConfiguration:
-      output.encryptionConfiguration != null
-        ? deserializeAws_json1_1EncryptionConfiguration(output.encryptionConfiguration, context)
-        : undefined,
-    imageScanningConfiguration:
-      output.imageScanningConfiguration != null
-        ? deserializeAws_json1_1ImageScanningConfiguration(output.imageScanningConfiguration, context)
-        : undefined,
-    imageTagMutability: __expectString(output.imageTagMutability),
-    registryId: __expectString(output.registryId),
-    repositoryArn: __expectString(output.repositoryArn),
-    repositoryName: __expectString(output.repositoryName),
-    repositoryUri: __expectString(output.repositoryUri),
-  } as any;
-};
-
-const deserializeAws_json1_1RepositoryAlreadyExistsException = (
-  output: any,
-  context: __SerdeContext
-): RepositoryAlreadyExistsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1RepositoryFilter = (output: any, context: __SerdeContext): RepositoryFilter => {
-  return {
-    filter: __expectString(output.filter),
-    filterType: __expectString(output.filterType),
-  } as any;
-};
-
-const deserializeAws_json1_1RepositoryFilterList = (output: any, context: __SerdeContext): RepositoryFilter[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1RepositoryFilter(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1RepositoryList = (output: any, context: __SerdeContext): Repository[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Repository(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1RepositoryNotEmptyException = (
-  output: any,
-  context: __SerdeContext
-): RepositoryNotEmptyException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1RepositoryNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): RepositoryNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1RepositoryPolicyNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): RepositoryPolicyNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1RepositoryScanningConfiguration = (
-  output: any,
-  context: __SerdeContext
-): RepositoryScanningConfiguration => {
-  return {
-    appliedScanFilters:
-      output.appliedScanFilters != null
-        ? deserializeAws_json1_1ScanningRepositoryFilterList(output.appliedScanFilters, context)
-        : undefined,
-    repositoryArn: __expectString(output.repositoryArn),
-    repositoryName: __expectString(output.repositoryName),
-    scanFrequency: __expectString(output.scanFrequency),
-    scanOnPush: __expectBoolean(output.scanOnPush),
-  } as any;
-};
-
-const deserializeAws_json1_1RepositoryScanningConfigurationFailure = (
-  output: any,
-  context: __SerdeContext
-): RepositoryScanningConfigurationFailure => {
-  return {
-    failureCode: __expectString(output.failureCode),
-    failureReason: __expectString(output.failureReason),
-    repositoryName: __expectString(output.repositoryName),
-  } as any;
-};
-
-const deserializeAws_json1_1RepositoryScanningConfigurationFailureList = (
-  output: any,
-  context: __SerdeContext
-): RepositoryScanningConfigurationFailure[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1RepositoryScanningConfigurationFailure(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1RepositoryScanningConfigurationList = (
-  output: any,
-  context: __SerdeContext
-): RepositoryScanningConfiguration[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1RepositoryScanningConfiguration(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1Resource = (output: any, context: __SerdeContext): Resource => {
-  return {
-    details: output.details != null ? deserializeAws_json1_1ResourceDetails(output.details, context) : undefined,
-    id: __expectString(output.id),
-    tags: output.tags != null ? deserializeAws_json1_1Tags(output.tags, context) : undefined,
-    type: __expectString(output.type),
-  } as any;
-};
-
-const deserializeAws_json1_1ResourceDetails = (output: any, context: __SerdeContext): ResourceDetails => {
-  return {
-    awsEcrContainerImage:
-      output.awsEcrContainerImage != null
-        ? deserializeAws_json1_1AwsEcrContainerImageDetails(output.awsEcrContainerImage, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1ResourceList = (output: any, context: __SerdeContext): Resource[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Resource(entry, context);
-    });
-  return retVal;
-};
+// de_ScanningRepositoryFilter omitted.
 
-const deserializeAws_json1_1ScanningRepositoryFilter = (
-  output: any,
-  context: __SerdeContext
-): ScanningRepositoryFilter => {
-  return {
-    filter: __expectString(output.filter),
-    filterType: __expectString(output.filterType),
-  } as any;
-};
-
-const deserializeAws_json1_1ScanningRepositoryFilterList = (
-  output: any,
-  context: __SerdeContext
-): ScanningRepositoryFilter[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1ScanningRepositoryFilter(entry, context);
-    });
-  return retVal;
-};
+// de_ScanningRepositoryFilterList omitted.
 
-const deserializeAws_json1_1ScanNotFoundException = (output: any, context: __SerdeContext): ScanNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ScanNotFoundException omitted.
 
-const deserializeAws_json1_1ScoreDetails = (output: any, context: __SerdeContext): ScoreDetails => {
-  return {
-    cvss: output.cvss != null ? deserializeAws_json1_1CvssScoreDetails(output.cvss, context) : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1ScoreDetails
+ */
+const de_ScoreDetails = (output: any, context: __SerdeContext): ScoreDetails => {
+  return take(output, {
+    cvss: (_: any) => de_CvssScoreDetails(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1ServerException = (output: any, context: __SerdeContext): ServerException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ServerException omitted.
 
-const deserializeAws_json1_1SetRepositoryPolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): SetRepositoryPolicyResponse => {
-  return {
-    policyText: __expectString(output.policyText),
-    registryId: __expectString(output.registryId),
-    repositoryName: __expectString(output.repositoryName),
-  } as any;
-};
+// de_SetRepositoryPolicyResponse omitted.
 
-const deserializeAws_json1_1StartImageScanResponse = (output: any, context: __SerdeContext): StartImageScanResponse => {
-  return {
-    imageId: output.imageId != null ? deserializeAws_json1_1ImageIdentifier(output.imageId, context) : undefined,
-    imageScanStatus:
-      output.imageScanStatus != null
-        ? deserializeAws_json1_1ImageScanStatus(output.imageScanStatus, context)
-        : undefined,
-    registryId: __expectString(output.registryId),
-    repositoryName: __expectString(output.repositoryName),
-  } as any;
-};
+// de_StartImageScanResponse omitted.
 
-const deserializeAws_json1_1StartLifecyclePolicyPreviewResponse = (
-  output: any,
-  context: __SerdeContext
-): StartLifecyclePolicyPreviewResponse => {
-  return {
-    lifecyclePolicyText: __expectString(output.lifecyclePolicyText),
-    registryId: __expectString(output.registryId),
-    repositoryName: __expectString(output.repositoryName),
-    status: __expectString(output.status),
-  } as any;
-};
+// de_StartLifecyclePolicyPreviewResponse omitted.
 
-const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
-const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {} as any;
-};
+// de_TagResourceResponse omitted.
 
-const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_Tags omitted.
 
-const deserializeAws_json1_1TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_TooManyTagsException omitted.
 
-const deserializeAws_json1_1UnsupportedImageTypeException = (
-  output: any,
-  context: __SerdeContext
-): UnsupportedImageTypeException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_UnsupportedImageTypeException omitted.
 
-const deserializeAws_json1_1UnsupportedUpstreamRegistryException = (
-  output: any,
-  context: __SerdeContext
-): UnsupportedUpstreamRegistryException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_UnsupportedUpstreamRegistryException omitted.
 
-const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {} as any;
-};
+// de_UntagResourceResponse omitted.
 
-const deserializeAws_json1_1UploadLayerPartResponse = (
-  output: any,
-  context: __SerdeContext
-): UploadLayerPartResponse => {
-  return {
-    lastByteReceived: __expectLong(output.lastByteReceived),
-    registryId: __expectString(output.registryId),
-    repositoryName: __expectString(output.repositoryName),
-    uploadId: __expectString(output.uploadId),
-  } as any;
-};
+// de_UploadLayerPartResponse omitted.
 
-const deserializeAws_json1_1UploadNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): UploadNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_UploadNotFoundException omitted.
 
-const deserializeAws_json1_1ValidationException = (output: any, context: __SerdeContext): ValidationException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ValidationException omitted.
 
-const deserializeAws_json1_1VulnerablePackage = (output: any, context: __SerdeContext): VulnerablePackage => {
-  return {
-    arch: __expectString(output.arch),
-    epoch: __expectInt32(output.epoch),
-    filePath: __expectString(output.filePath),
-    name: __expectString(output.name),
-    packageManager: __expectString(output.packageManager),
-    release: __expectString(output.release),
-    sourceLayerHash: __expectString(output.sourceLayerHash),
-    version: __expectString(output.version),
-  } as any;
-};
+// de_VulnerablePackage omitted.
 
-const deserializeAws_json1_1VulnerablePackagesList = (output: any, context: __SerdeContext): VulnerablePackage[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1VulnerablePackage(entry, context);
-    });
-  return retVal;
-};
+// de_VulnerablePackagesList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -5686,6 +4451,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,
@@ -5710,6 +4476,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `AmazonEC2ContainerRegistry_V20150921.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

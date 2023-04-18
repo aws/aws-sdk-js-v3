@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
+import { GetIdentityPoolConfigurationRequest, GetIdentityPoolConfigurationResponse } from "../models/models_0";
 import {
-  GetIdentityPoolConfigurationRequest,
-  GetIdentityPoolConfigurationRequestFilterSensitiveLog,
-  GetIdentityPoolConfigurationResponse,
-  GetIdentityPoolConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetIdentityPoolConfigurationCommand,
-  serializeAws_restJson1GetIdentityPoolConfigurationCommand,
+  de_GetIdentityPoolConfigurationCommand,
+  se_GetIdentityPoolConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetIdentityPoolConfigurationCommand}.
+ */
 export interface GetIdentityPoolConfigurationCommandInput extends GetIdentityPoolConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetIdentityPoolConfigurationCommand}.
+ */
 export interface GetIdentityPoolConfigurationCommandOutput
   extends GetIdentityPoolConfigurationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the configuration settings of an identity pool.</p><p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
  *       <examples>
  *          <example>
@@ -45,14 +51,14 @@ export interface GetIdentityPoolConfigurationCommandOutput
  * X-AMZ-DATE: 20141004T195722Z
  * AUTHORIZATION: AWS4-HMAC-SHA256 Credential=<credential>, SignedHeaders=content-type;content-length;host;x-amz-date;x-amz-target, Signature=<signature>
  *
- * {
+ * \{
  *     "Operation": "com.amazonaws.cognito.sync.model#GetIdentityPoolConfiguration",
  *     "Service": "com.amazonaws.cognito.sync.model#AWSCognitoSyncService",
  *     "Input":
- *     {
+ *     \{
  *         "IdentityPoolId": "ID_POOL_ID"
- *     }
- * }
+ *     \}
+ * \}
  *
  *             </request>
  *             <response>
@@ -62,19 +68,19 @@ export interface GetIdentityPoolConfigurationCommandOutput
  * content-type: application/json
  * content-length: 332
  *
- * {
+ * \{
  *     "Output":
- *     {
+ *     \{
  *         "__type": "com.amazonaws.cognito.sync.model#GetIdentityPoolConfigurationResponse",
  *         "IdentityPoolId": "ID_POOL_ID",
  *         "PushSync":
- *         {
+ *         \{
  *             "ApplicationArns": ["PLATFORMARN1", "PLATFORMARN2"],
  *             "RoleArn": "ROLEARN"
- *         }
- *     },
+ *         \}
+ *     \},
  *     "Version": "1.0"
- * }
+ * \}
  *  </response>
  *          </example>
  *       </examples>
@@ -84,13 +90,39 @@ export interface GetIdentityPoolConfigurationCommandOutput
  * import { CognitoSyncClient, GetIdentityPoolConfigurationCommand } from "@aws-sdk/client-cognito-sync"; // ES Modules import
  * // const { CognitoSyncClient, GetIdentityPoolConfigurationCommand } = require("@aws-sdk/client-cognito-sync"); // CommonJS import
  * const client = new CognitoSyncClient(config);
+ * const input = { // GetIdentityPoolConfigurationRequest
+ *   IdentityPoolId: "STRING_VALUE", // required
+ * };
  * const command = new GetIdentityPoolConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetIdentityPoolConfigurationCommandInput - {@link GetIdentityPoolConfigurationCommandInput}
+ * @returns {@link GetIdentityPoolConfigurationCommandOutput}
  * @see {@link GetIdentityPoolConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetIdentityPoolConfigurationCommandOutput} for command's `response` shape.
  * @see {@link CognitoSyncClientResolvedConfig | config} for CognitoSyncClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  Indicates an internal service
+ *       error.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  Thrown when a request parameter does not comply
+ *       with the associated constraints.
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  Thrown when a user is not authorized to access the
+ *       requested resource.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  Thrown if the resource doesn't
+ *       exist.
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  Thrown if the request is
+ *       throttled.
+ *
  *
  */
 export class GetIdentityPoolConfigurationCommand extends $Command<
@@ -110,6 +142,9 @@ export class GetIdentityPoolConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetIdentityPoolConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,8 +173,8 @@ export class GetIdentityPoolConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetIdentityPoolConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetIdentityPoolConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -149,15 +184,21 @@ export class GetIdentityPoolConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetIdentityPoolConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetIdentityPoolConfigurationCommand(input, context);
+    return se_GetIdentityPoolConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetIdentityPoolConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetIdentityPoolConfigurationCommand(output, context);
+    return de_GetIdentityPoolConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

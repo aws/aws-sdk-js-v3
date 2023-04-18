@@ -14,40 +14,71 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeTableRequest,
-  DescribeTableRequestFilterSensitiveLog,
-  DescribeTableResponse,
-  DescribeTableResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeTableCommand,
-  serializeAws_json1_0DescribeTableCommand,
-} from "../protocols/Aws_json1_0";
+import { DescribeTableRequest, DescribeTableResponse } from "../models/models_0";
+import { de_DescribeTableCommand, se_DescribeTableCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeTableCommand}.
+ */
 export interface DescribeTableCommandInput extends DescribeTableRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeTableCommand}.
+ */
 export interface DescribeTableCommandOutput extends DescribeTableResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about the table, including the table name, database name,
- *       retention duration of the memory store and the magnetic store.
- *          <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Service quotas apply</a>. See
- *          <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.describe-table.html">code sample</a> for details.
- *       </p>
+ * @public
+ * <p>Returns information about the table, including the table name, database name, retention
+ *          duration of the memory store and the magnetic store. <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Service quotas apply</a>. See
+ *             <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.describe-table.html">code
+ *             sample</a> for details. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { TimestreamWriteClient, DescribeTableCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
  * // const { TimestreamWriteClient, DescribeTableCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
  * const client = new TimestreamWriteClient(config);
+ * const input = { // DescribeTableRequest
+ *   DatabaseName: "STRING_VALUE", // required
+ *   TableName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeTableCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTableCommandInput - {@link DescribeTableCommandInput}
+ * @returns {@link DescribeTableCommandOutput}
  * @see {@link DescribeTableCommandInput} for command's `input` shape.
  * @see {@link DescribeTableCommandOutput} for command's `response` shape.
  * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>
+ *          Timestream was unable to fully process this request because of an internal server
+ *          error.</p>
+ *
+ * @throws {@link InvalidEndpointException} (client fault)
+ *  <p>The requested endpoint was not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The operation tried to access a nonexistent resource. The resource might not be
+ *          specified correctly, or its status might not be ACTIVE.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p> Too many requests were made by a user and they exceeded the service quotas. The request
+ *          was throttled.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p> An invalid or malformed request.</p>
+ *
  *
  */
 export class DescribeTableCommand extends $Command<
@@ -67,6 +98,9 @@ export class DescribeTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +130,8 @@ export class DescribeTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTableRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTableResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +141,18 @@ export class DescribeTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeTableCommand(input, context);
+    return se_DescribeTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTableCommandOutput> {
-    return deserializeAws_json1_0DescribeTableCommand(output, context);
+    return de_DescribeTableCommand(output, context);
   }
 
   // Start section: command_body_extra

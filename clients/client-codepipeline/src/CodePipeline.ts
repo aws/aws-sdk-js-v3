@@ -183,6 +183,7 @@ import {
 } from "./commands/UpdatePipelineCommand";
 
 /**
+ * @public
  * <fullname>AWS CodePipeline</fullname>
  *         <p>
  *             <b>Overview</b>
@@ -381,6 +382,7 @@ import {
  */
 export class CodePipeline extends CodePipelineClient {
   /**
+   * @public
    * <p>Returns information about a specified job and whether that job has been received by
    *             the job worker. Used for custom actions only.</p>
    */
@@ -414,6 +416,7 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
+   * @public
    * <p>Confirms a job worker has received the specified job. Used for partner actions
    *             only.</p>
    */
@@ -447,6 +450,7 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
+   * @public
    * <p>Creates a new custom action that can be used in all pipelines associated with the
    *             AWS account. Only used for custom actions.</p>
    */
@@ -480,6 +484,7 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
+   * @public
    * <p>Creates a pipeline.</p>
    *         <note>
    *             <p>In the pipeline structure, you must include either <code>artifactStore</code>
@@ -518,6 +523,7 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
+   * @public
    * <p>Marks a custom action as deleted. <code>PollForJobs</code> for the custom action
    *             fails after the action is marked for deletion. Used for custom actions only.</p>
    *         <important>
@@ -558,6 +564,7 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified pipeline.</p>
    */
   public deletePipeline(
@@ -590,6 +597,7 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
+   * @public
    * <p>Deletes a previously created webhook by name. Deleting the webhook stops AWS
    *             CodePipeline from starting a pipeline every time an external event occurs. The API
    *             returns successfully when trying to delete a webhook that is already deleted. If a
@@ -626,6 +634,7 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
+   * @public
    * <p>Removes the connection between the webhook that was created by CodePipeline and the
    *             external tool with events to be detected. Currently supported only for webhooks that
    *             target an action type of GitHub.</p>
@@ -660,6 +669,7 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
+   * @public
    * <p>Prevents artifacts in a pipeline from transitioning to the next stage in the
    *             pipeline.</p>
    */
@@ -693,6 +703,7 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
+   * @public
    * <p>Enables artifacts in a pipeline to transition to a stage in a pipeline.</p>
    */
   public enableStageTransition(
@@ -725,6 +736,7 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
+   * @public
    * <p>Returns information about an action type created for an external provider, where the
    *             action is to be used by customers of the external provider. The action can be created
    *             with any supported integration model.</p>
@@ -759,6 +771,7 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a job. Used for custom actions only.</p>
    *         <important>
    *             <p>When this API is called, AWS CodePipeline returns temporary credentials for the
@@ -797,6 +810,7 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
+   * @public
    * <p>Returns the metadata, structure, stages, and actions of a pipeline. Can be used to
    *             return the entire structure of a pipeline in JSON format, which can then be modified and
    *             used to update the pipeline structure with <a>UpdatePipeline</a>.</p>
@@ -825,6 +839,7 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
+   * @public
    * <p>Returns information about an execution of a pipeline, including details about
    *             artifacts, the pipeline execution ID, and the name, version, and status of the
    *             pipeline.</p>
@@ -859,6 +874,7 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the state of a pipeline, including the stages and
    *             actions.</p>
    *         <note>
@@ -897,6 +913,7 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
+   * @public
    * <p>Requests the details of a job for a third party action. Used for partner actions
    *             only.</p>
    *         <important>
@@ -936,6 +953,7 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
+   * @public
    * <p>Lists the action executions that have occurred in a pipeline.</p>
    */
   public listActionExecutions(
@@ -968,6 +986,7 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
+   * @public
    * <p>Gets a summary of all AWS CodePipeline action types associated with your
    *             account.</p>
    */
@@ -1001,6 +1020,7 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
+   * @public
    * <p>Gets a summary of the most recent executions for a pipeline.</p>
    */
   public listPipelineExecutions(
@@ -1033,6 +1053,7 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
+   * @public
    * <p>Gets a summary of all of the pipelines associated with your account.</p>
    */
   public listPipelines(
@@ -1065,6 +1086,7 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
+   * @public
    * <p>Gets the set of key-value pairs (metadata) that are used to manage the
    *             resource.</p>
    */
@@ -1098,6 +1120,7 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
+   * @public
    * <p>Gets a listing of all the webhooks in this AWS Region for this account. The output
    *             lists all webhooks and includes the webhook URL and ARN and the configuration for each
    *             webhook.</p>
@@ -1129,6 +1152,7 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
+   * @public
    * <p>Returns information about any jobs for AWS CodePipeline to act on.
    *                 <code>PollForJobs</code> is valid only for action types with "Custom" in the owner
    *             field. If the action type contains "AWS" or "ThirdParty" in the owner field, the
@@ -1164,6 +1188,7 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
+   * @public
    * <p>Determines whether there are any third party jobs for a job worker to act on. Used
    *             for partner actions only.</p>
    *         <important>
@@ -1202,6 +1227,7 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
+   * @public
    * <p>Provides information to AWS CodePipeline about new revisions to a source.</p>
    */
   public putActionRevision(
@@ -1234,6 +1260,7 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
+   * @public
    * <p>Provides the response to a manual approval request to AWS CodePipeline. Valid
    *             responses include Approved and Rejected.</p>
    */
@@ -1267,6 +1294,7 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
+   * @public
    * <p>Represents the failure of a job as returned to the pipeline by a job worker. Used
    *             for custom actions only.</p>
    */
@@ -1300,6 +1328,7 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
+   * @public
    * <p>Represents the success of a job as returned to the pipeline by a job worker. Used
    *             for custom actions only.</p>
    */
@@ -1333,6 +1362,7 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
+   * @public
    * <p>Represents the failure of a third party job as returned to the pipeline by a job
    *             worker. Used for partner actions only.</p>
    */
@@ -1366,6 +1396,7 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
+   * @public
    * <p>Represents the success of a third party job as returned to the pipeline by a job
    *             worker. Used for partner actions only.</p>
    */
@@ -1399,6 +1430,7 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
+   * @public
    * <p>Defines a webhook and returns a unique webhook URL generated by CodePipeline. This
    *             URL can be supplied to third party source hosting providers to call every time there's a
    *             code change. When CodePipeline receives a POST request on this URL, the pipeline defined
@@ -1431,6 +1463,7 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
+   * @public
    * <p>Configures a connection between the webhook that was created and the external tool
    *             with events to be detected.</p>
    */
@@ -1464,6 +1497,7 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
+   * @public
    * <p>Resumes the pipeline execution by retrying the last failed actions in a stage. You
    *             can retry a stage immediately if any of the actions in the stage fail. When you retry,
    *             all actions that are still in progress continue working, and failed actions are
@@ -1499,6 +1533,7 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
+   * @public
    * <p>Starts the specified pipeline. Specifically, it begins processing the latest commit
    *             to the source location specified as part of the pipeline.</p>
    */
@@ -1532,6 +1567,7 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
+   * @public
    * <p>Stops the specified pipeline execution. You choose to either stop the pipeline
    *             execution by completing in-progress actions without starting subsequent actions, or by
    *             abandoning in-progress actions. While completing or abandoning in-progress actions, the
@@ -1569,6 +1605,7 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
+   * @public
    * <p>Adds to or modifies the tags of the given resource. Tags are metadata that can be used
    *             to manage a resource. </p>
    */
@@ -1596,6 +1633,7 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
+   * @public
    * <p>Removes tags from an AWS resource.</p>
    */
   public untagResource(
@@ -1628,6 +1666,7 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
+   * @public
    * <p>Updates an action type that was created with any supported integration model, where
    *             the action type is to be used by customers of the action type provider. Use a JSON file
    *             with the action definition and <code>UpdateActionType</code> to provide the full
@@ -1663,6 +1702,7 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
+   * @public
    * <p>Updates a specified pipeline with edits or changes to its structure. Use a JSON
    *             file with the pipeline structure and <code>UpdatePipeline</code> to provide the full
    *             structure of the pipeline. Updating the pipeline increases the version number of the

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
-import {
-  UpdateClusterRequest,
-  UpdateClusterRequestFilterSensitiveLog,
-  UpdateClusterResponse,
-  UpdateClusterResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateClusterCommand,
-  serializeAws_json1_1UpdateClusterCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateClusterRequest, UpdateClusterResponse } from "../models/models_0";
+import { de_UpdateClusterCommand, se_UpdateClusterCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateClusterCommand}.
+ */
 export interface UpdateClusterCommandInput extends UpdateClusterRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateClusterCommand}.
+ */
 export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the settings for a DAX cluster. You can use this action to change one or
  *             more cluster configuration parameters by specifying the parameters and the new
  *             values.</p>
@@ -38,13 +41,49 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  * import { DAXClient, UpdateClusterCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, UpdateClusterCommand } = require("@aws-sdk/client-dax"); // CommonJS import
  * const client = new DAXClient(config);
+ * const input = { // UpdateClusterRequest
+ *   ClusterName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   NotificationTopicArn: "STRING_VALUE",
+ *   NotificationTopicStatus: "STRING_VALUE",
+ *   ParameterGroupName: "STRING_VALUE",
+ *   SecurityGroupIds: [ // SecurityGroupIdentifierList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateClusterCommandInput - {@link UpdateClusterCommandInput}
+ * @returns {@link UpdateClusterCommandOutput}
  * @see {@link UpdateClusterCommandInput} for command's `input` shape.
  * @see {@link UpdateClusterCommandOutput} for command's `response` shape.
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
+ *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p>The requested cluster ID does not refer to an existing DAX cluster.</p>
+ *
+ * @throws {@link InvalidClusterStateFault} (client fault)
+ *  <p>The requested DAX cluster is not in the <i>available</i>
+ *             state.</p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * @throws {@link InvalidParameterGroupStateFault} (client fault)
+ *  <p>One or more parameters in a parameter group are in an invalid state.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
+ * @throws {@link ParameterGroupNotFoundFault} (client fault)
+ *  <p>The specified parameter group does not exist.</p>
+ *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p>The specified service linked role (SLR) was not found.</p>
+ *
  *
  */
 export class UpdateClusterCommand extends $Command<
@@ -64,6 +103,9 @@ export class UpdateClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +132,8 @@ export class UpdateClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateClusterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateClusterResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +143,18 @@ export class UpdateClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateClusterCommand(input, context);
+    return se_UpdateClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateClusterCommandOutput> {
-    return deserializeAws_json1_1UpdateClusterCommand(output, context);
+    return de_UpdateClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

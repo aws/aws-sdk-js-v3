@@ -13,19 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateQueueRequest,
-  CreateQueueRequestFilterSensitiveLog,
-  CreateQueueResult,
-  CreateQueueResultFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_queryCreateQueueCommand, serializeAws_queryCreateQueueCommand } from "../protocols/Aws_query";
+import { CreateQueueRequest, CreateQueueResult } from "../models/models_0";
+import { de_CreateQueueCommand, se_CreateQueueCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateQueueCommand}.
+ */
 export interface CreateQueueCommandInput extends CreateQueueRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateQueueCommand}.
+ */
 export interface CreateQueueCommandOutput extends CreateQueueResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new standard or FIFO queue. You can pass one or more attributes in
  *             the request. Keep the following in mind:</p>
  *          <ul>
@@ -84,13 +90,33 @@ export interface CreateQueueCommandOutput extends CreateQueueResult, __MetadataB
  * import { SQSClient, CreateQueueCommand } from "@aws-sdk/client-sqs"; // ES Modules import
  * // const { SQSClient, CreateQueueCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
  * const client = new SQSClient(config);
+ * const input = { // CreateQueueRequest
+ *   QueueName: "STRING_VALUE", // required
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Attributes: { // QueueAttributeMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateQueueCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateQueueCommandInput - {@link CreateQueueCommandInput}
+ * @returns {@link CreateQueueCommandOutput}
  * @see {@link CreateQueueCommandInput} for command's `input` shape.
  * @see {@link CreateQueueCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
+ *
+ * @throws {@link QueueDeletedRecently} (client fault)
+ *  <p>You must wait 60 seconds after deleting a queue before you can create another queue
+ *             with the same name.</p>
+ *
+ * @throws {@link QueueNameExists} (client fault)
+ *  <p>A queue with this name already exists. Amazon SQS returns this error only if the request
+ *             includes attributes whose values differ from those of the existing queue.</p>
+ *
  *
  */
 export class CreateQueueCommand extends $Command<
@@ -110,6 +136,9 @@ export class CreateQueueCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateQueueCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,8 +165,8 @@ export class CreateQueueCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateQueueRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateQueueResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -147,12 +176,18 @@ export class CreateQueueCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateQueueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateQueueCommand(input, context);
+    return se_CreateQueueCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateQueueCommandOutput> {
-    return deserializeAws_queryCreateQueueCommand(output, context);
+    return de_CreateQueueCommand(output, context);
   }
 
   // Start section: command_body_extra

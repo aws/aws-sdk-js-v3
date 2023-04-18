@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  DescribeRuleRequest,
-  DescribeRuleRequestFilterSensitiveLog,
-  DescribeRuleResponse,
-  DescribeRuleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeRuleCommand,
-  serializeAws_restJson1DescribeRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeRuleRequest, DescribeRuleResponse } from "../models/models_0";
+import { de_DescribeRuleCommand, se_DescribeRuleCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeRuleCommand}.
+ */
 export interface DescribeRuleCommandInput extends DescribeRuleRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeRuleCommand}.
+ */
 export interface DescribeRuleCommandOutput extends DescribeRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a rule for the specified Amazon Connect instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,35 @@ export interface DescribeRuleCommandOutput extends DescribeRuleResponse, __Metad
  * import { ConnectClient, DescribeRuleCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DescribeRuleCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // DescribeRuleRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   RuleId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRuleCommandInput - {@link DescribeRuleCommandInput}
+ * @returns {@link DescribeRuleCommandOutput}
  * @see {@link DescribeRuleCommandInput} for command's `input` shape.
  * @see {@link DescribeRuleCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
  *
  */
 export class DescribeRuleCommand extends $Command<
@@ -62,6 +87,9 @@ export class DescribeRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +116,8 @@ export class DescribeRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +127,18 @@ export class DescribeRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeRuleCommand(input, context);
+    return se_DescribeRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRuleCommandOutput> {
-    return deserializeAws_restJson1DescribeRuleCommand(output, context);
+    return de_DescribeRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

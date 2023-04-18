@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import {
-  ListFindingsRequest,
-  ListFindingsRequestFilterSensitiveLog,
-  ListFindingsResponse,
-  ListFindingsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListFindingsCommand,
-  serializeAws_restJson1ListFindingsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListFindingsRequest, ListFindingsResponse } from "../models/models_0";
+import { de_ListFindingsCommand, se_ListFindingsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListFindingsCommand}.
+ */
 export interface ListFindingsCommandInput extends ListFindingsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListFindingsCommand}.
+ */
 export interface ListFindingsCommandOutput extends ListFindingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a subset of information about one or more findings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,64 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  * import { Macie2Client, ListFindingsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, ListFindingsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = { // ListFindingsRequest
+ *   findingCriteria: { // FindingCriteria
+ *     criterion: { // Criterion
+ *       "<keys>": { // CriterionAdditionalProperties
+ *         eq: [ // __listOf__string
+ *           "STRING_VALUE",
+ *         ],
+ *         eqExactMatch: [
+ *           "STRING_VALUE",
+ *         ],
+ *         gt: Number("long"),
+ *         gte: Number("long"),
+ *         lt: Number("long"),
+ *         lte: Number("long"),
+ *         neq: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *   },
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   sortCriteria: { // SortCriteria
+ *     attributeName: "STRING_VALUE",
+ *     orderBy: "ASC" || "DESC",
+ *   },
+ * };
  * const command = new ListFindingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFindingsCommandInput - {@link ListFindingsCommandInput}
+ * @returns {@link ListFindingsCommandOutput}
  * @see {@link ListFindingsCommandInput} for command's `input` shape.
  * @see {@link ListFindingsCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+ *
  *
  */
 export class ListFindingsCommand extends $Command<
@@ -62,6 +116,9 @@ export class ListFindingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFindingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +145,8 @@ export class ListFindingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFindingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListFindingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +156,18 @@ export class ListFindingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFindingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListFindingsCommand(input, context);
+    return se_ListFindingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFindingsCommandOutput> {
-    return deserializeAws_restJson1ListFindingsCommand(output, context);
+    return de_ListFindingsCommand(output, context);
   }
 
   // Start section: command_body_extra

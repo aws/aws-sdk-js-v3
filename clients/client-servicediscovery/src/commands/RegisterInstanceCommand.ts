@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RegisterInstanceRequest,
-  RegisterInstanceRequestFilterSensitiveLog,
-  RegisterInstanceResponse,
-  RegisterInstanceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RegisterInstanceCommand,
-  serializeAws_json1_1RegisterInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { RegisterInstanceRequest, RegisterInstanceResponse } from "../models/models_0";
+import { de_RegisterInstanceCommand, se_RegisterInstanceCommand } from "../protocols/Aws_json1_1";
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
+/**
+ * @public
+ *
+ * The input for {@link RegisterInstanceCommand}.
+ */
 export interface RegisterInstanceCommandInput extends RegisterInstanceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RegisterInstanceCommand}.
+ */
 export interface RegisterInstanceCommandOutput extends RegisterInstanceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates one or more records and, optionally, creates a health check based on the
  *    settings in a specified service. When you submit a <code>RegisterInstance</code> request, the
  *    following occurs:</p>
@@ -79,13 +82,65 @@ export interface RegisterInstanceCommandOutput extends RegisterInstanceResponse,
  * import { ServiceDiscoveryClient, RegisterInstanceCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, RegisterInstanceCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
+ * const input = { // RegisterInstanceRequest
+ *   ServiceId: "STRING_VALUE", // required
+ *   InstanceId: "STRING_VALUE", // required
+ *   CreatorRequestId: "STRING_VALUE",
+ *   Attributes: { // Attributes // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new RegisterInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterInstanceCommandInput - {@link RegisterInstanceCommandInput}
+ * @returns {@link RegisterInstanceCommandOutput}
  * @see {@link RegisterInstanceCommandInput} for command's `input` shape.
  * @see {@link RegisterInstanceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
+ *
+ * @throws {@link DuplicateRequest} (client fault)
+ *  <p>The operation is already in progress.</p>
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>One or more specified values aren't valid. For example, a required value might be missing, a
+ *    numeric value might be outside the allowed range, or a string value might exceed length
+ *    constraints.</p>
+ *
+ * @throws {@link ResourceInUse} (client fault)
+ *  <p>The specified resource can't be deleted because it contains other resources. For example,
+ *    you can't delete a service that contains any instances.</p>
+ *
+ * @throws {@link ResourceLimitExceeded} (client fault)
+ *  <p>The resource can't be created because you've reached the quota on the number of
+ *    resources.</p>
+ *
+ * @throws {@link ServiceNotFound} (client fault)
+ *  <p>No service exists with the specified ID.</p>
+ *
+ *
+ * @example Example: Register Instance
+ * ```javascript
+ * // Example: Register Instance
+ * const input = {
+ *   "Attributes": {
+ *     "AWS_INSTANCE_IPV4": "172.2.1.3",
+ *     "AWS_INSTANCE_PORT": "808"
+ *   },
+ *   "CreatorRequestId": "7a48a98a-72e6-4849-bfa7-1a458e030d7b",
+ *   "InstanceId": "myservice-53",
+ *   "ServiceId": "srv-p5zdwlg5uvvzjita"
+ * };
+ * const command = new RegisterInstanceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "OperationId": "4yejorelbukcjzpnr6tlmrghsjwpngf4-k95yg2u7"
+ * }
+ * *\/
+ * // example id: example-register-instance-1587236116314
+ * ```
  *
  */
 export class RegisterInstanceCommand extends $Command<
@@ -105,6 +160,9 @@ export class RegisterInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,8 +191,8 @@ export class RegisterInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterInstanceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterInstanceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -144,12 +202,18 @@ export class RegisterInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterInstanceCommand(input, context);
+    return se_RegisterInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterInstanceCommandOutput> {
-    return deserializeAws_json1_1RegisterInstanceCommand(output, context);
+    return de_RegisterInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

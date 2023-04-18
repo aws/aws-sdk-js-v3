@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameSparksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameSparksClient";
-import {
-  DeleteGameRequest,
-  DeleteGameRequestFilterSensitiveLog,
-  DeleteGameResult,
-  DeleteGameResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteGameCommand,
-  serializeAws_restJson1DeleteGameCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteGameRequest, DeleteGameResult } from "../models/models_0";
+import { de_DeleteGameCommand, se_DeleteGameCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteGameCommand}.
+ */
 export interface DeleteGameCommandInput extends DeleteGameRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteGameCommand}.
+ */
 export interface DeleteGameCommandOutput extends DeleteGameResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a game.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,34 @@ export interface DeleteGameCommandOutput extends DeleteGameResult, __MetadataBea
  * import { GameSparksClient, DeleteGameCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, DeleteGameCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
+ * const input = { // DeleteGameRequest
+ *   GameName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteGameCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteGameCommandInput - {@link DeleteGameCommandInput}
+ * @returns {@link DeleteGameCommandOutput}
  * @see {@link DeleteGameCommandInput} for command's `input` shape.
  * @see {@link DeleteGameCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The resource already exists, or another operation is in progress.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The service encountered an internal error.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request throughput limit was exceeded.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One of the parameters in the request is invalid.</p>
+ *
  *
  */
 export class DeleteGameCommand extends $Command<
@@ -62,6 +86,9 @@ export class DeleteGameCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteGameCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +115,8 @@ export class DeleteGameCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteGameRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteGameResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +126,18 @@ export class DeleteGameCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteGameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteGameCommand(input, context);
+    return se_DeleteGameCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGameCommandOutput> {
-    return deserializeAws_restJson1DeleteGameCommand(output, context);
+    return de_DeleteGameCommand(output, context);
   }
 
   // Start section: command_body_extra

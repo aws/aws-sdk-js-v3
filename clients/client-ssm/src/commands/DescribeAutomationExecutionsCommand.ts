@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DescribeAutomationExecutionsRequest, DescribeAutomationExecutionsResult } from "../models/models_0";
 import {
-  DescribeAutomationExecutionsRequest,
-  DescribeAutomationExecutionsRequestFilterSensitiveLog,
-  DescribeAutomationExecutionsResult,
-  DescribeAutomationExecutionsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeAutomationExecutionsCommand,
-  serializeAws_json1_1DescribeAutomationExecutionsCommand,
+  de_DescribeAutomationExecutionsCommand,
+  se_DescribeAutomationExecutionsCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeAutomationExecutionsCommand}.
+ */
 export interface DescribeAutomationExecutionsCommandInput extends DescribeAutomationExecutionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeAutomationExecutionsCommand}.
+ */
 export interface DescribeAutomationExecutionsCommandOutput
   extends DescribeAutomationExecutionsResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides details about all active and terminated Automation executions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,40 @@ export interface DescribeAutomationExecutionsCommandOutput
  * import { SSMClient, DescribeAutomationExecutionsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeAutomationExecutionsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // DescribeAutomationExecutionsRequest
+ *   Filters: [ // AutomationExecutionFilterList
+ *     { // AutomationExecutionFilter
+ *       Key: "DocumentNamePrefix" || "ExecutionStatus" || "ExecutionId" || "ParentExecutionId" || "CurrentAction" || "StartTimeBefore" || "StartTimeAfter" || "AutomationType" || "TagKey" || "TargetResourceGroup" || "AutomationSubtype" || "OpsItemId", // required
+ *       Values: [ // AutomationExecutionFilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeAutomationExecutionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAutomationExecutionsCommandInput - {@link DescribeAutomationExecutionsCommandInput}
+ * @returns {@link DescribeAutomationExecutionsCommandOutput}
  * @see {@link DescribeAutomationExecutionsCommandInput} for command's `input` shape.
  * @see {@link DescribeAutomationExecutionsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidFilterKey} (client fault)
+ *  <p>The specified key isn't valid.</p>
+ *
+ * @throws {@link InvalidFilterValue} (client fault)
+ *  <p>The filter value isn't valid. Verify the value and try again.</p>
+ *
+ * @throws {@link InvalidNextToken} (client fault)
+ *  <p>The specified token isn't valid.</p>
+ *
  *
  */
 export class DescribeAutomationExecutionsCommand extends $Command<
@@ -64,6 +97,9 @@ export class DescribeAutomationExecutionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAutomationExecutionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +128,8 @@ export class DescribeAutomationExecutionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAutomationExecutionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAutomationExecutionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +139,21 @@ export class DescribeAutomationExecutionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAutomationExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAutomationExecutionsCommand(input, context);
+    return se_DescribeAutomationExecutionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAutomationExecutionsCommandOutput> {
-    return deserializeAws_json1_1DescribeAutomationExecutionsCommand(output, context);
+    return de_DescribeAutomationExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

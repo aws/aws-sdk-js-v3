@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import {
-  ApplicationDescriptionsMessage,
-  ApplicationDescriptionsMessageFilterSensitiveLog,
-  DescribeApplicationsMessage,
-  DescribeApplicationsMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeApplicationsCommand,
-  serializeAws_queryDescribeApplicationsCommand,
-} from "../protocols/Aws_query";
+import { ApplicationDescriptionsMessage, DescribeApplicationsMessage } from "../models/models_0";
+import { de_DescribeApplicationsCommand, se_DescribeApplicationsCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeApplicationsCommand}.
+ */
 export interface DescribeApplicationsCommandInput extends DescribeApplicationsMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeApplicationsCommand}.
+ */
 export interface DescribeApplicationsCommandOutput extends ApplicationDescriptionsMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the descriptions of existing applications.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,65 @@ export interface DescribeApplicationsCommandOutput extends ApplicationDescriptio
  * import { ElasticBeanstalkClient, DescribeApplicationsCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, DescribeApplicationsCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = { // DescribeApplicationsMessage
+ *   ApplicationNames: [ // ApplicationNamesList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeApplicationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeApplicationsCommandInput - {@link DescribeApplicationsCommandInput}
+ * @returns {@link DescribeApplicationsCommandOutput}
  * @see {@link DescribeApplicationsCommandInput} for command's `input` shape.
  * @see {@link DescribeApplicationsCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
+ *
+ *
+ * @example To view a list of applications
+ * ```javascript
+ * // The following operation retrieves information about applications in the current region:
+ * const input = {};
+ * const command = new DescribeApplicationsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Applications": [
+ *     {
+ *       "ApplicationName": "ruby",
+ *       "ConfigurationTemplates": [],
+ *       "DateCreated": "2015-08-13T21:05:44.376Z",
+ *       "DateUpdated": "2015-08-13T21:05:44.376Z",
+ *       "Versions": [
+ *         "Sample Application"
+ *       ]
+ *     },
+ *     {
+ *       "ApplicationName": "pythonsample",
+ *       "ConfigurationTemplates": [],
+ *       "DateCreated": "2015-08-13T19:05:43.637Z",
+ *       "DateUpdated": "2015-08-13T19:05:43.637Z",
+ *       "Description": "Application created from the EB CLI using \"eb init\"",
+ *       "Versions": [
+ *         "Sample Application"
+ *       ]
+ *     },
+ *     {
+ *       "ApplicationName": "nodejs-example",
+ *       "ConfigurationTemplates": [],
+ *       "DateCreated": "2015-08-06T17:50:02.486Z",
+ *       "DateUpdated": "2015-08-06T17:50:02.486Z",
+ *       "Versions": [
+ *         "add elasticache",
+ *         "First Release"
+ *       ]
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-view-a-list-of-applications-1456270027373
+ * ```
  *
  */
 export class DescribeApplicationsCommand extends $Command<
@@ -62,6 +117,9 @@ export class DescribeApplicationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeApplicationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +148,8 @@ export class DescribeApplicationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeApplicationsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ApplicationDescriptionsMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +159,18 @@ export class DescribeApplicationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeApplicationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeApplicationsCommand(input, context);
+    return se_DescribeApplicationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeApplicationsCommandOutput> {
-    return deserializeAws_queryDescribeApplicationsCommand(output, context);
+    return de_DescribeApplicationsCommand(output, context);
   }
 
   // Start section: command_body_extra

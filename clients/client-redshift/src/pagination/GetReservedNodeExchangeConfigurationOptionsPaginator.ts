@@ -6,12 +6,11 @@ import {
   GetReservedNodeExchangeConfigurationOptionsCommandInput,
   GetReservedNodeExchangeConfigurationOptionsCommandOutput,
 } from "../commands/GetReservedNodeExchangeConfigurationOptionsCommand";
-import { Redshift } from "../Redshift";
 import { RedshiftClient } from "../RedshiftClient";
 import { RedshiftPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: RedshiftClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new GetReservedNodeExchangeConfigurationOptionsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Redshift,
-  input: GetReservedNodeExchangeConfigurationOptionsCommandInput,
-  ...args: any
-): Promise<GetReservedNodeExchangeConfigurationOptionsCommandOutput> => {
-  // @ts-ignore
-  return await client.getReservedNodeExchangeConfigurationOptions(input, ...args);
-};
 export async function* paginateGetReservedNodeExchangeConfigurationOptions(
   config: RedshiftPaginationConfiguration,
   input: GetReservedNodeExchangeConfigurationOptionsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateGetReservedNodeExchangeConfigurationOptions(
   while (hasNext) {
     input.Marker = token;
     input["MaxRecords"] = config.pageSize;
-    if (config.client instanceof Redshift) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof RedshiftClient) {
+    if (config.client instanceof RedshiftClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Redshift | RedshiftClient");

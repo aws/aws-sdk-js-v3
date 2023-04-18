@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateGlobalNetworkRequest,
-  UpdateGlobalNetworkRequestFilterSensitiveLog,
-  UpdateGlobalNetworkResponse,
-  UpdateGlobalNetworkResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateGlobalNetworkRequest, UpdateGlobalNetworkResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1UpdateGlobalNetworkCommand,
-  serializeAws_restJson1UpdateGlobalNetworkCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateGlobalNetworkCommand, se_UpdateGlobalNetworkCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateGlobalNetworkCommand}.
+ */
 export interface UpdateGlobalNetworkCommandInput extends UpdateGlobalNetworkRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateGlobalNetworkCommand}.
+ */
 export interface UpdateGlobalNetworkCommandOutput extends UpdateGlobalNetworkResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing global network. To remove information for any of the parameters,
  *             specify an empty string.</p>
  * @example
@@ -37,13 +40,39 @@ export interface UpdateGlobalNetworkCommandOutput extends UpdateGlobalNetworkRes
  * import { NetworkManagerClient, UpdateGlobalNetworkCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, UpdateGlobalNetworkCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // UpdateGlobalNetworkRequest
+ *   GlobalNetworkId: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ * };
  * const command = new UpdateGlobalNetworkCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateGlobalNetworkCommandInput - {@link UpdateGlobalNetworkCommandInput}
+ * @returns {@link UpdateGlobalNetworkCommandOutput}
  * @see {@link UpdateGlobalNetworkCommandInput} for command's `input` shape.
  * @see {@link UpdateGlobalNetworkCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There was a conflict processing the request. Updating or deleting the resource can
+ *             cause an inconsistent state.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request has failed due to an internal error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints.</p>
+ *
  *
  */
 export class UpdateGlobalNetworkCommand extends $Command<
@@ -63,6 +92,9 @@ export class UpdateGlobalNetworkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateGlobalNetworkCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +123,8 @@ export class UpdateGlobalNetworkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateGlobalNetworkRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateGlobalNetworkResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +134,18 @@ export class UpdateGlobalNetworkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateGlobalNetworkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateGlobalNetworkCommand(input, context);
+    return se_UpdateGlobalNetworkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGlobalNetworkCommandOutput> {
-    return deserializeAws_restJson1UpdateGlobalNetworkCommand(output, context);
+    return de_UpdateGlobalNetworkCommand(output, context);
   }
 
   // Start section: command_body_extra

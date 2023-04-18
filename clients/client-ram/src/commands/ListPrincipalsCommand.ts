@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListPrincipalsRequest,
-  ListPrincipalsRequestFilterSensitiveLog,
-  ListPrincipalsResponse,
-  ListPrincipalsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListPrincipalsCommand,
-  serializeAws_restJson1ListPrincipalsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListPrincipalsRequest, ListPrincipalsResponse } from "../models/models_0";
+import { de_ListPrincipalsCommand, se_ListPrincipalsCommand } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListPrincipalsCommand}.
+ */
 export interface ListPrincipalsCommandInput extends ListPrincipalsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListPrincipalsCommand}.
+ */
 export interface ListPrincipalsCommandOutput extends ListPrincipalsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the principals that you are sharing resources with or that are sharing resources
  *             with you.</p>
  * @example
@@ -37,13 +40,47 @@ export interface ListPrincipalsCommandOutput extends ListPrincipalsResponse, __M
  * import { RAMClient, ListPrincipalsCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, ListPrincipalsCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
+ * const input = { // ListPrincipalsRequest
+ *   resourceOwner: "SELF" || "OTHER-ACCOUNTS", // required
+ *   resourceArn: "STRING_VALUE",
+ *   principals: [ // PrincipalArnOrIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   resourceType: "STRING_VALUE",
+ *   resourceShareArns: [ // ResourceShareArnList
+ *     "STRING_VALUE",
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListPrincipalsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPrincipalsCommandInput - {@link ListPrincipalsCommandInput}
+ * @returns {@link ListPrincipalsCommandOutput}
  * @see {@link ListPrincipalsCommandInput} for command's `input` shape.
  * @see {@link ListPrincipalsCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The specified value for <code>NextToken</code> is not valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter is not valid.</p>
+ *
+ * @throws {@link MalformedArnException} (client fault)
+ *  <p>The format of an Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * @throws {@link ServerInternalException} (server fault)
+ *  <p>The service could not respond to the request due to an internal problem.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is not available.</p>
+ *
+ * @throws {@link UnknownResourceException} (client fault)
+ *  <p>A specified resource was not found.</p>
+ *
  *
  */
 export class ListPrincipalsCommand extends $Command<
@@ -63,6 +100,9 @@ export class ListPrincipalsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPrincipalsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +131,8 @@ export class ListPrincipalsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPrincipalsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPrincipalsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +142,18 @@ export class ListPrincipalsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPrincipalsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPrincipalsCommand(input, context);
+    return se_ListPrincipalsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPrincipalsCommandOutput> {
-    return deserializeAws_restJson1ListPrincipalsCommand(output, context);
+    return de_ListPrincipalsCommand(output, context);
   }
 
   // Start section: command_body_extra

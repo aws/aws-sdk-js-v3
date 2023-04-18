@@ -15,23 +15,32 @@ import {
 
 import {
   ListProvisioningArtifactsForServiceActionInput,
-  ListProvisioningArtifactsForServiceActionInputFilterSensitiveLog,
   ListProvisioningArtifactsForServiceActionOutput,
-  ListProvisioningArtifactsForServiceActionOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListProvisioningArtifactsForServiceActionCommand,
-  serializeAws_json1_1ListProvisioningArtifactsForServiceActionCommand,
+  de_ListProvisioningArtifactsForServiceActionCommand,
+  se_ListProvisioningArtifactsForServiceActionCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListProvisioningArtifactsForServiceActionCommand}.
+ */
 export interface ListProvisioningArtifactsForServiceActionCommandInput
   extends ListProvisioningArtifactsForServiceActionInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListProvisioningArtifactsForServiceActionCommand}.
+ */
 export interface ListProvisioningArtifactsForServiceActionCommandOutput
   extends ListProvisioningArtifactsForServiceActionOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all provisioning artifacts (also known as versions) for the specified self-service action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +48,28 @@ export interface ListProvisioningArtifactsForServiceActionCommandOutput
  * import { ServiceCatalogClient, ListProvisioningArtifactsForServiceActionCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, ListProvisioningArtifactsForServiceActionCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // ListProvisioningArtifactsForServiceActionInput
+ *   ServiceActionId: "STRING_VALUE", // required
+ *   PageSize: Number("int"),
+ *   PageToken: "STRING_VALUE",
+ *   AcceptLanguage: "STRING_VALUE",
+ * };
  * const command = new ListProvisioningArtifactsForServiceActionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProvisioningArtifactsForServiceActionCommandInput - {@link ListProvisioningArtifactsForServiceActionCommandInput}
+ * @returns {@link ListProvisioningArtifactsForServiceActionCommandOutput}
  * @see {@link ListProvisioningArtifactsForServiceActionCommandInput} for command's `input` shape.
  * @see {@link ListProvisioningArtifactsForServiceActionCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
+ *
+ * @throws {@link InvalidParametersException} (client fault)
+ *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class ListProvisioningArtifactsForServiceActionCommand extends $Command<
@@ -65,6 +89,9 @@ export class ListProvisioningArtifactsForServiceActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProvisioningArtifactsForServiceActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +126,8 @@ export class ListProvisioningArtifactsForServiceActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListProvisioningArtifactsForServiceActionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListProvisioningArtifactsForServiceActionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,18 +137,24 @@ export class ListProvisioningArtifactsForServiceActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListProvisioningArtifactsForServiceActionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListProvisioningArtifactsForServiceActionCommand(input, context);
+    return se_ListProvisioningArtifactsForServiceActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListProvisioningArtifactsForServiceActionCommandOutput> {
-    return deserializeAws_json1_1ListProvisioningArtifactsForServiceActionCommand(output, context);
+    return de_ListProvisioningArtifactsForServiceActionCommand(output, context);
   }
 
   // Start section: command_body_extra

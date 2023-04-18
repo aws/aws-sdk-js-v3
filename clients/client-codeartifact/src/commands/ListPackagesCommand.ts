@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import {
-  ListPackagesRequest,
-  ListPackagesRequestFilterSensitiveLog,
-  ListPackagesResult,
-  ListPackagesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListPackagesCommand,
-  serializeAws_restJson1ListPackagesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListPackagesRequest, ListPackagesResult } from "../models/models_0";
+import { de_ListPackagesCommand, se_ListPackagesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListPackagesCommand}.
+ */
 export interface ListPackagesCommandInput extends ListPackagesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListPackagesCommand}.
+ */
 export interface ListPackagesCommandOutput extends ListPackagesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *         Returns a list of
  *         <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageSummary.html">PackageSummary</a>
@@ -40,13 +43,51 @@ export interface ListPackagesCommandOutput extends ListPackagesResult, __Metadat
  * import { CodeartifactClient, ListPackagesCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, ListPackagesCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
+ * const input = { // ListPackagesRequest
+ *   domain: "STRING_VALUE", // required
+ *   domainOwner: "STRING_VALUE",
+ *   repository: "STRING_VALUE", // required
+ *   format: "npm" || "pypi" || "maven" || "nuget" || "generic",
+ *   namespace: "STRING_VALUE",
+ *   packagePrefix: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   publish: "ALLOW" || "BLOCK",
+ *   upstream: "ALLOW" || "BLOCK",
+ * };
  * const command = new ListPackagesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPackagesCommandInput - {@link ListPackagesCommandInput}
+ * @returns {@link ListPackagesCommandOutput}
  * @see {@link ListPackagesCommandInput} for command's `input` shape.
  * @see {@link ListPackagesCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>
+ *         The operation did not succeed because of an unauthorized access attempt.
+ *       </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>
+ *       The operation did not succeed because the resource requested is not found in the service.
+ *     </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>
+ *       The operation did not succeed because too many requests are sent to the service.
+ *     </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>
+ *       The operation did not succeed because a parameter in the request was sent with an invalid value.
+ *     </p>
+ *
  *
  */
 export class ListPackagesCommand extends $Command<
@@ -66,6 +107,9 @@ export class ListPackagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPackagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +136,8 @@ export class ListPackagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPackagesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPackagesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +147,18 @@ export class ListPackagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPackagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPackagesCommand(input, context);
+    return se_ListPackagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPackagesCommandOutput> {
-    return deserializeAws_restJson1ListPackagesCommand(output, context);
+    return de_ListPackagesCommand(output, context);
   }
 
   // Start section: command_body_extra

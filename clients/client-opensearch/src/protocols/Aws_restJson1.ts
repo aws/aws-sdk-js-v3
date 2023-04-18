@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -11,10 +12,11 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -69,6 +71,10 @@ import {
 } from "../commands/DescribeDomainConfigCommand";
 import { DescribeDomainsCommandInput, DescribeDomainsCommandOutput } from "../commands/DescribeDomainsCommand";
 import {
+  DescribeDryRunProgressCommandInput,
+  DescribeDryRunProgressCommandOutput,
+} from "../commands/DescribeDryRunProgressCommand";
+import {
   DescribeInboundConnectionsCommandInput,
   DescribeInboundConnectionsCommandOutput,
 } from "../commands/DescribeInboundConnectionsCommand";
@@ -117,6 +123,10 @@ import {
   ListPackagesForDomainCommandInput,
   ListPackagesForDomainCommandOutput,
 } from "../commands/ListPackagesForDomainCommand";
+import {
+  ListScheduledActionsCommandInput,
+  ListScheduledActionsCommandOutput,
+} from "../commands/ListScheduledActionsCommand";
 import { ListTagsCommandInput, ListTagsCommandOutput } from "../commands/ListTagsCommand";
 import { ListVersionsCommandInput, ListVersionsCommandOutput } from "../commands/ListVersionsCommand";
 import {
@@ -147,28 +157,28 @@ import {
 } from "../commands/StartServiceSoftwareUpdateCommand";
 import { UpdateDomainConfigCommandInput, UpdateDomainConfigCommandOutput } from "../commands/UpdateDomainConfigCommand";
 import { UpdatePackageCommandInput, UpdatePackageCommandOutput } from "../commands/UpdatePackageCommand";
+import {
+  UpdateScheduledActionCommandInput,
+  UpdateScheduledActionCommandOutput,
+} from "../commands/UpdateScheduledActionCommand";
 import { UpdateVpcEndpointCommandInput, UpdateVpcEndpointCommandOutput } from "../commands/UpdateVpcEndpointCommand";
 import { UpgradeDomainCommandInput, UpgradeDomainCommandOutput } from "../commands/UpgradeDomainCommand";
 import {
   AccessDeniedException,
   AccessPoliciesStatus,
-  AdditionalLimit,
   AdvancedOptionsStatus,
   AdvancedSecurityOptions,
   AdvancedSecurityOptionsInput,
   AdvancedSecurityOptionsStatus,
-  AuthorizedPrincipal,
   AutoTune,
   AutoTuneDetails,
   AutoTuneMaintenanceSchedule,
   AutoTuneOptions,
   AutoTuneOptionsInput,
-  AutoTuneOptionsOutput,
   AutoTuneOptionsStatus,
   AutoTuneStatus,
   AWSDomainInformation,
   BaseException,
-  ChangeProgressDetails,
   ChangeProgressStage,
   ChangeProgressStatusDetails,
   ClusterConfig,
@@ -176,44 +186,34 @@ import {
   CognitoOptions,
   CognitoOptionsStatus,
   ColdStorageOptions,
-  CompatibleVersionsMap,
   ConflictException,
   DescribePackagesFilter,
   DisabledOperationException,
   DomainConfig,
   DomainEndpointOptions,
   DomainEndpointOptionsStatus,
-  DomainInfo,
   DomainInformationContainer,
   DomainPackageDetails,
   DomainStatus,
-  DryRunResults,
   Duration,
   EBSOptions,
   EBSOptionsStatus,
   EncryptionAtRestOptions,
   EncryptionAtRestOptionsStatus,
-  ErrorDetails,
   Filter,
-  InboundConnection,
-  InboundConnectionStatus,
-  InstanceCountLimits,
-  InstanceLimits,
-  InstanceTypeDetails,
   InternalException,
   InvalidPaginationTokenException,
   InvalidTypeException,
   LimitExceededException,
-  Limits,
   LogPublishingOption,
   LogPublishingOptionsStatus,
-  LogType,
   MasterUserOptions,
   NodeToNodeEncryptionOptions,
   NodeToNodeEncryptionOptionsStatus,
+  OffPeakWindow,
+  OffPeakWindowOptions,
+  OffPeakWindowOptionsStatus,
   OptionStatus,
-  OutboundConnection,
-  OutboundConnectionStatus,
   PackageDetails,
   PackageSource,
   PackageVersionHistory,
@@ -224,29 +224,29 @@ import {
   ResourceNotFoundException,
   SAMLIdp,
   SAMLOptionsInput,
-  SAMLOptionsOutput,
   ScheduledAutoTuneDetails,
   ServiceSoftwareOptions,
+  SlotNotAvailableException,
   SnapshotOptions,
   SnapshotOptionsStatus,
-  StorageType,
-  StorageTypeLimit,
+  SoftwareUpdateOptions,
+  SoftwareUpdateOptionsStatus,
   Tag,
   UpgradeHistory,
   UpgradeStepItem,
   ValidationException,
   VersionStatus,
-  VPCDerivedInfo,
   VPCDerivedInfoStatus,
-  VpcEndpoint,
-  VpcEndpointError,
-  VpcEndpointSummary,
   VPCOptions,
+  WindowStartTime,
   ZoneAwarenessConfig,
 } from "../models/models_0";
 import { OpenSearchServiceException as __BaseException } from "../models/OpenSearchServiceException";
 
-export const serializeAws_restJson1AcceptInboundConnectionCommand = async (
+/**
+ * serializeAws_restJson1AcceptInboundConnectionCommand
+ */
+export const se_AcceptInboundConnectionCommand = async (
   input: AcceptInboundConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -275,7 +275,10 @@ export const serializeAws_restJson1AcceptInboundConnectionCommand = async (
   });
 };
 
-export const serializeAws_restJson1AddTagsCommand = async (
+/**
+ * serializeAws_restJson1AddTagsCommand
+ */
+export const se_AddTagsCommand = async (
   input: AddTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -285,10 +288,12 @@ export const serializeAws_restJson1AddTagsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-01-01/tags";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ARN != null && { ARN: input.ARN }),
-    ...(input.TagList != null && { TagList: serializeAws_restJson1TagList(input.TagList, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ARN: [],
+      TagList: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -300,7 +305,10 @@ export const serializeAws_restJson1AddTagsCommand = async (
   });
 };
 
-export const serializeAws_restJson1AssociatePackageCommand = async (
+/**
+ * serializeAws_restJson1AssociatePackageCommand
+ */
+export const se_AssociatePackageCommand = async (
   input: AssociatePackageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -323,7 +331,10 @@ export const serializeAws_restJson1AssociatePackageCommand = async (
   });
 };
 
-export const serializeAws_restJson1AuthorizeVpcEndpointAccessCommand = async (
+/**
+ * serializeAws_restJson1AuthorizeVpcEndpointAccessCommand
+ */
+export const se_AuthorizeVpcEndpointAccessCommand = async (
   input: AuthorizeVpcEndpointAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -336,9 +347,11 @@ export const serializeAws_restJson1AuthorizeVpcEndpointAccessCommand = async (
     "/2021-01-01/opensearch/domain/{DomainName}/authorizeVpcEndpointAccess";
   resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Account != null && { Account: input.Account }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Account: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -350,7 +363,10 @@ export const serializeAws_restJson1AuthorizeVpcEndpointAccessCommand = async (
   });
 };
 
-export const serializeAws_restJson1CancelServiceSoftwareUpdateCommand = async (
+/**
+ * serializeAws_restJson1CancelServiceSoftwareUpdateCommand
+ */
+export const se_CancelServiceSoftwareUpdateCommand = async (
   input: CancelServiceSoftwareUpdateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -362,9 +378,11 @@ export const serializeAws_restJson1CancelServiceSoftwareUpdateCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2021-01-01/opensearch/serviceSoftwareUpdate/cancel";
   let body: any;
-  body = JSON.stringify({
-    ...(input.DomainName != null && { DomainName: input.DomainName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DomainName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -376,7 +394,10 @@ export const serializeAws_restJson1CancelServiceSoftwareUpdateCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateDomainCommand = async (
+/**
+ * serializeAws_restJson1CreateDomainCommand
+ */
+export const se_CreateDomainCommand = async (
   input: CreateDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -387,50 +408,28 @@ export const serializeAws_restJson1CreateDomainCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-01-01/opensearch/domain";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccessPolicies != null && { AccessPolicies: input.AccessPolicies }),
-    ...(input.AdvancedOptions != null && {
-      AdvancedOptions: serializeAws_restJson1AdvancedOptions(input.AdvancedOptions, context),
-    }),
-    ...(input.AdvancedSecurityOptions != null && {
-      AdvancedSecurityOptions: serializeAws_restJson1AdvancedSecurityOptionsInput(
-        input.AdvancedSecurityOptions,
-        context
-      ),
-    }),
-    ...(input.AutoTuneOptions != null && {
-      AutoTuneOptions: serializeAws_restJson1AutoTuneOptionsInput(input.AutoTuneOptions, context),
-    }),
-    ...(input.ClusterConfig != null && {
-      ClusterConfig: serializeAws_restJson1ClusterConfig(input.ClusterConfig, context),
-    }),
-    ...(input.CognitoOptions != null && {
-      CognitoOptions: serializeAws_restJson1CognitoOptions(input.CognitoOptions, context),
-    }),
-    ...(input.DomainEndpointOptions != null && {
-      DomainEndpointOptions: serializeAws_restJson1DomainEndpointOptions(input.DomainEndpointOptions, context),
-    }),
-    ...(input.DomainName != null && { DomainName: input.DomainName }),
-    ...(input.EBSOptions != null && { EBSOptions: serializeAws_restJson1EBSOptions(input.EBSOptions, context) }),
-    ...(input.EncryptionAtRestOptions != null && {
-      EncryptionAtRestOptions: serializeAws_restJson1EncryptionAtRestOptions(input.EncryptionAtRestOptions, context),
-    }),
-    ...(input.EngineVersion != null && { EngineVersion: input.EngineVersion }),
-    ...(input.LogPublishingOptions != null && {
-      LogPublishingOptions: serializeAws_restJson1LogPublishingOptions(input.LogPublishingOptions, context),
-    }),
-    ...(input.NodeToNodeEncryptionOptions != null && {
-      NodeToNodeEncryptionOptions: serializeAws_restJson1NodeToNodeEncryptionOptions(
-        input.NodeToNodeEncryptionOptions,
-        context
-      ),
-    }),
-    ...(input.SnapshotOptions != null && {
-      SnapshotOptions: serializeAws_restJson1SnapshotOptions(input.SnapshotOptions, context),
-    }),
-    ...(input.TagList != null && { TagList: serializeAws_restJson1TagList(input.TagList, context) }),
-    ...(input.VPCOptions != null && { VPCOptions: serializeAws_restJson1VPCOptions(input.VPCOptions, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AccessPolicies: [],
+      AdvancedOptions: (_) => _json(_),
+      AdvancedSecurityOptions: (_) => _json(_),
+      AutoTuneOptions: (_) => se_AutoTuneOptionsInput(_, context),
+      ClusterConfig: (_) => _json(_),
+      CognitoOptions: (_) => _json(_),
+      DomainEndpointOptions: (_) => _json(_),
+      DomainName: [],
+      EBSOptions: (_) => _json(_),
+      EncryptionAtRestOptions: (_) => _json(_),
+      EngineVersion: [],
+      LogPublishingOptions: (_) => _json(_),
+      NodeToNodeEncryptionOptions: (_) => _json(_),
+      OffPeakWindowOptions: (_) => _json(_),
+      SnapshotOptions: (_) => _json(_),
+      SoftwareUpdateOptions: (_) => _json(_),
+      TagList: (_) => _json(_),
+      VPCOptions: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -442,7 +441,10 @@ export const serializeAws_restJson1CreateDomainCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateOutboundConnectionCommand = async (
+/**
+ * serializeAws_restJson1CreateOutboundConnectionCommand
+ */
+export const se_CreateOutboundConnectionCommand = async (
   input: CreateOutboundConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -454,15 +456,14 @@ export const serializeAws_restJson1CreateOutboundConnectionCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2021-01-01/opensearch/cc/outboundConnection";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ConnectionAlias != null && { ConnectionAlias: input.ConnectionAlias }),
-    ...(input.LocalDomainInfo != null && {
-      LocalDomainInfo: serializeAws_restJson1DomainInformationContainer(input.LocalDomainInfo, context),
-    }),
-    ...(input.RemoteDomainInfo != null && {
-      RemoteDomainInfo: serializeAws_restJson1DomainInformationContainer(input.RemoteDomainInfo, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ConnectionAlias: [],
+      ConnectionMode: [],
+      LocalDomainInfo: (_) => _json(_),
+      RemoteDomainInfo: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -474,7 +475,10 @@ export const serializeAws_restJson1CreateOutboundConnectionCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreatePackageCommand = async (
+/**
+ * serializeAws_restJson1CreatePackageCommand
+ */
+export const se_CreatePackageCommand = async (
   input: CreatePackageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -484,14 +488,14 @@ export const serializeAws_restJson1CreatePackageCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-01-01/packages";
   let body: any;
-  body = JSON.stringify({
-    ...(input.PackageDescription != null && { PackageDescription: input.PackageDescription }),
-    ...(input.PackageName != null && { PackageName: input.PackageName }),
-    ...(input.PackageSource != null && {
-      PackageSource: serializeAws_restJson1PackageSource(input.PackageSource, context),
-    }),
-    ...(input.PackageType != null && { PackageType: input.PackageType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      PackageDescription: [],
+      PackageName: [],
+      PackageSource: (_) => _json(_),
+      PackageType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -503,7 +507,10 @@ export const serializeAws_restJson1CreatePackageCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateVpcEndpointCommand = async (
+/**
+ * serializeAws_restJson1CreateVpcEndpointCommand
+ */
+export const se_CreateVpcEndpointCommand = async (
   input: CreateVpcEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -514,11 +521,13 @@ export const serializeAws_restJson1CreateVpcEndpointCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-01-01/opensearch/vpcEndpoints";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ClientToken != null && { ClientToken: input.ClientToken }),
-    ...(input.DomainArn != null && { DomainArn: input.DomainArn }),
-    ...(input.VpcOptions != null && { VpcOptions: serializeAws_restJson1VPCOptions(input.VpcOptions, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: [],
+      DomainArn: [],
+      VpcOptions: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -530,7 +539,10 @@ export const serializeAws_restJson1CreateVpcEndpointCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteDomainCommand = async (
+/**
+ * serializeAws_restJson1DeleteDomainCommand
+ */
+export const se_DeleteDomainCommand = async (
   input: DeleteDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -552,7 +564,10 @@ export const serializeAws_restJson1DeleteDomainCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteInboundConnectionCommand = async (
+/**
+ * serializeAws_restJson1DeleteInboundConnectionCommand
+ */
+export const se_DeleteInboundConnectionCommand = async (
   input: DeleteInboundConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -581,7 +596,10 @@ export const serializeAws_restJson1DeleteInboundConnectionCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteOutboundConnectionCommand = async (
+/**
+ * serializeAws_restJson1DeleteOutboundConnectionCommand
+ */
+export const se_DeleteOutboundConnectionCommand = async (
   input: DeleteOutboundConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -610,7 +628,10 @@ export const serializeAws_restJson1DeleteOutboundConnectionCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeletePackageCommand = async (
+/**
+ * serializeAws_restJson1DeletePackageCommand
+ */
+export const se_DeletePackageCommand = async (
   input: DeletePackageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -631,7 +652,10 @@ export const serializeAws_restJson1DeletePackageCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteVpcEndpointCommand = async (
+/**
+ * serializeAws_restJson1DeleteVpcEndpointCommand
+ */
+export const se_DeleteVpcEndpointCommand = async (
   input: DeleteVpcEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -660,7 +684,10 @@ export const serializeAws_restJson1DeleteVpcEndpointCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeDomainCommand = async (
+/**
+ * serializeAws_restJson1DescribeDomainCommand
+ */
+export const se_DescribeDomainCommand = async (
   input: DescribeDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -682,7 +709,10 @@ export const serializeAws_restJson1DescribeDomainCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeDomainAutoTunesCommand = async (
+/**
+ * serializeAws_restJson1DescribeDomainAutoTunesCommand
+ */
+export const se_DescribeDomainAutoTunesCommand = async (
   input: DescribeDomainAutoTunesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -695,10 +725,12 @@ export const serializeAws_restJson1DescribeDomainAutoTunesCommand = async (
     "/2021-01-01/opensearch/domain/{DomainName}/autoTunes";
   resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -710,7 +742,10 @@ export const serializeAws_restJson1DescribeDomainAutoTunesCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeDomainChangeProgressCommand = async (
+/**
+ * serializeAws_restJson1DescribeDomainChangeProgressCommand
+ */
+export const se_DescribeDomainChangeProgressCommand = async (
   input: DescribeDomainChangeProgressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -736,7 +771,10 @@ export const serializeAws_restJson1DescribeDomainChangeProgressCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeDomainConfigCommand = async (
+/**
+ * serializeAws_restJson1DescribeDomainConfigCommand
+ */
+export const se_DescribeDomainConfigCommand = async (
   input: DescribeDomainConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -758,7 +796,10 @@ export const serializeAws_restJson1DescribeDomainConfigCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeDomainsCommand = async (
+/**
+ * serializeAws_restJson1DescribeDomainsCommand
+ */
+export const se_DescribeDomainsCommand = async (
   input: DescribeDomainsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -769,9 +810,11 @@ export const serializeAws_restJson1DescribeDomainsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-01-01/opensearch/domain-info";
   let body: any;
-  body = JSON.stringify({
-    ...(input.DomainNames != null && { DomainNames: serializeAws_restJson1DomainNameList(input.DomainNames, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DomainNames: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -783,7 +826,40 @@ export const serializeAws_restJson1DescribeDomainsCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeInboundConnectionsCommand = async (
+/**
+ * serializeAws_restJson1DescribeDryRunProgressCommand
+ */
+export const se_DescribeDryRunProgressCommand = async (
+  input: DescribeDryRunProgressCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2021-01-01/opensearch/domain/{DomainName}/dryRun";
+  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  const query: any = map({
+    dryRunId: [, input.DryRunId!],
+    loadDryRunConfig: [() => input.LoadDryRunConfig !== void 0, () => input.LoadDryRunConfig!.toString()],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DescribeInboundConnectionsCommand
+ */
+export const se_DescribeInboundConnectionsCommand = async (
   input: DescribeInboundConnectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -795,11 +871,13 @@ export const serializeAws_restJson1DescribeInboundConnectionsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2021-01-01/opensearch/cc/inboundConnection/search";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Filters != null && { Filters: serializeAws_restJson1FilterList(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Filters: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -811,7 +889,10 @@ export const serializeAws_restJson1DescribeInboundConnectionsCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeInstanceTypeLimitsCommand = async (
+/**
+ * serializeAws_restJson1DescribeInstanceTypeLimitsCommand
+ */
+export const se_DescribeInstanceTypeLimitsCommand = async (
   input: DescribeInstanceTypeLimitsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -852,7 +933,10 @@ export const serializeAws_restJson1DescribeInstanceTypeLimitsCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeOutboundConnectionsCommand = async (
+/**
+ * serializeAws_restJson1DescribeOutboundConnectionsCommand
+ */
+export const se_DescribeOutboundConnectionsCommand = async (
   input: DescribeOutboundConnectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -864,11 +948,13 @@ export const serializeAws_restJson1DescribeOutboundConnectionsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2021-01-01/opensearch/cc/outboundConnection/search";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Filters != null && { Filters: serializeAws_restJson1FilterList(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Filters: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -880,7 +966,10 @@ export const serializeAws_restJson1DescribeOutboundConnectionsCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribePackagesCommand = async (
+/**
+ * serializeAws_restJson1DescribePackagesCommand
+ */
+export const se_DescribePackagesCommand = async (
   input: DescribePackagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -891,11 +980,13 @@ export const serializeAws_restJson1DescribePackagesCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-01-01/packages/describe";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Filters != null && { Filters: serializeAws_restJson1DescribePackagesFilterList(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Filters: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -907,7 +998,10 @@ export const serializeAws_restJson1DescribePackagesCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeReservedInstanceOfferingsCommand = async (
+/**
+ * serializeAws_restJson1DescribeReservedInstanceOfferingsCommand
+ */
+export const se_DescribeReservedInstanceOfferingsCommand = async (
   input: DescribeReservedInstanceOfferingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -934,7 +1028,10 @@ export const serializeAws_restJson1DescribeReservedInstanceOfferingsCommand = as
   });
 };
 
-export const serializeAws_restJson1DescribeReservedInstancesCommand = async (
+/**
+ * serializeAws_restJson1DescribeReservedInstancesCommand
+ */
+export const se_DescribeReservedInstancesCommand = async (
   input: DescribeReservedInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -960,7 +1057,10 @@ export const serializeAws_restJson1DescribeReservedInstancesCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeVpcEndpointsCommand = async (
+/**
+ * serializeAws_restJson1DescribeVpcEndpointsCommand
+ */
+export const se_DescribeVpcEndpointsCommand = async (
   input: DescribeVpcEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -972,11 +1072,11 @@ export const serializeAws_restJson1DescribeVpcEndpointsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2021-01-01/opensearch/vpcEndpoints/describe";
   let body: any;
-  body = JSON.stringify({
-    ...(input.VpcEndpointIds != null && {
-      VpcEndpointIds: serializeAws_restJson1VpcEndpointIdList(input.VpcEndpointIds, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      VpcEndpointIds: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -988,7 +1088,10 @@ export const serializeAws_restJson1DescribeVpcEndpointsCommand = async (
   });
 };
 
-export const serializeAws_restJson1DissociatePackageCommand = async (
+/**
+ * serializeAws_restJson1DissociatePackageCommand
+ */
+export const se_DissociatePackageCommand = async (
   input: DissociatePackageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1011,7 +1114,10 @@ export const serializeAws_restJson1DissociatePackageCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetCompatibleVersionsCommand = async (
+/**
+ * serializeAws_restJson1GetCompatibleVersionsCommand
+ */
+export const se_GetCompatibleVersionsCommand = async (
   input: GetCompatibleVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1035,7 +1141,10 @@ export const serializeAws_restJson1GetCompatibleVersionsCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetPackageVersionHistoryCommand = async (
+/**
+ * serializeAws_restJson1GetPackageVersionHistoryCommand
+ */
+export const se_GetPackageVersionHistoryCommand = async (
   input: GetPackageVersionHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1061,7 +1170,10 @@ export const serializeAws_restJson1GetPackageVersionHistoryCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetUpgradeHistoryCommand = async (
+/**
+ * serializeAws_restJson1GetUpgradeHistoryCommand
+ */
+export const se_GetUpgradeHistoryCommand = async (
   input: GetUpgradeHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1088,7 +1200,10 @@ export const serializeAws_restJson1GetUpgradeHistoryCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetUpgradeStatusCommand = async (
+/**
+ * serializeAws_restJson1GetUpgradeStatusCommand
+ */
+export const se_GetUpgradeStatusCommand = async (
   input: GetUpgradeStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1110,7 +1225,10 @@ export const serializeAws_restJson1GetUpgradeStatusCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListDomainNamesCommand = async (
+/**
+ * serializeAws_restJson1ListDomainNamesCommand
+ */
+export const se_ListDomainNamesCommand = async (
   input: ListDomainNamesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1133,7 +1251,10 @@ export const serializeAws_restJson1ListDomainNamesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListDomainsForPackageCommand = async (
+/**
+ * serializeAws_restJson1ListDomainsForPackageCommand
+ */
+export const se_ListDomainsForPackageCommand = async (
   input: ListDomainsForPackageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1159,7 +1280,10 @@ export const serializeAws_restJson1ListDomainsForPackageCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListInstanceTypeDetailsCommand = async (
+/**
+ * serializeAws_restJson1ListInstanceTypeDetailsCommand
+ */
+export const se_ListInstanceTypeDetailsCommand = async (
   input: ListInstanceTypeDetailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1194,7 +1318,10 @@ export const serializeAws_restJson1ListInstanceTypeDetailsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListPackagesForDomainCommand = async (
+/**
+ * serializeAws_restJson1ListPackagesForDomainCommand
+ */
+export const se_ListPackagesForDomainCommand = async (
   input: ListPackagesForDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1220,7 +1347,40 @@ export const serializeAws_restJson1ListPackagesForDomainCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTagsCommand = async (
+/**
+ * serializeAws_restJson1ListScheduledActionsCommand
+ */
+export const se_ListScheduledActionsCommand = async (
+  input: ListScheduledActionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2021-01-01/opensearch/domain/{DomainName}/scheduledActions";
+  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  const query: any = map({
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    nextToken: [, input.NextToken!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListTagsCommand
+ */
+export const se_ListTagsCommand = async (
   input: ListTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1243,7 +1403,10 @@ export const serializeAws_restJson1ListTagsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListVersionsCommand = async (
+/**
+ * serializeAws_restJson1ListVersionsCommand
+ */
+export const se_ListVersionsCommand = async (
   input: ListVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1268,7 +1431,10 @@ export const serializeAws_restJson1ListVersionsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListVpcEndpointAccessCommand = async (
+/**
+ * serializeAws_restJson1ListVpcEndpointAccessCommand
+ */
+export const se_ListVpcEndpointAccessCommand = async (
   input: ListVpcEndpointAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1294,7 +1460,10 @@ export const serializeAws_restJson1ListVpcEndpointAccessCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListVpcEndpointsCommand = async (
+/**
+ * serializeAws_restJson1ListVpcEndpointsCommand
+ */
+export const se_ListVpcEndpointsCommand = async (
   input: ListVpcEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1318,7 +1487,10 @@ export const serializeAws_restJson1ListVpcEndpointsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListVpcEndpointsForDomainCommand = async (
+/**
+ * serializeAws_restJson1ListVpcEndpointsForDomainCommand
+ */
+export const se_ListVpcEndpointsForDomainCommand = async (
   input: ListVpcEndpointsForDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1344,7 +1516,10 @@ export const serializeAws_restJson1ListVpcEndpointsForDomainCommand = async (
   });
 };
 
-export const serializeAws_restJson1PurchaseReservedInstanceOfferingCommand = async (
+/**
+ * serializeAws_restJson1PurchaseReservedInstanceOfferingCommand
+ */
+export const se_PurchaseReservedInstanceOfferingCommand = async (
   input: PurchaseReservedInstanceOfferingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1356,11 +1531,13 @@ export const serializeAws_restJson1PurchaseReservedInstanceOfferingCommand = asy
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2021-01-01/opensearch/purchaseReservedInstanceOffering";
   let body: any;
-  body = JSON.stringify({
-    ...(input.InstanceCount != null && { InstanceCount: input.InstanceCount }),
-    ...(input.ReservationName != null && { ReservationName: input.ReservationName }),
-    ...(input.ReservedInstanceOfferingId != null && { ReservedInstanceOfferingId: input.ReservedInstanceOfferingId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      InstanceCount: [],
+      ReservationName: [],
+      ReservedInstanceOfferingId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1372,7 +1549,10 @@ export const serializeAws_restJson1PurchaseReservedInstanceOfferingCommand = asy
   });
 };
 
-export const serializeAws_restJson1RejectInboundConnectionCommand = async (
+/**
+ * serializeAws_restJson1RejectInboundConnectionCommand
+ */
+export const se_RejectInboundConnectionCommand = async (
   input: RejectInboundConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1401,7 +1581,10 @@ export const serializeAws_restJson1RejectInboundConnectionCommand = async (
   });
 };
 
-export const serializeAws_restJson1RemoveTagsCommand = async (
+/**
+ * serializeAws_restJson1RemoveTagsCommand
+ */
+export const se_RemoveTagsCommand = async (
   input: RemoveTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1412,10 +1595,12 @@ export const serializeAws_restJson1RemoveTagsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-01-01/tags-removal";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ARN != null && { ARN: input.ARN }),
-    ...(input.TagKeys != null && { TagKeys: serializeAws_restJson1StringList(input.TagKeys, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ARN: [],
+      TagKeys: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1427,7 +1612,10 @@ export const serializeAws_restJson1RemoveTagsCommand = async (
   });
 };
 
-export const serializeAws_restJson1RevokeVpcEndpointAccessCommand = async (
+/**
+ * serializeAws_restJson1RevokeVpcEndpointAccessCommand
+ */
+export const se_RevokeVpcEndpointAccessCommand = async (
   input: RevokeVpcEndpointAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1440,9 +1628,11 @@ export const serializeAws_restJson1RevokeVpcEndpointAccessCommand = async (
     "/2021-01-01/opensearch/domain/{DomainName}/revokeVpcEndpointAccess";
   resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Account != null && { Account: input.Account }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Account: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1454,7 +1644,10 @@ export const serializeAws_restJson1RevokeVpcEndpointAccessCommand = async (
   });
 };
 
-export const serializeAws_restJson1StartServiceSoftwareUpdateCommand = async (
+/**
+ * serializeAws_restJson1StartServiceSoftwareUpdateCommand
+ */
+export const se_StartServiceSoftwareUpdateCommand = async (
   input: StartServiceSoftwareUpdateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1466,9 +1659,13 @@ export const serializeAws_restJson1StartServiceSoftwareUpdateCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2021-01-01/opensearch/serviceSoftwareUpdate/start";
   let body: any;
-  body = JSON.stringify({
-    ...(input.DomainName != null && { DomainName: input.DomainName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DesiredStartTime: [],
+      DomainName: [],
+      ScheduleAt: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1480,7 +1677,10 @@ export const serializeAws_restJson1StartServiceSoftwareUpdateCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateDomainConfigCommand = async (
+/**
+ * serializeAws_restJson1UpdateDomainConfigCommand
+ */
+export const se_UpdateDomainConfigCommand = async (
   input: UpdateDomainConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1493,48 +1693,27 @@ export const serializeAws_restJson1UpdateDomainConfigCommand = async (
     "/2021-01-01/opensearch/domain/{DomainName}/config";
   resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccessPolicies != null && { AccessPolicies: input.AccessPolicies }),
-    ...(input.AdvancedOptions != null && {
-      AdvancedOptions: serializeAws_restJson1AdvancedOptions(input.AdvancedOptions, context),
-    }),
-    ...(input.AdvancedSecurityOptions != null && {
-      AdvancedSecurityOptions: serializeAws_restJson1AdvancedSecurityOptionsInput(
-        input.AdvancedSecurityOptions,
-        context
-      ),
-    }),
-    ...(input.AutoTuneOptions != null && {
-      AutoTuneOptions: serializeAws_restJson1AutoTuneOptions(input.AutoTuneOptions, context),
-    }),
-    ...(input.ClusterConfig != null && {
-      ClusterConfig: serializeAws_restJson1ClusterConfig(input.ClusterConfig, context),
-    }),
-    ...(input.CognitoOptions != null && {
-      CognitoOptions: serializeAws_restJson1CognitoOptions(input.CognitoOptions, context),
-    }),
-    ...(input.DomainEndpointOptions != null && {
-      DomainEndpointOptions: serializeAws_restJson1DomainEndpointOptions(input.DomainEndpointOptions, context),
-    }),
-    ...(input.DryRun != null && { DryRun: input.DryRun }),
-    ...(input.EBSOptions != null && { EBSOptions: serializeAws_restJson1EBSOptions(input.EBSOptions, context) }),
-    ...(input.EncryptionAtRestOptions != null && {
-      EncryptionAtRestOptions: serializeAws_restJson1EncryptionAtRestOptions(input.EncryptionAtRestOptions, context),
-    }),
-    ...(input.LogPublishingOptions != null && {
-      LogPublishingOptions: serializeAws_restJson1LogPublishingOptions(input.LogPublishingOptions, context),
-    }),
-    ...(input.NodeToNodeEncryptionOptions != null && {
-      NodeToNodeEncryptionOptions: serializeAws_restJson1NodeToNodeEncryptionOptions(
-        input.NodeToNodeEncryptionOptions,
-        context
-      ),
-    }),
-    ...(input.SnapshotOptions != null && {
-      SnapshotOptions: serializeAws_restJson1SnapshotOptions(input.SnapshotOptions, context),
-    }),
-    ...(input.VPCOptions != null && { VPCOptions: serializeAws_restJson1VPCOptions(input.VPCOptions, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AccessPolicies: [],
+      AdvancedOptions: (_) => _json(_),
+      AdvancedSecurityOptions: (_) => _json(_),
+      AutoTuneOptions: (_) => se_AutoTuneOptions(_, context),
+      ClusterConfig: (_) => _json(_),
+      CognitoOptions: (_) => _json(_),
+      DomainEndpointOptions: (_) => _json(_),
+      DryRun: [],
+      DryRunMode: [],
+      EBSOptions: (_) => _json(_),
+      EncryptionAtRestOptions: (_) => _json(_),
+      LogPublishingOptions: (_) => _json(_),
+      NodeToNodeEncryptionOptions: (_) => _json(_),
+      OffPeakWindowOptions: (_) => _json(_),
+      SnapshotOptions: (_) => _json(_),
+      SoftwareUpdateOptions: (_) => _json(_),
+      VPCOptions: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1546,7 +1725,10 @@ export const serializeAws_restJson1UpdateDomainConfigCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdatePackageCommand = async (
+/**
+ * serializeAws_restJson1UpdatePackageCommand
+ */
+export const se_UpdatePackageCommand = async (
   input: UpdatePackageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1557,14 +1739,14 @@ export const serializeAws_restJson1UpdatePackageCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-01-01/packages/update";
   let body: any;
-  body = JSON.stringify({
-    ...(input.CommitMessage != null && { CommitMessage: input.CommitMessage }),
-    ...(input.PackageDescription != null && { PackageDescription: input.PackageDescription }),
-    ...(input.PackageID != null && { PackageID: input.PackageID }),
-    ...(input.PackageSource != null && {
-      PackageSource: serializeAws_restJson1PackageSource(input.PackageSource, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CommitMessage: [],
+      PackageDescription: [],
+      PackageID: [],
+      PackageSource: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1576,7 +1758,45 @@ export const serializeAws_restJson1UpdatePackageCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateVpcEndpointCommand = async (
+/**
+ * serializeAws_restJson1UpdateScheduledActionCommand
+ */
+export const se_UpdateScheduledActionCommand = async (
+  input: UpdateScheduledActionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2021-01-01/opensearch/domain/{DomainName}/scheduledAction/update";
+  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ActionID: [],
+      ActionType: [],
+      DesiredStartTime: [],
+      ScheduleAt: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1UpdateVpcEndpointCommand
+ */
+export const se_UpdateVpcEndpointCommand = async (
   input: UpdateVpcEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1588,10 +1808,12 @@ export const serializeAws_restJson1UpdateVpcEndpointCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2021-01-01/opensearch/vpcEndpoints/update";
   let body: any;
-  body = JSON.stringify({
-    ...(input.VpcEndpointId != null && { VpcEndpointId: input.VpcEndpointId }),
-    ...(input.VpcOptions != null && { VpcOptions: serializeAws_restJson1VPCOptions(input.VpcOptions, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      VpcEndpointId: [],
+      VpcOptions: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1603,7 +1825,10 @@ export const serializeAws_restJson1UpdateVpcEndpointCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpgradeDomainCommand = async (
+/**
+ * serializeAws_restJson1UpgradeDomainCommand
+ */
+export const se_UpgradeDomainCommand = async (
   input: UpgradeDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1614,14 +1839,14 @@ export const serializeAws_restJson1UpgradeDomainCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-01-01/opensearch/upgradeDomain";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AdvancedOptions != null && {
-      AdvancedOptions: serializeAws_restJson1AdvancedOptions(input.AdvancedOptions, context),
-    }),
-    ...(input.DomainName != null && { DomainName: input.DomainName }),
-    ...(input.PerformCheckOnly != null && { PerformCheckOnly: input.PerformCheckOnly }),
-    ...(input.TargetVersion != null && { TargetVersion: input.TargetVersion }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AdvancedOptions: (_) => _json(_),
+      DomainName: [],
+      PerformCheckOnly: [],
+      TargetVersion: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1633,24 +1858,31 @@ export const serializeAws_restJson1UpgradeDomainCommand = async (
   });
 };
 
-export const deserializeAws_restJson1AcceptInboundConnectionCommand = async (
+/**
+ * deserializeAws_restJson1AcceptInboundConnectionCommand
+ */
+export const de_AcceptInboundConnectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AcceptInboundConnectionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1AcceptInboundConnectionCommandError(output, context);
+    return de_AcceptInboundConnectionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Connection != null) {
-    contents.Connection = deserializeAws_restJson1InboundConnection(data.Connection, context);
-  }
+  const doc = take(data, {
+    Connection: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1AcceptInboundConnectionCommandError = async (
+/**
+ * deserializeAws_restJson1AcceptInboundConnectionCommandError
+ */
+const de_AcceptInboundConnectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AcceptInboundConnectionCommandOutput> => {
@@ -1662,30 +1894,32 @@ const deserializeAws_restJson1AcceptInboundConnectionCommandError = async (
   switch (errorCode) {
     case "DisabledOperationException":
     case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await deserializeAws_restJson1DisabledOperationExceptionResponse(parsedOutput, context);
+      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.opensearch#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1AddTagsCommand = async (
+/**
+ * deserializeAws_restJson1AddTagsCommand
+ */
+export const de_AddTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddTagsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1AddTagsCommandError(output, context);
+    return de_AddTagsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1694,7 +1928,10 @@ export const deserializeAws_restJson1AddTagsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1AddTagsCommandError = async (
+/**
+ * deserializeAws_restJson1AddTagsCommandError
+ */
+const de_AddTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddTagsCommandOutput> => {
@@ -1706,45 +1943,51 @@ const deserializeAws_restJson1AddTagsCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.opensearch#BaseException":
-      throw await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.opensearch#InternalException":
-      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.opensearch#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearch#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1AssociatePackageCommand = async (
+/**
+ * deserializeAws_restJson1AssociatePackageCommand
+ */
+export const de_AssociatePackageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociatePackageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1AssociatePackageCommandError(output, context);
+    return de_AssociatePackageCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DomainPackageDetails != null) {
-    contents.DomainPackageDetails = deserializeAws_restJson1DomainPackageDetails(data.DomainPackageDetails, context);
-  }
+  const doc = take(data, {
+    DomainPackageDetails: (_) => de_DomainPackageDetails(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1AssociatePackageCommandError = async (
+/**
+ * deserializeAws_restJson1AssociatePackageCommandError
+ */
+const de_AssociatePackageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociatePackageCommandOutput> => {
@@ -1756,51 +1999,57 @@ const deserializeAws_restJson1AssociatePackageCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.opensearch#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "BaseException":
     case "com.amazonaws.opensearch#BaseException":
-      throw await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.opensearch#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.opensearch#InternalException":
-      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearch#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1AuthorizeVpcEndpointAccessCommand = async (
+/**
+ * deserializeAws_restJson1AuthorizeVpcEndpointAccessCommand
+ */
+export const de_AuthorizeVpcEndpointAccessCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AuthorizeVpcEndpointAccessCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1AuthorizeVpcEndpointAccessCommandError(output, context);
+    return de_AuthorizeVpcEndpointAccessCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AuthorizedPrincipal != null) {
-    contents.AuthorizedPrincipal = deserializeAws_restJson1AuthorizedPrincipal(data.AuthorizedPrincipal, context);
-  }
+  const doc = take(data, {
+    AuthorizedPrincipal: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1AuthorizeVpcEndpointAccessCommandError = async (
+/**
+ * deserializeAws_restJson1AuthorizeVpcEndpointAccessCommandError
+ */
+const de_AuthorizeVpcEndpointAccessCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AuthorizeVpcEndpointAccessCommandOutput> => {
@@ -1812,54 +2061,57 @@ const deserializeAws_restJson1AuthorizeVpcEndpointAccessCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.opensearch#BaseException":
-      throw await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "DisabledOperationException":
     case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await deserializeAws_restJson1DisabledOperationExceptionResponse(parsedOutput, context);
+      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.opensearch#InternalException":
-      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.opensearch#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearch#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CancelServiceSoftwareUpdateCommand = async (
+/**
+ * deserializeAws_restJson1CancelServiceSoftwareUpdateCommand
+ */
+export const de_CancelServiceSoftwareUpdateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelServiceSoftwareUpdateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CancelServiceSoftwareUpdateCommandError(output, context);
+    return de_CancelServiceSoftwareUpdateCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ServiceSoftwareOptions != null) {
-    contents.ServiceSoftwareOptions = deserializeAws_restJson1ServiceSoftwareOptions(
-      data.ServiceSoftwareOptions,
-      context
-    );
-  }
+  const doc = take(data, {
+    ServiceSoftwareOptions: (_) => de_ServiceSoftwareOptions(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CancelServiceSoftwareUpdateCommandError = async (
+/**
+ * deserializeAws_restJson1CancelServiceSoftwareUpdateCommandError
+ */
+const de_CancelServiceSoftwareUpdateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelServiceSoftwareUpdateCommandOutput> => {
@@ -1871,45 +2123,51 @@ const deserializeAws_restJson1CancelServiceSoftwareUpdateCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.opensearch#BaseException":
-      throw await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.opensearch#InternalException":
-      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearch#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateDomainCommand = async (
+/**
+ * deserializeAws_restJson1CreateDomainCommand
+ */
+export const de_CreateDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDomainCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateDomainCommandError(output, context);
+    return de_CreateDomainCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DomainStatus != null) {
-    contents.DomainStatus = deserializeAws_restJson1DomainStatus(data.DomainStatus, context);
-  }
+  const doc = take(data, {
+    DomainStatus: (_) => de_DomainStatus(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateDomainCommandError = async (
+/**
+ * deserializeAws_restJson1CreateDomainCommandError
+ */
+const de_CreateDomainCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDomainCommandOutput> => {
@@ -1921,66 +2179,66 @@ const deserializeAws_restJson1CreateDomainCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.opensearch#BaseException":
-      throw await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "DisabledOperationException":
     case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await deserializeAws_restJson1DisabledOperationExceptionResponse(parsedOutput, context);
+      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.opensearch#InternalException":
-      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "InvalidTypeException":
     case "com.amazonaws.opensearch#InvalidTypeException":
-      throw await deserializeAws_restJson1InvalidTypeExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTypeExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.opensearch#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.opensearch#ResourceAlreadyExistsException":
-      throw await deserializeAws_restJson1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearch#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateOutboundConnectionCommand = async (
+/**
+ * deserializeAws_restJson1CreateOutboundConnectionCommand
+ */
+export const de_CreateOutboundConnectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateOutboundConnectionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateOutboundConnectionCommandError(output, context);
+    return de_CreateOutboundConnectionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ConnectionAlias != null) {
-    contents.ConnectionAlias = __expectString(data.ConnectionAlias);
-  }
-  if (data.ConnectionId != null) {
-    contents.ConnectionId = __expectString(data.ConnectionId);
-  }
-  if (data.ConnectionStatus != null) {
-    contents.ConnectionStatus = deserializeAws_restJson1OutboundConnectionStatus(data.ConnectionStatus, context);
-  }
-  if (data.LocalDomainInfo != null) {
-    contents.LocalDomainInfo = deserializeAws_restJson1DomainInformationContainer(data.LocalDomainInfo, context);
-  }
-  if (data.RemoteDomainInfo != null) {
-    contents.RemoteDomainInfo = deserializeAws_restJson1DomainInformationContainer(data.RemoteDomainInfo, context);
-  }
+  const doc = take(data, {
+    ConnectionAlias: __expectString,
+    ConnectionId: __expectString,
+    ConnectionMode: __expectString,
+    ConnectionProperties: _json,
+    ConnectionStatus: _json,
+    LocalDomainInfo: _json,
+    RemoteDomainInfo: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateOutboundConnectionCommandError = async (
+/**
+ * deserializeAws_restJson1CreateOutboundConnectionCommandError
+ */
+const de_CreateOutboundConnectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateOutboundConnectionCommandOutput> => {
@@ -1992,45 +2250,51 @@ const deserializeAws_restJson1CreateOutboundConnectionCommandError = async (
   switch (errorCode) {
     case "DisabledOperationException":
     case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await deserializeAws_restJson1DisabledOperationExceptionResponse(parsedOutput, context);
+      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.opensearch#InternalException":
-      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.opensearch#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.opensearch#ResourceAlreadyExistsException":
-      throw await deserializeAws_restJson1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreatePackageCommand = async (
+/**
+ * deserializeAws_restJson1CreatePackageCommand
+ */
+export const de_CreatePackageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePackageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreatePackageCommandError(output, context);
+    return de_CreatePackageCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.PackageDetails != null) {
-    contents.PackageDetails = deserializeAws_restJson1PackageDetails(data.PackageDetails, context);
-  }
+  const doc = take(data, {
+    PackageDetails: (_) => de_PackageDetails(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreatePackageCommandError = async (
+/**
+ * deserializeAws_restJson1CreatePackageCommandError
+ */
+const de_CreatePackageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePackageCommandOutput> => {
@@ -2042,54 +2306,60 @@ const deserializeAws_restJson1CreatePackageCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.opensearch#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "BaseException":
     case "com.amazonaws.opensearch#BaseException":
-      throw await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.opensearch#InternalException":
-      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "InvalidTypeException":
     case "com.amazonaws.opensearch#InvalidTypeException":
-      throw await deserializeAws_restJson1InvalidTypeExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTypeExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.opensearch#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.opensearch#ResourceAlreadyExistsException":
-      throw await deserializeAws_restJson1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearch#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateVpcEndpointCommand = async (
+/**
+ * deserializeAws_restJson1CreateVpcEndpointCommand
+ */
+export const de_CreateVpcEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVpcEndpointCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateVpcEndpointCommandError(output, context);
+    return de_CreateVpcEndpointCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.VpcEndpoint != null) {
-    contents.VpcEndpoint = deserializeAws_restJson1VpcEndpoint(data.VpcEndpoint, context);
-  }
+  const doc = take(data, {
+    VpcEndpoint: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateVpcEndpointCommandError = async (
+/**
+ * deserializeAws_restJson1CreateVpcEndpointCommandError
+ */
+const de_CreateVpcEndpointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVpcEndpointCommandOutput> => {
@@ -2101,51 +2371,57 @@ const deserializeAws_restJson1CreateVpcEndpointCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.opensearch#BaseException":
-      throw await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.opensearch#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "DisabledOperationException":
     case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await deserializeAws_restJson1DisabledOperationExceptionResponse(parsedOutput, context);
+      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.opensearch#InternalException":
-      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.opensearch#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearch#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteDomainCommand = async (
+/**
+ * deserializeAws_restJson1DeleteDomainCommand
+ */
+export const de_DeleteDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDomainCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteDomainCommandError(output, context);
+    return de_DeleteDomainCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DomainStatus != null) {
-    contents.DomainStatus = deserializeAws_restJson1DomainStatus(data.DomainStatus, context);
-  }
+  const doc = take(data, {
+    DomainStatus: (_) => de_DomainStatus(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteDomainCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteDomainCommandError
+ */
+const de_DeleteDomainCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDomainCommandOutput> => {
@@ -2157,45 +2433,51 @@ const deserializeAws_restJson1DeleteDomainCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.opensearch#BaseException":
-      throw await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.opensearch#InternalException":
-      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearch#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteInboundConnectionCommand = async (
+/**
+ * deserializeAws_restJson1DeleteInboundConnectionCommand
+ */
+export const de_DeleteInboundConnectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteInboundConnectionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteInboundConnectionCommandError(output, context);
+    return de_DeleteInboundConnectionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Connection != null) {
-    contents.Connection = deserializeAws_restJson1InboundConnection(data.Connection, context);
-  }
+  const doc = take(data, {
+    Connection: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteInboundConnectionCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteInboundConnectionCommandError
+ */
+const de_DeleteInboundConnectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteInboundConnectionCommandOutput> => {
@@ -2207,39 +2489,45 @@ const deserializeAws_restJson1DeleteInboundConnectionCommandError = async (
   switch (errorCode) {
     case "DisabledOperationException":
     case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await deserializeAws_restJson1DisabledOperationExceptionResponse(parsedOutput, context);
+      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteOutboundConnectionCommand = async (
+/**
+ * deserializeAws_restJson1DeleteOutboundConnectionCommand
+ */
+export const de_DeleteOutboundConnectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteOutboundConnectionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteOutboundConnectionCommandError(output, context);
+    return de_DeleteOutboundConnectionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Connection != null) {
-    contents.Connection = deserializeAws_restJson1OutboundConnection(data.Connection, context);
-  }
+  const doc = take(data, {
+    Connection: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteOutboundConnectionCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteOutboundConnectionCommandError
+ */
+const de_DeleteOutboundConnectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteOutboundConnectionCommandOutput> => {
@@ -2251,39 +2539,45 @@ const deserializeAws_restJson1DeleteOutboundConnectionCommandError = async (
   switch (errorCode) {
     case "DisabledOperationException":
     case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await deserializeAws_restJson1DisabledOperationExceptionResponse(parsedOutput, context);
+      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeletePackageCommand = async (
+/**
+ * deserializeAws_restJson1DeletePackageCommand
+ */
+export const de_DeletePackageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePackageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeletePackageCommandError(output, context);
+    return de_DeletePackageCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.PackageDetails != null) {
-    contents.PackageDetails = deserializeAws_restJson1PackageDetails(data.PackageDetails, context);
-  }
+  const doc = take(data, {
+    PackageDetails: (_) => de_PackageDetails(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DeletePackageCommandError = async (
+/**
+ * deserializeAws_restJson1DeletePackageCommandError
+ */
+const de_DeletePackageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePackageCommandOutput> => {
@@ -2295,51 +2589,57 @@ const deserializeAws_restJson1DeletePackageCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.opensearch#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "BaseException":
     case "com.amazonaws.opensearch#BaseException":
-      throw await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.opensearch#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.opensearch#InternalException":
-      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearch#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteVpcEndpointCommand = async (
+/**
+ * deserializeAws_restJson1DeleteVpcEndpointCommand
+ */
+export const de_DeleteVpcEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVpcEndpointCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteVpcEndpointCommandError(output, context);
+    return de_DeleteVpcEndpointCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.VpcEndpointSummary != null) {
-    contents.VpcEndpointSummary = deserializeAws_restJson1VpcEndpointSummary(data.VpcEndpointSummary, context);
-  }
+  const doc = take(data, {
+    VpcEndpointSummary: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteVpcEndpointCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteVpcEndpointCommandError
+ */
+const de_DeleteVpcEndpointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVpcEndpointCommandOutput> => {
@@ -2351,45 +2651,51 @@ const deserializeAws_restJson1DeleteVpcEndpointCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.opensearch#BaseException":
-      throw await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "DisabledOperationException":
     case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await deserializeAws_restJson1DisabledOperationExceptionResponse(parsedOutput, context);
+      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.opensearch#InternalException":
-      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeDomainCommand = async (
+/**
+ * deserializeAws_restJson1DescribeDomainCommand
+ */
+export const de_DescribeDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDomainCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeDomainCommandError(output, context);
+    return de_DescribeDomainCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DomainStatus != null) {
-    contents.DomainStatus = deserializeAws_restJson1DomainStatus(data.DomainStatus, context);
-  }
+  const doc = take(data, {
+    DomainStatus: (_) => de_DomainStatus(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeDomainCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeDomainCommandError
+ */
+const de_DescribeDomainCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDomainCommandOutput> => {
@@ -2401,48 +2707,52 @@ const deserializeAws_restJson1DescribeDomainCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.opensearch#BaseException":
-      throw await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.opensearch#InternalException":
-      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearch#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeDomainAutoTunesCommand = async (
+/**
+ * deserializeAws_restJson1DescribeDomainAutoTunesCommand
+ */
+export const de_DescribeDomainAutoTunesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDomainAutoTunesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeDomainAutoTunesCommandError(output, context);
+    return de_DescribeDomainAutoTunesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AutoTunes != null) {
-    contents.AutoTunes = deserializeAws_restJson1AutoTuneList(data.AutoTunes, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    AutoTunes: (_) => de_AutoTuneList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeDomainAutoTunesCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeDomainAutoTunesCommandError
+ */
+const de_DescribeDomainAutoTunesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDomainAutoTunesCommandOutput> => {
@@ -2454,48 +2764,51 @@ const deserializeAws_restJson1DescribeDomainAutoTunesCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.opensearch#BaseException":
-      throw await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.opensearch#InternalException":
-      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearch#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeDomainChangeProgressCommand = async (
+/**
+ * deserializeAws_restJson1DescribeDomainChangeProgressCommand
+ */
+export const de_DescribeDomainChangeProgressCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDomainChangeProgressCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeDomainChangeProgressCommandError(output, context);
+    return de_DescribeDomainChangeProgressCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChangeProgressStatus != null) {
-    contents.ChangeProgressStatus = deserializeAws_restJson1ChangeProgressStatusDetails(
-      data.ChangeProgressStatus,
-      context
-    );
-  }
+  const doc = take(data, {
+    ChangeProgressStatus: (_) => de_ChangeProgressStatusDetails(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeDomainChangeProgressCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeDomainChangeProgressCommandError
+ */
+const de_DescribeDomainChangeProgressCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDomainChangeProgressCommandOutput> => {
@@ -2507,45 +2820,51 @@ const deserializeAws_restJson1DescribeDomainChangeProgressCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.opensearch#BaseException":
-      throw await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.opensearch#InternalException":
-      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearch#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeDomainConfigCommand = async (
+/**
+ * deserializeAws_restJson1DescribeDomainConfigCommand
+ */
+export const de_DescribeDomainConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDomainConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeDomainConfigCommandError(output, context);
+    return de_DescribeDomainConfigCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DomainConfig != null) {
-    contents.DomainConfig = deserializeAws_restJson1DomainConfig(data.DomainConfig, context);
-  }
+  const doc = take(data, {
+    DomainConfig: (_) => de_DomainConfig(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeDomainConfigCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeDomainConfigCommandError
+ */
+const de_DescribeDomainConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDomainConfigCommandOutput> => {
@@ -2557,45 +2876,51 @@ const deserializeAws_restJson1DescribeDomainConfigCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.opensearch#BaseException":
-      throw await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.opensearch#InternalException":
-      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearch#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeDomainsCommand = async (
+/**
+ * deserializeAws_restJson1DescribeDomainsCommand
+ */
+export const de_DescribeDomainsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDomainsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeDomainsCommandError(output, context);
+    return de_DescribeDomainsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DomainStatusList != null) {
-    contents.DomainStatusList = deserializeAws_restJson1DomainStatusList(data.DomainStatusList, context);
-  }
+  const doc = take(data, {
+    DomainStatusList: (_) => de_DomainStatusList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeDomainsCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeDomainsCommandError
+ */
+const de_DescribeDomainsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDomainsCommandOutput> => {
@@ -2607,45 +2932,110 @@ const deserializeAws_restJson1DescribeDomainsCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.opensearch#BaseException":
-      throw await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.opensearch#InternalException":
-      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearch#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeInboundConnectionsCommand = async (
+/**
+ * deserializeAws_restJson1DescribeDryRunProgressCommand
+ */
+export const de_DescribeDryRunProgressCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDryRunProgressCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeDryRunProgressCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DryRunConfig: (_) => de_DomainStatus(_, context),
+    DryRunProgressStatus: _json,
+    DryRunResults: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeDryRunProgressCommandError
+ */
+const de_DescribeDryRunProgressCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDryRunProgressCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BaseException":
+    case "com.amazonaws.opensearch#BaseException":
+      throw await de_BaseExceptionRes(parsedOutput, context);
+    case "DisabledOperationException":
+    case "com.amazonaws.opensearch#DisabledOperationException":
+      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
+    case "InternalException":
+    case "com.amazonaws.opensearch#InternalException":
+      throw await de_InternalExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.opensearch#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.opensearch#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DescribeInboundConnectionsCommand
+ */
+export const de_DescribeInboundConnectionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeInboundConnectionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeInboundConnectionsCommandError(output, context);
+    return de_DescribeInboundConnectionsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Connections != null) {
-    contents.Connections = deserializeAws_restJson1InboundConnections(data.Connections, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Connections: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeInboundConnectionsCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeInboundConnectionsCommandError
+ */
+const de_DescribeInboundConnectionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeInboundConnectionsCommandOutput> => {
@@ -2657,39 +3047,45 @@ const deserializeAws_restJson1DescribeInboundConnectionsCommandError = async (
   switch (errorCode) {
     case "DisabledOperationException":
     case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await deserializeAws_restJson1DisabledOperationExceptionResponse(parsedOutput, context);
+      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
     case "InvalidPaginationTokenException":
     case "com.amazonaws.opensearch#InvalidPaginationTokenException":
-      throw await deserializeAws_restJson1InvalidPaginationTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeInstanceTypeLimitsCommand = async (
+/**
+ * deserializeAws_restJson1DescribeInstanceTypeLimitsCommand
+ */
+export const de_DescribeInstanceTypeLimitsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeInstanceTypeLimitsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeInstanceTypeLimitsCommandError(output, context);
+    return de_DescribeInstanceTypeLimitsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.LimitsByRole != null) {
-    contents.LimitsByRole = deserializeAws_restJson1LimitsByRole(data.LimitsByRole, context);
-  }
+  const doc = take(data, {
+    LimitsByRole: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeInstanceTypeLimitsCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeInstanceTypeLimitsCommandError
+ */
+const de_DescribeInstanceTypeLimitsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeInstanceTypeLimitsCommandOutput> => {
@@ -2701,54 +3097,58 @@ const deserializeAws_restJson1DescribeInstanceTypeLimitsCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.opensearch#BaseException":
-      throw await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.opensearch#InternalException":
-      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "InvalidTypeException":
     case "com.amazonaws.opensearch#InvalidTypeException":
-      throw await deserializeAws_restJson1InvalidTypeExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTypeExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.opensearch#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearch#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeOutboundConnectionsCommand = async (
+/**
+ * deserializeAws_restJson1DescribeOutboundConnectionsCommand
+ */
+export const de_DescribeOutboundConnectionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeOutboundConnectionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeOutboundConnectionsCommandError(output, context);
+    return de_DescribeOutboundConnectionsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Connections != null) {
-    contents.Connections = deserializeAws_restJson1OutboundConnections(data.Connections, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Connections: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeOutboundConnectionsCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeOutboundConnectionsCommandError
+ */
+const de_DescribeOutboundConnectionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeOutboundConnectionsCommandOutput> => {
@@ -2760,42 +3160,46 @@ const deserializeAws_restJson1DescribeOutboundConnectionsCommandError = async (
   switch (errorCode) {
     case "DisabledOperationException":
     case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await deserializeAws_restJson1DisabledOperationExceptionResponse(parsedOutput, context);
+      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
     case "InvalidPaginationTokenException":
     case "com.amazonaws.opensearch#InvalidPaginationTokenException":
-      throw await deserializeAws_restJson1InvalidPaginationTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribePackagesCommand = async (
+/**
+ * deserializeAws_restJson1DescribePackagesCommand
+ */
+export const de_DescribePackagesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePackagesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribePackagesCommandError(output, context);
+    return de_DescribePackagesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.PackageDetailsList != null) {
-    contents.PackageDetailsList = deserializeAws_restJson1PackageDetailsList(data.PackageDetailsList, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    PackageDetailsList: (_) => de_PackageDetailsList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribePackagesCommandError = async (
+/**
+ * deserializeAws_restJson1DescribePackagesCommandError
+ */
+const de_DescribePackagesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePackagesCommandOutput> => {
@@ -2807,54 +3211,55 @@ const deserializeAws_restJson1DescribePackagesCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.opensearch#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "BaseException":
     case "com.amazonaws.opensearch#BaseException":
-      throw await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.opensearch#InternalException":
-      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearch#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeReservedInstanceOfferingsCommand = async (
+/**
+ * deserializeAws_restJson1DescribeReservedInstanceOfferingsCommand
+ */
+export const de_DescribeReservedInstanceOfferingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeReservedInstanceOfferingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeReservedInstanceOfferingsCommandError(output, context);
+    return de_DescribeReservedInstanceOfferingsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.ReservedInstanceOfferings != null) {
-    contents.ReservedInstanceOfferings = deserializeAws_restJson1ReservedInstanceOfferingList(
-      data.ReservedInstanceOfferings,
-      context
-    );
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    ReservedInstanceOfferings: (_) => de_ReservedInstanceOfferingList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeReservedInstanceOfferingsCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeReservedInstanceOfferingsCommandError
+ */
+const de_DescribeReservedInstanceOfferingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeReservedInstanceOfferingsCommandOutput> => {
@@ -2866,48 +3271,52 @@ const deserializeAws_restJson1DescribeReservedInstanceOfferingsCommandError = as
   switch (errorCode) {
     case "DisabledOperationException":
     case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await deserializeAws_restJson1DisabledOperationExceptionResponse(parsedOutput, context);
+      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.opensearch#InternalException":
-      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearch#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeReservedInstancesCommand = async (
+/**
+ * deserializeAws_restJson1DescribeReservedInstancesCommand
+ */
+export const de_DescribeReservedInstancesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeReservedInstancesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeReservedInstancesCommandError(output, context);
+    return de_DescribeReservedInstancesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.ReservedInstances != null) {
-    contents.ReservedInstances = deserializeAws_restJson1ReservedInstanceList(data.ReservedInstances, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    ReservedInstances: (_) => de_ReservedInstanceList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeReservedInstancesCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeReservedInstancesCommandError
+ */
+const de_DescribeReservedInstancesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeReservedInstancesCommandOutput> => {
@@ -2919,48 +3328,52 @@ const deserializeAws_restJson1DescribeReservedInstancesCommandError = async (
   switch (errorCode) {
     case "DisabledOperationException":
     case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await deserializeAws_restJson1DisabledOperationExceptionResponse(parsedOutput, context);
+      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.opensearch#InternalException":
-      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearch#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeVpcEndpointsCommand = async (
+/**
+ * deserializeAws_restJson1DescribeVpcEndpointsCommand
+ */
+export const de_DescribeVpcEndpointsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeVpcEndpointsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeVpcEndpointsCommandError(output, context);
+    return de_DescribeVpcEndpointsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.VpcEndpointErrors != null) {
-    contents.VpcEndpointErrors = deserializeAws_restJson1VpcEndpointErrorList(data.VpcEndpointErrors, context);
-  }
-  if (data.VpcEndpoints != null) {
-    contents.VpcEndpoints = deserializeAws_restJson1VpcEndpoints(data.VpcEndpoints, context);
-  }
+  const doc = take(data, {
+    VpcEndpointErrors: _json,
+    VpcEndpoints: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeVpcEndpointsCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeVpcEndpointsCommandError
+ */
+const de_DescribeVpcEndpointsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeVpcEndpointsCommandOutput> => {
@@ -2972,45 +3385,51 @@ const deserializeAws_restJson1DescribeVpcEndpointsCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.opensearch#BaseException":
-      throw await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "DisabledOperationException":
     case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await deserializeAws_restJson1DisabledOperationExceptionResponse(parsedOutput, context);
+      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.opensearch#InternalException":
-      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearch#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DissociatePackageCommand = async (
+/**
+ * deserializeAws_restJson1DissociatePackageCommand
+ */
+export const de_DissociatePackageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DissociatePackageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DissociatePackageCommandError(output, context);
+    return de_DissociatePackageCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DomainPackageDetails != null) {
-    contents.DomainPackageDetails = deserializeAws_restJson1DomainPackageDetails(data.DomainPackageDetails, context);
-  }
+  const doc = take(data, {
+    DomainPackageDetails: (_) => de_DomainPackageDetails(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DissociatePackageCommandError = async (
+/**
+ * deserializeAws_restJson1DissociatePackageCommandError
+ */
+const de_DissociatePackageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DissociatePackageCommandOutput> => {
@@ -3022,51 +3441,57 @@ const deserializeAws_restJson1DissociatePackageCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.opensearch#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "BaseException":
     case "com.amazonaws.opensearch#BaseException":
-      throw await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.opensearch#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.opensearch#InternalException":
-      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearch#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetCompatibleVersionsCommand = async (
+/**
+ * deserializeAws_restJson1GetCompatibleVersionsCommand
+ */
+export const de_GetCompatibleVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCompatibleVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetCompatibleVersionsCommandError(output, context);
+    return de_GetCompatibleVersionsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CompatibleVersions != null) {
-    contents.CompatibleVersions = deserializeAws_restJson1CompatibleVersionsList(data.CompatibleVersions, context);
-  }
+  const doc = take(data, {
+    CompatibleVersions: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetCompatibleVersionsCommandError = async (
+/**
+ * deserializeAws_restJson1GetCompatibleVersionsCommandError
+ */
+const de_GetCompatibleVersionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCompatibleVersionsCommandOutput> => {
@@ -3078,57 +3503,56 @@ const deserializeAws_restJson1GetCompatibleVersionsCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.opensearch#BaseException":
-      throw await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "DisabledOperationException":
     case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await deserializeAws_restJson1DisabledOperationExceptionResponse(parsedOutput, context);
+      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.opensearch#InternalException":
-      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearch#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetPackageVersionHistoryCommand = async (
+/**
+ * deserializeAws_restJson1GetPackageVersionHistoryCommand
+ */
+export const de_GetPackageVersionHistoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPackageVersionHistoryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetPackageVersionHistoryCommandError(output, context);
+    return de_GetPackageVersionHistoryCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.PackageID != null) {
-    contents.PackageID = __expectString(data.PackageID);
-  }
-  if (data.PackageVersionHistoryList != null) {
-    contents.PackageVersionHistoryList = deserializeAws_restJson1PackageVersionHistoryList(
-      data.PackageVersionHistoryList,
-      context
-    );
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    PackageID: __expectString,
+    PackageVersionHistoryList: (_) => de_PackageVersionHistoryList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetPackageVersionHistoryCommandError = async (
+/**
+ * deserializeAws_restJson1GetPackageVersionHistoryCommandError
+ */
+const de_GetPackageVersionHistoryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPackageVersionHistoryCommandOutput> => {
@@ -3140,51 +3564,55 @@ const deserializeAws_restJson1GetPackageVersionHistoryCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.opensearch#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "BaseException":
     case "com.amazonaws.opensearch#BaseException":
-      throw await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.opensearch#InternalException":
-      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearch#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetUpgradeHistoryCommand = async (
+/**
+ * deserializeAws_restJson1GetUpgradeHistoryCommand
+ */
+export const de_GetUpgradeHistoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUpgradeHistoryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetUpgradeHistoryCommandError(output, context);
+    return de_GetUpgradeHistoryCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.UpgradeHistories != null) {
-    contents.UpgradeHistories = deserializeAws_restJson1UpgradeHistoryList(data.UpgradeHistories, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    UpgradeHistories: (_) => de_UpgradeHistoryList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetUpgradeHistoryCommandError = async (
+/**
+ * deserializeAws_restJson1GetUpgradeHistoryCommandError
+ */
+const de_GetUpgradeHistoryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUpgradeHistoryCommandOutput> => {
@@ -3196,54 +3624,56 @@ const deserializeAws_restJson1GetUpgradeHistoryCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.opensearch#BaseException":
-      throw await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "DisabledOperationException":
     case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await deserializeAws_restJson1DisabledOperationExceptionResponse(parsedOutput, context);
+      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.opensearch#InternalException":
-      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearch#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetUpgradeStatusCommand = async (
+/**
+ * deserializeAws_restJson1GetUpgradeStatusCommand
+ */
+export const de_GetUpgradeStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUpgradeStatusCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetUpgradeStatusCommandError(output, context);
+    return de_GetUpgradeStatusCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.StepStatus != null) {
-    contents.StepStatus = __expectString(data.StepStatus);
-  }
-  if (data.UpgradeName != null) {
-    contents.UpgradeName = __expectString(data.UpgradeName);
-  }
-  if (data.UpgradeStep != null) {
-    contents.UpgradeStep = __expectString(data.UpgradeStep);
-  }
+  const doc = take(data, {
+    StepStatus: __expectString,
+    UpgradeName: __expectString,
+    UpgradeStep: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetUpgradeStatusCommandError = async (
+/**
+ * deserializeAws_restJson1GetUpgradeStatusCommandError
+ */
+const de_GetUpgradeStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUpgradeStatusCommandOutput> => {
@@ -3255,48 +3685,54 @@ const deserializeAws_restJson1GetUpgradeStatusCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.opensearch#BaseException":
-      throw await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "DisabledOperationException":
     case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await deserializeAws_restJson1DisabledOperationExceptionResponse(parsedOutput, context);
+      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.opensearch#InternalException":
-      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearch#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListDomainNamesCommand = async (
+/**
+ * deserializeAws_restJson1ListDomainNamesCommand
+ */
+export const de_ListDomainNamesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDomainNamesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListDomainNamesCommandError(output, context);
+    return de_ListDomainNamesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DomainNames != null) {
-    contents.DomainNames = deserializeAws_restJson1DomainInfoList(data.DomainNames, context);
-  }
+  const doc = take(data, {
+    DomainNames: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListDomainNamesCommandError = async (
+/**
+ * deserializeAws_restJson1ListDomainNamesCommandError
+ */
+const de_ListDomainNamesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDomainNamesCommandOutput> => {
@@ -3308,45 +3744,46 @@ const deserializeAws_restJson1ListDomainNamesCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.opensearch#BaseException":
-      throw await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearch#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListDomainsForPackageCommand = async (
+/**
+ * deserializeAws_restJson1ListDomainsForPackageCommand
+ */
+export const de_ListDomainsForPackageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDomainsForPackageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListDomainsForPackageCommandError(output, context);
+    return de_ListDomainsForPackageCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DomainPackageDetailsList != null) {
-    contents.DomainPackageDetailsList = deserializeAws_restJson1DomainPackageDetailsList(
-      data.DomainPackageDetailsList,
-      context
-    );
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    DomainPackageDetailsList: (_) => de_DomainPackageDetailsList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListDomainsForPackageCommandError = async (
+/**
+ * deserializeAws_restJson1ListDomainsForPackageCommandError
+ */
+const de_ListDomainsForPackageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDomainsForPackageCommandOutput> => {
@@ -3358,51 +3795,55 @@ const deserializeAws_restJson1ListDomainsForPackageCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.opensearch#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "BaseException":
     case "com.amazonaws.opensearch#BaseException":
-      throw await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.opensearch#InternalException":
-      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearch#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListInstanceTypeDetailsCommand = async (
+/**
+ * deserializeAws_restJson1ListInstanceTypeDetailsCommand
+ */
+export const de_ListInstanceTypeDetailsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListInstanceTypeDetailsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListInstanceTypeDetailsCommandError(output, context);
+    return de_ListInstanceTypeDetailsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.InstanceTypeDetails != null) {
-    contents.InstanceTypeDetails = deserializeAws_restJson1InstanceTypeDetailsList(data.InstanceTypeDetails, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    InstanceTypeDetails: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListInstanceTypeDetailsCommandError = async (
+/**
+ * deserializeAws_restJson1ListInstanceTypeDetailsCommandError
+ */
+const de_ListInstanceTypeDetailsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListInstanceTypeDetailsCommandOutput> => {
@@ -3414,51 +3855,52 @@ const deserializeAws_restJson1ListInstanceTypeDetailsCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.opensearch#BaseException":
-      throw await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.opensearch#InternalException":
-      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearch#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListPackagesForDomainCommand = async (
+/**
+ * deserializeAws_restJson1ListPackagesForDomainCommand
+ */
+export const de_ListPackagesForDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPackagesForDomainCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListPackagesForDomainCommandError(output, context);
+    return de_ListPackagesForDomainCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DomainPackageDetailsList != null) {
-    contents.DomainPackageDetailsList = deserializeAws_restJson1DomainPackageDetailsList(
-      data.DomainPackageDetailsList,
-      context
-    );
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    DomainPackageDetailsList: (_) => de_DomainPackageDetailsList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListPackagesForDomainCommandError = async (
+/**
+ * deserializeAws_restJson1ListPackagesForDomainCommandError
+ */
+const de_ListPackagesForDomainCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPackagesForDomainCommandOutput> => {
@@ -3470,48 +3912,114 @@ const deserializeAws_restJson1ListPackagesForDomainCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.opensearch#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "BaseException":
     case "com.amazonaws.opensearch#BaseException":
-      throw await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.opensearch#InternalException":
-      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearch#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListTagsCommand = async (
+/**
+ * deserializeAws_restJson1ListScheduledActionsCommand
+ */
+export const de_ListScheduledActionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListScheduledActionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListScheduledActionsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    ScheduledActions: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListScheduledActionsCommandError
+ */
+const de_ListScheduledActionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListScheduledActionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BaseException":
+    case "com.amazonaws.opensearch#BaseException":
+      throw await de_BaseExceptionRes(parsedOutput, context);
+    case "InternalException":
+    case "com.amazonaws.opensearch#InternalException":
+      throw await de_InternalExceptionRes(parsedOutput, context);
+    case "InvalidPaginationTokenException":
+    case "com.amazonaws.opensearch#InvalidPaginationTokenException":
+      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.opensearch#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.opensearch#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListTagsCommand
+ */
+export const de_ListTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTagsCommandError(output, context);
+    return de_ListTagsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.TagList != null) {
-    contents.TagList = deserializeAws_restJson1TagList(data.TagList, context);
-  }
+  const doc = take(data, {
+    TagList: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListTagsCommandError = async (
+/**
+ * deserializeAws_restJson1ListTagsCommandError
+ */
+const de_ListTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsCommandOutput> => {
@@ -3523,48 +4031,52 @@ const deserializeAws_restJson1ListTagsCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.opensearch#BaseException":
-      throw await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.opensearch#InternalException":
-      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearch#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListVersionsCommand = async (
+/**
+ * deserializeAws_restJson1ListVersionsCommand
+ */
+export const de_ListVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListVersionsCommandError(output, context);
+    return de_ListVersionsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Versions != null) {
-    contents.Versions = deserializeAws_restJson1VersionList(data.Versions, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Versions: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListVersionsCommandError = async (
+/**
+ * deserializeAws_restJson1ListVersionsCommandError
+ */
+const de_ListVersionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVersionsCommandOutput> => {
@@ -3576,51 +4088,52 @@ const deserializeAws_restJson1ListVersionsCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.opensearch#BaseException":
-      throw await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.opensearch#InternalException":
-      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearch#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListVpcEndpointAccessCommand = async (
+/**
+ * deserializeAws_restJson1ListVpcEndpointAccessCommand
+ */
+export const de_ListVpcEndpointAccessCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVpcEndpointAccessCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListVpcEndpointAccessCommandError(output, context);
+    return de_ListVpcEndpointAccessCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AuthorizedPrincipalList != null) {
-    contents.AuthorizedPrincipalList = deserializeAws_restJson1AuthorizedPrincipalList(
-      data.AuthorizedPrincipalList,
-      context
-    );
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    AuthorizedPrincipalList: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListVpcEndpointAccessCommandError = async (
+/**
+ * deserializeAws_restJson1ListVpcEndpointAccessCommandError
+ */
+const de_ListVpcEndpointAccessCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVpcEndpointAccessCommandOutput> => {
@@ -3632,51 +4145,52 @@ const deserializeAws_restJson1ListVpcEndpointAccessCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.opensearch#BaseException":
-      throw await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "DisabledOperationException":
     case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await deserializeAws_restJson1DisabledOperationExceptionResponse(parsedOutput, context);
+      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.opensearch#InternalException":
-      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListVpcEndpointsCommand = async (
+/**
+ * deserializeAws_restJson1ListVpcEndpointsCommand
+ */
+export const de_ListVpcEndpointsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVpcEndpointsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListVpcEndpointsCommandError(output, context);
+    return de_ListVpcEndpointsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.VpcEndpointSummaryList != null) {
-    contents.VpcEndpointSummaryList = deserializeAws_restJson1VpcEndpointSummaryList(
-      data.VpcEndpointSummaryList,
-      context
-    );
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    VpcEndpointSummaryList: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListVpcEndpointsCommandError = async (
+/**
+ * deserializeAws_restJson1ListVpcEndpointsCommandError
+ */
+const de_ListVpcEndpointsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVpcEndpointsCommandOutput> => {
@@ -3688,48 +4202,49 @@ const deserializeAws_restJson1ListVpcEndpointsCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.opensearch#BaseException":
-      throw await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "DisabledOperationException":
     case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await deserializeAws_restJson1DisabledOperationExceptionResponse(parsedOutput, context);
+      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.opensearch#InternalException":
-      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListVpcEndpointsForDomainCommand = async (
+/**
+ * deserializeAws_restJson1ListVpcEndpointsForDomainCommand
+ */
+export const de_ListVpcEndpointsForDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVpcEndpointsForDomainCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListVpcEndpointsForDomainCommandError(output, context);
+    return de_ListVpcEndpointsForDomainCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.VpcEndpointSummaryList != null) {
-    contents.VpcEndpointSummaryList = deserializeAws_restJson1VpcEndpointSummaryList(
-      data.VpcEndpointSummaryList,
-      context
-    );
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    VpcEndpointSummaryList: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListVpcEndpointsForDomainCommandError = async (
+/**
+ * deserializeAws_restJson1ListVpcEndpointsForDomainCommandError
+ */
+const de_ListVpcEndpointsForDomainCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVpcEndpointsForDomainCommandOutput> => {
@@ -3741,48 +4256,52 @@ const deserializeAws_restJson1ListVpcEndpointsForDomainCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.opensearch#BaseException":
-      throw await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "DisabledOperationException":
     case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await deserializeAws_restJson1DisabledOperationExceptionResponse(parsedOutput, context);
+      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.opensearch#InternalException":
-      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1PurchaseReservedInstanceOfferingCommand = async (
+/**
+ * deserializeAws_restJson1PurchaseReservedInstanceOfferingCommand
+ */
+export const de_PurchaseReservedInstanceOfferingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PurchaseReservedInstanceOfferingCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PurchaseReservedInstanceOfferingCommandError(output, context);
+    return de_PurchaseReservedInstanceOfferingCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ReservationName != null) {
-    contents.ReservationName = __expectString(data.ReservationName);
-  }
-  if (data.ReservedInstanceId != null) {
-    contents.ReservedInstanceId = __expectString(data.ReservedInstanceId);
-  }
+  const doc = take(data, {
+    ReservationName: __expectString,
+    ReservedInstanceId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1PurchaseReservedInstanceOfferingCommandError = async (
+/**
+ * deserializeAws_restJson1PurchaseReservedInstanceOfferingCommandError
+ */
+const de_PurchaseReservedInstanceOfferingCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PurchaseReservedInstanceOfferingCommandOutput> => {
@@ -3794,51 +4313,57 @@ const deserializeAws_restJson1PurchaseReservedInstanceOfferingCommandError = asy
   switch (errorCode) {
     case "DisabledOperationException":
     case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await deserializeAws_restJson1DisabledOperationExceptionResponse(parsedOutput, context);
+      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.opensearch#InternalException":
-      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.opensearch#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.opensearch#ResourceAlreadyExistsException":
-      throw await deserializeAws_restJson1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearch#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1RejectInboundConnectionCommand = async (
+/**
+ * deserializeAws_restJson1RejectInboundConnectionCommand
+ */
+export const de_RejectInboundConnectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RejectInboundConnectionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1RejectInboundConnectionCommandError(output, context);
+    return de_RejectInboundConnectionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Connection != null) {
-    contents.Connection = deserializeAws_restJson1InboundConnection(data.Connection, context);
-  }
+  const doc = take(data, {
+    Connection: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1RejectInboundConnectionCommandError = async (
+/**
+ * deserializeAws_restJson1RejectInboundConnectionCommandError
+ */
+const de_RejectInboundConnectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RejectInboundConnectionCommandOutput> => {
@@ -3850,27 +4375,29 @@ const deserializeAws_restJson1RejectInboundConnectionCommandError = async (
   switch (errorCode) {
     case "DisabledOperationException":
     case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await deserializeAws_restJson1DisabledOperationExceptionResponse(parsedOutput, context);
+      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1RemoveTagsCommand = async (
+/**
+ * deserializeAws_restJson1RemoveTagsCommand
+ */
+export const de_RemoveTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveTagsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1RemoveTagsCommandError(output, context);
+    return de_RemoveTagsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3879,7 +4406,10 @@ export const deserializeAws_restJson1RemoveTagsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1RemoveTagsCommandError = async (
+/**
+ * deserializeAws_restJson1RemoveTagsCommandError
+ */
+const de_RemoveTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveTagsCommandOutput> => {
@@ -3891,30 +4421,32 @@ const deserializeAws_restJson1RemoveTagsCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.opensearch#BaseException":
-      throw await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.opensearch#InternalException":
-      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearch#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1RevokeVpcEndpointAccessCommand = async (
+/**
+ * deserializeAws_restJson1RevokeVpcEndpointAccessCommand
+ */
+export const de_RevokeVpcEndpointAccessCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RevokeVpcEndpointAccessCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1RevokeVpcEndpointAccessCommandError(output, context);
+    return de_RevokeVpcEndpointAccessCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3923,7 +4455,10 @@ export const deserializeAws_restJson1RevokeVpcEndpointAccessCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1RevokeVpcEndpointAccessCommandError = async (
+/**
+ * deserializeAws_restJson1RevokeVpcEndpointAccessCommandError
+ */
+const de_RevokeVpcEndpointAccessCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RevokeVpcEndpointAccessCommandOutput> => {
@@ -3935,51 +4470,54 @@ const deserializeAws_restJson1RevokeVpcEndpointAccessCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.opensearch#BaseException":
-      throw await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "DisabledOperationException":
     case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await deserializeAws_restJson1DisabledOperationExceptionResponse(parsedOutput, context);
+      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.opensearch#InternalException":
-      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearch#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1StartServiceSoftwareUpdateCommand = async (
+/**
+ * deserializeAws_restJson1StartServiceSoftwareUpdateCommand
+ */
+export const de_StartServiceSoftwareUpdateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartServiceSoftwareUpdateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StartServiceSoftwareUpdateCommandError(output, context);
+    return de_StartServiceSoftwareUpdateCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ServiceSoftwareOptions != null) {
-    contents.ServiceSoftwareOptions = deserializeAws_restJson1ServiceSoftwareOptions(
-      data.ServiceSoftwareOptions,
-      context
-    );
-  }
+  const doc = take(data, {
+    ServiceSoftwareOptions: (_) => de_ServiceSoftwareOptions(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1StartServiceSoftwareUpdateCommandError = async (
+/**
+ * deserializeAws_restJson1StartServiceSoftwareUpdateCommandError
+ */
+const de_StartServiceSoftwareUpdateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartServiceSoftwareUpdateCommandOutput> => {
@@ -3991,48 +4529,53 @@ const deserializeAws_restJson1StartServiceSoftwareUpdateCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.opensearch#BaseException":
-      throw await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.opensearch#InternalException":
-      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearch#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateDomainConfigCommand = async (
+/**
+ * deserializeAws_restJson1UpdateDomainConfigCommand
+ */
+export const de_UpdateDomainConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDomainConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateDomainConfigCommandError(output, context);
+    return de_UpdateDomainConfigCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DomainConfig != null) {
-    contents.DomainConfig = deserializeAws_restJson1DomainConfig(data.DomainConfig, context);
-  }
-  if (data.DryRunResults != null) {
-    contents.DryRunResults = deserializeAws_restJson1DryRunResults(data.DryRunResults, context);
-  }
+  const doc = take(data, {
+    DomainConfig: (_) => de_DomainConfig(_, context),
+    DryRunProgressStatus: _json,
+    DryRunResults: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateDomainConfigCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateDomainConfigCommandError
+ */
+const de_UpdateDomainConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDomainConfigCommandOutput> => {
@@ -4044,51 +4587,57 @@ const deserializeAws_restJson1UpdateDomainConfigCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.opensearch#BaseException":
-      throw await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.opensearch#InternalException":
-      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "InvalidTypeException":
     case "com.amazonaws.opensearch#InvalidTypeException":
-      throw await deserializeAws_restJson1InvalidTypeExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTypeExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.opensearch#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearch#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdatePackageCommand = async (
+/**
+ * deserializeAws_restJson1UpdatePackageCommand
+ */
+export const de_UpdatePackageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePackageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdatePackageCommandError(output, context);
+    return de_UpdatePackageCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.PackageDetails != null) {
-    contents.PackageDetails = deserializeAws_restJson1PackageDetails(data.PackageDetails, context);
-  }
+  const doc = take(data, {
+    PackageDetails: (_) => de_PackageDetails(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1UpdatePackageCommandError = async (
+/**
+ * deserializeAws_restJson1UpdatePackageCommandError
+ */
+const de_UpdatePackageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePackageCommandOutput> => {
@@ -4100,54 +4649,60 @@ const deserializeAws_restJson1UpdatePackageCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.opensearch#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "BaseException":
     case "com.amazonaws.opensearch#BaseException":
-      throw await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.opensearch#InternalException":
-      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.opensearch#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearch#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateVpcEndpointCommand = async (
+/**
+ * deserializeAws_restJson1UpdateScheduledActionCommand
+ */
+export const de_UpdateScheduledActionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateVpcEndpointCommandOutput> => {
+): Promise<UpdateScheduledActionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateVpcEndpointCommandError(output, context);
+    return de_UpdateScheduledActionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.VpcEndpoint != null) {
-    contents.VpcEndpoint = deserializeAws_restJson1VpcEndpoint(data.VpcEndpoint, context);
-  }
+  const doc = take(data, {
+    ScheduledAction: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateVpcEndpointCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateScheduledActionCommandError
+ */
+const de_UpdateScheduledActionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateVpcEndpointCommandOutput> => {
+): Promise<UpdateScheduledActionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -4156,66 +4711,127 @@ const deserializeAws_restJson1UpdateVpcEndpointCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.opensearch#BaseException":
-      throw await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.opensearch#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
-    case "DisabledOperationException":
-    case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await deserializeAws_restJson1DisabledOperationExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.opensearch#InternalException":
-      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.opensearch#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "SlotNotAvailableException":
+    case "com.amazonaws.opensearch#SlotNotAvailableException":
+      throw await de_SlotNotAvailableExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearch#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpgradeDomainCommand = async (
+/**
+ * deserializeAws_restJson1UpdateVpcEndpointCommand
+ */
+export const de_UpdateVpcEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpgradeDomainCommandOutput> => {
+): Promise<UpdateVpcEndpointCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpgradeDomainCommandError(output, context);
+    return de_UpdateVpcEndpointCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AdvancedOptions != null) {
-    contents.AdvancedOptions = deserializeAws_restJson1AdvancedOptions(data.AdvancedOptions, context);
-  }
-  if (data.ChangeProgressDetails != null) {
-    contents.ChangeProgressDetails = deserializeAws_restJson1ChangeProgressDetails(data.ChangeProgressDetails, context);
-  }
-  if (data.DomainName != null) {
-    contents.DomainName = __expectString(data.DomainName);
-  }
-  if (data.PerformCheckOnly != null) {
-    contents.PerformCheckOnly = __expectBoolean(data.PerformCheckOnly);
-  }
-  if (data.TargetVersion != null) {
-    contents.TargetVersion = __expectString(data.TargetVersion);
-  }
-  if (data.UpgradeId != null) {
-    contents.UpgradeId = __expectString(data.UpgradeId);
-  }
+  const doc = take(data, {
+    VpcEndpoint: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1UpgradeDomainCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateVpcEndpointCommandError
+ */
+const de_UpdateVpcEndpointCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateVpcEndpointCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BaseException":
+    case "com.amazonaws.opensearch#BaseException":
+      throw await de_BaseExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.opensearch#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "DisabledOperationException":
+    case "com.amazonaws.opensearch#DisabledOperationException":
+      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
+    case "InternalException":
+    case "com.amazonaws.opensearch#InternalException":
+      throw await de_InternalExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.opensearch#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.opensearch#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UpgradeDomainCommand
+ */
+export const de_UpgradeDomainCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpgradeDomainCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpgradeDomainCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AdvancedOptions: _json,
+    ChangeProgressDetails: _json,
+    DomainName: __expectString,
+    PerformCheckOnly: __expectBoolean,
+    TargetVersion: __expectString,
+    UpgradeId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpgradeDomainCommandError
+ */
+const de_UpgradeDomainCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpgradeDomainCommandOutput> => {
@@ -4227,43 +4843,46 @@ const deserializeAws_restJson1UpgradeDomainCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.opensearch#BaseException":
-      throw await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "DisabledOperationException":
     case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await deserializeAws_restJson1DisabledOperationExceptionResponse(parsedOutput, context);
+      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.opensearch#InternalException":
-      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.opensearch#ResourceAlreadyExistsException":
-      throw await deserializeAws_restJson1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearch#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
-const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
+const throwDefaultError = withBaseException(__BaseException);
+/**
+ * deserializeAws_restJson1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4271,15 +4890,16 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1BaseExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<BaseException> => {
+/**
+ * deserializeAws_restJson1BaseExceptionRes
+ */
+const de_BaseExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BaseException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new BaseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4287,15 +4907,16 @@ const deserializeAws_restJson1BaseExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
+/**
+ * deserializeAws_restJson1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4303,15 +4924,19 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1DisabledOperationExceptionResponse = async (
+/**
+ * deserializeAws_restJson1DisabledOperationExceptionRes
+ */
+const de_DisabledOperationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DisabledOperationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new DisabledOperationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4319,15 +4944,16 @@ const deserializeAws_restJson1DisabledOperationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InternalExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InternalException> => {
+/**
+ * deserializeAws_restJson1InternalExceptionRes
+ */
+const de_InternalExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<InternalException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4335,15 +4961,19 @@ const deserializeAws_restJson1InternalExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InvalidPaginationTokenExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InvalidPaginationTokenExceptionRes
+ */
+const de_InvalidPaginationTokenExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidPaginationTokenException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidPaginationTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4351,15 +4981,19 @@ const deserializeAws_restJson1InvalidPaginationTokenExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InvalidTypeExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InvalidTypeExceptionRes
+ */
+const de_InvalidTypeExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidTypeException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidTypeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4367,15 +5001,19 @@ const deserializeAws_restJson1InvalidTypeExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1LimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1LimitExceededExceptionRes
+ */
+const de_LimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4383,15 +5021,19 @@ const deserializeAws_restJson1LimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceAlreadyExistsExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceAlreadyExistsExceptionRes
+ */
+const de_ResourceAlreadyExistsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceAlreadyExistsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4399,15 +5041,19 @@ const deserializeAws_restJson1ResourceAlreadyExistsExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4415,15 +5061,37 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ValidationExceptionResponse = async (
+/**
+ * deserializeAws_restJson1SlotNotAvailableExceptionRes
+ */
+const de_SlotNotAvailableExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
-): Promise<ValidationException> => {
+): Promise<SlotNotAvailableException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    SlotSuggestions: _json,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new SlotNotAvailableException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4431,1654 +5099,885 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1AdvancedOptions = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
+// se_AdvancedOptions omitted.
+
+// se_AdvancedSecurityOptionsInput omitted.
+
+/**
+ * serializeAws_restJson1AutoTuneMaintenanceSchedule
+ */
+const se_AutoTuneMaintenanceSchedule = (input: AutoTuneMaintenanceSchedule, context: __SerdeContext): any => {
+  return take(input, {
+    CronExpressionForRecurrence: [],
+    Duration: _json,
+    StartAt: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-const serializeAws_restJson1AdvancedSecurityOptionsInput = (
-  input: AdvancedSecurityOptionsInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AnonymousAuthEnabled != null && { AnonymousAuthEnabled: input.AnonymousAuthEnabled }),
-    ...(input.Enabled != null && { Enabled: input.Enabled }),
-    ...(input.InternalUserDatabaseEnabled != null && {
-      InternalUserDatabaseEnabled: input.InternalUserDatabaseEnabled,
-    }),
-    ...(input.MasterUserOptions != null && {
-      MasterUserOptions: serializeAws_restJson1MasterUserOptions(input.MasterUserOptions, context),
-    }),
-    ...(input.SAMLOptions != null && {
-      SAMLOptions: serializeAws_restJson1SAMLOptionsInput(input.SAMLOptions, context),
-    }),
-  };
-};
-
-const serializeAws_restJson1AutoTuneMaintenanceSchedule = (
-  input: AutoTuneMaintenanceSchedule,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CronExpressionForRecurrence != null && {
-      CronExpressionForRecurrence: input.CronExpressionForRecurrence,
-    }),
-    ...(input.Duration != null && { Duration: serializeAws_restJson1Duration(input.Duration, context) }),
-    ...(input.StartAt != null && { StartAt: Math.round(input.StartAt.getTime() / 1000) }),
-  };
-};
-
-const serializeAws_restJson1AutoTuneMaintenanceScheduleList = (
-  input: AutoTuneMaintenanceSchedule[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1AutoTuneMaintenanceScheduleList
+ */
+const se_AutoTuneMaintenanceScheduleList = (input: AutoTuneMaintenanceSchedule[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1AutoTuneMaintenanceSchedule(entry, context);
+      return se_AutoTuneMaintenanceSchedule(entry, context);
     });
 };
 
-const serializeAws_restJson1AutoTuneOptions = (input: AutoTuneOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.DesiredState != null && { DesiredState: input.DesiredState }),
-    ...(input.MaintenanceSchedules != null && {
-      MaintenanceSchedules: serializeAws_restJson1AutoTuneMaintenanceScheduleList(input.MaintenanceSchedules, context),
-    }),
-    ...(input.RollbackOnDisable != null && { RollbackOnDisable: input.RollbackOnDisable }),
-  };
+/**
+ * serializeAws_restJson1AutoTuneOptions
+ */
+const se_AutoTuneOptions = (input: AutoTuneOptions, context: __SerdeContext): any => {
+  return take(input, {
+    DesiredState: [],
+    MaintenanceSchedules: (_) => se_AutoTuneMaintenanceScheduleList(_, context),
+    RollbackOnDisable: [],
+    UseOffPeakWindow: [],
+  });
 };
 
-const serializeAws_restJson1AutoTuneOptionsInput = (input: AutoTuneOptionsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.DesiredState != null && { DesiredState: input.DesiredState }),
-    ...(input.MaintenanceSchedules != null && {
-      MaintenanceSchedules: serializeAws_restJson1AutoTuneMaintenanceScheduleList(input.MaintenanceSchedules, context),
-    }),
-  };
+/**
+ * serializeAws_restJson1AutoTuneOptionsInput
+ */
+const se_AutoTuneOptionsInput = (input: AutoTuneOptionsInput, context: __SerdeContext): any => {
+  return take(input, {
+    DesiredState: [],
+    MaintenanceSchedules: (_) => se_AutoTuneMaintenanceScheduleList(_, context),
+    UseOffPeakWindow: [],
+  });
 };
 
-const serializeAws_restJson1AWSDomainInformation = (input: AWSDomainInformation, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainName != null && { DomainName: input.DomainName }),
-    ...(input.OwnerId != null && { OwnerId: input.OwnerId }),
-    ...(input.Region != null && { Region: input.Region }),
-  };
+// se_AWSDomainInformation omitted.
+
+// se_ClusterConfig omitted.
+
+// se_CognitoOptions omitted.
+
+// se_ColdStorageOptions omitted.
+
+// se_DescribePackagesFilter omitted.
+
+// se_DescribePackagesFilterList omitted.
+
+// se_DescribePackagesFilterValues omitted.
+
+// se_DomainEndpointOptions omitted.
+
+// se_DomainInformationContainer omitted.
+
+// se_DomainNameList omitted.
+
+// se_Duration omitted.
+
+// se_EBSOptions omitted.
+
+// se_EncryptionAtRestOptions omitted.
+
+// se_Filter omitted.
+
+// se_FilterList omitted.
+
+// se_LogPublishingOption omitted.
+
+// se_LogPublishingOptions omitted.
+
+// se_MasterUserOptions omitted.
+
+// se_NodeToNodeEncryptionOptions omitted.
+
+// se_OffPeakWindow omitted.
+
+// se_OffPeakWindowOptions omitted.
+
+// se_PackageSource omitted.
+
+// se_SAMLIdp omitted.
+
+// se_SAMLOptionsInput omitted.
+
+// se_SnapshotOptions omitted.
+
+// se_SoftwareUpdateOptions omitted.
+
+// se_StringList omitted.
+
+// se_Tag omitted.
+
+// se_TagList omitted.
+
+// se_ValueStringList omitted.
+
+// se_VpcEndpointIdList omitted.
+
+// se_VPCOptions omitted.
+
+// se_WindowStartTime omitted.
+
+// se_ZoneAwarenessConfig omitted.
+
+/**
+ * deserializeAws_restJson1AccessPoliciesStatus
+ */
+const de_AccessPoliciesStatus = (output: any, context: __SerdeContext): AccessPoliciesStatus => {
+  return take(output, {
+    Options: __expectString,
+    Status: (_: any) => de_OptionStatus(_, context),
+  }) as any;
 };
 
-const serializeAws_restJson1ClusterConfig = (input: ClusterConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.ColdStorageOptions != null && {
-      ColdStorageOptions: serializeAws_restJson1ColdStorageOptions(input.ColdStorageOptions, context),
-    }),
-    ...(input.DedicatedMasterCount != null && { DedicatedMasterCount: input.DedicatedMasterCount }),
-    ...(input.DedicatedMasterEnabled != null && { DedicatedMasterEnabled: input.DedicatedMasterEnabled }),
-    ...(input.DedicatedMasterType != null && { DedicatedMasterType: input.DedicatedMasterType }),
-    ...(input.InstanceCount != null && { InstanceCount: input.InstanceCount }),
-    ...(input.InstanceType != null && { InstanceType: input.InstanceType }),
-    ...(input.WarmCount != null && { WarmCount: input.WarmCount }),
-    ...(input.WarmEnabled != null && { WarmEnabled: input.WarmEnabled }),
-    ...(input.WarmType != null && { WarmType: input.WarmType }),
-    ...(input.ZoneAwarenessConfig != null && {
-      ZoneAwarenessConfig: serializeAws_restJson1ZoneAwarenessConfig(input.ZoneAwarenessConfig, context),
-    }),
-    ...(input.ZoneAwarenessEnabled != null && { ZoneAwarenessEnabled: input.ZoneAwarenessEnabled }),
-  };
+// de_AdditionalLimit omitted.
+
+// de_AdditionalLimitList omitted.
+
+// de_AdvancedOptions omitted.
+
+/**
+ * deserializeAws_restJson1AdvancedOptionsStatus
+ */
+const de_AdvancedOptionsStatus = (output: any, context: __SerdeContext): AdvancedOptionsStatus => {
+  return take(output, {
+    Options: _json,
+    Status: (_: any) => de_OptionStatus(_, context),
+  }) as any;
 };
 
-const serializeAws_restJson1CognitoOptions = (input: CognitoOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.Enabled != null && { Enabled: input.Enabled }),
-    ...(input.IdentityPoolId != null && { IdentityPoolId: input.IdentityPoolId }),
-    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
-    ...(input.UserPoolId != null && { UserPoolId: input.UserPoolId }),
-  };
+/**
+ * deserializeAws_restJson1AdvancedSecurityOptions
+ */
+const de_AdvancedSecurityOptions = (output: any, context: __SerdeContext): AdvancedSecurityOptions => {
+  return take(output, {
+    AnonymousAuthDisableDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    AnonymousAuthEnabled: __expectBoolean,
+    Enabled: __expectBoolean,
+    InternalUserDatabaseEnabled: __expectBoolean,
+    SAMLOptions: _json,
+  }) as any;
 };
 
-const serializeAws_restJson1ColdStorageOptions = (input: ColdStorageOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.Enabled != null && { Enabled: input.Enabled }),
-  };
+/**
+ * deserializeAws_restJson1AdvancedSecurityOptionsStatus
+ */
+const de_AdvancedSecurityOptionsStatus = (output: any, context: __SerdeContext): AdvancedSecurityOptionsStatus => {
+  return take(output, {
+    Options: (_: any) => de_AdvancedSecurityOptions(_, context),
+    Status: (_: any) => de_OptionStatus(_, context),
+  }) as any;
 };
 
-const serializeAws_restJson1DescribePackagesFilter = (input: DescribePackagesFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Value != null && { Value: serializeAws_restJson1DescribePackagesFilterValues(input.Value, context) }),
-  };
+// de_AuthorizedPrincipal omitted.
+
+// de_AuthorizedPrincipalList omitted.
+
+/**
+ * deserializeAws_restJson1AutoTune
+ */
+const de_AutoTune = (output: any, context: __SerdeContext): AutoTune => {
+  return take(output, {
+    AutoTuneDetails: (_: any) => de_AutoTuneDetails(_, context),
+    AutoTuneType: __expectString,
+  }) as any;
 };
 
-const serializeAws_restJson1DescribePackagesFilterList = (
-  input: DescribePackagesFilter[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1DescribePackagesFilter(entry, context);
-    });
+/**
+ * deserializeAws_restJson1AutoTuneDetails
+ */
+const de_AutoTuneDetails = (output: any, context: __SerdeContext): AutoTuneDetails => {
+  return take(output, {
+    ScheduledAutoTuneDetails: (_: any) => de_ScheduledAutoTuneDetails(_, context),
+  }) as any;
 };
 
-const serializeAws_restJson1DescribePackagesFilterValues = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const serializeAws_restJson1DomainEndpointOptions = (input: DomainEndpointOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.CustomEndpoint != null && { CustomEndpoint: input.CustomEndpoint }),
-    ...(input.CustomEndpointCertificateArn != null && {
-      CustomEndpointCertificateArn: input.CustomEndpointCertificateArn,
-    }),
-    ...(input.CustomEndpointEnabled != null && { CustomEndpointEnabled: input.CustomEndpointEnabled }),
-    ...(input.EnforceHTTPS != null && { EnforceHTTPS: input.EnforceHTTPS }),
-    ...(input.TLSSecurityPolicy != null && { TLSSecurityPolicy: input.TLSSecurityPolicy }),
-  };
-};
-
-const serializeAws_restJson1DomainInformationContainer = (
-  input: DomainInformationContainer,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AWSDomainInformation != null && {
-      AWSDomainInformation: serializeAws_restJson1AWSDomainInformation(input.AWSDomainInformation, context),
-    }),
-  };
-};
-
-const serializeAws_restJson1DomainNameList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const serializeAws_restJson1Duration = (input: Duration, context: __SerdeContext): any => {
-  return {
-    ...(input.Unit != null && { Unit: input.Unit }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
-
-const serializeAws_restJson1EBSOptions = (input: EBSOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.EBSEnabled != null && { EBSEnabled: input.EBSEnabled }),
-    ...(input.Iops != null && { Iops: input.Iops }),
-    ...(input.Throughput != null && { Throughput: input.Throughput }),
-    ...(input.VolumeSize != null && { VolumeSize: input.VolumeSize }),
-    ...(input.VolumeType != null && { VolumeType: input.VolumeType }),
-  };
-};
-
-const serializeAws_restJson1EncryptionAtRestOptions = (
-  input: EncryptionAtRestOptions,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Enabled != null && { Enabled: input.Enabled }),
-    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
-  };
-};
-
-const serializeAws_restJson1Filter = (input: Filter, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Values != null && { Values: serializeAws_restJson1ValueStringList(input.Values, context) }),
-  };
-};
-
-const serializeAws_restJson1FilterList = (input: Filter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1Filter(entry, context);
-    });
-};
-
-const serializeAws_restJson1LogPublishingOption = (input: LogPublishingOption, context: __SerdeContext): any => {
-  return {
-    ...(input.CloudWatchLogsLogGroupArn != null && { CloudWatchLogsLogGroupArn: input.CloudWatchLogsLogGroupArn }),
-    ...(input.Enabled != null && { Enabled: input.Enabled }),
-  };
-};
-
-const serializeAws_restJson1LogPublishingOptions = (
-  input: Record<string, LogPublishingOption>,
-  context: __SerdeContext
-): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [LogType | string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = serializeAws_restJson1LogPublishingOption(value, context);
-    return acc;
-  }, {});
-};
-
-const serializeAws_restJson1MasterUserOptions = (input: MasterUserOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.MasterUserARN != null && { MasterUserARN: input.MasterUserARN }),
-    ...(input.MasterUserName != null && { MasterUserName: input.MasterUserName }),
-    ...(input.MasterUserPassword != null && { MasterUserPassword: input.MasterUserPassword }),
-  };
-};
-
-const serializeAws_restJson1NodeToNodeEncryptionOptions = (
-  input: NodeToNodeEncryptionOptions,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Enabled != null && { Enabled: input.Enabled }),
-  };
-};
-
-const serializeAws_restJson1PackageSource = (input: PackageSource, context: __SerdeContext): any => {
-  return {
-    ...(input.S3BucketName != null && { S3BucketName: input.S3BucketName }),
-    ...(input.S3Key != null && { S3Key: input.S3Key }),
-  };
-};
-
-const serializeAws_restJson1SAMLIdp = (input: SAMLIdp, context: __SerdeContext): any => {
-  return {
-    ...(input.EntityId != null && { EntityId: input.EntityId }),
-    ...(input.MetadataContent != null && { MetadataContent: input.MetadataContent }),
-  };
-};
-
-const serializeAws_restJson1SAMLOptionsInput = (input: SAMLOptionsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.Enabled != null && { Enabled: input.Enabled }),
-    ...(input.Idp != null && { Idp: serializeAws_restJson1SAMLIdp(input.Idp, context) }),
-    ...(input.MasterBackendRole != null && { MasterBackendRole: input.MasterBackendRole }),
-    ...(input.MasterUserName != null && { MasterUserName: input.MasterUserName }),
-    ...(input.RolesKey != null && { RolesKey: input.RolesKey }),
-    ...(input.SessionTimeoutMinutes != null && { SessionTimeoutMinutes: input.SessionTimeoutMinutes }),
-    ...(input.SubjectKey != null && { SubjectKey: input.SubjectKey }),
-  };
-};
-
-const serializeAws_restJson1SnapshotOptions = (input: SnapshotOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.AutomatedSnapshotStartHour != null && { AutomatedSnapshotStartHour: input.AutomatedSnapshotStartHour }),
-  };
-};
-
-const serializeAws_restJson1StringList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
-
-const serializeAws_restJson1TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1Tag(entry, context);
-    });
-};
-
-const serializeAws_restJson1ValueStringList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const serializeAws_restJson1VpcEndpointIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const serializeAws_restJson1VPCOptions = (input: VPCOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.SecurityGroupIds != null && {
-      SecurityGroupIds: serializeAws_restJson1StringList(input.SecurityGroupIds, context),
-    }),
-    ...(input.SubnetIds != null && { SubnetIds: serializeAws_restJson1StringList(input.SubnetIds, context) }),
-  };
-};
-
-const serializeAws_restJson1ZoneAwarenessConfig = (input: ZoneAwarenessConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.AvailabilityZoneCount != null && { AvailabilityZoneCount: input.AvailabilityZoneCount }),
-  };
-};
-
-const deserializeAws_restJson1AccessPoliciesStatus = (output: any, context: __SerdeContext): AccessPoliciesStatus => {
-  return {
-    Options: __expectString(output.Options),
-    Status: output.Status != null ? deserializeAws_restJson1OptionStatus(output.Status, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1AdditionalLimit = (output: any, context: __SerdeContext): AdditionalLimit => {
-  return {
-    LimitName: __expectString(output.LimitName),
-    LimitValues:
-      output.LimitValues != null ? deserializeAws_restJson1LimitValueList(output.LimitValues, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1AdditionalLimitList = (output: any, context: __SerdeContext): AdditionalLimit[] => {
+/**
+ * deserializeAws_restJson1AutoTuneList
+ */
+const de_AutoTuneList = (output: any, context: __SerdeContext): AutoTune[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1AdditionalLimit(entry, context);
+      return de_AutoTune(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1AdvancedOptions = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
+/**
+ * deserializeAws_restJson1AutoTuneMaintenanceSchedule
+ */
+const de_AutoTuneMaintenanceSchedule = (output: any, context: __SerdeContext): AutoTuneMaintenanceSchedule => {
+  return take(output, {
+    CronExpressionForRecurrence: __expectString,
+    Duration: _json,
+    StartAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-const deserializeAws_restJson1AdvancedOptionsStatus = (output: any, context: __SerdeContext): AdvancedOptionsStatus => {
-  return {
-    Options: output.Options != null ? deserializeAws_restJson1AdvancedOptions(output.Options, context) : undefined,
-    Status: output.Status != null ? deserializeAws_restJson1OptionStatus(output.Status, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1AdvancedSecurityOptions = (
-  output: any,
-  context: __SerdeContext
-): AdvancedSecurityOptions => {
-  return {
-    AnonymousAuthDisableDate:
-      output.AnonymousAuthDisableDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AnonymousAuthDisableDate)))
-        : undefined,
-    AnonymousAuthEnabled: __expectBoolean(output.AnonymousAuthEnabled),
-    Enabled: __expectBoolean(output.Enabled),
-    InternalUserDatabaseEnabled: __expectBoolean(output.InternalUserDatabaseEnabled),
-    SAMLOptions:
-      output.SAMLOptions != null ? deserializeAws_restJson1SAMLOptionsOutput(output.SAMLOptions, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1AdvancedSecurityOptionsStatus = (
-  output: any,
-  context: __SerdeContext
-): AdvancedSecurityOptionsStatus => {
-  return {
-    Options:
-      output.Options != null ? deserializeAws_restJson1AdvancedSecurityOptions(output.Options, context) : undefined,
-    Status: output.Status != null ? deserializeAws_restJson1OptionStatus(output.Status, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1AuthorizedPrincipal = (output: any, context: __SerdeContext): AuthorizedPrincipal => {
-  return {
-    Principal: __expectString(output.Principal),
-    PrincipalType: __expectString(output.PrincipalType),
-  } as any;
-};
-
-const deserializeAws_restJson1AuthorizedPrincipalList = (
-  output: any,
-  context: __SerdeContext
-): AuthorizedPrincipal[] => {
+/**
+ * deserializeAws_restJson1AutoTuneMaintenanceScheduleList
+ */
+const de_AutoTuneMaintenanceScheduleList = (output: any, context: __SerdeContext): AutoTuneMaintenanceSchedule[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1AuthorizedPrincipal(entry, context);
+      return de_AutoTuneMaintenanceSchedule(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1AutoTune = (output: any, context: __SerdeContext): AutoTune => {
-  return {
-    AutoTuneDetails:
-      output.AutoTuneDetails != null
-        ? deserializeAws_restJson1AutoTuneDetails(output.AutoTuneDetails, context)
-        : undefined,
-    AutoTuneType: __expectString(output.AutoTuneType),
-  } as any;
+/**
+ * deserializeAws_restJson1AutoTuneOptions
+ */
+const de_AutoTuneOptions = (output: any, context: __SerdeContext): AutoTuneOptions => {
+  return take(output, {
+    DesiredState: __expectString,
+    MaintenanceSchedules: (_: any) => de_AutoTuneMaintenanceScheduleList(_, context),
+    RollbackOnDisable: __expectString,
+    UseOffPeakWindow: __expectBoolean,
+  }) as any;
 };
 
-const deserializeAws_restJson1AutoTuneDetails = (output: any, context: __SerdeContext): AutoTuneDetails => {
-  return {
-    ScheduledAutoTuneDetails:
-      output.ScheduledAutoTuneDetails != null
-        ? deserializeAws_restJson1ScheduledAutoTuneDetails(output.ScheduledAutoTuneDetails, context)
-        : undefined,
-  } as any;
+// de_AutoTuneOptionsOutput omitted.
+
+/**
+ * deserializeAws_restJson1AutoTuneOptionsStatus
+ */
+const de_AutoTuneOptionsStatus = (output: any, context: __SerdeContext): AutoTuneOptionsStatus => {
+  return take(output, {
+    Options: (_: any) => de_AutoTuneOptions(_, context),
+    Status: (_: any) => de_AutoTuneStatus(_, context),
+  }) as any;
 };
 
-const deserializeAws_restJson1AutoTuneList = (output: any, context: __SerdeContext): AutoTune[] => {
+/**
+ * deserializeAws_restJson1AutoTuneStatus
+ */
+const de_AutoTuneStatus = (output: any, context: __SerdeContext): AutoTuneStatus => {
+  return take(output, {
+    CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ErrorMessage: __expectString,
+    PendingDeletion: __expectBoolean,
+    State: __expectString,
+    UpdateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    UpdateVersion: __expectInt32,
+  }) as any;
+};
+
+// de_AWSDomainInformation omitted.
+
+// de_ChangeProgressDetails omitted.
+
+/**
+ * deserializeAws_restJson1ChangeProgressStage
+ */
+const de_ChangeProgressStage = (output: any, context: __SerdeContext): ChangeProgressStage => {
+  return take(output, {
+    Description: __expectString,
+    LastUpdated: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    Status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ChangeProgressStageList
+ */
+const de_ChangeProgressStageList = (output: any, context: __SerdeContext): ChangeProgressStage[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1AutoTune(entry, context);
+      return de_ChangeProgressStage(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1AutoTuneMaintenanceSchedule = (
-  output: any,
-  context: __SerdeContext
-): AutoTuneMaintenanceSchedule => {
-  return {
-    CronExpressionForRecurrence: __expectString(output.CronExpressionForRecurrence),
-    Duration: output.Duration != null ? deserializeAws_restJson1Duration(output.Duration, context) : undefined,
-    StartAt:
-      output.StartAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartAt))) : undefined,
-  } as any;
+/**
+ * deserializeAws_restJson1ChangeProgressStatusDetails
+ */
+const de_ChangeProgressStatusDetails = (output: any, context: __SerdeContext): ChangeProgressStatusDetails => {
+  return take(output, {
+    ChangeId: __expectString,
+    ChangeProgressStages: (_: any) => de_ChangeProgressStageList(_, context),
+    CompletedProperties: _json,
+    PendingProperties: _json,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+    TotalNumberOfStages: __expectInt32,
+  }) as any;
 };
 
-const deserializeAws_restJson1AutoTuneMaintenanceScheduleList = (
-  output: any,
-  context: __SerdeContext
-): AutoTuneMaintenanceSchedule[] => {
+// de_ClusterConfig omitted.
+
+/**
+ * deserializeAws_restJson1ClusterConfigStatus
+ */
+const de_ClusterConfigStatus = (output: any, context: __SerdeContext): ClusterConfigStatus => {
+  return take(output, {
+    Options: _json,
+    Status: (_: any) => de_OptionStatus(_, context),
+  }) as any;
+};
+
+// de_CognitoOptions omitted.
+
+/**
+ * deserializeAws_restJson1CognitoOptionsStatus
+ */
+const de_CognitoOptionsStatus = (output: any, context: __SerdeContext): CognitoOptionsStatus => {
+  return take(output, {
+    Options: _json,
+    Status: (_: any) => de_OptionStatus(_, context),
+  }) as any;
+};
+
+// de_ColdStorageOptions omitted.
+
+// de_CompatibleVersionsList omitted.
+
+// de_CompatibleVersionsMap omitted.
+
+// de_ConnectionProperties omitted.
+
+/**
+ * deserializeAws_restJson1DomainConfig
+ */
+const de_DomainConfig = (output: any, context: __SerdeContext): DomainConfig => {
+  return take(output, {
+    AccessPolicies: (_: any) => de_AccessPoliciesStatus(_, context),
+    AdvancedOptions: (_: any) => de_AdvancedOptionsStatus(_, context),
+    AdvancedSecurityOptions: (_: any) => de_AdvancedSecurityOptionsStatus(_, context),
+    AutoTuneOptions: (_: any) => de_AutoTuneOptionsStatus(_, context),
+    ChangeProgressDetails: _json,
+    ClusterConfig: (_: any) => de_ClusterConfigStatus(_, context),
+    CognitoOptions: (_: any) => de_CognitoOptionsStatus(_, context),
+    DomainEndpointOptions: (_: any) => de_DomainEndpointOptionsStatus(_, context),
+    EBSOptions: (_: any) => de_EBSOptionsStatus(_, context),
+    EncryptionAtRestOptions: (_: any) => de_EncryptionAtRestOptionsStatus(_, context),
+    EngineVersion: (_: any) => de_VersionStatus(_, context),
+    LogPublishingOptions: (_: any) => de_LogPublishingOptionsStatus(_, context),
+    NodeToNodeEncryptionOptions: (_: any) => de_NodeToNodeEncryptionOptionsStatus(_, context),
+    OffPeakWindowOptions: (_: any) => de_OffPeakWindowOptionsStatus(_, context),
+    SnapshotOptions: (_: any) => de_SnapshotOptionsStatus(_, context),
+    SoftwareUpdateOptions: (_: any) => de_SoftwareUpdateOptionsStatus(_, context),
+    VPCOptions: (_: any) => de_VPCDerivedInfoStatus(_, context),
+  }) as any;
+};
+
+// de_DomainEndpointOptions omitted.
+
+/**
+ * deserializeAws_restJson1DomainEndpointOptionsStatus
+ */
+const de_DomainEndpointOptionsStatus = (output: any, context: __SerdeContext): DomainEndpointOptionsStatus => {
+  return take(output, {
+    Options: _json,
+    Status: (_: any) => de_OptionStatus(_, context),
+  }) as any;
+};
+
+// de_DomainInfo omitted.
+
+// de_DomainInfoList omitted.
+
+// de_DomainInformationContainer omitted.
+
+/**
+ * deserializeAws_restJson1DomainPackageDetails
+ */
+const de_DomainPackageDetails = (output: any, context: __SerdeContext): DomainPackageDetails => {
+  return take(output, {
+    DomainName: __expectString,
+    DomainPackageStatus: __expectString,
+    ErrorDetails: _json,
+    LastUpdated: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    PackageID: __expectString,
+    PackageName: __expectString,
+    PackageType: __expectString,
+    PackageVersion: __expectString,
+    ReferencePath: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1DomainPackageDetailsList
+ */
+const de_DomainPackageDetailsList = (output: any, context: __SerdeContext): DomainPackageDetails[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1AutoTuneMaintenanceSchedule(entry, context);
+      return de_DomainPackageDetails(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1AutoTuneOptions = (output: any, context: __SerdeContext): AutoTuneOptions => {
-  return {
-    DesiredState: __expectString(output.DesiredState),
-    MaintenanceSchedules:
-      output.MaintenanceSchedules != null
-        ? deserializeAws_restJson1AutoTuneMaintenanceScheduleList(output.MaintenanceSchedules, context)
-        : undefined,
-    RollbackOnDisable: __expectString(output.RollbackOnDisable),
-  } as any;
+/**
+ * deserializeAws_restJson1DomainStatus
+ */
+const de_DomainStatus = (output: any, context: __SerdeContext): DomainStatus => {
+  return take(output, {
+    ARN: __expectString,
+    AccessPolicies: __expectString,
+    AdvancedOptions: _json,
+    AdvancedSecurityOptions: (_: any) => de_AdvancedSecurityOptions(_, context),
+    AutoTuneOptions: _json,
+    ChangeProgressDetails: _json,
+    ClusterConfig: _json,
+    CognitoOptions: _json,
+    Created: __expectBoolean,
+    Deleted: __expectBoolean,
+    DomainEndpointOptions: _json,
+    DomainId: __expectString,
+    DomainName: __expectString,
+    EBSOptions: _json,
+    EncryptionAtRestOptions: _json,
+    Endpoint: __expectString,
+    Endpoints: _json,
+    EngineVersion: __expectString,
+    LogPublishingOptions: _json,
+    NodeToNodeEncryptionOptions: _json,
+    OffPeakWindowOptions: _json,
+    Processing: __expectBoolean,
+    ServiceSoftwareOptions: (_: any) => de_ServiceSoftwareOptions(_, context),
+    SnapshotOptions: _json,
+    SoftwareUpdateOptions: _json,
+    UpgradeProcessing: __expectBoolean,
+    VPCOptions: _json,
+  }) as any;
 };
 
-const deserializeAws_restJson1AutoTuneOptionsOutput = (output: any, context: __SerdeContext): AutoTuneOptionsOutput => {
-  return {
-    ErrorMessage: __expectString(output.ErrorMessage),
-    State: __expectString(output.State),
-  } as any;
-};
-
-const deserializeAws_restJson1AutoTuneOptionsStatus = (output: any, context: __SerdeContext): AutoTuneOptionsStatus => {
-  return {
-    Options: output.Options != null ? deserializeAws_restJson1AutoTuneOptions(output.Options, context) : undefined,
-    Status: output.Status != null ? deserializeAws_restJson1AutoTuneStatus(output.Status, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1AutoTuneStatus = (output: any, context: __SerdeContext): AutoTuneStatus => {
-  return {
-    CreationDate:
-      output.CreationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
-        : undefined,
-    ErrorMessage: __expectString(output.ErrorMessage),
-    PendingDeletion: __expectBoolean(output.PendingDeletion),
-    State: __expectString(output.State),
-    UpdateDate:
-      output.UpdateDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdateDate))) : undefined,
-    UpdateVersion: __expectInt32(output.UpdateVersion),
-  } as any;
-};
-
-const deserializeAws_restJson1AWSDomainInformation = (output: any, context: __SerdeContext): AWSDomainInformation => {
-  return {
-    DomainName: __expectString(output.DomainName),
-    OwnerId: __expectString(output.OwnerId),
-    Region: __expectString(output.Region),
-  } as any;
-};
-
-const deserializeAws_restJson1ChangeProgressDetails = (output: any, context: __SerdeContext): ChangeProgressDetails => {
-  return {
-    ChangeId: __expectString(output.ChangeId),
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_restJson1ChangeProgressStage = (output: any, context: __SerdeContext): ChangeProgressStage => {
-  return {
-    Description: __expectString(output.Description),
-    LastUpdated:
-      output.LastUpdated != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdated)))
-        : undefined,
-    Name: __expectString(output.Name),
-    Status: __expectString(output.Status),
-  } as any;
-};
-
-const deserializeAws_restJson1ChangeProgressStageList = (
-  output: any,
-  context: __SerdeContext
-): ChangeProgressStage[] => {
+/**
+ * deserializeAws_restJson1DomainStatusList
+ */
+const de_DomainStatusList = (output: any, context: __SerdeContext): DomainStatus[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ChangeProgressStage(entry, context);
+      return de_DomainStatus(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ChangeProgressStatusDetails = (
-  output: any,
-  context: __SerdeContext
-): ChangeProgressStatusDetails => {
-  return {
-    ChangeId: __expectString(output.ChangeId),
-    ChangeProgressStages:
-      output.ChangeProgressStages != null
-        ? deserializeAws_restJson1ChangeProgressStageList(output.ChangeProgressStages, context)
-        : undefined,
-    CompletedProperties:
-      output.CompletedProperties != null
-        ? deserializeAws_restJson1StringList(output.CompletedProperties, context)
-        : undefined,
-    PendingProperties:
-      output.PendingProperties != null
-        ? deserializeAws_restJson1StringList(output.PendingProperties, context)
-        : undefined,
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-    Status: __expectString(output.Status),
-    TotalNumberOfStages: __expectInt32(output.TotalNumberOfStages),
-  } as any;
+// de_DryRunProgressStatus omitted.
+
+// de_DryRunResults omitted.
+
+// de_Duration omitted.
+
+// de_EBSOptions omitted.
+
+/**
+ * deserializeAws_restJson1EBSOptionsStatus
+ */
+const de_EBSOptionsStatus = (output: any, context: __SerdeContext): EBSOptionsStatus => {
+  return take(output, {
+    Options: _json,
+    Status: (_: any) => de_OptionStatus(_, context),
+  }) as any;
 };
 
-const deserializeAws_restJson1ClusterConfig = (output: any, context: __SerdeContext): ClusterConfig => {
-  return {
-    ColdStorageOptions:
-      output.ColdStorageOptions != null
-        ? deserializeAws_restJson1ColdStorageOptions(output.ColdStorageOptions, context)
-        : undefined,
-    DedicatedMasterCount: __expectInt32(output.DedicatedMasterCount),
-    DedicatedMasterEnabled: __expectBoolean(output.DedicatedMasterEnabled),
-    DedicatedMasterType: __expectString(output.DedicatedMasterType),
-    InstanceCount: __expectInt32(output.InstanceCount),
-    InstanceType: __expectString(output.InstanceType),
-    WarmCount: __expectInt32(output.WarmCount),
-    WarmEnabled: __expectBoolean(output.WarmEnabled),
-    WarmType: __expectString(output.WarmType),
-    ZoneAwarenessConfig:
-      output.ZoneAwarenessConfig != null
-        ? deserializeAws_restJson1ZoneAwarenessConfig(output.ZoneAwarenessConfig, context)
-        : undefined,
-    ZoneAwarenessEnabled: __expectBoolean(output.ZoneAwarenessEnabled),
-  } as any;
+// de_EncryptionAtRestOptions omitted.
+
+/**
+ * deserializeAws_restJson1EncryptionAtRestOptionsStatus
+ */
+const de_EncryptionAtRestOptionsStatus = (output: any, context: __SerdeContext): EncryptionAtRestOptionsStatus => {
+  return take(output, {
+    Options: _json,
+    Status: (_: any) => de_OptionStatus(_, context),
+  }) as any;
 };
 
-const deserializeAws_restJson1ClusterConfigStatus = (output: any, context: __SerdeContext): ClusterConfigStatus => {
-  return {
-    Options: output.Options != null ? deserializeAws_restJson1ClusterConfig(output.Options, context) : undefined,
-    Status: output.Status != null ? deserializeAws_restJson1OptionStatus(output.Status, context) : undefined,
-  } as any;
+// de_EndpointsMap omitted.
+
+// de_ErrorDetails omitted.
+
+// de_InboundConnection omitted.
+
+// de_InboundConnections omitted.
+
+// de_InboundConnectionStatus omitted.
+
+// de_InstanceCountLimits omitted.
+
+// de_InstanceLimits omitted.
+
+// de_InstanceRoleList omitted.
+
+// de_InstanceTypeDetails omitted.
+
+// de_InstanceTypeDetailsList omitted.
+
+// de_Issues omitted.
+
+// de_Limits omitted.
+
+// de_LimitsByRole omitted.
+
+// de_LimitValueList omitted.
+
+// de_LogPublishingOption omitted.
+
+// de_LogPublishingOptions omitted.
+
+/**
+ * deserializeAws_restJson1LogPublishingOptionsStatus
+ */
+const de_LogPublishingOptionsStatus = (output: any, context: __SerdeContext): LogPublishingOptionsStatus => {
+  return take(output, {
+    Options: _json,
+    Status: (_: any) => de_OptionStatus(_, context),
+  }) as any;
 };
 
-const deserializeAws_restJson1CognitoOptions = (output: any, context: __SerdeContext): CognitoOptions => {
-  return {
-    Enabled: __expectBoolean(output.Enabled),
-    IdentityPoolId: __expectString(output.IdentityPoolId),
-    RoleArn: __expectString(output.RoleArn),
-    UserPoolId: __expectString(output.UserPoolId),
-  } as any;
-};
+// de_NodeToNodeEncryptionOptions omitted.
 
-const deserializeAws_restJson1CognitoOptionsStatus = (output: any, context: __SerdeContext): CognitoOptionsStatus => {
-  return {
-    Options: output.Options != null ? deserializeAws_restJson1CognitoOptions(output.Options, context) : undefined,
-    Status: output.Status != null ? deserializeAws_restJson1OptionStatus(output.Status, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1ColdStorageOptions = (output: any, context: __SerdeContext): ColdStorageOptions => {
-  return {
-    Enabled: __expectBoolean(output.Enabled),
-  } as any;
-};
-
-const deserializeAws_restJson1CompatibleVersionsList = (
-  output: any,
-  context: __SerdeContext
-): CompatibleVersionsMap[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1CompatibleVersionsMap(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1CompatibleVersionsMap = (output: any, context: __SerdeContext): CompatibleVersionsMap => {
-  return {
-    SourceVersion: __expectString(output.SourceVersion),
-    TargetVersions:
-      output.TargetVersions != null ? deserializeAws_restJson1VersionList(output.TargetVersions, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1DomainConfig = (output: any, context: __SerdeContext): DomainConfig => {
-  return {
-    AccessPolicies:
-      output.AccessPolicies != null
-        ? deserializeAws_restJson1AccessPoliciesStatus(output.AccessPolicies, context)
-        : undefined,
-    AdvancedOptions:
-      output.AdvancedOptions != null
-        ? deserializeAws_restJson1AdvancedOptionsStatus(output.AdvancedOptions, context)
-        : undefined,
-    AdvancedSecurityOptions:
-      output.AdvancedSecurityOptions != null
-        ? deserializeAws_restJson1AdvancedSecurityOptionsStatus(output.AdvancedSecurityOptions, context)
-        : undefined,
-    AutoTuneOptions:
-      output.AutoTuneOptions != null
-        ? deserializeAws_restJson1AutoTuneOptionsStatus(output.AutoTuneOptions, context)
-        : undefined,
-    ChangeProgressDetails:
-      output.ChangeProgressDetails != null
-        ? deserializeAws_restJson1ChangeProgressDetails(output.ChangeProgressDetails, context)
-        : undefined,
-    ClusterConfig:
-      output.ClusterConfig != null
-        ? deserializeAws_restJson1ClusterConfigStatus(output.ClusterConfig, context)
-        : undefined,
-    CognitoOptions:
-      output.CognitoOptions != null
-        ? deserializeAws_restJson1CognitoOptionsStatus(output.CognitoOptions, context)
-        : undefined,
-    DomainEndpointOptions:
-      output.DomainEndpointOptions != null
-        ? deserializeAws_restJson1DomainEndpointOptionsStatus(output.DomainEndpointOptions, context)
-        : undefined,
-    EBSOptions:
-      output.EBSOptions != null ? deserializeAws_restJson1EBSOptionsStatus(output.EBSOptions, context) : undefined,
-    EncryptionAtRestOptions:
-      output.EncryptionAtRestOptions != null
-        ? deserializeAws_restJson1EncryptionAtRestOptionsStatus(output.EncryptionAtRestOptions, context)
-        : undefined,
-    EngineVersion:
-      output.EngineVersion != null ? deserializeAws_restJson1VersionStatus(output.EngineVersion, context) : undefined,
-    LogPublishingOptions:
-      output.LogPublishingOptions != null
-        ? deserializeAws_restJson1LogPublishingOptionsStatus(output.LogPublishingOptions, context)
-        : undefined,
-    NodeToNodeEncryptionOptions:
-      output.NodeToNodeEncryptionOptions != null
-        ? deserializeAws_restJson1NodeToNodeEncryptionOptionsStatus(output.NodeToNodeEncryptionOptions, context)
-        : undefined,
-    SnapshotOptions:
-      output.SnapshotOptions != null
-        ? deserializeAws_restJson1SnapshotOptionsStatus(output.SnapshotOptions, context)
-        : undefined,
-    VPCOptions:
-      output.VPCOptions != null ? deserializeAws_restJson1VPCDerivedInfoStatus(output.VPCOptions, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1DomainEndpointOptions = (output: any, context: __SerdeContext): DomainEndpointOptions => {
-  return {
-    CustomEndpoint: __expectString(output.CustomEndpoint),
-    CustomEndpointCertificateArn: __expectString(output.CustomEndpointCertificateArn),
-    CustomEndpointEnabled: __expectBoolean(output.CustomEndpointEnabled),
-    EnforceHTTPS: __expectBoolean(output.EnforceHTTPS),
-    TLSSecurityPolicy: __expectString(output.TLSSecurityPolicy),
-  } as any;
-};
-
-const deserializeAws_restJson1DomainEndpointOptionsStatus = (
-  output: any,
-  context: __SerdeContext
-): DomainEndpointOptionsStatus => {
-  return {
-    Options:
-      output.Options != null ? deserializeAws_restJson1DomainEndpointOptions(output.Options, context) : undefined,
-    Status: output.Status != null ? deserializeAws_restJson1OptionStatus(output.Status, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1DomainInfo = (output: any, context: __SerdeContext): DomainInfo => {
-  return {
-    DomainName: __expectString(output.DomainName),
-    EngineType: __expectString(output.EngineType),
-  } as any;
-};
-
-const deserializeAws_restJson1DomainInfoList = (output: any, context: __SerdeContext): DomainInfo[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1DomainInfo(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1DomainInformationContainer = (
-  output: any,
-  context: __SerdeContext
-): DomainInformationContainer => {
-  return {
-    AWSDomainInformation:
-      output.AWSDomainInformation != null
-        ? deserializeAws_restJson1AWSDomainInformation(output.AWSDomainInformation, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1DomainPackageDetails = (output: any, context: __SerdeContext): DomainPackageDetails => {
-  return {
-    DomainName: __expectString(output.DomainName),
-    DomainPackageStatus: __expectString(output.DomainPackageStatus),
-    ErrorDetails:
-      output.ErrorDetails != null ? deserializeAws_restJson1ErrorDetails(output.ErrorDetails, context) : undefined,
-    LastUpdated:
-      output.LastUpdated != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdated)))
-        : undefined,
-    PackageID: __expectString(output.PackageID),
-    PackageName: __expectString(output.PackageName),
-    PackageType: __expectString(output.PackageType),
-    PackageVersion: __expectString(output.PackageVersion),
-    ReferencePath: __expectString(output.ReferencePath),
-  } as any;
-};
-
-const deserializeAws_restJson1DomainPackageDetailsList = (
-  output: any,
-  context: __SerdeContext
-): DomainPackageDetails[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1DomainPackageDetails(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1DomainStatus = (output: any, context: __SerdeContext): DomainStatus => {
-  return {
-    ARN: __expectString(output.ARN),
-    AccessPolicies: __expectString(output.AccessPolicies),
-    AdvancedOptions:
-      output.AdvancedOptions != null
-        ? deserializeAws_restJson1AdvancedOptions(output.AdvancedOptions, context)
-        : undefined,
-    AdvancedSecurityOptions:
-      output.AdvancedSecurityOptions != null
-        ? deserializeAws_restJson1AdvancedSecurityOptions(output.AdvancedSecurityOptions, context)
-        : undefined,
-    AutoTuneOptions:
-      output.AutoTuneOptions != null
-        ? deserializeAws_restJson1AutoTuneOptionsOutput(output.AutoTuneOptions, context)
-        : undefined,
-    ChangeProgressDetails:
-      output.ChangeProgressDetails != null
-        ? deserializeAws_restJson1ChangeProgressDetails(output.ChangeProgressDetails, context)
-        : undefined,
-    ClusterConfig:
-      output.ClusterConfig != null ? deserializeAws_restJson1ClusterConfig(output.ClusterConfig, context) : undefined,
-    CognitoOptions:
-      output.CognitoOptions != null
-        ? deserializeAws_restJson1CognitoOptions(output.CognitoOptions, context)
-        : undefined,
-    Created: __expectBoolean(output.Created),
-    Deleted: __expectBoolean(output.Deleted),
-    DomainEndpointOptions:
-      output.DomainEndpointOptions != null
-        ? deserializeAws_restJson1DomainEndpointOptions(output.DomainEndpointOptions, context)
-        : undefined,
-    DomainId: __expectString(output.DomainId),
-    DomainName: __expectString(output.DomainName),
-    EBSOptions: output.EBSOptions != null ? deserializeAws_restJson1EBSOptions(output.EBSOptions, context) : undefined,
-    EncryptionAtRestOptions:
-      output.EncryptionAtRestOptions != null
-        ? deserializeAws_restJson1EncryptionAtRestOptions(output.EncryptionAtRestOptions, context)
-        : undefined,
-    Endpoint: __expectString(output.Endpoint),
-    Endpoints: output.Endpoints != null ? deserializeAws_restJson1EndpointsMap(output.Endpoints, context) : undefined,
-    EngineVersion: __expectString(output.EngineVersion),
-    LogPublishingOptions:
-      output.LogPublishingOptions != null
-        ? deserializeAws_restJson1LogPublishingOptions(output.LogPublishingOptions, context)
-        : undefined,
-    NodeToNodeEncryptionOptions:
-      output.NodeToNodeEncryptionOptions != null
-        ? deserializeAws_restJson1NodeToNodeEncryptionOptions(output.NodeToNodeEncryptionOptions, context)
-        : undefined,
-    Processing: __expectBoolean(output.Processing),
-    ServiceSoftwareOptions:
-      output.ServiceSoftwareOptions != null
-        ? deserializeAws_restJson1ServiceSoftwareOptions(output.ServiceSoftwareOptions, context)
-        : undefined,
-    SnapshotOptions:
-      output.SnapshotOptions != null
-        ? deserializeAws_restJson1SnapshotOptions(output.SnapshotOptions, context)
-        : undefined,
-    UpgradeProcessing: __expectBoolean(output.UpgradeProcessing),
-    VPCOptions:
-      output.VPCOptions != null ? deserializeAws_restJson1VPCDerivedInfo(output.VPCOptions, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1DomainStatusList = (output: any, context: __SerdeContext): DomainStatus[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1DomainStatus(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1DryRunResults = (output: any, context: __SerdeContext): DryRunResults => {
-  return {
-    DeploymentType: __expectString(output.DeploymentType),
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_restJson1Duration = (output: any, context: __SerdeContext): Duration => {
-  return {
-    Unit: __expectString(output.Unit),
-    Value: __expectLong(output.Value),
-  } as any;
-};
-
-const deserializeAws_restJson1EBSOptions = (output: any, context: __SerdeContext): EBSOptions => {
-  return {
-    EBSEnabled: __expectBoolean(output.EBSEnabled),
-    Iops: __expectInt32(output.Iops),
-    Throughput: __expectInt32(output.Throughput),
-    VolumeSize: __expectInt32(output.VolumeSize),
-    VolumeType: __expectString(output.VolumeType),
-  } as any;
-};
-
-const deserializeAws_restJson1EBSOptionsStatus = (output: any, context: __SerdeContext): EBSOptionsStatus => {
-  return {
-    Options: output.Options != null ? deserializeAws_restJson1EBSOptions(output.Options, context) : undefined,
-    Status: output.Status != null ? deserializeAws_restJson1OptionStatus(output.Status, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1EncryptionAtRestOptions = (
-  output: any,
-  context: __SerdeContext
-): EncryptionAtRestOptions => {
-  return {
-    Enabled: __expectBoolean(output.Enabled),
-    KmsKeyId: __expectString(output.KmsKeyId),
-  } as any;
-};
-
-const deserializeAws_restJson1EncryptionAtRestOptionsStatus = (
-  output: any,
-  context: __SerdeContext
-): EncryptionAtRestOptionsStatus => {
-  return {
-    Options:
-      output.Options != null ? deserializeAws_restJson1EncryptionAtRestOptions(output.Options, context) : undefined,
-    Status: output.Status != null ? deserializeAws_restJson1OptionStatus(output.Status, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1EndpointsMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
-
-const deserializeAws_restJson1ErrorDetails = (output: any, context: __SerdeContext): ErrorDetails => {
-  return {
-    ErrorMessage: __expectString(output.ErrorMessage),
-    ErrorType: __expectString(output.ErrorType),
-  } as any;
-};
-
-const deserializeAws_restJson1InboundConnection = (output: any, context: __SerdeContext): InboundConnection => {
-  return {
-    ConnectionId: __expectString(output.ConnectionId),
-    ConnectionStatus:
-      output.ConnectionStatus != null
-        ? deserializeAws_restJson1InboundConnectionStatus(output.ConnectionStatus, context)
-        : undefined,
-    LocalDomainInfo:
-      output.LocalDomainInfo != null
-        ? deserializeAws_restJson1DomainInformationContainer(output.LocalDomainInfo, context)
-        : undefined,
-    RemoteDomainInfo:
-      output.RemoteDomainInfo != null
-        ? deserializeAws_restJson1DomainInformationContainer(output.RemoteDomainInfo, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1InboundConnections = (output: any, context: __SerdeContext): InboundConnection[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1InboundConnection(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1InboundConnectionStatus = (
-  output: any,
-  context: __SerdeContext
-): InboundConnectionStatus => {
-  return {
-    Message: __expectString(output.Message),
-    StatusCode: __expectString(output.StatusCode),
-  } as any;
-};
-
-const deserializeAws_restJson1InstanceCountLimits = (output: any, context: __SerdeContext): InstanceCountLimits => {
-  return {
-    MaximumInstanceCount: __expectInt32(output.MaximumInstanceCount),
-    MinimumInstanceCount: __expectInt32(output.MinimumInstanceCount),
-  } as any;
-};
-
-const deserializeAws_restJson1InstanceLimits = (output: any, context: __SerdeContext): InstanceLimits => {
-  return {
-    InstanceCountLimits:
-      output.InstanceCountLimits != null
-        ? deserializeAws_restJson1InstanceCountLimits(output.InstanceCountLimits, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1InstanceRoleList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1InstanceTypeDetails = (output: any, context: __SerdeContext): InstanceTypeDetails => {
-  return {
-    AdvancedSecurityEnabled: __expectBoolean(output.AdvancedSecurityEnabled),
-    AppLogsEnabled: __expectBoolean(output.AppLogsEnabled),
-    CognitoEnabled: __expectBoolean(output.CognitoEnabled),
-    EncryptionEnabled: __expectBoolean(output.EncryptionEnabled),
-    InstanceRole:
-      output.InstanceRole != null ? deserializeAws_restJson1InstanceRoleList(output.InstanceRole, context) : undefined,
-    InstanceType: __expectString(output.InstanceType),
-    WarmEnabled: __expectBoolean(output.WarmEnabled),
-  } as any;
-};
-
-const deserializeAws_restJson1InstanceTypeDetailsList = (
-  output: any,
-  context: __SerdeContext
-): InstanceTypeDetails[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1InstanceTypeDetails(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1Issues = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1Limits = (output: any, context: __SerdeContext): Limits => {
-  return {
-    AdditionalLimits:
-      output.AdditionalLimits != null
-        ? deserializeAws_restJson1AdditionalLimitList(output.AdditionalLimits, context)
-        : undefined,
-    InstanceLimits:
-      output.InstanceLimits != null
-        ? deserializeAws_restJson1InstanceLimits(output.InstanceLimits, context)
-        : undefined,
-    StorageTypes:
-      output.StorageTypes != null ? deserializeAws_restJson1StorageTypeList(output.StorageTypes, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1LimitsByRole = (output: any, context: __SerdeContext): Record<string, Limits> => {
-  return Object.entries(output).reduce((acc: Record<string, Limits>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = deserializeAws_restJson1Limits(value, context);
-    return acc;
-  }, {});
-};
-
-const deserializeAws_restJson1LimitValueList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1LogPublishingOption = (output: any, context: __SerdeContext): LogPublishingOption => {
-  return {
-    CloudWatchLogsLogGroupArn: __expectString(output.CloudWatchLogsLogGroupArn),
-    Enabled: __expectBoolean(output.Enabled),
-  } as any;
-};
-
-const deserializeAws_restJson1LogPublishingOptions = (
-  output: any,
-  context: __SerdeContext
-): Record<string, LogPublishingOption> => {
-  return Object.entries(output).reduce(
-    (acc: Record<string, LogPublishingOption>, [key, value]: [LogType | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = deserializeAws_restJson1LogPublishingOption(value, context);
-      return acc;
-    },
-    {}
-  );
-};
-
-const deserializeAws_restJson1LogPublishingOptionsStatus = (
-  output: any,
-  context: __SerdeContext
-): LogPublishingOptionsStatus => {
-  return {
-    Options: output.Options != null ? deserializeAws_restJson1LogPublishingOptions(output.Options, context) : undefined,
-    Status: output.Status != null ? deserializeAws_restJson1OptionStatus(output.Status, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1NodeToNodeEncryptionOptions = (
-  output: any,
-  context: __SerdeContext
-): NodeToNodeEncryptionOptions => {
-  return {
-    Enabled: __expectBoolean(output.Enabled),
-  } as any;
-};
-
-const deserializeAws_restJson1NodeToNodeEncryptionOptionsStatus = (
+/**
+ * deserializeAws_restJson1NodeToNodeEncryptionOptionsStatus
+ */
+const de_NodeToNodeEncryptionOptionsStatus = (
   output: any,
   context: __SerdeContext
 ): NodeToNodeEncryptionOptionsStatus => {
-  return {
-    Options:
-      output.Options != null ? deserializeAws_restJson1NodeToNodeEncryptionOptions(output.Options, context) : undefined,
-    Status: output.Status != null ? deserializeAws_restJson1OptionStatus(output.Status, context) : undefined,
-  } as any;
+  return take(output, {
+    Options: _json,
+    Status: (_: any) => de_OptionStatus(_, context),
+  }) as any;
 };
 
-const deserializeAws_restJson1OptionStatus = (output: any, context: __SerdeContext): OptionStatus => {
-  return {
-    CreationDate:
-      output.CreationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
-        : undefined,
-    PendingDeletion: __expectBoolean(output.PendingDeletion),
-    State: __expectString(output.State),
-    UpdateDate:
-      output.UpdateDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdateDate))) : undefined,
-    UpdateVersion: __expectInt32(output.UpdateVersion),
-  } as any;
+// de_OffPeakWindow omitted.
+
+// de_OffPeakWindowOptions omitted.
+
+/**
+ * deserializeAws_restJson1OffPeakWindowOptionsStatus
+ */
+const de_OffPeakWindowOptionsStatus = (output: any, context: __SerdeContext): OffPeakWindowOptionsStatus => {
+  return take(output, {
+    Options: _json,
+    Status: (_: any) => de_OptionStatus(_, context),
+  }) as any;
 };
 
-const deserializeAws_restJson1OutboundConnection = (output: any, context: __SerdeContext): OutboundConnection => {
-  return {
-    ConnectionAlias: __expectString(output.ConnectionAlias),
-    ConnectionId: __expectString(output.ConnectionId),
-    ConnectionStatus:
-      output.ConnectionStatus != null
-        ? deserializeAws_restJson1OutboundConnectionStatus(output.ConnectionStatus, context)
-        : undefined,
-    LocalDomainInfo:
-      output.LocalDomainInfo != null
-        ? deserializeAws_restJson1DomainInformationContainer(output.LocalDomainInfo, context)
-        : undefined,
-    RemoteDomainInfo:
-      output.RemoteDomainInfo != null
-        ? deserializeAws_restJson1DomainInformationContainer(output.RemoteDomainInfo, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_restJson1OptionStatus
+ */
+const de_OptionStatus = (output: any, context: __SerdeContext): OptionStatus => {
+  return take(output, {
+    CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    PendingDeletion: __expectBoolean,
+    State: __expectString,
+    UpdateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    UpdateVersion: __expectInt32,
+  }) as any;
 };
 
-const deserializeAws_restJson1OutboundConnections = (output: any, context: __SerdeContext): OutboundConnection[] => {
+// de_OutboundConnection omitted.
+
+// de_OutboundConnections omitted.
+
+// de_OutboundConnectionStatus omitted.
+
+/**
+ * deserializeAws_restJson1PackageDetails
+ */
+const de_PackageDetails = (output: any, context: __SerdeContext): PackageDetails => {
+  return take(output, {
+    AvailablePackageVersion: __expectString,
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ErrorDetails: _json,
+    LastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    PackageDescription: __expectString,
+    PackageID: __expectString,
+    PackageName: __expectString,
+    PackageStatus: __expectString,
+    PackageType: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1PackageDetailsList
+ */
+const de_PackageDetailsList = (output: any, context: __SerdeContext): PackageDetails[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1OutboundConnection(entry, context);
+      return de_PackageDetails(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1OutboundConnectionStatus = (
-  output: any,
-  context: __SerdeContext
-): OutboundConnectionStatus => {
-  return {
-    Message: __expectString(output.Message),
-    StatusCode: __expectString(output.StatusCode),
-  } as any;
+/**
+ * deserializeAws_restJson1PackageVersionHistory
+ */
+const de_PackageVersionHistory = (output: any, context: __SerdeContext): PackageVersionHistory => {
+  return take(output, {
+    CommitMessage: __expectString,
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    PackageVersion: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1PackageDetails = (output: any, context: __SerdeContext): PackageDetails => {
-  return {
-    AvailablePackageVersion: __expectString(output.AvailablePackageVersion),
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    ErrorDetails:
-      output.ErrorDetails != null ? deserializeAws_restJson1ErrorDetails(output.ErrorDetails, context) : undefined,
-    LastUpdatedAt:
-      output.LastUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedAt)))
-        : undefined,
-    PackageDescription: __expectString(output.PackageDescription),
-    PackageID: __expectString(output.PackageID),
-    PackageName: __expectString(output.PackageName),
-    PackageStatus: __expectString(output.PackageStatus),
-    PackageType: __expectString(output.PackageType),
-  } as any;
-};
-
-const deserializeAws_restJson1PackageDetailsList = (output: any, context: __SerdeContext): PackageDetails[] => {
+/**
+ * deserializeAws_restJson1PackageVersionHistoryList
+ */
+const de_PackageVersionHistoryList = (output: any, context: __SerdeContext): PackageVersionHistory[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1PackageDetails(entry, context);
+      return de_PackageVersionHistory(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1PackageVersionHistory = (output: any, context: __SerdeContext): PackageVersionHistory => {
-  return {
-    CommitMessage: __expectString(output.CommitMessage),
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    PackageVersion: __expectString(output.PackageVersion),
-  } as any;
+/**
+ * deserializeAws_restJson1RecurringCharge
+ */
+const de_RecurringCharge = (output: any, context: __SerdeContext): RecurringCharge => {
+  return take(output, {
+    RecurringChargeAmount: __limitedParseDouble,
+    RecurringChargeFrequency: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1PackageVersionHistoryList = (
-  output: any,
-  context: __SerdeContext
-): PackageVersionHistory[] => {
+/**
+ * deserializeAws_restJson1RecurringChargeList
+ */
+const de_RecurringChargeList = (output: any, context: __SerdeContext): RecurringCharge[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1PackageVersionHistory(entry, context);
+      return de_RecurringCharge(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1RecurringCharge = (output: any, context: __SerdeContext): RecurringCharge => {
-  return {
-    RecurringChargeAmount: __limitedParseDouble(output.RecurringChargeAmount),
-    RecurringChargeFrequency: __expectString(output.RecurringChargeFrequency),
-  } as any;
+/**
+ * deserializeAws_restJson1ReservedInstance
+ */
+const de_ReservedInstance = (output: any, context: __SerdeContext): ReservedInstance => {
+  return take(output, {
+    BillingSubscriptionId: __expectLong,
+    CurrencyCode: __expectString,
+    Duration: __expectInt32,
+    FixedPrice: __limitedParseDouble,
+    InstanceCount: __expectInt32,
+    InstanceType: __expectString,
+    PaymentOption: __expectString,
+    RecurringCharges: (_: any) => de_RecurringChargeList(_, context),
+    ReservationName: __expectString,
+    ReservedInstanceId: __expectString,
+    ReservedInstanceOfferingId: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    State: __expectString,
+    UsagePrice: __limitedParseDouble,
+  }) as any;
 };
 
-const deserializeAws_restJson1RecurringChargeList = (output: any, context: __SerdeContext): RecurringCharge[] => {
+/**
+ * deserializeAws_restJson1ReservedInstanceList
+ */
+const de_ReservedInstanceList = (output: any, context: __SerdeContext): ReservedInstance[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1RecurringCharge(entry, context);
+      return de_ReservedInstance(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ReservedInstance = (output: any, context: __SerdeContext): ReservedInstance => {
-  return {
-    BillingSubscriptionId: __expectLong(output.BillingSubscriptionId),
-    CurrencyCode: __expectString(output.CurrencyCode),
-    Duration: __expectInt32(output.Duration),
-    FixedPrice: __limitedParseDouble(output.FixedPrice),
-    InstanceCount: __expectInt32(output.InstanceCount),
-    InstanceType: __expectString(output.InstanceType),
-    PaymentOption: __expectString(output.PaymentOption),
-    RecurringCharges:
-      output.RecurringCharges != null
-        ? deserializeAws_restJson1RecurringChargeList(output.RecurringCharges, context)
-        : undefined,
-    ReservationName: __expectString(output.ReservationName),
-    ReservedInstanceId: __expectString(output.ReservedInstanceId),
-    ReservedInstanceOfferingId: __expectString(output.ReservedInstanceOfferingId),
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-    State: __expectString(output.State),
-    UsagePrice: __limitedParseDouble(output.UsagePrice),
-  } as any;
+/**
+ * deserializeAws_restJson1ReservedInstanceOffering
+ */
+const de_ReservedInstanceOffering = (output: any, context: __SerdeContext): ReservedInstanceOffering => {
+  return take(output, {
+    CurrencyCode: __expectString,
+    Duration: __expectInt32,
+    FixedPrice: __limitedParseDouble,
+    InstanceType: __expectString,
+    PaymentOption: __expectString,
+    RecurringCharges: (_: any) => de_RecurringChargeList(_, context),
+    ReservedInstanceOfferingId: __expectString,
+    UsagePrice: __limitedParseDouble,
+  }) as any;
 };
 
-const deserializeAws_restJson1ReservedInstanceList = (output: any, context: __SerdeContext): ReservedInstance[] => {
+/**
+ * deserializeAws_restJson1ReservedInstanceOfferingList
+ */
+const de_ReservedInstanceOfferingList = (output: any, context: __SerdeContext): ReservedInstanceOffering[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ReservedInstance(entry, context);
+      return de_ReservedInstanceOffering(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ReservedInstanceOffering = (
-  output: any,
-  context: __SerdeContext
-): ReservedInstanceOffering => {
-  return {
-    CurrencyCode: __expectString(output.CurrencyCode),
-    Duration: __expectInt32(output.Duration),
-    FixedPrice: __limitedParseDouble(output.FixedPrice),
-    InstanceType: __expectString(output.InstanceType),
-    PaymentOption: __expectString(output.PaymentOption),
-    RecurringCharges:
-      output.RecurringCharges != null
-        ? deserializeAws_restJson1RecurringChargeList(output.RecurringCharges, context)
-        : undefined,
-    ReservedInstanceOfferingId: __expectString(output.ReservedInstanceOfferingId),
-    UsagePrice: __limitedParseDouble(output.UsagePrice),
-  } as any;
+// de_SAMLIdp omitted.
+
+// de_SAMLOptionsOutput omitted.
+
+// de_ScheduledAction omitted.
+
+// de_ScheduledActionsList omitted.
+
+/**
+ * deserializeAws_restJson1ScheduledAutoTuneDetails
+ */
+const de_ScheduledAutoTuneDetails = (output: any, context: __SerdeContext): ScheduledAutoTuneDetails => {
+  return take(output, {
+    Action: __expectString,
+    ActionType: __expectString,
+    Date: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Severity: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1ReservedInstanceOfferingList = (
-  output: any,
-  context: __SerdeContext
-): ReservedInstanceOffering[] => {
+/**
+ * deserializeAws_restJson1ServiceSoftwareOptions
+ */
+const de_ServiceSoftwareOptions = (output: any, context: __SerdeContext): ServiceSoftwareOptions => {
+  return take(output, {
+    AutomatedUpdateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Cancellable: __expectBoolean,
+    CurrentVersion: __expectString,
+    Description: __expectString,
+    NewVersion: __expectString,
+    OptionalDeployment: __expectBoolean,
+    UpdateAvailable: __expectBoolean,
+    UpdateStatus: __expectString,
+  }) as any;
+};
+
+// de_SlotList omitted.
+
+// de_SnapshotOptions omitted.
+
+/**
+ * deserializeAws_restJson1SnapshotOptionsStatus
+ */
+const de_SnapshotOptionsStatus = (output: any, context: __SerdeContext): SnapshotOptionsStatus => {
+  return take(output, {
+    Options: _json,
+    Status: (_: any) => de_OptionStatus(_, context),
+  }) as any;
+};
+
+// de_SoftwareUpdateOptions omitted.
+
+/**
+ * deserializeAws_restJson1SoftwareUpdateOptionsStatus
+ */
+const de_SoftwareUpdateOptionsStatus = (output: any, context: __SerdeContext): SoftwareUpdateOptionsStatus => {
+  return take(output, {
+    Options: _json,
+    Status: (_: any) => de_OptionStatus(_, context),
+  }) as any;
+};
+
+// de_StorageType omitted.
+
+// de_StorageTypeLimit omitted.
+
+// de_StorageTypeLimitList omitted.
+
+// de_StorageTypeList omitted.
+
+// de_StringList omitted.
+
+// de_Tag omitted.
+
+// de_TagList omitted.
+
+/**
+ * deserializeAws_restJson1UpgradeHistory
+ */
+const de_UpgradeHistory = (output: any, context: __SerdeContext): UpgradeHistory => {
+  return take(output, {
+    StartTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StepsList: (_: any) => de_UpgradeStepsList(_, context),
+    UpgradeName: __expectString,
+    UpgradeStatus: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1UpgradeHistoryList
+ */
+const de_UpgradeHistoryList = (output: any, context: __SerdeContext): UpgradeHistory[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ReservedInstanceOffering(entry, context);
+      return de_UpgradeHistory(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1SAMLIdp = (output: any, context: __SerdeContext): SAMLIdp => {
-  return {
-    EntityId: __expectString(output.EntityId),
-    MetadataContent: __expectString(output.MetadataContent),
-  } as any;
+/**
+ * deserializeAws_restJson1UpgradeStepItem
+ */
+const de_UpgradeStepItem = (output: any, context: __SerdeContext): UpgradeStepItem => {
+  return take(output, {
+    Issues: _json,
+    ProgressPercent: __limitedParseDouble,
+    UpgradeStep: __expectString,
+    UpgradeStepStatus: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1SAMLOptionsOutput = (output: any, context: __SerdeContext): SAMLOptionsOutput => {
-  return {
-    Enabled: __expectBoolean(output.Enabled),
-    Idp: output.Idp != null ? deserializeAws_restJson1SAMLIdp(output.Idp, context) : undefined,
-    RolesKey: __expectString(output.RolesKey),
-    SessionTimeoutMinutes: __expectInt32(output.SessionTimeoutMinutes),
-    SubjectKey: __expectString(output.SubjectKey),
-  } as any;
-};
-
-const deserializeAws_restJson1ScheduledAutoTuneDetails = (
-  output: any,
-  context: __SerdeContext
-): ScheduledAutoTuneDetails => {
-  return {
-    Action: __expectString(output.Action),
-    ActionType: __expectString(output.ActionType),
-    Date: output.Date != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Date))) : undefined,
-    Severity: __expectString(output.Severity),
-  } as any;
-};
-
-const deserializeAws_restJson1ServiceSoftwareOptions = (
-  output: any,
-  context: __SerdeContext
-): ServiceSoftwareOptions => {
-  return {
-    AutomatedUpdateDate:
-      output.AutomatedUpdateDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AutomatedUpdateDate)))
-        : undefined,
-    Cancellable: __expectBoolean(output.Cancellable),
-    CurrentVersion: __expectString(output.CurrentVersion),
-    Description: __expectString(output.Description),
-    NewVersion: __expectString(output.NewVersion),
-    OptionalDeployment: __expectBoolean(output.OptionalDeployment),
-    UpdateAvailable: __expectBoolean(output.UpdateAvailable),
-    UpdateStatus: __expectString(output.UpdateStatus),
-  } as any;
-};
-
-const deserializeAws_restJson1SnapshotOptions = (output: any, context: __SerdeContext): SnapshotOptions => {
-  return {
-    AutomatedSnapshotStartHour: __expectInt32(output.AutomatedSnapshotStartHour),
-  } as any;
-};
-
-const deserializeAws_restJson1SnapshotOptionsStatus = (output: any, context: __SerdeContext): SnapshotOptionsStatus => {
-  return {
-    Options: output.Options != null ? deserializeAws_restJson1SnapshotOptions(output.Options, context) : undefined,
-    Status: output.Status != null ? deserializeAws_restJson1OptionStatus(output.Status, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1StorageType = (output: any, context: __SerdeContext): StorageType => {
-  return {
-    StorageSubTypeName: __expectString(output.StorageSubTypeName),
-    StorageTypeLimits:
-      output.StorageTypeLimits != null
-        ? deserializeAws_restJson1StorageTypeLimitList(output.StorageTypeLimits, context)
-        : undefined,
-    StorageTypeName: __expectString(output.StorageTypeName),
-  } as any;
-};
-
-const deserializeAws_restJson1StorageTypeLimit = (output: any, context: __SerdeContext): StorageTypeLimit => {
-  return {
-    LimitName: __expectString(output.LimitName),
-    LimitValues:
-      output.LimitValues != null ? deserializeAws_restJson1LimitValueList(output.LimitValues, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1StorageTypeLimitList = (output: any, context: __SerdeContext): StorageTypeLimit[] => {
+/**
+ * deserializeAws_restJson1UpgradeStepsList
+ */
+const de_UpgradeStepsList = (output: any, context: __SerdeContext): UpgradeStepItem[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1StorageTypeLimit(entry, context);
+      return de_UpgradeStepItem(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1StorageTypeList = (output: any, context: __SerdeContext): StorageType[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1StorageType(entry, context);
-    });
-  return retVal;
+// de_ValidationFailure omitted.
+
+// de_ValidationFailures omitted.
+
+// de_VersionList omitted.
+
+/**
+ * deserializeAws_restJson1VersionStatus
+ */
+const de_VersionStatus = (output: any, context: __SerdeContext): VersionStatus => {
+  return take(output, {
+    Options: __expectString,
+    Status: (_: any) => de_OptionStatus(_, context),
+  }) as any;
 };
 
-const deserializeAws_restJson1StringList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
+// de_VPCDerivedInfo omitted.
+
+/**
+ * deserializeAws_restJson1VPCDerivedInfoStatus
+ */
+const de_VPCDerivedInfoStatus = (output: any, context: __SerdeContext): VPCDerivedInfoStatus => {
+  return take(output, {
+    Options: _json,
+    Status: (_: any) => de_OptionStatus(_, context),
+  }) as any;
 };
 
-const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_VpcEndpoint omitted.
 
-const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Tag(entry, context);
-    });
-  return retVal;
-};
+// de_VpcEndpointError omitted.
 
-const deserializeAws_restJson1UpgradeHistory = (output: any, context: __SerdeContext): UpgradeHistory => {
-  return {
-    StartTimestamp:
-      output.StartTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTimestamp)))
-        : undefined,
-    StepsList:
-      output.StepsList != null ? deserializeAws_restJson1UpgradeStepsList(output.StepsList, context) : undefined,
-    UpgradeName: __expectString(output.UpgradeName),
-    UpgradeStatus: __expectString(output.UpgradeStatus),
-  } as any;
-};
+// de_VpcEndpointErrorList omitted.
 
-const deserializeAws_restJson1UpgradeHistoryList = (output: any, context: __SerdeContext): UpgradeHistory[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1UpgradeHistory(entry, context);
-    });
-  return retVal;
-};
+// de_VpcEndpoints omitted.
 
-const deserializeAws_restJson1UpgradeStepItem = (output: any, context: __SerdeContext): UpgradeStepItem => {
-  return {
-    Issues: output.Issues != null ? deserializeAws_restJson1Issues(output.Issues, context) : undefined,
-    ProgressPercent: __limitedParseDouble(output.ProgressPercent),
-    UpgradeStep: __expectString(output.UpgradeStep),
-    UpgradeStepStatus: __expectString(output.UpgradeStepStatus),
-  } as any;
-};
+// de_VpcEndpointSummary omitted.
 
-const deserializeAws_restJson1UpgradeStepsList = (output: any, context: __SerdeContext): UpgradeStepItem[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1UpgradeStepItem(entry, context);
-    });
-  return retVal;
-};
+// de_VpcEndpointSummaryList omitted.
 
-const deserializeAws_restJson1VersionList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_WindowStartTime omitted.
 
-const deserializeAws_restJson1VersionStatus = (output: any, context: __SerdeContext): VersionStatus => {
-  return {
-    Options: __expectString(output.Options),
-    Status: output.Status != null ? deserializeAws_restJson1OptionStatus(output.Status, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1VPCDerivedInfo = (output: any, context: __SerdeContext): VPCDerivedInfo => {
-  return {
-    AvailabilityZones:
-      output.AvailabilityZones != null
-        ? deserializeAws_restJson1StringList(output.AvailabilityZones, context)
-        : undefined,
-    SecurityGroupIds:
-      output.SecurityGroupIds != null
-        ? deserializeAws_restJson1StringList(output.SecurityGroupIds, context)
-        : undefined,
-    SubnetIds: output.SubnetIds != null ? deserializeAws_restJson1StringList(output.SubnetIds, context) : undefined,
-    VPCId: __expectString(output.VPCId),
-  } as any;
-};
-
-const deserializeAws_restJson1VPCDerivedInfoStatus = (output: any, context: __SerdeContext): VPCDerivedInfoStatus => {
-  return {
-    Options: output.Options != null ? deserializeAws_restJson1VPCDerivedInfo(output.Options, context) : undefined,
-    Status: output.Status != null ? deserializeAws_restJson1OptionStatus(output.Status, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1VpcEndpoint = (output: any, context: __SerdeContext): VpcEndpoint => {
-  return {
-    DomainArn: __expectString(output.DomainArn),
-    Endpoint: __expectString(output.Endpoint),
-    Status: __expectString(output.Status),
-    VpcEndpointId: __expectString(output.VpcEndpointId),
-    VpcEndpointOwner: __expectString(output.VpcEndpointOwner),
-    VpcOptions:
-      output.VpcOptions != null ? deserializeAws_restJson1VPCDerivedInfo(output.VpcOptions, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1VpcEndpointError = (output: any, context: __SerdeContext): VpcEndpointError => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    ErrorMessage: __expectString(output.ErrorMessage),
-    VpcEndpointId: __expectString(output.VpcEndpointId),
-  } as any;
-};
-
-const deserializeAws_restJson1VpcEndpointErrorList = (output: any, context: __SerdeContext): VpcEndpointError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1VpcEndpointError(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1VpcEndpoints = (output: any, context: __SerdeContext): VpcEndpoint[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1VpcEndpoint(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1VpcEndpointSummary = (output: any, context: __SerdeContext): VpcEndpointSummary => {
-  return {
-    DomainArn: __expectString(output.DomainArn),
-    Status: __expectString(output.Status),
-    VpcEndpointId: __expectString(output.VpcEndpointId),
-    VpcEndpointOwner: __expectString(output.VpcEndpointOwner),
-  } as any;
-};
-
-const deserializeAws_restJson1VpcEndpointSummaryList = (output: any, context: __SerdeContext): VpcEndpointSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1VpcEndpointSummary(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1ZoneAwarenessConfig = (output: any, context: __SerdeContext): ZoneAwarenessConfig => {
-  return {
-    AvailabilityZoneCount: __expectInt32(output.AvailabilityZoneCount),
-  } as any;
-};
+// de_ZoneAwarenessConfig omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

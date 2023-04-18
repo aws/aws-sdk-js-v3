@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import {
-  ListReplaysRequest,
-  ListReplaysRequestFilterSensitiveLog,
-  ListReplaysResponse,
-  ListReplaysResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListReplaysCommand,
-  serializeAws_json1_1ListReplaysCommand,
-} from "../protocols/Aws_json1_1";
+import { ListReplaysRequest, ListReplaysResponse } from "../models/models_0";
+import { de_ListReplaysCommand, se_ListReplaysCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListReplaysCommand}.
+ */
 export interface ListReplaysCommandInput extends ListReplaysRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListReplaysCommand}.
+ */
 export interface ListReplaysCommandOutput extends ListReplaysResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists your replays. You can either list all the replays or you can provide a prefix to
  *       match to the replay names. Filter parameters are exclusive.</p>
  * @example
@@ -37,13 +40,26 @@ export interface ListReplaysCommandOutput extends ListReplaysResponse, __Metadat
  * import { CloudWatchEventsClient, ListReplaysCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, ListReplaysCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
+ * const input = { // ListReplaysRequest
+ *   NamePrefix: "STRING_VALUE",
+ *   State: "STRING_VALUE",
+ *   EventSourceArn: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListReplaysCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListReplaysCommandInput - {@link ListReplaysCommandInput}
+ * @returns {@link ListReplaysCommandOutput}
  * @see {@link ListReplaysCommandInput} for command's `input` shape.
  * @see {@link ListReplaysCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception occurs due to unexpected causes.</p>
+ *
  *
  */
 export class ListReplaysCommand extends $Command<
@@ -63,6 +79,9 @@ export class ListReplaysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListReplaysCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +108,8 @@ export class ListReplaysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListReplaysRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListReplaysResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +119,18 @@ export class ListReplaysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListReplaysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListReplaysCommand(input, context);
+    return se_ListReplaysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListReplaysCommandOutput> {
-    return deserializeAws_json1_1ListReplaysCommand(output, context);
+    return de_ListReplaysCommand(output, context);
   }
 
   // Start section: command_body_extra

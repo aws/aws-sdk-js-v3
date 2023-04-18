@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListRoutingControlsRequest,
-  ListRoutingControlsRequestFilterSensitiveLog,
-  ListRoutingControlsResponse,
-  ListRoutingControlsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListRoutingControlsCommand,
-  serializeAws_json1_0ListRoutingControlsCommand,
-} from "../protocols/Aws_json1_0";
+import { ListRoutingControlsRequest, ListRoutingControlsResponse } from "../models/models_0";
+import { de_ListRoutingControlsCommand, se_ListRoutingControlsCommand } from "../protocols/Aws_json1_0";
 import {
   Route53RecoveryClusterClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53RecoveryClusterClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListRoutingControlsCommand}.
+ */
 export interface ListRoutingControlsCommandInput extends ListRoutingControlsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListRoutingControlsCommand}.
+ */
 export interface ListRoutingControlsCommandOutput extends ListRoutingControlsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List routing control names and Amazon Resource Names (ARNs), as well as the routing control
  * 			state for each routing control, along with the control panel name and control panel ARN for the routing controls.
  * 			If you specify a control panel ARN, this call lists the routing controls in the control panel. Otherwise, it lists
@@ -71,13 +74,39 @@ export interface ListRoutingControlsCommandOutput extends ListRoutingControlsRes
  * import { Route53RecoveryClusterClient, ListRoutingControlsCommand } from "@aws-sdk/client-route53-recovery-cluster"; // ES Modules import
  * // const { Route53RecoveryClusterClient, ListRoutingControlsCommand } = require("@aws-sdk/client-route53-recovery-cluster"); // CommonJS import
  * const client = new Route53RecoveryClusterClient(config);
+ * const input = { // ListRoutingControlsRequest
+ *   ControlPanelArn: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListRoutingControlsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRoutingControlsCommandInput - {@link ListRoutingControlsCommandInput}
+ * @returns {@link ListRoutingControlsCommandOutput}
  * @see {@link ListRoutingControlsCommandInput} for command's `input` shape.
  * @see {@link ListRoutingControlsCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryClusterClientResolvedConfig | config} for Route53RecoveryClusterClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient permissions to perform this action.</p>
+ *
+ * @throws {@link EndpointTemporarilyUnavailableException} (server fault)
+ *  <p>The cluster endpoint isn't available. Try another cluster endpoint.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There was an unexpected error during processing of the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a routing control or control panel that was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because of request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There was a validation error on the request.</p>
+ *
  *
  */
 export class ListRoutingControlsCommand extends $Command<
@@ -97,6 +126,9 @@ export class ListRoutingControlsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRoutingControlsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +157,8 @@ export class ListRoutingControlsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRoutingControlsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRoutingControlsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +168,18 @@ export class ListRoutingControlsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRoutingControlsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListRoutingControlsCommand(input, context);
+    return se_ListRoutingControlsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRoutingControlsCommandOutput> {
-    return deserializeAws_json1_0ListRoutingControlsCommand(output, context);
+    return de_ListRoutingControlsCommand(output, context);
   }
 
   // Start section: command_body_extra

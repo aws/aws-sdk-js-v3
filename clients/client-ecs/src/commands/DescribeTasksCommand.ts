@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  DescribeTasksRequest,
-  DescribeTasksRequestFilterSensitiveLog,
-  DescribeTasksResponse,
-  DescribeTasksResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeTasksCommand,
-  serializeAws_json1_1DescribeTasksCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeTasksRequest, DescribeTasksResponse } from "../models/models_0";
+import { de_DescribeTasksCommand, se_DescribeTasksCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeTasksCommand}.
+ */
 export interface DescribeTasksCommandInput extends DescribeTasksRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeTasksCommand}.
+ */
 export interface DescribeTasksCommandOutput extends DescribeTasksResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a specified task or tasks.</p>
  *          <p>Currently, stopped tasks appear in the returned results for at least one hour.</p>
  * @example
@@ -37,13 +40,91 @@ export interface DescribeTasksCommandOutput extends DescribeTasksResponse, __Met
  * import { ECSClient, DescribeTasksCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, DescribeTasksCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // DescribeTasksRequest
+ *   cluster: "STRING_VALUE",
+ *   tasks: [ // StringList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   include: [ // TaskFieldList
+ *     "TAGS",
+ *   ],
+ * };
  * const command = new DescribeTasksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTasksCommandInput - {@link DescribeTasksCommandInput}
+ * @returns {@link DescribeTasksCommandOutput}
  * @see {@link DescribeTasksCommandInput} for command's `input` shape.
  * @see {@link DescribeTasksCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action. This client action might be using
+ * 			an action or resource on behalf of a user that doesn't have permissions to use the
+ * 			action or resource,. Or, it might be specifying an identifier that isn't valid.</p>
+ *
+ * @throws {@link ClusterNotFoundException} (client fault)
+ *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter isn't valid. Review the available parameters for the API
+ * 			request.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server issue.</p>
+ *
+ *
+ * @example To describe a task
+ * ```javascript
+ * // This example provides a description of the specified task, using the task UUID as an identifier.
+ * const input = {
+ *   "tasks": [
+ *     "c5cba4eb-5dad-405e-96db-71ef8eefe6a8"
+ *   ]
+ * };
+ * const command = new DescribeTasksCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "failures": [],
+ *   "tasks": [
+ *     {
+ *       "clusterArn": "arn:aws:ecs:<region>:<aws_account_id>:cluster/default",
+ *       "containerInstanceArn": "arn:aws:ecs:<region>:<aws_account_id>:container-instance/18f9eda5-27d7-4c19-b133-45adc516e8fb",
+ *       "containers": [
+ *         {
+ *           "name": "ecs-demo",
+ *           "containerArn": "arn:aws:ecs:<region>:<aws_account_id>:container/7c01765b-c588-45b3-8290-4ba38bd6c5a6",
+ *           "lastStatus": "RUNNING",
+ *           "networkBindings": [
+ *             {
+ *               "bindIP": "0.0.0.0",
+ *               "containerPort": 80,
+ *               "hostPort": 80
+ *             }
+ *           ],
+ *           "taskArn": "arn:aws:ecs:<region>:<aws_account_id>:task/c5cba4eb-5dad-405e-96db-71ef8eefe6a8"
+ *         }
+ *       ],
+ *       "desiredStatus": "RUNNING",
+ *       "lastStatus": "RUNNING",
+ *       "overrides": {
+ *         "containerOverrides": [
+ *           {
+ *             "name": "ecs-demo"
+ *           }
+ *         ]
+ *       },
+ *       "startedBy": "ecs-svc/9223370608528463088",
+ *       "taskArn": "arn:aws:ecs:<region>:<aws_account_id>:task/c5cba4eb-5dad-405e-96db-71ef8eefe6a8",
+ *       "taskDefinitionArn": "arn:aws:ecs:<region>:<aws_account_id>:task-definition/amazon-ecs-sample:1"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: a90b0cde-f965-4946-b55e-cfd8cc54e827
+ * ```
  *
  */
 export class DescribeTasksCommand extends $Command<
@@ -63,6 +144,9 @@ export class DescribeTasksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +173,8 @@ export class DescribeTasksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTasksRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTasksResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +184,18 @@ export class DescribeTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeTasksCommand(input, context);
+    return se_DescribeTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTasksCommandOutput> {
-    return deserializeAws_json1_1DescribeTasksCommand(output, context);
+    return de_DescribeTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

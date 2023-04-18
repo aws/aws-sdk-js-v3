@@ -1,5 +1,35 @@
 # Smithy AWS Typescript Codegen Changelog
 
+## 0.14.0 (2023-02-09)
+
+## 0.13.0 (2023-01-31)
+
+### Features
+
+* Upgrade to Java 17 ([#4096](https://github.com/aws/aws-sdk-js-v3/pull/4096))
+* Upgrade to smithy 1.27.2 ([#4387](https://github.com/aws/aws-sdk-js-v3/pull/4387))
+* Endpoints 2.0 package changes ([#3947](https://github.com/aws/aws-sdk-js-v3/pull/3947))
+* Support awsQueryError trait ([#3998](https://github.com/aws/aws-sdk-js-v3/pull/3998))
+* Add TokenAuthPlugin ([#4238](https://github.com/aws/aws-sdk-js-v3/pull/4238), [#4012](https://github.com/aws/aws-sdk-js-v3/pull/4012), [#3972](https://github.com/aws/aws-sdk-js-v3/pull/3972))
+* Add RetryStrategyV2 ([#4248](https://github.com/aws/aws-sdk-js-v3/pull/4248))
+* Replace Hash with Checksum ([#4346](https://github.com/aws/aws-sdk-js-v3/pull/4346))
+* Use util-utf8 instead of platform dependencies ([#4353](https://github.com/aws/aws-sdk-js-v3/pull/4353))
+* Reduce object copying in iterators ([#4194](https://github.com/aws/aws-sdk-js-v3/pull/4194))
+* Support util functions to consume response streams ([#3977](https://github.com/aws/aws-sdk-js-v3/pull/3977))
+* Update awsAuthPlugin to set default signing name ([#4259](https://github.com/aws/aws-sdk-js-v3/pull/4259))
+* fix(codegen): safe access for error code location ([#4367](https://github.com/aws/aws-sdk-js-v3/pull/4367))
+
+### Bug fixes
+
+* Populate message field when parsing errors ([#3995](https://github.com/aws/aws-sdk-js-v3/pull/3995), [#3999](https://github.com/aws/aws-sdk-js-v3/pull/3999))
+* Update message in Error key in case of XML protocol ([#4000](https://github.com/aws/aws-sdk-js-v3/pull/4000))
+* Update aws-query protocol to distinguish explicit empty list ([#4003](https://github.com/aws/aws-sdk-js-v3/pull/4003))
+* Update S3 default config.signingEscapePath to false ([#4013](https://github.com/aws/aws-sdk-js-v3/pull/4013))
+* Use default no-op logger to preserve type safety ([#4171](https://github.com/aws/aws-sdk-js-v3/pull/4171))
+* Fix S3 control to add prefix dedupe middleware ([#4286](https://github.com/aws/aws-sdk-js-v3/pull/4286))
+* Fix restXml protocol test for timestampFormat targets ([#4364](https://github.com/aws/aws-sdk-js-v3/pull/4364))
+* Fix endpoints 2.0 bugs ([#4043](https://github.com/aws/aws-sdk-js-v3/pull/4043), [#4051](https://github.com/aws/aws-sdk-js-v3/pull/4051), [#4059](https://github.com/aws/aws-sdk-js-v3/pull/4059), [#4132](https://github.com/aws/aws-sdk-js-v3/pull/4132), [#4164](https://github.com/aws/aws-sdk-js-v3/pull/4164), [#4285](https://github.com/aws/aws-sdk-js-v3/pull/4285))
+
 ## 0.12.0 (2022-09-19)
 
 ### Features

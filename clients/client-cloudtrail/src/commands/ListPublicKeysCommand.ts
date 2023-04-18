@@ -14,26 +14,32 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import {
-  ListPublicKeysRequest,
-  ListPublicKeysRequestFilterSensitiveLog,
-  ListPublicKeysResponse,
-  ListPublicKeysResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListPublicKeysCommand,
-  serializeAws_json1_1ListPublicKeysCommand,
-} from "../protocols/Aws_json1_1";
+import { ListPublicKeysRequest, ListPublicKeysResponse } from "../models/models_0";
+import { de_ListPublicKeysCommand, se_ListPublicKeysCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListPublicKeysCommand}.
+ */
 export interface ListPublicKeysCommandInput extends ListPublicKeysRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListPublicKeysCommand}.
+ */
 export interface ListPublicKeysCommandOutput extends ListPublicKeysResponse, __MetadataBearer {}
 
 /**
- * <p>Returns all public keys whose private keys were used to sign the digest files within the specified time range. The public key is needed to validate digest files that were signed with its corresponding private key.</p>
+ * @public
+ * <p>Returns all public keys whose private keys were used to sign the digest files within the
+ *          specified time range. The public key is needed to validate digest files that were signed
+ *          with its corresponding private key.</p>
  *          <note>
- *             <p>CloudTrail uses different private and public key pairs per region. Each digest file is signed with a private key
- *             unique to its region. When you validate a digest file from a specific region, you must look in the same region for its
- *             corresponding public key.</p>
+ *             <p>CloudTrail uses different private and public key pairs per region. Each digest
+ *             file is signed with a private key unique to its region. When you validate a digest file
+ *             from a specific region, you must look in the same region for its corresponding public
+ *             key.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,13 +47,34 @@ export interface ListPublicKeysCommandOutput extends ListPublicKeysResponse, __M
  * import { CloudTrailClient, ListPublicKeysCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, ListPublicKeysCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = { // ListPublicKeysRequest
+ *   StartTime: new Date("TIMESTAMP"),
+ *   EndTime: new Date("TIMESTAMP"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListPublicKeysCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPublicKeysCommandInput - {@link ListPublicKeysCommandInput}
+ * @returns {@link ListPublicKeysCommandOutput}
  * @see {@link ListPublicKeysCommandInput} for command's `input` shape.
  * @see {@link ListPublicKeysCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
+ *
+ * @throws {@link InvalidTimeRangeException} (client fault)
+ *  <p>Occurs if the timestamp values are not valid. Either the start time occurs after the end
+ *          time, or the time range is outside the range of possible values.</p>
+ *
+ * @throws {@link InvalidTokenException} (client fault)
+ *  <p>Reserved for future use.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not permitted.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not supported.</p>
+ *
  *
  */
 export class ListPublicKeysCommand extends $Command<
@@ -67,6 +94,9 @@ export class ListPublicKeysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPublicKeysCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +125,8 @@ export class ListPublicKeysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPublicKeysRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPublicKeysResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +136,18 @@ export class ListPublicKeysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPublicKeysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListPublicKeysCommand(input, context);
+    return se_ListPublicKeysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPublicKeysCommandOutput> {
-    return deserializeAws_json1_1ListPublicKeysCommand(output, context);
+    return de_ListPublicKeysCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,20 +13,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  deserializeAws_restJson1DisassociateDefaultViewCommand,
-  serializeAws_restJson1DisassociateDefaultViewCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DisassociateDefaultViewCommand, se_DisassociateDefaultViewCommand } from "../protocols/Aws_restJson1";
 import {
   ResourceExplorer2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceExplorer2Client";
 
+/**
+ * @public
+ *
+ * The input for {@link DisassociateDefaultViewCommand}.
+ */
 export interface DisassociateDefaultViewCommandInput {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateDefaultViewCommand}.
+ */
 export interface DisassociateDefaultViewCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>After you call this operation, the affected Amazon Web Services Region no longer has a default view.
  *             All <a>Search</a> operations in that Region must explicitly specify a view or
  *             the operation fails. You can configure a new default by calling the <a>AssociateDefaultView</a> operation.</p>
@@ -39,13 +47,34 @@ export interface DisassociateDefaultViewCommandOutput extends __MetadataBearer {
  * import { ResourceExplorer2Client, DisassociateDefaultViewCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
  * // const { ResourceExplorer2Client, DisassociateDefaultViewCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
  * const client = new ResourceExplorer2Client(config);
+ * const input = {};
  * const command = new DisassociateDefaultViewCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateDefaultViewCommandInput - {@link DisassociateDefaultViewCommandInput}
+ * @returns {@link DisassociateDefaultViewCommandOutput}
  * @see {@link DisassociateDefaultViewCommandInput} for command's `input` shape.
  * @see {@link DisassociateDefaultViewCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The credentials that you used to call this operation don't have the minimum required
+ *             permissions.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request failed because of internal service error. Try your request again
+ *             later.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request failed because you exceeded a rate limit for this operation. For more
+ *             information, see <a href="https://docs.aws.amazon.com/arexug/mainline/quotas.html">Quotas
+ *                 for Resource Explorer</a>.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax
+ *             for the operation, and try again.</p>
+ *
  *
  */
 export class DisassociateDefaultViewCommand extends $Command<
@@ -64,6 +93,9 @@ export class DisassociateDefaultViewCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateDefaultViewCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +124,8 @@ export class DisassociateDefaultViewCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +135,18 @@ export class DisassociateDefaultViewCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateDefaultViewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateDefaultViewCommand(input, context);
+    return se_DisassociateDefaultViewCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateDefaultViewCommandOutput> {
-    return deserializeAws_restJson1DisassociateDefaultViewCommand(output, context);
+    return de_DisassociateDefaultViewCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,19 +16,26 @@ import {
 import { CloudControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudControlClient";
 import {
   ListResourceRequestsInput,
-  ListResourceRequestsInputFilterSensitiveLog,
   ListResourceRequestsOutput,
   ListResourceRequestsOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0ListResourceRequestsCommand,
-  serializeAws_json1_0ListResourceRequestsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListResourceRequestsCommand, se_ListResourceRequestsCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link ListResourceRequestsCommand}.
+ */
 export interface ListResourceRequestsCommandInput extends ListResourceRequestsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListResourceRequestsCommand}.
+ */
 export interface ListResourceRequestsCommandOutput extends ListResourceRequestsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns existing resource operation requests. This includes requests of all status types.
  *       For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-manage-requests.html#resource-operations-manage-requests-list">Listing active resource operation requests</a> in the
  *         <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
@@ -41,13 +48,28 @@ export interface ListResourceRequestsCommandOutput extends ListResourceRequestsO
  * import { CloudControlClient, ListResourceRequestsCommand } from "@aws-sdk/client-cloudcontrol"; // ES Modules import
  * // const { CloudControlClient, ListResourceRequestsCommand } = require("@aws-sdk/client-cloudcontrol"); // CommonJS import
  * const client = new CloudControlClient(config);
+ * const input = { // ListResourceRequestsInput
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   ResourceRequestStatusFilter: { // ResourceRequestStatusFilter
+ *     Operations: [ // Operations
+ *       "STRING_VALUE",
+ *     ],
+ *     OperationStatuses: [ // OperationStatuses
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new ListResourceRequestsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResourceRequestsCommandInput - {@link ListResourceRequestsCommandInput}
+ * @returns {@link ListResourceRequestsCommandOutput}
  * @see {@link ListResourceRequestsCommandInput} for command's `input` shape.
  * @see {@link ListResourceRequestsCommandOutput} for command's `response` shape.
  * @see {@link CloudControlClientResolvedConfig | config} for CloudControlClient's `config` shape.
+ *
  *
  */
 export class ListResourceRequestsCommand extends $Command<
@@ -67,6 +89,9 @@ export class ListResourceRequestsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResourceRequestsCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,7 +120,7 @@ export class ListResourceRequestsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListResourceRequestsInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListResourceRequestsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -106,12 +131,18 @@ export class ListResourceRequestsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResourceRequestsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListResourceRequestsCommand(input, context);
+    return se_ListResourceRequestsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResourceRequestsCommandOutput> {
-    return deserializeAws_json1_0ListResourceRequestsCommand(output, context);
+    return de_ListResourceRequestsCommand(output, context);
   }
 
   // Start section: command_body_extra

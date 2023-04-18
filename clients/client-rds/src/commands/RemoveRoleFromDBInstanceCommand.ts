@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RemoveRoleFromDBInstanceMessage, RemoveRoleFromDBInstanceMessageFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_queryRemoveRoleFromDBInstanceCommand,
-  serializeAws_queryRemoveRoleFromDBInstanceCommand,
-} from "../protocols/Aws_query";
+import { RemoveRoleFromDBInstanceMessage } from "../models/models_1";
+import { de_RemoveRoleFromDBInstanceCommand, se_RemoveRoleFromDBInstanceCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link RemoveRoleFromDBInstanceCommand}.
+ */
 export interface RemoveRoleFromDBInstanceCommandInput extends RemoveRoleFromDBInstanceMessage {}
+/**
+ * @public
+ *
+ * The output of {@link RemoveRoleFromDBInstanceCommand}.
+ */
 export interface RemoveRoleFromDBInstanceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates an Amazon Web Services Identity and Access Management (IAM) role from a DB instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +39,32 @@ export interface RemoveRoleFromDBInstanceCommandOutput extends __MetadataBearer 
  * import { RDSClient, RemoveRoleFromDBInstanceCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, RemoveRoleFromDBInstanceCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // RemoveRoleFromDBInstanceMessage
+ *   DBInstanceIdentifier: "STRING_VALUE", // required
+ *   RoleArn: "STRING_VALUE", // required
+ *   FeatureName: "STRING_VALUE", // required
+ * };
  * const command = new RemoveRoleFromDBInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveRoleFromDBInstanceCommandInput - {@link RemoveRoleFromDBInstanceCommandInput}
+ * @returns {@link RemoveRoleFromDBInstanceCommandOutput}
  * @see {@link RemoveRoleFromDBInstanceCommandInput} for command's `input` shape.
  * @see {@link RemoveRoleFromDBInstanceCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ * @throws {@link DBInstanceNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *
+ * @throws {@link DBInstanceRoleNotFoundFault} (client fault)
+ *  <p>The specified <code>RoleArn</code> value doesn't match the specified feature for
+ *             the DB instance.</p>
+ *
+ * @throws {@link InvalidDBInstanceStateFault} (client fault)
+ *  <p>The DB instance isn't in a valid state.</p>
+ *
  *
  */
 export class RemoveRoleFromDBInstanceCommand extends $Command<
@@ -57,6 +84,9 @@ export class RemoveRoleFromDBInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveRoleFromDBInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +115,8 @@ export class RemoveRoleFromDBInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveRoleFromDBInstanceMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +126,18 @@ export class RemoveRoleFromDBInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveRoleFromDBInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRemoveRoleFromDBInstanceCommand(input, context);
+    return se_RemoveRoleFromDBInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveRoleFromDBInstanceCommandOutput> {
-    return deserializeAws_queryRemoveRoleFromDBInstanceCommand(output, context);
+    return de_RemoveRoleFromDBInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

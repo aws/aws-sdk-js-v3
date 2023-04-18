@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient";
-import {
-  DescribeEntityAggregatesRequest,
-  DescribeEntityAggregatesRequestFilterSensitiveLog,
-  DescribeEntityAggregatesResponse,
-  DescribeEntityAggregatesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeEntityAggregatesCommand,
-  serializeAws_json1_1DescribeEntityAggregatesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeEntityAggregatesRequest, DescribeEntityAggregatesResponse } from "../models/models_0";
+import { de_DescribeEntityAggregatesCommand, se_DescribeEntityAggregatesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeEntityAggregatesCommand}.
+ */
 export interface DescribeEntityAggregatesCommandInput extends DescribeEntityAggregatesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeEntityAggregatesCommand}.
+ */
 export interface DescribeEntityAggregatesCommandOutput extends DescribeEntityAggregatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the number of entities that are affected by each of the specified events.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,21 @@ export interface DescribeEntityAggregatesCommandOutput extends DescribeEntityAgg
  * import { HealthClient, DescribeEntityAggregatesCommand } from "@aws-sdk/client-health"; // ES Modules import
  * // const { HealthClient, DescribeEntityAggregatesCommand } = require("@aws-sdk/client-health"); // CommonJS import
  * const client = new HealthClient(config);
+ * const input = { // DescribeEntityAggregatesRequest
+ *   eventArns: [ // EventArnsList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeEntityAggregatesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEntityAggregatesCommandInput - {@link DescribeEntityAggregatesCommandInput}
+ * @returns {@link DescribeEntityAggregatesCommandOutput}
  * @see {@link DescribeEntityAggregatesCommandInput} for command's `input` shape.
  * @see {@link DescribeEntityAggregatesCommandOutput} for command's `response` shape.
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
+ *
  *
  */
 export class DescribeEntityAggregatesCommand extends $Command<
@@ -62,6 +73,9 @@ export class DescribeEntityAggregatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEntityAggregatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +104,8 @@ export class DescribeEntityAggregatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEntityAggregatesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEntityAggregatesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +115,18 @@ export class DescribeEntityAggregatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEntityAggregatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEntityAggregatesCommand(input, context);
+    return se_DescribeEntityAggregatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEntityAggregatesCommandOutput> {
-    return deserializeAws_json1_1DescribeEntityAggregatesCommand(output, context);
+    return de_DescribeEntityAggregatesCommand(output, context);
   }
 
   // Start section: command_body_extra

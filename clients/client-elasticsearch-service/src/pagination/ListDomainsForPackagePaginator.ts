@@ -6,12 +6,11 @@ import {
   ListDomainsForPackageCommandInput,
   ListDomainsForPackageCommandOutput,
 } from "../commands/ListDomainsForPackageCommand";
-import { ElasticsearchService } from "../ElasticsearchService";
 import { ElasticsearchServiceClient } from "../ElasticsearchServiceClient";
 import { ElasticsearchServicePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ElasticsearchServiceClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListDomainsForPackageCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ElasticsearchService,
-  input: ListDomainsForPackageCommandInput,
-  ...args: any
-): Promise<ListDomainsForPackageCommandOutput> => {
-  // @ts-ignore
-  return await client.listDomainsForPackage(input, ...args);
-};
 export async function* paginateListDomainsForPackage(
   config: ElasticsearchServicePaginationConfiguration,
   input: ListDomainsForPackageCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListDomainsForPackage(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof ElasticsearchService) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ElasticsearchServiceClient) {
+    if (config.client instanceof ElasticsearchServiceClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ElasticsearchService | ElasticsearchServiceClient");

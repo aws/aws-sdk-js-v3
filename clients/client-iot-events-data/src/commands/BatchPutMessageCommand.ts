@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTEventsDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsDataClient";
-import {
-  BatchPutMessageRequest,
-  BatchPutMessageRequestFilterSensitiveLog,
-  BatchPutMessageResponse,
-  BatchPutMessageResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchPutMessageCommand,
-  serializeAws_restJson1BatchPutMessageCommand,
-} from "../protocols/Aws_restJson1";
+import { BatchPutMessageRequest, BatchPutMessageResponse } from "../models/models_0";
+import { de_BatchPutMessageCommand, se_BatchPutMessageCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchPutMessageCommand}.
+ */
 export interface BatchPutMessageCommandInput extends BatchPutMessageRequest {}
+/**
+ * @public
+ *
+ * The output of {@link BatchPutMessageCommand}.
+ */
 export interface BatchPutMessageCommandOutput extends BatchPutMessageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends a set of messages to the IoT Events system. Each message payload is transformed into
  *       the input you specify (<code>"inputName"</code>) and ingested into any detectors that monitor
  *       that input. If multiple messages are sent, the order in which the messages are processed isn't
@@ -40,13 +43,40 @@ export interface BatchPutMessageCommandOutput extends BatchPutMessageResponse, _
  * import { IoTEventsDataClient, BatchPutMessageCommand } from "@aws-sdk/client-iot-events-data"; // ES Modules import
  * // const { IoTEventsDataClient, BatchPutMessageCommand } = require("@aws-sdk/client-iot-events-data"); // CommonJS import
  * const client = new IoTEventsDataClient(config);
+ * const input = { // BatchPutMessageRequest
+ *   messages: [ // Messages // required
+ *     { // Message
+ *       messageId: "STRING_VALUE", // required
+ *       inputName: "STRING_VALUE", // required
+ *       payload: "BLOB_VALUE", // required
+ *       timestamp: { // TimestampValue
+ *         timeInMillis: Number("long"),
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new BatchPutMessageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchPutMessageCommandInput - {@link BatchPutMessageCommandInput}
+ * @returns {@link BatchPutMessageCommandOutput}
  * @see {@link BatchPutMessageCommandInput} for command's `input` shape.
  * @see {@link BatchPutMessageCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsDataClientResolvedConfig | config} for IoTEventsDataClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal failure occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request was invalid.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request could not be completed due to throttling.</p>
+ *
  *
  */
 export class BatchPutMessageCommand extends $Command<
@@ -66,6 +96,9 @@ export class BatchPutMessageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchPutMessageCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +127,8 @@ export class BatchPutMessageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchPutMessageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchPutMessageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +138,18 @@ export class BatchPutMessageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchPutMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchPutMessageCommand(input, context);
+    return se_BatchPutMessageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchPutMessageCommandOutput> {
-    return deserializeAws_restJson1BatchPutMessageCommand(output, context);
+    return de_BatchPutMessageCommand(output, context);
   }
 
   // Start section: command_body_extra

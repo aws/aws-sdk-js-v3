@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  CreatePartitionRequest,
-  CreatePartitionRequestFilterSensitiveLog,
-  CreatePartitionResponse,
-  CreatePartitionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreatePartitionCommand,
-  serializeAws_json1_1CreatePartitionCommand,
-} from "../protocols/Aws_json1_1";
+import { CreatePartitionRequest, CreatePartitionResponse } from "../models/models_0";
+import { de_CreatePartitionCommand, se_CreatePartitionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreatePartitionCommand}.
+ */
 export interface CreatePartitionCommandInput extends CreatePartitionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreatePartitionCommand}.
+ */
 export interface CreatePartitionCommandOutput extends CreatePartitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new partition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,108 @@ export interface CreatePartitionCommandOutput extends CreatePartitionResponse, _
  * import { GlueClient, CreatePartitionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreatePartitionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // CreatePartitionRequest
+ *   CatalogId: "STRING_VALUE",
+ *   DatabaseName: "STRING_VALUE", // required
+ *   TableName: "STRING_VALUE", // required
+ *   PartitionInput: { // PartitionInput
+ *     Values: [ // ValueStringList
+ *       "STRING_VALUE",
+ *     ],
+ *     LastAccessTime: new Date("TIMESTAMP"),
+ *     StorageDescriptor: { // StorageDescriptor
+ *       Columns: [ // ColumnList
+ *         { // Column
+ *           Name: "STRING_VALUE", // required
+ *           Type: "STRING_VALUE",
+ *           Comment: "STRING_VALUE",
+ *           Parameters: { // ParametersMap
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *         },
+ *       ],
+ *       Location: "STRING_VALUE",
+ *       AdditionalLocations: [ // LocationStringList
+ *         "STRING_VALUE",
+ *       ],
+ *       InputFormat: "STRING_VALUE",
+ *       OutputFormat: "STRING_VALUE",
+ *       Compressed: true || false,
+ *       NumberOfBuckets: Number("int"),
+ *       SerdeInfo: { // SerDeInfo
+ *         Name: "STRING_VALUE",
+ *         SerializationLibrary: "STRING_VALUE",
+ *         Parameters: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *       BucketColumns: [ // NameStringList
+ *         "STRING_VALUE",
+ *       ],
+ *       SortColumns: [ // OrderList
+ *         { // Order
+ *           Column: "STRING_VALUE", // required
+ *           SortOrder: Number("int"), // required
+ *         },
+ *       ],
+ *       Parameters: "<ParametersMap>",
+ *       SkewedInfo: { // SkewedInfo
+ *         SkewedColumnNames: [
+ *           "STRING_VALUE",
+ *         ],
+ *         SkewedColumnValues: [ // ColumnValueStringList
+ *           "STRING_VALUE",
+ *         ],
+ *         SkewedColumnValueLocationMaps: { // LocationMap
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *       StoredAsSubDirectories: true || false,
+ *       SchemaReference: { // SchemaReference
+ *         SchemaId: { // SchemaId
+ *           SchemaArn: "STRING_VALUE",
+ *           SchemaName: "STRING_VALUE",
+ *           RegistryName: "STRING_VALUE",
+ *         },
+ *         SchemaVersionId: "STRING_VALUE",
+ *         SchemaVersionNumber: Number("long"),
+ *       },
+ *     },
+ *     Parameters: "<ParametersMap>",
+ *     LastAnalyzedTime: new Date("TIMESTAMP"),
+ *   },
+ * };
  * const command = new CreatePartitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePartitionCommandInput - {@link CreatePartitionCommandInput}
+ * @returns {@link CreatePartitionCommandOutput}
  * @see {@link CreatePartitionCommandInput} for command's `input` shape.
  * @see {@link CreatePartitionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link AlreadyExistsException} (client fault)
+ *  <p>A resource to be created or added already exists.</p>
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link GlueEncryptionException} (client fault)
+ *  <p>An encryption operation failed.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ * @throws {@link ResourceNumberLimitExceededException} (client fault)
+ *  <p>A resource numerical limit was exceeded.</p>
+ *
  *
  */
 export class CreatePartitionCommand extends $Command<
@@ -62,6 +160,9 @@ export class CreatePartitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePartitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +191,8 @@ export class CreatePartitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePartitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreatePartitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +202,18 @@ export class CreatePartitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePartitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreatePartitionCommand(input, context);
+    return se_CreatePartitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePartitionCommandOutput> {
-    return deserializeAws_json1_1CreatePartitionCommand(output, context);
+    return de_CreatePartitionCommand(output, context);
   }
 
   // Start section: command_body_extra

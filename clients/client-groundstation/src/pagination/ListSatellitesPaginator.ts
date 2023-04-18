@@ -6,12 +6,11 @@ import {
   ListSatellitesCommandInput,
   ListSatellitesCommandOutput,
 } from "../commands/ListSatellitesCommand";
-import { GroundStation } from "../GroundStation";
 import { GroundStationClient } from "../GroundStationClient";
 import { GroundStationPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: GroundStationClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListSatellitesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: GroundStation,
-  input: ListSatellitesCommandInput,
-  ...args: any
-): Promise<ListSatellitesCommandOutput> => {
-  // @ts-ignore
-  return await client.listSatellites(input, ...args);
-};
 export async function* paginateListSatellites(
   config: GroundStationPaginationConfiguration,
   input: ListSatellitesCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListSatellites(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof GroundStation) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof GroundStationClient) {
+    if (config.client instanceof GroundStationClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected GroundStation | GroundStationClient");

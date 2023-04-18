@@ -6,12 +6,11 @@ import {
   DescribeAutomationExecutionsCommandInput,
   DescribeAutomationExecutionsCommandOutput,
 } from "../commands/DescribeAutomationExecutionsCommand";
-import { SSM } from "../SSM";
 import { SSMClient } from "../SSMClient";
 import { SSMPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SSMClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeAutomationExecutionsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: SSM,
-  input: DescribeAutomationExecutionsCommandInput,
-  ...args: any
-): Promise<DescribeAutomationExecutionsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeAutomationExecutions(input, ...args);
-};
 export async function* paginateDescribeAutomationExecutions(
   config: SSMPaginationConfiguration,
   input: DescribeAutomationExecutionsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateDescribeAutomationExecutions(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof SSM) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SSMClient) {
+    if (config.client instanceof SSMClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SSM | SSMClient");

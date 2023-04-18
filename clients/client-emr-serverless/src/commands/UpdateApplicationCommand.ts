@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRServerlessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRServerlessClient";
-import {
-  UpdateApplicationRequest,
-  UpdateApplicationRequestFilterSensitiveLog,
-  UpdateApplicationResponse,
-  UpdateApplicationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateApplicationCommand,
-  serializeAws_restJson1UpdateApplicationCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateApplicationRequest, UpdateApplicationResponse } from "../models/models_0";
+import { de_UpdateApplicationCommand, se_UpdateApplicationCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateApplicationCommand}.
+ */
 export interface UpdateApplicationCommandInput extends UpdateApplicationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateApplicationCommand}.
+ */
 export interface UpdateApplicationCommandOutput extends UpdateApplicationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a specified application. An application has to be in a stopped or created state
  *          in order to be updated.</p>
  * @example
@@ -37,13 +40,71 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * import { EMRServerlessClient, UpdateApplicationCommand } from "@aws-sdk/client-emr-serverless"; // ES Modules import
  * // const { EMRServerlessClient, UpdateApplicationCommand } = require("@aws-sdk/client-emr-serverless"); // CommonJS import
  * const client = new EMRServerlessClient(config);
+ * const input = { // UpdateApplicationRequest
+ *   applicationId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE", // required
+ *   initialCapacity: { // InitialCapacityConfigMap
+ *     "<keys>": { // InitialCapacityConfig
+ *       workerCount: Number("long"), // required
+ *       workerConfiguration: { // WorkerResourceConfig
+ *         cpu: "STRING_VALUE", // required
+ *         memory: "STRING_VALUE", // required
+ *         disk: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   maximumCapacity: { // MaximumAllowedResources
+ *     cpu: "STRING_VALUE", // required
+ *     memory: "STRING_VALUE", // required
+ *     disk: "STRING_VALUE",
+ *   },
+ *   autoStartConfiguration: { // AutoStartConfig
+ *     enabled: true || false,
+ *   },
+ *   autoStopConfiguration: { // AutoStopConfig
+ *     enabled: true || false,
+ *     idleTimeoutMinutes: Number("int"),
+ *   },
+ *   networkConfiguration: { // NetworkConfiguration
+ *     subnetIds: [ // SubnetIds
+ *       "STRING_VALUE",
+ *     ],
+ *     securityGroupIds: [ // SecurityGroupIds
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   architecture: "STRING_VALUE",
+ *   imageConfiguration: { // ImageConfigurationInput
+ *     imageUri: "STRING_VALUE",
+ *   },
+ *   workerTypeSpecifications: { // WorkerTypeSpecificationInputMap
+ *     "<keys>": { // WorkerTypeSpecificationInput
+ *       imageConfiguration: {
+ *         imageUri: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new UpdateApplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateApplicationCommandInput - {@link UpdateApplicationCommandInput}
+ * @returns {@link UpdateApplicationCommandOutput}
  * @see {@link UpdateApplicationCommandInput} for command's `input` shape.
  * @see {@link UpdateApplicationCommandOutput} for command's `response` shape.
  * @see {@link EMRServerlessClientResolvedConfig | config} for EMRServerlessClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
+ *          service.</p>
+ *
  *
  */
 export class UpdateApplicationCommand extends $Command<
@@ -63,6 +124,9 @@ export class UpdateApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +155,8 @@ export class UpdateApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateApplicationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateApplicationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +166,18 @@ export class UpdateApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateApplicationCommand(input, context);
+    return se_UpdateApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateApplicationCommandOutput> {
-    return deserializeAws_restJson1UpdateApplicationCommand(output, context);
+    return de_UpdateApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

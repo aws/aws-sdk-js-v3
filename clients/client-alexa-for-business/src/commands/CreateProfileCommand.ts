@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  CreateProfileRequest,
-  CreateProfileRequestFilterSensitiveLog,
-  CreateProfileResponse,
-  CreateProfileResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateProfileCommand,
-  serializeAws_json1_1CreateProfileCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateProfileRequest, CreateProfileResponse } from "../models/models_0";
+import { de_CreateProfileCommand, se_CreateProfileCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateProfileCommand}.
+ */
 export interface CreateProfileCommandInput extends CreateProfileRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateProfileCommand}.
+ */
 export interface CreateProfileCommandOutput extends CreateProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new room profile with the specified details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,63 @@ export interface CreateProfileCommandOutput extends CreateProfileResponse, __Met
  * import { AlexaForBusinessClient, CreateProfileCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, CreateProfileCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // CreateProfileRequest
+ *   ProfileName: "STRING_VALUE", // required
+ *   Timezone: "STRING_VALUE", // required
+ *   Address: "STRING_VALUE", // required
+ *   DistanceUnit: "STRING_VALUE", // required
+ *   TemperatureUnit: "STRING_VALUE", // required
+ *   WakeWord: "STRING_VALUE", // required
+ *   Locale: "STRING_VALUE",
+ *   ClientRequestToken: "STRING_VALUE",
+ *   SetupModeDisabled: true || false,
+ *   MaxVolumeLimit: Number("int"),
+ *   PSTNEnabled: true || false,
+ *   DataRetentionOptIn: true || false,
+ *   MeetingRoomConfiguration: { // CreateMeetingRoomConfiguration
+ *     RoomUtilizationMetricsEnabled: true || false,
+ *     EndOfMeetingReminder: { // CreateEndOfMeetingReminder
+ *       ReminderAtMinutes: [ // EndOfMeetingReminderMinutesList // required
+ *         Number("int"),
+ *       ],
+ *       ReminderType: "STRING_VALUE", // required
+ *       Enabled: true || false, // required
+ *     },
+ *     InstantBooking: { // CreateInstantBooking
+ *       DurationInMinutes: Number("int"), // required
+ *       Enabled: true || false, // required
+ *     },
+ *     RequireCheckIn: { // CreateRequireCheckIn
+ *       ReleaseAfterMinutes: Number("int"), // required
+ *       Enabled: true || false, // required
+ *     },
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateProfileCommandInput - {@link CreateProfileCommandInput}
+ * @returns {@link CreateProfileCommandOutput}
  * @see {@link CreateProfileCommandInput} for command's `input` shape.
  * @see {@link CreateProfileCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
+ * @throws {@link AlreadyExistsException} (client fault)
+ *  <p>The resource being created already exists.</p>
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is a concurrent modification of resources.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You are performing an action that would put you beyond your account's limits.</p>
+ *
  *
  */
 export class CreateProfileCommand extends $Command<
@@ -62,6 +115,9 @@ export class CreateProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +144,8 @@ export class CreateProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateProfileResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +155,18 @@ export class CreateProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateProfileCommand(input, context);
+    return se_CreateProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateProfileCommandOutput> {
-    return deserializeAws_json1_1CreateProfileCommand(output, context);
+    return de_CreateProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

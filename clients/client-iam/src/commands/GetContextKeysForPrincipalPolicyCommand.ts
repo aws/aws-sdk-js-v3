@@ -14,35 +14,41 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { GetContextKeysForPolicyResponse, GetContextKeysForPrincipalPolicyRequest } from "../models/models_0";
 import {
-  GetContextKeysForPolicyResponse,
-  GetContextKeysForPolicyResponseFilterSensitiveLog,
-  GetContextKeysForPrincipalPolicyRequest,
-  GetContextKeysForPrincipalPolicyRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryGetContextKeysForPrincipalPolicyCommand,
-  serializeAws_queryGetContextKeysForPrincipalPolicyCommand,
+  de_GetContextKeysForPrincipalPolicyCommand,
+  se_GetContextKeysForPrincipalPolicyCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link GetContextKeysForPrincipalPolicyCommand}.
+ */
 export interface GetContextKeysForPrincipalPolicyCommandInput extends GetContextKeysForPrincipalPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetContextKeysForPrincipalPolicyCommand}.
+ */
 export interface GetContextKeysForPrincipalPolicyCommandOutput
   extends GetContextKeysForPolicyResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of all of the context keys referenced in all the IAM policies that are
  *             attached to the specified IAM entity. The entity can be an IAM user, group, or role.
  *             If you specify a user, then the request also includes all of the policies attached to
  *             groups that the user is a member of.</p>
- *         <p>You can optionally include a list of one or more additional policies, specified as
+ *          <p>You can optionally include a list of one or more additional policies, specified as
  *             strings. If you want to include <i>only</i> a list of policies by string,
  *             use <a>GetContextKeysForCustomPolicy</a> instead.</p>
- *         <p>
+ *          <p>
  *             <b>Note:</b> This operation discloses information about the
  *             permissions granted to other users. If you do not want users to see other user's
  *             permissions, then consider allowing them to use <a>GetContextKeysForCustomPolicy</a> instead.</p>
- *         <p>Context keys are variables maintained by Amazon Web Services and its services that provide details
+ *          <p>Context keys are variables maintained by Amazon Web Services and its services that provide details
  *             about the context of an API query request. Context keys can be evaluated by testing
  *             against a value in an IAM policy. Use <a>GetContextKeysForPrincipalPolicy</a> to understand what key names and values you must supply when you call <a>SimulatePrincipalPolicy</a>.</p>
  * @example
@@ -51,13 +57,30 @@ export interface GetContextKeysForPrincipalPolicyCommandOutput
  * import { IAMClient, GetContextKeysForPrincipalPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GetContextKeysForPrincipalPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // GetContextKeysForPrincipalPolicyRequest
+ *   PolicySourceArn: "STRING_VALUE", // required
+ *   PolicyInputList: [ // SimulationPolicyListType
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetContextKeysForPrincipalPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetContextKeysForPrincipalPolicyCommandInput - {@link GetContextKeysForPrincipalPolicyCommandInput}
+ * @returns {@link GetContextKeysForPrincipalPolicyCommandOutput}
  * @see {@link GetContextKeysForPrincipalPolicyCommandInput} for command's `input` shape.
  * @see {@link GetContextKeysForPrincipalPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
+ *       input parameter.</p>
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ *
  *
  */
 export class GetContextKeysForPrincipalPolicyCommand extends $Command<
@@ -77,6 +100,9 @@ export class GetContextKeysForPrincipalPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetContextKeysForPrincipalPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +131,8 @@ export class GetContextKeysForPrincipalPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetContextKeysForPrincipalPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetContextKeysForPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,18 +142,24 @@ export class GetContextKeysForPrincipalPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetContextKeysForPrincipalPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryGetContextKeysForPrincipalPolicyCommand(input, context);
+    return se_GetContextKeysForPrincipalPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetContextKeysForPrincipalPolicyCommandOutput> {
-    return deserializeAws_queryGetContextKeysForPrincipalPolicyCommand(output, context);
+    return de_GetContextKeysForPrincipalPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

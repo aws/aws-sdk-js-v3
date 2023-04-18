@@ -6,12 +6,11 @@ import {
   GetSystemTemplateRevisionsCommandInput,
   GetSystemTemplateRevisionsCommandOutput,
 } from "../commands/GetSystemTemplateRevisionsCommand";
-import { IoTThingsGraph } from "../IoTThingsGraph";
 import { IoTThingsGraphClient } from "../IoTThingsGraphClient";
 import { IoTThingsGraphPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: IoTThingsGraphClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new GetSystemTemplateRevisionsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: IoTThingsGraph,
-  input: GetSystemTemplateRevisionsCommandInput,
-  ...args: any
-): Promise<GetSystemTemplateRevisionsCommandOutput> => {
-  // @ts-ignore
-  return await client.getSystemTemplateRevisions(input, ...args);
-};
 export async function* paginateGetSystemTemplateRevisions(
   config: IoTThingsGraphPaginationConfiguration,
   input: GetSystemTemplateRevisionsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateGetSystemTemplateRevisions(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof IoTThingsGraph) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IoTThingsGraphClient) {
+    if (config.client instanceof IoTThingsGraphClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected IoTThingsGraph | IoTThingsGraphClient");

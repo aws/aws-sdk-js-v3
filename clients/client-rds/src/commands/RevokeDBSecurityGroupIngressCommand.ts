@@ -13,24 +13,27 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RevokeDBSecurityGroupIngressMessage,
-  RevokeDBSecurityGroupIngressMessageFilterSensitiveLog,
-  RevokeDBSecurityGroupIngressResult,
-  RevokeDBSecurityGroupIngressResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryRevokeDBSecurityGroupIngressCommand,
-  serializeAws_queryRevokeDBSecurityGroupIngressCommand,
-} from "../protocols/Aws_query";
+import { RevokeDBSecurityGroupIngressMessage, RevokeDBSecurityGroupIngressResult } from "../models/models_1";
+import { de_RevokeDBSecurityGroupIngressCommand, se_RevokeDBSecurityGroupIngressCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link RevokeDBSecurityGroupIngressCommand}.
+ */
 export interface RevokeDBSecurityGroupIngressCommandInput extends RevokeDBSecurityGroupIngressMessage {}
+/**
+ * @public
+ *
+ * The output of {@link RevokeDBSecurityGroupIngressCommand}.
+ */
 export interface RevokeDBSecurityGroupIngressCommandOutput
   extends RevokeDBSecurityGroupIngressResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Revokes ingress from a DBSecurityGroup for previously authorized IP ranges or EC2 or VPC security groups. Required
  *             parameters for this API are one of CIDRIP, EC2SecurityGroupId for VPC, or (EC2SecurityGroupOwnerId and either
  *             EC2SecurityGroupName or EC2SecurityGroupId).</p>
@@ -47,13 +50,53 @@ export interface RevokeDBSecurityGroupIngressCommandOutput
  * import { RDSClient, RevokeDBSecurityGroupIngressCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, RevokeDBSecurityGroupIngressCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // RevokeDBSecurityGroupIngressMessage
+ *   DBSecurityGroupName: "STRING_VALUE", // required
+ *   CIDRIP: "STRING_VALUE",
+ *   EC2SecurityGroupName: "STRING_VALUE",
+ *   EC2SecurityGroupId: "STRING_VALUE",
+ *   EC2SecurityGroupOwnerId: "STRING_VALUE",
+ * };
  * const command = new RevokeDBSecurityGroupIngressCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RevokeDBSecurityGroupIngressCommandInput - {@link RevokeDBSecurityGroupIngressCommandInput}
+ * @returns {@link RevokeDBSecurityGroupIngressCommandOutput}
  * @see {@link RevokeDBSecurityGroupIngressCommandInput} for command's `input` shape.
  * @see {@link RevokeDBSecurityGroupIngressCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ * @throws {@link AuthorizationNotFoundFault} (client fault)
+ *  <p>The specified CIDR IP range or Amazon EC2 security group might not be authorized
+ *             for the specified DB security group.</p>
+ *          <p>Or, RDS might not be authorized to perform necessary actions using IAM on your
+ *             behalf.</p>
+ *
+ * @throws {@link DBSecurityGroupNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBSecurityGroupName</code> doesn't refer to an existing DB security group.</p>
+ *
+ * @throws {@link InvalidDBSecurityGroupStateFault} (client fault)
+ *  <p>The state of the DB security group doesn't allow deletion.</p>
+ *
+ *
+ * @example To revoke ingress for a DB security group
+ * ```javascript
+ * // This example revokes ingress for the specified CIDR block associated with the specified DB security group.
+ * const input = {
+ *   "CIDRIP": "203.0.113.5/32",
+ *   "DBSecurityGroupName": "mydbsecuritygroup"
+ * };
+ * const command = new RevokeDBSecurityGroupIngressCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBSecurityGroup": {}
+ * }
+ * *\/
+ * // example id: revoke-db-security-group-ingress-ce5b2c1c-bd4e-4809-b04a-6d78ec448813
+ * ```
  *
  */
 export class RevokeDBSecurityGroupIngressCommand extends $Command<
@@ -73,6 +116,9 @@ export class RevokeDBSecurityGroupIngressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RevokeDBSecurityGroupIngressCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +147,8 @@ export class RevokeDBSecurityGroupIngressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RevokeDBSecurityGroupIngressMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: RevokeDBSecurityGroupIngressResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,15 +158,21 @@ export class RevokeDBSecurityGroupIngressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RevokeDBSecurityGroupIngressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRevokeDBSecurityGroupIngressCommand(input, context);
+    return se_RevokeDBSecurityGroupIngressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RevokeDBSecurityGroupIngressCommandOutput> {
-    return deserializeAws_queryRevokeDBSecurityGroupIngressCommand(output, context);
+    return de_RevokeDBSecurityGroupIngressCommand(output, context);
   }
 
   // Start section: command_body_extra

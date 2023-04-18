@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetMailboxDetailsRequest,
-  GetMailboxDetailsRequestFilterSensitiveLog,
-  GetMailboxDetailsResponse,
-  GetMailboxDetailsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetMailboxDetailsCommand,
-  serializeAws_json1_1GetMailboxDetailsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetMailboxDetailsRequest, GetMailboxDetailsResponse } from "../models/models_0";
+import { de_GetMailboxDetailsCommand, se_GetMailboxDetailsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetMailboxDetailsCommand}.
+ */
 export interface GetMailboxDetailsCommandInput extends GetMailboxDetailsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetMailboxDetailsCommand}.
+ */
 export interface GetMailboxDetailsCommandOutput extends GetMailboxDetailsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Requests a user's mailbox details for a specified organization and user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,32 @@ export interface GetMailboxDetailsCommandOutput extends GetMailboxDetailsRespons
  * import { WorkMailClient, GetMailboxDetailsCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, GetMailboxDetailsCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = { // GetMailboxDetailsRequest
+ *   OrganizationId: "STRING_VALUE", // required
+ *   UserId: "STRING_VALUE", // required
+ * };
  * const command = new GetMailboxDetailsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMailboxDetailsCommandInput - {@link GetMailboxDetailsCommandInput}
+ * @returns {@link GetMailboxDetailsCommandOutput}
  * @see {@link GetMailboxDetailsCommandInput} for command's `input` shape.
  * @see {@link GetMailboxDetailsCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>The identifier supplied for the user, group, or resource does not exist in your
+ *          organization.</p>
+ *
+ * @throws {@link OrganizationNotFoundException} (client fault)
+ *  <p>An operation received a valid organization identifier that either doesn't belong or
+ *          exist in the system.</p>
+ *
+ * @throws {@link OrganizationStateException} (client fault)
+ *  <p>The organization must have a valid state to perform certain
+ *          operations on the organization or its members.</p>
+ *
  *
  */
 export class GetMailboxDetailsCommand extends $Command<
@@ -62,6 +84,9 @@ export class GetMailboxDetailsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMailboxDetailsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +115,8 @@ export class GetMailboxDetailsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMailboxDetailsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMailboxDetailsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +126,18 @@ export class GetMailboxDetailsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMailboxDetailsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetMailboxDetailsCommand(input, context);
+    return se_GetMailboxDetailsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMailboxDetailsCommandOutput> {
-    return deserializeAws_json1_1GetMailboxDetailsCommand(output, context);
+    return de_GetMailboxDetailsCommand(output, context);
   }
 
   // Start section: command_body_extra

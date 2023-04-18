@@ -6,12 +6,11 @@ import {
   ListServicesByNamespaceCommandInput,
   ListServicesByNamespaceCommandOutput,
 } from "../commands/ListServicesByNamespaceCommand";
-import { ECS } from "../ECS";
 import { ECSClient } from "../ECSClient";
 import { ECSPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ECSClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListServicesByNamespaceCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ECS,
-  input: ListServicesByNamespaceCommandInput,
-  ...args: any
-): Promise<ListServicesByNamespaceCommandOutput> => {
-  // @ts-ignore
-  return await client.listServicesByNamespace(input, ...args);
-};
 export async function* paginateListServicesByNamespace(
   config: ECSPaginationConfiguration,
   input: ListServicesByNamespaceCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListServicesByNamespace(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof ECS) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ECSClient) {
+    if (config.client instanceof ECSClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ECS | ECSClient");

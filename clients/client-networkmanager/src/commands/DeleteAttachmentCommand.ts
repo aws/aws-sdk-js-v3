@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteAttachmentRequest,
-  DeleteAttachmentRequestFilterSensitiveLog,
-  DeleteAttachmentResponse,
-  DeleteAttachmentResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteAttachmentRequest, DeleteAttachmentResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1DeleteAttachmentCommand,
-  serializeAws_restJson1DeleteAttachmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteAttachmentCommand, se_DeleteAttachmentCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteAttachmentCommand}.
+ */
 export interface DeleteAttachmentCommandInput extends DeleteAttachmentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteAttachmentCommand}.
+ */
 export interface DeleteAttachmentCommandOutput extends DeleteAttachmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an attachment. Supports all attachment types.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,38 @@ export interface DeleteAttachmentCommandOutput extends DeleteAttachmentResponse,
  * import { NetworkManagerClient, DeleteAttachmentCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, DeleteAttachmentCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // DeleteAttachmentRequest
+ *   AttachmentId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAttachmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAttachmentCommandInput - {@link DeleteAttachmentCommandInput}
+ * @returns {@link DeleteAttachmentCommandOutput}
  * @see {@link DeleteAttachmentCommandInput} for command's `input` shape.
  * @see {@link DeleteAttachmentCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There was a conflict processing the request. Updating or deleting the resource can
+ *             cause an inconsistent state.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request has failed due to an internal error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints.</p>
+ *
  *
  */
 export class DeleteAttachmentCommand extends $Command<
@@ -62,6 +90,9 @@ export class DeleteAttachmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAttachmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +121,8 @@ export class DeleteAttachmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAttachmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAttachmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +132,18 @@ export class DeleteAttachmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAttachmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAttachmentCommand(input, context);
+    return se_DeleteAttachmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAttachmentCommandOutput> {
-    return deserializeAws_restJson1DeleteAttachmentCommand(output, context);
+    return de_DeleteAttachmentCommand(output, context);
   }
 
   // Start section: command_body_extra

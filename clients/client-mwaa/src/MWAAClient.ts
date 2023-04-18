@@ -26,12 +26,14 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
@@ -72,6 +74,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CreateCliTokenCommandInput
   | CreateEnvironmentCommandInput
@@ -85,6 +90,9 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateEnvironmentCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CreateCliTokenCommandOutput
   | CreateEnvironmentCommandOutput
@@ -98,6 +106,9 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateEnvironmentCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -105,11 +116,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -166,19 +177,10 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
-   * Value for how many times a request will be made at most in case of retry.
+   * Unique service identifier.
+   * @internal
    */
-  maxAttempts?: number | __Provider<number>;
-
-  /**
-   * Specifies which retry algorithm to use.
-   */
-  retryMode?: string | __Provider<string>;
-
-  /**
-   * Optional logger for logging debug/info/warn/error.
-   */
-  logger?: __Logger;
+  serviceId?: string;
 
   /**
    * Enables IPv6/IPv4 dualstack endpoint.
@@ -189,12 +191,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Enables FIPS compatible endpoints.
    */
   useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
 
   /**
    * The AWS region to which this client will send requests
@@ -214,11 +210,29 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * Value for how many times a request will be made at most in case of retry.
    */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Specifies which retry algorithm to use.
+   */
+  retryMode?: string | __Provider<string>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
+
+  /**
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   */
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type MWAAClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -229,10 +243,15 @@ type MWAAClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>>
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of MWAAClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of MWAAClient class constructor that set the region, credentials and other options.
  */
 export interface MWAAClientConfig extends MWAAClientConfigType {}
 
+/**
+ * @public
+ */
 type MWAAClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -243,11 +262,14 @@ type MWAAClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerO
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of MWAAClient class. This is resolved and normalized from the {@link MWAAClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of MWAAClient class. This is resolved and normalized from the {@link MWAAClientConfig | constructor configuration interface}.
  */
 export interface MWAAClientResolvedConfig extends MWAAClientResolvedConfigType {}
 
 /**
+ * @public
  * <fullname>Amazon Managed Workflows for Apache Airflow</fullname>
  *          <p>This section contains the Amazon Managed Workflows for Apache Airflow (MWAA) API reference documentation. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/what-is-mwaa.html">What Is Amazon MWAA?</a>.</p>
  *          <p>
@@ -256,7 +278,7 @@ export interface MWAAClientResolvedConfig extends MWAAClientResolvedConfigType {
  *          <ul>
  *             <li>
  *                <p>
- *                   <code>api.airflow.{region}.amazonaws.com</code> - This endpoint is used for environment management.</p>
+ *                   <code>api.airflow.\{region\}.amazonaws.com</code> - This endpoint is used for environment management.</p>
  *                <ul>
  *                   <li>
  *                      <p>
@@ -302,7 +324,7 @@ export interface MWAAClientResolvedConfig extends MWAAClientResolvedConfigType {
  *             </li>
  *             <li>
  *                <p>
- *                   <code>env.airflow.{region}.amazonaws.com</code> - This endpoint is used to operate the Airflow environment.</p>
+ *                   <code>env.airflow.\{region\}.amazonaws.com</code> - This endpoint is used to operate the Airflow environment.</p>
  *                <ul>
  *                   <li>
  *                      <p>
@@ -318,7 +340,7 @@ export interface MWAAClientResolvedConfig extends MWAAClientResolvedConfigType {
  *             </li>
  *             <li>
  *                <p>
- *                   <code>ops.airflow.{region}.amazonaws.com</code> - This endpoint is used to push environment metrics that track environment health.</p>
+ *                   <code>ops.airflow.\{region\}.amazonaws.com</code> - This endpoint is used to push environment metrics that track environment health.</p>
  *                <ul>
  *                   <li>
  *                      <p>

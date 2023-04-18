@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import {
-  DescribeMonitorRequest,
-  DescribeMonitorRequestFilterSensitiveLog,
-  DescribeMonitorResponse,
-  DescribeMonitorResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeMonitorCommand,
-  serializeAws_json1_1DescribeMonitorCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeMonitorRequest, DescribeMonitorResponse } from "../models/models_0";
+import { de_DescribeMonitorCommand, se_DescribeMonitorCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeMonitorCommand}.
+ */
 export interface DescribeMonitorCommandInput extends DescribeMonitorRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeMonitorCommand}.
+ */
 export interface DescribeMonitorCommandOutput extends DescribeMonitorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a monitor resource. In addition to listing the properties provided in the <a>CreateMonitor</a> request, this operation lists the following properties:</p>
  *          <ul>
  *             <li>
@@ -73,13 +76,27 @@ export interface DescribeMonitorCommandOutput extends DescribeMonitorResponse, _
  * import { ForecastClient, DescribeMonitorCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, DescribeMonitorCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = { // DescribeMonitorRequest
+ *   MonitorArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeMonitorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMonitorCommandInput - {@link DescribeMonitorCommandInput}
+ * @returns {@link DescribeMonitorCommandOutput}
  * @see {@link DescribeMonitorCommandInput} for command's `input` shape.
  * @see {@link DescribeMonitorCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>We can't process the request because it includes an invalid value or a value that exceeds
+ *       the valid range.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
+ *       again.</p>
+ *
  *
  */
 export class DescribeMonitorCommand extends $Command<
@@ -99,6 +116,9 @@ export class DescribeMonitorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMonitorCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +147,8 @@ export class DescribeMonitorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeMonitorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeMonitorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,12 +158,18 @@ export class DescribeMonitorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeMonitorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeMonitorCommand(input, context);
+    return se_DescribeMonitorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeMonitorCommandOutput> {
-    return deserializeAws_json1_1DescribeMonitorCommand(output, context);
+    return de_DescribeMonitorCommand(output, context);
   }
 
   // Start section: command_body_extra

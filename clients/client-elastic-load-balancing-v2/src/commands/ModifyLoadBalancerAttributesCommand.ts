@@ -18,23 +18,26 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import {
-  ModifyLoadBalancerAttributesInput,
-  ModifyLoadBalancerAttributesInputFilterSensitiveLog,
-  ModifyLoadBalancerAttributesOutput,
-  ModifyLoadBalancerAttributesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryModifyLoadBalancerAttributesCommand,
-  serializeAws_queryModifyLoadBalancerAttributesCommand,
-} from "../protocols/Aws_query";
+import { ModifyLoadBalancerAttributesInput, ModifyLoadBalancerAttributesOutput } from "../models/models_0";
+import { de_ModifyLoadBalancerAttributesCommand, se_ModifyLoadBalancerAttributesCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link ModifyLoadBalancerAttributesCommand}.
+ */
 export interface ModifyLoadBalancerAttributesCommandInput extends ModifyLoadBalancerAttributesInput {}
+/**
+ * @public
+ *
+ * The output of {@link ModifyLoadBalancerAttributesCommand}.
+ */
 export interface ModifyLoadBalancerAttributesCommandOutput
   extends ModifyLoadBalancerAttributesOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the specified attributes of the specified Application Load Balancer, Network Load
  *       Balancer, or Gateway Load Balancer.</p>
  *          <p>If any of the specified attributes can't be modified as requested, the call fails. Any
@@ -45,13 +48,168 @@ export interface ModifyLoadBalancerAttributesCommandOutput
  * import { ElasticLoadBalancingV2Client, ModifyLoadBalancerAttributesCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, ModifyLoadBalancerAttributesCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
+ * const input = { // ModifyLoadBalancerAttributesInput
+ *   LoadBalancerArn: "STRING_VALUE", // required
+ *   Attributes: [ // LoadBalancerAttributes // required
+ *     { // LoadBalancerAttribute
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new ModifyLoadBalancerAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyLoadBalancerAttributesCommandInput - {@link ModifyLoadBalancerAttributesCommandInput}
+ * @returns {@link ModifyLoadBalancerAttributesCommandOutput}
  * @see {@link ModifyLoadBalancerAttributesCommandInput} for command's `input` shape.
  * @see {@link ModifyLoadBalancerAttributesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
+ *
+ * @throws {@link InvalidConfigurationRequestException} (client fault)
+ *  <p>The requested configuration is not valid.</p>
+ *
+ * @throws {@link LoadBalancerNotFoundException} (client fault)
+ *  <p>The specified load balancer does not exist.</p>
+ *
+ *
+ * @example To enable deletion protection
+ * ```javascript
+ * // This example enables deletion protection for the specified load balancer.
+ * const input = {
+ *   "Attributes": [
+ *     {
+ *       "Key": "deletion_protection.enabled",
+ *       "Value": "true"
+ *     }
+ *   ],
+ *   "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188"
+ * };
+ * const command = new ModifyLoadBalancerAttributesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Attributes": [
+ *     {
+ *       "Key": "deletion_protection.enabled",
+ *       "Value": "true"
+ *     },
+ *     {
+ *       "Key": "access_logs.s3.enabled",
+ *       "Value": "false"
+ *     },
+ *     {
+ *       "Key": "idle_timeout.timeout_seconds",
+ *       "Value": "60"
+ *     },
+ *     {
+ *       "Key": "access_logs.s3.prefix",
+ *       "Value": ""
+ *     },
+ *     {
+ *       "Key": "access_logs.s3.bucket",
+ *       "Value": ""
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: elbv2-modify-load-balancer-attributes-1
+ * ```
+ *
+ * @example To change the idle timeout
+ * ```javascript
+ * // This example changes the idle timeout value for the specified load balancer.
+ * const input = {
+ *   "Attributes": [
+ *     {
+ *       "Key": "idle_timeout.timeout_seconds",
+ *       "Value": "30"
+ *     }
+ *   ],
+ *   "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188"
+ * };
+ * const command = new ModifyLoadBalancerAttributesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Attributes": [
+ *     {
+ *       "Key": "idle_timeout.timeout_seconds",
+ *       "Value": "30"
+ *     },
+ *     {
+ *       "Key": "access_logs.s3.enabled",
+ *       "Value": "false"
+ *     },
+ *     {
+ *       "Key": "access_logs.s3.prefix",
+ *       "Value": ""
+ *     },
+ *     {
+ *       "Key": "deletion_protection.enabled",
+ *       "Value": "true"
+ *     },
+ *     {
+ *       "Key": "access_logs.s3.bucket",
+ *       "Value": ""
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: elbv2-modify-load-balancer-attributes-2
+ * ```
+ *
+ * @example To enable access logs
+ * ```javascript
+ * // This example enables access logs for the specified load balancer. Note that the S3 bucket must exist in the same region as the load balancer and must have a policy attached that grants access to the Elastic Load Balancing service.
+ * const input = {
+ *   "Attributes": [
+ *     {
+ *       "Key": "access_logs.s3.enabled",
+ *       "Value": "true"
+ *     },
+ *     {
+ *       "Key": "access_logs.s3.bucket",
+ *       "Value": "my-loadbalancer-logs"
+ *     },
+ *     {
+ *       "Key": "access_logs.s3.prefix",
+ *       "Value": "myapp"
+ *     }
+ *   ],
+ *   "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188"
+ * };
+ * const command = new ModifyLoadBalancerAttributesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Attributes": [
+ *     {
+ *       "Key": "access_logs.s3.enabled",
+ *       "Value": "true"
+ *     },
+ *     {
+ *       "Key": "access_logs.s3.bucket",
+ *       "Value": "my-load-balancer-logs"
+ *     },
+ *     {
+ *       "Key": "access_logs.s3.prefix",
+ *       "Value": "myapp"
+ *     },
+ *     {
+ *       "Key": "idle_timeout.timeout_seconds",
+ *       "Value": "60"
+ *     },
+ *     {
+ *       "Key": "deletion_protection.enabled",
+ *       "Value": "false"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: elbv2-modify-load-balancer-attributes-3
+ * ```
  *
  */
 export class ModifyLoadBalancerAttributesCommand extends $Command<
@@ -71,6 +229,9 @@ export class ModifyLoadBalancerAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyLoadBalancerAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +260,8 @@ export class ModifyLoadBalancerAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyLoadBalancerAttributesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyLoadBalancerAttributesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,15 +271,21 @@ export class ModifyLoadBalancerAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyLoadBalancerAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyLoadBalancerAttributesCommand(input, context);
+    return se_ModifyLoadBalancerAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyLoadBalancerAttributesCommandOutput> {
-    return deserializeAws_queryModifyLoadBalancerAttributesCommand(output, context);
+    return de_ModifyLoadBalancerAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,21 +16,30 @@ import {
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
 import {
   ListDecoderManifestNetworkInterfacesRequest,
-  ListDecoderManifestNetworkInterfacesRequestFilterSensitiveLog,
   ListDecoderManifestNetworkInterfacesResponse,
-  ListDecoderManifestNetworkInterfacesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0ListDecoderManifestNetworkInterfacesCommand,
-  serializeAws_json1_0ListDecoderManifestNetworkInterfacesCommand,
+  de_ListDecoderManifestNetworkInterfacesCommand,
+  se_ListDecoderManifestNetworkInterfacesCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link ListDecoderManifestNetworkInterfacesCommand}.
+ */
 export interface ListDecoderManifestNetworkInterfacesCommandInput extends ListDecoderManifestNetworkInterfacesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDecoderManifestNetworkInterfacesCommand}.
+ */
 export interface ListDecoderManifestNetworkInterfacesCommandOutput
   extends ListDecoderManifestNetworkInterfacesResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Lists the network interfaces specified in a decoder manifest. </p>
  *         <note>
  *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p>
@@ -41,13 +50,36 @@ export interface ListDecoderManifestNetworkInterfacesCommandOutput
  * import { IoTFleetWiseClient, ListDecoderManifestNetworkInterfacesCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, ListDecoderManifestNetworkInterfacesCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = { // ListDecoderManifestNetworkInterfacesRequest
+ *   name: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListDecoderManifestNetworkInterfacesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDecoderManifestNetworkInterfacesCommandInput - {@link ListDecoderManifestNetworkInterfacesCommandInput}
+ * @returns {@link ListDecoderManifestNetworkInterfacesCommandOutput}
  * @see {@link ListDecoderManifestNetworkInterfacesCommandInput} for command's `input` shape.
  * @see {@link ListDecoderManifestNetworkInterfacesCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient permission to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request couldn't be completed because the server temporarily failed.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource wasn't found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request couldn't be completed due to throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
  *
  */
 export class ListDecoderManifestNetworkInterfacesCommand extends $Command<
@@ -67,6 +99,9 @@ export class ListDecoderManifestNetworkInterfacesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDecoderManifestNetworkInterfacesCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +130,8 @@ export class ListDecoderManifestNetworkInterfacesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDecoderManifestNetworkInterfacesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDecoderManifestNetworkInterfacesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,18 +141,24 @@ export class ListDecoderManifestNetworkInterfacesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListDecoderManifestNetworkInterfacesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListDecoderManifestNetworkInterfacesCommand(input, context);
+    return se_ListDecoderManifestNetworkInterfacesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDecoderManifestNetworkInterfacesCommandOutput> {
-    return deserializeAws_json1_0ListDecoderManifestNetworkInterfacesCommand(output, context);
+    return de_ListDecoderManifestNetworkInterfacesCommand(output, context);
   }
 
   // Start section: command_body_extra

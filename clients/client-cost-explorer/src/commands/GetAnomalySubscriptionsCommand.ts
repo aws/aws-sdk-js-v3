@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
-import {
-  GetAnomalySubscriptionsRequest,
-  GetAnomalySubscriptionsRequestFilterSensitiveLog,
-  GetAnomalySubscriptionsResponse,
-  GetAnomalySubscriptionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetAnomalySubscriptionsCommand,
-  serializeAws_json1_1GetAnomalySubscriptionsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetAnomalySubscriptionsRequest, GetAnomalySubscriptionsResponse } from "../models/models_0";
+import { de_GetAnomalySubscriptionsCommand, se_GetAnomalySubscriptionsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetAnomalySubscriptionsCommand}.
+ */
 export interface GetAnomalySubscriptionsCommandInput extends GetAnomalySubscriptionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetAnomalySubscriptionsCommand}.
+ */
 export interface GetAnomalySubscriptionsCommandOutput extends GetAnomalySubscriptionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the cost anomaly subscription objects for your account. You can filter using a
  *       list of cost anomaly monitor Amazon Resource Names (ARNs). </p>
  * @example
@@ -37,13 +40,33 @@ export interface GetAnomalySubscriptionsCommandOutput extends GetAnomalySubscrip
  * import { CostExplorerClient, GetAnomalySubscriptionsCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, GetAnomalySubscriptionsCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
  * const client = new CostExplorerClient(config);
+ * const input = { // GetAnomalySubscriptionsRequest
+ *   SubscriptionArnList: [ // Values
+ *     "STRING_VALUE",
+ *   ],
+ *   MonitorArn: "STRING_VALUE",
+ *   NextPageToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new GetAnomalySubscriptionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAnomalySubscriptionsCommandInput - {@link GetAnomalySubscriptionsCommandInput}
+ * @returns {@link GetAnomalySubscriptionsCommandOutput}
  * @see {@link GetAnomalySubscriptionsCommandInput} for command's `input` shape.
  * @see {@link GetAnomalySubscriptionsCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The pagination token is invalid. Try again without a pagination token.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You made too many calls in a short period of time. Try again later.</p>
+ *
+ * @throws {@link UnknownSubscriptionException} (client fault)
+ *  <p>The cost anomaly subscription does not exist for the account. </p>
+ *
  *
  */
 export class GetAnomalySubscriptionsCommand extends $Command<
@@ -63,6 +86,9 @@ export class GetAnomalySubscriptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAnomalySubscriptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +117,8 @@ export class GetAnomalySubscriptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAnomalySubscriptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAnomalySubscriptionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +128,18 @@ export class GetAnomalySubscriptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAnomalySubscriptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAnomalySubscriptionsCommand(input, context);
+    return se_GetAnomalySubscriptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAnomalySubscriptionsCommandOutput> {
-    return deserializeAws_json1_1GetAnomalySubscriptionsCommand(output, context);
+    return de_GetAnomalySubscriptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

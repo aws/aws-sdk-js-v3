@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  EnableLDAPSRequest,
-  EnableLDAPSRequestFilterSensitiveLog,
-  EnableLDAPSResult,
-  EnableLDAPSResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1EnableLDAPSCommand,
-  serializeAws_json1_1EnableLDAPSCommand,
-} from "../protocols/Aws_json1_1";
+import { EnableLDAPSRequest, EnableLDAPSResult } from "../models/models_0";
+import { de_EnableLDAPSCommand, se_EnableLDAPSCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link EnableLDAPSCommand}.
+ */
 export interface EnableLDAPSCommandInput extends EnableLDAPSRequest {}
+/**
+ * @public
+ *
+ * The output of {@link EnableLDAPSCommand}.
+ */
 export interface EnableLDAPSCommandOutput extends EnableLDAPSResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Activates the switch for the specific directory to always use LDAP secure calls.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,46 @@ export interface EnableLDAPSCommandOutput extends EnableLDAPSResult, __MetadataB
  * import { DirectoryServiceClient, EnableLDAPSCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, EnableLDAPSCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // EnableLDAPSRequest
+ *   DirectoryId: "STRING_VALUE", // required
+ *   Type: "Client", // required
+ * };
  * const command = new EnableLDAPSCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableLDAPSCommandInput - {@link EnableLDAPSCommandInput}
+ * @returns {@link EnableLDAPSCommandOutput}
  * @see {@link EnableLDAPSCommandInput} for command's `input` shape.
  * @see {@link EnableLDAPSCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>A client exception has occurred.</p>
+ *
+ * @throws {@link DirectoryDoesNotExistException} (client fault)
+ *  <p>The specified directory does not exist in the system.</p>
+ *
+ * @throws {@link DirectoryUnavailableException} (client fault)
+ *  <p>The specified directory is unavailable or could not be found.</p>
+ *
+ * @throws {@link InvalidLDAPSStatusException} (client fault)
+ *  <p>The LDAP activities could not be performed because they are limited by the LDAPS
+ *       status.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link NoAvailableCertificateException} (client fault)
+ *  <p>Client authentication setup could not be completed because at least one valid certificate must be
+ *       registered in the system.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>An exception has occurred in Directory Service.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>The operation is not supported.</p>
+ *
  *
  */
 export class EnableLDAPSCommand extends $Command<
@@ -62,6 +98,9 @@ export class EnableLDAPSCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableLDAPSCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +127,8 @@ export class EnableLDAPSCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableLDAPSRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: EnableLDAPSResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +138,18 @@ export class EnableLDAPSCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableLDAPSCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1EnableLDAPSCommand(input, context);
+    return se_EnableLDAPSCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableLDAPSCommandOutput> {
-    return deserializeAws_json1_1EnableLDAPSCommand(output, context);
+    return de_EnableLDAPSCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  EnableAddressTransferRequest,
-  EnableAddressTransferRequestFilterSensitiveLog,
-  EnableAddressTransferResult,
-  EnableAddressTransferResultFilterSensitiveLog,
-} from "../models/models_5";
-import {
-  deserializeAws_ec2EnableAddressTransferCommand,
-  serializeAws_ec2EnableAddressTransferCommand,
-} from "../protocols/Aws_ec2";
+import { EnableAddressTransferRequest, EnableAddressTransferResult } from "../models/models_5";
+import { de_EnableAddressTransferCommand, se_EnableAddressTransferCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link EnableAddressTransferCommand}.
+ */
 export interface EnableAddressTransferCommandInput extends EnableAddressTransferRequest {}
+/**
+ * @public
+ *
+ * The output of {@link EnableAddressTransferCommand}.
+ */
 export interface EnableAddressTransferCommandOutput extends EnableAddressTransferResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables Elastic IP address transfer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro">Transfer Elastic IP addresses</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,21 @@ export interface EnableAddressTransferCommandOutput extends EnableAddressTransfe
  * import { EC2Client, EnableAddressTransferCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, EnableAddressTransferCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // EnableAddressTransferRequest
+ *   AllocationId: "STRING_VALUE", // required
+ *   TransferAccountId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new EnableAddressTransferCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableAddressTransferCommandInput - {@link EnableAddressTransferCommandInput}
+ * @returns {@link EnableAddressTransferCommandOutput}
  * @see {@link EnableAddressTransferCommandInput} for command's `input` shape.
  * @see {@link EnableAddressTransferCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class EnableAddressTransferCommand extends $Command<
@@ -62,6 +73,9 @@ export class EnableAddressTransferCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableAddressTransferCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +104,8 @@ export class EnableAddressTransferCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableAddressTransferRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: EnableAddressTransferResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +115,18 @@ export class EnableAddressTransferCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableAddressTransferCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2EnableAddressTransferCommand(input, context);
+    return se_EnableAddressTransferCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableAddressTransferCommandOutput> {
-    return deserializeAws_ec2EnableAddressTransferCommand(output, context);
+    return de_EnableAddressTransferCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteCertificateRequest, DeleteCertificateRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteCertificateCommand,
-  serializeAws_restJson1DeleteCertificateCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteCertificateRequest } from "../models/models_0";
+import { de_DeleteCertificateCommand, se_DeleteCertificateCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteCertificateCommand}.
+ */
 export interface DeleteCertificateCommandInput extends DeleteCertificateRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteCertificateCommand}.
+ */
 export interface DeleteCertificateCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified certificate.</p>
  *          <p>A certificate cannot be deleted if it has a policy or IoT thing attached to it or if
  *          its status is set to ACTIVE. To delete a certificate, first use the <a>DetachPolicy</a> action to detach all policies. Next, use the <a>UpdateCertificate</a> action to set the certificate to the INACTIVE
@@ -35,13 +43,45 @@ export interface DeleteCertificateCommandOutput extends __MetadataBearer {}
  * import { IoTClient, DeleteCertificateCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeleteCertificateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // DeleteCertificateRequest
+ *   certificateId: "STRING_VALUE", // required
+ *   forceDelete: true || false,
+ * };
  * const command = new DeleteCertificateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCertificateCommandInput - {@link DeleteCertificateCommandInput}
+ * @returns {@link DeleteCertificateCommandOutput}
  * @see {@link DeleteCertificateCommandInput} for command's `input` shape.
  * @see {@link DeleteCertificateCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link CertificateStateException} (client fault)
+ *  <p>The certificate operation is not allowed.</p>
+ *
+ * @throws {@link DeleteConflictException} (client fault)
+ *  <p>You can't delete the resource because it is attached to one or more
+ *          resources.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You are not authorized to perform this operation.</p>
+ *
  *
  */
 export class DeleteCertificateCommand extends $Command<
@@ -61,6 +101,9 @@ export class DeleteCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +132,8 @@ export class DeleteCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +143,18 @@ export class DeleteCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteCertificateCommand(input, context);
+    return se_DeleteCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCertificateCommandOutput> {
-    return deserializeAws_restJson1DeleteCertificateCommand(output, context);
+    return de_DeleteCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

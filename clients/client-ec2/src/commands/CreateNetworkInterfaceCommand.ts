@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  CreateNetworkInterfaceRequest,
-  CreateNetworkInterfaceRequestFilterSensitiveLog,
-  CreateNetworkInterfaceResult,
-  CreateNetworkInterfaceResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_ec2CreateNetworkInterfaceCommand,
-  serializeAws_ec2CreateNetworkInterfaceCommand,
-} from "../protocols/Aws_ec2";
+import { CreateNetworkInterfaceRequest, CreateNetworkInterfaceResult } from "../models/models_1";
+import { de_CreateNetworkInterfaceCommand, se_CreateNetworkInterfaceCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateNetworkInterfaceCommand}.
+ */
 export interface CreateNetworkInterfaceCommandInput extends CreateNetworkInterfaceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateNetworkInterfaceCommand}.
+ */
 export interface CreateNetworkInterfaceCommandOutput extends CreateNetworkInterfaceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a network interface in the specified subnet.</p>
  *          <p>The number of IP addresses you can assign to a network interface varies by instance
  *             type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI">IP Addresses Per ENI Per
@@ -41,13 +44,109 @@ export interface CreateNetworkInterfaceCommandOutput extends CreateNetworkInterf
  * import { EC2Client, CreateNetworkInterfaceCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateNetworkInterfaceCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // CreateNetworkInterfaceRequest
+ *   Description: "STRING_VALUE",
+ *   DryRun: true || false,
+ *   Groups: [ // SecurityGroupIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   Ipv6AddressCount: Number("int"),
+ *   Ipv6Addresses: [ // InstanceIpv6AddressList
+ *     { // InstanceIpv6Address
+ *       Ipv6Address: "STRING_VALUE",
+ *     },
+ *   ],
+ *   PrivateIpAddress: "STRING_VALUE",
+ *   PrivateIpAddresses: [ // PrivateIpAddressSpecificationList
+ *     { // PrivateIpAddressSpecification
+ *       Primary: true || false,
+ *       PrivateIpAddress: "STRING_VALUE",
+ *     },
+ *   ],
+ *   SecondaryPrivateIpAddressCount: Number("int"),
+ *   Ipv4Prefixes: [ // Ipv4PrefixList
+ *     { // Ipv4PrefixSpecificationRequest
+ *       Ipv4Prefix: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Ipv4PrefixCount: Number("int"),
+ *   Ipv6Prefixes: [ // Ipv6PrefixList
+ *     { // Ipv6PrefixSpecificationRequest
+ *       Ipv6Prefix: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Ipv6PrefixCount: Number("int"),
+ *   InterfaceType: "efa" || "branch" || "trunk",
+ *   SubnetId: "STRING_VALUE", // required
+ *   TagSpecifications: [ // TagSpecificationList
+ *     { // TagSpecification
+ *       ResourceType: "capacity-reservation" || "client-vpn-endpoint" || "customer-gateway" || "carrier-gateway" || "coip-pool" || "dedicated-host" || "dhcp-options" || "egress-only-internet-gateway" || "elastic-ip" || "elastic-gpu" || "export-image-task" || "export-instance-task" || "fleet" || "fpga-image" || "host-reservation" || "image" || "import-image-task" || "import-snapshot-task" || "instance" || "instance-event-window" || "internet-gateway" || "ipam" || "ipam-pool" || "ipam-scope" || "ipv4pool-ec2" || "ipv6pool-ec2" || "key-pair" || "launch-template" || "local-gateway" || "local-gateway-route-table" || "local-gateway-virtual-interface" || "local-gateway-virtual-interface-group" || "local-gateway-route-table-vpc-association" || "local-gateway-route-table-virtual-interface-group-association" || "natgateway" || "network-acl" || "network-interface" || "network-insights-analysis" || "network-insights-path" || "network-insights-access-scope" || "network-insights-access-scope-analysis" || "placement-group" || "prefix-list" || "replace-root-volume-task" || "reserved-instances" || "route-table" || "security-group" || "security-group-rule" || "snapshot" || "spot-fleet-request" || "spot-instances-request" || "subnet" || "subnet-cidr-reservation" || "traffic-mirror-filter" || "traffic-mirror-session" || "traffic-mirror-target" || "transit-gateway" || "transit-gateway-attachment" || "transit-gateway-connect-peer" || "transit-gateway-multicast-domain" || "transit-gateway-policy-table" || "transit-gateway-route-table" || "transit-gateway-route-table-announcement" || "volume" || "vpc" || "vpc-endpoint" || "vpc-endpoint-connection" || "vpc-endpoint-service" || "vpc-endpoint-service-permission" || "vpc-peering-connection" || "vpn-connection" || "vpn-gateway" || "vpc-flow-log" || "capacity-reservation-fleet" || "traffic-mirror-filter-rule" || "vpc-endpoint-connection-device-type" || "verified-access-instance" || "verified-access-group" || "verified-access-endpoint" || "verified-access-policy" || "verified-access-trust-provider" || "vpn-connection-device-type" || "vpc-block-public-access-exclusion" || "ipam-resource-discovery" || "ipam-resource-discovery-association",
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new CreateNetworkInterfaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateNetworkInterfaceCommandInput - {@link CreateNetworkInterfaceCommandInput}
+ * @returns {@link CreateNetworkInterfaceCommandOutput}
  * @see {@link CreateNetworkInterfaceCommandInput} for command's `input` shape.
  * @see {@link CreateNetworkInterfaceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ *
+ * @example To create a network interface
+ * ```javascript
+ * // This example creates a network interface for the specified subnet.
+ * const input = {
+ *   "Description": "my network interface",
+ *   "Groups": [
+ *     "sg-903004f8"
+ *   ],
+ *   "PrivateIpAddress": "10.0.2.17",
+ *   "SubnetId": "subnet-9d4a7b6c"
+ * };
+ * const command = new CreateNetworkInterfaceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "NetworkInterface": {
+ *     "AvailabilityZone": "us-east-1d",
+ *     "Description": "my network interface",
+ *     "Groups": [
+ *       {
+ *         "GroupId": "sg-903004f8",
+ *         "GroupName": "default"
+ *       }
+ *     ],
+ *     "MacAddress": "02:1a:80:41:52:9c",
+ *     "NetworkInterfaceId": "eni-e5aa89a3",
+ *     "OwnerId": "123456789012",
+ *     "PrivateIpAddress": "10.0.2.17",
+ *     "PrivateIpAddresses": [
+ *       {
+ *         "Primary": true,
+ *         "PrivateIpAddress": "10.0.2.17"
+ *       }
+ *     ],
+ *     "RequesterManaged": false,
+ *     "SourceDestCheck": true,
+ *     "Status": "pending",
+ *     "SubnetId": "subnet-9d4a7b6c",
+ *     "TagSet": [],
+ *     "VpcId": "vpc-a01106c2"
+ *   }
+ * }
+ * *\/
+ * // example id: ec2-create-network-interface-1
+ * ```
  *
  */
 export class CreateNetworkInterfaceCommand extends $Command<
@@ -67,6 +166,9 @@ export class CreateNetworkInterfaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateNetworkInterfaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +197,8 @@ export class CreateNetworkInterfaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateNetworkInterfaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateNetworkInterfaceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +208,18 @@ export class CreateNetworkInterfaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateNetworkInterfaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateNetworkInterfaceCommand(input, context);
+    return se_CreateNetworkInterfaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateNetworkInterfaceCommandOutput> {
-    return deserializeAws_ec2CreateNetworkInterfaceCommand(output, context);
+    return de_CreateNetworkInterfaceCommand(output, context);
   }
 
   // Start section: command_body_extra

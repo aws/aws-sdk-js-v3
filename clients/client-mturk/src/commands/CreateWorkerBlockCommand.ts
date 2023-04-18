@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateWorkerBlockRequest,
-  CreateWorkerBlockRequestFilterSensitiveLog,
-  CreateWorkerBlockResponse,
-  CreateWorkerBlockResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateWorkerBlockRequest, CreateWorkerBlockResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import {
-  deserializeAws_json1_1CreateWorkerBlockCommand,
-  serializeAws_json1_1CreateWorkerBlockCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateWorkerBlockCommand, se_CreateWorkerBlockCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateWorkerBlockCommand}.
+ */
 export interface CreateWorkerBlockCommandInput extends CreateWorkerBlockRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateWorkerBlockCommand}.
+ */
 export interface CreateWorkerBlockCommandOutput extends CreateWorkerBlockResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The <code>CreateWorkerBlock</code> operation allows you to prevent a Worker from working on your HITs. For example, you can block a Worker who is producing poor quality work. You can block up to 100,000 Workers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,26 @@ export interface CreateWorkerBlockCommandOutput extends CreateWorkerBlockRespons
  * import { MTurkClient, CreateWorkerBlockCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, CreateWorkerBlockCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = { // CreateWorkerBlockRequest
+ *   WorkerId: "STRING_VALUE", // required
+ *   Reason: "STRING_VALUE", // required
+ * };
  * const command = new CreateWorkerBlockCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWorkerBlockCommandInput - {@link CreateWorkerBlockCommandInput}
+ * @returns {@link CreateWorkerBlockCommandOutput}
  * @see {@link CreateWorkerBlockCommandInput} for command's `input` shape.
  * @see {@link CreateWorkerBlockCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
+ *
+ * @throws {@link RequestError} (client fault)
+ *  <p>Your request is invalid.</p>
+ *
+ * @throws {@link ServiceFault} (server fault)
+ *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
  *
  */
 export class CreateWorkerBlockCommand extends $Command<
@@ -62,6 +78,9 @@ export class CreateWorkerBlockCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWorkerBlockCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +109,8 @@ export class CreateWorkerBlockCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateWorkerBlockRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateWorkerBlockResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +120,18 @@ export class CreateWorkerBlockCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWorkerBlockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateWorkerBlockCommand(input, context);
+    return se_CreateWorkerBlockCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWorkerBlockCommandOutput> {
-    return deserializeAws_json1_1CreateWorkerBlockCommand(output, context);
+    return de_CreateWorkerBlockCommand(output, context);
   }
 
   // Start section: command_body_extra

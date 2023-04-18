@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DeregisterWorkspaceDirectoryRequest, DeregisterWorkspaceDirectoryResult } from "../models/models_0";
 import {
-  DeregisterWorkspaceDirectoryRequest,
-  DeregisterWorkspaceDirectoryRequestFilterSensitiveLog,
-  DeregisterWorkspaceDirectoryResult,
-  DeregisterWorkspaceDirectoryResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeregisterWorkspaceDirectoryCommand,
-  serializeAws_json1_1DeregisterWorkspaceDirectoryCommand,
+  de_DeregisterWorkspaceDirectoryCommand,
+  se_DeregisterWorkspaceDirectoryCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeregisterWorkspaceDirectoryCommand}.
+ */
 export interface DeregisterWorkspaceDirectoryCommandInput extends DeregisterWorkspaceDirectoryRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeregisterWorkspaceDirectoryCommand}.
+ */
 export interface DeregisterWorkspaceDirectoryCommandOutput
   extends DeregisterWorkspaceDirectoryResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deregisters the specified directory. This operation is asynchronous and returns before
  *          the WorkSpace directory is deregistered. If any WorkSpaces are registered to this
  *          directory, you must remove them before you can deregister the directory.</p>
@@ -51,13 +57,34 @@ export interface DeregisterWorkspaceDirectoryCommandOutput
  * import { WorkSpacesClient, DeregisterWorkspaceDirectoryCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DeregisterWorkspaceDirectoryCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // DeregisterWorkspaceDirectoryRequest
+ *   DirectoryId: "STRING_VALUE", // required
+ * };
  * const command = new DeregisterWorkspaceDirectoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterWorkspaceDirectoryCommandInput - {@link DeregisterWorkspaceDirectoryCommandInput}
+ * @returns {@link DeregisterWorkspaceDirectoryCommandOutput}
  * @see {@link DeregisterWorkspaceDirectoryCommandInput} for command's `input` shape.
  * @see {@link DeregisterWorkspaceDirectoryCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The user is not authorized to access a resource.</p>
+ *
+ * @throws {@link InvalidParameterValuesException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ * @throws {@link InvalidResourceStateException} (client fault)
+ *  <p>The state of the resource is not valid for this operation.</p>
+ *
+ * @throws {@link OperationNotSupportedException} (client fault)
+ *  <p>This operation is not supported.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
  *
  */
 export class DeregisterWorkspaceDirectoryCommand extends $Command<
@@ -77,6 +104,9 @@ export class DeregisterWorkspaceDirectoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterWorkspaceDirectoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +135,8 @@ export class DeregisterWorkspaceDirectoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterWorkspaceDirectoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeregisterWorkspaceDirectoryResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,15 +146,21 @@ export class DeregisterWorkspaceDirectoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterWorkspaceDirectoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeregisterWorkspaceDirectoryCommand(input, context);
+    return se_DeregisterWorkspaceDirectoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeregisterWorkspaceDirectoryCommandOutput> {
-    return deserializeAws_json1_1DeregisterWorkspaceDirectoryCommand(output, context);
+    return de_DeregisterWorkspaceDirectoryCommand(output, context);
   }
 
   // Start section: command_body_extra

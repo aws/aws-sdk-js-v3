@@ -18,16 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ChimeSDKMessagingClient";
-import { DeleteChannelFlowRequest, DeleteChannelFlowRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteChannelFlowCommand,
-  serializeAws_restJson1DeleteChannelFlowCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteChannelFlowRequest } from "../models/models_0";
+import { de_DeleteChannelFlowCommand, se_DeleteChannelFlowCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteChannelFlowCommand}.
+ */
 export interface DeleteChannelFlowCommandInput extends DeleteChannelFlowRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteChannelFlowCommand}.
+ */
 export interface DeleteChannelFlowCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a channel flow, an irreversible process. This is a developer API.</p>
  *          <note>
  *             <p> This API works only when the channel flow is not associated with any channel. To get a list of all channels that a channel flow is associated with, use the
@@ -39,13 +47,41 @@ export interface DeleteChannelFlowCommandOutput extends __MetadataBearer {}
  * import { ChimeSDKMessagingClient, DeleteChannelFlowCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, DeleteChannelFlowCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
+ * const input = { // DeleteChannelFlowRequest
+ *   ChannelFlowArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteChannelFlowCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteChannelFlowCommandInput - {@link DeleteChannelFlowCommandInput}
+ * @returns {@link DeleteChannelFlowCommandOutput}
  * @see {@link DeleteChannelFlowCommandInput} for command's `input` shape.
  * @see {@link DeleteChannelFlowCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be processed because of conflict in the current state of the
+ *          resource.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The client exceeded its request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client is not currently authorized to make the request.</p>
+ *
  *
  */
 export class DeleteChannelFlowCommand extends $Command<
@@ -65,6 +101,9 @@ export class DeleteChannelFlowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteChannelFlowCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +132,8 @@ export class DeleteChannelFlowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteChannelFlowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +143,18 @@ export class DeleteChannelFlowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteChannelFlowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteChannelFlowCommand(input, context);
+    return se_DeleteChannelFlowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteChannelFlowCommandOutput> {
-    return deserializeAws_restJson1DeleteChannelFlowCommand(output, context);
+    return de_DeleteChannelFlowCommand(output, context);
   }
 
   // Start section: command_body_extra

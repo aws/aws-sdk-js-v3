@@ -13,18 +13,26 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetOpsSummaryResult, GetOpsSummaryResultFilterSensitiveLog } from "../models/models_1";
-import { GetOpsSummaryRequest, GetOpsSummaryRequestFilterSensitiveLog } from "../models/models_2";
-import {
-  deserializeAws_json1_1GetOpsSummaryCommand,
-  serializeAws_json1_1GetOpsSummaryCommand,
-} from "../protocols/Aws_json1_1";
+import { GetOpsSummaryResult } from "../models/models_1";
+import { GetOpsSummaryRequest } from "../models/models_2";
+import { de_GetOpsSummaryCommand, se_GetOpsSummaryCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetOpsSummaryCommand}.
+ */
 export interface GetOpsSummaryCommandInput extends GetOpsSummaryRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetOpsSummaryCommand}.
+ */
 export interface GetOpsSummaryCommandOutput extends GetOpsSummaryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>View a summary of operations metadata (OpsData) based on specified filters and aggregators.
  *    OpsData can include information about Amazon Web Services Systems Manager OpsCenter operational workitems (OpsItems) as
  *    well as information about any Amazon Web Services resource or service configured to report OpsData to Amazon Web Services Systems Manager
@@ -35,13 +43,86 @@ export interface GetOpsSummaryCommandOutput extends GetOpsSummaryResult, __Metad
  * import { SSMClient, GetOpsSummaryCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetOpsSummaryCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // GetOpsSummaryRequest
+ *   SyncName: "STRING_VALUE",
+ *   Filters: [ // OpsFilterList
+ *     { // OpsFilter
+ *       Key: "STRING_VALUE", // required
+ *       Values: [ // OpsFilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *       Type: "Equal" || "NotEqual" || "BeginWith" || "LessThan" || "GreaterThan" || "Exists",
+ *     },
+ *   ],
+ *   Aggregators: [ // OpsAggregatorList
+ *     { // OpsAggregator
+ *       AggregatorType: "STRING_VALUE",
+ *       TypeName: "STRING_VALUE",
+ *       AttributeName: "STRING_VALUE",
+ *       Values: { // OpsAggregatorValueMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       Filters: [
+ *         {
+ *           Key: "STRING_VALUE", // required
+ *           Values: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *           Type: "Equal" || "NotEqual" || "BeginWith" || "LessThan" || "GreaterThan" || "Exists",
+ *         },
+ *       ],
+ *       Aggregators: [
+ *         {
+ *           AggregatorType: "STRING_VALUE",
+ *           TypeName: "STRING_VALUE",
+ *           AttributeName: "STRING_VALUE",
+ *           Values: {
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *           Filters: "<OpsFilterList>",
+ *           Aggregators: "<OpsAggregatorList>",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   ResultAttributes: [ // OpsResultAttributeList
+ *     { // OpsResultAttribute
+ *       TypeName: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new GetOpsSummaryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetOpsSummaryCommandInput - {@link GetOpsSummaryCommandInput}
+ * @returns {@link GetOpsSummaryCommandOutput}
  * @see {@link GetOpsSummaryCommandInput} for command's `input` shape.
  * @see {@link GetOpsSummaryCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidAggregatorException} (client fault)
+ *  <p>The specified aggregator isn't valid for inventory groups. Verify that the aggregator uses a
+ *    valid inventory type such as <code>AWS:Application</code> or
+ *    <code>AWS:InstanceInformation</code>.</p>
+ *
+ * @throws {@link InvalidFilter} (client fault)
+ *  <p>The filter name isn't valid. Verify the you entered the correct name and try again.</p>
+ *
+ * @throws {@link InvalidNextToken} (client fault)
+ *  <p>The specified token isn't valid.</p>
+ *
+ * @throws {@link InvalidTypeNameException} (client fault)
+ *  <p>The parameter type name isn't valid.</p>
+ *
+ * @throws {@link ResourceDataSyncNotFoundException} (client fault)
+ *  <p>The specified sync name wasn't found.</p>
+ *
  *
  */
 export class GetOpsSummaryCommand extends $Command<
@@ -61,6 +142,9 @@ export class GetOpsSummaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetOpsSummaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -87,8 +171,8 @@ export class GetOpsSummaryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetOpsSummaryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetOpsSummaryResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -98,12 +182,18 @@ export class GetOpsSummaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetOpsSummaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetOpsSummaryCommand(input, context);
+    return se_GetOpsSummaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetOpsSummaryCommandOutput> {
-    return deserializeAws_json1_1GetOpsSummaryCommand(output, context);
+    return de_GetOpsSummaryCommand(output, context);
   }
 
   // Start section: command_body_extra

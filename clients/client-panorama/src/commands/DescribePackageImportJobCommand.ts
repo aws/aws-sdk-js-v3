@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribePackageImportJobRequest,
-  DescribePackageImportJobRequestFilterSensitiveLog,
-  DescribePackageImportJobResponse,
-  DescribePackageImportJobResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribePackageImportJobRequest, DescribePackageImportJobResponse } from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
-import {
-  deserializeAws_restJson1DescribePackageImportJobCommand,
-  serializeAws_restJson1DescribePackageImportJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribePackageImportJobCommand, se_DescribePackageImportJobCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribePackageImportJobCommand}.
+ */
 export interface DescribePackageImportJobCommandInput extends DescribePackageImportJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribePackageImportJobCommand}.
+ */
 export interface DescribePackageImportJobCommandOutput extends DescribePackageImportJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a package import job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,31 @@ export interface DescribePackageImportJobCommandOutput extends DescribePackageIm
  * import { PanoramaClient, DescribePackageImportJobCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, DescribePackageImportJobCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
  * const client = new PanoramaClient(config);
+ * const input = { // DescribePackageImportJobRequest
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new DescribePackageImportJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePackageImportJobCommandInput - {@link DescribePackageImportJobCommandInput}
+ * @returns {@link DescribePackageImportJobCommandOutput}
  * @see {@link DescribePackageImportJobCommandInput} for command's `input` shape.
  * @see {@link DescribePackageImportJobCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The requestor does not have permission to access the target action or resource.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The target resource is in use.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error occurred.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request contains an invalid parameter value.</p>
+ *
  *
  */
 export class DescribePackageImportJobCommand extends $Command<
@@ -62,6 +83,9 @@ export class DescribePackageImportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePackageImportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +114,8 @@ export class DescribePackageImportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePackageImportJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribePackageImportJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +125,18 @@ export class DescribePackageImportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePackageImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribePackageImportJobCommand(input, context);
+    return se_DescribePackageImportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePackageImportJobCommandOutput> {
-    return deserializeAws_restJson1DescribePackageImportJobCommand(output, context);
+    return de_DescribePackageImportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

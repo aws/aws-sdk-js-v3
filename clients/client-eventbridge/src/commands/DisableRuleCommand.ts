@@ -14,19 +14,26 @@ import {
 } from "@aws-sdk/types";
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import { DisableRuleRequest, DisableRuleRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DisableRuleCommand,
-  serializeAws_json1_1DisableRuleCommand,
-} from "../protocols/Aws_json1_1";
+import { DisableRuleRequest } from "../models/models_0";
+import { de_DisableRuleCommand, se_DisableRuleCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DisableRuleCommand}.
+ */
 export interface DisableRuleCommandInput extends DisableRuleRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisableRuleCommand}.
+ */
 export interface DisableRuleCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables the specified rule. A disabled rule won't match any events, and won't
  *       self-trigger if it has a schedule expression.</p>
- *
  *          <p>When you disable a rule, incoming events might continue to match to the disabled rule.
  *       Allow a short period of time for changes to take effect.</p>
  * @example
@@ -35,13 +42,37 @@ export interface DisableRuleCommandOutput extends __MetadataBearer {}
  * import { EventBridgeClient, DisableRuleCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, DisableRuleCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
+ * const input = { // DisableRuleRequest
+ *   Name: "STRING_VALUE", // required
+ *   EventBusName: "STRING_VALUE",
+ * };
  * const command = new DisableRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableRuleCommandInput - {@link DisableRuleCommandInput}
+ * @returns {@link DisableRuleCommandOutput}
  * @see {@link DisableRuleCommandInput} for command's `input` shape.
  * @see {@link DisableRuleCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * @throws {@link ManagedRuleException} (client fault)
+ *  <p>This rule was created by an Amazon Web Services service on behalf of your account. It is managed by that
+ *       service. If you see this error in response to <code>DeleteRule</code> or
+ *         <code>RemoveTargets</code>, you can use the <code>Force</code> parameter in those calls to
+ *       delete the rule or remove targets from the rule. You cannot modify these managed rules by
+ *       using <code>DisableRule</code>, <code>EnableRule</code>, <code>PutTargets</code>,
+ *         <code>PutRule</code>, <code>TagResource</code>, or <code>UntagResource</code>. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An entity that you specified does not exist.</p>
+ *
  *
  */
 export class DisableRuleCommand extends $Command<
@@ -61,6 +92,9 @@ export class DisableRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -87,8 +121,8 @@ export class DisableRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -98,12 +132,18 @@ export class DisableRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisableRuleCommand(input, context);
+    return se_DisableRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableRuleCommandOutput> {
-    return deserializeAws_json1_1DisableRuleCommand(output, context);
+    return de_DisableRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

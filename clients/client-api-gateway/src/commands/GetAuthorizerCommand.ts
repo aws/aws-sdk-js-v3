@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  Authorizer,
-  AuthorizerFilterSensitiveLog,
-  GetAuthorizerRequest,
-  GetAuthorizerRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAuthorizerCommand,
-  serializeAws_restJson1GetAuthorizerCommand,
-} from "../protocols/Aws_restJson1";
+import { Authorizer, GetAuthorizerRequest } from "../models/models_0";
+import { de_GetAuthorizerCommand, se_GetAuthorizerCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetAuthorizerCommand}.
+ */
 export interface GetAuthorizerCommandInput extends GetAuthorizerRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetAuthorizerCommand}.
+ */
 export interface GetAuthorizerCommandOutput extends Authorizer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describe an existing Authorizer resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,32 @@ export interface GetAuthorizerCommandOutput extends Authorizer, __MetadataBearer
  * import { APIGatewayClient, GetAuthorizerCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetAuthorizerCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // GetAuthorizerRequest
+ *   restApiId: "STRING_VALUE", // required
+ *   authorizerId: "STRING_VALUE", // required
+ * };
  * const command = new GetAuthorizerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAuthorizerCommandInput - {@link GetAuthorizerCommandInput}
+ * @returns {@link GetAuthorizerCommandOutput}
  * @see {@link GetAuthorizerCommandInput} for command's `input` shape.
  * @see {@link GetAuthorizerCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The request is denied because the caller has insufficient permissions.</p>
+ *
  *
  */
 export class GetAuthorizerCommand extends $Command<
@@ -62,6 +84,9 @@ export class GetAuthorizerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAuthorizerCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +113,8 @@ export class GetAuthorizerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAuthorizerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AuthorizerFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +124,18 @@ export class GetAuthorizerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAuthorizerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAuthorizerCommand(input, context);
+    return se_GetAuthorizerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAuthorizerCommandOutput> {
-    return deserializeAws_restJson1GetAuthorizerCommand(output, context);
+    return de_GetAuthorizerCommand(output, context);
   }
 
   // Start section: command_body_extra

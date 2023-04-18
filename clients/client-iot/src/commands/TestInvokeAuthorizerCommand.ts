@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  TestInvokeAuthorizerRequest,
-  TestInvokeAuthorizerRequestFilterSensitiveLog,
-  TestInvokeAuthorizerResponse,
-  TestInvokeAuthorizerResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1TestInvokeAuthorizerCommand,
-  serializeAws_restJson1TestInvokeAuthorizerCommand,
-} from "../protocols/Aws_restJson1";
+import { TestInvokeAuthorizerRequest, TestInvokeAuthorizerResponse } from "../models/models_2";
+import { de_TestInvokeAuthorizerCommand, se_TestInvokeAuthorizerCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link TestInvokeAuthorizerCommand}.
+ */
 export interface TestInvokeAuthorizerCommandInput extends TestInvokeAuthorizerRequest {}
+/**
+ * @public
+ *
+ * The output of {@link TestInvokeAuthorizerCommand}.
+ */
 export interface TestInvokeAuthorizerCommandOutput extends TestInvokeAuthorizerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Tests a custom authorization behavior by invoking a specified custom authorizer. Use
  *          this to test and debug the custom authorization behavior of devices that connect to the IoT
  *          device gateway.</p>
@@ -39,13 +42,56 @@ export interface TestInvokeAuthorizerCommandOutput extends TestInvokeAuthorizerR
  * import { IoTClient, TestInvokeAuthorizerCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, TestInvokeAuthorizerCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // TestInvokeAuthorizerRequest
+ *   authorizerName: "STRING_VALUE", // required
+ *   token: "STRING_VALUE",
+ *   tokenSignature: "STRING_VALUE",
+ *   httpContext: { // HttpContext
+ *     headers: { // HttpHeaders
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     queryString: "STRING_VALUE",
+ *   },
+ *   mqttContext: { // MqttContext
+ *     username: "STRING_VALUE",
+ *     password: "BLOB_VALUE",
+ *     clientId: "STRING_VALUE",
+ *   },
+ *   tlsContext: { // TlsContext
+ *     serverName: "STRING_VALUE",
+ *   },
+ * };
  * const command = new TestInvokeAuthorizerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TestInvokeAuthorizerCommandInput - {@link TestInvokeAuthorizerCommandInput}
+ * @returns {@link TestInvokeAuthorizerCommandOutput}
  * @see {@link TestInvokeAuthorizerCommandInput} for command's `input` shape.
  * @see {@link TestInvokeAuthorizerCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link InvalidResponseException} (client fault)
+ *  <p>The response is invalid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You are not authorized to perform this operation.</p>
+ *
  *
  */
 export class TestInvokeAuthorizerCommand extends $Command<
@@ -65,6 +111,9 @@ export class TestInvokeAuthorizerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TestInvokeAuthorizerCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +142,8 @@ export class TestInvokeAuthorizerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TestInvokeAuthorizerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: TestInvokeAuthorizerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +153,18 @@ export class TestInvokeAuthorizerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TestInvokeAuthorizerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1TestInvokeAuthorizerCommand(input, context);
+    return se_TestInvokeAuthorizerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestInvokeAuthorizerCommandOutput> {
-    return deserializeAws_restJson1TestInvokeAuthorizerCommand(output, context);
+    return de_TestInvokeAuthorizerCommand(output, context);
   }
 
   // Start section: command_body_extra

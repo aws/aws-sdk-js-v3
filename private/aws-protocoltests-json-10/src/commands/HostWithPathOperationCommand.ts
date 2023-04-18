@@ -13,12 +13,19 @@ import {
 } from "@aws-sdk/types";
 
 import { JSONRPC10ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JSONRPC10Client";
-import {
-  deserializeAws_json1_0HostWithPathOperationCommand,
-  serializeAws_json1_0HostWithPathOperationCommand,
-} from "../protocols/Aws_json1_0";
+import { de_HostWithPathOperationCommand, se_HostWithPathOperationCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link HostWithPathOperationCommand}.
+ */
 export interface HostWithPathOperationCommandInput {}
+/**
+ * @public
+ *
+ * The output of {@link HostWithPathOperationCommand}.
+ */
 export interface HostWithPathOperationCommandOutput extends __MetadataBearer {}
 
 export class HostWithPathOperationCommand extends $Command<
@@ -29,6 +36,9 @@ export class HostWithPathOperationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: HostWithPathOperationCommandInput) {
     // Start section: command_constructor
     super();
@@ -54,8 +64,8 @@ export class HostWithPathOperationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -65,12 +75,18 @@ export class HostWithPathOperationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: HostWithPathOperationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0HostWithPathOperationCommand(input, context);
+    return se_HostWithPathOperationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<HostWithPathOperationCommandOutput> {
-    return deserializeAws_json1_0HostWithPathOperationCommand(output, context);
+    return de_HostWithPathOperationCommand(output, context);
   }
 
   // Start section: command_body_extra

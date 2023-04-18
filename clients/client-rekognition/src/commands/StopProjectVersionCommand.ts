@@ -13,37 +13,70 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StopProjectVersionRequest,
-  StopProjectVersionRequestFilterSensitiveLog,
-  StopProjectVersionResponse,
-  StopProjectVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StopProjectVersionCommand,
-  serializeAws_json1_1StopProjectVersionCommand,
-} from "../protocols/Aws_json1_1";
+import { StopProjectVersionRequest, StopProjectVersionResponse } from "../models/models_0";
+import { de_StopProjectVersionCommand, se_StopProjectVersionCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
+/**
+ * @public
+ *
+ * The input for {@link StopProjectVersionCommand}.
+ */
 export interface StopProjectVersionCommandInput extends StopProjectVersionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StopProjectVersionCommand}.
+ */
 export interface StopProjectVersionCommandOutput extends StopProjectVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a running model. The operation might take a while to complete. To
  *          check the current status, call <a>DescribeProjectVersions</a>. </p>
+ *          <p>This operation requires permissions to perform the <code>rekognition:StopProjectVersion</code> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RekognitionClient, StopProjectVersionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, StopProjectVersionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // StopProjectVersionRequest
+ *   ProjectVersionArn: "STRING_VALUE", // required
+ * };
  * const command = new StopProjectVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopProjectVersionCommandInput - {@link StopProjectVersionCommandInput}
+ * @returns {@link StopProjectVersionCommandOutput}
  * @see {@link StopProjectVersionCommandInput} for command's `input` shape.
  * @see {@link StopProjectVersionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to perform the action.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
+ *       operation again.</p>
+ *
+ * @throws {@link ProvisionedThroughputExceededException} (client fault)
+ *  <p>The number of requests exceeded your throughput limit. If you want to increase this
+ *       limit, contact Amazon Rekognition.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is already being used.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request cannot be found.</p>
+ *
+ * @throws {@link ThrottlingException} (server fault)
+ *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
  *
  */
 export class StopProjectVersionCommand extends $Command<
@@ -63,6 +96,9 @@ export class StopProjectVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopProjectVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +127,8 @@ export class StopProjectVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopProjectVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopProjectVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +138,18 @@ export class StopProjectVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopProjectVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopProjectVersionCommand(input, context);
+    return se_StopProjectVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopProjectVersionCommandOutput> {
-    return deserializeAws_json1_1StopProjectVersionCommand(output, context);
+    return de_StopProjectVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

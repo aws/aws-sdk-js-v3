@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetUserDefinedFunctionRequest,
-  GetUserDefinedFunctionRequestFilterSensitiveLog,
-  GetUserDefinedFunctionResponse,
-  GetUserDefinedFunctionResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetUserDefinedFunctionCommand,
-  serializeAws_json1_1GetUserDefinedFunctionCommand,
-} from "../protocols/Aws_json1_1";
+import { GetUserDefinedFunctionRequest, GetUserDefinedFunctionResponse } from "../models/models_1";
+import { de_GetUserDefinedFunctionCommand, se_GetUserDefinedFunctionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetUserDefinedFunctionCommand}.
+ */
 export interface GetUserDefinedFunctionCommandInput extends GetUserDefinedFunctionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetUserDefinedFunctionCommand}.
+ */
 export interface GetUserDefinedFunctionCommandOutput extends GetUserDefinedFunctionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a specified function definition from the Data Catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,36 @@ export interface GetUserDefinedFunctionCommandOutput extends GetUserDefinedFunct
  * import { GlueClient, GetUserDefinedFunctionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetUserDefinedFunctionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // GetUserDefinedFunctionRequest
+ *   CatalogId: "STRING_VALUE",
+ *   DatabaseName: "STRING_VALUE", // required
+ *   FunctionName: "STRING_VALUE", // required
+ * };
  * const command = new GetUserDefinedFunctionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetUserDefinedFunctionCommandInput - {@link GetUserDefinedFunctionCommandInput}
+ * @returns {@link GetUserDefinedFunctionCommandOutput}
  * @see {@link GetUserDefinedFunctionCommandInput} for command's `input` shape.
  * @see {@link GetUserDefinedFunctionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link GlueEncryptionException} (client fault)
+ *  <p>An encryption operation failed.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class GetUserDefinedFunctionCommand extends $Command<
@@ -62,6 +88,9 @@ export class GetUserDefinedFunctionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetUserDefinedFunctionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +119,8 @@ export class GetUserDefinedFunctionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetUserDefinedFunctionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetUserDefinedFunctionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +130,18 @@ export class GetUserDefinedFunctionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetUserDefinedFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetUserDefinedFunctionCommand(input, context);
+    return se_GetUserDefinedFunctionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUserDefinedFunctionCommandOutput> {
-    return deserializeAws_json1_1GetUserDefinedFunctionCommand(output, context);
+    return de_GetUserDefinedFunctionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,19 +16,26 @@ import {
 import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
 import {
   ListPricingPlansInput,
-  ListPricingPlansInputFilterSensitiveLog,
   ListPricingPlansOutput,
   ListPricingPlansOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListPricingPlansCommand,
-  serializeAws_restJson1ListPricingPlansCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListPricingPlansCommand, se_ListPricingPlansCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListPricingPlansCommand}.
+ */
 export interface ListPricingPlansCommandInput extends ListPricingPlansInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListPricingPlansCommand}.
+ */
 export interface ListPricingPlansCommandOutput extends ListPricingPlansOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>A paginated call to get pricing plans for the given billing period. If you don't provide a billing period, the current billing period is used.
  *     </p>
  * @example
@@ -37,13 +44,41 @@ export interface ListPricingPlansCommandOutput extends ListPricingPlansOutput, _
  * import { BillingconductorClient, ListPricingPlansCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, ListPricingPlansCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
  * const client = new BillingconductorClient(config);
+ * const input = { // ListPricingPlansInput
+ *   BillingPeriod: "STRING_VALUE",
+ *   Filters: { // ListPricingPlansFilter
+ *     Arns: [ // PricingPlanArns
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListPricingPlansCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPricingPlansCommandInput - {@link ListPricingPlansCommandInput}
+ * @returns {@link ListPricingPlansCommandOutput}
  * @see {@link ListPricingPlansCommandInput} for command's `input` shape.
  * @see {@link ListPricingPlansCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.
+ *     </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred while processing a request.
+ *     </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.
+ *     </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+ *
  *
  */
 export class ListPricingPlansCommand extends $Command<
@@ -63,6 +98,9 @@ export class ListPricingPlansCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPricingPlansCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,7 +129,7 @@ export class ListPricingPlansCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPricingPlansInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListPricingPlansOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -102,12 +140,18 @@ export class ListPricingPlansCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPricingPlansCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPricingPlansCommand(input, context);
+    return se_ListPricingPlansCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPricingPlansCommandOutput> {
-    return deserializeAws_restJson1ListPricingPlansCommand(output, context);
+    return de_ListPricingPlansCommand(output, context);
   }
 
   // Start section: command_body_extra

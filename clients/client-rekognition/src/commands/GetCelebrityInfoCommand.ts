@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetCelebrityInfoRequest,
-  GetCelebrityInfoRequestFilterSensitiveLog,
-  GetCelebrityInfoResponse,
-  GetCelebrityInfoResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetCelebrityInfoCommand,
-  serializeAws_json1_1GetCelebrityInfoCommand,
-} from "../protocols/Aws_json1_1";
+import { GetCelebrityInfoRequest, GetCelebrityInfoResponse } from "../models/models_0";
+import { de_GetCelebrityInfoCommand, se_GetCelebrityInfoCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetCelebrityInfoCommand}.
+ */
 export interface GetCelebrityInfoCommandInput extends GetCelebrityInfoRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetCelebrityInfoCommand}.
+ */
 export interface GetCelebrityInfoCommandOutput extends GetCelebrityInfoResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the name and additional information about a celebrity based on their Amazon Rekognition ID.
  *       The additional information is returned as an array of URLs. If there is no additional
  *       information about the celebrity, this list is empty.</p>
@@ -42,13 +45,39 @@ export interface GetCelebrityInfoCommandOutput extends GetCelebrityInfoResponse,
  * import { RekognitionClient, GetCelebrityInfoCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, GetCelebrityInfoCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // GetCelebrityInfoRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetCelebrityInfoCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCelebrityInfoCommandInput - {@link GetCelebrityInfoCommandInput}
+ * @returns {@link GetCelebrityInfoCommandOutput}
  * @see {@link GetCelebrityInfoCommandInput} for command's `input` shape.
  * @see {@link GetCelebrityInfoCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to perform the action.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
+ *       operation again.</p>
+ *
+ * @throws {@link ProvisionedThroughputExceededException} (client fault)
+ *  <p>The number of requests exceeded your throughput limit. If you want to increase this
+ *       limit, contact Amazon Rekognition.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request cannot be found.</p>
+ *
+ * @throws {@link ThrottlingException} (server fault)
+ *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
  *
  */
 export class GetCelebrityInfoCommand extends $Command<
@@ -68,6 +97,9 @@ export class GetCelebrityInfoCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCelebrityInfoCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +128,8 @@ export class GetCelebrityInfoCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCelebrityInfoRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCelebrityInfoResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +139,18 @@ export class GetCelebrityInfoCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCelebrityInfoCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetCelebrityInfoCommand(input, context);
+    return se_GetCelebrityInfoCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCelebrityInfoCommandOutput> {
-    return deserializeAws_json1_1GetCelebrityInfoCommand(output, context);
+    return de_GetCelebrityInfoCommand(output, context);
   }
 
   // Start section: command_body_extra

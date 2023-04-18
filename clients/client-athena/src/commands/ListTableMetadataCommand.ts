@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import {
-  ListTableMetadataInput,
-  ListTableMetadataInputFilterSensitiveLog,
-  ListTableMetadataOutput,
-  ListTableMetadataOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListTableMetadataCommand,
-  serializeAws_json1_1ListTableMetadataCommand,
-} from "../protocols/Aws_json1_1";
+import { ListTableMetadataInput, ListTableMetadataOutput } from "../models/models_0";
+import { de_ListTableMetadataCommand, se_ListTableMetadataCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListTableMetadataCommand}.
+ */
 export interface ListTableMetadataCommandInput extends ListTableMetadataInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListTableMetadataCommand}.
+ */
 export interface ListTableMetadataCommandOutput extends ListTableMetadataOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the metadata for the tables in the specified data catalog database.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,39 @@ export interface ListTableMetadataCommandOutput extends ListTableMetadataOutput,
  * import { AthenaClient, ListTableMetadataCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, ListTableMetadataCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = { // ListTableMetadataInput
+ *   CatalogName: "STRING_VALUE", // required
+ *   DatabaseName: "STRING_VALUE", // required
+ *   Expression: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListTableMetadataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTableMetadataCommandInput - {@link ListTableMetadataCommandInput}
+ * @returns {@link ListTableMetadataCommandOutput}
  * @see {@link ListTableMetadataCommandInput} for command's `input` shape.
  * @see {@link ListTableMetadataCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Indicates a platform issue, which may be due to a transient condition or
+ *             outage.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>Indicates that something is wrong with the input to the request. For example, a
+ *             required parameter may be missing or out of range.</p>
+ *
+ * @throws {@link MetadataException} (client fault)
+ *  <p>An exception that Athena received when it called a custom metastore.
+ *             Occurs if the error is not caused by user input (<code>InvalidRequestException</code>)
+ *             or from the Athena platform (<code>InternalServerException</code>). For
+ *             example, if a user-created Lambda function is missing permissions, the
+ *                 Lambda
+ *             <code>4XX</code> exception is returned in a <code>MetadataException</code>.</p>
+ *
  *
  */
 export class ListTableMetadataCommand extends $Command<
@@ -62,6 +91,9 @@ export class ListTableMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTableMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +122,8 @@ export class ListTableMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTableMetadataInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTableMetadataOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +133,18 @@ export class ListTableMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTableMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTableMetadataCommand(input, context);
+    return se_ListTableMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTableMetadataCommandOutput> {
-    return deserializeAws_json1_1ListTableMetadataCommand(output, context);
+    return de_ListTableMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -6,12 +6,11 @@ import {
   DescribeSnapshotsCommandInput,
   DescribeSnapshotsCommandOutput,
 } from "../commands/DescribeSnapshotsCommand";
-import { DirectoryService } from "../DirectoryService";
 import { DirectoryServiceClient } from "../DirectoryServiceClient";
 import { DirectoryServicePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DirectoryServiceClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeSnapshotsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: DirectoryService,
-  input: DescribeSnapshotsCommandInput,
-  ...args: any
-): Promise<DescribeSnapshotsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeSnapshots(input, ...args);
-};
 export async function* paginateDescribeSnapshots(
   config: DirectoryServicePaginationConfiguration,
   input: DescribeSnapshotsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateDescribeSnapshots(
   while (hasNext) {
     input.NextToken = token;
     input["Limit"] = config.pageSize;
-    if (config.client instanceof DirectoryService) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DirectoryServiceClient) {
+    if (config.client instanceof DirectoryServiceClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected DirectoryService | DirectoryServiceClient");

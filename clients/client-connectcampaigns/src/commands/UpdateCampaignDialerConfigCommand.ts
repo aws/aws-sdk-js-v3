@@ -14,19 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCampaignsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCampaignsClient";
-import {
-  UpdateCampaignDialerConfigRequest,
-  UpdateCampaignDialerConfigRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateCampaignDialerConfigCommand,
-  serializeAws_restJson1UpdateCampaignDialerConfigCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateCampaignDialerConfigRequest } from "../models/models_0";
+import { de_UpdateCampaignDialerConfigCommand, se_UpdateCampaignDialerConfigCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateCampaignDialerConfigCommand}.
+ */
 export interface UpdateCampaignDialerConfigCommandInput extends UpdateCampaignDialerConfigRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateCampaignDialerConfigCommand}.
+ */
 export interface UpdateCampaignDialerConfigCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * Updates the dialer config of a campaign. This API is idempotent.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -34,13 +39,42 @@ export interface UpdateCampaignDialerConfigCommandOutput extends __MetadataBeare
  * import { ConnectCampaignsClient, UpdateCampaignDialerConfigCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
  * // const { ConnectCampaignsClient, UpdateCampaignDialerConfigCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
  * const client = new ConnectCampaignsClient(config);
+ * const input = { // UpdateCampaignDialerConfigRequest
+ *   id: "STRING_VALUE", // required
+ *   dialerConfig: { // DialerConfig Union: only one key present
+ *     progressiveDialerConfig: { // ProgressiveDialerConfig
+ *       bandwidthAllocation: Number("double"), // required
+ *     },
+ *     predictiveDialerConfig: { // PredictiveDialerConfig
+ *       bandwidthAllocation: Number("double"), // required
+ *     },
+ *   },
+ * };
  * const command = new UpdateCampaignDialerConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCampaignDialerConfigCommandInput - {@link UpdateCampaignDialerConfigCommandInput}
+ * @returns {@link UpdateCampaignDialerConfigCommandOutput}
  * @see {@link UpdateCampaignDialerConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateCampaignDialerConfigCommandOutput} for command's `response` shape.
  * @see {@link ConnectCampaignsClientResolvedConfig | config} for ConnectCampaignsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  You do not have sufficient access to perform this action.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  The request could not be processed because of conflict in the current state of the resource.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  Request processing failed because of an error or failure with the service.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  The specified resource was not found.
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  The input fails to satisfy the constraints specified by an AWS service.
+ *
  *
  */
 export class UpdateCampaignDialerConfigCommand extends $Command<
@@ -60,6 +94,9 @@ export class UpdateCampaignDialerConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCampaignDialerConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +125,8 @@ export class UpdateCampaignDialerConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateCampaignDialerConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,15 +136,21 @@ export class UpdateCampaignDialerConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateCampaignDialerConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateCampaignDialerConfigCommand(input, context);
+    return se_UpdateCampaignDialerConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateCampaignDialerConfigCommandOutput> {
-    return deserializeAws_restJson1UpdateCampaignDialerConfigCommand(output, context);
+    return de_UpdateCampaignDialerConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

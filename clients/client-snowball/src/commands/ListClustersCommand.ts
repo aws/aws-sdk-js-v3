@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListClustersRequest,
-  ListClustersRequestFilterSensitiveLog,
-  ListClustersResult,
-  ListClustersResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListClustersCommand,
-  serializeAws_json1_1ListClustersCommand,
-} from "../protocols/Aws_json1_1";
+import { ListClustersRequest, ListClustersResult } from "../models/models_0";
+import { de_ListClustersCommand, se_ListClustersCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListClustersCommand}.
+ */
 export interface ListClustersCommandInput extends ListClustersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListClustersCommand}.
+ */
 export interface ListClustersCommandOutput extends ListClustersResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an array of <code>ClusterListEntry</code> objects of the specified length. Each
  *         <code>ClusterListEntry</code> object contains a cluster's state, a cluster's ID, and other
  *       important status information.</p>
@@ -38,13 +41,46 @@ export interface ListClustersCommandOutput extends ListClustersResult, __Metadat
  * import { SnowballClient, ListClustersCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, ListClustersCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
  * const client = new SnowballClient(config);
+ * const input = { // ListClustersRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListClustersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListClustersCommandInput - {@link ListClustersCommandInput}
+ * @returns {@link ListClustersCommandOutput}
  * @see {@link ListClustersCommandInput} for command's `input` shape.
  * @see {@link ListClustersCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The <code>NextToken</code> string was altered unexpectedly, and the operation has
+ *       stopped. Run the operation without changing the <code>NextToken</code> string, and try
+ *       again.</p>
+ *
+ *
+ * @example To get a list of clusters that you've created for AWS Snowball
+ * ```javascript
+ * // Returns an array of ClusterListEntry objects of the specified length. Each ClusterListEntry object contains a cluster's state, a cluster's ID, and other important status information.
+ * const input = {};
+ * const command = new ListClustersCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ClusterListEntries": [
+ *     {
+ *       "ClusterId": "CID123e4567-e89b-12d3-a456-426655440000",
+ *       "ClusterState": "Pending",
+ *       "CreationDate": "1480475517.0",
+ *       "Description": "MyCluster"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-get-a-list-of-clusters-that-youve-created-for-aws-snowball-1482862223003
+ * ```
  *
  */
 export class ListClustersCommand extends $Command<
@@ -64,6 +100,9 @@ export class ListClustersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListClustersCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +129,8 @@ export class ListClustersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListClustersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListClustersResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +140,18 @@ export class ListClustersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListClustersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListClustersCommand(input, context);
+    return se_ListClustersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListClustersCommandOutput> {
-    return deserializeAws_json1_1ListClustersCommand(output, context);
+    return de_ListClustersCommand(output, context);
   }
 
   // Start section: command_body_extra

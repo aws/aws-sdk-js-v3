@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import {
-  GetBuiltinIntentRequest,
-  GetBuiltinIntentRequestFilterSensitiveLog,
-  GetBuiltinIntentResponse,
-  GetBuiltinIntentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetBuiltinIntentCommand,
-  serializeAws_restJson1GetBuiltinIntentCommand,
-} from "../protocols/Aws_restJson1";
+import { GetBuiltinIntentRequest, GetBuiltinIntentResponse } from "../models/models_0";
+import { de_GetBuiltinIntentCommand, se_GetBuiltinIntentCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetBuiltinIntentCommand}.
+ */
 export interface GetBuiltinIntentCommandInput extends GetBuiltinIntentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetBuiltinIntentCommand}.
+ */
 export interface GetBuiltinIntentCommandOutput extends GetBuiltinIntentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a built-in intent.</p>
  *          <p>This operation requires permission for the
  *         <code>lex:GetBuiltinIntent</code> action.</p>
@@ -42,13 +45,34 @@ export interface GetBuiltinIntentCommandOutput extends GetBuiltinIntentResponse,
  * import { LexModelBuildingServiceClient, GetBuiltinIntentCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, GetBuiltinIntentCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
+ * const input = { // GetBuiltinIntentRequest
+ *   signature: "STRING_VALUE", // required
+ * };
  * const command = new GetBuiltinIntentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBuiltinIntentCommandInput - {@link GetBuiltinIntentCommandInput}
+ * @returns {@link GetBuiltinIntentCommandOutput}
  * @see {@link GetBuiltinIntentCommandInput} for command's `input` shape.
  * @see {@link GetBuiltinIntentCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is not well formed. For example, a value is invalid or
+ *       a required field is missing. Check the field values, and try
+ *       again.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal Amazon Lex error occurred. Try your request again.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request exceeded a limit. Try your request again.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource specified in the request was not found. Check the
+ *       resource and try again.</p>
+ *
  *
  */
 export class GetBuiltinIntentCommand extends $Command<
@@ -68,6 +92,9 @@ export class GetBuiltinIntentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBuiltinIntentCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +123,8 @@ export class GetBuiltinIntentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBuiltinIntentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBuiltinIntentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +134,18 @@ export class GetBuiltinIntentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBuiltinIntentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetBuiltinIntentCommand(input, context);
+    return se_GetBuiltinIntentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBuiltinIntentCommandOutput> {
-    return deserializeAws_restJson1GetBuiltinIntentCommand(output, context);
+    return de_GetBuiltinIntentCommand(output, context);
   }
 
   // Start section: command_body_extra

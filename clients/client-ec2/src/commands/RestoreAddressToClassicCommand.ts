@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  RestoreAddressToClassicRequest,
-  RestoreAddressToClassicRequestFilterSensitiveLog,
-  RestoreAddressToClassicResult,
-  RestoreAddressToClassicResultFilterSensitiveLog,
-} from "../models/models_6";
-import {
-  deserializeAws_ec2RestoreAddressToClassicCommand,
-  serializeAws_ec2RestoreAddressToClassicCommand,
-} from "../protocols/Aws_ec2";
+import { RestoreAddressToClassicRequest, RestoreAddressToClassicResult } from "../models/models_6";
+import { de_RestoreAddressToClassicCommand, se_RestoreAddressToClassicCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link RestoreAddressToClassicCommand}.
+ */
 export interface RestoreAddressToClassicCommandInput extends RestoreAddressToClassicRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RestoreAddressToClassicCommand}.
+ */
 export interface RestoreAddressToClassicCommandOutput extends RestoreAddressToClassicResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Restores an Elastic IP address that was previously moved to the EC2-VPC platform back to the EC2-Classic platform. You cannot move an Elastic IP address that was originally allocated for use in EC2-VPC. The Elastic IP address must not be associated with an instance or network interface.</p>
  *          <note>
  *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -39,13 +42,37 @@ export interface RestoreAddressToClassicCommandOutput extends RestoreAddressToCl
  * import { EC2Client, RestoreAddressToClassicCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, RestoreAddressToClassicCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // RestoreAddressToClassicRequest
+ *   DryRun: true || false,
+ *   PublicIp: "STRING_VALUE", // required
+ * };
  * const command = new RestoreAddressToClassicCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreAddressToClassicCommandInput - {@link RestoreAddressToClassicCommandInput}
+ * @returns {@link RestoreAddressToClassicCommandOutput}
  * @see {@link RestoreAddressToClassicCommandInput} for command's `input` shape.
  * @see {@link RestoreAddressToClassicCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ *
+ * @example To restore an address to EC2-Classic
+ * ```javascript
+ * // This example restores the specified Elastic IP address to the EC2-Classic platform.
+ * const input = {
+ *   "PublicIp": "198.51.100.0"
+ * };
+ * const command = new RestoreAddressToClassicCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "PublicIp": "198.51.100.0",
+ *   "Status": "MoveInProgress"
+ * }
+ * *\/
+ * // example id: ec2-restore-address-to-classic-1
+ * ```
  *
  */
 export class RestoreAddressToClassicCommand extends $Command<
@@ -65,6 +92,9 @@ export class RestoreAddressToClassicCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreAddressToClassicCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +123,8 @@ export class RestoreAddressToClassicCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RestoreAddressToClassicRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RestoreAddressToClassicResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +134,18 @@ export class RestoreAddressToClassicCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestoreAddressToClassicCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2RestoreAddressToClassicCommand(input, context);
+    return se_RestoreAddressToClassicCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreAddressToClassicCommandOutput> {
-    return deserializeAws_ec2RestoreAddressToClassicCommand(output, context);
+    return de_RestoreAddressToClassicCommand(output, context);
   }
 
   // Start section: command_body_extra

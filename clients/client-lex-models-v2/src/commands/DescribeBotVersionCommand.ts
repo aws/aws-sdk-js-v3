@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import {
-  DescribeBotVersionRequest,
-  DescribeBotVersionRequestFilterSensitiveLog,
-  DescribeBotVersionResponse,
-  DescribeBotVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeBotVersionCommand,
-  serializeAws_restJson1DescribeBotVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeBotVersionRequest, DescribeBotVersionResponse } from "../models/models_0";
+import { de_DescribeBotVersionCommand, se_DescribeBotVersionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeBotVersionCommand}.
+ */
 export interface DescribeBotVersionCommandInput extends DescribeBotVersionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeBotVersionCommand}.
+ */
 export interface DescribeBotVersionCommandOutput extends DescribeBotVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides metadata about a version of a bot.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,39 @@ export interface DescribeBotVersionCommandOutput extends DescribeBotVersionRespo
  * import { LexModelsV2Client, DescribeBotVersionCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, DescribeBotVersionCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = { // DescribeBotVersionRequest
+ *   botId: "STRING_VALUE", // required
+ *   botVersion: "STRING_VALUE", // required
+ * };
  * const command = new DescribeBotVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBotVersionCommandInput - {@link DescribeBotVersionCommandInput}
+ * @returns {@link DescribeBotVersionCommandOutput}
  * @see {@link DescribeBotVersionCommandInput} for command's `input` shape.
  * @see {@link DescribeBotVersionCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The service encountered an unexpected condition. Try your request
+ *          again.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>You asked to describe a resource that doesn't exist. Check the
+ *          resource that you are requesting and try again.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>You have reached a quota for your bot. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Your request rate is too high. Reduce the frequency of
+ *          requests.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One of the input parameters in your request isn't valid. Check the
+ *          parameters and try your request again.</p>
+ *
  *
  */
 export class DescribeBotVersionCommand extends $Command<
@@ -62,6 +91,9 @@ export class DescribeBotVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBotVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +122,8 @@ export class DescribeBotVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeBotVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeBotVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +133,18 @@ export class DescribeBotVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeBotVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeBotVersionCommand(input, context);
+    return se_DescribeBotVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBotVersionCommandOutput> {
-    return deserializeAws_restJson1DescribeBotVersionCommand(output, context);
+    return de_DescribeBotVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

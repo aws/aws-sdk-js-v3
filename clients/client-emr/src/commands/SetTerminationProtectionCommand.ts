@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { SetTerminationProtectionInput, SetTerminationProtectionInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1SetTerminationProtectionCommand,
-  serializeAws_json1_1SetTerminationProtectionCommand,
-} from "../protocols/Aws_json1_1";
+import { SetTerminationProtectionInput } from "../models/models_0";
+import { de_SetTerminationProtectionCommand, se_SetTerminationProtectionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link SetTerminationProtectionCommand}.
+ */
 export interface SetTerminationProtectionCommandInput extends SetTerminationProtectionInput {}
+/**
+ * @public
+ *
+ * The output of {@link SetTerminationProtectionCommand}.
+ */
 export interface SetTerminationProtectionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>SetTerminationProtection locks a cluster (job flow) so the EC2 instances in the cluster
  *          cannot be terminated by user intervention, an API call, or in the event of a job-flow
  *          error. The cluster still terminates upon successful completion of the job flow. Calling
@@ -45,13 +53,26 @@ export interface SetTerminationProtectionCommandOutput extends __MetadataBearer 
  * import { EMRClient, SetTerminationProtectionCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, SetTerminationProtectionCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = { // SetTerminationProtectionInput
+ *   JobFlowIds: [ // XmlStringList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   TerminationProtected: true || false, // required
+ * };
  * const command = new SetTerminationProtectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SetTerminationProtectionCommandInput - {@link SetTerminationProtectionCommandInput}
+ * @returns {@link SetTerminationProtectionCommandOutput}
  * @see {@link SetTerminationProtectionCommandInput} for command's `input` shape.
  * @see {@link SetTerminationProtectionCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Indicates that an error occurred while processing the request and that the request was
+ *          not completed.</p>
+ *
  *
  */
 export class SetTerminationProtectionCommand extends $Command<
@@ -71,6 +92,9 @@ export class SetTerminationProtectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetTerminationProtectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +123,8 @@ export class SetTerminationProtectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetTerminationProtectionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +134,18 @@ export class SetTerminationProtectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetTerminationProtectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SetTerminationProtectionCommand(input, context);
+    return se_SetTerminationProtectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetTerminationProtectionCommandOutput> {
-    return deserializeAws_json1_1SetTerminationProtectionCommand(output, context);
+    return de_SetTerminationProtectionCommand(output, context);
   }
 
   // Start section: command_body_extra

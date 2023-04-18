@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import {
-  BatchGetApplicationsInput,
-  BatchGetApplicationsInputFilterSensitiveLog,
-  BatchGetApplicationsOutput,
-  BatchGetApplicationsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchGetApplicationsCommand,
-  serializeAws_json1_1BatchGetApplicationsCommand,
-} from "../protocols/Aws_json1_1";
+import { BatchGetApplicationsInput, BatchGetApplicationsOutput } from "../models/models_0";
+import { de_BatchGetApplicationsCommand, se_BatchGetApplicationsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchGetApplicationsCommand}.
+ */
 export interface BatchGetApplicationsCommandInput extends BatchGetApplicationsInput {}
+/**
+ * @public
+ *
+ * The output of {@link BatchGetApplicationsCommand}.
+ */
 export interface BatchGetApplicationsCommandOutput extends BatchGetApplicationsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about one or more applications. The maximum number of applications
  *             that can be returned is 100.</p>
  * @example
@@ -37,13 +40,33 @@ export interface BatchGetApplicationsCommandOutput extends BatchGetApplicationsO
  * import { CodeDeployClient, BatchGetApplicationsCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, BatchGetApplicationsCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
+ * const input = { // BatchGetApplicationsInput
+ *   applicationNames: [ // ApplicationsList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchGetApplicationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetApplicationsCommandInput - {@link BatchGetApplicationsCommandInput}
+ * @returns {@link BatchGetApplicationsCommandOutput}
  * @see {@link BatchGetApplicationsCommandInput} for command's `input` shape.
  * @see {@link BatchGetApplicationsCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
+ *
+ * @throws {@link ApplicationDoesNotExistException} (client fault)
+ *  <p>The application does not exist with the IAM user or Amazon Web Services account.</p>
+ *
+ * @throws {@link ApplicationNameRequiredException} (client fault)
+ *  <p>The minimum number of required application names was not specified.</p>
+ *
+ * @throws {@link BatchLimitExceededException} (client fault)
+ *  <p>The maximum number of names or IDs allowed for this request (100) was exceeded.</p>
+ *
+ * @throws {@link InvalidApplicationNameException} (client fault)
+ *  <p>The application name was specified in an invalid format.</p>
+ *
  *
  */
 export class BatchGetApplicationsCommand extends $Command<
@@ -63,6 +86,9 @@ export class BatchGetApplicationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetApplicationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +117,8 @@ export class BatchGetApplicationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetApplicationsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetApplicationsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +128,18 @@ export class BatchGetApplicationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetApplicationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchGetApplicationsCommand(input, context);
+    return se_BatchGetApplicationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetApplicationsCommandOutput> {
-    return deserializeAws_json1_1BatchGetApplicationsCommand(output, context);
+    return de_BatchGetApplicationsCommand(output, context);
   }
 
   // Start section: command_body_extra

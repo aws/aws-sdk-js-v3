@@ -3,10 +3,18 @@ import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
 import {
   ActionStatus,
+  ActionSummary,
   AdditionalInferenceSpecificationDefinition,
+  AlgorithmSortBy,
   AlgorithmSpecification,
-  AppSecurityGroupManagement,
+  AlgorithmSummary,
+  AppDetails,
+  AppImageConfigDetails,
+  AppImageConfigSortKey,
+  AppSortKey,
   AppSpecification,
+  ArtifactSummary,
+  AssociationEdgeType,
   AssociationSummary,
   AutoMLCandidate,
   AutoMLJobStatus,
@@ -30,12 +38,7 @@ import {
   ConditionStepMetadata,
   ContainerDefinition,
   ContextSummary,
-  DefaultSpaceSettings,
-  DeploymentConfig,
-  EdgeOutputConfig,
-  FeatureDefinition,
   InferenceSpecification,
-  KernelGatewayImageConfig,
   MetadataProperties,
   ModelApprovalStatus,
   ModelPackageStatus,
@@ -48,7 +51,6 @@ import {
   TransformOutput,
   TransformResources,
   UserContext,
-  UserSettings,
   VpcConfig,
 } from "./models_0";
 import {
@@ -62,6 +64,7 @@ import {
   HubContentType,
   InferenceExecutionConfig,
   InferenceExperimentType,
+  LabelingJobInputConfig,
   ModelCardSecurityConfig,
   ModelCardStatus,
   ModelClientConfig,
@@ -83,19 +86,16 @@ import {
   TensorBoardOutputConfig,
   TrialComponentArtifact,
   TrialComponentParameterValue,
-  TrialComponentParameterValueFilterSensitiveLog,
   TrialComponentStatus,
   UiTemplate,
 } from "./models_1";
 import {
-  DesiredWeightAndCapacity,
   Device,
   DeviceDeploymentSummary,
   DeviceFleetSummary,
   DeviceSummary,
   Direction,
   DomainDetails,
-  DomainSettingsForUpdate,
   Edge,
   EdgeDeploymentPlanSummary,
   EdgePackagingJobStatus,
@@ -119,7 +119,6 @@ import {
   FeatureMetadata,
   Filter,
   FlowDefinitionSummary,
-  GitConfigForUpdate,
   HubContentInfo,
   HubContentSortBy,
   HubInfo,
@@ -141,12 +140,10 @@ import {
   InferenceExperimentSummary,
   InferenceRecommendationsJob,
   InferenceRecommendationsJobStep,
+  LabelCounters,
   LabelingJobForWorkteamSummary,
+  LabelingJobOutput,
   LabelingJobStatus,
-  LabelingJobSummary,
-  LambdaStepMetadata,
-  LineageGroupSummary,
-  LineageType,
   MetricData,
   ModelArtifacts,
   ModelCardExportJobStatus,
@@ -166,7 +163,6 @@ import {
   SecondaryStatus,
   SecondaryStatusTransition,
   ServiceCatalogProvisionedProductDetails,
-  SortOrder,
   SpaceStatus,
   SubscribedWorkteam,
   TrainingJobStatus,
@@ -181,6 +177,619 @@ import {
   Workteam,
 } from "./models_2";
 
+/**
+ * @public
+ * <p>Provides summary information about a labeling job.</p>
+ */
+export interface LabelingJobSummary {
+  /**
+   * <p>The name of the labeling job.</p>
+   */
+  LabelingJobName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) assigned to the labeling job when it was
+   *             created.</p>
+   */
+  LabelingJobArn: string | undefined;
+
+  /**
+   * <p>The date and time that the job was created (timestamp).</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The date and time that the job was last modified (timestamp).</p>
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The current status of the labeling job. </p>
+   */
+  LabelingJobStatus: LabelingJobStatus | string | undefined;
+
+  /**
+   * <p>Counts showing the progress of the labeling job.</p>
+   */
+  LabelCounters: LabelCounters | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the work team assigned to the job.</p>
+   */
+  WorkteamArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a Lambda function. The function is run before each
+   *             data object is sent to a worker.</p>
+   */
+  PreHumanTaskLambdaArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Lambda function used to consolidate the
+   *             annotations from individual workers into a label for a data object. For more
+   *             information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-annotation-consolidation.html">Annotation
+   *                 Consolidation</a>.</p>
+   */
+  AnnotationConsolidationLambdaArn?: string;
+
+  /**
+   * <p>If the <code>LabelingJobStatus</code> field is <code>Failed</code>, this field
+   *             contains a description of the error.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>The location of the output produced by the labeling job.</p>
+   */
+  LabelingJobOutput?: LabelingJobOutput;
+
+  /**
+   * <p>Input configuration for the labeling job.</p>
+   */
+  InputConfig?: LabelingJobInputConfig;
+}
+
+/**
+ * @public
+ * <p>Metadata for a Lambda step.</p>
+ */
+export interface LambdaStepMetadata {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Lambda function that was run by this step execution.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>A list of the output parameters of the Lambda step.</p>
+   */
+  OutputParameters?: OutputParameter[];
+}
+
+/**
+ * @public
+ * <p>Lists a summary of the properties of a lineage group. A lineage group provides a group of shareable lineage entity
+ *          resources.</p>
+ */
+export interface LineageGroupSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the lineage group resource.</p>
+   */
+  LineageGroupArn?: string;
+
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the lineage group.</p>
+   */
+  LineageGroupName?: string;
+
+  /**
+   * <p>The display name of the lineage group summary.</p>
+   */
+  DisplayName?: string;
+
+  /**
+   * <p>The creation time of the lineage group summary.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The last modified time of the lineage group summary.</p>
+   */
+  LastModifiedTime?: Date;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const LineageType = {
+  ACTION: "Action",
+  ARTIFACT: "Artifact",
+  CONTEXT: "Context",
+  TRIAL_COMPONENT: "TrialComponent",
+} as const;
+
+/**
+ * @public
+ */
+export type LineageType = (typeof LineageType)[keyof typeof LineageType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SortActionsBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+} as const;
+
+/**
+ * @public
+ */
+export type SortActionsBy = (typeof SortActionsBy)[keyof typeof SortActionsBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const SortOrder = {
+  ASCENDING: "Ascending",
+  DESCENDING: "Descending",
+} as const;
+
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
+
+/**
+ * @public
+ */
+export interface ListActionsRequest {
+  /**
+   * <p>A filter that returns only actions with the specified source URI.</p>
+   */
+  SourceUri?: string;
+
+  /**
+   * <p>A filter that returns only actions of the specified type.</p>
+   */
+  ActionType?: string;
+
+  /**
+   * <p>A filter that returns only actions created on or after the specified time.</p>
+   */
+  CreatedAfter?: Date;
+
+  /**
+   * <p>A filter that returns only actions created on or before the specified time.</p>
+   */
+  CreatedBefore?: Date;
+
+  /**
+   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
+   */
+  SortBy?: SortActionsBy | string;
+
+  /**
+   * <p>The sort order. The default value is <code>Descending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>If the previous call to <code>ListActions</code> didn't return the full set of actions,
+   *         the call returns a token for getting the next set of actions.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of actions to return in the response. The default value is 10.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListActionsResponse {
+  /**
+   * <p>A list of actions and their properties.</p>
+   */
+  ActionSummaries?: ActionSummary[];
+
+  /**
+   * <p>A token for getting the next set of actions, if there are any.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListAlgorithmsInput {
+  /**
+   * <p>A filter that returns only algorithms created after the specified time
+   *             (timestamp).</p>
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only algorithms created before the specified time
+   *             (timestamp).</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>The maximum number of algorithms to return in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A string in the algorithm name. This filter returns only algorithms whose name
+   *             contains the specified string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>If the response to a previous <code>ListAlgorithms</code> request was truncated, the
+   *             response includes a <code>NextToken</code>. To retrieve the next set of algorithms, use
+   *             the token in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The parameter by which to sort the results. The default is
+   *             <code>CreationTime</code>.</p>
+   */
+  SortBy?: AlgorithmSortBy | string;
+
+  /**
+   * <p>The sort order for the results. The default is <code>Ascending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+}
+
+/**
+ * @public
+ */
+export interface ListAlgorithmsOutput {
+  /**
+   * <p>>An array of <code>AlgorithmSummary</code> objects, each of which lists an
+   *             algorithm.</p>
+   */
+  AlgorithmSummaryList: AlgorithmSummary[] | undefined;
+
+  /**
+   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of
+   *             algorithms, use it in the subsequent request.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListAliasesRequest {
+  /**
+   * <p>The name of the image.</p>
+   */
+  ImageName: string | undefined;
+
+  /**
+   * <p>The alias of the image version.</p>
+   */
+  Alias?: string;
+
+  /**
+   * <p>The version of the image. If image version is not specified, the aliases of all versions of the image are listed.</p>
+   */
+  Version?: number;
+
+  /**
+   * <p>The maximum number of aliases to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>If the previous call to <code>ListAliases</code> didn't return the full set of
+   *          aliases, the call returns a token for retrieving the next set of aliases.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListAliasesResponse {
+  /**
+   * <p>A list of SageMaker image version aliases.</p>
+   */
+  SageMakerImageVersionAliases?: string[];
+
+  /**
+   * <p>A token for getting the next set of aliases, if more aliases exist.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListAppImageConfigsRequest {
+  /**
+   * <p>The maximum number of AppImageConfigs to return in the response. The default value is
+   *         10. </p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>If the previous call to <code>ListImages</code> didn't return the full set of
+   *         AppImageConfigs, the call returns a token for getting the next set of AppImageConfigs.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A filter that returns only AppImageConfigs whose name contains the specified string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>A filter that returns only AppImageConfigs created on or before the specified time.</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only AppImageConfigs created on or after the specified time.</p>
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only AppImageConfigs modified on or before the specified time.</p>
+   */
+  ModifiedTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only AppImageConfigs modified on or after the specified time.</p>
+   */
+  ModifiedTimeAfter?: Date;
+
+  /**
+   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
+   */
+  SortBy?: AppImageConfigSortKey | string;
+
+  /**
+   * <p>The sort order. The default value is <code>Descending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+}
+
+/**
+ * @public
+ */
+export interface ListAppImageConfigsResponse {
+  /**
+   * <p>A token for getting the next set of AppImageConfigs, if there are any.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A list of AppImageConfigs and their properties.</p>
+   */
+  AppImageConfigs?: AppImageConfigDetails[];
+}
+
+/**
+ * @public
+ */
+export interface ListAppsRequest {
+  /**
+   * <p>If the previous response was truncated, you will receive this token.
+   *         Use it in your next request to receive the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Returns a list up to a specified limit.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The sort order for the results. The default is Ascending.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>The parameter by which to sort the results. The default is CreationTime.</p>
+   */
+  SortBy?: AppSortKey | string;
+
+  /**
+   * <p>A parameter to search for the domain ID.</p>
+   */
+  DomainIdEquals?: string;
+
+  /**
+   * <p>A parameter to search by user profile name. If <code>SpaceNameEquals</code> is set, then this value cannot be set.</p>
+   */
+  UserProfileNameEquals?: string;
+
+  /**
+   * <p>A parameter to search by space name. If <code>UserProfileNameEquals</code> is set, then this value cannot be set.</p>
+   */
+  SpaceNameEquals?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListAppsResponse {
+  /**
+   * <p>The list of apps.</p>
+   */
+  Apps?: AppDetails[];
+
+  /**
+   * <p>If the previous response was truncated, you will receive this token.
+   *         Use it in your next request to receive the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SortArtifactsBy = {
+  CREATION_TIME: "CreationTime",
+} as const;
+
+/**
+ * @public
+ */
+export type SortArtifactsBy = (typeof SortArtifactsBy)[keyof typeof SortArtifactsBy];
+
+/**
+ * @public
+ */
+export interface ListArtifactsRequest {
+  /**
+   * <p>A filter that returns only artifacts with the specified source URI.</p>
+   */
+  SourceUri?: string;
+
+  /**
+   * <p>A filter that returns only artifacts of the specified type.</p>
+   */
+  ArtifactType?: string;
+
+  /**
+   * <p>A filter that returns only artifacts created on or after the specified time.</p>
+   */
+  CreatedAfter?: Date;
+
+  /**
+   * <p>A filter that returns only artifacts created on or before the specified time.</p>
+   */
+  CreatedBefore?: Date;
+
+  /**
+   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
+   */
+  SortBy?: SortArtifactsBy | string;
+
+  /**
+   * <p>The sort order. The default value is <code>Descending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>If the previous call to <code>ListArtifacts</code> didn't return the full set of artifacts,
+   *         the call returns a token for getting the next set of artifacts.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of artifacts to return in the response. The default value is 10.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListArtifactsResponse {
+  /**
+   * <p>A list of artifacts and their properties.</p>
+   */
+  ArtifactSummaries?: ArtifactSummary[];
+
+  /**
+   * <p>A token for getting the next set of artifacts, if there are any.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SortAssociationsBy = {
+  CREATION_TIME: "CreationTime",
+  DESTINATION_ARN: "DestinationArn",
+  DESTINATION_TYPE: "DestinationType",
+  SOURCE_ARN: "SourceArn",
+  SOURCE_TYPE: "SourceType",
+} as const;
+
+/**
+ * @public
+ */
+export type SortAssociationsBy = (typeof SortAssociationsBy)[keyof typeof SortAssociationsBy];
+
+/**
+ * @public
+ */
+export interface ListAssociationsRequest {
+  /**
+   * <p>A filter that returns only associations with the specified source ARN.</p>
+   */
+  SourceArn?: string;
+
+  /**
+   * <p>A filter that returns only associations with the specified destination Amazon Resource Name (ARN).</p>
+   */
+  DestinationArn?: string;
+
+  /**
+   * <p>A filter that returns only associations with the specified source type.</p>
+   */
+  SourceType?: string;
+
+  /**
+   * <p>A filter that returns only associations with the specified destination type.</p>
+   */
+  DestinationType?: string;
+
+  /**
+   * <p>A filter that returns only associations of the specified type.</p>
+   */
+  AssociationType?: AssociationEdgeType | string;
+
+  /**
+   * <p>A filter that returns only associations created on or after the specified time.</p>
+   */
+  CreatedAfter?: Date;
+
+  /**
+   * <p>A filter that returns only associations created on or before the specified time.</p>
+   */
+  CreatedBefore?: Date;
+
+  /**
+   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
+   */
+  SortBy?: SortAssociationsBy | string;
+
+  /**
+   * <p>The sort order. The default value is <code>Descending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>If the previous call to <code>ListAssociations</code> didn't return the full set of associations,
+   *         the call returns a token for getting the next set of associations.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of associations to return in the response. The default value is 10.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ */
 export interface ListAssociationsResponse {
   /**
    * <p>A list of associations and their properties.</p>
@@ -193,6 +802,9 @@ export interface ListAssociationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAutoMLJobsRequest {
   /**
    * <p>Request a list of jobs, using a filter for time.</p>
@@ -246,6 +858,9 @@ export interface ListAutoMLJobsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAutoMLJobsResponse {
   /**
    * <p>Returns a summary list of jobs.</p>
@@ -259,6 +874,9 @@ export interface ListAutoMLJobsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCandidatesForAutoMLJobRequest {
   /**
    * <p>List the candidates created for the job by providing the job's name.</p>
@@ -298,6 +916,9 @@ export interface ListCandidatesForAutoMLJobRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCandidatesForAutoMLJobResponse {
   /**
    * <p>Summaries about the <code>AutoMLCandidates</code>.</p>
@@ -311,6 +932,9 @@ export interface ListCandidatesForAutoMLJobResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCodeRepositoriesInput {
   /**
    * <p>A filter that returns only Git repositories that were created after the specified
@@ -365,6 +989,9 @@ export interface ListCodeRepositoriesInput {
   SortOrder?: CodeRepositorySortOrder | string;
 }
 
+/**
+ * @public
+ */
 export interface ListCodeRepositoriesOutput {
   /**
    * <p>Gets a list of summaries of the Git repositories. Each summary specifies the following
@@ -399,12 +1026,24 @@ export interface ListCodeRepositoriesOutput {
   NextToken?: string;
 }
 
-export enum ListCompilationJobsSortBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-  STATUS = "Status",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ListCompilationJobsSortBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+  STATUS: "Status",
+} as const;
 
+/**
+ * @public
+ */
+export type ListCompilationJobsSortBy = (typeof ListCompilationJobsSortBy)[keyof typeof ListCompilationJobsSortBy];
+
+/**
+ * @public
+ */
 export interface ListCompilationJobsRequest {
   /**
    * <p>If the result of the previous <code>ListCompilationJobs</code> request was truncated,
@@ -464,6 +1103,9 @@ export interface ListCompilationJobsRequest {
   SortOrder?: SortOrder | string;
 }
 
+/**
+ * @public
+ */
 export interface ListCompilationJobsResponse {
   /**
    * <p>An array of <a>CompilationJobSummary</a> objects, each describing a model
@@ -478,11 +1120,23 @@ export interface ListCompilationJobsResponse {
   NextToken?: string;
 }
 
-export enum SortContextsBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SortContextsBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+} as const;
 
+/**
+ * @public
+ */
+export type SortContextsBy = (typeof SortContextsBy)[keyof typeof SortContextsBy];
+
+/**
+ * @public
+ */
 export interface ListContextsRequest {
   /**
    * <p>A filter that returns only contexts with the specified source URI.</p>
@@ -526,6 +1180,9 @@ export interface ListContextsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListContextsResponse {
   /**
    * <p>A list of contexts and their properties.</p>
@@ -538,11 +1195,24 @@ export interface ListContextsResponse {
   NextToken?: string;
 }
 
-export enum MonitoringJobDefinitionSortKey {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MonitoringJobDefinitionSortKey = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+} as const;
 
+/**
+ * @public
+ */
+export type MonitoringJobDefinitionSortKey =
+  (typeof MonitoringJobDefinitionSortKey)[keyof typeof MonitoringJobDefinitionSortKey];
+
+/**
+ * @public
+ */
 export interface ListDataQualityJobDefinitionsRequest {
   /**
    * <p>A filter that lists the data quality job definitions associated with the specified
@@ -593,6 +1263,7 @@ export interface ListDataQualityJobDefinitionsRequest {
 }
 
 /**
+ * @public
  * <p>Summary information about a monitoring job.</p>
  */
 export interface MonitoringJobDefinitionSummary {
@@ -617,6 +1288,9 @@ export interface MonitoringJobDefinitionSummary {
   EndpointName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListDataQualityJobDefinitionsResponse {
   /**
    * <p>A list of data quality monitoring job definitions.</p>
@@ -631,12 +1305,24 @@ export interface ListDataQualityJobDefinitionsResponse {
   NextToken?: string;
 }
 
-export enum ListDeviceFleetsSortBy {
-  CreationTime = "CREATION_TIME",
-  LastModifiedTime = "LAST_MODIFIED_TIME",
-  Name = "NAME",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ListDeviceFleetsSortBy = {
+  CreationTime: "CREATION_TIME",
+  LastModifiedTime: "LAST_MODIFIED_TIME",
+  Name: "NAME",
+} as const;
 
+/**
+ * @public
+ */
+export type ListDeviceFleetsSortBy = (typeof ListDeviceFleetsSortBy)[keyof typeof ListDeviceFleetsSortBy];
+
+/**
+ * @public
+ */
 export interface ListDeviceFleetsRequest {
   /**
    * <p>The response from the last list when returning a list large enough to need tokening.</p>
@@ -684,6 +1370,9 @@ export interface ListDeviceFleetsRequest {
   SortOrder?: SortOrder | string;
 }
 
+/**
+ * @public
+ */
 export interface ListDeviceFleetsResponse {
   /**
    * <p>Summary of the device fleet.</p>
@@ -696,6 +1385,9 @@ export interface ListDeviceFleetsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDevicesRequest {
   /**
    * <p>The response from the last list when returning a list large enough to need tokening.</p>
@@ -723,6 +1415,9 @@ export interface ListDevicesRequest {
   DeviceFleetName?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDevicesResponse {
   /**
    * <p>Summary of devices.</p>
@@ -735,6 +1430,9 @@ export interface ListDevicesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDomainsRequest {
   /**
    * <p>If the previous response was truncated, you will receive this token.
@@ -748,6 +1446,9 @@ export interface ListDomainsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListDomainsResponse {
   /**
    * <p>The list of domains.</p>
@@ -761,13 +1462,26 @@ export interface ListDomainsResponse {
   NextToken?: string;
 }
 
-export enum ListEdgeDeploymentPlansSortBy {
-  CreationTime = "CREATION_TIME",
-  DeviceFleetName = "DEVICE_FLEET_NAME",
-  LastModifiedTime = "LAST_MODIFIED_TIME",
-  Name = "NAME",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ListEdgeDeploymentPlansSortBy = {
+  CreationTime: "CREATION_TIME",
+  DeviceFleetName: "DEVICE_FLEET_NAME",
+  LastModifiedTime: "LAST_MODIFIED_TIME",
+  Name: "NAME",
+} as const;
 
+/**
+ * @public
+ */
+export type ListEdgeDeploymentPlansSortBy =
+  (typeof ListEdgeDeploymentPlansSortBy)[keyof typeof ListEdgeDeploymentPlansSortBy];
+
+/**
+ * @public
+ */
 export interface ListEdgeDeploymentPlansRequest {
   /**
    * <p>The response from the last list when returning a list large enough to need tokening.</p>
@@ -820,6 +1534,9 @@ export interface ListEdgeDeploymentPlansRequest {
   SortOrder?: SortOrder | string;
 }
 
+/**
+ * @public
+ */
 export interface ListEdgeDeploymentPlansResponse {
   /**
    * <p>List of summaries of edge deployment plans.</p>
@@ -832,14 +1549,27 @@ export interface ListEdgeDeploymentPlansResponse {
   NextToken?: string;
 }
 
-export enum ListEdgePackagingJobsSortBy {
-  CreationTime = "CREATION_TIME",
-  EdgePackagingJobStatus = "STATUS",
-  LastModifiedTime = "LAST_MODIFIED_TIME",
-  ModelName = "MODEL_NAME",
-  Name = "NAME",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ListEdgePackagingJobsSortBy = {
+  CreationTime: "CREATION_TIME",
+  EdgePackagingJobStatus: "STATUS",
+  LastModifiedTime: "LAST_MODIFIED_TIME",
+  ModelName: "MODEL_NAME",
+  Name: "NAME",
+} as const;
 
+/**
+ * @public
+ */
+export type ListEdgePackagingJobsSortBy =
+  (typeof ListEdgePackagingJobsSortBy)[keyof typeof ListEdgePackagingJobsSortBy];
+
+/**
+ * @public
+ */
 export interface ListEdgePackagingJobsRequest {
   /**
    * <p>The response from the last list when returning a list large enough to need tokening.</p>
@@ -897,6 +1627,9 @@ export interface ListEdgePackagingJobsRequest {
   SortOrder?: SortOrder | string;
 }
 
+/**
+ * @public
+ */
 export interface ListEdgePackagingJobsResponse {
   /**
    * <p>Summaries of edge packaging jobs.</p>
@@ -909,11 +1642,23 @@ export interface ListEdgePackagingJobsResponse {
   NextToken?: string;
 }
 
-export enum OrderKey {
-  Ascending = "Ascending",
-  Descending = "Descending",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OrderKey = {
+  Ascending: "Ascending",
+  Descending: "Descending",
+} as const;
 
+/**
+ * @public
+ */
+export type OrderKey = (typeof OrderKey)[keyof typeof OrderKey];
+
+/**
+ * @public
+ */
 export interface ListEndpointConfigsInput {
   /**
    * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
@@ -956,6 +1701,9 @@ export interface ListEndpointConfigsInput {
   CreationTimeAfter?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListEndpointConfigsOutput {
   /**
    * <p>An array of endpoint configurations.</p>
@@ -969,6 +1717,9 @@ export interface ListEndpointConfigsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListEndpointsInput {
   /**
    * <p>Sorts the list of results. The default is <code>CreationTime</code>.</p>
@@ -1029,6 +1780,9 @@ export interface ListEndpointsInput {
   StatusEquals?: EndpointStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListEndpointsOutput {
   /**
    * <p> An array or endpoint objects. </p>
@@ -1042,11 +1796,23 @@ export interface ListEndpointsOutput {
   NextToken?: string;
 }
 
-export enum SortExperimentsBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SortExperimentsBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+} as const;
 
+/**
+ * @public
+ */
+export type SortExperimentsBy = (typeof SortExperimentsBy)[keyof typeof SortExperimentsBy];
+
+/**
+ * @public
+ */
 export interface ListExperimentsRequest {
   /**
    * <p>A filter that returns only experiments created after the specified time.</p>
@@ -1081,6 +1847,9 @@ export interface ListExperimentsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListExperimentsResponse {
   /**
    * <p>A list of the summaries of your experiments.</p>
@@ -1093,6 +1862,9 @@ export interface ListExperimentsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFeatureGroupsRequest {
   /**
    * <p>A string that partially matches one or more <code>FeatureGroup</code>s names. Filters
@@ -1143,6 +1915,9 @@ export interface ListFeatureGroupsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFeatureGroupsResponse {
   /**
    * <p>A summary of feature groups.</p>
@@ -1155,6 +1930,9 @@ export interface ListFeatureGroupsResponse {
   NextToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListFlowDefinitionsRequest {
   /**
    * <p>A filter that returns only flow definitions with a creation time greater than or equal to the specified timestamp.</p>
@@ -1182,6 +1960,9 @@ export interface ListFlowDefinitionsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListFlowDefinitionsResponse {
   /**
    * <p>An array of objects describing the flow definitions.</p>
@@ -1194,6 +1975,9 @@ export interface ListFlowDefinitionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListHubContentsRequest {
   /**
    * <p>The name of the hub to list the contents of.</p>
@@ -1246,6 +2030,9 @@ export interface ListHubContentsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListHubContentsResponse {
   /**
    * <p>The summaries of the listed hub content.</p>
@@ -1258,6 +2045,9 @@ export interface ListHubContentsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListHubContentVersionsRequest {
   /**
    * <p>The name of the hub to list the content versions of.</p>
@@ -1315,6 +2105,9 @@ export interface ListHubContentVersionsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListHubContentVersionsResponse {
   /**
    * <p>The summaries of the listed hub content versions.</p>
@@ -1327,6 +2120,9 @@ export interface ListHubContentVersionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListHubsRequest {
   /**
    * <p>Only list hubs with names that contain the specified string.</p>
@@ -1374,6 +2170,9 @@ export interface ListHubsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListHubsResponse {
   /**
    * <p>The summaries of the listed hubs.</p>
@@ -1386,6 +2185,9 @@ export interface ListHubsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListHumanTaskUisRequest {
   /**
    * <p>A filter that returns only human task user interfaces with a creation time greater than or equal to the specified timestamp.</p>
@@ -1413,6 +2215,9 @@ export interface ListHumanTaskUisRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListHumanTaskUisResponse {
   /**
    * <p>An array of objects describing the human task user interfaces.</p>
@@ -1425,6 +2230,9 @@ export interface ListHumanTaskUisResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListHyperParameterTuningJobsRequest {
   /**
    * <p>If the result of the previous <code>ListHyperParameterTuningJobs</code> request was
@@ -1486,6 +2294,9 @@ export interface ListHyperParameterTuningJobsRequest {
   StatusEquals?: HyperParameterTuningJobStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListHyperParameterTuningJobsResponse {
   /**
    * <p>A list of <a>HyperParameterTuningJobSummary</a> objects that
@@ -1503,6 +2314,9 @@ export interface ListHyperParameterTuningJobsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListImagesRequest {
   /**
    * <p>A filter that returns only images created on or after the specified time.</p>
@@ -1551,6 +2365,9 @@ export interface ListImagesRequest {
   SortOrder?: ImageSortOrder | string;
 }
 
+/**
+ * @public
+ */
 export interface ListImagesResponse {
   /**
    * <p>A list of images and their properties.</p>
@@ -1563,6 +2380,9 @@ export interface ListImagesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListImageVersionsRequest {
   /**
    * <p>A filter that returns only versions created on or after the specified time.</p>
@@ -1611,6 +2431,9 @@ export interface ListImageVersionsRequest {
   SortOrder?: ImageVersionSortOrder | string;
 }
 
+/**
+ * @public
+ */
 export interface ListImageVersionsResponse {
   /**
    * <p>A list of versions and their properties.</p>
@@ -1623,12 +2446,24 @@ export interface ListImageVersionsResponse {
   NextToken?: string;
 }
 
-export enum SortInferenceExperimentsBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-  STATUS = "Status",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SortInferenceExperimentsBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+  STATUS: "Status",
+} as const;
 
+/**
+ * @public
+ */
+export type SortInferenceExperimentsBy = (typeof SortInferenceExperimentsBy)[keyof typeof SortInferenceExperimentsBy];
+
+/**
+ * @public
+ */
 export interface ListInferenceExperimentsRequest {
   /**
    * <p>Selects inference experiments whose names contain this name.</p>
@@ -1692,6 +2527,9 @@ export interface ListInferenceExperimentsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListInferenceExperimentsResponse {
   /**
    * <p>List of inference experiments.</p>
@@ -1704,12 +2542,25 @@ export interface ListInferenceExperimentsResponse {
   NextToken?: string;
 }
 
-export enum ListInferenceRecommendationsJobsSortBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-  STATUS = "Status",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ListInferenceRecommendationsJobsSortBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+  STATUS: "Status",
+} as const;
 
+/**
+ * @public
+ */
+export type ListInferenceRecommendationsJobsSortBy =
+  (typeof ListInferenceRecommendationsJobsSortBy)[keyof typeof ListInferenceRecommendationsJobsSortBy];
+
+/**
+ * @public
+ */
 export interface ListInferenceRecommendationsJobsRequest {
   /**
    * <p>A filter that returns only jobs created after the specified time (timestamp).</p>
@@ -1764,6 +2615,9 @@ export interface ListInferenceRecommendationsJobsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListInferenceRecommendationsJobsResponse {
   /**
    * <p>The recommendations created from the Amazon SageMaker Inference Recommender job.</p>
@@ -1776,6 +2630,9 @@ export interface ListInferenceRecommendationsJobsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListInferenceRecommendationsJobStepsRequest {
   /**
    * <p>The name for the Inference Recommender job.</p>
@@ -1805,6 +2662,9 @@ export interface ListInferenceRecommendationsJobStepsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListInferenceRecommendationsJobStepsResponse {
   /**
    * <p>A list of all subtask details in Inference Recommender.</p>
@@ -1817,12 +2677,24 @@ export interface ListInferenceRecommendationsJobStepsResponse {
   NextToken?: string;
 }
 
-export enum SortBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-  STATUS = "Status",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SortBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+  STATUS: "Status",
+} as const;
 
+/**
+ * @public
+ */
+export type SortBy = (typeof SortBy)[keyof typeof SortBy];
+
+/**
+ * @public
+ */
 export interface ListLabelingJobsRequest {
   /**
    * <p>A filter that returns only labeling jobs created after the specified time
@@ -1882,6 +2754,9 @@ export interface ListLabelingJobsRequest {
   StatusEquals?: LabelingJobStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListLabelingJobsResponse {
   /**
    * <p>An array of <code>LabelingJobSummary</code> objects, each describing a labeling
@@ -1896,10 +2771,23 @@ export interface ListLabelingJobsResponse {
   NextToken?: string;
 }
 
-export enum ListLabelingJobsForWorkteamSortByOptions {
-  CREATION_TIME = "CreationTime",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ListLabelingJobsForWorkteamSortByOptions = {
+  CREATION_TIME: "CreationTime",
+} as const;
 
+/**
+ * @public
+ */
+export type ListLabelingJobsForWorkteamSortByOptions =
+  (typeof ListLabelingJobsForWorkteamSortByOptions)[keyof typeof ListLabelingJobsForWorkteamSortByOptions];
+
+/**
+ * @public
+ */
 export interface ListLabelingJobsForWorkteamRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the work team for which you want to see labeling
@@ -1948,6 +2836,9 @@ export interface ListLabelingJobsForWorkteamRequest {
   SortOrder?: SortOrder | string;
 }
 
+/**
+ * @public
+ */
 export interface ListLabelingJobsForWorkteamResponse {
   /**
    * <p>An array of <code>LabelingJobSummary</code> objects, each describing a labeling
@@ -1962,11 +2853,23 @@ export interface ListLabelingJobsForWorkteamResponse {
   NextToken?: string;
 }
 
-export enum SortLineageGroupsBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SortLineageGroupsBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+} as const;
 
+/**
+ * @public
+ */
+export type SortLineageGroupsBy = (typeof SortLineageGroupsBy)[keyof typeof SortLineageGroupsBy];
+
+/**
+ * @public
+ */
 export interface ListLineageGroupsRequest {
   /**
    * <p>A timestamp to filter against lineage groups created after a certain point in time.</p>
@@ -2002,6 +2905,9 @@ export interface ListLineageGroupsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListLineageGroupsResponse {
   /**
    * <p>A list of lineage groups and their properties.</p>
@@ -2015,6 +2921,9 @@ export interface ListLineageGroupsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListModelBiasJobDefinitionsRequest {
   /**
    * <p>Name of the endpoint to monitor for model bias.</p>
@@ -2061,6 +2970,9 @@ export interface ListModelBiasJobDefinitionsRequest {
   CreationTimeAfter?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListModelBiasJobDefinitionsResponse {
   /**
    * <p>A JSON array in which each element is a summary for a model bias jobs.</p>
@@ -2074,17 +2986,39 @@ export interface ListModelBiasJobDefinitionsResponse {
   NextToken?: string;
 }
 
-export enum ModelCardExportJobSortBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-  STATUS = "Status",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ModelCardExportJobSortBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+  STATUS: "Status",
+} as const;
 
-export enum ModelCardExportJobSortOrder {
-  ASCENDING = "Ascending",
-  DESCENDING = "Descending",
-}
+/**
+ * @public
+ */
+export type ModelCardExportJobSortBy = (typeof ModelCardExportJobSortBy)[keyof typeof ModelCardExportJobSortBy];
 
+/**
+ * @public
+ * @enum
+ */
+export const ModelCardExportJobSortOrder = {
+  ASCENDING: "Ascending",
+  DESCENDING: "Descending",
+} as const;
+
+/**
+ * @public
+ */
+export type ModelCardExportJobSortOrder =
+  (typeof ModelCardExportJobSortOrder)[keyof typeof ModelCardExportJobSortOrder];
+
+/**
+ * @public
+ */
 export interface ListModelCardExportJobsRequest {
   /**
    * <p>List export jobs for the model card with the specified name.</p>
@@ -2140,6 +3074,7 @@ export interface ListModelCardExportJobsRequest {
 }
 
 /**
+ * @public
  * <p>The summary of the Amazon SageMaker Model Card export job.</p>
  */
 export interface ModelCardExportJobSummary {
@@ -2179,6 +3114,9 @@ export interface ModelCardExportJobSummary {
   LastModifiedAt: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListModelCardExportJobsResponse {
   /**
    * <p>The summaries of the listed model card export jobs.</p>
@@ -2192,16 +3130,37 @@ export interface ListModelCardExportJobsResponse {
   NextToken?: string;
 }
 
-export enum ModelCardSortBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ModelCardSortBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+} as const;
 
-export enum ModelCardSortOrder {
-  ASCENDING = "Ascending",
-  DESCENDING = "Descending",
-}
+/**
+ * @public
+ */
+export type ModelCardSortBy = (typeof ModelCardSortBy)[keyof typeof ModelCardSortBy];
 
+/**
+ * @public
+ * @enum
+ */
+export const ModelCardSortOrder = {
+  ASCENDING: "Ascending",
+  DESCENDING: "Descending",
+} as const;
+
+/**
+ * @public
+ */
+export type ModelCardSortOrder = (typeof ModelCardSortOrder)[keyof typeof ModelCardSortOrder];
+
+/**
+ * @public
+ */
 export interface ListModelCardsRequest {
   /**
    * <p>Only list model cards that were created after the time specified.</p>
@@ -2247,6 +3206,7 @@ export interface ListModelCardsRequest {
 }
 
 /**
+ * @public
  * <p>A summary of the model card.</p>
  */
 export interface ModelCardSummary {
@@ -2295,6 +3255,9 @@ export interface ModelCardSummary {
   LastModifiedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListModelCardsResponse {
   /**
    * <p>The summaries of the listed model cards.</p>
@@ -2308,10 +3271,22 @@ export interface ListModelCardsResponse {
   NextToken?: string;
 }
 
-export enum ModelCardVersionSortBy {
-  VERSION = "Version",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ModelCardVersionSortBy = {
+  VERSION: "Version",
+} as const;
 
+/**
+ * @public
+ */
+export type ModelCardVersionSortBy = (typeof ModelCardVersionSortBy)[keyof typeof ModelCardVersionSortBy];
+
+/**
+ * @public
+ */
 export interface ListModelCardVersionsRequest {
   /**
    * <p>Only list model card versions that were created after the time specified.</p>
@@ -2357,6 +3332,7 @@ export interface ListModelCardVersionsRequest {
 }
 
 /**
+ * @public
  * <p>A summary of a specific version of the model card.</p>
  */
 export interface ModelCardVersionSummary {
@@ -2410,6 +3386,9 @@ export interface ModelCardVersionSummary {
   LastModifiedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListModelCardVersionsResponse {
   /**
    * <p>The summaries of the listed versions of the model card.</p>
@@ -2423,6 +3402,9 @@ export interface ListModelCardVersionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListModelExplainabilityJobDefinitionsRequest {
   /**
    * <p>Name of the endpoint to monitor for model explainability.</p>
@@ -2470,6 +3452,9 @@ export interface ListModelExplainabilityJobDefinitionsRequest {
   CreationTimeAfter?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListModelExplainabilityJobDefinitionsResponse {
   /**
    * <p>A JSON array in which each element is a summary for a explainability bias jobs.</p>
@@ -2483,14 +3468,24 @@ export interface ListModelExplainabilityJobDefinitionsResponse {
   NextToken?: string;
 }
 
-export enum ModelMetadataFilterType {
-  DOMAIN = "Domain",
-  FRAMEWORK = "Framework",
-  FRAMEWORKVERSION = "FrameworkVersion",
-  TASK = "Task",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ModelMetadataFilterType = {
+  DOMAIN: "Domain",
+  FRAMEWORK: "Framework",
+  FRAMEWORKVERSION: "FrameworkVersion",
+  TASK: "Task",
+} as const;
 
 /**
+ * @public
+ */
+export type ModelMetadataFilterType = (typeof ModelMetadataFilterType)[keyof typeof ModelMetadataFilterType];
+
+/**
+ * @public
  * <p>Part of the search expression. You can specify the name and value
  *           (domain, task, framework, framework version, task, and model).</p>
  */
@@ -2507,6 +3502,7 @@ export interface ModelMetadataFilter {
 }
 
 /**
+ * @public
  * <p>One or more filters that searches for the specified resource or resources in
  *           a search. All resource objects that satisfy the expression's condition are
  *           included in the search results</p>
@@ -2518,6 +3514,9 @@ export interface ModelMetadataSearchExpression {
   Filters?: ModelMetadataFilter[];
 }
 
+/**
+ * @public
+ */
 export interface ListModelMetadataRequest {
   /**
    * <p>One or more filters that searches for the specified resource or resources
@@ -2541,6 +3540,7 @@ export interface ListModelMetadataRequest {
 }
 
 /**
+ * @public
  * <p>A summary of the model metadata.</p>
  */
 export interface ModelMetadataSummary {
@@ -2570,6 +3570,9 @@ export interface ModelMetadataSummary {
   FrameworkVersion: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListModelMetadataResponse {
   /**
    * <p>A structure that holds model metadata.</p>
@@ -2582,11 +3585,23 @@ export interface ListModelMetadataResponse {
   NextToken?: string;
 }
 
-export enum ModelPackageGroupSortBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ModelPackageGroupSortBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+} as const;
 
+/**
+ * @public
+ */
+export type ModelPackageGroupSortBy = (typeof ModelPackageGroupSortBy)[keyof typeof ModelPackageGroupSortBy];
+
+/**
+ * @public
+ */
 export interface ListModelPackageGroupsInput {
   /**
    * <p>A filter that returns only model groups created after the specified time.</p>
@@ -2628,6 +3643,7 @@ export interface ListModelPackageGroupsInput {
 }
 
 /**
+ * @public
  * <p>Summary information about a model group.</p>
  */
 export interface ModelPackageGroupSummary {
@@ -2657,6 +3673,9 @@ export interface ModelPackageGroupSummary {
   ModelPackageGroupStatus: ModelPackageGroupStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListModelPackageGroupsOutput {
   /**
    * <p>A list of summaries of the model groups in your Amazon Web Services account.</p>
@@ -2670,17 +3689,38 @@ export interface ListModelPackageGroupsOutput {
   NextToken?: string;
 }
 
-export enum ModelPackageType {
-  BOTH = "Both",
-  UNVERSIONED = "Unversioned",
-  VERSIONED = "Versioned",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ModelPackageType = {
+  BOTH: "Both",
+  UNVERSIONED: "Unversioned",
+  VERSIONED: "Versioned",
+} as const;
 
-export enum ModelPackageSortBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-}
+/**
+ * @public
+ */
+export type ModelPackageType = (typeof ModelPackageType)[keyof typeof ModelPackageType];
 
+/**
+ * @public
+ * @enum
+ */
+export const ModelPackageSortBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+} as const;
+
+/**
+ * @public
+ */
+export type ModelPackageSortBy = (typeof ModelPackageSortBy)[keyof typeof ModelPackageSortBy];
+
+/**
+ * @public
+ */
 export interface ListModelPackagesInput {
   /**
    * <p>A filter that returns only model packages created after the specified time
@@ -2757,6 +3797,7 @@ export interface ListModelPackagesInput {
 }
 
 /**
+ * @public
  * <p>Provides summary information about a model package.</p>
  */
 export interface ModelPackageSummary {
@@ -2817,6 +3858,9 @@ export interface ModelPackageSummary {
   ModelApprovalStatus?: ModelApprovalStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListModelPackagesOutput {
   /**
    * <p>An array of <code>ModelPackageSummary</code> objects, each of which lists a model
@@ -2831,6 +3875,9 @@ export interface ListModelPackagesOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListModelQualityJobDefinitionsRequest {
   /**
    * <p>A filter that returns only model quality monitoring job definitions that are associated
@@ -2880,6 +3927,9 @@ export interface ListModelQualityJobDefinitionsRequest {
   CreationTimeAfter?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListModelQualityJobDefinitionsResponse {
   /**
    * <p>A list of summaries of model quality monitoring job definitions.</p>
@@ -2893,11 +3943,23 @@ export interface ListModelQualityJobDefinitionsResponse {
   NextToken?: string;
 }
 
-export enum ModelSortKey {
-  CreationTime = "CreationTime",
-  Name = "Name",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ModelSortKey = {
+  CreationTime: "CreationTime",
+  Name: "Name",
+} as const;
 
+/**
+ * @public
+ */
+export type ModelSortKey = (typeof ModelSortKey)[keyof typeof ModelSortKey];
+
+/**
+ * @public
+ */
 export interface ListModelsInput {
   /**
    * <p>Sorts the list of results. The default is <code>CreationTime</code>.</p>
@@ -2941,6 +4003,7 @@ export interface ListModelsInput {
 }
 
 /**
+ * @public
  * <p>Provides summary information about a model.</p>
  */
 export interface ModelSummary {
@@ -2960,6 +4023,9 @@ export interface ModelSummary {
   CreationTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListModelsOutput {
   /**
    * <p>An array of <code>ModelSummary</code> objects, each of which lists a
@@ -2974,16 +4040,38 @@ export interface ListModelsOutput {
   NextToken?: string;
 }
 
-export enum MonitoringAlertHistorySortKey {
-  CreationTime = "CreationTime",
-  Status = "Status",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MonitoringAlertHistorySortKey = {
+  CreationTime: "CreationTime",
+  Status: "Status",
+} as const;
 
-export enum MonitoringAlertStatus {
-  IN_ALERT = "InAlert",
-  OK = "OK",
-}
+/**
+ * @public
+ */
+export type MonitoringAlertHistorySortKey =
+  (typeof MonitoringAlertHistorySortKey)[keyof typeof MonitoringAlertHistorySortKey];
 
+/**
+ * @public
+ * @enum
+ */
+export const MonitoringAlertStatus = {
+  IN_ALERT: "InAlert",
+  OK: "OK",
+} as const;
+
+/**
+ * @public
+ */
+export type MonitoringAlertStatus = (typeof MonitoringAlertStatus)[keyof typeof MonitoringAlertStatus];
+
+/**
+ * @public
+ */
 export interface ListMonitoringAlertHistoryRequest {
   /**
    * <p>The name of a monitoring schedule.</p>
@@ -3035,6 +4123,7 @@ export interface ListMonitoringAlertHistoryRequest {
 }
 
 /**
+ * @public
  * <p>Provides summary information of an alert's history.</p>
  */
 export interface MonitoringAlertHistorySummary {
@@ -3061,6 +4150,9 @@ export interface MonitoringAlertHistorySummary {
   AlertStatus: MonitoringAlertStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListMonitoringAlertHistoryResponse {
   /**
    * <p>An alert history for a model monitoring schedule.</p>
@@ -3074,6 +4166,9 @@ export interface ListMonitoringAlertHistoryResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListMonitoringAlertsRequest {
   /**
    * <p>The name of a monitoring schedule.</p>
@@ -3094,6 +4189,7 @@ export interface ListMonitoringAlertsRequest {
 }
 
 /**
+ * @public
  * <p>An alert action taken to light up an icon on the Amazon SageMaker Model Dashboard when an alert goes into
  *             <code>InAlert</code> status.</p>
  */
@@ -3105,6 +4201,7 @@ export interface ModelDashboardIndicatorAction {
 }
 
 /**
+ * @public
  * <p>A list of alert actions taken in response to an alert going into
  *             <code>InAlert</code> status.</p>
  */
@@ -3117,6 +4214,7 @@ export interface MonitoringAlertActions {
 }
 
 /**
+ * @public
  * <p>Provides summary information about a monitor alert.</p>
  */
 export interface MonitoringAlertSummary {
@@ -3159,6 +4257,9 @@ export interface MonitoringAlertSummary {
   Actions: MonitoringAlertActions | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListMonitoringAlertsResponse {
   /**
    * <p>A JSON array where each element is a summary for a monitoring alert.</p>
@@ -3172,12 +4273,24 @@ export interface ListMonitoringAlertsResponse {
   NextToken?: string;
 }
 
-export enum MonitoringExecutionSortKey {
-  CREATION_TIME = "CreationTime",
-  SCHEDULED_TIME = "ScheduledTime",
-  STATUS = "Status",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MonitoringExecutionSortKey = {
+  CREATION_TIME: "CreationTime",
+  SCHEDULED_TIME: "ScheduledTime",
+  STATUS: "Status",
+} as const;
 
+/**
+ * @public
+ */
+export type MonitoringExecutionSortKey = (typeof MonitoringExecutionSortKey)[keyof typeof MonitoringExecutionSortKey];
+
+/**
+ * @public
+ */
 export interface ListMonitoringExecutionsRequest {
   /**
    * <p>Name of a specific schedule to fetch jobs for.</p>
@@ -3260,6 +4373,9 @@ export interface ListMonitoringExecutionsRequest {
   MonitoringTypeEquals?: MonitoringType | string;
 }
 
+/**
+ * @public
+ */
 export interface ListMonitoringExecutionsResponse {
   /**
    * <p>A JSON array in which each element is a summary for a monitoring execution.</p>
@@ -3273,12 +4389,24 @@ export interface ListMonitoringExecutionsResponse {
   NextToken?: string;
 }
 
-export enum MonitoringScheduleSortKey {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-  STATUS = "Status",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MonitoringScheduleSortKey = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+  STATUS: "Status",
+} as const;
 
+/**
+ * @public
+ */
+export type MonitoringScheduleSortKey = (typeof MonitoringScheduleSortKey)[keyof typeof MonitoringScheduleSortKey];
+
+/**
+ * @public
+ */
 export interface ListMonitoringSchedulesRequest {
   /**
    * <p>Name of a specific endpoint to fetch schedules for.</p>
@@ -3352,6 +4480,7 @@ export interface ListMonitoringSchedulesRequest {
 }
 
 /**
+ * @public
  * <p>Summarizes the monitoring schedule.</p>
  */
 export interface MonitoringScheduleSummary {
@@ -3396,6 +4525,9 @@ export interface MonitoringScheduleSummary {
   MonitoringType?: MonitoringType | string;
 }
 
+/**
+ * @public
+ */
 export interface ListMonitoringSchedulesResponse {
   /**
    * <p>A JSON array in which each element is a summary for a monitoring schedule.</p>
@@ -3409,17 +4541,40 @@ export interface ListMonitoringSchedulesResponse {
   NextToken?: string;
 }
 
-export enum NotebookInstanceLifecycleConfigSortKey {
-  CREATION_TIME = "CreationTime",
-  LAST_MODIFIED_TIME = "LastModifiedTime",
-  NAME = "Name",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NotebookInstanceLifecycleConfigSortKey = {
+  CREATION_TIME: "CreationTime",
+  LAST_MODIFIED_TIME: "LastModifiedTime",
+  NAME: "Name",
+} as const;
 
-export enum NotebookInstanceLifecycleConfigSortOrder {
-  ASCENDING = "Ascending",
-  DESCENDING = "Descending",
-}
+/**
+ * @public
+ */
+export type NotebookInstanceLifecycleConfigSortKey =
+  (typeof NotebookInstanceLifecycleConfigSortKey)[keyof typeof NotebookInstanceLifecycleConfigSortKey];
 
+/**
+ * @public
+ * @enum
+ */
+export const NotebookInstanceLifecycleConfigSortOrder = {
+  ASCENDING: "Ascending",
+  DESCENDING: "Descending",
+} as const;
+
+/**
+ * @public
+ */
+export type NotebookInstanceLifecycleConfigSortOrder =
+  (typeof NotebookInstanceLifecycleConfigSortOrder)[keyof typeof NotebookInstanceLifecycleConfigSortOrder];
+
+/**
+ * @public
+ */
 export interface ListNotebookInstanceLifecycleConfigsInput {
   /**
    * <p>If the result of a <code>ListNotebookInstanceLifecycleConfigs</code> request was
@@ -3475,6 +4630,7 @@ export interface ListNotebookInstanceLifecycleConfigsInput {
 }
 
 /**
+ * @public
  * <p>Provides a summary of a notebook instance lifecycle configuration.</p>
  */
 export interface NotebookInstanceLifecycleConfigSummary {
@@ -3499,6 +4655,9 @@ export interface NotebookInstanceLifecycleConfigSummary {
   LastModifiedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListNotebookInstanceLifecycleConfigsOutput {
   /**
    * <p>If the response is truncated, SageMaker returns this token. To get the next set of
@@ -3513,17 +4672,38 @@ export interface ListNotebookInstanceLifecycleConfigsOutput {
   NotebookInstanceLifecycleConfigs?: NotebookInstanceLifecycleConfigSummary[];
 }
 
-export enum NotebookInstanceSortKey {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-  STATUS = "Status",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NotebookInstanceSortKey = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+  STATUS: "Status",
+} as const;
 
-export enum NotebookInstanceSortOrder {
-  ASCENDING = "Ascending",
-  DESCENDING = "Descending",
-}
+/**
+ * @public
+ */
+export type NotebookInstanceSortKey = (typeof NotebookInstanceSortKey)[keyof typeof NotebookInstanceSortKey];
 
+/**
+ * @public
+ * @enum
+ */
+export const NotebookInstanceSortOrder = {
+  ASCENDING: "Ascending",
+  DESCENDING: "Descending",
+} as const;
+
+/**
+ * @public
+ */
+export type NotebookInstanceSortOrder = (typeof NotebookInstanceSortOrder)[keyof typeof NotebookInstanceSortOrder];
+
+/**
+ * @public
+ */
 export interface ListNotebookInstancesInput {
   /**
    * <p> If the previous call to the <code>ListNotebookInstances</code> is truncated, the
@@ -3610,6 +4790,7 @@ export interface ListNotebookInstancesInput {
 }
 
 /**
+ * @public
  * <p>Provides summary information for an SageMaker notebook instance.</p>
  */
 export interface NotebookInstanceSummary {
@@ -3678,6 +4859,9 @@ export interface NotebookInstanceSummary {
   AdditionalCodeRepositories?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListNotebookInstancesOutput {
   /**
    * <p>If the response to the previous <code>ListNotebookInstances</code> request was
@@ -3693,11 +4877,23 @@ export interface ListNotebookInstancesOutput {
   NotebookInstances?: NotebookInstanceSummary[];
 }
 
-export enum SortPipelineExecutionsBy {
-  CREATION_TIME = "CreationTime",
-  PIPELINE_EXECUTION_ARN = "PipelineExecutionArn",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SortPipelineExecutionsBy = {
+  CREATION_TIME: "CreationTime",
+  PIPELINE_EXECUTION_ARN: "PipelineExecutionArn",
+} as const;
 
+/**
+ * @public
+ */
+export type SortPipelineExecutionsBy = (typeof SortPipelineExecutionsBy)[keyof typeof SortPipelineExecutionsBy];
+
+/**
+ * @public
+ */
 export interface ListPipelineExecutionsRequest {
   /**
    * <p>The name of the pipeline.</p>
@@ -3739,6 +4935,7 @@ export interface ListPipelineExecutionsRequest {
 }
 
 /**
+ * @public
  * <p>A pipeline execution summary.</p>
  */
 export interface PipelineExecutionSummary {
@@ -3773,6 +4970,9 @@ export interface PipelineExecutionSummary {
   PipelineExecutionFailureReason?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPipelineExecutionsResponse {
   /**
    * <p>Contains a sorted list of pipeline execution summary objects matching the specified
@@ -3788,6 +4988,9 @@ export interface ListPipelineExecutionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPipelineExecutionStepsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
@@ -3812,6 +5015,7 @@ export interface ListPipelineExecutionStepsRequest {
 }
 
 /**
+ * @public
  * <p>Metadata for Model steps.</p>
  */
 export interface ModelStepMetadata {
@@ -3822,6 +5026,7 @@ export interface ModelStepMetadata {
 }
 
 /**
+ * @public
  * <p>Metadata for a processing job step.</p>
  */
 export interface ProcessingJobStepMetadata {
@@ -3832,6 +5037,7 @@ export interface ProcessingJobStepMetadata {
 }
 
 /**
+ * @public
  * <p>Container for the metadata for a Quality check step. For more information, see
  *          the topic on <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/build-and-manage-steps.html#step-type-quality-check">QualityCheck step</a> in the <i>Amazon SageMaker Developer Guide</i>.
  *       </p>
@@ -3894,6 +5100,7 @@ export interface QualityCheckStepMetadata {
 }
 
 /**
+ * @public
  * <p>Metadata for a register model job step.</p>
  */
 export interface RegisterModelStepMetadata {
@@ -3904,6 +5111,7 @@ export interface RegisterModelStepMetadata {
 }
 
 /**
+ * @public
  * <p>Metadata for a training job step.</p>
  */
 export interface TrainingJobStepMetadata {
@@ -3914,6 +5122,7 @@ export interface TrainingJobStepMetadata {
 }
 
 /**
+ * @public
  * <p>Metadata for a transform job step.</p>
  */
 export interface TransformJobStepMetadata {
@@ -3924,6 +5133,7 @@ export interface TransformJobStepMetadata {
 }
 
 /**
+ * @public
  * <p>Metadata for a tuning step.</p>
  */
 export interface TuningJobStepMetaData {
@@ -3934,6 +5144,7 @@ export interface TuningJobStepMetaData {
 }
 
 /**
+ * @public
  * <p>Metadata for a step execution.</p>
  */
 export interface PipelineExecutionStepMetadata {
@@ -4065,16 +5276,26 @@ export interface PipelineExecutionStepMetadata {
   AutoMLJob?: AutoMLJobStepMetadata;
 }
 
-export enum StepStatus {
-  EXECUTING = "Executing",
-  FAILED = "Failed",
-  STARTING = "Starting",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-  SUCCEEDED = "Succeeded",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StepStatus = {
+  EXECUTING: "Executing",
+  FAILED: "Failed",
+  STARTING: "Starting",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+  SUCCEEDED: "Succeeded",
+} as const;
 
 /**
+ * @public
+ */
+export type StepStatus = (typeof StepStatus)[keyof typeof StepStatus];
+
+/**
+ * @public
  * <p>An execution of a step in a pipeline.</p>
  */
 export interface PipelineExecutionStep {
@@ -4129,6 +5350,9 @@ export interface PipelineExecutionStep {
   Metadata?: PipelineExecutionStepMetadata;
 }
 
+/**
+ * @public
+ */
 export interface ListPipelineExecutionStepsResponse {
   /**
    * <p>A list of <code>PipeLineExecutionStep</code> objects. Each
@@ -4145,6 +5369,9 @@ export interface ListPipelineExecutionStepsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPipelineParametersForExecutionRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
@@ -4164,6 +5391,7 @@ export interface ListPipelineParametersForExecutionRequest {
 }
 
 /**
+ * @public
  * <p>Assigns a value to a named Pipeline parameter.</p>
  */
 export interface Parameter {
@@ -4180,6 +5408,9 @@ export interface Parameter {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListPipelineParametersForExecutionResponse {
   /**
    * <p>Contains a list of pipeline parameters. This list can be empty. </p>
@@ -4193,11 +5424,23 @@ export interface ListPipelineParametersForExecutionResponse {
   NextToken?: string;
 }
 
-export enum SortPipelinesBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SortPipelinesBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+} as const;
 
+/**
+ * @public
+ */
+export type SortPipelinesBy = (typeof SortPipelinesBy)[keyof typeof SortPipelinesBy];
+
+/**
+ * @public
+ */
 export interface ListPipelinesRequest {
   /**
    * <p>The prefix of the pipeline name.</p>
@@ -4239,6 +5482,7 @@ export interface ListPipelinesRequest {
 }
 
 /**
+ * @public
  * <p>A summary of a pipeline.</p>
  */
 export interface PipelineSummary {
@@ -4283,6 +5527,9 @@ export interface PipelineSummary {
   LastExecutionTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListPipelinesResponse {
   /**
    * <p>Contains a sorted list of <code>PipelineSummary</code> objects matching the specified
@@ -4299,6 +5546,9 @@ export interface ListPipelinesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListProcessingJobsRequest {
   /**
    * <p>A filter that returns only processing jobs created after the specified time.</p>
@@ -4355,6 +5605,7 @@ export interface ListProcessingJobsRequest {
 }
 
 /**
+ * @public
  * <p>Summary of information about a processing job.</p>
  */
 export interface ProcessingJobSummary {
@@ -4401,6 +5652,9 @@ export interface ProcessingJobSummary {
   ExitMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListProcessingJobsResponse {
   /**
    * <p>An array of <code>ProcessingJobSummary</code> objects, each listing a processing
@@ -4415,16 +5669,37 @@ export interface ListProcessingJobsResponse {
   NextToken?: string;
 }
 
-export enum ProjectSortBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ProjectSortBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+} as const;
 
-export enum ProjectSortOrder {
-  ASCENDING = "Ascending",
-  DESCENDING = "Descending",
-}
+/**
+ * @public
+ */
+export type ProjectSortBy = (typeof ProjectSortBy)[keyof typeof ProjectSortBy];
 
+/**
+ * @public
+ * @enum
+ */
+export const ProjectSortOrder = {
+  ASCENDING: "Ascending",
+  DESCENDING: "Descending",
+} as const;
+
+/**
+ * @public
+ */
+export type ProjectSortOrder = (typeof ProjectSortOrder)[keyof typeof ProjectSortOrder];
+
+/**
+ * @public
+ */
 export interface ListProjectsInput {
   /**
    * <p>A filter that returns the projects that were created after a specified
@@ -4467,6 +5742,7 @@ export interface ListProjectsInput {
 }
 
 /**
+ * @public
  * <p>Information about a project.</p>
  */
 export interface ProjectSummary {
@@ -4501,6 +5777,9 @@ export interface ProjectSummary {
   ProjectStatus: ProjectStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListProjectsOutput {
   /**
    * <p>A list of summaries of projects.</p>
@@ -4515,11 +5794,23 @@ export interface ListProjectsOutput {
   NextToken?: string;
 }
 
-export enum SpaceSortKey {
-  CreationTime = "CreationTime",
-  LastModifiedTime = "LastModifiedTime",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SpaceSortKey = {
+  CreationTime: "CreationTime",
+  LastModifiedTime: "LastModifiedTime",
+} as const;
 
+/**
+ * @public
+ */
+export type SpaceSortKey = (typeof SpaceSortKey)[keyof typeof SpaceSortKey];
+
+/**
+ * @public
+ */
 export interface ListSpacesRequest {
   /**
    * <p>If the previous response was truncated, you will receive this token.
@@ -4554,6 +5845,7 @@ export interface ListSpacesRequest {
 }
 
 /**
+ * @public
  * <p>The space's details.</p>
  */
 export interface SpaceDetails {
@@ -4583,6 +5875,9 @@ export interface SpaceDetails {
   LastModifiedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListSpacesResponse {
   /**
    * <p>The list of spaces.</p>
@@ -4596,6 +5891,9 @@ export interface ListSpacesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListStageDevicesRequest {
   /**
    * <p>The response from the last list when returning a list large enough to neeed tokening.</p>
@@ -4623,6 +5921,9 @@ export interface ListStageDevicesRequest {
   StageName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListStageDevicesResponse {
   /**
    * <p>List of summaries of devices allocated to the stage.</p>
@@ -4635,12 +5936,25 @@ export interface ListStageDevicesResponse {
   NextToken?: string;
 }
 
-export enum StudioLifecycleConfigSortKey {
-  CreationTime = "CreationTime",
-  LastModifiedTime = "LastModifiedTime",
-  Name = "Name",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StudioLifecycleConfigSortKey = {
+  CreationTime: "CreationTime",
+  LastModifiedTime: "LastModifiedTime",
+  Name: "Name",
+} as const;
 
+/**
+ * @public
+ */
+export type StudioLifecycleConfigSortKey =
+  (typeof StudioLifecycleConfigSortKey)[keyof typeof StudioLifecycleConfigSortKey];
+
+/**
+ * @public
+ */
 export interface ListStudioLifecycleConfigsRequest {
   /**
    * <p>The maximum number of Studio Lifecycle Configurations to return in the response. The default value is 10.</p>
@@ -4694,6 +6008,7 @@ export interface ListStudioLifecycleConfigsRequest {
 }
 
 /**
+ * @public
  * <p>Details of the Studio Lifecycle Configuration.</p>
  */
 export interface StudioLifecycleConfigDetails {
@@ -4723,6 +6038,9 @@ export interface StudioLifecycleConfigDetails {
   StudioLifecycleConfigAppType?: StudioLifecycleConfigAppType | string;
 }
 
+/**
+ * @public
+ */
 export interface ListStudioLifecycleConfigsResponse {
   /**
    * <p>A token for getting the next set of actions, if there are any.</p>
@@ -4735,6 +6053,9 @@ export interface ListStudioLifecycleConfigsResponse {
   StudioLifecycleConfigs?: StudioLifecycleConfigDetails[];
 }
 
+/**
+ * @public
+ */
 export interface ListSubscribedWorkteamsRequest {
   /**
    * <p>A string in the work team name. This filter returns only work teams whose name
@@ -4755,6 +6076,9 @@ export interface ListSubscribedWorkteamsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListSubscribedWorkteamsResponse {
   /**
    * <p>An array of <code>Workteam</code> objects, each describing a work team.</p>
@@ -4768,6 +6092,9 @@ export interface ListSubscribedWorkteamsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource whose tags you want to
@@ -4788,6 +6115,9 @@ export interface ListTagsInput {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsOutput {
   /**
    * <p>An array of <code>Tag</code> objects, each with a tag key and a value.</p>
@@ -4801,6 +6131,9 @@ export interface ListTagsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTrainingJobsRequest {
   /**
    * <p>If the result of the previous <code>ListTrainingJobs</code> request was truncated,
@@ -4866,6 +6199,7 @@ export interface ListTrainingJobsRequest {
 }
 
 /**
+ * @public
  * <p>Provides summary information about a training job.</p>
  */
 export interface TrainingJobSummary {
@@ -4907,6 +6241,9 @@ export interface TrainingJobSummary {
   WarmPoolStatus?: WarmPoolStatus;
 }
 
+/**
+ * @public
+ */
 export interface ListTrainingJobsResponse {
   /**
    * <p>An array of <code>TrainingJobSummary</code> objects, each listing a training
@@ -4921,13 +6258,25 @@ export interface ListTrainingJobsResponse {
   NextToken?: string;
 }
 
-export enum TrainingJobSortByOptions {
-  CreationTime = "CreationTime",
-  FinalObjectiveMetricValue = "FinalObjectiveMetricValue",
-  Name = "Name",
-  Status = "Status",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TrainingJobSortByOptions = {
+  CreationTime: "CreationTime",
+  FinalObjectiveMetricValue: "FinalObjectiveMetricValue",
+  Name: "Name",
+  Status: "Status",
+} as const;
 
+/**
+ * @public
+ */
+export type TrainingJobSortByOptions = (typeof TrainingJobSortByOptions)[keyof typeof TrainingJobSortByOptions];
+
+/**
+ * @public
+ */
 export interface ListTrainingJobsForHyperParameterTuningJobRequest {
   /**
    * <p>The name of the tuning job whose training jobs you want to list.</p>
@@ -4964,6 +6313,9 @@ export interface ListTrainingJobsForHyperParameterTuningJobRequest {
   SortOrder?: SortOrder | string;
 }
 
+/**
+ * @public
+ */
 export interface ListTrainingJobsForHyperParameterTuningJobResponse {
   /**
    * <p>A list of <a>TrainingJobSummary</a> objects that
@@ -4981,6 +6333,9 @@ export interface ListTrainingJobsForHyperParameterTuningJobResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTransformJobsRequest {
   /**
    * <p>A filter that returns only transform jobs created after the specified time.</p>
@@ -5037,6 +6392,7 @@ export interface ListTransformJobsRequest {
 }
 
 /**
+ * @public
  * <p>Provides a
  *             summary
  *             of a transform job. Multiple <code>TransformJobSummary</code> objects are returned as a
@@ -5087,6 +6443,9 @@ export interface TransformJobSummary {
   FailureReason?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTransformJobsResponse {
   /**
    * <p>An array of
@@ -5102,11 +6461,23 @@ export interface ListTransformJobsResponse {
   NextToken?: string;
 }
 
-export enum SortTrialComponentsBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SortTrialComponentsBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+} as const;
 
+/**
+ * @public
+ */
+export type SortTrialComponentsBy = (typeof SortTrialComponentsBy)[keyof typeof SortTrialComponentsBy];
+
+/**
+ * @public
+ */
 export interface ListTrialComponentsRequest {
   /**
    * <p>A filter that returns only components that are part of the specified experiment. If you
@@ -5163,6 +6534,7 @@ export interface ListTrialComponentsRequest {
 }
 
 /**
+ * @public
  * <p>A summary of the properties of a trial component. To get all the properties, call the
  *         <a>DescribeTrialComponent</a> API and provide the
  *       <code>TrialComponentName</code>.</p>
@@ -5236,6 +6608,9 @@ export interface TrialComponentSummary {
   LastModifiedBy?: UserContext;
 }
 
+/**
+ * @public
+ */
 export interface ListTrialComponentsResponse {
   /**
    * <p>A list of the summaries of your trial components.</p>
@@ -5248,11 +6623,23 @@ export interface ListTrialComponentsResponse {
   NextToken?: string;
 }
 
-export enum SortTrialsBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SortTrialsBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+} as const;
 
+/**
+ * @public
+ */
+export type SortTrialsBy = (typeof SortTrialsBy)[keyof typeof SortTrialsBy];
+
+/**
+ * @public
+ */
 export interface ListTrialsRequest {
   /**
    * <p>A filter that returns only trials that are part of the specified experiment.</p>
@@ -5298,6 +6685,7 @@ export interface ListTrialsRequest {
 }
 
 /**
+ * @public
  * <p>A summary of the properties of a trial. To get the complete set of properties, call the
  *         <a>DescribeTrial</a> API and provide the <code>TrialName</code>.</p>
  */
@@ -5334,6 +6722,9 @@ export interface TrialSummary {
   LastModifiedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListTrialsResponse {
   /**
    * <p>A list of the summaries of your trials.</p>
@@ -5346,11 +6737,23 @@ export interface ListTrialsResponse {
   NextToken?: string;
 }
 
-export enum UserProfileSortKey {
-  CreationTime = "CreationTime",
-  LastModifiedTime = "LastModifiedTime",
-}
+/**
+ * @public
+ * @enum
+ */
+export const UserProfileSortKey = {
+  CreationTime: "CreationTime",
+  LastModifiedTime: "LastModifiedTime",
+} as const;
 
+/**
+ * @public
+ */
+export type UserProfileSortKey = (typeof UserProfileSortKey)[keyof typeof UserProfileSortKey];
+
+/**
+ * @public
+ */
 export interface ListUserProfilesRequest {
   /**
    * <p>If the previous response was truncated, you will receive this token.
@@ -5385,6 +6788,7 @@ export interface ListUserProfilesRequest {
 }
 
 /**
+ * @public
  * <p>The user profile details.</p>
  */
 export interface UserProfileDetails {
@@ -5414,6 +6818,9 @@ export interface UserProfileDetails {
   LastModifiedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListUserProfilesResponse {
   /**
    * <p>The list of user profiles.</p>
@@ -5427,11 +6834,24 @@ export interface ListUserProfilesResponse {
   NextToken?: string;
 }
 
-export enum ListWorkforcesSortByOptions {
-  CreateDate = "CreateDate",
-  Name = "Name",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ListWorkforcesSortByOptions = {
+  CreateDate: "CreateDate",
+  Name: "Name",
+} as const;
 
+/**
+ * @public
+ */
+export type ListWorkforcesSortByOptions =
+  (typeof ListWorkforcesSortByOptions)[keyof typeof ListWorkforcesSortByOptions];
+
+/**
+ * @public
+ */
 export interface ListWorkforcesRequest {
   /**
    * <p>Sort workforces using the workforce name or creation date.</p>
@@ -5459,6 +6879,9 @@ export interface ListWorkforcesRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListWorkforcesResponse {
   /**
    * <p>A list containing information about your workforce.</p>
@@ -5471,11 +6894,23 @@ export interface ListWorkforcesResponse {
   NextToken?: string;
 }
 
-export enum ListWorkteamsSortByOptions {
-  CreateDate = "CreateDate",
-  Name = "Name",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ListWorkteamsSortByOptions = {
+  CreateDate: "CreateDate",
+  Name: "Name",
+} as const;
 
+/**
+ * @public
+ */
+export type ListWorkteamsSortByOptions = (typeof ListWorkteamsSortByOptions)[keyof typeof ListWorkteamsSortByOptions];
+
+/**
+ * @public
+ */
 export interface ListWorkteamsRequest {
   /**
    * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
@@ -5506,6 +6941,9 @@ export interface ListWorkteamsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListWorkteamsResponse {
   /**
    * <p>An array of <code>Workteam</code> objects, each describing a work team.</p>
@@ -5520,6 +6958,7 @@ export interface ListWorkteamsResponse {
 }
 
 /**
+ * @public
  * <p>The properties of a model as returned by the <a>Search</a> API.</p>
  */
 export interface Model {
@@ -5582,6 +7021,7 @@ export interface Model {
 }
 
 /**
+ * @public
  * <p>An Amazon SageMaker Model Card.</p>
  */
 export interface ModelCard {
@@ -5673,6 +7113,7 @@ export interface ModelCard {
 }
 
 /**
+ * @public
  * <p>An endpoint that hosts a model displayed in the Amazon SageMaker Model Dashboard.</p>
  */
 export interface ModelDashboardEndpoint {
@@ -5703,6 +7144,7 @@ export interface ModelDashboardEndpoint {
 }
 
 /**
+ * @public
  * <p>A batch transform job. For information about SageMaker batch transform, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform.html">Use Batch
  *         Transform</a>.</p>
  */
@@ -5883,6 +7325,7 @@ export interface TransformJob {
 }
 
 /**
+ * @public
  * <p>The model card for a model displayed in the Amazon SageMaker Model Dashboard.</p>
  */
 export interface ModelDashboardModelCard {
@@ -5951,6 +7394,7 @@ export interface ModelDashboardModelCard {
 }
 
 /**
+ * @public
  * <p>A monitoring schedule for a model displayed in the Amazon SageMaker Model Dashboard.</p>
  */
 export interface ModelDashboardMonitoringSchedule {
@@ -6011,6 +7455,7 @@ export interface ModelDashboardMonitoringSchedule {
 }
 
 /**
+ * @public
  * <p>A model displayed in the Amazon SageMaker Model Dashboard.</p>
  */
 export interface ModelDashboardModel {
@@ -6042,6 +7487,7 @@ export interface ModelDashboardModel {
 }
 
 /**
+ * @public
  * <p>A versioned model that can be deployed for SageMaker inference.</p>
  */
 export interface ModelPackage {
@@ -6221,6 +7667,7 @@ export interface ModelPackage {
 }
 
 /**
+ * @public
  * <p>A group of versioned models in the model registry.</p>
  */
 export interface ModelPackageGroup {
@@ -6289,13 +7736,23 @@ export interface ModelPackageGroup {
   Tags?: Tag[];
 }
 
-export enum ModelVariantAction {
-  PROMOTE = "Promote",
-  REMOVE = "Remove",
-  RETAIN = "Retain",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ModelVariantAction = {
+  PROMOTE: "Promote",
+  REMOVE: "Remove",
+  RETAIN: "Retain",
+} as const;
 
 /**
+ * @public
+ */
+export type ModelVariantAction = (typeof ModelVariantAction)[keyof typeof ModelVariantAction];
+
+/**
+ * @public
  * <p>A list of nested <a>Filter</a> objects. A resource must satisfy the conditions
  *       of all filters to be included in the results returned from the <a>Search</a> API.</p>
  *          <p>For example, to filter on a training job's <code>InputDataConfig</code> property with a
@@ -6303,13 +7760,13 @@ export enum ModelVariantAction {
  *          <ul>
  *             <li>
  *                <p>
- *                   <code>'{Name:"InputDataConfig.ChannelName", "Operator":"Equals", "Value":"train"}',</code>
+ *                   <code>'\{Name:"InputDataConfig.ChannelName", "Operator":"Equals", "Value":"train"\}',</code>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <code>'{Name:"InputDataConfig.DataSource.S3DataSource.S3Uri", "Operator":"Contains",
- *             "Value":"mybucket/catdata"}'</code>
+ *                   <code>'\{Name:"InputDataConfig.DataSource.S3DataSource.S3Uri", "Operator":"Contains",
+ *             "Value":"mybucket/catdata"\}'</code>
  *                </p>
  *             </li>
  *          </ul>
@@ -6332,6 +7789,7 @@ export interface NestedFilters {
 }
 
 /**
+ * @public
  * <p>The trial that a trial component is associated with and the experiment the trial is part
  *       of. A component might not be associated with a trial. A component can be associated with
  *       multiple trials.</p>
@@ -6349,6 +7807,7 @@ export interface Parent {
 }
 
 /**
+ * @public
  * <p>A SageMaker Model Building Pipeline instance.</p>
  */
 export interface Pipeline {
@@ -6421,6 +7880,7 @@ export interface Pipeline {
 }
 
 /**
+ * @public
  * <p>An execution of a pipeline.</p>
  */
 export interface PipelineExecution {
@@ -6493,6 +7953,7 @@ export interface PipelineExecution {
 }
 
 /**
+ * @public
  * <p>An Amazon SageMaker processing job that is used to analyze data and evaluate models. For more information,
  *             see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/processing-job.html">Process
  *                 Data and Evaluate Models</a>.</p>
@@ -6636,6 +8097,7 @@ export interface ProcessingJob {
 }
 
 /**
+ * @public
  * <p>Configuration information for updating the Amazon SageMaker Debugger profile parameters, system and framework metrics configurations, and
  *             storage paths.</p>
  */
@@ -6668,6 +8130,7 @@ export interface ProfilerConfigForUpdate {
 }
 
 /**
+ * @public
  * <p>The properties of a project as returned by the Search API.</p>
  */
 export interface Project {
@@ -6739,6 +8202,9 @@ export interface Project {
   LastModifiedBy?: UserContext;
 }
 
+/**
+ * @public
+ */
 export interface PutModelPackageGroupPolicyInput {
   /**
    * <p>The name of the model group to add a resource policy to.</p>
@@ -6751,6 +8217,9 @@ export interface PutModelPackageGroupPolicyInput {
   ResourcePolicy: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutModelPackageGroupPolicyOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the model package group.</p>
@@ -6759,6 +8228,7 @@ export interface PutModelPackageGroupPolicyOutput {
 }
 
 /**
+ * @public
  * <p>A set of filters to narrow the set of lineage entities connected to the <code>StartArn</code>(s) returned by the
  *          <code>QueryLineage</code> API action.</p>
  */
@@ -6801,6 +8271,9 @@ export interface QueryFilters {
   Properties?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface QueryLineageRequest {
   /**
    * <p>A list of resource Amazon Resource Name (ARN) that represent the starting point for your lineage query.</p>
@@ -6861,6 +8334,7 @@ export interface QueryLineageRequest {
 }
 
 /**
+ * @public
  * <p>A lineage entity connected to the starting entity(ies).</p>
  */
 export interface Vertex {
@@ -6881,6 +8355,9 @@ export interface Vertex {
   LineageType?: LineageType | string;
 }
 
+/**
+ * @public
+ */
 export interface QueryLineageResponse {
   /**
    * <p>A list of vertices connected to the start entity(ies) in the lineage graph.</p>
@@ -6898,6 +8375,9 @@ export interface QueryLineageResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface RegisterDevicesRequest {
   /**
    * <p>The name of the fleet.</p>
@@ -6916,6 +8396,7 @@ export interface RegisterDevicesRequest {
 }
 
 /**
+ * @public
  * <p>Contains input values for a task.</p>
  */
 export interface RenderableTask {
@@ -6929,6 +8410,7 @@ export interface RenderableTask {
 }
 
 /**
+ * @public
  * <p>A description of an error that occurred while rendering the template.</p>
  */
 export interface RenderingError {
@@ -6943,6 +8425,9 @@ export interface RenderingError {
   Message: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RenderUiTemplateRequest {
   /**
    * <p>A <code>Template</code> object containing the worker UI template to render.</p>
@@ -6970,6 +8455,9 @@ export interface RenderUiTemplateRequest {
   HumanTaskUiArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface RenderUiTemplateResponse {
   /**
    * <p>A Liquid template that renders the HTML for the worker UI.</p>
@@ -6984,6 +8472,7 @@ export interface RenderUiTemplateResponse {
 }
 
 /**
+ * @public
  * <p>The <code>ResourceConfig</code> to update <code>KeepAlivePeriodInSeconds</code>. Other
  *             fields in the <code>ResourceConfig</code> cannot be updated.</p>
  */
@@ -6995,6 +8484,9 @@ export interface ResourceConfigForUpdate {
   KeepAlivePeriodInSeconds: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RetryPipelineExecutionRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
@@ -7014,6 +8506,9 @@ export interface RetryPipelineExecutionRequest {
   ParallelismConfiguration?: ParallelismConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface RetryPipelineExecutionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
@@ -7021,12 +8516,22 @@ export interface RetryPipelineExecutionResponse {
   PipelineExecutionArn?: string;
 }
 
-export enum SearchSortOrder {
-  ASCENDING = "Ascending",
-  DESCENDING = "Descending",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SearchSortOrder = {
+  ASCENDING: "Ascending",
+  DESCENDING: "Descending",
+} as const;
 
 /**
+ * @public
+ */
+export type SearchSortOrder = (typeof SearchSortOrder)[keyof typeof SearchSortOrder];
+
+/**
+ * @public
  * <p>Contains information about a training job.</p>
  */
 export interface TrainingJob {
@@ -7395,6 +8900,7 @@ export interface TrainingJob {
 }
 
 /**
+ * @public
  * <p>A short summary of a trial component.</p>
  */
 export interface TrialComponentSimpleSummary {
@@ -7426,6 +8932,7 @@ export interface TrialComponentSimpleSummary {
 }
 
 /**
+ * @public
  * <p>The properties of a trial as returned by the <a>Search</a> API.</p>
  */
 export interface Trial {
@@ -7495,6 +9002,7 @@ export interface Trial {
 }
 
 /**
+ * @public
  * <p>Detailed information about the source of a trial component. Either
  *         <code>ProcessingJob</code> or <code>TrainingJob</code> is returned.</p>
  */
@@ -7521,6 +9029,7 @@ export interface TrialComponentSourceDetail {
 }
 
 /**
+ * @public
  * <p>The properties of a trial component as returned by the <a>Search</a>
  *       API.</p>
  */
@@ -7635,6 +9144,7 @@ export interface TrialComponent {
 }
 
 /**
+ * @public
  * <p>A single resource returned as part of the <a>Search</a> API response.</p>
  */
 export interface SearchRecord {
@@ -7717,6 +9227,9 @@ export interface SearchRecord {
   ModelCard?: ModelCard;
 }
 
+/**
+ * @public
+ */
 export interface SearchResponse {
   /**
    * <p>A list of <code>SearchRecord</code> objects.</p>
@@ -7731,6 +9244,9 @@ export interface SearchResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface SendPipelineExecutionStepFailureRequest {
   /**
    * <p>The pipeline generated token from the Amazon SQS queue.</p>
@@ -7749,6 +9265,9 @@ export interface SendPipelineExecutionStepFailureRequest {
   ClientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface SendPipelineExecutionStepFailureResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
@@ -7756,6 +9275,9 @@ export interface SendPipelineExecutionStepFailureResponse {
   PipelineExecutionArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface SendPipelineExecutionStepSuccessRequest {
   /**
    * <p>The pipeline generated token from the Amazon SQS queue.</p>
@@ -7774,6 +9296,9 @@ export interface SendPipelineExecutionStepSuccessRequest {
   ClientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface SendPipelineExecutionStepSuccessResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
@@ -7781,6 +9306,9 @@ export interface SendPipelineExecutionStepSuccessResponse {
   PipelineExecutionArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartEdgeDeploymentStageRequest {
   /**
    * <p>The name of the edge deployment plan to start.</p>
@@ -7793,6 +9321,9 @@ export interface StartEdgeDeploymentStageRequest {
   StageName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartInferenceExperimentRequest {
   /**
    * <p>The name of the inference experiment to start.</p>
@@ -7800,6 +9331,9 @@ export interface StartInferenceExperimentRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartInferenceExperimentResponse {
   /**
    * <p>The ARN of the started inference experiment to start.</p>
@@ -7807,6 +9341,9 @@ export interface StartInferenceExperimentResponse {
   InferenceExperimentArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartMonitoringScheduleRequest {
   /**
    * <p>The name of the schedule to start.</p>
@@ -7814,6 +9351,9 @@ export interface StartMonitoringScheduleRequest {
   MonitoringScheduleName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartNotebookInstanceInput {
   /**
    * <p>The name of the notebook instance to start.</p>
@@ -7821,6 +9361,9 @@ export interface StartNotebookInstanceInput {
   NotebookInstanceName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartPipelineExecutionRequest {
   /**
    * <p>The name of the pipeline.</p>
@@ -7855,6 +9398,9 @@ export interface StartPipelineExecutionRequest {
   ParallelismConfiguration?: ParallelismConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface StartPipelineExecutionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
@@ -7862,6 +9408,9 @@ export interface StartPipelineExecutionResponse {
   PipelineExecutionArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopAutoMLJobRequest {
   /**
    * <p>The name of the object you are requesting.</p>
@@ -7869,6 +9418,9 @@ export interface StopAutoMLJobRequest {
   AutoMLJobName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopCompilationJobRequest {
   /**
    * <p>The name of the model compilation job to stop.</p>
@@ -7876,6 +9428,9 @@ export interface StopCompilationJobRequest {
   CompilationJobName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopEdgeDeploymentStageRequest {
   /**
    * <p>The name of the edge deployment plan to stop.</p>
@@ -7888,6 +9443,9 @@ export interface StopEdgeDeploymentStageRequest {
   StageName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopEdgePackagingJobRequest {
   /**
    * <p>The name of the edge packaging job.</p>
@@ -7895,6 +9453,9 @@ export interface StopEdgePackagingJobRequest {
   EdgePackagingJobName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopHyperParameterTuningJobRequest {
   /**
    * <p>The name of the tuning job to stop.</p>
@@ -7902,6 +9463,9 @@ export interface StopHyperParameterTuningJobRequest {
   HyperParameterTuningJobName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopInferenceExperimentRequest {
   /**
    * <p>The name of the inference experiment to stop.</p>
@@ -7961,6 +9525,9 @@ export interface StopInferenceExperimentRequest {
   Reason?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopInferenceExperimentResponse {
   /**
    * <p>The ARN of the stopped inference experiment.</p>
@@ -7968,6 +9535,9 @@ export interface StopInferenceExperimentResponse {
   InferenceExperimentArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopInferenceRecommendationsJobRequest {
   /**
    * <p>The name of the job you want to stop.</p>
@@ -7975,6 +9545,9 @@ export interface StopInferenceRecommendationsJobRequest {
   JobName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopLabelingJobRequest {
   /**
    * <p>The name of the labeling job to stop.</p>
@@ -7982,6 +9555,9 @@ export interface StopLabelingJobRequest {
   LabelingJobName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopMonitoringScheduleRequest {
   /**
    * <p>The name of the schedule to stop.</p>
@@ -7989,6 +9565,9 @@ export interface StopMonitoringScheduleRequest {
   MonitoringScheduleName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopNotebookInstanceInput {
   /**
    * <p>The name of the notebook instance to terminate.</p>
@@ -7996,6 +9575,9 @@ export interface StopNotebookInstanceInput {
   NotebookInstanceName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopPipelineExecutionRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
@@ -8009,6 +9591,9 @@ export interface StopPipelineExecutionRequest {
   ClientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopPipelineExecutionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
@@ -8016,6 +9601,9 @@ export interface StopPipelineExecutionResponse {
   PipelineExecutionArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopProcessingJobRequest {
   /**
    * <p>The name of the processing job to stop.</p>
@@ -8023,6 +9611,9 @@ export interface StopProcessingJobRequest {
   ProcessingJobName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopTrainingJobRequest {
   /**
    * <p>The name of the training job to stop.</p>
@@ -8030,6 +9621,9 @@ export interface StopTrainingJobRequest {
   TrainingJobName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopTransformJobRequest {
   /**
    * <p>The name of the batch transform job to stop.</p>
@@ -8037,6 +9631,9 @@ export interface StopTransformJobRequest {
   TransformJobName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateActionRequest {
   /**
    * <p>The name of the action to update.</p>
@@ -8064,1559 +9661,15 @@ export interface UpdateActionRequest {
   PropertiesToRemove?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateActionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the action.</p>
    */
   ActionArn?: string;
 }
-
-export interface UpdateAppImageConfigRequest {
-  /**
-   * <p>The name of the AppImageConfig to update.</p>
-   */
-  AppImageConfigName: string | undefined;
-
-  /**
-   * <p>The new KernelGateway app to run on the image.</p>
-   */
-  KernelGatewayImageConfig?: KernelGatewayImageConfig;
-}
-
-export interface UpdateAppImageConfigResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) for the AppImageConfig.</p>
-   */
-  AppImageConfigArn?: string;
-}
-
-export interface UpdateArtifactRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the artifact to update.</p>
-   */
-  ArtifactArn: string | undefined;
-
-  /**
-   * <p>The new name for the artifact.</p>
-   */
-  ArtifactName?: string;
-
-  /**
-   * <p>The new list of properties. Overwrites the current property list.</p>
-   */
-  Properties?: Record<string, string>;
-
-  /**
-   * <p>A list of properties to remove.</p>
-   */
-  PropertiesToRemove?: string[];
-}
-
-export interface UpdateArtifactResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the artifact.</p>
-   */
-  ArtifactArn?: string;
-}
-
-export interface UpdateCodeRepositoryInput {
-  /**
-   * <p>The name of the Git repository to update.</p>
-   */
-  CodeRepositoryName: string | undefined;
-
-  /**
-   * <p>The configuration of the git repository, including the URL and the Amazon Resource
-   *             Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the
-   *             credentials used to access the repository. The secret must have a staging label of
-   *                 <code>AWSCURRENT</code> and must be in the following format:</p>
-   *          <p>
-   *             <code>{"username": <i>UserName</i>, "password":
-   *                     <i>Password</i>}</code>
-   *          </p>
-   */
-  GitConfig?: GitConfigForUpdate;
-}
-
-export interface UpdateCodeRepositoryOutput {
-  /**
-   * <p>The ARN of the Git repository.</p>
-   */
-  CodeRepositoryArn: string | undefined;
-}
-
-export interface UpdateContextRequest {
-  /**
-   * <p>The name of the context to update.</p>
-   */
-  ContextName: string | undefined;
-
-  /**
-   * <p>The new description for the context.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The new list of properties. Overwrites the current property list.</p>
-   */
-  Properties?: Record<string, string>;
-
-  /**
-   * <p>A list of properties to remove.</p>
-   */
-  PropertiesToRemove?: string[];
-}
-
-export interface UpdateContextResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the context.</p>
-   */
-  ContextArn?: string;
-}
-
-export interface UpdateDeviceFleetRequest {
-  /**
-   * <p>The name of the fleet.</p>
-   */
-  DeviceFleetName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the device.</p>
-   */
-  RoleArn?: string;
-
-  /**
-   * <p>Description of the fleet.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Output configuration  for storing sample data collected by the fleet.</p>
-   */
-  OutputConfig: EdgeOutputConfig | undefined;
-
-  /**
-   * <p>Whether to create an Amazon Web Services IoT Role Alias during device fleet creation.
-   *       The name of the role alias generated will match this pattern:
-   *       "SageMakerEdge-{DeviceFleetName}".</p>
-   *          <p>For example, if your device fleet is called "demo-fleet", the name of
-   *       the role alias will be "SageMakerEdge-demo-fleet".</p>
-   */
-  EnableIotRoleAlias?: boolean;
-}
-
-export interface UpdateDevicesRequest {
-  /**
-   * <p>The name of the fleet the devices belong to.</p>
-   */
-  DeviceFleetName: string | undefined;
-
-  /**
-   * <p>List of devices to register with Edge Manager agent.</p>
-   */
-  Devices: Device[] | undefined;
-}
-
-export interface UpdateDomainRequest {
-  /**
-   * <p>The ID of the domain to be updated.</p>
-   */
-  DomainId: string | undefined;
-
-  /**
-   * <p>A collection of settings.</p>
-   */
-  DefaultUserSettings?: UserSettings;
-
-  /**
-   * <p>A collection of <code>DomainSettings</code> configuration values to update.</p>
-   */
-  DomainSettingsForUpdate?: DomainSettingsForUpdate;
-
-  /**
-   * <p>The default settings used to create a space within the Domain.</p>
-   */
-  DefaultSpaceSettings?: DefaultSpaceSettings;
-
-  /**
-   * <p>The entity that creates and manages the required security groups for inter-app
-   *             communication in <code>VPCOnly</code> mode. Required when
-   *             <code>CreateDomain.AppNetworkAccessType</code> is <code>VPCOnly</code> and
-   *             <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is
-   *             provided.</p>
-   */
-  AppSecurityGroupManagement?: AppSecurityGroupManagement | string;
-}
-
-export interface UpdateDomainResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the domain.</p>
-   */
-  DomainArn?: string;
-}
-
-export enum VariantPropertyType {
-  DataCaptureConfig = "DataCaptureConfig",
-  DesiredInstanceCount = "DesiredInstanceCount",
-  DesiredWeight = "DesiredWeight",
-}
-
-/**
- * <p>Specifies a production variant property type for an Endpoint.</p>
- *          <p>If you are updating an endpoint with the <a>UpdateEndpointInput$RetainAllVariantProperties</a> option set to
- *                 <code>true</code>, the <code>VariantProperty</code> objects listed in <a>UpdateEndpointInput$ExcludeRetainedVariantProperties</a> override the
- *             existing variant properties of the endpoint.</p>
- */
-export interface VariantProperty {
-  /**
-   * <p>The type of variant property. The supported values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>DesiredInstanceCount</code>: Overrides the existing variant instance
-   *                     counts using the <a>ProductionVariant$InitialInstanceCount</a> values
-   *                     in the <a>CreateEndpointConfigInput$ProductionVariants</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DesiredWeight</code>: Overrides the existing variant weights using the
-   *                         <a>ProductionVariant$InitialVariantWeight</a> values in the <a>CreateEndpointConfigInput$ProductionVariants</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DataCaptureConfig</code>: (Not currently supported.)</p>
-   *             </li>
-   *          </ul>
-   */
-  VariantPropertyType: VariantPropertyType | string | undefined;
-}
-
-export interface UpdateEndpointInput {
-  /**
-   * <p>The name of the endpoint whose configuration you want to update.</p>
-   */
-  EndpointName: string | undefined;
-
-  /**
-   * <p>The name of the new endpoint configuration.</p>
-   */
-  EndpointConfigName: string | undefined;
-
-  /**
-   * <p>When updating endpoint resources, enables or disables the retention of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VariantProperty.html">variant properties</a>, such as the instance count or the variant weight. To
-   *             retain the variant properties of an endpoint when updating it, set
-   *                 <code>RetainAllVariantProperties</code> to <code>true</code>. To use the variant
-   *             properties specified in a new <code>EndpointConfig</code> call when updating an
-   *             endpoint, set <code>RetainAllVariantProperties</code> to <code>false</code>. The default
-   *             is <code>false</code>.</p>
-   */
-  RetainAllVariantProperties?: boolean;
-
-  /**
-   * <p>When you are updating endpoint resources with <a>UpdateEndpointInput$RetainAllVariantProperties</a>, whose value is set to
-   *                 <code>true</code>, <code>ExcludeRetainedVariantProperties</code> specifies the list
-   *             of type <a>VariantProperty</a> to override with the values provided by
-   *                 <code>EndpointConfig</code>. If you don't specify a value for
-   *                 <code>ExcludeAllVariantProperties</code>, no variant properties are overridden.
-   *         </p>
-   */
-  ExcludeRetainedVariantProperties?: VariantProperty[];
-
-  /**
-   * <p>The deployment configuration for an endpoint, which contains the desired deployment
-   *             strategy and rollback configurations.</p>
-   */
-  DeploymentConfig?: DeploymentConfig;
-
-  /**
-   * <p>Specifies whether to reuse the last deployment configuration. The default value is
-   *             false (the configuration is not reused).</p>
-   */
-  RetainDeploymentConfig?: boolean;
-}
-
-export interface UpdateEndpointOutput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
-   */
-  EndpointArn: string | undefined;
-}
-
-export interface UpdateEndpointWeightsAndCapacitiesInput {
-  /**
-   * <p>The name of an existing SageMaker endpoint.</p>
-   */
-  EndpointName: string | undefined;
-
-  /**
-   * <p>An object that provides new capacity and weight values for a variant.</p>
-   */
-  DesiredWeightsAndCapacities: DesiredWeightAndCapacity[] | undefined;
-}
-
-export interface UpdateEndpointWeightsAndCapacitiesOutput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the updated endpoint.</p>
-   */
-  EndpointArn: string | undefined;
-}
-
-export interface UpdateExperimentRequest {
-  /**
-   * <p>The name of the experiment to update.</p>
-   */
-  ExperimentName: string | undefined;
-
-  /**
-   * <p>The name of the experiment as displayed. The name doesn't need to be unique. If
-   *         <code>DisplayName</code> isn't specified, <code>ExperimentName</code> is displayed.</p>
-   */
-  DisplayName?: string;
-
-  /**
-   * <p>The description of the experiment.</p>
-   */
-  Description?: string;
-}
-
-export interface UpdateExperimentResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the experiment.</p>
-   */
-  ExperimentArn?: string;
-}
-
-export interface UpdateFeatureGroupRequest {
-  /**
-   * <p>The name of the feature group that you're updating.</p>
-   */
-  FeatureGroupName: string | undefined;
-
-  /**
-   * <p>Updates the feature group. Updating a feature group is an asynchronous operation. When
-   *          you get an HTTP 200 response, you've made a valid request. It takes some time after you've
-   *          made a valid request for Feature Store to update the feature group.</p>
-   */
-  FeatureAdditions?: FeatureDefinition[];
-}
-
-/**
- * @internal
- */
-export const ListAssociationsResponseFilterSensitiveLog = (obj: ListAssociationsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAutoMLJobsRequestFilterSensitiveLog = (obj: ListAutoMLJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAutoMLJobsResponseFilterSensitiveLog = (obj: ListAutoMLJobsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCandidatesForAutoMLJobRequestFilterSensitiveLog = (obj: ListCandidatesForAutoMLJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCandidatesForAutoMLJobResponseFilterSensitiveLog = (obj: ListCandidatesForAutoMLJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCodeRepositoriesInputFilterSensitiveLog = (obj: ListCodeRepositoriesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCodeRepositoriesOutputFilterSensitiveLog = (obj: ListCodeRepositoriesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCompilationJobsRequestFilterSensitiveLog = (obj: ListCompilationJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCompilationJobsResponseFilterSensitiveLog = (obj: ListCompilationJobsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListContextsRequestFilterSensitiveLog = (obj: ListContextsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListContextsResponseFilterSensitiveLog = (obj: ListContextsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDataQualityJobDefinitionsRequestFilterSensitiveLog = (
-  obj: ListDataQualityJobDefinitionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MonitoringJobDefinitionSummaryFilterSensitiveLog = (obj: MonitoringJobDefinitionSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDataQualityJobDefinitionsResponseFilterSensitiveLog = (
-  obj: ListDataQualityJobDefinitionsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDeviceFleetsRequestFilterSensitiveLog = (obj: ListDeviceFleetsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDeviceFleetsResponseFilterSensitiveLog = (obj: ListDeviceFleetsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDevicesRequestFilterSensitiveLog = (obj: ListDevicesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDevicesResponseFilterSensitiveLog = (obj: ListDevicesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDomainsRequestFilterSensitiveLog = (obj: ListDomainsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDomainsResponseFilterSensitiveLog = (obj: ListDomainsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEdgeDeploymentPlansRequestFilterSensitiveLog = (obj: ListEdgeDeploymentPlansRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEdgeDeploymentPlansResponseFilterSensitiveLog = (obj: ListEdgeDeploymentPlansResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEdgePackagingJobsRequestFilterSensitiveLog = (obj: ListEdgePackagingJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEdgePackagingJobsResponseFilterSensitiveLog = (obj: ListEdgePackagingJobsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEndpointConfigsInputFilterSensitiveLog = (obj: ListEndpointConfigsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEndpointConfigsOutputFilterSensitiveLog = (obj: ListEndpointConfigsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEndpointsInputFilterSensitiveLog = (obj: ListEndpointsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEndpointsOutputFilterSensitiveLog = (obj: ListEndpointsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListExperimentsRequestFilterSensitiveLog = (obj: ListExperimentsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListExperimentsResponseFilterSensitiveLog = (obj: ListExperimentsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFeatureGroupsRequestFilterSensitiveLog = (obj: ListFeatureGroupsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFeatureGroupsResponseFilterSensitiveLog = (obj: ListFeatureGroupsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFlowDefinitionsRequestFilterSensitiveLog = (obj: ListFlowDefinitionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFlowDefinitionsResponseFilterSensitiveLog = (obj: ListFlowDefinitionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListHubContentsRequestFilterSensitiveLog = (obj: ListHubContentsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListHubContentsResponseFilterSensitiveLog = (obj: ListHubContentsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListHubContentVersionsRequestFilterSensitiveLog = (obj: ListHubContentVersionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListHubContentVersionsResponseFilterSensitiveLog = (obj: ListHubContentVersionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListHubsRequestFilterSensitiveLog = (obj: ListHubsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListHubsResponseFilterSensitiveLog = (obj: ListHubsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListHumanTaskUisRequestFilterSensitiveLog = (obj: ListHumanTaskUisRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListHumanTaskUisResponseFilterSensitiveLog = (obj: ListHumanTaskUisResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListHyperParameterTuningJobsRequestFilterSensitiveLog = (
-  obj: ListHyperParameterTuningJobsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListHyperParameterTuningJobsResponseFilterSensitiveLog = (
-  obj: ListHyperParameterTuningJobsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListImagesRequestFilterSensitiveLog = (obj: ListImagesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListImagesResponseFilterSensitiveLog = (obj: ListImagesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListImageVersionsRequestFilterSensitiveLog = (obj: ListImageVersionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListImageVersionsResponseFilterSensitiveLog = (obj: ListImageVersionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListInferenceExperimentsRequestFilterSensitiveLog = (obj: ListInferenceExperimentsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListInferenceExperimentsResponseFilterSensitiveLog = (obj: ListInferenceExperimentsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListInferenceRecommendationsJobsRequestFilterSensitiveLog = (
-  obj: ListInferenceRecommendationsJobsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListInferenceRecommendationsJobsResponseFilterSensitiveLog = (
-  obj: ListInferenceRecommendationsJobsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListInferenceRecommendationsJobStepsRequestFilterSensitiveLog = (
-  obj: ListInferenceRecommendationsJobStepsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListInferenceRecommendationsJobStepsResponseFilterSensitiveLog = (
-  obj: ListInferenceRecommendationsJobStepsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLabelingJobsRequestFilterSensitiveLog = (obj: ListLabelingJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLabelingJobsResponseFilterSensitiveLog = (obj: ListLabelingJobsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLabelingJobsForWorkteamRequestFilterSensitiveLog = (obj: ListLabelingJobsForWorkteamRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLabelingJobsForWorkteamResponseFilterSensitiveLog = (
-  obj: ListLabelingJobsForWorkteamResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLineageGroupsRequestFilterSensitiveLog = (obj: ListLineageGroupsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLineageGroupsResponseFilterSensitiveLog = (obj: ListLineageGroupsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelBiasJobDefinitionsRequestFilterSensitiveLog = (obj: ListModelBiasJobDefinitionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelBiasJobDefinitionsResponseFilterSensitiveLog = (
-  obj: ListModelBiasJobDefinitionsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelCardExportJobsRequestFilterSensitiveLog = (obj: ListModelCardExportJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModelCardExportJobSummaryFilterSensitiveLog = (obj: ModelCardExportJobSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelCardExportJobsResponseFilterSensitiveLog = (obj: ListModelCardExportJobsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelCardsRequestFilterSensitiveLog = (obj: ListModelCardsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModelCardSummaryFilterSensitiveLog = (obj: ModelCardSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelCardsResponseFilterSensitiveLog = (obj: ListModelCardsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelCardVersionsRequestFilterSensitiveLog = (obj: ListModelCardVersionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModelCardVersionSummaryFilterSensitiveLog = (obj: ModelCardVersionSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelCardVersionsResponseFilterSensitiveLog = (obj: ListModelCardVersionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelExplainabilityJobDefinitionsRequestFilterSensitiveLog = (
-  obj: ListModelExplainabilityJobDefinitionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelExplainabilityJobDefinitionsResponseFilterSensitiveLog = (
-  obj: ListModelExplainabilityJobDefinitionsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModelMetadataFilterFilterSensitiveLog = (obj: ModelMetadataFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModelMetadataSearchExpressionFilterSensitiveLog = (obj: ModelMetadataSearchExpression): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelMetadataRequestFilterSensitiveLog = (obj: ListModelMetadataRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModelMetadataSummaryFilterSensitiveLog = (obj: ModelMetadataSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelMetadataResponseFilterSensitiveLog = (obj: ListModelMetadataResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelPackageGroupsInputFilterSensitiveLog = (obj: ListModelPackageGroupsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModelPackageGroupSummaryFilterSensitiveLog = (obj: ModelPackageGroupSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelPackageGroupsOutputFilterSensitiveLog = (obj: ListModelPackageGroupsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelPackagesInputFilterSensitiveLog = (obj: ListModelPackagesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModelPackageSummaryFilterSensitiveLog = (obj: ModelPackageSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelPackagesOutputFilterSensitiveLog = (obj: ListModelPackagesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelQualityJobDefinitionsRequestFilterSensitiveLog = (
-  obj: ListModelQualityJobDefinitionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelQualityJobDefinitionsResponseFilterSensitiveLog = (
-  obj: ListModelQualityJobDefinitionsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelsInputFilterSensitiveLog = (obj: ListModelsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModelSummaryFilterSensitiveLog = (obj: ModelSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelsOutputFilterSensitiveLog = (obj: ListModelsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMonitoringAlertHistoryRequestFilterSensitiveLog = (obj: ListMonitoringAlertHistoryRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MonitoringAlertHistorySummaryFilterSensitiveLog = (obj: MonitoringAlertHistorySummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMonitoringAlertHistoryResponseFilterSensitiveLog = (obj: ListMonitoringAlertHistoryResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMonitoringAlertsRequestFilterSensitiveLog = (obj: ListMonitoringAlertsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModelDashboardIndicatorActionFilterSensitiveLog = (obj: ModelDashboardIndicatorAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MonitoringAlertActionsFilterSensitiveLog = (obj: MonitoringAlertActions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MonitoringAlertSummaryFilterSensitiveLog = (obj: MonitoringAlertSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMonitoringAlertsResponseFilterSensitiveLog = (obj: ListMonitoringAlertsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMonitoringExecutionsRequestFilterSensitiveLog = (obj: ListMonitoringExecutionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMonitoringExecutionsResponseFilterSensitiveLog = (obj: ListMonitoringExecutionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMonitoringSchedulesRequestFilterSensitiveLog = (obj: ListMonitoringSchedulesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MonitoringScheduleSummaryFilterSensitiveLog = (obj: MonitoringScheduleSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMonitoringSchedulesResponseFilterSensitiveLog = (obj: ListMonitoringSchedulesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNotebookInstanceLifecycleConfigsInputFilterSensitiveLog = (
-  obj: ListNotebookInstanceLifecycleConfigsInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NotebookInstanceLifecycleConfigSummaryFilterSensitiveLog = (
-  obj: NotebookInstanceLifecycleConfigSummary
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNotebookInstanceLifecycleConfigsOutputFilterSensitiveLog = (
-  obj: ListNotebookInstanceLifecycleConfigsOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNotebookInstancesInputFilterSensitiveLog = (obj: ListNotebookInstancesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NotebookInstanceSummaryFilterSensitiveLog = (obj: NotebookInstanceSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNotebookInstancesOutputFilterSensitiveLog = (obj: ListNotebookInstancesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPipelineExecutionsRequestFilterSensitiveLog = (obj: ListPipelineExecutionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PipelineExecutionSummaryFilterSensitiveLog = (obj: PipelineExecutionSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPipelineExecutionsResponseFilterSensitiveLog = (obj: ListPipelineExecutionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPipelineExecutionStepsRequestFilterSensitiveLog = (obj: ListPipelineExecutionStepsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModelStepMetadataFilterSensitiveLog = (obj: ModelStepMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProcessingJobStepMetadataFilterSensitiveLog = (obj: ProcessingJobStepMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const QualityCheckStepMetadataFilterSensitiveLog = (obj: QualityCheckStepMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterModelStepMetadataFilterSensitiveLog = (obj: RegisterModelStepMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TrainingJobStepMetadataFilterSensitiveLog = (obj: TrainingJobStepMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransformJobStepMetadataFilterSensitiveLog = (obj: TransformJobStepMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TuningJobStepMetaDataFilterSensitiveLog = (obj: TuningJobStepMetaData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PipelineExecutionStepMetadataFilterSensitiveLog = (obj: PipelineExecutionStepMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PipelineExecutionStepFilterSensitiveLog = (obj: PipelineExecutionStep): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPipelineExecutionStepsResponseFilterSensitiveLog = (obj: ListPipelineExecutionStepsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPipelineParametersForExecutionRequestFilterSensitiveLog = (
-  obj: ListPipelineParametersForExecutionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ParameterFilterSensitiveLog = (obj: Parameter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPipelineParametersForExecutionResponseFilterSensitiveLog = (
-  obj: ListPipelineParametersForExecutionResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPipelinesRequestFilterSensitiveLog = (obj: ListPipelinesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PipelineSummaryFilterSensitiveLog = (obj: PipelineSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPipelinesResponseFilterSensitiveLog = (obj: ListPipelinesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListProcessingJobsRequestFilterSensitiveLog = (obj: ListProcessingJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProcessingJobSummaryFilterSensitiveLog = (obj: ProcessingJobSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListProcessingJobsResponseFilterSensitiveLog = (obj: ListProcessingJobsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListProjectsInputFilterSensitiveLog = (obj: ListProjectsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProjectSummaryFilterSensitiveLog = (obj: ProjectSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListProjectsOutputFilterSensitiveLog = (obj: ListProjectsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSpacesRequestFilterSensitiveLog = (obj: ListSpacesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SpaceDetailsFilterSensitiveLog = (obj: SpaceDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSpacesResponseFilterSensitiveLog = (obj: ListSpacesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStageDevicesRequestFilterSensitiveLog = (obj: ListStageDevicesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStageDevicesResponseFilterSensitiveLog = (obj: ListStageDevicesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStudioLifecycleConfigsRequestFilterSensitiveLog = (obj: ListStudioLifecycleConfigsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StudioLifecycleConfigDetailsFilterSensitiveLog = (obj: StudioLifecycleConfigDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStudioLifecycleConfigsResponseFilterSensitiveLog = (obj: ListStudioLifecycleConfigsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSubscribedWorkteamsRequestFilterSensitiveLog = (obj: ListSubscribedWorkteamsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSubscribedWorkteamsResponseFilterSensitiveLog = (obj: ListSubscribedWorkteamsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsInputFilterSensitiveLog = (obj: ListTagsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsOutputFilterSensitiveLog = (obj: ListTagsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTrainingJobsRequestFilterSensitiveLog = (obj: ListTrainingJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TrainingJobSummaryFilterSensitiveLog = (obj: TrainingJobSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTrainingJobsResponseFilterSensitiveLog = (obj: ListTrainingJobsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTrainingJobsForHyperParameterTuningJobRequestFilterSensitiveLog = (
-  obj: ListTrainingJobsForHyperParameterTuningJobRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTrainingJobsForHyperParameterTuningJobResponseFilterSensitiveLog = (
-  obj: ListTrainingJobsForHyperParameterTuningJobResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTransformJobsRequestFilterSensitiveLog = (obj: ListTransformJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransformJobSummaryFilterSensitiveLog = (obj: TransformJobSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTransformJobsResponseFilterSensitiveLog = (obj: ListTransformJobsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTrialComponentsRequestFilterSensitiveLog = (obj: ListTrialComponentsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TrialComponentSummaryFilterSensitiveLog = (obj: TrialComponentSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTrialComponentsResponseFilterSensitiveLog = (obj: ListTrialComponentsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTrialsRequestFilterSensitiveLog = (obj: ListTrialsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TrialSummaryFilterSensitiveLog = (obj: TrialSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTrialsResponseFilterSensitiveLog = (obj: ListTrialsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListUserProfilesRequestFilterSensitiveLog = (obj: ListUserProfilesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UserProfileDetailsFilterSensitiveLog = (obj: UserProfileDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListUserProfilesResponseFilterSensitiveLog = (obj: ListUserProfilesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListWorkforcesRequestFilterSensitiveLog = (obj: ListWorkforcesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListWorkforcesResponseFilterSensitiveLog = (obj: ListWorkforcesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListWorkteamsRequestFilterSensitiveLog = (obj: ListWorkteamsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListWorkteamsResponseFilterSensitiveLog = (obj: ListWorkteamsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModelFilterSensitiveLog = (obj: Model): any => ({
-  ...obj,
-});
 
 /**
  * @internal
@@ -9629,248 +9682,9 @@ export const ModelCardFilterSensitiveLog = (obj: ModelCard): any => ({
 /**
  * @internal
  */
-export const ModelDashboardEndpointFilterSensitiveLog = (obj: ModelDashboardEndpoint): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransformJobFilterSensitiveLog = (obj: TransformJob): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModelDashboardModelCardFilterSensitiveLog = (obj: ModelDashboardModelCard): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModelDashboardMonitoringScheduleFilterSensitiveLog = (obj: ModelDashboardMonitoringSchedule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModelDashboardModelFilterSensitiveLog = (obj: ModelDashboardModel): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModelPackageFilterSensitiveLog = (obj: ModelPackage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModelPackageGroupFilterSensitiveLog = (obj: ModelPackageGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NestedFiltersFilterSensitiveLog = (obj: NestedFilters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ParentFilterSensitiveLog = (obj: Parent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PipelineFilterSensitiveLog = (obj: Pipeline): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PipelineExecutionFilterSensitiveLog = (obj: PipelineExecution): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProcessingJobFilterSensitiveLog = (obj: ProcessingJob): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProfilerConfigForUpdateFilterSensitiveLog = (obj: ProfilerConfigForUpdate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProjectFilterSensitiveLog = (obj: Project): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutModelPackageGroupPolicyInputFilterSensitiveLog = (obj: PutModelPackageGroupPolicyInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutModelPackageGroupPolicyOutputFilterSensitiveLog = (obj: PutModelPackageGroupPolicyOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const QueryFiltersFilterSensitiveLog = (obj: QueryFilters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const QueryLineageRequestFilterSensitiveLog = (obj: QueryLineageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VertexFilterSensitiveLog = (obj: Vertex): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const QueryLineageResponseFilterSensitiveLog = (obj: QueryLineageResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterDevicesRequestFilterSensitiveLog = (obj: RegisterDevicesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RenderableTaskFilterSensitiveLog = (obj: RenderableTask): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RenderingErrorFilterSensitiveLog = (obj: RenderingError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RenderUiTemplateRequestFilterSensitiveLog = (obj: RenderUiTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RenderUiTemplateResponseFilterSensitiveLog = (obj: RenderUiTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceConfigForUpdateFilterSensitiveLog = (obj: ResourceConfigForUpdate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RetryPipelineExecutionRequestFilterSensitiveLog = (obj: RetryPipelineExecutionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RetryPipelineExecutionResponseFilterSensitiveLog = (obj: RetryPipelineExecutionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TrainingJobFilterSensitiveLog = (obj: TrainingJob): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TrialComponentSimpleSummaryFilterSensitiveLog = (obj: TrialComponentSimpleSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TrialFilterSensitiveLog = (obj: Trial): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TrialComponentSourceDetailFilterSensitiveLog = (obj: TrialComponentSourceDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TrialComponentFilterSensitiveLog = (obj: TrialComponent): any => ({
-  ...obj,
-  ...(obj.Parameters && {
-    Parameters: Object.entries(obj.Parameters).reduce(
-      (acc: any, [key, value]: [string, TrialComponentParameterValue]) => (
-        (acc[key] = TrialComponentParameterValueFilterSensitiveLog(value)), acc
-      ),
-      {}
-    ),
-  }),
-});
-
-/**
- * @internal
- */
 export const SearchRecordFilterSensitiveLog = (obj: SearchRecord): any => ({
   ...obj,
-  ...(obj.TrialComponent && { TrialComponent: TrialComponentFilterSensitiveLog(obj.TrialComponent) }),
+  ...(obj.TrialComponent && { TrialComponent: obj.TrialComponent }),
   ...(obj.ModelCard && { ModelCard: ModelCardFilterSensitiveLog(obj.ModelCard) }),
 });
 
@@ -9880,361 +9694,4 @@ export const SearchRecordFilterSensitiveLog = (obj: SearchRecord): any => ({
 export const SearchResponseFilterSensitiveLog = (obj: SearchResponse): any => ({
   ...obj,
   ...(obj.Results && { Results: obj.Results.map((item) => SearchRecordFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const SendPipelineExecutionStepFailureRequestFilterSensitiveLog = (
-  obj: SendPipelineExecutionStepFailureRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendPipelineExecutionStepFailureResponseFilterSensitiveLog = (
-  obj: SendPipelineExecutionStepFailureResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendPipelineExecutionStepSuccessRequestFilterSensitiveLog = (
-  obj: SendPipelineExecutionStepSuccessRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendPipelineExecutionStepSuccessResponseFilterSensitiveLog = (
-  obj: SendPipelineExecutionStepSuccessResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartEdgeDeploymentStageRequestFilterSensitiveLog = (obj: StartEdgeDeploymentStageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartInferenceExperimentRequestFilterSensitiveLog = (obj: StartInferenceExperimentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartInferenceExperimentResponseFilterSensitiveLog = (obj: StartInferenceExperimentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartMonitoringScheduleRequestFilterSensitiveLog = (obj: StartMonitoringScheduleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartNotebookInstanceInputFilterSensitiveLog = (obj: StartNotebookInstanceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartPipelineExecutionRequestFilterSensitiveLog = (obj: StartPipelineExecutionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartPipelineExecutionResponseFilterSensitiveLog = (obj: StartPipelineExecutionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopAutoMLJobRequestFilterSensitiveLog = (obj: StopAutoMLJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopCompilationJobRequestFilterSensitiveLog = (obj: StopCompilationJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopEdgeDeploymentStageRequestFilterSensitiveLog = (obj: StopEdgeDeploymentStageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopEdgePackagingJobRequestFilterSensitiveLog = (obj: StopEdgePackagingJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopHyperParameterTuningJobRequestFilterSensitiveLog = (obj: StopHyperParameterTuningJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopInferenceExperimentRequestFilterSensitiveLog = (obj: StopInferenceExperimentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopInferenceExperimentResponseFilterSensitiveLog = (obj: StopInferenceExperimentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopInferenceRecommendationsJobRequestFilterSensitiveLog = (
-  obj: StopInferenceRecommendationsJobRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopLabelingJobRequestFilterSensitiveLog = (obj: StopLabelingJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopMonitoringScheduleRequestFilterSensitiveLog = (obj: StopMonitoringScheduleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopNotebookInstanceInputFilterSensitiveLog = (obj: StopNotebookInstanceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopPipelineExecutionRequestFilterSensitiveLog = (obj: StopPipelineExecutionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopPipelineExecutionResponseFilterSensitiveLog = (obj: StopPipelineExecutionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopProcessingJobRequestFilterSensitiveLog = (obj: StopProcessingJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopTrainingJobRequestFilterSensitiveLog = (obj: StopTrainingJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopTransformJobRequestFilterSensitiveLog = (obj: StopTransformJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateActionRequestFilterSensitiveLog = (obj: UpdateActionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateActionResponseFilterSensitiveLog = (obj: UpdateActionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAppImageConfigRequestFilterSensitiveLog = (obj: UpdateAppImageConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAppImageConfigResponseFilterSensitiveLog = (obj: UpdateAppImageConfigResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateArtifactRequestFilterSensitiveLog = (obj: UpdateArtifactRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateArtifactResponseFilterSensitiveLog = (obj: UpdateArtifactResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCodeRepositoryInputFilterSensitiveLog = (obj: UpdateCodeRepositoryInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCodeRepositoryOutputFilterSensitiveLog = (obj: UpdateCodeRepositoryOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateContextRequestFilterSensitiveLog = (obj: UpdateContextRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateContextResponseFilterSensitiveLog = (obj: UpdateContextResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDeviceFleetRequestFilterSensitiveLog = (obj: UpdateDeviceFleetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDevicesRequestFilterSensitiveLog = (obj: UpdateDevicesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDomainRequestFilterSensitiveLog = (obj: UpdateDomainRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDomainResponseFilterSensitiveLog = (obj: UpdateDomainResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VariantPropertyFilterSensitiveLog = (obj: VariantProperty): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateEndpointInputFilterSensitiveLog = (obj: UpdateEndpointInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateEndpointOutputFilterSensitiveLog = (obj: UpdateEndpointOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateEndpointWeightsAndCapacitiesInputFilterSensitiveLog = (
-  obj: UpdateEndpointWeightsAndCapacitiesInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateEndpointWeightsAndCapacitiesOutputFilterSensitiveLog = (
-  obj: UpdateEndpointWeightsAndCapacitiesOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateExperimentRequestFilterSensitiveLog = (obj: UpdateExperimentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateExperimentResponseFilterSensitiveLog = (obj: UpdateExperimentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFeatureGroupRequestFilterSensitiveLog = (obj: UpdateFeatureGroupRequest): any => ({
-  ...obj,
 });

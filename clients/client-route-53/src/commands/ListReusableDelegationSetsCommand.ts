@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListReusableDelegationSetsRequest,
-  ListReusableDelegationSetsRequestFilterSensitiveLog,
-  ListReusableDelegationSetsResponse,
-  ListReusableDelegationSetsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlListReusableDelegationSetsCommand,
-  serializeAws_restXmlListReusableDelegationSetsCommand,
-} from "../protocols/Aws_restXml";
+import { ListReusableDelegationSetsRequest, ListReusableDelegationSetsResponse } from "../models/models_0";
+import { de_ListReusableDelegationSetsCommand, se_ListReusableDelegationSetsCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * @public
+ *
+ * The input for {@link ListReusableDelegationSetsCommand}.
+ */
 export interface ListReusableDelegationSetsCommandInput extends ListReusableDelegationSetsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListReusableDelegationSetsCommand}.
+ */
 export interface ListReusableDelegationSetsCommandOutput extends ListReusableDelegationSetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of the reusable delegation sets that are associated with the current
  * 				Amazon Web Services account.</p>
  * @example
@@ -37,13 +40,23 @@ export interface ListReusableDelegationSetsCommandOutput extends ListReusableDel
  * import { Route53Client, ListReusableDelegationSetsCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, ListReusableDelegationSetsCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = { // ListReusableDelegationSetsRequest
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListReusableDelegationSetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListReusableDelegationSetsCommandInput - {@link ListReusableDelegationSetsCommandInput}
+ * @returns {@link ListReusableDelegationSetsCommandOutput}
  * @see {@link ListReusableDelegationSetsCommandInput} for command's `input` shape.
  * @see {@link ListReusableDelegationSetsCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
  *
  */
 export class ListReusableDelegationSetsCommand extends $Command<
@@ -63,6 +76,9 @@ export class ListReusableDelegationSetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListReusableDelegationSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +107,8 @@ export class ListReusableDelegationSetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListReusableDelegationSetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListReusableDelegationSetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,15 +118,21 @@ export class ListReusableDelegationSetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListReusableDelegationSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListReusableDelegationSetsCommand(input, context);
+    return se_ListReusableDelegationSetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListReusableDelegationSetsCommandOutput> {
-    return deserializeAws_restXmlListReusableDelegationSetsCommand(output, context);
+    return de_ListReusableDelegationSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

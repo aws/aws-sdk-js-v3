@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
-import {
-  StopJobRunRequest,
-  StopJobRunRequestFilterSensitiveLog,
-  StopJobRunResponse,
-  StopJobRunResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StopJobRunCommand,
-  serializeAws_restJson1StopJobRunCommand,
-} from "../protocols/Aws_restJson1";
+import { StopJobRunRequest, StopJobRunResponse } from "../models/models_0";
+import { de_StopJobRunCommand, se_StopJobRunCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link StopJobRunCommand}.
+ */
 export interface StopJobRunCommandInput extends StopJobRunRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StopJobRunCommand}.
+ */
 export interface StopJobRunCommandOutput extends StopJobRunResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a particular run of a job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,26 @@ export interface StopJobRunCommandOutput extends StopJobRunResponse, __MetadataB
  * import { DataBrewClient, StopJobRunCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, StopJobRunCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
+ * const input = { // StopJobRunRequest
+ *   Name: "STRING_VALUE", // required
+ *   RunId: "STRING_VALUE", // required
+ * };
  * const command = new StopJobRunCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopJobRunCommandInput - {@link StopJobRunCommandInput}
+ * @returns {@link StopJobRunCommandOutput}
  * @see {@link StopJobRunCommandInput} for command's `input` shape.
  * @see {@link StopJobRunCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>One or more resources can't be found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input parameters for this request failed validation.</p>
+ *
  *
  */
 export class StopJobRunCommand extends $Command<
@@ -62,6 +78,9 @@ export class StopJobRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopJobRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +107,8 @@ export class StopJobRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopJobRunRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopJobRunResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +118,18 @@ export class StopJobRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopJobRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopJobRunCommand(input, context);
+    return se_StopJobRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopJobRunCommandOutput> {
-    return deserializeAws_restJson1StopJobRunCommand(output, context);
+    return de_StopJobRunCommand(output, context);
   }
 
   // Start section: command_body_extra

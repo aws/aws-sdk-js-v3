@@ -14,22 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutJobTaggingRequest,
-  PutJobTaggingRequestFilterSensitiveLog,
-  PutJobTaggingResult,
-  PutJobTaggingResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlPutJobTaggingCommand,
-  serializeAws_restXmlPutJobTaggingCommand,
-} from "../protocols/Aws_restXml";
+import { PutJobTaggingRequest, PutJobTaggingResult } from "../models/models_0";
+import { de_PutJobTaggingCommand, se_PutJobTaggingCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
+/**
+ * @public
+ *
+ * The input for {@link PutJobTaggingCommand}.
+ */
 export interface PutJobTaggingCommandInput extends PutJobTaggingRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutJobTaggingCommand}.
+ */
 export interface PutJobTaggingCommandOutput extends PutJobTaggingResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the supplied tag-set on an S3 Batch Operations job.</p>
  *          <p>A tag is a key-value pair. You can associate S3 Batch Operations tags with any job by sending
  *          a PUT request against the tagging subresource that is associated with the job. To modify
@@ -75,8 +78,10 @@ export interface PutJobTaggingCommandOutput extends PutJobTaggingResult, __Metad
  *             </ul>
  *          </note>
  *          <p></p>
- *          <p>To use this action, you must have permission to perform the
- *             <code>s3:PutJobTagging</code> action.</p>
+ *          <p>To use the
+ *             <code>PutJobTagging</code>
+ *          operation,
+ *          you must have permission to perform the <code>s3:PutJobTagging</code> action.</p>
  *          <p>Related actions include:</p>
  *          <ul>
  *             <li>
@@ -101,13 +106,38 @@ export interface PutJobTaggingCommandOutput extends PutJobTaggingResult, __Metad
  * import { S3ControlClient, PutJobTaggingCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, PutJobTaggingCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = { // PutJobTaggingRequest
+ *   AccountId: "STRING_VALUE",
+ *   JobId: "STRING_VALUE", // required
+ *   Tags: [ // S3TagSet // required
+ *     { // S3Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new PutJobTaggingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutJobTaggingCommandInput - {@link PutJobTaggingCommandInput}
+ * @returns {@link PutJobTaggingCommandOutput}
  * @see {@link PutJobTaggingCommandInput} for command's `input` shape.
  * @see {@link PutJobTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link TooManyTagsException} (client fault)
+ *  <p>Amazon S3 throws this exception if you have too many tags in your tag set.</p>
+ *
  *
  */
 export class PutJobTaggingCommand extends $Command<
@@ -130,6 +160,9 @@ export class PutJobTaggingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutJobTaggingCommandInput) {
     // Start section: command_constructor
     super();
@@ -157,8 +190,8 @@ export class PutJobTaggingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutJobTaggingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutJobTaggingResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -168,12 +201,18 @@ export class PutJobTaggingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutJobTaggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutJobTaggingCommand(input, context);
+    return se_PutJobTaggingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutJobTaggingCommandOutput> {
-    return deserializeAws_restXmlPutJobTaggingCommand(output, context);
+    return de_PutJobTaggingCommand(output, context);
   }
 
   // Start section: command_body_extra

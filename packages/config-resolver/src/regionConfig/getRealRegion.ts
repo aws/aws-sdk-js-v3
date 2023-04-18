@@ -1,5 +1,8 @@
 import { isFipsRegion } from "./isFipsRegion";
 
+/**
+ * @internal
+ */
 export const getRealRegion = (region: string) =>
   isFipsRegion(region)
     ? ["fips-aws-global", "aws-fips"].includes(region)

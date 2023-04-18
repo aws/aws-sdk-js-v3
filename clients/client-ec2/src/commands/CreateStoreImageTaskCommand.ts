@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  CreateStoreImageTaskRequest,
-  CreateStoreImageTaskRequestFilterSensitiveLog,
-  CreateStoreImageTaskResult,
-  CreateStoreImageTaskResultFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_ec2CreateStoreImageTaskCommand,
-  serializeAws_ec2CreateStoreImageTaskCommand,
-} from "../protocols/Aws_ec2";
+import { CreateStoreImageTaskRequest, CreateStoreImageTaskResult } from "../models/models_2";
+import { de_CreateStoreImageTaskCommand, se_CreateStoreImageTaskCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateStoreImageTaskCommand}.
+ */
 export interface CreateStoreImageTaskCommandInput extends CreateStoreImageTaskRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateStoreImageTaskCommand}.
+ */
 export interface CreateStoreImageTaskCommandOutput extends CreateStoreImageTaskResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stores an AMI as a single object in an Amazon S3 bucket.</p>
  *          <p>To use this API, you must have the required permissions. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html#ami-s3-permissions">Permissions for storing and restoring AMIs using Amazon S3</a> in the
  *         <i>Amazon EC2 User Guide</i>.</p>
@@ -40,13 +43,27 @@ export interface CreateStoreImageTaskCommandOutput extends CreateStoreImageTaskR
  * import { EC2Client, CreateStoreImageTaskCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateStoreImageTaskCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // CreateStoreImageTaskRequest
+ *   ImageId: "STRING_VALUE", // required
+ *   Bucket: "STRING_VALUE", // required
+ *   S3ObjectTags: [ // S3ObjectTagList
+ *     { // S3ObjectTag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   DryRun: true || false,
+ * };
  * const command = new CreateStoreImageTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateStoreImageTaskCommandInput - {@link CreateStoreImageTaskCommandInput}
+ * @returns {@link CreateStoreImageTaskCommandOutput}
  * @see {@link CreateStoreImageTaskCommandInput} for command's `input` shape.
  * @see {@link CreateStoreImageTaskCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class CreateStoreImageTaskCommand extends $Command<
@@ -66,6 +83,9 @@ export class CreateStoreImageTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateStoreImageTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +114,8 @@ export class CreateStoreImageTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateStoreImageTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateStoreImageTaskResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +125,18 @@ export class CreateStoreImageTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateStoreImageTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateStoreImageTaskCommand(input, context);
+    return se_CreateStoreImageTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStoreImageTaskCommandOutput> {
-    return deserializeAws_ec2CreateStoreImageTaskCommand(output, context);
+    return de_CreateStoreImageTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

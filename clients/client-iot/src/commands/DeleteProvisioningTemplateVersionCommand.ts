@@ -16,21 +16,30 @@ import {
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import {
   DeleteProvisioningTemplateVersionRequest,
-  DeleteProvisioningTemplateVersionRequestFilterSensitiveLog,
   DeleteProvisioningTemplateVersionResponse,
-  DeleteProvisioningTemplateVersionResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1DeleteProvisioningTemplateVersionCommand,
-  serializeAws_restJson1DeleteProvisioningTemplateVersionCommand,
+  de_DeleteProvisioningTemplateVersionCommand,
+  se_DeleteProvisioningTemplateVersionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteProvisioningTemplateVersionCommand}.
+ */
 export interface DeleteProvisioningTemplateVersionCommandInput extends DeleteProvisioningTemplateVersionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteProvisioningTemplateVersionCommand}.
+ */
 export interface DeleteProvisioningTemplateVersionCommandOutput
   extends DeleteProvisioningTemplateVersionResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a provisioning template version.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteProvisioningTemplateVersion</a> action.</p>
  * @example
@@ -39,13 +48,43 @@ export interface DeleteProvisioningTemplateVersionCommandOutput
  * import { IoTClient, DeleteProvisioningTemplateVersionCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeleteProvisioningTemplateVersionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // DeleteProvisioningTemplateVersionRequest
+ *   templateName: "STRING_VALUE", // required
+ *   versionId: Number("int"), // required
+ * };
  * const command = new DeleteProvisioningTemplateVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteProvisioningTemplateVersionCommandInput - {@link DeleteProvisioningTemplateVersionCommandInput}
+ * @returns {@link DeleteProvisioningTemplateVersionCommandOutput}
  * @see {@link DeleteProvisioningTemplateVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteProvisioningTemplateVersionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link ConflictingResourceUpdateException} (client fault)
+ *  <p>A conflicting resource update exception. This exception is thrown when two pending
+ *          updates cause a conflict.</p>
+ *
+ * @throws {@link DeleteConflictException} (client fault)
+ *  <p>You can't delete the resource because it is attached to one or more
+ *          resources.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You are not authorized to perform this operation.</p>
+ *
  *
  */
 export class DeleteProvisioningTemplateVersionCommand extends $Command<
@@ -65,6 +104,9 @@ export class DeleteProvisioningTemplateVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteProvisioningTemplateVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +135,8 @@ export class DeleteProvisioningTemplateVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteProvisioningTemplateVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteProvisioningTemplateVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,18 +146,24 @@ export class DeleteProvisioningTemplateVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteProvisioningTemplateVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteProvisioningTemplateVersionCommand(input, context);
+    return se_DeleteProvisioningTemplateVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteProvisioningTemplateVersionCommandOutput> {
-    return deserializeAws_restJson1DeleteProvisioningTemplateVersionCommand(output, context);
+    return de_DeleteProvisioningTemplateVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  ListStackSetsInput,
-  ListStackSetsInputFilterSensitiveLog,
-  ListStackSetsOutput,
-  ListStackSetsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryListStackSetsCommand,
-  serializeAws_queryListStackSetsCommand,
-} from "../protocols/Aws_query";
+import { ListStackSetsInput, ListStackSetsOutput } from "../models/models_0";
+import { de_ListStackSetsCommand, se_ListStackSetsCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link ListStackSetsCommand}.
+ */
 export interface ListStackSetsCommandInput extends ListStackSetsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListStackSetsCommand}.
+ */
 export interface ListStackSetsCommandOutput extends ListStackSetsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns summary information about stack sets that are associated with the user.</p>
  *          <ul>
  *             <li>
@@ -54,13 +57,22 @@ export interface ListStackSetsCommandOutput extends ListStackSetsOutput, __Metad
  * import { CloudFormationClient, ListStackSetsCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, ListStackSetsCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // ListStackSetsInput
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Status: "ACTIVE" || "DELETED",
+ *   CallAs: "SELF" || "DELEGATED_ADMIN",
+ * };
  * const command = new ListStackSetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStackSetsCommandInput - {@link ListStackSetsCommandInput}
+ * @returns {@link ListStackSetsCommandOutput}
  * @see {@link ListStackSetsCommandInput} for command's `input` shape.
  * @see {@link ListStackSetsCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
+ *
  *
  */
 export class ListStackSetsCommand extends $Command<
@@ -80,6 +92,9 @@ export class ListStackSetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStackSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +121,8 @@ export class ListStackSetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListStackSetsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListStackSetsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +132,18 @@ export class ListStackSetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStackSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListStackSetsCommand(input, context);
+    return se_ListStackSetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStackSetsCommandOutput> {
-    return deserializeAws_queryListStackSetsCommand(output, context);
+    return de_ListStackSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

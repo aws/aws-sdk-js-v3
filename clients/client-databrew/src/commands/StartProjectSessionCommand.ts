@@ -16,19 +16,26 @@ import {
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
 import {
   StartProjectSessionRequest,
-  StartProjectSessionRequestFilterSensitiveLog,
   StartProjectSessionResponse,
   StartProjectSessionResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartProjectSessionCommand,
-  serializeAws_restJson1StartProjectSessionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartProjectSessionCommand, se_StartProjectSessionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link StartProjectSessionCommand}.
+ */
 export interface StartProjectSessionCommandInput extends StartProjectSessionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartProjectSessionCommand}.
+ */
 export interface StartProjectSessionCommandOutput extends StartProjectSessionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an interactive session, enabling you to manipulate data in a DataBrew
  *             project.</p>
  * @example
@@ -37,13 +44,32 @@ export interface StartProjectSessionCommandOutput extends StartProjectSessionRes
  * import { DataBrewClient, StartProjectSessionCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, StartProjectSessionCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
+ * const input = { // StartProjectSessionRequest
+ *   Name: "STRING_VALUE", // required
+ *   AssumeControl: true || false,
+ * };
  * const command = new StartProjectSessionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartProjectSessionCommandInput - {@link StartProjectSessionCommandInput}
+ * @returns {@link StartProjectSessionCommandOutput}
  * @see {@link StartProjectSessionCommandInput} for command's `input` shape.
  * @see {@link StartProjectSessionCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>One or more resources can't be found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>A service quota is exceeded.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input parameters for this request failed validation.</p>
+ *
  *
  */
 export class StartProjectSessionCommand extends $Command<
@@ -63,6 +89,9 @@ export class StartProjectSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartProjectSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,7 +120,7 @@ export class StartProjectSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartProjectSessionRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: StartProjectSessionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -102,12 +131,18 @@ export class StartProjectSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartProjectSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartProjectSessionCommand(input, context);
+    return se_StartProjectSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartProjectSessionCommandOutput> {
-    return deserializeAws_restJson1StartProjectSessionCommand(output, context);
+    return de_StartProjectSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

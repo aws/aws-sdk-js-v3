@@ -13,27 +13,31 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetBucketOwnershipControlsOutput,
-  GetBucketOwnershipControlsOutputFilterSensitiveLog,
-  GetBucketOwnershipControlsRequest,
-  GetBucketOwnershipControlsRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlGetBucketOwnershipControlsCommand,
-  serializeAws_restXmlGetBucketOwnershipControlsCommand,
-} from "../protocols/Aws_restXml";
+import { GetBucketOwnershipControlsOutput, GetBucketOwnershipControlsRequest } from "../models/models_0";
+import { de_GetBucketOwnershipControlsCommand, se_GetBucketOwnershipControlsCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * @public
+ *
+ * The input for {@link GetBucketOwnershipControlsCommand}.
+ */
 export interface GetBucketOwnershipControlsCommandInput extends GetBucketOwnershipControlsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetBucketOwnershipControlsCommand}.
+ */
 export interface GetBucketOwnershipControlsCommandOutput extends GetBucketOwnershipControlsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves <code>OwnershipControls</code> for an Amazon S3 bucket. To use this operation, you
  *          must have the <code>s3:GetBucketOwnershipControls</code> permission. For more information
- *          about Amazon S3 permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html">Specifying
- *             permissions in a policy</a>. </p>
- *          <p>For information about Amazon S3 Object Ownership, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Using Object Ownership</a>. </p>
+ *          about Amazon S3 permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html">Specifying permissions in a
+ *             policy</a>. </p>
+ *          <p>For information about Amazon S3 Object Ownership, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Using Object
+ *             Ownership</a>. </p>
  *          <p>The following operations are related to <code>GetBucketOwnershipControls</code>:</p>
  *          <ul>
  *             <li>
@@ -53,13 +57,20 @@ export interface GetBucketOwnershipControlsCommandOutput extends GetBucketOwners
  * import { S3Client, GetBucketOwnershipControlsCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetBucketOwnershipControlsCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // GetBucketOwnershipControlsRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new GetBucketOwnershipControlsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketOwnershipControlsCommandInput - {@link GetBucketOwnershipControlsCommandInput}
+ * @returns {@link GetBucketOwnershipControlsCommandOutput}
  * @see {@link GetBucketOwnershipControlsCommandInput} for command's `input` shape.
  * @see {@link GetBucketOwnershipControlsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
+ *
  *
  */
 export class GetBucketOwnershipControlsCommand extends $Command<
@@ -85,6 +96,9 @@ export class GetBucketOwnershipControlsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketOwnershipControlsCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +127,8 @@ export class GetBucketOwnershipControlsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketOwnershipControlsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBucketOwnershipControlsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,15 +138,21 @@ export class GetBucketOwnershipControlsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBucketOwnershipControlsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetBucketOwnershipControlsCommand(input, context);
+    return se_GetBucketOwnershipControlsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBucketOwnershipControlsCommandOutput> {
-    return deserializeAws_restXmlGetBucketOwnershipControlsCommand(output, context);
+    return de_GetBucketOwnershipControlsCommand(output, context);
   }
 
   // Start section: command_body_extra

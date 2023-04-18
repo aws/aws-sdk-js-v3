@@ -16,21 +16,31 @@ import {
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
 import {
   DescribeLaunchConfigurationTemplatesRequest,
-  DescribeLaunchConfigurationTemplatesRequestFilterSensitiveLog,
   DescribeLaunchConfigurationTemplatesResponse,
   DescribeLaunchConfigurationTemplatesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeLaunchConfigurationTemplatesCommand,
-  serializeAws_restJson1DescribeLaunchConfigurationTemplatesCommand,
+  de_DescribeLaunchConfigurationTemplatesCommand,
+  se_DescribeLaunchConfigurationTemplatesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeLaunchConfigurationTemplatesCommand}.
+ */
 export interface DescribeLaunchConfigurationTemplatesCommandInput extends DescribeLaunchConfigurationTemplatesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeLaunchConfigurationTemplatesCommand}.
+ */
 export interface DescribeLaunchConfigurationTemplatesCommandOutput
   extends DescribeLaunchConfigurationTemplatesResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all Launch Configuration Templates, filtered by Launch Configuration Template IDs</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +48,32 @@ export interface DescribeLaunchConfigurationTemplatesCommandOutput
  * import { MgnClient, DescribeLaunchConfigurationTemplatesCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, DescribeLaunchConfigurationTemplatesCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = { // DescribeLaunchConfigurationTemplatesRequest
+ *   launchConfigurationTemplateIDs: [ // LaunchConfigurationTemplateIDs
+ *     "STRING_VALUE",
+ *   ],
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeLaunchConfigurationTemplatesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLaunchConfigurationTemplatesCommandInput - {@link DescribeLaunchConfigurationTemplatesCommandInput}
+ * @returns {@link DescribeLaunchConfigurationTemplatesCommandOutput}
  * @see {@link DescribeLaunchConfigurationTemplatesCommandInput} for command's `input` shape.
  * @see {@link DescribeLaunchConfigurationTemplatesCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource not found exception.</p>
+ *
+ * @throws {@link UninitializedAccountException} (client fault)
+ *  <p>Uninitialized account exception.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Validate exception.</p>
+ *
  *
  */
 export class DescribeLaunchConfigurationTemplatesCommand extends $Command<
@@ -64,6 +93,9 @@ export class DescribeLaunchConfigurationTemplatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLaunchConfigurationTemplatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,7 +124,7 @@ export class DescribeLaunchConfigurationTemplatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLaunchConfigurationTemplatesRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeLaunchConfigurationTemplatesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -103,18 +135,24 @@ export class DescribeLaunchConfigurationTemplatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeLaunchConfigurationTemplatesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeLaunchConfigurationTemplatesCommand(input, context);
+    return se_DescribeLaunchConfigurationTemplatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeLaunchConfigurationTemplatesCommandOutput> {
-    return deserializeAws_restJson1DescribeLaunchConfigurationTemplatesCommand(output, context);
+    return de_DescribeLaunchConfigurationTemplatesCommand(output, context);
   }
 
   // Start section: command_body_extra

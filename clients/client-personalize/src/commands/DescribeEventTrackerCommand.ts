@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeEventTrackerRequest,
-  DescribeEventTrackerRequestFilterSensitiveLog,
-  DescribeEventTrackerResponse,
-  DescribeEventTrackerResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeEventTrackerRequest, DescribeEventTrackerResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1DescribeEventTrackerCommand,
-  serializeAws_json1_1DescribeEventTrackerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeEventTrackerCommand, se_DescribeEventTrackerCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeEventTrackerCommand}.
+ */
 export interface DescribeEventTrackerCommandInput extends DescribeEventTrackerRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeEventTrackerCommand}.
+ */
 export interface DescribeEventTrackerCommandOutput extends DescribeEventTrackerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes an event tracker. The response includes the <code>trackingId</code> and
  *       <code>status</code> of the event tracker.
  *       For more information on event trackers, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html">CreateEventTracker</a>.</p>
@@ -38,13 +41,25 @@ export interface DescribeEventTrackerCommandOutput extends DescribeEventTrackerR
  * import { PersonalizeClient, DescribeEventTrackerCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DescribeEventTrackerCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // DescribeEventTrackerRequest
+ *   eventTrackerArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeEventTrackerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEventTrackerCommandInput - {@link DescribeEventTrackerCommandInput}
+ * @returns {@link DescribeEventTrackerCommandOutput}
  * @see {@link DescribeEventTrackerCommandInput} for command's `input` shape.
  * @see {@link DescribeEventTrackerCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Could not find the specified resource.</p>
+ *
  *
  */
 export class DescribeEventTrackerCommand extends $Command<
@@ -64,6 +79,9 @@ export class DescribeEventTrackerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEventTrackerCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +110,8 @@ export class DescribeEventTrackerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEventTrackerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEventTrackerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +121,18 @@ export class DescribeEventTrackerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEventTrackerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEventTrackerCommand(input, context);
+    return se_DescribeEventTrackerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEventTrackerCommandOutput> {
-    return deserializeAws_json1_1DescribeEventTrackerCommand(output, context);
+    return de_DescribeEventTrackerCommand(output, context);
   }
 
   // Start section: command_body_extra

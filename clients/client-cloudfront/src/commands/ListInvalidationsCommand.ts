@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  ListInvalidationsRequest,
-  ListInvalidationsRequestFilterSensitiveLog,
-  ListInvalidationsResult,
-  ListInvalidationsResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlListInvalidationsCommand,
-  serializeAws_restXmlListInvalidationsCommand,
-} from "../protocols/Aws_restXml";
+import { ListInvalidationsRequest, ListInvalidationsResult } from "../models/models_1";
+import { de_ListInvalidationsCommand, se_ListInvalidationsCommand } from "../protocols/Aws_restXml";
 
+/**
+ * @public
+ *
+ * The input for {@link ListInvalidationsCommand}.
+ */
 export interface ListInvalidationsCommandInput extends ListInvalidationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListInvalidationsCommand}.
+ */
 export interface ListInvalidationsCommandOutput extends ListInvalidationsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists invalidation batches.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,30 @@ export interface ListInvalidationsCommandOutput extends ListInvalidationsResult,
  * import { CloudFrontClient, ListInvalidationsCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListInvalidationsCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // ListInvalidationsRequest
+ *   DistributionId: "STRING_VALUE", // required
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListInvalidationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInvalidationsCommandInput - {@link ListInvalidationsCommandInput}
+ * @returns {@link ListInvalidationsCommandOutput}
  * @see {@link ListInvalidationsCommandInput} for command's `input` shape.
  * @see {@link ListInvalidationsCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link NoSuchDistribution} (client fault)
+ *  <p>The specified distribution does not exist.</p>
+ *
  *
  */
 export class ListInvalidationsCommand extends $Command<
@@ -62,6 +82,9 @@ export class ListInvalidationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInvalidationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +113,8 @@ export class ListInvalidationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListInvalidationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListInvalidationsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +124,18 @@ export class ListInvalidationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListInvalidationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListInvalidationsCommand(input, context);
+    return se_ListInvalidationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInvalidationsCommandOutput> {
-    return deserializeAws_restXmlListInvalidationsCommand(output, context);
+    return de_ListInvalidationsCommand(output, context);
   }
 
   // Start section: command_body_extra

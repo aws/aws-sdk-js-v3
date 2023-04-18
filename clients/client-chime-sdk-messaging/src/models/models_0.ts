@@ -3,18 +3,37 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { ChimeSDKMessagingServiceException as __BaseException } from "./ChimeSDKMessagingServiceException";
 
-export enum AllowNotifications {
-  ALL = "ALL",
-  FILTERED = "FILTERED",
-  NONE = "NONE",
-}
-
-export enum ChannelMembershipType {
-  DEFAULT = "DEFAULT",
-  HIDDEN = "HIDDEN",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AllowNotifications = {
+  ALL: "ALL",
+  FILTERED: "FILTERED",
+  NONE: "NONE",
+} as const;
 
 /**
+ * @public
+ */
+export type AllowNotifications = (typeof AllowNotifications)[keyof typeof AllowNotifications];
+
+/**
+ * @public
+ * @enum
+ */
+export const ChannelMembershipType = {
+  DEFAULT: "DEFAULT",
+  HIDDEN: "HIDDEN",
+} as const;
+
+/**
+ * @public
+ */
+export type ChannelMembershipType = (typeof ChannelMembershipType)[keyof typeof ChannelMembershipType];
+
+/**
+ * @public
  * <p>Summary of the membership details of an <code>AppInstanceUser</code>.</p>
  */
 export interface AppInstanceUserMembershipSummary {
@@ -34,6 +53,9 @@ export interface AppInstanceUserMembershipSummary {
   SubChannelId?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateChannelFlowRequest {
   /**
    * <p>The ARN of the channel.</p>
@@ -51,25 +73,35 @@ export interface AssociateChannelFlowRequest {
   ChimeBearer: string | undefined;
 }
 
-export enum ErrorCode {
-  AccessDenied = "AccessDenied",
-  BadRequest = "BadRequest",
-  Conflict = "Conflict",
-  Forbidden = "Forbidden",
-  NotFound = "NotFound",
-  PhoneNumberAssociationsExist = "PhoneNumberAssociationsExist",
-  PreconditionFailed = "PreconditionFailed",
-  ResourceLimitExceeded = "ResourceLimitExceeded",
-  ServiceFailure = "ServiceFailure",
-  ServiceUnavailable = "ServiceUnavailable",
-  Throttled = "Throttled",
-  Throttling = "Throttling",
-  Unauthorized = "Unauthorized",
-  Unprocessable = "Unprocessable",
-  VoiceConnectorGroupAssociationsExist = "VoiceConnectorGroupAssociationsExist",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ErrorCode = {
+  AccessDenied: "AccessDenied",
+  BadRequest: "BadRequest",
+  Conflict: "Conflict",
+  Forbidden: "Forbidden",
+  NotFound: "NotFound",
+  PhoneNumberAssociationsExist: "PhoneNumberAssociationsExist",
+  PreconditionFailed: "PreconditionFailed",
+  ResourceLimitExceeded: "ResourceLimitExceeded",
+  ServiceFailure: "ServiceFailure",
+  ServiceUnavailable: "ServiceUnavailable",
+  Throttled: "Throttled",
+  Throttling: "Throttling",
+  Unauthorized: "Unauthorized",
+  Unprocessable: "Unprocessable",
+  VoiceConnectorGroupAssociationsExist: "VoiceConnectorGroupAssociationsExist",
+} as const;
 
 /**
+ * @public
+ */
+export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
+
+/**
+ * @public
  * <p>The input parameters don't match the service's restrictions.</p>
  */
 export class BadRequestException extends __BaseException {
@@ -93,6 +125,7 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request could not be processed because of conflict in the current state of the
  *          resource.</p>
  */
@@ -117,6 +150,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The client is permanently forbidden from making the request.</p>
  */
 export class ForbiddenException extends __BaseException {
@@ -140,6 +174,7 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One or more of the resources in the request does not exist in the system.</p>
  */
 export class NotFoundException extends __BaseException {
@@ -163,6 +198,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The service encountered an unexpected error.</p>
  */
 export class ServiceFailureException extends __BaseException {
@@ -186,6 +222,7 @@ export class ServiceFailureException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The service is currently unavailable.</p>
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -209,6 +246,7 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The client exceeded its request rate limit.</p>
  */
 export class ThrottledClientException extends __BaseException {
@@ -232,6 +270,7 @@ export class ThrottledClientException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The client is not currently authorized to make the request.</p>
  */
 export class UnauthorizedClientException extends __BaseException {
@@ -255,7 +294,8 @@ export class UnauthorizedClientException extends __BaseException {
 }
 
 /**
- * <p>The details of a user.</p>
+ * @public
+ * <p>The details of a user or bot.</p>
  */
 export interface Identity {
   /**
@@ -270,6 +310,7 @@ export interface Identity {
 }
 
 /**
+ * @public
  * <p>The membership information, including member ARNs, the channel ARN, and membership
  *          types.</p>
  */
@@ -280,7 +321,7 @@ export interface BatchChannelMemberships {
   InvitedBy?: Identity;
 
   /**
-   * <p>The membership types set for the channel users.</p>
+   * <p>The membership types set for the channel members.</p>
    */
   Type?: ChannelMembershipType | string;
 
@@ -290,7 +331,7 @@ export interface BatchChannelMemberships {
   Members?: Identity[];
 
   /**
-   * <p>The ARN of the channel to which you're adding users.</p>
+   * <p>The ARN of the channel to which you're adding members.</p>
    */
   ChannelArn?: string;
 
@@ -300,9 +341,12 @@ export interface BatchChannelMemberships {
   SubChannelId?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchCreateChannelMembershipRequest {
   /**
-   * <p>The ARN of the channel to which you're adding users.</p>
+   * <p>The ARN of the channel to which you're adding users or bots.</p>
    */
   ChannelArn: string | undefined;
 
@@ -316,12 +360,14 @@ export interface BatchCreateChannelMembershipRequest {
   Type?: ChannelMembershipType | string;
 
   /**
-   * <p>The <code>AppInstanceUserArn</code>s of the members you want to add to the channel.</p>
+   * <p>The ARNs of the members you want to add to the channel. Only <code>AppInstanceUsers</code> and
+   *          <code>AppInstanceBots</code> can be added as a channel member.</p>
    */
   MemberArns: string[] | undefined;
 
   /**
-   * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
+   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
+   *          that makes the API call.</p>
    */
   ChimeBearer: string | undefined;
 
@@ -335,6 +381,7 @@ export interface BatchCreateChannelMembershipRequest {
 }
 
 /**
+ * @public
  * <p>A list of failed member ARNs, error codes, and error messages.</p>
  */
 export interface BatchCreateChannelMembershipError {
@@ -354,6 +401,9 @@ export interface BatchCreateChannelMembershipError {
   ErrorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchCreateChannelMembershipResponse {
   /**
    * <p>The list of channel memberships in the response.</p>
@@ -368,6 +418,7 @@ export interface BatchCreateChannelMembershipResponse {
 }
 
 /**
+ * @public
  * <p>The request exceeds the resource limit.</p>
  */
 export class ResourceLimitExceededException extends __BaseException {
@@ -391,6 +442,7 @@ export class ResourceLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The attributes required to configure and create an elastic channel. An elastic channel can support a maximum of 1-million members.</p>
  */
 export interface ElasticChannelConfiguration {
@@ -410,17 +462,66 @@ export interface ElasticChannelConfiguration {
   MinimumMembershipPercentage: number | undefined;
 }
 
-export enum ChannelMode {
-  RESTRICTED = "RESTRICTED",
-  UNRESTRICTED = "UNRESTRICTED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ExpirationCriterion = {
+  CREATED_TIMESTAMP: "CREATED_TIMESTAMP",
+  LAST_MESSAGE_TIMESTAMP: "LAST_MESSAGE_TIMESTAMP",
+} as const;
 
-export enum ChannelPrivacy {
-  PRIVATE = "PRIVATE",
-  PUBLIC = "PUBLIC",
+/**
+ * @public
+ */
+export type ExpirationCriterion = (typeof ExpirationCriterion)[keyof typeof ExpirationCriterion];
+
+/**
+ * @public
+ * <p>Settings that control the interval after which a channel is deleted.</p>
+ */
+export interface ExpirationSettings {
+  /**
+   * <p>The period in days after which the system automatically deletes a channel.</p>
+   */
+  ExpirationDays: number | undefined;
+
+  /**
+   * <p>The conditions that must be met for a channel to expire.</p>
+   */
+  ExpirationCriterion: ExpirationCriterion | string | undefined;
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const ChannelMode = {
+  RESTRICTED: "RESTRICTED",
+  UNRESTRICTED: "UNRESTRICTED",
+} as const;
+
+/**
+ * @public
+ */
+export type ChannelMode = (typeof ChannelMode)[keyof typeof ChannelMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const ChannelPrivacy = {
+  PRIVATE: "PRIVATE",
+  PUBLIC: "PUBLIC",
+} as const;
+
+/**
+ * @public
+ */
+export type ChannelPrivacy = (typeof ChannelPrivacy)[keyof typeof ChannelPrivacy];
+
+/**
+ * @public
  * <p>The details of a channel.</p>
  */
 export interface Channel {
@@ -478,9 +579,15 @@ export interface Channel {
    * <p>The attributes required to configure and create an elastic channel. An elastic channel can support a maximum of 1-million members.</p>
    */
   ElasticChannelConfiguration?: ElasticChannelConfiguration;
+
+  /**
+   * <p>Settings that control when a channel expires.</p>
+   */
+  ExpirationSettings?: ExpirationSettings;
 }
 
 /**
+ * @public
  * <p>Summary of details of a channel associated with channel flow.</p>
  */
 export interface ChannelAssociatedWithFlowSummary {
@@ -511,6 +618,7 @@ export interface ChannelAssociatedWithFlowSummary {
 }
 
 /**
+ * @public
  * <p>The details of a channel ban.</p>
  */
 export interface ChannelBan {
@@ -536,6 +644,7 @@ export interface ChannelBan {
 }
 
 /**
+ * @public
  * <p>Summary of the details of a <code>ChannelBan</code>.</p>
  */
 export interface ChannelBanSummary {
@@ -545,11 +654,21 @@ export interface ChannelBanSummary {
   Member?: Identity;
 }
 
-export enum InvocationType {
-  ASYNC = "ASYNC",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InvocationType = {
+  ASYNC: "ASYNC",
+} as const;
 
 /**
+ * @public
+ */
+export type InvocationType = (typeof InvocationType)[keyof typeof InvocationType];
+
+/**
+ * @public
  * <p>Stores metadata about a Lambda processor.</p>
  */
 export interface LambdaConfiguration {
@@ -565,6 +684,7 @@ export interface LambdaConfiguration {
 }
 
 /**
+ * @public
  * <p>A processor's metadata.</p>
  */
 export interface ProcessorConfiguration {
@@ -574,12 +694,22 @@ export interface ProcessorConfiguration {
   Lambda: LambdaConfiguration | undefined;
 }
 
-export enum FallbackAction {
-  ABORT = "ABORT",
-  CONTINUE = "CONTINUE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FallbackAction = {
+  ABORT: "ABORT",
+  CONTINUE: "CONTINUE",
+} as const;
 
 /**
+ * @public
+ */
+export type FallbackAction = (typeof FallbackAction)[keyof typeof FallbackAction];
+
+/**
+ * @public
  * <p>The information about a processor in a channel flow.</p>
  */
 export interface Processor {
@@ -608,6 +738,7 @@ export interface Processor {
 }
 
 /**
+ * @public
  * <p>The details of a channel flow.</p>
  */
 export interface ChannelFlow {
@@ -638,6 +769,7 @@ export interface ChannelFlow {
 }
 
 /**
+ * @public
  * <p>A list of message attribute values.</p>
  */
 export interface MessageAttributeValue {
@@ -647,12 +779,22 @@ export interface MessageAttributeValue {
   StringValues?: string[];
 }
 
-export enum PushNotificationType {
-  DEFAULT = "DEFAULT",
-  VOIP = "VOIP",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PushNotificationType = {
+  DEFAULT: "DEFAULT",
+  VOIP: "VOIP",
+} as const;
 
 /**
+ * @public
+ */
+export type PushNotificationType = (typeof PushNotificationType)[keyof typeof PushNotificationType];
+
+/**
+ * @public
  * <p>The push notification configuration of the message.</p>
  */
 export interface PushNotificationConfiguration {
@@ -675,6 +817,7 @@ export interface PushNotificationConfiguration {
 }
 
 /**
+ * @public
  * <p>Stores information about a callback.</p>
  */
 export interface ChannelMessageCallback {
@@ -707,8 +850,16 @@ export interface ChannelMessageCallback {
    * <p>The ID of the SubChannel.</p>
    */
   SubChannelId?: string;
+
+  /**
+   * <p>The content type of the call-back message.</p>
+   */
+  ContentType?: string;
 }
 
+/**
+ * @public
+ */
 export interface ChannelFlowCallbackRequest {
   /**
    * <p>The identifier passed to the processor by the service when invoked. Use the identifier to call back the service.</p>
@@ -731,6 +882,9 @@ export interface ChannelFlowCallbackRequest {
   ChannelMessage: ChannelMessageCallback | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ChannelFlowCallbackResponse {
   /**
    * <p>The ARN of the channel.</p>
@@ -744,6 +898,7 @@ export interface ChannelFlowCallbackResponse {
 }
 
 /**
+ * @public
  * <p>Summary of details of a channel flow.</p>
  */
 export interface ChannelFlowSummary {
@@ -764,6 +919,7 @@ export interface ChannelFlowSummary {
 }
 
 /**
+ * @public
  * <p>The details of a channel member.</p>
  */
 export interface ChannelMembership {
@@ -804,6 +960,7 @@ export interface ChannelMembership {
 }
 
 /**
+ * @public
  * <p>Summary of the details of a <code>Channel</code>.</p>
  */
 export interface ChannelSummary {
@@ -839,6 +996,7 @@ export interface ChannelSummary {
 }
 
 /**
+ * @public
  * <p>Summary of the channel membership details of an <code>AppInstanceUser</code>.</p>
  */
 export interface ChannelMembershipForAppInstanceUserSummary {
@@ -854,6 +1012,7 @@ export interface ChannelMembershipForAppInstanceUserSummary {
 }
 
 /**
+ * @public
  * <p>The channel membership preferences for push notification.</p>
  */
 export interface PushNotificationPreferences {
@@ -871,6 +1030,7 @@ export interface PushNotificationPreferences {
 }
 
 /**
+ * @public
  * <p>The channel membership preferences for an <code>AppInstanceUser</code>.</p>
  */
 export interface ChannelMembershipPreferences {
@@ -881,6 +1041,7 @@ export interface ChannelMembershipPreferences {
 }
 
 /**
+ * @public
  * <p>Summary of the details of a <code>ChannelMembership</code>.</p>
  */
 export interface ChannelMembershipSummary {
@@ -890,19 +1051,39 @@ export interface ChannelMembershipSummary {
   Member?: Identity;
 }
 
-export enum ChannelMessagePersistenceType {
-  NON_PERSISTENT = "NON_PERSISTENT",
-  PERSISTENT = "PERSISTENT",
-}
-
-export enum ChannelMessageStatus {
-  DENIED = "DENIED",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  SENT = "SENT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ChannelMessagePersistenceType = {
+  NON_PERSISTENT: "NON_PERSISTENT",
+  PERSISTENT: "PERSISTENT",
+} as const;
 
 /**
+ * @public
+ */
+export type ChannelMessagePersistenceType =
+  (typeof ChannelMessagePersistenceType)[keyof typeof ChannelMessagePersistenceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ChannelMessageStatus = {
+  DENIED: "DENIED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  SENT: "SENT",
+} as const;
+
+/**
+ * @public
+ */
+export type ChannelMessageStatus = (typeof ChannelMessageStatus)[keyof typeof ChannelMessageStatus];
+
+/**
+ * @public
  * <p>Stores information about a message status.</p>
  */
 export interface ChannelMessageStatusStructure {
@@ -917,12 +1098,22 @@ export interface ChannelMessageStatusStructure {
   Detail?: string;
 }
 
-export enum ChannelMessageType {
-  CONTROL = "CONTROL",
-  STANDARD = "STANDARD",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ChannelMessageType = {
+  CONTROL: "CONTROL",
+  STANDARD: "STANDARD",
+} as const;
 
 /**
+ * @public
+ */
+export type ChannelMessageType = (typeof ChannelMessageType)[keyof typeof ChannelMessageType];
+
+/**
+ * @public
  * <p>The details of a message in a channel.</p>
  */
 export interface ChannelMessage {
@@ -995,9 +1186,15 @@ export interface ChannelMessage {
    * <p>The ID of the SubChannel.</p>
    */
   SubChannelId?: string;
+
+  /**
+   * <p>The content type of the channel message.</p>
+   */
+  ContentType?: string;
 }
 
 /**
+ * @public
  * <p>Summary of the messages in a <code>Channel</code>.</p>
  */
 export interface ChannelMessageSummary {
@@ -1056,9 +1253,15 @@ export interface ChannelMessageSummary {
    * <p>The message attribues listed in a the summary of a channel message.</p>
    */
   MessageAttributes?: Record<string, MessageAttributeValue>;
+
+  /**
+   * <p>The content type of the channel messsage listed in the summary.</p>
+   */
+  ContentType?: string;
 }
 
 /**
+ * @public
  * <p>Summary of the details of a moderated channel.</p>
  */
 export interface ChannelModeratedByAppInstanceUserSummary {
@@ -1069,6 +1272,7 @@ export interface ChannelModeratedByAppInstanceUserSummary {
 }
 
 /**
+ * @public
  * <p>The details of a channel moderator.</p>
  */
 export interface ChannelModerator {
@@ -1094,6 +1298,7 @@ export interface ChannelModerator {
 }
 
 /**
+ * @public
  * <p>Summary of the details of a <code>ChannelModerator</code>.</p>
  */
 export interface ChannelModeratorSummary {
@@ -1104,6 +1309,7 @@ export interface ChannelModeratorSummary {
 }
 
 /**
+ * @public
  * <p>A tag object containing a key-value pair.</p>
  */
 export interface Tag {
@@ -1118,6 +1324,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateChannelRequest {
   /**
    * <p>The ARN of the channel request.</p>
@@ -1159,7 +1368,7 @@ export interface CreateChannelRequest {
   Tags?: Tag[];
 
   /**
-   * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
+   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>
    */
   ChimeBearer: string | undefined;
 
@@ -1182,8 +1391,16 @@ export interface CreateChannelRequest {
    * <p>The attributes required to configure and create an elastic channel. An elastic channel can support a maximum of 1-million users, excluding moderators.</p>
    */
   ElasticChannelConfiguration?: ElasticChannelConfiguration;
+
+  /**
+   * <p>Settings that control the interval after which the channel is automatically deleted.</p>
+   */
+  ExpirationSettings?: ExpirationSettings;
 }
 
+/**
+ * @public
+ */
 export interface CreateChannelResponse {
   /**
    * <p>The ARN of the channel.</p>
@@ -1191,6 +1408,9 @@ export interface CreateChannelResponse {
   ChannelArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateChannelBanRequest {
   /**
    * <p>The ARN of the ban request.</p>
@@ -1203,11 +1423,14 @@ export interface CreateChannelBanRequest {
   MemberArn: string | undefined;
 
   /**
-   * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
+   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>
    */
   ChimeBearer: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateChannelBanResponse {
   /**
    * <p>The ARN of the response to the ban request.</p>
@@ -1221,6 +1444,9 @@ export interface CreateChannelBanResponse {
   Member?: Identity;
 }
 
+/**
+ * @public
+ */
 export interface CreateChannelFlowRequest {
   /**
    * <p>The ARN of the channel flow request.</p>
@@ -1248,6 +1474,9 @@ export interface CreateChannelFlowRequest {
   ClientRequestToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateChannelFlowResponse {
   /**
    * <p>The ARN of the channel flow.</p>
@@ -1255,6 +1484,9 @@ export interface CreateChannelFlowResponse {
   ChannelFlowArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateChannelMembershipRequest {
   /**
    * <p>The ARN of the channel to which you're adding users.</p>
@@ -1276,7 +1508,8 @@ export interface CreateChannelMembershipRequest {
   Type: ChannelMembershipType | string | undefined;
 
   /**
-   * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
+   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
+   *          that makes the API call.</p>
    */
   ChimeBearer: string | undefined;
 
@@ -1289,6 +1522,9 @@ export interface CreateChannelMembershipRequest {
   SubChannelId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateChannelMembershipResponse {
   /**
    * <p>The ARN of the channel.</p>
@@ -1306,6 +1542,9 @@ export interface CreateChannelMembershipResponse {
   SubChannelId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateChannelModeratorRequest {
   /**
    * <p>The ARN of the channel.</p>
@@ -1318,11 +1557,15 @@ export interface CreateChannelModeratorRequest {
   ChannelModeratorArn: string | undefined;
 
   /**
-   * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
+   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
+   *          that makes the API call.</p>
    */
   ChimeBearer: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateChannelModeratorResponse {
   /**
    * <p>The ARN of the channel.</p>
@@ -1335,6 +1578,9 @@ export interface CreateChannelModeratorResponse {
   ChannelModerator?: Identity;
 }
 
+/**
+ * @public
+ */
 export interface DeleteChannelRequest {
   /**
    * <p>The ARN of the channel being deleted.</p>
@@ -1342,7 +1588,8 @@ export interface DeleteChannelRequest {
   ChannelArn: string | undefined;
 
   /**
-   * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
+   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
+   *          that makes the API call.</p>
    */
   ChimeBearer: string | undefined;
 
@@ -1352,6 +1599,9 @@ export interface DeleteChannelRequest {
   SubChannelId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteChannelBanRequest {
   /**
    * <p>The ARN of the channel from which the <code>AppInstanceUser</code> was banned.</p>
@@ -1364,11 +1614,15 @@ export interface DeleteChannelBanRequest {
   MemberArn: string | undefined;
 
   /**
-   * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
+   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the
+   *          API call.</p>
    */
   ChimeBearer: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteChannelFlowRequest {
   /**
    * <p>The ARN of the channel flow.</p>
@@ -1376,6 +1630,9 @@ export interface DeleteChannelFlowRequest {
   ChannelFlowArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteChannelMembershipRequest {
   /**
    * <p>The ARN of the channel from which you want to remove the user.</p>
@@ -1388,7 +1645,8 @@ export interface DeleteChannelMembershipRequest {
   MemberArn: string | undefined;
 
   /**
-   * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
+   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the
+   *          API call.</p>
    */
   ChimeBearer: string | undefined;
 
@@ -1401,6 +1659,9 @@ export interface DeleteChannelMembershipRequest {
   SubChannelId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteChannelMessageRequest {
   /**
    * <p>The ARN of the channel.</p>
@@ -1413,7 +1674,8 @@ export interface DeleteChannelMessageRequest {
   MessageId: string | undefined;
 
   /**
-   * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
+   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the
+   *          API call.</p>
    */
   ChimeBearer: string | undefined;
 
@@ -1426,6 +1688,9 @@ export interface DeleteChannelMessageRequest {
   SubChannelId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteChannelModeratorRequest {
   /**
    * <p>The ARN of the channel.</p>
@@ -1438,11 +1703,25 @@ export interface DeleteChannelModeratorRequest {
   ChannelModeratorArn: string | undefined;
 
   /**
-   * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
+   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the
+   *          API call.</p>
    */
   ChimeBearer: string | undefined;
 }
 
+/**
+ * @public
+ */
+export interface DeleteMessagingStreamingConfigurationsRequest {
+  /**
+   * <p>The ARN of the streaming configurations being deleted.</p>
+   */
+  AppInstanceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeChannelRequest {
   /**
    * <p>The ARN of the channel.</p>
@@ -1450,11 +1729,15 @@ export interface DescribeChannelRequest {
   ChannelArn: string | undefined;
 
   /**
-   * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
+   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the
+   *          API call.</p>
    */
   ChimeBearer: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeChannelResponse {
   /**
    * <p>The channel details.</p>
@@ -1462,6 +1745,9 @@ export interface DescribeChannelResponse {
   Channel?: Channel;
 }
 
+/**
+ * @public
+ */
 export interface DescribeChannelBanRequest {
   /**
    * <p>The ARN of the channel from which the user is banned.</p>
@@ -1474,11 +1760,15 @@ export interface DescribeChannelBanRequest {
   MemberArn: string | undefined;
 
   /**
-   * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
+   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the
+   *          API call.</p>
    */
   ChimeBearer: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeChannelBanResponse {
   /**
    * <p>The details of the ban.</p>
@@ -1486,6 +1776,9 @@ export interface DescribeChannelBanResponse {
   ChannelBan?: ChannelBan;
 }
 
+/**
+ * @public
+ */
 export interface DescribeChannelFlowRequest {
   /**
    * <p>The ARN of the channel flow.</p>
@@ -1493,6 +1786,9 @@ export interface DescribeChannelFlowRequest {
   ChannelFlowArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeChannelFlowResponse {
   /**
    * <p>The channel flow details.</p>
@@ -1500,6 +1796,9 @@ export interface DescribeChannelFlowResponse {
   ChannelFlow?: ChannelFlow;
 }
 
+/**
+ * @public
+ */
 export interface DescribeChannelMembershipRequest {
   /**
    * <p>The ARN of the channel.</p>
@@ -1512,7 +1811,8 @@ export interface DescribeChannelMembershipRequest {
   MemberArn: string | undefined;
 
   /**
-   * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
+   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the
+   *          API call.</p>
    */
   ChimeBearer: string | undefined;
 
@@ -1525,6 +1825,9 @@ export interface DescribeChannelMembershipRequest {
   SubChannelId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeChannelMembershipResponse {
   /**
    * <p>The details of the membership.</p>
@@ -1532,6 +1835,9 @@ export interface DescribeChannelMembershipResponse {
   ChannelMembership?: ChannelMembership;
 }
 
+/**
+ * @public
+ */
 export interface DescribeChannelMembershipForAppInstanceUserRequest {
   /**
    * <p>The ARN of the channel to which the user belongs.</p>
@@ -1539,16 +1845,20 @@ export interface DescribeChannelMembershipForAppInstanceUserRequest {
   ChannelArn: string | undefined;
 
   /**
-   * <p>The ARN of the user in a channel.</p>
+   * <p>The ARN of the user or bot in a channel.</p>
    */
   AppInstanceUserArn: string | undefined;
 
   /**
-   * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
+   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
+   *          that makes the API call.</p>
    */
   ChimeBearer: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeChannelMembershipForAppInstanceUserResponse {
   /**
    * <p>The channel to which a user belongs.</p>
@@ -1556,6 +1866,9 @@ export interface DescribeChannelMembershipForAppInstanceUserResponse {
   ChannelMembership?: ChannelMembershipForAppInstanceUserSummary;
 }
 
+/**
+ * @public
+ */
 export interface DescribeChannelModeratedByAppInstanceUserRequest {
   /**
    * <p>The ARN of the moderated channel.</p>
@@ -1563,16 +1876,20 @@ export interface DescribeChannelModeratedByAppInstanceUserRequest {
   ChannelArn: string | undefined;
 
   /**
-   * <p>The ARN of the <code>AppInstanceUser</code> in the moderated channel.</p>
+   * <p>The ARN of the user or bot in the moderated channel.</p>
    */
   AppInstanceUserArn: string | undefined;
 
   /**
-   * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
+   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
+   *          that makes the API call.</p>
    */
   ChimeBearer: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeChannelModeratedByAppInstanceUserResponse {
   /**
    * <p>The moderated channel.</p>
@@ -1580,6 +1897,9 @@ export interface DescribeChannelModeratedByAppInstanceUserResponse {
   Channel?: ChannelModeratedByAppInstanceUserSummary;
 }
 
+/**
+ * @public
+ */
 export interface DescribeChannelModeratorRequest {
   /**
    * <p>The ARN of the channel.</p>
@@ -1592,11 +1912,15 @@ export interface DescribeChannelModeratorRequest {
   ChannelModeratorArn: string | undefined;
 
   /**
-   * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
+   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
+   *          that makes the API call.</p>
    */
   ChimeBearer: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeChannelModeratorResponse {
   /**
    * <p>The details of the channel moderator.</p>
@@ -1604,6 +1928,9 @@ export interface DescribeChannelModeratorResponse {
   ChannelModerator?: ChannelModerator;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateChannelFlowRequest {
   /**
    * <p>The ARN of the channel.</p>
@@ -1621,6 +1948,9 @@ export interface DisassociateChannelFlowRequest {
   ChimeBearer: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetChannelMembershipPreferencesRequest {
   /**
    * <p>The ARN of the channel.</p>
@@ -1633,11 +1963,14 @@ export interface GetChannelMembershipPreferencesRequest {
   MemberArn: string | undefined;
 
   /**
-   * <p>The <code>AppInstanceUserARN</code> of the user making the API call.</p>
+   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>
    */
   ChimeBearer: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetChannelMembershipPreferencesResponse {
   /**
    * <p>The ARN of the channel.</p>
@@ -1655,6 +1988,9 @@ export interface GetChannelMembershipPreferencesResponse {
   Preferences?: ChannelMembershipPreferences;
 }
 
+/**
+ * @public
+ */
 export interface GetChannelMessageRequest {
   /**
    * <p>The ARN of the channel.</p>
@@ -1667,7 +2003,8 @@ export interface GetChannelMessageRequest {
   MessageId: string | undefined;
 
   /**
-   * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
+   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
+   *          that makes the API call.</p>
    */
   ChimeBearer: string | undefined;
 
@@ -1680,6 +2017,9 @@ export interface GetChannelMessageRequest {
   SubChannelId?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetChannelMessageResponse {
   /**
    * <p>The details of and content in the message.</p>
@@ -1687,6 +2027,9 @@ export interface GetChannelMessageResponse {
   ChannelMessage?: ChannelMessage;
 }
 
+/**
+ * @public
+ */
 export interface GetChannelMessageStatusRequest {
   /**
    * <p>The ARN of the channel</p>
@@ -1712,6 +2055,9 @@ export interface GetChannelMessageStatusRequest {
   SubChannelId?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetChannelMessageStatusResponse {
   /**
    * <p>The message status and details.</p>
@@ -1719,9 +2065,13 @@ export interface GetChannelMessageStatusResponse {
   Status?: ChannelMessageStatusStructure;
 }
 
+/**
+ * @public
+ */
 export interface GetMessagingSessionEndpointRequest {}
 
 /**
+ * @public
  * <p>The websocket endpoint used to connect to Amazon Chime SDK messaging.</p>
  */
 export interface MessagingSessionEndpoint {
@@ -1731,6 +2081,9 @@ export interface MessagingSessionEndpoint {
   Url?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetMessagingSessionEndpointResponse {
   /**
    * <p>The endpoint returned in the response.</p>
@@ -1738,6 +2091,59 @@ export interface GetMessagingSessionEndpointResponse {
   Endpoint?: MessagingSessionEndpoint;
 }
 
+/**
+ * @public
+ */
+export interface GetMessagingStreamingConfigurationsRequest {
+  /**
+   * <p>The ARN of the streaming configurations.</p>
+   */
+  AppInstanceArn: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MessagingDataType = {
+  Channel: "Channel",
+  ChannelMessage: "ChannelMessage",
+} as const;
+
+/**
+ * @public
+ */
+export type MessagingDataType = (typeof MessagingDataType)[keyof typeof MessagingDataType];
+
+/**
+ * @public
+ * <p>The configuration for connecting a messaging stream to Amazon Kinesis.</p>
+ */
+export interface StreamingConfiguration {
+  /**
+   * <p>The data type of the configuration.</p>
+   */
+  DataType: MessagingDataType | string | undefined;
+
+  /**
+   * <p>The ARN of the resource in the configuration. </p>
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMessagingStreamingConfigurationsResponse {
+  /**
+   * <p>The streaming settings.</p>
+   */
+  StreamingConfigurations?: StreamingConfiguration[];
+}
+
+/**
+ * @public
+ */
 export interface ListChannelBansRequest {
   /**
    * <p>The ARN of the channel.</p>
@@ -1755,11 +2161,15 @@ export interface ListChannelBansRequest {
   NextToken?: string;
 
   /**
-   * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
+   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
+   *          that makes the API call.</p>
    */
   ChimeBearer: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListChannelBansResponse {
   /**
    * <p>The ARN of the channel.</p>
@@ -1777,6 +2187,9 @@ export interface ListChannelBansResponse {
   ChannelBans?: ChannelBanSummary[];
 }
 
+/**
+ * @public
+ */
 export interface ListChannelFlowsRequest {
   /**
    * <p>The ARN of the app instance.</p>
@@ -1794,6 +2207,9 @@ export interface ListChannelFlowsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListChannelFlowsResponse {
   /**
    * <p>The information about each channel flow.</p>
@@ -1806,6 +2222,9 @@ export interface ListChannelFlowsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListChannelMembershipsRequest {
   /**
    * <p>The maximum number of channel memberships that you want returned.</p>
@@ -1832,7 +2251,8 @@ export interface ListChannelMembershipsRequest {
   NextToken?: string;
 
   /**
-   * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
+   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
+   *          that makes the API call.</p>
    */
   ChimeBearer: string | undefined;
 
@@ -1845,6 +2265,9 @@ export interface ListChannelMembershipsRequest {
   SubChannelId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListChannelMembershipsResponse {
   /**
    * <p>The ARN of the channel.</p>
@@ -1863,9 +2286,12 @@ export interface ListChannelMembershipsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListChannelMembershipsForAppInstanceUserRequest {
   /**
-   * <p>The ARN of the <code>AppInstanceUser</code>s</p>
+   * <p>The ARN of the user or bot.</p>
    */
   AppInstanceUserArn?: string;
 
@@ -1881,11 +2307,15 @@ export interface ListChannelMembershipsForAppInstanceUserRequest {
   NextToken?: string;
 
   /**
-   * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
+   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
+   *          that makes the API call.</p>
    */
   ChimeBearer: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListChannelMembershipsForAppInstanceUserResponse {
   /**
    * <p>The information for the requested channel memberships.</p>
@@ -1898,11 +2328,23 @@ export interface ListChannelMembershipsForAppInstanceUserResponse {
   NextToken?: string;
 }
 
-export enum SortOrder {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SortOrder = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+} as const;
 
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
+
+/**
+ * @public
+ */
 export interface ListChannelMessagesRequest {
   /**
    * <p>The ARN of the channel.</p>
@@ -1936,7 +2378,8 @@ export interface ListChannelMessagesRequest {
   NextToken?: string;
 
   /**
-   * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
+   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
+   *          that makes the API call.</p>
    */
   ChimeBearer: string | undefined;
 
@@ -1949,6 +2392,9 @@ export interface ListChannelMessagesRequest {
   SubChannelId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListChannelMessagesResponse {
   /**
    * <p>The ARN of the channel containing the requested messages.</p>
@@ -1971,6 +2417,9 @@ export interface ListChannelMessagesResponse {
   SubChannelId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListChannelModeratorsRequest {
   /**
    * <p>The ARN of the channel.</p>
@@ -1989,11 +2438,15 @@ export interface ListChannelModeratorsRequest {
   NextToken?: string;
 
   /**
-   * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
+   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
+   *          that makes the API call.</p>
    */
   ChimeBearer: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListChannelModeratorsResponse {
   /**
    * <p>The ARN of the channel.</p>
@@ -2012,6 +2465,9 @@ export interface ListChannelModeratorsResponse {
   ChannelModerators?: ChannelModeratorSummary[];
 }
 
+/**
+ * @public
+ */
 export interface ListChannelsRequest {
   /**
    * <p>The ARN of the <code>AppInstance</code>.</p>
@@ -2036,11 +2492,15 @@ export interface ListChannelsRequest {
   NextToken?: string;
 
   /**
-   * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
+   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
+   *          that makes the API call.</p>
    */
   ChimeBearer: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListChannelsResponse {
   /**
    * <p>The information about each channel.</p>
@@ -2054,6 +2514,9 @@ export interface ListChannelsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListChannelsAssociatedWithChannelFlowRequest {
   /**
    * <p>The ARN of the channel flow.</p>
@@ -2071,6 +2534,9 @@ export interface ListChannelsAssociatedWithChannelFlowRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListChannelsAssociatedWithChannelFlowResponse {
   /**
    * <p>The information about each channel.</p>
@@ -2083,9 +2549,12 @@ export interface ListChannelsAssociatedWithChannelFlowResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListChannelsModeratedByAppInstanceUserRequest {
   /**
-   * <p>The ARN of the user in the moderated channel.</p>
+   * <p>The ARN of the user or bot in the moderated channel.</p>
    */
   AppInstanceUserArn?: string;
 
@@ -2101,11 +2570,15 @@ export interface ListChannelsModeratedByAppInstanceUserRequest {
   NextToken?: string;
 
   /**
-   * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
+   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
+   *          that makes the API call.</p>
    */
   ChimeBearer: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListChannelsModeratedByAppInstanceUserResponse {
   /**
    * <p>The moderated channels in the request.</p>
@@ -2119,6 +2592,9 @@ export interface ListChannelsModeratedByAppInstanceUserResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSubChannelsRequest {
   /**
    * <p>The ARN of elastic channel.</p>
@@ -2142,6 +2618,7 @@ export interface ListSubChannelsRequest {
 }
 
 /**
+ * @public
  * <p>Summary of the sub-channels associated with the elastic channel.</p>
  */
 export interface SubChannelSummary {
@@ -2156,6 +2633,9 @@ export interface SubChannelSummary {
   MembershipCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListSubChannelsResponse {
   /**
    * <p>The ARN of elastic channel.</p>
@@ -2173,6 +2653,9 @@ export interface ListSubChannelsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -2180,6 +2663,9 @@ export interface ListTagsForResourceRequest {
   ResourceARN: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tag key-value pairs.</p>
@@ -2187,6 +2673,44 @@ export interface ListTagsForResourceResponse {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
+export interface PutChannelExpirationSettingsRequest {
+  /**
+   * <p>The ARN of the channel.</p>
+   */
+  ChannelArn: string | undefined;
+
+  /**
+   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>
+   */
+  ChimeBearer?: string;
+
+  /**
+   * <p>Settings that control the interval after which a channel is deleted.</p>
+   */
+  ExpirationSettings?: ExpirationSettings;
+}
+
+/**
+ * @public
+ */
+export interface PutChannelExpirationSettingsResponse {
+  /**
+   * <p>The channel ARN.</p>
+   */
+  ChannelArn?: string;
+
+  /**
+   * <p>Settings that control the interval after which a channel is deleted.</p>
+   */
+  ExpirationSettings?: ExpirationSettings;
+}
+
+/**
+ * @public
+ */
 export interface PutChannelMembershipPreferencesRequest {
   /**
    * <p>The ARN of the channel.</p>
@@ -2194,12 +2718,12 @@ export interface PutChannelMembershipPreferencesRequest {
   ChannelArn: string | undefined;
 
   /**
-   * <p>The <code>AppInstanceUserArn</code> of the member setting the preferences.</p>
+   * <p>The ARN of the member setting the preferences.</p>
    */
   MemberArn: string | undefined;
 
   /**
-   * <p>The <code>AppInstanceUserARN</code>  of the user making the API call.</p>
+   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>
    */
   ChimeBearer: string | undefined;
 
@@ -2209,6 +2733,9 @@ export interface PutChannelMembershipPreferencesRequest {
   Preferences: ChannelMembershipPreferences | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutChannelMembershipPreferencesResponse {
   /**
    * <p>The ARN of the channel.</p>
@@ -2226,6 +2753,34 @@ export interface PutChannelMembershipPreferencesResponse {
   Preferences?: ChannelMembershipPreferences;
 }
 
+/**
+ * @public
+ */
+export interface PutMessagingStreamingConfigurationsRequest {
+  /**
+   * <p>The ARN of the streaming configuration.</p>
+   */
+  AppInstanceArn: string | undefined;
+
+  /**
+   * <p>The streaming configurations.</p>
+   */
+  StreamingConfigurations: StreamingConfiguration[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutMessagingStreamingConfigurationsResponse {
+  /**
+   * <p>The requested streaming configurations.</p>
+   */
+  StreamingConfigurations?: StreamingConfiguration[];
+}
+
+/**
+ * @public
+ */
 export interface RedactChannelMessageRequest {
   /**
    * <p>The ARN of the channel containing the messages that you want to redact.</p>
@@ -2238,7 +2793,8 @@ export interface RedactChannelMessageRequest {
   MessageId: string | undefined;
 
   /**
-   * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
+   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
+   *          that makes the API call.</p>
    */
   ChimeBearer: string | undefined;
 
@@ -2248,6 +2804,9 @@ export interface RedactChannelMessageRequest {
   SubChannelId?: string;
 }
 
+/**
+ * @public
+ */
 export interface RedactChannelMessageResponse {
   /**
    * <p>The ARN of the channel containing the messages that you want to redact.</p>
@@ -2268,16 +2827,35 @@ export interface RedactChannelMessageResponse {
   SubChannelId?: string;
 }
 
-export enum SearchFieldKey {
-  MEMBERS = "MEMBERS",
-}
-
-export enum SearchFieldOperator {
-  EQUALS = "EQUALS",
-  INCLUDES = "INCLUDES",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SearchFieldKey = {
+  MEMBERS: "MEMBERS",
+} as const;
 
 /**
+ * @public
+ */
+export type SearchFieldKey = (typeof SearchFieldKey)[keyof typeof SearchFieldKey];
+
+/**
+ * @public
+ * @enum
+ */
+export const SearchFieldOperator = {
+  EQUALS: "EQUALS",
+  INCLUDES: "INCLUDES",
+} as const;
+
+/**
+ * @public
+ */
+export type SearchFieldOperator = (typeof SearchFieldOperator)[keyof typeof SearchFieldOperator];
+
+/**
+ * @public
  * <p>A <code>Field</code> of the channel that you want to search.</p>
  */
 export interface SearchField {
@@ -2302,6 +2880,9 @@ export interface SearchField {
   Operator: SearchFieldOperator | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SearchChannelsRequest {
   /**
    * <p>The <code>AppInstanceUserArn</code> of the user making the API call.</p>
@@ -2324,6 +2905,9 @@ export interface SearchChannelsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface SearchChannelsResponse {
   /**
    * <p>A list of the channels in the request.</p>
@@ -2336,6 +2920,9 @@ export interface SearchChannelsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface SendChannelMessageRequest {
   /**
    * <p>The ARN of the channel.</p>
@@ -2368,7 +2955,8 @@ export interface SendChannelMessageRequest {
   ClientRequestToken?: string;
 
   /**
-   * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
+   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
+   *          that makes the API call.</p>
    */
   ChimeBearer: string | undefined;
 
@@ -2386,8 +2974,16 @@ export interface SendChannelMessageRequest {
    * <p>The ID of the SubChannel in the request.</p>
    */
   SubChannelId?: string;
+
+  /**
+   * <p>The content type of the channel message.</p>
+   */
+  ContentType?: string;
 }
 
+/**
+ * @public
+ */
 export interface SendChannelMessageResponse {
   /**
    * <p>The ARN of the channel.</p>
@@ -2410,6 +3006,9 @@ export interface SendChannelMessageResponse {
   SubChannelId?: string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The resource ARN.</p>
@@ -2422,6 +3021,9 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The resource ARN.</p>
@@ -2434,6 +3036,9 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateChannelRequest {
   /**
    * <p>The ARN of the channel.</p>
@@ -2456,11 +3061,15 @@ export interface UpdateChannelRequest {
   Metadata?: string;
 
   /**
-   * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
+   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
+   *          that makes the API call.</p>
    */
   ChimeBearer: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateChannelResponse {
   /**
    * <p>The ARN of the channel.</p>
@@ -2468,6 +3077,9 @@ export interface UpdateChannelResponse {
   ChannelArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateChannelFlowRequest {
   /**
    * <p>The ARN of the channel flow.</p>
@@ -2485,6 +3097,9 @@ export interface UpdateChannelFlowRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateChannelFlowResponse {
   /**
    * <p>The ARN of the channel flow.</p>
@@ -2492,6 +3107,9 @@ export interface UpdateChannelFlowResponse {
   ChannelFlowArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateChannelMessageRequest {
   /**
    * <p>The ARN of the channel.</p>
@@ -2506,7 +3124,7 @@ export interface UpdateChannelMessageRequest {
   /**
    * <p>The content of the message being updated.</p>
    */
-  Content?: string;
+  Content: string | undefined;
 
   /**
    * <p>The metadata of the message being updated.</p>
@@ -2514,7 +3132,8 @@ export interface UpdateChannelMessageRequest {
   Metadata?: string;
 
   /**
-   * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
+   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
+   *          that makes the API call.</p>
    */
   ChimeBearer: string | undefined;
 
@@ -2525,8 +3144,16 @@ export interface UpdateChannelMessageRequest {
    *          </note>
    */
   SubChannelId?: string;
+
+  /**
+   * <p>The content type of the channel message.</p>
+   */
+  ContentType?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateChannelMessageResponse {
   /**
    * <p>The ARN of the channel.</p>
@@ -2549,6 +3176,9 @@ export interface UpdateChannelMessageResponse {
   SubChannelId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateChannelReadMarkerRequest {
   /**
    * <p>The ARN of the channel.</p>
@@ -2556,7 +3186,8 @@ export interface UpdateChannelReadMarkerRequest {
   ChannelArn: string | undefined;
 
   /**
-   * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
+   * <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
+   *          that makes the API call.</p>
    */
   ChimeBearer: string | undefined;
 
@@ -2566,6 +3197,9 @@ export interface UpdateChannelReadMarkerRequest {
   SubChannelId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateChannelReadMarkerResponse {
   /**
    * <p>The ARN of the channel.</p>
@@ -2577,20 +3211,6 @@ export interface UpdateChannelReadMarkerResponse {
    */
   SubChannelId?: string;
 }
-
-/**
- * @internal
- */
-export const AppInstanceUserMembershipSummaryFilterSensitiveLog = (obj: AppInstanceUserMembershipSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateChannelFlowRequestFilterSensitiveLog = (obj: AssociateChannelFlowRequest): any => ({
-  ...obj,
-});
 
 /**
  * @internal
@@ -2612,22 +3232,6 @@ export const BatchChannelMembershipsFilterSensitiveLog = (obj: BatchChannelMembe
 /**
  * @internal
  */
-export const BatchCreateChannelMembershipRequestFilterSensitiveLog = (
-  obj: BatchCreateChannelMembershipRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchCreateChannelMembershipErrorFilterSensitiveLog = (obj: BatchCreateChannelMembershipError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const BatchCreateChannelMembershipResponseFilterSensitiveLog = (
   obj: BatchCreateChannelMembershipResponse
 ): any => ({
@@ -2635,13 +3239,6 @@ export const BatchCreateChannelMembershipResponseFilterSensitiveLog = (
   ...(obj.BatchChannelMemberships && {
     BatchChannelMemberships: BatchChannelMembershipsFilterSensitiveLog(obj.BatchChannelMemberships),
   }),
-});
-
-/**
- * @internal
- */
-export const ElasticChannelConfigurationFilterSensitiveLog = (obj: ElasticChannelConfiguration): any => ({
-  ...obj,
 });
 
 /**
@@ -2678,20 +3275,6 @@ export const ChannelBanFilterSensitiveLog = (obj: ChannelBan): any => ({
 export const ChannelBanSummaryFilterSensitiveLog = (obj: ChannelBanSummary): any => ({
   ...obj,
   ...(obj.Member && { Member: IdentityFilterSensitiveLog(obj.Member) }),
-});
-
-/**
- * @internal
- */
-export const LambdaConfigurationFilterSensitiveLog = (obj: LambdaConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProcessorConfigurationFilterSensitiveLog = (obj: ProcessorConfiguration): any => ({
-  ...obj,
 });
 
 /**
@@ -2746,6 +3329,7 @@ export const ChannelMessageCallbackFilterSensitiveLog = (obj: ChannelMessageCall
       {}
     ),
   }),
+  ...(obj.ContentType && { ContentType: SENSITIVE_STRING }),
 });
 
 /**
@@ -2754,13 +3338,6 @@ export const ChannelMessageCallbackFilterSensitiveLog = (obj: ChannelMessageCall
 export const ChannelFlowCallbackRequestFilterSensitiveLog = (obj: ChannelFlowCallbackRequest): any => ({
   ...obj,
   ...(obj.ChannelMessage && { ChannelMessage: ChannelMessageCallbackFilterSensitiveLog(obj.ChannelMessage) }),
-});
-
-/**
- * @internal
- */
-export const ChannelFlowCallbackResponseFilterSensitiveLog = (obj: ChannelFlowCallbackResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -2829,13 +3406,6 @@ export const ChannelMembershipSummaryFilterSensitiveLog = (obj: ChannelMembershi
 /**
  * @internal
  */
-export const ChannelMessageStatusStructureFilterSensitiveLog = (obj: ChannelMessageStatusStructure): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ChannelMessageFilterSensitiveLog = (obj: ChannelMessage): any => ({
   ...obj,
   ...(obj.Content && { Content: SENSITIVE_STRING }),
@@ -2849,6 +3419,7 @@ export const ChannelMessageFilterSensitiveLog = (obj: ChannelMessage): any => ({
       {}
     ),
   }),
+  ...(obj.ContentType && { ContentType: SENSITIVE_STRING }),
 });
 
 /**
@@ -2867,6 +3438,7 @@ export const ChannelMessageSummaryFilterSensitiveLog = (obj: ChannelMessageSumma
       {}
     ),
   }),
+  ...(obj.ContentType && { ContentType: SENSITIVE_STRING }),
 });
 
 /**
@@ -2920,20 +3492,6 @@ export const CreateChannelRequestFilterSensitiveLog = (obj: CreateChannelRequest
 /**
  * @internal
  */
-export const CreateChannelResponseFilterSensitiveLog = (obj: CreateChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateChannelBanRequestFilterSensitiveLog = (obj: CreateChannelBanRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateChannelBanResponseFilterSensitiveLog = (obj: CreateChannelBanResponse): any => ({
   ...obj,
   ...(obj.Member && { Member: IdentityFilterSensitiveLog(obj.Member) }),
@@ -2953,30 +3511,9 @@ export const CreateChannelFlowRequestFilterSensitiveLog = (obj: CreateChannelFlo
 /**
  * @internal
  */
-export const CreateChannelFlowResponseFilterSensitiveLog = (obj: CreateChannelFlowResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateChannelMembershipRequestFilterSensitiveLog = (obj: CreateChannelMembershipRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateChannelMembershipResponseFilterSensitiveLog = (obj: CreateChannelMembershipResponse): any => ({
   ...obj,
   ...(obj.Member && { Member: IdentityFilterSensitiveLog(obj.Member) }),
-});
-
-/**
- * @internal
- */
-export const CreateChannelModeratorRequestFilterSensitiveLog = (obj: CreateChannelModeratorRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -2990,65 +3527,9 @@ export const CreateChannelModeratorResponseFilterSensitiveLog = (obj: CreateChan
 /**
  * @internal
  */
-export const DeleteChannelRequestFilterSensitiveLog = (obj: DeleteChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteChannelBanRequestFilterSensitiveLog = (obj: DeleteChannelBanRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteChannelFlowRequestFilterSensitiveLog = (obj: DeleteChannelFlowRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteChannelMembershipRequestFilterSensitiveLog = (obj: DeleteChannelMembershipRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteChannelMessageRequestFilterSensitiveLog = (obj: DeleteChannelMessageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteChannelModeratorRequestFilterSensitiveLog = (obj: DeleteChannelModeratorRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeChannelRequestFilterSensitiveLog = (obj: DescribeChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeChannelResponseFilterSensitiveLog = (obj: DescribeChannelResponse): any => ({
   ...obj,
   ...(obj.Channel && { Channel: ChannelFilterSensitiveLog(obj.Channel) }),
-});
-
-/**
- * @internal
- */
-export const DescribeChannelBanRequestFilterSensitiveLog = (obj: DescribeChannelBanRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -3062,13 +3543,6 @@ export const DescribeChannelBanResponseFilterSensitiveLog = (obj: DescribeChanne
 /**
  * @internal
  */
-export const DescribeChannelFlowRequestFilterSensitiveLog = (obj: DescribeChannelFlowRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeChannelFlowResponseFilterSensitiveLog = (obj: DescribeChannelFlowResponse): any => ({
   ...obj,
   ...(obj.ChannelFlow && { ChannelFlow: ChannelFlowFilterSensitiveLog(obj.ChannelFlow) }),
@@ -3077,25 +3551,9 @@ export const DescribeChannelFlowResponseFilterSensitiveLog = (obj: DescribeChann
 /**
  * @internal
  */
-export const DescribeChannelMembershipRequestFilterSensitiveLog = (obj: DescribeChannelMembershipRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeChannelMembershipResponseFilterSensitiveLog = (obj: DescribeChannelMembershipResponse): any => ({
   ...obj,
   ...(obj.ChannelMembership && { ChannelMembership: ChannelMembershipFilterSensitiveLog(obj.ChannelMembership) }),
-});
-
-/**
- * @internal
- */
-export const DescribeChannelMembershipForAppInstanceUserRequestFilterSensitiveLog = (
-  obj: DescribeChannelMembershipForAppInstanceUserRequest
-): any => ({
-  ...obj,
 });
 
 /**
@@ -3113,15 +3571,6 @@ export const DescribeChannelMembershipForAppInstanceUserResponseFilterSensitiveL
 /**
  * @internal
  */
-export const DescribeChannelModeratedByAppInstanceUserRequestFilterSensitiveLog = (
-  obj: DescribeChannelModeratedByAppInstanceUserRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeChannelModeratedByAppInstanceUserResponseFilterSensitiveLog = (
   obj: DescribeChannelModeratedByAppInstanceUserResponse
 ): any => ({
@@ -3132,32 +3581,9 @@ export const DescribeChannelModeratedByAppInstanceUserResponseFilterSensitiveLog
 /**
  * @internal
  */
-export const DescribeChannelModeratorRequestFilterSensitiveLog = (obj: DescribeChannelModeratorRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeChannelModeratorResponseFilterSensitiveLog = (obj: DescribeChannelModeratorResponse): any => ({
   ...obj,
   ...(obj.ChannelModerator && { ChannelModerator: ChannelModeratorFilterSensitiveLog(obj.ChannelModerator) }),
-});
-
-/**
- * @internal
- */
-export const DisassociateChannelFlowRequestFilterSensitiveLog = (obj: DisassociateChannelFlowRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetChannelMembershipPreferencesRequestFilterSensitiveLog = (
-  obj: GetChannelMembershipPreferencesRequest
-): any => ({
-  ...obj,
 });
 
 /**
@@ -3174,53 +3600,9 @@ export const GetChannelMembershipPreferencesResponseFilterSensitiveLog = (
 /**
  * @internal
  */
-export const GetChannelMessageRequestFilterSensitiveLog = (obj: GetChannelMessageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetChannelMessageResponseFilterSensitiveLog = (obj: GetChannelMessageResponse): any => ({
   ...obj,
   ...(obj.ChannelMessage && { ChannelMessage: ChannelMessageFilterSensitiveLog(obj.ChannelMessage) }),
-});
-
-/**
- * @internal
- */
-export const GetChannelMessageStatusRequestFilterSensitiveLog = (obj: GetChannelMessageStatusRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetChannelMessageStatusResponseFilterSensitiveLog = (obj: GetChannelMessageStatusResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMessagingSessionEndpointRequestFilterSensitiveLog = (obj: GetMessagingSessionEndpointRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MessagingSessionEndpointFilterSensitiveLog = (obj: MessagingSessionEndpoint): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMessagingSessionEndpointResponseFilterSensitiveLog = (
-  obj: GetMessagingSessionEndpointResponse
-): any => ({
-  ...obj,
 });
 
 /**
@@ -3413,23 +3795,9 @@ export const ListSubChannelsRequestFilterSensitiveLog = (obj: ListSubChannelsReq
 /**
  * @internal
  */
-export const SubChannelSummaryFilterSensitiveLog = (obj: SubChannelSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListSubChannelsResponseFilterSensitiveLog = (obj: ListSubChannelsResponse): any => ({
   ...obj,
   ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -3459,27 +3827,6 @@ export const PutChannelMembershipPreferencesResponseFilterSensitiveLog = (
   ...obj,
   ...(obj.Member && { Member: IdentityFilterSensitiveLog(obj.Member) }),
   ...(obj.Preferences && { Preferences: ChannelMembershipPreferencesFilterSensitiveLog(obj.Preferences) }),
-});
-
-/**
- * @internal
- */
-export const RedactChannelMessageRequestFilterSensitiveLog = (obj: RedactChannelMessageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RedactChannelMessageResponseFilterSensitiveLog = (obj: RedactChannelMessageResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchFieldFilterSensitiveLog = (obj: SearchField): any => ({
-  ...obj,
 });
 
 /**
@@ -3518,13 +3865,7 @@ export const SendChannelMessageRequestFilterSensitiveLog = (obj: SendChannelMess
       {}
     ),
   }),
-});
-
-/**
- * @internal
- */
-export const SendChannelMessageResponseFilterSensitiveLog = (obj: SendChannelMessageResponse): any => ({
-  ...obj,
+  ...(obj.ContentType && { ContentType: SENSITIVE_STRING }),
 });
 
 /**
@@ -3555,13 +3896,6 @@ export const UpdateChannelRequestFilterSensitiveLog = (obj: UpdateChannelRequest
 /**
  * @internal
  */
-export const UpdateChannelResponseFilterSensitiveLog = (obj: UpdateChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateChannelFlowRequestFilterSensitiveLog = (obj: UpdateChannelFlowRequest): any => ({
   ...obj,
   ...(obj.Processors && { Processors: obj.Processors.map((item) => ProcessorFilterSensitiveLog(item)) }),
@@ -3571,36 +3905,9 @@ export const UpdateChannelFlowRequestFilterSensitiveLog = (obj: UpdateChannelFlo
 /**
  * @internal
  */
-export const UpdateChannelFlowResponseFilterSensitiveLog = (obj: UpdateChannelFlowResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateChannelMessageRequestFilterSensitiveLog = (obj: UpdateChannelMessageRequest): any => ({
   ...obj,
   ...(obj.Content && { Content: SENSITIVE_STRING }),
   ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateChannelMessageResponseFilterSensitiveLog = (obj: UpdateChannelMessageResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateChannelReadMarkerRequestFilterSensitiveLog = (obj: UpdateChannelReadMarkerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateChannelReadMarkerResponseFilterSensitiveLog = (obj: UpdateChannelReadMarkerResponse): any => ({
-  ...obj,
+  ...(obj.ContentType && { ContentType: SENSITIVE_STRING }),
 });

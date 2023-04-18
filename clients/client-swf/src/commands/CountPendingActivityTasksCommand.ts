@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CountPendingActivityTasksInput,
-  CountPendingActivityTasksInputFilterSensitiveLog,
-  PendingTaskCount,
-  PendingTaskCountFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0CountPendingActivityTasksCommand,
-  serializeAws_json1_0CountPendingActivityTasksCommand,
-} from "../protocols/Aws_json1_0";
+import { CountPendingActivityTasksInput, PendingTaskCount } from "../models/models_0";
+import { de_CountPendingActivityTasksCommand, se_CountPendingActivityTasksCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CountPendingActivityTasksCommand}.
+ */
 export interface CountPendingActivityTasksCommandInput extends CountPendingActivityTasksInput {}
+/**
+ * @public
+ *
+ * The output of {@link CountPendingActivityTasksCommand}.
+ */
 export interface CountPendingActivityTasksCommandOutput extends PendingTaskCount, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the estimated number of activity tasks in the specified task list. The count
  *       returned is an approximation and isn't guaranteed to be exact. If you specify a task list that
  *       no activity task was ever scheduled in then <code>0</code> is returned.</p>
@@ -63,13 +66,28 @@ export interface CountPendingActivityTasksCommandOutput extends PendingTaskCount
  * import { SWFClient, CountPendingActivityTasksCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, CountPendingActivityTasksCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = { // CountPendingActivityTasksInput
+ *   domain: "STRING_VALUE", // required
+ *   taskList: { // TaskList
+ *     name: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new CountPendingActivityTasksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CountPendingActivityTasksCommandInput - {@link CountPendingActivityTasksCommandInput}
+ * @returns {@link CountPendingActivityTasksCommandOutput}
  * @see {@link CountPendingActivityTasksCommandInput} for command's `input` shape.
  * @see {@link CountPendingActivityTasksCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
+ *
+ * @throws {@link OperationNotPermittedFault} (client fault)
+ *  <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+ *
+ * @throws {@link UnknownResourceFault} (client fault)
+ *  <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+ *
  *
  */
 export class CountPendingActivityTasksCommand extends $Command<
@@ -89,6 +107,9 @@ export class CountPendingActivityTasksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CountPendingActivityTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +138,8 @@ export class CountPendingActivityTasksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CountPendingActivityTasksInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PendingTaskCountFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,15 +149,21 @@ export class CountPendingActivityTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CountPendingActivityTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CountPendingActivityTasksCommand(input, context);
+    return se_CountPendingActivityTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CountPendingActivityTasksCommandOutput> {
-    return deserializeAws_json1_0CountPendingActivityTasksCommand(output, context);
+    return de_CountPendingActivityTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

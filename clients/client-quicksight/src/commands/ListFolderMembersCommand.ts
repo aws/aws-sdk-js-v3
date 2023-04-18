@@ -13,18 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListFolderMembersRequest, ListFolderMembersRequestFilterSensitiveLog } from "../models/models_2";
-import { ListFolderMembersResponse, ListFolderMembersResponseFilterSensitiveLog } from "../models/models_3";
-import {
-  deserializeAws_restJson1ListFolderMembersCommand,
-  serializeAws_restJson1ListFolderMembersCommand,
-} from "../protocols/Aws_restJson1";
+import { ListFolderMembersRequest, ListFolderMembersResponse } from "../models/models_3";
+import { de_ListFolderMembersCommand, se_ListFolderMembersCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListFolderMembersCommand}.
+ */
 export interface ListFolderMembersCommandInput extends ListFolderMembersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListFolderMembersCommand}.
+ */
 export interface ListFolderMembersCommandOutput extends ListFolderMembersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List all assets (<code>DASHBOARD</code>, <code>ANALYSIS</code>, and <code>DATASET</code>) in a folder. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -32,13 +39,49 @@ export interface ListFolderMembersCommandOutput extends ListFolderMembersRespons
  * import { QuickSightClient, ListFolderMembersCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, ListFolderMembersCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // ListFolderMembersRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   FolderId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListFolderMembersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFolderMembersCommandInput - {@link ListFolderMembersCommandInput}
+ * @returns {@link ListFolderMembersCommandOutput}
  * @see {@link ListFolderMembersCommandInput} for command's `input` shape.
  * @see {@link ListFolderMembersCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have access to this item. The provided credentials couldn't be
+ * 			validated. You might not be authorized to carry out the request. Make sure that your
+ * 			account is authorized to use the Amazon QuickSight service, that your policies have the
+ * 			correct permissions, and that you are using the correct credentials.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal failure occurred.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The <code>NextToken</code> value isn't valid.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One or more parameters has a value that isn't valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>One or more resources can't be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Access is throttled.</p>
+ *
+ * @throws {@link UnsupportedUserEditionException} (client fault)
+ *  <p>This error indicates that you are calling an operation on an Amazon QuickSight
+ * 			subscription where the edition doesn't include support for that operation. Amazon
+ * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
+ * 			capability is available in every edition.</p>
+ *
  *
  */
 export class ListFolderMembersCommand extends $Command<
@@ -58,6 +101,9 @@ export class ListFolderMembersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFolderMembersCommandInput) {
     // Start section: command_constructor
     super();
@@ -86,8 +132,8 @@ export class ListFolderMembersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFolderMembersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListFolderMembersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -97,12 +143,18 @@ export class ListFolderMembersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFolderMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListFolderMembersCommand(input, context);
+    return se_ListFolderMembersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFolderMembersCommandOutput> {
-    return deserializeAws_restJson1ListFolderMembersCommand(output, context);
+    return de_ListFolderMembersCommand(output, context);
   }
 
   // Start section: command_body_extra

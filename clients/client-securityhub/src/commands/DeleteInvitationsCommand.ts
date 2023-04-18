@@ -13,38 +13,67 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteInvitationsRequest,
-  DeleteInvitationsRequestFilterSensitiveLog,
-  DeleteInvitationsResponse,
-  DeleteInvitationsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1DeleteInvitationsCommand,
-  serializeAws_restJson1DeleteInvitationsCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteInvitationsRequest, DeleteInvitationsResponse } from "../models/models_2";
+import { de_DeleteInvitationsCommand, se_DeleteInvitationsCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteInvitationsCommand}.
+ */
 export interface DeleteInvitationsCommandInput extends DeleteInvitationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteInvitationsCommand}.
+ */
 export interface DeleteInvitationsCommandOutput extends DeleteInvitationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes invitations received by the Amazon Web Services account to become a member account.</p>
- *          <p>This operation is only used by accounts that are not part of an organization.
- *          Organization accounts do not receive invitations.</p>
+ *          <p>A Security Hub administrator account can use this operation to delete invitations sent to one or more member accounts.</p>
+ *          <p>This operation is only used to delete invitations that are sent to member accounts that aren't part of an organization.
+ *          Organization accounts don't receive invitations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SecurityHubClient, DeleteInvitationsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, DeleteInvitationsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = { // DeleteInvitationsRequest
+ *   AccountIds: [ // AccountIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DeleteInvitationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteInvitationsCommandInput - {@link DeleteInvitationsCommandInput}
+ * @returns {@link DeleteInvitationsCommandOutput}
  * @see {@link DeleteInvitationsCommandInput} for command's `input` shape.
  * @see {@link DeleteInvitationsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>Internal server error.</p>
+ *
+ * @throws {@link InvalidAccessException} (client fault)
+ *  <p>The account doesn't have permission to perform this action.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because you supplied an invalid or out-of-range value for an
+ *          input parameter.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
+ *          account or throttling limits. The error code describes the limit exceeded.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request was rejected because we can't find the specified resource.</p>
+ *
  *
  */
 export class DeleteInvitationsCommand extends $Command<
@@ -64,6 +93,9 @@ export class DeleteInvitationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteInvitationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +124,8 @@ export class DeleteInvitationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteInvitationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteInvitationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +135,18 @@ export class DeleteInvitationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteInvitationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteInvitationsCommand(input, context);
+    return se_DeleteInvitationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInvitationsCommandOutput> {
-    return deserializeAws_restJson1DeleteInvitationsCommand(output, context);
+    return de_DeleteInvitationsCommand(output, context);
   }
 
   // Start section: command_body_extra

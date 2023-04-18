@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  CacheParameterGroupNameMessage,
-  CacheParameterGroupNameMessageFilterSensitiveLog,
-  ResetCacheParameterGroupMessage,
-  ResetCacheParameterGroupMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryResetCacheParameterGroupCommand,
-  serializeAws_queryResetCacheParameterGroupCommand,
-} from "../protocols/Aws_query";
+import { CacheParameterGroupNameMessage, ResetCacheParameterGroupMessage } from "../models/models_0";
+import { de_ResetCacheParameterGroupCommand, se_ResetCacheParameterGroupCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link ResetCacheParameterGroupCommand}.
+ */
 export interface ResetCacheParameterGroupCommandInput extends ResetCacheParameterGroupMessage {}
+/**
+ * @public
+ *
+ * The output of {@link ResetCacheParameterGroupCommand}.
+ */
 export interface ResetCacheParameterGroupCommandOutput extends CacheParameterGroupNameMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the parameters of a cache
  *             parameter group to the engine or system default value. You can reset specific parameters
  *             by submitting a list of parameter names. To reset the entire cache parameter group,
@@ -39,13 +42,58 @@ export interface ResetCacheParameterGroupCommandOutput extends CacheParameterGro
  * import { ElastiCacheClient, ResetCacheParameterGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, ResetCacheParameterGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // ResetCacheParameterGroupMessage
+ *   CacheParameterGroupName: "STRING_VALUE", // required
+ *   ResetAllParameters: true || false,
+ *   ParameterNameValues: [ // ParameterNameValueList
+ *     { // ParameterNameValue
+ *       ParameterName: "STRING_VALUE",
+ *       ParameterValue: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new ResetCacheParameterGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ResetCacheParameterGroupCommandInput - {@link ResetCacheParameterGroupCommandInput}
+ * @returns {@link ResetCacheParameterGroupCommandOutput}
  * @see {@link ResetCacheParameterGroupCommandInput} for command's `input` shape.
  * @see {@link ResetCacheParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
+ *
+ * @throws {@link CacheParameterGroupNotFoundFault} (client fault)
+ *  <p>The requested cache parameter group name does not refer to an existing cache parameter group.</p>
+ *
+ * @throws {@link InvalidCacheParameterGroupStateFault} (client fault)
+ *  <p>The current state of the cache parameter group does not allow the requested operation to occur.</p>
+ *
+ * @throws {@link InvalidGlobalReplicationGroupStateFault} (client fault)
+ *  <p>The Global datastore is not available or in primary-only state.</p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
+ *
+ * @example ResetCacheParameterGroup
+ * ```javascript
+ * // Modifies the parameters of a cache parameter group to the engine or system default value.
+ * const input = {
+ *   "CacheParameterGroupName": "custom-mem1-4",
+ *   "ResetAllParameters": true
+ * };
+ * const command = new ResetCacheParameterGroupCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "CacheParameterGroupName": "custom-mem1-4"
+ * }
+ * *\/
+ * // example id: resetcacheparametergroup-1483038334014
+ * ```
  *
  */
 export class ResetCacheParameterGroupCommand extends $Command<
@@ -65,6 +113,9 @@ export class ResetCacheParameterGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResetCacheParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +144,8 @@ export class ResetCacheParameterGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResetCacheParameterGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CacheParameterGroupNameMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +155,18 @@ export class ResetCacheParameterGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResetCacheParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryResetCacheParameterGroupCommand(input, context);
+    return se_ResetCacheParameterGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetCacheParameterGroupCommandOutput> {
-    return deserializeAws_queryResetCacheParameterGroupCommand(output, context);
+    return de_ResetCacheParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

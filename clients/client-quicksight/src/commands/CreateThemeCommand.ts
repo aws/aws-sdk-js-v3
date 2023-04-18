@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateThemeRequest,
-  CreateThemeRequestFilterSensitiveLog,
-  CreateThemeResponse,
-  CreateThemeResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1CreateThemeCommand,
-  serializeAws_restJson1CreateThemeCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateThemeRequest, CreateThemeResponse } from "../models/models_2";
+import { de_CreateThemeCommand, se_CreateThemeCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateThemeCommand}.
+ */
 export interface CreateThemeCommandInput extends CreateThemeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateThemeCommand}.
+ */
 export interface CreateThemeCommandOutput extends CreateThemeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a theme.</p>
  *          <p>A <i>theme</i> is set of configuration options for color and layout.
  * 			Themes apply to analyses and dashboards. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using
@@ -39,13 +42,118 @@ export interface CreateThemeCommandOutput extends CreateThemeResponse, __Metadat
  * import { QuickSightClient, CreateThemeCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, CreateThemeCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // CreateThemeRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   ThemeId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   BaseThemeId: "STRING_VALUE", // required
+ *   VersionDescription: "STRING_VALUE",
+ *   Configuration: { // ThemeConfiguration
+ *     DataColorPalette: { // DataColorPalette
+ *       Colors: [ // ColorList
+ *         "STRING_VALUE",
+ *       ],
+ *       MinMaxGradient: [
+ *         "STRING_VALUE",
+ *       ],
+ *       EmptyFillColor: "STRING_VALUE",
+ *     },
+ *     UIColorPalette: { // UIColorPalette
+ *       PrimaryForeground: "STRING_VALUE",
+ *       PrimaryBackground: "STRING_VALUE",
+ *       SecondaryForeground: "STRING_VALUE",
+ *       SecondaryBackground: "STRING_VALUE",
+ *       Accent: "STRING_VALUE",
+ *       AccentForeground: "STRING_VALUE",
+ *       Danger: "STRING_VALUE",
+ *       DangerForeground: "STRING_VALUE",
+ *       Warning: "STRING_VALUE",
+ *       WarningForeground: "STRING_VALUE",
+ *       Success: "STRING_VALUE",
+ *       SuccessForeground: "STRING_VALUE",
+ *       Dimension: "STRING_VALUE",
+ *       DimensionForeground: "STRING_VALUE",
+ *       Measure: "STRING_VALUE",
+ *       MeasureForeground: "STRING_VALUE",
+ *     },
+ *     Sheet: { // SheetStyle
+ *       Tile: { // TileStyle
+ *         Border: { // BorderStyle
+ *           Show: true || false,
+ *         },
+ *       },
+ *       TileLayout: { // TileLayoutStyle
+ *         Gutter: { // GutterStyle
+ *           Show: true || false,
+ *         },
+ *         Margin: { // MarginStyle
+ *           Show: true || false,
+ *         },
+ *       },
+ *     },
+ *     Typography: { // Typography
+ *       FontFamilies: [ // FontList
+ *         { // Font
+ *           FontFamily: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   Permissions: [ // ResourcePermissionList
+ *     { // ResourcePermission
+ *       Principal: "STRING_VALUE", // required
+ *       Actions: [ // ActionList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateThemeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateThemeCommandInput - {@link CreateThemeCommandInput}
+ * @returns {@link CreateThemeCommandOutput}
  * @see {@link CreateThemeCommandInput} for command's `input` shape.
  * @see {@link CreateThemeCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have access to this item. The provided credentials couldn't be
+ * 			validated. You might not be authorized to carry out the request. Make sure that your
+ * 			account is authorized to use the Amazon QuickSight service, that your policies have the
+ * 			correct permissions, and that you are using the correct credentials.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal failure occurred.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One or more parameters has a value that isn't valid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A limit is exceeded.</p>
+ *
+ * @throws {@link ResourceExistsException} (client fault)
+ *  <p>The resource specified already exists. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>One or more resources can't be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Access is throttled.</p>
+ *
+ * @throws {@link UnsupportedUserEditionException} (client fault)
+ *  <p>This error indicates that you are calling an operation on an Amazon QuickSight
+ * 			subscription where the edition doesn't include support for that operation. Amazon
+ * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
+ * 			capability is available in every edition.</p>
+ *
  *
  */
 export class CreateThemeCommand extends $Command<
@@ -65,6 +173,9 @@ export class CreateThemeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateThemeCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +202,8 @@ export class CreateThemeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateThemeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateThemeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +213,18 @@ export class CreateThemeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateThemeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateThemeCommand(input, context);
+    return se_CreateThemeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateThemeCommandOutput> {
-    return deserializeAws_restJson1CreateThemeCommand(output, context);
+    return de_CreateThemeCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,24 +13,27 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateClusterMessage,
-  CreateClusterMessageFilterSensitiveLog,
-  CreateClusterResult,
-  CreateClusterResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCreateClusterCommand,
-  serializeAws_queryCreateClusterCommand,
-} from "../protocols/Aws_query";
+import { CreateClusterMessage, CreateClusterResult } from "../models/models_0";
+import { de_CreateClusterCommand, se_CreateClusterCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateClusterCommand}.
+ */
 export interface CreateClusterCommandInput extends CreateClusterMessage {}
+/**
+ * @public
+ *
+ * The output of {@link CreateClusterCommand}.
+ */
 export interface CreateClusterCommandOutput extends CreateClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new cluster with the specified parameters.</p>
- *         <p>To create a cluster in Virtual Private Cloud (VPC), you must provide a cluster
+ *          <p>To create a cluster in Virtual Private Cloud (VPC), you must provide a cluster
  *             subnet group name. The cluster subnet group identifies the subnets of your VPC that
  *             Amazon Redshift uses when creating the cluster.
  * For more information about managing clusters, go to
@@ -42,13 +45,144 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  * import { RedshiftClient, CreateClusterCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, CreateClusterCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // CreateClusterMessage
+ *   DBName: "STRING_VALUE",
+ *   ClusterIdentifier: "STRING_VALUE", // required
+ *   ClusterType: "STRING_VALUE",
+ *   NodeType: "STRING_VALUE", // required
+ *   MasterUsername: "STRING_VALUE", // required
+ *   MasterUserPassword: "STRING_VALUE", // required
+ *   ClusterSecurityGroups: [ // ClusterSecurityGroupNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   ClusterSubnetGroupName: "STRING_VALUE",
+ *   AvailabilityZone: "STRING_VALUE",
+ *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   ClusterParameterGroupName: "STRING_VALUE",
+ *   AutomatedSnapshotRetentionPeriod: Number("int"),
+ *   ManualSnapshotRetentionPeriod: Number("int"),
+ *   Port: Number("int"),
+ *   ClusterVersion: "STRING_VALUE",
+ *   AllowVersionUpgrade: true || false,
+ *   NumberOfNodes: Number("int"),
+ *   PubliclyAccessible: true || false,
+ *   Encrypted: true || false,
+ *   HsmClientCertificateIdentifier: "STRING_VALUE",
+ *   HsmConfigurationIdentifier: "STRING_VALUE",
+ *   ElasticIp: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   KmsKeyId: "STRING_VALUE",
+ *   EnhancedVpcRouting: true || false,
+ *   AdditionalInfo: "STRING_VALUE",
+ *   IamRoles: [ // IamRoleArnList
+ *     "STRING_VALUE",
+ *   ],
+ *   MaintenanceTrackName: "STRING_VALUE",
+ *   SnapshotScheduleIdentifier: "STRING_VALUE",
+ *   AvailabilityZoneRelocation: true || false,
+ *   AquaConfigurationStatus: "enabled" || "disabled" || "auto",
+ *   DefaultIamRoleArn: "STRING_VALUE",
+ *   LoadSampleData: "STRING_VALUE",
+ * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateClusterCommandInput - {@link CreateClusterCommandInput}
+ * @returns {@link CreateClusterCommandOutput}
  * @see {@link CreateClusterCommandInput} for command's `input` shape.
  * @see {@link CreateClusterCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
+ *
+ * @throws {@link ClusterAlreadyExistsFault} (client fault)
+ *  <p>The account already has a cluster with the given identifier.</p>
+ *
+ * @throws {@link ClusterParameterGroupNotFoundFault} (client fault)
+ *  <p>The parameter group name does not refer to an existing parameter group.</p>
+ *
+ * @throws {@link ClusterQuotaExceededFault} (client fault)
+ *  <p>The request would exceed the allowed number of cluster instances for this account.
+ *
+ * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
+ * in the <i>Amazon Redshift Cluster Management Guide</i>.
+ * </p>
+ *
+ * @throws {@link ClusterSecurityGroupNotFoundFault} (client fault)
+ *  <p>The cluster security group name does not refer to an existing cluster security
+ *             group.</p>
+ *
+ * @throws {@link ClusterSubnetGroupNotFoundFault} (client fault)
+ *  <p>The cluster subnet group name does not refer to an existing cluster subnet
+ *             group.</p>
+ *
+ * @throws {@link DependentServiceRequestThrottlingFault} (client fault)
+ *  <p>The request cannot be completed because a dependent service is throttling requests
+ *             made by Amazon Redshift on your behalf. Wait and retry the request.</p>
+ *
+ * @throws {@link HsmClientCertificateNotFoundFault} (client fault)
+ *  <p>There is no Amazon Redshift HSM client certificate with the specified
+ *             identifier.</p>
+ *
+ * @throws {@link HsmConfigurationNotFoundFault} (client fault)
+ *  <p>There is no Amazon Redshift HSM configuration with the specified identifier.</p>
+ *
+ * @throws {@link InsufficientClusterCapacityFault} (client fault)
+ *  <p>The number of nodes specified exceeds the allotted capacity of the
+ *             cluster.</p>
+ *
+ * @throws {@link InvalidClusterSubnetGroupStateFault} (client fault)
+ *  <p>The cluster subnet group cannot be deleted because it is in use.</p>
+ *
+ * @throws {@link InvalidClusterTrackFault} (client fault)
+ *  <p>The provided cluster track name is not valid.</p>
+ *
+ * @throws {@link InvalidElasticIpFault} (client fault)
+ *  <p>The Elastic IP (EIP) is invalid or cannot be found.</p>
+ *
+ * @throws {@link InvalidRetentionPeriodFault} (client fault)
+ *  <p>The retention period specified is either in the past or is not a valid value.</p>
+ *          <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+ *
+ * @throws {@link InvalidSubnet} (client fault)
+ *  <p>The requested subnet is not valid, or not all of the subnets are in the same
+ *             VPC.</p>
+ *
+ * @throws {@link InvalidTagFault} (client fault)
+ *  <p>The tag is invalid.</p>
+ *
+ * @throws {@link InvalidVPCNetworkStateFault} (client fault)
+ *  <p>The cluster subnet group does not cover all Availability Zones.</p>
+ *
+ * @throws {@link LimitExceededFault} (client fault)
+ *  <p>The encryption key has exceeded its grant limit in Amazon Web Services KMS.</p>
+ *
+ * @throws {@link NumberOfNodesPerClusterLimitExceededFault} (client fault)
+ *  <p>The operation would exceed the number of nodes allowed for a cluster.</p>
+ *
+ * @throws {@link NumberOfNodesQuotaExceededFault} (client fault)
+ *  <p>The operation would exceed the number of nodes allotted to the account.
+ *
+ * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
+ * in the <i>Amazon Redshift Cluster Management Guide</i>.
+ * </p>
+ *
+ * @throws {@link SnapshotScheduleNotFoundFault} (client fault)
+ *  <p>We could not find the specified snapshot schedule. </p>
+ *
+ * @throws {@link TagLimitExceededFault} (client fault)
+ *  <p>You have exceeded the number of tags allowed.</p>
+ *
+ * @throws {@link UnauthorizedOperation} (client fault)
+ *  <p>Your account is not authorized to perform the requested operation.</p>
+ *
  *
  */
 export class CreateClusterCommand extends $Command<
@@ -68,6 +202,9 @@ export class CreateClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +231,8 @@ export class CreateClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +242,18 @@ export class CreateClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateClusterCommand(input, context);
+    return se_CreateClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateClusterCommandOutput> {
-    return deserializeAws_queryCreateClusterCommand(output, context);
+    return de_CreateClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

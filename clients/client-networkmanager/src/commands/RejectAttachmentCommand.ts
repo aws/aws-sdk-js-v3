@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RejectAttachmentRequest,
-  RejectAttachmentRequestFilterSensitiveLog,
-  RejectAttachmentResponse,
-  RejectAttachmentResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { RejectAttachmentRequest, RejectAttachmentResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1RejectAttachmentCommand,
-  serializeAws_restJson1RejectAttachmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RejectAttachmentCommand, se_RejectAttachmentCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link RejectAttachmentCommand}.
+ */
 export interface RejectAttachmentCommandInput extends RejectAttachmentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RejectAttachmentCommand}.
+ */
 export interface RejectAttachmentCommandOutput extends RejectAttachmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Rejects a core network attachment request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,38 @@ export interface RejectAttachmentCommandOutput extends RejectAttachmentResponse,
  * import { NetworkManagerClient, RejectAttachmentCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, RejectAttachmentCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // RejectAttachmentRequest
+ *   AttachmentId: "STRING_VALUE", // required
+ * };
  * const command = new RejectAttachmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RejectAttachmentCommandInput - {@link RejectAttachmentCommandInput}
+ * @returns {@link RejectAttachmentCommandOutput}
  * @see {@link RejectAttachmentCommandInput} for command's `input` shape.
  * @see {@link RejectAttachmentCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There was a conflict processing the request. Updating or deleting the resource can
+ *             cause an inconsistent state.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request has failed due to an internal error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints.</p>
+ *
  *
  */
 export class RejectAttachmentCommand extends $Command<
@@ -62,6 +90,9 @@ export class RejectAttachmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RejectAttachmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +121,8 @@ export class RejectAttachmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RejectAttachmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RejectAttachmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +132,18 @@ export class RejectAttachmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RejectAttachmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RejectAttachmentCommand(input, context);
+    return se_RejectAttachmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RejectAttachmentCommandOutput> {
-    return deserializeAws_restJson1RejectAttachmentCommand(output, context);
+    return de_RejectAttachmentCommand(output, context);
   }
 
   // Start section: command_body_extra

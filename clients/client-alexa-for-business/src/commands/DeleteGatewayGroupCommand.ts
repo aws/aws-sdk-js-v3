@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  DeleteGatewayGroupRequest,
-  DeleteGatewayGroupRequestFilterSensitiveLog,
-  DeleteGatewayGroupResponse,
-  DeleteGatewayGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteGatewayGroupCommand,
-  serializeAws_json1_1DeleteGatewayGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteGatewayGroupRequest, DeleteGatewayGroupResponse } from "../models/models_0";
+import { de_DeleteGatewayGroupCommand, se_DeleteGatewayGroupCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteGatewayGroupCommand}.
+ */
 export interface DeleteGatewayGroupCommandInput extends DeleteGatewayGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteGatewayGroupCommand}.
+ */
 export interface DeleteGatewayGroupCommandOutput extends DeleteGatewayGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a gateway group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,22 @@ export interface DeleteGatewayGroupCommandOutput extends DeleteGatewayGroupRespo
  * import { AlexaForBusinessClient, DeleteGatewayGroupCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, DeleteGatewayGroupCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // DeleteGatewayGroupRequest
+ *   GatewayGroupArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteGatewayGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteGatewayGroupCommandInput - {@link DeleteGatewayGroupCommandInput}
+ * @returns {@link DeleteGatewayGroupCommandOutput}
  * @see {@link DeleteGatewayGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteGatewayGroupCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
+ * @throws {@link ResourceAssociatedException} (client fault)
+ *  <p>Another resource is associated with the resource in the request.</p>
+ *
  *
  */
 export class DeleteGatewayGroupCommand extends $Command<
@@ -62,6 +74,9 @@ export class DeleteGatewayGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteGatewayGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +105,8 @@ export class DeleteGatewayGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteGatewayGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteGatewayGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +116,18 @@ export class DeleteGatewayGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteGatewayGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteGatewayGroupCommand(input, context);
+    return se_DeleteGatewayGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGatewayGroupCommandOutput> {
-    return deserializeAws_json1_1DeleteGatewayGroupCommand(output, context);
+    return de_DeleteGatewayGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

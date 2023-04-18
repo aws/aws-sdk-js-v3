@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateDiscovererRequest,
-  UpdateDiscovererRequestFilterSensitiveLog,
-  UpdateDiscovererResponse,
-  UpdateDiscovererResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateDiscovererCommand,
-  serializeAws_restJson1UpdateDiscovererCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateDiscovererRequest, UpdateDiscovererResponse } from "../models/models_0";
+import { de_UpdateDiscovererCommand, se_UpdateDiscovererCommand } from "../protocols/Aws_restJson1";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateDiscovererCommand}.
+ */
 export interface UpdateDiscovererCommandInput extends UpdateDiscovererRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateDiscovererCommand}.
+ */
 export interface UpdateDiscovererCommandOutput extends UpdateDiscovererResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the discoverer</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,33 @@ export interface UpdateDiscovererCommandOutput extends UpdateDiscovererResponse,
  * import { SchemasClient, UpdateDiscovererCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, UpdateDiscovererCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
  * const client = new SchemasClient(config);
+ * const input = { // UpdateDiscovererRequest
+ *   Description: "STRING_VALUE",
+ *   DiscovererId: "STRING_VALUE", // required
+ *   CrossAccount: true || false,
+ * };
  * const command = new UpdateDiscovererCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDiscovererCommandInput - {@link UpdateDiscovererCommandInput}
+ * @returns {@link UpdateDiscovererCommandOutput}
  * @see {@link UpdateDiscovererCommandInput} for command's `input` shape.
  * @see {@link UpdateDiscovererCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *
  *
  */
 export class UpdateDiscovererCommand extends $Command<
@@ -62,6 +85,9 @@ export class UpdateDiscovererCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDiscovererCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +116,8 @@ export class UpdateDiscovererCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDiscovererRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDiscovererResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +127,18 @@ export class UpdateDiscovererCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDiscovererCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDiscovererCommand(input, context);
+    return se_UpdateDiscovererCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDiscovererCommandOutput> {
-    return deserializeAws_restJson1UpdateDiscovererCommand(output, context);
+    return de_UpdateDiscovererCommand(output, context);
   }
 
   // Start section: command_body_extra

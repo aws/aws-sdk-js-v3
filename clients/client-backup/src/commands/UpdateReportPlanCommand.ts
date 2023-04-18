@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import {
-  UpdateReportPlanInput,
-  UpdateReportPlanInputFilterSensitiveLog,
-  UpdateReportPlanOutput,
-  UpdateReportPlanOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateReportPlanCommand,
-  serializeAws_restJson1UpdateReportPlanCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateReportPlanInput, UpdateReportPlanOutput } from "../models/models_0";
+import { de_UpdateReportPlanCommand, se_UpdateReportPlanCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateReportPlanCommand}.
+ */
 export interface UpdateReportPlanCommandInput extends UpdateReportPlanInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateReportPlanCommand}.
+ */
 export interface UpdateReportPlanCommandOutput extends UpdateReportPlanOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing report plan identified by its <code>ReportPlanName</code> with the
  *          input document in JSON format.</p>
  * @example
@@ -37,13 +40,61 @@ export interface UpdateReportPlanCommandOutput extends UpdateReportPlanOutput, _
  * import { BackupClient, UpdateReportPlanCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, UpdateReportPlanCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // UpdateReportPlanInput
+ *   ReportPlanName: "STRING_VALUE", // required
+ *   ReportPlanDescription: "STRING_VALUE",
+ *   ReportDeliveryChannel: { // ReportDeliveryChannel
+ *     S3BucketName: "STRING_VALUE", // required
+ *     S3KeyPrefix: "STRING_VALUE",
+ *     Formats: [ // FormatList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   ReportSetting: { // ReportSetting
+ *     ReportTemplate: "STRING_VALUE", // required
+ *     FrameworkArns: [ // stringList
+ *       "STRING_VALUE",
+ *     ],
+ *     NumberOfFrameworks: Number("int"),
+ *     Accounts: [
+ *       "STRING_VALUE",
+ *     ],
+ *     OrganizationUnits: [
+ *       "STRING_VALUE",
+ *     ],
+ *     Regions: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   IdempotencyToken: "STRING_VALUE",
+ * };
  * const command = new UpdateReportPlanCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateReportPlanCommandInput - {@link UpdateReportPlanCommandInput}
+ * @returns {@link UpdateReportPlanCommandOutput}
  * @see {@link UpdateReportPlanCommandInput} for command's `input` shape.
  * @see {@link UpdateReportPlanCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Backup can't perform the action that you requested until it finishes
+ *          performing a previous action. Try again later.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
+ *          out of range.</p>
+ *
+ * @throws {@link MissingParameterValueException} (client fault)
+ *  <p>Indicates that a required parameter is missing.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource that is required for the action doesn't exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request failed due to a temporary failure of the server.</p>
+ *
  *
  */
 export class UpdateReportPlanCommand extends $Command<
@@ -63,6 +114,9 @@ export class UpdateReportPlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateReportPlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +145,8 @@ export class UpdateReportPlanCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateReportPlanInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateReportPlanOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +156,18 @@ export class UpdateReportPlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateReportPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateReportPlanCommand(input, context);
+    return se_UpdateReportPlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateReportPlanCommandOutput> {
-    return deserializeAws_restJson1UpdateReportPlanCommand(output, context);
+    return de_UpdateReportPlanCommand(output, context);
   }
 
   // Start section: command_body_extra

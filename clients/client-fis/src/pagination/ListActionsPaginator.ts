@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListActionsCommand, ListActionsCommandInput, ListActionsCommandOutput } from "../commands/ListActionsCommand";
-import { Fis } from "../Fis";
 import { FisClient } from "../FisClient";
 import { FisPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: FisClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListActionsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Fis,
-  input: ListActionsCommandInput,
-  ...args: any
-): Promise<ListActionsCommandOutput> => {
-  // @ts-ignore
-  return await client.listActions(input, ...args);
-};
 export async function* paginateListActions(
   config: FisPaginationConfiguration,
   input: ListActionsCommandInput,
@@ -40,9 +31,7 @@ export async function* paginateListActions(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Fis) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof FisClient) {
+    if (config.client instanceof FisClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Fis | FisClient");

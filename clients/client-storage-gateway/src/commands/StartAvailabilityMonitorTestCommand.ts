@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { StartAvailabilityMonitorTestInput, StartAvailabilityMonitorTestOutput } from "../models/models_0";
 import {
-  StartAvailabilityMonitorTestInput,
-  StartAvailabilityMonitorTestInputFilterSensitiveLog,
-  StartAvailabilityMonitorTestOutput,
-  StartAvailabilityMonitorTestOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartAvailabilityMonitorTestCommand,
-  serializeAws_json1_1StartAvailabilityMonitorTestCommand,
+  de_StartAvailabilityMonitorTestCommand,
+  se_StartAvailabilityMonitorTestCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * @public
+ *
+ * The input for {@link StartAvailabilityMonitorTestCommand}.
+ */
 export interface StartAvailabilityMonitorTestCommandInput extends StartAvailabilityMonitorTestInput {}
+/**
+ * @public
+ *
+ * The output of {@link StartAvailabilityMonitorTestCommand}.
+ */
 export interface StartAvailabilityMonitorTestCommandOutput
   extends StartAvailabilityMonitorTestOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Start a test that verifies that the specified gateway is configured for High
  *          Availability monitoring in your host environment. This request only initiates the test and
  *          that a successful response only indicates that the test was started. It doesn't
@@ -45,13 +51,27 @@ export interface StartAvailabilityMonitorTestCommandOutput
  * import { StorageGatewayClient, StartAvailabilityMonitorTestCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, StartAvailabilityMonitorTestCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // StartAvailabilityMonitorTestInput
+ *   GatewayARN: "STRING_VALUE", // required
+ * };
  * const command = new StartAvailabilityMonitorTestCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartAvailabilityMonitorTestCommandInput - {@link StartAvailabilityMonitorTestCommandInput}
+ * @returns {@link StartAvailabilityMonitorTestCommandOutput}
  * @see {@link StartAvailabilityMonitorTestCommandInput} for command's `input` shape.
  * @see {@link StartAvailabilityMonitorTestCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error has occurred during the request. For more information, see the
+ *          error and message fields.</p>
+ *
+ * @throws {@link InvalidGatewayRequestException} (client fault)
+ *  <p>An exception occurred because an invalid gateway request was issued to the service. For
+ *          more information, see the error and message fields.</p>
+ *
  *
  */
 export class StartAvailabilityMonitorTestCommand extends $Command<
@@ -71,6 +91,9 @@ export class StartAvailabilityMonitorTestCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartAvailabilityMonitorTestCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +122,8 @@ export class StartAvailabilityMonitorTestCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartAvailabilityMonitorTestInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StartAvailabilityMonitorTestOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,15 +133,21 @@ export class StartAvailabilityMonitorTestCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartAvailabilityMonitorTestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartAvailabilityMonitorTestCommand(input, context);
+    return se_StartAvailabilityMonitorTestCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartAvailabilityMonitorTestCommandOutput> {
-    return deserializeAws_json1_1StartAvailabilityMonitorTestCommand(output, context);
+    return de_StartAvailabilityMonitorTestCommand(output, context);
   }
 
   // Start section: command_body_extra

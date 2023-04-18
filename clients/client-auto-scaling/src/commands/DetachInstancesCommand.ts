@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import {
-  DetachInstancesAnswer,
-  DetachInstancesAnswerFilterSensitiveLog,
-  DetachInstancesQuery,
-  DetachInstancesQueryFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDetachInstancesCommand,
-  serializeAws_queryDetachInstancesCommand,
-} from "../protocols/Aws_query";
+import { DetachInstancesAnswer, DetachInstancesQuery } from "../models/models_0";
+import { de_DetachInstancesCommand, se_DetachInstancesCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DetachInstancesCommand}.
+ */
 export interface DetachInstancesCommandInput extends DetachInstancesQuery {}
+/**
+ * @public
+ *
+ * The output of {@link DetachInstancesCommand}.
+ */
 export interface DetachInstancesCommandOutput extends DetachInstancesAnswer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes one or more instances from the specified Auto Scaling group.</p>
  *          <p>After the instances are detached, you can manage them independent of the Auto Scaling
  *             group.</p>
@@ -45,13 +48,58 @@ export interface DetachInstancesCommandOutput extends DetachInstancesAnswer, __M
  * import { AutoScalingClient, DetachInstancesCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DetachInstancesCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = { // DetachInstancesQuery
+ *   InstanceIds: [ // InstanceIds
+ *     "STRING_VALUE",
+ *   ],
+ *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   ShouldDecrementDesiredCapacity: true || false, // required
+ * };
  * const command = new DetachInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DetachInstancesCommandInput - {@link DetachInstancesCommandInput}
+ * @returns {@link DetachInstancesCommandOutput}
  * @see {@link DetachInstancesCommandInput} for command's `input` shape.
  * @see {@link DetachInstancesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
+ *
+ * @throws {@link ResourceContentionFault} (server fault)
+ *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
+ *             instance, or load balancer).</p>
+ *
+ *
+ * @example To detach an instance from an Auto Scaling group
+ * ```javascript
+ * // This example detaches the specified instance from the specified Auto Scaling group.
+ * const input = {
+ *   "AutoScalingGroupName": "my-auto-scaling-group",
+ *   "InstanceIds": [
+ *     "i-93633f9b"
+ *   ],
+ *   "ShouldDecrementDesiredCapacity": true
+ * };
+ * const command = new DetachInstancesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Activities": [
+ *     {
+ *       "ActivityId": "5091cb52-547a-47ce-a236-c9ccbc2cb2c9",
+ *       "AutoScalingGroupName": "my-auto-scaling-group",
+ *       "Cause": "At 2015-04-12T15:02:16Z instance i-93633f9b was detached in response to a user request, shrinking the capacity from 2 to 1.",
+ *       "Description": "Detaching EC2 instance: i-93633f9b",
+ *       "Details": "details",
+ *       "Progress": 50,
+ *       "StartTime": "2015-04-12T15:02:16.179Z",
+ *       "StatusCode": "InProgress"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: autoscaling-detach-instances-1
+ * ```
  *
  */
 export class DetachInstancesCommand extends $Command<
@@ -71,6 +119,9 @@ export class DetachInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetachInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +150,8 @@ export class DetachInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetachInstancesQueryFilterSensitiveLog,
-      outputFilterSensitiveLog: DetachInstancesAnswerFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +161,18 @@ export class DetachInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetachInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDetachInstancesCommand(input, context);
+    return se_DetachInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachInstancesCommandOutput> {
-    return deserializeAws_queryDetachInstancesCommand(output, context);
+    return de_DetachInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -47,6 +47,7 @@ import {
 import { SimSpaceWeaverClient } from "./SimSpaceWeaverClient";
 
 /**
+ * @public
  * <p>Amazon Web Services SimSpace Weaver (SimSpace Weaver) is a managed service that you can use to build and operate large-scale
  *          spatial simulations in the Amazon Web Services Cloud. For example, you can create a digital twin of a city,
  *          crowd simulations with millions of people and objects, and massilvely-multiplayer games with
@@ -62,6 +63,7 @@ import { SimSpaceWeaverClient } from "./SimSpaceWeaverClient";
  */
 export class SimSpaceWeaver extends SimSpaceWeaverClient {
   /**
+   * @public
    * <p>Deletes the instance of the given custom app.</p>
    */
   public deleteApp(args: DeleteAppCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAppCommandOutput>;
@@ -88,6 +90,7 @@ export class SimSpaceWeaver extends SimSpaceWeaverClient {
   }
 
   /**
+   * @public
    * <p>Deletes all SimSpace Weaver resources assigned to the given simulation.</p>
    *          <note>
    *             <p>Your simulation uses resources in other Amazon Web Services services. This API operation doesn't delete
@@ -124,6 +127,7 @@ export class SimSpaceWeaver extends SimSpaceWeaverClient {
   }
 
   /**
+   * @public
    * <p>Returns the state of the given custom app.</p>
    */
   public describeApp(args: DescribeAppCommandInput, options?: __HttpHandlerOptions): Promise<DescribeAppCommandOutput>;
@@ -150,6 +154,7 @@ export class SimSpaceWeaver extends SimSpaceWeaverClient {
   }
 
   /**
+   * @public
    * <p>Returns the current state of the given simulation.</p>
    */
   public describeSimulation(
@@ -182,6 +187,7 @@ export class SimSpaceWeaver extends SimSpaceWeaverClient {
   }
 
   /**
+   * @public
    * <p>Lists all custom apps or service apps for the given simulation and domain.</p>
    */
   public listApps(args: ListAppsCommandInput, options?: __HttpHandlerOptions): Promise<ListAppsCommandOutput>;
@@ -208,6 +214,7 @@ export class SimSpaceWeaver extends SimSpaceWeaverClient {
   }
 
   /**
+   * @public
    * <p>Lists the SimSpace Weaver simulations in the Amazon Web Services account used to make the API call.</p>
    */
   public listSimulations(
@@ -240,6 +247,7 @@ export class SimSpaceWeaver extends SimSpaceWeaverClient {
   }
 
   /**
+   * @public
    * <p>Lists all tags on a SimSpace Weaver resource.</p>
    */
   public listTagsForResource(
@@ -272,6 +280,7 @@ export class SimSpaceWeaver extends SimSpaceWeaverClient {
   }
 
   /**
+   * @public
    * <p>Starts a custom app with the configuration specified in the simulation schema.</p>
    */
   public startApp(args: StartAppCommandInput, options?: __HttpHandlerOptions): Promise<StartAppCommandOutput>;
@@ -298,6 +307,7 @@ export class SimSpaceWeaver extends SimSpaceWeaverClient {
   }
 
   /**
+   * @public
    * <p>Starts the simulation clock.</p>
    */
   public startClock(args: StartClockCommandInput, options?: __HttpHandlerOptions): Promise<StartClockCommandOutput>;
@@ -324,6 +334,7 @@ export class SimSpaceWeaver extends SimSpaceWeaverClient {
   }
 
   /**
+   * @public
    * <p>Starts a simulation with the given name and schema.</p>
    */
   public startSimulation(
@@ -356,6 +367,7 @@ export class SimSpaceWeaver extends SimSpaceWeaverClient {
   }
 
   /**
+   * @public
    * <p>Stops the given custom app and shuts down all of its allocated compute resources.</p>
    */
   public stopApp(args: StopAppCommandInput, options?: __HttpHandlerOptions): Promise<StopAppCommandOutput>;
@@ -382,6 +394,7 @@ export class SimSpaceWeaver extends SimSpaceWeaverClient {
   }
 
   /**
+   * @public
    * <p>Stops the simulation clock.</p>
    */
   public stopClock(args: StopClockCommandInput, options?: __HttpHandlerOptions): Promise<StopClockCommandOutput>;
@@ -408,6 +421,7 @@ export class SimSpaceWeaver extends SimSpaceWeaverClient {
   }
 
   /**
+   * @public
    * <p>Stops the given simulation.</p>
    *          <important>
    *             <p>You can't restart a simulation after you stop it.
@@ -445,6 +459,7 @@ export class SimSpaceWeaver extends SimSpaceWeaverClient {
   }
 
   /**
+   * @public
    * <p>Adds tags to a SimSpace Weaver resource. For more information about tags, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a> in the
    *    <i>Amazon Web Services General Reference</i>.</p>
    */
@@ -472,6 +487,7 @@ export class SimSpaceWeaver extends SimSpaceWeaverClient {
   }
 
   /**
+   * @public
    * <p>Removes tags from a SimSpace Weaver resource. For more information about tags, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a> in the
    *    <i>Amazon Web Services General Reference</i>.</p>
    */

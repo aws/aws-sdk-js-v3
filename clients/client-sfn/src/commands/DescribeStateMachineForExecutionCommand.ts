@@ -15,22 +15,32 @@ import {
 
 import {
   DescribeStateMachineForExecutionInput,
-  DescribeStateMachineForExecutionInputFilterSensitiveLog,
   DescribeStateMachineForExecutionOutput,
   DescribeStateMachineForExecutionOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0DescribeStateMachineForExecutionCommand,
-  serializeAws_json1_0DescribeStateMachineForExecutionCommand,
+  de_DescribeStateMachineForExecutionCommand,
+  se_DescribeStateMachineForExecutionCommand,
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeStateMachineForExecutionCommand}.
+ */
 export interface DescribeStateMachineForExecutionCommandInput extends DescribeStateMachineForExecutionInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeStateMachineForExecutionCommand}.
+ */
 export interface DescribeStateMachineForExecutionCommandOutput
   extends DescribeStateMachineForExecutionOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information about a state machine's definition, its execution role ARN, and configuration. If an execution was dispatched by a Map Run, the Map Run is returned in the response. Additionally, the state machine returned will be the state machine associated with the Map Run.</p>
  *          <note>
  *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
@@ -42,13 +52,25 @@ export interface DescribeStateMachineForExecutionCommandOutput
  * import { SFNClient, DescribeStateMachineForExecutionCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, DescribeStateMachineForExecutionCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
+ * const input = { // DescribeStateMachineForExecutionInput
+ *   executionArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeStateMachineForExecutionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStateMachineForExecutionCommandInput - {@link DescribeStateMachineForExecutionCommandInput}
+ * @returns {@link DescribeStateMachineForExecutionCommandOutput}
  * @see {@link DescribeStateMachineForExecutionCommandInput} for command's `input` shape.
  * @see {@link DescribeStateMachineForExecutionCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
+ *
+ * @throws {@link ExecutionDoesNotExist} (client fault)
+ *  <p>The specified execution does not exist.</p>
+ *
+ * @throws {@link InvalidArn} (client fault)
+ *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+ *
  *
  */
 export class DescribeStateMachineForExecutionCommand extends $Command<
@@ -68,6 +90,9 @@ export class DescribeStateMachineForExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStateMachineForExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,7 +121,7 @@ export class DescribeStateMachineForExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeStateMachineForExecutionInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeStateMachineForExecutionOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -107,18 +132,24 @@ export class DescribeStateMachineForExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeStateMachineForExecutionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeStateMachineForExecutionCommand(input, context);
+    return se_DescribeStateMachineForExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeStateMachineForExecutionCommandOutput> {
-    return deserializeAws_json1_0DescribeStateMachineForExecutionCommand(output, context);
+    return de_DescribeStateMachineForExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

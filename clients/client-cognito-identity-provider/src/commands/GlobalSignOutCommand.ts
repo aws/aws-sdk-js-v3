@@ -23,17 +23,24 @@ import {
   GlobalSignOutRequest,
   GlobalSignOutRequestFilterSensitiveLog,
   GlobalSignOutResponse,
-  GlobalSignOutResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1GlobalSignOutCommand,
-  serializeAws_json1_1GlobalSignOutCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GlobalSignOutCommand, se_GlobalSignOutCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GlobalSignOutCommand}.
+ */
 export interface GlobalSignOutCommandInput extends GlobalSignOutRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GlobalSignOutCommand}.
+ */
 export interface GlobalSignOutCommandOutput extends GlobalSignOutResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Signs out users from all devices. It also invalidates all refresh tokens that Amazon Cognito
  *             has issued to a user. A user can still use a hosted UI cookie to retrieve new tokens
  *             for the duration of the 1-hour cookie validity period.</p>
@@ -43,13 +50,46 @@ export interface GlobalSignOutCommandOutput extends GlobalSignOutResponse, __Met
  * import { CognitoIdentityProviderClient, GlobalSignOutCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, GlobalSignOutCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // GlobalSignOutRequest
+ *   AccessToken: "STRING_VALUE", // required
+ * };
  * const command = new GlobalSignOutCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GlobalSignOutCommandInput - {@link GlobalSignOutCommandInput}
+ * @returns {@link GlobalSignOutCommandOutput}
  * @see {@link GlobalSignOutCommandInput} for command's `input` shape.
  * @see {@link GlobalSignOutCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.</p>
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
+ *             parameter.</p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * @throws {@link PasswordResetRequiredException} (client fault)
+ *  <p>This exception is thrown when a password reset is required.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
+ *             resource.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>This exception is thrown when the user has made too many requests for a given
+ *             operation.</p>
+ *
+ * @throws {@link UserNotConfirmedException} (client fault)
+ *  <p>This exception is thrown when a user isn't confirmed successfully.</p>
+ *
  *
  */
 export class GlobalSignOutCommand extends $Command<
@@ -69,6 +109,9 @@ export class GlobalSignOutCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GlobalSignOutCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,7 +140,7 @@ export class GlobalSignOutCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: GlobalSignOutRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GlobalSignOutResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +150,18 @@ export class GlobalSignOutCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GlobalSignOutCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GlobalSignOutCommand(input, context);
+    return se_GlobalSignOutCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GlobalSignOutCommandOutput> {
-    return deserializeAws_json1_1GlobalSignOutCommand(output, context);
+    return de_GlobalSignOutCommand(output, context);
   }
 
   // Start section: command_body_extra

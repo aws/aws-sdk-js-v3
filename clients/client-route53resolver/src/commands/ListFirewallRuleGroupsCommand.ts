@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListFirewallRuleGroupsRequest,
-  ListFirewallRuleGroupsRequestFilterSensitiveLog,
-  ListFirewallRuleGroupsResponse,
-  ListFirewallRuleGroupsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListFirewallRuleGroupsCommand,
-  serializeAws_json1_1ListFirewallRuleGroupsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListFirewallRuleGroupsRequest, ListFirewallRuleGroupsResponse } from "../models/models_0";
+import { de_ListFirewallRuleGroupsCommand, se_ListFirewallRuleGroupsCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListFirewallRuleGroupsCommand}.
+ */
 export interface ListFirewallRuleGroupsCommandInput extends ListFirewallRuleGroupsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListFirewallRuleGroupsCommand}.
+ */
 export interface ListFirewallRuleGroupsCommandOutput extends ListFirewallRuleGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the minimal high-level information for the rule groups that you have defined.  </p>
  *          <p>A single call might return only a partial list of the rule groups. For information, see <code>MaxResults</code>. </p>
  * @example
@@ -37,13 +40,33 @@ export interface ListFirewallRuleGroupsCommandOutput extends ListFirewallRuleGro
  * import { Route53ResolverClient, ListFirewallRuleGroupsCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, ListFirewallRuleGroupsCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = { // ListFirewallRuleGroupsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListFirewallRuleGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFirewallRuleGroupsCommandInput - {@link ListFirewallRuleGroupsCommandInput}
+ * @returns {@link ListFirewallRuleGroupsCommandOutput}
  * @see {@link ListFirewallRuleGroupsCommandInput} for command's `input` shape.
  * @see {@link ListFirewallRuleGroupsCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (client fault)
+ *  <p>We encountered an unknown error. Try again in a few minutes.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was throttled. Try again in a few minutes.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>You have provided an invalid command. Supported values are <code>ADD</code>,
+ * 			<code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
+ *
  *
  */
 export class ListFirewallRuleGroupsCommand extends $Command<
@@ -63,6 +86,9 @@ export class ListFirewallRuleGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFirewallRuleGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +117,8 @@ export class ListFirewallRuleGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFirewallRuleGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListFirewallRuleGroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +128,18 @@ export class ListFirewallRuleGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFirewallRuleGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListFirewallRuleGroupsCommand(input, context);
+    return se_ListFirewallRuleGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFirewallRuleGroupsCommandOutput> {
-    return deserializeAws_json1_1ListFirewallRuleGroupsCommand(output, context);
+    return de_ListFirewallRuleGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

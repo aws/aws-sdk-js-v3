@@ -14,19 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import {
-  DeleteNotificationChannelRequest,
-  DeleteNotificationChannelRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteNotificationChannelCommand,
-  serializeAws_json1_1DeleteNotificationChannelCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteNotificationChannelRequest } from "../models/models_0";
+import { de_DeleteNotificationChannelCommand, se_DeleteNotificationChannelCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteNotificationChannelCommand}.
+ */
 export interface DeleteNotificationChannelCommandInput extends DeleteNotificationChannelRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteNotificationChannelCommand}.
+ */
 export interface DeleteNotificationChannelCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Firewall Manager association with the IAM role and the Amazon Simple
  *       Notification Service (SNS) topic that is used to record Firewall Manager SNS logs.</p>
  * @example
@@ -35,13 +40,31 @@ export interface DeleteNotificationChannelCommandOutput extends __MetadataBearer
  * import { FMSClient, DeleteNotificationChannelCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, DeleteNotificationChannelCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
+ * const input = {};
  * const command = new DeleteNotificationChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNotificationChannelCommandInput - {@link DeleteNotificationChannelCommandInput}
+ * @returns {@link DeleteNotificationChannelCommandOutput}
  * @see {@link DeleteNotificationChannelCommandInput} for command's `input` shape.
  * @see {@link DeleteNotificationChannelCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (client fault)
+ *  <p>The operation failed because of a system problem, even though the request was valid. Retry
+ *       your request.</p>
+ *
+ * @throws {@link InvalidOperationException} (client fault)
+ *  <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have
+ *         submitted an <code>AssociateAdminAccount</code> request for an account ID that
+ *             was already set as the Firewall Manager administrator. Or you might have tried to access a Region
+ *   that's disabled by default, and that you need to enable for the Firewall Manager
+ *   administrator account and for Organizations before you can access it.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class DeleteNotificationChannelCommand extends $Command<
@@ -61,6 +84,9 @@ export class DeleteNotificationChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNotificationChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +115,8 @@ export class DeleteNotificationChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteNotificationChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,15 +126,21 @@ export class DeleteNotificationChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteNotificationChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteNotificationChannelCommand(input, context);
+    return se_DeleteNotificationChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteNotificationChannelCommandOutput> {
-    return deserializeAws_json1_1DeleteNotificationChannelCommand(output, context);
+    return de_DeleteNotificationChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

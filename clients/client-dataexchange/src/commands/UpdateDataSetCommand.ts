@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
-import {
-  UpdateDataSetRequest,
-  UpdateDataSetRequestFilterSensitiveLog,
-  UpdateDataSetResponse,
-  UpdateDataSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateDataSetCommand,
-  serializeAws_restJson1UpdateDataSetCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateDataSetRequest, UpdateDataSetResponse } from "../models/models_0";
+import { de_UpdateDataSetCommand, se_UpdateDataSetCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateDataSetCommand}.
+ */
 export interface UpdateDataSetCommandInput extends UpdateDataSetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateDataSetCommand}.
+ */
 export interface UpdateDataSetCommandOutput extends UpdateDataSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation updates a data set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,36 @@ export interface UpdateDataSetCommandOutput extends UpdateDataSetResponse, __Met
  * import { DataExchangeClient, UpdateDataSetCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, UpdateDataSetCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
  * const client = new DataExchangeClient(config);
+ * const input = { // UpdateDataSetRequest
+ *   DataSetId: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Name: "STRING_VALUE",
+ * };
  * const command = new UpdateDataSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDataSetCommandInput - {@link UpdateDataSetCommandInput}
+ * @returns {@link UpdateDataSetCommandOutput}
  * @see {@link UpdateDataSetCommandInput} for command's `input` shape.
  * @see {@link UpdateDataSetCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to the resource is denied.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An exception occurred with the service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource couldn't be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The limit on the number of requests per second was exceeded.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request was invalid.</p>
+ *
  *
  */
 export class UpdateDataSetCommand extends $Command<
@@ -62,6 +88,9 @@ export class UpdateDataSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDataSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +117,8 @@ export class UpdateDataSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDataSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDataSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +128,18 @@ export class UpdateDataSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDataSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDataSetCommand(input, context);
+    return se_UpdateDataSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDataSetCommandOutput> {
-    return deserializeAws_restJson1UpdateDataSetCommand(output, context);
+    return de_UpdateDataSetCommand(output, context);
   }
 
   // Start section: command_body_extra

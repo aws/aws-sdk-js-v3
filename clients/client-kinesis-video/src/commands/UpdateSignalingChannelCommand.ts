@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
-import {
-  UpdateSignalingChannelInput,
-  UpdateSignalingChannelInputFilterSensitiveLog,
-  UpdateSignalingChannelOutput,
-  UpdateSignalingChannelOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateSignalingChannelCommand,
-  serializeAws_restJson1UpdateSignalingChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateSignalingChannelInput, UpdateSignalingChannelOutput } from "../models/models_0";
+import { de_UpdateSignalingChannelCommand, se_UpdateSignalingChannelCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateSignalingChannelCommand}.
+ */
 export interface UpdateSignalingChannelCommandInput extends UpdateSignalingChannelInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateSignalingChannelCommand}.
+ */
 export interface UpdateSignalingChannelCommandOutput extends UpdateSignalingChannelOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the existing signaling channel. This is an asynchronous operation and takes
  *             time to complete. </p>
  *          <p>If the <code>MessageTtlSeconds</code> value is updated (either increased or reduced),
@@ -41,13 +44,61 @@ export interface UpdateSignalingChannelCommandOutput extends UpdateSignalingChan
  * import { KinesisVideoClient, UpdateSignalingChannelCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, UpdateSignalingChannelCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
+ * const input = { // UpdateSignalingChannelInput
+ *   ChannelARN: "STRING_VALUE", // required
+ *   CurrentVersion: "STRING_VALUE", // required
+ *   SingleMasterConfiguration: { // SingleMasterConfiguration
+ *     MessageTtlSeconds: Number("int"),
+ *   },
+ * };
  * const command = new UpdateSignalingChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSignalingChannelCommandInput - {@link UpdateSignalingChannelCommandInput}
+ * @returns {@link UpdateSignalingChannelCommandOutput}
  * @see {@link UpdateSignalingChannelCommandInput} for command's `input` shape.
  * @see {@link UpdateSignalingChannelCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have required permissions to perform this operation.</p>
+ *
+ * @throws {@link ClientLimitExceededException} (client fault)
+ *  <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
+ *             allowed client calls. Try making the call later.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>The value for this input parameter is invalid.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>When the input <code>StreamARN</code> or <code>ChannelARN</code>
+ *             in <code>CLOUD_STORAGE_MODE</code> is already mapped to a different
+ *             Kinesis Video Stream resource, or if the provided input <code>StreamARN</code>
+ *             or <code>ChannelARN</code> is not in Active status, try one of the following : </p>
+ *          <ol>
+ *             <li>
+ *                <p>The <code>DescribeMediaStorageConfiguration</code> API to determine what the stream given channel is mapped to.
+ *             </p>
+ *             </li>
+ *             <li>
+ *                <p>The <code>DescribeMappedResourceConfiguration</code> API to determine the channel that the given stream is mapped to.
+ *             </p>
+ *             </li>
+ *             <li>
+ *                <p>The <code>DescribeStream</code> or <code>DescribeSignalingChannel</code> API to determine the status of the resource.
+ *             </p>
+ *             </li>
+ *          </ol>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
+ *
+ * @throws {@link VersionMismatchException} (client fault)
+ *  <p>The stream version that you specified is not the latest version. To get the latest
+ *             version, use the <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_DescribeStream.html">DescribeStream</a>
+ *             API.</p>
+ *
  *
  */
 export class UpdateSignalingChannelCommand extends $Command<
@@ -67,6 +118,9 @@ export class UpdateSignalingChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSignalingChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +149,8 @@ export class UpdateSignalingChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSignalingChannelInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSignalingChannelOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +160,18 @@ export class UpdateSignalingChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSignalingChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateSignalingChannelCommand(input, context);
+    return se_UpdateSignalingChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSignalingChannelCommandOutput> {
-    return deserializeAws_restJson1UpdateSignalingChannelCommand(output, context);
+    return de_UpdateSignalingChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import {
-  DeleteInvitationsRequest,
-  DeleteInvitationsRequestFilterSensitiveLog,
-  DeleteInvitationsResponse,
-  DeleteInvitationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteInvitationsCommand,
-  serializeAws_restJson1DeleteInvitationsCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteInvitationsRequest, DeleteInvitationsResponse } from "../models/models_0";
+import { de_DeleteInvitationsCommand, se_DeleteInvitationsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteInvitationsCommand}.
+ */
 export interface DeleteInvitationsCommandInput extends DeleteInvitationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteInvitationsCommand}.
+ */
 export interface DeleteInvitationsCommandOutput extends DeleteInvitationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes Amazon Macie membership invitations that were received from specific accounts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,42 @@ export interface DeleteInvitationsCommandOutput extends DeleteInvitationsRespons
  * import { Macie2Client, DeleteInvitationsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, DeleteInvitationsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = { // DeleteInvitationsRequest
+ *   accountIds: [ // __listOf__string // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DeleteInvitationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteInvitationsCommandInput - {@link DeleteInvitationsCommandInput}
+ * @returns {@link DeleteInvitationsCommandOutput}
  * @see {@link DeleteInvitationsCommandInput} for command's `input` shape.
  * @see {@link DeleteInvitationsCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+ *
  *
  */
 export class DeleteInvitationsCommand extends $Command<
@@ -62,6 +94,9 @@ export class DeleteInvitationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteInvitationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +125,8 @@ export class DeleteInvitationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteInvitationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteInvitationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +136,18 @@ export class DeleteInvitationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteInvitationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteInvitationsCommand(input, context);
+    return se_DeleteInvitationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInvitationsCommandOutput> {
-    return deserializeAws_restJson1DeleteInvitationsCommand(output, context);
+    return de_DeleteInvitationsCommand(output, context);
   }
 
   // Start section: command_body_extra

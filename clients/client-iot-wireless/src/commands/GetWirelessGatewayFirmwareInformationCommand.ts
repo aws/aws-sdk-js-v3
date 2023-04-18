@@ -16,22 +16,31 @@ import {
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import {
   GetWirelessGatewayFirmwareInformationRequest,
-  GetWirelessGatewayFirmwareInformationRequestFilterSensitiveLog,
   GetWirelessGatewayFirmwareInformationResponse,
-  GetWirelessGatewayFirmwareInformationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetWirelessGatewayFirmwareInformationCommand,
-  serializeAws_restJson1GetWirelessGatewayFirmwareInformationCommand,
+  de_GetWirelessGatewayFirmwareInformationCommand,
+  se_GetWirelessGatewayFirmwareInformationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetWirelessGatewayFirmwareInformationCommand}.
+ */
 export interface GetWirelessGatewayFirmwareInformationCommandInput
   extends GetWirelessGatewayFirmwareInformationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetWirelessGatewayFirmwareInformationCommand}.
+ */
 export interface GetWirelessGatewayFirmwareInformationCommandOutput
   extends GetWirelessGatewayFirmwareInformationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the firmware version and other information about a wireless gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +48,34 @@ export interface GetWirelessGatewayFirmwareInformationCommandOutput
  * import { IoTWirelessClient, GetWirelessGatewayFirmwareInformationCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, GetWirelessGatewayFirmwareInformationCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // GetWirelessGatewayFirmwareInformationRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetWirelessGatewayFirmwareInformationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetWirelessGatewayFirmwareInformationCommandInput - {@link GetWirelessGatewayFirmwareInformationCommandInput}
+ * @returns {@link GetWirelessGatewayFirmwareInformationCommandOutput}
  * @see {@link GetWirelessGatewayFirmwareInformationCommandInput} for command's `input` shape.
  * @see {@link GetWirelessGatewayFirmwareInformationCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>User does not have permission to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred while processing a request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because it exceeded the allowed API request rate.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input did not meet the specified constraints.</p>
+ *
  *
  */
 export class GetWirelessGatewayFirmwareInformationCommand extends $Command<
@@ -65,6 +95,9 @@ export class GetWirelessGatewayFirmwareInformationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetWirelessGatewayFirmwareInformationCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +126,8 @@ export class GetWirelessGatewayFirmwareInformationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetWirelessGatewayFirmwareInformationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetWirelessGatewayFirmwareInformationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,18 +137,24 @@ export class GetWirelessGatewayFirmwareInformationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetWirelessGatewayFirmwareInformationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetWirelessGatewayFirmwareInformationCommand(input, context);
+    return se_GetWirelessGatewayFirmwareInformationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetWirelessGatewayFirmwareInformationCommandOutput> {
-    return deserializeAws_restJson1GetWirelessGatewayFirmwareInformationCommand(output, context);
+    return de_GetWirelessGatewayFirmwareInformationCommand(output, context);
   }
 
   // Start section: command_body_extra

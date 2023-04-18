@@ -26,12 +26,14 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
@@ -75,12 +77,18 @@ import {
   DescribeScheduledActionsCommandInput,
   DescribeScheduledActionsCommandOutput,
 } from "./commands/DescribeScheduledActionsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
 import { PutScalingPolicyCommandInput, PutScalingPolicyCommandOutput } from "./commands/PutScalingPolicyCommand";
 import { PutScheduledActionCommandInput, PutScheduledActionCommandOutput } from "./commands/PutScheduledActionCommand";
 import {
   RegisterScalableTargetCommandInput,
   RegisterScalableTargetCommandOutput,
 } from "./commands/RegisterScalableTargetCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -89,6 +97,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | DeleteScalingPolicyCommandInput
   | DeleteScheduledActionCommandInput
@@ -97,10 +108,16 @@ export type ServiceInputTypes =
   | DescribeScalingActivitiesCommandInput
   | DescribeScalingPoliciesCommandInput
   | DescribeScheduledActionsCommandInput
+  | ListTagsForResourceCommandInput
   | PutScalingPolicyCommandInput
   | PutScheduledActionCommandInput
-  | RegisterScalableTargetCommandInput;
+  | RegisterScalableTargetCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | DeleteScalingPolicyCommandOutput
   | DeleteScheduledActionCommandOutput
@@ -109,10 +126,16 @@ export type ServiceOutputTypes =
   | DescribeScalingActivitiesCommandOutput
   | DescribeScalingPoliciesCommandOutput
   | DescribeScheduledActionsCommandOutput
+  | ListTagsForResourceCommandOutput
   | PutScalingPolicyCommandOutput
   | PutScheduledActionCommandOutput
-  | RegisterScalableTargetCommandOutput;
+  | RegisterScalableTargetCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -120,11 +143,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -181,19 +204,10 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
-   * Value for how many times a request will be made at most in case of retry.
+   * Unique service identifier.
+   * @internal
    */
-  maxAttempts?: number | __Provider<number>;
-
-  /**
-   * Specifies which retry algorithm to use.
-   */
-  retryMode?: string | __Provider<string>;
-
-  /**
-   * Optional logger for logging debug/info/warn/error.
-   */
-  logger?: __Logger;
+  serviceId?: string;
 
   /**
    * Enables IPv6/IPv4 dualstack endpoint.
@@ -204,12 +218,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Enables FIPS compatible endpoints.
    */
   useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
 
   /**
    * The AWS region to which this client will send requests
@@ -229,11 +237,29 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * Value for how many times a request will be made at most in case of retry.
    */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Specifies which retry algorithm to use.
+   */
+  retryMode?: string | __Provider<string>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
+
+  /**
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   */
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type ApplicationAutoScalingClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -244,10 +270,15 @@ type ApplicationAutoScalingClientConfigType = Partial<__SmithyConfiguration<__Ht
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of ApplicationAutoScalingClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of ApplicationAutoScalingClient class constructor that set the region, credentials and other options.
  */
 export interface ApplicationAutoScalingClientConfig extends ApplicationAutoScalingClientConfigType {}
 
+/**
+ * @public
+ */
 type ApplicationAutoScalingClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -258,11 +289,14 @@ type ApplicationAutoScalingClientResolvedConfigType = __SmithyResolvedConfigurat
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of ApplicationAutoScalingClient class. This is resolved and normalized from the {@link ApplicationAutoScalingClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of ApplicationAutoScalingClient class. This is resolved and normalized from the {@link ApplicationAutoScalingClientConfig | constructor configuration interface}.
  */
 export interface ApplicationAutoScalingClientResolvedConfig extends ApplicationAutoScalingClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>With Application Auto Scaling, you can configure automatic scaling for the following
  *       resources:</p>
  *          <ul>
@@ -309,6 +343,8 @@ export interface ApplicationAutoScalingClientResolvedConfig extends ApplicationA
  *                <p>Custom resources provided by your own applications or services</p>
  *             </li>
  *          </ul>
+ *          <p>To learn more about Application Auto Scaling, see the <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/what-is-application-auto-scaling.html">Application Auto Scaling User
+ *       Guide</a>.</p>
  *          <p>
  *             <b>API Summary</b>
  *          </p>
@@ -332,11 +368,6 @@ export interface ApplicationAutoScalingClientResolvedConfig extends ApplicationA
  *           and scheduled scaling.</p>
  *             </li>
  *          </ul>
- *
- *
- *          <p>To learn more about Application Auto Scaling, including information about granting IAM users required
- *       permissions for Application Auto Scaling actions, see the <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/what-is-application-auto-scaling.html">Application Auto Scaling User
- *         Guide</a>.</p>
  */
 export class ApplicationAutoScalingClient extends __Client<
   __HttpHandlerOptions,

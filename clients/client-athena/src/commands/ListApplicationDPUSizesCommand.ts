@@ -14,36 +14,57 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import {
-  ListApplicationDPUSizesInput,
-  ListApplicationDPUSizesInputFilterSensitiveLog,
-  ListApplicationDPUSizesOutput,
-  ListApplicationDPUSizesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListApplicationDPUSizesCommand,
-  serializeAws_json1_1ListApplicationDPUSizesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListApplicationDPUSizesInput, ListApplicationDPUSizesOutput } from "../models/models_0";
+import { de_ListApplicationDPUSizesCommand, se_ListApplicationDPUSizesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListApplicationDPUSizesCommand}.
+ */
 export interface ListApplicationDPUSizesCommandInput extends ListApplicationDPUSizesInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListApplicationDPUSizesCommand}.
+ */
 export interface ListApplicationDPUSizesCommandOutput extends ListApplicationDPUSizesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the supported DPU sizes for the supported application runtimes (for example,
- *                 <code>Jupyter 1.0</code>). </p>
+ *                 <code>Athena notebook version 1</code>). </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AthenaClient, ListApplicationDPUSizesCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, ListApplicationDPUSizesCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = { // ListApplicationDPUSizesInput
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListApplicationDPUSizesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListApplicationDPUSizesCommandInput - {@link ListApplicationDPUSizesCommandInput}
+ * @returns {@link ListApplicationDPUSizesCommandOutput}
  * @see {@link ListApplicationDPUSizesCommandInput} for command's `input` shape.
  * @see {@link ListApplicationDPUSizesCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Indicates a platform issue, which may be due to a transient condition or
+ *             outage.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>Indicates that something is wrong with the input to the request. For example, a
+ *             required parameter may be missing or out of range.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Indicates that the request was throttled.</p>
+ *
  *
  */
 export class ListApplicationDPUSizesCommand extends $Command<
@@ -63,6 +84,9 @@ export class ListApplicationDPUSizesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListApplicationDPUSizesCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +115,8 @@ export class ListApplicationDPUSizesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListApplicationDPUSizesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListApplicationDPUSizesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +126,18 @@ export class ListApplicationDPUSizesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListApplicationDPUSizesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListApplicationDPUSizesCommand(input, context);
+    return se_ListApplicationDPUSizesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListApplicationDPUSizesCommandOutput> {
-    return deserializeAws_json1_1ListApplicationDPUSizesCommand(output, context);
+    return de_ListApplicationDPUSizesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,22 +15,31 @@ import {
 
 import {
   PurchaseReservedDBInstancesOfferingMessage,
-  PurchaseReservedDBInstancesOfferingMessageFilterSensitiveLog,
   PurchaseReservedDBInstancesOfferingResult,
-  PurchaseReservedDBInstancesOfferingResultFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_queryPurchaseReservedDBInstancesOfferingCommand,
-  serializeAws_queryPurchaseReservedDBInstancesOfferingCommand,
+  de_PurchaseReservedDBInstancesOfferingCommand,
+  se_PurchaseReservedDBInstancesOfferingCommand,
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link PurchaseReservedDBInstancesOfferingCommand}.
+ */
 export interface PurchaseReservedDBInstancesOfferingCommandInput extends PurchaseReservedDBInstancesOfferingMessage {}
+/**
+ * @public
+ *
+ * The output of {@link PurchaseReservedDBInstancesOfferingCommand}.
+ */
 export interface PurchaseReservedDBInstancesOfferingCommandOutput
   extends PurchaseReservedDBInstancesOfferingResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Purchases a reserved DB instance offering.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +47,74 @@ export interface PurchaseReservedDBInstancesOfferingCommandOutput
  * import { RDSClient, PurchaseReservedDBInstancesOfferingCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, PurchaseReservedDBInstancesOfferingCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // PurchaseReservedDBInstancesOfferingMessage
+ *   ReservedDBInstancesOfferingId: "STRING_VALUE", // required
+ *   ReservedDBInstanceId: "STRING_VALUE",
+ *   DBInstanceCount: Number("int"),
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new PurchaseReservedDBInstancesOfferingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PurchaseReservedDBInstancesOfferingCommandInput - {@link PurchaseReservedDBInstancesOfferingCommandInput}
+ * @returns {@link PurchaseReservedDBInstancesOfferingCommandOutput}
  * @see {@link PurchaseReservedDBInstancesOfferingCommandInput} for command's `input` shape.
  * @see {@link PurchaseReservedDBInstancesOfferingCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ * @throws {@link ReservedDBInstanceAlreadyExistsFault} (client fault)
+ *  <p>User already has a reservation with the given identifier.</p>
+ *
+ * @throws {@link ReservedDBInstanceQuotaExceededFault} (client fault)
+ *  <p>Request would exceed the user's DB Instance quota.</p>
+ *
+ * @throws {@link ReservedDBInstancesOfferingNotFoundFault} (client fault)
+ *  <p>Specified offering does not exist.</p>
+ *
+ *
+ * @example To purchase a reserved DB instance
+ * ```javascript
+ * // The following example shows how to buy the reserved DB instance offering from the previous example.
+ * const input = {
+ *   "ReservedDBInstanceId": "8ba30be1-b9ec-447f-8f23-6114e3f4c7b4",
+ *   "ReservedDBInstancesOfferingId": ""
+ * };
+ * const command = new PurchaseReservedDBInstancesOfferingCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ReservedDBInstance": {
+ *     "CurrencyCode": "USD",
+ *     "DBInstanceClass": "db.t2.micro",
+ *     "DBInstanceCount": 1,
+ *     "Duration": 31536000,
+ *     "FixedPrice": 51,
+ *     "MultiAZ": false,
+ *     "OfferingType": "Partial Upfront",
+ *     "ProductDescription": "mysql",
+ *     "RecurringCharges": [
+ *       {
+ *         "RecurringChargeAmount": 0.006,
+ *         "RecurringChargeFrequency": "Hourly"
+ *       }
+ *     ],
+ *     "ReservedDBInstanceArn": "arn:aws:rds:us-west-2:123456789012:ri:ri-2020-06-29-16-54-57-670",
+ *     "ReservedDBInstanceId": "ri-2020-06-29-16-54-57-670",
+ *     "ReservedDBInstancesOfferingId": "8ba30be1-b9ec-447f-8f23-6114e3f4c7b4",
+ *     "StartTime": "2020-06-29T16:54:57.670Z",
+ *     "State": "payment-pending",
+ *     "UsagePrice": 0
+ *   }
+ * }
+ * *\/
+ * // example id: to-purchase-a-reserved-db-instance-1680263732858
+ * ```
  *
  */
 export class PurchaseReservedDBInstancesOfferingCommand extends $Command<
@@ -64,6 +134,9 @@ export class PurchaseReservedDBInstancesOfferingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PurchaseReservedDBInstancesOfferingCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +165,8 @@ export class PurchaseReservedDBInstancesOfferingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PurchaseReservedDBInstancesOfferingMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: PurchaseReservedDBInstancesOfferingResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +176,24 @@ export class PurchaseReservedDBInstancesOfferingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PurchaseReservedDBInstancesOfferingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryPurchaseReservedDBInstancesOfferingCommand(input, context);
+    return se_PurchaseReservedDBInstancesOfferingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PurchaseReservedDBInstancesOfferingCommandOutput> {
-    return deserializeAws_queryPurchaseReservedDBInstancesOfferingCommand(output, context);
+    return de_PurchaseReservedDBInstancesOfferingCommand(output, context);
   }
 
   // Start section: command_body_extra

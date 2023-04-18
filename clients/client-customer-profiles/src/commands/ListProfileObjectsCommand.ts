@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
-import {
-  ListProfileObjectsRequest,
-  ListProfileObjectsRequestFilterSensitiveLog,
-  ListProfileObjectsResponse,
-  ListProfileObjectsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListProfileObjectsCommand,
-  serializeAws_restJson1ListProfileObjectsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListProfileObjectsRequest, ListProfileObjectsResponse } from "../models/models_0";
+import { de_ListProfileObjectsCommand, se_ListProfileObjectsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListProfileObjectsCommand}.
+ */
 export interface ListProfileObjectsCommandInput extends ListProfileObjectsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListProfileObjectsCommand}.
+ */
 export interface ListProfileObjectsCommandOutput extends ListProfileObjectsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of objects associated with a profile of a given ProfileObjectType.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,44 @@ export interface ListProfileObjectsCommandOutput extends ListProfileObjectsRespo
  * import { CustomerProfilesClient, ListProfileObjectsCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, ListProfileObjectsCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
+ * const input = { // ListProfileObjectsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   DomainName: "STRING_VALUE", // required
+ *   ObjectTypeName: "STRING_VALUE", // required
+ *   ProfileId: "STRING_VALUE", // required
+ *   ObjectFilter: { // ObjectFilter
+ *     KeyName: "STRING_VALUE", // required
+ *     Values: [ // requestValueList // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new ListProfileObjectsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProfileObjectsCommandInput - {@link ListProfileObjectsCommandInput}
+ * @returns {@link ListProfileObjectsCommandOutput}
  * @see {@link ListProfileObjectsCommandInput} for command's `input` shape.
  * @see {@link ListProfileObjectsCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input you provided is invalid.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource does not exist, or access was denied.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>You exceeded the maximum number of requests.</p>
+ *
  *
  */
 export class ListProfileObjectsCommand extends $Command<
@@ -62,6 +96,9 @@ export class ListProfileObjectsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProfileObjectsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +127,8 @@ export class ListProfileObjectsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListProfileObjectsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListProfileObjectsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +138,18 @@ export class ListProfileObjectsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListProfileObjectsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListProfileObjectsCommand(input, context);
+    return se_ListProfileObjectsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProfileObjectsCommandOutput> {
-    return deserializeAws_restJson1ListProfileObjectsCommand(output, context);
+    return de_ListProfileObjectsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListWorldsRequest,
-  ListWorldsRequestFilterSensitiveLog,
-  ListWorldsResponse,
-  ListWorldsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListWorldsCommand,
-  serializeAws_restJson1ListWorldsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListWorldsRequest, ListWorldsResponse } from "../models/models_0";
+import { de_ListWorldsCommand, se_ListWorldsCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListWorldsCommand}.
+ */
 export interface ListWorldsCommandInput extends ListWorldsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListWorldsCommand}.
+ */
 export interface ListWorldsCommandOutput extends ListWorldsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists worlds.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,38 @@ export interface ListWorldsCommandOutput extends ListWorldsResponse, __MetadataB
  * import { RoboMakerClient, ListWorldsCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, ListWorldsCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = { // ListWorldsRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   filters: [ // Filters
+ *     { // Filter
+ *       name: "STRING_VALUE",
+ *       values: [ // FilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new ListWorldsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWorldsCommandInput - {@link ListWorldsCommandInput}
+ * @returns {@link ListWorldsCommandOutput}
  * @see {@link ListWorldsCommandInput} for command's `input` shape.
  * @see {@link ListWorldsCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>AWS RoboMaker experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter specified in a request is not valid, is unsupported, or cannot be used. The
+ *          returned message provides an explanation of the error value.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
+ *
  *
  */
 export class ListWorldsCommand extends $Command<
@@ -62,6 +90,9 @@ export class ListWorldsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWorldsCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +119,8 @@ export class ListWorldsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListWorldsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListWorldsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +130,18 @@ export class ListWorldsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListWorldsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListWorldsCommand(input, context);
+    return se_ListWorldsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWorldsCommandOutput> {
-    return deserializeAws_restJson1ListWorldsCommand(output, context);
+    return de_ListWorldsCommand(output, context);
   }
 
   // Start section: command_body_extra

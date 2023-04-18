@@ -15,22 +15,31 @@ import {
 
 import {
   ListJournalKinesisStreamsForLedgerRequest,
-  ListJournalKinesisStreamsForLedgerRequestFilterSensitiveLog,
   ListJournalKinesisStreamsForLedgerResponse,
-  ListJournalKinesisStreamsForLedgerResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListJournalKinesisStreamsForLedgerCommand,
-  serializeAws_restJson1ListJournalKinesisStreamsForLedgerCommand,
+  de_ListJournalKinesisStreamsForLedgerCommand,
+  se_ListJournalKinesisStreamsForLedgerCommand,
 } from "../protocols/Aws_restJson1";
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListJournalKinesisStreamsForLedgerCommand}.
+ */
 export interface ListJournalKinesisStreamsForLedgerCommandInput extends ListJournalKinesisStreamsForLedgerRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListJournalKinesisStreamsForLedgerCommand}.
+ */
 export interface ListJournalKinesisStreamsForLedgerCommandOutput
   extends ListJournalKinesisStreamsForLedgerResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an array of all Amazon QLDB journal stream descriptors for a given ledger. The
  *          output of each stream descriptor includes the same details that are returned by
  *             <code>DescribeJournalKinesisStream</code>.</p>
@@ -46,13 +55,30 @@ export interface ListJournalKinesisStreamsForLedgerCommandOutput
  * import { QLDBClient, ListJournalKinesisStreamsForLedgerCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, ListJournalKinesisStreamsForLedgerCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
  * const client = new QLDBClient(config);
+ * const input = { // ListJournalKinesisStreamsForLedgerRequest
+ *   LedgerName: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListJournalKinesisStreamsForLedgerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListJournalKinesisStreamsForLedgerCommandInput - {@link ListJournalKinesisStreamsForLedgerCommandInput}
+ * @returns {@link ListJournalKinesisStreamsForLedgerCommandOutput}
  * @see {@link ListJournalKinesisStreamsForLedgerCommandInput} for command's `input` shape.
  * @see {@link ListJournalKinesisStreamsForLedgerCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters in the request aren't valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource doesn't exist.</p>
+ *
+ * @throws {@link ResourcePreconditionNotMetException} (client fault)
+ *  <p>The operation failed because a condition wasn't satisfied in advance.</p>
+ *
  *
  */
 export class ListJournalKinesisStreamsForLedgerCommand extends $Command<
@@ -72,6 +98,9 @@ export class ListJournalKinesisStreamsForLedgerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListJournalKinesisStreamsForLedgerCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +129,8 @@ export class ListJournalKinesisStreamsForLedgerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListJournalKinesisStreamsForLedgerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListJournalKinesisStreamsForLedgerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,18 +140,24 @@ export class ListJournalKinesisStreamsForLedgerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListJournalKinesisStreamsForLedgerCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListJournalKinesisStreamsForLedgerCommand(input, context);
+    return se_ListJournalKinesisStreamsForLedgerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListJournalKinesisStreamsForLedgerCommandOutput> {
-    return deserializeAws_restJson1ListJournalKinesisStreamsForLedgerCommand(output, context);
+    return de_ListJournalKinesisStreamsForLedgerCommand(output, context);
   }
 
   // Start section: command_body_extra

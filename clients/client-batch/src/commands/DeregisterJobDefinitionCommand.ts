@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
-import {
-  DeregisterJobDefinitionRequest,
-  DeregisterJobDefinitionRequestFilterSensitiveLog,
-  DeregisterJobDefinitionResponse,
-  DeregisterJobDefinitionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeregisterJobDefinitionCommand,
-  serializeAws_restJson1DeregisterJobDefinitionCommand,
-} from "../protocols/Aws_restJson1";
+import { DeregisterJobDefinitionRequest, DeregisterJobDefinitionResponse } from "../models/models_0";
+import { de_DeregisterJobDefinitionCommand, se_DeregisterJobDefinitionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeregisterJobDefinitionCommand}.
+ */
 export interface DeregisterJobDefinitionCommandInput extends DeregisterJobDefinitionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeregisterJobDefinitionCommand}.
+ */
 export interface DeregisterJobDefinitionCommandOutput extends DeregisterJobDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deregisters an Batch job definition. Job definitions are permanently deleted after 180 days.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,38 @@ export interface DeregisterJobDefinitionCommandOutput extends DeregisterJobDefin
  * import { BatchClient, DeregisterJobDefinitionCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, DeregisterJobDefinitionCommand } = require("@aws-sdk/client-batch"); // CommonJS import
  * const client = new BatchClient(config);
+ * const input = { // DeregisterJobDefinitionRequest
+ *   jobDefinition: "STRING_VALUE", // required
+ * };
  * const command = new DeregisterJobDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterJobDefinitionCommandInput - {@link DeregisterJobDefinitionCommandInput}
+ * @returns {@link DeregisterJobDefinitionCommandOutput}
  * @see {@link DeregisterJobDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeregisterJobDefinitionCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf
+ *    of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier
+ *    that's not valid.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server issue.</p>
+ *
+ *
+ * @example To deregister a job definition
+ * ```javascript
+ * // This example deregisters a job definition called sleep10.
+ * const input = {
+ *   "jobDefinition": "sleep10"
+ * };
+ * const command = new DeregisterJobDefinitionCommand(input);
+ * await client.send(command);
+ * // example id: to-deregister-a-job-definition-1481153579565
+ * ```
  *
  */
 export class DeregisterJobDefinitionCommand extends $Command<
@@ -62,6 +90,9 @@ export class DeregisterJobDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterJobDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +121,8 @@ export class DeregisterJobDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterJobDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeregisterJobDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +132,18 @@ export class DeregisterJobDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterJobDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeregisterJobDefinitionCommand(input, context);
+    return se_DeregisterJobDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterJobDefinitionCommandOutput> {
-    return deserializeAws_restJson1DeregisterJobDefinitionCommand(output, context);
+    return de_DeregisterJobDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

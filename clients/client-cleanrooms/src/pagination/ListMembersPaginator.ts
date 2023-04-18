@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { CleanRooms } from "../CleanRooms";
 import { CleanRoomsClient } from "../CleanRoomsClient";
 import { ListMembersCommand, ListMembersCommandInput, ListMembersCommandOutput } from "../commands/ListMembersCommand";
 import { CleanRoomsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CleanRoomsClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListMembersCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: CleanRooms,
-  input: ListMembersCommandInput,
-  ...args: any
-): Promise<ListMembersCommandOutput> => {
-  // @ts-ignore
-  return await client.listMembers(input, ...args);
-};
 export async function* paginateListMembers(
   config: CleanRoomsPaginationConfiguration,
   input: ListMembersCommandInput,
@@ -40,9 +31,7 @@ export async function* paginateListMembers(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof CleanRooms) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof CleanRoomsClient) {
+    if (config.client instanceof CleanRoomsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected CleanRooms | CleanRoomsClient");

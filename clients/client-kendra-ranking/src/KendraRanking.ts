@@ -41,12 +41,14 @@ import {
 import { KendraRankingClient } from "./KendraRankingClient";
 
 /**
+ * @public
  * <p>Amazon Kendra Intelligent Ranking uses Amazon Kendra
  *             semantic search capabilities to intelligently re-rank a search
  *             service's results.</p>
  */
 export class KendraRanking extends KendraRankingClient {
   /**
+   * @public
    * <p>Creates a rescore execution plan. A rescore execution
    *             plan is an Amazon Kendra Intelligent Ranking resource
    *             used for provisioning the <code>Rescore</code> API. You set
@@ -88,6 +90,7 @@ export class KendraRanking extends KendraRankingClient {
   }
 
   /**
+   * @public
    * <p>Deletes a rescore execution plan. A rescore execution
    *             plan is an Amazon Kendra Intelligent Ranking resource
    *             used for provisioning the <code>Rescore</code> API.</p>
@@ -122,6 +125,7 @@ export class KendraRanking extends KendraRankingClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a rescore execution plan. A rescore
    *             execution plan is an Amazon Kendra Intelligent Ranking
    *             resource used for provisioning the <code>Rescore</code> API.</p>
@@ -156,6 +160,7 @@ export class KendraRanking extends KendraRankingClient {
   }
 
   /**
+   * @public
    * <p>Lists your rescore execution plans. A rescore execution plan
    *             is an Amazon Kendra Intelligent Ranking resource used for
    *             provisioning the <code>Rescore</code> API.</p>
@@ -190,6 +195,7 @@ export class KendraRanking extends KendraRankingClient {
   }
 
   /**
+   * @public
    * <p>Gets a list of tags associated with a specified resource.
    *             A rescore execution plan is an example of a resource that
    *             can have tags associated with it.</p>
@@ -224,6 +230,7 @@ export class KendraRanking extends KendraRankingClient {
   }
 
   /**
+   * @public
    * <p>Rescores or re-ranks search results from a search service
    *             such as OpenSearch (self managed). You use the semantic search
    *             capabilities of Amazon Kendra Intelligent Ranking to
@@ -253,6 +260,7 @@ export class KendraRanking extends KendraRankingClient {
   }
 
   /**
+   * @public
    * <p>Adds a specified tag to a specified rescore execution
    *             plan. A rescore execution plan is an Amazon Kendra
    *             Intelligent Ranking resource used for provisioning the
@@ -283,6 +291,7 @@ export class KendraRanking extends KendraRankingClient {
   }
 
   /**
+   * @public
    * <p>Removes a tag from a rescore execution plan. A rescore
    *             execution plan is an Amazon Kendra Intelligent
    *             Ranking resource used for provisioning the
@@ -318,6 +327,7 @@ export class KendraRanking extends KendraRankingClient {
   }
 
   /**
+   * @public
    * <p>Updates a rescore execution plan. A rescore execution plan
    *             is an Amazon Kendra Intelligent Ranking resource used for
    *             provisioning the <code>Rescore</code> API. You can update the

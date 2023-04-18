@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListEventTrackersRequest,
-  ListEventTrackersRequestFilterSensitiveLog,
-  ListEventTrackersResponse,
-  ListEventTrackersResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListEventTrackersRequest, ListEventTrackersResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1ListEventTrackersCommand,
-  serializeAws_json1_1ListEventTrackersCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListEventTrackersCommand, se_ListEventTrackersCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListEventTrackersCommand}.
+ */
 export interface ListEventTrackersCommandInput extends ListEventTrackersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListEventTrackersCommand}.
+ */
 export interface ListEventTrackersCommandOutput extends ListEventTrackersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the list of event trackers associated with the account.
  *       The response provides the properties for each event tracker, including the Amazon Resource
  *       Name (ARN) and tracking ID. For more
@@ -39,13 +42,27 @@ export interface ListEventTrackersCommandOutput extends ListEventTrackersRespons
  * import { PersonalizeClient, ListEventTrackersCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, ListEventTrackersCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // ListEventTrackersRequest
+ *   datasetGroupArn: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListEventTrackersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEventTrackersCommandInput - {@link ListEventTrackersCommandInput}
+ * @returns {@link ListEventTrackersCommandOutput}
  * @see {@link ListEventTrackersCommandInput} for command's `input` shape.
  * @see {@link ListEventTrackersCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The token is not valid.</p>
+ *
  *
  */
 export class ListEventTrackersCommand extends $Command<
@@ -65,6 +82,9 @@ export class ListEventTrackersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEventTrackersCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +113,8 @@ export class ListEventTrackersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEventTrackersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEventTrackersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +124,18 @@ export class ListEventTrackersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEventTrackersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListEventTrackersCommand(input, context);
+    return se_ListEventTrackersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEventTrackersCommandOutput> {
-    return deserializeAws_json1_1ListEventTrackersCommand(output, context);
+    return de_ListEventTrackersCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaPackageVodClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageVodClient";
+import { DescribePackagingConfigurationRequest, DescribePackagingConfigurationResponse } from "../models/models_0";
 import {
-  DescribePackagingConfigurationRequest,
-  DescribePackagingConfigurationRequestFilterSensitiveLog,
-  DescribePackagingConfigurationResponse,
-  DescribePackagingConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribePackagingConfigurationCommand,
-  serializeAws_restJson1DescribePackagingConfigurationCommand,
+  de_DescribePackagingConfigurationCommand,
+  se_DescribePackagingConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribePackagingConfigurationCommand}.
+ */
 export interface DescribePackagingConfigurationCommandInput extends DescribePackagingConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribePackagingConfigurationCommand}.
+ */
 export interface DescribePackagingConfigurationCommandOutput
   extends DescribePackagingConfigurationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * Returns a description of a MediaPackage VOD PackagingConfiguration resource.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,37 @@ export interface DescribePackagingConfigurationCommandOutput
  * import { MediaPackageVodClient, DescribePackagingConfigurationCommand } from "@aws-sdk/client-mediapackage-vod"; // ES Modules import
  * // const { MediaPackageVodClient, DescribePackagingConfigurationCommand } = require("@aws-sdk/client-mediapackage-vod"); // CommonJS import
  * const client = new MediaPackageVodClient(config);
+ * const input = { // DescribePackagingConfigurationRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new DescribePackagingConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePackagingConfigurationCommandInput - {@link DescribePackagingConfigurationCommandInput}
+ * @returns {@link DescribePackagingConfigurationCommandOutput}
  * @see {@link DescribePackagingConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribePackagingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageVodClientResolvedConfig | config} for MediaPackageVodClient's `config` shape.
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  The client is not authorized to access the requested resource.
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  An unexpected error occurred.
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  The requested resource does not exist.
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  An unexpected error occurred.
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  The client has exceeded their resource or throttling limits.
+ *
+ * @throws {@link UnprocessableEntityException} (client fault)
+ *  The parameters sent in the request are not valid.
+ *
  *
  */
 export class DescribePackagingConfigurationCommand extends $Command<
@@ -64,6 +94,9 @@ export class DescribePackagingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePackagingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +125,8 @@ export class DescribePackagingConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePackagingConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribePackagingConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +136,24 @@ export class DescribePackagingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribePackagingConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribePackagingConfigurationCommand(input, context);
+    return se_DescribePackagingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribePackagingConfigurationCommandOutput> {
-    return deserializeAws_restJson1DescribePackagingConfigurationCommand(output, context);
+    return de_DescribePackagingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

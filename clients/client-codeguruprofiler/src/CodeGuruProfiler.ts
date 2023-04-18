@@ -107,6 +107,7 @@ import {
 } from "./commands/UpdateProfilingGroupCommand";
 
 /**
+ * @public
  * <p>
  *           This section provides documentation for the Amazon CodeGuru Profiler API operations.
  *       </p>
@@ -133,6 +134,7 @@ import {
  */
 export class CodeGuruProfiler extends CodeGuruProfilerClient {
   /**
+   * @public
    * <p>Add up to 2 anomaly notifications channels for a profiling group.</p>
    */
   public addNotificationChannels(
@@ -165,6 +167,7 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   }
 
   /**
+   * @public
    * <p>
    *          Returns the time series of values for a requested list
    *          of frame metrics from a time period.</p>
@@ -199,6 +202,7 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   }
 
   /**
+   * @public
    * <p>
    *           Used by profiler agents to report their current state and to receive remote
    *           configuration updates. For example, <code>ConfigureAgent</code> can be used
@@ -235,6 +239,7 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   }
 
   /**
+   * @public
    * <p>Creates a profiling group.</p>
    */
   public createProfilingGroup(
@@ -267,6 +272,7 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   }
 
   /**
+   * @public
    * <p>Deletes a profiling group.</p>
    */
   public deleteProfilingGroup(
@@ -299,6 +305,7 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   }
 
   /**
+   * @public
    * <p>
    *          Returns a <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html">
    *                <code>ProfilingGroupDescription</code>
@@ -336,6 +343,7 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   }
 
   /**
+   * @public
    * <p>
    *             Returns a list of
    *             <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_FindingsReportSummary.html">
@@ -374,6 +382,7 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   }
 
   /**
+   * @public
    * <p>Get the current configuration for anomaly notifications for a profiling group.</p>
    */
   public getNotificationConfiguration(
@@ -406,6 +415,7 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   }
 
   /**
+   * @public
    * <p>
    *             Returns the JSON-formatted resource-based policy on a profiling group.
    *         </p>
@@ -434,6 +444,7 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   }
 
   /**
+   * @public
    * <p>
    *          Gets the aggregated profile of a profiling group for a specified time range.
    *          Amazon CodeGuru Profiler collects posted agent profiles for a profiling group
@@ -531,6 +542,7 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   }
 
   /**
+   * @public
    * <p>
    *             Returns a list of
    *             <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_Recommendation.html">
@@ -574,6 +586,7 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   }
 
   /**
+   * @public
    * <p>List the available reports for a given profiling group and time range.</p>
    */
   public listFindingsReports(
@@ -606,6 +619,7 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   }
 
   /**
+   * @public
    * <p>Lists the start times of the available aggregated profiles of a profiling group
    *         for an aggregation period within the specified time range.</p>
    */
@@ -639,6 +653,7 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   }
 
   /**
+   * @public
    * <p>
    *          Returns a list of profiling groups. The profiling groups are returned as
    *          <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html">
@@ -677,6 +692,7 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   }
 
   /**
+   * @public
    * <p>
    *          Returns a list of the tags that are assigned to a specified resource.
    *       </p>
@@ -711,6 +727,7 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   }
 
   /**
+   * @public
    * <p>
    *          Submits profiling data to an aggregated profile of a profiling group. To get an
    *          aggregated profile that is created with this profiling data, use
@@ -749,6 +766,7 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   }
 
   /**
+   * @public
    * <p>
    *             Adds permissions to a profiling group's resource-based policy
    *             that are provided using an action group. If a profiling group doesn't have
@@ -806,6 +824,7 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   }
 
   /**
+   * @public
    * <p>Remove one anomaly notifications channel for a profiling group.</p>
    */
   public removeNotificationChannel(
@@ -838,6 +857,7 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   }
 
   /**
+   * @public
    * <p> Removes permissions from a profiling group's resource-based policy that are provided
    *             using an action group. The one supported action group that can be removed is
    *                 <code>agentPermission</code> which grants <code>ConfigureAgent</code> and
@@ -878,6 +898,7 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   }
 
   /**
+   * @public
    * <p>Sends feedback to CodeGuru Profiler about whether the anomaly detected by the analysis is
    *             useful or not.</p>
    */
@@ -911,6 +932,7 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   }
 
   /**
+   * @public
    * <p>
    *          Use to assign one or more tags to a resource.
    *       </p>
@@ -939,6 +961,7 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   }
 
   /**
+   * @public
    * <p>
    *          Use to remove one or more tags from a resource.
    *       </p>
@@ -973,6 +996,7 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   }
 
   /**
+   * @public
    * <p>Updates a profiling group.</p>
    */
   public updateProfilingGroup(

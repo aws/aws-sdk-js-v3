@@ -6,12 +6,11 @@ import {
   DescribeRecommendationExportJobsCommandInput,
   DescribeRecommendationExportJobsCommandOutput,
 } from "../commands/DescribeRecommendationExportJobsCommand";
-import { ComputeOptimizer } from "../ComputeOptimizer";
 import { ComputeOptimizerClient } from "../ComputeOptimizerClient";
 import { ComputeOptimizerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ComputeOptimizerClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeRecommendationExportJobsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ComputeOptimizer,
-  input: DescribeRecommendationExportJobsCommandInput,
-  ...args: any
-): Promise<DescribeRecommendationExportJobsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeRecommendationExportJobs(input, ...args);
-};
 export async function* paginateDescribeRecommendationExportJobs(
   config: ComputeOptimizerPaginationConfiguration,
   input: DescribeRecommendationExportJobsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateDescribeRecommendationExportJobs(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof ComputeOptimizer) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ComputeOptimizerClient) {
+    if (config.client instanceof ComputeOptimizerClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ComputeOptimizer | ComputeOptimizerClient");

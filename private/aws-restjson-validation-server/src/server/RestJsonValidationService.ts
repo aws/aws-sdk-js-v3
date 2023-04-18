@@ -2,7 +2,7 @@
 import { NodeHttpHandler, streamCollector } from "@aws-sdk/node-http-handler";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { fromBase64, toBase64 } from "@aws-sdk/util-base64";
-import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-node";
+import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8";
 import {
   generateValidationMessage as __generateValidationMessage,
   generateValidationSummary as __generateValidationSummary,
@@ -59,6 +59,11 @@ import {
   MalformedRequiredServerInput,
 } from "./operations/MalformedRequired";
 import {
+  MalformedUniqueItems,
+  MalformedUniqueItemsSerializer,
+  MalformedUniqueItemsServerInput,
+} from "./operations/MalformedUniqueItems";
+import {
   RecursiveStructures,
   RecursiveStructuresSerializer,
   RecursiveStructuresServerInput,
@@ -79,6 +84,7 @@ export type RestJsonValidationServiceOperations =
   | "MalformedRange"
   | "MalformedRangeOverride"
   | "MalformedRequired"
+  | "MalformedUniqueItems"
   | "RecursiveStructures"
   | "SensitiveValidation";
 export interface RestJsonValidationService<Context> {
@@ -91,6 +97,7 @@ export interface RestJsonValidationService<Context> {
   MalformedRange: MalformedRange<Context>;
   MalformedRangeOverride: MalformedRangeOverride<Context>;
   MalformedRequired: MalformedRequired<Context>;
+  MalformedUniqueItems: MalformedUniqueItems<Context>;
   RecursiveStructures: RecursiveStructures<Context>;
   SensitiveValidation: SensitiveValidation<Context>;
 }
@@ -292,6 +299,18 @@ export class RestJsonValidationServiceHandler<Context> implements __ServiceHandl
           this.validationCustomizer
         );
       }
+      case "MalformedUniqueItems": {
+        return handle(
+          request,
+          context,
+          "MalformedUniqueItems",
+          this.serializerFactory("MalformedUniqueItems"),
+          this.service.MalformedUniqueItems,
+          this.serializeFrameworkException,
+          MalformedUniqueItemsServerInput.validate,
+          this.validationCustomizer
+        );
+      }
       case "RecursiveStructures": {
         return handle(
           request,
@@ -378,6 +397,12 @@ export const getRestJsonValidationServiceHandler = <Context>(
       [{ type: "query", key: "stringInQuery" }],
       { service: "RestJsonValidation", operation: "MalformedRequired" }
     ),
+    new httpbinding.UriSpec<"RestJsonValidation", "MalformedUniqueItems">(
+      "POST",
+      [{ type: "path_literal", value: "MalformedUniqueItems" }],
+      [],
+      { service: "RestJsonValidation", operation: "MalformedUniqueItems" }
+    ),
     new httpbinding.UriSpec<"RestJsonValidation", "RecursiveStructures">(
       "POST",
       [{ type: "path_literal", value: "RecursiveStructures" }],
@@ -417,6 +442,8 @@ export const getRestJsonValidationServiceHandler = <Context>(
         return new MalformedRangeOverrideSerializer();
       case "MalformedRequired":
         return new MalformedRequiredSerializer();
+      case "MalformedUniqueItems":
+        return new MalformedUniqueItemsSerializer();
       case "RecursiveStructures":
         return new RecursiveStructuresSerializer();
       case "SensitiveValidation":

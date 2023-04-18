@@ -19,21 +19,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import {
-  CreateUserPoolRequest,
-  CreateUserPoolRequestFilterSensitiveLog,
-  CreateUserPoolResponse,
-  CreateUserPoolResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateUserPoolCommand,
-  serializeAws_json1_1CreateUserPoolCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateUserPoolRequest, CreateUserPoolResponse } from "../models/models_0";
+import { de_CreateUserPoolCommand, se_CreateUserPoolCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateUserPoolCommand}.
+ */
 export interface CreateUserPoolCommandInput extends CreateUserPoolRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateUserPoolCommand}.
+ */
 export interface CreateUserPoolCommandOutput extends CreateUserPoolResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new Amazon Cognito user pool and sets the password policy for the
  *             pool.</p>
  *
@@ -60,13 +63,172 @@ export interface CreateUserPoolCommandOutput extends CreateUserPoolResponse, __M
  * import { CognitoIdentityProviderClient, CreateUserPoolCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, CreateUserPoolCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // CreateUserPoolRequest
+ *   PoolName: "STRING_VALUE", // required
+ *   Policies: { // UserPoolPolicyType
+ *     PasswordPolicy: { // PasswordPolicyType
+ *       MinimumLength: Number("int"),
+ *       RequireUppercase: true || false,
+ *       RequireLowercase: true || false,
+ *       RequireNumbers: true || false,
+ *       RequireSymbols: true || false,
+ *       TemporaryPasswordValidityDays: Number("int"),
+ *     },
+ *   },
+ *   DeletionProtection: "ACTIVE" || "INACTIVE",
+ *   LambdaConfig: { // LambdaConfigType
+ *     PreSignUp: "STRING_VALUE",
+ *     CustomMessage: "STRING_VALUE",
+ *     PostConfirmation: "STRING_VALUE",
+ *     PreAuthentication: "STRING_VALUE",
+ *     PostAuthentication: "STRING_VALUE",
+ *     DefineAuthChallenge: "STRING_VALUE",
+ *     CreateAuthChallenge: "STRING_VALUE",
+ *     VerifyAuthChallengeResponse: "STRING_VALUE",
+ *     PreTokenGeneration: "STRING_VALUE",
+ *     UserMigration: "STRING_VALUE",
+ *     CustomSMSSender: { // CustomSMSLambdaVersionConfigType
+ *       LambdaVersion: "V1_0", // required
+ *       LambdaArn: "STRING_VALUE", // required
+ *     },
+ *     CustomEmailSender: { // CustomEmailLambdaVersionConfigType
+ *       LambdaVersion: "V1_0", // required
+ *       LambdaArn: "STRING_VALUE", // required
+ *     },
+ *     KMSKeyID: "STRING_VALUE",
+ *   },
+ *   AutoVerifiedAttributes: [ // VerifiedAttributesListType
+ *     "phone_number" || "email",
+ *   ],
+ *   AliasAttributes: [ // AliasAttributesListType
+ *     "phone_number" || "email" || "preferred_username",
+ *   ],
+ *   UsernameAttributes: [ // UsernameAttributesListType
+ *     "phone_number" || "email",
+ *   ],
+ *   SmsVerificationMessage: "STRING_VALUE",
+ *   EmailVerificationMessage: "STRING_VALUE",
+ *   EmailVerificationSubject: "STRING_VALUE",
+ *   VerificationMessageTemplate: { // VerificationMessageTemplateType
+ *     SmsMessage: "STRING_VALUE",
+ *     EmailMessage: "STRING_VALUE",
+ *     EmailSubject: "STRING_VALUE",
+ *     EmailMessageByLink: "STRING_VALUE",
+ *     EmailSubjectByLink: "STRING_VALUE",
+ *     DefaultEmailOption: "CONFIRM_WITH_LINK" || "CONFIRM_WITH_CODE",
+ *   },
+ *   SmsAuthenticationMessage: "STRING_VALUE",
+ *   MfaConfiguration: "OFF" || "ON" || "OPTIONAL",
+ *   UserAttributeUpdateSettings: { // UserAttributeUpdateSettingsType
+ *     AttributesRequireVerificationBeforeUpdate: [ // AttributesRequireVerificationBeforeUpdateType
+ *       "phone_number" || "email",
+ *     ],
+ *   },
+ *   DeviceConfiguration: { // DeviceConfigurationType
+ *     ChallengeRequiredOnNewDevice: true || false,
+ *     DeviceOnlyRememberedOnUserPrompt: true || false,
+ *   },
+ *   EmailConfiguration: { // EmailConfigurationType
+ *     SourceArn: "STRING_VALUE",
+ *     ReplyToEmailAddress: "STRING_VALUE",
+ *     EmailSendingAccount: "COGNITO_DEFAULT" || "DEVELOPER",
+ *     From: "STRING_VALUE",
+ *     ConfigurationSet: "STRING_VALUE",
+ *   },
+ *   SmsConfiguration: { // SmsConfigurationType
+ *     SnsCallerArn: "STRING_VALUE", // required
+ *     ExternalId: "STRING_VALUE",
+ *     SnsRegion: "STRING_VALUE",
+ *   },
+ *   UserPoolTags: { // UserPoolTagsType
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   AdminCreateUserConfig: { // AdminCreateUserConfigType
+ *     AllowAdminCreateUserOnly: true || false,
+ *     UnusedAccountValidityDays: Number("int"),
+ *     InviteMessageTemplate: { // MessageTemplateType
+ *       SMSMessage: "STRING_VALUE",
+ *       EmailMessage: "STRING_VALUE",
+ *       EmailSubject: "STRING_VALUE",
+ *     },
+ *   },
+ *   Schema: [ // SchemaAttributesListType
+ *     { // SchemaAttributeType
+ *       Name: "STRING_VALUE",
+ *       AttributeDataType: "String" || "Number" || "DateTime" || "Boolean",
+ *       DeveloperOnlyAttribute: true || false,
+ *       Mutable: true || false,
+ *       Required: true || false,
+ *       NumberAttributeConstraints: { // NumberAttributeConstraintsType
+ *         MinValue: "STRING_VALUE",
+ *         MaxValue: "STRING_VALUE",
+ *       },
+ *       StringAttributeConstraints: { // StringAttributeConstraintsType
+ *         MinLength: "STRING_VALUE",
+ *         MaxLength: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   UserPoolAddOns: { // UserPoolAddOnsType
+ *     AdvancedSecurityMode: "OFF" || "AUDIT" || "ENFORCED", // required
+ *   },
+ *   UsernameConfiguration: { // UsernameConfigurationType
+ *     CaseSensitive: true || false, // required
+ *   },
+ *   AccountRecoverySetting: { // AccountRecoverySettingType
+ *     RecoveryMechanisms: [ // RecoveryMechanismsType
+ *       { // RecoveryOptionType
+ *         Priority: Number("int"), // required
+ *         Name: "verified_email" || "verified_phone_number" || "admin_only", // required
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new CreateUserPoolCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateUserPoolCommandInput - {@link CreateUserPoolCommandInput}
+ * @returns {@link CreateUserPoolCommandOutput}
  * @see {@link CreateUserPoolCommandInput} for command's `input` shape.
  * @see {@link CreateUserPoolCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * @throws {@link InvalidEmailRoleAccessPolicyException} (client fault)
+ *  <p>This exception is thrown when Amazon Cognito isn't allowed to use your email identity. HTTP
+ *             status code: 400.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
+ *             parameter.</p>
+ *
+ * @throws {@link InvalidSmsRoleAccessPolicyException} (client fault)
+ *  <p>This exception is returned when the role provided for SMS configuration doesn't have
+ *             permission to publish using Amazon SNS.</p>
+ *
+ * @throws {@link InvalidSmsRoleTrustRelationshipException} (client fault)
+ *  <p>This exception is thrown when the trust relationship is not valid for the role
+ *             provided for SMS configuration. This can happen if you don't trust
+ *             <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does
+ *             not match what is provided in the SMS configuration for the user pool.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services
+ *             resource.</p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>This exception is thrown when the user has made too many requests for a given
+ *             operation.</p>
+ *
+ * @throws {@link UserPoolTaggingException} (client fault)
+ *  <p>This exception is thrown when a user pool tag can't be set or updated.</p>
+ *
  *
  */
 export class CreateUserPoolCommand extends $Command<
@@ -86,6 +248,9 @@ export class CreateUserPoolCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateUserPoolCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +280,8 @@ export class CreateUserPoolCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateUserPoolRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateUserPoolResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +291,18 @@ export class CreateUserPoolCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateUserPoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateUserPoolCommand(input, context);
+    return se_CreateUserPoolCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateUserPoolCommandOutput> {
-    return deserializeAws_json1_1CreateUserPoolCommand(output, context);
+    return de_CreateUserPoolCommand(output, context);
   }
 
   // Start section: command_body_extra

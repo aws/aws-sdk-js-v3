@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
+import { CreateMatchmakingConfigurationInput, CreateMatchmakingConfigurationOutput } from "../models/models_0";
 import {
-  CreateMatchmakingConfigurationInput,
-  CreateMatchmakingConfigurationInputFilterSensitiveLog,
-  CreateMatchmakingConfigurationOutput,
-  CreateMatchmakingConfigurationOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateMatchmakingConfigurationCommand,
-  serializeAws_json1_1CreateMatchmakingConfigurationCommand,
+  de_CreateMatchmakingConfigurationCommand,
+  se_CreateMatchmakingConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateMatchmakingConfigurationCommand}.
+ */
 export interface CreateMatchmakingConfigurationCommandInput extends CreateMatchmakingConfigurationInput {}
+/**
+ * @public
+ *
+ * The output of {@link CreateMatchmakingConfigurationCommand}.
+ */
 export interface CreateMatchmakingConfigurationCommandOutput
   extends CreateMatchmakingConfigurationOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Defines a new matchmaking configuration for use with FlexMatch. Whether your are using
  *             FlexMatch with GameLift hosting or as a standalone matchmaking service, the matchmaking
  *             configuration sets out rules for matching players and forming teams. If you're also
@@ -63,13 +69,68 @@ export interface CreateMatchmakingConfigurationCommandOutput
  * import { GameLiftClient, CreateMatchmakingConfigurationCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, CreateMatchmakingConfigurationCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // CreateMatchmakingConfigurationInput
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   GameSessionQueueArns: [ // QueueArnsList
+ *     "STRING_VALUE",
+ *   ],
+ *   RequestTimeoutSeconds: Number("int"), // required
+ *   AcceptanceTimeoutSeconds: Number("int"),
+ *   AcceptanceRequired: true || false, // required
+ *   RuleSetName: "STRING_VALUE", // required
+ *   NotificationTarget: "STRING_VALUE",
+ *   AdditionalPlayerCount: Number("int"),
+ *   CustomEventData: "STRING_VALUE",
+ *   GameProperties: [ // GamePropertyList
+ *     { // GameProperty
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   GameSessionData: "STRING_VALUE",
+ *   BackfillMode: "AUTOMATIC" || "MANUAL",
+ *   FlexMatchMode: "STANDALONE" || "WITH_QUEUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateMatchmakingConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMatchmakingConfigurationCommandInput - {@link CreateMatchmakingConfigurationCommandInput}
+ * @returns {@link CreateMatchmakingConfigurationCommandOutput}
  * @see {@link CreateMatchmakingConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateMatchmakingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an unrecoverable internal failure while processing the
+ *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
+ *             values before retrying.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The requested operation would cause the resource to exceed the allowed service limit.
+ *             Resolve the issue before retrying.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *
+ * @throws {@link TaggingFailedException} (client fault)
+ *  <p>The requested tagging operation did not succeed. This may be due to invalid tag format
+ *             or the maximum tag limit may have been exceeded. Resolve the issue before
+ *             retrying.</p>
+ *
+ * @throws {@link UnsupportedRegionException} (client fault)
+ *  <p>The requested operation is not supported in the Region specified.</p>
+ *
  *
  */
 export class CreateMatchmakingConfigurationCommand extends $Command<
@@ -89,6 +150,9 @@ export class CreateMatchmakingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMatchmakingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +181,8 @@ export class CreateMatchmakingConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateMatchmakingConfigurationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateMatchmakingConfigurationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,18 +192,24 @@ export class CreateMatchmakingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateMatchmakingConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateMatchmakingConfigurationCommand(input, context);
+    return se_CreateMatchmakingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateMatchmakingConfigurationCommandOutput> {
-    return deserializeAws_json1_1CreateMatchmakingConfigurationCommand(output, context);
+    return de_CreateMatchmakingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

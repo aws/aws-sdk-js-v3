@@ -15,20 +15,27 @@ import {
 
 import {
   GetIdentityProviderRequest,
-  GetIdentityProviderRequestFilterSensitiveLog,
   GetIdentityProviderResponse,
   GetIdentityProviderResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetIdentityProviderCommand,
-  serializeAws_restJson1GetIdentityProviderCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetIdentityProviderCommand, se_GetIdentityProviderCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetIdentityProviderCommand}.
+ */
 export interface GetIdentityProviderCommandInput extends GetIdentityProviderRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetIdentityProviderCommand}.
+ */
 export interface GetIdentityProviderCommandOutput extends GetIdentityProviderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the identity provider.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +43,34 @@ export interface GetIdentityProviderCommandOutput extends GetIdentityProviderRes
  * import { WorkSpacesWebClient, GetIdentityProviderCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, GetIdentityProviderCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = { // GetIdentityProviderRequest
+ *   identityProviderArn: "STRING_VALUE", // required
+ * };
  * const command = new GetIdentityProviderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetIdentityProviderCommandInput - {@link GetIdentityProviderCommandInput}
+ * @returns {@link GetIdentityProviderCommandOutput}
  * @see {@link GetIdentityProviderCommandInput} for command's `input` shape.
  * @see {@link GetIdentityProviderCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access is denied.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There is an internal server error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource cannot be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>There is a throttling error.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There is a validation error.</p>
+ *
  *
  */
 export class GetIdentityProviderCommand extends $Command<
@@ -62,6 +90,9 @@ export class GetIdentityProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetIdentityProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +121,7 @@ export class GetIdentityProviderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetIdentityProviderRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetIdentityProviderResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -101,12 +132,18 @@ export class GetIdentityProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetIdentityProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetIdentityProviderCommand(input, context);
+    return se_GetIdentityProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIdentityProviderCommandOutput> {
-    return deserializeAws_restJson1GetIdentityProviderCommand(output, context);
+    return de_GetIdentityProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

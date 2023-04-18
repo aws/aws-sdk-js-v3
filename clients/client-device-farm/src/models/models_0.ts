@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { DeviceFarmServiceException as __BaseException } from "./DeviceFarmServiceException";
 
 /**
+ * @public
  * <p>Represents information about free trial device minutes for an AWS
  *             account.</p>
  */
@@ -19,12 +20,22 @@ export interface TrialMinutes {
   remaining?: number;
 }
 
-export enum DevicePlatform {
-  ANDROID = "ANDROID",
-  IOS = "IOS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DevicePlatform = {
+  ANDROID: "ANDROID",
+  IOS: "IOS",
+} as const;
 
 /**
+ * @public
+ */
+export type DevicePlatform = (typeof DevicePlatform)[keyof typeof DevicePlatform];
+
+/**
+ * @public
  * <p>A container for account-level settings in AWS Device Farm.</p>
  */
 export interface AccountSettings {
@@ -79,6 +90,7 @@ export interface AccountSettings {
 }
 
 /**
+ * @public
  * <p>An invalid argument was specified.</p>
  */
 export class ArgumentException extends __BaseException {
@@ -97,38 +109,48 @@ export class ArgumentException extends __BaseException {
   }
 }
 
-export enum ArtifactType {
-  APPIUM_JAVA_OUTPUT = "APPIUM_JAVA_OUTPUT",
-  APPIUM_JAVA_XML_OUTPUT = "APPIUM_JAVA_XML_OUTPUT",
-  APPIUM_PYTHON_OUTPUT = "APPIUM_PYTHON_OUTPUT",
-  APPIUM_PYTHON_XML_OUTPUT = "APPIUM_PYTHON_XML_OUTPUT",
-  APPIUM_SERVER_OUTPUT = "APPIUM_SERVER_OUTPUT",
-  APPLICATION_CRASH_REPORT = "APPLICATION_CRASH_REPORT",
-  AUTOMATION_OUTPUT = "AUTOMATION_OUTPUT",
-  CALABASH_JAVA_XML_OUTPUT = "CALABASH_JAVA_XML_OUTPUT",
-  CALABASH_JSON_OUTPUT = "CALABASH_JSON_OUTPUT",
-  CALABASH_PRETTY_OUTPUT = "CALABASH_PRETTY_OUTPUT",
-  CALABASH_STANDARD_OUTPUT = "CALABASH_STANDARD_OUTPUT",
-  CUSTOMER_ARTIFACT = "CUSTOMER_ARTIFACT",
-  CUSTOMER_ARTIFACT_LOG = "CUSTOMER_ARTIFACT_LOG",
-  DEVICE_LOG = "DEVICE_LOG",
-  EXERCISER_MONKEY_OUTPUT = "EXERCISER_MONKEY_OUTPUT",
-  EXPLORER_EVENT_LOG = "EXPLORER_EVENT_LOG",
-  EXPLORER_SUMMARY_LOG = "EXPLORER_SUMMARY_LOG",
-  INSTRUMENTATION_OUTPUT = "INSTRUMENTATION_OUTPUT",
-  MESSAGE_LOG = "MESSAGE_LOG",
-  RESULT_LOG = "RESULT_LOG",
-  SCREENSHOT = "SCREENSHOT",
-  SERVICE_LOG = "SERVICE_LOG",
-  TESTSPEC_OUTPUT = "TESTSPEC_OUTPUT",
-  UNKNOWN = "UNKNOWN",
-  VIDEO = "VIDEO",
-  VIDEO_LOG = "VIDEO_LOG",
-  WEBKIT_LOG = "WEBKIT_LOG",
-  XCTEST_LOG = "XCTEST_LOG",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ArtifactType = {
+  APPIUM_JAVA_OUTPUT: "APPIUM_JAVA_OUTPUT",
+  APPIUM_JAVA_XML_OUTPUT: "APPIUM_JAVA_XML_OUTPUT",
+  APPIUM_PYTHON_OUTPUT: "APPIUM_PYTHON_OUTPUT",
+  APPIUM_PYTHON_XML_OUTPUT: "APPIUM_PYTHON_XML_OUTPUT",
+  APPIUM_SERVER_OUTPUT: "APPIUM_SERVER_OUTPUT",
+  APPLICATION_CRASH_REPORT: "APPLICATION_CRASH_REPORT",
+  AUTOMATION_OUTPUT: "AUTOMATION_OUTPUT",
+  CALABASH_JAVA_XML_OUTPUT: "CALABASH_JAVA_XML_OUTPUT",
+  CALABASH_JSON_OUTPUT: "CALABASH_JSON_OUTPUT",
+  CALABASH_PRETTY_OUTPUT: "CALABASH_PRETTY_OUTPUT",
+  CALABASH_STANDARD_OUTPUT: "CALABASH_STANDARD_OUTPUT",
+  CUSTOMER_ARTIFACT: "CUSTOMER_ARTIFACT",
+  CUSTOMER_ARTIFACT_LOG: "CUSTOMER_ARTIFACT_LOG",
+  DEVICE_LOG: "DEVICE_LOG",
+  EXERCISER_MONKEY_OUTPUT: "EXERCISER_MONKEY_OUTPUT",
+  EXPLORER_EVENT_LOG: "EXPLORER_EVENT_LOG",
+  EXPLORER_SUMMARY_LOG: "EXPLORER_SUMMARY_LOG",
+  INSTRUMENTATION_OUTPUT: "INSTRUMENTATION_OUTPUT",
+  MESSAGE_LOG: "MESSAGE_LOG",
+  RESULT_LOG: "RESULT_LOG",
+  SCREENSHOT: "SCREENSHOT",
+  SERVICE_LOG: "SERVICE_LOG",
+  TESTSPEC_OUTPUT: "TESTSPEC_OUTPUT",
+  UNKNOWN: "UNKNOWN",
+  VIDEO: "VIDEO",
+  VIDEO_LOG: "VIDEO_LOG",
+  WEBKIT_LOG: "WEBKIT_LOG",
+  XCTEST_LOG: "XCTEST_LOG",
+} as const;
 
 /**
+ * @public
+ */
+export type ArtifactType = (typeof ArtifactType)[keyof typeof ArtifactType];
+
+/**
+ * @public
  * <p>Represents the output of a test. Examples of artifacts include logs and
  *             screenshots.</p>
  */
@@ -247,18 +269,37 @@ export interface Artifact {
   url?: string;
 }
 
-export enum ArtifactCategory {
-  FILE = "FILE",
-  LOG = "LOG",
-  SCREENSHOT = "SCREENSHOT",
-}
-
-export enum BillingMethod {
-  METERED = "METERED",
-  UNMETERED = "UNMETERED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ArtifactCategory = {
+  FILE: "FILE",
+  LOG: "LOG",
+  SCREENSHOT: "SCREENSHOT",
+} as const;
 
 /**
+ * @public
+ */
+export type ArtifactCategory = (typeof ArtifactCategory)[keyof typeof ArtifactCategory];
+
+/**
+ * @public
+ * @enum
+ */
+export const BillingMethod = {
+  METERED: "METERED",
+  UNMETERED: "UNMETERED",
+} as const;
+
+/**
+ * @public
+ */
+export type BillingMethod = (typeof BillingMethod)[keyof typeof BillingMethod];
+
+/**
+ * @public
  * <p>The requested object could not be deleted.</p>
  */
 export class CannotDeleteException extends __BaseException {
@@ -278,6 +319,7 @@ export class CannotDeleteException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents entity counters.</p>
  */
 export interface Counters {
@@ -318,6 +360,7 @@ export interface Counters {
 }
 
 /**
+ * @public
  * <p>Represents the amount of CPU that an app is using on a physical device. Does not represent system-wide
  *             CPU usage.</p>
  */
@@ -339,34 +382,53 @@ export interface CPU {
   clock?: number;
 }
 
-export enum DeviceAttribute {
-  APPIUM_VERSION = "APPIUM_VERSION",
-  ARN = "ARN",
-  AVAILABILITY = "AVAILABILITY",
-  FLEET_TYPE = "FLEET_TYPE",
-  FORM_FACTOR = "FORM_FACTOR",
-  INSTANCE_ARN = "INSTANCE_ARN",
-  INSTANCE_LABELS = "INSTANCE_LABELS",
-  MANUFACTURER = "MANUFACTURER",
-  MODEL = "MODEL",
-  OS_VERSION = "OS_VERSION",
-  PLATFORM = "PLATFORM",
-  REMOTE_ACCESS_ENABLED = "REMOTE_ACCESS_ENABLED",
-  REMOTE_DEBUG_ENABLED = "REMOTE_DEBUG_ENABLED",
-}
-
-export enum RuleOperator {
-  CONTAINS = "CONTAINS",
-  EQUALS = "EQUALS",
-  GREATER_THAN = "GREATER_THAN",
-  GREATER_THAN_OR_EQUALS = "GREATER_THAN_OR_EQUALS",
-  IN = "IN",
-  LESS_THAN = "LESS_THAN",
-  LESS_THAN_OR_EQUALS = "LESS_THAN_OR_EQUALS",
-  NOT_IN = "NOT_IN",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeviceAttribute = {
+  APPIUM_VERSION: "APPIUM_VERSION",
+  ARN: "ARN",
+  AVAILABILITY: "AVAILABILITY",
+  FLEET_TYPE: "FLEET_TYPE",
+  FORM_FACTOR: "FORM_FACTOR",
+  INSTANCE_ARN: "INSTANCE_ARN",
+  INSTANCE_LABELS: "INSTANCE_LABELS",
+  MANUFACTURER: "MANUFACTURER",
+  MODEL: "MODEL",
+  OS_VERSION: "OS_VERSION",
+  PLATFORM: "PLATFORM",
+  REMOTE_ACCESS_ENABLED: "REMOTE_ACCESS_ENABLED",
+  REMOTE_DEBUG_ENABLED: "REMOTE_DEBUG_ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type DeviceAttribute = (typeof DeviceAttribute)[keyof typeof DeviceAttribute];
+
+/**
+ * @public
+ * @enum
+ */
+export const RuleOperator = {
+  CONTAINS: "CONTAINS",
+  EQUALS: "EQUALS",
+  GREATER_THAN: "GREATER_THAN",
+  GREATER_THAN_OR_EQUALS: "GREATER_THAN_OR_EQUALS",
+  IN: "IN",
+  LESS_THAN: "LESS_THAN",
+  LESS_THAN_OR_EQUALS: "LESS_THAN_OR_EQUALS",
+  NOT_IN: "NOT_IN",
+} as const;
+
+/**
+ * @public
+ */
+export type RuleOperator = (typeof RuleOperator)[keyof typeof RuleOperator];
+
+/**
+ * @public
  * <p>Represents a condition for a device pool.</p>
  */
 export interface Rule {
@@ -487,6 +549,7 @@ export interface Rule {
 }
 
 /**
+ * @public
  * <p>Represents a request to the create device pool operation.</p>
  */
 export interface CreateDevicePoolRequest {
@@ -521,12 +584,22 @@ export interface CreateDevicePoolRequest {
   maxDevices?: number;
 }
 
-export enum DevicePoolType {
-  CURATED = "CURATED",
-  PRIVATE = "PRIVATE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DevicePoolType = {
+  CURATED: "CURATED",
+  PRIVATE: "PRIVATE",
+} as const;
 
 /**
+ * @public
+ */
+export type DevicePoolType = (typeof DevicePoolType)[keyof typeof DevicePoolType];
+
+/**
+ * @public
  * <p>Represents a collection of device types.</p>
  */
 export interface DevicePool {
@@ -578,6 +651,7 @@ export interface DevicePool {
 }
 
 /**
+ * @public
  * <p>Represents the result of a create device pool request.</p>
  */
 export interface CreateDevicePoolResult {
@@ -588,6 +662,7 @@ export interface CreateDevicePoolResult {
 }
 
 /**
+ * @public
  * <p>A limit was exceeded.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -607,6 +682,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified entity was not found.</p>
  */
 export class NotFoundException extends __BaseException {
@@ -626,6 +702,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>There was a problem with the service account.</p>
  */
 export class ServiceAccountException extends __BaseException {
@@ -644,6 +721,9 @@ export class ServiceAccountException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateInstanceProfileRequest {
   /**
    * <p>The name of your instance profile.</p>
@@ -677,6 +757,7 @@ export interface CreateInstanceProfileRequest {
 }
 
 /**
+ * @public
  * <p>Represents the instance profile.</p>
  */
 export interface InstanceProfile {
@@ -716,6 +797,9 @@ export interface InstanceProfile {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateInstanceProfileResult {
   /**
    * <p>An object that contains information about your instance profile.</p>
@@ -723,11 +807,23 @@ export interface CreateInstanceProfileResult {
   instanceProfile?: InstanceProfile;
 }
 
-export enum NetworkProfileType {
-  CURATED = "CURATED",
-  PRIVATE = "PRIVATE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NetworkProfileType = {
+  CURATED: "CURATED",
+  PRIVATE: "PRIVATE",
+} as const;
 
+/**
+ * @public
+ */
+export type NetworkProfileType = (typeof NetworkProfileType)[keyof typeof NetworkProfileType];
+
+/**
+ * @public
+ */
 export interface CreateNetworkProfileRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the project for which you want to create a
@@ -799,6 +895,7 @@ export interface CreateNetworkProfileRequest {
 }
 
 /**
+ * @public
  * <p>An array of settings that describes characteristics of a network profile.</p>
  */
 export interface NetworkProfile {
@@ -870,6 +967,9 @@ export interface NetworkProfile {
   downlinkLossPercent?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateNetworkProfileResult {
   /**
    * <p>The network profile that is returned by the create network profile
@@ -879,6 +979,7 @@ export interface CreateNetworkProfileResult {
 }
 
 /**
+ * @public
  * <p>Contains the VPC configuration data necessary to interface with AWS Device Farm's services.</p>
  */
 export interface VpcConfig {
@@ -899,6 +1000,7 @@ export interface VpcConfig {
 }
 
 /**
+ * @public
  * <p>Represents a request to the create project operation.</p>
  */
 export interface CreateProjectRequest {
@@ -920,6 +1022,7 @@ export interface CreateProjectRequest {
 }
 
 /**
+ * @public
  * <p>Represents an operating-system neutral workspace for running and managing
  *             tests.</p>
  */
@@ -952,6 +1055,7 @@ export interface Project {
 }
 
 /**
+ * @public
  * <p>Represents the result of a create project request.</p>
  */
 export interface CreateProjectResult {
@@ -962,6 +1066,7 @@ export interface CreateProjectResult {
 }
 
 /**
+ * @public
  * <p>The operation was not successful. Try again.</p>
  */
 export class TagOperationException extends __BaseException {
@@ -983,6 +1088,7 @@ export class TagOperationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Configuration settings for a remote access session, including billing
  *             method.</p>
  */
@@ -998,13 +1104,23 @@ export interface CreateRemoteAccessSessionConfiguration {
   vpceConfigurationArns?: string[];
 }
 
-export enum InteractionMode {
-  INTERACTIVE = "INTERACTIVE",
-  NO_VIDEO = "NO_VIDEO",
-  VIDEO_ONLY = "VIDEO_ONLY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InteractionMode = {
+  INTERACTIVE: "INTERACTIVE",
+  NO_VIDEO: "NO_VIDEO",
+  VIDEO_ONLY: "VIDEO_ONLY",
+} as const;
 
 /**
+ * @public
+ */
+export type InteractionMode = (typeof InteractionMode)[keyof typeof InteractionMode];
+
+/**
+ * @public
  * <p>Creates and submits a request to start a remote access session.</p>
  */
 export interface CreateRemoteAccessSessionRequest {
@@ -1103,26 +1219,54 @@ export interface CreateRemoteAccessSessionRequest {
   skipAppResign?: boolean;
 }
 
-export enum DeviceAvailability {
-  AVAILABLE = "AVAILABLE",
-  BUSY = "BUSY",
-  HIGHLY_AVAILABLE = "HIGHLY_AVAILABLE",
-  TEMPORARY_NOT_AVAILABLE = "TEMPORARY_NOT_AVAILABLE",
-}
-
-export enum DeviceFormFactor {
-  PHONE = "PHONE",
-  TABLET = "TABLET",
-}
-
-export enum InstanceStatus {
-  AVAILABLE = "AVAILABLE",
-  IN_USE = "IN_USE",
-  NOT_AVAILABLE = "NOT_AVAILABLE",
-  PREPARING = "PREPARING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeviceAvailability = {
+  AVAILABLE: "AVAILABLE",
+  BUSY: "BUSY",
+  HIGHLY_AVAILABLE: "HIGHLY_AVAILABLE",
+  TEMPORARY_NOT_AVAILABLE: "TEMPORARY_NOT_AVAILABLE",
+} as const;
 
 /**
+ * @public
+ */
+export type DeviceAvailability = (typeof DeviceAvailability)[keyof typeof DeviceAvailability];
+
+/**
+ * @public
+ * @enum
+ */
+export const DeviceFormFactor = {
+  PHONE: "PHONE",
+  TABLET: "TABLET",
+} as const;
+
+/**
+ * @public
+ */
+export type DeviceFormFactor = (typeof DeviceFormFactor)[keyof typeof DeviceFormFactor];
+
+/**
+ * @public
+ * @enum
+ */
+export const InstanceStatus = {
+  AVAILABLE: "AVAILABLE",
+  IN_USE: "IN_USE",
+  NOT_AVAILABLE: "NOT_AVAILABLE",
+  PREPARING: "PREPARING",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceStatus = (typeof InstanceStatus)[keyof typeof InstanceStatus];
+
+/**
+ * @public
  * <p>Represents the device instance.</p>
  */
 export interface DeviceInstance {
@@ -1158,6 +1302,7 @@ export interface DeviceInstance {
 }
 
 /**
+ * @public
  * <p>Represents the screen resolution of a device in height and width, expressed in
  *             pixels.</p>
  */
@@ -1174,6 +1319,7 @@ export interface Resolution {
 }
 
 /**
+ * @public
  * <p>Represents a device type that an app is tested against.</p>
  */
 export interface Device {
@@ -1306,6 +1452,7 @@ export interface Device {
 }
 
 /**
+ * @public
  * <p>Represents the total (metered or unmetered) minutes used by the resource to run
  *             tests. Contains the sum of minutes consumed by all children.</p>
  */
@@ -1329,29 +1476,48 @@ export interface DeviceMinutes {
   unmetered?: number;
 }
 
-export enum ExecutionResult {
-  ERRORED = "ERRORED",
-  FAILED = "FAILED",
-  PASSED = "PASSED",
-  PENDING = "PENDING",
-  SKIPPED = "SKIPPED",
-  STOPPED = "STOPPED",
-  WARNED = "WARNED",
-}
-
-export enum ExecutionStatus {
-  COMPLETED = "COMPLETED",
-  PENDING = "PENDING",
-  PENDING_CONCURRNECY = "PENDING_CONCURRENCY",
-  PENDING_DEVICE = "PENDING_DEVICE",
-  PREPARING = "PREPARING",
-  PROCESSING = "PROCESSING",
-  RUNNING = "RUNNING",
-  SCHEDULING = "SCHEDULING",
-  STOPPING = "STOPPING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ExecutionResult = {
+  ERRORED: "ERRORED",
+  FAILED: "FAILED",
+  PASSED: "PASSED",
+  PENDING: "PENDING",
+  SKIPPED: "SKIPPED",
+  STOPPED: "STOPPED",
+  WARNED: "WARNED",
+} as const;
 
 /**
+ * @public
+ */
+export type ExecutionResult = (typeof ExecutionResult)[keyof typeof ExecutionResult];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExecutionStatus = {
+  COMPLETED: "COMPLETED",
+  PENDING: "PENDING",
+  PENDING_CONCURRNECY: "PENDING_CONCURRENCY",
+  PENDING_DEVICE: "PENDING_DEVICE",
+  PREPARING: "PREPARING",
+  PROCESSING: "PROCESSING",
+  RUNNING: "RUNNING",
+  SCHEDULING: "SCHEDULING",
+  STOPPING: "STOPPING",
+} as const;
+
+/**
+ * @public
+ */
+export type ExecutionStatus = (typeof ExecutionStatus)[keyof typeof ExecutionStatus];
+
+/**
+ * @public
  * <p>Represents information about the remote access session.</p>
  */
 export interface RemoteAccessSession {
@@ -1554,6 +1720,7 @@ export interface RemoteAccessSession {
 }
 
 /**
+ * @public
  * <p>Represents the server response from a request to create a remote access
  *             session.</p>
  */
@@ -1566,6 +1733,7 @@ export interface CreateRemoteAccessSessionResult {
 }
 
 /**
+ * @public
  * <p>The VPC security groups and subnets that are attached to a project.</p>
  */
 export interface TestGridVpcConfig {
@@ -1585,6 +1753,9 @@ export interface TestGridVpcConfig {
   vpcId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateTestGridProjectRequest {
   /**
    * <p>Human-readable name of the Selenium testing project.</p>
@@ -1603,6 +1774,7 @@ export interface CreateTestGridProjectRequest {
 }
 
 /**
+ * @public
  * <p>A Selenium testing project. Projects are used to collect and collate sessions.</p>
  */
 export interface TestGridProject {
@@ -1632,6 +1804,9 @@ export interface TestGridProject {
   created?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateTestGridProjectResult {
   /**
    * <p>ARN of the Selenium testing project that was created.</p>
@@ -1640,6 +1815,7 @@ export interface CreateTestGridProjectResult {
 }
 
 /**
+ * @public
  * <p>An internal exception was raised in the service. Contact <a href="mailto:aws-devicefarm-support@amazon.com">aws-devicefarm-support@amazon.com</a> if you see this
  *          error. </p>
  */
@@ -1659,6 +1835,9 @@ export class InternalServiceException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateTestGridUrlRequest {
   /**
    * <p>ARN (from <a>CreateTestGridProject</a> or <a>ListTestGridProjects</a>) to associate
@@ -1672,6 +1851,9 @@ export interface CreateTestGridUrlRequest {
   expiresInSeconds: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateTestGridUrlResult {
   /**
    * <p>A signed URL, expiring in <a>CreateTestGridUrlRequest$expiresInSeconds</a> seconds, to be passed
@@ -1685,42 +1867,52 @@ export interface CreateTestGridUrlResult {
   expires?: Date;
 }
 
-export enum UploadType {
-  ANDROID_APP = "ANDROID_APP",
-  APPIUM_JAVA_JUNIT_TEST_PACKAGE = "APPIUM_JAVA_JUNIT_TEST_PACKAGE",
-  APPIUM_JAVA_JUNIT_TEST_SPEC = "APPIUM_JAVA_JUNIT_TEST_SPEC",
-  APPIUM_JAVA_TESTNG_TEST_PACKAGE = "APPIUM_JAVA_TESTNG_TEST_PACKAGE",
-  APPIUM_JAVA_TESTNG_TEST_SPEC = "APPIUM_JAVA_TESTNG_TEST_SPEC",
-  APPIUM_NODE_TEST_PACKAGE = "APPIUM_NODE_TEST_PACKAGE",
-  APPIUM_NODE_TEST_SPEC = "APPIUM_NODE_TEST_SPEC",
-  APPIUM_PYTHON_TEST_PACKAGE = "APPIUM_PYTHON_TEST_PACKAGE",
-  APPIUM_PYTHON_TEST_SPEC = "APPIUM_PYTHON_TEST_SPEC",
-  APPIUM_RUBY_TEST_PACKAGE = "APPIUM_RUBY_TEST_PACKAGE",
-  APPIUM_RUBY_TEST_SPEC = "APPIUM_RUBY_TEST_SPEC",
-  APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE = "APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE",
-  APPIUM_WEB_JAVA_JUNIT_TEST_SPEC = "APPIUM_WEB_JAVA_JUNIT_TEST_SPEC",
-  APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE = "APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE",
-  APPIUM_WEB_JAVA_TESTNG_TEST_SPEC = "APPIUM_WEB_JAVA_TESTNG_TEST_SPEC",
-  APPIUM_WEB_NODE_TEST_PACKAGE = "APPIUM_WEB_NODE_TEST_PACKAGE",
-  APPIUM_WEB_NODE_TEST_SPEC = "APPIUM_WEB_NODE_TEST_SPEC",
-  APPIUM_WEB_PYTHON_TEST_PACKAGE = "APPIUM_WEB_PYTHON_TEST_PACKAGE",
-  APPIUM_WEB_PYTHON_TEST_SPEC = "APPIUM_WEB_PYTHON_TEST_SPEC",
-  APPIUM_WEB_RUBY_TEST_PACKAGE = "APPIUM_WEB_RUBY_TEST_PACKAGE",
-  APPIUM_WEB_RUBY_TEST_SPEC = "APPIUM_WEB_RUBY_TEST_SPEC",
-  CALABASH_TEST_PACKAGE = "CALABASH_TEST_PACKAGE",
-  EXTERNAL_DATA = "EXTERNAL_DATA",
-  INSTRUMENTATION_TEST_PACKAGE = "INSTRUMENTATION_TEST_PACKAGE",
-  INSTRUMENTATION_TEST_SPEC = "INSTRUMENTATION_TEST_SPEC",
-  IOS_APP = "IOS_APP",
-  UIAUTOMATION_TEST_PACKAGE = "UIAUTOMATION_TEST_PACKAGE",
-  UIAUTOMATOR_TEST_PACKAGE = "UIAUTOMATOR_TEST_PACKAGE",
-  WEB_APP = "WEB_APP",
-  XCTEST_TEST_PACKAGE = "XCTEST_TEST_PACKAGE",
-  XCTEST_UI_TEST_PACKAGE = "XCTEST_UI_TEST_PACKAGE",
-  XCTEST_UI_TEST_SPEC = "XCTEST_UI_TEST_SPEC",
-}
+/**
+ * @public
+ * @enum
+ */
+export const UploadType = {
+  ANDROID_APP: "ANDROID_APP",
+  APPIUM_JAVA_JUNIT_TEST_PACKAGE: "APPIUM_JAVA_JUNIT_TEST_PACKAGE",
+  APPIUM_JAVA_JUNIT_TEST_SPEC: "APPIUM_JAVA_JUNIT_TEST_SPEC",
+  APPIUM_JAVA_TESTNG_TEST_PACKAGE: "APPIUM_JAVA_TESTNG_TEST_PACKAGE",
+  APPIUM_JAVA_TESTNG_TEST_SPEC: "APPIUM_JAVA_TESTNG_TEST_SPEC",
+  APPIUM_NODE_TEST_PACKAGE: "APPIUM_NODE_TEST_PACKAGE",
+  APPIUM_NODE_TEST_SPEC: "APPIUM_NODE_TEST_SPEC",
+  APPIUM_PYTHON_TEST_PACKAGE: "APPIUM_PYTHON_TEST_PACKAGE",
+  APPIUM_PYTHON_TEST_SPEC: "APPIUM_PYTHON_TEST_SPEC",
+  APPIUM_RUBY_TEST_PACKAGE: "APPIUM_RUBY_TEST_PACKAGE",
+  APPIUM_RUBY_TEST_SPEC: "APPIUM_RUBY_TEST_SPEC",
+  APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE: "APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE",
+  APPIUM_WEB_JAVA_JUNIT_TEST_SPEC: "APPIUM_WEB_JAVA_JUNIT_TEST_SPEC",
+  APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE: "APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE",
+  APPIUM_WEB_JAVA_TESTNG_TEST_SPEC: "APPIUM_WEB_JAVA_TESTNG_TEST_SPEC",
+  APPIUM_WEB_NODE_TEST_PACKAGE: "APPIUM_WEB_NODE_TEST_PACKAGE",
+  APPIUM_WEB_NODE_TEST_SPEC: "APPIUM_WEB_NODE_TEST_SPEC",
+  APPIUM_WEB_PYTHON_TEST_PACKAGE: "APPIUM_WEB_PYTHON_TEST_PACKAGE",
+  APPIUM_WEB_PYTHON_TEST_SPEC: "APPIUM_WEB_PYTHON_TEST_SPEC",
+  APPIUM_WEB_RUBY_TEST_PACKAGE: "APPIUM_WEB_RUBY_TEST_PACKAGE",
+  APPIUM_WEB_RUBY_TEST_SPEC: "APPIUM_WEB_RUBY_TEST_SPEC",
+  CALABASH_TEST_PACKAGE: "CALABASH_TEST_PACKAGE",
+  EXTERNAL_DATA: "EXTERNAL_DATA",
+  INSTRUMENTATION_TEST_PACKAGE: "INSTRUMENTATION_TEST_PACKAGE",
+  INSTRUMENTATION_TEST_SPEC: "INSTRUMENTATION_TEST_SPEC",
+  IOS_APP: "IOS_APP",
+  UIAUTOMATION_TEST_PACKAGE: "UIAUTOMATION_TEST_PACKAGE",
+  UIAUTOMATOR_TEST_PACKAGE: "UIAUTOMATOR_TEST_PACKAGE",
+  WEB_APP: "WEB_APP",
+  XCTEST_TEST_PACKAGE: "XCTEST_TEST_PACKAGE",
+  XCTEST_UI_TEST_PACKAGE: "XCTEST_UI_TEST_PACKAGE",
+  XCTEST_UI_TEST_SPEC: "XCTEST_UI_TEST_SPEC",
+} as const;
 
 /**
+ * @public
+ */
+export type UploadType = (typeof UploadType)[keyof typeof UploadType];
+
+/**
+ * @public
  * <p>Represents a request to the create upload operation.</p>
  */
 export interface CreateUploadRequest {
@@ -1849,19 +2041,38 @@ export interface CreateUploadRequest {
   contentType?: string;
 }
 
-export enum UploadCategory {
-  CURATED = "CURATED",
-  PRIVATE = "PRIVATE",
-}
-
-export enum UploadStatus {
-  FAILED = "FAILED",
-  INITIALIZED = "INITIALIZED",
-  PROCESSING = "PROCESSING",
-  SUCCEEDED = "SUCCEEDED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const UploadCategory = {
+  CURATED: "CURATED",
+  PRIVATE: "PRIVATE",
+} as const;
 
 /**
+ * @public
+ */
+export type UploadCategory = (typeof UploadCategory)[keyof typeof UploadCategory];
+
+/**
+ * @public
+ * @enum
+ */
+export const UploadStatus = {
+  FAILED: "FAILED",
+  INITIALIZED: "INITIALIZED",
+  PROCESSING: "PROCESSING",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type UploadStatus = (typeof UploadStatus)[keyof typeof UploadStatus];
+
+/**
+ * @public
  * <p>An app or a set of one or more tests to upload or that have been
  *             uploaded.</p>
  */
@@ -2042,6 +2253,7 @@ export interface Upload {
 }
 
 /**
+ * @public
  * <p>Represents the result of a create upload request.</p>
  */
 export interface CreateUploadResult {
@@ -2051,6 +2263,9 @@ export interface CreateUploadResult {
   upload?: Upload;
 }
 
+/**
+ * @public
+ */
 export interface CreateVPCEConfigurationRequest {
   /**
    * <p>The friendly name you give to your VPC endpoint configuration, to manage your
@@ -2076,6 +2291,7 @@ export interface CreateVPCEConfigurationRequest {
 }
 
 /**
+ * @public
  * <p>Represents an Amazon Virtual Private Cloud (VPC) endpoint configuration.</p>
  */
 export interface VPCEConfiguration {
@@ -2107,6 +2323,9 @@ export interface VPCEConfiguration {
   vpceConfigurationDescription?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateVPCEConfigurationResult {
   /**
    * <p>An object that contains information about your VPC endpoint configuration.</p>
@@ -2114,11 +2333,21 @@ export interface CreateVPCEConfigurationResult {
   vpceConfiguration?: VPCEConfiguration;
 }
 
-export enum CurrencyCode {
-  USD = "USD",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CurrencyCode = {
+  USD: "USD",
+} as const;
 
 /**
+ * @public
+ */
+export type CurrencyCode = (typeof CurrencyCode)[keyof typeof CurrencyCode];
+
+/**
+ * @public
  * <p>A JSON object that specifies the paths where the artifacts generated by the customer's tests, on the
  *             device or in the test environment, are pulled from.</p>
  *         <p>Specify <code>deviceHostPaths</code> and optionally specify either
@@ -2147,6 +2376,7 @@ export interface CustomerArtifactPaths {
 }
 
 /**
+ * @public
  * <p>Represents a request to the delete device pool operation.</p>
  */
 export interface DeleteDevicePoolRequest {
@@ -2157,10 +2387,14 @@ export interface DeleteDevicePoolRequest {
 }
 
 /**
+ * @public
  * <p>Represents the result of a delete device pool request.</p>
  */
 export interface DeleteDevicePoolResult {}
 
+/**
+ * @public
+ */
 export interface DeleteInstanceProfileRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the instance profile you are requesting to
@@ -2169,8 +2403,14 @@ export interface DeleteInstanceProfileRequest {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteInstanceProfileResult {}
 
+/**
+ * @public
+ */
 export interface DeleteNetworkProfileRequest {
   /**
    * <p>The ARN of the network profile to delete.</p>
@@ -2178,9 +2418,13 @@ export interface DeleteNetworkProfileRequest {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteNetworkProfileResult {}
 
 /**
+ * @public
  * <p>Represents a request to the delete project operation.</p>
  */
 export interface DeleteProjectRequest {
@@ -2191,11 +2435,13 @@ export interface DeleteProjectRequest {
 }
 
 /**
+ * @public
  * <p>Represents the result of a delete project request.</p>
  */
 export interface DeleteProjectResult {}
 
 /**
+ * @public
  * <p>Represents the request to delete the specified remote access session.</p>
  */
 export interface DeleteRemoteAccessSessionRequest {
@@ -2207,12 +2453,14 @@ export interface DeleteRemoteAccessSessionRequest {
 }
 
 /**
+ * @public
  * <p>The response from the server when a request is made to delete the remote access
  *             session.</p>
  */
 export interface DeleteRemoteAccessSessionResult {}
 
 /**
+ * @public
  * <p>Represents a request to the delete run operation.</p>
  */
 export interface DeleteRunRequest {
@@ -2223,10 +2471,14 @@ export interface DeleteRunRequest {
 }
 
 /**
+ * @public
  * <p>Represents the result of a delete run request.</p>
  */
 export interface DeleteRunResult {}
 
+/**
+ * @public
+ */
 export interface DeleteTestGridProjectRequest {
   /**
    * <p>The ARN of the project to delete, from <a>CreateTestGridProject</a> or <a>ListTestGridProjects</a>.</p>
@@ -2234,9 +2486,13 @@ export interface DeleteTestGridProjectRequest {
   projectArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTestGridProjectResult {}
 
 /**
+ * @public
  * <p>Represents a request to the delete upload operation.</p>
  */
 export interface DeleteUploadRequest {
@@ -2247,10 +2503,14 @@ export interface DeleteUploadRequest {
 }
 
 /**
+ * @public
  * <p>Represents the result of a delete upload request.</p>
  */
 export interface DeleteUploadResult {}
 
+/**
+ * @public
+ */
 export interface DeleteVPCEConfigurationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the VPC endpoint configuration you want to
@@ -2259,9 +2519,13 @@ export interface DeleteVPCEConfigurationRequest {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVPCEConfigurationResult {}
 
 /**
+ * @public
  * <p>There was an error with the update request, or you do not have sufficient permissions
  *             to update this VPC endpoint configuration.</p>
  */
@@ -2282,11 +2546,13 @@ export class InvalidOperationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the request sent to retrieve the account settings.</p>
  */
 export interface GetAccountSettingsRequest {}
 
 /**
+ * @public
  * <p>Represents the account settings return values from the
  *                 <code>GetAccountSettings</code> request.</p>
  */
@@ -2298,6 +2564,7 @@ export interface GetAccountSettingsResult {
 }
 
 /**
+ * @public
  * <p>Represents a request to the get device request.</p>
  */
 export interface GetDeviceRequest {
@@ -2308,6 +2575,7 @@ export interface GetDeviceRequest {
 }
 
 /**
+ * @public
  * <p>Represents the result of a get device request.</p>
  */
 export interface GetDeviceResult {
@@ -2317,6 +2585,9 @@ export interface GetDeviceResult {
   device?: Device;
 }
 
+/**
+ * @public
+ */
 export interface GetDeviceInstanceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the instance you're requesting information
@@ -2325,6 +2596,9 @@ export interface GetDeviceInstanceRequest {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDeviceInstanceResult {
   /**
    * <p>An object that contains information about your device instance.</p>
@@ -2333,6 +2607,7 @@ export interface GetDeviceInstanceResult {
 }
 
 /**
+ * @public
  * <p>Represents a request to the get device pool operation.</p>
  */
 export interface GetDevicePoolRequest {
@@ -2343,6 +2618,7 @@ export interface GetDevicePoolRequest {
 }
 
 /**
+ * @public
  * <p>Represents the result of a get device pool request.</p>
  */
 export interface GetDevicePoolResult {
@@ -2353,6 +2629,7 @@ export interface GetDevicePoolResult {
 }
 
 /**
+ * @public
  * <p>Represents a latitude and longitude pair, expressed in geographic coordinate system degrees (for
  *             example, 47.6204, -122.3491).</p>
  *         <p>Elevation is currently not supported.</p>
@@ -2370,6 +2647,7 @@ export interface Location {
 }
 
 /**
+ * @public
  * <p>Represents the set of radios and their states on a device. Examples of radios
  *             include Wi-Fi, GPS, Bluetooth, and NFC.</p>
  */
@@ -2396,6 +2674,7 @@ export interface Radios {
 }
 
 /**
+ * @public
  * <p>Represents the settings for a run. Includes things like location, radio states,
  *             auxiliary apps, and network profiles.</p>
  */
@@ -2454,31 +2733,41 @@ export interface ScheduleRunConfiguration {
   billingMethod?: BillingMethod | string;
 }
 
-export enum TestType {
-  APPIUM_JAVA_JUNIT = "APPIUM_JAVA_JUNIT",
-  APPIUM_JAVA_TESTNG = "APPIUM_JAVA_TESTNG",
-  APPIUM_NODE = "APPIUM_NODE",
-  APPIUM_PYTHON = "APPIUM_PYTHON",
-  APPIUM_RUBY = "APPIUM_RUBY",
-  APPIUM_WEB_JAVA_JUNIT = "APPIUM_WEB_JAVA_JUNIT",
-  APPIUM_WEB_JAVA_TESTNG = "APPIUM_WEB_JAVA_TESTNG",
-  APPIUM_WEB_NODE = "APPIUM_WEB_NODE",
-  APPIUM_WEB_PYTHON = "APPIUM_WEB_PYTHON",
-  APPIUM_WEB_RUBY = "APPIUM_WEB_RUBY",
-  BUILTIN_EXPLORER = "BUILTIN_EXPLORER",
-  BUILTIN_FUZZ = "BUILTIN_FUZZ",
-  CALABASH = "CALABASH",
-  INSTRUMENTATION = "INSTRUMENTATION",
-  REMOTE_ACCESS_RECORD = "REMOTE_ACCESS_RECORD",
-  REMOTE_ACCESS_REPLAY = "REMOTE_ACCESS_REPLAY",
-  UIAUTOMATION = "UIAUTOMATION",
-  UIAUTOMATOR = "UIAUTOMATOR",
-  WEB_PERFORMANCE_PROFILE = "WEB_PERFORMANCE_PROFILE",
-  XCTEST = "XCTEST",
-  XCTEST_UI = "XCTEST_UI",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TestType = {
+  APPIUM_JAVA_JUNIT: "APPIUM_JAVA_JUNIT",
+  APPIUM_JAVA_TESTNG: "APPIUM_JAVA_TESTNG",
+  APPIUM_NODE: "APPIUM_NODE",
+  APPIUM_PYTHON: "APPIUM_PYTHON",
+  APPIUM_RUBY: "APPIUM_RUBY",
+  APPIUM_WEB_JAVA_JUNIT: "APPIUM_WEB_JAVA_JUNIT",
+  APPIUM_WEB_JAVA_TESTNG: "APPIUM_WEB_JAVA_TESTNG",
+  APPIUM_WEB_NODE: "APPIUM_WEB_NODE",
+  APPIUM_WEB_PYTHON: "APPIUM_WEB_PYTHON",
+  APPIUM_WEB_RUBY: "APPIUM_WEB_RUBY",
+  BUILTIN_EXPLORER: "BUILTIN_EXPLORER",
+  BUILTIN_FUZZ: "BUILTIN_FUZZ",
+  CALABASH: "CALABASH",
+  INSTRUMENTATION: "INSTRUMENTATION",
+  REMOTE_ACCESS_RECORD: "REMOTE_ACCESS_RECORD",
+  REMOTE_ACCESS_REPLAY: "REMOTE_ACCESS_REPLAY",
+  UIAUTOMATION: "UIAUTOMATION",
+  UIAUTOMATOR: "UIAUTOMATOR",
+  WEB_PERFORMANCE_PROFILE: "WEB_PERFORMANCE_PROFILE",
+  XCTEST: "XCTEST",
+  XCTEST_UI: "XCTEST_UI",
+} as const;
 
 /**
+ * @public
+ */
+export type TestType = (typeof TestType)[keyof typeof TestType];
+
+/**
+ * @public
  * <p>Represents test settings. This data structure is passed in as the test parameter to ScheduleRun. For an
  *             example of the JSON request syntax, see <a>ScheduleRun</a>.</p>
  */
@@ -2703,6 +2992,7 @@ export interface ScheduleRunTest {
 }
 
 /**
+ * @public
  * <p>Represents a request to the get device pool compatibility operation.</p>
  */
 export interface GetDevicePoolCompatibilityRequest {
@@ -2791,6 +3081,7 @@ export interface GetDevicePoolCompatibilityRequest {
 }
 
 /**
+ * @public
  * <p>Represents information about incompatibility.</p>
  */
 export interface IncompatibilityMessage {
@@ -2827,6 +3118,7 @@ export interface IncompatibilityMessage {
 }
 
 /**
+ * @public
  * <p>Represents a device pool compatibility result.</p>
  */
 export interface DevicePoolCompatibilityResult {
@@ -2847,6 +3139,7 @@ export interface DevicePoolCompatibilityResult {
 }
 
 /**
+ * @public
  * <p>Represents the result of describe device pool compatibility request.</p>
  */
 export interface GetDevicePoolCompatibilityResult {
@@ -2861,6 +3154,9 @@ export interface GetDevicePoolCompatibilityResult {
   incompatibleDevices?: DevicePoolCompatibilityResult[];
 }
 
+/**
+ * @public
+ */
 export interface GetInstanceProfileRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of an instance profile.</p>
@@ -2868,6 +3164,9 @@ export interface GetInstanceProfileRequest {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetInstanceProfileResult {
   /**
    * <p>An object that contains information about an instance profile.</p>
@@ -2876,6 +3175,7 @@ export interface GetInstanceProfileResult {
 }
 
 /**
+ * @public
  * <p>Represents a request to the get job operation.</p>
  */
 export interface GetJobRequest {
@@ -2886,6 +3186,7 @@ export interface GetJobRequest {
 }
 
 /**
+ * @public
  * <p>Represents a device.</p>
  */
 export interface Job {
@@ -3078,6 +3379,7 @@ export interface Job {
 }
 
 /**
+ * @public
  * <p>Represents the result of a get job request.</p>
  */
 export interface GetJobResult {
@@ -3087,6 +3389,9 @@ export interface GetJobResult {
   job?: Job;
 }
 
+/**
+ * @public
+ */
 export interface GetNetworkProfileRequest {
   /**
    * <p>The ARN of the network profile to return information about.</p>
@@ -3094,6 +3399,9 @@ export interface GetNetworkProfileRequest {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetNetworkProfileResult {
   /**
    * <p>The network profile.</p>
@@ -3102,6 +3410,7 @@ export interface GetNetworkProfileResult {
 }
 
 /**
+ * @public
  * <p>Represents the request to retrieve the offering status for the specified customer
  *             or account.</p>
  */
@@ -3114,6 +3423,7 @@ export interface GetOfferingStatusRequest {
 }
 
 /**
+ * @public
  * <p>A number that represents the monetary amount for an offering or transaction.</p>
  */
 export interface MonetaryAmount {
@@ -3128,11 +3438,21 @@ export interface MonetaryAmount {
   currencyCode?: CurrencyCode | string;
 }
 
-export enum RecurringChargeFrequency {
-  MONTHLY = "MONTHLY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RecurringChargeFrequency = {
+  MONTHLY: "MONTHLY",
+} as const;
 
 /**
+ * @public
+ */
+export type RecurringChargeFrequency = (typeof RecurringChargeFrequency)[keyof typeof RecurringChargeFrequency];
+
+/**
+ * @public
  * <p>Specifies whether charges for devices are recurring.</p>
  */
 export interface RecurringCharge {
@@ -3147,11 +3467,21 @@ export interface RecurringCharge {
   frequency?: RecurringChargeFrequency | string;
 }
 
-export enum OfferingType {
-  RECURRING = "RECURRING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OfferingType = {
+  RECURRING: "RECURRING",
+} as const;
 
 /**
+ * @public
+ */
+export type OfferingType = (typeof OfferingType)[keyof typeof OfferingType];
+
+/**
+ * @public
  * <p>Represents the metadata of a device offering.</p>
  */
 export interface Offering {
@@ -3181,13 +3511,23 @@ export interface Offering {
   recurringCharges?: RecurringCharge[];
 }
 
-export enum OfferingTransactionType {
-  PURCHASE = "PURCHASE",
-  RENEW = "RENEW",
-  SYSTEM = "SYSTEM",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OfferingTransactionType = {
+  PURCHASE: "PURCHASE",
+  RENEW: "RENEW",
+  SYSTEM: "SYSTEM",
+} as const;
 
 /**
+ * @public
+ */
+export type OfferingTransactionType = (typeof OfferingTransactionType)[keyof typeof OfferingTransactionType];
+
+/**
+ * @public
  * <p>The status of the offering.</p>
  */
 export interface OfferingStatus {
@@ -3213,6 +3553,7 @@ export interface OfferingStatus {
 }
 
 /**
+ * @public
  * <p>Returns the status result for a device offering.</p>
  */
 export interface GetOfferingStatusResult {
@@ -3234,6 +3575,7 @@ export interface GetOfferingStatusResult {
 }
 
 /**
+ * @public
  * <p>Exception gets thrown when a user is not eligible to perform the specified
  *             transaction.</p>
  */
@@ -3254,6 +3596,7 @@ export class NotEligibleException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents a request to the get project operation.</p>
  */
 export interface GetProjectRequest {
@@ -3264,6 +3607,7 @@ export interface GetProjectRequest {
 }
 
 /**
+ * @public
  * <p>Represents the result of a get project request.</p>
  */
 export interface GetProjectResult {
@@ -3274,6 +3618,7 @@ export interface GetProjectResult {
 }
 
 /**
+ * @public
  * <p>Represents the request to get information about the specified remote access
  *             session.</p>
  */
@@ -3286,6 +3631,7 @@ export interface GetRemoteAccessSessionRequest {
 }
 
 /**
+ * @public
  * <p>Represents the response from the server that lists detailed information about the
  *             remote access session.</p>
  */
@@ -3298,6 +3644,7 @@ export interface GetRemoteAccessSessionResult {
 }
 
 /**
+ * @public
  * <p>Represents a request to the get run operation.</p>
  */
 export interface GetRunRequest {
@@ -3307,22 +3654,32 @@ export interface GetRunRequest {
   arn: string | undefined;
 }
 
-export enum DeviceFilterAttribute {
-  ARN = "ARN",
-  AVAILABILITY = "AVAILABILITY",
-  FLEET_TYPE = "FLEET_TYPE",
-  FORM_FACTOR = "FORM_FACTOR",
-  INSTANCE_ARN = "INSTANCE_ARN",
-  INSTANCE_LABELS = "INSTANCE_LABELS",
-  MANUFACTURER = "MANUFACTURER",
-  MODEL = "MODEL",
-  OS_VERSION = "OS_VERSION",
-  PLATFORM = "PLATFORM",
-  REMOTE_ACCESS_ENABLED = "REMOTE_ACCESS_ENABLED",
-  REMOTE_DEBUG_ENABLED = "REMOTE_DEBUG_ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeviceFilterAttribute = {
+  ARN: "ARN",
+  AVAILABILITY: "AVAILABILITY",
+  FLEET_TYPE: "FLEET_TYPE",
+  FORM_FACTOR: "FORM_FACTOR",
+  INSTANCE_ARN: "INSTANCE_ARN",
+  INSTANCE_LABELS: "INSTANCE_LABELS",
+  MANUFACTURER: "MANUFACTURER",
+  MODEL: "MODEL",
+  OS_VERSION: "OS_VERSION",
+  PLATFORM: "PLATFORM",
+  REMOTE_ACCESS_ENABLED: "REMOTE_ACCESS_ENABLED",
+  REMOTE_DEBUG_ENABLED: "REMOTE_DEBUG_ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type DeviceFilterAttribute = (typeof DeviceFilterAttribute)[keyof typeof DeviceFilterAttribute];
+
+/**
+ * @public
  * <p>Represents a device filter used to select a set of devices to be included in a test
  *             run. This data structure is passed in as the <code>deviceSelectionConfiguration</code>
  *             parameter to <code>ScheduleRun</code>. For an example of the JSON request syntax, see
@@ -3466,6 +3823,7 @@ export interface DeviceFilter {
 }
 
 /**
+ * @public
  * <p>Contains the run results requested by the device selection configuration and how many devices were
  *             returned. For an example of the JSON response syntax, see <a>ScheduleRun</a>.</p>
  */
@@ -3487,12 +3845,22 @@ export interface DeviceSelectionResult {
   maxDevices?: number;
 }
 
-export enum ExecutionResultCode {
-  PARSING_FAILED = "PARSING_FAILED",
-  VPC_ENDPOINT_SETUP_FAILED = "VPC_ENDPOINT_SETUP_FAILED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ExecutionResultCode = {
+  PARSING_FAILED: "PARSING_FAILED",
+  VPC_ENDPOINT_SETUP_FAILED: "VPC_ENDPOINT_SETUP_FAILED",
+} as const;
 
 /**
+ * @public
+ */
+export type ExecutionResultCode = (typeof ExecutionResultCode)[keyof typeof ExecutionResultCode];
+
+/**
+ * @public
  * <p>Represents a test run on a set of devices with a given app package, test parameters, and so
  *             on.</p>
  */
@@ -3797,6 +4165,7 @@ export interface Run {
 }
 
 /**
+ * @public
  * <p>Represents the result of a get run request.</p>
  */
 export interface GetRunResult {
@@ -3807,6 +4176,7 @@ export interface GetRunResult {
 }
 
 /**
+ * @public
  * <p>Represents a request to the get suite operation.</p>
  */
 export interface GetSuiteRequest {
@@ -3817,6 +4187,7 @@ export interface GetSuiteRequest {
 }
 
 /**
+ * @public
  * <p>Represents a collection of one or more tests.</p>
  */
 export interface Suite {
@@ -3993,6 +4364,7 @@ export interface Suite {
 }
 
 /**
+ * @public
  * <p>Represents the result of a get suite request.</p>
  */
 export interface GetSuiteResult {
@@ -4003,6 +4375,7 @@ export interface GetSuiteResult {
 }
 
 /**
+ * @public
  * <p>Represents a request to the get test operation.</p>
  */
 export interface GetTestRequest {
@@ -4013,6 +4386,7 @@ export interface GetTestRequest {
 }
 
 /**
+ * @public
  * <p>Represents a condition that is evaluated.</p>
  */
 export interface Test {
@@ -4188,6 +4562,7 @@ export interface Test {
 }
 
 /**
+ * @public
  * <p>Represents the result of a get test request.</p>
  */
 export interface GetTestResult {
@@ -4197,6 +4572,9 @@ export interface GetTestResult {
   test?: Test;
 }
 
+/**
+ * @public
+ */
 export interface GetTestGridProjectRequest {
   /**
    * <p>The ARN of the Selenium testing project, from either <a>CreateTestGridProject</a> or <a>ListTestGridProjects</a>.</p>
@@ -4204,6 +4582,9 @@ export interface GetTestGridProjectRequest {
   projectArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetTestGridProjectResult {
   /**
    * <p>A <a>TestGridProject</a>.</p>
@@ -4211,6 +4592,9 @@ export interface GetTestGridProjectResult {
   testGridProject?: TestGridProject;
 }
 
+/**
+ * @public
+ */
 export interface GetTestGridSessionRequest {
   /**
    * <p>The ARN for the project that this session belongs to. See <a>CreateTestGridProject</a> and <a>ListTestGridProjects</a>.</p>
@@ -4228,13 +4612,23 @@ export interface GetTestGridSessionRequest {
   sessionArn?: string;
 }
 
-export enum TestGridSessionStatus {
-  ACTIVE = "ACTIVE",
-  CLOSED = "CLOSED",
-  ERRORED = "ERRORED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TestGridSessionStatus = {
+  ACTIVE: "ACTIVE",
+  CLOSED: "CLOSED",
+  ERRORED: "ERRORED",
+} as const;
 
 /**
+ * @public
+ */
+export type TestGridSessionStatus = (typeof TestGridSessionStatus)[keyof typeof TestGridSessionStatus];
+
+/**
+ * @public
  * <p>A <a>TestGridSession</a> is a single instance of a browser launched from the URL provided by a
  *          call to <a>CreateTestGridUrl</a>.</p>
  */
@@ -4270,6 +4664,9 @@ export interface TestGridSession {
   seleniumProperties?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetTestGridSessionResult {
   /**
    * <p>The <a>TestGridSession</a> that was requested.</p>
@@ -4278,6 +4675,7 @@ export interface GetTestGridSessionResult {
 }
 
 /**
+ * @public
  * <p>Represents a request to the get upload operation.</p>
  */
 export interface GetUploadRequest {
@@ -4288,6 +4686,7 @@ export interface GetUploadRequest {
 }
 
 /**
+ * @public
  * <p>Represents the result of a get upload request.</p>
  */
 export interface GetUploadResult {
@@ -4298,6 +4697,9 @@ export interface GetUploadResult {
   upload?: Upload;
 }
 
+/**
+ * @public
+ */
 export interface GetVPCEConfigurationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the VPC endpoint configuration you want to
@@ -4306,6 +4708,9 @@ export interface GetVPCEConfigurationRequest {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetVPCEConfigurationResult {
   /**
    * <p>An object that contains information about your VPC endpoint configuration.</p>
@@ -4314,6 +4719,7 @@ export interface GetVPCEConfigurationResult {
 }
 
 /**
+ * @public
  * <p>Represents the request to install an Android application (in .apk format) or an iOS
  *             application (in .ipa format) as part of a remote access session.</p>
  */
@@ -4331,6 +4737,7 @@ export interface InstallToRemoteAccessSessionRequest {
 }
 
 /**
+ * @public
  * <p>Represents the response from the server after AWS Device Farm makes a request to
  *             install to a remote access session.</p>
  */
@@ -4342,6 +4749,7 @@ export interface InstallToRemoteAccessSessionResult {
 }
 
 /**
+ * @public
  * <p>Represents a request to the list artifacts operation.</p>
  */
 export interface ListArtifactsRequest {
@@ -4375,6 +4783,7 @@ export interface ListArtifactsRequest {
 }
 
 /**
+ * @public
  * <p>Represents the result of a list artifacts operation.</p>
  */
 export interface ListArtifactsResult {
@@ -4391,6 +4800,9 @@ export interface ListArtifactsResult {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDeviceInstancesRequest {
   /**
    * <p>An integer that specifies the maximum number of items you want to return in the API response.</p>
@@ -4404,6 +4816,9 @@ export interface ListDeviceInstancesRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDeviceInstancesResult {
   /**
    * <p>An object that contains information about your device instances.</p>
@@ -4418,6 +4833,7 @@ export interface ListDeviceInstancesResult {
 }
 
 /**
+ * @public
  * <p>Represents the result of a list device pools request.</p>
  */
 export interface ListDevicePoolsRequest {
@@ -4450,6 +4866,7 @@ export interface ListDevicePoolsRequest {
 }
 
 /**
+ * @public
  * <p>Represents the result of a list device pools request.</p>
  */
 export interface ListDevicePoolsResult {
@@ -4467,6 +4884,7 @@ export interface ListDevicePoolsResult {
 }
 
 /**
+ * @public
  * <p>Represents the result of a list devices request.</p>
  */
 export interface ListDevicesRequest {
@@ -4578,6 +4996,7 @@ export interface ListDevicesRequest {
 }
 
 /**
+ * @public
  * <p>Represents the result of a list devices operation.</p>
  */
 export interface ListDevicesResult {
@@ -4594,6 +5013,9 @@ export interface ListDevicesResult {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListInstanceProfilesRequest {
   /**
    * <p>An integer that specifies the maximum number of items you want to return in the API response.</p>
@@ -4607,6 +5029,9 @@ export interface ListInstanceProfilesRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListInstanceProfilesResult {
   /**
    * <p>An object that contains information about your instance profiles.</p>
@@ -4621,6 +5046,7 @@ export interface ListInstanceProfilesResult {
 }
 
 /**
+ * @public
  * <p>Represents a request to the list jobs operation.</p>
  */
 export interface ListJobsRequest {
@@ -4637,6 +5063,7 @@ export interface ListJobsRequest {
 }
 
 /**
+ * @public
  * <p>Represents the result of a list jobs request.</p>
  */
 export interface ListJobsResult {
@@ -4653,6 +5080,9 @@ export interface ListJobsResult {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListNetworkProfilesRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the project for which you want to list network
@@ -4672,6 +5102,9 @@ export interface ListNetworkProfilesRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListNetworkProfilesResult {
   /**
    * <p>A list of the available network profiles.</p>
@@ -4685,6 +5118,9 @@ export interface ListNetworkProfilesResult {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListOfferingPromotionsRequest {
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can
@@ -4694,6 +5130,7 @@ export interface ListOfferingPromotionsRequest {
 }
 
 /**
+ * @public
  * <p>Represents information about an offering promotion.</p>
  */
 export interface OfferingPromotion {
@@ -4708,6 +5145,9 @@ export interface OfferingPromotion {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListOfferingPromotionsResult {
   /**
    * <p>Information about the offering promotions.</p>
@@ -4722,6 +5162,7 @@ export interface ListOfferingPromotionsResult {
 }
 
 /**
+ * @public
  * <p>Represents the request to list all offerings.</p>
  */
 export interface ListOfferingsRequest {
@@ -4733,6 +5174,7 @@ export interface ListOfferingsRequest {
 }
 
 /**
+ * @public
  * <p>Represents the return values of the list of offerings.</p>
  */
 export interface ListOfferingsResult {
@@ -4749,6 +5191,7 @@ export interface ListOfferingsResult {
 }
 
 /**
+ * @public
  * <p>Represents the request to list the offering transaction history.</p>
  */
 export interface ListOfferingTransactionsRequest {
@@ -4760,6 +5203,7 @@ export interface ListOfferingTransactionsRequest {
 }
 
 /**
+ * @public
  * <p>Represents the metadata of an offering transaction.</p>
  */
 export interface OfferingTransaction {
@@ -4790,6 +5234,7 @@ export interface OfferingTransaction {
 }
 
 /**
+ * @public
  * <p>Returns the transaction log of the specified offerings.</p>
  */
 export interface ListOfferingTransactionsResult {
@@ -4807,6 +5252,7 @@ export interface ListOfferingTransactionsResult {
 }
 
 /**
+ * @public
  * <p>Represents a request to the list projects operation.</p>
  */
 export interface ListProjectsRequest {
@@ -4825,6 +5271,7 @@ export interface ListProjectsRequest {
 }
 
 /**
+ * @public
  * <p>Represents the result of a list projects request.</p>
  */
 export interface ListProjectsResult {
@@ -4842,6 +5289,7 @@ export interface ListProjectsResult {
 }
 
 /**
+ * @public
  * <p>Represents the request to return information about the remote access
  *             session.</p>
  */
@@ -4860,6 +5308,7 @@ export interface ListRemoteAccessSessionsRequest {
 }
 
 /**
+ * @public
  * <p>Represents the response from the server after AWS Device Farm makes a request to
  *             return information about the remote access session.</p>
  */
@@ -4878,6 +5327,7 @@ export interface ListRemoteAccessSessionsResult {
 }
 
 /**
+ * @public
  * <p>Represents a request to the list runs operation.</p>
  */
 export interface ListRunsRequest {
@@ -4895,6 +5345,7 @@ export interface ListRunsRequest {
 }
 
 /**
+ * @public
  * <p>Represents the result of a list runs request.</p>
  */
 export interface ListRunsResult {
@@ -4912,6 +5363,7 @@ export interface ListRunsResult {
 }
 
 /**
+ * @public
  * <p>Represents a request to the list samples operation.</p>
  */
 export interface ListSamplesRequest {
@@ -4927,27 +5379,37 @@ export interface ListSamplesRequest {
   nextToken?: string;
 }
 
-export enum SampleType {
-  CPU = "CPU",
-  MEMORY = "MEMORY",
-  NATIVE_AVG_DRAWTIME = "NATIVE_AVG_DRAWTIME",
-  NATIVE_FPS = "NATIVE_FPS",
-  NATIVE_FRAMES = "NATIVE_FRAMES",
-  NATIVE_MAX_DRAWTIME = "NATIVE_MAX_DRAWTIME",
-  NATIVE_MIN_DRAWTIME = "NATIVE_MIN_DRAWTIME",
-  OPENGL_AVG_DRAWTIME = "OPENGL_AVG_DRAWTIME",
-  OPENGL_FPS = "OPENGL_FPS",
-  OPENGL_FRAMES = "OPENGL_FRAMES",
-  OPENGL_MAX_DRAWTIME = "OPENGL_MAX_DRAWTIME",
-  OPENGL_MIN_DRAWTIME = "OPENGL_MIN_DRAWTIME",
-  RX = "RX",
-  RX_RATE = "RX_RATE",
-  THREADS = "THREADS",
-  TX = "TX",
-  TX_RATE = "TX_RATE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SampleType = {
+  CPU: "CPU",
+  MEMORY: "MEMORY",
+  NATIVE_AVG_DRAWTIME: "NATIVE_AVG_DRAWTIME",
+  NATIVE_FPS: "NATIVE_FPS",
+  NATIVE_FRAMES: "NATIVE_FRAMES",
+  NATIVE_MAX_DRAWTIME: "NATIVE_MAX_DRAWTIME",
+  NATIVE_MIN_DRAWTIME: "NATIVE_MIN_DRAWTIME",
+  OPENGL_AVG_DRAWTIME: "OPENGL_AVG_DRAWTIME",
+  OPENGL_FPS: "OPENGL_FPS",
+  OPENGL_FRAMES: "OPENGL_FRAMES",
+  OPENGL_MAX_DRAWTIME: "OPENGL_MAX_DRAWTIME",
+  OPENGL_MIN_DRAWTIME: "OPENGL_MIN_DRAWTIME",
+  RX: "RX",
+  RX_RATE: "RX_RATE",
+  THREADS: "THREADS",
+  TX: "TX",
+  TX_RATE: "TX_RATE",
+} as const;
 
 /**
+ * @public
+ */
+export type SampleType = (typeof SampleType)[keyof typeof SampleType];
+
+/**
+ * @public
  * <p>Represents a sample of performance data.</p>
  */
 export interface Sample {
@@ -5028,6 +5490,7 @@ export interface Sample {
 }
 
 /**
+ * @public
  * <p>Represents the result of a list samples request.</p>
  */
 export interface ListSamplesResult {
@@ -5045,6 +5508,7 @@ export interface ListSamplesResult {
 }
 
 /**
+ * @public
  * <p>Represents a request to the list suites operation.</p>
  */
 export interface ListSuitesRequest {
@@ -5061,6 +5525,7 @@ export interface ListSuitesRequest {
 }
 
 /**
+ * @public
  * <p>Represents the result of a list suites request.</p>
  */
 export interface ListSuitesResult {
@@ -5077,6 +5542,9 @@ export interface ListSuitesResult {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource or resources for which to list tags. You can associate tags
@@ -5089,6 +5557,7 @@ export interface ListTagsForResourceRequest {
 }
 
 /**
+ * @public
  * <p>The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a
  *             key and an optional value, both of which you define. Tag keys can have a maximum character length of 128
  *             characters. Tag values can have a maximum length of 256 characters. </p>
@@ -5107,6 +5576,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags to add to the resource. A tag is an array of key-value pairs. Tag keys can have a maximum
@@ -5115,6 +5587,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface ListTestGridProjectsRequest {
   /**
    * <p>Return no more than this number of results.</p>
@@ -5127,6 +5602,9 @@ export interface ListTestGridProjectsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTestGridProjectsResult {
   /**
    * <p>The list of TestGridProjects, based on a <a>ListTestGridProjectsRequest</a>.</p>
@@ -5140,6 +5618,9 @@ export interface ListTestGridProjectsResult {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTestGridSessionActionsRequest {
   /**
    * <p>The ARN of the session to retrieve.</p>
@@ -5158,6 +5639,7 @@ export interface ListTestGridSessionActionsRequest {
 }
 
 /**
+ * @public
  * <p>An action taken by a <a>TestGridSession</a> browser instance.</p>
  */
 export interface TestGridSessionAction {
@@ -5187,6 +5669,9 @@ export interface TestGridSessionAction {
   requestMethod?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTestGridSessionActionsResult {
   /**
    * <p>The action taken by the session.</p>
@@ -5199,11 +5684,24 @@ export interface ListTestGridSessionActionsResult {
   nextToken?: string;
 }
 
-export enum TestGridSessionArtifactCategory {
-  LOG = "LOG",
-  VIDEO = "VIDEO",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TestGridSessionArtifactCategory = {
+  LOG: "LOG",
+  VIDEO: "VIDEO",
+} as const;
 
+/**
+ * @public
+ */
+export type TestGridSessionArtifactCategory =
+  (typeof TestGridSessionArtifactCategory)[keyof typeof TestGridSessionArtifactCategory];
+
+/**
+ * @public
+ */
 export interface ListTestGridSessionArtifactsRequest {
   /**
    * <p>The ARN of a <a>TestGridSession</a>. </p>
@@ -5226,13 +5724,24 @@ export interface ListTestGridSessionArtifactsRequest {
   nextToken?: string;
 }
 
-export enum TestGridSessionArtifactType {
-  SELENIUM_LOG = "SELENIUM_LOG",
-  UNKNOWN = "UNKNOWN",
-  VIDEO = "VIDEO",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TestGridSessionArtifactType = {
+  SELENIUM_LOG: "SELENIUM_LOG",
+  UNKNOWN: "UNKNOWN",
+  VIDEO: "VIDEO",
+} as const;
 
 /**
+ * @public
+ */
+export type TestGridSessionArtifactType =
+  (typeof TestGridSessionArtifactType)[keyof typeof TestGridSessionArtifactType];
+
+/**
+ * @public
  * <p>Artifacts are video and other files that are produced in the process of running a browser in an automated
  *          context. </p>
  *          <note>
@@ -5256,6 +5765,9 @@ export interface TestGridSessionArtifact {
   url?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTestGridSessionArtifactsResult {
   /**
    * <p>A list of test grid session artifacts for a <a>TestGridSession</a>.</p>
@@ -5268,6 +5780,9 @@ export interface ListTestGridSessionArtifactsResult {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTestGridSessionsRequest {
   /**
    * <p>ARN of a <a>TestGridProject</a>.</p>
@@ -5310,6 +5825,9 @@ export interface ListTestGridSessionsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTestGridSessionsResult {
   /**
    * <p>The sessions that match the criteria in a <a>ListTestGridSessionsRequest</a>. </p>
@@ -5323,6 +5841,7 @@ export interface ListTestGridSessionsResult {
 }
 
 /**
+ * @public
  * <p>Represents a request to the list tests operation.</p>
  */
 export interface ListTestsRequest {
@@ -5339,6 +5858,7 @@ export interface ListTestsRequest {
 }
 
 /**
+ * @public
  * <p>Represents the result of a list tests request.</p>
  */
 export interface ListTestsResult {
@@ -5356,6 +5876,7 @@ export interface ListTestsResult {
 }
 
 /**
+ * @public
  * <p>Represents a request to the list unique problems operation.</p>
  */
 export interface ListUniqueProblemsRequest {
@@ -5372,6 +5893,7 @@ export interface ListUniqueProblemsRequest {
 }
 
 /**
+ * @public
  * <p>Information about a problem detail.</p>
  */
 export interface ProblemDetail {
@@ -5387,6 +5909,7 @@ export interface ProblemDetail {
 }
 
 /**
+ * @public
  * <p>Represents a specific warning or failure.</p>
  */
 export interface Problem {
@@ -5451,6 +5974,7 @@ export interface Problem {
 }
 
 /**
+ * @public
  * <p>A collection of one or more problems, grouped by their result.</p>
  */
 export interface UniqueProblem {
@@ -5466,6 +5990,7 @@ export interface UniqueProblem {
 }
 
 /**
+ * @public
  * <p>Represents the result of a list unique problems request.</p>
  */
 export interface ListUniqueProblemsResult {
@@ -5507,6 +6032,7 @@ export interface ListUniqueProblemsResult {
 }
 
 /**
+ * @public
  * <p>Represents a request to the list uploads operation.</p>
  */
 export interface ListUploadsRequest {
@@ -5628,6 +6154,7 @@ export interface ListUploadsRequest {
 }
 
 /**
+ * @public
  * <p>Represents the result of a list uploads request.</p>
  */
 export interface ListUploadsResult {
@@ -5644,6 +6171,9 @@ export interface ListUploadsResult {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListVPCEConfigurationsRequest {
   /**
    * <p>An integer that specifies the maximum number of items you want to return in the API response.</p>
@@ -5657,6 +6187,9 @@ export interface ListVPCEConfigurationsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListVPCEConfigurationsResult {
   /**
    * <p>An array of <code>VPCEConfiguration</code> objects that contain information about your VPC endpoint
@@ -5672,6 +6205,7 @@ export interface ListVPCEConfigurationsResult {
 }
 
 /**
+ * @public
  * <p>Represents a request for a purchase offering.</p>
  */
 export interface PurchaseOfferingRequest {
@@ -5692,6 +6226,7 @@ export interface PurchaseOfferingRequest {
 }
 
 /**
+ * @public
  * <p>The result of the purchase offering (for example, success or failure).</p>
  */
 export interface PurchaseOfferingResult {
@@ -5702,6 +6237,7 @@ export interface PurchaseOfferingResult {
 }
 
 /**
+ * @public
  * <p>A request that represents an offering renewal.</p>
  */
 export interface RenewOfferingRequest {
@@ -5717,6 +6253,7 @@ export interface RenewOfferingRequest {
 }
 
 /**
+ * @public
  * <p>The result of a renewal offering.</p>
  */
 export interface RenewOfferingResult {
@@ -5727,6 +6264,7 @@ export interface RenewOfferingResult {
 }
 
 /**
+ * @public
  * <p>An entity with the same name already exists.</p>
  */
 export class IdempotencyException extends __BaseException {
@@ -5746,6 +6284,7 @@ export class IdempotencyException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the device filters used in a test run and the maximum number of devices to be included in the
  *             run. It is passed in as the <code>deviceSelectionConfiguration</code> request parameter in <a>ScheduleRun</a>.</p>
  */
@@ -5883,6 +6422,7 @@ export interface DeviceSelectionConfiguration {
 }
 
 /**
+ * @public
  * <p>Represents configuration information about a test run, such as the execution
  *             timeout (in minutes).</p>
  */
@@ -5917,6 +6457,7 @@ export interface ExecutionConfiguration {
 }
 
 /**
+ * @public
  * <p>Represents a request to the schedule run operation.</p>
  */
 export interface ScheduleRunRequest {
@@ -5971,6 +6512,7 @@ export interface ScheduleRunRequest {
 }
 
 /**
+ * @public
  * <p>Represents the result of a schedule run request.</p>
  */
 export interface ScheduleRunResult {
@@ -5980,6 +6522,9 @@ export interface ScheduleRunResult {
   run?: Run;
 }
 
+/**
+ * @public
+ */
 export interface StopJobRequest {
   /**
    * <p>Represents the Amazon Resource Name (ARN) of the Device Farm job to stop.</p>
@@ -5987,6 +6532,9 @@ export interface StopJobRequest {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopJobResult {
   /**
    * <p>The job that was stopped.</p>
@@ -5995,6 +6543,7 @@ export interface StopJobResult {
 }
 
 /**
+ * @public
  * <p>Represents the request to stop the remote access session.</p>
  */
 export interface StopRemoteAccessSessionRequest {
@@ -6005,6 +6554,7 @@ export interface StopRemoteAccessSessionRequest {
 }
 
 /**
+ * @public
  * <p>Represents the response from the server that describes the remote access session
  *             when AWS Device Farm stops the session.</p>
  */
@@ -6017,6 +6567,7 @@ export interface StopRemoteAccessSessionResult {
 }
 
 /**
+ * @public
  * <p>Represents the request to stop a specific run.</p>
  */
 export interface StopRunRequest {
@@ -6027,6 +6578,7 @@ export interface StopRunRequest {
 }
 
 /**
+ * @public
  * <p>Represents the results of your stop run attempt.</p>
  */
 export interface StopRunResult {
@@ -6037,6 +6589,7 @@ export interface StopRunResult {
 }
 
 /**
+ * @public
  * <p>The request doesn't comply with the AWS Identity and Access Management (IAM) tag
  *             policy. Correct your request and then retry it.</p>
  */
@@ -6058,6 +6611,9 @@ export class TagPolicyException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource or resources to which to add tags. You can associate tags
@@ -6075,9 +6631,13 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
 /**
+ * @public
  * <p>The list of tags on the repository is over the limit. The maximum number of tags that
  *             can be applied to a repository is 50. </p>
  */
@@ -6099,6 +6659,9 @@ export class TooManyTagsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource or resources from which to delete tags. You can associate
@@ -6115,8 +6678,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateDeviceInstanceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the device instance.</p>
@@ -6134,6 +6703,9 @@ export interface UpdateDeviceInstanceRequest {
   labels?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateDeviceInstanceResult {
   /**
    * <p>An object that contains information about your device instance.</p>
@@ -6142,6 +6714,7 @@ export interface UpdateDeviceInstanceResult {
 }
 
 /**
+ * @public
  * <p>Represents a request to the update device pool operation.</p>
  */
 export interface UpdateDevicePoolRequest {
@@ -6190,6 +6763,7 @@ export interface UpdateDevicePoolRequest {
 }
 
 /**
+ * @public
  * <p>Represents the result of an update device pool request.</p>
  */
 export interface UpdateDevicePoolResult {
@@ -6199,6 +6773,9 @@ export interface UpdateDevicePoolResult {
   devicePool?: DevicePool;
 }
 
+/**
+ * @public
+ */
 export interface UpdateInstanceProfileRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the instance profile.</p>
@@ -6236,6 +6813,9 @@ export interface UpdateInstanceProfileRequest {
   rebootAfterUse?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdateInstanceProfileResult {
   /**
    * <p>An object that contains information about your instance profile.</p>
@@ -6243,6 +6823,9 @@ export interface UpdateInstanceProfileResult {
   instanceProfile?: InstanceProfile;
 }
 
+/**
+ * @public
+ */
 export interface UpdateNetworkProfileRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the project for which you want to update network
@@ -6315,6 +6898,9 @@ export interface UpdateNetworkProfileRequest {
   downlinkLossPercent?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateNetworkProfileResult {
   /**
    * <p>A list of the available network profiles.</p>
@@ -6323,6 +6909,7 @@ export interface UpdateNetworkProfileResult {
 }
 
 /**
+ * @public
  * <p>Represents a request to the update project operation.</p>
  */
 export interface UpdateProjectRequest {
@@ -6348,6 +6935,7 @@ export interface UpdateProjectRequest {
 }
 
 /**
+ * @public
  * <p>Represents the result of an update project request.</p>
  */
 export interface UpdateProjectResult {
@@ -6357,6 +6945,9 @@ export interface UpdateProjectResult {
   project?: Project;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTestGridProjectRequest {
   /**
    * <p>ARN of the project to update.</p>
@@ -6379,6 +6970,9 @@ export interface UpdateTestGridProjectRequest {
   vpcConfig?: TestGridVpcConfig;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTestGridProjectResult {
   /**
    * <p>The project, including updated information.</p>
@@ -6386,6 +6980,9 @@ export interface UpdateTestGridProjectResult {
   testGridProject?: TestGridProject;
 }
 
+/**
+ * @public
+ */
 export interface UpdateUploadRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the uploaded test spec.</p>
@@ -6409,6 +7006,9 @@ export interface UpdateUploadRequest {
   editContent?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdateUploadResult {
   /**
    * <p>A test spec uploaded to Device Farm.</p>
@@ -6416,6 +7016,9 @@ export interface UpdateUploadResult {
   upload?: Upload;
 }
 
+/**
+ * @public
+ */
 export interface UpdateVPCEConfigurationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the VPC endpoint configuration you want to
@@ -6446,6 +7049,9 @@ export interface UpdateVPCEConfigurationRequest {
   vpceConfigurationDescription?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateVPCEConfigurationResult {
   /**
    * <p>An object that contains information about your VPC endpoint configuration.</p>
@@ -6456,242 +7062,9 @@ export interface UpdateVPCEConfigurationResult {
 /**
  * @internal
  */
-export const TrialMinutesFilterSensitiveLog = (obj: TrialMinutes): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AccountSettingsFilterSensitiveLog = (obj: AccountSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ArtifactFilterSensitiveLog = (obj: Artifact): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CountersFilterSensitiveLog = (obj: Counters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CPUFilterSensitiveLog = (obj: CPU): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuleFilterSensitiveLog = (obj: Rule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDevicePoolRequestFilterSensitiveLog = (obj: CreateDevicePoolRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DevicePoolFilterSensitiveLog = (obj: DevicePool): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDevicePoolResultFilterSensitiveLog = (obj: CreateDevicePoolResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateInstanceProfileRequestFilterSensitiveLog = (obj: CreateInstanceProfileRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceProfileFilterSensitiveLog = (obj: InstanceProfile): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateInstanceProfileResultFilterSensitiveLog = (obj: CreateInstanceProfileResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateNetworkProfileRequestFilterSensitiveLog = (obj: CreateNetworkProfileRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkProfileFilterSensitiveLog = (obj: NetworkProfile): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateNetworkProfileResultFilterSensitiveLog = (obj: CreateNetworkProfileResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcConfigFilterSensitiveLog = (obj: VpcConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateProjectRequestFilterSensitiveLog = (obj: CreateProjectRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProjectFilterSensitiveLog = (obj: Project): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateProjectResultFilterSensitiveLog = (obj: CreateProjectResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRemoteAccessSessionConfigurationFilterSensitiveLog = (
-  obj: CreateRemoteAccessSessionConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRemoteAccessSessionRequestFilterSensitiveLog = (obj: CreateRemoteAccessSessionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeviceInstanceFilterSensitiveLog = (obj: DeviceInstance): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResolutionFilterSensitiveLog = (obj: Resolution): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeviceFilterSensitiveLog = (obj: Device): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeviceMinutesFilterSensitiveLog = (obj: DeviceMinutes): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoteAccessSessionFilterSensitiveLog = (obj: RemoteAccessSession): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRemoteAccessSessionResultFilterSensitiveLog = (obj: CreateRemoteAccessSessionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TestGridVpcConfigFilterSensitiveLog = (obj: TestGridVpcConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTestGridProjectRequestFilterSensitiveLog = (obj: CreateTestGridProjectRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TestGridProjectFilterSensitiveLog = (obj: TestGridProject): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTestGridProjectResultFilterSensitiveLog = (obj: CreateTestGridProjectResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTestGridUrlRequestFilterSensitiveLog = (obj: CreateTestGridUrlRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateTestGridUrlResultFilterSensitiveLog = (obj: CreateTestGridUrlResult): any => ({
   ...obj,
   ...(obj.url && { url: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateUploadRequestFilterSensitiveLog = (obj: CreateUploadRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -6713,510 +7086,6 @@ export const CreateUploadResultFilterSensitiveLog = (obj: CreateUploadResult): a
 /**
  * @internal
  */
-export const CreateVPCEConfigurationRequestFilterSensitiveLog = (obj: CreateVPCEConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VPCEConfigurationFilterSensitiveLog = (obj: VPCEConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateVPCEConfigurationResultFilterSensitiveLog = (obj: CreateVPCEConfigurationResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CustomerArtifactPathsFilterSensitiveLog = (obj: CustomerArtifactPaths): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDevicePoolRequestFilterSensitiveLog = (obj: DeleteDevicePoolRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDevicePoolResultFilterSensitiveLog = (obj: DeleteDevicePoolResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteInstanceProfileRequestFilterSensitiveLog = (obj: DeleteInstanceProfileRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteInstanceProfileResultFilterSensitiveLog = (obj: DeleteInstanceProfileResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteNetworkProfileRequestFilterSensitiveLog = (obj: DeleteNetworkProfileRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteNetworkProfileResultFilterSensitiveLog = (obj: DeleteNetworkProfileResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteProjectRequestFilterSensitiveLog = (obj: DeleteProjectRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteProjectResultFilterSensitiveLog = (obj: DeleteProjectResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRemoteAccessSessionRequestFilterSensitiveLog = (obj: DeleteRemoteAccessSessionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRemoteAccessSessionResultFilterSensitiveLog = (obj: DeleteRemoteAccessSessionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRunRequestFilterSensitiveLog = (obj: DeleteRunRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRunResultFilterSensitiveLog = (obj: DeleteRunResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTestGridProjectRequestFilterSensitiveLog = (obj: DeleteTestGridProjectRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTestGridProjectResultFilterSensitiveLog = (obj: DeleteTestGridProjectResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteUploadRequestFilterSensitiveLog = (obj: DeleteUploadRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteUploadResultFilterSensitiveLog = (obj: DeleteUploadResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVPCEConfigurationRequestFilterSensitiveLog = (obj: DeleteVPCEConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVPCEConfigurationResultFilterSensitiveLog = (obj: DeleteVPCEConfigurationResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAccountSettingsRequestFilterSensitiveLog = (obj: GetAccountSettingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAccountSettingsResultFilterSensitiveLog = (obj: GetAccountSettingsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDeviceRequestFilterSensitiveLog = (obj: GetDeviceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDeviceResultFilterSensitiveLog = (obj: GetDeviceResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDeviceInstanceRequestFilterSensitiveLog = (obj: GetDeviceInstanceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDeviceInstanceResultFilterSensitiveLog = (obj: GetDeviceInstanceResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDevicePoolRequestFilterSensitiveLog = (obj: GetDevicePoolRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDevicePoolResultFilterSensitiveLog = (obj: GetDevicePoolResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LocationFilterSensitiveLog = (obj: Location): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RadiosFilterSensitiveLog = (obj: Radios): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScheduleRunConfigurationFilterSensitiveLog = (obj: ScheduleRunConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScheduleRunTestFilterSensitiveLog = (obj: ScheduleRunTest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDevicePoolCompatibilityRequestFilterSensitiveLog = (obj: GetDevicePoolCompatibilityRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IncompatibilityMessageFilterSensitiveLog = (obj: IncompatibilityMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DevicePoolCompatibilityResultFilterSensitiveLog = (obj: DevicePoolCompatibilityResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDevicePoolCompatibilityResultFilterSensitiveLog = (obj: GetDevicePoolCompatibilityResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInstanceProfileRequestFilterSensitiveLog = (obj: GetInstanceProfileRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInstanceProfileResultFilterSensitiveLog = (obj: GetInstanceProfileResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetJobRequestFilterSensitiveLog = (obj: GetJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobFilterSensitiveLog = (obj: Job): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetJobResultFilterSensitiveLog = (obj: GetJobResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetNetworkProfileRequestFilterSensitiveLog = (obj: GetNetworkProfileRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetNetworkProfileResultFilterSensitiveLog = (obj: GetNetworkProfileResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetOfferingStatusRequestFilterSensitiveLog = (obj: GetOfferingStatusRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MonetaryAmountFilterSensitiveLog = (obj: MonetaryAmount): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecurringChargeFilterSensitiveLog = (obj: RecurringCharge): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OfferingFilterSensitiveLog = (obj: Offering): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OfferingStatusFilterSensitiveLog = (obj: OfferingStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetOfferingStatusResultFilterSensitiveLog = (obj: GetOfferingStatusResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetProjectRequestFilterSensitiveLog = (obj: GetProjectRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetProjectResultFilterSensitiveLog = (obj: GetProjectResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRemoteAccessSessionRequestFilterSensitiveLog = (obj: GetRemoteAccessSessionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRemoteAccessSessionResultFilterSensitiveLog = (obj: GetRemoteAccessSessionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRunRequestFilterSensitiveLog = (obj: GetRunRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeviceFilterFilterSensitiveLog = (obj: DeviceFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeviceSelectionResultFilterSensitiveLog = (obj: DeviceSelectionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RunFilterSensitiveLog = (obj: Run): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRunResultFilterSensitiveLog = (obj: GetRunResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSuiteRequestFilterSensitiveLog = (obj: GetSuiteRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SuiteFilterSensitiveLog = (obj: Suite): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSuiteResultFilterSensitiveLog = (obj: GetSuiteResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTestRequestFilterSensitiveLog = (obj: GetTestRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TestFilterSensitiveLog = (obj: Test): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTestResultFilterSensitiveLog = (obj: GetTestResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTestGridProjectRequestFilterSensitiveLog = (obj: GetTestGridProjectRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTestGridProjectResultFilterSensitiveLog = (obj: GetTestGridProjectResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTestGridSessionRequestFilterSensitiveLog = (obj: GetTestGridSessionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TestGridSessionFilterSensitiveLog = (obj: TestGridSession): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTestGridSessionResultFilterSensitiveLog = (obj: GetTestGridSessionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetUploadRequestFilterSensitiveLog = (obj: GetUploadRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetUploadResultFilterSensitiveLog = (obj: GetUploadResult): any => ({
   ...obj,
   ...(obj.upload && { upload: UploadFilterSensitiveLog(obj.upload) }),
@@ -7225,328 +7094,9 @@ export const GetUploadResultFilterSensitiveLog = (obj: GetUploadResult): any => 
 /**
  * @internal
  */
-export const GetVPCEConfigurationRequestFilterSensitiveLog = (obj: GetVPCEConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetVPCEConfigurationResultFilterSensitiveLog = (obj: GetVPCEConfigurationResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstallToRemoteAccessSessionRequestFilterSensitiveLog = (
-  obj: InstallToRemoteAccessSessionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const InstallToRemoteAccessSessionResultFilterSensitiveLog = (obj: InstallToRemoteAccessSessionResult): any => ({
   ...obj,
   ...(obj.appUpload && { appUpload: UploadFilterSensitiveLog(obj.appUpload) }),
-});
-
-/**
- * @internal
- */
-export const ListArtifactsRequestFilterSensitiveLog = (obj: ListArtifactsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListArtifactsResultFilterSensitiveLog = (obj: ListArtifactsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDeviceInstancesRequestFilterSensitiveLog = (obj: ListDeviceInstancesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDeviceInstancesResultFilterSensitiveLog = (obj: ListDeviceInstancesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDevicePoolsRequestFilterSensitiveLog = (obj: ListDevicePoolsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDevicePoolsResultFilterSensitiveLog = (obj: ListDevicePoolsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDevicesRequestFilterSensitiveLog = (obj: ListDevicesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDevicesResultFilterSensitiveLog = (obj: ListDevicesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListInstanceProfilesRequestFilterSensitiveLog = (obj: ListInstanceProfilesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListInstanceProfilesResultFilterSensitiveLog = (obj: ListInstanceProfilesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListJobsRequestFilterSensitiveLog = (obj: ListJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListJobsResultFilterSensitiveLog = (obj: ListJobsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNetworkProfilesRequestFilterSensitiveLog = (obj: ListNetworkProfilesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNetworkProfilesResultFilterSensitiveLog = (obj: ListNetworkProfilesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListOfferingPromotionsRequestFilterSensitiveLog = (obj: ListOfferingPromotionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OfferingPromotionFilterSensitiveLog = (obj: OfferingPromotion): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListOfferingPromotionsResultFilterSensitiveLog = (obj: ListOfferingPromotionsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListOfferingsRequestFilterSensitiveLog = (obj: ListOfferingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListOfferingsResultFilterSensitiveLog = (obj: ListOfferingsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListOfferingTransactionsRequestFilterSensitiveLog = (obj: ListOfferingTransactionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OfferingTransactionFilterSensitiveLog = (obj: OfferingTransaction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListOfferingTransactionsResultFilterSensitiveLog = (obj: ListOfferingTransactionsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListProjectsRequestFilterSensitiveLog = (obj: ListProjectsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListProjectsResultFilterSensitiveLog = (obj: ListProjectsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRemoteAccessSessionsRequestFilterSensitiveLog = (obj: ListRemoteAccessSessionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRemoteAccessSessionsResultFilterSensitiveLog = (obj: ListRemoteAccessSessionsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRunsRequestFilterSensitiveLog = (obj: ListRunsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRunsResultFilterSensitiveLog = (obj: ListRunsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSamplesRequestFilterSensitiveLog = (obj: ListSamplesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SampleFilterSensitiveLog = (obj: Sample): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSamplesResultFilterSensitiveLog = (obj: ListSamplesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSuitesRequestFilterSensitiveLog = (obj: ListSuitesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSuitesResultFilterSensitiveLog = (obj: ListSuitesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTestGridProjectsRequestFilterSensitiveLog = (obj: ListTestGridProjectsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTestGridProjectsResultFilterSensitiveLog = (obj: ListTestGridProjectsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTestGridSessionActionsRequestFilterSensitiveLog = (obj: ListTestGridSessionActionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TestGridSessionActionFilterSensitiveLog = (obj: TestGridSessionAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTestGridSessionActionsResultFilterSensitiveLog = (obj: ListTestGridSessionActionsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTestGridSessionArtifactsRequestFilterSensitiveLog = (
-  obj: ListTestGridSessionArtifactsRequest
-): any => ({
-  ...obj,
 });
 
 /**
@@ -7568,76 +7118,6 @@ export const ListTestGridSessionArtifactsResultFilterSensitiveLog = (obj: ListTe
 /**
  * @internal
  */
-export const ListTestGridSessionsRequestFilterSensitiveLog = (obj: ListTestGridSessionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTestGridSessionsResultFilterSensitiveLog = (obj: ListTestGridSessionsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTestsRequestFilterSensitiveLog = (obj: ListTestsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTestsResultFilterSensitiveLog = (obj: ListTestsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListUniqueProblemsRequestFilterSensitiveLog = (obj: ListUniqueProblemsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProblemDetailFilterSensitiveLog = (obj: ProblemDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProblemFilterSensitiveLog = (obj: Problem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UniqueProblemFilterSensitiveLog = (obj: UniqueProblem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListUniqueProblemsResultFilterSensitiveLog = (obj: ListUniqueProblemsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListUploadsRequestFilterSensitiveLog = (obj: ListUploadsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListUploadsResultFilterSensitiveLog = (obj: ListUploadsResult): any => ({
   ...obj,
   ...(obj.uploads && { uploads: obj.uploads.map((item) => UploadFilterSensitiveLog(item)) }),
@@ -7646,252 +7126,7 @@ export const ListUploadsResultFilterSensitiveLog = (obj: ListUploadsResult): any
 /**
  * @internal
  */
-export const ListVPCEConfigurationsRequestFilterSensitiveLog = (obj: ListVPCEConfigurationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListVPCEConfigurationsResultFilterSensitiveLog = (obj: ListVPCEConfigurationsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PurchaseOfferingRequestFilterSensitiveLog = (obj: PurchaseOfferingRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PurchaseOfferingResultFilterSensitiveLog = (obj: PurchaseOfferingResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RenewOfferingRequestFilterSensitiveLog = (obj: RenewOfferingRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RenewOfferingResultFilterSensitiveLog = (obj: RenewOfferingResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeviceSelectionConfigurationFilterSensitiveLog = (obj: DeviceSelectionConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExecutionConfigurationFilterSensitiveLog = (obj: ExecutionConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScheduleRunRequestFilterSensitiveLog = (obj: ScheduleRunRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScheduleRunResultFilterSensitiveLog = (obj: ScheduleRunResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopJobRequestFilterSensitiveLog = (obj: StopJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopJobResultFilterSensitiveLog = (obj: StopJobResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopRemoteAccessSessionRequestFilterSensitiveLog = (obj: StopRemoteAccessSessionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopRemoteAccessSessionResultFilterSensitiveLog = (obj: StopRemoteAccessSessionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopRunRequestFilterSensitiveLog = (obj: StopRunRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopRunResultFilterSensitiveLog = (obj: StopRunResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDeviceInstanceRequestFilterSensitiveLog = (obj: UpdateDeviceInstanceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDeviceInstanceResultFilterSensitiveLog = (obj: UpdateDeviceInstanceResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDevicePoolRequestFilterSensitiveLog = (obj: UpdateDevicePoolRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDevicePoolResultFilterSensitiveLog = (obj: UpdateDevicePoolResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateInstanceProfileRequestFilterSensitiveLog = (obj: UpdateInstanceProfileRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateInstanceProfileResultFilterSensitiveLog = (obj: UpdateInstanceProfileResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateNetworkProfileRequestFilterSensitiveLog = (obj: UpdateNetworkProfileRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateNetworkProfileResultFilterSensitiveLog = (obj: UpdateNetworkProfileResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateProjectRequestFilterSensitiveLog = (obj: UpdateProjectRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateProjectResultFilterSensitiveLog = (obj: UpdateProjectResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTestGridProjectRequestFilterSensitiveLog = (obj: UpdateTestGridProjectRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTestGridProjectResultFilterSensitiveLog = (obj: UpdateTestGridProjectResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateUploadRequestFilterSensitiveLog = (obj: UpdateUploadRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateUploadResultFilterSensitiveLog = (obj: UpdateUploadResult): any => ({
   ...obj,
   ...(obj.upload && { upload: UploadFilterSensitiveLog(obj.upload) }),
-});
-
-/**
- * @internal
- */
-export const UpdateVPCEConfigurationRequestFilterSensitiveLog = (obj: UpdateVPCEConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateVPCEConfigurationResultFilterSensitiveLog = (obj: UpdateVPCEConfigurationResult): any => ({
-  ...obj,
 });

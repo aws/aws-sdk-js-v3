@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  EnableSnapshotCopyMessage,
-  EnableSnapshotCopyMessageFilterSensitiveLog,
-  EnableSnapshotCopyResult,
-  EnableSnapshotCopyResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryEnableSnapshotCopyCommand,
-  serializeAws_queryEnableSnapshotCopyCommand,
-} from "../protocols/Aws_query";
+import { EnableSnapshotCopyMessage, EnableSnapshotCopyResult } from "../models/models_1";
+import { de_EnableSnapshotCopyCommand, se_EnableSnapshotCopyCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * @public
+ *
+ * The input for {@link EnableSnapshotCopyCommand}.
+ */
 export interface EnableSnapshotCopyCommandInput extends EnableSnapshotCopyMessage {}
+/**
+ * @public
+ *
+ * The output of {@link EnableSnapshotCopyCommand}.
+ */
 export interface EnableSnapshotCopyCommandOutput extends EnableSnapshotCopyResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables the automatic copy of snapshots from one region to another region for a
  *             specified cluster.</p>
  * @example
@@ -37,13 +40,61 @@ export interface EnableSnapshotCopyCommandOutput extends EnableSnapshotCopyResul
  * import { RedshiftClient, EnableSnapshotCopyCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, EnableSnapshotCopyCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // EnableSnapshotCopyMessage
+ *   ClusterIdentifier: "STRING_VALUE", // required
+ *   DestinationRegion: "STRING_VALUE", // required
+ *   RetentionPeriod: Number("int"),
+ *   SnapshotCopyGrantName: "STRING_VALUE",
+ *   ManualSnapshotRetentionPeriod: Number("int"),
+ * };
  * const command = new EnableSnapshotCopyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableSnapshotCopyCommandInput - {@link EnableSnapshotCopyCommandInput}
+ * @returns {@link EnableSnapshotCopyCommandOutput}
  * @see {@link EnableSnapshotCopyCommandInput} for command's `input` shape.
  * @see {@link EnableSnapshotCopyCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
+ *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+ *         </p>
+ *
+ * @throws {@link CopyToRegionDisabledFault} (client fault)
+ *  <p>Cross-region snapshot copy was temporarily disabled. Try your request
+ *             again.</p>
+ *
+ * @throws {@link DependentServiceRequestThrottlingFault} (client fault)
+ *  <p>The request cannot be completed because a dependent service is throttling requests
+ *             made by Amazon Redshift on your behalf. Wait and retry the request.</p>
+ *
+ * @throws {@link IncompatibleOrderableOptions} (client fault)
+ *  <p>The specified options are incompatible.</p>
+ *
+ * @throws {@link InvalidClusterStateFault} (client fault)
+ *  <p>The specified cluster is not in the <code>available</code> state. </p>
+ *
+ * @throws {@link InvalidRetentionPeriodFault} (client fault)
+ *  <p>The retention period specified is either in the past or is not a valid value.</p>
+ *          <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+ *
+ * @throws {@link LimitExceededFault} (client fault)
+ *  <p>The encryption key has exceeded its grant limit in Amazon Web Services KMS.</p>
+ *
+ * @throws {@link SnapshotCopyAlreadyEnabledFault} (client fault)
+ *  <p>The cluster already has cross-region snapshot copy enabled.</p>
+ *
+ * @throws {@link SnapshotCopyGrantNotFoundFault} (client fault)
+ *  <p>The specified snapshot copy grant can't be found. Make sure that the name is typed
+ *             correctly and that the grant exists in the destination region.</p>
+ *
+ * @throws {@link UnauthorizedOperation} (client fault)
+ *  <p>Your account is not authorized to perform the requested operation.</p>
+ *
+ * @throws {@link UnknownSnapshotCopyRegionFault} (client fault)
+ *  <p>The specified region is incorrect or does not exist.</p>
+ *
  *
  */
 export class EnableSnapshotCopyCommand extends $Command<
@@ -63,6 +114,9 @@ export class EnableSnapshotCopyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableSnapshotCopyCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +145,8 @@ export class EnableSnapshotCopyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableSnapshotCopyMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: EnableSnapshotCopyResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +156,18 @@ export class EnableSnapshotCopyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableSnapshotCopyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryEnableSnapshotCopyCommand(input, context);
+    return se_EnableSnapshotCopyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableSnapshotCopyCommandOutput> {
-    return deserializeAws_queryEnableSnapshotCopyCommand(output, context);
+    return de_EnableSnapshotCopyCommand(output, context);
   }
 
   // Start section: command_body_extra

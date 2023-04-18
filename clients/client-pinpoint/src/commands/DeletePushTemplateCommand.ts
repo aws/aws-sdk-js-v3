@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeletePushTemplateRequest,
-  DeletePushTemplateRequestFilterSensitiveLog,
-  DeletePushTemplateResponse,
-  DeletePushTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeletePushTemplateRequest, DeletePushTemplateResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1DeletePushTemplateCommand,
-  serializeAws_restJson1DeletePushTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeletePushTemplateCommand, se_DeletePushTemplateCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeletePushTemplateCommand}.
+ */
 export interface DeletePushTemplateCommandInput extends DeletePushTemplateRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeletePushTemplateCommand}.
+ */
 export interface DeletePushTemplateCommandOutput extends DeletePushTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a message template for messages that were sent through a push notification channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,41 @@ export interface DeletePushTemplateCommandOutput extends DeletePushTemplateRespo
  * import { PinpointClient, DeletePushTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, DeletePushTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // DeletePushTemplateRequest
+ *   TemplateName: "STRING_VALUE", // required
+ *   Version: "STRING_VALUE",
+ * };
  * const command = new DeletePushTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePushTemplateCommandInput - {@link DeletePushTemplateCommandInput}
+ * @returns {@link DeletePushTemplateCommandOutput}
  * @see {@link DeletePushTemplateCommandInput} for command's `input` shape.
  * @see {@link DeletePushTemplateCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link MethodNotAllowedException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link PayloadTooLargeException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
  *
  */
 export class DeletePushTemplateCommand extends $Command<
@@ -62,6 +93,9 @@ export class DeletePushTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePushTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +124,8 @@ export class DeletePushTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePushTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeletePushTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +135,18 @@ export class DeletePushTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePushTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeletePushTemplateCommand(input, context);
+    return se_DeletePushTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePushTemplateCommandOutput> {
-    return deserializeAws_restJson1DeletePushTemplateCommand(output, context);
+    return de_DeletePushTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

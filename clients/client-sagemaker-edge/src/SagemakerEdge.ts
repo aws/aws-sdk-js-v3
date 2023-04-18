@@ -19,10 +19,12 @@ import {
 import { SagemakerEdgeClient } from "./SagemakerEdgeClient";
 
 /**
+ * @public
  * <p>SageMaker Edge Manager dataplane service for communicating with active agents.</p>
  */
 export class SagemakerEdge extends SagemakerEdgeClient {
   /**
+   * @public
    * <p>Use to get the active deployments from a device.</p>
    */
   public getDeployments(
@@ -55,6 +57,7 @@ export class SagemakerEdge extends SagemakerEdgeClient {
   }
 
   /**
+   * @public
    * <p>Use to check if a device is registered with SageMaker Edge Manager.</p>
    */
   public getDeviceRegistration(
@@ -87,6 +90,7 @@ export class SagemakerEdge extends SagemakerEdgeClient {
   }
 
   /**
+   * @public
    * <p>Use to get the current status of devices registered on SageMaker Edge Manager.</p>
    */
   public sendHeartbeat(

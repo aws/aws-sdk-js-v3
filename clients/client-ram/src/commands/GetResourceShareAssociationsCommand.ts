@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { GetResourceShareAssociationsRequest, GetResourceShareAssociationsResponse } from "../models/models_0";
 import {
-  GetResourceShareAssociationsRequest,
-  GetResourceShareAssociationsRequestFilterSensitiveLog,
-  GetResourceShareAssociationsResponse,
-  GetResourceShareAssociationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetResourceShareAssociationsCommand,
-  serializeAws_restJson1GetResourceShareAssociationsCommand,
+  de_GetResourceShareAssociationsCommand,
+  se_GetResourceShareAssociationsCommand,
 } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetResourceShareAssociationsCommand}.
+ */
 export interface GetResourceShareAssociationsCommandInput extends GetResourceShareAssociationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetResourceShareAssociationsCommand}.
+ */
 export interface GetResourceShareAssociationsCommandOutput
   extends GetResourceShareAssociationsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the resource and principal associations for resource shares that you own.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,48 @@ export interface GetResourceShareAssociationsCommandOutput
  * import { RAMClient, GetResourceShareAssociationsCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, GetResourceShareAssociationsCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
+ * const input = { // GetResourceShareAssociationsRequest
+ *   associationType: "PRINCIPAL" || "RESOURCE", // required
+ *   resourceShareArns: [ // ResourceShareArnList
+ *     "STRING_VALUE",
+ *   ],
+ *   resourceArn: "STRING_VALUE",
+ *   principal: "STRING_VALUE",
+ *   associationStatus: "ASSOCIATING" || "ASSOCIATED" || "FAILED" || "DISASSOCIATING" || "DISASSOCIATED",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new GetResourceShareAssociationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResourceShareAssociationsCommandInput - {@link GetResourceShareAssociationsCommandInput}
+ * @returns {@link GetResourceShareAssociationsCommandOutput}
  * @see {@link GetResourceShareAssociationsCommandInput} for command's `input` shape.
  * @see {@link GetResourceShareAssociationsCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The specified value for <code>NextToken</code> is not valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter is not valid.</p>
+ *
+ * @throws {@link MalformedArnException} (client fault)
+ *  <p>The format of an Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>The requested operation is not permitted.</p>
+ *
+ * @throws {@link ServerInternalException} (server fault)
+ *  <p>The service could not respond to the request due to an internal problem.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is not available.</p>
+ *
+ * @throws {@link UnknownResourceException} (client fault)
+ *  <p>A specified resource was not found.</p>
+ *
  *
  */
 export class GetResourceShareAssociationsCommand extends $Command<
@@ -64,6 +105,9 @@ export class GetResourceShareAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResourceShareAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +136,8 @@ export class GetResourceShareAssociationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetResourceShareAssociationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetResourceShareAssociationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +147,21 @@ export class GetResourceShareAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResourceShareAssociationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetResourceShareAssociationsCommand(input, context);
+    return se_GetResourceShareAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetResourceShareAssociationsCommandOutput> {
-    return deserializeAws_restJson1GetResourceShareAssociationsCommand(output, context);
+    return de_GetResourceShareAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

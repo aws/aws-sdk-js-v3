@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateSMBFileShareInput,
-  CreateSMBFileShareInputFilterSensitiveLog,
-  CreateSMBFileShareOutput,
-  CreateSMBFileShareOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateSMBFileShareCommand,
-  serializeAws_json1_1CreateSMBFileShareCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateSMBFileShareInput, CreateSMBFileShareOutput } from "../models/models_0";
+import { de_CreateSMBFileShareCommand, se_CreateSMBFileShareCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateSMBFileShareCommand}.
+ */
 export interface CreateSMBFileShareCommandInput extends CreateSMBFileShareInput {}
+/**
+ * @public
+ *
+ * The output of {@link CreateSMBFileShareCommand}.
+ */
 export interface CreateSMBFileShareCommandOutput extends CreateSMBFileShareOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Server Message Block (SMB) file share on an existing S3 File Gateway. In
  *          Storage Gateway, a file share is a file system mount point backed by Amazon S3
  *          cloud storage. Storage Gateway exposes file shares using an SMB interface. This operation
@@ -52,13 +55,65 @@ export interface CreateSMBFileShareCommandOutput extends CreateSMBFileShareOutpu
  * import { StorageGatewayClient, CreateSMBFileShareCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, CreateSMBFileShareCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // CreateSMBFileShareInput
+ *   ClientToken: "STRING_VALUE", // required
+ *   GatewayARN: "STRING_VALUE", // required
+ *   KMSEncrypted: true || false,
+ *   KMSKey: "STRING_VALUE",
+ *   Role: "STRING_VALUE", // required
+ *   LocationARN: "STRING_VALUE", // required
+ *   DefaultStorageClass: "STRING_VALUE",
+ *   ObjectACL: "STRING_VALUE",
+ *   ReadOnly: true || false,
+ *   GuessMIMETypeEnabled: true || false,
+ *   RequesterPays: true || false,
+ *   SMBACLEnabled: true || false,
+ *   AccessBasedEnumeration: true || false,
+ *   AdminUserList: [ // UserList
+ *     "STRING_VALUE",
+ *   ],
+ *   ValidUserList: [
+ *     "STRING_VALUE",
+ *   ],
+ *   InvalidUserList: [
+ *     "STRING_VALUE",
+ *   ],
+ *   AuditDestinationARN: "STRING_VALUE",
+ *   Authentication: "STRING_VALUE",
+ *   CaseSensitivity: "STRING_VALUE",
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   FileShareName: "STRING_VALUE",
+ *   CacheAttributes: { // CacheAttributes
+ *     CacheStaleTimeoutInSeconds: Number("int"),
+ *   },
+ *   NotificationPolicy: "STRING_VALUE",
+ *   VPCEndpointDNSName: "STRING_VALUE",
+ *   BucketRegion: "STRING_VALUE",
+ *   OplocksEnabled: true || false,
+ * };
  * const command = new CreateSMBFileShareCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSMBFileShareCommandInput - {@link CreateSMBFileShareCommandInput}
+ * @returns {@link CreateSMBFileShareCommandOutput}
  * @see {@link CreateSMBFileShareCommandInput} for command's `input` shape.
  * @see {@link CreateSMBFileShareCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error has occurred during the request. For more information, see the
+ *          error and message fields.</p>
+ *
+ * @throws {@link InvalidGatewayRequestException} (client fault)
+ *  <p>An exception occurred because an invalid gateway request was issued to the service. For
+ *          more information, see the error and message fields.</p>
+ *
  *
  */
 export class CreateSMBFileShareCommand extends $Command<
@@ -78,6 +133,9 @@ export class CreateSMBFileShareCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSMBFileShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +164,8 @@ export class CreateSMBFileShareCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSMBFileShareInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSMBFileShareOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +175,18 @@ export class CreateSMBFileShareCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSMBFileShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateSMBFileShareCommand(input, context);
+    return se_CreateSMBFileShareCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSMBFileShareCommandOutput> {
-    return deserializeAws_json1_1CreateSMBFileShareCommand(output, context);
+    return de_CreateSMBFileShareCommand(output, context);
   }
 
   // Start section: command_body_extra

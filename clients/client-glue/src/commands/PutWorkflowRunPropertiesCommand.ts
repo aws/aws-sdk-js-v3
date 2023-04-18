@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  PutWorkflowRunPropertiesRequest,
-  PutWorkflowRunPropertiesRequestFilterSensitiveLog,
-  PutWorkflowRunPropertiesResponse,
-  PutWorkflowRunPropertiesResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1PutWorkflowRunPropertiesCommand,
-  serializeAws_json1_1PutWorkflowRunPropertiesCommand,
-} from "../protocols/Aws_json1_1";
+import { PutWorkflowRunPropertiesRequest, PutWorkflowRunPropertiesResponse } from "../models/models_2";
+import { de_PutWorkflowRunPropertiesCommand, se_PutWorkflowRunPropertiesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutWorkflowRunPropertiesCommand}.
+ */
 export interface PutWorkflowRunPropertiesCommandInput extends PutWorkflowRunPropertiesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutWorkflowRunPropertiesCommand}.
+ */
 export interface PutWorkflowRunPropertiesCommandOutput extends PutWorkflowRunPropertiesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Puts the specified workflow run properties for the given workflow run. If a property already exists for the specified run, then it overrides the value otherwise adds the property to existing properties.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,44 @@ export interface PutWorkflowRunPropertiesCommandOutput extends PutWorkflowRunPro
  * import { GlueClient, PutWorkflowRunPropertiesCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, PutWorkflowRunPropertiesCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // PutWorkflowRunPropertiesRequest
+ *   Name: "STRING_VALUE", // required
+ *   RunId: "STRING_VALUE", // required
+ *   RunProperties: { // WorkflowRunProperties // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new PutWorkflowRunPropertiesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutWorkflowRunPropertiesCommandInput - {@link PutWorkflowRunPropertiesCommandInput}
+ * @returns {@link PutWorkflowRunPropertiesCommandOutput}
  * @see {@link PutWorkflowRunPropertiesCommandInput} for command's `input` shape.
  * @see {@link PutWorkflowRunPropertiesCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link AlreadyExistsException} (client fault)
+ *  <p>A resource to be created or added already exists.</p>
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>Two processes are trying to modify a resource simultaneously.</p>
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ * @throws {@link ResourceNumberLimitExceededException} (client fault)
+ *  <p>A resource numerical limit was exceeded.</p>
+ *
  *
  */
 export class PutWorkflowRunPropertiesCommand extends $Command<
@@ -62,6 +96,9 @@ export class PutWorkflowRunPropertiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutWorkflowRunPropertiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +127,8 @@ export class PutWorkflowRunPropertiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutWorkflowRunPropertiesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutWorkflowRunPropertiesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +138,18 @@ export class PutWorkflowRunPropertiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutWorkflowRunPropertiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutWorkflowRunPropertiesCommand(input, context);
+    return se_PutWorkflowRunPropertiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutWorkflowRunPropertiesCommandOutput> {
-    return deserializeAws_json1_1PutWorkflowRunPropertiesCommand(output, context);
+    return de_PutWorkflowRunPropertiesCommand(output, context);
   }
 
   // Start section: command_body_extra

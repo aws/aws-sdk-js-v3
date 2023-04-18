@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  DescribeReservationRequest,
-  DescribeReservationRequestFilterSensitiveLog,
-  DescribeReservationResponse,
-  DescribeReservationResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1DescribeReservationCommand,
-  serializeAws_restJson1DescribeReservationCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeReservationRequest, DescribeReservationResponse } from "../models/models_1";
+import { de_DescribeReservationCommand, se_DescribeReservationCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeReservationCommand}.
+ */
 export interface DescribeReservationCommandInput extends DescribeReservationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeReservationCommand}.
+ */
 export interface DescribeReservationCommandOutput extends DescribeReservationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Get details for a reservation.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,40 @@ export interface DescribeReservationCommandOutput extends DescribeReservationRes
  * import { MediaLiveClient, DescribeReservationCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, DescribeReservationCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = { // DescribeReservationRequest
+ *   ReservationId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeReservationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReservationCommandInput - {@link DescribeReservationCommandInput}
+ * @returns {@link DescribeReservationCommandOutput}
  * @see {@link DescribeReservationCommandInput} for command's `input` shape.
  * @see {@link DescribeReservationCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
+ *
+ * @throws {@link BadGatewayException} (server fault)
+ *  Placeholder documentation for BadGatewayException
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  Placeholder documentation for BadRequestException
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  Placeholder documentation for ForbiddenException
+ *
+ * @throws {@link GatewayTimeoutException} (server fault)
+ *  Placeholder documentation for GatewayTimeoutException
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  Placeholder documentation for InternalServerErrorException
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  Placeholder documentation for NotFoundException
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  Placeholder documentation for TooManyRequestsException
+ *
  *
  */
 export class DescribeReservationCommand extends $Command<
@@ -62,6 +92,9 @@ export class DescribeReservationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReservationCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +123,8 @@ export class DescribeReservationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeReservationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeReservationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +134,18 @@ export class DescribeReservationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeReservationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeReservationCommand(input, context);
+    return se_DescribeReservationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeReservationCommandOutput> {
-    return deserializeAws_restJson1DescribeReservationCommand(output, context);
+    return de_DescribeReservationCommand(output, context);
   }
 
   // Start section: command_body_extra

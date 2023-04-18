@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
-import {
-  DescribePackagesRequest,
-  DescribePackagesRequestFilterSensitiveLog,
-  DescribePackagesResponse,
-  DescribePackagesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribePackagesCommand,
-  serializeAws_restJson1DescribePackagesCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribePackagesRequest, DescribePackagesResponse } from "../models/models_0";
+import { de_DescribePackagesCommand, se_DescribePackagesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribePackagesCommand}.
+ */
 export interface DescribePackagesCommandInput extends DescribePackagesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribePackagesCommand}.
+ */
 export interface DescribePackagesCommandOutput extends DescribePackagesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes all packages available to Amazon ES. Includes options for filtering, limiting the number of results, and pagination.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,43 @@ export interface DescribePackagesCommandOutput extends DescribePackagesResponse,
  * import { ElasticsearchServiceClient, DescribePackagesCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, DescribePackagesCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
+ * const input = { // DescribePackagesRequest
+ *   Filters: [ // DescribePackagesFilterList
+ *     { // DescribePackagesFilter
+ *       Name: "PackageID" || "PackageName" || "PackageStatus",
+ *       Value: [ // DescribePackagesFilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribePackagesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePackagesCommandInput - {@link DescribePackagesCommandInput}
+ * @returns {@link DescribePackagesCommandOutput}
  * @see {@link DescribePackagesCommandInput} for command's `input` shape.
  * @see {@link DescribePackagesCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>An error occurred because user does not have permissions to access the resource. Returns HTTP status code 403.</p>
+ *
+ * @throws {@link BaseException} (client fault)
+ *  <p>An error occurred while processing the request.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+ *
  *
  */
 export class DescribePackagesCommand extends $Command<
@@ -66,6 +99,9 @@ export class DescribePackagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePackagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +130,8 @@ export class DescribePackagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePackagesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribePackagesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +141,18 @@ export class DescribePackagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePackagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribePackagesCommand(input, context);
+    return se_DescribePackagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePackagesCommandOutput> {
-    return deserializeAws_restJson1DescribePackagesCommand(output, context);
+    return de_DescribePackagesCommand(output, context);
   }
 
   // Start section: command_body_extra

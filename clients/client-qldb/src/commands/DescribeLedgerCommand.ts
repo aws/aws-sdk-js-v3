@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeLedgerRequest,
-  DescribeLedgerRequestFilterSensitiveLog,
-  DescribeLedgerResponse,
-  DescribeLedgerResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeLedgerCommand,
-  serializeAws_restJson1DescribeLedgerCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeLedgerRequest, DescribeLedgerResponse } from "../models/models_0";
+import { de_DescribeLedgerCommand, se_DescribeLedgerCommand } from "../protocols/Aws_restJson1";
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeLedgerCommand}.
+ */
 export interface DescribeLedgerCommandInput extends DescribeLedgerRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeLedgerCommand}.
+ */
 export interface DescribeLedgerCommandOutput extends DescribeLedgerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a ledger, including its state, permissions mode, encryption at
  *          rest settings, and when it was created.</p>
  * @example
@@ -37,13 +40,25 @@ export interface DescribeLedgerCommandOutput extends DescribeLedgerResponse, __M
  * import { QLDBClient, DescribeLedgerCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, DescribeLedgerCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
  * const client = new QLDBClient(config);
+ * const input = { // DescribeLedgerRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DescribeLedgerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLedgerCommandInput - {@link DescribeLedgerCommandInput}
+ * @returns {@link DescribeLedgerCommandOutput}
  * @see {@link DescribeLedgerCommandInput} for command's `input` shape.
  * @see {@link DescribeLedgerCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters in the request aren't valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource doesn't exist.</p>
+ *
  *
  */
 export class DescribeLedgerCommand extends $Command<
@@ -63,6 +78,9 @@ export class DescribeLedgerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLedgerCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +109,8 @@ export class DescribeLedgerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLedgerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLedgerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +120,18 @@ export class DescribeLedgerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLedgerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeLedgerCommand(input, context);
+    return se_DescribeLedgerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLedgerCommandOutput> {
-    return deserializeAws_restJson1DescribeLedgerCommand(output, context);
+    return de_DescribeLedgerCommand(output, context);
   }
 
   // Start section: command_body_extra

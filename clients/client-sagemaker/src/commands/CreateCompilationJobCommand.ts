@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateCompilationJobRequest,
-  CreateCompilationJobRequestFilterSensitiveLog,
-  CreateCompilationJobResponse,
-  CreateCompilationJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateCompilationJobCommand,
-  serializeAws_json1_1CreateCompilationJobCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateCompilationJobRequest, CreateCompilationJobResponse } from "../models/models_0";
+import { de_CreateCompilationJobCommand, se_CreateCompilationJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateCompilationJobCommand}.
+ */
 export interface CreateCompilationJobCommandInput extends CreateCompilationJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateCompilationJobCommand}.
+ */
 export interface CreateCompilationJobCommandOutput extends CreateCompilationJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a model compilation job. After the model has been compiled, Amazon SageMaker saves the
  *             resulting model artifacts to an Amazon Simple Storage Service (Amazon S3) bucket that you specify. </p>
  *          <p>If
@@ -67,13 +70,63 @@ export interface CreateCompilationJobCommandOutput extends CreateCompilationJobR
  * import { SageMakerClient, CreateCompilationJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateCompilationJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // CreateCompilationJobRequest
+ *   CompilationJobName: "STRING_VALUE", // required
+ *   RoleArn: "STRING_VALUE", // required
+ *   ModelPackageVersionArn: "STRING_VALUE",
+ *   InputConfig: { // InputConfig
+ *     S3Uri: "STRING_VALUE", // required
+ *     DataInputConfig: "STRING_VALUE", // required
+ *     Framework: "TENSORFLOW" || "KERAS" || "MXNET" || "ONNX" || "PYTORCH" || "XGBOOST" || "TFLITE" || "DARKNET" || "SKLEARN", // required
+ *     FrameworkVersion: "STRING_VALUE",
+ *   },
+ *   OutputConfig: { // OutputConfig
+ *     S3OutputLocation: "STRING_VALUE", // required
+ *     TargetDevice: "lambda" || "ml_m4" || "ml_m5" || "ml_c4" || "ml_c5" || "ml_p2" || "ml_p3" || "ml_g4dn" || "ml_inf1" || "ml_eia2" || "jetson_tx1" || "jetson_tx2" || "jetson_nano" || "jetson_xavier" || "rasp3b" || "imx8qm" || "deeplens" || "rk3399" || "rk3288" || "aisage" || "sbe_c" || "qcs605" || "qcs603" || "sitara_am57x" || "amba_cv2" || "amba_cv22" || "amba_cv25" || "x86_win32" || "x86_win64" || "coreml" || "jacinto_tda4vm" || "imx8mplus",
+ *     TargetPlatform: { // TargetPlatform
+ *       Os: "ANDROID" || "LINUX", // required
+ *       Arch: "X86_64" || "X86" || "ARM64" || "ARM_EABI" || "ARM_EABIHF", // required
+ *       Accelerator: "INTEL_GRAPHICS" || "MALI" || "NVIDIA" || "NNA",
+ *     },
+ *     CompilerOptions: "STRING_VALUE",
+ *     KmsKeyId: "STRING_VALUE",
+ *   },
+ *   VpcConfig: { // NeoVpcConfig
+ *     SecurityGroupIds: [ // NeoVpcSecurityGroupIds // required
+ *       "STRING_VALUE",
+ *     ],
+ *     Subnets: [ // NeoVpcSubnets // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   StoppingCondition: { // StoppingCondition
+ *     MaxRuntimeInSeconds: Number("int"),
+ *     MaxWaitTimeInSeconds: Number("int"),
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateCompilationJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCompilationJobCommandInput - {@link CreateCompilationJobCommandInput}
+ * @returns {@link CreateCompilationJobCommandOutput}
  * @see {@link CreateCompilationJobCommandInput} for command's `input` shape.
  * @see {@link CreateCompilationJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceInUse} (client fault)
+ *  <p>Resource being accessed is in use.</p>
+ *
+ * @throws {@link ResourceLimitExceeded} (client fault)
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
+ *             training jobs created. </p>
+ *
  *
  */
 export class CreateCompilationJobCommand extends $Command<
@@ -93,6 +146,9 @@ export class CreateCompilationJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCompilationJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +177,8 @@ export class CreateCompilationJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCompilationJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCompilationJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +188,18 @@ export class CreateCompilationJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCompilationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateCompilationJobCommand(input, context);
+    return se_CreateCompilationJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCompilationJobCommandOutput> {
-    return deserializeAws_json1_1CreateCompilationJobCommand(output, context);
+    return de_CreateCompilationJobCommand(output, context);
   }
 
   // Start section: command_body_extra

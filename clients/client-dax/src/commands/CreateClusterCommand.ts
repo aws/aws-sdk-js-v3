@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
-import {
-  CreateClusterRequest,
-  CreateClusterRequestFilterSensitiveLog,
-  CreateClusterResponse,
-  CreateClusterResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateClusterCommand,
-  serializeAws_json1_1CreateClusterCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateClusterRequest, CreateClusterResponse } from "../models/models_0";
+import { de_CreateClusterCommand, se_CreateClusterCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateClusterCommand}.
+ */
 export interface CreateClusterCommandInput extends CreateClusterRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateClusterCommand}.
+ */
 export interface CreateClusterCommandOutput extends CreateClusterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a DAX cluster. All nodes in the cluster run the same DAX caching software.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,96 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * import { DAXClient, CreateClusterCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, CreateClusterCommand } = require("@aws-sdk/client-dax"); // CommonJS import
  * const client = new DAXClient(config);
+ * const input = { // CreateClusterRequest
+ *   ClusterName: "STRING_VALUE", // required
+ *   NodeType: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   ReplicationFactor: Number("int"), // required
+ *   AvailabilityZones: [ // AvailabilityZoneList
+ *     "STRING_VALUE",
+ *   ],
+ *   SubnetGroupName: "STRING_VALUE",
+ *   SecurityGroupIds: [ // SecurityGroupIdentifierList
+ *     "STRING_VALUE",
+ *   ],
+ *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   NotificationTopicArn: "STRING_VALUE",
+ *   IamRoleArn: "STRING_VALUE", // required
+ *   ParameterGroupName: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   SSESpecification: { // SSESpecification
+ *     Enabled: true || false, // required
+ *   },
+ *   ClusterEndpointEncryptionType: "STRING_VALUE",
+ * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateClusterCommandInput - {@link CreateClusterCommandInput}
+ * @returns {@link CreateClusterCommandOutput}
  * @see {@link CreateClusterCommandInput} for command's `input` shape.
  * @see {@link CreateClusterCommandOutput} for command's `response` shape.
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
+ *
+ * @throws {@link ClusterAlreadyExistsFault} (client fault)
+ *  <p>You already have a DAX cluster with the given identifier.</p>
+ *
+ * @throws {@link ClusterQuotaForCustomerExceededFault} (client fault)
+ *  <p>You have attempted to exceed the maximum number of DAX clusters for your AWS
+ *             account.</p>
+ *
+ * @throws {@link InsufficientClusterCapacityFault} (client fault)
+ *  <p>There are not enough system resources to create the cluster you requested (or to
+ *             resize an already-existing cluster). </p>
+ *
+ * @throws {@link InvalidClusterStateFault} (client fault)
+ *  <p>The requested DAX cluster is not in the <i>available</i>
+ *             state.</p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * @throws {@link InvalidParameterGroupStateFault} (client fault)
+ *  <p>One or more parameters in a parameter group are in an invalid state.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
+ * @throws {@link InvalidVPCNetworkStateFault} (client fault)
+ *  <p>The VPC network is in an invalid state.</p>
+ *
+ * @throws {@link NodeQuotaForClusterExceededFault} (client fault)
+ *  <p>You have attempted to exceed the maximum number of nodes for a DAX
+ *             cluster.</p>
+ *
+ * @throws {@link NodeQuotaForCustomerExceededFault} (client fault)
+ *  <p>You have attempted to exceed the maximum number of nodes for your AWS
+ *             account.</p>
+ *
+ * @throws {@link ParameterGroupNotFoundFault} (client fault)
+ *  <p>The specified parameter group does not exist.</p>
+ *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p>The specified service linked role (SLR) was not found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>You have reached the maximum number of x509 certificates that can be created for
+ *             encrypted clusters in a 30 day period. Contact AWS customer support to discuss options
+ *             for continuing to create encrypted clusters.</p>
+ *
+ * @throws {@link SubnetGroupNotFoundFault} (client fault)
+ *  <p>The requested subnet group name does not refer to an existing subnet
+ *             group.</p>
+ *
+ * @throws {@link TagQuotaPerResourceExceeded} (client fault)
+ *  <p>You have exceeded the maximum number of tags for this DAX cluster.</p>
+ *
  *
  */
 export class CreateClusterCommand extends $Command<
@@ -62,6 +148,9 @@ export class CreateClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +177,8 @@ export class CreateClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateClusterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateClusterResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +188,18 @@ export class CreateClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateClusterCommand(input, context);
+    return se_CreateClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateClusterCommandOutput> {
-    return deserializeAws_json1_1CreateClusterCommand(output, context);
+    return de_CreateClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  UpdateTaskSetRequest,
-  UpdateTaskSetRequestFilterSensitiveLog,
-  UpdateTaskSetResponse,
-  UpdateTaskSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateTaskSetCommand,
-  serializeAws_json1_1UpdateTaskSetCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateTaskSetRequest, UpdateTaskSetResponse } from "../models/models_0";
+import { de_UpdateTaskSetCommand, se_UpdateTaskSetCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateTaskSetCommand}.
+ */
 export interface UpdateTaskSetCommandInput extends UpdateTaskSetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateTaskSetCommand}.
+ */
 export interface UpdateTaskSetCommandOutput extends UpdateTaskSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies a task set. This is used when a service uses the <code>EXTERNAL</code>
  * 			deployment controller type. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">Amazon ECS Deployment
  * 				Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
@@ -38,13 +41,58 @@ export interface UpdateTaskSetCommandOutput extends UpdateTaskSetResponse, __Met
  * import { ECSClient, UpdateTaskSetCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, UpdateTaskSetCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // UpdateTaskSetRequest
+ *   cluster: "STRING_VALUE", // required
+ *   service: "STRING_VALUE", // required
+ *   taskSet: "STRING_VALUE", // required
+ *   scale: { // Scale
+ *     value: Number("double"),
+ *     unit: "PERCENT",
+ *   },
+ * };
  * const command = new UpdateTaskSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTaskSetCommandInput - {@link UpdateTaskSetCommandInput}
+ * @returns {@link UpdateTaskSetCommandOutput}
  * @see {@link UpdateTaskSetCommandInput} for command's `input` shape.
  * @see {@link UpdateTaskSetCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have authorization to perform the requested action.</p>
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action. This client action might be using
+ * 			an action or resource on behalf of a user that doesn't have permissions to use the
+ * 			action or resource,. Or, it might be specifying an identifier that isn't valid.</p>
+ *
+ * @throws {@link ClusterNotFoundException} (client fault)
+ *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter isn't valid. Review the available parameters for the API
+ * 			request.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server issue.</p>
+ *
+ * @throws {@link ServiceNotActiveException} (client fault)
+ *  <p>The specified service isn't active. You can't update a service that's inactive. If you
+ * 			have previously deleted a service, you can re-create it with <a>CreateService</a>.</p>
+ *
+ * @throws {@link ServiceNotFoundException} (client fault)
+ *  <p>The specified service wasn't found. You can view your available services with <a>ListServices</a>. Amazon ECS services are cluster specific and Region
+ * 			specific.</p>
+ *
+ * @throws {@link TaskSetNotFoundException} (client fault)
+ *  <p>The specified task set wasn't found. You can view your available task sets with <a>DescribeTaskSets</a>. Task sets are specific to each cluster, service and
+ * 			Region.</p>
+ *
+ * @throws {@link UnsupportedFeatureException} (client fault)
+ *  <p>The specified task isn't supported in this Region.</p>
+ *
  *
  */
 export class UpdateTaskSetCommand extends $Command<
@@ -64,6 +112,9 @@ export class UpdateTaskSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTaskSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +141,8 @@ export class UpdateTaskSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTaskSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTaskSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +152,18 @@ export class UpdateTaskSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTaskSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateTaskSetCommand(input, context);
+    return se_UpdateTaskSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTaskSetCommandOutput> {
-    return deserializeAws_json1_1UpdateTaskSetCommand(output, context);
+    return de_UpdateTaskSetCommand(output, context);
   }
 
   // Start section: command_body_extra

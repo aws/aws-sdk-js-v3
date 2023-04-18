@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ConnectParticipantClient";
-import {
-  GetAttachmentRequest,
-  GetAttachmentRequestFilterSensitiveLog,
-  GetAttachmentResponse,
-  GetAttachmentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAttachmentCommand,
-  serializeAws_restJson1GetAttachmentCommand,
-} from "../protocols/Aws_restJson1";
+import { GetAttachmentRequest, GetAttachmentResponse } from "../models/models_0";
+import { de_GetAttachmentCommand, se_GetAttachmentCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetAttachmentCommand}.
+ */
 export interface GetAttachmentCommandInput extends GetAttachmentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetAttachmentCommand}.
+ */
 export interface GetAttachmentCommandOutput extends GetAttachmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a pre-signed URL for download of a completed attachment. This is an
  *             asynchronous API for use with active contacts.</p>
  *          <note>
@@ -48,13 +51,32 @@ export interface GetAttachmentCommandOutput extends GetAttachmentResponse, __Met
  * import { ConnectParticipantClient, GetAttachmentCommand } from "@aws-sdk/client-connectparticipant"; // ES Modules import
  * // const { ConnectParticipantClient, GetAttachmentCommand } = require("@aws-sdk/client-connectparticipant"); // CommonJS import
  * const client = new ConnectParticipantClient(config);
+ * const input = { // GetAttachmentRequest
+ *   AttachmentId: "STRING_VALUE", // required
+ *   ConnectionToken: "STRING_VALUE", // required
+ * };
  * const command = new GetAttachmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAttachmentCommandInput - {@link GetAttachmentCommandInput}
+ * @returns {@link GetAttachmentCommandOutput}
  * @see {@link GetAttachmentCommandInput} for command's `input` shape.
  * @see {@link GetAttachmentCommandOutput} for command's `response` shape.
  * @see {@link ConnectParticipantClientResolvedConfig | config} for ConnectParticipantClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>This exception occurs when there is an internal failure in the Amazon Connect service.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by Amazon Connect.</p>
+ *
  *
  */
 export class GetAttachmentCommand extends $Command<
@@ -74,6 +96,9 @@ export class GetAttachmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAttachmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +125,8 @@ export class GetAttachmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAttachmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAttachmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +136,18 @@ export class GetAttachmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAttachmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAttachmentCommand(input, context);
+    return se_GetAttachmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAttachmentCommandOutput> {
-    return deserializeAws_restJson1GetAttachmentCommand(output, context);
+    return de_GetAttachmentCommand(output, context);
   }
 
   // Start section: command_body_extra

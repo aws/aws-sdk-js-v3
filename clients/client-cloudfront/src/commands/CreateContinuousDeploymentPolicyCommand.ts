@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
+import { CreateContinuousDeploymentPolicyRequest, CreateContinuousDeploymentPolicyResult } from "../models/models_0";
 import {
-  CreateContinuousDeploymentPolicyRequest,
-  CreateContinuousDeploymentPolicyRequestFilterSensitiveLog,
-  CreateContinuousDeploymentPolicyResult,
-  CreateContinuousDeploymentPolicyResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlCreateContinuousDeploymentPolicyCommand,
-  serializeAws_restXmlCreateContinuousDeploymentPolicyCommand,
+  de_CreateContinuousDeploymentPolicyCommand,
+  se_CreateContinuousDeploymentPolicyCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateContinuousDeploymentPolicyCommand}.
+ */
 export interface CreateContinuousDeploymentPolicyCommandInput extends CreateContinuousDeploymentPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateContinuousDeploymentPolicyCommand}.
+ */
 export interface CreateContinuousDeploymentPolicyCommandOutput
   extends CreateContinuousDeploymentPolicyResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a continuous deployment policy that distributes traffic for a custom domain
  * 			name to two different CloudFront distributions.</p>
  *          <p>To use a continuous deployment policy, first use <code>CopyDistribution</code> to
@@ -46,13 +52,61 @@ export interface CreateContinuousDeploymentPolicyCommandOutput
  * import { CloudFrontClient, CreateContinuousDeploymentPolicyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, CreateContinuousDeploymentPolicyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // CreateContinuousDeploymentPolicyRequest
+ *   ContinuousDeploymentPolicyConfig: { // ContinuousDeploymentPolicyConfig
+ *     StagingDistributionDnsNames: { // StagingDistributionDnsNames
+ *       Quantity: Number("int"), // required
+ *       Items: [ // StagingDistributionDnsNameList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     Enabled: true || false, // required
+ *     TrafficConfig: { // TrafficConfig
+ *       SingleWeightConfig: { // ContinuousDeploymentSingleWeightConfig
+ *         Weight: Number("float"), // required
+ *         SessionStickinessConfig: { // SessionStickinessConfig
+ *           IdleTTL: Number("int"), // required
+ *           MaximumTTL: Number("int"), // required
+ *         },
+ *       },
+ *       SingleHeaderConfig: { // ContinuousDeploymentSingleHeaderConfig
+ *         Header: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *       Type: "SingleWeight" || "SingleHeader", // required
+ *     },
+ *   },
+ * };
  * const command = new CreateContinuousDeploymentPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateContinuousDeploymentPolicyCommandInput - {@link CreateContinuousDeploymentPolicyCommandInput}
+ * @returns {@link CreateContinuousDeploymentPolicyCommandOutput}
  * @see {@link CreateContinuousDeploymentPolicyCommandInput} for command's `input` shape.
  * @see {@link CreateContinuousDeploymentPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link ContinuousDeploymentPolicyAlreadyExists} (client fault)
+ *  <p>A continuous deployment policy with this configuration already exists.</p>
+ *
+ * @throws {@link InconsistentQuantities} (client fault)
+ *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't
+ * 			match.</p>
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link StagingDistributionInUse} (client fault)
+ *  <p>A continuous deployment policy for this staging distribution already exists.</p>
+ *
+ * @throws {@link TooManyContinuousDeploymentPolicies} (client fault)
+ *  <p>You have reached the maximum number of continuous deployment policies for this
+ * 			Amazon Web Services account.</p>
+ *
  *
  */
 export class CreateContinuousDeploymentPolicyCommand extends $Command<
@@ -72,6 +126,9 @@ export class CreateContinuousDeploymentPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateContinuousDeploymentPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +157,8 @@ export class CreateContinuousDeploymentPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateContinuousDeploymentPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateContinuousDeploymentPolicyResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,18 +168,24 @@ export class CreateContinuousDeploymentPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateContinuousDeploymentPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateContinuousDeploymentPolicyCommand(input, context);
+    return se_CreateContinuousDeploymentPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateContinuousDeploymentPolicyCommandOutput> {
-    return deserializeAws_restXmlCreateContinuousDeploymentPolicyCommand(output, context);
+    return de_CreateContinuousDeploymentPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

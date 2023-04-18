@@ -6,12 +6,11 @@ import {
   ListMissionProfilesCommandInput,
   ListMissionProfilesCommandOutput,
 } from "../commands/ListMissionProfilesCommand";
-import { GroundStation } from "../GroundStation";
 import { GroundStationClient } from "../GroundStationClient";
 import { GroundStationPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: GroundStationClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListMissionProfilesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: GroundStation,
-  input: ListMissionProfilesCommandInput,
-  ...args: any
-): Promise<ListMissionProfilesCommandOutput> => {
-  // @ts-ignore
-  return await client.listMissionProfiles(input, ...args);
-};
 export async function* paginateListMissionProfiles(
   config: GroundStationPaginationConfiguration,
   input: ListMissionProfilesCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListMissionProfiles(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof GroundStation) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof GroundStationClient) {
+    if (config.client instanceof GroundStationClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected GroundStation | GroundStationClient");

@@ -14,19 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import {
-  RegisterApplicationRevisionInput,
-  RegisterApplicationRevisionInputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RegisterApplicationRevisionCommand,
-  serializeAws_json1_1RegisterApplicationRevisionCommand,
-} from "../protocols/Aws_json1_1";
+import { RegisterApplicationRevisionInput } from "../models/models_0";
+import { de_RegisterApplicationRevisionCommand, se_RegisterApplicationRevisionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link RegisterApplicationRevisionCommand}.
+ */
 export interface RegisterApplicationRevisionCommandInput extends RegisterApplicationRevisionInput {}
+/**
+ * @public
+ *
+ * The output of {@link RegisterApplicationRevisionCommand}.
+ */
 export interface RegisterApplicationRevisionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers with CodeDeploy a revision for the specified application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -34,13 +39,60 @@ export interface RegisterApplicationRevisionCommandOutput extends __MetadataBear
  * import { CodeDeployClient, RegisterApplicationRevisionCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, RegisterApplicationRevisionCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
+ * const input = { // RegisterApplicationRevisionInput
+ *   applicationName: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   revision: { // RevisionLocation
+ *     revisionType: "S3" || "GitHub" || "String" || "AppSpecContent",
+ *     s3Location: { // S3Location
+ *       bucket: "STRING_VALUE",
+ *       key: "STRING_VALUE",
+ *       bundleType: "tar" || "tgz" || "zip" || "YAML" || "JSON",
+ *       version: "STRING_VALUE",
+ *       eTag: "STRING_VALUE",
+ *     },
+ *     gitHubLocation: { // GitHubLocation
+ *       repository: "STRING_VALUE",
+ *       commitId: "STRING_VALUE",
+ *     },
+ *     string: { // RawString
+ *       content: "STRING_VALUE",
+ *       sha256: "STRING_VALUE",
+ *     },
+ *     appSpecContent: { // AppSpecContent
+ *       content: "STRING_VALUE",
+ *       sha256: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new RegisterApplicationRevisionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterApplicationRevisionCommandInput - {@link RegisterApplicationRevisionCommandInput}
+ * @returns {@link RegisterApplicationRevisionCommandOutput}
  * @see {@link RegisterApplicationRevisionCommandInput} for command's `input` shape.
  * @see {@link RegisterApplicationRevisionCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
+ *
+ * @throws {@link ApplicationDoesNotExistException} (client fault)
+ *  <p>The application does not exist with the IAM user or Amazon Web Services account.</p>
+ *
+ * @throws {@link ApplicationNameRequiredException} (client fault)
+ *  <p>The minimum number of required application names was not specified.</p>
+ *
+ * @throws {@link DescriptionTooLongException} (client fault)
+ *  <p>The description is too long.</p>
+ *
+ * @throws {@link InvalidApplicationNameException} (client fault)
+ *  <p>The application name was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidRevisionException} (client fault)
+ *  <p>The revision was specified in an invalid format.</p>
+ *
+ * @throws {@link RevisionRequiredException} (client fault)
+ *  <p>The revision ID was not specified.</p>
+ *
  *
  */
 export class RegisterApplicationRevisionCommand extends $Command<
@@ -60,6 +112,9 @@ export class RegisterApplicationRevisionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterApplicationRevisionCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +143,8 @@ export class RegisterApplicationRevisionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterApplicationRevisionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,15 +154,21 @@ export class RegisterApplicationRevisionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterApplicationRevisionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterApplicationRevisionCommand(input, context);
+    return se_RegisterApplicationRevisionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RegisterApplicationRevisionCommandOutput> {
-    return deserializeAws_json1_1RegisterApplicationRevisionCommand(output, context);
+    return de_RegisterApplicationRevisionCommand(output, context);
   }
 
   // Start section: command_body_extra

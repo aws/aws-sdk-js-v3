@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
-import {
-  StartExportTaskRequest,
-  StartExportTaskRequestFilterSensitiveLog,
-  StartExportTaskResponse,
-  StartExportTaskResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartExportTaskCommand,
-  serializeAws_json1_1StartExportTaskCommand,
-} from "../protocols/Aws_json1_1";
+import { StartExportTaskRequest, StartExportTaskResponse } from "../models/models_0";
+import { de_StartExportTaskCommand, se_StartExportTaskCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link StartExportTaskCommand}.
+ */
 export interface StartExportTaskCommandInput extends StartExportTaskRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartExportTaskCommand}.
+ */
 export interface StartExportTaskCommandOutput extends StartExportTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Begins the export of discovered data to an S3 bucket.</p>
  *          <p> If you specify <code>agentIds</code> in a filter, the task exports up to 72 hours of
  *       detailed data collected by the identified Application Discovery Agent, including network,
@@ -48,13 +51,52 @@ export interface StartExportTaskCommandOutput extends StartExportTaskResponse, _
  * import { ApplicationDiscoveryServiceClient, StartExportTaskCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
  * // const { ApplicationDiscoveryServiceClient, StartExportTaskCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
+ * const input = { // StartExportTaskRequest
+ *   exportDataFormat: [ // ExportDataFormats
+ *     "CSV" || "GRAPHML",
+ *   ],
+ *   filters: [ // ExportFilters
+ *     { // ExportFilter
+ *       name: "STRING_VALUE", // required
+ *       values: [ // FilterValues // required
+ *         "STRING_VALUE",
+ *       ],
+ *       condition: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   startTime: new Date("TIMESTAMP"),
+ *   endTime: new Date("TIMESTAMP"),
+ * };
  * const command = new StartExportTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartExportTaskCommandInput - {@link StartExportTaskCommandInput}
+ * @returns {@link StartExportTaskCommandOutput}
  * @see {@link StartExportTaskCommandInput} for command's `input` shape.
  * @see {@link StartExportTaskCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
+ *
+ * @throws {@link AuthorizationErrorException} (client fault)
+ *  <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM
+ *       policy associated with this account.</p>
+ *
+ * @throws {@link HomeRegionNotSetException} (client fault)
+ *  <p>The home region is not set. Set the home region to continue.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters are not valid. Verify the parameters and try again.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value of one or more parameters are either invalid or out of range. Verify the
+ *       parameter values and try again.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This operation is not permitted.</p>
+ *
+ * @throws {@link ServerInternalErrorException} (server fault)
+ *  <p>The server experienced an internal error. Try again.</p>
+ *
  *
  */
 export class StartExportTaskCommand extends $Command<
@@ -74,6 +116,9 @@ export class StartExportTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartExportTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +147,8 @@ export class StartExportTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartExportTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartExportTaskResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +158,18 @@ export class StartExportTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartExportTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartExportTaskCommand(input, context);
+    return se_StartExportTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartExportTaskCommandOutput> {
-    return deserializeAws_json1_1StartExportTaskCommand(output, context);
+    return de_StartExportTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

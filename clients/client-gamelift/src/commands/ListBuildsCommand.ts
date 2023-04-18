@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  ListBuildsInput,
-  ListBuildsInputFilterSensitiveLog,
-  ListBuildsOutput,
-  ListBuildsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListBuildsCommand,
-  serializeAws_json1_1ListBuildsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListBuildsInput, ListBuildsOutput } from "../models/models_0";
+import { de_ListBuildsCommand, se_ListBuildsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListBuildsCommand}.
+ */
 export interface ListBuildsCommandInput extends ListBuildsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListBuildsCommand}.
+ */
 export interface ListBuildsCommandOutput extends ListBuildsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves build resources for all builds associated with the Amazon Web Services account in use. You
  *             can limit results to builds that are in a specific status by using the
  *                 <code>Status</code> parameter. Use the pagination parameters to retrieve results in
@@ -52,13 +55,32 @@ export interface ListBuildsCommandOutput extends ListBuildsOutput, __MetadataBea
  * import { GameLiftClient, ListBuildsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, ListBuildsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // ListBuildsInput
+ *   Status: "INITIALIZED" || "READY" || "FAILED",
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListBuildsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBuildsCommandInput - {@link ListBuildsCommandInput}
+ * @returns {@link ListBuildsCommandOutput}
  * @see {@link ListBuildsCommandInput} for command's `input` shape.
  * @see {@link ListBuildsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an unrecoverable internal failure while processing the
+ *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
+ *             values before retrying.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
  *
  */
 export class ListBuildsCommand extends $Command<
@@ -78,6 +100,9 @@ export class ListBuildsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBuildsCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +129,8 @@ export class ListBuildsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBuildsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListBuildsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +140,18 @@ export class ListBuildsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBuildsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListBuildsCommand(input, context);
+    return se_ListBuildsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBuildsCommandOutput> {
-    return deserializeAws_json1_1ListBuildsCommand(output, context);
+    return de_ListBuildsCommand(output, context);
   }
 
   // Start section: command_body_extra

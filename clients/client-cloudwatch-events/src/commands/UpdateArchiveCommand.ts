@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import {
-  UpdateArchiveRequest,
-  UpdateArchiveRequestFilterSensitiveLog,
-  UpdateArchiveResponse,
-  UpdateArchiveResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateArchiveCommand,
-  serializeAws_json1_1UpdateArchiveCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateArchiveRequest, UpdateArchiveResponse } from "../models/models_0";
+import { de_UpdateArchiveCommand, se_UpdateArchiveCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateArchiveCommand}.
+ */
 export interface UpdateArchiveCommandInput extends UpdateArchiveRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateArchiveCommand}.
+ */
 export interface UpdateArchiveCommandOutput extends UpdateArchiveResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified archive.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,38 @@ export interface UpdateArchiveCommandOutput extends UpdateArchiveResponse, __Met
  * import { CloudWatchEventsClient, UpdateArchiveCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, UpdateArchiveCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
+ * const input = { // UpdateArchiveRequest
+ *   ArchiveName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   EventPattern: "STRING_VALUE",
+ *   RetentionDays: Number("int"),
+ * };
  * const command = new UpdateArchiveCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateArchiveCommandInput - {@link UpdateArchiveCommandInput}
+ * @returns {@link UpdateArchiveCommandOutput}
  * @see {@link UpdateArchiveCommandInput} for command's `input` shape.
  * @see {@link UpdateArchiveCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * @throws {@link InvalidEventPatternException} (client fault)
+ *  <p>The event pattern is not valid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request failed because it attempted to create resource beyond the allowed service
+ *       quota.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An entity that you specified does not exist.</p>
+ *
  *
  */
 export class UpdateArchiveCommand extends $Command<
@@ -62,6 +90,9 @@ export class UpdateArchiveCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateArchiveCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +119,8 @@ export class UpdateArchiveCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateArchiveRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateArchiveResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +130,18 @@ export class UpdateArchiveCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateArchiveCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateArchiveCommand(input, context);
+    return se_UpdateArchiveCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateArchiveCommandOutput> {
-    return deserializeAws_json1_1UpdateArchiveCommand(output, context);
+    return de_UpdateArchiveCommand(output, context);
   }
 
   // Start section: command_body_extra

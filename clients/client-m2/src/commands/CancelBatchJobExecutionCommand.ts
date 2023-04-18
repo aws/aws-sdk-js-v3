@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
-import {
-  CancelBatchJobExecutionRequest,
-  CancelBatchJobExecutionRequestFilterSensitiveLog,
-  CancelBatchJobExecutionResponse,
-  CancelBatchJobExecutionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CancelBatchJobExecutionCommand,
-  serializeAws_restJson1CancelBatchJobExecutionCommand,
-} from "../protocols/Aws_restJson1";
+import { CancelBatchJobExecutionRequest, CancelBatchJobExecutionResponse } from "../models/models_0";
+import { de_CancelBatchJobExecutionCommand, se_CancelBatchJobExecutionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CancelBatchJobExecutionCommand}.
+ */
 export interface CancelBatchJobExecutionCommandInput extends CancelBatchJobExecutionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CancelBatchJobExecutionCommand}.
+ */
 export interface CancelBatchJobExecutionCommandOutput extends CancelBatchJobExecutionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels the running of a specific batch job execution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,38 @@ export interface CancelBatchJobExecutionCommandOutput extends CancelBatchJobExec
  * import { M2Client, CancelBatchJobExecutionCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, CancelBatchJobExecutionCommand } = require("@aws-sdk/client-m2"); // CommonJS import
  * const client = new M2Client(config);
+ * const input = { // CancelBatchJobExecutionRequest
+ *   applicationId: "STRING_VALUE", // required
+ *   executionId: "STRING_VALUE", // required
+ * };
  * const command = new CancelBatchJobExecutionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelBatchJobExecutionCommandInput - {@link CancelBatchJobExecutionCommandInput}
+ * @returns {@link CancelBatchJobExecutionCommandOutput}
  * @see {@link CancelBatchJobExecutionCommandInput} for command's `input` shape.
  * @see {@link CancelBatchJobExecutionCommandOutput} for command's `response` shape.
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The account or role doesn't have the right permissions to make the request.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The parameters provided in the request conflict with existing resources.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred during the processing of the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The number of requests made exceeds the limit.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One or more parameters provided in the request is not valid.</p>
+ *
  *
  */
 export class CancelBatchJobExecutionCommand extends $Command<
@@ -62,6 +90,9 @@ export class CancelBatchJobExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelBatchJobExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +121,8 @@ export class CancelBatchJobExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelBatchJobExecutionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelBatchJobExecutionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +132,18 @@ export class CancelBatchJobExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelBatchJobExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelBatchJobExecutionCommand(input, context);
+    return se_CancelBatchJobExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelBatchJobExecutionCommandOutput> {
-    return deserializeAws_restJson1CancelBatchJobExecutionCommand(output, context);
+    return de_CancelBatchJobExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

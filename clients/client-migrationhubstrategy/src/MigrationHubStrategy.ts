@@ -105,8 +105,8 @@ import {
 import { MigrationHubStrategyClient } from "./MigrationHubStrategyClient";
 
 /**
+ * @public
  * <fullname>Migration Hub Strategy Recommendations</fullname>
- *
  *          <p>This API reference provides descriptions, syntax, and other details about each of the
  *       actions and data types for Migration Hub Strategy Recommendations (Strategy Recommendations). The topic for each action shows the API
  *       request parameters and the response. Alternatively, you can use one of the AWS SDKs to
@@ -115,6 +115,7 @@ import { MigrationHubStrategyClient } from "./MigrationHubStrategyClient";
  */
 export class MigrationHubStrategy extends MigrationHubStrategyClient {
   /**
+   * @public
    * <p> Retrieves details about an application component. </p>
    */
   public getApplicationComponentDetails(
@@ -147,6 +148,7 @@ export class MigrationHubStrategy extends MigrationHubStrategyClient {
   }
 
   /**
+   * @public
    * <p> Retrieves a list of all the recommended strategies and tools for an application component
    *       running on a server. </p>
    */
@@ -180,6 +182,7 @@ export class MigrationHubStrategy extends MigrationHubStrategyClient {
   }
 
   /**
+   * @public
    * <p> Retrieves the status of an on-going assessment. </p>
    */
   public getAssessment(
@@ -212,6 +215,7 @@ export class MigrationHubStrategy extends MigrationHubStrategyClient {
   }
 
   /**
+   * @public
    * <p> Retrieves the details about a specific import task. </p>
    */
   public getImportFileTask(
@@ -244,6 +248,7 @@ export class MigrationHubStrategy extends MigrationHubStrategyClient {
   }
 
   /**
+   * @public
    * <p>Retrieve the latest ID of a specific assessment task.</p>
    */
   public getLatestAssessmentId(
@@ -276,6 +281,7 @@ export class MigrationHubStrategy extends MigrationHubStrategyClient {
   }
 
   /**
+   * @public
    * <p> Retrieves your migration and modernization preferences. </p>
    */
   public getPortfolioPreferences(
@@ -308,6 +314,7 @@ export class MigrationHubStrategy extends MigrationHubStrategyClient {
   }
 
   /**
+   * @public
    * <p> Retrieves overall summary including the number of servers to rehost and the overall
    *       number of anti-patterns. </p>
    */
@@ -341,6 +348,7 @@ export class MigrationHubStrategy extends MigrationHubStrategyClient {
   }
 
   /**
+   * @public
    * <p> Retrieves detailed information about the specified recommendation report. </p>
    */
   public getRecommendationReportDetails(
@@ -373,6 +381,7 @@ export class MigrationHubStrategy extends MigrationHubStrategyClient {
   }
 
   /**
+   * @public
    * <p> Retrieves detailed information about a specified server. </p>
    */
   public getServerDetails(
@@ -405,6 +414,7 @@ export class MigrationHubStrategy extends MigrationHubStrategyClient {
   }
 
   /**
+   * @public
    * <p> Retrieves recommended strategies and tools for the specified server. </p>
    */
   public getServerStrategies(
@@ -437,6 +447,7 @@ export class MigrationHubStrategy extends MigrationHubStrategyClient {
   }
 
   /**
+   * @public
    * <p> Retrieves a list of all the application components (processes). </p>
    */
   public listApplicationComponents(
@@ -469,6 +480,7 @@ export class MigrationHubStrategy extends MigrationHubStrategyClient {
   }
 
   /**
+   * @public
    * <p> Retrieves a list of all the installed collectors. </p>
    */
   public listCollectors(
@@ -501,6 +513,7 @@ export class MigrationHubStrategy extends MigrationHubStrategyClient {
   }
 
   /**
+   * @public
    * <p> Retrieves a list of all the imports performed. </p>
    */
   public listImportFileTask(
@@ -533,6 +546,7 @@ export class MigrationHubStrategy extends MigrationHubStrategyClient {
   }
 
   /**
+   * @public
    * <p> Returns a list of all the servers. </p>
    */
   public listServers(args: ListServersCommandInput, options?: __HttpHandlerOptions): Promise<ListServersCommandOutput>;
@@ -559,6 +573,7 @@ export class MigrationHubStrategy extends MigrationHubStrategyClient {
   }
 
   /**
+   * @public
    * <p> Saves the specified migration and modernization preferences. </p>
    */
   public putPortfolioPreferences(
@@ -591,6 +606,7 @@ export class MigrationHubStrategy extends MigrationHubStrategyClient {
   }
 
   /**
+   * @public
    * <p> Starts the assessment of an on-premises environment. </p>
    */
   public startAssessment(
@@ -623,6 +639,7 @@ export class MigrationHubStrategy extends MigrationHubStrategyClient {
   }
 
   /**
+   * @public
    * <p> Starts a file import. </p>
    */
   public startImportFileTask(
@@ -655,6 +672,7 @@ export class MigrationHubStrategy extends MigrationHubStrategyClient {
   }
 
   /**
+   * @public
    * <p> Starts generating a recommendation report. </p>
    */
   public startRecommendationReportGeneration(
@@ -687,6 +705,7 @@ export class MigrationHubStrategy extends MigrationHubStrategyClient {
   }
 
   /**
+   * @public
    * <p> Stops the assessment of an on-premises environment. </p>
    */
   public stopAssessment(
@@ -719,6 +738,7 @@ export class MigrationHubStrategy extends MigrationHubStrategyClient {
   }
 
   /**
+   * @public
    * <p> Updates the configuration of an application component. </p>
    */
   public updateApplicationComponentConfig(
@@ -751,6 +771,7 @@ export class MigrationHubStrategy extends MigrationHubStrategyClient {
   }
 
   /**
+   * @public
    * <p> Updates the configuration of the specified server. </p>
    */
   public updateServerConfig(

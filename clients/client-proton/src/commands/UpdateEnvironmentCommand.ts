@@ -19,16 +19,24 @@ import {
   UpdateEnvironmentOutput,
   UpdateEnvironmentOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateEnvironmentCommand,
-  serializeAws_json1_0UpdateEnvironmentCommand,
-} from "../protocols/Aws_json1_0";
+import { de_UpdateEnvironmentCommand, se_UpdateEnvironmentCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateEnvironmentCommand}.
+ */
 export interface UpdateEnvironmentCommandInput extends UpdateEnvironmentInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateEnvironmentCommand}.
+ */
 export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update an environment.</p>
  *          <p>If the environment is associated with an environment account connection, <i>don't</i> update or include the
  *         <code>protonServiceRoleArn</code> and <code>provisioningRepository</code> parameter to update or connect to an environment account connection.</p>
@@ -84,13 +92,51 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput,
  * import { ProtonClient, UpdateEnvironmentCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, UpdateEnvironmentCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // UpdateEnvironmentInput
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   spec: "STRING_VALUE",
+ *   templateMajorVersion: "STRING_VALUE",
+ *   templateMinorVersion: "STRING_VALUE",
+ *   protonServiceRoleArn: "STRING_VALUE",
+ *   deploymentType: "STRING_VALUE", // required
+ *   environmentAccountConnectionId: "STRING_VALUE",
+ *   provisioningRepository: { // RepositoryBranchInput
+ *     provider: "STRING_VALUE", // required
+ *     name: "STRING_VALUE", // required
+ *     branch: "STRING_VALUE", // required
+ *   },
+ *   componentRoleArn: "STRING_VALUE",
+ *   codebuildRoleArn: "STRING_VALUE",
+ * };
  * const command = new UpdateEnvironmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEnvironmentCommandInput - {@link UpdateEnvironmentCommandInput}
+ * @returns {@link UpdateEnvironmentCommandOutput}
  * @see {@link UpdateEnvironmentCommandInput} for command's `input` shape.
  * @see {@link UpdateEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>There <i>isn't</i> sufficient access for performing this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request <i>couldn't</i> be made due to a conflicting operation or resource.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request failed to register with the service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource <i>wasn't</i> found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+ *
  *
  */
 export class UpdateEnvironmentCommand extends $Command<
@@ -110,6 +156,9 @@ export class UpdateEnvironmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,12 +198,18 @@ export class UpdateEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateEnvironmentCommand(input, context);
+    return se_UpdateEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEnvironmentCommandOutput> {
-    return deserializeAws_json1_0UpdateEnvironmentCommand(output, context);
+    return de_UpdateEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

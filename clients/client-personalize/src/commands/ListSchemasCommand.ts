@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListSchemasRequest,
-  ListSchemasRequestFilterSensitiveLog,
-  ListSchemasResponse,
-  ListSchemasResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListSchemasRequest, ListSchemasResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1ListSchemasCommand,
-  serializeAws_json1_1ListSchemasCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListSchemasCommand, se_ListSchemasCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListSchemasCommand}.
+ */
 export interface ListSchemasCommandInput extends ListSchemasRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListSchemasCommand}.
+ */
 export interface ListSchemasCommandOutput extends ListSchemasResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the list of schemas associated with the account. The response provides the
  *       properties for each schema, including the Amazon Resource Name (ARN).
  *       For more information on schemas, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html">CreateSchema</a>.</p>
@@ -38,13 +41,23 @@ export interface ListSchemasCommandOutput extends ListSchemasResponse, __Metadat
  * import { PersonalizeClient, ListSchemasCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, ListSchemasCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // ListSchemasRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListSchemasCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSchemasCommandInput - {@link ListSchemasCommandInput}
+ * @returns {@link ListSchemasCommandOutput}
  * @see {@link ListSchemasCommandInput} for command's `input` shape.
  * @see {@link ListSchemasCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The token is not valid.</p>
+ *
  *
  */
 export class ListSchemasCommand extends $Command<
@@ -64,6 +77,9 @@ export class ListSchemasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSchemasCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +106,8 @@ export class ListSchemasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSchemasRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSchemasResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +117,18 @@ export class ListSchemasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSchemasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListSchemasCommand(input, context);
+    return se_ListSchemasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSchemasCommandOutput> {
-    return deserializeAws_json1_1ListSchemasCommand(output, context);
+    return de_ListSchemasCommand(output, context);
   }
 
   // Start section: command_body_extra

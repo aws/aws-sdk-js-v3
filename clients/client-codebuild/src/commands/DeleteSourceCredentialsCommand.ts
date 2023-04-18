@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import {
-  DeleteSourceCredentialsInput,
-  DeleteSourceCredentialsInputFilterSensitiveLog,
-  DeleteSourceCredentialsOutput,
-  DeleteSourceCredentialsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteSourceCredentialsCommand,
-  serializeAws_json1_1DeleteSourceCredentialsCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteSourceCredentialsInput, DeleteSourceCredentialsOutput } from "../models/models_0";
+import { de_DeleteSourceCredentialsCommand, se_DeleteSourceCredentialsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteSourceCredentialsCommand}.
+ */
 export interface DeleteSourceCredentialsCommandInput extends DeleteSourceCredentialsInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteSourceCredentialsCommand}.
+ */
 export interface DeleteSourceCredentialsCommandOutput extends DeleteSourceCredentialsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Deletes a set of GitHub, GitHub Enterprise, or Bitbucket source credentials. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,25 @@ export interface DeleteSourceCredentialsCommandOutput extends DeleteSourceCreden
  * import { CodeBuildClient, DeleteSourceCredentialsCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, DeleteSourceCredentialsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = { // DeleteSourceCredentialsInput
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSourceCredentialsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSourceCredentialsCommandInput - {@link DeleteSourceCredentialsCommandInput}
+ * @returns {@link DeleteSourceCredentialsCommandOutput}
  * @see {@link DeleteSourceCredentialsCommandInput} for command's `input` shape.
  * @see {@link DeleteSourceCredentialsCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input value that was provided is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified Amazon Web Services resource cannot be found.</p>
+ *
  *
  */
 export class DeleteSourceCredentialsCommand extends $Command<
@@ -62,6 +77,9 @@ export class DeleteSourceCredentialsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSourceCredentialsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +108,8 @@ export class DeleteSourceCredentialsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSourceCredentialsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSourceCredentialsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +119,18 @@ export class DeleteSourceCredentialsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSourceCredentialsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteSourceCredentialsCommand(input, context);
+    return se_DeleteSourceCredentialsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSourceCredentialsCommandOutput> {
-    return deserializeAws_json1_1DeleteSourceCredentialsCommand(output, context);
+    return de_DeleteSourceCredentialsCommand(output, context);
   }
 
   // Start section: command_body_extra

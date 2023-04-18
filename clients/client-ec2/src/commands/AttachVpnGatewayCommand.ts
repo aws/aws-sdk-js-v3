@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  AttachVpnGatewayRequest,
-  AttachVpnGatewayRequestFilterSensitiveLog,
-  AttachVpnGatewayResult,
-  AttachVpnGatewayResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_ec2AttachVpnGatewayCommand,
-  serializeAws_ec2AttachVpnGatewayCommand,
-} from "../protocols/Aws_ec2";
+import { AttachVpnGatewayRequest, AttachVpnGatewayResult } from "../models/models_0";
+import { de_AttachVpnGatewayCommand, se_AttachVpnGatewayCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link AttachVpnGatewayCommand}.
+ */
 export interface AttachVpnGatewayCommandInput extends AttachVpnGatewayRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AttachVpnGatewayCommand}.
+ */
 export interface AttachVpnGatewayCommandOutput extends AttachVpnGatewayResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches a virtual private gateway to a VPC. You can attach one virtual private
  *             gateway to one VPC at a time.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN
@@ -39,13 +42,21 @@ export interface AttachVpnGatewayCommandOutput extends AttachVpnGatewayResult, _
  * import { EC2Client, AttachVpnGatewayCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AttachVpnGatewayCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // AttachVpnGatewayRequest
+ *   VpcId: "STRING_VALUE", // required
+ *   VpnGatewayId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new AttachVpnGatewayCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AttachVpnGatewayCommandInput - {@link AttachVpnGatewayCommandInput}
+ * @returns {@link AttachVpnGatewayCommandOutput}
  * @see {@link AttachVpnGatewayCommandInput} for command's `input` shape.
  * @see {@link AttachVpnGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class AttachVpnGatewayCommand extends $Command<
@@ -65,6 +76,9 @@ export class AttachVpnGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AttachVpnGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +107,8 @@ export class AttachVpnGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AttachVpnGatewayRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AttachVpnGatewayResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +118,18 @@ export class AttachVpnGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AttachVpnGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2AttachVpnGatewayCommand(input, context);
+    return se_AttachVpnGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachVpnGatewayCommandOutput> {
-    return deserializeAws_ec2AttachVpnGatewayCommand(output, context);
+    return de_AttachVpnGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

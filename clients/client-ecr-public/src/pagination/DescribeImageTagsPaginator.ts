@@ -6,12 +6,11 @@ import {
   DescribeImageTagsCommandInput,
   DescribeImageTagsCommandOutput,
 } from "../commands/DescribeImageTagsCommand";
-import { ECRPUBLIC } from "../ECRPUBLIC";
 import { ECRPUBLICClient } from "../ECRPUBLICClient";
 import { ECRPUBLICPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ECRPUBLICClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeImageTagsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ECRPUBLIC,
-  input: DescribeImageTagsCommandInput,
-  ...args: any
-): Promise<DescribeImageTagsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeImageTags(input, ...args);
-};
 export async function* paginateDescribeImageTags(
   config: ECRPUBLICPaginationConfiguration,
   input: DescribeImageTagsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateDescribeImageTags(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof ECRPUBLIC) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ECRPUBLICClient) {
+    if (config.client instanceof ECRPUBLICClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ECRPUBLIC | ECRPUBLICClient");

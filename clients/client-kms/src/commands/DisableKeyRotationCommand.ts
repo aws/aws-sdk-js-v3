@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { DisableKeyRotationRequest, DisableKeyRotationRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DisableKeyRotationCommand,
-  serializeAws_json1_1DisableKeyRotationCommand,
-} from "../protocols/Aws_json1_1";
+import { DisableKeyRotationRequest } from "../models/models_0";
+import { de_DisableKeyRotationCommand, se_DisableKeyRotationCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DisableKeyRotationCommand}.
+ */
 export interface DisableKeyRotationCommandInput extends DisableKeyRotationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisableKeyRotationCommand}.
+ */
 export interface DisableKeyRotationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">automatic
  *         rotation of the key material</a> of the specified symmetric encryption KMS key.</p>
  *          <p>Automatic key rotation is supported only on symmetric encryption KMS keys.
@@ -40,7 +48,6 @@ export interface DisableKeyRotationCommandOutput extends __MetadataBearer {}
  * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
  *             <b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a different Amazon Web Services account.</p>
- *
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:DisableKeyRotation</a> (key policy)</p>
  *          <p>
@@ -64,13 +71,71 @@ export interface DisableKeyRotationCommandOutput extends __MetadataBearer {}
  * import { KMSClient, DisableKeyRotationCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, DisableKeyRotationCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // DisableKeyRotationRequest
+ *   KeyId: "STRING_VALUE", // required
+ * };
  * const command = new DisableKeyRotationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableKeyRotationCommandInput - {@link DisableKeyRotationCommandInput}
+ * @returns {@link DisableKeyRotationCommandOutput}
  * @see {@link DisableKeyRotationCommandInput} for command's `input` shape.
  * @see {@link DisableKeyRotationCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
+ *
+ * @throws {@link DependencyTimeoutException} (server fault)
+ *  <p>The system timed out while trying to fulfill the request. You can retry the
+ *       request.</p>
+ *
+ * @throws {@link DisabledException} (client fault)
+ *  <p>The request was rejected because the specified KMS key is not enabled.</p>
+ *
+ * @throws {@link InvalidArnException} (client fault)
+ *  <p>The request was rejected because a specified ARN, or an ARN in a key policy, is not
+ *       valid.</p>
+ *
+ * @throws {@link KMSInternalException} (server fault)
+ *  <p>The request was rejected because an internal exception occurred. The request can be
+ *       retried.</p>
+ *
+ * @throws {@link KMSInvalidStateException} (client fault)
+ *  <p>The request was rejected because the state of the specified resource is not valid for this
+ *       request.</p>
+ *          <p>This exceptions means one of the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The key state of the KMS key is not compatible with the operation. </p>
+ *                <p>To find the key state, use the <a>DescribeKey</a> operation. For more
+ *           information about which key states are compatible with each KMS operation, see
+ *           <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>
+ *                      <i>Key Management Service Developer Guide</i>
+ *                   </i>.</p>
+ *             </li>
+ *             <li>
+ *                <p>For cryptographic operations on KMS keys in custom key stores, this exception represents a general failure with many possible causes. To identify the cause, see the error message that accompanies the exception.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The request was rejected because the specified entity or resource could not be
+ *       found.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>The request was rejected because a specified parameter is not supported or a specified
+ *       resource is not valid for this operation.</p>
+ *
+ *
+ * @example To disable automatic rotation of key material
+ * ```javascript
+ * // The following example disables automatic annual rotation of the key material for the specified KMS key.
+ * const input = {
+ *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
+ * };
+ * const command = new DisableKeyRotationCommand(input);
+ * await client.send(command);
+ * // example id: to-disable-automatic-rotation-of-key-material-1478624396092
+ * ```
  *
  */
 export class DisableKeyRotationCommand extends $Command<
@@ -90,6 +155,9 @@ export class DisableKeyRotationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableKeyRotationCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +186,8 @@ export class DisableKeyRotationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableKeyRotationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +197,18 @@ export class DisableKeyRotationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableKeyRotationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisableKeyRotationCommand(input, context);
+    return se_DisableKeyRotationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableKeyRotationCommandOutput> {
-    return deserializeAws_json1_1DisableKeyRotationCommand(output, context);
+    return de_DisableKeyRotationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,24 +14,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { GetAccessPointForObjectLambdaRequest, GetAccessPointForObjectLambdaResult } from "../models/models_0";
 import {
-  GetAccessPointForObjectLambdaRequest,
-  GetAccessPointForObjectLambdaRequestFilterSensitiveLog,
-  GetAccessPointForObjectLambdaResult,
-  GetAccessPointForObjectLambdaResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlGetAccessPointForObjectLambdaCommand,
-  serializeAws_restXmlGetAccessPointForObjectLambdaCommand,
+  de_GetAccessPointForObjectLambdaCommand,
+  se_GetAccessPointForObjectLambdaCommand,
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetAccessPointForObjectLambdaCommand}.
+ */
 export interface GetAccessPointForObjectLambdaCommandInput extends GetAccessPointForObjectLambdaRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetAccessPointForObjectLambdaCommand}.
+ */
 export interface GetAccessPointForObjectLambdaCommandOutput
   extends GetAccessPointForObjectLambdaResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns configuration information about the specified Object Lambda Access Point</p>
  *          <p>The following actions are related to <code>GetAccessPointForObjectLambda</code>:</p>
  *          <ul>
@@ -57,13 +63,20 @@ export interface GetAccessPointForObjectLambdaCommandOutput
  * import { S3ControlClient, GetAccessPointForObjectLambdaCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, GetAccessPointForObjectLambdaCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = { // GetAccessPointForObjectLambdaRequest
+ *   AccountId: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new GetAccessPointForObjectLambdaCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccessPointForObjectLambdaCommandInput - {@link GetAccessPointForObjectLambdaCommandInput}
+ * @returns {@link GetAccessPointForObjectLambdaCommandOutput}
  * @see {@link GetAccessPointForObjectLambdaCommandInput} for command's `input` shape.
  * @see {@link GetAccessPointForObjectLambdaCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
+ *
  *
  */
 export class GetAccessPointForObjectLambdaCommand extends $Command<
@@ -86,6 +99,9 @@ export class GetAccessPointForObjectLambdaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccessPointForObjectLambdaCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +131,8 @@ export class GetAccessPointForObjectLambdaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAccessPointForObjectLambdaRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAccessPointForObjectLambdaResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,15 +142,21 @@ export class GetAccessPointForObjectLambdaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAccessPointForObjectLambdaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetAccessPointForObjectLambdaCommand(input, context);
+    return se_GetAccessPointForObjectLambdaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetAccessPointForObjectLambdaCommandOutput> {
-    return deserializeAws_restXmlGetAccessPointForObjectLambdaCommand(output, context);
+    return de_GetAccessPointForObjectLambdaCommand(output, context);
   }
 
   // Start section: command_body_extra

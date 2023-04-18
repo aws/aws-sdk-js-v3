@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteSchemaVersionRequest, DeleteSchemaVersionRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteSchemaVersionCommand,
-  serializeAws_restJson1DeleteSchemaVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteSchemaVersionRequest } from "../models/models_0";
+import { de_DeleteSchemaVersionCommand, se_DeleteSchemaVersionCommand } from "../protocols/Aws_restJson1";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteSchemaVersionCommand}.
+ */
 export interface DeleteSchemaVersionCommandInput extends DeleteSchemaVersionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteSchemaVersionCommand}.
+ */
 export interface DeleteSchemaVersionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete the schema version definition</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +39,33 @@ export interface DeleteSchemaVersionCommandOutput extends __MetadataBearer {}
  * import { SchemasClient, DeleteSchemaVersionCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, DeleteSchemaVersionCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
  * const client = new SchemasClient(config);
+ * const input = { // DeleteSchemaVersionRequest
+ *   RegistryName: "STRING_VALUE", // required
+ *   SchemaName: "STRING_VALUE", // required
+ *   SchemaVersion: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSchemaVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSchemaVersionCommandInput - {@link DeleteSchemaVersionCommandInput}
+ * @returns {@link DeleteSchemaVersionCommandOutput}
  * @see {@link DeleteSchemaVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteSchemaVersionCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *
  *
  */
 export class DeleteSchemaVersionCommand extends $Command<
@@ -57,6 +85,9 @@ export class DeleteSchemaVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSchemaVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +116,8 @@ export class DeleteSchemaVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSchemaVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +127,18 @@ export class DeleteSchemaVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSchemaVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSchemaVersionCommand(input, context);
+    return se_DeleteSchemaVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSchemaVersionCommandOutput> {
-    return deserializeAws_restJson1DeleteSchemaVersionCommand(output, context);
+    return de_DeleteSchemaVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

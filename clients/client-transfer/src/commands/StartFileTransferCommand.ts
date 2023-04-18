@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartFileTransferRequest,
-  StartFileTransferRequestFilterSensitiveLog,
-  StartFileTransferResponse,
-  StartFileTransferResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartFileTransferCommand,
-  serializeAws_json1_1StartFileTransferCommand,
-} from "../protocols/Aws_json1_1";
+import { StartFileTransferRequest, StartFileTransferResponse } from "../models/models_0";
+import { de_StartFileTransferCommand, se_StartFileTransferCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
+/**
+ * @public
+ *
+ * The input for {@link StartFileTransferCommand}.
+ */
 export interface StartFileTransferCommandInput extends StartFileTransferRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartFileTransferCommand}.
+ */
 export interface StartFileTransferCommandOutput extends StartFileTransferResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Begins an outbound file transfer to a remote AS2 server. You specify the <code>ConnectorId</code> and the file
  *       paths for where to send the files. </p>
  * @example
@@ -37,13 +40,38 @@ export interface StartFileTransferCommandOutput extends StartFileTransferRespons
  * import { TransferClient, StartFileTransferCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, StartFileTransferCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = { // StartFileTransferRequest
+ *   ConnectorId: "STRING_VALUE", // required
+ *   SendFilePaths: [ // FilePaths // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new StartFileTransferCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartFileTransferCommandInput - {@link StartFileTransferCommandInput}
+ * @returns {@link StartFileTransferCommandOutput}
  * @see {@link StartFileTransferCommandInput} for command's `input` shape.
  * @see {@link StartFileTransferCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
+ *
+ * @throws {@link InternalServiceError} (server fault)
+ *  <p>This exception is thrown when an error occurs in the Amazon Web ServicesTransfer Family service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
+ *       service.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
  *
  */
 export class StartFileTransferCommand extends $Command<
@@ -63,6 +91,9 @@ export class StartFileTransferCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartFileTransferCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +122,8 @@ export class StartFileTransferCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartFileTransferRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartFileTransferResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +133,18 @@ export class StartFileTransferCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartFileTransferCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartFileTransferCommand(input, context);
+    return se_StartFileTransferCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartFileTransferCommandOutput> {
-    return deserializeAws_json1_1StartFileTransferCommand(output, context);
+    return de_StartFileTransferCommand(output, context);
   }
 
   // Start section: command_body_extra

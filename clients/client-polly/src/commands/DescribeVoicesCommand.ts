@@ -13,36 +13,36 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeVoicesInput,
-  DescribeVoicesInputFilterSensitiveLog,
-  DescribeVoicesOutput,
-  DescribeVoicesOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeVoicesInput, DescribeVoicesOutput } from "../models/models_0";
 import { PollyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PollyClient";
-import {
-  deserializeAws_restJson1DescribeVoicesCommand,
-  serializeAws_restJson1DescribeVoicesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeVoicesCommand, se_DescribeVoicesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeVoicesCommand}.
+ */
 export interface DescribeVoicesCommandInput extends DescribeVoicesInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeVoicesCommand}.
+ */
 export interface DescribeVoicesCommandOutput extends DescribeVoicesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the list of voices that are available for use when
  *       requesting speech synthesis. Each voice speaks a specified language, is
  *       either male or female, and is identified by an ID, which is the ASCII
  *       version of the voice name. </p>
- *
  *          <p>When synthesizing speech ( <code>SynthesizeSpeech</code> ), you
  *       provide the voice ID for the voice you want from the list of voices
  *       returned by <code>DescribeVoices</code>.</p>
- *
  *          <p>For example, you want your news reader application to read news in
  *       a specific language, but giving a user the option to choose the voice.
  *       Using the <code>DescribeVoices</code> operation you can provide the user
  *       with a list of available voices to select from.</p>
- *
  *          <p> You can optionally specify a language code to filter the available
  *       voices. For example, if you specify <code>en-US</code>, the operation
  *       returns a list of all available US English voices. </p>
@@ -54,13 +54,67 @@ export interface DescribeVoicesCommandOutput extends DescribeVoicesOutput, __Met
  * import { PollyClient, DescribeVoicesCommand } from "@aws-sdk/client-polly"; // ES Modules import
  * // const { PollyClient, DescribeVoicesCommand } = require("@aws-sdk/client-polly"); // CommonJS import
  * const client = new PollyClient(config);
+ * const input = { // DescribeVoicesInput
+ *   Engine: "standard" || "neural",
+ *   LanguageCode: "arb" || "cmn-CN" || "cy-GB" || "da-DK" || "de-DE" || "en-AU" || "en-GB" || "en-GB-WLS" || "en-IN" || "en-US" || "es-ES" || "es-MX" || "es-US" || "fr-CA" || "fr-FR" || "is-IS" || "it-IT" || "ja-JP" || "hi-IN" || "ko-KR" || "nb-NO" || "nl-NL" || "pl-PL" || "pt-BR" || "pt-PT" || "ro-RO" || "ru-RU" || "sv-SE" || "tr-TR" || "en-NZ" || "en-ZA" || "ca-ES" || "de-AT" || "yue-CN" || "ar-AE" || "fi-FI",
+ *   IncludeAdditionalLanguageCodes: true || false,
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeVoicesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVoicesCommandInput - {@link DescribeVoicesCommandInput}
+ * @returns {@link DescribeVoicesCommandOutput}
  * @see {@link DescribeVoicesCommandInput} for command's `input` shape.
  * @see {@link DescribeVoicesCommandOutput} for command's `response` shape.
  * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The NextToken is invalid. Verify that it's spelled correctly, and
+ *       then try again.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>An unknown condition has caused a service failure.</p>
+ *
+ *
+ * @example To describe available voices
+ * ```javascript
+ * // Returns the list of voices that are available for use when requesting speech synthesis. Displayed languages are those within the specified language code. If no language code is specified, voices for all available languages are displayed.
+ * const input = {
+ *   "LanguageCode": "en-GB"
+ * };
+ * const command = new DescribeVoicesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Voices": [
+ *     {
+ *       "Gender": "Female",
+ *       "Id": "Emma",
+ *       "LanguageCode": "en-GB",
+ *       "LanguageName": "British English",
+ *       "Name": "Emma"
+ *     },
+ *     {
+ *       "Gender": "Male",
+ *       "Id": "Brian",
+ *       "LanguageCode": "en-GB",
+ *       "LanguageName": "British English",
+ *       "Name": "Brian"
+ *     },
+ *     {
+ *       "Gender": "Female",
+ *       "Id": "Amy",
+ *       "LanguageCode": "en-GB",
+ *       "LanguageName": "British English",
+ *       "Name": "Amy"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-available-voices-1482180557753
+ * ```
  *
  */
 export class DescribeVoicesCommand extends $Command<
@@ -80,6 +134,9 @@ export class DescribeVoicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVoicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +165,8 @@ export class DescribeVoicesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVoicesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeVoicesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +176,18 @@ export class DescribeVoicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVoicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeVoicesCommand(input, context);
+    return se_DescribeVoicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVoicesCommandOutput> {
-    return deserializeAws_restJson1DescribeVoicesCommand(output, context);
+    return de_DescribeVoicesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,13 +13,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
-import { XmlTimestampsOutput, XmlTimestampsOutputFilterSensitiveLog } from "../models/models_0";
-import { deserializeAws_ec2XmlTimestampsCommand, serializeAws_ec2XmlTimestampsCommand } from "../protocols/Aws_ec2";
+import { XmlTimestampsOutput } from "../models/models_0";
+import { de_XmlTimestampsCommand, se_XmlTimestampsCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link XmlTimestampsCommand}.
+ */
 export interface XmlTimestampsCommandInput {}
+/**
+ * @public
+ *
+ * The output of {@link XmlTimestampsCommand}.
+ */
 export interface XmlTimestampsCommandOutput extends XmlTimestampsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * This tests how timestamps are serialized, including using the
  * default format of date-time and various @timestampFormat trait
  * values.
@@ -29,13 +40,17 @@ export interface XmlTimestampsCommandOutput extends XmlTimestampsOutput, __Metad
  * import { EC2ProtocolClient, XmlTimestampsCommand } from "@aws-sdk/aws-protocoltests-ec2"; // ES Modules import
  * // const { EC2ProtocolClient, XmlTimestampsCommand } = require("@aws-sdk/aws-protocoltests-ec2"); // CommonJS import
  * const client = new EC2ProtocolClient(config);
+ * const input = {};
  * const command = new XmlTimestampsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param XmlTimestampsCommandInput - {@link XmlTimestampsCommandInput}
+ * @returns {@link XmlTimestampsCommandOutput}
  * @see {@link XmlTimestampsCommandInput} for command's `input` shape.
  * @see {@link XmlTimestampsCommandOutput} for command's `response` shape.
  * @see {@link EC2ProtocolClientResolvedConfig | config} for EC2ProtocolClient's `config` shape.
+ *
  *
  */
 export class XmlTimestampsCommand extends $Command<
@@ -46,6 +61,9 @@ export class XmlTimestampsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: XmlTimestampsCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,8 +89,8 @@ export class XmlTimestampsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: XmlTimestampsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +100,18 @@ export class XmlTimestampsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: XmlTimestampsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2XmlTimestampsCommand(input, context);
+    return se_XmlTimestampsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlTimestampsCommandOutput> {
-    return deserializeAws_ec2XmlTimestampsCommand(output, context);
+    return de_XmlTimestampsCommand(output, context);
   }
 
   // Start section: command_body_extra

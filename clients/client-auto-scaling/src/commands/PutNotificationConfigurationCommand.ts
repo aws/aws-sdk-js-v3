@@ -14,19 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import {
-  PutNotificationConfigurationType,
-  PutNotificationConfigurationTypeFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryPutNotificationConfigurationCommand,
-  serializeAws_queryPutNotificationConfigurationCommand,
-} from "../protocols/Aws_query";
+import { PutNotificationConfigurationType } from "../models/models_0";
+import { de_PutNotificationConfigurationCommand, se_PutNotificationConfigurationCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link PutNotificationConfigurationCommand}.
+ */
 export interface PutNotificationConfigurationCommandInput extends PutNotificationConfigurationType {}
+/**
+ * @public
+ *
+ * The output of {@link PutNotificationConfigurationCommand}.
+ */
 export interface PutNotificationConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Configures an Auto Scaling group to send notifications when specified events take place.
  *             Subscribers to the specified topic can have messages delivered to an endpoint such as a
  *             web server or an email address.</p>
@@ -42,13 +47,51 @@ export interface PutNotificationConfigurationCommandOutput extends __MetadataBea
  * import { AutoScalingClient, PutNotificationConfigurationCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, PutNotificationConfigurationCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = { // PutNotificationConfigurationType
+ *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   TopicARN: "STRING_VALUE", // required
+ *   NotificationTypes: [ // AutoScalingNotificationTypes // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new PutNotificationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutNotificationConfigurationCommandInput - {@link PutNotificationConfigurationCommandInput}
+ * @returns {@link PutNotificationConfigurationCommandOutput}
  * @see {@link PutNotificationConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutNotificationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
+ *
+ * @throws {@link LimitExceededFault} (client fault)
+ *  <p>You have already reached a limit for your Amazon EC2 Auto Scaling
+ *             resources (for example, Auto Scaling groups, launch configurations, or lifecycle hooks). For
+ *             more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html">DescribeAccountLimits</a> in the <i>Amazon EC2 Auto Scaling API
+ *             Reference</i>.</p>
+ *
+ * @throws {@link ResourceContentionFault} (server fault)
+ *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
+ *             instance, or load balancer).</p>
+ *
+ * @throws {@link ServiceLinkedRoleFailure} (server fault)
+ *  <p>The service-linked role is not yet ready for use.</p>
+ *
+ *
+ * @example To add an Auto Scaling notification
+ * ```javascript
+ * // This example adds the specified notification to the specified Auto Scaling group.
+ * const input = {
+ *   "AutoScalingGroupName": "my-auto-scaling-group",
+ *   "NotificationTypes": [
+ *     "autoscaling:TEST_NOTIFICATION"
+ *   ],
+ *   "TopicARN": "arn:aws:sns:us-west-2:123456789012:my-sns-topic"
+ * };
+ * const command = new PutNotificationConfigurationCommand(input);
+ * await client.send(command);
+ * // example id: autoscaling-put-notification-configuration-1
+ * ```
  *
  */
 export class PutNotificationConfigurationCommand extends $Command<
@@ -68,6 +111,9 @@ export class PutNotificationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutNotificationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +142,8 @@ export class PutNotificationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutNotificationConfigurationTypeFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,15 +153,21 @@ export class PutNotificationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutNotificationConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryPutNotificationConfigurationCommand(input, context);
+    return se_PutNotificationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutNotificationConfigurationCommandOutput> {
-    return deserializeAws_queryPutNotificationConfigurationCommand(output, context);
+    return de_PutNotificationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

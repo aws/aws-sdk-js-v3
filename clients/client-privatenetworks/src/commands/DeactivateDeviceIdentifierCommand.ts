@@ -15,20 +15,27 @@ import {
 
 import {
   DeactivateDeviceIdentifierRequest,
-  DeactivateDeviceIdentifierRequestFilterSensitiveLog,
   DeactivateDeviceIdentifierResponse,
   DeactivateDeviceIdentifierResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { PrivateNetworksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PrivateNetworksClient";
-import {
-  deserializeAws_restJson1DeactivateDeviceIdentifierCommand,
-  serializeAws_restJson1DeactivateDeviceIdentifierCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeactivateDeviceIdentifierCommand, se_DeactivateDeviceIdentifierCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeactivateDeviceIdentifierCommand}.
+ */
 export interface DeactivateDeviceIdentifierCommandInput extends DeactivateDeviceIdentifierRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeactivateDeviceIdentifierCommand}.
+ */
 export interface DeactivateDeviceIdentifierCommandOutput extends DeactivateDeviceIdentifierResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deactivates the specified device identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +43,29 @@ export interface DeactivateDeviceIdentifierCommandOutput extends DeactivateDevic
  * import { PrivateNetworksClient, DeactivateDeviceIdentifierCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
  * // const { PrivateNetworksClient, DeactivateDeviceIdentifierCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
  * const client = new PrivateNetworksClient(config);
+ * const input = { // DeactivateDeviceIdentifierRequest
+ *   deviceIdentifierArn: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new DeactivateDeviceIdentifierCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeactivateDeviceIdentifierCommandInput - {@link DeactivateDeviceIdentifierCommandInput}
+ * @returns {@link DeactivateDeviceIdentifierCommandOutput}
  * @see {@link DeactivateDeviceIdentifierCommandInput} for command's `input` shape.
  * @see {@link DeactivateDeviceIdentifierCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Information about an internal error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request failed validation.</p>
+ *
  *
  */
 export class DeactivateDeviceIdentifierCommand extends $Command<
@@ -62,6 +85,9 @@ export class DeactivateDeviceIdentifierCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeactivateDeviceIdentifierCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +116,7 @@ export class DeactivateDeviceIdentifierCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeactivateDeviceIdentifierRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DeactivateDeviceIdentifierResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -101,15 +127,21 @@ export class DeactivateDeviceIdentifierCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeactivateDeviceIdentifierCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeactivateDeviceIdentifierCommand(input, context);
+    return se_DeactivateDeviceIdentifierCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeactivateDeviceIdentifierCommandOutput> {
-    return deserializeAws_restJson1DeactivateDeviceIdentifierCommand(output, context);
+    return de_DeactivateDeviceIdentifierCommand(output, context);
   }
 
   // Start section: command_body_extra

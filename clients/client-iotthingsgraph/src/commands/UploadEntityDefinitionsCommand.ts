@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import {
-  UploadEntityDefinitionsRequest,
-  UploadEntityDefinitionsRequestFilterSensitiveLog,
-  UploadEntityDefinitionsResponse,
-  UploadEntityDefinitionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UploadEntityDefinitionsCommand,
-  serializeAws_json1_1UploadEntityDefinitionsCommand,
-} from "../protocols/Aws_json1_1";
+import { UploadEntityDefinitionsRequest, UploadEntityDefinitionsResponse } from "../models/models_0";
+import { de_UploadEntityDefinitionsCommand, se_UploadEntityDefinitionsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UploadEntityDefinitionsCommand}.
+ */
 export interface UploadEntityDefinitionsCommandInput extends UploadEntityDefinitionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UploadEntityDefinitionsCommand}.
+ */
 export interface UploadEntityDefinitionsCommandOutput extends UploadEntityDefinitionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Asynchronously uploads one or more entity definitions to the user's namespace. The <code>document</code> parameter is required if
@@ -48,13 +51,33 @@ export interface UploadEntityDefinitionsCommandOutput extends UploadEntityDefini
  * import { IoTThingsGraphClient, UploadEntityDefinitionsCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, UploadEntityDefinitionsCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
+ * const input = { // UploadEntityDefinitionsRequest
+ *   document: { // DefinitionDocument
+ *     language: "STRING_VALUE", // required
+ *     text: "STRING_VALUE", // required
+ *   },
+ *   syncWithPublicNamespace: true || false,
+ *   deprecateExistingEntities: true || false,
+ * };
  * const command = new UploadEntityDefinitionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UploadEntityDefinitionsCommandInput - {@link UploadEntityDefinitionsCommandInput}
+ * @returns {@link UploadEntityDefinitionsCommandOutput}
  * @see {@link UploadEntityDefinitionsCommandInput} for command's `input` shape.
  * @see {@link UploadEntityDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p></p>
+ *
  *
  */
 export class UploadEntityDefinitionsCommand extends $Command<
@@ -74,6 +97,9 @@ export class UploadEntityDefinitionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UploadEntityDefinitionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +128,8 @@ export class UploadEntityDefinitionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UploadEntityDefinitionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UploadEntityDefinitionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +139,18 @@ export class UploadEntityDefinitionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UploadEntityDefinitionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UploadEntityDefinitionsCommand(input, context);
+    return se_UploadEntityDefinitionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UploadEntityDefinitionsCommandOutput> {
-    return deserializeAws_json1_1UploadEntityDefinitionsCommand(output, context);
+    return de_UploadEntityDefinitionsCommand(output, context);
   }
 
   // Start section: command_body_extra

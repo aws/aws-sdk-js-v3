@@ -6,12 +6,11 @@ import {
   ListResourcesCommandInput,
   ListResourcesCommandOutput,
 } from "../commands/ListResourcesCommand";
-import { LakeFormation } from "../LakeFormation";
 import { LakeFormationClient } from "../LakeFormationClient";
 import { LakeFormationPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: LakeFormationClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListResourcesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: LakeFormation,
-  input: ListResourcesCommandInput,
-  ...args: any
-): Promise<ListResourcesCommandOutput> => {
-  // @ts-ignore
-  return await client.listResources(input, ...args);
-};
 export async function* paginateListResources(
   config: LakeFormationPaginationConfiguration,
   input: ListResourcesCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListResources(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof LakeFormation) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof LakeFormationClient) {
+    if (config.client instanceof LakeFormationClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected LakeFormation | LakeFormationClient");

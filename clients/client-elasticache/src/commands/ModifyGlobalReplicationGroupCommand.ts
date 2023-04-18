@@ -14,23 +14,26 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  ModifyGlobalReplicationGroupMessage,
-  ModifyGlobalReplicationGroupMessageFilterSensitiveLog,
-  ModifyGlobalReplicationGroupResult,
-  ModifyGlobalReplicationGroupResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryModifyGlobalReplicationGroupCommand,
-  serializeAws_queryModifyGlobalReplicationGroupCommand,
-} from "../protocols/Aws_query";
+import { ModifyGlobalReplicationGroupMessage, ModifyGlobalReplicationGroupResult } from "../models/models_0";
+import { de_ModifyGlobalReplicationGroupCommand, se_ModifyGlobalReplicationGroupCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link ModifyGlobalReplicationGroupCommand}.
+ */
 export interface ModifyGlobalReplicationGroupCommandInput extends ModifyGlobalReplicationGroupMessage {}
+/**
+ * @public
+ *
+ * The output of {@link ModifyGlobalReplicationGroupCommand}.
+ */
 export interface ModifyGlobalReplicationGroupCommandOutput
   extends ModifyGlobalReplicationGroupResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the settings for a Global datastore.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +41,34 @@ export interface ModifyGlobalReplicationGroupCommandOutput
  * import { ElastiCacheClient, ModifyGlobalReplicationGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, ModifyGlobalReplicationGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // ModifyGlobalReplicationGroupMessage
+ *   GlobalReplicationGroupId: "STRING_VALUE", // required
+ *   ApplyImmediately: true || false, // required
+ *   CacheNodeType: "STRING_VALUE",
+ *   EngineVersion: "STRING_VALUE",
+ *   CacheParameterGroupName: "STRING_VALUE",
+ *   GlobalReplicationGroupDescription: "STRING_VALUE",
+ *   AutomaticFailoverEnabled: true || false,
+ * };
  * const command = new ModifyGlobalReplicationGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyGlobalReplicationGroupCommandInput - {@link ModifyGlobalReplicationGroupCommandInput}
+ * @returns {@link ModifyGlobalReplicationGroupCommandOutput}
  * @see {@link ModifyGlobalReplicationGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyGlobalReplicationGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
+ *
+ * @throws {@link GlobalReplicationGroupNotFoundFault} (client fault)
+ *  <p>The Global datastore does not exist</p>
+ *
+ * @throws {@link InvalidGlobalReplicationGroupStateFault} (client fault)
+ *  <p>The Global datastore is not available or in primary-only state.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
  *
  */
 export class ModifyGlobalReplicationGroupCommand extends $Command<
@@ -64,6 +88,9 @@ export class ModifyGlobalReplicationGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyGlobalReplicationGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +119,8 @@ export class ModifyGlobalReplicationGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyGlobalReplicationGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyGlobalReplicationGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +130,21 @@ export class ModifyGlobalReplicationGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyGlobalReplicationGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyGlobalReplicationGroupCommand(input, context);
+    return se_ModifyGlobalReplicationGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyGlobalReplicationGroupCommandOutput> {
-    return deserializeAws_queryModifyGlobalReplicationGroupCommand(output, context);
+    return de_ModifyGlobalReplicationGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

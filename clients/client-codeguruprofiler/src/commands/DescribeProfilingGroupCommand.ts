@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
-import {
-  DescribeProfilingGroupRequest,
-  DescribeProfilingGroupRequestFilterSensitiveLog,
-  DescribeProfilingGroupResponse,
-  DescribeProfilingGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeProfilingGroupCommand,
-  serializeAws_restJson1DescribeProfilingGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeProfilingGroupRequest, DescribeProfilingGroupResponse } from "../models/models_0";
+import { de_DescribeProfilingGroupCommand, se_DescribeProfilingGroupCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeProfilingGroupCommand}.
+ */
 export interface DescribeProfilingGroupCommandInput extends DescribeProfilingGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeProfilingGroupCommand}.
+ */
 export interface DescribeProfilingGroupCommandOutput extends DescribeProfilingGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *          Returns a <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html">
  *                <code>ProfilingGroupDescription</code>
@@ -41,13 +44,31 @@ export interface DescribeProfilingGroupCommandOutput extends DescribeProfilingGr
  * import { CodeGuruProfilerClient, DescribeProfilingGroupCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
  * // const { CodeGuruProfilerClient, DescribeProfilingGroupCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
+ * const input = { // DescribeProfilingGroupRequest
+ *   profilingGroupName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeProfilingGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeProfilingGroupCommandInput - {@link DescribeProfilingGroupCommandInput}
+ * @returns {@link DescribeProfilingGroupCommandOutput}
  * @see {@link DescribeProfilingGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeProfilingGroupCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The server encountered an internal error and is unable to complete the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The parameter is not valid.</p>
+ *
  *
  */
 export class DescribeProfilingGroupCommand extends $Command<
@@ -67,6 +88,9 @@ export class DescribeProfilingGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeProfilingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +119,8 @@ export class DescribeProfilingGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeProfilingGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeProfilingGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +130,18 @@ export class DescribeProfilingGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeProfilingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeProfilingGroupCommand(input, context);
+    return se_DescribeProfilingGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeProfilingGroupCommandOutput> {
-    return deserializeAws_restJson1DescribeProfilingGroupCommand(output, context);
+    return de_DescribeProfilingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

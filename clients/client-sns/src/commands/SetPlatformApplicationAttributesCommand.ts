@@ -13,20 +13,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { SetPlatformApplicationAttributesInput } from "../models/models_0";
 import {
-  SetPlatformApplicationAttributesInput,
-  SetPlatformApplicationAttributesInputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_querySetPlatformApplicationAttributesCommand,
-  serializeAws_querySetPlatformApplicationAttributesCommand,
+  de_SetPlatformApplicationAttributesCommand,
+  se_SetPlatformApplicationAttributesCommand,
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link SetPlatformApplicationAttributesCommand}.
+ */
 export interface SetPlatformApplicationAttributesCommandInput extends SetPlatformApplicationAttributesInput {}
+/**
+ * @public
+ *
+ * The output of {@link SetPlatformApplicationAttributesCommand}.
+ */
 export interface SetPlatformApplicationAttributesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the attributes of the platform application object for the supported push
  *             notification services, such as APNS and GCM (Firebase Cloud Messaging). For more
  *             information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. For information on configuring
@@ -38,13 +46,35 @@ export interface SetPlatformApplicationAttributesCommandOutput extends __Metadat
  * import { SNSClient, SetPlatformApplicationAttributesCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, SetPlatformApplicationAttributesCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
+ * const input = { // SetPlatformApplicationAttributesInput
+ *   PlatformApplicationArn: "STRING_VALUE", // required
+ *   Attributes: { // MapStringToString // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new SetPlatformApplicationAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SetPlatformApplicationAttributesCommandInput - {@link SetPlatformApplicationAttributesCommandInput}
+ * @returns {@link SetPlatformApplicationAttributesCommandOutput}
  * @see {@link SetPlatformApplicationAttributesCommandInput} for command's `input` shape.
  * @see {@link SetPlatformApplicationAttributesCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
+ *
+ * @throws {@link AuthorizationErrorException} (client fault)
+ *  <p>Indicates that the user has been denied access to the requested resource.</p>
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>Indicates an internal service error.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>Indicates that a request parameter does not comply with the associated
+ *             constraints.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Indicates that the requested resource does not exist.</p>
+ *
  *
  */
 export class SetPlatformApplicationAttributesCommand extends $Command<
@@ -64,6 +94,9 @@ export class SetPlatformApplicationAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetPlatformApplicationAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +125,8 @@ export class SetPlatformApplicationAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetPlatformApplicationAttributesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +136,24 @@ export class SetPlatformApplicationAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: SetPlatformApplicationAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_querySetPlatformApplicationAttributesCommand(input, context);
+    return se_SetPlatformApplicationAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetPlatformApplicationAttributesCommandOutput> {
-    return deserializeAws_querySetPlatformApplicationAttributesCommand(output, context);
+    return de_SetPlatformApplicationAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

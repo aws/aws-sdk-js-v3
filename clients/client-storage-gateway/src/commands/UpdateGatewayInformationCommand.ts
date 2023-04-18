@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateGatewayInformationInput,
-  UpdateGatewayInformationInputFilterSensitiveLog,
-  UpdateGatewayInformationOutput,
-  UpdateGatewayInformationOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateGatewayInformationCommand,
-  serializeAws_json1_1UpdateGatewayInformationCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateGatewayInformationInput, UpdateGatewayInformationOutput } from "../models/models_0";
+import { de_UpdateGatewayInformationCommand, se_UpdateGatewayInformationCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateGatewayInformationCommand}.
+ */
 export interface UpdateGatewayInformationCommandInput extends UpdateGatewayInformationInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateGatewayInformationCommand}.
+ */
 export interface UpdateGatewayInformationCommandOutput extends UpdateGatewayInformationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a gateway's metadata, which includes the gateway's name and time zone.
  *          To specify which gateway to update, use the Amazon Resource Name (ARN) of the gateway in
  *          your request.</p>
@@ -44,13 +47,50 @@ export interface UpdateGatewayInformationCommandOutput extends UpdateGatewayInfo
  * import { StorageGatewayClient, UpdateGatewayInformationCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, UpdateGatewayInformationCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // UpdateGatewayInformationInput
+ *   GatewayARN: "STRING_VALUE", // required
+ *   GatewayName: "STRING_VALUE",
+ *   GatewayTimezone: "STRING_VALUE",
+ *   CloudWatchLogGroupARN: "STRING_VALUE",
+ *   GatewayCapacity: "STRING_VALUE",
+ * };
  * const command = new UpdateGatewayInformationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateGatewayInformationCommandInput - {@link UpdateGatewayInformationCommandInput}
+ * @returns {@link UpdateGatewayInformationCommandOutput}
  * @see {@link UpdateGatewayInformationCommandInput} for command's `input` shape.
  * @see {@link UpdateGatewayInformationCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error has occurred during the request. For more information, see the
+ *          error and message fields.</p>
+ *
+ * @throws {@link InvalidGatewayRequestException} (client fault)
+ *  <p>An exception occurred because an invalid gateway request was issued to the service. For
+ *          more information, see the error and message fields.</p>
+ *
+ *
+ * @example To update a gateway's metadata
+ * ```javascript
+ * // Updates a gateway's metadata, which includes the gateway's name and time zone.
+ * const input = {
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
+ *   "GatewayName": "MyGateway2",
+ *   "GatewayTimezone": "GMT-12:00"
+ * };
+ * const command = new UpdateGatewayInformationCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
+ *   "GatewayName": ""
+ * }
+ * *\/
+ * // example id: to-update-a-gateways-metadata-1472151688693
+ * ```
  *
  */
 export class UpdateGatewayInformationCommand extends $Command<
@@ -70,6 +110,9 @@ export class UpdateGatewayInformationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateGatewayInformationCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +141,8 @@ export class UpdateGatewayInformationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateGatewayInformationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateGatewayInformationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +152,18 @@ export class UpdateGatewayInformationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateGatewayInformationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateGatewayInformationCommand(input, context);
+    return se_UpdateGatewayInformationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGatewayInformationCommandOutput> {
-    return deserializeAws_json1_1UpdateGatewayInformationCommand(output, context);
+    return de_UpdateGatewayInformationCommand(output, context);
   }
 
   // Start section: command_body_extra

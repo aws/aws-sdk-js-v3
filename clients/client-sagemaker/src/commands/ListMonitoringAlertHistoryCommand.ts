@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListMonitoringAlertHistoryRequest,
-  ListMonitoringAlertHistoryRequestFilterSensitiveLog,
-  ListMonitoringAlertHistoryResponse,
-  ListMonitoringAlertHistoryResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1ListMonitoringAlertHistoryCommand,
-  serializeAws_json1_1ListMonitoringAlertHistoryCommand,
-} from "../protocols/Aws_json1_1";
+import { ListMonitoringAlertHistoryRequest, ListMonitoringAlertHistoryResponse } from "../models/models_3";
+import { de_ListMonitoringAlertHistoryCommand, se_ListMonitoringAlertHistoryCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListMonitoringAlertHistoryCommand}.
+ */
 export interface ListMonitoringAlertHistoryCommandInput extends ListMonitoringAlertHistoryRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListMonitoringAlertHistoryCommand}.
+ */
 export interface ListMonitoringAlertHistoryCommandOutput extends ListMonitoringAlertHistoryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of past alerts in a model monitoring schedule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,30 @@ export interface ListMonitoringAlertHistoryCommandOutput extends ListMonitoringA
  * import { SageMakerClient, ListMonitoringAlertHistoryCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListMonitoringAlertHistoryCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListMonitoringAlertHistoryRequest
+ *   MonitoringScheduleName: "STRING_VALUE",
+ *   MonitoringAlertName: "STRING_VALUE",
+ *   SortBy: "CreationTime" || "Status",
+ *   SortOrder: "Ascending" || "Descending",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   CreationTimeBefore: new Date("TIMESTAMP"),
+ *   CreationTimeAfter: new Date("TIMESTAMP"),
+ *   StatusEquals: "InAlert" || "OK",
+ * };
  * const command = new ListMonitoringAlertHistoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMonitoringAlertHistoryCommandInput - {@link ListMonitoringAlertHistoryCommandInput}
+ * @returns {@link ListMonitoringAlertHistoryCommandOutput}
  * @see {@link ListMonitoringAlertHistoryCommandInput} for command's `input` shape.
  * @see {@link ListMonitoringAlertHistoryCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class ListMonitoringAlertHistoryCommand extends $Command<
@@ -62,6 +82,9 @@ export class ListMonitoringAlertHistoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMonitoringAlertHistoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +113,8 @@ export class ListMonitoringAlertHistoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMonitoringAlertHistoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMonitoringAlertHistoryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +124,21 @@ export class ListMonitoringAlertHistoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMonitoringAlertHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListMonitoringAlertHistoryCommand(input, context);
+    return se_ListMonitoringAlertHistoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListMonitoringAlertHistoryCommandOutput> {
-    return deserializeAws_json1_1ListMonitoringAlertHistoryCommand(output, context);
+    return de_ListMonitoringAlertHistoryCommand(output, context);
   }
 
   // Start section: command_body_extra

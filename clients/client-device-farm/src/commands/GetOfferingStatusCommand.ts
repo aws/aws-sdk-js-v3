@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  GetOfferingStatusRequest,
-  GetOfferingStatusRequestFilterSensitiveLog,
-  GetOfferingStatusResult,
-  GetOfferingStatusResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetOfferingStatusCommand,
-  serializeAws_json1_1GetOfferingStatusCommand,
-} from "../protocols/Aws_json1_1";
+import { GetOfferingStatusRequest, GetOfferingStatusResult } from "../models/models_0";
+import { de_GetOfferingStatusCommand, se_GetOfferingStatusCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetOfferingStatusCommand}.
+ */
 export interface GetOfferingStatusCommandInput extends GetOfferingStatusRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetOfferingStatusCommand}.
+ */
 export interface GetOfferingStatusCommandOutput extends GetOfferingStatusResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the current status and future status of all offerings purchased by an AWS account. The response
  *             indicates how many offerings are currently available and the offerings that will be available in the next
  *             period. The API returns a <code>NotEligible</code> error if the user is not permitted to invoke the
@@ -39,13 +42,73 @@ export interface GetOfferingStatusCommandOutput extends GetOfferingStatusResult,
  * import { DeviceFarmClient, GetOfferingStatusCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, GetOfferingStatusCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // GetOfferingStatusRequest
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new GetOfferingStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetOfferingStatusCommandInput - {@link GetOfferingStatusCommandInput}
+ * @returns {@link GetOfferingStatusCommandOutput}
  * @see {@link GetOfferingStatusCommandInput} for command's `input` shape.
  * @see {@link GetOfferingStatusCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
+ *
+ * @throws {@link ArgumentException} (client fault)
+ *  <p>An invalid argument was specified.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A limit was exceeded.</p>
+ *
+ * @throws {@link NotEligibleException} (client fault)
+ *  <p>Exception gets thrown when a user is not eligible to perform the specified
+ *             transaction.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The specified entity was not found.</p>
+ *
+ * @throws {@link ServiceAccountException} (client fault)
+ *  <p>There was a problem with the service account.</p>
+ *
+ *
+ * @example To get status information about device offerings
+ * ```javascript
+ * // The following example returns information about Device Farm offerings available to your account.
+ * const input = {
+ *   "nextToken": "RW5DdDJkMWYwZjM2MzM2VHVpOHJIUXlDUXlhc2QzRGViYnc9SEXAMPLE="
+ * };
+ * const command = new GetOfferingStatusCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "current": {
+ *     "D68B3C05-1BA6-4360-BC69-12345EXAMPLE": {
+ *       "offering": {
+ *         "type": "RECURRING",
+ *         "description": "Android Remote Access Unmetered Device Slot",
+ *         "id": "D68B3C05-1BA6-4360-BC69-12345EXAMPLE",
+ *         "platform": "ANDROID"
+ *       },
+ *       "quantity": 1
+ *     }
+ *   },
+ *   "nextPeriod": {
+ *     "D68B3C05-1BA6-4360-BC69-12345EXAMPLE": {
+ *       "effectiveOn": "1472688000",
+ *       "offering": {
+ *         "type": "RECURRING",
+ *         "description": "Android Remote Access Unmetered Device Slot",
+ *         "id": "D68B3C05-1BA6-4360-BC69-12345EXAMPLE",
+ *         "platform": "ANDROID"
+ *       },
+ *       "quantity": 1
+ *     }
+ *   }
+ * }
+ * *\/
+ * // example id: to-get-status-information-about-device-offerings-1472568124402
+ * ```
  *
  */
 export class GetOfferingStatusCommand extends $Command<
@@ -65,6 +128,9 @@ export class GetOfferingStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetOfferingStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +159,8 @@ export class GetOfferingStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetOfferingStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetOfferingStatusResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +170,18 @@ export class GetOfferingStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetOfferingStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetOfferingStatusCommand(input, context);
+    return se_GetOfferingStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetOfferingStatusCommandOutput> {
-    return deserializeAws_json1_1GetOfferingStatusCommand(output, context);
+    return de_GetOfferingStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

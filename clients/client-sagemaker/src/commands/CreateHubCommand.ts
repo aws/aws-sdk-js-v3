@@ -13,33 +13,69 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateHubRequest,
-  CreateHubRequestFilterSensitiveLog,
-  CreateHubResponse,
-  CreateHubResponseFilterSensitiveLog,
-} from "../models/models_1";
-import { deserializeAws_json1_1CreateHubCommand, serializeAws_json1_1CreateHubCommand } from "../protocols/Aws_json1_1";
+import { CreateHubRequest, CreateHubResponse } from "../models/models_1";
+import { de_CreateHubCommand, se_CreateHubCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateHubCommand}.
+ */
 export interface CreateHubCommandInput extends CreateHubRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateHubCommand}.
+ */
 export interface CreateHubCommandOutput extends CreateHubResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a hub.</p>
+ *          <note>
+ *             <p>Hub APIs are only callable through SageMaker Studio.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, CreateHubCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateHubCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // CreateHubRequest
+ *   HubName: "STRING_VALUE", // required
+ *   HubDescription: "STRING_VALUE", // required
+ *   HubDisplayName: "STRING_VALUE",
+ *   HubSearchKeywords: [ // HubSearchKeywordList
+ *     "STRING_VALUE",
+ *   ],
+ *   S3StorageConfig: { // HubS3StorageConfig
+ *     S3OutputPath: "STRING_VALUE",
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateHubCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateHubCommandInput - {@link CreateHubCommandInput}
+ * @returns {@link CreateHubCommandOutput}
  * @see {@link CreateHubCommandInput} for command's `input` shape.
  * @see {@link CreateHubCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceInUse} (client fault)
+ *  <p>Resource being accessed is in use.</p>
+ *
+ * @throws {@link ResourceLimitExceeded} (client fault)
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
+ *             training jobs created. </p>
+ *
  *
  */
 export class CreateHubCommand extends $Command<
@@ -59,6 +95,9 @@ export class CreateHubCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateHubCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +124,8 @@ export class CreateHubCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateHubRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateHubResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +135,18 @@ export class CreateHubCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateHubCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateHubCommand(input, context);
+    return se_CreateHubCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateHubCommandOutput> {
-    return deserializeAws_json1_1CreateHubCommand(output, context);
+    return de_CreateHubCommand(output, context);
   }
 
   // Start section: command_body_extra

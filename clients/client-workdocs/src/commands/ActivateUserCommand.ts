@@ -19,16 +19,24 @@ import {
   ActivateUserResponse,
   ActivateUserResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1ActivateUserCommand,
-  serializeAws_restJson1ActivateUserCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ActivateUserCommand, se_ActivateUserCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ActivateUserCommand}.
+ */
 export interface ActivateUserCommandInput extends ActivateUserRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ActivateUserCommand}.
+ */
 export interface ActivateUserCommandOutput extends ActivateUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Activates the specified user. Only active users can access Amazon
  *             WorkDocs.</p>
  * @example
@@ -37,13 +45,37 @@ export interface ActivateUserCommandOutput extends ActivateUserResponse, __Metad
  * import { WorkDocsClient, ActivateUserCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, ActivateUserCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
+ * const input = { // ActivateUserRequest
+ *   UserId: "STRING_VALUE", // required
+ *   AuthenticationToken: "STRING_VALUE",
+ * };
  * const command = new ActivateUserCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ActivateUserCommandInput - {@link ActivateUserCommandInput}
+ * @returns {@link ActivateUserCommandOutput}
  * @see {@link ActivateUserCommandInput} for command's `input` shape.
  * @see {@link ActivateUserCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
+ *
+ * @throws {@link EntityNotExistsException} (client fault)
+ *  <p>The resource does not exist.</p>
+ *
+ * @throws {@link FailedDependencyException} (client fault)
+ *  <p>The Directory Service cannot reach an on-premises instance. Or a dependency
+ *             under the control of the organization is failing, such as a connected Active
+ *             Directory.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>One or more of the dependencies is unavailable.</p>
+ *
+ * @throws {@link UnauthorizedOperationException} (client fault)
+ *  <p>The operation is not permitted.</p>
+ *
+ * @throws {@link UnauthorizedResourceAccessException} (client fault)
+ *  <p>The caller does not have access to perform the action on the resource.</p>
+ *
  *
  */
 export class ActivateUserCommand extends $Command<
@@ -63,6 +95,9 @@ export class ActivateUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ActivateUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,12 +135,18 @@ export class ActivateUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ActivateUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ActivateUserCommand(input, context);
+    return se_ActivateUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ActivateUserCommandOutput> {
-    return deserializeAws_restJson1ActivateUserCommand(output, context);
+    return de_ActivateUserCommand(output, context);
   }
 
   // Start section: command_body_extra

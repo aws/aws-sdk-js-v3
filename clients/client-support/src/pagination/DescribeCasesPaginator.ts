@@ -6,12 +6,11 @@ import {
   DescribeCasesCommandInput,
   DescribeCasesCommandOutput,
 } from "../commands/DescribeCasesCommand";
-import { Support } from "../Support";
 import { SupportClient } from "../SupportClient";
 import { SupportPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SupportClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeCasesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Support,
-  input: DescribeCasesCommandInput,
-  ...args: any
-): Promise<DescribeCasesCommandOutput> => {
-  // @ts-ignore
-  return await client.describeCases(input, ...args);
-};
 export async function* paginateDescribeCases(
   config: SupportPaginationConfiguration,
   input: DescribeCasesCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateDescribeCases(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Support) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SupportClient) {
+    if (config.client instanceof SupportClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Support | SupportClient");

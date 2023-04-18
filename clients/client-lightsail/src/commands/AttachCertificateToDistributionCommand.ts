@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { AttachCertificateToDistributionRequest, AttachCertificateToDistributionResult } from "../models/models_0";
 import {
-  AttachCertificateToDistributionRequest,
-  AttachCertificateToDistributionRequestFilterSensitiveLog,
-  AttachCertificateToDistributionResult,
-  AttachCertificateToDistributionResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AttachCertificateToDistributionCommand,
-  serializeAws_json1_1AttachCertificateToDistributionCommand,
+  de_AttachCertificateToDistributionCommand,
+  se_AttachCertificateToDistributionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link AttachCertificateToDistributionCommand}.
+ */
 export interface AttachCertificateToDistributionCommandInput extends AttachCertificateToDistributionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AttachCertificateToDistributionCommand}.
+ */
 export interface AttachCertificateToDistributionCommandOutput
   extends AttachCertificateToDistributionResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches an SSL/TLS certificate to your Amazon Lightsail content delivery network (CDN)
  *       distribution.</p>
  *          <p>After the certificate is attached, your distribution accepts HTTPS traffic for all of the
@@ -50,13 +56,46 @@ export interface AttachCertificateToDistributionCommandOutput
  * import { LightsailClient, AttachCertificateToDistributionCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, AttachCertificateToDistributionCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // AttachCertificateToDistributionRequest
+ *   distributionName: "STRING_VALUE", // required
+ *   certificateName: "STRING_VALUE", // required
+ * };
  * const command = new AttachCertificateToDistributionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AttachCertificateToDistributionCommandInput - {@link AttachCertificateToDistributionCommandInput}
+ * @returns {@link AttachCertificateToDistributionCommandOutput}
  * @see {@link AttachCertificateToDistributionCommandInput} for command's `input` shape.
  * @see {@link AttachCertificateToDistributionCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
+ *       credentials to access a resource.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Lightsail throws this exception when user input does not conform to the validation rules
+ *       of an input field.</p>
+ *          <note>
+ *             <p>Domain and distribution APIs are only available in the N. Virginia
+ *           (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services
+ *         Region configuration to <code>us-east-1</code> to create, view, or edit these
+ *         resources.</p>
+ *          </note>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Lightsail throws this exception when it cannot find a resource.</p>
+ *
+ * @throws {@link OperationFailureException} (client fault)
+ *  <p>Lightsail throws this exception when an operation fails to execute.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>A general service exception.</p>
+ *
+ * @throws {@link UnauthenticatedException} (client fault)
+ *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
+ *
  *
  */
 export class AttachCertificateToDistributionCommand extends $Command<
@@ -76,6 +115,9 @@ export class AttachCertificateToDistributionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AttachCertificateToDistributionCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +146,8 @@ export class AttachCertificateToDistributionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AttachCertificateToDistributionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AttachCertificateToDistributionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,18 +157,24 @@ export class AttachCertificateToDistributionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AttachCertificateToDistributionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AttachCertificateToDistributionCommand(input, context);
+    return se_AttachCertificateToDistributionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AttachCertificateToDistributionCommandOutput> {
-    return deserializeAws_json1_1AttachCertificateToDistributionCommand(output, context);
+    return de_AttachCertificateToDistributionCommand(output, context);
   }
 
   // Start section: command_body_extra

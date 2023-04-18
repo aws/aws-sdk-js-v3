@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import { TagLogGroupRequest, TagLogGroupRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1TagLogGroupCommand,
-  serializeAws_json1_1TagLogGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { TagLogGroupRequest } from "../models/models_0";
+import { de_TagLogGroupCommand, se_TagLogGroupCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link TagLogGroupCommand}.
+ */
 export interface TagLogGroupCommandInput extends TagLogGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link TagLogGroupCommand}.
+ */
 export interface TagLogGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <important>
@@ -46,13 +54,28 @@ export interface TagLogGroupCommandOutput extends __MetadataBearer {}
  * import { CloudWatchLogsClient, TagLogGroupCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, TagLogGroupCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = { // TagLogGroupRequest
+ *   logGroupName: "STRING_VALUE", // required
+ *   tags: { // Tags // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new TagLogGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TagLogGroupCommandInput - {@link TagLogGroupCommandInput}
+ * @returns {@link TagLogGroupCommandOutput}
  * @see {@link TagLogGroupCommandInput} for command's `input` shape.
  * @see {@link TagLogGroupCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter is specified incorrectly.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
  *
  */
 export class TagLogGroupCommand extends $Command<
@@ -72,6 +95,9 @@ export class TagLogGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TagLogGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +124,8 @@ export class TagLogGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagLogGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +135,18 @@ export class TagLogGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TagLogGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1TagLogGroupCommand(input, context);
+    return se_TagLogGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagLogGroupCommandOutput> {
-    return deserializeAws_json1_1TagLogGroupCommand(output, context);
+    return de_TagLogGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

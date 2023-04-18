@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import {
-  DeleteAppBlockRequest,
-  DeleteAppBlockRequestFilterSensitiveLog,
-  DeleteAppBlockResult,
-  DeleteAppBlockResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteAppBlockCommand,
-  serializeAws_json1_1DeleteAppBlockCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteAppBlockRequest, DeleteAppBlockResult } from "../models/models_0";
+import { de_DeleteAppBlockCommand, se_DeleteAppBlockCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteAppBlockCommand}.
+ */
 export interface DeleteAppBlockCommandInput extends DeleteAppBlockRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteAppBlockCommand}.
+ */
 export interface DeleteAppBlockCommandOutput extends DeleteAppBlockResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an app block.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,28 @@ export interface DeleteAppBlockCommandOutput extends DeleteAppBlockResult, __Met
  * import { AppStreamClient, DeleteAppBlockCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DeleteAppBlockCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = { // DeleteAppBlockRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAppBlockCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAppBlockCommandInput - {@link DeleteAppBlockCommandInput}
+ * @returns {@link DeleteAppBlockCommandOutput}
  * @see {@link DeleteAppBlockCommandInput} for command's `input` shape.
  * @see {@link DeleteAppBlockCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>An API error occurred. Wait a few minutes and try again.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is in use.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class DeleteAppBlockCommand extends $Command<
@@ -62,6 +80,9 @@ export class DeleteAppBlockCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAppBlockCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +111,8 @@ export class DeleteAppBlockCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAppBlockRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAppBlockResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +122,18 @@ export class DeleteAppBlockCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAppBlockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteAppBlockCommand(input, context);
+    return se_DeleteAppBlockCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAppBlockCommandOutput> {
-    return deserializeAws_json1_1DeleteAppBlockCommand(output, context);
+    return de_DeleteAppBlockCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  StopCrawlerScheduleRequest,
-  StopCrawlerScheduleRequestFilterSensitiveLog,
-  StopCrawlerScheduleResponse,
-  StopCrawlerScheduleResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1StopCrawlerScheduleCommand,
-  serializeAws_json1_1StopCrawlerScheduleCommand,
-} from "../protocols/Aws_json1_1";
+import { StopCrawlerScheduleRequest, StopCrawlerScheduleResponse } from "../models/models_2";
+import { de_StopCrawlerScheduleCommand, se_StopCrawlerScheduleCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link StopCrawlerScheduleCommand}.
+ */
 export interface StopCrawlerScheduleCommandInput extends StopCrawlerScheduleRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StopCrawlerScheduleCommand}.
+ */
 export interface StopCrawlerScheduleCommandOutput extends StopCrawlerScheduleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the schedule state of the specified crawler to
  *       <code>NOT_SCHEDULED</code>, but does not stop the crawler if it is
  *       already running.</p>
@@ -38,13 +41,31 @@ export interface StopCrawlerScheduleCommandOutput extends StopCrawlerScheduleRes
  * import { GlueClient, StopCrawlerScheduleCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, StopCrawlerScheduleCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // StopCrawlerScheduleRequest
+ *   CrawlerName: "STRING_VALUE", // required
+ * };
  * const command = new StopCrawlerScheduleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopCrawlerScheduleCommandInput - {@link StopCrawlerScheduleCommandInput}
+ * @returns {@link StopCrawlerScheduleCommandOutput}
  * @see {@link StopCrawlerScheduleCommandInput} for command's `input` shape.
  * @see {@link StopCrawlerScheduleCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ * @throws {@link SchedulerNotRunningException} (client fault)
+ *  <p>The specified scheduler is not running.</p>
+ *
+ * @throws {@link SchedulerTransitioningException} (client fault)
+ *  <p>The specified scheduler is transitioning.</p>
+ *
  *
  */
 export class StopCrawlerScheduleCommand extends $Command<
@@ -64,6 +85,9 @@ export class StopCrawlerScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopCrawlerScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +116,8 @@ export class StopCrawlerScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopCrawlerScheduleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopCrawlerScheduleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +127,18 @@ export class StopCrawlerScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopCrawlerScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopCrawlerScheduleCommand(input, context);
+    return se_StopCrawlerScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopCrawlerScheduleCommandOutput> {
-    return deserializeAws_json1_1StopCrawlerScheduleCommand(output, context);
+    return de_StopCrawlerScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

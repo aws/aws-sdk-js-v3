@@ -6,12 +6,11 @@ import {
   ListKafkaVersionsCommandInput,
   ListKafkaVersionsCommandOutput,
 } from "../commands/ListKafkaVersionsCommand";
-import { Kafka } from "../Kafka";
 import { KafkaClient } from "../KafkaClient";
 import { KafkaPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: KafkaClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListKafkaVersionsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Kafka,
-  input: ListKafkaVersionsCommandInput,
-  ...args: any
-): Promise<ListKafkaVersionsCommandOutput> => {
-  // @ts-ignore
-  return await client.listKafkaVersions(input, ...args);
-};
 export async function* paginateListKafkaVersions(
   config: KafkaPaginationConfiguration,
   input: ListKafkaVersionsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListKafkaVersions(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Kafka) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof KafkaClient) {
+    if (config.client instanceof KafkaClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Kafka | KafkaClient");

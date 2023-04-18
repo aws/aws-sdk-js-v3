@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MobileClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MobileClient";
-import {
-  CreateProjectRequest,
-  CreateProjectRequestFilterSensitiveLog,
-  CreateProjectResult,
-  CreateProjectResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateProjectCommand,
-  serializeAws_restJson1CreateProjectCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateProjectRequest, CreateProjectResult } from "../models/models_0";
+import { de_CreateProjectCommand, se_CreateProjectCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateProjectCommand}.
+ */
 export interface CreateProjectCommandInput extends CreateProjectRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateProjectCommand}.
+ */
 export interface CreateProjectCommandOutput extends CreateProjectResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             Creates an AWS Mobile Hub project.
  *         </p>
@@ -38,13 +41,64 @@ export interface CreateProjectCommandOutput extends CreateProjectResult, __Metad
  * import { MobileClient, CreateProjectCommand } from "@aws-sdk/client-mobile"; // ES Modules import
  * // const { MobileClient, CreateProjectCommand } = require("@aws-sdk/client-mobile"); // CommonJS import
  * const client = new MobileClient(config);
+ * const input = { // CreateProjectRequest
+ *   name: "STRING_VALUE",
+ *   region: "STRING_VALUE",
+ *   contents: "BLOB_VALUE",
+ *   snapshotId: "STRING_VALUE",
+ * };
  * const command = new CreateProjectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateProjectCommandInput - {@link CreateProjectCommandInput}
+ * @returns {@link CreateProjectCommandOutput}
  * @see {@link CreateProjectCommandInput} for command's `input` shape.
  * @see {@link CreateProjectCommandOutput} for command's `response` shape.
  * @see {@link MobileClientResolvedConfig | config} for MobileClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>
+ *             The request cannot be processed because some parameter is not valid or the project
+ *             state prevents the operation from being performed.
+ *         </p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>
+ *             The service has encountered an unexpected error condition which prevents it from
+ *             servicing the request.
+ *         </p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>
+ *             There are too many AWS Mobile Hub projects in the account or the account has
+ *             exceeded the maximum number of resources in some AWS service. You should create
+ *             another sub-account using AWS Organizations or remove some resources and retry
+ *             your request.
+ *         </p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>
+ *             No entity can be found with the specified identifier.
+ *         </p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>
+ *             The service is temporarily unavailable. The request should be retried after some
+ *             time delay.
+ *         </p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>
+ *             Too many requests have been received for this AWS account in too short a time. The
+ *             request should be retried after some time delay.
+ *         </p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>
+ *             Credentials of the caller are insufficient to authorize the request.
+ *         </p>
+ *
  *
  */
 export class CreateProjectCommand extends $Command<
@@ -64,6 +118,9 @@ export class CreateProjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateProjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +147,8 @@ export class CreateProjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateProjectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateProjectResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +158,18 @@ export class CreateProjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateProjectCommand(input, context);
+    return se_CreateProjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateProjectCommandOutput> {
-    return deserializeAws_restJson1CreateProjectCommand(output, context);
+    return de_CreateProjectCommand(output, context);
   }
 
   // Start section: command_body_extra

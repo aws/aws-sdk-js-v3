@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import {
-  RegisterStreamConsumerInput,
-  RegisterStreamConsumerInputFilterSensitiveLog,
-  RegisterStreamConsumerOutput,
-  RegisterStreamConsumerOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RegisterStreamConsumerCommand,
-  serializeAws_json1_1RegisterStreamConsumerCommand,
-} from "../protocols/Aws_json1_1";
+import { RegisterStreamConsumerInput, RegisterStreamConsumerOutput } from "../models/models_0";
+import { de_RegisterStreamConsumerCommand, se_RegisterStreamConsumerCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link RegisterStreamConsumerCommand}.
+ */
 export interface RegisterStreamConsumerCommandInput extends RegisterStreamConsumerInput {}
+/**
+ * @public
+ *
+ * The output of {@link RegisterStreamConsumerCommand}.
+ */
 export interface RegisterStreamConsumerCommandOutput extends RegisterStreamConsumerOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers a consumer with a Kinesis data stream. When you use this operation, the
  *             consumer you register can then call <a>SubscribeToShard</a> to receive data
  *             from the stream using enhanced fan-out, at a rate of up to 2 MiB per second for every
@@ -49,13 +52,36 @@ export interface RegisterStreamConsumerCommandOutput extends RegisterStreamConsu
  * import { KinesisClient, RegisterStreamConsumerCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, RegisterStreamConsumerCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
+ * const input = { // RegisterStreamConsumerInput
+ *   StreamARN: "STRING_VALUE", // required
+ *   ConsumerName: "STRING_VALUE", // required
+ * };
  * const command = new RegisterStreamConsumerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterStreamConsumerCommandInput - {@link RegisterStreamConsumerCommandInput}
+ * @returns {@link RegisterStreamConsumerCommandOutput}
  * @see {@link RegisterStreamConsumerCommandInput} for command's `input` shape.
  * @see {@link RegisterStreamConsumerCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>A specified parameter exceeds its restrictions, is not supported, or can't be used.
+ *             For more information, see the returned message.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
+ *             stream requests exceeds the maximum number allowed. </p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The resource is not available for this operation. For successful operation, the
+ *             resource must be in the <code>ACTIVE</code> state.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource could not be found. The stream might not be specified
+ *             correctly.</p>
+ *
  *
  */
 export class RegisterStreamConsumerCommand extends $Command<
@@ -77,6 +103,9 @@ export class RegisterStreamConsumerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterStreamConsumerCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +134,8 @@ export class RegisterStreamConsumerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterStreamConsumerInputFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterStreamConsumerOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +145,18 @@ export class RegisterStreamConsumerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterStreamConsumerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterStreamConsumerCommand(input, context);
+    return se_RegisterStreamConsumerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterStreamConsumerCommandOutput> {
-    return deserializeAws_json1_1RegisterStreamConsumerCommand(output, context);
+    return de_RegisterStreamConsumerCommand(output, context);
   }
 
   // Start section: command_body_extra

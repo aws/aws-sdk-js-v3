@@ -16,22 +16,31 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   PutVoiceConnectorLoggingConfigurationRequest,
-  PutVoiceConnectorLoggingConfigurationRequestFilterSensitiveLog,
   PutVoiceConnectorLoggingConfigurationResponse,
-  PutVoiceConnectorLoggingConfigurationResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1PutVoiceConnectorLoggingConfigurationCommand,
-  serializeAws_restJson1PutVoiceConnectorLoggingConfigurationCommand,
+  de_PutVoiceConnectorLoggingConfigurationCommand,
+  se_PutVoiceConnectorLoggingConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutVoiceConnectorLoggingConfigurationCommand}.
+ */
 export interface PutVoiceConnectorLoggingConfigurationCommandInput
   extends PutVoiceConnectorLoggingConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutVoiceConnectorLoggingConfigurationCommand}.
+ */
 export interface PutVoiceConnectorLoggingConfigurationCommandOutput
   extends PutVoiceConnectorLoggingConfigurationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a logging configuration for the specified Amazon Chime Voice Connector. The logging configuration specifies whether SIP message logs are enabled for sending to Amazon CloudWatch Logs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +48,44 @@ export interface PutVoiceConnectorLoggingConfigurationCommandOutput
  * import { ChimeClient, PutVoiceConnectorLoggingConfigurationCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, PutVoiceConnectorLoggingConfigurationCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // PutVoiceConnectorLoggingConfigurationRequest
+ *   VoiceConnectorId: "STRING_VALUE", // required
+ *   LoggingConfiguration: { // LoggingConfiguration
+ *     EnableSIPLogs: true || false,
+ *     EnableMediaMetricLogs: true || false,
+ *   },
+ * };
  * const command = new PutVoiceConnectorLoggingConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutVoiceConnectorLoggingConfigurationCommandInput - {@link PutVoiceConnectorLoggingConfigurationCommandInput}
+ * @returns {@link PutVoiceConnectorLoggingConfigurationCommandOutput}
  * @see {@link PutVoiceConnectorLoggingConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutVoiceConnectorLoggingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>One or more of the resources in the request does not exist in the system.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The client exceeded its request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client is not currently authorized to make the request.</p>
+ *
  *
  */
 export class PutVoiceConnectorLoggingConfigurationCommand extends $Command<
@@ -65,6 +105,9 @@ export class PutVoiceConnectorLoggingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutVoiceConnectorLoggingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +136,8 @@ export class PutVoiceConnectorLoggingConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutVoiceConnectorLoggingConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutVoiceConnectorLoggingConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,18 +147,24 @@ export class PutVoiceConnectorLoggingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutVoiceConnectorLoggingConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutVoiceConnectorLoggingConfigurationCommand(input, context);
+    return se_PutVoiceConnectorLoggingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutVoiceConnectorLoggingConfigurationCommandOutput> {
-    return deserializeAws_restJson1PutVoiceConnectorLoggingConfigurationCommand(output, context);
+    return de_PutVoiceConnectorLoggingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

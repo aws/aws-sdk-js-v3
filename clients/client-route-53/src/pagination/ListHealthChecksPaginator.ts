@@ -6,12 +6,11 @@ import {
   ListHealthChecksCommandInput,
   ListHealthChecksCommandOutput,
 } from "../commands/ListHealthChecksCommand";
-import { Route53 } from "../Route53";
 import { Route53Client } from "../Route53Client";
 import { Route53PaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: Route53Client,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListHealthChecksCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Route53,
-  input: ListHealthChecksCommandInput,
-  ...args: any
-): Promise<ListHealthChecksCommandOutput> => {
-  // @ts-ignore
-  return await client.listHealthChecks(input, ...args);
-};
 export async function* paginateListHealthChecks(
   config: Route53PaginationConfiguration,
   input: ListHealthChecksCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListHealthChecks(
   while (hasNext) {
     input.Marker = token;
     input["MaxItems"] = config.pageSize;
-    if (config.client instanceof Route53) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof Route53Client) {
+    if (config.client instanceof Route53Client) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Route53 | Route53Client");

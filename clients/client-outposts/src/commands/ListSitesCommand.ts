@@ -13,23 +13,27 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListSitesInput,
-  ListSitesInputFilterSensitiveLog,
-  ListSitesOutput,
-  ListSitesOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ListSitesInput, ListSitesOutput } from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import {
-  deserializeAws_restJson1ListSitesCommand,
-  serializeAws_restJson1ListSitesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListSitesCommand, se_ListSitesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListSitesCommand}.
+ */
 export interface ListSitesCommandInput extends ListSitesInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListSitesCommand}.
+ */
 export interface ListSitesCommandOutput extends ListSitesOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the Outpost sites for your Amazon Web Services account. Use filters to return specific results.</p>
+ * @public
+ * <p>Lists the Outpost sites for your Amazon Web Services account. Use filters to return specific
+ *       results.</p>
  *          <p>Use filters to return specific results. If you specify multiple filters, the results include only the resources that match
  *  all of the specified filters. For a filter where you can specify multiple values, the results include
  *  items that match any of the values that you specify for the filter.</p>
@@ -39,13 +43,38 @@ export interface ListSitesCommandOutput extends ListSitesOutput, __MetadataBeare
  * import { OutpostsClient, ListSitesCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, ListSitesCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
+ * const input = { // ListSitesInput
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   OperatingAddressCountryCodeFilter: [ // CountryCodeList
+ *     "STRING_VALUE",
+ *   ],
+ *   OperatingAddressStateOrRegionFilter: [ // StateOrRegionList
+ *     "STRING_VALUE",
+ *   ],
+ *   OperatingAddressCityFilter: [ // CityList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ListSitesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSitesCommandInput - {@link ListSitesCommandInput}
+ * @returns {@link ListSitesCommandOutput}
  * @see {@link ListSitesCommandInput} for command's `input` shape.
  * @see {@link ListSitesCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have permission to perform this operation.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error has occurred.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>A parameter is not valid.</p>
+ *
  *
  */
 export class ListSitesCommand extends $Command<
@@ -65,6 +94,9 @@ export class ListSitesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSitesCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +123,8 @@ export class ListSitesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSitesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSitesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +134,18 @@ export class ListSitesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSitesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSitesCommand(input, context);
+    return se_ListSitesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSitesCommandOutput> {
-    return deserializeAws_restJson1ListSitesCommand(output, context);
+    return de_ListSitesCommand(output, context);
   }
 
   // Start section: command_body_extra

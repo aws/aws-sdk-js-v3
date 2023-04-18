@@ -18,14 +18,15 @@ import {
   NotifyObjectCompleteInput,
   NotifyObjectCompleteInputFilterSensitiveLog,
   NotifyObjectCompleteOutput,
-  NotifyObjectCompleteOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1NotifyObjectCompleteCommand,
-  serializeAws_restJson1NotifyObjectCompleteCommand,
-} from "../protocols/Aws_restJson1";
+import { de_NotifyObjectCompleteCommand, se_NotifyObjectCompleteCommand } from "../protocols/Aws_restJson1";
 
-type NotifyObjectCompleteCommandInputType = Omit<NotifyObjectCompleteInput, "MetadataBlob"> & {
+/**
+ * @public
+ *
+ * The input for {@link NotifyObjectCompleteCommand}.
+ */
+export type NotifyObjectCompleteCommandInputType = Omit<NotifyObjectCompleteInput, "MetadataBlob"> & {
   /**
    * For *`NotifyObjectCompleteInput["MetadataBlob"]`*, see {@link NotifyObjectCompleteInput.MetadataBlob}.
    */
@@ -35,9 +36,15 @@ type NotifyObjectCompleteCommandInputType = Omit<NotifyObjectCompleteInput, "Met
  * This interface extends from `NotifyObjectCompleteInput` interface. There are more parameters than `MetadataBlob` defined in {@link NotifyObjectCompleteInput}
  */
 export interface NotifyObjectCompleteCommandInput extends NotifyObjectCompleteCommandInputType {}
+/**
+ * @public
+ *
+ * The output of {@link NotifyObjectCompleteCommand}.
+ */
 export interface NotifyObjectCompleteCommandOutput extends NotifyObjectCompleteOutput, __MetadataBearer {}
 
 /**
+ * @public
  * Complete upload
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,13 +52,51 @@ export interface NotifyObjectCompleteCommandOutput extends NotifyObjectCompleteO
  * import { BackupStorageClient, NotifyObjectCompleteCommand } from "@aws-sdk/client-backupstorage"; // ES Modules import
  * // const { BackupStorageClient, NotifyObjectCompleteCommand } = require("@aws-sdk/client-backupstorage"); // CommonJS import
  * const client = new BackupStorageClient(config);
+ * const input = { // NotifyObjectCompleteInput
+ *   BackupJobId: "STRING_VALUE", // required
+ *   UploadId: "STRING_VALUE", // required
+ *   ObjectChecksum: "STRING_VALUE", // required
+ *   ObjectChecksumAlgorithm: "STRING_VALUE", // required
+ *   MetadataString: "STRING_VALUE",
+ *   MetadataBlob: "STREAMING_BLOB_VALUE",
+ *   MetadataBlobLength: Number("long"),
+ *   MetadataBlobChecksum: "STRING_VALUE",
+ *   MetadataBlobChecksumAlgorithm: "STRING_VALUE",
+ * };
  * const command = new NotifyObjectCompleteCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param NotifyObjectCompleteCommandInput - {@link NotifyObjectCompleteCommandInput}
+ * @returns {@link NotifyObjectCompleteCommandOutput}
  * @see {@link NotifyObjectCompleteCommandInput} for command's `input` shape.
  * @see {@link NotifyObjectCompleteCommandOutput} for command's `response` shape.
  * @see {@link BackupStorageClientResolvedConfig | config} for BackupStorageClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *
+ * @throws {@link IllegalArgumentException} (client fault)
+ *  Non-retryable exception, indicates client error (wrong argument passed to API).
+ *     See exception message for details.
+ *
+ * @throws {@link KMSInvalidKeyUsageException} (client fault)
+ *  Non-retryable exception. Indicates the KMS key usage is incorrect. See exception message for details.
+ *
+ * @throws {@link NotReadableInputStreamException} (client fault)
+ *  Retryalble exception. Indicated issues while reading an input stream due to the networking issues or connection drop on the client side.
+ *
+ * @throws {@link RetryableException} (server fault)
+ *  Retryable exception. In general indicates internal failure that can be fixed by retry.
+ *
+ * @throws {@link ServiceInternalException} (server fault)
+ *  Deprecated. To be removed from the model.
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  Retryable exception, indicates internal server error.
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  Increased rate over throttling limits. Can be retried with exponential backoff.
+ *
  *
  */
 export class NotifyObjectCompleteCommand extends $Command<
@@ -71,6 +116,9 @@ export class NotifyObjectCompleteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: NotifyObjectCompleteCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,7 +148,7 @@ export class NotifyObjectCompleteCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: NotifyObjectCompleteInputFilterSensitiveLog,
-      outputFilterSensitiveLog: NotifyObjectCompleteOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +158,18 @@ export class NotifyObjectCompleteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: NotifyObjectCompleteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1NotifyObjectCompleteCommand(input, context);
+    return se_NotifyObjectCompleteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<NotifyObjectCompleteCommandOutput> {
-    return deserializeAws_restJson1NotifyObjectCompleteCommand(output, context);
+    return de_NotifyObjectCompleteCommand(output, context);
   }
 
   // Start section: command_body_extra

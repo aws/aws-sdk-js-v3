@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteAgreementRequest, DeleteAgreementRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteAgreementCommand,
-  serializeAws_json1_1DeleteAgreementCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteAgreementRequest } from "../models/models_0";
+import { de_DeleteAgreementCommand, se_DeleteAgreementCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteAgreementCommand}.
+ */
 export interface DeleteAgreementCommandInput extends DeleteAgreementRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteAgreementCommand}.
+ */
 export interface DeleteAgreementCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete the agreement that's specified in the provided <code>AgreementId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +39,33 @@ export interface DeleteAgreementCommandOutput extends __MetadataBearer {}
  * import { TransferClient, DeleteAgreementCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, DeleteAgreementCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = { // DeleteAgreementRequest
+ *   AgreementId: "STRING_VALUE", // required
+ *   ServerId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAgreementCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAgreementCommandInput - {@link DeleteAgreementCommandInput}
+ * @returns {@link DeleteAgreementCommandOutput}
  * @see {@link DeleteAgreementCommandInput} for command's `input` shape.
  * @see {@link DeleteAgreementCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
+ *
+ * @throws {@link InternalServiceError} (server fault)
+ *  <p>This exception is thrown when an error occurs in the Amazon Web ServicesTransfer Family service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
+ *       service.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+ *
  *
  */
 export class DeleteAgreementCommand extends $Command<
@@ -57,6 +85,9 @@ export class DeleteAgreementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAgreementCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +116,8 @@ export class DeleteAgreementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAgreementRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +127,18 @@ export class DeleteAgreementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAgreementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteAgreementCommand(input, context);
+    return se_DeleteAgreementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAgreementCommandOutput> {
-    return deserializeAws_json1_1DeleteAgreementCommand(output, context);
+    return de_DeleteAgreementCommand(output, context);
   }
 
   // Start section: command_body_extra

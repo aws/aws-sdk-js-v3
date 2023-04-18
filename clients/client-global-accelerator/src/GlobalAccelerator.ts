@@ -245,6 +245,7 @@ import {
 import { GlobalAcceleratorClient } from "./GlobalAcceleratorClient";
 
 /**
+ * @public
  * <fullname>Global Accelerator</fullname>
  * 	        <p>This is the <i>Global Accelerator API Reference</i>. This guide is for developers who need detailed information about
  * 		    Global Accelerator API actions, data types, and errors. For more information about Global Accelerator features, see the
@@ -301,6 +302,7 @@ import { GlobalAcceleratorClient } from "./GlobalAcceleratorClient";
  */
 export class GlobalAccelerator extends GlobalAcceleratorClient {
   /**
+   * @public
    * <p>Associate a virtual private cloud (VPC) subnet endpoint with your custom routing accelerator.</p>
    * 	        <p>The listener port range must be large enough to support the number of IP addresses that can be
    * 		specified in your subnet. The number of ports required is: subnet size times the number
@@ -343,6 +345,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>Add endpoints to an endpoint group. The <code>AddEndpoints</code> API operation is the recommended option for adding endpoints. The
    * 			alternative options are to add endpoints when you create an endpoint group (with the
    * 			<a href="https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateEndpointGroup.html">CreateEndpointGroup</a> API)
@@ -387,6 +390,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>Advertises an IPv4 address range that is provisioned for use with your Amazon Web Services resources
    * 			through bring your own IP addresses (BYOIP). It can take a few minutes before traffic to
    * 			the specified addresses starts routing to Amazon Web Services because of propagation delays. </p>
@@ -425,6 +429,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>Specify the Amazon EC2 instance (destination) IP addresses and ports for a VPC subnet endpoint that can receive traffic
    * 			for a custom routing accelerator. You can allow traffic to all destinations in the subnet endpoint, or allow traffic to a
    * 			specified list of destination IP addresses and ports in the subnet. Note that you cannot specify IP addresses or ports
@@ -462,6 +467,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>Create an accelerator. An accelerator includes one or more listeners that process inbound connections and direct traffic
    * 			to one or more endpoint groups, each of which includes endpoints, such as Network Load Balancers. </p>
    * 		       <important>
@@ -500,6 +506,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>Create a custom routing accelerator. A custom routing accelerator directs traffic to one of possibly thousands
    * 	    of Amazon EC2 instance destinations running in a single or multiple virtual private clouds (VPC) subnet endpoints.</p>
    * 	        <p>Be aware that, by default, all destination EC2 instances in a VPC subnet endpoint cannot receive
@@ -542,6 +549,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>Create an endpoint group for the specified listener for a custom routing accelerator.
    * 	    An endpoint group is a collection of endpoints in one Amazon Web Services
    * 		Region. </p>
@@ -576,6 +584,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>Create a listener to process inbound connections from clients to a custom routing accelerator.
    * 			Connections arrive to assigned static IP addresses on the port range that you specify. </p>
    */
@@ -609,6 +618,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>Create an endpoint group for the specified listener. An endpoint group is a collection of endpoints in one Amazon Web Services
    * 			Region. A resource must be valid and active when you add it as an endpoint.</p>
    */
@@ -642,6 +652,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>Create a listener to process inbound connections from clients to an accelerator. Connections arrive to assigned static
    * 			IP addresses on a port, port range, or list of port ranges that you specify. </p>
    */
@@ -675,6 +686,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>Delete an accelerator. Before you can delete an accelerator, you must disable it and remove all dependent resources
    * 			(listeners and endpoint groups). To disable the accelerator, update the accelerator to set <code>Enabled</code> to false.</p>
    * 	        <important>
@@ -720,6 +732,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>Delete a custom routing accelerator. Before you can delete an accelerator, you must disable it and remove all dependent resources
    * 		(listeners and endpoint groups). To disable the accelerator, update the accelerator to set <code>Enabled</code> to false.</p>
    *          <important>
@@ -765,6 +778,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>Delete an endpoint group from a listener for a custom routing accelerator.</p>
    */
   public deleteCustomRoutingEndpointGroup(
@@ -797,6 +811,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>Delete a listener for a custom routing accelerator.</p>
    */
   public deleteCustomRoutingListener(
@@ -829,6 +844,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>Delete an endpoint group from a listener.</p>
    */
   public deleteEndpointGroup(
@@ -861,6 +877,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>Delete a listener from an accelerator.</p>
    */
   public deleteListener(
@@ -893,6 +910,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>Specify the Amazon EC2 instance (destination) IP addresses and ports for a VPC subnet endpoint that cannot receive traffic
    * 			for a custom routing accelerator. You can deny traffic to all destinations in the VPC endpoint, or deny traffic to a
    * 			specified list of destination IP addresses and ports. Note that you cannot specify IP addresses
@@ -930,6 +948,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>Releases the specified address range that you provisioned to use with your Amazon Web Services resources
    * 			through bring your own IP addresses (BYOIP) and deletes the corresponding address pool. </p>
    * 		       <p>Before you can release an address range, you must stop advertising it by using <a href="https://docs.aws.amazon.com/global-accelerator/latest/api/WithdrawByoipCidr.html">WithdrawByoipCidr</a> and you must not have
@@ -968,6 +987,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>Describe an accelerator. </p>
    */
   public describeAccelerator(
@@ -1000,6 +1020,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>Describe the attributes of an accelerator.
    * 		</p>
    */
@@ -1033,6 +1054,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>Describe a custom routing accelerator. </p>
    */
   public describeCustomRoutingAccelerator(
@@ -1065,6 +1087,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>Describe the attributes of a custom routing accelerator. </p>
    */
   public describeCustomRoutingAcceleratorAttributes(
@@ -1099,6 +1122,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>Describe an endpoint group for a custom routing accelerator. </p>
    */
   public describeCustomRoutingEndpointGroup(
@@ -1131,6 +1155,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>The description of a listener for a custom routing accelerator.</p>
    */
   public describeCustomRoutingListener(
@@ -1163,6 +1188,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>Describe an endpoint group. </p>
    */
   public describeEndpointGroup(
@@ -1195,6 +1221,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>Describe a listener. </p>
    */
   public describeListener(
@@ -1227,6 +1254,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>List the accelerators for an Amazon Web Services account. </p>
    */
   public listAccelerators(
@@ -1259,6 +1287,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>Lists the IP address ranges that were specified in calls to <a href="https://docs.aws.amazon.com/global-accelerator/latest/api/ProvisionByoipCidr.html">ProvisionByoipCidr</a>, including
    * 			the current state and a history of state changes.</p>
    */
@@ -1292,6 +1321,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>List the custom routing accelerators for an Amazon Web Services account. </p>
    */
   public listCustomRoutingAccelerators(
@@ -1324,6 +1354,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>List the endpoint groups that are associated with a listener for a custom routing accelerator. </p>
    */
   public listCustomRoutingEndpointGroups(
@@ -1356,6 +1387,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>List the listeners for a custom routing accelerator. </p>
    */
   public listCustomRoutingListeners(
@@ -1388,6 +1420,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>Provides a complete mapping from the public accelerator IP address and port to destination EC2 instance
    * 		IP addresses and ports in the virtual public cloud (VPC) subnet endpoint for a custom routing accelerator.
    * 		For each subnet endpoint that you add, Global Accelerator creates a new static port mapping for the accelerator. The port
@@ -1428,6 +1461,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>List the port mappings for a specific EC2 instance (destination) in a VPC subnet endpoint. The
    * 			response is the mappings for one destination IP address. This is useful when your subnet endpoint has mappings that
    * 			span multiple custom routing accelerators in your account, or for scenarios where you only want to
@@ -1465,6 +1499,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>List the endpoint groups that are associated with a listener. </p>
    */
   public listEndpointGroups(
@@ -1497,6 +1532,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>List the listeners for an accelerator. </p>
    */
   public listListeners(
@@ -1529,6 +1565,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>List all tags for an accelerator. </p>
    * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html">Tagging
    * 		    in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>. </p>
@@ -1563,6 +1600,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>Provisions an IP address range to use with your Amazon Web Services resources through bring your own IP
    * 			addresses (BYOIP) and creates a corresponding address pool. After the address range is provisioned,
    * 			it is ready to be advertised using <a href="https://docs.aws.amazon.com/global-accelerator/latest/api/AdvertiseByoipCidr.html">
@@ -1600,6 +1638,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>Remove endpoints from a custom routing accelerator.</p>
    */
   public removeCustomRoutingEndpoints(
@@ -1632,6 +1671,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>Remove endpoints from an endpoint group. </p>
    * 		       <p>The <code>RemoveEndpoints</code> API operation is the recommended option for removing endpoints. The alternative is to remove
    * 			endpoints by updating an endpoint group by using the
@@ -1680,6 +1720,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>Add tags to an accelerator resource. </p>
    * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html">Tagging
    * 		    in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>. </p>
@@ -1708,6 +1749,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>Remove tags from a Global Accelerator resource. When you specify a tag key, the action removes both that key and its associated value.
    * 			The operation succeeds even if you attempt to remove tags from an accelerator that was already removed.</p>
    * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html">Tagging
@@ -1743,6 +1785,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>Update an accelerator. </p>
    *
    * 		       <important>
@@ -1781,6 +1824,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>Update the attributes for an accelerator. </p>
    */
   public updateAcceleratorAttributes(
@@ -1813,6 +1857,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>Update a custom routing accelerator. </p>
    */
   public updateCustomRoutingAccelerator(
@@ -1845,6 +1890,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>Update the attributes for a custom routing accelerator. </p>
    */
   public updateCustomRoutingAcceleratorAttributes(
@@ -1879,6 +1925,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>Update a listener for a custom routing accelerator. </p>
    */
   public updateCustomRoutingListener(
@@ -1911,6 +1958,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>Update an endpoint group. A resource must be valid and active when you add it as an endpoint.</p>
    */
   public updateEndpointGroup(
@@ -1943,6 +1991,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>Update a listener. </p>
    */
   public updateListener(
@@ -1975,6 +2024,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
+   * @public
    * <p>Stops advertising an address range that is provisioned as an address pool.
    * 			You can perform this operation at most once every 10 seconds, even if you specify different address
    * 			ranges each time.</p>

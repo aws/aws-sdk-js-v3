@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteFirewallRequest,
-  DeleteFirewallRequestFilterSensitiveLog,
-  DeleteFirewallResponse,
-  DeleteFirewallResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteFirewallRequest, DeleteFirewallResponse } from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
-import {
-  deserializeAws_json1_0DeleteFirewallCommand,
-  serializeAws_json1_0DeleteFirewallCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteFirewallCommand, se_DeleteFirewallCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteFirewallCommand}.
+ */
 export interface DeleteFirewallCommandInput extends DeleteFirewallRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteFirewallCommand}.
+ */
 export interface DeleteFirewallCommandOutput extends DeleteFirewallResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified <a>Firewall</a> and its <a>FirewallStatus</a>.
  *        This operation requires the firewall's <code>DeleteProtection</code> flag to be
  *             <code>FALSE</code>. You can't revert this operation. </p>
@@ -46,13 +49,53 @@ export interface DeleteFirewallCommandOutput extends DeleteFirewallResponse, __M
  * import { NetworkFirewallClient, DeleteFirewallCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, DeleteFirewallCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
+ * const input = { // DeleteFirewallRequest
+ *   FirewallName: "STRING_VALUE",
+ *   FirewallArn: "STRING_VALUE",
+ * };
  * const command = new DeleteFirewallCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFirewallCommandInput - {@link DeleteFirewallCommandInput}
+ * @returns {@link DeleteFirewallCommandOutput}
  * @see {@link DeleteFirewallCommandInput} for command's `input` shape.
  * @see {@link DeleteFirewallCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Your request is valid, but Network Firewall couldn’t perform the operation because of a
+ *          system problem. Retry your request. </p>
+ *
+ * @throws {@link InvalidOperationException} (client fault)
+ *  <p>The operation failed because it's not valid. For example, you might have tried to delete
+ *          a rule group or firewall policy that's in use.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The operation failed because of a problem with your request. Examples include: </p>
+ *          <ul>
+ *             <li>
+ *                <p>You specified an unsupported parameter name or value.</p>
+ *             </li>
+ *             <li>
+ *                <p>You tried to update a property with a value that isn't among the available
+ *                types.</p>
+ *             </li>
+ *             <li>
+ *                <p>Your request references an ARN that is malformed, or corresponds to a resource
+ *                that isn't valid in the context of the request.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Unable to locate a resource using the parameters that you provided.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Unable to process the request due to throttling limitations.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>The operation you requested isn't supported by Network Firewall. </p>
+ *
  *
  */
 export class DeleteFirewallCommand extends $Command<
@@ -72,6 +115,9 @@ export class DeleteFirewallCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFirewallCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +146,8 @@ export class DeleteFirewallCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFirewallRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFirewallResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +157,18 @@ export class DeleteFirewallCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFirewallCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteFirewallCommand(input, context);
+    return se_DeleteFirewallCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFirewallCommandOutput> {
-    return deserializeAws_json1_0DeleteFirewallCommand(output, context);
+    return de_DeleteFirewallCommand(output, context);
   }
 
   // Start section: command_body_extra

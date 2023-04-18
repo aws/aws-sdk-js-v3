@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DisassociatePrincipalFromPortfolioInput, DisassociatePrincipalFromPortfolioOutput } from "../models/models_0";
 import {
-  DisassociatePrincipalFromPortfolioInput,
-  DisassociatePrincipalFromPortfolioInputFilterSensitiveLog,
-  DisassociatePrincipalFromPortfolioOutput,
-  DisassociatePrincipalFromPortfolioOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DisassociatePrincipalFromPortfolioCommand,
-  serializeAws_json1_1DisassociatePrincipalFromPortfolioCommand,
+  de_DisassociatePrincipalFromPortfolioCommand,
+  se_DisassociatePrincipalFromPortfolioCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DisassociatePrincipalFromPortfolioCommand}.
+ */
 export interface DisassociatePrincipalFromPortfolioCommandInput extends DisassociatePrincipalFromPortfolioInput {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociatePrincipalFromPortfolioCommand}.
+ */
 export interface DisassociatePrincipalFromPortfolioCommandOutput
   extends DisassociatePrincipalFromPortfolioOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a previously associated principal ARN from a specified
  *          portfolio.</p>
  *          <p>The <code>PrincipalType</code> and <code>PrincipalARN</code> must match the
@@ -46,13 +52,28 @@ export interface DisassociatePrincipalFromPortfolioCommandOutput
  * import { ServiceCatalogClient, DisassociatePrincipalFromPortfolioCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DisassociatePrincipalFromPortfolioCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // DisassociatePrincipalFromPortfolioInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   PortfolioId: "STRING_VALUE", // required
+ *   PrincipalARN: "STRING_VALUE", // required
+ *   PrincipalType: "IAM" || "IAM_PATTERN",
+ * };
  * const command = new DisassociatePrincipalFromPortfolioCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociatePrincipalFromPortfolioCommandInput - {@link DisassociatePrincipalFromPortfolioCommandInput}
+ * @returns {@link DisassociatePrincipalFromPortfolioCommandOutput}
  * @see {@link DisassociatePrincipalFromPortfolioCommandInput} for command's `input` shape.
  * @see {@link DisassociatePrincipalFromPortfolioCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
+ *
+ * @throws {@link InvalidParametersException} (client fault)
+ *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class DisassociatePrincipalFromPortfolioCommand extends $Command<
@@ -72,6 +93,9 @@ export class DisassociatePrincipalFromPortfolioCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociatePrincipalFromPortfolioCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +124,8 @@ export class DisassociatePrincipalFromPortfolioCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociatePrincipalFromPortfolioInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociatePrincipalFromPortfolioOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,18 +135,24 @@ export class DisassociatePrincipalFromPortfolioCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociatePrincipalFromPortfolioCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociatePrincipalFromPortfolioCommand(input, context);
+    return se_DisassociatePrincipalFromPortfolioCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociatePrincipalFromPortfolioCommandOutput> {
-    return deserializeAws_json1_1DisassociatePrincipalFromPortfolioCommand(output, context);
+    return de_DisassociatePrincipalFromPortfolioCommand(output, context);
   }
 
   // Start section: command_body_extra

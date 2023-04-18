@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubConfigClient";
-import {
-  GetHomeRegionRequest,
-  GetHomeRegionRequestFilterSensitiveLog,
-  GetHomeRegionResult,
-  GetHomeRegionResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetHomeRegionCommand,
-  serializeAws_json1_1GetHomeRegionCommand,
-} from "../protocols/Aws_json1_1";
+import { GetHomeRegionRequest, GetHomeRegionResult } from "../models/models_0";
+import { de_GetHomeRegionCommand, se_GetHomeRegionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetHomeRegionCommand}.
+ */
 export interface GetHomeRegionCommandInput extends GetHomeRegionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetHomeRegionCommand}.
+ */
 export interface GetHomeRegionCommandOutput extends GetHomeRegionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the calling account’s home region, if configured. This API is used by other AWS
  *       services to determine the regional endpoint for calling AWS Application Discovery Service and
  *       Migration Hub. You must call <code>GetHomeRegion</code> at least once before you call any
@@ -44,13 +47,35 @@ export interface GetHomeRegionCommandOutput extends GetHomeRegionResult, __Metad
  * import { MigrationHubConfigClient, GetHomeRegionCommand } from "@aws-sdk/client-migrationhub-config"; // ES Modules import
  * // const { MigrationHubConfigClient, GetHomeRegionCommand } = require("@aws-sdk/client-migrationhub-config"); // CommonJS import
  * const client = new MigrationHubConfigClient(config);
+ * const input = {};
  * const command = new GetHomeRegionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetHomeRegionCommandInput - {@link GetHomeRegionCommandInput}
+ * @returns {@link GetHomeRegionCommandOutput}
  * @see {@link GetHomeRegionCommandInput} for command's `input` shape.
  * @see {@link GetHomeRegionCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubConfigClientResolvedConfig | config} for MigrationHubConfigClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Exception raised when an internal, configuration, or dependency error is
+ *       encountered.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Exception raised when the provided input violates a policy constraint or is entered in the
+ *       wrong format or data type.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>Exception raised when a request fails due to temporary unavailability of the
+ *       service.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
  *
  */
 export class GetHomeRegionCommand extends $Command<
@@ -70,6 +95,9 @@ export class GetHomeRegionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetHomeRegionCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +124,8 @@ export class GetHomeRegionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetHomeRegionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetHomeRegionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +135,18 @@ export class GetHomeRegionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetHomeRegionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetHomeRegionCommand(input, context);
+    return se_GetHomeRegionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetHomeRegionCommandOutput> {
-    return deserializeAws_json1_1GetHomeRegionCommand(output, context);
+    return de_GetHomeRegionCommand(output, context);
   }
 
   // Start section: command_body_extra

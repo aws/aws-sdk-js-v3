@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateBatchInferenceJobRequest,
-  CreateBatchInferenceJobRequestFilterSensitiveLog,
-  CreateBatchInferenceJobResponse,
-  CreateBatchInferenceJobResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateBatchInferenceJobRequest, CreateBatchInferenceJobResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1CreateBatchInferenceJobCommand,
-  serializeAws_json1_1CreateBatchInferenceJobCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateBatchInferenceJobCommand, se_CreateBatchInferenceJobCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateBatchInferenceJobCommand}.
+ */
 export interface CreateBatchInferenceJobCommandInput extends CreateBatchInferenceJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateBatchInferenceJobCommand}.
+ */
 export interface CreateBatchInferenceJobCommandOutput extends CreateBatchInferenceJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a batch inference job. The operation can handle up to 50 million records and the
  *       input file must be in JSON format. For more information, see
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/creating-batch-inference-job.html">Creating a batch inference job</a>.
@@ -39,13 +42,64 @@ export interface CreateBatchInferenceJobCommandOutput extends CreateBatchInferen
  * import { PersonalizeClient, CreateBatchInferenceJobCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, CreateBatchInferenceJobCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // CreateBatchInferenceJobRequest
+ *   jobName: "STRING_VALUE", // required
+ *   solutionVersionArn: "STRING_VALUE", // required
+ *   filterArn: "STRING_VALUE",
+ *   numResults: Number("int"),
+ *   jobInput: { // BatchInferenceJobInput
+ *     s3DataSource: { // S3DataConfig
+ *       path: "STRING_VALUE", // required
+ *       kmsKeyArn: "STRING_VALUE",
+ *     },
+ *   },
+ *   jobOutput: { // BatchInferenceJobOutput
+ *     s3DataDestination: {
+ *       path: "STRING_VALUE", // required
+ *       kmsKeyArn: "STRING_VALUE",
+ *     },
+ *   },
+ *   roleArn: "STRING_VALUE", // required
+ *   batchInferenceJobConfig: { // BatchInferenceJobConfig
+ *     itemExplorationConfig: { // HyperParameters
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ *   tags: [ // Tags
+ *     { // Tag
+ *       tagKey: "STRING_VALUE", // required
+ *       tagValue: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateBatchInferenceJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBatchInferenceJobCommandInput - {@link CreateBatchInferenceJobCommandInput}
+ * @returns {@link CreateBatchInferenceJobCommandOutput}
  * @see {@link CreateBatchInferenceJobCommandInput} for command's `input` shape.
  * @see {@link CreateBatchInferenceJobCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The limit on the number of requests per second has been exceeded.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The specified resource already exists.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is in use.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Could not find the specified resource.</p>
+ *
+ * @throws {@link TooManyTagsException} (client fault)
+ *  <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
+ *
  *
  */
 export class CreateBatchInferenceJobCommand extends $Command<
@@ -65,6 +119,9 @@ export class CreateBatchInferenceJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBatchInferenceJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +150,8 @@ export class CreateBatchInferenceJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateBatchInferenceJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateBatchInferenceJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +161,18 @@ export class CreateBatchInferenceJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBatchInferenceJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateBatchInferenceJobCommand(input, context);
+    return se_CreateBatchInferenceJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBatchInferenceJobCommandOutput> {
-    return deserializeAws_json1_1CreateBatchInferenceJobCommand(output, context);
+    return de_CreateBatchInferenceJobCommand(output, context);
   }
 
   // Start section: command_body_extra

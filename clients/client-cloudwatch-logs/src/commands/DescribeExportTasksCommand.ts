@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import {
-  DescribeExportTasksRequest,
-  DescribeExportTasksRequestFilterSensitiveLog,
-  DescribeExportTasksResponse,
-  DescribeExportTasksResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeExportTasksCommand,
-  serializeAws_json1_1DescribeExportTasksCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeExportTasksRequest, DescribeExportTasksResponse } from "../models/models_0";
+import { de_DescribeExportTasksCommand, se_DescribeExportTasksCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeExportTasksCommand}.
+ */
 export interface DescribeExportTasksCommandInput extends DescribeExportTasksRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeExportTasksCommand}.
+ */
 export interface DescribeExportTasksCommandOutput extends DescribeExportTasksResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the specified export tasks. You can list all your export tasks or filter
  *       the results based on task ID or task status.</p>
  * @example
@@ -37,13 +40,28 @@ export interface DescribeExportTasksCommandOutput extends DescribeExportTasksRes
  * import { CloudWatchLogsClient, DescribeExportTasksCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DescribeExportTasksCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = { // DescribeExportTasksRequest
+ *   taskId: "STRING_VALUE",
+ *   statusCode: "CANCELLED" || "COMPLETED" || "FAILED" || "PENDING" || "PENDING_CANCEL" || "RUNNING",
+ *   nextToken: "STRING_VALUE",
+ *   limit: Number("int"),
+ * };
  * const command = new DescribeExportTasksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeExportTasksCommandInput - {@link DescribeExportTasksCommandInput}
+ * @returns {@link DescribeExportTasksCommandOutput}
  * @see {@link DescribeExportTasksCommandInput} for command's `input` shape.
  * @see {@link DescribeExportTasksCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter is specified incorrectly.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service cannot complete the request.</p>
+ *
  *
  */
 export class DescribeExportTasksCommand extends $Command<
@@ -63,6 +81,9 @@ export class DescribeExportTasksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeExportTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +112,8 @@ export class DescribeExportTasksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeExportTasksRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeExportTasksResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +123,18 @@ export class DescribeExportTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeExportTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeExportTasksCommand(input, context);
+    return se_DescribeExportTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeExportTasksCommandOutput> {
-    return deserializeAws_json1_1DescribeExportTasksCommand(output, context);
+    return de_DescribeExportTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

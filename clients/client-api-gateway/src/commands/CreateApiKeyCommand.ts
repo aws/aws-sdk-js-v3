@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  ApiKey,
-  ApiKeyFilterSensitiveLog,
-  CreateApiKeyRequest,
-  CreateApiKeyRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateApiKeyCommand,
-  serializeAws_restJson1CreateApiKeyCommand,
-} from "../protocols/Aws_restJson1";
+import { ApiKey, CreateApiKeyRequest } from "../models/models_0";
+import { de_CreateApiKeyCommand, se_CreateApiKeyCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateApiKeyCommand}.
+ */
 export interface CreateApiKeyCommandInput extends CreateApiKeyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateApiKeyCommand}.
+ */
 export interface CreateApiKeyCommandOutput extends ApiKey, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create an ApiKey resource. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,51 @@ export interface CreateApiKeyCommandOutput extends ApiKey, __MetadataBearer {}
  * import { APIGatewayClient, CreateApiKeyCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, CreateApiKeyCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // CreateApiKeyRequest
+ *   name: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   enabled: true || false,
+ *   generateDistinctId: true || false,
+ *   value: "STRING_VALUE",
+ *   stageKeys: [ // ListOfStageKeys
+ *     { // StageKey
+ *       restApiId: "STRING_VALUE",
+ *       stageName: "STRING_VALUE",
+ *     },
+ *   ],
+ *   customerId: "STRING_VALUE",
+ *   tags: { // MapOfStringToString
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateApiKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateApiKeyCommandInput - {@link CreateApiKeyCommandInput}
+ * @returns {@link CreateApiKeyCommandOutput}
  * @see {@link CreateApiKeyCommandInput} for command's `input` shape.
  * @see {@link CreateApiKeyCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The request is denied because the caller has insufficient permissions.</p>
+ *
  *
  */
 export class CreateApiKeyCommand extends $Command<
@@ -62,6 +103,9 @@ export class CreateApiKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateApiKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +132,8 @@ export class CreateApiKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateApiKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ApiKeyFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +143,18 @@ export class CreateApiKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateApiKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateApiKeyCommand(input, context);
+    return se_CreateApiKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateApiKeyCommandOutput> {
-    return deserializeAws_restJson1CreateApiKeyCommand(output, context);
+    return de_CreateApiKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

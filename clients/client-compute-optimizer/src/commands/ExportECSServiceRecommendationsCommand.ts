@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
+import { ExportECSServiceRecommendationsRequest, ExportECSServiceRecommendationsResponse } from "../models/models_0";
 import {
-  ExportECSServiceRecommendationsRequest,
-  ExportECSServiceRecommendationsRequestFilterSensitiveLog,
-  ExportECSServiceRecommendationsResponse,
-  ExportECSServiceRecommendationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ExportECSServiceRecommendationsCommand,
-  serializeAws_json1_0ExportECSServiceRecommendationsCommand,
+  de_ExportECSServiceRecommendationsCommand,
+  se_ExportECSServiceRecommendationsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link ExportECSServiceRecommendationsCommand}.
+ */
 export interface ExportECSServiceRecommendationsCommandInput extends ExportECSServiceRecommendationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ExportECSServiceRecommendationsCommand}.
+ */
 export interface ExportECSServiceRecommendationsCommandOutput
   extends ExportECSServiceRecommendationsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             Exports optimization recommendations for Amazon ECS services on Fargate.
  *         </p>
@@ -45,13 +51,63 @@ export interface ExportECSServiceRecommendationsCommandOutput
  * import { ComputeOptimizerClient, ExportECSServiceRecommendationsCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
  * // const { ComputeOptimizerClient, ExportECSServiceRecommendationsCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
+ * const input = { // ExportECSServiceRecommendationsRequest
+ *   accountIds: [ // AccountIds
+ *     "STRING_VALUE",
+ *   ],
+ *   filters: [ // ECSServiceRecommendationFilters
+ *     { // ECSServiceRecommendationFilter
+ *       name: "Finding" || "FindingReasonCode",
+ *       values: [ // FilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   fieldsToExport: [ // ExportableECSServiceFields
+ *     "AccountId" || "ServiceArn" || "LookbackPeriodInDays" || "LastRefreshTimestamp" || "LaunchType" || "CurrentPerformanceRisk" || "CurrentServiceConfigurationMemory" || "CurrentServiceConfigurationCpu" || "CurrentServiceConfigurationTaskDefinitionArn" || "CurrentServiceConfigurationAutoScalingConfiguration" || "CurrentServiceContainerConfigurations" || "UtilizationMetricsCpuMaximum" || "UtilizationMetricsMemoryMaximum" || "Finding" || "FindingReasonCodes" || "RecommendationOptionsMemory" || "RecommendationOptionsCpu" || "RecommendationOptionsSavingsOpportunityPercentage" || "RecommendationOptionsEstimatedMonthlySavingsCurrency" || "RecommendationOptionsEstimatedMonthlySavingsValue" || "RecommendationOptionsContainerRecommendations" || "RecommendationOptionsProjectedUtilizationMetricsCpuMaximum" || "RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum",
+ *   ],
+ *   s3DestinationConfig: { // S3DestinationConfig
+ *     bucket: "STRING_VALUE",
+ *     keyPrefix: "STRING_VALUE",
+ *   },
+ *   fileFormat: "Csv",
+ *   includeMemberAccounts: true || false,
+ * };
  * const command = new ExportECSServiceRecommendationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ExportECSServiceRecommendationsCommandInput - {@link ExportECSServiceRecommendationsCommandInput}
+ * @returns {@link ExportECSServiceRecommendationsCommandOutput}
  * @see {@link ExportECSServiceRecommendationsCommandInput} for command's `input` shape.
  * @see {@link ExportECSServiceRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error has occurred. Try your call again.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value supplied for the input parameter is out of range or not valid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request exceeds a limit of the service.</p>
+ *
+ * @throws {@link MissingAuthenticationToken} (client fault)
+ *  <p>The request must contain either a valid (registered) Amazon Web Services access key ID
+ *             or X.509 certificate.</p>
+ *
+ * @throws {@link OptInRequiredException} (client fault)
+ *  <p>The account is not opted in to Compute Optimizer.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request has failed due to a temporary failure of the server.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
  *
  */
 export class ExportECSServiceRecommendationsCommand extends $Command<
@@ -71,6 +127,9 @@ export class ExportECSServiceRecommendationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExportECSServiceRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +158,8 @@ export class ExportECSServiceRecommendationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExportECSServiceRecommendationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ExportECSServiceRecommendationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,18 +169,24 @@ export class ExportECSServiceRecommendationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ExportECSServiceRecommendationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0ExportECSServiceRecommendationsCommand(input, context);
+    return se_ExportECSServiceRecommendationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ExportECSServiceRecommendationsCommandOutput> {
-    return deserializeAws_json1_0ExportECSServiceRecommendationsCommand(output, context);
+    return de_ExportECSServiceRecommendationsCommand(output, context);
   }
 
   // Start section: command_body_extra

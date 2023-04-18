@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ApplyPendingMaintenanceActionMessage,
-  ApplyPendingMaintenanceActionMessageFilterSensitiveLog,
-  ApplyPendingMaintenanceActionResult,
-  ApplyPendingMaintenanceActionResultFilterSensitiveLog,
-} from "../models/models_0";
+import { ApplyPendingMaintenanceActionMessage, ApplyPendingMaintenanceActionResult } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import {
-  deserializeAws_queryApplyPendingMaintenanceActionCommand,
-  serializeAws_queryApplyPendingMaintenanceActionCommand,
+  de_ApplyPendingMaintenanceActionCommand,
+  se_ApplyPendingMaintenanceActionCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link ApplyPendingMaintenanceActionCommand}.
+ */
 export interface ApplyPendingMaintenanceActionCommandInput extends ApplyPendingMaintenanceActionMessage {}
+/**
+ * @public
+ *
+ * The output of {@link ApplyPendingMaintenanceActionCommand}.
+ */
 export interface ApplyPendingMaintenanceActionCommandOutput
   extends ApplyPendingMaintenanceActionResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Applies a pending maintenance action to a resource (for example, to a DB instance).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,24 @@ export interface ApplyPendingMaintenanceActionCommandOutput
  * import { NeptuneClient, ApplyPendingMaintenanceActionCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, ApplyPendingMaintenanceActionCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = { // ApplyPendingMaintenanceActionMessage
+ *   ResourceIdentifier: "STRING_VALUE", // required
+ *   ApplyAction: "STRING_VALUE", // required
+ *   OptInType: "STRING_VALUE", // required
+ * };
  * const command = new ApplyPendingMaintenanceActionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ApplyPendingMaintenanceActionCommandInput - {@link ApplyPendingMaintenanceActionCommandInput}
+ * @returns {@link ApplyPendingMaintenanceActionCommandOutput}
  * @see {@link ApplyPendingMaintenanceActionCommandInput} for command's `input` shape.
  * @see {@link ApplyPendingMaintenanceActionCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundFault} (client fault)
+ *  <p>The specified resource ID was not found.</p>
+ *
  *
  */
 export class ApplyPendingMaintenanceActionCommand extends $Command<
@@ -64,6 +81,9 @@ export class ApplyPendingMaintenanceActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ApplyPendingMaintenanceActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +112,8 @@ export class ApplyPendingMaintenanceActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ApplyPendingMaintenanceActionMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ApplyPendingMaintenanceActionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +123,21 @@ export class ApplyPendingMaintenanceActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ApplyPendingMaintenanceActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryApplyPendingMaintenanceActionCommand(input, context);
+    return se_ApplyPendingMaintenanceActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ApplyPendingMaintenanceActionCommandOutput> {
-    return deserializeAws_queryApplyPendingMaintenanceActionCommand(output, context);
+    return de_ApplyPendingMaintenanceActionCommand(output, context);
   }
 
   // Start section: command_body_extra

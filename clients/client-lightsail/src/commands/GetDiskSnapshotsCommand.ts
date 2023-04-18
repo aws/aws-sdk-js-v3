@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  GetDiskSnapshotsRequest,
-  GetDiskSnapshotsRequestFilterSensitiveLog,
-  GetDiskSnapshotsResult,
-  GetDiskSnapshotsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetDiskSnapshotsCommand,
-  serializeAws_json1_1GetDiskSnapshotsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetDiskSnapshotsRequest, GetDiskSnapshotsResult } from "../models/models_1";
+import { de_GetDiskSnapshotsCommand, se_GetDiskSnapshotsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetDiskSnapshotsCommand}.
+ */
 export interface GetDiskSnapshotsCommandInput extends GetDiskSnapshotsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetDiskSnapshotsCommand}.
+ */
 export interface GetDiskSnapshotsCommandOutput extends GetDiskSnapshotsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about all block storage disk snapshots in your AWS account and
  *       region.</p>
  * @example
@@ -37,13 +40,49 @@ export interface GetDiskSnapshotsCommandOutput extends GetDiskSnapshotsResult, _
  * import { LightsailClient, GetDiskSnapshotsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetDiskSnapshotsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // GetDiskSnapshotsRequest
+ *   pageToken: "STRING_VALUE",
+ * };
  * const command = new GetDiskSnapshotsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDiskSnapshotsCommandInput - {@link GetDiskSnapshotsCommandInput}
+ * @returns {@link GetDiskSnapshotsCommandOutput}
  * @see {@link GetDiskSnapshotsCommandInput} for command's `input` shape.
  * @see {@link GetDiskSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
+ *       credentials to access a resource.</p>
+ *
+ * @throws {@link AccountSetupInProgressException} (client fault)
+ *  <p>Lightsail throws this exception when an account is still in the setup in progress
+ *       state.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Lightsail throws this exception when user input does not conform to the validation rules
+ *       of an input field.</p>
+ *          <note>
+ *             <p>Domain and distribution APIs are only available in the N. Virginia
+ *           (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services
+ *         Region configuration to <code>us-east-1</code> to create, view, or edit these
+ *         resources.</p>
+ *          </note>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Lightsail throws this exception when it cannot find a resource.</p>
+ *
+ * @throws {@link OperationFailureException} (client fault)
+ *  <p>Lightsail throws this exception when an operation fails to execute.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>A general service exception.</p>
+ *
+ * @throws {@link UnauthenticatedException} (client fault)
+ *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
+ *
  *
  */
 export class GetDiskSnapshotsCommand extends $Command<
@@ -63,6 +102,9 @@ export class GetDiskSnapshotsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDiskSnapshotsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +133,8 @@ export class GetDiskSnapshotsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDiskSnapshotsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDiskSnapshotsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +144,18 @@ export class GetDiskSnapshotsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDiskSnapshotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDiskSnapshotsCommand(input, context);
+    return se_GetDiskSnapshotsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDiskSnapshotsCommandOutput> {
-    return deserializeAws_json1_1GetDiskSnapshotsCommand(output, context);
+    return de_GetDiskSnapshotsCommand(output, context);
   }
 
   // Start section: command_body_extra

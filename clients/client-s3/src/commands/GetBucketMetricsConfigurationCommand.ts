@@ -13,36 +13,39 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { GetBucketMetricsConfigurationOutput, GetBucketMetricsConfigurationRequest } from "../models/models_0";
 import {
-  GetBucketMetricsConfigurationOutput,
-  GetBucketMetricsConfigurationOutputFilterSensitiveLog,
-  GetBucketMetricsConfigurationRequest,
-  GetBucketMetricsConfigurationRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlGetBucketMetricsConfigurationCommand,
-  serializeAws_restXmlGetBucketMetricsConfigurationCommand,
+  de_GetBucketMetricsConfigurationCommand,
+  se_GetBucketMetricsConfigurationCommand,
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * @public
+ *
+ * The input for {@link GetBucketMetricsConfigurationCommand}.
+ */
 export interface GetBucketMetricsConfigurationCommandInput extends GetBucketMetricsConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetBucketMetricsConfigurationCommand}.
+ */
 export interface GetBucketMetricsConfigurationCommandOutput
   extends GetBucketMetricsConfigurationOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a metrics configuration (specified by the metrics configuration ID) from the
  *          bucket. Note that this doesn't include the daily storage metrics.</p>
- *
  *          <p> To use this operation, you must have permissions to perform the
  *             <code>s3:GetMetricsConfiguration</code> action. The bucket owner has this permission by
  *          default. The bucket owner can grant this permission to others. For more information about
- *          permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access Permissions to Your Amazon S3
- *             Resources</a>.</p>
- *
- *          <p> For information about CloudWatch request metrics for Amazon S3, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cloudwatch-monitoring.html">Monitoring Metrics with Amazon
- *             CloudWatch</a>.</p>
- *
+ *          permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
+ *             Access Permissions to Your Amazon S3 Resources</a>.</p>
+ *          <p> For information about CloudWatch request metrics for Amazon S3, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cloudwatch-monitoring.html">Monitoring
+ *             Metrics with Amazon CloudWatch</a>.</p>
  *          <p>The following operations are related to
  *          <code>GetBucketMetricsConfiguration</code>:</p>
  *          <ul>
@@ -63,8 +66,7 @@ export interface GetBucketMetricsConfigurationCommandOutput
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cloudwatch-monitoring.html">Monitoring Metrics with Amazon
- *                   CloudWatch</a>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cloudwatch-monitoring.html">Monitoring Metrics with Amazon CloudWatch</a>
  *                </p>
  *             </li>
  *          </ul>
@@ -74,13 +76,21 @@ export interface GetBucketMetricsConfigurationCommandOutput
  * import { S3Client, GetBucketMetricsConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetBucketMetricsConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // GetBucketMetricsConfigurationRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   Id: "STRING_VALUE", // required
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new GetBucketMetricsConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketMetricsConfigurationCommandInput - {@link GetBucketMetricsConfigurationCommandInput}
+ * @returns {@link GetBucketMetricsConfigurationCommandOutput}
  * @see {@link GetBucketMetricsConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetBucketMetricsConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
+ *
  *
  */
 export class GetBucketMetricsConfigurationCommand extends $Command<
@@ -106,6 +116,9 @@ export class GetBucketMetricsConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketMetricsConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +147,8 @@ export class GetBucketMetricsConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketMetricsConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBucketMetricsConfigurationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,15 +158,21 @@ export class GetBucketMetricsConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBucketMetricsConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetBucketMetricsConfigurationCommand(input, context);
+    return se_GetBucketMetricsConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBucketMetricsConfigurationCommandOutput> {
-    return deserializeAws_restXmlGetBucketMetricsConfigurationCommand(output, context);
+    return de_GetBucketMetricsConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import {
-  GetVpcLinkRequest,
-  GetVpcLinkRequestFilterSensitiveLog,
-  GetVpcLinkResponse,
-  GetVpcLinkResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetVpcLinkCommand,
-  serializeAws_restJson1GetVpcLinkCommand,
-} from "../protocols/Aws_restJson1";
+import { GetVpcLinkRequest, GetVpcLinkResponse } from "../models/models_0";
+import { de_GetVpcLinkCommand, se_GetVpcLinkCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetVpcLinkCommand}.
+ */
 export interface GetVpcLinkCommandInput extends GetVpcLinkRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetVpcLinkCommand}.
+ */
 export interface GetVpcLinkCommandOutput extends GetVpcLinkResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a VPC link.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,25 @@ export interface GetVpcLinkCommandOutput extends GetVpcLinkResponse, __MetadataB
  * import { ApiGatewayV2Client, GetVpcLinkCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, GetVpcLinkCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = { // GetVpcLinkRequest
+ *   VpcLinkId: "STRING_VALUE", // required
+ * };
  * const command = new GetVpcLinkCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetVpcLinkCommandInput - {@link GetVpcLinkCommandInput}
+ * @returns {@link GetVpcLinkCommandOutput}
  * @see {@link GetVpcLinkCommandInput} for command's `input` shape.
  * @see {@link GetVpcLinkCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource specified in the request was not found. See the message field for more information.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
+ *
  *
  */
 export class GetVpcLinkCommand extends $Command<
@@ -62,6 +77,9 @@ export class GetVpcLinkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetVpcLinkCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +106,8 @@ export class GetVpcLinkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetVpcLinkRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetVpcLinkResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +117,18 @@ export class GetVpcLinkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetVpcLinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetVpcLinkCommand(input, context);
+    return se_GetVpcLinkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVpcLinkCommandOutput> {
-    return deserializeAws_restJson1GetVpcLinkCommand(output, context);
+    return de_GetVpcLinkCommand(output, context);
   }
 
   // Start section: command_body_extra

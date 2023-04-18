@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
-import {
-  AddFlowVpcInterfacesRequest,
-  AddFlowVpcInterfacesRequestFilterSensitiveLog,
-  AddFlowVpcInterfacesResponse,
-  AddFlowVpcInterfacesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1AddFlowVpcInterfacesCommand,
-  serializeAws_restJson1AddFlowVpcInterfacesCommand,
-} from "../protocols/Aws_restJson1";
+import { AddFlowVpcInterfacesRequest, AddFlowVpcInterfacesResponse } from "../models/models_0";
+import { de_AddFlowVpcInterfacesCommand, se_AddFlowVpcInterfacesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link AddFlowVpcInterfacesCommand}.
+ */
 export interface AddFlowVpcInterfacesCommandInput extends AddFlowVpcInterfacesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AddFlowVpcInterfacesCommand}.
+ */
 export interface AddFlowVpcInterfacesCommandOutput extends AddFlowVpcInterfacesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Adds VPC interfaces to flow
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,48 @@ export interface AddFlowVpcInterfacesCommandOutput extends AddFlowVpcInterfacesR
  * import { MediaConnectClient, AddFlowVpcInterfacesCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, AddFlowVpcInterfacesCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
+ * const input = { // AddFlowVpcInterfacesRequest
+ *   FlowArn: "STRING_VALUE", // required
+ *   VpcInterfaces: [ // __listOfVpcInterfaceRequest // required
+ *     { // VpcInterfaceRequest
+ *       Name: "STRING_VALUE", // required
+ *       NetworkInterfaceType: "ena" || "efa",
+ *       RoleArn: "STRING_VALUE", // required
+ *       SecurityGroupIds: [ // __listOf__string // required
+ *         "STRING_VALUE",
+ *       ],
+ *       SubnetId: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new AddFlowVpcInterfacesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AddFlowVpcInterfacesCommandInput - {@link AddFlowVpcInterfacesCommandInput}
+ * @returns {@link AddFlowVpcInterfacesCommandOutput}
  * @see {@link AddFlowVpcInterfacesCommandInput} for command's `input` shape.
  * @see {@link AddFlowVpcInterfacesCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *
  *
  */
 export class AddFlowVpcInterfacesCommand extends $Command<
@@ -62,6 +100,9 @@ export class AddFlowVpcInterfacesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddFlowVpcInterfacesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +131,8 @@ export class AddFlowVpcInterfacesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddFlowVpcInterfacesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AddFlowVpcInterfacesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +142,18 @@ export class AddFlowVpcInterfacesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddFlowVpcInterfacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AddFlowVpcInterfacesCommand(input, context);
+    return se_AddFlowVpcInterfacesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddFlowVpcInterfacesCommandOutput> {
-    return deserializeAws_restJson1AddFlowVpcInterfacesCommand(output, context);
+    return de_AddFlowVpcInterfacesCommand(output, context);
   }
 
   // Start section: command_body_extra

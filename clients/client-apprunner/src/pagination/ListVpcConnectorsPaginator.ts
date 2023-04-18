@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { AppRunner } from "../AppRunner";
 import { AppRunnerClient } from "../AppRunnerClient";
 import {
   ListVpcConnectorsCommand,
@@ -11,7 +10,7 @@ import {
 import { AppRunnerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: AppRunnerClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListVpcConnectorsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: AppRunner,
-  input: ListVpcConnectorsCommandInput,
-  ...args: any
-): Promise<ListVpcConnectorsCommandOutput> => {
-  // @ts-ignore
-  return await client.listVpcConnectors(input, ...args);
-};
 export async function* paginateListVpcConnectors(
   config: AppRunnerPaginationConfiguration,
   input: ListVpcConnectorsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListVpcConnectors(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof AppRunner) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof AppRunnerClient) {
+    if (config.client instanceof AppRunnerClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected AppRunner | AppRunnerClient");

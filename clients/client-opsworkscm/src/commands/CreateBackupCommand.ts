@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateBackupRequest,
-  CreateBackupRequestFilterSensitiveLog,
-  CreateBackupResponse,
-  CreateBackupResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateBackupRequest, CreateBackupResponse } from "../models/models_0";
 import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
-import {
-  deserializeAws_json1_1CreateBackupCommand,
-  serializeAws_json1_1CreateBackupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateBackupCommand, se_CreateBackupCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateBackupCommand}.
+ */
 export interface CreateBackupCommandInput extends CreateBackupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateBackupCommand}.
+ */
 export interface CreateBackupCommandOutput extends CreateBackupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Creates an application-level backup of a server. While the
  *       server is in the <code>BACKING_UP</code> state, the server cannot be
@@ -53,13 +56,42 @@ export interface CreateBackupCommandOutput extends CreateBackupResponse, __Metad
  * import { OpsWorksCMClient, CreateBackupCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
  * // const { OpsWorksCMClient, CreateBackupCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
  * const client = new OpsWorksCMClient(config);
+ * const input = { // CreateBackupRequest
+ *   ServerName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateBackupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBackupCommandInput - {@link CreateBackupCommandInput}
+ * @returns {@link CreateBackupCommandOutput}
  * @see {@link CreateBackupCommandInput} for command's `input` shape.
  * @see {@link CreateBackupCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksCMClientResolvedConfig | config} for OpsWorksCMClient's `config` shape.
+ *
+ * @throws {@link InvalidStateException} (client fault)
+ *  <p>The resource is in a state that does not allow you to perform a specified action.
+ *     </p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The limit of servers or backups has been reached.
+ *     </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource does not exist, or access was denied.
+ *     </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One or more of the provided request parameters are not valid.
+ *     </p>
+ *
  *
  */
 export class CreateBackupCommand extends $Command<
@@ -79,6 +111,9 @@ export class CreateBackupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBackupCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +140,8 @@ export class CreateBackupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateBackupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateBackupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +151,18 @@ export class CreateBackupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBackupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateBackupCommand(input, context);
+    return se_CreateBackupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBackupCommandOutput> {
-    return deserializeAws_json1_1CreateBackupCommand(output, context);
+    return de_CreateBackupCommand(output, context);
   }
 
   // Start section: command_body_extra

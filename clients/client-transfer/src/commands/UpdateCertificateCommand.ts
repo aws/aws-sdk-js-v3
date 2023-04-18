@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateCertificateRequest,
-  UpdateCertificateRequestFilterSensitiveLog,
-  UpdateCertificateResponse,
-  UpdateCertificateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateCertificateCommand,
-  serializeAws_json1_1UpdateCertificateCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateCertificateRequest, UpdateCertificateResponse } from "../models/models_0";
+import { de_UpdateCertificateCommand, se_UpdateCertificateCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateCertificateCommand}.
+ */
 export interface UpdateCertificateCommandInput extends UpdateCertificateRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateCertificateCommand}.
+ */
 export interface UpdateCertificateCommandOutput extends UpdateCertificateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the active and inactive dates for a certificate.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,38 @@ export interface UpdateCertificateCommandOutput extends UpdateCertificateRespons
  * import { TransferClient, UpdateCertificateCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, UpdateCertificateCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = { // UpdateCertificateRequest
+ *   CertificateId: "STRING_VALUE", // required
+ *   ActiveDate: new Date("TIMESTAMP"),
+ *   InactiveDate: new Date("TIMESTAMP"),
+ *   Description: "STRING_VALUE",
+ * };
  * const command = new UpdateCertificateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCertificateCommandInput - {@link UpdateCertificateCommandInput}
+ * @returns {@link UpdateCertificateCommandOutput}
  * @see {@link UpdateCertificateCommandInput} for command's `input` shape.
  * @see {@link UpdateCertificateCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
+ *
+ * @throws {@link InternalServiceError} (server fault)
+ *  <p>This exception is thrown when an error occurs in the Amazon Web ServicesTransfer Family service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
+ *       service.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
  *
  */
 export class UpdateCertificateCommand extends $Command<
@@ -62,6 +90,9 @@ export class UpdateCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +121,8 @@ export class UpdateCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateCertificateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +132,18 @@ export class UpdateCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateCertificateCommand(input, context);
+    return se_UpdateCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCertificateCommandOutput> {
-    return deserializeAws_json1_1UpdateCertificateCommand(output, context);
+    return de_UpdateCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

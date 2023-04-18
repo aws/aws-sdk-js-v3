@@ -14,18 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  ActivateTypeInput,
-  ActivateTypeInputFilterSensitiveLog,
-  ActivateTypeOutput,
-  ActivateTypeOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_queryActivateTypeCommand, serializeAws_queryActivateTypeCommand } from "../protocols/Aws_query";
+import { ActivateTypeInput, ActivateTypeOutput } from "../models/models_0";
+import { de_ActivateTypeCommand, se_ActivateTypeCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link ActivateTypeCommand}.
+ */
 export interface ActivateTypeCommandInput extends ActivateTypeInput {}
+/**
+ * @public
+ *
+ * The output of {@link ActivateTypeCommand}.
+ */
 export interface ActivateTypeCommandOutput extends ActivateTypeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Activates a public third-party extension, making it available for use in stack
  *          templates. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html">Using
  *             public extensions</a> in the <i>CloudFormation User Guide</i>.</p>
@@ -38,13 +44,37 @@ export interface ActivateTypeCommandOutput extends ActivateTypeOutput, __Metadat
  * import { CloudFormationClient, ActivateTypeCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, ActivateTypeCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // ActivateTypeInput
+ *   Type: "RESOURCE" || "MODULE" || "HOOK",
+ *   PublicTypeArn: "STRING_VALUE",
+ *   PublisherId: "STRING_VALUE",
+ *   TypeName: "STRING_VALUE",
+ *   TypeNameAlias: "STRING_VALUE",
+ *   AutoUpdate: true || false,
+ *   LoggingConfig: { // LoggingConfig
+ *     LogRoleArn: "STRING_VALUE", // required
+ *     LogGroupName: "STRING_VALUE", // required
+ *   },
+ *   ExecutionRoleArn: "STRING_VALUE",
+ *   VersionBump: "MAJOR" || "MINOR",
+ *   MajorVersion: Number("long"),
+ * };
  * const command = new ActivateTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ActivateTypeCommandInput - {@link ActivateTypeCommandInput}
+ * @returns {@link ActivateTypeCommandOutput}
  * @see {@link ActivateTypeCommandInput} for command's `input` shape.
  * @see {@link ActivateTypeCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
+ *
+ * @throws {@link CFNRegistryException} (client fault)
+ *  <p>An error occurred during a CloudFormation registry operation.</p>
+ *
+ * @throws {@link TypeNotFoundException} (client fault)
+ *  <p>The specified extension doesn't exist in the CloudFormation registry.</p>
+ *
  *
  */
 export class ActivateTypeCommand extends $Command<
@@ -64,6 +94,9 @@ export class ActivateTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ActivateTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +123,8 @@ export class ActivateTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ActivateTypeInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ActivateTypeOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +134,18 @@ export class ActivateTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ActivateTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryActivateTypeCommand(input, context);
+    return se_ActivateTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ActivateTypeCommandOutput> {
-    return deserializeAws_queryActivateTypeCommand(output, context);
+    return de_ActivateTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
-import {
-  ListReceivedLicensesRequest,
-  ListReceivedLicensesRequestFilterSensitiveLog,
-  ListReceivedLicensesResponse,
-  ListReceivedLicensesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListReceivedLicensesCommand,
-  serializeAws_json1_1ListReceivedLicensesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListReceivedLicensesRequest, ListReceivedLicensesResponse } from "../models/models_0";
+import { de_ListReceivedLicensesCommand, se_ListReceivedLicensesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListReceivedLicensesCommand}.
+ */
 export interface ListReceivedLicensesCommandInput extends ListReceivedLicensesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListReceivedLicensesCommand}.
+ */
 export interface ListReceivedLicensesCommandOutput extends ListReceivedLicensesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists received licenses.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,53 @@ export interface ListReceivedLicensesCommandOutput extends ListReceivedLicensesR
  * import { LicenseManagerClient, ListReceivedLicensesCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, ListReceivedLicensesCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = { // ListReceivedLicensesRequest
+ *   LicenseArns: [ // ArnList
+ *     "STRING_VALUE",
+ *   ],
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // FilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListReceivedLicensesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListReceivedLicensesCommandInput - {@link ListReceivedLicensesCommandInput}
+ * @returns {@link ListReceivedLicensesCommandOutput}
  * @see {@link ListReceivedLicensesCommandInput} for command's `input` shape.
  * @see {@link ListReceivedLicensesCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to resource denied.</p>
+ *
+ * @throws {@link AuthorizationException} (client fault)
+ *  <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM
+ *          policy associated with this account.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ * @throws {@link RateLimitExceededException} (client fault)
+ *  <p>Too many requests have been submitted. Try again after a brief wait.</p>
+ *
+ * @throws {@link ResourceLimitExceededException} (client fault)
+ *  <p>Your resource limits have been exceeded.</p>
+ *
+ * @throws {@link ServerInternalException} (server fault)
+ *  <p>The server experienced an internal error. Try again.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The provided input is not valid. Try your request again.</p>
+ *
  *
  */
 export class ListReceivedLicensesCommand extends $Command<
@@ -62,6 +105,9 @@ export class ListReceivedLicensesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListReceivedLicensesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +136,8 @@ export class ListReceivedLicensesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListReceivedLicensesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListReceivedLicensesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +147,18 @@ export class ListReceivedLicensesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListReceivedLicensesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListReceivedLicensesCommand(input, context);
+    return se_ListReceivedLicensesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListReceivedLicensesCommandOutput> {
-    return deserializeAws_json1_1ListReceivedLicensesCommand(output, context);
+    return de_ListReceivedLicensesCommand(output, context);
   }
 
   // Start section: command_body_extra

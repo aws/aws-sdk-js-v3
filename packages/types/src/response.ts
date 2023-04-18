@@ -1,3 +1,6 @@
+/**
+ * @internal
+ */
 export interface ResponseMetadata {
   /**
    * The status code of the last HTTP response received for this operation.
@@ -32,9 +35,19 @@ export interface ResponseMetadata {
   totalRetryDelay?: number;
 }
 
+/**
+ * @internal
+ */
 export interface MetadataBearer {
   /**
    * Metadata pertaining to this request.
    */
   $metadata: ResponseMetadata;
+}
+
+/**
+ * @internal
+ */
+export interface Response {
+  body: any;
 }

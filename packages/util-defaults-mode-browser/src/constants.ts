@@ -1,6 +1,9 @@
 import type { DefaultsMode } from "@aws-sdk/smithy-client";
 import type { Provider } from "@aws-sdk/types";
 
+/**
+ * @internal
+ */
 export const DEFAULTS_MODE_OPTIONS = ["in-region", "cross-region", "mobile", "standard", "legacy"];
 
 /**

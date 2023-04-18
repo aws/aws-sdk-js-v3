@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
-import {
-  DescribePHIDetectionJobRequest,
-  DescribePHIDetectionJobRequestFilterSensitiveLog,
-  DescribePHIDetectionJobResponse,
-  DescribePHIDetectionJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribePHIDetectionJobCommand,
-  serializeAws_json1_1DescribePHIDetectionJobCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribePHIDetectionJobRequest, DescribePHIDetectionJobResponse } from "../models/models_0";
+import { de_DescribePHIDetectionJobCommand, se_DescribePHIDetectionJobCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribePHIDetectionJobCommand}.
+ */
 export interface DescribePHIDetectionJobCommandInput extends DescribePHIDetectionJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribePHIDetectionJobCommand}.
+ */
 export interface DescribePHIDetectionJobCommandOutput extends DescribePHIDetectionJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the properties associated with a protected health information (PHI) detection job.
  *       Use this operation to get the status of a detection job.</p>
  * @example
@@ -41,13 +44,35 @@ export interface DescribePHIDetectionJobCommandOutput extends DescribePHIDetecti
  * import { ComprehendMedicalClient, DescribePHIDetectionJobCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, DescribePHIDetectionJobCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
  * const client = new ComprehendMedicalClient(config);
+ * const input = { // DescribePHIDetectionJobRequest
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new DescribePHIDetectionJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePHIDetectionJobCommandInput - {@link DescribePHIDetectionJobCommandInput}
+ * @returns {@link DescribePHIDetectionJobCommandOutput}
  * @see {@link DescribePHIDetectionJobCommandInput} for command's `input` shape.
  * @see {@link DescribePHIDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> An internal server error occurred. Retry your request. </p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p> The request that you made is invalid. Check your request to determine why it's invalid
+ *       and then retry the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource identified by the specified Amazon Resource Name (ARN) was not found. Check
+ *       the ARN and try your request again.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p> You have made too many requests within a short period of time. Wait for a short time and
+ *       then try your request again. Contact customer support for more information about a service
+ *       limit increase. </p>
+ *
  *
  */
 export class DescribePHIDetectionJobCommand extends $Command<
@@ -67,6 +92,9 @@ export class DescribePHIDetectionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePHIDetectionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +123,8 @@ export class DescribePHIDetectionJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePHIDetectionJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribePHIDetectionJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +134,18 @@ export class DescribePHIDetectionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePHIDetectionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribePHIDetectionJobCommand(input, context);
+    return se_DescribePHIDetectionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePHIDetectionJobCommandOutput> {
-    return deserializeAws_json1_1DescribePHIDetectionJobCommand(output, context);
+    return de_DescribePHIDetectionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

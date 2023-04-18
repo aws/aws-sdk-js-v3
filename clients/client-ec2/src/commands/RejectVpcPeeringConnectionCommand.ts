@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  RejectVpcPeeringConnectionRequest,
-  RejectVpcPeeringConnectionRequestFilterSensitiveLog,
-  RejectVpcPeeringConnectionResult,
-  RejectVpcPeeringConnectionResultFilterSensitiveLog,
-} from "../models/models_6";
-import {
-  deserializeAws_ec2RejectVpcPeeringConnectionCommand,
-  serializeAws_ec2RejectVpcPeeringConnectionCommand,
-} from "../protocols/Aws_ec2";
+import { RejectVpcPeeringConnectionRequest, RejectVpcPeeringConnectionResult } from "../models/models_6";
+import { de_RejectVpcPeeringConnectionCommand, se_RejectVpcPeeringConnectionCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link RejectVpcPeeringConnectionCommand}.
+ */
 export interface RejectVpcPeeringConnectionCommandInput extends RejectVpcPeeringConnectionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RejectVpcPeeringConnectionCommand}.
+ */
 export interface RejectVpcPeeringConnectionCommandOutput extends RejectVpcPeeringConnectionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Rejects a VPC peering connection request. The VPC peering connection must be in the
  * 				<code>pending-acceptance</code> state. Use the <a>DescribeVpcPeeringConnections</a> request
  * 			to view your outstanding VPC peering connection requests. To delete an active VPC peering
@@ -39,13 +42,20 @@ export interface RejectVpcPeeringConnectionCommandOutput extends RejectVpcPeerin
  * import { EC2Client, RejectVpcPeeringConnectionCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, RejectVpcPeeringConnectionCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // RejectVpcPeeringConnectionRequest
+ *   DryRun: true || false,
+ *   VpcPeeringConnectionId: "STRING_VALUE", // required
+ * };
  * const command = new RejectVpcPeeringConnectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RejectVpcPeeringConnectionCommandInput - {@link RejectVpcPeeringConnectionCommandInput}
+ * @returns {@link RejectVpcPeeringConnectionCommandOutput}
  * @see {@link RejectVpcPeeringConnectionCommandInput} for command's `input` shape.
  * @see {@link RejectVpcPeeringConnectionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class RejectVpcPeeringConnectionCommand extends $Command<
@@ -65,6 +75,9 @@ export class RejectVpcPeeringConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RejectVpcPeeringConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +106,8 @@ export class RejectVpcPeeringConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RejectVpcPeeringConnectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RejectVpcPeeringConnectionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,15 +117,21 @@ export class RejectVpcPeeringConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RejectVpcPeeringConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2RejectVpcPeeringConnectionCommand(input, context);
+    return se_RejectVpcPeeringConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RejectVpcPeeringConnectionCommandOutput> {
-    return deserializeAws_ec2RejectVpcPeeringConnectionCommand(output, context);
+    return de_RejectVpcPeeringConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeStreamProcessorRequest,
-  DescribeStreamProcessorRequestFilterSensitiveLog,
-  DescribeStreamProcessorResponse,
-  DescribeStreamProcessorResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeStreamProcessorCommand,
-  serializeAws_json1_1DescribeStreamProcessorCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeStreamProcessorRequest, DescribeStreamProcessorResponse } from "../models/models_0";
+import { de_DescribeStreamProcessorCommand, se_DescribeStreamProcessorCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeStreamProcessorCommand}.
+ */
 export interface DescribeStreamProcessorCommandInput extends DescribeStreamProcessorRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeStreamProcessorCommand}.
+ */
 export interface DescribeStreamProcessorCommandOutput extends DescribeStreamProcessorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information about a stream processor created by <a>CreateStreamProcessor</a>. You can get information about the input and output streams, the input parameters for the face recognition being performed,
  *             and the current status of the stream processor.</p>
  * @example
@@ -37,13 +40,39 @@ export interface DescribeStreamProcessorCommandOutput extends DescribeStreamProc
  * import { RekognitionClient, DescribeStreamProcessorCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DescribeStreamProcessorCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // DescribeStreamProcessorRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DescribeStreamProcessorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStreamProcessorCommandInput - {@link DescribeStreamProcessorCommandInput}
+ * @returns {@link DescribeStreamProcessorCommandOutput}
  * @see {@link DescribeStreamProcessorCommandInput} for command's `input` shape.
  * @see {@link DescribeStreamProcessorCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to perform the action.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
+ *       operation again.</p>
+ *
+ * @throws {@link ProvisionedThroughputExceededException} (client fault)
+ *  <p>The number of requests exceeded your throughput limit. If you want to increase this
+ *       limit, contact Amazon Rekognition.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request cannot be found.</p>
+ *
+ * @throws {@link ThrottlingException} (server fault)
+ *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
  *
  */
 export class DescribeStreamProcessorCommand extends $Command<
@@ -63,6 +92,9 @@ export class DescribeStreamProcessorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStreamProcessorCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +123,8 @@ export class DescribeStreamProcessorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeStreamProcessorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeStreamProcessorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +134,18 @@ export class DescribeStreamProcessorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeStreamProcessorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeStreamProcessorCommand(input, context);
+    return se_DescribeStreamProcessorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeStreamProcessorCommandOutput> {
-    return deserializeAws_json1_1DescribeStreamProcessorCommand(output, context);
+    return de_DescribeStreamProcessorCommand(output, context);
   }
 
   // Start section: command_body_extra

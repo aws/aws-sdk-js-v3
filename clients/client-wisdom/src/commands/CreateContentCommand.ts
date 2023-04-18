@@ -15,20 +15,27 @@ import {
 
 import {
   CreateContentRequest,
-  CreateContentRequestFilterSensitiveLog,
   CreateContentResponse,
   CreateContentResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateContentCommand,
-  serializeAws_restJson1CreateContentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateContentCommand, se_CreateContentCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateContentCommand}.
+ */
 export interface CreateContentCommandInput extends CreateContentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateContentCommand}.
+ */
 export interface CreateContentCommandOutput extends CreateContentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates Wisdom content. Before to calling this API, use <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html">StartContentUpload</a> to
  *       upload an asset.</p>
  * @example
@@ -37,13 +44,49 @@ export interface CreateContentCommandOutput extends CreateContentResponse, __Met
  * import { WisdomClient, CreateContentCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, CreateContentCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
+ * const input = { // CreateContentRequest
+ *   knowledgeBaseId: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ *   title: "STRING_VALUE",
+ *   overrideLinkOutUri: "STRING_VALUE",
+ *   metadata: { // ContentMetadata
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   uploadId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ *   tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateContentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateContentCommandInput - {@link CreateContentCommandInput}
+ * @returns {@link CreateContentCommandOutput}
  * @see {@link CreateContentCommandInput} for command's `input` shape.
  * @see {@link CreateContentCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be processed because of conflict in the current state of the
+ *       resource. For example, if you're using a <code>Create</code> API (such as
+ *         <code>CreateAssistant</code>) that accepts name, a conflicting resource (usually with the
+ *       same name) is being created or mutated.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>You've exceeded your service quota. To perform the requested action, remove some of the
+ *       relevant resources, or use service quotas to request a service quota increase.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by a service.</p>
+ *
  *
  */
 export class CreateContentCommand extends $Command<
@@ -63,6 +106,9 @@ export class CreateContentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,7 +135,7 @@ export class CreateContentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateContentRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CreateContentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -100,12 +146,18 @@ export class CreateContentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateContentCommand(input, context);
+    return se_CreateContentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateContentCommandOutput> {
-    return deserializeAws_restJson1CreateContentCommand(output, context);
+    return de_CreateContentCommand(output, context);
   }
 
   // Start section: command_body_extra

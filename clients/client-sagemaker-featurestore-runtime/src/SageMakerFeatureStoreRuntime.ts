@@ -16,6 +16,7 @@ import { PutRecordCommand, PutRecordCommandInput, PutRecordCommandOutput } from 
 import { SageMakerFeatureStoreRuntimeClient } from "./SageMakerFeatureStoreRuntimeClient";
 
 /**
+ * @public
  * <p>Contains all data plane API operations and data types for the Amazon SageMaker Feature
  *          Store. Use this API to put, delete, and retrieve (get) features from a feature
  *          store.</p>
@@ -46,6 +47,7 @@ import { SageMakerFeatureStoreRuntimeClient } from "./SageMakerFeatureStoreRunti
  */
 export class SageMakerFeatureStoreRuntime extends SageMakerFeatureStoreRuntimeClient {
   /**
+   * @public
    * <p>Retrieves a batch of <code>Records</code> from a <code>FeatureGroup</code>.</p>
    */
   public batchGetRecord(
@@ -78,8 +80,33 @@ export class SageMakerFeatureStoreRuntime extends SageMakerFeatureStoreRuntimeCl
   }
 
   /**
-   * <p>Deletes a <code>Record</code> from a <code>FeatureGroup</code>. When the <code>DeleteRecord</code> API is called a new record will be added to the <code>OfflineStore</code> and the <code>Record</code> will be removed from the <code>OnlineStore</code>. This
-   *          record will have a value of <code>True</code> in the <code>is_deleted</code> column.</p>
+   * @public
+   * <p>Deletes a <code>Record</code> from a <code>FeatureGroup</code> in the
+   *             <code>OnlineStore</code>. Feature Store supports both <code>SOFT_DELETE</code> and
+   *             <code>HARD_DELETE</code>. For <code>SOFT_DELETE</code> (default), feature columns are
+   *          set to <code>null</code> and the record is no longer retrievable by <code>GetRecord</code>
+   *          or <code>BatchGetRecord</code>. For<code> HARD_DELETE</code>, the complete
+   *             <code>Record</code> is removed from the <code>OnlineStore</code>. In both cases, Feature
+   *          Store appends the deleted record marker to the <code>OfflineStore</code> with feature
+   *          values set to <code>null</code>, <code>is_deleted</code> value set to <code>True</code>,
+   *          and <code>EventTime</code> set to the delete input <code>EventTime</code>.</p>
+   *          <p>Note that the <code>EventTime</code> specified in <code>DeleteRecord</code> should be
+   *          set later than the <code>EventTime</code> of the existing record in the
+   *             <code>OnlineStore</code> for that <code>RecordIdentifer</code>. If it is not, the
+   *          deletion does not occur:</p>
+   *          <ul>
+   *             <li>
+   *                <p>For <code>SOFT_DELETE</code>, the existing (undeleted) record remains in the
+   *                   <code>OnlineStore</code>, though the delete record marker is still written to the
+   *                   <code>OfflineStore</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HARD_DELETE</code> returns <code>EventTime</code>: <code>400
+   *                   ValidationException</code> to indicate that the delete operation failed. No delete
+   *                record marker is written to the <code>OfflineStore</code>.</p>
+   *             </li>
+   *          </ul>
    */
   public deleteRecord(
     args: DeleteRecordCommandInput,
@@ -108,6 +135,7 @@ export class SageMakerFeatureStoreRuntime extends SageMakerFeatureStoreRuntimeCl
   }
 
   /**
+   * @public
    * <p>Use for <code>OnlineStore</code> serving from a <code>FeatureStore</code>. Only the
    *          latest records stored in the <code>OnlineStore</code> can be retrieved. If no Record with
    *             <code>RecordIdentifierValue</code> is found, then an empty result is returned. </p>
@@ -136,6 +164,7 @@ export class SageMakerFeatureStoreRuntime extends SageMakerFeatureStoreRuntimeCl
   }
 
   /**
+   * @public
    * <p>Used for data ingestion into the <code>FeatureStore</code>. The <code>PutRecord</code>
    *          API writes to both the <code>OnlineStore</code> and <code>OfflineStore</code>. If the
    *          record is the latest record for the <code>recordIdentifier</code>, the record is written to

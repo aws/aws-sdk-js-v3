@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { AlexaForBusiness } from "../AlexaForBusiness";
 import { AlexaForBusinessClient } from "../AlexaForBusinessClient";
 import {
   ListBusinessReportSchedulesCommand,
@@ -11,7 +10,7 @@ import {
 import { AlexaForBusinessPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: AlexaForBusinessClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListBusinessReportSchedulesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: AlexaForBusiness,
-  input: ListBusinessReportSchedulesCommandInput,
-  ...args: any
-): Promise<ListBusinessReportSchedulesCommandOutput> => {
-  // @ts-ignore
-  return await client.listBusinessReportSchedules(input, ...args);
-};
 export async function* paginateListBusinessReportSchedules(
   config: AlexaForBusinessPaginationConfiguration,
   input: ListBusinessReportSchedulesCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListBusinessReportSchedules(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof AlexaForBusiness) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof AlexaForBusinessClient) {
+    if (config.client instanceof AlexaForBusinessClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected AlexaForBusiness | AlexaForBusinessClient");

@@ -90,6 +90,7 @@ import {
 import { LookoutVisionClient } from "./LookoutVisionClient";
 
 /**
+ * @public
  * <p>This is the Amazon Lookout for Vision API Reference. It provides descriptions of actions,
  *       data types, common parameters, and common errors.</p>
  *          <p>Amazon Lookout for Vision enables you to find visual defects in industrial products,
@@ -100,6 +101,7 @@ import { LookoutVisionClient } from "./LookoutVisionClient";
  */
 export class LookoutVision extends LookoutVisionClient {
   /**
+   * @public
    * <p>Creates a new dataset  in an Amazon Lookout for Vision project. <code>CreateDataset</code> can create a
    *       training or a test dataset from a valid dataset source (<code>DatasetSource</code>).</p>
    *          <p>If you want a single dataset project, specify <code>train</code> for the value of
@@ -141,6 +143,7 @@ export class LookoutVision extends LookoutVisionClient {
   }
 
   /**
+   * @public
    * <p>Creates a new version of a model within an an Amazon Lookout for Vision project.
    *       <code>CreateModel</code> is an asynchronous operation in which Amazon Lookout for Vision trains, tests,
    *        and evaluates a new version of a model. </p>
@@ -180,6 +183,7 @@ export class LookoutVision extends LookoutVisionClient {
   }
 
   /**
+   * @public
    * <p>Creates an empty Amazon Lookout for Vision project. After you create the project, add a dataset by calling
    *          <a>CreateDataset</a>.</p>
    *          <p>This operation requires permissions to perform the
@@ -215,6 +219,7 @@ export class LookoutVision extends LookoutVisionClient {
   }
 
   /**
+   * @public
    * <p>Deletes an existing Amazon Lookout for Vision <code>dataset</code>. </p>
    *          <p>If your the project has a single
    *       dataset, you must create a new dataset before you can create a model.</p>
@@ -261,6 +266,7 @@ export class LookoutVision extends LookoutVisionClient {
   }
 
   /**
+   * @public
    * <p>Deletes an Amazon Lookout for Vision model. You can't delete a running model. To stop a running model,
    *       use the <a>StopModel</a> operation.</p>
    *          <p>It might take a few seconds to delete a model. To determine if a model has been deleted, call
@@ -294,6 +300,7 @@ export class LookoutVision extends LookoutVisionClient {
   }
 
   /**
+   * @public
    * <p>Deletes an Amazon Lookout for Vision project.</p>
    *          <p>To delete a project, you must first delete each version of the model associated with
    *          the project. To delete a model use the <a>DeleteModel</a> operation.</p>
@@ -333,6 +340,7 @@ export class LookoutVision extends LookoutVisionClient {
   }
 
   /**
+   * @public
    * <p>Describe an Amazon Lookout for Vision dataset.</p>
    *          <p>This operation requires permissions to perform the
    *          <code>lookoutvision:DescribeDataset</code> operation.</p>
@@ -367,6 +375,7 @@ export class LookoutVision extends LookoutVisionClient {
   }
 
   /**
+   * @public
    * <p>Describes a version of an Amazon Lookout for Vision model.</p>
    *          <p>This operation requires permissions to perform the
    *          <code>lookoutvision:DescribeModel</code> operation.</p>
@@ -401,6 +410,7 @@ export class LookoutVision extends LookoutVisionClient {
   }
 
   /**
+   * @public
    * <p>Describes an Amazon Lookout for Vision model packaging job.
    * </p>
    *          <p>This operation requires permissions to perform the
@@ -439,6 +449,7 @@ export class LookoutVision extends LookoutVisionClient {
   }
 
   /**
+   * @public
    * <p>Describes an Amazon Lookout for Vision project.</p>
    *          <p>This operation requires permissions to perform the
    *          <code>lookoutvision:DescribeProject</code> operation.</p>
@@ -473,6 +484,7 @@ export class LookoutVision extends LookoutVisionClient {
   }
 
   /**
+   * @public
    * <p>Detects anomalies in an image that you supply. </p>
    *          <p>The response from <code>DetectAnomalies</code> includes a boolean prediction
    *          that the image contains one or more anomalies and a confidence value for the prediction.
@@ -519,6 +531,7 @@ export class LookoutVision extends LookoutVisionClient {
   }
 
   /**
+   * @public
    * <p>Lists the JSON Lines within a dataset. An Amazon Lookout for Vision JSON Line contains the anomaly
    *       information for a single image, including the image location and the assigned label.</p>
    *          <p>This operation requires permissions to perform the
@@ -554,6 +567,7 @@ export class LookoutVision extends LookoutVisionClient {
   }
 
   /**
+   * @public
    * <p>
    * Lists the model packaging jobs created for an Amazon Lookout for Vision project.
    * </p>
@@ -594,6 +608,7 @@ export class LookoutVision extends LookoutVisionClient {
   }
 
   /**
+   * @public
    * <p>Lists the versions of a model in an Amazon Lookout for Vision project.</p>
    *          <p>The <code>ListModels</code> operation is eventually consistent.
    *          Recent calls to <code>CreateModel</code> might
@@ -625,6 +640,7 @@ export class LookoutVision extends LookoutVisionClient {
   }
 
   /**
+   * @public
    * <p>Lists the Amazon Lookout for Vision projects in your AWS account that are in the AWS Region in
    *       which you call <code>ListProjects</code>.</p>
    *          <p>The <code>ListProjects</code> operation is eventually consistent.
@@ -660,6 +676,7 @@ export class LookoutVision extends LookoutVisionClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of tags attached to the specified Amazon Lookout for Vision model.</p>
    *          <p>This operation requires permissions to perform the
    *          <code>lookoutvision:ListTagsForResource</code> operation.</p>
@@ -694,6 +711,7 @@ export class LookoutVision extends LookoutVisionClient {
   }
 
   /**
+   * @public
    * <p>Starts the running of the version of an Amazon Lookout for Vision model. Starting a model takes a while
    *          to complete. To check the current state of the model, use <a>DescribeModel</a>.</p>
    *          <p>A model is ready to use when its status is <code>HOSTED</code>.</p>
@@ -730,6 +748,7 @@ export class LookoutVision extends LookoutVisionClient {
   }
 
   /**
+   * @public
    * <p>Starts an Amazon Lookout for Vision model packaging job. A model packaging job creates an AWS IoT Greengrass component for
    *    a Lookout for Vision model. You can use the component to deploy your model to an edge device managed by Greengrass.
    * </p>
@@ -812,6 +831,7 @@ export class LookoutVision extends LookoutVisionClient {
   }
 
   /**
+   * @public
    * <p>Stops the hosting of a running model. The operation might take a while to complete. To
    *          check the current status, call <a>DescribeModel</a>. </p>
    *          <p>After the model hosting stops, the <code>Status</code> of the model is <code>TRAINED</code>.</p>
@@ -842,6 +862,7 @@ export class LookoutVision extends LookoutVisionClient {
   }
 
   /**
+   * @public
    * <p>Adds one or more key-value tags to an Amazon Lookout for Vision model.
    *          For more information, see <i>Tagging a model</i> in the <i>Amazon Lookout for Vision Developer Guide</i>. </p>
    *          <p>This operation requires permissions to perform the
@@ -871,6 +892,7 @@ export class LookoutVision extends LookoutVisionClient {
   }
 
   /**
+   * @public
    * <p>Removes one or more tags from an Amazon Lookout for Vision model. For more information, see
    *          <i>Tagging a model</i> in the <i>Amazon Lookout for Vision Developer Guide</i>. </p>
    *          <p>This operation requires permissions to perform the
@@ -906,6 +928,7 @@ export class LookoutVision extends LookoutVisionClient {
   }
 
   /**
+   * @public
    * <p>Adds or updates one or more JSON Line entries in a dataset. A JSON Line includes information about an image
    *          used for training or testing an Amazon Lookout for Vision model.</p>
    *          <p>To update an existing JSON Line, use the <code>source-ref</code> field to identify the JSON Line. The JSON line

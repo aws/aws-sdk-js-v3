@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  BatchGetCollectionRequest,
-  BatchGetCollectionRequestFilterSensitiveLog,
-  BatchGetCollectionResponse,
-  BatchGetCollectionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchGetCollectionRequest, BatchGetCollectionResponse } from "../models/models_0";
 import {
   OpenSearchServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import {
-  deserializeAws_json1_0BatchGetCollectionCommand,
-  serializeAws_json1_0BatchGetCollectionCommand,
-} from "../protocols/Aws_json1_0";
+import { de_BatchGetCollectionCommand, se_BatchGetCollectionCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchGetCollectionCommand}.
+ */
 export interface BatchGetCollectionCommandInput extends BatchGetCollectionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link BatchGetCollectionCommand}.
+ */
 export interface BatchGetCollectionCommandOutput extends BatchGetCollectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns attributes for one or more collections, including the collection endpoint and
  *             the OpenSearch Dashboards endpoint. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html">Creating and
  *                 managing Amazon OpenSearch Serverless collections</a>.</p>
@@ -42,13 +45,31 @@ export interface BatchGetCollectionCommandOutput extends BatchGetCollectionRespo
  * import { OpenSearchServerlessClient, BatchGetCollectionCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, BatchGetCollectionCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
+ * const input = { // BatchGetCollectionRequest
+ *   ids: [ // CollectionIds
+ *     "STRING_VALUE",
+ *   ],
+ *   names: [ // CollectionNames
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchGetCollectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetCollectionCommandInput - {@link BatchGetCollectionCommandInput}
+ * @returns {@link BatchGetCollectionCommandOutput}
  * @see {@link BatchGetCollectionCommandInput} for command's `input` shape.
  * @see {@link BatchGetCollectionCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Thrown when an error internal to the service occurs while processing a request.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Thrown when the HTTP request contains invalid input or is missing required
+ *             input.</p>
+ *
  *
  */
 export class BatchGetCollectionCommand extends $Command<
@@ -68,6 +89,9 @@ export class BatchGetCollectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetCollectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +120,8 @@ export class BatchGetCollectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetCollectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetCollectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +131,18 @@ export class BatchGetCollectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetCollectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0BatchGetCollectionCommand(input, context);
+    return se_BatchGetCollectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetCollectionCommandOutput> {
-    return deserializeAws_json1_0BatchGetCollectionCommand(output, context);
+    return de_BatchGetCollectionCommand(output, context);
   }
 
   // Start section: command_body_extra

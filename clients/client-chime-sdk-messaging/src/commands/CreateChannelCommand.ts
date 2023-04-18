@@ -22,26 +22,31 @@ import {
   CreateChannelRequest,
   CreateChannelRequestFilterSensitiveLog,
   CreateChannelResponse,
-  CreateChannelResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateChannelCommand,
-  serializeAws_restJson1CreateChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateChannelCommand, se_CreateChannelCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateChannelCommand}.
+ */
 export interface CreateChannelCommandInput extends CreateChannelRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateChannelCommand}.
+ */
 export interface CreateChannelCommandOutput extends CreateChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a channel to which you can add users and send messages.</p>
- *
  *          <p>
  *             <b>Restriction</b>: You can't change a channel's
  *          privacy.</p>
- *
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
- *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+ *               ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
  *             the header.</p>
  *          </note>
  * @example
@@ -50,13 +55,72 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * import { ChimeSDKMessagingClient, CreateChannelCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, CreateChannelCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
+ * const input = { // CreateChannelRequest
+ *   AppInstanceArn: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Mode: "UNRESTRICTED" || "RESTRICTED",
+ *   Privacy: "PUBLIC" || "PRIVATE",
+ *   Metadata: "STRING_VALUE",
+ *   ClientRequestToken: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ChimeBearer: "STRING_VALUE", // required
+ *   ChannelId: "STRING_VALUE",
+ *   MemberArns: [ // ChannelMemberArns
+ *     "STRING_VALUE",
+ *   ],
+ *   ModeratorArns: [ // ChannelModeratorArns
+ *     "STRING_VALUE",
+ *   ],
+ *   ElasticChannelConfiguration: { // ElasticChannelConfiguration
+ *     MaximumSubChannels: Number("int"), // required
+ *     TargetMembershipsPerSubChannel: Number("int"), // required
+ *     MinimumMembershipPercentage: Number("int"), // required
+ *   },
+ *   ExpirationSettings: { // ExpirationSettings
+ *     ExpirationDays: Number("int"), // required
+ *     ExpirationCriterion: "CREATED_TIMESTAMP" || "LAST_MESSAGE_TIMESTAMP", // required
+ *   },
+ * };
  * const command = new CreateChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateChannelCommandInput - {@link CreateChannelCommandInput}
+ * @returns {@link CreateChannelCommandOutput}
  * @see {@link CreateChannelCommandInput} for command's `input` shape.
  * @see {@link CreateChannelCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be processed because of conflict in the current state of the
+ *          resource.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link ResourceLimitExceededException} (client fault)
+ *  <p>The request exceeds the resource limit.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The client exceeded its request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client is not currently authorized to make the request.</p>
+ *
  *
  */
 export class CreateChannelCommand extends $Command<
@@ -76,6 +140,9 @@ export class CreateChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,7 +170,7 @@ export class CreateChannelCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateChannelResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +180,18 @@ export class CreateChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateChannelCommand(input, context);
+    return se_CreateChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateChannelCommandOutput> {
-    return deserializeAws_restJson1CreateChannelCommand(output, context);
+    return de_CreateChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

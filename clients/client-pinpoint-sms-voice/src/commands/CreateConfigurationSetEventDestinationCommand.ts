@@ -15,23 +15,32 @@ import {
 
 import {
   CreateConfigurationSetEventDestinationRequest,
-  CreateConfigurationSetEventDestinationRequestFilterSensitiveLog,
   CreateConfigurationSetEventDestinationResponse,
-  CreateConfigurationSetEventDestinationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { PinpointSMSVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointSMSVoiceClient";
 import {
-  deserializeAws_restJson1CreateConfigurationSetEventDestinationCommand,
-  serializeAws_restJson1CreateConfigurationSetEventDestinationCommand,
+  de_CreateConfigurationSetEventDestinationCommand,
+  se_CreateConfigurationSetEventDestinationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateConfigurationSetEventDestinationCommand}.
+ */
 export interface CreateConfigurationSetEventDestinationCommandInput
   extends CreateConfigurationSetEventDestinationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateConfigurationSetEventDestinationCommand}.
+ */
 export interface CreateConfigurationSetEventDestinationCommandOutput
   extends CreateConfigurationSetEventDestinationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * Create a new event destination in a configuration set.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +48,55 @@ export interface CreateConfigurationSetEventDestinationCommandOutput
  * import { PinpointSMSVoiceClient, CreateConfigurationSetEventDestinationCommand } from "@aws-sdk/client-pinpoint-sms-voice"; // ES Modules import
  * // const { PinpointSMSVoiceClient, CreateConfigurationSetEventDestinationCommand } = require("@aws-sdk/client-pinpoint-sms-voice"); // CommonJS import
  * const client = new PinpointSMSVoiceClient(config);
+ * const input = { // CreateConfigurationSetEventDestinationRequest
+ *   ConfigurationSetName: "STRING_VALUE", // required
+ *   EventDestination: { // EventDestinationDefinition
+ *     CloudWatchLogsDestination: { // CloudWatchLogsDestination
+ *       IamRoleArn: "STRING_VALUE",
+ *       LogGroupArn: "STRING_VALUE",
+ *     },
+ *     Enabled: true || false,
+ *     KinesisFirehoseDestination: { // KinesisFirehoseDestination
+ *       DeliveryStreamArn: "STRING_VALUE",
+ *       IamRoleArn: "STRING_VALUE",
+ *     },
+ *     MatchingEventTypes: [ // EventTypes
+ *       "STRING_VALUE",
+ *     ],
+ *     SnsDestination: { // SnsDestination
+ *       TopicArn: "STRING_VALUE",
+ *     },
+ *   },
+ *   EventDestinationName: "STRING_VALUE",
+ * };
  * const command = new CreateConfigurationSetEventDestinationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateConfigurationSetEventDestinationCommandInput - {@link CreateConfigurationSetEventDestinationCommandInput}
+ * @returns {@link CreateConfigurationSetEventDestinationCommandOutput}
  * @see {@link CreateConfigurationSetEventDestinationCommandInput} for command's `input` shape.
  * @see {@link CreateConfigurationSetEventDestinationCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceClientResolvedConfig | config} for PinpointSMSVoiceClient's `config` shape.
+ *
+ * @throws {@link AlreadyExistsException} (client fault)
+ *  The resource specified in your request already exists.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  The input you provided is invalid.
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  There are too many instances of the specified resource type.
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  The resource you attempted to access doesn't exist.
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  You've issued too many requests to the resource. Wait a few minutes, and then try again.
+ *
  *
  */
 export class CreateConfigurationSetEventDestinationCommand extends $Command<
@@ -65,6 +116,9 @@ export class CreateConfigurationSetEventDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateConfigurationSetEventDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +147,8 @@ export class CreateConfigurationSetEventDestinationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateConfigurationSetEventDestinationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateConfigurationSetEventDestinationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,18 +158,24 @@ export class CreateConfigurationSetEventDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateConfigurationSetEventDestinationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateConfigurationSetEventDestinationCommand(input, context);
+    return se_CreateConfigurationSetEventDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateConfigurationSetEventDestinationCommandOutput> {
-    return deserializeAws_restJson1CreateConfigurationSetEventDestinationCommand(output, context);
+    return de_CreateConfigurationSetEventDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

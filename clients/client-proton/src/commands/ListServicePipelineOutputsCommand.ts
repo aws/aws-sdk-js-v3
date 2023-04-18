@@ -15,20 +15,27 @@ import {
 
 import {
   ListServicePipelineOutputsInput,
-  ListServicePipelineOutputsInputFilterSensitiveLog,
   ListServicePipelineOutputsOutput,
   ListServicePipelineOutputsOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0ListServicePipelineOutputsCommand,
-  serializeAws_json1_0ListServicePipelineOutputsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListServicePipelineOutputsCommand, se_ListServicePipelineOutputsCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListServicePipelineOutputsCommand}.
+ */
 export interface ListServicePipelineOutputsCommandInput extends ListServicePipelineOutputsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListServicePipelineOutputsCommand}.
+ */
 export interface ListServicePipelineOutputsCommandOutput extends ListServicePipelineOutputsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get a list of service pipeline Infrastructure as Code (IaC) outputs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +43,35 @@ export interface ListServicePipelineOutputsCommandOutput extends ListServicePipe
  * import { ProtonClient, ListServicePipelineOutputsCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, ListServicePipelineOutputsCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // ListServicePipelineOutputsInput
+ *   serviceName: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListServicePipelineOutputsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListServicePipelineOutputsCommandInput - {@link ListServicePipelineOutputsCommandInput}
+ * @returns {@link ListServicePipelineOutputsCommandOutput}
  * @see {@link ListServicePipelineOutputsCommandInput} for command's `input` shape.
  * @see {@link ListServicePipelineOutputsCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>There <i>isn't</i> sufficient access for performing this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request failed to register with the service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource <i>wasn't</i> found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+ *
  *
  */
 export class ListServicePipelineOutputsCommand extends $Command<
@@ -62,6 +91,9 @@ export class ListServicePipelineOutputsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListServicePipelineOutputsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +122,7 @@ export class ListServicePipelineOutputsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListServicePipelineOutputsInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListServicePipelineOutputsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -101,15 +133,21 @@ export class ListServicePipelineOutputsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListServicePipelineOutputsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListServicePipelineOutputsCommand(input, context);
+    return se_ListServicePipelineOutputsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListServicePipelineOutputsCommandOutput> {
-    return deserializeAws_json1_0ListServicePipelineOutputsCommand(output, context);
+    return de_ListServicePipelineOutputsCommand(output, context);
   }
 
   // Start section: command_body_extra

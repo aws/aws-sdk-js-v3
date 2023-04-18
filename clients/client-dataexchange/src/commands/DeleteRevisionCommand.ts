@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
-import { DeleteRevisionRequest, DeleteRevisionRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteRevisionCommand,
-  serializeAws_restJson1DeleteRevisionCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteRevisionRequest } from "../models/models_0";
+import { de_DeleteRevisionCommand, se_DeleteRevisionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteRevisionCommand}.
+ */
 export interface DeleteRevisionCommandInput extends DeleteRevisionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteRevisionCommand}.
+ */
 export interface DeleteRevisionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation deletes a revision.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +39,38 @@ export interface DeleteRevisionCommandOutput extends __MetadataBearer {}
  * import { DataExchangeClient, DeleteRevisionCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, DeleteRevisionCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
  * const client = new DataExchangeClient(config);
+ * const input = { // DeleteRevisionRequest
+ *   DataSetId: "STRING_VALUE", // required
+ *   RevisionId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRevisionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRevisionCommandInput - {@link DeleteRevisionCommandInput}
+ * @returns {@link DeleteRevisionCommandOutput}
  * @see {@link DeleteRevisionCommandInput} for command's `input` shape.
  * @see {@link DeleteRevisionCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to the resource is denied.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An exception occurred with the service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource couldn't be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The limit on the number of requests per second was exceeded.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request was invalid.</p>
+ *
  *
  */
 export class DeleteRevisionCommand extends $Command<
@@ -57,6 +90,9 @@ export class DeleteRevisionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRevisionCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +121,8 @@ export class DeleteRevisionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRevisionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +132,18 @@ export class DeleteRevisionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRevisionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteRevisionCommand(input, context);
+    return se_DeleteRevisionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRevisionCommandOutput> {
-    return deserializeAws_restJson1DeleteRevisionCommand(output, context);
+    return de_DeleteRevisionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import {
-  CreateEventSubscriptionMessage,
-  CreateEventSubscriptionMessageFilterSensitiveLog,
-  CreateEventSubscriptionResponse,
-  CreateEventSubscriptionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateEventSubscriptionCommand,
-  serializeAws_json1_1CreateEventSubscriptionCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateEventSubscriptionMessage, CreateEventSubscriptionResponse } from "../models/models_0";
+import { de_CreateEventSubscriptionCommand, se_CreateEventSubscriptionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateEventSubscriptionCommand}.
+ */
 export interface CreateEventSubscriptionCommandInput extends CreateEventSubscriptionMessage {}
+/**
+ * @public
+ *
+ * The output of {@link CreateEventSubscriptionCommand}.
+ */
 export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscriptionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Creates an DMS event notification subscription. </p>
  *          <p>You can specify the type of source (<code>SourceType</code>) you want to be notified of,
  *          provide a list of DMS source IDs (<code>SourceIds</code>) that triggers the events, and
@@ -55,13 +58,65 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  * import { DatabaseMigrationServiceClient, CreateEventSubscriptionCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, CreateEventSubscriptionCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // CreateEventSubscriptionMessage
+ *   SubscriptionName: "STRING_VALUE", // required
+ *   SnsTopicArn: "STRING_VALUE", // required
+ *   SourceType: "STRING_VALUE",
+ *   EventCategories: [ // EventCategoriesList
+ *     "STRING_VALUE",
+ *   ],
+ *   SourceIds: [ // SourceIdsList
+ *     "STRING_VALUE",
+ *   ],
+ *   Enabled: true || false,
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *       ResourceArn: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateEventSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEventSubscriptionCommandInput - {@link CreateEventSubscriptionCommandInput}
+ * @returns {@link CreateEventSubscriptionCommandOutput}
  * @see {@link CreateEventSubscriptionCommandInput} for command's `input` shape.
  * @see {@link CreateEventSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
+ *
+ * @throws {@link KMSAccessDeniedFault} (client fault)
+ *  <p>The ciphertext references a key that doesn't exist or that the DMS account doesn't have access to.</p>
+ *
+ * @throws {@link KMSDisabledFault} (client fault)
+ *  <p>The specified KMS key isn't enabled.</p>
+ *
+ * @throws {@link KMSInvalidStateFault} (client fault)
+ *  <p>The state of the specified KMS resource isn't valid for this request.</p>
+ *
+ * @throws {@link KMSNotFoundFault} (client fault)
+ *  <p>The specified KMS entity or resource can't be found.</p>
+ *
+ * @throws {@link KMSThrottlingFault} (client fault)
+ *  <p>This request triggered KMS request throttling.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsFault} (client fault)
+ *  <p>The resource you are attempting to create already exists.</p>
+ *
+ * @throws {@link ResourceNotFoundFault} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link ResourceQuotaExceededFault} (client fault)
+ *  <p>The quota for this resource quota has been exceeded.</p>
+ *
+ * @throws {@link SNSInvalidTopicFault} (client fault)
+ *  <p>The SNS topic is invalid.</p>
+ *
+ * @throws {@link SNSNoAuthorizationFault} (client fault)
+ *  <p>You are not authorized for the SNS subscription.</p>
+ *
  *
  */
 export class CreateEventSubscriptionCommand extends $Command<
@@ -81,6 +136,9 @@ export class CreateEventSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEventSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +167,8 @@ export class CreateEventSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateEventSubscriptionMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateEventSubscriptionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +178,18 @@ export class CreateEventSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEventSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateEventSubscriptionCommand(input, context);
+    return se_CreateEventSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEventSubscriptionCommandOutput> {
-    return deserializeAws_json1_1CreateEventSubscriptionCommand(output, context);
+    return de_CreateEventSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

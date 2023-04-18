@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  MonitorContactRequest,
-  MonitorContactRequestFilterSensitiveLog,
-  MonitorContactResponse,
-  MonitorContactResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1MonitorContactCommand,
-  serializeAws_restJson1MonitorContactCommand,
-} from "../protocols/Aws_restJson1";
+import { MonitorContactRequest, MonitorContactResponse } from "../models/models_1";
+import { de_MonitorContactCommand, se_MonitorContactCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link MonitorContactCommand}.
+ */
 export interface MonitorContactCommandInput extends MonitorContactRequest {}
+/**
+ * @public
+ *
+ * The output of {@link MonitorContactCommand}.
+ */
 export interface MonitorContactCommandOutput extends MonitorContactResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Initiates silent monitoring of a contact. The Contact Control Panel (CCP) of the user
  *    specified by <i>userId</i> will be set to silent monitoring mode on the
  *    contact.</p>
@@ -38,13 +41,46 @@ export interface MonitorContactCommandOutput extends MonitorContactResponse, __M
  * import { ConnectClient, MonitorContactCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, MonitorContactCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // MonitorContactRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   ContactId: "STRING_VALUE", // required
+ *   UserId: "STRING_VALUE", // required
+ *   AllowedMonitorCapabilities: [ // AllowedMonitorCapabilities
+ *     "SILENT_MONITOR" || "BARGE",
+ *   ],
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new MonitorContactCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param MonitorContactCommandInput - {@link MonitorContactCommandInput}
+ * @returns {@link MonitorContactCommandOutput}
  * @see {@link MonitorContactCommandInput} for command's `input` shape.
  * @see {@link MonitorContactCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * @throws {@link IdempotencyException} (client fault)
+ *  <p>An entity with the same name already exists.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The service quota has been exceeded.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
  *
  */
 export class MonitorContactCommand extends $Command<
@@ -64,6 +100,9 @@ export class MonitorContactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: MonitorContactCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +131,8 @@ export class MonitorContactCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MonitorContactRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: MonitorContactResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +142,18 @@ export class MonitorContactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: MonitorContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1MonitorContactCommand(input, context);
+    return se_MonitorContactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MonitorContactCommandOutput> {
-    return deserializeAws_restJson1MonitorContactCommand(output, context);
+    return de_MonitorContactCommand(output, context);
   }
 
   // Start section: command_body_extra

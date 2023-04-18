@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTDataPlaneClient";
-import {
-  ListNamedShadowsForThingRequest,
-  ListNamedShadowsForThingRequestFilterSensitiveLog,
-  ListNamedShadowsForThingResponse,
-  ListNamedShadowsForThingResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListNamedShadowsForThingCommand,
-  serializeAws_restJson1ListNamedShadowsForThingCommand,
-} from "../protocols/Aws_restJson1";
+import { ListNamedShadowsForThingRequest, ListNamedShadowsForThingResponse } from "../models/models_0";
+import { de_ListNamedShadowsForThingCommand, se_ListNamedShadowsForThingCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListNamedShadowsForThingCommand}.
+ */
 export interface ListNamedShadowsForThingCommandInput extends ListNamedShadowsForThingRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListNamedShadowsForThingCommand}.
+ */
 export interface ListNamedShadowsForThingCommandOutput extends ListNamedShadowsForThingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the shadows for the specified thing.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListNamedShadowsForThing</a> action.</p>
  * @example
@@ -37,13 +40,42 @@ export interface ListNamedShadowsForThingCommandOutput extends ListNamedShadowsF
  * import { IoTDataPlaneClient, ListNamedShadowsForThingCommand } from "@aws-sdk/client-iot-data-plane"; // ES Modules import
  * // const { IoTDataPlaneClient, ListNamedShadowsForThingCommand } = require("@aws-sdk/client-iot-data-plane"); // CommonJS import
  * const client = new IoTDataPlaneClient(config);
+ * const input = { // ListNamedShadowsForThingRequest
+ *   thingName: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   pageSize: Number("int"),
+ * };
  * const command = new ListNamedShadowsForThingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListNamedShadowsForThingCommandInput - {@link ListNamedShadowsForThingCommandInput}
+ * @returns {@link ListNamedShadowsForThingCommandOutput}
  * @see {@link ListNamedShadowsForThingCommandInput} for command's `input` shape.
  * @see {@link ListNamedShadowsForThingCommandOutput} for command's `response` shape.
  * @see {@link IoTDataPlaneClientResolvedConfig | config} for IoTDataPlaneClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link MethodNotAllowedException} (client fault)
+ *  <p>The specified combination of HTTP verb and URI is not supported.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You are not authorized to perform this operation.</p>
+ *
  *
  */
 export class ListNamedShadowsForThingCommand extends $Command<
@@ -63,6 +95,9 @@ export class ListNamedShadowsForThingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListNamedShadowsForThingCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +126,8 @@ export class ListNamedShadowsForThingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListNamedShadowsForThingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListNamedShadowsForThingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +137,18 @@ export class ListNamedShadowsForThingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListNamedShadowsForThingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListNamedShadowsForThingCommand(input, context);
+    return se_ListNamedShadowsForThingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNamedShadowsForThingCommandOutput> {
-    return deserializeAws_restJson1ListNamedShadowsForThingCommand(output, context);
+    return de_ListNamedShadowsForThingCommand(output, context);
   }
 
   // Start section: command_body_extra

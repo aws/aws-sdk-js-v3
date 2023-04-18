@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ListEnvironmentAccountConnectionsInput, ListEnvironmentAccountConnectionsOutput } from "../models/models_0";
 import {
-  ListEnvironmentAccountConnectionsInput,
-  ListEnvironmentAccountConnectionsInputFilterSensitiveLog,
-  ListEnvironmentAccountConnectionsOutput,
-  ListEnvironmentAccountConnectionsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListEnvironmentAccountConnectionsCommand,
-  serializeAws_json1_0ListEnvironmentAccountConnectionsCommand,
+  de_ListEnvironmentAccountConnectionsCommand,
+  se_ListEnvironmentAccountConnectionsCommand,
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListEnvironmentAccountConnectionsCommand}.
+ */
 export interface ListEnvironmentAccountConnectionsCommandInput extends ListEnvironmentAccountConnectionsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListEnvironmentAccountConnectionsCommand}.
+ */
 export interface ListEnvironmentAccountConnectionsCommandOutput
   extends ListEnvironmentAccountConnectionsOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>View a list of environment account connections.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment account
  *         connections</a> in the <i>Proton User guide</i>.</p>
@@ -40,13 +46,37 @@ export interface ListEnvironmentAccountConnectionsCommandOutput
  * import { ProtonClient, ListEnvironmentAccountConnectionsCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, ListEnvironmentAccountConnectionsCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // ListEnvironmentAccountConnectionsInput
+ *   requestedBy: "STRING_VALUE", // required
+ *   environmentName: "STRING_VALUE",
+ *   statuses: [ // EnvironmentAccountConnectionStatusList
+ *     "STRING_VALUE",
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListEnvironmentAccountConnectionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEnvironmentAccountConnectionsCommandInput - {@link ListEnvironmentAccountConnectionsCommandInput}
+ * @returns {@link ListEnvironmentAccountConnectionsCommandOutput}
  * @see {@link ListEnvironmentAccountConnectionsCommandInput} for command's `input` shape.
  * @see {@link ListEnvironmentAccountConnectionsCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>There <i>isn't</i> sufficient access for performing this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request failed to register with the service.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+ *
  *
  */
 export class ListEnvironmentAccountConnectionsCommand extends $Command<
@@ -66,6 +96,9 @@ export class ListEnvironmentAccountConnectionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEnvironmentAccountConnectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +127,8 @@ export class ListEnvironmentAccountConnectionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEnvironmentAccountConnectionsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEnvironmentAccountConnectionsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,18 +138,24 @@ export class ListEnvironmentAccountConnectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListEnvironmentAccountConnectionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListEnvironmentAccountConnectionsCommand(input, context);
+    return se_ListEnvironmentAccountConnectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListEnvironmentAccountConnectionsCommandOutput> {
-    return deserializeAws_json1_0ListEnvironmentAccountConnectionsCommand(output, context);
+    return de_ListEnvironmentAccountConnectionsCommand(output, context);
   }
 
   // Start section: command_body_extra

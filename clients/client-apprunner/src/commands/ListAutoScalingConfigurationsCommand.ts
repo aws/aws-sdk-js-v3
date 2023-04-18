@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
+import { ListAutoScalingConfigurationsRequest, ListAutoScalingConfigurationsResponse } from "../models/models_0";
 import {
-  ListAutoScalingConfigurationsRequest,
-  ListAutoScalingConfigurationsRequestFilterSensitiveLog,
-  ListAutoScalingConfigurationsResponse,
-  ListAutoScalingConfigurationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListAutoScalingConfigurationsCommand,
-  serializeAws_json1_0ListAutoScalingConfigurationsCommand,
+  de_ListAutoScalingConfigurationsCommand,
+  se_ListAutoScalingConfigurationsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link ListAutoScalingConfigurationsCommand}.
+ */
 export interface ListAutoScalingConfigurationsCommandInput extends ListAutoScalingConfigurationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListAutoScalingConfigurationsCommand}.
+ */
 export interface ListAutoScalingConfigurationsCommandOutput
   extends ListAutoScalingConfigurationsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of active App Runner automatic scaling configurations in your Amazon Web Services account. You can query the revisions for a specific
  *       configuration name or the revisions for all active configurations in your account. You can optionally query only the latest revision of each requested
  *       name.</p>
@@ -42,13 +48,28 @@ export interface ListAutoScalingConfigurationsCommandOutput
  * import { AppRunnerClient, ListAutoScalingConfigurationsCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, ListAutoScalingConfigurationsCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
+ * const input = { // ListAutoScalingConfigurationsRequest
+ *   AutoScalingConfigurationName: "STRING_VALUE",
+ *   LatestOnly: true || false,
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListAutoScalingConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAutoScalingConfigurationsCommandInput - {@link ListAutoScalingConfigurationsCommandInput}
+ * @returns {@link ListAutoScalingConfigurationsCommandOutput}
  * @see {@link ListAutoScalingConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListAutoScalingConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>An unexpected service exception occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+ *
  *
  */
 export class ListAutoScalingConfigurationsCommand extends $Command<
@@ -68,6 +89,9 @@ export class ListAutoScalingConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAutoScalingConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +120,8 @@ export class ListAutoScalingConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAutoScalingConfigurationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAutoScalingConfigurationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,15 +131,21 @@ export class ListAutoScalingConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAutoScalingConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListAutoScalingConfigurationsCommand(input, context);
+    return se_ListAutoScalingConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAutoScalingConfigurationsCommandOutput> {
-    return deserializeAws_json1_0ListAutoScalingConfigurationsCommand(output, context);
+    return de_ListAutoScalingConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,19 +14,32 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import { DeleteAlarmsInput, DeleteAlarmsInputFilterSensitiveLog } from "../models/models_0";
-import { deserializeAws_queryDeleteAlarmsCommand, serializeAws_queryDeleteAlarmsCommand } from "../protocols/Aws_query";
+import { DeleteAlarmsInput } from "../models/models_0";
+import { de_DeleteAlarmsCommand, se_DeleteAlarmsCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteAlarmsCommand}.
+ */
 export interface DeleteAlarmsCommandInput extends DeleteAlarmsInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteAlarmsCommand}.
+ */
 export interface DeleteAlarmsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified alarms. You can delete up to 100 alarms in one operation. However, this total can include no more
  * 			than one composite alarm. For example, you could delete 99 metric alarms and one composite alarms with one operation, but you can't
  * 			delete two composite alarms with one operation.</p>
  *          <p>
- * 			In the event of an error, no alarms are
- * 			deleted.</p>
+ * 			If you specify an incorrect alarm name or make any other error in the operation, no alarms are
+ * 			deleted. To confirm that alarms were deleted successfully, you can use
+ * 			the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html">DescribeAlarms</a> operation after using
+ * 		<code>DeleteAlarms</code>.</p>
  *          <note>
  *             <p>It is possible to create a loop or cycle of composite alarms, where composite alarm A depends on composite alarm B, and
  * 			composite alarm B also depends on composite alarm A. In this scenario, you can't delete any composite alarm that is part of the cycle
@@ -43,13 +56,24 @@ export interface DeleteAlarmsCommandOutput extends __MetadataBearer {}
  * import { CloudWatchClient, DeleteAlarmsCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, DeleteAlarmsCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
+ * const input = { // DeleteAlarmsInput
+ *   AlarmNames: [ // AlarmNames // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DeleteAlarmsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAlarmsCommandInput - {@link DeleteAlarmsCommandInput}
+ * @returns {@link DeleteAlarmsCommandOutput}
  * @see {@link DeleteAlarmsCommandInput} for command's `input` shape.
  * @see {@link DeleteAlarmsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>The named resource does not exist.</p>
+ *
  *
  */
 export class DeleteAlarmsCommand extends $Command<
@@ -69,6 +93,9 @@ export class DeleteAlarmsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAlarmsCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +122,8 @@ export class DeleteAlarmsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAlarmsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +133,18 @@ export class DeleteAlarmsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAlarmsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteAlarmsCommand(input, context);
+    return se_DeleteAlarmsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAlarmsCommandOutput> {
-    return deserializeAws_queryDeleteAlarmsCommand(output, context);
+    return de_DeleteAlarmsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { Billingconductor } from "../Billingconductor";
 import { BillingconductorClient } from "../BillingconductorClient";
 import {
   ListAccountAssociationsCommand,
@@ -11,7 +10,7 @@ import {
 import { BillingconductorPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: BillingconductorClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListAccountAssociationsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Billingconductor,
-  input: ListAccountAssociationsCommandInput,
-  ...args: any
-): Promise<ListAccountAssociationsCommandOutput> => {
-  // @ts-ignore
-  return await client.listAccountAssociations(input, ...args);
-};
 export async function* paginateListAccountAssociations(
   config: BillingconductorPaginationConfiguration,
   input: ListAccountAssociationsCommandInput,
@@ -43,9 +34,7 @@ export async function* paginateListAccountAssociations(
   let page: ListAccountAssociationsCommandOutput;
   while (hasNext) {
     input.NextToken = token;
-    if (config.client instanceof Billingconductor) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof BillingconductorClient) {
+    if (config.client instanceof BillingconductorClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Billingconductor | BillingconductorClient");

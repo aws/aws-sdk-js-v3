@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeAnalysisRequest,
-  DescribeAnalysisRequestFilterSensitiveLog,
-  DescribeAnalysisResponse,
-  DescribeAnalysisResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1DescribeAnalysisCommand,
-  serializeAws_restJson1DescribeAnalysisCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeAnalysisRequest, DescribeAnalysisResponse } from "../models/models_2";
+import { de_DescribeAnalysisCommand, se_DescribeAnalysisCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeAnalysisCommand}.
+ */
 export interface DescribeAnalysisCommandInput extends DescribeAnalysisRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeAnalysisCommand}.
+ */
 export interface DescribeAnalysisCommandOutput extends DescribeAnalysisResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a summary of the metadata for an analysis.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,44 @@ export interface DescribeAnalysisCommandOutput extends DescribeAnalysisResponse,
  * import { QuickSightClient, DescribeAnalysisCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeAnalysisCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // DescribeAnalysisRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   AnalysisId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeAnalysisCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAnalysisCommandInput - {@link DescribeAnalysisCommandInput}
+ * @returns {@link DescribeAnalysisCommandOutput}
  * @see {@link DescribeAnalysisCommandInput} for command's `input` shape.
  * @see {@link DescribeAnalysisCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have access to this item. The provided credentials couldn't be
+ * 			validated. You might not be authorized to carry out the request. Make sure that your
+ * 			account is authorized to use the Amazon QuickSight service, that your policies have the
+ * 			correct permissions, and that you are using the correct credentials.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal failure occurred.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One or more parameters has a value that isn't valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>One or more resources can't be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Access is throttled.</p>
+ *
+ * @throws {@link UnsupportedUserEditionException} (client fault)
+ *  <p>This error indicates that you are calling an operation on an Amazon QuickSight
+ * 			subscription where the edition doesn't include support for that operation. Amazon
+ * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
+ * 			capability is available in every edition.</p>
+ *
  *
  */
 export class DescribeAnalysisCommand extends $Command<
@@ -62,6 +96,9 @@ export class DescribeAnalysisCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAnalysisCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +127,8 @@ export class DescribeAnalysisCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAnalysisRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAnalysisResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +138,18 @@ export class DescribeAnalysisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAnalysisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAnalysisCommand(input, context);
+    return se_DescribeAnalysisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAnalysisCommandOutput> {
-    return deserializeAws_restJson1DescribeAnalysisCommand(output, context);
+    return de_DescribeAnalysisCommand(output, context);
   }
 
   // Start section: command_body_extra

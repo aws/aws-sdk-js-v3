@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ModifyDBClusterSnapshotAttributeMessage,
-  ModifyDBClusterSnapshotAttributeMessageFilterSensitiveLog,
-  ModifyDBClusterSnapshotAttributeResult,
-  ModifyDBClusterSnapshotAttributeResultFilterSensitiveLog,
-} from "../models/models_0";
+import { ModifyDBClusterSnapshotAttributeMessage, ModifyDBClusterSnapshotAttributeResult } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import {
-  deserializeAws_queryModifyDBClusterSnapshotAttributeCommand,
-  serializeAws_queryModifyDBClusterSnapshotAttributeCommand,
+  de_ModifyDBClusterSnapshotAttributeCommand,
+  se_ModifyDBClusterSnapshotAttributeCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link ModifyDBClusterSnapshotAttributeCommand}.
+ */
 export interface ModifyDBClusterSnapshotAttributeCommandInput extends ModifyDBClusterSnapshotAttributeMessage {}
+/**
+ * @public
+ *
+ * The output of {@link ModifyDBClusterSnapshotAttributeCommand}.
+ */
 export interface ModifyDBClusterSnapshotAttributeCommandOutput
   extends ModifyDBClusterSnapshotAttributeResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds an attribute and values to, or removes an attribute and values from, a manual DB
  *       cluster snapshot.</p>
  *          <p>To share a manual DB cluster snapshot with other Amazon accounts, specify
@@ -51,13 +57,37 @@ export interface ModifyDBClusterSnapshotAttributeCommandOutput
  * import { NeptuneClient, ModifyDBClusterSnapshotAttributeCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, ModifyDBClusterSnapshotAttributeCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = { // ModifyDBClusterSnapshotAttributeMessage
+ *   DBClusterSnapshotIdentifier: "STRING_VALUE", // required
+ *   AttributeName: "STRING_VALUE", // required
+ *   ValuesToAdd: [ // AttributeValueList
+ *     "STRING_VALUE",
+ *   ],
+ *   ValuesToRemove: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ModifyDBClusterSnapshotAttributeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyDBClusterSnapshotAttributeCommandInput - {@link ModifyDBClusterSnapshotAttributeCommandInput}
+ * @returns {@link ModifyDBClusterSnapshotAttributeCommandOutput}
  * @see {@link ModifyDBClusterSnapshotAttributeCommandInput} for command's `input` shape.
  * @see {@link ModifyDBClusterSnapshotAttributeCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
+ *
+ * @throws {@link DBClusterSnapshotNotFoundFault} (client fault)
+ *  <p>
+ *             <i>DBClusterSnapshotIdentifier</i> does not refer to an existing
+ *       DB cluster snapshot.</p>
+ *
+ * @throws {@link InvalidDBClusterSnapshotStateFault} (client fault)
+ *  <p>The supplied value is not a valid DB cluster snapshot state.</p>
+ *
+ * @throws {@link SharedSnapshotQuotaExceededFault} (client fault)
+ *  <p>You have exceeded the maximum number of accounts that you can share a manual DB snapshot with.</p>
+ *
  *
  */
 export class ModifyDBClusterSnapshotAttributeCommand extends $Command<
@@ -77,6 +107,9 @@ export class ModifyDBClusterSnapshotAttributeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyDBClusterSnapshotAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +138,8 @@ export class ModifyDBClusterSnapshotAttributeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyDBClusterSnapshotAttributeMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyDBClusterSnapshotAttributeResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,18 +149,24 @@ export class ModifyDBClusterSnapshotAttributeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifyDBClusterSnapshotAttributeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryModifyDBClusterSnapshotAttributeCommand(input, context);
+    return se_ModifyDBClusterSnapshotAttributeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyDBClusterSnapshotAttributeCommandOutput> {
-    return deserializeAws_queryModifyDBClusterSnapshotAttributeCommand(output, context);
+    return de_ModifyDBClusterSnapshotAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

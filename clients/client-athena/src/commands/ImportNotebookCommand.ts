@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import {
-  ImportNotebookInput,
-  ImportNotebookInputFilterSensitiveLog,
-  ImportNotebookOutput,
-  ImportNotebookOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ImportNotebookCommand,
-  serializeAws_json1_1ImportNotebookCommand,
-} from "../protocols/Aws_json1_1";
+import { ImportNotebookInput, ImportNotebookOutput } from "../models/models_0";
+import { de_ImportNotebookCommand, se_ImportNotebookCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ImportNotebookCommand}.
+ */
 export interface ImportNotebookCommandInput extends ImportNotebookInput {}
+/**
+ * @public
+ *
+ * The output of {@link ImportNotebookCommand}.
+ */
 export interface ImportNotebookCommandOutput extends ImportNotebookOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Imports a single <code>ipynb</code> file to a Spark enabled workgroup. The maximum
  *             file size that can be imported is 10 megabytes. If an <code>ipynb</code> file with the
  *             same name already exists in the workgroup, throws an error.</p>
@@ -38,13 +41,34 @@ export interface ImportNotebookCommandOutput extends ImportNotebookOutput, __Met
  * import { AthenaClient, ImportNotebookCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, ImportNotebookCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = { // ImportNotebookInput
+ *   WorkGroup: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Payload: "STRING_VALUE", // required
+ *   Type: "IPYNB", // required
+ *   ClientRequestToken: "STRING_VALUE",
+ * };
  * const command = new ImportNotebookCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportNotebookCommandInput - {@link ImportNotebookCommandInput}
+ * @returns {@link ImportNotebookCommandOutput}
  * @see {@link ImportNotebookCommandInput} for command's `input` shape.
  * @see {@link ImportNotebookCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Indicates a platform issue, which may be due to a transient condition or
+ *             outage.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>Indicates that something is wrong with the input to the request. For example, a
+ *             required parameter may be missing or out of range.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Indicates that the request was throttled.</p>
+ *
  *
  */
 export class ImportNotebookCommand extends $Command<
@@ -64,6 +88,9 @@ export class ImportNotebookCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportNotebookCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +119,8 @@ export class ImportNotebookCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ImportNotebookInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ImportNotebookOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +130,18 @@ export class ImportNotebookCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportNotebookCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ImportNotebookCommand(input, context);
+    return se_ImportNotebookCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportNotebookCommandOutput> {
-    return deserializeAws_json1_1ImportNotebookCommand(output, context);
+    return de_ImportNotebookCommand(output, context);
   }
 
   // Start section: command_body_extra

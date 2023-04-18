@@ -61,12 +61,14 @@ import {
 import { IoT1ClickDevicesServiceClient } from "./IoT1ClickDevicesServiceClient";
 
 /**
+ * @public
  * <p>Describes all of the AWS IoT 1-Click device-related API operations for the service.
  *  Also provides sample requests, responses, and errors for the supported web services
  *  protocols.</p>
  */
 export class IoT1ClickDevicesService extends IoT1ClickDevicesServiceClient {
   /**
+   * @public
    * <p>Adds device(s) to your account (i.e., claim one or more devices) if and only if you
    *  received a claim code with the device(s).</p>
    */
@@ -100,6 +102,7 @@ export class IoT1ClickDevicesService extends IoT1ClickDevicesServiceClient {
   }
 
   /**
+   * @public
    * <p>Given a device ID, returns a DescribeDeviceResponse object describing the
    *  details of the device.</p>
    */
@@ -133,6 +136,7 @@ export class IoT1ClickDevicesService extends IoT1ClickDevicesServiceClient {
   }
 
   /**
+   * @public
    * <p>Given a device ID, finalizes the claim request for the associated device.</p><note>
    *  <p>Claiming a device consists of initiating a claim, then publishing a device event,
    *  and finalizing the claim. For a device of type button, a device event can
@@ -169,6 +173,7 @@ export class IoT1ClickDevicesService extends IoT1ClickDevicesServiceClient {
   }
 
   /**
+   * @public
    * <p>Given a device ID, returns the invokable methods associated with the device.</p>
    */
   public getDeviceMethods(
@@ -201,6 +206,7 @@ export class IoT1ClickDevicesService extends IoT1ClickDevicesServiceClient {
   }
 
   /**
+   * @public
    * <p>Given a device ID, initiates a claim request for the associated device.</p><note>
    *  <p>Claiming a device consists of initiating a claim, then publishing a device event,
    *  and finalizing the claim. For a device of type button, a device event can
@@ -237,6 +243,7 @@ export class IoT1ClickDevicesService extends IoT1ClickDevicesServiceClient {
   }
 
   /**
+   * @public
    * <p>Given a device ID, issues a request to invoke a named device method (with possible
    *  parameters). See the "Example POST" code snippet below.</p>
    */
@@ -270,6 +277,7 @@ export class IoT1ClickDevicesService extends IoT1ClickDevicesServiceClient {
   }
 
   /**
+   * @public
    * <p>Using a device ID, returns a DeviceEventsResponse object containing an
    *  array of events for the device.</p>
    */
@@ -303,6 +311,7 @@ export class IoT1ClickDevicesService extends IoT1ClickDevicesServiceClient {
   }
 
   /**
+   * @public
    * <p>Lists the 1-Click compatible devices associated with your AWS account.</p>
    */
   public listDevices(args: ListDevicesCommandInput, options?: __HttpHandlerOptions): Promise<ListDevicesCommandOutput>;
@@ -329,6 +338,7 @@ export class IoT1ClickDevicesService extends IoT1ClickDevicesServiceClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags associated with the specified resource ARN.</p>
    */
   public listTagsForResource(
@@ -361,6 +371,7 @@ export class IoT1ClickDevicesService extends IoT1ClickDevicesServiceClient {
   }
 
   /**
+   * @public
    * <p>Adds or updates the tags associated with the resource ARN. See <a href="https://docs.aws.amazon.com/iot-1-click/latest/developerguide/1click-appendix.html#1click-limits">AWS IoT 1-Click Service Limits</a> for the maximum number of tags allowed per
    *  resource.</p>
    */
@@ -388,6 +399,7 @@ export class IoT1ClickDevicesService extends IoT1ClickDevicesServiceClient {
   }
 
   /**
+   * @public
    * <p>Disassociates a device from your AWS account using its device ID.</p>
    */
   public unclaimDevice(
@@ -420,6 +432,7 @@ export class IoT1ClickDevicesService extends IoT1ClickDevicesServiceClient {
   }
 
   /**
+   * @public
    * <p>Using tag keys, deletes the tags (key/value pairs) associated with the specified
    *  resource ARN.</p>
    */
@@ -453,6 +466,7 @@ export class IoT1ClickDevicesService extends IoT1ClickDevicesServiceClient {
   }
 
   /**
+   * @public
    * <p>Using a Boolean value (true or false), this operation
    *  enables or disables the device given a device ID.</p>
    */

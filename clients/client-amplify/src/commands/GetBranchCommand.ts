@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import {
-  GetBranchRequest,
-  GetBranchRequestFilterSensitiveLog,
-  GetBranchResult,
-  GetBranchResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetBranchCommand,
-  serializeAws_restJson1GetBranchCommand,
-} from "../protocols/Aws_restJson1";
+import { GetBranchRequest, GetBranchResult, GetBranchResultFilterSensitiveLog } from "../models/models_0";
+import { de_GetBranchCommand, se_GetBranchCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetBranchCommand}.
+ */
 export interface GetBranchCommandInput extends GetBranchRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetBranchCommand}.
+ */
 export interface GetBranchCommandOutput extends GetBranchResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a branch for an Amplify app. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,32 @@ export interface GetBranchCommandOutput extends GetBranchResult, __MetadataBeare
  * import { AmplifyClient, GetBranchCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, GetBranchCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
+ * const input = { // GetBranchRequest
+ *   appId: "STRING_VALUE", // required
+ *   branchName: "STRING_VALUE", // required
+ * };
  * const command = new GetBranchCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBranchCommandInput - {@link GetBranchCommandInput}
+ * @returns {@link GetBranchCommandOutput}
  * @see {@link GetBranchCommandInput} for command's `input` shape.
  * @see {@link GetBranchCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p> A request contains unexpected data. </p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p> The service failed to perform an operation due to an internal issue. </p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p> An entity was not found during an operation. </p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p> An operation failed due to a lack of access. </p>
+ *
  *
  */
 export class GetBranchCommand extends $Command<
@@ -62,6 +84,9 @@ export class GetBranchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBranchCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,7 +113,7 @@ export class GetBranchCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBranchRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetBranchResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -99,12 +124,18 @@ export class GetBranchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBranchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetBranchCommand(input, context);
+    return se_GetBranchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBranchCommandOutput> {
-    return deserializeAws_restJson1GetBranchCommand(output, context);
+    return de_GetBranchCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
-import {
-  DescribeClusterV2Request,
-  DescribeClusterV2RequestFilterSensitiveLog,
-  DescribeClusterV2Response,
-  DescribeClusterV2ResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeClusterV2Command,
-  serializeAws_restJson1DescribeClusterV2Command,
-} from "../protocols/Aws_restJson1";
+import { DescribeClusterV2Request, DescribeClusterV2Response } from "../models/models_0";
+import { de_DescribeClusterV2Command, se_DescribeClusterV2Command } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeClusterV2Command}.
+ */
 export interface DescribeClusterV2CommandInput extends DescribeClusterV2Request {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeClusterV2Command}.
+ */
 export interface DescribeClusterV2CommandOutput extends DescribeClusterV2Response, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a description of the MSK cluster whose Amazon Resource Name (ARN) is specified in the request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,34 @@ export interface DescribeClusterV2CommandOutput extends DescribeClusterV2Respons
  * import { KafkaClient, DescribeClusterV2Command } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, DescribeClusterV2Command } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
+ * const input = { // DescribeClusterV2Request
+ *   ClusterArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeClusterV2Command(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeClusterV2CommandInput - {@link DescribeClusterV2CommandInput}
+ * @returns {@link DescribeClusterV2CommandOutput}
  * @see {@link DescribeClusterV2CommandInput} for command's `input` shape.
  * @see {@link DescribeClusterV2CommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
  *
  */
 export class DescribeClusterV2Command extends $Command<
@@ -62,6 +86,9 @@ export class DescribeClusterV2Command extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeClusterV2CommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +117,8 @@ export class DescribeClusterV2Command extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeClusterV2RequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeClusterV2ResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +128,18 @@ export class DescribeClusterV2Command extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeClusterV2CommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeClusterV2Command(input, context);
+    return se_DescribeClusterV2Command(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeClusterV2CommandOutput> {
-    return deserializeAws_restJson1DescribeClusterV2Command(output, context);
+    return de_DescribeClusterV2Command(output, context);
   }
 
   // Start section: command_body_extra

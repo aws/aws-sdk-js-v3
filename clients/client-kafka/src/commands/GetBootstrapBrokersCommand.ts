@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
-import {
-  GetBootstrapBrokersRequest,
-  GetBootstrapBrokersRequestFilterSensitiveLog,
-  GetBootstrapBrokersResponse,
-  GetBootstrapBrokersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetBootstrapBrokersCommand,
-  serializeAws_restJson1GetBootstrapBrokersCommand,
-} from "../protocols/Aws_restJson1";
+import { GetBootstrapBrokersRequest, GetBootstrapBrokersResponse } from "../models/models_0";
+import { de_GetBootstrapBrokersCommand, se_GetBootstrapBrokersCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetBootstrapBrokersCommand}.
+ */
 export interface GetBootstrapBrokersCommandInput extends GetBootstrapBrokersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetBootstrapBrokersCommand}.
+ */
 export interface GetBootstrapBrokersCommandOutput extends GetBootstrapBrokersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>A list of brokers that a client application can use to bootstrap.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,34 @@ export interface GetBootstrapBrokersCommandOutput extends GetBootstrapBrokersRes
  * import { KafkaClient, GetBootstrapBrokersCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, GetBootstrapBrokersCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
+ * const input = { // GetBootstrapBrokersRequest
+ *   ClusterArn: "STRING_VALUE", // required
+ * };
  * const command = new GetBootstrapBrokersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBootstrapBrokersCommandInput - {@link GetBootstrapBrokersCommandInput}
+ * @returns {@link GetBootstrapBrokersCommandOutput}
  * @see {@link GetBootstrapBrokersCommandInput} for command's `input` shape.
  * @see {@link GetBootstrapBrokersCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
  *
  */
 export class GetBootstrapBrokersCommand extends $Command<
@@ -62,6 +86,9 @@ export class GetBootstrapBrokersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBootstrapBrokersCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +117,8 @@ export class GetBootstrapBrokersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBootstrapBrokersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBootstrapBrokersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +128,18 @@ export class GetBootstrapBrokersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBootstrapBrokersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetBootstrapBrokersCommand(input, context);
+    return se_GetBootstrapBrokersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBootstrapBrokersCommandOutput> {
-    return deserializeAws_restJson1GetBootstrapBrokersCommand(output, context);
+    return de_GetBootstrapBrokersCommand(output, context);
   }
 
   // Start section: command_body_extra

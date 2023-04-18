@@ -3,6 +3,9 @@ import { normalizeProvider } from "@aws-sdk/util-middleware";
 
 import { getEndpointFromRegion } from "./utils/getEndpointFromRegion";
 
+/**
+ * @internal
+ */
 export interface EndpointsInputConfig {
   /**
    * The fully qualified endpoint of the webservice. This is only required when using
@@ -28,6 +31,9 @@ interface PreviouslyResolved {
   useFipsEndpoint: Provider<boolean>;
 }
 
+/**
+ * @internal
+ */
 export interface EndpointsResolvedConfig extends Required<EndpointsInputConfig> {
   /**
    * Resolved value for input {@link EndpointsInputConfig.endpoint}
@@ -47,6 +53,8 @@ export interface EndpointsResolvedConfig extends Required<EndpointsInputConfig> 
 }
 
 /**
+ * @internal
+ * 
  * @deprecated endpoints rulesets use @aws-sdk/middleware-endpoint resolveEndpointConfig.
  * All generated clients should migrate to Endpoints 2.0 endpointRuleSet traits.
  */

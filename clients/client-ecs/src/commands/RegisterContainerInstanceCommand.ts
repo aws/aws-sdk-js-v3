@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  RegisterContainerInstanceRequest,
-  RegisterContainerInstanceRequestFilterSensitiveLog,
-  RegisterContainerInstanceResponse,
-  RegisterContainerInstanceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RegisterContainerInstanceCommand,
-  serializeAws_json1_1RegisterContainerInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { RegisterContainerInstanceRequest, RegisterContainerInstanceResponse } from "../models/models_0";
+import { de_RegisterContainerInstanceCommand, se_RegisterContainerInstanceCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link RegisterContainerInstanceCommand}.
+ */
 export interface RegisterContainerInstanceCommandInput extends RegisterContainerInstanceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RegisterContainerInstanceCommand}.
+ */
 export interface RegisterContainerInstanceCommandOutput extends RegisterContainerInstanceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This action is only used by the Amazon ECS agent, and it is not intended for use outside of the agent.</p>
  *          </note>
@@ -40,13 +43,71 @@ export interface RegisterContainerInstanceCommandOutput extends RegisterContaine
  * import { ECSClient, RegisterContainerInstanceCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, RegisterContainerInstanceCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // RegisterContainerInstanceRequest
+ *   cluster: "STRING_VALUE",
+ *   instanceIdentityDocument: "STRING_VALUE",
+ *   instanceIdentityDocumentSignature: "STRING_VALUE",
+ *   totalResources: [ // Resources
+ *     { // Resource
+ *       name: "STRING_VALUE",
+ *       type: "STRING_VALUE",
+ *       doubleValue: Number("double"),
+ *       longValue: Number("long"),
+ *       integerValue: Number("int"),
+ *       stringSetValue: [ // StringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   versionInfo: { // VersionInfo
+ *     agentVersion: "STRING_VALUE",
+ *     agentHash: "STRING_VALUE",
+ *     dockerVersion: "STRING_VALUE",
+ *   },
+ *   containerInstanceArn: "STRING_VALUE",
+ *   attributes: [ // Attributes
+ *     { // Attribute
+ *       name: "STRING_VALUE", // required
+ *       value: "STRING_VALUE",
+ *       targetType: "container-instance",
+ *       targetId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   platformDevices: [ // PlatformDevices
+ *     { // PlatformDevice
+ *       id: "STRING_VALUE", // required
+ *       type: "GPU", // required
+ *     },
+ *   ],
+ *   tags: [ // Tags
+ *     { // Tag
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new RegisterContainerInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterContainerInstanceCommandInput - {@link RegisterContainerInstanceCommandInput}
+ * @returns {@link RegisterContainerInstanceCommandOutput}
  * @see {@link RegisterContainerInstanceCommandInput} for command's `input` shape.
  * @see {@link RegisterContainerInstanceCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action. This client action might be using
+ * 			an action or resource on behalf of a user that doesn't have permissions to use the
+ * 			action or resource,. Or, it might be specifying an identifier that isn't valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter isn't valid. Review the available parameters for the API
+ * 			request.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server issue.</p>
+ *
  *
  */
 export class RegisterContainerInstanceCommand extends $Command<
@@ -66,6 +127,9 @@ export class RegisterContainerInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterContainerInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +158,8 @@ export class RegisterContainerInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterContainerInstanceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterContainerInstanceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,15 +169,21 @@ export class RegisterContainerInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterContainerInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterContainerInstanceCommand(input, context);
+    return se_RegisterContainerInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RegisterContainerInstanceCommandOutput> {
-    return deserializeAws_json1_1RegisterContainerInstanceCommand(output, context);
+    return de_RegisterContainerInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

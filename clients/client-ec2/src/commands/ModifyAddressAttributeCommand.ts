@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ModifyAddressAttributeRequest,
-  ModifyAddressAttributeRequestFilterSensitiveLog,
-  ModifyAddressAttributeResult,
-  ModifyAddressAttributeResultFilterSensitiveLog,
-} from "../models/models_5";
-import {
-  deserializeAws_ec2ModifyAddressAttributeCommand,
-  serializeAws_ec2ModifyAddressAttributeCommand,
-} from "../protocols/Aws_ec2";
+import { ModifyAddressAttributeRequest, ModifyAddressAttributeResult } from "../models/models_6";
+import { de_ModifyAddressAttributeCommand, se_ModifyAddressAttributeCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link ModifyAddressAttributeCommand}.
+ */
 export interface ModifyAddressAttributeCommandInput extends ModifyAddressAttributeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ModifyAddressAttributeCommand}.
+ */
 export interface ModifyAddressAttributeCommandOutput extends ModifyAddressAttributeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies an attribute of the specified Elastic IP address. For requirements, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS">Using reverse DNS for email applications</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,21 @@ export interface ModifyAddressAttributeCommandOutput extends ModifyAddressAttrib
  * import { EC2Client, ModifyAddressAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyAddressAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ModifyAddressAttributeRequest
+ *   AllocationId: "STRING_VALUE", // required
+ *   DomainName: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new ModifyAddressAttributeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyAddressAttributeCommandInput - {@link ModifyAddressAttributeCommandInput}
+ * @returns {@link ModifyAddressAttributeCommandOutput}
  * @see {@link ModifyAddressAttributeCommandInput} for command's `input` shape.
  * @see {@link ModifyAddressAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class ModifyAddressAttributeCommand extends $Command<
@@ -62,6 +73,9 @@ export class ModifyAddressAttributeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyAddressAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +104,8 @@ export class ModifyAddressAttributeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyAddressAttributeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyAddressAttributeResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +115,18 @@ export class ModifyAddressAttributeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyAddressAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyAddressAttributeCommand(input, context);
+    return se_ModifyAddressAttributeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyAddressAttributeCommandOutput> {
-    return deserializeAws_ec2ModifyAddressAttributeCommand(output, context);
+    return de_ModifyAddressAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,23 +14,26 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import {
-  DescribeRouterConfigurationRequest,
-  DescribeRouterConfigurationRequestFilterSensitiveLog,
-  DescribeRouterConfigurationResponse,
-  DescribeRouterConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeRouterConfigurationCommand,
-  serializeAws_json1_1DescribeRouterConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeRouterConfigurationRequest, DescribeRouterConfigurationResponse } from "../models/models_0";
+import { de_DescribeRouterConfigurationCommand, se_DescribeRouterConfigurationCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeRouterConfigurationCommand}.
+ */
 export interface DescribeRouterConfigurationCommandInput extends DescribeRouterConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeRouterConfigurationCommand}.
+ */
 export interface DescribeRouterConfigurationCommandOutput
   extends DescribeRouterConfigurationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Details about the router.
  *     </p>
@@ -40,13 +43,26 @@ export interface DescribeRouterConfigurationCommandOutput
  * import { DirectConnectClient, DescribeRouterConfigurationCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DescribeRouterConfigurationCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // DescribeRouterConfigurationRequest
+ *   virtualInterfaceId: "STRING_VALUE", // required
+ *   routerTypeIdentifier: "STRING_VALUE",
+ * };
  * const command = new DescribeRouterConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRouterConfigurationCommandInput - {@link DescribeRouterConfigurationCommandInput}
+ * @returns {@link DescribeRouterConfigurationCommandOutput}
  * @see {@link DescribeRouterConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeRouterConfigurationCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
+ *
+ * @throws {@link DirectConnectClientException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link DirectConnectServerException} (server fault)
+ *  <p>A server-side error occurred.</p>
+ *
  *
  */
 export class DescribeRouterConfigurationCommand extends $Command<
@@ -66,6 +82,9 @@ export class DescribeRouterConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRouterConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +113,8 @@ export class DescribeRouterConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRouterConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRouterConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,15 +124,21 @@ export class DescribeRouterConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRouterConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeRouterConfigurationCommand(input, context);
+    return se_DescribeRouterConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeRouterConfigurationCommandOutput> {
-    return deserializeAws_json1_1DescribeRouterConfigurationCommand(output, context);
+    return de_DescribeRouterConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

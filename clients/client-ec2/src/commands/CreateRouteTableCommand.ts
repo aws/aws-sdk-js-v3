@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  CreateRouteTableRequest,
-  CreateRouteTableRequestFilterSensitiveLog,
-  CreateRouteTableResult,
-  CreateRouteTableResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_ec2CreateRouteTableCommand,
-  serializeAws_ec2CreateRouteTableCommand,
-} from "../protocols/Aws_ec2";
+import { CreateRouteTableRequest, CreateRouteTableResult } from "../models/models_2";
+import { de_CreateRouteTableCommand, se_CreateRouteTableCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateRouteTableCommand}.
+ */
 export interface CreateRouteTableCommandInput extends CreateRouteTableRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateRouteTableCommand}.
+ */
 export interface CreateRouteTableCommandOutput extends CreateRouteTableResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a route table for the specified VPC. After you create a route table, you can add routes and associate the table with a subnet.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route tables</a> in the
  * 				<i>Amazon Virtual Private Cloud User Guide</i>.</p>
@@ -38,13 +41,60 @@ export interface CreateRouteTableCommandOutput extends CreateRouteTableResult, _
  * import { EC2Client, CreateRouteTableCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateRouteTableCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // CreateRouteTableRequest
+ *   DryRun: true || false,
+ *   VpcId: "STRING_VALUE", // required
+ *   TagSpecifications: [ // TagSpecificationList
+ *     { // TagSpecification
+ *       ResourceType: "capacity-reservation" || "client-vpn-endpoint" || "customer-gateway" || "carrier-gateway" || "coip-pool" || "dedicated-host" || "dhcp-options" || "egress-only-internet-gateway" || "elastic-ip" || "elastic-gpu" || "export-image-task" || "export-instance-task" || "fleet" || "fpga-image" || "host-reservation" || "image" || "import-image-task" || "import-snapshot-task" || "instance" || "instance-event-window" || "internet-gateway" || "ipam" || "ipam-pool" || "ipam-scope" || "ipv4pool-ec2" || "ipv6pool-ec2" || "key-pair" || "launch-template" || "local-gateway" || "local-gateway-route-table" || "local-gateway-virtual-interface" || "local-gateway-virtual-interface-group" || "local-gateway-route-table-vpc-association" || "local-gateway-route-table-virtual-interface-group-association" || "natgateway" || "network-acl" || "network-interface" || "network-insights-analysis" || "network-insights-path" || "network-insights-access-scope" || "network-insights-access-scope-analysis" || "placement-group" || "prefix-list" || "replace-root-volume-task" || "reserved-instances" || "route-table" || "security-group" || "security-group-rule" || "snapshot" || "spot-fleet-request" || "spot-instances-request" || "subnet" || "subnet-cidr-reservation" || "traffic-mirror-filter" || "traffic-mirror-session" || "traffic-mirror-target" || "transit-gateway" || "transit-gateway-attachment" || "transit-gateway-connect-peer" || "transit-gateway-multicast-domain" || "transit-gateway-policy-table" || "transit-gateway-route-table" || "transit-gateway-route-table-announcement" || "volume" || "vpc" || "vpc-endpoint" || "vpc-endpoint-connection" || "vpc-endpoint-service" || "vpc-endpoint-service-permission" || "vpc-peering-connection" || "vpn-connection" || "vpn-gateway" || "vpc-flow-log" || "capacity-reservation-fleet" || "traffic-mirror-filter-rule" || "vpc-endpoint-connection-device-type" || "verified-access-instance" || "verified-access-group" || "verified-access-endpoint" || "verified-access-policy" || "verified-access-trust-provider" || "vpn-connection-device-type" || "vpc-block-public-access-exclusion" || "ipam-resource-discovery" || "ipam-resource-discovery-association",
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new CreateRouteTableCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRouteTableCommandInput - {@link CreateRouteTableCommandInput}
+ * @returns {@link CreateRouteTableCommandOutput}
  * @see {@link CreateRouteTableCommandInput} for command's `input` shape.
  * @see {@link CreateRouteTableCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ *
+ * @example To create a route table
+ * ```javascript
+ * // This example creates a route table for the specified VPC.
+ * const input = {
+ *   "VpcId": "vpc-a01106c2"
+ * };
+ * const command = new CreateRouteTableCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "RouteTable": {
+ *     "Associations": [],
+ *     "PropagatingVgws": [],
+ *     "RouteTableId": "rtb-22574640",
+ *     "Routes": [
+ *       {
+ *         "DestinationCidrBlock": "10.0.0.0/16",
+ *         "GatewayId": "local",
+ *         "State": "active"
+ *       }
+ *     ],
+ *     "Tags": [],
+ *     "VpcId": "vpc-a01106c2"
+ *   }
+ * }
+ * *\/
+ * // example id: ec2-create-route-table-1
+ * ```
  *
  */
 export class CreateRouteTableCommand extends $Command<
@@ -64,6 +114,9 @@ export class CreateRouteTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRouteTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +145,8 @@ export class CreateRouteTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRouteTableRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRouteTableResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +156,18 @@ export class CreateRouteTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRouteTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateRouteTableCommand(input, context);
+    return se_CreateRouteTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRouteTableCommandOutput> {
-    return deserializeAws_ec2CreateRouteTableCommand(output, context);
+    return de_CreateRouteTableCommand(output, context);
   }
 
   // Start section: command_body_extra

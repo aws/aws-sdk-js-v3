@@ -6,12 +6,11 @@ import {
   ListApplicationVersionsCommandInput,
   ListApplicationVersionsCommandOutput,
 } from "../commands/ListApplicationVersionsCommand";
-import { ServerlessApplicationRepository } from "../ServerlessApplicationRepository";
 import { ServerlessApplicationRepositoryClient } from "../ServerlessApplicationRepositoryClient";
 import { ServerlessApplicationRepositoryPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ServerlessApplicationRepositoryClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListApplicationVersionsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ServerlessApplicationRepository,
-  input: ListApplicationVersionsCommandInput,
-  ...args: any
-): Promise<ListApplicationVersionsCommandOutput> => {
-  // @ts-ignore
-  return await client.listApplicationVersions(input, ...args);
-};
 export async function* paginateListApplicationVersions(
   config: ServerlessApplicationRepositoryPaginationConfiguration,
   input: ListApplicationVersionsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListApplicationVersions(
   while (hasNext) {
     input.NextToken = token;
     input["MaxItems"] = config.pageSize;
-    if (config.client instanceof ServerlessApplicationRepository) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ServerlessApplicationRepositoryClient) {
+    if (config.client instanceof ServerlessApplicationRepositoryClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error(

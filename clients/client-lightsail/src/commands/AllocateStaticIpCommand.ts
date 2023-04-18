@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  AllocateStaticIpRequest,
-  AllocateStaticIpRequestFilterSensitiveLog,
-  AllocateStaticIpResult,
-  AllocateStaticIpResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AllocateStaticIpCommand,
-  serializeAws_json1_1AllocateStaticIpCommand,
-} from "../protocols/Aws_json1_1";
+import { AllocateStaticIpRequest, AllocateStaticIpResult } from "../models/models_0";
+import { de_AllocateStaticIpCommand, se_AllocateStaticIpCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link AllocateStaticIpCommand}.
+ */
 export interface AllocateStaticIpCommandInput extends AllocateStaticIpRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AllocateStaticIpCommand}.
+ */
 export interface AllocateStaticIpCommandOutput extends AllocateStaticIpResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allocates a static IP address.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,49 @@ export interface AllocateStaticIpCommandOutput extends AllocateStaticIpResult, _
  * import { LightsailClient, AllocateStaticIpCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, AllocateStaticIpCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // AllocateStaticIpRequest
+ *   staticIpName: "STRING_VALUE", // required
+ * };
  * const command = new AllocateStaticIpCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AllocateStaticIpCommandInput - {@link AllocateStaticIpCommandInput}
+ * @returns {@link AllocateStaticIpCommandOutput}
  * @see {@link AllocateStaticIpCommandInput} for command's `input` shape.
  * @see {@link AllocateStaticIpCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
+ *       credentials to access a resource.</p>
+ *
+ * @throws {@link AccountSetupInProgressException} (client fault)
+ *  <p>Lightsail throws this exception when an account is still in the setup in progress
+ *       state.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Lightsail throws this exception when user input does not conform to the validation rules
+ *       of an input field.</p>
+ *          <note>
+ *             <p>Domain and distribution APIs are only available in the N. Virginia
+ *           (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services
+ *         Region configuration to <code>us-east-1</code> to create, view, or edit these
+ *         resources.</p>
+ *          </note>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Lightsail throws this exception when it cannot find a resource.</p>
+ *
+ * @throws {@link OperationFailureException} (client fault)
+ *  <p>Lightsail throws this exception when an operation fails to execute.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>A general service exception.</p>
+ *
+ * @throws {@link UnauthenticatedException} (client fault)
+ *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
+ *
  *
  */
 export class AllocateStaticIpCommand extends $Command<
@@ -62,6 +101,9 @@ export class AllocateStaticIpCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AllocateStaticIpCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +132,8 @@ export class AllocateStaticIpCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AllocateStaticIpRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AllocateStaticIpResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +143,18 @@ export class AllocateStaticIpCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AllocateStaticIpCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AllocateStaticIpCommand(input, context);
+    return se_AllocateStaticIpCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AllocateStaticIpCommandOutput> {
-    return deserializeAws_json1_1AllocateStaticIpCommand(output, context);
+    return de_AllocateStaticIpCommand(output, context);
   }
 
   // Start section: command_body_extra

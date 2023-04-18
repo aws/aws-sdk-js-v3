@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { Inspector2ServiceException as __BaseException } from "./Inspector2ServiceException";
 
 /**
+ * @public
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -22,16 +23,26 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
-export enum Status {
-  DISABLED = "DISABLED",
-  DISABLING = "DISABLING",
-  ENABLED = "ENABLED",
-  ENABLING = "ENABLING",
-  SUSPENDED = "SUSPENDED",
-  SUSPENDING = "SUSPENDING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Status = {
+  DISABLED: "DISABLED",
+  DISABLING: "DISABLING",
+  ENABLED: "ENABLED",
+  ENABLING: "ENABLING",
+  SUSPENDED: "SUSPENDED",
+  SUSPENDING: "SUSPENDING",
+} as const;
 
 /**
+ * @public
+ */
+export type Status = (typeof Status)[keyof typeof Status];
+
+/**
+ * @public
  * <p>Details the status of Amazon Inspector for each resource type Amazon Inspector scans.</p>
  */
 export interface ResourceStatus {
@@ -52,6 +63,7 @@ export interface ResourceStatus {
 }
 
 /**
+ * @public
  * <p>An Amazon Web Services account within your environment that Amazon Inspector has been enabled for.</p>
  */
 export interface Account {
@@ -71,29 +83,66 @@ export interface Account {
   resourceStatus: ResourceStatus | undefined;
 }
 
-export enum AggregationFindingType {
-  NETWORK_REACHABILITY = "NETWORK_REACHABILITY",
-  PACKAGE_VULNERABILITY = "PACKAGE_VULNERABILITY",
-}
-
-export enum AggregationResourceType {
-  AWS_EC2_INSTANCE = "AWS_EC2_INSTANCE",
-  AWS_ECR_CONTAINER_IMAGE = "AWS_ECR_CONTAINER_IMAGE",
-  AWS_LAMBDA_FUNCTION = "AWS_LAMBDA_FUNCTION",
-}
-
-export enum AccountSortBy {
-  ALL = "ALL",
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-}
-
-export enum SortOrder {
-  ASC = "ASC",
-  DESC = "DESC",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AggregationFindingType = {
+  NETWORK_REACHABILITY: "NETWORK_REACHABILITY",
+  PACKAGE_VULNERABILITY: "PACKAGE_VULNERABILITY",
+} as const;
 
 /**
+ * @public
+ */
+export type AggregationFindingType = (typeof AggregationFindingType)[keyof typeof AggregationFindingType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AggregationResourceType = {
+  AWS_EC2_INSTANCE: "AWS_EC2_INSTANCE",
+  AWS_ECR_CONTAINER_IMAGE: "AWS_ECR_CONTAINER_IMAGE",
+  AWS_LAMBDA_FUNCTION: "AWS_LAMBDA_FUNCTION",
+} as const;
+
+/**
+ * @public
+ */
+export type AggregationResourceType = (typeof AggregationResourceType)[keyof typeof AggregationResourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AccountSortBy = {
+  ALL: "ALL",
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+} as const;
+
+/**
+ * @public
+ */
+export type AccountSortBy = (typeof AccountSortBy)[keyof typeof AccountSortBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const SortOrder = {
+  ASC: "ASC",
+  DESC: "DESC",
+} as const;
+
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
+
+/**
+ * @public
  * <p>An object that contains details about an aggregation response based on
  *          Amazon Web Services accounts.</p>
  */
@@ -120,6 +169,7 @@ export interface AccountAggregation {
 }
 
 /**
+ * @public
  * <p>An object that contains the counts of aggregated finding per severity.</p>
  */
 export interface SeverityCounts {
@@ -145,6 +195,7 @@ export interface SeverityCounts {
 }
 
 /**
+ * @public
  * <p>An aggregation of findings by Amazon Web Services account ID.</p>
  */
 export interface AccountAggregationResponse {
@@ -159,24 +210,34 @@ export interface AccountAggregationResponse {
   severityCounts?: SeverityCounts;
 }
 
-export enum ErrorCode {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  ACCOUNT_IS_ISOLATED = "ACCOUNT_IS_ISOLATED",
-  ALREADY_ENABLED = "ALREADY_ENABLED",
-  DISABLE_IN_PROGRESS = "DISABLE_IN_PROGRESS",
-  DISASSOCIATE_ALL_MEMBERS = "DISASSOCIATE_ALL_MEMBERS",
-  ENABLE_IN_PROGRESS = "ENABLE_IN_PROGRESS",
-  EVENTBRIDGE_THROTTLED = "EVENTBRIDGE_THROTTLED",
-  EVENTBRIDGE_UNAVAILABLE = "EVENTBRIDGE_UNAVAILABLE",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  RESOURCE_NOT_FOUND = "RESOURCE_NOT_FOUND",
-  RESOURCE_SCAN_NOT_DISABLED = "RESOURCE_SCAN_NOT_DISABLED",
-  SSM_THROTTLED = "SSM_THROTTLED",
-  SSM_UNAVAILABLE = "SSM_UNAVAILABLE",
-  SUSPEND_IN_PROGRESS = "SUSPEND_IN_PROGRESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ErrorCode = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  ACCOUNT_IS_ISOLATED: "ACCOUNT_IS_ISOLATED",
+  ALREADY_ENABLED: "ALREADY_ENABLED",
+  DISABLE_IN_PROGRESS: "DISABLE_IN_PROGRESS",
+  DISASSOCIATE_ALL_MEMBERS: "DISASSOCIATE_ALL_MEMBERS",
+  ENABLE_IN_PROGRESS: "ENABLE_IN_PROGRESS",
+  EVENTBRIDGE_THROTTLED: "EVENTBRIDGE_THROTTLED",
+  EVENTBRIDGE_UNAVAILABLE: "EVENTBRIDGE_UNAVAILABLE",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  RESOURCE_NOT_FOUND: "RESOURCE_NOT_FOUND",
+  RESOURCE_SCAN_NOT_DISABLED: "RESOURCE_SCAN_NOT_DISABLED",
+  SSM_THROTTLED: "SSM_THROTTLED",
+  SSM_UNAVAILABLE: "SSM_UNAVAILABLE",
+  SUSPEND_IN_PROGRESS: "SUSPEND_IN_PROGRESS",
+} as const;
 
 /**
+ * @public
+ */
+export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
+
+/**
+ * @public
  * <p>An object that described the state of Amazon Inspector scans for an account.</p>
  */
 export interface State {
@@ -197,6 +258,7 @@ export interface State {
 }
 
 /**
+ * @public
  * <p>Details the state of Amazon Inspector for each resource type Amazon Inspector scans.</p>
  */
 export interface ResourceState {
@@ -217,6 +279,7 @@ export interface ResourceState {
 }
 
 /**
+ * @public
  * <p>An object with details the status of an Amazon Web Services account within your Amazon Inspector environment.</p>
  */
 export interface AccountState {
@@ -236,13 +299,23 @@ export interface AccountState {
   resourceState: ResourceState | undefined;
 }
 
-export enum StringComparison {
-  EQUALS = "EQUALS",
-  NOT_EQUALS = "NOT_EQUALS",
-  PREFIX = "PREFIX",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StringComparison = {
+  EQUALS: "EQUALS",
+  NOT_EQUALS: "NOT_EQUALS",
+  PREFIX: "PREFIX",
+} as const;
 
 /**
+ * @public
+ */
+export type StringComparison = (typeof StringComparison)[keyof typeof StringComparison];
+
+/**
+ * @public
  * <p>An object that describes the details of a string filter.</p>
  */
 export interface StringFilter {
@@ -257,14 +330,24 @@ export interface StringFilter {
   value: string | undefined;
 }
 
-export enum AmiSortBy {
-  AFFECTED_INSTANCES = "AFFECTED_INSTANCES",
-  ALL = "ALL",
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AmiSortBy = {
+  AFFECTED_INSTANCES: "AFFECTED_INSTANCES",
+  ALL: "ALL",
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+} as const;
 
 /**
+ * @public
+ */
+export type AmiSortBy = (typeof AmiSortBy)[keyof typeof AmiSortBy];
+
+/**
+ * @public
  * <p>The details that define an aggregation based on Amazon machine images (AMIs).</p>
  */
 export interface AmiAggregation {
@@ -284,13 +367,23 @@ export interface AmiAggregation {
   sortBy?: AmiSortBy | string;
 }
 
-export enum AwsEcrContainerSortBy {
-  ALL = "ALL",
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AwsEcrContainerSortBy = {
+  ALL: "ALL",
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+} as const;
 
 /**
+ * @public
+ */
+export type AwsEcrContainerSortBy = (typeof AwsEcrContainerSortBy)[keyof typeof AwsEcrContainerSortBy];
+
+/**
+ * @public
  * <p>An aggregation of information about Amazon ECR containers.</p>
  */
 export interface AwsEcrContainerAggregation {
@@ -330,11 +423,21 @@ export interface AwsEcrContainerAggregation {
   sortBy?: AwsEcrContainerSortBy | string;
 }
 
-export enum MapComparison {
-  EQUALS = "EQUALS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MapComparison = {
+  EQUALS: "EQUALS",
+} as const;
 
 /**
+ * @public
+ */
+export type MapComparison = (typeof MapComparison)[keyof typeof MapComparison];
+
+/**
+ * @public
  * <p>An object that describes details of a map filter.</p>
  */
 export interface MapFilter {
@@ -354,14 +457,24 @@ export interface MapFilter {
   value?: string;
 }
 
-export enum Ec2InstanceSortBy {
-  ALL = "ALL",
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-  NETWORK_FINDINGS = "NETWORK_FINDINGS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Ec2InstanceSortBy = {
+  ALL: "ALL",
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+  NETWORK_FINDINGS: "NETWORK_FINDINGS",
+} as const;
 
 /**
+ * @public
+ */
+export type Ec2InstanceSortBy = (typeof Ec2InstanceSortBy)[keyof typeof Ec2InstanceSortBy];
+
+/**
+ * @public
  * <p>The details that define an aggregation based on Amazon EC2 instances.</p>
  */
 export interface Ec2InstanceAggregation {
@@ -398,13 +511,23 @@ export interface Ec2InstanceAggregation {
   sortBy?: Ec2InstanceSortBy | string;
 }
 
-export enum FindingTypeSortBy {
-  ALL = "ALL",
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FindingTypeSortBy = {
+  ALL: "ALL",
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+} as const;
 
 /**
+ * @public
+ */
+export type FindingTypeSortBy = (typeof FindingTypeSortBy)[keyof typeof FindingTypeSortBy];
+
+/**
+ * @public
  * <p>The details that define an aggregation based on finding type.</p>
  */
 export interface FindingTypeAggregation {
@@ -429,13 +552,23 @@ export interface FindingTypeAggregation {
   sortBy?: FindingTypeSortBy | string;
 }
 
-export enum ImageLayerSortBy {
-  ALL = "ALL",
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ImageLayerSortBy = {
+  ALL: "ALL",
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+} as const;
 
 /**
+ * @public
+ */
+export type ImageLayerSortBy = (typeof ImageLayerSortBy)[keyof typeof ImageLayerSortBy];
+
+/**
+ * @public
  * <p>The details that define an aggregation based on container image layers.</p>
  */
 export interface ImageLayerAggregation {
@@ -465,13 +598,23 @@ export interface ImageLayerAggregation {
   sortBy?: ImageLayerSortBy | string;
 }
 
-export enum LambdaFunctionSortBy {
-  ALL = "ALL",
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LambdaFunctionSortBy = {
+  ALL: "ALL",
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+} as const;
 
 /**
+ * @public
+ */
+export type LambdaFunctionSortBy = (typeof LambdaFunctionSortBy)[keyof typeof LambdaFunctionSortBy];
+
+/**
+ * @public
  * <p>The details that define a findings aggregation based on AWS Lambda functions.</p>
  */
 export interface LambdaFunctionAggregation {
@@ -506,13 +649,23 @@ export interface LambdaFunctionAggregation {
   sortBy?: LambdaFunctionSortBy | string;
 }
 
-export enum LambdaLayerSortBy {
-  ALL = "ALL",
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LambdaLayerSortBy = {
+  ALL: "ALL",
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+} as const;
 
 /**
+ * @public
+ */
+export type LambdaLayerSortBy = (typeof LambdaLayerSortBy)[keyof typeof LambdaLayerSortBy];
+
+/**
+ * @public
  * <p>The details that define a findings aggregation based on an AWS Lambda function's layers.</p>
  */
 export interface LambdaLayerAggregation {
@@ -543,13 +696,23 @@ export interface LambdaLayerAggregation {
   sortBy?: LambdaLayerSortBy | string;
 }
 
-export enum PackageSortBy {
-  ALL = "ALL",
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PackageSortBy = {
+  ALL: "ALL",
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+} as const;
 
 /**
+ * @public
+ */
+export type PackageSortBy = (typeof PackageSortBy)[keyof typeof PackageSortBy];
+
+/**
+ * @public
  * <p>The details that define an aggregation based on operating system package type.</p>
  */
 export interface PackageAggregation {
@@ -569,14 +732,24 @@ export interface PackageAggregation {
   sortBy?: PackageSortBy | string;
 }
 
-export enum RepositorySortBy {
-  AFFECTED_IMAGES = "AFFECTED_IMAGES",
-  ALL = "ALL",
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RepositorySortBy = {
+  AFFECTED_IMAGES: "AFFECTED_IMAGES",
+  ALL: "ALL",
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+} as const;
 
 /**
+ * @public
+ */
+export type RepositorySortBy = (typeof RepositorySortBy)[keyof typeof RepositorySortBy];
+
+/**
+ * @public
  * <p>The details that define an aggregation based on repository.</p>
  */
 export interface RepositoryAggregation {
@@ -596,13 +769,23 @@ export interface RepositoryAggregation {
   sortBy?: RepositorySortBy | string;
 }
 
-export enum TitleSortBy {
-  ALL = "ALL",
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TitleSortBy = {
+  ALL: "ALL",
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+} as const;
 
 /**
+ * @public
+ */
+export type TitleSortBy = (typeof TitleSortBy)[keyof typeof TitleSortBy];
+
+/**
+ * @public
  * <p>The details that define an aggregation based on finding title.</p>
  */
 export interface TitleAggregation {
@@ -633,6 +816,7 @@ export interface TitleAggregation {
 }
 
 /**
+ * @public
  * <p>Contains details about an aggregation request.</p>
  */
 export type AggregationRequest =
@@ -649,6 +833,9 @@ export type AggregationRequest =
   | AggregationRequest.TitleAggregationMember
   | AggregationRequest.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace AggregationRequest {
   /**
    * <p>An object that contains details about an aggregation request based on Amazon Web Services account
@@ -903,6 +1090,7 @@ export namespace AggregationRequest {
 }
 
 /**
+ * @public
  * <p>A response that contains the results of a finding aggregation by AMI.</p>
  */
 export interface AmiAggregationResponse {
@@ -928,6 +1116,7 @@ export interface AmiAggregationResponse {
 }
 
 /**
+ * @public
  * <p>An aggregation of information about Amazon ECR containers.</p>
  */
 export interface AwsEcrContainerAggregationResponse {
@@ -968,6 +1157,7 @@ export interface AwsEcrContainerAggregationResponse {
 }
 
 /**
+ * @public
  * <p>A response that contains the results of a finding aggregation by Amazon EC2 instance.</p>
  */
 export interface Ec2InstanceAggregationResponse {
@@ -1008,6 +1198,7 @@ export interface Ec2InstanceAggregationResponse {
 }
 
 /**
+ * @public
  * <p>A response that contains the results of a finding type aggregation.</p>
  */
 export interface FindingTypeAggregationResponse {
@@ -1023,6 +1214,7 @@ export interface FindingTypeAggregationResponse {
 }
 
 /**
+ * @public
  * <p>A response that contains the results of a finding aggregation by image layer.</p>
  */
 export interface ImageLayerAggregationResponse {
@@ -1053,6 +1245,7 @@ export interface ImageLayerAggregationResponse {
 }
 
 /**
+ * @public
  * <p>A response that contains the results of an AWS Lambda function finding aggregation.</p>
  */
 export interface LambdaFunctionAggregationResponse {
@@ -1094,6 +1287,7 @@ export interface LambdaFunctionAggregationResponse {
 }
 
 /**
+ * @public
  * <p>A response that contains the results of an AWS Lambda function layer finding aggregation.</p>
  */
 export interface LambdaLayerAggregationResponse {
@@ -1124,6 +1318,7 @@ export interface LambdaLayerAggregationResponse {
 }
 
 /**
+ * @public
  * <p>A response that contains the results of a finding aggregation by image layer.</p>
  */
 export interface PackageAggregationResponse {
@@ -1144,6 +1339,7 @@ export interface PackageAggregationResponse {
 }
 
 /**
+ * @public
  * <p>A response that contains details on the results of a finding aggregation by repository.</p>
  */
 export interface RepositoryAggregationResponse {
@@ -1169,6 +1365,7 @@ export interface RepositoryAggregationResponse {
 }
 
 /**
+ * @public
  * <p>A response that contains details on the results of a finding aggregation by title.</p>
  */
 export interface TitleAggregationResponse {
@@ -1194,6 +1391,7 @@ export interface TitleAggregationResponse {
 }
 
 /**
+ * @public
  * <p>A structure that contains details about the results of an aggregation type.</p>
  */
 export type AggregationResponse =
@@ -1210,6 +1408,9 @@ export type AggregationResponse =
   | AggregationResponse.TitleAggregationMember
   | AggregationResponse.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace AggregationResponse {
   /**
    * <p>An object that contains details about an aggregation response based on Amazon Web Services account
@@ -1464,25 +1665,46 @@ export namespace AggregationResponse {
   };
 }
 
-export enum AggregationType {
-  ACCOUNT = "ACCOUNT",
-  AMI = "AMI",
-  AWS_EC2_INSTANCE = "AWS_EC2_INSTANCE",
-  AWS_ECR_CONTAINER = "AWS_ECR_CONTAINER",
-  AWS_LAMBDA_FUNCTION = "AWS_LAMBDA_FUNCTION",
-  FINDING_TYPE = "FINDING_TYPE",
-  IMAGE_LAYER = "IMAGE_LAYER",
-  LAMBDA_LAYER = "LAMBDA_LAYER",
-  PACKAGE = "PACKAGE",
-  REPOSITORY = "REPOSITORY",
-  TITLE = "TITLE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AggregationType = {
+  ACCOUNT: "ACCOUNT",
+  AMI: "AMI",
+  AWS_EC2_INSTANCE: "AWS_EC2_INSTANCE",
+  AWS_ECR_CONTAINER: "AWS_ECR_CONTAINER",
+  AWS_LAMBDA_FUNCTION: "AWS_LAMBDA_FUNCTION",
+  FINDING_TYPE: "FINDING_TYPE",
+  IMAGE_LAYER: "IMAGE_LAYER",
+  LAMBDA_LAYER: "LAMBDA_LAYER",
+  PACKAGE: "PACKAGE",
+  REPOSITORY: "REPOSITORY",
+  TITLE: "TITLE",
+} as const;
 
-export enum Architecture {
-  ARM64 = "ARM64",
-  X86_64 = "X86_64",
-}
+/**
+ * @public
+ */
+export type AggregationType = (typeof AggregationType)[keyof typeof AggregationType];
 
+/**
+ * @public
+ * @enum
+ */
+export const Architecture = {
+  ARM64: "ARM64",
+  X86_64: "X86_64",
+} as const;
+
+/**
+ * @public
+ */
+export type Architecture = (typeof Architecture)[keyof typeof Architecture];
+
+/**
+ * @public
+ */
 export interface AssociateMemberRequest {
   /**
    * <p>The Amazon Web Services account ID of the member account to be associated.</p>
@@ -1490,6 +1712,9 @@ export interface AssociateMemberRequest {
   accountId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateMemberResponse {
   /**
    * <p>The Amazon Web Services account ID of the successfully associated member account.</p>
@@ -1498,6 +1723,7 @@ export interface AssociateMemberResponse {
 }
 
 /**
+ * @public
  * <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -1524,6 +1750,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The limit on the number of requests per second was exceeded.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -1552,6 +1779,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An object that describes a validation exception.</p>
  */
 export interface ValidationExceptionField {
@@ -1566,13 +1794,23 @@ export interface ValidationExceptionField {
   message: string | undefined;
 }
 
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "CANNOT_PARSE",
-  FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
-  OTHER = "OTHER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "CANNOT_PARSE",
+  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
+  OTHER: "OTHER",
+} as const;
 
 /**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
+
+/**
+ * @public
  * <p>The request has failed validation due to missing required fields or having invalid
  *          inputs.</p>
  */
@@ -1605,6 +1843,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents which scan types are automatically enabled for new members of your Amazon Inspector organization.</p>
  */
 export interface AutoEnable {
@@ -1628,6 +1867,7 @@ export interface AutoEnable {
 }
 
 /**
+ * @public
  * <p>Details of the Amazon EC2 instance involved in a finding.</p>
  */
 export interface AwsEc2InstanceDetails {
@@ -1683,6 +1923,7 @@ export interface AwsEc2InstanceDetails {
 }
 
 /**
+ * @public
  * <p>The image details of the Amazon ECR container image.</p>
  */
 export interface AwsEcrContainerImageDetails {
@@ -1727,28 +1968,47 @@ export interface AwsEcrContainerImageDetails {
   platform?: string;
 }
 
-export enum PackageType {
-  IMAGE = "IMAGE",
-  ZIP = "ZIP",
-}
-
-export enum Runtime {
-  GO_1_X = "GO_1_X",
-  JAVA_11 = "JAVA_11",
-  JAVA_8 = "JAVA_8",
-  JAVA_8_AL2 = "JAVA_8_AL2",
-  NODEJS = "NODEJS",
-  NODEJS_12_X = "NODEJS_12_X",
-  NODEJS_14_X = "NODEJS_14_X",
-  NODEJS_16_X = "NODEJS_16_X",
-  NODEJS_18_X = "NODEJS_18_X",
-  PYTHON_3_7 = "PYTHON_3_7",
-  PYTHON_3_8 = "PYTHON_3_8",
-  PYTHON_3_9 = "PYTHON_3_9",
-  UNSUPPORTED = "UNSUPPORTED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PackageType = {
+  IMAGE: "IMAGE",
+  ZIP: "ZIP",
+} as const;
 
 /**
+ * @public
+ */
+export type PackageType = (typeof PackageType)[keyof typeof PackageType];
+
+/**
+ * @public
+ * @enum
+ */
+export const Runtime = {
+  GO_1_X: "GO_1_X",
+  JAVA_11: "JAVA_11",
+  JAVA_8: "JAVA_8",
+  JAVA_8_AL2: "JAVA_8_AL2",
+  NODEJS: "NODEJS",
+  NODEJS_12_X: "NODEJS_12_X",
+  NODEJS_14_X: "NODEJS_14_X",
+  NODEJS_16_X: "NODEJS_16_X",
+  NODEJS_18_X: "NODEJS_18_X",
+  PYTHON_3_7: "PYTHON_3_7",
+  PYTHON_3_8: "PYTHON_3_8",
+  PYTHON_3_9: "PYTHON_3_9",
+  UNSUPPORTED: "UNSUPPORTED",
+} as const;
+
+/**
+ * @public
+ */
+export type Runtime = (typeof Runtime)[keyof typeof Runtime];
+
+/**
+ * @public
  * <p>The VPC security groups and subnets that are attached to an AWS Lambda function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
  */
 export interface LambdaVpcConfig {
@@ -1769,6 +2029,7 @@ export interface LambdaVpcConfig {
 }
 
 /**
+ * @public
  * <p> A summary of information about the AWS Lambda function.</p>
  */
 export interface AwsLambdaFunctionDetails {
@@ -1827,6 +2088,7 @@ export interface AwsLambdaFunctionDetails {
 }
 
 /**
+ * @public
  * <p>One or more tags submitted as part of the request is not valid.</p>
  */
 export class BadRequestException extends __BaseException {
@@ -1845,6 +2107,9 @@ export class BadRequestException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface BatchGetAccountStatusRequest {
   /**
    * <p>The 12-digit Amazon Web Services account IDs of the accounts to retrieve Amazon Inspector status for.</p>
@@ -1853,6 +2118,7 @@ export interface BatchGetAccountStatusRequest {
 }
 
 /**
+ * @public
  * <p>An object with details on why an account failed to enable Amazon Inspector.</p>
  */
 export interface FailedAccount {
@@ -1882,6 +2148,9 @@ export interface FailedAccount {
   errorMessage: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetAccountStatusResponse {
   /**
    * <p>An array of objects that provide details on the status of Amazon Inspector for each of the requested accounts.</p>
@@ -1895,6 +2164,7 @@ export interface BatchGetAccountStatusResponse {
 }
 
 /**
+ * @public
  * <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -1913,6 +2183,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface BatchGetFreeTrialInfoRequest {
   /**
    * <p>The account IDs to get free trial status for.</p>
@@ -1920,18 +2193,37 @@ export interface BatchGetFreeTrialInfoRequest {
   accountIds: string[] | undefined;
 }
 
-export enum FreeTrialStatus {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
-
-export enum FreeTrialType {
-  EC2 = "EC2",
-  ECR = "ECR",
-  LAMBDA = "LAMBDA",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FreeTrialStatus = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+} as const;
 
 /**
+ * @public
+ */
+export type FreeTrialStatus = (typeof FreeTrialStatus)[keyof typeof FreeTrialStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const FreeTrialType = {
+  EC2: "EC2",
+  ECR: "ECR",
+  LAMBDA: "LAMBDA",
+} as const;
+
+/**
+ * @public
+ */
+export type FreeTrialType = (typeof FreeTrialType)[keyof typeof FreeTrialType];
+
+/**
+ * @public
  * <p>An object that contains information about the Amazon Inspector free trial for an account.</p>
  */
 export interface FreeTrialInfo {
@@ -1957,6 +2249,7 @@ export interface FreeTrialInfo {
 }
 
 /**
+ * @public
  * <p>Information about the Amazon Inspector free trial for an account.</p>
  */
 export interface FreeTrialAccountInfo {
@@ -1971,12 +2264,22 @@ export interface FreeTrialAccountInfo {
   freeTrialInfo: FreeTrialInfo[] | undefined;
 }
 
-export enum FreeTrialInfoErrorCode {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FreeTrialInfoErrorCode = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+} as const;
 
 /**
+ * @public
+ */
+export type FreeTrialInfoErrorCode = (typeof FreeTrialInfoErrorCode)[keyof typeof FreeTrialInfoErrorCode];
+
+/**
+ * @public
  * <p>Information about an error received while accessing free trail data for an account.</p>
  */
 export interface FreeTrialInfoError {
@@ -1996,6 +2299,9 @@ export interface FreeTrialInfoError {
   message: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetFreeTrialInfoResponse {
   /**
    * <p>An array of objects that provide Amazon Inspector free trial details for each of the requested accounts.
@@ -2009,6 +2315,9 @@ export interface BatchGetFreeTrialInfoResponse {
   failedAccounts: FreeTrialInfoError[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelFindingsReportRequest {
   /**
    * <p>The ID of the report to be canceled.</p>
@@ -2016,6 +2325,9 @@ export interface CancelFindingsReportRequest {
   reportId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelFindingsReportResponse {
   /**
    * <p>The ID of the canceled report.</p>
@@ -2024,6 +2336,7 @@ export interface CancelFindingsReportResponse {
 }
 
 /**
+ * @public
  * <p>A conflict occurred.</p>
  */
 export class ConflictException extends __BaseException {
@@ -2054,15 +2367,25 @@ export class ConflictException extends __BaseException {
   }
 }
 
-export enum GroupKey {
-  ACCOUNT_ID = "ACCOUNT_ID",
-  ECR_REPOSITORY_NAME = "ECR_REPOSITORY_NAME",
-  RESOURCE_TYPE = "RESOURCE_TYPE",
-  SCAN_STATUS_CODE = "SCAN_STATUS_CODE",
-  SCAN_STATUS_REASON = "SCAN_STATUS_REASON",
-}
+/**
+ * @public
+ * @enum
+ */
+export const GroupKey = {
+  ACCOUNT_ID: "ACCOUNT_ID",
+  ECR_REPOSITORY_NAME: "ECR_REPOSITORY_NAME",
+  RESOURCE_TYPE: "RESOURCE_TYPE",
+  SCAN_STATUS_CODE: "SCAN_STATUS_CODE",
+  SCAN_STATUS_REASON: "SCAN_STATUS_REASON",
+} as const;
 
 /**
+ * @public
+ */
+export type GroupKey = (typeof GroupKey)[keyof typeof GroupKey];
+
+/**
+ * @public
  * <p>a structure that contains information on the count of resources within a group.</p>
  */
 export interface Counts {
@@ -2077,12 +2400,22 @@ export interface Counts {
   groupKey?: GroupKey | string;
 }
 
-export enum CoverageStringComparison {
-  EQUALS = "EQUALS",
-  NOT_EQUALS = "NOT_EQUALS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CoverageStringComparison = {
+  EQUALS: "EQUALS",
+  NOT_EQUALS: "NOT_EQUALS",
+} as const;
 
 /**
+ * @public
+ */
+export type CoverageStringComparison = (typeof CoverageStringComparison)[keyof typeof CoverageStringComparison];
+
+/**
+ * @public
  * <p>Contains details of a coverage string filter.</p>
  */
 export interface CoverageStringFilter {
@@ -2097,11 +2430,21 @@ export interface CoverageStringFilter {
   value: string | undefined;
 }
 
-export enum CoverageMapComparison {
-  EQUALS = "EQUALS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CoverageMapComparison = {
+  EQUALS: "EQUALS",
+} as const;
 
 /**
+ * @public
+ */
+export type CoverageMapComparison = (typeof CoverageMapComparison)[keyof typeof CoverageMapComparison];
+
+/**
+ * @public
  * <p>Contains details of a coverage map filter.</p>
  */
 export interface CoverageMapFilter {
@@ -2122,6 +2465,7 @@ export interface CoverageMapFilter {
 }
 
 /**
+ * @public
  * <p>A structure that identifies filter criteria for <code>GetCoverageStatistics</code>.</p>
  */
 export interface CoverageFilterCriteria {
@@ -2186,20 +2530,39 @@ export interface CoverageFilterCriteria {
   lambdaFunctionRuntime?: CoverageStringFilter[];
 }
 
-export enum CoverageResourceType {
-  AWS_EC2_INSTANCE = "AWS_EC2_INSTANCE",
-  AWS_ECR_CONTAINER_IMAGE = "AWS_ECR_CONTAINER_IMAGE",
-  AWS_ECR_REPOSITORY = "AWS_ECR_REPOSITORY",
-  AWS_LAMBDA_FUNCTION = "AWS_LAMBDA_FUNCTION",
-}
-
-export enum Ec2Platform {
-  LINUX = "LINUX",
-  UNKNOWN = "UNKNOWN",
-  WINDOWS = "WINDOWS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CoverageResourceType = {
+  AWS_EC2_INSTANCE: "AWS_EC2_INSTANCE",
+  AWS_ECR_CONTAINER_IMAGE: "AWS_ECR_CONTAINER_IMAGE",
+  AWS_ECR_REPOSITORY: "AWS_ECR_REPOSITORY",
+  AWS_LAMBDA_FUNCTION: "AWS_LAMBDA_FUNCTION",
+} as const;
 
 /**
+ * @public
+ */
+export type CoverageResourceType = (typeof CoverageResourceType)[keyof typeof CoverageResourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const Ec2Platform = {
+  LINUX: "LINUX",
+  UNKNOWN: "UNKNOWN",
+  WINDOWS: "WINDOWS",
+} as const;
+
+/**
+ * @public
+ */
+export type Ec2Platform = (typeof Ec2Platform)[keyof typeof Ec2Platform];
+
+/**
+ * @public
  * <p>Meta data details of an Amazon EC2 instance.</p>
  */
 export interface Ec2Metadata {
@@ -2220,6 +2583,7 @@ export interface Ec2Metadata {
 }
 
 /**
+ * @public
  * <p>Information on the Amazon ECR image metadata associated with a finding.</p>
  */
 export interface EcrContainerImageMetadata {
@@ -2229,13 +2593,23 @@ export interface EcrContainerImageMetadata {
   tags?: string[];
 }
 
-export enum EcrScanFrequency {
-  CONTINUOUS_SCAN = "CONTINUOUS_SCAN",
-  MANUAL = "MANUAL",
-  SCAN_ON_PUSH = "SCAN_ON_PUSH",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EcrScanFrequency = {
+  CONTINUOUS_SCAN: "CONTINUOUS_SCAN",
+  MANUAL: "MANUAL",
+  SCAN_ON_PUSH: "SCAN_ON_PUSH",
+} as const;
 
 /**
+ * @public
+ */
+export type EcrScanFrequency = (typeof EcrScanFrequency)[keyof typeof EcrScanFrequency];
+
+/**
+ * @public
  * <p>Information on the Amazon ECR repository metadata associated with a finding.</p>
  */
 export interface EcrRepositoryMetadata {
@@ -2251,6 +2625,7 @@ export interface EcrRepositoryMetadata {
 }
 
 /**
+ * @public
  * <p>The AWS Lambda function metadata.</p>
  */
 export interface LambdaFunctionMetadata {
@@ -2276,6 +2651,7 @@ export interface LambdaFunctionMetadata {
 }
 
 /**
+ * @public
  * <p>An object that contains details about the metadata for an Amazon ECR resource.</p>
  */
 export interface ResourceScanMetadata {
@@ -2300,33 +2676,52 @@ export interface ResourceScanMetadata {
   lambdaFunction?: LambdaFunctionMetadata;
 }
 
-export enum ScanStatusReason {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  EC2_INSTANCE_STOPPED = "EC2_INSTANCE_STOPPED",
-  EXCLUDED_BY_TAG = "EXCLUDED_BY_TAG",
-  IMAGE_SIZE_EXCEEDED = "IMAGE_SIZE_EXCEEDED",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  NO_INVENTORY = "NO_INVENTORY",
-  NO_RESOURCES_FOUND = "NO_RESOURCES_FOUND",
-  PENDING_DISABLE = "PENDING_DISABLE",
-  PENDING_INITIAL_SCAN = "PENDING_INITIAL_SCAN",
-  RESOURCE_TERMINATED = "RESOURCE_TERMINATED",
-  SCAN_ELIGIBILITY_EXPIRED = "SCAN_ELIGIBILITY_EXPIRED",
-  SCAN_FREQUENCY_MANUAL = "SCAN_FREQUENCY_MANUAL",
-  SCAN_FREQUENCY_SCAN_ON_PUSH = "SCAN_FREQUENCY_SCAN_ON_PUSH",
-  STALE_INVENTORY = "STALE_INVENTORY",
-  SUCCESSFUL = "SUCCESSFUL",
-  UNMANAGED_EC2_INSTANCE = "UNMANAGED_EC2_INSTANCE",
-  UNSUPPORTED_OS = "UNSUPPORTED_OS",
-  UNSUPPORTED_RUNTIME = "UNSUPPORTED_RUNTIME",
-}
-
-export enum ScanStatusCode {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ScanStatusReason = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  EC2_INSTANCE_STOPPED: "EC2_INSTANCE_STOPPED",
+  EXCLUDED_BY_TAG: "EXCLUDED_BY_TAG",
+  IMAGE_SIZE_EXCEEDED: "IMAGE_SIZE_EXCEEDED",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  NO_INVENTORY: "NO_INVENTORY",
+  NO_RESOURCES_FOUND: "NO_RESOURCES_FOUND",
+  PENDING_DISABLE: "PENDING_DISABLE",
+  PENDING_INITIAL_SCAN: "PENDING_INITIAL_SCAN",
+  RESOURCE_TERMINATED: "RESOURCE_TERMINATED",
+  SCAN_ELIGIBILITY_EXPIRED: "SCAN_ELIGIBILITY_EXPIRED",
+  SCAN_FREQUENCY_MANUAL: "SCAN_FREQUENCY_MANUAL",
+  SCAN_FREQUENCY_SCAN_ON_PUSH: "SCAN_FREQUENCY_SCAN_ON_PUSH",
+  STALE_INVENTORY: "STALE_INVENTORY",
+  SUCCESSFUL: "SUCCESSFUL",
+  UNMANAGED_EC2_INSTANCE: "UNMANAGED_EC2_INSTANCE",
+  UNSUPPORTED_OS: "UNSUPPORTED_OS",
+  UNSUPPORTED_RUNTIME: "UNSUPPORTED_RUNTIME",
+} as const;
 
 /**
+ * @public
+ */
+export type ScanStatusReason = (typeof ScanStatusReason)[keyof typeof ScanStatusReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const ScanStatusCode = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type ScanStatusCode = (typeof ScanStatusCode)[keyof typeof ScanStatusCode];
+
+/**
+ * @public
  * <p>The status of the scan.</p>
  */
 export interface ScanStatus {
@@ -2341,12 +2736,22 @@ export interface ScanStatus {
   reason: ScanStatusReason | string | undefined;
 }
 
-export enum ScanType {
-  NETWORK = "NETWORK",
-  PACKAGE = "PACKAGE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ScanType = {
+  NETWORK: "NETWORK",
+  PACKAGE: "PACKAGE",
+} as const;
 
 /**
+ * @public
+ */
+export type ScanType = (typeof ScanType)[keyof typeof ScanType];
+
+/**
+ * @public
  * <p>An object that contains details about a resource covered by Amazon Inspector.</p>
  */
 export interface CoveredResource {
@@ -2381,12 +2786,22 @@ export interface CoveredResource {
   resourceMetadata?: ResourceScanMetadata;
 }
 
-export enum FilterAction {
-  NONE = "NONE",
-  SUPPRESS = "SUPPRESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FilterAction = {
+  NONE: "NONE",
+  SUPPRESS: "SUPPRESS",
+} as const;
 
 /**
+ * @public
+ */
+export type FilterAction = (typeof FilterAction)[keyof typeof FilterAction];
+
+/**
+ * @public
  * <p>Contains details on the time range used to filter findings.</p>
  */
 export interface DateFilter {
@@ -2402,6 +2817,7 @@ export interface DateFilter {
 }
 
 /**
+ * @public
  * <p>An object that describes the details of a number filter.</p>
  */
 export interface NumberFilter {
@@ -2417,6 +2833,7 @@ export interface NumberFilter {
 }
 
 /**
+ * @public
  * <p>An object that describes the details of a port range filter.</p>
  */
 export interface PortRangeFilter {
@@ -2432,6 +2849,7 @@ export interface PortRangeFilter {
 }
 
 /**
+ * @public
  * <p>Contains information on the details of a package filter.</p>
  */
 export interface PackageFilter {
@@ -2472,6 +2890,7 @@ export interface PackageFilter {
 }
 
 /**
+ * @public
  * <p>Details on the criteria used to define the filter.</p>
  */
 export interface FilterCriteria {
@@ -2668,6 +3087,9 @@ export interface FilterCriteria {
   exploitAvailable?: StringFilter[];
 }
 
+/**
+ * @public
+ */
 export interface CreateFilterRequest {
   /**
    * <p>Defines the action that is to be applied to the findings that match the filter.</p>
@@ -2702,6 +3124,9 @@ export interface CreateFilterRequest {
   reason?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateFilterResponse {
   /**
    * <p>The Amazon Resource Number (ARN) of the successfully created filter.</p>
@@ -2710,6 +3135,7 @@ export interface CreateFilterResponse {
 }
 
 /**
+ * @public
  * <p>You have exceeded your service quota. To perform the requested action, remove some of
  *          the relevant resources, or use Service Quotas to request a service quota increase.</p>
  */
@@ -2735,12 +3161,22 @@ export class ServiceQuotaExceededException extends __BaseException {
   }
 }
 
-export enum ReportFormat {
-  CSV = "CSV",
-  JSON = "JSON",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReportFormat = {
+  CSV: "CSV",
+  JSON: "JSON",
+} as const;
 
 /**
+ * @public
+ */
+export type ReportFormat = (typeof ReportFormat)[keyof typeof ReportFormat];
+
+/**
+ * @public
  * <p>Contains details of the Amazon S3 bucket and KMS key used to export findings.</p>
  */
 export interface Destination {
@@ -2760,6 +3196,9 @@ export interface Destination {
   kmsKeyArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateFindingsReportRequest {
   /**
    * <p>The filter criteria to apply to the results of the finding report.</p>
@@ -2777,6 +3216,9 @@ export interface CreateFindingsReportRequest {
   s3Destination: Destination | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateFindingsReportResponse {
   /**
    * <p>The ID of the report.</p>
@@ -2784,11 +3226,21 @@ export interface CreateFindingsReportResponse {
   reportId?: string;
 }
 
-export enum Currency {
-  USD = "USD",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Currency = {
+  USD: "USD",
+} as const;
 
 /**
+ * @public
+ */
+export type Currency = (typeof Currency)[keyof typeof Currency];
+
+/**
+ * @public
  * <p>The CVSS score for a finding.</p>
  */
 export interface CvssScore {
@@ -2814,6 +3266,7 @@ export interface CvssScore {
 }
 
 /**
+ * @public
  * <p>Details on adjustments Amazon Inspector made to the CVSS score for a finding.</p>
  */
 export interface CvssScoreAdjustment {
@@ -2829,6 +3282,7 @@ export interface CvssScoreAdjustment {
 }
 
 /**
+ * @public
  * <p>Information about the CVSS score.</p>
  */
 export interface CvssScoreDetails {
@@ -2863,22 +3317,32 @@ export interface CvssScoreDetails {
   adjustments?: CvssScoreAdjustment[];
 }
 
-export enum RelationshipStatus {
-  ACCOUNT_SUSPENDED = "ACCOUNT_SUSPENDED",
-  CANNOT_CREATE_DETECTOR_IN_ORG_MASTER = "CANNOT_CREATE_DETECTOR_IN_ORG_MASTER",
-  CREATED = "CREATED",
-  DELETED = "DELETED",
-  DISABLED = "DISABLED",
-  EMAIL_VERIFICATION_FAILED = "EMAIL_VERIFICATION_FAILED",
-  EMAIL_VERIFICATION_IN_PROGRESS = "EMAIL_VERIFICATION_IN_PROGRESS",
-  ENABLED = "ENABLED",
-  INVITED = "INVITED",
-  REGION_DISABLED = "REGION_DISABLED",
-  REMOVED = "REMOVED",
-  RESIGNED = "RESIGNED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RelationshipStatus = {
+  ACCOUNT_SUSPENDED: "ACCOUNT_SUSPENDED",
+  CANNOT_CREATE_DETECTOR_IN_ORG_MASTER: "CANNOT_CREATE_DETECTOR_IN_ORG_MASTER",
+  CREATED: "CREATED",
+  DELETED: "DELETED",
+  DISABLED: "DISABLED",
+  EMAIL_VERIFICATION_FAILED: "EMAIL_VERIFICATION_FAILED",
+  EMAIL_VERIFICATION_IN_PROGRESS: "EMAIL_VERIFICATION_IN_PROGRESS",
+  ENABLED: "ENABLED",
+  INVITED: "INVITED",
+  REGION_DISABLED: "REGION_DISABLED",
+  REMOVED: "REMOVED",
+  RESIGNED: "RESIGNED",
+} as const;
 
 /**
+ * @public
+ */
+export type RelationshipStatus = (typeof RelationshipStatus)[keyof typeof RelationshipStatus];
+
+/**
+ * @public
  * <p>Details of the Amazon Inspector delegated administrator for your organization.</p>
  */
 export interface DelegatedAdmin {
@@ -2893,12 +3357,22 @@ export interface DelegatedAdmin {
   relationshipStatus?: RelationshipStatus | string;
 }
 
-export enum DelegatedAdminStatus {
-  DISABLE_IN_PROGRESS = "DISABLE_IN_PROGRESS",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DelegatedAdminStatus = {
+  DISABLE_IN_PROGRESS: "DISABLE_IN_PROGRESS",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type DelegatedAdminStatus = (typeof DelegatedAdminStatus)[keyof typeof DelegatedAdminStatus];
+
+/**
+ * @public
  * <p>Details of the Amazon Inspector delegated administrator for your organization.</p>
  */
 export interface DelegatedAdminAccount {
@@ -2913,6 +3387,9 @@ export interface DelegatedAdminAccount {
   status?: DelegatedAdminStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFilterRequest {
   /**
    * <p>The Amazon Resource Number (ARN) of the filter to be deleted.</p>
@@ -2920,6 +3397,9 @@ export interface DeleteFilterRequest {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFilterResponse {
   /**
    * <p>The Amazon Resource Number (ARN) of the filter that has been deleted.</p>
@@ -2927,8 +3407,14 @@ export interface DeleteFilterResponse {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeOrganizationConfigurationRequest {}
 
+/**
+ * @public
+ */
 export interface DescribeOrganizationConfigurationResponse {
   /**
    * <p>The scan types are automatically enabled for new members of your organization.</p>
@@ -2941,12 +3427,24 @@ export interface DescribeOrganizationConfigurationResponse {
   maxAccountLimitReached?: boolean;
 }
 
-export enum ResourceScanType {
-  EC2 = "EC2",
-  ECR = "ECR",
-  LAMBDA = "LAMBDA",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResourceScanType = {
+  EC2: "EC2",
+  ECR: "ECR",
+  LAMBDA: "LAMBDA",
+} as const;
 
+/**
+ * @public
+ */
+export type ResourceScanType = (typeof ResourceScanType)[keyof typeof ResourceScanType];
+
+/**
+ * @public
+ */
 export interface DisableRequest {
   /**
    * <p>An array of account IDs you want to disable Amazon Inspector scans for.</p>
@@ -2959,6 +3457,9 @@ export interface DisableRequest {
   resourceTypes?: (ResourceScanType | string)[];
 }
 
+/**
+ * @public
+ */
 export interface DisableResponse {
   /**
    * <p>Information on the accounts that have had Amazon Inspector scans successfully disabled. Details are
@@ -2973,6 +3474,9 @@ export interface DisableResponse {
   failedAccounts?: FailedAccount[];
 }
 
+/**
+ * @public
+ */
 export interface DisableDelegatedAdminAccountRequest {
   /**
    * <p>The Amazon Web Services account ID of the current Amazon Inspector delegated administrator.</p>
@@ -2980,6 +3484,9 @@ export interface DisableDelegatedAdminAccountRequest {
   delegatedAdminAccountId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisableDelegatedAdminAccountResponse {
   /**
    * <p>The Amazon Web Services account ID of the successfully disabled delegated administrator.</p>
@@ -2987,6 +3494,9 @@ export interface DisableDelegatedAdminAccountResponse {
   delegatedAdminAccountId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateMemberRequest {
   /**
    * <p>The Amazon Web Services account ID of the member account to disassociate.</p>
@@ -2994,6 +3504,9 @@ export interface DisassociateMemberRequest {
   accountId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateMemberResponse {
   /**
    * <p>The Amazon Web Services account ID of the successfully disassociated member.</p>
@@ -3001,13 +3514,23 @@ export interface DisassociateMemberResponse {
   accountId: string | undefined;
 }
 
-export enum EcrRescanDuration {
-  DAYS_180 = "DAYS_180",
-  DAYS_30 = "DAYS_30",
-  LIFETIME = "LIFETIME",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EcrRescanDuration = {
+  DAYS_180: "DAYS_180",
+  DAYS_30: "DAYS_30",
+  LIFETIME: "LIFETIME",
+} as const;
 
 /**
+ * @public
+ */
+export type EcrRescanDuration = (typeof EcrRescanDuration)[keyof typeof EcrRescanDuration];
+
+/**
+ * @public
  * <p>Details about the ECR automated re-scan duration setting for your environment.</p>
  */
 export interface EcrConfiguration {
@@ -3017,13 +3540,23 @@ export interface EcrConfiguration {
   rescanDuration: EcrRescanDuration | string | undefined;
 }
 
-export enum EcrRescanDurationStatus {
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  SUCCESS = "SUCCESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EcrRescanDurationStatus = {
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  SUCCESS: "SUCCESS",
+} as const;
 
 /**
+ * @public
+ */
+export type EcrRescanDurationStatus = (typeof EcrRescanDurationStatus)[keyof typeof EcrRescanDurationStatus];
+
+/**
+ * @public
  * <p>Details about the state of any changes to the ECR automated re-scan duration setting.</p>
  */
 export interface EcrRescanDurationState {
@@ -3044,6 +3577,7 @@ export interface EcrRescanDurationState {
 }
 
 /**
+ * @public
  * <p>Details about the state of the ECR scans for your environment.</p>
  */
 export interface EcrConfigurationState {
@@ -3053,6 +3587,9 @@ export interface EcrConfigurationState {
   rescanDurationState?: EcrRescanDurationState;
 }
 
+/**
+ * @public
+ */
 export interface EnableRequest {
   /**
    * <p>A list of account IDs you want to enable Amazon Inspector scans for.</p>
@@ -3070,6 +3607,9 @@ export interface EnableRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface EnableResponse {
   /**
    * <p>Information on the accounts that have had Amazon Inspector scans successfully enabled. Details are
@@ -3084,6 +3624,9 @@ export interface EnableResponse {
   failedAccounts?: FailedAccount[];
 }
 
+/**
+ * @public
+ */
 export interface EnableDelegatedAdminAccountRequest {
   /**
    * <p>The Amazon Web Services account ID of the Amazon Inspector delegated administrator.</p>
@@ -3096,6 +3639,9 @@ export interface EnableDelegatedAdminAccountRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface EnableDelegatedAdminAccountResponse {
   /**
    * <p>The Amazon Web Services account ID of the successfully Amazon Inspector delegated administrator.</p>
@@ -3104,6 +3650,7 @@ export interface EnableDelegatedAdminAccountResponse {
 }
 
 /**
+ * @public
  * <p>The details of an exploit available for a finding discovered in your environment.</p>
  */
 export interface ExploitabilityDetails {
@@ -3113,19 +3660,38 @@ export interface ExploitabilityDetails {
   lastKnownExploitAt?: Date;
 }
 
-export enum ExploitAvailable {
-  NO = "NO",
-  YES = "YES",
-}
-
-export enum ExternalReportStatus {
-  CANCELLED = "CANCELLED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ExploitAvailable = {
+  NO: "NO",
+  YES: "YES",
+} as const;
 
 /**
+ * @public
+ */
+export type ExploitAvailable = (typeof ExploitAvailable)[keyof typeof ExploitAvailable];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExternalReportStatus = {
+  CANCELLED: "CANCELLED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type ExternalReportStatus = (typeof ExternalReportStatus)[keyof typeof ExternalReportStatus];
+
+/**
+ * @public
  * <p>Details about a filter.</p>
  */
 export interface Filter {
@@ -3180,13 +3746,23 @@ export interface Filter {
   tags?: Record<string, string>;
 }
 
-export enum FixAvailable {
-  NO = "NO",
-  PARTIAL = "PARTIAL",
-  YES = "YES",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FixAvailable = {
+  NO: "NO",
+  PARTIAL: "PARTIAL",
+  YES: "YES",
+} as const;
 
 /**
+ * @public
+ */
+export type FixAvailable = (typeof FixAvailable)[keyof typeof FixAvailable];
+
+/**
+ * @public
  * <p>Information about the Amazon Inspector score given to a finding.</p>
  */
 export interface InspectorScoreDetails {
@@ -3197,6 +3773,7 @@ export interface InspectorScoreDetails {
 }
 
 /**
+ * @public
  * <p>Details about the step associated with a finding.</p>
  */
 export interface Step {
@@ -3212,6 +3789,7 @@ export interface Step {
 }
 
 /**
+ * @public
  * <p>Information on the network path associated with a finding.</p>
  */
 export interface NetworkPath {
@@ -3222,6 +3800,7 @@ export interface NetworkPath {
 }
 
 /**
+ * @public
  * <p>Details about the port range associated with a finding.</p>
  */
 export interface PortRange {
@@ -3236,12 +3815,22 @@ export interface PortRange {
   end: number | undefined;
 }
 
-export enum NetworkProtocol {
-  TCP = "TCP",
-  UDP = "UDP",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NetworkProtocol = {
+  TCP: "TCP",
+  UDP: "UDP",
+} as const;
 
 /**
+ * @public
+ */
+export type NetworkProtocol = (typeof NetworkProtocol)[keyof typeof NetworkProtocol];
+
+/**
+ * @public
  * <p>Contains the details of a network reachability finding.</p>
  */
 export interface NetworkReachabilityDetails {
@@ -3261,26 +3850,36 @@ export interface NetworkReachabilityDetails {
   networkPath: NetworkPath | undefined;
 }
 
-export enum PackageManager {
-  BUNDLER = "BUNDLER",
-  CARGO = "CARGO",
-  COMPOSER = "COMPOSER",
-  GOBINARY = "GOBINARY",
-  GOMOD = "GOMOD",
-  JAR = "JAR",
-  NODEPKG = "NODEPKG",
-  NPM = "NPM",
-  NUGET = "NUGET",
-  OS = "OS",
-  PIP = "PIP",
-  PIPENV = "PIPENV",
-  POETRY = "POETRY",
-  POM = "POM",
-  PYTHONPKG = "PYTHONPKG",
-  YARN = "YARN",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PackageManager = {
+  BUNDLER: "BUNDLER",
+  CARGO: "CARGO",
+  COMPOSER: "COMPOSER",
+  GOBINARY: "GOBINARY",
+  GOMOD: "GOMOD",
+  JAR: "JAR",
+  NODEPKG: "NODEPKG",
+  NPM: "NPM",
+  NUGET: "NUGET",
+  OS: "OS",
+  PIP: "PIP",
+  PIPENV: "PIPENV",
+  POETRY: "POETRY",
+  POM: "POM",
+  PYTHONPKG: "PYTHONPKG",
+  YARN: "YARN",
+} as const;
 
 /**
+ * @public
+ */
+export type PackageManager = (typeof PackageManager)[keyof typeof PackageManager];
+
+/**
+ * @public
  * <p>Information on the vulnerable package identified by a finding.</p>
  */
 export interface VulnerablePackage {
@@ -3341,6 +3940,7 @@ export interface VulnerablePackage {
 }
 
 /**
+ * @public
  * <p>Information about a package vulnerability finding.</p>
  */
 export interface PackageVulnerabilityDetails {
@@ -3396,6 +3996,7 @@ export interface PackageVulnerabilityDetails {
 }
 
 /**
+ * @public
  * <p>Details about the recommended course of action to remediate the finding.</p>
  */
 export interface Recommendation {
@@ -3411,6 +4012,7 @@ export interface Recommendation {
 }
 
 /**
+ * @public
  * <p>Information on how to remediate a finding.</p>
  */
 export interface Remediation {
@@ -3421,6 +4023,7 @@ export interface Remediation {
 }
 
 /**
+ * @public
  * <p>Contains details about the resource involved in the finding.</p>
  */
 export interface ResourceDetails {
@@ -3440,14 +4043,24 @@ export interface ResourceDetails {
   awsLambdaFunction?: AwsLambdaFunctionDetails;
 }
 
-export enum ResourceType {
-  AWS_EC2_INSTANCE = "AWS_EC2_INSTANCE",
-  AWS_ECR_CONTAINER_IMAGE = "AWS_ECR_CONTAINER_IMAGE",
-  AWS_ECR_REPOSITORY = "AWS_ECR_REPOSITORY",
-  AWS_LAMBDA_FUNCTION = "AWS_LAMBDA_FUNCTION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResourceType = {
+  AWS_EC2_INSTANCE: "AWS_EC2_INSTANCE",
+  AWS_ECR_CONTAINER_IMAGE: "AWS_ECR_CONTAINER_IMAGE",
+  AWS_ECR_REPOSITORY: "AWS_ECR_REPOSITORY",
+  AWS_LAMBDA_FUNCTION: "AWS_LAMBDA_FUNCTION",
+} as const;
 
 /**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+
+/**
+ * @public
  * <p>Details about the resource involved in a finding.</p>
  */
 export interface Resource {
@@ -3482,27 +4095,55 @@ export interface Resource {
   details?: ResourceDetails;
 }
 
-export enum Severity {
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-  INFORMATIONAL = "INFORMATIONAL",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-  UNTRIAGED = "UNTRIAGED",
-}
-
-export enum FindingStatus {
-  ACTIVE = "ACTIVE",
-  CLOSED = "CLOSED",
-  SUPPRESSED = "SUPPRESSED",
-}
-
-export enum FindingType {
-  NETWORK_REACHABILITY = "NETWORK_REACHABILITY",
-  PACKAGE_VULNERABILITY = "PACKAGE_VULNERABILITY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Severity = {
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+  INFORMATIONAL: "INFORMATIONAL",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+  UNTRIAGED: "UNTRIAGED",
+} as const;
 
 /**
+ * @public
+ */
+export type Severity = (typeof Severity)[keyof typeof Severity];
+
+/**
+ * @public
+ * @enum
+ */
+export const FindingStatus = {
+  ACTIVE: "ACTIVE",
+  CLOSED: "CLOSED",
+  SUPPRESSED: "SUPPRESSED",
+} as const;
+
+/**
+ * @public
+ */
+export type FindingStatus = (typeof FindingStatus)[keyof typeof FindingStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const FindingType = {
+  NETWORK_REACHABILITY: "NETWORK_REACHABILITY",
+  PACKAGE_VULNERABILITY: "PACKAGE_VULNERABILITY",
+} as const;
+
+/**
+ * @public
+ */
+export type FindingType = (typeof FindingType)[keyof typeof FindingType];
+
+/**
+ * @public
  * <p>Details about an Amazon Inspector finding.</p>
  */
 export interface Finding {
@@ -3602,8 +4243,14 @@ export interface Finding {
   exploitabilityDetails?: ExploitabilityDetails;
 }
 
+/**
+ * @public
+ */
 export interface GetConfigurationRequest {}
 
+/**
+ * @public
+ */
 export interface GetConfigurationResponse {
   /**
    * <p>Specifies how the ECR automated re-scan duration is currently configured for your environment.</p>
@@ -3611,8 +4258,14 @@ export interface GetConfigurationResponse {
   ecrConfiguration?: EcrConfigurationState;
 }
 
+/**
+ * @public
+ */
 export interface GetDelegatedAdminAccountRequest {}
 
+/**
+ * @public
+ */
 export interface GetDelegatedAdminAccountResponse {
   /**
    * <p>The Amazon Web Services account ID of the Amazon Inspector delegated administrator.</p>
@@ -3620,6 +4273,9 @@ export interface GetDelegatedAdminAccountResponse {
   delegatedAdmin?: DelegatedAdmin;
 }
 
+/**
+ * @public
+ */
 export interface GetFindingsReportStatusRequest {
   /**
    * <p>The ID of the report to retrieve the status of.</p>
@@ -3627,15 +4283,27 @@ export interface GetFindingsReportStatusRequest {
   reportId?: string;
 }
 
-export enum ReportingErrorCode {
-  BUCKET_NOT_FOUND = "BUCKET_NOT_FOUND",
-  INCOMPATIBLE_BUCKET_REGION = "INCOMPATIBLE_BUCKET_REGION",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  INVALID_PERMISSIONS = "INVALID_PERMISSIONS",
-  MALFORMED_KMS_KEY = "MALFORMED_KMS_KEY",
-  NO_FINDINGS_FOUND = "NO_FINDINGS_FOUND",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReportingErrorCode = {
+  BUCKET_NOT_FOUND: "BUCKET_NOT_FOUND",
+  INCOMPATIBLE_BUCKET_REGION: "INCOMPATIBLE_BUCKET_REGION",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  INVALID_PERMISSIONS: "INVALID_PERMISSIONS",
+  MALFORMED_KMS_KEY: "MALFORMED_KMS_KEY",
+  NO_FINDINGS_FOUND: "NO_FINDINGS_FOUND",
+} as const;
 
+/**
+ * @public
+ */
+export type ReportingErrorCode = (typeof ReportingErrorCode)[keyof typeof ReportingErrorCode];
+
+/**
+ * @public
+ */
 export interface GetFindingsReportStatusResponse {
   /**
    * <p>The ID of the report.</p>
@@ -3668,6 +4336,9 @@ export interface GetFindingsReportStatusResponse {
   filterCriteria?: FilterCriteria;
 }
 
+/**
+ * @public
+ */
 export interface GetMemberRequest {
   /**
    * <p>The Amazon Web Services account ID of the member account to retrieve information on.</p>
@@ -3676,6 +4347,7 @@ export interface GetMemberRequest {
 }
 
 /**
+ * @public
  * <p>Details on a member account in your organization.</p>
  */
 export interface Member {
@@ -3700,6 +4372,9 @@ export interface Member {
   updatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetMemberResponse {
   /**
    * <p>Details of the retrieved member account.</p>
@@ -3707,12 +4382,24 @@ export interface GetMemberResponse {
   member?: Member;
 }
 
-export enum Service {
-  EC2 = "EC2",
-  ECR = "ECR",
-  LAMBDA = "LAMBDA",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Service = {
+  EC2: "EC2",
+  ECR: "ECR",
+  LAMBDA: "LAMBDA",
+} as const;
 
+/**
+ * @public
+ */
+export type Service = (typeof Service)[keyof typeof Service];
+
+/**
+ * @public
+ */
 export interface ListAccountPermissionsRequest {
   /**
    * <p>The service scan type to check permissions for.</p>
@@ -3733,14 +4420,24 @@ export interface ListAccountPermissionsRequest {
   nextToken?: string;
 }
 
-export enum Operation {
-  DISABLE_REPOSITORY = "DISABLE_REPOSITORY",
-  DISABLE_SCANNING = "DISABLE_SCANNING",
-  ENABLE_REPOSITORY = "ENABLE_REPOSITORY",
-  ENABLE_SCANNING = "ENABLE_SCANNING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Operation = {
+  DISABLE_REPOSITORY: "DISABLE_REPOSITORY",
+  DISABLE_SCANNING: "DISABLE_SCANNING",
+  ENABLE_REPOSITORY: "ENABLE_REPOSITORY",
+  ENABLE_SCANNING: "ENABLE_SCANNING",
+} as const;
 
 /**
+ * @public
+ */
+export type Operation = (typeof Operation)[keyof typeof Operation];
+
+/**
+ * @public
  * <p>Contains information on the permissions an account has within Amazon Inspector.</p>
  */
 export interface Permission {
@@ -3755,6 +4452,9 @@ export interface Permission {
   operation: Operation | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListAccountPermissionsResponse {
   /**
    * <p>Contains details on the permissions an account has to configure Amazon Inspector.</p>
@@ -3770,6 +4470,9 @@ export interface ListAccountPermissionsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCoverageRequest {
   /**
    * <p>The maximum number of results to return in the response.</p>
@@ -3791,6 +4494,9 @@ export interface ListCoverageRequest {
   filterCriteria?: CoverageFilterCriteria;
 }
 
+/**
+ * @public
+ */
 export interface ListCoverageResponse {
   /**
    * <p>A token to use for paginating results that are returned in the response. Set the value
@@ -3806,6 +4512,9 @@ export interface ListCoverageResponse {
   coveredResources?: CoveredResource[];
 }
 
+/**
+ * @public
+ */
 export interface ListCoverageStatisticsRequest {
   /**
    * <p>An object that contains details on the filters to apply to the coverage data for your
@@ -3827,6 +4536,9 @@ export interface ListCoverageStatisticsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCoverageStatisticsResponse {
   /**
    * <p>An array with the number for each group.</p>
@@ -3847,6 +4559,9 @@ export interface ListCoverageStatisticsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDelegatedAdminAccountsRequest {
   /**
    * <p>The maximum number of results to return in the response.</p>
@@ -3862,6 +4577,9 @@ export interface ListDelegatedAdminAccountsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDelegatedAdminAccountsResponse {
   /**
    * <p>Details of the Amazon Inspector delegated administrator of your organization.</p>
@@ -3877,6 +4595,9 @@ export interface ListDelegatedAdminAccountsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFiltersRequest {
   /**
    * <p>The Amazon resource number (ARN) of the filter.</p>
@@ -3902,6 +4623,9 @@ export interface ListFiltersRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListFiltersResponse {
   /**
    * <p>Contains details on the filters associated with your account.</p>
@@ -3917,6 +4641,9 @@ export interface ListFiltersResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFindingAggregationsRequest {
   /**
    * <p>The type of the aggregation request.</p>
@@ -3947,6 +4674,9 @@ export interface ListFindingAggregationsRequest {
   aggregationRequest?: AggregationRequest;
 }
 
+/**
+ * @public
+ */
 export interface ListFindingAggregationsResponse {
   /**
    * <p>The type of aggregation to perform.</p>
@@ -3967,26 +4697,36 @@ export interface ListFindingAggregationsResponse {
   nextToken?: string;
 }
 
-export enum SortField {
-  AWS_ACCOUNT_ID = "AWS_ACCOUNT_ID",
-  COMPONENT_TYPE = "COMPONENT_TYPE",
-  ECR_IMAGE_PUSHED_AT = "ECR_IMAGE_PUSHED_AT",
-  ECR_IMAGE_REGISTRY = "ECR_IMAGE_REGISTRY",
-  ECR_IMAGE_REPOSITORY_NAME = "ECR_IMAGE_REPOSITORY_NAME",
-  FINDING_STATUS = "FINDING_STATUS",
-  FINDING_TYPE = "FINDING_TYPE",
-  FIRST_OBSERVED_AT = "FIRST_OBSERVED_AT",
-  INSPECTOR_SCORE = "INSPECTOR_SCORE",
-  LAST_OBSERVED_AT = "LAST_OBSERVED_AT",
-  NETWORK_PROTOCOL = "NETWORK_PROTOCOL",
-  RESOURCE_TYPE = "RESOURCE_TYPE",
-  SEVERITY = "SEVERITY",
-  VENDOR_SEVERITY = "VENDOR_SEVERITY",
-  VULNERABILITY_ID = "VULNERABILITY_ID",
-  VULNERABILITY_SOURCE = "VULNERABILITY_SOURCE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SortField = {
+  AWS_ACCOUNT_ID: "AWS_ACCOUNT_ID",
+  COMPONENT_TYPE: "COMPONENT_TYPE",
+  ECR_IMAGE_PUSHED_AT: "ECR_IMAGE_PUSHED_AT",
+  ECR_IMAGE_REGISTRY: "ECR_IMAGE_REGISTRY",
+  ECR_IMAGE_REPOSITORY_NAME: "ECR_IMAGE_REPOSITORY_NAME",
+  FINDING_STATUS: "FINDING_STATUS",
+  FINDING_TYPE: "FINDING_TYPE",
+  FIRST_OBSERVED_AT: "FIRST_OBSERVED_AT",
+  INSPECTOR_SCORE: "INSPECTOR_SCORE",
+  LAST_OBSERVED_AT: "LAST_OBSERVED_AT",
+  NETWORK_PROTOCOL: "NETWORK_PROTOCOL",
+  RESOURCE_TYPE: "RESOURCE_TYPE",
+  SEVERITY: "SEVERITY",
+  VENDOR_SEVERITY: "VENDOR_SEVERITY",
+  VULNERABILITY_ID: "VULNERABILITY_ID",
+  VULNERABILITY_SOURCE: "VULNERABILITY_SOURCE",
+} as const;
 
 /**
+ * @public
+ */
+export type SortField = (typeof SortField)[keyof typeof SortField];
+
+/**
+ * @public
  * <p>Details about the criteria used to sort finding results.</p>
  */
 export interface SortCriteria {
@@ -4001,6 +4741,9 @@ export interface SortCriteria {
   sortOrder: SortOrder | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListFindingsRequest {
   /**
    * <p>The maximum number of results to return in the response.</p>
@@ -4026,6 +4769,9 @@ export interface ListFindingsRequest {
   sortCriteria?: SortCriteria;
 }
 
+/**
+ * @public
+ */
 export interface ListFindingsResponse {
   /**
    * <p>A token to use for paginating results that are returned in the response. Set the value
@@ -4041,6 +4787,9 @@ export interface ListFindingsResponse {
   findings?: Finding[];
 }
 
+/**
+ * @public
+ */
 export interface ListMembersRequest {
   /**
    * <p>Specifies whether to list only currently associated members if <code>True</code> or to
@@ -4062,6 +4811,9 @@ export interface ListMembersRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListMembersResponse {
   /**
    * <p>An object that contains details for each member account.</p>
@@ -4075,6 +4827,9 @@ export interface ListMembersResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon resource number (ARN) of the resource to list tags of.</p>
@@ -4082,6 +4837,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags associated with the resource.</p>
@@ -4089,6 +4847,9 @@ export interface ListTagsForResourceResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListUsageTotalsRequest {
   /**
    * <p>The maximum number of results to return in the response.</p>
@@ -4109,14 +4870,24 @@ export interface ListUsageTotalsRequest {
   accountIds?: string[];
 }
 
-export enum UsageType {
-  EC2_INSTANCE_HOURS = "EC2_INSTANCE_HOURS",
-  ECR_INITIAL_SCAN = "ECR_INITIAL_SCAN",
-  ECR_RESCAN = "ECR_RESCAN",
-  LAMBDA_FUNCTION_HOURS = "LAMBDA_FUNCTION_HOURS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const UsageType = {
+  EC2_INSTANCE_HOURS: "EC2_INSTANCE_HOURS",
+  ECR_INITIAL_SCAN: "ECR_INITIAL_SCAN",
+  ECR_RESCAN: "ECR_RESCAN",
+  LAMBDA_FUNCTION_HOURS: "LAMBDA_FUNCTION_HOURS",
+} as const;
 
 /**
+ * @public
+ */
+export type UsageType = (typeof UsageType)[keyof typeof UsageType];
+
+/**
+ * @public
  * <p>Contains usage information about the cost of Amazon Inspector operation.</p>
  */
 export interface Usage {
@@ -4142,6 +4913,7 @@ export interface Usage {
 }
 
 /**
+ * @public
  * <p>The total of usage for an account ID.</p>
  */
 export interface UsageTotal {
@@ -4156,6 +4928,9 @@ export interface UsageTotal {
   usage?: Usage[];
 }
 
+/**
+ * @public
+ */
 export interface ListUsageTotalsResponse {
   /**
    * <p>The pagination parameter to be used on the next list operation to retrieve more items.</p>
@@ -4168,6 +4943,9 @@ export interface ListUsageTotalsResponse {
   totals?: UsageTotal[];
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to apply a tag to.</p>
@@ -4180,8 +4958,14 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) for the resource to remove tags from.</p>
@@ -4194,8 +4978,14 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateConfigurationRequest {
   /**
    * <p>Specifies how the ECR automated re-scan will be updated for your environment.</p>
@@ -4203,8 +4993,14 @@ export interface UpdateConfigurationRequest {
   ecrConfiguration: EcrConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateConfigurationResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateFilterRequest {
   /**
    * <p>Specifies the action that is to be applied to the findings that match the filter.</p>
@@ -4237,6 +5033,9 @@ export interface UpdateFilterRequest {
   reason?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFilterResponse {
   /**
    * <p>The Amazon Resource Number (ARN) of the successfully updated filter.</p>
@@ -4244,6 +5043,9 @@ export interface UpdateFilterResponse {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateOrganizationConfigurationRequest {
   /**
    * <p>Defines which scan types are enabled automatically for new members of your Amazon Inspector organization.</p>
@@ -4251,1122 +5053,12 @@ export interface UpdateOrganizationConfigurationRequest {
   autoEnable: AutoEnable | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateOrganizationConfigurationResponse {
   /**
    * <p>The updated status of scan types automatically enabled for new members of your Amazon Inspector organization.</p>
    */
   autoEnable: AutoEnable | undefined;
 }
-
-/**
- * @internal
- */
-export const ResourceStatusFilterSensitiveLog = (obj: ResourceStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AccountFilterSensitiveLog = (obj: Account): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AccountAggregationFilterSensitiveLog = (obj: AccountAggregation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SeverityCountsFilterSensitiveLog = (obj: SeverityCounts): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AccountAggregationResponseFilterSensitiveLog = (obj: AccountAggregationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StateFilterSensitiveLog = (obj: State): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceStateFilterSensitiveLog = (obj: ResourceState): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AccountStateFilterSensitiveLog = (obj: AccountState): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StringFilterFilterSensitiveLog = (obj: StringFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AmiAggregationFilterSensitiveLog = (obj: AmiAggregation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcrContainerAggregationFilterSensitiveLog = (obj: AwsEcrContainerAggregation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MapFilterFilterSensitiveLog = (obj: MapFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Ec2InstanceAggregationFilterSensitiveLog = (obj: Ec2InstanceAggregation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FindingTypeAggregationFilterSensitiveLog = (obj: FindingTypeAggregation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImageLayerAggregationFilterSensitiveLog = (obj: ImageLayerAggregation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LambdaFunctionAggregationFilterSensitiveLog = (obj: LambdaFunctionAggregation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LambdaLayerAggregationFilterSensitiveLog = (obj: LambdaLayerAggregation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PackageAggregationFilterSensitiveLog = (obj: PackageAggregation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RepositoryAggregationFilterSensitiveLog = (obj: RepositoryAggregation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TitleAggregationFilterSensitiveLog = (obj: TitleAggregation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AggregationRequestFilterSensitiveLog = (obj: AggregationRequest): any => {
-  if (obj.accountAggregation !== undefined)
-    return { accountAggregation: AccountAggregationFilterSensitiveLog(obj.accountAggregation) };
-  if (obj.amiAggregation !== undefined) return { amiAggregation: AmiAggregationFilterSensitiveLog(obj.amiAggregation) };
-  if (obj.awsEcrContainerAggregation !== undefined)
-    return { awsEcrContainerAggregation: AwsEcrContainerAggregationFilterSensitiveLog(obj.awsEcrContainerAggregation) };
-  if (obj.ec2InstanceAggregation !== undefined)
-    return { ec2InstanceAggregation: Ec2InstanceAggregationFilterSensitiveLog(obj.ec2InstanceAggregation) };
-  if (obj.findingTypeAggregation !== undefined)
-    return { findingTypeAggregation: FindingTypeAggregationFilterSensitiveLog(obj.findingTypeAggregation) };
-  if (obj.imageLayerAggregation !== undefined)
-    return { imageLayerAggregation: ImageLayerAggregationFilterSensitiveLog(obj.imageLayerAggregation) };
-  if (obj.packageAggregation !== undefined)
-    return { packageAggregation: PackageAggregationFilterSensitiveLog(obj.packageAggregation) };
-  if (obj.repositoryAggregation !== undefined)
-    return { repositoryAggregation: RepositoryAggregationFilterSensitiveLog(obj.repositoryAggregation) };
-  if (obj.titleAggregation !== undefined)
-    return { titleAggregation: TitleAggregationFilterSensitiveLog(obj.titleAggregation) };
-  if (obj.lambdaLayerAggregation !== undefined)
-    return { lambdaLayerAggregation: LambdaLayerAggregationFilterSensitiveLog(obj.lambdaLayerAggregation) };
-  if (obj.lambdaFunctionAggregation !== undefined)
-    return { lambdaFunctionAggregation: LambdaFunctionAggregationFilterSensitiveLog(obj.lambdaFunctionAggregation) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const AmiAggregationResponseFilterSensitiveLog = (obj: AmiAggregationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcrContainerAggregationResponseFilterSensitiveLog = (obj: AwsEcrContainerAggregationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Ec2InstanceAggregationResponseFilterSensitiveLog = (obj: Ec2InstanceAggregationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FindingTypeAggregationResponseFilterSensitiveLog = (obj: FindingTypeAggregationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImageLayerAggregationResponseFilterSensitiveLog = (obj: ImageLayerAggregationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LambdaFunctionAggregationResponseFilterSensitiveLog = (obj: LambdaFunctionAggregationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LambdaLayerAggregationResponseFilterSensitiveLog = (obj: LambdaLayerAggregationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PackageAggregationResponseFilterSensitiveLog = (obj: PackageAggregationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RepositoryAggregationResponseFilterSensitiveLog = (obj: RepositoryAggregationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TitleAggregationResponseFilterSensitiveLog = (obj: TitleAggregationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AggregationResponseFilterSensitiveLog = (obj: AggregationResponse): any => {
-  if (obj.accountAggregation !== undefined)
-    return { accountAggregation: AccountAggregationResponseFilterSensitiveLog(obj.accountAggregation) };
-  if (obj.amiAggregation !== undefined)
-    return { amiAggregation: AmiAggregationResponseFilterSensitiveLog(obj.amiAggregation) };
-  if (obj.awsEcrContainerAggregation !== undefined)
-    return {
-      awsEcrContainerAggregation: AwsEcrContainerAggregationResponseFilterSensitiveLog(obj.awsEcrContainerAggregation),
-    };
-  if (obj.ec2InstanceAggregation !== undefined)
-    return { ec2InstanceAggregation: Ec2InstanceAggregationResponseFilterSensitiveLog(obj.ec2InstanceAggregation) };
-  if (obj.findingTypeAggregation !== undefined)
-    return { findingTypeAggregation: FindingTypeAggregationResponseFilterSensitiveLog(obj.findingTypeAggregation) };
-  if (obj.imageLayerAggregation !== undefined)
-    return { imageLayerAggregation: ImageLayerAggregationResponseFilterSensitiveLog(obj.imageLayerAggregation) };
-  if (obj.packageAggregation !== undefined)
-    return { packageAggregation: PackageAggregationResponseFilterSensitiveLog(obj.packageAggregation) };
-  if (obj.repositoryAggregation !== undefined)
-    return { repositoryAggregation: RepositoryAggregationResponseFilterSensitiveLog(obj.repositoryAggregation) };
-  if (obj.titleAggregation !== undefined)
-    return { titleAggregation: TitleAggregationResponseFilterSensitiveLog(obj.titleAggregation) };
-  if (obj.lambdaLayerAggregation !== undefined)
-    return { lambdaLayerAggregation: LambdaLayerAggregationResponseFilterSensitiveLog(obj.lambdaLayerAggregation) };
-  if (obj.lambdaFunctionAggregation !== undefined)
-    return {
-      lambdaFunctionAggregation: LambdaFunctionAggregationResponseFilterSensitiveLog(obj.lambdaFunctionAggregation),
-    };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const AssociateMemberRequestFilterSensitiveLog = (obj: AssociateMemberRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateMemberResponseFilterSensitiveLog = (obj: AssociateMemberResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoEnableFilterSensitiveLog = (obj: AutoEnable): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2InstanceDetailsFilterSensitiveLog = (obj: AwsEc2InstanceDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcrContainerImageDetailsFilterSensitiveLog = (obj: AwsEcrContainerImageDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LambdaVpcConfigFilterSensitiveLog = (obj: LambdaVpcConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsLambdaFunctionDetailsFilterSensitiveLog = (obj: AwsLambdaFunctionDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetAccountStatusRequestFilterSensitiveLog = (obj: BatchGetAccountStatusRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FailedAccountFilterSensitiveLog = (obj: FailedAccount): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetAccountStatusResponseFilterSensitiveLog = (obj: BatchGetAccountStatusResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetFreeTrialInfoRequestFilterSensitiveLog = (obj: BatchGetFreeTrialInfoRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FreeTrialInfoFilterSensitiveLog = (obj: FreeTrialInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FreeTrialAccountInfoFilterSensitiveLog = (obj: FreeTrialAccountInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FreeTrialInfoErrorFilterSensitiveLog = (obj: FreeTrialInfoError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetFreeTrialInfoResponseFilterSensitiveLog = (obj: BatchGetFreeTrialInfoResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelFindingsReportRequestFilterSensitiveLog = (obj: CancelFindingsReportRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelFindingsReportResponseFilterSensitiveLog = (obj: CancelFindingsReportResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CountsFilterSensitiveLog = (obj: Counts): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CoverageStringFilterFilterSensitiveLog = (obj: CoverageStringFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CoverageMapFilterFilterSensitiveLog = (obj: CoverageMapFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CoverageFilterCriteriaFilterSensitiveLog = (obj: CoverageFilterCriteria): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Ec2MetadataFilterSensitiveLog = (obj: Ec2Metadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EcrContainerImageMetadataFilterSensitiveLog = (obj: EcrContainerImageMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EcrRepositoryMetadataFilterSensitiveLog = (obj: EcrRepositoryMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LambdaFunctionMetadataFilterSensitiveLog = (obj: LambdaFunctionMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceScanMetadataFilterSensitiveLog = (obj: ResourceScanMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScanStatusFilterSensitiveLog = (obj: ScanStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CoveredResourceFilterSensitiveLog = (obj: CoveredResource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DateFilterFilterSensitiveLog = (obj: DateFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NumberFilterFilterSensitiveLog = (obj: NumberFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PortRangeFilterFilterSensitiveLog = (obj: PortRangeFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PackageFilterFilterSensitiveLog = (obj: PackageFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterCriteriaFilterSensitiveLog = (obj: FilterCriteria): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFilterRequestFilterSensitiveLog = (obj: CreateFilterRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFilterResponseFilterSensitiveLog = (obj: CreateFilterResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DestinationFilterSensitiveLog = (obj: Destination): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFindingsReportRequestFilterSensitiveLog = (obj: CreateFindingsReportRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFindingsReportResponseFilterSensitiveLog = (obj: CreateFindingsReportResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CvssScoreFilterSensitiveLog = (obj: CvssScore): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CvssScoreAdjustmentFilterSensitiveLog = (obj: CvssScoreAdjustment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CvssScoreDetailsFilterSensitiveLog = (obj: CvssScoreDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DelegatedAdminFilterSensitiveLog = (obj: DelegatedAdmin): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DelegatedAdminAccountFilterSensitiveLog = (obj: DelegatedAdminAccount): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteFilterRequestFilterSensitiveLog = (obj: DeleteFilterRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteFilterResponseFilterSensitiveLog = (obj: DeleteFilterResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeOrganizationConfigurationRequestFilterSensitiveLog = (
-  obj: DescribeOrganizationConfigurationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeOrganizationConfigurationResponseFilterSensitiveLog = (
-  obj: DescribeOrganizationConfigurationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableRequestFilterSensitiveLog = (obj: DisableRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableResponseFilterSensitiveLog = (obj: DisableResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableDelegatedAdminAccountRequestFilterSensitiveLog = (
-  obj: DisableDelegatedAdminAccountRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableDelegatedAdminAccountResponseFilterSensitiveLog = (
-  obj: DisableDelegatedAdminAccountResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateMemberRequestFilterSensitiveLog = (obj: DisassociateMemberRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateMemberResponseFilterSensitiveLog = (obj: DisassociateMemberResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EcrConfigurationFilterSensitiveLog = (obj: EcrConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EcrRescanDurationStateFilterSensitiveLog = (obj: EcrRescanDurationState): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EcrConfigurationStateFilterSensitiveLog = (obj: EcrConfigurationState): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableRequestFilterSensitiveLog = (obj: EnableRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableResponseFilterSensitiveLog = (obj: EnableResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableDelegatedAdminAccountRequestFilterSensitiveLog = (obj: EnableDelegatedAdminAccountRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableDelegatedAdminAccountResponseFilterSensitiveLog = (
-  obj: EnableDelegatedAdminAccountResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExploitabilityDetailsFilterSensitiveLog = (obj: ExploitabilityDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterFilterSensitiveLog = (obj: Filter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InspectorScoreDetailsFilterSensitiveLog = (obj: InspectorScoreDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StepFilterSensitiveLog = (obj: Step): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkPathFilterSensitiveLog = (obj: NetworkPath): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PortRangeFilterSensitiveLog = (obj: PortRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkReachabilityDetailsFilterSensitiveLog = (obj: NetworkReachabilityDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VulnerablePackageFilterSensitiveLog = (obj: VulnerablePackage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PackageVulnerabilityDetailsFilterSensitiveLog = (obj: PackageVulnerabilityDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecommendationFilterSensitiveLog = (obj: Recommendation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemediationFilterSensitiveLog = (obj: Remediation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceDetailsFilterSensitiveLog = (obj: ResourceDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceFilterSensitiveLog = (obj: Resource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FindingFilterSensitiveLog = (obj: Finding): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetConfigurationRequestFilterSensitiveLog = (obj: GetConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetConfigurationResponseFilterSensitiveLog = (obj: GetConfigurationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDelegatedAdminAccountRequestFilterSensitiveLog = (obj: GetDelegatedAdminAccountRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDelegatedAdminAccountResponseFilterSensitiveLog = (obj: GetDelegatedAdminAccountResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFindingsReportStatusRequestFilterSensitiveLog = (obj: GetFindingsReportStatusRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFindingsReportStatusResponseFilterSensitiveLog = (obj: GetFindingsReportStatusResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMemberRequestFilterSensitiveLog = (obj: GetMemberRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MemberFilterSensitiveLog = (obj: Member): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMemberResponseFilterSensitiveLog = (obj: GetMemberResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAccountPermissionsRequestFilterSensitiveLog = (obj: ListAccountPermissionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PermissionFilterSensitiveLog = (obj: Permission): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAccountPermissionsResponseFilterSensitiveLog = (obj: ListAccountPermissionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCoverageRequestFilterSensitiveLog = (obj: ListCoverageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCoverageResponseFilterSensitiveLog = (obj: ListCoverageResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCoverageStatisticsRequestFilterSensitiveLog = (obj: ListCoverageStatisticsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCoverageStatisticsResponseFilterSensitiveLog = (obj: ListCoverageStatisticsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDelegatedAdminAccountsRequestFilterSensitiveLog = (obj: ListDelegatedAdminAccountsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDelegatedAdminAccountsResponseFilterSensitiveLog = (obj: ListDelegatedAdminAccountsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFiltersRequestFilterSensitiveLog = (obj: ListFiltersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFiltersResponseFilterSensitiveLog = (obj: ListFiltersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFindingAggregationsRequestFilterSensitiveLog = (obj: ListFindingAggregationsRequest): any => ({
-  ...obj,
-  ...(obj.aggregationRequest && { aggregationRequest: AggregationRequestFilterSensitiveLog(obj.aggregationRequest) }),
-});
-
-/**
- * @internal
- */
-export const ListFindingAggregationsResponseFilterSensitiveLog = (obj: ListFindingAggregationsResponse): any => ({
-  ...obj,
-  ...(obj.responses && { responses: obj.responses.map((item) => AggregationResponseFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const SortCriteriaFilterSensitiveLog = (obj: SortCriteria): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFindingsRequestFilterSensitiveLog = (obj: ListFindingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFindingsResponseFilterSensitiveLog = (obj: ListFindingsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMembersRequestFilterSensitiveLog = (obj: ListMembersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMembersResponseFilterSensitiveLog = (obj: ListMembersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListUsageTotalsRequestFilterSensitiveLog = (obj: ListUsageTotalsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UsageFilterSensitiveLog = (obj: Usage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UsageTotalFilterSensitiveLog = (obj: UsageTotal): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListUsageTotalsResponseFilterSensitiveLog = (obj: ListUsageTotalsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateConfigurationRequestFilterSensitiveLog = (obj: UpdateConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateConfigurationResponseFilterSensitiveLog = (obj: UpdateConfigurationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFilterRequestFilterSensitiveLog = (obj: UpdateFilterRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFilterResponseFilterSensitiveLog = (obj: UpdateFilterResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateOrganizationConfigurationRequestFilterSensitiveLog = (
-  obj: UpdateOrganizationConfigurationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateOrganizationConfigurationResponseFilterSensitiveLog = (
-  obj: UpdateOrganizationConfigurationResponse
-): any => ({
-  ...obj,
-});

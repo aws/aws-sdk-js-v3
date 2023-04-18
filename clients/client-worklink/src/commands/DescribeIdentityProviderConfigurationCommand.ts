@@ -15,23 +15,32 @@ import {
 
 import {
   DescribeIdentityProviderConfigurationRequest,
-  DescribeIdentityProviderConfigurationRequestFilterSensitiveLog,
   DescribeIdentityProviderConfigurationResponse,
-  DescribeIdentityProviderConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeIdentityProviderConfigurationCommand,
-  serializeAws_restJson1DescribeIdentityProviderConfigurationCommand,
+  de_DescribeIdentityProviderConfigurationCommand,
+  se_DescribeIdentityProviderConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeIdentityProviderConfigurationCommand}.
+ */
 export interface DescribeIdentityProviderConfigurationCommandInput
   extends DescribeIdentityProviderConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeIdentityProviderConfigurationCommand}.
+ */
 export interface DescribeIdentityProviderConfigurationCommandOutput
   extends DescribeIdentityProviderConfigurationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Describes the identity provider configuration of the specified fleet.</p>
@@ -41,13 +50,34 @@ export interface DescribeIdentityProviderConfigurationCommandOutput
  * import { WorkLinkClient, DescribeIdentityProviderConfigurationCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, DescribeIdentityProviderConfigurationCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
+ * const input = { // DescribeIdentityProviderConfigurationRequest
+ *   FleetArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeIdentityProviderConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeIdentityProviderConfigurationCommandInput - {@link DescribeIdentityProviderConfigurationCommandInput}
+ * @returns {@link DescribeIdentityProviderConfigurationCommandOutput}
  * @see {@link DescribeIdentityProviderConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeIdentityProviderConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource was not found.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The number of requests exceeds the limit.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You are not authorized to perform this action.</p>
+ *
  *
  */
 export class DescribeIdentityProviderConfigurationCommand extends $Command<
@@ -67,6 +97,9 @@ export class DescribeIdentityProviderConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeIdentityProviderConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +128,8 @@ export class DescribeIdentityProviderConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeIdentityProviderConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeIdentityProviderConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,18 +139,24 @@ export class DescribeIdentityProviderConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeIdentityProviderConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeIdentityProviderConfigurationCommand(input, context);
+    return se_DescribeIdentityProviderConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeIdentityProviderConfigurationCommandOutput> {
-    return deserializeAws_restJson1DescribeIdentityProviderConfigurationCommand(output, context);
+    return de_DescribeIdentityProviderConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

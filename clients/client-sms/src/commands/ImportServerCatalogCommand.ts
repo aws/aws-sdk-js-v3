@@ -13,25 +13,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ImportServerCatalogRequest,
-  ImportServerCatalogRequestFilterSensitiveLog,
-  ImportServerCatalogResponse,
-  ImportServerCatalogResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ImportServerCatalogCommand,
-  serializeAws_json1_1ImportServerCatalogCommand,
-} from "../protocols/Aws_json1_1";
+import { ImportServerCatalogRequest, ImportServerCatalogResponse } from "../models/models_0";
+import { de_ImportServerCatalogCommand, se_ImportServerCatalogCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ImportServerCatalogCommand}.
+ */
 export interface ImportServerCatalogCommandInput extends ImportServerCatalogRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ImportServerCatalogCommand}.
+ */
 export interface ImportServerCatalogCommandOutput extends ImportServerCatalogResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gathers a complete list of on-premises servers. Connectors must be installed and
  *             monitoring all servers to import.</p>
- *         <p>This call returns immediately, but might take additional time to retrieve all the
+ *          <p>This call returns immediately, but might take additional time to retrieve all the
  *             servers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +42,33 @@ export interface ImportServerCatalogCommandOutput extends ImportServerCatalogRes
  * import { SMSClient, ImportServerCatalogCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, ImportServerCatalogCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
+ * const input = {};
  * const command = new ImportServerCatalogCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportServerCatalogCommandInput - {@link ImportServerCatalogCommandInput}
+ * @returns {@link ImportServerCatalogCommandOutput}
  * @see {@link ImportServerCatalogCommandInput} for command's `input` shape.
  * @see {@link ImportServerCatalogCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A specified parameter is not valid.</p>
+ *
+ * @throws {@link MissingRequiredParameterException} (client fault)
+ *  <p>A required parameter is missing.</p>
+ *
+ * @throws {@link NoConnectorsAvailableException} (client fault)
+ *  <p>There are no connectors available.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This operation is not allowed.</p>
+ *
+ * @throws {@link UnauthorizedOperationException} (client fault)
+ *  <p>You lack permissions needed to perform this operation. Check your IAM policies,
+ *             and ensure that you are using the correct access keys.</p>
+ *
  *
  */
 export class ImportServerCatalogCommand extends $Command<
@@ -65,6 +88,9 @@ export class ImportServerCatalogCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportServerCatalogCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +119,8 @@ export class ImportServerCatalogCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ImportServerCatalogRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ImportServerCatalogResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +130,18 @@ export class ImportServerCatalogCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportServerCatalogCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ImportServerCatalogCommand(input, context);
+    return se_ImportServerCatalogCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportServerCatalogCommandOutput> {
-    return deserializeAws_json1_1ImportServerCatalogCommand(output, context);
+    return de_ImportServerCatalogCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,23 +14,26 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  TerminateClientVpnConnectionsRequest,
-  TerminateClientVpnConnectionsRequestFilterSensitiveLog,
-  TerminateClientVpnConnectionsResult,
-  TerminateClientVpnConnectionsResultFilterSensitiveLog,
-} from "../models/models_6";
-import {
-  deserializeAws_ec2TerminateClientVpnConnectionsCommand,
-  serializeAws_ec2TerminateClientVpnConnectionsCommand,
-} from "../protocols/Aws_ec2";
+import { TerminateClientVpnConnectionsRequest, TerminateClientVpnConnectionsResult } from "../models/models_7";
+import { de_TerminateClientVpnConnectionsCommand, se_TerminateClientVpnConnectionsCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link TerminateClientVpnConnectionsCommand}.
+ */
 export interface TerminateClientVpnConnectionsCommandInput extends TerminateClientVpnConnectionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link TerminateClientVpnConnectionsCommand}.
+ */
 export interface TerminateClientVpnConnectionsCommandOutput
   extends TerminateClientVpnConnectionsResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Terminates active Client VPN endpoint connections. This action can be used to terminate a specific client connection, or up to five connections established by a specific user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +41,22 @@ export interface TerminateClientVpnConnectionsCommandOutput
  * import { EC2Client, TerminateClientVpnConnectionsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, TerminateClientVpnConnectionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // TerminateClientVpnConnectionsRequest
+ *   ClientVpnEndpointId: "STRING_VALUE", // required
+ *   ConnectionId: "STRING_VALUE",
+ *   Username: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new TerminateClientVpnConnectionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TerminateClientVpnConnectionsCommandInput - {@link TerminateClientVpnConnectionsCommandInput}
+ * @returns {@link TerminateClientVpnConnectionsCommandOutput}
  * @see {@link TerminateClientVpnConnectionsCommandInput} for command's `input` shape.
  * @see {@link TerminateClientVpnConnectionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class TerminateClientVpnConnectionsCommand extends $Command<
@@ -64,6 +76,9 @@ export class TerminateClientVpnConnectionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TerminateClientVpnConnectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +107,8 @@ export class TerminateClientVpnConnectionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TerminateClientVpnConnectionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: TerminateClientVpnConnectionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +118,21 @@ export class TerminateClientVpnConnectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TerminateClientVpnConnectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2TerminateClientVpnConnectionsCommand(input, context);
+    return se_TerminateClientVpnConnectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<TerminateClientVpnConnectionsCommandOutput> {
-    return deserializeAws_ec2TerminateClientVpnConnectionsCommand(output, context);
+    return de_TerminateClientVpnConnectionsCommand(output, context);
   }
 
   // Start section: command_body_extra

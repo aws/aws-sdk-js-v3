@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
+import { GetOriginRequestPolicyConfigRequest, GetOriginRequestPolicyConfigResult } from "../models/models_1";
 import {
-  GetOriginRequestPolicyConfigRequest,
-  GetOriginRequestPolicyConfigRequestFilterSensitiveLog,
-  GetOriginRequestPolicyConfigResult,
-  GetOriginRequestPolicyConfigResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlGetOriginRequestPolicyConfigCommand,
-  serializeAws_restXmlGetOriginRequestPolicyConfigCommand,
+  de_GetOriginRequestPolicyConfigCommand,
+  se_GetOriginRequestPolicyConfigCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * @public
+ *
+ * The input for {@link GetOriginRequestPolicyConfigCommand}.
+ */
 export interface GetOriginRequestPolicyConfigCommandInput extends GetOriginRequestPolicyConfigRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetOriginRequestPolicyConfigCommand}.
+ */
 export interface GetOriginRequestPolicyConfigCommandOutput
   extends GetOriginRequestPolicyConfigResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets an origin request policy configuration.</p>
  *          <p>To get an origin request policy configuration, you must provide the policy's
  * 			identifier. If the origin request policy is attached to a distribution's cache behavior,
@@ -44,13 +50,25 @@ export interface GetOriginRequestPolicyConfigCommandOutput
  * import { CloudFrontClient, GetOriginRequestPolicyConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, GetOriginRequestPolicyConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // GetOriginRequestPolicyConfigRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetOriginRequestPolicyConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetOriginRequestPolicyConfigCommandInput - {@link GetOriginRequestPolicyConfigCommandInput}
+ * @returns {@link GetOriginRequestPolicyConfigCommandOutput}
  * @see {@link GetOriginRequestPolicyConfigCommandInput} for command's `input` shape.
  * @see {@link GetOriginRequestPolicyConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link NoSuchOriginRequestPolicy} (client fault)
+ *  <p>The origin request policy does not exist.</p>
+ *
  *
  */
 export class GetOriginRequestPolicyConfigCommand extends $Command<
@@ -70,6 +88,9 @@ export class GetOriginRequestPolicyConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetOriginRequestPolicyConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +119,8 @@ export class GetOriginRequestPolicyConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetOriginRequestPolicyConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetOriginRequestPolicyConfigResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,15 +130,21 @@ export class GetOriginRequestPolicyConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetOriginRequestPolicyConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetOriginRequestPolicyConfigCommand(input, context);
+    return se_GetOriginRequestPolicyConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetOriginRequestPolicyConfigCommandOutput> {
-    return deserializeAws_restXmlGetOriginRequestPolicyConfigCommand(output, context);
+    return de_GetOriginRequestPolicyConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  CreateRealtimeLogConfigRequest,
-  CreateRealtimeLogConfigRequestFilterSensitiveLog,
-  CreateRealtimeLogConfigResult,
-  CreateRealtimeLogConfigResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlCreateRealtimeLogConfigCommand,
-  serializeAws_restXmlCreateRealtimeLogConfigCommand,
-} from "../protocols/Aws_restXml";
+import { CreateRealtimeLogConfigRequest, CreateRealtimeLogConfigResult } from "../models/models_0";
+import { de_CreateRealtimeLogConfigCommand, se_CreateRealtimeLogConfigCommand } from "../protocols/Aws_restXml";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateRealtimeLogConfigCommand}.
+ */
 export interface CreateRealtimeLogConfigCommandInput extends CreateRealtimeLogConfigRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateRealtimeLogConfigCommand}.
+ */
 export interface CreateRealtimeLogConfigCommandOutput extends CreateRealtimeLogConfigResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a real-time log configuration.</p>
  *          <p>After you create a real-time log configuration, you can attach it to one or more cache
  * 			behaviors to send real-time log data to the specified Amazon Kinesis data stream.</p>
@@ -40,13 +43,48 @@ export interface CreateRealtimeLogConfigCommandOutput extends CreateRealtimeLogC
  * import { CloudFrontClient, CreateRealtimeLogConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, CreateRealtimeLogConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // CreateRealtimeLogConfigRequest
+ *   EndPoints: [ // EndPointList // required
+ *     { // EndPoint
+ *       StreamType: "STRING_VALUE", // required
+ *       KinesisStreamConfig: { // KinesisStreamConfig
+ *         RoleARN: "STRING_VALUE", // required
+ *         StreamARN: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
+ *   Fields: [ // FieldList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   Name: "STRING_VALUE", // required
+ *   SamplingRate: Number("long"), // required
+ * };
  * const command = new CreateRealtimeLogConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRealtimeLogConfigCommandInput - {@link CreateRealtimeLogConfigCommandInput}
+ * @returns {@link CreateRealtimeLogConfigCommandOutput}
  * @see {@link CreateRealtimeLogConfigCommandInput} for command's `input` shape.
  * @see {@link CreateRealtimeLogConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link RealtimeLogConfigAlreadyExists} (client fault)
+ *  <p>A real-time log configuration with this name already exists. You must provide a unique
+ * 			name. To modify an existing real-time log configuration, use
+ * 				<code>UpdateRealtimeLogConfig</code>.</p>
+ *
+ * @throws {@link TooManyRealtimeLogConfigs} (client fault)
+ *  <p>You have reached the maximum number of real-time log configurations for this
+ * 			Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
+ * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *
  *
  */
 export class CreateRealtimeLogConfigCommand extends $Command<
@@ -66,6 +104,9 @@ export class CreateRealtimeLogConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRealtimeLogConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +135,8 @@ export class CreateRealtimeLogConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRealtimeLogConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRealtimeLogConfigResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +146,18 @@ export class CreateRealtimeLogConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRealtimeLogConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateRealtimeLogConfigCommand(input, context);
+    return se_CreateRealtimeLogConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRealtimeLogConfigCommandOutput> {
-    return deserializeAws_restXmlCreateRealtimeLogConfigCommand(output, context);
+    return de_CreateRealtimeLogConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

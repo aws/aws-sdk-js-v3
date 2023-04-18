@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  GetKeyGroupRequest,
-  GetKeyGroupRequestFilterSensitiveLog,
-  GetKeyGroupResult,
-  GetKeyGroupResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlGetKeyGroupCommand,
-  serializeAws_restXmlGetKeyGroupCommand,
-} from "../protocols/Aws_restXml";
+import { GetKeyGroupRequest, GetKeyGroupResult } from "../models/models_1";
+import { de_GetKeyGroupCommand, se_GetKeyGroupCommand } from "../protocols/Aws_restXml";
 
+/**
+ * @public
+ *
+ * The input for {@link GetKeyGroupCommand}.
+ */
 export interface GetKeyGroupCommandInput extends GetKeyGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetKeyGroupCommand}.
+ */
 export interface GetKeyGroupCommandOutput extends GetKeyGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a key group, including the date and time when the key group was last
  * 			modified.</p>
  *          <p>To get a key group, you must provide the key group's identifier. If the key group is
@@ -42,13 +45,22 @@ export interface GetKeyGroupCommandOutput extends GetKeyGroupResult, __MetadataB
  * import { CloudFrontClient, GetKeyGroupCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, GetKeyGroupCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // GetKeyGroupRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetKeyGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetKeyGroupCommandInput - {@link GetKeyGroupCommandInput}
+ * @returns {@link GetKeyGroupCommandOutput}
  * @see {@link GetKeyGroupCommandInput} for command's `input` shape.
  * @see {@link GetKeyGroupCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link NoSuchResource} (client fault)
+ *  <p>A resource that was specified is not valid.</p>
+ *
  *
  */
 export class GetKeyGroupCommand extends $Command<
@@ -68,6 +80,9 @@ export class GetKeyGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetKeyGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +109,8 @@ export class GetKeyGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetKeyGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetKeyGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +120,18 @@ export class GetKeyGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetKeyGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetKeyGroupCommand(input, context);
+    return se_GetKeyGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetKeyGroupCommandOutput> {
-    return deserializeAws_restXmlGetKeyGroupCommand(output, context);
+    return de_GetKeyGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

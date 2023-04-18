@@ -6,12 +6,11 @@ import {
   ListPrincipalsForPortfolioCommandInput,
   ListPrincipalsForPortfolioCommandOutput,
 } from "../commands/ListPrincipalsForPortfolioCommand";
-import { ServiceCatalog } from "../ServiceCatalog";
 import { ServiceCatalogClient } from "../ServiceCatalogClient";
 import { ServiceCatalogPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ServiceCatalogClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListPrincipalsForPortfolioCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ServiceCatalog,
-  input: ListPrincipalsForPortfolioCommandInput,
-  ...args: any
-): Promise<ListPrincipalsForPortfolioCommandOutput> => {
-  // @ts-ignore
-  return await client.listPrincipalsForPortfolio(input, ...args);
-};
 export async function* paginateListPrincipalsForPortfolio(
   config: ServiceCatalogPaginationConfiguration,
   input: ListPrincipalsForPortfolioCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListPrincipalsForPortfolio(
   while (hasNext) {
     input.PageToken = token;
     input["PageSize"] = config.pageSize;
-    if (config.client instanceof ServiceCatalog) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ServiceCatalogClient) {
+    if (config.client instanceof ServiceCatalogClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ServiceCatalog | ServiceCatalogClient");

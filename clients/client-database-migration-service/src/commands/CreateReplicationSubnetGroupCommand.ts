@@ -18,23 +18,29 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
+import { CreateReplicationSubnetGroupMessage, CreateReplicationSubnetGroupResponse } from "../models/models_0";
 import {
-  CreateReplicationSubnetGroupMessage,
-  CreateReplicationSubnetGroupMessageFilterSensitiveLog,
-  CreateReplicationSubnetGroupResponse,
-  CreateReplicationSubnetGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateReplicationSubnetGroupCommand,
-  serializeAws_json1_1CreateReplicationSubnetGroupCommand,
+  de_CreateReplicationSubnetGroupCommand,
+  se_CreateReplicationSubnetGroupCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateReplicationSubnetGroupCommand}.
+ */
 export interface CreateReplicationSubnetGroupCommandInput extends CreateReplicationSubnetGroupMessage {}
+/**
+ * @public
+ *
+ * The output of {@link CreateReplicationSubnetGroupCommand}.
+ */
 export interface CreateReplicationSubnetGroupCommandOutput
   extends CreateReplicationSubnetGroupResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a replication subnet group given a list of the subnet IDs in a VPC.</p>
  *          <p>The VPC needs to have at least one subnet in at least two availability zones in the Amazon Web Services Region, otherwise the
  *           service will throw a <code>ReplicationSubnetGroupDoesNotCoverEnoughAZs</code> exception.</p>
@@ -44,13 +50,76 @@ export interface CreateReplicationSubnetGroupCommandOutput
  * import { DatabaseMigrationServiceClient, CreateReplicationSubnetGroupCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, CreateReplicationSubnetGroupCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // CreateReplicationSubnetGroupMessage
+ *   ReplicationSubnetGroupIdentifier: "STRING_VALUE", // required
+ *   ReplicationSubnetGroupDescription: "STRING_VALUE", // required
+ *   SubnetIds: [ // SubnetIdentifierList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *       ResourceArn: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateReplicationSubnetGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateReplicationSubnetGroupCommandInput - {@link CreateReplicationSubnetGroupCommandInput}
+ * @returns {@link CreateReplicationSubnetGroupCommandOutput}
  * @see {@link CreateReplicationSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link CreateReplicationSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedFault} (client fault)
+ *  <p>DMS was denied access to the endpoint. Check that the
+ *             role is correctly configured.</p>
+ *
+ * @throws {@link InvalidSubnet} (client fault)
+ *  <p>The subnet provided is invalid.</p>
+ *
+ * @throws {@link ReplicationSubnetGroupDoesNotCoverEnoughAZs} (client fault)
+ *  <p>The replication subnet group does not cover enough Availability Zones (AZs). Edit the replication subnet group and add more AZs.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsFault} (client fault)
+ *  <p>The resource you are attempting to create already exists.</p>
+ *
+ * @throws {@link ResourceNotFoundFault} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link ResourceQuotaExceededFault} (client fault)
+ *  <p>The quota for this resource quota has been exceeded.</p>
+ *
+ *
+ * @example Create replication subnet group
+ * ```javascript
+ * // Creates a replication subnet group given a list of the subnet IDs in a VPC.
+ * const input = {
+ *   "ReplicationSubnetGroupDescription": "US West subnet group",
+ *   "ReplicationSubnetGroupIdentifier": "us-west-2ab-vpc-215ds366",
+ *   "SubnetIds": [
+ *     "subnet-e145356n",
+ *     "subnet-58f79200"
+ *   ],
+ *   "Tags": [
+ *     {
+ *       "Key": "Acount",
+ *       "Value": "145235"
+ *     }
+ *   ]
+ * };
+ * const command = new CreateReplicationSubnetGroupCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ReplicationSubnetGroup": {}
+ * }
+ * *\/
+ * // example id: create-replication-subnet-group-1481747297930
+ * ```
  *
  */
 export class CreateReplicationSubnetGroupCommand extends $Command<
@@ -70,6 +139,9 @@ export class CreateReplicationSubnetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateReplicationSubnetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +170,8 @@ export class CreateReplicationSubnetGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateReplicationSubnetGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateReplicationSubnetGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,15 +181,21 @@ export class CreateReplicationSubnetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateReplicationSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateReplicationSubnetGroupCommand(input, context);
+    return se_CreateReplicationSubnetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateReplicationSubnetGroupCommandOutput> {
-    return deserializeAws_json1_1CreateReplicationSubnetGroupCommand(output, context);
+    return de_CreateReplicationSubnetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

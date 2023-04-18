@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
-import {
-  GetArchiveRuleRequest,
-  GetArchiveRuleRequestFilterSensitiveLog,
-  GetArchiveRuleResponse,
-  GetArchiveRuleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetArchiveRuleCommand,
-  serializeAws_restJson1GetArchiveRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { GetArchiveRuleRequest, GetArchiveRuleResponse } from "../models/models_0";
+import { de_GetArchiveRuleCommand, se_GetArchiveRuleCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetArchiveRuleCommand}.
+ */
 export interface GetArchiveRuleCommandInput extends GetArchiveRuleRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetArchiveRuleCommand}.
+ */
 export interface GetArchiveRuleCommandOutput extends GetArchiveRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about an archive rule.</p>
  *          <p>To learn about filter keys that you can use to create an archive rule, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html">IAM Access Analyzer filter keys</a> in the <b>IAM User Guide</b>.</p>
  * @example
@@ -37,13 +40,35 @@ export interface GetArchiveRuleCommandOutput extends GetArchiveRuleResponse, __M
  * import { AccessAnalyzerClient, GetArchiveRuleCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, GetArchiveRuleCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
+ * const input = { // GetArchiveRuleRequest
+ *   analyzerName: "STRING_VALUE", // required
+ *   ruleName: "STRING_VALUE", // required
+ * };
  * const command = new GetArchiveRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetArchiveRuleCommandInput - {@link GetArchiveRuleCommandInput}
+ * @returns {@link GetArchiveRuleCommandOutput}
  * @see {@link GetArchiveRuleCommandInput} for command's `input` shape.
  * @see {@link GetArchiveRuleCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Internal server error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Throttling limit exceeded error.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Validation exception error.</p>
+ *
  *
  */
 export class GetArchiveRuleCommand extends $Command<
@@ -63,6 +88,9 @@ export class GetArchiveRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetArchiveRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +119,8 @@ export class GetArchiveRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetArchiveRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetArchiveRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +130,18 @@ export class GetArchiveRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetArchiveRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetArchiveRuleCommand(input, context);
+    return se_GetArchiveRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetArchiveRuleCommandOutput> {
-    return deserializeAws_restJson1GetArchiveRuleCommand(output, context);
+    return de_GetArchiveRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

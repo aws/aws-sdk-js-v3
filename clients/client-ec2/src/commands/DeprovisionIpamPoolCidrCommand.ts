@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DeprovisionIpamPoolCidrRequest,
-  DeprovisionIpamPoolCidrRequestFilterSensitiveLog,
-  DeprovisionIpamPoolCidrResult,
-  DeprovisionIpamPoolCidrResultFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_ec2DeprovisionIpamPoolCidrCommand,
-  serializeAws_ec2DeprovisionIpamPoolCidrCommand,
-} from "../protocols/Aws_ec2";
+import { DeprovisionIpamPoolCidrRequest, DeprovisionIpamPoolCidrResult } from "../models/models_3";
+import { de_DeprovisionIpamPoolCidrCommand, se_DeprovisionIpamPoolCidrCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DeprovisionIpamPoolCidrCommand}.
+ */
 export interface DeprovisionIpamPoolCidrCommandInput extends DeprovisionIpamPoolCidrRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeprovisionIpamPoolCidrCommand}.
+ */
 export interface DeprovisionIpamPoolCidrCommandOutput extends DeprovisionIpamPoolCidrResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deprovision a CIDR provisioned from an IPAM pool. If you deprovision a CIDR from a pool that has a source pool, the CIDR is recycled back into the source pool. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/depro-pool-cidr-ipam.html">Deprovision pool CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,21 @@ export interface DeprovisionIpamPoolCidrCommandOutput extends DeprovisionIpamPoo
  * import { EC2Client, DeprovisionIpamPoolCidrCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeprovisionIpamPoolCidrCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeprovisionIpamPoolCidrRequest
+ *   DryRun: true || false,
+ *   IpamPoolId: "STRING_VALUE", // required
+ *   Cidr: "STRING_VALUE",
+ * };
  * const command = new DeprovisionIpamPoolCidrCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeprovisionIpamPoolCidrCommandInput - {@link DeprovisionIpamPoolCidrCommandInput}
+ * @returns {@link DeprovisionIpamPoolCidrCommandOutput}
  * @see {@link DeprovisionIpamPoolCidrCommandInput} for command's `input` shape.
  * @see {@link DeprovisionIpamPoolCidrCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class DeprovisionIpamPoolCidrCommand extends $Command<
@@ -62,6 +73,9 @@ export class DeprovisionIpamPoolCidrCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeprovisionIpamPoolCidrCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +104,8 @@ export class DeprovisionIpamPoolCidrCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeprovisionIpamPoolCidrRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeprovisionIpamPoolCidrResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +115,18 @@ export class DeprovisionIpamPoolCidrCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeprovisionIpamPoolCidrCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeprovisionIpamPoolCidrCommand(input, context);
+    return se_DeprovisionIpamPoolCidrCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeprovisionIpamPoolCidrCommandOutput> {
-    return deserializeAws_ec2DeprovisionIpamPoolCidrCommand(output, context);
+    return de_DeprovisionIpamPoolCidrCommand(output, context);
   }
 
   // Start section: command_body_extra

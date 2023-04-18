@@ -26,12 +26,14 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
@@ -63,6 +65,7 @@ import {
   DeleteDomainPermissionsPolicyCommandInput,
   DeleteDomainPermissionsPolicyCommandOutput,
 } from "./commands/DeleteDomainPermissionsPolicyCommand";
+import { DeletePackageCommandInput, DeletePackageCommandOutput } from "./commands/DeletePackageCommand";
 import {
   DeletePackageVersionsCommandInput,
   DeletePackageVersionsCommandOutput,
@@ -135,6 +138,10 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  PublishPackageVersionCommandInput,
+  PublishPackageVersionCommandOutput,
+} from "./commands/PublishPackageVersionCommand";
+import {
   PutDomainPermissionsPolicyCommandInput,
   PutDomainPermissionsPolicyCommandOutput,
 } from "./commands/PutDomainPermissionsPolicyCommand";
@@ -161,6 +168,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AssociateExternalConnectionCommandInput
   | CopyPackageVersionsCommandInput
@@ -168,6 +178,7 @@ export type ServiceInputTypes =
   | CreateRepositoryCommandInput
   | DeleteDomainCommandInput
   | DeleteDomainPermissionsPolicyCommandInput
+  | DeletePackageCommandInput
   | DeletePackageVersionsCommandInput
   | DeleteRepositoryCommandInput
   | DeleteRepositoryPermissionsPolicyCommandInput
@@ -191,6 +202,7 @@ export type ServiceInputTypes =
   | ListRepositoriesCommandInput
   | ListRepositoriesInDomainCommandInput
   | ListTagsForResourceCommandInput
+  | PublishPackageVersionCommandInput
   | PutDomainPermissionsPolicyCommandInput
   | PutPackageOriginConfigurationCommandInput
   | PutRepositoryPermissionsPolicyCommandInput
@@ -199,6 +211,9 @@ export type ServiceInputTypes =
   | UpdatePackageVersionsStatusCommandInput
   | UpdateRepositoryCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AssociateExternalConnectionCommandOutput
   | CopyPackageVersionsCommandOutput
@@ -206,6 +221,7 @@ export type ServiceOutputTypes =
   | CreateRepositoryCommandOutput
   | DeleteDomainCommandOutput
   | DeleteDomainPermissionsPolicyCommandOutput
+  | DeletePackageCommandOutput
   | DeletePackageVersionsCommandOutput
   | DeleteRepositoryCommandOutput
   | DeleteRepositoryPermissionsPolicyCommandOutput
@@ -229,6 +245,7 @@ export type ServiceOutputTypes =
   | ListRepositoriesCommandOutput
   | ListRepositoriesInDomainCommandOutput
   | ListTagsForResourceCommandOutput
+  | PublishPackageVersionCommandOutput
   | PutDomainPermissionsPolicyCommandOutput
   | PutPackageOriginConfigurationCommandOutput
   | PutRepositoryPermissionsPolicyCommandOutput
@@ -237,6 +254,9 @@ export type ServiceOutputTypes =
   | UpdatePackageVersionsStatusCommandOutput
   | UpdateRepositoryCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -244,11 +264,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -305,19 +325,10 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
-   * Value for how many times a request will be made at most in case of retry.
+   * Unique service identifier.
+   * @internal
    */
-  maxAttempts?: number | __Provider<number>;
-
-  /**
-   * Specifies which retry algorithm to use.
-   */
-  retryMode?: string | __Provider<string>;
-
-  /**
-   * Optional logger for logging debug/info/warn/error.
-   */
-  logger?: __Logger;
+  serviceId?: string;
 
   /**
    * Enables IPv6/IPv4 dualstack endpoint.
@@ -328,12 +339,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Enables FIPS compatible endpoints.
    */
   useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
 
   /**
    * The AWS region to which this client will send requests
@@ -353,9 +358,24 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * Value for how many times a request will be made at most in case of retry.
    */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Specifies which retry algorithm to use.
+   */
+  retryMode?: string | __Provider<string>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
+
+  /**
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   */
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 
   /**
    * The internal function that inject utilities to runtime-specific stream to help users consume the data
@@ -364,6 +384,9 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   sdkStreamMixin?: __SdkStreamMixinInjector;
 }
 
+/**
+ * @public
+ */
 type CodeartifactClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -374,10 +397,15 @@ type CodeartifactClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerO
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of CodeartifactClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of CodeartifactClient class constructor that set the region, credentials and other options.
  */
 export interface CodeartifactClientConfig extends CodeartifactClientConfigType {}
 
+/**
+ * @public
+ */
 type CodeartifactClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -388,23 +416,24 @@ type CodeartifactClientResolvedConfigType = __SmithyResolvedConfiguration<__Http
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of CodeartifactClient class. This is resolved and normalized from the {@link CodeartifactClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of CodeartifactClient class. This is resolved and normalized from the {@link CodeartifactClientConfig | constructor configuration interface}.
  */
 export interface CodeartifactClientResolvedConfig extends CodeartifactClientResolvedConfigType {}
 
 /**
+ * @public
  * <p> CodeArtifact is a fully managed artifact repository compatible with language-native
  *       package managers and build tools such as npm, Apache Maven, pip, and dotnet. You can use CodeArtifact to
  *       share packages with development teams and pull packages. Packages can be pulled from both
  *       public and CodeArtifact repositories. You can also create an upstream relationship between a CodeArtifact
  *       repository and another repository, which effectively merges their contents from the point of
  *       view of a package manager client. </p>
- *
  *          <p>
  *             <b>CodeArtifact Components</b>
  *          </p>
  *          <p>Use the information in this guide to help you work with the following CodeArtifact components:</p>
- *
  *          <ul>
  *             <li>
  *                <p>
@@ -480,7 +509,6 @@ export interface CodeartifactClientResolvedConfig extends CodeartifactClientReso
  *             <code>.tgz</code> file or Maven POM and JAR files.</p>
  *             </li>
  *          </ul>
- *
  *          <p>CodeArtifact supports these operations:</p>
  *          <ul>
  *             <li>
@@ -510,6 +538,10 @@ export interface CodeartifactClientResolvedConfig extends CodeartifactClientReso
  *             <li>
  *                <p>
  *                   <code>DeleteDomainPermissionsPolicy</code>: Deletes the resource policy that is set on a domain.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>DeletePackage</code>: Deletes a package and all associated package versions.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -638,6 +670,10 @@ export interface CodeartifactClientResolvedConfig extends CodeartifactClientReso
  *             <li>
  *                <p>
  *                   <code>ListRepositoriesInDomain</code>: Returns a list of the repositories in a domain.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>PublishPackageVersion</code>: Creates a new package version containing one or more assets.</p>
  *             </li>
  *             <li>
  *                <p>

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StopRecommenderRequest,
-  StopRecommenderRequestFilterSensitiveLog,
-  StopRecommenderResponse,
-  StopRecommenderResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StopRecommenderRequest, StopRecommenderResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1StopRecommenderCommand,
-  serializeAws_json1_1StopRecommenderCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StopRecommenderCommand, se_StopRecommenderCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link StopRecommenderCommand}.
+ */
 export interface StopRecommenderCommandInput extends StopRecommenderRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StopRecommenderCommand}.
+ */
 export interface StopRecommenderCommandOutput extends StopRecommenderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a recommender that is ACTIVE. Stopping a recommender halts billing and automatic retraining for the recommender.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,28 @@ export interface StopRecommenderCommandOutput extends StopRecommenderResponse, _
  * import { PersonalizeClient, StopRecommenderCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, StopRecommenderCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // StopRecommenderRequest
+ *   recommenderArn: "STRING_VALUE", // required
+ * };
  * const command = new StopRecommenderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopRecommenderCommandInput - {@link StopRecommenderCommandInput}
+ * @returns {@link StopRecommenderCommandOutput}
  * @see {@link StopRecommenderCommandInput} for command's `input` shape.
  * @see {@link StopRecommenderCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is in use.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Could not find the specified resource.</p>
+ *
  *
  */
 export class StopRecommenderCommand extends $Command<
@@ -62,6 +80,9 @@ export class StopRecommenderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopRecommenderCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +111,8 @@ export class StopRecommenderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopRecommenderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopRecommenderResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +122,18 @@ export class StopRecommenderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopRecommenderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopRecommenderCommand(input, context);
+    return se_StopRecommenderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopRecommenderCommandOutput> {
-    return deserializeAws_json1_1StopRecommenderCommand(output, context);
+    return de_StopRecommenderCommand(output, context);
   }
 
   // Start section: command_body_extra

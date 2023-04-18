@@ -5,6 +5,7 @@ import { Readable } from "stream";
 import { LambdaServiceException as __BaseException } from "./LambdaServiceException";
 
 /**
+ * @public
  * <p>Limits that are related to concurrency and storage. All file and storage sizes are in bytes.</p>
  */
 export interface AccountLimit {
@@ -37,6 +38,7 @@ export interface AccountLimit {
 }
 
 /**
+ * @public
  * <p>The number of functions and amount of storage in use.</p>
  */
 export interface AccountUsage {
@@ -51,6 +53,9 @@ export interface AccountUsage {
   FunctionCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface AddLayerVersionPermissionRequest {
   /**
    * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
@@ -93,6 +98,9 @@ export interface AddLayerVersionPermissionRequest {
   RevisionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface AddLayerVersionPermissionResponse {
   /**
    * <p>The permission statement.</p>
@@ -106,6 +114,7 @@ export interface AddLayerVersionPermissionResponse {
 }
 
 /**
+ * @public
  * <p>One of the parameters in the request is not valid.</p>
  */
 export class InvalidParameterValueException extends __BaseException {
@@ -131,6 +140,7 @@ export class InvalidParameterValueException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The permissions policy for the resource is too large. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>.</p>
  */
 export class PolicyLengthExceededException extends __BaseException {
@@ -152,6 +162,7 @@ export class PolicyLengthExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The RevisionId provided does not match the latest RevisionId for the Lambda function or alias. Call the <code>GetFunction</code> or the <code>GetAlias</code>
  *       API operation to retrieve the latest RevisionId for your resource.</p>
  */
@@ -178,6 +189,7 @@ export class PreconditionFailedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource already exists, or another operation is in progress.</p>
  */
 export class ResourceConflictException extends __BaseException {
@@ -203,6 +215,7 @@ export class ResourceConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource specified in the request does not exist.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -226,6 +239,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The Lambda service encountered an internal error.</p>
  */
 export class ServiceException extends __BaseException {
@@ -248,16 +262,26 @@ export class ServiceException extends __BaseException {
   }
 }
 
-export enum ThrottleReason {
-  CallerRateLimitExceeded = "CallerRateLimitExceeded",
-  ConcurrentInvocationLimitExceeded = "ConcurrentInvocationLimitExceeded",
-  ConcurrentSnapshotCreateLimitExceeded = "ConcurrentSnapshotCreateLimitExceeded",
-  FunctionInvocationRateLimitExceeded = "FunctionInvocationRateLimitExceeded",
-  ReservedFunctionConcurrentInvocationLimitExceeded = "ReservedFunctionConcurrentInvocationLimitExceeded",
-  ReservedFunctionInvocationRateLimitExceeded = "ReservedFunctionInvocationRateLimitExceeded",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ThrottleReason = {
+  CallerRateLimitExceeded: "CallerRateLimitExceeded",
+  ConcurrentInvocationLimitExceeded: "ConcurrentInvocationLimitExceeded",
+  ConcurrentSnapshotCreateLimitExceeded: "ConcurrentSnapshotCreateLimitExceeded",
+  FunctionInvocationRateLimitExceeded: "FunctionInvocationRateLimitExceeded",
+  ReservedFunctionConcurrentInvocationLimitExceeded: "ReservedFunctionConcurrentInvocationLimitExceeded",
+  ReservedFunctionInvocationRateLimitExceeded: "ReservedFunctionInvocationRateLimitExceeded",
+} as const;
 
 /**
+ * @public
+ */
+export type ThrottleReason = (typeof ThrottleReason)[keyof typeof ThrottleReason];
+
+/**
+ * @public
  * <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
  */
 export class TooManyRequestsException extends __BaseException {
@@ -286,11 +310,23 @@ export class TooManyRequestsException extends __BaseException {
   }
 }
 
-export enum FunctionUrlAuthType {
-  AWS_IAM = "AWS_IAM",
-  NONE = "NONE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FunctionUrlAuthType = {
+  AWS_IAM: "AWS_IAM",
+  NONE: "NONE",
+} as const;
 
+/**
+ * @public
+ */
+export type FunctionUrlAuthType = (typeof FunctionUrlAuthType)[keyof typeof FunctionUrlAuthType];
+
+/**
+ * @public
+ */
 export interface AddPermissionRequest {
   /**
    * <p>The name of the Lambda function, version, or alias.</p>
@@ -372,12 +408,15 @@ export interface AddPermissionRequest {
 
   /**
    * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated
-   *   IAM users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
+   *   users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
    *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
    */
   FunctionUrlAuthType?: FunctionUrlAuthType | string;
 }
 
+/**
+ * @public
+ */
 export interface AddPermissionResponse {
   /**
    * <p>The permission statement that's added to the function policy.</p>
@@ -386,6 +425,7 @@ export interface AddPermissionResponse {
 }
 
 /**
+ * @public
  * <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html">traffic-shifting</a> configuration of a Lambda function alias.</p>
  */
 export interface AliasRoutingConfiguration {
@@ -396,7 +436,8 @@ export interface AliasRoutingConfiguration {
 }
 
 /**
- * <p>Provides configuration information about a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a>.</p>
+ * @public
+ * <p>Provides configuration information about a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">alias</a>.</p>
  */
 export interface AliasConfiguration {
   /**
@@ -432,6 +473,7 @@ export interface AliasConfiguration {
 }
 
 /**
+ * @public
  * <p>List of signing profiles that can sign a code package. </p>
  */
 export interface AllowedPublishers {
@@ -443,6 +485,7 @@ export interface AllowedPublishers {
 }
 
 /**
+ * @public
  * <p>Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.</p>
  */
 export interface AmazonManagedKafkaEventSourceConfig {
@@ -454,11 +497,23 @@ export interface AmazonManagedKafkaEventSourceConfig {
   ConsumerGroupId?: string;
 }
 
-export enum Architecture {
-  arm64 = "arm64",
-  x86_64 = "x86_64",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Architecture = {
+  arm64: "arm64",
+  x86_64: "x86_64",
+} as const;
 
+/**
+ * @public
+ */
+export type Architecture = (typeof Architecture)[keyof typeof Architecture];
+
+/**
+ * @public
+ */
 export interface CreateAliasRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -506,12 +561,22 @@ export interface CreateAliasRequest {
   RoutingConfig?: AliasRoutingConfiguration;
 }
 
-export enum CodeSigningPolicy {
-  Enforce = "Enforce",
-  Warn = "Warn",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CodeSigningPolicy = {
+  Enforce: "Enforce",
+  Warn: "Warn",
+} as const;
 
 /**
+ * @public
+ */
+export type CodeSigningPolicy = (typeof CodeSigningPolicy)[keyof typeof CodeSigningPolicy];
+
+/**
+ * @public
  * <p>Code signing configuration <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html#config-codesigning-policies">policies</a> specify the validation failure action for signature mismatch or
  *        expiry.</p>
  */
@@ -526,6 +591,9 @@ export interface CodeSigningPolicies {
   UntrustedArtifactOnDeployment?: CodeSigningPolicy | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateCodeSigningConfigRequest {
   /**
    * <p>Descriptive name for this code signing configuration.</p>
@@ -544,6 +612,7 @@ export interface CreateCodeSigningConfigRequest {
 }
 
 /**
+ * @public
  * <p>Details about a <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html">Code signing configuration</a>. </p>
  */
 export interface CodeSigningConfig {
@@ -578,6 +647,9 @@ export interface CodeSigningConfig {
   LastModified: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateCodeSigningConfigResponse {
   /**
    * <p>The code signing configuration.</p>
@@ -586,6 +658,7 @@ export interface CreateCodeSigningConfigResponse {
 }
 
 /**
+ * @public
  * <p>A destination for events that failed processing.</p>
  */
 export interface OnFailure {
@@ -596,6 +669,7 @@ export interface OnFailure {
 }
 
 /**
+ * @public
  * <p>A destination for events that were processed successfully.</p>
  */
 export interface OnSuccess {
@@ -606,6 +680,7 @@ export interface OnSuccess {
 }
 
 /**
+ * @public
  * <p>A configuration object that specifies the destination of an event after Lambda processes it.</p>
  */
 export interface DestinationConfig {
@@ -621,6 +696,50 @@ export interface DestinationConfig {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const FullDocument = {
+  Default: "Default",
+  UpdateLookup: "UpdateLookup",
+} as const;
+
+/**
+ * @public
+ */
+export type FullDocument = (typeof FullDocument)[keyof typeof FullDocument];
+
+/**
+ * @public
+ * <p>
+ *       Specific configuration settings for a DocumentDB event source.
+ *     </p>
+ */
+export interface DocumentDBEventSourceConfig {
+  /**
+   * <p>
+   *       The name of the database to consume within the DocumentDB cluster.
+   *     </p>
+   */
+  DatabaseName?: string;
+
+  /**
+   * <p>
+   *       The name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
+   *     </p>
+   */
+  CollectionName?: string;
+
+  /**
+   * <p>
+   *       Determines what DocumentDB sends to your event stream during document update operations. If set to UpdateLookup, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes.
+   *     </p>
+   */
+  FullDocument?: FullDocument | string;
+}
+
+/**
+ * @public
  * <p>
  *       A structure within a <code>FilterCriteria</code> object that defines an event filtering pattern.
  *     </p>
@@ -637,6 +756,7 @@ export interface Filter {
 }
 
 /**
+ * @public
  * <p>
  *       An object that contains the filters for an event source.
  *     </p>
@@ -650,11 +770,21 @@ export interface FilterCriteria {
   Filters?: Filter[];
 }
 
-export enum FunctionResponseType {
-  ReportBatchItemFailures = "ReportBatchItemFailures",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FunctionResponseType = {
+  ReportBatchItemFailures: "ReportBatchItemFailures",
+} as const;
 
 /**
+ * @public
+ */
+export type FunctionResponseType = (typeof FunctionResponseType)[keyof typeof FunctionResponseType];
+
+/**
+ * @public
  * <p>(Amazon SQS only) The scaling configuration for the event source. To remove the configuration, pass an empty value.</p>
  */
 export interface ScalingConfig {
@@ -664,11 +794,21 @@ export interface ScalingConfig {
   MaximumConcurrency?: number;
 }
 
-export enum EndPointType {
-  KAFKA_BOOTSTRAP_SERVERS = "KAFKA_BOOTSTRAP_SERVERS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EndPointType = {
+  KAFKA_BOOTSTRAP_SERVERS: "KAFKA_BOOTSTRAP_SERVERS",
+} as const;
 
 /**
+ * @public
+ */
+export type EndPointType = (typeof EndPointType)[keyof typeof EndPointType];
+
+/**
+ * @public
  * <p>The self-managed Apache Kafka cluster for your event source.</p>
  */
 export interface SelfManagedEventSource {
@@ -680,6 +820,7 @@ export interface SelfManagedEventSource {
 }
 
 /**
+ * @public
  * <p>Specific configuration settings for a self-managed Apache Kafka event source.</p>
  */
 export interface SelfManagedKafkaEventSourceConfig {
@@ -691,18 +832,28 @@ export interface SelfManagedKafkaEventSourceConfig {
   ConsumerGroupId?: string;
 }
 
-export enum SourceAccessType {
-  BASIC_AUTH = "BASIC_AUTH",
-  CLIENT_CERTIFICATE_TLS_AUTH = "CLIENT_CERTIFICATE_TLS_AUTH",
-  SASL_SCRAM_256_AUTH = "SASL_SCRAM_256_AUTH",
-  SASL_SCRAM_512_AUTH = "SASL_SCRAM_512_AUTH",
-  SERVER_ROOT_CA_CERTIFICATE = "SERVER_ROOT_CA_CERTIFICATE",
-  VIRTUAL_HOST = "VIRTUAL_HOST",
-  VPC_SECURITY_GROUP = "VPC_SECURITY_GROUP",
-  VPC_SUBNET = "VPC_SUBNET",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SourceAccessType = {
+  BASIC_AUTH: "BASIC_AUTH",
+  CLIENT_CERTIFICATE_TLS_AUTH: "CLIENT_CERTIFICATE_TLS_AUTH",
+  SASL_SCRAM_256_AUTH: "SASL_SCRAM_256_AUTH",
+  SASL_SCRAM_512_AUTH: "SASL_SCRAM_512_AUTH",
+  SERVER_ROOT_CA_CERTIFICATE: "SERVER_ROOT_CA_CERTIFICATE",
+  VIRTUAL_HOST: "VIRTUAL_HOST",
+  VPC_SECURITY_GROUP: "VPC_SECURITY_GROUP",
+  VPC_SUBNET: "VPC_SUBNET",
+} as const;
 
 /**
+ * @public
+ */
+export type SourceAccessType = (typeof SourceAccessType)[keyof typeof SourceAccessType];
+
+/**
+ * @public
  * <p>To secure and define access to your event source, you can specify the authentication protocol, VPC components, or virtual host.</p>
  */
 export interface SourceAccessConfiguration {
@@ -758,12 +909,24 @@ export interface SourceAccessConfiguration {
   URI?: string;
 }
 
-export enum EventSourcePosition {
-  AT_TIMESTAMP = "AT_TIMESTAMP",
-  LATEST = "LATEST",
-  TRIM_HORIZON = "TRIM_HORIZON",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EventSourcePosition = {
+  AT_TIMESTAMP: "AT_TIMESTAMP",
+  LATEST: "LATEST",
+  TRIM_HORIZON: "TRIM_HORIZON",
+} as const;
 
+/**
+ * @public
+ */
+export type EventSourcePosition = (typeof EventSourcePosition)[keyof typeof EventSourcePosition];
+
+/**
+ * @public
+ */
 export interface CreateEventSourceMappingRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the event source.</p>
@@ -787,6 +950,10 @@ export interface CreateEventSourceMappingRequest {
    *             <li>
    *                <p>
    *                   <b>Amazon MQ</b> – The ARN of the broker.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Amazon DocumentDB</b> – The ARN of the DocumentDB change stream.</p>
    *             </li>
    *          </ul>
    */
@@ -854,6 +1021,10 @@ export interface CreateEventSourceMappingRequest {
    *                <p>
    *                   <b>Amazon MQ (ActiveMQ and RabbitMQ)</b> – Default 100. Max 10,000.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>DocumentDB</b> – Default 100. Max 10,000.</p>
+   *             </li>
    *          </ul>
    */
   BatchSize?: number;
@@ -867,7 +1038,7 @@ export interface CreateEventSourceMappingRequest {
   /**
    * <p>The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
    *   You can configure <code>MaximumBatchingWindowInSeconds</code> to any value from 0 seconds to 300 seconds in increments of seconds.</p>
-   *          <p>For streams and Amazon SQS event sources, the default batching window is 0 seconds. For Amazon MSK, Self-managed Apache Kafka, and Amazon MQ event sources, the default
+   *          <p>For streams and Amazon SQS event sources, the default batching window is 0 seconds. For Amazon MSK, Self-managed Apache Kafka, Amazon MQ, and DocumentDB event sources, the default
    *   batching window is 500 ms. Note that because you can only change <code>MaximumBatchingWindowInSeconds</code> in increments of seconds, you cannot revert back to the 500 ms default batching window after you have changed it.
    *   To restore the default batching window, you must create a new event source mapping.</p>
    *          <p>Related setting: For streams and Amazon SQS event sources, when you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
@@ -875,14 +1046,14 @@ export interface CreateEventSourceMappingRequest {
   MaximumBatchingWindowInSeconds?: number;
 
   /**
-   * <p>(Streams only) The number of batches to process from each shard concurrently.</p>
+   * <p>(Kinesis and DynamoDB Streams only) The number of batches to process from each shard concurrently.</p>
    */
   ParallelizationFactor?: number;
 
   /**
    * <p>The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon
    *       DynamoDB, and Amazon MSK Streams sources. <code>AT_TIMESTAMP</code> is supported only for
-   *       Amazon Kinesis streams.</p>
+   *       Amazon Kinesis streams and Amazon DocumentDB.</p>
    */
   StartingPosition?: EventSourcePosition | string;
 
@@ -893,27 +1064,27 @@ export interface CreateEventSourceMappingRequest {
   StartingPositionTimestamp?: Date;
 
   /**
-   * <p>(Streams only) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
+   * <p>(Kinesis and DynamoDB Streams only) A standard Amazon SQS queue or standard Amazon SNS topic destination for discarded records.</p>
    */
   DestinationConfig?: DestinationConfig;
 
   /**
-   * <p>(Streams only) Discard records older than the specified age. The default value is infinite (-1).</p>
+   * <p>(Kinesis and DynamoDB Streams only) Discard records older than the specified age. The default value is infinite (-1).</p>
    */
   MaximumRecordAgeInSeconds?: number;
 
   /**
-   * <p>(Streams only) If the function returns an error, split the batch in two and retry.</p>
+   * <p>(Kinesis and DynamoDB Streams only) If the function returns an error, split the batch in two and retry.</p>
    */
   BisectBatchOnFunctionError?: boolean;
 
   /**
-   * <p>(Streams only) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>
+   * <p>(Kinesis and DynamoDB Streams only) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>
    */
   MaximumRetryAttempts?: number;
 
   /**
-   * <p>(Streams only) The duration in seconds of a processing window. The range is between 1 second and 900 seconds.</p>
+   * <p>(Kinesis and DynamoDB Streams only) The duration in seconds of a processing window for DynamoDB and Kinesis Streams event sources. A value of 0 seconds indicates no tumbling window.</p>
    */
   TumblingWindowInSeconds?: number;
 
@@ -938,7 +1109,7 @@ export interface CreateEventSourceMappingRequest {
   SelfManagedEventSource?: SelfManagedEventSource;
 
   /**
-   * <p>(Streams and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
+   * <p>(Kinesis, DynamoDB Streams, and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
    */
   FunctionResponseTypes?: (FunctionResponseType | string)[];
 
@@ -956,9 +1127,15 @@ export interface CreateEventSourceMappingRequest {
    * <p>(Amazon SQS only) The scaling configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency">Configuring maximum concurrency for Amazon SQS event sources</a>.</p>
    */
   ScalingConfig?: ScalingConfig;
+
+  /**
+   * <p>Specific configuration settings for a DocumentDB event source.</p>
+   */
+  DocumentDBEventSourceConfig?: DocumentDBEventSourceConfig;
 }
 
 /**
+ * @public
  * <p>A mapping between an Amazon Web Services resource and a Lambda function. For details, see <a>CreateEventSourceMapping</a>.</p>
  */
 export interface EventSourceMappingConfiguration {
@@ -969,7 +1146,7 @@ export interface EventSourceMappingConfiguration {
 
   /**
    * <p>The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon DynamoDB, and Amazon MSK stream sources. <code>AT_TIMESTAMP</code> is supported only for Amazon Kinesis
-   *       streams.</p>
+   *       streams and Amazon DocumentDB.</p>
    */
   StartingPosition?: EventSourcePosition | string;
 
@@ -989,7 +1166,7 @@ export interface EventSourceMappingConfiguration {
   /**
    * <p>The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
    *   You can configure <code>MaximumBatchingWindowInSeconds</code> to any value from 0 seconds to 300 seconds in increments of seconds.</p>
-   *          <p>For streams and Amazon SQS event sources, the default batching window is 0 seconds. For Amazon MSK, Self-managed Apache Kafka, and Amazon MQ event sources, the default
+   *          <p>For streams and Amazon SQS event sources, the default batching window is 0 seconds. For Amazon MSK, Self-managed Apache Kafka, Amazon MQ, and DocumentDB event sources, the default
    *   batching window is 500 ms. Note that because you can only change <code>MaximumBatchingWindowInSeconds</code> in increments of seconds, you cannot revert back to the 500 ms default batching window after you have changed it.
    *   To restore the default batching window, you must create a new event source mapping.</p>
    *          <p>Related setting: For streams and Amazon SQS event sources, when you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
@@ -997,7 +1174,7 @@ export interface EventSourceMappingConfiguration {
   MaximumBatchingWindowInSeconds?: number;
 
   /**
-   * <p>(Streams only) The number of batches to process concurrently from each shard. The default value is 1.</p>
+   * <p>(Kinesis and DynamoDB Streams only) The number of batches to process concurrently from each shard. The default value is 1.</p>
    */
   ParallelizationFactor?: number;
 
@@ -1040,7 +1217,7 @@ export interface EventSourceMappingConfiguration {
   StateTransitionReason?: string;
 
   /**
-   * <p>(Streams only) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
+   * <p>(Kinesis and DynamoDB Streams only) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
    */
   DestinationConfig?: DestinationConfig;
 
@@ -1065,29 +1242,32 @@ export interface EventSourceMappingConfiguration {
   SelfManagedEventSource?: SelfManagedEventSource;
 
   /**
-   * <p>(Streams only) Discard records older than the specified age. The default value is -1,
-   * which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.  </p>
+   * <p>(Kinesis and DynamoDB Streams only) Discard records older than the specified age. The default value is -1,
+   * which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.</p>
+   *          <note>
+   *             <p>The minimum value that can be set is 60 seconds.</p>
+   *          </note>
    */
   MaximumRecordAgeInSeconds?: number;
 
   /**
-   * <p>(Streams only) If the function returns an error, split the batch in two and retry. The default value is false.</p>
+   * <p>(Kinesis and DynamoDB Streams only) If the function returns an error, split the batch in two and retry. The default value is false.</p>
    */
   BisectBatchOnFunctionError?: boolean;
 
   /**
-   * <p>(Streams only) Discard records after the specified number of retries. The default value is -1,
+   * <p>(Kinesis and DynamoDB Streams only) Discard records after the specified number of retries. The default value is -1,
    * which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source.</p>
    */
   MaximumRetryAttempts?: number;
 
   /**
-   * <p>(Streams only) The duration in seconds of a processing window. The range is 1–900 seconds.</p>
+   * <p>(Kinesis and DynamoDB Streams only) The duration in seconds of a processing window for DynamoDB and Kinesis Streams event sources. A value of 0 seconds indicates no tumbling window.</p>
    */
   TumblingWindowInSeconds?: number;
 
   /**
-   * <p>(Streams and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
+   * <p>(Kinesis, DynamoDB Streams, and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
    */
   FunctionResponseTypes?: (FunctionResponseType | string)[];
 
@@ -1105,9 +1285,15 @@ export interface EventSourceMappingConfiguration {
    * <p>(Amazon SQS only) The scaling configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency">Configuring maximum concurrency for Amazon SQS event sources</a>.</p>
    */
   ScalingConfig?: ScalingConfig;
+
+  /**
+   * <p>Specific configuration settings for a DocumentDB event source.</p>
+   */
+  DocumentDBEventSourceConfig?: DocumentDBEventSourceConfig;
 }
 
 /**
+ * @public
  * <p>The specified code signing configuration does not exist.</p>
  */
 export class CodeSigningConfigNotFoundException extends __BaseException {
@@ -1131,6 +1317,7 @@ export class CodeSigningConfigNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Your Amazon Web Services account has exceeded its maximum total code size. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>.</p>
  */
 export class CodeStorageExceededException extends __BaseException {
@@ -1156,6 +1343,7 @@ export class CodeStorageExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The code signature failed one or more of the validation checks for signature mismatch or expiry, and the code
  *       signing policy is set to ENFORCE. Lambda blocks the deployment.</p>
  */
@@ -1180,6 +1368,7 @@ export class CodeVerificationFailedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The code for the Lambda function. You can either specify an object in Amazon S3, upload a
  *       .zip file archive deployment package directly, or specify the URI of a container image.</p>
  */
@@ -1213,6 +1402,7 @@ export interface FunctionCode {
 }
 
 /**
+ * @public
  * <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq">dead-letter queue</a> for
  *       failed asynchronous invocations.</p>
  */
@@ -1224,6 +1414,7 @@ export interface DeadLetterConfig {
 }
 
 /**
+ * @public
  * <p>A function's environment variable settings. You can use environment variables to adjust your function's
  *       behavior without updating code. An environment variable is a pair of strings that are stored in a function's
  *       version-specific configuration.</p>
@@ -1236,6 +1427,7 @@ export interface Environment {
 }
 
 /**
+ * @public
  * <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but it can be any
  *       whole number between 512 and 10,240 MB.</p>
  */
@@ -1247,6 +1439,7 @@ export interface EphemeralStorage {
 }
 
 /**
+ * @public
  * <p>Details about the connection between a Lambda function and an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon EFS file system</a>.</p>
  */
 export interface FileSystemConfig {
@@ -1263,6 +1456,7 @@ export interface FileSystemConfig {
 }
 
 /**
+ * @public
  * <p>Configuration values that override the container image Dockerfile settings. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms">Container image
  *       settings</a>.</p>
  */
@@ -1284,48 +1478,77 @@ export interface ImageConfig {
   WorkingDirectory?: string;
 }
 
-export enum PackageType {
-  Image = "Image",
-  Zip = "Zip",
-}
-
-export enum Runtime {
-  dotnet6 = "dotnet6",
-  dotnetcore10 = "dotnetcore1.0",
-  dotnetcore20 = "dotnetcore2.0",
-  dotnetcore21 = "dotnetcore2.1",
-  dotnetcore31 = "dotnetcore3.1",
-  go1x = "go1.x",
-  java11 = "java11",
-  java8 = "java8",
-  java8al2 = "java8.al2",
-  nodejs = "nodejs",
-  nodejs10x = "nodejs10.x",
-  nodejs12x = "nodejs12.x",
-  nodejs14x = "nodejs14.x",
-  nodejs16x = "nodejs16.x",
-  nodejs18x = "nodejs18.x",
-  nodejs43 = "nodejs4.3",
-  nodejs43edge = "nodejs4.3-edge",
-  nodejs610 = "nodejs6.10",
-  nodejs810 = "nodejs8.10",
-  provided = "provided",
-  providedal2 = "provided.al2",
-  python27 = "python2.7",
-  python36 = "python3.6",
-  python37 = "python3.7",
-  python38 = "python3.8",
-  python39 = "python3.9",
-  ruby25 = "ruby2.5",
-  ruby27 = "ruby2.7",
-}
-
-export enum SnapStartApplyOn {
-  None = "None",
-  PublishedVersions = "PublishedVersions",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PackageType = {
+  Image: "Image",
+  Zip: "Zip",
+} as const;
 
 /**
+ * @public
+ */
+export type PackageType = (typeof PackageType)[keyof typeof PackageType];
+
+/**
+ * @public
+ * @enum
+ */
+export const Runtime = {
+  dotnet6: "dotnet6",
+  dotnetcore10: "dotnetcore1.0",
+  dotnetcore20: "dotnetcore2.0",
+  dotnetcore21: "dotnetcore2.1",
+  dotnetcore31: "dotnetcore3.1",
+  go1x: "go1.x",
+  java11: "java11",
+  java8: "java8",
+  java8al2: "java8.al2",
+  nodejs: "nodejs",
+  nodejs10x: "nodejs10.x",
+  nodejs12x: "nodejs12.x",
+  nodejs14x: "nodejs14.x",
+  nodejs16x: "nodejs16.x",
+  nodejs18x: "nodejs18.x",
+  nodejs43: "nodejs4.3",
+  nodejs43edge: "nodejs4.3-edge",
+  nodejs610: "nodejs6.10",
+  nodejs810: "nodejs8.10",
+  provided: "provided",
+  providedal2: "provided.al2",
+  python27: "python2.7",
+  python310: "python3.10",
+  python36: "python3.6",
+  python37: "python3.7",
+  python38: "python3.8",
+  python39: "python3.9",
+  ruby25: "ruby2.5",
+  ruby27: "ruby2.7",
+} as const;
+
+/**
+ * @public
+ */
+export type Runtime = (typeof Runtime)[keyof typeof Runtime];
+
+/**
+ * @public
+ * @enum
+ */
+export const SnapStartApplyOn = {
+  None: "None",
+  PublishedVersions: "PublishedVersions",
+} as const;
+
+/**
+ * @public
+ */
+export type SnapStartApplyOn = (typeof SnapStartApplyOn)[keyof typeof SnapStartApplyOn];
+
+/**
+ * @public
  * <p>The function's Lambda SnapStart setting. Set <code>ApplyOn</code> to <code>PublishedVersions</code> to create a
  *       snapshot of the initialized execution environment when you publish a function version.</p>
  *          <p>SnapStart is supported with the <code>java11</code> runtime. For more information, see
@@ -1339,12 +1562,22 @@ export interface SnapStart {
   ApplyOn?: SnapStartApplyOn | string;
 }
 
-export enum TracingMode {
-  Active = "Active",
-  PassThrough = "PassThrough",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TracingMode = {
+  Active: "Active",
+  PassThrough: "PassThrough",
+} as const;
 
 /**
+ * @public
+ */
+export type TracingMode = (typeof TracingMode)[keyof typeof TracingMode];
+
+/**
+ * @public
  * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html">X-Ray</a> tracing configuration.
  *       To sample and record incoming requests, set <code>Mode</code> to <code>Active</code>.</p>
  */
@@ -1356,6 +1589,7 @@ export interface TracingConfig {
 }
 
 /**
+ * @public
  * <p>The VPC security groups and subnets that are attached to a Lambda function. For more information,
  *       see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">Configuring a Lambda
  *         function to access resources in a VPC</a>.</p>
@@ -1372,6 +1606,9 @@ export interface VpcConfig {
   SecurityGroupIds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface CreateFunctionRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -1398,8 +1635,8 @@ export interface CreateFunctionRequest {
   FunctionName: string | undefined;
 
   /**
-   * <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>. Runtime is required if the deployment package is a .zip file archive.
-   *         </p>
+   * <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>. Runtime is required if the deployment package is a .zip file archive.</p>
+   *          <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy">Runtime deprecation policy</a>.</p>
    */
   Runtime?: Runtime | string;
 
@@ -1467,8 +1704,7 @@ export interface CreateFunctionRequest {
   Environment?: Environment;
 
   /**
-   * <p>The ARN of the Key Management Service (KMS) key that's used to encrypt your function's environment
-   *       variables. If it's not provided, Lambda uses a default service key.</p>
+   * <p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt your function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption">environment variables</a>. When <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html">Lambda SnapStart</a> is activated, this key is also used to encrypt your function's snapshot. If you don't provide a customer managed key, Lambda uses a default service key.</p>
    */
   KMSKeyArn?: string;
 
@@ -1526,6 +1762,7 @@ export interface CreateFunctionRequest {
 }
 
 /**
+ * @public
  * <p>Error messages for environment variables that couldn't be applied.</p>
  */
 export interface EnvironmentError {
@@ -1541,6 +1778,7 @@ export interface EnvironmentError {
 }
 
 /**
+ * @public
  * <p>The results of an operation to update or read environment variables. If the operation succeeds, the response
  *       contains the environment variables. If it fails, the response contains details about the error.</p>
  */
@@ -1557,6 +1795,7 @@ export interface EnvironmentResponse {
 }
 
 /**
+ * @public
  * <p>Error response to <code>GetFunctionConfiguration</code>.</p>
  */
 export interface ImageConfigError {
@@ -1572,6 +1811,7 @@ export interface ImageConfigError {
 }
 
 /**
+ * @public
  * <p>Response to a <code>GetFunctionConfiguration</code> request.</p>
  */
 export interface ImageConfigResponse {
@@ -1586,37 +1826,56 @@ export interface ImageConfigResponse {
   Error?: ImageConfigError;
 }
 
-export enum LastUpdateStatus {
-  Failed = "Failed",
-  InProgress = "InProgress",
-  Successful = "Successful",
-}
-
-export enum LastUpdateStatusReasonCode {
-  DisabledKMSKey = "DisabledKMSKey",
-  EFSIOError = "EFSIOError",
-  EFSMountConnectivityError = "EFSMountConnectivityError",
-  EFSMountFailure = "EFSMountFailure",
-  EFSMountTimeout = "EFSMountTimeout",
-  EniLimitExceeded = "EniLimitExceeded",
-  FunctionError = "FunctionError",
-  ImageAccessDenied = "ImageAccessDenied",
-  ImageDeleted = "ImageDeleted",
-  InsufficientRolePermissions = "InsufficientRolePermissions",
-  InternalError = "InternalError",
-  InvalidConfiguration = "InvalidConfiguration",
-  InvalidImage = "InvalidImage",
-  InvalidRuntime = "InvalidRuntime",
-  InvalidSecurityGroup = "InvalidSecurityGroup",
-  InvalidStateKMSKey = "InvalidStateKMSKey",
-  InvalidSubnet = "InvalidSubnet",
-  InvalidZipFileException = "InvalidZipFileException",
-  KMSKeyAccessDenied = "KMSKeyAccessDenied",
-  KMSKeyNotFound = "KMSKeyNotFound",
-  SubnetOutOfIPAddresses = "SubnetOutOfIPAddresses",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LastUpdateStatus = {
+  Failed: "Failed",
+  InProgress: "InProgress",
+  Successful: "Successful",
+} as const;
 
 /**
+ * @public
+ */
+export type LastUpdateStatus = (typeof LastUpdateStatus)[keyof typeof LastUpdateStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const LastUpdateStatusReasonCode = {
+  DisabledKMSKey: "DisabledKMSKey",
+  EFSIOError: "EFSIOError",
+  EFSMountConnectivityError: "EFSMountConnectivityError",
+  EFSMountFailure: "EFSMountFailure",
+  EFSMountTimeout: "EFSMountTimeout",
+  EniLimitExceeded: "EniLimitExceeded",
+  FunctionError: "FunctionError",
+  ImageAccessDenied: "ImageAccessDenied",
+  ImageDeleted: "ImageDeleted",
+  InsufficientRolePermissions: "InsufficientRolePermissions",
+  InternalError: "InternalError",
+  InvalidConfiguration: "InvalidConfiguration",
+  InvalidImage: "InvalidImage",
+  InvalidRuntime: "InvalidRuntime",
+  InvalidSecurityGroup: "InvalidSecurityGroup",
+  InvalidStateKMSKey: "InvalidStateKMSKey",
+  InvalidSubnet: "InvalidSubnet",
+  InvalidZipFileException: "InvalidZipFileException",
+  KMSKeyAccessDenied: "KMSKeyAccessDenied",
+  KMSKeyNotFound: "KMSKeyNotFound",
+  SubnetOutOfIPAddresses: "SubnetOutOfIPAddresses",
+} as const;
+
+/**
+ * @public
+ */
+export type LastUpdateStatusReasonCode = (typeof LastUpdateStatusReasonCode)[keyof typeof LastUpdateStatusReasonCode];
+
+/**
+ * @public
  * <p>An <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
  *         layer</a>.</p>
  */
@@ -1642,12 +1901,55 @@ export interface Layer {
   SigningJobArn?: string;
 }
 
-export enum SnapStartOptimizationStatus {
-  Off = "Off",
-  On = "On",
+/**
+ * @public
+ * <p>Any error returned when the runtime version information for the function could not be retrieved.</p>
+ */
+export interface RuntimeVersionError {
+  /**
+   * <p>The error code.</p>
+   */
+  ErrorCode?: string;
+
+  /**
+   * <p>The error message.</p>
+   */
+  Message?: string;
 }
 
 /**
+ * @public
+ * <p>The ARN of the runtime and any errors that occured.</p>
+ */
+export interface RuntimeVersionConfig {
+  /**
+   * <p>The ARN of the runtime version you want the function to use.</p>
+   */
+  RuntimeVersionArn?: string;
+
+  /**
+   * <p>Error response when Lambda is unable to retrieve the runtime version for a function.</p>
+   */
+  Error?: RuntimeVersionError;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SnapStartOptimizationStatus = {
+  Off: "Off",
+  On: "On",
+} as const;
+
+/**
+ * @public
+ */
+export type SnapStartOptimizationStatus =
+  (typeof SnapStartOptimizationStatus)[keyof typeof SnapStartOptimizationStatus];
+
+/**
+ * @public
  * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">SnapStart</a> setting.</p>
  */
 export interface SnapStartResponse {
@@ -1662,41 +1964,60 @@ export interface SnapStartResponse {
   OptimizationStatus?: SnapStartOptimizationStatus | string;
 }
 
-export enum State {
-  Active = "Active",
-  Failed = "Failed",
-  Inactive = "Inactive",
-  Pending = "Pending",
-}
-
-export enum StateReasonCode {
-  Creating = "Creating",
-  DisabledKMSKey = "DisabledKMSKey",
-  EFSIOError = "EFSIOError",
-  EFSMountConnectivityError = "EFSMountConnectivityError",
-  EFSMountFailure = "EFSMountFailure",
-  EFSMountTimeout = "EFSMountTimeout",
-  EniLimitExceeded = "EniLimitExceeded",
-  FunctionError = "FunctionError",
-  Idle = "Idle",
-  ImageAccessDenied = "ImageAccessDenied",
-  ImageDeleted = "ImageDeleted",
-  InsufficientRolePermissions = "InsufficientRolePermissions",
-  InternalError = "InternalError",
-  InvalidConfiguration = "InvalidConfiguration",
-  InvalidImage = "InvalidImage",
-  InvalidRuntime = "InvalidRuntime",
-  InvalidSecurityGroup = "InvalidSecurityGroup",
-  InvalidStateKMSKey = "InvalidStateKMSKey",
-  InvalidSubnet = "InvalidSubnet",
-  InvalidZipFileException = "InvalidZipFileException",
-  KMSKeyAccessDenied = "KMSKeyAccessDenied",
-  KMSKeyNotFound = "KMSKeyNotFound",
-  Restoring = "Restoring",
-  SubnetOutOfIPAddresses = "SubnetOutOfIPAddresses",
-}
+/**
+ * @public
+ * @enum
+ */
+export const State = {
+  Active: "Active",
+  Failed: "Failed",
+  Inactive: "Inactive",
+  Pending: "Pending",
+} as const;
 
 /**
+ * @public
+ */
+export type State = (typeof State)[keyof typeof State];
+
+/**
+ * @public
+ * @enum
+ */
+export const StateReasonCode = {
+  Creating: "Creating",
+  DisabledKMSKey: "DisabledKMSKey",
+  EFSIOError: "EFSIOError",
+  EFSMountConnectivityError: "EFSMountConnectivityError",
+  EFSMountFailure: "EFSMountFailure",
+  EFSMountTimeout: "EFSMountTimeout",
+  EniLimitExceeded: "EniLimitExceeded",
+  FunctionError: "FunctionError",
+  Idle: "Idle",
+  ImageAccessDenied: "ImageAccessDenied",
+  ImageDeleted: "ImageDeleted",
+  InsufficientRolePermissions: "InsufficientRolePermissions",
+  InternalError: "InternalError",
+  InvalidConfiguration: "InvalidConfiguration",
+  InvalidImage: "InvalidImage",
+  InvalidRuntime: "InvalidRuntime",
+  InvalidSecurityGroup: "InvalidSecurityGroup",
+  InvalidStateKMSKey: "InvalidStateKMSKey",
+  InvalidSubnet: "InvalidSubnet",
+  InvalidZipFileException: "InvalidZipFileException",
+  KMSKeyAccessDenied: "KMSKeyAccessDenied",
+  KMSKeyNotFound: "KMSKeyNotFound",
+  Restoring: "Restoring",
+  SubnetOutOfIPAddresses: "SubnetOutOfIPAddresses",
+} as const;
+
+/**
+ * @public
+ */
+export type StateReasonCode = (typeof StateReasonCode)[keyof typeof StateReasonCode];
+
+/**
+ * @public
  * <p>The function's X-Ray tracing configuration.</p>
  */
 export interface TracingConfigResponse {
@@ -1707,6 +2028,7 @@ export interface TracingConfigResponse {
 }
 
 /**
+ * @public
  * <p>The VPC security groups and subnets that are attached to a Lambda function.</p>
  */
 export interface VpcConfigResponse {
@@ -1727,6 +2049,7 @@ export interface VpcConfigResponse {
 }
 
 /**
+ * @public
  * <p>Details about a function's configuration.</p>
  */
 export interface FunctionConfiguration {
@@ -1741,7 +2064,8 @@ export interface FunctionConfiguration {
   FunctionArn?: string;
 
   /**
-   * <p>The runtime environment for the Lambda function.</p>
+   * <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>. Runtime is required if the deployment package is a .zip file archive.</p>
+   *          <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy">Runtime deprecation policy</a>.</p>
    */
   Runtime?: Runtime | string;
 
@@ -1806,7 +2130,7 @@ export interface FunctionConfiguration {
   Environment?: EnvironmentResponse;
 
   /**
-   * <p>The KMS key that's used to encrypt the function's environment variables. This key is
+   * <p>The KMS key that's used to encrypt the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption">environment variables</a>. When <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html">Lambda SnapStart</a> is activated, this key is also used to encrypt the function's snapshot. This key is
    *       returned only if you've configured a customer managed key.</p>
    */
   KMSKeyArn?: string;
@@ -1906,9 +2230,15 @@ export interface FunctionConfiguration {
    *       environment when you publish a function version. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">Improving startup performance with Lambda SnapStart</a>.</p>
    */
   SnapStart?: SnapStartResponse;
+
+  /**
+   * <p>The ARN of the runtime and any errors that occured.</p>
+   */
+  RuntimeVersionConfig?: RuntimeVersionConfig;
 }
 
 /**
+ * @public
  * <p>The code signature failed the integrity check. If the integrity check fails, then Lambda blocks
  *       deployment, even if the code signing policy is set to WARN.</p>
  */
@@ -1933,6 +2263,7 @@ export class InvalidCodeSignatureException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">cross-origin resource sharing
  *         (CORS)</a> settings for your Lambda function URL. Use CORS to grant access to your function URL
  *       from any origin. You can also use CORS to control access for specific HTTP headers and methods in requests to your
@@ -1977,6 +2308,23 @@ export interface Cors {
   MaxAge?: number;
 }
 
+/**
+ * @public
+ * @enum
+ */
+export const InvokeMode = {
+  BUFFERED: "BUFFERED",
+  RESPONSE_STREAM: "RESPONSE_STREAM",
+} as const;
+
+/**
+ * @public
+ */
+export type InvokeMode = (typeof InvokeMode)[keyof typeof InvokeMode];
+
+/**
+ * @public
+ */
 export interface CreateFunctionUrlConfigRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -2009,7 +2357,7 @@ export interface CreateFunctionUrlConfigRequest {
 
   /**
    * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated
-   *   IAM users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
+   *   users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
    *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
    */
   AuthType: FunctionUrlAuthType | string | undefined;
@@ -2019,8 +2367,28 @@ export interface CreateFunctionUrlConfigRequest {
    *   for your function URL.</p>
    */
   Cors?: Cors;
+
+  /**
+   * <p>Use one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BUFFERED</code> – This is the default option. Lambda invokes your function using the <code>Invoke</code> API operation. Invocation results
+   *         are available when the payload is complete. The maximum payload size is 6 MB.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RESPONSE_STREAM</code> – Your function streams payload results as they become available. Lambda invokes your function using
+   *         the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 20 MB, however, you can <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html">request a quota increase</a>.</p>
+   *             </li>
+   *          </ul>
+   */
+  InvokeMode?: InvokeMode | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateFunctionUrlConfigResponse {
   /**
    * <p>The HTTP URL endpoint for your function.</p>
@@ -2034,7 +2402,7 @@ export interface CreateFunctionUrlConfigResponse {
 
   /**
    * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated
-   *   IAM users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
+   *   users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
    *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
    */
   AuthType: FunctionUrlAuthType | string | undefined;
@@ -2049,8 +2417,28 @@ export interface CreateFunctionUrlConfigResponse {
    * <p>When the function URL was created, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
    */
   CreationTime: string | undefined;
+
+  /**
+   * <p>Use one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BUFFERED</code> – This is the default option. Lambda invokes your function using the <code>Invoke</code> API operation. Invocation results
+   *         are available when the payload is complete. The maximum payload size is 6 MB.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RESPONSE_STREAM</code> – Your function streams payload results as they become available. Lambda invokes your function using
+   *         the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 20 MB, however, you can <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html">request a quota increase</a>.</p>
+   *             </li>
+   *          </ul>
+   */
+  InvokeMode?: InvokeMode | string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAliasRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -2082,6 +2470,9 @@ export interface DeleteAliasRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCodeSigningConfigRequest {
   /**
    * <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
@@ -2089,8 +2480,14 @@ export interface DeleteCodeSigningConfigRequest {
   CodeSigningConfigArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCodeSigningConfigResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteEventSourceMappingRequest {
   /**
    * <p>The identifier of the event source mapping.</p>
@@ -2099,6 +2496,7 @@ export interface DeleteEventSourceMappingRequest {
 }
 
 /**
+ * @public
  * <p>The operation conflicts with the resource's availability. For example, you tried to update an event source
  *       mapping in the CREATING state, or you tried to delete an event source mapping currently UPDATING.</p>
  */
@@ -2122,6 +2520,9 @@ export class ResourceInUseException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteFunctionRequest {
   /**
    * <p>The name of the Lambda function or version.</p>
@@ -2153,6 +2554,9 @@ export interface DeleteFunctionRequest {
   Qualifier?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFunctionCodeSigningConfigRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -2179,6 +2583,9 @@ export interface DeleteFunctionCodeSigningConfigRequest {
   FunctionName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFunctionConcurrencyRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -2205,6 +2612,9 @@ export interface DeleteFunctionConcurrencyRequest {
   FunctionName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFunctionEventInvokeConfigRequest {
   /**
    * <p>The name of the Lambda function, version, or alias.</p>
@@ -2236,6 +2646,9 @@ export interface DeleteFunctionEventInvokeConfigRequest {
   Qualifier?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFunctionUrlConfigRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -2267,6 +2680,9 @@ export interface DeleteFunctionUrlConfigRequest {
   Qualifier?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLayerVersionRequest {
   /**
    * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
@@ -2279,6 +2695,9 @@ export interface DeleteLayerVersionRequest {
   VersionNumber: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteProvisionedConcurrencyConfigRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -2310,8 +2729,14 @@ export interface DeleteProvisionedConcurrencyConfigRequest {
   Qualifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAccountSettingsRequest {}
 
+/**
+ * @public
+ */
 export interface GetAccountSettingsResponse {
   /**
    * <p>Limits that are related to concurrency and code storage.</p>
@@ -2324,6 +2749,9 @@ export interface GetAccountSettingsResponse {
   AccountUsage?: AccountUsage;
 }
 
+/**
+ * @public
+ */
 export interface GetAliasRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -2355,6 +2783,9 @@ export interface GetAliasRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetCodeSigningConfigRequest {
   /**
    * <p>The The Amazon Resource Name (ARN) of the code signing configuration. </p>
@@ -2362,6 +2793,9 @@ export interface GetCodeSigningConfigRequest {
   CodeSigningConfigArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetCodeSigningConfigResponse {
   /**
    * <p>The code signing configuration</p>
@@ -2369,6 +2803,9 @@ export interface GetCodeSigningConfigResponse {
   CodeSigningConfig: CodeSigningConfig | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetEventSourceMappingRequest {
   /**
    * <p>The identifier of the event source mapping.</p>
@@ -2376,6 +2813,9 @@ export interface GetEventSourceMappingRequest {
   UUID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetFunctionRequest {
   /**
    * <p>The name of the Lambda function, version, or alias.</p>
@@ -2408,6 +2848,7 @@ export interface GetFunctionRequest {
 }
 
 /**
+ * @public
  * <p>Details about a function's deployment package.</p>
  */
 export interface FunctionCodeLocation {
@@ -2432,6 +2873,9 @@ export interface FunctionCodeLocation {
   ResolvedImageUri?: string;
 }
 
+/**
+ * @public
+ */
 export interface Concurrency {
   /**
    * <p>The number of concurrent executions that are reserved for this function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html">Managing Lambda reserved
@@ -2440,6 +2884,9 @@ export interface Concurrency {
   ReservedConcurrentExecutions?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetFunctionResponse {
   /**
    * <p>The configuration of the function or version.</p>
@@ -2463,6 +2910,9 @@ export interface GetFunctionResponse {
   Concurrency?: Concurrency;
 }
 
+/**
+ * @public
+ */
 export interface GetFunctionCodeSigningConfigRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -2489,6 +2939,9 @@ export interface GetFunctionCodeSigningConfigRequest {
   FunctionName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetFunctionCodeSigningConfigResponse {
   /**
    * <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
@@ -2520,6 +2973,9 @@ export interface GetFunctionCodeSigningConfigResponse {
   FunctionName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetFunctionConcurrencyRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -2546,6 +3002,9 @@ export interface GetFunctionConcurrencyRequest {
   FunctionName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetFunctionConcurrencyResponse {
   /**
    * <p>The number of simultaneous executions that are reserved for the function.</p>
@@ -2553,6 +3012,9 @@ export interface GetFunctionConcurrencyResponse {
   ReservedConcurrentExecutions?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetFunctionConfigurationRequest {
   /**
    * <p>The name of the Lambda function, version, or alias.</p>
@@ -2584,6 +3046,9 @@ export interface GetFunctionConfigurationRequest {
   Qualifier?: string;
 }
 
+/**
+ * @public
+ */
 export interface FunctionEventInvokeConfig {
   /**
    * <p>The date and time that the configuration was last updated.</p>
@@ -2617,11 +3082,11 @@ export interface FunctionEventInvokeConfig {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Queue</b> - The ARN of an SQS queue.</p>
+   *                   <b>Queue</b> - The ARN of a standard SQS queue.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Topic</b> - The ARN of an SNS topic.</p>
+   *                   <b>Topic</b> - The ARN of a standard SNS topic.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2632,6 +3097,9 @@ export interface FunctionEventInvokeConfig {
   DestinationConfig?: DestinationConfig;
 }
 
+/**
+ * @public
+ */
 export interface GetFunctionEventInvokeConfigRequest {
   /**
    * <p>The name of the Lambda function, version, or alias.</p>
@@ -2663,6 +3131,9 @@ export interface GetFunctionEventInvokeConfigRequest {
   Qualifier?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetFunctionUrlConfigRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -2694,6 +3165,9 @@ export interface GetFunctionUrlConfigRequest {
   Qualifier?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetFunctionUrlConfigResponse {
   /**
    * <p>The HTTP URL endpoint for your function.</p>
@@ -2707,7 +3181,7 @@ export interface GetFunctionUrlConfigResponse {
 
   /**
    * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated
-   *   IAM users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
+   *   users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
    *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
    */
   AuthType: FunctionUrlAuthType | string | undefined;
@@ -2727,8 +3201,28 @@ export interface GetFunctionUrlConfigResponse {
    * <p>When the function URL configuration was last updated, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
    */
   LastModifiedTime: string | undefined;
+
+  /**
+   * <p>Use one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BUFFERED</code> – This is the default option. Lambda invokes your function using the <code>Invoke</code> API operation. Invocation results
+   *         are available when the payload is complete. The maximum payload size is 6 MB.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RESPONSE_STREAM</code> – Your function streams payload results as they become available. Lambda invokes your function using
+   *         the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 20 MB, however, you can <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html">request a quota increase</a>.</p>
+   *             </li>
+   *          </ul>
+   */
+  InvokeMode?: InvokeMode | string;
 }
 
+/**
+ * @public
+ */
 export interface GetLayerVersionRequest {
   /**
    * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
@@ -2742,6 +3236,7 @@ export interface GetLayerVersionRequest {
 }
 
 /**
+ * @public
  * <p>Details about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
  *         layer</a>.</p>
  */
@@ -2772,6 +3267,9 @@ export interface LayerVersionContentOutput {
   SigningJobArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetLayerVersionResponse {
   /**
    * <p>Details about the layer version.</p>
@@ -2820,6 +3318,9 @@ export interface GetLayerVersionResponse {
   CompatibleArchitectures?: (Architecture | string)[];
 }
 
+/**
+ * @public
+ */
 export interface GetLayerVersionByArnRequest {
   /**
    * <p>The ARN of the layer version.</p>
@@ -2827,6 +3328,9 @@ export interface GetLayerVersionByArnRequest {
   Arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetLayerVersionPolicyRequest {
   /**
    * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
@@ -2839,6 +3343,9 @@ export interface GetLayerVersionPolicyRequest {
   VersionNumber: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetLayerVersionPolicyResponse {
   /**
    * <p>The policy document.</p>
@@ -2851,6 +3358,9 @@ export interface GetLayerVersionPolicyResponse {
   RevisionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetPolicyRequest {
   /**
    * <p>The name of the Lambda function, version, or alias.</p>
@@ -2882,6 +3392,9 @@ export interface GetPolicyRequest {
   Qualifier?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetPolicyResponse {
   /**
    * <p>The resource-based policy.</p>
@@ -2894,6 +3407,9 @@ export interface GetPolicyResponse {
   RevisionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetProvisionedConcurrencyConfigRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -2925,12 +3441,25 @@ export interface GetProvisionedConcurrencyConfigRequest {
   Qualifier: string | undefined;
 }
 
-export enum ProvisionedConcurrencyStatusEnum {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  READY = "READY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ProvisionedConcurrencyStatusEnum = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  READY: "READY",
+} as const;
 
+/**
+ * @public
+ */
+export type ProvisionedConcurrencyStatusEnum =
+  (typeof ProvisionedConcurrencyStatusEnum)[keyof typeof ProvisionedConcurrencyStatusEnum];
+
+/**
+ * @public
+ */
 export interface GetProvisionedConcurrencyConfigResponse {
   /**
    * <p>The amount of provisioned concurrency requested.</p>
@@ -2964,6 +3493,7 @@ export interface GetProvisionedConcurrencyConfigResponse {
 }
 
 /**
+ * @public
  * <p>The specified configuration does not exist.</p>
  */
 export class ProvisionedConcurrencyConfigNotFoundException extends __BaseException {
@@ -2985,6 +3515,78 @@ export class ProvisionedConcurrencyConfigNotFoundException extends __BaseExcepti
 }
 
 /**
+ * @public
+ */
+export interface GetRuntimeManagementConfigRequest {
+  /**
+   * <p>The name of the Lambda function.</p>
+   *          <p class="title">
+   *             <b>Name formats</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Function name</b> – <code>my-function</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
+   *       characters in length.</p>
+   */
+  FunctionName: string | undefined;
+
+  /**
+   * <p>Specify a version of the function. This can be <code>$LATEST</code> or a published version number. If no value is specified, the configuration for the
+   *     <code>$LATEST</code> version is returned.</p>
+   */
+  Qualifier?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const UpdateRuntimeOn = {
+  Auto: "Auto",
+  FunctionUpdate: "FunctionUpdate",
+  Manual: "Manual",
+} as const;
+
+/**
+ * @public
+ */
+export type UpdateRuntimeOn = (typeof UpdateRuntimeOn)[keyof typeof UpdateRuntimeOn];
+
+/**
+ * @public
+ */
+export interface GetRuntimeManagementConfigResponse {
+  /**
+   * <p>The current runtime update mode of the function.</p>
+   */
+  UpdateRuntimeOn?: UpdateRuntimeOn | string;
+
+  /**
+   * <p>The ARN of the runtime the function is configured to use. If the runtime update mode is <b>Manual</b>, the ARN is returned, otherwise <code>null</code>
+   *       is returned.</p>
+   */
+  RuntimeVersionArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of your function.</p>
+   */
+  FunctionArn?: string;
+}
+
+/**
+ * @public
  * <p>Need additional permissions to configure VPC settings.</p>
  */
 export class EC2AccessDeniedException extends __BaseException {
@@ -3008,6 +3610,7 @@ export class EC2AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Amazon EC2 throttled Lambda during Lambda function initialization using
  *       the execution role provided for the function.</p>
  */
@@ -3032,6 +3635,7 @@ export class EC2ThrottledException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Lambda received an unexpected Amazon EC2 client exception while setting up for the
  *         Lambda function.</p>
  */
@@ -3058,6 +3662,7 @@ export class EC2UnexpectedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An error occurred when reading from or writing to a connected file system.</p>
  */
 export class EFSIOException extends __BaseException {
@@ -3081,6 +3686,7 @@ export class EFSIOException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The Lambda function couldn't make a network connection to the configured file system.</p>
  */
 export class EFSMountConnectivityException extends __BaseException {
@@ -3104,6 +3710,7 @@ export class EFSMountConnectivityException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The Lambda function couldn't mount the configured file system due to a permission or configuration
  *       issue.</p>
  */
@@ -3128,6 +3735,7 @@ export class EFSMountFailureException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The Lambda function made a network connection to the configured file system, but the mount
  *       operation timed out.</p>
  */
@@ -3152,6 +3760,7 @@ export class EFSMountTimeoutException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Lambda couldn't create an elastic network interface in the VPC, specified as part of Lambda function configuration, because the limit for network interfaces has been reached. For more
  *       information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda
  *         quotas</a>.</p>
@@ -3177,6 +3786,7 @@ export class ENILimitReachedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request body could not be parsed as JSON.</p>
  */
 export class InvalidRequestContentException extends __BaseException {
@@ -3202,6 +3812,7 @@ export class InvalidRequestContentException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The runtime or runtime version specified is not supported.</p>
  */
 export class InvalidRuntimeException extends __BaseException {
@@ -3225,6 +3836,7 @@ export class InvalidRuntimeException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The security group ID provided in the Lambda function VPC configuration is not valid.</p>
  */
 export class InvalidSecurityGroupIDException extends __BaseException {
@@ -3248,6 +3860,7 @@ export class InvalidSecurityGroupIDException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The subnet ID provided in the Lambda function VPC configuration is not valid.</p>
  */
 export class InvalidSubnetIDException extends __BaseException {
@@ -3271,6 +3884,7 @@ export class InvalidSubnetIDException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Lambda could not unzip the deployment package.</p>
  */
 export class InvalidZipFileException extends __BaseException {
@@ -3293,17 +3907,38 @@ export class InvalidZipFileException extends __BaseException {
   }
 }
 
-export enum InvocationType {
-  DryRun = "DryRun",
-  Event = "Event",
-  RequestResponse = "RequestResponse",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InvocationType = {
+  DryRun: "DryRun",
+  Event: "Event",
+  RequestResponse: "RequestResponse",
+} as const;
 
-export enum LogType {
-  None = "None",
-  Tail = "Tail",
-}
+/**
+ * @public
+ */
+export type InvocationType = (typeof InvocationType)[keyof typeof InvocationType];
 
+/**
+ * @public
+ * @enum
+ */
+export const LogType = {
+  None: "None",
+  Tail: "Tail",
+} as const;
+
+/**
+ * @public
+ */
+export type LogType = (typeof LogType)[keyof typeof LogType];
+
+/**
+ * @public
+ */
 export interface InvocationRequest {
   /**
    * <p>The name of the Lambda function, version, or alias.</p>
@@ -3365,7 +4000,7 @@ export interface InvocationRequest {
 
   /**
    * <p>The JSON that you want to provide to your Lambda function as input.</p>
-   *          <p>You can enter the JSON directly. For example, <code>--payload '{ "key": "value" }'</code>. You can also
+   *          <p>You can enter the JSON directly. For example, <code>--payload '\{ "key": "value" \}'</code>. You can also
    *       specify a file path. For example, <code>--payload file://payload.json</code>.</p>
    */
   Payload?: Uint8Array;
@@ -3376,6 +4011,9 @@ export interface InvocationRequest {
   Qualifier?: string;
 }
 
+/**
+ * @public
+ */
 export interface InvocationResponse {
   /**
    * <p>The HTTP status code is in the 200 range for a successful request. For the <code>RequestResponse</code>
@@ -3408,6 +4046,7 @@ export interface InvocationResponse {
 }
 
 /**
+ * @public
  * <p>Lambda couldn't decrypt the environment variables because KMS access was denied.
  *       Check the Lambda function's KMS permissions.</p>
  */
@@ -3432,6 +4071,7 @@ export class KMSAccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Lambda couldn't decrypt the environment variables because the KMS key used is
  *       disabled. Check the Lambda function's KMS key settings.</p>
  */
@@ -3456,6 +4096,7 @@ export class KMSDisabledException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Lambda couldn't decrypt the environment variables because the state of the KMS key used is not valid for Decrypt. Check the function's KMS key settings.</p>
  */
 export class KMSInvalidStateException extends __BaseException {
@@ -3479,6 +4120,7 @@ export class KMSInvalidStateException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Lambda couldn't decrypt the environment variables because the KMS key was not
  *       found. Check the function's KMS key settings.</p>
  */
@@ -3503,6 +4145,7 @@ export class KMSNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request payload exceeded the <code>Invoke</code> request body JSON input quota. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda
  *       quotas</a>.</p>
  */
@@ -3525,6 +4168,7 @@ export class RequestTooLargeException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The function is inactive and its VPC connection is no longer available. Wait for the VPC connection to
  *       reestablish and try again.</p>
  */
@@ -3551,7 +4195,9 @@ export class ResourceNotReadyException extends __BaseException {
 }
 
 /**
- * <p>The runtime restore hook encountered an error. For more information, check the Amazon CloudWatch logs.</p>
+ * @public
+ * <p>The <code>afterRestore()</code>
+ *             <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart-runtime-hooks.html">runtime hook</a> encountered an error. For more information, check the Amazon CloudWatch logs.</p>
  */
 export class SnapStartException extends __BaseException {
   readonly name: "SnapStartException" = "SnapStartException";
@@ -3574,6 +4220,7 @@ export class SnapStartException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Lambda is initializing your function. You can invoke the function when the <a href="https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html">function state</a> becomes <code>Active</code>.</p>
  */
 export class SnapStartNotReadyException extends __BaseException {
@@ -3597,7 +4244,8 @@ export class SnapStartNotReadyException extends __BaseException {
 }
 
 /**
- * <p>The runtime restore hook failed to complete within the timeout limit (2 seconds).</p>
+ * @public
+ * <p>Lambda couldn't restore the snapshot within the timeout limit.</p>
  */
 export class SnapStartTimeoutException extends __BaseException {
   readonly name: "SnapStartTimeoutException" = "SnapStartTimeoutException";
@@ -3620,6 +4268,7 @@ export class SnapStartTimeoutException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Lambda couldn't set up VPC access for the Lambda function because one or more
  *       configured subnets has no available IP addresses.</p>
  */
@@ -3644,6 +4293,7 @@ export class SubnetIPAddressLimitReachedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The content type of the <code>Invoke</code> request body is not JSON.</p>
  */
 export class UnsupportedMediaTypeException extends __BaseException {
@@ -3664,6 +4314,9 @@ export class UnsupportedMediaTypeException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface InvokeAsyncRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -3696,6 +4349,7 @@ export interface InvokeAsyncRequest {
 }
 
 /**
+ * @public
  * @deprecated
  *
  * <p>A success response (<code>202 Accepted</code>) indicates that the request is queued for invocation.</p>
@@ -3707,6 +4361,205 @@ export interface InvokeAsyncResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ * @enum
+ */
+export const ResponseStreamingInvocationType = {
+  DryRun: "DryRun",
+  RequestResponse: "RequestResponse",
+} as const;
+
+/**
+ * @public
+ */
+export type ResponseStreamingInvocationType =
+  (typeof ResponseStreamingInvocationType)[keyof typeof ResponseStreamingInvocationType];
+
+/**
+ * @public
+ */
+export interface InvokeWithResponseStreamRequest {
+  /**
+   * <p>The name of the Lambda function.</p>
+   *          <p class="title">
+   *             <b>Name formats</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Function name</b> – <code>my-function</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
+   *       characters in length.</p>
+   */
+  FunctionName: string | undefined;
+
+  /**
+   * <p>Use one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the
+   *           connection open until the function returns a response or times out. The API operation
+   *           response includes the function response and additional data.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DryRun</code> – Validate parameter values and verify that the IAM user or role has permission to invoke
+   *           the function.</p>
+   *             </li>
+   *          </ul>
+   */
+  InvocationType?: ResponseStreamingInvocationType | string;
+
+  /**
+   * <p>Set to <code>Tail</code> to include the execution log in the response. Applies to synchronously invoked functions only.</p>
+   */
+  LogType?: LogType | string;
+
+  /**
+   * <p>Up to 3,583 bytes of base64-encoded data about the invoking client to pass to the function in the context
+   *       object.</p>
+   */
+  ClientContext?: string;
+
+  /**
+   * <p>The alias name.</p>
+   */
+  Qualifier?: string;
+
+  /**
+   * <p>The JSON that you want to provide to your Lambda function as input.</p>
+   *          <p>You can enter the JSON directly. For example, <code>--payload '\{ "key": "value" \}'</code>. You can also
+   *       specify a file path. For example, <code>--payload file://payload.json</code>.</p>
+   */
+  Payload?: Uint8Array;
+}
+
+/**
+ * @public
+ * <p>A response confirming that the event stream is complete.</p>
+ */
+export interface InvokeWithResponseStreamCompleteEvent {
+  /**
+   * <p>An error code.</p>
+   */
+  ErrorCode?: string;
+
+  /**
+   * <p>The details of any returned error.</p>
+   */
+  ErrorDetails?: string;
+
+  /**
+   * <p>The last 4 KB of the execution log, which is base64-encoded.</p>
+   */
+  LogResult?: string;
+}
+
+/**
+ * @public
+ * <p>A chunk of the streamed response payload.</p>
+ */
+export interface InvokeResponseStreamUpdate {
+  /**
+   * <p>Data returned by your Lambda function.</p>
+   */
+  Payload?: Uint8Array;
+}
+
+/**
+ * @public
+ * <p>An object that includes a chunk of the response payload. When the stream has ended, Lambda includes a <code>InvokeComplete</code> object.</p>
+ */
+export type InvokeWithResponseStreamResponseEvent =
+  | InvokeWithResponseStreamResponseEvent.InvokeCompleteMember
+  | InvokeWithResponseStreamResponseEvent.PayloadChunkMember
+  | InvokeWithResponseStreamResponseEvent.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace InvokeWithResponseStreamResponseEvent {
+  /**
+   * <p>A chunk of the streamed response payload.</p>
+   */
+  export interface PayloadChunkMember {
+    PayloadChunk: InvokeResponseStreamUpdate;
+    InvokeComplete?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An object that's returned when the stream has ended and all the payload chunks have been
+   *       returned.</p>
+   */
+  export interface InvokeCompleteMember {
+    PayloadChunk?: never;
+    InvokeComplete: InvokeWithResponseStreamCompleteEvent;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    PayloadChunk?: never;
+    InvokeComplete?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    PayloadChunk: (value: InvokeResponseStreamUpdate) => T;
+    InvokeComplete: (value: InvokeWithResponseStreamCompleteEvent) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: InvokeWithResponseStreamResponseEvent, visitor: Visitor<T>): T => {
+    if (value.PayloadChunk !== undefined) return visitor.PayloadChunk(value.PayloadChunk);
+    if (value.InvokeComplete !== undefined) return visitor.InvokeComplete(value.InvokeComplete);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface InvokeWithResponseStreamResponse {
+  /**
+   * <p>For a successful request, the HTTP status code is in the 200 range. For the
+   *         <code>RequestResponse</code> invocation type, this status code is 200. For the <code>DryRun</code>
+   *       invocation type, this status code is 204.</p>
+   */
+  StatusCode?: number;
+
+  /**
+   * <p>The version of the function that executed. When you invoke a function with an alias, this
+   *       indicates which version the alias resolved to.</p>
+   */
+  ExecutedVersion?: string;
+
+  /**
+   * <p>The stream of response payloads.</p>
+   */
+  EventStream?: AsyncIterable<InvokeWithResponseStreamResponseEvent>;
+
+  /**
+   * <p>The type of data the stream is returning.</p>
+   */
+  ResponseStreamContentType?: string;
+}
+
+/**
+ * @public
+ */
 export interface ListAliasesRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -3748,6 +4601,9 @@ export interface ListAliasesRequest {
   MaxItems?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListAliasesResponse {
   /**
    * <p>The pagination token that's included if more results are available.</p>
@@ -3760,6 +4616,9 @@ export interface ListAliasesResponse {
   Aliases?: AliasConfiguration[];
 }
 
+/**
+ * @public
+ */
 export interface ListCodeSigningConfigsRequest {
   /**
    * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
@@ -3772,6 +4631,9 @@ export interface ListCodeSigningConfigsRequest {
   MaxItems?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListCodeSigningConfigsResponse {
   /**
    * <p>The pagination token that's included if more results are available.</p>
@@ -3784,6 +4646,9 @@ export interface ListCodeSigningConfigsResponse {
   CodeSigningConfigs?: CodeSigningConfig[];
 }
 
+/**
+ * @public
+ */
 export interface ListEventSourceMappingsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the event source.</p>
@@ -3807,6 +4672,10 @@ export interface ListEventSourceMappingsRequest {
    *             <li>
    *                <p>
    *                   <b>Amazon MQ</b> – The ARN of the broker.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Amazon DocumentDB</b> – The ARN of the DocumentDB change stream.</p>
    *             </li>
    *          </ul>
    */
@@ -3852,6 +4721,9 @@ export interface ListEventSourceMappingsRequest {
   MaxItems?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListEventSourceMappingsResponse {
   /**
    * <p>A pagination token that's returned when the response doesn't contain all event source mappings.</p>
@@ -3864,6 +4736,9 @@ export interface ListEventSourceMappingsResponse {
   EventSourceMappings?: EventSourceMappingConfiguration[];
 }
 
+/**
+ * @public
+ */
 export interface ListFunctionEventInvokeConfigsRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -3900,6 +4775,9 @@ export interface ListFunctionEventInvokeConfigsRequest {
   MaxItems?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListFunctionEventInvokeConfigsResponse {
   /**
    * <p>A list of configurations.</p>
@@ -3912,10 +4790,22 @@ export interface ListFunctionEventInvokeConfigsResponse {
   NextMarker?: string;
 }
 
-export enum FunctionVersion {
-  ALL = "ALL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FunctionVersion = {
+  ALL: "ALL",
+} as const;
 
+/**
+ * @public
+ */
+export type FunctionVersion = (typeof FunctionVersion)[keyof typeof FunctionVersion];
+
+/**
+ * @public
+ */
 export interface ListFunctionsRequest {
   /**
    * <p>For Lambda@Edge functions, the Amazon Web Services Region of the master function. For example,
@@ -3943,6 +4833,7 @@ export interface ListFunctionsRequest {
 }
 
 /**
+ * @public
  * <p>A list of Lambda functions.</p>
  */
 export interface ListFunctionsResponse {
@@ -3957,6 +4848,9 @@ export interface ListFunctionsResponse {
   Functions?: FunctionConfiguration[];
 }
 
+/**
+ * @public
+ */
 export interface ListFunctionsByCodeSigningConfigRequest {
   /**
    * <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
@@ -3974,6 +4868,9 @@ export interface ListFunctionsByCodeSigningConfigRequest {
   MaxItems?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListFunctionsByCodeSigningConfigResponse {
   /**
    * <p>The pagination token that's included if more results are available.</p>
@@ -3986,6 +4883,9 @@ export interface ListFunctionsByCodeSigningConfigResponse {
   FunctionArns?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListFunctionUrlConfigsRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -4024,6 +4924,7 @@ export interface ListFunctionUrlConfigsRequest {
 }
 
 /**
+ * @public
  * <p>Details about a Lambda function URL.</p>
  */
 export interface FunctionUrlConfig {
@@ -4055,12 +4956,34 @@ export interface FunctionUrlConfig {
 
   /**
    * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated
-   *   IAM users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
+   *   users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
    *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
    */
   AuthType: FunctionUrlAuthType | string | undefined;
+
+  /**
+   * <p>Use one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BUFFERED</code> – This is the default option. Lambda invokes your function
+   *         using the <code>Invoke</code> API operation. Invocation results are available when the
+   *         payload is complete. The maximum payload size is 6 MB.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RESPONSE_STREAM</code> – Your function streams payload results as they become available.
+   *         Lambda invokes your function using the <code>InvokeWithResponseStream</code>
+   *         API operation. The maximum response payload size is 20 MB, however, you can <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html">request a quota increase</a>.</p>
+   *             </li>
+   *          </ul>
+   */
+  InvokeMode?: InvokeMode | string;
 }
 
+/**
+ * @public
+ */
 export interface ListFunctionUrlConfigsResponse {
   /**
    * <p>A list of function URL configurations.</p>
@@ -4073,6 +4996,9 @@ export interface ListFunctionUrlConfigsResponse {
   NextMarker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListLayersRequest {
   /**
    * <p>A runtime identifier. For example, <code>go1.x</code>.</p>
@@ -4097,6 +5023,7 @@ export interface ListLayersRequest {
 }
 
 /**
+ * @public
  * <p>Details about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
  *         layer</a>.</p>
  */
@@ -4139,6 +5066,7 @@ export interface LayerVersionsListItem {
 }
 
 /**
+ * @public
  * <p>Details about an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
  *         layer</a>.</p>
  */
@@ -4159,6 +5087,9 @@ export interface LayersListItem {
   LatestMatchingVersion?: LayerVersionsListItem;
 }
 
+/**
+ * @public
+ */
 export interface ListLayersResponse {
   /**
    * <p>A pagination token returned when the response doesn't contain all layers.</p>
@@ -4171,6 +5102,9 @@ export interface ListLayersResponse {
   Layers?: LayersListItem[];
 }
 
+/**
+ * @public
+ */
 export interface ListLayerVersionsRequest {
   /**
    * <p>A runtime identifier. For example, <code>go1.x</code>.</p>
@@ -4199,6 +5133,9 @@ export interface ListLayerVersionsRequest {
   CompatibleArchitecture?: Architecture | string;
 }
 
+/**
+ * @public
+ */
 export interface ListLayerVersionsResponse {
   /**
    * <p>A pagination token returned when the response doesn't contain all versions.</p>
@@ -4211,6 +5148,9 @@ export interface ListLayerVersionsResponse {
   LayerVersions?: LayerVersionsListItem[];
 }
 
+/**
+ * @public
+ */
 export interface ListProvisionedConcurrencyConfigsRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -4248,6 +5188,7 @@ export interface ListProvisionedConcurrencyConfigsRequest {
 }
 
 /**
+ * @public
  * <p>Details about the provisioned concurrency configuration for a function alias or version.</p>
  */
 export interface ProvisionedConcurrencyConfigListItem {
@@ -4287,6 +5228,9 @@ export interface ProvisionedConcurrencyConfigListItem {
   LastModified?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListProvisionedConcurrencyConfigsResponse {
   /**
    * <p>A list of provisioned concurrency configurations.</p>
@@ -4299,6 +5243,9 @@ export interface ListProvisionedConcurrencyConfigsResponse {
   NextMarker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsRequest {
   /**
    * <p>The function's Amazon Resource Name (ARN).
@@ -4307,6 +5254,9 @@ export interface ListTagsRequest {
   Resource: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsResponse {
   /**
    * <p>The function's tags.</p>
@@ -4314,6 +5264,9 @@ export interface ListTagsResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListVersionsByFunctionRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -4351,6 +5304,9 @@ export interface ListVersionsByFunctionRequest {
   MaxItems?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListVersionsByFunctionResponse {
   /**
    * <p>The pagination token that's included if more results are available.</p>
@@ -4364,6 +5320,7 @@ export interface ListVersionsByFunctionResponse {
 }
 
 /**
+ * @public
  * <p>A ZIP archive that contains the contents of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
  *         layer</a>. You can specify either an Amazon S3 location,
  *       or upload a layer archive directly.</p>
@@ -4391,6 +5348,9 @@ export interface LayerVersionContentInput {
   ZipFile?: Uint8Array;
 }
 
+/**
+ * @public
+ */
 export interface PublishLayerVersionRequest {
   /**
    * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
@@ -4438,6 +5398,9 @@ export interface PublishLayerVersionRequest {
   CompatibleArchitectures?: (Architecture | string)[];
 }
 
+/**
+ * @public
+ */
 export interface PublishLayerVersionResponse {
   /**
    * <p>Details about the layer version.</p>
@@ -4486,6 +5449,9 @@ export interface PublishLayerVersionResponse {
   CompatibleArchitectures?: (Architecture | string)[];
 }
 
+/**
+ * @public
+ */
 export interface PublishVersionRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -4530,6 +5496,9 @@ export interface PublishVersionRequest {
   RevisionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutFunctionCodeSigningConfigRequest {
   /**
    * <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
@@ -4561,6 +5530,9 @@ export interface PutFunctionCodeSigningConfigRequest {
   FunctionName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutFunctionCodeSigningConfigResponse {
   /**
    * <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
@@ -4592,6 +5564,9 @@ export interface PutFunctionCodeSigningConfigResponse {
   FunctionName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutFunctionConcurrencyRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -4623,6 +5598,9 @@ export interface PutFunctionConcurrencyRequest {
   ReservedConcurrentExecutions: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutFunctionEventInvokeConfigRequest {
   /**
    * <p>The name of the Lambda function, version, or alias.</p>
@@ -4675,11 +5653,11 @@ export interface PutFunctionEventInvokeConfigRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Queue</b> - The ARN of an SQS queue.</p>
+   *                   <b>Queue</b> - The ARN of a standard SQS queue.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Topic</b> - The ARN of an SNS topic.</p>
+   *                   <b>Topic</b> - The ARN of a standard SNS topic.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -4690,6 +5668,9 @@ export interface PutFunctionEventInvokeConfigRequest {
   DestinationConfig?: DestinationConfig;
 }
 
+/**
+ * @public
+ */
 export interface PutProvisionedConcurrencyConfigRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -4726,6 +5707,9 @@ export interface PutProvisionedConcurrencyConfigRequest {
   ProvisionedConcurrentExecutions: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutProvisionedConcurrencyConfigResponse {
   /**
    * <p>The amount of provisioned concurrency requested.</p>
@@ -4758,6 +5742,97 @@ export interface PutProvisionedConcurrencyConfigResponse {
   LastModified?: string;
 }
 
+/**
+ * @public
+ */
+export interface PutRuntimeManagementConfigRequest {
+  /**
+   * <p>The name of the Lambda function.</p>
+   *          <p class="title">
+   *             <b>Name formats</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Function name</b> – <code>my-function</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
+   *       characters in length.</p>
+   */
+  FunctionName: string | undefined;
+
+  /**
+   * <p>Specify a version of the function. This can be <code>$LATEST</code> or a published version number. If no value is specified, the configuration for the
+   *       <code>$LATEST</code> version is returned.</p>
+   */
+  Qualifier?: string;
+
+  /**
+   * <p>Specify the runtime update mode.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Auto (default)</b> - Automatically update to the most recent and secure runtime version using a <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-two-phase">Two-phase runtime version rollout</a>. This is the best
+   *         choice for most customers to ensure they always benefit from runtime updates.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Function update</b> - Lambda updates the runtime of your function  to the most recent and secure runtime version when you update your
+   *         function. This approach synchronizes runtime updates with function deployments, giving you control over when runtime updates are applied and allowing you to detect and
+   *         mitigate rare runtime update incompatibilities early. When using this setting, you need to regularly update your functions to keep their runtime up-to-date.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Manual</b> - You specify a runtime version in your function configuration. The function will use this runtime version indefinitely.
+   *         In the rare case where a new runtime version is incompatible with an existing function, this allows you to roll back your function to an earlier runtime version. For more information,
+   *         see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-rollback">Roll back a runtime version</a>.</p>
+   *             </li>
+   *          </ul>
+   */
+  UpdateRuntimeOn: UpdateRuntimeOn | string | undefined;
+
+  /**
+   * <p>The ARN of the runtime version you want the function to use.</p>
+   *          <note>
+   *             <p>This is only required if you're using the <b>Manual</b> runtime update mode.</p>
+   *          </note>
+   */
+  RuntimeVersionArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface PutRuntimeManagementConfigResponse {
+  /**
+   * <p>The runtime update mode.</p>
+   */
+  UpdateRuntimeOn: UpdateRuntimeOn | string | undefined;
+
+  /**
+   * <p>The ARN of the function</p>
+   */
+  FunctionArn: string | undefined;
+
+  /**
+   * <p>The ARN of the runtime the function is configured to use. If the runtime update mode is <b>manual</b>, the ARN is returned, otherwise <code>null</code>
+   *       is returned.</p>
+   */
+  RuntimeVersionArn?: string;
+}
+
+/**
+ * @public
+ */
 export interface RemoveLayerVersionPermissionRequest {
   /**
    * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
@@ -4781,6 +5856,9 @@ export interface RemoveLayerVersionPermissionRequest {
   RevisionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface RemovePermissionRequest {
   /**
    * <p>The name of the Lambda function, version, or alias.</p>
@@ -4823,6 +5901,9 @@ export interface RemovePermissionRequest {
   RevisionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The function's Amazon Resource Name (ARN).</p>
@@ -4835,6 +5916,9 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The function's Amazon Resource Name (ARN).</p>
@@ -4847,6 +5931,9 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAliasRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -4900,6 +5987,9 @@ export interface UpdateAliasRequest {
   RevisionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCodeSigningConfigRequest {
   /**
    * <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
@@ -4922,6 +6012,9 @@ export interface UpdateCodeSigningConfigRequest {
   CodeSigningPolicies?: CodeSigningPolicies;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCodeSigningConfigResponse {
   /**
    * <p>The code signing configuration</p>
@@ -4929,6 +6022,9 @@ export interface UpdateCodeSigningConfigResponse {
   CodeSigningConfig: CodeSigningConfig | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEventSourceMappingRequest {
   /**
    * <p>The identifier of the event source mapping.</p>
@@ -4997,6 +6093,10 @@ export interface UpdateEventSourceMappingRequest {
    *                <p>
    *                   <b>Amazon MQ (ActiveMQ and RabbitMQ)</b> – Default 100. Max 10,000.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>DocumentDB</b> – Default 100. Max 10,000.</p>
+   *             </li>
    *          </ul>
    */
   BatchSize?: number;
@@ -5010,7 +6110,7 @@ export interface UpdateEventSourceMappingRequest {
   /**
    * <p>The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
    *   You can configure <code>MaximumBatchingWindowInSeconds</code> to any value from 0 seconds to 300 seconds in increments of seconds.</p>
-   *          <p>For streams and Amazon SQS event sources, the default batching window is 0 seconds. For Amazon MSK, Self-managed Apache Kafka, and Amazon MQ event sources, the default
+   *          <p>For streams and Amazon SQS event sources, the default batching window is 0 seconds. For Amazon MSK, Self-managed Apache Kafka, Amazon MQ, and DocumentDB event sources, the default
    *   batching window is 500 ms. Note that because you can only change <code>MaximumBatchingWindowInSeconds</code> in increments of seconds, you cannot revert back to the 500 ms default batching window after you have changed it.
    *   To restore the default batching window, you must create a new event source mapping.</p>
    *          <p>Related setting: For streams and Amazon SQS event sources, when you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
@@ -5018,27 +6118,27 @@ export interface UpdateEventSourceMappingRequest {
   MaximumBatchingWindowInSeconds?: number;
 
   /**
-   * <p>(Streams only) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
+   * <p>(Kinesis and DynamoDB Streams only) A standard Amazon SQS queue or standard Amazon SNS topic destination for discarded records.</p>
    */
   DestinationConfig?: DestinationConfig;
 
   /**
-   * <p>(Streams only) Discard records older than the specified age. The default value is infinite (-1).</p>
+   * <p>(Kinesis and DynamoDB Streams only) Discard records older than the specified age. The default value is infinite (-1).</p>
    */
   MaximumRecordAgeInSeconds?: number;
 
   /**
-   * <p>(Streams only) If the function returns an error, split the batch in two and retry.</p>
+   * <p>(Kinesis and DynamoDB Streams only) If the function returns an error, split the batch in two and retry.</p>
    */
   BisectBatchOnFunctionError?: boolean;
 
   /**
-   * <p>(Streams only) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>
+   * <p>(Kinesis and DynamoDB Streams only) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>
    */
   MaximumRetryAttempts?: number;
 
   /**
-   * <p>(Streams only) The number of batches to process from each shard concurrently.</p>
+   * <p>(Kinesis and DynamoDB Streams only) The number of batches to process from each shard concurrently.</p>
    */
   ParallelizationFactor?: number;
 
@@ -5048,12 +6148,12 @@ export interface UpdateEventSourceMappingRequest {
   SourceAccessConfigurations?: SourceAccessConfiguration[];
 
   /**
-   * <p>(Streams only) The duration in seconds of a processing window. The range is between 1 second and 900 seconds.</p>
+   * <p>(Kinesis and DynamoDB Streams only) The duration in seconds of a processing window for DynamoDB and Kinesis Streams event sources. A value of 0 seconds indicates no tumbling window.</p>
    */
   TumblingWindowInSeconds?: number;
 
   /**
-   * <p>(Streams and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
+   * <p>(Kinesis, DynamoDB Streams, and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
    */
   FunctionResponseTypes?: (FunctionResponseType | string)[];
 
@@ -5061,8 +6161,16 @@ export interface UpdateEventSourceMappingRequest {
    * <p>(Amazon SQS only) The scaling configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency">Configuring maximum concurrency for Amazon SQS event sources</a>.</p>
    */
   ScalingConfig?: ScalingConfig;
+
+  /**
+   * <p>Specific configuration settings for a DocumentDB event source.</p>
+   */
+  DocumentDBEventSourceConfig?: DocumentDBEventSourceConfig;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFunctionCodeRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -5141,6 +6249,9 @@ export interface UpdateFunctionCodeRequest {
   Architectures?: (Architecture | string)[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateFunctionConfigurationRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -5209,8 +6320,8 @@ export interface UpdateFunctionConfigurationRequest {
   Environment?: Environment;
 
   /**
-   * <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>. Runtime is required if the deployment package is a .zip file archive.
-   *         </p>
+   * <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>. Runtime is required if the deployment package is a .zip file archive.</p>
+   *          <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy">Runtime deprecation policy</a>.</p>
    */
   Runtime?: Runtime | string;
 
@@ -5221,8 +6332,7 @@ export interface UpdateFunctionConfigurationRequest {
   DeadLetterConfig?: DeadLetterConfig;
 
   /**
-   * <p>The ARN of the Key Management Service (KMS) key that's used to encrypt your function's environment
-   *       variables. If it's not provided, Lambda uses a default service key.</p>
+   * <p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt your function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption">environment variables</a>. When <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html">Lambda SnapStart</a> is activated, this key is also used to encrypt your function's snapshot. If you don't provide a customer managed key, Lambda uses a default service key.</p>
    */
   KMSKeyArn?: string;
 
@@ -5268,6 +6378,9 @@ export interface UpdateFunctionConfigurationRequest {
   SnapStart?: SnapStart;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFunctionEventInvokeConfigRequest {
   /**
    * <p>The name of the Lambda function, version, or alias.</p>
@@ -5320,11 +6433,11 @@ export interface UpdateFunctionEventInvokeConfigRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Queue</b> - The ARN of an SQS queue.</p>
+   *                   <b>Queue</b> - The ARN of a standard SQS queue.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Topic</b> - The ARN of an SNS topic.</p>
+   *                   <b>Topic</b> - The ARN of a standard SNS topic.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5335,6 +6448,9 @@ export interface UpdateFunctionEventInvokeConfigRequest {
   DestinationConfig?: DestinationConfig;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFunctionUrlConfigRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -5367,7 +6483,7 @@ export interface UpdateFunctionUrlConfigRequest {
 
   /**
    * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated
-   *   IAM users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
+   *   users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
    *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
    */
   AuthType?: FunctionUrlAuthType | string;
@@ -5377,8 +6493,28 @@ export interface UpdateFunctionUrlConfigRequest {
    *   for your function URL.</p>
    */
   Cors?: Cors;
+
+  /**
+   * <p>Use one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BUFFERED</code> – This is the default option. Lambda invokes your function using the <code>Invoke</code> API operation. Invocation results
+   *         are available when the payload is complete. The maximum payload size is 6 MB.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RESPONSE_STREAM</code> – Your function streams payload results as they become available. Lambda invokes your function using
+   *         the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 20 MB, however, you can <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html">request a quota increase</a>.</p>
+   *             </li>
+   *          </ul>
+   */
+  InvokeMode?: InvokeMode | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFunctionUrlConfigResponse {
   /**
    * <p>The HTTP URL endpoint for your function.</p>
@@ -5392,7 +6528,7 @@ export interface UpdateFunctionUrlConfigResponse {
 
   /**
    * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated
-   *   IAM users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
+   *   users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
    *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
    */
   AuthType: FunctionUrlAuthType | string | undefined;
@@ -5412,191 +6548,24 @@ export interface UpdateFunctionUrlConfigResponse {
    * <p>When the function URL configuration was last updated, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
    */
   LastModifiedTime: string | undefined;
+
+  /**
+   * <p>Use one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BUFFERED</code> – This is the default option. Lambda invokes your function using the <code>Invoke</code> API operation. Invocation results
+   *         are available when the payload is complete. The maximum payload size is 6 MB.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RESPONSE_STREAM</code> – Your function streams payload results as they become available. Lambda invokes your function using
+   *         the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 20 MB, however, you can <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html">request a quota increase</a>.</p>
+   *             </li>
+   *          </ul>
+   */
+  InvokeMode?: InvokeMode | string;
 }
-
-/**
- * @internal
- */
-export const AccountLimitFilterSensitiveLog = (obj: AccountLimit): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AccountUsageFilterSensitiveLog = (obj: AccountUsage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddLayerVersionPermissionRequestFilterSensitiveLog = (obj: AddLayerVersionPermissionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddLayerVersionPermissionResponseFilterSensitiveLog = (obj: AddLayerVersionPermissionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddPermissionRequestFilterSensitiveLog = (obj: AddPermissionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddPermissionResponseFilterSensitiveLog = (obj: AddPermissionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AliasRoutingConfigurationFilterSensitiveLog = (obj: AliasRoutingConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AliasConfigurationFilterSensitiveLog = (obj: AliasConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AllowedPublishersFilterSensitiveLog = (obj: AllowedPublishers): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AmazonManagedKafkaEventSourceConfigFilterSensitiveLog = (
-  obj: AmazonManagedKafkaEventSourceConfig
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAliasRequestFilterSensitiveLog = (obj: CreateAliasRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CodeSigningPoliciesFilterSensitiveLog = (obj: CodeSigningPolicies): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCodeSigningConfigRequestFilterSensitiveLog = (obj: CreateCodeSigningConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CodeSigningConfigFilterSensitiveLog = (obj: CodeSigningConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCodeSigningConfigResponseFilterSensitiveLog = (obj: CreateCodeSigningConfigResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OnFailureFilterSensitiveLog = (obj: OnFailure): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OnSuccessFilterSensitiveLog = (obj: OnSuccess): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DestinationConfigFilterSensitiveLog = (obj: DestinationConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterFilterSensitiveLog = (obj: Filter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterCriteriaFilterSensitiveLog = (obj: FilterCriteria): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScalingConfigFilterSensitiveLog = (obj: ScalingConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SelfManagedEventSourceFilterSensitiveLog = (obj: SelfManagedEventSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SelfManagedKafkaEventSourceConfigFilterSensitiveLog = (obj: SelfManagedKafkaEventSourceConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SourceAccessConfigurationFilterSensitiveLog = (obj: SourceAccessConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateEventSourceMappingRequestFilterSensitiveLog = (obj: CreateEventSourceMappingRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventSourceMappingConfigurationFilterSensitiveLog = (obj: EventSourceMappingConfiguration): any => ({
-  ...obj,
-});
 
 /**
  * @internal
@@ -5609,58 +6578,9 @@ export const FunctionCodeFilterSensitiveLog = (obj: FunctionCode): any => ({
 /**
  * @internal
  */
-export const DeadLetterConfigFilterSensitiveLog = (obj: DeadLetterConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const EnvironmentFilterSensitiveLog = (obj: Environment): any => ({
   ...obj,
   ...(obj.Variables && { Variables: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const EphemeralStorageFilterSensitiveLog = (obj: EphemeralStorage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FileSystemConfigFilterSensitiveLog = (obj: FileSystemConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImageConfigFilterSensitiveLog = (obj: ImageConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SnapStartFilterSensitiveLog = (obj: SnapStart): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TracingConfigFilterSensitiveLog = (obj: TracingConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcConfigFilterSensitiveLog = (obj: VpcConfig): any => ({
-  ...obj,
 });
 
 /**
@@ -5708,29 +6628,17 @@ export const ImageConfigResponseFilterSensitiveLog = (obj: ImageConfigResponse):
 /**
  * @internal
  */
-export const LayerFilterSensitiveLog = (obj: Layer): any => ({
+export const RuntimeVersionErrorFilterSensitiveLog = (obj: RuntimeVersionError): any => ({
   ...obj,
+  ...(obj.Message && { Message: SENSITIVE_STRING }),
 });
 
 /**
  * @internal
  */
-export const SnapStartResponseFilterSensitiveLog = (obj: SnapStartResponse): any => ({
+export const RuntimeVersionConfigFilterSensitiveLog = (obj: RuntimeVersionConfig): any => ({
   ...obj,
-});
-
-/**
- * @internal
- */
-export const TracingConfigResponseFilterSensitiveLog = (obj: TracingConfigResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcConfigResponseFilterSensitiveLog = (obj: VpcConfigResponse): any => ({
-  ...obj,
+  ...(obj.Error && { Error: RuntimeVersionErrorFilterSensitiveLog(obj.Error) }),
 });
 
 /**
@@ -5742,173 +6650,9 @@ export const FunctionConfigurationFilterSensitiveLog = (obj: FunctionConfigurati
   ...(obj.ImageConfigResponse && {
     ImageConfigResponse: ImageConfigResponseFilterSensitiveLog(obj.ImageConfigResponse),
   }),
-});
-
-/**
- * @internal
- */
-export const CorsFilterSensitiveLog = (obj: Cors): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFunctionUrlConfigRequestFilterSensitiveLog = (obj: CreateFunctionUrlConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFunctionUrlConfigResponseFilterSensitiveLog = (obj: CreateFunctionUrlConfigResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAliasRequestFilterSensitiveLog = (obj: DeleteAliasRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCodeSigningConfigRequestFilterSensitiveLog = (obj: DeleteCodeSigningConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCodeSigningConfigResponseFilterSensitiveLog = (obj: DeleteCodeSigningConfigResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteEventSourceMappingRequestFilterSensitiveLog = (obj: DeleteEventSourceMappingRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteFunctionRequestFilterSensitiveLog = (obj: DeleteFunctionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteFunctionCodeSigningConfigRequestFilterSensitiveLog = (
-  obj: DeleteFunctionCodeSigningConfigRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteFunctionConcurrencyRequestFilterSensitiveLog = (obj: DeleteFunctionConcurrencyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteFunctionEventInvokeConfigRequestFilterSensitiveLog = (
-  obj: DeleteFunctionEventInvokeConfigRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteFunctionUrlConfigRequestFilterSensitiveLog = (obj: DeleteFunctionUrlConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteLayerVersionRequestFilterSensitiveLog = (obj: DeleteLayerVersionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteProvisionedConcurrencyConfigRequestFilterSensitiveLog = (
-  obj: DeleteProvisionedConcurrencyConfigRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAccountSettingsRequestFilterSensitiveLog = (obj: GetAccountSettingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAccountSettingsResponseFilterSensitiveLog = (obj: GetAccountSettingsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAliasRequestFilterSensitiveLog = (obj: GetAliasRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCodeSigningConfigRequestFilterSensitiveLog = (obj: GetCodeSigningConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCodeSigningConfigResponseFilterSensitiveLog = (obj: GetCodeSigningConfigResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEventSourceMappingRequestFilterSensitiveLog = (obj: GetEventSourceMappingRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFunctionRequestFilterSensitiveLog = (obj: GetFunctionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FunctionCodeLocationFilterSensitiveLog = (obj: FunctionCodeLocation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConcurrencyFilterSensitiveLog = (obj: Concurrency): any => ({
-  ...obj,
+  ...(obj.RuntimeVersionConfig && {
+    RuntimeVersionConfig: RuntimeVersionConfigFilterSensitiveLog(obj.RuntimeVersionConfig),
+  }),
 });
 
 /**
@@ -5917,149 +6661,6 @@ export const ConcurrencyFilterSensitiveLog = (obj: Concurrency): any => ({
 export const GetFunctionResponseFilterSensitiveLog = (obj: GetFunctionResponse): any => ({
   ...obj,
   ...(obj.Configuration && { Configuration: FunctionConfigurationFilterSensitiveLog(obj.Configuration) }),
-});
-
-/**
- * @internal
- */
-export const GetFunctionCodeSigningConfigRequestFilterSensitiveLog = (
-  obj: GetFunctionCodeSigningConfigRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFunctionCodeSigningConfigResponseFilterSensitiveLog = (
-  obj: GetFunctionCodeSigningConfigResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFunctionConcurrencyRequestFilterSensitiveLog = (obj: GetFunctionConcurrencyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFunctionConcurrencyResponseFilterSensitiveLog = (obj: GetFunctionConcurrencyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFunctionConfigurationRequestFilterSensitiveLog = (obj: GetFunctionConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FunctionEventInvokeConfigFilterSensitiveLog = (obj: FunctionEventInvokeConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFunctionEventInvokeConfigRequestFilterSensitiveLog = (
-  obj: GetFunctionEventInvokeConfigRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFunctionUrlConfigRequestFilterSensitiveLog = (obj: GetFunctionUrlConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFunctionUrlConfigResponseFilterSensitiveLog = (obj: GetFunctionUrlConfigResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLayerVersionRequestFilterSensitiveLog = (obj: GetLayerVersionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LayerVersionContentOutputFilterSensitiveLog = (obj: LayerVersionContentOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLayerVersionResponseFilterSensitiveLog = (obj: GetLayerVersionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLayerVersionByArnRequestFilterSensitiveLog = (obj: GetLayerVersionByArnRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLayerVersionPolicyRequestFilterSensitiveLog = (obj: GetLayerVersionPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLayerVersionPolicyResponseFilterSensitiveLog = (obj: GetLayerVersionPolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPolicyRequestFilterSensitiveLog = (obj: GetPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPolicyResponseFilterSensitiveLog = (obj: GetPolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetProvisionedConcurrencyConfigRequestFilterSensitiveLog = (
-  obj: GetProvisionedConcurrencyConfigRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetProvisionedConcurrencyConfigResponseFilterSensitiveLog = (
-  obj: GetProvisionedConcurrencyConfigResponse
-): any => ({
-  ...obj,
 });
 
 /**
@@ -6088,75 +6689,37 @@ export const InvokeAsyncRequestFilterSensitiveLog = (obj: InvokeAsyncRequest): a
 /**
  * @internal
  */
-export const InvokeAsyncResponseFilterSensitiveLog = (obj: InvokeAsyncResponse): any => ({
+export const InvokeWithResponseStreamRequestFilterSensitiveLog = (obj: InvokeWithResponseStreamRequest): any => ({
   ...obj,
+  ...(obj.Payload && { Payload: SENSITIVE_STRING }),
 });
 
 /**
  * @internal
  */
-export const ListAliasesRequestFilterSensitiveLog = (obj: ListAliasesRequest): any => ({
+export const InvokeResponseStreamUpdateFilterSensitiveLog = (obj: InvokeResponseStreamUpdate): any => ({
   ...obj,
+  ...(obj.Payload && { Payload: SENSITIVE_STRING }),
 });
 
 /**
  * @internal
  */
-export const ListAliasesResponseFilterSensitiveLog = (obj: ListAliasesResponse): any => ({
-  ...obj,
-});
+export const InvokeWithResponseStreamResponseEventFilterSensitiveLog = (
+  obj: InvokeWithResponseStreamResponseEvent
+): any => {
+  if (obj.PayloadChunk !== undefined)
+    return { PayloadChunk: InvokeResponseStreamUpdateFilterSensitiveLog(obj.PayloadChunk) };
+  if (obj.InvokeComplete !== undefined) return { InvokeComplete: obj.InvokeComplete };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
 
 /**
  * @internal
  */
-export const ListCodeSigningConfigsRequestFilterSensitiveLog = (obj: ListCodeSigningConfigsRequest): any => ({
+export const InvokeWithResponseStreamResponseFilterSensitiveLog = (obj: InvokeWithResponseStreamResponse): any => ({
   ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCodeSigningConfigsResponseFilterSensitiveLog = (obj: ListCodeSigningConfigsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEventSourceMappingsRequestFilterSensitiveLog = (obj: ListEventSourceMappingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEventSourceMappingsResponseFilterSensitiveLog = (obj: ListEventSourceMappingsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFunctionEventInvokeConfigsRequestFilterSensitiveLog = (
-  obj: ListFunctionEventInvokeConfigsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFunctionEventInvokeConfigsResponseFilterSensitiveLog = (
-  obj: ListFunctionEventInvokeConfigsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFunctionsRequestFilterSensitiveLog = (obj: ListFunctionsRequest): any => ({
-  ...obj,
+  ...(obj.EventStream && { EventStream: "STREAMING_CONTENT" }),
 });
 
 /**
@@ -6165,135 +6728,6 @@ export const ListFunctionsRequestFilterSensitiveLog = (obj: ListFunctionsRequest
 export const ListFunctionsResponseFilterSensitiveLog = (obj: ListFunctionsResponse): any => ({
   ...obj,
   ...(obj.Functions && { Functions: obj.Functions.map((item) => FunctionConfigurationFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ListFunctionsByCodeSigningConfigRequestFilterSensitiveLog = (
-  obj: ListFunctionsByCodeSigningConfigRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFunctionsByCodeSigningConfigResponseFilterSensitiveLog = (
-  obj: ListFunctionsByCodeSigningConfigResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFunctionUrlConfigsRequestFilterSensitiveLog = (obj: ListFunctionUrlConfigsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FunctionUrlConfigFilterSensitiveLog = (obj: FunctionUrlConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFunctionUrlConfigsResponseFilterSensitiveLog = (obj: ListFunctionUrlConfigsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLayersRequestFilterSensitiveLog = (obj: ListLayersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LayerVersionsListItemFilterSensitiveLog = (obj: LayerVersionsListItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LayersListItemFilterSensitiveLog = (obj: LayersListItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLayersResponseFilterSensitiveLog = (obj: ListLayersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLayerVersionsRequestFilterSensitiveLog = (obj: ListLayerVersionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLayerVersionsResponseFilterSensitiveLog = (obj: ListLayerVersionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListProvisionedConcurrencyConfigsRequestFilterSensitiveLog = (
-  obj: ListProvisionedConcurrencyConfigsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProvisionedConcurrencyConfigListItemFilterSensitiveLog = (
-  obj: ProvisionedConcurrencyConfigListItem
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListProvisionedConcurrencyConfigsResponseFilterSensitiveLog = (
-  obj: ListProvisionedConcurrencyConfigsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsRequestFilterSensitiveLog = (obj: ListTagsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsResponseFilterSensitiveLog = (obj: ListTagsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListVersionsByFunctionRequestFilterSensitiveLog = (obj: ListVersionsByFunctionRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -6323,130 +6757,6 @@ export const PublishLayerVersionRequestFilterSensitiveLog = (obj: PublishLayerVe
 /**
  * @internal
  */
-export const PublishLayerVersionResponseFilterSensitiveLog = (obj: PublishLayerVersionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PublishVersionRequestFilterSensitiveLog = (obj: PublishVersionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutFunctionCodeSigningConfigRequestFilterSensitiveLog = (
-  obj: PutFunctionCodeSigningConfigRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutFunctionCodeSigningConfigResponseFilterSensitiveLog = (
-  obj: PutFunctionCodeSigningConfigResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutFunctionConcurrencyRequestFilterSensitiveLog = (obj: PutFunctionConcurrencyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutFunctionEventInvokeConfigRequestFilterSensitiveLog = (
-  obj: PutFunctionEventInvokeConfigRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutProvisionedConcurrencyConfigRequestFilterSensitiveLog = (
-  obj: PutProvisionedConcurrencyConfigRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutProvisionedConcurrencyConfigResponseFilterSensitiveLog = (
-  obj: PutProvisionedConcurrencyConfigResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveLayerVersionPermissionRequestFilterSensitiveLog = (
-  obj: RemoveLayerVersionPermissionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemovePermissionRequestFilterSensitiveLog = (obj: RemovePermissionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAliasRequestFilterSensitiveLog = (obj: UpdateAliasRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCodeSigningConfigRequestFilterSensitiveLog = (obj: UpdateCodeSigningConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCodeSigningConfigResponseFilterSensitiveLog = (obj: UpdateCodeSigningConfigResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateEventSourceMappingRequestFilterSensitiveLog = (obj: UpdateEventSourceMappingRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateFunctionCodeRequestFilterSensitiveLog = (obj: UpdateFunctionCodeRequest): any => ({
   ...obj,
   ...(obj.ZipFile && { ZipFile: SENSITIVE_STRING }),
@@ -6458,27 +6768,4 @@ export const UpdateFunctionCodeRequestFilterSensitiveLog = (obj: UpdateFunctionC
 export const UpdateFunctionConfigurationRequestFilterSensitiveLog = (obj: UpdateFunctionConfigurationRequest): any => ({
   ...obj,
   ...(obj.Environment && { Environment: EnvironmentFilterSensitiveLog(obj.Environment) }),
-});
-
-/**
- * @internal
- */
-export const UpdateFunctionEventInvokeConfigRequestFilterSensitiveLog = (
-  obj: UpdateFunctionEventInvokeConfigRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFunctionUrlConfigRequestFilterSensitiveLog = (obj: UpdateFunctionUrlConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFunctionUrlConfigResponseFilterSensitiveLog = (obj: UpdateFunctionUrlConfigResponse): any => ({
-  ...obj,
 });

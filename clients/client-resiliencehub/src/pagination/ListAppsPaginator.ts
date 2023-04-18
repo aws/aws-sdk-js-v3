@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListAppsCommand, ListAppsCommandInput, ListAppsCommandOutput } from "../commands/ListAppsCommand";
-import { Resiliencehub } from "../Resiliencehub";
 import { ResiliencehubClient } from "../ResiliencehubClient";
 import { ResiliencehubPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ResiliencehubClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListAppsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Resiliencehub,
-  input: ListAppsCommandInput,
-  ...args: any
-): Promise<ListAppsCommandOutput> => {
-  // @ts-ignore
-  return await client.listApps(input, ...args);
-};
 export async function* paginateListApps(
   config: ResiliencehubPaginationConfiguration,
   input: ListAppsCommandInput,
@@ -40,9 +31,7 @@ export async function* paginateListApps(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Resiliencehub) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ResiliencehubClient) {
+    if (config.client instanceof ResiliencehubClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Resiliencehub | ResiliencehubClient");

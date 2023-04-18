@@ -16,21 +16,30 @@ import {
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import {
   DeleteWirelessGatewayTaskDefinitionRequest,
-  DeleteWirelessGatewayTaskDefinitionRequestFilterSensitiveLog,
   DeleteWirelessGatewayTaskDefinitionResponse,
-  DeleteWirelessGatewayTaskDefinitionResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteWirelessGatewayTaskDefinitionCommand,
-  serializeAws_restJson1DeleteWirelessGatewayTaskDefinitionCommand,
+  de_DeleteWirelessGatewayTaskDefinitionCommand,
+  se_DeleteWirelessGatewayTaskDefinitionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteWirelessGatewayTaskDefinitionCommand}.
+ */
 export interface DeleteWirelessGatewayTaskDefinitionCommandInput extends DeleteWirelessGatewayTaskDefinitionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteWirelessGatewayTaskDefinitionCommand}.
+ */
 export interface DeleteWirelessGatewayTaskDefinitionCommandOutput
   extends DeleteWirelessGatewayTaskDefinitionResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a wireless gateway task definition. Deleting this task definition does not affect tasks that are currently in progress.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +47,34 @@ export interface DeleteWirelessGatewayTaskDefinitionCommandOutput
  * import { IoTWirelessClient, DeleteWirelessGatewayTaskDefinitionCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, DeleteWirelessGatewayTaskDefinitionCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // DeleteWirelessGatewayTaskDefinitionRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteWirelessGatewayTaskDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteWirelessGatewayTaskDefinitionCommandInput - {@link DeleteWirelessGatewayTaskDefinitionCommandInput}
+ * @returns {@link DeleteWirelessGatewayTaskDefinitionCommandOutput}
  * @see {@link DeleteWirelessGatewayTaskDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteWirelessGatewayTaskDefinitionCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>User does not have permission to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred while processing a request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because it exceeded the allowed API request rate.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input did not meet the specified constraints.</p>
+ *
  *
  */
 export class DeleteWirelessGatewayTaskDefinitionCommand extends $Command<
@@ -64,6 +94,9 @@ export class DeleteWirelessGatewayTaskDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteWirelessGatewayTaskDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +125,8 @@ export class DeleteWirelessGatewayTaskDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteWirelessGatewayTaskDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteWirelessGatewayTaskDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +136,24 @@ export class DeleteWirelessGatewayTaskDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteWirelessGatewayTaskDefinitionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteWirelessGatewayTaskDefinitionCommand(input, context);
+    return se_DeleteWirelessGatewayTaskDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteWirelessGatewayTaskDefinitionCommandOutput> {
-    return deserializeAws_restJson1DeleteWirelessGatewayTaskDefinitionCommand(output, context);
+    return de_DeleteWirelessGatewayTaskDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

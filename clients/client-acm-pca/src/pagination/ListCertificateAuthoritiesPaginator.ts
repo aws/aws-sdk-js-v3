@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { ACMPCA } from "../ACMPCA";
 import { ACMPCAClient } from "../ACMPCAClient";
 import {
   ListCertificateAuthoritiesCommand,
@@ -11,7 +10,7 @@ import {
 import { ACMPCAPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ACMPCAClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListCertificateAuthoritiesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ACMPCA,
-  input: ListCertificateAuthoritiesCommandInput,
-  ...args: any
-): Promise<ListCertificateAuthoritiesCommandOutput> => {
-  // @ts-ignore
-  return await client.listCertificateAuthorities(input, ...args);
-};
 export async function* paginateListCertificateAuthorities(
   config: ACMPCAPaginationConfiguration,
   input: ListCertificateAuthoritiesCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListCertificateAuthorities(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof ACMPCA) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ACMPCAClient) {
+    if (config.client instanceof ACMPCAClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ACMPCA | ACMPCAClient");

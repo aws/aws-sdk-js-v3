@@ -18,17 +18,24 @@ import {
   CreateComputerRequest,
   CreateComputerRequestFilterSensitiveLog,
   CreateComputerResult,
-  CreateComputerResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateComputerCommand,
-  serializeAws_json1_1CreateComputerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateComputerCommand, se_CreateComputerCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateComputerCommand}.
+ */
 export interface CreateComputerCommandInput extends CreateComputerRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateComputerCommand}.
+ */
 export interface CreateComputerCommandOutput extends CreateComputerResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Active Directory computer object in the specified directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +43,52 @@ export interface CreateComputerCommandOutput extends CreateComputerResult, __Met
  * import { DirectoryServiceClient, CreateComputerCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, CreateComputerCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // CreateComputerRequest
+ *   DirectoryId: "STRING_VALUE", // required
+ *   ComputerName: "STRING_VALUE", // required
+ *   Password: "STRING_VALUE", // required
+ *   OrganizationalUnitDistinguishedName: "STRING_VALUE",
+ *   ComputerAttributes: [ // Attributes
+ *     { // Attribute
+ *       Name: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateComputerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateComputerCommandInput - {@link CreateComputerCommandInput}
+ * @returns {@link CreateComputerCommandOutput}
  * @see {@link CreateComputerCommandInput} for command's `input` shape.
  * @see {@link CreateComputerCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
+ *
+ * @throws {@link AuthenticationFailedException} (client fault)
+ *  <p>An authentication error occurred.</p>
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>A client exception has occurred.</p>
+ *
+ * @throws {@link DirectoryUnavailableException} (client fault)
+ *  <p>The specified directory is unavailable or could not be found.</p>
+ *
+ * @throws {@link EntityAlreadyExistsException} (client fault)
+ *  <p>The specified entity already exists.</p>
+ *
+ * @throws {@link EntityDoesNotExistException} (client fault)
+ *  <p>The specified entity could not be found.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>An exception has occurred in Directory Service.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>The operation is not supported.</p>
+ *
  *
  */
 export class CreateComputerCommand extends $Command<
@@ -62,6 +108,9 @@ export class CreateComputerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateComputerCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,7 +140,7 @@ export class CreateComputerCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateComputerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateComputerResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +150,18 @@ export class CreateComputerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateComputerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateComputerCommand(input, context);
+    return se_CreateComputerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateComputerCommandOutput> {
-    return deserializeAws_json1_1CreateComputerCommand(output, context);
+    return de_CreateComputerCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetEmailChannelRequest,
-  GetEmailChannelRequestFilterSensitiveLog,
-  GetEmailChannelResponse,
-  GetEmailChannelResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { GetEmailChannelRequest, GetEmailChannelResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1GetEmailChannelCommand,
-  serializeAws_restJson1GetEmailChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetEmailChannelCommand, se_GetEmailChannelCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetEmailChannelCommand}.
+ */
 export interface GetEmailChannelCommandInput extends GetEmailChannelRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetEmailChannelCommand}.
+ */
 export interface GetEmailChannelCommandOutput extends GetEmailChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the status and settings of the email channel for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,40 @@ export interface GetEmailChannelCommandOutput extends GetEmailChannelResponse, _
  * import { PinpointClient, GetEmailChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetEmailChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // GetEmailChannelRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ * };
  * const command = new GetEmailChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEmailChannelCommandInput - {@link GetEmailChannelCommandInput}
+ * @returns {@link GetEmailChannelCommandOutput}
  * @see {@link GetEmailChannelCommandInput} for command's `input` shape.
  * @see {@link GetEmailChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link MethodNotAllowedException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link PayloadTooLargeException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
  *
  */
 export class GetEmailChannelCommand extends $Command<
@@ -62,6 +92,9 @@ export class GetEmailChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEmailChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +123,8 @@ export class GetEmailChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEmailChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetEmailChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +134,18 @@ export class GetEmailChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEmailChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetEmailChannelCommand(input, context);
+    return se_GetEmailChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEmailChannelCommandOutput> {
-    return deserializeAws_restJson1GetEmailChannelCommand(output, context);
+    return de_GetEmailChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

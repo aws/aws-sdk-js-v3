@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateModelCardExportJobRequest,
-  CreateModelCardExportJobRequestFilterSensitiveLog,
-  CreateModelCardExportJobResponse,
-  CreateModelCardExportJobResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1CreateModelCardExportJobCommand,
-  serializeAws_json1_1CreateModelCardExportJobCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateModelCardExportJobRequest, CreateModelCardExportJobResponse } from "../models/models_1";
+import { de_CreateModelCardExportJobCommand, se_CreateModelCardExportJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateModelCardExportJobCommand}.
+ */
 export interface CreateModelCardExportJobCommandInput extends CreateModelCardExportJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateModelCardExportJobCommand}.
+ */
 export interface CreateModelCardExportJobCommandOutput extends CreateModelCardExportJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon SageMaker Model Card export job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,35 @@ export interface CreateModelCardExportJobCommandOutput extends CreateModelCardEx
  * import { SageMakerClient, CreateModelCardExportJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateModelCardExportJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // CreateModelCardExportJobRequest
+ *   ModelCardName: "STRING_VALUE", // required
+ *   ModelCardVersion: Number("int"),
+ *   ModelCardExportJobName: "STRING_VALUE", // required
+ *   OutputConfig: { // ModelCardExportOutputConfig
+ *     S3OutputPath: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new CreateModelCardExportJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateModelCardExportJobCommandInput - {@link CreateModelCardExportJobCommandInput}
+ * @returns {@link CreateModelCardExportJobCommandOutput}
  * @see {@link CreateModelCardExportJobCommandInput} for command's `input` shape.
  * @see {@link CreateModelCardExportJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There was a conflict when you attempted to modify a SageMaker entity such as an
+ *       <code>Experiment</code> or <code>Artifact</code>.</p>
+ *
+ * @throws {@link ResourceLimitExceeded} (client fault)
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
+ *             training jobs created. </p>
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class CreateModelCardExportJobCommand extends $Command<
@@ -62,6 +87,9 @@ export class CreateModelCardExportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateModelCardExportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +118,8 @@ export class CreateModelCardExportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateModelCardExportJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateModelCardExportJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +129,18 @@ export class CreateModelCardExportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateModelCardExportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateModelCardExportJobCommand(input, context);
+    return se_CreateModelCardExportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateModelCardExportJobCommandOutput> {
-    return deserializeAws_json1_1CreateModelCardExportJobCommand(output, context);
+    return de_CreateModelCardExportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

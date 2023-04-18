@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import { DeleteFileSystemRequest, DeleteFileSystemRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteFileSystemCommand,
-  serializeAws_restJson1DeleteFileSystemCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteFileSystemRequest } from "../models/models_0";
+import { de_DeleteFileSystemCommand, se_DeleteFileSystemCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteFileSystemCommand}.
+ */
 export interface DeleteFileSystemCommandInput extends DeleteFileSystemRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteFileSystemCommand}.
+ */
 export interface DeleteFileSystemCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a file system, permanently severing access to its contents. Upon return, the
  *       file system no longer exists and you can't access any contents of the deleted file
  *       system.</p>
@@ -36,14 +44,12 @@ export interface DeleteFileSystemCommandOutput extends __MetadataBearer {}
  *          </note>
  *          <p> You can't delete a file system that is in use. That is, if the file system has
  *       any mount targets, you must first delete them. For more information, see <a>DescribeMountTargets</a> and <a>DeleteMountTarget</a>. </p>
- *
  *          <note>
  *             <p>The <code>DeleteFileSystem</code> call returns while the file system state is still
  *           <code>deleting</code>. You can check the file system deletion status by calling the <a>DescribeFileSystems</a> operation, which returns a list of file systems in your
  *         account. If you pass file system ID or creation token for the deleted file system, the <a>DescribeFileSystems</a> returns a <code>404 FileSystemNotFound</code>
  *         error.</p>
  *          </note>
- *
  *          <p>This operation requires permissions for the
  *         <code>elasticfilesystem:DeleteFileSystem</code> action.</p>
  * @example
@@ -52,13 +58,44 @@ export interface DeleteFileSystemCommandOutput extends __MetadataBearer {}
  * import { EFSClient, DeleteFileSystemCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, DeleteFileSystemCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
+ * const input = { // DeleteFileSystemRequest
+ *   FileSystemId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteFileSystemCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFileSystemCommandInput - {@link DeleteFileSystemCommandInput}
+ * @returns {@link DeleteFileSystemCommandOutput}
  * @see {@link DeleteFileSystemCommandInput} for command's `input` shape.
  * @see {@link DeleteFileSystemCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
+ *
+ * @throws {@link BadRequest} (client fault)
+ *  <p>Returned if the request is malformed or contains an error such as an invalid
+ *             parameter value or a missing required parameter.</p>
+ *
+ * @throws {@link FileSystemInUse} (client fault)
+ *  <p>Returned if a file system has mount targets.</p>
+ *
+ * @throws {@link FileSystemNotFound} (client fault)
+ *  <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the
+ *             requester's Amazon Web Services account.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Returned if an error occurred on the server side.</p>
+ *
+ *
+ * @example To delete a file system
+ * ```javascript
+ * // This operation deletes an EFS file system.
+ * const input = {
+ *   "FileSystemId": "fs-01234567"
+ * };
+ * const command = new DeleteFileSystemCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-a-file-system-1481847318348
+ * ```
  *
  */
 export class DeleteFileSystemCommand extends $Command<
@@ -78,6 +115,9 @@ export class DeleteFileSystemCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFileSystemCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +146,8 @@ export class DeleteFileSystemCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFileSystemRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +157,18 @@ export class DeleteFileSystemCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFileSystemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteFileSystemCommand(input, context);
+    return se_DeleteFileSystemCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFileSystemCommandOutput> {
-    return deserializeAws_restJson1DeleteFileSystemCommand(output, context);
+    return de_DeleteFileSystemCommand(output, context);
   }
 
   // Start section: command_body_extra

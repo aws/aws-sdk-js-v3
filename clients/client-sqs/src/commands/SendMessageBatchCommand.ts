@@ -14,22 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SendMessageBatchRequest,
-  SendMessageBatchRequestFilterSensitiveLog,
-  SendMessageBatchResult,
-  SendMessageBatchResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_querySendMessageBatchCommand,
-  serializeAws_querySendMessageBatchCommand,
-} from "../protocols/Aws_query";
+import { SendMessageBatchRequest, SendMessageBatchResult } from "../models/models_0";
+import { de_SendMessageBatchCommand, se_SendMessageBatchCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link SendMessageBatchCommand}.
+ */
 export interface SendMessageBatchCommandInput extends SendMessageBatchRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SendMessageBatchCommand}.
+ */
 export interface SendMessageBatchCommandOutput extends SendMessageBatchResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delivers up to ten messages to the specified queue. This is a batch version of <code>
  *                <a>SendMessage</a>.</code> For a FIFO queue, multiple messages within a single batch are enqueued in the order they are sent.</p>
  *          <p>The result of sending each message is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of <code>200</code>.</p>
@@ -55,13 +58,72 @@ export interface SendMessageBatchCommandOutput extends SendMessageBatchResult, _
  * import { SQSClient, SendMessageBatchCommand } from "@aws-sdk/client-sqs"; // ES Modules import
  * // const { SQSClient, SendMessageBatchCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
  * const client = new SQSClient(config);
+ * const input = { // SendMessageBatchRequest
+ *   QueueUrl: "STRING_VALUE", // required
+ *   Entries: [ // SendMessageBatchRequestEntryList // required
+ *     { // SendMessageBatchRequestEntry
+ *       Id: "STRING_VALUE", // required
+ *       MessageBody: "STRING_VALUE", // required
+ *       DelaySeconds: Number("int"),
+ *       MessageAttributes: { // MessageBodyAttributeMap
+ *         "<keys>": { // MessageAttributeValue
+ *           StringValue: "STRING_VALUE",
+ *           BinaryValue: "BLOB_VALUE",
+ *           StringListValues: [ // StringList
+ *             "STRING_VALUE",
+ *           ],
+ *           BinaryListValues: [ // BinaryList
+ *             "BLOB_VALUE",
+ *           ],
+ *           DataType: "STRING_VALUE", // required
+ *         },
+ *       },
+ *       MessageSystemAttributes: { // MessageBodySystemAttributeMap
+ *         "<keys>": { // MessageSystemAttributeValue
+ *           StringValue: "STRING_VALUE",
+ *           BinaryValue: "BLOB_VALUE",
+ *           StringListValues: [
+ *             "STRING_VALUE",
+ *           ],
+ *           BinaryListValues: [
+ *             "BLOB_VALUE",
+ *           ],
+ *           DataType: "STRING_VALUE", // required
+ *         },
+ *       },
+ *       MessageDeduplicationId: "STRING_VALUE",
+ *       MessageGroupId: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new SendMessageBatchCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SendMessageBatchCommandInput - {@link SendMessageBatchCommandInput}
+ * @returns {@link SendMessageBatchCommandOutput}
  * @see {@link SendMessageBatchCommandInput} for command's `input` shape.
  * @see {@link SendMessageBatchCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
+ *
+ * @throws {@link BatchEntryIdsNotDistinct} (client fault)
+ *  <p>Two or more batch entries in the request have the same <code>Id</code>.</p>
+ *
+ * @throws {@link BatchRequestTooLong} (client fault)
+ *  <p>The length of all the messages put together is more than the limit.</p>
+ *
+ * @throws {@link EmptyBatchRequest} (client fault)
+ *  <p>The batch request doesn't contain any entries.</p>
+ *
+ * @throws {@link InvalidBatchEntryId} (client fault)
+ *  <p>The <code>Id</code> of a batch entry in a batch request doesn't abide by the specification.</p>
+ *
+ * @throws {@link TooManyEntriesInBatchRequest} (client fault)
+ *  <p>The batch request contains more entries than permissible.</p>
+ *
+ * @throws {@link UnsupportedOperation} (client fault)
+ *  <p>Error code 400. Unsupported operation.</p>
+ *
  *
  */
 export class SendMessageBatchCommand extends $Command<
@@ -81,6 +143,9 @@ export class SendMessageBatchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendMessageBatchCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +175,8 @@ export class SendMessageBatchCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendMessageBatchRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SendMessageBatchResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +186,18 @@ export class SendMessageBatchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendMessageBatchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySendMessageBatchCommand(input, context);
+    return se_SendMessageBatchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendMessageBatchCommandOutput> {
-    return deserializeAws_querySendMessageBatchCommand(output, context);
+    return de_SendMessageBatchCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -6,12 +6,11 @@ import {
   ListTestGridSessionArtifactsCommandInput,
   ListTestGridSessionArtifactsCommandOutput,
 } from "../commands/ListTestGridSessionArtifactsCommand";
-import { DeviceFarm } from "../DeviceFarm";
 import { DeviceFarmClient } from "../DeviceFarmClient";
 import { DeviceFarmPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DeviceFarmClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListTestGridSessionArtifactsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: DeviceFarm,
-  input: ListTestGridSessionArtifactsCommandInput,
-  ...args: any
-): Promise<ListTestGridSessionArtifactsCommandOutput> => {
-  // @ts-ignore
-  return await client.listTestGridSessionArtifacts(input, ...args);
-};
 export async function* paginateListTestGridSessionArtifacts(
   config: DeviceFarmPaginationConfiguration,
   input: ListTestGridSessionArtifactsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListTestGridSessionArtifacts(
   while (hasNext) {
     input.nextToken = token;
     input["maxResult"] = config.pageSize;
-    if (config.client instanceof DeviceFarm) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DeviceFarmClient) {
+    if (config.client instanceof DeviceFarmClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected DeviceFarm | DeviceFarmClient");

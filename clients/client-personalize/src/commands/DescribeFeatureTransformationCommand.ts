@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeFeatureTransformationRequest,
-  DescribeFeatureTransformationRequestFilterSensitiveLog,
-  DescribeFeatureTransformationResponse,
-  DescribeFeatureTransformationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeFeatureTransformationRequest, DescribeFeatureTransformationResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import {
-  deserializeAws_json1_1DescribeFeatureTransformationCommand,
-  serializeAws_json1_1DescribeFeatureTransformationCommand,
+  de_DescribeFeatureTransformationCommand,
+  se_DescribeFeatureTransformationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeFeatureTransformationCommand}.
+ */
 export interface DescribeFeatureTransformationCommandInput extends DescribeFeatureTransformationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeFeatureTransformationCommand}.
+ */
 export interface DescribeFeatureTransformationCommandOutput
   extends DescribeFeatureTransformationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the given feature transformation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,25 @@ export interface DescribeFeatureTransformationCommandOutput
  * import { PersonalizeClient, DescribeFeatureTransformationCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DescribeFeatureTransformationCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // DescribeFeatureTransformationRequest
+ *   featureTransformationArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeFeatureTransformationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFeatureTransformationCommandInput - {@link DescribeFeatureTransformationCommandInput}
+ * @returns {@link DescribeFeatureTransformationCommandOutput}
  * @see {@link DescribeFeatureTransformationCommandInput} for command's `input` shape.
  * @see {@link DescribeFeatureTransformationCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Could not find the specified resource.</p>
+ *
  *
  */
 export class DescribeFeatureTransformationCommand extends $Command<
@@ -64,6 +82,9 @@ export class DescribeFeatureTransformationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFeatureTransformationCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +113,8 @@ export class DescribeFeatureTransformationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFeatureTransformationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFeatureTransformationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +124,21 @@ export class DescribeFeatureTransformationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFeatureTransformationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeFeatureTransformationCommand(input, context);
+    return se_DescribeFeatureTransformationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeFeatureTransformationCommandOutput> {
-    return deserializeAws_json1_1DescribeFeatureTransformationCommand(output, context);
+    return de_DescribeFeatureTransformationCommand(output, context);
   }
 
   // Start section: command_body_extra

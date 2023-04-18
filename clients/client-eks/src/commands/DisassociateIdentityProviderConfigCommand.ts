@@ -16,21 +16,30 @@ import {
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import {
   DisassociateIdentityProviderConfigRequest,
-  DisassociateIdentityProviderConfigRequestFilterSensitiveLog,
   DisassociateIdentityProviderConfigResponse,
-  DisassociateIdentityProviderConfigResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DisassociateIdentityProviderConfigCommand,
-  serializeAws_restJson1DisassociateIdentityProviderConfigCommand,
+  de_DisassociateIdentityProviderConfigCommand,
+  se_DisassociateIdentityProviderConfigCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DisassociateIdentityProviderConfigCommand}.
+ */
 export interface DisassociateIdentityProviderConfigCommandInput extends DisassociateIdentityProviderConfigRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateIdentityProviderConfigCommand}.
+ */
 export interface DisassociateIdentityProviderConfigCommandOutput
   extends DisassociateIdentityProviderConfigResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates an identity provider configuration from a cluster. If you disassociate
  *             an identity provider from your cluster, users included in the provider can no longer
  *             access the cluster. However, you can still access the cluster with Amazon Web Services
@@ -41,13 +50,49 @@ export interface DisassociateIdentityProviderConfigCommandOutput
  * import { EKSClient, DisassociateIdentityProviderConfigCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, DisassociateIdentityProviderConfigCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
+ * const input = { // DisassociateIdentityProviderConfigRequest
+ *   clusterName: "STRING_VALUE", // required
+ *   identityProviderConfig: { // IdentityProviderConfig
+ *     type: "STRING_VALUE", // required
+ *     name: "STRING_VALUE", // required
+ *   },
+ *   clientRequestToken: "STRING_VALUE",
+ * };
  * const command = new DisassociateIdentityProviderConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateIdentityProviderConfigCommandInput - {@link DisassociateIdentityProviderConfigCommandInput}
+ * @returns {@link DisassociateIdentityProviderConfigCommandOutput}
  * @see {@link DisassociateIdentityProviderConfigCommandInput} for command's `input` shape.
  * @see {@link DisassociateIdentityProviderConfigCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action. Actions can include using an
+ *             action or resource on behalf of a user that doesn't have permissions to use the action
+ *             or resource or specifying an identifier that is not valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *             request.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid given the state of the cluster. Check the state of the cluster
+ *             and the associated operations.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is in use.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found. You can view your available clusters with
+ *                 <a>ListClusters</a>. You can view your available managed node groups with
+ *                 <a>ListNodegroups</a>. Amazon EKS clusters and node groups are
+ *             Region-specific.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
  *
  */
 export class DisassociateIdentityProviderConfigCommand extends $Command<
@@ -67,6 +112,9 @@ export class DisassociateIdentityProviderConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateIdentityProviderConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +143,8 @@ export class DisassociateIdentityProviderConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateIdentityProviderConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateIdentityProviderConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,18 +154,24 @@ export class DisassociateIdentityProviderConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateIdentityProviderConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateIdentityProviderConfigCommand(input, context);
+    return se_DisassociateIdentityProviderConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateIdentityProviderConfigCommandOutput> {
-    return deserializeAws_restJson1DisassociateIdentityProviderConfigCommand(output, context);
+    return de_DisassociateIdentityProviderConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

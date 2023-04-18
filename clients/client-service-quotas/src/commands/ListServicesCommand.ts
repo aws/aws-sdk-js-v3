@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListServicesRequest,
-  ListServicesRequestFilterSensitiveLog,
-  ListServicesResponse,
-  ListServicesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListServicesCommand,
-  serializeAws_json1_1ListServicesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListServicesRequest, ListServicesResponse } from "../models/models_0";
+import { de_ListServicesCommand, se_ListServicesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListServicesCommand}.
+ */
 export interface ListServicesCommandInput extends ListServicesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListServicesCommand}.
+ */
 export interface ListServicesCommandOutput extends ListServicesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the names and codes for the services integrated with Service Quotas.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,36 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  * import { ServiceQuotasClient, ListServicesCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
  * // const { ServiceQuotasClient, ListServicesCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import
  * const client = new ServiceQuotasClient(config);
+ * const input = { // ListServicesRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListServicesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListServicesCommandInput - {@link ListServicesCommandInput}
+ * @returns {@link ListServicesCommandOutput}
  * @see {@link ListServicesCommandInput} for command's `input` shape.
  * @see {@link ListServicesCommandOutput} for command's `response` shape.
  * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permission to perform this action.</p>
+ *
+ * @throws {@link IllegalArgumentException} (client fault)
+ *  <p>Invalid input was provided.</p>
+ *
+ * @throws {@link InvalidPaginationTokenException} (client fault)
+ *  <p>Invalid input was provided.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>Something went wrong.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request
+ *       an increase for this quota.</p>
+ *
  *
  */
 export class ListServicesCommand extends $Command<
@@ -62,6 +88,9 @@ export class ListServicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListServicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +117,8 @@ export class ListServicesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListServicesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListServicesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +128,18 @@ export class ListServicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListServicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListServicesCommand(input, context);
+    return se_ListServicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListServicesCommandOutput> {
-    return deserializeAws_json1_1ListServicesCommand(output, context);
+    return de_ListServicesCommand(output, context);
   }
 
   // Start section: command_body_extra

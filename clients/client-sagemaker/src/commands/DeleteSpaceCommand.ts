@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteSpaceRequest, DeleteSpaceRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteSpaceCommand,
-  serializeAws_json1_1DeleteSpaceCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteSpaceRequest } from "../models/models_1";
+import { de_DeleteSpaceCommand, se_DeleteSpaceCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteSpaceCommand}.
+ */
 export interface DeleteSpaceCommandInput extends DeleteSpaceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteSpaceCommand}.
+ */
 export interface DeleteSpaceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used to delete a space.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +39,26 @@ export interface DeleteSpaceCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, DeleteSpaceCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteSpaceCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DeleteSpaceRequest
+ *   DomainId: "STRING_VALUE", // required
+ *   SpaceName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSpaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSpaceCommandInput - {@link DeleteSpaceCommandInput}
+ * @returns {@link DeleteSpaceCommandOutput}
  * @see {@link DeleteSpaceCommandInput} for command's `input` shape.
  * @see {@link DeleteSpaceCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceInUse} (client fault)
+ *  <p>Resource being accessed is in use.</p>
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class DeleteSpaceCommand extends $Command<
@@ -57,6 +78,9 @@ export class DeleteSpaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSpaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -83,8 +107,8 @@ export class DeleteSpaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSpaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -94,12 +118,18 @@ export class DeleteSpaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSpaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteSpaceCommand(input, context);
+    return se_DeleteSpaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSpaceCommandOutput> {
-    return deserializeAws_json1_1DeleteSpaceCommand(output, context);
+    return de_DeleteSpaceCommand(output, context);
   }
 
   // Start section: command_body_extra

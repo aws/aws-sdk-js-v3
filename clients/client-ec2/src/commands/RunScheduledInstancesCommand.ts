@@ -18,17 +18,24 @@ import {
   RunScheduledInstancesRequest,
   RunScheduledInstancesRequestFilterSensitiveLog,
   RunScheduledInstancesResult,
-  RunScheduledInstancesResultFilterSensitiveLog,
 } from "../models/models_6";
-import {
-  deserializeAws_ec2RunScheduledInstancesCommand,
-  serializeAws_ec2RunScheduledInstancesCommand,
-} from "../protocols/Aws_ec2";
+import { de_RunScheduledInstancesCommand, se_RunScheduledInstancesCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link RunScheduledInstancesCommand}.
+ */
 export interface RunScheduledInstancesCommandInput extends RunScheduledInstancesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RunScheduledInstancesCommand}.
+ */
 export interface RunScheduledInstancesCommandOutput extends RunScheduledInstancesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Launches the specified Scheduled Instances.</p>
  *          <p>Before you can launch a Scheduled Instance, you must purchase it and obtain an identifier using <a>PurchaseScheduledInstances</a>.</p>
  *          <p>You must launch a Scheduled Instance during its scheduled time period. You can't stop or reboot a Scheduled Instance,
@@ -41,13 +48,158 @@ export interface RunScheduledInstancesCommandOutput extends RunScheduledInstance
  * import { EC2Client, RunScheduledInstancesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, RunScheduledInstancesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // RunScheduledInstancesRequest
+ *   ClientToken: "STRING_VALUE",
+ *   DryRun: true || false,
+ *   InstanceCount: Number("int"),
+ *   LaunchSpecification: { // ScheduledInstancesLaunchSpecification
+ *     BlockDeviceMappings: [ // ScheduledInstancesBlockDeviceMappingSet
+ *       { // ScheduledInstancesBlockDeviceMapping
+ *         DeviceName: "STRING_VALUE",
+ *         Ebs: { // ScheduledInstancesEbs
+ *           DeleteOnTermination: true || false,
+ *           Encrypted: true || false,
+ *           Iops: Number("int"),
+ *           SnapshotId: "STRING_VALUE",
+ *           VolumeSize: Number("int"),
+ *           VolumeType: "STRING_VALUE",
+ *         },
+ *         NoDevice: "STRING_VALUE",
+ *         VirtualName: "STRING_VALUE",
+ *       },
+ *     ],
+ *     EbsOptimized: true || false,
+ *     IamInstanceProfile: { // ScheduledInstancesIamInstanceProfile
+ *       Arn: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *     },
+ *     ImageId: "STRING_VALUE", // required
+ *     InstanceType: "STRING_VALUE",
+ *     KernelId: "STRING_VALUE",
+ *     KeyName: "STRING_VALUE",
+ *     Monitoring: { // ScheduledInstancesMonitoring
+ *       Enabled: true || false,
+ *     },
+ *     NetworkInterfaces: [ // ScheduledInstancesNetworkInterfaceSet
+ *       { // ScheduledInstancesNetworkInterface
+ *         AssociatePublicIpAddress: true || false,
+ *         DeleteOnTermination: true || false,
+ *         Description: "STRING_VALUE",
+ *         DeviceIndex: Number("int"),
+ *         Groups: [ // ScheduledInstancesSecurityGroupIdSet
+ *           "STRING_VALUE",
+ *         ],
+ *         Ipv6AddressCount: Number("int"),
+ *         Ipv6Addresses: [ // ScheduledInstancesIpv6AddressList
+ *           { // ScheduledInstancesIpv6Address
+ *             Ipv6Address: "STRING_VALUE",
+ *           },
+ *         ],
+ *         NetworkInterfaceId: "STRING_VALUE",
+ *         PrivateIpAddress: "STRING_VALUE",
+ *         PrivateIpAddressConfigs: [ // PrivateIpAddressConfigSet
+ *           { // ScheduledInstancesPrivateIpAddressConfig
+ *             Primary: true || false,
+ *             PrivateIpAddress: "STRING_VALUE",
+ *           },
+ *         ],
+ *         SecondaryPrivateIpAddressCount: Number("int"),
+ *         SubnetId: "STRING_VALUE",
+ *       },
+ *     ],
+ *     Placement: { // ScheduledInstancesPlacement
+ *       AvailabilityZone: "STRING_VALUE",
+ *       GroupName: "STRING_VALUE",
+ *     },
+ *     RamdiskId: "STRING_VALUE",
+ *     SecurityGroupIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     SubnetId: "STRING_VALUE",
+ *     UserData: "STRING_VALUE",
+ *   },
+ *   ScheduledInstanceId: "STRING_VALUE", // required
+ * };
  * const command = new RunScheduledInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RunScheduledInstancesCommandInput - {@link RunScheduledInstancesCommandInput}
+ * @returns {@link RunScheduledInstancesCommandOutput}
  * @see {@link RunScheduledInstancesCommandInput} for command's `input` shape.
  * @see {@link RunScheduledInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ *
+ * @example To launch a Scheduled Instance in a VPC
+ * ```javascript
+ * // This example launches the specified Scheduled Instance in a VPC.
+ * const input = {
+ *   "InstanceCount": 1,
+ *   "LaunchSpecification": {
+ *     "IamInstanceProfile": {
+ *       "Name": "my-iam-role"
+ *     },
+ *     "ImageId": "ami-12345678",
+ *     "InstanceType": "c4.large",
+ *     "KeyName": "my-key-pair",
+ *     "NetworkInterfaces": [
+ *       {
+ *         "AssociatePublicIpAddress": true,
+ *         "DeviceIndex": 0,
+ *         "Groups": [
+ *           "sg-12345678"
+ *         ],
+ *         "SubnetId": "subnet-12345678"
+ *       }
+ *     ]
+ *   },
+ *   "ScheduledInstanceId": "sci-1234-1234-1234-1234-123456789012"
+ * };
+ * const command = new RunScheduledInstancesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "InstanceIdSet": [
+ *     "i-1234567890abcdef0"
+ *   ]
+ * }
+ * *\/
+ * // example id: ec2-run-scheduled-instances-1
+ * ```
+ *
+ * @example To launch a Scheduled Instance in EC2-Classic
+ * ```javascript
+ * // This example launches the specified Scheduled Instance in EC2-Classic.
+ * const input = {
+ *   "InstanceCount": 1,
+ *   "LaunchSpecification": {
+ *     "IamInstanceProfile": {
+ *       "Name": "my-iam-role"
+ *     },
+ *     "ImageId": "ami-12345678",
+ *     "InstanceType": "c4.large",
+ *     "KeyName": "my-key-pair",
+ *     "Placement": {
+ *       "AvailabilityZone": "us-west-2b"
+ *     },
+ *     "SecurityGroupIds": [
+ *       "sg-12345678"
+ *     ]
+ *   },
+ *   "ScheduledInstanceId": "sci-1234-1234-1234-1234-123456789012"
+ * };
+ * const command = new RunScheduledInstancesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "InstanceIdSet": [
+ *     "i-1234567890abcdef0"
+ *   ]
+ * }
+ * *\/
+ * // example id: ec2-run-scheduled-instances-2
+ * ```
  *
  */
 export class RunScheduledInstancesCommand extends $Command<
@@ -67,6 +219,9 @@ export class RunScheduledInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RunScheduledInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,7 +251,7 @@ export class RunScheduledInstancesCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: RunScheduledInstancesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RunScheduledInstancesResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +261,18 @@ export class RunScheduledInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RunScheduledInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2RunScheduledInstancesCommand(input, context);
+    return se_RunScheduledInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RunScheduledInstancesCommandOutput> {
-    return deserializeAws_ec2RunScheduledInstancesCommand(output, context);
+    return de_RunScheduledInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

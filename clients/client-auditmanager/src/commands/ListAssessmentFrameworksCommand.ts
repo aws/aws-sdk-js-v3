@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import {
-  ListAssessmentFrameworksRequest,
-  ListAssessmentFrameworksRequestFilterSensitiveLog,
-  ListAssessmentFrameworksResponse,
-  ListAssessmentFrameworksResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAssessmentFrameworksCommand,
-  serializeAws_restJson1ListAssessmentFrameworksCommand,
-} from "../protocols/Aws_restJson1";
+import { ListAssessmentFrameworksRequest, ListAssessmentFrameworksResponse } from "../models/models_0";
+import { de_ListAssessmentFrameworksCommand, se_ListAssessmentFrameworksCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListAssessmentFrameworksCommand}.
+ */
 export interface ListAssessmentFrameworksCommandInput extends ListAssessmentFrameworksRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListAssessmentFrameworksCommand}.
+ */
 export interface ListAssessmentFrameworksCommandOutput extends ListAssessmentFrameworksResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a list of the frameworks that are available in the Audit Manager framework
  *          library. </p>
  * @example
@@ -37,13 +40,32 @@ export interface ListAssessmentFrameworksCommandOutput extends ListAssessmentFra
  * import { AuditManagerClient, ListAssessmentFrameworksCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, ListAssessmentFrameworksCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = { // ListAssessmentFrameworksRequest
+ *   frameworkType: "Standard" || "Custom", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListAssessmentFrameworksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAssessmentFrameworksCommandInput - {@link ListAssessmentFrameworksCommandInput}
+ * @returns {@link ListAssessmentFrameworksCommandOutput}
  * @see {@link ListAssessmentFrameworksCommandInput} for command's `input` shape.
  * @see {@link ListAssessmentFrameworksCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p> Your account isn't registered with Audit Manager. Check the delegated
+ *          administrator setup on the Audit Manager settings page, and try again. </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> An internal service error occurred during the processing of your request. Try again
+ *          later. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p> The request has invalid or missing parameters. </p>
+ *
  *
  */
 export class ListAssessmentFrameworksCommand extends $Command<
@@ -63,6 +85,9 @@ export class ListAssessmentFrameworksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAssessmentFrameworksCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +116,8 @@ export class ListAssessmentFrameworksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAssessmentFrameworksRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAssessmentFrameworksResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +127,18 @@ export class ListAssessmentFrameworksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAssessmentFrameworksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAssessmentFrameworksCommand(input, context);
+    return se_ListAssessmentFrameworksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssessmentFrameworksCommandOutput> {
-    return deserializeAws_restJson1ListAssessmentFrameworksCommand(output, context);
+    return de_ListAssessmentFrameworksCommand(output, context);
   }
 
   // Start section: command_body_extra

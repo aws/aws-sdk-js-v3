@@ -14,55 +14,61 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
+import { DescribeComplianceByResourceRequest, DescribeComplianceByResourceResponse } from "../models/models_0";
 import {
-  DescribeComplianceByResourceRequest,
-  DescribeComplianceByResourceRequestFilterSensitiveLog,
-  DescribeComplianceByResourceResponse,
-  DescribeComplianceByResourceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeComplianceByResourceCommand,
-  serializeAws_json1_1DescribeComplianceByResourceCommand,
+  de_DescribeComplianceByResourceCommand,
+  se_DescribeComplianceByResourceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeComplianceByResourceCommand}.
+ */
 export interface DescribeComplianceByResourceCommandInput extends DescribeComplianceByResourceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeComplianceByResourceCommand}.
+ */
 export interface DescribeComplianceByResourceCommandOutput
   extends DescribeComplianceByResourceResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Indicates whether the specified Amazon Web Services resources are compliant. If
  * 			a resource is noncompliant, this action returns the number of Config rules that the resource does not comply with.</p>
- * 		       <p>A resource is compliant if it complies with all the Config
+ *          <p>A resource is compliant if it complies with all the Config
  * 			rules that evaluate it. It is noncompliant if it does not comply
  * 			with one or more of these rules.</p>
- * 		       <p>If Config has no current evaluation results for the
+ *          <p>If Config has no current evaluation results for the
  * 			resource, it returns <code>INSUFFICIENT_DATA</code>. This result
  * 			might indicate one of the following conditions about the rules that
  * 			evaluate the resource:</p>
- * 		       <ul>
+ *          <ul>
  *             <li>
- * 				           <p>Config has never invoked an evaluation for the
+ *                <p>Config has never invoked an evaluation for the
  * 					rule. To check whether it has, use the
  * 						<code>DescribeConfigRuleEvaluationStatus</code> action
  * 					to get the <code>LastSuccessfulInvocationTime</code> and
  * 						<code>LastFailedInvocationTime</code>.</p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>The rule's Lambda function is failing to send
+ *                <p>The rule's Lambda function is failing to send
  * 					evaluation results to Config. Verify that the role that
  * 					you assigned to your configuration recorder includes the
  * 						<code>config:PutEvaluations</code> permission. If the
  * 					rule is a custom rule, verify that the Lambda execution
  * 					role includes the <code>config:PutEvaluations</code>
  * 					permission.</p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>The rule's Lambda function has returned
+ *                <p>The rule's Lambda function has returned
  * 						<code>NOT_APPLICABLE</code> for all evaluation results.
  * 					This can occur if the resources were deleted or removed from
  * 					the rule's scope.</p>
- * 			         </li>
+ *             </li>
  *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,13 +76,34 @@ export interface DescribeComplianceByResourceCommandOutput
  * import { ConfigServiceClient, DescribeComplianceByResourceCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DescribeComplianceByResourceCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // DescribeComplianceByResourceRequest
+ *   ResourceType: "STRING_VALUE",
+ *   ResourceId: "STRING_VALUE",
+ *   ComplianceTypes: [ // ComplianceTypes
+ *     "COMPLIANT" || "NON_COMPLIANT" || "NOT_APPLICABLE" || "INSUFFICIENT_DATA",
+ *   ],
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeComplianceByResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeComplianceByResourceCommandInput - {@link DescribeComplianceByResourceCommandInput}
+ * @returns {@link DescribeComplianceByResourceCommandOutput}
  * @see {@link DescribeComplianceByResourceCommandInput} for command's `input` shape.
  * @see {@link DescribeComplianceByResourceCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The specified next token is not valid. Specify the
+ * 				<code>nextToken</code> string that was returned in the previous
+ * 			response to get the next page of results.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One or more of the specified parameters are not valid. Verify
+ * 			that your parameters are valid and try again.</p>
+ *
  *
  */
 export class DescribeComplianceByResourceCommand extends $Command<
@@ -96,6 +123,9 @@ export class DescribeComplianceByResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeComplianceByResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +154,8 @@ export class DescribeComplianceByResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeComplianceByResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeComplianceByResourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,15 +165,21 @@ export class DescribeComplianceByResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeComplianceByResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeComplianceByResourceCommand(input, context);
+    return se_DescribeComplianceByResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeComplianceByResourceCommandOutput> {
-    return deserializeAws_json1_1DescribeComplianceByResourceCommand(output, context);
+    return de_DescribeComplianceByResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

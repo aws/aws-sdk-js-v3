@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  ListConferenceProvidersRequest,
-  ListConferenceProvidersRequestFilterSensitiveLog,
-  ListConferenceProvidersResponse,
-  ListConferenceProvidersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListConferenceProvidersCommand,
-  serializeAws_json1_1ListConferenceProvidersCommand,
-} from "../protocols/Aws_json1_1";
+import { ListConferenceProvidersRequest, ListConferenceProvidersResponse } from "../models/models_0";
+import { de_ListConferenceProvidersCommand, se_ListConferenceProvidersCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListConferenceProvidersCommand}.
+ */
 export interface ListConferenceProvidersCommandInput extends ListConferenceProvidersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListConferenceProvidersCommand}.
+ */
 export interface ListConferenceProvidersCommandOutput extends ListConferenceProvidersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists conference providers under a specific AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,20 @@ export interface ListConferenceProvidersCommandOutput extends ListConferenceProv
  * import { AlexaForBusinessClient, ListConferenceProvidersCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, ListConferenceProvidersCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // ListConferenceProvidersRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListConferenceProvidersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListConferenceProvidersCommandInput - {@link ListConferenceProvidersCommandInput}
+ * @returns {@link ListConferenceProvidersCommandOutput}
  * @see {@link ListConferenceProvidersCommandInput} for command's `input` shape.
  * @see {@link ListConferenceProvidersCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
  *
  */
 export class ListConferenceProvidersCommand extends $Command<
@@ -62,6 +72,9 @@ export class ListConferenceProvidersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListConferenceProvidersCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +103,8 @@ export class ListConferenceProvidersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListConferenceProvidersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListConferenceProvidersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +114,18 @@ export class ListConferenceProvidersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListConferenceProvidersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListConferenceProvidersCommand(input, context);
+    return se_ListConferenceProvidersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListConferenceProvidersCommandOutput> {
-    return deserializeAws_json1_1ListConferenceProvidersCommand(output, context);
+    return de_ListConferenceProvidersCommand(output, context);
   }
 
   // Start section: command_body_extra

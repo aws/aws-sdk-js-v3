@@ -6,12 +6,11 @@ import {
   ListDomainsForPackageCommandInput,
   ListDomainsForPackageCommandOutput,
 } from "../commands/ListDomainsForPackageCommand";
-import { OpenSearch } from "../OpenSearch";
 import { OpenSearchClient } from "../OpenSearchClient";
 import { OpenSearchPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: OpenSearchClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListDomainsForPackageCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: OpenSearch,
-  input: ListDomainsForPackageCommandInput,
-  ...args: any
-): Promise<ListDomainsForPackageCommandOutput> => {
-  // @ts-ignore
-  return await client.listDomainsForPackage(input, ...args);
-};
 export async function* paginateListDomainsForPackage(
   config: OpenSearchPaginationConfiguration,
   input: ListDomainsForPackageCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListDomainsForPackage(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof OpenSearch) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof OpenSearchClient) {
+    if (config.client instanceof OpenSearchClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected OpenSearch | OpenSearchClient");

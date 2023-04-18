@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { DeleteDistributionRequest, DeleteDistributionRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_restXmlDeleteDistributionCommand,
-  serializeAws_restXmlDeleteDistributionCommand,
-} from "../protocols/Aws_restXml";
+import { DeleteDistributionRequest } from "../models/models_1";
+import { de_DeleteDistributionCommand, se_DeleteDistributionCommand } from "../protocols/Aws_restXml";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteDistributionCommand}.
+ */
 export interface DeleteDistributionCommandInput extends DeleteDistributionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteDistributionCommand}.
+ */
 export interface DeleteDistributionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete a distribution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +39,37 @@ export interface DeleteDistributionCommandOutput extends __MetadataBearer {}
  * import { CloudFrontClient, DeleteDistributionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, DeleteDistributionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // DeleteDistributionRequest
+ *   Id: "STRING_VALUE", // required
+ *   IfMatch: "STRING_VALUE",
+ * };
  * const command = new DeleteDistributionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDistributionCommandInput - {@link DeleteDistributionCommandInput}
+ * @returns {@link DeleteDistributionCommandOutput}
  * @see {@link DeleteDistributionCommandInput} for command's `input` shape.
  * @see {@link DeleteDistributionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link DistributionNotDisabled} (client fault)
+ *  <p>The specified CloudFront distribution is not disabled. You must disable the distribution
+ * 			before you can delete it.</p>
+ *
+ * @throws {@link InvalidIfMatchVersion} (client fault)
+ *  <p>The <code>If-Match</code> version is missing or not valid.</p>
+ *
+ * @throws {@link NoSuchDistribution} (client fault)
+ *  <p>The specified distribution does not exist.</p>
+ *
+ * @throws {@link PreconditionFailed} (client fault)
+ *  <p>The precondition in one or more of the request fields evaluated to
+ * 			<code>false</code>.</p>
+ *
  *
  */
 export class DeleteDistributionCommand extends $Command<
@@ -57,6 +89,9 @@ export class DeleteDistributionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDistributionCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +120,8 @@ export class DeleteDistributionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDistributionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +131,18 @@ export class DeleteDistributionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDistributionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteDistributionCommand(input, context);
+    return se_DeleteDistributionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDistributionCommandOutput> {
-    return deserializeAws_restXmlDeleteDistributionCommand(output, context);
+    return de_DeleteDistributionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListDomainNamesRequest,
-  ListDomainNamesRequestFilterSensitiveLog,
-  ListDomainNamesResponse,
-  ListDomainNamesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListDomainNamesRequest, ListDomainNamesResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  deserializeAws_restJson1ListDomainNamesCommand,
-  serializeAws_restJson1ListDomainNamesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListDomainNamesCommand, se_ListDomainNamesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListDomainNamesCommand}.
+ */
 export interface ListDomainNamesCommandInput extends ListDomainNamesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDomainNamesCommand}.
+ */
 export interface ListDomainNamesCommandOutput extends ListDomainNamesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the names of all Amazon OpenSearch Service domains owned by the current user in the
  *    active Region.</p>
  * @example
@@ -37,13 +40,25 @@ export interface ListDomainNamesCommandOutput extends ListDomainNamesResponse, _
  * import { OpenSearchClient, ListDomainNamesCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, ListDomainNamesCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = { // ListDomainNamesRequest
+ *   EngineType: "OpenSearch" || "Elasticsearch",
+ * };
  * const command = new ListDomainNamesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDomainNamesCommandInput - {@link ListDomainNamesCommandInput}
+ * @returns {@link ListDomainNamesCommandOutput}
  * @see {@link ListDomainNamesCommandInput} for command's `input` shape.
  * @see {@link ListDomainNamesCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
+ *
+ * @throws {@link BaseException} (client fault)
+ *  <p>An error occurred while processing the request.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+ *
  *
  */
 export class ListDomainNamesCommand extends $Command<
@@ -63,6 +78,9 @@ export class ListDomainNamesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDomainNamesCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +109,8 @@ export class ListDomainNamesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDomainNamesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDomainNamesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +120,18 @@ export class ListDomainNamesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDomainNamesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDomainNamesCommand(input, context);
+    return se_ListDomainNamesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDomainNamesCommandOutput> {
-    return deserializeAws_restJson1ListDomainNamesCommand(output, context);
+    return de_ListDomainNamesCommand(output, context);
   }
 
   // Start section: command_body_extra

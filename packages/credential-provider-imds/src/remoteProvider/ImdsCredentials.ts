@@ -1,5 +1,8 @@
 import { AwsCredentialIdentity } from "@aws-sdk/types";
 
+/**
+ * @internal
+ */
 export interface ImdsCredentials {
   AccessKeyId: string;
   SecretAccessKey: string;
@@ -7,6 +10,9 @@ export interface ImdsCredentials {
   Expiration: string;
 }
 
+/**
+ * @internal
+ */
 export const isImdsCredentials = (arg: any): arg is ImdsCredentials =>
   Boolean(arg) &&
   typeof arg === "object" &&
@@ -15,6 +21,9 @@ export const isImdsCredentials = (arg: any): arg is ImdsCredentials =>
   typeof arg.Token === "string" &&
   typeof arg.Expiration === "string";
 
+/**
+ * @internal
+ */
 export const fromImdsCredentials = (creds: ImdsCredentials): AwsCredentialIdentity => ({
   accessKeyId: creds.AccessKeyId,
   secretAccessKey: creds.SecretAccessKey,

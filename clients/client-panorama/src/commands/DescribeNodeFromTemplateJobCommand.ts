@@ -15,22 +15,32 @@ import {
 
 import {
   DescribeNodeFromTemplateJobRequest,
-  DescribeNodeFromTemplateJobRequestFilterSensitiveLog,
   DescribeNodeFromTemplateJobResponse,
   DescribeNodeFromTemplateJobResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
 import {
-  deserializeAws_restJson1DescribeNodeFromTemplateJobCommand,
-  serializeAws_restJson1DescribeNodeFromTemplateJobCommand,
+  de_DescribeNodeFromTemplateJobCommand,
+  se_DescribeNodeFromTemplateJobCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeNodeFromTemplateJobCommand}.
+ */
 export interface DescribeNodeFromTemplateJobCommandInput extends DescribeNodeFromTemplateJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeNodeFromTemplateJobCommand}.
+ */
 export interface DescribeNodeFromTemplateJobCommandOutput
   extends DescribeNodeFromTemplateJobResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a job to create a camera stream node.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +48,31 @@ export interface DescribeNodeFromTemplateJobCommandOutput
  * import { PanoramaClient, DescribeNodeFromTemplateJobCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, DescribeNodeFromTemplateJobCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
  * const client = new PanoramaClient(config);
+ * const input = { // DescribeNodeFromTemplateJobRequest
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeNodeFromTemplateJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeNodeFromTemplateJobCommandInput - {@link DescribeNodeFromTemplateJobCommandInput}
+ * @returns {@link DescribeNodeFromTemplateJobCommandOutput}
  * @see {@link DescribeNodeFromTemplateJobCommandInput} for command's `input` shape.
  * @see {@link DescribeNodeFromTemplateJobCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The requestor does not have permission to access the target action or resource.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The target resource is in use.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error occurred.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request contains an invalid parameter value.</p>
+ *
  *
  */
 export class DescribeNodeFromTemplateJobCommand extends $Command<
@@ -64,6 +92,9 @@ export class DescribeNodeFromTemplateJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeNodeFromTemplateJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,7 +123,7 @@ export class DescribeNodeFromTemplateJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeNodeFromTemplateJobRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeNodeFromTemplateJobResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -103,15 +134,21 @@ export class DescribeNodeFromTemplateJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeNodeFromTemplateJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeNodeFromTemplateJobCommand(input, context);
+    return se_DescribeNodeFromTemplateJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeNodeFromTemplateJobCommandOutput> {
-    return deserializeAws_restJson1DescribeNodeFromTemplateJobCommand(output, context);
+    return de_DescribeNodeFromTemplateJobCommand(output, context);
   }
 
   // Start section: command_body_extra

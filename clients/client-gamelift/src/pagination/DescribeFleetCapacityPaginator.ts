@@ -6,12 +6,11 @@ import {
   DescribeFleetCapacityCommandInput,
   DescribeFleetCapacityCommandOutput,
 } from "../commands/DescribeFleetCapacityCommand";
-import { GameLift } from "../GameLift";
 import { GameLiftClient } from "../GameLiftClient";
 import { GameLiftPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: GameLiftClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeFleetCapacityCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: GameLift,
-  input: DescribeFleetCapacityCommandInput,
-  ...args: any
-): Promise<DescribeFleetCapacityCommandOutput> => {
-  // @ts-ignore
-  return await client.describeFleetCapacity(input, ...args);
-};
 export async function* paginateDescribeFleetCapacity(
   config: GameLiftPaginationConfiguration,
   input: DescribeFleetCapacityCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateDescribeFleetCapacity(
   while (hasNext) {
     input.NextToken = token;
     input["Limit"] = config.pageSize;
-    if (config.client instanceof GameLift) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof GameLiftClient) {
+    if (config.client instanceof GameLiftClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected GameLift | GameLiftClient");

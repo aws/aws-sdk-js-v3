@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import {
-  UpdateClusterConfigRequest,
-  UpdateClusterConfigRequestFilterSensitiveLog,
-  UpdateClusterConfigResponse,
-  UpdateClusterConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateClusterConfigCommand,
-  serializeAws_restJson1UpdateClusterConfigCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateClusterConfigRequest, UpdateClusterConfigResponse } from "../models/models_0";
+import { de_UpdateClusterConfigCommand, se_UpdateClusterConfigCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateClusterConfigCommand}.
+ */
 export interface UpdateClusterConfigCommandInput extends UpdateClusterConfigRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateClusterConfigCommand}.
+ */
 export interface UpdateClusterConfigCommandOutput extends UpdateClusterConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an Amazon EKS cluster configuration. Your cluster continues to
  *             function during the update. The response output includes an update ID that you can use
  *             to track the status of your cluster update with the <a>DescribeUpdate</a> API
@@ -63,13 +66,68 @@ export interface UpdateClusterConfigCommandOutput extends UpdateClusterConfigRes
  * import { EKSClient, UpdateClusterConfigCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, UpdateClusterConfigCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
+ * const input = { // UpdateClusterConfigRequest
+ *   name: "STRING_VALUE", // required
+ *   resourcesVpcConfig: { // VpcConfigRequest
+ *     subnetIds: [ // StringList
+ *       "STRING_VALUE",
+ *     ],
+ *     securityGroupIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     endpointPublicAccess: true || false,
+ *     endpointPrivateAccess: true || false,
+ *     publicAccessCidrs: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   logging: { // Logging
+ *     clusterLogging: [ // LogSetups
+ *       { // LogSetup
+ *         types: [ // LogTypes
+ *           "api" || "audit" || "authenticator" || "controllerManager" || "scheduler",
+ *         ],
+ *         enabled: true || false,
+ *       },
+ *     ],
+ *   },
+ *   clientRequestToken: "STRING_VALUE",
+ * };
  * const command = new UpdateClusterConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateClusterConfigCommandInput - {@link UpdateClusterConfigCommandInput}
+ * @returns {@link UpdateClusterConfigCommandOutput}
  * @see {@link UpdateClusterConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateClusterConfigCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action. Actions can include using an
+ *             action or resource on behalf of a user that doesn't have permissions to use the action
+ *             or resource or specifying an identifier that is not valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *             request.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid given the state of the cluster. Check the state of the cluster
+ *             and the associated operations.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is in use.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found. You can view your available clusters with
+ *                 <a>ListClusters</a>. You can view your available managed node groups with
+ *                 <a>ListNodegroups</a>. Amazon EKS clusters and node groups are
+ *             Region-specific.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
  *
  */
 export class UpdateClusterConfigCommand extends $Command<
@@ -89,6 +147,9 @@ export class UpdateClusterConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateClusterConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +178,8 @@ export class UpdateClusterConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateClusterConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateClusterConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +189,18 @@ export class UpdateClusterConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateClusterConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateClusterConfigCommand(input, context);
+    return se_UpdateClusterConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateClusterConfigCommandOutput> {
-    return deserializeAws_restJson1UpdateClusterConfigCommand(output, context);
+    return de_UpdateClusterConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

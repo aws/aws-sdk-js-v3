@@ -6,12 +6,11 @@ import {
   ListTagOptionsCommandInput,
   ListTagOptionsCommandOutput,
 } from "../commands/ListTagOptionsCommand";
-import { ServiceCatalog } from "../ServiceCatalog";
 import { ServiceCatalogClient } from "../ServiceCatalogClient";
 import { ServiceCatalogPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ServiceCatalogClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListTagOptionsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ServiceCatalog,
-  input: ListTagOptionsCommandInput,
-  ...args: any
-): Promise<ListTagOptionsCommandOutput> => {
-  // @ts-ignore
-  return await client.listTagOptions(input, ...args);
-};
 export async function* paginateListTagOptions(
   config: ServiceCatalogPaginationConfiguration,
   input: ListTagOptionsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListTagOptions(
   while (hasNext) {
     input.PageToken = token;
     input["PageSize"] = config.pageSize;
-    if (config.client instanceof ServiceCatalog) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ServiceCatalogClient) {
+    if (config.client instanceof ServiceCatalogClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ServiceCatalog | ServiceCatalogClient");

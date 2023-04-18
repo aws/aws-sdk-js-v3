@@ -18,23 +18,29 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoT1ClickProjectsClient";
+import { AssociateDeviceWithPlacementRequest, AssociateDeviceWithPlacementResponse } from "../models/models_0";
 import {
-  AssociateDeviceWithPlacementRequest,
-  AssociateDeviceWithPlacementRequestFilterSensitiveLog,
-  AssociateDeviceWithPlacementResponse,
-  AssociateDeviceWithPlacementResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateDeviceWithPlacementCommand,
-  serializeAws_restJson1AssociateDeviceWithPlacementCommand,
+  de_AssociateDeviceWithPlacementCommand,
+  se_AssociateDeviceWithPlacementCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link AssociateDeviceWithPlacementCommand}.
+ */
 export interface AssociateDeviceWithPlacementCommandInput extends AssociateDeviceWithPlacementRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AssociateDeviceWithPlacementCommand}.
+ */
 export interface AssociateDeviceWithPlacementCommandOutput
   extends AssociateDeviceWithPlacementResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a physical device with a placement.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,13 +48,34 @@ export interface AssociateDeviceWithPlacementCommandOutput
  * import { IoT1ClickProjectsClient, AssociateDeviceWithPlacementCommand } from "@aws-sdk/client-iot-1click-projects"; // ES Modules import
  * // const { IoT1ClickProjectsClient, AssociateDeviceWithPlacementCommand } = require("@aws-sdk/client-iot-1click-projects"); // CommonJS import
  * const client = new IoT1ClickProjectsClient(config);
+ * const input = { // AssociateDeviceWithPlacementRequest
+ *   projectName: "STRING_VALUE", // required
+ *   placementName: "STRING_VALUE", // required
+ *   deviceId: "STRING_VALUE", // required
+ *   deviceTemplateName: "STRING_VALUE", // required
+ * };
  * const command = new AssociateDeviceWithPlacementCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateDeviceWithPlacementCommandInput - {@link AssociateDeviceWithPlacementCommandInput}
+ * @returns {@link AssociateDeviceWithPlacementCommandOutput}
  * @see {@link AssociateDeviceWithPlacementCommandInput} for command's `input` shape.
  * @see {@link AssociateDeviceWithPlacementCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickProjectsClientResolvedConfig | config} for IoT1ClickProjectsClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ResourceConflictException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p></p>
+ *
  *
  */
 export class AssociateDeviceWithPlacementCommand extends $Command<
@@ -68,6 +95,9 @@ export class AssociateDeviceWithPlacementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateDeviceWithPlacementCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +126,8 @@ export class AssociateDeviceWithPlacementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateDeviceWithPlacementRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateDeviceWithPlacementResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,15 +137,21 @@ export class AssociateDeviceWithPlacementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateDeviceWithPlacementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateDeviceWithPlacementCommand(input, context);
+    return se_AssociateDeviceWithPlacementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateDeviceWithPlacementCommandOutput> {
-    return deserializeAws_restJson1AssociateDeviceWithPlacementCommand(output, context);
+    return de_AssociateDeviceWithPlacementCommand(output, context);
   }
 
   // Start section: command_body_extra

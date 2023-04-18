@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import {
-  ListRepositoriesRequest,
-  ListRepositoriesRequestFilterSensitiveLog,
-  ListRepositoriesResult,
-  ListRepositoriesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListRepositoriesCommand,
-  serializeAws_restJson1ListRepositoriesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListRepositoriesRequest, ListRepositoriesResult } from "../models/models_0";
+import { de_ListRepositoriesCommand, se_ListRepositoriesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListRepositoriesCommand}.
+ */
 export interface ListRepositoriesCommandInput extends ListRepositoriesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListRepositoriesCommand}.
+ */
 export interface ListRepositoriesCommandOutput extends ListRepositoriesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *        Returns a list of
  *        <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_RepositorySummary.html">RepositorySummary</a>
@@ -41,13 +44,39 @@ export interface ListRepositoriesCommandOutput extends ListRepositoriesResult, _
  * import { CodeartifactClient, ListRepositoriesCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, ListRepositoriesCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
+ * const input = { // ListRepositoriesRequest
+ *   repositoryPrefix: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListRepositoriesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRepositoriesCommandInput - {@link ListRepositoriesCommandInput}
+ * @returns {@link ListRepositoriesCommandOutput}
  * @see {@link ListRepositoriesCommandInput} for command's `input` shape.
  * @see {@link ListRepositoriesCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>
+ *         The operation did not succeed because of an unauthorized access attempt.
+ *       </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>
+ *       The operation did not succeed because too many requests are sent to the service.
+ *     </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>
+ *       The operation did not succeed because a parameter in the request was sent with an invalid value.
+ *     </p>
+ *
  *
  */
 export class ListRepositoriesCommand extends $Command<
@@ -67,6 +96,9 @@ export class ListRepositoriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRepositoriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +127,8 @@ export class ListRepositoriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRepositoriesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRepositoriesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +138,18 @@ export class ListRepositoriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRepositoriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRepositoriesCommand(input, context);
+    return se_ListRepositoriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRepositoriesCommandOutput> {
-    return deserializeAws_restJson1ListRepositoriesCommand(output, context);
+    return de_ListRepositoriesCommand(output, context);
   }
 
   // Start section: command_body_extra

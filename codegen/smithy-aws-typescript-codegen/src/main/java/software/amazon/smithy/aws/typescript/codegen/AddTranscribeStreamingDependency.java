@@ -43,8 +43,8 @@ public class AddTranscribeStreamingDependency implements TypeScriptIntegration {
         return ListUtils.of(
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.TRANSCRIBE_STREAMING_MIDDLEWARE.dependency,
-                                "WebSocket")
-                        .servicePredicate((m, s) -> AddTranscribeStreamingDependency.isTranscribeStreaming(s))
+                                "TranscribeStreaming", RuntimeClientPlugin.Convention.HAS_MIDDLEWARE)
+                        .servicePredicate((m, s) -> isTranscribeStreaming(s))
                         .build()
         );
     }
@@ -67,12 +67,6 @@ public class AddTranscribeStreamingDependency implements TypeScriptIntegration {
                         writer.addImport("eventStreamPayloadHandler", "eventStreamPayloadHandler",
                             AwsDependency.TRANSCRIBE_STREAMING_MIDDLEWARE.packageName);
                         writer.write("(() => eventStreamPayloadHandler)");
-                },
-                "requestHandler", writer -> {
-                        writer.addDependency(AwsDependency.TRANSCRIBE_STREAMING_MIDDLEWARE);
-                        writer.addImport("WebSocketHandler", "WebSocketHandler",
-                            AwsDependency.TRANSCRIBE_STREAMING_MIDDLEWARE.packageName);
-                        writer.write("new WebSocketHandler()");
                 });
 
         switch (target) {

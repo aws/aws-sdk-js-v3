@@ -6,12 +6,11 @@ import {
   ListDataSetsCommandInput,
   ListDataSetsCommandOutput,
 } from "../commands/ListDataSetsCommand";
-import { DataExchange } from "../DataExchange";
 import { DataExchangeClient } from "../DataExchangeClient";
 import { DataExchangePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DataExchangeClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListDataSetsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: DataExchange,
-  input: ListDataSetsCommandInput,
-  ...args: any
-): Promise<ListDataSetsCommandOutput> => {
-  // @ts-ignore
-  return await client.listDataSets(input, ...args);
-};
 export async function* paginateListDataSets(
   config: DataExchangePaginationConfiguration,
   input: ListDataSetsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListDataSets(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof DataExchange) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DataExchangeClient) {
+    if (config.client instanceof DataExchangeClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected DataExchange | DataExchangeClient");

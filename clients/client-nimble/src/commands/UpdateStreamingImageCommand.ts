@@ -20,15 +20,23 @@ import {
   UpdateStreamingImageResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1UpdateStreamingImageCommand,
-  serializeAws_restJson1UpdateStreamingImageCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateStreamingImageCommand, se_UpdateStreamingImageCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateStreamingImageCommand}.
+ */
 export interface UpdateStreamingImageCommandInput extends UpdateStreamingImageRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateStreamingImageCommand}.
+ */
 export interface UpdateStreamingImageCommandOutput extends UpdateStreamingImageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update streaming image.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +44,47 @@ export interface UpdateStreamingImageCommandOutput extends UpdateStreamingImageR
  * import { NimbleClient, UpdateStreamingImageCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, UpdateStreamingImageCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = { // UpdateStreamingImageRequest
+ *   clientToken: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   name: "STRING_VALUE",
+ *   streamingImageId: "STRING_VALUE", // required
+ *   studioId: "STRING_VALUE", // required
+ * };
  * const command = new UpdateStreamingImageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateStreamingImageCommandInput - {@link UpdateStreamingImageCommandInput}
+ * @returns {@link UpdateStreamingImageCommandOutput}
  * @see {@link UpdateStreamingImageCommandInput} for command's `input` shape.
  * @see {@link UpdateStreamingImageCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to perform this operation. Check your IAM
+ *             policies, and ensure that you are using the correct access keys.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Another operation is in progress. </p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>An internal error has occurred. Please retry your request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Your current quota does not allow you to perform the request action. You can request
+ *             increases for some quotas, and other quotas cannot be increased.</p>
+ *         <p>Please use Amazon Web Services Service Quotas to request an increase. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request throughput limit was exceeded.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One of the parameters in the request is invalid.</p>
+ *
  *
  */
 export class UpdateStreamingImageCommand extends $Command<
@@ -62,6 +104,9 @@ export class UpdateStreamingImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateStreamingImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,12 +146,18 @@ export class UpdateStreamingImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateStreamingImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateStreamingImageCommand(input, context);
+    return se_UpdateStreamingImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateStreamingImageCommandOutput> {
-    return deserializeAws_restJson1UpdateStreamingImageCommand(output, context);
+    return de_UpdateStreamingImageCommand(output, context);
   }
 
   // Start section: command_body_extra

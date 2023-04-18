@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  UpdateTrustRequest,
-  UpdateTrustRequestFilterSensitiveLog,
-  UpdateTrustResult,
-  UpdateTrustResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateTrustCommand,
-  serializeAws_json1_1UpdateTrustCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateTrustRequest, UpdateTrustResult } from "../models/models_0";
+import { de_UpdateTrustCommand, se_UpdateTrustCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateTrustCommand}.
+ */
 export interface UpdateTrustCommandInput extends UpdateTrustRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateTrustCommand}.
+ */
 export interface UpdateTrustCommandOutput extends UpdateTrustResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the trust that has been set up between your Managed Microsoft AD directory and an
  *       self-managed Active Directory.</p>
  * @example
@@ -37,13 +40,32 @@ export interface UpdateTrustCommandOutput extends UpdateTrustResult, __MetadataB
  * import { DirectoryServiceClient, UpdateTrustCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, UpdateTrustCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // UpdateTrustRequest
+ *   TrustId: "STRING_VALUE", // required
+ *   SelectiveAuth: "Enabled" || "Disabled",
+ * };
  * const command = new UpdateTrustCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTrustCommandInput - {@link UpdateTrustCommandInput}
+ * @returns {@link UpdateTrustCommandOutput}
  * @see {@link UpdateTrustCommandInput} for command's `input` shape.
  * @see {@link UpdateTrustCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>A client exception has occurred.</p>
+ *
+ * @throws {@link EntityDoesNotExistException} (client fault)
+ *  <p>The specified entity could not be found.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>An exception has occurred in Directory Service.</p>
+ *
  *
  */
 export class UpdateTrustCommand extends $Command<
@@ -63,6 +85,9 @@ export class UpdateTrustCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTrustCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +114,8 @@ export class UpdateTrustCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTrustRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTrustResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +125,18 @@ export class UpdateTrustCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTrustCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateTrustCommand(input, context);
+    return se_UpdateTrustCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTrustCommandOutput> {
-    return deserializeAws_json1_1UpdateTrustCommand(output, context);
+    return de_UpdateTrustCommand(output, context);
   }
 
   // Start section: command_body_extra

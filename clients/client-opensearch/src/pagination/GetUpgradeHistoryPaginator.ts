@@ -6,12 +6,11 @@ import {
   GetUpgradeHistoryCommandInput,
   GetUpgradeHistoryCommandOutput,
 } from "../commands/GetUpgradeHistoryCommand";
-import { OpenSearch } from "../OpenSearch";
 import { OpenSearchClient } from "../OpenSearchClient";
 import { OpenSearchPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: OpenSearchClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new GetUpgradeHistoryCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: OpenSearch,
-  input: GetUpgradeHistoryCommandInput,
-  ...args: any
-): Promise<GetUpgradeHistoryCommandOutput> => {
-  // @ts-ignore
-  return await client.getUpgradeHistory(input, ...args);
-};
 export async function* paginateGetUpgradeHistory(
   config: OpenSearchPaginationConfiguration,
   input: GetUpgradeHistoryCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateGetUpgradeHistory(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof OpenSearch) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof OpenSearchClient) {
+    if (config.client instanceof OpenSearchClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected OpenSearch | OpenSearchClient");

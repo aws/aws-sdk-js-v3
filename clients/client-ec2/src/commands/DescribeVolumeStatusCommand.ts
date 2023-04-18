@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeVolumeStatusRequest,
-  DescribeVolumeStatusRequestFilterSensitiveLog,
-  DescribeVolumeStatusResult,
-  DescribeVolumeStatusResultFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeVolumeStatusCommand,
-  serializeAws_ec2DescribeVolumeStatusCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeVolumeStatusRequest, DescribeVolumeStatusResult } from "../models/models_5";
+import { de_DescribeVolumeStatusCommand, se_DescribeVolumeStatusCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeVolumeStatusCommand}.
+ */
 export interface DescribeVolumeStatusCommandInput extends DescribeVolumeStatusRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeVolumeStatusCommand}.
+ */
 export interface DescribeVolumeStatusCommandOutput extends DescribeVolumeStatusResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the status of the specified volumes. Volume status provides the result of the
  *       checks performed on your volumes to determine events that can impair the performance of your
  *       volumes. The performance of a volume can be affected if an issue occurs on the volume's
@@ -69,13 +72,93 @@ export interface DescribeVolumeStatusCommandOutput extends DescribeVolumeStatusR
  * import { EC2Client, DescribeVolumeStatusCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeVolumeStatusCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeVolumeStatusRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   VolumeIds: [ // VolumeIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   DryRun: true || false,
+ * };
  * const command = new DescribeVolumeStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVolumeStatusCommandInput - {@link DescribeVolumeStatusCommandInput}
+ * @returns {@link DescribeVolumeStatusCommandOutput}
  * @see {@link DescribeVolumeStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeVolumeStatusCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ *
+ * @example To describe the status of a single volume
+ * ```javascript
+ * // This example describes the status for the volume ``vol-1234567890abcdef0``.
+ * const input = {
+ *   "VolumeIds": [
+ *     "vol-1234567890abcdef0"
+ *   ]
+ * };
+ * const command = new DescribeVolumeStatusCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "VolumeStatuses": [
+ *     {
+ *       "Actions": [],
+ *       "AvailabilityZone": "us-east-1a",
+ *       "Events": [],
+ *       "VolumeId": "vol-1234567890abcdef0",
+ *       "VolumeStatus": {
+ *         "Details": [
+ *           {
+ *             "Name": "io-enabled",
+ *             "Status": "passed"
+ *           },
+ *           {
+ *             "Name": "io-performance",
+ *             "Status": "not-applicable"
+ *           }
+ *         ],
+ *         "Status": "ok"
+ *       }
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-the-status-of-a-single-volume-1472507016193
+ * ```
+ *
+ * @example To describe the status of impaired volumes
+ * ```javascript
+ * // This example describes the status for all volumes that are impaired. In this example output, there are no impaired volumes.
+ * const input = {
+ *   "Filters": [
+ *     {
+ *       "Name": "volume-status.status",
+ *       "Values": [
+ *         "impaired"
+ *       ]
+ *     }
+ *   ]
+ * };
+ * const command = new DescribeVolumeStatusCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "VolumeStatuses": []
+ * }
+ * *\/
+ * // example id: to-describe-the-status-of-impaired-volumes-1472507239821
+ * ```
  *
  */
 export class DescribeVolumeStatusCommand extends $Command<
@@ -95,6 +178,9 @@ export class DescribeVolumeStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVolumeStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +209,8 @@ export class DescribeVolumeStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVolumeStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeVolumeStatusResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +220,18 @@ export class DescribeVolumeStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVolumeStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeVolumeStatusCommand(input, context);
+    return se_DescribeVolumeStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVolumeStatusCommandOutput> {
-    return deserializeAws_ec2DescribeVolumeStatusCommand(output, context);
+    return de_DescribeVolumeStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { DeleteChannelMessageRequest, DeleteChannelMessageRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteChannelMessageCommand,
-  serializeAws_restJson1DeleteChannelMessageCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteChannelMessageRequest } from "../models/models_0";
+import { de_DeleteChannelMessageCommand, se_DeleteChannelMessageCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteChannelMessageCommand}.
+ */
 export interface DeleteChannelMessageCommandInput extends DeleteChannelMessageRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteChannelMessageCommand}.
+ */
 export interface DeleteChannelMessageCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a channel message. Only admins can perform this action. Deletion makes messages
  *          inaccessible immediately. A background process deletes any revisions created by
  *             <code>UpdateChannelMessage</code>.</p>
@@ -39,13 +47,39 @@ export interface DeleteChannelMessageCommandOutput extends __MetadataBearer {}
  * import { ChimeClient, DeleteChannelMessageCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, DeleteChannelMessageCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // DeleteChannelMessageRequest
+ *   ChannelArn: "STRING_VALUE", // required
+ *   MessageId: "STRING_VALUE", // required
+ *   ChimeBearer: "STRING_VALUE",
+ * };
  * const command = new DeleteChannelMessageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteChannelMessageCommandInput - {@link DeleteChannelMessageCommandInput}
+ * @returns {@link DeleteChannelMessageCommandOutput}
  * @see {@link DeleteChannelMessageCommandInput} for command's `input` shape.
  * @see {@link DeleteChannelMessageCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The client exceeded its request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client is not currently authorized to make the request.</p>
+ *
  *
  */
 export class DeleteChannelMessageCommand extends $Command<
@@ -65,6 +99,9 @@ export class DeleteChannelMessageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteChannelMessageCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +130,8 @@ export class DeleteChannelMessageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteChannelMessageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +141,18 @@ export class DeleteChannelMessageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteChannelMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteChannelMessageCommand(input, context);
+    return se_DeleteChannelMessageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteChannelMessageCommandOutput> {
-    return deserializeAws_restJson1DeleteChannelMessageCommand(output, context);
+    return de_DeleteChannelMessageCommand(output, context);
   }
 
   // Start section: command_body_extra

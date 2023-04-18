@@ -18,32 +18,66 @@ import {
   CreateLocationSmbRequest,
   CreateLocationSmbRequestFilterSensitiveLog,
   CreateLocationSmbResponse,
-  CreateLocationSmbResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateLocationSmbCommand,
-  serializeAws_json1_1CreateLocationSmbCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateLocationSmbCommand, se_CreateLocationSmbCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateLocationSmbCommand}.
+ */
 export interface CreateLocationSmbCommandInput extends CreateLocationSmbRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateLocationSmbCommand}.
+ */
 export interface CreateLocationSmbCommandOutput extends CreateLocationSmbResponse, __MetadataBearer {}
 
 /**
- * <p>Defines a file system on a Server Message Block (SMB) server that can be read from or
- *       written to.</p>
+ * @public
+ * <p>Creates an endpoint for a Server Message Block (SMB) file server that DataSync can access for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html">Creating an SMB location</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataSyncClient, CreateLocationSmbCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, CreateLocationSmbCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = { // CreateLocationSmbRequest
+ *   Subdirectory: "STRING_VALUE", // required
+ *   ServerHostname: "STRING_VALUE", // required
+ *   User: "STRING_VALUE", // required
+ *   Domain: "STRING_VALUE",
+ *   Password: "STRING_VALUE", // required
+ *   AgentArns: [ // AgentArnList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   MountOptions: { // SmbMountOptions
+ *     Version: "AUTOMATIC" || "SMB2" || "SMB3" || "SMB1" || "SMB2_0",
+ *   },
+ *   Tags: [ // InputTagList
+ *     { // TagListEntry
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateLocationSmbCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLocationSmbCommandInput - {@link CreateLocationSmbCommandInput}
+ * @returns {@link CreateLocationSmbCommandOutput}
  * @see {@link CreateLocationSmbCommandInput} for command's `input` shape.
  * @see {@link CreateLocationSmbCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception is thrown when an error occurs in the DataSync service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
  *
  */
 export class CreateLocationSmbCommand extends $Command<
@@ -63,6 +97,9 @@ export class CreateLocationSmbCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLocationSmbCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,7 +129,7 @@ export class CreateLocationSmbCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateLocationSmbRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLocationSmbResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +139,18 @@ export class CreateLocationSmbCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLocationSmbCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateLocationSmbCommand(input, context);
+    return se_CreateLocationSmbCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLocationSmbCommandOutput> {
-    return deserializeAws_json1_1CreateLocationSmbCommand(output, context);
+    return de_CreateLocationSmbCommand(output, context);
   }
 
   // Start section: command_body_extra

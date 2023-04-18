@@ -18,17 +18,24 @@ import {
   BatchUpdateDevicePositionRequest,
   BatchUpdateDevicePositionRequestFilterSensitiveLog,
   BatchUpdateDevicePositionResponse,
-  BatchUpdateDevicePositionResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchUpdateDevicePositionCommand,
-  serializeAws_restJson1BatchUpdateDevicePositionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchUpdateDevicePositionCommand, se_BatchUpdateDevicePositionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchUpdateDevicePositionCommand}.
+ */
 export interface BatchUpdateDevicePositionCommandInput extends BatchUpdateDevicePositionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link BatchUpdateDevicePositionCommand}.
+ */
 export interface BatchUpdateDevicePositionCommandOutput extends BatchUpdateDevicePositionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Uploads position update data for one or more devices to a tracker resource. Amazon Location
  *            uses the data when it reports the last known device position and position history. Amazon Location retains location data for 30
  *            days.</p>
@@ -45,7 +52,7 @@ export interface BatchUpdateDevicePositionCommandOutput extends BatchUpdateDevic
  *                 updates from a device have a horizontal accuracy of 5 m and 10 m, the second update
  *                 is neither stored or evaluated if the device has moved less than 15 m. If
  *                 <code>PositionFiltering</code> is set to <code>AccuracyBased</code> filtering, Amazon Location
- *                 uses the default value <code>{ "Horizontal": 0}</code> when accuracy is not provided on
+ *                 uses the default value <code>\{ "Horizontal": 0\}</code> when accuracy is not provided on
  *                 a <code>DevicePositionUpdate</code>.</p>
  *          </note>
  * @example
@@ -54,13 +61,50 @@ export interface BatchUpdateDevicePositionCommandOutput extends BatchUpdateDevic
  * import { LocationClient, BatchUpdateDevicePositionCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, BatchUpdateDevicePositionCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = { // BatchUpdateDevicePositionRequest
+ *   TrackerName: "STRING_VALUE", // required
+ *   Updates: [ // DevicePositionUpdateList // required
+ *     { // DevicePositionUpdate
+ *       DeviceId: "STRING_VALUE", // required
+ *       SampleTime: new Date("TIMESTAMP"), // required
+ *       Position: [ // Position // required
+ *         Number("double"),
+ *       ],
+ *       Accuracy: { // PositionalAccuracy
+ *         Horizontal: Number("double"), // required
+ *       },
+ *       PositionProperties: { // PropertyMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new BatchUpdateDevicePositionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchUpdateDevicePositionCommandInput - {@link BatchUpdateDevicePositionCommandInput}
+ * @returns {@link BatchUpdateDevicePositionCommandOutput}
  * @see {@link BatchUpdateDevicePositionCommandInput} for command's `input` shape.
  * @see {@link BatchUpdateDevicePositionCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The request was denied because of insufficient access or permissions. Check with an
+ *       administrator to verify your permissions.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource that you've entered was not found in your AWS account.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because of request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input failed to meet the constraints specified by the AWS service. </p>
+ *
  *
  */
 export class BatchUpdateDevicePositionCommand extends $Command<
@@ -80,6 +124,9 @@ export class BatchUpdateDevicePositionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchUpdateDevicePositionCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,7 +156,7 @@ export class BatchUpdateDevicePositionCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: BatchUpdateDevicePositionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchUpdateDevicePositionResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,15 +166,21 @@ export class BatchUpdateDevicePositionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchUpdateDevicePositionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchUpdateDevicePositionCommand(input, context);
+    return se_BatchUpdateDevicePositionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchUpdateDevicePositionCommandOutput> {
-    return deserializeAws_restJson1BatchUpdateDevicePositionCommand(output, context);
+    return de_BatchUpdateDevicePositionCommand(output, context);
   }
 
   // Start section: command_body_extra

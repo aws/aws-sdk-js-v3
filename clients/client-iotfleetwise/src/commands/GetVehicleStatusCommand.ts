@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import {
-  GetVehicleStatusRequest,
-  GetVehicleStatusRequestFilterSensitiveLog,
-  GetVehicleStatusResponse,
-  GetVehicleStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0GetVehicleStatusCommand,
-  serializeAws_json1_0GetVehicleStatusCommand,
-} from "../protocols/Aws_json1_0";
+import { GetVehicleStatusRequest, GetVehicleStatusResponse } from "../models/models_0";
+import { de_GetVehicleStatusCommand, se_GetVehicleStatusCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link GetVehicleStatusCommand}.
+ */
 export interface GetVehicleStatusCommandInput extends GetVehicleStatusRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetVehicleStatusCommand}.
+ */
 export interface GetVehicleStatusCommandOutput extends GetVehicleStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Retrieves information about the status of a vehicle with any associated campaigns.
  *         </p>
  * @example
@@ -37,13 +40,36 @@ export interface GetVehicleStatusCommandOutput extends GetVehicleStatusResponse,
  * import { IoTFleetWiseClient, GetVehicleStatusCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, GetVehicleStatusCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = { // GetVehicleStatusRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   vehicleName: "STRING_VALUE", // required
+ * };
  * const command = new GetVehicleStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetVehicleStatusCommandInput - {@link GetVehicleStatusCommandInput}
+ * @returns {@link GetVehicleStatusCommandOutput}
  * @see {@link GetVehicleStatusCommandInput} for command's `input` shape.
  * @see {@link GetVehicleStatusCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient permission to perform this action.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource wasn't found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request couldn't be completed due to throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request couldn't be completed because the server temporarily failed.</p>
+ *
  *
  */
 export class GetVehicleStatusCommand extends $Command<
@@ -63,6 +89,9 @@ export class GetVehicleStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetVehicleStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +120,8 @@ export class GetVehicleStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetVehicleStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetVehicleStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +131,18 @@ export class GetVehicleStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetVehicleStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetVehicleStatusCommand(input, context);
+    return se_GetVehicleStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVehicleStatusCommandOutput> {
-    return deserializeAws_json1_0GetVehicleStatusCommand(output, context);
+    return de_GetVehicleStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

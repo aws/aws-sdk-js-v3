@@ -14,19 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
+import { DecreaseStreamRetentionPeriodInput } from "../models/models_0";
 import {
-  DecreaseStreamRetentionPeriodInput,
-  DecreaseStreamRetentionPeriodInputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DecreaseStreamRetentionPeriodCommand,
-  serializeAws_json1_1DecreaseStreamRetentionPeriodCommand,
+  de_DecreaseStreamRetentionPeriodCommand,
+  se_DecreaseStreamRetentionPeriodCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DecreaseStreamRetentionPeriodCommand}.
+ */
 export interface DecreaseStreamRetentionPeriodCommandInput extends DecreaseStreamRetentionPeriodInput {}
+/**
+ * @public
+ *
+ * The output of {@link DecreaseStreamRetentionPeriodCommand}.
+ */
 export interface DecreaseStreamRetentionPeriodCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Decreases the Kinesis data stream's retention period, which is the length of time data
  *             records are accessible after they are added to the stream. The minimum value of a
  *             stream's retention period is 24 hours.</p>
@@ -43,13 +51,41 @@ export interface DecreaseStreamRetentionPeriodCommandOutput extends __MetadataBe
  * import { KinesisClient, DecreaseStreamRetentionPeriodCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, DecreaseStreamRetentionPeriodCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
+ * const input = { // DecreaseStreamRetentionPeriodInput
+ *   StreamName: "STRING_VALUE",
+ *   RetentionPeriodHours: Number("int"), // required
+ *   StreamARN: "STRING_VALUE",
+ * };
  * const command = new DecreaseStreamRetentionPeriodCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DecreaseStreamRetentionPeriodCommandInput - {@link DecreaseStreamRetentionPeriodCommandInput}
+ * @returns {@link DecreaseStreamRetentionPeriodCommandOutput}
  * @see {@link DecreaseStreamRetentionPeriodCommandInput} for command's `input` shape.
  * @see {@link DecreaseStreamRetentionPeriodCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Specifies that you do not have the permissions required to perform this
+ *             operation.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>A specified parameter exceeds its restrictions, is not supported, or can't be used.
+ *             For more information, see the returned message.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
+ *             stream requests exceeds the maximum number allowed. </p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The resource is not available for this operation. For successful operation, the
+ *             resource must be in the <code>ACTIVE</code> state.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource could not be found. The stream might not be specified
+ *             correctly.</p>
+ *
  *
  */
 export class DecreaseStreamRetentionPeriodCommand extends $Command<
@@ -71,6 +107,9 @@ export class DecreaseStreamRetentionPeriodCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DecreaseStreamRetentionPeriodCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +138,8 @@ export class DecreaseStreamRetentionPeriodCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DecreaseStreamRetentionPeriodInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,15 +149,21 @@ export class DecreaseStreamRetentionPeriodCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DecreaseStreamRetentionPeriodCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DecreaseStreamRetentionPeriodCommand(input, context);
+    return se_DecreaseStreamRetentionPeriodCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DecreaseStreamRetentionPeriodCommandOutput> {
-    return deserializeAws_json1_1DecreaseStreamRetentionPeriodCommand(output, context);
+    return de_DecreaseStreamRetentionPeriodCommand(output, context);
   }
 
   // Start section: command_body_extra

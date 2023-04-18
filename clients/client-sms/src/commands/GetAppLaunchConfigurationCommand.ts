@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetAppLaunchConfigurationRequest,
-  GetAppLaunchConfigurationRequestFilterSensitiveLog,
-  GetAppLaunchConfigurationResponse,
-  GetAppLaunchConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetAppLaunchConfigurationCommand,
-  serializeAws_json1_1GetAppLaunchConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { GetAppLaunchConfigurationRequest, GetAppLaunchConfigurationResponse } from "../models/models_0";
+import { de_GetAppLaunchConfigurationCommand, se_GetAppLaunchConfigurationCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetAppLaunchConfigurationCommand}.
+ */
 export interface GetAppLaunchConfigurationCommandInput extends GetAppLaunchConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetAppLaunchConfigurationCommand}.
+ */
 export interface GetAppLaunchConfigurationCommandOutput extends GetAppLaunchConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the application launch configuration associated with the specified application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,35 @@ export interface GetAppLaunchConfigurationCommandOutput extends GetAppLaunchConf
  * import { SMSClient, GetAppLaunchConfigurationCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, GetAppLaunchConfigurationCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
+ * const input = { // GetAppLaunchConfigurationRequest
+ *   appId: "STRING_VALUE",
+ * };
  * const command = new GetAppLaunchConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAppLaunchConfigurationCommandInput - {@link GetAppLaunchConfigurationCommandInput}
+ * @returns {@link GetAppLaunchConfigurationCommandOutput}
  * @see {@link GetAppLaunchConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetAppLaunchConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
+ *
+ * @throws {@link InternalError} (server fault)
+ *  <p>An internal error occurred.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A specified parameter is not valid.</p>
+ *
+ * @throws {@link MissingRequiredParameterException} (client fault)
+ *  <p>A required parameter is missing.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This operation is not allowed.</p>
+ *
+ * @throws {@link UnauthorizedOperationException} (client fault)
+ *  <p>You lack permissions needed to perform this operation. Check your IAM policies,
+ *             and ensure that you are using the correct access keys.</p>
+ *
  *
  */
 export class GetAppLaunchConfigurationCommand extends $Command<
@@ -62,6 +87,9 @@ export class GetAppLaunchConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAppLaunchConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +118,8 @@ export class GetAppLaunchConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAppLaunchConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAppLaunchConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +129,21 @@ export class GetAppLaunchConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAppLaunchConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAppLaunchConfigurationCommand(input, context);
+    return se_GetAppLaunchConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetAppLaunchConfigurationCommandOutput> {
-    return deserializeAws_json1_1GetAppLaunchConfigurationCommand(output, context);
+    return de_GetAppLaunchConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

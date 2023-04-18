@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import { DeleteResourceSetRequest, DeleteResourceSetRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteResourceSetCommand,
-  serializeAws_json1_1DeleteResourceSetCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteResourceSetRequest } from "../models/models_0";
+import { de_DeleteResourceSetCommand, se_DeleteResourceSetCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteResourceSetCommand}.
+ */
 export interface DeleteResourceSetCommandInput extends DeleteResourceSetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteResourceSetCommand}.
+ */
 export interface DeleteResourceSetCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified <a>ResourceSet</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +39,36 @@ export interface DeleteResourceSetCommandOutput extends __MetadataBearer {}
  * import { FMSClient, DeleteResourceSetCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, DeleteResourceSetCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
+ * const input = { // DeleteResourceSetRequest
+ *   Identifier: "STRING_VALUE", // required
+ * };
  * const command = new DeleteResourceSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteResourceSetCommandInput - {@link DeleteResourceSetCommandInput}
+ * @returns {@link DeleteResourceSetCommandOutput}
  * @see {@link DeleteResourceSetCommandInput} for command's `input` shape.
  * @see {@link DeleteResourceSetCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (client fault)
+ *  <p>The operation failed because of a system problem, even though the request was valid. Retry
+ *       your request.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The parameters of the request were invalid.</p>
+ *
+ * @throws {@link InvalidOperationException} (client fault)
+ *  <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have
+ *         submitted an <code>AssociateAdminAccount</code> request for an account ID that
+ *             was already set as the Firewall Manager administrator. Or you might have tried to access a Region
+ *   that's disabled by default, and that you need to enable for the Firewall Manager
+ *   administrator account and for Organizations before you can access it.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class DeleteResourceSetCommand extends $Command<
@@ -57,6 +88,9 @@ export class DeleteResourceSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteResourceSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +119,8 @@ export class DeleteResourceSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteResourceSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +130,18 @@ export class DeleteResourceSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteResourceSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteResourceSetCommand(input, context);
+    return se_DeleteResourceSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResourceSetCommandOutput> {
-    return deserializeAws_json1_1DeleteResourceSetCommand(output, context);
+    return de_DeleteResourceSetCommand(output, context);
   }
 
   // Start section: command_body_extra

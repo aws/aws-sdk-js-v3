@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteBackupRequest,
-  DeleteBackupRequestFilterSensitiveLog,
-  DeleteBackupResponse,
-  DeleteBackupResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteBackupRequest, DeleteBackupResponse } from "../models/models_0";
 import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
-import {
-  deserializeAws_json1_1DeleteBackupCommand,
-  serializeAws_json1_1DeleteBackupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteBackupCommand, se_DeleteBackupCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteBackupCommand}.
+ */
 export interface DeleteBackupCommandInput extends DeleteBackupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteBackupCommand}.
+ */
 export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Deletes a backup. You can delete both manual and automated backups. This operation is asynchronous.
  *     </p>
@@ -43,13 +46,31 @@ export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __Metad
  * import { OpsWorksCMClient, DeleteBackupCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
  * // const { OpsWorksCMClient, DeleteBackupCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
  * const client = new OpsWorksCMClient(config);
+ * const input = { // DeleteBackupRequest
+ *   BackupId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteBackupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBackupCommandInput - {@link DeleteBackupCommandInput}
+ * @returns {@link DeleteBackupCommandOutput}
  * @see {@link DeleteBackupCommandInput} for command's `input` shape.
  * @see {@link DeleteBackupCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksCMClientResolvedConfig | config} for OpsWorksCMClient's `config` shape.
+ *
+ * @throws {@link InvalidStateException} (client fault)
+ *  <p>The resource is in a state that does not allow you to perform a specified action.
+ *     </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource does not exist, or access was denied.
+ *     </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One or more of the provided request parameters are not valid.
+ *     </p>
+ *
  *
  */
 export class DeleteBackupCommand extends $Command<
@@ -69,6 +90,9 @@ export class DeleteBackupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBackupCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +119,8 @@ export class DeleteBackupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBackupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteBackupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +130,18 @@ export class DeleteBackupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBackupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteBackupCommand(input, context);
+    return se_DeleteBackupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBackupCommandOutput> {
-    return deserializeAws_json1_1DeleteBackupCommand(output, context);
+    return de_DeleteBackupCommand(output, context);
   }
 
   // Start section: command_body_extra

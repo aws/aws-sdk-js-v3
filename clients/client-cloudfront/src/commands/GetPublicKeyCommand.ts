@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  GetPublicKeyRequest,
-  GetPublicKeyRequestFilterSensitiveLog,
-  GetPublicKeyResult,
-  GetPublicKeyResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlGetPublicKeyCommand,
-  serializeAws_restXmlGetPublicKeyCommand,
-} from "../protocols/Aws_restXml";
+import { GetPublicKeyRequest, GetPublicKeyResult } from "../models/models_1";
+import { de_GetPublicKeyCommand, se_GetPublicKeyCommand } from "../protocols/Aws_restXml";
 
+/**
+ * @public
+ *
+ * The input for {@link GetPublicKeyCommand}.
+ */
 export interface GetPublicKeyCommandInput extends GetPublicKeyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetPublicKeyCommand}.
+ */
 export interface GetPublicKeyCommandOutput extends GetPublicKeyResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a public key.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,25 @@ export interface GetPublicKeyCommandOutput extends GetPublicKeyResult, __Metadat
  * import { CloudFrontClient, GetPublicKeyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, GetPublicKeyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // GetPublicKeyRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetPublicKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPublicKeyCommandInput - {@link GetPublicKeyCommandInput}
+ * @returns {@link GetPublicKeyCommandOutput}
  * @see {@link GetPublicKeyCommandInput} for command's `input` shape.
  * @see {@link GetPublicKeyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link NoSuchPublicKey} (client fault)
+ *  <p>The specified public key doesn't exist.</p>
+ *
  *
  */
 export class GetPublicKeyCommand extends $Command<
@@ -62,6 +77,9 @@ export class GetPublicKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPublicKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +106,8 @@ export class GetPublicKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPublicKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPublicKeyResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +117,18 @@ export class GetPublicKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPublicKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetPublicKeyCommand(input, context);
+    return se_GetPublicKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPublicKeyCommandOutput> {
-    return deserializeAws_restXmlGetPublicKeyCommand(output, context);
+    return de_GetPublicKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

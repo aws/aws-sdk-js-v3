@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  DescribeLDAPSSettingsRequest,
-  DescribeLDAPSSettingsRequestFilterSensitiveLog,
-  DescribeLDAPSSettingsResult,
-  DescribeLDAPSSettingsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeLDAPSSettingsCommand,
-  serializeAws_json1_1DescribeLDAPSSettingsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeLDAPSSettingsRequest, DescribeLDAPSSettingsResult } from "../models/models_0";
+import { de_DescribeLDAPSSettingsCommand, se_DescribeLDAPSSettingsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeLDAPSSettingsCommand}.
+ */
 export interface DescribeLDAPSSettingsCommandInput extends DescribeLDAPSSettingsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeLDAPSSettingsCommand}.
+ */
 export interface DescribeLDAPSSettingsCommandOutput extends DescribeLDAPSSettingsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the status of LDAP security for the specified directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,40 @@ export interface DescribeLDAPSSettingsCommandOutput extends DescribeLDAPSSetting
  * import { DirectoryServiceClient, DescribeLDAPSSettingsCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DescribeLDAPSSettingsCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // DescribeLDAPSSettingsRequest
+ *   DirectoryId: "STRING_VALUE", // required
+ *   Type: "Client",
+ *   NextToken: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new DescribeLDAPSSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLDAPSSettingsCommandInput - {@link DescribeLDAPSSettingsCommandInput}
+ * @returns {@link DescribeLDAPSSettingsCommandOutput}
  * @see {@link DescribeLDAPSSettingsCommandInput} for command's `input` shape.
  * @see {@link DescribeLDAPSSettingsCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>A client exception has occurred.</p>
+ *
+ * @throws {@link DirectoryDoesNotExistException} (client fault)
+ *  <p>The specified directory does not exist in the system.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The <code>NextToken</code> value is not valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>An exception has occurred in Directory Service.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>The operation is not supported.</p>
+ *
  *
  */
 export class DescribeLDAPSSettingsCommand extends $Command<
@@ -62,6 +92,9 @@ export class DescribeLDAPSSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLDAPSSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +123,8 @@ export class DescribeLDAPSSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLDAPSSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLDAPSSettingsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +134,18 @@ export class DescribeLDAPSSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLDAPSSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeLDAPSSettingsCommand(input, context);
+    return se_DescribeLDAPSSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLDAPSSettingsCommandOutput> {
-    return deserializeAws_json1_1DescribeLDAPSSettingsCommand(output, context);
+    return de_DescribeLDAPSSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

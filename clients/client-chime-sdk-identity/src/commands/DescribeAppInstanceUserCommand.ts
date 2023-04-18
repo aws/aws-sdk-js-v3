@@ -16,19 +16,26 @@ import {
 import { ChimeSDKIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKIdentityClient";
 import {
   DescribeAppInstanceUserRequest,
-  DescribeAppInstanceUserRequestFilterSensitiveLog,
   DescribeAppInstanceUserResponse,
   DescribeAppInstanceUserResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeAppInstanceUserCommand,
-  serializeAws_restJson1DescribeAppInstanceUserCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeAppInstanceUserCommand, se_DescribeAppInstanceUserCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeAppInstanceUserCommand}.
+ */
 export interface DescribeAppInstanceUserCommandInput extends DescribeAppInstanceUserRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeAppInstanceUserCommand}.
+ */
 export interface DescribeAppInstanceUserCommandOutput extends DescribeAppInstanceUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the full details of an <code>AppInstanceUser</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +43,37 @@ export interface DescribeAppInstanceUserCommandOutput extends DescribeAppInstanc
  * import { ChimeSDKIdentityClient, DescribeAppInstanceUserCommand } from "@aws-sdk/client-chime-sdk-identity"; // ES Modules import
  * // const { ChimeSDKIdentityClient, DescribeAppInstanceUserCommand } = require("@aws-sdk/client-chime-sdk-identity"); // CommonJS import
  * const client = new ChimeSDKIdentityClient(config);
+ * const input = { // DescribeAppInstanceUserRequest
+ *   AppInstanceUserArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeAppInstanceUserCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAppInstanceUserCommandInput - {@link DescribeAppInstanceUserCommandInput}
+ * @returns {@link DescribeAppInstanceUserCommandOutput}
  * @see {@link DescribeAppInstanceUserCommandInput} for command's `input` shape.
  * @see {@link DescribeAppInstanceUserCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for ChimeSDKIdentityClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The client exceeded its request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client is not currently authorized to make the request.</p>
+ *
  *
  */
 export class DescribeAppInstanceUserCommand extends $Command<
@@ -62,6 +93,9 @@ export class DescribeAppInstanceUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAppInstanceUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +124,7 @@ export class DescribeAppInstanceUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAppInstanceUserRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeAppInstanceUserResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -101,12 +135,18 @@ export class DescribeAppInstanceUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAppInstanceUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAppInstanceUserCommand(input, context);
+    return se_DescribeAppInstanceUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAppInstanceUserCommandOutput> {
-    return deserializeAws_restJson1DescribeAppInstanceUserCommand(output, context);
+    return de_DescribeAppInstanceUserCommand(output, context);
   }
 
   // Start section: command_body_extra

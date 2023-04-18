@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateTaskInput,
-  CreateTaskInputFilterSensitiveLog,
-  CreateTaskOutput,
-  CreateTaskOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateTaskCommand,
-  serializeAws_restJson1CreateTaskCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateTaskInput, CreateTaskOutput } from "../models/models_0";
+import { de_CreateTaskCommand, se_CreateTaskCommand } from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
   SnowDeviceManagementClientResolvedConfig,
 } from "../SnowDeviceManagementClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateTaskCommand}.
+ */
 export interface CreateTaskCommandInput extends CreateTaskInput {}
+/**
+ * @public
+ *
+ * The output of {@link CreateTaskCommand}.
+ */
 export interface CreateTaskCommandOutput extends CreateTaskOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Instructs one or more devices to start a task, such as unlocking or rebooting.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,48 @@ export interface CreateTaskCommandOutput extends CreateTaskOutput, __MetadataBea
  * import { SnowDeviceManagementClient, CreateTaskCommand } from "@aws-sdk/client-snow-device-management"; // ES Modules import
  * // const { SnowDeviceManagementClient, CreateTaskCommand } = require("@aws-sdk/client-snow-device-management"); // CommonJS import
  * const client = new SnowDeviceManagementClient(config);
+ * const input = { // CreateTaskInput
+ *   targets: [ // TargetList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   command: { // Command Union: only one key present
+ *     unlock: {},
+ *     reboot: {},
+ *   },
+ *   description: "STRING_VALUE",
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new CreateTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTaskCommandInput - {@link CreateTaskCommandInput}
+ * @returns {@link CreateTaskCommandOutput}
  * @see {@link CreateTaskCommandInput} for command's `input` shape.
  * @see {@link CreateTaskCommandOutput} for command's `response` shape.
  * @see {@link SnowDeviceManagementClientResolvedConfig | config} for SnowDeviceManagementClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred while processing the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a resource that doesn't exist.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request would cause a service quota to be exceeded.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
  *
  */
 export class CreateTaskCommand extends $Command<
@@ -66,6 +104,9 @@ export class CreateTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +133,8 @@ export class CreateTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTaskInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateTaskOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +144,18 @@ export class CreateTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateTaskCommand(input, context);
+    return se_CreateTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTaskCommandOutput> {
-    return deserializeAws_restJson1CreateTaskCommand(output, context);
+    return de_CreateTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,25 +13,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DisableSnapshotCopyMessage,
-  DisableSnapshotCopyMessageFilterSensitiveLog,
-  DisableSnapshotCopyResult,
-  DisableSnapshotCopyResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryDisableSnapshotCopyCommand,
-  serializeAws_queryDisableSnapshotCopyCommand,
-} from "../protocols/Aws_query";
+import { DisableSnapshotCopyMessage, DisableSnapshotCopyResult } from "../models/models_1";
+import { de_DisableSnapshotCopyCommand, se_DisableSnapshotCopyCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DisableSnapshotCopyCommand}.
+ */
 export interface DisableSnapshotCopyCommandInput extends DisableSnapshotCopyMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DisableSnapshotCopyCommand}.
+ */
 export interface DisableSnapshotCopyCommandOutput extends DisableSnapshotCopyResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables the automatic copying of snapshots from one region to another region for a
  *             specified cluster.</p>
- *         <p>If your cluster and its snapshots are encrypted using an encrypted symmetric key
+ *          <p>If your cluster and its snapshots are encrypted using an encrypted symmetric key
  *             from Key Management Service, use <a>DeleteSnapshotCopyGrant</a> to delete the grant that
  *             grants Amazon Redshift permission to the key in the destination region. </p>
  * @example
@@ -40,13 +43,32 @@ export interface DisableSnapshotCopyCommandOutput extends DisableSnapshotCopyRes
  * import { RedshiftClient, DisableSnapshotCopyCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DisableSnapshotCopyCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DisableSnapshotCopyMessage
+ *   ClusterIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new DisableSnapshotCopyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableSnapshotCopyCommandInput - {@link DisableSnapshotCopyCommandInput}
+ * @returns {@link DisableSnapshotCopyCommandOutput}
  * @see {@link DisableSnapshotCopyCommandInput} for command's `input` shape.
  * @see {@link DisableSnapshotCopyCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
+ *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+ *         </p>
+ *
+ * @throws {@link InvalidClusterStateFault} (client fault)
+ *  <p>The specified cluster is not in the <code>available</code> state. </p>
+ *
+ * @throws {@link SnapshotCopyAlreadyDisabledFault} (client fault)
+ *  <p>The cluster already has cross-region snapshot copy disabled.</p>
+ *
+ * @throws {@link UnauthorizedOperation} (client fault)
+ *  <p>Your account is not authorized to perform the requested operation.</p>
+ *
  *
  */
 export class DisableSnapshotCopyCommand extends $Command<
@@ -66,6 +88,9 @@ export class DisableSnapshotCopyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableSnapshotCopyCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +119,8 @@ export class DisableSnapshotCopyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableSnapshotCopyMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DisableSnapshotCopyResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +130,18 @@ export class DisableSnapshotCopyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableSnapshotCopyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDisableSnapshotCopyCommand(input, context);
+    return se_DisableSnapshotCopyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableSnapshotCopyCommandOutput> {
-    return deserializeAws_queryDisableSnapshotCopyCommand(output, context);
+    return de_DisableSnapshotCopyCommand(output, context);
   }
 
   // Start section: command_body_extra

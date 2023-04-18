@@ -6,12 +6,11 @@ import {
   DescribeSharedDirectoriesCommandInput,
   DescribeSharedDirectoriesCommandOutput,
 } from "../commands/DescribeSharedDirectoriesCommand";
-import { DirectoryService } from "../DirectoryService";
 import { DirectoryServiceClient } from "../DirectoryServiceClient";
 import { DirectoryServicePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DirectoryServiceClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeSharedDirectoriesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: DirectoryService,
-  input: DescribeSharedDirectoriesCommandInput,
-  ...args: any
-): Promise<DescribeSharedDirectoriesCommandOutput> => {
-  // @ts-ignore
-  return await client.describeSharedDirectories(input, ...args);
-};
 export async function* paginateDescribeSharedDirectories(
   config: DirectoryServicePaginationConfiguration,
   input: DescribeSharedDirectoriesCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateDescribeSharedDirectories(
   while (hasNext) {
     input.NextToken = token;
     input["Limit"] = config.pageSize;
-    if (config.client instanceof DirectoryService) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DirectoryServiceClient) {
+    if (config.client instanceof DirectoryServiceClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected DirectoryService | DirectoryServiceClient");

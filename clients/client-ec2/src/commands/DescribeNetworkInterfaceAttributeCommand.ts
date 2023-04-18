@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribeNetworkInterfaceAttributeRequest, DescribeNetworkInterfaceAttributeResult } from "../models/models_4";
 import {
-  DescribeNetworkInterfaceAttributeRequest,
-  DescribeNetworkInterfaceAttributeRequestFilterSensitiveLog,
-  DescribeNetworkInterfaceAttributeResult,
-  DescribeNetworkInterfaceAttributeResultFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeNetworkInterfaceAttributeCommand,
-  serializeAws_ec2DescribeNetworkInterfaceAttributeCommand,
+  de_DescribeNetworkInterfaceAttributeCommand,
+  se_DescribeNetworkInterfaceAttributeCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeNetworkInterfaceAttributeCommand}.
+ */
 export interface DescribeNetworkInterfaceAttributeCommandInput extends DescribeNetworkInterfaceAttributeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeNetworkInterfaceAttributeCommand}.
+ */
 export interface DescribeNetworkInterfaceAttributeCommandOutput
   extends DescribeNetworkInterfaceAttributeResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a network interface attribute. You can specify only one attribute at a time.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,110 @@ export interface DescribeNetworkInterfaceAttributeCommandOutput
  * import { EC2Client, DescribeNetworkInterfaceAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeNetworkInterfaceAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeNetworkInterfaceAttributeRequest
+ *   Attribute: "description" || "groupSet" || "sourceDestCheck" || "attachment",
+ *   DryRun: true || false,
+ *   NetworkInterfaceId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeNetworkInterfaceAttributeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeNetworkInterfaceAttributeCommandInput - {@link DescribeNetworkInterfaceAttributeCommandInput}
+ * @returns {@link DescribeNetworkInterfaceAttributeCommandOutput}
  * @see {@link DescribeNetworkInterfaceAttributeCommandInput} for command's `input` shape.
  * @see {@link DescribeNetworkInterfaceAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ *
+ * @example To describe the attachment attribute of a network interface
+ * ```javascript
+ * // This example describes the attachment attribute of the specified network interface.
+ * const input = {
+ *   "Attribute": "attachment",
+ *   "NetworkInterfaceId": "eni-686ea200"
+ * };
+ * const command = new DescribeNetworkInterfaceAttributeCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Attachment": {
+ *     "AttachTime": "2015-05-21T20:02:20.000Z",
+ *     "AttachmentId": "eni-attach-43348162",
+ *     "DeleteOnTermination": true,
+ *     "DeviceIndex": 0,
+ *     "InstanceId": "i-1234567890abcdef0",
+ *     "InstanceOwnerId": "123456789012",
+ *     "Status": "attached"
+ *   },
+ *   "NetworkInterfaceId": "eni-686ea200"
+ * }
+ * *\/
+ * // example id: ec2-describe-network-interface-attribute-1
+ * ```
+ *
+ * @example To describe the description attribute of a network interface
+ * ```javascript
+ * // This example describes the description attribute of the specified network interface.
+ * const input = {
+ *   "Attribute": "description",
+ *   "NetworkInterfaceId": "eni-686ea200"
+ * };
+ * const command = new DescribeNetworkInterfaceAttributeCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Description": {
+ *     "Value": "My description"
+ *   },
+ *   "NetworkInterfaceId": "eni-686ea200"
+ * }
+ * *\/
+ * // example id: ec2-describe-network-interface-attribute-2
+ * ```
+ *
+ * @example To describe the groupSet attribute of a network interface
+ * ```javascript
+ * // This example describes the groupSet attribute of the specified network interface.
+ * const input = {
+ *   "Attribute": "groupSet",
+ *   "NetworkInterfaceId": "eni-686ea200"
+ * };
+ * const command = new DescribeNetworkInterfaceAttributeCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Groups": [
+ *     {
+ *       "GroupId": "sg-903004f8",
+ *       "GroupName": "my-security-group"
+ *     }
+ *   ],
+ *   "NetworkInterfaceId": "eni-686ea200"
+ * }
+ * *\/
+ * // example id: ec2-describe-network-interface-attribute-3
+ * ```
+ *
+ * @example To describe the sourceDestCheck attribute of a network interface
+ * ```javascript
+ * // This example describes the sourceDestCheck attribute of the specified network interface.
+ * const input = {
+ *   "Attribute": "sourceDestCheck",
+ *   "NetworkInterfaceId": "eni-686ea200"
+ * };
+ * const command = new DescribeNetworkInterfaceAttributeCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "NetworkInterfaceId": "eni-686ea200",
+ *   "SourceDestCheck": {
+ *     "Value": true
+ *   }
+ * }
+ * *\/
+ * // example id: ec2-describe-network-interface-attribute-4
+ * ```
  *
  */
 export class DescribeNetworkInterfaceAttributeCommand extends $Command<
@@ -64,6 +167,9 @@ export class DescribeNetworkInterfaceAttributeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeNetworkInterfaceAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +198,8 @@ export class DescribeNetworkInterfaceAttributeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeNetworkInterfaceAttributeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeNetworkInterfaceAttributeResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +209,24 @@ export class DescribeNetworkInterfaceAttributeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeNetworkInterfaceAttributeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeNetworkInterfaceAttributeCommand(input, context);
+    return se_DescribeNetworkInterfaceAttributeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeNetworkInterfaceAttributeCommandOutput> {
-    return deserializeAws_ec2DescribeNetworkInterfaceAttributeCommand(output, context);
+    return de_DescribeNetworkInterfaceAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

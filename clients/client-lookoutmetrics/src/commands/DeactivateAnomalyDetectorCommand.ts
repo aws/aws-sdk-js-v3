@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutMetricsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutMetricsClient";
-import {
-  DeactivateAnomalyDetectorRequest,
-  DeactivateAnomalyDetectorRequestFilterSensitiveLog,
-  DeactivateAnomalyDetectorResponse,
-  DeactivateAnomalyDetectorResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeactivateAnomalyDetectorCommand,
-  serializeAws_restJson1DeactivateAnomalyDetectorCommand,
-} from "../protocols/Aws_restJson1";
+import { DeactivateAnomalyDetectorRequest, DeactivateAnomalyDetectorResponse } from "../models/models_0";
+import { de_DeactivateAnomalyDetectorCommand, se_DeactivateAnomalyDetectorCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeactivateAnomalyDetectorCommand}.
+ */
 export interface DeactivateAnomalyDetectorCommandInput extends DeactivateAnomalyDetectorRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeactivateAnomalyDetectorCommand}.
+ */
 export interface DeactivateAnomalyDetectorCommandOutput extends DeactivateAnomalyDetectorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deactivates an anomaly detector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,38 @@ export interface DeactivateAnomalyDetectorCommandOutput extends DeactivateAnomal
  * import { LookoutMetricsClient, DeactivateAnomalyDetectorCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
  * // const { LookoutMetricsClient, DeactivateAnomalyDetectorCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
  * const client = new LookoutMetricsClient(config);
+ * const input = { // DeactivateAnomalyDetectorRequest
+ *   AnomalyDetectorArn: "STRING_VALUE", // required
+ * };
  * const command = new DeactivateAnomalyDetectorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeactivateAnomalyDetectorCommandInput - {@link DeactivateAnomalyDetectorCommandInput}
+ * @returns {@link DeactivateAnomalyDetectorCommandOutput}
  * @see {@link DeactivateAnomalyDetectorCommandInput} for command's `input` shape.
  * @see {@link DeactivateAnomalyDetectorCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There was a conflict processing the request. Try your request again.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource cannot be found. Check the ARN of the resource and try again.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The request was denied due to too many requests being submitted at the same time.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by the AWS service. Check your input values and try
+ *       again.</p>
+ *
  *
  */
 export class DeactivateAnomalyDetectorCommand extends $Command<
@@ -62,6 +90,9 @@ export class DeactivateAnomalyDetectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeactivateAnomalyDetectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +121,8 @@ export class DeactivateAnomalyDetectorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeactivateAnomalyDetectorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeactivateAnomalyDetectorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +132,21 @@ export class DeactivateAnomalyDetectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeactivateAnomalyDetectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeactivateAnomalyDetectorCommand(input, context);
+    return se_DeactivateAnomalyDetectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeactivateAnomalyDetectorCommandOutput> {
-    return deserializeAws_restJson1DeactivateAnomalyDetectorCommand(output, context);
+    return de_DeactivateAnomalyDetectorCommand(output, context);
   }
 
   // Start section: command_body_extra

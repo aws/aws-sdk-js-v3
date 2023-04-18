@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { HealthLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthLakeClient";
-import {
-  DescribeFHIRDatastoreRequest,
-  DescribeFHIRDatastoreRequestFilterSensitiveLog,
-  DescribeFHIRDatastoreResponse,
-  DescribeFHIRDatastoreResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeFHIRDatastoreCommand,
-  serializeAws_json1_0DescribeFHIRDatastoreCommand,
-} from "../protocols/Aws_json1_0";
+import { DescribeFHIRDatastoreRequest, DescribeFHIRDatastoreResponse } from "../models/models_0";
+import { de_DescribeFHIRDatastoreCommand, se_DescribeFHIRDatastoreCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeFHIRDatastoreCommand}.
+ */
 export interface DescribeFHIRDatastoreCommandInput extends DescribeFHIRDatastoreRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeFHIRDatastoreCommand}.
+ */
 export interface DescribeFHIRDatastoreCommandOutput extends DescribeFHIRDatastoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the properties associated with the FHIR Data Store, including the Data Store ID,
  *          Data Store ARN, Data Store name, Data Store status, created at, Data Store type version, and
  *          Data Store endpoint.</p>
@@ -38,13 +41,31 @@ export interface DescribeFHIRDatastoreCommandOutput extends DescribeFHIRDatastor
  * import { HealthLakeClient, DescribeFHIRDatastoreCommand } from "@aws-sdk/client-healthlake"; // ES Modules import
  * // const { HealthLakeClient, DescribeFHIRDatastoreCommand } = require("@aws-sdk/client-healthlake"); // CommonJS import
  * const client = new HealthLakeClient(config);
+ * const input = { // DescribeFHIRDatastoreRequest
+ *   DatastoreId: "STRING_VALUE",
+ * };
  * const command = new DescribeFHIRDatastoreCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFHIRDatastoreCommandInput - {@link DescribeFHIRDatastoreCommandInput}
+ * @returns {@link DescribeFHIRDatastoreCommandOutput}
  * @see {@link DescribeFHIRDatastoreCommandInput} for command's `input` shape.
  * @see {@link DescribeFHIRDatastoreCommandOutput} for command's `response` shape.
  * @see {@link HealthLakeClientResolvedConfig | config} for HealthLakeClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Unknown error occurs in the service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p> The requested Data Store was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The user has exceeded their maximum number of allowed calls to the given API. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The user input parameter was invalid.</p>
+ *
  *
  */
 export class DescribeFHIRDatastoreCommand extends $Command<
@@ -64,6 +85,9 @@ export class DescribeFHIRDatastoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFHIRDatastoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +116,8 @@ export class DescribeFHIRDatastoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFHIRDatastoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFHIRDatastoreResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +127,18 @@ export class DescribeFHIRDatastoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFHIRDatastoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeFHIRDatastoreCommand(input, context);
+    return se_DescribeFHIRDatastoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFHIRDatastoreCommandOutput> {
-    return deserializeAws_json1_0DescribeFHIRDatastoreCommand(output, context);
+    return de_DescribeFHIRDatastoreCommand(output, context);
   }
 
   // Start section: command_body_extra

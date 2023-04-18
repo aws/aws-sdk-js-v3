@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
+import { DescribeCertificateAuthorityRequest, DescribeCertificateAuthorityResponse } from "../models/models_0";
 import {
-  DescribeCertificateAuthorityRequest,
-  DescribeCertificateAuthorityRequestFilterSensitiveLog,
-  DescribeCertificateAuthorityResponse,
-  DescribeCertificateAuthorityResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeCertificateAuthorityCommand,
-  serializeAws_json1_1DescribeCertificateAuthorityCommand,
+  de_DescribeCertificateAuthorityCommand,
+  se_DescribeCertificateAuthorityCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeCertificateAuthorityCommand}.
+ */
 export interface DescribeCertificateAuthorityCommandInput extends DescribeCertificateAuthorityRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeCertificateAuthorityCommand}.
+ */
 export interface DescribeCertificateAuthorityCommandOutput
   extends DescribeCertificateAuthorityResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists information about your private certificate authority (CA) or one that has been
  * 			shared with you. You specify the private CA on input by its ARN (Amazon Resource Name).
  * 			The output contains the status of your CA. This can be any of the following: </p>
@@ -78,13 +84,27 @@ export interface DescribeCertificateAuthorityCommandOutput
  * import { ACMPCAClient, DescribeCertificateAuthorityCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
  * // const { ACMPCAClient, DescribeCertificateAuthorityCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
  * const client = new ACMPCAClient(config);
+ * const input = { // DescribeCertificateAuthorityRequest
+ *   CertificateAuthorityArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeCertificateAuthorityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCertificateAuthorityCommandInput - {@link DescribeCertificateAuthorityCommandInput}
+ * @returns {@link DescribeCertificateAuthorityCommandOutput}
  * @see {@link DescribeCertificateAuthorityCommandInput} for command's `input` shape.
  * @see {@link DescribeCertificateAuthorityCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
+ *
+ * @throws {@link InvalidArnException} (client fault)
+ *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing
+ * 			resource.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy
+ * 			cannot be found.</p>
+ *
  *
  */
 export class DescribeCertificateAuthorityCommand extends $Command<
@@ -104,6 +124,9 @@ export class DescribeCertificateAuthorityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCertificateAuthorityCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,8 +155,8 @@ export class DescribeCertificateAuthorityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCertificateAuthorityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeCertificateAuthorityResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,15 +166,21 @@ export class DescribeCertificateAuthorityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCertificateAuthorityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeCertificateAuthorityCommand(input, context);
+    return se_DescribeCertificateAuthorityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeCertificateAuthorityCommandOutput> {
-    return deserializeAws_json1_1DescribeCertificateAuthorityCommand(output, context);
+    return de_DescribeCertificateAuthorityCommand(output, context);
   }
 
   // Start section: command_body_extra

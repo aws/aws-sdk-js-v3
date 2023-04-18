@@ -1,16 +1,16 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectBoolean as __expectBoolean,
-  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -68,20 +68,13 @@ import {
 import { UpdateSafetyRuleCommandInput, UpdateSafetyRuleCommandOutput } from "../commands/UpdateSafetyRuleCommand";
 import {
   AccessDeniedException,
-  AssertionRule,
   AssertionRuleUpdate,
-  Cluster,
-  ClusterEndpoint,
   ConflictException,
-  ControlPanel,
-  GatingRule,
   GatingRuleUpdate,
   InternalServerException,
   NewAssertionRule,
   NewGatingRule,
   ResourceNotFoundException,
-  RoutingControl,
-  Rule,
   RuleConfig,
   ServiceQuotaExceededException,
   ThrottlingException,
@@ -89,7 +82,10 @@ import {
 } from "../models/models_0";
 import { Route53RecoveryControlConfigServiceException as __BaseException } from "../models/Route53RecoveryControlConfigServiceException";
 
-export const serializeAws_restJson1CreateClusterCommand = async (
+/**
+ * serializeAws_restJson1CreateClusterCommand
+ */
+export const se_CreateClusterCommand = async (
   input: CreateClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -99,11 +95,13 @@ export const serializeAws_restJson1CreateClusterCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/cluster";
   let body: any;
-  body = JSON.stringify({
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.ClusterName != null && { ClusterName: input.ClusterName }),
-    ...(input.Tags != null && { Tags: serializeAws_restJson1__mapOf__stringMin0Max256PatternS(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClusterName: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -115,7 +113,10 @@ export const serializeAws_restJson1CreateClusterCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateControlPanelCommand = async (
+/**
+ * serializeAws_restJson1CreateControlPanelCommand
+ */
+export const se_CreateControlPanelCommand = async (
   input: CreateControlPanelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -125,12 +126,14 @@ export const serializeAws_restJson1CreateControlPanelCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/controlpanel";
   let body: any;
-  body = JSON.stringify({
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.ClusterArn != null && { ClusterArn: input.ClusterArn }),
-    ...(input.ControlPanelName != null && { ControlPanelName: input.ControlPanelName }),
-    ...(input.Tags != null && { Tags: serializeAws_restJson1__mapOf__stringMin0Max256PatternS(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClusterArn: [],
+      ControlPanelName: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -142,7 +145,10 @@ export const serializeAws_restJson1CreateControlPanelCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateRoutingControlCommand = async (
+/**
+ * serializeAws_restJson1CreateRoutingControlCommand
+ */
+export const se_CreateRoutingControlCommand = async (
   input: CreateRoutingControlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -152,12 +158,14 @@ export const serializeAws_restJson1CreateRoutingControlCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/routingcontrol";
   let body: any;
-  body = JSON.stringify({
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.ClusterArn != null && { ClusterArn: input.ClusterArn }),
-    ...(input.ControlPanelArn != null && { ControlPanelArn: input.ControlPanelArn }),
-    ...(input.RoutingControlName != null && { RoutingControlName: input.RoutingControlName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClusterArn: [],
+      ControlPanelArn: [],
+      RoutingControlName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -169,7 +177,10 @@ export const serializeAws_restJson1CreateRoutingControlCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateSafetyRuleCommand = async (
+/**
+ * serializeAws_restJson1CreateSafetyRuleCommand
+ */
+export const se_CreateSafetyRuleCommand = async (
   input: CreateSafetyRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -179,14 +190,14 @@ export const serializeAws_restJson1CreateSafetyRuleCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/safetyrule";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AssertionRule != null && {
-      AssertionRule: serializeAws_restJson1NewAssertionRule(input.AssertionRule, context),
-    }),
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.GatingRule != null && { GatingRule: serializeAws_restJson1NewGatingRule(input.GatingRule, context) }),
-    ...(input.Tags != null && { Tags: serializeAws_restJson1__mapOf__stringMin0Max256PatternS(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AssertionRule: (_) => _json(_),
+      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      GatingRule: (_) => _json(_),
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -198,7 +209,10 @@ export const serializeAws_restJson1CreateSafetyRuleCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteClusterCommand = async (
+/**
+ * serializeAws_restJson1DeleteClusterCommand
+ */
+export const se_DeleteClusterCommand = async (
   input: DeleteClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -218,7 +232,10 @@ export const serializeAws_restJson1DeleteClusterCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteControlPanelCommand = async (
+/**
+ * serializeAws_restJson1DeleteControlPanelCommand
+ */
+export const se_DeleteControlPanelCommand = async (
   input: DeleteControlPanelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -246,7 +263,10 @@ export const serializeAws_restJson1DeleteControlPanelCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteRoutingControlCommand = async (
+/**
+ * serializeAws_restJson1DeleteRoutingControlCommand
+ */
+export const se_DeleteRoutingControlCommand = async (
   input: DeleteRoutingControlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -274,7 +294,10 @@ export const serializeAws_restJson1DeleteRoutingControlCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteSafetyRuleCommand = async (
+/**
+ * serializeAws_restJson1DeleteSafetyRuleCommand
+ */
+export const se_DeleteSafetyRuleCommand = async (
   input: DeleteSafetyRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -302,7 +325,10 @@ export const serializeAws_restJson1DeleteSafetyRuleCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeClusterCommand = async (
+/**
+ * serializeAws_restJson1DescribeClusterCommand
+ */
+export const se_DescribeClusterCommand = async (
   input: DescribeClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -322,7 +348,10 @@ export const serializeAws_restJson1DescribeClusterCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeControlPanelCommand = async (
+/**
+ * serializeAws_restJson1DescribeControlPanelCommand
+ */
+export const se_DescribeControlPanelCommand = async (
   input: DescribeControlPanelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -350,7 +379,10 @@ export const serializeAws_restJson1DescribeControlPanelCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeRoutingControlCommand = async (
+/**
+ * serializeAws_restJson1DescribeRoutingControlCommand
+ */
+export const se_DescribeRoutingControlCommand = async (
   input: DescribeRoutingControlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -378,7 +410,10 @@ export const serializeAws_restJson1DescribeRoutingControlCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeSafetyRuleCommand = async (
+/**
+ * serializeAws_restJson1DescribeSafetyRuleCommand
+ */
+export const se_DescribeSafetyRuleCommand = async (
   input: DescribeSafetyRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -406,7 +441,10 @@ export const serializeAws_restJson1DescribeSafetyRuleCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListAssociatedRoute53HealthChecksCommand = async (
+/**
+ * serializeAws_restJson1ListAssociatedRoute53HealthChecksCommand
+ */
+export const se_ListAssociatedRoute53HealthChecksCommand = async (
   input: ListAssociatedRoute53HealthChecksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -440,7 +478,10 @@ export const serializeAws_restJson1ListAssociatedRoute53HealthChecksCommand = as
   });
 };
 
-export const serializeAws_restJson1ListClustersCommand = async (
+/**
+ * serializeAws_restJson1ListClustersCommand
+ */
+export const se_ListClustersCommand = async (
   input: ListClustersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -464,7 +505,10 @@ export const serializeAws_restJson1ListClustersCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListControlPanelsCommand = async (
+/**
+ * serializeAws_restJson1ListControlPanelsCommand
+ */
+export const se_ListControlPanelsCommand = async (
   input: ListControlPanelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -489,7 +533,10 @@ export const serializeAws_restJson1ListControlPanelsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListRoutingControlsCommand = async (
+/**
+ * serializeAws_restJson1ListRoutingControlsCommand
+ */
+export const se_ListRoutingControlsCommand = async (
   input: ListRoutingControlsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -523,7 +570,10 @@ export const serializeAws_restJson1ListRoutingControlsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListSafetyRulesCommand = async (
+/**
+ * serializeAws_restJson1ListSafetyRulesCommand
+ */
+export const se_ListSafetyRulesCommand = async (
   input: ListSafetyRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -557,7 +607,10 @@ export const serializeAws_restJson1ListSafetyRulesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -577,7 +630,10 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1TagResourceCommand = async (
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -588,9 +644,11 @@ export const serializeAws_restJson1TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Tags != null && { Tags: serializeAws_restJson1__mapOf__stringMin0Max256PatternS(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -602,7 +660,10 @@ export const serializeAws_restJson1TagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UntagResourceCommand = async (
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -629,7 +690,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateControlPanelCommand = async (
+/**
+ * serializeAws_restJson1UpdateControlPanelCommand
+ */
+export const se_UpdateControlPanelCommand = async (
   input: UpdateControlPanelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -639,10 +703,12 @@ export const serializeAws_restJson1UpdateControlPanelCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/controlpanel";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ControlPanelArn != null && { ControlPanelArn: input.ControlPanelArn }),
-    ...(input.ControlPanelName != null && { ControlPanelName: input.ControlPanelName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ControlPanelArn: [],
+      ControlPanelName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -654,7 +720,10 @@ export const serializeAws_restJson1UpdateControlPanelCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateRoutingControlCommand = async (
+/**
+ * serializeAws_restJson1UpdateRoutingControlCommand
+ */
+export const se_UpdateRoutingControlCommand = async (
   input: UpdateRoutingControlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -664,10 +733,12 @@ export const serializeAws_restJson1UpdateRoutingControlCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/routingcontrol";
   let body: any;
-  body = JSON.stringify({
-    ...(input.RoutingControlArn != null && { RoutingControlArn: input.RoutingControlArn }),
-    ...(input.RoutingControlName != null && { RoutingControlName: input.RoutingControlName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      RoutingControlArn: [],
+      RoutingControlName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -679,7 +750,10 @@ export const serializeAws_restJson1UpdateRoutingControlCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateSafetyRuleCommand = async (
+/**
+ * serializeAws_restJson1UpdateSafetyRuleCommand
+ */
+export const se_UpdateSafetyRuleCommand = async (
   input: UpdateSafetyRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -689,14 +763,12 @@ export const serializeAws_restJson1UpdateSafetyRuleCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/safetyrule";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AssertionRuleUpdate != null && {
-      AssertionRuleUpdate: serializeAws_restJson1AssertionRuleUpdate(input.AssertionRuleUpdate, context),
-    }),
-    ...(input.GatingRuleUpdate != null && {
-      GatingRuleUpdate: serializeAws_restJson1GatingRuleUpdate(input.GatingRuleUpdate, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AssertionRuleUpdate: (_) => _json(_),
+      GatingRuleUpdate: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -708,24 +780,31 @@ export const serializeAws_restJson1UpdateSafetyRuleCommand = async (
   });
 };
 
-export const deserializeAws_restJson1CreateClusterCommand = async (
+/**
+ * deserializeAws_restJson1CreateClusterCommand
+ */
+export const de_CreateClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateClusterCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateClusterCommandError(output, context);
+    return de_CreateClusterCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Cluster != null) {
-    contents.Cluster = deserializeAws_restJson1Cluster(data.Cluster, context);
-  }
+  const doc = take(data, {
+    Cluster: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateClusterCommandError = async (
+/**
+ * deserializeAws_restJson1CreateClusterCommandError
+ */
+const de_CreateClusterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateClusterCommandOutput> => {
@@ -737,54 +816,60 @@ const deserializeAws_restJson1CreateClusterCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53recoverycontrolconfig#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.route53recoverycontrolconfig#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.route53recoverycontrolconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53recoverycontrolconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.route53recoverycontrolconfig#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53recoverycontrolconfig#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.route53recoverycontrolconfig#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateControlPanelCommand = async (
+/**
+ * deserializeAws_restJson1CreateControlPanelCommand
+ */
+export const de_CreateControlPanelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateControlPanelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateControlPanelCommandError(output, context);
+    return de_CreateControlPanelCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ControlPanel != null) {
-    contents.ControlPanel = deserializeAws_restJson1ControlPanel(data.ControlPanel, context);
-  }
+  const doc = take(data, {
+    ControlPanel: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateControlPanelCommandError = async (
+/**
+ * deserializeAws_restJson1CreateControlPanelCommandError
+ */
+const de_CreateControlPanelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateControlPanelCommandOutput> => {
@@ -796,54 +881,60 @@ const deserializeAws_restJson1CreateControlPanelCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53recoverycontrolconfig#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.route53recoverycontrolconfig#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.route53recoverycontrolconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53recoverycontrolconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.route53recoverycontrolconfig#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53recoverycontrolconfig#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.route53recoverycontrolconfig#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateRoutingControlCommand = async (
+/**
+ * deserializeAws_restJson1CreateRoutingControlCommand
+ */
+export const de_CreateRoutingControlCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRoutingControlCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateRoutingControlCommandError(output, context);
+    return de_CreateRoutingControlCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.RoutingControl != null) {
-    contents.RoutingControl = deserializeAws_restJson1RoutingControl(data.RoutingControl, context);
-  }
+  const doc = take(data, {
+    RoutingControl: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateRoutingControlCommandError = async (
+/**
+ * deserializeAws_restJson1CreateRoutingControlCommandError
+ */
+const de_CreateRoutingControlCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRoutingControlCommandOutput> => {
@@ -855,57 +946,61 @@ const deserializeAws_restJson1CreateRoutingControlCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53recoverycontrolconfig#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.route53recoverycontrolconfig#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.route53recoverycontrolconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53recoverycontrolconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.route53recoverycontrolconfig#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53recoverycontrolconfig#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.route53recoverycontrolconfig#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateSafetyRuleCommand = async (
+/**
+ * deserializeAws_restJson1CreateSafetyRuleCommand
+ */
+export const de_CreateSafetyRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSafetyRuleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateSafetyRuleCommandError(output, context);
+    return de_CreateSafetyRuleCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AssertionRule != null) {
-    contents.AssertionRule = deserializeAws_restJson1AssertionRule(data.AssertionRule, context);
-  }
-  if (data.GatingRule != null) {
-    contents.GatingRule = deserializeAws_restJson1GatingRule(data.GatingRule, context);
-  }
+  const doc = take(data, {
+    AssertionRule: _json,
+    GatingRule: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateSafetyRuleCommandError = async (
+/**
+ * deserializeAws_restJson1CreateSafetyRuleCommandError
+ */
+const de_CreateSafetyRuleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSafetyRuleCommandOutput> => {
@@ -917,27 +1012,29 @@ const deserializeAws_restJson1CreateSafetyRuleCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.route53recoverycontrolconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.route53recoverycontrolconfig#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteClusterCommand = async (
+/**
+ * deserializeAws_restJson1DeleteClusterCommand
+ */
+export const de_DeleteClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteClusterCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteClusterCommandError(output, context);
+    return de_DeleteClusterCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -946,7 +1043,10 @@ export const deserializeAws_restJson1DeleteClusterCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteClusterCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteClusterCommandError
+ */
+const de_DeleteClusterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteClusterCommandOutput> => {
@@ -958,39 +1058,41 @@ const deserializeAws_restJson1DeleteClusterCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53recoverycontrolconfig#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.route53recoverycontrolconfig#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.route53recoverycontrolconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53recoverycontrolconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53recoverycontrolconfig#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.route53recoverycontrolconfig#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteControlPanelCommand = async (
+/**
+ * deserializeAws_restJson1DeleteControlPanelCommand
+ */
+export const de_DeleteControlPanelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteControlPanelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteControlPanelCommandError(output, context);
+    return de_DeleteControlPanelCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -999,7 +1101,10 @@ export const deserializeAws_restJson1DeleteControlPanelCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteControlPanelCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteControlPanelCommandError
+ */
+const de_DeleteControlPanelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteControlPanelCommandOutput> => {
@@ -1011,39 +1116,41 @@ const deserializeAws_restJson1DeleteControlPanelCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53recoverycontrolconfig#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.route53recoverycontrolconfig#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.route53recoverycontrolconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53recoverycontrolconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53recoverycontrolconfig#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.route53recoverycontrolconfig#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteRoutingControlCommand = async (
+/**
+ * deserializeAws_restJson1DeleteRoutingControlCommand
+ */
+export const de_DeleteRoutingControlCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRoutingControlCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteRoutingControlCommandError(output, context);
+    return de_DeleteRoutingControlCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1052,7 +1159,10 @@ export const deserializeAws_restJson1DeleteRoutingControlCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteRoutingControlCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteRoutingControlCommandError
+ */
+const de_DeleteRoutingControlCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRoutingControlCommandOutput> => {
@@ -1064,39 +1174,41 @@ const deserializeAws_restJson1DeleteRoutingControlCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53recoverycontrolconfig#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.route53recoverycontrolconfig#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.route53recoverycontrolconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53recoverycontrolconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53recoverycontrolconfig#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.route53recoverycontrolconfig#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteSafetyRuleCommand = async (
+/**
+ * deserializeAws_restJson1DeleteSafetyRuleCommand
+ */
+export const de_DeleteSafetyRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSafetyRuleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteSafetyRuleCommandError(output, context);
+    return de_DeleteSafetyRuleCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1105,7 +1217,10 @@ export const deserializeAws_restJson1DeleteSafetyRuleCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteSafetyRuleCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteSafetyRuleCommandError
+ */
+const de_DeleteSafetyRuleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSafetyRuleCommandOutput> => {
@@ -1117,42 +1232,48 @@ const deserializeAws_restJson1DeleteSafetyRuleCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.route53recoverycontrolconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53recoverycontrolconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.route53recoverycontrolconfig#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeClusterCommand = async (
+/**
+ * deserializeAws_restJson1DescribeClusterCommand
+ */
+export const de_DescribeClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeClusterCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeClusterCommandError(output, context);
+    return de_DescribeClusterCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Cluster != null) {
-    contents.Cluster = deserializeAws_restJson1Cluster(data.Cluster, context);
-  }
+  const doc = take(data, {
+    Cluster: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeClusterCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeClusterCommandError
+ */
+const de_DescribeClusterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeClusterCommandOutput> => {
@@ -1164,51 +1285,57 @@ const deserializeAws_restJson1DescribeClusterCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53recoverycontrolconfig#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.route53recoverycontrolconfig#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.route53recoverycontrolconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53recoverycontrolconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53recoverycontrolconfig#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.route53recoverycontrolconfig#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeControlPanelCommand = async (
+/**
+ * deserializeAws_restJson1DescribeControlPanelCommand
+ */
+export const de_DescribeControlPanelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeControlPanelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeControlPanelCommandError(output, context);
+    return de_DescribeControlPanelCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ControlPanel != null) {
-    contents.ControlPanel = deserializeAws_restJson1ControlPanel(data.ControlPanel, context);
-  }
+  const doc = take(data, {
+    ControlPanel: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeControlPanelCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeControlPanelCommandError
+ */
+const de_DescribeControlPanelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeControlPanelCommandOutput> => {
@@ -1220,51 +1347,57 @@ const deserializeAws_restJson1DescribeControlPanelCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53recoverycontrolconfig#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.route53recoverycontrolconfig#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.route53recoverycontrolconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53recoverycontrolconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53recoverycontrolconfig#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.route53recoverycontrolconfig#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeRoutingControlCommand = async (
+/**
+ * deserializeAws_restJson1DescribeRoutingControlCommand
+ */
+export const de_DescribeRoutingControlCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRoutingControlCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeRoutingControlCommandError(output, context);
+    return de_DescribeRoutingControlCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.RoutingControl != null) {
-    contents.RoutingControl = deserializeAws_restJson1RoutingControl(data.RoutingControl, context);
-  }
+  const doc = take(data, {
+    RoutingControl: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeRoutingControlCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeRoutingControlCommandError
+ */
+const de_DescribeRoutingControlCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRoutingControlCommandOutput> => {
@@ -1276,54 +1409,58 @@ const deserializeAws_restJson1DescribeRoutingControlCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53recoverycontrolconfig#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.route53recoverycontrolconfig#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.route53recoverycontrolconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53recoverycontrolconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53recoverycontrolconfig#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.route53recoverycontrolconfig#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeSafetyRuleCommand = async (
+/**
+ * deserializeAws_restJson1DescribeSafetyRuleCommand
+ */
+export const de_DescribeSafetyRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSafetyRuleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeSafetyRuleCommandError(output, context);
+    return de_DescribeSafetyRuleCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AssertionRule != null) {
-    contents.AssertionRule = deserializeAws_restJson1AssertionRule(data.AssertionRule, context);
-  }
-  if (data.GatingRule != null) {
-    contents.GatingRule = deserializeAws_restJson1GatingRule(data.GatingRule, context);
-  }
+  const doc = take(data, {
+    AssertionRule: _json,
+    GatingRule: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeSafetyRuleCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeSafetyRuleCommandError
+ */
+const de_DescribeSafetyRuleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSafetyRuleCommandOutput> => {
@@ -1335,42 +1472,46 @@ const deserializeAws_restJson1DescribeSafetyRuleCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.route53recoverycontrolconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.route53recoverycontrolconfig#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListAssociatedRoute53HealthChecksCommand = async (
+/**
+ * deserializeAws_restJson1ListAssociatedRoute53HealthChecksCommand
+ */
+export const de_ListAssociatedRoute53HealthChecksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAssociatedRoute53HealthChecksCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListAssociatedRoute53HealthChecksCommandError(output, context);
+    return de_ListAssociatedRoute53HealthChecksCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.HealthCheckIds != null) {
-    contents.HealthCheckIds = deserializeAws_restJson1__listOf__stringMax36PatternS(data.HealthCheckIds, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    HealthCheckIds: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListAssociatedRoute53HealthChecksCommandError = async (
+/**
+ * deserializeAws_restJson1ListAssociatedRoute53HealthChecksCommandError
+ */
+const de_ListAssociatedRoute53HealthChecksCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAssociatedRoute53HealthChecksCommandOutput> => {
@@ -1382,45 +1523,49 @@ const deserializeAws_restJson1ListAssociatedRoute53HealthChecksCommandError = as
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.route53recoverycontrolconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53recoverycontrolconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.route53recoverycontrolconfig#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListClustersCommand = async (
+/**
+ * deserializeAws_restJson1ListClustersCommand
+ */
+export const de_ListClustersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListClustersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListClustersCommandError(output, context);
+    return de_ListClustersCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Clusters != null) {
-    contents.Clusters = deserializeAws_restJson1__listOfCluster(data.Clusters, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Clusters: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListClustersCommandError = async (
+/**
+ * deserializeAws_restJson1ListClustersCommandError
+ */
+const de_ListClustersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListClustersCommandOutput> => {
@@ -1432,51 +1577,55 @@ const deserializeAws_restJson1ListClustersCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53recoverycontrolconfig#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.route53recoverycontrolconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53recoverycontrolconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53recoverycontrolconfig#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.route53recoverycontrolconfig#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListControlPanelsCommand = async (
+/**
+ * deserializeAws_restJson1ListControlPanelsCommand
+ */
+export const de_ListControlPanelsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListControlPanelsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListControlPanelsCommandError(output, context);
+    return de_ListControlPanelsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ControlPanels != null) {
-    contents.ControlPanels = deserializeAws_restJson1__listOfControlPanel(data.ControlPanels, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    ControlPanels: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListControlPanelsCommandError = async (
+/**
+ * deserializeAws_restJson1ListControlPanelsCommandError
+ */
+const de_ListControlPanelsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListControlPanelsCommandOutput> => {
@@ -1488,51 +1637,55 @@ const deserializeAws_restJson1ListControlPanelsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53recoverycontrolconfig#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.route53recoverycontrolconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53recoverycontrolconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53recoverycontrolconfig#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.route53recoverycontrolconfig#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListRoutingControlsCommand = async (
+/**
+ * deserializeAws_restJson1ListRoutingControlsCommand
+ */
+export const de_ListRoutingControlsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRoutingControlsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListRoutingControlsCommandError(output, context);
+    return de_ListRoutingControlsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.RoutingControls != null) {
-    contents.RoutingControls = deserializeAws_restJson1__listOfRoutingControl(data.RoutingControls, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    RoutingControls: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListRoutingControlsCommandError = async (
+/**
+ * deserializeAws_restJson1ListRoutingControlsCommandError
+ */
+const de_ListRoutingControlsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRoutingControlsCommandOutput> => {
@@ -1544,51 +1697,55 @@ const deserializeAws_restJson1ListRoutingControlsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53recoverycontrolconfig#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.route53recoverycontrolconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53recoverycontrolconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53recoverycontrolconfig#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.route53recoverycontrolconfig#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListSafetyRulesCommand = async (
+/**
+ * deserializeAws_restJson1ListSafetyRulesCommand
+ */
+export const de_ListSafetyRulesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSafetyRulesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListSafetyRulesCommandError(output, context);
+    return de_ListSafetyRulesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.SafetyRules != null) {
-    contents.SafetyRules = deserializeAws_restJson1__listOfRule(data.SafetyRules, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    SafetyRules: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListSafetyRulesCommandError = async (
+/**
+ * deserializeAws_restJson1ListSafetyRulesCommandError
+ */
+const de_ListSafetyRulesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSafetyRulesCommandOutput> => {
@@ -1600,48 +1757,54 @@ const deserializeAws_restJson1ListSafetyRulesCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53recoverycontrolconfig#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.route53recoverycontrolconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53recoverycontrolconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53recoverycontrolconfig#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.route53recoverycontrolconfig#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Tags != null) {
-    contents.Tags = deserializeAws_restJson1__mapOf__stringMin0Max256PatternS(data.Tags, context);
-  }
+  const doc = take(data, {
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -1653,30 +1816,32 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.route53recoverycontrolconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53recoverycontrolconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.route53recoverycontrolconfig#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1TagResourceCommand = async (
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1685,7 +1850,10 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1TagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -1697,30 +1865,32 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.route53recoverycontrolconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53recoverycontrolconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.route53recoverycontrolconfig#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UntagResourceCommand = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1729,7 +1899,10 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UntagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -1741,42 +1914,48 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.route53recoverycontrolconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53recoverycontrolconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.route53recoverycontrolconfig#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateControlPanelCommand = async (
+/**
+ * deserializeAws_restJson1UpdateControlPanelCommand
+ */
+export const de_UpdateControlPanelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateControlPanelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateControlPanelCommandError(output, context);
+    return de_UpdateControlPanelCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ControlPanel != null) {
-    contents.ControlPanel = deserializeAws_restJson1ControlPanel(data.ControlPanel, context);
-  }
+  const doc = take(data, {
+    ControlPanel: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateControlPanelCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateControlPanelCommandError
+ */
+const de_UpdateControlPanelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateControlPanelCommandOutput> => {
@@ -1788,51 +1967,57 @@ const deserializeAws_restJson1UpdateControlPanelCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53recoverycontrolconfig#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.route53recoverycontrolconfig#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.route53recoverycontrolconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53recoverycontrolconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53recoverycontrolconfig#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.route53recoverycontrolconfig#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateRoutingControlCommand = async (
+/**
+ * deserializeAws_restJson1UpdateRoutingControlCommand
+ */
+export const de_UpdateRoutingControlCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRoutingControlCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateRoutingControlCommandError(output, context);
+    return de_UpdateRoutingControlCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.RoutingControl != null) {
-    contents.RoutingControl = deserializeAws_restJson1RoutingControl(data.RoutingControl, context);
-  }
+  const doc = take(data, {
+    RoutingControl: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateRoutingControlCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateRoutingControlCommandError
+ */
+const de_UpdateRoutingControlCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRoutingControlCommandOutput> => {
@@ -1844,54 +2029,58 @@ const deserializeAws_restJson1UpdateRoutingControlCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.route53recoverycontrolconfig#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.route53recoverycontrolconfig#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.route53recoverycontrolconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53recoverycontrolconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53recoverycontrolconfig#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.route53recoverycontrolconfig#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateSafetyRuleCommand = async (
+/**
+ * deserializeAws_restJson1UpdateSafetyRuleCommand
+ */
+export const de_UpdateSafetyRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSafetyRuleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateSafetyRuleCommandError(output, context);
+    return de_UpdateSafetyRuleCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AssertionRule != null) {
-    contents.AssertionRule = deserializeAws_restJson1AssertionRule(data.AssertionRule, context);
-  }
-  if (data.GatingRule != null) {
-    contents.GatingRule = deserializeAws_restJson1GatingRule(data.GatingRule, context);
-  }
+  const doc = take(data, {
+    AssertionRule: _json,
+    GatingRule: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateSafetyRuleCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateSafetyRuleCommandError
+ */
+const de_UpdateSafetyRuleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSafetyRuleCommandOutput> => {
@@ -1903,34 +2092,37 @@ const deserializeAws_restJson1UpdateSafetyRuleCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.route53recoverycontrolconfig#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53recoverycontrolconfig#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.route53recoverycontrolconfig#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
-const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
+const throwDefaultError = withBaseException(__BaseException);
+/**
+ * deserializeAws_restJson1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1938,15 +2130,16 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
+/**
+ * deserializeAws_restJson1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1954,15 +2147,19 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InternalServerExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InternalServerExceptionRes
+ */
+const de_InternalServerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1970,15 +2167,19 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1986,15 +2187,19 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ServiceQuotaExceededExceptionRes
+ */
+const de_ServiceQuotaExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2002,15 +2207,16 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
+/**
+ * deserializeAws_restJson1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2018,15 +2224,16 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_restJson1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2034,268 +2241,51 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1__listOf__stringMin1Max256PatternAZaZ09 = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se___listOf__stringMin1Max256PatternAZaZ09 omitted.
 
-const serializeAws_restJson1__mapOf__stringMin0Max256PatternS = (
-  input: Record<string, string>,
-  context: __SerdeContext
-): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se___mapOf__stringMin0Max256PatternS omitted.
 
-const serializeAws_restJson1AssertionRuleUpdate = (input: AssertionRuleUpdate, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.SafetyRuleArn != null && { SafetyRuleArn: input.SafetyRuleArn }),
-    ...(input.WaitPeriodMs != null && { WaitPeriodMs: input.WaitPeriodMs }),
-  };
-};
+// se_AssertionRuleUpdate omitted.
 
-const serializeAws_restJson1GatingRuleUpdate = (input: GatingRuleUpdate, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.SafetyRuleArn != null && { SafetyRuleArn: input.SafetyRuleArn }),
-    ...(input.WaitPeriodMs != null && { WaitPeriodMs: input.WaitPeriodMs }),
-  };
-};
+// se_GatingRuleUpdate omitted.
 
-const serializeAws_restJson1NewAssertionRule = (input: NewAssertionRule, context: __SerdeContext): any => {
-  return {
-    ...(input.AssertedControls != null && {
-      AssertedControls: serializeAws_restJson1__listOf__stringMin1Max256PatternAZaZ09(input.AssertedControls, context),
-    }),
-    ...(input.ControlPanelArn != null && { ControlPanelArn: input.ControlPanelArn }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.RuleConfig != null && { RuleConfig: serializeAws_restJson1RuleConfig(input.RuleConfig, context) }),
-    ...(input.WaitPeriodMs != null && { WaitPeriodMs: input.WaitPeriodMs }),
-  };
-};
+// se_NewAssertionRule omitted.
 
-const serializeAws_restJson1NewGatingRule = (input: NewGatingRule, context: __SerdeContext): any => {
-  return {
-    ...(input.ControlPanelArn != null && { ControlPanelArn: input.ControlPanelArn }),
-    ...(input.GatingControls != null && {
-      GatingControls: serializeAws_restJson1__listOf__stringMin1Max256PatternAZaZ09(input.GatingControls, context),
-    }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.RuleConfig != null && { RuleConfig: serializeAws_restJson1RuleConfig(input.RuleConfig, context) }),
-    ...(input.TargetControls != null && {
-      TargetControls: serializeAws_restJson1__listOf__stringMin1Max256PatternAZaZ09(input.TargetControls, context),
-    }),
-    ...(input.WaitPeriodMs != null && { WaitPeriodMs: input.WaitPeriodMs }),
-  };
-};
+// se_NewGatingRule omitted.
 
-const serializeAws_restJson1RuleConfig = (input: RuleConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.Inverted != null && { Inverted: input.Inverted }),
-    ...(input.Threshold != null && { Threshold: input.Threshold }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_RuleConfig omitted.
 
-const deserializeAws_restJson1__listOf__stringMax36PatternS = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de___listOf__stringMax36PatternS omitted.
 
-const deserializeAws_restJson1__listOf__stringMin1Max256PatternAZaZ09 = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de___listOf__stringMin1Max256PatternAZaZ09 omitted.
 
-const deserializeAws_restJson1__listOfCluster = (output: any, context: __SerdeContext): Cluster[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Cluster(entry, context);
-    });
-  return retVal;
-};
+// de___listOfCluster omitted.
 
-const deserializeAws_restJson1__listOfClusterEndpoint = (output: any, context: __SerdeContext): ClusterEndpoint[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ClusterEndpoint(entry, context);
-    });
-  return retVal;
-};
+// de___listOfClusterEndpoint omitted.
 
-const deserializeAws_restJson1__listOfControlPanel = (output: any, context: __SerdeContext): ControlPanel[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ControlPanel(entry, context);
-    });
-  return retVal;
-};
+// de___listOfControlPanel omitted.
 
-const deserializeAws_restJson1__listOfRoutingControl = (output: any, context: __SerdeContext): RoutingControl[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1RoutingControl(entry, context);
-    });
-  return retVal;
-};
+// de___listOfRoutingControl omitted.
 
-const deserializeAws_restJson1__listOfRule = (output: any, context: __SerdeContext): Rule[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Rule(entry, context);
-    });
-  return retVal;
-};
+// de___listOfRule omitted.
 
-const deserializeAws_restJson1__mapOf__stringMin0Max256PatternS = (
-  output: any,
-  context: __SerdeContext
-): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de___mapOf__stringMin0Max256PatternS omitted.
 
-const deserializeAws_restJson1AssertionRule = (output: any, context: __SerdeContext): AssertionRule => {
-  return {
-    AssertedControls:
-      output.AssertedControls != null
-        ? deserializeAws_restJson1__listOf__stringMin1Max256PatternAZaZ09(output.AssertedControls, context)
-        : undefined,
-    ControlPanelArn: __expectString(output.ControlPanelArn),
-    Name: __expectString(output.Name),
-    RuleConfig: output.RuleConfig != null ? deserializeAws_restJson1RuleConfig(output.RuleConfig, context) : undefined,
-    SafetyRuleArn: __expectString(output.SafetyRuleArn),
-    Status: __expectString(output.Status),
-    WaitPeriodMs: __expectInt32(output.WaitPeriodMs),
-  } as any;
-};
+// de_AssertionRule omitted.
 
-const deserializeAws_restJson1Cluster = (output: any, context: __SerdeContext): Cluster => {
-  return {
-    ClusterArn: __expectString(output.ClusterArn),
-    ClusterEndpoints:
-      output.ClusterEndpoints != null
-        ? deserializeAws_restJson1__listOfClusterEndpoint(output.ClusterEndpoints, context)
-        : undefined,
-    Name: __expectString(output.Name),
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_Cluster omitted.
 
-const deserializeAws_restJson1ClusterEndpoint = (output: any, context: __SerdeContext): ClusterEndpoint => {
-  return {
-    Endpoint: __expectString(output.Endpoint),
-    Region: __expectString(output.Region),
-  } as any;
-};
+// de_ClusterEndpoint omitted.
 
-const deserializeAws_restJson1ControlPanel = (output: any, context: __SerdeContext): ControlPanel => {
-  return {
-    ClusterArn: __expectString(output.ClusterArn),
-    ControlPanelArn: __expectString(output.ControlPanelArn),
-    DefaultControlPanel: __expectBoolean(output.DefaultControlPanel),
-    Name: __expectString(output.Name),
-    RoutingControlCount: __expectInt32(output.RoutingControlCount),
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_ControlPanel omitted.
 
-const deserializeAws_restJson1GatingRule = (output: any, context: __SerdeContext): GatingRule => {
-  return {
-    ControlPanelArn: __expectString(output.ControlPanelArn),
-    GatingControls:
-      output.GatingControls != null
-        ? deserializeAws_restJson1__listOf__stringMin1Max256PatternAZaZ09(output.GatingControls, context)
-        : undefined,
-    Name: __expectString(output.Name),
-    RuleConfig: output.RuleConfig != null ? deserializeAws_restJson1RuleConfig(output.RuleConfig, context) : undefined,
-    SafetyRuleArn: __expectString(output.SafetyRuleArn),
-    Status: __expectString(output.Status),
-    TargetControls:
-      output.TargetControls != null
-        ? deserializeAws_restJson1__listOf__stringMin1Max256PatternAZaZ09(output.TargetControls, context)
-        : undefined,
-    WaitPeriodMs: __expectInt32(output.WaitPeriodMs),
-  } as any;
-};
+// de_GatingRule omitted.
 
-const deserializeAws_restJson1RoutingControl = (output: any, context: __SerdeContext): RoutingControl => {
-  return {
-    ControlPanelArn: __expectString(output.ControlPanelArn),
-    Name: __expectString(output.Name),
-    RoutingControlArn: __expectString(output.RoutingControlArn),
-    Status: __expectString(output.Status),
-  } as any;
-};
+// de_RoutingControl omitted.
 
-const deserializeAws_restJson1Rule = (output: any, context: __SerdeContext): Rule => {
-  return {
-    ASSERTION: output.ASSERTION != null ? deserializeAws_restJson1AssertionRule(output.ASSERTION, context) : undefined,
-    GATING: output.GATING != null ? deserializeAws_restJson1GatingRule(output.GATING, context) : undefined,
-  } as any;
-};
+// de_Rule omitted.
 
-const deserializeAws_restJson1RuleConfig = (output: any, context: __SerdeContext): RuleConfig => {
-  return {
-    Inverted: __expectBoolean(output.Inverted),
-    Threshold: __expectInt32(output.Threshold),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_RuleConfig omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

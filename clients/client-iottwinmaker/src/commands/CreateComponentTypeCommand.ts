@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
-import {
-  CreateComponentTypeRequest,
-  CreateComponentTypeRequestFilterSensitiveLog,
-  CreateComponentTypeResponse,
-  CreateComponentTypeResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateComponentTypeCommand,
-  serializeAws_restJson1CreateComponentTypeCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateComponentTypeRequest, CreateComponentTypeResponse } from "../models/models_0";
+import { de_CreateComponentTypeCommand, se_CreateComponentTypeCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateComponentTypeCommand}.
+ */
 export interface CreateComponentTypeCommandInput extends CreateComponentTypeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateComponentTypeCommand}.
+ */
 export interface CreateComponentTypeCommandOutput extends CreateComponentTypeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a component type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,135 @@ export interface CreateComponentTypeCommandOutput extends CreateComponentTypeRes
  * import { IoTTwinMakerClient, CreateComponentTypeCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, CreateComponentTypeCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
+ * const input = { // CreateComponentTypeRequest
+ *   workspaceId: "STRING_VALUE", // required
+ *   isSingleton: true || false,
+ *   componentTypeId: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   propertyDefinitions: { // PropertyDefinitionsRequest
+ *     "<keys>": { // PropertyDefinitionRequest
+ *       dataType: { // DataType
+ *         type: "STRING_VALUE", // required
+ *         nestedType: {
+ *           type: "STRING_VALUE", // required
+ *           nestedType: "<DataType>",
+ *           allowedValues: [ // DataValueList
+ *             { // DataValue
+ *               booleanValue: true || false,
+ *               doubleValue: Number("double"),
+ *               integerValue: Number("int"),
+ *               longValue: Number("long"),
+ *               stringValue: "STRING_VALUE",
+ *               listValue: [
+ *                 {
+ *                   booleanValue: true || false,
+ *                   doubleValue: Number("double"),
+ *                   integerValue: Number("int"),
+ *                   longValue: Number("long"),
+ *                   stringValue: "STRING_VALUE",
+ *                   listValue: "<DataValueList>",
+ *                   mapValue: { // DataValueMap
+ *                     "<keys>": "<DataValue>",
+ *                   },
+ *                   relationshipValue: { // RelationshipValue
+ *                     targetEntityId: "STRING_VALUE",
+ *                     targetComponentName: "STRING_VALUE",
+ *                   },
+ *                   expression: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               mapValue: {
+ *                 "<keys>": "<DataValue>",
+ *               },
+ *               relationshipValue: {
+ *                 targetEntityId: "STRING_VALUE",
+ *                 targetComponentName: "STRING_VALUE",
+ *               },
+ *               expression: "STRING_VALUE",
+ *             },
+ *           ],
+ *           unitOfMeasure: "STRING_VALUE",
+ *           relationship: { // Relationship
+ *             targetComponentTypeId: "STRING_VALUE",
+ *             relationshipType: "STRING_VALUE",
+ *           },
+ *         },
+ *         allowedValues: "<DataValueList>",
+ *         unitOfMeasure: "STRING_VALUE",
+ *         relationship: {
+ *           targetComponentTypeId: "STRING_VALUE",
+ *           relationshipType: "STRING_VALUE",
+ *         },
+ *       },
+ *       isRequiredInEntity: true || false,
+ *       isExternalId: true || false,
+ *       isStoredExternally: true || false,
+ *       isTimeSeries: true || false,
+ *       defaultValue: "<DataValue>",
+ *       configuration: { // Configuration
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       displayName: "STRING_VALUE",
+ *     },
+ *   },
+ *   extendsFrom: [ // ExtendsFrom
+ *     "STRING_VALUE",
+ *   ],
+ *   functions: { // FunctionsRequest
+ *     "<keys>": { // FunctionRequest
+ *       requiredProperties: [ // RequiredProperties
+ *         "STRING_VALUE",
+ *       ],
+ *       scope: "STRING_VALUE",
+ *       implementedBy: { // DataConnector
+ *         lambda: { // LambdaFunction
+ *           arn: "STRING_VALUE", // required
+ *         },
+ *         isNative: true || false,
+ *       },
+ *     },
+ *   },
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   propertyGroups: { // PropertyGroupsRequest
+ *     "<keys>": { // PropertyGroupRequest
+ *       groupType: "STRING_VALUE",
+ *       propertyNames: [ // PropertyNames
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ *   componentTypeName: "STRING_VALUE",
+ * };
  * const command = new CreateComponentTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateComponentTypeCommandInput - {@link CreateComponentTypeCommandInput}
+ * @returns {@link CreateComponentTypeCommandOutput}
  * @see {@link CreateComponentTypeCommandInput} for command's `input` shape.
  * @see {@link CreateComponentTypeCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access is denied.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>A conflict occurred.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The service quota was exceeded.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Failed</p>
+ *
  *
  */
 export class CreateComponentTypeCommand extends $Command<
@@ -62,6 +187,9 @@ export class CreateComponentTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateComponentTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +218,8 @@ export class CreateComponentTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateComponentTypeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateComponentTypeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +229,18 @@ export class CreateComponentTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateComponentTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateComponentTypeCommand(input, context);
+    return se_CreateComponentTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateComponentTypeCommandOutput> {
-    return deserializeAws_restJson1CreateComponentTypeCommand(output, context);
+    return de_CreateComponentTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

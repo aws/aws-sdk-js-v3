@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  BatchGetBlueprintsRequest,
-  BatchGetBlueprintsRequestFilterSensitiveLog,
-  BatchGetBlueprintsResponse,
-  BatchGetBlueprintsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchGetBlueprintsCommand,
-  serializeAws_json1_1BatchGetBlueprintsCommand,
-} from "../protocols/Aws_json1_1";
+import { BatchGetBlueprintsRequest, BatchGetBlueprintsResponse } from "../models/models_0";
+import { de_BatchGetBlueprintsCommand, se_BatchGetBlueprintsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchGetBlueprintsCommand}.
+ */
 export interface BatchGetBlueprintsCommandInput extends BatchGetBlueprintsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link BatchGetBlueprintsCommand}.
+ */
 export interface BatchGetBlueprintsCommandOutput extends BatchGetBlueprintsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about a list of blueprints.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,32 @@ export interface BatchGetBlueprintsCommandOutput extends BatchGetBlueprintsRespo
  * import { GlueClient, BatchGetBlueprintsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, BatchGetBlueprintsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // BatchGetBlueprintsRequest
+ *   Names: [ // BatchGetBlueprintNames // required
+ *     "STRING_VALUE",
+ *   ],
+ *   IncludeBlueprint: true || false,
+ *   IncludeParameterSpec: true || false,
+ * };
  * const command = new BatchGetBlueprintsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetBlueprintsCommandInput - {@link BatchGetBlueprintsCommandInput}
+ * @returns {@link BatchGetBlueprintsCommandOutput}
  * @see {@link BatchGetBlueprintsCommandInput} for command's `input` shape.
  * @see {@link BatchGetBlueprintsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class BatchGetBlueprintsCommand extends $Command<
@@ -62,6 +84,9 @@ export class BatchGetBlueprintsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetBlueprintsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +115,8 @@ export class BatchGetBlueprintsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetBlueprintsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetBlueprintsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +126,18 @@ export class BatchGetBlueprintsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetBlueprintsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchGetBlueprintsCommand(input, context);
+    return se_BatchGetBlueprintsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetBlueprintsCommandOutput> {
-    return deserializeAws_json1_1BatchGetBlueprintsCommand(output, context);
+    return de_BatchGetBlueprintsCommand(output, context);
   }
 
   // Start section: command_body_extra

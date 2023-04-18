@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListImportsCommand, ListImportsCommandInput, ListImportsCommandOutput } from "../commands/ListImportsCommand";
-import { DynamoDB } from "../DynamoDB";
 import { DynamoDBClient } from "../DynamoDBClient";
 import { DynamoDBPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DynamoDBClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListImportsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: DynamoDB,
-  input: ListImportsCommandInput,
-  ...args: any
-): Promise<ListImportsCommandOutput> => {
-  // @ts-ignore
-  return await client.listImports(input, ...args);
-};
 export async function* paginateListImports(
   config: DynamoDBPaginationConfiguration,
   input: ListImportsCommandInput,
@@ -40,9 +31,7 @@ export async function* paginateListImports(
   while (hasNext) {
     input.NextToken = token;
     input["PageSize"] = config.pageSize;
-    if (config.client instanceof DynamoDB) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DynamoDBClient) {
+    if (config.client instanceof DynamoDBClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected DynamoDB | DynamoDBClient");

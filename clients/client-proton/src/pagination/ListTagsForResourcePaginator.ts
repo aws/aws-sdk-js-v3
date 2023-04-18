@@ -6,12 +6,11 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
-import { Proton } from "../Proton";
 import { ProtonClient } from "../ProtonClient";
 import { ProtonPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ProtonClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListTagsForResourceCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Proton,
-  input: ListTagsForResourceCommandInput,
-  ...args: any
-): Promise<ListTagsForResourceCommandOutput> => {
-  // @ts-ignore
-  return await client.listTagsForResource(input, ...args);
-};
 export async function* paginateListTagsForResource(
   config: ProtonPaginationConfiguration,
   input: ListTagsForResourceCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListTagsForResource(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Proton) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ProtonClient) {
+    if (config.client instanceof ProtonClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Proton | ProtonClient");

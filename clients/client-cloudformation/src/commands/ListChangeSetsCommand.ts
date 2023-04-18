@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  ListChangeSetsInput,
-  ListChangeSetsInputFilterSensitiveLog,
-  ListChangeSetsOutput,
-  ListChangeSetsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryListChangeSetsCommand,
-  serializeAws_queryListChangeSetsCommand,
-} from "../protocols/Aws_query";
+import { ListChangeSetsInput, ListChangeSetsOutput } from "../models/models_0";
+import { de_ListChangeSetsCommand, se_ListChangeSetsCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link ListChangeSetsCommand}.
+ */
 export interface ListChangeSetsCommandInput extends ListChangeSetsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListChangeSetsCommand}.
+ */
 export interface ListChangeSetsCommandOutput extends ListChangeSetsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the ID and status of each active change set for a stack. For example, CloudFormation lists change sets that are in the <code>CREATE_IN_PROGRESS</code> or
  *             <code>CREATE_PENDING</code> state.</p>
  * @example
@@ -37,13 +40,20 @@ export interface ListChangeSetsCommandOutput extends ListChangeSetsOutput, __Met
  * import { CloudFormationClient, ListChangeSetsCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, ListChangeSetsCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // ListChangeSetsInput
+ *   StackName: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListChangeSetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListChangeSetsCommandInput - {@link ListChangeSetsCommandInput}
+ * @returns {@link ListChangeSetsCommandOutput}
  * @see {@link ListChangeSetsCommandInput} for command's `input` shape.
  * @see {@link ListChangeSetsCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
+ *
  *
  */
 export class ListChangeSetsCommand extends $Command<
@@ -63,6 +73,9 @@ export class ListChangeSetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListChangeSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +104,8 @@ export class ListChangeSetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListChangeSetsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListChangeSetsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +115,18 @@ export class ListChangeSetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListChangeSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListChangeSetsCommand(input, context);
+    return se_ListChangeSetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListChangeSetsCommandOutput> {
-    return deserializeAws_queryListChangeSetsCommand(output, context);
+    return de_ListChangeSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

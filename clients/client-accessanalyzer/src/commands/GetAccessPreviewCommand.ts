@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
-import {
-  GetAccessPreviewRequest,
-  GetAccessPreviewRequestFilterSensitiveLog,
-  GetAccessPreviewResponse,
-  GetAccessPreviewResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAccessPreviewCommand,
-  serializeAws_restJson1GetAccessPreviewCommand,
-} from "../protocols/Aws_restJson1";
+import { GetAccessPreviewRequest, GetAccessPreviewResponse } from "../models/models_0";
+import { de_GetAccessPreviewCommand, se_GetAccessPreviewCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetAccessPreviewCommand}.
+ */
 export interface GetAccessPreviewCommandInput extends GetAccessPreviewRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetAccessPreviewCommand}.
+ */
 export interface GetAccessPreviewCommandOutput extends GetAccessPreviewResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about an access preview for the specified analyzer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,35 @@ export interface GetAccessPreviewCommandOutput extends GetAccessPreviewResponse,
  * import { AccessAnalyzerClient, GetAccessPreviewCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, GetAccessPreviewCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
+ * const input = { // GetAccessPreviewRequest
+ *   accessPreviewId: "STRING_VALUE", // required
+ *   analyzerArn: "STRING_VALUE", // required
+ * };
  * const command = new GetAccessPreviewCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccessPreviewCommandInput - {@link GetAccessPreviewCommandInput}
+ * @returns {@link GetAccessPreviewCommandOutput}
  * @see {@link GetAccessPreviewCommandInput} for command's `input` shape.
  * @see {@link GetAccessPreviewCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Internal server error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Throttling limit exceeded error.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Validation exception error.</p>
+ *
  *
  */
 export class GetAccessPreviewCommand extends $Command<
@@ -62,6 +87,9 @@ export class GetAccessPreviewCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccessPreviewCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +118,8 @@ export class GetAccessPreviewCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAccessPreviewRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAccessPreviewResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +129,18 @@ export class GetAccessPreviewCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAccessPreviewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAccessPreviewCommand(input, context);
+    return se_GetAccessPreviewCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccessPreviewCommandOutput> {
-    return deserializeAws_restJson1GetAccessPreviewCommand(output, context);
+    return de_GetAccessPreviewCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient";
-import {
-  ListProblemsRequest,
-  ListProblemsRequestFilterSensitiveLog,
-  ListProblemsResponse,
-  ListProblemsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListProblemsCommand,
-  serializeAws_json1_1ListProblemsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListProblemsRequest, ListProblemsResponse } from "../models/models_0";
+import { de_ListProblemsCommand, se_ListProblemsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListProblemsCommand}.
+ */
 export interface ListProblemsCommandInput extends ListProblemsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListProblemsCommand}.
+ */
 export interface ListProblemsCommandOutput extends ListProblemsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the problems with your application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,33 @@ export interface ListProblemsCommandOutput extends ListProblemsResponse, __Metad
  * import { ApplicationInsightsClient, ListProblemsCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
  * // const { ApplicationInsightsClient, ListProblemsCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
+ * const input = { // ListProblemsRequest
+ *   ResourceGroupName: "STRING_VALUE",
+ *   StartTime: new Date("TIMESTAMP"),
+ *   EndTime: new Date("TIMESTAMP"),
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   ComponentName: "STRING_VALUE",
+ * };
  * const command = new ListProblemsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProblemsCommandInput - {@link ListProblemsCommandInput}
+ * @returns {@link ListProblemsCommandOutput}
  * @see {@link ListProblemsCommandInput} for command's `input` shape.
  * @see {@link ListProblemsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The server encountered an internal error and is unable to complete the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource does not exist in the customer account.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The parameter is not valid.</p>
+ *
  *
  */
 export class ListProblemsCommand extends $Command<
@@ -66,6 +89,9 @@ export class ListProblemsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProblemsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +118,8 @@ export class ListProblemsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListProblemsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListProblemsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +129,18 @@ export class ListProblemsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListProblemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListProblemsCommand(input, context);
+    return se_ListProblemsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProblemsCommandOutput> {
-    return deserializeAws_json1_1ListProblemsCommand(output, context);
+    return de_ListProblemsCommand(output, context);
   }
 
   // Start section: command_body_extra

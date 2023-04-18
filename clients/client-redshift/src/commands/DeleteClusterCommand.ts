@@ -13,35 +13,38 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteClusterMessage,
-  DeleteClusterMessageFilterSensitiveLog,
-  DeleteClusterResult,
-  DeleteClusterResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteClusterCommand,
-  serializeAws_queryDeleteClusterCommand,
-} from "../protocols/Aws_query";
+import { DeleteClusterMessage, DeleteClusterResult } from "../models/models_0";
+import { de_DeleteClusterCommand, se_DeleteClusterCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteClusterCommand}.
+ */
 export interface DeleteClusterCommandInput extends DeleteClusterMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteClusterCommand}.
+ */
 export interface DeleteClusterCommandOutput extends DeleteClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a previously provisioned cluster without its final snapshot being created. A successful response from the web
  *             service indicates that the request was received correctly. Use <a>DescribeClusters</a> to monitor the status of the deletion. The delete
  *             operation cannot be canceled or reverted once submitted.
  * For more information about managing clusters, go to
  * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a>
  * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
- *         <p>If you want to shut down the cluster and retain it for future use, set
+ *          <p>If you want to shut down the cluster and retain it for future use, set
  *                 <i>SkipFinalClusterSnapshot</i> to <code>false</code> and specify a
  *             name for <i>FinalClusterSnapshotIdentifier</i>. You can later restore this
  *             snapshot to resume using the cluster. If a final cluster snapshot is requested, the
  *             status of the cluster will be "final-snapshot" while the snapshot is being taken, then
  *             it's "deleting" once Amazon Redshift begins deleting the cluster. </p>
- *         <p>
+ *          <p>
  * For more information about managing clusters, go to
  * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a>
  * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
@@ -51,13 +54,41 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResult, __Metad
  * import { RedshiftClient, DeleteClusterCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DeleteClusterCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DeleteClusterMessage
+ *   ClusterIdentifier: "STRING_VALUE", // required
+ *   SkipFinalClusterSnapshot: true || false,
+ *   FinalClusterSnapshotIdentifier: "STRING_VALUE",
+ *   FinalClusterSnapshotRetentionPeriod: Number("int"),
+ * };
  * const command = new DeleteClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteClusterCommandInput - {@link DeleteClusterCommandInput}
+ * @returns {@link DeleteClusterCommandOutput}
  * @see {@link DeleteClusterCommandInput} for command's `input` shape.
  * @see {@link DeleteClusterCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
+ *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+ *         </p>
+ *
+ * @throws {@link ClusterSnapshotAlreadyExistsFault} (client fault)
+ *  <p>The value specified as a snapshot identifier is already used by an existing
+ *             snapshot.</p>
+ *
+ * @throws {@link ClusterSnapshotQuotaExceededFault} (client fault)
+ *  <p>The request would result in the user exceeding the allowed number of cluster
+ *             snapshots.</p>
+ *
+ * @throws {@link InvalidClusterStateFault} (client fault)
+ *  <p>The specified cluster is not in the <code>available</code> state. </p>
+ *
+ * @throws {@link InvalidRetentionPeriodFault} (client fault)
+ *  <p>The retention period specified is either in the past or is not a valid value.</p>
+ *          <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+ *
  *
  */
 export class DeleteClusterCommand extends $Command<
@@ -77,6 +108,9 @@ export class DeleteClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +137,8 @@ export class DeleteClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +148,18 @@ export class DeleteClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteClusterCommand(input, context);
+    return se_DeleteClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteClusterCommandOutput> {
-    return deserializeAws_queryDeleteClusterCommand(output, context);
+    return de_DeleteClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

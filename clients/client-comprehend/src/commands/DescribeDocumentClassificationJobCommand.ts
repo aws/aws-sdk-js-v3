@@ -16,21 +16,30 @@ import {
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import {
   DescribeDocumentClassificationJobRequest,
-  DescribeDocumentClassificationJobRequestFilterSensitiveLog,
   DescribeDocumentClassificationJobResponse,
-  DescribeDocumentClassificationJobResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeDocumentClassificationJobCommand,
-  serializeAws_json1_1DescribeDocumentClassificationJobCommand,
+  de_DescribeDocumentClassificationJobCommand,
+  se_DescribeDocumentClassificationJobCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeDocumentClassificationJobCommand}.
+ */
 export interface DescribeDocumentClassificationJobCommandInput extends DescribeDocumentClassificationJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeDocumentClassificationJobCommand}.
+ */
 export interface DescribeDocumentClassificationJobCommandOutput
   extends DescribeDocumentClassificationJobResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the properties associated with a document classification job. Use this operation to
  *       get the status of a classification job.</p>
  * @example
@@ -39,13 +48,31 @@ export interface DescribeDocumentClassificationJobCommandOutput
  * import { ComprehendClient, DescribeDocumentClassificationJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DescribeDocumentClassificationJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // DescribeDocumentClassificationJobRequest
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeDocumentClassificationJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDocumentClassificationJobCommandInput - {@link DescribeDocumentClassificationJobCommandInput}
+ * @returns {@link DescribeDocumentClassificationJobCommandOutput}
  * @see {@link DescribeDocumentClassificationJobCommandInput} for command's `input` shape.
  * @see {@link DescribeDocumentClassificationJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid.</p>
+ *
+ * @throws {@link JobNotFoundException} (client fault)
+ *  <p>The specified job was not found. Check the job ID and try again.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ *
  *
  */
 export class DescribeDocumentClassificationJobCommand extends $Command<
@@ -65,6 +92,9 @@ export class DescribeDocumentClassificationJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDocumentClassificationJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +123,8 @@ export class DescribeDocumentClassificationJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDocumentClassificationJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDocumentClassificationJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,18 +134,24 @@ export class DescribeDocumentClassificationJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeDocumentClassificationJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDocumentClassificationJobCommand(input, context);
+    return se_DescribeDocumentClassificationJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDocumentClassificationJobCommandOutput> {
-    return deserializeAws_json1_1DescribeDocumentClassificationJobCommand(output, context);
+    return de_DescribeDocumentClassificationJobCommand(output, context);
   }
 
   // Start section: command_body_extra

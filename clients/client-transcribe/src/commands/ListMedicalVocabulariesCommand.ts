@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListMedicalVocabulariesRequest,
-  ListMedicalVocabulariesRequestFilterSensitiveLog,
-  ListMedicalVocabulariesResponse,
-  ListMedicalVocabulariesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListMedicalVocabulariesCommand,
-  serializeAws_json1_1ListMedicalVocabulariesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListMedicalVocabulariesRequest, ListMedicalVocabulariesResponse } from "../models/models_0";
+import { de_ListMedicalVocabulariesCommand, se_ListMedicalVocabulariesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListMedicalVocabulariesCommand}.
+ */
 export interface ListMedicalVocabulariesCommandInput extends ListMedicalVocabulariesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListMedicalVocabulariesCommand}.
+ */
 export interface ListMedicalVocabulariesCommandOutput extends ListMedicalVocabulariesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a list of custom medical vocabularies that match the specified criteria. If
  *             no criteria are specified, all custom medical vocabularies are returned.</p>
  *          <p>To get detailed information about a specific custom medical vocabulary, use the  operation.</p>
@@ -38,13 +41,36 @@ export interface ListMedicalVocabulariesCommandOutput extends ListMedicalVocabul
  * import { TranscribeClient, ListMedicalVocabulariesCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, ListMedicalVocabulariesCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
+ * const input = { // ListMedicalVocabulariesRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   StateEquals: "PENDING" || "READY" || "FAILED",
+ *   NameContains: "STRING_VALUE",
+ * };
  * const command = new ListMedicalVocabulariesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMedicalVocabulariesCommandInput - {@link ListMedicalVocabulariesCommandInput}
+ * @returns {@link ListMedicalVocabulariesCommandOutput}
  * @see {@link ListMedicalVocabulariesCommandInput} for command's `input` shape.
  * @see {@link ListMedicalVocabulariesCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>Your request didn't pass one or more validation tests. This can occur when the entity
+ *             you're trying to delete doesn't exist or if it's in a non-terminal state (such as
+ *                 <code>IN PROGRESS</code>). See the exception message field for more
+ *             information.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>There was an internal error. Check the error message, correct the issue, and try your
+ *             request again.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You've either sent too many requests or your input file is too long. Wait before
+ *             retrying your request, or use a smaller file and try your request again.</p>
+ *
  *
  */
 export class ListMedicalVocabulariesCommand extends $Command<
@@ -64,6 +90,9 @@ export class ListMedicalVocabulariesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMedicalVocabulariesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +121,8 @@ export class ListMedicalVocabulariesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMedicalVocabulariesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMedicalVocabulariesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +132,18 @@ export class ListMedicalVocabulariesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMedicalVocabulariesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListMedicalVocabulariesCommand(input, context);
+    return se_ListMedicalVocabulariesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMedicalVocabulariesCommandOutput> {
-    return deserializeAws_json1_1ListMedicalVocabulariesCommand(output, context);
+    return de_ListMedicalVocabulariesCommand(output, context);
   }
 
   // Start section: command_body_extra

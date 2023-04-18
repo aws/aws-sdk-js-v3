@@ -22,6 +22,16 @@ import {
   BatchEnableStandardsCommandOutput,
 } from "./commands/BatchEnableStandardsCommand";
 import {
+  BatchGetSecurityControlsCommand,
+  BatchGetSecurityControlsCommandInput,
+  BatchGetSecurityControlsCommandOutput,
+} from "./commands/BatchGetSecurityControlsCommand";
+import {
+  BatchGetStandardsControlAssociationsCommand,
+  BatchGetStandardsControlAssociationsCommandInput,
+  BatchGetStandardsControlAssociationsCommandOutput,
+} from "./commands/BatchGetStandardsControlAssociationsCommand";
+import {
   BatchImportFindingsCommand,
   BatchImportFindingsCommandInput,
   BatchImportFindingsCommandOutput,
@@ -31,6 +41,11 @@ import {
   BatchUpdateFindingsCommandInput,
   BatchUpdateFindingsCommandOutput,
 } from "./commands/BatchUpdateFindingsCommand";
+import {
+  BatchUpdateStandardsControlAssociationsCommand,
+  BatchUpdateStandardsControlAssociationsCommandInput,
+  BatchUpdateStandardsControlAssociationsCommandOutput,
+} from "./commands/BatchUpdateStandardsControlAssociationsCommand";
 import {
   CreateActionTargetCommand,
   CreateActionTargetCommandInput,
@@ -212,6 +227,16 @@ import {
   ListOrganizationAdminAccountsCommandOutput,
 } from "./commands/ListOrganizationAdminAccountsCommand";
 import {
+  ListSecurityControlDefinitionsCommand,
+  ListSecurityControlDefinitionsCommandInput,
+  ListSecurityControlDefinitionsCommandOutput,
+} from "./commands/ListSecurityControlDefinitionsCommand";
+import {
+  ListStandardsControlAssociationsCommand,
+  ListStandardsControlAssociationsCommandInput,
+  ListStandardsControlAssociationsCommandOutput,
+} from "./commands/ListStandardsControlAssociationsCommand";
+import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -260,19 +285,17 @@ import {
 import { SecurityHubClient } from "./SecurityHubClient";
 
 /**
- * <p>Security Hub provides you with a comprehensive view of the security state of your Amazon Web Services environment and resources. It also provides you with the readiness status
- *          of your environment based on controls from supported security standards. Security Hub collects
- *          security data from Amazon Web Services accounts, services, and integrated third-party products and helps
- *          you analyze security trends in your environment to identify the highest priority security
- *          issues. For more information about Security Hub, see the <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html">
- *                <i>Security HubUser
- *             Guide</i>
- *             </a>.</p>
- *          <p>When you use operations in the Security Hub API, the requests are executed only in the Amazon Web Services
- *          Region that is currently active or in the specific Amazon Web Services Region that you specify in your
- *          request. Any configuration or settings change that results from the operation is applied
- *          only to that Region. To make the same change in other Regions, execute the same command for
- *          each Region to apply the change to.</p>
+ * @public
+ * <p>Security Hub provides you with a comprehensive view of the security state of
+ *          your Amazon Web Services environment and resources. It also provides you with the readiness
+ *          status of your environment based on controls from supported security standards. Security Hub collects security data from Amazon Web Services accounts, services, and
+ *          integrated third-party products and helps you analyze security trends in your environment
+ *          to identify the highest priority security issues. For more information about Security Hub, see the <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html">Security HubUser
+ *             Guide</a>.</p>
+ *          <p>When you use operations in the Security Hub API, the requests are executed only in
+ *          the Amazon Web Services Region that is currently active or in the specific Amazon Web Services Region that you specify in your request. Any configuration or settings change
+ *          that results from the operation is applied only to that Region. To make the same change in
+ *          other Regions, run the same command for each Region in which you want to apply the change.</p>
  *          <p>For example, if your Region is set to <code>us-west-2</code>, when you use <code>CreateMembers</code> to add a member account to Security Hub, the association of
  *          the member account with the administrator account is created only in the <code>us-west-2</code>
  *          Region. Security Hub must be enabled for the member account in the same Region that the invitation
@@ -281,8 +304,8 @@ import { SecurityHubClient } from "./SecurityHubClient";
  *          <ul>
  *             <li>
  *                <p>
- *                   <code>BatchEnableStandards</code> - <code>RateLimit</code> of 1
- *                request per second, <code>BurstLimit</code> of 1 request per second.</p>
+ *                   <code>BatchEnableStandards</code> - <code>RateLimit</code> of 1 request per
+ *                second. <code>BurstLimit</code> of 1 request per second.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -301,8 +324,8 @@ import { SecurityHubClient } from "./SecurityHubClient";
  *             </li>
  *             <li>
  *                <p>
- *                   <code>UpdateStandardsControl</code> - <code>RateLimit</code> of
- *                1 request per second, <code>BurstLimit</code> of 5 requests per second.</p>
+ *                   <code>UpdateStandardsControl</code> - <code>RateLimit</code> of 1 request per
+ *                second. <code>BurstLimit</code> of 5 requests per second.</p>
  *             </li>
  *             <li>
  *                <p>All other operations - <code>RateLimit</code> of 10 requests per second.
@@ -312,6 +335,7 @@ import { SecurityHubClient } from "./SecurityHubClient";
  */
 export class SecurityHub extends SecurityHubClient {
   /**
+   * @public
    * <p>Accepts the invitation to be a member account and be monitored by the Security Hub administrator
    *          account that the invitation was sent from.</p>
    *          <p>This operation is only used by member accounts that are not added through
@@ -349,6 +373,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>This method is deprecated. Instead, use <code>AcceptAdministratorInvitation</code>.</p>
@@ -390,6 +415,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>Disables the standards specified by the provided
    *          <code>StandardsSubscriptionArns</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html">Security Standards</a> section of the <i>Security Hub User
@@ -425,6 +451,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>Enables the standards specified by the provided <code>StandardsArn</code>. To obtain the
    *          ARN for a standard, use the <code>DescribeStandards</code>
    *          operation.</p>
@@ -461,6 +488,77 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
+   * <p>
+   *          Provides details about a batch of security controls for the current Amazon Web Services account and Amazon Web Services Region.
+   *       </p>
+   */
+  public batchGetSecurityControls(
+    args: BatchGetSecurityControlsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetSecurityControlsCommandOutput>;
+  public batchGetSecurityControls(
+    args: BatchGetSecurityControlsCommandInput,
+    cb: (err: any, data?: BatchGetSecurityControlsCommandOutput) => void
+  ): void;
+  public batchGetSecurityControls(
+    args: BatchGetSecurityControlsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetSecurityControlsCommandOutput) => void
+  ): void;
+  public batchGetSecurityControls(
+    args: BatchGetSecurityControlsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetSecurityControlsCommandOutput) => void),
+    cb?: (err: any, data?: BatchGetSecurityControlsCommandOutput) => void
+  ): Promise<BatchGetSecurityControlsCommandOutput> | void {
+    const command = new BatchGetSecurityControlsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>
+   *          For a batch of security controls and standards, identifies whether each control is currently enabled or disabled in a standard.
+   *       </p>
+   */
+  public batchGetStandardsControlAssociations(
+    args: BatchGetStandardsControlAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetStandardsControlAssociationsCommandOutput>;
+  public batchGetStandardsControlAssociations(
+    args: BatchGetStandardsControlAssociationsCommandInput,
+    cb: (err: any, data?: BatchGetStandardsControlAssociationsCommandOutput) => void
+  ): void;
+  public batchGetStandardsControlAssociations(
+    args: BatchGetStandardsControlAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetStandardsControlAssociationsCommandOutput) => void
+  ): void;
+  public batchGetStandardsControlAssociations(
+    args: BatchGetStandardsControlAssociationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetStandardsControlAssociationsCommandOutput) => void),
+    cb?: (err: any, data?: BatchGetStandardsControlAssociationsCommandOutput) => void
+  ): Promise<BatchGetStandardsControlAssociationsCommandOutput> | void {
+    const command = new BatchGetStandardsControlAssociationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Imports security findings generated by a finding provider into Security Hub.
    *          This action is requested by the finding provider to import its findings into
    *          Security Hub.</p>
@@ -567,6 +665,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>Used by Security Hub customers to update information about their investigation into a finding.
    *          Requested by administrator accounts or member accounts. Administrator accounts can update findings for
    *          their account and their member accounts. Member accounts can update findings for their
@@ -657,6 +756,44 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
+   * <p>
+   *          For a batch of security controls and standards, this operation updates the enablement status of a control in a standard.
+   *       </p>
+   */
+  public batchUpdateStandardsControlAssociations(
+    args: BatchUpdateStandardsControlAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchUpdateStandardsControlAssociationsCommandOutput>;
+  public batchUpdateStandardsControlAssociations(
+    args: BatchUpdateStandardsControlAssociationsCommandInput,
+    cb: (err: any, data?: BatchUpdateStandardsControlAssociationsCommandOutput) => void
+  ): void;
+  public batchUpdateStandardsControlAssociations(
+    args: BatchUpdateStandardsControlAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchUpdateStandardsControlAssociationsCommandOutput) => void
+  ): void;
+  public batchUpdateStandardsControlAssociations(
+    args: BatchUpdateStandardsControlAssociationsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: BatchUpdateStandardsControlAssociationsCommandOutput) => void),
+    cb?: (err: any, data?: BatchUpdateStandardsControlAssociationsCommandOutput) => void
+  ): Promise<BatchUpdateStandardsControlAssociationsCommandOutput> | void {
+    const command = new BatchUpdateStandardsControlAssociationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Creates a custom action target in Security Hub.</p>
    *          <p>You can use custom actions on findings and insights in Security Hub to trigger target actions
    *          in Amazon CloudWatch Events.</p>
@@ -691,6 +828,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>Used to enable finding aggregation. Must be called from the aggregation Region.</p>
    *          <p>For more details about cross-Region replication, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/finding-aggregation.html">Configuring finding aggregation</a> in the <i>Security Hub User Guide</i>.
    *       </p>
@@ -725,6 +863,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>Creates a custom insight in Security Hub. An insight is a consolidation of findings that relate
    *          to a security issue that requires attention or remediation.</p>
    *          <p>To group the related findings in the insight, use the
@@ -760,6 +899,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>Creates a member association in Security Hub between the specified accounts and the account
    *          used to make the request, which is the administrator account. If you are integrated with
    *          Organizations, then the administrator account is designated by the organization management account.</p>
@@ -826,9 +966,11 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>Declines invitations to become a member account.</p>
-   *          <p>This operation is only used by accounts that are not part of an organization.
-   *          Organization accounts do not receive invitations.</p>
+   *          <p>A prospective member account uses this operation to decline an invitation to become a member.</p>
+   *          <p>This operation is only called by member accounts that aren't part of an organization.
+   *          Organization accounts don't receive invitations.</p>
    */
   public declineInvitations(
     args: DeclineInvitationsCommandInput,
@@ -860,6 +1002,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>Deletes a custom action target from Security Hub.</p>
    *          <p>Deleting a custom action target does not affect any findings or insights that were
    *          already sent to Amazon CloudWatch Events using the custom action.</p>
@@ -894,6 +1037,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>Deletes a finding aggregator. When you delete the finding aggregator, you stop finding aggregation.</p>
    *          <p>When you stop finding aggregation, findings that were already aggregated to the aggregation Region are still visible from the aggregation Region. New findings and finding updates are not aggregated.
    *       </p>
@@ -928,6 +1072,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>Deletes the insight specified by the <code>InsightArn</code>.</p>
    */
   public deleteInsight(
@@ -960,9 +1105,11 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>Deletes invitations received by the Amazon Web Services account to become a member account.</p>
-   *          <p>This operation is only used by accounts that are not part of an organization.
-   *          Organization accounts do not receive invitations.</p>
+   *          <p>A Security Hub administrator account can use this operation to delete invitations sent to one or more member accounts.</p>
+   *          <p>This operation is only used to delete invitations that are sent to member accounts that aren't part of an organization.
+   *          Organization accounts don't receive invitations.</p>
    */
   public deleteInvitations(
     args: DeleteInvitationsCommandInput,
@@ -994,6 +1141,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified member accounts from Security Hub.</p>
    *          <p>Can be used to delete member accounts that belong to an organization as well as member
    *          accounts that were invited manually.</p>
@@ -1028,6 +1176,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of the custom action targets in Security Hub in your account.</p>
    */
   public describeActionTargets(
@@ -1060,6 +1209,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>Returns details about the Hub resource in your account, including the
    *          <code>HubArn</code> and the time when you enabled Security Hub.</p>
    */
@@ -1087,6 +1237,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the Organizations configuration for Security Hub. Can only be
    *          called from a Security Hub administrator account.</p>
    */
@@ -1120,6 +1271,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>Returns information about product integrations in Security Hub.</p>
    *          <p>You can optionally provide an integration ARN. If you provide an integration ARN, then
    *          the results only include that integration.</p>
@@ -1156,6 +1308,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of the available standards in Security Hub.</p>
    *          <p>For each standard, the results include the standard ARN, the name, and a description. </p>
    */
@@ -1189,6 +1342,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of security standards controls.</p>
    *          <p>For each control, the results include information about whether it is currently enabled,
    *          the severity, and a link to remediation information.</p>
@@ -1223,6 +1377,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>Disables the integration of the specified product with Security Hub. After the integration is
    *          disabled, findings from that product are no longer sent to Security Hub.</p>
    */
@@ -1256,6 +1411,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>Disables a Security Hub administrator account. Can only be called by the organization
    *          management account.</p>
    */
@@ -1289,6 +1445,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>Disables Security Hub in your account only in the current Region. To disable Security Hub in all
    *          Regions, you must submit one request per Region where you have enabled Security Hub.</p>
    *          <p>When you disable Security Hub for an administrator account, it doesn't disable Security Hub for any associated
@@ -1329,6 +1486,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>Disassociates the current Security Hub member account from the associated administrator
    *          account.</p>
    *          <p>This operation is only used by accounts that are not part of an organization. For
@@ -1365,6 +1523,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>This method is deprecated. Instead, use <code>DisassociateFromAdministratorAccount</code>.</p>
@@ -1405,6 +1564,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>Disassociates the specified member accounts from the associated administrator account.</p>
    *          <p>Can be used to disassociate both accounts that are managed using Organizations and accounts that
    *          were invited manually.</p>
@@ -1439,6 +1599,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>Enables the integration of a partner product with Security Hub. Integrated products send
    *          findings to Security Hub.</p>
    *          <p>When you enable a product integration, a permissions policy that grants permission for
@@ -1474,6 +1635,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>Designates the Security Hub administrator account for an organization. Can only be called by
    *          the organization management account.</p>
    */
@@ -1507,22 +1669,23 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>Enables Security Hub for your account in the current Region or the Region you specify in the
    *          request.</p>
    *          <p>When you enable Security Hub, you grant to Security Hub the permissions necessary to gather findings
    *          from other services that are integrated with Security Hub.</p>
    *          <p>When you use the <code>EnableSecurityHub</code> operation to enable Security Hub, you also
-   *          automatically enable the following standards.</p>
+   *          automatically enable the following standards:</p>
    *          <ul>
    *             <li>
-   *                <p>CIS Amazon Web Services Foundations</p>
+   *                <p>Center for Internet Security (CIS) Amazon Web Services Foundations Benchmark v1.2.0</p>
    *             </li>
    *             <li>
    *                <p>Amazon Web Services Foundational Security Best Practices</p>
    *             </li>
    *          </ul>
-   *          <p>You do not enable the Payment Card Industry Data Security Standard (PCI DSS) standard. </p>
-   *          <p>To not enable the automatically enabled standards, set
+   *          <p>Other standards are not automatically enabled. </p>
+   *          <p>To opt out of automatically enabled standards, set
    *             <code>EnableDefaultStandards</code> to <code>false</code>.</p>
    *          <p>After you enable Security Hub, to enable a standard, use the <code>BatchEnableStandards</code> operation. To disable a standard, use the
    *                <code>BatchDisableStandards</code> operation.</p>
@@ -1558,6 +1721,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>Provides the details for the Security Hub administrator account for the current member account.</p>
    *          <p>Can be used by both member accounts that are managed using Organizations and accounts that were
    *          invited manually.</p>
@@ -1592,6 +1756,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of the standards that are currently enabled.</p>
    */
   public getEnabledStandards(
@@ -1624,6 +1789,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>Returns the current finding aggregation configuration.</p>
    */
   public getFindingAggregator(
@@ -1656,6 +1822,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of findings that match the specified criteria.</p>
    *          <p>If finding aggregation is enabled, then when you call <code>GetFindings</code> from the aggregation Region, the results include all of the matching findings from both the aggregation Region and the linked Regions.</p>
    */
@@ -1683,6 +1850,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>Lists the results of the Security Hub insight specified by the insight ARN.</p>
    */
   public getInsightResults(
@@ -1715,6 +1883,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>Lists and describes insights for the specified insight ARNs.</p>
    */
   public getInsights(args: GetInsightsCommandInput, options?: __HttpHandlerOptions): Promise<GetInsightsCommandOutput>;
@@ -1741,6 +1910,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>Returns the count of all Security Hub membership invitations that were sent to the
    *          current member account, not including the currently accepted invitation. </p>
    */
@@ -1774,6 +1944,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>This method is deprecated. Instead, use <code>GetAdministratorAccount</code>.</p>
@@ -1812,6 +1983,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>Returns the details for the Security Hub member accounts for the specified account IDs.</p>
    *          <p>An administrator account can be either the delegated Security Hub administrator account for an
    *          organization or an administrator account that enabled Security Hub manually.</p>
@@ -1842,6 +2014,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>Invites other Amazon Web Services accounts to become member accounts for the Security Hub administrator account that
    *          the invitation is sent from.</p>
    *          <p>This operation is only used to invite accounts that do not belong to an organization.
@@ -1880,6 +2053,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>Lists all findings-generating solutions (products) that you are subscribed to receive
    *          findings from in Security Hub.</p>
    */
@@ -1913,6 +2087,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>If finding aggregation is enabled, then <code>ListFindingAggregators</code> returns the ARN of the finding aggregator. You can run this operation from any Region.</p>
    */
   public listFindingAggregators(
@@ -1945,6 +2120,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>Lists all Security Hub membership invitations that were sent to the current Amazon Web Services account.</p>
    *          <p>This operation is only used by accounts that are managed by invitation.
    *          Accounts that are managed using the integration with Organizations do not receive invitations.</p>
@@ -1979,6 +2155,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>Lists details about all member accounts for the current Security Hub administrator
    *          account.</p>
    *          <p>The results include both member accounts that belong to an organization and member
@@ -2008,6 +2185,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>Lists the Security Hub administrator accounts. Can only be called by the organization
    *          management account.</p>
    */
@@ -2041,6 +2219,77 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
+   * <p>
+   *          Lists all of the security controls that apply to a specified standard.
+   *       </p>
+   */
+  public listSecurityControlDefinitions(
+    args: ListSecurityControlDefinitionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSecurityControlDefinitionsCommandOutput>;
+  public listSecurityControlDefinitions(
+    args: ListSecurityControlDefinitionsCommandInput,
+    cb: (err: any, data?: ListSecurityControlDefinitionsCommandOutput) => void
+  ): void;
+  public listSecurityControlDefinitions(
+    args: ListSecurityControlDefinitionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSecurityControlDefinitionsCommandOutput) => void
+  ): void;
+  public listSecurityControlDefinitions(
+    args: ListSecurityControlDefinitionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSecurityControlDefinitionsCommandOutput) => void),
+    cb?: (err: any, data?: ListSecurityControlDefinitionsCommandOutput) => void
+  ): Promise<ListSecurityControlDefinitionsCommandOutput> | void {
+    const command = new ListSecurityControlDefinitionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>
+   *          Specifies whether a control is currently enabled or disabled in each enabled standard in the calling account.
+   *       </p>
+   */
+  public listStandardsControlAssociations(
+    args: ListStandardsControlAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListStandardsControlAssociationsCommandOutput>;
+  public listStandardsControlAssociations(
+    args: ListStandardsControlAssociationsCommandInput,
+    cb: (err: any, data?: ListStandardsControlAssociationsCommandOutput) => void
+  ): void;
+  public listStandardsControlAssociations(
+    args: ListStandardsControlAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListStandardsControlAssociationsCommandOutput) => void
+  ): void;
+  public listStandardsControlAssociations(
+    args: ListStandardsControlAssociationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListStandardsControlAssociationsCommandOutput) => void),
+    cb?: (err: any, data?: ListStandardsControlAssociationsCommandOutput) => void
+  ): Promise<ListStandardsControlAssociationsCommandOutput> | void {
+    const command = new ListStandardsControlAssociationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Returns a list of tags associated with a resource.</p>
    */
   public listTagsForResource(
@@ -2073,6 +2322,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>Adds one or more tags to a resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -2099,6 +2349,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>Removes one or more tags from a resource.</p>
    */
   public untagResource(
@@ -2131,6 +2382,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>Updates the name and description of a custom action target in Security Hub.</p>
    */
   public updateActionTarget(
@@ -2163,6 +2415,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>Updates the finding aggregation configuration. Used to update the Region linking mode and the list of included or excluded Regions. You cannot use <code>UpdateFindingAggregator</code> to change the aggregation Region.</p>
    *          <p>You must run <code>UpdateFindingAggregator</code> from the current aggregation Region.
    *       </p>
@@ -2197,6 +2450,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>
    *             <code>UpdateFindings</code> is deprecated. Instead of <code>UpdateFindings</code>, use
    *             <code>BatchUpdateFindings</code>.</p>
@@ -2234,6 +2488,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>Updates the Security Hub insight identified by the specified insight ARN.</p>
    */
   public updateInsight(
@@ -2266,6 +2521,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>Used to update the configuration related to Organizations. Can only be called from a
    *          Security Hub administrator account.</p>
    */
@@ -2299,6 +2555,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>Updates configuration options for Security Hub.</p>
    */
   public updateSecurityHubConfiguration(
@@ -2331,6 +2588,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * @public
    * <p>Used to control whether an individual security standard control is enabled or
    *          disabled.</p>
    */

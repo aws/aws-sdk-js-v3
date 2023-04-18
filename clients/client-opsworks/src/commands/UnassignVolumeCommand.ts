@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UnassignVolumeRequest, UnassignVolumeRequestFilterSensitiveLog } from "../models/models_0";
+import { UnassignVolumeRequest } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1UnassignVolumeCommand,
-  serializeAws_json1_1UnassignVolumeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UnassignVolumeCommand, se_UnassignVolumeCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UnassignVolumeCommand}.
+ */
 export interface UnassignVolumeCommandInput extends UnassignVolumeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UnassignVolumeCommand}.
+ */
 export interface UnassignVolumeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Unassigns an assigned Amazon EBS volume. The volume remains registered with the stack. For more
  *       information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource
  *         Management</a>.</p>
@@ -38,13 +46,25 @@ export interface UnassignVolumeCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, UnassignVolumeCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, UnassignVolumeCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // UnassignVolumeRequest
+ *   VolumeId: "STRING_VALUE", // required
+ * };
  * const command = new UnassignVolumeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UnassignVolumeCommandInput - {@link UnassignVolumeCommandInput}
+ * @returns {@link UnassignVolumeCommandOutput}
  * @see {@link UnassignVolumeCommandInput} for command's `input` shape.
  * @see {@link UnassignVolumeCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Indicates that a resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that a request was not valid.</p>
+ *
  *
  */
 export class UnassignVolumeCommand extends $Command<
@@ -64,6 +84,9 @@ export class UnassignVolumeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UnassignVolumeCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +115,8 @@ export class UnassignVolumeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UnassignVolumeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +126,18 @@ export class UnassignVolumeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UnassignVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UnassignVolumeCommand(input, context);
+    return se_UnassignVolumeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnassignVolumeCommandOutput> {
-    return deserializeAws_json1_1UnassignVolumeCommand(output, context);
+    return de_UnassignVolumeCommand(output, context);
   }
 
   // Start section: command_body_extra

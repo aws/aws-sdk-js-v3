@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListStreamProcessorsRequest,
-  ListStreamProcessorsRequestFilterSensitiveLog,
-  ListStreamProcessorsResponse,
-  ListStreamProcessorsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListStreamProcessorsCommand,
-  serializeAws_json1_1ListStreamProcessorsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListStreamProcessorsRequest, ListStreamProcessorsResponse } from "../models/models_0";
+import { de_ListStreamProcessorsCommand, se_ListStreamProcessorsCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListStreamProcessorsCommand}.
+ */
 export interface ListStreamProcessorsCommandInput extends ListStreamProcessorsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListStreamProcessorsCommand}.
+ */
 export interface ListStreamProcessorsCommandOutput extends ListStreamProcessorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of stream processors that you have created with <a>CreateStreamProcessor</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,40 @@ export interface ListStreamProcessorsCommandOutput extends ListStreamProcessorsR
  * import { RekognitionClient, ListStreamProcessorsCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, ListStreamProcessorsCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // ListStreamProcessorsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListStreamProcessorsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStreamProcessorsCommandInput - {@link ListStreamProcessorsCommandInput}
+ * @returns {@link ListStreamProcessorsCommandOutput}
  * @see {@link ListStreamProcessorsCommandInput} for command's `input` shape.
  * @see {@link ListStreamProcessorsCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to perform the action.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidPaginationTokenException} (client fault)
+ *  <p>Pagination token in the request is not valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
+ *       operation again.</p>
+ *
+ * @throws {@link ProvisionedThroughputExceededException} (client fault)
+ *  <p>The number of requests exceeded your throughput limit. If you want to increase this
+ *       limit, contact Amazon Rekognition.</p>
+ *
+ * @throws {@link ThrottlingException} (server fault)
+ *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
  *
  */
 export class ListStreamProcessorsCommand extends $Command<
@@ -62,6 +92,9 @@ export class ListStreamProcessorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStreamProcessorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +123,8 @@ export class ListStreamProcessorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListStreamProcessorsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListStreamProcessorsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +134,18 @@ export class ListStreamProcessorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStreamProcessorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListStreamProcessorsCommand(input, context);
+    return se_ListStreamProcessorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStreamProcessorsCommandOutput> {
-    return deserializeAws_json1_1ListStreamProcessorsCommand(output, context);
+    return de_ListStreamProcessorsCommand(output, context);
   }
 
   // Start section: command_body_extra

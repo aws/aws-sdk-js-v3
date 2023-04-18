@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  MarkAsArchivedRequest,
-  MarkAsArchivedRequestFilterSensitiveLog,
-  SourceServer,
-  SourceServerFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1MarkAsArchivedCommand,
-  serializeAws_restJson1MarkAsArchivedCommand,
-} from "../protocols/Aws_restJson1";
+import { MarkAsArchivedRequest, SourceServer, SourceServerFilterSensitiveLog } from "../models/models_0";
+import { de_MarkAsArchivedCommand, se_MarkAsArchivedCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link MarkAsArchivedCommand}.
+ */
 export interface MarkAsArchivedCommandInput extends MarkAsArchivedRequest {}
+/**
+ * @public
+ *
+ * The output of {@link MarkAsArchivedCommand}.
+ */
 export interface MarkAsArchivedCommandOutput extends SourceServer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Archives specific Source Servers by setting the SourceServer.isArchived property to true for specified SourceServers by ID. This command only works for SourceServers with a lifecycle. state which equals DISCONNECTED or CUTOVER.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,28 @@ export interface MarkAsArchivedCommandOutput extends SourceServer, __MetadataBea
  * import { MgnClient, MarkAsArchivedCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, MarkAsArchivedCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = { // MarkAsArchivedRequest
+ *   sourceServerID: "STRING_VALUE", // required
+ * };
  * const command = new MarkAsArchivedCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param MarkAsArchivedCommandInput - {@link MarkAsArchivedCommandInput}
+ * @returns {@link MarkAsArchivedCommandOutput}
  * @see {@link MarkAsArchivedCommandInput} for command's `input` shape.
  * @see {@link MarkAsArchivedCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource not found exception.</p>
+ *
+ * @throws {@link UninitializedAccountException} (client fault)
+ *  <p>Uninitialized account exception.</p>
+ *
  *
  */
 export class MarkAsArchivedCommand extends $Command<
@@ -62,6 +80,9 @@ export class MarkAsArchivedCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: MarkAsArchivedCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +111,7 @@ export class MarkAsArchivedCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MarkAsArchivedRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: SourceServerFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -101,12 +122,18 @@ export class MarkAsArchivedCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: MarkAsArchivedCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1MarkAsArchivedCommand(input, context);
+    return se_MarkAsArchivedCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MarkAsArchivedCommandOutput> {
-    return deserializeAws_restJson1MarkAsArchivedCommand(output, context);
+    return de_MarkAsArchivedCommand(output, context);
   }
 
   // Start section: command_body_extra

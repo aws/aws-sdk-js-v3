@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AssociateResourceShareRequest,
-  AssociateResourceShareRequestFilterSensitiveLog,
-  AssociateResourceShareResponse,
-  AssociateResourceShareResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateResourceShareCommand,
-  serializeAws_restJson1AssociateResourceShareCommand,
-} from "../protocols/Aws_restJson1";
+import { AssociateResourceShareRequest, AssociateResourceShareResponse } from "../models/models_0";
+import { de_AssociateResourceShareCommand, se_AssociateResourceShareCommand } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link AssociateResourceShareCommand}.
+ */
 export interface AssociateResourceShareCommandInput extends AssociateResourceShareRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AssociateResourceShareCommand}.
+ */
 export interface AssociateResourceShareCommandOutput extends AssociateResourceShareResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds the specified list of principals and list of resources to a resource share. Principals that
  *             already have access to this resource share immediately receive access to the added resources.
  *             Newly added principals immediately receive access to the resources shared in this resource share. </p>
@@ -38,13 +41,62 @@ export interface AssociateResourceShareCommandOutput extends AssociateResourceSh
  * import { RAMClient, AssociateResourceShareCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, AssociateResourceShareCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
+ * const input = { // AssociateResourceShareRequest
+ *   resourceShareArn: "STRING_VALUE", // required
+ *   resourceArns: [ // ResourceArnList
+ *     "STRING_VALUE",
+ *   ],
+ *   principals: [ // PrincipalArnOrIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new AssociateResourceShareCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateResourceShareCommandInput - {@link AssociateResourceShareCommandInput}
+ * @returns {@link AssociateResourceShareCommandOutput}
  * @see {@link AssociateResourceShareCommandInput} for command's `input` shape.
  * @see {@link AssociateResourceShareCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
+ *
+ * @throws {@link IdempotentParameterMismatchException} (client fault)
+ *  <p>The client token input parameter was matched one used with a previous call to the
+ *             operation, but at least one of the other input parameters is different from the previous
+ *             call.</p>
+ *
+ * @throws {@link InvalidClientTokenException} (client fault)
+ *  <p>The client token is not valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter is not valid.</p>
+ *
+ * @throws {@link InvalidStateTransitionException} (client fault)
+ *  <p>The requested state transition is not valid.</p>
+ *
+ * @throws {@link MalformedArnException} (client fault)
+ *  <p>The format of an Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>The requested operation is not permitted.</p>
+ *
+ * @throws {@link ResourceShareLimitExceededException} (client fault)
+ *  <p>This request would exceed the limit for resource shares for your account.</p>
+ *
+ * @throws {@link ServerInternalException} (server fault)
+ *  <p>The service could not respond to the request due to an internal problem.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is not available.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>You exceeded the rate at which you are allowed to perform this operation. Please try
+ *             again later.</p>
+ *
+ * @throws {@link UnknownResourceException} (client fault)
+ *  <p>A specified resource was not found.</p>
+ *
  *
  */
 export class AssociateResourceShareCommand extends $Command<
@@ -64,6 +116,9 @@ export class AssociateResourceShareCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateResourceShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +147,8 @@ export class AssociateResourceShareCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateResourceShareRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateResourceShareResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +158,18 @@ export class AssociateResourceShareCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateResourceShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateResourceShareCommand(input, context);
+    return se_AssociateResourceShareCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateResourceShareCommandOutput> {
-    return deserializeAws_restJson1AssociateResourceShareCommand(output, context);
+    return de_AssociateResourceShareCommand(output, context);
   }
 
   // Start section: command_body_extra

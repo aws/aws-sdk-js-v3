@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  CreateCustomEntityTypeRequest,
-  CreateCustomEntityTypeRequestFilterSensitiveLog,
-  CreateCustomEntityTypeResponse,
-  CreateCustomEntityTypeResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateCustomEntityTypeCommand,
-  serializeAws_json1_1CreateCustomEntityTypeCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateCustomEntityTypeRequest, CreateCustomEntityTypeResponse } from "../models/models_0";
+import { de_CreateCustomEntityTypeCommand, se_CreateCustomEntityTypeCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateCustomEntityTypeCommand}.
+ */
 export interface CreateCustomEntityTypeCommandInput extends CreateCustomEntityTypeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateCustomEntityTypeCommand}.
+ */
 export interface CreateCustomEntityTypeCommandOutput extends CreateCustomEntityTypeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a custom pattern that is used to detect sensitive data across the columns and rows of your structured data.</p>
  *          <p>Each custom pattern you create specifies a regular expression and an optional list of context words. If no context words are passed only a regular expression is checked.</p>
  * @example
@@ -37,13 +40,44 @@ export interface CreateCustomEntityTypeCommandOutput extends CreateCustomEntityT
  * import { GlueClient, CreateCustomEntityTypeCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateCustomEntityTypeCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // CreateCustomEntityTypeRequest
+ *   Name: "STRING_VALUE", // required
+ *   RegexString: "STRING_VALUE", // required
+ *   ContextWords: [ // ContextWords
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new CreateCustomEntityTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCustomEntityTypeCommandInput - {@link CreateCustomEntityTypeCommandInput}
+ * @returns {@link CreateCustomEntityTypeCommandOutput}
  * @see {@link CreateCustomEntityTypeCommandInput} for command's `input` shape.
  * @see {@link CreateCustomEntityTypeCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to a resource was denied.</p>
+ *
+ * @throws {@link AlreadyExistsException} (client fault)
+ *  <p>A resource to be created or added already exists.</p>
+ *
+ * @throws {@link IdempotentParameterMismatchException} (client fault)
+ *  <p>The same unique identifier was associated with two different records.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ * @throws {@link ResourceNumberLimitExceededException} (client fault)
+ *  <p>A resource numerical limit was exceeded.</p>
+ *
  *
  */
 export class CreateCustomEntityTypeCommand extends $Command<
@@ -63,6 +97,9 @@ export class CreateCustomEntityTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCustomEntityTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +128,8 @@ export class CreateCustomEntityTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCustomEntityTypeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCustomEntityTypeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +139,18 @@ export class CreateCustomEntityTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCustomEntityTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateCustomEntityTypeCommand(input, context);
+    return se_CreateCustomEntityTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCustomEntityTypeCommandOutput> {
-    return deserializeAws_json1_1CreateCustomEntityTypeCommand(output, context);
+    return de_CreateCustomEntityTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

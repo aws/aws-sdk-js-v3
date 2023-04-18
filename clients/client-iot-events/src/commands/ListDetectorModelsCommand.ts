@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsClient";
-import {
-  ListDetectorModelsRequest,
-  ListDetectorModelsRequestFilterSensitiveLog,
-  ListDetectorModelsResponse,
-  ListDetectorModelsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDetectorModelsCommand,
-  serializeAws_restJson1ListDetectorModelsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListDetectorModelsRequest, ListDetectorModelsResponse } from "../models/models_0";
+import { de_ListDetectorModelsCommand, se_ListDetectorModelsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListDetectorModelsCommand}.
+ */
 export interface ListDetectorModelsCommandInput extends ListDetectorModelsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDetectorModelsCommand}.
+ */
 export interface ListDetectorModelsCommandOutput extends ListDetectorModelsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the detector models you have created. Only the metadata associated with each
  *       detector model is returned.</p>
  * @example
@@ -37,13 +40,32 @@ export interface ListDetectorModelsCommandOutput extends ListDetectorModelsRespo
  * import { IoTEventsClient, ListDetectorModelsCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
  * // const { IoTEventsClient, ListDetectorModelsCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
  * const client = new IoTEventsClient(config);
+ * const input = { // ListDetectorModelsRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListDetectorModelsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDetectorModelsCommandInput - {@link ListDetectorModelsCommandInput}
+ * @returns {@link ListDetectorModelsCommandOutput}
  * @see {@link ListDetectorModelsCommandInput} for command's `input` shape.
  * @see {@link ListDetectorModelsCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsClientResolvedConfig | config} for IoTEventsClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal failure occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request was invalid.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request could not be completed due to throttling.</p>
+ *
  *
  */
 export class ListDetectorModelsCommand extends $Command<
@@ -63,6 +85,9 @@ export class ListDetectorModelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDetectorModelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +116,8 @@ export class ListDetectorModelsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDetectorModelsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDetectorModelsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +127,18 @@ export class ListDetectorModelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDetectorModelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDetectorModelsCommand(input, context);
+    return se_ListDetectorModelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDetectorModelsCommandOutput> {
-    return deserializeAws_restJson1ListDetectorModelsCommand(output, context);
+    return de_ListDetectorModelsCommand(output, context);
   }
 
   // Start section: command_body_extra

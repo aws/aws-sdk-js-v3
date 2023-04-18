@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListMonitoringExecutionsRequest,
-  ListMonitoringExecutionsRequestFilterSensitiveLog,
-  ListMonitoringExecutionsResponse,
-  ListMonitoringExecutionsResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1ListMonitoringExecutionsCommand,
-  serializeAws_json1_1ListMonitoringExecutionsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListMonitoringExecutionsRequest, ListMonitoringExecutionsResponse } from "../models/models_3";
+import { de_ListMonitoringExecutionsCommand, se_ListMonitoringExecutionsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListMonitoringExecutionsCommand}.
+ */
 export interface ListMonitoringExecutionsCommandInput extends ListMonitoringExecutionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListMonitoringExecutionsCommand}.
+ */
 export interface ListMonitoringExecutionsCommandOutput extends ListMonitoringExecutionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns list of all monitoring job executions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,33 @@ export interface ListMonitoringExecutionsCommandOutput extends ListMonitoringExe
  * import { SageMakerClient, ListMonitoringExecutionsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListMonitoringExecutionsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListMonitoringExecutionsRequest
+ *   MonitoringScheduleName: "STRING_VALUE",
+ *   EndpointName: "STRING_VALUE",
+ *   SortBy: "CreationTime" || "ScheduledTime" || "Status",
+ *   SortOrder: "Ascending" || "Descending",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   ScheduledTimeBefore: new Date("TIMESTAMP"),
+ *   ScheduledTimeAfter: new Date("TIMESTAMP"),
+ *   CreationTimeBefore: new Date("TIMESTAMP"),
+ *   CreationTimeAfter: new Date("TIMESTAMP"),
+ *   LastModifiedTimeBefore: new Date("TIMESTAMP"),
+ *   LastModifiedTimeAfter: new Date("TIMESTAMP"),
+ *   StatusEquals: "Pending" || "Completed" || "CompletedWithViolations" || "InProgress" || "Failed" || "Stopping" || "Stopped",
+ *   MonitoringJobDefinitionName: "STRING_VALUE",
+ *   MonitoringTypeEquals: "DataQuality" || "ModelQuality" || "ModelBias" || "ModelExplainability",
+ * };
  * const command = new ListMonitoringExecutionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMonitoringExecutionsCommandInput - {@link ListMonitoringExecutionsCommandInput}
+ * @returns {@link ListMonitoringExecutionsCommandOutput}
  * @see {@link ListMonitoringExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListMonitoringExecutionsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
  *
  */
 export class ListMonitoringExecutionsCommand extends $Command<
@@ -62,6 +85,9 @@ export class ListMonitoringExecutionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMonitoringExecutionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +116,8 @@ export class ListMonitoringExecutionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMonitoringExecutionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMonitoringExecutionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +127,18 @@ export class ListMonitoringExecutionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMonitoringExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListMonitoringExecutionsCommand(input, context);
+    return se_ListMonitoringExecutionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMonitoringExecutionsCommandOutput> {
-    return deserializeAws_json1_1ListMonitoringExecutionsCommand(output, context);
+    return de_ListMonitoringExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

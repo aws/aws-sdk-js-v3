@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateActionRequest,
-  UpdateActionRequestFilterSensitiveLog,
-  UpdateActionResponse,
-  UpdateActionResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1UpdateActionCommand,
-  serializeAws_json1_1UpdateActionCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateActionRequest, UpdateActionResponse } from "../models/models_3";
+import { de_UpdateActionCommand, se_UpdateActionCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateActionCommand}.
+ */
 export interface UpdateActionCommandInput extends UpdateActionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateActionCommand}.
+ */
 export interface UpdateActionCommandOutput extends UpdateActionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,34 @@ export interface UpdateActionCommandOutput extends UpdateActionResponse, __Metad
  * import { SageMakerClient, UpdateActionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateActionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // UpdateActionRequest
+ *   ActionName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Status: "Unknown" || "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped",
+ *   Properties: { // LineageEntityParameters
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   PropertiesToRemove: [ // ListLineageEntityParameterKey
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateActionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateActionCommandInput - {@link UpdateActionCommandInput}
+ * @returns {@link UpdateActionCommandOutput}
  * @see {@link UpdateActionCommandInput} for command's `input` shape.
  * @see {@link UpdateActionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There was a conflict when you attempted to modify a SageMaker entity such as an
+ *       <code>Experiment</code> or <code>Artifact</code>.</p>
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class UpdateActionCommand extends $Command<
@@ -62,6 +86,9 @@ export class UpdateActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +115,8 @@ export class UpdateActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateActionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateActionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +126,18 @@ export class UpdateActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateActionCommand(input, context);
+    return se_UpdateActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateActionCommandOutput> {
-    return deserializeAws_json1_1UpdateActionCommand(output, context);
+    return de_UpdateActionCommand(output, context);
   }
 
   // Start section: command_body_extra

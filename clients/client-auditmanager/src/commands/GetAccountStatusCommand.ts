@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import {
-  GetAccountStatusRequest,
-  GetAccountStatusRequestFilterSensitiveLog,
-  GetAccountStatusResponse,
-  GetAccountStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAccountStatusCommand,
-  serializeAws_restJson1GetAccountStatusCommand,
-} from "../protocols/Aws_restJson1";
+import { GetAccountStatusRequest, GetAccountStatusResponse } from "../models/models_0";
+import { de_GetAccountStatusCommand, se_GetAccountStatusCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetAccountStatusCommand}.
+ */
 export interface GetAccountStatusCommandInput extends GetAccountStatusRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetAccountStatusCommand}.
+ */
 export interface GetAccountStatusCommandOutput extends GetAccountStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns the registration status of an account in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,21 @@ export interface GetAccountStatusCommandOutput extends GetAccountStatusResponse,
  * import { AuditManagerClient, GetAccountStatusCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, GetAccountStatusCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = {};
  * const command = new GetAccountStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccountStatusCommandInput - {@link GetAccountStatusCommandInput}
+ * @returns {@link GetAccountStatusCommandOutput}
  * @see {@link GetAccountStatusCommandInput} for command's `input` shape.
  * @see {@link GetAccountStatusCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> An internal service error occurred during the processing of your request. Try again
+ *          later. </p>
+ *
  *
  */
 export class GetAccountStatusCommand extends $Command<
@@ -62,6 +73,9 @@ export class GetAccountStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccountStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +104,8 @@ export class GetAccountStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAccountStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAccountStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +115,18 @@ export class GetAccountStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAccountStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAccountStatusCommand(input, context);
+    return se_GetAccountStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccountStatusCommandOutput> {
-    return deserializeAws_restJson1GetAccountStatusCommand(output, context);
+    return de_GetAccountStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

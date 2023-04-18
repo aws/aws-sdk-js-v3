@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteVpnConnectionRequest, DeleteVpnConnectionRequestFilterSensitiveLog } from "../models/models_3";
-import {
-  deserializeAws_ec2DeleteVpnConnectionCommand,
-  serializeAws_ec2DeleteVpnConnectionCommand,
-} from "../protocols/Aws_ec2";
+import { DeleteVpnConnectionRequest } from "../models/models_3";
+import { de_DeleteVpnConnectionCommand, se_DeleteVpnConnectionCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteVpnConnectionCommand}.
+ */
 export interface DeleteVpnConnectionCommandInput extends DeleteVpnConnectionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteVpnConnectionCommand}.
+ */
 export interface DeleteVpnConnectionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified VPN connection.</p>
  *          <p>If you're deleting the VPC and its associated components, we recommend that you detach
  *             the virtual private gateway from the VPC and delete the VPC before deleting the VPN
@@ -41,13 +49,20 @@ export interface DeleteVpnConnectionCommandOutput extends __MetadataBearer {}
  * import { EC2Client, DeleteVpnConnectionCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteVpnConnectionCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteVpnConnectionRequest
+ *   VpnConnectionId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DeleteVpnConnectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVpnConnectionCommandInput - {@link DeleteVpnConnectionCommandInput}
+ * @returns {@link DeleteVpnConnectionCommandOutput}
  * @see {@link DeleteVpnConnectionCommandInput} for command's `input` shape.
  * @see {@link DeleteVpnConnectionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class DeleteVpnConnectionCommand extends $Command<
@@ -67,6 +82,9 @@ export class DeleteVpnConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVpnConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +113,8 @@ export class DeleteVpnConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVpnConnectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +124,18 @@ export class DeleteVpnConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVpnConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteVpnConnectionCommand(input, context);
+    return se_DeleteVpnConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVpnConnectionCommandOutput> {
-    return deserializeAws_ec2DeleteVpnConnectionCommand(output, context);
+    return de_DeleteVpnConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

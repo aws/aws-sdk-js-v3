@@ -20,6 +20,7 @@ export * from "./ListNetworksCommand";
 export * from "./ListOrdersCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./PingCommand";
+export * from "./StartNetworkResourceUpdateCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateNetworkSiteCommand";

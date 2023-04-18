@@ -1,5 +1,12 @@
 import { AwsAuthInputConfig, AwsAuthResolvedConfig, resolveAwsAuthConfig } from "@aws-sdk/middleware-signing";
-import { AwsCredentialIdentity, Client, HashConstructor, Pluggable, Provider, RegionInfoProvider } from "@aws-sdk/types";
+import {
+  AwsCredentialIdentity,
+  ChecksumConstructor,
+  Client,
+  HashConstructor,
+  Provider,
+  RegionInfoProvider,
+} from "@aws-sdk/types";
 
 export interface StsAuthInputConfig extends AwsAuthInputConfig {}
 
@@ -9,7 +16,7 @@ interface PreviouslyResolved {
   regionInfoProvider?: RegionInfoProvider;
   signingName?: string;
   serviceId: string;
-  sha256: HashConstructor;
+  sha256: ChecksumConstructor | HashConstructor;
   useFipsEndpoint: Provider<boolean>;
   useDualstackEndpoint: Provider<boolean>;
 }

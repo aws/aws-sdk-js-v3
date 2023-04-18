@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient";
-import {
-  DescribeObservationRequest,
-  DescribeObservationRequestFilterSensitiveLog,
-  DescribeObservationResponse,
-  DescribeObservationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeObservationCommand,
-  serializeAws_json1_1DescribeObservationCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeObservationRequest, DescribeObservationResponse } from "../models/models_0";
+import { de_DescribeObservationCommand, se_DescribeObservationCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeObservationCommand}.
+ */
 export interface DescribeObservationCommandInput extends DescribeObservationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeObservationCommand}.
+ */
 export interface DescribeObservationCommandOutput extends DescribeObservationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes an anomaly or error with the application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,28 @@ export interface DescribeObservationCommandOutput extends DescribeObservationRes
  * import { ApplicationInsightsClient, DescribeObservationCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
  * // const { ApplicationInsightsClient, DescribeObservationCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
+ * const input = { // DescribeObservationRequest
+ *   ObservationId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeObservationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeObservationCommandInput - {@link DescribeObservationCommandInput}
+ * @returns {@link DescribeObservationCommandOutput}
  * @see {@link DescribeObservationCommandInput} for command's `input` shape.
  * @see {@link DescribeObservationCommandOutput} for command's `response` shape.
  * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The server encountered an internal error and is unable to complete the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource does not exist in the customer account.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The parameter is not valid.</p>
+ *
  *
  */
 export class DescribeObservationCommand extends $Command<
@@ -66,6 +84,9 @@ export class DescribeObservationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeObservationCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +115,8 @@ export class DescribeObservationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeObservationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeObservationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +126,18 @@ export class DescribeObservationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeObservationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeObservationCommand(input, context);
+    return se_DescribeObservationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeObservationCommandOutput> {
-    return deserializeAws_json1_1DescribeObservationCommand(output, context);
+    return de_DescribeObservationCommand(output, context);
   }
 
   // Start section: command_body_extra

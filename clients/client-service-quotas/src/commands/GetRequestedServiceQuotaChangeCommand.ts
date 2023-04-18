@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { GetRequestedServiceQuotaChangeRequest, GetRequestedServiceQuotaChangeResponse } from "../models/models_0";
 import {
-  GetRequestedServiceQuotaChangeRequest,
-  GetRequestedServiceQuotaChangeRequestFilterSensitiveLog,
-  GetRequestedServiceQuotaChangeResponse,
-  GetRequestedServiceQuotaChangeResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetRequestedServiceQuotaChangeCommand,
-  serializeAws_json1_1GetRequestedServiceQuotaChangeCommand,
+  de_GetRequestedServiceQuotaChangeCommand,
+  se_GetRequestedServiceQuotaChangeCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetRequestedServiceQuotaChangeCommand}.
+ */
 export interface GetRequestedServiceQuotaChangeCommandInput extends GetRequestedServiceQuotaChangeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetRequestedServiceQuotaChangeCommand}.
+ */
 export interface GetRequestedServiceQuotaChangeCommandOutput
   extends GetRequestedServiceQuotaChangeResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the specified quota increase request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,35 @@ export interface GetRequestedServiceQuotaChangeCommandOutput
  * import { ServiceQuotasClient, GetRequestedServiceQuotaChangeCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
  * // const { ServiceQuotasClient, GetRequestedServiceQuotaChangeCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import
  * const client = new ServiceQuotasClient(config);
+ * const input = { // GetRequestedServiceQuotaChangeRequest
+ *   RequestId: "STRING_VALUE", // required
+ * };
  * const command = new GetRequestedServiceQuotaChangeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRequestedServiceQuotaChangeCommandInput - {@link GetRequestedServiceQuotaChangeCommandInput}
+ * @returns {@link GetRequestedServiceQuotaChangeCommandOutput}
  * @see {@link GetRequestedServiceQuotaChangeCommandInput} for command's `input` shape.
  * @see {@link GetRequestedServiceQuotaChangeCommandOutput} for command's `response` shape.
  * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permission to perform this action.</p>
+ *
+ * @throws {@link IllegalArgumentException} (client fault)
+ *  <p>Invalid input was provided.</p>
+ *
+ * @throws {@link NoSuchResourceException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>Something went wrong.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request
+ *       an increase for this quota.</p>
+ *
  *
  */
 export class GetRequestedServiceQuotaChangeCommand extends $Command<
@@ -64,6 +92,9 @@ export class GetRequestedServiceQuotaChangeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRequestedServiceQuotaChangeCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +123,8 @@ export class GetRequestedServiceQuotaChangeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRequestedServiceQuotaChangeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRequestedServiceQuotaChangeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +134,24 @@ export class GetRequestedServiceQuotaChangeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetRequestedServiceQuotaChangeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRequestedServiceQuotaChangeCommand(input, context);
+    return se_GetRequestedServiceQuotaChangeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRequestedServiceQuotaChangeCommandOutput> {
-    return deserializeAws_json1_1GetRequestedServiceQuotaChangeCommand(output, context);
+    return de_GetRequestedServiceQuotaChangeCommand(output, context);
   }
 
   // Start section: command_body_extra

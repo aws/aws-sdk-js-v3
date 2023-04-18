@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  RemoveTemplateActionRequest,
-  RemoveTemplateActionRequestFilterSensitiveLog,
-  RemoveTemplateActionResponse,
-  RemoveTemplateActionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1RemoveTemplateActionCommand,
-  serializeAws_restJson1RemoveTemplateActionCommand,
-} from "../protocols/Aws_restJson1";
+import { RemoveTemplateActionRequest, RemoveTemplateActionResponse } from "../models/models_0";
+import { de_RemoveTemplateActionCommand, se_RemoveTemplateActionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link RemoveTemplateActionCommand}.
+ */
 export interface RemoveTemplateActionCommandInput extends RemoveTemplateActionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RemoveTemplateActionCommand}.
+ */
 export interface RemoveTemplateActionCommandOutput extends RemoveTemplateActionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Remove template post migration custom action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,29 @@ export interface RemoveTemplateActionCommandOutput extends RemoveTemplateActionR
  * import { MgnClient, RemoveTemplateActionCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, RemoveTemplateActionCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = { // RemoveTemplateActionRequest
+ *   launchConfigurationTemplateID: "STRING_VALUE", // required
+ *   actionID: "STRING_VALUE", // required
+ * };
  * const command = new RemoveTemplateActionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveTemplateActionCommandInput - {@link RemoveTemplateActionCommandInput}
+ * @returns {@link RemoveTemplateActionCommandOutput}
  * @see {@link RemoveTemplateActionCommandInput} for command's `input` shape.
  * @see {@link RemoveTemplateActionCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource not found exception.</p>
+ *
+ * @throws {@link UninitializedAccountException} (client fault)
+ *  <p>Uninitialized account exception.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Validate exception.</p>
+ *
  *
  */
 export class RemoveTemplateActionCommand extends $Command<
@@ -62,6 +81,9 @@ export class RemoveTemplateActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveTemplateActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +112,8 @@ export class RemoveTemplateActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveTemplateActionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RemoveTemplateActionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +123,18 @@ export class RemoveTemplateActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveTemplateActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RemoveTemplateActionCommand(input, context);
+    return se_RemoveTemplateActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveTemplateActionCommandOutput> {
-    return deserializeAws_restJson1RemoveTemplateActionCommand(output, context);
+    return de_RemoveTemplateActionCommand(output, context);
   }
 
   // Start section: command_body_extra

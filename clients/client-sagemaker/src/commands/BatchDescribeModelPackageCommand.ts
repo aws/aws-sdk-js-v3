@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  BatchDescribeModelPackageInput,
-  BatchDescribeModelPackageInputFilterSensitiveLog,
-  BatchDescribeModelPackageOutput,
-  BatchDescribeModelPackageOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchDescribeModelPackageCommand,
-  serializeAws_json1_1BatchDescribeModelPackageCommand,
-} from "../protocols/Aws_json1_1";
+import { BatchDescribeModelPackageInput, BatchDescribeModelPackageOutput } from "../models/models_0";
+import { de_BatchDescribeModelPackageCommand, se_BatchDescribeModelPackageCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchDescribeModelPackageCommand}.
+ */
 export interface BatchDescribeModelPackageCommandInput extends BatchDescribeModelPackageInput {}
+/**
+ * @public
+ *
+ * The output of {@link BatchDescribeModelPackageCommand}.
+ */
 export interface BatchDescribeModelPackageCommandOutput extends BatchDescribeModelPackageOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This action batch describes a list of versioned model packages</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,21 @@ export interface BatchDescribeModelPackageCommandOutput extends BatchDescribeMod
  * import { SageMakerClient, BatchDescribeModelPackageCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, BatchDescribeModelPackageCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // BatchDescribeModelPackageInput
+ *   ModelPackageArnList: [ // ModelPackageArnList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchDescribeModelPackageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDescribeModelPackageCommandInput - {@link BatchDescribeModelPackageCommandInput}
+ * @returns {@link BatchDescribeModelPackageCommandOutput}
  * @see {@link BatchDescribeModelPackageCommandInput} for command's `input` shape.
  * @see {@link BatchDescribeModelPackageCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
  *
  */
 export class BatchDescribeModelPackageCommand extends $Command<
@@ -62,6 +73,9 @@ export class BatchDescribeModelPackageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDescribeModelPackageCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +104,8 @@ export class BatchDescribeModelPackageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDescribeModelPackageInputFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchDescribeModelPackageOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +115,21 @@ export class BatchDescribeModelPackageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDescribeModelPackageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchDescribeModelPackageCommand(input, context);
+    return se_BatchDescribeModelPackageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchDescribeModelPackageCommandOutput> {
-    return deserializeAws_json1_1BatchDescribeModelPackageCommand(output, context);
+    return de_BatchDescribeModelPackageCommand(output, context);
   }
 
   // Start section: command_body_extra

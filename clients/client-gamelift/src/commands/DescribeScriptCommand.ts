@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  DescribeScriptInput,
-  DescribeScriptInputFilterSensitiveLog,
-  DescribeScriptOutput,
-  DescribeScriptOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeScriptCommand,
-  serializeAws_json1_1DescribeScriptCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeScriptInput, DescribeScriptOutput } from "../models/models_0";
+import { de_DescribeScriptCommand, se_DescribeScriptCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeScriptCommand}.
+ */
 export interface DescribeScriptCommandInput extends DescribeScriptInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeScriptCommand}.
+ */
 export interface DescribeScriptCommandOutput extends DescribeScriptOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves properties for a Realtime script. </p>
  *         <p>To request a script record, specify the script ID. If successful, an object containing
  *             the script properties is returned.</p>
@@ -50,13 +53,33 @@ export interface DescribeScriptCommandOutput extends DescribeScriptOutput, __Met
  * import { GameLiftClient, DescribeScriptCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeScriptCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // DescribeScriptInput
+ *   ScriptId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeScriptCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeScriptCommandInput - {@link DescribeScriptCommandInput}
+ * @returns {@link DescribeScriptCommandOutput}
  * @see {@link DescribeScriptCommandInput} for command's `input` shape.
  * @see {@link DescribeScriptCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an unrecoverable internal failure while processing the
+ *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
+ *             values before retrying.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
  *
  */
 export class DescribeScriptCommand extends $Command<
@@ -76,6 +99,9 @@ export class DescribeScriptCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeScriptCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +130,8 @@ export class DescribeScriptCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeScriptInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeScriptOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +141,18 @@ export class DescribeScriptCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeScriptCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeScriptCommand(input, context);
+    return se_DescribeScriptCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeScriptCommandOutput> {
-    return deserializeAws_json1_1DescribeScriptCommand(output, context);
+    return de_DescribeScriptCommand(output, context);
   }
 
   // Start section: command_body_extra

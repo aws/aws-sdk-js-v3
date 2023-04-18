@@ -6,12 +6,11 @@ import {
   DescribeApplicableIndividualAssessmentsCommandInput,
   DescribeApplicableIndividualAssessmentsCommandOutput,
 } from "../commands/DescribeApplicableIndividualAssessmentsCommand";
-import { DatabaseMigrationService } from "../DatabaseMigrationService";
 import { DatabaseMigrationServiceClient } from "../DatabaseMigrationServiceClient";
 import { DatabaseMigrationServicePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DatabaseMigrationServiceClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeApplicableIndividualAssessmentsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: DatabaseMigrationService,
-  input: DescribeApplicableIndividualAssessmentsCommandInput,
-  ...args: any
-): Promise<DescribeApplicableIndividualAssessmentsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeApplicableIndividualAssessments(input, ...args);
-};
 export async function* paginateDescribeApplicableIndividualAssessments(
   config: DatabaseMigrationServicePaginationConfiguration,
   input: DescribeApplicableIndividualAssessmentsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateDescribeApplicableIndividualAssessments(
   while (hasNext) {
     input.Marker = token;
     input["MaxRecords"] = config.pageSize;
-    if (config.client instanceof DatabaseMigrationService) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DatabaseMigrationServiceClient) {
+    if (config.client instanceof DatabaseMigrationServiceClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected DatabaseMigrationService | DatabaseMigrationServiceClient");

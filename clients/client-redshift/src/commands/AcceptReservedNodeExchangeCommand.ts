@@ -13,24 +13,27 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AcceptReservedNodeExchangeInputMessage,
-  AcceptReservedNodeExchangeInputMessageFilterSensitiveLog,
-  AcceptReservedNodeExchangeOutputMessage,
-  AcceptReservedNodeExchangeOutputMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryAcceptReservedNodeExchangeCommand,
-  serializeAws_queryAcceptReservedNodeExchangeCommand,
-} from "../protocols/Aws_query";
+import { AcceptReservedNodeExchangeInputMessage, AcceptReservedNodeExchangeOutputMessage } from "../models/models_0";
+import { de_AcceptReservedNodeExchangeCommand, se_AcceptReservedNodeExchangeCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * @public
+ *
+ * The input for {@link AcceptReservedNodeExchangeCommand}.
+ */
 export interface AcceptReservedNodeExchangeCommandInput extends AcceptReservedNodeExchangeInputMessage {}
+/**
+ * @public
+ *
+ * The output of {@link AcceptReservedNodeExchangeCommand}.
+ */
 export interface AcceptReservedNodeExchangeCommandOutput
   extends AcceptReservedNodeExchangeOutputMessage,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Exchanges a DC1 Reserved Node for a DC2 Reserved Node with no changes to the
  *             configuration (term, payment type, or number of nodes) and no additional costs.
  *         </p>
@@ -40,13 +43,42 @@ export interface AcceptReservedNodeExchangeCommandOutput
  * import { RedshiftClient, AcceptReservedNodeExchangeCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, AcceptReservedNodeExchangeCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // AcceptReservedNodeExchangeInputMessage
+ *   ReservedNodeId: "STRING_VALUE", // required
+ *   TargetReservedNodeOfferingId: "STRING_VALUE", // required
+ * };
  * const command = new AcceptReservedNodeExchangeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AcceptReservedNodeExchangeCommandInput - {@link AcceptReservedNodeExchangeCommandInput}
+ * @returns {@link AcceptReservedNodeExchangeCommandOutput}
  * @see {@link AcceptReservedNodeExchangeCommandInput} for command's `input` shape.
  * @see {@link AcceptReservedNodeExchangeCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
+ *
+ * @throws {@link DependentServiceUnavailableFault} (client fault)
+ *  <p>Your request cannot be completed because a dependent internal service is
+ *             temporarily unavailable. Wait 30 to 60 seconds and try again.</p>
+ *
+ * @throws {@link InvalidReservedNodeStateFault} (client fault)
+ *  <p>Indicates that the Reserved Node being exchanged is not in an active state.</p>
+ *
+ * @throws {@link ReservedNodeAlreadyExistsFault} (client fault)
+ *  <p>User already has a reservation with the given identifier.</p>
+ *
+ * @throws {@link ReservedNodeAlreadyMigratedFault} (client fault)
+ *  <p>Indicates that the reserved node has already been exchanged.</p>
+ *
+ * @throws {@link ReservedNodeNotFoundFault} (client fault)
+ *  <p>The specified reserved compute node not found.</p>
+ *
+ * @throws {@link ReservedNodeOfferingNotFoundFault} (client fault)
+ *  <p>Specified offering does not exist.</p>
+ *
+ * @throws {@link UnsupportedOperationFault} (client fault)
+ *  <p>The requested operation isn't supported.</p>
+ *
  *
  */
 export class AcceptReservedNodeExchangeCommand extends $Command<
@@ -66,6 +98,9 @@ export class AcceptReservedNodeExchangeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcceptReservedNodeExchangeCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +129,8 @@ export class AcceptReservedNodeExchangeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AcceptReservedNodeExchangeInputMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: AcceptReservedNodeExchangeOutputMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,15 +140,21 @@ export class AcceptReservedNodeExchangeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AcceptReservedNodeExchangeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryAcceptReservedNodeExchangeCommand(input, context);
+    return se_AcceptReservedNodeExchangeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AcceptReservedNodeExchangeCommandOutput> {
-    return deserializeAws_queryAcceptReservedNodeExchangeCommand(output, context);
+    return de_AcceptReservedNodeExchangeCommand(output, context);
   }
 
   // Start section: command_body_extra

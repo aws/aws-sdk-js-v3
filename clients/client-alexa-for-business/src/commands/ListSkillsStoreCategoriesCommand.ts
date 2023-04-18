@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  ListSkillsStoreCategoriesRequest,
-  ListSkillsStoreCategoriesRequestFilterSensitiveLog,
-  ListSkillsStoreCategoriesResponse,
-  ListSkillsStoreCategoriesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListSkillsStoreCategoriesCommand,
-  serializeAws_json1_1ListSkillsStoreCategoriesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListSkillsStoreCategoriesRequest, ListSkillsStoreCategoriesResponse } from "../models/models_0";
+import { de_ListSkillsStoreCategoriesCommand, se_ListSkillsStoreCategoriesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListSkillsStoreCategoriesCommand}.
+ */
 export interface ListSkillsStoreCategoriesCommandInput extends ListSkillsStoreCategoriesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListSkillsStoreCategoriesCommand}.
+ */
 export interface ListSkillsStoreCategoriesCommandOutput extends ListSkillsStoreCategoriesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all categories in the Alexa skill store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,20 @@ export interface ListSkillsStoreCategoriesCommandOutput extends ListSkillsStoreC
  * import { AlexaForBusinessClient, ListSkillsStoreCategoriesCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, ListSkillsStoreCategoriesCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // ListSkillsStoreCategoriesRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListSkillsStoreCategoriesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSkillsStoreCategoriesCommandInput - {@link ListSkillsStoreCategoriesCommandInput}
+ * @returns {@link ListSkillsStoreCategoriesCommandOutput}
  * @see {@link ListSkillsStoreCategoriesCommandInput} for command's `input` shape.
  * @see {@link ListSkillsStoreCategoriesCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
  *
  */
 export class ListSkillsStoreCategoriesCommand extends $Command<
@@ -62,6 +72,9 @@ export class ListSkillsStoreCategoriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSkillsStoreCategoriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +103,8 @@ export class ListSkillsStoreCategoriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSkillsStoreCategoriesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSkillsStoreCategoriesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +114,21 @@ export class ListSkillsStoreCategoriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSkillsStoreCategoriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListSkillsStoreCategoriesCommand(input, context);
+    return se_ListSkillsStoreCategoriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSkillsStoreCategoriesCommandOutput> {
-    return deserializeAws_json1_1ListSkillsStoreCategoriesCommand(output, context);
+    return de_ListSkillsStoreCategoriesCommand(output, context);
   }
 
   // Start section: command_body_extra

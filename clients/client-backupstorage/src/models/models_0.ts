@@ -4,6 +4,9 @@ import { Readable } from "stream";
 
 import { BackupStorageServiceException as __BaseException } from "./BackupStorageServiceException";
 
+/**
+ * @public
+ */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
@@ -22,11 +25,21 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
-export enum SummaryChecksumAlgorithm {
-  SUMMARY = "SUMMARY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SummaryChecksumAlgorithm = {
+  SUMMARY: "SUMMARY",
+} as const;
 
 /**
+ * @public
+ */
+export type SummaryChecksumAlgorithm = (typeof SummaryChecksumAlgorithm)[keyof typeof SummaryChecksumAlgorithm];
+
+/**
+ * @public
  * Object
  */
 export interface BackupObject {
@@ -61,11 +74,21 @@ export interface BackupObject {
   ObjectToken: string | undefined;
 }
 
-export enum DataChecksumAlgorithm {
-  SHA256 = "SHA256",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DataChecksumAlgorithm = {
+  SHA256: "SHA256",
+} as const;
 
 /**
+ * @public
+ */
+export type DataChecksumAlgorithm = (typeof DataChecksumAlgorithm)[keyof typeof DataChecksumAlgorithm];
+
+/**
+ * @public
  * Chunk
  */
 export interface Chunk {
@@ -95,6 +118,9 @@ export interface Chunk {
   ChunkToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteObjectInput {
   /**
    * Backup job Id for the in-progress backup.
@@ -108,6 +134,7 @@ export interface DeleteObjectInput {
 }
 
 /**
+ * @public
  * Non-retryable exception, indicates client error (wrong argument passed to API).
  *     See exception message for details.
  */
@@ -130,6 +157,7 @@ export class IllegalArgumentException extends __BaseException {
 }
 
 /**
+ * @public
  * Non-retryable exception. Attempted to make an operation on non-existing or expired resource.
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -151,6 +179,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * Retryable exception. In general indicates internal failure that can be fixed by retry.
  */
 export class RetryableException extends __BaseException {
@@ -172,6 +201,7 @@ export class RetryableException extends __BaseException {
 }
 
 /**
+ * @public
  * Deprecated. To be removed from the model.
  */
 export class ServiceInternalException extends __BaseException {
@@ -193,6 +223,7 @@ export class ServiceInternalException extends __BaseException {
 }
 
 /**
+ * @public
  * Retryable exception, indicates internal server error.
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -214,6 +245,7 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * Increased rate over throttling limits. Can be retried with exponential backoff.
  */
 export class ThrottlingException extends __BaseException {
@@ -234,6 +266,9 @@ export class ThrottlingException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetChunkInput {
   /**
    * Storage job id
@@ -246,6 +281,9 @@ export interface GetChunkInput {
   ChunkToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetChunkOutput {
   /**
    * Chunk data
@@ -269,6 +307,7 @@ export interface GetChunkOutput {
 }
 
 /**
+ * @public
  * Non-retryable exception. Indicates the KMS key usage is incorrect. See exception message for details.
  */
 export class KMSInvalidKeyUsageException extends __BaseException {
@@ -289,6 +328,9 @@ export class KMSInvalidKeyUsageException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetObjectMetadataInput {
   /**
    * Backup job id for the in-progress backup.
@@ -301,6 +343,9 @@ export interface GetObjectMetadataInput {
   ObjectToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetObjectMetadataOutput {
   /**
    * Metadata string.
@@ -328,6 +373,9 @@ export interface GetObjectMetadataOutput {
   MetadataBlobChecksumAlgorithm?: DataChecksumAlgorithm | string;
 }
 
+/**
+ * @public
+ */
 export interface ListChunksInput {
   /**
    * Storage job id
@@ -350,6 +398,9 @@ export interface ListChunksInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListChunksOutput {
   /**
    * List of chunks
@@ -362,6 +413,9 @@ export interface ListChunksOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListObjectsInput {
   /**
    * Storage job id
@@ -399,6 +453,9 @@ export interface ListObjectsInput {
   CreatedAfter?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListObjectsOutput {
   /**
    * Object list
@@ -411,6 +468,9 @@ export interface ListObjectsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface NotifyObjectCompleteInput {
   /**
    * Backup job Id for the in-progress backup
@@ -458,6 +518,9 @@ export interface NotifyObjectCompleteInput {
   MetadataBlobChecksumAlgorithm?: DataChecksumAlgorithm | string;
 }
 
+/**
+ * @public
+ */
 export interface NotifyObjectCompleteOutput {
   /**
    * Object checksum
@@ -471,6 +534,7 @@ export interface NotifyObjectCompleteOutput {
 }
 
 /**
+ * @public
  * Retryalble exception. Indicated issues while reading an input stream due to the networking issues or connection drop on the client side.
  */
 export class NotReadableInputStreamException extends __BaseException {
@@ -491,6 +555,9 @@ export class NotReadableInputStreamException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface PutChunkInput {
   /**
    * Backup job Id for the in-progress backup.
@@ -528,6 +595,9 @@ export interface PutChunkInput {
   ChecksumAlgorithm: DataChecksumAlgorithm | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutChunkOutput {
   /**
    * Chunk checksum
@@ -540,6 +610,9 @@ export interface PutChunkOutput {
   ChunkChecksumAlgorithm: DataChecksumAlgorithm | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutObjectInput {
   /**
    * Backup job Id for the in-progress backup.
@@ -592,6 +665,9 @@ export interface PutObjectInput {
   ThrowOnDuplicate?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface PutObjectOutput {
   /**
    * Inline chunk checksum
@@ -615,6 +691,7 @@ export interface PutObjectOutput {
 }
 
 /**
+ * @public
  * Non-retryable exception. Attempted to create already existing object or chunk.
  *     This message contains a checksum of already presented data.
  */
@@ -647,6 +724,9 @@ export class DataAlreadyExistsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface StartObjectInput {
   /**
    * Backup job Id for the in-progress backup
@@ -664,6 +744,9 @@ export interface StartObjectInput {
   ThrowOnDuplicate?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface StartObjectOutput {
   /**
    * Upload Id for a given upload.
@@ -674,42 +757,7 @@ export interface StartObjectOutput {
 /**
  * @internal
  */
-export const BackupObjectFilterSensitiveLog = (obj: BackupObject): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChunkFilterSensitiveLog = (obj: Chunk): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteObjectInputFilterSensitiveLog = (obj: DeleteObjectInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetChunkInputFilterSensitiveLog = (obj: GetChunkInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetChunkOutputFilterSensitiveLog = (obj: GetChunkOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetObjectMetadataInputFilterSensitiveLog = (obj: GetObjectMetadataInput): any => ({
   ...obj,
 });
 
@@ -723,42 +771,7 @@ export const GetObjectMetadataOutputFilterSensitiveLog = (obj: GetObjectMetadata
 /**
  * @internal
  */
-export const ListChunksInputFilterSensitiveLog = (obj: ListChunksInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListChunksOutputFilterSensitiveLog = (obj: ListChunksOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListObjectsInputFilterSensitiveLog = (obj: ListObjectsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListObjectsOutputFilterSensitiveLog = (obj: ListObjectsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const NotifyObjectCompleteInputFilterSensitiveLog = (obj: NotifyObjectCompleteInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NotifyObjectCompleteOutputFilterSensitiveLog = (obj: NotifyObjectCompleteOutput): any => ({
   ...obj,
 });
 
@@ -772,34 +785,6 @@ export const PutChunkInputFilterSensitiveLog = (obj: PutChunkInput): any => ({
 /**
  * @internal
  */
-export const PutChunkOutputFilterSensitiveLog = (obj: PutChunkOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const PutObjectInputFilterSensitiveLog = (obj: PutObjectInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutObjectOutputFilterSensitiveLog = (obj: PutObjectOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartObjectInputFilterSensitiveLog = (obj: StartObjectInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartObjectOutputFilterSensitiveLog = (obj: StartObjectOutput): any => ({
   ...obj,
 });

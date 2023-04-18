@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateHITTypeOfHITRequest,
-  UpdateHITTypeOfHITRequestFilterSensitiveLog,
-  UpdateHITTypeOfHITResponse,
-  UpdateHITTypeOfHITResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateHITTypeOfHITRequest, UpdateHITTypeOfHITResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import {
-  deserializeAws_json1_1UpdateHITTypeOfHITCommand,
-  serializeAws_json1_1UpdateHITTypeOfHITCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateHITTypeOfHITCommand, se_UpdateHITTypeOfHITCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateHITTypeOfHITCommand}.
+ */
 export interface UpdateHITTypeOfHITCommandInput extends UpdateHITTypeOfHITRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateHITTypeOfHITCommand}.
+ */
 export interface UpdateHITTypeOfHITCommandOutput extends UpdateHITTypeOfHITResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The
  *             <code>UpdateHITTypeOfHIT</code>
@@ -43,13 +46,26 @@ export interface UpdateHITTypeOfHITCommandOutput extends UpdateHITTypeOfHITRespo
  * import { MTurkClient, UpdateHITTypeOfHITCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, UpdateHITTypeOfHITCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = { // UpdateHITTypeOfHITRequest
+ *   HITId: "STRING_VALUE", // required
+ *   HITTypeId: "STRING_VALUE", // required
+ * };
  * const command = new UpdateHITTypeOfHITCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateHITTypeOfHITCommandInput - {@link UpdateHITTypeOfHITCommandInput}
+ * @returns {@link UpdateHITTypeOfHITCommandOutput}
  * @see {@link UpdateHITTypeOfHITCommandInput} for command's `input` shape.
  * @see {@link UpdateHITTypeOfHITCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
+ *
+ * @throws {@link RequestError} (client fault)
+ *  <p>Your request is invalid.</p>
+ *
+ * @throws {@link ServiceFault} (server fault)
+ *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
  *
  */
 export class UpdateHITTypeOfHITCommand extends $Command<
@@ -69,6 +85,9 @@ export class UpdateHITTypeOfHITCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateHITTypeOfHITCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +116,8 @@ export class UpdateHITTypeOfHITCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateHITTypeOfHITRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateHITTypeOfHITResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +127,18 @@ export class UpdateHITTypeOfHITCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateHITTypeOfHITCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateHITTypeOfHITCommand(input, context);
+    return se_UpdateHITTypeOfHITCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateHITTypeOfHITCommandOutput> {
-    return deserializeAws_json1_1UpdateHITTypeOfHITCommand(output, context);
+    return de_UpdateHITTypeOfHITCommand(output, context);
   }
 
   // Start section: command_body_extra

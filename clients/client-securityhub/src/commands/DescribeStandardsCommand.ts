@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeStandardsRequest,
-  DescribeStandardsRequestFilterSensitiveLog,
-  DescribeStandardsResponse,
-  DescribeStandardsResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1DescribeStandardsCommand,
-  serializeAws_restJson1DescribeStandardsCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeStandardsRequest, DescribeStandardsResponse } from "../models/models_2";
+import { de_DescribeStandardsCommand, se_DescribeStandardsCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeStandardsCommand}.
+ */
 export interface DescribeStandardsCommandInput extends DescribeStandardsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeStandardsCommand}.
+ */
 export interface DescribeStandardsCommandOutput extends DescribeStandardsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the available standards in Security Hub.</p>
  *          <p>For each standard, the results include the standard ARN, the name, and a description. </p>
  * @example
@@ -37,13 +40,30 @@ export interface DescribeStandardsCommandOutput extends DescribeStandardsRespons
  * import { SecurityHubClient, DescribeStandardsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, DescribeStandardsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = { // DescribeStandardsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeStandardsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStandardsCommandInput - {@link DescribeStandardsCommandInput}
+ * @returns {@link DescribeStandardsCommandOutput}
  * @see {@link DescribeStandardsCommandInput} for command's `input` shape.
  * @see {@link DescribeStandardsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>Internal server error.</p>
+ *
+ * @throws {@link InvalidAccessException} (client fault)
+ *  <p>The account doesn't have permission to perform this action.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because you supplied an invalid or out-of-range value for an
+ *          input parameter.</p>
+ *
  *
  */
 export class DescribeStandardsCommand extends $Command<
@@ -63,6 +83,9 @@ export class DescribeStandardsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStandardsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +114,8 @@ export class DescribeStandardsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeStandardsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeStandardsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +125,18 @@ export class DescribeStandardsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeStandardsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeStandardsCommand(input, context);
+    return se_DescribeStandardsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeStandardsCommandOutput> {
-    return deserializeAws_restJson1DescribeStandardsCommand(output, context);
+    return de_DescribeStandardsCommand(output, context);
   }
 
   // Start section: command_body_extra

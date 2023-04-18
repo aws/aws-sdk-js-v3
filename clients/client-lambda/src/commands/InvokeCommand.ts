@@ -20,12 +20,23 @@ import {
   InvocationResponse,
   InvocationResponseFilterSensitiveLog,
 } from "../models/models_0";
-import { deserializeAws_restJson1InvokeCommand, serializeAws_restJson1InvokeCommand } from "../protocols/Aws_restJson1";
+import { de_InvokeCommand, se_InvokeCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link InvokeCommand}.
+ */
 export interface InvokeCommandInput extends InvocationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link InvokeCommand}.
+ */
 export interface InvokeCommandOutput extends InvocationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Invokes a Lambda function. You can invoke a function synchronously (and wait for the response), or
  *       asynchronously. To invoke a function asynchronously, set <code>InvocationType</code> to <code>Event</code>.</p>
  *          <p>For <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-sync.html">synchronous invocation</a>,
@@ -57,13 +68,124 @@ export interface InvokeCommandOutput extends InvocationResponse, __MetadataBeare
  * import { LambdaClient, InvokeCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, InvokeCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = { // InvocationRequest
+ *   FunctionName: "STRING_VALUE", // required
+ *   InvocationType: "Event" || "RequestResponse" || "DryRun",
+ *   LogType: "None" || "Tail",
+ *   ClientContext: "STRING_VALUE",
+ *   Payload: "BLOB_VALUE",
+ *   Qualifier: "STRING_VALUE",
+ * };
  * const command = new InvokeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param InvokeCommandInput - {@link InvokeCommandInput}
+ * @returns {@link InvokeCommandOutput}
  * @see {@link InvokeCommandInput} for command's `input` shape.
  * @see {@link InvokeCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
+ *
+ * @throws {@link EC2AccessDeniedException} (server fault)
+ *  <p>Need additional permissions to configure VPC settings.</p>
+ *
+ * @throws {@link EC2ThrottledException} (server fault)
+ *  <p>Amazon EC2 throttled Lambda during Lambda function initialization using
+ *       the execution role provided for the function.</p>
+ *
+ * @throws {@link EC2UnexpectedException} (server fault)
+ *  <p>Lambda received an unexpected Amazon EC2 client exception while setting up for the
+ *         Lambda function.</p>
+ *
+ * @throws {@link EFSIOException} (client fault)
+ *  <p>An error occurred when reading from or writing to a connected file system.</p>
+ *
+ * @throws {@link EFSMountConnectivityException} (client fault)
+ *  <p>The Lambda function couldn't make a network connection to the configured file system.</p>
+ *
+ * @throws {@link EFSMountFailureException} (client fault)
+ *  <p>The Lambda function couldn't mount the configured file system due to a permission or configuration
+ *       issue.</p>
+ *
+ * @throws {@link EFSMountTimeoutException} (client fault)
+ *  <p>The Lambda function made a network connection to the configured file system, but the mount
+ *       operation timed out.</p>
+ *
+ * @throws {@link ENILimitReachedException} (server fault)
+ *  <p>Lambda couldn't create an elastic network interface in the VPC, specified as part of Lambda function configuration, because the limit for network interfaces has been reached. For more
+ *       information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda
+ *         quotas</a>.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One of the parameters in the request is not valid.</p>
+ *
+ * @throws {@link InvalidRequestContentException} (client fault)
+ *  <p>The request body could not be parsed as JSON.</p>
+ *
+ * @throws {@link InvalidRuntimeException} (server fault)
+ *  <p>The runtime or runtime version specified is not supported.</p>
+ *
+ * @throws {@link InvalidSecurityGroupIDException} (server fault)
+ *  <p>The security group ID provided in the Lambda function VPC configuration is not valid.</p>
+ *
+ * @throws {@link InvalidSubnetIDException} (server fault)
+ *  <p>The subnet ID provided in the Lambda function VPC configuration is not valid.</p>
+ *
+ * @throws {@link InvalidZipFileException} (server fault)
+ *  <p>Lambda could not unzip the deployment package.</p>
+ *
+ * @throws {@link KMSAccessDeniedException} (server fault)
+ *  <p>Lambda couldn't decrypt the environment variables because KMS access was denied.
+ *       Check the Lambda function's KMS permissions.</p>
+ *
+ * @throws {@link KMSDisabledException} (server fault)
+ *  <p>Lambda couldn't decrypt the environment variables because the KMS key used is
+ *       disabled. Check the Lambda function's KMS key settings.</p>
+ *
+ * @throws {@link KMSInvalidStateException} (server fault)
+ *  <p>Lambda couldn't decrypt the environment variables because the state of the KMS key used is not valid for Decrypt. Check the function's KMS key settings.</p>
+ *
+ * @throws {@link KMSNotFoundException} (server fault)
+ *  <p>Lambda couldn't decrypt the environment variables because the KMS key was not
+ *       found. Check the function's KMS key settings.</p>
+ *
+ * @throws {@link RequestTooLargeException} (client fault)
+ *  <p>The request payload exceeded the <code>Invoke</code> request body JSON input quota. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda
+ *       quotas</a>.</p>
+ *
+ * @throws {@link ResourceConflictException} (client fault)
+ *  <p>The resource already exists, or another operation is in progress.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request does not exist.</p>
+ *
+ * @throws {@link ResourceNotReadyException} (server fault)
+ *  <p>The function is inactive and its VPC connection is no longer available. Wait for the VPC connection to
+ *       reestablish and try again.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>The Lambda service encountered an internal error.</p>
+ *
+ * @throws {@link SnapStartException} (client fault)
+ *  <p>The <code>afterRestore()</code>
+ *             <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart-runtime-hooks.html">runtime hook</a> encountered an error. For more information, check the Amazon CloudWatch logs.</p>
+ *
+ * @throws {@link SnapStartNotReadyException} (client fault)
+ *  <p>Lambda is initializing your function. You can invoke the function when the <a href="https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html">function state</a> becomes <code>Active</code>.</p>
+ *
+ * @throws {@link SnapStartTimeoutException} (client fault)
+ *  <p>Lambda couldn't restore the snapshot within the timeout limit.</p>
+ *
+ * @throws {@link SubnetIPAddressLimitReachedException} (server fault)
+ *  <p>Lambda couldn't set up VPC access for the Lambda function because one or more
+ *       configured subnets has no available IP addresses.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
+ *
+ * @throws {@link UnsupportedMediaTypeException} (client fault)
+ *  <p>The content type of the <code>Invoke</code> request body is not JSON.</p>
+ *
  *
  */
 export class InvokeCommand extends $Command<InvokeCommandInput, InvokeCommandOutput, LambdaClientResolvedConfig> {
@@ -79,6 +201,9 @@ export class InvokeCommand extends $Command<InvokeCommandInput, InvokeCommandOut
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: InvokeCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,12 +241,18 @@ export class InvokeCommand extends $Command<InvokeCommandInput, InvokeCommandOut
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: InvokeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1InvokeCommand(input, context);
+    return se_InvokeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InvokeCommandOutput> {
-    return deserializeAws_restJson1InvokeCommand(output, context);
+    return de_InvokeCommand(output, context);
   }
 
   // Start section: command_body_extra

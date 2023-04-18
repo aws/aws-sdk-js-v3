@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { AmplifyUIBuilder } from "../AmplifyUIBuilder";
 import { AmplifyUIBuilderClient } from "../AmplifyUIBuilderClient";
 import { ListFormsCommand, ListFormsCommandInput, ListFormsCommandOutput } from "../commands/ListFormsCommand";
 import { AmplifyUIBuilderPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: AmplifyUIBuilderClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListFormsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: AmplifyUIBuilder,
-  input: ListFormsCommandInput,
-  ...args: any
-): Promise<ListFormsCommandOutput> => {
-  // @ts-ignore
-  return await client.listForms(input, ...args);
-};
 export async function* paginateListForms(
   config: AmplifyUIBuilderPaginationConfiguration,
   input: ListFormsCommandInput,
@@ -40,9 +31,7 @@ export async function* paginateListForms(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof AmplifyUIBuilder) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof AmplifyUIBuilderClient) {
+    if (config.client instanceof AmplifyUIBuilderClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected AmplifyUIBuilder | AmplifyUIBuilderClient");

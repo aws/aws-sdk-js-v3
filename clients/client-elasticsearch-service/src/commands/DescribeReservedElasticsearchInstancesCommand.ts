@@ -20,22 +20,31 @@ import {
 } from "../ElasticsearchServiceClient";
 import {
   DescribeReservedElasticsearchInstancesRequest,
-  DescribeReservedElasticsearchInstancesRequestFilterSensitiveLog,
   DescribeReservedElasticsearchInstancesResponse,
-  DescribeReservedElasticsearchInstancesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeReservedElasticsearchInstancesCommand,
-  serializeAws_restJson1DescribeReservedElasticsearchInstancesCommand,
+  de_DescribeReservedElasticsearchInstancesCommand,
+  se_DescribeReservedElasticsearchInstancesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeReservedElasticsearchInstancesCommand}.
+ */
 export interface DescribeReservedElasticsearchInstancesCommandInput
   extends DescribeReservedElasticsearchInstancesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeReservedElasticsearchInstancesCommand}.
+ */
 export interface DescribeReservedElasticsearchInstancesCommandOutput
   extends DescribeReservedElasticsearchInstancesResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about reserved Elasticsearch instances for this account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,13 +52,33 @@ export interface DescribeReservedElasticsearchInstancesCommandOutput
  * import { ElasticsearchServiceClient, DescribeReservedElasticsearchInstancesCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, DescribeReservedElasticsearchInstancesCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
+ * const input = { // DescribeReservedElasticsearchInstancesRequest
+ *   ReservedElasticsearchInstanceId: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeReservedElasticsearchInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReservedElasticsearchInstancesCommandInput - {@link DescribeReservedElasticsearchInstancesCommandInput}
+ * @returns {@link DescribeReservedElasticsearchInstancesCommandOutput}
  * @see {@link DescribeReservedElasticsearchInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeReservedElasticsearchInstancesCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
+ *
+ * @throws {@link DisabledOperationException} (client fault)
+ *  <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+ *
  *
  */
 export class DescribeReservedElasticsearchInstancesCommand extends $Command<
@@ -69,6 +98,9 @@ export class DescribeReservedElasticsearchInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReservedElasticsearchInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +129,8 @@ export class DescribeReservedElasticsearchInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeReservedElasticsearchInstancesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeReservedElasticsearchInstancesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,18 +140,24 @@ export class DescribeReservedElasticsearchInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeReservedElasticsearchInstancesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeReservedElasticsearchInstancesCommand(input, context);
+    return se_DescribeReservedElasticsearchInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReservedElasticsearchInstancesCommandOutput> {
-    return deserializeAws_restJson1DescribeReservedElasticsearchInstancesCommand(output, context);
+    return de_DescribeReservedElasticsearchInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,21 +16,31 @@ import {
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
 import {
   DescribeBudgetActionsForAccountRequest,
-  DescribeBudgetActionsForAccountRequestFilterSensitiveLog,
   DescribeBudgetActionsForAccountResponse,
   DescribeBudgetActionsForAccountResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeBudgetActionsForAccountCommand,
-  serializeAws_json1_1DescribeBudgetActionsForAccountCommand,
+  de_DescribeBudgetActionsForAccountCommand,
+  se_DescribeBudgetActionsForAccountCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeBudgetActionsForAccountCommand}.
+ */
 export interface DescribeBudgetActionsForAccountCommandInput extends DescribeBudgetActionsForAccountRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeBudgetActionsForAccountCommand}.
+ */
 export interface DescribeBudgetActionsForAccountCommandOutput
   extends DescribeBudgetActionsForAccountResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *          Describes all of the budget actions for an account.
  *       </p>
@@ -40,13 +50,38 @@ export interface DescribeBudgetActionsForAccountCommandOutput
  * import { BudgetsClient, DescribeBudgetActionsForAccountCommand } from "@aws-sdk/client-budgets"; // ES Modules import
  * // const { BudgetsClient, DescribeBudgetActionsForAccountCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
  * const client = new BudgetsClient(config);
+ * const input = { // DescribeBudgetActionsForAccountRequest
+ *   AccountId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeBudgetActionsForAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBudgetActionsForAccountCommandInput - {@link DescribeBudgetActionsForAccountCommandInput}
+ * @returns {@link DescribeBudgetActionsForAccountCommandOutput}
  * @see {@link DescribeBudgetActionsForAccountCommandInput} for command's `input` shape.
  * @see {@link DescribeBudgetActionsForAccountCommandOutput} for command's `response` shape.
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to use this operation with the given parameters.</p>
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>An error on the server occurred during the processing of your request. Try again later.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The pagination token is invalid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>
+ *       The number of API requests has exceeded the maximum allowed API request throttling limit for the account.
+ *     </p>
+ *
  *
  */
 export class DescribeBudgetActionsForAccountCommand extends $Command<
@@ -66,6 +101,9 @@ export class DescribeBudgetActionsForAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBudgetActionsForAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,7 +132,7 @@ export class DescribeBudgetActionsForAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeBudgetActionsForAccountRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeBudgetActionsForAccountResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -105,18 +143,24 @@ export class DescribeBudgetActionsForAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeBudgetActionsForAccountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeBudgetActionsForAccountCommand(input, context);
+    return se_DescribeBudgetActionsForAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeBudgetActionsForAccountCommandOutput> {
-    return deserializeAws_json1_1DescribeBudgetActionsForAccountCommand(output, context);
+    return de_DescribeBudgetActionsForAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -20,22 +20,31 @@ import {
 } from "../DatabaseMigrationServiceClient";
 import {
   DescribeApplicableIndividualAssessmentsMessage,
-  DescribeApplicableIndividualAssessmentsMessageFilterSensitiveLog,
   DescribeApplicableIndividualAssessmentsResponse,
-  DescribeApplicableIndividualAssessmentsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeApplicableIndividualAssessmentsCommand,
-  serializeAws_json1_1DescribeApplicableIndividualAssessmentsCommand,
+  de_DescribeApplicableIndividualAssessmentsCommand,
+  se_DescribeApplicableIndividualAssessmentsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeApplicableIndividualAssessmentsCommand}.
+ */
 export interface DescribeApplicableIndividualAssessmentsCommandInput
   extends DescribeApplicableIndividualAssessmentsMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeApplicableIndividualAssessmentsCommand}.
+ */
 export interface DescribeApplicableIndividualAssessmentsCommandOutput
   extends DescribeApplicableIndividualAssessmentsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a list of individual assessments that you can specify for a new premigration
  *          assessment run, given one or more parameters.</p>
  *          <p>If you specify an existing migration task, this operation provides the default individual
@@ -57,13 +66,35 @@ export interface DescribeApplicableIndividualAssessmentsCommandOutput
  * import { DatabaseMigrationServiceClient, DescribeApplicableIndividualAssessmentsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DescribeApplicableIndividualAssessmentsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // DescribeApplicableIndividualAssessmentsMessage
+ *   ReplicationTaskArn: "STRING_VALUE",
+ *   ReplicationInstanceArn: "STRING_VALUE",
+ *   SourceEngineName: "STRING_VALUE",
+ *   TargetEngineName: "STRING_VALUE",
+ *   MigrationType: "full-load" || "cdc" || "full-load-and-cdc",
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeApplicableIndividualAssessmentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeApplicableIndividualAssessmentsCommandInput - {@link DescribeApplicableIndividualAssessmentsCommandInput}
+ * @returns {@link DescribeApplicableIndividualAssessmentsCommandOutput}
  * @see {@link DescribeApplicableIndividualAssessmentsCommandInput} for command's `input` shape.
  * @see {@link DescribeApplicableIndividualAssessmentsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedFault} (client fault)
+ *  <p>DMS was denied access to the endpoint. Check that the
+ *             role is correctly configured.</p>
+ *
+ * @throws {@link InvalidResourceStateFault} (client fault)
+ *  <p>The resource is in a state that prevents it from being used for database migration.</p>
+ *
+ * @throws {@link ResourceNotFoundFault} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
  *
  */
 export class DescribeApplicableIndividualAssessmentsCommand extends $Command<
@@ -83,6 +114,9 @@ export class DescribeApplicableIndividualAssessmentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeApplicableIndividualAssessmentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +151,8 @@ export class DescribeApplicableIndividualAssessmentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeApplicableIndividualAssessmentsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeApplicableIndividualAssessmentsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,18 +162,24 @@ export class DescribeApplicableIndividualAssessmentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeApplicableIndividualAssessmentsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeApplicableIndividualAssessmentsCommand(input, context);
+    return se_DescribeApplicableIndividualAssessmentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeApplicableIndividualAssessmentsCommandOutput> {
-    return deserializeAws_json1_1DescribeApplicableIndividualAssessmentsCommand(output, context);
+    return de_DescribeApplicableIndividualAssessmentsCommand(output, context);
   }
 
   // Start section: command_body_extra

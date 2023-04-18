@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import {
-  DeleteImageBuilderRequest,
-  DeleteImageBuilderRequestFilterSensitiveLog,
-  DeleteImageBuilderResult,
-  DeleteImageBuilderResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteImageBuilderCommand,
-  serializeAws_json1_1DeleteImageBuilderCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteImageBuilderRequest, DeleteImageBuilderResult } from "../models/models_0";
+import { de_DeleteImageBuilderCommand, se_DeleteImageBuilderCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteImageBuilderCommand}.
+ */
 export interface DeleteImageBuilderCommandInput extends DeleteImageBuilderRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteImageBuilderCommand}.
+ */
 export interface DeleteImageBuilderCommandOutput extends DeleteImageBuilderResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified image builder and releases the capacity.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,28 @@ export interface DeleteImageBuilderCommandOutput extends DeleteImageBuilderResul
  * import { AppStreamClient, DeleteImageBuilderCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DeleteImageBuilderCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = { // DeleteImageBuilderRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteImageBuilderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteImageBuilderCommandInput - {@link DeleteImageBuilderCommandInput}
+ * @returns {@link DeleteImageBuilderCommandOutput}
  * @see {@link DeleteImageBuilderCommandInput} for command's `input` shape.
  * @see {@link DeleteImageBuilderCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>An API error occurred. Wait a few minutes and try again.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>The attempted operation is not permitted.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class DeleteImageBuilderCommand extends $Command<
@@ -62,6 +80,9 @@ export class DeleteImageBuilderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteImageBuilderCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +111,8 @@ export class DeleteImageBuilderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteImageBuilderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteImageBuilderResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +122,18 @@ export class DeleteImageBuilderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteImageBuilderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteImageBuilderCommand(input, context);
+    return se_DeleteImageBuilderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteImageBuilderCommandOutput> {
-    return deserializeAws_json1_1DeleteImageBuilderCommand(output, context);
+    return de_DeleteImageBuilderCommand(output, context);
   }
 
   // Start section: command_body_extra

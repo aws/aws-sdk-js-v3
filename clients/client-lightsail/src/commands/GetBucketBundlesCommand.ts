@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  GetBucketBundlesRequest,
-  GetBucketBundlesRequestFilterSensitiveLog,
-  GetBucketBundlesResult,
-  GetBucketBundlesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetBucketBundlesCommand,
-  serializeAws_json1_1GetBucketBundlesCommand,
-} from "../protocols/Aws_json1_1";
+import { GetBucketBundlesRequest, GetBucketBundlesResult } from "../models/models_0";
+import { de_GetBucketBundlesCommand, se_GetBucketBundlesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetBucketBundlesCommand}.
+ */
 export interface GetBucketBundlesCommandInput extends GetBucketBundlesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetBucketBundlesCommand}.
+ */
 export interface GetBucketBundlesCommandOutput extends GetBucketBundlesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the bundles that you can apply to a Amazon Lightsail bucket.</p>
  *          <p>The bucket bundle specifies the monthly cost, storage quota, and data transfer quota for a
  *       bucket.</p>
@@ -40,13 +43,39 @@ export interface GetBucketBundlesCommandOutput extends GetBucketBundlesResult, _
  * import { LightsailClient, GetBucketBundlesCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetBucketBundlesCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // GetBucketBundlesRequest
+ *   includeInactive: true || false,
+ * };
  * const command = new GetBucketBundlesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketBundlesCommandInput - {@link GetBucketBundlesCommandInput}
+ * @returns {@link GetBucketBundlesCommandOutput}
  * @see {@link GetBucketBundlesCommandInput} for command's `input` shape.
  * @see {@link GetBucketBundlesCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
+ *       credentials to access a resource.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Lightsail throws this exception when user input does not conform to the validation rules
+ *       of an input field.</p>
+ *          <note>
+ *             <p>Domain and distribution APIs are only available in the N. Virginia
+ *           (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services
+ *         Region configuration to <code>us-east-1</code> to create, view, or edit these
+ *         resources.</p>
+ *          </note>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>A general service exception.</p>
+ *
+ * @throws {@link UnauthenticatedException} (client fault)
+ *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
+ *
  *
  */
 export class GetBucketBundlesCommand extends $Command<
@@ -66,6 +95,9 @@ export class GetBucketBundlesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketBundlesCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +126,8 @@ export class GetBucketBundlesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketBundlesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBucketBundlesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +137,18 @@ export class GetBucketBundlesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBucketBundlesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetBucketBundlesCommand(input, context);
+    return se_GetBucketBundlesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketBundlesCommandOutput> {
-    return deserializeAws_json1_1GetBucketBundlesCommand(output, context);
+    return de_GetBucketBundlesCommand(output, context);
   }
 
   // Start section: command_body_extra

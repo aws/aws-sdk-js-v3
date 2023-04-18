@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListAppImageConfigsRequest,
-  ListAppImageConfigsRequestFilterSensitiveLog,
-  ListAppImageConfigsResponse,
-  ListAppImageConfigsResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1ListAppImageConfigsCommand,
-  serializeAws_json1_1ListAppImageConfigsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListAppImageConfigsRequest, ListAppImageConfigsResponse } from "../models/models_3";
+import { de_ListAppImageConfigsCommand, se_ListAppImageConfigsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListAppImageConfigsCommand}.
+ */
 export interface ListAppImageConfigsCommandInput extends ListAppImageConfigsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListAppImageConfigsCommand}.
+ */
 export interface ListAppImageConfigsCommandOutput extends ListAppImageConfigsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the AppImageConfigs in your account and their properties. The list can be
  *         filtered by creation time or modified time, and whether the AppImageConfig name contains
  *         a specified string.</p>
@@ -38,13 +41,27 @@ export interface ListAppImageConfigsCommandOutput extends ListAppImageConfigsRes
  * import { SageMakerClient, ListAppImageConfigsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListAppImageConfigsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListAppImageConfigsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   NameContains: "STRING_VALUE",
+ *   CreationTimeBefore: new Date("TIMESTAMP"),
+ *   CreationTimeAfter: new Date("TIMESTAMP"),
+ *   ModifiedTimeBefore: new Date("TIMESTAMP"),
+ *   ModifiedTimeAfter: new Date("TIMESTAMP"),
+ *   SortBy: "CreationTime" || "LastModifiedTime" || "Name",
+ *   SortOrder: "Ascending" || "Descending",
+ * };
  * const command = new ListAppImageConfigsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAppImageConfigsCommandInput - {@link ListAppImageConfigsCommandInput}
+ * @returns {@link ListAppImageConfigsCommandOutput}
  * @see {@link ListAppImageConfigsCommandInput} for command's `input` shape.
  * @see {@link ListAppImageConfigsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
  *
  */
 export class ListAppImageConfigsCommand extends $Command<
@@ -64,6 +81,9 @@ export class ListAppImageConfigsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAppImageConfigsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +112,8 @@ export class ListAppImageConfigsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAppImageConfigsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAppImageConfigsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +123,18 @@ export class ListAppImageConfigsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAppImageConfigsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAppImageConfigsCommand(input, context);
+    return se_ListAppImageConfigsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAppImageConfigsCommandOutput> {
-    return deserializeAws_json1_1ListAppImageConfigsCommand(output, context);
+    return de_ListAppImageConfigsCommand(output, context);
   }
 
   // Start section: command_body_extra

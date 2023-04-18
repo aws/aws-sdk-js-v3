@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateFirewallRuleGroupRequest,
-  CreateFirewallRuleGroupRequestFilterSensitiveLog,
-  CreateFirewallRuleGroupResponse,
-  CreateFirewallRuleGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateFirewallRuleGroupCommand,
-  serializeAws_json1_1CreateFirewallRuleGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateFirewallRuleGroupRequest, CreateFirewallRuleGroupResponse } from "../models/models_0";
+import { de_CreateFirewallRuleGroupCommand, se_CreateFirewallRuleGroupCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateFirewallRuleGroupCommand}.
+ */
 export interface CreateFirewallRuleGroupCommandInput extends CreateFirewallRuleGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateFirewallRuleGroupCommand}.
+ */
 export interface CreateFirewallRuleGroupCommandOutput extends CreateFirewallRuleGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an empty DNS Firewall rule group for filtering DNS network traffic in a VPC. You can add rules to the new rule group
  *            by calling <a>CreateFirewallRule</a>. </p>
  * @example
@@ -37,13 +40,42 @@ export interface CreateFirewallRuleGroupCommandOutput extends CreateFirewallRule
  * import { Route53ResolverClient, CreateFirewallRuleGroupCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, CreateFirewallRuleGroupCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = { // CreateFirewallRuleGroupRequest
+ *   CreatorRequestId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateFirewallRuleGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFirewallRuleGroupCommandInput - {@link CreateFirewallRuleGroupCommandInput}
+ * @returns {@link CreateFirewallRuleGroupCommandOutput}
  * @see {@link CreateFirewallRuleGroupCommandInput} for command's `input` shape.
  * @see {@link CreateFirewallRuleGroupCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (client fault)
+ *  <p>We encountered an unknown error. Try again in a few minutes.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request caused one or more limits to be exceeded.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was throttled. Try again in a few minutes.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>You have provided an invalid command. Supported values are <code>ADD</code>,
+ * 			<code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
+ *
  *
  */
 export class CreateFirewallRuleGroupCommand extends $Command<
@@ -63,6 +95,9 @@ export class CreateFirewallRuleGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFirewallRuleGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +126,8 @@ export class CreateFirewallRuleGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFirewallRuleGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateFirewallRuleGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +137,18 @@ export class CreateFirewallRuleGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFirewallRuleGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateFirewallRuleGroupCommand(input, context);
+    return se_CreateFirewallRuleGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFirewallRuleGroupCommandOutput> {
-    return deserializeAws_json1_1CreateFirewallRuleGroupCommand(output, context);
+    return de_CreateFirewallRuleGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

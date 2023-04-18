@@ -16,19 +16,26 @@ import {
 import { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client";
 import {
   DescribeEnvironmentsRequest,
-  DescribeEnvironmentsRequestFilterSensitiveLog,
   DescribeEnvironmentsResult,
   DescribeEnvironmentsResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeEnvironmentsCommand,
-  serializeAws_json1_1DescribeEnvironmentsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeEnvironmentsCommand, se_DescribeEnvironmentsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeEnvironmentsCommand}.
+ */
 export interface DescribeEnvironmentsCommandInput extends DescribeEnvironmentsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeEnvironmentsCommand}.
+ */
 export interface DescribeEnvironmentsCommandOutput extends DescribeEnvironmentsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about Cloud9 development environments.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +43,84 @@ export interface DescribeEnvironmentsCommandOutput extends DescribeEnvironmentsR
  * import { Cloud9Client, DescribeEnvironmentsCommand } from "@aws-sdk/client-cloud9"; // ES Modules import
  * // const { Cloud9Client, DescribeEnvironmentsCommand } = require("@aws-sdk/client-cloud9"); // CommonJS import
  * const client = new Cloud9Client(config);
+ * const input = { // DescribeEnvironmentsRequest
+ *   environmentIds: [ // BoundedEnvironmentIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeEnvironmentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEnvironmentsCommandInput - {@link DescribeEnvironmentsCommandInput}
+ * @returns {@link DescribeEnvironmentsCommandOutput}
  * @see {@link DescribeEnvironmentsCommandInput} for command's `input` shape.
  * @see {@link DescribeEnvironmentsCommandOutput} for command's `response` shape.
  * @see {@link Cloud9ClientResolvedConfig | config} for Cloud9Client's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The target request is invalid.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>A conflict occurred.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>An access permissions issue occurred.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>An internal server error occurred.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A service limit was exceeded.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The target resource cannot be found.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Too many service requests were made over the given time period.</p>
+ *
+ *
+ * @example DescribeEnvironments
+ * ```javascript
+ * //
+ * const input = {
+ *   "environmentIds": [
+ *     "8d9967e2f0624182b74e7690ad69ebEX",
+ *     "349c86d4579e4e7298d500ff57a6b2EX"
+ *   ]
+ * };
+ * const command = new DescribeEnvironmentsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "environments": [
+ *     {
+ *       "name": "my-demo-environment",
+ *       "type": "ec2",
+ *       "arn": "arn:aws:cloud9:us-east-2:123456789012:environment:8d9967e2f0624182b74e7690ad69ebEX",
+ *       "description": "This is my demonstration environment.",
+ *       "id": "8d9967e2f0624182b74e7690ad69ebEX",
+ *       "lifecycle": {
+ *         "status": "CREATED"
+ *       },
+ *       "ownerArn": "arn:aws:iam::123456789012:user/MyDemoUser"
+ *     },
+ *     {
+ *       "name": "another-demo-environment",
+ *       "type": "ssh",
+ *       "arn": "arn:aws:cloud9:us-east-2:123456789012:environment:349c86d4579e4e7298d500ff57a6b2EX",
+ *       "description": "",
+ *       "id": "349c86d4579e4e7298d500ff57a6b2EX",
+ *       "lifecycle": {
+ *         "status": "CREATED"
+ *       },
+ *       "ownerArn": "arn:aws:sts::123456789012:assumed-role/AnotherDemoUser/AnotherDemoUser"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: describeenvironments-1516823568291
+ * ```
  *
  */
 export class DescribeEnvironmentsCommand extends $Command<
@@ -62,6 +140,9 @@ export class DescribeEnvironmentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEnvironmentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +171,7 @@ export class DescribeEnvironmentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEnvironmentsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeEnvironmentsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -101,12 +182,18 @@ export class DescribeEnvironmentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEnvironmentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEnvironmentsCommand(input, context);
+    return se_DescribeEnvironmentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEnvironmentsCommandOutput> {
-    return deserializeAws_json1_1DescribeEnvironmentsCommand(output, context);
+    return de_DescribeEnvironmentsCommand(output, context);
   }
 
   // Start section: command_body_extra

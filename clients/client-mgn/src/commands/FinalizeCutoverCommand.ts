@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  FinalizeCutoverRequest,
-  FinalizeCutoverRequestFilterSensitiveLog,
-  SourceServer,
-  SourceServerFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1FinalizeCutoverCommand,
-  serializeAws_restJson1FinalizeCutoverCommand,
-} from "../protocols/Aws_restJson1";
+import { FinalizeCutoverRequest, SourceServer, SourceServerFilterSensitiveLog } from "../models/models_0";
+import { de_FinalizeCutoverCommand, se_FinalizeCutoverCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link FinalizeCutoverCommand}.
+ */
 export interface FinalizeCutoverCommandInput extends FinalizeCutoverRequest {}
+/**
+ * @public
+ *
+ * The output of {@link FinalizeCutoverCommand}.
+ */
 export interface FinalizeCutoverCommandOutput extends SourceServer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Finalizes the cutover immediately for specific Source Servers. All AWS resources created by Application Migration Service for enabling the replication of these source servers will be terminated / deleted within 90 minutes. Launched Test or Cutover instances will NOT be terminated. The AWS Replication Agent will receive a command to uninstall itself (within 10 minutes). The following properties of the SourceServer will be changed immediately: dataReplicationInfo.dataReplicationState will be changed to DISCONNECTED; The SourceServer.lifeCycle.state will be changed to CUTOVER; The totalStorageBytes property fo each of dataReplicationInfo.replicatedDisks will be set to zero; dataReplicationInfo.lagDuration and dataReplicationInfo.lagDuration will be nullified.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,31 @@ export interface FinalizeCutoverCommandOutput extends SourceServer, __MetadataBe
  * import { MgnClient, FinalizeCutoverCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, FinalizeCutoverCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = { // FinalizeCutoverRequest
+ *   sourceServerID: "STRING_VALUE", // required
+ * };
  * const command = new FinalizeCutoverCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param FinalizeCutoverCommandInput - {@link FinalizeCutoverCommandInput}
+ * @returns {@link FinalizeCutoverCommandOutput}
  * @see {@link FinalizeCutoverCommandInput} for command's `input` shape.
  * @see {@link FinalizeCutoverCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource not found exception.</p>
+ *
+ * @throws {@link UninitializedAccountException} (client fault)
+ *  <p>Uninitialized account exception.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Validate exception.</p>
+ *
  *
  */
 export class FinalizeCutoverCommand extends $Command<
@@ -62,6 +83,9 @@ export class FinalizeCutoverCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: FinalizeCutoverCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +114,7 @@ export class FinalizeCutoverCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: FinalizeCutoverRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: SourceServerFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -101,12 +125,18 @@ export class FinalizeCutoverCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: FinalizeCutoverCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1FinalizeCutoverCommand(input, context);
+    return se_FinalizeCutoverCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<FinalizeCutoverCommandOutput> {
-    return deserializeAws_restJson1FinalizeCutoverCommand(output, context);
+    return de_FinalizeCutoverCommand(output, context);
   }
 
   // Start section: command_body_extra

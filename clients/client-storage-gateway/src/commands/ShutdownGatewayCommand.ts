@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ShutdownGatewayInput,
-  ShutdownGatewayInputFilterSensitiveLog,
-  ShutdownGatewayOutput,
-  ShutdownGatewayOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ShutdownGatewayCommand,
-  serializeAws_json1_1ShutdownGatewayCommand,
-} from "../protocols/Aws_json1_1";
+import { ShutdownGatewayInput, ShutdownGatewayOutput } from "../models/models_0";
+import { de_ShutdownGatewayCommand, se_ShutdownGatewayCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ShutdownGatewayCommand}.
+ */
 export interface ShutdownGatewayCommandInput extends ShutdownGatewayInput {}
+/**
+ * @public
+ *
+ * The output of {@link ShutdownGatewayCommand}.
+ */
 export interface ShutdownGatewayCommandOutput extends ShutdownGatewayOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Shuts down a gateway. To specify which gateway to shut down, use the Amazon Resource
  *          Name (ARN) of the gateway in the body of your request.</p>
  *
@@ -59,13 +62,43 @@ export interface ShutdownGatewayCommandOutput extends ShutdownGatewayOutput, __M
  * import { StorageGatewayClient, ShutdownGatewayCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, ShutdownGatewayCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // ShutdownGatewayInput
+ *   GatewayARN: "STRING_VALUE", // required
+ * };
  * const command = new ShutdownGatewayCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ShutdownGatewayCommandInput - {@link ShutdownGatewayCommandInput}
+ * @returns {@link ShutdownGatewayCommandOutput}
  * @see {@link ShutdownGatewayCommandInput} for command's `input` shape.
  * @see {@link ShutdownGatewayCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error has occurred during the request. For more information, see the
+ *          error and message fields.</p>
+ *
+ * @throws {@link InvalidGatewayRequestException} (client fault)
+ *  <p>An exception occurred because an invalid gateway request was issued to the service. For
+ *          more information, see the error and message fields.</p>
+ *
+ *
+ * @example To shut down a gateway service
+ * ```javascript
+ * // This operation shuts down the gateway service component running in the storage gateway's virtual machine (VM) and not the VM.
+ * const input = {
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B"
+ * };
+ * const command = new ShutdownGatewayCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B"
+ * }
+ * *\/
+ * // example id: to-shut-down-a-gateway-service-1472150508835
+ * ```
  *
  */
 export class ShutdownGatewayCommand extends $Command<
@@ -85,6 +118,9 @@ export class ShutdownGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ShutdownGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +149,8 @@ export class ShutdownGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ShutdownGatewayInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ShutdownGatewayOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +160,18 @@ export class ShutdownGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ShutdownGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ShutdownGatewayCommand(input, context);
+    return se_ShutdownGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ShutdownGatewayCommandOutput> {
-    return deserializeAws_json1_1ShutdownGatewayCommand(output, context);
+    return de_ShutdownGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,41 +13,56 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetHealthCheckStatusRequest,
-  GetHealthCheckStatusRequestFilterSensitiveLog,
-  GetHealthCheckStatusResponse,
-  GetHealthCheckStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlGetHealthCheckStatusCommand,
-  serializeAws_restXmlGetHealthCheckStatusCommand,
-} from "../protocols/Aws_restXml";
+import { GetHealthCheckStatusRequest, GetHealthCheckStatusResponse } from "../models/models_0";
+import { de_GetHealthCheckStatusCommand, se_GetHealthCheckStatusCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * @public
+ *
+ * The input for {@link GetHealthCheckStatusCommand}.
+ */
 export interface GetHealthCheckStatusCommandInput extends GetHealthCheckStatusRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetHealthCheckStatusCommand}.
+ */
 export interface GetHealthCheckStatusCommandOutput extends GetHealthCheckStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets status of a specified health check. </p>
- * 		       <important>
- * 			         <p>This API is intended for use during development to diagnose behavior. It doesn’t
+ *          <important>
+ *             <p>This API is intended for use during development to diagnose behavior. It doesn’t
  * 				support production use-cases with high query rates that require immediate and
  * 				actionable responses.</p>
- * 		       </important>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { Route53Client, GetHealthCheckStatusCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, GetHealthCheckStatusCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = { // GetHealthCheckStatusRequest
+ *   HealthCheckId: "STRING_VALUE", // required
+ * };
  * const command = new GetHealthCheckStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetHealthCheckStatusCommandInput - {@link GetHealthCheckStatusCommandInput}
+ * @returns {@link GetHealthCheckStatusCommandOutput}
  * @see {@link GetHealthCheckStatusCommandInput} for command's `input` shape.
  * @see {@link GetHealthCheckStatusCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link NoSuchHealthCheck} (client fault)
+ *  <p>No health check exists with the specified ID.</p>
+ *
  *
  */
 export class GetHealthCheckStatusCommand extends $Command<
@@ -67,6 +82,9 @@ export class GetHealthCheckStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetHealthCheckStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +113,8 @@ export class GetHealthCheckStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetHealthCheckStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetHealthCheckStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +124,18 @@ export class GetHealthCheckStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetHealthCheckStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetHealthCheckStatusCommand(input, context);
+    return se_GetHealthCheckStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetHealthCheckStatusCommandOutput> {
-    return deserializeAws_restXmlGetHealthCheckStatusCommand(output, context);
+    return de_GetHealthCheckStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

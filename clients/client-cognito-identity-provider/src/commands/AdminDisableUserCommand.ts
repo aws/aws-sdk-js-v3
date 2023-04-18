@@ -23,17 +23,24 @@ import {
   AdminDisableUserRequest,
   AdminDisableUserRequestFilterSensitiveLog,
   AdminDisableUserResponse,
-  AdminDisableUserResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1AdminDisableUserCommand,
-  serializeAws_json1_1AdminDisableUserCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AdminDisableUserCommand, se_AdminDisableUserCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link AdminDisableUserCommand}.
+ */
 export interface AdminDisableUserCommandInput extends AdminDisableUserRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AdminDisableUserCommand}.
+ */
 export interface AdminDisableUserCommandOutput extends AdminDisableUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deactivates a user and revokes all access tokens for the user. A deactivated user can't sign in,
  *             but still appears in the responses to <code>GetUser</code> and <code>ListUsers</code> API requests.</p>
  *         <p>You must make this API request with Amazon Web Services credentials that have <code>cognito-idp:AdminDisableUser</code> permissions.</p>
@@ -43,13 +50,41 @@ export interface AdminDisableUserCommandOutput extends AdminDisableUserResponse,
  * import { CognitoIdentityProviderClient, AdminDisableUserCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, AdminDisableUserCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // AdminDisableUserRequest
+ *   UserPoolId: "STRING_VALUE", // required
+ *   Username: "STRING_VALUE", // required
+ * };
  * const command = new AdminDisableUserCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AdminDisableUserCommandInput - {@link AdminDisableUserCommandInput}
+ * @returns {@link AdminDisableUserCommandOutput}
  * @see {@link AdminDisableUserCommandInput} for command's `input` shape.
  * @see {@link AdminDisableUserCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
+ *             parameter.</p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
+ *             resource.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>This exception is thrown when the user has made too many requests for a given
+ *             operation.</p>
+ *
+ * @throws {@link UserNotFoundException} (client fault)
+ *  <p>This exception is thrown when a user isn't found.</p>
+ *
  *
  */
 export class AdminDisableUserCommand extends $Command<
@@ -69,6 +104,9 @@ export class AdminDisableUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AdminDisableUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,7 +137,7 @@ export class AdminDisableUserCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: AdminDisableUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AdminDisableUserResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +147,18 @@ export class AdminDisableUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AdminDisableUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AdminDisableUserCommand(input, context);
+    return se_AdminDisableUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdminDisableUserCommandOutput> {
-    return deserializeAws_json1_1AdminDisableUserCommand(output, context);
+    return de_AdminDisableUserCommand(output, context);
   }
 
   // Start section: command_body_extra

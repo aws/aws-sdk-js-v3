@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
-import {
-  CreateGraphRequest,
-  CreateGraphRequestFilterSensitiveLog,
-  CreateGraphResponse,
-  CreateGraphResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateGraphCommand,
-  serializeAws_restJson1CreateGraphCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateGraphRequest, CreateGraphResponse } from "../models/models_0";
+import { de_CreateGraphCommand, se_CreateGraphCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateGraphCommand}.
+ */
 export interface CreateGraphCommandInput extends CreateGraphRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateGraphCommand}.
+ */
 export interface CreateGraphCommandOutput extends CreateGraphResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new behavior graph for the calling account, and sets that account as the
  *          administrator account. This operation is called by the account that is enabling Detective.</p>
  *          <p>Before you try to enable Detective, make sure that your account has been
@@ -51,13 +54,49 @@ export interface CreateGraphCommandOutput extends CreateGraphResponse, __Metadat
  * import { DetectiveClient, CreateGraphCommand } from "@aws-sdk/client-detective"; // ES Modules import
  * // const { DetectiveClient, CreateGraphCommand } = require("@aws-sdk/client-detective"); // CommonJS import
  * const client = new DetectiveClient(config);
+ * const input = { // CreateGraphRequest
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateGraphCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGraphCommandInput - {@link CreateGraphCommandInput}
+ * @returns {@link CreateGraphCommandOutput}
  * @see {@link CreateGraphCommandInput} for command's `input` shape.
  * @see {@link CreateGraphCommandOutput} for command's `response` shape.
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The request issuer does not have permission to access this resource or perform this
+ *          operation.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request attempted an invalid action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request was valid but failed because of a problem with the service.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>This request cannot be completed for one of the following reasons.</p>
+ *          <ul>
+ *             <li>
+ *                <p>The request would cause the number of member accounts in the behavior graph to
+ *                exceed the maximum allowed. A behavior graph cannot have more than 1200 member
+ *                accounts.</p>
+ *             </li>
+ *             <li>
+ *                <p>The request would cause the data rate for the behavior graph to exceed the maximum
+ *                allowed.</p>
+ *             </li>
+ *             <li>
+ *                <p>Detective is unable to verify the data rate for the member account. This
+ *                is usually because the member account is not enrolled in Amazon GuardDuty.</p>
+ *             </li>
+ *          </ul>
+ *
  *
  */
 export class CreateGraphCommand extends $Command<
@@ -77,6 +116,9 @@ export class CreateGraphCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGraphCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +145,8 @@ export class CreateGraphCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateGraphRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateGraphResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +156,18 @@ export class CreateGraphCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateGraphCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateGraphCommand(input, context);
+    return se_CreateGraphCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGraphCommandOutput> {
-    return deserializeAws_restJson1CreateGraphCommand(output, context);
+    return de_CreateGraphCommand(output, context);
   }
 
   // Start section: command_body_extra

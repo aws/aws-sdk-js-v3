@@ -3,13 +3,23 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { KMSServiceException as __BaseException } from "./KMSServiceException";
 
-export enum AlgorithmSpec {
-  RSAES_OAEP_SHA_1 = "RSAES_OAEP_SHA_1",
-  RSAES_OAEP_SHA_256 = "RSAES_OAEP_SHA_256",
-  RSAES_PKCS1_V1_5 = "RSAES_PKCS1_V1_5",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AlgorithmSpec = {
+  RSAES_OAEP_SHA_1: "RSAES_OAEP_SHA_1",
+  RSAES_OAEP_SHA_256: "RSAES_OAEP_SHA_256",
+  RSAES_PKCS1_V1_5: "RSAES_PKCS1_V1_5",
+} as const;
 
 /**
+ * @public
+ */
+export type AlgorithmSpec = (typeof AlgorithmSpec)[keyof typeof AlgorithmSpec];
+
+/**
+ * @public
  * <p>Contains information about an alias.</p>
  */
 export interface AliasListEntry {
@@ -42,6 +52,7 @@ export interface AliasListEntry {
 }
 
 /**
+ * @public
  * <p>The request was rejected because it attempted to create a resource that already
  *       exists.</p>
  */
@@ -61,10 +72,12 @@ export class AlreadyExistsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CancelKeyDeletionRequest {
   /**
    * <p>Identifies the KMS key whose deletion is being canceled.</p>
-   *
    *          <p>Specify the key ID or key ARN of the KMS key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -82,6 +95,9 @@ export interface CancelKeyDeletionRequest {
   KeyId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelKeyDeletionResponse {
   /**
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key whose deletion is canceled.</p>
@@ -90,6 +106,7 @@ export interface CancelKeyDeletionResponse {
 }
 
 /**
+ * @public
  * <p>The system timed out while trying to fulfill the request. You can retry the
  *       request.</p>
  */
@@ -110,6 +127,7 @@ export class DependencyTimeoutException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because a specified ARN, or an ARN in a key policy, is not
  *       valid.</p>
  */
@@ -130,6 +148,7 @@ export class InvalidArnException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because an internal exception occurred. The request can be
  *       retried.</p>
  */
@@ -150,6 +169,7 @@ export class KMSInternalException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because the state of the specified resource is not valid for this
  *       request.</p>
  *          <p>This exceptions means one of the following:</p>
@@ -184,6 +204,7 @@ export class KMSInvalidStateException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because the specified entity or resource could not be
  *       found.</p>
  */
@@ -204,6 +225,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because the specified CloudHSM cluster is already associated with an
  *       CloudHSM key store in the account, or it shares a backup history with an CloudHSM key store in the
  *       account. Each CloudHSM key store in the account must be associated with a different CloudHSM
@@ -228,9 +250,9 @@ export class CloudHsmClusterInUseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because the associated CloudHSM cluster did not meet the
  *       configuration requirements for an CloudHSM key store.</p>
- *
  *          <ul>
  *             <li>
  *                <p>The CloudHSM cluster must be configured with private subnets in at least two different
@@ -279,6 +301,7 @@ export class CloudHsmClusterInvalidConfigurationException extends __BaseExceptio
 }
 
 /**
+ * @public
  * <p>The request was rejected because the CloudHSM cluster associated with the CloudHSM key store is
  *       not active. Initialize and activate the cluster and try the command again. For detailed
  *       instructions, see <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/getting-started.html">Getting
@@ -301,6 +324,7 @@ export class CloudHsmClusterNotActiveException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because KMS cannot find the CloudHSM cluster with the specified
  *       cluster ID. Retry the request with a different cluster ID.</p>
  */
@@ -321,6 +345,7 @@ export class CloudHsmClusterNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because the specified CloudHSM cluster has a different cluster
  *       certificate than the original cluster. You cannot use the operation to specify an unrelated
  *       cluster for an CloudHSM key store.</p>
@@ -346,6 +371,9 @@ export class CloudHsmClusterNotRelatedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ConnectCustomKeyStoreRequest {
   /**
    * <p>Enter the key store ID of the custom key store that you want to connect.
@@ -354,9 +382,13 @@ export interface ConnectCustomKeyStoreRequest {
   CustomKeyStoreId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ConnectCustomKeyStoreResponse {}
 
 /**
+ * @public
  * <p>The request was rejected because of the <code>ConnectionState</code> of the custom key
  *       store. To get the <code>ConnectionState</code> of a custom key store, use the <a>DescribeCustomKeyStores</a> operation.</p>
  *          <p>This exception is thrown under the following conditions:</p>
@@ -409,6 +441,7 @@ export class CustomKeyStoreInvalidStateException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because KMS cannot find a custom key store with the specified
  *       key store name or ID.</p>
  */
@@ -428,35 +461,56 @@ export class CustomKeyStoreNotFoundException extends __BaseException {
   }
 }
 
-export enum ConnectionErrorCodeType {
-  CLUSTER_NOT_FOUND = "CLUSTER_NOT_FOUND",
-  INSUFFICIENT_CLOUDHSM_HSMS = "INSUFFICIENT_CLOUDHSM_HSMS",
-  INSUFFICIENT_FREE_ADDRESSES_IN_SUBNET = "INSUFFICIENT_FREE_ADDRESSES_IN_SUBNET",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  INVALID_CREDENTIALS = "INVALID_CREDENTIALS",
-  NETWORK_ERRORS = "NETWORK_ERRORS",
-  SUBNET_NOT_FOUND = "SUBNET_NOT_FOUND",
-  USER_LOCKED_OUT = "USER_LOCKED_OUT",
-  USER_LOGGED_IN = "USER_LOGGED_IN",
-  USER_NOT_FOUND = "USER_NOT_FOUND",
-  XKS_PROXY_ACCESS_DENIED = "XKS_PROXY_ACCESS_DENIED",
-  XKS_PROXY_INVALID_CONFIGURATION = "XKS_PROXY_INVALID_CONFIGURATION",
-  XKS_PROXY_INVALID_RESPONSE = "XKS_PROXY_INVALID_RESPONSE",
-  XKS_PROXY_INVALID_TLS_CONFIGURATION = "XKS_PROXY_INVALID_TLS_CONFIGURATION",
-  XKS_PROXY_NOT_REACHABLE = "XKS_PROXY_NOT_REACHABLE",
-  XKS_PROXY_TIMED_OUT = "XKS_PROXY_TIMED_OUT",
-  XKS_VPC_ENDPOINT_SERVICE_INVALID_CONFIGURATION = "XKS_VPC_ENDPOINT_SERVICE_INVALID_CONFIGURATION",
-  XKS_VPC_ENDPOINT_SERVICE_NOT_FOUND = "XKS_VPC_ENDPOINT_SERVICE_NOT_FOUND",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ConnectionErrorCodeType = {
+  CLUSTER_NOT_FOUND: "CLUSTER_NOT_FOUND",
+  INSUFFICIENT_CLOUDHSM_HSMS: "INSUFFICIENT_CLOUDHSM_HSMS",
+  INSUFFICIENT_FREE_ADDRESSES_IN_SUBNET: "INSUFFICIENT_FREE_ADDRESSES_IN_SUBNET",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  INVALID_CREDENTIALS: "INVALID_CREDENTIALS",
+  NETWORK_ERRORS: "NETWORK_ERRORS",
+  SUBNET_NOT_FOUND: "SUBNET_NOT_FOUND",
+  USER_LOCKED_OUT: "USER_LOCKED_OUT",
+  USER_LOGGED_IN: "USER_LOGGED_IN",
+  USER_NOT_FOUND: "USER_NOT_FOUND",
+  XKS_PROXY_ACCESS_DENIED: "XKS_PROXY_ACCESS_DENIED",
+  XKS_PROXY_INVALID_CONFIGURATION: "XKS_PROXY_INVALID_CONFIGURATION",
+  XKS_PROXY_INVALID_RESPONSE: "XKS_PROXY_INVALID_RESPONSE",
+  XKS_PROXY_INVALID_TLS_CONFIGURATION: "XKS_PROXY_INVALID_TLS_CONFIGURATION",
+  XKS_PROXY_NOT_REACHABLE: "XKS_PROXY_NOT_REACHABLE",
+  XKS_PROXY_TIMED_OUT: "XKS_PROXY_TIMED_OUT",
+  XKS_VPC_ENDPOINT_SERVICE_INVALID_CONFIGURATION: "XKS_VPC_ENDPOINT_SERVICE_INVALID_CONFIGURATION",
+  XKS_VPC_ENDPOINT_SERVICE_NOT_FOUND: "XKS_VPC_ENDPOINT_SERVICE_NOT_FOUND",
+} as const;
 
-export enum ConnectionStateType {
-  CONNECTED = "CONNECTED",
-  CONNECTING = "CONNECTING",
-  DISCONNECTED = "DISCONNECTED",
-  DISCONNECTING = "DISCONNECTING",
-  FAILED = "FAILED",
-}
+/**
+ * @public
+ */
+export type ConnectionErrorCodeType = (typeof ConnectionErrorCodeType)[keyof typeof ConnectionErrorCodeType];
 
+/**
+ * @public
+ * @enum
+ */
+export const ConnectionStateType = {
+  CONNECTED: "CONNECTED",
+  CONNECTING: "CONNECTING",
+  DISCONNECTED: "DISCONNECTED",
+  DISCONNECTING: "DISCONNECTING",
+  FAILED: "FAILED",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectionStateType = (typeof ConnectionStateType)[keyof typeof ConnectionStateType];
+
+/**
+ * @public
+ */
 export interface CreateAliasRequest {
   /**
    * <p>Specifies the alias name. This value must begin with <code>alias/</code> followed by a
@@ -478,7 +532,6 @@ export interface CreateAliasRequest {
    *         ARN</a> in the <i>
    *                <i>Key Management Service Developer Guide</i>
    *             </i>.</p>
-   *
    *          <p>Specify the key ID or key ARN of the KMS key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -497,6 +550,7 @@ export interface CreateAliasRequest {
 }
 
 /**
+ * @public
  * <p>The request was rejected because the specified alias name is not valid.</p>
  */
 export class InvalidAliasNameException extends __BaseException {
@@ -516,6 +570,7 @@ export class InvalidAliasNameException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because a quota was exceeded. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html">Quotas</a> in the
  *       <i>Key Management Service Developer Guide</i>.</p>
  */
@@ -535,12 +590,22 @@ export class LimitExceededException extends __BaseException {
   }
 }
 
-export enum CustomKeyStoreType {
-  AWS_CLOUDHSM = "AWS_CLOUDHSM",
-  EXTERNAL_KEY_STORE = "EXTERNAL_KEY_STORE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CustomKeyStoreType = {
+  AWS_CLOUDHSM: "AWS_CLOUDHSM",
+  EXTERNAL_KEY_STORE: "EXTERNAL_KEY_STORE",
+} as const;
 
 /**
+ * @public
+ */
+export type CustomKeyStoreType = (typeof CustomKeyStoreType)[keyof typeof CustomKeyStoreType];
+
+/**
+ * @public
  * <p>KMS uses the authentication credential to sign requests that it sends to the external
  *       key store proxy (XKS proxy) on your behalf. You establish these credentials on your external
  *       key store proxy and report them to KMS.</p>
@@ -559,11 +624,23 @@ export interface XksProxyAuthenticationCredentialType {
   RawSecretAccessKey: string | undefined;
 }
 
-export enum XksProxyConnectivityType {
-  PUBLIC_ENDPOINT = "PUBLIC_ENDPOINT",
-  VPC_ENDPOINT_SERVICE = "VPC_ENDPOINT_SERVICE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const XksProxyConnectivityType = {
+  PUBLIC_ENDPOINT: "PUBLIC_ENDPOINT",
+  VPC_ENDPOINT_SERVICE: "VPC_ENDPOINT_SERVICE",
+} as const;
 
+/**
+ * @public
+ */
+export type XksProxyConnectivityType = (typeof XksProxyConnectivityType)[keyof typeof XksProxyConnectivityType];
+
+/**
+ * @public
+ */
 export interface CreateCustomKeyStoreRequest {
   /**
    * <p>Specifies a friendly name for the custom key store. The name must be unique in your
@@ -729,6 +806,9 @@ export interface CreateCustomKeyStoreRequest {
   XksProxyConnectivity?: XksProxyConnectivityType | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateCustomKeyStoreResponse {
   /**
    * <p>A unique identifier for the new custom key store.</p>
@@ -737,6 +817,7 @@ export interface CreateCustomKeyStoreResponse {
 }
 
 /**
+ * @public
  * <p>The request was rejected because the specified custom key store name is already assigned
  *       to another custom key store in the account. Try again with a custom key store name that is
  *       unique in the account.</p>
@@ -758,6 +839,7 @@ export class CustomKeyStoreNameInUseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because the trust anchor certificate in the request to create an
  *       CloudHSM key store is not the trust anchor certificate for the specified CloudHSM cluster.</p>
  *          <p>When you <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html#sign-csr">initialize the CloudHSM cluster</a>, you create the trust anchor certificate and save it
@@ -780,6 +862,7 @@ export class IncorrectTrustAnchorException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because the proxy credentials failed to authenticate to the
  *       specified external key store proxy. The specified external key store proxy rejected a status
  *       request from KMS due to invalid credentials. This can indicate an error in the credentials
@@ -803,6 +886,7 @@ export class XksProxyIncorrectAuthenticationCredentialException extends __BaseEx
 }
 
 /**
+ * @public
  * <p>The request was rejected because the Amazon VPC endpoint service configuration does not fulfill
  *       the requirements for an external key store proxy. For details, see the exception
  *       message.</p>
@@ -824,6 +908,7 @@ export class XksProxyInvalidConfigurationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  *          <p>KMS cannot interpret the response it received from the external key store proxy. The
  *       problem might be a poorly constructed response, but it could also be a transient network
@@ -846,6 +931,7 @@ export class XksProxyInvalidResponseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because the concatenation of the <code>XksProxyUriEndpoint</code>
  *       is already associated with an external key store in the Amazon Web Services account and Region. Each
  *       external key store in an account and Region must use a unique external key store proxy
@@ -868,6 +954,7 @@ export class XksProxyUriEndpointInUseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because the concatenation of the <code>XksProxyUriEndpoint</code>
  *       and <code>XksProxyUriPath</code> is already associated with an external key store in the
  *       Amazon Web Services account and Region. Each external key store in an account and Region must use a unique
@@ -890,6 +977,7 @@ export class XksProxyUriInUseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>KMS was unable to reach the specified <code>XksProxyUriPath</code>. The path must be
  *       reachable before you create the external key store or update its settings.</p>
  *          <p>This exception is also thrown when the external key store proxy response to a <code>GetHealthStatus</code>
@@ -912,6 +1000,7 @@ export class XksProxyUriUnreachableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because the specified Amazon VPC endpoint service is already
  *       associated with an external key store in the Amazon Web Services account and Region. Each external key store
  *       in an Amazon Web Services account and Region must use a different Amazon VPC endpoint service.</p>
@@ -933,6 +1022,7 @@ export class XksProxyVpcEndpointServiceInUseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because the Amazon VPC endpoint service configuration does not fulfill
  *       the requirements for an external key store proxy. For details, see the exception message and
  *         <a href="kms/latest/developerguide/vpc-connectivity.html#xks-vpc-requirements">review the requirements</a> for Amazon VPC endpoint service connectivity for an external key
@@ -956,6 +1046,7 @@ export class XksProxyVpcEndpointServiceInvalidConfigurationException extends __B
 }
 
 /**
+ * @public
  * <p>The request was rejected because KMS could not find the specified VPC endpoint service.
  *       Use <a>DescribeCustomKeyStores</a> to verify the VPC endpoint service name for the
  *       external key store. Also, confirm that the <code>Allow principals</code> list for the VPC
@@ -979,6 +1070,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends __BaseException
 }
 
 /**
+ * @public
  * <p>Use this structure to allow <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a> in the grant only when the operation request
  *       includes the specified <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">encryption context</a>. </p>
  *          <p>KMS applies the grant constraints only to cryptographic operations that support an
@@ -1016,30 +1108,41 @@ export interface GrantConstraints {
   EncryptionContextEquals?: Record<string, string>;
 }
 
-export enum GrantOperation {
-  CreateGrant = "CreateGrant",
-  Decrypt = "Decrypt",
-  DescribeKey = "DescribeKey",
-  Encrypt = "Encrypt",
-  GenerateDataKey = "GenerateDataKey",
-  GenerateDataKeyPair = "GenerateDataKeyPair",
-  GenerateDataKeyPairWithoutPlaintext = "GenerateDataKeyPairWithoutPlaintext",
-  GenerateDataKeyWithoutPlaintext = "GenerateDataKeyWithoutPlaintext",
-  GenerateMac = "GenerateMac",
-  GetPublicKey = "GetPublicKey",
-  ReEncryptFrom = "ReEncryptFrom",
-  ReEncryptTo = "ReEncryptTo",
-  RetireGrant = "RetireGrant",
-  Sign = "Sign",
-  Verify = "Verify",
-  VerifyMac = "VerifyMac",
-}
+/**
+ * @public
+ * @enum
+ */
+export const GrantOperation = {
+  CreateGrant: "CreateGrant",
+  Decrypt: "Decrypt",
+  DescribeKey: "DescribeKey",
+  Encrypt: "Encrypt",
+  GenerateDataKey: "GenerateDataKey",
+  GenerateDataKeyPair: "GenerateDataKeyPair",
+  GenerateDataKeyPairWithoutPlaintext: "GenerateDataKeyPairWithoutPlaintext",
+  GenerateDataKeyWithoutPlaintext: "GenerateDataKeyWithoutPlaintext",
+  GenerateMac: "GenerateMac",
+  GetPublicKey: "GetPublicKey",
+  ReEncryptFrom: "ReEncryptFrom",
+  ReEncryptTo: "ReEncryptTo",
+  RetireGrant: "RetireGrant",
+  Sign: "Sign",
+  Verify: "Verify",
+  VerifyMac: "VerifyMac",
+} as const;
 
+/**
+ * @public
+ */
+export type GrantOperation = (typeof GrantOperation)[keyof typeof GrantOperation];
+
+/**
+ * @public
+ */
 export interface CreateGrantRequest {
   /**
    * <p>Identifies the KMS key for the grant. The grant gives principals permission to use this
    *       KMS key.</p>
-   *
    *          <p>Specify the key ID or key ARN of the KMS key. To specify a KMS key in a
    * different Amazon Web Services account, you must use the key ARN.</p>
    *          <p>For example:</p>
@@ -1059,12 +1162,12 @@ export interface CreateGrantRequest {
 
   /**
    * <p>The identity that gets the permissions specified in the grant.</p>
-   *          <p>To specify the principal, use the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of an
-   *       Amazon Web Services principal. Valid Amazon Web Services principals include Amazon Web Services accounts (root), IAM users, IAM roles,
-   *       federated users, and assumed role users. For examples of the ARN syntax to use for specifying
-   *       a principal, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam">Amazon Web Services Identity and Access
-   *         Management (IAM)</a> in the Example ARNs section of the <i>Amazon Web Services General
-   *         Reference</i>.</p>
+   *          <p>To specify the grantee principal, use the Amazon Resource Name (ARN) of an
+   *       Amazon Web Services principal. Valid principals include Amazon Web Services accounts, IAM users, IAM roles,
+   *       federated users, and assumed role users. For help with the ARN syntax for a principal, see
+   *         <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM ARNs</a> in the <i>
+   *                <i>Identity and Access Management User Guide</i>
+   *             </i>.</p>
    */
   GranteePrincipal: string | undefined;
 
@@ -1072,11 +1175,11 @@ export interface CreateGrantRequest {
    * <p>The principal that has permission to use the <a>RetireGrant</a> operation to
    *       retire the grant. </p>
    *          <p>To specify the principal, use the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of an
-   *       Amazon Web Services principal. Valid Amazon Web Services principals include Amazon Web Services accounts (root), IAM users, federated
-   *       users, and assumed role users. For examples of the ARN syntax to use for specifying a
-   *       principal, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam">Amazon Web Services Identity and Access
-   *         Management (IAM)</a> in the Example ARNs section of the <i>Amazon Web Services General
-   *         Reference</i>.</p>
+   *       Amazon Web Services principal. Valid principals include Amazon Web Services accounts, IAM users, IAM roles,
+   *       federated users, and assumed role users. For help with the ARN syntax for a principal, see
+   *         <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM ARNs</a> in the <i>
+   *                <i>Identity and Access Management User Guide</i>
+   *             </i>.</p>
    *          <p>The grant determines the retiring principal. Other principals might have permission to
    *       retire the grant or revoke the grant. For details, see <a>RevokeGrant</a> and
    *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#grant-delete">Retiring and
@@ -1143,6 +1246,9 @@ export interface CreateGrantRequest {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateGrantResponse {
   /**
    * <p>The grant token.</p>
@@ -1159,6 +1265,7 @@ export interface CreateGrantResponse {
 }
 
 /**
+ * @public
  * <p>The request was rejected because the specified KMS key is not enabled.</p>
  */
 export class DisabledException extends __BaseException {
@@ -1178,6 +1285,7 @@ export class DisabledException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because the specified grant token is not valid.</p>
  */
 export class InvalidGrantTokenException extends __BaseException {
@@ -1196,52 +1304,89 @@ export class InvalidGrantTokenException extends __BaseException {
   }
 }
 
-export enum CustomerMasterKeySpec {
-  ECC_NIST_P256 = "ECC_NIST_P256",
-  ECC_NIST_P384 = "ECC_NIST_P384",
-  ECC_NIST_P521 = "ECC_NIST_P521",
-  ECC_SECG_P256K1 = "ECC_SECG_P256K1",
-  HMAC_224 = "HMAC_224",
-  HMAC_256 = "HMAC_256",
-  HMAC_384 = "HMAC_384",
-  HMAC_512 = "HMAC_512",
-  RSA_2048 = "RSA_2048",
-  RSA_3072 = "RSA_3072",
-  RSA_4096 = "RSA_4096",
-  SM2 = "SM2",
-  SYMMETRIC_DEFAULT = "SYMMETRIC_DEFAULT",
-}
-
-export enum KeySpec {
-  ECC_NIST_P256 = "ECC_NIST_P256",
-  ECC_NIST_P384 = "ECC_NIST_P384",
-  ECC_NIST_P521 = "ECC_NIST_P521",
-  ECC_SECG_P256K1 = "ECC_SECG_P256K1",
-  HMAC_224 = "HMAC_224",
-  HMAC_256 = "HMAC_256",
-  HMAC_384 = "HMAC_384",
-  HMAC_512 = "HMAC_512",
-  RSA_2048 = "RSA_2048",
-  RSA_3072 = "RSA_3072",
-  RSA_4096 = "RSA_4096",
-  SM2 = "SM2",
-  SYMMETRIC_DEFAULT = "SYMMETRIC_DEFAULT",
-}
-
-export enum KeyUsageType {
-  ENCRYPT_DECRYPT = "ENCRYPT_DECRYPT",
-  GENERATE_VERIFY_MAC = "GENERATE_VERIFY_MAC",
-  SIGN_VERIFY = "SIGN_VERIFY",
-}
-
-export enum OriginType {
-  AWS_CLOUDHSM = "AWS_CLOUDHSM",
-  AWS_KMS = "AWS_KMS",
-  EXTERNAL = "EXTERNAL",
-  EXTERNAL_KEY_STORE = "EXTERNAL_KEY_STORE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CustomerMasterKeySpec = {
+  ECC_NIST_P256: "ECC_NIST_P256",
+  ECC_NIST_P384: "ECC_NIST_P384",
+  ECC_NIST_P521: "ECC_NIST_P521",
+  ECC_SECG_P256K1: "ECC_SECG_P256K1",
+  HMAC_224: "HMAC_224",
+  HMAC_256: "HMAC_256",
+  HMAC_384: "HMAC_384",
+  HMAC_512: "HMAC_512",
+  RSA_2048: "RSA_2048",
+  RSA_3072: "RSA_3072",
+  RSA_4096: "RSA_4096",
+  SM2: "SM2",
+  SYMMETRIC_DEFAULT: "SYMMETRIC_DEFAULT",
+} as const;
 
 /**
+ * @public
+ */
+export type CustomerMasterKeySpec = (typeof CustomerMasterKeySpec)[keyof typeof CustomerMasterKeySpec];
+
+/**
+ * @public
+ * @enum
+ */
+export const KeySpec = {
+  ECC_NIST_P256: "ECC_NIST_P256",
+  ECC_NIST_P384: "ECC_NIST_P384",
+  ECC_NIST_P521: "ECC_NIST_P521",
+  ECC_SECG_P256K1: "ECC_SECG_P256K1",
+  HMAC_224: "HMAC_224",
+  HMAC_256: "HMAC_256",
+  HMAC_384: "HMAC_384",
+  HMAC_512: "HMAC_512",
+  RSA_2048: "RSA_2048",
+  RSA_3072: "RSA_3072",
+  RSA_4096: "RSA_4096",
+  SM2: "SM2",
+  SYMMETRIC_DEFAULT: "SYMMETRIC_DEFAULT",
+} as const;
+
+/**
+ * @public
+ */
+export type KeySpec = (typeof KeySpec)[keyof typeof KeySpec];
+
+/**
+ * @public
+ * @enum
+ */
+export const KeyUsageType = {
+  ENCRYPT_DECRYPT: "ENCRYPT_DECRYPT",
+  GENERATE_VERIFY_MAC: "GENERATE_VERIFY_MAC",
+  SIGN_VERIFY: "SIGN_VERIFY",
+} as const;
+
+/**
+ * @public
+ */
+export type KeyUsageType = (typeof KeyUsageType)[keyof typeof KeyUsageType];
+
+/**
+ * @public
+ * @enum
+ */
+export const OriginType = {
+  AWS_CLOUDHSM: "AWS_CLOUDHSM",
+  AWS_KMS: "AWS_KMS",
+  EXTERNAL: "EXTERNAL",
+  EXTERNAL_KEY_STORE: "EXTERNAL_KEY_STORE",
+} as const;
+
+/**
+ * @public
+ */
+export type OriginType = (typeof OriginType)[keyof typeof OriginType];
+
+/**
+ * @public
  * <p>A key-value pair. A tag consists of a tag key and a tag value. Tag keys and tag values are
  *       both required, but tag values can be empty (null) strings.</p>
  *          <p>For information about the rules that apply to tag keys and tag values, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">User-Defined Tag Restrictions</a> in the <i>Amazon Web Services Billing and Cost Management
@@ -1259,31 +1404,31 @@ export interface Tag {
   TagValue: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateKeyRequest {
   /**
    * <p>The key policy to attach to the KMS key.</p>
    *          <p>If you provide a key policy, it must meet the following criteria:</p>
    *          <ul>
    *             <li>
-   *                <p>If you don't set <code>BypassPolicyLockoutSafetyCheck</code> to true, the key policy
-   *           must allow the principal that is making the <code>CreateKey</code> request to make a
-   *           subsequent <a>PutKeyPolicy</a> request on the KMS key. This reduces the risk
-   *           that the KMS key becomes unmanageable. For more information, refer to the scenario in the
-   *             <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">Default Key Policy</a> section of the <i>
-   *                      <i>Key Management Service Developer Guide</i>
-   *                   </i>.</p>
+   *                <p>The key policy must allow the calling principal to make a
+   *           subsequent <code>PutKeyPolicy</code> request on the KMS key.  This reduces the risk that
+   *           the KMS key becomes unmanageable. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key">Default key policy</a> in the <i>Key Management Service Developer Guide</i>. (To omit
+   *           this condition, set <code>BypassPolicyLockoutSafetyCheck</code> to true.)</p>
    *             </li>
    *             <li>
    *                <p>Each statement in the key policy must contain one or more principals. The principals
    *           in the key policy must exist and be visible to KMS. When you create a new Amazon Web Services
-   *           principal (for example, an IAM user or role), you might need to enforce a delay before
-   *           including the new principal in a key policy because the new principal might not be
-   *           immediately visible to KMS. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">Changes that I make are not always immediately visible</a> in the <i>Amazon Web Services
+   *           principal, you might need to enforce a delay before including the new principal in a key
+   *           policy because the new principal might not be immediately visible to KMS. For more
+   *           information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">Changes that I make are not always immediately visible</a> in the <i>Amazon Web Services
    *             Identity and Access Management User Guide</i>.</p>
    *             </li>
    *          </ul>
    *          <p>If you do not provide a key policy, KMS attaches a default key policy to the KMS key.
-   *       For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default">Default Key Policy</a> in the
+   *       For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default">Default key policy</a> in the
    *       <i>Key Management Service Developer Guide</i>. </p>
    *          <p>The key policy size quota is 32 kilobytes (32768 bytes).</p>
    *          <p>For help writing and formatting a JSON policy document, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM JSON Policy Reference</a> in the <i>
@@ -1493,17 +1638,14 @@ export interface CreateKeyRequest {
   CustomKeyStoreId?: string;
 
   /**
-   * <p>A flag to indicate whether to bypass the key policy lockout safety check.</p>
+   * <p>Skips ("bypasses") the key policy lockout safety check. The default value is false.</p>
    *          <important>
    *             <p>Setting this value to true increases the risk that the KMS key becomes unmanageable. Do
    *         not set this value to true indiscriminately.</p>
-   *             <p>For more information, refer to the scenario in the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">Default Key Policy</a> section in the <i>
-   *                   <i>Key Management Service Developer Guide</i>
-   *                </i>.</p>
+   *             <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key">Default key policy</a> in the <i>Key Management Service Developer Guide</i>.</p>
    *          </important>
-   *          <p>Use this parameter only when you include a policy in the request and you intend to prevent
-   *       the principal that is making the request from making a subsequent <a>PutKeyPolicy</a> request on the KMS key.</p>
-   *          <p>The default value is false.</p>
+   *          <p>Use this parameter only when you intend to prevent the principal that is making the
+   *       request from making a subsequent <a>PutKeyPolicy</a> request on the KMS key.</p>
    */
   BypassPolicyLockoutSafetyCheck?: boolean;
 
@@ -1567,47 +1709,102 @@ export interface CreateKeyRequest {
   XksKeyId?: string;
 }
 
-export enum EncryptionAlgorithmSpec {
-  RSAES_OAEP_SHA_1 = "RSAES_OAEP_SHA_1",
-  RSAES_OAEP_SHA_256 = "RSAES_OAEP_SHA_256",
-  SM2PKE = "SM2PKE",
-  SYMMETRIC_DEFAULT = "SYMMETRIC_DEFAULT",
-}
-
-export enum ExpirationModelType {
-  KEY_MATERIAL_DOES_NOT_EXPIRE = "KEY_MATERIAL_DOES_NOT_EXPIRE",
-  KEY_MATERIAL_EXPIRES = "KEY_MATERIAL_EXPIRES",
-}
-
-export enum KeyManagerType {
-  AWS = "AWS",
-  CUSTOMER = "CUSTOMER",
-}
-
-export enum KeyState {
-  Creating = "Creating",
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-  PendingDeletion = "PendingDeletion",
-  PendingImport = "PendingImport",
-  PendingReplicaDeletion = "PendingReplicaDeletion",
-  Unavailable = "Unavailable",
-  Updating = "Updating",
-}
-
-export enum MacAlgorithmSpec {
-  HMAC_SHA_224 = "HMAC_SHA_224",
-  HMAC_SHA_256 = "HMAC_SHA_256",
-  HMAC_SHA_384 = "HMAC_SHA_384",
-  HMAC_SHA_512 = "HMAC_SHA_512",
-}
-
-export enum MultiRegionKeyType {
-  PRIMARY = "PRIMARY",
-  REPLICA = "REPLICA",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EncryptionAlgorithmSpec = {
+  RSAES_OAEP_SHA_1: "RSAES_OAEP_SHA_1",
+  RSAES_OAEP_SHA_256: "RSAES_OAEP_SHA_256",
+  SM2PKE: "SM2PKE",
+  SYMMETRIC_DEFAULT: "SYMMETRIC_DEFAULT",
+} as const;
 
 /**
+ * @public
+ */
+export type EncryptionAlgorithmSpec = (typeof EncryptionAlgorithmSpec)[keyof typeof EncryptionAlgorithmSpec];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExpirationModelType = {
+  KEY_MATERIAL_DOES_NOT_EXPIRE: "KEY_MATERIAL_DOES_NOT_EXPIRE",
+  KEY_MATERIAL_EXPIRES: "KEY_MATERIAL_EXPIRES",
+} as const;
+
+/**
+ * @public
+ */
+export type ExpirationModelType = (typeof ExpirationModelType)[keyof typeof ExpirationModelType];
+
+/**
+ * @public
+ * @enum
+ */
+export const KeyManagerType = {
+  AWS: "AWS",
+  CUSTOMER: "CUSTOMER",
+} as const;
+
+/**
+ * @public
+ */
+export type KeyManagerType = (typeof KeyManagerType)[keyof typeof KeyManagerType];
+
+/**
+ * @public
+ * @enum
+ */
+export const KeyState = {
+  Creating: "Creating",
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+  PendingDeletion: "PendingDeletion",
+  PendingImport: "PendingImport",
+  PendingReplicaDeletion: "PendingReplicaDeletion",
+  Unavailable: "Unavailable",
+  Updating: "Updating",
+} as const;
+
+/**
+ * @public
+ */
+export type KeyState = (typeof KeyState)[keyof typeof KeyState];
+
+/**
+ * @public
+ * @enum
+ */
+export const MacAlgorithmSpec = {
+  HMAC_SHA_224: "HMAC_SHA_224",
+  HMAC_SHA_256: "HMAC_SHA_256",
+  HMAC_SHA_384: "HMAC_SHA_384",
+  HMAC_SHA_512: "HMAC_SHA_512",
+} as const;
+
+/**
+ * @public
+ */
+export type MacAlgorithmSpec = (typeof MacAlgorithmSpec)[keyof typeof MacAlgorithmSpec];
+
+/**
+ * @public
+ * @enum
+ */
+export const MultiRegionKeyType = {
+  PRIMARY: "PRIMARY",
+  REPLICA: "REPLICA",
+} as const;
+
+/**
+ * @public
+ */
+export type MultiRegionKeyType = (typeof MultiRegionKeyType)[keyof typeof MultiRegionKeyType];
+
+/**
+ * @public
  * <p>Describes the primary or replica key in a multi-Region key.</p>
  */
 export interface MultiRegionKey {
@@ -1623,6 +1820,7 @@ export interface MultiRegionKey {
 }
 
 /**
+ * @public
  * <p>Describes the configuration of this multi-Region key. This field appears only when the KMS
  *       key is a primary or replica of a multi-Region key.</p>
  *          <p>For more information about any listed KMS key, use the <a>DescribeKey</a>
@@ -1648,20 +1846,30 @@ export interface MultiRegionConfiguration {
   ReplicaKeys?: MultiRegionKey[];
 }
 
-export enum SigningAlgorithmSpec {
-  ECDSA_SHA_256 = "ECDSA_SHA_256",
-  ECDSA_SHA_384 = "ECDSA_SHA_384",
-  ECDSA_SHA_512 = "ECDSA_SHA_512",
-  RSASSA_PKCS1_V1_5_SHA_256 = "RSASSA_PKCS1_V1_5_SHA_256",
-  RSASSA_PKCS1_V1_5_SHA_384 = "RSASSA_PKCS1_V1_5_SHA_384",
-  RSASSA_PKCS1_V1_5_SHA_512 = "RSASSA_PKCS1_V1_5_SHA_512",
-  RSASSA_PSS_SHA_256 = "RSASSA_PSS_SHA_256",
-  RSASSA_PSS_SHA_384 = "RSASSA_PSS_SHA_384",
-  RSASSA_PSS_SHA_512 = "RSASSA_PSS_SHA_512",
-  SM2DSA = "SM2DSA",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SigningAlgorithmSpec = {
+  ECDSA_SHA_256: "ECDSA_SHA_256",
+  ECDSA_SHA_384: "ECDSA_SHA_384",
+  ECDSA_SHA_512: "ECDSA_SHA_512",
+  RSASSA_PKCS1_V1_5_SHA_256: "RSASSA_PKCS1_V1_5_SHA_256",
+  RSASSA_PKCS1_V1_5_SHA_384: "RSASSA_PKCS1_V1_5_SHA_384",
+  RSASSA_PKCS1_V1_5_SHA_512: "RSASSA_PKCS1_V1_5_SHA_512",
+  RSASSA_PSS_SHA_256: "RSASSA_PSS_SHA_256",
+  RSASSA_PSS_SHA_384: "RSASSA_PSS_SHA_384",
+  RSASSA_PSS_SHA_512: "RSASSA_PSS_SHA_512",
+  SM2DSA: "SM2DSA",
+} as const;
 
 /**
+ * @public
+ */
+export type SigningAlgorithmSpec = (typeof SigningAlgorithmSpec)[keyof typeof SigningAlgorithmSpec];
+
+/**
+ * @public
  * <p>Information about the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html#concept-external-key">external key </a>that is associated with a KMS key in an
  *       external key store. </p>
  *          <p>This element appears in a <a>CreateKey</a> or <a>DescribeKey</a>
@@ -1679,6 +1887,7 @@ export interface XksKeyConfigurationType {
 }
 
 /**
+ * @public
  * <p>Contains metadata about a KMS key.</p>
  *          <p>This data type is used as a response element for the <a>CreateKey</a>, <a>DescribeKey</a>, and <a>ReplicateKey</a> operations.</p>
  */
@@ -1876,6 +2085,9 @@ export interface KeyMetadata {
   XksKeyConfiguration?: XksKeyConfigurationType;
 }
 
+/**
+ * @public
+ */
 export interface CreateKeyResponse {
   /**
    * <p>Metadata associated with the KMS key.</p>
@@ -1884,6 +2096,7 @@ export interface CreateKeyResponse {
 }
 
 /**
+ * @public
  * <p>The request was rejected because the specified policy is not syntactically or semantically
  *       correct.</p>
  */
@@ -1904,6 +2117,7 @@ export class MalformedPolicyDocumentException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because one or more tags are not valid.</p>
  */
 export class TagException extends __BaseException {
@@ -1923,6 +2137,7 @@ export class TagException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because a specified parameter is not supported or a specified
  *       resource is not valid for this operation.</p>
  */
@@ -1943,6 +2158,7 @@ export class UnsupportedOperationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because the (<code>XksKeyId</code>) is already associated with a
  *       KMS key in this external key store. Each KMS key in an external key store must be associated
  *       with a different external key.</p>
@@ -1964,6 +2180,7 @@ export class XksKeyAlreadyInUseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because the external key specified by the <code>XksKeyId</code>
  *       parameter did not meet the configuration requirements for an external key store.</p>
  *          <p>The external key must be an AES-256 symmetric key that is enabled and performs encryption
@@ -1986,6 +2203,7 @@ export class XksKeyInvalidConfigurationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because the external key store proxy could not find the external key. This
  *       exception is thrown when the value of the <code>XksKeyId</code> parameter doesn't identify a
  *       key in the external key manager associated with the external key proxy.</p>
@@ -2011,6 +2229,7 @@ export class XksKeyNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because the custom key store contains KMS keys. After verifying
  *       that you do not need to use the KMS keys, use the <a>ScheduleKeyDeletion</a>
  *       operation to delete the KMS keys. After they are deleted, you can delete the custom key
@@ -2033,6 +2252,7 @@ export class CustomKeyStoreHasCMKsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Detailed information about the external key store proxy (XKS proxy). Your external key
  *       store proxy translates KMS requests into a format that your external key manager can
  *       understand. These fields appear in a <a>DescribeCustomKeyStores</a> response only
@@ -2073,6 +2293,7 @@ export interface XksProxyConfigurationType {
 }
 
 /**
+ * @public
  * <p>Contains information about each custom key store in the custom key store list.</p>
  */
 export interface CustomKeyStoresListEntry {
@@ -2148,7 +2369,6 @@ export interface CustomKeyStoresListEntry {
    *           connecting the custom key store to its backing key store.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>
    *             <b>CloudHSM key stores:</b>
    *          </p>
@@ -2217,7 +2437,6 @@ export interface CustomKeyStoresListEntry {
    *           then update the key store password value for the custom key store.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>
    *             <b>External key stores:</b>
    *          </p>
@@ -2276,9 +2495,7 @@ export interface CustomKeyStoresListEntry {
    *                   <code>XKS_VPC_ENDPOINT_SERVICE_INVALID_CONFIGURATION</code> — The Amazon VPC
    *           endpoint service configuration doesn't conform to the requirements for an KMS external
    *           key store.</p>
-   *
-   *
-   * 	              <ul>
+   *                <ul>
    *                   <li>
    *                      <p>The VPC endpoint service must be an endpoint service for interface endpoints in the caller's Amazon Web Services account.</p>
    *                   </li>
@@ -2340,22 +2557,43 @@ export interface CustomKeyStoresListEntry {
   XksProxyConfiguration?: XksProxyConfigurationType;
 }
 
-export enum DataKeyPairSpec {
-  ECC_NIST_P256 = "ECC_NIST_P256",
-  ECC_NIST_P384 = "ECC_NIST_P384",
-  ECC_NIST_P521 = "ECC_NIST_P521",
-  ECC_SECG_P256K1 = "ECC_SECG_P256K1",
-  RSA_2048 = "RSA_2048",
-  RSA_3072 = "RSA_3072",
-  RSA_4096 = "RSA_4096",
-  SM2 = "SM2",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DataKeyPairSpec = {
+  ECC_NIST_P256: "ECC_NIST_P256",
+  ECC_NIST_P384: "ECC_NIST_P384",
+  ECC_NIST_P521: "ECC_NIST_P521",
+  ECC_SECG_P256K1: "ECC_SECG_P256K1",
+  RSA_2048: "RSA_2048",
+  RSA_3072: "RSA_3072",
+  RSA_4096: "RSA_4096",
+  SM2: "SM2",
+} as const;
 
-export enum DataKeySpec {
-  AES_128 = "AES_128",
-  AES_256 = "AES_256",
-}
+/**
+ * @public
+ */
+export type DataKeyPairSpec = (typeof DataKeyPairSpec)[keyof typeof DataKeyPairSpec];
 
+/**
+ * @public
+ * @enum
+ */
+export const DataKeySpec = {
+  AES_128: "AES_128",
+  AES_256: "AES_256",
+} as const;
+
+/**
+ * @public
+ */
+export type DataKeySpec = (typeof DataKeySpec)[keyof typeof DataKeySpec];
+
+/**
+ * @public
+ */
 export interface DecryptRequest {
   /**
    * <p>Ciphertext to be decrypted. The blob includes metadata.</p>
@@ -2382,16 +2620,13 @@ export interface DecryptRequest {
 
   /**
    * <p>Specifies the KMS key that KMS uses to decrypt the ciphertext.</p>
-   *
    *          <p>Enter a key ID of the KMS key that was used to encrypt the ciphertext. If you identify a
    *       different KMS key, the <code>Decrypt</code> operation throws an
    *         <code>IncorrectKeyException</code>.</p>
-   *
    *          <p>This parameter is required only when the ciphertext was encrypted under an asymmetric KMS
    *       key. If you used a symmetric encryption KMS key, KMS can get the KMS key from metadata that
    *       it adds to the symmetric ciphertext blob. However, it is always recommended as a best
    *       practice. This practice ensures that you use the KMS key that you intend.</p>
-   *
    *          <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -2427,6 +2662,9 @@ export interface DecryptRequest {
   EncryptionAlgorithm?: EncryptionAlgorithmSpec | string;
 }
 
+/**
+ * @public
+ */
 export interface DecryptResponse {
   /**
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key that was used to decrypt the ciphertext.</p>
@@ -2445,6 +2683,7 @@ export interface DecryptResponse {
 }
 
 /**
+ * @public
  * <p>The request was rejected because the specified KMS key cannot decrypt the data. The
  *         <code>KeyId</code> in a <a>Decrypt</a> request and the <code>SourceKeyId</code>
  *       in a <a>ReEncrypt</a> request must identify the same KMS key that was used to
@@ -2467,6 +2706,7 @@ export class IncorrectKeyException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>From the <a>Decrypt</a> or <a>ReEncrypt</a> operation, the request
  *       was rejected because the specified ciphertext, or additional authenticated data incorporated
  *       into the ciphertext, such as the encryption context, is corrupted, missing, or otherwise
@@ -2491,6 +2731,7 @@ export class InvalidCiphertextException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected for one of the following reasons: </p>
  *          <ul>
  *             <li>
@@ -2528,6 +2769,7 @@ export class InvalidKeyUsageException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because the specified KMS key was not available. You can retry
  *       the request.</p>
  */
@@ -2547,6 +2789,9 @@ export class KeyUnavailableException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteAliasRequest {
   /**
    * <p>The alias to be deleted. The alias name must begin with <code>alias/</code> followed by
@@ -2555,6 +2800,9 @@ export interface DeleteAliasRequest {
   AliasName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCustomKeyStoreRequest {
   /**
    * <p>Enter the ID of the custom key store you want to delete. To find the ID of a custom key store, use the <a>DescribeCustomKeyStores</a> operation.</p>
@@ -2562,13 +2810,18 @@ export interface DeleteCustomKeyStoreRequest {
   CustomKeyStoreId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCustomKeyStoreResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteImportedKeyMaterialRequest {
   /**
    * <p>Identifies the KMS key from which you are deleting imported key material. The
    *         <code>Origin</code> of the KMS key must be <code>EXTERNAL</code>.</p>
-   *
    *          <p>Specify the key ID or key ARN of the KMS key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -2586,6 +2839,9 @@ export interface DeleteImportedKeyMaterialRequest {
   KeyId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCustomKeyStoresRequest {
   /**
    * <p>Gets only information about the specified custom key store. Enter the key store ID.</p>
@@ -2621,6 +2877,9 @@ export interface DescribeCustomKeyStoresRequest {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCustomKeyStoresResponse {
   /**
    * <p>Contains metadata about each custom key store.</p>
@@ -2643,6 +2902,7 @@ export interface DescribeCustomKeyStoresResponse {
 }
 
 /**
+ * @public
  * <p>The request was rejected because the marker that specifies where pagination should next
  *       begin is not valid.</p>
  */
@@ -2662,13 +2922,15 @@ export class InvalidMarkerException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeKeyRequest {
   /**
    * <p>Describes the specified KMS key. </p>
    *          <p>If you specify a predefined Amazon Web Services alias (an Amazon Web Services alias with no key ID), KMS associates
    *       the alias with an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html##aws-managed-cmk">Amazon Web Services managed key</a> and returns its
    *         <code>KeyId</code> and <code>Arn</code> in the response.</p>
-   *
    *          <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -2701,6 +2963,9 @@ export interface DescribeKeyRequest {
   GrantTokens?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeKeyResponse {
   /**
    * <p>Metadata associated with the key.</p>
@@ -2708,10 +2973,12 @@ export interface DescribeKeyResponse {
   KeyMetadata?: KeyMetadata;
 }
 
+/**
+ * @public
+ */
 export interface DisableKeyRequest {
   /**
    * <p>Identifies the KMS key to disable.</p>
-   *
    *          <p>Specify the key ID or key ARN of the KMS key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -2729,13 +2996,15 @@ export interface DisableKeyRequest {
   KeyId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisableKeyRotationRequest {
   /**
    * <p>Identifies a symmetric encryption KMS key. You cannot enable or disable automatic rotation
    *       of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html#asymmetric-cmks">asymmetric KMS keys</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC
    *         KMS keys</a>, KMS keys with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported key material</a>, or KMS keys in a
    *       <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>.</p>
-   *
    *          <p>Specify the key ID or key ARN of the KMS key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -2753,6 +3022,9 @@ export interface DisableKeyRotationRequest {
   KeyId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisconnectCustomKeyStoreRequest {
   /**
    * <p>Enter the ID of the custom key store you want to disconnect. To find the ID of a custom key store, use the <a>DescribeCustomKeyStores</a> operation.</p>
@@ -2760,12 +3032,17 @@ export interface DisconnectCustomKeyStoreRequest {
   CustomKeyStoreId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisconnectCustomKeyStoreResponse {}
 
+/**
+ * @public
+ */
 export interface EnableKeyRequest {
   /**
    * <p>Identifies the KMS key to enable.</p>
-   *
    *          <p>Specify the key ID or key ARN of the KMS key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -2783,10 +3060,12 @@ export interface EnableKeyRequest {
   KeyId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface EnableKeyRotationRequest {
   /**
    * <p>Identifies a symmetric encryption KMS key. You cannot enable automatic rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">asymmetric KMS keys</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC KMS keys</a>, KMS keys with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported key material</a>, or KMS keys in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>. To enable or disable automatic rotation of a set of related <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-manage.html#multi-region-rotate">multi-Region keys</a>, set the property on the primary key.</p>
-   *
    *          <p>Specify the key ID or key ARN of the KMS key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -2804,12 +3083,14 @@ export interface EnableKeyRotationRequest {
   KeyId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface EncryptRequest {
   /**
    * <p>Identifies the KMS key to use in the encryption operation. The KMS key must have a
    *         <code>KeyUsage</code> of <code>ENCRYPT_DECRYPT</code>. To find the <code>KeyUsage</code> of
    *       a KMS key, use the <a>DescribeKey</a> operation.</p>
-   *
    *          <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -2868,6 +3149,9 @@ export interface EncryptRequest {
   EncryptionAlgorithm?: EncryptionAlgorithmSpec | string;
 }
 
+/**
+ * @public
+ */
 export interface EncryptResponse {
   /**
    * <p>The encrypted plaintext. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
@@ -2886,6 +3170,7 @@ export interface EncryptResponse {
 }
 
 /**
+ * @public
  * <p>The request was rejected because the specified import token is expired. Use <a>GetParametersForImport</a> to get a new import token and public key, use the new
  *       public key to encrypt the key material, and then try the request again.</p>
  */
@@ -2905,12 +3190,14 @@ export class ExpiredImportTokenException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GenerateDataKeyRequest {
   /**
    * <p>Specifies the symmetric encryption KMS key that encrypts the data key. You cannot specify
    *       an asymmetric KMS key or a KMS key in a custom key store. To get the type and origin of your
    *       KMS key, use the <a>DescribeKey</a> operation.</p>
-   *
    *          <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -2970,6 +3257,9 @@ export interface GenerateDataKeyRequest {
   GrantTokens?: string[];
 }
 
+/**
+ * @public
+ */
 export interface GenerateDataKeyResponse {
   /**
    * <p>The encrypted copy of the data key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
@@ -2988,6 +3278,9 @@ export interface GenerateDataKeyResponse {
   KeyId?: string;
 }
 
+/**
+ * @public
+ */
 export interface GenerateDataKeyPairRequest {
   /**
    * <p>Specifies the encryption context that will be used when encrypting the private key in the
@@ -3004,7 +3297,6 @@ export interface GenerateDataKeyPairRequest {
    * <p>Specifies the symmetric encryption KMS key that encrypts the private key in the data key
    *       pair. You cannot specify an asymmetric KMS key or a KMS key in a custom key store. To get the
    *       type and origin of your KMS key, use the <a>DescribeKey</a> operation.</p>
-   *
    *          <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -3043,6 +3335,9 @@ export interface GenerateDataKeyPairRequest {
   GrantTokens?: string[];
 }
 
+/**
+ * @public
+ */
 export interface GenerateDataKeyPairResponse {
   /**
    * <p>The encrypted copy of the private key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
@@ -3070,6 +3365,9 @@ export interface GenerateDataKeyPairResponse {
   KeyPairSpec?: DataKeyPairSpec | string;
 }
 
+/**
+ * @public
+ */
 export interface GenerateDataKeyPairWithoutPlaintextRequest {
   /**
    * <p>Specifies the encryption context that will be used when encrypting the private key in the
@@ -3086,7 +3384,6 @@ export interface GenerateDataKeyPairWithoutPlaintextRequest {
    * <p>Specifies the symmetric encryption KMS key that encrypts the private key in the data key
    *       pair. You cannot specify an asymmetric KMS key or a KMS key in a custom key store. To get the
    *       type and origin of your KMS key, use the <a>DescribeKey</a> operation. </p>
-   *
    *          <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -3125,6 +3422,9 @@ export interface GenerateDataKeyPairWithoutPlaintextRequest {
   GrantTokens?: string[];
 }
 
+/**
+ * @public
+ */
 export interface GenerateDataKeyPairWithoutPlaintextResponse {
   /**
    * <p>The encrypted copy of the private key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
@@ -3147,12 +3447,14 @@ export interface GenerateDataKeyPairWithoutPlaintextResponse {
   KeyPairSpec?: DataKeyPairSpec | string;
 }
 
+/**
+ * @public
+ */
 export interface GenerateDataKeyWithoutPlaintextRequest {
   /**
    * <p>Specifies the symmetric encryption KMS key that encrypts the data key. You cannot specify
    *       an asymmetric KMS key or a KMS key in a custom key store. To get the type and origin of your
    *       KMS key, use the <a>DescribeKey</a> operation.</p>
-   *
    *          <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -3208,6 +3510,9 @@ export interface GenerateDataKeyWithoutPlaintextRequest {
   GrantTokens?: string[];
 }
 
+/**
+ * @public
+ */
 export interface GenerateDataKeyWithoutPlaintextResponse {
   /**
    * <p>The encrypted data key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
@@ -3220,6 +3525,9 @@ export interface GenerateDataKeyWithoutPlaintextResponse {
   KeyId?: string;
 }
 
+/**
+ * @public
+ */
 export interface GenerateMacRequest {
   /**
    * <p>The message to be hashed. Specify a message of up to 4,096 bytes. </p>
@@ -3254,6 +3562,9 @@ export interface GenerateMacRequest {
   GrantTokens?: string[];
 }
 
+/**
+ * @public
+ */
 export interface GenerateMacResponse {
   /**
    * <p>The hash-based message authentication code (HMAC) that was generated for the
@@ -3273,6 +3584,9 @@ export interface GenerateMacResponse {
   KeyId?: string;
 }
 
+/**
+ * @public
+ */
 export interface GenerateRandomRequest {
   /**
    * <p>The length of the random byte string. This parameter is required.</p>
@@ -3289,6 +3603,9 @@ export interface GenerateRandomRequest {
   CustomKeyStoreId?: string;
 }
 
+/**
+ * @public
+ */
 export interface GenerateRandomResponse {
   /**
    * <p>The random byte string. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
@@ -3296,10 +3613,12 @@ export interface GenerateRandomResponse {
   Plaintext?: Uint8Array;
 }
 
+/**
+ * @public
+ */
 export interface GetKeyPolicyRequest {
   /**
    * <p>Gets the key policy for the specified KMS key.</p>
-   *
    *          <p>Specify the key ID or key ARN of the KMS key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -3323,6 +3642,9 @@ export interface GetKeyPolicyRequest {
   PolicyName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetKeyPolicyResponse {
   /**
    * <p>A key policy document in JSON format.</p>
@@ -3330,10 +3652,12 @@ export interface GetKeyPolicyResponse {
   Policy?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetKeyRotationStatusRequest {
   /**
    * <p>Gets the rotation status for the specified KMS key.</p>
-   *
    *          <p>Specify the key ID or key ARN of the KMS key. To specify a KMS key in a
    * different Amazon Web Services account, you must use the key ARN.</p>
    *          <p>For example:</p>
@@ -3352,6 +3676,9 @@ export interface GetKeyRotationStatusRequest {
   KeyId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetKeyRotationStatusResponse {
   /**
    * <p>A Boolean value that specifies whether key rotation is enabled.</p>
@@ -3359,15 +3686,26 @@ export interface GetKeyRotationStatusResponse {
   KeyRotationEnabled?: boolean;
 }
 
-export enum WrappingKeySpec {
-  RSA_2048 = "RSA_2048",
-}
+/**
+ * @public
+ * @enum
+ */
+export const WrappingKeySpec = {
+  RSA_2048: "RSA_2048",
+} as const;
 
+/**
+ * @public
+ */
+export type WrappingKeySpec = (typeof WrappingKeySpec)[keyof typeof WrappingKeySpec];
+
+/**
+ * @public
+ */
 export interface GetParametersForImportRequest {
   /**
    * <p>The identifier of the symmetric encryption KMS key into which you will import key
    *       material. The <code>Origin</code> of the KMS key must be <code>EXTERNAL</code>.</p>
-   *
    *          <p>Specify the key ID or key ARN of the KMS key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -3385,8 +3723,14 @@ export interface GetParametersForImportRequest {
   KeyId: string | undefined;
 
   /**
-   * <p>The algorithm you will use to encrypt the key material before importing it with <a>ImportKeyMaterial</a>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-encrypt-key-material.html">Encrypt the Key Material</a>
-   *       in the <i>Key Management Service Developer Guide</i>.</p>
+   * <p>The algorithm you will use to encrypt the key material before using the <a>ImportKeyMaterial</a> operation to import it. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-encrypt-key-material.html">Encrypt the
+   *         key material</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   *          <important>
+   *             <p>The <code>RSAES_PKCS1_V1_5</code> wrapping algorithm is deprecated. We recommend that
+   *         you begin using a different wrapping algorithm immediately. KMS will end support for
+   *           <code>RSAES_PKCS1_V1_5</code> by October 1, 2023 pursuant to <a href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-131Ar2.pdf">cryptographic key management guidance</a> from the National Institute of Standards
+   *         and Technology (NIST).</p>
+   *          </important>
    */
   WrappingAlgorithm: AlgorithmSpec | string | undefined;
 
@@ -3397,6 +3741,9 @@ export interface GetParametersForImportRequest {
   WrappingKeySpec: WrappingKeySpec | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetParametersForImportResponse {
   /**
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key to use in a subsequent <a>ImportKeyMaterial</a> request. This is the same KMS key specified in the <code>GetParametersForImport</code>
@@ -3423,10 +3770,12 @@ export interface GetParametersForImportResponse {
   ParametersValidTo?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetPublicKeyRequest {
   /**
    * <p>Identifies the asymmetric KMS key that includes the public key.</p>
-   *
    *          <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -3459,6 +3808,9 @@ export interface GetPublicKeyRequest {
   GrantTokens?: string[];
 }
 
+/**
+ * @public
+ */
 export interface GetPublicKeyResponse {
   /**
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the asymmetric KMS key from which the public key was
@@ -3516,6 +3868,7 @@ export interface GetPublicKeyResponse {
 }
 
 /**
+ * @public
  * <p>Contains information about a grant.</p>
  */
 export interface GrantListEntry {
@@ -3571,6 +3924,9 @@ export interface GrantListEntry {
   Constraints?: GrantConstraints;
 }
 
+/**
+ * @public
+ */
 export interface ImportKeyMaterialRequest {
   /**
    * <p>The identifier of the symmetric encryption KMS key that receives the imported key
@@ -3579,7 +3935,6 @@ export interface ImportKeyMaterialRequest {
    *       KMS key must be <code>EXTERNAL</code>. You cannot perform this operation on an asymmetric KMS
    *       key, an HMAC KMS key, a KMS key in a custom key store, or on a KMS key in a different
    *       Amazon Web Services account</p>
-   *
    *          <p>Specify the key ID or key ARN of the KMS key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -3636,9 +3991,13 @@ export interface ImportKeyMaterialRequest {
   ExpirationModel?: ExpirationModelType | string;
 }
 
+/**
+ * @public
+ */
 export interface ImportKeyMaterialResponse {}
 
 /**
+ * @public
  * <p>The request was rejected because the key material in the request is, expired, invalid, or
  *       is not the same key material that was previously imported into this KMS key.</p>
  */
@@ -3659,6 +4018,7 @@ export class IncorrectKeyMaterialException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because the provided import token is invalid or is associated
  *       with a different KMS key.</p>
  */
@@ -3679,6 +4039,7 @@ export class InvalidImportTokenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because the specified <code>GrantId</code> is not valid.</p>
  */
 export class InvalidGrantIdException extends __BaseException {
@@ -3698,6 +4059,7 @@ export class InvalidGrantIdException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains information about each entry in the key list.</p>
  */
 export interface KeyListEntry {
@@ -3713,6 +4075,7 @@ export interface KeyListEntry {
 }
 
 /**
+ * @public
  * <p>The request was rejected because the HMAC verification failed. HMAC verification fails
  *       when the HMAC computed by using the specified message, HMAC KMS key, and MAC algorithm does
  *       not match the HMAC specified in the request.</p>
@@ -3734,6 +4097,7 @@ export class KMSInvalidMacException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because the signature verification failed. Signature verification
  *       fails when it cannot confirm that signature was produced by signing the specified message with
  *       the specified KMS key and signing algorithm.</p>
@@ -3754,13 +4118,15 @@ export class KMSInvalidSignatureException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListAliasesRequest {
   /**
    * <p>Lists only aliases that are associated with the specified KMS key. Enter a KMS key in your
    *       Amazon Web Services account. </p>
    *          <p>This parameter is optional. If you omit it, <code>ListAliases</code> returns all aliases
    *       in the account and Region.</p>
-   *
    *          <p>Specify the key ID or key ARN of the KMS key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -3794,6 +4160,9 @@ export interface ListAliasesRequest {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAliasesResponse {
   /**
    * <p>A list of aliases.</p>
@@ -3815,6 +4184,9 @@ export interface ListAliasesResponse {
   Truncated?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ListGrantsRequest {
   /**
    * <p>Use this parameter to specify the maximum number of items to return. When this
@@ -3834,7 +4206,6 @@ export interface ListGrantsRequest {
 
   /**
    * <p>Returns only grants for the specified KMS key. This parameter is required.</p>
-   *
    *          <p>Specify the key ID or key ARN of the KMS key. To specify a KMS key in a
    * different Amazon Web Services account, you must use the key ARN.</p>
    *          <p>For example:</p>
@@ -3865,6 +4236,9 @@ export interface ListGrantsRequest {
   GranteePrincipal?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListGrantsResponse {
   /**
    * <p>A list of grants.</p>
@@ -3886,10 +4260,12 @@ export interface ListGrantsResponse {
   Truncated?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ListKeyPoliciesRequest {
   /**
    * <p>Gets the names of key policies for the specified KMS key.</p>
-   *
    *          <p>Specify the key ID or key ARN of the KMS key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -3924,6 +4300,9 @@ export interface ListKeyPoliciesRequest {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListKeyPoliciesResponse {
   /**
    * <p>A list of key policy names. The only valid value is <code>default</code>.</p>
@@ -3945,6 +4324,9 @@ export interface ListKeyPoliciesResponse {
   Truncated?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ListKeysRequest {
   /**
    * <p>Use this parameter to specify the maximum number of items to return. When this
@@ -3963,6 +4345,9 @@ export interface ListKeysRequest {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListKeysResponse {
   /**
    * <p>A list of KMS keys.</p>
@@ -3984,10 +4369,12 @@ export interface ListKeysResponse {
   Truncated?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ListResourceTagsRequest {
   /**
    * <p>Gets tags on the specified KMS key.</p>
-   *
    *          <p>Specify the key ID or key ARN of the KMS key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -4023,6 +4410,9 @@ export interface ListResourceTagsRequest {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListResourceTagsResponse {
   /**
    * <p>A list of tags. Each tag consists of a tag key and a tag value.</p>
@@ -4048,6 +4438,9 @@ export interface ListResourceTagsResponse {
   Truncated?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ListRetirableGrantsRequest {
   /**
    * <p>Use this parameter to specify the maximum number of items to return. When this
@@ -4069,23 +4462,35 @@ export interface ListRetirableGrantsRequest {
    * <p>The retiring principal for which to list grants. Enter a principal in your
    *       Amazon Web Services account.</p>
    *          <p>To specify the retiring principal, use the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of an
-   *       Amazon Web Services principal. Valid Amazon Web Services principals include Amazon Web Services accounts (root), IAM users, federated
-   *       users, and assumed role users. For examples of the ARN syntax for specifying a principal, see
-   *         <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam">Amazon Web Services Identity and Access Management (IAM)</a> in the Example ARNs section of the
-   *         <i>Amazon Web Services General Reference</i>.</p>
+   *       Amazon Web Services principal. Valid principals include Amazon Web Services accounts, IAM users, IAM roles,
+   *       federated users, and assumed role users. For help with the ARN syntax for a principal, see
+   *         <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM ARNs</a> in the <i>
+   *                <i>Identity and Access Management User Guide</i>
+   *             </i>.</p>
    */
   RetiringPrincipal: string | undefined;
 }
 
-export enum MessageType {
-  DIGEST = "DIGEST",
-  RAW = "RAW",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MessageType = {
+  DIGEST: "DIGEST",
+  RAW: "RAW",
+} as const;
 
+/**
+ * @public
+ */
+export type MessageType = (typeof MessageType)[keyof typeof MessageType];
+
+/**
+ * @public
+ */
 export interface PutKeyPolicyRequest {
   /**
    * <p>Sets the key policy on the specified KMS key.</p>
-   *
    *          <p>Specify the key ID or key ARN of the KMS key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -4112,22 +4517,20 @@ export interface PutKeyPolicyRequest {
    *          <p>The key policy must meet the following criteria:</p>
    *          <ul>
    *             <li>
-   *                <p>If you don't set <code>BypassPolicyLockoutSafetyCheck</code> to true, the key policy
-   *           must allow the principal that is making the <code>PutKeyPolicy</code> request to make a
-   *           subsequent <code>PutKeyPolicy</code> request on the KMS key. This reduces the risk that
-   *           the KMS key becomes unmanageable. For more information, refer to the scenario in the
-   *             <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">Default Key Policy</a> section of the <i>Key Management Service Developer Guide</i>.</p>
+   *                <p>The key policy must allow the calling principal to make a
+   *           subsequent <code>PutKeyPolicy</code> request on the KMS key.  This reduces the risk that
+   *           the KMS key becomes unmanageable. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key">Default key policy</a> in the <i>Key Management Service Developer Guide</i>. (To omit
+   *           this condition, set <code>BypassPolicyLockoutSafetyCheck</code> to true.)</p>
    *             </li>
    *             <li>
    *                <p>Each statement in the key policy must contain one or more principals. The principals
    *           in the key policy must exist and be visible to KMS. When you create a new Amazon Web Services
-   *           principal (for example, an IAM user or role), you might need to enforce a delay before
-   *           including the new principal in a key policy because the new principal might not be
-   *           immediately visible to KMS. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">Changes that I make are not always immediately visible</a> in the <i>Amazon Web Services
+   *           principal, you might need to enforce a delay before including the new principal in a key
+   *           policy because the new principal might not be immediately visible to KMS. For more
+   *           information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">Changes that I make are not always immediately visible</a> in the <i>Amazon Web Services
    *             Identity and Access Management User Guide</i>.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>A key policy document can include only the following characters:</p>
    *          <ul>
    *             <li>
@@ -4148,19 +4551,21 @@ export interface PutKeyPolicyRequest {
   Policy: string | undefined;
 
   /**
-   * <p>A flag to indicate whether to bypass the key policy lockout safety check.</p>
+   * <p>Skips ("bypasses") the key policy lockout safety check. The default value is false.</p>
    *          <important>
    *             <p>Setting this value to true increases the risk that the KMS key becomes unmanageable. Do
    *         not set this value to true indiscriminately.</p>
-   *             <p>For more information, refer to the scenario in the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">Default Key Policy</a> section in the <i>Key Management Service Developer Guide</i>.</p>
+   *             <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key">Default key policy</a> in the <i>Key Management Service Developer Guide</i>.</p>
    *          </important>
    *          <p>Use this parameter only when you intend to prevent the principal that is making the
-   *       request from making a subsequent <code>PutKeyPolicy</code> request on the KMS key.</p>
-   *          <p>The default value is false.</p>
+   *       request from making a subsequent <a>PutKeyPolicy</a> request on the KMS key.</p>
    */
   BypassPolicyLockoutSafetyCheck?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ReEncryptRequest {
   /**
    * <p>Ciphertext of the data to reencrypt.</p>
@@ -4188,7 +4593,6 @@ export interface ReEncryptRequest {
    *       key. If you used a symmetric encryption KMS key, KMS can get the KMS key from metadata that
    *       it adds to the symmetric ciphertext blob. However, it is always recommended as a best
    *       practice. This practice ensures that you use the KMS key that you intend.</p>
-   *
    *          <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -4218,7 +4622,6 @@ export interface ReEncryptRequest {
    *       symmetric encryption KMS key or an asymmetric KMS key with a <code>KeyUsage</code> value of
    *         <code>ENCRYPT_DECRYPT</code>. To find the <code>KeyUsage</code> value of a KMS key, use the
    *         <a>DescribeKey</a> operation.</p>
-   *
    *          <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -4284,6 +4687,9 @@ export interface ReEncryptRequest {
   GrantTokens?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ReEncryptResponse {
   /**
    * <p>The reencrypted data. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
@@ -4312,12 +4718,14 @@ export interface ReEncryptResponse {
   DestinationEncryptionAlgorithm?: EncryptionAlgorithmSpec | string;
 }
 
+/**
+ * @public
+ */
 export interface ReplicateKeyRequest {
   /**
    * <p>Identifies the multi-Region primary key that is being replicated. To determine whether a
    *       KMS key is a multi-Region primary key, use the <a>DescribeKey</a> operation to
    *       check the value of the <code>MultiRegionKeyType</code> property.</p>
-   *
    *          <p>Specify the key ID or key ARN of a multi-Region primary key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -4365,25 +4773,20 @@ export interface ReplicateKeyRequest {
    *          <p>If you provide a key policy, it must meet the following criteria:</p>
    *          <ul>
    *             <li>
-   *                <p>If you don't set <code>BypassPolicyLockoutSafetyCheck</code> to true, the key policy
-   *           must give the caller <code>kms:PutKeyPolicy</code> permission on the replica key. This
-   *           reduces the risk that the KMS key becomes unmanageable. For more information, refer to the
-   *           scenario in the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">Default Key Policy</a> section of the <i>
-   *                      <i>Key Management Service Developer Guide</i>
-   *                   </i>.</p>
+   *                <p>The key policy must allow the calling principal to make a
+   *           subsequent <code>PutKeyPolicy</code> request on the KMS key.  This reduces the risk that
+   *           the KMS key becomes unmanageable. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key">Default key policy</a> in the <i>Key Management Service Developer Guide</i>. (To omit
+   *           this condition, set <code>BypassPolicyLockoutSafetyCheck</code> to true.)</p>
    *             </li>
    *             <li>
    *                <p>Each statement in the key policy must contain one or more principals. The principals
    *           in the key policy must exist and be visible to KMS. When you create a new Amazon Web Services
-   *           principal (for example, an IAM user or role), you might need to enforce a delay before
-   *           including the new principal in a key policy because the new principal might not be
-   *           immediately visible to KMS. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">Changes that I make are not always immediately visible</a> in the
-   *             <i>
-   *                      <i>Identity and Access Management User Guide</i>
-   *                   </i>.</p>
+   *           principal, you might need to enforce a delay before including the new principal in a key
+   *           policy because the new principal might not be immediately visible to KMS. For more
+   *           information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">Changes that I make are not always immediately visible</a> in the <i>Amazon Web Services
+   *             Identity and Access Management User Guide</i>.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>A key policy document can include only the following characters:</p>
    *          <ul>
    *             <li>
@@ -4404,15 +4807,14 @@ export interface ReplicateKeyRequest {
   Policy?: string;
 
   /**
-   * <p>A flag to indicate whether to bypass the key policy lockout safety check.</p>
+   * <p>Skips ("bypasses") the key policy lockout safety check. The default value is false.</p>
    *          <important>
    *             <p>Setting this value to true increases the risk that the KMS key becomes unmanageable. Do
    *         not set this value to true indiscriminately.</p>
-   *             <p>For more information, refer to the scenario in the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">Default Key Policy</a> section in the <i>Key Management Service Developer Guide</i>.</p>
+   *             <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key">Default key policy</a> in the <i>Key Management Service Developer Guide</i>.</p>
    *          </important>
    *          <p>Use this parameter only when you intend to prevent the principal that is making the
-   *       request from making a subsequent <code>PutKeyPolicy</code> request on the KMS key.</p>
-   *          <p>The default value is false.</p>
+   *       request from making a subsequent <a>PutKeyPolicy</a> request on the KMS key.</p>
    */
   BypassPolicyLockoutSafetyCheck?: boolean;
 
@@ -4447,6 +4849,9 @@ export interface ReplicateKeyRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface ReplicateKeyResponse {
   /**
    * <p>Displays details about the new replica key, including its Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) and
@@ -4468,6 +4873,9 @@ export interface ReplicateKeyResponse {
   ReplicaTags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface RetireGrantRequest {
   /**
    * <p>Identifies the grant to be retired. You can use a grant token to identify a new grant even
@@ -4498,11 +4906,13 @@ export interface RetireGrantRequest {
   GrantId?: string;
 }
 
+/**
+ * @public
+ */
 export interface RevokeGrantRequest {
   /**
    * <p>A unique identifier for the KMS key associated with the grant. To get the key ID and key
    *       ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
-   *
    *          <p>Specify the key ID or key ARN of the KMS key. To specify a KMS key in a
    * different Amazon Web Services account, you must use the key ARN.</p>
    *          <p>For example:</p>
@@ -4527,10 +4937,12 @@ export interface RevokeGrantRequest {
   GrantId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ScheduleKeyDeletionRequest {
   /**
    * <p>The unique identifier of the KMS key to delete.</p>
-   *
    *          <p>Specify the key ID or key ARN of the KMS key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -4559,6 +4971,9 @@ export interface ScheduleKeyDeletionRequest {
   PendingWindowInDays?: number;
 }
 
+/**
+ * @public
+ */
 export interface ScheduleKeyDeletionResponse {
   /**
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key whose deletion is scheduled.</p>
@@ -4589,12 +5004,14 @@ export interface ScheduleKeyDeletionResponse {
   PendingWindowInDays?: number;
 }
 
+/**
+ * @public
+ */
 export interface SignRequest {
   /**
    * <p>Identifies an asymmetric KMS key. KMS uses the private key in the asymmetric KMS key to
    *       sign the message. The <code>KeyUsage</code> type of the KMS key must be
    *         <code>SIGN_VERIFY</code>. To find the <code>KeyUsage</code> of a KMS key, use the <a>DescribeKey</a> operation.</p>
-   *
    *          <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -4621,16 +5038,44 @@ export interface SignRequest {
 
   /**
    * <p>Specifies the message or message digest to sign. Messages can be 0-4096 bytes. To sign a
-   *       larger message, provide the message digest.</p>
-   *          <p>If you provide a message, KMS generates a hash digest of the message and then signs
-   *       it.</p>
+   *       larger message, provide a message digest.</p>
+   *          <p>If you provide a message digest, use the <code>DIGEST</code> value of <code>MessageType</code> to
+   *     prevent the digest from being hashed again while signing.</p>
    */
   Message: Uint8Array | undefined;
 
   /**
-   * <p>Tells KMS whether the value of the <code>Message</code> parameter is a message or
-   *       message digest. The default value, RAW, indicates a message. To indicate a message digest,
-   *       enter <code>DIGEST</code>.</p>
+   * <p>Tells KMS whether the value of the <code>Message</code> parameter should be hashed
+   *       as part of the signing algorithm. Use <code>RAW</code> for unhashed messages; use <code>DIGEST</code>
+   *       for message digests, which are already hashed.</p>
+   *          <p>When the value of <code>MessageType</code> is <code>RAW</code>, KMS uses the standard
+   *       signing algorithm, which begins with a hash function. When the value is <code>DIGEST</code>, KMS skips
+   *       the hashing step in the signing algorithm.</p>
+   *          <important>
+   *             <p>Use the <code>DIGEST</code> value only when the value of the <code>Message</code>
+   *         parameter is a message digest. If you use the <code>DIGEST</code> value with an unhashed message,
+   *         the security of the signing operation can be compromised.</p>
+   *          </important>
+   *          <p>When the value of <code>MessageType</code>is <code>DIGEST</code>, the length
+   *       of the <code>Message</code> value must match the length of hashed messages for the specified signing algorithm.</p>
+   *          <p>You can submit a message digest and omit the <code>MessageType</code> or specify
+   *       <code>RAW</code> so the digest is hashed again while signing. However, this can cause verification failures when
+   *       verifying with a system that assumes a single hash.</p>
+   *          <p>The hashing algorithm in that <code>Sign</code> uses is based on the <code>SigningAlgorithm</code> value.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Signing algorithms that end in SHA_256 use the SHA_256 hashing algorithm.</p>
+   *             </li>
+   *             <li>
+   *                <p>Signing algorithms that end in SHA_384 use the SHA_384 hashing algorithm.</p>
+   *             </li>
+   *             <li>
+   *                <p>Signing algorithms that end in SHA_512 use the SHA_512 hashing algorithm.</p>
+   *             </li>
+   *             <li>
+   *                <p>SM2DSA uses the SM3 hashing algorithm. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-sm-offline-verification">Offline verification with SM2 key pairs</a>.</p>
+   *             </li>
+   *          </ul>
    */
   MessageType?: MessageType | string;
 
@@ -4644,11 +5089,15 @@ export interface SignRequest {
   /**
    * <p>Specifies the signing algorithm to use when signing the message. </p>
    *          <p>Choose an algorithm that is compatible with the type and size of the specified asymmetric
-   *       KMS key.</p>
+   *       KMS key.  When signing with RSA key pairs, RSASSA-PSS algorithms are preferred. We include
+   *       RSASSA-PKCS1-v1_5 algorithms for compatibility with existing applications.</p>
    */
   SigningAlgorithm: SigningAlgorithmSpec | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SignResponse {
   /**
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the asymmetric KMS key that was used to sign the message.</p>
@@ -4681,10 +5130,12 @@ export interface SignResponse {
   SigningAlgorithm?: SigningAlgorithmSpec | string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>Identifies a customer managed key in the account and Region.</p>
-   *
    *          <p>Specify the key ID or key ARN of the KMS key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -4712,10 +5163,12 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>Identifies the KMS key from which you are removing tags.</p>
-   *
    *          <p>Specify the key ID or key ARN of the KMS key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -4738,6 +5191,9 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAliasRequest {
   /**
    * <p>Identifies the alias that is changing its KMS key. This value must begin with
@@ -4752,7 +5208,6 @@ export interface UpdateAliasRequest {
    *          <p>The KMS key must be in the same Amazon Web Services account and Region as the alias. Also, the new
    *       target KMS key must be the same type as the current target KMS key (both symmetric or both
    *       asymmetric or both HMAC) and they must have the same key usage. </p>
-   *
    *          <p>Specify the key ID or key ARN of the KMS key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -4766,12 +5221,14 @@ export interface UpdateAliasRequest {
    *             </li>
    *          </ul>
    *          <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
-   *
    *          <p>To verify that the alias is mapped to the correct KMS key, use <a>ListAliases</a>.</p>
    */
   TargetKeyId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCustomKeyStoreRequest {
   /**
    * <p>Identifies the custom key store that you want to update. Enter the ID of the custom key
@@ -4880,12 +5337,17 @@ export interface UpdateCustomKeyStoreRequest {
   XksProxyConnectivity?: XksProxyConnectivityType | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCustomKeyStoreResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateKeyDescriptionRequest {
   /**
    * <p>Updates the description of the specified KMS key.</p>
-   *
    *          <p>Specify the key ID or key ARN of the KMS key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -4908,11 +5370,13 @@ export interface UpdateKeyDescriptionRequest {
   Description: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePrimaryRegionRequest {
   /**
    * <p>Identifies the current primary key. When the operation completes, this KMS key will be a
    *       replica key.</p>
-   *
    *          <p>Specify the key ID or key ARN of a multi-Region primary key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -4939,12 +5403,14 @@ export interface UpdatePrimaryRegionRequest {
   PrimaryRegion: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface VerifyRequest {
   /**
    * <p>Identifies the asymmetric KMS key that will be used to verify the signature. This must be
    *       the same KMS key that was used to generate the signature. If you specify a different KMS key,
    *       the signature verification fails.</p>
-   *
    *          <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -4971,8 +5437,8 @@ export interface VerifyRequest {
 
   /**
    * <p>Specifies the message that was signed. You can submit a raw message of up to 4096 bytes,
-   *       or a hash digest of the message. If you submit a digest, use the <code>MessageType</code>
-   *       parameter with a value of <code>DIGEST</code>.</p>
+   *       or a hash digest of the message. If you submit a digest, use the <code>MessageType</code> parameter
+   *       with a value of <code>DIGEST</code>.</p>
    *          <p>If the message specified here is different from the message that was signed, the signature
    *       verification fails. A message and its hash digest are considered to be the same
    *       message.</p>
@@ -4980,14 +5446,37 @@ export interface VerifyRequest {
   Message: Uint8Array | undefined;
 
   /**
-   * <p>Tells KMS whether the value of the <code>Message</code> parameter is a message or
-   *       message digest. The default value, RAW, indicates a message. To indicate a message digest,
-   *       enter <code>DIGEST</code>.</p>
+   * <p>Tells KMS whether the value of the <code>Message</code> parameter should be hashed
+   *       as part of the signing algorithm. Use <code>RAW</code> for unhashed messages; use <code>DIGEST</code>
+   *       for message digests, which are already hashed.</p>
+   *          <p>When the value of <code>MessageType</code> is <code>RAW</code>, KMS uses the standard
+   *       signing algorithm, which begins with a hash function. When the value is <code>DIGEST</code>, KMS
+   *       skips the hashing step in the signing algorithm.</p>
    *          <important>
    *             <p>Use the <code>DIGEST</code> value only when the value of the <code>Message</code>
-   *         parameter is a message digest. If you use the <code>DIGEST</code> value with a raw message,
+   *         parameter is a message digest. If you use the <code>DIGEST</code> value with an unhashed message,
    *         the security of the verification operation can be compromised.</p>
    *          </important>
+   *          <p>When the value of <code>MessageType</code>is <code>DIGEST</code>, the length
+   *     of the <code>Message</code> value must match the length of hashed messages for the specified signing algorithm.</p>
+   *          <p>You can submit a message digest and omit the <code>MessageType</code> or specify
+   *       <code>RAW</code> so the digest is hashed again while signing. However, if the signed message is hashed once
+   *       while signing, but twice while verifying, verification fails, even when the message hasn't changed.</p>
+   *          <p>The hashing algorithm in that <code>Verify</code> uses is based on the <code>SigningAlgorithm</code> value.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Signing algorithms that end in SHA_256 use the SHA_256 hashing algorithm.</p>
+   *             </li>
+   *             <li>
+   *                <p>Signing algorithms that end in SHA_384 use the SHA_384 hashing algorithm.</p>
+   *             </li>
+   *             <li>
+   *                <p>Signing algorithms that end in SHA_512 use the SHA_512 hashing algorithm.</p>
+   *             </li>
+   *             <li>
+   *                <p>SM2DSA uses the SM3 hashing algorithm. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-sm-offline-verification">Offline verification with SM2 key pairs</a>.</p>
+   *             </li>
+   *          </ul>
    */
   MessageType?: MessageType | string;
 
@@ -5010,6 +5499,9 @@ export interface VerifyRequest {
   GrantTokens?: string[];
 }
 
+/**
+ * @public
+ */
 export interface VerifyResponse {
   /**
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the asymmetric KMS key that was used to verify the signature.</p>
@@ -5031,6 +5523,9 @@ export interface VerifyResponse {
   SigningAlgorithm?: SigningAlgorithmSpec | string;
 }
 
+/**
+ * @public
+ */
 export interface VerifyMacRequest {
   /**
    * <p>The message that will be used in the verification. Enter the same message that was used to
@@ -5044,7 +5539,6 @@ export interface VerifyMacRequest {
 
   /**
    * <p>The KMS key that will be used in the verification.</p>
-   *
    *          <p>Enter a key ID of the KMS key that was used to generate the HMAC. If you identify a
    *       different KMS key, the <code>VerifyMac</code> operation fails.</p>
    */
@@ -5072,6 +5566,9 @@ export interface VerifyMacRequest {
   GrantTokens?: string[];
 }
 
+/**
+ * @public
+ */
 export interface VerifyMacResponse {
   /**
    * <p>The HMAC KMS key used in the verification.</p>
@@ -5094,48 +5591,6 @@ export interface VerifyMacResponse {
    */
   MacAlgorithm?: MacAlgorithmSpec | string;
 }
-
-/**
- * @internal
- */
-export const AliasListEntryFilterSensitiveLog = (obj: AliasListEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelKeyDeletionRequestFilterSensitiveLog = (obj: CancelKeyDeletionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelKeyDeletionResponseFilterSensitiveLog = (obj: CancelKeyDeletionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConnectCustomKeyStoreRequestFilterSensitiveLog = (obj: ConnectCustomKeyStoreRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConnectCustomKeyStoreResponseFilterSensitiveLog = (obj: ConnectCustomKeyStoreResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAliasRequestFilterSensitiveLog = (obj: CreateAliasRequest): any => ({
-  ...obj,
-});
 
 /**
  * @internal
@@ -5164,83 +5619,6 @@ export const CreateCustomKeyStoreRequestFilterSensitiveLog = (obj: CreateCustomK
 /**
  * @internal
  */
-export const CreateCustomKeyStoreResponseFilterSensitiveLog = (obj: CreateCustomKeyStoreResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GrantConstraintsFilterSensitiveLog = (obj: GrantConstraints): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateGrantRequestFilterSensitiveLog = (obj: CreateGrantRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateGrantResponseFilterSensitiveLog = (obj: CreateGrantResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateKeyRequestFilterSensitiveLog = (obj: CreateKeyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MultiRegionKeyFilterSensitiveLog = (obj: MultiRegionKey): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MultiRegionConfigurationFilterSensitiveLog = (obj: MultiRegionConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const XksKeyConfigurationTypeFilterSensitiveLog = (obj: XksKeyConfigurationType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KeyMetadataFilterSensitiveLog = (obj: KeyMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateKeyResponseFilterSensitiveLog = (obj: CreateKeyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const XksProxyConfigurationTypeFilterSensitiveLog = (obj: XksProxyConfigurationType): any => ({
   ...obj,
   ...(obj.AccessKeyId && { AccessKeyId: SENSITIVE_STRING }),
@@ -5259,51 +5637,9 @@ export const CustomKeyStoresListEntryFilterSensitiveLog = (obj: CustomKeyStoresL
 /**
  * @internal
  */
-export const DecryptRequestFilterSensitiveLog = (obj: DecryptRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DecryptResponseFilterSensitiveLog = (obj: DecryptResponse): any => ({
   ...obj,
   ...(obj.Plaintext && { Plaintext: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DeleteAliasRequestFilterSensitiveLog = (obj: DeleteAliasRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCustomKeyStoreRequestFilterSensitiveLog = (obj: DeleteCustomKeyStoreRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCustomKeyStoreResponseFilterSensitiveLog = (obj: DeleteCustomKeyStoreResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteImportedKeyMaterialRequestFilterSensitiveLog = (obj: DeleteImportedKeyMaterialRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeCustomKeyStoresRequestFilterSensitiveLog = (obj: DescribeCustomKeyStoresRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -5319,79 +5655,9 @@ export const DescribeCustomKeyStoresResponseFilterSensitiveLog = (obj: DescribeC
 /**
  * @internal
  */
-export const DescribeKeyRequestFilterSensitiveLog = (obj: DescribeKeyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeKeyResponseFilterSensitiveLog = (obj: DescribeKeyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableKeyRequestFilterSensitiveLog = (obj: DisableKeyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableKeyRotationRequestFilterSensitiveLog = (obj: DisableKeyRotationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisconnectCustomKeyStoreRequestFilterSensitiveLog = (obj: DisconnectCustomKeyStoreRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisconnectCustomKeyStoreResponseFilterSensitiveLog = (obj: DisconnectCustomKeyStoreResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableKeyRequestFilterSensitiveLog = (obj: EnableKeyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableKeyRotationRequestFilterSensitiveLog = (obj: EnableKeyRotationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const EncryptRequestFilterSensitiveLog = (obj: EncryptRequest): any => ({
   ...obj,
   ...(obj.Plaintext && { Plaintext: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const EncryptResponseFilterSensitiveLog = (obj: EncryptResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GenerateDataKeyRequestFilterSensitiveLog = (obj: GenerateDataKeyRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -5405,52 +5671,9 @@ export const GenerateDataKeyResponseFilterSensitiveLog = (obj: GenerateDataKeyRe
 /**
  * @internal
  */
-export const GenerateDataKeyPairRequestFilterSensitiveLog = (obj: GenerateDataKeyPairRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GenerateDataKeyPairResponseFilterSensitiveLog = (obj: GenerateDataKeyPairResponse): any => ({
   ...obj,
   ...(obj.PrivateKeyPlaintext && { PrivateKeyPlaintext: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GenerateDataKeyPairWithoutPlaintextRequestFilterSensitiveLog = (
-  obj: GenerateDataKeyPairWithoutPlaintextRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GenerateDataKeyPairWithoutPlaintextResponseFilterSensitiveLog = (
-  obj: GenerateDataKeyPairWithoutPlaintextResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GenerateDataKeyWithoutPlaintextRequestFilterSensitiveLog = (
-  obj: GenerateDataKeyWithoutPlaintextRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GenerateDataKeyWithoutPlaintextResponseFilterSensitiveLog = (
-  obj: GenerateDataKeyWithoutPlaintextResponse
-): any => ({
-  ...obj,
 });
 
 /**
@@ -5464,58 +5687,9 @@ export const GenerateMacRequestFilterSensitiveLog = (obj: GenerateMacRequest): a
 /**
  * @internal
  */
-export const GenerateMacResponseFilterSensitiveLog = (obj: GenerateMacResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GenerateRandomRequestFilterSensitiveLog = (obj: GenerateRandomRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GenerateRandomResponseFilterSensitiveLog = (obj: GenerateRandomResponse): any => ({
   ...obj,
   ...(obj.Plaintext && { Plaintext: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetKeyPolicyRequestFilterSensitiveLog = (obj: GetKeyPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetKeyPolicyResponseFilterSensitiveLog = (obj: GetKeyPolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetKeyRotationStatusRequestFilterSensitiveLog = (obj: GetKeyRotationStatusRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetKeyRotationStatusResponseFilterSensitiveLog = (obj: GetKeyRotationStatusResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetParametersForImportRequestFilterSensitiveLog = (obj: GetParametersForImportRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -5529,219 +5703,9 @@ export const GetParametersForImportResponseFilterSensitiveLog = (obj: GetParamet
 /**
  * @internal
  */
-export const GetPublicKeyRequestFilterSensitiveLog = (obj: GetPublicKeyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPublicKeyResponseFilterSensitiveLog = (obj: GetPublicKeyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GrantListEntryFilterSensitiveLog = (obj: GrantListEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportKeyMaterialRequestFilterSensitiveLog = (obj: ImportKeyMaterialRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportKeyMaterialResponseFilterSensitiveLog = (obj: ImportKeyMaterialResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KeyListEntryFilterSensitiveLog = (obj: KeyListEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAliasesRequestFilterSensitiveLog = (obj: ListAliasesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAliasesResponseFilterSensitiveLog = (obj: ListAliasesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListGrantsRequestFilterSensitiveLog = (obj: ListGrantsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListGrantsResponseFilterSensitiveLog = (obj: ListGrantsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListKeyPoliciesRequestFilterSensitiveLog = (obj: ListKeyPoliciesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListKeyPoliciesResponseFilterSensitiveLog = (obj: ListKeyPoliciesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListKeysRequestFilterSensitiveLog = (obj: ListKeysRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListKeysResponseFilterSensitiveLog = (obj: ListKeysResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResourceTagsRequestFilterSensitiveLog = (obj: ListResourceTagsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResourceTagsResponseFilterSensitiveLog = (obj: ListResourceTagsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRetirableGrantsRequestFilterSensitiveLog = (obj: ListRetirableGrantsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutKeyPolicyRequestFilterSensitiveLog = (obj: PutKeyPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReEncryptRequestFilterSensitiveLog = (obj: ReEncryptRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReEncryptResponseFilterSensitiveLog = (obj: ReEncryptResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReplicateKeyRequestFilterSensitiveLog = (obj: ReplicateKeyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReplicateKeyResponseFilterSensitiveLog = (obj: ReplicateKeyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RetireGrantRequestFilterSensitiveLog = (obj: RetireGrantRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RevokeGrantRequestFilterSensitiveLog = (obj: RevokeGrantRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScheduleKeyDeletionRequestFilterSensitiveLog = (obj: ScheduleKeyDeletionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScheduleKeyDeletionResponseFilterSensitiveLog = (obj: ScheduleKeyDeletionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const SignRequestFilterSensitiveLog = (obj: SignRequest): any => ({
   ...obj,
   ...(obj.Message && { Message: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const SignResponseFilterSensitiveLog = (obj: SignResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAliasRequestFilterSensitiveLog = (obj: UpdateAliasRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -5760,27 +5724,6 @@ export const UpdateCustomKeyStoreRequestFilterSensitiveLog = (obj: UpdateCustomK
 /**
  * @internal
  */
-export const UpdateCustomKeyStoreResponseFilterSensitiveLog = (obj: UpdateCustomKeyStoreResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateKeyDescriptionRequestFilterSensitiveLog = (obj: UpdateKeyDescriptionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePrimaryRegionRequestFilterSensitiveLog = (obj: UpdatePrimaryRegionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const VerifyRequestFilterSensitiveLog = (obj: VerifyRequest): any => ({
   ...obj,
   ...(obj.Message && { Message: SENSITIVE_STRING }),
@@ -5789,21 +5732,7 @@ export const VerifyRequestFilterSensitiveLog = (obj: VerifyRequest): any => ({
 /**
  * @internal
  */
-export const VerifyResponseFilterSensitiveLog = (obj: VerifyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const VerifyMacRequestFilterSensitiveLog = (obj: VerifyMacRequest): any => ({
   ...obj,
   ...(obj.Message && { Message: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const VerifyMacResponseFilterSensitiveLog = (obj: VerifyMacResponse): any => ({
-  ...obj,
 });

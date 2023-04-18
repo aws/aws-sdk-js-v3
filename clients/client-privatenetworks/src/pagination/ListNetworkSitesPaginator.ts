@@ -6,12 +6,11 @@ import {
   ListNetworkSitesCommandInput,
   ListNetworkSitesCommandOutput,
 } from "../commands/ListNetworkSitesCommand";
-import { PrivateNetworks } from "../PrivateNetworks";
 import { PrivateNetworksClient } from "../PrivateNetworksClient";
 import { PrivateNetworksPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: PrivateNetworksClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListNetworkSitesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: PrivateNetworks,
-  input: ListNetworkSitesCommandInput,
-  ...args: any
-): Promise<ListNetworkSitesCommandOutput> => {
-  // @ts-ignore
-  return await client.listNetworkSites(input, ...args);
-};
 export async function* paginateListNetworkSites(
   config: PrivateNetworksPaginationConfiguration,
   input: ListNetworkSitesCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListNetworkSites(
   while (hasNext) {
     input.startToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof PrivateNetworks) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof PrivateNetworksClient) {
+    if (config.client instanceof PrivateNetworksClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected PrivateNetworks | PrivateNetworksClient");

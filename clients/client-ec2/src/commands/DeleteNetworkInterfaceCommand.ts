@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteNetworkInterfaceRequest, DeleteNetworkInterfaceRequestFilterSensitiveLog } from "../models/models_2";
-import {
-  deserializeAws_ec2DeleteNetworkInterfaceCommand,
-  serializeAws_ec2DeleteNetworkInterfaceCommand,
-} from "../protocols/Aws_ec2";
+import { DeleteNetworkInterfaceRequest } from "../models/models_2";
+import { de_DeleteNetworkInterfaceCommand, se_DeleteNetworkInterfaceCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteNetworkInterfaceCommand}.
+ */
 export interface DeleteNetworkInterfaceCommandInput extends DeleteNetworkInterfaceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteNetworkInterfaceCommand}.
+ */
 export interface DeleteNetworkInterfaceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified network interface. You must detach the network interface before you can delete it.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +39,31 @@ export interface DeleteNetworkInterfaceCommandOutput extends __MetadataBearer {}
  * import { EC2Client, DeleteNetworkInterfaceCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteNetworkInterfaceCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteNetworkInterfaceRequest
+ *   DryRun: true || false,
+ *   NetworkInterfaceId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteNetworkInterfaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNetworkInterfaceCommandInput - {@link DeleteNetworkInterfaceCommandInput}
+ * @returns {@link DeleteNetworkInterfaceCommandOutput}
  * @see {@link DeleteNetworkInterfaceCommandInput} for command's `input` shape.
  * @see {@link DeleteNetworkInterfaceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ *
+ * @example To delete a network interface
+ * ```javascript
+ * // This example deletes the specified network interface.
+ * const input = {
+ *   "NetworkInterfaceId": "eni-e5aa89a3"
+ * };
+ * const command = new DeleteNetworkInterfaceCommand(input);
+ * await client.send(command);
+ * // example id: ec2-delete-network-interface-1
+ * ```
  *
  */
 export class DeleteNetworkInterfaceCommand extends $Command<
@@ -57,6 +83,9 @@ export class DeleteNetworkInterfaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNetworkInterfaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +114,8 @@ export class DeleteNetworkInterfaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteNetworkInterfaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +125,18 @@ export class DeleteNetworkInterfaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteNetworkInterfaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteNetworkInterfaceCommand(input, context);
+    return se_DeleteNetworkInterfaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteNetworkInterfaceCommandOutput> {
-    return deserializeAws_ec2DeleteNetworkInterfaceCommand(output, context);
+    return de_DeleteNetworkInterfaceCommand(output, context);
   }
 
   // Start section: command_body_extra

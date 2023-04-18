@@ -15,20 +15,27 @@ import {
 
 import {
   DescribeAssociationRequest,
-  DescribeAssociationRequestFilterSensitiveLog,
   DescribeAssociationResult,
   DescribeAssociationResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeAssociationCommand,
-  serializeAws_json1_1DescribeAssociationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeAssociationCommand, se_DescribeAssociationCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeAssociationCommand}.
+ */
 export interface DescribeAssociationCommandInput extends DescribeAssociationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeAssociationCommand}.
+ */
 export interface DescribeAssociationCommandOutput extends DescribeAssociationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the association for the specified target or managed node. If you created the
  *    association by using the <code>Targets</code> parameter, then you must retrieve the association
  *    by using the association ID.</p>
@@ -38,13 +45,56 @@ export interface DescribeAssociationCommandOutput extends DescribeAssociationRes
  * import { SSMClient, DescribeAssociationCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeAssociationCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // DescribeAssociationRequest
+ *   Name: "STRING_VALUE",
+ *   InstanceId: "STRING_VALUE",
+ *   AssociationId: "STRING_VALUE",
+ *   AssociationVersion: "STRING_VALUE",
+ * };
  * const command = new DescribeAssociationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAssociationCommandInput - {@link DescribeAssociationCommandInput}
+ * @returns {@link DescribeAssociationCommandOutput}
  * @see {@link DescribeAssociationCommandInput} for command's `input` shape.
  * @see {@link DescribeAssociationCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link AssociationDoesNotExist} (client fault)
+ *  <p>The specified association doesn't exist.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidAssociationVersion} (client fault)
+ *  <p>The version you specified isn't valid. Use ListAssociationVersions to view all versions of
+ *    an association according to the association ID. Or, use the <code>$LATEST</code> parameter to
+ *    view the latest version of the association.</p>
+ *
+ * @throws {@link InvalidDocument} (client fault)
+ *  <p>The specified SSM document doesn't exist.</p>
+ *
+ * @throws {@link InvalidInstanceId} (client fault)
+ *  <p>The following problems can cause this exception:</p>
+ *          <ul>
+ *             <li>
+ *                <p>You don't have permission to access the managed node.</p>
+ *             </li>
+ *             <li>
+ *                <p>Amazon Web Services Systems Manager Agent(SSM Agent) isn't running. Verify that SSM Agent is
+ *      running.</p>
+ *             </li>
+ *             <li>
+ *                <p>SSM Agent isn't registered with the SSM endpoint. Try reinstalling SSM Agent.</p>
+ *             </li>
+ *             <li>
+ *                <p>The managed node isn't in valid state. Valid states are: <code>Running</code>,
+ *       <code>Pending</code>, <code>Stopped</code>, and <code>Stopping</code>. Invalid states are:
+ *       <code>Shutting-down</code> and <code>Terminated</code>.</p>
+ *             </li>
+ *          </ul>
+ *
  *
  */
 export class DescribeAssociationCommand extends $Command<
@@ -64,6 +114,9 @@ export class DescribeAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,7 +145,7 @@ export class DescribeAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAssociationRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeAssociationResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -103,12 +156,18 @@ export class DescribeAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAssociationCommand(input, context);
+    return se_DescribeAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAssociationCommandOutput> {
-    return deserializeAws_json1_1DescribeAssociationCommand(output, context);
+    return de_DescribeAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

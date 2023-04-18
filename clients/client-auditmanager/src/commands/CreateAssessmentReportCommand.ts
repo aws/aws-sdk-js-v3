@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import {
-  CreateAssessmentReportRequest,
-  CreateAssessmentReportRequestFilterSensitiveLog,
-  CreateAssessmentReportResponse,
-  CreateAssessmentReportResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateAssessmentReportCommand,
-  serializeAws_restJson1CreateAssessmentReportCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateAssessmentReportRequest, CreateAssessmentReportResponse } from "../models/models_0";
+import { de_CreateAssessmentReportCommand, se_CreateAssessmentReportCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateAssessmentReportCommand}.
+ */
 export interface CreateAssessmentReportCommandInput extends CreateAssessmentReportRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateAssessmentReportCommand}.
+ */
 export interface CreateAssessmentReportCommandOutput extends CreateAssessmentReportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Creates an assessment report for the specified assessment. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,36 @@ export interface CreateAssessmentReportCommandOutput extends CreateAssessmentRep
  * import { AuditManagerClient, CreateAssessmentReportCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, CreateAssessmentReportCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = { // CreateAssessmentReportRequest
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   assessmentId: "STRING_VALUE", // required
+ *   queryStatement: "STRING_VALUE",
+ * };
  * const command = new CreateAssessmentReportCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAssessmentReportCommandInput - {@link CreateAssessmentReportCommandInput}
+ * @returns {@link CreateAssessmentReportCommandOutput}
  * @see {@link CreateAssessmentReportCommandInput} for command's `input` shape.
  * @see {@link CreateAssessmentReportCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p> Your account isn't registered with Audit Manager. Check the delegated
+ *          administrator setup on the Audit Manager settings page, and try again. </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> An internal service error occurred during the processing of your request. Try again
+ *          later. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p> The resource that's specified in the request can't be found. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p> The request has invalid or missing parameters. </p>
+ *
  *
  */
 export class CreateAssessmentReportCommand extends $Command<
@@ -62,6 +88,9 @@ export class CreateAssessmentReportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAssessmentReportCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +119,8 @@ export class CreateAssessmentReportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAssessmentReportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAssessmentReportResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +130,18 @@ export class CreateAssessmentReportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAssessmentReportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAssessmentReportCommand(input, context);
+    return se_CreateAssessmentReportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAssessmentReportCommandOutput> {
-    return deserializeAws_restJson1CreateAssessmentReportCommand(output, context);
+    return de_CreateAssessmentReportCommand(output, context);
   }
 
   // Start section: command_body_extra

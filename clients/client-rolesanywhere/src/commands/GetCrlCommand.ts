@@ -13,19 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CrlDetailResponse,
-  CrlDetailResponseFilterSensitiveLog,
-  ScalarCrlRequest,
-  ScalarCrlRequestFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_restJson1GetCrlCommand, serializeAws_restJson1GetCrlCommand } from "../protocols/Aws_restJson1";
+import { CrlDetailResponse, ScalarCrlRequest } from "../models/models_0";
+import { de_GetCrlCommand, se_GetCrlCommand } from "../protocols/Aws_restJson1";
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetCrlCommand}.
+ */
 export interface GetCrlCommandInput extends ScalarCrlRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetCrlCommand}.
+ */
 export interface GetCrlCommandOutput extends CrlDetailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a certificate revocation list (CRL).</p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -37,13 +43,22 @@ export interface GetCrlCommandOutput extends CrlDetailResponse, __MetadataBearer
  * import { RolesAnywhereClient, GetCrlCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
  * // const { RolesAnywhereClient, GetCrlCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
  * const client = new RolesAnywhereClient(config);
+ * const input = { // ScalarCrlRequest
+ *   crlId: "STRING_VALUE", // required
+ * };
  * const command = new GetCrlCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCrlCommandInput - {@link GetCrlCommandInput}
+ * @returns {@link GetCrlCommandOutput}
  * @see {@link GetCrlCommandInput} for command's `input` shape.
  * @see {@link GetCrlCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
  *
  */
 export class GetCrlCommand extends $Command<
@@ -63,6 +78,9 @@ export class GetCrlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCrlCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +107,8 @@ export class GetCrlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ScalarCrlRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CrlDetailResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +118,18 @@ export class GetCrlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetCrlCommand(input, context);
+    return se_GetCrlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCrlCommandOutput> {
-    return deserializeAws_restJson1GetCrlCommand(output, context);
+    return de_GetCrlCommand(output, context);
   }
 
   // Start section: command_body_extra

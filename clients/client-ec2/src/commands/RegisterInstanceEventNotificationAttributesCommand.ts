@@ -16,22 +16,31 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   RegisterInstanceEventNotificationAttributesRequest,
-  RegisterInstanceEventNotificationAttributesRequestFilterSensitiveLog,
   RegisterInstanceEventNotificationAttributesResult,
-  RegisterInstanceEventNotificationAttributesResultFilterSensitiveLog,
 } from "../models/models_6";
 import {
-  deserializeAws_ec2RegisterInstanceEventNotificationAttributesCommand,
-  serializeAws_ec2RegisterInstanceEventNotificationAttributesCommand,
+  de_RegisterInstanceEventNotificationAttributesCommand,
+  se_RegisterInstanceEventNotificationAttributesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link RegisterInstanceEventNotificationAttributesCommand}.
+ */
 export interface RegisterInstanceEventNotificationAttributesCommandInput
   extends RegisterInstanceEventNotificationAttributesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RegisterInstanceEventNotificationAttributesCommand}.
+ */
 export interface RegisterInstanceEventNotificationAttributesCommandOutput
   extends RegisterInstanceEventNotificationAttributesResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers a set of tag keys to include in scheduled event notifications for your resources.
  *    		</p>
  *          <p>To remove tags, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeregisterInstanceEventNotificationAttributes.html">DeregisterInstanceEventNotificationAttributes</a>.</p>
@@ -41,13 +50,25 @@ export interface RegisterInstanceEventNotificationAttributesCommandOutput
  * import { EC2Client, RegisterInstanceEventNotificationAttributesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, RegisterInstanceEventNotificationAttributesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // RegisterInstanceEventNotificationAttributesRequest
+ *   DryRun: true || false,
+ *   InstanceTagAttribute: { // RegisterInstanceTagAttributeRequest
+ *     IncludeAllTagsOfInstance: true || false,
+ *     InstanceTagKeys: [ // InstanceTagKeySet
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new RegisterInstanceEventNotificationAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterInstanceEventNotificationAttributesCommandInput - {@link RegisterInstanceEventNotificationAttributesCommandInput}
+ * @returns {@link RegisterInstanceEventNotificationAttributesCommandOutput}
  * @see {@link RegisterInstanceEventNotificationAttributesCommandInput} for command's `input` shape.
  * @see {@link RegisterInstanceEventNotificationAttributesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class RegisterInstanceEventNotificationAttributesCommand extends $Command<
@@ -67,6 +88,9 @@ export class RegisterInstanceEventNotificationAttributesCommand extends $Command
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterInstanceEventNotificationAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +125,8 @@ export class RegisterInstanceEventNotificationAttributesCommand extends $Command
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterInstanceEventNotificationAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterInstanceEventNotificationAttributesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,18 +136,24 @@ export class RegisterInstanceEventNotificationAttributesCommand extends $Command
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RegisterInstanceEventNotificationAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2RegisterInstanceEventNotificationAttributesCommand(input, context);
+    return se_RegisterInstanceEventNotificationAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RegisterInstanceEventNotificationAttributesCommandOutput> {
-    return deserializeAws_ec2RegisterInstanceEventNotificationAttributesCommand(output, context);
+    return de_RegisterInstanceEventNotificationAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

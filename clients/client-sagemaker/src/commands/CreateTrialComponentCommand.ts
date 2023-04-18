@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateTrialComponentRequest,
-  CreateTrialComponentRequestFilterSensitiveLog,
-  CreateTrialComponentResponse,
-  CreateTrialComponentResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1CreateTrialComponentCommand,
-  serializeAws_json1_1CreateTrialComponentCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateTrialComponentRequest, CreateTrialComponentResponse } from "../models/models_1";
+import { de_CreateTrialComponentCommand, se_CreateTrialComponentCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateTrialComponentCommand}.
+ */
 export interface CreateTrialComponentCommandInput extends CreateTrialComponentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateTrialComponentCommand}.
+ */
 export interface CreateTrialComponentCommandOutput extends CreateTrialComponentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a <i>trial component</i>, which is a stage of a machine learning
  *         <i>trial</i>. A trial is composed of one or more trial components. A trial
  *       component can be used in multiple trials.</p>
@@ -45,13 +48,60 @@ export interface CreateTrialComponentCommandOutput extends CreateTrialComponentR
  * import { SageMakerClient, CreateTrialComponentCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateTrialComponentCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // CreateTrialComponentRequest
+ *   TrialComponentName: "STRING_VALUE", // required
+ *   DisplayName: "STRING_VALUE",
+ *   Status: { // TrialComponentStatus
+ *     PrimaryStatus: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped",
+ *     Message: "STRING_VALUE",
+ *   },
+ *   StartTime: new Date("TIMESTAMP"),
+ *   EndTime: new Date("TIMESTAMP"),
+ *   Parameters: { // TrialComponentParameters
+ *     "<keys>": { // TrialComponentParameterValue Union: only one key present
+ *       StringValue: "STRING_VALUE",
+ *       NumberValue: Number("double"),
+ *     },
+ *   },
+ *   InputArtifacts: { // TrialComponentArtifacts
+ *     "<keys>": { // TrialComponentArtifact
+ *       MediaType: "STRING_VALUE",
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   OutputArtifacts: {
+ *     "<keys>": {
+ *       MediaType: "STRING_VALUE",
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   MetadataProperties: { // MetadataProperties
+ *     CommitId: "STRING_VALUE",
+ *     Repository: "STRING_VALUE",
+ *     GeneratedBy: "STRING_VALUE",
+ *     ProjectId: "STRING_VALUE",
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateTrialComponentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTrialComponentCommandInput - {@link CreateTrialComponentCommandInput}
+ * @returns {@link CreateTrialComponentCommandOutput}
  * @see {@link CreateTrialComponentCommandInput} for command's `input` shape.
  * @see {@link CreateTrialComponentCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceLimitExceeded} (client fault)
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
+ *             training jobs created. </p>
+ *
  *
  */
 export class CreateTrialComponentCommand extends $Command<
@@ -71,6 +121,9 @@ export class CreateTrialComponentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTrialComponentCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +152,8 @@ export class CreateTrialComponentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTrialComponentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateTrialComponentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +163,18 @@ export class CreateTrialComponentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTrialComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateTrialComponentCommand(input, context);
+    return se_CreateTrialComponentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTrialComponentCommandOutput> {
-    return deserializeAws_json1_1CreateTrialComponentCommand(output, context);
+    return de_CreateTrialComponentCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -6,12 +6,11 @@ import {
   ListReleaseLabelsCommandInput,
   ListReleaseLabelsCommandOutput,
 } from "../commands/ListReleaseLabelsCommand";
-import { EMR } from "../EMR";
 import { EMRClient } from "../EMRClient";
 import { EMRPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: EMRClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListReleaseLabelsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: EMR,
-  input: ListReleaseLabelsCommandInput,
-  ...args: any
-): Promise<ListReleaseLabelsCommandOutput> => {
-  // @ts-ignore
-  return await client.listReleaseLabels(input, ...args);
-};
 export async function* paginateListReleaseLabels(
   config: EMRPaginationConfiguration,
   input: ListReleaseLabelsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListReleaseLabels(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof EMR) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof EMRClient) {
+    if (config.client instanceof EMRClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected EMR | EMRClient");

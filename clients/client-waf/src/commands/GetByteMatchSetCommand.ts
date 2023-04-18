@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetByteMatchSetRequest,
-  GetByteMatchSetRequestFilterSensitiveLog,
-  GetByteMatchSetResponse,
-  GetByteMatchSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetByteMatchSetCommand,
-  serializeAws_json1_1GetByteMatchSetCommand,
-} from "../protocols/Aws_json1_1";
+import { GetByteMatchSetRequest, GetByteMatchSetResponse } from "../models/models_0";
+import { de_GetByteMatchSetCommand, se_GetByteMatchSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetByteMatchSetCommand}.
+ */
 export interface GetByteMatchSetCommandInput extends GetByteMatchSetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetByteMatchSetCommand}.
+ */
 export interface GetByteMatchSetCommandOutput extends GetByteMatchSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -44,13 +47,58 @@ export interface GetByteMatchSetCommandOutput extends GetByteMatchSetResponse, _
  * import { WAFClient, GetByteMatchSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, GetByteMatchSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = { // GetByteMatchSetRequest
+ *   ByteMatchSetId: "STRING_VALUE", // required
+ * };
  * const command = new GetByteMatchSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetByteMatchSetCommandInput - {@link GetByteMatchSetCommandInput}
+ * @returns {@link GetByteMatchSetCommandOutput}
  * @see {@link GetByteMatchSetCommandInput} for command's `input` shape.
  * @see {@link GetByteMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
+ *
+ * @throws {@link WAFInternalErrorException} (server fault)
+ *  <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+ *
+ * @throws {@link WAFInvalidAccountException} (client fault)
+ *  <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+ *
+ * @throws {@link WAFNonexistentItemException} (client fault)
+ *  <p>The operation failed because the referenced object doesn't exist.</p>
+ *
+ *
+ * @example To get a byte match set
+ * ```javascript
+ * // The following example returns the details of a byte match set with the ID exampleIDs3t-46da-4fdb-b8d5-abc321j569j5.
+ * const input = {
+ *   "ByteMatchSetId": "exampleIDs3t-46da-4fdb-b8d5-abc321j569j5"
+ * };
+ * const command = new GetByteMatchSetCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ByteMatchSet": {
+ *     "ByteMatchSetId": "exampleIDs3t-46da-4fdb-b8d5-abc321j569j5",
+ *     "ByteMatchTuples": [
+ *       {
+ *         "FieldToMatch": {
+ *           "Data": "referer",
+ *           "Type": "HEADER"
+ *         },
+ *         "PositionalConstraint": "CONTAINS",
+ *         "TargetString": "badrefer1",
+ *         "TextTransformation": "NONE"
+ *       }
+ *     ],
+ *     "Name": "ByteMatchNameExample"
+ *   }
+ * }
+ * *\/
+ * // example id: getbytematchset-1473273311532
+ * ```
  *
  */
 export class GetByteMatchSetCommand extends $Command<
@@ -70,6 +118,9 @@ export class GetByteMatchSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetByteMatchSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +149,8 @@ export class GetByteMatchSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetByteMatchSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetByteMatchSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +160,18 @@ export class GetByteMatchSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetByteMatchSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetByteMatchSetCommand(input, context);
+    return se_GetByteMatchSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetByteMatchSetCommandOutput> {
-    return deserializeAws_json1_1GetByteMatchSetCommand(output, context);
+    return de_GetByteMatchSetCommand(output, context);
   }
 
   // Start section: command_body_extra

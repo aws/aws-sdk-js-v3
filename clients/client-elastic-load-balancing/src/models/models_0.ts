@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { ElasticLoadBalancingServiceException as __BaseException } from "./ElasticLoadBalancingServiceException";
 
 /**
+ * @public
  * <p>Information about the <code>AccessLog</code> attribute.</p>
  */
 export interface AccessLog {
@@ -31,6 +32,7 @@ export interface AccessLog {
 }
 
 /**
+ * @public
  * <p>The specified load balancer does not exist.</p>
  */
 export class AccessPointNotFoundException extends __BaseException {
@@ -52,6 +54,7 @@ export class AccessPointNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for EnableAvailabilityZonesForLoadBalancer.</p>
  */
 export interface AddAvailabilityZonesInput {
@@ -67,6 +70,7 @@ export interface AddAvailabilityZonesInput {
 }
 
 /**
+ * @public
  * <p>Contains the output of EnableAvailabilityZonesForLoadBalancer.</p>
  */
 export interface AddAvailabilityZonesOutput {
@@ -77,6 +81,7 @@ export interface AddAvailabilityZonesOutput {
 }
 
 /**
+ * @public
  * <p>Information about additional load balancer attributes.</p>
  */
 export interface AdditionalAttribute {
@@ -101,6 +106,7 @@ export interface AdditionalAttribute {
 }
 
 /**
+ * @public
  * <p>Information about a tag.</p>
  */
 export interface Tag {
@@ -116,6 +122,7 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for AddTags.</p>
  */
 export interface AddTagsInput {
@@ -131,11 +138,13 @@ export interface AddTagsInput {
 }
 
 /**
+ * @public
  * <p>Contains the output of AddTags.</p>
  */
 export interface AddTagsOutput {}
 
 /**
+ * @public
  * <p>A tag key was specified more than once.</p>
  */
 export class DuplicateTagKeysException extends __BaseException {
@@ -157,6 +166,7 @@ export class DuplicateTagKeysException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The quota for the number of tags that can be assigned to a load balancer has been reached.</p>
  */
 export class TooManyTagsException extends __BaseException {
@@ -178,6 +188,7 @@ export class TooManyTagsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Information about a policy for application-controlled session stickiness.</p>
  */
 export interface AppCookieStickinessPolicy {
@@ -193,6 +204,7 @@ export interface AppCookieStickinessPolicy {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for ApplySecurityGroupsToLoadBalancer.</p>
  */
 export interface ApplySecurityGroupsToLoadBalancerInput {
@@ -208,6 +220,7 @@ export interface ApplySecurityGroupsToLoadBalancerInput {
 }
 
 /**
+ * @public
  * <p>Contains the output of ApplySecurityGroupsToLoadBalancer.</p>
  */
 export interface ApplySecurityGroupsToLoadBalancerOutput {
@@ -218,6 +231,7 @@ export interface ApplySecurityGroupsToLoadBalancerOutput {
 }
 
 /**
+ * @public
  * <p>The requested configuration change is not valid.</p>
  */
 export class InvalidConfigurationRequestException extends __BaseException {
@@ -239,6 +253,7 @@ export class InvalidConfigurationRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One or more of the specified security groups do not exist.</p>
  */
 export class InvalidSecurityGroupException extends __BaseException {
@@ -260,6 +275,7 @@ export class InvalidSecurityGroupException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for AttachLoaBalancerToSubnets.</p>
  */
 export interface AttachLoadBalancerToSubnetsInput {
@@ -275,6 +291,7 @@ export interface AttachLoadBalancerToSubnetsInput {
 }
 
 /**
+ * @public
  * <p>Contains the output of AttachLoadBalancerToSubnets.</p>
  */
 export interface AttachLoadBalancerToSubnetsOutput {
@@ -285,6 +302,7 @@ export interface AttachLoadBalancerToSubnetsOutput {
 }
 
 /**
+ * @public
  * <p>The specified VPC has no associated Internet gateway.</p>
  */
 export class InvalidSubnetException extends __BaseException {
@@ -306,6 +324,7 @@ export class InvalidSubnetException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One or more of the specified subnets do not exist.</p>
  */
 export class SubnetNotFoundException extends __BaseException {
@@ -327,6 +346,7 @@ export class SubnetNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Information about the configuration of an EC2 instance.</p>
  */
 export interface BackendServerDescription {
@@ -342,6 +362,7 @@ export interface BackendServerDescription {
 }
 
 /**
+ * @public
  * <p>The specified ARN does not refer to a valid SSL certificate in AWS Identity and Access Management (IAM)
  *             or AWS Certificate Manager (ACM). Note that if you recently uploaded the certificate to IAM, this error might
  *             indicate that the certificate is not fully available yet.</p>
@@ -365,6 +386,7 @@ export class CertificateNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Information about a health check.</p>
  */
 export interface HealthCheck {
@@ -400,6 +422,7 @@ export interface HealthCheck {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for ConfigureHealthCheck.</p>
  */
 export interface ConfigureHealthCheckInput {
@@ -415,6 +438,7 @@ export interface ConfigureHealthCheckInput {
 }
 
 /**
+ * @public
  * <p>Contains the output of ConfigureHealthCheck.</p>
  */
 export interface ConfigureHealthCheckOutput {
@@ -425,6 +449,7 @@ export interface ConfigureHealthCheckOutput {
 }
 
 /**
+ * @public
  * <p>Information about the <code>ConnectionDraining</code> attribute.</p>
  */
 export interface ConnectionDraining {
@@ -440,6 +465,7 @@ export interface ConnectionDraining {
 }
 
 /**
+ * @public
  * <p>Information about the <code>ConnectionSettings</code> attribute.</p>
  */
 export interface ConnectionSettings {
@@ -450,6 +476,7 @@ export interface ConnectionSettings {
 }
 
 /**
+ * @public
  * <p>Information about a listener.</p>
  *         <p>For information about the protocols and the ports supported by Elastic Load Balancing, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html">Listeners for Your Classic Load Balancer</a>
  *             in the <i>Classic Load Balancers Guide</i>.</p>
@@ -488,6 +515,7 @@ export interface Listener {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for CreateLoadBalancer.</p>
  */
 export interface CreateAccessPointInput {
@@ -541,6 +569,7 @@ export interface CreateAccessPointInput {
 }
 
 /**
+ * @public
  * <p>Contains the output for CreateLoadBalancer.</p>
  */
 export interface CreateAccessPointOutput {
@@ -551,6 +580,7 @@ export interface CreateAccessPointOutput {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for CreateAppCookieStickinessPolicy.</p>
  */
 export interface CreateAppCookieStickinessPolicyInput {
@@ -571,11 +601,13 @@ export interface CreateAppCookieStickinessPolicyInput {
 }
 
 /**
+ * @public
  * <p>Contains the output for CreateAppCookieStickinessPolicy.</p>
  */
 export interface CreateAppCookieStickinessPolicyOutput {}
 
 /**
+ * @public
  * <p>A policy with the specified name already exists for this load balancer.</p>
  */
 export class DuplicatePolicyNameException extends __BaseException {
@@ -597,6 +629,7 @@ export class DuplicatePolicyNameException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The quota for the number of policies for this load balancer has been reached.</p>
  */
 export class TooManyPoliciesException extends __BaseException {
@@ -618,6 +651,7 @@ export class TooManyPoliciesException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for CreateLBCookieStickinessPolicy.</p>
  */
 export interface CreateLBCookieStickinessPolicyInput {
@@ -638,11 +672,13 @@ export interface CreateLBCookieStickinessPolicyInput {
 }
 
 /**
+ * @public
  * <p>Contains the output for CreateLBCookieStickinessPolicy.</p>
  */
 export interface CreateLBCookieStickinessPolicyOutput {}
 
 /**
+ * @public
  * <p>The specified load balancer name already exists for this account.</p>
  */
 export class DuplicateAccessPointNameException extends __BaseException {
@@ -664,6 +700,7 @@ export class DuplicateAccessPointNameException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified value for the schema is not valid. You can only specify a scheme for load balancers in a VPC.</p>
  */
 export class InvalidSchemeException extends __BaseException {
@@ -685,6 +722,7 @@ export class InvalidSchemeException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This operation is not allowed.</p>
  */
 export class OperationNotPermittedException extends __BaseException {
@@ -706,6 +744,7 @@ export class OperationNotPermittedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The quota for the number of load balancers has been reached.</p>
  */
 export class TooManyAccessPointsException extends __BaseException {
@@ -727,6 +766,7 @@ export class TooManyAccessPointsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified protocol or signature version is not supported.</p>
  */
 export class UnsupportedProtocolException extends __BaseException {
@@ -748,6 +788,7 @@ export class UnsupportedProtocolException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for CreateLoadBalancerListeners.</p>
  */
 export interface CreateLoadBalancerListenerInput {
@@ -763,11 +804,13 @@ export interface CreateLoadBalancerListenerInput {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for CreateLoadBalancerListener.</p>
  */
 export interface CreateLoadBalancerListenerOutput {}
 
 /**
+ * @public
  * <p>A listener already exists for the specified load balancer name and port, but with a different instance port, protocol, or SSL certificate.</p>
  */
 export class DuplicateListenerException extends __BaseException {
@@ -789,6 +832,7 @@ export class DuplicateListenerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Information about a policy attribute.</p>
  */
 export interface PolicyAttribute {
@@ -804,6 +848,7 @@ export interface PolicyAttribute {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for CreateLoadBalancerPolicy.</p>
  */
 export interface CreateLoadBalancerPolicyInput {
@@ -830,11 +875,13 @@ export interface CreateLoadBalancerPolicyInput {
 }
 
 /**
+ * @public
  * <p>Contains the output of CreateLoadBalancerPolicy.</p>
  */
 export interface CreateLoadBalancerPolicyOutput {}
 
 /**
+ * @public
  * <p>One or more of the specified policy types do not exist.</p>
  */
 export class PolicyTypeNotFoundException extends __BaseException {
@@ -856,6 +903,7 @@ export class PolicyTypeNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Information about the <code>CrossZoneLoadBalancing</code> attribute.</p>
  */
 export interface CrossZoneLoadBalancing {
@@ -866,6 +914,7 @@ export interface CrossZoneLoadBalancing {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for DeleteLoadBalancer.</p>
  */
 export interface DeleteAccessPointInput {
@@ -876,11 +925,13 @@ export interface DeleteAccessPointInput {
 }
 
 /**
+ * @public
  * <p>Contains the output of DeleteLoadBalancer.</p>
  */
 export interface DeleteAccessPointOutput {}
 
 /**
+ * @public
  * <p>Contains the parameters for DeleteLoadBalancerListeners.</p>
  */
 export interface DeleteLoadBalancerListenerInput {
@@ -896,11 +947,13 @@ export interface DeleteLoadBalancerListenerInput {
 }
 
 /**
+ * @public
  * <p>Contains the output of DeleteLoadBalancerListeners.</p>
  */
 export interface DeleteLoadBalancerListenerOutput {}
 
 /**
+ * @public
  * <p>Contains the parameters for DeleteLoadBalancerPolicy.</p>
  */
 export interface DeleteLoadBalancerPolicyInput {
@@ -916,11 +969,13 @@ export interface DeleteLoadBalancerPolicyInput {
 }
 
 /**
+ * @public
  * <p>Contains the output of DeleteLoadBalancerPolicy.</p>
  */
 export interface DeleteLoadBalancerPolicyOutput {}
 
 /**
+ * @public
  * <p>A request made by Elastic Load Balancing to another service exceeds the maximum request rate permitted for your account.</p>
  */
 export class DependencyThrottleException extends __BaseException {
@@ -942,6 +997,7 @@ export class DependencyThrottleException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The ID of an EC2 instance.</p>
  */
 export interface Instance {
@@ -952,6 +1008,7 @@ export interface Instance {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for DeregisterInstancesFromLoadBalancer.</p>
  */
 export interface DeregisterEndPointsInput {
@@ -967,6 +1024,7 @@ export interface DeregisterEndPointsInput {
 }
 
 /**
+ * @public
  * <p>Contains the output of DeregisterInstancesFromLoadBalancer.</p>
  */
 export interface DeregisterEndPointsOutput {
@@ -977,6 +1035,7 @@ export interface DeregisterEndPointsOutput {
 }
 
 /**
+ * @public
  * <p>The specified endpoint is not valid.</p>
  */
 export class InvalidEndPointException extends __BaseException {
@@ -998,6 +1057,7 @@ export class InvalidEndPointException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for DescribeLoadBalancers.</p>
  */
 export interface DescribeAccessPointsInput {
@@ -1018,6 +1078,7 @@ export interface DescribeAccessPointsInput {
 }
 
 /**
+ * @public
  * <p>The policies enabled for a listener.</p>
  */
 export interface ListenerDescription {
@@ -1033,6 +1094,7 @@ export interface ListenerDescription {
 }
 
 /**
+ * @public
  * <p>Information about a policy for duration-based session stickiness.</p>
  */
 export interface LBCookieStickinessPolicy {
@@ -1048,6 +1110,7 @@ export interface LBCookieStickinessPolicy {
 }
 
 /**
+ * @public
  * <p>The policies for a load balancer.</p>
  */
 export interface Policies {
@@ -1068,6 +1131,7 @@ export interface Policies {
 }
 
 /**
+ * @public
  * <p>Information about a source security group.</p>
  */
 export interface SourceSecurityGroup {
@@ -1083,6 +1147,7 @@ export interface SourceSecurityGroup {
 }
 
 /**
+ * @public
  * <p>Information about a load balancer.</p>
  */
 export interface LoadBalancerDescription {
@@ -1175,6 +1240,7 @@ export interface LoadBalancerDescription {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for DescribeLoadBalancers.</p>
  */
 export interface DescribeAccessPointsOutput {
@@ -1189,6 +1255,9 @@ export interface DescribeAccessPointsOutput {
   NextMarker?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAccountLimitsInput {
   /**
    * <p>The marker for the next set of results. (You received this marker from a previous call.)</p>
@@ -1202,6 +1271,7 @@ export interface DescribeAccountLimitsInput {
 }
 
 /**
+ * @public
  * <p>Information about an Elastic Load Balancing resource limit for your AWS account.</p>
  */
 export interface Limit {
@@ -1227,6 +1297,9 @@ export interface Limit {
   Max?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAccountLimitsOutput {
   /**
    * <p>Information about the limits.</p>
@@ -1240,6 +1313,7 @@ export interface DescribeAccountLimitsOutput {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for DescribeInstanceHealth.</p>
  */
 export interface DescribeEndPointStateInput {
@@ -1255,6 +1329,7 @@ export interface DescribeEndPointStateInput {
 }
 
 /**
+ * @public
  * <p>Information about the state of an EC2 instance.</p>
  */
 export interface InstanceState {
@@ -1347,6 +1422,7 @@ export interface InstanceState {
 }
 
 /**
+ * @public
  * <p>Contains the output for DescribeInstanceHealth.</p>
  */
 export interface DescribeEndPointStateOutput {
@@ -1357,6 +1433,7 @@ export interface DescribeEndPointStateOutput {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for DescribeLoadBalancerAttributes.</p>
  */
 export interface DescribeLoadBalancerAttributesInput {
@@ -1367,6 +1444,7 @@ export interface DescribeLoadBalancerAttributesInput {
 }
 
 /**
+ * @public
  * <p>The attributes for a load balancer.</p>
  */
 export interface LoadBalancerAttributes {
@@ -1406,6 +1484,7 @@ export interface LoadBalancerAttributes {
 }
 
 /**
+ * @public
  * <p>Contains the output of DescribeLoadBalancerAttributes.</p>
  */
 export interface DescribeLoadBalancerAttributesOutput {
@@ -1416,6 +1495,7 @@ export interface DescribeLoadBalancerAttributesOutput {
 }
 
 /**
+ * @public
  * <p>The specified load balancer attribute does not exist.</p>
  */
 export class LoadBalancerAttributeNotFoundException extends __BaseException {
@@ -1437,6 +1517,7 @@ export class LoadBalancerAttributeNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for DescribeLoadBalancerPolicies.</p>
  */
 export interface DescribeLoadBalancerPoliciesInput {
@@ -1452,6 +1533,7 @@ export interface DescribeLoadBalancerPoliciesInput {
 }
 
 /**
+ * @public
  * <p>Information about a policy attribute.</p>
  */
 export interface PolicyAttributeDescription {
@@ -1467,6 +1549,7 @@ export interface PolicyAttributeDescription {
 }
 
 /**
+ * @public
  * <p>Information about a policy.</p>
  */
 export interface PolicyDescription {
@@ -1487,6 +1570,7 @@ export interface PolicyDescription {
 }
 
 /**
+ * @public
  * <p>Contains the output of DescribeLoadBalancerPolicies.</p>
  */
 export interface DescribeLoadBalancerPoliciesOutput {
@@ -1497,6 +1581,7 @@ export interface DescribeLoadBalancerPoliciesOutput {
 }
 
 /**
+ * @public
  * <p>One or more of the specified policies do not exist.</p>
  */
 export class PolicyNotFoundException extends __BaseException {
@@ -1518,6 +1603,7 @@ export class PolicyNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for DescribeLoadBalancerPolicyTypes.</p>
  */
 export interface DescribeLoadBalancerPolicyTypesInput {
@@ -1528,6 +1614,7 @@ export interface DescribeLoadBalancerPolicyTypesInput {
 }
 
 /**
+ * @public
  * <p>Information about a policy attribute type.</p>
  */
 export interface PolicyAttributeTypeDescription {
@@ -1573,6 +1660,7 @@ export interface PolicyAttributeTypeDescription {
 }
 
 /**
+ * @public
  * <p>Information about a policy type.</p>
  */
 export interface PolicyTypeDescription {
@@ -1593,6 +1681,7 @@ export interface PolicyTypeDescription {
 }
 
 /**
+ * @public
  * <p>Contains the output of DescribeLoadBalancerPolicyTypes.</p>
  */
 export interface DescribeLoadBalancerPolicyTypesOutput {
@@ -1603,6 +1692,7 @@ export interface DescribeLoadBalancerPolicyTypesOutput {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for DescribeTags.</p>
  */
 export interface DescribeTagsInput {
@@ -1613,6 +1703,7 @@ export interface DescribeTagsInput {
 }
 
 /**
+ * @public
  * <p>The tags associated with a load balancer.</p>
  */
 export interface TagDescription {
@@ -1628,6 +1719,7 @@ export interface TagDescription {
 }
 
 /**
+ * @public
  * <p>Contains the output for DescribeTags.</p>
  */
 export interface DescribeTagsOutput {
@@ -1638,6 +1730,7 @@ export interface DescribeTagsOutput {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for DetachLoadBalancerFromSubnets.</p>
  */
 export interface DetachLoadBalancerFromSubnetsInput {
@@ -1653,6 +1746,7 @@ export interface DetachLoadBalancerFromSubnetsInput {
 }
 
 /**
+ * @public
  * <p>Contains the output of DetachLoadBalancerFromSubnets.</p>
  */
 export interface DetachLoadBalancerFromSubnetsOutput {
@@ -1663,6 +1757,7 @@ export interface DetachLoadBalancerFromSubnetsOutput {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for DisableAvailabilityZonesForLoadBalancer.</p>
  */
 export interface RemoveAvailabilityZonesInput {
@@ -1678,6 +1773,7 @@ export interface RemoveAvailabilityZonesInput {
 }
 
 /**
+ * @public
  * <p>Contains the output for DisableAvailabilityZonesForLoadBalancer.</p>
  */
 export interface RemoveAvailabilityZonesOutput {
@@ -1688,6 +1784,7 @@ export interface RemoveAvailabilityZonesOutput {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for ModifyLoadBalancerAttributes.</p>
  */
 export interface ModifyLoadBalancerAttributesInput {
@@ -1703,6 +1800,7 @@ export interface ModifyLoadBalancerAttributesInput {
 }
 
 /**
+ * @public
  * <p>Contains the output of ModifyLoadBalancerAttributes.</p>
  */
 export interface ModifyLoadBalancerAttributesOutput {
@@ -1718,6 +1816,7 @@ export interface ModifyLoadBalancerAttributesOutput {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for RegisterInstancesWithLoadBalancer.</p>
  */
 export interface RegisterEndPointsInput {
@@ -1733,6 +1832,7 @@ export interface RegisterEndPointsInput {
 }
 
 /**
+ * @public
  * <p>Contains the output of RegisterInstancesWithLoadBalancer.</p>
  */
 export interface RegisterEndPointsOutput {
@@ -1743,6 +1843,7 @@ export interface RegisterEndPointsOutput {
 }
 
 /**
+ * @public
  * <p>The key of a tag.</p>
  */
 export interface TagKeyOnly {
@@ -1753,6 +1854,7 @@ export interface TagKeyOnly {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for RemoveTags.</p>
  */
 export interface RemoveTagsInput {
@@ -1768,11 +1870,13 @@ export interface RemoveTagsInput {
 }
 
 /**
+ * @public
  * <p>Contains the output of RemoveTags.</p>
  */
 export interface RemoveTagsOutput {}
 
 /**
+ * @public
  * <p>The load balancer does not have a listener configured at the specified port.</p>
  */
 export class ListenerNotFoundException extends __BaseException {
@@ -1794,6 +1898,7 @@ export class ListenerNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for SetLoadBalancerListenerSSLCertificate.</p>
  */
 export interface SetLoadBalancerListenerSSLCertificateInput {
@@ -1814,11 +1919,13 @@ export interface SetLoadBalancerListenerSSLCertificateInput {
 }
 
 /**
+ * @public
  * <p>Contains the output of SetLoadBalancerListenerSSLCertificate.</p>
  */
 export interface SetLoadBalancerListenerSSLCertificateOutput {}
 
 /**
+ * @public
  * <p>Contains the parameters for SetLoadBalancerPoliciesForBackendServer.</p>
  */
 export interface SetLoadBalancerPoliciesForBackendServerInput {
@@ -1839,11 +1946,13 @@ export interface SetLoadBalancerPoliciesForBackendServerInput {
 }
 
 /**
+ * @public
  * <p>Contains the output of SetLoadBalancerPoliciesForBackendServer.</p>
  */
 export interface SetLoadBalancerPoliciesForBackendServerOutput {}
 
 /**
+ * @public
  * <p>Contains the parameters for SetLoadBalancePoliciesOfListener.</p>
  */
 export interface SetLoadBalancerPoliciesOfListenerInput {
@@ -1864,628 +1973,7 @@ export interface SetLoadBalancerPoliciesOfListenerInput {
 }
 
 /**
+ * @public
  * <p>Contains the output of SetLoadBalancePoliciesOfListener.</p>
  */
 export interface SetLoadBalancerPoliciesOfListenerOutput {}
-
-/**
- * @internal
- */
-export const AccessLogFilterSensitiveLog = (obj: AccessLog): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddAvailabilityZonesInputFilterSensitiveLog = (obj: AddAvailabilityZonesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddAvailabilityZonesOutputFilterSensitiveLog = (obj: AddAvailabilityZonesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AdditionalAttributeFilterSensitiveLog = (obj: AdditionalAttribute): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddTagsInputFilterSensitiveLog = (obj: AddTagsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddTagsOutputFilterSensitiveLog = (obj: AddTagsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AppCookieStickinessPolicyFilterSensitiveLog = (obj: AppCookieStickinessPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApplySecurityGroupsToLoadBalancerInputFilterSensitiveLog = (
-  obj: ApplySecurityGroupsToLoadBalancerInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApplySecurityGroupsToLoadBalancerOutputFilterSensitiveLog = (
-  obj: ApplySecurityGroupsToLoadBalancerOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttachLoadBalancerToSubnetsInputFilterSensitiveLog = (obj: AttachLoadBalancerToSubnetsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttachLoadBalancerToSubnetsOutputFilterSensitiveLog = (obj: AttachLoadBalancerToSubnetsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BackendServerDescriptionFilterSensitiveLog = (obj: BackendServerDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HealthCheckFilterSensitiveLog = (obj: HealthCheck): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConfigureHealthCheckInputFilterSensitiveLog = (obj: ConfigureHealthCheckInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConfigureHealthCheckOutputFilterSensitiveLog = (obj: ConfigureHealthCheckOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConnectionDrainingFilterSensitiveLog = (obj: ConnectionDraining): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConnectionSettingsFilterSensitiveLog = (obj: ConnectionSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListenerFilterSensitiveLog = (obj: Listener): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAccessPointInputFilterSensitiveLog = (obj: CreateAccessPointInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAccessPointOutputFilterSensitiveLog = (obj: CreateAccessPointOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAppCookieStickinessPolicyInputFilterSensitiveLog = (
-  obj: CreateAppCookieStickinessPolicyInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAppCookieStickinessPolicyOutputFilterSensitiveLog = (
-  obj: CreateAppCookieStickinessPolicyOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLBCookieStickinessPolicyInputFilterSensitiveLog = (
-  obj: CreateLBCookieStickinessPolicyInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLBCookieStickinessPolicyOutputFilterSensitiveLog = (
-  obj: CreateLBCookieStickinessPolicyOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLoadBalancerListenerInputFilterSensitiveLog = (obj: CreateLoadBalancerListenerInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLoadBalancerListenerOutputFilterSensitiveLog = (obj: CreateLoadBalancerListenerOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PolicyAttributeFilterSensitiveLog = (obj: PolicyAttribute): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLoadBalancerPolicyInputFilterSensitiveLog = (obj: CreateLoadBalancerPolicyInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLoadBalancerPolicyOutputFilterSensitiveLog = (obj: CreateLoadBalancerPolicyOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CrossZoneLoadBalancingFilterSensitiveLog = (obj: CrossZoneLoadBalancing): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAccessPointInputFilterSensitiveLog = (obj: DeleteAccessPointInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAccessPointOutputFilterSensitiveLog = (obj: DeleteAccessPointOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteLoadBalancerListenerInputFilterSensitiveLog = (obj: DeleteLoadBalancerListenerInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteLoadBalancerListenerOutputFilterSensitiveLog = (obj: DeleteLoadBalancerListenerOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteLoadBalancerPolicyInputFilterSensitiveLog = (obj: DeleteLoadBalancerPolicyInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteLoadBalancerPolicyOutputFilterSensitiveLog = (obj: DeleteLoadBalancerPolicyOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceFilterSensitiveLog = (obj: Instance): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterEndPointsInputFilterSensitiveLog = (obj: DeregisterEndPointsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterEndPointsOutputFilterSensitiveLog = (obj: DeregisterEndPointsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAccessPointsInputFilterSensitiveLog = (obj: DescribeAccessPointsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListenerDescriptionFilterSensitiveLog = (obj: ListenerDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LBCookieStickinessPolicyFilterSensitiveLog = (obj: LBCookieStickinessPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PoliciesFilterSensitiveLog = (obj: Policies): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SourceSecurityGroupFilterSensitiveLog = (obj: SourceSecurityGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LoadBalancerDescriptionFilterSensitiveLog = (obj: LoadBalancerDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAccessPointsOutputFilterSensitiveLog = (obj: DescribeAccessPointsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAccountLimitsInputFilterSensitiveLog = (obj: DescribeAccountLimitsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LimitFilterSensitiveLog = (obj: Limit): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAccountLimitsOutputFilterSensitiveLog = (obj: DescribeAccountLimitsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEndPointStateInputFilterSensitiveLog = (obj: DescribeEndPointStateInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceStateFilterSensitiveLog = (obj: InstanceState): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEndPointStateOutputFilterSensitiveLog = (obj: DescribeEndPointStateOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLoadBalancerAttributesInputFilterSensitiveLog = (
-  obj: DescribeLoadBalancerAttributesInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LoadBalancerAttributesFilterSensitiveLog = (obj: LoadBalancerAttributes): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLoadBalancerAttributesOutputFilterSensitiveLog = (
-  obj: DescribeLoadBalancerAttributesOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLoadBalancerPoliciesInputFilterSensitiveLog = (obj: DescribeLoadBalancerPoliciesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PolicyAttributeDescriptionFilterSensitiveLog = (obj: PolicyAttributeDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PolicyDescriptionFilterSensitiveLog = (obj: PolicyDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLoadBalancerPoliciesOutputFilterSensitiveLog = (obj: DescribeLoadBalancerPoliciesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLoadBalancerPolicyTypesInputFilterSensitiveLog = (
-  obj: DescribeLoadBalancerPolicyTypesInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PolicyAttributeTypeDescriptionFilterSensitiveLog = (obj: PolicyAttributeTypeDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PolicyTypeDescriptionFilterSensitiveLog = (obj: PolicyTypeDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLoadBalancerPolicyTypesOutputFilterSensitiveLog = (
-  obj: DescribeLoadBalancerPolicyTypesOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTagsInputFilterSensitiveLog = (obj: DescribeTagsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagDescriptionFilterSensitiveLog = (obj: TagDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTagsOutputFilterSensitiveLog = (obj: DescribeTagsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DetachLoadBalancerFromSubnetsInputFilterSensitiveLog = (obj: DetachLoadBalancerFromSubnetsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DetachLoadBalancerFromSubnetsOutputFilterSensitiveLog = (
-  obj: DetachLoadBalancerFromSubnetsOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveAvailabilityZonesInputFilterSensitiveLog = (obj: RemoveAvailabilityZonesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveAvailabilityZonesOutputFilterSensitiveLog = (obj: RemoveAvailabilityZonesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyLoadBalancerAttributesInputFilterSensitiveLog = (obj: ModifyLoadBalancerAttributesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyLoadBalancerAttributesOutputFilterSensitiveLog = (obj: ModifyLoadBalancerAttributesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterEndPointsInputFilterSensitiveLog = (obj: RegisterEndPointsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterEndPointsOutputFilterSensitiveLog = (obj: RegisterEndPointsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagKeyOnlyFilterSensitiveLog = (obj: TagKeyOnly): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveTagsInputFilterSensitiveLog = (obj: RemoveTagsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveTagsOutputFilterSensitiveLog = (obj: RemoveTagsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetLoadBalancerListenerSSLCertificateInputFilterSensitiveLog = (
-  obj: SetLoadBalancerListenerSSLCertificateInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetLoadBalancerListenerSSLCertificateOutputFilterSensitiveLog = (
-  obj: SetLoadBalancerListenerSSLCertificateOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetLoadBalancerPoliciesForBackendServerInputFilterSensitiveLog = (
-  obj: SetLoadBalancerPoliciesForBackendServerInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetLoadBalancerPoliciesForBackendServerOutputFilterSensitiveLog = (
-  obj: SetLoadBalancerPoliciesForBackendServerOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetLoadBalancerPoliciesOfListenerInputFilterSensitiveLog = (
-  obj: SetLoadBalancerPoliciesOfListenerInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetLoadBalancerPoliciesOfListenerOutputFilterSensitiveLog = (
-  obj: SetLoadBalancerPoliciesOfListenerOutput
-): any => ({
-  ...obj,
-});

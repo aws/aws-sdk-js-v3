@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { AuditManagerServiceException as __BaseException } from "./AuditManagerServiceException";
 
 /**
+ * @public
  * <p> Your account isn't registered with Audit Manager. Check the delegated
  *          administrator setup on the Audit Manager settings page, and try again. </p>
  */
@@ -23,24 +24,43 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
-export enum AccountStatus {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-  PENDING_ACTIVATION = "PENDING_ACTIVATION",
-}
-
-export enum ActionEnum {
-  ACTIVE = "ACTIVE",
-  CREATE = "CREATE",
-  DELETE = "DELETE",
-  IMPORT_EVIDENCE = "IMPORT_EVIDENCE",
-  INACTIVE = "INACTIVE",
-  REVIEWED = "REVIEWED",
-  UNDER_REVIEW = "UNDER_REVIEW",
-  UPDATE_METADATA = "UPDATE_METADATA",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AccountStatus = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+  PENDING_ACTIVATION: "PENDING_ACTIVATION",
+} as const;
 
 /**
+ * @public
+ */
+export type AccountStatus = (typeof AccountStatus)[keyof typeof AccountStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ActionEnum = {
+  ACTIVE: "ACTIVE",
+  CREATE: "CREATE",
+  DELETE: "DELETE",
+  IMPORT_EVIDENCE: "IMPORT_EVIDENCE",
+  INACTIVE: "INACTIVE",
+  REVIEWED: "REVIEWED",
+  UNDER_REVIEW: "UNDER_REVIEW",
+  UPDATE_METADATA: "UPDATE_METADATA",
+} as const;
+
+/**
+ * @public
+ */
+export type ActionEnum = (typeof ActionEnum)[keyof typeof ActionEnum];
+
+/**
+ * @public
  * <p> The wrapper of Amazon Web Services account details, such as account ID or email address.
  *       </p>
  */
@@ -62,6 +82,7 @@ export interface AWSAccount {
 }
 
 /**
+ * @public
  * <p> A comment that's posted by a user on a control. This includes the author's name, the
  *          comment text, and a timestamp. </p>
  */
@@ -82,20 +103,39 @@ export interface ControlComment {
   postedDate?: Date;
 }
 
-export enum ControlResponse {
-  AUTOMATE = "AUTOMATE",
-  DEFER = "DEFER",
-  IGNORE = "IGNORE",
-  MANUAL = "MANUAL",
-}
-
-export enum ControlStatus {
-  INACTIVE = "INACTIVE",
-  REVIEWED = "REVIEWED",
-  UNDER_REVIEW = "UNDER_REVIEW",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ControlResponse = {
+  AUTOMATE: "AUTOMATE",
+  DEFER: "DEFER",
+  IGNORE: "IGNORE",
+  MANUAL: "MANUAL",
+} as const;
 
 /**
+ * @public
+ */
+export type ControlResponse = (typeof ControlResponse)[keyof typeof ControlResponse];
+
+/**
+ * @public
+ * @enum
+ */
+export const ControlStatus = {
+  INACTIVE: "INACTIVE",
+  REVIEWED: "REVIEWED",
+  UNDER_REVIEW: "UNDER_REVIEW",
+} as const;
+
+/**
+ * @public
+ */
+export type ControlStatus = (typeof ControlStatus)[keyof typeof ControlStatus];
+
+/**
+ * @public
  * <p> The control entity that represents a standard control or a custom control in an Audit Manager assessment. </p>
  */
 export interface AssessmentControl {
@@ -145,18 +185,37 @@ export interface AssessmentControl {
   assessmentReportEvidenceCount?: number;
 }
 
-export enum RoleType {
-  PROCESS_OWNER = "PROCESS_OWNER",
-  RESOURCE_OWNER = "RESOURCE_OWNER",
-}
-
-export enum DelegationStatus {
-  COMPLETE = "COMPLETE",
-  IN_PROGRESS = "IN_PROGRESS",
-  UNDER_REVIEW = "UNDER_REVIEW",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RoleType = {
+  PROCESS_OWNER: "PROCESS_OWNER",
+  RESOURCE_OWNER: "RESOURCE_OWNER",
+} as const;
 
 /**
+ * @public
+ */
+export type RoleType = (typeof RoleType)[keyof typeof RoleType];
+
+/**
+ * @public
+ * @enum
+ */
+export const DelegationStatus = {
+  COMPLETE: "COMPLETE",
+  IN_PROGRESS: "IN_PROGRESS",
+  UNDER_REVIEW: "UNDER_REVIEW",
+} as const;
+
+/**
+ * @public
+ */
+export type DelegationStatus = (typeof DelegationStatus)[keyof typeof DelegationStatus];
+
+/**
+ * @public
  * <p> The assignment of a control set to a delegate for review. </p>
  */
 export interface Delegation {
@@ -219,12 +278,13 @@ export interface Delegation {
   comment?: string;
 
   /**
-   * <p> The IAM user or role that created the delegation. </p>
+   * <p> The user or role that created the delegation. </p>
    */
   createdBy?: string;
 }
 
 /**
+ * @public
  * <p> The wrapper that contains the Audit Manager role information of the current user.
  *          This includes the role type and IAM Amazon Resource Name (ARN). </p>
  */
@@ -248,13 +308,23 @@ export interface Role {
   roleArn: string | undefined;
 }
 
-export enum ControlSetStatus {
-  ACTIVE = "ACTIVE",
-  REVIEWED = "REVIEWED",
-  UNDER_REVIEW = "UNDER_REVIEW",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ControlSetStatus = {
+  ACTIVE: "ACTIVE",
+  REVIEWED: "REVIEWED",
+  UNDER_REVIEW: "UNDER_REVIEW",
+} as const;
 
 /**
+ * @public
+ */
+export type ControlSetStatus = (typeof ControlSetStatus)[keyof typeof ControlSetStatus];
+
+/**
+ * @public
  * <p> Represents a set of controls in an Audit Manager assessment. </p>
  */
 export interface AssessmentControlSet {
@@ -303,6 +373,7 @@ export interface AssessmentControlSet {
 }
 
 /**
+ * @public
  * <p> The metadata of a framework, such as the name, ID, or description. </p>
  */
 export interface FrameworkMetadata {
@@ -329,6 +400,7 @@ export interface FrameworkMetadata {
 }
 
 /**
+ * @public
  * <p> The file used to structure and automate Audit Manager assessments for a given
  *          compliance standard. </p>
  */
@@ -354,11 +426,22 @@ export interface AssessmentFramework {
   controlSets?: AssessmentControlSet[];
 }
 
-export enum AssessmentReportDestinationType {
-  S3 = "S3",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AssessmentReportDestinationType = {
+  S3: "S3",
+} as const;
 
 /**
+ * @public
+ */
+export type AssessmentReportDestinationType =
+  (typeof AssessmentReportDestinationType)[keyof typeof AssessmentReportDestinationType];
+
+/**
+ * @public
  * <p> The location where Audit Manager saves assessment reports for the given
  *          assessment. </p>
  */
@@ -375,8 +458,23 @@ export interface AssessmentReportsDestination {
 }
 
 /**
+ * @public
  * <p> An Amazon Web Service such as Amazon S3 or CloudTrail.
  *       </p>
+ *          <p>For an example of how to find an Amazon Web Service name and how to define it in
+ *          your assessment scope, see the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_GetServicesInScope.html#API_GetServicesInScope_Example_2">Finding an Amazon Web Service name to use in your assessment scope</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_GetServicesInScope.html#API_GetServicesInScope_Example_3">Defining an Amazon Web Service name in your assessment scope</a>
+ *                </p>
+ *             </li>
+ *          </ul>
  */
 export interface AWSService {
   /**
@@ -386,6 +484,7 @@ export interface AWSService {
 }
 
 /**
+ * @public
  * <p> The wrapper that contains the Amazon Web Services accounts and services that are in
  *          scope for the assessment. </p>
  */
@@ -403,12 +502,22 @@ export interface Scope {
   awsServices?: AWSService[];
 }
 
-export enum AssessmentStatus {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AssessmentStatus = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+} as const;
 
 /**
+ * @public
+ */
+export type AssessmentStatus = (typeof AssessmentStatus)[keyof typeof AssessmentStatus];
+
+/**
+ * @public
  * <p> The metadata that's associated with the specified assessment. </p>
  */
 export interface AssessmentMetadata {
@@ -471,6 +580,7 @@ export interface AssessmentMetadata {
 }
 
 /**
+ * @public
  * <p> An entity that defines the scope of audit evidence collected by Audit Manager.
  *          An Audit Manager assessment is an implementation of an Audit Manager framework. </p>
  */
@@ -502,6 +612,7 @@ export interface Assessment {
 }
 
 /**
+ * @public
  * <p> The folder where Audit Manager stores evidence for an assessment. </p>
  */
 export interface AssessmentEvidenceFolder {
@@ -603,12 +714,22 @@ export interface AssessmentEvidenceFolder {
   evidenceAwsServiceSourceCount?: number;
 }
 
-export enum FrameworkType {
-  CUSTOM = "Custom",
-  STANDARD = "Standard",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FrameworkType = {
+  CUSTOM: "Custom",
+  STANDARD: "Standard",
+} as const;
 
 /**
+ * @public
+ */
+export type FrameworkType = (typeof FrameworkType)[keyof typeof FrameworkType];
+
+/**
+ * @public
  * <p> The metadata that's associated with a standard framework or a custom framework. </p>
  */
 export interface AssessmentFrameworkMetadata {
@@ -669,18 +790,28 @@ export interface AssessmentFrameworkMetadata {
   lastUpdatedAt?: Date;
 }
 
-export enum ShareRequestStatus {
-  ACTIVE = "ACTIVE",
-  DECLINED = "DECLINED",
-  EXPIRED = "EXPIRED",
-  EXPIRING = "EXPIRING",
-  FAILED = "FAILED",
-  REPLICATING = "REPLICATING",
-  REVOKED = "REVOKED",
-  SHARED = "SHARED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ShareRequestStatus = {
+  ACTIVE: "ACTIVE",
+  DECLINED: "DECLINED",
+  EXPIRED: "EXPIRED",
+  EXPIRING: "EXPIRING",
+  FAILED: "FAILED",
+  REPLICATING: "REPLICATING",
+  REVOKED: "REVOKED",
+  SHARED: "SHARED",
+} as const;
 
 /**
+ * @public
+ */
+export type ShareRequestStatus = (typeof ShareRequestStatus)[keyof typeof ShareRequestStatus];
+
+/**
+ * @public
  * <p> Represents a share request for a custom framework in Audit Manager. </p>
  */
 export interface AssessmentFrameworkShareRequest {
@@ -762,6 +893,7 @@ export interface AssessmentFrameworkShareRequest {
 }
 
 /**
+ * @public
  * <p> A metadata object that's associated with an assessment in Audit Manager.
  *       </p>
  */
@@ -808,13 +940,23 @@ export interface AssessmentMetadataItem {
   lastUpdated?: Date;
 }
 
-export enum AssessmentReportStatus {
-  COMPLETE = "COMPLETE",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AssessmentReportStatus = {
+  COMPLETE: "COMPLETE",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
 
 /**
+ * @public
+ */
+export type AssessmentReportStatus = (typeof AssessmentReportStatus)[keyof typeof AssessmentReportStatus];
+
+/**
+ * @public
  * <p> A finalized document that's generated from an Audit Manager assessment. These
  *          reports summarize the relevant evidence that was collected for your audit, and link to the
  *          relevant evidence folders. These evidence folders are named and organized according to the
@@ -868,6 +1010,7 @@ export interface AssessmentReport {
 }
 
 /**
+ * @public
  * <p> An error entity for assessment report evidence errors. This is used to provide more
  *          meaningful errors than a simple string message. </p>
  */
@@ -889,6 +1032,7 @@ export interface AssessmentReportEvidenceError {
 }
 
 /**
+ * @public
  * <p> The metadata objects that are associated with the specified assessment report. </p>
  */
 export interface AssessmentReportMetadata {
@@ -933,6 +1077,9 @@ export interface AssessmentReportMetadata {
   creationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface AssociateAssessmentReportEvidenceFolderRequest {
   /**
    * <p> The identifier for the assessment. </p>
@@ -945,9 +1092,13 @@ export interface AssociateAssessmentReportEvidenceFolderRequest {
   evidenceFolderId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateAssessmentReportEvidenceFolderResponse {}
 
 /**
+ * @public
  * <p> An internal service error occurred during the processing of your request. Try again
  *          later. </p>
  */
@@ -968,6 +1119,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> The resource that's specified in the request can't be found. </p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -999,6 +1151,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> Indicates that the request has invalid or missing parameters for the field. </p>
  */
 export interface ValidationExceptionField {
@@ -1013,14 +1166,24 @@ export interface ValidationExceptionField {
   message: string | undefined;
 }
 
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "cannotParse",
-  FIELD_VALIDATION_FAILED = "fieldValidationFailed",
-  OTHER = "other",
-  UNKNOWN_OPERATION = "unknownOperation",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "cannotParse",
+  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
+  OTHER: "other",
+  UNKNOWN_OPERATION: "unknownOperation",
+} as const;
 
 /**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
+
+/**
+ * @public
  * <p> The request has invalid or missing parameters. </p>
  */
 export class ValidationException extends __BaseException {
@@ -1051,6 +1214,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface BatchAssociateAssessmentReportEvidenceRequest {
   /**
    * <p> The identifier for the assessment. </p>
@@ -1068,6 +1234,9 @@ export interface BatchAssociateAssessmentReportEvidenceRequest {
   evidenceIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchAssociateAssessmentReportEvidenceResponse {
   /**
    * <p> The list of evidence identifiers. </p>
@@ -1082,6 +1251,7 @@ export interface BatchAssociateAssessmentReportEvidenceResponse {
 }
 
 /**
+ * @public
  * <p> A collection of attributes that's used to create a delegation for an assessment in
  *             Audit Manager. </p>
  */
@@ -1115,6 +1285,9 @@ export interface CreateDelegationRequest {
   roleType?: RoleType | string;
 }
 
+/**
+ * @public
+ */
 export interface BatchCreateDelegationByAssessmentRequest {
   /**
    * <p> The API request to batch create delegations in Audit Manager. </p>
@@ -1128,6 +1301,7 @@ export interface BatchCreateDelegationByAssessmentRequest {
 }
 
 /**
+ * @public
  * <p> An error entity for the <code>BatchCreateDelegationByAssessment</code> API. This is
  *          used to provide more meaningful errors than a simple string message. </p>
  */
@@ -1150,6 +1324,9 @@ export interface BatchCreateDelegationByAssessmentError {
   errorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchCreateDelegationByAssessmentResponse {
   /**
    * <p> The delegations that are associated with the assessment. </p>
@@ -1163,6 +1340,9 @@ export interface BatchCreateDelegationByAssessmentResponse {
   errors?: BatchCreateDelegationByAssessmentError[];
 }
 
+/**
+ * @public
+ */
 export interface BatchDeleteDelegationByAssessmentRequest {
   /**
    * <p> The identifiers for the delegations. </p>
@@ -1176,6 +1356,7 @@ export interface BatchDeleteDelegationByAssessmentRequest {
 }
 
 /**
+ * @public
  * <p> An error entity for the <code>BatchDeleteDelegationByAssessment</code> API. This is
  *          used to provide more meaningful errors than a simple string message. </p>
  */
@@ -1198,6 +1379,9 @@ export interface BatchDeleteDelegationByAssessmentError {
   errorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchDeleteDelegationByAssessmentResponse {
   /**
    * <p> A list of errors that the <code>BatchDeleteDelegationByAssessment</code> API returned.
@@ -1206,6 +1390,9 @@ export interface BatchDeleteDelegationByAssessmentResponse {
   errors?: BatchDeleteDelegationByAssessmentError[];
 }
 
+/**
+ * @public
+ */
 export interface BatchDisassociateAssessmentReportEvidenceRequest {
   /**
    * <p> The identifier for the assessment. </p>
@@ -1223,6 +1410,9 @@ export interface BatchDisassociateAssessmentReportEvidenceRequest {
   evidenceIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchDisassociateAssessmentReportEvidenceResponse {
   /**
    * <p> The identifier for the evidence. </p>
@@ -1237,6 +1427,7 @@ export interface BatchDisassociateAssessmentReportEvidenceResponse {
 }
 
 /**
+ * @public
  * <p> Evidence that's uploaded to Audit Manager manually. </p>
  */
 export interface ManualEvidence {
@@ -1246,6 +1437,9 @@ export interface ManualEvidence {
   s3ResourcePath?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchImportEvidenceToAssessmentControlRequest {
   /**
    * <p> The identifier for the assessment. </p>
@@ -1269,6 +1463,7 @@ export interface BatchImportEvidenceToAssessmentControlRequest {
 }
 
 /**
+ * @public
  * <p> An error entity for the <code>BatchImportEvidenceToAssessmentControl</code> API. This
  *          is used to provide more meaningful errors than a simple string message. </p>
  */
@@ -1291,6 +1486,9 @@ export interface BatchImportEvidenceToAssessmentControlError {
   errorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchImportEvidenceToAssessmentControlResponse {
   /**
    * <p> A list of errors that the <code>BatchImportEvidenceToAssessmentControl</code> API
@@ -1299,6 +1497,9 @@ export interface BatchImportEvidenceToAssessmentControlResponse {
   errors?: BatchImportEvidenceToAssessmentControlError[];
 }
 
+/**
+ * @public
+ */
 export interface CreateAssessmentRequest {
   /**
    * <p> The name of the assessment to be created. </p>
@@ -1338,6 +1539,9 @@ export interface CreateAssessmentRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateAssessmentResponse {
   /**
    * <p> An entity that defines the scope of audit evidence collected by Audit Manager.
@@ -1347,6 +1551,7 @@ export interface CreateAssessmentResponse {
 }
 
 /**
+ * @public
  * <p>You've reached your account quota for this resource type. To perform the requested
  *          action, delete some existing resources or <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">request a quota increase</a> from
  *          the Service Quotas console. For a list of Audit Manager service quotas, see <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html">Quotas and
@@ -1369,6 +1574,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> The control entity attributes that uniquely identify an existing control to be added to
  *          a framework in Audit Manager. </p>
  */
@@ -1380,6 +1586,7 @@ export interface CreateAssessmentFrameworkControl {
 }
 
 /**
+ * @public
  * <p> A <code>controlSet</code> entity that represents a collection of controls in Audit Manager. This doesn't contain the control set ID. </p>
  */
 export interface CreateAssessmentFrameworkControlSet {
@@ -1395,6 +1602,9 @@ export interface CreateAssessmentFrameworkControlSet {
   controls?: CreateAssessmentFrameworkControl[];
 }
 
+/**
+ * @public
+ */
 export interface CreateAssessmentFrameworkRequest {
   /**
    * <p> The name of the new custom framework. </p>
@@ -1423,17 +1633,36 @@ export interface CreateAssessmentFrameworkRequest {
   tags?: Record<string, string>;
 }
 
-export enum SourceFrequency {
-  DAILY = "DAILY",
-  MONTHLY = "MONTHLY",
-  WEEKLY = "WEEKLY",
-}
-
-export enum KeywordInputType {
-  SELECT_FROM_LIST = "SELECT_FROM_LIST",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SourceFrequency = {
+  DAILY: "DAILY",
+  MONTHLY: "MONTHLY",
+  WEEKLY: "WEEKLY",
+} as const;
 
 /**
+ * @public
+ */
+export type SourceFrequency = (typeof SourceFrequency)[keyof typeof SourceFrequency];
+
+/**
+ * @public
+ * @enum
+ */
+export const KeywordInputType = {
+  SELECT_FROM_LIST: "SELECT_FROM_LIST",
+} as const;
+
+/**
+ * @public
+ */
+export type KeywordInputType = (typeof KeywordInputType)[keyof typeof KeywordInputType];
+
+/**
+ * @public
  * <p> The keyword to search for in CloudTrail logs, Config rules,
  *             Security Hub checks, and Amazon Web Services API names. </p>
  *          <p> To learn more about the supported keywords that you can use when mapping a control data
@@ -1531,20 +1760,39 @@ export interface SourceKeyword {
   keywordValue?: string;
 }
 
-export enum SourceSetUpOption {
-  PROCEDURAL_CONTROLS_MAPPING = "Procedural_Controls_Mapping",
-  SYSTEM_CONTROLS_MAPPING = "System_Controls_Mapping",
-}
-
-export enum SourceType {
-  AWS_API_CALL = "AWS_API_Call",
-  AWS_CLOUDTRAIL = "AWS_Cloudtrail",
-  AWS_CONFIG = "AWS_Config",
-  AWS_SECURITY_HUB = "AWS_Security_Hub",
-  MANUAL = "MANUAL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SourceSetUpOption = {
+  PROCEDURAL_CONTROLS_MAPPING: "Procedural_Controls_Mapping",
+  SYSTEM_CONTROLS_MAPPING: "System_Controls_Mapping",
+} as const;
 
 /**
+ * @public
+ */
+export type SourceSetUpOption = (typeof SourceSetUpOption)[keyof typeof SourceSetUpOption];
+
+/**
+ * @public
+ * @enum
+ */
+export const SourceType = {
+  AWS_API_CALL: "AWS_API_Call",
+  AWS_CLOUDTRAIL: "AWS_Cloudtrail",
+  AWS_CONFIG: "AWS_Config",
+  AWS_SECURITY_HUB: "AWS_Security_Hub",
+  MANUAL: "MANUAL",
+} as const;
+
+/**
+ * @public
+ */
+export type SourceType = (typeof SourceType)[keyof typeof SourceType];
+
+/**
+ * @public
  * <p> The data source that determines where Audit Manager collects evidence from for
  *          the control. </p>
  */
@@ -1618,12 +1866,22 @@ export interface ControlMappingSource {
   troubleshootingText?: string;
 }
 
-export enum ControlType {
-  CUSTOM = "Custom",
-  STANDARD = "Standard",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ControlType = {
+  CUSTOM: "Custom",
+  STANDARD: "Standard",
+} as const;
 
 /**
+ * @public
+ */
+export type ControlType = (typeof ControlType)[keyof typeof ControlType];
+
+/**
+ * @public
  * <p> A control in Audit Manager. </p>
  */
 export interface Control {
@@ -1690,12 +1948,12 @@ export interface Control {
   lastUpdatedAt?: Date;
 
   /**
-   * <p> The IAM user or role that created the control. </p>
+   * <p> The user or role that created the control. </p>
    */
   createdBy?: string;
 
   /**
-   * <p> The IAM user or role that most recently updated the control. </p>
+   * <p> The user or role that most recently updated the control. </p>
    */
   lastUpdatedBy?: string;
 
@@ -1706,6 +1964,7 @@ export interface Control {
 }
 
 /**
+ * @public
  * <p> A set of controls in Audit Manager. </p>
  */
 export interface ControlSet {
@@ -1727,6 +1986,7 @@ export interface ControlSet {
 }
 
 /**
+ * @public
  * <p> The file that's used to structure and automate Audit Manager assessments for a
  *          given compliance standard. </p>
  */
@@ -1788,12 +2048,12 @@ export interface Framework {
   lastUpdatedAt?: Date;
 
   /**
-   * <p> The IAM user or role that created the framework. </p>
+   * <p> The user or role that created the framework. </p>
    */
   createdBy?: string;
 
   /**
-   * <p> The IAM user or role that most recently updated the framework. </p>
+   * <p> The user or role that most recently updated the framework. </p>
    */
   lastUpdatedBy?: string;
 
@@ -1803,6 +2063,9 @@ export interface Framework {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateAssessmentFrameworkResponse {
   /**
    * <p> The name of the new framework that the <code>CreateAssessmentFramework</code> API
@@ -1811,6 +2074,9 @@ export interface CreateAssessmentFrameworkResponse {
   framework?: Framework;
 }
 
+/**
+ * @public
+ */
 export interface CreateAssessmentReportRequest {
   /**
    * <p> The name of the new assessment report. </p>
@@ -1842,6 +2108,9 @@ export interface CreateAssessmentReportRequest {
   queryStatement?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateAssessmentReportResponse {
   /**
    * <p> The new assessment report that the <code>CreateAssessmentReport</code> API returned.
@@ -1851,6 +2120,7 @@ export interface CreateAssessmentReportResponse {
 }
 
 /**
+ * @public
  * <p> The control mapping fields that represent the source for evidence collection, along
  *          with related parameters and metadata. This doesn't contain <code>mappingID</code>. </p>
  */
@@ -1920,6 +2190,9 @@ export interface CreateControlMappingSource {
   troubleshootingText?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateControlRequest {
   /**
    * <p> The name of the control. </p>
@@ -1957,6 +2230,9 @@ export interface CreateControlRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateControlResponse {
   /**
    * <p> The new control that the <code>CreateControl</code> API returned. </p>
@@ -1964,6 +2240,9 @@ export interface CreateControlResponse {
   control?: Control;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAssessmentRequest {
   /**
    * <p> The identifier for the assessment. </p>
@@ -1971,8 +2250,14 @@ export interface DeleteAssessmentRequest {
   assessmentId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAssessmentResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteAssessmentFrameworkRequest {
   /**
    * <p> The identifier for the custom framework. </p>
@@ -1980,13 +2265,28 @@ export interface DeleteAssessmentFrameworkRequest {
   frameworkId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAssessmentFrameworkResponse {}
 
-export enum ShareRequestType {
-  RECEIVED = "RECEIVED",
-  SENT = "SENT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ShareRequestType = {
+  RECEIVED: "RECEIVED",
+  SENT: "SENT",
+} as const;
 
+/**
+ * @public
+ */
+export type ShareRequestType = (typeof ShareRequestType)[keyof typeof ShareRequestType];
+
+/**
+ * @public
+ */
 export interface DeleteAssessmentFrameworkShareRequest {
   /**
    * <p>The unique identifier for the share request to be deleted.</p>
@@ -1999,8 +2299,14 @@ export interface DeleteAssessmentFrameworkShareRequest {
   requestType: ShareRequestType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAssessmentFrameworkShareResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteAssessmentReportRequest {
   /**
    * <p> The unique identifier for the assessment. </p>
@@ -2013,8 +2319,14 @@ export interface DeleteAssessmentReportRequest {
   assessmentReportId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAssessmentReportResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteControlRequest {
   /**
    * <p> The unique identifier for the control. </p>
@@ -2022,10 +2334,19 @@ export interface DeleteControlRequest {
   controlId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteControlResponse {}
 
+/**
+ * @public
+ */
 export interface DeregisterAccountRequest {}
 
+/**
+ * @public
+ */
 export interface DeregisterAccountResponse {
   /**
    * <p> The registration status of the account. </p>
@@ -2033,6 +2354,9 @@ export interface DeregisterAccountResponse {
   status?: AccountStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterOrganizationAdminAccountRequest {
   /**
    * <p> The identifier for the administrator account. </p>
@@ -2040,8 +2364,14 @@ export interface DeregisterOrganizationAdminAccountRequest {
   adminAccountId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterOrganizationAdminAccountResponse {}
 
+/**
+ * @public
+ */
 export interface DisassociateAssessmentReportEvidenceFolderRequest {
   /**
    * <p> The unique identifier for the assessment. </p>
@@ -2054,10 +2384,19 @@ export interface DisassociateAssessmentReportEvidenceFolderRequest {
   evidenceFolderId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateAssessmentReportEvidenceFolderResponse {}
 
+/**
+ * @public
+ */
 export interface GetAccountStatusRequest {}
 
+/**
+ * @public
+ */
 export interface GetAccountStatusResponse {
   /**
    * <p> The status of the Amazon Web Services account. </p>
@@ -2065,6 +2404,9 @@ export interface GetAccountStatusResponse {
   status?: AccountStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface GetAssessmentRequest {
   /**
    * <p>The unique identifier for the assessment. </p>
@@ -2072,6 +2414,9 @@ export interface GetAssessmentRequest {
   assessmentId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAssessmentResponse {
   /**
    * <p> An entity that defines the scope of audit evidence collected by Audit Manager.
@@ -2086,6 +2431,9 @@ export interface GetAssessmentResponse {
   userRole?: Role;
 }
 
+/**
+ * @public
+ */
 export interface GetAssessmentFrameworkRequest {
   /**
    * <p> The identifier for the framework. </p>
@@ -2093,6 +2441,9 @@ export interface GetAssessmentFrameworkRequest {
   frameworkId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAssessmentFrameworkResponse {
   /**
    * <p> The framework that the <code>GetAssessmentFramework</code> API returned. </p>
@@ -2100,6 +2451,9 @@ export interface GetAssessmentFrameworkResponse {
   framework?: Framework;
 }
 
+/**
+ * @public
+ */
 export interface GetAssessmentReportUrlRequest {
   /**
    * <p> The unique identifier for the assessment report. </p>
@@ -2113,6 +2467,7 @@ export interface GetAssessmentReportUrlRequest {
 }
 
 /**
+ * @public
  * <p> Short for uniform resource locator. A URL is used as a unique identifier to locate a
  *          resource on the internet. </p>
  */
@@ -2128,6 +2483,9 @@ export interface URL {
   link?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetAssessmentReportUrlResponse {
   /**
    * <p> Short for uniform resource locator. A URL is used as a unique identifier to locate a
@@ -2136,6 +2494,9 @@ export interface GetAssessmentReportUrlResponse {
   preSignedUrl?: URL;
 }
 
+/**
+ * @public
+ */
 export interface GetChangeLogsRequest {
   /**
    * <p>The unique identifier for the assessment. </p>
@@ -2163,15 +2524,25 @@ export interface GetChangeLogsRequest {
   maxResults?: number;
 }
 
-export enum ObjectTypeEnum {
-  ASSESSMENT = "ASSESSMENT",
-  ASSESSMENT_REPORT = "ASSESSMENT_REPORT",
-  CONTROL = "CONTROL",
-  CONTROL_SET = "CONTROL_SET",
-  DELEGATION = "DELEGATION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ObjectTypeEnum = {
+  ASSESSMENT: "ASSESSMENT",
+  ASSESSMENT_REPORT: "ASSESSMENT_REPORT",
+  CONTROL: "CONTROL",
+  CONTROL_SET: "CONTROL_SET",
+  DELEGATION: "DELEGATION",
+} as const;
 
 /**
+ * @public
+ */
+export type ObjectTypeEnum = (typeof ObjectTypeEnum)[keyof typeof ObjectTypeEnum];
+
+/**
+ * @public
  * <p> The record of a change within Audit Manager. For example, this could be the
  *          status change of an assessment or the delegation of a control set. </p>
  */
@@ -2198,11 +2569,14 @@ export interface ChangeLog {
   createdAt?: Date;
 
   /**
-   * <p> The IAM user or role that performed the action. </p>
+   * <p> The user or role that performed the action. </p>
    */
   createdBy?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetChangeLogsResponse {
   /**
    * <p>The list of user activity for the control. </p>
@@ -2215,6 +2589,9 @@ export interface GetChangeLogsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetControlRequest {
   /**
    * <p> The identifier for the control. </p>
@@ -2222,6 +2599,9 @@ export interface GetControlRequest {
   controlId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetControlResponse {
   /**
    * <p> The name of the control that the <code>GetControl</code> API returned. </p>
@@ -2229,6 +2609,9 @@ export interface GetControlResponse {
   control?: Control;
 }
 
+/**
+ * @public
+ */
 export interface GetDelegationsRequest {
   /**
    * <p> The pagination token that's used to fetch the next set of results. </p>
@@ -2242,6 +2625,7 @@ export interface GetDelegationsRequest {
 }
 
 /**
+ * @public
  * <p> The metadata that's associated with the delegation. </p>
  */
 export interface DelegationMetadata {
@@ -2281,6 +2665,9 @@ export interface DelegationMetadata {
   controlSetName?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetDelegationsResponse {
   /**
    * <p> The list of delegations that the <code>GetDelegations</code> API returned. </p>
@@ -2293,6 +2680,9 @@ export interface GetDelegationsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetEvidenceRequest {
   /**
    * <p> The unique identifier for the assessment. </p>
@@ -2316,6 +2706,7 @@ export interface GetEvidenceRequest {
 }
 
 /**
+ * @public
  * <p> A system asset that's evaluated in an Audit Manager assessment. </p>
  */
 export interface Resource {
@@ -2356,6 +2747,7 @@ export interface Resource {
 }
 
 /**
+ * @public
  * <p> A record that contains the information needed to demonstrate compliance with the
  *          requirements specified by a control. Examples of evidence include change activity invoked
  *          by a user, or a system configuration snapshot. </p>
@@ -2404,7 +2796,7 @@ export interface Evidence {
   attributes?: Record<string, string>;
 
   /**
-   * <p> The unique identifier for the IAM user or role that's associated with
+   * <p> The unique identifier for the user or role that's associated with
    *          the evidence. </p>
    */
   iamId?: string;
@@ -2462,6 +2854,9 @@ export interface Evidence {
   assessmentReportSelection?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetEvidenceResponse {
   /**
    * <p> The evidence that the <code>GetEvidence</code> API returned. </p>
@@ -2469,6 +2864,9 @@ export interface GetEvidenceResponse {
   evidence?: Evidence;
 }
 
+/**
+ * @public
+ */
 export interface GetEvidenceByEvidenceFolderRequest {
   /**
    * <p> The identifier for the assessment. </p>
@@ -2496,6 +2894,9 @@ export interface GetEvidenceByEvidenceFolderRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetEvidenceByEvidenceFolderResponse {
   /**
    * <p> The list of evidence that the <code>GetEvidenceByEvidenceFolder</code> API returned.
@@ -2509,6 +2910,9 @@ export interface GetEvidenceByEvidenceFolderResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetEvidenceFolderRequest {
   /**
    * <p> The unique identifier for the assessment. </p>
@@ -2526,6 +2930,9 @@ export interface GetEvidenceFolderRequest {
   evidenceFolderId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetEvidenceFolderResponse {
   /**
    * <p> The folder that the evidence is stored in. </p>
@@ -2533,6 +2940,9 @@ export interface GetEvidenceFolderResponse {
   evidenceFolder?: AssessmentEvidenceFolder;
 }
 
+/**
+ * @public
+ */
 export interface GetEvidenceFoldersByAssessmentRequest {
   /**
    * <p> The unique identifier for the assessment. </p>
@@ -2550,6 +2960,9 @@ export interface GetEvidenceFoldersByAssessmentRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetEvidenceFoldersByAssessmentResponse {
   /**
    * <p> The list of evidence folders that the <code>GetEvidenceFoldersByAssessment</code> API
@@ -2563,6 +2976,9 @@ export interface GetEvidenceFoldersByAssessmentResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetEvidenceFoldersByAssessmentControlRequest {
   /**
    * <p> The identifier for the assessment. </p>
@@ -2590,6 +3006,9 @@ export interface GetEvidenceFoldersByAssessmentControlRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetEvidenceFoldersByAssessmentControlResponse {
   /**
    * <p> The list of evidence folders that the
@@ -2603,9 +3022,13 @@ export interface GetEvidenceFoldersByAssessmentControlResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetInsightsRequest {}
 
 /**
+ * @public
  * <p>A summary of the latest analytics data for all your active assessments. </p>
  *          <p>This summary is a snapshot of the data that your active assessments collected on the
  *             <code>lastUpdated</code> date. It’s important to understand that the following totals
@@ -2687,6 +3110,9 @@ export interface Insights {
   lastUpdated?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetInsightsResponse {
   /**
    * <p>The analytics data that the <code>GetInsights</code> API returned. </p>
@@ -2694,6 +3120,9 @@ export interface GetInsightsResponse {
   insights?: Insights;
 }
 
+/**
+ * @public
+ */
 export interface GetInsightsByAssessmentRequest {
   /**
    * <p>The unique identifier for the assessment. </p>
@@ -2702,6 +3131,7 @@ export interface GetInsightsByAssessmentRequest {
 }
 
 /**
+ * @public
  * <p>A summary of the latest analytics data for a specific active assessment.</p>
  *          <p>This summary is a snapshot of the data that was collected on the
  *             <code>lastUpdated</code> date. It’s important to understand that the totals in
@@ -2780,6 +3210,9 @@ export interface InsightsByAssessment {
   lastUpdated?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetInsightsByAssessmentResponse {
   /**
    * <p> The assessment analytics data that the <code>GetInsightsByAssessment</code> API
@@ -2788,8 +3221,14 @@ export interface GetInsightsByAssessmentResponse {
   insights?: InsightsByAssessment;
 }
 
+/**
+ * @public
+ */
 export interface GetOrganizationAdminAccountRequest {}
 
+/**
+ * @public
+ */
 export interface GetOrganizationAdminAccountResponse {
   /**
    * <p> The identifier for the administrator account. </p>
@@ -2802,9 +3241,13 @@ export interface GetOrganizationAdminAccountResponse {
   organizationId?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetServicesInScopeRequest {}
 
 /**
+ * @public
  * <p> The metadata that's associated with the Amazon Web Service. </p>
  */
 export interface ServiceMetadata {
@@ -2830,6 +3273,9 @@ export interface ServiceMetadata {
   category?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetServicesInScopeResponse {
   /**
    * <p> The metadata that's associated with the Amazon Web Service. </p>
@@ -2837,16 +3283,28 @@ export interface GetServicesInScopeResponse {
   serviceMetadata?: ServiceMetadata[];
 }
 
-export enum SettingAttribute {
-  ALL = "ALL",
-  DEFAULT_ASSESSMENT_REPORTS_DESTINATION = "DEFAULT_ASSESSMENT_REPORTS_DESTINATION",
-  DEFAULT_PROCESS_OWNERS = "DEFAULT_PROCESS_OWNERS",
-  DEREGISTRATION_POLICY = "DEREGISTRATION_POLICY",
-  EVIDENCE_FINDER_ENABLEMENT = "EVIDENCE_FINDER_ENABLEMENT",
-  IS_AWS_ORG_ENABLED = "IS_AWS_ORG_ENABLED",
-  SNS_TOPIC = "SNS_TOPIC",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SettingAttribute = {
+  ALL: "ALL",
+  DEFAULT_ASSESSMENT_REPORTS_DESTINATION: "DEFAULT_ASSESSMENT_REPORTS_DESTINATION",
+  DEFAULT_PROCESS_OWNERS: "DEFAULT_PROCESS_OWNERS",
+  DEREGISTRATION_POLICY: "DEREGISTRATION_POLICY",
+  EVIDENCE_FINDER_ENABLEMENT: "EVIDENCE_FINDER_ENABLEMENT",
+  IS_AWS_ORG_ENABLED: "IS_AWS_ORG_ENABLED",
+  SNS_TOPIC: "SNS_TOPIC",
+} as const;
 
+/**
+ * @public
+ */
+export type SettingAttribute = (typeof SettingAttribute)[keyof typeof SettingAttribute];
+
+/**
+ * @public
+ */
 export interface GetSettingsRequest {
   /**
    * <p> The list of setting attribute enum values. </p>
@@ -2854,12 +3312,22 @@ export interface GetSettingsRequest {
   attribute: SettingAttribute | string | undefined;
 }
 
-export enum DeleteResources {
-  ALL = "ALL",
-  DEFAULT = "DEFAULT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeleteResources = {
+  ALL: "ALL",
+  DEFAULT: "DEFAULT",
+} as const;
 
 /**
+ * @public
+ */
+export type DeleteResources = (typeof DeleteResources)[keyof typeof DeleteResources];
+
+/**
+ * @public
  * <p>The deregistration policy for the data that's stored in Audit Manager. You can
  *          use this attribute to determine how your data is handled when you <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeregisterAccount.html">deregister Audit Manager</a>.</p>
  *          <p>By default, Audit Manager retains evidence data for two years from the time of its
@@ -2896,20 +3364,41 @@ export interface DeregistrationPolicy {
   deleteResources?: DeleteResources | string;
 }
 
-export enum EvidenceFinderBackfillStatus {
-  COMPLETED = "COMPLETED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-}
-
-export enum EvidenceFinderEnablementStatus {
-  DISABLED = "DISABLED",
-  DISABLE_IN_PROGRESS = "DISABLE_IN_PROGRESS",
-  ENABLED = "ENABLED",
-  ENABLE_IN_PROGRESS = "ENABLE_IN_PROGRESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EvidenceFinderBackfillStatus = {
+  COMPLETED: "COMPLETED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+} as const;
 
 /**
+ * @public
+ */
+export type EvidenceFinderBackfillStatus =
+  (typeof EvidenceFinderBackfillStatus)[keyof typeof EvidenceFinderBackfillStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const EvidenceFinderEnablementStatus = {
+  DISABLED: "DISABLED",
+  DISABLE_IN_PROGRESS: "DISABLE_IN_PROGRESS",
+  ENABLED: "ENABLED",
+  ENABLE_IN_PROGRESS: "ENABLE_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type EvidenceFinderEnablementStatus =
+  (typeof EvidenceFinderEnablementStatus)[keyof typeof EvidenceFinderEnablementStatus];
+
+/**
+ * @public
  * <p>The settings object that specifies whether evidence finder is enabled. This object also
  *          describes the related event data store, and the backfill status for populating the event
  *          data store with evidence data.</p>
@@ -2984,6 +3473,7 @@ export interface EvidenceFinderEnablement {
 }
 
 /**
+ * @public
  * <p> The settings object that holds all supported Audit Manager settings. </p>
  */
 export interface Settings {
@@ -3024,6 +3514,9 @@ export interface Settings {
   deregistrationPolicy?: DeregistrationPolicy;
 }
 
+/**
+ * @public
+ */
 export interface GetSettingsResponse {
   /**
    * <p> The settings object that holds all supported Audit Manager settings. </p>
@@ -3031,6 +3524,9 @@ export interface GetSettingsResponse {
   settings?: Settings;
 }
 
+/**
+ * @public
+ */
 export interface ListAssessmentControlInsightsByControlDomainRequest {
   /**
    * <p>The unique identifier for the control domain. </p>
@@ -3054,6 +3550,7 @@ export interface ListAssessmentControlInsightsByControlDomainRequest {
 }
 
 /**
+ * @public
  * <p>A breakdown of the latest compliance check status for the evidence in your Audit Manager assessments. </p>
  */
 export interface EvidenceInsights {
@@ -3088,6 +3585,7 @@ export interface EvidenceInsights {
 }
 
 /**
+ * @public
  * <p>A summary of the latest analytics data for a specific control in a specific active
  *          assessment.</p>
  *          <p>Control insights are grouped by control domain, and ranked by the highest total count of
@@ -3121,6 +3619,9 @@ export interface ControlInsightsMetadataByAssessmentItem {
   lastUpdated?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListAssessmentControlInsightsByControlDomainResponse {
   /**
    * <p>The assessment control analytics data that the
@@ -3134,6 +3635,9 @@ export interface ListAssessmentControlInsightsByControlDomainResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAssessmentFrameworksRequest {
   /**
    * <p> The type of framework, such as a standard framework or a custom framework. </p>
@@ -3151,6 +3655,9 @@ export interface ListAssessmentFrameworksRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListAssessmentFrameworksResponse {
   /**
    * <p> The list of metadata objects for the framework. </p>
@@ -3163,6 +3670,9 @@ export interface ListAssessmentFrameworksResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAssessmentFrameworkShareRequestsRequest {
   /**
    * <p> Specifies whether the share request is a sent request or a received request.</p>
@@ -3180,6 +3690,9 @@ export interface ListAssessmentFrameworkShareRequestsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListAssessmentFrameworkShareRequestsResponse {
   /**
    * <p> The list of share requests that the <code>ListAssessmentFrameworkShareRequests</code>
@@ -3193,6 +3706,9 @@ export interface ListAssessmentFrameworkShareRequestsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAssessmentReportsRequest {
   /**
    * <p> The pagination token that's used to fetch the next set of results. </p>
@@ -3205,6 +3721,9 @@ export interface ListAssessmentReportsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListAssessmentReportsResponse {
   /**
    * <p> The list of assessment reports that the <code>ListAssessmentReports</code> API
@@ -3218,6 +3737,9 @@ export interface ListAssessmentReportsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAssessmentsRequest {
   /**
    * <p> The current status of the assessment.</p>
@@ -3235,6 +3757,9 @@ export interface ListAssessmentsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListAssessmentsResponse {
   /**
    * <p> The metadata that's associated with the assessment. </p>
@@ -3247,6 +3772,9 @@ export interface ListAssessmentsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListControlDomainInsightsRequest {
   /**
    * <p>The pagination token that's used to fetch the next set of results. </p>
@@ -3260,6 +3788,7 @@ export interface ListControlDomainInsightsRequest {
 }
 
 /**
+ * @public
  * <p>A summary of the latest analytics data for a specific control domain.</p>
  *          <p>Control domain insights are grouped by control domain, and ranked by the highest total
  *          count of non-compliant evidence.</p>
@@ -3298,6 +3827,9 @@ export interface ControlDomainInsights {
   lastUpdated?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListControlDomainInsightsResponse {
   /**
    * <p>The control domain analytics data that the <code>ListControlDomainInsights</code> API
@@ -3311,6 +3843,9 @@ export interface ListControlDomainInsightsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListControlDomainInsightsByAssessmentRequest {
   /**
    * <p>The unique identifier for the active assessment. </p>
@@ -3328,6 +3863,9 @@ export interface ListControlDomainInsightsByAssessmentRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListControlDomainInsightsByAssessmentResponse {
   /**
    * <p>The control domain analytics data that the
@@ -3341,6 +3879,9 @@ export interface ListControlDomainInsightsByAssessmentResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListControlInsightsByControlDomainRequest {
   /**
    * <p>The unique identifier for the control domain. </p>
@@ -3359,6 +3900,7 @@ export interface ListControlInsightsByControlDomainRequest {
 }
 
 /**
+ * @public
  * <p>A summary of the latest analytics data for a specific control. </p>
  *          <p>This data reflects the total counts for the specified control across all active
  *          assessments. Control insights are grouped by control domain, and ranked by the highest
@@ -3387,6 +3929,9 @@ export interface ControlInsightsMetadataItem {
   lastUpdated?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListControlInsightsByControlDomainResponse {
   /**
    * <p>The control analytics data that the <code>ListControlInsightsByControlDomain</code> API
@@ -3400,6 +3945,9 @@ export interface ListControlInsightsByControlDomainResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListControlsRequest {
   /**
    * <p> The type of control, such as a standard control or a custom control. </p>
@@ -3418,6 +3966,7 @@ export interface ListControlsRequest {
 }
 
 /**
+ * @public
  * <p> The metadata that's associated with the standard control or custom control. </p>
  */
 export interface ControlMetadata {
@@ -3453,6 +4002,9 @@ export interface ControlMetadata {
   lastUpdatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListControlsResponse {
   /**
    * <p> The list of control metadata objects that the <code>ListControls</code> API returned.
@@ -3466,6 +4018,9 @@ export interface ListControlsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListKeywordsForDataSourceRequest {
   /**
    * <p> The control mapping data source that the keywords apply to. </p>
@@ -3483,6 +4038,9 @@ export interface ListKeywordsForDataSourceRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListKeywordsForDataSourceResponse {
   /**
    * <p> The list of keywords for the event mapping source. </p>
@@ -3495,6 +4053,9 @@ export interface ListKeywordsForDataSourceResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListNotificationsRequest {
   /**
    * <p> The pagination token that's used to fetch the next set of results. </p>
@@ -3508,6 +4069,7 @@ export interface ListNotificationsRequest {
 }
 
 /**
+ * @public
  * <p> The notification that informs a user of an update in Audit Manager. For
  *          example, this includes the notification that's sent when a control set is delegated for
  *          review. </p>
@@ -3554,6 +4116,9 @@ export interface Notification {
   source?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListNotificationsResponse {
   /**
    * <p> The returned list of notifications. </p>
@@ -3566,6 +4131,9 @@ export interface ListNotificationsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p> The Amazon Resource Name (ARN) of the resource. </p>
@@ -3573,6 +4141,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p> The list of tags that the <code>ListTagsForResource</code> API returned. </p>
@@ -3580,6 +4151,9 @@ export interface ListTagsForResourceResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface RegisterAccountRequest {
   /**
    * <p> The KMS key details. </p>
@@ -3592,6 +4166,9 @@ export interface RegisterAccountRequest {
   delegatedAdminAccount?: string;
 }
 
+/**
+ * @public
+ */
 export interface RegisterAccountResponse {
   /**
    * <p> The status of the account registration request. </p>
@@ -3600,6 +4177,7 @@ export interface RegisterAccountResponse {
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -3618,6 +4196,9 @@ export class ThrottlingException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface RegisterOrganizationAdminAccountRequest {
   /**
    * <p> The identifier for the delegated administrator account. </p>
@@ -3625,6 +4206,9 @@ export interface RegisterOrganizationAdminAccountRequest {
   adminAccountId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RegisterOrganizationAdminAccountResponse {
   /**
    * <p> The identifier for the delegated administrator account. </p>
@@ -3637,6 +4221,9 @@ export interface RegisterOrganizationAdminAccountResponse {
   organizationId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartAssessmentFrameworkShareRequest {
   /**
    * <p> The unique identifier for the custom framework to be shared. </p>
@@ -3659,6 +4246,9 @@ export interface StartAssessmentFrameworkShareRequest {
   comment?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartAssessmentFrameworkShareResponse {
   /**
    * <p> The share request that's created by the <code>StartAssessmentFrameworkShare</code> API.
@@ -3667,6 +4257,9 @@ export interface StartAssessmentFrameworkShareResponse {
   assessmentFrameworkShareRequest?: AssessmentFrameworkShareRequest;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p> The Amazon Resource Name (ARN) of the resource. </p>
@@ -3679,8 +4272,14 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p> The Amazon Resource Name (ARN) of the specified resource. </p>
@@ -3693,8 +4292,14 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateAssessmentRequest {
   /**
    * <p> The unique identifier for the assessment. </p>
@@ -3728,6 +4333,9 @@ export interface UpdateAssessmentRequest {
   roles?: Role[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateAssessmentResponse {
   /**
    * <p> The response object for the <code>UpdateAssessment</code> API. This is the name of the
@@ -3736,6 +4344,9 @@ export interface UpdateAssessmentResponse {
   assessment?: Assessment;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAssessmentControlRequest {
   /**
    * <p> The unique identifier for the assessment. </p>
@@ -3763,6 +4374,9 @@ export interface UpdateAssessmentControlRequest {
   commentBody?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAssessmentControlResponse {
   /**
    * <p> The name of the updated control set that the <code>UpdateAssessmentControl</code> API
@@ -3771,6 +4385,9 @@ export interface UpdateAssessmentControlResponse {
   control?: AssessmentControl;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAssessmentControlSetStatusRequest {
   /**
    * <p> The unique identifier for the assessment. </p>
@@ -3793,6 +4410,9 @@ export interface UpdateAssessmentControlSetStatusRequest {
   comment: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAssessmentControlSetStatusResponse {
   /**
    * <p> The name of the updated control set that the
@@ -3802,6 +4422,7 @@ export interface UpdateAssessmentControlSetStatusResponse {
 }
 
 /**
+ * @public
  * <p> A <code>controlSet</code> entity that represents a collection of controls in Audit Manager. This doesn't contain the control set ID. </p>
  */
 export interface UpdateAssessmentFrameworkControlSet {
@@ -3821,6 +4442,9 @@ export interface UpdateAssessmentFrameworkControlSet {
   controls: CreateAssessmentFrameworkControl[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAssessmentFrameworkRequest {
   /**
    * <p> The unique identifier for the framework. </p>
@@ -3849,6 +4473,9 @@ export interface UpdateAssessmentFrameworkRequest {
   controlSets: UpdateAssessmentFrameworkControlSet[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAssessmentFrameworkResponse {
   /**
    * <p> The name of the framework. </p>
@@ -3856,12 +4483,24 @@ export interface UpdateAssessmentFrameworkResponse {
   framework?: Framework;
 }
 
-export enum ShareRequestAction {
-  ACCEPT = "ACCEPT",
-  DECLINE = "DECLINE",
-  REVOKE = "REVOKE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ShareRequestAction = {
+  ACCEPT: "ACCEPT",
+  DECLINE: "DECLINE",
+  REVOKE: "REVOKE",
+} as const;
 
+/**
+ * @public
+ */
+export type ShareRequestAction = (typeof ShareRequestAction)[keyof typeof ShareRequestAction];
+
+/**
+ * @public
+ */
 export interface UpdateAssessmentFrameworkShareRequest {
   /**
    * <p> The unique identifier for the share request. </p>
@@ -3879,6 +4518,9 @@ export interface UpdateAssessmentFrameworkShareRequest {
   action: ShareRequestAction | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAssessmentFrameworkShareResponse {
   /**
    * <p> The updated share request that's returned by the
@@ -3887,6 +4529,9 @@ export interface UpdateAssessmentFrameworkShareResponse {
   assessmentFrameworkShareRequest?: AssessmentFrameworkShareRequest;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAssessmentStatusRequest {
   /**
    * <p> The unique identifier for the assessment. </p>
@@ -3899,6 +4544,9 @@ export interface UpdateAssessmentStatusRequest {
   status: AssessmentStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAssessmentStatusResponse {
   /**
    * <p> The name of the updated assessment that the <code>UpdateAssessmentStatus</code> API
@@ -3907,6 +4555,9 @@ export interface UpdateAssessmentStatusResponse {
   assessment?: Assessment;
 }
 
+/**
+ * @public
+ */
 export interface UpdateControlRequest {
   /**
    * <p> The identifier for the control. </p>
@@ -3944,6 +4595,9 @@ export interface UpdateControlRequest {
   controlMappingSources: ControlMappingSource[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateControlResponse {
   /**
    * <p> The name of the updated control set that the <code>UpdateControl</code> API returned.
@@ -3952,6 +4606,9 @@ export interface UpdateControlResponse {
   control?: Control;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSettingsRequest {
   /**
    * <p> The Amazon Simple Notification Service (Amazon SNS) topic that Audit Manager sends
@@ -3993,6 +4650,9 @@ export interface UpdateSettingsRequest {
   deregistrationPolicy?: DeregistrationPolicy;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSettingsResponse {
   /**
    * <p> The current list of settings. </p>
@@ -4000,6 +4660,9 @@ export interface UpdateSettingsResponse {
   settings?: Settings;
 }
 
+/**
+ * @public
+ */
 export interface ValidateAssessmentReportIntegrityRequest {
   /**
    * <p> The relative path of the Amazon S3 bucket that the assessment report is stored
@@ -4008,6 +4671,9 @@ export interface ValidateAssessmentReportIntegrityRequest {
   s3RelativePath: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ValidateAssessmentReportIntegrityResponse {
   /**
    * <p> Specifies whether the signature key is valid. </p>
@@ -4035,1317 +4701,3 @@ export interface ValidateAssessmentReportIntegrityResponse {
    */
   validationErrors?: string[];
 }
-
-/**
- * @internal
- */
-export const AWSAccountFilterSensitiveLog = (obj: AWSAccount): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ControlCommentFilterSensitiveLog = (obj: ControlComment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssessmentControlFilterSensitiveLog = (obj: AssessmentControl): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DelegationFilterSensitiveLog = (obj: Delegation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RoleFilterSensitiveLog = (obj: Role): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssessmentControlSetFilterSensitiveLog = (obj: AssessmentControlSet): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FrameworkMetadataFilterSensitiveLog = (obj: FrameworkMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssessmentFrameworkFilterSensitiveLog = (obj: AssessmentFramework): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssessmentReportsDestinationFilterSensitiveLog = (obj: AssessmentReportsDestination): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AWSServiceFilterSensitiveLog = (obj: AWSService): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScopeFilterSensitiveLog = (obj: Scope): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssessmentMetadataFilterSensitiveLog = (obj: AssessmentMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssessmentFilterSensitiveLog = (obj: Assessment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssessmentEvidenceFolderFilterSensitiveLog = (obj: AssessmentEvidenceFolder): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssessmentFrameworkMetadataFilterSensitiveLog = (obj: AssessmentFrameworkMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssessmentFrameworkShareRequestFilterSensitiveLog = (obj: AssessmentFrameworkShareRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssessmentMetadataItemFilterSensitiveLog = (obj: AssessmentMetadataItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssessmentReportFilterSensitiveLog = (obj: AssessmentReport): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssessmentReportEvidenceErrorFilterSensitiveLog = (obj: AssessmentReportEvidenceError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssessmentReportMetadataFilterSensitiveLog = (obj: AssessmentReportMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateAssessmentReportEvidenceFolderRequestFilterSensitiveLog = (
-  obj: AssociateAssessmentReportEvidenceFolderRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateAssessmentReportEvidenceFolderResponseFilterSensitiveLog = (
-  obj: AssociateAssessmentReportEvidenceFolderResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchAssociateAssessmentReportEvidenceRequestFilterSensitiveLog = (
-  obj: BatchAssociateAssessmentReportEvidenceRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchAssociateAssessmentReportEvidenceResponseFilterSensitiveLog = (
-  obj: BatchAssociateAssessmentReportEvidenceResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDelegationRequestFilterSensitiveLog = (obj: CreateDelegationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchCreateDelegationByAssessmentRequestFilterSensitiveLog = (
-  obj: BatchCreateDelegationByAssessmentRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchCreateDelegationByAssessmentErrorFilterSensitiveLog = (
-  obj: BatchCreateDelegationByAssessmentError
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchCreateDelegationByAssessmentResponseFilterSensitiveLog = (
-  obj: BatchCreateDelegationByAssessmentResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDeleteDelegationByAssessmentRequestFilterSensitiveLog = (
-  obj: BatchDeleteDelegationByAssessmentRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDeleteDelegationByAssessmentErrorFilterSensitiveLog = (
-  obj: BatchDeleteDelegationByAssessmentError
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDeleteDelegationByAssessmentResponseFilterSensitiveLog = (
-  obj: BatchDeleteDelegationByAssessmentResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDisassociateAssessmentReportEvidenceRequestFilterSensitiveLog = (
-  obj: BatchDisassociateAssessmentReportEvidenceRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDisassociateAssessmentReportEvidenceResponseFilterSensitiveLog = (
-  obj: BatchDisassociateAssessmentReportEvidenceResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ManualEvidenceFilterSensitiveLog = (obj: ManualEvidence): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchImportEvidenceToAssessmentControlRequestFilterSensitiveLog = (
-  obj: BatchImportEvidenceToAssessmentControlRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchImportEvidenceToAssessmentControlErrorFilterSensitiveLog = (
-  obj: BatchImportEvidenceToAssessmentControlError
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchImportEvidenceToAssessmentControlResponseFilterSensitiveLog = (
-  obj: BatchImportEvidenceToAssessmentControlResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAssessmentRequestFilterSensitiveLog = (obj: CreateAssessmentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAssessmentResponseFilterSensitiveLog = (obj: CreateAssessmentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAssessmentFrameworkControlFilterSensitiveLog = (obj: CreateAssessmentFrameworkControl): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAssessmentFrameworkControlSetFilterSensitiveLog = (
-  obj: CreateAssessmentFrameworkControlSet
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAssessmentFrameworkRequestFilterSensitiveLog = (obj: CreateAssessmentFrameworkRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SourceKeywordFilterSensitiveLog = (obj: SourceKeyword): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ControlMappingSourceFilterSensitiveLog = (obj: ControlMappingSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ControlFilterSensitiveLog = (obj: Control): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ControlSetFilterSensitiveLog = (obj: ControlSet): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FrameworkFilterSensitiveLog = (obj: Framework): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAssessmentFrameworkResponseFilterSensitiveLog = (obj: CreateAssessmentFrameworkResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAssessmentReportRequestFilterSensitiveLog = (obj: CreateAssessmentReportRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAssessmentReportResponseFilterSensitiveLog = (obj: CreateAssessmentReportResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateControlMappingSourceFilterSensitiveLog = (obj: CreateControlMappingSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateControlRequestFilterSensitiveLog = (obj: CreateControlRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateControlResponseFilterSensitiveLog = (obj: CreateControlResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAssessmentRequestFilterSensitiveLog = (obj: DeleteAssessmentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAssessmentResponseFilterSensitiveLog = (obj: DeleteAssessmentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAssessmentFrameworkRequestFilterSensitiveLog = (obj: DeleteAssessmentFrameworkRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAssessmentFrameworkResponseFilterSensitiveLog = (obj: DeleteAssessmentFrameworkResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAssessmentFrameworkShareRequestFilterSensitiveLog = (
-  obj: DeleteAssessmentFrameworkShareRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAssessmentFrameworkShareResponseFilterSensitiveLog = (
-  obj: DeleteAssessmentFrameworkShareResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAssessmentReportRequestFilterSensitiveLog = (obj: DeleteAssessmentReportRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAssessmentReportResponseFilterSensitiveLog = (obj: DeleteAssessmentReportResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteControlRequestFilterSensitiveLog = (obj: DeleteControlRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteControlResponseFilterSensitiveLog = (obj: DeleteControlResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterAccountRequestFilterSensitiveLog = (obj: DeregisterAccountRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterAccountResponseFilterSensitiveLog = (obj: DeregisterAccountResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterOrganizationAdminAccountRequestFilterSensitiveLog = (
-  obj: DeregisterOrganizationAdminAccountRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterOrganizationAdminAccountResponseFilterSensitiveLog = (
-  obj: DeregisterOrganizationAdminAccountResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateAssessmentReportEvidenceFolderRequestFilterSensitiveLog = (
-  obj: DisassociateAssessmentReportEvidenceFolderRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateAssessmentReportEvidenceFolderResponseFilterSensitiveLog = (
-  obj: DisassociateAssessmentReportEvidenceFolderResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAccountStatusRequestFilterSensitiveLog = (obj: GetAccountStatusRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAccountStatusResponseFilterSensitiveLog = (obj: GetAccountStatusResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAssessmentRequestFilterSensitiveLog = (obj: GetAssessmentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAssessmentResponseFilterSensitiveLog = (obj: GetAssessmentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAssessmentFrameworkRequestFilterSensitiveLog = (obj: GetAssessmentFrameworkRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAssessmentFrameworkResponseFilterSensitiveLog = (obj: GetAssessmentFrameworkResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAssessmentReportUrlRequestFilterSensitiveLog = (obj: GetAssessmentReportUrlRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const URLFilterSensitiveLog = (obj: URL): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAssessmentReportUrlResponseFilterSensitiveLog = (obj: GetAssessmentReportUrlResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetChangeLogsRequestFilterSensitiveLog = (obj: GetChangeLogsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChangeLogFilterSensitiveLog = (obj: ChangeLog): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetChangeLogsResponseFilterSensitiveLog = (obj: GetChangeLogsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetControlRequestFilterSensitiveLog = (obj: GetControlRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetControlResponseFilterSensitiveLog = (obj: GetControlResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDelegationsRequestFilterSensitiveLog = (obj: GetDelegationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DelegationMetadataFilterSensitiveLog = (obj: DelegationMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDelegationsResponseFilterSensitiveLog = (obj: GetDelegationsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEvidenceRequestFilterSensitiveLog = (obj: GetEvidenceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceFilterSensitiveLog = (obj: Resource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EvidenceFilterSensitiveLog = (obj: Evidence): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEvidenceResponseFilterSensitiveLog = (obj: GetEvidenceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEvidenceByEvidenceFolderRequestFilterSensitiveLog = (obj: GetEvidenceByEvidenceFolderRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEvidenceByEvidenceFolderResponseFilterSensitiveLog = (
-  obj: GetEvidenceByEvidenceFolderResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEvidenceFolderRequestFilterSensitiveLog = (obj: GetEvidenceFolderRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEvidenceFolderResponseFilterSensitiveLog = (obj: GetEvidenceFolderResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEvidenceFoldersByAssessmentRequestFilterSensitiveLog = (
-  obj: GetEvidenceFoldersByAssessmentRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEvidenceFoldersByAssessmentResponseFilterSensitiveLog = (
-  obj: GetEvidenceFoldersByAssessmentResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEvidenceFoldersByAssessmentControlRequestFilterSensitiveLog = (
-  obj: GetEvidenceFoldersByAssessmentControlRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEvidenceFoldersByAssessmentControlResponseFilterSensitiveLog = (
-  obj: GetEvidenceFoldersByAssessmentControlResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInsightsRequestFilterSensitiveLog = (obj: GetInsightsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InsightsFilterSensitiveLog = (obj: Insights): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInsightsResponseFilterSensitiveLog = (obj: GetInsightsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInsightsByAssessmentRequestFilterSensitiveLog = (obj: GetInsightsByAssessmentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InsightsByAssessmentFilterSensitiveLog = (obj: InsightsByAssessment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInsightsByAssessmentResponseFilterSensitiveLog = (obj: GetInsightsByAssessmentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetOrganizationAdminAccountRequestFilterSensitiveLog = (obj: GetOrganizationAdminAccountRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetOrganizationAdminAccountResponseFilterSensitiveLog = (
-  obj: GetOrganizationAdminAccountResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetServicesInScopeRequestFilterSensitiveLog = (obj: GetServicesInScopeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServiceMetadataFilterSensitiveLog = (obj: ServiceMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetServicesInScopeResponseFilterSensitiveLog = (obj: GetServicesInScopeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSettingsRequestFilterSensitiveLog = (obj: GetSettingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregistrationPolicyFilterSensitiveLog = (obj: DeregistrationPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EvidenceFinderEnablementFilterSensitiveLog = (obj: EvidenceFinderEnablement): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SettingsFilterSensitiveLog = (obj: Settings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSettingsResponseFilterSensitiveLog = (obj: GetSettingsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAssessmentControlInsightsByControlDomainRequestFilterSensitiveLog = (
-  obj: ListAssessmentControlInsightsByControlDomainRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EvidenceInsightsFilterSensitiveLog = (obj: EvidenceInsights): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ControlInsightsMetadataByAssessmentItemFilterSensitiveLog = (
-  obj: ControlInsightsMetadataByAssessmentItem
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAssessmentControlInsightsByControlDomainResponseFilterSensitiveLog = (
-  obj: ListAssessmentControlInsightsByControlDomainResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAssessmentFrameworksRequestFilterSensitiveLog = (obj: ListAssessmentFrameworksRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAssessmentFrameworksResponseFilterSensitiveLog = (obj: ListAssessmentFrameworksResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAssessmentFrameworkShareRequestsRequestFilterSensitiveLog = (
-  obj: ListAssessmentFrameworkShareRequestsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAssessmentFrameworkShareRequestsResponseFilterSensitiveLog = (
-  obj: ListAssessmentFrameworkShareRequestsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAssessmentReportsRequestFilterSensitiveLog = (obj: ListAssessmentReportsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAssessmentReportsResponseFilterSensitiveLog = (obj: ListAssessmentReportsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAssessmentsRequestFilterSensitiveLog = (obj: ListAssessmentsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAssessmentsResponseFilterSensitiveLog = (obj: ListAssessmentsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListControlDomainInsightsRequestFilterSensitiveLog = (obj: ListControlDomainInsightsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ControlDomainInsightsFilterSensitiveLog = (obj: ControlDomainInsights): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListControlDomainInsightsResponseFilterSensitiveLog = (obj: ListControlDomainInsightsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListControlDomainInsightsByAssessmentRequestFilterSensitiveLog = (
-  obj: ListControlDomainInsightsByAssessmentRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListControlDomainInsightsByAssessmentResponseFilterSensitiveLog = (
-  obj: ListControlDomainInsightsByAssessmentResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListControlInsightsByControlDomainRequestFilterSensitiveLog = (
-  obj: ListControlInsightsByControlDomainRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ControlInsightsMetadataItemFilterSensitiveLog = (obj: ControlInsightsMetadataItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListControlInsightsByControlDomainResponseFilterSensitiveLog = (
-  obj: ListControlInsightsByControlDomainResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListControlsRequestFilterSensitiveLog = (obj: ListControlsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ControlMetadataFilterSensitiveLog = (obj: ControlMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListControlsResponseFilterSensitiveLog = (obj: ListControlsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListKeywordsForDataSourceRequestFilterSensitiveLog = (obj: ListKeywordsForDataSourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListKeywordsForDataSourceResponseFilterSensitiveLog = (obj: ListKeywordsForDataSourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNotificationsRequestFilterSensitiveLog = (obj: ListNotificationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NotificationFilterSensitiveLog = (obj: Notification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNotificationsResponseFilterSensitiveLog = (obj: ListNotificationsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterAccountRequestFilterSensitiveLog = (obj: RegisterAccountRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterAccountResponseFilterSensitiveLog = (obj: RegisterAccountResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterOrganizationAdminAccountRequestFilterSensitiveLog = (
-  obj: RegisterOrganizationAdminAccountRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterOrganizationAdminAccountResponseFilterSensitiveLog = (
-  obj: RegisterOrganizationAdminAccountResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartAssessmentFrameworkShareRequestFilterSensitiveLog = (
-  obj: StartAssessmentFrameworkShareRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartAssessmentFrameworkShareResponseFilterSensitiveLog = (
-  obj: StartAssessmentFrameworkShareResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAssessmentRequestFilterSensitiveLog = (obj: UpdateAssessmentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAssessmentResponseFilterSensitiveLog = (obj: UpdateAssessmentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAssessmentControlRequestFilterSensitiveLog = (obj: UpdateAssessmentControlRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAssessmentControlResponseFilterSensitiveLog = (obj: UpdateAssessmentControlResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAssessmentControlSetStatusRequestFilterSensitiveLog = (
-  obj: UpdateAssessmentControlSetStatusRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAssessmentControlSetStatusResponseFilterSensitiveLog = (
-  obj: UpdateAssessmentControlSetStatusResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAssessmentFrameworkControlSetFilterSensitiveLog = (
-  obj: UpdateAssessmentFrameworkControlSet
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAssessmentFrameworkRequestFilterSensitiveLog = (obj: UpdateAssessmentFrameworkRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAssessmentFrameworkResponseFilterSensitiveLog = (obj: UpdateAssessmentFrameworkResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAssessmentFrameworkShareRequestFilterSensitiveLog = (
-  obj: UpdateAssessmentFrameworkShareRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAssessmentFrameworkShareResponseFilterSensitiveLog = (
-  obj: UpdateAssessmentFrameworkShareResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAssessmentStatusRequestFilterSensitiveLog = (obj: UpdateAssessmentStatusRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAssessmentStatusResponseFilterSensitiveLog = (obj: UpdateAssessmentStatusResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateControlRequestFilterSensitiveLog = (obj: UpdateControlRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateControlResponseFilterSensitiveLog = (obj: UpdateControlResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSettingsRequestFilterSensitiveLog = (obj: UpdateSettingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSettingsResponseFilterSensitiveLog = (obj: UpdateSettingsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidateAssessmentReportIntegrityRequestFilterSensitiveLog = (
-  obj: ValidateAssessmentReportIntegrityRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidateAssessmentReportIntegrityResponseFilterSensitiveLog = (
-  obj: ValidateAssessmentReportIntegrityResponse
-): any => ({
-  ...obj,
-});

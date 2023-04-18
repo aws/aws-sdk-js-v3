@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ModifyAvailabilityZoneGroupRequest,
-  ModifyAvailabilityZoneGroupRequestFilterSensitiveLog,
-  ModifyAvailabilityZoneGroupResult,
-  ModifyAvailabilityZoneGroupResultFilterSensitiveLog,
-} from "../models/models_5";
-import {
-  deserializeAws_ec2ModifyAvailabilityZoneGroupCommand,
-  serializeAws_ec2ModifyAvailabilityZoneGroupCommand,
-} from "../protocols/Aws_ec2";
+import { ModifyAvailabilityZoneGroupRequest, ModifyAvailabilityZoneGroupResult } from "../models/models_6";
+import { de_ModifyAvailabilityZoneGroupCommand, se_ModifyAvailabilityZoneGroupCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link ModifyAvailabilityZoneGroupCommand}.
+ */
 export interface ModifyAvailabilityZoneGroupCommandInput extends ModifyAvailabilityZoneGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ModifyAvailabilityZoneGroupCommand}.
+ */
 export interface ModifyAvailabilityZoneGroupCommandOutput extends ModifyAvailabilityZoneGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the opt-in status of the Local Zone and Wavelength Zone group for your
  *       account.</p>
  *          <p>Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html">
@@ -39,13 +42,21 @@ export interface ModifyAvailabilityZoneGroupCommandOutput extends ModifyAvailabi
  * import { EC2Client, ModifyAvailabilityZoneGroupCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyAvailabilityZoneGroupCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ModifyAvailabilityZoneGroupRequest
+ *   GroupName: "STRING_VALUE", // required
+ *   OptInStatus: "opted-in" || "not-opted-in", // required
+ *   DryRun: true || false,
+ * };
  * const command = new ModifyAvailabilityZoneGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyAvailabilityZoneGroupCommandInput - {@link ModifyAvailabilityZoneGroupCommandInput}
+ * @returns {@link ModifyAvailabilityZoneGroupCommandOutput}
  * @see {@link ModifyAvailabilityZoneGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyAvailabilityZoneGroupCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class ModifyAvailabilityZoneGroupCommand extends $Command<
@@ -65,6 +76,9 @@ export class ModifyAvailabilityZoneGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyAvailabilityZoneGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +107,8 @@ export class ModifyAvailabilityZoneGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyAvailabilityZoneGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyAvailabilityZoneGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,15 +118,21 @@ export class ModifyAvailabilityZoneGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyAvailabilityZoneGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyAvailabilityZoneGroupCommand(input, context);
+    return se_ModifyAvailabilityZoneGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyAvailabilityZoneGroupCommandOutput> {
-    return deserializeAws_ec2ModifyAvailabilityZoneGroupCommand(output, context);
+    return de_ModifyAvailabilityZoneGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

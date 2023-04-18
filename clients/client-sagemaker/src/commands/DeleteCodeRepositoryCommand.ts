@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteCodeRepositoryInput, DeleteCodeRepositoryInputFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteCodeRepositoryCommand,
-  serializeAws_json1_1DeleteCodeRepositoryCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteCodeRepositoryInput } from "../models/models_1";
+import { de_DeleteCodeRepositoryCommand, se_DeleteCodeRepositoryCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteCodeRepositoryCommand}.
+ */
 export interface DeleteCodeRepositoryCommandInput extends DeleteCodeRepositoryInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteCodeRepositoryCommand}.
+ */
 export interface DeleteCodeRepositoryCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified Git repository from your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +39,19 @@ export interface DeleteCodeRepositoryCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, DeleteCodeRepositoryCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteCodeRepositoryCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DeleteCodeRepositoryInput
+ *   CodeRepositoryName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteCodeRepositoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCodeRepositoryCommandInput - {@link DeleteCodeRepositoryCommandInput}
+ * @returns {@link DeleteCodeRepositoryCommandOutput}
  * @see {@link DeleteCodeRepositoryCommandInput} for command's `input` shape.
  * @see {@link DeleteCodeRepositoryCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
  *
  */
 export class DeleteCodeRepositoryCommand extends $Command<
@@ -57,6 +71,9 @@ export class DeleteCodeRepositoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCodeRepositoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +102,8 @@ export class DeleteCodeRepositoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCodeRepositoryInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +113,18 @@ export class DeleteCodeRepositoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCodeRepositoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteCodeRepositoryCommand(input, context);
+    return se_DeleteCodeRepositoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCodeRepositoryCommandOutput> {
-    return deserializeAws_json1_1DeleteCodeRepositoryCommand(output, context);
+    return de_DeleteCodeRepositoryCommand(output, context);
   }
 
   // Start section: command_body_extra

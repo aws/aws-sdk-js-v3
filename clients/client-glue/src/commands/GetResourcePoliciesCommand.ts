@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetResourcePoliciesRequest,
-  GetResourcePoliciesRequestFilterSensitiveLog,
-  GetResourcePoliciesResponse,
-  GetResourcePoliciesResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetResourcePoliciesCommand,
-  serializeAws_json1_1GetResourcePoliciesCommand,
-} from "../protocols/Aws_json1_1";
+import { GetResourcePoliciesRequest, GetResourcePoliciesResponse } from "../models/models_1";
+import { de_GetResourcePoliciesCommand, se_GetResourcePoliciesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetResourcePoliciesCommand}.
+ */
 export interface GetResourcePoliciesCommandInput extends GetResourcePoliciesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetResourcePoliciesCommand}.
+ */
 export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the resource policies set on individual resources by Resource Access Manager
  *       during cross-account permission grants. Also retrieves the Data Catalog resource
  *       policy.</p>
@@ -41,13 +44,32 @@ export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesRes
  * import { GlueClient, GetResourcePoliciesCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetResourcePoliciesCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // GetResourcePoliciesRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new GetResourcePoliciesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResourcePoliciesCommandInput - {@link GetResourcePoliciesCommandInput}
+ * @returns {@link GetResourcePoliciesCommandOutput}
  * @see {@link GetResourcePoliciesCommandInput} for command's `input` shape.
  * @see {@link GetResourcePoliciesCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link GlueEncryptionException} (client fault)
+ *  <p>An encryption operation failed.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class GetResourcePoliciesCommand extends $Command<
@@ -67,6 +89,9 @@ export class GetResourcePoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResourcePoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +120,8 @@ export class GetResourcePoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetResourcePoliciesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetResourcePoliciesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +131,18 @@ export class GetResourcePoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResourcePoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetResourcePoliciesCommand(input, context);
+    return se_GetResourcePoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourcePoliciesCommandOutput> {
-    return deserializeAws_json1_1GetResourcePoliciesCommand(output, context);
+    return de_GetResourcePoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

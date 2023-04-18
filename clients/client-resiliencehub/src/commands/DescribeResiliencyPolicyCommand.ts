@@ -15,21 +15,28 @@ import {
 
 import {
   DescribeResiliencyPolicyRequest,
-  DescribeResiliencyPolicyRequestFilterSensitiveLog,
   DescribeResiliencyPolicyResponse,
   DescribeResiliencyPolicyResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeResiliencyPolicyCommand,
-  serializeAws_restJson1DescribeResiliencyPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeResiliencyPolicyCommand, se_DescribeResiliencyPolicyCommand } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeResiliencyPolicyCommand}.
+ */
 export interface DescribeResiliencyPolicyCommandInput extends DescribeResiliencyPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeResiliencyPolicyCommand}.
+ */
 export interface DescribeResiliencyPolicyCommandOutput extends DescribeResiliencyPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Describes a specified resiliency policy for an AWS Resilience Hub application. The returned
+ * @public
+ * <p>Describes a specified resiliency policy for an Resilience Hub application. The returned
  *       policy object includes creation time, data location constraints, the Amazon Resource Name
  *       (ARN) for the policy, tags, tier, and more.</p>
  * @example
@@ -38,13 +45,37 @@ export interface DescribeResiliencyPolicyCommandOutput extends DescribeResilienc
  * import { ResiliencehubClient, DescribeResiliencyPolicyCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, DescribeResiliencyPolicyCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = { // DescribeResiliencyPolicyRequest
+ *   policyArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeResiliencyPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeResiliencyPolicyCommandInput - {@link DescribeResiliencyPolicyCommandInput}
+ * @returns {@link DescribeResiliencyPolicyCommandOutput}
  * @see {@link DescribeResiliencyPolicyCommandInput} for command's `input` shape.
  * @see {@link DescribeResiliencyPolicyCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have permissions to perform the requested operation. The user or role that is
+ *       making the request must have at least one IAM permissions policy attached that grants the
+ *       required permissions.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
+ *       service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception occurs when the specified resource could not be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>This exception occurs when a request is not valid.</p>
+ *
  *
  */
 export class DescribeResiliencyPolicyCommand extends $Command<
@@ -64,6 +95,9 @@ export class DescribeResiliencyPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeResiliencyPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,7 +126,7 @@ export class DescribeResiliencyPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeResiliencyPolicyRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeResiliencyPolicyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -103,12 +137,18 @@ export class DescribeResiliencyPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeResiliencyPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeResiliencyPolicyCommand(input, context);
+    return se_DescribeResiliencyPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeResiliencyPolicyCommandOutput> {
-    return deserializeAws_restJson1DescribeResiliencyPolicyCommand(output, context);
+    return de_DescribeResiliencyPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

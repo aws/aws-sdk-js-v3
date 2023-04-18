@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutInboundDmarcSettingsRequest,
-  PutInboundDmarcSettingsRequestFilterSensitiveLog,
-  PutInboundDmarcSettingsResponse,
-  PutInboundDmarcSettingsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutInboundDmarcSettingsCommand,
-  serializeAws_json1_1PutInboundDmarcSettingsCommand,
-} from "../protocols/Aws_json1_1";
+import { PutInboundDmarcSettingsRequest, PutInboundDmarcSettingsResponse } from "../models/models_0";
+import { de_PutInboundDmarcSettingsCommand, se_PutInboundDmarcSettingsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * @public
+ *
+ * The input for {@link PutInboundDmarcSettingsCommand}.
+ */
 export interface PutInboundDmarcSettingsCommandInput extends PutInboundDmarcSettingsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutInboundDmarcSettingsCommand}.
+ */
 export interface PutInboundDmarcSettingsCommandOutput extends PutInboundDmarcSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables or disables a DMARC policy for a given organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,28 @@ export interface PutInboundDmarcSettingsCommandOutput extends PutInboundDmarcSet
  * import { WorkMailClient, PutInboundDmarcSettingsCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, PutInboundDmarcSettingsCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = { // PutInboundDmarcSettingsRequest
+ *   OrganizationId: "STRING_VALUE", // required
+ *   Enforced: true || false, // required
+ * };
  * const command = new PutInboundDmarcSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutInboundDmarcSettingsCommandInput - {@link PutInboundDmarcSettingsCommandInput}
+ * @returns {@link PutInboundDmarcSettingsCommandOutput}
  * @see {@link PutInboundDmarcSettingsCommandInput} for command's `input` shape.
  * @see {@link PutInboundDmarcSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
+ *
+ * @throws {@link OrganizationNotFoundException} (client fault)
+ *  <p>An operation received a valid organization identifier that either doesn't belong or
+ *          exist in the system.</p>
+ *
+ * @throws {@link OrganizationStateException} (client fault)
+ *  <p>The organization must have a valid state to perform certain
+ *          operations on the organization or its members.</p>
+ *
  *
  */
 export class PutInboundDmarcSettingsCommand extends $Command<
@@ -62,6 +80,9 @@ export class PutInboundDmarcSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutInboundDmarcSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +111,8 @@ export class PutInboundDmarcSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutInboundDmarcSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutInboundDmarcSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +122,18 @@ export class PutInboundDmarcSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutInboundDmarcSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutInboundDmarcSettingsCommand(input, context);
+    return se_PutInboundDmarcSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutInboundDmarcSettingsCommandOutput> {
-    return deserializeAws_json1_1PutInboundDmarcSettingsCommand(output, context);
+    return de_PutInboundDmarcSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

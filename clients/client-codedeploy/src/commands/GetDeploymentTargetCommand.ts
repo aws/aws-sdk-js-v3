@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import {
-  GetDeploymentTargetInput,
-  GetDeploymentTargetInputFilterSensitiveLog,
-  GetDeploymentTargetOutput,
-  GetDeploymentTargetOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetDeploymentTargetCommand,
-  serializeAws_json1_1GetDeploymentTargetCommand,
-} from "../protocols/Aws_json1_1";
+import { GetDeploymentTargetInput, GetDeploymentTargetOutput } from "../models/models_0";
+import { de_GetDeploymentTargetCommand, se_GetDeploymentTargetCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetDeploymentTargetCommand}.
+ */
 export interface GetDeploymentTargetCommandInput extends GetDeploymentTargetInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetDeploymentTargetCommand}.
+ */
 export interface GetDeploymentTargetCommandOutput extends GetDeploymentTargetOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns information about a deployment target. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,45 @@ export interface GetDeploymentTargetCommandOutput extends GetDeploymentTargetOut
  * import { CodeDeployClient, GetDeploymentTargetCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, GetDeploymentTargetCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
+ * const input = { // GetDeploymentTargetInput
+ *   deploymentId: "STRING_VALUE",
+ *   targetId: "STRING_VALUE",
+ * };
  * const command = new GetDeploymentTargetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDeploymentTargetCommandInput - {@link GetDeploymentTargetCommandInput}
+ * @returns {@link GetDeploymentTargetCommandOutput}
  * @see {@link GetDeploymentTargetCommandInput} for command's `input` shape.
  * @see {@link GetDeploymentTargetCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
+ *
+ * @throws {@link DeploymentDoesNotExistException} (client fault)
+ *  <p>The deployment with the IAM user or Amazon Web Services account does not
+ *             exist.</p>
+ *
+ * @throws {@link DeploymentIdRequiredException} (client fault)
+ *  <p>At least one deployment ID must be specified.</p>
+ *
+ * @throws {@link DeploymentNotStartedException} (client fault)
+ *  <p>The specified deployment has not started.</p>
+ *
+ * @throws {@link DeploymentTargetDoesNotExistException} (client fault)
+ *  <p> The provided target ID does not belong to the attempted deployment. </p>
+ *
+ * @throws {@link DeploymentTargetIdRequiredException} (client fault)
+ *  <p> A deployment target ID was not provided. </p>
+ *
+ * @throws {@link InvalidDeploymentIdException} (client fault)
+ *  <p>At least one of the deployment IDs was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidDeploymentTargetIdException} (client fault)
+ *  <p> The target ID provided was not valid. </p>
+ *
+ * @throws {@link InvalidInstanceNameException} (client fault)
+ *  <p>The on-premises instance name was specified in an invalid format.</p>
+ *
  *
  */
 export class GetDeploymentTargetCommand extends $Command<
@@ -62,6 +97,9 @@ export class GetDeploymentTargetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDeploymentTargetCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +128,8 @@ export class GetDeploymentTargetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDeploymentTargetInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDeploymentTargetOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +139,18 @@ export class GetDeploymentTargetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDeploymentTargetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDeploymentTargetCommand(input, context);
+    return se_GetDeploymentTargetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDeploymentTargetCommandOutput> {
-    return deserializeAws_json1_1GetDeploymentTargetCommand(output, context);
+    return de_GetDeploymentTargetCommand(output, context);
   }
 
   // Start section: command_body_extra

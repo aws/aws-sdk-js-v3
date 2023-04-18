@@ -16,19 +16,26 @@ import {
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
 import {
   StartReplicationRequest,
-  StartReplicationRequestFilterSensitiveLog,
   StartReplicationResponse,
   StartReplicationResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartReplicationCommand,
-  serializeAws_restJson1StartReplicationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartReplicationCommand, se_StartReplicationCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link StartReplicationCommand}.
+ */
 export interface StartReplicationCommandInput extends StartReplicationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartReplicationCommand}.
+ */
 export interface StartReplicationCommandOutput extends StartReplicationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts replication for a stopped Source Server. This action would make the Source Server protected again and restart billing for it.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +43,34 @@ export interface StartReplicationCommandOutput extends StartReplicationResponse,
  * import { DrsClient, StartReplicationCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, StartReplicationCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
+ * const input = { // StartReplicationRequest
+ *   sourceServerID: "STRING_VALUE", // required
+ * };
  * const command = new StartReplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartReplicationCommandInput - {@link StartReplicationCommandInput}
+ * @returns {@link StartReplicationCommandOutput}
  * @see {@link StartReplicationCommandInput} for command's `input` shape.
  * @see {@link StartReplicationCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource for this operation was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link UninitializedAccountException} (client fault)
+ *  <p>The account performing the request has not been initialized.</p>
+ *
  *
  */
 export class StartReplicationCommand extends $Command<
@@ -62,6 +90,9 @@ export class StartReplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartReplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +121,7 @@ export class StartReplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartReplicationRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: StartReplicationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -101,12 +132,18 @@ export class StartReplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartReplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartReplicationCommand(input, context);
+    return se_StartReplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartReplicationCommandOutput> {
-    return deserializeAws_restJson1StartReplicationCommand(output, context);
+    return de_StartReplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

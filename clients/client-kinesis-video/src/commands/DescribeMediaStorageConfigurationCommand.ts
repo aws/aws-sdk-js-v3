@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
+import { DescribeMediaStorageConfigurationInput, DescribeMediaStorageConfigurationOutput } from "../models/models_0";
 import {
-  DescribeMediaStorageConfigurationInput,
-  DescribeMediaStorageConfigurationInputFilterSensitiveLog,
-  DescribeMediaStorageConfigurationOutput,
-  DescribeMediaStorageConfigurationOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeMediaStorageConfigurationCommand,
-  serializeAws_restJson1DescribeMediaStorageConfigurationCommand,
+  de_DescribeMediaStorageConfigurationCommand,
+  se_DescribeMediaStorageConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeMediaStorageConfigurationCommand}.
+ */
 export interface DescribeMediaStorageConfigurationCommandInput extends DescribeMediaStorageConfigurationInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeMediaStorageConfigurationCommand}.
+ */
 export interface DescribeMediaStorageConfigurationCommandOutput
   extends DescribeMediaStorageConfigurationOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the most current information about the channel. Specify the <code>ChannelName</code>
  *             or <code>ChannelARN</code> in the input.</p>
  * @example
@@ -39,13 +45,33 @@ export interface DescribeMediaStorageConfigurationCommandOutput
  * import { KinesisVideoClient, DescribeMediaStorageConfigurationCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, DescribeMediaStorageConfigurationCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
+ * const input = { // DescribeMediaStorageConfigurationInput
+ *   ChannelName: "STRING_VALUE",
+ *   ChannelARN: "STRING_VALUE",
+ * };
  * const command = new DescribeMediaStorageConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMediaStorageConfigurationCommandInput - {@link DescribeMediaStorageConfigurationCommandInput}
+ * @returns {@link DescribeMediaStorageConfigurationCommandOutput}
  * @see {@link DescribeMediaStorageConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeMediaStorageConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have required permissions to perform this operation.</p>
+ *
+ * @throws {@link ClientLimitExceededException} (client fault)
+ *  <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
+ *             allowed client calls. Try making the call later.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>The value for this input parameter is invalid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
+ *
  *
  */
 export class DescribeMediaStorageConfigurationCommand extends $Command<
@@ -65,6 +91,9 @@ export class DescribeMediaStorageConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMediaStorageConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +122,8 @@ export class DescribeMediaStorageConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeMediaStorageConfigurationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeMediaStorageConfigurationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,18 +133,24 @@ export class DescribeMediaStorageConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeMediaStorageConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeMediaStorageConfigurationCommand(input, context);
+    return se_DescribeMediaStorageConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeMediaStorageConfigurationCommandOutput> {
-    return deserializeAws_restJson1DescribeMediaStorageConfigurationCommand(output, context);
+    return de_DescribeMediaStorageConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

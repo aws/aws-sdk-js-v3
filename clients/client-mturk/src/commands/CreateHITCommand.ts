@@ -13,19 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateHITRequest,
-  CreateHITRequestFilterSensitiveLog,
-  CreateHITResponse,
-  CreateHITResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateHITRequest, CreateHITResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import { deserializeAws_json1_1CreateHITCommand, serializeAws_json1_1CreateHITCommand } from "../protocols/Aws_json1_1";
+import { de_CreateHITCommand, se_CreateHITCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateHITCommand}.
+ */
 export interface CreateHITCommandInput extends CreateHITRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateHITCommand}.
+ */
 export interface CreateHITCommandOutput extends CreateHITResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The <code>CreateHIT</code> operation creates a new Human Intelligence Task (HIT).
  *             The new HIT is made available for Workers to find and accept on the Amazon Mechanical
  *             Turk website. </p>
@@ -49,13 +55,97 @@ export interface CreateHITCommandOutput extends CreateHITResponse, __MetadataBea
  * import { MTurkClient, CreateHITCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, CreateHITCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = { // CreateHITRequest
+ *   MaxAssignments: Number("int"),
+ *   AutoApprovalDelayInSeconds: Number("long"),
+ *   LifetimeInSeconds: Number("long"), // required
+ *   AssignmentDurationInSeconds: Number("long"), // required
+ *   Reward: "STRING_VALUE", // required
+ *   Title: "STRING_VALUE", // required
+ *   Keywords: "STRING_VALUE",
+ *   Description: "STRING_VALUE", // required
+ *   Question: "STRING_VALUE",
+ *   RequesterAnnotation: "STRING_VALUE",
+ *   QualificationRequirements: [ // QualificationRequirementList
+ *     { // QualificationRequirement
+ *       QualificationTypeId: "STRING_VALUE", // required
+ *       Comparator: "STRING_VALUE", // required
+ *       IntegerValues: [ // IntegerList
+ *         Number("int"),
+ *       ],
+ *       LocaleValues: [ // LocaleList
+ *         { // Locale
+ *           Country: "STRING_VALUE", // required
+ *           Subdivision: "STRING_VALUE",
+ *         },
+ *       ],
+ *       RequiredToPreview: true || false,
+ *       ActionsGuarded: "STRING_VALUE",
+ *     },
+ *   ],
+ *   UniqueRequestToken: "STRING_VALUE",
+ *   AssignmentReviewPolicy: { // ReviewPolicy
+ *     PolicyName: "STRING_VALUE", // required
+ *     Parameters: [ // PolicyParameterList
+ *       { // PolicyParameter
+ *         Key: "STRING_VALUE",
+ *         Values: [ // StringList
+ *           "STRING_VALUE",
+ *         ],
+ *         MapEntries: [ // ParameterMapEntryList
+ *           { // ParameterMapEntry
+ *             Key: "STRING_VALUE",
+ *             Values: [
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *   },
+ *   HITReviewPolicy: {
+ *     PolicyName: "STRING_VALUE", // required
+ *     Parameters: [
+ *       {
+ *         Key: "STRING_VALUE",
+ *         Values: [
+ *           "STRING_VALUE",
+ *         ],
+ *         MapEntries: [
+ *           {
+ *             Key: "STRING_VALUE",
+ *             Values: [
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *   },
+ *   HITLayoutId: "STRING_VALUE",
+ *   HITLayoutParameters: [ // HITLayoutParameterList
+ *     { // HITLayoutParameter
+ *       Name: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateHITCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateHITCommandInput - {@link CreateHITCommandInput}
+ * @returns {@link CreateHITCommandOutput}
  * @see {@link CreateHITCommandInput} for command's `input` shape.
  * @see {@link CreateHITCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
+ *
+ * @throws {@link RequestError} (client fault)
+ *  <p>Your request is invalid.</p>
+ *
+ * @throws {@link ServiceFault} (server fault)
+ *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
  *
  */
 export class CreateHITCommand extends $Command<
@@ -75,6 +165,9 @@ export class CreateHITCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateHITCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +194,8 @@ export class CreateHITCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateHITRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateHITResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +205,18 @@ export class CreateHITCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateHITCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateHITCommand(input, context);
+    return se_CreateHITCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateHITCommandOutput> {
-    return deserializeAws_json1_1CreateHITCommand(output, context);
+    return de_CreateHITCommand(output, context);
   }
 
   // Start section: command_body_extra

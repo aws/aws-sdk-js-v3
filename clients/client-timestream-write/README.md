@@ -11,12 +11,18 @@ AWS SDK for JavaScript TimestreamWrite Client for Node.js, Browser and React Nat
 
 <fullname>Amazon Timestream Write</fullname>
 
-<p>Amazon Timestream is a fast, scalable, fully managed time series database service that makes it easy to store and analyze trillions of time series data points per day.
-With Timestream, you can easily store and analyze IoT sensor data to derive insights from your IoT applications.
-You can analyze industrial telemetry to streamline equipment management and maintenance.
-You can also store and analyze log data and metrics to improve the performance and availability of your applications.
-Timestream is built from the ground up to effectively ingest, process,
-and store time series data. It organizes data to optimize query processing. It automatically scales based on the volume of data ingested and on the query volume to ensure you receive optimal performance while inserting and querying data. As your data grows over time, Timestream’s adaptive query processing engine spans across storage tiers to provide fast analysis while reducing costs.</p>
+<p>Amazon Timestream is a fast, scalable, fully managed time-series database service
+that makes it easy to store and analyze trillions of time-series data points per day. With
+Timestream, you can easily store and analyze IoT sensor data to derive insights
+from your IoT applications. You can analyze industrial telemetry to streamline equipment
+management and maintenance. You can also store and analyze log data and metrics to improve
+the performance and availability of your applications. </p>
+<p>Timestream is built from the ground up to effectively ingest, process, and
+store time-series data. It organizes data to optimize query processing. It automatically
+scales based on the volume of data ingested and on the query volume to ensure you receive
+optimal performance while inserting and querying data. As your data grows over time,
+Timestream’s adaptive query processing engine spans across storage tiers to
+provide fast analysis while reducing costs.</p>
 
 ## Installing
 
@@ -33,16 +39,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `TimestreamWriteClient` and
-the commands you need, for example `CreateDatabaseCommand`:
+the commands you need, for example `CreateBatchLoadTaskCommand`:
 
 ```js
 // ES5 example
-const { TimestreamWriteClient, CreateDatabaseCommand } = require("@aws-sdk/client-timestream-write");
+const { TimestreamWriteClient, CreateBatchLoadTaskCommand } = require("@aws-sdk/client-timestream-write");
 ```
 
 ```ts
 // ES6+ example
-import { TimestreamWriteClient, CreateDatabaseCommand } from "@aws-sdk/client-timestream-write";
+import { TimestreamWriteClient, CreateBatchLoadTaskCommand } from "@aws-sdk/client-timestream-write";
 ```
 
 ### Usage
@@ -61,7 +67,7 @@ const client = new TimestreamWriteClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateDatabaseCommand(params);
+const command = new CreateBatchLoadTaskCommand(params);
 ```
 
 #### Async/await
@@ -140,7 +146,7 @@ const client = new AWS.TimestreamWrite({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createDatabase(params);
+  const data = await client.createBatchLoadTask(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -148,7 +154,7 @@ try {
 
 // Promises.
 client
-  .createDatabase(params)
+  .createBatchLoadTask(params)
   .then((data) => {
     // process data.
   })
@@ -157,7 +163,7 @@ client
   });
 
 // callbacks.
-client.createDatabase(params, (err, data) => {
+client.createBatchLoadTask(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -210,3 +216,158 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+CreateBatchLoadTask
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/createbatchloadtaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/interfaces/createbatchloadtaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/interfaces/createbatchloadtaskcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateDatabase
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/createdatabasecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/interfaces/createdatabasecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/interfaces/createdatabasecommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateTable
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/createtablecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/interfaces/createtablecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/interfaces/createtablecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteDatabase
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/deletedatabasecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/interfaces/deletedatabasecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/interfaces/deletedatabasecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteTable
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/deletetablecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/interfaces/deletetablecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/interfaces/deletetablecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeBatchLoadTask
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/describebatchloadtaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/interfaces/describebatchloadtaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/interfaces/describebatchloadtaskcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeDatabase
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/describedatabasecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/interfaces/describedatabasecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/interfaces/describedatabasecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeEndpoints
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/describeendpointscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/interfaces/describeendpointscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/interfaces/describeendpointscommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeTable
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/describetablecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/interfaces/describetablecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/interfaces/describetablecommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListBatchLoadTasks
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/listbatchloadtaskscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/interfaces/listbatchloadtaskscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/interfaces/listbatchloadtaskscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListDatabases
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/listdatabasescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/interfaces/listdatabasescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/interfaces/listdatabasescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListTables
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/listtablescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/interfaces/listtablescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/interfaces/listtablescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListTagsForResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/interfaces/listtagsforresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+ResumeBatchLoadTask
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/resumebatchloadtaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/interfaces/resumebatchloadtaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/interfaces/resumebatchloadtaskcommandoutput.html)
+
+</details>
+<details>
+<summary>
+TagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/interfaces/tagresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UntagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/interfaces/untagresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateDatabase
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/updatedatabasecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/interfaces/updatedatabasecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/interfaces/updatedatabasecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateTable
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/updatetablecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/interfaces/updatetablecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/interfaces/updatetablecommandoutput.html)
+
+</details>
+<details>
+<summary>
+WriteRecords
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/writerecordscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/interfaces/writerecordscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/interfaces/writerecordscommandoutput.html)
+
+</details>

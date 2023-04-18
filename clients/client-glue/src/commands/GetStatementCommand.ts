@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetStatementRequest,
-  GetStatementRequestFilterSensitiveLog,
-  GetStatementResponse,
-  GetStatementResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetStatementCommand,
-  serializeAws_json1_1GetStatementCommand,
-} from "../protocols/Aws_json1_1";
+import { GetStatementRequest, GetStatementResponse } from "../models/models_1";
+import { de_GetStatementCommand, se_GetStatementCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetStatementCommand}.
+ */
 export interface GetStatementCommandInput extends GetStatementRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetStatementCommand}.
+ */
 export interface GetStatementCommandOutput extends GetStatementResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the statement.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,39 @@ export interface GetStatementCommandOutput extends GetStatementResponse, __Metad
  * import { GlueClient, GetStatementCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetStatementCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // GetStatementRequest
+ *   SessionId: "STRING_VALUE", // required
+ *   Id: Number("int"), // required
+ *   RequestOrigin: "STRING_VALUE",
+ * };
  * const command = new GetStatementCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetStatementCommandInput - {@link GetStatementCommandInput}
+ * @returns {@link GetStatementCommandOutput}
  * @see {@link GetStatementCommandInput} for command's `input` shape.
  * @see {@link GetStatementCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to a resource was denied.</p>
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link IllegalSessionStateException} (client fault)
+ *  <p>The session is in an invalid state to perform a requested operation.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class GetStatementCommand extends $Command<
@@ -62,6 +91,9 @@ export class GetStatementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetStatementCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +120,8 @@ export class GetStatementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetStatementRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetStatementResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +131,18 @@ export class GetStatementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetStatementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetStatementCommand(input, context);
+    return se_GetStatementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetStatementCommandOutput> {
-    return deserializeAws_json1_1GetStatementCommand(output, context);
+    return de_GetStatementCommand(output, context);
   }
 
   // Start section: command_body_extra

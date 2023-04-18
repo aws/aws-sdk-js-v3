@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  UpdateSkillGroupRequest,
-  UpdateSkillGroupRequestFilterSensitiveLog,
-  UpdateSkillGroupResponse,
-  UpdateSkillGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateSkillGroupCommand,
-  serializeAws_json1_1UpdateSkillGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateSkillGroupRequest, UpdateSkillGroupResponse } from "../models/models_0";
+import { de_UpdateSkillGroupCommand, se_UpdateSkillGroupCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateSkillGroupCommand}.
+ */
 export interface UpdateSkillGroupCommandInput extends UpdateSkillGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateSkillGroupCommand}.
+ */
 export interface UpdateSkillGroupCommandOutput extends UpdateSkillGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates skill group details by skill group ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,30 @@ export interface UpdateSkillGroupCommandOutput extends UpdateSkillGroupResponse,
  * import { AlexaForBusinessClient, UpdateSkillGroupCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, UpdateSkillGroupCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // UpdateSkillGroupRequest
+ *   SkillGroupArn: "STRING_VALUE",
+ *   SkillGroupName: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ * };
  * const command = new UpdateSkillGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSkillGroupCommandInput - {@link UpdateSkillGroupCommandInput}
+ * @returns {@link UpdateSkillGroupCommandOutput}
  * @see {@link UpdateSkillGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateSkillGroupCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is a concurrent modification of resources.</p>
+ *
+ * @throws {@link NameInUseException} (client fault)
+ *  <p>The name sent in the request is already in use.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
  *
  */
 export class UpdateSkillGroupCommand extends $Command<
@@ -62,6 +82,9 @@ export class UpdateSkillGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSkillGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +113,8 @@ export class UpdateSkillGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSkillGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSkillGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +124,18 @@ export class UpdateSkillGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSkillGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateSkillGroupCommand(input, context);
+    return se_UpdateSkillGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSkillGroupCommandOutput> {
-    return deserializeAws_json1_1UpdateSkillGroupCommand(output, context);
+    return de_UpdateSkillGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,14 +1,16 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
-  map as __map,
+  map,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -31,7 +33,10 @@ import {
 } from "../models/models_0";
 import { SageMakerRuntimeServiceException as __BaseException } from "../models/SageMakerRuntimeServiceException";
 
-export const serializeAws_restJson1InvokeEndpointCommand = async (
+/**
+ * serializeAws_restJson1InvokeEndpointCommand
+ */
+export const se_InvokeEndpointCommand = async (
   input: InvokeEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -71,7 +76,10 @@ export const serializeAws_restJson1InvokeEndpointCommand = async (
   });
 };
 
-export const serializeAws_restJson1InvokeEndpointAsyncCommand = async (
+/**
+ * serializeAws_restJson1InvokeEndpointAsyncCommand
+ */
+export const se_InvokeEndpointAsyncCommand = async (
   input: InvokeEndpointAsyncCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -85,6 +93,10 @@ export const serializeAws_restJson1InvokeEndpointAsyncCommand = async (
     "x-amzn-sagemaker-requestttlseconds": [
       () => isSerializableHeaderValue(input.RequestTTLSeconds),
       () => input.RequestTTLSeconds!.toString(),
+    ],
+    "x-amzn-sagemaker-invocationtimeoutseconds": [
+      () => isSerializableHeaderValue(input.InvocationTimeoutSeconds),
+      () => input.InvocationTimeoutSeconds!.toString(),
     ],
   });
   let resolvedPath =
@@ -110,12 +122,15 @@ export const serializeAws_restJson1InvokeEndpointAsyncCommand = async (
   });
 };
 
-export const deserializeAws_restJson1InvokeEndpointCommand = async (
+/**
+ * deserializeAws_restJson1InvokeEndpointCommand
+ */
+export const de_InvokeEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InvokeEndpointCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1InvokeEndpointCommandError(output, context);
+    return de_InvokeEndpointCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -128,7 +143,10 @@ export const deserializeAws_restJson1InvokeEndpointCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1InvokeEndpointCommandError = async (
+/**
+ * deserializeAws_restJson1InvokeEndpointCommandError
+ */
+const de_InvokeEndpointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InvokeEndpointCommandOutput> => {
@@ -140,52 +158,59 @@ const deserializeAws_restJson1InvokeEndpointCommandError = async (
   switch (errorCode) {
     case "InternalDependencyException":
     case "com.amazonaws.sagemakerruntime#InternalDependencyException":
-      throw await deserializeAws_restJson1InternalDependencyExceptionResponse(parsedOutput, context);
+      throw await de_InternalDependencyExceptionRes(parsedOutput, context);
     case "InternalFailure":
     case "com.amazonaws.sagemakerruntime#InternalFailure":
-      throw await deserializeAws_restJson1InternalFailureResponse(parsedOutput, context);
+      throw await de_InternalFailureRes(parsedOutput, context);
     case "ModelError":
     case "com.amazonaws.sagemakerruntime#ModelError":
-      throw await deserializeAws_restJson1ModelErrorResponse(parsedOutput, context);
+      throw await de_ModelErrorRes(parsedOutput, context);
     case "ModelNotReadyException":
     case "com.amazonaws.sagemakerruntime#ModelNotReadyException":
-      throw await deserializeAws_restJson1ModelNotReadyExceptionResponse(parsedOutput, context);
+      throw await de_ModelNotReadyExceptionRes(parsedOutput, context);
     case "ServiceUnavailable":
     case "com.amazonaws.sagemakerruntime#ServiceUnavailable":
-      throw await deserializeAws_restJson1ServiceUnavailableResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableRes(parsedOutput, context);
     case "ValidationError":
     case "com.amazonaws.sagemakerruntime#ValidationError":
-      throw await deserializeAws_restJson1ValidationErrorResponse(parsedOutput, context);
+      throw await de_ValidationErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1InvokeEndpointAsyncCommand = async (
+/**
+ * deserializeAws_restJson1InvokeEndpointAsyncCommand
+ */
+export const de_InvokeEndpointAsyncCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InvokeEndpointAsyncCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1InvokeEndpointAsyncCommandError(output, context);
+    return de_InvokeEndpointAsyncCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
     OutputLocation: [, output.headers["x-amzn-sagemaker-outputlocation"]],
+    FailureLocation: [, output.headers["x-amzn-sagemaker-failurelocation"]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.InferenceId != null) {
-    contents.InferenceId = __expectString(data.InferenceId);
-  }
+  const doc = take(data, {
+    InferenceId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1InvokeEndpointAsyncCommandError = async (
+/**
+ * deserializeAws_restJson1InvokeEndpointAsyncCommandError
+ */
+const de_InvokeEndpointAsyncCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InvokeEndpointAsyncCommandOutput> => {
@@ -197,34 +222,37 @@ const deserializeAws_restJson1InvokeEndpointAsyncCommandError = async (
   switch (errorCode) {
     case "InternalFailure":
     case "com.amazonaws.sagemakerruntime#InternalFailure":
-      throw await deserializeAws_restJson1InternalFailureResponse(parsedOutput, context);
+      throw await de_InternalFailureRes(parsedOutput, context);
     case "ServiceUnavailable":
     case "com.amazonaws.sagemakerruntime#ServiceUnavailable":
-      throw await deserializeAws_restJson1ServiceUnavailableResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableRes(parsedOutput, context);
     case "ValidationError":
     case "com.amazonaws.sagemakerruntime#ValidationError":
-      throw await deserializeAws_restJson1ValidationErrorResponse(parsedOutput, context);
+      throw await de_ValidationErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
-const deserializeAws_restJson1InternalDependencyExceptionResponse = async (
+const throwDefaultError = withBaseException(__BaseException);
+/**
+ * deserializeAws_restJson1InternalDependencyExceptionRes
+ */
+const de_InternalDependencyExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalDependencyException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalDependencyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -232,15 +260,16 @@ const deserializeAws_restJson1InternalDependencyExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InternalFailureResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InternalFailure> => {
+/**
+ * deserializeAws_restJson1InternalFailureRes
+ */
+const de_InternalFailureRes = async (parsedOutput: any, context: __SerdeContext): Promise<InternalFailure> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalFailure({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -248,24 +277,19 @@ const deserializeAws_restJson1InternalFailureResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ModelErrorResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ModelError> => {
+/**
+ * deserializeAws_restJson1ModelErrorRes
+ */
+const de_ModelErrorRes = async (parsedOutput: any, context: __SerdeContext): Promise<ModelError> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.LogStreamArn != null) {
-    contents.LogStreamArn = __expectString(data.LogStreamArn);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.OriginalMessage != null) {
-    contents.OriginalMessage = __expectString(data.OriginalMessage);
-  }
-  if (data.OriginalStatusCode != null) {
-    contents.OriginalStatusCode = __expectInt32(data.OriginalStatusCode);
-  }
+  const doc = take(data, {
+    LogStreamArn: __expectString,
+    Message: __expectString,
+    OriginalMessage: __expectString,
+    OriginalStatusCode: __expectInt32,
+  });
+  Object.assign(contents, doc);
   const exception = new ModelError({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -273,15 +297,19 @@ const deserializeAws_restJson1ModelErrorResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ModelNotReadyExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ModelNotReadyExceptionRes
+ */
+const de_ModelNotReadyExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ModelNotReadyException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ModelNotReadyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -289,15 +317,16 @@ const deserializeAws_restJson1ModelNotReadyExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ServiceUnavailableResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ServiceUnavailable> => {
+/**
+ * deserializeAws_restJson1ServiceUnavailableRes
+ */
+const de_ServiceUnavailableRes = async (parsedOutput: any, context: __SerdeContext): Promise<ServiceUnavailable> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceUnavailable({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -305,15 +334,16 @@ const deserializeAws_restJson1ServiceUnavailableResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ValidationErrorResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationError> => {
+/**
+ * deserializeAws_restJson1ValidationErrorRes
+ */
+const de_ValidationErrorRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationError> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationError({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,

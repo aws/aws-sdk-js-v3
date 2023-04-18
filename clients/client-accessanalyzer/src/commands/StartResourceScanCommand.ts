@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
-import { StartResourceScanRequest, StartResourceScanRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartResourceScanCommand,
-  serializeAws_restJson1StartResourceScanCommand,
-} from "../protocols/Aws_restJson1";
+import { StartResourceScanRequest } from "../models/models_0";
+import { de_StartResourceScanCommand, se_StartResourceScanCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link StartResourceScanCommand}.
+ */
 export interface StartResourceScanCommandInput extends StartResourceScanRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartResourceScanCommand}.
+ */
 export interface StartResourceScanCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Immediately starts a scan of the policies applied to the specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +39,36 @@ export interface StartResourceScanCommandOutput extends __MetadataBearer {}
  * import { AccessAnalyzerClient, StartResourceScanCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, StartResourceScanCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
+ * const input = { // StartResourceScanRequest
+ *   analyzerArn: "STRING_VALUE", // required
+ *   resourceArn: "STRING_VALUE", // required
+ *   resourceOwnerAccount: "STRING_VALUE",
+ * };
  * const command = new StartResourceScanCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartResourceScanCommandInput - {@link StartResourceScanCommandInput}
+ * @returns {@link StartResourceScanCommandOutput}
  * @see {@link StartResourceScanCommandInput} for command's `input` shape.
  * @see {@link StartResourceScanCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Internal server error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Throttling limit exceeded error.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Validation exception error.</p>
+ *
  *
  */
 export class StartResourceScanCommand extends $Command<
@@ -57,6 +88,9 @@ export class StartResourceScanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartResourceScanCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +119,8 @@ export class StartResourceScanCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartResourceScanRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +130,18 @@ export class StartResourceScanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartResourceScanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartResourceScanCommand(input, context);
+    return se_StartResourceScanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartResourceScanCommandOutput> {
-    return deserializeAws_restJson1StartResourceScanCommand(output, context);
+    return de_StartResourceScanCommand(output, context);
   }
 
   // Start section: command_body_extra

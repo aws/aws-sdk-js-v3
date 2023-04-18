@@ -8,15 +8,17 @@ const DAYS: Array<String> = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const MONTHS: Array<String> = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 /**
+ * @internal
+ *
  * Builds a proper UTC HttpDate timestamp from a Date object
  * since not all environments will have this as the expected
  * format.
  *
- * See: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toUTCString
- * > Prior to ECMAScript 2018, the format of the return value
- * > varied according to the platform. The most common return
- * > value was an RFC-1123 formatted date stamp, which is a
- * > slightly updated version of RFC-822 date stamps.
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toUTCString}
+ * - Prior to ECMAScript 2018, the format of the return value
+ * - varied according to the platform. The most common return
+ * - value was an RFC-1123 formatted date stamp, which is a
+ * - slightly updated version of RFC-822 date stamps.
  */
 export function dateToUtcString(date: Date): string {
   const year = date.getUTCFullYear();
@@ -40,6 +42,8 @@ export function dateToUtcString(date: Date): string {
 const RFC3339 = new RegExp(/^(\d{4})-(\d{2})-(\d{2})[tT](\d{2}):(\d{2}):(\d{2})(?:\.(\d+))?[zZ]$/);
 
 /**
+ * @internal
+ *
  * Parses a value into a Date. Returns undefined if the input is null or
  * undefined, throws an error if the input is not a string that can be parsed
  * as an RFC 3339 date.
@@ -47,10 +51,10 @@ const RFC3339 = new RegExp(/^(\d{4})-(\d{2})-(\d{2})[tT](\d{2}):(\d{2}):(\d{2})(
  * Input strings must conform to RFC3339 section 5.6, and cannot have a UTC
  * offset. Fractional precision is supported.
  *
- * {@see https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14}
+ * @see {@link https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14}
  *
- * @param value the value to parse
- * @return a Date or undefined
+ * @param value - the value to parse
+ * @returns a Date or undefined
  */
 export const parseRfc3339DateTime = (value: unknown): Date | undefined => {
   if (value === null || value === undefined) {
@@ -73,6 +77,52 @@ export const parseRfc3339DateTime = (value: unknown): Date | undefined => {
   return buildDate(year, month, day, { hours, minutes, seconds, fractionalMilliseconds });
 };
 
+const RFC3339_WITH_OFFSET = new RegExp(
+  /^(\d{4})-(\d{2})-(\d{2})[tT](\d{2}):(\d{2}):(\d{2})(?:\.(\d+))?(([-+]\d{2}\:\d{2})|[zZ])$/
+);
+
+/**
+ * @internal
+ *
+ * Parses a value into a Date. Returns undefined if the input is null or
+ * undefined, throws an error if the input is not a string that can be parsed
+ * as an RFC 3339 date.
+ *
+ * Input strings must conform to RFC3339 section 5.6, and can have a UTC
+ * offset. Fractional precision is supported.
+ *
+ * @see {@link https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14}
+ *
+ * @param value - the value to parse
+ * @returns a Date or undefined
+ */
+export const parseRfc3339DateTimeWithOffset = (value: unknown): Date | undefined => {
+  if (value === null || value === undefined) {
+    return undefined;
+  }
+  if (typeof value !== "string") {
+    throw new TypeError("RFC-3339 date-times must be expressed as strings");
+  }
+  const match = RFC3339_WITH_OFFSET.exec(value);
+  if (!match) {
+    throw new TypeError("Invalid RFC-3339 date-time value");
+  }
+
+  const [_, yearStr, monthStr, dayStr, hours, minutes, seconds, fractionalMilliseconds, offsetStr] = match;
+
+  const year = strictParseShort(stripLeadingZeroes(yearStr))!;
+  const month = parseDateValue(monthStr, "month", 1, 12);
+  const day = parseDateValue(dayStr, "day", 1, 31);
+  const date = buildDate(year, month, day, { hours, minutes, seconds, fractionalMilliseconds });
+
+  // The final regex capture group is either an offset, or "z". If it is not a "z",
+  // attempt to parse the offset and adjust the date.
+  if (offsetStr.toUpperCase() != "Z") {
+    date.setTime(date.getTime() - parseOffsetToMilliseconds(offsetStr));
+  }
+  return date;
+};
+
 const IMF_FIXDATE = new RegExp(
   /^(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun), (\d{2}) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (\d{4}) (\d{1,2}):(\d{2}):(\d{2})(?:\.(\d+))? GMT$/
 );
@@ -84,16 +134,18 @@ const ASC_TIME = new RegExp(
 );
 
 /**
+ * @internal
+ *
  * Parses a value into a Date. Returns undefined if the input is null or
  * undefined, throws an error if the input is not a string that can be parsed
  * as an RFC 7231 IMF-fixdate or obs-date.
  *
  * Input strings must conform to RFC7231 section 7.1.1.1. Fractional seconds are supported.
  *
- * {@see https://datatracker.ietf.org/doc/html/rfc7231.html#section-7.1.1.1}
+ * @see {@link https://datatracker.ietf.org/doc/html/rfc7231.html#section-7.1.1.1}
  *
- * @param value the value to parse
- * @return a Date or undefined
+ * @param value - the value to parse
+ * @returns a Date or undefined
  */
 export const parseRfc7231DateTime = (value: unknown): Date | undefined => {
   if (value === null || value === undefined) {
@@ -145,13 +197,15 @@ export const parseRfc7231DateTime = (value: unknown): Date | undefined => {
 };
 
 /**
+ * @internal
+ *
  * Parses a value into a Date. Returns undefined if the input is null or
  * undefined, throws an error if the input is not a number or a parseable string.
  *
  * Input strings must be an integer or floating point number. Fractional seconds are supported.
  *
- * @param value the value to parse
- * @return a Date or undefined
+ * @param value - the value to parse
+ * @returns a Date or undefined
  */
 export const parseEpochTimestamp = (value: unknown): Date | undefined => {
   if (value === null || value === undefined) {
@@ -183,10 +237,10 @@ interface RawTime {
 /**
  * Build a date from a numeric year, month, date, and an match with named groups
  * "H", "m", s", and "frac", representing hours, minutes, seconds, and optional fractional seconds.
- * @param year numeric year
- * @param month numeric month, 1-indexed
- * @param day numeric year
- * @param match match with groups "H", "m", s", and "frac"
+ * @param year - numeric year
+ * @param month - numeric month, 1-indexed
+ * @param day - numeric year
+ * @param match - match with groups "H", "m", s", and "frac"
  */
 const buildDate = (year: number, month: number, day: number, time: RawTime): Date => {
   const adjustedMonth = month - 1; // JavaScript, and our internal data structures, expect 0-indexed months
@@ -216,8 +270,8 @@ const buildDate = (year: number, month: number, day: number, time: RawTime): Dat
  * but keep '22' as 2022. in 2099, '11' will represent '2111', but '98' should be '2098'.
  * There's no description of an RFC 850 date being considered too far in the past in RFC-7231,
  * so it's entirely possible that 2011 is a valid interpretation of '11' in 2099.
- * @param value the 2 digit year to parse
- * @return number a year that is equal to or greater than the current UTC year
+ * @param value - the 2 digit year to parse
+ * @returns number a year that is equal to or greater than the current UTC year
  */
 const parseTwoDigitYear = (value: string): number => {
   const thisYear = new Date().getUTCFullYear();
@@ -242,8 +296,8 @@ const FIFTY_YEARS_IN_MILLIS = 50 * 365 * 24 * 60 * 60 * 1000;
  * than 50 years in the future as representing the most recent year in
  * the past that had the same last two digits.</blockquote>
  *
- * @param input a Date that assumes the two-digit year was in the future
- * @return a Date that is in the past if input is > 50 years in the future
+ * @param input - a Date that assumes the two-digit year was in the future
+ * @returns a Date that is in the past if input is \> 50 years in the future
  */
 const adjustRfc850Year = (input: Date): Date => {
   if (input.getTime() - new Date().getTime() > FIFTY_YEARS_IN_MILLIS) {
@@ -274,9 +328,9 @@ const DAYS_IN_MONTH = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
 /**
  * Validate the day is valid for the given month.
- * @param year the year
- * @param month the month (0-indexed)
- * @param day the day of the month
+ * @param year - the year
+ * @param month - the month (0-indexed)
+ * @param day - the day of the month
  */
 const validateDayOfMonth = (year: number, month: number, day: number) => {
   let maxDays = DAYS_IN_MONTH[month];
@@ -307,6 +361,23 @@ const parseMilliseconds = (value: string | undefined): number => {
   }
 
   return strictParseFloat32("0." + value)! * 1000;
+};
+
+// Parses offset string and returns offset in milliseconds.
+const parseOffsetToMilliseconds = (value: string): number => {
+  const directionStr = value[0];
+  let direction = 1;
+  if (directionStr == "+") {
+    direction = 1;
+  } else if (directionStr == "-") {
+    direction = -1;
+  } else {
+    throw new TypeError(`Offset direction, ${directionStr}, must be "+" or "-"`);
+  }
+
+  const hour = Number(value.substring(1, 3));
+  const minute = Number(value.substring(4, 6));
+  return direction * (hour * 60 + minute) * 60 * 1000;
 };
 
 const stripLeadingZeroes = (value: string): string => {

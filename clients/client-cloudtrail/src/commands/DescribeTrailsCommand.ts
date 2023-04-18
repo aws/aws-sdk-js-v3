@@ -14,35 +14,81 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import {
-  DescribeTrailsRequest,
-  DescribeTrailsRequestFilterSensitiveLog,
-  DescribeTrailsResponse,
-  DescribeTrailsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeTrailsCommand,
-  serializeAws_json1_1DescribeTrailsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeTrailsRequest, DescribeTrailsResponse } from "../models/models_0";
+import { de_DescribeTrailsCommand, se_DescribeTrailsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeTrailsCommand}.
+ */
 export interface DescribeTrailsCommandInput extends DescribeTrailsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeTrailsCommand}.
+ */
 export interface DescribeTrailsCommandOutput extends DescribeTrailsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves settings for one or more trails associated with the current region for your account.</p>
+ * @public
+ * <p>Retrieves settings for one or more trails associated with the current region for your
+ *          account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudTrailClient, DescribeTrailsCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, DescribeTrailsCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = { // DescribeTrailsRequest
+ *   trailNameList: [ // TrailNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   includeShadowTrails: true || false,
+ * };
  * const command = new DescribeTrailsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTrailsCommandInput - {@link DescribeTrailsCommandInput}
+ * @returns {@link DescribeTrailsCommandOutput}
  * @see {@link DescribeTrailsCommandInput} for command's `input` shape.
  * @see {@link DescribeTrailsCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
+ *
+ * @throws {@link InvalidTrailNameException} (client fault)
+ *  <p>This exception is thrown when the provided trail name is not valid. Trail names must
+ *          meet the following requirements:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores
+ *                (_), or dashes (-)</p>
+ *             </li>
+ *             <li>
+ *                <p>Start with a letter or number, and end with a letter or number</p>
+ *             </li>
+ *             <li>
+ *                <p>Be between 3 and 128 characters</p>
+ *             </li>
+ *             <li>
+ *                <p>Have no adjacent periods, underscores or dashes. Names like
+ *                   <code>my-_namespace</code> and <code>my--namespace</code> are not valid.</p>
+ *             </li>
+ *             <li>
+ *                <p>Not be in IP address format (for example, 192.168.5.4)</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link NoManagementAccountSLRExistsException} (client fault)
+ *  <p> This exception is thrown when the management account does not have a service-linked
+ *          role. </p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not permitted.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not supported.</p>
+ *
  *
  */
 export class DescribeTrailsCommand extends $Command<
@@ -62,6 +108,9 @@ export class DescribeTrailsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTrailsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +139,8 @@ export class DescribeTrailsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTrailsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTrailsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +150,18 @@ export class DescribeTrailsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTrailsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeTrailsCommand(input, context);
+    return se_DescribeTrailsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTrailsCommandOutput> {
-    return deserializeAws_json1_1DescribeTrailsCommand(output, context);
+    return de_DescribeTrailsCommand(output, context);
   }
 
   // Start section: command_body_extra

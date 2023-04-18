@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
-import {
-  DescribeParameterGroupsRequest,
-  DescribeParameterGroupsRequestFilterSensitiveLog,
-  DescribeParameterGroupsResponse,
-  DescribeParameterGroupsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeParameterGroupsCommand,
-  serializeAws_json1_1DescribeParameterGroupsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeParameterGroupsRequest, DescribeParameterGroupsResponse } from "../models/models_0";
+import { de_DescribeParameterGroupsCommand, se_DescribeParameterGroupsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeParameterGroupsCommand}.
+ */
 export interface DescribeParameterGroupsCommandInput extends DescribeParameterGroupsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeParameterGroupsCommand}.
+ */
 export interface DescribeParameterGroupsCommandOutput extends DescribeParameterGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of parameter group descriptions. If a parameter group name is
  *             specified, the list will contain only the descriptions for that group.</p>
  * @example
@@ -37,13 +40,35 @@ export interface DescribeParameterGroupsCommandOutput extends DescribeParameterG
  * import { DAXClient, DescribeParameterGroupsCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, DescribeParameterGroupsCommand } = require("@aws-sdk/client-dax"); // CommonJS import
  * const client = new DAXClient(config);
+ * const input = { // DescribeParameterGroupsRequest
+ *   ParameterGroupNames: [ // ParameterGroupNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeParameterGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeParameterGroupsCommandInput - {@link DescribeParameterGroupsCommandInput}
+ * @returns {@link DescribeParameterGroupsCommandOutput}
  * @see {@link DescribeParameterGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeParameterGroupsCommandOutput} for command's `response` shape.
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
+ * @throws {@link ParameterGroupNotFoundFault} (client fault)
+ *  <p>The specified parameter group does not exist.</p>
+ *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p>The specified service linked role (SLR) was not found.</p>
+ *
  *
  */
 export class DescribeParameterGroupsCommand extends $Command<
@@ -63,6 +88,9 @@ export class DescribeParameterGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeParameterGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +119,8 @@ export class DescribeParameterGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeParameterGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeParameterGroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +130,18 @@ export class DescribeParameterGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeParameterGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeParameterGroupsCommand(input, context);
+    return se_DescribeParameterGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeParameterGroupsCommandOutput> {
-    return deserializeAws_json1_1DescribeParameterGroupsCommand(output, context);
+    return de_DescribeParameterGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

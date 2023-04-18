@@ -1,9 +1,11 @@
 // smithy-typescript generated code
 import { PaginationConfiguration } from "@aws-sdk/types";
 
-import { ServiceQuotas } from "../ServiceQuotas";
 import { ServiceQuotasClient } from "../ServiceQuotasClient";
 
+/**
+ * @public
+ */
 export interface ServiceQuotasPaginationConfiguration extends PaginationConfiguration {
-  client: ServiceQuotas | ServiceQuotasClient;
+  client: ServiceQuotasClient;
 }

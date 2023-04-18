@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  GetModelsRequest,
-  GetModelsRequestFilterSensitiveLog,
-  Models,
-  ModelsFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetModelsCommand,
-  serializeAws_restJson1GetModelsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetModelsRequest, Models } from "../models/models_0";
+import { de_GetModelsCommand, se_GetModelsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetModelsCommand}.
+ */
 export interface GetModelsCommandInput extends GetModelsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetModelsCommand}.
+ */
 export interface GetModelsCommandOutput extends Models, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes existing Models defined for a RestApi resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,33 @@ export interface GetModelsCommandOutput extends Models, __MetadataBearer {}
  * import { APIGatewayClient, GetModelsCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetModelsCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // GetModelsRequest
+ *   restApiId: "STRING_VALUE", // required
+ *   position: "STRING_VALUE",
+ *   limit: Number("int"),
+ * };
  * const command = new GetModelsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetModelsCommandInput - {@link GetModelsCommandInput}
+ * @returns {@link GetModelsCommandOutput}
  * @see {@link GetModelsCommandInput} for command's `input` shape.
  * @see {@link GetModelsCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The request is denied because the caller has insufficient permissions.</p>
+ *
  *
  */
 export class GetModelsCommand extends $Command<
@@ -62,6 +85,9 @@ export class GetModelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetModelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +114,8 @@ export class GetModelsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetModelsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModelsFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +125,18 @@ export class GetModelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetModelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetModelsCommand(input, context);
+    return se_GetModelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetModelsCommandOutput> {
-    return deserializeAws_restJson1GetModelsCommand(output, context);
+    return de_GetModelsCommand(output, context);
   }
 
   // Start section: command_body_extra

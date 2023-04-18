@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsClient";
-import {
-  DescribeAlarmModelRequest,
-  DescribeAlarmModelRequestFilterSensitiveLog,
-  DescribeAlarmModelResponse,
-  DescribeAlarmModelResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeAlarmModelCommand,
-  serializeAws_restJson1DescribeAlarmModelCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeAlarmModelRequest, DescribeAlarmModelResponse } from "../models/models_0";
+import { de_DescribeAlarmModelCommand, se_DescribeAlarmModelCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeAlarmModelCommand}.
+ */
 export interface DescribeAlarmModelCommandInput extends DescribeAlarmModelRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeAlarmModelCommand}.
+ */
 export interface DescribeAlarmModelCommandOutput extends DescribeAlarmModelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about an alarm model. If you don't specify a value for the
  *         <code>alarmModelVersion</code> parameter, the latest version is returned.</p>
  * @example
@@ -37,13 +40,35 @@ export interface DescribeAlarmModelCommandOutput extends DescribeAlarmModelRespo
  * import { IoTEventsClient, DescribeAlarmModelCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
  * // const { IoTEventsClient, DescribeAlarmModelCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
  * const client = new IoTEventsClient(config);
+ * const input = { // DescribeAlarmModelRequest
+ *   alarmModelName: "STRING_VALUE", // required
+ *   alarmModelVersion: "STRING_VALUE",
+ * };
  * const command = new DescribeAlarmModelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAlarmModelCommandInput - {@link DescribeAlarmModelCommandInput}
+ * @returns {@link DescribeAlarmModelCommandOutput}
  * @see {@link DescribeAlarmModelCommandInput} for command's `input` shape.
  * @see {@link DescribeAlarmModelCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsClientResolvedConfig | config} for IoTEventsClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal failure occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request was invalid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource was not found.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request could not be completed due to throttling.</p>
+ *
  *
  */
 export class DescribeAlarmModelCommand extends $Command<
@@ -63,6 +88,9 @@ export class DescribeAlarmModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAlarmModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +119,8 @@ export class DescribeAlarmModelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAlarmModelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAlarmModelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +130,18 @@ export class DescribeAlarmModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAlarmModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAlarmModelCommand(input, context);
+    return se_DescribeAlarmModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAlarmModelCommandOutput> {
-    return deserializeAws_restJson1DescribeAlarmModelCommand(output, context);
+    return de_DescribeAlarmModelCommand(output, context);
   }
 
   // Start section: command_body_extra

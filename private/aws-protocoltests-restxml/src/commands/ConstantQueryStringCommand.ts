@@ -12,34 +12,48 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ConstantQueryStringInput, ConstantQueryStringInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restXmlConstantQueryStringCommand,
-  serializeAws_restXmlConstantQueryStringCommand,
-} from "../protocols/Aws_restXml";
+import { ConstantQueryStringInput } from "../models/models_0";
+import { de_ConstantQueryStringCommand, se_ConstantQueryStringCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ConstantQueryStringCommand}.
+ */
 export interface ConstantQueryStringCommandInput extends ConstantQueryStringInput {}
+/**
+ * @public
+ *
+ * The output of {@link ConstantQueryStringCommand}.
+ */
 export interface ConstantQueryStringCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * This example uses a constant query string parameters and a label.
  * This simply tests that labels and query string parameters are
  * compatible. The fixed query string parameter named "hello" should
- * in no way conflict with the label, `{hello}`.
+ * in no way conflict with the label, `\{hello\}`.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RestXmlProtocolClient, ConstantQueryStringCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, ConstantQueryStringCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
+ * const input = { // ConstantQueryStringInput
+ *   hello: "STRING_VALUE", // required
+ * };
  * const command = new ConstantQueryStringCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ConstantQueryStringCommandInput - {@link ConstantQueryStringCommandInput}
+ * @returns {@link ConstantQueryStringCommandOutput}
  * @see {@link ConstantQueryStringCommandInput} for command's `input` shape.
  * @see {@link ConstantQueryStringCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
+ *
  *
  */
 export class ConstantQueryStringCommand extends $Command<
@@ -50,6 +64,9 @@ export class ConstantQueryStringCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: ConstantQueryStringCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,8 +92,8 @@ export class ConstantQueryStringCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ConstantQueryStringInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,12 +103,18 @@ export class ConstantQueryStringCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ConstantQueryStringCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlConstantQueryStringCommand(input, context);
+    return se_ConstantQueryStringCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ConstantQueryStringCommandOutput> {
-    return deserializeAws_restXmlConstantQueryStringCommand(output, context);
+    return de_ConstantQueryStringCommand(output, context);
   }
 
   // Start section: command_body_extra

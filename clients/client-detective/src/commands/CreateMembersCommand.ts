@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
-import {
-  CreateMembersRequest,
-  CreateMembersRequestFilterSensitiveLog,
-  CreateMembersResponse,
-  CreateMembersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateMembersCommand,
-  serializeAws_restJson1CreateMembersCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateMembersRequest, CreateMembersResponse } from "../models/models_0";
+import { de_CreateMembersCommand, se_CreateMembersCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateMembersCommand}.
+ */
 export interface CreateMembersCommandInput extends CreateMembersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateMembersCommand}.
+ */
 export interface CreateMembersCommandOutput extends CreateMembersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <code>CreateMembers</code> is used to send invitations to accounts. For the organization
  *          behavior graph, the Detective administrator account uses
@@ -67,13 +70,58 @@ export interface CreateMembersCommandOutput extends CreateMembersResponse, __Met
  * import { DetectiveClient, CreateMembersCommand } from "@aws-sdk/client-detective"; // ES Modules import
  * // const { DetectiveClient, CreateMembersCommand } = require("@aws-sdk/client-detective"); // CommonJS import
  * const client = new DetectiveClient(config);
+ * const input = { // CreateMembersRequest
+ *   GraphArn: "STRING_VALUE", // required
+ *   Message: "STRING_VALUE",
+ *   DisableEmailNotification: true || false,
+ *   Accounts: [ // AccountList // required
+ *     { // Account
+ *       AccountId: "STRING_VALUE", // required
+ *       EmailAddress: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateMembersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMembersCommandInput - {@link CreateMembersCommandInput}
+ * @returns {@link CreateMembersCommandOutput}
  * @see {@link CreateMembersCommandInput} for command's `input` shape.
  * @see {@link CreateMembersCommandOutput} for command's `response` shape.
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The request issuer does not have permission to access this resource or perform this
+ *          operation.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request was valid but failed because of a problem with the service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request refers to a nonexistent resource.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>This request cannot be completed for one of the following reasons.</p>
+ *          <ul>
+ *             <li>
+ *                <p>The request would cause the number of member accounts in the behavior graph to
+ *                exceed the maximum allowed. A behavior graph cannot have more than 1200 member
+ *                accounts.</p>
+ *             </li>
+ *             <li>
+ *                <p>The request would cause the data rate for the behavior graph to exceed the maximum
+ *                allowed.</p>
+ *             </li>
+ *             <li>
+ *                <p>Detective is unable to verify the data rate for the member account. This
+ *                is usually because the member account is not enrolled in Amazon GuardDuty.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request parameters are invalid.</p>
+ *
  *
  */
 export class CreateMembersCommand extends $Command<
@@ -93,6 +141,9 @@ export class CreateMembersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMembersCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +170,8 @@ export class CreateMembersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateMembersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateMembersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +181,18 @@ export class CreateMembersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateMembersCommand(input, context);
+    return se_CreateMembersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMembersCommandOutput> {
-    return deserializeAws_restJson1CreateMembersCommand(output, context);
+    return de_CreateMembersCommand(output, context);
   }
 
   // Start section: command_body_extra

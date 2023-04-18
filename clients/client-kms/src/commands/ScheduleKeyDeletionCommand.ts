@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import {
-  ScheduleKeyDeletionRequest,
-  ScheduleKeyDeletionRequestFilterSensitiveLog,
-  ScheduleKeyDeletionResponse,
-  ScheduleKeyDeletionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ScheduleKeyDeletionCommand,
-  serializeAws_json1_1ScheduleKeyDeletionCommand,
-} from "../protocols/Aws_json1_1";
+import { ScheduleKeyDeletionRequest, ScheduleKeyDeletionResponse } from "../models/models_0";
+import { de_ScheduleKeyDeletionCommand, se_ScheduleKeyDeletionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ScheduleKeyDeletionCommand}.
+ */
 export interface ScheduleKeyDeletionCommandInput extends ScheduleKeyDeletionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ScheduleKeyDeletionCommand}.
+ */
 export interface ScheduleKeyDeletionCommandOutput extends ScheduleKeyDeletionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Schedules the deletion of a KMS key. By default, KMS applies a waiting period of 30
  *       days, but you can specify a waiting period of 7-30 days. When this operation is successful,
  *       the key state of the KMS key changes to <code>PendingDeletion</code> and the key can't be used
@@ -67,8 +70,6 @@ export interface ScheduleKeyDeletionCommandOutput extends ScheduleKeyDeletionRes
  * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
  *             <b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a different Amazon Web Services account.</p>
- *
- *
  *          <p>
  *             <b>Required permissions</b>: kms:ScheduleKeyDeletion (key
  *       policy)</p>
@@ -93,13 +94,72 @@ export interface ScheduleKeyDeletionCommandOutput extends ScheduleKeyDeletionRes
  * import { KMSClient, ScheduleKeyDeletionCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, ScheduleKeyDeletionCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // ScheduleKeyDeletionRequest
+ *   KeyId: "STRING_VALUE", // required
+ *   PendingWindowInDays: Number("int"),
+ * };
  * const command = new ScheduleKeyDeletionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ScheduleKeyDeletionCommandInput - {@link ScheduleKeyDeletionCommandInput}
+ * @returns {@link ScheduleKeyDeletionCommandOutput}
  * @see {@link ScheduleKeyDeletionCommandInput} for command's `input` shape.
  * @see {@link ScheduleKeyDeletionCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
+ *
+ * @throws {@link DependencyTimeoutException} (server fault)
+ *  <p>The system timed out while trying to fulfill the request. You can retry the
+ *       request.</p>
+ *
+ * @throws {@link InvalidArnException} (client fault)
+ *  <p>The request was rejected because a specified ARN, or an ARN in a key policy, is not
+ *       valid.</p>
+ *
+ * @throws {@link KMSInternalException} (server fault)
+ *  <p>The request was rejected because an internal exception occurred. The request can be
+ *       retried.</p>
+ *
+ * @throws {@link KMSInvalidStateException} (client fault)
+ *  <p>The request was rejected because the state of the specified resource is not valid for this
+ *       request.</p>
+ *          <p>This exceptions means one of the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The key state of the KMS key is not compatible with the operation. </p>
+ *                <p>To find the key state, use the <a>DescribeKey</a> operation. For more
+ *           information about which key states are compatible with each KMS operation, see
+ *           <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>
+ *                      <i>Key Management Service Developer Guide</i>
+ *                   </i>.</p>
+ *             </li>
+ *             <li>
+ *                <p>For cryptographic operations on KMS keys in custom key stores, this exception represents a general failure with many possible causes. To identify the cause, see the error message that accompanies the exception.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The request was rejected because the specified entity or resource could not be
+ *       found.</p>
+ *
+ *
+ * @example To schedule a KMS key for deletion
+ * ```javascript
+ * // The following example schedules the specified KMS key for deletion.
+ * const input = {
+ *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   "PendingWindowInDays": 7
+ * };
+ * const command = new ScheduleKeyDeletionCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DeletionDate": "2016-12-17T16:00:00-08:00",
+ *   "KeyId": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+ * }
+ * *\/
+ * // example id: to-schedule-a-cmk-for-deletion-1481331111094
+ * ```
  *
  */
 export class ScheduleKeyDeletionCommand extends $Command<
@@ -119,6 +179,9 @@ export class ScheduleKeyDeletionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ScheduleKeyDeletionCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,8 +210,8 @@ export class ScheduleKeyDeletionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ScheduleKeyDeletionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ScheduleKeyDeletionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -158,12 +221,18 @@ export class ScheduleKeyDeletionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ScheduleKeyDeletionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ScheduleKeyDeletionCommand(input, context);
+    return se_ScheduleKeyDeletionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ScheduleKeyDeletionCommandOutput> {
-    return deserializeAws_json1_1ScheduleKeyDeletionCommand(output, context);
+    return de_ScheduleKeyDeletionCommand(output, context);
   }
 
   // Start section: command_body_extra

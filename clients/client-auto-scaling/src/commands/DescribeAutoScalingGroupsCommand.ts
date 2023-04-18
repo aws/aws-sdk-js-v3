@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import {
-  AutoScalingGroupNamesType,
-  AutoScalingGroupNamesTypeFilterSensitiveLog,
-  AutoScalingGroupsType,
-  AutoScalingGroupsTypeFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeAutoScalingGroupsCommand,
-  serializeAws_queryDescribeAutoScalingGroupsCommand,
-} from "../protocols/Aws_query";
+import { AutoScalingGroupNamesType, AutoScalingGroupsType } from "../models/models_0";
+import { de_DescribeAutoScalingGroupsCommand, se_DescribeAutoScalingGroupsCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeAutoScalingGroupsCommand}.
+ */
 export interface DescribeAutoScalingGroupsCommandInput extends AutoScalingGroupNamesType {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeAutoScalingGroupsCommand}.
+ */
 export interface DescribeAutoScalingGroupsCommandOutput extends AutoScalingGroupsType, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the Auto Scaling groups in the account and Region.</p>
  *          <p>If you specify Auto Scaling group names, the output includes information for only the
  *             specified Auto Scaling groups. If you specify filters, the output includes information for only
@@ -42,13 +45,91 @@ export interface DescribeAutoScalingGroupsCommandOutput extends AutoScalingGroup
  * import { AutoScalingClient, DescribeAutoScalingGroupsCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DescribeAutoScalingGroupsCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = { // AutoScalingGroupNamesType
+ *   AutoScalingGroupNames: [ // AutoScalingGroupNames
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   Filters: [ // Filters
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // Values
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new DescribeAutoScalingGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAutoScalingGroupsCommandInput - {@link DescribeAutoScalingGroupsCommandInput}
+ * @returns {@link DescribeAutoScalingGroupsCommandOutput}
  * @see {@link DescribeAutoScalingGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeAutoScalingGroupsCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
+ *
+ * @throws {@link InvalidNextToken} (client fault)
+ *  <p>The <code>NextToken</code> value is not valid.</p>
+ *
+ * @throws {@link ResourceContentionFault} (server fault)
+ *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
+ *             instance, or load balancer).</p>
+ *
+ *
+ * @example To describe an Auto Scaling group
+ * ```javascript
+ * // This example describes the specified Auto Scaling group.
+ * const input = {
+ *   "AutoScalingGroupNames": [
+ *     "my-auto-scaling-group"
+ *   ]
+ * };
+ * const command = new DescribeAutoScalingGroupsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AutoScalingGroups": [
+ *     {
+ *       "AutoScalingGroupARN": "arn:aws:autoscaling:us-west-2:123456789012:autoScalingGroup:930d940e-891e-4781-a11a-7b0acd480f03:autoScalingGroupName/my-auto-scaling-group",
+ *       "AutoScalingGroupName": "my-auto-scaling-group",
+ *       "AvailabilityZones": [
+ *         "us-west-2c"
+ *       ],
+ *       "CreatedTime": "2013-08-19T20:53:25.584Z",
+ *       "DefaultCooldown": 300,
+ *       "DesiredCapacity": 1,
+ *       "EnabledMetrics": [],
+ *       "HealthCheckGracePeriod": 300,
+ *       "HealthCheckType": "EC2",
+ *       "Instances": [
+ *         {
+ *           "AvailabilityZone": "us-west-2c",
+ *           "HealthStatus": "Healthy",
+ *           "InstanceId": "i-4ba0837f",
+ *           "LaunchConfigurationName": "my-launch-config",
+ *           "LifecycleState": "InService",
+ *           "ProtectedFromScaleIn": false
+ *         }
+ *       ],
+ *       "LaunchConfigurationName": "my-launch-config",
+ *       "LoadBalancerNames": [],
+ *       "MaxSize": 1,
+ *       "MinSize": 0,
+ *       "NewInstancesProtectedFromScaleIn": false,
+ *       "SuspendedProcesses": [],
+ *       "Tags": [],
+ *       "TerminationPolicies": [
+ *         "Default"
+ *       ],
+ *       "VPCZoneIdentifier": "subnet-12345678"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: autoscaling-describe-auto-scaling-groups-1
+ * ```
  *
  */
 export class DescribeAutoScalingGroupsCommand extends $Command<
@@ -68,6 +149,9 @@ export class DescribeAutoScalingGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAutoScalingGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +180,8 @@ export class DescribeAutoScalingGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AutoScalingGroupNamesTypeFilterSensitiveLog,
-      outputFilterSensitiveLog: AutoScalingGroupsTypeFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,15 +191,21 @@ export class DescribeAutoScalingGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAutoScalingGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeAutoScalingGroupsCommand(input, context);
+    return se_DescribeAutoScalingGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAutoScalingGroupsCommandOutput> {
-    return deserializeAws_queryDescribeAutoScalingGroupsCommand(output, context);
+    return de_DescribeAutoScalingGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

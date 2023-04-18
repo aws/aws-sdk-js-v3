@@ -14,19 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  QueryRequest,
-  QueryRequestFilterSensitiveLog,
-  QueryResponse,
-  QueryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_0QueryCommand, serializeAws_json1_0QueryCommand } from "../protocols/Aws_json1_0";
+import { QueryRequest, QueryRequestFilterSensitiveLog, QueryResponse } from "../models/models_0";
+import { de_QueryCommand, se_QueryCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamQueryClientResolvedConfig } from "../TimestreamQueryClient";
 
+/**
+ * @public
+ *
+ * The input for {@link QueryCommand}.
+ */
 export interface QueryCommandInput extends QueryRequest {}
+/**
+ * @public
+ *
+ * The output of {@link QueryCommand}.
+ */
 export interface QueryCommandOutput extends QueryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <code>Query</code> is a synchronous operation that enables you to run a query against
  *             your Amazon Timestream data. <code>Query</code> will time out after 60 seconds.
@@ -64,13 +70,46 @@ export interface QueryCommandOutput extends QueryResponse, __MetadataBearer {}
  * import { TimestreamQueryClient, QueryCommand } from "@aws-sdk/client-timestream-query"; // ES Modules import
  * // const { TimestreamQueryClient, QueryCommand } = require("@aws-sdk/client-timestream-query"); // CommonJS import
  * const client = new TimestreamQueryClient(config);
+ * const input = { // QueryRequest
+ *   QueryString: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxRows: Number("int"),
+ * };
  * const command = new QueryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param QueryCommandInput - {@link QueryCommandInput}
+ * @returns {@link QueryCommandOutput}
  * @see {@link QueryCommandInput} for command's `input` shape.
  * @see {@link QueryCommandOutput} for command's `response` shape.
  * @see {@link TimestreamQueryClientResolvedConfig | config} for TimestreamQueryClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p> You are not authorized to perform this action. </p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p> Unable to poll results for a cancelled query. </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>
+ *             Timestream was unable to fully process this request because of an internal
+ *             server error. </p>
+ *
+ * @throws {@link InvalidEndpointException} (client fault)
+ *  <p>The requested endpoint was not valid.</p>
+ *
+ * @throws {@link QueryExecutionException} (client fault)
+ *  <p>
+ *             Timestream was unable to run the query successfully. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p> Invalid or malformed request. </p>
+ *
  *
  */
 export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput, TimestreamQueryClientResolvedConfig> {
@@ -86,6 +125,9 @@ export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: QueryCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,7 +158,7 @@ export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput
       clientName,
       commandName,
       inputFilterSensitiveLog: QueryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: QueryResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +168,18 @@ export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: QueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0QueryCommand(input, context);
+    return se_QueryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<QueryCommandOutput> {
-    return deserializeAws_json1_0QueryCommand(output, context);
+    return de_QueryCommand(output, context);
   }
 
   // Start section: command_body_extra

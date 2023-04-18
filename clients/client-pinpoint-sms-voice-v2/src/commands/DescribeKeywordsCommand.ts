@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeKeywordsRequest,
-  DescribeKeywordsRequestFilterSensitiveLog,
-  DescribeKeywordsResult,
-  DescribeKeywordsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeKeywordsRequest, DescribeKeywordsResult } from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import {
-  deserializeAws_json1_0DescribeKeywordsCommand,
-  serializeAws_json1_0DescribeKeywordsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DescribeKeywordsCommand, se_DescribeKeywordsCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeKeywordsCommand}.
+ */
 export interface DescribeKeywordsCommandInput extends DescribeKeywordsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeKeywordsCommand}.
+ */
 export interface DescribeKeywordsCommandOutput extends DescribeKeywordsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified keywords or all keywords on your origination phone number or
  *             pool.</p>
  *         <p>A keyword is a word that you can search for on a particular phone number or pool. It
@@ -47,13 +50,50 @@ export interface DescribeKeywordsCommandOutput extends DescribeKeywordsResult, _
  * import { PinpointSMSVoiceV2Client, DescribeKeywordsCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, DescribeKeywordsCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
+ * const input = { // DescribeKeywordsRequest
+ *   OriginationIdentity: "STRING_VALUE", // required
+ *   Keywords: [ // KeywordList
+ *     "STRING_VALUE",
+ *   ],
+ *   Filters: [ // KeywordFilterList
+ *     { // KeywordFilter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeKeywordsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeKeywordsCommandInput - {@link DescribeKeywordsCommandInput}
+ * @returns {@link DescribeKeywordsCommandOutput}
  * @see {@link DescribeKeywordsCommandInput} for command's `input` shape.
  * @see {@link DescribeKeywordsCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The request was denied because you don't have sufficient permissions to access the
+ *             resource.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The API encountered an unexpected error and couldn't complete the request. You might
+ *             be able to successfully issue the request again in the future.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A requested resource couldn't be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>An error that occurred because too many requests were sent during a certain amount of
+ *             time.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>A validation exception for a field.</p>
+ *
  *
  */
 export class DescribeKeywordsCommand extends $Command<
@@ -73,6 +113,9 @@ export class DescribeKeywordsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeKeywordsCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +144,8 @@ export class DescribeKeywordsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeKeywordsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeKeywordsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +155,18 @@ export class DescribeKeywordsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeKeywordsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeKeywordsCommand(input, context);
+    return se_DescribeKeywordsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeKeywordsCommandOutput> {
-    return deserializeAws_json1_0DescribeKeywordsCommand(output, context);
+    return de_DescribeKeywordsCommand(output, context);
   }
 
   // Start section: command_body_extra

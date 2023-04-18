@@ -18,23 +18,29 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
+import { StopDataCollectionByAgentIdsRequest, StopDataCollectionByAgentIdsResponse } from "../models/models_0";
 import {
-  StopDataCollectionByAgentIdsRequest,
-  StopDataCollectionByAgentIdsRequestFilterSensitiveLog,
-  StopDataCollectionByAgentIdsResponse,
-  StopDataCollectionByAgentIdsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StopDataCollectionByAgentIdsCommand,
-  serializeAws_json1_1StopDataCollectionByAgentIdsCommand,
+  de_StopDataCollectionByAgentIdsCommand,
+  se_StopDataCollectionByAgentIdsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link StopDataCollectionByAgentIdsCommand}.
+ */
 export interface StopDataCollectionByAgentIdsCommandInput extends StopDataCollectionByAgentIdsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StopDataCollectionByAgentIdsCommand}.
+ */
 export interface StopDataCollectionByAgentIdsCommandOutput
   extends StopDataCollectionByAgentIdsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Instructs the specified agents or connectors to stop collecting data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,13 +48,38 @@ export interface StopDataCollectionByAgentIdsCommandOutput
  * import { ApplicationDiscoveryServiceClient, StopDataCollectionByAgentIdsCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
  * // const { ApplicationDiscoveryServiceClient, StopDataCollectionByAgentIdsCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
+ * const input = { // StopDataCollectionByAgentIdsRequest
+ *   agentIds: [ // AgentIds // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new StopDataCollectionByAgentIdsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopDataCollectionByAgentIdsCommandInput - {@link StopDataCollectionByAgentIdsCommandInput}
+ * @returns {@link StopDataCollectionByAgentIdsCommandOutput}
  * @see {@link StopDataCollectionByAgentIdsCommandInput} for command's `input` shape.
  * @see {@link StopDataCollectionByAgentIdsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
+ *
+ * @throws {@link AuthorizationErrorException} (client fault)
+ *  <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM
+ *       policy associated with this account.</p>
+ *
+ * @throws {@link HomeRegionNotSetException} (client fault)
+ *  <p>The home region is not set. Set the home region to continue.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters are not valid. Verify the parameters and try again.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value of one or more parameters are either invalid or out of range. Verify the
+ *       parameter values and try again.</p>
+ *
+ * @throws {@link ServerInternalErrorException} (server fault)
+ *  <p>The server experienced an internal error. Try again.</p>
+ *
  *
  */
 export class StopDataCollectionByAgentIdsCommand extends $Command<
@@ -68,6 +99,9 @@ export class StopDataCollectionByAgentIdsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopDataCollectionByAgentIdsCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +130,8 @@ export class StopDataCollectionByAgentIdsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopDataCollectionByAgentIdsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopDataCollectionByAgentIdsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,15 +141,21 @@ export class StopDataCollectionByAgentIdsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopDataCollectionByAgentIdsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopDataCollectionByAgentIdsCommand(input, context);
+    return se_StopDataCollectionByAgentIdsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopDataCollectionByAgentIdsCommandOutput> {
-    return deserializeAws_json1_1StopDataCollectionByAgentIdsCommand(output, context);
+    return de_StopDataCollectionByAgentIdsCommand(output, context);
   }
 
   // Start section: command_body_extra

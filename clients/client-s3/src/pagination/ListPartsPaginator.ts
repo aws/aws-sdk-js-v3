@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListPartsCommand, ListPartsCommandInput, ListPartsCommandOutput } from "../commands/ListPartsCommand";
-import { S3 } from "../S3";
 import { S3Client } from "../S3Client";
 import { S3PaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: S3Client,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListPartsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: S3,
-  input: ListPartsCommandInput,
-  ...args: any
-): Promise<ListPartsCommandOutput> => {
-  // @ts-ignore
-  return await client.listParts(input, ...args);
-};
 export async function* paginateListParts(
   config: S3PaginationConfiguration,
   input: ListPartsCommandInput,
@@ -40,9 +31,7 @@ export async function* paginateListParts(
   while (hasNext) {
     input.PartNumberMarker = token;
     input["MaxParts"] = config.pageSize;
-    if (config.client instanceof S3) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof S3Client) {
+    if (config.client instanceof S3Client) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected S3 | S3Client");

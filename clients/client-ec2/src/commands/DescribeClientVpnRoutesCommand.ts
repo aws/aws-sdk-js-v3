@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeClientVpnRoutesRequest,
-  DescribeClientVpnRoutesRequestFilterSensitiveLog,
-  DescribeClientVpnRoutesResult,
-  DescribeClientVpnRoutesResultFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeClientVpnRoutesCommand,
-  serializeAws_ec2DescribeClientVpnRoutesCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeClientVpnRoutesRequest, DescribeClientVpnRoutesResult } from "../models/models_3";
+import { de_DescribeClientVpnRoutesCommand, se_DescribeClientVpnRoutesCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeClientVpnRoutesCommand}.
+ */
 export interface DescribeClientVpnRoutesCommandInput extends DescribeClientVpnRoutesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeClientVpnRoutesCommand}.
+ */
 export interface DescribeClientVpnRoutesCommandOutput extends DescribeClientVpnRoutesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the routes for the specified Client VPN endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,30 @@ export interface DescribeClientVpnRoutesCommandOutput extends DescribeClientVpnR
  * import { EC2Client, DescribeClientVpnRoutesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeClientVpnRoutesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeClientVpnRoutesRequest
+ *   ClientVpnEndpointId: "STRING_VALUE", // required
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new DescribeClientVpnRoutesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeClientVpnRoutesCommandInput - {@link DescribeClientVpnRoutesCommandInput}
+ * @returns {@link DescribeClientVpnRoutesCommandOutput}
  * @see {@link DescribeClientVpnRoutesCommandInput} for command's `input` shape.
  * @see {@link DescribeClientVpnRoutesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class DescribeClientVpnRoutesCommand extends $Command<
@@ -62,6 +82,9 @@ export class DescribeClientVpnRoutesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeClientVpnRoutesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +113,8 @@ export class DescribeClientVpnRoutesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeClientVpnRoutesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeClientVpnRoutesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +124,18 @@ export class DescribeClientVpnRoutesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeClientVpnRoutesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeClientVpnRoutesCommand(input, context);
+    return se_DescribeClientVpnRoutesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeClientVpnRoutesCommandOutput> {
-    return deserializeAws_ec2DescribeClientVpnRoutesCommand(output, context);
+    return de_DescribeClientVpnRoutesCommand(output, context);
   }
 
   // Start section: command_body_extra

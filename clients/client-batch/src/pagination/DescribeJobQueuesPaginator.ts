@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { Batch } from "../Batch";
 import { BatchClient } from "../BatchClient";
 import {
   DescribeJobQueuesCommand,
@@ -11,7 +10,7 @@ import {
 import { BatchPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: BatchClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeJobQueuesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Batch,
-  input: DescribeJobQueuesCommandInput,
-  ...args: any
-): Promise<DescribeJobQueuesCommandOutput> => {
-  // @ts-ignore
-  return await client.describeJobQueues(input, ...args);
-};
 export async function* paginateDescribeJobQueues(
   config: BatchPaginationConfiguration,
   input: DescribeJobQueuesCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateDescribeJobQueues(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Batch) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof BatchClient) {
+    if (config.client instanceof BatchClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Batch | BatchClient");

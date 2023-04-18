@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AssociateResolverRuleRequest,
-  AssociateResolverRuleRequestFilterSensitiveLog,
-  AssociateResolverRuleResponse,
-  AssociateResolverRuleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateResolverRuleCommand,
-  serializeAws_json1_1AssociateResolverRuleCommand,
-} from "../protocols/Aws_json1_1";
+import { AssociateResolverRuleRequest, AssociateResolverRuleResponse } from "../models/models_0";
+import { de_AssociateResolverRuleCommand, se_AssociateResolverRuleCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
+/**
+ * @public
+ *
+ * The input for {@link AssociateResolverRuleCommand}.
+ */
 export interface AssociateResolverRuleCommandInput extends AssociateResolverRuleRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AssociateResolverRuleCommand}.
+ */
 export interface AssociateResolverRuleCommandOutput extends AssociateResolverRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a Resolver rule with a VPC. When you associate a rule with a VPC, Resolver forwards all DNS queries
  * 			for the domain name that is specified in the rule and that originate in the VPC. The queries are forwarded to the
  * 			IP addresses for the DNS resolvers that are specified in the rule. For more information about rules, see
@@ -39,13 +42,45 @@ export interface AssociateResolverRuleCommandOutput extends AssociateResolverRul
  * import { Route53ResolverClient, AssociateResolverRuleCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, AssociateResolverRuleCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = { // AssociateResolverRuleRequest
+ *   ResolverRuleId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   VPCId: "STRING_VALUE", // required
+ * };
  * const command = new AssociateResolverRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateResolverRuleCommandInput - {@link AssociateResolverRuleCommandInput}
+ * @returns {@link AssociateResolverRuleCommandOutput}
  * @see {@link AssociateResolverRuleCommandInput} for command's `input` shape.
  * @see {@link AssociateResolverRuleCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
+ *
+ * @throws {@link InternalServiceErrorException} (client fault)
+ *  <p>We encountered an unknown error. Try again in a few minutes.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters in this request are not valid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request caused one or more limits to be exceeded.</p>
+ *
+ * @throws {@link ResourceExistsException} (client fault)
+ *  <p>The resource that you tried to create already exists.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource doesn't exist.</p>
+ *
+ * @throws {@link ResourceUnavailableException} (client fault)
+ *  <p>The specified resource isn't available.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was throttled. Try again in a few minutes.</p>
+ *
  *
  */
 export class AssociateResolverRuleCommand extends $Command<
@@ -65,6 +100,9 @@ export class AssociateResolverRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateResolverRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +131,8 @@ export class AssociateResolverRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateResolverRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateResolverRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +142,18 @@ export class AssociateResolverRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateResolverRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateResolverRuleCommand(input, context);
+    return se_AssociateResolverRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateResolverRuleCommandOutput> {
-    return deserializeAws_json1_1AssociateResolverRuleCommand(output, context);
+    return de_AssociateResolverRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

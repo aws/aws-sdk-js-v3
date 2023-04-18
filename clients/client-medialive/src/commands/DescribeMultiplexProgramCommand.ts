@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  DescribeMultiplexProgramRequest,
-  DescribeMultiplexProgramRequestFilterSensitiveLog,
-  DescribeMultiplexProgramResponse,
-  DescribeMultiplexProgramResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1DescribeMultiplexProgramCommand,
-  serializeAws_restJson1DescribeMultiplexProgramCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeMultiplexProgramRequest, DescribeMultiplexProgramResponse } from "../models/models_1";
+import { de_DescribeMultiplexProgramCommand, se_DescribeMultiplexProgramCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeMultiplexProgramCommand}.
+ */
 export interface DescribeMultiplexProgramCommandInput extends DescribeMultiplexProgramRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeMultiplexProgramCommand}.
+ */
 export interface DescribeMultiplexProgramCommandOutput extends DescribeMultiplexProgramResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Get the details for a program in a multiplex.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,41 @@ export interface DescribeMultiplexProgramCommandOutput extends DescribeMultiplex
  * import { MediaLiveClient, DescribeMultiplexProgramCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, DescribeMultiplexProgramCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = { // DescribeMultiplexProgramRequest
+ *   MultiplexId: "STRING_VALUE", // required
+ *   ProgramName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeMultiplexProgramCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMultiplexProgramCommandInput - {@link DescribeMultiplexProgramCommandInput}
+ * @returns {@link DescribeMultiplexProgramCommandOutput}
  * @see {@link DescribeMultiplexProgramCommandInput} for command's `input` shape.
  * @see {@link DescribeMultiplexProgramCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
+ *
+ * @throws {@link BadGatewayException} (server fault)
+ *  Placeholder documentation for BadGatewayException
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  Placeholder documentation for BadRequestException
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  Placeholder documentation for ForbiddenException
+ *
+ * @throws {@link GatewayTimeoutException} (server fault)
+ *  Placeholder documentation for GatewayTimeoutException
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  Placeholder documentation for InternalServerErrorException
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  Placeholder documentation for NotFoundException
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  Placeholder documentation for TooManyRequestsException
+ *
  *
  */
 export class DescribeMultiplexProgramCommand extends $Command<
@@ -62,6 +93,9 @@ export class DescribeMultiplexProgramCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMultiplexProgramCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +124,8 @@ export class DescribeMultiplexProgramCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeMultiplexProgramRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeMultiplexProgramResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +135,18 @@ export class DescribeMultiplexProgramCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeMultiplexProgramCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeMultiplexProgramCommand(input, context);
+    return se_DescribeMultiplexProgramCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeMultiplexProgramCommandOutput> {
-    return deserializeAws_restJson1DescribeMultiplexProgramCommand(output, context);
+    return de_DescribeMultiplexProgramCommand(output, context);
   }
 
   // Start section: command_body_extra

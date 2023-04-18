@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetSecurityConfigRequest,
-  GetSecurityConfigRequestFilterSensitiveLog,
-  GetSecurityConfigResponse,
-  GetSecurityConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetSecurityConfigRequest, GetSecurityConfigResponse } from "../models/models_0";
 import {
   OpenSearchServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import {
-  deserializeAws_json1_0GetSecurityConfigCommand,
-  serializeAws_json1_0GetSecurityConfigCommand,
-} from "../protocols/Aws_json1_0";
+import { de_GetSecurityConfigCommand, se_GetSecurityConfigCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link GetSecurityConfigCommand}.
+ */
 export interface GetSecurityConfigCommandInput extends GetSecurityConfigRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetSecurityConfigCommand}.
+ */
 export interface GetSecurityConfigCommandOutput extends GetSecurityConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about an OpenSearch Serverless security configuration. For more information, see
  *                 <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html">SAML
  *                 authentication for Amazon OpenSearch Serverless</a>.</p>
@@ -42,13 +45,29 @@ export interface GetSecurityConfigCommandOutput extends GetSecurityConfigRespons
  * import { OpenSearchServerlessClient, GetSecurityConfigCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, GetSecurityConfigCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
+ * const input = { // GetSecurityConfigRequest
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new GetSecurityConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSecurityConfigCommandInput - {@link GetSecurityConfigCommandInput}
+ * @returns {@link GetSecurityConfigCommandOutput}
  * @see {@link GetSecurityConfigCommandInput} for command's `input` shape.
  * @see {@link GetSecurityConfigCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Thrown when an error internal to the service occurs while processing a request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Thrown when accessing or deleting a resource that does not exist.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Thrown when the HTTP request contains invalid input or is missing required
+ *             input.</p>
+ *
  *
  */
 export class GetSecurityConfigCommand extends $Command<
@@ -68,6 +87,9 @@ export class GetSecurityConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSecurityConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +118,8 @@ export class GetSecurityConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSecurityConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSecurityConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +129,18 @@ export class GetSecurityConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSecurityConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetSecurityConfigCommand(input, context);
+    return se_GetSecurityConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSecurityConfigCommandOutput> {
-    return deserializeAws_json1_0GetSecurityConfigCommand(output, context);
+    return de_GetSecurityConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

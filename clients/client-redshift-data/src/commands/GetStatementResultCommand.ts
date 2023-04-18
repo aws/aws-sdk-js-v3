@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetStatementResultRequest,
-  GetStatementResultRequestFilterSensitiveLog,
-  GetStatementResultResponse,
-  GetStatementResultResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetStatementResultCommand,
-  serializeAws_json1_1GetStatementResultCommand,
-} from "../protocols/Aws_json1_1";
+import { GetStatementResultRequest, GetStatementResultResponse } from "../models/models_0";
+import { de_GetStatementResultCommand, se_GetStatementResultCommand } from "../protocols/Aws_json1_1";
 import { RedshiftDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftDataClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetStatementResultCommand}.
+ */
 export interface GetStatementResultCommandInput extends GetStatementResultRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetStatementResultCommand}.
+ */
 export interface GetStatementResultCommandOutput extends GetStatementResultResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Fetches the temporarily cached result of an SQL statement.
  *        A token is returned to page through the statement results. </p>
  *          <p>For more information about the Amazon Redshift Data API and CLI usage examples, see
@@ -40,13 +43,29 @@ export interface GetStatementResultCommandOutput extends GetStatementResultRespo
  * import { RedshiftDataClient, GetStatementResultCommand } from "@aws-sdk/client-redshift-data"; // ES Modules import
  * // const { RedshiftDataClient, GetStatementResultCommand } = require("@aws-sdk/client-redshift-data"); // CommonJS import
  * const client = new RedshiftDataClient(config);
+ * const input = { // GetStatementResultRequest
+ *   Id: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetStatementResultCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetStatementResultCommandInput - {@link GetStatementResultCommandInput}
+ * @returns {@link GetStatementResultCommandOutput}
  * @see {@link GetStatementResultCommandInput} for command's `input` shape.
  * @see {@link GetStatementResultCommandOutput} for command's `response` shape.
  * @see {@link RedshiftDataClientResolvedConfig | config} for RedshiftDataClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The Amazon Redshift Data API operation failed due to a missing resource. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
+ *
  *
  */
 export class GetStatementResultCommand extends $Command<
@@ -66,6 +85,9 @@ export class GetStatementResultCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetStatementResultCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +116,8 @@ export class GetStatementResultCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetStatementResultRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetStatementResultResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +127,18 @@ export class GetStatementResultCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetStatementResultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetStatementResultCommand(input, context);
+    return se_GetStatementResultCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetStatementResultCommandOutput> {
-    return deserializeAws_json1_1GetStatementResultCommand(output, context);
+    return de_GetStatementResultCommand(output, context);
   }
 
   // Start section: command_body_extra

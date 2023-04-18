@@ -6,12 +6,11 @@ import {
   ListJournalS3ExportsCommandInput,
   ListJournalS3ExportsCommandOutput,
 } from "../commands/ListJournalS3ExportsCommand";
-import { QLDB } from "../QLDB";
 import { QLDBClient } from "../QLDBClient";
 import { QLDBPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: QLDBClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListJournalS3ExportsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: QLDB,
-  input: ListJournalS3ExportsCommandInput,
-  ...args: any
-): Promise<ListJournalS3ExportsCommandOutput> => {
-  // @ts-ignore
-  return await client.listJournalS3Exports(input, ...args);
-};
 export async function* paginateListJournalS3Exports(
   config: QLDBPaginationConfiguration,
   input: ListJournalS3ExportsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListJournalS3Exports(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof QLDB) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof QLDBClient) {
+    if (config.client instanceof QLDBClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected QLDB | QLDBClient");

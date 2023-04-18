@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListRuleGroupsRequest,
-  ListRuleGroupsRequestFilterSensitiveLog,
-  ListRuleGroupsResponse,
-  ListRuleGroupsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListRuleGroupsCommand,
-  serializeAws_json1_1ListRuleGroupsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListRuleGroupsRequest, ListRuleGroupsResponse } from "../models/models_0";
+import { de_ListRuleGroupsCommand, se_ListRuleGroupsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListRuleGroupsCommand}.
+ */
 export interface ListRuleGroupsCommandInput extends ListRuleGroupsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListRuleGroupsCommand}.
+ */
 export interface ListRuleGroupsCommandOutput extends ListRuleGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -44,13 +47,23 @@ export interface ListRuleGroupsCommandOutput extends ListRuleGroupsResponse, __M
  * import { WAFClient, ListRuleGroupsCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, ListRuleGroupsCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = { // ListRuleGroupsRequest
+ *   NextMarker: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListRuleGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRuleGroupsCommandInput - {@link ListRuleGroupsCommandInput}
+ * @returns {@link ListRuleGroupsCommandOutput}
  * @see {@link ListRuleGroupsCommandInput} for command's `input` shape.
  * @see {@link ListRuleGroupsCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
+ *
+ * @throws {@link WAFInternalErrorException} (server fault)
+ *  <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+ *
  *
  */
 export class ListRuleGroupsCommand extends $Command<
@@ -70,6 +83,9 @@ export class ListRuleGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRuleGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +114,8 @@ export class ListRuleGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRuleGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRuleGroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +125,18 @@ export class ListRuleGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRuleGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListRuleGroupsCommand(input, context);
+    return se_ListRuleGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRuleGroupsCommandOutput> {
-    return deserializeAws_json1_1ListRuleGroupsCommand(output, context);
+    return de_ListRuleGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

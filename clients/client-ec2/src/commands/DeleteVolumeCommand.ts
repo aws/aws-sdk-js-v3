@@ -14,13 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteVolumeRequest, DeleteVolumeRequestFilterSensitiveLog } from "../models/models_3";
-import { deserializeAws_ec2DeleteVolumeCommand, serializeAws_ec2DeleteVolumeCommand } from "../protocols/Aws_ec2";
+import { DeleteVolumeRequest } from "../models/models_3";
+import { de_DeleteVolumeCommand, se_DeleteVolumeCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteVolumeCommand}.
+ */
 export interface DeleteVolumeCommandInput extends DeleteVolumeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteVolumeCommand}.
+ */
 export interface DeleteVolumeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified EBS volume. The volume must be in the <code>available</code> state
  *       (not attached to an instance).</p>
  *          <p>The volume can remain in the <code>deleting</code> state for several minutes.</p>
@@ -32,13 +43,31 @@ export interface DeleteVolumeCommandOutput extends __MetadataBearer {}
  * import { EC2Client, DeleteVolumeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteVolumeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteVolumeRequest
+ *   VolumeId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DeleteVolumeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVolumeCommandInput - {@link DeleteVolumeCommandInput}
+ * @returns {@link DeleteVolumeCommandOutput}
  * @see {@link DeleteVolumeCommandInput} for command's `input` shape.
  * @see {@link DeleteVolumeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ *
+ * @example To delete a volume
+ * ```javascript
+ * // This example deletes an available volume with the volume ID of ``vol-049df61146c4d7901``. If the command succeeds, no output is returned.
+ * const input = {
+ *   "VolumeId": "vol-049df61146c4d7901"
+ * };
+ * const command = new DeleteVolumeCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-a-volume-1472503111160
+ * ```
  *
  */
 export class DeleteVolumeCommand extends $Command<
@@ -58,6 +87,9 @@ export class DeleteVolumeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVolumeCommandInput) {
     // Start section: command_constructor
     super();
@@ -84,8 +116,8 @@ export class DeleteVolumeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVolumeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -95,12 +127,18 @@ export class DeleteVolumeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteVolumeCommand(input, context);
+    return se_DeleteVolumeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVolumeCommandOutput> {
-    return deserializeAws_ec2DeleteVolumeCommand(output, context);
+    return de_DeleteVolumeCommand(output, context);
   }
 
   // Start section: command_body_extra

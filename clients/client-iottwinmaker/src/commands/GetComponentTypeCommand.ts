@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
-import {
-  GetComponentTypeRequest,
-  GetComponentTypeRequestFilterSensitiveLog,
-  GetComponentTypeResponse,
-  GetComponentTypeResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetComponentTypeCommand,
-  serializeAws_restJson1GetComponentTypeCommand,
-} from "../protocols/Aws_restJson1";
+import { GetComponentTypeRequest, GetComponentTypeResponse } from "../models/models_0";
+import { de_GetComponentTypeCommand, se_GetComponentTypeCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetComponentTypeCommand}.
+ */
 export interface GetComponentTypeCommandInput extends GetComponentTypeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetComponentTypeCommand}.
+ */
 export interface GetComponentTypeCommandOutput extends GetComponentTypeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about a component type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,35 @@ export interface GetComponentTypeCommandOutput extends GetComponentTypeResponse,
  * import { IoTTwinMakerClient, GetComponentTypeCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, GetComponentTypeCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
+ * const input = { // GetComponentTypeRequest
+ *   workspaceId: "STRING_VALUE", // required
+ *   componentTypeId: "STRING_VALUE", // required
+ * };
  * const command = new GetComponentTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetComponentTypeCommandInput - {@link GetComponentTypeCommandInput}
+ * @returns {@link GetComponentTypeCommandOutput}
  * @see {@link GetComponentTypeCommandInput} for command's `input` shape.
  * @see {@link GetComponentTypeCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access is denied.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource wasn't found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Failed</p>
+ *
  *
  */
 export class GetComponentTypeCommand extends $Command<
@@ -62,6 +87,9 @@ export class GetComponentTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetComponentTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +118,8 @@ export class GetComponentTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetComponentTypeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetComponentTypeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +129,18 @@ export class GetComponentTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetComponentTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetComponentTypeCommand(input, context);
+    return se_GetComponentTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetComponentTypeCommandOutput> {
-    return deserializeAws_restJson1GetComponentTypeCommand(output, context);
+    return de_GetComponentTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

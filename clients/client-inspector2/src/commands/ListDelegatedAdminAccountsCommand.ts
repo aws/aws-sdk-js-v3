@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
-import {
-  ListDelegatedAdminAccountsRequest,
-  ListDelegatedAdminAccountsRequestFilterSensitiveLog,
-  ListDelegatedAdminAccountsResponse,
-  ListDelegatedAdminAccountsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDelegatedAdminAccountsCommand,
-  serializeAws_restJson1ListDelegatedAdminAccountsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListDelegatedAdminAccountsRequest, ListDelegatedAdminAccountsResponse } from "../models/models_0";
+import { de_ListDelegatedAdminAccountsCommand, se_ListDelegatedAdminAccountsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListDelegatedAdminAccountsCommand}.
+ */
 export interface ListDelegatedAdminAccountsCommandInput extends ListDelegatedAdminAccountsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDelegatedAdminAccountsCommand}.
+ */
 export interface ListDelegatedAdminAccountsCommandOutput extends ListDelegatedAdminAccountsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists information about the Amazon Inspector delegated administrator of your
  *          organization.</p>
  * @example
@@ -37,13 +40,33 @@ export interface ListDelegatedAdminAccountsCommandOutput extends ListDelegatedAd
  * import { Inspector2Client, ListDelegatedAdminAccountsCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
  * // const { Inspector2Client, ListDelegatedAdminAccountsCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
  * const client = new Inspector2Client(config);
+ * const input = { // ListDelegatedAdminAccountsRequest
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListDelegatedAdminAccountsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDelegatedAdminAccountsCommandInput - {@link ListDelegatedAdminAccountsCommandInput}
+ * @returns {@link ListDelegatedAdminAccountsCommandOutput}
  * @see {@link ListDelegatedAdminAccountsCommandInput} for command's `input` shape.
  * @see {@link ListDelegatedAdminAccountsCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The limit on the number of requests per second was exceeded.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request has failed validation due to missing required fields or having invalid
+ *          inputs.</p>
+ *
  *
  */
 export class ListDelegatedAdminAccountsCommand extends $Command<
@@ -63,6 +86,9 @@ export class ListDelegatedAdminAccountsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDelegatedAdminAccountsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +117,8 @@ export class ListDelegatedAdminAccountsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDelegatedAdminAccountsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDelegatedAdminAccountsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,15 +128,21 @@ export class ListDelegatedAdminAccountsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDelegatedAdminAccountsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDelegatedAdminAccountsCommand(input, context);
+    return se_ListDelegatedAdminAccountsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDelegatedAdminAccountsCommandOutput> {
-    return deserializeAws_restJson1ListDelegatedAdminAccountsCommand(output, context);
+    return de_ListDelegatedAdminAccountsCommand(output, context);
   }
 
   // Start section: command_body_extra

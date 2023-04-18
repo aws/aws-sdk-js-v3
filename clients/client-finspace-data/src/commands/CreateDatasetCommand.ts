@@ -18,17 +18,24 @@ import {
   CreateDatasetRequest,
   CreateDatasetRequestFilterSensitiveLog,
   CreateDatasetResponse,
-  CreateDatasetResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDatasetCommand,
-  serializeAws_restJson1CreateDatasetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateDatasetCommand, se_CreateDatasetCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateDatasetCommand}.
+ */
 export interface CreateDatasetCommandInput extends CreateDatasetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateDatasetCommand}.
+ */
 export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new FinSpace Dataset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +43,72 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * import { FinspaceDataClient, CreateDatasetCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, CreateDatasetCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
  * const client = new FinspaceDataClient(config);
+ * const input = { // CreateDatasetRequest
+ *   clientToken: "STRING_VALUE",
+ *   datasetTitle: "STRING_VALUE", // required
+ *   kind: "STRING_VALUE", // required
+ *   datasetDescription: "STRING_VALUE",
+ *   ownerInfo: { // DatasetOwnerInfo
+ *     name: "STRING_VALUE",
+ *     phoneNumber: "STRING_VALUE",
+ *     email: "STRING_VALUE",
+ *   },
+ *   permissionGroupParams: { // PermissionGroupParams
+ *     permissionGroupId: "STRING_VALUE",
+ *     datasetPermissions: [ // ResourcePermissionsList
+ *       { // ResourcePermission
+ *         permission: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ *   alias: "STRING_VALUE",
+ *   schemaDefinition: { // SchemaUnion
+ *     tabularSchemaConfig: { // SchemaDefinition
+ *       columns: [ // ColumnList
+ *         { // ColumnDefinition
+ *           dataType: "STRING_VALUE",
+ *           columnName: "STRING_VALUE",
+ *           columnDescription: "STRING_VALUE",
+ *         },
+ *       ],
+ *       primaryKeyColumns: [ // ColumnNameList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ * };
  * const command = new CreateDatasetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDatasetCommandInput - {@link CreateDatasetCommandInput}
+ * @returns {@link CreateDatasetCommandOutput}
  * @see {@link CreateDatasetCommandInput} for command's `input` shape.
  * @see {@link CreateDatasetCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request conflicts with an existing resource.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A limit has exceeded.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>One or more resources can't be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
  *
  */
 export class CreateDatasetCommand extends $Command<
@@ -62,6 +128,9 @@ export class CreateDatasetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDatasetCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,7 +158,7 @@ export class CreateDatasetCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateDatasetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDatasetResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +168,18 @@ export class CreateDatasetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDatasetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDatasetCommand(input, context);
+    return se_CreateDatasetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDatasetCommandOutput> {
-    return deserializeAws_restJson1CreateDatasetCommand(output, context);
+    return de_CreateDatasetCommand(output, context);
   }
 
   // Start section: command_body_extra

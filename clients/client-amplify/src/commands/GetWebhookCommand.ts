@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import {
-  GetWebhookRequest,
-  GetWebhookRequestFilterSensitiveLog,
-  GetWebhookResult,
-  GetWebhookResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetWebhookCommand,
-  serializeAws_restJson1GetWebhookCommand,
-} from "../protocols/Aws_restJson1";
+import { GetWebhookRequest, GetWebhookResult } from "../models/models_0";
+import { de_GetWebhookCommand, se_GetWebhookCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetWebhookCommand}.
+ */
 export interface GetWebhookCommandInput extends GetWebhookRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetWebhookCommand}.
+ */
 export interface GetWebhookCommandOutput extends GetWebhookResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns the webhook information that corresponds to a specified webhook ID. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,34 @@ export interface GetWebhookCommandOutput extends GetWebhookResult, __MetadataBea
  * import { AmplifyClient, GetWebhookCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, GetWebhookCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
+ * const input = { // GetWebhookRequest
+ *   webhookId: "STRING_VALUE", // required
+ * };
  * const command = new GetWebhookCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetWebhookCommandInput - {@link GetWebhookCommandInput}
+ * @returns {@link GetWebhookCommandOutput}
  * @see {@link GetWebhookCommandInput} for command's `input` shape.
  * @see {@link GetWebhookCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p> A request contains unexpected data. </p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p> The service failed to perform an operation due to an internal issue. </p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p> A resource could not be created because service quotas were exceeded. </p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p> An entity was not found during an operation. </p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p> An operation failed due to a lack of access. </p>
+ *
  *
  */
 export class GetWebhookCommand extends $Command<
@@ -62,6 +86,9 @@ export class GetWebhookCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetWebhookCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +115,8 @@ export class GetWebhookCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetWebhookRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetWebhookResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +126,18 @@ export class GetWebhookCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetWebhookCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetWebhookCommand(input, context);
+    return se_GetWebhookCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetWebhookCommandOutput> {
-    return deserializeAws_restJson1GetWebhookCommand(output, context);
+    return de_GetWebhookCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -6,12 +6,11 @@ import {
   DescribeDBClustersCommandInput,
   DescribeDBClustersCommandOutput,
 } from "../commands/DescribeDBClustersCommand";
-import { Neptune } from "../Neptune";
 import { NeptuneClient } from "../NeptuneClient";
 import { NeptunePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: NeptuneClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeDBClustersCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Neptune,
-  input: DescribeDBClustersCommandInput,
-  ...args: any
-): Promise<DescribeDBClustersCommandOutput> => {
-  // @ts-ignore
-  return await client.describeDBClusters(input, ...args);
-};
 export async function* paginateDescribeDBClusters(
   config: NeptunePaginationConfiguration,
   input: DescribeDBClustersCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateDescribeDBClusters(
   while (hasNext) {
     input.Marker = token;
     input["MaxRecords"] = config.pageSize;
-    if (config.client instanceof Neptune) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof NeptuneClient) {
+    if (config.client instanceof NeptuneClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Neptune | NeptuneClient");

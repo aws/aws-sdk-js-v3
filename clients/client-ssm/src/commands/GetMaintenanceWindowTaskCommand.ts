@@ -15,20 +15,27 @@ import {
 
 import {
   GetMaintenanceWindowTaskRequest,
-  GetMaintenanceWindowTaskRequestFilterSensitiveLog,
   GetMaintenanceWindowTaskResult,
   GetMaintenanceWindowTaskResultFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_json1_1GetMaintenanceWindowTaskCommand,
-  serializeAws_json1_1GetMaintenanceWindowTaskCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetMaintenanceWindowTaskCommand, se_GetMaintenanceWindowTaskCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetMaintenanceWindowTaskCommand}.
+ */
 export interface GetMaintenanceWindowTaskCommandInput extends GetMaintenanceWindowTaskRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetMaintenanceWindowTaskCommand}.
+ */
 export interface GetMaintenanceWindowTaskCommandOutput extends GetMaintenanceWindowTaskResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the details of a maintenance window task.</p>
  *          <note>
  *             <p>For maintenance window tasks without a specified target, you can't supply values for
@@ -43,13 +50,29 @@ export interface GetMaintenanceWindowTaskCommandOutput extends GetMaintenanceWin
  * import { SSMClient, GetMaintenanceWindowTaskCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetMaintenanceWindowTaskCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // GetMaintenanceWindowTaskRequest
+ *   WindowId: "STRING_VALUE", // required
+ *   WindowTaskId: "STRING_VALUE", // required
+ * };
  * const command = new GetMaintenanceWindowTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMaintenanceWindowTaskCommandInput - {@link GetMaintenanceWindowTaskCommandInput}
+ * @returns {@link GetMaintenanceWindowTaskCommandOutput}
  * @see {@link GetMaintenanceWindowTaskCommandInput} for command's `input` shape.
  * @see {@link GetMaintenanceWindowTaskCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link DoesNotExistException} (client fault)
+ *  <p>Error returned when the ID specified for a resource, such as a maintenance window or patch
+ *    baseline, doesn't exist.</p>
+ *          <p>For information about resource quotas in Amazon Web Services Systems Manager, see <a href="https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm">Systems Manager service quotas</a> in the
+ *     <i>Amazon Web Services General Reference</i>.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
  *
  */
 export class GetMaintenanceWindowTaskCommand extends $Command<
@@ -69,6 +92,9 @@ export class GetMaintenanceWindowTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMaintenanceWindowTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,7 +123,7 @@ export class GetMaintenanceWindowTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMaintenanceWindowTaskRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetMaintenanceWindowTaskResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -108,12 +134,18 @@ export class GetMaintenanceWindowTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMaintenanceWindowTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetMaintenanceWindowTaskCommand(input, context);
+    return se_GetMaintenanceWindowTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMaintenanceWindowTaskCommandOutput> {
-    return deserializeAws_json1_1GetMaintenanceWindowTaskCommand(output, context);
+    return de_GetMaintenanceWindowTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

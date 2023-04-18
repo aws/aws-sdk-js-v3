@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  CreateCustomMetricRequest,
-  CreateCustomMetricRequestFilterSensitiveLog,
-  CreateCustomMetricResponse,
-  CreateCustomMetricResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateCustomMetricCommand,
-  serializeAws_restJson1CreateCustomMetricCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateCustomMetricRequest, CreateCustomMetricResponse } from "../models/models_0";
+import { de_CreateCustomMetricCommand, se_CreateCustomMetricCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateCustomMetricCommand}.
+ */
 export interface CreateCustomMetricCommandInput extends CreateCustomMetricRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateCustomMetricCommand}.
+ */
 export interface CreateCustomMetricCommandOutput extends CreateCustomMetricResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Use this API to define a
  *       Custom
  *       Metric
@@ -40,13 +43,43 @@ export interface CreateCustomMetricCommandOutput extends CreateCustomMetricRespo
  * import { IoTClient, CreateCustomMetricCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateCustomMetricCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // CreateCustomMetricRequest
+ *   metricName: "STRING_VALUE", // required
+ *   displayName: "STRING_VALUE",
+ *   metricType: "string-list" || "ip-address-list" || "number-list" || "number", // required
+ *   tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   clientRequestToken: "STRING_VALUE", // required
+ * };
  * const command = new CreateCustomMetricCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCustomMetricCommandInput - {@link CreateCustomMetricCommandInput}
+ * @returns {@link CreateCustomMetricCommandOutput}
  * @see {@link CreateCustomMetricCommandInput} for command's `input` shape.
  * @see {@link CreateCustomMetricCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A limit has been exceeded.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The resource already exists.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
  *
  */
 export class CreateCustomMetricCommand extends $Command<
@@ -66,6 +99,9 @@ export class CreateCustomMetricCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCustomMetricCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +130,8 @@ export class CreateCustomMetricCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCustomMetricRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCustomMetricResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +141,18 @@ export class CreateCustomMetricCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCustomMetricCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateCustomMetricCommand(input, context);
+    return se_CreateCustomMetricCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCustomMetricCommandOutput> {
-    return deserializeAws_restJson1CreateCustomMetricCommand(output, context);
+    return de_CreateCustomMetricCommand(output, context);
   }
 
   // Start section: command_body_extra

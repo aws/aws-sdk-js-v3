@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { EnableSharingWithAwsOrganizationRequest, EnableSharingWithAwsOrganizationResponse } from "../models/models_0";
 import {
-  EnableSharingWithAwsOrganizationRequest,
-  EnableSharingWithAwsOrganizationRequestFilterSensitiveLog,
-  EnableSharingWithAwsOrganizationResponse,
-  EnableSharingWithAwsOrganizationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1EnableSharingWithAwsOrganizationCommand,
-  serializeAws_restJson1EnableSharingWithAwsOrganizationCommand,
+  de_EnableSharingWithAwsOrganizationCommand,
+  se_EnableSharingWithAwsOrganizationCommand,
 } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link EnableSharingWithAwsOrganizationCommand}.
+ */
 export interface EnableSharingWithAwsOrganizationCommandInput extends EnableSharingWithAwsOrganizationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link EnableSharingWithAwsOrganizationCommand}.
+ */
 export interface EnableSharingWithAwsOrganizationCommandOutput
   extends EnableSharingWithAwsOrganizationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables resource sharing within your organization in Organizations. Calling this operation
  *             enables RAM to retrieve information about the organization and its structure. This
  *             lets you share resources with all of the accounts in an organization by specifying the
@@ -46,13 +52,26 @@ export interface EnableSharingWithAwsOrganizationCommandOutput
  * import { RAMClient, EnableSharingWithAwsOrganizationCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, EnableSharingWithAwsOrganizationCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
+ * const input = {};
  * const command = new EnableSharingWithAwsOrganizationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableSharingWithAwsOrganizationCommandInput - {@link EnableSharingWithAwsOrganizationCommandInput}
+ * @returns {@link EnableSharingWithAwsOrganizationCommandOutput}
  * @see {@link EnableSharingWithAwsOrganizationCommandInput} for command's `input` shape.
  * @see {@link EnableSharingWithAwsOrganizationCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>The requested operation is not permitted.</p>
+ *
+ * @throws {@link ServerInternalException} (server fault)
+ *  <p>The service could not respond to the request due to an internal problem.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is not available.</p>
+ *
  *
  */
 export class EnableSharingWithAwsOrganizationCommand extends $Command<
@@ -72,6 +91,9 @@ export class EnableSharingWithAwsOrganizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableSharingWithAwsOrganizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +122,8 @@ export class EnableSharingWithAwsOrganizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableSharingWithAwsOrganizationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: EnableSharingWithAwsOrganizationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,18 +133,24 @@ export class EnableSharingWithAwsOrganizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: EnableSharingWithAwsOrganizationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1EnableSharingWithAwsOrganizationCommand(input, context);
+    return se_EnableSharingWithAwsOrganizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EnableSharingWithAwsOrganizationCommandOutput> {
-    return deserializeAws_restJson1EnableSharingWithAwsOrganizationCommand(output, context);
+    return de_EnableSharingWithAwsOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

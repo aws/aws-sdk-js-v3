@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import {
-  UpdateDirectConnectGatewayRequest,
-  UpdateDirectConnectGatewayRequestFilterSensitiveLog,
-  UpdateDirectConnectGatewayResponse,
-  UpdateDirectConnectGatewayResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateDirectConnectGatewayCommand,
-  serializeAws_json1_1UpdateDirectConnectGatewayCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateDirectConnectGatewayRequest, UpdateDirectConnectGatewayResponse } from "../models/models_0";
+import { de_UpdateDirectConnectGatewayCommand, se_UpdateDirectConnectGatewayCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateDirectConnectGatewayCommand}.
+ */
 export interface UpdateDirectConnectGatewayCommandInput extends UpdateDirectConnectGatewayRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateDirectConnectGatewayCommand}.
+ */
 export interface UpdateDirectConnectGatewayCommandOutput extends UpdateDirectConnectGatewayResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the name of a current Direct Connect gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,26 @@ export interface UpdateDirectConnectGatewayCommandOutput extends UpdateDirectCon
  * import { DirectConnectClient, UpdateDirectConnectGatewayCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, UpdateDirectConnectGatewayCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // UpdateDirectConnectGatewayRequest
+ *   directConnectGatewayId: "STRING_VALUE", // required
+ *   newDirectConnectGatewayName: "STRING_VALUE", // required
+ * };
  * const command = new UpdateDirectConnectGatewayCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDirectConnectGatewayCommandInput - {@link UpdateDirectConnectGatewayCommandInput}
+ * @returns {@link UpdateDirectConnectGatewayCommandOutput}
  * @see {@link UpdateDirectConnectGatewayCommandInput} for command's `input` shape.
  * @see {@link UpdateDirectConnectGatewayCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
+ *
+ * @throws {@link DirectConnectClientException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link DirectConnectServerException} (server fault)
+ *  <p>A server-side error occurred.</p>
+ *
  *
  */
 export class UpdateDirectConnectGatewayCommand extends $Command<
@@ -62,6 +78,9 @@ export class UpdateDirectConnectGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDirectConnectGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +109,8 @@ export class UpdateDirectConnectGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDirectConnectGatewayRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDirectConnectGatewayResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +120,21 @@ export class UpdateDirectConnectGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDirectConnectGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDirectConnectGatewayCommand(input, context);
+    return se_UpdateDirectConnectGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDirectConnectGatewayCommandOutput> {
-    return deserializeAws_json1_1UpdateDirectConnectGatewayCommand(output, context);
+    return de_UpdateDirectConnectGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

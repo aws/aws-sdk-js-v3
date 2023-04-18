@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  CompleteMigrationMessage,
-  CompleteMigrationMessageFilterSensitiveLog,
-  CompleteMigrationResponse,
-  CompleteMigrationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCompleteMigrationCommand,
-  serializeAws_queryCompleteMigrationCommand,
-} from "../protocols/Aws_query";
+import { CompleteMigrationMessage, CompleteMigrationResponse } from "../models/models_0";
+import { de_CompleteMigrationCommand, se_CompleteMigrationCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link CompleteMigrationCommand}.
+ */
 export interface CompleteMigrationCommandInput extends CompleteMigrationMessage {}
+/**
+ * @public
+ *
+ * The output of {@link CompleteMigrationCommand}.
+ */
 export interface CompleteMigrationCommandOutput extends CompleteMigrationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Complete the migration of data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,29 @@ export interface CompleteMigrationCommandOutput extends CompleteMigrationRespons
  * import { ElastiCacheClient, CompleteMigrationCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, CompleteMigrationCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // CompleteMigrationMessage
+ *   ReplicationGroupId: "STRING_VALUE", // required
+ *   Force: true || false,
+ * };
  * const command = new CompleteMigrationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CompleteMigrationCommandInput - {@link CompleteMigrationCommandInput}
+ * @returns {@link CompleteMigrationCommandOutput}
  * @see {@link CompleteMigrationCommandInput} for command's `input` shape.
  * @see {@link CompleteMigrationCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
+ *
+ * @throws {@link InvalidReplicationGroupStateFault} (client fault)
+ *  <p>The requested replication group is not in the <code>available</code> state.</p>
+ *
+ * @throws {@link ReplicationGroupNotFoundFault} (client fault)
+ *  <p>The specified replication group does not exist.</p>
+ *
+ * @throws {@link ReplicationGroupNotUnderMigrationFault} (client fault)
+ *  <p>The designated replication group is not available for data migration.</p>
+ *
  *
  */
 export class CompleteMigrationCommand extends $Command<
@@ -62,6 +81,9 @@ export class CompleteMigrationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CompleteMigrationCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +112,8 @@ export class CompleteMigrationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CompleteMigrationMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CompleteMigrationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +123,18 @@ export class CompleteMigrationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CompleteMigrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCompleteMigrationCommand(input, context);
+    return se_CompleteMigrationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CompleteMigrationCommandOutput> {
-    return deserializeAws_queryCompleteMigrationCommand(output, context);
+    return de_CompleteMigrationCommand(output, context);
   }
 
   // Start section: command_body_extra

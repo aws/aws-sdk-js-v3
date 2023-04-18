@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  DescribeRouteCalculatorRequest,
-  DescribeRouteCalculatorRequestFilterSensitiveLog,
-  DescribeRouteCalculatorResponse,
-  DescribeRouteCalculatorResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeRouteCalculatorCommand,
-  serializeAws_restJson1DescribeRouteCalculatorCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeRouteCalculatorRequest, DescribeRouteCalculatorResponse } from "../models/models_0";
+import { de_DescribeRouteCalculatorCommand, se_DescribeRouteCalculatorCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeRouteCalculatorCommand}.
+ */
 export interface DescribeRouteCalculatorCommandInput extends DescribeRouteCalculatorRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeRouteCalculatorCommand}.
+ */
 export interface DescribeRouteCalculatorCommandOutput extends DescribeRouteCalculatorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the route calculator resource details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,35 @@ export interface DescribeRouteCalculatorCommandOutput extends DescribeRouteCalcu
  * import { LocationClient, DescribeRouteCalculatorCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, DescribeRouteCalculatorCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = { // DescribeRouteCalculatorRequest
+ *   CalculatorName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeRouteCalculatorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRouteCalculatorCommandInput - {@link DescribeRouteCalculatorCommandInput}
+ * @returns {@link DescribeRouteCalculatorCommandOutput}
  * @see {@link DescribeRouteCalculatorCommandInput} for command's `input` shape.
  * @see {@link DescribeRouteCalculatorCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The request was denied because of insufficient access or permissions. Check with an
+ *       administrator to verify your permissions.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource that you've entered was not found in your AWS account.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because of request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input failed to meet the constraints specified by the AWS service. </p>
+ *
  *
  */
 export class DescribeRouteCalculatorCommand extends $Command<
@@ -62,6 +87,9 @@ export class DescribeRouteCalculatorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRouteCalculatorCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +118,8 @@ export class DescribeRouteCalculatorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRouteCalculatorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRouteCalculatorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +129,18 @@ export class DescribeRouteCalculatorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRouteCalculatorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeRouteCalculatorCommand(input, context);
+    return se_DescribeRouteCalculatorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRouteCalculatorCommandOutput> {
-    return deserializeAws_restJson1DescribeRouteCalculatorCommand(output, context);
+    return de_DescribeRouteCalculatorCommand(output, context);
   }
 
   // Start section: command_body_extra

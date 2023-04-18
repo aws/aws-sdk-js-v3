@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
-import {
-  GetFindingsReportStatusRequest,
-  GetFindingsReportStatusRequestFilterSensitiveLog,
-  GetFindingsReportStatusResponse,
-  GetFindingsReportStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetFindingsReportStatusCommand,
-  serializeAws_restJson1GetFindingsReportStatusCommand,
-} from "../protocols/Aws_restJson1";
+import { GetFindingsReportStatusRequest, GetFindingsReportStatusResponse } from "../models/models_0";
+import { de_GetFindingsReportStatusCommand, se_GetFindingsReportStatusCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetFindingsReportStatusCommand}.
+ */
 export interface GetFindingsReportStatusCommandInput extends GetFindingsReportStatusRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetFindingsReportStatusCommand}.
+ */
 export interface GetFindingsReportStatusCommandOutput extends GetFindingsReportStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the status of a findings report.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,35 @@ export interface GetFindingsReportStatusCommandOutput extends GetFindingsReportS
  * import { Inspector2Client, GetFindingsReportStatusCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
  * // const { Inspector2Client, GetFindingsReportStatusCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
  * const client = new Inspector2Client(config);
+ * const input = { // GetFindingsReportStatusRequest
+ *   reportId: "STRING_VALUE",
+ * };
  * const command = new GetFindingsReportStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFindingsReportStatusCommandInput - {@link GetFindingsReportStatusCommandInput}
+ * @returns {@link GetFindingsReportStatusCommandOutput}
  * @see {@link GetFindingsReportStatusCommandInput} for command's `input` shape.
  * @see {@link GetFindingsReportStatusCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The limit on the number of requests per second was exceeded.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request has failed validation due to missing required fields or having invalid
+ *          inputs.</p>
+ *
  *
  */
 export class GetFindingsReportStatusCommand extends $Command<
@@ -62,6 +87,9 @@ export class GetFindingsReportStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFindingsReportStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +118,8 @@ export class GetFindingsReportStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFindingsReportStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetFindingsReportStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +129,18 @@ export class GetFindingsReportStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFindingsReportStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetFindingsReportStatusCommand(input, context);
+    return se_GetFindingsReportStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFindingsReportStatusCommandOutput> {
-    return deserializeAws_restJson1GetFindingsReportStatusCommand(output, context);
+    return de_GetFindingsReportStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

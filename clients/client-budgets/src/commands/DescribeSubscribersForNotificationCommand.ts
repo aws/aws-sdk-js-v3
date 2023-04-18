@@ -16,21 +16,31 @@ import {
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
 import {
   DescribeSubscribersForNotificationRequest,
-  DescribeSubscribersForNotificationRequestFilterSensitiveLog,
   DescribeSubscribersForNotificationResponse,
   DescribeSubscribersForNotificationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeSubscribersForNotificationCommand,
-  serializeAws_json1_1DescribeSubscribersForNotificationCommand,
+  de_DescribeSubscribersForNotificationCommand,
+  se_DescribeSubscribersForNotificationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeSubscribersForNotificationCommand}.
+ */
 export interface DescribeSubscribersForNotificationCommandInput extends DescribeSubscribersForNotificationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeSubscribersForNotificationCommand}.
+ */
 export interface DescribeSubscribersForNotificationCommandOutput
   extends DescribeSubscribersForNotificationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the subscribers that are associated with a notification.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +48,52 @@ export interface DescribeSubscribersForNotificationCommandOutput
  * import { BudgetsClient, DescribeSubscribersForNotificationCommand } from "@aws-sdk/client-budgets"; // ES Modules import
  * // const { BudgetsClient, DescribeSubscribersForNotificationCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
  * const client = new BudgetsClient(config);
+ * const input = { // DescribeSubscribersForNotificationRequest
+ *   AccountId: "STRING_VALUE", // required
+ *   BudgetName: "STRING_VALUE", // required
+ *   Notification: { // Notification
+ *     NotificationType: "STRING_VALUE", // required
+ *     ComparisonOperator: "STRING_VALUE", // required
+ *     Threshold: Number("double"), // required
+ *     ThresholdType: "STRING_VALUE",
+ *     NotificationState: "STRING_VALUE",
+ *   },
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeSubscribersForNotificationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSubscribersForNotificationCommandInput - {@link DescribeSubscribersForNotificationCommandInput}
+ * @returns {@link DescribeSubscribersForNotificationCommandOutput}
  * @see {@link DescribeSubscribersForNotificationCommandInput} for command's `input` shape.
  * @see {@link DescribeSubscribersForNotificationCommandOutput} for command's `response` shape.
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to use this operation with the given parameters.</p>
+ *
+ * @throws {@link ExpiredNextTokenException} (client fault)
+ *  <p>The pagination token expired.</p>
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>An error on the server occurred during the processing of your request. Try again later.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The pagination token is invalid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>We can’t locate the resource that you specified.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>
+ *       The number of API requests has exceeded the maximum allowed API request throttling limit for the account.
+ *     </p>
+ *
  *
  */
 export class DescribeSubscribersForNotificationCommand extends $Command<
@@ -64,6 +113,9 @@ export class DescribeSubscribersForNotificationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSubscribersForNotificationCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,7 +144,7 @@ export class DescribeSubscribersForNotificationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSubscribersForNotificationRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeSubscribersForNotificationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -103,18 +155,24 @@ export class DescribeSubscribersForNotificationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeSubscribersForNotificationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeSubscribersForNotificationCommand(input, context);
+    return se_DescribeSubscribersForNotificationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSubscribersForNotificationCommandOutput> {
-    return deserializeAws_json1_1DescribeSubscribersForNotificationCommand(output, context);
+    return de_DescribeSubscribersForNotificationCommand(output, context);
   }
 
   // Start section: command_body_extra

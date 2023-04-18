@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubOrchestratorClient";
-import {
-  CreateWorkflowStepGroupRequest,
-  CreateWorkflowStepGroupRequestFilterSensitiveLog,
-  CreateWorkflowStepGroupResponse,
-  CreateWorkflowStepGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateWorkflowStepGroupCommand,
-  serializeAws_restJson1CreateWorkflowStepGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateWorkflowStepGroupRequest, CreateWorkflowStepGroupResponse } from "../models/models_0";
+import { de_CreateWorkflowStepGroupCommand, se_CreateWorkflowStepGroupCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateWorkflowStepGroupCommand}.
+ */
 export interface CreateWorkflowStepGroupCommandInput extends CreateWorkflowStepGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateWorkflowStepGroupCommand}.
+ */
 export interface CreateWorkflowStepGroupCommandOutput extends CreateWorkflowStepGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a step group in a migration workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,39 @@ export interface CreateWorkflowStepGroupCommandOutput extends CreateWorkflowStep
  * import { MigrationHubOrchestratorClient, CreateWorkflowStepGroupCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
  * // const { MigrationHubOrchestratorClient, CreateWorkflowStepGroupCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
  * const client = new MigrationHubOrchestratorClient(config);
+ * const input = { // CreateWorkflowStepGroupRequest
+ *   workflowId: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   next: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ *   previous: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new CreateWorkflowStepGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWorkflowStepGroupCommandInput - {@link CreateWorkflowStepGroupCommandInput}
+ * @returns {@link CreateWorkflowStepGroupCommandOutput}
  * @see {@link CreateWorkflowStepGroupCommandInput} for command's `input` shape.
  * @see {@link CreateWorkflowStepGroupCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error has occurred.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
  *
  */
 export class CreateWorkflowStepGroupCommand extends $Command<
@@ -66,6 +95,9 @@ export class CreateWorkflowStepGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWorkflowStepGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +126,8 @@ export class CreateWorkflowStepGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateWorkflowStepGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateWorkflowStepGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +137,18 @@ export class CreateWorkflowStepGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWorkflowStepGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateWorkflowStepGroupCommand(input, context);
+    return se_CreateWorkflowStepGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWorkflowStepGroupCommandOutput> {
-    return deserializeAws_restJson1CreateWorkflowStepGroupCommand(output, context);
+    return de_CreateWorkflowStepGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

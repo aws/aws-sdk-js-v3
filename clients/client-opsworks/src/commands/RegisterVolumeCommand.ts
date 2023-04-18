@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RegisterVolumeRequest,
-  RegisterVolumeRequestFilterSensitiveLog,
-  RegisterVolumeResult,
-  RegisterVolumeResultFilterSensitiveLog,
-} from "../models/models_0";
+import { RegisterVolumeRequest, RegisterVolumeResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1RegisterVolumeCommand,
-  serializeAws_json1_1RegisterVolumeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RegisterVolumeCommand, se_RegisterVolumeCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link RegisterVolumeCommand}.
+ */
 export interface RegisterVolumeCommandInput extends RegisterVolumeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RegisterVolumeCommand}.
+ */
 export interface RegisterVolumeCommandOutput extends RegisterVolumeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers an Amazon EBS volume with a specified stack. A volume can be registered with only one
  *       stack at a time. If the volume is already registered, you must first deregister it by calling
  *         <a>DeregisterVolume</a>. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource Management</a>.</p>
@@ -43,13 +46,26 @@ export interface RegisterVolumeCommandOutput extends RegisterVolumeResult, __Met
  * import { OpsWorksClient, RegisterVolumeCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, RegisterVolumeCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // RegisterVolumeRequest
+ *   Ec2VolumeId: "STRING_VALUE",
+ *   StackId: "STRING_VALUE", // required
+ * };
  * const command = new RegisterVolumeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterVolumeCommandInput - {@link RegisterVolumeCommandInput}
+ * @returns {@link RegisterVolumeCommandOutput}
  * @see {@link RegisterVolumeCommandInput} for command's `input` shape.
  * @see {@link RegisterVolumeCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Indicates that a resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that a request was not valid.</p>
+ *
  *
  */
 export class RegisterVolumeCommand extends $Command<
@@ -69,6 +85,9 @@ export class RegisterVolumeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterVolumeCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +116,8 @@ export class RegisterVolumeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterVolumeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterVolumeResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +127,18 @@ export class RegisterVolumeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterVolumeCommand(input, context);
+    return se_RegisterVolumeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterVolumeCommandOutput> {
-    return deserializeAws_json1_1RegisterVolumeCommand(output, context);
+    return de_RegisterVolumeCommand(output, context);
   }
 
   // Start section: command_body_extra

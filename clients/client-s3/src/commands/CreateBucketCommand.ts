@@ -14,47 +14,53 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateBucketOutput,
-  CreateBucketOutputFilterSensitiveLog,
-  CreateBucketRequest,
-  CreateBucketRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlCreateBucketCommand,
-  serializeAws_restXmlCreateBucketCommand,
-} from "../protocols/Aws_restXml";
+import { CreateBucketOutput, CreateBucketRequest } from "../models/models_0";
+import { de_CreateBucketCommand, se_CreateBucketCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateBucketCommand}.
+ */
 export interface CreateBucketCommandInput extends CreateBucketRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateBucketCommand}.
+ */
 export interface CreateBucketCommandOutput extends CreateBucketOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new S3 bucket. To create a bucket, you must register with Amazon S3 and have a
  *          valid Amazon Web Services Access Key ID to authenticate requests. Anonymous requests are never allowed to
  *          create buckets. By creating the bucket, you become the bucket owner.</p>
  *          <p>Not every string is an acceptable bucket name. For information about bucket naming
- *          restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html">Bucket naming rules</a>.</p>
+ *          restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html">Bucket naming
+ *          rules</a>.</p>
  *          <p>If you want to create an Amazon S3 on Outposts bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateBucket.html">Create Bucket</a>. </p>
  *          <p>By default, the bucket is created in the US East (N. Virginia) Region. You can
  *          optionally specify a Region in the request body. You might choose a Region to optimize
  *          latency, minimize costs, or address regulatory requirements. For example, if you reside in
  *          Europe, you will probably find it advantageous to create buckets in the Europe (Ireland)
  *          Region. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucket.html#access-bucket-intro">Accessing a
- *          bucket</a>.</p>
+ *             bucket</a>.</p>
  *          <note>
  *             <p>If you send your create bucket request to the <code>s3.amazonaws.com</code> endpoint,
  *             the request goes to the us-east-1 Region. Accordingly, the signature calculations in
  *             Signature Version 4 must use us-east-1 as the Region, even if the location constraint in
  *             the request specifies another Region where the bucket is to be created. If you create a
  *             bucket in a Region other than US East (N. Virginia), your application must be able to
- *             handle 307 redirect. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html">Virtual hosting of buckets</a>.</p>
+ *             handle 307 redirect. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html">Virtual hosting of
+ *             buckets</a>.</p>
  *          </note>
  *          <p>
  *             <b>Access control lists (ACLs)</b>
  *          </p>
- *          <p>When creating a bucket using this operation, you can optionally configure the bucket ACL to specify the accounts or
- *          groups that should be granted specific permissions on the bucket.</p>
+ *          <p>When creating a bucket using this operation, you can optionally configure the bucket ACL
+ *          to specify the accounts or groups that should be granted specific permissions on the
+ *          bucket.</p>
  *          <important>
  *             <p>If your CreateBucket request sets bucket owner enforced for S3 Object Ownership and
  *             specifies a bucket ACL that provides access to an external Amazon Web Services account, your request
@@ -63,7 +69,8 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  *             see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling object
  *                ownership</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          </important>
- *          <p>There are two ways to grant the appropriate permissions using the request headers.</p>
+ *          <p>There are two ways to grant the appropriate permissions using the request
+ *          headers.</p>
  *          <ul>
  *             <li>
  *                <p>Specify a canned ACL using the <code>x-amz-acl</code> request header. Amazon S3
@@ -76,14 +83,15 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  *                   <code>x-amz-grant-write</code>, <code>x-amz-grant-read-acp</code>,
  *                   <code>x-amz-grant-write-acp</code>, and <code>x-amz-grant-full-control</code>
  *                headers. These headers map to the set of permissions Amazon S3 supports in an ACL. For
- *                more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html">Access control list
- *                   (ACL) overview</a>.</p>
+ *                more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html">Access control list (ACL)
+ *                   overview</a>.</p>
  *                <p>You specify each grantee as a type=value pair, where the type is one of the
  *                following:</p>
  *                <ul>
  *                   <li>
  *                      <p>
- *                         <code>id</code> – if the value specified is the canonical user ID of an Amazon Web Services account</p>
+ *                         <code>id</code> – if the value specified is the canonical user ID of an
+ *                      Amazon Web Services account</p>
  *                   </li>
  *                   <li>
  *                      <p>
@@ -136,18 +144,20 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  *             <p>You can use either a canned ACL or specify access permissions explicitly. You cannot
  *             do both.</p>
  *          </note>
- *
  *          <p>
  *             <b>Permissions</b>
  *          </p>
- *          <p>In addition to <code>s3:CreateBucket</code>, the following permissions are required when your CreateBucket includes specific headers:</p>
+ *          <p>In addition to <code>s3:CreateBucket</code>, the following permissions are required when
+ *          your CreateBucket includes specific headers:</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <b>ACLs</b> - If your <code>CreateBucket</code> request specifies ACL permissions and the ACL is public-read, public-read-write,
- *                authenticated-read, or if you specify access permissions explicitly through any other ACL, both
- *                <code>s3:CreateBucket</code> and <code>s3:PutBucketAcl</code> permissions are needed. If the ACL the
- *                <code>CreateBucket</code> request is private or doesn't specify any ACLs, only <code>s3:CreateBucket</code> permission is needed. </p>
+ *                   <b>ACLs</b> - If your <code>CreateBucket</code> request
+ *                specifies ACL permissions and the ACL is public-read, public-read-write,
+ *                authenticated-read, or if you specify access permissions explicitly through any other
+ *                ACL, both <code>s3:CreateBucket</code> and <code>s3:PutBucketAcl</code> permissions
+ *                are needed. If the ACL the <code>CreateBucket</code> request is private or doesn't
+ *                specify any ACLs, only <code>s3:CreateBucket</code> permission is needed. </p>
  *             </li>
  *             <li>
  *                <p>
@@ -183,13 +193,75 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  * import { S3Client, CreateBucketCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, CreateBucketCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // CreateBucketRequest
+ *   ACL: "private" || "public-read" || "public-read-write" || "authenticated-read",
+ *   Bucket: "STRING_VALUE", // required
+ *   CreateBucketConfiguration: { // CreateBucketConfiguration
+ *     LocationConstraint: "af-south-1" || "ap-east-1" || "ap-northeast-1" || "ap-northeast-2" || "ap-northeast-3" || "ap-south-1" || "ap-southeast-1" || "ap-southeast-2" || "ap-southeast-3" || "ca-central-1" || "cn-north-1" || "cn-northwest-1" || "EU" || "eu-central-1" || "eu-north-1" || "eu-south-1" || "eu-west-1" || "eu-west-2" || "eu-west-3" || "me-south-1" || "sa-east-1" || "us-east-2" || "us-gov-east-1" || "us-gov-west-1" || "us-west-1" || "us-west-2",
+ *   },
+ *   GrantFullControl: "STRING_VALUE",
+ *   GrantRead: "STRING_VALUE",
+ *   GrantReadACP: "STRING_VALUE",
+ *   GrantWrite: "STRING_VALUE",
+ *   GrantWriteACP: "STRING_VALUE",
+ *   ObjectLockEnabledForBucket: true || false,
+ *   ObjectOwnership: "BucketOwnerPreferred" || "ObjectWriter" || "BucketOwnerEnforced",
+ * };
  * const command = new CreateBucketCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBucketCommandInput - {@link CreateBucketCommandInput}
+ * @returns {@link CreateBucketCommandOutput}
  * @see {@link CreateBucketCommandInput} for command's `input` shape.
  * @see {@link CreateBucketCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
+ *
+ * @throws {@link BucketAlreadyExists} (client fault)
+ *  <p>The requested bucket name is not available. The bucket namespace is shared by all users
+ *          of the system. Select a different name and try again.</p>
+ *
+ * @throws {@link BucketAlreadyOwnedByYou} (client fault)
+ *  <p>The bucket you tried to create already exists, and you own it. Amazon S3 returns this error
+ *          in all Amazon Web Services Regions except in the North Virginia Region. For legacy compatibility, if you
+ *          re-create an existing bucket that you already own in the North Virginia Region, Amazon S3
+ *          returns 200 OK and resets the bucket access control lists (ACLs).</p>
+ *
+ *
+ * @example To create a bucket in a specific region
+ * ```javascript
+ * // The following example creates a bucket. The request specifies an AWS region where to create the bucket.
+ * const input = {
+ *   "Bucket": "examplebucket",
+ *   "CreateBucketConfiguration": {
+ *     "LocationConstraint": "eu-west-1"
+ *   }
+ * };
+ * const command = new CreateBucketCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Location": "http://examplebucket.<Region>.s3.amazonaws.com/"
+ * }
+ * *\/
+ * // example id: to-create-a-bucket-in-a-specific-region-1483399072992
+ * ```
+ *
+ * @example To create a bucket
+ * ```javascript
+ * // The following example creates a bucket.
+ * const input = {
+ *   "Bucket": "examplebucket"
+ * };
+ * const command = new CreateBucketCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Location": "/examplebucket"
+ * }
+ * *\/
+ * // example id: to-create-a-bucket--1472851826060
+ * ```
  *
  */
 export class CreateBucketCommand extends $Command<
@@ -216,6 +288,9 @@ export class CreateBucketCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBucketCommandInput) {
     // Start section: command_constructor
     super();
@@ -243,8 +318,8 @@ export class CreateBucketCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateBucketRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateBucketOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -254,12 +329,18 @@ export class CreateBucketCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBucketCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateBucketCommand(input, context);
+    return se_CreateBucketCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBucketCommandOutput> {
-    return deserializeAws_restXmlCreateBucketCommand(output, context);
+    return de_CreateBucketCommand(output, context);
   }
 
   // Start section: command_body_extra

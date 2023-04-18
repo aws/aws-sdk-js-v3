@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import {
-  ListBackupPlanVersionsInput,
-  ListBackupPlanVersionsInputFilterSensitiveLog,
-  ListBackupPlanVersionsOutput,
-  ListBackupPlanVersionsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListBackupPlanVersionsCommand,
-  serializeAws_restJson1ListBackupPlanVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListBackupPlanVersionsInput, ListBackupPlanVersionsOutput } from "../models/models_0";
+import { de_ListBackupPlanVersionsCommand, se_ListBackupPlanVersionsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListBackupPlanVersionsCommand}.
+ */
 export interface ListBackupPlanVersionsCommandInput extends ListBackupPlanVersionsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListBackupPlanVersionsCommand}.
+ */
 export interface ListBackupPlanVersionsCommandOutput extends ListBackupPlanVersionsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns version metadata of your backup plans, including Amazon Resource Names (ARNs),
  *          backup plan IDs, creation and deletion dates, plan names, and version IDs.</p>
  * @example
@@ -37,13 +40,34 @@ export interface ListBackupPlanVersionsCommandOutput extends ListBackupPlanVersi
  * import { BackupClient, ListBackupPlanVersionsCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ListBackupPlanVersionsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // ListBackupPlanVersionsInput
+ *   BackupPlanId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListBackupPlanVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBackupPlanVersionsCommandInput - {@link ListBackupPlanVersionsCommandInput}
+ * @returns {@link ListBackupPlanVersionsCommandOutput}
  * @see {@link ListBackupPlanVersionsCommandInput} for command's `input` shape.
  * @see {@link ListBackupPlanVersionsCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
+ *          out of range.</p>
+ *
+ * @throws {@link MissingParameterValueException} (client fault)
+ *  <p>Indicates that a required parameter is missing.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource that is required for the action doesn't exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request failed due to a temporary failure of the server.</p>
+ *
  *
  */
 export class ListBackupPlanVersionsCommand extends $Command<
@@ -63,6 +87,9 @@ export class ListBackupPlanVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBackupPlanVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +118,8 @@ export class ListBackupPlanVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBackupPlanVersionsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListBackupPlanVersionsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +129,18 @@ export class ListBackupPlanVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBackupPlanVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListBackupPlanVersionsCommand(input, context);
+    return se_ListBackupPlanVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBackupPlanVersionsCommandOutput> {
-    return deserializeAws_restJson1ListBackupPlanVersionsCommand(output, context);
+    return de_ListBackupPlanVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

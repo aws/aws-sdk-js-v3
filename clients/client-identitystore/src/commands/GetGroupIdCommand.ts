@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IdentitystoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IdentitystoreClient";
-import {
-  GetGroupIdRequest,
-  GetGroupIdRequestFilterSensitiveLog,
-  GetGroupIdResponse,
-  GetGroupIdResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetGroupIdCommand,
-  serializeAws_json1_1GetGroupIdCommand,
-} from "../protocols/Aws_json1_1";
+import { GetGroupIdRequest, GetGroupIdRequestFilterSensitiveLog, GetGroupIdResponse } from "../models/models_0";
+import { de_GetGroupIdCommand, se_GetGroupIdCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetGroupIdCommand}.
+ */
 export interface GetGroupIdCommandInput extends GetGroupIdRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetGroupIdCommand}.
+ */
 export interface GetGroupIdCommandOutput extends GetGroupIdResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves <code>GroupId</code> in an identity store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,44 @@ export interface GetGroupIdCommandOutput extends GetGroupIdResponse, __MetadataB
  * import { IdentitystoreClient, GetGroupIdCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
  * // const { IdentitystoreClient, GetGroupIdCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
  * const client = new IdentitystoreClient(config);
+ * const input = { // GetGroupIdRequest
+ *   IdentityStoreId: "STRING_VALUE", // required
+ *   AlternateIdentifier: { // AlternateIdentifier Union: only one key present
+ *     ExternalId: { // ExternalId
+ *       Issuer: "STRING_VALUE", // required
+ *       Id: "STRING_VALUE", // required
+ *     },
+ *     UniqueAttribute: { // UniqueAttribute
+ *       AttributePath: "STRING_VALUE", // required
+ *       AttributeValue: "DOCUMENT_VALUE", // required
+ *     },
+ *   },
+ * };
  * const command = new GetGroupIdCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetGroupIdCommandInput - {@link GetGroupIdCommandInput}
+ * @returns {@link GetGroupIdCommandOutput}
  * @see {@link GetGroupIdCommandInput} for command's `input` shape.
  * @see {@link GetGroupIdCommandOutput} for command's `response` shape.
  * @see {@link IdentitystoreClientResolvedConfig | config} for IdentitystoreClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Indicates that a requested resource is not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request failed because it contains a syntax error.</p>
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or failure with an internal server.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+ *
  *
  */
 export class GetGroupIdCommand extends $Command<
@@ -62,6 +96,9 @@ export class GetGroupIdCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetGroupIdCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,7 +126,7 @@ export class GetGroupIdCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: GetGroupIdRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetGroupIdResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +136,18 @@ export class GetGroupIdCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetGroupIdCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetGroupIdCommand(input, context);
+    return se_GetGroupIdCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGroupIdCommandOutput> {
-    return deserializeAws_json1_1GetGroupIdCommand(output, context);
+    return de_GetGroupIdCommand(output, context);
   }
 
   // Start section: command_body_extra

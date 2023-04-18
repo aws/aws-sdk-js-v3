@@ -16,22 +16,31 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeTransitGatewayPeeringAttachmentsRequest,
-  DescribeTransitGatewayPeeringAttachmentsRequestFilterSensitiveLog,
   DescribeTransitGatewayPeeringAttachmentsResult,
-  DescribeTransitGatewayPeeringAttachmentsResultFilterSensitiveLog,
 } from "../models/models_4";
 import {
-  deserializeAws_ec2DescribeTransitGatewayPeeringAttachmentsCommand,
-  serializeAws_ec2DescribeTransitGatewayPeeringAttachmentsCommand,
+  de_DescribeTransitGatewayPeeringAttachmentsCommand,
+  se_DescribeTransitGatewayPeeringAttachmentsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeTransitGatewayPeeringAttachmentsCommand}.
+ */
 export interface DescribeTransitGatewayPeeringAttachmentsCommandInput
   extends DescribeTransitGatewayPeeringAttachmentsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeTransitGatewayPeeringAttachmentsCommand}.
+ */
 export interface DescribeTransitGatewayPeeringAttachmentsCommandOutput
   extends DescribeTransitGatewayPeeringAttachmentsResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes your transit gateway peering attachments.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +48,32 @@ export interface DescribeTransitGatewayPeeringAttachmentsCommandOutput
  * import { EC2Client, DescribeTransitGatewayPeeringAttachmentsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeTransitGatewayPeeringAttachmentsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeTransitGatewayPeeringAttachmentsRequest
+ *   TransitGatewayAttachmentIds: [ // TransitGatewayAttachmentIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new DescribeTransitGatewayPeeringAttachmentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTransitGatewayPeeringAttachmentsCommandInput - {@link DescribeTransitGatewayPeeringAttachmentsCommandInput}
+ * @returns {@link DescribeTransitGatewayPeeringAttachmentsCommandOutput}
  * @see {@link DescribeTransitGatewayPeeringAttachmentsCommandInput} for command's `input` shape.
  * @see {@link DescribeTransitGatewayPeeringAttachmentsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class DescribeTransitGatewayPeeringAttachmentsCommand extends $Command<
@@ -65,6 +93,9 @@ export class DescribeTransitGatewayPeeringAttachmentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTransitGatewayPeeringAttachmentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +130,8 @@ export class DescribeTransitGatewayPeeringAttachmentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTransitGatewayPeeringAttachmentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTransitGatewayPeeringAttachmentsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,18 +141,24 @@ export class DescribeTransitGatewayPeeringAttachmentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeTransitGatewayPeeringAttachmentsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeTransitGatewayPeeringAttachmentsCommand(input, context);
+    return se_DescribeTransitGatewayPeeringAttachmentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTransitGatewayPeeringAttachmentsCommandOutput> {
-    return deserializeAws_ec2DescribeTransitGatewayPeeringAttachmentsCommand(output, context);
+    return de_DescribeTransitGatewayPeeringAttachmentsCommand(output, context);
   }
 
   // Start section: command_body_extra

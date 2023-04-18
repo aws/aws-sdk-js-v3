@@ -15,23 +15,32 @@ import {
 
 import {
   DisableSagemakerServicecatalogPortfolioInput,
-  DisableSagemakerServicecatalogPortfolioInputFilterSensitiveLog,
   DisableSagemakerServicecatalogPortfolioOutput,
-  DisableSagemakerServicecatalogPortfolioOutputFilterSensitiveLog,
 } from "../models/models_2";
 import {
-  deserializeAws_json1_1DisableSagemakerServicecatalogPortfolioCommand,
-  serializeAws_json1_1DisableSagemakerServicecatalogPortfolioCommand,
+  de_DisableSagemakerServicecatalogPortfolioCommand,
+  se_DisableSagemakerServicecatalogPortfolioCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DisableSagemakerServicecatalogPortfolioCommand}.
+ */
 export interface DisableSagemakerServicecatalogPortfolioCommandInput
   extends DisableSagemakerServicecatalogPortfolioInput {}
+/**
+ * @public
+ *
+ * The output of {@link DisableSagemakerServicecatalogPortfolioCommand}.
+ */
 export interface DisableSagemakerServicecatalogPortfolioCommandOutput
   extends DisableSagemakerServicecatalogPortfolioOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables using Service Catalog in SageMaker. Service Catalog is used to create
  *             SageMaker projects.</p>
  * @example
@@ -40,13 +49,17 @@ export interface DisableSagemakerServicecatalogPortfolioCommandOutput
  * import { SageMakerClient, DisableSagemakerServicecatalogPortfolioCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DisableSagemakerServicecatalogPortfolioCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {};
  * const command = new DisableSagemakerServicecatalogPortfolioCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableSagemakerServicecatalogPortfolioCommandInput - {@link DisableSagemakerServicecatalogPortfolioCommandInput}
+ * @returns {@link DisableSagemakerServicecatalogPortfolioCommandOutput}
  * @see {@link DisableSagemakerServicecatalogPortfolioCommandInput} for command's `input` shape.
  * @see {@link DisableSagemakerServicecatalogPortfolioCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
  *
  */
 export class DisableSagemakerServicecatalogPortfolioCommand extends $Command<
@@ -66,6 +79,9 @@ export class DisableSagemakerServicecatalogPortfolioCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableSagemakerServicecatalogPortfolioCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +116,8 @@ export class DisableSagemakerServicecatalogPortfolioCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableSagemakerServicecatalogPortfolioInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DisableSagemakerServicecatalogPortfolioOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,18 +127,24 @@ export class DisableSagemakerServicecatalogPortfolioCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisableSagemakerServicecatalogPortfolioCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisableSagemakerServicecatalogPortfolioCommand(input, context);
+    return se_DisableSagemakerServicecatalogPortfolioCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisableSagemakerServicecatalogPortfolioCommandOutput> {
-    return deserializeAws_json1_1DisableSagemakerServicecatalogPortfolioCommand(output, context);
+    return de_DisableSagemakerServicecatalogPortfolioCommand(output, context);
   }
 
   // Start section: command_body_extra

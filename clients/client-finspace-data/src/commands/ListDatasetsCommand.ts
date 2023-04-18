@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
-import {
-  ListDatasetsRequest,
-  ListDatasetsRequestFilterSensitiveLog,
-  ListDatasetsResponse,
-  ListDatasetsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDatasetsCommand,
-  serializeAws_restJson1ListDatasetsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListDatasetsRequest, ListDatasetsResponse, ListDatasetsResponseFilterSensitiveLog } from "../models/models_0";
+import { de_ListDatasetsCommand, se_ListDatasetsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListDatasetsCommand}.
+ */
 export interface ListDatasetsCommandInput extends ListDatasetsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDatasetsCommand}.
+ */
 export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all of the active Datasets that a user has access to.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,36 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * import { FinspaceDataClient, ListDatasetsCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, ListDatasetsCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
  * const client = new FinspaceDataClient(config);
+ * const input = { // ListDatasetsRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListDatasetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDatasetsCommandInput - {@link ListDatasetsCommandInput}
+ * @returns {@link ListDatasetsCommandOutput}
  * @see {@link ListDatasetsCommandInput} for command's `input` shape.
  * @see {@link ListDatasetsCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request conflicts with an existing resource.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>One or more resources can't be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
  *
  */
 export class ListDatasetsCommand extends $Command<
@@ -62,6 +88,9 @@ export class ListDatasetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDatasetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,7 +117,7 @@ export class ListDatasetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDatasetsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListDatasetsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -99,12 +128,18 @@ export class ListDatasetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDatasetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDatasetsCommand(input, context);
+    return se_ListDatasetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDatasetsCommandOutput> {
-    return deserializeAws_restJson1ListDatasetsCommand(output, context);
+    return de_ListDatasetsCommand(output, context);
   }
 
   // Start section: command_body_extra

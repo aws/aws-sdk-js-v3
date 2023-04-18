@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteParametersRequest,
-  DeleteParametersRequestFilterSensitiveLog,
-  DeleteParametersResult,
-  DeleteParametersResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteParametersCommand,
-  serializeAws_json1_1DeleteParametersCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteParametersRequest, DeleteParametersResult } from "../models/models_0";
+import { de_DeleteParametersCommand, se_DeleteParametersCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteParametersCommand}.
+ */
 export interface DeleteParametersCommandInput extends DeleteParametersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteParametersCommand}.
+ */
 export interface DeleteParametersCommandOutput extends DeleteParametersResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete a list of parameters. After deleting a parameter, wait for at least 30 seconds to
  *    create a parameter with the same name.</p>
  * @example
@@ -37,13 +40,24 @@ export interface DeleteParametersCommandOutput extends DeleteParametersResult, _
  * import { SSMClient, DeleteParametersCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DeleteParametersCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // DeleteParametersRequest
+ *   Names: [ // ParameterNameList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DeleteParametersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteParametersCommandInput - {@link DeleteParametersCommandInput}
+ * @returns {@link DeleteParametersCommandOutput}
  * @see {@link DeleteParametersCommandInput} for command's `input` shape.
  * @see {@link DeleteParametersCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
  *
  */
 export class DeleteParametersCommand extends $Command<
@@ -63,6 +77,9 @@ export class DeleteParametersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteParametersCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +108,8 @@ export class DeleteParametersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteParametersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteParametersResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +119,18 @@ export class DeleteParametersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteParametersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteParametersCommand(input, context);
+    return se_DeleteParametersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteParametersCommandOutput> {
-    return deserializeAws_json1_1DeleteParametersCommand(output, context);
+    return de_DeleteParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

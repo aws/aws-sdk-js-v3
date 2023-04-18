@@ -6,24 +6,26 @@ import { RuleSetObject } from "@aws-sdk/util-endpoints";
    or see "smithy.rules#endpointRuleSet"
    in codegen/sdk-codegen/aws-models/clouddirectory.json */
 
-const p="required",
-q="fn",
-r="argv",
-s="ref";
-const a="PartitionResult",
-b="tree",
-c="error",
-d="endpoint",
-e={[p]:false,"type":"String"},
-f={[p]:true,"default":false,"type":"Boolean"},
-g={[s]:"Endpoint"},
-h={[q]:"booleanEquals",[r]:[{[s]:"UseFIPS"},true]},
-i={[q]:"booleanEquals",[r]:[{[s]:"UseDualStack"},true]},
-j={},
-k={[q]:"booleanEquals",[r]:[true,{[q]:"getAttr",[r]:[{[s]:a},"supportsFIPS"]}]},
-l={[q]:"booleanEquals",[r]:[true,{[q]:"getAttr",[r]:[{[s]:a},"supportsDualStack"]}]},
-m=[g],
-n=[h],
-o=[i];
-const _data={version:"1.0",parameters:{Region:e,UseDualStack:f,UseFIPS:f,Endpoint:e},rules:[{conditions:[{[q]:"aws.partition",[r]:[{[s]:"Region"}],assign:a}],type:b,rules:[{conditions:[{[q]:"isSet",[r]:m},{[q]:"parseURL",[r]:m,assign:"url"}],type:b,rules:[{conditions:n,error:"Invalid Configuration: FIPS and custom endpoint are not supported",type:c},{type:b,rules:[{conditions:o,error:"Invalid Configuration: Dualstack and custom endpoint are not supported",type:c},{endpoint:{url:g,properties:j,headers:j},type:d}]}]},{conditions:[h,i],type:b,rules:[{conditions:[k,l],type:b,rules:[{endpoint:{url:"https://clouddirectory-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:j,headers:j},type:d}]},{error:"FIPS and DualStack are enabled, but this partition does not support one or both",type:c}]},{conditions:n,type:b,rules:[{conditions:[k],type:b,rules:[{type:b,rules:[{endpoint:{url:"https://clouddirectory-fips.{Region}.{PartitionResult#dnsSuffix}",properties:j,headers:j},type:d}]}]},{error:"FIPS is enabled but this partition does not support FIPS",type:c}]},{conditions:o,type:b,rules:[{conditions:[l],type:b,rules:[{endpoint:{url:"https://clouddirectory.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:j,headers:j},type:d}]},{error:"DualStack is enabled but this partition does not support DualStack",type:c}]},{endpoint:{url:"https://clouddirectory.{Region}.{PartitionResult#dnsSuffix}",properties:j,headers:j},type:d}]}]};
+const s="fn",
+t="argv",
+u="ref";
+const a=true,
+b=false,
+c="String",
+d="PartitionResult",
+e="tree",
+f="error",
+g="endpoint",
+h="getAttr",
+i={"required":true,"default":false,"type":"Boolean"},
+j={[u]:"Endpoint"},
+k={[s]:"booleanEquals",[t]:[{[u]:"UseFIPS"},true]},
+l={[s]:"booleanEquals",[t]:[{[u]:"UseDualStack"},true]},
+m={},
+n={[s]:"booleanEquals",[t]:[true,{[s]:h,[t]:[{[u]:d},"supportsFIPS"]}]},
+o={[u]:d},
+p={[s]:"booleanEquals",[t]:[true,{[s]:h,[t]:[o,"supportsDualStack"]}]},
+q=[k],
+r=[l];
+const _data={version:"1.0",parameters:{Region:{required:a,type:c},UseDualStack:i,UseFIPS:i,Endpoint:{required:b,type:c}},rules:[{conditions:[{[s]:"aws.partition",[t]:[{[u]:"Region"}],assign:d}],type:e,rules:[{conditions:[{[s]:"isSet",[t]:[j]}],type:e,rules:[{conditions:q,error:"Invalid Configuration: FIPS and custom endpoint are not supported",type:f},{type:e,rules:[{conditions:r,error:"Invalid Configuration: Dualstack and custom endpoint are not supported",type:f},{endpoint:{url:j,properties:m,headers:m},type:g}]}]},{conditions:[k,l],type:e,rules:[{conditions:[n,p],type:e,rules:[{type:e,rules:[{endpoint:{url:"https://clouddirectory-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:m,headers:m},type:g}]}]},{error:"FIPS and DualStack are enabled, but this partition does not support one or both",type:f}]},{conditions:q,type:e,rules:[{conditions:[n],type:e,rules:[{type:e,rules:[{conditions:[{[s]:"stringEquals",[t]:["aws-us-gov",{[s]:h,[t]:[o,"name"]}]}],endpoint:{url:"https://clouddirectory.{Region}.amazonaws.com",properties:m,headers:m},type:g},{endpoint:{url:"https://clouddirectory-fips.{Region}.{PartitionResult#dnsSuffix}",properties:m,headers:m},type:g}]}]},{error:"FIPS is enabled but this partition does not support FIPS",type:f}]},{conditions:r,type:e,rules:[{conditions:[p],type:e,rules:[{type:e,rules:[{endpoint:{url:"https://clouddirectory.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:m,headers:m},type:g}]}]},{error:"DualStack is enabled but this partition does not support DualStack",type:f}]},{type:e,rules:[{endpoint:{url:"https://clouddirectory.{Region}.{PartitionResult#dnsSuffix}",properties:m,headers:m},type:g}]}]}]};
 export const ruleSet: RuleSetObject = _data;

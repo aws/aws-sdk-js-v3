@@ -20,15 +20,23 @@ import {
   Wave,
   WaveFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateWaveCommand,
-  serializeAws_restJson1CreateWaveCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateWaveCommand, se_CreateWaveCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateWaveCommand}.
+ */
 export interface CreateWaveCommandInput extends CreateWaveRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateWaveCommand}.
+ */
 export interface CreateWaveCommandOutput extends Wave, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create wave.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +44,32 @@ export interface CreateWaveCommandOutput extends Wave, __MetadataBearer {}
  * import { MgnClient, CreateWaveCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, CreateWaveCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = { // CreateWaveRequest
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateWaveCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWaveCommandInput - {@link CreateWaveCommandInput}
+ * @returns {@link CreateWaveCommandOutput}
  * @see {@link CreateWaveCommandInput} for command's `input` shape.
  * @see {@link CreateWaveCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request could not be completed because its exceeded the service quota.</p>
+ *
+ * @throws {@link UninitializedAccountException} (client fault)
+ *  <p>Uninitialized account exception.</p>
+ *
  *
  */
 export class CreateWaveCommand extends $Command<
@@ -62,6 +89,9 @@ export class CreateWaveCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWaveCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,12 +129,18 @@ export class CreateWaveCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWaveCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateWaveCommand(input, context);
+    return se_CreateWaveCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWaveCommandOutput> {
-    return deserializeAws_restJson1CreateWaveCommand(output, context);
+    return de_CreateWaveCommand(output, context);
   }
 
   // Start section: command_body_extra

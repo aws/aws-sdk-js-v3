@@ -20,22 +20,31 @@ import {
 } from "../DatabaseMigrationServiceClient";
 import {
   DescribeFleetAdvisorSchemaObjectSummaryRequest,
-  DescribeFleetAdvisorSchemaObjectSummaryRequestFilterSensitiveLog,
   DescribeFleetAdvisorSchemaObjectSummaryResponse,
-  DescribeFleetAdvisorSchemaObjectSummaryResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeFleetAdvisorSchemaObjectSummaryCommand,
-  serializeAws_json1_1DescribeFleetAdvisorSchemaObjectSummaryCommand,
+  de_DescribeFleetAdvisorSchemaObjectSummaryCommand,
+  se_DescribeFleetAdvisorSchemaObjectSummaryCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeFleetAdvisorSchemaObjectSummaryCommand}.
+ */
 export interface DescribeFleetAdvisorSchemaObjectSummaryCommandInput
   extends DescribeFleetAdvisorSchemaObjectSummaryRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeFleetAdvisorSchemaObjectSummaryCommand}.
+ */
 export interface DescribeFleetAdvisorSchemaObjectSummaryCommandOutput
   extends DescribeFleetAdvisorSchemaObjectSummaryResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides descriptions of the schemas discovered by your Fleet Advisor
  *             collectors.</p>
  * @example
@@ -44,13 +53,31 @@ export interface DescribeFleetAdvisorSchemaObjectSummaryCommandOutput
  * import { DatabaseMigrationServiceClient, DescribeFleetAdvisorSchemaObjectSummaryCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DescribeFleetAdvisorSchemaObjectSummaryCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // DescribeFleetAdvisorSchemaObjectSummaryRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeFleetAdvisorSchemaObjectSummaryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFleetAdvisorSchemaObjectSummaryCommandInput - {@link DescribeFleetAdvisorSchemaObjectSummaryCommandInput}
+ * @returns {@link DescribeFleetAdvisorSchemaObjectSummaryCommandOutput}
  * @see {@link DescribeFleetAdvisorSchemaObjectSummaryCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetAdvisorSchemaObjectSummaryCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
+ *
+ * @throws {@link InvalidResourceStateFault} (client fault)
+ *  <p>The resource is in a state that prevents it from being used for database migration.</p>
+ *
  *
  */
 export class DescribeFleetAdvisorSchemaObjectSummaryCommand extends $Command<
@@ -70,6 +97,9 @@ export class DescribeFleetAdvisorSchemaObjectSummaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFleetAdvisorSchemaObjectSummaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +134,8 @@ export class DescribeFleetAdvisorSchemaObjectSummaryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFleetAdvisorSchemaObjectSummaryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFleetAdvisorSchemaObjectSummaryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,18 +145,24 @@ export class DescribeFleetAdvisorSchemaObjectSummaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeFleetAdvisorSchemaObjectSummaryCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeFleetAdvisorSchemaObjectSummaryCommand(input, context);
+    return se_DescribeFleetAdvisorSchemaObjectSummaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeFleetAdvisorSchemaObjectSummaryCommandOutput> {
-    return deserializeAws_json1_1DescribeFleetAdvisorSchemaObjectSummaryCommand(output, context);
+    return de_DescribeFleetAdvisorSchemaObjectSummaryCommand(output, context);
   }
 
   // Start section: command_body_extra

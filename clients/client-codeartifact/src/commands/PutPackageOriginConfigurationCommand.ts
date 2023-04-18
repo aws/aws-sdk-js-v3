@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
+import { PutPackageOriginConfigurationRequest, PutPackageOriginConfigurationResult } from "../models/models_0";
 import {
-  PutPackageOriginConfigurationRequest,
-  PutPackageOriginConfigurationRequestFilterSensitiveLog,
-  PutPackageOriginConfigurationResult,
-  PutPackageOriginConfigurationResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutPackageOriginConfigurationCommand,
-  serializeAws_restJson1PutPackageOriginConfigurationCommand,
+  de_PutPackageOriginConfigurationCommand,
+  se_PutPackageOriginConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutPackageOriginConfigurationCommand}.
+ */
 export interface PutPackageOriginConfigurationCommandInput extends PutPackageOriginConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutPackageOriginConfigurationCommand}.
+ */
 export interface PutPackageOriginConfigurationCommandOutput
   extends PutPackageOriginConfigurationResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the package origin configuration for a package.</p>
  *          <p>The package origin configuration determines how new versions of a package can be added to a repository. You can allow or block direct
  *     publishing of new package versions, or ingestion and retaining of new package versions from an external connection or upstream source.
@@ -46,13 +52,51 @@ export interface PutPackageOriginConfigurationCommandOutput
  * import { CodeartifactClient, PutPackageOriginConfigurationCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, PutPackageOriginConfigurationCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
+ * const input = { // PutPackageOriginConfigurationRequest
+ *   domain: "STRING_VALUE", // required
+ *   domainOwner: "STRING_VALUE",
+ *   repository: "STRING_VALUE", // required
+ *   format: "npm" || "pypi" || "maven" || "nuget" || "generic", // required
+ *   namespace: "STRING_VALUE",
+ *   package: "STRING_VALUE", // required
+ *   restrictions: { // PackageOriginRestrictions
+ *     publish: "ALLOW" || "BLOCK", // required
+ *     upstream: "ALLOW" || "BLOCK", // required
+ *   },
+ * };
  * const command = new PutPackageOriginConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutPackageOriginConfigurationCommandInput - {@link PutPackageOriginConfigurationCommandInput}
+ * @returns {@link PutPackageOriginConfigurationCommandOutput}
  * @see {@link PutPackageOriginConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutPackageOriginConfigurationCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>
+ *         The operation did not succeed because of an unauthorized access attempt.
+ *       </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>
+ *       The operation did not succeed because the resource requested is not found in the service.
+ *     </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>
+ *       The operation did not succeed because too many requests are sent to the service.
+ *     </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>
+ *       The operation did not succeed because a parameter in the request was sent with an invalid value.
+ *     </p>
+ *
  *
  */
 export class PutPackageOriginConfigurationCommand extends $Command<
@@ -72,6 +116,9 @@ export class PutPackageOriginConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutPackageOriginConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +147,8 @@ export class PutPackageOriginConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutPackageOriginConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutPackageOriginConfigurationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,15 +158,21 @@ export class PutPackageOriginConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutPackageOriginConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutPackageOriginConfigurationCommand(input, context);
+    return se_PutPackageOriginConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutPackageOriginConfigurationCommandOutput> {
-    return deserializeAws_restJson1PutPackageOriginConfigurationCommand(output, context);
+    return de_PutPackageOriginConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,21 +1,26 @@
-import { ParameterType, PluginHost } from "typedoc/dist/lib/utils";
+import { Application, Context, Converter, ParameterType } from "typedoc";
 
 import { SdkIndexLinkClientPlugin } from "./sdk-index-link-client";
 
 /**
- * @param pluginHost An instance of PluginHost.
+ * @internal
  */
-module.exports = function load(pluginHost: PluginHost) {
-  const application = pluginHost.owner;
-
+export function load(app: Application) {
   // Core packages doc generator plugins.
-  application.options.addDeclaration({
+  app.options.addDeclaration({
     name: "clientDocs",
     help:
       'The path pattern denotes the location of individual service client doc. "{{CLIENT}}" will be replaced with the ' +
-      "client name. For example: `path/{{CLIENT}}/docs` will target s3 docs at `path/client-s3/docs`",
-    defaultValue: "clients/{{CLIENT}}/docs",
+      "client name. For example: `path/{{CLIENT}}/docs` will target service docs at `path/service/docs`",
+    defaultValue: "docs/clients/{{CLIENT}}/docs",
     type: ParameterType.String,
   });
-  application.renderer.addComponent("SdkIndexLinkClientPlugin", new SdkIndexLinkClientPlugin(application.renderer));
-};
+  app.options.addDeclaration({
+    name: "defaultGroup",
+    help: "Default group to place categories as children",
+    defaultValue: "Modules",
+    type: ParameterType.String,
+  });
+
+  new SdkIndexLinkClientPlugin(app.options, app.logger, app.renderer);
+}

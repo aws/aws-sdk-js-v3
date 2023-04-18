@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MarketplaceMeteringClient";
-import {
-  BatchMeterUsageRequest,
-  BatchMeterUsageRequestFilterSensitiveLog,
-  BatchMeterUsageResult,
-  BatchMeterUsageResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchMeterUsageCommand,
-  serializeAws_json1_1BatchMeterUsageCommand,
-} from "../protocols/Aws_json1_1";
+import { BatchMeterUsageRequest, BatchMeterUsageResult } from "../models/models_0";
+import { de_BatchMeterUsageCommand, se_BatchMeterUsageCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchMeterUsageCommand}.
+ */
 export interface BatchMeterUsageCommandInput extends BatchMeterUsageRequest {}
+/**
+ * @public
+ *
+ * The output of {@link BatchMeterUsageCommand}.
+ */
 export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <code>BatchMeterUsage</code> is called from a SaaS application listed on AWS
  *             Marketplace to post metering records for a set of customers.</p>
@@ -66,13 +69,74 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
  * import { MarketplaceMeteringClient, BatchMeterUsageCommand } from "@aws-sdk/client-marketplace-metering"; // ES Modules import
  * // const { MarketplaceMeteringClient, BatchMeterUsageCommand } = require("@aws-sdk/client-marketplace-metering"); // CommonJS import
  * const client = new MarketplaceMeteringClient(config);
+ * const input = { // BatchMeterUsageRequest
+ *   UsageRecords: [ // UsageRecordList // required
+ *     { // UsageRecord
+ *       Timestamp: new Date("TIMESTAMP"), // required
+ *       CustomerIdentifier: "STRING_VALUE", // required
+ *       Dimension: "STRING_VALUE", // required
+ *       Quantity: Number("int"),
+ *       UsageAllocations: [ // UsageAllocations
+ *         { // UsageAllocation
+ *           AllocatedUsageQuantity: Number("int"), // required
+ *           Tags: [ // TagList
+ *             { // Tag
+ *               Key: "STRING_VALUE", // required
+ *               Value: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   ProductCode: "STRING_VALUE", // required
+ * };
  * const command = new BatchMeterUsageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchMeterUsageCommandInput - {@link BatchMeterUsageCommandInput}
+ * @returns {@link BatchMeterUsageCommandOutput}
  * @see {@link BatchMeterUsageCommandInput} for command's `input` shape.
  * @see {@link BatchMeterUsageCommandOutput} for command's `response` shape.
  * @see {@link MarketplaceMeteringClientResolvedConfig | config} for MarketplaceMeteringClient's `config` shape.
+ *
+ * @throws {@link DisabledApiException} (client fault)
+ *  <p>The API is disabled in the Region.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>An internal error has occurred. Retry your request. If the problem persists, post a
+ *             message with details on the AWS forums.</p>
+ *
+ * @throws {@link InvalidCustomerIdentifierException} (client fault)
+ *  <p>You have metered usage for a <code>CustomerIdentifier</code> that does not
+ *             exist.</p>
+ *
+ * @throws {@link InvalidProductCodeException} (client fault)
+ *  <p>The product code passed does not match the product code used for publishing the
+ *             product.</p>
+ *
+ * @throws {@link InvalidTagException} (client fault)
+ *  <p>The tag is invalid, or the number of tags is greater than 5.</p>
+ *
+ * @throws {@link InvalidUsageAllocationsException} (client fault)
+ *  <p>The usage allocation objects are invalid, or the number of allocations is greater than
+ *             500 for a single usage record.</p>
+ *
+ * @throws {@link InvalidUsageDimensionException} (client fault)
+ *  <p>The usage dimension does not match one of the <code>UsageDimensions</code> associated
+ *             with products.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The calls to the API are throttled.</p>
+ *
+ * @throws {@link TimestampOutOfBoundsException} (client fault)
+ *  <p>The <code>timestamp</code> value passed in the <code>UsageRecord</code> is out of
+ *             allowed range.</p>
+ *         <p>For <code>BatchMeterUsage</code>, if any of the records are outside of the allowed
+ *             range, the entire batch is not processed. You must remove invalid records and try
+ *             again.</p>
+ *
  *
  */
 export class BatchMeterUsageCommand extends $Command<
@@ -92,6 +156,9 @@ export class BatchMeterUsageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchMeterUsageCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +187,8 @@ export class BatchMeterUsageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchMeterUsageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchMeterUsageResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +198,18 @@ export class BatchMeterUsageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchMeterUsageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchMeterUsageCommand(input, context);
+    return se_BatchMeterUsageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchMeterUsageCommandOutput> {
-    return deserializeAws_json1_1BatchMeterUsageCommand(output, context);
+    return de_BatchMeterUsageCommand(output, context);
   }
 
   // Start section: command_body_extra

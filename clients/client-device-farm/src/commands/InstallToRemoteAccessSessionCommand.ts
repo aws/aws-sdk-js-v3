@@ -16,21 +16,31 @@ import {
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import {
   InstallToRemoteAccessSessionRequest,
-  InstallToRemoteAccessSessionRequestFilterSensitiveLog,
   InstallToRemoteAccessSessionResult,
   InstallToRemoteAccessSessionResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1InstallToRemoteAccessSessionCommand,
-  serializeAws_json1_1InstallToRemoteAccessSessionCommand,
+  de_InstallToRemoteAccessSessionCommand,
+  se_InstallToRemoteAccessSessionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link InstallToRemoteAccessSessionCommand}.
+ */
 export interface InstallToRemoteAccessSessionCommandInput extends InstallToRemoteAccessSessionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link InstallToRemoteAccessSessionCommand}.
+ */
 export interface InstallToRemoteAccessSessionCommandOutput
   extends InstallToRemoteAccessSessionResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Installs an application to the device in a remote access session. For Android
  *             applications, the file must be in .apk format. For iOS applications, the file must be in
  *             .ipa format.</p>
@@ -40,13 +50,49 @@ export interface InstallToRemoteAccessSessionCommandOutput
  * import { DeviceFarmClient, InstallToRemoteAccessSessionCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, InstallToRemoteAccessSessionCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // InstallToRemoteAccessSessionRequest
+ *   remoteAccessSessionArn: "STRING_VALUE", // required
+ *   appArn: "STRING_VALUE", // required
+ * };
  * const command = new InstallToRemoteAccessSessionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param InstallToRemoteAccessSessionCommandInput - {@link InstallToRemoteAccessSessionCommandInput}
+ * @returns {@link InstallToRemoteAccessSessionCommandOutput}
  * @see {@link InstallToRemoteAccessSessionCommandInput} for command's `input` shape.
  * @see {@link InstallToRemoteAccessSessionCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
+ *
+ * @throws {@link ArgumentException} (client fault)
+ *  <p>An invalid argument was specified.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A limit was exceeded.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The specified entity was not found.</p>
+ *
+ * @throws {@link ServiceAccountException} (client fault)
+ *  <p>There was a problem with the service account.</p>
+ *
+ *
+ * @example To install to a remote access session
+ * ```javascript
+ * // The following example installs a specific app to a device in a specific remote access session.
+ * const input = {
+ *   "appArn": "arn:aws:devicefarm:us-west-2:123456789101:app:EXAMPLE-GUID-123-456",
+ *   "remoteAccessSessionArn": "arn:aws:devicefarm:us-west-2:123456789101:session:EXAMPLE-GUID-123-456"
+ * };
+ * const command = new InstallToRemoteAccessSessionCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "appUpload": {}
+ * }
+ * *\/
+ * // example id: to-install-to-a-remote-access-session-1471634453818
+ * ```
  *
  */
 export class InstallToRemoteAccessSessionCommand extends $Command<
@@ -66,6 +112,9 @@ export class InstallToRemoteAccessSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: InstallToRemoteAccessSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,7 +143,7 @@ export class InstallToRemoteAccessSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: InstallToRemoteAccessSessionRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: InstallToRemoteAccessSessionResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -105,15 +154,21 @@ export class InstallToRemoteAccessSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: InstallToRemoteAccessSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1InstallToRemoteAccessSessionCommand(input, context);
+    return se_InstallToRemoteAccessSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<InstallToRemoteAccessSessionCommandOutput> {
-    return deserializeAws_json1_1InstallToRemoteAccessSessionCommand(output, context);
+    return de_InstallToRemoteAccessSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

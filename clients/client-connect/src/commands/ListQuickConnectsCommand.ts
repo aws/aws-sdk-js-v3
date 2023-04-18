@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  ListQuickConnectsRequest,
-  ListQuickConnectsRequestFilterSensitiveLog,
-  ListQuickConnectsResponse,
-  ListQuickConnectsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListQuickConnectsCommand,
-  serializeAws_restJson1ListQuickConnectsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListQuickConnectsRequest, ListQuickConnectsResponse } from "../models/models_1";
+import { de_ListQuickConnectsCommand, se_ListQuickConnectsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListQuickConnectsCommand}.
+ */
 export interface ListQuickConnectsCommandInput extends ListQuickConnectsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListQuickConnectsCommand}.
+ */
 export interface ListQuickConnectsCommandOutput extends ListQuickConnectsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information about the quick connects for the specified Amazon Connect instance.
  *   </p>
  * @example
@@ -37,13 +40,39 @@ export interface ListQuickConnectsCommandOutput extends ListQuickConnectsRespons
  * import { ConnectClient, ListQuickConnectsCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListQuickConnectsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // ListQuickConnectsRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   QuickConnectTypes: [ // QuickConnectTypes
+ *     "USER" || "QUEUE" || "PHONE_NUMBER",
+ *   ],
+ * };
  * const command = new ListQuickConnectsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListQuickConnectsCommandInput - {@link ListQuickConnectsCommandInput}
+ * @returns {@link ListQuickConnectsCommandOutput}
  * @see {@link ListQuickConnectsCommandInput} for command's `input` shape.
  * @see {@link ListQuickConnectsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
  *
  */
 export class ListQuickConnectsCommand extends $Command<
@@ -63,6 +92,9 @@ export class ListQuickConnectsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListQuickConnectsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +123,8 @@ export class ListQuickConnectsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListQuickConnectsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListQuickConnectsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +134,18 @@ export class ListQuickConnectsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListQuickConnectsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListQuickConnectsCommand(input, context);
+    return se_ListQuickConnectsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListQuickConnectsCommandOutput> {
-    return deserializeAws_restJson1ListQuickConnectsCommand(output, context);
+    return de_ListQuickConnectsCommand(output, context);
   }
 
   // Start section: command_body_extra

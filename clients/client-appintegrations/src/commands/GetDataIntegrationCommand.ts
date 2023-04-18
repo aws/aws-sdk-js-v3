@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppIntegrationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppIntegrationsClient";
-import {
-  GetDataIntegrationRequest,
-  GetDataIntegrationRequestFilterSensitiveLog,
-  GetDataIntegrationResponse,
-  GetDataIntegrationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDataIntegrationCommand,
-  serializeAws_restJson1GetDataIntegrationCommand,
-} from "../protocols/Aws_restJson1";
+import { GetDataIntegrationRequest, GetDataIntegrationResponse } from "../models/models_0";
+import { de_GetDataIntegrationCommand, se_GetDataIntegrationCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetDataIntegrationCommand}.
+ */
 export interface GetDataIntegrationCommandInput extends GetDataIntegrationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetDataIntegrationCommand}.
+ */
 export interface GetDataIntegrationCommandOutput extends GetDataIntegrationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the DataIntegration.</p>
  *          <note>
  *             <p>You cannot create a DataIntegration association for a DataIntegration that has been previously associated.
@@ -41,13 +44,34 @@ export interface GetDataIntegrationCommandOutput extends GetDataIntegrationRespo
  * import { AppIntegrationsClient, GetDataIntegrationCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
  * // const { AppIntegrationsClient, GetDataIntegrationCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import
  * const client = new AppIntegrationsClient(config);
+ * const input = { // GetDataIntegrationRequest
+ *   Identifier: "STRING_VALUE", // required
+ * };
  * const command = new GetDataIntegrationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDataIntegrationCommandInput - {@link GetDataIntegrationCommandInput}
+ * @returns {@link GetDataIntegrationCommandOutput}
  * @see {@link GetDataIntegrationCommandInput} for command's `input` shape.
  * @see {@link GetDataIntegrationCommandOutput} for command's `response` shape.
  * @see {@link AppIntegrationsClientResolvedConfig | config} for AppIntegrationsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServiceError} (server fault)
+ *  <p>Request processing failed due to an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
  *
  */
 export class GetDataIntegrationCommand extends $Command<
@@ -67,6 +91,9 @@ export class GetDataIntegrationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDataIntegrationCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +122,8 @@ export class GetDataIntegrationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDataIntegrationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDataIntegrationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +133,18 @@ export class GetDataIntegrationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDataIntegrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDataIntegrationCommand(input, context);
+    return se_GetDataIntegrationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataIntegrationCommandOutput> {
-    return deserializeAws_restJson1GetDataIntegrationCommand(output, context);
+    return de_GetDataIntegrationCommand(output, context);
   }
 
   // Start section: command_body_extra

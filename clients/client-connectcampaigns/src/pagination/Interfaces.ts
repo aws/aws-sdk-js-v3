@@ -1,9 +1,11 @@
 // smithy-typescript generated code
 import { PaginationConfiguration } from "@aws-sdk/types";
 
-import { ConnectCampaigns } from "../ConnectCampaigns";
 import { ConnectCampaignsClient } from "../ConnectCampaignsClient";
 
+/**
+ * @public
+ */
 export interface ConnectCampaignsPaginationConfiguration extends PaginationConfiguration {
-  client: ConnectCampaigns | ConnectCampaignsClient;
+  client: ConnectCampaignsClient;
 }

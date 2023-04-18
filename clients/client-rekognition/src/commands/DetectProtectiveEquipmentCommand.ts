@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DetectProtectiveEquipmentRequest,
-  DetectProtectiveEquipmentRequestFilterSensitiveLog,
-  DetectProtectiveEquipmentResponse,
-  DetectProtectiveEquipmentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DetectProtectiveEquipmentCommand,
-  serializeAws_json1_1DetectProtectiveEquipmentCommand,
-} from "../protocols/Aws_json1_1";
+import { DetectProtectiveEquipmentRequest, DetectProtectiveEquipmentResponse } from "../models/models_0";
+import { de_DetectProtectiveEquipmentCommand, se_DetectProtectiveEquipmentCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DetectProtectiveEquipmentCommand}.
+ */
 export interface DetectProtectiveEquipmentCommandInput extends DetectProtectiveEquipmentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DetectProtectiveEquipmentCommand}.
+ */
 export interface DetectProtectiveEquipmentCommandOutput extends DetectProtectiveEquipmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detects Personal Protective Equipment (PPE) worn by people detected in an image. Amazon Rekognition can detect the
  *          following types of PPE.</p>
  *          <ul>
@@ -72,13 +75,61 @@ export interface DetectProtectiveEquipmentCommandOutput extends DetectProtective
  * import { RekognitionClient, DetectProtectiveEquipmentCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DetectProtectiveEquipmentCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // DetectProtectiveEquipmentRequest
+ *   Image: { // Image
+ *     Bytes: "BLOB_VALUE",
+ *     S3Object: { // S3Object
+ *       Bucket: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   },
+ *   SummarizationAttributes: { // ProtectiveEquipmentSummarizationAttributes
+ *     MinConfidence: Number("float"), // required
+ *     RequiredEquipmentTypes: [ // ProtectiveEquipmentTypes // required
+ *       "FACE_COVER" || "HAND_COVER" || "HEAD_COVER",
+ *     ],
+ *   },
+ * };
  * const command = new DetectProtectiveEquipmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DetectProtectiveEquipmentCommandInput - {@link DetectProtectiveEquipmentCommandInput}
+ * @returns {@link DetectProtectiveEquipmentCommandOutput}
  * @see {@link DetectProtectiveEquipmentCommandInput} for command's `input` shape.
  * @see {@link DetectProtectiveEquipmentCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to perform the action.</p>
+ *
+ * @throws {@link ImageTooLargeException} (client fault)
+ *  <p>The input image size exceeds the allowed limit. If you are calling
+ *       DetectProtectiveEquipment, the image size or resolution exceeds the allowed limit. For more
+ *       information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide.
+ *     </p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidImageFormatException} (client fault)
+ *  <p>The provided image format is not supported. </p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
+ *       operation again.</p>
+ *
+ * @throws {@link InvalidS3ObjectException} (client fault)
+ *  <p>Amazon Rekognition is unable to access the S3 object specified in the request.</p>
+ *
+ * @throws {@link ProvisionedThroughputExceededException} (client fault)
+ *  <p>The number of requests exceeded your throughput limit. If you want to increase this
+ *       limit, contact Amazon Rekognition.</p>
+ *
+ * @throws {@link ThrottlingException} (server fault)
+ *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
  *
  */
 export class DetectProtectiveEquipmentCommand extends $Command<
@@ -98,6 +149,9 @@ export class DetectProtectiveEquipmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetectProtectiveEquipmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +180,8 @@ export class DetectProtectiveEquipmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetectProtectiveEquipmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DetectProtectiveEquipmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,15 +191,21 @@ export class DetectProtectiveEquipmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetectProtectiveEquipmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DetectProtectiveEquipmentCommand(input, context);
+    return se_DetectProtectiveEquipmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DetectProtectiveEquipmentCommandOutput> {
-    return deserializeAws_json1_1DetectProtectiveEquipmentCommand(output, context);
+    return de_DetectProtectiveEquipmentCommand(output, context);
   }
 
   // Start section: command_body_extra

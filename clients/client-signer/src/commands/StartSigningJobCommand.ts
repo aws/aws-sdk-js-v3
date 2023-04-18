@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartSigningJobRequest,
-  StartSigningJobRequestFilterSensitiveLog,
-  StartSigningJobResponse,
-  StartSigningJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StartSigningJobCommand,
-  serializeAws_restJson1StartSigningJobCommand,
-} from "../protocols/Aws_restJson1";
+import { StartSigningJobRequest, StartSigningJobResponse } from "../models/models_0";
+import { de_StartSigningJobCommand, se_StartSigningJobCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link StartSigningJobCommand}.
+ */
 export interface StartSigningJobCommandInput extends StartSigningJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartSigningJobCommand}.
+ */
 export interface StartSigningJobCommandOutput extends StartSigningJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Initiates a signing job to be performed on the code provided. Signing jobs are
  * 			viewable by the <code>ListSigningJobs</code> operation for two years after they are
  * 			performed. Note the following requirements: </p>
@@ -63,13 +66,54 @@ export interface StartSigningJobCommandOutput extends StartSigningJobResponse, _
  * import { SignerClient, StartSigningJobCommand } from "@aws-sdk/client-signer"; // ES Modules import
  * // const { SignerClient, StartSigningJobCommand } = require("@aws-sdk/client-signer"); // CommonJS import
  * const client = new SignerClient(config);
+ * const input = { // StartSigningJobRequest
+ *   source: { // Source
+ *     s3: { // S3Source
+ *       bucketName: "STRING_VALUE", // required
+ *       key: "STRING_VALUE", // required
+ *       version: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   destination: { // Destination
+ *     s3: { // S3Destination
+ *       bucketName: "STRING_VALUE",
+ *       prefix: "STRING_VALUE",
+ *     },
+ *   },
+ *   profileName: "STRING_VALUE", // required
+ *   clientRequestToken: "STRING_VALUE", // required
+ *   profileOwner: "STRING_VALUE",
+ * };
  * const command = new StartSigningJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartSigningJobCommandInput - {@link StartSigningJobCommandInput}
+ * @returns {@link StartSigningJobCommandOutput}
  * @see {@link StartSigningJobCommandInput} for command's `input` shape.
  * @see {@link StartSigningJobCommandOutput} for command's `response` shape.
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>An internal error occurred.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A specified resource could not be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *         <p>Instead of this error, <code>TooManyRequestsException</code> should be used.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The allowed number of job-signing requests has been exceeded.</p>
+ * 		       <p>This error supersedes the error <code>ThrottlingException</code>.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>You signing certificate could not be validated.</p>
+ *
  *
  */
 export class StartSigningJobCommand extends $Command<
@@ -89,6 +133,9 @@ export class StartSigningJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartSigningJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +164,8 @@ export class StartSigningJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartSigningJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartSigningJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +175,18 @@ export class StartSigningJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartSigningJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartSigningJobCommand(input, context);
+    return se_StartSigningJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartSigningJobCommandOutput> {
-    return deserializeAws_restJson1StartSigningJobCommand(output, context);
+    return de_StartSigningJobCommand(output, context);
   }
 
   // Start section: command_body_extra

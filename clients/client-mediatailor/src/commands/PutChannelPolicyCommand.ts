@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
-import {
-  PutChannelPolicyRequest,
-  PutChannelPolicyRequestFilterSensitiveLog,
-  PutChannelPolicyResponse,
-  PutChannelPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutChannelPolicyCommand,
-  serializeAws_restJson1PutChannelPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { PutChannelPolicyRequest, PutChannelPolicyResponse } from "../models/models_0";
+import { de_PutChannelPolicyCommand, se_PutChannelPolicyCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutChannelPolicyCommand}.
+ */
 export interface PutChannelPolicyCommandInput extends PutChannelPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutChannelPolicyCommand}.
+ */
 export interface PutChannelPolicyCommandOutput extends PutChannelPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an IAM policy for the channel. IAM policies are used to control access to your channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,20 @@ export interface PutChannelPolicyCommandOutput extends PutChannelPolicyResponse,
  * import { MediaTailorClient, PutChannelPolicyCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, PutChannelPolicyCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
+ * const input = { // PutChannelPolicyRequest
+ *   ChannelName: "STRING_VALUE", // required
+ *   Policy: "STRING_VALUE", // required
+ * };
  * const command = new PutChannelPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutChannelPolicyCommandInput - {@link PutChannelPolicyCommandInput}
+ * @returns {@link PutChannelPolicyCommandOutput}
  * @see {@link PutChannelPolicyCommandInput} for command's `input` shape.
  * @see {@link PutChannelPolicyCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
+ *
  *
  */
 export class PutChannelPolicyCommand extends $Command<
@@ -62,6 +72,9 @@ export class PutChannelPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutChannelPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +103,8 @@ export class PutChannelPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutChannelPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutChannelPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +114,18 @@ export class PutChannelPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutChannelPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutChannelPolicyCommand(input, context);
+    return se_PutChannelPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutChannelPolicyCommandOutput> {
-    return deserializeAws_restJson1PutChannelPolicyCommand(output, context);
+    return de_PutChannelPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

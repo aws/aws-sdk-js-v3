@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DeleteSuppressedDestinationRequest, DeleteSuppressedDestinationResponse } from "../models/models_0";
 import {
-  DeleteSuppressedDestinationRequest,
-  DeleteSuppressedDestinationRequestFilterSensitiveLog,
-  DeleteSuppressedDestinationResponse,
-  DeleteSuppressedDestinationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteSuppressedDestinationCommand,
-  serializeAws_restJson1DeleteSuppressedDestinationCommand,
+  de_DeleteSuppressedDestinationCommand,
+  se_DeleteSuppressedDestinationCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteSuppressedDestinationCommand}.
+ */
 export interface DeleteSuppressedDestinationCommandInput extends DeleteSuppressedDestinationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteSuppressedDestinationCommand}.
+ */
 export interface DeleteSuppressedDestinationCommandOutput
   extends DeleteSuppressedDestinationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes an email address from the suppression list for your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,28 @@ export interface DeleteSuppressedDestinationCommandOutput
  * import { SESv2Client, DeleteSuppressedDestinationCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, DeleteSuppressedDestinationCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = { // DeleteSuppressedDestinationRequest
+ *   EmailAddress: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSuppressedDestinationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSuppressedDestinationCommandInput - {@link DeleteSuppressedDestinationCommandInput}
+ * @returns {@link DeleteSuppressedDestinationCommandOutput}
  * @see {@link DeleteSuppressedDestinationCommandInput} for command's `input` shape.
  * @see {@link DeleteSuppressedDestinationCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input you provided is invalid.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource you attempted to access doesn't exist.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Too many requests have been made to the operation.</p>
+ *
  *
  */
 export class DeleteSuppressedDestinationCommand extends $Command<
@@ -64,6 +85,9 @@ export class DeleteSuppressedDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSuppressedDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +116,8 @@ export class DeleteSuppressedDestinationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSuppressedDestinationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSuppressedDestinationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +127,21 @@ export class DeleteSuppressedDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSuppressedDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSuppressedDestinationCommand(input, context);
+    return se_DeleteSuppressedDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteSuppressedDestinationCommandOutput> {
-    return deserializeAws_restJson1DeleteSuppressedDestinationCommand(output, context);
+    return de_DeleteSuppressedDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

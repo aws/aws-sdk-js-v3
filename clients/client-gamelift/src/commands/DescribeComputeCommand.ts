@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  DescribeComputeInput,
-  DescribeComputeInputFilterSensitiveLog,
-  DescribeComputeOutput,
-  DescribeComputeOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeComputeCommand,
-  serializeAws_json1_1DescribeComputeCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeComputeInput, DescribeComputeOutput } from "../models/models_0";
+import { de_DescribeComputeCommand, se_DescribeComputeCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeComputeCommand}.
+ */
 export interface DescribeComputeCommandInput extends DescribeComputeInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeComputeCommand}.
+ */
 export interface DescribeComputeCommandOutput extends DescribeComputeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves properties for a compute resource. To request a compute resource specify the
  *             fleet ID and compute name. If successful, GameLift returns an object containing the build
  *             properties.</p>
@@ -38,13 +41,34 @@ export interface DescribeComputeCommandOutput extends DescribeComputeOutput, __M
  * import { GameLiftClient, DescribeComputeCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeComputeCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // DescribeComputeInput
+ *   FleetId: "STRING_VALUE", // required
+ *   ComputeName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeComputeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeComputeCommandInput - {@link DescribeComputeCommandInput}
+ * @returns {@link DescribeComputeCommandOutput}
  * @see {@link DescribeComputeCommandInput} for command's `input` shape.
  * @see {@link DescribeComputeCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an unrecoverable internal failure while processing the
+ *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
+ *             values before retrying.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
  *
  */
 export class DescribeComputeCommand extends $Command<
@@ -64,6 +88,9 @@ export class DescribeComputeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeComputeCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +119,8 @@ export class DescribeComputeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeComputeInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeComputeOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +130,18 @@ export class DescribeComputeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeComputeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeComputeCommand(input, context);
+    return se_DescribeComputeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeComputeCommandOutput> {
-    return deserializeAws_json1_1DescribeComputeCommand(output, context);
+    return de_DescribeComputeCommand(output, context);
   }
 
   // Start section: command_body_extra

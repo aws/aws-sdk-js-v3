@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
-import {
-  AssociateCustomDomainRequest,
-  AssociateCustomDomainRequestFilterSensitiveLog,
-  AssociateCustomDomainResponse,
-  AssociateCustomDomainResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0AssociateCustomDomainCommand,
-  serializeAws_json1_0AssociateCustomDomainCommand,
-} from "../protocols/Aws_json1_0";
+import { AssociateCustomDomainRequest, AssociateCustomDomainResponse } from "../models/models_0";
+import { de_AssociateCustomDomainCommand, se_AssociateCustomDomainCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link AssociateCustomDomainCommand}.
+ */
 export interface AssociateCustomDomainCommandInput extends AssociateCustomDomainRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AssociateCustomDomainCommand}.
+ */
 export interface AssociateCustomDomainCommandOutput extends AssociateCustomDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associate your own domain name with the App Runner subdomain URL of your App Runner service.</p>
  *          <p>After you call <code>AssociateCustomDomain</code> and receive a successful response, use the information in the <a>CustomDomain</a> record
  *       that's returned to add CNAME records to your Domain Name System (DNS). For each mapped domain name, add a mapping to the target App Runner subdomain and one or
@@ -40,13 +43,30 @@ export interface AssociateCustomDomainCommandOutput extends AssociateCustomDomai
  * import { AppRunnerClient, AssociateCustomDomainCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, AssociateCustomDomainCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
+ * const input = { // AssociateCustomDomainRequest
+ *   ServiceArn: "STRING_VALUE", // required
+ *   DomainName: "STRING_VALUE", // required
+ *   EnableWWWSubdomain: true || false,
+ * };
  * const command = new AssociateCustomDomainCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateCustomDomainCommandInput - {@link AssociateCustomDomainCommandInput}
+ * @returns {@link AssociateCustomDomainCommandOutput}
  * @see {@link AssociateCustomDomainCommandInput} for command's `input` shape.
  * @see {@link AssociateCustomDomainCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>An unexpected service exception occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+ *
+ * @throws {@link InvalidStateException} (client fault)
+ *  <p>You can't perform this action when the resource is in its current state.</p>
+ *
  *
  */
 export class AssociateCustomDomainCommand extends $Command<
@@ -66,6 +86,9 @@ export class AssociateCustomDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateCustomDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +117,8 @@ export class AssociateCustomDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateCustomDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateCustomDomainResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +128,18 @@ export class AssociateCustomDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateCustomDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0AssociateCustomDomainCommand(input, context);
+    return se_AssociateCustomDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateCustomDomainCommandOutput> {
-    return deserializeAws_json1_0AssociateCustomDomainCommand(output, context);
+    return de_AssociateCustomDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,11 +3,23 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { GameLiftServiceException as __BaseException } from "./GameLiftServiceException";
 
-export enum AcceptanceType {
-  ACCEPT = "ACCEPT",
-  REJECT = "REJECT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AcceptanceType = {
+  ACCEPT: "ACCEPT",
+  REJECT: "REJECT",
+} as const;
 
+/**
+ * @public
+ */
+export type AcceptanceType = (typeof AcceptanceType)[keyof typeof AcceptanceType];
+
+/**
+ * @public
+ */
 export interface AcceptMatchInput {
   /**
    * <p>A unique identifier for a matchmaking ticket. The ticket must be in status <code>REQUIRES_ACCEPTANCE</code>; otherwise this
@@ -27,9 +39,13 @@ export interface AcceptMatchInput {
   AcceptanceType: AcceptanceType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AcceptMatchOutput {}
 
 /**
+ * @public
  * <p>The service encountered an unrecoverable internal failure while processing the
  *             request. Clients can retry such requests immediately or after a waiting period.</p>
  */
@@ -52,6 +68,7 @@ export class InternalServiceException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One or more parameter values in the request are invalid. Correct the invalid parameter
  *             values before retrying.</p>
  */
@@ -74,6 +91,7 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
  */
 export class NotFoundException extends __BaseException {
@@ -95,6 +113,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested operation is not supported in the Region specified.</p>
  */
 export class UnsupportedRegionException extends __BaseException {
@@ -115,12 +134,22 @@ export class UnsupportedRegionException extends __BaseException {
   }
 }
 
-export enum RoutingStrategyType {
-  SIMPLE = "SIMPLE",
-  TERMINAL = "TERMINAL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RoutingStrategyType = {
+  SIMPLE: "SIMPLE",
+  TERMINAL: "TERMINAL",
+} as const;
 
 /**
+ * @public
+ */
+export type RoutingStrategyType = (typeof RoutingStrategyType)[keyof typeof RoutingStrategyType];
+
+/**
+ * @public
  * <p>The routing configuration for a fleet alias.</p>
  *          <p>
  *             <b>Related actions</b>
@@ -161,6 +190,7 @@ export interface RoutingStrategy {
 }
 
 /**
+ * @public
  * <p>Properties that describe an alias resource.</p>
  *          <p>
  *             <b>Related actions</b>
@@ -208,6 +238,7 @@ export interface Alias {
 }
 
 /**
+ * @public
  * <p>GameLift Anywhere configuration options for your Anywhere fleets.</p>
  */
 export interface AnywhereConfiguration {
@@ -220,6 +251,7 @@ export interface AnywhereConfiguration {
 }
 
 /**
+ * @public
  * <p>Values for use in player attribute key-value pairs. This object lets
  *             you specify an attribute value using any of the valid data types: string, number, string
  *             array, or data map. Each <code>AttributeValue</code> object can use only one of the
@@ -251,6 +283,7 @@ export interface AttributeValue {
 }
 
 /**
+ * @public
  * <p>Temporary access credentials used for uploading game build files to Amazon GameLift. They are
  *             valid for a limited time. If they expire before you upload your game build, get a new
  *             set by calling <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_RequestUploadCredentials.html">RequestUploadCredentials</a>.</p>
@@ -273,30 +306,67 @@ export interface AwsCredentials {
   SessionToken?: string;
 }
 
-export enum BackfillMode {
-  AUTOMATIC = "AUTOMATIC",
-  MANUAL = "MANUAL",
-}
-
-export enum BalancingStrategy {
-  ON_DEMAND_ONLY = "ON_DEMAND_ONLY",
-  SPOT_ONLY = "SPOT_ONLY",
-  SPOT_PREFERRED = "SPOT_PREFERRED",
-}
-
-export enum OperatingSystem {
-  AMAZON_LINUX = "AMAZON_LINUX",
-  AMAZON_LINUX_2 = "AMAZON_LINUX_2",
-  WINDOWS_2012 = "WINDOWS_2012",
-}
-
-export enum BuildStatus {
-  FAILED = "FAILED",
-  INITIALIZED = "INITIALIZED",
-  READY = "READY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BackfillMode = {
+  AUTOMATIC: "AUTOMATIC",
+  MANUAL: "MANUAL",
+} as const;
 
 /**
+ * @public
+ */
+export type BackfillMode = (typeof BackfillMode)[keyof typeof BackfillMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const BalancingStrategy = {
+  ON_DEMAND_ONLY: "ON_DEMAND_ONLY",
+  SPOT_ONLY: "SPOT_ONLY",
+  SPOT_PREFERRED: "SPOT_PREFERRED",
+} as const;
+
+/**
+ * @public
+ */
+export type BalancingStrategy = (typeof BalancingStrategy)[keyof typeof BalancingStrategy];
+
+/**
+ * @public
+ * @enum
+ */
+export const OperatingSystem = {
+  AMAZON_LINUX: "AMAZON_LINUX",
+  AMAZON_LINUX_2: "AMAZON_LINUX_2",
+  WINDOWS_2012: "WINDOWS_2012",
+} as const;
+
+/**
+ * @public
+ */
+export type OperatingSystem = (typeof OperatingSystem)[keyof typeof OperatingSystem];
+
+/**
+ * @public
+ * @enum
+ */
+export const BuildStatus = {
+  FAILED: "FAILED",
+  INITIALIZED: "INITIALIZED",
+  READY: "READY",
+} as const;
+
+/**
+ * @public
+ */
+export type BuildStatus = (typeof BuildStatus)[keyof typeof BuildStatus];
+
+/**
+ * @public
  * <p>Properties describing a custom game build.</p>
  *          <p>
  *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
@@ -374,12 +444,22 @@ export interface Build {
   ServerSdkVersion?: string;
 }
 
-export enum CertificateType {
-  Disabled = "DISABLED",
-  Generated = "GENERATED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CertificateType = {
+  Disabled: "DISABLED",
+  Generated: "GENERATED",
+} as const;
 
 /**
+ * @public
+ */
+export type CertificateType = (typeof CertificateType)[keyof typeof CertificateType];
+
+/**
+ * @public
  * <p>Determines whether a TLS/SSL certificate is generated for a fleet. This feature must
  *             be enabled when creating the fleet. All instances in a fleet share the same certificate.
  *             The certificate can be retrieved by calling the <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk.html">GameLift Server
@@ -405,6 +485,9 @@ export interface CertificateConfiguration {
   CertificateType: CertificateType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ClaimGameServerInput {
   /**
    * <p>A unique identifier for the game server group where the game server is running. If you are not specifying a game server to claim, this value identifies
@@ -425,16 +508,36 @@ export interface ClaimGameServerInput {
   GameServerData?: string;
 }
 
-export enum GameServerClaimStatus {
-  CLAIMED = "CLAIMED",
-}
-
-export enum GameServerUtilizationStatus {
-  AVAILABLE = "AVAILABLE",
-  UTILIZED = "UTILIZED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const GameServerClaimStatus = {
+  CLAIMED: "CLAIMED",
+} as const;
 
 /**
+ * @public
+ */
+export type GameServerClaimStatus = (typeof GameServerClaimStatus)[keyof typeof GameServerClaimStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const GameServerUtilizationStatus = {
+  AVAILABLE: "AVAILABLE",
+  UTILIZED: "UTILIZED",
+} as const;
+
+/**
+ * @public
+ */
+export type GameServerUtilizationStatus =
+  (typeof GameServerUtilizationStatus)[keyof typeof GameServerUtilizationStatus];
+
+/**
+ * @public
  * <p>
  *             <b>This data type is used with the GameLift FleetIQ and game server groups.</b>
  *          </p>
@@ -532,6 +635,9 @@ export interface GameServer {
   LastHealthCheckTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ClaimGameServerOutput {
   /**
    * <p>Object that describes the newly claimed game server.</p>
@@ -540,6 +646,7 @@ export interface ClaimGameServerOutput {
 }
 
 /**
+ * @public
  * <p>The requested operation would cause a conflict with the current state of a service
  *             resource associated with the request. Resolve the conflict before retrying this
  *             request.</p>
@@ -564,6 +671,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified game server group has no available game servers to fulfill a
  *                 <code>ClaimGameServer</code> request. Clients can retry such requests immediately or
  *             after a waiting period.</p>
@@ -587,6 +695,7 @@ export class OutOfCapacityException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The client failed authentication. Clients should not retry such requests.</p>
  */
 export class UnauthorizedException extends __BaseException {
@@ -607,137 +716,165 @@ export class UnauthorizedException extends __BaseException {
   }
 }
 
-export enum ComparisonOperatorType {
-  GreaterThanOrEqualToThreshold = "GreaterThanOrEqualToThreshold",
-  GreaterThanThreshold = "GreaterThanThreshold",
-  LessThanOrEqualToThreshold = "LessThanOrEqualToThreshold",
-  LessThanThreshold = "LessThanThreshold",
-}
-
-export enum ComputeStatus {
-  ACTIVE = "ACTIVE",
-  PENDING = "PENDING",
-  TERMINATING = "TERMINATING",
-}
-
-export enum EC2InstanceType {
-  c3_2xlarge = "c3.2xlarge",
-  c3_4xlarge = "c3.4xlarge",
-  c3_8xlarge = "c3.8xlarge",
-  c3_large = "c3.large",
-  c3_xlarge = "c3.xlarge",
-  c4_2xlarge = "c4.2xlarge",
-  c4_4xlarge = "c4.4xlarge",
-  c4_8xlarge = "c4.8xlarge",
-  c4_large = "c4.large",
-  c4_xlarge = "c4.xlarge",
-  c5_12xlarge = "c5.12xlarge",
-  c5_18xlarge = "c5.18xlarge",
-  c5_24xlarge = "c5.24xlarge",
-  c5_2xlarge = "c5.2xlarge",
-  c5_4xlarge = "c5.4xlarge",
-  c5_9xlarge = "c5.9xlarge",
-  c5_large = "c5.large",
-  c5_xlarge = "c5.xlarge",
-  c5a_12xlarge = "c5a.12xlarge",
-  c5a_16xlarge = "c5a.16xlarge",
-  c5a_24xlarge = "c5a.24xlarge",
-  c5a_2xlarge = "c5a.2xlarge",
-  c5a_4xlarge = "c5a.4xlarge",
-  c5a_8xlarge = "c5a.8xlarge",
-  c5a_large = "c5a.large",
-  c5a_xlarge = "c5a.xlarge",
-  c5d_12xlarge = "c5d.12xlarge",
-  c5d_18xlarge = "c5d.18xlarge",
-  c5d_24xlarge = "c5d.24xlarge",
-  c5d_2xlarge = "c5d.2xlarge",
-  c5d_4xlarge = "c5d.4xlarge",
-  c5d_9xlarge = "c5d.9xlarge",
-  c5d_large = "c5d.large",
-  c5d_xlarge = "c5d.xlarge",
-  c6a_12xlarge = "c6a.12xlarge",
-  c6a_16xlarge = "c6a.16xlarge",
-  c6a_24xlarge = "c6a.24xlarge",
-  c6a_2xlarge = "c6a.2xlarge",
-  c6a_4xlarge = "c6a.4xlarge",
-  c6a_8xlarge = "c6a.8xlarge",
-  c6a_large = "c6a.large",
-  c6a_xlarge = "c6a.xlarge",
-  c6i_12xlarge = "c6i.12xlarge",
-  c6i_16xlarge = "c6i.16xlarge",
-  c6i_24xlarge = "c6i.24xlarge",
-  c6i_2xlarge = "c6i.2xlarge",
-  c6i_4xlarge = "c6i.4xlarge",
-  c6i_8xlarge = "c6i.8xlarge",
-  c6i_large = "c6i.large",
-  c6i_xlarge = "c6i.xlarge",
-  m3_2xlarge = "m3.2xlarge",
-  m3_large = "m3.large",
-  m3_medium = "m3.medium",
-  m3_xlarge = "m3.xlarge",
-  m4_10xlarge = "m4.10xlarge",
-  m4_2xlarge = "m4.2xlarge",
-  m4_4xlarge = "m4.4xlarge",
-  m4_large = "m4.large",
-  m4_xlarge = "m4.xlarge",
-  m5_12xlarge = "m5.12xlarge",
-  m5_16xlarge = "m5.16xlarge",
-  m5_24xlarge = "m5.24xlarge",
-  m5_2xlarge = "m5.2xlarge",
-  m5_4xlarge = "m5.4xlarge",
-  m5_8xlarge = "m5.8xlarge",
-  m5_large = "m5.large",
-  m5_xlarge = "m5.xlarge",
-  m5a_12xlarge = "m5a.12xlarge",
-  m5a_16xlarge = "m5a.16xlarge",
-  m5a_24xlarge = "m5a.24xlarge",
-  m5a_2xlarge = "m5a.2xlarge",
-  m5a_4xlarge = "m5a.4xlarge",
-  m5a_8xlarge = "m5a.8xlarge",
-  m5a_large = "m5a.large",
-  m5a_xlarge = "m5a.xlarge",
-  r3_2xlarge = "r3.2xlarge",
-  r3_4xlarge = "r3.4xlarge",
-  r3_8xlarge = "r3.8xlarge",
-  r3_large = "r3.large",
-  r3_xlarge = "r3.xlarge",
-  r4_16xlarge = "r4.16xlarge",
-  r4_2xlarge = "r4.2xlarge",
-  r4_4xlarge = "r4.4xlarge",
-  r4_8xlarge = "r4.8xlarge",
-  r4_large = "r4.large",
-  r4_xlarge = "r4.xlarge",
-  r5_12xlarge = "r5.12xlarge",
-  r5_16xlarge = "r5.16xlarge",
-  r5_24xlarge = "r5.24xlarge",
-  r5_2xlarge = "r5.2xlarge",
-  r5_4xlarge = "r5.4xlarge",
-  r5_8xlarge = "r5.8xlarge",
-  r5_large = "r5.large",
-  r5_xlarge = "r5.xlarge",
-  r5a_12xlarge = "r5a.12xlarge",
-  r5a_16xlarge = "r5a.16xlarge",
-  r5a_24xlarge = "r5a.24xlarge",
-  r5a_2xlarge = "r5a.2xlarge",
-  r5a_4xlarge = "r5a.4xlarge",
-  r5a_8xlarge = "r5a.8xlarge",
-  r5a_large = "r5a.large",
-  r5a_xlarge = "r5a.xlarge",
-  r5d_12xlarge = "r5d.12xlarge",
-  r5d_16xlarge = "r5d.16xlarge",
-  r5d_24xlarge = "r5d.24xlarge",
-  r5d_2xlarge = "r5d.2xlarge",
-  r5d_4xlarge = "r5d.4xlarge",
-  r5d_8xlarge = "r5d.8xlarge",
-  r5d_large = "r5d.large",
-  r5d_xlarge = "r5d.xlarge",
-  t2_large = "t2.large",
-  t2_medium = "t2.medium",
-  t2_micro = "t2.micro",
-  t2_small = "t2.small",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ComparisonOperatorType = {
+  GreaterThanOrEqualToThreshold: "GreaterThanOrEqualToThreshold",
+  GreaterThanThreshold: "GreaterThanThreshold",
+  LessThanOrEqualToThreshold: "LessThanOrEqualToThreshold",
+  LessThanThreshold: "LessThanThreshold",
+} as const;
 
 /**
+ * @public
+ */
+export type ComparisonOperatorType = (typeof ComparisonOperatorType)[keyof typeof ComparisonOperatorType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ComputeStatus = {
+  ACTIVE: "ACTIVE",
+  PENDING: "PENDING",
+  TERMINATING: "TERMINATING",
+} as const;
+
+/**
+ * @public
+ */
+export type ComputeStatus = (typeof ComputeStatus)[keyof typeof ComputeStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const EC2InstanceType = {
+  c3_2xlarge: "c3.2xlarge",
+  c3_4xlarge: "c3.4xlarge",
+  c3_8xlarge: "c3.8xlarge",
+  c3_large: "c3.large",
+  c3_xlarge: "c3.xlarge",
+  c4_2xlarge: "c4.2xlarge",
+  c4_4xlarge: "c4.4xlarge",
+  c4_8xlarge: "c4.8xlarge",
+  c4_large: "c4.large",
+  c4_xlarge: "c4.xlarge",
+  c5_12xlarge: "c5.12xlarge",
+  c5_18xlarge: "c5.18xlarge",
+  c5_24xlarge: "c5.24xlarge",
+  c5_2xlarge: "c5.2xlarge",
+  c5_4xlarge: "c5.4xlarge",
+  c5_9xlarge: "c5.9xlarge",
+  c5_large: "c5.large",
+  c5_xlarge: "c5.xlarge",
+  c5a_12xlarge: "c5a.12xlarge",
+  c5a_16xlarge: "c5a.16xlarge",
+  c5a_24xlarge: "c5a.24xlarge",
+  c5a_2xlarge: "c5a.2xlarge",
+  c5a_4xlarge: "c5a.4xlarge",
+  c5a_8xlarge: "c5a.8xlarge",
+  c5a_large: "c5a.large",
+  c5a_xlarge: "c5a.xlarge",
+  c5d_12xlarge: "c5d.12xlarge",
+  c5d_18xlarge: "c5d.18xlarge",
+  c5d_24xlarge: "c5d.24xlarge",
+  c5d_2xlarge: "c5d.2xlarge",
+  c5d_4xlarge: "c5d.4xlarge",
+  c5d_9xlarge: "c5d.9xlarge",
+  c5d_large: "c5d.large",
+  c5d_xlarge: "c5d.xlarge",
+  c6a_12xlarge: "c6a.12xlarge",
+  c6a_16xlarge: "c6a.16xlarge",
+  c6a_24xlarge: "c6a.24xlarge",
+  c6a_2xlarge: "c6a.2xlarge",
+  c6a_4xlarge: "c6a.4xlarge",
+  c6a_8xlarge: "c6a.8xlarge",
+  c6a_large: "c6a.large",
+  c6a_xlarge: "c6a.xlarge",
+  c6i_12xlarge: "c6i.12xlarge",
+  c6i_16xlarge: "c6i.16xlarge",
+  c6i_24xlarge: "c6i.24xlarge",
+  c6i_2xlarge: "c6i.2xlarge",
+  c6i_4xlarge: "c6i.4xlarge",
+  c6i_8xlarge: "c6i.8xlarge",
+  c6i_large: "c6i.large",
+  c6i_xlarge: "c6i.xlarge",
+  m3_2xlarge: "m3.2xlarge",
+  m3_large: "m3.large",
+  m3_medium: "m3.medium",
+  m3_xlarge: "m3.xlarge",
+  m4_10xlarge: "m4.10xlarge",
+  m4_2xlarge: "m4.2xlarge",
+  m4_4xlarge: "m4.4xlarge",
+  m4_large: "m4.large",
+  m4_xlarge: "m4.xlarge",
+  m5_12xlarge: "m5.12xlarge",
+  m5_16xlarge: "m5.16xlarge",
+  m5_24xlarge: "m5.24xlarge",
+  m5_2xlarge: "m5.2xlarge",
+  m5_4xlarge: "m5.4xlarge",
+  m5_8xlarge: "m5.8xlarge",
+  m5_large: "m5.large",
+  m5_xlarge: "m5.xlarge",
+  m5a_12xlarge: "m5a.12xlarge",
+  m5a_16xlarge: "m5a.16xlarge",
+  m5a_24xlarge: "m5a.24xlarge",
+  m5a_2xlarge: "m5a.2xlarge",
+  m5a_4xlarge: "m5a.4xlarge",
+  m5a_8xlarge: "m5a.8xlarge",
+  m5a_large: "m5a.large",
+  m5a_xlarge: "m5a.xlarge",
+  r3_2xlarge: "r3.2xlarge",
+  r3_4xlarge: "r3.4xlarge",
+  r3_8xlarge: "r3.8xlarge",
+  r3_large: "r3.large",
+  r3_xlarge: "r3.xlarge",
+  r4_16xlarge: "r4.16xlarge",
+  r4_2xlarge: "r4.2xlarge",
+  r4_4xlarge: "r4.4xlarge",
+  r4_8xlarge: "r4.8xlarge",
+  r4_large: "r4.large",
+  r4_xlarge: "r4.xlarge",
+  r5_12xlarge: "r5.12xlarge",
+  r5_16xlarge: "r5.16xlarge",
+  r5_24xlarge: "r5.24xlarge",
+  r5_2xlarge: "r5.2xlarge",
+  r5_4xlarge: "r5.4xlarge",
+  r5_8xlarge: "r5.8xlarge",
+  r5_large: "r5.large",
+  r5_xlarge: "r5.xlarge",
+  r5a_12xlarge: "r5a.12xlarge",
+  r5a_16xlarge: "r5a.16xlarge",
+  r5a_24xlarge: "r5a.24xlarge",
+  r5a_2xlarge: "r5a.2xlarge",
+  r5a_4xlarge: "r5a.4xlarge",
+  r5a_8xlarge: "r5a.8xlarge",
+  r5a_large: "r5a.large",
+  r5a_xlarge: "r5a.xlarge",
+  r5d_12xlarge: "r5d.12xlarge",
+  r5d_16xlarge: "r5d.16xlarge",
+  r5d_24xlarge: "r5d.24xlarge",
+  r5d_2xlarge: "r5d.2xlarge",
+  r5d_4xlarge: "r5d.4xlarge",
+  r5d_8xlarge: "r5d.8xlarge",
+  r5d_large: "r5d.large",
+  r5d_xlarge: "r5d.xlarge",
+  t2_large: "t2.large",
+  t2_medium: "t2.medium",
+  t2_micro: "t2.micro",
+  t2_small: "t2.small",
+} as const;
+
+/**
+ * @public
+ */
+export type EC2InstanceType = (typeof EC2InstanceType)[keyof typeof EC2InstanceType];
+
+/**
+ * @public
  * <p>Resources used to host your game servers. A compute resource can be managed GameLift
  *             Amazon EC2 instances or your own resources.</p>
  */
@@ -809,12 +946,22 @@ export interface Compute {
   GameLiftServiceSdkEndpoint?: string;
 }
 
-export enum ComputeType {
-  ANYWHERE = "ANYWHERE",
-  EC2 = "EC2",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ComputeType = {
+  ANYWHERE: "ANYWHERE",
+  EC2: "EC2",
+} as const;
 
 /**
+ * @public
+ */
+export type ComputeType = (typeof ComputeType)[keyof typeof ComputeType];
+
+/**
+ * @public
  * <p>A label that can be assigned to a GameLift resource. </p>
  *         <p>
  *             <b>Learn more</b>
@@ -847,6 +994,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateAliasInput {
   /**
    * <p>A descriptive label that is associated with an alias. Alias names do not need to be unique.</p>
@@ -873,6 +1023,9 @@ export interface CreateAliasInput {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateAliasOutput {
   /**
    * <p>The newly created alias resource.</p>
@@ -881,6 +1034,7 @@ export interface CreateAliasOutput {
 }
 
 /**
+ * @public
  * <p>The requested operation would cause the resource to exceed the allowed service limit.
  *             Resolve the issue before retrying.</p>
  */
@@ -903,6 +1057,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested tagging operation did not succeed. This may be due to invalid tag format
  *             or the maximum tag limit may have been exceeded. Resolve the issue before
  *             retrying.</p>
@@ -926,6 +1081,7 @@ export class TaggingFailedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The location in Amazon S3 where build or script files are stored for access by
  *             Amazon GameLift.</p>
  */
@@ -959,6 +1115,9 @@ export interface S3Location {
   ObjectVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateBuildInput {
   /**
    * <p>A descriptive label associated with a build. Build names do not need to be unique. You can change this value later. </p>
@@ -1009,6 +1168,9 @@ export interface CreateBuildInput {
   ServerSdkVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateBuildOutput {
   /**
    * <p>The newly created build resource, including a unique build IDs and status. </p>
@@ -1029,12 +1191,22 @@ export interface CreateBuildOutput {
   StorageLocation?: S3Location;
 }
 
-export enum IpProtocol {
-  TCP = "TCP",
-  UDP = "UDP",
-}
+/**
+ * @public
+ * @enum
+ */
+export const IpProtocol = {
+  TCP: "TCP",
+  UDP: "UDP",
+} as const;
 
 /**
+ * @public
+ */
+export type IpProtocol = (typeof IpProtocol)[keyof typeof IpProtocol];
+
+/**
+ * @public
  * <p>A range of IP addresses and port settings that allow inbound traffic to connect to
  *             server processes on an instance in a fleet. New game sessions are assigned an IP
  *             address/port number combination, which must fall into the fleet's allowed ranges. Fleets
@@ -1068,12 +1240,22 @@ export interface IpPermission {
   Protocol: IpProtocol | string | undefined;
 }
 
-export enum FleetType {
-  OnDemand = "ON_DEMAND",
-  Spot = "SPOT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FleetType = {
+  OnDemand: "ON_DEMAND",
+  Spot: "SPOT",
+} as const;
 
 /**
+ * @public
+ */
+export type FleetType = (typeof FleetType)[keyof typeof FleetType];
+
+/**
+ * @public
  * <p>A remote location where a multi-location fleet can deploy EC2 instances for game
  *             hosting. </p>
  */
@@ -1084,12 +1266,22 @@ export interface LocationConfiguration {
   Location: string | undefined;
 }
 
-export enum ProtectionPolicy {
-  FullProtection = "FullProtection",
-  NoProtection = "NoProtection",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ProtectionPolicy = {
+  FullProtection: "FullProtection",
+  NoProtection: "NoProtection",
+} as const;
 
 /**
+ * @public
+ */
+export type ProtectionPolicy = (typeof ProtectionPolicy)[keyof typeof ProtectionPolicy];
+
+/**
+ * @public
  * <p>A policy that puts limits on the number of game sessions that a player can create
  *             within a specified span of time. With this policy, you can control players' ability to
  *             consume available resources.</p>
@@ -1117,6 +1309,7 @@ export interface ResourceCreationLimitPolicy {
 }
 
 /**
+ * @public
  * <p>A set of instructions for launching server processes on each instance in a fleet.
  *             Server processes run either an executable in a custom game build or a Realtime Servers script.
  *             Server process configurations are part of a fleet's runtime configuration.</p>
@@ -1154,6 +1347,7 @@ export interface ServerProcess {
 }
 
 /**
+ * @public
  * <p>A collection of server process configurations that describe the set of processes to
  *             run on each instance in a fleet. Server processes run either an executable in a custom
  *             game build or a Realtime Servers script. GameLift launches the configured processes, manages their
@@ -1189,6 +1383,9 @@ export interface RuntimeConfiguration {
   GameSessionActivationTimeoutSeconds?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateFleetInput {
   /**
    * <p>A descriptive label that is associated with a fleet. Fleet names do not need to be unique.</p>
@@ -1386,24 +1583,43 @@ export interface CreateFleetInput {
   AnywhereConfiguration?: AnywhereConfiguration;
 }
 
-export enum FleetStatus {
-  ACTIVATING = "ACTIVATING",
-  ACTIVE = "ACTIVE",
-  BUILDING = "BUILDING",
-  DELETING = "DELETING",
-  DOWNLOADING = "DOWNLOADING",
-  ERROR = "ERROR",
-  NEW = "NEW",
-  NOT_FOUND = "NOT_FOUND",
-  TERMINATED = "TERMINATED",
-  VALIDATING = "VALIDATING",
-}
-
-export enum FleetAction {
-  AutoScaling = "AUTO_SCALING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FleetStatus = {
+  ACTIVATING: "ACTIVATING",
+  ACTIVE: "ACTIVE",
+  BUILDING: "BUILDING",
+  DELETING: "DELETING",
+  DOWNLOADING: "DOWNLOADING",
+  ERROR: "ERROR",
+  NEW: "NEW",
+  NOT_FOUND: "NOT_FOUND",
+  TERMINATED: "TERMINATED",
+  VALIDATING: "VALIDATING",
+} as const;
 
 /**
+ * @public
+ */
+export type FleetStatus = (typeof FleetStatus)[keyof typeof FleetStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const FleetAction = {
+  AutoScaling: "AUTO_SCALING",
+} as const;
+
+/**
+ * @public
+ */
+export type FleetAction = (typeof FleetAction)[keyof typeof FleetAction];
+
+/**
+ * @public
  * <p>Describes a GameLift fleet of game hosting resources.</p>
  *          <p>
  *             <b>Related actions</b>
@@ -1624,6 +1840,7 @@ export interface FleetAttributes {
 }
 
 /**
+ * @public
  * <p>A fleet location and its life-cycle state. A location state object might be used to
  *             describe a fleet's remote location or home Region. Life-cycle state tracks the progress
  *             of launching the first instance in a new location and preparing it for game hosting, and
@@ -1680,6 +1897,9 @@ export interface LocationState {
   Status?: FleetStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateFleetOutput {
   /**
    * <p>The properties for the new fleet, including the current status. All fleets are placed
@@ -1697,6 +1917,9 @@ export interface CreateFleetOutput {
   LocationStates?: LocationState[];
 }
 
+/**
+ * @public
+ */
 export interface CreateFleetLocationsInput {
   /**
    * <p>A unique identifier for the fleet to add locations to. You can use either the fleet ID or ARN value.</p>
@@ -1711,6 +1934,9 @@ export interface CreateFleetLocationsInput {
   Locations: LocationConfiguration[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateFleetLocationsOutput {
   /**
    * <p>A unique identifier for the fleet that was updated with new locations.</p>
@@ -1733,6 +1959,7 @@ export interface CreateFleetLocationsOutput {
 }
 
 /**
+ * @public
  * <p>The requested operation would cause a conflict with the current state of a resource
  *             associated with the request and/or the fleet. Resolve the conflict before
  *             retrying.</p>
@@ -1756,6 +1983,7 @@ export class InvalidFleetStatusException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>
  *             <b>This data type is used with the GameLift FleetIQ and game server groups.</b>
  *          </p>
@@ -1774,6 +2002,7 @@ export interface TargetTrackingConfiguration {
 }
 
 /**
+ * @public
  * <p>
  *             <b>This data type is used with the GameLift FleetIQ and game server groups.</b>
  *          </p>
@@ -1803,103 +2032,123 @@ export interface GameServerGroupAutoScalingPolicy {
   TargetTrackingConfiguration: TargetTrackingConfiguration | undefined;
 }
 
-export enum GameServerProtectionPolicy {
-  FULL_PROTECTION = "FULL_PROTECTION",
-  NO_PROTECTION = "NO_PROTECTION",
-}
-
-export enum GameServerGroupInstanceType {
-  c4_2xlarge = "c4.2xlarge",
-  c4_4xlarge = "c4.4xlarge",
-  c4_8xlarge = "c4.8xlarge",
-  c4_large = "c4.large",
-  c4_xlarge = "c4.xlarge",
-  c5_12xlarge = "c5.12xlarge",
-  c5_18xlarge = "c5.18xlarge",
-  c5_24xlarge = "c5.24xlarge",
-  c5_2xlarge = "c5.2xlarge",
-  c5_4xlarge = "c5.4xlarge",
-  c5_9xlarge = "c5.9xlarge",
-  c5_large = "c5.large",
-  c5_xlarge = "c5.xlarge",
-  c5a_12xlarge = "c5a.12xlarge",
-  c5a_16xlarge = "c5a.16xlarge",
-  c5a_24xlarge = "c5a.24xlarge",
-  c5a_2xlarge = "c5a.2xlarge",
-  c5a_4xlarge = "c5a.4xlarge",
-  c5a_8xlarge = "c5a.8xlarge",
-  c5a_large = "c5a.large",
-  c5a_xlarge = "c5a.xlarge",
-  c6g_12xlarge = "c6g.12xlarge",
-  c6g_16xlarge = "c6g.16xlarge",
-  c6g_2xlarge = "c6g.2xlarge",
-  c6g_4xlarge = "c6g.4xlarge",
-  c6g_8xlarge = "c6g.8xlarge",
-  c6g_large = "c6g.large",
-  c6g_medium = "c6g.medium",
-  c6g_xlarge = "c6g.xlarge",
-  m4_10xlarge = "m4.10xlarge",
-  m4_2xlarge = "m4.2xlarge",
-  m4_4xlarge = "m4.4xlarge",
-  m4_large = "m4.large",
-  m4_xlarge = "m4.xlarge",
-  m5_12xlarge = "m5.12xlarge",
-  m5_16xlarge = "m5.16xlarge",
-  m5_24xlarge = "m5.24xlarge",
-  m5_2xlarge = "m5.2xlarge",
-  m5_4xlarge = "m5.4xlarge",
-  m5_8xlarge = "m5.8xlarge",
-  m5_large = "m5.large",
-  m5_xlarge = "m5.xlarge",
-  m5a_12xlarge = "m5a.12xlarge",
-  m5a_16xlarge = "m5a.16xlarge",
-  m5a_24xlarge = "m5a.24xlarge",
-  m5a_2xlarge = "m5a.2xlarge",
-  m5a_4xlarge = "m5a.4xlarge",
-  m5a_8xlarge = "m5a.8xlarge",
-  m5a_large = "m5a.large",
-  m5a_xlarge = "m5a.xlarge",
-  m6g_12xlarge = "m6g.12xlarge",
-  m6g_16xlarge = "m6g.16xlarge",
-  m6g_2xlarge = "m6g.2xlarge",
-  m6g_4xlarge = "m6g.4xlarge",
-  m6g_8xlarge = "m6g.8xlarge",
-  m6g_large = "m6g.large",
-  m6g_medium = "m6g.medium",
-  m6g_xlarge = "m6g.xlarge",
-  r4_16xlarge = "r4.16xlarge",
-  r4_2xlarge = "r4.2xlarge",
-  r4_4xlarge = "r4.4xlarge",
-  r4_8xlarge = "r4.8xlarge",
-  r4_large = "r4.large",
-  r4_xlarge = "r4.xlarge",
-  r5_12xlarge = "r5.12xlarge",
-  r5_16xlarge = "r5.16xlarge",
-  r5_24xlarge = "r5.24xlarge",
-  r5_2xlarge = "r5.2xlarge",
-  r5_4xlarge = "r5.4xlarge",
-  r5_8xlarge = "r5.8xlarge",
-  r5_large = "r5.large",
-  r5_xlarge = "r5.xlarge",
-  r5a_12xlarge = "r5a.12xlarge",
-  r5a_16xlarge = "r5a.16xlarge",
-  r5a_24xlarge = "r5a.24xlarge",
-  r5a_2xlarge = "r5a.2xlarge",
-  r5a_4xlarge = "r5a.4xlarge",
-  r5a_8xlarge = "r5a.8xlarge",
-  r5a_large = "r5a.large",
-  r5a_xlarge = "r5a.xlarge",
-  r6g_12xlarge = "r6g.12xlarge",
-  r6g_16xlarge = "r6g.16xlarge",
-  r6g_2xlarge = "r6g.2xlarge",
-  r6g_4xlarge = "r6g.4xlarge",
-  r6g_8xlarge = "r6g.8xlarge",
-  r6g_large = "r6g.large",
-  r6g_medium = "r6g.medium",
-  r6g_xlarge = "r6g.xlarge",
-}
+/**
+ * @public
+ * @enum
+ */
+export const GameServerProtectionPolicy = {
+  FULL_PROTECTION: "FULL_PROTECTION",
+  NO_PROTECTION: "NO_PROTECTION",
+} as const;
 
 /**
+ * @public
+ */
+export type GameServerProtectionPolicy = (typeof GameServerProtectionPolicy)[keyof typeof GameServerProtectionPolicy];
+
+/**
+ * @public
+ * @enum
+ */
+export const GameServerGroupInstanceType = {
+  c4_2xlarge: "c4.2xlarge",
+  c4_4xlarge: "c4.4xlarge",
+  c4_8xlarge: "c4.8xlarge",
+  c4_large: "c4.large",
+  c4_xlarge: "c4.xlarge",
+  c5_12xlarge: "c5.12xlarge",
+  c5_18xlarge: "c5.18xlarge",
+  c5_24xlarge: "c5.24xlarge",
+  c5_2xlarge: "c5.2xlarge",
+  c5_4xlarge: "c5.4xlarge",
+  c5_9xlarge: "c5.9xlarge",
+  c5_large: "c5.large",
+  c5_xlarge: "c5.xlarge",
+  c5a_12xlarge: "c5a.12xlarge",
+  c5a_16xlarge: "c5a.16xlarge",
+  c5a_24xlarge: "c5a.24xlarge",
+  c5a_2xlarge: "c5a.2xlarge",
+  c5a_4xlarge: "c5a.4xlarge",
+  c5a_8xlarge: "c5a.8xlarge",
+  c5a_large: "c5a.large",
+  c5a_xlarge: "c5a.xlarge",
+  c6g_12xlarge: "c6g.12xlarge",
+  c6g_16xlarge: "c6g.16xlarge",
+  c6g_2xlarge: "c6g.2xlarge",
+  c6g_4xlarge: "c6g.4xlarge",
+  c6g_8xlarge: "c6g.8xlarge",
+  c6g_large: "c6g.large",
+  c6g_medium: "c6g.medium",
+  c6g_xlarge: "c6g.xlarge",
+  m4_10xlarge: "m4.10xlarge",
+  m4_2xlarge: "m4.2xlarge",
+  m4_4xlarge: "m4.4xlarge",
+  m4_large: "m4.large",
+  m4_xlarge: "m4.xlarge",
+  m5_12xlarge: "m5.12xlarge",
+  m5_16xlarge: "m5.16xlarge",
+  m5_24xlarge: "m5.24xlarge",
+  m5_2xlarge: "m5.2xlarge",
+  m5_4xlarge: "m5.4xlarge",
+  m5_8xlarge: "m5.8xlarge",
+  m5_large: "m5.large",
+  m5_xlarge: "m5.xlarge",
+  m5a_12xlarge: "m5a.12xlarge",
+  m5a_16xlarge: "m5a.16xlarge",
+  m5a_24xlarge: "m5a.24xlarge",
+  m5a_2xlarge: "m5a.2xlarge",
+  m5a_4xlarge: "m5a.4xlarge",
+  m5a_8xlarge: "m5a.8xlarge",
+  m5a_large: "m5a.large",
+  m5a_xlarge: "m5a.xlarge",
+  m6g_12xlarge: "m6g.12xlarge",
+  m6g_16xlarge: "m6g.16xlarge",
+  m6g_2xlarge: "m6g.2xlarge",
+  m6g_4xlarge: "m6g.4xlarge",
+  m6g_8xlarge: "m6g.8xlarge",
+  m6g_large: "m6g.large",
+  m6g_medium: "m6g.medium",
+  m6g_xlarge: "m6g.xlarge",
+  r4_16xlarge: "r4.16xlarge",
+  r4_2xlarge: "r4.2xlarge",
+  r4_4xlarge: "r4.4xlarge",
+  r4_8xlarge: "r4.8xlarge",
+  r4_large: "r4.large",
+  r4_xlarge: "r4.xlarge",
+  r5_12xlarge: "r5.12xlarge",
+  r5_16xlarge: "r5.16xlarge",
+  r5_24xlarge: "r5.24xlarge",
+  r5_2xlarge: "r5.2xlarge",
+  r5_4xlarge: "r5.4xlarge",
+  r5_8xlarge: "r5.8xlarge",
+  r5_large: "r5.large",
+  r5_xlarge: "r5.xlarge",
+  r5a_12xlarge: "r5a.12xlarge",
+  r5a_16xlarge: "r5a.16xlarge",
+  r5a_24xlarge: "r5a.24xlarge",
+  r5a_2xlarge: "r5a.2xlarge",
+  r5a_4xlarge: "r5a.4xlarge",
+  r5a_8xlarge: "r5a.8xlarge",
+  r5a_large: "r5a.large",
+  r5a_xlarge: "r5a.xlarge",
+  r6g_12xlarge: "r6g.12xlarge",
+  r6g_16xlarge: "r6g.16xlarge",
+  r6g_2xlarge: "r6g.2xlarge",
+  r6g_4xlarge: "r6g.4xlarge",
+  r6g_8xlarge: "r6g.8xlarge",
+  r6g_large: "r6g.large",
+  r6g_medium: "r6g.medium",
+  r6g_xlarge: "r6g.xlarge",
+} as const;
+
+/**
+ * @public
+ */
+export type GameServerGroupInstanceType =
+  (typeof GameServerGroupInstanceType)[keyof typeof GameServerGroupInstanceType];
+
+/**
+ * @public
  * <p>
  *             <b>This data type is used with the GameLift FleetIQ and game server groups.</b>
  *          </p>
@@ -1926,6 +2175,7 @@ export interface InstanceDefinition {
 }
 
 /**
+ * @public
  * <p>
  *             <b>This data type is used with the GameLift FleetIQ and game server groups.</b>
  *          </p>
@@ -1953,6 +2203,9 @@ export interface LaunchTemplateSpecification {
   Version?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateGameServerGroupInput {
   /**
    * <p>An identifier for the new game server group. This value is used to generate unique ARN
@@ -2082,21 +2335,40 @@ export interface CreateGameServerGroupInput {
   Tags?: Tag[];
 }
 
-export enum GameServerGroupStatus {
-  ACTIVATING = "ACTIVATING",
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-  DELETE_SCHEDULED = "DELETE_SCHEDULED",
-  DELETING = "DELETING",
-  ERROR = "ERROR",
-  NEW = "NEW",
-}
-
-export enum GameServerGroupAction {
-  REPLACE_INSTANCE_TYPES = "REPLACE_INSTANCE_TYPES",
-}
+/**
+ * @public
+ * @enum
+ */
+export const GameServerGroupStatus = {
+  ACTIVATING: "ACTIVATING",
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  DELETE_SCHEDULED: "DELETE_SCHEDULED",
+  DELETING: "DELETING",
+  ERROR: "ERROR",
+  NEW: "NEW",
+} as const;
 
 /**
+ * @public
+ */
+export type GameServerGroupStatus = (typeof GameServerGroupStatus)[keyof typeof GameServerGroupStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const GameServerGroupAction = {
+  REPLACE_INSTANCE_TYPES: "REPLACE_INSTANCE_TYPES",
+} as const;
+
+/**
+ * @public
+ */
+export type GameServerGroupAction = (typeof GameServerGroupAction)[keyof typeof GameServerGroupAction];
+
+/**
+ * @public
  * <p>
  *             <b>This data type is used with the GameLift FleetIQ and game server groups.</b>
  *          </p>
@@ -2246,6 +2518,9 @@ export interface GameServerGroup {
   LastUpdatedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateGameServerGroupOutput {
   /**
    * <p>The newly created game server group object, including the new ARN value for the GameLift FleetIQ
@@ -2257,6 +2532,7 @@ export interface CreateGameServerGroupOutput {
 }
 
 /**
+ * @public
  * <p>Set of key-value pairs that contain information about a game session. When included in
  *             a game session request, these properties communicate details to be used when setting up
  *             the new game session. For example, a game property might specify a game mode, level, or
@@ -2275,6 +2551,9 @@ export interface GameProperty {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateGameSessionInput {
   /**
    * <p>A unique identifier for the fleet to create a game session in. You can use either the fleet ID or ARN value. Each
@@ -2349,24 +2628,53 @@ export interface CreateGameSessionInput {
   Location?: string;
 }
 
-export enum PlayerSessionCreationPolicy {
-  ACCEPT_ALL = "ACCEPT_ALL",
-  DENY_ALL = "DENY_ALL",
-}
-
-export enum GameSessionStatus {
-  ACTIVATING = "ACTIVATING",
-  ACTIVE = "ACTIVE",
-  ERROR = "ERROR",
-  TERMINATED = "TERMINATED",
-  TERMINATING = "TERMINATING",
-}
-
-export enum GameSessionStatusReason {
-  INTERRUPTED = "INTERRUPTED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PlayerSessionCreationPolicy = {
+  ACCEPT_ALL: "ACCEPT_ALL",
+  DENY_ALL: "DENY_ALL",
+} as const;
 
 /**
+ * @public
+ */
+export type PlayerSessionCreationPolicy =
+  (typeof PlayerSessionCreationPolicy)[keyof typeof PlayerSessionCreationPolicy];
+
+/**
+ * @public
+ * @enum
+ */
+export const GameSessionStatus = {
+  ACTIVATING: "ACTIVATING",
+  ACTIVE: "ACTIVE",
+  ERROR: "ERROR",
+  TERMINATED: "TERMINATED",
+  TERMINATING: "TERMINATING",
+} as const;
+
+/**
+ * @public
+ */
+export type GameSessionStatus = (typeof GameSessionStatus)[keyof typeof GameSessionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const GameSessionStatusReason = {
+  INTERRUPTED: "INTERRUPTED",
+} as const;
+
+/**
+ * @public
+ */
+export type GameSessionStatusReason = (typeof GameSessionStatusReason)[keyof typeof GameSessionStatusReason];
+
+/**
+ * @public
  * <p>Properties describing a game session.</p>
  *         <p>A game session in ACTIVE status can host players. When a game session ends, its status
  *             is set to <code>TERMINATED</code>. </p>
@@ -2498,6 +2806,9 @@ export interface GameSession {
   Location?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateGameSessionOutput {
   /**
    * <p>Object that describes the newly created game session record.</p>
@@ -2506,6 +2817,7 @@ export interface CreateGameSessionOutput {
 }
 
 /**
+ * @public
  * <p>The specified fleet has no available instances to fulfill a
  *                 <code>CreateGameSession</code> request. Clients can retry such requests immediately
  *             or after a waiting period.</p>
@@ -2529,6 +2841,7 @@ export class FleetCapacityExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A game session with this custom ID string already exists in this fleet. Resolve this
  *             conflict before retrying this request.</p>
  */
@@ -2551,6 +2864,7 @@ export class IdempotentParameterMismatchException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The service is unable to resolve the routing for a particular alias because it has a
  *             terminal <code>RoutingStrategy</code> associated with it. The message returned in this
  *             exception is the message defined in the routing strategy itself. Such requests should
@@ -2575,6 +2889,7 @@ export class TerminalRoutingStrategyException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A fleet or alias designated in a game session queue. Queues fulfill requests for new
  *             game sessions by placing a new game session on any of the queue's destinations. </p>
  */
@@ -2588,6 +2903,7 @@ export interface GameSessionQueueDestination {
 }
 
 /**
+ * @public
  * <p>A list of fleet locations where a game session queue can place new game sessions. You
  *             can use a filter to temporarily turn off placements for specific locations. For queues
  *             that have multi-location fleets, you can use a filter configuration allow placement with
@@ -2602,6 +2918,7 @@ export interface FilterConfiguration {
 }
 
 /**
+ * @public
  * <p>Sets a latency cap for individual players when placing a game session. With a latency
  *             policy in force, a game session cannot be placed in a fleet location where a player
  *             reports latency higher than the cap. Latency policies are used only with placement
@@ -2623,14 +2940,24 @@ export interface PlayerLatencyPolicy {
   PolicyDurationSeconds?: number;
 }
 
-export enum PriorityType {
-  COST = "COST",
-  DESTINATION = "DESTINATION",
-  LATENCY = "LATENCY",
-  LOCATION = "LOCATION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PriorityType = {
+  COST: "COST",
+  DESTINATION: "DESTINATION",
+  LATENCY: "LATENCY",
+  LOCATION: "LOCATION",
+} as const;
 
 /**
+ * @public
+ */
+export type PriorityType = (typeof PriorityType)[keyof typeof PriorityType];
+
+/**
+ * @public
  * <p>Custom prioritization settings for use by a game session queue when placing new game
  *             sessions with available game servers. When defined, this configuration replaces the
  *             default FleetIQ prioritization process, which is as follows:</p>
@@ -2693,6 +3020,9 @@ export interface PriorityConfiguration {
   LocationOrder?: string[];
 }
 
+/**
+ * @public
+ */
 export interface CreateGameSessionQueueInput {
   /**
    * <p>A descriptive label that is associated with game session queue. Queue names must be unique within each Region.</p>
@@ -2756,6 +3086,7 @@ export interface CreateGameSessionQueueInput {
 }
 
 /**
+ * @public
  * <p>Configuration for a game session placement mechanism that processes requests for new
  *             game sessions. A queue can be used on its own or as part of a matchmaking
  *             solution.</p>
@@ -2820,6 +3151,9 @@ export interface GameSessionQueue {
   NotificationTarget?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateGameSessionQueueOutput {
   /**
    * <p>An object that describes the newly created game session queue.</p>
@@ -2827,6 +3161,9 @@ export interface CreateGameSessionQueueOutput {
   GameSessionQueue?: GameSessionQueue;
 }
 
+/**
+ * @public
+ */
 export interface CreateLocationInput {
   /**
    * <p>A descriptive name for the custom location.</p>
@@ -2843,6 +3180,7 @@ export interface CreateLocationInput {
 }
 
 /**
+ * @public
  * <p>Properties of a location</p>
  */
 export interface LocationModel {
@@ -2857,6 +3195,9 @@ export interface LocationModel {
   LocationArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateLocationOutput {
   /**
    * <p>The details of the custom location you created.</p>
@@ -2864,11 +3205,23 @@ export interface CreateLocationOutput {
   Location?: LocationModel;
 }
 
-export enum FlexMatchMode {
-  STANDALONE = "STANDALONE",
-  WITH_QUEUE = "WITH_QUEUE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FlexMatchMode = {
+  STANDALONE: "STANDALONE",
+  WITH_QUEUE: "WITH_QUEUE",
+} as const;
 
+/**
+ * @public
+ */
+export type FlexMatchMode = (typeof FlexMatchMode)[keyof typeof FlexMatchMode];
+
+/**
+ * @public
+ */
 export interface CreateMatchmakingConfigurationInput {
   /**
    * <p>A unique identifier for the matchmaking configuration. This name is used to identify the configuration associated with a matchmaking
@@ -2990,6 +3343,7 @@ export interface CreateMatchmakingConfigurationInput {
 }
 
 /**
+ * @public
  * <p>Guidelines for use with FlexMatch to match players into games. All matchmaking requests
  *             must specify a matchmaking configuration.</p>
  */
@@ -3118,6 +3472,9 @@ export interface MatchmakingConfiguration {
   FlexMatchMode?: FlexMatchMode | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateMatchmakingConfigurationOutput {
   /**
    * <p>Object that describes the newly created matchmaking configuration.</p>
@@ -3125,6 +3482,9 @@ export interface CreateMatchmakingConfigurationOutput {
   Configuration?: MatchmakingConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface CreateMatchmakingRuleSetInput {
   /**
    * <p>A unique identifier for the matchmaking rule set. A matchmaking configuration identifies the rule set it uses by this name
@@ -3149,6 +3509,7 @@ export interface CreateMatchmakingRuleSetInput {
 }
 
 /**
+ * @public
  * <p>Set of rule statements, used with FlexMatch, that determine how to build your player
  *             matches. Each rule set describes a type of group to be created and defines the
  *             parameters for acceptable player matches.</p>
@@ -3211,6 +3572,9 @@ export interface MatchmakingRuleSet {
   CreationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateMatchmakingRuleSetOutput {
   /**
    * <p>The newly created matchmaking rule set.</p>
@@ -3218,6 +3582,9 @@ export interface CreateMatchmakingRuleSetOutput {
   RuleSet: MatchmakingRuleSet | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreatePlayerSessionInput {
   /**
    * <p>A unique identifier for the game session to add a player to.</p>
@@ -3235,14 +3602,24 @@ export interface CreatePlayerSessionInput {
   PlayerData?: string;
 }
 
-export enum PlayerSessionStatus {
-  ACTIVE = "ACTIVE",
-  COMPLETED = "COMPLETED",
-  RESERVED = "RESERVED",
-  TIMEDOUT = "TIMEDOUT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PlayerSessionStatus = {
+  ACTIVE: "ACTIVE",
+  COMPLETED: "COMPLETED",
+  RESERVED: "RESERVED",
+  TIMEDOUT: "TIMEDOUT",
+} as const;
 
 /**
+ * @public
+ */
+export type PlayerSessionStatus = (typeof PlayerSessionStatus)[keyof typeof PlayerSessionStatus];
+
+/**
+ * @public
  * <p>Represents a player session. Player sessions are created either for a specific game
  *             session, or as part of a game session placement or matchmaking request. A player session
  *             can represents a reserved player slot in a game session (when status is
@@ -3358,6 +3735,9 @@ export interface PlayerSession {
   PlayerData?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreatePlayerSessionOutput {
   /**
    * <p>Object that describes the newly created player session record.</p>
@@ -3366,6 +3746,7 @@ export interface CreatePlayerSessionOutput {
 }
 
 /**
+ * @public
  * <p>The game instance is currently full and cannot allow the requested player(s) to join.
  *             Clients can retry such requests immediately or after a waiting period.</p>
  */
@@ -3388,6 +3769,7 @@ export class GameSessionFullException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested operation would cause a conflict with the current state of a resource
  *             associated with the request and/or the game instance. Resolve the conflict before
  *             retrying.</p>
@@ -3410,6 +3792,9 @@ export class InvalidGameSessionStatusException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreatePlayerSessionsInput {
   /**
    * <p>A unique identifier for the game session to add players to.</p>
@@ -3430,6 +3815,9 @@ export interface CreatePlayerSessionsInput {
   PlayerDataMap?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreatePlayerSessionsOutput {
   /**
    * <p>A collection of player session objects created for the added players.</p>
@@ -3437,6 +3825,9 @@ export interface CreatePlayerSessionsOutput {
   PlayerSessions?: PlayerSession[];
 }
 
+/**
+ * @public
+ */
 export interface CreateScriptInput {
   /**
    * <p>A descriptive label that is associated with a script. Script names do not need to be unique. You can use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateScript.html">UpdateScript</a> to
@@ -3485,6 +3876,7 @@ export interface CreateScriptInput {
 }
 
 /**
+ * @public
  * <p>Properties describing a Realtime script.</p>
  *          <p>
  *             <b>Related actions</b>
@@ -3538,6 +3930,9 @@ export interface Script {
   StorageLocation?: S3Location;
 }
 
+/**
+ * @public
+ */
 export interface CreateScriptOutput {
   /**
    * <p>The newly created script record with a unique script ID and ARN. The new script's
@@ -3550,6 +3945,9 @@ export interface CreateScriptOutput {
   Script?: Script;
 }
 
+/**
+ * @public
+ */
 export interface CreateVpcPeeringAuthorizationInput {
   /**
    * <p>A unique identifier for the Amazon Web Services account that you use to manage your GameLift fleet.
@@ -3567,6 +3965,7 @@ export interface CreateVpcPeeringAuthorizationInput {
 }
 
 /**
+ * @public
  * <p>Represents an authorization for a VPC peering connection between the VPC for an
  *             Amazon GameLift fleet and another VPC on an account you have access to. This authorization
  *             must exist and be valid for the peering connection to be established. Authorizations are
@@ -3610,6 +4009,9 @@ export interface VpcPeeringAuthorization {
   ExpirationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateVpcPeeringAuthorizationOutput {
   /**
    * <p>Details on the requested VPC peering authorization, including expiration.</p>
@@ -3617,6 +4019,9 @@ export interface CreateVpcPeeringAuthorizationOutput {
   VpcPeeringAuthorization?: VpcPeeringAuthorization;
 }
 
+/**
+ * @public
+ */
 export interface CreateVpcPeeringConnectionInput {
   /**
    * <p>A unique identifier for the fleet. You can use either the fleet ID or ARN value. This tells Amazon GameLift which GameLift
@@ -3640,8 +4045,14 @@ export interface CreateVpcPeeringConnectionInput {
   PeerVpcId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateVpcPeeringConnectionOutput {}
 
+/**
+ * @public
+ */
 export interface DeleteAliasInput {
   /**
    * <p>A unique identifier of the alias that you want to delete. You can use either the alias
@@ -3650,6 +4061,9 @@ export interface DeleteAliasInput {
   AliasId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBuildInput {
   /**
    * <p>A unique identifier for the build to delete. You can use either the build ID or ARN value. </p>
@@ -3657,6 +4071,9 @@ export interface DeleteBuildInput {
   BuildId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFleetInput {
   /**
    * <p>A unique identifier for the fleet to be deleted. You can use either the fleet ID or ARN value.</p>
@@ -3664,6 +4081,9 @@ export interface DeleteFleetInput {
   FleetId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFleetLocationsInput {
   /**
    * <p>A unique identifier for the fleet to delete locations for. You can use either the fleet ID or ARN value.</p>
@@ -3677,6 +4097,9 @@ export interface DeleteFleetLocationsInput {
   Locations: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFleetLocationsOutput {
   /**
    * <p>A unique identifier for the fleet that location attributes are being deleted for.</p>
@@ -3695,12 +4118,25 @@ export interface DeleteFleetLocationsOutput {
   LocationStates?: LocationState[];
 }
 
-export enum GameServerGroupDeleteOption {
-  FORCE_DELETE = "FORCE_DELETE",
-  RETAIN = "RETAIN",
-  SAFE_DELETE = "SAFE_DELETE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const GameServerGroupDeleteOption = {
+  FORCE_DELETE: "FORCE_DELETE",
+  RETAIN: "RETAIN",
+  SAFE_DELETE: "SAFE_DELETE",
+} as const;
 
+/**
+ * @public
+ */
+export type GameServerGroupDeleteOption =
+  (typeof GameServerGroupDeleteOption)[keyof typeof GameServerGroupDeleteOption];
+
+/**
+ * @public
+ */
 export interface DeleteGameServerGroupInput {
   /**
    * <p>A unique identifier for the game server group. Use either the name or ARN value.</p>
@@ -3732,6 +4168,9 @@ export interface DeleteGameServerGroupInput {
   DeleteOption?: GameServerGroupDeleteOption | string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteGameServerGroupOutput {
   /**
    * <p>An object that describes the deleted game server group resource, with status updated
@@ -3740,6 +4179,9 @@ export interface DeleteGameServerGroupOutput {
   GameServerGroup?: GameServerGroup;
 }
 
+/**
+ * @public
+ */
 export interface DeleteGameSessionQueueInput {
   /**
    * <p>A descriptive label that is associated with game session queue. Queue names must be unique within each Region. You can use either the queue ID or ARN value. </p>
@@ -3747,8 +4189,14 @@ export interface DeleteGameSessionQueueInput {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteGameSessionQueueOutput {}
 
+/**
+ * @public
+ */
 export interface DeleteLocationInput {
   /**
    * <p>The location name of the custom location to be deleted.</p>
@@ -3756,8 +4204,14 @@ export interface DeleteLocationInput {
   LocationName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLocationOutput {}
 
+/**
+ * @public
+ */
 export interface DeleteMatchmakingConfigurationInput {
   /**
    * <p>A unique identifier for the matchmaking configuration. You can use either the configuration name or ARN value.</p>
@@ -3765,8 +4219,14 @@ export interface DeleteMatchmakingConfigurationInput {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMatchmakingConfigurationOutput {}
 
+/**
+ * @public
+ */
 export interface DeleteMatchmakingRuleSetInput {
   /**
    * <p>A unique identifier for the matchmaking rule set to be deleted. (Note: The rule set name is different from the optional "name"
@@ -3775,8 +4235,14 @@ export interface DeleteMatchmakingRuleSetInput {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMatchmakingRuleSetOutput {}
 
+/**
+ * @public
+ */
 export interface DeleteScalingPolicyInput {
   /**
    * <p>A descriptive label that is associated with a fleet's scaling policy. Policy names do not need to be unique.</p>
@@ -3789,6 +4255,9 @@ export interface DeleteScalingPolicyInput {
   FleetId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteScriptInput {
   /**
    * <p>A unique identifier for the Realtime script to delete. You can use either the script ID or ARN value.</p>
@@ -3796,6 +4265,9 @@ export interface DeleteScriptInput {
   ScriptId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVpcPeeringAuthorizationInput {
   /**
    * <p>A unique identifier for the Amazon Web Services account that you use to manage your GameLift fleet.
@@ -3812,8 +4284,14 @@ export interface DeleteVpcPeeringAuthorizationInput {
   PeerVpcId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVpcPeeringAuthorizationOutput {}
 
+/**
+ * @public
+ */
 export interface DeleteVpcPeeringConnectionInput {
   /**
    * <p>A unique identifier for the fleet. This fleet specified must match the fleet referenced in the VPC peering
@@ -3827,8 +4305,14 @@ export interface DeleteVpcPeeringConnectionInput {
   VpcPeeringConnectionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVpcPeeringConnectionOutput {}
 
+/**
+ * @public
+ */
 export interface DeregisterComputeInput {
   /**
    * <p>>A unique identifier for the fleet the compute resource is registered to.</p>
@@ -3841,8 +4325,14 @@ export interface DeregisterComputeInput {
   ComputeName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterComputeOutput {}
 
+/**
+ * @public
+ */
 export interface DeregisterGameServerInput {
   /**
    * <p>A unique identifier for the game server group where the game server is running.</p>
@@ -3855,6 +4345,9 @@ export interface DeregisterGameServerInput {
   GameServerId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAliasInput {
   /**
    * <p>The unique identifier for the fleet alias that you want to retrieve. You can use
@@ -3863,6 +4356,9 @@ export interface DescribeAliasInput {
   AliasId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAliasOutput {
   /**
    * <p>The requested alias resource.</p>
@@ -3870,6 +4366,9 @@ export interface DescribeAliasOutput {
   Alias?: Alias;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBuildInput {
   /**
    * <p>A unique identifier for the build to retrieve properties for. You can use either the build ID or ARN value.
@@ -3878,6 +4377,9 @@ export interface DescribeBuildInput {
   BuildId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBuildOutput {
   /**
    * <p>Set of properties describing the requested build.</p>
@@ -3885,6 +4387,9 @@ export interface DescribeBuildOutput {
   Build?: Build;
 }
 
+/**
+ * @public
+ */
 export interface DescribeComputeInput {
   /**
    * <p>A unique identifier for the fleet the compute is registered to.</p>
@@ -3897,6 +4402,9 @@ export interface DescribeComputeInput {
   ComputeName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeComputeOutput {
   /**
    * <p>The details of the compute resource you registered to the specified fleet.</p>
@@ -3904,6 +4412,9 @@ export interface DescribeComputeOutput {
   Compute?: Compute;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEC2InstanceLimitsInput {
   /**
    * <p>Name of an Amazon EC2 instance type that is supported in GameLift. A fleet instance type
@@ -3921,6 +4432,7 @@ export interface DescribeEC2InstanceLimitsInput {
 }
 
 /**
+ * @public
  * <p>The GameLift service limits for an Amazon EC2 instance type and current utilization. GameLift
  *             allows Amazon Web Services accounts a maximum number of instances, per instance type, per Amazon Web Services Region
  *             or location, for use with GameLift. You can request an limit increase for your account by
@@ -3952,6 +4464,9 @@ export interface EC2InstanceLimit {
   Location?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEC2InstanceLimitsOutput {
   /**
    * <p>The maximum number of instances for the specified instance type.</p>
@@ -3959,6 +4474,9 @@ export interface DescribeEC2InstanceLimitsOutput {
   EC2InstanceLimits?: EC2InstanceLimit[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetAttributesInput {
   /**
    * <p>A list of unique fleet identifiers to retrieve attributes for. You can use either the
@@ -3980,6 +4498,9 @@ export interface DescribeFleetAttributesInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetAttributesOutput {
   /**
    * <p>A collection of objects containing attribute metadata for each requested fleet ID.
@@ -3993,6 +4514,9 @@ export interface DescribeFleetAttributesOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetCapacityInput {
   /**
    * <p>A unique identifier for the fleet to retrieve capacity information for. You can use either the fleet ID or ARN
@@ -4015,6 +4539,7 @@ export interface DescribeFleetCapacityInput {
 }
 
 /**
+ * @public
  * <p>Resource capacity settings. Fleet capacity is measured in Amazon EC2 instances. Pending and
  *             terminating counts are non-zero when the fleet capacity is adjusting to a scaling event
  *             or if access to resources is temporarily affected.</p>
@@ -4059,6 +4584,7 @@ export interface EC2InstanceCounts {
 }
 
 /**
+ * @public
  * <p>Current resource capacity settings in a specified fleet or location. The location
  *             value might refer to a fleet's remote location or its home Region. </p>
  *          <p>
@@ -4101,6 +4627,9 @@ export interface FleetCapacity {
   Location?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetCapacityOutput {
   /**
    * <p>A collection of objects that contains capacity information for each requested fleet
@@ -4114,6 +4643,9 @@ export interface DescribeFleetCapacityOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetEventsInput {
   /**
    * <p>A unique identifier for the fleet to get event logs for. You can use either the fleet ID or ARN value.</p>
@@ -4145,44 +4677,54 @@ export interface DescribeFleetEventsInput {
   NextToken?: string;
 }
 
-export enum EventCode {
-  FLEET_ACTIVATION_FAILED = "FLEET_ACTIVATION_FAILED",
-  FLEET_ACTIVATION_FAILED_NO_INSTANCES = "FLEET_ACTIVATION_FAILED_NO_INSTANCES",
-  FLEET_BINARY_DOWNLOAD_FAILED = "FLEET_BINARY_DOWNLOAD_FAILED",
-  FLEET_CREATED = "FLEET_CREATED",
-  FLEET_CREATION_EXTRACTING_BUILD = "FLEET_CREATION_EXTRACTING_BUILD",
-  FLEET_CREATION_RUNNING_INSTALLER = "FLEET_CREATION_RUNNING_INSTALLER",
-  FLEET_CREATION_VALIDATING_RUNTIME_CONFIG = "FLEET_CREATION_VALIDATING_RUNTIME_CONFIG",
-  FLEET_DELETED = "FLEET_DELETED",
-  FLEET_INITIALIZATION_FAILED = "FLEET_INITIALIZATION_FAILED",
-  FLEET_NEW_GAME_SESSION_PROTECTION_POLICY_UPDATED = "FLEET_NEW_GAME_SESSION_PROTECTION_POLICY_UPDATED",
-  FLEET_SCALING_EVENT = "FLEET_SCALING_EVENT",
-  FLEET_STATE_ACTIVATING = "FLEET_STATE_ACTIVATING",
-  FLEET_STATE_ACTIVE = "FLEET_STATE_ACTIVE",
-  FLEET_STATE_BUILDING = "FLEET_STATE_BUILDING",
-  FLEET_STATE_DOWNLOADING = "FLEET_STATE_DOWNLOADING",
-  FLEET_STATE_ERROR = "FLEET_STATE_ERROR",
-  FLEET_STATE_VALIDATING = "FLEET_STATE_VALIDATING",
-  FLEET_VALIDATION_EXECUTABLE_RUNTIME_FAILURE = "FLEET_VALIDATION_EXECUTABLE_RUNTIME_FAILURE",
-  FLEET_VALIDATION_LAUNCH_PATH_NOT_FOUND = "FLEET_VALIDATION_LAUNCH_PATH_NOT_FOUND",
-  FLEET_VALIDATION_TIMED_OUT = "FLEET_VALIDATION_TIMED_OUT",
-  FLEET_VPC_PEERING_DELETED = "FLEET_VPC_PEERING_DELETED",
-  FLEET_VPC_PEERING_FAILED = "FLEET_VPC_PEERING_FAILED",
-  FLEET_VPC_PEERING_SUCCEEDED = "FLEET_VPC_PEERING_SUCCEEDED",
-  GAME_SESSION_ACTIVATION_TIMEOUT = "GAME_SESSION_ACTIVATION_TIMEOUT",
-  GENERIC_EVENT = "GENERIC_EVENT",
-  INSTANCE_INTERRUPTED = "INSTANCE_INTERRUPTED",
-  INSTANCE_RECYCLED = "INSTANCE_RECYCLED",
-  SERVER_PROCESS_CRASHED = "SERVER_PROCESS_CRASHED",
-  SERVER_PROCESS_FORCE_TERMINATED = "SERVER_PROCESS_FORCE_TERMINATED",
-  SERVER_PROCESS_INVALID_PATH = "SERVER_PROCESS_INVALID_PATH",
-  SERVER_PROCESS_PROCESS_EXIT_TIMEOUT = "SERVER_PROCESS_PROCESS_EXIT_TIMEOUT",
-  SERVER_PROCESS_PROCESS_READY_TIMEOUT = "SERVER_PROCESS_PROCESS_READY_TIMEOUT",
-  SERVER_PROCESS_SDK_INITIALIZATION_TIMEOUT = "SERVER_PROCESS_SDK_INITIALIZATION_TIMEOUT",
-  SERVER_PROCESS_TERMINATED_UNHEALTHY = "SERVER_PROCESS_TERMINATED_UNHEALTHY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EventCode = {
+  FLEET_ACTIVATION_FAILED: "FLEET_ACTIVATION_FAILED",
+  FLEET_ACTIVATION_FAILED_NO_INSTANCES: "FLEET_ACTIVATION_FAILED_NO_INSTANCES",
+  FLEET_BINARY_DOWNLOAD_FAILED: "FLEET_BINARY_DOWNLOAD_FAILED",
+  FLEET_CREATED: "FLEET_CREATED",
+  FLEET_CREATION_EXTRACTING_BUILD: "FLEET_CREATION_EXTRACTING_BUILD",
+  FLEET_CREATION_RUNNING_INSTALLER: "FLEET_CREATION_RUNNING_INSTALLER",
+  FLEET_CREATION_VALIDATING_RUNTIME_CONFIG: "FLEET_CREATION_VALIDATING_RUNTIME_CONFIG",
+  FLEET_DELETED: "FLEET_DELETED",
+  FLEET_INITIALIZATION_FAILED: "FLEET_INITIALIZATION_FAILED",
+  FLEET_NEW_GAME_SESSION_PROTECTION_POLICY_UPDATED: "FLEET_NEW_GAME_SESSION_PROTECTION_POLICY_UPDATED",
+  FLEET_SCALING_EVENT: "FLEET_SCALING_EVENT",
+  FLEET_STATE_ACTIVATING: "FLEET_STATE_ACTIVATING",
+  FLEET_STATE_ACTIVE: "FLEET_STATE_ACTIVE",
+  FLEET_STATE_BUILDING: "FLEET_STATE_BUILDING",
+  FLEET_STATE_DOWNLOADING: "FLEET_STATE_DOWNLOADING",
+  FLEET_STATE_ERROR: "FLEET_STATE_ERROR",
+  FLEET_STATE_VALIDATING: "FLEET_STATE_VALIDATING",
+  FLEET_VALIDATION_EXECUTABLE_RUNTIME_FAILURE: "FLEET_VALIDATION_EXECUTABLE_RUNTIME_FAILURE",
+  FLEET_VALIDATION_LAUNCH_PATH_NOT_FOUND: "FLEET_VALIDATION_LAUNCH_PATH_NOT_FOUND",
+  FLEET_VALIDATION_TIMED_OUT: "FLEET_VALIDATION_TIMED_OUT",
+  FLEET_VPC_PEERING_DELETED: "FLEET_VPC_PEERING_DELETED",
+  FLEET_VPC_PEERING_FAILED: "FLEET_VPC_PEERING_FAILED",
+  FLEET_VPC_PEERING_SUCCEEDED: "FLEET_VPC_PEERING_SUCCEEDED",
+  GAME_SESSION_ACTIVATION_TIMEOUT: "GAME_SESSION_ACTIVATION_TIMEOUT",
+  GENERIC_EVENT: "GENERIC_EVENT",
+  INSTANCE_INTERRUPTED: "INSTANCE_INTERRUPTED",
+  INSTANCE_RECYCLED: "INSTANCE_RECYCLED",
+  SERVER_PROCESS_CRASHED: "SERVER_PROCESS_CRASHED",
+  SERVER_PROCESS_FORCE_TERMINATED: "SERVER_PROCESS_FORCE_TERMINATED",
+  SERVER_PROCESS_INVALID_PATH: "SERVER_PROCESS_INVALID_PATH",
+  SERVER_PROCESS_PROCESS_EXIT_TIMEOUT: "SERVER_PROCESS_PROCESS_EXIT_TIMEOUT",
+  SERVER_PROCESS_PROCESS_READY_TIMEOUT: "SERVER_PROCESS_PROCESS_READY_TIMEOUT",
+  SERVER_PROCESS_SDK_INITIALIZATION_TIMEOUT: "SERVER_PROCESS_SDK_INITIALIZATION_TIMEOUT",
+  SERVER_PROCESS_TERMINATED_UNHEALTHY: "SERVER_PROCESS_TERMINATED_UNHEALTHY",
+} as const;
 
 /**
+ * @public
+ */
+export type EventCode = (typeof EventCode)[keyof typeof EventCode];
+
+/**
+ * @public
  * <p>Log entry describing an event that involves GameLift resources (such as a fleet). In
  *             addition to tracking activity, event codes and messages can provide additional
  *             information for troubleshooting and debugging problems.</p>
@@ -4442,6 +4984,9 @@ export interface Event {
   PreSignedLogUrl?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetEventsOutput {
   /**
    * <p>A collection of objects containing event log entries for the specified fleet.</p>
@@ -4454,6 +4999,9 @@ export interface DescribeFleetEventsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetLocationAttributesInput {
   /**
    * <p>A unique identifier for the fleet to retrieve remote locations for. You can use either the fleet ID or ARN
@@ -4478,11 +5026,21 @@ export interface DescribeFleetLocationAttributesInput {
   NextToken?: string;
 }
 
-export enum LocationUpdateStatus {
-  PENDING_UPDATE = "PENDING_UPDATE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LocationUpdateStatus = {
+  PENDING_UPDATE: "PENDING_UPDATE",
+} as const;
 
 /**
+ * @public
+ */
+export type LocationUpdateStatus = (typeof LocationUpdateStatus)[keyof typeof LocationUpdateStatus];
+
+/**
+ * @public
  * <p>Details about a location in a multi-location fleet.</p>
  */
 export interface LocationAttributes {
@@ -4505,6 +5063,9 @@ export interface LocationAttributes {
   UpdateStatus?: LocationUpdateStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetLocationAttributesOutput {
   /**
    * <p>A unique identifier for the fleet that location attributes were requested for.</p>
@@ -4527,6 +5088,9 @@ export interface DescribeFleetLocationAttributesOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetLocationCapacityInput {
   /**
    * <p>A unique identifier for the fleet to request location capacity for. You can use either the fleet ID or ARN
@@ -4541,6 +5105,9 @@ export interface DescribeFleetLocationCapacityInput {
   Location: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetLocationCapacityOutput {
   /**
    * <p>Resource capacity information for the requested fleet location. Capacity objects are
@@ -4549,6 +5116,9 @@ export interface DescribeFleetLocationCapacityOutput {
   FleetCapacity?: FleetCapacity;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetLocationUtilizationInput {
   /**
    * <p>A unique identifier for the fleet to request location utilization for. You can use either the fleet ID or ARN
@@ -4564,6 +5134,7 @@ export interface DescribeFleetLocationUtilizationInput {
 }
 
 /**
+ * @public
  * <p>Current resource utilization statistics in a specified fleet or location. The location
  *             value might refer to a fleet's remote location or its home Region.</p>
  *          <p>
@@ -4612,6 +5183,9 @@ export interface FleetUtilization {
   Location?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetLocationUtilizationOutput {
   /**
    * <p>Utilization information for the requested fleet location. Utilization objects are
@@ -4620,6 +5194,9 @@ export interface DescribeFleetLocationUtilizationOutput {
   FleetUtilization?: FleetUtilization;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetPortSettingsInput {
   /**
    * <p>A unique identifier for the fleet to retrieve port settings for. You can use either the fleet ID or ARN
@@ -4634,6 +5211,9 @@ export interface DescribeFleetPortSettingsInput {
   Location?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetPortSettingsOutput {
   /**
    * <p>A unique identifier for the fleet that was requested. </p>
@@ -4664,6 +5244,9 @@ export interface DescribeFleetPortSettingsOutput {
   Location?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetUtilizationInput {
   /**
    * <p>A unique identifier for the fleet to retrieve utilization data for. You can use either the fleet ID or ARN value.
@@ -4684,6 +5267,9 @@ export interface DescribeFleetUtilizationInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetUtilizationOutput {
   /**
    * <p>A collection of objects containing utilization information for each requested fleet
@@ -4697,6 +5283,9 @@ export interface DescribeFleetUtilizationOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGameServerInput {
   /**
    * <p>A unique identifier for the game server group where the game server is running.</p>
@@ -4709,6 +5298,9 @@ export interface DescribeGameServerInput {
   GameServerId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGameServerOutput {
   /**
    * <p>Object that describes the requested game server.</p>
@@ -4716,6 +5308,9 @@ export interface DescribeGameServerOutput {
   GameServer?: GameServer;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGameServerGroupInput {
   /**
    * <p>A unique identifier for the game server group. Use either the name or ARN value.</p>
@@ -4723,6 +5318,9 @@ export interface DescribeGameServerGroupInput {
   GameServerGroupName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGameServerGroupOutput {
   /**
    * <p>An object with the property settings for the requested game server group resource.
@@ -4731,6 +5329,9 @@ export interface DescribeGameServerGroupOutput {
   GameServerGroup?: GameServerGroup;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGameServerInstancesInput {
   /**
    * <p>A unique identifier for the game server group. Use either the name or ARN value.</p>
@@ -4755,13 +5356,23 @@ export interface DescribeGameServerInstancesInput {
   NextToken?: string;
 }
 
-export enum GameServerInstanceStatus {
-  ACTIVE = "ACTIVE",
-  DRAINING = "DRAINING",
-  SPOT_TERMINATING = "SPOT_TERMINATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const GameServerInstanceStatus = {
+  ACTIVE: "ACTIVE",
+  DRAINING: "DRAINING",
+  SPOT_TERMINATING: "SPOT_TERMINATING",
+} as const;
 
 /**
+ * @public
+ */
+export type GameServerInstanceStatus = (typeof GameServerInstanceStatus)[keyof typeof GameServerInstanceStatus];
+
+/**
+ * @public
  * <p>
  *             <b>This data type is used with the GameLift FleetIQ and game server groups.</b>
  *          </p>
@@ -4799,6 +5410,9 @@ export interface GameServerInstance {
   InstanceStatus?: GameServerInstanceStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGameServerInstancesOutput {
   /**
    * <p>The collection of requested game server instances.</p>
@@ -4811,6 +5425,9 @@ export interface DescribeGameServerInstancesOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGameSessionDetailsInput {
   /**
    * <p>A unique identifier for the fleet to retrieve all game sessions active on the fleet. You can use either the fleet
@@ -4855,6 +5472,7 @@ export interface DescribeGameSessionDetailsInput {
 }
 
 /**
+ * @public
  * <p>A game session's properties plus the protection policy currently in force.</p>
  */
 export interface GameSessionDetail {
@@ -4882,6 +5500,9 @@ export interface GameSessionDetail {
   ProtectionPolicy?: ProtectionPolicy | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGameSessionDetailsOutput {
   /**
    * <p>A collection of properties for each game session that matches the request.</p>
@@ -4894,6 +5515,9 @@ export interface DescribeGameSessionDetailsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGameSessionPlacementInput {
   /**
    * <p>A unique identifier for a game session placement to retrieve.</p>
@@ -4902,6 +5526,7 @@ export interface DescribeGameSessionPlacementInput {
 }
 
 /**
+ * @public
  * <p>Information about a player session. This object contains only the player ID and player
  *             session ID. To retrieve full details on a player session, call <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribePlayerSessions.html">DescribePlayerSessions</a> with the player session ID.</p>
  */
@@ -4918,6 +5543,7 @@ export interface PlacedPlayerSession {
 }
 
 /**
+ * @public
  * <p>Regional latency information for a player, used when requesting a new game session.
  *             This value indicates the amount of time lag that exists when the player is connected to
  *             a fleet in the specified Region. The relative difference between a player's latency
@@ -4942,15 +5568,25 @@ export interface PlayerLatency {
   LatencyInMilliseconds?: number;
 }
 
-export enum GameSessionPlacementState {
-  CANCELLED = "CANCELLED",
-  FAILED = "FAILED",
-  FULFILLED = "FULFILLED",
-  PENDING = "PENDING",
-  TIMED_OUT = "TIMED_OUT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const GameSessionPlacementState = {
+  CANCELLED: "CANCELLED",
+  FAILED: "FAILED",
+  FULFILLED: "FULFILLED",
+  PENDING: "PENDING",
+  TIMED_OUT: "TIMED_OUT",
+} as const;
 
 /**
+ * @public
+ */
+export type GameSessionPlacementState = (typeof GameSessionPlacementState)[keyof typeof GameSessionPlacementState];
+
+/**
+ * @public
  * <p>This object includes the full details of the original request plus the current status
  *             and start/end time stamps.</p>
  */
@@ -5106,6 +5742,9 @@ export interface GameSessionPlacement {
   MatchmakerData?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGameSessionPlacementOutput {
   /**
    * <p>Object that describes the requested game session placement.</p>
@@ -5113,6 +5752,9 @@ export interface DescribeGameSessionPlacementOutput {
   GameSessionPlacement?: GameSessionPlacement;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGameSessionQueuesInput {
   /**
    * <p>A list of queue names to retrieve information for. You can use either the queue ID or
@@ -5131,6 +5773,9 @@ export interface DescribeGameSessionQueuesInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGameSessionQueuesOutput {
   /**
    * <p>A collection of objects that describe the requested game session queues.</p>
@@ -5143,6 +5788,9 @@ export interface DescribeGameSessionQueuesOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGameSessionsInput {
   /**
    * <p>A unique identifier for the fleet to retrieve game sessions for. You can use either the fleet ID or ARN value.
@@ -5187,6 +5835,9 @@ export interface DescribeGameSessionsInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGameSessionsOutput {
   /**
    * <p>A collection of properties for each game session that matches the request.</p>
@@ -5199,6 +5850,9 @@ export interface DescribeGameSessionsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInstancesInput {
   /**
    * <p>A unique identifier for the fleet to retrieve instance information for. You can use either the fleet ID or ARN
@@ -5229,13 +5883,23 @@ export interface DescribeInstancesInput {
   Location?: string;
 }
 
-export enum InstanceStatus {
-  ACTIVE = "ACTIVE",
-  PENDING = "PENDING",
-  TERMINATING = "TERMINATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InstanceStatus = {
+  ACTIVE: "ACTIVE",
+  PENDING: "PENDING",
+  TERMINATING: "TERMINATING",
+} as const;
 
 /**
+ * @public
+ */
+export type InstanceStatus = (typeof InstanceStatus)[keyof typeof InstanceStatus];
+
+/**
+ * @public
  * <p>Represents an EC2 instance of virtual computing resources that hosts one or more game
  *             servers. In GameLift, a fleet can contain zero or more instances.</p>
  *          <p>
@@ -5327,6 +5991,9 @@ export interface Instance {
   Location?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInstancesOutput {
   /**
    * <p>A collection of objects containing properties for each instance returned.</p>
@@ -5339,6 +6006,9 @@ export interface DescribeInstancesOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMatchmakingInput {
   /**
    * <p>A unique identifier for a matchmaking ticket. You can include up to 10 ID values. </p>
@@ -5347,6 +6017,7 @@ export interface DescribeMatchmakingInput {
 }
 
 /**
+ * @public
  * <p>Represents a new player session that is created as a result of a successful FlexMatch
  *             match. A successful match automatically creates new player sessions for every player ID
  *             in the original matchmaking request. </p>
@@ -5366,6 +6037,7 @@ export interface MatchedPlayerSession {
 }
 
 /**
+ * @public
  * <p>Connection information for a new game session that is created in response to a start
  *             matchmaking request. Once a match is made, the FlexMatch engine creates a new game session
  *             for it. This information, including the game session endpoint and player sessions for
@@ -5412,6 +6084,7 @@ export interface GameSessionConnectionInfo {
 }
 
 /**
+ * @public
  * <p>Represents a player in matchmaking. When starting a matchmaking request, a player has
  *             a player ID, attributes, and may have latency data. Team information is added after a
  *             match has been successfully completed.</p>
@@ -5425,8 +6098,8 @@ export interface Player {
   /**
    * <p>A collection of key:value pairs containing player information for use in matchmaking.
    *             Player attribute keys must match the <i>playerAttributes</i> used in a
-   *             matchmaking rule set. Example: <code>"PlayerAttributes": {"skill": {"N": "23"},
-   *                 "gameMode": {"S": "deathmatch"}}</code>.</p>
+   *             matchmaking rule set. Example: <code>"PlayerAttributes": \{"skill": \{"N": "23"\},
+   *                 "gameMode": \{"S": "deathmatch"\}\}</code>.</p>
    *         <p>You can provide up to 10 <code>PlayerAttributes</code>.</p>
    */
   PlayerAttributes?: Record<string, AttributeValue>;
@@ -5447,18 +6120,29 @@ export interface Player {
   LatencyInMs?: Record<string, number>;
 }
 
-export enum MatchmakingConfigurationStatus {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  PLACING = "PLACING",
-  QUEUED = "QUEUED",
-  REQUIRES_ACCEPTANCE = "REQUIRES_ACCEPTANCE",
-  SEARCHING = "SEARCHING",
-  TIMED_OUT = "TIMED_OUT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MatchmakingConfigurationStatus = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  PLACING: "PLACING",
+  QUEUED: "QUEUED",
+  REQUIRES_ACCEPTANCE: "REQUIRES_ACCEPTANCE",
+  SEARCHING: "SEARCHING",
+  TIMED_OUT: "TIMED_OUT",
+} as const;
 
 /**
+ * @public
+ */
+export type MatchmakingConfigurationStatus =
+  (typeof MatchmakingConfigurationStatus)[keyof typeof MatchmakingConfigurationStatus];
+
+/**
+ * @public
  * <p>Ticket generated to track the progress of a matchmaking request. Each ticket is
  *             uniquely identified by a ticket ID, supplied by the requester, when creating a
  *             matchmaking request.</p>
@@ -5584,6 +6268,9 @@ export interface MatchmakingTicket {
   EstimatedWaitTime?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMatchmakingOutput {
   /**
    * <p>A collection of existing matchmaking ticket objects matching the request.</p>
@@ -5591,6 +6278,9 @@ export interface DescribeMatchmakingOutput {
   TicketList?: MatchmakingTicket[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeMatchmakingConfigurationsInput {
   /**
    * <p>A unique identifier for the matchmaking configuration(s) to retrieve. You can use either the configuration name or ARN value. To
@@ -5615,6 +6305,9 @@ export interface DescribeMatchmakingConfigurationsInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMatchmakingConfigurationsOutput {
   /**
    * <p>A collection of requested matchmaking configurations.</p>
@@ -5627,6 +6320,9 @@ export interface DescribeMatchmakingConfigurationsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMatchmakingRuleSetsInput {
   /**
    * <p>A list of one or more matchmaking rule set names to retrieve details for. (Note: The
@@ -5646,6 +6342,9 @@ export interface DescribeMatchmakingRuleSetsInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMatchmakingRuleSetsOutput {
   /**
    * <p>A collection of requested matchmaking rule set objects. </p>
@@ -5658,6 +6357,9 @@ export interface DescribeMatchmakingRuleSetsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribePlayerSessionsInput {
   /**
    * <p>A unique identifier for the game session to retrieve player sessions for.</p>
@@ -5717,6 +6419,9 @@ export interface DescribePlayerSessionsInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribePlayerSessionsOutput {
   /**
    * <p>A collection of objects containing properties for each player session that matches the
@@ -5730,6 +6435,9 @@ export interface DescribePlayerSessionsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRuntimeConfigurationInput {
   /**
    * <p>A unique identifier for the fleet to get the runtime configuration for. You can use either the fleet ID or ARN
@@ -5738,6 +6446,9 @@ export interface DescribeRuntimeConfigurationInput {
   FleetId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRuntimeConfigurationOutput {
   /**
    * <p>Instructions that describe how server processes should be launched and maintained on
@@ -5746,16 +6457,28 @@ export interface DescribeRuntimeConfigurationOutput {
   RuntimeConfiguration?: RuntimeConfiguration;
 }
 
-export enum ScalingStatusType {
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-  DELETE_REQUESTED = "DELETE_REQUESTED",
-  DELETING = "DELETING",
-  ERROR = "ERROR",
-  UPDATE_REQUESTED = "UPDATE_REQUESTED",
-  UPDATING = "UPDATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ScalingStatusType = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  DELETE_REQUESTED: "DELETE_REQUESTED",
+  DELETING: "DELETING",
+  ERROR: "ERROR",
+  UPDATE_REQUESTED: "UPDATE_REQUESTED",
+  UPDATING: "UPDATING",
+} as const;
 
+/**
+ * @public
+ */
+export type ScalingStatusType = (typeof ScalingStatusType)[keyof typeof ScalingStatusType];
+
+/**
+ * @public
+ */
 export interface DescribeScalingPoliciesInput {
   /**
    * <p>A unique identifier for the fleet for which to retrieve scaling policies. You can use either the fleet ID or ARN
@@ -5823,33 +6546,61 @@ export interface DescribeScalingPoliciesInput {
   Location?: string;
 }
 
-export enum MetricName {
-  ActivatingGameSessions = "ActivatingGameSessions",
-  ActiveGameSessions = "ActiveGameSessions",
-  ActiveInstances = "ActiveInstances",
-  AvailableGameSessions = "AvailableGameSessions",
-  AvailablePlayerSessions = "AvailablePlayerSessions",
-  ConcurrentActivatableGameSessions = "ConcurrentActivatableGameSessions",
-  CurrentPlayerSessions = "CurrentPlayerSessions",
-  IdleInstances = "IdleInstances",
-  PercentAvailableGameSessions = "PercentAvailableGameSessions",
-  PercentIdleInstances = "PercentIdleInstances",
-  QueueDepth = "QueueDepth",
-  WaitTime = "WaitTime",
-}
-
-export enum PolicyType {
-  RuleBased = "RuleBased",
-  TargetBased = "TargetBased",
-}
-
-export enum ScalingAdjustmentType {
-  ChangeInCapacity = "ChangeInCapacity",
-  ExactCapacity = "ExactCapacity",
-  PercentChangeInCapacity = "PercentChangeInCapacity",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MetricName = {
+  ActivatingGameSessions: "ActivatingGameSessions",
+  ActiveGameSessions: "ActiveGameSessions",
+  ActiveInstances: "ActiveInstances",
+  AvailableGameSessions: "AvailableGameSessions",
+  AvailablePlayerSessions: "AvailablePlayerSessions",
+  ConcurrentActivatableGameSessions: "ConcurrentActivatableGameSessions",
+  CurrentPlayerSessions: "CurrentPlayerSessions",
+  IdleInstances: "IdleInstances",
+  PercentAvailableGameSessions: "PercentAvailableGameSessions",
+  PercentIdleInstances: "PercentIdleInstances",
+  QueueDepth: "QueueDepth",
+  WaitTime: "WaitTime",
+} as const;
 
 /**
+ * @public
+ */
+export type MetricName = (typeof MetricName)[keyof typeof MetricName];
+
+/**
+ * @public
+ * @enum
+ */
+export const PolicyType = {
+  RuleBased: "RuleBased",
+  TargetBased: "TargetBased",
+} as const;
+
+/**
+ * @public
+ */
+export type PolicyType = (typeof PolicyType)[keyof typeof PolicyType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ScalingAdjustmentType = {
+  ChangeInCapacity: "ChangeInCapacity",
+  ExactCapacity: "ExactCapacity",
+  PercentChangeInCapacity: "PercentChangeInCapacity",
+} as const;
+
+/**
+ * @public
+ */
+export type ScalingAdjustmentType = (typeof ScalingAdjustmentType)[keyof typeof ScalingAdjustmentType];
+
+/**
+ * @public
  * <p>Settings for a target-based scaling policy. A target-based policy tracks a particular
  *             fleet metric specifies a target value for the metric. As player usage changes, the
  *             policy triggers Amazon GameLift to adjust capacity so that the metric returns to the target
@@ -5868,6 +6619,7 @@ export interface TargetConfiguration {
 }
 
 /**
+ * @public
  * <p>Rule that controls how a fleet is scaled. Scaling policies are uniquely identified by
  *             the combination of name and fleet ID.</p>
  */
@@ -6076,6 +6828,9 @@ export interface ScalingPolicy {
   Location?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeScalingPoliciesOutput {
   /**
    * <p>A collection of objects containing the scaling policies matching the request.</p>
@@ -6088,6 +6843,9 @@ export interface DescribeScalingPoliciesOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeScriptInput {
   /**
    * <p>A unique identifier for the Realtime script to retrieve properties for. You can use either the script ID or ARN
@@ -6096,6 +6854,9 @@ export interface DescribeScriptInput {
   ScriptId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeScriptOutput {
   /**
    * <p>A set of properties describing the requested script.</p>
@@ -6103,8 +6864,14 @@ export interface DescribeScriptOutput {
   Script?: Script;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVpcPeeringAuthorizationsInput {}
 
+/**
+ * @public
+ */
 export interface DescribeVpcPeeringAuthorizationsOutput {
   /**
    * <p>A collection of objects that describe all valid VPC peering operations for the current
@@ -6113,6 +6880,9 @@ export interface DescribeVpcPeeringAuthorizationsOutput {
   VpcPeeringAuthorizations?: VpcPeeringAuthorization[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeVpcPeeringConnectionsInput {
   /**
    * <p>A unique identifier for the fleet. You can use either the fleet ID or ARN value.</p>
@@ -6121,6 +6891,7 @@ export interface DescribeVpcPeeringConnectionsInput {
 }
 
 /**
+ * @public
  * <p>Represents status information for a VPC peering connection. Status codes and messages
  *             are provided from EC2 (see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VpcPeeringConnectionStateReason.html">VpcPeeringConnectionStateReason</a>). Connection status information is also
  *             communicated as a fleet event.</p>
@@ -6138,6 +6909,7 @@ export interface VpcPeeringConnectionStatus {
 }
 
 /**
+ * @public
  * <p>Represents a peering connection between a VPC on one of your Amazon Web Services accounts and the
  *             VPC for your Amazon GameLift fleets. This record may be for an active peering connection or a
  *             pending connection that has not yet been established.</p>
@@ -6194,6 +6966,9 @@ export interface VpcPeeringConnection {
   GameLiftVpcId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVpcPeeringConnectionsOutput {
   /**
    * <p>A collection of VPC peering connection records that match the request.</p>
@@ -6202,6 +6977,7 @@ export interface DescribeVpcPeeringConnectionsOutput {
 }
 
 /**
+ * @public
  * <p>Player information for use when creating player sessions using a game session
  *             placement request.</p>
  */
@@ -6217,6 +6993,9 @@ export interface DesiredPlayerSession {
   PlayerData?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetComputeAccessInput {
   /**
    * <p>A unique identifier for the fleet that the compute resource is registered to.</p>
@@ -6229,6 +7008,9 @@ export interface GetComputeAccessInput {
   ComputeName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetComputeAccessOutput {
   /**
    * <p>The fleet ID of compute resource.</p>
@@ -6256,6 +7038,9 @@ export interface GetComputeAccessOutput {
   Credentials?: AwsCredentials;
 }
 
+/**
+ * @public
+ */
 export interface GetComputeAuthTokenInput {
   /**
    * <p>A unique identifier for the fleet that the compute is registered to.</p>
@@ -6269,6 +7054,9 @@ export interface GetComputeAuthTokenInput {
   ComputeName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetComputeAuthTokenOutput {
   /**
    * <p>A unique identifier for the fleet that the compute is registered to.</p>
@@ -6306,6 +7094,9 @@ export interface GetComputeAuthTokenOutput {
   ExpirationTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetGameSessionLogUrlInput {
   /**
    * <p>A unique identifier for the game session to get logs for. </p>
@@ -6313,6 +7104,9 @@ export interface GetGameSessionLogUrlInput {
   GameSessionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetGameSessionLogUrlOutput {
   /**
    * <p>Location of the requested game session logs, available for download. This URL is valid
@@ -6322,6 +7116,9 @@ export interface GetGameSessionLogUrlOutput {
   PreSignedUrl?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetInstanceAccessInput {
   /**
    * <p>A unique identifier for the fleet that contains the instance you want access to. You can use either the fleet ID
@@ -6339,6 +7136,7 @@ export interface GetInstanceAccessInput {
 }
 
 /**
+ * @public
  * <p>Set of credentials required to remotely access a fleet instance.</p>
  */
 export interface InstanceCredentials {
@@ -6356,6 +7154,7 @@ export interface InstanceCredentials {
 }
 
 /**
+ * @public
  * <p>Information required to remotely connect to a fleet instance. </p>
  */
 export interface InstanceAccess {
@@ -6385,6 +7184,9 @@ export interface InstanceAccess {
   Credentials?: InstanceCredentials;
 }
 
+/**
+ * @public
+ */
 export interface GetInstanceAccessOutput {
   /**
    * <p>The connection information for a fleet instance, including IP address and access
@@ -6393,6 +7195,9 @@ export interface GetInstanceAccessOutput {
   InstanceAccess?: InstanceAccess;
 }
 
+/**
+ * @public
+ */
 export interface ListAliasesInput {
   /**
    * <p>The routing type to filter results on. Use this parameter to retrieve only aliases
@@ -6430,6 +7235,9 @@ export interface ListAliasesInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAliasesOutput {
   /**
    * <p>A collection of alias resources that match the request parameters.</p>
@@ -6442,6 +7250,9 @@ export interface ListAliasesOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListBuildsInput {
   /**
    * <p>Build status to filter results by. To retrieve all builds, leave this parameter
@@ -6480,6 +7291,9 @@ export interface ListBuildsInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListBuildsOutput {
   /**
    * <p>A collection of build resources that match the request.</p>
@@ -6492,6 +7306,9 @@ export interface ListBuildsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListComputeInput {
   /**
    * <p>A unique identifier for the fleet the compute resources are registered to.</p>
@@ -6514,6 +7331,9 @@ export interface ListComputeInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListComputeOutput {
   /**
    * <p>A list of compute resources registered to the fleet you specified.</p>
@@ -6526,6 +7346,9 @@ export interface ListComputeOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFleetsInput {
   /**
    * <p>A unique identifier for the build to request fleets for. Use this parameter to return only fleets using a
@@ -6550,6 +7373,9 @@ export interface ListFleetsInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFleetsOutput {
   /**
    * <p>A set of fleet IDs that match the list request.</p>
@@ -6562,6 +7388,9 @@ export interface ListFleetsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListGameServerGroupsInput {
   /**
    * <p>The game server groups' limit.</p>
@@ -6575,6 +7404,9 @@ export interface ListGameServerGroupsInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListGameServerGroupsOutput {
   /**
    * <p>The game server groups' game server groups.</p>
@@ -6588,11 +7420,23 @@ export interface ListGameServerGroupsOutput {
   NextToken?: string;
 }
 
-export enum SortOrder {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SortOrder = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+} as const;
 
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
+
+/**
+ * @public
+ */
 export interface ListGameServersInput {
   /**
    * <p>An identifier for the game server group to retrieve a list of game servers from. Use
@@ -6619,6 +7463,9 @@ export interface ListGameServersInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListGameServersOutput {
   /**
    * <p>A collection of game server objects that match the request.</p>
@@ -6631,11 +7478,23 @@ export interface ListGameServersOutput {
   NextToken?: string;
 }
 
-export enum LocationFilter {
-  AWS = "AWS",
-  CUSTOM = "CUSTOM",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LocationFilter = {
+  AWS: "AWS",
+  CUSTOM: "CUSTOM",
+} as const;
 
+/**
+ * @public
+ */
+export type LocationFilter = (typeof LocationFilter)[keyof typeof LocationFilter];
+
+/**
+ * @public
+ */
 export interface ListLocationsInput {
   /**
    * <p>Filters the list for <code>AWS</code> or <code>CUSTOM</code> locations.</p>
@@ -6653,6 +7512,9 @@ export interface ListLocationsInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListLocationsOutput {
   /**
    * <p>A collection of locations.</p>
@@ -6665,6 +7527,9 @@ export interface ListLocationsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListScriptsInput {
   /**
    * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
@@ -6677,6 +7542,9 @@ export interface ListScriptsInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListScriptsOutput {
   /**
    * <p>A set of properties describing the requested script.</p>
@@ -6689,6 +7557,9 @@ export interface ListScriptsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) that is assigned to and
@@ -6699,6 +7570,9 @@ export interface ListTagsForResourceRequest {
   ResourceARN: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The collection of tags that have been assigned to the specified resource. </p>
@@ -6706,6 +7580,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface PutScalingPolicyInput {
   /**
    * <p>A descriptive label that is associated with a fleet's scaling policy. Policy names do not need to be unique. A fleet can have only one scaling policy with the same name.</p>
@@ -6853,6 +7730,9 @@ export interface PutScalingPolicyInput {
   TargetConfiguration?: TargetConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface PutScalingPolicyOutput {
   /**
    * <p>A descriptive label that is associated with a fleet's scaling policy. Policy names do not need to be unique.</p>
@@ -6860,6 +7740,9 @@ export interface PutScalingPolicyOutput {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface RegisterComputeInput {
   /**
    * <p>A unique identifier for the fleet to register the compute to. You can use either the fleet ID or ARN value.</p>
@@ -6896,6 +7779,9 @@ export interface RegisterComputeInput {
   Location?: string;
 }
 
+/**
+ * @public
+ */
 export interface RegisterComputeOutput {
   /**
    * <p>The details of the compute resource you registered to the specified fleet.</p>
@@ -6903,6 +7789,9 @@ export interface RegisterComputeOutput {
   Compute?: Compute;
 }
 
+/**
+ * @public
+ */
 export interface RegisterGameServerInput {
   /**
    * <p>A unique identifier for the game server group where the game server is running.</p>
@@ -6935,6 +7824,9 @@ export interface RegisterGameServerInput {
   GameServerData?: string;
 }
 
+/**
+ * @public
+ */
 export interface RegisterGameServerOutput {
   /**
    * <p>Object that describes the newly registered game server.</p>
@@ -6942,6 +7834,9 @@ export interface RegisterGameServerOutput {
   GameServer?: GameServer;
 }
 
+/**
+ * @public
+ */
 export interface RequestUploadCredentialsInput {
   /**
    * <p>A unique identifier for the build to get credentials for. You can use either the build ID or ARN value. </p>
@@ -6949,6 +7844,9 @@ export interface RequestUploadCredentialsInput {
   BuildId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RequestUploadCredentialsOutput {
   /**
    * <p>Amazon Web Services credentials required when uploading a game build to the storage location. These
@@ -6964,6 +7862,9 @@ export interface RequestUploadCredentialsOutput {
   StorageLocation?: S3Location;
 }
 
+/**
+ * @public
+ */
 export interface ResolveAliasInput {
   /**
    * <p>The unique identifier of the alias that you want to retrieve a fleet ID for. You can
@@ -6972,6 +7873,9 @@ export interface ResolveAliasInput {
   AliasId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ResolveAliasOutput {
   /**
    * <p>The fleet identifier that the alias is pointing to.</p>
@@ -6985,6 +7889,9 @@ export interface ResolveAliasOutput {
   FleetArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ResumeGameServerGroupInput {
   /**
    * <p>A unique identifier for the game server group. Use either the name or ARN value.</p>
@@ -6997,6 +7904,9 @@ export interface ResumeGameServerGroupInput {
   ResumeActions: (GameServerGroupAction | string)[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ResumeGameServerGroupOutput {
   /**
    * <p>An object that describes the game server group resource, with the
@@ -7006,6 +7916,9 @@ export interface ResumeGameServerGroupOutput {
   GameServerGroup?: GameServerGroup;
 }
 
+/**
+ * @public
+ */
 export interface SearchGameSessionsInput {
   /**
    * <p>A unique identifier for the fleet to search for active game sessions. You can use either the fleet ID or ARN
@@ -7128,6 +8041,9 @@ export interface SearchGameSessionsInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface SearchGameSessionsOutput {
   /**
    * <p>A collection of objects containing game session properties for each session that
@@ -7141,6 +8057,9 @@ export interface SearchGameSessionsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartFleetActionsInput {
   /**
    * <p>A unique identifier for the fleet to restart actions on. You can use either the fleet ID or ARN value.</p>
@@ -7159,6 +8078,9 @@ export interface StartFleetActionsInput {
   Location?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartFleetActionsOutput {
   /**
    * <p>A unique identifier for the fleet to restart actions on.</p>
@@ -7171,6 +8093,9 @@ export interface StartFleetActionsOutput {
   FleetArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartGameSessionPlacementInput {
   /**
    * <p>A unique identifier to assign to the new game session placement. This value is
@@ -7218,6 +8143,9 @@ export interface StartGameSessionPlacementInput {
   GameSessionData?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartGameSessionPlacementOutput {
   /**
    * <p>Object that describes the newly created game session placement. This object includes
@@ -7227,6 +8155,9 @@ export interface StartGameSessionPlacementOutput {
   GameSessionPlacement?: GameSessionPlacement;
 }
 
+/**
+ * @public
+ */
 export interface StartMatchBackfillInput {
   /**
    * <p>A unique identifier for a matchmaking ticket. If no ticket ID is specified here, Amazon GameLift will generate one in the form of a
@@ -7275,6 +8206,9 @@ export interface StartMatchBackfillInput {
   Players: Player[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartMatchBackfillOutput {
   /**
    * <p>Ticket representing the backfill matchmaking request. This object includes the
@@ -7284,6 +8218,9 @@ export interface StartMatchBackfillOutput {
   MatchmakingTicket?: MatchmakingTicket;
 }
 
+/**
+ * @public
+ */
 export interface StartMatchmakingInput {
   /**
    * <p>A unique identifier for a matchmaking ticket. If no ticket ID is specified here, Amazon GameLift will generate one in the form of a
@@ -7310,6 +8247,9 @@ export interface StartMatchmakingInput {
   Players: Player[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartMatchmakingOutput {
   /**
    * <p>Ticket representing the matchmaking request. This object include the information
@@ -7319,6 +8259,9 @@ export interface StartMatchmakingOutput {
   MatchmakingTicket?: MatchmakingTicket;
 }
 
+/**
+ * @public
+ */
 export interface StopFleetActionsInput {
   /**
    * <p>A unique identifier for the fleet to stop actions on. You can use either the fleet ID or ARN value.</p>
@@ -7337,6 +8280,9 @@ export interface StopFleetActionsInput {
   Location?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopFleetActionsOutput {
   /**
    * <p>A unique identifier for the fleet to stop actions on.</p>
@@ -7349,6 +8295,9 @@ export interface StopFleetActionsOutput {
   FleetArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopGameSessionPlacementInput {
   /**
    * <p>A unique identifier for a game session placement to stop.</p>
@@ -7356,6 +8305,9 @@ export interface StopGameSessionPlacementInput {
   PlacementId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopGameSessionPlacementOutput {
   /**
    * <p>Object that describes the canceled game session placement, with <code>CANCELLED</code>
@@ -7364,6 +8316,9 @@ export interface StopGameSessionPlacementOutput {
   GameSessionPlacement?: GameSessionPlacement;
 }
 
+/**
+ * @public
+ */
 export interface StopMatchmakingInput {
   /**
    * <p>A unique identifier for a matchmaking ticket.</p>
@@ -7371,8 +8326,14 @@ export interface StopMatchmakingInput {
   TicketId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopMatchmakingOutput {}
 
+/**
+ * @public
+ */
 export interface SuspendGameServerGroupInput {
   /**
    * <p>A unique identifier for the game server group. Use either the name or ARN value.</p>
@@ -7385,6 +8346,9 @@ export interface SuspendGameServerGroupInput {
   SuspendActions: (GameServerGroupAction | string)[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SuspendGameServerGroupOutput {
   /**
    * <p>An object that describes the game server group resource, with the
@@ -7394,6 +8358,9 @@ export interface SuspendGameServerGroupOutput {
   GameServerGroup?: GameServerGroup;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) that is assigned to and
@@ -7412,8 +8379,14 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) that is assigned to and
@@ -7431,8 +8404,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateAliasInput {
   /**
    * <p>A unique identifier for the alias that you want to update. You can use either the
@@ -7457,6 +8436,9 @@ export interface UpdateAliasInput {
   RoutingStrategy?: RoutingStrategy;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAliasOutput {
   /**
    * <p>The updated alias resource.</p>
@@ -7464,6 +8446,9 @@ export interface UpdateAliasOutput {
   Alias?: Alias;
 }
 
+/**
+ * @public
+ */
 export interface UpdateBuildInput {
   /**
    * <p>A unique identifier for the build to update. You can use either the build ID or ARN value. </p>
@@ -7481,6 +8466,9 @@ export interface UpdateBuildInput {
   Version?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateBuildOutput {
   /**
    * <p>The updated build resource.</p>
@@ -7488,6 +8476,9 @@ export interface UpdateBuildOutput {
   Build?: Build;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFleetAttributesInput {
   /**
    * <p>A unique identifier for the fleet to update attribute metadata for. You can use either the fleet ID or ARN
@@ -7545,6 +8536,9 @@ export interface UpdateFleetAttributesInput {
   AnywhereConfiguration?: AnywhereConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFleetAttributesOutput {
   /**
    * <p>A unique identifier for the fleet that was updated.</p>
@@ -7557,6 +8551,9 @@ export interface UpdateFleetAttributesOutput {
   FleetArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFleetCapacityInput {
   /**
    * <p>A unique identifier for the fleet to update capacity settings for. You can use either the fleet ID or ARN
@@ -7589,6 +8586,9 @@ export interface UpdateFleetCapacityInput {
   Location?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFleetCapacityOutput {
   /**
    * <p>A unique identifier for the fleet that was updated.</p>
@@ -7607,6 +8607,9 @@ export interface UpdateFleetCapacityOutput {
   Location?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFleetPortSettingsInput {
   /**
    * <p>A unique identifier for the fleet to update port settings for. You can use either the fleet ID or ARN
@@ -7628,126 +8631,7 @@ export interface UpdateFleetPortSettingsInput {
 /**
  * @internal
  */
-export const AcceptMatchInputFilterSensitiveLog = (obj: AcceptMatchInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AcceptMatchOutputFilterSensitiveLog = (obj: AcceptMatchOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RoutingStrategyFilterSensitiveLog = (obj: RoutingStrategy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AliasFilterSensitiveLog = (obj: Alias): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnywhereConfigurationFilterSensitiveLog = (obj: AnywhereConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttributeValueFilterSensitiveLog = (obj: AttributeValue): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const AwsCredentialsFilterSensitiveLog = (obj: AwsCredentials): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BuildFilterSensitiveLog = (obj: Build): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CertificateConfigurationFilterSensitiveLog = (obj: CertificateConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClaimGameServerInputFilterSensitiveLog = (obj: ClaimGameServerInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GameServerFilterSensitiveLog = (obj: GameServer): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClaimGameServerOutputFilterSensitiveLog = (obj: ClaimGameServerOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ComputeFilterSensitiveLog = (obj: Compute): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAliasInputFilterSensitiveLog = (obj: CreateAliasInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAliasOutputFilterSensitiveLog = (obj: CreateAliasOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3LocationFilterSensitiveLog = (obj: S3Location): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateBuildInputFilterSensitiveLog = (obj: CreateBuildInput): any => ({
   ...obj,
 });
 
@@ -7762,1161 +8646,9 @@ export const CreateBuildOutputFilterSensitiveLog = (obj: CreateBuildOutput): any
 /**
  * @internal
  */
-export const IpPermissionFilterSensitiveLog = (obj: IpPermission): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LocationConfigurationFilterSensitiveLog = (obj: LocationConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceCreationLimitPolicyFilterSensitiveLog = (obj: ResourceCreationLimitPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServerProcessFilterSensitiveLog = (obj: ServerProcess): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuntimeConfigurationFilterSensitiveLog = (obj: RuntimeConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFleetInputFilterSensitiveLog = (obj: CreateFleetInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FleetAttributesFilterSensitiveLog = (obj: FleetAttributes): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LocationStateFilterSensitiveLog = (obj: LocationState): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFleetOutputFilterSensitiveLog = (obj: CreateFleetOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFleetLocationsInputFilterSensitiveLog = (obj: CreateFleetLocationsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFleetLocationsOutputFilterSensitiveLog = (obj: CreateFleetLocationsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TargetTrackingConfigurationFilterSensitiveLog = (obj: TargetTrackingConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GameServerGroupAutoScalingPolicyFilterSensitiveLog = (obj: GameServerGroupAutoScalingPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceDefinitionFilterSensitiveLog = (obj: InstanceDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchTemplateSpecificationFilterSensitiveLog = (obj: LaunchTemplateSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateGameServerGroupInputFilterSensitiveLog = (obj: CreateGameServerGroupInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GameServerGroupFilterSensitiveLog = (obj: GameServerGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateGameServerGroupOutputFilterSensitiveLog = (obj: CreateGameServerGroupOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GamePropertyFilterSensitiveLog = (obj: GameProperty): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateGameSessionInputFilterSensitiveLog = (obj: CreateGameSessionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GameSessionFilterSensitiveLog = (obj: GameSession): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateGameSessionOutputFilterSensitiveLog = (obj: CreateGameSessionOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GameSessionQueueDestinationFilterSensitiveLog = (obj: GameSessionQueueDestination): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterConfigurationFilterSensitiveLog = (obj: FilterConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PlayerLatencyPolicyFilterSensitiveLog = (obj: PlayerLatencyPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PriorityConfigurationFilterSensitiveLog = (obj: PriorityConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateGameSessionQueueInputFilterSensitiveLog = (obj: CreateGameSessionQueueInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GameSessionQueueFilterSensitiveLog = (obj: GameSessionQueue): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateGameSessionQueueOutputFilterSensitiveLog = (obj: CreateGameSessionQueueOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLocationInputFilterSensitiveLog = (obj: CreateLocationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LocationModelFilterSensitiveLog = (obj: LocationModel): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLocationOutputFilterSensitiveLog = (obj: CreateLocationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateMatchmakingConfigurationInputFilterSensitiveLog = (
-  obj: CreateMatchmakingConfigurationInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MatchmakingConfigurationFilterSensitiveLog = (obj: MatchmakingConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateMatchmakingConfigurationOutputFilterSensitiveLog = (
-  obj: CreateMatchmakingConfigurationOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateMatchmakingRuleSetInputFilterSensitiveLog = (obj: CreateMatchmakingRuleSetInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MatchmakingRuleSetFilterSensitiveLog = (obj: MatchmakingRuleSet): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateMatchmakingRuleSetOutputFilterSensitiveLog = (obj: CreateMatchmakingRuleSetOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePlayerSessionInputFilterSensitiveLog = (obj: CreatePlayerSessionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PlayerSessionFilterSensitiveLog = (obj: PlayerSession): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePlayerSessionOutputFilterSensitiveLog = (obj: CreatePlayerSessionOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePlayerSessionsInputFilterSensitiveLog = (obj: CreatePlayerSessionsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePlayerSessionsOutputFilterSensitiveLog = (obj: CreatePlayerSessionsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateScriptInputFilterSensitiveLog = (obj: CreateScriptInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScriptFilterSensitiveLog = (obj: Script): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateScriptOutputFilterSensitiveLog = (obj: CreateScriptOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateVpcPeeringAuthorizationInputFilterSensitiveLog = (obj: CreateVpcPeeringAuthorizationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcPeeringAuthorizationFilterSensitiveLog = (obj: VpcPeeringAuthorization): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateVpcPeeringAuthorizationOutputFilterSensitiveLog = (
-  obj: CreateVpcPeeringAuthorizationOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateVpcPeeringConnectionInputFilterSensitiveLog = (obj: CreateVpcPeeringConnectionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateVpcPeeringConnectionOutputFilterSensitiveLog = (obj: CreateVpcPeeringConnectionOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAliasInputFilterSensitiveLog = (obj: DeleteAliasInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteBuildInputFilterSensitiveLog = (obj: DeleteBuildInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteFleetInputFilterSensitiveLog = (obj: DeleteFleetInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteFleetLocationsInputFilterSensitiveLog = (obj: DeleteFleetLocationsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteFleetLocationsOutputFilterSensitiveLog = (obj: DeleteFleetLocationsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteGameServerGroupInputFilterSensitiveLog = (obj: DeleteGameServerGroupInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteGameServerGroupOutputFilterSensitiveLog = (obj: DeleteGameServerGroupOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteGameSessionQueueInputFilterSensitiveLog = (obj: DeleteGameSessionQueueInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteGameSessionQueueOutputFilterSensitiveLog = (obj: DeleteGameSessionQueueOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteLocationInputFilterSensitiveLog = (obj: DeleteLocationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteLocationOutputFilterSensitiveLog = (obj: DeleteLocationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMatchmakingConfigurationInputFilterSensitiveLog = (
-  obj: DeleteMatchmakingConfigurationInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMatchmakingConfigurationOutputFilterSensitiveLog = (
-  obj: DeleteMatchmakingConfigurationOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMatchmakingRuleSetInputFilterSensitiveLog = (obj: DeleteMatchmakingRuleSetInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMatchmakingRuleSetOutputFilterSensitiveLog = (obj: DeleteMatchmakingRuleSetOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteScalingPolicyInputFilterSensitiveLog = (obj: DeleteScalingPolicyInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteScriptInputFilterSensitiveLog = (obj: DeleteScriptInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVpcPeeringAuthorizationInputFilterSensitiveLog = (obj: DeleteVpcPeeringAuthorizationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVpcPeeringAuthorizationOutputFilterSensitiveLog = (
-  obj: DeleteVpcPeeringAuthorizationOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVpcPeeringConnectionInputFilterSensitiveLog = (obj: DeleteVpcPeeringConnectionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVpcPeeringConnectionOutputFilterSensitiveLog = (obj: DeleteVpcPeeringConnectionOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterComputeInputFilterSensitiveLog = (obj: DeregisterComputeInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterComputeOutputFilterSensitiveLog = (obj: DeregisterComputeOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterGameServerInputFilterSensitiveLog = (obj: DeregisterGameServerInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAliasInputFilterSensitiveLog = (obj: DescribeAliasInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAliasOutputFilterSensitiveLog = (obj: DescribeAliasOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeBuildInputFilterSensitiveLog = (obj: DescribeBuildInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeBuildOutputFilterSensitiveLog = (obj: DescribeBuildOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeComputeInputFilterSensitiveLog = (obj: DescribeComputeInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeComputeOutputFilterSensitiveLog = (obj: DescribeComputeOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEC2InstanceLimitsInputFilterSensitiveLog = (obj: DescribeEC2InstanceLimitsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EC2InstanceLimitFilterSensitiveLog = (obj: EC2InstanceLimit): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEC2InstanceLimitsOutputFilterSensitiveLog = (obj: DescribeEC2InstanceLimitsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFleetAttributesInputFilterSensitiveLog = (obj: DescribeFleetAttributesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFleetAttributesOutputFilterSensitiveLog = (obj: DescribeFleetAttributesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFleetCapacityInputFilterSensitiveLog = (obj: DescribeFleetCapacityInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EC2InstanceCountsFilterSensitiveLog = (obj: EC2InstanceCounts): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FleetCapacityFilterSensitiveLog = (obj: FleetCapacity): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFleetCapacityOutputFilterSensitiveLog = (obj: DescribeFleetCapacityOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFleetEventsInputFilterSensitiveLog = (obj: DescribeFleetEventsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventFilterSensitiveLog = (obj: Event): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFleetEventsOutputFilterSensitiveLog = (obj: DescribeFleetEventsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFleetLocationAttributesInputFilterSensitiveLog = (
-  obj: DescribeFleetLocationAttributesInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LocationAttributesFilterSensitiveLog = (obj: LocationAttributes): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFleetLocationAttributesOutputFilterSensitiveLog = (
-  obj: DescribeFleetLocationAttributesOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFleetLocationCapacityInputFilterSensitiveLog = (obj: DescribeFleetLocationCapacityInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFleetLocationCapacityOutputFilterSensitiveLog = (
-  obj: DescribeFleetLocationCapacityOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFleetLocationUtilizationInputFilterSensitiveLog = (
-  obj: DescribeFleetLocationUtilizationInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FleetUtilizationFilterSensitiveLog = (obj: FleetUtilization): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFleetLocationUtilizationOutputFilterSensitiveLog = (
-  obj: DescribeFleetLocationUtilizationOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFleetPortSettingsInputFilterSensitiveLog = (obj: DescribeFleetPortSettingsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFleetPortSettingsOutputFilterSensitiveLog = (obj: DescribeFleetPortSettingsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFleetUtilizationInputFilterSensitiveLog = (obj: DescribeFleetUtilizationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFleetUtilizationOutputFilterSensitiveLog = (obj: DescribeFleetUtilizationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeGameServerInputFilterSensitiveLog = (obj: DescribeGameServerInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeGameServerOutputFilterSensitiveLog = (obj: DescribeGameServerOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeGameServerGroupInputFilterSensitiveLog = (obj: DescribeGameServerGroupInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeGameServerGroupOutputFilterSensitiveLog = (obj: DescribeGameServerGroupOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeGameServerInstancesInputFilterSensitiveLog = (obj: DescribeGameServerInstancesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GameServerInstanceFilterSensitiveLog = (obj: GameServerInstance): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeGameServerInstancesOutputFilterSensitiveLog = (obj: DescribeGameServerInstancesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeGameSessionDetailsInputFilterSensitiveLog = (obj: DescribeGameSessionDetailsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GameSessionDetailFilterSensitiveLog = (obj: GameSessionDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeGameSessionDetailsOutputFilterSensitiveLog = (obj: DescribeGameSessionDetailsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeGameSessionPlacementInputFilterSensitiveLog = (obj: DescribeGameSessionPlacementInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PlacedPlayerSessionFilterSensitiveLog = (obj: PlacedPlayerSession): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PlayerLatencyFilterSensitiveLog = (obj: PlayerLatency): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GameSessionPlacementFilterSensitiveLog = (obj: GameSessionPlacement): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeGameSessionPlacementOutputFilterSensitiveLog = (obj: DescribeGameSessionPlacementOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeGameSessionQueuesInputFilterSensitiveLog = (obj: DescribeGameSessionQueuesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeGameSessionQueuesOutputFilterSensitiveLog = (obj: DescribeGameSessionQueuesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeGameSessionsInputFilterSensitiveLog = (obj: DescribeGameSessionsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeGameSessionsOutputFilterSensitiveLog = (obj: DescribeGameSessionsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInstancesInputFilterSensitiveLog = (obj: DescribeInstancesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceFilterSensitiveLog = (obj: Instance): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInstancesOutputFilterSensitiveLog = (obj: DescribeInstancesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeMatchmakingInputFilterSensitiveLog = (obj: DescribeMatchmakingInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MatchedPlayerSessionFilterSensitiveLog = (obj: MatchedPlayerSession): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GameSessionConnectionInfoFilterSensitiveLog = (obj: GameSessionConnectionInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PlayerFilterSensitiveLog = (obj: Player): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MatchmakingTicketFilterSensitiveLog = (obj: MatchmakingTicket): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeMatchmakingOutputFilterSensitiveLog = (obj: DescribeMatchmakingOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeMatchmakingConfigurationsInputFilterSensitiveLog = (
-  obj: DescribeMatchmakingConfigurationsInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeMatchmakingConfigurationsOutputFilterSensitiveLog = (
-  obj: DescribeMatchmakingConfigurationsOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeMatchmakingRuleSetsInputFilterSensitiveLog = (obj: DescribeMatchmakingRuleSetsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeMatchmakingRuleSetsOutputFilterSensitiveLog = (obj: DescribeMatchmakingRuleSetsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePlayerSessionsInputFilterSensitiveLog = (obj: DescribePlayerSessionsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePlayerSessionsOutputFilterSensitiveLog = (obj: DescribePlayerSessionsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRuntimeConfigurationInputFilterSensitiveLog = (obj: DescribeRuntimeConfigurationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRuntimeConfigurationOutputFilterSensitiveLog = (obj: DescribeRuntimeConfigurationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeScalingPoliciesInputFilterSensitiveLog = (obj: DescribeScalingPoliciesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TargetConfigurationFilterSensitiveLog = (obj: TargetConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScalingPolicyFilterSensitiveLog = (obj: ScalingPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeScalingPoliciesOutputFilterSensitiveLog = (obj: DescribeScalingPoliciesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeScriptInputFilterSensitiveLog = (obj: DescribeScriptInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeScriptOutputFilterSensitiveLog = (obj: DescribeScriptOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcPeeringAuthorizationsInputFilterSensitiveLog = (
-  obj: DescribeVpcPeeringAuthorizationsInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcPeeringAuthorizationsOutputFilterSensitiveLog = (
-  obj: DescribeVpcPeeringAuthorizationsOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcPeeringConnectionsInputFilterSensitiveLog = (obj: DescribeVpcPeeringConnectionsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcPeeringConnectionStatusFilterSensitiveLog = (obj: VpcPeeringConnectionStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcPeeringConnectionFilterSensitiveLog = (obj: VpcPeeringConnection): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcPeeringConnectionsOutputFilterSensitiveLog = (
-  obj: DescribeVpcPeeringConnectionsOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DesiredPlayerSessionFilterSensitiveLog = (obj: DesiredPlayerSession): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetComputeAccessInputFilterSensitiveLog = (obj: GetComputeAccessInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetComputeAccessOutputFilterSensitiveLog = (obj: GetComputeAccessOutput): any => ({
   ...obj,
   ...(obj.Credentials && { Credentials: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetComputeAuthTokenInputFilterSensitiveLog = (obj: GetComputeAuthTokenInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetComputeAuthTokenOutputFilterSensitiveLog = (obj: GetComputeAuthTokenOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetGameSessionLogUrlInputFilterSensitiveLog = (obj: GetGameSessionLogUrlInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetGameSessionLogUrlOutputFilterSensitiveLog = (obj: GetGameSessionLogUrlOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInstanceAccessInputFilterSensitiveLog = (obj: GetInstanceAccessInput): any => ({
-  ...obj,
 });
 
 /**
@@ -8945,427 +8677,7 @@ export const GetInstanceAccessOutputFilterSensitiveLog = (obj: GetInstanceAccess
 /**
  * @internal
  */
-export const ListAliasesInputFilterSensitiveLog = (obj: ListAliasesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAliasesOutputFilterSensitiveLog = (obj: ListAliasesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListBuildsInputFilterSensitiveLog = (obj: ListBuildsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListBuildsOutputFilterSensitiveLog = (obj: ListBuildsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListComputeInputFilterSensitiveLog = (obj: ListComputeInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListComputeOutputFilterSensitiveLog = (obj: ListComputeOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFleetsInputFilterSensitiveLog = (obj: ListFleetsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFleetsOutputFilterSensitiveLog = (obj: ListFleetsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListGameServerGroupsInputFilterSensitiveLog = (obj: ListGameServerGroupsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListGameServerGroupsOutputFilterSensitiveLog = (obj: ListGameServerGroupsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListGameServersInputFilterSensitiveLog = (obj: ListGameServersInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListGameServersOutputFilterSensitiveLog = (obj: ListGameServersOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLocationsInputFilterSensitiveLog = (obj: ListLocationsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLocationsOutputFilterSensitiveLog = (obj: ListLocationsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListScriptsInputFilterSensitiveLog = (obj: ListScriptsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListScriptsOutputFilterSensitiveLog = (obj: ListScriptsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutScalingPolicyInputFilterSensitiveLog = (obj: PutScalingPolicyInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutScalingPolicyOutputFilterSensitiveLog = (obj: PutScalingPolicyOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterComputeInputFilterSensitiveLog = (obj: RegisterComputeInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterComputeOutputFilterSensitiveLog = (obj: RegisterComputeOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterGameServerInputFilterSensitiveLog = (obj: RegisterGameServerInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterGameServerOutputFilterSensitiveLog = (obj: RegisterGameServerOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RequestUploadCredentialsInputFilterSensitiveLog = (obj: RequestUploadCredentialsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const RequestUploadCredentialsOutputFilterSensitiveLog = (obj: RequestUploadCredentialsOutput): any => ({
   ...obj,
   ...(obj.UploadCredentials && { UploadCredentials: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ResolveAliasInputFilterSensitiveLog = (obj: ResolveAliasInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResolveAliasOutputFilterSensitiveLog = (obj: ResolveAliasOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResumeGameServerGroupInputFilterSensitiveLog = (obj: ResumeGameServerGroupInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResumeGameServerGroupOutputFilterSensitiveLog = (obj: ResumeGameServerGroupOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchGameSessionsInputFilterSensitiveLog = (obj: SearchGameSessionsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchGameSessionsOutputFilterSensitiveLog = (obj: SearchGameSessionsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartFleetActionsInputFilterSensitiveLog = (obj: StartFleetActionsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartFleetActionsOutputFilterSensitiveLog = (obj: StartFleetActionsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartGameSessionPlacementInputFilterSensitiveLog = (obj: StartGameSessionPlacementInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartGameSessionPlacementOutputFilterSensitiveLog = (obj: StartGameSessionPlacementOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartMatchBackfillInputFilterSensitiveLog = (obj: StartMatchBackfillInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartMatchBackfillOutputFilterSensitiveLog = (obj: StartMatchBackfillOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartMatchmakingInputFilterSensitiveLog = (obj: StartMatchmakingInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartMatchmakingOutputFilterSensitiveLog = (obj: StartMatchmakingOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopFleetActionsInputFilterSensitiveLog = (obj: StopFleetActionsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopFleetActionsOutputFilterSensitiveLog = (obj: StopFleetActionsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopGameSessionPlacementInputFilterSensitiveLog = (obj: StopGameSessionPlacementInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopGameSessionPlacementOutputFilterSensitiveLog = (obj: StopGameSessionPlacementOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopMatchmakingInputFilterSensitiveLog = (obj: StopMatchmakingInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopMatchmakingOutputFilterSensitiveLog = (obj: StopMatchmakingOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SuspendGameServerGroupInputFilterSensitiveLog = (obj: SuspendGameServerGroupInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SuspendGameServerGroupOutputFilterSensitiveLog = (obj: SuspendGameServerGroupOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAliasInputFilterSensitiveLog = (obj: UpdateAliasInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAliasOutputFilterSensitiveLog = (obj: UpdateAliasOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBuildInputFilterSensitiveLog = (obj: UpdateBuildInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBuildOutputFilterSensitiveLog = (obj: UpdateBuildOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFleetAttributesInputFilterSensitiveLog = (obj: UpdateFleetAttributesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFleetAttributesOutputFilterSensitiveLog = (obj: UpdateFleetAttributesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFleetCapacityInputFilterSensitiveLog = (obj: UpdateFleetCapacityInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFleetCapacityOutputFilterSensitiveLog = (obj: UpdateFleetCapacityOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFleetPortSettingsInputFilterSensitiveLog = (obj: UpdateFleetPortSettingsInput): any => ({
-  ...obj,
 });

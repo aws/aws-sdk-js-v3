@@ -5,6 +5,8 @@ import {
 } from "@aws-sdk/smithy-client";
 
 /**
+ * @public
+ *
  * Base exception class for all service exceptions from LexRuntimeV2 service.
  */
 export class LexRuntimeV2ServiceException extends __ServiceException {

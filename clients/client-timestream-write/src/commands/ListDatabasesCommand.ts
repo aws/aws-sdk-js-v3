@@ -14,39 +14,66 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListDatabasesRequest,
-  ListDatabasesRequestFilterSensitiveLog,
-  ListDatabasesResponse,
-  ListDatabasesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListDatabasesCommand,
-  serializeAws_json1_0ListDatabasesCommand,
-} from "../protocols/Aws_json1_0";
+import { ListDatabasesRequest, ListDatabasesResponse } from "../models/models_0";
+import { de_ListDatabasesCommand, se_ListDatabasesCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListDatabasesCommand}.
+ */
 export interface ListDatabasesCommandInput extends ListDatabasesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDatabasesCommand}.
+ */
 export interface ListDatabasesCommandOutput extends ListDatabasesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of your Timestream databases.
- *          <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Service quotas apply</a>. See
- *          <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.list-db.html">code sample</a> for details.
- *       </p>
+ * @public
+ * <p>Returns a list of your Timestream databases. <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Service quotas apply</a>. See
+ *             <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.list-db.html">code sample</a> for
+ *          details. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { TimestreamWriteClient, ListDatabasesCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
  * // const { TimestreamWriteClient, ListDatabasesCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
  * const client = new TimestreamWriteClient(config);
+ * const input = { // ListDatabasesRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListDatabasesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDatabasesCommandInput - {@link ListDatabasesCommandInput}
+ * @returns {@link ListDatabasesCommandOutput}
  * @see {@link ListDatabasesCommandInput} for command's `input` shape.
  * @see {@link ListDatabasesCommandOutput} for command's `response` shape.
  * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>
+ *          Timestream was unable to fully process this request because of an internal server
+ *          error.</p>
+ *
+ * @throws {@link InvalidEndpointException} (client fault)
+ *  <p>The requested endpoint was not valid.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p> Too many requests were made by a user and they exceeded the service quotas. The request
+ *          was throttled.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p> An invalid or malformed request.</p>
+ *
  *
  */
 export class ListDatabasesCommand extends $Command<
@@ -66,6 +93,9 @@ export class ListDatabasesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDatabasesCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +125,8 @@ export class ListDatabasesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDatabasesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDatabasesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +136,18 @@ export class ListDatabasesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDatabasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListDatabasesCommand(input, context);
+    return se_ListDatabasesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDatabasesCommandOutput> {
-    return deserializeAws_json1_0ListDatabasesCommand(output, context);
+    return de_ListDatabasesCommand(output, context);
   }
 
   // Start section: command_body_extra

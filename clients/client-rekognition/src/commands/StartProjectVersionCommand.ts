@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartProjectVersionRequest,
-  StartProjectVersionRequestFilterSensitiveLog,
-  StartProjectVersionResponse,
-  StartProjectVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartProjectVersionCommand,
-  serializeAws_json1_1StartProjectVersionCommand,
-} from "../protocols/Aws_json1_1";
+import { StartProjectVersionRequest, StartProjectVersionResponse } from "../models/models_0";
+import { de_StartProjectVersionCommand, se_StartProjectVersionCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
+/**
+ * @public
+ *
+ * The input for {@link StartProjectVersionCommand}.
+ */
 export interface StartProjectVersionCommandInput extends StartProjectVersionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartProjectVersionCommand}.
+ */
 export interface StartProjectVersionCommandOutput extends StartProjectVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the running of the version of a model. Starting a model takes a while
  *       to complete. To check the current state of the model, use <a>DescribeProjectVersions</a>.</p>
  *          <p>Once the model is running, you can detect custom labels in new images by calling
@@ -46,13 +49,49 @@ export interface StartProjectVersionCommandOutput extends StartProjectVersionRes
  * import { RekognitionClient, StartProjectVersionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, StartProjectVersionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // StartProjectVersionRequest
+ *   ProjectVersionArn: "STRING_VALUE", // required
+ *   MinInferenceUnits: Number("int"), // required
+ *   MaxInferenceUnits: Number("int"),
+ * };
  * const command = new StartProjectVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartProjectVersionCommandInput - {@link StartProjectVersionCommandInput}
+ * @returns {@link StartProjectVersionCommandOutput}
  * @see {@link StartProjectVersionCommandInput} for command's `input` shape.
  * @see {@link StartProjectVersionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to perform the action.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
+ *       operation again.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many Amazon Rekognition Video jobs concurrently, calls to start operations
+ *             (<code>StartLabelDetection</code>, for example) will raise a <code>LimitExceededException</code> exception (HTTP status code: 400) until
+ *             the number of concurrently running jobs is below the Amazon Rekognition service limit.  </p>
+ *
+ * @throws {@link ProvisionedThroughputExceededException} (client fault)
+ *  <p>The number of requests exceeded your throughput limit. If you want to increase this
+ *       limit, contact Amazon Rekognition.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is already being used.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request cannot be found.</p>
+ *
+ * @throws {@link ThrottlingException} (server fault)
+ *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
  *
  */
 export class StartProjectVersionCommand extends $Command<
@@ -72,6 +111,9 @@ export class StartProjectVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartProjectVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +142,8 @@ export class StartProjectVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartProjectVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartProjectVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +153,18 @@ export class StartProjectVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartProjectVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartProjectVersionCommand(input, context);
+    return se_StartProjectVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartProjectVersionCommandOutput> {
-    return deserializeAws_json1_1StartProjectVersionCommand(output, context);
+    return de_StartProjectVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

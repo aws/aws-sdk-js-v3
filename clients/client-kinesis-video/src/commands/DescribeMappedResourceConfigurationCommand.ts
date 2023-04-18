@@ -16,21 +16,30 @@ import {
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
 import {
   DescribeMappedResourceConfigurationInput,
-  DescribeMappedResourceConfigurationInputFilterSensitiveLog,
   DescribeMappedResourceConfigurationOutput,
-  DescribeMappedResourceConfigurationOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeMappedResourceConfigurationCommand,
-  serializeAws_restJson1DescribeMappedResourceConfigurationCommand,
+  de_DescribeMappedResourceConfigurationCommand,
+  se_DescribeMappedResourceConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeMappedResourceConfigurationCommand}.
+ */
 export interface DescribeMappedResourceConfigurationCommandInput extends DescribeMappedResourceConfigurationInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeMappedResourceConfigurationCommand}.
+ */
 export interface DescribeMappedResourceConfigurationCommandOutput
   extends DescribeMappedResourceConfigurationOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the most current information about the stream. Either streamName or streamARN should be provided in the input.</p>
  *          <p>Returns the most current information about the stream. The <code>streamName</code>
  *             or <code>streamARN</code> should be provided in the input.</p>
@@ -40,13 +49,35 @@ export interface DescribeMappedResourceConfigurationCommandOutput
  * import { KinesisVideoClient, DescribeMappedResourceConfigurationCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, DescribeMappedResourceConfigurationCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
+ * const input = { // DescribeMappedResourceConfigurationInput
+ *   StreamName: "STRING_VALUE",
+ *   StreamARN: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeMappedResourceConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMappedResourceConfigurationCommandInput - {@link DescribeMappedResourceConfigurationCommandInput}
+ * @returns {@link DescribeMappedResourceConfigurationCommandOutput}
  * @see {@link DescribeMappedResourceConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeMappedResourceConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have required permissions to perform this operation.</p>
+ *
+ * @throws {@link ClientLimitExceededException} (client fault)
+ *  <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
+ *             allowed client calls. Try making the call later.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>The value for this input parameter is invalid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
+ *
  *
  */
 export class DescribeMappedResourceConfigurationCommand extends $Command<
@@ -66,6 +97,9 @@ export class DescribeMappedResourceConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMappedResourceConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +128,8 @@ export class DescribeMappedResourceConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeMappedResourceConfigurationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeMappedResourceConfigurationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,18 +139,24 @@ export class DescribeMappedResourceConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeMappedResourceConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeMappedResourceConfigurationCommand(input, context);
+    return se_DescribeMappedResourceConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeMappedResourceConfigurationCommandOutput> {
-    return deserializeAws_restJson1DescribeMappedResourceConfigurationCommand(output, context);
+    return de_DescribeMappedResourceConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

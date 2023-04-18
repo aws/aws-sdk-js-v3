@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaPackageVodClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageVodClient";
-import {
-  ListAssetsRequest,
-  ListAssetsRequestFilterSensitiveLog,
-  ListAssetsResponse,
-  ListAssetsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAssetsCommand,
-  serializeAws_restJson1ListAssetsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListAssetsRequest, ListAssetsResponse } from "../models/models_0";
+import { de_ListAssetsCommand, se_ListAssetsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListAssetsCommand}.
+ */
 export interface ListAssetsCommandInput extends ListAssetsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListAssetsCommand}.
+ */
 export interface ListAssetsCommandOutput extends ListAssetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Returns a collection of MediaPackage VOD Asset resources.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,39 @@ export interface ListAssetsCommandOutput extends ListAssetsResponse, __MetadataB
  * import { MediaPackageVodClient, ListAssetsCommand } from "@aws-sdk/client-mediapackage-vod"; // ES Modules import
  * // const { MediaPackageVodClient, ListAssetsCommand } = require("@aws-sdk/client-mediapackage-vod"); // CommonJS import
  * const client = new MediaPackageVodClient(config);
+ * const input = { // ListAssetsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   PackagingGroupId: "STRING_VALUE",
+ * };
  * const command = new ListAssetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAssetsCommandInput - {@link ListAssetsCommandInput}
+ * @returns {@link ListAssetsCommandOutput}
  * @see {@link ListAssetsCommandInput} for command's `input` shape.
  * @see {@link ListAssetsCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageVodClientResolvedConfig | config} for MediaPackageVodClient's `config` shape.
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  The client is not authorized to access the requested resource.
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  An unexpected error occurred.
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  The requested resource does not exist.
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  An unexpected error occurred.
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  The client has exceeded their resource or throttling limits.
+ *
+ * @throws {@link UnprocessableEntityException} (client fault)
+ *  The parameters sent in the request are not valid.
+ *
  *
  */
 export class ListAssetsCommand extends $Command<
@@ -62,6 +91,9 @@ export class ListAssetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAssetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +120,8 @@ export class ListAssetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAssetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAssetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +131,18 @@ export class ListAssetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAssetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAssetsCommand(input, context);
+    return se_ListAssetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssetsCommandOutput> {
-    return deserializeAws_restJson1ListAssetsCommand(output, context);
+    return de_ListAssetsCommand(output, context);
   }
 
   // Start section: command_body_extra

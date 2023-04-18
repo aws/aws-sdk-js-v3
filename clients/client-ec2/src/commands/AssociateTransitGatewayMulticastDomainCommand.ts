@@ -16,22 +16,31 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   AssociateTransitGatewayMulticastDomainRequest,
-  AssociateTransitGatewayMulticastDomainRequestFilterSensitiveLog,
   AssociateTransitGatewayMulticastDomainResult,
-  AssociateTransitGatewayMulticastDomainResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_ec2AssociateTransitGatewayMulticastDomainCommand,
-  serializeAws_ec2AssociateTransitGatewayMulticastDomainCommand,
+  de_AssociateTransitGatewayMulticastDomainCommand,
+  se_AssociateTransitGatewayMulticastDomainCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link AssociateTransitGatewayMulticastDomainCommand}.
+ */
 export interface AssociateTransitGatewayMulticastDomainCommandInput
   extends AssociateTransitGatewayMulticastDomainRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AssociateTransitGatewayMulticastDomainCommand}.
+ */
 export interface AssociateTransitGatewayMulticastDomainCommandOutput
   extends AssociateTransitGatewayMulticastDomainResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates the specified subnets and transit gateway attachments with the specified transit gateway multicast domain.</p>
  *          <p>The transit gateway attachment must be in the available state before you can add a resource. Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html">DescribeTransitGatewayAttachments</a>
  *             to see the state of the attachment.</p>
@@ -41,13 +50,24 @@ export interface AssociateTransitGatewayMulticastDomainCommandOutput
  * import { EC2Client, AssociateTransitGatewayMulticastDomainCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AssociateTransitGatewayMulticastDomainCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // AssociateTransitGatewayMulticastDomainRequest
+ *   TransitGatewayMulticastDomainId: "STRING_VALUE", // required
+ *   TransitGatewayAttachmentId: "STRING_VALUE", // required
+ *   SubnetIds: [ // TransitGatewaySubnetIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   DryRun: true || false,
+ * };
  * const command = new AssociateTransitGatewayMulticastDomainCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateTransitGatewayMulticastDomainCommandInput - {@link AssociateTransitGatewayMulticastDomainCommandInput}
+ * @returns {@link AssociateTransitGatewayMulticastDomainCommandOutput}
  * @see {@link AssociateTransitGatewayMulticastDomainCommandInput} for command's `input` shape.
  * @see {@link AssociateTransitGatewayMulticastDomainCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class AssociateTransitGatewayMulticastDomainCommand extends $Command<
@@ -67,6 +87,9 @@ export class AssociateTransitGatewayMulticastDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateTransitGatewayMulticastDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +118,8 @@ export class AssociateTransitGatewayMulticastDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateTransitGatewayMulticastDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateTransitGatewayMulticastDomainResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,18 +129,24 @@ export class AssociateTransitGatewayMulticastDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateTransitGatewayMulticastDomainCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2AssociateTransitGatewayMulticastDomainCommand(input, context);
+    return se_AssociateTransitGatewayMulticastDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateTransitGatewayMulticastDomainCommandOutput> {
-    return deserializeAws_ec2AssociateTransitGatewayMulticastDomainCommand(output, context);
+    return de_AssociateTransitGatewayMulticastDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

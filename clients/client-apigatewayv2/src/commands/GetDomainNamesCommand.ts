@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import {
-  GetDomainNamesRequest,
-  GetDomainNamesRequestFilterSensitiveLog,
-  GetDomainNamesResponse,
-  GetDomainNamesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDomainNamesCommand,
-  serializeAws_restJson1GetDomainNamesCommand,
-} from "../protocols/Aws_restJson1";
+import { GetDomainNamesRequest, GetDomainNamesResponse } from "../models/models_0";
+import { de_GetDomainNamesCommand, se_GetDomainNamesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetDomainNamesCommand}.
+ */
 export interface GetDomainNamesCommandInput extends GetDomainNamesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetDomainNamesCommand}.
+ */
 export interface GetDomainNamesCommandOutput extends GetDomainNamesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the domain names for an AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,29 @@ export interface GetDomainNamesCommandOutput extends GetDomainNamesResponse, __M
  * import { ApiGatewayV2Client, GetDomainNamesCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, GetDomainNamesCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = { // GetDomainNamesRequest
+ *   MaxResults: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetDomainNamesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDomainNamesCommandInput - {@link GetDomainNamesCommandInput}
+ * @returns {@link GetDomainNamesCommandOutput}
  * @see {@link GetDomainNamesCommandInput} for command's `input` shape.
  * @see {@link GetDomainNamesCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource specified in the request was not found. See the message field for more information.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
+ *
  *
  */
 export class GetDomainNamesCommand extends $Command<
@@ -62,6 +81,9 @@ export class GetDomainNamesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDomainNamesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +112,8 @@ export class GetDomainNamesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDomainNamesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDomainNamesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +123,18 @@ export class GetDomainNamesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDomainNamesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDomainNamesCommand(input, context);
+    return se_GetDomainNamesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDomainNamesCommandOutput> {
-    return deserializeAws_restJson1GetDomainNamesCommand(output, context);
+    return de_GetDomainNamesCommand(output, context);
   }
 
   // Start section: command_body_extra

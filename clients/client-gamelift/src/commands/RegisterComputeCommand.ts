@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  RegisterComputeInput,
-  RegisterComputeInputFilterSensitiveLog,
-  RegisterComputeOutput,
-  RegisterComputeOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RegisterComputeCommand,
-  serializeAws_json1_1RegisterComputeCommand,
-} from "../protocols/Aws_json1_1";
+import { RegisterComputeInput, RegisterComputeOutput } from "../models/models_0";
+import { de_RegisterComputeCommand, se_RegisterComputeCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link RegisterComputeCommand}.
+ */
 export interface RegisterComputeCommandInput extends RegisterComputeInput {}
+/**
+ * @public
+ *
+ * The output of {@link RegisterComputeCommand}.
+ */
 export interface RegisterComputeCommandOutput extends RegisterComputeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers your compute resources in a fleet you previously created. After you register
  *             a compute to your fleet, you can monitor and manage your compute using GameLift. The
  *             operation returns the compute resource containing SDK endpoint you can use to connect
@@ -56,13 +59,41 @@ export interface RegisterComputeCommandOutput extends RegisterComputeOutput, __M
  * import { GameLiftClient, RegisterComputeCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, RegisterComputeCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // RegisterComputeInput
+ *   FleetId: "STRING_VALUE", // required
+ *   ComputeName: "STRING_VALUE", // required
+ *   CertificatePath: "STRING_VALUE",
+ *   DnsName: "STRING_VALUE",
+ *   IpAddress: "STRING_VALUE",
+ *   Location: "STRING_VALUE",
+ * };
  * const command = new RegisterComputeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterComputeCommandInput - {@link RegisterComputeCommandInput}
+ * @returns {@link RegisterComputeCommandOutput}
  * @see {@link RegisterComputeCommandInput} for command's `input` shape.
  * @see {@link RegisterComputeCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The requested operation would cause a conflict with the current state of a service
+ *             resource associated with the request. Resolve the conflict before retrying this
+ *             request.</p>
+ *         <p></p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an unrecoverable internal failure while processing the
+ *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
+ *             values before retrying.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
  *
  */
 export class RegisterComputeCommand extends $Command<
@@ -82,6 +113,9 @@ export class RegisterComputeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterComputeCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +144,8 @@ export class RegisterComputeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterComputeInputFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterComputeOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +155,18 @@ export class RegisterComputeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterComputeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterComputeCommand(input, context);
+    return se_RegisterComputeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterComputeCommandOutput> {
-    return deserializeAws_json1_1RegisterComputeCommand(output, context);
+    return de_RegisterComputeCommand(output, context);
   }
 
   // Start section: command_body_extra

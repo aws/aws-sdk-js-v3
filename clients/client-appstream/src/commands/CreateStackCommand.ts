@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import {
-  CreateStackRequest,
-  CreateStackRequestFilterSensitiveLog,
-  CreateStackResult,
-  CreateStackResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateStackCommand,
-  serializeAws_json1_1CreateStackCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateStackRequest, CreateStackResult } from "../models/models_0";
+import { de_CreateStackCommand, se_CreateStackCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateStackCommand}.
+ */
 export interface CreateStackCommandInput extends CreateStackRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateStackCommand}.
+ */
 export interface CreateStackCommandOutput extends CreateStackResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a stack to start streaming applications to users. A stack consists of an associated fleet, user access policies, and storage configurations. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,78 @@ export interface CreateStackCommandOutput extends CreateStackResult, __MetadataB
  * import { AppStreamClient, CreateStackCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, CreateStackCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = { // CreateStackRequest
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   DisplayName: "STRING_VALUE",
+ *   StorageConnectors: [ // StorageConnectorList
+ *     { // StorageConnector
+ *       ConnectorType: "HOMEFOLDERS" || "GOOGLE_DRIVE" || "ONE_DRIVE", // required
+ *       ResourceIdentifier: "STRING_VALUE",
+ *       Domains: [ // DomainList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   RedirectURL: "STRING_VALUE",
+ *   FeedbackURL: "STRING_VALUE",
+ *   UserSettings: [ // UserSettingList
+ *     { // UserSetting
+ *       Action: "CLIPBOARD_COPY_FROM_LOCAL_DEVICE" || "CLIPBOARD_COPY_TO_LOCAL_DEVICE" || "FILE_UPLOAD" || "FILE_DOWNLOAD" || "PRINTING_TO_LOCAL_DEVICE" || "DOMAIN_PASSWORD_SIGNIN" || "DOMAIN_SMART_CARD_SIGNIN", // required
+ *       Permission: "ENABLED" || "DISABLED", // required
+ *     },
+ *   ],
+ *   ApplicationSettings: { // ApplicationSettings
+ *     Enabled: true || false, // required
+ *     SettingsGroup: "STRING_VALUE",
+ *   },
+ *   Tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   AccessEndpoints: [ // AccessEndpointList
+ *     { // AccessEndpoint
+ *       EndpointType: "STREAMING", // required
+ *       VpceId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   EmbedHostDomains: [ // EmbedHostDomains
+ *     "STRING_VALUE",
+ *   ],
+ *   StreamingExperienceSettings: { // StreamingExperienceSettings
+ *     PreferredProtocol: "TCP" || "UDP",
+ *   },
+ * };
  * const command = new CreateStackCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateStackCommandInput - {@link CreateStackCommandInput}
+ * @returns {@link CreateStackCommandOutput}
  * @see {@link CreateStackCommandInput} for command's `input` shape.
  * @see {@link CreateStackCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>An API error occurred. Wait a few minutes and try again.</p>
+ *
+ * @throws {@link InvalidAccountStatusException} (client fault)
+ *  <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+ *
+ * @throws {@link InvalidRoleException} (client fault)
+ *  <p>The specified role is invalid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The requested limit exceeds the permitted limit for an account.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The specified resource already exists.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class CreateStackCommand extends $Command<
@@ -62,6 +130,9 @@ export class CreateStackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateStackCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +159,8 @@ export class CreateStackCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateStackRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateStackResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +170,18 @@ export class CreateStackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateStackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateStackCommand(input, context);
+    return se_CreateStackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStackCommandOutput> {
-    return deserializeAws_json1_1CreateStackCommand(output, context);
+    return de_CreateStackCommand(output, context);
   }
 
   // Start section: command_body_extra

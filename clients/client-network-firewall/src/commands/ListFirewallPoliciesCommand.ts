@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListFirewallPoliciesRequest,
-  ListFirewallPoliciesRequestFilterSensitiveLog,
-  ListFirewallPoliciesResponse,
-  ListFirewallPoliciesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListFirewallPoliciesRequest, ListFirewallPoliciesResponse } from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
-import {
-  deserializeAws_json1_0ListFirewallPoliciesCommand,
-  serializeAws_json1_0ListFirewallPoliciesCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListFirewallPoliciesCommand, se_ListFirewallPoliciesCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link ListFirewallPoliciesCommand}.
+ */
 export interface ListFirewallPoliciesCommandInput extends ListFirewallPoliciesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListFirewallPoliciesCommand}.
+ */
 export interface ListFirewallPoliciesCommandOutput extends ListFirewallPoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the metadata for the firewall policies that you have defined. Depending on
  *          your setting for max results and the number of firewall policies, a single call might not
  *          return the full list. </p>
@@ -38,13 +41,43 @@ export interface ListFirewallPoliciesCommandOutput extends ListFirewallPoliciesR
  * import { NetworkFirewallClient, ListFirewallPoliciesCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, ListFirewallPoliciesCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
+ * const input = { // ListFirewallPoliciesRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListFirewallPoliciesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFirewallPoliciesCommandInput - {@link ListFirewallPoliciesCommandInput}
+ * @returns {@link ListFirewallPoliciesCommandOutput}
  * @see {@link ListFirewallPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListFirewallPoliciesCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Your request is valid, but Network Firewall couldn’t perform the operation because of a
+ *          system problem. Retry your request. </p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The operation failed because of a problem with your request. Examples include: </p>
+ *          <ul>
+ *             <li>
+ *                <p>You specified an unsupported parameter name or value.</p>
+ *             </li>
+ *             <li>
+ *                <p>You tried to update a property with a value that isn't among the available
+ *                types.</p>
+ *             </li>
+ *             <li>
+ *                <p>Your request references an ARN that is malformed, or corresponds to a resource
+ *                that isn't valid in the context of the request.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Unable to process the request due to throttling limitations.</p>
+ *
  *
  */
 export class ListFirewallPoliciesCommand extends $Command<
@@ -64,6 +97,9 @@ export class ListFirewallPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFirewallPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +128,8 @@ export class ListFirewallPoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFirewallPoliciesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListFirewallPoliciesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +139,18 @@ export class ListFirewallPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFirewallPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListFirewallPoliciesCommand(input, context);
+    return se_ListFirewallPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFirewallPoliciesCommandOutput> {
-    return deserializeAws_json1_0ListFirewallPoliciesCommand(output, context);
+    return de_ListFirewallPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

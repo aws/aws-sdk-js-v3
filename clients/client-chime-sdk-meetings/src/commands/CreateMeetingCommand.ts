@@ -20,15 +20,23 @@ import {
   CreateMeetingResponse,
   CreateMeetingResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateMeetingCommand,
-  serializeAws_restJson1CreateMeetingCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateMeetingCommand, se_CreateMeetingCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateMeetingCommand}.
+ */
 export interface CreateMeetingCommandInput extends CreateMeetingRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateMeetingCommand}.
+ */
 export interface CreateMeetingCommandOutput extends CreateMeetingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new Amazon Chime SDK meeting in the specified media Region with no initial attendees. For more information about specifying media Regions, see
  *            <a href="https://docs.aws.amazon.com/chime/latest/dg/chime-sdk-meetings-regions.html">Amazon Chime SDK Media Regions</a>
  *            in the <i>Amazon Chime Developer Guide</i>. For more information about the Amazon Chime SDK, see
@@ -42,13 +50,63 @@ export interface CreateMeetingCommandOutput extends CreateMeetingResponse, __Met
  * import { ChimeSDKMeetingsClient, CreateMeetingCommand } from "@aws-sdk/client-chime-sdk-meetings"; // ES Modules import
  * // const { ChimeSDKMeetingsClient, CreateMeetingCommand } = require("@aws-sdk/client-chime-sdk-meetings"); // CommonJS import
  * const client = new ChimeSDKMeetingsClient(config);
+ * const input = { // CreateMeetingRequest
+ *   ClientRequestToken: "STRING_VALUE", // required
+ *   MediaRegion: "STRING_VALUE", // required
+ *   MeetingHostId: "STRING_VALUE",
+ *   ExternalMeetingId: "STRING_VALUE", // required
+ *   NotificationsConfiguration: { // NotificationsConfiguration
+ *     LambdaFunctionArn: "STRING_VALUE",
+ *     SnsTopicArn: "STRING_VALUE",
+ *     SqsQueueArn: "STRING_VALUE",
+ *   },
+ *   MeetingFeatures: { // MeetingFeaturesConfiguration
+ *     Audio: { // AudioFeatures
+ *       EchoReduction: "AVAILABLE" || "UNAVAILABLE",
+ *     },
+ *   },
+ *   PrimaryMeetingId: "STRING_VALUE",
+ *   TenantIds: [ // TenantIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateMeetingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMeetingCommandInput - {@link CreateMeetingCommandInput}
+ * @returns {@link CreateMeetingCommandOutput}
  * @see {@link CreateMeetingCommandInput} for command's `input` shape.
  * @see {@link CreateMeetingCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMeetingsClientResolvedConfig | config} for ChimeSDKMeetingsClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request exceeds the resource limit.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The number of customer requests exceeds the request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The user isn't authorized to request a resource.</p>
+ *
  *
  */
 export class CreateMeetingCommand extends $Command<
@@ -68,6 +126,9 @@ export class CreateMeetingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMeetingCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,12 +166,18 @@ export class CreateMeetingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMeetingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateMeetingCommand(input, context);
+    return se_CreateMeetingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMeetingCommandOutput> {
-    return deserializeAws_restJson1CreateMeetingCommand(output, context);
+    return de_CreateMeetingCommand(output, context);
   }
 
   // Start section: command_body_extra

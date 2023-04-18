@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DisassociateDomainRequest,
-  DisassociateDomainRequestFilterSensitiveLog,
-  DisassociateDomainResponse,
-  DisassociateDomainResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateDomainCommand,
-  serializeAws_restJson1DisassociateDomainCommand,
-} from "../protocols/Aws_restJson1";
+import { DisassociateDomainRequest, DisassociateDomainResponse } from "../models/models_0";
+import { de_DisassociateDomainCommand, se_DisassociateDomainCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DisassociateDomainCommand}.
+ */
 export interface DisassociateDomainCommandInput extends DisassociateDomainRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateDomainCommand}.
+ */
 export interface DisassociateDomainCommandOutput extends DisassociateDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Disassociates a domain from Amazon WorkLink. End users lose the ability to access the domain with Amazon WorkLink. </p>
@@ -38,13 +41,35 @@ export interface DisassociateDomainCommandOutput extends DisassociateDomainRespo
  * import { WorkLinkClient, DisassociateDomainCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, DisassociateDomainCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
+ * const input = { // DisassociateDomainRequest
+ *   FleetArn: "STRING_VALUE", // required
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateDomainCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateDomainCommandInput - {@link DisassociateDomainCommandInput}
+ * @returns {@link DisassociateDomainCommandOutput}
  * @see {@link DisassociateDomainCommandInput} for command's `input` shape.
  * @see {@link DisassociateDomainCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource was not found.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The number of requests exceeds the limit.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You are not authorized to perform this action.</p>
+ *
  *
  */
 export class DisassociateDomainCommand extends $Command<
@@ -64,6 +89,9 @@ export class DisassociateDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +120,8 @@ export class DisassociateDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateDomainResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +131,18 @@ export class DisassociateDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateDomainCommand(input, context);
+    return se_DisassociateDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateDomainCommandOutput> {
-    return deserializeAws_restJson1DisassociateDomainCommand(output, context);
+    return de_DisassociateDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

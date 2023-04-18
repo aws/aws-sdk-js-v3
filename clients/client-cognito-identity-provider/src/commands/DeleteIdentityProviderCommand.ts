@@ -19,16 +19,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { DeleteIdentityProviderRequest, DeleteIdentityProviderRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteIdentityProviderCommand,
-  serializeAws_json1_1DeleteIdentityProviderCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteIdentityProviderRequest } from "../models/models_0";
+import { de_DeleteIdentityProviderCommand, se_DeleteIdentityProviderCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteIdentityProviderCommand}.
+ */
 export interface DeleteIdentityProviderCommandInput extends DeleteIdentityProviderRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteIdentityProviderCommand}.
+ */
 export interface DeleteIdentityProviderCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an IdP for a user pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +44,45 @@ export interface DeleteIdentityProviderCommandOutput extends __MetadataBearer {}
  * import { CognitoIdentityProviderClient, DeleteIdentityProviderCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, DeleteIdentityProviderCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // DeleteIdentityProviderRequest
+ *   UserPoolId: "STRING_VALUE", // required
+ *   ProviderName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteIdentityProviderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteIdentityProviderCommandInput - {@link DeleteIdentityProviderCommandInput}
+ * @returns {@link DeleteIdentityProviderCommandOutput}
  * @see {@link DeleteIdentityProviderCommandInput} for command's `input` shape.
  * @see {@link DeleteIdentityProviderCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>This exception is thrown if two or more modifications are happening
+ *             concurrently.</p>
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
+ *             parameter.</p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
+ *             resource.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>This exception is thrown when the user has made too many requests for a given
+ *             operation.</p>
+ *
+ * @throws {@link UnsupportedIdentityProviderException} (client fault)
+ *  <p>This exception is thrown when the specified identifier isn't supported.</p>
+ *
  *
  */
 export class DeleteIdentityProviderCommand extends $Command<
@@ -62,6 +102,9 @@ export class DeleteIdentityProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteIdentityProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +134,8 @@ export class DeleteIdentityProviderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteIdentityProviderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +145,18 @@ export class DeleteIdentityProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteIdentityProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteIdentityProviderCommand(input, context);
+    return se_DeleteIdentityProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIdentityProviderCommandOutput> {
-    return deserializeAws_json1_1DeleteIdentityProviderCommand(output, context);
+    return de_DeleteIdentityProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

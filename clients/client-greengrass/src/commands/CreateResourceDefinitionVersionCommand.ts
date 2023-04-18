@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
+import { CreateResourceDefinitionVersionRequest, CreateResourceDefinitionVersionResponse } from "../models/models_0";
 import {
-  CreateResourceDefinitionVersionRequest,
-  CreateResourceDefinitionVersionRequestFilterSensitiveLog,
-  CreateResourceDefinitionVersionResponse,
-  CreateResourceDefinitionVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateResourceDefinitionVersionCommand,
-  serializeAws_restJson1CreateResourceDefinitionVersionCommand,
+  de_CreateResourceDefinitionVersionCommand,
+  se_CreateResourceDefinitionVersionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateResourceDefinitionVersionCommand}.
+ */
 export interface CreateResourceDefinitionVersionCommandInput extends CreateResourceDefinitionVersionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateResourceDefinitionVersionCommand}.
+ */
 export interface CreateResourceDefinitionVersionCommandOutput
   extends CreateResourceDefinitionVersionResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * Creates a version of a resource definition that has already been defined.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,68 @@ export interface CreateResourceDefinitionVersionCommandOutput
  * import { GreengrassClient, CreateResourceDefinitionVersionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, CreateResourceDefinitionVersionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // CreateResourceDefinitionVersionRequest
+ *   AmznClientToken: "STRING_VALUE",
+ *   ResourceDefinitionId: "STRING_VALUE", // required
+ *   Resources: [ // __listOfResource
+ *     { // Resource
+ *       Id: "STRING_VALUE", // required
+ *       Name: "STRING_VALUE", // required
+ *       ResourceDataContainer: { // ResourceDataContainer
+ *         LocalDeviceResourceData: { // LocalDeviceResourceData
+ *           GroupOwnerSetting: { // GroupOwnerSetting
+ *             AutoAddGroupOwner: true || false,
+ *             GroupOwner: "STRING_VALUE",
+ *           },
+ *           SourcePath: "STRING_VALUE",
+ *         },
+ *         LocalVolumeResourceData: { // LocalVolumeResourceData
+ *           DestinationPath: "STRING_VALUE",
+ *           GroupOwnerSetting: {
+ *             AutoAddGroupOwner: true || false,
+ *             GroupOwner: "STRING_VALUE",
+ *           },
+ *           SourcePath: "STRING_VALUE",
+ *         },
+ *         S3MachineLearningModelResourceData: { // S3MachineLearningModelResourceData
+ *           DestinationPath: "STRING_VALUE",
+ *           OwnerSetting: { // ResourceDownloadOwnerSetting
+ *             GroupOwner: "STRING_VALUE", // required
+ *             GroupPermission: "ro" || "rw", // required
+ *           },
+ *           S3Uri: "STRING_VALUE",
+ *         },
+ *         SageMakerMachineLearningModelResourceData: { // SageMakerMachineLearningModelResourceData
+ *           DestinationPath: "STRING_VALUE",
+ *           OwnerSetting: {
+ *             GroupOwner: "STRING_VALUE", // required
+ *             GroupPermission: "ro" || "rw", // required
+ *           },
+ *           SageMakerJobArn: "STRING_VALUE",
+ *         },
+ *         SecretsManagerSecretResourceData: { // SecretsManagerSecretResourceData
+ *           ARN: "STRING_VALUE",
+ *           AdditionalStagingLabelsToDownload: [ // __listOf__string
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new CreateResourceDefinitionVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateResourceDefinitionVersionCommandInput - {@link CreateResourceDefinitionVersionCommandInput}
+ * @returns {@link CreateResourceDefinitionVersionCommandOutput}
  * @see {@link CreateResourceDefinitionVersionCommandInput} for command's `input` shape.
  * @see {@link CreateResourceDefinitionVersionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  General error information.
+ *
  *
  */
 export class CreateResourceDefinitionVersionCommand extends $Command<
@@ -64,6 +125,9 @@ export class CreateResourceDefinitionVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateResourceDefinitionVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +156,8 @@ export class CreateResourceDefinitionVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateResourceDefinitionVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateResourceDefinitionVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +167,24 @@ export class CreateResourceDefinitionVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateResourceDefinitionVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateResourceDefinitionVersionCommand(input, context);
+    return se_CreateResourceDefinitionVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateResourceDefinitionVersionCommandOutput> {
-    return deserializeAws_restJson1CreateResourceDefinitionVersionCommand(output, context);
+    return de_CreateResourceDefinitionVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

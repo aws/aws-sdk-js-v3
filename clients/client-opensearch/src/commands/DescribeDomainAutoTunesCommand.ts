@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeDomainAutoTunesRequest,
-  DescribeDomainAutoTunesRequestFilterSensitiveLog,
-  DescribeDomainAutoTunesResponse,
-  DescribeDomainAutoTunesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeDomainAutoTunesRequest, DescribeDomainAutoTunesResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  deserializeAws_restJson1DescribeDomainAutoTunesCommand,
-  serializeAws_restJson1DescribeDomainAutoTunesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeDomainAutoTunesCommand, se_DescribeDomainAutoTunesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeDomainAutoTunesCommand}.
+ */
 export interface DescribeDomainAutoTunesCommandInput extends DescribeDomainAutoTunesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeDomainAutoTunesCommand}.
+ */
 export interface DescribeDomainAutoTunesCommandOutput extends DescribeDomainAutoTunesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the list of optimizations that Auto-Tune has made to an Amazon OpenSearch Service
  *    domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html">Auto-Tune for Amazon OpenSearch
  *     Service</a>.</p>
@@ -38,13 +41,33 @@ export interface DescribeDomainAutoTunesCommandOutput extends DescribeDomainAuto
  * import { OpenSearchClient, DescribeDomainAutoTunesCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, DescribeDomainAutoTunesCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = { // DescribeDomainAutoTunesRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeDomainAutoTunesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDomainAutoTunesCommandInput - {@link DescribeDomainAutoTunesCommandInput}
+ * @returns {@link DescribeDomainAutoTunesCommandOutput}
  * @see {@link DescribeDomainAutoTunesCommandInput} for command's `input` shape.
  * @see {@link DescribeDomainAutoTunesCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
+ *
+ * @throws {@link BaseException} (client fault)
+ *  <p>An error occurred while processing the request.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An exception for accessing or deleting a resource that does not exist..</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+ *
  *
  */
 export class DescribeDomainAutoTunesCommand extends $Command<
@@ -64,6 +87,9 @@ export class DescribeDomainAutoTunesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDomainAutoTunesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +118,8 @@ export class DescribeDomainAutoTunesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDomainAutoTunesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDomainAutoTunesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +129,18 @@ export class DescribeDomainAutoTunesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDomainAutoTunesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeDomainAutoTunesCommand(input, context);
+    return se_DescribeDomainAutoTunesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDomainAutoTunesCommandOutput> {
-    return deserializeAws_restJson1DescribeDomainAutoTunesCommand(output, context);
+    return de_DescribeDomainAutoTunesCommand(output, context);
   }
 
   // Start section: command_body_extra

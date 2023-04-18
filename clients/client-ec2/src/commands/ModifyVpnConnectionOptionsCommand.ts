@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ModifyVpnConnectionOptionsRequest,
-  ModifyVpnConnectionOptionsRequestFilterSensitiveLog,
-  ModifyVpnConnectionOptionsResult,
-  ModifyVpnConnectionOptionsResultFilterSensitiveLog,
-} from "../models/models_6";
-import {
-  deserializeAws_ec2ModifyVpnConnectionOptionsCommand,
-  serializeAws_ec2ModifyVpnConnectionOptionsCommand,
-} from "../protocols/Aws_ec2";
+import { ModifyVpnConnectionOptionsRequest, ModifyVpnConnectionOptionsResult } from "../models/models_6";
+import { de_ModifyVpnConnectionOptionsCommand, se_ModifyVpnConnectionOptionsCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link ModifyVpnConnectionOptionsCommand}.
+ */
 export interface ModifyVpnConnectionOptionsCommandInput extends ModifyVpnConnectionOptionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ModifyVpnConnectionOptionsCommand}.
+ */
 export interface ModifyVpnConnectionOptionsCommandOutput extends ModifyVpnConnectionOptionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the connection options for your Site-to-Site VPN connection.</p>
  *          <p>When you modify the VPN connection options, the VPN endpoint IP addresses on the
  *                 Amazon Web Services side do not change, and the tunnel options do not change. Your
@@ -40,13 +43,24 @@ export interface ModifyVpnConnectionOptionsCommandOutput extends ModifyVpnConnec
  * import { EC2Client, ModifyVpnConnectionOptionsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyVpnConnectionOptionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ModifyVpnConnectionOptionsRequest
+ *   VpnConnectionId: "STRING_VALUE", // required
+ *   LocalIpv4NetworkCidr: "STRING_VALUE",
+ *   RemoteIpv4NetworkCidr: "STRING_VALUE",
+ *   LocalIpv6NetworkCidr: "STRING_VALUE",
+ *   RemoteIpv6NetworkCidr: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new ModifyVpnConnectionOptionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyVpnConnectionOptionsCommandInput - {@link ModifyVpnConnectionOptionsCommandInput}
+ * @returns {@link ModifyVpnConnectionOptionsCommandOutput}
  * @see {@link ModifyVpnConnectionOptionsCommandInput} for command's `input` shape.
  * @see {@link ModifyVpnConnectionOptionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class ModifyVpnConnectionOptionsCommand extends $Command<
@@ -66,6 +80,9 @@ export class ModifyVpnConnectionOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyVpnConnectionOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +111,8 @@ export class ModifyVpnConnectionOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyVpnConnectionOptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyVpnConnectionOptionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,15 +122,21 @@ export class ModifyVpnConnectionOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyVpnConnectionOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyVpnConnectionOptionsCommand(input, context);
+    return se_ModifyVpnConnectionOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyVpnConnectionOptionsCommandOutput> {
-    return deserializeAws_ec2ModifyVpnConnectionOptionsCommand(output, context);
+    return de_ModifyVpnConnectionOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

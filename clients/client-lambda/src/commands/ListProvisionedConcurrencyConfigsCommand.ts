@@ -16,21 +16,30 @@ import {
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import {
   ListProvisionedConcurrencyConfigsRequest,
-  ListProvisionedConcurrencyConfigsRequestFilterSensitiveLog,
   ListProvisionedConcurrencyConfigsResponse,
-  ListProvisionedConcurrencyConfigsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListProvisionedConcurrencyConfigsCommand,
-  serializeAws_restJson1ListProvisionedConcurrencyConfigsCommand,
+  de_ListProvisionedConcurrencyConfigsCommand,
+  se_ListProvisionedConcurrencyConfigsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListProvisionedConcurrencyConfigsCommand}.
+ */
 export interface ListProvisionedConcurrencyConfigsCommandInput extends ListProvisionedConcurrencyConfigsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListProvisionedConcurrencyConfigsCommand}.
+ */
 export interface ListProvisionedConcurrencyConfigsCommandOutput
   extends ListProvisionedConcurrencyConfigsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of provisioned concurrency configurations for a function.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +47,33 @@ export interface ListProvisionedConcurrencyConfigsCommandOutput
  * import { LambdaClient, ListProvisionedConcurrencyConfigsCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, ListProvisionedConcurrencyConfigsCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = { // ListProvisionedConcurrencyConfigsRequest
+ *   FunctionName: "STRING_VALUE", // required
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListProvisionedConcurrencyConfigsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProvisionedConcurrencyConfigsCommandInput - {@link ListProvisionedConcurrencyConfigsCommandInput}
+ * @returns {@link ListProvisionedConcurrencyConfigsCommandOutput}
  * @see {@link ListProvisionedConcurrencyConfigsCommandInput} for command's `input` shape.
  * @see {@link ListProvisionedConcurrencyConfigsCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One of the parameters in the request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request does not exist.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>The Lambda service encountered an internal error.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
+ *
  *
  */
 export class ListProvisionedConcurrencyConfigsCommand extends $Command<
@@ -64,6 +93,9 @@ export class ListProvisionedConcurrencyConfigsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProvisionedConcurrencyConfigsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +124,8 @@ export class ListProvisionedConcurrencyConfigsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListProvisionedConcurrencyConfigsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListProvisionedConcurrencyConfigsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +135,24 @@ export class ListProvisionedConcurrencyConfigsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListProvisionedConcurrencyConfigsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListProvisionedConcurrencyConfigsCommand(input, context);
+    return se_ListProvisionedConcurrencyConfigsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListProvisionedConcurrencyConfigsCommandOutput> {
-    return deserializeAws_restJson1ListProvisionedConcurrencyConfigsCommand(output, context);
+    return de_ListProvisionedConcurrencyConfigsCommand(output, context);
   }
 
   // Start section: command_body_extra

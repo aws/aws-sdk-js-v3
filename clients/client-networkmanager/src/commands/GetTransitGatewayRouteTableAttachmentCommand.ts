@@ -15,23 +15,32 @@ import {
 
 import {
   GetTransitGatewayRouteTableAttachmentRequest,
-  GetTransitGatewayRouteTableAttachmentRequestFilterSensitiveLog,
   GetTransitGatewayRouteTableAttachmentResponse,
-  GetTransitGatewayRouteTableAttachmentResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
-  deserializeAws_restJson1GetTransitGatewayRouteTableAttachmentCommand,
-  serializeAws_restJson1GetTransitGatewayRouteTableAttachmentCommand,
+  de_GetTransitGatewayRouteTableAttachmentCommand,
+  se_GetTransitGatewayRouteTableAttachmentCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetTransitGatewayRouteTableAttachmentCommand}.
+ */
 export interface GetTransitGatewayRouteTableAttachmentCommandInput
   extends GetTransitGatewayRouteTableAttachmentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetTransitGatewayRouteTableAttachmentCommand}.
+ */
 export interface GetTransitGatewayRouteTableAttachmentCommandOutput
   extends GetTransitGatewayRouteTableAttachmentResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a transit gateway route table attachment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +48,34 @@ export interface GetTransitGatewayRouteTableAttachmentCommandOutput
  * import { NetworkManagerClient, GetTransitGatewayRouteTableAttachmentCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetTransitGatewayRouteTableAttachmentCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // GetTransitGatewayRouteTableAttachmentRequest
+ *   AttachmentId: "STRING_VALUE", // required
+ * };
  * const command = new GetTransitGatewayRouteTableAttachmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTransitGatewayRouteTableAttachmentCommandInput - {@link GetTransitGatewayRouteTableAttachmentCommandInput}
+ * @returns {@link GetTransitGatewayRouteTableAttachmentCommandOutput}
  * @see {@link GetTransitGatewayRouteTableAttachmentCommandInput} for command's `input` shape.
  * @see {@link GetTransitGatewayRouteTableAttachmentCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request has failed due to an internal error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints.</p>
+ *
  *
  */
 export class GetTransitGatewayRouteTableAttachmentCommand extends $Command<
@@ -65,6 +95,9 @@ export class GetTransitGatewayRouteTableAttachmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTransitGatewayRouteTableAttachmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +126,8 @@ export class GetTransitGatewayRouteTableAttachmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTransitGatewayRouteTableAttachmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTransitGatewayRouteTableAttachmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,18 +137,24 @@ export class GetTransitGatewayRouteTableAttachmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetTransitGatewayRouteTableAttachmentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTransitGatewayRouteTableAttachmentCommand(input, context);
+    return se_GetTransitGatewayRouteTableAttachmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetTransitGatewayRouteTableAttachmentCommandOutput> {
-    return deserializeAws_restJson1GetTransitGatewayRouteTableAttachmentCommand(output, context);
+    return de_GetTransitGatewayRouteTableAttachmentCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
-import {
-  ListLabelGroupsRequest,
-  ListLabelGroupsRequestFilterSensitiveLog,
-  ListLabelGroupsResponse,
-  ListLabelGroupsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListLabelGroupsCommand,
-  serializeAws_json1_0ListLabelGroupsCommand,
-} from "../protocols/Aws_json1_0";
+import { ListLabelGroupsRequest, ListLabelGroupsResponse } from "../models/models_0";
+import { de_ListLabelGroupsCommand, se_ListLabelGroupsCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link ListLabelGroupsCommand}.
+ */
 export interface ListLabelGroupsCommandInput extends ListLabelGroupsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListLabelGroupsCommand}.
+ */
 export interface ListLabelGroupsCommandOutput extends ListLabelGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  * Returns a list of the label groups.
  * </p>
@@ -38,13 +41,36 @@ export interface ListLabelGroupsCommandOutput extends ListLabelGroupsResponse, _
  * import { LookoutEquipmentClient, ListLabelGroupsCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, ListLabelGroupsCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
+ * const input = { // ListLabelGroupsRequest
+ *   LabelGroupNameBeginsWith: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListLabelGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLabelGroupsCommandInput - {@link ListLabelGroupsCommandInput}
+ * @returns {@link ListLabelGroupsCommandOutput}
  * @see {@link ListLabelGroupsCommandInput} for command's `input` shape.
  * @see {@link ListLabelGroupsCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The request could not be completed because you do not have access to the resource.
+ *       </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> Processing of the request has failed because of an unknown error, exception or failure.
+ *       </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a
+ *          related AWS service that's being utilized. </p>
+ *
  *
  */
 export class ListLabelGroupsCommand extends $Command<
@@ -64,6 +90,9 @@ export class ListLabelGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLabelGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +121,8 @@ export class ListLabelGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLabelGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListLabelGroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +132,18 @@ export class ListLabelGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLabelGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListLabelGroupsCommand(input, context);
+    return se_ListLabelGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLabelGroupsCommandOutput> {
-    return deserializeAws_json1_0ListLabelGroupsCommand(output, context);
+    return de_ListLabelGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

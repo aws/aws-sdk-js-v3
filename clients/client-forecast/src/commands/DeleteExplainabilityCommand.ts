@@ -14,18 +14,26 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import { DeleteExplainabilityRequest, DeleteExplainabilityRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteExplainabilityCommand,
-  serializeAws_json1_1DeleteExplainabilityCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteExplainabilityRequest } from "../models/models_0";
+import { de_DeleteExplainabilityCommand, se_DeleteExplainabilityCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteExplainabilityCommand}.
+ */
 export interface DeleteExplainabilityCommandInput extends DeleteExplainabilityRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteExplainabilityCommand}.
+ */
 export interface DeleteExplainabilityCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Explainability resource.</p>
- *         <p>You can delete only predictor that have a status of <code>ACTIVE</code> or
+ *          <p>You can delete only predictor that have a status of <code>ACTIVE</code> or
  *                 <code>CREATE_FAILED</code>. To get the status, use the <a>DescribeExplainability</a> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -33,13 +41,30 @@ export interface DeleteExplainabilityCommandOutput extends __MetadataBearer {}
  * import { ForecastClient, DeleteExplainabilityCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, DeleteExplainabilityCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = { // DeleteExplainabilityRequest
+ *   ExplainabilityArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteExplainabilityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteExplainabilityCommandInput - {@link DeleteExplainabilityCommandInput}
+ * @returns {@link DeleteExplainabilityCommandOutput}
  * @see {@link DeleteExplainabilityCommandInput} for command's `input` shape.
  * @see {@link DeleteExplainabilityCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>We can't process the request because it includes an invalid value or a value that exceeds
+ *       the valid range.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is in use.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
+ *       again.</p>
+ *
  *
  */
 export class DeleteExplainabilityCommand extends $Command<
@@ -59,6 +84,9 @@ export class DeleteExplainabilityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteExplainabilityCommandInput) {
     // Start section: command_constructor
     super();
@@ -87,8 +115,8 @@ export class DeleteExplainabilityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteExplainabilityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -98,12 +126,18 @@ export class DeleteExplainabilityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteExplainabilityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteExplainabilityCommand(input, context);
+    return se_DeleteExplainabilityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteExplainabilityCommandOutput> {
-    return deserializeAws_json1_1DeleteExplainabilityCommand(output, context);
+    return de_DeleteExplainabilityCommand(output, context);
   }
 
   // Start section: command_body_extra

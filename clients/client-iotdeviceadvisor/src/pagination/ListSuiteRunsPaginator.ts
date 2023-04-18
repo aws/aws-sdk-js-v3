@@ -6,12 +6,11 @@ import {
   ListSuiteRunsCommandInput,
   ListSuiteRunsCommandOutput,
 } from "../commands/ListSuiteRunsCommand";
-import { IotDeviceAdvisor } from "../IotDeviceAdvisor";
 import { IotDeviceAdvisorClient } from "../IotDeviceAdvisorClient";
 import { IotDeviceAdvisorPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: IotDeviceAdvisorClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListSuiteRunsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: IotDeviceAdvisor,
-  input: ListSuiteRunsCommandInput,
-  ...args: any
-): Promise<ListSuiteRunsCommandOutput> => {
-  // @ts-ignore
-  return await client.listSuiteRuns(input, ...args);
-};
 export async function* paginateListSuiteRuns(
   config: IotDeviceAdvisorPaginationConfiguration,
   input: ListSuiteRunsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListSuiteRuns(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof IotDeviceAdvisor) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IotDeviceAdvisorClient) {
+    if (config.client instanceof IotDeviceAdvisorClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected IotDeviceAdvisor | IotDeviceAdvisorClient");

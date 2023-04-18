@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeDRTAccessRequest,
-  DescribeDRTAccessRequestFilterSensitiveLog,
-  DescribeDRTAccessResponse,
-  DescribeDRTAccessResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeDRTAccessCommand,
-  serializeAws_json1_1DescribeDRTAccessCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeDRTAccessRequest, DescribeDRTAccessResponse } from "../models/models_0";
+import { de_DescribeDRTAccessCommand, se_DescribeDRTAccessCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeDRTAccessCommand}.
+ */
 export interface DescribeDRTAccessCommandInput extends DescribeDRTAccessRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeDRTAccessCommand}.
+ */
 export interface DescribeDRTAccessCommandOutput extends DescribeDRTAccessResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the current role and list of Amazon S3 log buckets used by the Shield Response Team (SRT) to access your Amazon Web Services account while assisting with attack mitigation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,23 @@ export interface DescribeDRTAccessCommandOutput extends DescribeDRTAccessRespons
  * import { ShieldClient, DescribeDRTAccessCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, DescribeDRTAccessCommand } = require("@aws-sdk/client-shield"); // CommonJS import
  * const client = new ShieldClient(config);
+ * const input = {};
  * const command = new DescribeDRTAccessCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDRTAccessCommandInput - {@link DescribeDRTAccessCommandInput}
+ * @returns {@link DescribeDRTAccessCommandOutput}
  * @see {@link DescribeDRTAccessCommandInput} for command's `input` shape.
  * @see {@link DescribeDRTAccessCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+ *
  *
  */
 export class DescribeDRTAccessCommand extends $Command<
@@ -62,6 +75,9 @@ export class DescribeDRTAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDRTAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +106,8 @@ export class DescribeDRTAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDRTAccessRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDRTAccessResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +117,18 @@ export class DescribeDRTAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDRTAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDRTAccessCommand(input, context);
+    return se_DescribeDRTAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDRTAccessCommandOutput> {
-    return deserializeAws_json1_1DescribeDRTAccessCommand(output, context);
+    return de_DescribeDRTAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

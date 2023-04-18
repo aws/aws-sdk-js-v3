@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateEndpointInput,
-  CreateEndpointInputFilterSensitiveLog,
-  CreateEndpointOutput,
-  CreateEndpointOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateEndpointCommand,
-  serializeAws_json1_1CreateEndpointCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateEndpointInput, CreateEndpointOutput } from "../models/models_1";
+import { de_CreateEndpointCommand, se_CreateEndpointCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateEndpointCommand}.
+ */
 export interface CreateEndpointCommandInput extends CreateEndpointInput {}
+/**
+ * @public
+ *
+ * The output of {@link CreateEndpointCommand}.
+ */
 export interface CreateEndpointCommandOutput extends CreateEndpointOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an endpoint using the endpoint configuration specified in the request. SageMaker
  *             uses the endpoint to provision resources and deploy models. You create the endpoint
  *             configuration with the <a>CreateEndpointConfig</a> API. </p>
@@ -65,9 +68,10 @@ export interface CreateEndpointCommandOutput extends CreateEndpointOutput, __Met
  *             API.</p>
  *          <p>If any of the models hosted at this endpoint get model data from an Amazon S3 location,
  *             SageMaker uses Amazon Web Services Security Token Service to download model artifacts from the
- *             S3 path you provided. Amazon Web Services STS is activated in your IAM user account by
- *             default. If you previously deactivated Amazon Web Services STS for a region, you need to
- *             reactivate Amazon Web Services STS for that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
+ *             S3 path you provided. Amazon Web Services STS is activated in your Amazon Web Services
+ *             account by default. If you previously deactivated Amazon Web Services STS for a region,
+ *             you need to reactivate Amazon Web Services STS for that region. For more information, see
+ *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
  *                 Deactivating Amazon Web Services STS in an Amazon Web Services Region</a> in the
  *                     <i>Amazon Web Services Identity and Access Management User
  *                 Guide</i>.</p>
@@ -112,13 +116,55 @@ export interface CreateEndpointCommandOutput extends CreateEndpointOutput, __Met
  * import { SageMakerClient, CreateEndpointCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateEndpointCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // CreateEndpointInput
+ *   EndpointName: "STRING_VALUE", // required
+ *   EndpointConfigName: "STRING_VALUE", // required
+ *   DeploymentConfig: { // DeploymentConfig
+ *     BlueGreenUpdatePolicy: { // BlueGreenUpdatePolicy
+ *       TrafficRoutingConfiguration: { // TrafficRoutingConfig
+ *         Type: "ALL_AT_ONCE" || "CANARY" || "LINEAR", // required
+ *         WaitIntervalInSeconds: Number("int"), // required
+ *         CanarySize: { // CapacitySize
+ *           Type: "INSTANCE_COUNT" || "CAPACITY_PERCENT", // required
+ *           Value: Number("int"), // required
+ *         },
+ *         LinearStepSize: {
+ *           Type: "INSTANCE_COUNT" || "CAPACITY_PERCENT", // required
+ *           Value: Number("int"), // required
+ *         },
+ *       },
+ *       TerminationWaitInSeconds: Number("int"),
+ *       MaximumExecutionTimeoutInSeconds: Number("int"),
+ *     },
+ *     AutoRollbackConfiguration: { // AutoRollbackConfig
+ *       Alarms: [ // AlarmList
+ *         { // Alarm
+ *           AlarmName: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateEndpointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEndpointCommandInput - {@link CreateEndpointCommandInput}
+ * @returns {@link CreateEndpointCommandOutput}
  * @see {@link CreateEndpointCommandInput} for command's `input` shape.
  * @see {@link CreateEndpointCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceLimitExceeded} (client fault)
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
+ *             training jobs created. </p>
+ *
  *
  */
 export class CreateEndpointCommand extends $Command<
@@ -138,6 +184,9 @@ export class CreateEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -166,8 +215,8 @@ export class CreateEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateEndpointInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateEndpointOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -177,12 +226,18 @@ export class CreateEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateEndpointCommand(input, context);
+    return se_CreateEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEndpointCommandOutput> {
-    return deserializeAws_json1_1CreateEndpointCommand(output, context);
+    return de_CreateEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeDocumentRequest,
-  DescribeDocumentRequestFilterSensitiveLog,
-  DescribeDocumentResult,
-  DescribeDocumentResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeDocumentCommand,
-  serializeAws_json1_1DescribeDocumentCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeDocumentRequest, DescribeDocumentResult } from "../models/models_0";
+import { de_DescribeDocumentCommand, se_DescribeDocumentCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeDocumentCommand}.
+ */
 export interface DescribeDocumentCommandInput extends DescribeDocumentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeDocumentCommand}.
+ */
 export interface DescribeDocumentCommandOutput extends DescribeDocumentResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified Amazon Web Services Systems Manager document (SSM document).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,30 @@ export interface DescribeDocumentCommandOutput extends DescribeDocumentResult, _
  * import { SSMClient, DescribeDocumentCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeDocumentCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // DescribeDocumentRequest
+ *   Name: "STRING_VALUE", // required
+ *   DocumentVersion: "STRING_VALUE",
+ *   VersionName: "STRING_VALUE",
+ * };
  * const command = new DescribeDocumentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDocumentCommandInput - {@link DescribeDocumentCommandInput}
+ * @returns {@link DescribeDocumentCommandOutput}
  * @see {@link DescribeDocumentCommandInput} for command's `input` shape.
  * @see {@link DescribeDocumentCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidDocument} (client fault)
+ *  <p>The specified SSM document doesn't exist.</p>
+ *
+ * @throws {@link InvalidDocumentVersion} (client fault)
+ *  <p>The document version isn't valid or doesn't exist.</p>
+ *
  *
  */
 export class DescribeDocumentCommand extends $Command<
@@ -62,6 +82,9 @@ export class DescribeDocumentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDocumentCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +113,8 @@ export class DescribeDocumentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDocumentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDocumentResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +124,18 @@ export class DescribeDocumentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDocumentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDocumentCommand(input, context);
+    return se_DescribeDocumentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDocumentCommandOutput> {
-    return deserializeAws_json1_1DescribeDocumentCommand(output, context);
+    return de_DescribeDocumentCommand(output, context);
   }
 
   // Start section: command_body_extra

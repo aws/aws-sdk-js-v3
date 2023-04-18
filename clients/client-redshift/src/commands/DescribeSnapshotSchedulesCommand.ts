@@ -13,24 +13,27 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeSnapshotSchedulesMessage,
-  DescribeSnapshotSchedulesMessageFilterSensitiveLog,
-  DescribeSnapshotSchedulesOutputMessage,
-  DescribeSnapshotSchedulesOutputMessageFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryDescribeSnapshotSchedulesCommand,
-  serializeAws_queryDescribeSnapshotSchedulesCommand,
-} from "../protocols/Aws_query";
+import { DescribeSnapshotSchedulesMessage, DescribeSnapshotSchedulesOutputMessage } from "../models/models_1";
+import { de_DescribeSnapshotSchedulesCommand, se_DescribeSnapshotSchedulesCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeSnapshotSchedulesCommand}.
+ */
 export interface DescribeSnapshotSchedulesCommandInput extends DescribeSnapshotSchedulesMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeSnapshotSchedulesCommand}.
+ */
 export interface DescribeSnapshotSchedulesCommandOutput
   extends DescribeSnapshotSchedulesOutputMessage,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of snapshot schedules. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +41,28 @@ export interface DescribeSnapshotSchedulesCommandOutput
  * import { RedshiftClient, DescribeSnapshotSchedulesCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeSnapshotSchedulesCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DescribeSnapshotSchedulesMessage
+ *   ClusterIdentifier: "STRING_VALUE",
+ *   ScheduleIdentifier: "STRING_VALUE",
+ *   TagKeys: [ // TagKeyList
+ *     "STRING_VALUE",
+ *   ],
+ *   TagValues: [ // TagValueList
+ *     "STRING_VALUE",
+ *   ],
+ *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ * };
  * const command = new DescribeSnapshotSchedulesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSnapshotSchedulesCommandInput - {@link DescribeSnapshotSchedulesCommandInput}
+ * @returns {@link DescribeSnapshotSchedulesCommandOutput}
  * @see {@link DescribeSnapshotSchedulesCommandInput} for command's `input` shape.
  * @see {@link DescribeSnapshotSchedulesCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
+ *
  *
  */
 export class DescribeSnapshotSchedulesCommand extends $Command<
@@ -64,6 +82,9 @@ export class DescribeSnapshotSchedulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSnapshotSchedulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +113,8 @@ export class DescribeSnapshotSchedulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSnapshotSchedulesMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSnapshotSchedulesOutputMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +124,21 @@ export class DescribeSnapshotSchedulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSnapshotSchedulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeSnapshotSchedulesCommand(input, context);
+    return se_DescribeSnapshotSchedulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSnapshotSchedulesCommandOutput> {
-    return deserializeAws_queryDescribeSnapshotSchedulesCommand(output, context);
+    return de_DescribeSnapshotSchedulesCommand(output, context);
   }
 
   // Start section: command_body_extra

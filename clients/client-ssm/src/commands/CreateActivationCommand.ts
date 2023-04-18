@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateActivationRequest,
-  CreateActivationRequestFilterSensitiveLog,
-  CreateActivationResult,
-  CreateActivationResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateActivationCommand,
-  serializeAws_json1_1CreateActivationCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateActivationRequest, CreateActivationResult } from "../models/models_0";
+import { de_CreateActivationCommand, se_CreateActivationCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateActivationCommand}.
+ */
 export interface CreateActivationCommandInput extends CreateActivationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateActivationCommand}.
+ */
 export interface CreateActivationCommandOutput extends CreateActivationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates an activation code and activation ID you can use to register your on-premises
  *    servers, edge devices, or virtual machine (VM) with Amazon Web Services Systems Manager. Registering these machines with
  *    Systems Manager makes it possible to manage them using Systems Manager capabilities. You use the activation code and
@@ -45,13 +48,42 @@ export interface CreateActivationCommandOutput extends CreateActivationResult, _
  * import { SSMClient, CreateActivationCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, CreateActivationCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // CreateActivationRequest
+ *   Description: "STRING_VALUE",
+ *   DefaultInstanceName: "STRING_VALUE",
+ *   IamRole: "STRING_VALUE", // required
+ *   RegistrationLimit: Number("int"),
+ *   ExpirationDate: new Date("TIMESTAMP"),
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   RegistrationMetadata: [ // RegistrationMetadataList
+ *     { // RegistrationMetadataItem
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateActivationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateActivationCommandInput - {@link CreateActivationCommandInput}
+ * @returns {@link CreateActivationCommandOutput}
  * @see {@link CreateActivationCommandInput} for command's `input` shape.
  * @see {@link CreateActivationCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidParameters} (client fault)
+ *  <p>You must specify values for all required parameters in the Amazon Web Services Systems Manager document (SSM
+ *    document). You can only supply values to parameters defined in the SSM document.</p>
+ *
  *
  */
 export class CreateActivationCommand extends $Command<
@@ -71,6 +103,9 @@ export class CreateActivationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateActivationCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +134,8 @@ export class CreateActivationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateActivationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateActivationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +145,18 @@ export class CreateActivationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateActivationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateActivationCommand(input, context);
+    return se_CreateActivationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateActivationCommandOutput> {
-    return deserializeAws_json1_1CreateActivationCommand(output, context);
+    return de_CreateActivationCommand(output, context);
   }
 
   // Start section: command_body_extra

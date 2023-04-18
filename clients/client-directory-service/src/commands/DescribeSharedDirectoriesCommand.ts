@@ -16,19 +16,26 @@ import {
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import {
   DescribeSharedDirectoriesRequest,
-  DescribeSharedDirectoriesRequestFilterSensitiveLog,
   DescribeSharedDirectoriesResult,
   DescribeSharedDirectoriesResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeSharedDirectoriesCommand,
-  serializeAws_json1_1DescribeSharedDirectoriesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeSharedDirectoriesCommand, se_DescribeSharedDirectoriesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeSharedDirectoriesCommand}.
+ */
 export interface DescribeSharedDirectoriesCommandInput extends DescribeSharedDirectoriesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeSharedDirectoriesCommand}.
+ */
 export interface DescribeSharedDirectoriesCommandOutput extends DescribeSharedDirectoriesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the shared directories in your account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +43,42 @@ export interface DescribeSharedDirectoriesCommandOutput extends DescribeSharedDi
  * import { DirectoryServiceClient, DescribeSharedDirectoriesCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DescribeSharedDirectoriesCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // DescribeSharedDirectoriesRequest
+ *   OwnerDirectoryId: "STRING_VALUE", // required
+ *   SharedDirectoryIds: [ // DirectoryIds
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new DescribeSharedDirectoriesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSharedDirectoriesCommandInput - {@link DescribeSharedDirectoriesCommandInput}
+ * @returns {@link DescribeSharedDirectoriesCommandOutput}
  * @see {@link DescribeSharedDirectoriesCommandInput} for command's `input` shape.
  * @see {@link DescribeSharedDirectoriesCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>A client exception has occurred.</p>
+ *
+ * @throws {@link EntityDoesNotExistException} (client fault)
+ *  <p>The specified entity could not be found.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The <code>NextToken</code> value is not valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>An exception has occurred in Directory Service.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>The operation is not supported.</p>
+ *
  *
  */
 export class DescribeSharedDirectoriesCommand extends $Command<
@@ -62,6 +98,9 @@ export class DescribeSharedDirectoriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSharedDirectoriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +129,7 @@ export class DescribeSharedDirectoriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSharedDirectoriesRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeSharedDirectoriesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -101,15 +140,21 @@ export class DescribeSharedDirectoriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSharedDirectoriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeSharedDirectoriesCommand(input, context);
+    return se_DescribeSharedDirectoriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSharedDirectoriesCommandOutput> {
-    return deserializeAws_json1_1DescribeSharedDirectoriesCommand(output, context);
+    return de_DescribeSharedDirectoriesCommand(output, context);
   }
 
   // Start section: command_body_extra

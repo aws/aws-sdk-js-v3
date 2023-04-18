@@ -14,18 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  RegisterTypeInput,
-  RegisterTypeInputFilterSensitiveLog,
-  RegisterTypeOutput,
-  RegisterTypeOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_queryRegisterTypeCommand, serializeAws_queryRegisterTypeCommand } from "../protocols/Aws_query";
+import { RegisterTypeInput, RegisterTypeOutput } from "../models/models_0";
+import { de_RegisterTypeCommand, se_RegisterTypeCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link RegisterTypeCommand}.
+ */
 export interface RegisterTypeCommandInput extends RegisterTypeInput {}
+/**
+ * @public
+ *
+ * The output of {@link RegisterTypeCommand}.
+ */
 export interface RegisterTypeCommandOutput extends RegisterTypeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers an extension with the CloudFormation service. Registering an
  *          extension makes it available for use in CloudFormation templates in your Amazon Web Services account, and includes:</p>
  *          <ul>
@@ -59,13 +65,30 @@ export interface RegisterTypeCommandOutput extends RegisterTypeOutput, __Metadat
  * import { CloudFormationClient, RegisterTypeCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, RegisterTypeCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // RegisterTypeInput
+ *   Type: "RESOURCE" || "MODULE" || "HOOK",
+ *   TypeName: "STRING_VALUE", // required
+ *   SchemaHandlerPackage: "STRING_VALUE", // required
+ *   LoggingConfig: { // LoggingConfig
+ *     LogRoleArn: "STRING_VALUE", // required
+ *     LogGroupName: "STRING_VALUE", // required
+ *   },
+ *   ExecutionRoleArn: "STRING_VALUE",
+ *   ClientRequestToken: "STRING_VALUE",
+ * };
  * const command = new RegisterTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterTypeCommandInput - {@link RegisterTypeCommandInput}
+ * @returns {@link RegisterTypeCommandOutput}
  * @see {@link RegisterTypeCommandInput} for command's `input` shape.
  * @see {@link RegisterTypeCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
+ *
+ * @throws {@link CFNRegistryException} (client fault)
+ *  <p>An error occurred during a CloudFormation registry operation.</p>
+ *
  *
  */
 export class RegisterTypeCommand extends $Command<
@@ -85,6 +108,9 @@ export class RegisterTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +137,8 @@ export class RegisterTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterTypeInputFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterTypeOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +148,18 @@ export class RegisterTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRegisterTypeCommand(input, context);
+    return se_RegisterTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterTypeCommandOutput> {
-    return deserializeAws_queryRegisterTypeCommand(output, context);
+    return de_RegisterTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

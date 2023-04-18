@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import {
-  ListInstanceGroupsInput,
-  ListInstanceGroupsInputFilterSensitiveLog,
-  ListInstanceGroupsOutput,
-  ListInstanceGroupsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListInstanceGroupsCommand,
-  serializeAws_json1_1ListInstanceGroupsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListInstanceGroupsInput, ListInstanceGroupsOutput } from "../models/models_0";
+import { de_ListInstanceGroupsCommand, se_ListInstanceGroupsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListInstanceGroupsCommand}.
+ */
 export interface ListInstanceGroupsCommandInput extends ListInstanceGroupsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListInstanceGroupsCommand}.
+ */
 export interface ListInstanceGroupsCommandOutput extends ListInstanceGroupsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides all available details about the instance groups in a cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,27 @@ export interface ListInstanceGroupsCommandOutput extends ListInstanceGroupsOutpu
  * import { EMRClient, ListInstanceGroupsCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, ListInstanceGroupsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = { // ListInstanceGroupsInput
+ *   ClusterId: "STRING_VALUE", // required
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new ListInstanceGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInstanceGroupsCommandInput - {@link ListInstanceGroupsCommandInput}
+ * @returns {@link ListInstanceGroupsCommandOutput}
  * @see {@link ListInstanceGroupsCommandInput} for command's `input` shape.
  * @see {@link ListInstanceGroupsCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>This exception occurs when there is an internal failure in the Amazon EMR
+ *          service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception occurs when there is something wrong with user input.</p>
+ *
  *
  */
 export class ListInstanceGroupsCommand extends $Command<
@@ -62,6 +79,9 @@ export class ListInstanceGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInstanceGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +110,8 @@ export class ListInstanceGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListInstanceGroupsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListInstanceGroupsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +121,18 @@ export class ListInstanceGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListInstanceGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListInstanceGroupsCommand(input, context);
+    return se_ListInstanceGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInstanceGroupsCommandOutput> {
-    return deserializeAws_json1_1ListInstanceGroupsCommand(output, context);
+    return de_ListInstanceGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

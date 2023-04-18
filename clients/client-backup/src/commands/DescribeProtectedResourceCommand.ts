@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import {
-  DescribeProtectedResourceInput,
-  DescribeProtectedResourceInputFilterSensitiveLog,
-  DescribeProtectedResourceOutput,
-  DescribeProtectedResourceOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeProtectedResourceCommand,
-  serializeAws_restJson1DescribeProtectedResourceCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeProtectedResourceInput, DescribeProtectedResourceOutput } from "../models/models_0";
+import { de_DescribeProtectedResourceCommand, se_DescribeProtectedResourceCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeProtectedResourceCommand}.
+ */
 export interface DescribeProtectedResourceCommandInput extends DescribeProtectedResourceInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeProtectedResourceCommand}.
+ */
 export interface DescribeProtectedResourceCommandOutput extends DescribeProtectedResourceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a saved resource, including the last time it was backed up,
  *          its Amazon Resource Name (ARN), and the Amazon Web Services service type of the saved
  *          resource.</p>
@@ -38,13 +41,32 @@ export interface DescribeProtectedResourceCommandOutput extends DescribeProtecte
  * import { BackupClient, DescribeProtectedResourceCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, DescribeProtectedResourceCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // DescribeProtectedResourceInput
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeProtectedResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeProtectedResourceCommandInput - {@link DescribeProtectedResourceCommandInput}
+ * @returns {@link DescribeProtectedResourceCommandOutput}
  * @see {@link DescribeProtectedResourceCommandInput} for command's `input` shape.
  * @see {@link DescribeProtectedResourceCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
+ *          out of range.</p>
+ *
+ * @throws {@link MissingParameterValueException} (client fault)
+ *  <p>Indicates that a required parameter is missing.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource that is required for the action doesn't exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request failed due to a temporary failure of the server.</p>
+ *
  *
  */
 export class DescribeProtectedResourceCommand extends $Command<
@@ -64,6 +86,9 @@ export class DescribeProtectedResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeProtectedResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +117,8 @@ export class DescribeProtectedResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeProtectedResourceInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeProtectedResourceOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +128,21 @@ export class DescribeProtectedResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeProtectedResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeProtectedResourceCommand(input, context);
+    return se_DescribeProtectedResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeProtectedResourceCommandOutput> {
-    return deserializeAws_restJson1DescribeProtectedResourceCommand(output, context);
+    return de_DescribeProtectedResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

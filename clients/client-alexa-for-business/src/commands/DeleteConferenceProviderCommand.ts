@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  DeleteConferenceProviderRequest,
-  DeleteConferenceProviderRequestFilterSensitiveLog,
-  DeleteConferenceProviderResponse,
-  DeleteConferenceProviderResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteConferenceProviderCommand,
-  serializeAws_json1_1DeleteConferenceProviderCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteConferenceProviderRequest, DeleteConferenceProviderResponse } from "../models/models_0";
+import { de_DeleteConferenceProviderCommand, se_DeleteConferenceProviderCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteConferenceProviderCommand}.
+ */
 export interface DeleteConferenceProviderCommandInput extends DeleteConferenceProviderRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteConferenceProviderCommand}.
+ */
 export interface DeleteConferenceProviderCommandOutput extends DeleteConferenceProviderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a conference provider.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,22 @@ export interface DeleteConferenceProviderCommandOutput extends DeleteConferenceP
  * import { AlexaForBusinessClient, DeleteConferenceProviderCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, DeleteConferenceProviderCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // DeleteConferenceProviderRequest
+ *   ConferenceProviderArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteConferenceProviderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteConferenceProviderCommandInput - {@link DeleteConferenceProviderCommandInput}
+ * @returns {@link DeleteConferenceProviderCommandOutput}
  * @see {@link DeleteConferenceProviderCommandInput} for command's `input` shape.
  * @see {@link DeleteConferenceProviderCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
  *
  */
 export class DeleteConferenceProviderCommand extends $Command<
@@ -62,6 +74,9 @@ export class DeleteConferenceProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteConferenceProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +105,8 @@ export class DeleteConferenceProviderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteConferenceProviderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteConferenceProviderResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +116,18 @@ export class DeleteConferenceProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteConferenceProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteConferenceProviderCommand(input, context);
+    return se_DeleteConferenceProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteConferenceProviderCommandOutput> {
-    return deserializeAws_json1_1DeleteConferenceProviderCommand(output, context);
+    return de_DeleteConferenceProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import {
-  GetResourceDefinitionRequest,
-  GetResourceDefinitionRequestFilterSensitiveLog,
-  GetResourceDefinitionResponse,
-  GetResourceDefinitionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetResourceDefinitionCommand,
-  serializeAws_restJson1GetResourceDefinitionCommand,
-} from "../protocols/Aws_restJson1";
+import { GetResourceDefinitionRequest, GetResourceDefinitionResponse } from "../models/models_0";
+import { de_GetResourceDefinitionCommand, se_GetResourceDefinitionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetResourceDefinitionCommand}.
+ */
 export interface GetResourceDefinitionCommandInput extends GetResourceDefinitionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetResourceDefinitionCommand}.
+ */
 export interface GetResourceDefinitionCommandOutput extends GetResourceDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Retrieves information about a resource definition, including its creation time and latest version.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,22 @@ export interface GetResourceDefinitionCommandOutput extends GetResourceDefinitio
  * import { GreengrassClient, GetResourceDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, GetResourceDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // GetResourceDefinitionRequest
+ *   ResourceDefinitionId: "STRING_VALUE", // required
+ * };
  * const command = new GetResourceDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResourceDefinitionCommandInput - {@link GetResourceDefinitionCommandInput}
+ * @returns {@link GetResourceDefinitionCommandOutput}
  * @see {@link GetResourceDefinitionCommandInput} for command's `input` shape.
  * @see {@link GetResourceDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  General error information.
+ *
  *
  */
 export class GetResourceDefinitionCommand extends $Command<
@@ -62,6 +74,9 @@ export class GetResourceDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResourceDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +105,8 @@ export class GetResourceDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetResourceDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetResourceDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +116,18 @@ export class GetResourceDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResourceDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetResourceDefinitionCommand(input, context);
+    return se_GetResourceDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourceDefinitionCommandOutput> {
-    return deserializeAws_restJson1GetResourceDefinitionCommand(output, context);
+    return de_GetResourceDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

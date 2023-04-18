@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import { MergeShardsInput, MergeShardsInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1MergeShardsCommand,
-  serializeAws_json1_1MergeShardsCommand,
-} from "../protocols/Aws_json1_1";
+import { MergeShardsInput } from "../models/models_0";
+import { de_MergeShardsCommand, se_MergeShardsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link MergeShardsCommand}.
+ */
 export interface MergeShardsCommandInput extends MergeShardsInput {}
+/**
+ * @public
+ *
+ * The output of {@link MergeShardsCommand}.
+ */
 export interface MergeShardsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Merges two adjacent shards in a Kinesis data stream and combines them into a single
  *             shard to reduce the stream's capacity to ingest and transport data. This API is only
  *             supported for the data streams with the provisioned capacity mode. Two shards are
@@ -71,13 +79,47 @@ export interface MergeShardsCommandOutput extends __MetadataBearer {}
  * import { KinesisClient, MergeShardsCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, MergeShardsCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
+ * const input = { // MergeShardsInput
+ *   StreamName: "STRING_VALUE",
+ *   ShardToMerge: "STRING_VALUE", // required
+ *   AdjacentShardToMerge: "STRING_VALUE", // required
+ *   StreamARN: "STRING_VALUE",
+ * };
  * const command = new MergeShardsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param MergeShardsCommandInput - {@link MergeShardsCommandInput}
+ * @returns {@link MergeShardsCommandOutput}
  * @see {@link MergeShardsCommandInput} for command's `input` shape.
  * @see {@link MergeShardsCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Specifies that you do not have the permissions required to perform this
+ *             operation.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>A specified parameter exceeds its restrictions, is not supported, or can't be used.
+ *             For more information, see the returned message.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
+ *             stream requests exceeds the maximum number allowed. </p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The resource is not available for this operation. For successful operation, the
+ *             resource must be in the <code>ACTIVE</code> state.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource could not be found. The stream might not be specified
+ *             correctly.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Specifies that you tried to invoke this API for a data stream with the on-demand
+ *             capacity mode. This API is only supported for data streams with the provisioned capacity
+ *             mode. </p>
+ *
  *
  */
 export class MergeShardsCommand extends $Command<
@@ -99,6 +141,9 @@ export class MergeShardsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: MergeShardsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +170,8 @@ export class MergeShardsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MergeShardsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +181,18 @@ export class MergeShardsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: MergeShardsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1MergeShardsCommand(input, context);
+    return se_MergeShardsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MergeShardsCommandOutput> {
-    return deserializeAws_json1_1MergeShardsCommand(output, context);
+    return de_MergeShardsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { UpdateDataSourcePermissionsRequest, UpdateDataSourcePermissionsResponse } from "../models/models_3";
 import {
-  UpdateDataSourcePermissionsRequest,
-  UpdateDataSourcePermissionsRequestFilterSensitiveLog,
-  UpdateDataSourcePermissionsResponse,
-  UpdateDataSourcePermissionsResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_restJson1UpdateDataSourcePermissionsCommand,
-  serializeAws_restJson1UpdateDataSourcePermissionsCommand,
+  de_UpdateDataSourcePermissionsCommand,
+  se_UpdateDataSourcePermissionsCommand,
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateDataSourcePermissionsCommand}.
+ */
 export interface UpdateDataSourcePermissionsCommandInput extends UpdateDataSourcePermissionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateDataSourcePermissionsCommand}.
+ */
 export interface UpdateDataSourcePermissionsCommandOutput
   extends UpdateDataSourcePermissionsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the permissions to a data source.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,57 @@ export interface UpdateDataSourcePermissionsCommandOutput
  * import { QuickSightClient, UpdateDataSourcePermissionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdateDataSourcePermissionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // UpdateDataSourcePermissionsRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   DataSourceId: "STRING_VALUE", // required
+ *   GrantPermissions: [ // ResourcePermissionList
+ *     { // ResourcePermission
+ *       Principal: "STRING_VALUE", // required
+ *       Actions: [ // ActionList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   RevokePermissions: [
+ *     {
+ *       Principal: "STRING_VALUE", // required
+ *       Actions: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new UpdateDataSourcePermissionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDataSourcePermissionsCommandInput - {@link UpdateDataSourcePermissionsCommandInput}
+ * @returns {@link UpdateDataSourcePermissionsCommandOutput}
  * @see {@link UpdateDataSourcePermissionsCommandInput} for command's `input` shape.
  * @see {@link UpdateDataSourcePermissionsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have access to this item. The provided credentials couldn't be
+ * 			validated. You might not be authorized to carry out the request. Make sure that your
+ * 			account is authorized to use the Amazon QuickSight service, that your policies have the
+ * 			correct permissions, and that you are using the correct credentials.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal failure occurred.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One or more parameters has a value that isn't valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>One or more resources can't be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Access is throttled.</p>
+ *
  *
  */
 export class UpdateDataSourcePermissionsCommand extends $Command<
@@ -64,6 +114,9 @@ export class UpdateDataSourcePermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDataSourcePermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +145,8 @@ export class UpdateDataSourcePermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDataSourcePermissionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDataSourcePermissionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +156,21 @@ export class UpdateDataSourcePermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDataSourcePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDataSourcePermissionsCommand(input, context);
+    return se_UpdateDataSourcePermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDataSourcePermissionsCommandOutput> {
-    return deserializeAws_restJson1UpdateDataSourcePermissionsCommand(output, context);
+    return de_UpdateDataSourcePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

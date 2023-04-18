@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListSubscribedRuleGroupsRequest,
-  ListSubscribedRuleGroupsRequestFilterSensitiveLog,
-  ListSubscribedRuleGroupsResponse,
-  ListSubscribedRuleGroupsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListSubscribedRuleGroupsCommand,
-  serializeAws_json1_1ListSubscribedRuleGroupsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListSubscribedRuleGroupsRequest, ListSubscribedRuleGroupsResponse } from "../models/models_0";
+import { de_ListSubscribedRuleGroupsCommand, se_ListSubscribedRuleGroupsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListSubscribedRuleGroupsCommand}.
+ */
 export interface ListSubscribedRuleGroupsCommandInput extends ListSubscribedRuleGroupsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListSubscribedRuleGroupsCommand}.
+ */
 export interface ListSubscribedRuleGroupsCommandOutput extends ListSubscribedRuleGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -44,13 +47,26 @@ export interface ListSubscribedRuleGroupsCommandOutput extends ListSubscribedRul
  * import { WAFClient, ListSubscribedRuleGroupsCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, ListSubscribedRuleGroupsCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = { // ListSubscribedRuleGroupsRequest
+ *   NextMarker: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListSubscribedRuleGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSubscribedRuleGroupsCommandInput - {@link ListSubscribedRuleGroupsCommandInput}
+ * @returns {@link ListSubscribedRuleGroupsCommandOutput}
  * @see {@link ListSubscribedRuleGroupsCommandInput} for command's `input` shape.
  * @see {@link ListSubscribedRuleGroupsCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
+ *
+ * @throws {@link WAFInternalErrorException} (server fault)
+ *  <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+ *
+ * @throws {@link WAFNonexistentItemException} (client fault)
+ *  <p>The operation failed because the referenced object doesn't exist.</p>
+ *
  *
  */
 export class ListSubscribedRuleGroupsCommand extends $Command<
@@ -70,6 +86,9 @@ export class ListSubscribedRuleGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSubscribedRuleGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +117,8 @@ export class ListSubscribedRuleGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSubscribedRuleGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSubscribedRuleGroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +128,18 @@ export class ListSubscribedRuleGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSubscribedRuleGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListSubscribedRuleGroupsCommand(input, context);
+    return se_ListSubscribedRuleGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSubscribedRuleGroupsCommandOutput> {
-    return deserializeAws_json1_1ListSubscribedRuleGroupsCommand(output, context);
+    return de_ListSubscribedRuleGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

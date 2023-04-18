@@ -16,22 +16,31 @@ import {
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import {
   BatchAssociateAssessmentReportEvidenceRequest,
-  BatchAssociateAssessmentReportEvidenceRequestFilterSensitiveLog,
   BatchAssociateAssessmentReportEvidenceResponse,
-  BatchAssociateAssessmentReportEvidenceResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1BatchAssociateAssessmentReportEvidenceCommand,
-  serializeAws_restJson1BatchAssociateAssessmentReportEvidenceCommand,
+  de_BatchAssociateAssessmentReportEvidenceCommand,
+  se_BatchAssociateAssessmentReportEvidenceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchAssociateAssessmentReportEvidenceCommand}.
+ */
 export interface BatchAssociateAssessmentReportEvidenceCommandInput
   extends BatchAssociateAssessmentReportEvidenceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link BatchAssociateAssessmentReportEvidenceCommand}.
+ */
 export interface BatchAssociateAssessmentReportEvidenceCommandOutput
   extends BatchAssociateAssessmentReportEvidenceResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Associates a list of evidence to an assessment report in an Audit Manager
  *          assessment. </p>
  * @example
@@ -40,13 +49,37 @@ export interface BatchAssociateAssessmentReportEvidenceCommandOutput
  * import { AuditManagerClient, BatchAssociateAssessmentReportEvidenceCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, BatchAssociateAssessmentReportEvidenceCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = { // BatchAssociateAssessmentReportEvidenceRequest
+ *   assessmentId: "STRING_VALUE", // required
+ *   evidenceFolderId: "STRING_VALUE", // required
+ *   evidenceIds: [ // EvidenceIds // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchAssociateAssessmentReportEvidenceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchAssociateAssessmentReportEvidenceCommandInput - {@link BatchAssociateAssessmentReportEvidenceCommandInput}
+ * @returns {@link BatchAssociateAssessmentReportEvidenceCommandOutput}
  * @see {@link BatchAssociateAssessmentReportEvidenceCommandInput} for command's `input` shape.
  * @see {@link BatchAssociateAssessmentReportEvidenceCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p> Your account isn't registered with Audit Manager. Check the delegated
+ *          administrator setup on the Audit Manager settings page, and try again. </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> An internal service error occurred during the processing of your request. Try again
+ *          later. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p> The resource that's specified in the request can't be found. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p> The request has invalid or missing parameters. </p>
+ *
  *
  */
 export class BatchAssociateAssessmentReportEvidenceCommand extends $Command<
@@ -66,6 +99,9 @@ export class BatchAssociateAssessmentReportEvidenceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchAssociateAssessmentReportEvidenceCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +130,8 @@ export class BatchAssociateAssessmentReportEvidenceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchAssociateAssessmentReportEvidenceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchAssociateAssessmentReportEvidenceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,18 +141,24 @@ export class BatchAssociateAssessmentReportEvidenceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchAssociateAssessmentReportEvidenceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchAssociateAssessmentReportEvidenceCommand(input, context);
+    return se_BatchAssociateAssessmentReportEvidenceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchAssociateAssessmentReportEvidenceCommandOutput> {
-    return deserializeAws_restJson1BatchAssociateAssessmentReportEvidenceCommand(output, context);
+    return de_BatchAssociateAssessmentReportEvidenceCommand(output, context);
   }
 
   // Start section: command_body_extra

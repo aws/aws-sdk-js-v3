@@ -14,23 +14,26 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  EnableEbsEncryptionByDefaultRequest,
-  EnableEbsEncryptionByDefaultRequestFilterSensitiveLog,
-  EnableEbsEncryptionByDefaultResult,
-  EnableEbsEncryptionByDefaultResultFilterSensitiveLog,
-} from "../models/models_5";
-import {
-  deserializeAws_ec2EnableEbsEncryptionByDefaultCommand,
-  serializeAws_ec2EnableEbsEncryptionByDefaultCommand,
-} from "../protocols/Aws_ec2";
+import { EnableEbsEncryptionByDefaultRequest, EnableEbsEncryptionByDefaultResult } from "../models/models_5";
+import { de_EnableEbsEncryptionByDefaultCommand, se_EnableEbsEncryptionByDefaultCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link EnableEbsEncryptionByDefaultCommand}.
+ */
 export interface EnableEbsEncryptionByDefaultCommandInput extends EnableEbsEncryptionByDefaultRequest {}
+/**
+ * @public
+ *
+ * The output of {@link EnableEbsEncryptionByDefaultCommand}.
+ */
 export interface EnableEbsEncryptionByDefaultCommandOutput
   extends EnableEbsEncryptionByDefaultResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables EBS encryption by default for your account in the current Region.</p>
  *          <p>After you enable encryption by default, the EBS volumes that you create are
  *     	always encrypted, either using the default KMS key or the KMS key that you specified
@@ -49,13 +52,19 @@ export interface EnableEbsEncryptionByDefaultCommandOutput
  * import { EC2Client, EnableEbsEncryptionByDefaultCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, EnableEbsEncryptionByDefaultCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // EnableEbsEncryptionByDefaultRequest
+ *   DryRun: true || false,
+ * };
  * const command = new EnableEbsEncryptionByDefaultCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableEbsEncryptionByDefaultCommandInput - {@link EnableEbsEncryptionByDefaultCommandInput}
+ * @returns {@link EnableEbsEncryptionByDefaultCommandOutput}
  * @see {@link EnableEbsEncryptionByDefaultCommandInput} for command's `input` shape.
  * @see {@link EnableEbsEncryptionByDefaultCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class EnableEbsEncryptionByDefaultCommand extends $Command<
@@ -75,6 +84,9 @@ export class EnableEbsEncryptionByDefaultCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableEbsEncryptionByDefaultCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +115,8 @@ export class EnableEbsEncryptionByDefaultCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableEbsEncryptionByDefaultRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: EnableEbsEncryptionByDefaultResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,15 +126,21 @@ export class EnableEbsEncryptionByDefaultCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableEbsEncryptionByDefaultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2EnableEbsEncryptionByDefaultCommand(input, context);
+    return se_EnableEbsEncryptionByDefaultCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EnableEbsEncryptionByDefaultCommandOutput> {
-    return deserializeAws_ec2EnableEbsEncryptionByDefaultCommand(output, context);
+    return de_EnableEbsEncryptionByDefaultCommand(output, context);
   }
 
   // Start section: command_body_extra

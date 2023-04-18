@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
+import { ListRecoveryPointsByLegalHoldInput, ListRecoveryPointsByLegalHoldOutput } from "../models/models_0";
 import {
-  ListRecoveryPointsByLegalHoldInput,
-  ListRecoveryPointsByLegalHoldInputFilterSensitiveLog,
-  ListRecoveryPointsByLegalHoldOutput,
-  ListRecoveryPointsByLegalHoldOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListRecoveryPointsByLegalHoldCommand,
-  serializeAws_restJson1ListRecoveryPointsByLegalHoldCommand,
+  de_ListRecoveryPointsByLegalHoldCommand,
+  se_ListRecoveryPointsByLegalHoldCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListRecoveryPointsByLegalHoldCommand}.
+ */
 export interface ListRecoveryPointsByLegalHoldCommandInput extends ListRecoveryPointsByLegalHoldInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListRecoveryPointsByLegalHoldCommand}.
+ */
 export interface ListRecoveryPointsByLegalHoldCommandOutput
   extends ListRecoveryPointsByLegalHoldOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>This action returns recovery point ARNs (Amazon Resource Names) of the
  *          specified legal hold.</p>
  * @example
@@ -39,13 +45,31 @@ export interface ListRecoveryPointsByLegalHoldCommandOutput
  * import { BackupClient, ListRecoveryPointsByLegalHoldCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ListRecoveryPointsByLegalHoldCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // ListRecoveryPointsByLegalHoldInput
+ *   LegalHoldId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListRecoveryPointsByLegalHoldCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRecoveryPointsByLegalHoldCommandInput - {@link ListRecoveryPointsByLegalHoldCommandInput}
+ * @returns {@link ListRecoveryPointsByLegalHoldCommandOutput}
  * @see {@link ListRecoveryPointsByLegalHoldCommandInput} for command's `input` shape.
  * @see {@link ListRecoveryPointsByLegalHoldCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
+ *          out of range.</p>
+ *
+ * @throws {@link MissingParameterValueException} (client fault)
+ *  <p>Indicates that a required parameter is missing.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request failed due to a temporary failure of the server.</p>
+ *
  *
  */
 export class ListRecoveryPointsByLegalHoldCommand extends $Command<
@@ -65,6 +89,9 @@ export class ListRecoveryPointsByLegalHoldCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRecoveryPointsByLegalHoldCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +120,8 @@ export class ListRecoveryPointsByLegalHoldCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRecoveryPointsByLegalHoldInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRecoveryPointsByLegalHoldOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,15 +131,21 @@ export class ListRecoveryPointsByLegalHoldCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRecoveryPointsByLegalHoldCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRecoveryPointsByLegalHoldCommand(input, context);
+    return se_ListRecoveryPointsByLegalHoldCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListRecoveryPointsByLegalHoldCommandOutput> {
-    return deserializeAws_restJson1ListRecoveryPointsByLegalHoldCommand(output, context);
+    return de_ListRecoveryPointsByLegalHoldCommand(output, context);
   }
 
   // Start section: command_body_extra

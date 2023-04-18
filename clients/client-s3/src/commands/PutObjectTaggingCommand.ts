@@ -14,41 +14,38 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutObjectTaggingOutput,
-  PutObjectTaggingOutputFilterSensitiveLog,
-  PutObjectTaggingRequest,
-  PutObjectTaggingRequestFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlPutObjectTaggingCommand,
-  serializeAws_restXmlPutObjectTaggingCommand,
-} from "../protocols/Aws_restXml";
+import { PutObjectTaggingOutput, PutObjectTaggingRequest } from "../models/models_1";
+import { de_PutObjectTaggingCommand, se_PutObjectTaggingCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * @public
+ *
+ * The input for {@link PutObjectTaggingCommand}.
+ */
 export interface PutObjectTaggingCommandInput extends PutObjectTaggingRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutObjectTaggingCommand}.
+ */
 export interface PutObjectTaggingCommandOutput extends PutObjectTaggingOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the supplied tag-set to an object that already exists in a bucket.</p>
  *          <p>A tag is a key-value pair. You can associate tags with an object by sending a PUT
  *          request against the tagging subresource that is associated with the object. You can
  *          retrieve tags by sending a GET request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html">GetObjectTagging</a>.</p>
- *
  *          <p>For tagging-related restrictions related to characters and encodings, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">Tag
  *             Restrictions</a>. Note that Amazon S3 limits the maximum number of tags to 10 tags per
  *          object.</p>
- *
  *          <p>To use this operation, you must have permission to perform the
  *             <code>s3:PutObjectTagging</code> action. By default, the bucket owner has this
  *          permission and can grant this permission to others.</p>
- *
  *          <p>To put tags of any other version, use the <code>versionId</code> query parameter. You
  *          also need permission for the <code>s3:PutObjectVersionTagging</code> action.</p>
- *
  *          <p>For information about the Amazon S3 object tagging feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html">Object Tagging</a>.</p>
- *
- *
  *          <p class="title">
  *             <b>Special Errors</b>
  *          </p>
@@ -63,7 +60,8 @@ export interface PutObjectTaggingCommandOutput extends PutObjectTaggingOutput, _
  *                   <li>
  *                      <p>
  *                         <i>Cause: The tag provided was not a valid tag. This error can occur
- *                         if the tag did not pass input validation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html">Object Tagging</a>.</i>
+ *                         if the tag did not pass input validation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html">Object
+ *                            Tagging</a>.</i>
  *                      </p>
  *                   </li>
  *                </ul>
@@ -91,8 +89,8 @@ export interface PutObjectTaggingCommandOutput extends PutObjectTaggingOutput, _
  *                   </li>
  *                   <li>
  *                      <p>
- *                         <i>Cause: A conflicting conditional action is currently in
- *                         progress against this resource. Please try again.</i>
+ *                         <i>Cause: A conflicting conditional action is currently in progress
+ *                         against this resource. Please try again.</i>
  *                      </p>
  *                   </li>
  *                </ul>
@@ -113,12 +111,6 @@ export interface PutObjectTaggingCommandOutput extends PutObjectTaggingOutput, _
  *                </ul>
  *             </li>
  *          </ul>
- *
- *
- *
- *
- *
- *
  *          <p class="title">
  *             <b>Related Resources</b>
  *          </p>
@@ -140,13 +132,62 @@ export interface PutObjectTaggingCommandOutput extends PutObjectTaggingOutput, _
  * import { S3Client, PutObjectTaggingCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutObjectTaggingCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // PutObjectTaggingRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   Key: "STRING_VALUE", // required
+ *   VersionId: "STRING_VALUE",
+ *   ContentMD5: "STRING_VALUE",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   Tagging: { // Tagging
+ *     TagSet: [ // TagSet // required
+ *       { // Tag
+ *         Key: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ *   RequestPayer: "requester",
+ * };
  * const command = new PutObjectTaggingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutObjectTaggingCommandInput - {@link PutObjectTaggingCommandInput}
+ * @returns {@link PutObjectTaggingCommandOutput}
  * @see {@link PutObjectTaggingCommandInput} for command's `input` shape.
  * @see {@link PutObjectTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
+ *
+ *
+ * @example To add tags to an existing object
+ * ```javascript
+ * // The following example adds tags to an existing object.
+ * const input = {
+ *   "Bucket": "examplebucket",
+ *   "Key": "HappyFace.jpg",
+ *   "Tagging": {
+ *     "TagSet": [
+ *       {
+ *         "Key": "Key3",
+ *         "Value": "Value3"
+ *       },
+ *       {
+ *         "Key": "Key4",
+ *         "Value": "Value4"
+ *       }
+ *     ]
+ *   }
+ * };
+ * const command = new PutObjectTaggingCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "VersionId": "null"
+ * }
+ * *\/
+ * // example id: to-add-tags-to-an-existing-object-1481764668793
+ * ```
  *
  */
 export class PutObjectTaggingCommand extends $Command<
@@ -172,6 +213,9 @@ export class PutObjectTaggingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutObjectTaggingCommandInput) {
     // Start section: command_constructor
     super();
@@ -207,8 +251,8 @@ export class PutObjectTaggingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutObjectTaggingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutObjectTaggingOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -218,12 +262,18 @@ export class PutObjectTaggingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutObjectTaggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutObjectTaggingCommand(input, context);
+    return se_PutObjectTaggingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutObjectTaggingCommandOutput> {
-    return deserializeAws_restXmlPutObjectTaggingCommand(output, context);
+    return de_PutObjectTaggingCommand(output, context);
   }
 
   // Start section: command_body_extra

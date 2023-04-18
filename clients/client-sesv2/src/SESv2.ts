@@ -418,19 +418,20 @@ import {
 import { SESv2Client } from "./SESv2Client";
 
 /**
+ * @public
  * <fullname>Amazon SES API v2</fullname>
- *
- *         <p>
+ *          <p>
  *             <a href="http://aws.amazon.com/ses">Amazon SES</a> is an Amazon Web Services service that
  *             you can use to send email messages to your customers.</p>
- *         <p>If you're new to Amazon SES API v2, you might find it helpful to review the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/">Amazon Simple Email Service Developer
+ *          <p>If you're new to Amazon SES API v2, you might find it helpful to review the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/">Amazon Simple Email Service Developer
  *                 Guide</a>. The <i>Amazon SES Developer Guide</i> provides information
  *             and code samples that demonstrate how to use Amazon SES API v2 features programmatically.</p>
  */
 export class SESv2 extends SESv2Client {
   /**
+   * @public
    * <p>Retrieves batches of metric data collected based on your sending activity.</p>
-   *         <p>You can execute this operation no more than 16 times per second,
+   *          <p>You can execute this operation no more than 16 times per second,
    *             and with at most 160 queries from the batches per second (cumulative).</p>
    */
   public batchGetMetricData(
@@ -463,6 +464,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Create a configuration set. <i>Configuration sets</i> are groups of
    *             rules that you can apply to the emails that you send. You apply a configuration set to
    *             an email by specifying the name of the configuration set when you call the Amazon SES API v2. When
@@ -499,13 +501,14 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Create an event destination. <i>Events</i> include message sends,
    *             deliveries, opens, clicks, bounces, and complaints. <i>Event
    *                 destinations</i> are places that you can send information about these events
    *             to. For example, you can send event data to Amazon SNS to receive notifications when you
    *             receive bounces or complaints, or you can use Amazon Kinesis Data Firehose to stream data to Amazon S3 for long-term
    *             storage.</p>
-   *         <p>A single configuration set can include more than one event destination.</p>
+   *          <p>A single configuration set can include more than one event destination.</p>
    */
   public createConfigurationSetEventDestination(
     args: CreateConfigurationSetEventDestinationCommandInput,
@@ -539,6 +542,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Creates a contact, which is an end-user who is receiving the email, and adds them to a
    *             contact list.</p>
    */
@@ -572,6 +576,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Creates a contact list.</p>
    */
   public createContactList(
@@ -604,11 +609,12 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Creates a new custom verification email template.</p>
-   *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom">Using
+   *          <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom">Using
    *                 custom verification email templates</a> in the <i>Amazon SES Developer
    *                 Guide</i>.</p>
-   *         <p>You can execute this operation no more than once per second.</p>
+   *          <p>You can execute this operation no more than once per second.</p>
    */
   public createCustomVerificationEmailTemplate(
     args: CreateCustomVerificationEmailTemplateCommandInput,
@@ -642,6 +648,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Create a new pool of dedicated IP addresses. A pool can include one or more dedicated
    *             IP addresses that are associated with your Amazon Web Services account. You can associate a pool with
    *             a configuration set. When you send an email that uses that configuration set, the
@@ -677,6 +684,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Create a new predictive inbox placement test. Predictive inbox placement tests can help you predict how your messages will be handled
    *             by various email providers around the world. When you perform a predictive inbox placement test, you provide a
    *             sample message that contains the content that you plan to send to your customers. Amazon SES
@@ -715,32 +723,33 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Starts the process of verifying an email identity. An <i>identity</i> is
    *             an email address or domain that you use when you send email. Before you can use an
    *             identity to send email, you first have to verify it. By verifying an identity, you
    *             demonstrate that you're the owner of the identity, and that you've given Amazon SES API v2
    *             permission to send email from the identity.</p>
-   *         <p>When you verify an email address, Amazon SES sends an email to the address. Your email
+   *          <p>When you verify an email address, Amazon SES sends an email to the address. Your email
    *             address is verified as soon as you follow the link in the verification email.
    *
    *         </p>
-   *         <p>When you verify a domain without specifying the <code>DkimSigningAttributes</code>
+   *          <p>When you verify a domain without specifying the <code>DkimSigningAttributes</code>
    *             object, this operation provides a set of DKIM tokens. You can convert these tokens into
    *             CNAME records, which you then add to the DNS configuration for your domain. Your domain
    *             is verified when Amazon SES detects these records in the DNS configuration for your domain.
    *             This verification method is known as <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a>.</p>
-   *         <p>Alternatively, you can perform the verification process by providing your own
+   *          <p>Alternatively, you can perform the verification process by providing your own
    *             public-private key pair. This verification method is known as Bring Your Own DKIM
    *             (BYODKIM). To use BYODKIM, your call to the <code>CreateEmailIdentity</code> operation
    *             has to include the <code>DkimSigningAttributes</code> object. When you specify this
    *             object, you provide a selector (a component of the DNS record name that identifies the
    *             public key to use for DKIM authentication) and a private key.</p>
-   *         <p>When you verify a domain, this operation provides a set of DKIM tokens, which you can
+   *          <p>When you verify a domain, this operation provides a set of DKIM tokens, which you can
    *             convert into CNAME tokens. You add these CNAME tokens to the DNS configuration for your
    *             domain. Your domain is verified when Amazon SES detects these records in the DNS
    *             configuration for your domain. For some DNS providers, it can take 72 hours or more to
    *             complete the domain verification process.</p>
-   *         <p>Additionally, you can associate an existing configuration set with the email identity that you're verifying.</p>
+   *          <p>Additionally, you can associate an existing configuration set with the email identity that you're verifying.</p>
    */
   public createEmailIdentity(
     args: CreateEmailIdentityCommandInput,
@@ -772,18 +781,18 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Creates the specified sending authorization policy for the given identity (an email
    *         address or a domain).</p>
-   *         <note>
+   *          <note>
    *             <p>This API is for the identity owner only. If you have not verified the identity,
    *                 this API will return an error.</p>
-   *         </note>
-   *         <p>Sending authorization is a feature that enables an identity owner to authorize other
+   *          </note>
+   *          <p>Sending authorization is a feature that enables an identity owner to authorize other
    *             senders to use its identities. For information about using sending authorization, see
    *             the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
    *                 Guide</a>.</p>
-   *
-   *         <p>You can execute this operation no more than once per second.</p>
+   *          <p>You can execute this operation no more than once per second.</p>
    */
   public createEmailIdentityPolicy(
     args: CreateEmailIdentityPolicyCommandInput,
@@ -815,10 +824,11 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Creates an email template. Email templates enable you to send personalized email to
    *             one or more destinations in a single API operation. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer
    *                 Guide</a>.</p>
-   *         <p>You can execute this operation no more than once per second.</p>
+   *          <p>You can execute this operation no more than once per second.</p>
    */
   public createEmailTemplate(
     args: CreateEmailTemplateCommandInput,
@@ -850,6 +860,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Creates an import job for a data destination.</p>
    */
   public createImportJob(
@@ -882,8 +893,9 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Delete an existing configuration set.</p>
-   *         <p>
+   *          <p>
    *             <i>Configuration sets</i> are groups of rules that you can apply to the
    *             emails you send. You apply a configuration set to an email by including a reference to
    *             the configuration set in the headers of the email. When you apply a configuration set to
@@ -919,8 +931,9 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Delete an event destination.</p>
-   *         <p>
+   *          <p>
    *             <i>Events</i> include message sends, deliveries, opens, clicks, bounces,
    *             and complaints. <i>Event destinations</i> are places that you can send
    *             information about these events to. For example, you can send event data to Amazon SNS to
@@ -959,6 +972,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Removes a contact from a contact list.</p>
    */
   public deleteContact(
@@ -991,6 +1005,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Deletes a contact list and all of the contacts on that list.</p>
    */
   public deleteContactList(
@@ -1023,11 +1038,12 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Deletes an existing custom verification email template.</p>
-   *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom">Using
+   *          <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom">Using
    *                 custom verification email templates</a> in the <i>Amazon SES Developer
    *                 Guide</i>.</p>
-   *         <p>You can execute this operation no more than once per second.</p>
+   *          <p>You can execute this operation no more than once per second.</p>
    */
   public deleteCustomVerificationEmailTemplate(
     args: DeleteCustomVerificationEmailTemplateCommandInput,
@@ -1061,6 +1077,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Delete a dedicated IP pool.</p>
    */
   public deleteDedicatedIpPool(
@@ -1093,6 +1110,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Deletes an email identity. An identity can be either an email address or a domain
    *             name.</p>
    */
@@ -1126,19 +1144,19 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified sending authorization policy for the given identity (an email
    *             address or a domain). This API returns successfully even if a policy with the specified
    *             name does not exist.</p>
-   *         <note>
+   *          <note>
    *             <p>This API is for the identity owner only. If you have not verified the identity,
    *                 this API will return an error.</p>
-   *         </note>
-   *         <p>Sending authorization is a feature that enables an identity owner to authorize other
+   *          </note>
+   *          <p>Sending authorization is a feature that enables an identity owner to authorize other
    *             senders to use its identities. For information about using sending authorization, see
    *             the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
    *                 Guide</a>.</p>
-   *
-   *         <p>You can execute this operation no more than once per second.</p>
+   *          <p>You can execute this operation no more than once per second.</p>
    */
   public deleteEmailIdentityPolicy(
     args: DeleteEmailIdentityPolicyCommandInput,
@@ -1170,9 +1188,9 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Deletes an email template.</p>
-   *
-   *         <p>You can execute this operation no more than once per second.</p>
+   *          <p>You can execute this operation no more than once per second.</p>
    */
   public deleteEmailTemplate(
     args: DeleteEmailTemplateCommandInput,
@@ -1204,6 +1222,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Removes an email address from the suppression list for your account.</p>
    */
   public deleteSuppressedDestination(
@@ -1236,6 +1255,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Obtain information about the email-sending status and capabilities of your Amazon SES
    *             account in the current Amazon Web Services Region.</p>
    */
@@ -1263,6 +1283,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Retrieve a list of the blacklists that your dedicated IP addresses appear on.</p>
    */
   public getBlacklistReports(
@@ -1295,10 +1316,11 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Get information about an existing configuration set, including the dedicated IP pool
    *             that it's associated with, whether or not it's enabled for sending email, and
    *             more.</p>
-   *         <p>
+   *          <p>
    *             <i>Configuration sets</i> are groups of rules that you can apply to the
    *             emails you send. You apply a configuration set to an email by including a reference to
    *             the configuration set in the headers of the email. When you apply a configuration set to
@@ -1334,9 +1356,10 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Retrieve a list of event destinations that are associated with a configuration
    *             set.</p>
-   *         <p>
+   *          <p>
    *             <i>Events</i> include message sends, deliveries, opens, clicks, bounces,
    *             and complaints. <i>Event destinations</i> are places that you can send
    *             information about these events to. For example, you can send event data to Amazon SNS to
@@ -1373,6 +1396,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Returns a contact from a contact list.</p>
    */
   public getContact(args: GetContactCommandInput, options?: __HttpHandlerOptions): Promise<GetContactCommandOutput>;
@@ -1399,6 +1423,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Returns contact list metadata. It does not return any information about the contacts
    *             present in the list.</p>
    */
@@ -1432,12 +1457,13 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Returns the custom email verification template for the template name you
    *             specify.</p>
-   *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom">Using
+   *          <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom">Using
    *                 custom verification email templates</a> in the <i>Amazon SES Developer
    *                 Guide</i>.</p>
-   *         <p>You can execute this operation no more than once per second.</p>
+   *          <p>You can execute this operation no more than once per second.</p>
    */
   public getCustomVerificationEmailTemplate(
     args: GetCustomVerificationEmailTemplateCommandInput,
@@ -1469,6 +1495,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Get information about a dedicated IP address, including the name of the dedicated IP
    *             pool that it's associated with, as well information about the automatic warm-up process
    *             for the address.</p>
@@ -1503,6 +1530,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Retrieve information about the dedicated pool.</p>
    */
   public getDedicatedIpPool(
@@ -1535,6 +1563,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>List the dedicated IP addresses that are associated with your Amazon Web Services
    *             account.</p>
    */
@@ -1568,12 +1597,12 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Retrieve information about the status of the Deliverability dashboard for your account. When
    *             the Deliverability dashboard is enabled, you gain access to reputation, deliverability, and other
    *             metrics for the domains that you use to send email. You also gain the ability to perform
    *             predictive inbox placement tests.</p>
-   *
-   *         <p>When you use the Deliverability dashboard, you pay a monthly subscription charge, in addition
+   *          <p>When you use the Deliverability dashboard, you pay a monthly subscription charge, in addition
    *             to any other fees that you accrue by using Amazon SES and other Amazon Web Services services. For more
    *             information about the features and cost of a Deliverability dashboard subscription, see <a href="http://aws.amazon.com/ses/pricing/">Amazon SES Pricing</a>.</p>
    */
@@ -1607,6 +1636,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Retrieve the results of a predictive inbox placement test.</p>
    */
   public getDeliverabilityTestReport(
@@ -1639,6 +1669,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Retrieve all the deliverability data for a specific campaign. This data is available
    *             for a campaign only if the campaign sent email by using a domain that the
    *             Deliverability dashboard is enabled for.</p>
@@ -1673,6 +1704,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Retrieve inbox placement and engagement rates for the domains that you use to send
    *             email.</p>
    */
@@ -1706,6 +1738,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Provides information about a specific identity, including the identity's verification
    *             status, sending authorization policies, its DKIM authentication status, and its custom
    *             Mail-From settings.</p>
@@ -1740,18 +1773,19 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Returns the requested sending authorization policies for the given identity (an email
    *             address or a domain). The policies are returned as a map of policy names to policy
    *             contents. You can retrieve a maximum of 20 policies at a time.</p>
-   *         <note>
+   *          <note>
    *             <p>This API is for the identity owner only. If you have not verified the identity,
    *                 this API will return an error.</p>
-   *         </note>
-   *         <p>Sending authorization is a feature that enables an identity owner to authorize other
+   *          </note>
+   *          <p>Sending authorization is a feature that enables an identity owner to authorize other
    *             senders to use its identities. For information about using sending authorization, see
    *             the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
    *                 Guide</a>.</p>
-   *         <p>You can execute this operation no more than once per second.</p>
+   *          <p>You can execute this operation no more than once per second.</p>
    */
   public getEmailIdentityPolicies(
     args: GetEmailIdentityPoliciesCommandInput,
@@ -1783,10 +1817,10 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Displays the template object (which includes the subject line, HTML part and text
    *             part) for the template you specify.</p>
-   *
-   *         <p>You can execute this operation no more than once per second.</p>
+   *          <p>You can execute this operation no more than once per second.</p>
    */
   public getEmailTemplate(
     args: GetEmailTemplateCommandInput,
@@ -1818,6 +1852,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Provides information about an import job.</p>
    */
   public getImportJob(
@@ -1847,6 +1882,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves information about a specific email address that's on the suppression list
    *             for your account.</p>
    */
@@ -1880,9 +1916,10 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>List all of the configuration sets associated with your account in the current
    *             region.</p>
-   *         <p>
+   *          <p>
    *             <i>Configuration sets</i> are groups of rules that you can apply to the
    *             emails you send. You apply a configuration set to an email by including a reference to
    *             the configuration set in the headers of the email. When you apply a configuration set to
@@ -1918,6 +1955,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Lists all of the contact lists available.</p>
    */
   public listContactLists(
@@ -1950,6 +1988,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Lists the contacts present in a specific contact list.</p>
    */
   public listContacts(
@@ -1979,12 +2018,13 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Lists the existing custom verification email templates for your account in the current
    *                 Amazon Web Services Region.</p>
-   *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom">Using
+   *          <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom">Using
    *                 custom verification email templates</a> in the <i>Amazon SES Developer
    *                 Guide</i>.</p>
-   *         <p>You can execute this operation no more than once per second.</p>
+   *          <p>You can execute this operation no more than once per second.</p>
    */
   public listCustomVerificationEmailTemplates(
     args: ListCustomVerificationEmailTemplatesCommandInput,
@@ -2016,6 +2056,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>List all of the dedicated IP pools that exist in your Amazon Web Services account in the current
    *             Region.</p>
    */
@@ -2049,6 +2090,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Show a list of the predictive inbox placement tests that you've performed, regardless of their statuses. For
    *             predictive inbox placement tests that are complete, you can use the <code>GetDeliverabilityTestReport</code>
    *             operation to view the results.</p>
@@ -2083,6 +2125,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Retrieve deliverability data for all the campaigns that used a specific domain to send
    *             email during a specified time range. This data is available for a domain only if you
    *             enabled the Deliverability dashboard for the domain.</p>
@@ -2117,6 +2160,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Returns a list of all of the email identities that are associated with your Amazon Web Services
    *             account. An identity can be either an email address or a domain. This operation returns
    *             identities that are verified as well as those that aren't. This operation returns
@@ -2152,10 +2196,10 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Lists the email templates present in your Amazon SES account in the current Amazon Web Services
    *             Region.</p>
-   *
-   *         <p>You can execute this operation no more than once per second.</p>
+   *          <p>You can execute this operation no more than once per second.</p>
    */
   public listEmailTemplates(
     args: ListEmailTemplatesCommandInput,
@@ -2187,6 +2231,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Lists all of the import jobs.</p>
    */
   public listImportJobs(
@@ -2219,8 +2264,9 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Lists the recommendations present in your Amazon SES account in the current Amazon Web Services Region.</p>
-   *         <p>You can execute this operation no more than once per second.</p>
+   *          <p>You can execute this operation no more than once per second.</p>
    */
   public listRecommendations(
     args: ListRecommendationsCommandInput,
@@ -2252,6 +2298,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of email addresses that are on the suppression list for your
    *             account.</p>
    */
@@ -2285,6 +2332,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Retrieve a list of the tags (keys and values) that are associated with a specified
    *             resource. A <i>tag</i> is a label that you optionally define and associate
    *             with a resource. Each tag consists of a required <i>tag key</i> and an
@@ -2322,6 +2370,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Enable or disable the automatic warm-up feature for dedicated IP addresses.</p>
    */
   public putAccountDedicatedIpWarmupAttributes(
@@ -2356,6 +2405,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Update your Amazon SES account details.</p>
    */
   public putAccountDetails(
@@ -2388,6 +2438,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Enable or disable the ability of your account to send email.</p>
    */
   public putAccountSendingAttributes(
@@ -2420,6 +2471,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Change the settings for the account-level suppression list.</p>
    */
   public putAccountSuppressionAttributes(
@@ -2452,8 +2504,9 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Update your Amazon SES account VDM attributes.</p>
-   *         <p>You can execute this operation no more than once per second.</p>
+   *          <p>You can execute this operation no more than once per second.</p>
    */
   public putAccountVdmAttributes(
     args: PutAccountVdmAttributesCommandInput,
@@ -2485,6 +2538,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Associate a configuration set with a dedicated IP pool. You can use dedicated IP pools
    *             to create groups of dedicated IP addresses for sending specific types of email.</p>
    */
@@ -2518,6 +2572,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Enable or disable collection of reputation metrics for emails that you send using a
    *             particular configuration set in a specific Amazon Web Services Region.</p>
    */
@@ -2551,6 +2606,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Enable or disable email sending for messages that use a particular configuration set
    *             in a specific Amazon Web Services Region.</p>
    */
@@ -2584,6 +2640,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Specify the account suppression list preferences for a configuration set.</p>
    */
   public putConfigurationSetSuppressionOptions(
@@ -2618,6 +2675,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Specify a custom domain to use for open and click tracking elements in email that you
    *             send.</p>
    */
@@ -2651,8 +2709,9 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Specify VDM preferences for email that you send using the configuration set.</p>
-   *         <p>You can execute this operation no more than once per second.</p>
+   *          <p>You can execute this operation no more than once per second.</p>
    */
   public putConfigurationSetVdmOptions(
     args: PutConfigurationSetVdmOptionsCommandInput,
@@ -2684,16 +2743,16 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Move a dedicated IP address to an existing dedicated IP pool.</p>
-   *         <note>
+   *          <note>
    *             <p>The dedicated IP address that you specify must already exist, and must be
    *                 associated with your Amazon Web Services account.
    *
    *             </p>
    *             <p>The dedicated IP pool you specify must already exist. You can create a new pool by
    *                 using the <code>CreateDedicatedIpPool</code> operation.</p>
-   *
-   *         </note>
+   *          </note>
    */
   public putDedicatedIpInPool(
     args: PutDedicatedIpInPoolCommandInput,
@@ -2725,6 +2784,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p></p>
    */
   public putDedicatedIpWarmupAttributes(
@@ -2757,11 +2817,11 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Enable or disable the Deliverability dashboard. When you enable the Deliverability dashboard, you gain
    *             access to reputation, deliverability, and other metrics for the domains that you use to
    *             send email. You also gain the ability to perform predictive inbox placement tests.</p>
-   *
-   *         <p>When you use the Deliverability dashboard, you pay a monthly subscription charge, in addition
+   *          <p>When you use the Deliverability dashboard, you pay a monthly subscription charge, in addition
    *             to any other fees that you accrue by using Amazon SES and other Amazon Web Services services. For more
    *             information about the features and cost of a Deliverability dashboard subscription, see <a href="http://aws.amazon.com/ses/pricing/">Amazon SES Pricing</a>.</p>
    */
@@ -2795,6 +2855,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Used to associate a configuration set with an email identity.</p>
    */
   public putEmailIdentityConfigurationSetAttributes(
@@ -2829,6 +2890,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Used to enable or disable DKIM authentication for an email identity.</p>
    */
   public putEmailIdentityDkimAttributes(
@@ -2861,27 +2923,28 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Used to configure or change the DKIM authentication settings for an email domain
    *             identity. You can use this operation to do any of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Update the signing attributes for an identity that uses Bring Your Own DKIM
+   *                <p>Update the signing attributes for an identity that uses Bring Your Own DKIM
    *                     (BYODKIM).</p>
    *             </li>
    *             <li>
-   *                 <p>Update the key length that should be used for Easy DKIM.</p>
+   *                <p>Update the key length that should be used for Easy DKIM.</p>
    *             </li>
    *             <li>
-   *                 <p>Change from using no DKIM authentication to using Easy DKIM.</p>
+   *                <p>Change from using no DKIM authentication to using Easy DKIM.</p>
    *             </li>
    *             <li>
-   *                 <p>Change from using no DKIM authentication to using BYODKIM.</p>
+   *                <p>Change from using no DKIM authentication to using BYODKIM.</p>
    *             </li>
    *             <li>
-   *                 <p>Change from using Easy DKIM to using BYODKIM.</p>
+   *                <p>Change from using Easy DKIM to using BYODKIM.</p>
    *             </li>
    *             <li>
-   *                 <p>Change from using BYODKIM to using Easy DKIM.</p>
+   *                <p>Change from using BYODKIM to using Easy DKIM.</p>
    *             </li>
    *          </ul>
    */
@@ -2917,13 +2980,14 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Used to enable or disable feedback forwarding for an identity. This setting determines
    *             what happens when an identity is used to send an email that results in a bounce or
    *             complaint event.</p>
-   *         <p>If the value is <code>true</code>, you receive email notifications when bounce or
+   *          <p>If the value is <code>true</code>, you receive email notifications when bounce or
    *             complaint events occur. These notifications are sent to the address that you specified
    *             in the <code>Return-Path</code> header of the original email.</p>
-   *         <p>You're required to have a method of tracking bounces and complaints. If you haven't
+   *          <p>You're required to have a method of tracking bounces and complaints. If you haven't
    *             set up another mechanism for receiving bounce or complaint notifications (for example,
    *             by setting up an event destination), you receive an email notification when these events
    *             occur (even if this setting is disabled).</p>
@@ -2958,6 +3022,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Used to enable or disable the custom Mail-From domain configuration for an email
    *             identity.</p>
    */
@@ -2991,6 +3056,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Adds an email address to the suppression list for your account.</p>
    */
   public putSuppressedDestination(
@@ -3023,6 +3089,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Composes an email message to multiple destinations.</p>
    */
   public sendBulkEmail(
@@ -3055,15 +3122,16 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Adds an email address to the list of identities for your Amazon SES account in the current
    *                 Amazon Web Services Region and attempts to verify it. As a result of executing this
    *             operation, a customized verification email is sent to the specified address.</p>
-   *         <p>To use this operation, you must first create a custom verification email template. For
+   *          <p>To use this operation, you must first create a custom verification email template. For
    *             more information about creating and using custom verification email templates, see
    *                 <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom">Using
    *                 custom verification email templates</a> in the <i>Amazon SES Developer
    *                 Guide</i>.</p>
-   *         <p>You can execute this operation no more than once per second.</p>
+   *          <p>You can execute this operation no more than once per second.</p>
    */
   public sendCustomVerificationEmail(
     args: SendCustomVerificationEmailCommandInput,
@@ -3095,17 +3163,18 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Sends an email message. You can use the Amazon SES API v2 to send the following types of
    *             messages:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <b>Simple</b> – A standard email message. When
    *                     you create this type of message, you specify the sender, the recipient, and the
    *                     message body, and Amazon SES assembles the message for you.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <b>Raw</b> – A raw, MIME-formatted email
    *                     message. When you send this type of email, you have to specify all of the
    *                     message headers, as well as the message body. You can use this message type to
@@ -3113,7 +3182,7 @@ export class SESv2 extends SESv2Client {
    *                     valid MIME message.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <b>Templated</b> – A message that contains
    *                     personalization tags. When you send this type of email, Amazon SES API v2 automatically
    *                     replaces the tags with values that you specify.</p>
@@ -3144,12 +3213,13 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Add one or more tags (keys and values) to a specified resource. A
    *                 <i>tag</i> is a label that you optionally define and associate with a
    *             resource. Tags can help you categorize and manage resources in different ways, such as
    *             by purpose, owner, environment, or other criteria. A resource can have as many as 50
    *             tags.</p>
-   *         <p>Each tag consists of a required <i>tag key</i> and an
+   *          <p>Each tag consists of a required <i>tag key</i> and an
    *                 associated <i>tag value</i>, both of which you define. A tag key is a
    *             general label that acts as a category for more specific tag values. A tag value acts as
    *             a descriptor within a tag key.</p>
@@ -3178,10 +3248,10 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Creates a preview of the MIME content of an email when provided with a template and a
    *             set of replacement data.</p>
-   *
-   *         <p>You can execute this operation no more than once per second.</p>
+   *          <p>You can execute this operation no more than once per second.</p>
    */
   public testRenderEmailTemplate(
     args: TestRenderEmailTemplateCommandInput,
@@ -3213,6 +3283,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Remove one or more tags (keys and values) from a specified resource.</p>
    */
   public untagResource(
@@ -3245,8 +3316,9 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Update the configuration of an event destination for a configuration set.</p>
-   *         <p>
+   *          <p>
    *             <i>Events</i> include message sends, deliveries, opens, clicks, bounces,
    *             and complaints. <i>Event destinations</i> are places that you can send
    *             information about these events to. For example, you can send event data to Amazon SNS to
@@ -3285,6 +3357,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Updates a contact's preferences for a list. It is not necessary to specify all
    *             existing topic preferences in the TopicPreferences object, just the ones that need
    *             updating.</p>
@@ -3319,6 +3392,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Updates contact list metadata. This operation does a complete replacement.</p>
    */
   public updateContactList(
@@ -3351,11 +3425,12 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Updates an existing custom verification email template.</p>
-   *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom">Using
+   *          <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom">Using
    *                 custom verification email templates</a> in the <i>Amazon SES Developer
    *                 Guide</i>.</p>
-   *         <p>You can execute this operation no more than once per second.</p>
+   *          <p>You can execute this operation no more than once per second.</p>
    */
   public updateCustomVerificationEmailTemplate(
     args: UpdateCustomVerificationEmailTemplateCommandInput,
@@ -3389,19 +3464,19 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Updates the specified sending authorization policy for the given identity (an email
    *             address or a domain). This API returns successfully even if a policy with the specified
    *             name does not exist.</p>
-   *         <note>
+   *          <note>
    *             <p>This API is for the identity owner only. If you have not verified the identity,
    *                 this API will return an error.</p>
-   *         </note>
-   *         <p>Sending authorization is a feature that enables an identity owner to authorize other
+   *          </note>
+   *          <p>Sending authorization is a feature that enables an identity owner to authorize other
    *             senders to use its identities. For information about using sending authorization, see
    *             the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
    *                 Guide</a>.</p>
-   *
-   *         <p>You can execute this operation no more than once per second.</p>
+   *          <p>You can execute this operation no more than once per second.</p>
    */
   public updateEmailIdentityPolicy(
     args: UpdateEmailIdentityPolicyCommandInput,
@@ -3433,10 +3508,11 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * @public
    * <p>Updates an email template. Email templates enable you to send personalized email to
    *             one or more destinations in a single API operation. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer
    *                 Guide</a>.</p>
-   *         <p>You can execute this operation no more than once per second.</p>
+   *          <p>You can execute this operation no more than once per second.</p>
    */
   public updateEmailTemplate(
     args: UpdateEmailTemplateCommandInput,

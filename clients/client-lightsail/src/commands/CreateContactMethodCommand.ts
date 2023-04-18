@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  CreateContactMethodRequest,
-  CreateContactMethodRequestFilterSensitiveLog,
-  CreateContactMethodResult,
-  CreateContactMethodResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateContactMethodCommand,
-  serializeAws_json1_1CreateContactMethodCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateContactMethodRequest, CreateContactMethodResult } from "../models/models_0";
+import { de_CreateContactMethodCommand, se_CreateContactMethodCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateContactMethodCommand}.
+ */
 export interface CreateContactMethodCommandInput extends CreateContactMethodRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateContactMethodCommand}.
+ */
 export interface CreateContactMethodCommandOutput extends CreateContactMethodResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an email or SMS text message contact method.</p>
  *          <p>A contact method is used to send you notifications about your Amazon Lightsail resources.
  *       You can add one email address and one mobile phone number contact method in each Amazon Web Services Region. However, SMS text messaging is not supported in some Amazon Web Services
@@ -40,13 +43,46 @@ export interface CreateContactMethodCommandOutput extends CreateContactMethodRes
  * import { LightsailClient, CreateContactMethodCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CreateContactMethodCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // CreateContactMethodRequest
+ *   protocol: "Email" || "SMS", // required
+ *   contactEndpoint: "STRING_VALUE", // required
+ * };
  * const command = new CreateContactMethodCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateContactMethodCommandInput - {@link CreateContactMethodCommandInput}
+ * @returns {@link CreateContactMethodCommandOutput}
  * @see {@link CreateContactMethodCommandInput} for command's `input` shape.
  * @see {@link CreateContactMethodCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
+ *       credentials to access a resource.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Lightsail throws this exception when user input does not conform to the validation rules
+ *       of an input field.</p>
+ *          <note>
+ *             <p>Domain and distribution APIs are only available in the N. Virginia
+ *           (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services
+ *         Region configuration to <code>us-east-1</code> to create, view, or edit these
+ *         resources.</p>
+ *          </note>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Lightsail throws this exception when it cannot find a resource.</p>
+ *
+ * @throws {@link OperationFailureException} (client fault)
+ *  <p>Lightsail throws this exception when an operation fails to execute.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>A general service exception.</p>
+ *
+ * @throws {@link UnauthenticatedException} (client fault)
+ *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
+ *
  *
  */
 export class CreateContactMethodCommand extends $Command<
@@ -66,6 +102,9 @@ export class CreateContactMethodCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateContactMethodCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +133,8 @@ export class CreateContactMethodCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateContactMethodRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateContactMethodResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +144,18 @@ export class CreateContactMethodCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateContactMethodCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateContactMethodCommand(input, context);
+    return se_CreateContactMethodCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateContactMethodCommandOutput> {
-    return deserializeAws_json1_1CreateContactMethodCommand(output, context);
+    return de_CreateContactMethodCommand(output, context);
   }
 
   // Start section: command_body_extra

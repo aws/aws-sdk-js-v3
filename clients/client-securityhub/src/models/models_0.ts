@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { SecurityHubServiceException as __BaseException } from "./SecurityHubServiceException";
 
+/**
+ * @public
+ */
 export interface AcceptAdministratorInvitationRequest {
   /**
    * <p>The account ID of the Security Hub administrator account that sent the invitation.</p>
@@ -15,9 +18,13 @@ export interface AcceptAdministratorInvitationRequest {
   InvitationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AcceptAdministratorInvitationResponse {}
 
 /**
+ * @public
  * <p>Internal server error.</p>
  */
 export class InternalException extends __BaseException {
@@ -41,6 +48,7 @@ export class InternalException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The account doesn't have permission to perform this action.</p>
  */
 export class InvalidAccessException extends __BaseException {
@@ -64,6 +72,7 @@ export class InvalidAccessException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because you supplied an invalid or out-of-range value for an
  *          input parameter.</p>
  */
@@ -88,6 +97,7 @@ export class InvalidInputException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
  *          account or throttling limits. The error code describes the limit exceeded.</p>
  */
@@ -112,6 +122,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because we can't find the specified resource.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -134,6 +145,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AcceptInvitationRequest {
   /**
    * <p>The account ID of the Security Hub administrator account that sent the invitation.</p>
@@ -146,9 +160,13 @@ export interface AcceptInvitationRequest {
   InvitationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AcceptInvitationResponse {}
 
 /**
+ * @public
  * <p>You don't have permission to perform the action specified in the request.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -172,6 +190,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The details of an Amazon Web Services account.</p>
  */
 export interface AccountDetails {
@@ -187,6 +206,7 @@ export interface AccountDetails {
 }
 
 /**
+ * @public
  * <p>Provided if <code>CallerType</code> is <code>domain</code>. It provides information
  *          about the DNS domain that issued the API call.</p>
  */
@@ -198,6 +218,7 @@ export interface AwsApiCallActionDomainDetails {
 }
 
 /**
+ * @public
  * <p>Information about a city.</p>
  */
 export interface City {
@@ -208,6 +229,7 @@ export interface City {
 }
 
 /**
+ * @public
  * <p>Information about a country.</p>
  */
 export interface Country {
@@ -223,6 +245,7 @@ export interface Country {
 }
 
 /**
+ * @public
  * <p>Provides the latitude and longitude coordinates of a location.</p>
  */
 export interface GeoLocation {
@@ -238,6 +261,7 @@ export interface GeoLocation {
 }
 
 /**
+ * @public
  * <p>Provides information about an internet provider.</p>
  */
 export interface IpOrganizationDetails {
@@ -263,6 +287,7 @@ export interface IpOrganizationDetails {
 }
 
 /**
+ * @public
  * <p>For <code>AwsApiAction</code>, <code>NetworkConnectionAction</code>, and
  *             <code>PortProbeAction</code>, <code>RemoteIpDetails</code> provides information about
  *          the remote IP address that was involved in the action.</p>
@@ -296,6 +321,7 @@ export interface ActionRemoteIpDetails {
 }
 
 /**
+ * @public
  * <p>Provided if <code>ActionType</code> is <code>AWS_API_CALL</code>. It provides details
  *          about the API call that was detected.</p>
  */
@@ -336,17 +362,20 @@ export interface AwsApiCallAction {
   /**
    * <p>An ISO8601-formatted timestamp that indicates when the API call was first
    *          observed.</p>
+   *          <p>A correctly formatted example is <code>2020-05-21T20:16:34.724Z</code>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339 section 5.6, Internet Date/Time Format</a>.</p>
    */
   FirstSeen?: string;
 
   /**
    * <p>An ISO8601-formatted timestamp that indicates when the API call was most recently
    *          observed.</p>
+   *          <p>A correctly formatted example is <code>2020-05-21T20:16:34.724Z</code>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339 section 5.6, Internet Date/Time Format</a>.</p>
    */
   LastSeen?: string;
 }
 
 /**
+ * @public
  * <p>Provided if <code>ActionType</code> is <code>DNS_REQUEST</code>. It provides details
  *          about the DNS request that was detected.</p>
  */
@@ -368,6 +397,7 @@ export interface DnsRequestAction {
 }
 
 /**
+ * @public
  * <p>For <code>NetworkConnectionAction</code> and <code>PortProbeDetails</code>,
  *             <code>LocalPortDetails</code> provides information about the local port that was
  *          involved in the action.</p>
@@ -385,6 +415,7 @@ export interface ActionLocalPortDetails {
 }
 
 /**
+ * @public
  * <p>Provides information about the remote port that was involved in an attempted network
  *          connection.</p>
  */
@@ -401,6 +432,7 @@ export interface ActionRemotePortDetails {
 }
 
 /**
+ * @public
  * <p>Provided if <code>ActionType</code> is <code>NETWORK_CONNECTION</code>. It provides
  *          details about the attempted network connection that was detected.</p>
  */
@@ -439,6 +471,7 @@ export interface NetworkConnectionAction {
 }
 
 /**
+ * @public
  * <p>Provides information about the IP address where the scanned port is located.</p>
  */
 export interface ActionLocalIpDetails {
@@ -449,6 +482,7 @@ export interface ActionLocalIpDetails {
 }
 
 /**
+ * @public
  * <p>A port scan that was part of the port probe. For each scan, PortProbeDetails provides
  *          information about the local IP address and port that were scanned, and the remote IP
  *          address that the scan originated from.</p>
@@ -471,6 +505,7 @@ export interface PortProbeDetail {
 }
 
 /**
+ * @public
  * <p>Provided if <code>ActionType</code> is <code>PORT_PROBE</code>. It provides details
  *          about the attempted port probe that was detected.</p>
  */
@@ -487,6 +522,7 @@ export interface PortProbeAction {
 }
 
 /**
+ * @public
  * <p>Provides details about one of the following actions that affects or that was taken on a resource:</p>
  *          <ul>
  *             <li>
@@ -557,6 +593,7 @@ export interface Action {
 }
 
 /**
+ * @public
  * <p>An <code>ActionTarget</code> object.</p>
  */
 export interface ActionTarget {
@@ -577,6 +614,7 @@ export interface ActionTarget {
 }
 
 /**
+ * @public
  * <p>An adjustment to the CVSS metric.</p>
  */
 export interface Adjustment {
@@ -591,12 +629,22 @@ export interface Adjustment {
   Reason?: string;
 }
 
-export enum AdminStatus {
-  DISABLE_IN_PROGRESS = "DISABLE_IN_PROGRESS",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AdminStatus = {
+  DISABLE_IN_PROGRESS: "DISABLE_IN_PROGRESS",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type AdminStatus = (typeof AdminStatus)[keyof typeof AdminStatus];
+
+/**
+ * @public
  * <p>Represents a Security Hub administrator account designated by an organization management
  *          account.</p>
  */
@@ -613,12 +661,123 @@ export interface AdminAccount {
   Status?: AdminStatus | string;
 }
 
-export enum AutoEnableStandards {
-  DEFAULT = "DEFAULT",
-  NONE = "NONE",
+/**
+ * @public
+ * <p>
+ *          Information about an enabled security standard in which a security control is enabled.
+ *       </p>
+ */
+export interface AssociatedStandard {
+  /**
+   * <p>The unique identifier of a standard in which a control is enabled. This field consists of the resource portion of the
+   *          Amazon Resource Name (ARN) returned for a standard in the <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html">DescribeStandards</a> API response.
+   *       </p>
+   */
+  StandardsId?: string;
 }
 
 /**
+ * @public
+ * <p>
+ *          Describes the state of an association between a route table and a subnet or gateway.
+ *       </p>
+ */
+export interface AssociationStateDetails {
+  /**
+   * <p>
+   *          The state of the association.
+   *       </p>
+   */
+  State?: string;
+
+  /**
+   * <p>
+   *          The status message, if applicable.
+   *       </p>
+   */
+  StatusMessage?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *          The associations between a route table and one or more subnets or a gateway.
+ *       </p>
+ */
+export interface AssociationSetDetails {
+  /**
+   * <p>
+   *          The state of the association between a route table and a subnet or gateway.
+   *       </p>
+   */
+  AssociationState?: AssociationStateDetails;
+
+  /**
+   * <p>
+   *          The ID of the internet gateway or virtual private gateway.
+   *       </p>
+   */
+  GatewayId?: string;
+
+  /**
+   * <p>
+   *          Indicates whether this is the main route table.
+   *       </p>
+   */
+  Main?: boolean;
+
+  /**
+   * <p>
+   *          The ID of the association.
+   *       </p>
+   */
+  RouteTableAssociationId?: string;
+
+  /**
+   * <p>
+   *          The ID of the route table.
+   *       </p>
+   */
+  RouteTableId?: string;
+
+  /**
+   * <p>
+   *          The ID of the subnet. A subnet ID is not returned for an implicit association.
+   *       </p>
+   */
+  SubnetId?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AssociationStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type AssociationStatus = (typeof AssociationStatus)[keyof typeof AssociationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const AutoEnableStandards = {
+  DEFAULT: "DEFAULT",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type AutoEnableStandards = (typeof AutoEnableStandards)[keyof typeof AutoEnableStandards];
+
+/**
+ * @public
  * <p>Information about an Availability Zone.</p>
  */
 export interface AvailabilityZone {
@@ -634,6 +793,7 @@ export interface AvailabilityZone {
 }
 
 /**
+ * @public
  * <p>Contains information about settings for logging access for the stage.</p>
  */
 export interface AwsApiGatewayAccessLogSettings {
@@ -651,6 +811,7 @@ export interface AwsApiGatewayAccessLogSettings {
 }
 
 /**
+ * @public
  * <p>Contains information about settings for canary deployment in the stage.</p>
  */
 export interface AwsApiGatewayCanarySettings {
@@ -679,6 +840,7 @@ export interface AwsApiGatewayCanarySettings {
 }
 
 /**
+ * @public
  * <p>Contains information about the endpoints for the API.</p>
  */
 export interface AwsApiGatewayEndpointConfiguration {
@@ -692,6 +854,7 @@ export interface AwsApiGatewayEndpointConfiguration {
 }
 
 /**
+ * @public
  * <p>Defines settings for a method for the stage.</p>
  */
 export interface AwsApiGatewayMethodSettings {
@@ -776,6 +939,7 @@ export interface AwsApiGatewayMethodSettings {
 }
 
 /**
+ * @public
  * <p>Contains information about a REST API in version 1 of Amazon API Gateway.</p>
  */
 export interface AwsApiGatewayRestApiDetails {
@@ -797,7 +961,7 @@ export interface AwsApiGatewayRestApiDetails {
   /**
    * <p>Indicates when the API was created.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *          Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   CreatedDate?: string;
@@ -837,6 +1001,7 @@ export interface AwsApiGatewayRestApiDetails {
 }
 
 /**
+ * @public
  * <p>Provides information about a version 1 Amazon API Gateway stage.</p>
  */
 export interface AwsApiGatewayStageDetails {
@@ -921,7 +1086,7 @@ export interface AwsApiGatewayStageDetails {
   /**
    * <p>Indicates when the stage was created.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *          Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   CreatedDate?: string;
@@ -929,7 +1094,7 @@ export interface AwsApiGatewayStageDetails {
   /**
    * <p>Indicates when the stage was most recently updated.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *          Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   LastUpdatedDate?: string;
@@ -941,6 +1106,7 @@ export interface AwsApiGatewayStageDetails {
 }
 
 /**
+ * @public
  * <p>Contains the cross-origin resource sharing (CORS) configuration for the API. CORS is
  *          only supported for HTTP APIs.</p>
  */
@@ -977,6 +1143,7 @@ export interface AwsCorsConfiguration {
 }
 
 /**
+ * @public
  * <p>Contains information about a version 2 API in Amazon API Gateway.</p>
  */
 export interface AwsApiGatewayV2ApiDetails {
@@ -1004,7 +1171,7 @@ export interface AwsApiGatewayV2ApiDetails {
   /**
    * <p>Indicates when the API was created.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *          Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   CreatedDate?: string;
@@ -1033,7 +1200,7 @@ export interface AwsApiGatewayV2ApiDetails {
 
   /**
    * <p>The route selection expression for the API.</p>
-   *          <p>For HTTP APIs, must be <code>${request.method} ${request.path}</code>. This is the
+   *          <p>For HTTP APIs, must be <code>$\{request.method\} $\{request.path\}</code>. This is the
    *          default value for HTTP APIs.</p>
    *          <p>For WebSocket APIs, there is no default value.</p>
    */
@@ -1047,6 +1214,7 @@ export interface AwsApiGatewayV2ApiDetails {
 }
 
 /**
+ * @public
  * <p>Contains route settings for a stage.</p>
  */
 export interface AwsApiGatewayV2RouteSettings {
@@ -1085,6 +1253,7 @@ export interface AwsApiGatewayV2RouteSettings {
 }
 
 /**
+ * @public
  * <p>Contains information about a version 2 stage for Amazon API Gateway.</p>
  */
 export interface AwsApiGatewayV2StageDetails {
@@ -1096,7 +1265,7 @@ export interface AwsApiGatewayV2StageDetails {
   /**
    * <p>Indicates when the stage was created.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *          Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   CreatedDate?: string;
@@ -1119,7 +1288,7 @@ export interface AwsApiGatewayV2StageDetails {
   /**
    * <p>Indicates when the stage was most recently updated.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   LastUpdatedDate?: string;
@@ -1175,6 +1344,7 @@ export interface AwsApiGatewayV2StageDetails {
 }
 
 /**
+ * @public
  * <p>An Availability Zone for the automatic scaling group.</p>
  */
 export interface AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails {
@@ -1185,6 +1355,7 @@ export interface AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails {
 }
 
 /**
+ * @public
  * <p>Details about the launch template to use.</p>
  */
 export interface AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification {
@@ -1205,6 +1376,7 @@ export interface AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpeci
 }
 
 /**
+ * @public
  * <p>Information about the instances distribution.</p>
  */
 export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails {
@@ -1257,6 +1429,7 @@ export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDist
 }
 
 /**
+ * @public
  * <p>Details about the launch template to use for a mixed instances policy.</p>
  */
 export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification {
@@ -1277,6 +1450,7 @@ export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplat
 }
 
 /**
+ * @public
  * <p>Property values to use to override the values in the launch template.</p>
  */
 export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails {
@@ -1292,6 +1466,7 @@ export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplat
 }
 
 /**
+ * @public
  * <p>Describes a launch template and overrides for a mixed instances policy.</p>
  */
 export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails {
@@ -1307,6 +1482,7 @@ export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplat
 }
 
 /**
+ * @public
  * <p>The mixed instances policy for the automatic scaling group.</p>
  */
 export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails {
@@ -1322,6 +1498,7 @@ export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails {
 }
 
 /**
+ * @public
  * <p>Provides details about an auto scaling group.</p>
  */
 export interface AwsAutoScalingAutoScalingGroupDetails {
@@ -1349,7 +1526,7 @@ export interface AwsAutoScalingAutoScalingGroupDetails {
   /**
    * <p>Indicates when the auto scaling group was created.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   CreatedTime?: string;
@@ -1377,6 +1554,7 @@ export interface AwsAutoScalingAutoScalingGroupDetails {
 }
 
 /**
+ * @public
  * <p>Parameters that are used to automatically set up EBS volumes when an instance is launched.</p>
  */
 export interface AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails {
@@ -1461,6 +1639,7 @@ export interface AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails 
 }
 
 /**
+ * @public
  * <p>A block device for the instance.</p>
  */
 export interface AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails {
@@ -1488,6 +1667,7 @@ export interface AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails {
 }
 
 /**
+ * @public
  * <p>Information about the type of monitoring for instances in the group.</p>
  */
 export interface AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails {
@@ -1501,6 +1681,7 @@ export interface AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails {
 }
 
 /**
+ * @public
  * <p>The metadata options for the instances.</p>
  */
 export interface AwsAutoScalingLaunchConfigurationMetadataOptions {
@@ -1521,6 +1702,7 @@ export interface AwsAutoScalingLaunchConfigurationMetadataOptions {
 }
 
 /**
+ * @public
  * <p>Details about a launch configuration.</p>
  */
 export interface AwsAutoScalingLaunchConfigurationDetails {
@@ -1547,7 +1729,7 @@ export interface AwsAutoScalingLaunchConfigurationDetails {
   /**
    * <p>The creation date and time for the launch configuration.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *          Date/Time Format</a>. The value cannot contain spaces. For example,
+   *          Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *          <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   CreatedTime?: string;
@@ -1629,6 +1811,7 @@ export interface AwsAutoScalingLaunchConfigurationDetails {
 }
 
 /**
+ * @public
  * <p>Provides a list of backup options for each resource type.
  *       </p>
  */
@@ -1655,6 +1838,7 @@ export interface AwsBackupBackupPlanAdvancedBackupSettingsDetails {
 }
 
 /**
+ * @public
  * <p>Provides lifecycle details for the backup plan. A lifecycle defines when a backup is transitioned to cold storage and when it expires.
  *       </p>
  */
@@ -1673,6 +1857,7 @@ export interface AwsBackupBackupPlanLifecycleDetails {
 }
 
 /**
+ * @public
  * <p>An array of <code>CopyAction</code> objects, each of which contains details of the copy operation.
  *       </p>
  */
@@ -1694,6 +1879,7 @@ export interface AwsBackupBackupPlanRuleCopyActionsDetails {
 }
 
 /**
+ * @public
  * <p>Provides details about an array of <code>BackupRule</code> objects, each of which specifies a scheduled task that is used to back up a selection of resources.
  *       </p>
  */
@@ -1753,6 +1939,7 @@ export interface AwsBackupBackupPlanRuleDetails {
 }
 
 /**
+ * @public
  * <p>Provides details about an Backup backup plan and an array of <code>BackupRule</code> objects, each of which specifies a backup rule.
  *       </p>
  */
@@ -1777,6 +1964,7 @@ export interface AwsBackupBackupPlanBackupPlanDetails {
 }
 
 /**
+ * @public
  * <p>Provides details about an Backup backup plan and an array of <code>BackupRule</code> objects, each of which specifies a backup rule.
  *       </p>
  */
@@ -1807,6 +1995,7 @@ export interface AwsBackupBackupPlanDetails {
 }
 
 /**
+ * @public
  * <p>Provides details about the Amazon SNS event notifications for the specified backup vault.
  *       </p>
  */
@@ -1840,13 +2029,14 @@ export interface AwsBackupBackupVaultNotificationsDetails {
   BackupVaultEvents?: string[];
 
   /**
-   * <p>An ARN that uniquely identifies the Amazon SNS topic for a backup vault’s events.
-   *       </p>
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the Amazon SNS topic for
+   *          a backup vault's events. </p>
    */
   SnsTopicArn?: string;
 }
 
 /**
+ * @public
  * <p>Provides details about an Backup backup vault. In Backup, a backup vault is
  * a container that stores and organizes your backups.
  *       </p>
@@ -1887,6 +2077,7 @@ export interface AwsBackupBackupVaultDetails {
 }
 
 /**
+ * @public
  * <p>Specifies how long in days before a recovery point transitions to cold storage or is deleted.
  *       </p>
  */
@@ -1906,6 +2097,7 @@ export interface AwsBackupRecoveryPointCalculatedLifecycleDetails {
 }
 
 /**
+ * @public
  * <p>Contains information about the backup plan and rule that Backup used to initiate the recovery point backup.
  *       </p>
  */
@@ -1937,6 +2129,7 @@ export interface AwsBackupRecoveryPointCreatedByDetails {
 }
 
 /**
+ * @public
  * <p>Contains an array of Transition objects specifying how long in days before a recovery point transitions to cold storage or is deleted.
  *       </p>
  */
@@ -1956,6 +2149,7 @@ export interface AwsBackupRecoveryPointLifecycleDetails {
 }
 
 /**
+ * @public
  * <p>Contains detailed information about the recovery points stored in an Backup backup vault.
  * A backup, or recovery point, represents the content of a resource at a specified time.
  *       </p>
@@ -2127,6 +2321,7 @@ export interface AwsBackupRecoveryPointDetails {
 }
 
 /**
+ * @public
  * <p>Provides details about the CNAME record that is added to the DNS database for domain
  *          validation.</p>
  */
@@ -2148,6 +2343,7 @@ export interface AwsCertificateManagerCertificateResourceRecord {
 }
 
 /**
+ * @public
  * <p>Contains information about one of the following:</p>
  *          <ul>
  *             <li>
@@ -2194,6 +2390,7 @@ export interface AwsCertificateManagerCertificateDomainValidationOption {
 }
 
 /**
+ * @public
  * <p>Contains information about an extended key usage X.509 v3 extension object.</p>
  */
 export interface AwsCertificateManagerCertificateExtendedKeyUsage {
@@ -2211,6 +2408,7 @@ export interface AwsCertificateManagerCertificateExtendedKeyUsage {
 }
 
 /**
+ * @public
  * <p>Contains information about a key usage X.509 v3 extension object.</p>
  */
 export interface AwsCertificateManagerCertificateKeyUsage {
@@ -2221,6 +2419,7 @@ export interface AwsCertificateManagerCertificateKeyUsage {
 }
 
 /**
+ * @public
  * <p>Contains other options for the certificate.</p>
  */
 export interface AwsCertificateManagerCertificateOptions {
@@ -2233,6 +2432,7 @@ export interface AwsCertificateManagerCertificateOptions {
 }
 
 /**
+ * @public
  * <p>Contains information about the Certificate Manager managed renewal for an
  *             <code>AMAZON_ISSUED</code> certificate.</p>
  */
@@ -2269,13 +2469,14 @@ export interface AwsCertificateManagerCertificateRenewalSummary {
   /**
    * <p>Indicates when the renewal summary was last updated.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   UpdatedAt?: string;
 }
 
 /**
+ * @public
  * <p>Provides details about an Certificate Manager certificate.</p>
  */
 export interface AwsCertificateManagerCertificateDetails {
@@ -2288,7 +2489,7 @@ export interface AwsCertificateManagerCertificateDetails {
   /**
    * <p>Indicates when the certificate was requested.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   CreatedAt?: string;
@@ -2331,7 +2532,7 @@ export interface AwsCertificateManagerCertificateDetails {
    * <p>Indicates when the certificate was imported. Provided if the certificate type is
    *             <code>IMPORTED</code>.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   ImportedAt?: string;
@@ -2345,7 +2546,7 @@ export interface AwsCertificateManagerCertificateDetails {
    * <p>Indicates when the certificate was issued. Provided if the certificate type is
    *             <code>AMAZON_ISSUED</code>.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   IssuedAt?: string;
@@ -2372,7 +2573,7 @@ export interface AwsCertificateManagerCertificateDetails {
   /**
    * <p>The time after which the certificate becomes invalid.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   NotAfter?: string;
@@ -2380,7 +2581,7 @@ export interface AwsCertificateManagerCertificateDetails {
   /**
    * <p>The time before which the certificate is not valid.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   NotBefore?: string;
@@ -2450,6 +2651,7 @@ export interface AwsCertificateManagerCertificateDetails {
 }
 
 /**
+ * @public
  * <p>Provides information about the stack's conformity to its expected template configuration.
  *       </p>
  */
@@ -2462,6 +2664,7 @@ export interface AwsCloudFormationStackDriftInformationDetails {
 }
 
 /**
+ * @public
  * <p>Provides information about the CloudFormation stack output.
  *       </p>
  */
@@ -2486,6 +2689,7 @@ export interface AwsCloudFormationStackOutputsDetails {
 }
 
 /**
+ * @public
  * <p>Nests a stack as a resource in a top-level template. Nested stacks are stacks created as resources for
  * another stack.</p>
  */
@@ -2583,6 +2787,7 @@ export interface AwsCloudFormationStackDetails {
 }
 
 /**
+ * @public
  * <p>Information about a cache behavior for the distribution.</p>
  */
 export interface AwsCloudFrontDistributionCacheBehavior {
@@ -2611,6 +2816,7 @@ export interface AwsCloudFrontDistributionCacheBehavior {
 }
 
 /**
+ * @public
  * <p>Provides information about caching for the CloudFront distribution.</p>
  */
 export interface AwsCloudFrontDistributionCacheBehaviors {
@@ -2621,6 +2827,7 @@ export interface AwsCloudFrontDistributionCacheBehaviors {
 }
 
 /**
+ * @public
  * <p>Contains information about the default cache configuration for the CloudFront distribution.</p>
  */
 export interface AwsCloudFrontDistributionDefaultCacheBehavior {
@@ -2649,6 +2856,7 @@ export interface AwsCloudFrontDistributionDefaultCacheBehavior {
 }
 
 /**
+ * @public
  * <p>A complex type that controls whether access logs are written for the CloudFront distribution.</p>
  */
 export interface AwsCloudFrontDistributionLogging {
@@ -2675,6 +2883,7 @@ export interface AwsCloudFrontDistributionLogging {
 }
 
 /**
+ * @public
  * <p>The status codes that cause an origin group to fail over.</p>
  */
 export interface AwsCloudFrontDistributionOriginGroupFailoverStatusCodes {
@@ -2690,6 +2899,7 @@ export interface AwsCloudFrontDistributionOriginGroupFailoverStatusCodes {
 }
 
 /**
+ * @public
  * <p>Provides information about when an origin group fails over.</p>
  */
 export interface AwsCloudFrontDistributionOriginGroupFailover {
@@ -2700,6 +2910,7 @@ export interface AwsCloudFrontDistributionOriginGroupFailover {
 }
 
 /**
+ * @public
  * <p>Information about an origin group for the CloudFront distribution.</p>
  */
 export interface AwsCloudFrontDistributionOriginGroup {
@@ -2710,6 +2921,7 @@ export interface AwsCloudFrontDistributionOriginGroup {
 }
 
 /**
+ * @public
  * <p>Provides information about origin groups that are associated with the CloudFront distribution.</p>
  */
 export interface AwsCloudFrontDistributionOriginGroups {
@@ -2720,6 +2932,7 @@ export interface AwsCloudFrontDistributionOriginGroups {
 }
 
 /**
+ * @public
  * <p>A complex type that contains information about the SSL/TLS protocols that CloudFront can use
  * when establishing an HTTPS connection with your origin.
  *       </p>
@@ -2740,6 +2953,7 @@ export interface AwsCloudFrontDistributionOriginSslProtocols {
 }
 
 /**
+ * @public
  * <p>A custom origin. A custom origin is any origin that is not an Amazon S3 bucket, with one exception. An Amazon S3 bucket that is <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html">configured with
  *             static website hosting</a> is a custom origin. </p>
  */
@@ -2782,6 +2996,7 @@ export interface AwsCloudFrontDistributionOriginCustomOriginConfig {
 }
 
 /**
+ * @public
  * <p>Information about an origin that is an Amazon S3 bucket that is not configured with static website
  *          hosting.</p>
  */
@@ -2793,6 +3008,7 @@ export interface AwsCloudFrontDistributionOriginS3OriginConfig {
 }
 
 /**
+ * @public
  * <p>A complex type that describes the
  *             Amazon S3 bucket, HTTP server (for example, a web server), AWS Elemental MediaStore, or other server from which CloudFront gets your files.</p>
  */
@@ -2830,6 +3046,7 @@ export interface AwsCloudFrontDistributionOriginItem {
 }
 
 /**
+ * @public
  * <p>A complex type that contains information about origins and origin groups for this CloudFront distribution.</p>
  */
 export interface AwsCloudFrontDistributionOrigins {
@@ -2840,6 +3057,7 @@ export interface AwsCloudFrontDistributionOrigins {
 }
 
 /**
+ * @public
  * <p>Provides information about the TLS/SSL configuration that the CloudFront distribution uses to communicate with viewers.</p>
  */
 export interface AwsCloudFrontDistributionViewerCertificate {
@@ -2880,6 +3098,7 @@ export interface AwsCloudFrontDistributionViewerCertificate {
 }
 
 /**
+ * @public
  * <p>A CloudFront distribution configuration.</p>
  */
 export interface AwsCloudFrontDistributionDetails {
@@ -2914,7 +3133,7 @@ export interface AwsCloudFrontDistributionDetails {
   /**
    * <p>Indicates when that the distribution was last modified.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   LastModifiedTime?: string;
@@ -2951,6 +3170,7 @@ export interface AwsCloudFrontDistributionDetails {
 }
 
 /**
+ * @public
  * <p>Provides details about a CloudTrail trail.</p>
  */
 export interface AwsCloudTrailTrailDetails {
@@ -3035,6 +3255,7 @@ export interface AwsCloudTrailTrailDetails {
 }
 
 /**
+ * @public
  * <p>Details about the dimensions for the metric associated with the alarm.
  *       </p>
  */
@@ -3053,6 +3274,7 @@ export interface AwsCloudWatchAlarmDimensionsDetails {
 }
 
 /**
+ * @public
  * <p>Specifies an alarm and associates it with the specified metric or metric math expression.
  *       </p>
  */
@@ -3202,6 +3424,7 @@ export interface AwsCloudWatchAlarmDetails {
 }
 
 /**
+ * @public
  * <p>Information about the build artifacts for the CodeBuild project.</p>
  */
 export interface AwsCodeBuildProjectArtifactsDetails {
@@ -3252,6 +3475,7 @@ export interface AwsCodeBuildProjectArtifactsDetails {
 }
 
 /**
+ * @public
  * <p>Information about an environment variable that is available to builds for the build project.</p>
  */
 export interface AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails {
@@ -3272,6 +3496,7 @@ export interface AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails {
 }
 
 /**
+ * @public
  * <p>The credentials for access to a private registry.</p>
  */
 export interface AwsCodeBuildProjectEnvironmentRegistryCredential {
@@ -3292,6 +3517,7 @@ export interface AwsCodeBuildProjectEnvironmentRegistryCredential {
 }
 
 /**
+ * @public
  * <p>Information about the build environment for this build project.</p>
  */
 export interface AwsCodeBuildProjectEnvironment {
@@ -3360,6 +3586,7 @@ export interface AwsCodeBuildProjectEnvironment {
 }
 
 /**
+ * @public
  * <p>Information about CloudWatch Logs for the build project.</p>
  */
 export interface AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails {
@@ -3380,6 +3607,7 @@ export interface AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails {
 }
 
 /**
+ * @public
  * <p>Information about logs built to an S3 bucket for a build project.</p>
  */
 export interface AwsCodeBuildProjectLogsConfigS3LogsDetails {
@@ -3400,6 +3628,7 @@ export interface AwsCodeBuildProjectLogsConfigS3LogsDetails {
 }
 
 /**
+ * @public
  * <p>Information about logs for the build project.</p>
  */
 export interface AwsCodeBuildProjectLogsConfigDetails {
@@ -3415,6 +3644,7 @@ export interface AwsCodeBuildProjectLogsConfigDetails {
 }
 
 /**
+ * @public
  * <p>Information about the build input source code for this build project.</p>
  */
 export interface AwsCodeBuildProjectSource {
@@ -3509,6 +3739,7 @@ export interface AwsCodeBuildProjectSource {
 }
 
 /**
+ * @public
  * <p>Information about the VPC configuration that CodeBuild accesses.</p>
  */
 export interface AwsCodeBuildProjectVpcConfig {
@@ -3529,6 +3760,7 @@ export interface AwsCodeBuildProjectVpcConfig {
 }
 
 /**
+ * @public
  * <p>Information about an CodeBuild project.</p>
  */
 export interface AwsCodeBuildProjectDetails {
@@ -3583,6 +3815,7 @@ export interface AwsCodeBuildProjectDetails {
 }
 
 /**
+ * @public
  * <p>Contains a definition of an attribute for the table.</p>
  */
 export interface AwsDynamoDbTableAttributeDefinition {
@@ -3598,6 +3831,7 @@ export interface AwsDynamoDbTableAttributeDefinition {
 }
 
 /**
+ * @public
  * <p>Provides information about the billing for read/write capacity on the table.</p>
  */
 export interface AwsDynamoDbTableBillingModeSummary {
@@ -3610,13 +3844,14 @@ export interface AwsDynamoDbTableBillingModeSummary {
    * <p>If the billing mode is <code>PAY_PER_REQUEST</code>, indicates when the billing mode was
    *          set to that value.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   LastUpdateToPayPerRequestDateTime?: string;
 }
 
 /**
+ * @public
  * <p>A component of the key schema for the DynamoDB table, a global secondary index, or a
  *          local secondary index.</p>
  */
@@ -3633,6 +3868,7 @@ export interface AwsDynamoDbTableKeySchema {
 }
 
 /**
+ * @public
  * <p>For global and local secondary indexes, identifies the attributes that are copied from
  *          the table into the index.</p>
  */
@@ -3667,6 +3903,7 @@ export interface AwsDynamoDbTableProjection {
 }
 
 /**
+ * @public
  * <p>Information about the provisioned throughput for the table or for a global secondary
  *          index.</p>
  */
@@ -3674,7 +3911,7 @@ export interface AwsDynamoDbTableProvisionedThroughput {
   /**
    * <p>Indicates when the provisioned throughput was last decreased.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   LastDecreaseDateTime?: string;
@@ -3682,7 +3919,7 @@ export interface AwsDynamoDbTableProvisionedThroughput {
   /**
    * <p>Indicates when the provisioned throughput was last increased.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   LastIncreaseDateTime?: string;
@@ -3707,6 +3944,7 @@ export interface AwsDynamoDbTableProvisionedThroughput {
 }
 
 /**
+ * @public
  * <p>Information abut a global secondary index for the table.</p>
  */
 export interface AwsDynamoDbTableGlobalSecondaryIndex {
@@ -3779,6 +4017,7 @@ export interface AwsDynamoDbTableGlobalSecondaryIndex {
 }
 
 /**
+ * @public
  * <p>Information about a local secondary index for a DynamoDB table.</p>
  */
 export interface AwsDynamoDbTableLocalSecondaryIndex {
@@ -3805,6 +4044,7 @@ export interface AwsDynamoDbTableLocalSecondaryIndex {
 }
 
 /**
+ * @public
  * <p>Replica-specific configuration for the provisioned throughput.</p>
  */
 export interface AwsDynamoDbTableProvisionedThroughputOverride {
@@ -3815,6 +4055,7 @@ export interface AwsDynamoDbTableProvisionedThroughputOverride {
 }
 
 /**
+ * @public
  * <p>Information about a global secondary index for a DynamoDB table replica.</p>
  */
 export interface AwsDynamoDbTableReplicaGlobalSecondaryIndex {
@@ -3830,6 +4071,7 @@ export interface AwsDynamoDbTableReplicaGlobalSecondaryIndex {
 }
 
 /**
+ * @public
  * <p>Information about a replica of a DynamoDB table.</p>
  */
 export interface AwsDynamoDbTableReplica {
@@ -3893,6 +4135,7 @@ export interface AwsDynamoDbTableReplica {
 }
 
 /**
+ * @public
  * <p>Information about the restore for the table.</p>
  */
 export interface AwsDynamoDbTableRestoreSummary {
@@ -3909,7 +4152,7 @@ export interface AwsDynamoDbTableRestoreSummary {
   /**
    * <p>Indicates the point in time that the table was restored to.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   RestoreDateTime?: string;
@@ -3921,6 +4164,7 @@ export interface AwsDynamoDbTableRestoreSummary {
 }
 
 /**
+ * @public
  * <p>Information about the server-side encryption for the table.</p>
  */
 export interface AwsDynamoDbTableSseDescription {
@@ -3928,7 +4172,7 @@ export interface AwsDynamoDbTableSseDescription {
    * <p>If the key is inaccessible, the date and time when DynamoDB detected that the key was
    *          inaccessible.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   InaccessibleEncryptionDateTime?: string;
@@ -3951,6 +4195,7 @@ export interface AwsDynamoDbTableSseDescription {
 }
 
 /**
+ * @public
  * <p>The current DynamoDB Streams configuration for the table.</p>
  */
 export interface AwsDynamoDbTableStreamSpecification {
@@ -3966,6 +4211,7 @@ export interface AwsDynamoDbTableStreamSpecification {
 }
 
 /**
+ * @public
  * <p>Provides details about a DynamoDB table.</p>
  */
 export interface AwsDynamoDbTableDetails {
@@ -3982,7 +4228,7 @@ export interface AwsDynamoDbTableDetails {
   /**
    * <p>Indicates when the table was created.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   CreationDateTime?: string;
@@ -4106,6 +4352,7 @@ export interface AwsDynamoDbTableDetails {
 }
 
 /**
+ * @public
  * <p>Information about an Elastic IP address.</p>
  */
 export interface AwsEc2EipDetails {
@@ -4166,6 +4413,7 @@ export interface AwsEc2EipDetails {
 }
 
 /**
+ * @public
  * <p>Metadata options that allow you to configure and secure the Amazon EC2 instance.</p>
  */
 export interface AwsEc2InstanceMetadataOptions {
@@ -4202,6 +4450,22 @@ export interface AwsEc2InstanceMetadataOptions {
 }
 
 /**
+ * @public
+ * <p>
+ *          The type of monitoring that’s turned on for an Amazon EC2 instance.
+ *       </p>
+ */
+export interface AwsEc2InstanceMonitoringDetails {
+  /**
+   * <p>
+   *          Indicates whether detailed monitoring is turned on. Otherwise, basic monitoring is turned on.
+   *       </p>
+   */
+  State?: string;
+}
+
+/**
+ * @public
  * <p>Identifies a network interface for the Amazon EC2 instance.</p>
  */
 export interface AwsEc2InstanceNetworkInterfacesDetails {
@@ -4212,6 +4476,7 @@ export interface AwsEc2InstanceNetworkInterfacesDetails {
 }
 
 /**
+ * @public
  * <p>The details of an Amazon EC2 instance.</p>
  */
 export interface AwsEc2InstanceDetails {
@@ -4258,7 +4523,7 @@ export interface AwsEc2InstanceDetails {
   /**
    * <p>Indicates when the instance was launched.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   LaunchedAt?: string;
@@ -4279,9 +4544,17 @@ export interface AwsEc2InstanceDetails {
    *       </p>
    */
   MetadataOptions?: AwsEc2InstanceMetadataOptions;
+
+  /**
+   * <p>
+   *          Describes the type of monitoring that’s turned on for an instance.
+   *       </p>
+   */
+  Monitoring?: AwsEc2InstanceMonitoringDetails;
 }
 
 /**
+ * @public
  * <p>
  *          Parameters for a block device for an Amazon Elastic Block Store (Amazon EBS) volume in an Amazon EC2 launch template.
  *       </p>
@@ -4348,6 +4621,7 @@ export interface AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails {
 }
 
 /**
+ * @public
  * <p>
  *          Information about a block device mapping for an Amazon Elastic Compute Cloud (Amazon EC2) launch template.
  *       </p>
@@ -4387,6 +4661,7 @@ export interface AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetails {
 }
 
 /**
+ * @public
  * <p>
  *          Information about the target Capacity Reservation or Capacity Reservation group in which to run an Amazon EC2 instance.
  *       </p>
@@ -4408,6 +4683,7 @@ export interface AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacit
 }
 
 /**
+ * @public
  * <p>
  *          Specifies the Capacity Reservation targeting option of an Amazon EC2 instance.
  *       </p>
@@ -4430,6 +4706,7 @@ export interface AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetails
 }
 
 /**
+ * @public
  * <p>
  *          Specifies the CPU options for an Amazon EC2 instance. For more information, see
  *          <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html">Optimize CPU options</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
@@ -4453,6 +4730,7 @@ export interface AwsEc2LaunchTemplateDataCpuOptionsDetails {
 }
 
 /**
+ * @public
  * <p>
  *          Specifies the credit option for CPU usage of a T2, T3, or T3a Amazon EC2 instance.
  *       </p>
@@ -4467,6 +4745,7 @@ export interface AwsEc2LaunchTemplateDataCreditSpecificationDetails {
 }
 
 /**
+ * @public
  * <p>
  *          Provides details about an Elastic Graphics specification for an Amazon EC2 launch template.
  *       </p>
@@ -4481,6 +4760,7 @@ export interface AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetails {
 }
 
 /**
+ * @public
  * <p>
  *          Provides details for an Amazon Elastic Inference accelerator.
  *       </p>
@@ -4502,6 +4782,7 @@ export interface AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetails {
 }
 
 /**
+ * @public
  * <p>
  *          Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves.
  *       </p>
@@ -4516,6 +4797,7 @@ export interface AwsEc2LaunchTemplateDataEnclaveOptionsDetails {
 }
 
 /**
+ * @public
  * <p>
  *          Specifies whether your Amazon EC2 instance is configured for hibernation.
  *       </p>
@@ -4530,6 +4812,7 @@ export interface AwsEc2LaunchTemplateDataHibernationOptionsDetails {
 }
 
 /**
+ * @public
  * <p>
  *          Provides details for an Identity and Access Management (IAM) instance profile, which is a container for an IAM role for your instance.
  *       </p>
@@ -4551,6 +4834,7 @@ export interface AwsEc2LaunchTemplateDataIamInstanceProfileDetails {
 }
 
 /**
+ * @public
  * <p>
  *          Provides details about the market (purchasing) options for Spot Instances.
  *       </p>
@@ -4593,6 +4877,7 @@ export interface AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetails
 }
 
 /**
+ * @public
  * <p>
  *          Provides details about the market (purchasing) option for an Amazon EC2 instance.
  *       </p>
@@ -4614,6 +4899,7 @@ export interface AwsEc2LaunchTemplateDataInstanceMarketOptionsDetails {
 }
 
 /**
+ * @public
  * <p>
  *          The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon Web Services Inferentia chips) on an Amazon EC2 instance.
  *       </p>
@@ -4635,6 +4921,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDet
 }
 
 /**
+ * @public
  * <p>
  *          The minimum and maximum amount of memory, in MiB, for the accelerators on an Amazon EC2 instance.
  *       </p>
@@ -4656,6 +4943,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMem
 }
 
 /**
+ * @public
  * <p>
  *          The minimum and maximum baseline bandwidth to Amazon Elastic Block Store (Amazon EBS), in Mbps. For more information,
  *          see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html">Amazon EBS–optimized instances </a> in the <i>Amazon EC2 User Guide</i>.
@@ -4678,6 +4966,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidt
 }
 
 /**
+ * @public
  * <p>
  *          The minimum and maximum amount of memory per vCPU, in GiB.
  *       </p>
@@ -4699,6 +4988,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDet
 }
 
 /**
+ * @public
  * <p>
  *          The minimum and maximum amount of memory, in MiB, for an Amazon EC2 instance.
  *       </p>
@@ -4720,6 +5010,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetails {
 }
 
 /**
+ * @public
  * <p>
  *          The minimum and maximum number of network interfaces to be attached to an Amazon EC2 instance.
  *       </p>
@@ -4741,6 +5032,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCou
 }
 
 /**
+ * @public
  * <p>
  *          The minimum and maximum amount of total local storage, in GB, that an Amazon EC2 instance uses.
  *       </p>
@@ -4762,6 +5054,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGB
 }
 
 /**
+ * @public
  * <p>
  *          The minimum and maximum number of vCPUs for an Amazon EC2 instance.
  *       </p>
@@ -4783,6 +5076,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetails {
 }
 
 /**
+ * @public
  * <p>
  *          The attributes for the Amazon EC2 instance types.
  *       </p>
@@ -4898,8 +5192,11 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsDetails {
   NetworkInterfaceCount?: AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetails;
 
   /**
-   * <p>
-   *          The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage above the least expensive current generation M, C, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance types priced above your threshold.</p>
+   * <p> The price protection threshold for On-Demand Instances. This is the maximum you'll pay
+   *          for an On-Demand Instance, expressed as a percentage above the least expensive current
+   *          generation M, C, or R instance type with your specified attributes. When Amazon EC2 selects
+   *          instance types with your attributes, it excludes instance types priced above your
+   *          threshold.</p>
    *          <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>
    *          <p>A high value, such as <code>999999</code>, turns off price protection.</p>
    */
@@ -4913,11 +5210,10 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsDetails {
   RequireHibernateSupport?: boolean;
 
   /**
-   * <p>
-   *          The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a
-   *          percentage above the least expensive current generation M, C, or R instance type with your specified attributes. When
-   *          Amazon EC2 selects instance types with your attributes, it excludes instance types priced above your threshold.
-   *       </p>
+   * <p> The price protection threshold for Spot Instances. This is the maximum you'll pay for a
+   *          Spot Instance, expressed as a percentage above the least expensive current generation M, C,
+   *          or R instance type with your specified attributes. When Amazon EC2 selects instance
+   *          types with your attributes, it excludes instance types priced above your threshold. </p>
    *          <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>
    *          <p>A high value, such as <code>999999</code>, turns off price protection.</p>
    */
@@ -4939,6 +5235,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsDetails {
 }
 
 /**
+ * @public
  * <p>
  *          Provides details about the license configuration for an Amazon EC2 instance.
  *       </p>
@@ -4953,6 +5250,7 @@ export interface AwsEc2LaunchTemplateDataLicenseSetDetails {
 }
 
 /**
+ * @public
  * <p>
  *          The maintenance options of an Amazon EC2 instance.
  *       </p>
@@ -4967,15 +5265,16 @@ export interface AwsEc2LaunchTemplateDataMaintenanceOptionsDetails {
 }
 
 /**
+ * @public
  * <p>
  *          Specifies the metadata options for an Amazon EC2 instance.
  *       </p>
  */
 export interface AwsEc2LaunchTemplateDataMetadataOptionsDetails {
   /**
-   * <p>
-   *          Enables or disables the HTTP metadata endpoint on your instances. If the parameter is not specified, the default state is enabled, and you won’t be able to access your instance metadata.
-   *       </p>
+   * <p> Enables or disables the HTTP metadata endpoint on your instances. If the parameter is
+   *          not specified, the default state is enabled, and you won't be able to access your instance
+   *          metadata. </p>
    */
   HttpEndpoint?: string;
 
@@ -5011,6 +5310,7 @@ export interface AwsEc2LaunchTemplateDataMetadataOptionsDetails {
 }
 
 /**
+ * @public
  * <p>
  *          The monitoring for an Amazon EC2 instance.
  *       </p>
@@ -5027,6 +5327,7 @@ export interface AwsEc2LaunchTemplateDataMonitoringDetails {
 }
 
 /**
+ * @public
  * <p>
  *          Provides details on one or more IPv4 prefixes for a network interface.
  *       </p>
@@ -5041,6 +5342,7 @@ export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetails 
 }
 
 /**
+ * @public
  * <p>
  *          Specifies an IPv6 address in an Amazon EC2 launch template.
  *       </p>
@@ -5055,6 +5357,7 @@ export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetails
 }
 
 /**
+ * @public
  * <p>
  *          Provides details on one or more IPv6 prefixes to be assigned to the network interface.
  *       </p>
@@ -5069,6 +5372,7 @@ export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetails 
 }
 
 /**
+ * @public
  * <p>
  *          One or more private IPv4 addresses.
  *       </p>
@@ -5090,6 +5394,7 @@ export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDe
 }
 
 /**
+ * @public
  * <p>
  *          One or more network interfaces to attach to an Amazon EC2 instance. If you specify a network interface, you must specify
  *          security groups and subnets as part of the network interface.
@@ -5243,6 +5548,7 @@ export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails {
 }
 
 /**
+ * @public
  * <p>
  *          Provides details about the placement of an Amazon EC2 instance.
  *       </p>
@@ -5306,6 +5612,7 @@ export interface AwsEc2LaunchTemplateDataPlacementDetails {
 }
 
 /**
+ * @public
  * <p>
  *          Describes the options for Amazon EC2 instance hostnames.
  *       </p>
@@ -5334,6 +5641,7 @@ export interface AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetails {
 }
 
 /**
+ * @public
  * <p>
  *          The information to include in an Amazon Elastic Compute Cloud (Amazon EC2) launch template.
  *       </p>
@@ -5556,6 +5864,7 @@ export interface AwsEc2LaunchTemplateDataDetails {
 }
 
 /**
+ * @public
  * <p>
  *          Specifies the properties for creating an Amazon Elastic Compute Cloud (Amazon EC2) launch template.
  *       </p>
@@ -5598,6 +5907,7 @@ export interface AwsEc2LaunchTemplateDetails {
 }
 
 /**
+ * @public
  * <p>An association between the network ACL and a subnet.</p>
  */
 export interface AwsEc2NetworkAclAssociation {
@@ -5618,6 +5928,7 @@ export interface AwsEc2NetworkAclAssociation {
 }
 
 /**
+ * @public
  * <p>An Internet Control Message Protocol (ICMP) type and code.</p>
  */
 export interface IcmpTypeCode {
@@ -5635,6 +5946,7 @@ export interface IcmpTypeCode {
 }
 
 /**
+ * @public
  * <p>A range of ports.</p>
  */
 export interface PortRangeFromTo {
@@ -5650,6 +5962,7 @@ export interface PortRangeFromTo {
 }
 
 /**
+ * @public
  * <p>A rule for the network ACL. Each rule allows or denies access based on the IP address, traffic direction, port, and protocol.</p>
  */
 export interface AwsEc2NetworkAclEntry {
@@ -5696,6 +6009,7 @@ export interface AwsEc2NetworkAclEntry {
 }
 
 /**
+ * @public
  * <p>Contains details about an Amazon EC2 network access control list (ACL).</p>
  */
 export interface AwsEc2NetworkAclDetails {
@@ -5731,13 +6045,14 @@ export interface AwsEc2NetworkAclDetails {
 }
 
 /**
+ * @public
  * <p>Information about the network interface attachment.</p>
  */
 export interface AwsEc2NetworkInterfaceAttachment {
   /**
    * <p>Indicates when the attachment initiated.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   AttachTime?: string;
@@ -5778,6 +6093,7 @@ export interface AwsEc2NetworkInterfaceAttachment {
 }
 
 /**
+ * @public
  * <p>Provides information about an IPV6 address that is associated with the network
  *          interface.</p>
  */
@@ -5789,6 +6105,7 @@ export interface AwsEc2NetworkInterfaceIpV6AddressDetail {
 }
 
 /**
+ * @public
  * <p>Provides information about a private IPv4 address that is with the network
  *          interface.</p>
  */
@@ -5805,6 +6122,7 @@ export interface AwsEc2NetworkInterfacePrivateIpAddressDetail {
 }
 
 /**
+ * @public
  * <p>A security group associated with the network interface.</p>
  */
 export interface AwsEc2NetworkInterfaceSecurityGroup {
@@ -5820,6 +6138,7 @@ export interface AwsEc2NetworkInterfaceSecurityGroup {
 }
 
 /**
+ * @public
  * <p>Details about the network interface</p>
  */
 export interface AwsEc2NetworkInterfaceDetails {
@@ -5865,6 +6184,192 @@ export interface AwsEc2NetworkInterfaceDetails {
 }
 
 /**
+ * @public
+ * <p>
+ *          Describes a virtual private gateway propagating route.
+ *       </p>
+ */
+export interface PropagatingVgwSetDetails {
+  /**
+   * <p>
+   *          The ID of the virtual private gateway.
+   *       </p>
+   */
+  GatewayId?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *          Provides details about the routes in the route table.
+ *       </p>
+ */
+export interface RouteSetDetails {
+  /**
+   * <p>
+   *          The ID of the carrier gateway.
+   *       </p>
+   */
+  CarrierGatewayId?: string;
+
+  /**
+   * <p>
+   *          The Amazon Resource Name (ARN) of the core network.
+   *       </p>
+   */
+  CoreNetworkArn?: string;
+
+  /**
+   * <p>
+   *          The IPv4 CIDR block used for the destination match.
+   *       </p>
+   */
+  DestinationCidrBlock?: string;
+
+  /**
+   * <p>
+   *          The IPv6 CIDR block used for the destination match.
+   *       </p>
+   */
+  DestinationIpv6CidrBlock?: string;
+
+  /**
+   * <p>
+   *          The prefix of the destination Amazon Web Service.
+   *       </p>
+   */
+  DestinationPrefixListId?: string;
+
+  /**
+   * <p>
+   *          The ID of the egress-only internet gateway.
+   *       </p>
+   */
+  EgressOnlyInternetGatewayId?: string;
+
+  /**
+   * <p>
+   *          The ID of a gateway attached to your VPC.
+   *       </p>
+   */
+  GatewayId?: string;
+
+  /**
+   * <p>
+   *          The ID of a NAT instance in your VPC.
+   *       </p>
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>
+   *          The ID of the Amazon Web Services account that owns the instance.
+   *       </p>
+   */
+  InstanceOwnerId?: string;
+
+  /**
+   * <p>
+   *          The ID of the local gateway.
+   *       </p>
+   */
+  LocalGatewayId?: string;
+
+  /**
+   * <p>
+   *          The ID of a NAT gateway.
+   *       </p>
+   */
+  NatGatewayId?: string;
+
+  /**
+   * <p>
+   *          The ID of the network interface.
+   *       </p>
+   */
+  NetworkInterfaceId?: string;
+
+  /**
+   * <p>
+   *          Describes how the route was created.
+   *       </p>
+   */
+  Origin?: string;
+
+  /**
+   * <p>
+   *          The state of the route.
+   *       </p>
+   */
+  State?: string;
+
+  /**
+   * <p>
+   *          The ID of a transit gateway.
+   *       </p>
+   */
+  TransitGatewayId?: string;
+
+  /**
+   * <p>
+   *          The ID of a VPC peering connection.
+   *       </p>
+   */
+  VpcPeeringConnectionId?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *          Provides details about a route table for the specified VPC.
+ *       </p>
+ */
+export interface AwsEc2RouteTableDetails {
+  /**
+   * <p>
+   *          The associations between a route table and one or more subnets or a gateway.
+   *       </p>
+   */
+  AssociationSet?: AssociationSetDetails[];
+
+  /**
+   * <p>
+   *          The ID of the Amazon Web Services account that owns the route table.
+   *       </p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>
+   *          Describes a virtual private gateway propagating route.
+   *       </p>
+   */
+  PropagatingVgwSet?: PropagatingVgwSetDetails[];
+
+  /**
+   * <p>
+   *          The ID of the route table.
+   *       </p>
+   */
+  RouteTableId?: string;
+
+  /**
+   * <p>
+   *          The routes in the route table.
+   *       </p>
+   */
+  RouteSet?: RouteSetDetails[];
+
+  /**
+   * <p>
+   *          The ID of the virtual private cloud (VPC).
+   *       </p>
+   */
+  VpcId?: string;
+}
+
+/**
+ * @public
  * <p>A range of IPv4 addresses.</p>
  */
 export interface AwsEc2SecurityGroupIpRange {
@@ -5876,6 +6381,7 @@ export interface AwsEc2SecurityGroupIpRange {
 }
 
 /**
+ * @public
  * <p>A range of IPv6 addresses.</p>
  */
 export interface AwsEc2SecurityGroupIpv6Range {
@@ -5887,6 +6393,7 @@ export interface AwsEc2SecurityGroupIpv6Range {
 }
 
 /**
+ * @public
  * <p>A prefix list ID.</p>
  */
 export interface AwsEc2SecurityGroupPrefixListId {
@@ -5897,6 +6404,7 @@ export interface AwsEc2SecurityGroupPrefixListId {
 }
 
 /**
+ * @public
  * <p>A relationship between a security group and a user.</p>
  */
 export interface AwsEc2SecurityGroupUserIdGroupPair {
@@ -5937,6 +6445,7 @@ export interface AwsEc2SecurityGroupUserIdGroupPair {
 }
 
 /**
+ * @public
  * <p>An IP permission for an EC2 security group.</p>
  */
 export interface AwsEc2SecurityGroupIpPermission {
@@ -5994,6 +6503,7 @@ export interface AwsEc2SecurityGroupIpPermission {
 }
 
 /**
+ * @public
  * <p>Details about an Amazon EC2 security group.</p>
  */
 export interface AwsEc2SecurityGroupDetails {
@@ -6029,6 +6539,7 @@ export interface AwsEc2SecurityGroupDetails {
 }
 
 /**
+ * @public
  * <p>An IPV6 CIDR block association.</p>
  */
 export interface Ipv6CidrBlockAssociation {
@@ -6081,6 +6592,7 @@ export interface Ipv6CidrBlockAssociation {
 }
 
 /**
+ * @public
  * <p>Contains information about a subnet in Amazon EC2.</p>
  */
 export interface AwsEc2SubnetDetails {
@@ -6151,6 +6663,7 @@ export interface AwsEc2SubnetDetails {
 }
 
 /**
+ * @public
  * <p>Information about an Amazon Web Services Amazon EC2 Transit Gateway that interconnects
  * virtual private clouds (VPCs) and on-premises networks.
  *       </p>
@@ -6230,6 +6743,7 @@ export interface AwsEc2TransitGatewayDetails {
 }
 
 /**
+ * @public
  * <p>An attachment to an Amazon EC2 volume.</p>
  */
 export interface AwsEc2VolumeAttachment {
@@ -6282,13 +6796,14 @@ export interface AwsEc2VolumeAttachment {
 }
 
 /**
+ * @public
  * <p>Details about an EC2 volume.</p>
  */
 export interface AwsEc2VolumeDetails {
   /**
    * <p>Indicates when the volume was created.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   CreateTime?: string;
@@ -6382,6 +6897,7 @@ export interface AwsEc2VolumeDetails {
 }
 
 /**
+ * @public
  * <p>An IPv4 CIDR block association.</p>
  */
 export interface CidrBlockAssociation {
@@ -6402,6 +6918,7 @@ export interface CidrBlockAssociation {
 }
 
 /**
+ * @public
  * <p>Details about an EC2 VPC.</p>
  */
 export interface AwsEc2VpcDetails {
@@ -6429,6 +6946,7 @@ export interface AwsEc2VpcDetails {
 }
 
 /**
+ * @public
  * <p>The service type information for a VPC endpoint service.</p>
  */
 export interface AwsEc2VpcEndpointServiceServiceTypeDetails {
@@ -6439,6 +6957,7 @@ export interface AwsEc2VpcEndpointServiceServiceTypeDetails {
 }
 
 /**
+ * @public
  * <p>Contains details about the service configuration for a VPC endpoint service.</p>
  */
 export interface AwsEc2VpcEndpointServiceDetails {
@@ -6526,6 +7045,7 @@ export interface AwsEc2VpcEndpointServiceDetails {
 }
 
 /**
+ * @public
  * <p>Provides details about the IPv4 CIDR blocks for the VPC.
  *       </p>
  */
@@ -6538,6 +7058,7 @@ export interface VpcInfoCidrBlockSetDetails {
 }
 
 /**
+ * @public
  * <p>Provides details about the IPv6 CIDR blocks for the VPC.
  *       </p>
  */
@@ -6550,6 +7071,7 @@ export interface VpcInfoIpv6CidrBlockSetDetails {
 }
 
 /**
+ * @public
  * <p>Provides information about the VPC peering connection options for the accepter or requester VPC.
  *       </p>
  */
@@ -6574,6 +7096,7 @@ export interface VpcInfoPeeringOptionsDetails {
 }
 
 /**
+ * @public
  * <p>Describes a VPC in a VPC peering connection.
  *       </p>
  */
@@ -6622,6 +7145,7 @@ export interface AwsEc2VpcPeeringConnectionVpcInfoDetails {
 }
 
 /**
+ * @public
  * <p>Details about the status of the VPC peering connection.
  *       </p>
  */
@@ -6640,6 +7164,7 @@ export interface AwsEc2VpcPeeringConnectionStatusDetails {
 }
 
 /**
+ * @public
  * <p>Provides information about a VPC peering connection between two VPCs: a requester VPC that you own and an
  * accepter VPC with which to create the connection.
  *       </p>
@@ -6677,6 +7202,7 @@ export interface AwsEc2VpcPeeringConnectionDetails {
 }
 
 /**
+ * @public
  * <p>The VPN tunnel options.</p>
  */
 export interface AwsEc2VpnConnectionOptionsTunnelOptionsDetails {
@@ -6771,6 +7297,7 @@ export interface AwsEc2VpnConnectionOptionsTunnelOptionsDetails {
 }
 
 /**
+ * @public
  * <p>VPN connection options.</p>
  */
 export interface AwsEc2VpnConnectionOptionsDetails {
@@ -6786,6 +7313,7 @@ export interface AwsEc2VpnConnectionOptionsDetails {
 }
 
 /**
+ * @public
  * <p>A static routes associated with
  *          the VPN connection.</p>
  */
@@ -6802,6 +7330,7 @@ export interface AwsEc2VpnConnectionRoutesDetails {
 }
 
 /**
+ * @public
  * <p>Information about the VPN tunnel.</p>
  */
 export interface AwsEc2VpnConnectionVgwTelemetryDetails {
@@ -6818,7 +7347,7 @@ export interface AwsEc2VpnConnectionVgwTelemetryDetails {
   /**
    * <p>The date and time of the last change in status.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *          Date/Time Format</a>. The value cannot contain spaces. For example,
+   *          Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *          <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   LastStatusChange?: string;
@@ -6841,6 +7370,7 @@ export interface AwsEc2VpnConnectionVgwTelemetryDetails {
 }
 
 /**
+ * @public
  * <p>Details about an Amazon EC2 VPN
  *          connection.</p>
  */
@@ -6927,6 +7457,7 @@ export interface AwsEc2VpnConnectionDetails {
 }
 
 /**
+ * @public
  * <p>Information about an Amazon ECR image.</p>
  */
 export interface AwsEcrContainerImageDetails {
@@ -6976,13 +7507,14 @@ export interface AwsEcrContainerImageDetails {
   /**
    * <p>The date and time when the image was pushed to the repository.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *          Date/Time Format</a>. The value cannot contain spaces. For example,
+   *          Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *          <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   ImagePublishedAt?: string;
 }
 
 /**
+ * @public
  * <p>The image scanning configuration for a repository.</p>
  */
 export interface AwsEcrRepositoryImageScanningConfigurationDetails {
@@ -6993,6 +7525,7 @@ export interface AwsEcrRepositoryImageScanningConfigurationDetails {
 }
 
 /**
+ * @public
  * <p>Information about the lifecycle policy for the repository.</p>
  */
 export interface AwsEcrRepositoryLifecyclePolicyDetails {
@@ -7008,6 +7541,7 @@ export interface AwsEcrRepositoryLifecyclePolicyDetails {
 }
 
 /**
+ * @public
  * <p>Provides information about an Amazon Elastic Container Registry repository.</p>
  */
 export interface AwsEcrRepositoryDetails {
@@ -7043,6 +7577,7 @@ export interface AwsEcrRepositoryDetails {
 }
 
 /**
+ * @public
  * <p>Indicates whether to enable CloudWatch Container Insights for the ECS cluster.</p>
  */
 export interface AwsEcsClusterClusterSettingsDetails {
@@ -7058,6 +7593,7 @@ export interface AwsEcsClusterClusterSettingsDetails {
 }
 
 /**
+ * @public
  * <p>The log configuration for the results of the run command actions.</p>
  */
 export interface AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails {
@@ -7088,6 +7624,7 @@ export interface AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigu
 }
 
 /**
+ * @public
  * <p>Contains the run command configuration for the cluster.</p>
  */
 export interface AwsEcsClusterConfigurationExecuteCommandConfigurationDetails {
@@ -7108,6 +7645,7 @@ export interface AwsEcsClusterConfigurationExecuteCommandConfigurationDetails {
 }
 
 /**
+ * @public
  * <p>The run command configuration for the cluster.</p>
  */
 export interface AwsEcsClusterConfigurationDetails {
@@ -7118,6 +7656,7 @@ export interface AwsEcsClusterConfigurationDetails {
 }
 
 /**
+ * @public
  * <p>The default capacity provider strategy for the cluster. The default capacity provider strategy is used when services or tasks are run without a specified launch type or capacity provider strategy.</p>
  */
 export interface AwsEcsClusterDefaultCapacityProviderStrategyDetails {
@@ -7138,6 +7677,7 @@ export interface AwsEcsClusterDefaultCapacityProviderStrategyDetails {
 }
 
 /**
+ * @public
  * <p>Provides details about an Amazon ECS cluster.</p>
  */
 export interface AwsEcsClusterDetails {
@@ -7201,6 +7741,7 @@ export interface AwsEcsClusterDetails {
 }
 
 /**
+ * @public
  * <p>Details for a volume mount point that's used in a container definition.
  *       </p>
  */
@@ -7220,6 +7761,7 @@ export interface AwsMountPoint {
 }
 
 /**
+ * @public
  * <p>Provides information about an Amazon ECS container.
  *       </p>
  */
@@ -7251,6 +7793,7 @@ export interface AwsEcsContainerDetails {
 }
 
 /**
+ * @public
  * <p>Strategy item for the capacity provider strategy that the service uses.</p>
  */
 export interface AwsEcsServiceCapacityProviderStrategyDetails {
@@ -7274,6 +7817,7 @@ export interface AwsEcsServiceCapacityProviderStrategyDetails {
 }
 
 /**
+ * @public
  * <p>Determines whether a service deployment fails if a service cannot reach a steady state.</p>
  */
 export interface AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails {
@@ -7289,6 +7833,7 @@ export interface AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDet
 }
 
 /**
+ * @public
  * <p>Optional deployment parameters for the service.</p>
  */
 export interface AwsEcsServiceDeploymentConfigurationDetails {
@@ -7313,6 +7858,7 @@ export interface AwsEcsServiceDeploymentConfigurationDetails {
 }
 
 /**
+ * @public
  * <p>Information about the deployment controller type that the service uses.</p>
  */
 export interface AwsEcsServiceDeploymentControllerDetails {
@@ -7327,6 +7873,7 @@ export interface AwsEcsServiceDeploymentControllerDetails {
 }
 
 /**
+ * @public
  * <p>Information about a load balancer that the service uses.</p>
  */
 export interface AwsEcsServiceLoadBalancersDetails {
@@ -7354,6 +7901,7 @@ export interface AwsEcsServiceLoadBalancersDetails {
 }
 
 /**
+ * @public
  * <p>For tasks that use the <code>awsvpc</code> networking mode, the VPC subnet and security group configuration.</p>
  */
 export interface AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails {
@@ -7378,6 +7926,7 @@ export interface AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails {
 }
 
 /**
+ * @public
  * <p>For tasks that use the <code>awsvpc</code> networking mode, the VPC subnet and security group configuration.</p>
  */
 export interface AwsEcsServiceNetworkConfigurationDetails {
@@ -7388,6 +7937,7 @@ export interface AwsEcsServiceNetworkConfigurationDetails {
 }
 
 /**
+ * @public
  * <p>A placement constraint for the tasks in the service.</p>
  */
 export interface AwsEcsServicePlacementConstraintsDetails {
@@ -7405,6 +7955,7 @@ export interface AwsEcsServicePlacementConstraintsDetails {
 }
 
 /**
+ * @public
  * <p>A placement strategy that determines how to place the tasks for the service.</p>
  */
 export interface AwsEcsServicePlacementStrategiesDetails {
@@ -7428,6 +7979,7 @@ export interface AwsEcsServicePlacementStrategiesDetails {
 }
 
 /**
+ * @public
  * <p>Information about a service discovery registry to assign to the service.</p>
  */
 export interface AwsEcsServiceServiceRegistriesDetails {
@@ -7457,6 +8009,7 @@ export interface AwsEcsServiceServiceRegistriesDetails {
 }
 
 /**
+ * @public
  * <p>Provides details about a service within an ECS cluster.</p>
  */
 export interface AwsEcsServiceDetails {
@@ -7581,6 +8134,7 @@ export interface AwsEcsServiceDetails {
 }
 
 /**
+ * @public
  * <p>A dependency that is defined for container startup and shutdown.</p>
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails {
@@ -7618,6 +8172,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails {
 }
 
 /**
+ * @public
  * <p>An environment variable to pass to the container.</p>
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails {
@@ -7633,6 +8188,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails {
 }
 
 /**
+ * @public
  * <p>A file that contain environment variables to pass to a container.</p>
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails {
@@ -7648,6 +8204,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails
 }
 
 /**
+ * @public
  * <p>A hostname and IP address mapping to append to the <b>/etc/hosts</b> file on the container.</p>
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails {
@@ -7663,6 +8220,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails {
 }
 
 /**
+ * @public
  * <p>The FireLens configuration for the container. The configuration specifies and configures a log router for container logs.</p>
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails {
@@ -7695,6 +8253,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDe
 }
 
 /**
+ * @public
  * <p>The container health check command and associated configuration parameters for the container.</p>
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails {
@@ -7725,6 +8284,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails {
 }
 
 /**
+ * @public
  * <p>The Linux capabilities for the container that are added to or dropped from the default configuration provided by Docker.</p>
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails {
@@ -7768,6 +8328,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabili
 }
 
 /**
+ * @public
  * <p>A host device to expose to the container.</p>
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails {
@@ -7788,6 +8349,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesD
 }
 
 /**
+ * @public
  * <p>The container path, mount options, and size (in MiB) of a tmpfs mount.</p>
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails {
@@ -7821,6 +8383,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDet
 }
 
 /**
+ * @public
  * <p>>Linux-specific modifications that are applied to the container, such as Linux kernel capabilities.</p>
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails {
@@ -7861,6 +8424,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails 
 }
 
 /**
+ * @public
  * <p>A secret to pass to the log configuration.</p>
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails {
@@ -7878,6 +8442,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretO
 }
 
 /**
+ * @public
  * <p>The log configuration specification for the container.</p>
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails {
@@ -7964,6 +8529,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails
 }
 
 /**
+ * @public
  * <p>A mount point for the data volumes in the container.</p>
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails {
@@ -7984,6 +8550,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails {
 }
 
 /**
+ * @public
  * <p>A port mapping for the container.</p>
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails {
@@ -8004,6 +8571,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails {
 }
 
 /**
+ * @public
  * <p>The private repository authentication credentials to use.</p>
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails {
@@ -8014,6 +8582,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDe
 }
 
 /**
+ * @public
  * <p>A resource to assign to a container.</p>
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails {
@@ -8033,6 +8602,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDet
 }
 
 /**
+ * @public
  * <p>A secret to pass to the container.</p>
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails {
@@ -8049,6 +8619,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails {
 }
 
 /**
+ * @public
  * <p>A namespaced kernel parameter to set in the container.</p>
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails {
@@ -8064,6 +8635,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails {
 }
 
 /**
+ * @public
  * <p>A ulimit to set in the container.</p>
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails {
@@ -8161,6 +8733,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails {
 }
 
 /**
+ * @public
  * <p>A data volume to mount from another container.</p>
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails {
@@ -8176,6 +8749,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails {
 }
 
 /**
+ * @public
  * <p>A container definition that describes a container in the task.</p>
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsDetails {
@@ -8431,6 +9005,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsDetails {
 }
 
 /**
+ * @public
  * <p>An Elastic Inference accelerator to use
  *          for the containers in the task.</p>
  */
@@ -8447,6 +9022,7 @@ export interface AwsEcsTaskDefinitionInferenceAcceleratorsDetails {
 }
 
 /**
+ * @public
  * <p>A placement constraint object to use for tasks.</p>
  */
 export interface AwsEcsTaskDefinitionPlacementConstraintsDetails {
@@ -8462,6 +9038,7 @@ export interface AwsEcsTaskDefinitionPlacementConstraintsDetails {
 }
 
 /**
+ * @public
  * <p>A network configuration parameter to provide to the Container Network Interface (CNI) plugin.</p>
  */
 export interface AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails {
@@ -8477,6 +9054,7 @@ export interface AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropert
 }
 
 /**
+ * @public
  * <p>The configuration details for the App Mesh
  *          proxy.</p>
  */
@@ -8498,6 +9076,7 @@ export interface AwsEcsTaskDefinitionProxyConfigurationDetails {
 }
 
 /**
+ * @public
  * <p>Information about a Docker volume.</p>
  */
 export interface AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails {
@@ -8529,6 +9108,7 @@ export interface AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails {
@@ -8544,6 +9124,7 @@ export interface AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationC
 }
 
 /**
+ * @public
  * <p>Information about the Amazon Elastic File System file system that is used for task storage.</p>
  */
 export interface AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails {
@@ -8574,6 +9155,7 @@ export interface AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails {
 }
 
 /**
+ * @public
  * <p>Information about a bind mount host volume.</p>
  */
 export interface AwsEcsTaskDefinitionVolumesHostDetails {
@@ -8584,6 +9166,7 @@ export interface AwsEcsTaskDefinitionVolumesHostDetails {
 }
 
 /**
+ * @public
  * <p>A data volume to mount from another container.</p>
  */
 export interface AwsEcsTaskDefinitionVolumesDetails {
@@ -8609,6 +9192,7 @@ export interface AwsEcsTaskDefinitionVolumesDetails {
 }
 
 /**
+ * @public
  * <p>Details about a task definition. A task definition describes the container and volume definitions
  *          of an Amazon Elastic Container Service task.</p>
  */
@@ -8755,6 +9339,7 @@ export interface AwsEcsTaskDefinitionDetails {
 }
 
 /**
+ * @public
  * <p>Provides details on a container instance bind mount host volume.
  *       </p>
  */
@@ -8768,6 +9353,7 @@ export interface AwsEcsTaskVolumeHostDetails {
 }
 
 /**
+ * @public
  * <p>Provides information about a data volume that's used in a task definition.
  *       </p>
  */
@@ -8788,6 +9374,7 @@ export interface AwsEcsTaskVolumeDetails {
 }
 
 /**
+ * @public
  * <p>Provides details about a task in a cluster.
  *       </p>
  */
@@ -8851,6 +9438,7 @@ export interface AwsEcsTaskDetails {
 }
 
 /**
+ * @public
  * <p>Provides details for all file system operations using this Amazon EFS access point.
  *       </p>
  */
@@ -8875,6 +9463,7 @@ export interface AwsEfsAccessPointPosixUserDetails {
 }
 
 /**
+ * @public
  * <p>Provides information about the settings that Amazon EFS uses to create the root directory
  * when a client connects to an access point.
  *       </p>
@@ -8901,6 +9490,7 @@ export interface AwsEfsAccessPointRootDirectoryCreationInfoDetails {
 }
 
 /**
+ * @public
  * <p>Provides information about the directory on the Amazon EFS file system that the access point exposes
  * as the root directory to NFS clients using the access point.
  *       </p>
@@ -8922,6 +9512,7 @@ export interface AwsEfsAccessPointRootDirectoryDetails {
 }
 
 /**
+ * @public
  * <p>Provides information about an Amazon EFS access point.
  *       </p>
  */
@@ -8965,6 +9556,7 @@ export interface AwsEfsAccessPointDetails {
 }
 
 /**
+ * @public
  * <p>Details for a cluster logging configuration.</p>
  */
 export interface AwsEksClusterLoggingClusterLoggingDetails {
@@ -9007,6 +9599,7 @@ export interface AwsEksClusterLoggingClusterLoggingDetails {
 }
 
 /**
+ * @public
  * <p>The logging configuration for an Amazon EKS cluster.</p>
  */
 export interface AwsEksClusterLoggingDetails {
@@ -9017,6 +9610,7 @@ export interface AwsEksClusterLoggingDetails {
 }
 
 /**
+ * @public
  * <p>Information about the VPC configuration used by the cluster control plane.</p>
  */
 export interface AwsEksClusterResourcesVpcConfigDetails {
@@ -9029,9 +9623,19 @@ export interface AwsEksClusterResourcesVpcConfigDetails {
    * <p>The subnets that are associated with the cluster.</p>
    */
   SubnetIds?: string[];
+
+  /**
+   * <p>
+   *          Indicates whether the Amazon EKS public API server endpoint is turned on. If the Amazon EKS public API
+   *          server endpoint is turned off, your cluster's Kubernetes API server can only receive requests that originate from within
+   *          the cluster VPC.
+   *       </p>
+   */
+  EndpointPublicAccess?: boolean;
 }
 
 /**
+ * @public
  * <p>Provides details about an Amazon EKS cluster.</p>
  */
 export interface AwsEksClusterDetails {
@@ -9114,6 +9718,7 @@ export interface AwsEksClusterDetails {
 }
 
 /**
+ * @public
  * <p>Contains information about a link to another environment that is in the same group.</p>
  */
 export interface AwsElasticBeanstalkEnvironmentEnvironmentLink {
@@ -9129,6 +9734,7 @@ export interface AwsElasticBeanstalkEnvironmentEnvironmentLink {
 }
 
 /**
+ * @public
  * <p>A configuration option setting for the environment.</p>
  */
 export interface AwsElasticBeanstalkEnvironmentOptionSetting {
@@ -9154,6 +9760,7 @@ export interface AwsElasticBeanstalkEnvironmentOptionSetting {
 }
 
 /**
+ * @public
  * <p>Contains information about the tier of the environment.</p>
  */
 export interface AwsElasticBeanstalkEnvironmentTier {
@@ -9174,6 +9781,7 @@ export interface AwsElasticBeanstalkEnvironmentTier {
 }
 
 /**
+ * @public
  * <p>Contains details about an Elastic Beanstalk environment.</p>
  */
 export interface AwsElasticBeanstalkEnvironmentDetails {
@@ -9301,6 +9909,7 @@ export interface AwsElasticBeanstalkEnvironmentDetails {
 }
 
 /**
+ * @public
  * <p>Additional options for the domain endpoint, such as whether to require HTTPS for all
  *          traffic.</p>
  */
@@ -9329,6 +9938,7 @@ export interface AwsElasticsearchDomainDomainEndpointOptions {
 }
 
 /**
+ * @public
  * <p>Configuration options for zone awareness.</p>
  */
 export interface AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails {
@@ -9339,6 +9949,7 @@ export interface AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessCo
 }
 
 /**
+ * @public
  * <p>details about the configuration of an OpenSearch cluster.</p>
  */
 export interface AwsElasticsearchDomainElasticsearchClusterConfigDetails {
@@ -9381,6 +9992,7 @@ export interface AwsElasticsearchDomainElasticsearchClusterConfigDetails {
 }
 
 /**
+ * @public
  * <p>Details about the configuration for encryption at rest.</p>
  */
 export interface AwsElasticsearchDomainEncryptionAtRestOptions {
@@ -9396,6 +10008,7 @@ export interface AwsElasticsearchDomainEncryptionAtRestOptions {
 }
 
 /**
+ * @public
  * <p>The log configuration.</p>
  */
 export interface AwsElasticsearchDomainLogPublishingOptionsLogConfig {
@@ -9411,6 +10024,7 @@ export interface AwsElasticsearchDomainLogPublishingOptionsLogConfig {
 }
 
 /**
+ * @public
  * <p>configures the CloudWatch Logs to publish for the
  *          Elasticsearch domain.</p>
  */
@@ -9434,6 +10048,7 @@ export interface AwsElasticsearchDomainLogPublishingOptions {
 }
 
 /**
+ * @public
  * <p>Details about the configuration for node-to-node encryption.</p>
  */
 export interface AwsElasticsearchDomainNodeToNodeEncryptionOptions {
@@ -9444,6 +10059,7 @@ export interface AwsElasticsearchDomainNodeToNodeEncryptionOptions {
 }
 
 /**
+ * @public
  * <p>Information about the state of the domain relative to the latest service software.</p>
  */
 export interface AwsElasticsearchDomainServiceSoftwareOptions {
@@ -9512,6 +10128,7 @@ export interface AwsElasticsearchDomainServiceSoftwareOptions {
 }
 
 /**
+ * @public
  * <p>Information that OpenSearch derives based on <code>VPCOptions</code> for the
  *          domain.</p>
  */
@@ -9538,6 +10155,7 @@ export interface AwsElasticsearchDomainVPCOptions {
 }
 
 /**
+ * @public
  * <p>Information about an Elasticsearch domain.</p>
  */
 export interface AwsElasticsearchDomainDetails {
@@ -9616,6 +10234,7 @@ export interface AwsElasticsearchDomainDetails {
 }
 
 /**
+ * @public
  * <p>Contains information about a stickiness policy that was created using
  *             <code>CreateAppCookieStickinessPolicy</code>.</p>
  */
@@ -9633,6 +10252,7 @@ export interface AwsElbAppCookieStickinessPolicy {
 }
 
 /**
+ * @public
  * <p>Contains information about a stickiness policy that was created using
  *             <code>CreateLBCookieStickinessPolicy</code>.</p>
  */
@@ -9652,6 +10272,7 @@ export interface AwsElbLbCookieStickinessPolicy {
 }
 
 /**
+ * @public
  * <p>Contains information about the access log configuration for the load balancer.</p>
  */
 export interface AwsElbLoadBalancerAccessLog {
@@ -9679,6 +10300,7 @@ export interface AwsElbLoadBalancerAccessLog {
 }
 
 /**
+ * @public
  * <p>Provides information about additional attributes for the load balancer.</p>
  */
 export interface AwsElbLoadBalancerAdditionalAttribute {
@@ -9694,6 +10316,7 @@ export interface AwsElbLoadBalancerAdditionalAttribute {
 }
 
 /**
+ * @public
  * <p>Contains information about the connection draining configuration for the load
  *          balancer.</p>
  */
@@ -9711,6 +10334,7 @@ export interface AwsElbLoadBalancerConnectionDraining {
 }
 
 /**
+ * @public
  * <p>Contains connection settings for the load balancer.</p>
  */
 export interface AwsElbLoadBalancerConnectionSettings {
@@ -9722,6 +10346,7 @@ export interface AwsElbLoadBalancerConnectionSettings {
 }
 
 /**
+ * @public
  * <p>Contains cross-zone load balancing settings for the load balancer.</p>
  */
 export interface AwsElbLoadBalancerCrossZoneLoadBalancing {
@@ -9732,6 +10357,7 @@ export interface AwsElbLoadBalancerCrossZoneLoadBalancing {
 }
 
 /**
+ * @public
  * <p>Contains attributes for the load balancer.</p>
  */
 export interface AwsElbLoadBalancerAttributes {
@@ -9771,6 +10397,7 @@ export interface AwsElbLoadBalancerAttributes {
 }
 
 /**
+ * @public
  * <p>Provides information about the configuration of an EC2 instance for the load
  *          balancer.</p>
  */
@@ -9787,6 +10414,7 @@ export interface AwsElbLoadBalancerBackendServerDescription {
 }
 
 /**
+ * @public
  * <p>Contains information about the health checks that are conducted on the load
  *          balancer.</p>
  */
@@ -9836,6 +10464,7 @@ export interface AwsElbLoadBalancerHealthCheck {
 }
 
 /**
+ * @public
  * <p>Provides information about an EC2 instance for a load balancer.</p>
  */
 export interface AwsElbLoadBalancerInstance {
@@ -9846,6 +10475,7 @@ export interface AwsElbLoadBalancerInstance {
 }
 
 /**
+ * @public
  * <p>Information about a load balancer listener.</p>
  */
 export interface AwsElbLoadBalancerListener {
@@ -9885,6 +10515,7 @@ export interface AwsElbLoadBalancerListener {
 }
 
 /**
+ * @public
  * <p>Lists the policies that are enabled for a load balancer listener.</p>
  */
 export interface AwsElbLoadBalancerListenerDescription {
@@ -9900,6 +10531,7 @@ export interface AwsElbLoadBalancerListenerDescription {
 }
 
 /**
+ * @public
  * <p>Contains information about the policies for a load balancer.</p>
  */
 export interface AwsElbLoadBalancerPolicies {
@@ -9922,6 +10554,7 @@ export interface AwsElbLoadBalancerPolicies {
 }
 
 /**
+ * @public
  * <p>Contains information about the security group for the load balancer.</p>
  */
 export interface AwsElbLoadBalancerSourceSecurityGroup {
@@ -9937,6 +10570,7 @@ export interface AwsElbLoadBalancerSourceSecurityGroup {
 }
 
 /**
+ * @public
  * <p>Contains details about a Classic Load Balancer.</p>
  */
 export interface AwsElbLoadBalancerDetails {
@@ -9963,7 +10597,7 @@ export interface AwsElbLoadBalancerDetails {
   /**
    * <p>Indicates when the load balancer was created.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   CreatedTime?: string;
@@ -10036,6 +10670,7 @@ export interface AwsElbLoadBalancerDetails {
 }
 
 /**
+ * @public
  * <p>A load balancer attribute.</p>
  */
 export interface AwsElbv2LoadBalancerAttribute {
@@ -10051,6 +10686,7 @@ export interface AwsElbv2LoadBalancerAttribute {
 }
 
 /**
+ * @public
  * <p>Information about the state of the load balancer.</p>
  */
 export interface LoadBalancerState {
@@ -10069,6 +10705,7 @@ export interface LoadBalancerState {
 }
 
 /**
+ * @public
  * <p>Information about a load balancer.</p>
  */
 export interface AwsElbv2LoadBalancerDetails {
@@ -10085,7 +10722,7 @@ export interface AwsElbv2LoadBalancerDetails {
   /**
    * <p>Indicates when the load balancer was created.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   CreatedTime?: string;
@@ -10132,2564 +10769,3 @@ export interface AwsElbv2LoadBalancerDetails {
    */
   LoadBalancerAttributes?: AwsElbv2LoadBalancerAttribute[];
 }
-
-/**
- * <p>Attributes of the session that the key was used for.</p>
- */
-export interface AwsIamAccessKeySessionContextAttributes {
-  /**
-   * <p>Indicates whether the session used multi-factor authentication (MFA).</p>
-   */
-  MfaAuthenticated?: boolean;
-
-  /**
-   * <p>Indicates when the session was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  CreationDate?: string;
-}
-
-/**
- * <p>Information about the entity that created the session.</p>
- */
-export interface AwsIamAccessKeySessionContextSessionIssuer {
-  /**
-   * <p>The type of principal (user, role, or group) that created the session.</p>
-   */
-  Type?: string;
-
-  /**
-   * <p>The principal ID of the principal (user, role, or group) that created the
-   *          session.</p>
-   */
-  PrincipalId?: string;
-
-  /**
-   * <p>The ARN of the session.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The identifier of the Amazon Web Services account that created the session.</p>
-   */
-  AccountId?: string;
-
-  /**
-   * <p>The name of the principal that created the session.</p>
-   */
-  UserName?: string;
-}
-
-/**
- * <p>Provides information about the session that the key was used for.</p>
- */
-export interface AwsIamAccessKeySessionContext {
-  /**
-   * <p>Attributes of the session that the key was used for.</p>
-   */
-  Attributes?: AwsIamAccessKeySessionContextAttributes;
-
-  /**
-   * <p>Information about the entity that created the session.</p>
-   */
-  SessionIssuer?: AwsIamAccessKeySessionContextSessionIssuer;
-}
-
-export enum AwsIamAccessKeyStatus {
-  ACTIVE = "Active",
-  INACTIVE = "Inactive",
-}
-
-/**
- * <p>IAM access key details related to a finding.</p>
- */
-export interface AwsIamAccessKeyDetails {
-  /**
-   * @deprecated
-   *
-   * <p>The user associated with the IAM access key related to a finding.</p>
-   *          <p>The <code>UserName</code> parameter has been replaced with the
-   *             <code>PrincipalName</code> parameter because access keys can also be assigned to
-   *          principals that are not IAM users.</p>
-   */
-  UserName?: string;
-
-  /**
-   * <p>The status of the IAM access key related to a finding.</p>
-   */
-  Status?: AwsIamAccessKeyStatus | string;
-
-  /**
-   * <p>Indicates when the IAM access key was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  CreatedAt?: string;
-
-  /**
-   * <p>The ID of the principal associated with an access key.</p>
-   */
-  PrincipalId?: string;
-
-  /**
-   * <p>The type of principal associated with an access key.</p>
-   */
-  PrincipalType?: string;
-
-  /**
-   * <p>The name of the principal.</p>
-   */
-  PrincipalName?: string;
-
-  /**
-   * <p>The Amazon Web Services account ID of the account for the key.</p>
-   */
-  AccountId?: string;
-
-  /**
-   * <p>The identifier of the access key.</p>
-   */
-  AccessKeyId?: string;
-
-  /**
-   * <p>Information about the session that the key was used for.</p>
-   */
-  SessionContext?: AwsIamAccessKeySessionContext;
-}
-
-/**
- * <p>A managed policy that is attached to an IAM principal.</p>
- */
-export interface AwsIamAttachedManagedPolicy {
-  /**
-   * <p>The name of the policy.</p>
-   */
-  PolicyName?: string;
-
-  /**
-   * <p>The ARN of the policy.</p>
-   */
-  PolicyArn?: string;
-}
-
-/**
- * <p>A managed policy that is attached to the IAM group.</p>
- */
-export interface AwsIamGroupPolicy {
-  /**
-   * <p>The name of the policy.</p>
-   */
-  PolicyName?: string;
-}
-
-/**
- * <p>Contains details about an IAM group.</p>
- */
-export interface AwsIamGroupDetails {
-  /**
-   * <p>A list of the managed policies that are attached to the IAM group.</p>
-   */
-  AttachedManagedPolicies?: AwsIamAttachedManagedPolicy[];
-
-  /**
-   * <p>Indicates when the IAM group was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  CreateDate?: string;
-
-  /**
-   * <p>The identifier of the IAM group.</p>
-   */
-  GroupId?: string;
-
-  /**
-   * <p>The name of the IAM group.</p>
-   */
-  GroupName?: string;
-
-  /**
-   * <p>The list of inline policies that are embedded in the group.</p>
-   */
-  GroupPolicyList?: AwsIamGroupPolicy[];
-
-  /**
-   * <p>The path to the group.</p>
-   */
-  Path?: string;
-}
-
-/**
- * @internal
- */
-export const AcceptAdministratorInvitationRequestFilterSensitiveLog = (
-  obj: AcceptAdministratorInvitationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AcceptAdministratorInvitationResponseFilterSensitiveLog = (
-  obj: AcceptAdministratorInvitationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AcceptInvitationRequestFilterSensitiveLog = (obj: AcceptInvitationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AcceptInvitationResponseFilterSensitiveLog = (obj: AcceptInvitationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AccountDetailsFilterSensitiveLog = (obj: AccountDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsApiCallActionDomainDetailsFilterSensitiveLog = (obj: AwsApiCallActionDomainDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CityFilterSensitiveLog = (obj: City): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CountryFilterSensitiveLog = (obj: Country): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GeoLocationFilterSensitiveLog = (obj: GeoLocation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IpOrganizationDetailsFilterSensitiveLog = (obj: IpOrganizationDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ActionRemoteIpDetailsFilterSensitiveLog = (obj: ActionRemoteIpDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsApiCallActionFilterSensitiveLog = (obj: AwsApiCallAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DnsRequestActionFilterSensitiveLog = (obj: DnsRequestAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ActionLocalPortDetailsFilterSensitiveLog = (obj: ActionLocalPortDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ActionRemotePortDetailsFilterSensitiveLog = (obj: ActionRemotePortDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkConnectionActionFilterSensitiveLog = (obj: NetworkConnectionAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ActionLocalIpDetailsFilterSensitiveLog = (obj: ActionLocalIpDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PortProbeDetailFilterSensitiveLog = (obj: PortProbeDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PortProbeActionFilterSensitiveLog = (obj: PortProbeAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ActionFilterSensitiveLog = (obj: Action): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ActionTargetFilterSensitiveLog = (obj: ActionTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AdjustmentFilterSensitiveLog = (obj: Adjustment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AdminAccountFilterSensitiveLog = (obj: AdminAccount): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AvailabilityZoneFilterSensitiveLog = (obj: AvailabilityZone): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsApiGatewayAccessLogSettingsFilterSensitiveLog = (obj: AwsApiGatewayAccessLogSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsApiGatewayCanarySettingsFilterSensitiveLog = (obj: AwsApiGatewayCanarySettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsApiGatewayEndpointConfigurationFilterSensitiveLog = (obj: AwsApiGatewayEndpointConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsApiGatewayMethodSettingsFilterSensitiveLog = (obj: AwsApiGatewayMethodSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsApiGatewayRestApiDetailsFilterSensitiveLog = (obj: AwsApiGatewayRestApiDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsApiGatewayStageDetailsFilterSensitiveLog = (obj: AwsApiGatewayStageDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsCorsConfigurationFilterSensitiveLog = (obj: AwsCorsConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsApiGatewayV2ApiDetailsFilterSensitiveLog = (obj: AwsApiGatewayV2ApiDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsApiGatewayV2RouteSettingsFilterSensitiveLog = (obj: AwsApiGatewayV2RouteSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsApiGatewayV2StageDetailsFilterSensitiveLog = (obj: AwsApiGatewayV2StageDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetailsFilterSensitiveLog = (
-  obj: AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecificationFilterSensitiveLog = (
-  obj: AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetailsFilterSensitiveLog = (
-  obj: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationFilterSensitiveLog =
-  (obj: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification): any => ({
-    ...obj,
-  });
-
-/**
- * @internal
- */
-export const AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetailsFilterSensitiveLog = (
-  obj: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetailsFilterSensitiveLog = (
-  obj: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetailsFilterSensitiveLog = (
-  obj: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsAutoScalingAutoScalingGroupDetailsFilterSensitiveLog = (
-  obj: AwsAutoScalingAutoScalingGroupDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetailsFilterSensitiveLog = (
-  obj: AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetailsFilterSensitiveLog = (
-  obj: AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsAutoScalingLaunchConfigurationInstanceMonitoringDetailsFilterSensitiveLog = (
-  obj: AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsAutoScalingLaunchConfigurationMetadataOptionsFilterSensitiveLog = (
-  obj: AwsAutoScalingLaunchConfigurationMetadataOptions
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsAutoScalingLaunchConfigurationDetailsFilterSensitiveLog = (
-  obj: AwsAutoScalingLaunchConfigurationDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsBackupBackupPlanAdvancedBackupSettingsDetailsFilterSensitiveLog = (
-  obj: AwsBackupBackupPlanAdvancedBackupSettingsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsBackupBackupPlanLifecycleDetailsFilterSensitiveLog = (
-  obj: AwsBackupBackupPlanLifecycleDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsBackupBackupPlanRuleCopyActionsDetailsFilterSensitiveLog = (
-  obj: AwsBackupBackupPlanRuleCopyActionsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsBackupBackupPlanRuleDetailsFilterSensitiveLog = (obj: AwsBackupBackupPlanRuleDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsBackupBackupPlanBackupPlanDetailsFilterSensitiveLog = (
-  obj: AwsBackupBackupPlanBackupPlanDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsBackupBackupPlanDetailsFilterSensitiveLog = (obj: AwsBackupBackupPlanDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsBackupBackupVaultNotificationsDetailsFilterSensitiveLog = (
-  obj: AwsBackupBackupVaultNotificationsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsBackupBackupVaultDetailsFilterSensitiveLog = (obj: AwsBackupBackupVaultDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsBackupRecoveryPointCalculatedLifecycleDetailsFilterSensitiveLog = (
-  obj: AwsBackupRecoveryPointCalculatedLifecycleDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsBackupRecoveryPointCreatedByDetailsFilterSensitiveLog = (
-  obj: AwsBackupRecoveryPointCreatedByDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsBackupRecoveryPointLifecycleDetailsFilterSensitiveLog = (
-  obj: AwsBackupRecoveryPointLifecycleDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsBackupRecoveryPointDetailsFilterSensitiveLog = (obj: AwsBackupRecoveryPointDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsCertificateManagerCertificateResourceRecordFilterSensitiveLog = (
-  obj: AwsCertificateManagerCertificateResourceRecord
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsCertificateManagerCertificateDomainValidationOptionFilterSensitiveLog = (
-  obj: AwsCertificateManagerCertificateDomainValidationOption
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsCertificateManagerCertificateExtendedKeyUsageFilterSensitiveLog = (
-  obj: AwsCertificateManagerCertificateExtendedKeyUsage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsCertificateManagerCertificateKeyUsageFilterSensitiveLog = (
-  obj: AwsCertificateManagerCertificateKeyUsage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsCertificateManagerCertificateOptionsFilterSensitiveLog = (
-  obj: AwsCertificateManagerCertificateOptions
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsCertificateManagerCertificateRenewalSummaryFilterSensitiveLog = (
-  obj: AwsCertificateManagerCertificateRenewalSummary
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsCertificateManagerCertificateDetailsFilterSensitiveLog = (
-  obj: AwsCertificateManagerCertificateDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsCloudFormationStackDriftInformationDetailsFilterSensitiveLog = (
-  obj: AwsCloudFormationStackDriftInformationDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsCloudFormationStackOutputsDetailsFilterSensitiveLog = (
-  obj: AwsCloudFormationStackOutputsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsCloudFormationStackDetailsFilterSensitiveLog = (obj: AwsCloudFormationStackDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsCloudFrontDistributionCacheBehaviorFilterSensitiveLog = (
-  obj: AwsCloudFrontDistributionCacheBehavior
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsCloudFrontDistributionCacheBehaviorsFilterSensitiveLog = (
-  obj: AwsCloudFrontDistributionCacheBehaviors
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsCloudFrontDistributionDefaultCacheBehaviorFilterSensitiveLog = (
-  obj: AwsCloudFrontDistributionDefaultCacheBehavior
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsCloudFrontDistributionLoggingFilterSensitiveLog = (obj: AwsCloudFrontDistributionLogging): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsCloudFrontDistributionOriginGroupFailoverStatusCodesFilterSensitiveLog = (
-  obj: AwsCloudFrontDistributionOriginGroupFailoverStatusCodes
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsCloudFrontDistributionOriginGroupFailoverFilterSensitiveLog = (
-  obj: AwsCloudFrontDistributionOriginGroupFailover
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsCloudFrontDistributionOriginGroupFilterSensitiveLog = (
-  obj: AwsCloudFrontDistributionOriginGroup
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsCloudFrontDistributionOriginGroupsFilterSensitiveLog = (
-  obj: AwsCloudFrontDistributionOriginGroups
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsCloudFrontDistributionOriginSslProtocolsFilterSensitiveLog = (
-  obj: AwsCloudFrontDistributionOriginSslProtocols
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsCloudFrontDistributionOriginCustomOriginConfigFilterSensitiveLog = (
-  obj: AwsCloudFrontDistributionOriginCustomOriginConfig
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsCloudFrontDistributionOriginS3OriginConfigFilterSensitiveLog = (
-  obj: AwsCloudFrontDistributionOriginS3OriginConfig
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsCloudFrontDistributionOriginItemFilterSensitiveLog = (
-  obj: AwsCloudFrontDistributionOriginItem
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsCloudFrontDistributionOriginsFilterSensitiveLog = (obj: AwsCloudFrontDistributionOrigins): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsCloudFrontDistributionViewerCertificateFilterSensitiveLog = (
-  obj: AwsCloudFrontDistributionViewerCertificate
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsCloudFrontDistributionDetailsFilterSensitiveLog = (obj: AwsCloudFrontDistributionDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsCloudTrailTrailDetailsFilterSensitiveLog = (obj: AwsCloudTrailTrailDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsCloudWatchAlarmDimensionsDetailsFilterSensitiveLog = (
-  obj: AwsCloudWatchAlarmDimensionsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsCloudWatchAlarmDetailsFilterSensitiveLog = (obj: AwsCloudWatchAlarmDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsCodeBuildProjectArtifactsDetailsFilterSensitiveLog = (
-  obj: AwsCodeBuildProjectArtifactsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetailsFilterSensitiveLog = (
-  obj: AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsCodeBuildProjectEnvironmentRegistryCredentialFilterSensitiveLog = (
-  obj: AwsCodeBuildProjectEnvironmentRegistryCredential
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsCodeBuildProjectEnvironmentFilterSensitiveLog = (obj: AwsCodeBuildProjectEnvironment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsCodeBuildProjectLogsConfigCloudWatchLogsDetailsFilterSensitiveLog = (
-  obj: AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsCodeBuildProjectLogsConfigS3LogsDetailsFilterSensitiveLog = (
-  obj: AwsCodeBuildProjectLogsConfigS3LogsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsCodeBuildProjectLogsConfigDetailsFilterSensitiveLog = (
-  obj: AwsCodeBuildProjectLogsConfigDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsCodeBuildProjectSourceFilterSensitiveLog = (obj: AwsCodeBuildProjectSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsCodeBuildProjectVpcConfigFilterSensitiveLog = (obj: AwsCodeBuildProjectVpcConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsCodeBuildProjectDetailsFilterSensitiveLog = (obj: AwsCodeBuildProjectDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsDynamoDbTableAttributeDefinitionFilterSensitiveLog = (
-  obj: AwsDynamoDbTableAttributeDefinition
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsDynamoDbTableBillingModeSummaryFilterSensitiveLog = (obj: AwsDynamoDbTableBillingModeSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsDynamoDbTableKeySchemaFilterSensitiveLog = (obj: AwsDynamoDbTableKeySchema): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsDynamoDbTableProjectionFilterSensitiveLog = (obj: AwsDynamoDbTableProjection): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsDynamoDbTableProvisionedThroughputFilterSensitiveLog = (
-  obj: AwsDynamoDbTableProvisionedThroughput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsDynamoDbTableGlobalSecondaryIndexFilterSensitiveLog = (
-  obj: AwsDynamoDbTableGlobalSecondaryIndex
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsDynamoDbTableLocalSecondaryIndexFilterSensitiveLog = (
-  obj: AwsDynamoDbTableLocalSecondaryIndex
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsDynamoDbTableProvisionedThroughputOverrideFilterSensitiveLog = (
-  obj: AwsDynamoDbTableProvisionedThroughputOverride
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsDynamoDbTableReplicaGlobalSecondaryIndexFilterSensitiveLog = (
-  obj: AwsDynamoDbTableReplicaGlobalSecondaryIndex
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsDynamoDbTableReplicaFilterSensitiveLog = (obj: AwsDynamoDbTableReplica): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsDynamoDbTableRestoreSummaryFilterSensitiveLog = (obj: AwsDynamoDbTableRestoreSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsDynamoDbTableSseDescriptionFilterSensitiveLog = (obj: AwsDynamoDbTableSseDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsDynamoDbTableStreamSpecificationFilterSensitiveLog = (
-  obj: AwsDynamoDbTableStreamSpecification
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsDynamoDbTableDetailsFilterSensitiveLog = (obj: AwsDynamoDbTableDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2EipDetailsFilterSensitiveLog = (obj: AwsEc2EipDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2InstanceMetadataOptionsFilterSensitiveLog = (obj: AwsEc2InstanceMetadataOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2InstanceNetworkInterfacesDetailsFilterSensitiveLog = (
-  obj: AwsEc2InstanceNetworkInterfacesDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2InstanceDetailsFilterSensitiveLog = (obj: AwsEc2InstanceDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetailsFilterSensitiveLog = (
-  obj: AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetailsFilterSensitiveLog = (
-  obj: AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetailsFilterSensitiveLog =
-  (obj: AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetails): any => ({
-    ...obj,
-  });
-
-/**
- * @internal
- */
-export const AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetailsFilterSensitiveLog = (
-  obj: AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2LaunchTemplateDataCpuOptionsDetailsFilterSensitiveLog = (
-  obj: AwsEc2LaunchTemplateDataCpuOptionsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2LaunchTemplateDataCreditSpecificationDetailsFilterSensitiveLog = (
-  obj: AwsEc2LaunchTemplateDataCreditSpecificationDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetailsFilterSensitiveLog = (
-  obj: AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetailsFilterSensitiveLog = (
-  obj: AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2LaunchTemplateDataEnclaveOptionsDetailsFilterSensitiveLog = (
-  obj: AwsEc2LaunchTemplateDataEnclaveOptionsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2LaunchTemplateDataHibernationOptionsDetailsFilterSensitiveLog = (
-  obj: AwsEc2LaunchTemplateDataHibernationOptionsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2LaunchTemplateDataIamInstanceProfileDetailsFilterSensitiveLog = (
-  obj: AwsEc2LaunchTemplateDataIamInstanceProfileDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetailsFilterSensitiveLog = (
-  obj: AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2LaunchTemplateDataInstanceMarketOptionsDetailsFilterSensitiveLog = (
-  obj: AwsEc2LaunchTemplateDataInstanceMarketOptionsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetailsFilterSensitiveLog = (
-  obj: AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetailsFilterSensitiveLog = (
-  obj: AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetailsFilterSensitiveLog = (
-  obj: AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetailsFilterSensitiveLog = (
-  obj: AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetailsFilterSensitiveLog = (
-  obj: AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetailsFilterSensitiveLog = (
-  obj: AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetailsFilterSensitiveLog = (
-  obj: AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetailsFilterSensitiveLog = (
-  obj: AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2LaunchTemplateDataInstanceRequirementsDetailsFilterSensitiveLog = (
-  obj: AwsEc2LaunchTemplateDataInstanceRequirementsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2LaunchTemplateDataLicenseSetDetailsFilterSensitiveLog = (
-  obj: AwsEc2LaunchTemplateDataLicenseSetDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2LaunchTemplateDataMaintenanceOptionsDetailsFilterSensitiveLog = (
-  obj: AwsEc2LaunchTemplateDataMaintenanceOptionsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2LaunchTemplateDataMetadataOptionsDetailsFilterSensitiveLog = (
-  obj: AwsEc2LaunchTemplateDataMetadataOptionsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2LaunchTemplateDataMonitoringDetailsFilterSensitiveLog = (
-  obj: AwsEc2LaunchTemplateDataMonitoringDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetailsFilterSensitiveLog = (
-  obj: AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetailsFilterSensitiveLog = (
-  obj: AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetailsFilterSensitiveLog = (
-  obj: AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetailsFilterSensitiveLog = (
-  obj: AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2LaunchTemplateDataNetworkInterfaceSetDetailsFilterSensitiveLog = (
-  obj: AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2LaunchTemplateDataPlacementDetailsFilterSensitiveLog = (
-  obj: AwsEc2LaunchTemplateDataPlacementDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetailsFilterSensitiveLog = (
-  obj: AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2LaunchTemplateDataDetailsFilterSensitiveLog = (obj: AwsEc2LaunchTemplateDataDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2LaunchTemplateDetailsFilterSensitiveLog = (obj: AwsEc2LaunchTemplateDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2NetworkAclAssociationFilterSensitiveLog = (obj: AwsEc2NetworkAclAssociation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IcmpTypeCodeFilterSensitiveLog = (obj: IcmpTypeCode): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PortRangeFromToFilterSensitiveLog = (obj: PortRangeFromTo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2NetworkAclEntryFilterSensitiveLog = (obj: AwsEc2NetworkAclEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2NetworkAclDetailsFilterSensitiveLog = (obj: AwsEc2NetworkAclDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2NetworkInterfaceAttachmentFilterSensitiveLog = (obj: AwsEc2NetworkInterfaceAttachment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2NetworkInterfaceIpV6AddressDetailFilterSensitiveLog = (
-  obj: AwsEc2NetworkInterfaceIpV6AddressDetail
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2NetworkInterfacePrivateIpAddressDetailFilterSensitiveLog = (
-  obj: AwsEc2NetworkInterfacePrivateIpAddressDetail
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2NetworkInterfaceSecurityGroupFilterSensitiveLog = (
-  obj: AwsEc2NetworkInterfaceSecurityGroup
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2NetworkInterfaceDetailsFilterSensitiveLog = (obj: AwsEc2NetworkInterfaceDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2SecurityGroupIpRangeFilterSensitiveLog = (obj: AwsEc2SecurityGroupIpRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2SecurityGroupIpv6RangeFilterSensitiveLog = (obj: AwsEc2SecurityGroupIpv6Range): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2SecurityGroupPrefixListIdFilterSensitiveLog = (obj: AwsEc2SecurityGroupPrefixListId): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2SecurityGroupUserIdGroupPairFilterSensitiveLog = (obj: AwsEc2SecurityGroupUserIdGroupPair): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2SecurityGroupIpPermissionFilterSensitiveLog = (obj: AwsEc2SecurityGroupIpPermission): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2SecurityGroupDetailsFilterSensitiveLog = (obj: AwsEc2SecurityGroupDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Ipv6CidrBlockAssociationFilterSensitiveLog = (obj: Ipv6CidrBlockAssociation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2SubnetDetailsFilterSensitiveLog = (obj: AwsEc2SubnetDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2TransitGatewayDetailsFilterSensitiveLog = (obj: AwsEc2TransitGatewayDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2VolumeAttachmentFilterSensitiveLog = (obj: AwsEc2VolumeAttachment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2VolumeDetailsFilterSensitiveLog = (obj: AwsEc2VolumeDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CidrBlockAssociationFilterSensitiveLog = (obj: CidrBlockAssociation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2VpcDetailsFilterSensitiveLog = (obj: AwsEc2VpcDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2VpcEndpointServiceServiceTypeDetailsFilterSensitiveLog = (
-  obj: AwsEc2VpcEndpointServiceServiceTypeDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2VpcEndpointServiceDetailsFilterSensitiveLog = (obj: AwsEc2VpcEndpointServiceDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcInfoCidrBlockSetDetailsFilterSensitiveLog = (obj: VpcInfoCidrBlockSetDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcInfoIpv6CidrBlockSetDetailsFilterSensitiveLog = (obj: VpcInfoIpv6CidrBlockSetDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcInfoPeeringOptionsDetailsFilterSensitiveLog = (obj: VpcInfoPeeringOptionsDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2VpcPeeringConnectionVpcInfoDetailsFilterSensitiveLog = (
-  obj: AwsEc2VpcPeeringConnectionVpcInfoDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2VpcPeeringConnectionStatusDetailsFilterSensitiveLog = (
-  obj: AwsEc2VpcPeeringConnectionStatusDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2VpcPeeringConnectionDetailsFilterSensitiveLog = (obj: AwsEc2VpcPeeringConnectionDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2VpnConnectionOptionsTunnelOptionsDetailsFilterSensitiveLog = (
-  obj: AwsEc2VpnConnectionOptionsTunnelOptionsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2VpnConnectionOptionsDetailsFilterSensitiveLog = (obj: AwsEc2VpnConnectionOptionsDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2VpnConnectionRoutesDetailsFilterSensitiveLog = (obj: AwsEc2VpnConnectionRoutesDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2VpnConnectionVgwTelemetryDetailsFilterSensitiveLog = (
-  obj: AwsEc2VpnConnectionVgwTelemetryDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEc2VpnConnectionDetailsFilterSensitiveLog = (obj: AwsEc2VpnConnectionDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcrContainerImageDetailsFilterSensitiveLog = (obj: AwsEcrContainerImageDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcrRepositoryImageScanningConfigurationDetailsFilterSensitiveLog = (
-  obj: AwsEcrRepositoryImageScanningConfigurationDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcrRepositoryLifecyclePolicyDetailsFilterSensitiveLog = (
-  obj: AwsEcrRepositoryLifecyclePolicyDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcrRepositoryDetailsFilterSensitiveLog = (obj: AwsEcrRepositoryDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsClusterClusterSettingsDetailsFilterSensitiveLog = (
-  obj: AwsEcsClusterClusterSettingsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetailsFilterSensitiveLog = (
-  obj: AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsClusterConfigurationExecuteCommandConfigurationDetailsFilterSensitiveLog = (
-  obj: AwsEcsClusterConfigurationExecuteCommandConfigurationDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsClusterConfigurationDetailsFilterSensitiveLog = (obj: AwsEcsClusterConfigurationDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsClusterDefaultCapacityProviderStrategyDetailsFilterSensitiveLog = (
-  obj: AwsEcsClusterDefaultCapacityProviderStrategyDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsClusterDetailsFilterSensitiveLog = (obj: AwsEcsClusterDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsMountPointFilterSensitiveLog = (obj: AwsMountPoint): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsContainerDetailsFilterSensitiveLog = (obj: AwsEcsContainerDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsServiceCapacityProviderStrategyDetailsFilterSensitiveLog = (
-  obj: AwsEcsServiceCapacityProviderStrategyDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetailsFilterSensitiveLog = (
-  obj: AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsServiceDeploymentConfigurationDetailsFilterSensitiveLog = (
-  obj: AwsEcsServiceDeploymentConfigurationDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsServiceDeploymentControllerDetailsFilterSensitiveLog = (
-  obj: AwsEcsServiceDeploymentControllerDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsServiceLoadBalancersDetailsFilterSensitiveLog = (obj: AwsEcsServiceLoadBalancersDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetailsFilterSensitiveLog = (
-  obj: AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsServiceNetworkConfigurationDetailsFilterSensitiveLog = (
-  obj: AwsEcsServiceNetworkConfigurationDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsServicePlacementConstraintsDetailsFilterSensitiveLog = (
-  obj: AwsEcsServicePlacementConstraintsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsServicePlacementStrategiesDetailsFilterSensitiveLog = (
-  obj: AwsEcsServicePlacementStrategiesDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsServiceServiceRegistriesDetailsFilterSensitiveLog = (
-  obj: AwsEcsServiceServiceRegistriesDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsServiceDetailsFilterSensitiveLog = (obj: AwsEcsServiceDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetailsFilterSensitiveLog = (
-  obj: AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetailsFilterSensitiveLog = (
-  obj: AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetailsFilterSensitiveLog = (
-  obj: AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetailsFilterSensitiveLog = (
-  obj: AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetailsFilterSensitiveLog = (
-  obj: AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetailsFilterSensitiveLog = (
-  obj: AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetailsFilterSensitiveLog = (
-  obj: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetailsFilterSensitiveLog = (
-  obj: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetailsFilterSensitiveLog = (
-  obj: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetailsFilterSensitiveLog = (
-  obj: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetailsFilterSensitiveLog = (
-  obj: AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetailsFilterSensitiveLog = (
-  obj: AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetailsFilterSensitiveLog = (
-  obj: AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetailsFilterSensitiveLog = (
-  obj: AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetailsFilterSensitiveLog = (
-  obj: AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetailsFilterSensitiveLog = (
-  obj: AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsTaskDefinitionContainerDefinitionsSecretsDetailsFilterSensitiveLog = (
-  obj: AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetailsFilterSensitiveLog = (
-  obj: AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetailsFilterSensitiveLog = (
-  obj: AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetailsFilterSensitiveLog = (
-  obj: AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsTaskDefinitionContainerDefinitionsDetailsFilterSensitiveLog = (
-  obj: AwsEcsTaskDefinitionContainerDefinitionsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsTaskDefinitionInferenceAcceleratorsDetailsFilterSensitiveLog = (
-  obj: AwsEcsTaskDefinitionInferenceAcceleratorsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsTaskDefinitionPlacementConstraintsDetailsFilterSensitiveLog = (
-  obj: AwsEcsTaskDefinitionPlacementConstraintsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetailsFilterSensitiveLog = (
-  obj: AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsTaskDefinitionProxyConfigurationDetailsFilterSensitiveLog = (
-  obj: AwsEcsTaskDefinitionProxyConfigurationDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetailsFilterSensitiveLog = (
-  obj: AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetailsFilterSensitiveLog = (
-  obj: AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetailsFilterSensitiveLog = (
-  obj: AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsTaskDefinitionVolumesHostDetailsFilterSensitiveLog = (
-  obj: AwsEcsTaskDefinitionVolumesHostDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsTaskDefinitionVolumesDetailsFilterSensitiveLog = (obj: AwsEcsTaskDefinitionVolumesDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsTaskDefinitionDetailsFilterSensitiveLog = (obj: AwsEcsTaskDefinitionDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsTaskVolumeHostDetailsFilterSensitiveLog = (obj: AwsEcsTaskVolumeHostDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsTaskVolumeDetailsFilterSensitiveLog = (obj: AwsEcsTaskVolumeDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEcsTaskDetailsFilterSensitiveLog = (obj: AwsEcsTaskDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEfsAccessPointPosixUserDetailsFilterSensitiveLog = (obj: AwsEfsAccessPointPosixUserDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEfsAccessPointRootDirectoryCreationInfoDetailsFilterSensitiveLog = (
-  obj: AwsEfsAccessPointRootDirectoryCreationInfoDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEfsAccessPointRootDirectoryDetailsFilterSensitiveLog = (
-  obj: AwsEfsAccessPointRootDirectoryDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEfsAccessPointDetailsFilterSensitiveLog = (obj: AwsEfsAccessPointDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEksClusterLoggingClusterLoggingDetailsFilterSensitiveLog = (
-  obj: AwsEksClusterLoggingClusterLoggingDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEksClusterLoggingDetailsFilterSensitiveLog = (obj: AwsEksClusterLoggingDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEksClusterResourcesVpcConfigDetailsFilterSensitiveLog = (
-  obj: AwsEksClusterResourcesVpcConfigDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsEksClusterDetailsFilterSensitiveLog = (obj: AwsEksClusterDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsElasticBeanstalkEnvironmentEnvironmentLinkFilterSensitiveLog = (
-  obj: AwsElasticBeanstalkEnvironmentEnvironmentLink
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsElasticBeanstalkEnvironmentOptionSettingFilterSensitiveLog = (
-  obj: AwsElasticBeanstalkEnvironmentOptionSetting
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsElasticBeanstalkEnvironmentTierFilterSensitiveLog = (obj: AwsElasticBeanstalkEnvironmentTier): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsElasticBeanstalkEnvironmentDetailsFilterSensitiveLog = (
-  obj: AwsElasticBeanstalkEnvironmentDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsElasticsearchDomainDomainEndpointOptionsFilterSensitiveLog = (
-  obj: AwsElasticsearchDomainDomainEndpointOptions
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetailsFilterSensitiveLog = (
-  obj: AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsElasticsearchDomainElasticsearchClusterConfigDetailsFilterSensitiveLog = (
-  obj: AwsElasticsearchDomainElasticsearchClusterConfigDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsElasticsearchDomainEncryptionAtRestOptionsFilterSensitiveLog = (
-  obj: AwsElasticsearchDomainEncryptionAtRestOptions
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsElasticsearchDomainLogPublishingOptionsLogConfigFilterSensitiveLog = (
-  obj: AwsElasticsearchDomainLogPublishingOptionsLogConfig
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsElasticsearchDomainLogPublishingOptionsFilterSensitiveLog = (
-  obj: AwsElasticsearchDomainLogPublishingOptions
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsElasticsearchDomainNodeToNodeEncryptionOptionsFilterSensitiveLog = (
-  obj: AwsElasticsearchDomainNodeToNodeEncryptionOptions
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsElasticsearchDomainServiceSoftwareOptionsFilterSensitiveLog = (
-  obj: AwsElasticsearchDomainServiceSoftwareOptions
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsElasticsearchDomainVPCOptionsFilterSensitiveLog = (obj: AwsElasticsearchDomainVPCOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsElasticsearchDomainDetailsFilterSensitiveLog = (obj: AwsElasticsearchDomainDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsElbAppCookieStickinessPolicyFilterSensitiveLog = (obj: AwsElbAppCookieStickinessPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsElbLbCookieStickinessPolicyFilterSensitiveLog = (obj: AwsElbLbCookieStickinessPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsElbLoadBalancerAccessLogFilterSensitiveLog = (obj: AwsElbLoadBalancerAccessLog): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsElbLoadBalancerAdditionalAttributeFilterSensitiveLog = (
-  obj: AwsElbLoadBalancerAdditionalAttribute
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsElbLoadBalancerConnectionDrainingFilterSensitiveLog = (
-  obj: AwsElbLoadBalancerConnectionDraining
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsElbLoadBalancerConnectionSettingsFilterSensitiveLog = (
-  obj: AwsElbLoadBalancerConnectionSettings
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsElbLoadBalancerCrossZoneLoadBalancingFilterSensitiveLog = (
-  obj: AwsElbLoadBalancerCrossZoneLoadBalancing
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsElbLoadBalancerAttributesFilterSensitiveLog = (obj: AwsElbLoadBalancerAttributes): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsElbLoadBalancerBackendServerDescriptionFilterSensitiveLog = (
-  obj: AwsElbLoadBalancerBackendServerDescription
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsElbLoadBalancerHealthCheckFilterSensitiveLog = (obj: AwsElbLoadBalancerHealthCheck): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsElbLoadBalancerInstanceFilterSensitiveLog = (obj: AwsElbLoadBalancerInstance): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsElbLoadBalancerListenerFilterSensitiveLog = (obj: AwsElbLoadBalancerListener): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsElbLoadBalancerListenerDescriptionFilterSensitiveLog = (
-  obj: AwsElbLoadBalancerListenerDescription
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsElbLoadBalancerPoliciesFilterSensitiveLog = (obj: AwsElbLoadBalancerPolicies): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsElbLoadBalancerSourceSecurityGroupFilterSensitiveLog = (
-  obj: AwsElbLoadBalancerSourceSecurityGroup
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsElbLoadBalancerDetailsFilterSensitiveLog = (obj: AwsElbLoadBalancerDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsElbv2LoadBalancerAttributeFilterSensitiveLog = (obj: AwsElbv2LoadBalancerAttribute): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LoadBalancerStateFilterSensitiveLog = (obj: LoadBalancerState): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsElbv2LoadBalancerDetailsFilterSensitiveLog = (obj: AwsElbv2LoadBalancerDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsIamAccessKeySessionContextAttributesFilterSensitiveLog = (
-  obj: AwsIamAccessKeySessionContextAttributes
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsIamAccessKeySessionContextSessionIssuerFilterSensitiveLog = (
-  obj: AwsIamAccessKeySessionContextSessionIssuer
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsIamAccessKeySessionContextFilterSensitiveLog = (obj: AwsIamAccessKeySessionContext): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsIamAccessKeyDetailsFilterSensitiveLog = (obj: AwsIamAccessKeyDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsIamAttachedManagedPolicyFilterSensitiveLog = (obj: AwsIamAttachedManagedPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsIamGroupPolicyFilterSensitiveLog = (obj: AwsIamGroupPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsIamGroupDetailsFilterSensitiveLog = (obj: AwsIamGroupDetails): any => ({
-  ...obj,
-});

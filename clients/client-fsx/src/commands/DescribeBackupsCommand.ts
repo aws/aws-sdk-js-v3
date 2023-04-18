@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import {
-  DescribeBackupsRequest,
-  DescribeBackupsRequestFilterSensitiveLog,
-  DescribeBackupsResponse,
-  DescribeBackupsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeBackupsCommand,
-  serializeAws_json1_1DescribeBackupsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeBackupsRequest, DescribeBackupsResponse } from "../models/models_0";
+import { de_DescribeBackupsCommand, se_DescribeBackupsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeBackupsCommand}.
+ */
 export interface DescribeBackupsCommandInput extends DescribeBackupsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeBackupsCommand}.
+ */
 export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the description of a specific Amazon FSx backup, if a
  *                 <code>BackupIds</code> value is provided for that backup. Otherwise, it returns all
  *             backups owned by your Amazon Web Services account in the Amazon Web Services Region of the
@@ -61,13 +64,85 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  * import { FSxClient, DescribeBackupsCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, DescribeBackupsCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = { // DescribeBackupsRequest
+ *   BackupIds: [ // BackupIds
+ *     "STRING_VALUE",
+ *   ],
+ *   Filters: [ // Filters
+ *     { // Filter
+ *       Name: "file-system-id" || "backup-type" || "file-system-type" || "volume-id" || "data-repository-type" || "file-cache-id" || "file-cache-type",
+ *       Values: [ // FilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeBackupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBackupsCommandInput - {@link DescribeBackupsCommandInput}
+ * @returns {@link DescribeBackupsCommandOutput}
  * @see {@link DescribeBackupsCommandInput} for command's `input` shape.
  * @see {@link DescribeBackupsCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
+ *
+ * @throws {@link BackupNotFound} (client fault)
+ *  <p>No Amazon FSx backups were found based upon the supplied parameters.</p>
+ *
+ * @throws {@link BadRequest} (client fault)
+ *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * @throws {@link FileSystemNotFound} (client fault)
+ *  <p>No Amazon FSx file systems were found based upon supplied parameters.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>A generic error indicating a server-side failure.</p>
+ *
+ * @throws {@link VolumeNotFound} (client fault)
+ *  <p>No Amazon FSx volumes were found based upon the supplied parameters.</p>
+ *
+ *
+ * @example To describe Amazon FSx backups
+ * ```javascript
+ * // This operation describes all of the Amazon FSx backups in an account.
+ * const input = {};
+ * const command = new DescribeBackupsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Backups": [
+ *     {
+ *       "BackupId": "backup-03e3c82e0183b7b6b",
+ *       "CreationTime": "1481841524.0",
+ *       "FileSystem": {
+ *         "FileSystemId": "fs-0498eed5fe91001ec",
+ *         "OwnerId": "012345678912",
+ *         "StorageCapacity": 300,
+ *         "WindowsConfiguration": {
+ *           "ActiveDirectoryId": "d-1234abcd12",
+ *           "AutomaticBackupRetentionDays": 30,
+ *           "DailyAutomaticBackupStartTime": "05:00",
+ *           "WeeklyMaintenanceStartTime": "1:05:00"
+ *         }
+ *       },
+ *       "Lifecycle": "AVAILABLE",
+ *       "ResourceARN": "arn:aws:fsx:us-east-1:012345678912:backup/backup-03e3c82e0183b7b6b",
+ *       "Tags": [
+ *         {
+ *           "Key": "Name",
+ *           "Value": "MyBackup"
+ *         }
+ *       ],
+ *       "Type": "USER_INITIATED"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-backups-1481848448499
+ * ```
  *
  */
 export class DescribeBackupsCommand extends $Command<
@@ -87,6 +162,9 @@ export class DescribeBackupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBackupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +193,8 @@ export class DescribeBackupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeBackupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeBackupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +204,18 @@ export class DescribeBackupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeBackupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeBackupsCommand(input, context);
+    return se_DescribeBackupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBackupsCommandOutput> {
-    return deserializeAws_json1_1DescribeBackupsCommand(output, context);
+    return de_DescribeBackupsCommand(output, context);
   }
 
   // Start section: command_body_extra

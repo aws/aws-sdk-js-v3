@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SearchDataSourcesRequest,
-  SearchDataSourcesRequestFilterSensitiveLog,
-  SearchDataSourcesResponse,
-  SearchDataSourcesResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_restJson1SearchDataSourcesCommand,
-  serializeAws_restJson1SearchDataSourcesCommand,
-} from "../protocols/Aws_restJson1";
+import { SearchDataSourcesRequest, SearchDataSourcesResponse } from "../models/models_3";
+import { de_SearchDataSourcesCommand, se_SearchDataSourcesCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
+/**
+ * @public
+ *
+ * The input for {@link SearchDataSourcesCommand}.
+ */
 export interface SearchDataSourcesCommandInput extends SearchDataSourcesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SearchDataSourcesCommand}.
+ */
 export interface SearchDataSourcesCommandOutput extends SearchDataSourcesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use the <code>SearchDataSources</code> operation to search for data sources that belong to an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,49 @@ export interface SearchDataSourcesCommandOutput extends SearchDataSourcesRespons
  * import { QuickSightClient, SearchDataSourcesCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, SearchDataSourcesCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // SearchDataSourcesRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   Filters: [ // DataSourceSearchFilterList // required
+ *     { // DataSourceSearchFilter
+ *       Operator: "StringEquals" || "StringLike", // required
+ *       Name: "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER" || "DIRECT_QUICKSIGHT_OWNER" || "DIRECT_QUICKSIGHT_SOLE_OWNER" || "DATASOURCE_NAME", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new SearchDataSourcesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchDataSourcesCommandInput - {@link SearchDataSourcesCommandInput}
+ * @returns {@link SearchDataSourcesCommandOutput}
  * @see {@link SearchDataSourcesCommandInput} for command's `input` shape.
  * @see {@link SearchDataSourcesCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have access to this item. The provided credentials couldn't be
+ * 			validated. You might not be authorized to carry out the request. Make sure that your
+ * 			account is authorized to use the Amazon QuickSight service, that your policies have the
+ * 			correct permissions, and that you are using the correct credentials.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal failure occurred.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The <code>NextToken</code> value isn't valid.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One or more parameters has a value that isn't valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>One or more resources can't be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Access is throttled.</p>
+ *
  *
  */
 export class SearchDataSourcesCommand extends $Command<
@@ -62,6 +101,9 @@ export class SearchDataSourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchDataSourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +132,8 @@ export class SearchDataSourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchDataSourcesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchDataSourcesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +143,18 @@ export class SearchDataSourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchDataSourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchDataSourcesCommand(input, context);
+    return se_SearchDataSourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchDataSourcesCommandOutput> {
-    return deserializeAws_restJson1SearchDataSourcesCommand(output, context);
+    return de_SearchDataSourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

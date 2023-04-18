@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import {
-  StopBgpFailoverTestRequest,
-  StopBgpFailoverTestRequestFilterSensitiveLog,
-  StopBgpFailoverTestResponse,
-  StopBgpFailoverTestResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StopBgpFailoverTestCommand,
-  serializeAws_json1_1StopBgpFailoverTestCommand,
-} from "../protocols/Aws_json1_1";
+import { StopBgpFailoverTestRequest, StopBgpFailoverTestResponse } from "../models/models_0";
+import { de_StopBgpFailoverTestCommand, se_StopBgpFailoverTestCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link StopBgpFailoverTestCommand}.
+ */
 export interface StopBgpFailoverTestCommandInput extends StopBgpFailoverTestRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StopBgpFailoverTestCommand}.
+ */
 export interface StopBgpFailoverTestCommandOutput extends StopBgpFailoverTestResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops the virtual interface failover test.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,25 @@ export interface StopBgpFailoverTestCommandOutput extends StopBgpFailoverTestRes
  * import { DirectConnectClient, StopBgpFailoverTestCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, StopBgpFailoverTestCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // StopBgpFailoverTestRequest
+ *   virtualInterfaceId: "STRING_VALUE", // required
+ * };
  * const command = new StopBgpFailoverTestCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopBgpFailoverTestCommandInput - {@link StopBgpFailoverTestCommandInput}
+ * @returns {@link StopBgpFailoverTestCommandOutput}
  * @see {@link StopBgpFailoverTestCommandInput} for command's `input` shape.
  * @see {@link StopBgpFailoverTestCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
+ *
+ * @throws {@link DirectConnectClientException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link DirectConnectServerException} (server fault)
+ *  <p>A server-side error occurred.</p>
+ *
  *
  */
 export class StopBgpFailoverTestCommand extends $Command<
@@ -62,6 +77,9 @@ export class StopBgpFailoverTestCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopBgpFailoverTestCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +108,8 @@ export class StopBgpFailoverTestCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopBgpFailoverTestRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopBgpFailoverTestResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +119,18 @@ export class StopBgpFailoverTestCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopBgpFailoverTestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopBgpFailoverTestCommand(input, context);
+    return se_StopBgpFailoverTestCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopBgpFailoverTestCommandOutput> {
-    return deserializeAws_json1_1StopBgpFailoverTestCommand(output, context);
+    return de_StopBgpFailoverTestCommand(output, context);
   }
 
   // Start section: command_body_extra

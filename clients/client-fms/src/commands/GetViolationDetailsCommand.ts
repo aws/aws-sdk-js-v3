@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import {
-  GetViolationDetailsRequest,
-  GetViolationDetailsRequestFilterSensitiveLog,
-  GetViolationDetailsResponse,
-  GetViolationDetailsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetViolationDetailsCommand,
-  serializeAws_json1_1GetViolationDetailsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetViolationDetailsRequest, GetViolationDetailsResponse } from "../models/models_0";
+import { de_GetViolationDetailsCommand, se_GetViolationDetailsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetViolationDetailsCommand}.
+ */
 export interface GetViolationDetailsCommandInput extends GetViolationDetailsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetViolationDetailsCommand}.
+ */
 export interface GetViolationDetailsCommandOutput extends GetViolationDetailsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves violations for a resource based on the specified Firewall Manager policy and Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,32 @@ export interface GetViolationDetailsCommandOutput extends GetViolationDetailsRes
  * import { FMSClient, GetViolationDetailsCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, GetViolationDetailsCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
+ * const input = { // GetViolationDetailsRequest
+ *   PolicyId: "STRING_VALUE", // required
+ *   MemberAccount: "STRING_VALUE", // required
+ *   ResourceId: "STRING_VALUE", // required
+ *   ResourceType: "STRING_VALUE", // required
+ * };
  * const command = new GetViolationDetailsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetViolationDetailsCommandInput - {@link GetViolationDetailsCommandInput}
+ * @returns {@link GetViolationDetailsCommandOutput}
  * @see {@link GetViolationDetailsCommandInput} for command's `input` shape.
  * @see {@link GetViolationDetailsCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (client fault)
+ *  <p>The operation failed because of a system problem, even though the request was valid. Retry
+ *       your request.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The parameters of the request were invalid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class GetViolationDetailsCommand extends $Command<
@@ -62,6 +84,9 @@ export class GetViolationDetailsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetViolationDetailsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +115,8 @@ export class GetViolationDetailsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetViolationDetailsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetViolationDetailsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +126,18 @@ export class GetViolationDetailsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetViolationDetailsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetViolationDetailsCommand(input, context);
+    return se_GetViolationDetailsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetViolationDetailsCommandOutput> {
-    return deserializeAws_json1_1GetViolationDetailsCommand(output, context);
+    return de_GetViolationDetailsCommand(output, context);
   }
 
   // Start section: command_body_extra

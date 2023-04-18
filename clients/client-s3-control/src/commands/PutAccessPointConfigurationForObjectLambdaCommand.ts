@@ -14,21 +14,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { PutAccessPointConfigurationForObjectLambdaRequest } from "../models/models_0";
 import {
-  PutAccessPointConfigurationForObjectLambdaRequest,
-  PutAccessPointConfigurationForObjectLambdaRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlPutAccessPointConfigurationForObjectLambdaCommand,
-  serializeAws_restXmlPutAccessPointConfigurationForObjectLambdaCommand,
+  de_PutAccessPointConfigurationForObjectLambdaCommand,
+  se_PutAccessPointConfigurationForObjectLambdaCommand,
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
+/**
+ * @public
+ *
+ * The input for {@link PutAccessPointConfigurationForObjectLambdaCommand}.
+ */
 export interface PutAccessPointConfigurationForObjectLambdaCommandInput
   extends PutAccessPointConfigurationForObjectLambdaRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutAccessPointConfigurationForObjectLambdaCommand}.
+ */
 export interface PutAccessPointConfigurationForObjectLambdaCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Replaces configuration for an Object Lambda Access Point.</p>
  *          <p>The following actions are related to
  *             <code>PutAccessPointConfigurationForObjectLambda</code>:</p>
@@ -45,13 +53,40 @@ export interface PutAccessPointConfigurationForObjectLambdaCommandOutput extends
  * import { S3ControlClient, PutAccessPointConfigurationForObjectLambdaCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, PutAccessPointConfigurationForObjectLambdaCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = { // PutAccessPointConfigurationForObjectLambdaRequest
+ *   AccountId: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ *   Configuration: { // ObjectLambdaConfiguration
+ *     SupportingAccessPoint: "STRING_VALUE", // required
+ *     CloudWatchMetricsEnabled: true || false,
+ *     AllowedFeatures: [ // ObjectLambdaAllowedFeaturesList
+ *       "GetObject-Range" || "GetObject-PartNumber" || "HeadObject-Range" || "HeadObject-PartNumber",
+ *     ],
+ *     TransformationConfigurations: [ // ObjectLambdaTransformationConfigurationsList // required
+ *       { // ObjectLambdaTransformationConfiguration
+ *         Actions: [ // ObjectLambdaTransformationConfigurationActionsList // required
+ *           "GetObject" || "HeadObject" || "ListObjects" || "ListObjectsV2",
+ *         ],
+ *         ContentTransformation: { // ObjectLambdaContentTransformation Union: only one key present
+ *           AwsLambda: { // AwsLambdaTransformation
+ *             FunctionArn: "STRING_VALUE", // required
+ *             FunctionPayload: "STRING_VALUE",
+ *           },
+ *         },
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new PutAccessPointConfigurationForObjectLambdaCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAccessPointConfigurationForObjectLambdaCommandInput - {@link PutAccessPointConfigurationForObjectLambdaCommandInput}
+ * @returns {@link PutAccessPointConfigurationForObjectLambdaCommandOutput}
  * @see {@link PutAccessPointConfigurationForObjectLambdaCommandInput} for command's `input` shape.
  * @see {@link PutAccessPointConfigurationForObjectLambdaCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
+ *
  *
  */
 export class PutAccessPointConfigurationForObjectLambdaCommand extends $Command<
@@ -74,6 +109,9 @@ export class PutAccessPointConfigurationForObjectLambdaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAccessPointConfigurationForObjectLambdaCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +147,8 @@ export class PutAccessPointConfigurationForObjectLambdaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutAccessPointConfigurationForObjectLambdaRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,18 +158,24 @@ export class PutAccessPointConfigurationForObjectLambdaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutAccessPointConfigurationForObjectLambdaCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutAccessPointConfigurationForObjectLambdaCommand(input, context);
+    return se_PutAccessPointConfigurationForObjectLambdaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutAccessPointConfigurationForObjectLambdaCommandOutput> {
-    return deserializeAws_restXmlPutAccessPointConfigurationForObjectLambdaCommand(output, context);
+    return de_PutAccessPointConfigurationForObjectLambdaCommand(output, context);
   }
 
   // Start section: command_body_extra

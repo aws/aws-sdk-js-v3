@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyBackendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyBackendClient";
-import {
-  RemoveBackendConfigRequest,
-  RemoveBackendConfigRequestFilterSensitiveLog,
-  RemoveBackendConfigResponse,
-  RemoveBackendConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1RemoveBackendConfigCommand,
-  serializeAws_restJson1RemoveBackendConfigCommand,
-} from "../protocols/Aws_restJson1";
+import { RemoveBackendConfigRequest, RemoveBackendConfigResponse } from "../models/models_0";
+import { de_RemoveBackendConfigCommand, se_RemoveBackendConfigCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link RemoveBackendConfigCommand}.
+ */
 export interface RemoveBackendConfigCommandInput extends RemoveBackendConfigRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RemoveBackendConfigCommand}.
+ */
 export interface RemoveBackendConfigCommandOutput extends RemoveBackendConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the AWS resources required to access the Amplify Admin UI.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,31 @@ export interface RemoveBackendConfigCommandOutput extends RemoveBackendConfigRes
  * import { AmplifyBackendClient, RemoveBackendConfigCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, RemoveBackendConfigCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
  * const client = new AmplifyBackendClient(config);
+ * const input = { // RemoveBackendConfigRequest
+ *   AppId: "STRING_VALUE", // required
+ * };
  * const command = new RemoveBackendConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveBackendConfigCommandInput - {@link RemoveBackendConfigCommandInput}
+ * @returns {@link RemoveBackendConfigCommandOutput}
  * @see {@link RemoveBackendConfigCommandInput} for command's `input` shape.
  * @see {@link RemoveBackendConfigCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>An error returned if a request is not formed properly.</p>
+ *
+ * @throws {@link GatewayTimeoutException} (server fault)
+ *  <p>An error returned if there's a temporary issue with the service.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>An error returned when a specific resource type is not found.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>An error that is returned when a limit of a specific type has been exceeded.</p>
+ *
  *
  */
 export class RemoveBackendConfigCommand extends $Command<
@@ -62,6 +83,9 @@ export class RemoveBackendConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveBackendConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +114,8 @@ export class RemoveBackendConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveBackendConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RemoveBackendConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +125,18 @@ export class RemoveBackendConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveBackendConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RemoveBackendConfigCommand(input, context);
+    return se_RemoveBackendConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveBackendConfigCommandOutput> {
-    return deserializeAws_restJson1RemoveBackendConfigCommand(output, context);
+    return de_RemoveBackendConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

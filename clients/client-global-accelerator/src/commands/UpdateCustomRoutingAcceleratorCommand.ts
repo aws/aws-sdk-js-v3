@@ -18,23 +18,29 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
+import { UpdateCustomRoutingAcceleratorRequest, UpdateCustomRoutingAcceleratorResponse } from "../models/models_0";
 import {
-  UpdateCustomRoutingAcceleratorRequest,
-  UpdateCustomRoutingAcceleratorRequestFilterSensitiveLog,
-  UpdateCustomRoutingAcceleratorResponse,
-  UpdateCustomRoutingAcceleratorResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateCustomRoutingAcceleratorCommand,
-  serializeAws_json1_1UpdateCustomRoutingAcceleratorCommand,
+  de_UpdateCustomRoutingAcceleratorCommand,
+  se_UpdateCustomRoutingAcceleratorCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateCustomRoutingAcceleratorCommand}.
+ */
 export interface UpdateCustomRoutingAcceleratorCommandInput extends UpdateCustomRoutingAcceleratorRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateCustomRoutingAcceleratorCommand}.
+ */
 export interface UpdateCustomRoutingAcceleratorCommandOutput
   extends UpdateCustomRoutingAcceleratorResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update a custom routing accelerator. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,13 +48,31 @@ export interface UpdateCustomRoutingAcceleratorCommandOutput
  * import { GlobalAcceleratorClient, UpdateCustomRoutingAcceleratorCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, UpdateCustomRoutingAcceleratorCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
+ * const input = { // UpdateCustomRoutingAcceleratorRequest
+ *   AcceleratorArn: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   IpAddressType: "IPV4" || "DUAL_STACK",
+ *   Enabled: true || false,
+ * };
  * const command = new UpdateCustomRoutingAcceleratorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCustomRoutingAcceleratorCommandInput - {@link UpdateCustomRoutingAcceleratorCommandInput}
+ * @returns {@link UpdateCustomRoutingAcceleratorCommandOutput}
  * @see {@link UpdateCustomRoutingAcceleratorCommandInput} for command's `input` shape.
  * @see {@link UpdateCustomRoutingAcceleratorCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
+ *
+ * @throws {@link AcceleratorNotFoundException} (client fault)
+ *  <p>The accelerator that you specified doesn't exist.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>There was an internal error for Global Accelerator.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>An argument that you specified is invalid.</p>
+ *
  *
  */
 export class UpdateCustomRoutingAcceleratorCommand extends $Command<
@@ -68,6 +92,9 @@ export class UpdateCustomRoutingAcceleratorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCustomRoutingAcceleratorCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +123,8 @@ export class UpdateCustomRoutingAcceleratorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateCustomRoutingAcceleratorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateCustomRoutingAcceleratorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,18 +134,24 @@ export class UpdateCustomRoutingAcceleratorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateCustomRoutingAcceleratorCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateCustomRoutingAcceleratorCommand(input, context);
+    return se_UpdateCustomRoutingAcceleratorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateCustomRoutingAcceleratorCommandOutput> {
-    return deserializeAws_json1_1UpdateCustomRoutingAcceleratorCommand(output, context);
+    return de_UpdateCustomRoutingAcceleratorCommand(output, context);
   }
 
   // Start section: command_body_extra

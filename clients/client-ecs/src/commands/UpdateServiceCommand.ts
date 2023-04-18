@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  UpdateServiceRequest,
-  UpdateServiceRequestFilterSensitiveLog,
-  UpdateServiceResponse,
-  UpdateServiceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateServiceCommand,
-  serializeAws_json1_1UpdateServiceCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateServiceRequest, UpdateServiceResponse } from "../models/models_0";
+import { de_UpdateServiceCommand, se_UpdateServiceCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateServiceCommand}.
+ */
 export interface UpdateServiceCommandInput extends UpdateServiceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateServiceCommand}.
+ */
 export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the parameters of a service.</p>
  *          <p>For services using the rolling update (<code>ECS</code>) you can update the desired
  * 			count, deployment configuration, network configuration, load balancers, service
@@ -136,7 +139,7 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *          </ul>
  *          <note>
  *             <p>You must have a service-linked role when you update any of the following service
- * 				properties. If you specified a custom IAM role when you created the service, Amazon ECS
+ * 				properties. If you specified a custom role when you created the service, Amazon ECS
  * 				automatically replaces the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_Service.html#ECS-Type-Service-roleArn">roleARN</a> associated with the service with the ARN of your
  * 				service-linked role. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Service-linked roles</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  *             <ul>
@@ -158,13 +161,178 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * import { ECSClient, UpdateServiceCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, UpdateServiceCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // UpdateServiceRequest
+ *   cluster: "STRING_VALUE",
+ *   service: "STRING_VALUE", // required
+ *   desiredCount: Number("int"),
+ *   taskDefinition: "STRING_VALUE",
+ *   capacityProviderStrategy: [ // CapacityProviderStrategy
+ *     { // CapacityProviderStrategyItem
+ *       capacityProvider: "STRING_VALUE", // required
+ *       weight: Number("int"),
+ *       base: Number("int"),
+ *     },
+ *   ],
+ *   deploymentConfiguration: { // DeploymentConfiguration
+ *     deploymentCircuitBreaker: { // DeploymentCircuitBreaker
+ *       enable: true || false, // required
+ *       rollback: true || false, // required
+ *     },
+ *     maximumPercent: Number("int"),
+ *     minimumHealthyPercent: Number("int"),
+ *     alarms: { // DeploymentAlarms
+ *       alarmNames: [ // StringList // required
+ *         "STRING_VALUE",
+ *       ],
+ *       enable: true || false, // required
+ *       rollback: true || false, // required
+ *     },
+ *   },
+ *   networkConfiguration: { // NetworkConfiguration
+ *     awsvpcConfiguration: { // AwsVpcConfiguration
+ *       subnets: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *       securityGroups: [
+ *         "STRING_VALUE",
+ *       ],
+ *       assignPublicIp: "ENABLED" || "DISABLED",
+ *     },
+ *   },
+ *   placementConstraints: [ // PlacementConstraints
+ *     { // PlacementConstraint
+ *       type: "distinctInstance" || "memberOf",
+ *       expression: "STRING_VALUE",
+ *     },
+ *   ],
+ *   placementStrategy: [ // PlacementStrategies
+ *     { // PlacementStrategy
+ *       type: "random" || "spread" || "binpack",
+ *       field: "STRING_VALUE",
+ *     },
+ *   ],
+ *   platformVersion: "STRING_VALUE",
+ *   forceNewDeployment: true || false,
+ *   healthCheckGracePeriodSeconds: Number("int"),
+ *   enableExecuteCommand: true || false,
+ *   enableECSManagedTags: true || false,
+ *   loadBalancers: [ // LoadBalancers
+ *     { // LoadBalancer
+ *       targetGroupArn: "STRING_VALUE",
+ *       loadBalancerName: "STRING_VALUE",
+ *       containerName: "STRING_VALUE",
+ *       containerPort: Number("int"),
+ *     },
+ *   ],
+ *   propagateTags: "TASK_DEFINITION" || "SERVICE" || "NONE",
+ *   serviceRegistries: [ // ServiceRegistries
+ *     { // ServiceRegistry
+ *       registryArn: "STRING_VALUE",
+ *       port: Number("int"),
+ *       containerName: "STRING_VALUE",
+ *       containerPort: Number("int"),
+ *     },
+ *   ],
+ *   serviceConnectConfiguration: { // ServiceConnectConfiguration
+ *     enabled: true || false, // required
+ *     namespace: "STRING_VALUE",
+ *     services: [ // ServiceConnectServiceList
+ *       { // ServiceConnectService
+ *         portName: "STRING_VALUE", // required
+ *         discoveryName: "STRING_VALUE",
+ *         clientAliases: [ // ServiceConnectClientAliasList
+ *           { // ServiceConnectClientAlias
+ *             port: Number("int"), // required
+ *             dnsName: "STRING_VALUE",
+ *           },
+ *         ],
+ *         ingressPortOverride: Number("int"),
+ *       },
+ *     ],
+ *     logConfiguration: { // LogConfiguration
+ *       logDriver: "json-file" || "syslog" || "journald" || "gelf" || "fluentd" || "awslogs" || "splunk" || "awsfirelens", // required
+ *       options: { // LogConfigurationOptionsMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       secretOptions: [ // SecretList
+ *         { // Secret
+ *           name: "STRING_VALUE", // required
+ *           valueFrom: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *   },
+ * };
  * const command = new UpdateServiceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateServiceCommandInput - {@link UpdateServiceCommandInput}
+ * @returns {@link UpdateServiceCommandOutput}
  * @see {@link UpdateServiceCommandInput} for command's `input` shape.
  * @see {@link UpdateServiceCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have authorization to perform the requested action.</p>
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action. This client action might be using
+ * 			an action or resource on behalf of a user that doesn't have permissions to use the
+ * 			action or resource,. Or, it might be specifying an identifier that isn't valid.</p>
+ *
+ * @throws {@link ClusterNotFoundException} (client fault)
+ *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter isn't valid. Review the available parameters for the API
+ * 			request.</p>
+ *
+ * @throws {@link NamespaceNotFoundException} (client fault)
+ *  <p>The specified namespace wasn't found.</p>
+ *
+ * @throws {@link PlatformTaskDefinitionIncompatibilityException} (client fault)
+ *  <p>The specified platform version doesn't satisfy the required capabilities of the task
+ * 			definition.</p>
+ *
+ * @throws {@link PlatformUnknownException} (client fault)
+ *  <p>The specified platform version doesn't exist.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server issue.</p>
+ *
+ * @throws {@link ServiceNotActiveException} (client fault)
+ *  <p>The specified service isn't active. You can't update a service that's inactive. If you
+ * 			have previously deleted a service, you can re-create it with <a>CreateService</a>.</p>
+ *
+ * @throws {@link ServiceNotFoundException} (client fault)
+ *  <p>The specified service wasn't found. You can view your available services with <a>ListServices</a>. Amazon ECS services are cluster specific and Region
+ * 			specific.</p>
+ *
+ *
+ * @example To change the task definition used in a service
+ * ```javascript
+ * // This example updates the my-http-service service to use the amazon-ecs-sample task definition.
+ * const input = {
+ *   "service": "my-http-service",
+ *   "taskDefinition": "amazon-ecs-sample"
+ * };
+ * const command = new UpdateServiceCommand(input);
+ * await client.send(command);
+ * // example id: cc9e8900-0cc2-44d2-8491-64d1d3d37887
+ * ```
+ *
+ * @example To change the number of tasks in a service
+ * ```javascript
+ * // This example updates the desired count of the my-http-service service to 10.
+ * const input = {
+ *   "desiredCount": 10,
+ *   "service": "my-http-service"
+ * };
+ * const command = new UpdateServiceCommand(input);
+ * await client.send(command);
+ * // example id: 9581d6c5-02e3-4140-8cc1-5a4301586633
+ * ```
  *
  */
 export class UpdateServiceCommand extends $Command<
@@ -184,6 +352,9 @@ export class UpdateServiceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateServiceCommandInput) {
     // Start section: command_constructor
     super();
@@ -210,8 +381,8 @@ export class UpdateServiceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateServiceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateServiceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -221,12 +392,18 @@ export class UpdateServiceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateServiceCommand(input, context);
+    return se_UpdateServiceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateServiceCommandOutput> {
-    return deserializeAws_json1_1UpdateServiceCommand(output, context);
+    return de_UpdateServiceCommand(output, context);
   }
 
   // Start section: command_body_extra

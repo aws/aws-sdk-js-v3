@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  ListMFADeviceTagsRequest,
-  ListMFADeviceTagsRequestFilterSensitiveLog,
-  ListMFADeviceTagsResponse,
-  ListMFADeviceTagsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryListMFADeviceTagsCommand,
-  serializeAws_queryListMFADeviceTagsCommand,
-} from "../protocols/Aws_query";
+import { ListMFADeviceTagsRequest, ListMFADeviceTagsResponse } from "../models/models_0";
+import { de_ListMFADeviceTagsCommand, se_ListMFADeviceTagsCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link ListMFADeviceTagsCommand}.
+ */
 export interface ListMFADeviceTagsCommandInput extends ListMFADeviceTagsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListMFADeviceTagsCommand}.
+ */
 export interface ListMFADeviceTagsCommandOutput extends ListMFADeviceTagsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the tags that are attached to the specified IAM virtual multi-factor authentication (MFA) device. The returned list of tags is
  *       sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
  *       <i>IAM User Guide</i>.</p>
@@ -38,13 +41,33 @@ export interface ListMFADeviceTagsCommandOutput extends ListMFADeviceTagsRespons
  * import { IAMClient, ListMFADeviceTagsCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListMFADeviceTagsCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // ListMFADeviceTagsRequest
+ *   SerialNumber: "STRING_VALUE", // required
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListMFADeviceTagsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMFADeviceTagsCommandInput - {@link ListMFADeviceTagsCommandInput}
+ * @returns {@link ListMFADeviceTagsCommandOutput}
  * @see {@link ListMFADeviceTagsCommandInput} for command's `input` shape.
  * @see {@link ListMFADeviceTagsCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
+ *       input parameter.</p>
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
  *
  */
 export class ListMFADeviceTagsCommand extends $Command<
@@ -64,6 +87,9 @@ export class ListMFADeviceTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMFADeviceTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +118,8 @@ export class ListMFADeviceTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMFADeviceTagsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMFADeviceTagsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +129,18 @@ export class ListMFADeviceTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMFADeviceTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListMFADeviceTagsCommand(input, context);
+    return se_ListMFADeviceTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMFADeviceTagsCommandOutput> {
-    return deserializeAws_queryListMFADeviceTagsCommand(output, context);
+    return de_ListMFADeviceTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

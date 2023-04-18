@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListTemplatesRequest,
-  ListTemplatesRequestFilterSensitiveLog,
-  ListTemplatesResponse,
-  ListTemplatesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryListTemplatesCommand,
-  serializeAws_queryListTemplatesCommand,
-} from "../protocols/Aws_query";
+import { ListTemplatesRequest, ListTemplatesResponse } from "../models/models_0";
+import { de_ListTemplatesCommand, se_ListTemplatesCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListTemplatesCommand}.
+ */
 export interface ListTemplatesCommandInput extends ListTemplatesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListTemplatesCommand}.
+ */
 export interface ListTemplatesCommandOutput extends ListTemplatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the email templates present in your Amazon SES account in the current AWS
  *             Region.</p>
  *         <p>You can execute this operation no more than once per second.</p>
@@ -38,13 +41,20 @@ export interface ListTemplatesCommandOutput extends ListTemplatesResponse, __Met
  * import { SESClient, ListTemplatesCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, ListTemplatesCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // ListTemplatesRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListTemplatesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTemplatesCommandInput - {@link ListTemplatesCommandInput}
+ * @returns {@link ListTemplatesCommandOutput}
  * @see {@link ListTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListTemplatesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
+ *
  *
  */
 export class ListTemplatesCommand extends $Command<
@@ -64,6 +74,9 @@ export class ListTemplatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTemplatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +103,8 @@ export class ListTemplatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTemplatesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTemplatesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +114,18 @@ export class ListTemplatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListTemplatesCommand(input, context);
+    return se_ListTemplatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTemplatesCommandOutput> {
-    return deserializeAws_queryListTemplatesCommand(output, context);
+    return de_ListTemplatesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -6,12 +6,11 @@ import {
   ListTestGridSessionsCommandInput,
   ListTestGridSessionsCommandOutput,
 } from "../commands/ListTestGridSessionsCommand";
-import { DeviceFarm } from "../DeviceFarm";
 import { DeviceFarmClient } from "../DeviceFarmClient";
 import { DeviceFarmPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DeviceFarmClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListTestGridSessionsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: DeviceFarm,
-  input: ListTestGridSessionsCommandInput,
-  ...args: any
-): Promise<ListTestGridSessionsCommandOutput> => {
-  // @ts-ignore
-  return await client.listTestGridSessions(input, ...args);
-};
 export async function* paginateListTestGridSessions(
   config: DeviceFarmPaginationConfiguration,
   input: ListTestGridSessionsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListTestGridSessions(
   while (hasNext) {
     input.nextToken = token;
     input["maxResult"] = config.pageSize;
-    if (config.client instanceof DeviceFarm) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DeviceFarmClient) {
+    if (config.client instanceof DeviceFarmClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected DeviceFarm | DeviceFarmClient");

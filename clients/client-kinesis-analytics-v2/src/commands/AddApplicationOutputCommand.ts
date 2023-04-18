@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client";
-import {
-  AddApplicationOutputRequest,
-  AddApplicationOutputRequestFilterSensitiveLog,
-  AddApplicationOutputResponse,
-  AddApplicationOutputResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AddApplicationOutputCommand,
-  serializeAws_json1_1AddApplicationOutputCommand,
-} from "../protocols/Aws_json1_1";
+import { AddApplicationOutputRequest, AddApplicationOutputResponse } from "../models/models_0";
+import { de_AddApplicationOutputCommand, se_AddApplicationOutputCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link AddApplicationOutputCommand}.
+ */
 export interface AddApplicationOutputCommandInput extends AddApplicationOutputRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AddApplicationOutputCommand}.
+ */
 export interface AddApplicationOutputCommandOutput extends AddApplicationOutputResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds an external destination to your SQL-based Kinesis Data Analytics application.</p>
  *          <p>If you want Kinesis Data Analytics to deliver data from an in-application stream within
  *       your application to an external destination (such as an Kinesis data stream, a Kinesis Data
@@ -52,13 +55,52 @@ export interface AddApplicationOutputCommandOutput extends AddApplicationOutputR
  * import { KinesisAnalyticsV2Client, AddApplicationOutputCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
  * // const { KinesisAnalyticsV2Client, AddApplicationOutputCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
+ * const input = { // AddApplicationOutputRequest
+ *   ApplicationName: "STRING_VALUE", // required
+ *   CurrentApplicationVersionId: Number("long"), // required
+ *   Output: { // Output
+ *     Name: "STRING_VALUE", // required
+ *     KinesisStreamsOutput: { // KinesisStreamsOutput
+ *       ResourceARN: "STRING_VALUE", // required
+ *     },
+ *     KinesisFirehoseOutput: { // KinesisFirehoseOutput
+ *       ResourceARN: "STRING_VALUE", // required
+ *     },
+ *     LambdaOutput: { // LambdaOutput
+ *       ResourceARN: "STRING_VALUE", // required
+ *     },
+ *     DestinationSchema: { // DestinationSchema
+ *       RecordFormatType: "JSON" || "CSV", // required
+ *     },
+ *   },
+ * };
  * const command = new AddApplicationOutputCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AddApplicationOutputCommandInput - {@link AddApplicationOutputCommandInput}
+ * @returns {@link AddApplicationOutputCommandOutput}
  * @see {@link AddApplicationOutputCommandInput} for command's `input` shape.
  * @see {@link AddApplicationOutputCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>Exception thrown as a result of concurrent modifications to an application. This error can
+ *       be the result of attempting to modify an application without using the current application
+ *       ID.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>The specified input parameter value is not valid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request JSON is not valid for the operation.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The application is not available for this operation.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Specified application can't be found.</p>
+ *
  *
  */
 export class AddApplicationOutputCommand extends $Command<
@@ -78,6 +120,9 @@ export class AddApplicationOutputCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddApplicationOutputCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +151,8 @@ export class AddApplicationOutputCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddApplicationOutputRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AddApplicationOutputResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +162,18 @@ export class AddApplicationOutputCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddApplicationOutputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AddApplicationOutputCommand(input, context);
+    return se_AddApplicationOutputCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddApplicationOutputCommandOutput> {
-    return deserializeAws_json1_1AddApplicationOutputCommand(output, context);
+    return de_AddApplicationOutputCommand(output, context);
   }
 
   // Start section: command_body_extra

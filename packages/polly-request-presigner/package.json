@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/polly-request-presigner",
-  "version": "3.245.0",
+  "version": "3.315.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -24,19 +24,17 @@
     "@aws-sdk/protocol-http": "*",
     "@aws-sdk/signature-v4": "*",
     "@aws-sdk/types": "*",
-    "@aws-sdk/util-create-request": "*",
     "@aws-sdk/util-format-url": "*",
-    "tslib": "^2.3.1"
+    "tslib": "^2.5.0"
   },
   "devDependencies": {
-    "@aws-sdk/hash-node": "*",
     "@tsconfig/recommended": "1.0.1",
     "@types/node": "^14.14.31",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
-    "typedoc": "0.19.2",
-    "typescript": "~4.6.2"
+    "typedoc": "0.23.23",
+    "typescript": "~4.9.5"
   },
   "engines": {
     "node": ">=14.0.0"
@@ -49,12 +47,15 @@
     }
   },
   "files": [
-    "dist-*"
+    "dist-*/**"
   ],
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/polly-request-presigner",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
     "directory": "packages/polly-request-presigner"
+  },
+  "typedoc": {
+    "entryPoint": "src/index.ts"
   }
 }

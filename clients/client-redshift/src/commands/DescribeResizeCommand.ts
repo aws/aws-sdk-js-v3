@@ -13,23 +13,31 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ResizeProgressMessage, ResizeProgressMessageFilterSensitiveLog } from "../models/models_0";
-import { DescribeResizeMessage, DescribeResizeMessageFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_queryDescribeResizeCommand,
-  serializeAws_queryDescribeResizeCommand,
-} from "../protocols/Aws_query";
+import { ResizeProgressMessage } from "../models/models_0";
+import { DescribeResizeMessage } from "../models/models_1";
+import { de_DescribeResizeCommand, se_DescribeResizeCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeResizeCommand}.
+ */
 export interface DescribeResizeCommandInput extends DescribeResizeMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeResizeCommand}.
+ */
 export interface DescribeResizeCommandOutput extends ResizeProgressMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the last resize operation for the specified cluster. If
  *             no resize operation has ever been initiated for the specified cluster, a <code>HTTP
  *                 404</code> error is returned. If a resize operation was initiated and completed, the
  *             status of the resize remains as <code>SUCCEEDED</code> until the next resize. </p>
- *         <p>A resize operation can be requested using <a>ModifyCluster</a> and
+ *          <p>A resize operation can be requested using <a>ModifyCluster</a> and
  *             specifying a different number or type of nodes for the cluster. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,13 +45,26 @@ export interface DescribeResizeCommandOutput extends ResizeProgressMessage, __Me
  * import { RedshiftClient, DescribeResizeCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeResizeCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DescribeResizeMessage
+ *   ClusterIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new DescribeResizeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeResizeCommandInput - {@link DescribeResizeCommandInput}
+ * @returns {@link DescribeResizeCommandOutput}
  * @see {@link DescribeResizeCommandInput} for command's `input` shape.
  * @see {@link DescribeResizeCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
+ *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+ *         </p>
+ *
+ * @throws {@link ResizeNotFoundFault} (client fault)
+ *  <p>A resize operation for the specified cluster is not found.</p>
+ *
  *
  */
 export class DescribeResizeCommand extends $Command<
@@ -63,6 +84,9 @@ export class DescribeResizeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeResizeCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +115,8 @@ export class DescribeResizeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeResizeMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ResizeProgressMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +126,18 @@ export class DescribeResizeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeResizeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeResizeCommand(input, context);
+    return se_DescribeResizeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeResizeCommandOutput> {
-    return deserializeAws_queryDescribeResizeCommand(output, context);
+    return de_DescribeResizeCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DeleteLocalGatewayRouteRequest,
-  DeleteLocalGatewayRouteRequestFilterSensitiveLog,
-  DeleteLocalGatewayRouteResult,
-  DeleteLocalGatewayRouteResultFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_ec2DeleteLocalGatewayRouteCommand,
-  serializeAws_ec2DeleteLocalGatewayRouteCommand,
-} from "../protocols/Aws_ec2";
+import { DeleteLocalGatewayRouteRequest, DeleteLocalGatewayRouteResult } from "../models/models_2";
+import { de_DeleteLocalGatewayRouteCommand, se_DeleteLocalGatewayRouteCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteLocalGatewayRouteCommand}.
+ */
 export interface DeleteLocalGatewayRouteCommandInput extends DeleteLocalGatewayRouteRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteLocalGatewayRouteCommand}.
+ */
 export interface DeleteLocalGatewayRouteCommandOutput extends DeleteLocalGatewayRouteResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified route from the specified local gateway route table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,22 @@ export interface DeleteLocalGatewayRouteCommandOutput extends DeleteLocalGateway
  * import { EC2Client, DeleteLocalGatewayRouteCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteLocalGatewayRouteCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteLocalGatewayRouteRequest
+ *   DestinationCidrBlock: "STRING_VALUE",
+ *   LocalGatewayRouteTableId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ *   DestinationPrefixListId: "STRING_VALUE",
+ * };
  * const command = new DeleteLocalGatewayRouteCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLocalGatewayRouteCommandInput - {@link DeleteLocalGatewayRouteCommandInput}
+ * @returns {@link DeleteLocalGatewayRouteCommandOutput}
  * @see {@link DeleteLocalGatewayRouteCommandInput} for command's `input` shape.
  * @see {@link DeleteLocalGatewayRouteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class DeleteLocalGatewayRouteCommand extends $Command<
@@ -62,6 +74,9 @@ export class DeleteLocalGatewayRouteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLocalGatewayRouteCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +105,8 @@ export class DeleteLocalGatewayRouteCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLocalGatewayRouteRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLocalGatewayRouteResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +116,18 @@ export class DeleteLocalGatewayRouteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLocalGatewayRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteLocalGatewayRouteCommand(input, context);
+    return se_DeleteLocalGatewayRouteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLocalGatewayRouteCommandOutput> {
-    return deserializeAws_ec2DeleteLocalGatewayRouteCommand(output, context);
+    return de_DeleteLocalGatewayRouteCommand(output, context);
   }
 
   // Start section: command_body_extra

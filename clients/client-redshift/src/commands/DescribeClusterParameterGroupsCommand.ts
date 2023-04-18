@@ -13,37 +13,43 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ClusterParameterGroupsMessage, DescribeClusterParameterGroupsMessage } from "../models/models_0";
 import {
-  ClusterParameterGroupsMessage,
-  ClusterParameterGroupsMessageFilterSensitiveLog,
-  DescribeClusterParameterGroupsMessage,
-  DescribeClusterParameterGroupsMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeClusterParameterGroupsCommand,
-  serializeAws_queryDescribeClusterParameterGroupsCommand,
+  de_DescribeClusterParameterGroupsCommand,
+  se_DescribeClusterParameterGroupsCommand,
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeClusterParameterGroupsCommand}.
+ */
 export interface DescribeClusterParameterGroupsCommandInput extends DescribeClusterParameterGroupsMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeClusterParameterGroupsCommand}.
+ */
 export interface DescribeClusterParameterGroupsCommandOutput extends ClusterParameterGroupsMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of Amazon Redshift parameter groups, including parameter groups you
  *             created and the default parameter group. For each parameter group, the response includes
  *             the parameter group name, description, and parameter group family name. You can
  *             optionally specify a name to retrieve the description of a specific parameter
  *             group.</p>
- *         <p>
+ *          <p>
  * For more information about parameters and parameter groups, go to
  * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift Parameter Groups</a>
  * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
- *         <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns
+ *          <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns
  *             all parameter groups that match any combination of the specified keys and values. For
  *             example, if you have <code>owner</code> and <code>environment</code> for tag keys, and
  *                 <code>admin</code> and <code>test</code> for tag values, all parameter groups that
  *             have any combination of those values are returned.</p>
- *         <p>If both tag keys and values are omitted from the request, parameter groups are
+ *          <p>If both tag keys and values are omitted from the request, parameter groups are
  *             returned regardless of whether they have tag keys or values associated with
  *             them.</p>
  * @example
@@ -52,13 +58,33 @@ export interface DescribeClusterParameterGroupsCommandOutput extends ClusterPara
  * import { RedshiftClient, DescribeClusterParameterGroupsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeClusterParameterGroupsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DescribeClusterParameterGroupsMessage
+ *   ParameterGroupName: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ *   TagKeys: [ // TagKeyList
+ *     "STRING_VALUE",
+ *   ],
+ *   TagValues: [ // TagValueList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeClusterParameterGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeClusterParameterGroupsCommandInput - {@link DescribeClusterParameterGroupsCommandInput}
+ * @returns {@link DescribeClusterParameterGroupsCommandOutput}
  * @see {@link DescribeClusterParameterGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeClusterParameterGroupsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
+ *
+ * @throws {@link ClusterParameterGroupNotFoundFault} (client fault)
+ *  <p>The parameter group name does not refer to an existing parameter group.</p>
+ *
+ * @throws {@link InvalidTagFault} (client fault)
+ *  <p>The tag is invalid.</p>
+ *
  *
  */
 export class DescribeClusterParameterGroupsCommand extends $Command<
@@ -78,6 +104,9 @@ export class DescribeClusterParameterGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeClusterParameterGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +135,8 @@ export class DescribeClusterParameterGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeClusterParameterGroupsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ClusterParameterGroupsMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,18 +146,24 @@ export class DescribeClusterParameterGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeClusterParameterGroupsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeClusterParameterGroupsCommand(input, context);
+    return se_DescribeClusterParameterGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeClusterParameterGroupsCommandOutput> {
-    return deserializeAws_queryDescribeClusterParameterGroupsCommand(output, context);
+    return de_DescribeClusterParameterGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

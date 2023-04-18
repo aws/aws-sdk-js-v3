@@ -17,42 +17,52 @@ import {
   PutEmailIdentityDkimSigningAttributesRequest,
   PutEmailIdentityDkimSigningAttributesRequestFilterSensitiveLog,
   PutEmailIdentityDkimSigningAttributesResponse,
-  PutEmailIdentityDkimSigningAttributesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1PutEmailIdentityDkimSigningAttributesCommand,
-  serializeAws_restJson1PutEmailIdentityDkimSigningAttributesCommand,
+  de_PutEmailIdentityDkimSigningAttributesCommand,
+  se_PutEmailIdentityDkimSigningAttributesCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
+/**
+ * @public
+ *
+ * The input for {@link PutEmailIdentityDkimSigningAttributesCommand}.
+ */
 export interface PutEmailIdentityDkimSigningAttributesCommandInput
   extends PutEmailIdentityDkimSigningAttributesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutEmailIdentityDkimSigningAttributesCommand}.
+ */
 export interface PutEmailIdentityDkimSigningAttributesCommandOutput
   extends PutEmailIdentityDkimSigningAttributesResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used to configure or change the DKIM authentication settings for an email domain
  *             identity. You can use this operation to do any of the following:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>Update the signing attributes for an identity that uses Bring Your Own DKIM
+ *                <p>Update the signing attributes for an identity that uses Bring Your Own DKIM
  *                     (BYODKIM).</p>
  *             </li>
  *             <li>
- *                 <p>Update the key length that should be used for Easy DKIM.</p>
+ *                <p>Update the key length that should be used for Easy DKIM.</p>
  *             </li>
  *             <li>
- *                 <p>Change from using no DKIM authentication to using Easy DKIM.</p>
+ *                <p>Change from using no DKIM authentication to using Easy DKIM.</p>
  *             </li>
  *             <li>
- *                 <p>Change from using no DKIM authentication to using BYODKIM.</p>
+ *                <p>Change from using no DKIM authentication to using BYODKIM.</p>
  *             </li>
  *             <li>
- *                 <p>Change from using Easy DKIM to using BYODKIM.</p>
+ *                <p>Change from using Easy DKIM to using BYODKIM.</p>
  *             </li>
  *             <li>
- *                 <p>Change from using BYODKIM to using Easy DKIM.</p>
+ *                <p>Change from using BYODKIM to using Easy DKIM.</p>
  *             </li>
  *          </ul>
  * @example
@@ -61,13 +71,34 @@ export interface PutEmailIdentityDkimSigningAttributesCommandOutput
  * import { SESv2Client, PutEmailIdentityDkimSigningAttributesCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, PutEmailIdentityDkimSigningAttributesCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = { // PutEmailIdentityDkimSigningAttributesRequest
+ *   EmailIdentity: "STRING_VALUE", // required
+ *   SigningAttributesOrigin: "AWS_SES" || "EXTERNAL", // required
+ *   SigningAttributes: { // DkimSigningAttributes
+ *     DomainSigningSelector: "STRING_VALUE",
+ *     DomainSigningPrivateKey: "STRING_VALUE",
+ *     NextSigningKeyLength: "RSA_1024_BIT" || "RSA_2048_BIT",
+ *   },
+ * };
  * const command = new PutEmailIdentityDkimSigningAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutEmailIdentityDkimSigningAttributesCommandInput - {@link PutEmailIdentityDkimSigningAttributesCommandInput}
+ * @returns {@link PutEmailIdentityDkimSigningAttributesCommandOutput}
  * @see {@link PutEmailIdentityDkimSigningAttributesCommandInput} for command's `input` shape.
  * @see {@link PutEmailIdentityDkimSigningAttributesCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input you provided is invalid.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource you attempted to access doesn't exist.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Too many requests have been made to the operation.</p>
+ *
  *
  */
 export class PutEmailIdentityDkimSigningAttributesCommand extends $Command<
@@ -87,6 +118,9 @@ export class PutEmailIdentityDkimSigningAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutEmailIdentityDkimSigningAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,7 +150,7 @@ export class PutEmailIdentityDkimSigningAttributesCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: PutEmailIdentityDkimSigningAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutEmailIdentityDkimSigningAttributesResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,18 +160,24 @@ export class PutEmailIdentityDkimSigningAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutEmailIdentityDkimSigningAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutEmailIdentityDkimSigningAttributesCommand(input, context);
+    return se_PutEmailIdentityDkimSigningAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutEmailIdentityDkimSigningAttributesCommandOutput> {
-    return deserializeAws_restJson1PutEmailIdentityDkimSigningAttributesCommand(output, context);
+    return de_PutEmailIdentityDkimSigningAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

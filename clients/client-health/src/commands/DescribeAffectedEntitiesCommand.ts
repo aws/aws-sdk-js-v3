@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient";
-import {
-  DescribeAffectedEntitiesRequest,
-  DescribeAffectedEntitiesRequestFilterSensitiveLog,
-  DescribeAffectedEntitiesResponse,
-  DescribeAffectedEntitiesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeAffectedEntitiesCommand,
-  serializeAws_json1_1DescribeAffectedEntitiesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeAffectedEntitiesRequest, DescribeAffectedEntitiesResponse } from "../models/models_0";
+import { de_DescribeAffectedEntitiesCommand, se_DescribeAffectedEntitiesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeAffectedEntitiesCommand}.
+ */
 export interface DescribeAffectedEntitiesCommandInput extends DescribeAffectedEntitiesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeAffectedEntitiesCommand}.
+ */
 export interface DescribeAffectedEntitiesCommandOutput extends DescribeAffectedEntitiesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of entities that have been affected by the specified events, based on the
  *          specified filter criteria. Entities can refer to individual customer resources, groups of
  *          customer resources, or any other construct, depending on the Amazon Web Services service. Events that
@@ -53,13 +56,52 @@ export interface DescribeAffectedEntitiesCommandOutput extends DescribeAffectedE
  * import { HealthClient, DescribeAffectedEntitiesCommand } from "@aws-sdk/client-health"; // ES Modules import
  * // const { HealthClient, DescribeAffectedEntitiesCommand } = require("@aws-sdk/client-health"); // CommonJS import
  * const client = new HealthClient(config);
+ * const input = { // DescribeAffectedEntitiesRequest
+ *   filter: { // EntityFilter
+ *     eventArns: [ // eventArnList // required
+ *       "STRING_VALUE",
+ *     ],
+ *     entityArns: [ // entityArnList
+ *       "STRING_VALUE",
+ *     ],
+ *     entityValues: [ // entityValueList
+ *       "STRING_VALUE",
+ *     ],
+ *     lastUpdatedTimes: [ // dateTimeRangeList
+ *       { // DateTimeRange
+ *         from: new Date("TIMESTAMP"),
+ *         to: new Date("TIMESTAMP"),
+ *       },
+ *     ],
+ *     tags: [ // tagFilter
+ *       { // tagSet
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     ],
+ *     statusCodes: [ // entityStatusCodeList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   locale: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new DescribeAffectedEntitiesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAffectedEntitiesCommandInput - {@link DescribeAffectedEntitiesCommandInput}
+ * @returns {@link DescribeAffectedEntitiesCommandOutput}
  * @see {@link DescribeAffectedEntitiesCommandInput} for command's `input` shape.
  * @see {@link DescribeAffectedEntitiesCommandOutput} for command's `response` shape.
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
+ *
+ * @throws {@link InvalidPaginationToken} (client fault)
+ *  <p>The specified pagination token (<code>nextToken</code>) is not valid.</p>
+ *
+ * @throws {@link UnsupportedLocale} (client fault)
+ *  <p>The specified locale is not supported.</p>
+ *
  *
  */
 export class DescribeAffectedEntitiesCommand extends $Command<
@@ -79,6 +121,9 @@ export class DescribeAffectedEntitiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAffectedEntitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +152,8 @@ export class DescribeAffectedEntitiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAffectedEntitiesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAffectedEntitiesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +163,18 @@ export class DescribeAffectedEntitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAffectedEntitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAffectedEntitiesCommand(input, context);
+    return se_DescribeAffectedEntitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAffectedEntitiesCommandOutput> {
-    return deserializeAws_json1_1DescribeAffectedEntitiesCommand(output, context);
+    return de_DescribeAffectedEntitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

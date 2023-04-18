@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeLoadBasedAutoScalingRequest,
-  DescribeLoadBasedAutoScalingRequestFilterSensitiveLog,
-  DescribeLoadBasedAutoScalingResult,
-  DescribeLoadBasedAutoScalingResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeLoadBasedAutoScalingRequest, DescribeLoadBasedAutoScalingResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import {
-  deserializeAws_json1_1DescribeLoadBasedAutoScalingCommand,
-  serializeAws_json1_1DescribeLoadBasedAutoScalingCommand,
+  de_DescribeLoadBasedAutoScalingCommand,
+  se_DescribeLoadBasedAutoScalingCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeLoadBasedAutoScalingCommand}.
+ */
 export interface DescribeLoadBasedAutoScalingCommandInput extends DescribeLoadBasedAutoScalingRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeLoadBasedAutoScalingCommand}.
+ */
 export interface DescribeLoadBasedAutoScalingCommandOutput
   extends DescribeLoadBasedAutoScalingResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes load-based auto scaling configurations for specified layers.</p>
  *          <note>
  *             <p>You must specify at least one of the parameters.</p>
@@ -46,13 +52,27 @@ export interface DescribeLoadBasedAutoScalingCommandOutput
  * import { OpsWorksClient, DescribeLoadBasedAutoScalingCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DescribeLoadBasedAutoScalingCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // DescribeLoadBasedAutoScalingRequest
+ *   LayerIds: [ // Strings // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeLoadBasedAutoScalingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLoadBasedAutoScalingCommandInput - {@link DescribeLoadBasedAutoScalingCommandInput}
+ * @returns {@link DescribeLoadBasedAutoScalingCommandOutput}
  * @see {@link DescribeLoadBasedAutoScalingCommandInput} for command's `input` shape.
  * @see {@link DescribeLoadBasedAutoScalingCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Indicates that a resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that a request was not valid.</p>
+ *
  *
  */
 export class DescribeLoadBasedAutoScalingCommand extends $Command<
@@ -72,6 +92,9 @@ export class DescribeLoadBasedAutoScalingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLoadBasedAutoScalingCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +123,8 @@ export class DescribeLoadBasedAutoScalingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLoadBasedAutoScalingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLoadBasedAutoScalingResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,15 +134,21 @@ export class DescribeLoadBasedAutoScalingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLoadBasedAutoScalingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeLoadBasedAutoScalingCommand(input, context);
+    return se_DescribeLoadBasedAutoScalingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeLoadBasedAutoScalingCommandOutput> {
-    return deserializeAws_json1_1DescribeLoadBasedAutoScalingCommand(output, context);
+    return de_DescribeLoadBasedAutoScalingCommand(output, context);
   }
 
   // Start section: command_body_extra

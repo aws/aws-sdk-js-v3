@@ -15,22 +15,31 @@ import {
 
 import {
   DescribeValidDBInstanceModificationsMessage,
-  DescribeValidDBInstanceModificationsMessageFilterSensitiveLog,
   DescribeValidDBInstanceModificationsResult,
-  DescribeValidDBInstanceModificationsResultFilterSensitiveLog,
 } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import {
-  deserializeAws_queryDescribeValidDBInstanceModificationsCommand,
-  serializeAws_queryDescribeValidDBInstanceModificationsCommand,
+  de_DescribeValidDBInstanceModificationsCommand,
+  se_DescribeValidDBInstanceModificationsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeValidDBInstanceModificationsCommand}.
+ */
 export interface DescribeValidDBInstanceModificationsCommandInput extends DescribeValidDBInstanceModificationsMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeValidDBInstanceModificationsCommand}.
+ */
 export interface DescribeValidDBInstanceModificationsCommandOutput
   extends DescribeValidDBInstanceModificationsResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>You can call <a>DescribeValidDBInstanceModifications</a>
  *       to learn what modifications you can make to your DB instance. You can use this
  *       information when you call <a>ModifyDBInstance</a>.</p>
@@ -40,13 +49,26 @@ export interface DescribeValidDBInstanceModificationsCommandOutput
  * import { NeptuneClient, DescribeValidDBInstanceModificationsCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DescribeValidDBInstanceModificationsCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = { // DescribeValidDBInstanceModificationsMessage
+ *   DBInstanceIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new DescribeValidDBInstanceModificationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeValidDBInstanceModificationsCommandInput - {@link DescribeValidDBInstanceModificationsCommandInput}
+ * @returns {@link DescribeValidDBInstanceModificationsCommandOutput}
  * @see {@link DescribeValidDBInstanceModificationsCommandInput} for command's `input` shape.
  * @see {@link DescribeValidDBInstanceModificationsCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
+ *
+ * @throws {@link DBInstanceNotFoundFault} (client fault)
+ *  <p>
+ *             <i>DBInstanceIdentifier</i> does not refer to an existing DB instance.</p>
+ *
+ * @throws {@link InvalidDBInstanceStateFault} (client fault)
+ *  <p>The specified DB instance is not in the <i>available</i> state.</p>
+ *
  *
  */
 export class DescribeValidDBInstanceModificationsCommand extends $Command<
@@ -66,6 +88,9 @@ export class DescribeValidDBInstanceModificationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeValidDBInstanceModificationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +119,8 @@ export class DescribeValidDBInstanceModificationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeValidDBInstanceModificationsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeValidDBInstanceModificationsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,18 +130,24 @@ export class DescribeValidDBInstanceModificationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeValidDBInstanceModificationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeValidDBInstanceModificationsCommand(input, context);
+    return se_DescribeValidDBInstanceModificationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeValidDBInstanceModificationsCommandOutput> {
-    return deserializeAws_queryDescribeValidDBInstanceModificationsCommand(output, context);
+    return de_DescribeValidDBInstanceModificationsCommand(output, context);
   }
 
   // Start section: command_body_extra

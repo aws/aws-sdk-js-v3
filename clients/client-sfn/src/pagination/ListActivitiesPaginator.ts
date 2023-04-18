@@ -6,12 +6,11 @@ import {
   ListActivitiesCommandInput,
   ListActivitiesCommandOutput,
 } from "../commands/ListActivitiesCommand";
-import { SFN } from "../SFN";
 import { SFNClient } from "../SFNClient";
 import { SFNPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SFNClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListActivitiesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: SFN,
-  input: ListActivitiesCommandInput,
-  ...args: any
-): Promise<ListActivitiesCommandOutput> => {
-  // @ts-ignore
-  return await client.listActivities(input, ...args);
-};
 export async function* paginateListActivities(
   config: SFNPaginationConfiguration,
   input: ListActivitiesCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListActivities(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof SFN) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SFNClient) {
+    if (config.client instanceof SFNClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SFN | SFNClient");

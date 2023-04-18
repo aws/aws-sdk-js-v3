@@ -14,23 +14,26 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeTrafficMirrorTargetsRequest,
-  DescribeTrafficMirrorTargetsRequestFilterSensitiveLog,
-  DescribeTrafficMirrorTargetsResult,
-  DescribeTrafficMirrorTargetsResultFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeTrafficMirrorTargetsCommand,
-  serializeAws_ec2DescribeTrafficMirrorTargetsCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeTrafficMirrorTargetsRequest, DescribeTrafficMirrorTargetsResult } from "../models/models_4";
+import { de_DescribeTrafficMirrorTargetsCommand, se_DescribeTrafficMirrorTargetsCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeTrafficMirrorTargetsCommand}.
+ */
 export interface DescribeTrafficMirrorTargetsCommandInput extends DescribeTrafficMirrorTargetsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeTrafficMirrorTargetsCommand}.
+ */
 export interface DescribeTrafficMirrorTargetsCommandOutput
   extends DescribeTrafficMirrorTargetsResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Information about one or more Traffic Mirror targets.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +41,32 @@ export interface DescribeTrafficMirrorTargetsCommandOutput
  * import { EC2Client, DescribeTrafficMirrorTargetsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeTrafficMirrorTargetsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeTrafficMirrorTargetsRequest
+ *   TrafficMirrorTargetIds: [ // TrafficMirrorTargetIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   DryRun: true || false,
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeTrafficMirrorTargetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTrafficMirrorTargetsCommandInput - {@link DescribeTrafficMirrorTargetsCommandInput}
+ * @returns {@link DescribeTrafficMirrorTargetsCommandOutput}
  * @see {@link DescribeTrafficMirrorTargetsCommandInput} for command's `input` shape.
  * @see {@link DescribeTrafficMirrorTargetsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class DescribeTrafficMirrorTargetsCommand extends $Command<
@@ -64,6 +86,9 @@ export class DescribeTrafficMirrorTargetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTrafficMirrorTargetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +117,8 @@ export class DescribeTrafficMirrorTargetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTrafficMirrorTargetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTrafficMirrorTargetsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +128,21 @@ export class DescribeTrafficMirrorTargetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTrafficMirrorTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeTrafficMirrorTargetsCommand(input, context);
+    return se_DescribeTrafficMirrorTargetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTrafficMirrorTargetsCommandOutput> {
-    return deserializeAws_ec2DescribeTrafficMirrorTargetsCommand(output, context);
+    return de_DescribeTrafficMirrorTargetsCommand(output, context);
   }
 
   // Start section: command_body_extra

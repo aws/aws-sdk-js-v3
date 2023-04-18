@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteIdentityPolicyRequest,
-  DeleteIdentityPolicyRequestFilterSensitiveLog,
-  DeleteIdentityPolicyResponse,
-  DeleteIdentityPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteIdentityPolicyCommand,
-  serializeAws_queryDeleteIdentityPolicyCommand,
-} from "../protocols/Aws_query";
+import { DeleteIdentityPolicyRequest, DeleteIdentityPolicyResponse } from "../models/models_0";
+import { de_DeleteIdentityPolicyCommand, se_DeleteIdentityPolicyCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteIdentityPolicyCommand}.
+ */
 export interface DeleteIdentityPolicyCommandInput extends DeleteIdentityPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteIdentityPolicyCommand}.
+ */
 export interface DeleteIdentityPolicyCommandOutput extends DeleteIdentityPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified sending authorization policy for the given identity (an email
  *             address or a domain). This API returns successfully even if a policy with the specified
  *             name does not exist.</p>
@@ -47,13 +50,32 @@ export interface DeleteIdentityPolicyCommandOutput extends DeleteIdentityPolicyR
  * import { SESClient, DeleteIdentityPolicyCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, DeleteIdentityPolicyCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // DeleteIdentityPolicyRequest
+ *   Identity: "STRING_VALUE", // required
+ *   PolicyName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteIdentityPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteIdentityPolicyCommandInput - {@link DeleteIdentityPolicyCommandInput}
+ * @returns {@link DeleteIdentityPolicyCommandOutput}
  * @see {@link DeleteIdentityPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteIdentityPolicyCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
+ *
+ *
+ * @example DeleteIdentityPolicy
+ * ```javascript
+ * // The following example deletes a sending authorization policy for an identity:
+ * const input = {
+ *   "Identity": "user@example.com",
+ *   "PolicyName": "MyPolicy"
+ * };
+ * const command = new DeleteIdentityPolicyCommand(input);
+ * await client.send(command);
+ * // example id: deleteidentitypolicy-1469055282499
+ * ```
  *
  */
 export class DeleteIdentityPolicyCommand extends $Command<
@@ -73,6 +95,9 @@ export class DeleteIdentityPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteIdentityPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +126,8 @@ export class DeleteIdentityPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteIdentityPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteIdentityPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +137,18 @@ export class DeleteIdentityPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteIdentityPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteIdentityPolicyCommand(input, context);
+    return se_DeleteIdentityPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIdentityPolicyCommandOutput> {
-    return deserializeAws_queryDeleteIdentityPolicyCommand(output, context);
+    return de_DeleteIdentityPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

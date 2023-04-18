@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateTrialRequest,
-  UpdateTrialRequestFilterSensitiveLog,
-  UpdateTrialResponse,
-  UpdateTrialResponseFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_json1_1UpdateTrialCommand,
-  serializeAws_json1_1UpdateTrialCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateTrialRequest, UpdateTrialResponse } from "../models/models_4";
+import { de_UpdateTrialCommand, se_UpdateTrialCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateTrialCommand}.
+ */
 export interface UpdateTrialCommandInput extends UpdateTrialRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateTrialCommand}.
+ */
 export interface UpdateTrialCommandOutput extends UpdateTrialResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the display name of a trial.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,27 @@ export interface UpdateTrialCommandOutput extends UpdateTrialResponse, __Metadat
  * import { SageMakerClient, UpdateTrialCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateTrialCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // UpdateTrialRequest
+ *   TrialName: "STRING_VALUE", // required
+ *   DisplayName: "STRING_VALUE",
+ * };
  * const command = new UpdateTrialCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTrialCommandInput - {@link UpdateTrialCommandInput}
+ * @returns {@link UpdateTrialCommandOutput}
  * @see {@link UpdateTrialCommandInput} for command's `input` shape.
  * @see {@link UpdateTrialCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There was a conflict when you attempted to modify a SageMaker entity such as an
+ *       <code>Experiment</code> or <code>Artifact</code>.</p>
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class UpdateTrialCommand extends $Command<
@@ -62,6 +79,9 @@ export class UpdateTrialCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTrialCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +108,8 @@ export class UpdateTrialCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTrialRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTrialResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +119,18 @@ export class UpdateTrialCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTrialCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateTrialCommand(input, context);
+    return se_UpdateTrialCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTrialCommandOutput> {
-    return deserializeAws_json1_1UpdateTrialCommand(output, context);
+    return de_UpdateTrialCommand(output, context);
   }
 
   // Start section: command_body_extra

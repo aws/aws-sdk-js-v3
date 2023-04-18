@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  RemoveSourceServerActionRequest,
-  RemoveSourceServerActionRequestFilterSensitiveLog,
-  RemoveSourceServerActionResponse,
-  RemoveSourceServerActionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1RemoveSourceServerActionCommand,
-  serializeAws_restJson1RemoveSourceServerActionCommand,
-} from "../protocols/Aws_restJson1";
+import { RemoveSourceServerActionRequest, RemoveSourceServerActionResponse } from "../models/models_0";
+import { de_RemoveSourceServerActionCommand, se_RemoveSourceServerActionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link RemoveSourceServerActionCommand}.
+ */
 export interface RemoveSourceServerActionCommandInput extends RemoveSourceServerActionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RemoveSourceServerActionCommand}.
+ */
 export interface RemoveSourceServerActionCommandOutput extends RemoveSourceServerActionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Remove source server post migration custom action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,29 @@ export interface RemoveSourceServerActionCommandOutput extends RemoveSourceServe
  * import { MgnClient, RemoveSourceServerActionCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, RemoveSourceServerActionCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = { // RemoveSourceServerActionRequest
+ *   sourceServerID: "STRING_VALUE", // required
+ *   actionID: "STRING_VALUE", // required
+ * };
  * const command = new RemoveSourceServerActionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveSourceServerActionCommandInput - {@link RemoveSourceServerActionCommandInput}
+ * @returns {@link RemoveSourceServerActionCommandOutput}
  * @see {@link RemoveSourceServerActionCommandInput} for command's `input` shape.
  * @see {@link RemoveSourceServerActionCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource not found exception.</p>
+ *
+ * @throws {@link UninitializedAccountException} (client fault)
+ *  <p>Uninitialized account exception.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Validate exception.</p>
+ *
  *
  */
 export class RemoveSourceServerActionCommand extends $Command<
@@ -62,6 +81,9 @@ export class RemoveSourceServerActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveSourceServerActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +112,8 @@ export class RemoveSourceServerActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveSourceServerActionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RemoveSourceServerActionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +123,18 @@ export class RemoveSourceServerActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveSourceServerActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RemoveSourceServerActionCommand(input, context);
+    return se_RemoveSourceServerActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveSourceServerActionCommandOutput> {
-    return deserializeAws_restJson1RemoveSourceServerActionCommand(output, context);
+    return de_RemoveSourceServerActionCommand(output, context);
   }
 
   // Start section: command_body_extra

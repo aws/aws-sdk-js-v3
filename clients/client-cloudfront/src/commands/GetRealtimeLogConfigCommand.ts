@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  GetRealtimeLogConfigRequest,
-  GetRealtimeLogConfigRequestFilterSensitiveLog,
-  GetRealtimeLogConfigResult,
-  GetRealtimeLogConfigResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlGetRealtimeLogConfigCommand,
-  serializeAws_restXmlGetRealtimeLogConfigCommand,
-} from "../protocols/Aws_restXml";
+import { GetRealtimeLogConfigRequest, GetRealtimeLogConfigResult } from "../models/models_1";
+import { de_GetRealtimeLogConfigCommand, se_GetRealtimeLogConfigCommand } from "../protocols/Aws_restXml";
 
+/**
+ * @public
+ *
+ * The input for {@link GetRealtimeLogConfigCommand}.
+ */
 export interface GetRealtimeLogConfigCommandInput extends GetRealtimeLogConfigRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetRealtimeLogConfigCommand}.
+ */
 export interface GetRealtimeLogConfigCommandOutput extends GetRealtimeLogConfigResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a real-time log configuration.</p>
  *          <p>To get a real-time log configuration, you can provide the configuration's name or its
  * 			Amazon Resource Name (ARN). You must provide at least one. If you provide both, CloudFront
@@ -39,13 +42,29 @@ export interface GetRealtimeLogConfigCommandOutput extends GetRealtimeLogConfigR
  * import { CloudFrontClient, GetRealtimeLogConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, GetRealtimeLogConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // GetRealtimeLogConfigRequest
+ *   Name: "STRING_VALUE",
+ *   ARN: "STRING_VALUE",
+ * };
  * const command = new GetRealtimeLogConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRealtimeLogConfigCommandInput - {@link GetRealtimeLogConfigCommandInput}
+ * @returns {@link GetRealtimeLogConfigCommandOutput}
  * @see {@link GetRealtimeLogConfigCommandInput} for command's `input` shape.
  * @see {@link GetRealtimeLogConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link NoSuchRealtimeLogConfig} (client fault)
+ *  <p>The real-time log configuration does not exist.</p>
+ *
  *
  */
 export class GetRealtimeLogConfigCommand extends $Command<
@@ -65,6 +84,9 @@ export class GetRealtimeLogConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRealtimeLogConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +115,8 @@ export class GetRealtimeLogConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRealtimeLogConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRealtimeLogConfigResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +126,18 @@ export class GetRealtimeLogConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRealtimeLogConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetRealtimeLogConfigCommand(input, context);
+    return se_GetRealtimeLogConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRealtimeLogConfigCommandOutput> {
-    return deserializeAws_restXmlGetRealtimeLogConfigCommand(output, context);
+    return de_GetRealtimeLogConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

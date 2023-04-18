@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import {
-  DescribeForecastExportJobRequest,
-  DescribeForecastExportJobRequestFilterSensitiveLog,
-  DescribeForecastExportJobResponse,
-  DescribeForecastExportJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeForecastExportJobCommand,
-  serializeAws_json1_1DescribeForecastExportJobCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeForecastExportJobRequest, DescribeForecastExportJobResponse } from "../models/models_0";
+import { de_DescribeForecastExportJobCommand, se_DescribeForecastExportJobCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeForecastExportJobCommand}.
+ */
 export interface DescribeForecastExportJobCommandInput extends DescribeForecastExportJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeForecastExportJobCommand}.
+ */
 export interface DescribeForecastExportJobCommandOutput extends DescribeForecastExportJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a forecast export job created using the <a>CreateForecastExportJob</a> operation.</p>
  *          <p>In addition to listing the properties provided by the user in the
  *         <code>CreateForecastExportJob</code> request, this operation lists the following
@@ -60,13 +63,27 @@ export interface DescribeForecastExportJobCommandOutput extends DescribeForecast
  * import { ForecastClient, DescribeForecastExportJobCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, DescribeForecastExportJobCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = { // DescribeForecastExportJobRequest
+ *   ForecastExportJobArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeForecastExportJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeForecastExportJobCommandInput - {@link DescribeForecastExportJobCommandInput}
+ * @returns {@link DescribeForecastExportJobCommandOutput}
  * @see {@link DescribeForecastExportJobCommandInput} for command's `input` shape.
  * @see {@link DescribeForecastExportJobCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>We can't process the request because it includes an invalid value or a value that exceeds
+ *       the valid range.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
+ *       again.</p>
+ *
  *
  */
 export class DescribeForecastExportJobCommand extends $Command<
@@ -86,6 +103,9 @@ export class DescribeForecastExportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeForecastExportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +134,8 @@ export class DescribeForecastExportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeForecastExportJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeForecastExportJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,15 +145,21 @@ export class DescribeForecastExportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeForecastExportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeForecastExportJobCommand(input, context);
+    return se_DescribeForecastExportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeForecastExportJobCommandOutput> {
-    return deserializeAws_json1_1DescribeForecastExportJobCommand(output, context);
+    return de_DescribeForecastExportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

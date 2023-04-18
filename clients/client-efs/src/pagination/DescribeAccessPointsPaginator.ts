@@ -6,12 +6,11 @@ import {
   DescribeAccessPointsCommandInput,
   DescribeAccessPointsCommandOutput,
 } from "../commands/DescribeAccessPointsCommand";
-import { EFS } from "../EFS";
 import { EFSClient } from "../EFSClient";
 import { EFSPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: EFSClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeAccessPointsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: EFS,
-  input: DescribeAccessPointsCommandInput,
-  ...args: any
-): Promise<DescribeAccessPointsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeAccessPoints(input, ...args);
-};
 export async function* paginateDescribeAccessPoints(
   config: EFSPaginationConfiguration,
   input: DescribeAccessPointsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateDescribeAccessPoints(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof EFS) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof EFSClient) {
+    if (config.client instanceof EFSClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected EFS | EFSClient");

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeJournalS3ExportRequest,
-  DescribeJournalS3ExportRequestFilterSensitiveLog,
-  DescribeJournalS3ExportResponse,
-  DescribeJournalS3ExportResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeJournalS3ExportCommand,
-  serializeAws_restJson1DescribeJournalS3ExportCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeJournalS3ExportRequest, DescribeJournalS3ExportResponse } from "../models/models_0";
+import { de_DescribeJournalS3ExportCommand, se_DescribeJournalS3ExportCommand } from "../protocols/Aws_restJson1";
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeJournalS3ExportCommand}.
+ */
 export interface DescribeJournalS3ExportCommandInput extends DescribeJournalS3ExportRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeJournalS3ExportCommand}.
+ */
 export interface DescribeJournalS3ExportCommandOutput extends DescribeJournalS3ExportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a journal export job, including the ledger name, export ID,
  *          creation time, current status, and the parameters of the original export creation
  *          request.</p>
@@ -44,13 +47,23 @@ export interface DescribeJournalS3ExportCommandOutput extends DescribeJournalS3E
  * import { QLDBClient, DescribeJournalS3ExportCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, DescribeJournalS3ExportCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
  * const client = new QLDBClient(config);
+ * const input = { // DescribeJournalS3ExportRequest
+ *   Name: "STRING_VALUE", // required
+ *   ExportId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeJournalS3ExportCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeJournalS3ExportCommandInput - {@link DescribeJournalS3ExportCommandInput}
+ * @returns {@link DescribeJournalS3ExportCommandOutput}
  * @see {@link DescribeJournalS3ExportCommandInput} for command's `input` shape.
  * @see {@link DescribeJournalS3ExportCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource doesn't exist.</p>
+ *
  *
  */
 export class DescribeJournalS3ExportCommand extends $Command<
@@ -70,6 +83,9 @@ export class DescribeJournalS3ExportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeJournalS3ExportCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +114,8 @@ export class DescribeJournalS3ExportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeJournalS3ExportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeJournalS3ExportResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +125,18 @@ export class DescribeJournalS3ExportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeJournalS3ExportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeJournalS3ExportCommand(input, context);
+    return se_DescribeJournalS3ExportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeJournalS3ExportCommandOutput> {
-    return deserializeAws_restJson1DescribeJournalS3ExportCommand(output, context);
+    return de_DescribeJournalS3ExportCommand(output, context);
   }
 
   // Start section: command_body_extra

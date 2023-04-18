@@ -121,10 +121,12 @@ import { UpdateStageCommand, UpdateStageCommandInput, UpdateStageCommandOutput }
 import { GameSparksClient } from "./GameSparksClient";
 
 /**
+ * @public
  * <p/>
  */
 export class GameSparks extends GameSparksClient {
   /**
+   * @public
    * <p>
    *       Creates a new game with an empty configuration.
    *       After creating your game, you can update the configuration using <code>UpdateGameConfiguration</code> or <code>ImportGameConfiguration</code>.
@@ -154,6 +156,7 @@ export class GameSparks extends GameSparksClient {
   }
 
   /**
+   * @public
    * <p>Creates a snapshot of the game configuration.</p>
    */
   public createSnapshot(
@@ -186,6 +189,7 @@ export class GameSparks extends GameSparksClient {
   }
 
   /**
+   * @public
    * <p>Creates a new stage for stage-by-stage game development and deployment.</p>
    */
   public createStage(args: CreateStageCommandInput, options?: __HttpHandlerOptions): Promise<CreateStageCommandOutput>;
@@ -212,6 +216,7 @@ export class GameSparks extends GameSparksClient {
   }
 
   /**
+   * @public
    * <p>Deletes a game.</p>
    */
   public deleteGame(args: DeleteGameCommandInput, options?: __HttpHandlerOptions): Promise<DeleteGameCommandOutput>;
@@ -238,6 +243,7 @@ export class GameSparks extends GameSparksClient {
   }
 
   /**
+   * @public
    * <p>Deletes a stage from a game, along with the associated game runtime.</p>
    */
   public deleteStage(args: DeleteStageCommandInput, options?: __HttpHandlerOptions): Promise<DeleteStageCommandOutput>;
@@ -264,6 +270,7 @@ export class GameSparks extends GameSparksClient {
   }
 
   /**
+   * @public
    * <p>Disconnects a player from the game runtime.</p>
    *          <p>
    *       If a player has multiple connections, this operation attempts to close all of them.
@@ -299,6 +306,7 @@ export class GameSparks extends GameSparksClient {
   }
 
   /**
+   * @public
    * <p>Exports a game configuration snapshot.</p>
    */
   public exportSnapshot(
@@ -331,6 +339,7 @@ export class GameSparks extends GameSparksClient {
   }
 
   /**
+   * @public
    * <p>Gets details about a specified extension.</p>
    */
   public getExtension(
@@ -360,6 +369,7 @@ export class GameSparks extends GameSparksClient {
   }
 
   /**
+   * @public
    * <p>Gets details about a specified extension version.</p>
    */
   public getExtensionVersion(
@@ -392,6 +402,7 @@ export class GameSparks extends GameSparksClient {
   }
 
   /**
+   * @public
    * <p>Gets details about a game.</p>
    */
   public getGame(args: GetGameCommandInput, options?: __HttpHandlerOptions): Promise<GetGameCommandOutput>;
@@ -418,6 +429,7 @@ export class GameSparks extends GameSparksClient {
   }
 
   /**
+   * @public
    * <p>Gets the configuration of the game.</p>
    */
   public getGameConfiguration(
@@ -450,6 +462,7 @@ export class GameSparks extends GameSparksClient {
   }
 
   /**
+   * @public
    * <p>Gets details about a job that is generating code for a snapshot.</p>
    */
   public getGeneratedCodeJob(
@@ -482,6 +495,7 @@ export class GameSparks extends GameSparksClient {
   }
 
   /**
+   * @public
    * <p>Gets the status of a player's connection to the game runtime.</p>
    *          <p>
    *       It's possible for a single player to have multiple connections to the game runtime.
@@ -518,6 +532,7 @@ export class GameSparks extends GameSparksClient {
   }
 
   /**
+   * @public
    * <p>Gets a copy of the game configuration in a snapshot.</p>
    */
   public getSnapshot(args: GetSnapshotCommandInput, options?: __HttpHandlerOptions): Promise<GetSnapshotCommandOutput>;
@@ -544,6 +559,7 @@ export class GameSparks extends GameSparksClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a stage.</p>
    */
   public getStage(args: GetStageCommandInput, options?: __HttpHandlerOptions): Promise<GetStageCommandOutput>;
@@ -570,6 +586,7 @@ export class GameSparks extends GameSparksClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a stage deployment.</p>
    */
   public getStageDeployment(
@@ -602,6 +619,7 @@ export class GameSparks extends GameSparksClient {
   }
 
   /**
+   * @public
    * <p>Imports a game configuration.</p>
    *          <p>
    *       This operation replaces the current configuration of the game with the provided input.
@@ -639,6 +657,7 @@ export class GameSparks extends GameSparksClient {
   }
 
   /**
+   * @public
    * <p>Gets a paginated list of available extensions.</p>
    *          <p>
    *       Extensions provide features that games can use from scripts.
@@ -674,6 +693,7 @@ export class GameSparks extends GameSparksClient {
   }
 
   /**
+   * @public
    * <p>Gets a paginated list of available versions for the extension.</p>
    *          <p>
    *       Each time an API change is made to an extension, the version is incremented.
@@ -710,6 +730,7 @@ export class GameSparks extends GameSparksClient {
   }
 
   /**
+   * @public
    * <p>Gets a paginated list of games.</p>
    */
   public listGames(args: ListGamesCommandInput, options?: __HttpHandlerOptions): Promise<ListGamesCommandOutput>;
@@ -736,6 +757,7 @@ export class GameSparks extends GameSparksClient {
   }
 
   /**
+   * @public
    * <p>Gets a paginated list of code generation jobs for a snapshot.</p>
    */
   public listGeneratedCodeJobs(
@@ -768,6 +790,7 @@ export class GameSparks extends GameSparksClient {
   }
 
   /**
+   * @public
    * <p>Gets a paginated list of snapshot summaries from the game.</p>
    */
   public listSnapshots(
@@ -800,6 +823,7 @@ export class GameSparks extends GameSparksClient {
   }
 
   /**
+   * @public
    * <p>Gets a paginated list of stage deployment summaries from the game.</p>
    */
   public listStageDeployments(
@@ -832,6 +856,7 @@ export class GameSparks extends GameSparksClient {
   }
 
   /**
+   * @public
    * <p>Gets a paginated list of stage summaries from the game.</p>
    */
   public listStages(args: ListStagesCommandInput, options?: __HttpHandlerOptions): Promise<ListStagesCommandOutput>;
@@ -858,6 +883,7 @@ export class GameSparks extends GameSparksClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags associated with a GameSparks resource.</p>
    */
   public listTagsForResource(
@@ -890,6 +916,7 @@ export class GameSparks extends GameSparksClient {
   }
 
   /**
+   * @public
    * <p>
    *       Starts an asynchronous process that generates client code for system-defined and custom messages.
    *       The resulting code is collected as a .zip file and uploaded to a pre-signed Amazon S3 URL.
@@ -925,6 +952,7 @@ export class GameSparks extends GameSparksClient {
   }
 
   /**
+   * @public
    * <p>Deploys a snapshot to the stage and creates a new game runtime.</p>
    *          <p>
    *       After you call this operation, you can check the deployment status by using <code>GetStageDeployment</code>.
@@ -966,6 +994,7 @@ export class GameSparks extends GameSparksClient {
   }
 
   /**
+   * @public
    * <p>Adds tags to a GameSparks resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -992,6 +1021,7 @@ export class GameSparks extends GameSparksClient {
   }
 
   /**
+   * @public
    * <p>Removes tags from a GameSparks resource.</p>
    */
   public untagResource(
@@ -1024,6 +1054,7 @@ export class GameSparks extends GameSparksClient {
   }
 
   /**
+   * @public
    * <p>Updates details of the game.</p>
    */
   public updateGame(args: UpdateGameCommandInput, options?: __HttpHandlerOptions): Promise<UpdateGameCommandOutput>;
@@ -1050,6 +1081,7 @@ export class GameSparks extends GameSparksClient {
   }
 
   /**
+   * @public
    * <p>Updates one or more sections of the game configuration.</p>
    */
   public updateGameConfiguration(
@@ -1082,6 +1114,7 @@ export class GameSparks extends GameSparksClient {
   }
 
   /**
+   * @public
    * <p>Updates the metadata of a GameSparks snapshot.</p>
    */
   public updateSnapshot(
@@ -1114,6 +1147,7 @@ export class GameSparks extends GameSparksClient {
   }
 
   /**
+   * @public
    * <p>Updates the metadata of a stage.</p>
    */
   public updateStage(args: UpdateStageCommandInput, options?: __HttpHandlerOptions): Promise<UpdateStageCommandOutput>;

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  ListInputsRequest,
-  ListInputsRequestFilterSensitiveLog,
-  ListInputsResponse,
-  ListInputsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListInputsCommand,
-  serializeAws_restJson1ListInputsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListInputsRequest, ListInputsResponse } from "../models/models_1";
+import { de_ListInputsCommand, se_ListInputsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListInputsCommand}.
+ */
 export interface ListInputsCommandInput extends ListInputsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListInputsCommand}.
+ */
 export interface ListInputsCommandOutput extends ListInputsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Produces list of inputs that have been created
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,38 @@ export interface ListInputsCommandOutput extends ListInputsResponse, __MetadataB
  * import { MediaLiveClient, ListInputsCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, ListInputsCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = { // ListInputsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListInputsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInputsCommandInput - {@link ListInputsCommandInput}
+ * @returns {@link ListInputsCommandOutput}
  * @see {@link ListInputsCommandInput} for command's `input` shape.
  * @see {@link ListInputsCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
+ *
+ * @throws {@link BadGatewayException} (server fault)
+ *  Placeholder documentation for BadGatewayException
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  Placeholder documentation for BadRequestException
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  Placeholder documentation for ForbiddenException
+ *
+ * @throws {@link GatewayTimeoutException} (server fault)
+ *  Placeholder documentation for GatewayTimeoutException
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  Placeholder documentation for InternalServerErrorException
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  Placeholder documentation for TooManyRequestsException
+ *
  *
  */
 export class ListInputsCommand extends $Command<
@@ -62,6 +90,9 @@ export class ListInputsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInputsCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +119,8 @@ export class ListInputsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListInputsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListInputsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +130,18 @@ export class ListInputsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListInputsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListInputsCommand(input, context);
+    return se_ListInputsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInputsCommandOutput> {
-    return deserializeAws_restJson1ListInputsCommand(output, context);
+    return de_ListInputsCommand(output, context);
   }
 
   // Start section: command_body_extra

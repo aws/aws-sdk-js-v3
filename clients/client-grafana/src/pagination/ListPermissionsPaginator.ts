@@ -6,12 +6,11 @@ import {
   ListPermissionsCommandInput,
   ListPermissionsCommandOutput,
 } from "../commands/ListPermissionsCommand";
-import { Grafana } from "../Grafana";
 import { GrafanaClient } from "../GrafanaClient";
 import { GrafanaPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: GrafanaClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListPermissionsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Grafana,
-  input: ListPermissionsCommandInput,
-  ...args: any
-): Promise<ListPermissionsCommandOutput> => {
-  // @ts-ignore
-  return await client.listPermissions(input, ...args);
-};
 export async function* paginateListPermissions(
   config: GrafanaPaginationConfiguration,
   input: ListPermissionsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListPermissions(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Grafana) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof GrafanaClient) {
+    if (config.client instanceof GrafanaClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Grafana | GrafanaClient");

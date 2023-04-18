@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import {
-  CreateClassificationJobRequest,
-  CreateClassificationJobRequestFilterSensitiveLog,
-  CreateClassificationJobResponse,
-  CreateClassificationJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateClassificationJobCommand,
-  serializeAws_restJson1CreateClassificationJobCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateClassificationJobRequest, CreateClassificationJobResponse } from "../models/models_0";
+import { de_CreateClassificationJobCommand, se_CreateClassificationJobCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateClassificationJobCommand}.
+ */
 export interface CreateClassificationJobCommandInput extends CreateClassificationJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateClassificationJobCommand}.
+ */
 export interface CreateClassificationJobCommandOutput extends CreateClassificationJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates and defines the settings for a classification job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,167 @@ export interface CreateClassificationJobCommandOutput extends CreateClassificati
  * import { Macie2Client, CreateClassificationJobCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, CreateClassificationJobCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = { // CreateClassificationJobRequest
+ *   allowListIds: [ // __listOf__string
+ *     "STRING_VALUE",
+ *   ],
+ *   clientToken: "STRING_VALUE", // required
+ *   customDataIdentifierIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   description: "STRING_VALUE",
+ *   initialRun: true || false,
+ *   jobType: "ONE_TIME" || "SCHEDULED", // required
+ *   managedDataIdentifierIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   managedDataIdentifierSelector: "ALL" || "EXCLUDE" || "INCLUDE" || "NONE",
+ *   name: "STRING_VALUE", // required
+ *   s3JobDefinition: { // S3JobDefinition
+ *     bucketCriteria: { // S3BucketCriteriaForJob
+ *       excludes: { // CriteriaBlockForJob
+ *         and: [ // __listOfCriteriaForJob
+ *           { // CriteriaForJob
+ *             simpleCriterion: { // SimpleCriterionForJob
+ *               comparator: "EQ" || "GT" || "GTE" || "LT" || "LTE" || "NE" || "CONTAINS" || "STARTS_WITH",
+ *               key: "ACCOUNT_ID" || "S3_BUCKET_NAME" || "S3_BUCKET_EFFECTIVE_PERMISSION" || "S3_BUCKET_SHARED_ACCESS",
+ *               values: [
+ *                 "STRING_VALUE",
+ *               ],
+ *             },
+ *             tagCriterion: { // TagCriterionForJob
+ *               comparator: "EQ" || "GT" || "GTE" || "LT" || "LTE" || "NE" || "CONTAINS" || "STARTS_WITH",
+ *               tagValues: [ // __listOfTagCriterionPairForJob
+ *                 { // TagCriterionPairForJob
+ *                   key: "STRING_VALUE",
+ *                   value: "STRING_VALUE",
+ *                 },
+ *               ],
+ *             },
+ *           },
+ *         ],
+ *       },
+ *       includes: {
+ *         and: [
+ *           {
+ *             simpleCriterion: {
+ *               comparator: "EQ" || "GT" || "GTE" || "LT" || "LTE" || "NE" || "CONTAINS" || "STARTS_WITH",
+ *               key: "ACCOUNT_ID" || "S3_BUCKET_NAME" || "S3_BUCKET_EFFECTIVE_PERMISSION" || "S3_BUCKET_SHARED_ACCESS",
+ *               values: [
+ *                 "STRING_VALUE",
+ *               ],
+ *             },
+ *             tagCriterion: {
+ *               comparator: "EQ" || "GT" || "GTE" || "LT" || "LTE" || "NE" || "CONTAINS" || "STARTS_WITH",
+ *               tagValues: [
+ *                 {
+ *                   key: "STRING_VALUE",
+ *                   value: "STRING_VALUE",
+ *                 },
+ *               ],
+ *             },
+ *           },
+ *         ],
+ *       },
+ *     },
+ *     bucketDefinitions: [ // __listOfS3BucketDefinitionForJob
+ *       { // S3BucketDefinitionForJob
+ *         accountId: "STRING_VALUE", // required
+ *         buckets: "<__listOf__string>", // required
+ *       },
+ *     ],
+ *     scoping: { // Scoping
+ *       excludes: { // JobScopingBlock
+ *         and: [ // __listOfJobScopeTerm
+ *           { // JobScopeTerm
+ *             simpleScopeTerm: { // SimpleScopeTerm
+ *               comparator: "EQ" || "GT" || "GTE" || "LT" || "LTE" || "NE" || "CONTAINS" || "STARTS_WITH",
+ *               key: "OBJECT_EXTENSION" || "OBJECT_LAST_MODIFIED_DATE" || "OBJECT_SIZE" || "OBJECT_KEY",
+ *               values: "<__listOf__string>",
+ *             },
+ *             tagScopeTerm: { // TagScopeTerm
+ *               comparator: "EQ" || "GT" || "GTE" || "LT" || "LTE" || "NE" || "CONTAINS" || "STARTS_WITH",
+ *               key: "STRING_VALUE",
+ *               tagValues: [ // __listOfTagValuePair
+ *                 { // TagValuePair
+ *                   key: "STRING_VALUE",
+ *                   value: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               target: "S3_OBJECT",
+ *             },
+ *           },
+ *         ],
+ *       },
+ *       includes: {
+ *         and: [
+ *           {
+ *             simpleScopeTerm: {
+ *               comparator: "EQ" || "GT" || "GTE" || "LT" || "LTE" || "NE" || "CONTAINS" || "STARTS_WITH",
+ *               key: "OBJECT_EXTENSION" || "OBJECT_LAST_MODIFIED_DATE" || "OBJECT_SIZE" || "OBJECT_KEY",
+ *               values: "<__listOf__string>",
+ *             },
+ *             tagScopeTerm: {
+ *               comparator: "EQ" || "GT" || "GTE" || "LT" || "LTE" || "NE" || "CONTAINS" || "STARTS_WITH",
+ *               key: "STRING_VALUE",
+ *               tagValues: [
+ *                 {
+ *                   key: "STRING_VALUE",
+ *                   value: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               target: "S3_OBJECT",
+ *             },
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   },
+ *   samplingPercentage: Number("int"),
+ *   scheduleFrequency: { // JobScheduleFrequency
+ *     dailySchedule: {},
+ *     monthlySchedule: { // MonthlySchedule
+ *       dayOfMonth: Number("int"),
+ *     },
+ *     weeklySchedule: { // WeeklySchedule
+ *       dayOfWeek: "SUNDAY" || "MONDAY" || "TUESDAY" || "WEDNESDAY" || "THURSDAY" || "FRIDAY" || "SATURDAY",
+ *     },
+ *   },
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateClassificationJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateClassificationJobCommandInput - {@link CreateClassificationJobCommandInput}
+ * @returns {@link CreateClassificationJobCommandOutput}
  * @see {@link CreateClassificationJobCommandInput} for command's `input` shape.
  * @see {@link CreateClassificationJobCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+ *
  *
  */
 export class CreateClassificationJobCommand extends $Command<
@@ -62,6 +219,9 @@ export class CreateClassificationJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateClassificationJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +250,8 @@ export class CreateClassificationJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateClassificationJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateClassificationJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +261,18 @@ export class CreateClassificationJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateClassificationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateClassificationJobCommand(input, context);
+    return se_CreateClassificationJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateClassificationJobCommandOutput> {
-    return deserializeAws_restJson1CreateClassificationJobCommand(output, context);
+    return de_CreateClassificationJobCommand(output, context);
   }
 
   // Start section: command_body_extra

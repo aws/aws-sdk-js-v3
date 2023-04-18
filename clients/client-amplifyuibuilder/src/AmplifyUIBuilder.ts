@@ -66,6 +66,7 @@ import { UpdateFormCommand, UpdateFormCommandInput, UpdateFormCommandOutput } fr
 import { UpdateThemeCommand, UpdateThemeCommandInput, UpdateThemeCommandOutput } from "./commands/UpdateThemeCommand";
 
 /**
+ * @public
  * <p>The Amplify UI Builder API provides a programmatic interface for creating
  *       and configuring user interface (UI) component libraries and themes for use in your Amplify applications. You can then connect these UI components to an application's
  *       backend Amazon Web Services resources.</p>
@@ -78,6 +79,7 @@ import { UpdateThemeCommand, UpdateThemeCommandInput, UpdateThemeCommandOutput }
  */
 export class AmplifyUIBuilder extends AmplifyUIBuilderClient {
   /**
+   * @public
    * <p>Creates a new component for an Amplify app.</p>
    */
   public createComponent(
@@ -110,6 +112,7 @@ export class AmplifyUIBuilder extends AmplifyUIBuilderClient {
   }
 
   /**
+   * @public
    * <p>Creates a new form for an Amplify app.</p>
    */
   public createForm(args: CreateFormCommandInput, options?: __HttpHandlerOptions): Promise<CreateFormCommandOutput>;
@@ -136,6 +139,7 @@ export class AmplifyUIBuilder extends AmplifyUIBuilderClient {
   }
 
   /**
+   * @public
    * <p>Creates a theme to apply to the components in an Amplify app.</p>
    */
   public createTheme(args: CreateThemeCommandInput, options?: __HttpHandlerOptions): Promise<CreateThemeCommandOutput>;
@@ -162,6 +166,7 @@ export class AmplifyUIBuilder extends AmplifyUIBuilderClient {
   }
 
   /**
+   * @public
    * <p>Deletes a component from an Amplify app.</p>
    */
   public deleteComponent(
@@ -194,6 +199,7 @@ export class AmplifyUIBuilder extends AmplifyUIBuilderClient {
   }
 
   /**
+   * @public
    * <p>Deletes a form from an Amplify app.</p>
    */
   public deleteForm(args: DeleteFormCommandInput, options?: __HttpHandlerOptions): Promise<DeleteFormCommandOutput>;
@@ -220,6 +226,7 @@ export class AmplifyUIBuilder extends AmplifyUIBuilderClient {
   }
 
   /**
+   * @public
    * <p>Deletes a theme from an Amplify app.</p>
    */
   public deleteTheme(args: DeleteThemeCommandInput, options?: __HttpHandlerOptions): Promise<DeleteThemeCommandOutput>;
@@ -246,6 +253,7 @@ export class AmplifyUIBuilder extends AmplifyUIBuilderClient {
   }
 
   /**
+   * @public
    * <p>Exchanges an access code for a token.</p>
    */
   public exchangeCodeForToken(
@@ -278,6 +286,7 @@ export class AmplifyUIBuilder extends AmplifyUIBuilderClient {
   }
 
   /**
+   * @public
    * <p>Exports component configurations to code that is ready to integrate into an Amplify app.</p>
    */
   public exportComponents(
@@ -310,6 +319,7 @@ export class AmplifyUIBuilder extends AmplifyUIBuilderClient {
   }
 
   /**
+   * @public
    * <p>Exports form configurations to code that is ready to integrate into an Amplify app.</p>
    */
   public exportForms(args: ExportFormsCommandInput, options?: __HttpHandlerOptions): Promise<ExportFormsCommandOutput>;
@@ -336,6 +346,7 @@ export class AmplifyUIBuilder extends AmplifyUIBuilderClient {
   }
 
   /**
+   * @public
    * <p>Exports theme configurations to code that is ready to integrate into an Amplify app.</p>
    */
   public exportThemes(
@@ -365,6 +376,7 @@ export class AmplifyUIBuilder extends AmplifyUIBuilderClient {
   }
 
   /**
+   * @public
    * <p>Returns an existing component for an Amplify app.</p>
    */
   public getComponent(
@@ -394,6 +406,7 @@ export class AmplifyUIBuilder extends AmplifyUIBuilderClient {
   }
 
   /**
+   * @public
    * <p>Returns an existing form for an Amplify app.</p>
    */
   public getForm(args: GetFormCommandInput, options?: __HttpHandlerOptions): Promise<GetFormCommandOutput>;
@@ -420,6 +433,7 @@ export class AmplifyUIBuilder extends AmplifyUIBuilderClient {
   }
 
   /**
+   * @public
    * <p>Returns existing metadata for an Amplify app.</p>
    */
   public getMetadata(args: GetMetadataCommandInput, options?: __HttpHandlerOptions): Promise<GetMetadataCommandOutput>;
@@ -446,6 +460,7 @@ export class AmplifyUIBuilder extends AmplifyUIBuilderClient {
   }
 
   /**
+   * @public
    * <p>Returns an existing theme for an Amplify app.</p>
    */
   public getTheme(args: GetThemeCommandInput, options?: __HttpHandlerOptions): Promise<GetThemeCommandOutput>;
@@ -472,6 +487,7 @@ export class AmplifyUIBuilder extends AmplifyUIBuilderClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of components for a specified Amplify app and backend
    *       environment.</p>
    */
@@ -505,6 +521,7 @@ export class AmplifyUIBuilder extends AmplifyUIBuilderClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of forms for a specified Amplify app and backend environment.</p>
    */
   public listForms(args: ListFormsCommandInput, options?: __HttpHandlerOptions): Promise<ListFormsCommandOutput>;
@@ -531,6 +548,7 @@ export class AmplifyUIBuilder extends AmplifyUIBuilderClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of themes for a specified Amplify app and backend
    *       environment.</p>
    */
@@ -558,7 +576,8 @@ export class AmplifyUIBuilder extends AmplifyUIBuilderClient {
   }
 
   /**
-   * <p>Stores the metadata information about a feature on a form or view.</p>
+   * @public
+   * <p>Stores the metadata information about a feature on a form.</p>
    */
   public putMetadataFlag(
     args: PutMetadataFlagCommandInput,
@@ -590,6 +609,7 @@ export class AmplifyUIBuilder extends AmplifyUIBuilderClient {
   }
 
   /**
+   * @public
    * <p>Refreshes a previously issued access token that might have expired.</p>
    */
   public refreshToken(
@@ -619,6 +639,7 @@ export class AmplifyUIBuilder extends AmplifyUIBuilderClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing component.</p>
    */
   public updateComponent(
@@ -651,6 +672,7 @@ export class AmplifyUIBuilder extends AmplifyUIBuilderClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing form.</p>
    */
   public updateForm(args: UpdateFormCommandInput, options?: __HttpHandlerOptions): Promise<UpdateFormCommandOutput>;
@@ -677,6 +699,7 @@ export class AmplifyUIBuilder extends AmplifyUIBuilderClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing theme.</p>
    */
   public updateTheme(args: UpdateThemeCommandInput, options?: __HttpHandlerOptions): Promise<UpdateThemeCommandOutput>;

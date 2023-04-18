@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateSiteRackPhysicalPropertiesInput,
-  UpdateSiteRackPhysicalPropertiesInputFilterSensitiveLog,
-  UpdateSiteRackPhysicalPropertiesOutput,
-  UpdateSiteRackPhysicalPropertiesOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateSiteRackPhysicalPropertiesInput, UpdateSiteRackPhysicalPropertiesOutput } from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
 import {
-  deserializeAws_restJson1UpdateSiteRackPhysicalPropertiesCommand,
-  serializeAws_restJson1UpdateSiteRackPhysicalPropertiesCommand,
+  de_UpdateSiteRackPhysicalPropertiesCommand,
+  se_UpdateSiteRackPhysicalPropertiesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateSiteRackPhysicalPropertiesCommand}.
+ */
 export interface UpdateSiteRackPhysicalPropertiesCommandInput extends UpdateSiteRackPhysicalPropertiesInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateSiteRackPhysicalPropertiesCommand}.
+ */
 export interface UpdateSiteRackPhysicalPropertiesCommandOutput
   extends UpdateSiteRackPhysicalPropertiesOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update the physical and logistical details for a rack at a site. For more information
  *       about hardware requirements for racks, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#checklist">Network
  *         readiness checklist</a> in the Amazon Web Services Outposts User Guide.
@@ -43,13 +49,43 @@ export interface UpdateSiteRackPhysicalPropertiesCommandOutput
  * import { OutpostsClient, UpdateSiteRackPhysicalPropertiesCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, UpdateSiteRackPhysicalPropertiesCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
+ * const input = { // UpdateSiteRackPhysicalPropertiesInput
+ *   SiteId: "STRING_VALUE", // required
+ *   PowerDrawKva: "POWER_5_KVA" || "POWER_10_KVA" || "POWER_15_KVA" || "POWER_30_KVA",
+ *   PowerPhase: "SINGLE_PHASE" || "THREE_PHASE",
+ *   PowerConnector: "L6_30P" || "IEC309" || "AH530P7W" || "AH532P6W",
+ *   PowerFeedDrop: "ABOVE_RACK" || "BELOW_RACK",
+ *   UplinkGbps: "UPLINK_1G" || "UPLINK_10G" || "UPLINK_40G" || "UPLINK_100G",
+ *   UplinkCount: "UPLINK_COUNT_1" || "UPLINK_COUNT_2" || "UPLINK_COUNT_3" || "UPLINK_COUNT_4" || "UPLINK_COUNT_5" || "UPLINK_COUNT_6" || "UPLINK_COUNT_7" || "UPLINK_COUNT_8" || "UPLINK_COUNT_12" || "UPLINK_COUNT_16",
+ *   FiberOpticCableType: "SINGLE_MODE" || "MULTI_MODE",
+ *   OpticalStandard: "OPTIC_10GBASE_SR" || "OPTIC_10GBASE_IR" || "OPTIC_10GBASE_LR" || "OPTIC_40GBASE_SR" || "OPTIC_40GBASE_ESR" || "OPTIC_40GBASE_IR4_LR4L" || "OPTIC_40GBASE_LR4" || "OPTIC_100GBASE_SR4" || "OPTIC_100GBASE_CWDM4" || "OPTIC_100GBASE_LR4" || "OPTIC_100G_PSM4_MSA" || "OPTIC_1000BASE_LX" || "OPTIC_1000BASE_SX",
+ *   MaximumSupportedWeightLbs: "NO_LIMIT" || "MAX_1400_LBS" || "MAX_1600_LBS" || "MAX_1800_LBS" || "MAX_2000_LBS",
+ * };
  * const command = new UpdateSiteRackPhysicalPropertiesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSiteRackPhysicalPropertiesCommandInput - {@link UpdateSiteRackPhysicalPropertiesCommandInput}
+ * @returns {@link UpdateSiteRackPhysicalPropertiesCommandOutput}
  * @see {@link UpdateSiteRackPhysicalPropertiesCommandInput} for command's `input` shape.
  * @see {@link UpdateSiteRackPhysicalPropertiesCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have permission to perform this operation.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Updating or deleting this resource can cause an inconsistent state.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error has occurred.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The specified request is not valid.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>A parameter is not valid.</p>
+ *
  *
  */
 export class UpdateSiteRackPhysicalPropertiesCommand extends $Command<
@@ -69,6 +105,9 @@ export class UpdateSiteRackPhysicalPropertiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSiteRackPhysicalPropertiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +136,8 @@ export class UpdateSiteRackPhysicalPropertiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSiteRackPhysicalPropertiesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSiteRackPhysicalPropertiesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,18 +147,24 @@ export class UpdateSiteRackPhysicalPropertiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateSiteRackPhysicalPropertiesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateSiteRackPhysicalPropertiesCommand(input, context);
+    return se_UpdateSiteRackPhysicalPropertiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateSiteRackPhysicalPropertiesCommandOutput> {
-    return deserializeAws_restJson1UpdateSiteRackPhysicalPropertiesCommand(output, context);
+    return de_UpdateSiteRackPhysicalPropertiesCommand(output, context);
   }
 
   // Start section: command_body_extra

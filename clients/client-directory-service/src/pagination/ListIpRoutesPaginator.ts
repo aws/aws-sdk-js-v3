@@ -6,12 +6,11 @@ import {
   ListIpRoutesCommandInput,
   ListIpRoutesCommandOutput,
 } from "../commands/ListIpRoutesCommand";
-import { DirectoryService } from "../DirectoryService";
 import { DirectoryServiceClient } from "../DirectoryServiceClient";
 import { DirectoryServicePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DirectoryServiceClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListIpRoutesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: DirectoryService,
-  input: ListIpRoutesCommandInput,
-  ...args: any
-): Promise<ListIpRoutesCommandOutput> => {
-  // @ts-ignore
-  return await client.listIpRoutes(input, ...args);
-};
 export async function* paginateListIpRoutes(
   config: DirectoryServicePaginationConfiguration,
   input: ListIpRoutesCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListIpRoutes(
   while (hasNext) {
     input.NextToken = token;
     input["Limit"] = config.pageSize;
-    if (config.client instanceof DirectoryService) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DirectoryServiceClient) {
+    if (config.client instanceof DirectoryServiceClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected DirectoryService | DirectoryServiceClient");

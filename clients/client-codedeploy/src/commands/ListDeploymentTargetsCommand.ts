@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import {
-  ListDeploymentTargetsInput,
-  ListDeploymentTargetsInputFilterSensitiveLog,
-  ListDeploymentTargetsOutput,
-  ListDeploymentTargetsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListDeploymentTargetsCommand,
-  serializeAws_json1_1ListDeploymentTargetsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListDeploymentTargetsInput, ListDeploymentTargetsOutput } from "../models/models_0";
+import { de_ListDeploymentTargetsCommand, se_ListDeploymentTargetsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListDeploymentTargetsCommand}.
+ */
 export interface ListDeploymentTargetsCommandInput extends ListDeploymentTargetsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListDeploymentTargetsCommand}.
+ */
 export interface ListDeploymentTargetsCommandOutput extends ListDeploymentTargetsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns an array of target IDs that are associated a deployment. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,53 @@ export interface ListDeploymentTargetsCommandOutput extends ListDeploymentTarget
  * import { CodeDeployClient, ListDeploymentTargetsCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, ListDeploymentTargetsCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
+ * const input = { // ListDeploymentTargetsInput
+ *   deploymentId: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   targetFilters: { // TargetFilters
+ *     "<keys>": [ // FilterValueList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new ListDeploymentTargetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDeploymentTargetsCommandInput - {@link ListDeploymentTargetsCommandInput}
+ * @returns {@link ListDeploymentTargetsCommandOutput}
  * @see {@link ListDeploymentTargetsCommandInput} for command's `input` shape.
  * @see {@link ListDeploymentTargetsCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
+ *
+ * @throws {@link DeploymentDoesNotExistException} (client fault)
+ *  <p>The deployment with the IAM user or Amazon Web Services account does not
+ *             exist.</p>
+ *
+ * @throws {@link DeploymentIdRequiredException} (client fault)
+ *  <p>At least one deployment ID must be specified.</p>
+ *
+ * @throws {@link DeploymentNotStartedException} (client fault)
+ *  <p>The specified deployment has not started.</p>
+ *
+ * @throws {@link InvalidDeploymentIdException} (client fault)
+ *  <p>At least one of the deployment IDs was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidDeploymentInstanceTypeException} (client fault)
+ *  <p>An instance type was specified for an in-place deployment. Instance types are
+ *             supported for blue/green deployments only.</p>
+ *
+ * @throws {@link InvalidInstanceStatusException} (client fault)
+ *  <p>The specified instance status does not exist.</p>
+ *
+ * @throws {@link InvalidInstanceTypeException} (client fault)
+ *  <p>An invalid instance type was specified for instances in a blue/green deployment. Valid
+ *             values include "Blue" for an original environment and "Green" for a replacement
+ *             environment.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The next token was specified in an invalid format.</p>
+ *
  *
  */
 export class ListDeploymentTargetsCommand extends $Command<
@@ -62,6 +105,9 @@ export class ListDeploymentTargetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDeploymentTargetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +136,8 @@ export class ListDeploymentTargetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDeploymentTargetsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDeploymentTargetsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +147,18 @@ export class ListDeploymentTargetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDeploymentTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDeploymentTargetsCommand(input, context);
+    return se_ListDeploymentTargetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDeploymentTargetsCommandOutput> {
-    return deserializeAws_json1_1ListDeploymentTargetsCommand(output, context);
+    return de_ListDeploymentTargetsCommand(output, context);
   }
 
   // Start section: command_body_extra

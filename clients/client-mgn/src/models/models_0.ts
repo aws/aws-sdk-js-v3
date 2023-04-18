@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { MgnServiceException as __BaseException } from "./MgnServiceException";
 
 /**
+ * @public
  * <p>Operating denied due to a file permission or access check error.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -24,19 +25,60 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
-export enum ApplicationHealthStatus {
-  ERROR = "ERROR",
-  HEALTHY = "HEALTHY",
-  LAGGING = "LAGGING",
-}
-
-export enum ApplicationProgressStatus {
-  COMPLETED = "COMPLETED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ActionCategory = {
+  BACKUP: "BACKUP",
+  CONFIGURATION: "CONFIGURATION",
+  DISASTER_RECOVERY: "DISASTER_RECOVERY",
+  LICENSE_AND_SUBSCRIPTION: "LICENSE_AND_SUBSCRIPTION",
+  NETWORKING: "NETWORKING",
+  OBSERVABILITY: "OBSERVABILITY",
+  OPERATING_SYSTEM: "OPERATING_SYSTEM",
+  OTHER: "OTHER",
+  SECURITY: "SECURITY",
+  VALIDATION: "VALIDATION",
+} as const;
 
 /**
+ * @public
+ */
+export type ActionCategory = (typeof ActionCategory)[keyof typeof ActionCategory];
+
+/**
+ * @public
+ * @enum
+ */
+export const ApplicationHealthStatus = {
+  ERROR: "ERROR",
+  HEALTHY: "HEALTHY",
+  LAGGING: "LAGGING",
+} as const;
+
+/**
+ * @public
+ */
+export type ApplicationHealthStatus = (typeof ApplicationHealthStatus)[keyof typeof ApplicationHealthStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ApplicationProgressStatus = {
+  COMPLETED: "COMPLETED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+} as const;
+
+/**
+ * @public
+ */
+export type ApplicationProgressStatus = (typeof ApplicationProgressStatus)[keyof typeof ApplicationProgressStatus];
+
+/**
+ * @public
  * <p>Application aggregated status.</p>
  */
 export interface ApplicationAggregatedStatus {
@@ -61,6 +103,9 @@ export interface ApplicationAggregatedStatus {
   totalSourceServers?: number;
 }
 
+/**
+ * @public
+ */
 export interface Application {
   /**
    * <p>Application ID.</p>
@@ -113,6 +158,9 @@ export interface Application {
   waveID?: string;
 }
 
+/**
+ * @public
+ */
 export interface ArchiveApplicationRequest {
   /**
    * <p>Application ID.</p>
@@ -121,6 +169,7 @@ export interface ArchiveApplicationRequest {
 }
 
 /**
+ * @public
  * <p>Error details.</p>
  */
 export interface ErrorDetails {
@@ -146,6 +195,7 @@ export interface ErrorDetails {
 }
 
 /**
+ * @public
  * <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
  */
 export class ConflictException extends __BaseException {
@@ -185,6 +235,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Resource not found exception.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -218,6 +269,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request could not be completed because its exceeded the service quota.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -269,6 +321,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Uninitialized account exception.</p>
  */
 export class UninitializedAccountException extends __BaseException {
@@ -289,6 +342,9 @@ export class UninitializedAccountException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AssociateSourceServersRequest {
   /**
    * <p>Application ID.</p>
@@ -301,8 +357,14 @@ export interface AssociateSourceServersRequest {
   sourceServerIDs: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateSourceServersResponse {}
 
+/**
+ * @public
+ */
 export interface CreateApplicationRequest {
   /**
    * <p>Application name.</p>
@@ -320,6 +382,9 @@ export interface CreateApplicationRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApplicationRequest {
   /**
    * <p>Application ID.</p>
@@ -327,8 +392,14 @@ export interface DeleteApplicationRequest {
   applicationID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApplicationResponse {}
 
+/**
+ * @public
+ */
 export interface DisassociateSourceServersRequest {
   /**
    * <p>Application ID.</p>
@@ -341,9 +412,13 @@ export interface DisassociateSourceServersRequest {
   sourceServerIDs: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateSourceServersResponse {}
 
 /**
+ * @public
  * <p>Applications list filters.</p>
  */
 export interface ListApplicationsRequestFilters {
@@ -363,6 +438,9 @@ export interface ListApplicationsRequestFilters {
   waveIDs?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationsRequest {
   /**
    * <p>Applications list filters.</p>
@@ -380,6 +458,9 @@ export interface ListApplicationsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationsResponse {
   /**
    * <p>Applications list.</p>
@@ -392,6 +473,9 @@ export interface ListApplicationsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UnarchiveApplicationRequest {
   /**
    * <p>Application ID.</p>
@@ -399,6 +483,9 @@ export interface UnarchiveApplicationRequest {
   applicationID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateApplicationRequest {
   /**
    * <p>Application ID.</p>
@@ -416,11 +503,72 @@ export interface UpdateApplicationRequest {
   description?: string;
 }
 
-export interface InitializeServiceRequest {}
+/**
+ * @public
+ * <p>List export errors request.</p>
+ */
+export interface ListExportErrorsRequest {
+  /**
+   * <p>List export errors request export id.</p>
+   */
+  exportID: string | undefined;
 
-export interface InitializeServiceResponse {}
+  /**
+   * <p>List export errors request max results.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>List export errors request next token.</p>
+   */
+  nextToken?: string;
+}
 
 /**
+ * @public
+ * <p>Export errors data.</p>
+ */
+export interface ExportErrorData {
+  /**
+   * <p>Export errors data raw error.</p>
+   */
+  rawError?: string;
+}
+
+/**
+ * @public
+ * <p>Export task error.</p>
+ */
+export interface ExportTaskError {
+  /**
+   * <p>Export task error datetime.</p>
+   */
+  errorDateTime?: string;
+
+  /**
+   * <p>Export task error data.</p>
+   */
+  errorData?: ExportErrorData;
+}
+
+/**
+ * @public
+ * <p>List export errors response.</p>
+ */
+export interface ListExportErrorsResponse {
+  /**
+   * <p>List export errors response items.</p>
+   */
+  items?: ExportTaskError[];
+
+  /**
+   * <p>List export errors response next token.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
  * <p>Validate exception field.</p>
  */
 export interface ValidationExceptionField {
@@ -435,14 +583,24 @@ export interface ValidationExceptionField {
   message?: string;
 }
 
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "cannotParse",
-  FIELD_VALIDATION_FAILED = "fieldValidationFailed",
-  OTHER = "other",
-  UNKNOWN_OPERATION = "unknownOperation",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "cannotParse",
+  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
+  OTHER: "other",
+  UNKNOWN_OPERATION: "unknownOperation",
+} as const;
 
 /**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
+
+/**
+ * @public
  * <p>Validate exception.</p>
  */
 export class ValidationException extends __BaseException {
@@ -475,6 +633,517 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ * <p>List exports request filters.</p>
+ */
+export interface ListExportsRequestFilters {
+  /**
+   * <p>List exports request filters export ids.</p>
+   */
+  exportIDs?: string[];
+}
+
+/**
+ * @public
+ * <p>List export request.</p>
+ */
+export interface ListExportsRequest {
+  /**
+   * <p>List exports request filters.</p>
+   */
+  filters?: ListExportsRequestFilters;
+
+  /**
+   * <p>List export request max results.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>List export request next token.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ExportStatus = {
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  STARTED: "STARTED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type ExportStatus = (typeof ExportStatus)[keyof typeof ExportStatus];
+
+/**
+ * @public
+ * <p>Export task summary.</p>
+ */
+export interface ExportTaskSummary {
+  /**
+   * <p>Export task summary servers count.</p>
+   */
+  serversCount?: number;
+
+  /**
+   * <p>Export task summary applications count.</p>
+   */
+  applicationsCount?: number;
+
+  /**
+   * <p>Export task summary waves count.</p>
+   */
+  wavesCount?: number;
+}
+
+/**
+ * @public
+ * <p>Export task.</p>
+ */
+export interface ExportTask {
+  /**
+   * <p>Export task id.</p>
+   */
+  exportID?: string;
+
+  /**
+   * <p>Export task s3 bucket.</p>
+   */
+  s3Bucket?: string;
+
+  /**
+   * <p>Export task s3 key.</p>
+   */
+  s3Key?: string;
+
+  /**
+   * <p>Export task s3 bucket owner.</p>
+   */
+  s3BucketOwner?: string;
+
+  /**
+   * <p>Export task creation datetime.</p>
+   */
+  creationDateTime?: string;
+
+  /**
+   * <p>Export task end datetime.</p>
+   */
+  endDateTime?: string;
+
+  /**
+   * <p>Export task status.</p>
+   */
+  status?: ExportStatus | string;
+
+  /**
+   * <p>Export task progress percentage.</p>
+   */
+  progressPercentage?: number;
+
+  /**
+   * <p>Export task summary.</p>
+   */
+  summary?: ExportTaskSummary;
+}
+
+/**
+ * @public
+ * <p>List export response.</p>
+ */
+export interface ListExportsResponse {
+  /**
+   * <p>List export response items.</p>
+   */
+  items?: ExportTask[];
+
+  /**
+   * <p>List export response next token.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * <p>Start export request.</p>
+ */
+export interface StartExportRequest {
+  /**
+   * <p>Start export request s3 bucket.</p>
+   */
+  s3Bucket: string | undefined;
+
+  /**
+   * <p>Start export request s3key.</p>
+   */
+  s3Key: string | undefined;
+
+  /**
+   * <p>Start export request s3 bucket owner.</p>
+   */
+  s3BucketOwner?: string;
+}
+
+/**
+ * @public
+ * <p>Start export response.</p>
+ */
+export interface StartExportResponse {
+  /**
+   * <p>Start export response export task.</p>
+   */
+  exportTask?: ExportTask;
+}
+
+/**
+ * @public
+ * <p>List import errors request.</p>
+ */
+export interface ListImportErrorsRequest {
+  /**
+   * <p>List import errors request import id.</p>
+   */
+  importID: string | undefined;
+
+  /**
+   * <p>List import errors request max results.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>List import errors request next token.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * <p>Import error data.</p>
+ */
+export interface ImportErrorData {
+  /**
+   * <p>Import error data source server ID.</p>
+   */
+  sourceServerID?: string;
+
+  /**
+   * <p>Import error data application ID.</p>
+   */
+  applicationID?: string;
+
+  /**
+   * <p>Import error data wave id.</p>
+   */
+  waveID?: string;
+
+  /**
+   * <p>Import error data ec2 LaunchTemplate ID.</p>
+   */
+  ec2LaunchTemplateID?: string;
+
+  /**
+   * <p>Import error data row number.</p>
+   */
+  rowNumber?: number;
+
+  /**
+   * <p>Import error data raw error.</p>
+   */
+  rawError?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ImportErrorType = {
+  PROCESSING_ERROR: "PROCESSING_ERROR",
+  VALIDATION_ERROR: "VALIDATION_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type ImportErrorType = (typeof ImportErrorType)[keyof typeof ImportErrorType];
+
+/**
+ * @public
+ * <p>Import task error.</p>
+ */
+export interface ImportTaskError {
+  /**
+   * <p>Import task error datetime.</p>
+   */
+  errorDateTime?: string;
+
+  /**
+   * <p>Import task error type.</p>
+   */
+  errorType?: ImportErrorType | string;
+
+  /**
+   * <p>Import task error data.</p>
+   */
+  errorData?: ImportErrorData;
+}
+
+/**
+ * @public
+ * <p>List imports errors response.</p>
+ */
+export interface ListImportErrorsResponse {
+  /**
+   * <p>List imports errors response items.</p>
+   */
+  items?: ImportTaskError[];
+
+  /**
+   * <p>List imports errors response next token.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * <p>List imports request filters.</p>
+ */
+export interface ListImportsRequestFilters {
+  /**
+   * <p>List imports request filters import IDs.</p>
+   */
+  importIDs?: string[];
+}
+
+/**
+ * @public
+ * <p>List imports request.</p>
+ */
+export interface ListImportsRequest {
+  /**
+   * <p>List imports request filters.</p>
+   */
+  filters?: ListImportsRequestFilters;
+
+  /**
+   * <p>List imports request max results.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>List imports request next token.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * <p>S3 bucket source.</p>
+ */
+export interface S3BucketSource {
+  /**
+   * <p>S3 bucket source s3 bucket.</p>
+   */
+  s3Bucket: string | undefined;
+
+  /**
+   * <p>S3 bucket source s3 key.</p>
+   */
+  s3Key: string | undefined;
+
+  /**
+   * <p>S3 bucket source s3 bucket owner.</p>
+   */
+  s3BucketOwner?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ImportStatus = {
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  STARTED: "STARTED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type ImportStatus = (typeof ImportStatus)[keyof typeof ImportStatus];
+
+/**
+ * @public
+ * <p>Import task summary applications.</p>
+ */
+export interface ImportTaskSummaryApplications {
+  /**
+   * <p>Import task summary applications created count.</p>
+   */
+  createdCount?: number;
+
+  /**
+   * <p>Import task summary applications modified count.</p>
+   */
+  modifiedCount?: number;
+}
+
+/**
+ * @public
+ * <p>Import task summary servers.</p>
+ */
+export interface ImportTaskSummaryServers {
+  /**
+   * <p>Import task summary servers created count.</p>
+   */
+  createdCount?: number;
+
+  /**
+   * <p>Import task summary servers modified count.</p>
+   */
+  modifiedCount?: number;
+}
+
+/**
+ * @public
+ * <p>Import task summery waves.</p>
+ */
+export interface ImportTaskSummaryWaves {
+  /**
+   * <p>Import task summery waves created count.</p>
+   */
+  createdCount?: number;
+
+  /**
+   * <p>Import task summery waves modified count.</p>
+   */
+  modifiedCount?: number;
+}
+
+/**
+ * @public
+ * <p>Import task summary.</p>
+ */
+export interface ImportTaskSummary {
+  /**
+   * <p>Import task summary waves.</p>
+   */
+  waves?: ImportTaskSummaryWaves;
+
+  /**
+   * <p>Import task summary applications.</p>
+   */
+  applications?: ImportTaskSummaryApplications;
+
+  /**
+   * <p>Import task summary servers.</p>
+   */
+  servers?: ImportTaskSummaryServers;
+}
+
+/**
+ * @public
+ * <p>Import task.</p>
+ */
+export interface ImportTask {
+  /**
+   * <p>Import task id.</p>
+   */
+  importID?: string;
+
+  /**
+   * <p>Import task s3 bucket source.</p>
+   */
+  s3BucketSource?: S3BucketSource;
+
+  /**
+   * <p>Import task creation datetime.</p>
+   */
+  creationDateTime?: string;
+
+  /**
+   * <p>Import task end datetime.</p>
+   */
+  endDateTime?: string;
+
+  /**
+   * <p>Import task status.</p>
+   */
+  status?: ImportStatus | string;
+
+  /**
+   * <p>Import task progress percentage.</p>
+   */
+  progressPercentage?: number;
+
+  /**
+   * <p>Import task summary.</p>
+   */
+  summary?: ImportTaskSummary;
+}
+
+/**
+ * @public
+ * <p>List import response.</p>
+ */
+export interface ListImportsResponse {
+  /**
+   * <p>List import response items.</p>
+   */
+  items?: ImportTask[];
+
+  /**
+   * <p>List import response next token.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * <p>Start import request.</p>
+ */
+export interface StartImportRequest {
+  /**
+   * <p>Start import request client token.</p>
+   */
+  clientToken?: string;
+
+  /**
+   * <p>Start import request s3 bucket source.</p>
+   */
+  s3BucketSource: S3BucketSource | undefined;
+}
+
+/**
+ * @public
+ * <p>Start import response.</p>
+ */
+export interface StartImportResponse {
+  /**
+   * <p>Start import response import task.</p>
+   */
+  importTask?: ImportTask;
+}
+
+/**
+ * @public
+ */
+export interface InitializeServiceRequest {}
+
+/**
+ * @public
+ */
+export interface InitializeServiceResponse {}
+
+/**
+ * @public
+ */
 export interface DeleteJobRequest {
   /**
    * <p>Request to delete Job from service by Job ID.</p>
@@ -482,8 +1151,14 @@ export interface DeleteJobRequest {
   jobID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteJobResponse {}
 
+/**
+ * @public
+ */
 export interface DescribeJobLogItemsRequest {
   /**
    * <p>Request to describe Job log job ID.</p>
@@ -501,26 +1176,36 @@ export interface DescribeJobLogItemsRequest {
   nextToken?: string;
 }
 
-export enum JobLogEvent {
-  CLEANUP_END = "CLEANUP_END",
-  CLEANUP_FAIL = "CLEANUP_FAIL",
-  CLEANUP_START = "CLEANUP_START",
-  CONVERSION_END = "CONVERSION_END",
-  CONVERSION_FAIL = "CONVERSION_FAIL",
-  CONVERSION_START = "CONVERSION_START",
-  JOB_CANCEL = "JOB_CANCEL",
-  JOB_END = "JOB_END",
-  JOB_START = "JOB_START",
-  LAUNCH_FAILED = "LAUNCH_FAILED",
-  LAUNCH_START = "LAUNCH_START",
-  SERVER_SKIPPED = "SERVER_SKIPPED",
-  SNAPSHOT_END = "SNAPSHOT_END",
-  SNAPSHOT_FAIL = "SNAPSHOT_FAIL",
-  SNAPSHOT_START = "SNAPSHOT_START",
-  USING_PREVIOUS_SNAPSHOT = "USING_PREVIOUS_SNAPSHOT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const JobLogEvent = {
+  CLEANUP_END: "CLEANUP_END",
+  CLEANUP_FAIL: "CLEANUP_FAIL",
+  CLEANUP_START: "CLEANUP_START",
+  CONVERSION_END: "CONVERSION_END",
+  CONVERSION_FAIL: "CONVERSION_FAIL",
+  CONVERSION_START: "CONVERSION_START",
+  JOB_CANCEL: "JOB_CANCEL",
+  JOB_END: "JOB_END",
+  JOB_START: "JOB_START",
+  LAUNCH_FAILED: "LAUNCH_FAILED",
+  LAUNCH_START: "LAUNCH_START",
+  SERVER_SKIPPED: "SERVER_SKIPPED",
+  SNAPSHOT_END: "SNAPSHOT_END",
+  SNAPSHOT_FAIL: "SNAPSHOT_FAIL",
+  SNAPSHOT_START: "SNAPSHOT_START",
+  USING_PREVIOUS_SNAPSHOT: "USING_PREVIOUS_SNAPSHOT",
+} as const;
 
 /**
+ * @public
+ */
+export type JobLogEvent = (typeof JobLogEvent)[keyof typeof JobLogEvent];
+
+/**
+ * @public
  * <p>Job log data</p>
  */
 export interface JobLogEventData {
@@ -546,6 +1231,7 @@ export interface JobLogEventData {
 }
 
 /**
+ * @public
  * <p>Job log.</p>
  */
 export interface JobLog {
@@ -565,6 +1251,9 @@ export interface JobLog {
   eventData?: JobLogEventData;
 }
 
+/**
+ * @public
+ */
 export interface DescribeJobLogItemsResponse {
   /**
    * <p>Request to describe Job log response items.</p>
@@ -578,6 +1267,7 @@ export interface DescribeJobLogItemsResponse {
 }
 
 /**
+ * @public
  * <p>Request to describe Job log filters.</p>
  */
 export interface DescribeJobsRequestFilters {
@@ -597,6 +1287,9 @@ export interface DescribeJobsRequestFilters {
   toDate?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeJobsRequest {
   /**
    * <p>Request to describe Job log filters.</p>
@@ -614,32 +1307,105 @@ export interface DescribeJobsRequest {
   nextToken?: string;
 }
 
-export enum InitiatedBy {
-  DIAGNOSTIC = "DIAGNOSTIC",
-  START_CUTOVER = "START_CUTOVER",
-  START_TEST = "START_TEST",
-  TERMINATE = "TERMINATE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InitiatedBy = {
+  DIAGNOSTIC: "DIAGNOSTIC",
+  START_CUTOVER: "START_CUTOVER",
+  START_TEST: "START_TEST",
+  TERMINATE: "TERMINATE",
+} as const;
 
-export enum LaunchStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  LAUNCHED = "LAUNCHED",
-  PENDING = "PENDING",
-  TERMINATED = "TERMINATED",
-}
+/**
+ * @public
+ */
+export type InitiatedBy = (typeof InitiatedBy)[keyof typeof InitiatedBy];
 
-export enum PostLaunchActionExecutionStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCESS = "SUCCESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LaunchStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  LAUNCHED: "LAUNCHED",
+  PENDING: "PENDING",
+  TERMINATED: "TERMINATED",
+} as const;
 
-export enum SsmParameterStoreParameterType {
-  STRING = "STRING",
+/**
+ * @public
+ */
+export type LaunchStatus = (typeof LaunchStatus)[keyof typeof LaunchStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const PostLaunchActionExecutionStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCESS: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type PostLaunchActionExecutionStatus =
+  (typeof PostLaunchActionExecutionStatus)[keyof typeof PostLaunchActionExecutionStatus];
+
+/**
+ * @public
+ * <p>AWS Systems Manager Document external parameter.</p>
+ */
+export type SsmExternalParameter = SsmExternalParameter.DynamicPathMember | SsmExternalParameter.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace SsmExternalParameter {
+  /**
+   * <p>AWS Systems Manager Document external parameters dynamic path.</p>
+   */
+  export interface DynamicPathMember {
+    dynamicPath: string;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    dynamicPath?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    dynamicPath: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: SsmExternalParameter, visitor: Visitor<T>): T => {
+    if (value.dynamicPath !== undefined) return visitor.dynamicPath(value.dynamicPath);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const SsmParameterStoreParameterType = {
+  STRING: "STRING",
+} as const;
+
+/**
+ * @public
+ */
+export type SsmParameterStoreParameterType =
+  (typeof SsmParameterStoreParameterType)[keyof typeof SsmParameterStoreParameterType];
+
+/**
+ * @public
  * <p>AWS Systems Manager Parameter Store parameter.</p>
  */
 export interface SsmParameterStoreParameter {
@@ -655,6 +1421,7 @@ export interface SsmParameterStoreParameter {
 }
 
 /**
+ * @public
  * <p>AWS Systems Manager Document.</p>
  */
 export interface SsmDocument {
@@ -682,14 +1449,29 @@ export interface SsmDocument {
    * <p>AWS Systems Manager Document parameters.</p>
    */
   parameters?: Record<string, SsmParameterStoreParameter[]>;
-}
 
-export enum SsmDocumentType {
-  AUTOMATION = "AUTOMATION",
-  COMMAND = "COMMAND",
+  /**
+   * <p>AWS Systems Manager Document external parameters.</p>
+   */
+  externalParameters?: Record<string, SsmExternalParameter>;
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const SsmDocumentType = {
+  AUTOMATION: "AUTOMATION",
+  COMMAND: "COMMAND",
+} as const;
+
+/**
+ * @public
+ */
+export type SsmDocumentType = (typeof SsmDocumentType)[keyof typeof SsmDocumentType];
+
+/**
+ * @public
  * <p>Launch Status of the Job Post Launch Actions.</p>
  */
 export interface JobPostLaunchActionsLaunchStatus {
@@ -720,6 +1502,7 @@ export interface JobPostLaunchActionsLaunchStatus {
 }
 
 /**
+ * @public
  * <p>Status of the Post Launch Actions running on the Test or Cutover instance.</p>
  */
 export interface PostLaunchActionsStatus {
@@ -735,6 +1518,7 @@ export interface PostLaunchActionsStatus {
 }
 
 /**
+ * @public
  * <p>Server participating in Job.</p>
  */
 export interface ParticipatingServer {
@@ -759,18 +1543,37 @@ export interface ParticipatingServer {
   postLaunchActionsStatus?: PostLaunchActionsStatus;
 }
 
-export enum JobStatus {
-  COMPLETED = "COMPLETED",
-  PENDING = "PENDING",
-  STARTED = "STARTED",
-}
-
-export enum JobType {
-  LAUNCH = "LAUNCH",
-  TERMINATE = "TERMINATE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const JobStatus = {
+  COMPLETED: "COMPLETED",
+  PENDING: "PENDING",
+  STARTED: "STARTED",
+} as const;
 
 /**
+ * @public
+ */
+export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const JobType = {
+  LAUNCH: "LAUNCH",
+  TERMINATE: "TERMINATE",
+} as const;
+
+/**
+ * @public
+ */
+export type JobType = (typeof JobType)[keyof typeof JobType];
+
+/**
+ * @public
  * <p>Job.</p>
  */
 export interface Job {
@@ -820,6 +1623,9 @@ export interface Job {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeJobsResponse {
   /**
    * <p>Request to describe Job log items.</p>
@@ -832,22 +1638,41 @@ export interface DescribeJobsResponse {
   nextToken?: string;
 }
 
-export enum BootMode {
-  LEGACY_BIOS = "LEGACY_BIOS",
-  UEFI = "UEFI",
-}
-
-export enum VolumeType {
-  gp2 = "gp2",
-  gp3 = "gp3",
-  io1 = "io1",
-  io2 = "io2",
-  sc1 = "sc1",
-  st1 = "st1",
-  standard = "standard",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BootMode = {
+  LEGACY_BIOS: "LEGACY_BIOS",
+  UEFI: "UEFI",
+} as const;
 
 /**
+ * @public
+ */
+export type BootMode = (typeof BootMode)[keyof typeof BootMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const VolumeType = {
+  gp2: "gp2",
+  gp3: "gp3",
+  io1: "io1",
+  io2: "io2",
+  sc1: "sc1",
+  st1: "st1",
+  standard: "standard",
+} as const;
+
+/**
+ * @public
+ */
+export type VolumeType = (typeof VolumeType)[keyof typeof VolumeType];
+
+/**
+ * @public
  * <p>Launch template disk configuration.</p>
  */
 export interface LaunchTemplateDiskConf {
@@ -867,12 +1692,22 @@ export interface LaunchTemplateDiskConf {
   throughput?: number;
 }
 
-export enum LaunchDisposition {
-  STARTED = "STARTED",
-  STOPPED = "STOPPED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LaunchDisposition = {
+  STARTED: "STARTED",
+  STOPPED: "STOPPED",
+} as const;
 
 /**
+ * @public
+ */
+export type LaunchDisposition = (typeof LaunchDisposition)[keyof typeof LaunchDisposition];
+
+/**
+ * @public
  * <p>Configure Licensing.</p>
  */
 export interface Licensing {
@@ -882,13 +1717,24 @@ export interface Licensing {
   osByol?: boolean;
 }
 
-export enum PostLaunchActionsDeploymentType {
-  CUTOVER_ONLY = "CUTOVER_ONLY",
-  TEST_AND_CUTOVER = "TEST_AND_CUTOVER",
-  TEST_ONLY = "TEST_ONLY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PostLaunchActionsDeploymentType = {
+  CUTOVER_ONLY: "CUTOVER_ONLY",
+  TEST_AND_CUTOVER: "TEST_AND_CUTOVER",
+  TEST_ONLY: "TEST_ONLY",
+} as const;
 
 /**
+ * @public
+ */
+export type PostLaunchActionsDeploymentType =
+  (typeof PostLaunchActionsDeploymentType)[keyof typeof PostLaunchActionsDeploymentType];
+
+/**
+ * @public
  * <p>Post Launch Actions to executed on the Test or Cutover instance.</p>
  */
 export interface PostLaunchActions {
@@ -918,11 +1764,24 @@ export interface PostLaunchActions {
   ssmDocuments?: SsmDocument[];
 }
 
-export enum TargetInstanceTypeRightSizingMethod {
-  BASIC = "BASIC",
-  NONE = "NONE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TargetInstanceTypeRightSizingMethod = {
+  BASIC: "BASIC",
+  NONE: "NONE",
+} as const;
 
+/**
+ * @public
+ */
+export type TargetInstanceTypeRightSizingMethod =
+  (typeof TargetInstanceTypeRightSizingMethod)[keyof typeof TargetInstanceTypeRightSizingMethod];
+
+/**
+ * @public
+ */
 export interface CreateLaunchConfigurationTemplateRequest {
   /**
    * <p>Launch configuration template post launch actions.</p>
@@ -995,6 +1854,9 @@ export interface CreateLaunchConfigurationTemplateRequest {
   largeVolumeConf?: LaunchTemplateDiskConf;
 }
 
+/**
+ * @public
+ */
 export interface LaunchConfigurationTemplate {
   /**
    * <p>ID of the Launch Configuration Template.</p>
@@ -1082,6 +1944,9 @@ export interface LaunchConfigurationTemplate {
   largeVolumeConf?: LaunchTemplateDiskConf;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLaunchConfigurationTemplateRequest {
   /**
    * <p>ID of resource to be deleted.</p>
@@ -1089,8 +1954,14 @@ export interface DeleteLaunchConfigurationTemplateRequest {
   launchConfigurationTemplateID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLaunchConfigurationTemplateResponse {}
 
+/**
+ * @public
+ */
 export interface DescribeLaunchConfigurationTemplatesRequest {
   /**
    * <p>Request to filter Launch Configuration Templates list by Launch Configuration Template ID.</p>
@@ -1108,6 +1979,9 @@ export interface DescribeLaunchConfigurationTemplatesRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLaunchConfigurationTemplatesResponse {
   /**
    * <p>List of items returned by DescribeLaunchConfigurationTemplates.</p>
@@ -1121,6 +1995,7 @@ export interface DescribeLaunchConfigurationTemplatesResponse {
 }
 
 /**
+ * @public
  * <p>Template post migration custom action filters.</p>
  */
 export interface TemplateActionsRequestFilters {
@@ -1130,6 +2005,9 @@ export interface TemplateActionsRequestFilters {
   actionIDs?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListTemplateActionsRequest {
   /**
    * <p>Launch configuration template ID.</p>
@@ -1152,6 +2030,9 @@ export interface ListTemplateActionsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface TemplateActionDocument {
   /**
    * <p>Template post migration custom action ID.</p>
@@ -1202,8 +2083,26 @@ export interface TemplateActionDocument {
    * <p>Operating system eligible for this template post migration custom action.</p>
    */
   operatingSystem?: string;
+
+  /**
+   * <p>Template post migration custom action external parameters.</p>
+   */
+  externalParameters?: Record<string, SsmExternalParameter>;
+
+  /**
+   * <p>Template post migration custom action description.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>Template post migration custom action category.</p>
+   */
+  category?: ActionCategory | string;
 }
 
+/**
+ * @public
+ */
 export interface ListTemplateActionsResponse {
   /**
    * <p>List of template post migration custom actions.</p>
@@ -1216,6 +2115,9 @@ export interface ListTemplateActionsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutTemplateActionRequest {
   /**
    * <p>Launch configuration template ID.</p>
@@ -1271,8 +2173,26 @@ export interface PutTemplateActionRequest {
    * <p>Operating system eligible for this template post migration custom action.</p>
    */
   operatingSystem?: string;
+
+  /**
+   * <p>Template post migration custom action external parameters.</p>
+   */
+  externalParameters?: Record<string, SsmExternalParameter>;
+
+  /**
+   * <p>Template post migration custom action description.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>Template post migration custom action category.</p>
+   */
+  category?: ActionCategory | string;
 }
 
+/**
+ * @public
+ */
 export interface RemoveTemplateActionRequest {
   /**
    * <p>Launch configuration template ID of the post migration custom action to remove.</p>
@@ -1285,8 +2205,14 @@ export interface RemoveTemplateActionRequest {
   actionID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RemoveTemplateActionResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateLaunchConfigurationTemplateRequest {
   /**
    * <p>Launch Configuration Template ID.</p>
@@ -1360,6 +2286,7 @@ export interface UpdateLaunchConfigurationTemplateRequest {
 }
 
 /**
+ * @public
  * <p>The server encountered an unexpected condition that prevented it from fulfilling the request.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -1384,6 +2311,9 @@ export class InternalServerException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>List tags for resource request by ARN.</p>
@@ -1391,6 +2321,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>List tags for resource response.</p>
@@ -1399,6 +2332,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * <p>Reached throttling quota exception.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -1435,22 +2369,55 @@ export class ThrottlingException extends __BaseException {
   }
 }
 
-export enum ReplicationConfigurationDataPlaneRouting {
-  PRIVATE_IP = "PRIVATE_IP",
-  PUBLIC_IP = "PUBLIC_IP",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReplicationConfigurationDataPlaneRouting = {
+  PRIVATE_IP: "PRIVATE_IP",
+  PUBLIC_IP: "PUBLIC_IP",
+} as const;
 
-export enum ReplicationConfigurationDefaultLargeStagingDiskType {
-  GP2 = "GP2",
-  GP3 = "GP3",
-  ST1 = "ST1",
-}
+/**
+ * @public
+ */
+export type ReplicationConfigurationDataPlaneRouting =
+  (typeof ReplicationConfigurationDataPlaneRouting)[keyof typeof ReplicationConfigurationDataPlaneRouting];
 
-export enum ReplicationConfigurationEbsEncryption {
-  CUSTOM = "CUSTOM",
-  DEFAULT = "DEFAULT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReplicationConfigurationDefaultLargeStagingDiskType = {
+  GP2: "GP2",
+  GP3: "GP3",
+  ST1: "ST1",
+} as const;
 
+/**
+ * @public
+ */
+export type ReplicationConfigurationDefaultLargeStagingDiskType =
+  (typeof ReplicationConfigurationDefaultLargeStagingDiskType)[keyof typeof ReplicationConfigurationDefaultLargeStagingDiskType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReplicationConfigurationEbsEncryption = {
+  CUSTOM: "CUSTOM",
+  DEFAULT: "DEFAULT",
+} as const;
+
+/**
+ * @public
+ */
+export type ReplicationConfigurationEbsEncryption =
+  (typeof ReplicationConfigurationEbsEncryption)[keyof typeof ReplicationConfigurationEbsEncryption];
+
+/**
+ * @public
+ */
 export interface CreateReplicationConfigurationTemplateRequest {
   /**
    * <p>Request to configure the Staging Area subnet ID during Replication Settings template creation.</p>
@@ -1518,6 +2485,9 @@ export interface CreateReplicationConfigurationTemplateRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ReplicationConfigurationTemplate {
   /**
    * <p>Replication Configuration template ID.</p>
@@ -1595,6 +2565,9 @@ export interface ReplicationConfigurationTemplate {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DeleteReplicationConfigurationTemplateRequest {
   /**
    * <p>Request to delete Replication Configuration Template from service by Replication Configuration Template ID.</p>
@@ -1602,8 +2575,14 @@ export interface DeleteReplicationConfigurationTemplateRequest {
   replicationConfigurationTemplateID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteReplicationConfigurationTemplateResponse {}
 
+/**
+ * @public
+ */
 export interface DescribeReplicationConfigurationTemplatesRequest {
   /**
    * <p>Request to describe Replication Configuration template by template IDs.</p>
@@ -1621,6 +2600,9 @@ export interface DescribeReplicationConfigurationTemplatesRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeReplicationConfigurationTemplatesResponse {
   /**
    * <p>Request to describe Replication Configuration template by items.</p>
@@ -1633,6 +2615,9 @@ export interface DescribeReplicationConfigurationTemplatesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateReplicationConfigurationTemplateRequest {
   /**
    * <p>Update replication configuration template template ID request.</p>
@@ -1705,13 +2690,24 @@ export interface UpdateReplicationConfigurationTemplateRequest {
   stagingAreaTags?: Record<string, string>;
 }
 
-export enum ChangeServerLifeCycleStateSourceServerLifecycleState {
-  CUTOVER = "CUTOVER",
-  READY_FOR_CUTOVER = "READY_FOR_CUTOVER",
-  READY_FOR_TEST = "READY_FOR_TEST",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ChangeServerLifeCycleStateSourceServerLifecycleState = {
+  CUTOVER: "CUTOVER",
+  READY_FOR_CUTOVER: "READY_FOR_CUTOVER",
+  READY_FOR_TEST: "READY_FOR_TEST",
+} as const;
 
 /**
+ * @public
+ */
+export type ChangeServerLifeCycleStateSourceServerLifecycleState =
+  (typeof ChangeServerLifeCycleStateSourceServerLifecycleState)[keyof typeof ChangeServerLifeCycleStateSourceServerLifecycleState];
+
+/**
+ * @public
  * <p>The request to change the source server migration lifecycle state.</p>
  */
 export interface ChangeServerLifeCycleStateSourceServerLifecycle {
@@ -1721,6 +2717,9 @@ export interface ChangeServerLifeCycleStateSourceServerLifecycle {
   state: ChangeServerLifeCycleStateSourceServerLifecycleState | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ChangeServerLifeCycleStateRequest {
   /**
    * <p>The request to change the source server migration lifecycle state by source server ID.</p>
@@ -1733,26 +2732,36 @@ export interface ChangeServerLifeCycleStateRequest {
   lifeCycle: ChangeServerLifeCycleStateSourceServerLifecycle | undefined;
 }
 
-export enum DataReplicationErrorString {
-  AGENT_NOT_SEEN = "AGENT_NOT_SEEN",
-  FAILED_TO_ATTACH_STAGING_DISKS = "FAILED_TO_ATTACH_STAGING_DISKS",
-  FAILED_TO_AUTHENTICATE_WITH_SERVICE = "FAILED_TO_AUTHENTICATE_WITH_SERVICE",
-  FAILED_TO_BOOT_REPLICATION_SERVER = "FAILED_TO_BOOT_REPLICATION_SERVER",
-  FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER = "FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER",
-  FAILED_TO_CREATE_SECURITY_GROUP = "FAILED_TO_CREATE_SECURITY_GROUP",
-  FAILED_TO_CREATE_STAGING_DISKS = "FAILED_TO_CREATE_STAGING_DISKS",
-  FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE = "FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE",
-  FAILED_TO_LAUNCH_REPLICATION_SERVER = "FAILED_TO_LAUNCH_REPLICATION_SERVER",
-  FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT = "FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT",
-  FAILED_TO_START_DATA_TRANSFER = "FAILED_TO_START_DATA_TRANSFER",
-  LAST_SNAPSHOT_JOB_FAILED = "LAST_SNAPSHOT_JOB_FAILED",
-  NOT_CONVERGING = "NOT_CONVERGING",
-  SNAPSHOTS_FAILURE = "SNAPSHOTS_FAILURE",
-  UNSTABLE_NETWORK = "UNSTABLE_NETWORK",
-  UNSUPPORTED_VM_CONFIGURATION = "UNSUPPORTED_VM_CONFIGURATION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DataReplicationErrorString = {
+  AGENT_NOT_SEEN: "AGENT_NOT_SEEN",
+  FAILED_TO_ATTACH_STAGING_DISKS: "FAILED_TO_ATTACH_STAGING_DISKS",
+  FAILED_TO_AUTHENTICATE_WITH_SERVICE: "FAILED_TO_AUTHENTICATE_WITH_SERVICE",
+  FAILED_TO_BOOT_REPLICATION_SERVER: "FAILED_TO_BOOT_REPLICATION_SERVER",
+  FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER: "FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER",
+  FAILED_TO_CREATE_SECURITY_GROUP: "FAILED_TO_CREATE_SECURITY_GROUP",
+  FAILED_TO_CREATE_STAGING_DISKS: "FAILED_TO_CREATE_STAGING_DISKS",
+  FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE: "FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE",
+  FAILED_TO_LAUNCH_REPLICATION_SERVER: "FAILED_TO_LAUNCH_REPLICATION_SERVER",
+  FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT: "FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT",
+  FAILED_TO_START_DATA_TRANSFER: "FAILED_TO_START_DATA_TRANSFER",
+  LAST_SNAPSHOT_JOB_FAILED: "LAST_SNAPSHOT_JOB_FAILED",
+  NOT_CONVERGING: "NOT_CONVERGING",
+  SNAPSHOTS_FAILURE: "SNAPSHOTS_FAILURE",
+  UNSTABLE_NETWORK: "UNSTABLE_NETWORK",
+  UNSUPPORTED_VM_CONFIGURATION: "UNSUPPORTED_VM_CONFIGURATION",
+} as const;
 
 /**
+ * @public
+ */
+export type DataReplicationErrorString = (typeof DataReplicationErrorString)[keyof typeof DataReplicationErrorString];
+
+/**
+ * @public
  * <p>Error in data replication.</p>
  */
 export interface DataReplicationError {
@@ -1767,29 +2776,50 @@ export interface DataReplicationError {
   rawError?: string;
 }
 
-export enum DataReplicationInitiationStepName {
-  ATTACH_STAGING_DISKS = "ATTACH_STAGING_DISKS",
-  AUTHENTICATE_WITH_SERVICE = "AUTHENTICATE_WITH_SERVICE",
-  BOOT_REPLICATION_SERVER = "BOOT_REPLICATION_SERVER",
-  CONNECT_AGENT_TO_REPLICATION_SERVER = "CONNECT_AGENT_TO_REPLICATION_SERVER",
-  CREATE_SECURITY_GROUP = "CREATE_SECURITY_GROUP",
-  CREATE_STAGING_DISKS = "CREATE_STAGING_DISKS",
-  DOWNLOAD_REPLICATION_SOFTWARE = "DOWNLOAD_REPLICATION_SOFTWARE",
-  LAUNCH_REPLICATION_SERVER = "LAUNCH_REPLICATION_SERVER",
-  PAIR_REPLICATION_SERVER_WITH_AGENT = "PAIR_REPLICATION_SERVER_WITH_AGENT",
-  START_DATA_TRANSFER = "START_DATA_TRANSFER",
-  WAIT = "WAIT",
-}
-
-export enum DataReplicationInitiationStepStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-  SKIPPED = "SKIPPED",
-  SUCCEEDED = "SUCCEEDED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DataReplicationInitiationStepName = {
+  ATTACH_STAGING_DISKS: "ATTACH_STAGING_DISKS",
+  AUTHENTICATE_WITH_SERVICE: "AUTHENTICATE_WITH_SERVICE",
+  BOOT_REPLICATION_SERVER: "BOOT_REPLICATION_SERVER",
+  CONNECT_AGENT_TO_REPLICATION_SERVER: "CONNECT_AGENT_TO_REPLICATION_SERVER",
+  CREATE_SECURITY_GROUP: "CREATE_SECURITY_GROUP",
+  CREATE_STAGING_DISKS: "CREATE_STAGING_DISKS",
+  DOWNLOAD_REPLICATION_SOFTWARE: "DOWNLOAD_REPLICATION_SOFTWARE",
+  LAUNCH_REPLICATION_SERVER: "LAUNCH_REPLICATION_SERVER",
+  PAIR_REPLICATION_SERVER_WITH_AGENT: "PAIR_REPLICATION_SERVER_WITH_AGENT",
+  START_DATA_TRANSFER: "START_DATA_TRANSFER",
+  WAIT: "WAIT",
+} as const;
 
 /**
+ * @public
+ */
+export type DataReplicationInitiationStepName =
+  (typeof DataReplicationInitiationStepName)[keyof typeof DataReplicationInitiationStepName];
+
+/**
+ * @public
+ * @enum
+ */
+export const DataReplicationInitiationStepStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+  SKIPPED: "SKIPPED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type DataReplicationInitiationStepStatus =
+  (typeof DataReplicationInitiationStepStatus)[keyof typeof DataReplicationInitiationStepStatus];
+
+/**
+ * @public
  * <p>Data replication initiation step.</p>
  */
 export interface DataReplicationInitiationStep {
@@ -1805,6 +2835,7 @@ export interface DataReplicationInitiationStep {
 }
 
 /**
+ * @public
  * <p>Data replication initiation.</p>
  */
 export interface DataReplicationInitiation {
@@ -1824,22 +2855,32 @@ export interface DataReplicationInitiation {
   steps?: DataReplicationInitiationStep[];
 }
 
-export enum DataReplicationState {
-  BACKLOG = "BACKLOG",
-  CONTINUOUS = "CONTINUOUS",
-  CREATING_SNAPSHOT = "CREATING_SNAPSHOT",
-  DISCONNECTED = "DISCONNECTED",
-  INITIAL_SYNC = "INITIAL_SYNC",
-  INITIATING = "INITIATING",
-  PAUSED = "PAUSED",
-  PENDING_SNAPSHOT_SHIPPING = "PENDING_SNAPSHOT_SHIPPING",
-  RESCAN = "RESCAN",
-  SHIPPING_SNAPSHOT = "SHIPPING_SNAPSHOT",
-  STALLED = "STALLED",
-  STOPPED = "STOPPED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DataReplicationState = {
+  BACKLOG: "BACKLOG",
+  CONTINUOUS: "CONTINUOUS",
+  CREATING_SNAPSHOT: "CREATING_SNAPSHOT",
+  DISCONNECTED: "DISCONNECTED",
+  INITIAL_SYNC: "INITIAL_SYNC",
+  INITIATING: "INITIATING",
+  PAUSED: "PAUSED",
+  PENDING_SNAPSHOT_SHIPPING: "PENDING_SNAPSHOT_SHIPPING",
+  RESCAN: "RESCAN",
+  SHIPPING_SNAPSHOT: "SHIPPING_SNAPSHOT",
+  STALLED: "STALLED",
+  STOPPED: "STOPPED",
+} as const;
 
 /**
+ * @public
+ */
+export type DataReplicationState = (typeof DataReplicationState)[keyof typeof DataReplicationState];
+
+/**
+ * @public
  * <p>Request to query disks replicated.</p>
  */
 export interface DataReplicationInfoReplicatedDisk {
@@ -1870,6 +2911,7 @@ export interface DataReplicationInfoReplicatedDisk {
 }
 
 /**
+ * @public
  * <p>Request data replication info.</p>
  */
 export interface DataReplicationInfo {
@@ -1909,14 +2951,24 @@ export interface DataReplicationInfo {
   lastSnapshotDateTime?: string;
 }
 
-export enum FirstBoot {
-  STOPPED = "STOPPED",
-  SUCCEEDED = "SUCCEEDED",
-  UNKNOWN = "UNKNOWN",
-  WAITING = "WAITING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FirstBoot = {
+  STOPPED: "STOPPED",
+  SUCCEEDED: "SUCCEEDED",
+  UNKNOWN: "UNKNOWN",
+  WAITING: "WAITING",
+} as const;
 
 /**
+ * @public
+ */
+export type FirstBoot = (typeof FirstBoot)[keyof typeof FirstBoot];
+
+/**
+ * @public
  * <p>Launched instance.</p>
  */
 export interface LaunchedInstance {
@@ -1937,6 +2989,7 @@ export interface LaunchedInstance {
 }
 
 /**
+ * @public
  * <p>Lifecycle Cutover finalized</p>
  */
 export interface LifeCycleLastCutoverFinalized {
@@ -1947,6 +3000,7 @@ export interface LifeCycleLastCutoverFinalized {
 }
 
 /**
+ * @public
  * <p>Lifecycle last Cutover initiated.</p>
  */
 export interface LifeCycleLastCutoverInitiated {
@@ -1962,6 +3016,7 @@ export interface LifeCycleLastCutoverInitiated {
 }
 
 /**
+ * @public
  * <p>Lifecycle last Cutover reverted.</p>
  */
 export interface LifeCycleLastCutoverReverted {
@@ -1972,6 +3027,7 @@ export interface LifeCycleLastCutoverReverted {
 }
 
 /**
+ * @public
  * <p>Lifecycle last Cutover .</p>
  */
 export interface LifeCycleLastCutover {
@@ -1992,6 +3048,7 @@ export interface LifeCycleLastCutover {
 }
 
 /**
+ * @public
  * <p>Lifecycle last Test finalized.</p>
  */
 export interface LifeCycleLastTestFinalized {
@@ -2002,6 +3059,7 @@ export interface LifeCycleLastTestFinalized {
 }
 
 /**
+ * @public
  * <p>Lifecycle last Test initiated.</p>
  */
 export interface LifeCycleLastTestInitiated {
@@ -2017,6 +3075,7 @@ export interface LifeCycleLastTestInitiated {
 }
 
 /**
+ * @public
  * <p>Lifecycle last Test reverted.</p>
  */
 export interface LifeCycleLastTestReverted {
@@ -2027,6 +3086,7 @@ export interface LifeCycleLastTestReverted {
 }
 
 /**
+ * @public
  * <p>Lifecycle last Test.</p>
  */
 export interface LifeCycleLastTest {
@@ -2046,19 +3106,30 @@ export interface LifeCycleLastTest {
   finalized?: LifeCycleLastTestFinalized;
 }
 
-export enum LifeCycleState {
-  CUTOVER = "CUTOVER",
-  CUTTING_OVER = "CUTTING_OVER",
-  DISCONNECTED = "DISCONNECTED",
-  DISCOVERED = "DISCOVERED",
-  NOT_READY = "NOT_READY",
-  READY_FOR_CUTOVER = "READY_FOR_CUTOVER",
-  READY_FOR_TEST = "READY_FOR_TEST",
-  STOPPED = "STOPPED",
-  TESTING = "TESTING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LifeCycleState = {
+  CUTOVER: "CUTOVER",
+  CUTTING_OVER: "CUTTING_OVER",
+  DISCONNECTED: "DISCONNECTED",
+  DISCOVERED: "DISCOVERED",
+  NOT_READY: "NOT_READY",
+  PENDING_INSTALLATION: "PENDING_INSTALLATION",
+  READY_FOR_CUTOVER: "READY_FOR_CUTOVER",
+  READY_FOR_TEST: "READY_FOR_TEST",
+  STOPPED: "STOPPED",
+  TESTING: "TESTING",
+} as const;
 
 /**
+ * @public
+ */
+export type LifeCycleState = (typeof LifeCycleState)[keyof typeof LifeCycleState];
+
+/**
+ * @public
  * <p>Lifecycle.</p>
  */
 export interface LifeCycle {
@@ -2098,12 +3169,22 @@ export interface LifeCycle {
   state?: LifeCycleState | string;
 }
 
-export enum ReplicationType {
-  AGENT_BASED = "AGENT_BASED",
-  SNAPSHOT_SHIPPING = "SNAPSHOT_SHIPPING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReplicationType = {
+  AGENT_BASED: "AGENT_BASED",
+  SNAPSHOT_SHIPPING: "SNAPSHOT_SHIPPING",
+} as const;
 
 /**
+ * @public
+ */
+export type ReplicationType = (typeof ReplicationType)[keyof typeof ReplicationType];
+
+/**
+ * @public
  * <p>Source server CPU information.</p>
  */
 export interface CPU {
@@ -2119,6 +3200,7 @@ export interface CPU {
 }
 
 /**
+ * @public
  * <p>The disk identifier.</p>
  */
 export interface Disk {
@@ -2134,6 +3216,7 @@ export interface Disk {
 }
 
 /**
+ * @public
  * <p>Identification hints.</p>
  */
 export interface IdentificationHints {
@@ -2164,6 +3247,7 @@ export interface IdentificationHints {
 }
 
 /**
+ * @public
  * <p>Network interface.</p>
  */
 export interface NetworkInterface {
@@ -2184,6 +3268,7 @@ export interface NetworkInterface {
 }
 
 /**
+ * @public
  * <p>Operating System.</p>
  */
 export interface OS {
@@ -2194,6 +3279,7 @@ export interface OS {
 }
 
 /**
+ * @public
  * <p>Source server properties.</p>
  */
 export interface SourceProperties {
@@ -2238,6 +3324,9 @@ export interface SourceProperties {
   os?: OS;
 }
 
+/**
+ * @public
+ */
 export interface SourceServer {
   /**
    * <p>Source server ID.</p>
@@ -2293,8 +3382,21 @@ export interface SourceServer {
    * <p>Source server application ID.</p>
    */
   applicationID?: string;
+
+  /**
+   * <p>Source server user provided ID.</p>
+   */
+  userProvidedID?: string;
+
+  /**
+   * <p>Source server fqdn for action framework.</p>
+   */
+  fqdnForActionFramework?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSourceServerRequest {
   /**
    * <p>Request to delete Source Server from service by Server ID.</p>
@@ -2302,9 +3404,13 @@ export interface DeleteSourceServerRequest {
   sourceServerID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSourceServerResponse {}
 
 /**
+ * @public
  * <p>Request to filter Source Servers list.</p>
  */
 export interface DescribeSourceServersRequestFilters {
@@ -2334,6 +3440,9 @@ export interface DescribeSourceServersRequestFilters {
   applicationIDs?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeSourceServersRequest {
   /**
    * <p>Request to filter Source Servers list.</p>
@@ -2351,6 +3460,9 @@ export interface DescribeSourceServersRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSourceServersResponse {
   /**
    * <p>Request to filter Source Servers list by item.</p>
@@ -2363,6 +3475,9 @@ export interface DescribeSourceServersResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DisconnectFromServiceRequest {
   /**
    * <p>Request to disconnect Source Server from service by Server ID.</p>
@@ -2370,6 +3485,9 @@ export interface DisconnectFromServiceRequest {
   sourceServerID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface FinalizeCutoverRequest {
   /**
    * <p>Request to finalize Cutover by Source Server ID.</p>
@@ -2377,6 +3495,9 @@ export interface FinalizeCutoverRequest {
   sourceServerID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetLaunchConfigurationRequest {
   /**
    * <p>Request to get Launch Configuration information by Source Server ID.</p>
@@ -2384,6 +3505,9 @@ export interface GetLaunchConfigurationRequest {
   sourceServerID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface LaunchConfiguration {
   /**
    * <p>Launch configuration Source Server ID.</p>
@@ -2446,6 +3570,9 @@ export interface LaunchConfiguration {
   mapAutoTaggingMpeID?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetReplicationConfigurationRequest {
   /**
    * <p>Request to get Replication Configuration by Source Server ID.</p>
@@ -2453,18 +3580,29 @@ export interface GetReplicationConfigurationRequest {
   sourceServerID: string | undefined;
 }
 
-export enum ReplicationConfigurationReplicatedDiskStagingDiskType {
-  AUTO = "AUTO",
-  GP2 = "GP2",
-  GP3 = "GP3",
-  IO1 = "IO1",
-  IO2 = "IO2",
-  SC1 = "SC1",
-  ST1 = "ST1",
-  STANDARD = "STANDARD",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReplicationConfigurationReplicatedDiskStagingDiskType = {
+  AUTO: "AUTO",
+  GP2: "GP2",
+  GP3: "GP3",
+  IO1: "IO1",
+  IO2: "IO2",
+  SC1: "SC1",
+  ST1: "ST1",
+  STANDARD: "STANDARD",
+} as const;
 
 /**
+ * @public
+ */
+export type ReplicationConfigurationReplicatedDiskStagingDiskType =
+  (typeof ReplicationConfigurationReplicatedDiskStagingDiskType)[keyof typeof ReplicationConfigurationReplicatedDiskStagingDiskType];
+
+/**
+ * @public
  * <p>Replication Configuration replicated disk.</p>
  */
 export interface ReplicationConfigurationReplicatedDisk {
@@ -2494,6 +3632,9 @@ export interface ReplicationConfigurationReplicatedDisk {
   throughput?: number;
 }
 
+/**
+ * @public
+ */
 export interface ReplicationConfiguration {
   /**
    * <p>Replication Configuration Source Server ID.</p>
@@ -2572,6 +3713,7 @@ export interface ReplicationConfiguration {
 }
 
 /**
+ * @public
  * <p>Source server post migration custom action filters.</p>
  */
 export interface SourceServerActionsRequestFilters {
@@ -2581,6 +3723,9 @@ export interface SourceServerActionsRequestFilters {
   actionIDs?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListSourceServerActionsRequest {
   /**
    * <p>Source server ID.</p>
@@ -2603,6 +3748,9 @@ export interface ListSourceServerActionsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface SourceServerActionDocument {
   /**
    * <p>Source server post migration custom action ID.</p>
@@ -2648,8 +3796,26 @@ export interface SourceServerActionDocument {
    * <p>Source server post migration custom action parameters.</p>
    */
   parameters?: Record<string, SsmParameterStoreParameter[]>;
+
+  /**
+   * <p>Source server post migration custom action external parameters.</p>
+   */
+  externalParameters?: Record<string, SsmExternalParameter>;
+
+  /**
+   * <p>Source server post migration custom action description.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>Source server post migration custom action category.</p>
+   */
+  category?: ActionCategory | string;
 }
 
+/**
+ * @public
+ */
 export interface ListSourceServerActionsResponse {
   /**
    * <p>List of source server post migration custom actions.</p>
@@ -2662,6 +3828,9 @@ export interface ListSourceServerActionsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface MarkAsArchivedRequest {
   /**
    * <p>Mark as archived by Source Server ID.</p>
@@ -2669,6 +3838,9 @@ export interface MarkAsArchivedRequest {
   sourceServerID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutSourceServerActionRequest {
   /**
    * <p>Source server ID.</p>
@@ -2719,8 +3891,26 @@ export interface PutSourceServerActionRequest {
    * <p>Source server post migration custom action parameters.</p>
    */
   parameters?: Record<string, SsmParameterStoreParameter[]>;
+
+  /**
+   * <p>Source server post migration custom action external parameters.</p>
+   */
+  externalParameters?: Record<string, SsmExternalParameter>;
+
+  /**
+   * <p>Source server post migration custom action description.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>Source server post migration custom action category.</p>
+   */
+  category?: ActionCategory | string;
 }
 
+/**
+ * @public
+ */
 export interface RemoveSourceServerActionRequest {
   /**
    * <p>Source server ID of the post migration custom action to remove.</p>
@@ -2733,8 +3923,14 @@ export interface RemoveSourceServerActionRequest {
   actionID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RemoveSourceServerActionResponse {}
 
+/**
+ * @public
+ */
 export interface RetryDataReplicationRequest {
   /**
    * <p>Retry data replication for Source Server ID.</p>
@@ -2742,6 +3938,9 @@ export interface RetryDataReplicationRequest {
   sourceServerID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartCutoverRequest {
   /**
    * <p>Start Cutover by Source Server IDs.</p>
@@ -2754,6 +3953,9 @@ export interface StartCutoverRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface StartCutoverResponse {
   /**
    * <p>Start Cutover Job response.</p>
@@ -2761,6 +3963,9 @@ export interface StartCutoverResponse {
   job?: Job;
 }
 
+/**
+ * @public
+ */
 export interface StartReplicationRequest {
   /**
    * <p>ID of source server on which to start replication.</p>
@@ -2768,6 +3973,9 @@ export interface StartReplicationRequest {
   sourceServerID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartTestRequest {
   /**
    * <p>Start Test for Source Server IDs.</p>
@@ -2780,6 +3988,9 @@ export interface StartTestRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface StartTestResponse {
   /**
    * <p>Start Test Job response.</p>
@@ -2787,6 +3998,9 @@ export interface StartTestResponse {
   job?: Job;
 }
 
+/**
+ * @public
+ */
 export interface TerminateTargetInstancesRequest {
   /**
    * <p>Terminate Target instance by Source Server IDs.</p>
@@ -2799,6 +4013,9 @@ export interface TerminateTargetInstancesRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface TerminateTargetInstancesResponse {
   /**
    * <p>Terminate Target instance Job response.</p>
@@ -2806,6 +4023,9 @@ export interface TerminateTargetInstancesResponse {
   job?: Job;
 }
 
+/**
+ * @public
+ */
 export interface UpdateLaunchConfigurationRequest {
   /**
    * <p>Update Launch configuration by Source Server ID request.</p>
@@ -2863,6 +4083,9 @@ export interface UpdateLaunchConfigurationRequest {
   mapAutoTaggingMpeID?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateReplicationConfigurationRequest {
   /**
    * <p>Update replication configuration Source Server ID request.</p>
@@ -2940,6 +4163,9 @@ export interface UpdateReplicationConfigurationRequest {
   stagingAreaTags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSourceServerReplicationTypeRequest {
   /**
    * <p>ID of source server on which to update replication type.</p>
@@ -2952,6 +4178,9 @@ export interface UpdateSourceServerReplicationTypeRequest {
   replicationType: ReplicationType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>Tag resource by ARN.</p>
@@ -2964,6 +4193,9 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>Untag resource by ARN.</p>
@@ -2976,6 +4208,9 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVcenterClientRequest {
   /**
    * <p>ID of resource to be deleted.</p>
@@ -2983,6 +4218,9 @@ export interface DeleteVcenterClientRequest {
   vcenterClientID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVcenterClientsRequest {
   /**
    * <p>Maximum results to be returned in DescribeVcenterClients.</p>
@@ -2996,6 +4234,7 @@ export interface DescribeVcenterClientsRequest {
 }
 
 /**
+ * @public
  * <p>vCenter client.</p>
  */
 export interface VcenterClient {
@@ -3040,6 +4279,9 @@ export interface VcenterClient {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVcenterClientsResponse {
   /**
    * <p>List of items returned by DescribeVcenterClients.</p>
@@ -3052,6 +4294,9 @@ export interface DescribeVcenterClientsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ArchiveWaveRequest {
   /**
    * <p>Wave ID.</p>
@@ -3059,19 +4304,38 @@ export interface ArchiveWaveRequest {
   waveID: string | undefined;
 }
 
-export enum WaveHealthStatus {
-  ERROR = "ERROR",
-  HEALTHY = "HEALTHY",
-  LAGGING = "LAGGING",
-}
-
-export enum WaveProgressStatus {
-  COMPLETED = "COMPLETED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const WaveHealthStatus = {
+  ERROR: "ERROR",
+  HEALTHY: "HEALTHY",
+  LAGGING: "LAGGING",
+} as const;
 
 /**
+ * @public
+ */
+export type WaveHealthStatus = (typeof WaveHealthStatus)[keyof typeof WaveHealthStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const WaveProgressStatus = {
+  COMPLETED: "COMPLETED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+} as const;
+
+/**
+ * @public
+ */
+export type WaveProgressStatus = (typeof WaveProgressStatus)[keyof typeof WaveProgressStatus];
+
+/**
+ * @public
  * <p>Wave aggregated status.</p>
  */
 export interface WaveAggregatedStatus {
@@ -3101,6 +4365,9 @@ export interface WaveAggregatedStatus {
   totalApplications?: number;
 }
 
+/**
+ * @public
+ */
 export interface Wave {
   /**
    * <p>Wave ID.</p>
@@ -3148,6 +4415,9 @@ export interface Wave {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface AssociateApplicationsRequest {
   /**
    * <p>Wave ID.</p>
@@ -3160,8 +4430,14 @@ export interface AssociateApplicationsRequest {
   applicationIDs: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateApplicationsResponse {}
 
+/**
+ * @public
+ */
 export interface CreateWaveRequest {
   /**
    * <p>Wave name.</p>
@@ -3179,6 +4455,9 @@ export interface CreateWaveRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DeleteWaveRequest {
   /**
    * <p>Wave ID.</p>
@@ -3186,8 +4465,14 @@ export interface DeleteWaveRequest {
   waveID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteWaveResponse {}
 
+/**
+ * @public
+ */
 export interface DisassociateApplicationsRequest {
   /**
    * <p>Wave ID.</p>
@@ -3200,9 +4485,13 @@ export interface DisassociateApplicationsRequest {
   applicationIDs: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateApplicationsResponse {}
 
 /**
+ * @public
  * <p>Waves list filters.</p>
  */
 export interface ListWavesRequestFilters {
@@ -3217,6 +4506,9 @@ export interface ListWavesRequestFilters {
   isArchived?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ListWavesRequest {
   /**
    * <p>Waves list filters.</p>
@@ -3234,6 +4526,9 @@ export interface ListWavesRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListWavesResponse {
   /**
    * <p>Waves list.</p>
@@ -3246,6 +4541,9 @@ export interface ListWavesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UnarchiveWaveRequest {
   /**
    * <p>Wave ID.</p>
@@ -3253,6 +4551,9 @@ export interface UnarchiveWaveRequest {
   waveID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateWaveRequest {
   /**
    * <p>Wave ID.</p>
@@ -3273,44 +4574,9 @@ export interface UpdateWaveRequest {
 /**
  * @internal
  */
-export const ApplicationAggregatedStatusFilterSensitiveLog = (obj: ApplicationAggregatedStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ApplicationFilterSensitiveLog = (obj: Application): any => ({
   ...obj,
   ...(obj.tags && { tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ArchiveApplicationRequestFilterSensitiveLog = (obj: ArchiveApplicationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ErrorDetailsFilterSensitiveLog = (obj: ErrorDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateSourceServersRequestFilterSensitiveLog = (obj: AssociateSourceServersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateSourceServersResponseFilterSensitiveLog = (obj: AssociateSourceServersResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -3324,177 +4590,9 @@ export const CreateApplicationRequestFilterSensitiveLog = (obj: CreateApplicatio
 /**
  * @internal
  */
-export const DeleteApplicationRequestFilterSensitiveLog = (obj: DeleteApplicationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteApplicationResponseFilterSensitiveLog = (obj: DeleteApplicationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateSourceServersRequestFilterSensitiveLog = (obj: DisassociateSourceServersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateSourceServersResponseFilterSensitiveLog = (obj: DisassociateSourceServersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListApplicationsRequestFiltersFilterSensitiveLog = (obj: ListApplicationsRequestFilters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListApplicationsRequestFilterSensitiveLog = (obj: ListApplicationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListApplicationsResponseFilterSensitiveLog = (obj: ListApplicationsResponse): any => ({
   ...obj,
   ...(obj.items && { items: obj.items.map((item) => ApplicationFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const UnarchiveApplicationRequestFilterSensitiveLog = (obj: UnarchiveApplicationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateApplicationRequestFilterSensitiveLog = (obj: UpdateApplicationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InitializeServiceRequestFilterSensitiveLog = (obj: InitializeServiceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InitializeServiceResponseFilterSensitiveLog = (obj: InitializeServiceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteJobRequestFilterSensitiveLog = (obj: DeleteJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteJobResponseFilterSensitiveLog = (obj: DeleteJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeJobLogItemsRequestFilterSensitiveLog = (obj: DescribeJobLogItemsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobLogEventDataFilterSensitiveLog = (obj: JobLogEventData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobLogFilterSensitiveLog = (obj: JobLog): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeJobLogItemsResponseFilterSensitiveLog = (obj: DescribeJobLogItemsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeJobsRequestFiltersFilterSensitiveLog = (obj: DescribeJobsRequestFilters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeJobsRequestFilterSensitiveLog = (obj: DescribeJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SsmParameterStoreParameterFilterSensitiveLog = (obj: SsmParameterStoreParameter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SsmDocumentFilterSensitiveLog = (obj: SsmDocument): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobPostLaunchActionsLaunchStatusFilterSensitiveLog = (obj: JobPostLaunchActionsLaunchStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PostLaunchActionsStatusFilterSensitiveLog = (obj: PostLaunchActionsStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ParticipatingServerFilterSensitiveLog = (obj: ParticipatingServer): any => ({
-  ...obj,
 });
 
 /**
@@ -3516,31 +4614,11 @@ export const DescribeJobsResponseFilterSensitiveLog = (obj: DescribeJobsResponse
 /**
  * @internal
  */
-export const LaunchTemplateDiskConfFilterSensitiveLog = (obj: LaunchTemplateDiskConf): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LicensingFilterSensitiveLog = (obj: Licensing): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PostLaunchActionsFilterSensitiveLog = (obj: PostLaunchActions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateLaunchConfigurationTemplateRequestFilterSensitiveLog = (
   obj: CreateLaunchConfigurationTemplateRequest
 ): any => ({
   ...obj,
+  ...(obj.postLaunchActions && { postLaunchActions: obj.postLaunchActions }),
   ...(obj.tags && { tags: SENSITIVE_STRING }),
 });
 
@@ -3549,34 +4627,8 @@ export const CreateLaunchConfigurationTemplateRequestFilterSensitiveLog = (
  */
 export const LaunchConfigurationTemplateFilterSensitiveLog = (obj: LaunchConfigurationTemplate): any => ({
   ...obj,
+  ...(obj.postLaunchActions && { postLaunchActions: obj.postLaunchActions }),
   ...(obj.tags && { tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DeleteLaunchConfigurationTemplateRequestFilterSensitiveLog = (
-  obj: DeleteLaunchConfigurationTemplateRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteLaunchConfigurationTemplateResponseFilterSensitiveLog = (
-  obj: DeleteLaunchConfigurationTemplateResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLaunchConfigurationTemplatesRequestFilterSensitiveLog = (
-  obj: DescribeLaunchConfigurationTemplatesRequest
-): any => ({
-  ...obj,
 });
 
 /**
@@ -3587,71 +4639,6 @@ export const DescribeLaunchConfigurationTemplatesResponseFilterSensitiveLog = (
 ): any => ({
   ...obj,
   ...(obj.items && { items: obj.items.map((item) => LaunchConfigurationTemplateFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const TemplateActionsRequestFiltersFilterSensitiveLog = (obj: TemplateActionsRequestFilters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTemplateActionsRequestFilterSensitiveLog = (obj: ListTemplateActionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TemplateActionDocumentFilterSensitiveLog = (obj: TemplateActionDocument): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTemplateActionsResponseFilterSensitiveLog = (obj: ListTemplateActionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutTemplateActionRequestFilterSensitiveLog = (obj: PutTemplateActionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveTemplateActionRequestFilterSensitiveLog = (obj: RemoveTemplateActionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveTemplateActionResponseFilterSensitiveLog = (obj: RemoveTemplateActionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateLaunchConfigurationTemplateRequestFilterSensitiveLog = (
-  obj: UpdateLaunchConfigurationTemplateRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -3685,33 +4672,6 @@ export const ReplicationConfigurationTemplateFilterSensitiveLog = (obj: Replicat
 /**
  * @internal
  */
-export const DeleteReplicationConfigurationTemplateRequestFilterSensitiveLog = (
-  obj: DeleteReplicationConfigurationTemplateRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteReplicationConfigurationTemplateResponseFilterSensitiveLog = (
-  obj: DeleteReplicationConfigurationTemplateResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReplicationConfigurationTemplatesRequestFilterSensitiveLog = (
-  obj: DescribeReplicationConfigurationTemplatesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeReplicationConfigurationTemplatesResponseFilterSensitiveLog = (
   obj: DescribeReplicationConfigurationTemplatesResponse
 ): any => ({
@@ -3732,202 +4692,9 @@ export const UpdateReplicationConfigurationTemplateRequestFilterSensitiveLog = (
 /**
  * @internal
  */
-export const ChangeServerLifeCycleStateSourceServerLifecycleFilterSensitiveLog = (
-  obj: ChangeServerLifeCycleStateSourceServerLifecycle
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChangeServerLifeCycleStateRequestFilterSensitiveLog = (obj: ChangeServerLifeCycleStateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataReplicationErrorFilterSensitiveLog = (obj: DataReplicationError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataReplicationInitiationStepFilterSensitiveLog = (obj: DataReplicationInitiationStep): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataReplicationInitiationFilterSensitiveLog = (obj: DataReplicationInitiation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataReplicationInfoReplicatedDiskFilterSensitiveLog = (obj: DataReplicationInfoReplicatedDisk): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataReplicationInfoFilterSensitiveLog = (obj: DataReplicationInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchedInstanceFilterSensitiveLog = (obj: LaunchedInstance): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LifeCycleLastCutoverFinalizedFilterSensitiveLog = (obj: LifeCycleLastCutoverFinalized): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LifeCycleLastCutoverInitiatedFilterSensitiveLog = (obj: LifeCycleLastCutoverInitiated): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LifeCycleLastCutoverRevertedFilterSensitiveLog = (obj: LifeCycleLastCutoverReverted): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LifeCycleLastCutoverFilterSensitiveLog = (obj: LifeCycleLastCutover): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LifeCycleLastTestFinalizedFilterSensitiveLog = (obj: LifeCycleLastTestFinalized): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LifeCycleLastTestInitiatedFilterSensitiveLog = (obj: LifeCycleLastTestInitiated): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LifeCycleLastTestRevertedFilterSensitiveLog = (obj: LifeCycleLastTestReverted): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LifeCycleLastTestFilterSensitiveLog = (obj: LifeCycleLastTest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LifeCycleFilterSensitiveLog = (obj: LifeCycle): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CPUFilterSensitiveLog = (obj: CPU): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DiskFilterSensitiveLog = (obj: Disk): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IdentificationHintsFilterSensitiveLog = (obj: IdentificationHints): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkInterfaceFilterSensitiveLog = (obj: NetworkInterface): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OSFilterSensitiveLog = (obj: OS): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SourcePropertiesFilterSensitiveLog = (obj: SourceProperties): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const SourceServerFilterSensitiveLog = (obj: SourceServer): any => ({
   ...obj,
   ...(obj.tags && { tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DeleteSourceServerRequestFilterSensitiveLog = (obj: DeleteSourceServerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSourceServerResponseFilterSensitiveLog = (obj: DeleteSourceServerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSourceServersRequestFiltersFilterSensitiveLog = (
-  obj: DescribeSourceServersRequestFilters
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSourceServersRequestFilterSensitiveLog = (obj: DescribeSourceServersRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -3941,116 +4708,9 @@ export const DescribeSourceServersResponseFilterSensitiveLog = (obj: DescribeSou
 /**
  * @internal
  */
-export const DisconnectFromServiceRequestFilterSensitiveLog = (obj: DisconnectFromServiceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FinalizeCutoverRequestFilterSensitiveLog = (obj: FinalizeCutoverRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLaunchConfigurationRequestFilterSensitiveLog = (obj: GetLaunchConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchConfigurationFilterSensitiveLog = (obj: LaunchConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetReplicationConfigurationRequestFilterSensitiveLog = (obj: GetReplicationConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReplicationConfigurationReplicatedDiskFilterSensitiveLog = (
-  obj: ReplicationConfigurationReplicatedDisk
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ReplicationConfigurationFilterSensitiveLog = (obj: ReplicationConfiguration): any => ({
   ...obj,
   ...(obj.stagingAreaTags && { stagingAreaTags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const SourceServerActionsRequestFiltersFilterSensitiveLog = (obj: SourceServerActionsRequestFilters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSourceServerActionsRequestFilterSensitiveLog = (obj: ListSourceServerActionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SourceServerActionDocumentFilterSensitiveLog = (obj: SourceServerActionDocument): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSourceServerActionsResponseFilterSensitiveLog = (obj: ListSourceServerActionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MarkAsArchivedRequestFilterSensitiveLog = (obj: MarkAsArchivedRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutSourceServerActionRequestFilterSensitiveLog = (obj: PutSourceServerActionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveSourceServerActionRequestFilterSensitiveLog = (obj: RemoveSourceServerActionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveSourceServerActionResponseFilterSensitiveLog = (obj: RemoveSourceServerActionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RetryDataReplicationRequestFilterSensitiveLog = (obj: RetryDataReplicationRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -4067,13 +4727,6 @@ export const StartCutoverRequestFilterSensitiveLog = (obj: StartCutoverRequest):
 export const StartCutoverResponseFilterSensitiveLog = (obj: StartCutoverResponse): any => ({
   ...obj,
   ...(obj.job && { job: JobFilterSensitiveLog(obj.job) }),
-});
-
-/**
- * @internal
- */
-export const StartReplicationRequestFilterSensitiveLog = (obj: StartReplicationRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -4111,27 +4764,11 @@ export const TerminateTargetInstancesResponseFilterSensitiveLog = (obj: Terminat
 /**
  * @internal
  */
-export const UpdateLaunchConfigurationRequestFilterSensitiveLog = (obj: UpdateLaunchConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateReplicationConfigurationRequestFilterSensitiveLog = (
   obj: UpdateReplicationConfigurationRequest
 ): any => ({
   ...obj,
   ...(obj.stagingAreaTags && { stagingAreaTags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateSourceServerReplicationTypeRequestFilterSensitiveLog = (
-  obj: UpdateSourceServerReplicationTypeRequest
-): any => ({
-  ...obj,
 });
 
 /**
@@ -4148,20 +4785,6 @@ export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): a
 export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
   ...obj,
   ...(obj.tagKeys && { tagKeys: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DeleteVcenterClientRequestFilterSensitiveLog = (obj: DeleteVcenterClientRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVcenterClientsRequestFilterSensitiveLog = (obj: DescribeVcenterClientsRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -4184,37 +4807,9 @@ export const DescribeVcenterClientsResponseFilterSensitiveLog = (obj: DescribeVc
 /**
  * @internal
  */
-export const ArchiveWaveRequestFilterSensitiveLog = (obj: ArchiveWaveRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WaveAggregatedStatusFilterSensitiveLog = (obj: WaveAggregatedStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const WaveFilterSensitiveLog = (obj: Wave): any => ({
   ...obj,
   ...(obj.tags && { tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const AssociateApplicationsRequestFilterSensitiveLog = (obj: AssociateApplicationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateApplicationsResponseFilterSensitiveLog = (obj: AssociateApplicationsResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -4228,63 +4823,7 @@ export const CreateWaveRequestFilterSensitiveLog = (obj: CreateWaveRequest): any
 /**
  * @internal
  */
-export const DeleteWaveRequestFilterSensitiveLog = (obj: DeleteWaveRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteWaveResponseFilterSensitiveLog = (obj: DeleteWaveResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateApplicationsRequestFilterSensitiveLog = (obj: DisassociateApplicationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateApplicationsResponseFilterSensitiveLog = (obj: DisassociateApplicationsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListWavesRequestFiltersFilterSensitiveLog = (obj: ListWavesRequestFilters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListWavesRequestFilterSensitiveLog = (obj: ListWavesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListWavesResponseFilterSensitiveLog = (obj: ListWavesResponse): any => ({
   ...obj,
   ...(obj.items && { items: obj.items.map((item) => WaveFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const UnarchiveWaveRequestFilterSensitiveLog = (obj: UnarchiveWaveRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateWaveRequestFilterSensitiveLog = (obj: UpdateWaveRequest): any => ({
-  ...obj,
 });

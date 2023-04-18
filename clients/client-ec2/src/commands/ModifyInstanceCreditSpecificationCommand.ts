@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { ModifyInstanceCreditSpecificationRequest, ModifyInstanceCreditSpecificationResult } from "../models/models_6";
 import {
-  ModifyInstanceCreditSpecificationRequest,
-  ModifyInstanceCreditSpecificationRequestFilterSensitiveLog,
-  ModifyInstanceCreditSpecificationResult,
-  ModifyInstanceCreditSpecificationResultFilterSensitiveLog,
-} from "../models/models_6";
-import {
-  deserializeAws_ec2ModifyInstanceCreditSpecificationCommand,
-  serializeAws_ec2ModifyInstanceCreditSpecificationCommand,
+  de_ModifyInstanceCreditSpecificationCommand,
+  se_ModifyInstanceCreditSpecificationCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link ModifyInstanceCreditSpecificationCommand}.
+ */
 export interface ModifyInstanceCreditSpecificationCommandInput extends ModifyInstanceCreditSpecificationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ModifyInstanceCreditSpecificationCommand}.
+ */
 export interface ModifyInstanceCreditSpecificationCommandOutput
   extends ModifyInstanceCreditSpecificationResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the credit option for CPU usage on a running or stopped burstable performance
  *             instance. The credit options are <code>standard</code> and
  *             <code>unlimited</code>.</p>
@@ -42,13 +48,26 @@ export interface ModifyInstanceCreditSpecificationCommandOutput
  * import { EC2Client, ModifyInstanceCreditSpecificationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyInstanceCreditSpecificationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ModifyInstanceCreditSpecificationRequest
+ *   DryRun: true || false,
+ *   ClientToken: "STRING_VALUE",
+ *   InstanceCreditSpecifications: [ // InstanceCreditSpecificationListRequest // required
+ *     { // InstanceCreditSpecificationRequest
+ *       InstanceId: "STRING_VALUE", // required
+ *       CpuCredits: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new ModifyInstanceCreditSpecificationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyInstanceCreditSpecificationCommandInput - {@link ModifyInstanceCreditSpecificationCommandInput}
+ * @returns {@link ModifyInstanceCreditSpecificationCommandOutput}
  * @see {@link ModifyInstanceCreditSpecificationCommandInput} for command's `input` shape.
  * @see {@link ModifyInstanceCreditSpecificationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class ModifyInstanceCreditSpecificationCommand extends $Command<
@@ -68,6 +87,9 @@ export class ModifyInstanceCreditSpecificationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyInstanceCreditSpecificationCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +118,8 @@ export class ModifyInstanceCreditSpecificationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyInstanceCreditSpecificationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyInstanceCreditSpecificationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,18 +129,24 @@ export class ModifyInstanceCreditSpecificationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifyInstanceCreditSpecificationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyInstanceCreditSpecificationCommand(input, context);
+    return se_ModifyInstanceCreditSpecificationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyInstanceCreditSpecificationCommandOutput> {
-    return deserializeAws_ec2ModifyInstanceCreditSpecificationCommand(output, context);
+    return de_ModifyInstanceCreditSpecificationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -150,8 +150,8 @@ import { SetSubnetsCommand, SetSubnetsCommandInput, SetSubnetsCommandOutput } fr
 import { ElasticLoadBalancingV2Client } from "./ElasticLoadBalancingV2Client";
 
 /**
+ * @public
  * <fullname>Elastic Load Balancing</fullname>
- *
  *          <p>A load balancer distributes incoming traffic across targets, such as your EC2 instances.
  *       This enables you to increase the availability of your application. The load balancer also
  *       monitors the health of its registered targets and ensures that it routes traffic only to
@@ -160,7 +160,6 @@ import { ElasticLoadBalancingV2Client } from "./ElasticLoadBalancingV2Client";
  *       clients to the load balancer. You configure a target group with a protocol and port number for
  *       connections from the load balancer to the targets, and with health check settings to be used
  *       when checking the health status of the targets.</p>
- *
  *          <p>Elastic Load Balancing supports the following types of load balancers: Application Load
  *       Balancers, Network Load Balancers, Gateway Load Balancers, and Classic Load Balancers. This
  *       reference covers the following load balancer types:</p>
@@ -177,26 +176,18 @@ import { ElasticLoadBalancingV2Client } from "./ElasticLoadBalancingV2Client";
  *                <p>Gateway Load Balancer - Operates at the network layer (layer 3).</p>
  *             </li>
  *          </ul>
- *
  *          <p>For more information, see the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/">Elastic Load Balancing User
  *       Guide</a>.</p>
- *
- *
- *
- *
- *
- *
- *
  *          <p>All Elastic Load Balancing operations are idempotent, which means that they complete at
  *       most one time. If you repeat an operation, it succeeds.</p>
  */
 export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   /**
+   * @public
    * <p>Adds the specified SSL server certificate to the certificate list for the specified HTTPS
    *       or TLS listener.</p>
    *          <p>If the certificate in already in the certificate list, the call is successful but the
    *       certificate is not added again.</p>
-   *
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html">HTTPS
    *         listeners</a> in the <i>Application Load Balancers Guide</i> or <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html">TLS
    *         listeners</a> in the <i>Network Load Balancers Guide</i>.</p>
@@ -231,6 +222,7 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   }
 
   /**
+   * @public
    * <p>Adds the specified tags to the specified Elastic Load Balancing resource. You can tag your
    *       Application Load Balancers, Network Load Balancers, Gateway Load Balancers, target groups,
    *       listeners, and rules.</p>
@@ -261,10 +253,9 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   }
 
   /**
+   * @public
    * <p>Creates a listener for the specified Application Load Balancer, Network Load Balancer, or
    *       Gateway Load Balancer.</p>
-   *
-   *
    *          <p>For more information, see the following:</p>
    *          <ul>
    *             <li>
@@ -286,7 +277,6 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
    *                </p>
    *             </li>
    *          </ul>
-   *
    *          <p>This operation is idempotent, which means that it completes at most one time. If you
    *       attempt to create multiple listeners with the same settings, each call succeeds.</p>
    */
@@ -320,11 +310,9 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   }
 
   /**
+   * @public
    * <p>Creates an Application Load Balancer, Network Load Balancer, or Gateway Load
    *       Balancer.</p>
-   *
-   *
-   *
    *          <p>For more information, see the following:</p>
    *          <ul>
    *             <li>
@@ -345,7 +333,6 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
    *                </p>
    *             </li>
    *          </ul>
-   *
    *          <p>This operation is idempotent, which means that it completes at most one time. If you
    *       attempt to create multiple load balancers with the same settings, each call succeeds.</p>
    */
@@ -379,6 +366,7 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   }
 
   /**
+   * @public
    * <p>Creates a rule for the specified listener. The listener must be associated with an
    *       Application Load Balancer.</p>
    *          <p>Each rule consists of a priority, one or more actions, and one or more conditions. Rules
@@ -410,10 +398,8 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   }
 
   /**
+   * @public
    * <p>Creates a target group.</p>
-   *
-   *
-   *
    *          <p>For more information, see the following:</p>
    *          <ul>
    *             <li>
@@ -435,7 +421,6 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
    *                </p>
    *             </li>
    *          </ul>
-   *
    *          <p>This operation is idempotent, which means that it completes at most one time. If you
    *       attempt to create multiple target groups with the same settings, each call succeeds.</p>
    */
@@ -469,6 +454,7 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified listener.</p>
    *          <p>Alternatively, your listener is deleted when you delete the load balancer to which it is
    *         attached.</p>
@@ -503,6 +489,7 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified Application Load Balancer, Network Load Balancer, or Gateway Load
    *       Balancer. Deleting a load balancer also deletes its listeners.</p>
    *          <p>You can't delete a load balancer if deletion protection is enabled. If the load balancer
@@ -541,6 +528,7 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified rule.</p>
    *          <p>You can't delete the default rule.</p>
    */
@@ -568,6 +556,7 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified target group.</p>
    *          <p>You can delete a target group if it is not referenced by any actions. Deleting a target
    *       group also deletes any associated health checks. Deleting a target group does not affect its
@@ -604,6 +593,7 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   }
 
   /**
+   * @public
    * <p>Deregisters the specified targets from the specified target group. After the targets are
    *       deregistered, they no longer receive traffic from the load balancer.</p>
    */
@@ -637,6 +627,7 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   }
 
   /**
+   * @public
    * <p>Describes the current Elastic Load Balancing resource limits for your Amazon Web Services
    *       account.</p>
    *          <p>For more information, see the following:</p>
@@ -691,6 +682,7 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   }
 
   /**
+   * @public
    * <p>Describes the default certificate and the certificate list for the specified HTTPS or TLS
    *       listener.</p>
    *          <p>If the default certificate is also in the certificate list, it appears twice in the
@@ -730,6 +722,7 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   }
 
   /**
+   * @public
    * <p>Describes the specified listeners or the listeners for the specified Application Load
    *       Balancer, Network Load Balancer, or Gateway Load Balancer. You must specify either a load
    *       balancer or one or more listeners.</p>
@@ -764,9 +757,9 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   }
 
   /**
+   * @public
    * <p>Describes the attributes for the specified Application Load Balancer, Network Load
    *       Balancer, or Gateway Load Balancer.</p>
-   *
    *          <p>For more information, see the following:</p>
    *          <ul>
    *             <li>
@@ -819,6 +812,7 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   }
 
   /**
+   * @public
    * <p>Describes the specified load balancers or all of your load balancers.</p>
    */
   public describeLoadBalancers(
@@ -851,6 +845,7 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   }
 
   /**
+   * @public
    * <p>Describes the specified rules or the rules for the specified listener. You must specify
    *       either a listener or one or more rules.</p>
    */
@@ -884,6 +879,7 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   }
 
   /**
+   * @public
    * <p>Describes the specified policies or all policies used for SSL negotiation.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies">Security policies</a> in the <i>Application Load Balancers Guide</i> or
    *         <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies">Security policies</a> in the <i>Network Load Balancers Guide</i>.</p>
@@ -918,6 +914,7 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   }
 
   /**
+   * @public
    * <p>Describes the tags for the specified Elastic Load Balancing resources. You can describe
    *       the tags for one or more Application Load Balancers, Network Load Balancers, Gateway Load
    *       Balancers, target groups, listeners, or rules.</p>
@@ -949,6 +946,7 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   }
 
   /**
+   * @public
    * <p>Describes the attributes for the specified target group.</p>
    *          <p>For more information, see the following:</p>
    *          <ul>
@@ -1002,6 +1000,7 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   }
 
   /**
+   * @public
    * <p>Describes the specified target groups or all of your target groups. By default, all target
    *       groups are described. Alternatively, you can specify one of the following to filter the
    *       results: the ARN of the load balancer, the names of one or more target groups, or the ARNs of
@@ -1037,6 +1036,7 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   }
 
   /**
+   * @public
    * <p>Describes the health of the specified targets or all of your targets.</p>
    */
   public describeTargetHealth(
@@ -1069,6 +1069,7 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   }
 
   /**
+   * @public
    * <p>Replaces the specified properties of the specified listener. Any properties that you do
    *       not specify remain unchanged.</p>
    *          <p>Changing the protocol from HTTPS to HTTP, or from TLS to TCP, removes the security policy
@@ -1108,6 +1109,7 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   }
 
   /**
+   * @public
    * <p>Modifies the specified attributes of the specified Application Load Balancer, Network Load
    *       Balancer, or Gateway Load Balancer.</p>
    *          <p>If any of the specified attributes can't be modified as requested, the call fails. Any
@@ -1143,6 +1145,7 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   }
 
   /**
+   * @public
    * <p>Replaces the specified properties of the specified rule. Any properties that you do not
    *       specify are unchanged.</p>
    *          <p>To add an item to a list, remove an item from a list, or update an item in a list, you
@@ -1173,6 +1176,7 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   }
 
   /**
+   * @public
    * <p>Modifies the health checks used when evaluating the health state of the targets in the
    *       specified target group.</p>
    */
@@ -1206,6 +1210,7 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   }
 
   /**
+   * @public
    * <p>Modifies the specified attributes of the specified target group.</p>
    */
   public modifyTargetGroupAttributes(
@@ -1238,16 +1243,14 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   }
 
   /**
+   * @public
    * <p>Registers the specified targets with the specified target group.</p>
-   *
    *          <p>If the target is an EC2 instance, it must be in the <code>running</code> state when you
    *       register it.</p>
-   *
    *          <p>By default, the load balancer routes requests to registered targets using the protocol and
    *       port for the target group. Alternatively, you can override the port for a target when you
    *       register it. You can register each EC2 instance or IP address with the same target group
    *       multiple times using different ports.</p>
-   *
    *          <p>With a Network Load Balancer, you cannot register instances by instance ID if they have
    *       the following instance types: C1, CC1, CC2, CG1, CG2, CR1, CS1, G1, G2, HI1, HS1, M1, M2, M3,
    *       and T1. You can register instances of these types by IP address.</p>
@@ -1282,6 +1285,7 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   }
 
   /**
+   * @public
    * <p>Removes the specified certificate from the certificate list for the specified HTTPS or TLS
    *       listener.</p>
    */
@@ -1315,6 +1319,7 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   }
 
   /**
+   * @public
    * <p>Removes the specified tags from the specified Elastic Load Balancing resources. You can
    *       remove the tags for one or more Application Load Balancers, Network Load Balancers, Gateway
    *       Load Balancers, target groups, listeners, or rules.</p>
@@ -1343,6 +1348,7 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   }
 
   /**
+   * @public
    * <p>Sets the type of IP addresses used by the subnets of the specified load balancer.</p>
    */
   public setIpAddressType(
@@ -1375,6 +1381,7 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   }
 
   /**
+   * @public
    * <p>Sets the priorities of the specified rules.</p>
    *          <p>You can reorder the rules as long as there are no priority conflicts in the new order. Any
    *       existing rules that you do not specify retain their current priority.</p>
@@ -1409,6 +1416,7 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   }
 
   /**
+   * @public
    * <p>Associates the specified security groups with the specified Application Load Balancer. The
    *       specified security groups override the previously associated security groups.</p>
    *          <p>You can't specify a security group for a Network Load Balancer or Gateway Load
@@ -1444,6 +1452,7 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   }
 
   /**
+   * @public
    * <p>Enables the Availability Zones for the specified public subnets for the specified
    *       Application Load Balancer or Network Load Balancer. The specified subnets replace the
    *       previously enabled subnets.</p>

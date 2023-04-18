@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsClient";
-import {
-  DescribeDetectorModelRequest,
-  DescribeDetectorModelRequestFilterSensitiveLog,
-  DescribeDetectorModelResponse,
-  DescribeDetectorModelResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeDetectorModelCommand,
-  serializeAws_restJson1DescribeDetectorModelCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeDetectorModelRequest, DescribeDetectorModelResponse } from "../models/models_0";
+import { de_DescribeDetectorModelCommand, se_DescribeDetectorModelCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeDetectorModelCommand}.
+ */
 export interface DescribeDetectorModelCommandInput extends DescribeDetectorModelRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeDetectorModelCommand}.
+ */
 export interface DescribeDetectorModelCommandOutput extends DescribeDetectorModelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a detector model. If the <code>version</code> parameter is not specified,
  *       information about the latest version is returned.</p>
  * @example
@@ -37,13 +40,35 @@ export interface DescribeDetectorModelCommandOutput extends DescribeDetectorMode
  * import { IoTEventsClient, DescribeDetectorModelCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
  * // const { IoTEventsClient, DescribeDetectorModelCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
  * const client = new IoTEventsClient(config);
+ * const input = { // DescribeDetectorModelRequest
+ *   detectorModelName: "STRING_VALUE", // required
+ *   detectorModelVersion: "STRING_VALUE",
+ * };
  * const command = new DescribeDetectorModelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDetectorModelCommandInput - {@link DescribeDetectorModelCommandInput}
+ * @returns {@link DescribeDetectorModelCommandOutput}
  * @see {@link DescribeDetectorModelCommandInput} for command's `input` shape.
  * @see {@link DescribeDetectorModelCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsClientResolvedConfig | config} for IoTEventsClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal failure occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request was invalid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource was not found.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request could not be completed due to throttling.</p>
+ *
  *
  */
 export class DescribeDetectorModelCommand extends $Command<
@@ -63,6 +88,9 @@ export class DescribeDetectorModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDetectorModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +119,8 @@ export class DescribeDetectorModelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDetectorModelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDetectorModelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +130,18 @@ export class DescribeDetectorModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDetectorModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeDetectorModelCommand(input, context);
+    return se_DescribeDetectorModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDetectorModelCommandOutput> {
-    return deserializeAws_restJson1DescribeDetectorModelCommand(output, context);
+    return de_DescribeDetectorModelCommand(output, context);
   }
 
   // Start section: command_body_extra

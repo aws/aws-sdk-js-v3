@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateSchemaRequest,
-  CreateSchemaRequestFilterSensitiveLog,
-  CreateSchemaResponse,
-  CreateSchemaResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateSchemaCommand,
-  serializeAws_restJson1CreateSchemaCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateSchemaRequest, CreateSchemaResponse } from "../models/models_0";
+import { de_CreateSchemaCommand, se_CreateSchemaCommand } from "../protocols/Aws_restJson1";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateSchemaCommand}.
+ */
 export interface CreateSchemaCommandInput extends CreateSchemaRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateSchemaCommand}.
+ */
 export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a schema definition.</p> <note><p>Inactive schemas will be deleted after two years.</p></note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,34 @@ export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __Metad
  * import { SchemasClient, CreateSchemaCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, CreateSchemaCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
  * const client = new SchemasClient(config);
+ * const input = { // CreateSchemaRequest
+ *   Content: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   RegistryName: "STRING_VALUE", // required
+ *   SchemaName: "STRING_VALUE", // required
+ *   Tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Type: "STRING_VALUE", // required
+ * };
  * const command = new CreateSchemaCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSchemaCommandInput - {@link CreateSchemaCommandInput}
+ * @returns {@link CreateSchemaCommandOutput}
  * @see {@link CreateSchemaCommandInput} for command's `input` shape.
  * @see {@link CreateSchemaCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *
  *
  */
 export class CreateSchemaCommand extends $Command<
@@ -62,6 +86,9 @@ export class CreateSchemaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSchemaCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +115,8 @@ export class CreateSchemaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSchemaRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSchemaResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +126,18 @@ export class CreateSchemaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateSchemaCommand(input, context);
+    return se_CreateSchemaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSchemaCommandOutput> {
-    return deserializeAws_restJson1CreateSchemaCommand(output, context);
+    return de_CreateSchemaCommand(output, context);
   }
 
   // Start section: command_body_extra

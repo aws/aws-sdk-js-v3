@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import {
-  RetrieveEnvironmentInfoMessage,
-  RetrieveEnvironmentInfoMessageFilterSensitiveLog,
-  RetrieveEnvironmentInfoResultMessage,
-  RetrieveEnvironmentInfoResultMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryRetrieveEnvironmentInfoCommand,
-  serializeAws_queryRetrieveEnvironmentInfoCommand,
-} from "../protocols/Aws_query";
+import { RetrieveEnvironmentInfoMessage, RetrieveEnvironmentInfoResultMessage } from "../models/models_0";
+import { de_RetrieveEnvironmentInfoCommand, se_RetrieveEnvironmentInfoCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link RetrieveEnvironmentInfoCommand}.
+ */
 export interface RetrieveEnvironmentInfoCommandInput extends RetrieveEnvironmentInfoMessage {}
+/**
+ * @public
+ *
+ * The output of {@link RetrieveEnvironmentInfoCommand}.
+ */
 export interface RetrieveEnvironmentInfoCommandOutput extends RetrieveEnvironmentInfoResultMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the compiled information from a <a>RequestEnvironmentInfo</a>
  *       request.</p>
  *          <p>Related Topics</p>
@@ -45,13 +48,45 @@ export interface RetrieveEnvironmentInfoCommandOutput extends RetrieveEnvironmen
  * import { ElasticBeanstalkClient, RetrieveEnvironmentInfoCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, RetrieveEnvironmentInfoCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = { // RetrieveEnvironmentInfoMessage
+ *   EnvironmentId: "STRING_VALUE",
+ *   EnvironmentName: "STRING_VALUE",
+ *   InfoType: "tail" || "bundle", // required
+ * };
  * const command = new RetrieveEnvironmentInfoCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RetrieveEnvironmentInfoCommandInput - {@link RetrieveEnvironmentInfoCommandInput}
+ * @returns {@link RetrieveEnvironmentInfoCommandOutput}
  * @see {@link RetrieveEnvironmentInfoCommandInput} for command's `input` shape.
  * @see {@link RetrieveEnvironmentInfoCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
+ *
+ *
+ * @example To retrieve tailed logs
+ * ```javascript
+ * // The following operation retrieves a link to logs from an environment named my-env:
+ * const input = {
+ *   "EnvironmentName": "my-env",
+ *   "InfoType": "tail"
+ * };
+ * const command = new RetrieveEnvironmentInfoCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "EnvironmentInfo": [
+ *     {
+ *       "Ec2InstanceId": "i-09c1c867",
+ *       "InfoType": "tail",
+ *       "Message": "https://elasticbeanstalk-us-west-2-0123456789012.s3.amazonaws.com/resources/environments/logs/tail/e-fyqyju3yjs/i-09c1c867/TailLogs-1440109397703.out?AWSAccessKeyId=AKGPT4J56IAJ2EUBL5CQ&Expires=1440195891&Signature=n%2BEalOV6A2HIOx4Rcfb7LT16bBM%3D",
+ *       "SampleTimestamp": "2015-08-20T22:23:17.703Z"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-retrieve-tailed-logs-1456277792734
+ * ```
  *
  */
 export class RetrieveEnvironmentInfoCommand extends $Command<
@@ -71,6 +106,9 @@ export class RetrieveEnvironmentInfoCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RetrieveEnvironmentInfoCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +137,8 @@ export class RetrieveEnvironmentInfoCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RetrieveEnvironmentInfoMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: RetrieveEnvironmentInfoResultMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +148,18 @@ export class RetrieveEnvironmentInfoCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RetrieveEnvironmentInfoCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRetrieveEnvironmentInfoCommand(input, context);
+    return se_RetrieveEnvironmentInfoCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RetrieveEnvironmentInfoCommandOutput> {
-    return deserializeAws_queryRetrieveEnvironmentInfoCommand(output, context);
+    return de_RetrieveEnvironmentInfoCommand(output, context);
   }
 
   // Start section: command_body_extra

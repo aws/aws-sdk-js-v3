@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  ListDimensionsRequest,
-  ListDimensionsRequestFilterSensitiveLog,
-  ListDimensionsResponse,
-  ListDimensionsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListDimensionsCommand,
-  serializeAws_restJson1ListDimensionsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListDimensionsRequest, ListDimensionsResponse } from "../models/models_1";
+import { de_ListDimensionsCommand, se_ListDimensionsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListDimensionsCommand}.
+ */
 export interface ListDimensionsCommandInput extends ListDimensionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDimensionsCommand}.
+ */
 export interface ListDimensionsCommandOutput extends ListDimensionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the set of dimensions that are defined for your Amazon Web Services accounts.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListDimensions</a> action.</p>
  * @example
@@ -37,13 +40,29 @@ export interface ListDimensionsCommandOutput extends ListDimensionsResponse, __M
  * import { IoTClient, ListDimensionsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListDimensionsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // ListDimensionsRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListDimensionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDimensionsCommandInput - {@link ListDimensionsCommandInput}
+ * @returns {@link ListDimensionsCommandOutput}
  * @see {@link ListDimensionsCommandInput} for command's `input` shape.
  * @see {@link ListDimensionsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
  *
  */
 export class ListDimensionsCommand extends $Command<
@@ -63,6 +82,9 @@ export class ListDimensionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDimensionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +113,8 @@ export class ListDimensionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDimensionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDimensionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +124,18 @@ export class ListDimensionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDimensionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDimensionsCommand(input, context);
+    return se_ListDimensionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDimensionsCommandOutput> {
-    return deserializeAws_restJson1ListDimensionsCommand(output, context);
+    return de_ListDimensionsCommand(output, context);
   }
 
   // Start section: command_body_extra

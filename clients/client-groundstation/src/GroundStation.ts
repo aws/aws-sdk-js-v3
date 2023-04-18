@@ -56,6 +56,11 @@ import {
   DescribeEphemerisCommandInput,
   DescribeEphemerisCommandOutput,
 } from "./commands/DescribeEphemerisCommand";
+import {
+  GetAgentConfigurationCommand,
+  GetAgentConfigurationCommandInput,
+  GetAgentConfigurationCommandOutput,
+} from "./commands/GetAgentConfigurationCommand";
 import { GetConfigCommand, GetConfigCommandInput, GetConfigCommandOutput } from "./commands/GetConfigCommand";
 import {
   GetDataflowEndpointGroupCommand,
@@ -114,6 +119,11 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  RegisterAgentCommand,
+  RegisterAgentCommandInput,
+  RegisterAgentCommandOutput,
+} from "./commands/RegisterAgentCommand";
+import {
   ReserveContactCommand,
   ReserveContactCommandInput,
   ReserveContactCommandOutput,
@@ -124,6 +134,11 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import {
+  UpdateAgentStatusCommand,
+  UpdateAgentStatusCommandInput,
+  UpdateAgentStatusCommandOutput,
+} from "./commands/UpdateAgentStatusCommand";
 import {
   UpdateConfigCommand,
   UpdateConfigCommandInput,
@@ -142,6 +157,7 @@ import {
 import { GroundStationClient } from "./GroundStationClient";
 
 /**
+ * @public
  * <p>Welcome to the AWS Ground Station API Reference. AWS Ground Station is a fully managed service that
  *       enables you to control satellite communications, downlink and process satellite data, and
  *       scale your satellite operations efficiently and cost-effectively without having
@@ -149,6 +165,7 @@ import { GroundStationClient } from "./GroundStationClient";
  */
 export class GroundStation extends GroundStationClient {
   /**
+   * @public
    * <p>Cancels a contact with a specified contact ID.</p>
    */
   public cancelContact(
@@ -181,6 +198,7 @@ export class GroundStation extends GroundStationClient {
   }
 
   /**
+   * @public
    * <p>Creates a <code>Config</code> with the specified <code>configData</code> parameters.</p>
    *          <p>Only one type of <code>configData</code> can be specified.</p>
    */
@@ -211,6 +229,7 @@ export class GroundStation extends GroundStationClient {
   }
 
   /**
+   * @public
    * <p>Creates a <code>DataflowEndpoint</code> group containing the specified list of <code>DataflowEndpoint</code> objects.</p>
    *          <p>The <code>name</code> field in each endpoint is used in your mission profile <code>DataflowEndpointConfig</code>
    *          to specify which endpoints to use during a contact.</p>
@@ -247,6 +266,7 @@ export class GroundStation extends GroundStationClient {
   }
 
   /**
+   * @public
    * <p>Creates an Ephemeris with the specified <code>EphemerisData</code>.</p>
    */
   public createEphemeris(
@@ -279,6 +299,7 @@ export class GroundStation extends GroundStationClient {
   }
 
   /**
+   * @public
    * <p>Creates a mission profile.</p>
    *          <p>
    *             <code>dataflowEdges</code> is a list of lists of strings. Each lower level list of strings
@@ -314,6 +335,7 @@ export class GroundStation extends GroundStationClient {
   }
 
   /**
+   * @public
    * <p>Deletes a <code>Config</code>.</p>
    */
   public deleteConfig(
@@ -343,6 +365,7 @@ export class GroundStation extends GroundStationClient {
   }
 
   /**
+   * @public
    * <p>Deletes a dataflow endpoint group.</p>
    */
   public deleteDataflowEndpointGroup(
@@ -375,6 +398,7 @@ export class GroundStation extends GroundStationClient {
   }
 
   /**
+   * @public
    * <p>Deletes an ephemeris</p>
    */
   public deleteEphemeris(
@@ -407,6 +431,7 @@ export class GroundStation extends GroundStationClient {
   }
 
   /**
+   * @public
    * <p>Deletes a mission profile.</p>
    */
   public deleteMissionProfile(
@@ -439,6 +464,7 @@ export class GroundStation extends GroundStationClient {
   }
 
   /**
+   * @public
    * <p>Describes an existing contact.</p>
    */
   public describeContact(
@@ -471,6 +497,7 @@ export class GroundStation extends GroundStationClient {
   }
 
   /**
+   * @public
    * <p>Describes an existing ephemeris.</p>
    */
   public describeEphemeris(
@@ -503,6 +530,43 @@ export class GroundStation extends GroundStationClient {
   }
 
   /**
+   * @public
+   * <note>
+   *             <p> For use by AWS Ground Station Agent and shouldn't be called directly.</p>
+   *          </note>
+   *          <p>Gets the latest configuration information for a registered agent.</p>
+   */
+  public getAgentConfiguration(
+    args: GetAgentConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAgentConfigurationCommandOutput>;
+  public getAgentConfiguration(
+    args: GetAgentConfigurationCommandInput,
+    cb: (err: any, data?: GetAgentConfigurationCommandOutput) => void
+  ): void;
+  public getAgentConfiguration(
+    args: GetAgentConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAgentConfigurationCommandOutput) => void
+  ): void;
+  public getAgentConfiguration(
+    args: GetAgentConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAgentConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: GetAgentConfigurationCommandOutput) => void
+  ): Promise<GetAgentConfigurationCommandOutput> | void {
+    const command = new GetAgentConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Returns <code>Config</code> information.</p>
    *          <p>Only one <code>Config</code> response can be returned.</p>
    */
@@ -530,6 +594,7 @@ export class GroundStation extends GroundStationClient {
   }
 
   /**
+   * @public
    * <p>Returns the dataflow endpoint group.</p>
    */
   public getDataflowEndpointGroup(
@@ -562,6 +627,7 @@ export class GroundStation extends GroundStationClient {
   }
 
   /**
+   * @public
    * <p>Returns the number of minutes used by account.</p>
    */
   public getMinuteUsage(
@@ -594,6 +660,7 @@ export class GroundStation extends GroundStationClient {
   }
 
   /**
+   * @public
    * <p>Returns a mission profile.</p>
    */
   public getMissionProfile(
@@ -626,6 +693,7 @@ export class GroundStation extends GroundStationClient {
   }
 
   /**
+   * @public
    * <p>Returns a satellite.</p>
    */
   public getSatellite(
@@ -655,6 +723,7 @@ export class GroundStation extends GroundStationClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of <code>Config</code> objects.</p>
    */
   public listConfigs(args: ListConfigsCommandInput, options?: __HttpHandlerOptions): Promise<ListConfigsCommandOutput>;
@@ -681,6 +750,7 @@ export class GroundStation extends GroundStationClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of contacts.</p>
    *          <p>If <code>statusList</code> contains AVAILABLE, the request must include
    *       <code>groundStation</code>, <code>missionprofileArn</code>, and <code>satelliteArn</code>.
@@ -713,6 +783,7 @@ export class GroundStation extends GroundStationClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of <code>DataflowEndpoint</code> groups.</p>
    */
   public listDataflowEndpointGroups(
@@ -745,6 +816,7 @@ export class GroundStation extends GroundStationClient {
   }
 
   /**
+   * @public
    * <p>List existing ephemerides.</p>
    */
   public listEphemerides(
@@ -777,6 +849,7 @@ export class GroundStation extends GroundStationClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of ground stations. </p>
    */
   public listGroundStations(
@@ -809,6 +882,7 @@ export class GroundStation extends GroundStationClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of mission profiles.</p>
    */
   public listMissionProfiles(
@@ -841,6 +915,7 @@ export class GroundStation extends GroundStationClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of satellites.</p>
    */
   public listSatellites(
@@ -873,6 +948,7 @@ export class GroundStation extends GroundStationClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of tags for a specified resource.</p>
    */
   public listTagsForResource(
@@ -905,6 +981,43 @@ export class GroundStation extends GroundStationClient {
   }
 
   /**
+   * @public
+   * <note>
+   *             <p> For use by AWS Ground Station Agent and shouldn't be called directly.</p>
+   *          </note>
+   *          <p> Registers a new agent with AWS Ground Station. </p>
+   */
+  public registerAgent(
+    args: RegisterAgentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterAgentCommandOutput>;
+  public registerAgent(
+    args: RegisterAgentCommandInput,
+    cb: (err: any, data?: RegisterAgentCommandOutput) => void
+  ): void;
+  public registerAgent(
+    args: RegisterAgentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RegisterAgentCommandOutput) => void
+  ): void;
+  public registerAgent(
+    args: RegisterAgentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterAgentCommandOutput) => void),
+    cb?: (err: any, data?: RegisterAgentCommandOutput) => void
+  ): Promise<RegisterAgentCommandOutput> | void {
+    const command = new RegisterAgentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Reserves a contact using specified parameters.</p>
    */
   public reserveContact(
@@ -937,6 +1050,7 @@ export class GroundStation extends GroundStationClient {
   }
 
   /**
+   * @public
    * <p>Assigns a tag to a resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -963,6 +1077,7 @@ export class GroundStation extends GroundStationClient {
   }
 
   /**
+   * @public
    * <p>Deassigns a resource tag.</p>
    */
   public untagResource(
@@ -995,6 +1110,43 @@ export class GroundStation extends GroundStationClient {
   }
 
   /**
+   * @public
+   * <note>
+   *             <p> For use by AWS Ground Station Agent and shouldn't be called directly.</p>
+   *          </note>
+   *          <p>Update the status of the agent.</p>
+   */
+  public updateAgentStatus(
+    args: UpdateAgentStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAgentStatusCommandOutput>;
+  public updateAgentStatus(
+    args: UpdateAgentStatusCommandInput,
+    cb: (err: any, data?: UpdateAgentStatusCommandOutput) => void
+  ): void;
+  public updateAgentStatus(
+    args: UpdateAgentStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAgentStatusCommandOutput) => void
+  ): void;
+  public updateAgentStatus(
+    args: UpdateAgentStatusCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAgentStatusCommandOutput) => void),
+    cb?: (err: any, data?: UpdateAgentStatusCommandOutput) => void
+  ): Promise<UpdateAgentStatusCommandOutput> | void {
+    const command = new UpdateAgentStatusCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Updates the <code>Config</code> used when scheduling contacts.</p>
    *          <p>Updating a <code>Config</code> will not update the execution parameters
    *          for existing future contacts scheduled with this <code>Config</code>.</p>
@@ -1026,6 +1178,7 @@ export class GroundStation extends GroundStationClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing ephemeris</p>
    */
   public updateEphemeris(
@@ -1058,6 +1211,7 @@ export class GroundStation extends GroundStationClient {
   }
 
   /**
+   * @public
    * <p>Updates a mission profile.</p>
    *          <p>Updating a mission profile will not update the execution parameters
    *          for existing future contacts.</p>

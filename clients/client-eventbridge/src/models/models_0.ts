@@ -1,8 +1,11 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
 import { EventBridgeServiceException as __BaseException } from "./EventBridgeServiceException";
 
+/**
+ * @public
+ */
 export interface ActivateEventSourceRequest {
   /**
    * <p>The name of the partner event source to activate.</p>
@@ -11,6 +14,7 @@ export interface ActivateEventSourceRequest {
 }
 
 /**
+ * @public
  * <p>There is concurrent modification on a rule, target, archive, or replay.</p>
  */
 export class ConcurrentModificationException extends __BaseException {
@@ -30,6 +34,7 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception occurs due to unexpected causes.</p>
  */
 export class InternalException extends __BaseException {
@@ -49,6 +54,7 @@ export class InternalException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified state is not a valid state for an event source.</p>
  */
 export class InvalidStateException extends __BaseException {
@@ -68,6 +74,7 @@ export class InvalidStateException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The operation you are attempting is not available in this region.</p>
  */
 export class OperationDisabledException extends __BaseException {
@@ -87,6 +94,7 @@ export class OperationDisabledException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An entity that you specified does not exist.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -105,22 +113,41 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
-export enum ApiDestinationState {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
-
-export enum ApiDestinationHttpMethod {
-  DELETE = "DELETE",
-  GET = "GET",
-  HEAD = "HEAD",
-  OPTIONS = "OPTIONS",
-  PATCH = "PATCH",
-  POST = "POST",
-  PUT = "PUT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ApiDestinationState = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+} as const;
 
 /**
+ * @public
+ */
+export type ApiDestinationState = (typeof ApiDestinationState)[keyof typeof ApiDestinationState];
+
+/**
+ * @public
+ * @enum
+ */
+export const ApiDestinationHttpMethod = {
+  DELETE: "DELETE",
+  GET: "GET",
+  HEAD: "HEAD",
+  OPTIONS: "OPTIONS",
+  PATCH: "PATCH",
+  POST: "POST",
+  PUT: "PUT",
+} as const;
+
+/**
+ * @public
+ */
+export type ApiDestinationHttpMethod = (typeof ApiDestinationHttpMethod)[keyof typeof ApiDestinationHttpMethod];
+
+/**
+ * @public
  * <p>Contains details about an API destination.</p>
  */
 export interface ApiDestination {
@@ -170,16 +197,26 @@ export interface ApiDestination {
   LastModifiedTime?: Date;
 }
 
-export enum ArchiveState {
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATING = "UPDATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ArchiveState = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
+} as const;
 
 /**
+ * @public
+ */
+export type ArchiveState = (typeof ArchiveState)[keyof typeof ArchiveState];
+
+/**
+ * @public
  * <p>An <code>Archive</code> object that contains details about an archive.</p>
  */
 export interface Archive {
@@ -225,11 +262,23 @@ export interface Archive {
   CreationTime?: Date;
 }
 
-export enum AssignPublicIp {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AssignPublicIp = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
+/**
+ * @public
+ */
+export type AssignPublicIp = (typeof AssignPublicIp)[keyof typeof AssignPublicIp];
+
+/**
+ * @public
+ */
 export interface CancelReplayRequest {
   /**
    * <p>The name of the replay to cancel.</p>
@@ -237,15 +286,27 @@ export interface CancelReplayRequest {
   ReplayName: string | undefined;
 }
 
-export enum ReplayState {
-  CANCELLED = "CANCELLED",
-  CANCELLING = "CANCELLING",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReplayState = {
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+} as const;
 
+/**
+ * @public
+ */
+export type ReplayState = (typeof ReplayState)[keyof typeof ReplayState];
+
+/**
+ * @public
+ */
 export interface CancelReplayResponse {
   /**
    * <p>The ARN of the replay to cancel.</p>
@@ -264,6 +325,7 @@ export interface CancelReplayResponse {
 }
 
 /**
+ * @public
  * <p>An error occurred because a replay can be canceled only when the state is Running or
  *       Starting.</p>
  */
@@ -283,6 +345,9 @@ export class IllegalStatusException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateApiDestinationRequest {
   /**
    * <p>The name for the API destination to create.</p>
@@ -316,6 +381,9 @@ export interface CreateApiDestinationRequest {
   InvocationRateLimitPerSecond?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateApiDestinationResponse {
   /**
    * <p>The ARN of the API destination that was created by the request.</p>
@@ -339,6 +407,7 @@ export interface CreateApiDestinationResponse {
 }
 
 /**
+ * @public
  * <p>The request failed because it attempted to create resource beyond the allowed service
  *       quota.</p>
  */
@@ -359,6 +428,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource you are trying to create already exists.</p>
  */
 export class ResourceAlreadyExistsException extends __BaseException {
@@ -377,6 +447,9 @@ export class ResourceAlreadyExistsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateArchiveRequest {
   /**
    * <p>The name for the archive to create.</p>
@@ -405,6 +478,9 @@ export interface CreateArchiveRequest {
   RetentionDays?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateArchiveResponse {
   /**
    * <p>The ARN of the archive that was created.</p>
@@ -428,6 +504,7 @@ export interface CreateArchiveResponse {
 }
 
 /**
+ * @public
  * <p>The event pattern is not valid.</p>
  */
 export class InvalidEventPatternException extends __BaseException {
@@ -446,13 +523,24 @@ export class InvalidEventPatternException extends __BaseException {
   }
 }
 
-export enum ConnectionAuthorizationType {
-  API_KEY = "API_KEY",
-  BASIC = "BASIC",
-  OAUTH_CLIENT_CREDENTIALS = "OAUTH_CLIENT_CREDENTIALS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ConnectionAuthorizationType = {
+  API_KEY: "API_KEY",
+  BASIC: "BASIC",
+  OAUTH_CLIENT_CREDENTIALS: "OAUTH_CLIENT_CREDENTIALS",
+} as const;
 
 /**
+ * @public
+ */
+export type ConnectionAuthorizationType =
+  (typeof ConnectionAuthorizationType)[keyof typeof ConnectionAuthorizationType];
+
+/**
+ * @public
  * <p>Contains the API key authorization parameters for the connection.</p>
  */
 export interface CreateConnectionApiKeyAuthRequestParameters {
@@ -468,6 +556,7 @@ export interface CreateConnectionApiKeyAuthRequestParameters {
 }
 
 /**
+ * @public
  * <p>Contains the Basic authorization parameters to use for the connection.</p>
  */
 export interface CreateConnectionBasicAuthRequestParameters {
@@ -483,6 +572,7 @@ export interface CreateConnectionBasicAuthRequestParameters {
 }
 
 /**
+ * @public
  * <p>Additional parameter included in the body. You can include up to 100 additional body
  *       parameters per request. An event payload cannot exceed 64 KB.</p>
  */
@@ -504,6 +594,7 @@ export interface ConnectionBodyParameter {
 }
 
 /**
+ * @public
  * <p>Additional parameter included in the header. You can include up to 100 additional header
  *       parameters per request. An event payload cannot exceed 64 KB.</p>
  */
@@ -525,6 +616,7 @@ export interface ConnectionHeaderParameter {
 }
 
 /**
+ * @public
  * <p>Additional query string parameter for the connection. You can include up to 100 additional
  *       query string parameters per request. Each additional parameter counts towards the event
  *       payload size, which cannot exceed 64 KB.</p>
@@ -547,6 +639,7 @@ export interface ConnectionQueryStringParameter {
 }
 
 /**
+ * @public
  * <p>Contains additional parameters for the connection.</p>
  */
 export interface ConnectionHttpParameters {
@@ -567,6 +660,7 @@ export interface ConnectionHttpParameters {
 }
 
 /**
+ * @public
  * <p>Contains the Basic authorization parameters to use for the connection.</p>
  */
 export interface CreateConnectionOAuthClientRequestParameters {
@@ -582,13 +676,23 @@ export interface CreateConnectionOAuthClientRequestParameters {
   ClientSecret: string | undefined;
 }
 
-export enum ConnectionOAuthHttpMethod {
-  GET = "GET",
-  POST = "POST",
-  PUT = "PUT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ConnectionOAuthHttpMethod = {
+  GET: "GET",
+  POST: "POST",
+  PUT: "PUT",
+} as const;
 
 /**
+ * @public
+ */
+export type ConnectionOAuthHttpMethod = (typeof ConnectionOAuthHttpMethod)[keyof typeof ConnectionOAuthHttpMethod];
+
+/**
+ * @public
  * <p>Contains the OAuth authorization parameters to use for the connection.</p>
  */
 export interface CreateConnectionOAuthRequestParameters {
@@ -617,6 +721,7 @@ export interface CreateConnectionOAuthRequestParameters {
 }
 
 /**
+ * @public
  * <p>Contains the authorization parameters for the connection.</p>
  */
 export interface CreateConnectionAuthRequestParameters {
@@ -647,6 +752,9 @@ export interface CreateConnectionAuthRequestParameters {
   InvocationHttpParameters?: ConnectionHttpParameters;
 }
 
+/**
+ * @public
+ */
 export interface CreateConnectionRequest {
   /**
    * <p>The name for the connection to create.</p>
@@ -660,6 +768,9 @@ export interface CreateConnectionRequest {
 
   /**
    * <p>The type of authorization to use for the connection.</p>
+   *          <note>
+   *             <p>OAUTH tokens are refreshed when a 401 or 407 response is returned.</p>
+   *          </note>
    */
   AuthorizationType: ConnectionAuthorizationType | string | undefined;
 
@@ -670,16 +781,28 @@ export interface CreateConnectionRequest {
   AuthParameters: CreateConnectionAuthRequestParameters | undefined;
 }
 
-export enum ConnectionState {
-  AUTHORIZED = "AUTHORIZED",
-  AUTHORIZING = "AUTHORIZING",
-  CREATING = "CREATING",
-  DEAUTHORIZED = "DEAUTHORIZED",
-  DEAUTHORIZING = "DEAUTHORIZING",
-  DELETING = "DELETING",
-  UPDATING = "UPDATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ConnectionState = {
+  AUTHORIZED: "AUTHORIZED",
+  AUTHORIZING: "AUTHORIZING",
+  CREATING: "CREATING",
+  DEAUTHORIZED: "DEAUTHORIZED",
+  DEAUTHORIZING: "DEAUTHORIZING",
+  DELETING: "DELETING",
+  UPDATING: "UPDATING",
+} as const;
 
+/**
+ * @public
+ */
+export type ConnectionState = (typeof ConnectionState)[keyof typeof ConnectionState];
+
+/**
+ * @public
+ */
 export interface CreateConnectionResponse {
   /**
    * <p>The ARN of the connection that was created by the request.</p>
@@ -703,6 +826,7 @@ export interface CreateConnectionResponse {
 }
 
 /**
+ * @public
  * <p>The event buses the endpoint is associated with.</p>
  */
 export interface EndpointEventBus {
@@ -712,12 +836,22 @@ export interface EndpointEventBus {
   EventBusArn: string | undefined;
 }
 
-export enum ReplicationState {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReplicationState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type ReplicationState = (typeof ReplicationState)[keyof typeof ReplicationState];
+
+/**
+ * @public
  * <p>Endpoints can replicate all events to the secondary Region.</p>
  */
 export interface ReplicationConfig {
@@ -728,6 +862,7 @@ export interface ReplicationConfig {
 }
 
 /**
+ * @public
  * <p>The primary Region of the endpoint.</p>
  */
 export interface Primary {
@@ -738,6 +873,7 @@ export interface Primary {
 }
 
 /**
+ * @public
  * <p>The secondary Region that processes events when failover is triggered or replication is enabled.</p>
  */
 export interface Secondary {
@@ -748,6 +884,7 @@ export interface Secondary {
 }
 
 /**
+ * @public
  * <p>The failover configuration for an endpoint. This includes what triggers failover and what happens when it's triggered.</p>
  */
 export interface FailoverConfig {
@@ -763,6 +900,7 @@ export interface FailoverConfig {
 }
 
 /**
+ * @public
  * <p>The routing configuration of the endpoint.</p>
  */
 export interface RoutingConfig {
@@ -772,6 +910,9 @@ export interface RoutingConfig {
   FailoverConfig: FailoverConfig | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateEndpointRequest {
   /**
    * <p>The name of the global endpoint. For example, <code>"Name":"us-east-2-custom_bus_A-endpoint"</code>.</p>
@@ -789,7 +930,8 @@ export interface CreateEndpointRequest {
   RoutingConfig: RoutingConfig | undefined;
 
   /**
-   * <p>Enable or disable event replication.</p>
+   * <p>Enable or disable event replication. The default state is <code>ENABLED</code> which means you must supply a <code>RoleArn</code>. If you don't have a
+   *       <code>RoleArn</code> or you don't want event replication enabled, set the state to <code>DISABLED</code>.</p>
    */
   ReplicationConfig?: ReplicationConfig;
 
@@ -807,16 +949,28 @@ export interface CreateEndpointRequest {
   RoleArn?: string;
 }
 
-export enum EndpointState {
-  ACTIVE = "ACTIVE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETING = "DELETING",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATING = "UPDATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EndpointState = {
+  ACTIVE: "ACTIVE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
+} as const;
 
+/**
+ * @public
+ */
+export type EndpointState = (typeof EndpointState)[keyof typeof EndpointState];
+
+/**
+ * @public
+ */
 export interface CreateEndpointResponse {
   /**
    * <p>The name of the endpoint that was created by this request.</p>
@@ -855,6 +1009,7 @@ export interface CreateEndpointResponse {
 }
 
 /**
+ * @public
  * <p>A key-value pair associated with an Amazon Web Services resource. In EventBridge, rules and event buses
  *       support tagging.</p>
  */
@@ -871,14 +1026,16 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateEventBusRequest {
   /**
    * <p>The name of the new event bus. </p>
-   *          <p>Event bus names cannot contain the / character. You can't use the name
-   *         <code>default</code> for a custom event bus, as this name is already used for your account's
-   *       default event bus.</p>
-   *          <p>If this is a partner event bus, the name must exactly match the name of the partner event
+   *          <p>Custom event bus names can't contain the <code>/</code> character, but you can use the <code>/</code> character in partner event bus names. In addition, for partner event buses, the name must exactly match the name of the partner event
    *       source that this event bus is matched to.</p>
+   *          <p>You can't use the name <code>default</code> for a custom event bus, as this name is already used for your account's
+   *       default event bus.</p>
    */
   Name: string | undefined;
 
@@ -894,6 +1051,9 @@ export interface CreateEventBusRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateEventBusResponse {
   /**
    * <p>The ARN of the new event bus.</p>
@@ -901,6 +1061,9 @@ export interface CreateEventBusResponse {
   EventBusArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreatePartnerEventSourceRequest {
   /**
    * <p>The name of the partner event source. This name must be unique and must be in the format
@@ -919,6 +1082,9 @@ export interface CreatePartnerEventSourceRequest {
   Account: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreatePartnerEventSourceResponse {
   /**
    * <p>The ARN of the partner event source.</p>
@@ -926,6 +1092,9 @@ export interface CreatePartnerEventSourceResponse {
   EventSourceArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeactivateEventSourceRequest {
   /**
    * <p>The name of the partner event source to deactivate.</p>
@@ -933,6 +1102,9 @@ export interface DeactivateEventSourceRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeauthorizeConnectionRequest {
   /**
    * <p>The name of the connection to remove authorization from.</p>
@@ -940,6 +1112,9 @@ export interface DeauthorizeConnectionRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeauthorizeConnectionResponse {
   /**
    * <p>The ARN of the connection that authorization was removed from.</p>
@@ -967,6 +1142,9 @@ export interface DeauthorizeConnectionResponse {
   LastAuthorizedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApiDestinationRequest {
   /**
    * <p>The name of the destination to delete.</p>
@@ -974,8 +1152,14 @@ export interface DeleteApiDestinationRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApiDestinationResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteArchiveRequest {
   /**
    * <p>The name of the archive to delete.</p>
@@ -983,8 +1167,14 @@ export interface DeleteArchiveRequest {
   ArchiveName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteArchiveResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteConnectionRequest {
   /**
    * <p>The name of the connection to delete.</p>
@@ -992,6 +1182,9 @@ export interface DeleteConnectionRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteConnectionResponse {
   /**
    * <p>The ARN of the connection that was deleted.</p>
@@ -1021,6 +1214,9 @@ export interface DeleteConnectionResponse {
   LastAuthorizedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEndpointRequest {
   /**
    * <p>The name of the endpoint you want to delete. For example, <code>"Name":"us-east-2-custom_bus_A-endpoint"</code>..</p>
@@ -1028,8 +1224,14 @@ export interface DeleteEndpointRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEndpointResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteEventBusRequest {
   /**
    * <p>The name of the event bus to delete.</p>
@@ -1037,6 +1239,9 @@ export interface DeleteEventBusRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePartnerEventSourceRequest {
   /**
    * <p>The name of the event source to delete.</p>
@@ -1049,6 +1254,9 @@ export interface DeletePartnerEventSourceRequest {
   Account: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRuleRequest {
   /**
    * <p>The name of the rule.</p>
@@ -1072,6 +1280,7 @@ export interface DeleteRuleRequest {
 }
 
 /**
+ * @public
  * <p>This rule was created by an Amazon Web Services service on behalf of your account. It is managed by that
  *       service. If you see this error in response to <code>DeleteRule</code> or
  *         <code>RemoveTargets</code>, you can use the <code>Force</code> parameter in those calls to
@@ -1095,6 +1304,9 @@ export class ManagedRuleException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeApiDestinationRequest {
   /**
    * <p>The name of the API destination to retrieve.</p>
@@ -1102,6 +1314,9 @@ export interface DescribeApiDestinationRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeApiDestinationResponse {
   /**
    * <p>The ARN of the API destination retrieved.</p>
@@ -1159,6 +1374,9 @@ export interface DescribeApiDestinationResponse {
   LastModifiedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeArchiveRequest {
   /**
    * <p>The name of the archive to retrieve.</p>
@@ -1166,6 +1384,9 @@ export interface DescribeArchiveRequest {
   ArchiveName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeArchiveResponse {
   /**
    * <p>The ARN of the archive.</p>
@@ -1223,6 +1444,9 @@ export interface DescribeArchiveResponse {
   CreationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeConnectionRequest {
   /**
    * <p>The name of the connection to retrieve.</p>
@@ -1231,6 +1455,7 @@ export interface DescribeConnectionRequest {
 }
 
 /**
+ * @public
  * <p>Contains the authorization parameters for the connection if API Key is specified as the
  *       authorization type.</p>
  */
@@ -1243,6 +1468,7 @@ export interface ConnectionApiKeyAuthResponseParameters {
 }
 
 /**
+ * @public
  * <p>Contains the authorization parameters for the connection if Basic is specified as the
  *       authorization type.</p>
  */
@@ -1254,6 +1480,7 @@ export interface ConnectionBasicAuthResponseParameters {
 }
 
 /**
+ * @public
  * <p>Contains the client response parameters for the connection when OAuth is specified as the
  *       authorization type.</p>
  */
@@ -1265,6 +1492,7 @@ export interface ConnectionOAuthClientResponseParameters {
 }
 
 /**
+ * @public
  * <p>Contains the response parameters when OAuth is specified as the authorization type.</p>
  */
 export interface ConnectionOAuthResponseParameters {
@@ -1291,6 +1519,7 @@ export interface ConnectionOAuthResponseParameters {
 }
 
 /**
+ * @public
  * <p>Contains the authorization parameters to use for the connection.</p>
  */
 export interface ConnectionAuthResponseParameters {
@@ -1316,6 +1545,9 @@ export interface ConnectionAuthResponseParameters {
   InvocationHttpParameters?: ConnectionHttpParameters;
 }
 
+/**
+ * @public
+ */
 export interface DescribeConnectionResponse {
   /**
    * <p>The ARN of the connection retrieved.</p>
@@ -1374,6 +1606,9 @@ export interface DescribeConnectionResponse {
   LastAuthorizedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEndpointRequest {
   /**
    * <p>The name of the endpoint you want to get information about. For example, <code>"Name":"us-east-2-custom_bus_A-endpoint"</code>.</p>
@@ -1386,6 +1621,9 @@ export interface DescribeEndpointRequest {
   HomeRegion?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEndpointResponse {
   /**
    * <p>The name of the endpoint you asked for information about.</p>
@@ -1453,6 +1691,9 @@ export interface DescribeEndpointResponse {
   LastModifiedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEventBusRequest {
   /**
    * <p>The name or ARN of the event bus to show details for. If you omit this, the default event
@@ -1461,6 +1702,9 @@ export interface DescribeEventBusRequest {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEventBusResponse {
   /**
    * <p>The name of the event bus. Currently, this is always <code>default</code>.</p>
@@ -1479,6 +1723,9 @@ export interface DescribeEventBusResponse {
   Policy?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEventSourceRequest {
   /**
    * <p>The name of the partner event source to display the details of.</p>
@@ -1486,12 +1733,24 @@ export interface DescribeEventSourceRequest {
   Name: string | undefined;
 }
 
-export enum EventSourceState {
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-  PENDING = "PENDING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EventSourceState = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  PENDING: "PENDING",
+} as const;
 
+/**
+ * @public
+ */
+export type EventSourceState = (typeof EventSourceState)[keyof typeof EventSourceState];
+
+/**
+ * @public
+ */
 export interface DescribeEventSourceResponse {
   /**
    * <p>The ARN of the partner event source.</p>
@@ -1528,6 +1787,9 @@ export interface DescribeEventSourceResponse {
   State?: EventSourceState | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribePartnerEventSourceRequest {
   /**
    * <p>The name of the event source to display.</p>
@@ -1535,6 +1797,9 @@ export interface DescribePartnerEventSourceRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribePartnerEventSourceResponse {
   /**
    * <p>The ARN of the event source.</p>
@@ -1547,6 +1812,9 @@ export interface DescribePartnerEventSourceResponse {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeReplayRequest {
   /**
    * <p>The name of the replay to retrieve.</p>
@@ -1555,6 +1823,7 @@ export interface DescribeReplayRequest {
 }
 
 /**
+ * @public
  * <p>A <code>ReplayDestination</code> object that contains details about a replay.</p>
  */
 export interface ReplayDestination {
@@ -1570,6 +1839,9 @@ export interface ReplayDestination {
   FilterArns?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeReplayResponse {
   /**
    * <p>The name of the replay.</p>
@@ -1632,6 +1904,9 @@ export interface DescribeReplayResponse {
   ReplayEndTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRuleRequest {
   /**
    * <p>The name of the rule.</p>
@@ -1645,11 +1920,23 @@ export interface DescribeRuleRequest {
   EventBusName?: string;
 }
 
-export enum RuleState {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RuleState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
+/**
+ * @public
+ */
+export type RuleState = (typeof RuleState)[keyof typeof RuleState];
+
+/**
+ * @public
+ */
 export interface DescribeRuleResponse {
   /**
    * <p>The name of the rule.</p>
@@ -1708,6 +1995,9 @@ export interface DescribeRuleResponse {
   CreatedBy?: string;
 }
 
+/**
+ * @public
+ */
 export interface DisableRuleRequest {
   /**
    * <p>The name of the rule.</p>
@@ -1721,6 +2011,9 @@ export interface DisableRuleRequest {
   EventBusName?: string;
 }
 
+/**
+ * @public
+ */
 export interface EnableRuleRequest {
   /**
    * <p>The name of the rule.</p>
@@ -1734,6 +2027,9 @@ export interface EnableRuleRequest {
   EventBusName?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListApiDestinationsRequest {
   /**
    * <p>A name prefix to filter results returned. Only API destinations with a name that starts
@@ -1757,6 +2053,9 @@ export interface ListApiDestinationsRequest {
   Limit?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListApiDestinationsResponse {
   /**
    * <p>An array of <code>ApiDestination</code> objects that include information about an API
@@ -1770,6 +2069,9 @@ export interface ListApiDestinationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListArchivesRequest {
   /**
    * <p>A name prefix to filter the archives returned. Only archives with name that match the
@@ -1798,6 +2100,9 @@ export interface ListArchivesRequest {
   Limit?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListArchivesResponse {
   /**
    * <p>An array of <code>Archive</code> objects that include details about an archive.</p>
@@ -1810,6 +2115,9 @@ export interface ListArchivesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListConnectionsRequest {
   /**
    * <p>A name prefix to filter results returned. Only connections with a name that starts with
@@ -1834,6 +2142,7 @@ export interface ListConnectionsRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about a connection.</p>
  */
 export interface Connection {
@@ -1859,6 +2168,9 @@ export interface Connection {
 
   /**
    * <p>The authorization type specified for the connection.</p>
+   *          <note>
+   *             <p>OAUTH tokens are refreshed when a 401 or 407 response is returned.</p>
+   *          </note>
    */
   AuthorizationType?: ConnectionAuthorizationType | string;
 
@@ -1878,6 +2190,9 @@ export interface Connection {
   LastAuthorizedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListConnectionsResponse {
   /**
    * <p>An array of connections objects that include details about the connections.</p>
@@ -1890,6 +2205,9 @@ export interface ListConnectionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListEndpointsRequest {
   /**
    * <p>A value that will return a subset of the endpoints associated with this account. For example, <code>"NamePrefix": "ABC"</code> will return all endpoints with "ABC" in the name.</p>
@@ -1902,7 +2220,7 @@ export interface ListEndpointsRequest {
   HomeRegion?: string;
 
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. The value of nextToken is a unique pagination token for each page.
+   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
    *        Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination
    *        token expires after 24 hours. Using an expired pagination token will return an HTTP 400 InvalidToken error.</p>
    */
@@ -1915,7 +2233,8 @@ export interface ListEndpointsRequest {
 }
 
 /**
- * <p>An global endpoint used to improve your application's availability by making it regional-fault tolerant. For more information about global endpoints, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html">Making applications Regional-fault tolerant with global endpoints and event replication</a> in the Amazon EventBridge User Guide..</p>
+ * @public
+ * <p>A global endpoint used to improve your application's availability by making it regional-fault tolerant. For more information about global endpoints, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html">Making applications Regional-fault tolerant with global endpoints and event replication</a> in the Amazon EventBridge User Guide.</p>
  */
 export interface Endpoint {
   /**
@@ -1939,7 +2258,8 @@ export interface Endpoint {
   RoutingConfig?: RoutingConfig;
 
   /**
-   * <p>Whether event replication was enabled or disabled for this endpoint.</p>
+   * <p>Whether event replication was enabled or disabled for this endpoint. The default state is <code>ENABLED</code> which means you must supply a <code>RoleArn</code>.
+   *        If you don't have a <code>RoleArn</code> or you don't want event replication enabled, set the state to <code>DISABLED</code>.</p>
    */
   ReplicationConfig?: ReplicationConfig;
 
@@ -1954,7 +2274,7 @@ export interface Endpoint {
   RoleArn?: string;
 
   /**
-   * <p>The URL subdomain of the endpoint. For example, if the URL for Endpoint is abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is <code>abcde.veo</code>.</p>
+   * <p>The URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is <code>abcde.veo</code>.</p>
    */
   EndpointId?: string;
 
@@ -1984,6 +2304,9 @@ export interface Endpoint {
   LastModifiedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListEndpointsResponse {
   /**
    * <p>The endpoints returned by the call.</p>
@@ -1991,13 +2314,16 @@ export interface ListEndpointsResponse {
   Endpoints?: Endpoint[];
 
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. The value of nextToken is a unique pagination token for each page.
+   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
    *        Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination
    *        token expires after 24 hours. Using an expired pagination token will return an HTTP 400 InvalidToken error.</p>
    */
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListEventBusesRequest {
   /**
    * <p>Specifying this limits the results to only those event buses with names that start with
@@ -2019,8 +2345,9 @@ export interface ListEventBusesRequest {
 }
 
 /**
- * <p>An event bus receives events from a source and routes them to rules associated with that
- *       event bus. Your account's default event bus receives events from Amazon Web Services services. A custom event
+ * @public
+ * <p>An event bus receives events from a source, uses rules to evaluate them, applies any configured input transformation, and routes them to the appropriate target(s).
+ *       Your account's default event bus receives events from Amazon Web Services services. A custom event
  *       bus can receive events from your custom applications and services. A partner event bus
  *       receives events from an event source created by an SaaS partner. These events come from the
  *       partners services or applications.</p>
@@ -2043,6 +2370,9 @@ export interface EventBus {
   Policy?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListEventBusesResponse {
   /**
    * <p>This list of event buses.</p>
@@ -2055,6 +2385,9 @@ export interface ListEventBusesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListEventSourcesRequest {
   /**
    * <p>Specifying this limits the results to only those partner event sources with names that
@@ -2076,6 +2409,7 @@ export interface ListEventSourcesRequest {
 }
 
 /**
+ * @public
  * <p>A partner event source is created by an SaaS partner. If a customer creates a partner
  *       event bus that matches this event source, that Amazon Web Services account can receive events from the
  *       partner's applications or services.</p>
@@ -2116,6 +2450,9 @@ export interface EventSource {
   State?: EventSourceState | string;
 }
 
+/**
+ * @public
+ */
 export interface ListEventSourcesResponse {
   /**
    * <p>The list of event sources.</p>
@@ -2128,6 +2465,9 @@ export interface ListEventSourcesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPartnerEventSourceAccountsRequest {
   /**
    * <p>The name of the partner event source to display account information about.</p>
@@ -2149,6 +2489,7 @@ export interface ListPartnerEventSourceAccountsRequest {
 }
 
 /**
+ * @public
  * <p>The Amazon Web Services account that a partner event source has been offered to.</p>
  */
 export interface PartnerEventSourceAccount {
@@ -2177,6 +2518,9 @@ export interface PartnerEventSourceAccount {
   State?: EventSourceState | string;
 }
 
+/**
+ * @public
+ */
 export interface ListPartnerEventSourceAccountsResponse {
   /**
    * <p>The list of partner event sources returned by the operation.</p>
@@ -2189,6 +2533,9 @@ export interface ListPartnerEventSourceAccountsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPartnerEventSourcesRequest {
   /**
    * <p>If you specify this, the results are limited to only those partner event sources that
@@ -2211,6 +2558,7 @@ export interface ListPartnerEventSourcesRequest {
 }
 
 /**
+ * @public
  * <p>A partner event source is created by an SaaS partner. If a customer creates a partner
  *       event bus that matches this event source, that Amazon Web Services account can receive events from the
  *       partner's applications or services.</p>
@@ -2227,6 +2575,9 @@ export interface PartnerEventSource {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPartnerEventSourcesResponse {
   /**
    * <p>The list of partner event sources returned by the operation.</p>
@@ -2239,6 +2590,9 @@ export interface ListPartnerEventSourcesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListReplaysRequest {
   /**
    * <p>A name prefix to filter the replays returned. Only replays with name that match the prefix
@@ -2268,6 +2622,7 @@ export interface ListReplaysRequest {
 }
 
 /**
+ * @public
  * <p>A <code>Replay</code> object that contains details about a replay.</p>
  */
 export interface Replay {
@@ -2319,6 +2674,9 @@ export interface Replay {
   ReplayEndTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListReplaysResponse {
   /**
    * <p>An array of <code>Replay</code> objects that contain information about the replay.</p>
@@ -2331,6 +2689,9 @@ export interface ListReplaysResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRuleNamesByTargetRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the target resource.</p>
@@ -2354,6 +2715,9 @@ export interface ListRuleNamesByTargetRequest {
   Limit?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListRuleNamesByTargetResponse {
   /**
    * <p>The names of the rules that can invoke the given target.</p>
@@ -2367,6 +2731,9 @@ export interface ListRuleNamesByTargetResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRulesRequest {
   /**
    * <p>The prefix matching the rule name.</p>
@@ -2391,6 +2758,7 @@ export interface ListRulesRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about a rule in Amazon EventBridge.</p>
  */
 export interface Rule {
@@ -2447,6 +2815,9 @@ export interface Rule {
   EventBusName?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRulesResponse {
   /**
    * <p>The rules that match the specified criteria.</p>
@@ -2460,6 +2831,9 @@ export interface ListRulesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the EventBridge resource for which you want to view tags.</p>
@@ -2467,6 +2841,9 @@ export interface ListTagsForResourceRequest {
   ResourceARN: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The list of tag keys and values associated with the resource you specified</p>
@@ -2474,6 +2851,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface ListTargetsByRuleRequest {
   /**
    * <p>The name of the rule.</p>
@@ -2498,6 +2878,7 @@ export interface ListTargetsByRuleRequest {
 }
 
 /**
+ * @public
  * <p>The array properties for the submitted job, such as the size of the array. The array size
  *       can be between 2 and 10,000. If you specify array properties for a job, it becomes an array
  *       job. This parameter is used only if the target is an Batch job.</p>
@@ -2511,6 +2892,7 @@ export interface BatchArrayProperties {
 }
 
 /**
+ * @public
  * <p>The retry strategy to use for failed jobs, if the target is an Batch job. If you
  *       specify a retry strategy here, it overrides the retry strategy defined in the job
  *       definition.</p>
@@ -2523,6 +2905,7 @@ export interface BatchRetryStrategy {
 }
 
 /**
+ * @public
  * <p>The custom parameters to be used when the target is an Batch job.</p>
  */
 export interface BatchParameters {
@@ -2554,6 +2937,7 @@ export interface BatchParameters {
 }
 
 /**
+ * @public
  * <p>A <code>DeadLetterConfig</code> object that contains information about a dead-letter queue
  *       configuration.</p>
  */
@@ -2565,6 +2949,7 @@ export interface DeadLetterConfig {
 }
 
 /**
+ * @public
  * <p>The details of a capacity provider strategy. To learn more, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CapacityProviderStrategyItem.html">CapacityProviderStrategyItem</a> in the Amazon ECS API Reference.</p>
  */
 export interface CapacityProviderStrategyItem {
@@ -2588,13 +2973,23 @@ export interface CapacityProviderStrategyItem {
   base?: number;
 }
 
-export enum LaunchType {
-  EC2 = "EC2",
-  EXTERNAL = "EXTERNAL",
-  FARGATE = "FARGATE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LaunchType = {
+  EC2: "EC2",
+  EXTERNAL: "EXTERNAL",
+  FARGATE: "FARGATE",
+} as const;
 
 /**
+ * @public
+ */
+export type LaunchType = (typeof LaunchType)[keyof typeof LaunchType];
+
+/**
+ * @public
  * <p>This structure specifies the VPC subnets and security groups for the task, and whether a
  *       public IP address is to be used. This structure is relevant only for ECS tasks that use the
  *         <code>awsvpc</code> network mode.</p>
@@ -2622,6 +3017,7 @@ export interface AwsVpcConfiguration {
 }
 
 /**
+ * @public
  * <p>This structure specifies the network configuration for an ECS task.</p>
  */
 export interface NetworkConfiguration {
@@ -2633,12 +3029,22 @@ export interface NetworkConfiguration {
   awsvpcConfiguration?: AwsVpcConfiguration;
 }
 
-export enum PlacementConstraintType {
-  DISTINCT_INSTANCE = "distinctInstance",
-  MEMBER_OF = "memberOf",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PlacementConstraintType = {
+  DISTINCT_INSTANCE: "distinctInstance",
+  MEMBER_OF: "memberOf",
+} as const;
 
 /**
+ * @public
+ */
+export type PlacementConstraintType = (typeof PlacementConstraintType)[keyof typeof PlacementConstraintType];
+
+/**
+ * @public
  * <p>An object representing a constraint on task placement. To learn more, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html">Task Placement Constraints</a> in the Amazon Elastic Container Service Developer
  *       Guide.</p>
  */
@@ -2658,13 +3064,23 @@ export interface PlacementConstraint {
   expression?: string;
 }
 
-export enum PlacementStrategyType {
-  BINPACK = "binpack",
-  RANDOM = "random",
-  SPREAD = "spread",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PlacementStrategyType = {
+  BINPACK: "binpack",
+  RANDOM: "random",
+  SPREAD: "spread",
+} as const;
 
 /**
+ * @public
+ */
+export type PlacementStrategyType = (typeof PlacementStrategyType)[keyof typeof PlacementStrategyType];
+
+/**
+ * @public
  * <p>The task placement strategy for a task or service. To learn more, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html">Task Placement Strategies</a> in the Amazon Elastic Container Service Service Developer
  *       Guide.</p>
  */
@@ -2689,11 +3105,21 @@ export interface PlacementStrategy {
   field?: string;
 }
 
-export enum PropagateTags {
-  TASK_DEFINITION = "TASK_DEFINITION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PropagateTags = {
+  TASK_DEFINITION: "TASK_DEFINITION",
+} as const;
 
 /**
+ * @public
+ */
+export type PropagateTags = (typeof PropagateTags)[keyof typeof PropagateTags];
+
+/**
+ * @public
  * <p>The custom parameters to be used when the target is an Amazon ECS task.</p>
  */
 export interface EcsParameters {
@@ -2798,32 +3224,34 @@ export interface EcsParameters {
 }
 
 /**
- * <p>These are custom parameter to be used when the target is an API Gateway REST APIs or
+ * @public
+ * <p>These are custom parameter to be used when the target is an API Gateway APIs or
  *       EventBridge ApiDestinations. In the latter case, these are merged with any
  *       InvocationParameters specified on the Connection, with any values from the Connection taking
  *       precedence.</p>
  */
 export interface HttpParameters {
   /**
-   * <p>The path parameter values to be used to populate API Gateway REST API or EventBridge
+   * <p>The path parameter values to be used to populate API Gateway API or EventBridge
    *       ApiDestination path wildcards ("*").</p>
    */
   PathParameterValues?: string[];
 
   /**
-   * <p>The headers that need to be sent as part of request invoking the API Gateway REST API or
+   * <p>The headers that need to be sent as part of request invoking the API Gateway API or
    *       EventBridge ApiDestination.</p>
    */
   HeaderParameters?: Record<string, string>;
 
   /**
    * <p>The query string keys/values that need to be sent as part of request invoking the API Gateway
-   *       REST API or EventBridge ApiDestination.</p>
+   *       API or EventBridge ApiDestination.</p>
    */
   QueryStringParameters?: Record<string, string>;
 }
 
 /**
+ * @public
  * <p>Contains the parameters needed for you to provide custom input to a target based on one or
  *       more pieces of data extracted from the event.</p>
  */
@@ -2843,9 +3271,8 @@ export interface InputTransformer {
   /**
    * <p>Input template where you specify placeholders that will be filled with the values of the
    *       keys from <code>InputPathsMap</code> to customize the data sent to the target. Enclose each
-   *         <code>InputPathsMaps</code> value in brackets: <<i>value</i>> The
-   *       InputTemplate must be valid JSON.</p>
-   *
+   *         <code>InputPathsMaps</code> value in brackets: <<i>value</i>>
+   *     </p>
    *          <p>If <code>InputTemplate</code> is a JSON object (surrounded by curly braces), the following
    *       restrictions apply:</p>
    *          <ul>
@@ -2859,17 +3286,17 @@ export interface InputTransformer {
    *             <code> "InputTransformer":</code>
    *          </p>
    *          <p>
-   *             <code>{</code>
+   *             <code>\{</code>
    *          </p>
    *          <p>
-   *             <code>"InputPathsMap": {"instance": "$.detail.instance","status":
-   *         "$.detail.status"},</code>
+   *             <code>"InputPathsMap": \{"instance": "$.detail.instance","status":
+   *         "$.detail.status"\},</code>
    *          </p>
    *          <p>
    *             <code>"InputTemplate": "<instance> is in state <status>"</code>
    *          </p>
    *          <p>
-   *             <code>}</code>
+   *             <code>\}</code>
    *          </p>
    *          <p>To have the <code>InputTemplate</code> include quote marks within a JSON string, escape
    *       each quote marks with a slash, as in the following example:</p>
@@ -2877,17 +3304,17 @@ export interface InputTransformer {
    *             <code> "InputTransformer":</code>
    *          </p>
    *          <p>
-   *             <code>{</code>
+   *             <code>\{</code>
    *          </p>
    *          <p>
-   *             <code>"InputPathsMap": {"instance": "$.detail.instance","status":
-   *         "$.detail.status"},</code>
+   *             <code>"InputPathsMap": \{"instance": "$.detail.instance","status":
+   *         "$.detail.status"\},</code>
    *          </p>
    *          <p>
    *             <code>"InputTemplate": "<instance> is in state \"<status>\""</code>
    *          </p>
    *          <p>
-   *             <code>}</code>
+   *             <code>\}</code>
    *          </p>
    *          <p>The <code>InputTemplate</code> can also be valid JSON with varibles in quotes or out, as
    *       in the following example:</p>
@@ -2895,24 +3322,25 @@ export interface InputTransformer {
    *             <code> "InputTransformer":</code>
    *          </p>
    *          <p>
-   *             <code>{</code>
+   *             <code>\{</code>
    *          </p>
    *          <p>
-   *             <code>"InputPathsMap": {"instance": "$.detail.instance","status":
-   *         "$.detail.status"},</code>
+   *             <code>"InputPathsMap": \{"instance": "$.detail.instance","status":
+   *         "$.detail.status"\},</code>
    *          </p>
    *          <p>
-   *             <code>"InputTemplate": '{"myInstance": <instance>,"myStatus": "<instance> is
-   *         in state \"<status>\""}'</code>
+   *             <code>"InputTemplate": '\{"myInstance": <instance>,"myStatus": "<instance> is
+   *         in state \"<status>\""\}'</code>
    *          </p>
    *          <p>
-   *             <code>}</code>
+   *             <code>\}</code>
    *          </p>
    */
   InputTemplate: string | undefined;
 }
 
 /**
+ * @public
  * <p>This object enables you to specify a JSON path to extract from the event and use as the
  *       partition key for the Amazon Kinesis data stream, so that you can control the shard to which
  *       the event goes. If you do not include this parameter, the default is to use the
@@ -2928,7 +3356,8 @@ export interface KinesisParameters {
 }
 
 /**
- * <p>These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the
+ * @public
+ * <p>These are custom parameters to be used when the target is a Amazon Redshift cluster or Redshift Serverless workgroup to invoke the
  *       Amazon Redshift Data API ExecuteStatement based on EventBridge events.</p>
  */
 export interface RedshiftDataParameters {
@@ -2945,13 +3374,14 @@ export interface RedshiftDataParameters {
 
   /**
    * <p>The database user name. Required when authenticating using temporary credentials.</p>
+   *          <p>Do not provide this parameter when connecting to a Redshift Serverless workgroup.</p>
    */
   DbUser?: string;
 
   /**
    * <p>The SQL statement text to run.</p>
    */
-  Sql: string | undefined;
+  Sql?: string;
 
   /**
    * <p>The name of the SQL statement. You can name the SQL statement when you create it to
@@ -2964,9 +3394,15 @@ export interface RedshiftDataParameters {
    *       runs.</p>
    */
   WithEvent?: boolean;
+
+  /**
+   * A list of SQLs.
+   */
+  Sqls?: string[];
 }
 
 /**
+ * @public
  * <p>A <code>RetryPolicy</code> object that includes information about the retry policy
  *       settings.</p>
  */
@@ -2985,6 +3421,7 @@ export interface RetryPolicy {
 }
 
 /**
+ * @public
  * <p>Information about the EC2 instances that are to be sent the command, specified as
  *       key-value pairs. Each <code>RunCommandTarget</code> block can include only one key, but this
  *       key may specify multiple values.</p>
@@ -3007,6 +3444,7 @@ export interface RunCommandTarget {
 }
 
 /**
+ * @public
  * <p>This parameter contains the criteria (either InstanceIds or a tag) used to specify which
  *       EC2 instances are to be sent the command. </p>
  */
@@ -3019,6 +3457,7 @@ export interface RunCommandParameters {
 }
 
 /**
+ * @public
  * <p>Name/Value pair of a parameter to start execution of a SageMaker Model Building
  *       Pipeline.</p>
  */
@@ -3035,6 +3474,7 @@ export interface SageMakerPipelineParameter {
 }
 
 /**
+ * @public
  * <p>These are custom parameters to use when the target is a SageMaker Model Building Pipeline
  *       that starts based on EventBridge events.</p>
  */
@@ -3046,6 +3486,7 @@ export interface SageMakerPipelineParameters {
 }
 
 /**
+ * @public
  * <p>This structure includes the custom parameter to be used when the target is an SQS FIFO
  *       queue.</p>
  */
@@ -3057,9 +3498,9 @@ export interface SqsParameters {
 }
 
 /**
+ * @public
  * <p>Targets are the resources to be invoked when a rule is triggered. For a complete list of
  *       services and resources that can be set as a target, see <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutTargets.html">PutTargets</a>.</p>
- *
  *          <p>If you are setting the event bus of another account as the target, and that account
  *       granted permission to your account through an organization instead of directly by the account
  *       ID, then you must specify a <code>RoleArn</code> with proper permissions in the
@@ -3094,7 +3535,7 @@ export interface Target {
 
   /**
    * <p>The value of the JSONPath that is used for extracting part of the matched event when
-   *       passing it to the target. You must use JSON dot notation, not bracket notation. For more
+   *       passing it to the target. You may use JSON dot notation or bracket notation. For more
    *       information about JSON paths, see <a href="http://goessner.net/articles/JsonPath/">JSONPath</a>.</p>
    */
   InputPath?: string;
@@ -3141,9 +3582,9 @@ export interface Target {
   SqsParameters?: SqsParameters;
 
   /**
-   * <p>Contains the HTTP parameters to use when the target is a API Gateway REST endpoint or
+   * <p>Contains the HTTP parameters to use when the target is a API Gateway endpoint or
    *       EventBridge ApiDestination.</p>
-   *          <p>If you specify an API Gateway REST API or EventBridge ApiDestination as a target, you can
+   *          <p>If you specify an API Gateway API or EventBridge ApiDestination as a target, you can
    *       use this parameter to specify headers, path parameters, and query string keys/values as part
    *       of your target invoking request. If you're using ApiDestinations, the corresponding Connection
    *       can also have these values configured. In case of any conflicting keys, values from the
@@ -3180,6 +3621,9 @@ export interface Target {
   RetryPolicy?: RetryPolicy;
 }
 
+/**
+ * @public
+ */
 export interface ListTargetsByRuleResponse {
   /**
    * <p>The targets assigned to the rule.</p>
@@ -3194,6 +3638,7 @@ export interface ListTargetsByRuleResponse {
 }
 
 /**
+ * @public
  * <p>Represents an event to be submitted.</p>
  */
 export interface PutEventsRequestEntry {
@@ -3214,7 +3659,7 @@ export interface PutEventsRequestEntry {
   Resources?: string[];
 
   /**
-   * <p>Free-form string used to decide what fields to expect in the event detail.</p>
+   * <p>Free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.</p>
    */
   DetailType?: string;
 
@@ -3244,6 +3689,9 @@ export interface PutEventsRequestEntry {
   TraceHeader?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutEventsRequest {
   /**
    * <p>The entry that defines an event in your system. You can specify several parameters for the
@@ -3253,7 +3701,7 @@ export interface PutEventsRequest {
   Entries: PutEventsRequestEntry[] | undefined;
 
   /**
-   * <p>The URL subdomain of the endpoint. For example, if the URL for Endpoint is abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is <code>abcde.veo</code>.</p>
+   * <p>The URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is <code>abcde.veo</code>.</p>
    *          <important>
    *             <p>When using Java, you must include <code>auth-crt</code> on the class path.</p>
    *          </important>
@@ -3262,6 +3710,7 @@ export interface PutEventsRequest {
 }
 
 /**
+ * @public
  * <p>Represents an event that failed to be submitted. For information about the errors that are common to all actions, see
  *       <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/CommonErrors.html">Common Errors</a>.</p>
  */
@@ -3282,6 +3731,9 @@ export interface PutEventsResultEntry {
   ErrorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutEventsResponse {
   /**
    * <p>The number of failed entries.</p>
@@ -3292,11 +3744,13 @@ export interface PutEventsResponse {
    * <p>The successfully and unsuccessfully ingested events results. If the ingestion was
    *       successful, the entry has the event ID in it. Otherwise, you can use the error code and error
    *       message to identify the problem with the entry.</p>
+   *          <p>For each record, the index of the response element is the same as the index in the request array.</p>
    */
   Entries?: PutEventsResultEntry[];
 }
 
 /**
+ * @public
  * <p>The details about an event generated by an SaaS partner.</p>
  */
 export interface PutPartnerEventsRequestEntry {
@@ -3317,7 +3771,7 @@ export interface PutPartnerEventsRequestEntry {
   Resources?: string[];
 
   /**
-   * <p>A free-form string used to decide what fields to expect in the event detail.</p>
+   * <p>A free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.</p>
    */
   DetailType?: string;
 
@@ -3328,6 +3782,9 @@ export interface PutPartnerEventsRequestEntry {
   Detail?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutPartnerEventsRequest {
   /**
    * <p>The list of events to write to the event bus.</p>
@@ -3336,6 +3793,7 @@ export interface PutPartnerEventsRequest {
 }
 
 /**
+ * @public
  * <p>Represents an event that a partner tried to generate, but failed.</p>
  */
 export interface PutPartnerEventsResultEntry {
@@ -3355,6 +3813,9 @@ export interface PutPartnerEventsResultEntry {
   ErrorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutPartnerEventsResponse {
   /**
    * <p>The number of events from this operation that could not be written to the partner event
@@ -3370,6 +3831,7 @@ export interface PutPartnerEventsResponse {
 }
 
 /**
+ * @public
  * <p>The event bus policy is too long. For more information, see the limits.</p>
  */
 export class PolicyLengthExceededException extends __BaseException {
@@ -3389,14 +3851,15 @@ export class PolicyLengthExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A JSON string which you can use to limit the event bus permissions you are granting to
  *       only accounts that fulfill the condition. Currently, the only supported condition is
  *       membership in a certain Amazon Web Services organization. The string must contain <code>Type</code>,
  *         <code>Key</code>, and <code>Value</code> fields. The <code>Value</code> field specifies the
  *       ID of the Amazon Web Services organization. Following is an example value for <code>Condition</code>:</p>
  *          <p>
- *             <code>'{"Type" : "StringEquals", "Key": "aws:PrincipalOrgID", "Value":
- *         "o-1234567890"}'</code>
+ *             <code>'\{"Type" : "StringEquals", "Key": "aws:PrincipalOrgID", "Value":
+ *         "o-1234567890"\}'</code>
  *          </p>
  */
 export interface Condition {
@@ -3419,6 +3882,9 @@ export interface Condition {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutPermissionRequest {
   /**
    * <p>The name of the event bus associated with the rule. If you omit this, the default event
@@ -3434,7 +3900,6 @@ export interface PutPermissionRequest {
   /**
    * <p>The 12-digit Amazon Web Services account ID that you are permitting to put events to your default event
    *       bus. Specify "*" to permit any account to put events to your default event bus.</p>
-   *
    *          <p>If you specify "*" without specifying <code>Condition</code>, avoid creating rules that
    *       may match undesirable events. To create more secure rules, make sure that the event pattern
    *       for each rule contains an <code>account</code> field with a specific account ID from which to
@@ -3461,7 +3926,6 @@ export interface PutPermissionRequest {
    *          <p>If you specify <code>Condition</code> with an Amazon Web Services organization ID, and specify "*" as the
    *       value for <code>Principal</code>, you grant permission to all the accounts in the named
    *       organization.</p>
-   *
    *          <p>The <code>Condition</code> is a JSON string which must contain <code>Type</code>,
    *         <code>Key</code>, and <code>Value</code> fields.</p>
    */
@@ -3475,6 +3939,9 @@ export interface PutPermissionRequest {
   Policy?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutRuleRequest {
   /**
    * <p>The name of the rule that you are creating or updating.</p>
@@ -3487,7 +3954,7 @@ export interface PutRuleRequest {
   ScheduleExpression?: string;
 
   /**
-   * <p>The event pattern. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html.html">EventBridge event
+   * <p>The event pattern. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html">Amazon EventBridge event
    *         patterns</a> in the <i>Amazon EventBridge User Guide</i>.</p>
    */
   EventPattern?: string;
@@ -3523,6 +3990,9 @@ export interface PutRuleRequest {
   EventBusName?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutRuleResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the rule.</p>
@@ -3530,6 +4000,9 @@ export interface PutRuleResponse {
   RuleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutTargetsRequest {
   /**
    * <p>The name of the rule.</p>
@@ -3549,6 +4022,7 @@ export interface PutTargetsRequest {
 }
 
 /**
+ * @public
  * <p>Represents a target that failed to be added to a rule.</p>
  */
 export interface PutTargetsResultEntry {
@@ -3570,6 +4044,9 @@ export interface PutTargetsResultEntry {
   ErrorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutTargetsResponse {
   /**
    * <p>The number of failed entries.</p>
@@ -3582,6 +4059,9 @@ export interface PutTargetsResponse {
   FailedEntries?: PutTargetsResultEntry[];
 }
 
+/**
+ * @public
+ */
 export interface RemovePermissionRequest {
   /**
    * <p>The statement ID corresponding to the account that is no longer allowed to put events to
@@ -3601,6 +4081,9 @@ export interface RemovePermissionRequest {
   EventBusName?: string;
 }
 
+/**
+ * @public
+ */
 export interface RemoveTargetsRequest {
   /**
    * <p>The name of the rule.</p>
@@ -3629,6 +4112,7 @@ export interface RemoveTargetsRequest {
 }
 
 /**
+ * @public
  * <p>Represents a target that failed to be removed from a rule.</p>
  */
 export interface RemoveTargetsResultEntry {
@@ -3650,6 +4134,9 @@ export interface RemoveTargetsResultEntry {
   ErrorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface RemoveTargetsResponse {
   /**
    * <p>The number of failed entries.</p>
@@ -3662,6 +4149,9 @@ export interface RemoveTargetsResponse {
   FailedEntries?: RemoveTargetsResultEntry[];
 }
 
+/**
+ * @public
+ */
 export interface StartReplayRequest {
   /**
    * <p>The name of the replay to start.</p>
@@ -3697,6 +4187,9 @@ export interface StartReplayRequest {
   Destination: ReplayDestination | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartReplayResponse {
   /**
    * <p>The ARN of the replay.</p>
@@ -3719,6 +4212,9 @@ export interface StartReplayResponse {
   ReplayStartTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The ARN of the EventBridge resource that you're adding tags to.</p>
@@ -3731,8 +4227,14 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface TestEventPatternRequest {
   /**
    * <p>The event pattern. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html">Events and Event
@@ -3785,6 +4287,9 @@ export interface TestEventPatternRequest {
   Event: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TestEventPatternResponse {
   /**
    * <p>Indicates whether the event matches the event pattern.</p>
@@ -3792,6 +4297,9 @@ export interface TestEventPatternResponse {
   Result?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The ARN of the EventBridge resource from which you are removing tags.</p>
@@ -3804,8 +4312,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateApiDestinationRequest {
   /**
    * <p>The name of the API destination to update.</p>
@@ -3838,6 +4352,9 @@ export interface UpdateApiDestinationRequest {
   InvocationRateLimitPerSecond?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateApiDestinationResponse {
   /**
    * <p>The ARN of the API destination that was updated.</p>
@@ -3860,6 +4377,9 @@ export interface UpdateApiDestinationResponse {
   LastModifiedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface UpdateArchiveRequest {
   /**
    * <p>The name of the archive to update.</p>
@@ -3882,6 +4402,9 @@ export interface UpdateArchiveRequest {
   RetentionDays?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateArchiveResponse {
   /**
    * <p>The ARN of the archive.</p>
@@ -3905,6 +4428,7 @@ export interface UpdateArchiveResponse {
 }
 
 /**
+ * @public
  * <p>Contains the API key authorization parameters to use to update the connection.</p>
  */
 export interface UpdateConnectionApiKeyAuthRequestParameters {
@@ -3920,6 +4444,7 @@ export interface UpdateConnectionApiKeyAuthRequestParameters {
 }
 
 /**
+ * @public
  * <p>Contains the Basic authorization parameters for the connection.</p>
  */
 export interface UpdateConnectionBasicAuthRequestParameters {
@@ -3935,6 +4460,7 @@ export interface UpdateConnectionBasicAuthRequestParameters {
 }
 
 /**
+ * @public
  * <p>Contains the OAuth authorization parameters to use for the connection.</p>
  */
 export interface UpdateConnectionOAuthClientRequestParameters {
@@ -3950,6 +4476,7 @@ export interface UpdateConnectionOAuthClientRequestParameters {
 }
 
 /**
+ * @public
  * <p>Contains the OAuth request parameters to use for the connection.</p>
  */
 export interface UpdateConnectionOAuthRequestParameters {
@@ -3978,6 +4505,7 @@ export interface UpdateConnectionOAuthRequestParameters {
 }
 
 /**
+ * @public
  * <p>Contains the additional parameters to use for the connection.</p>
  */
 export interface UpdateConnectionAuthRequestParameters {
@@ -4006,6 +4534,9 @@ export interface UpdateConnectionAuthRequestParameters {
   InvocationHttpParameters?: ConnectionHttpParameters;
 }
 
+/**
+ * @public
+ */
 export interface UpdateConnectionRequest {
   /**
    * <p>The name of the connection to update.</p>
@@ -4028,6 +4559,9 @@ export interface UpdateConnectionRequest {
   AuthParameters?: UpdateConnectionAuthRequestParameters;
 }
 
+/**
+ * @public
+ */
 export interface UpdateConnectionResponse {
   /**
    * <p>The ARN of the connection that was updated.</p>
@@ -4055,6 +4589,9 @@ export interface UpdateConnectionResponse {
   LastAuthorizedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEndpointRequest {
   /**
    * <p>The name of the endpoint you want to update.</p>
@@ -4067,7 +4604,7 @@ export interface UpdateEndpointRequest {
   Description?: string;
 
   /**
-   * <p>Configure the routing policy, including the health check and secondary Region..</p>
+   * <p>Configure the routing policy, including the health check and secondary Region.</p>
    */
   RoutingConfig?: RoutingConfig;
 
@@ -4087,6 +4624,9 @@ export interface UpdateEndpointRequest {
   RoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEndpointResponse {
   /**
    * <p>The name of the endpoint you updated in this request.</p>
@@ -4137,903 +4677,10 @@ export interface UpdateEndpointResponse {
 /**
  * @internal
  */
-export const ActivateEventSourceRequestFilterSensitiveLog = (obj: ActivateEventSourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApiDestinationFilterSensitiveLog = (obj: ApiDestination): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ArchiveFilterSensitiveLog = (obj: Archive): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelReplayRequestFilterSensitiveLog = (obj: CancelReplayRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelReplayResponseFilterSensitiveLog = (obj: CancelReplayResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateApiDestinationRequestFilterSensitiveLog = (obj: CreateApiDestinationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateApiDestinationResponseFilterSensitiveLog = (obj: CreateApiDestinationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateArchiveRequestFilterSensitiveLog = (obj: CreateArchiveRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateArchiveResponseFilterSensitiveLog = (obj: CreateArchiveResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateConnectionApiKeyAuthRequestParametersFilterSensitiveLog = (
-  obj: CreateConnectionApiKeyAuthRequestParameters
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateConnectionBasicAuthRequestParametersFilterSensitiveLog = (
-  obj: CreateConnectionBasicAuthRequestParameters
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConnectionBodyParameterFilterSensitiveLog = (obj: ConnectionBodyParameter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConnectionHeaderParameterFilterSensitiveLog = (obj: ConnectionHeaderParameter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConnectionQueryStringParameterFilterSensitiveLog = (obj: ConnectionQueryStringParameter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConnectionHttpParametersFilterSensitiveLog = (obj: ConnectionHttpParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateConnectionOAuthClientRequestParametersFilterSensitiveLog = (
-  obj: CreateConnectionOAuthClientRequestParameters
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateConnectionOAuthRequestParametersFilterSensitiveLog = (
-  obj: CreateConnectionOAuthRequestParameters
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateConnectionAuthRequestParametersFilterSensitiveLog = (
-  obj: CreateConnectionAuthRequestParameters
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateConnectionRequestFilterSensitiveLog = (obj: CreateConnectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateConnectionResponseFilterSensitiveLog = (obj: CreateConnectionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EndpointEventBusFilterSensitiveLog = (obj: EndpointEventBus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReplicationConfigFilterSensitiveLog = (obj: ReplicationConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PrimaryFilterSensitiveLog = (obj: Primary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SecondaryFilterSensitiveLog = (obj: Secondary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FailoverConfigFilterSensitiveLog = (obj: FailoverConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RoutingConfigFilterSensitiveLog = (obj: RoutingConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateEndpointRequestFilterSensitiveLog = (obj: CreateEndpointRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateEndpointResponseFilterSensitiveLog = (obj: CreateEndpointResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateEventBusRequestFilterSensitiveLog = (obj: CreateEventBusRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateEventBusResponseFilterSensitiveLog = (obj: CreateEventBusResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePartnerEventSourceRequestFilterSensitiveLog = (obj: CreatePartnerEventSourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePartnerEventSourceResponseFilterSensitiveLog = (obj: CreatePartnerEventSourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeactivateEventSourceRequestFilterSensitiveLog = (obj: DeactivateEventSourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeauthorizeConnectionRequestFilterSensitiveLog = (obj: DeauthorizeConnectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeauthorizeConnectionResponseFilterSensitiveLog = (obj: DeauthorizeConnectionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteApiDestinationRequestFilterSensitiveLog = (obj: DeleteApiDestinationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteApiDestinationResponseFilterSensitiveLog = (obj: DeleteApiDestinationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteArchiveRequestFilterSensitiveLog = (obj: DeleteArchiveRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteArchiveResponseFilterSensitiveLog = (obj: DeleteArchiveResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteConnectionRequestFilterSensitiveLog = (obj: DeleteConnectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteConnectionResponseFilterSensitiveLog = (obj: DeleteConnectionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteEndpointRequestFilterSensitiveLog = (obj: DeleteEndpointRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteEndpointResponseFilterSensitiveLog = (obj: DeleteEndpointResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteEventBusRequestFilterSensitiveLog = (obj: DeleteEventBusRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePartnerEventSourceRequestFilterSensitiveLog = (obj: DeletePartnerEventSourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRuleRequestFilterSensitiveLog = (obj: DeleteRuleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeApiDestinationRequestFilterSensitiveLog = (obj: DescribeApiDestinationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeApiDestinationResponseFilterSensitiveLog = (obj: DescribeApiDestinationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeArchiveRequestFilterSensitiveLog = (obj: DescribeArchiveRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeArchiveResponseFilterSensitiveLog = (obj: DescribeArchiveResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeConnectionRequestFilterSensitiveLog = (obj: DescribeConnectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConnectionApiKeyAuthResponseParametersFilterSensitiveLog = (
-  obj: ConnectionApiKeyAuthResponseParameters
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConnectionBasicAuthResponseParametersFilterSensitiveLog = (
-  obj: ConnectionBasicAuthResponseParameters
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConnectionOAuthClientResponseParametersFilterSensitiveLog = (
-  obj: ConnectionOAuthClientResponseParameters
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConnectionOAuthResponseParametersFilterSensitiveLog = (obj: ConnectionOAuthResponseParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConnectionAuthResponseParametersFilterSensitiveLog = (obj: ConnectionAuthResponseParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeConnectionResponseFilterSensitiveLog = (obj: DescribeConnectionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEndpointRequestFilterSensitiveLog = (obj: DescribeEndpointRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEndpointResponseFilterSensitiveLog = (obj: DescribeEndpointResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEventBusRequestFilterSensitiveLog = (obj: DescribeEventBusRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEventBusResponseFilterSensitiveLog = (obj: DescribeEventBusResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEventSourceRequestFilterSensitiveLog = (obj: DescribeEventSourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEventSourceResponseFilterSensitiveLog = (obj: DescribeEventSourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePartnerEventSourceRequestFilterSensitiveLog = (obj: DescribePartnerEventSourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePartnerEventSourceResponseFilterSensitiveLog = (obj: DescribePartnerEventSourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReplayRequestFilterSensitiveLog = (obj: DescribeReplayRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReplayDestinationFilterSensitiveLog = (obj: ReplayDestination): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReplayResponseFilterSensitiveLog = (obj: DescribeReplayResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRuleRequestFilterSensitiveLog = (obj: DescribeRuleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRuleResponseFilterSensitiveLog = (obj: DescribeRuleResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableRuleRequestFilterSensitiveLog = (obj: DisableRuleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableRuleRequestFilterSensitiveLog = (obj: EnableRuleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListApiDestinationsRequestFilterSensitiveLog = (obj: ListApiDestinationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListApiDestinationsResponseFilterSensitiveLog = (obj: ListApiDestinationsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListArchivesRequestFilterSensitiveLog = (obj: ListArchivesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListArchivesResponseFilterSensitiveLog = (obj: ListArchivesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListConnectionsRequestFilterSensitiveLog = (obj: ListConnectionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConnectionFilterSensitiveLog = (obj: Connection): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListConnectionsResponseFilterSensitiveLog = (obj: ListConnectionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEndpointsRequestFilterSensitiveLog = (obj: ListEndpointsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EndpointFilterSensitiveLog = (obj: Endpoint): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEndpointsResponseFilterSensitiveLog = (obj: ListEndpointsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEventBusesRequestFilterSensitiveLog = (obj: ListEventBusesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventBusFilterSensitiveLog = (obj: EventBus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEventBusesResponseFilterSensitiveLog = (obj: ListEventBusesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEventSourcesRequestFilterSensitiveLog = (obj: ListEventSourcesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventSourceFilterSensitiveLog = (obj: EventSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEventSourcesResponseFilterSensitiveLog = (obj: ListEventSourcesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPartnerEventSourceAccountsRequestFilterSensitiveLog = (
-  obj: ListPartnerEventSourceAccountsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PartnerEventSourceAccountFilterSensitiveLog = (obj: PartnerEventSourceAccount): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPartnerEventSourceAccountsResponseFilterSensitiveLog = (
-  obj: ListPartnerEventSourceAccountsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPartnerEventSourcesRequestFilterSensitiveLog = (obj: ListPartnerEventSourcesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PartnerEventSourceFilterSensitiveLog = (obj: PartnerEventSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPartnerEventSourcesResponseFilterSensitiveLog = (obj: ListPartnerEventSourcesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListReplaysRequestFilterSensitiveLog = (obj: ListReplaysRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReplayFilterSensitiveLog = (obj: Replay): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListReplaysResponseFilterSensitiveLog = (obj: ListReplaysResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRuleNamesByTargetRequestFilterSensitiveLog = (obj: ListRuleNamesByTargetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRuleNamesByTargetResponseFilterSensitiveLog = (obj: ListRuleNamesByTargetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRulesRequestFilterSensitiveLog = (obj: ListRulesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuleFilterSensitiveLog = (obj: Rule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRulesResponseFilterSensitiveLog = (obj: ListRulesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTargetsByRuleRequestFilterSensitiveLog = (obj: ListTargetsByRuleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchArrayPropertiesFilterSensitiveLog = (obj: BatchArrayProperties): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchRetryStrategyFilterSensitiveLog = (obj: BatchRetryStrategy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchParametersFilterSensitiveLog = (obj: BatchParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeadLetterConfigFilterSensitiveLog = (obj: DeadLetterConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CapacityProviderStrategyItemFilterSensitiveLog = (obj: CapacityProviderStrategyItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsVpcConfigurationFilterSensitiveLog = (obj: AwsVpcConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkConfigurationFilterSensitiveLog = (obj: NetworkConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PlacementConstraintFilterSensitiveLog = (obj: PlacementConstraint): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PlacementStrategyFilterSensitiveLog = (obj: PlacementStrategy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EcsParametersFilterSensitiveLog = (obj: EcsParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HttpParametersFilterSensitiveLog = (obj: HttpParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InputTransformerFilterSensitiveLog = (obj: InputTransformer): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KinesisParametersFilterSensitiveLog = (obj: KinesisParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const RedshiftDataParametersFilterSensitiveLog = (obj: RedshiftDataParameters): any => ({
   ...obj,
-});
-
-/**
- * @internal
- */
-export const RetryPolicyFilterSensitiveLog = (obj: RetryPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RunCommandTargetFilterSensitiveLog = (obj: RunCommandTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RunCommandParametersFilterSensitiveLog = (obj: RunCommandParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SageMakerPipelineParameterFilterSensitiveLog = (obj: SageMakerPipelineParameter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SageMakerPipelineParametersFilterSensitiveLog = (obj: SageMakerPipelineParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SqsParametersFilterSensitiveLog = (obj: SqsParameters): any => ({
-  ...obj,
+  ...(obj.Sql && { Sql: SENSITIVE_STRING }),
+  ...(obj.Sqls && { Sqls: SENSITIVE_STRING }),
 });
 
 /**
@@ -5041,6 +4688,9 @@ export const SqsParametersFilterSensitiveLog = (obj: SqsParameters): any => ({
  */
 export const TargetFilterSensitiveLog = (obj: Target): any => ({
   ...obj,
+  ...(obj.RedshiftDataParameters && {
+    RedshiftDataParameters: RedshiftDataParametersFilterSensitiveLog(obj.RedshiftDataParameters),
+  }),
 });
 
 /**
@@ -5048,90 +4698,7 @@ export const TargetFilterSensitiveLog = (obj: Target): any => ({
  */
 export const ListTargetsByRuleResponseFilterSensitiveLog = (obj: ListTargetsByRuleResponse): any => ({
   ...obj,
-});
-
-/**
- * @internal
- */
-export const PutEventsRequestEntryFilterSensitiveLog = (obj: PutEventsRequestEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutEventsRequestFilterSensitiveLog = (obj: PutEventsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutEventsResultEntryFilterSensitiveLog = (obj: PutEventsResultEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutEventsResponseFilterSensitiveLog = (obj: PutEventsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutPartnerEventsRequestEntryFilterSensitiveLog = (obj: PutPartnerEventsRequestEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutPartnerEventsRequestFilterSensitiveLog = (obj: PutPartnerEventsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutPartnerEventsResultEntryFilterSensitiveLog = (obj: PutPartnerEventsResultEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutPartnerEventsResponseFilterSensitiveLog = (obj: PutPartnerEventsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConditionFilterSensitiveLog = (obj: Condition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutPermissionRequestFilterSensitiveLog = (obj: PutPermissionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutRuleRequestFilterSensitiveLog = (obj: PutRuleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutRuleResponseFilterSensitiveLog = (obj: PutRuleResponse): any => ({
-  ...obj,
+  ...(obj.Targets && { Targets: obj.Targets.map((item) => TargetFilterSensitiveLog(item)) }),
 });
 
 /**
@@ -5139,203 +4706,5 @@ export const PutRuleResponseFilterSensitiveLog = (obj: PutRuleResponse): any => 
  */
 export const PutTargetsRequestFilterSensitiveLog = (obj: PutTargetsRequest): any => ({
   ...obj,
-});
-
-/**
- * @internal
- */
-export const PutTargetsResultEntryFilterSensitiveLog = (obj: PutTargetsResultEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutTargetsResponseFilterSensitiveLog = (obj: PutTargetsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemovePermissionRequestFilterSensitiveLog = (obj: RemovePermissionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveTargetsRequestFilterSensitiveLog = (obj: RemoveTargetsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveTargetsResultEntryFilterSensitiveLog = (obj: RemoveTargetsResultEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveTargetsResponseFilterSensitiveLog = (obj: RemoveTargetsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartReplayRequestFilterSensitiveLog = (obj: StartReplayRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartReplayResponseFilterSensitiveLog = (obj: StartReplayResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TestEventPatternRequestFilterSensitiveLog = (obj: TestEventPatternRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TestEventPatternResponseFilterSensitiveLog = (obj: TestEventPatternResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateApiDestinationRequestFilterSensitiveLog = (obj: UpdateApiDestinationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateApiDestinationResponseFilterSensitiveLog = (obj: UpdateApiDestinationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateArchiveRequestFilterSensitiveLog = (obj: UpdateArchiveRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateArchiveResponseFilterSensitiveLog = (obj: UpdateArchiveResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateConnectionApiKeyAuthRequestParametersFilterSensitiveLog = (
-  obj: UpdateConnectionApiKeyAuthRequestParameters
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateConnectionBasicAuthRequestParametersFilterSensitiveLog = (
-  obj: UpdateConnectionBasicAuthRequestParameters
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateConnectionOAuthClientRequestParametersFilterSensitiveLog = (
-  obj: UpdateConnectionOAuthClientRequestParameters
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateConnectionOAuthRequestParametersFilterSensitiveLog = (
-  obj: UpdateConnectionOAuthRequestParameters
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateConnectionAuthRequestParametersFilterSensitiveLog = (
-  obj: UpdateConnectionAuthRequestParameters
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateConnectionRequestFilterSensitiveLog = (obj: UpdateConnectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateConnectionResponseFilterSensitiveLog = (obj: UpdateConnectionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateEndpointRequestFilterSensitiveLog = (obj: UpdateEndpointRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateEndpointResponseFilterSensitiveLog = (obj: UpdateEndpointResponse): any => ({
-  ...obj,
+  ...(obj.Targets && { Targets: obj.Targets.map((item) => TargetFilterSensitiveLog(item)) }),
 });

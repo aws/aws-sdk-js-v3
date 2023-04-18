@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetAccountRequest,
-  GetAccountRequestFilterSensitiveLog,
-  GetAccountResponse,
-  GetAccountResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAccountCommand,
-  serializeAws_restJson1GetAccountCommand,
-} from "../protocols/Aws_restJson1";
+import { GetAccountRequest, GetAccountResponse, GetAccountResponseFilterSensitiveLog } from "../models/models_0";
+import { de_GetAccountCommand, se_GetAccountCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
+/**
+ * @public
+ *
+ * The input for {@link GetAccountCommand}.
+ */
 export interface GetAccountCommandInput extends GetAccountRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetAccountCommand}.
+ */
 export interface GetAccountCommandOutput extends GetAccountResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Obtain information about the email-sending status and capabilities of your Amazon SES
  *             account in the current Amazon Web Services Region.</p>
  * @example
@@ -37,13 +40,23 @@ export interface GetAccountCommandOutput extends GetAccountResponse, __MetadataB
  * import { SESv2Client, GetAccountCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, GetAccountCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = {};
  * const command = new GetAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccountCommandInput - {@link GetAccountCommandInput}
+ * @returns {@link GetAccountCommandOutput}
  * @see {@link GetAccountCommandInput} for command's `input` shape.
  * @see {@link GetAccountCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input you provided is invalid.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Too many requests have been made to the operation.</p>
+ *
  *
  */
 export class GetAccountCommand extends $Command<
@@ -63,6 +76,9 @@ export class GetAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,7 +105,7 @@ export class GetAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAccountRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetAccountResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -100,12 +116,18 @@ export class GetAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAccountCommand(input, context);
+    return se_GetAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccountCommandOutput> {
-    return deserializeAws_restJson1GetAccountCommand(output, context);
+    return de_GetAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

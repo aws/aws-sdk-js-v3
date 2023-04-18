@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  BatchDeleteGeofenceRequest,
-  BatchDeleteGeofenceRequestFilterSensitiveLog,
-  BatchDeleteGeofenceResponse,
-  BatchDeleteGeofenceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchDeleteGeofenceCommand,
-  serializeAws_restJson1BatchDeleteGeofenceCommand,
-} from "../protocols/Aws_restJson1";
+import { BatchDeleteGeofenceRequest, BatchDeleteGeofenceResponse } from "../models/models_0";
+import { de_BatchDeleteGeofenceCommand, se_BatchDeleteGeofenceCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchDeleteGeofenceCommand}.
+ */
 export interface BatchDeleteGeofenceCommandInput extends BatchDeleteGeofenceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link BatchDeleteGeofenceCommand}.
+ */
 export interface BatchDeleteGeofenceCommandOutput extends BatchDeleteGeofenceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a batch of geofences from a geofence collection.</p>
  *          <note>
  *             <p>This operation deletes the resource permanently.</p>
@@ -39,13 +42,38 @@ export interface BatchDeleteGeofenceCommandOutput extends BatchDeleteGeofenceRes
  * import { LocationClient, BatchDeleteGeofenceCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, BatchDeleteGeofenceCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = { // BatchDeleteGeofenceRequest
+ *   CollectionName: "STRING_VALUE", // required
+ *   GeofenceIds: [ // IdList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchDeleteGeofenceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDeleteGeofenceCommandInput - {@link BatchDeleteGeofenceCommandInput}
+ * @returns {@link BatchDeleteGeofenceCommandOutput}
  * @see {@link BatchDeleteGeofenceCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteGeofenceCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The request was denied because of insufficient access or permissions. Check with an
+ *       administrator to verify your permissions.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource that you've entered was not found in your AWS account.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because of request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input failed to meet the constraints specified by the AWS service. </p>
+ *
  *
  */
 export class BatchDeleteGeofenceCommand extends $Command<
@@ -65,6 +93,9 @@ export class BatchDeleteGeofenceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDeleteGeofenceCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +124,8 @@ export class BatchDeleteGeofenceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDeleteGeofenceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchDeleteGeofenceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +135,18 @@ export class BatchDeleteGeofenceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDeleteGeofenceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchDeleteGeofenceCommand(input, context);
+    return se_BatchDeleteGeofenceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteGeofenceCommandOutput> {
-    return deserializeAws_restJson1BatchDeleteGeofenceCommand(output, context);
+    return de_BatchDeleteGeofenceCommand(output, context);
   }
 
   // Start section: command_body_extra

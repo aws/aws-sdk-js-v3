@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  UpdateContainerServiceRequest,
-  UpdateContainerServiceRequestFilterSensitiveLog,
-  UpdateContainerServiceResult,
-  UpdateContainerServiceResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1UpdateContainerServiceCommand,
-  serializeAws_json1_1UpdateContainerServiceCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateContainerServiceRequest, UpdateContainerServiceResult } from "../models/models_1";
+import { de_UpdateContainerServiceCommand, se_UpdateContainerServiceCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateContainerServiceCommand}.
+ */
 export interface UpdateContainerServiceCommandInput extends UpdateContainerServiceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateContainerServiceCommand}.
+ */
 export interface UpdateContainerServiceCommandOutput extends UpdateContainerServiceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the configuration of your Amazon Lightsail container service, such as its power,
  *       scale, and public domain names.</p>
  * @example
@@ -37,13 +40,55 @@ export interface UpdateContainerServiceCommandOutput extends UpdateContainerServ
  * import { LightsailClient, UpdateContainerServiceCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, UpdateContainerServiceCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // UpdateContainerServiceRequest
+ *   serviceName: "STRING_VALUE", // required
+ *   power: "nano" || "micro" || "small" || "medium" || "large" || "xlarge",
+ *   scale: Number("int"),
+ *   isDisabled: true || false,
+ *   publicDomainNames: { // ContainerServicePublicDomains
+ *     "<keys>": [ // ContainerServicePublicDomainsList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   privateRegistryAccess: { // PrivateRegistryAccessRequest
+ *     ecrImagePullerRole: { // ContainerServiceECRImagePullerRoleRequest
+ *       isActive: true || false,
+ *     },
+ *   },
+ * };
  * const command = new UpdateContainerServiceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateContainerServiceCommandInput - {@link UpdateContainerServiceCommandInput}
+ * @returns {@link UpdateContainerServiceCommandOutput}
  * @see {@link UpdateContainerServiceCommandInput} for command's `input` shape.
  * @see {@link UpdateContainerServiceCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
+ *       credentials to access a resource.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Lightsail throws this exception when user input does not conform to the validation rules
+ *       of an input field.</p>
+ *          <note>
+ *             <p>Domain and distribution APIs are only available in the N. Virginia
+ *           (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services
+ *         Region configuration to <code>us-east-1</code> to create, view, or edit these
+ *         resources.</p>
+ *          </note>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Lightsail throws this exception when it cannot find a resource.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>A general service exception.</p>
+ *
+ * @throws {@link UnauthenticatedException} (client fault)
+ *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
+ *
  *
  */
 export class UpdateContainerServiceCommand extends $Command<
@@ -63,6 +108,9 @@ export class UpdateContainerServiceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateContainerServiceCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +139,8 @@ export class UpdateContainerServiceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateContainerServiceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateContainerServiceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +150,18 @@ export class UpdateContainerServiceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateContainerServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateContainerServiceCommand(input, context);
+    return se_UpdateContainerServiceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateContainerServiceCommandOutput> {
-    return deserializeAws_json1_1UpdateContainerServiceCommand(output, context);
+    return de_UpdateContainerServiceCommand(output, context);
   }
 
   // Start section: command_body_extra

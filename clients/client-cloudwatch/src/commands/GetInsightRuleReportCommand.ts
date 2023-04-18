@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import {
-  GetInsightRuleReportInput,
-  GetInsightRuleReportInputFilterSensitiveLog,
-  GetInsightRuleReportOutput,
-  GetInsightRuleReportOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryGetInsightRuleReportCommand,
-  serializeAws_queryGetInsightRuleReportCommand,
-} from "../protocols/Aws_query";
+import { GetInsightRuleReportInput, GetInsightRuleReportOutput } from "../models/models_0";
+import { de_GetInsightRuleReportCommand, se_GetInsightRuleReportCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link GetInsightRuleReportCommand}.
+ */
 export interface GetInsightRuleReportCommandInput extends GetInsightRuleReportInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetInsightRuleReportCommand}.
+ */
 export interface GetInsightRuleReportCommandOutput extends GetInsightRuleReportOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation returns the time series data collected by a Contributor Insights rule. The data includes the identity and number of
  * 		contributors to the log group.</p>
  *          <p>You can also optionally return one or more statistics about each data point in the time series. These statistics can include the following:</p>
@@ -72,13 +75,36 @@ export interface GetInsightRuleReportCommandOutput extends GetInsightRuleReportO
  * import { CloudWatchClient, GetInsightRuleReportCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, GetInsightRuleReportCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
+ * const input = { // GetInsightRuleReportInput
+ *   RuleName: "STRING_VALUE", // required
+ *   StartTime: new Date("TIMESTAMP"), // required
+ *   EndTime: new Date("TIMESTAMP"), // required
+ *   Period: Number("int"), // required
+ *   MaxContributorCount: Number("int"),
+ *   Metrics: [ // InsightRuleMetricList
+ *     "STRING_VALUE",
+ *   ],
+ *   OrderBy: "STRING_VALUE",
+ * };
  * const command = new GetInsightRuleReportCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInsightRuleReportCommandInput - {@link GetInsightRuleReportCommandInput}
+ * @returns {@link GetInsightRuleReportCommandOutput}
  * @see {@link GetInsightRuleReportCommandInput} for command's `input` shape.
  * @see {@link GetInsightRuleReportCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value of an input parameter is bad or out-of-range.</p>
+ *
+ * @throws {@link MissingRequiredParameterException} (client fault)
+ *  <p>An input parameter that is required is missing.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The named resource does not exist.</p>
+ *
  *
  */
 export class GetInsightRuleReportCommand extends $Command<
@@ -98,6 +124,9 @@ export class GetInsightRuleReportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInsightRuleReportCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +155,8 @@ export class GetInsightRuleReportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetInsightRuleReportInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetInsightRuleReportOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +166,18 @@ export class GetInsightRuleReportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetInsightRuleReportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetInsightRuleReportCommand(input, context);
+    return se_GetInsightRuleReportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInsightRuleReportCommandOutput> {
-    return deserializeAws_queryGetInsightRuleReportCommand(output, context);
+    return de_GetInsightRuleReportCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ProfileDetailResponse,
-  ProfileDetailResponseFilterSensitiveLog,
-  ScalarProfileRequest,
-  ScalarProfileRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DisableProfileCommand,
-  serializeAws_restJson1DisableProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { ProfileDetailResponse, ScalarProfileRequest } from "../models/models_0";
+import { de_DisableProfileCommand, se_DisableProfileCommand } from "../protocols/Aws_restJson1";
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DisableProfileCommand}.
+ */
 export interface DisableProfileCommandInput extends ScalarProfileRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisableProfileCommand}.
+ */
 export interface DisableProfileCommandOutput extends ProfileDetailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables a profile. When disabled, <a href="https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html">CreateSession</a> requests with this profile fail.</p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -40,13 +43,25 @@ export interface DisableProfileCommandOutput extends ProfileDetailResponse, __Me
  * import { RolesAnywhereClient, DisableProfileCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
  * // const { RolesAnywhereClient, DisableProfileCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
  * const client = new RolesAnywhereClient(config);
+ * const input = { // ScalarProfileRequest
+ *   profileId: "STRING_VALUE", // required
+ * };
  * const command = new DisableProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableProfileCommandInput - {@link DisableProfileCommandInput}
+ * @returns {@link DisableProfileCommandOutput}
  * @see {@link DisableProfileCommandInput} for command's `input` shape.
  * @see {@link DisableProfileCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
  *
  */
 export class DisableProfileCommand extends $Command<
@@ -66,6 +81,9 @@ export class DisableProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +112,8 @@ export class DisableProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ScalarProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ProfileDetailResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +123,18 @@ export class DisableProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisableProfileCommand(input, context);
+    return se_DisableProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableProfileCommandOutput> {
-    return deserializeAws_restJson1DisableProfileCommand(output, context);
+    return de_DisableProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

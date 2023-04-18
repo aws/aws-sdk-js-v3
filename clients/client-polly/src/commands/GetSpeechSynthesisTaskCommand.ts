@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetSpeechSynthesisTaskInput,
-  GetSpeechSynthesisTaskInputFilterSensitiveLog,
-  GetSpeechSynthesisTaskOutput,
-  GetSpeechSynthesisTaskOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GetSpeechSynthesisTaskInput, GetSpeechSynthesisTaskOutput } from "../models/models_0";
 import { PollyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PollyClient";
-import {
-  deserializeAws_restJson1GetSpeechSynthesisTaskCommand,
-  serializeAws_restJson1GetSpeechSynthesisTaskCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetSpeechSynthesisTaskCommand, se_GetSpeechSynthesisTaskCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetSpeechSynthesisTaskCommand}.
+ */
 export interface GetSpeechSynthesisTaskCommandInput extends GetSpeechSynthesisTaskInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetSpeechSynthesisTaskCommand}.
+ */
 export interface GetSpeechSynthesisTaskCommandOutput extends GetSpeechSynthesisTaskOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a specific SpeechSynthesisTask object based on its TaskID.
  *       This object contains information about the given speech synthesis task,
  *       including the status of the task, and a link to the S3 bucket containing
@@ -39,13 +42,30 @@ export interface GetSpeechSynthesisTaskCommandOutput extends GetSpeechSynthesisT
  * import { PollyClient, GetSpeechSynthesisTaskCommand } from "@aws-sdk/client-polly"; // ES Modules import
  * // const { PollyClient, GetSpeechSynthesisTaskCommand } = require("@aws-sdk/client-polly"); // CommonJS import
  * const client = new PollyClient(config);
+ * const input = { // GetSpeechSynthesisTaskInput
+ *   TaskId: "STRING_VALUE", // required
+ * };
  * const command = new GetSpeechSynthesisTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSpeechSynthesisTaskCommandInput - {@link GetSpeechSynthesisTaskCommandInput}
+ * @returns {@link GetSpeechSynthesisTaskCommandOutput}
  * @see {@link GetSpeechSynthesisTaskCommandInput} for command's `input` shape.
  * @see {@link GetSpeechSynthesisTaskCommandOutput} for command's `response` shape.
  * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.
+ *
+ * @throws {@link InvalidTaskIdException} (client fault)
+ *  <p>The provided Task ID is not valid. Please provide a valid Task ID and
+ *       try again.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>An unknown condition has caused a service failure.</p>
+ *
+ * @throws {@link SynthesisTaskNotFoundException} (client fault)
+ *  <p>The Speech Synthesis task with requested Task ID cannot be
+ *       found.</p>
+ *
  *
  */
 export class GetSpeechSynthesisTaskCommand extends $Command<
@@ -65,6 +85,9 @@ export class GetSpeechSynthesisTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSpeechSynthesisTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +116,8 @@ export class GetSpeechSynthesisTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSpeechSynthesisTaskInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSpeechSynthesisTaskOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +127,18 @@ export class GetSpeechSynthesisTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSpeechSynthesisTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSpeechSynthesisTaskCommand(input, context);
+    return se_GetSpeechSynthesisTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSpeechSynthesisTaskCommandOutput> {
-    return deserializeAws_restJson1GetSpeechSynthesisTaskCommand(output, context);
+    return de_GetSpeechSynthesisTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

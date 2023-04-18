@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListTrialsRequest,
-  ListTrialsRequestFilterSensitiveLog,
-  ListTrialsResponse,
-  ListTrialsResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1ListTrialsCommand,
-  serializeAws_json1_1ListTrialsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListTrialsRequest, ListTrialsResponse } from "../models/models_3";
+import { de_ListTrialsCommand, se_ListTrialsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListTrialsCommand}.
+ */
 export interface ListTrialsCommandInput extends ListTrialsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListTrialsCommand}.
+ */
 export interface ListTrialsCommandOutput extends ListTrialsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the trials in your account. Specify an experiment name to limit the list to the
  *       trials that are part of that experiment. Specify a trial component name to limit the list to
  *       the trials that associated with that trial component. The list can be filtered to show only
@@ -40,13 +43,29 @@ export interface ListTrialsCommandOutput extends ListTrialsResponse, __MetadataB
  * import { SageMakerClient, ListTrialsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListTrialsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListTrialsRequest
+ *   ExperimentName: "STRING_VALUE",
+ *   TrialComponentName: "STRING_VALUE",
+ *   CreatedAfter: new Date("TIMESTAMP"),
+ *   CreatedBefore: new Date("TIMESTAMP"),
+ *   SortBy: "Name" || "CreationTime",
+ *   SortOrder: "Ascending" || "Descending",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListTrialsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTrialsCommandInput - {@link ListTrialsCommandInput}
+ * @returns {@link ListTrialsCommandOutput}
  * @see {@link ListTrialsCommandInput} for command's `input` shape.
  * @see {@link ListTrialsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class ListTrialsCommand extends $Command<
@@ -66,6 +85,9 @@ export class ListTrialsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTrialsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +114,8 @@ export class ListTrialsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTrialsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTrialsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +125,18 @@ export class ListTrialsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTrialsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTrialsCommand(input, context);
+    return se_ListTrialsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTrialsCommandOutput> {
-    return deserializeAws_json1_1ListTrialsCommand(output, context);
+    return de_ListTrialsCommand(output, context);
   }
 
   // Start section: command_body_extra

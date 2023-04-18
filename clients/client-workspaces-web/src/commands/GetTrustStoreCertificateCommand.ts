@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetTrustStoreCertificateRequest,
-  GetTrustStoreCertificateRequestFilterSensitiveLog,
-  GetTrustStoreCertificateResponse,
-  GetTrustStoreCertificateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetTrustStoreCertificateCommand,
-  serializeAws_restJson1GetTrustStoreCertificateCommand,
-} from "../protocols/Aws_restJson1";
+import { GetTrustStoreCertificateRequest, GetTrustStoreCertificateResponse } from "../models/models_0";
+import { de_GetTrustStoreCertificateCommand, se_GetTrustStoreCertificateCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetTrustStoreCertificateCommand}.
+ */
 export interface GetTrustStoreCertificateCommandInput extends GetTrustStoreCertificateRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetTrustStoreCertificateCommand}.
+ */
 export interface GetTrustStoreCertificateCommandOutput extends GetTrustStoreCertificateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the trust store certificate.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,35 @@ export interface GetTrustStoreCertificateCommandOutput extends GetTrustStoreCert
  * import { WorkSpacesWebClient, GetTrustStoreCertificateCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, GetTrustStoreCertificateCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = { // GetTrustStoreCertificateRequest
+ *   trustStoreArn: "STRING_VALUE", // required
+ *   thumbprint: "STRING_VALUE", // required
+ * };
  * const command = new GetTrustStoreCertificateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTrustStoreCertificateCommandInput - {@link GetTrustStoreCertificateCommandInput}
+ * @returns {@link GetTrustStoreCertificateCommandOutput}
  * @see {@link GetTrustStoreCertificateCommandInput} for command's `input` shape.
  * @see {@link GetTrustStoreCertificateCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access is denied.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There is an internal server error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource cannot be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>There is a throttling error.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There is a validation error.</p>
+ *
  *
  */
 export class GetTrustStoreCertificateCommand extends $Command<
@@ -62,6 +87,9 @@ export class GetTrustStoreCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTrustStoreCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +118,8 @@ export class GetTrustStoreCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTrustStoreCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTrustStoreCertificateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +129,18 @@ export class GetTrustStoreCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTrustStoreCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTrustStoreCertificateCommand(input, context);
+    return se_GetTrustStoreCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTrustStoreCertificateCommandOutput> {
-    return deserializeAws_restJson1GetTrustStoreCertificateCommand(output, context);
+    return de_GetTrustStoreCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import {
-  GetApiCacheRequest,
-  GetApiCacheRequestFilterSensitiveLog,
-  GetApiCacheResponse,
-  GetApiCacheResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetApiCacheCommand,
-  serializeAws_restJson1GetApiCacheCommand,
-} from "../protocols/Aws_restJson1";
+import { GetApiCacheRequest, GetApiCacheResponse } from "../models/models_0";
+import { de_GetApiCacheCommand, se_GetApiCacheCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetApiCacheCommand}.
+ */
 export interface GetApiCacheCommandInput extends GetApiCacheRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetApiCacheCommand}.
+ */
 export interface GetApiCacheCommandOutput extends GetApiCacheResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves an <code>ApiCache</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,36 @@ export interface GetApiCacheCommandOutput extends GetApiCacheResponse, __Metadat
  * import { AppSyncClient, GetApiCacheCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, GetApiCacheCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
+ * const input = { // GetApiCacheRequest
+ *   apiId: "STRING_VALUE", // required
+ * };
  * const command = new GetApiCacheCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetApiCacheCommandInput - {@link GetApiCacheCommandInput}
+ * @returns {@link GetApiCacheCommandOutput}
  * @see {@link GetApiCacheCommandInput} for command's `input` shape.
  * @see {@link GetApiCacheCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the
+ *          field values, and then try again.</p>
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>Another modification is in progress at this time and it must complete before you can make your
+ *          change.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal AppSync error occurred. Try your request again.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource specified in the request was not found. Check the resource, and then try again.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You aren't authorized to perform this operation.</p>
+ *
  *
  */
 export class GetApiCacheCommand extends $Command<
@@ -62,6 +88,9 @@ export class GetApiCacheCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetApiCacheCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +117,8 @@ export class GetApiCacheCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetApiCacheRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetApiCacheResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +128,18 @@ export class GetApiCacheCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetApiCacheCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetApiCacheCommand(input, context);
+    return se_GetApiCacheCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetApiCacheCommandOutput> {
-    return deserializeAws_restJson1GetApiCacheCommand(output, context);
+    return de_GetApiCacheCommand(output, context);
   }
 
   // Start section: command_body_extra

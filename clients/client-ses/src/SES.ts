@@ -347,6 +347,7 @@ import {
 import { SESClient } from "./SESClient";
 
 /**
+ * @public
  * <fullname>Amazon Simple Email Service</fullname>
  *         <p> This document contains reference information for the <a href="https://aws.amazon.com/ses/">Amazon Simple Email Service</a> (Amazon SES) API, version
  *             2010-12-01. This document is best used in conjunction with the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html">Amazon SES Developer
@@ -359,6 +360,7 @@ import { SESClient } from "./SESClient";
  */
 export class SES extends SESClient {
   /**
+   * @public
    * <p>Creates a receipt rule set by cloning an existing one. All receipt rules and
    *             configurations are copied to the new receipt rule set and are completely independent of
    *             the source rule set.</p>
@@ -396,6 +398,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Creates a configuration set.</p>
    *         <p>Configuration sets enable you to publish email sending events. For information about
    *             using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer
@@ -432,6 +435,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Creates a configuration set event destination.</p>
    *         <note>
    *             <p>When you create or update an event destination, you must provide one, and only
@@ -475,6 +479,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Creates an association between a configuration set and a custom domain for open and
    *             click event tracking. </p>
    *         <p>By default, images and links used for tracking open and click events are hosted on
@@ -513,6 +518,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Creates a new custom verification email template.</p>
    *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer
    *                 Guide</i>.</p>
@@ -550,6 +556,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Creates a new IP address filter.</p>
    *         <p>For information about setting up IP address filters, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-ip-filters.html">Amazon SES Developer Guide</a>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
@@ -584,6 +591,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Creates a receipt rule.</p>
    *         <p>For information about setting up receipt rules, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rules.html">Amazon SES Developer
    *                 Guide</a>.</p>
@@ -619,6 +627,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Creates an empty receipt rule set.</p>
    *         <p>For information about setting up receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html">Amazon SES
    *                 Developer Guide</a>.</p>
@@ -654,6 +663,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Creates an email template. Email templates enable you to send personalized email to
    *             one or more destinations in a single API operation. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer
    *                 Guide</a>.</p>
@@ -689,6 +699,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Deletes a configuration set. Configuration sets enable you to publish email sending
    *             events. For information about using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
@@ -723,6 +734,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Deletes a configuration set event destination. Configuration set event destinations
    *             are associated with configuration sets, which enable you to publish email sending
    *             events. For information about using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p>
@@ -760,6 +772,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Deletes an association between a configuration set and a custom domain for open and
    *             click event tracking.</p>
    *         <p>By default, images and links used for tracking open and click events are hosted on
@@ -803,6 +816,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Deletes an existing custom verification email template. </p>
    *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer
    *                 Guide</i>.</p>
@@ -840,6 +854,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified identity (an email address or a domain) from the list of
    *             verified identities.</p>
    *         <p>You can execute this operation no more than once per second.</p>
@@ -874,6 +889,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified sending authorization policy for the given identity (an email
    *             address or a domain). This API returns successfully even if a policy with the specified
    *             name does not exist.</p>
@@ -917,6 +933,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified IP address filter.</p>
    *         <p>For information about managing IP address filters, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-ip-filters.html">Amazon SES
    *                 Developer Guide</a>.</p>
@@ -952,6 +969,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified receipt rule.</p>
    *         <p>For information about managing receipt rules, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html">Amazon SES
    *                 Developer Guide</a>.</p>
@@ -987,6 +1005,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified receipt rule set and all of the receipt rules it
    *             contains.</p>
    *         <note>
@@ -1025,6 +1044,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Deletes an email template.</p>
    *         <p>You can execute this operation no more than once per second.</p>
    */
@@ -1058,6 +1078,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Deprecated. Use the <code>DeleteIdentity</code> operation to delete email addresses
    *             and domains.</p>
    */
@@ -1091,6 +1112,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Returns the metadata and receipt rules for the receipt rule set that is currently
    *             active.</p>
    *         <p>For information about setting up receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html">Amazon SES
@@ -1127,6 +1149,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Returns the details of the specified configuration set. For information about using
    *             configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer
    *                 Guide</a>.</p>
@@ -1162,6 +1185,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Returns the details of the specified receipt rule.</p>
    *         <p>For information about setting up receipt rules, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rules.html">Amazon SES Developer
    *                 Guide</a>.</p>
@@ -1197,6 +1221,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Returns the details of the specified receipt rule set.</p>
    *         <p>For information about managing receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
@@ -1231,6 +1256,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Returns the email sending status of the Amazon SES account for the current region.</p>
    *         <p>You can execute this operation no more than once per second.</p>
    */
@@ -1264,6 +1290,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Returns the custom email verification template for the template name you
    *             specify.</p>
    *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer
@@ -1300,6 +1327,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Returns the current status of Easy DKIM signing for an entity. For domain name
    *             identities, this operation also returns the DKIM tokens that are required for Easy DKIM
    *             signing, and whether Amazon SES has successfully verified that these tokens have been
@@ -1354,6 +1382,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Returns the custom MAIL FROM attributes for a list of identities (email addresses :
    *             domains).</p>
    *         <p>This operation is throttled at one request per second and can only get custom MAIL
@@ -1389,6 +1418,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Given a list of verified identities (email addresses and/or domains), returns a
    *             structure describing identity notification attributes.</p>
    *         <p>This operation is throttled at one request per second and can only get notification
@@ -1426,6 +1456,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Returns the requested sending authorization policies for the given identity (an email
    *             address or a domain). The policies are returned as a map of policy names to policy
    *             contents. You can retrieve a maximum of 20 policies at a time.</p>
@@ -1469,6 +1500,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Given a list of identities (email addresses and/or domains), returns the verification
    *             status and (for domain identities) the verification token for each identity.</p>
    *         <p>The verification status of an email address is "Pending" until the email address owner
@@ -1516,6 +1548,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Provides the sending limits for the Amazon SES account. </p>
    *         <p>You can execute this operation no more than once per second.</p>
    */
@@ -1546,6 +1579,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Provides sending statistics for the current AWS Region. The result is a list of data
    *             points, representing the last two weeks of sending activity. Each data point in the list
    *             contains statistics for a 15-minute period of time.</p>
@@ -1581,6 +1615,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Displays the template object (which includes the Subject line, HTML part and text
    *             part) for the template you specify.</p>
    *         <p>You can execute this operation no more than once per second.</p>
@@ -1609,6 +1644,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Provides a list of the configuration sets associated with your Amazon SES account in the
    *             current AWS Region. For information about using configuration sets, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Monitoring Your Amazon SES Sending Activity</a> in the <i>Amazon SES Developer
    *                 Guide.</i>
@@ -1650,6 +1686,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Lists the existing custom verification email templates for your account in the current
    *             AWS Region.</p>
    *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer
@@ -1686,6 +1723,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Returns a list containing all of the identities (email addresses and domains) for your
    *             AWS account in the current AWS Region, regardless of verification status.</p>
    *         <p>You can execute this operation no more than once per second.</p>
@@ -1720,6 +1758,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of sending authorization policies that are attached to the given
    *             identity (an email address or a domain). This API returns only a list. If you want the
    *             actual policy content, you can use <code>GetIdentityPolicies</code>.</p>
@@ -1763,6 +1802,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Lists the IP address filters associated with your AWS account in the current AWS
    *             Region.</p>
    *         <p>For information about managing IP address filters, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-ip-filters.html">Amazon SES
@@ -1799,6 +1839,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Lists the receipt rule sets that exist under your AWS account in the current AWS
    *             Region. If there are additional receipt rule sets to be retrieved, you will receive a
    *                 <code>NextToken</code> that you can provide to the next call to
@@ -1836,6 +1877,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Lists the email templates present in your Amazon SES account in the current AWS
    *             Region.</p>
    *         <p>You can execute this operation no more than once per second.</p>
@@ -1870,6 +1912,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Deprecated. Use the <code>ListIdentities</code> operation to list the email addresses
    *             and domains associated with your account.</p>
    */
@@ -1903,6 +1946,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Adds or updates the delivery options for a configuration set.</p>
    */
   public putConfigurationSetDeliveryOptions(
@@ -1935,6 +1979,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Adds or updates a sending authorization policy for the specified identity (an email
    *             address or a domain).</p>
    *         <note>
@@ -1977,6 +2022,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Reorders the receipt rules within a receipt rule set.</p>
    *         <note>
    *             <p>All of the rules in the rule set must be represented in this request. That is,
@@ -2016,6 +2062,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Generates and sends a bounce message to the sender of an email you received through
    *             Amazon SES. You can only use this API on an email up to 24 hours after you receive it.</p>
    *         <note>
@@ -2050,6 +2097,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Composes an email message to multiple destinations. The message body is created using
    *             an email template.</p>
    *         <p>In order to send email using the <code>SendBulkTemplatedEmail</code> operation, your
@@ -2124,6 +2172,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Adds an email address to the list of identities for your Amazon SES account in the current
    *             AWS Region and attempts to verify it. As a result of executing this operation, a
    *             customized verification email is sent to the specified address.</p>
@@ -2164,6 +2213,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Composes an email message and immediately queues it for sending. In order to send
    *             email using the <code>SendEmail</code> operation, your message must meet the following
    *             requirements:</p>
@@ -2234,6 +2284,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Composes an email message and immediately queues it for sending.</p>
    *
    *         <p>This operation is more flexible than the <code>SendEmail</code> API operation. When
@@ -2371,6 +2422,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Composes an email message using an email template and immediately queues it for
    *             sending.</p>
    *         <p>In order to send email using the <code>SendTemplatedEmail</code> operation, your call
@@ -2452,6 +2504,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Sets the specified receipt rule set as the active receipt rule set.</p>
    *         <note>
    *             <p>To disable your email-receiving through Amazon SES completely, you can call this API
@@ -2490,6 +2543,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Enables or disables Easy DKIM signing of email sent from an identity. If Easy DKIM
    *             signing is enabled for a domain, then Amazon SES uses DKIM to sign all email that it sends
    *             from addresses on that domain. If Easy DKIM signing is enabled for an email address,
@@ -2534,6 +2588,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Given an identity (an email address or a domain), enables or disables whether Amazon SES
    *             forwards bounce and complaint notifications as email. Feedback forwarding can only be
    *             disabled when Amazon Simple Notification Service (Amazon SNS) topics are specified for both bounces and
@@ -2576,6 +2631,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Given an identity (an email address or a domain), sets whether Amazon SES includes the
    *             original email headers in the Amazon Simple Notification Service (Amazon SNS) notifications of a specified
    *             type.</p>
@@ -2615,6 +2671,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Enables or disables the custom MAIL FROM domain setup for a verified identity (an
    *             email address or a domain).</p>
    *         <important>
@@ -2656,6 +2713,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Sets an Amazon Simple Notification Service (Amazon SNS) topic to use when delivering notifications. When you use
    *             this operation, you specify a verified identity, such as an email address or domain.
    *             When you send an email that uses the chosen identity in the Source field, Amazon SES sends
@@ -2696,6 +2754,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Sets the position of the specified receipt rule in the receipt rule set.</p>
    *         <p>For information about managing receipt rules, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html">Amazon SES
    *                 Developer Guide</a>.</p>
@@ -2731,6 +2790,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Creates a preview of the MIME content of an email when provided with a template and a
    *             set of replacement data.</p>
    *         <p>You can execute this operation no more than once per second.</p>
@@ -2765,6 +2825,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Enables or disables email sending across your entire Amazon SES account in the current
    *             AWS Region. You can use this operation in conjunction with Amazon CloudWatch alarms to
    *             temporarily pause email sending across your Amazon SES account in a given AWS Region when
@@ -2802,6 +2863,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Updates the event destination of a configuration set. Event destinations are
    *             associated with configuration sets, which enable you to publish email sending events to
    *             Amazon CloudWatch, Amazon Kinesis Firehose, or Amazon Simple Notification Service (Amazon SNS). For information about using configuration sets,
@@ -2847,6 +2909,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Enables or disables the publishing of reputation metrics for emails sent using a
    *             specific configuration set in a given AWS Region. Reputation metrics include bounce
    *             and complaint rates. These metrics are published to Amazon CloudWatch. By using CloudWatch, you can
@@ -2885,6 +2948,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Enables or disables email sending for messages sent using a specific configuration set
    *             in a given AWS Region. You can use this operation in conjunction with Amazon CloudWatch alarms
    *             to temporarily pause email sending for a configuration set when the reputation metrics
@@ -2922,6 +2986,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Modifies an association between a configuration set and a custom domain for open and
    *             click event tracking. </p>
    *         <p>By default, images and links used for tracking open and click events are hosted on
@@ -2960,6 +3025,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing custom verification email template.</p>
    *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer
    *                 Guide</i>.</p>
@@ -2997,6 +3063,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Updates a receipt rule.</p>
    *         <p>For information about managing receipt rules, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html">Amazon SES
    *                 Developer Guide</a>.</p>
@@ -3032,6 +3099,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Updates an email template. Email templates enable you to send personalized email to
    *             one or more destinations in a single API operation. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer
    *                 Guide</a>.</p>
@@ -3067,6 +3135,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Returns a set of DKIM tokens for a domain identity.</p>
    *         <important>
    *             <p>When you execute the <code>VerifyDomainDkim</code> operation, the domain that you
@@ -3137,6 +3206,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Adds a domain to the list of identities for your Amazon SES account in the current AWS
    *             Region and attempts to verify it. For more information about verifying domains, see
    *                 <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Verifying Email
@@ -3175,6 +3245,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Deprecated. Use the <code>VerifyEmailIdentity</code> operation to verify a new email
    *             address.</p>
    */
@@ -3208,6 +3279,7 @@ export class SES extends SESClient {
   }
 
   /**
+   * @public
    * <p>Adds an email address to the list of identities for your Amazon SES account in the current
    *             AWS region and attempts to verify it. As a result of executing this operation, a
    *             verification email is sent to the specified address.</p>

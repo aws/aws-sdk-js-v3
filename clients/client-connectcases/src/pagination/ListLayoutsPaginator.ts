@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListLayoutsCommand, ListLayoutsCommandInput, ListLayoutsCommandOutput } from "../commands/ListLayoutsCommand";
-import { ConnectCases } from "../ConnectCases";
 import { ConnectCasesClient } from "../ConnectCasesClient";
 import { ConnectCasesPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ConnectCasesClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListLayoutsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ConnectCases,
-  input: ListLayoutsCommandInput,
-  ...args: any
-): Promise<ListLayoutsCommandOutput> => {
-  // @ts-ignore
-  return await client.listLayouts(input, ...args);
-};
 export async function* paginateListLayouts(
   config: ConnectCasesPaginationConfiguration,
   input: ListLayoutsCommandInput,
@@ -40,9 +31,7 @@ export async function* paginateListLayouts(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof ConnectCases) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ConnectCasesClient) {
+    if (config.client instanceof ConnectCasesClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ConnectCases | ConnectCasesClient");

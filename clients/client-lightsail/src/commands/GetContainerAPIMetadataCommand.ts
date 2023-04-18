@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  GetContainerAPIMetadataRequest,
-  GetContainerAPIMetadataRequestFilterSensitiveLog,
-  GetContainerAPIMetadataResult,
-  GetContainerAPIMetadataResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetContainerAPIMetadataCommand,
-  serializeAws_json1_1GetContainerAPIMetadataCommand,
-} from "../protocols/Aws_json1_1";
+import { GetContainerAPIMetadataRequest, GetContainerAPIMetadataResult } from "../models/models_0";
+import { de_GetContainerAPIMetadataCommand, se_GetContainerAPIMetadataCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetContainerAPIMetadataCommand}.
+ */
 export interface GetContainerAPIMetadataCommandInput extends GetContainerAPIMetadataRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetContainerAPIMetadataCommand}.
+ */
 export interface GetContainerAPIMetadataCommandOutput extends GetContainerAPIMetadataResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about Amazon Lightsail containers, such as the current version of the
  *       Lightsail Control (lightsailctl) plugin.</p>
  * @example
@@ -37,13 +40,27 @@ export interface GetContainerAPIMetadataCommandOutput extends GetContainerAPIMet
  * import { LightsailClient, GetContainerAPIMetadataCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetContainerAPIMetadataCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {};
  * const command = new GetContainerAPIMetadataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetContainerAPIMetadataCommandInput - {@link GetContainerAPIMetadataCommandInput}
+ * @returns {@link GetContainerAPIMetadataCommandOutput}
  * @see {@link GetContainerAPIMetadataCommandInput} for command's `input` shape.
  * @see {@link GetContainerAPIMetadataCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
+ *       credentials to access a resource.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>A general service exception.</p>
+ *
+ * @throws {@link UnauthenticatedException} (client fault)
+ *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
+ *
  *
  */
 export class GetContainerAPIMetadataCommand extends $Command<
@@ -63,6 +80,9 @@ export class GetContainerAPIMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetContainerAPIMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +111,8 @@ export class GetContainerAPIMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetContainerAPIMetadataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetContainerAPIMetadataResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +122,18 @@ export class GetContainerAPIMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetContainerAPIMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetContainerAPIMetadataCommand(input, context);
+    return se_GetContainerAPIMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetContainerAPIMetadataCommandOutput> {
-    return deserializeAws_json1_1GetContainerAPIMetadataCommand(output, context);
+    return de_GetContainerAPIMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

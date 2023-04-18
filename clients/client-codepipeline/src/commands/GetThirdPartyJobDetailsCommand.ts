@@ -16,19 +16,26 @@ import {
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
 import {
   GetThirdPartyJobDetailsInput,
-  GetThirdPartyJobDetailsInputFilterSensitiveLog,
   GetThirdPartyJobDetailsOutput,
   GetThirdPartyJobDetailsOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetThirdPartyJobDetailsCommand,
-  serializeAws_json1_1GetThirdPartyJobDetailsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetThirdPartyJobDetailsCommand, se_GetThirdPartyJobDetailsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetThirdPartyJobDetailsCommand}.
+ */
 export interface GetThirdPartyJobDetailsCommandInput extends GetThirdPartyJobDetailsInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetThirdPartyJobDetailsCommand}.
+ */
 export interface GetThirdPartyJobDetailsCommandOutput extends GetThirdPartyJobDetailsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Requests the details of a job for a third party action. Used for partner actions
  *             only.</p>
  *         <important>
@@ -43,13 +50,32 @@ export interface GetThirdPartyJobDetailsCommandOutput extends GetThirdPartyJobDe
  * import { CodePipelineClient, GetThirdPartyJobDetailsCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, GetThirdPartyJobDetailsCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
+ * const input = { // GetThirdPartyJobDetailsInput
+ *   jobId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE", // required
+ * };
  * const command = new GetThirdPartyJobDetailsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetThirdPartyJobDetailsCommandInput - {@link GetThirdPartyJobDetailsCommandInput}
+ * @returns {@link GetThirdPartyJobDetailsCommandOutput}
  * @see {@link GetThirdPartyJobDetailsCommandInput} for command's `input` shape.
  * @see {@link GetThirdPartyJobDetailsCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
+ *
+ * @throws {@link InvalidClientTokenException} (client fault)
+ *  <p>The client token was specified in an invalid format</p>
+ *
+ * @throws {@link InvalidJobException} (client fault)
+ *  <p>The job was specified in an invalid format or cannot be found.</p>
+ *
+ * @throws {@link JobNotFoundException} (client fault)
+ *  <p>The job was specified in an invalid format or cannot be found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The validation was specified in an invalid format.</p>
+ *
  *
  */
 export class GetThirdPartyJobDetailsCommand extends $Command<
@@ -69,6 +95,9 @@ export class GetThirdPartyJobDetailsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetThirdPartyJobDetailsCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,7 +126,7 @@ export class GetThirdPartyJobDetailsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetThirdPartyJobDetailsInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetThirdPartyJobDetailsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -108,12 +137,18 @@ export class GetThirdPartyJobDetailsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetThirdPartyJobDetailsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetThirdPartyJobDetailsCommand(input, context);
+    return se_GetThirdPartyJobDetailsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetThirdPartyJobDetailsCommandOutput> {
-    return deserializeAws_json1_1GetThirdPartyJobDetailsCommand(output, context);
+    return de_GetThirdPartyJobDetailsCommand(output, context);
   }
 
   // Start section: command_body_extra

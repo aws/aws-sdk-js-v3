@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  GetManagedPrefixListEntriesRequest,
-  GetManagedPrefixListEntriesRequestFilterSensitiveLog,
-  GetManagedPrefixListEntriesResult,
-  GetManagedPrefixListEntriesResultFilterSensitiveLog,
-} from "../models/models_5";
-import {
-  deserializeAws_ec2GetManagedPrefixListEntriesCommand,
-  serializeAws_ec2GetManagedPrefixListEntriesCommand,
-} from "../protocols/Aws_ec2";
+import { GetManagedPrefixListEntriesRequest, GetManagedPrefixListEntriesResult } from "../models/models_5";
+import { de_GetManagedPrefixListEntriesCommand, se_GetManagedPrefixListEntriesCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link GetManagedPrefixListEntriesCommand}.
+ */
 export interface GetManagedPrefixListEntriesCommandInput extends GetManagedPrefixListEntriesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetManagedPrefixListEntriesCommand}.
+ */
 export interface GetManagedPrefixListEntriesCommandOutput extends GetManagedPrefixListEntriesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the entries for a specified managed prefix list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,23 @@ export interface GetManagedPrefixListEntriesCommandOutput extends GetManagedPref
  * import { EC2Client, GetManagedPrefixListEntriesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetManagedPrefixListEntriesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // GetManagedPrefixListEntriesRequest
+ *   DryRun: true || false,
+ *   PrefixListId: "STRING_VALUE", // required
+ *   TargetVersion: Number("long"),
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetManagedPrefixListEntriesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetManagedPrefixListEntriesCommandInput - {@link GetManagedPrefixListEntriesCommandInput}
+ * @returns {@link GetManagedPrefixListEntriesCommandOutput}
  * @see {@link GetManagedPrefixListEntriesCommandInput} for command's `input` shape.
  * @see {@link GetManagedPrefixListEntriesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class GetManagedPrefixListEntriesCommand extends $Command<
@@ -62,6 +75,9 @@ export class GetManagedPrefixListEntriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetManagedPrefixListEntriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +106,8 @@ export class GetManagedPrefixListEntriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetManagedPrefixListEntriesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetManagedPrefixListEntriesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +117,21 @@ export class GetManagedPrefixListEntriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetManagedPrefixListEntriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2GetManagedPrefixListEntriesCommand(input, context);
+    return se_GetManagedPrefixListEntriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetManagedPrefixListEntriesCommandOutput> {
-    return deserializeAws_ec2GetManagedPrefixListEntriesCommand(output, context);
+    return de_GetManagedPrefixListEntriesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { CloudControl } from "../CloudControl";
 import { CloudControlClient } from "../CloudControlClient";
 import {
   ListResourceRequestsCommand,
@@ -11,7 +10,7 @@ import {
 import { CloudControlPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CloudControlClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListResourceRequestsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: CloudControl,
-  input: ListResourceRequestsCommandInput,
-  ...args: any
-): Promise<ListResourceRequestsCommandOutput> => {
-  // @ts-ignore
-  return await client.listResourceRequests(input, ...args);
-};
 export async function* paginateListResourceRequests(
   config: CloudControlPaginationConfiguration,
   input: ListResourceRequestsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListResourceRequests(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof CloudControl) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof CloudControlClient) {
+    if (config.client instanceof CloudControlClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected CloudControl | CloudControlClient");

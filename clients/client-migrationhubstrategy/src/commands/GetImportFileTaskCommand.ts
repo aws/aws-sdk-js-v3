@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
-import {
-  GetImportFileTaskRequest,
-  GetImportFileTaskRequestFilterSensitiveLog,
-  GetImportFileTaskResponse,
-  GetImportFileTaskResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetImportFileTaskCommand,
-  serializeAws_restJson1GetImportFileTaskCommand,
-} from "../protocols/Aws_restJson1";
+import { GetImportFileTaskRequest, GetImportFileTaskResponse } from "../models/models_0";
+import { de_GetImportFileTaskCommand, se_GetImportFileTaskCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetImportFileTaskCommand}.
+ */
 export interface GetImportFileTaskCommandInput extends GetImportFileTaskRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetImportFileTaskCommand}.
+ */
 export interface GetImportFileTaskCommandOutput extends GetImportFileTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Retrieves the details about a specific import task. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,35 @@ export interface GetImportFileTaskCommandOutput extends GetImportFileTaskRespons
  * import { MigrationHubStrategyClient, GetImportFileTaskCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, GetImportFileTaskCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
+ * const input = { // GetImportFileTaskRequest
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new GetImportFileTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetImportFileTaskCommandInput - {@link GetImportFileTaskCommandInput}
+ * @returns {@link GetImportFileTaskCommandOutput}
  * @see {@link GetImportFileTaskCommandInput} for command's `input` shape.
  * @see {@link GetImportFileTaskCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p> The user does not have permission to perform the action. Check the
+ *       AWS Identity and Access Management (IAM) policy associated with this user.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> The server experienced an internal error. Try again. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p> The specified ID in the request is not found. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p> The request was denied due to request throttling. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p> The request body isn't valid. </p>
+ *
  *
  */
 export class GetImportFileTaskCommand extends $Command<
@@ -66,6 +91,9 @@ export class GetImportFileTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetImportFileTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +122,8 @@ export class GetImportFileTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetImportFileTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetImportFileTaskResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +133,18 @@ export class GetImportFileTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetImportFileTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetImportFileTaskCommand(input, context);
+    return se_GetImportFileTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetImportFileTaskCommandOutput> {
-    return deserializeAws_restJson1GetImportFileTaskCommand(output, context);
+    return de_GetImportFileTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import {
-  StartMetricStreamsInput,
-  StartMetricStreamsInputFilterSensitiveLog,
-  StartMetricStreamsOutput,
-  StartMetricStreamsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryStartMetricStreamsCommand,
-  serializeAws_queryStartMetricStreamsCommand,
-} from "../protocols/Aws_query";
+import { StartMetricStreamsInput, StartMetricStreamsOutput } from "../models/models_0";
+import { de_StartMetricStreamsCommand, se_StartMetricStreamsCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link StartMetricStreamsCommand}.
+ */
 export interface StartMetricStreamsCommandInput extends StartMetricStreamsInput {}
+/**
+ * @public
+ *
+ * The output of {@link StartMetricStreamsCommand}.
+ */
 export interface StartMetricStreamsCommandOutput extends StartMetricStreamsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the streaming of metrics for one or more of your metric streams.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,30 @@ export interface StartMetricStreamsCommandOutput extends StartMetricStreamsOutpu
  * import { CloudWatchClient, StartMetricStreamsCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, StartMetricStreamsCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
+ * const input = { // StartMetricStreamsInput
+ *   Names: [ // MetricStreamNames // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new StartMetricStreamsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartMetricStreamsCommandInput - {@link StartMetricStreamsCommandInput}
+ * @returns {@link StartMetricStreamsCommandOutput}
  * @see {@link StartMetricStreamsCommandInput} for command's `input` shape.
  * @see {@link StartMetricStreamsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
+ *
+ * @throws {@link InternalServiceFault} (server fault)
+ *  <p>Request processing has failed due to some unknown error, exception, or failure.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value of an input parameter is bad or out-of-range.</p>
+ *
+ * @throws {@link MissingRequiredParameterException} (client fault)
+ *  <p>An input parameter that is required is missing.</p>
+ *
  *
  */
 export class StartMetricStreamsCommand extends $Command<
@@ -62,6 +82,9 @@ export class StartMetricStreamsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartMetricStreamsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +113,8 @@ export class StartMetricStreamsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartMetricStreamsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StartMetricStreamsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +124,18 @@ export class StartMetricStreamsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartMetricStreamsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryStartMetricStreamsCommand(input, context);
+    return se_StartMetricStreamsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartMetricStreamsCommandOutput> {
-    return deserializeAws_queryStartMetricStreamsCommand(output, context);
+    return de_StartMetricStreamsCommand(output, context);
   }
 
   // Start section: command_body_extra

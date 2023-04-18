@@ -18,23 +18,30 @@ import {
   CreateForecastExportJobRequest,
   CreateForecastExportJobRequestFilterSensitiveLog,
   CreateForecastExportJobResponse,
-  CreateForecastExportJobResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateForecastExportJobCommand,
-  serializeAws_json1_1CreateForecastExportJobCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateForecastExportJobCommand, se_CreateForecastExportJobCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateForecastExportJobCommand}.
+ */
 export interface CreateForecastExportJobCommandInput extends CreateForecastExportJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateForecastExportJobCommand}.
+ */
 export interface CreateForecastExportJobCommandOutput extends CreateForecastExportJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Exports a forecast created by the <a>CreateForecast</a> operation to your
  *       Amazon Simple Storage Service (Amazon S3) bucket. The forecast file name will match the following conventions:</p>
  *          <p><ForecastExportJobName>_<ExportTimestamp>_<PartNumber></p>
  *          <p>where the <ExportTimestamp> component is in Java SimpleDateFormat
  *       (yyyy-MM-ddTHH-mm-ssZ).</p>
- *          <p>You must specify a <a>DataDestination</a> object that includes an AWS Identity and Access Management
+ *          <p>You must specify a <a>DataDestination</a> object that includes an Identity and Access Management
  *       (IAM) role that Amazon Forecast can assume to access the Amazon S3 bucket. For more information, see
  *         <a>aws-forecast-iam-roles</a>.</p>
  *          <p>For more information, see <a>howitworks-forecast</a>.</p>
@@ -49,13 +56,51 @@ export interface CreateForecastExportJobCommandOutput extends CreateForecastExpo
  * import { ForecastClient, CreateForecastExportJobCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, CreateForecastExportJobCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = { // CreateForecastExportJobRequest
+ *   ForecastExportJobName: "STRING_VALUE", // required
+ *   ForecastArn: "STRING_VALUE", // required
+ *   Destination: { // DataDestination
+ *     S3Config: { // S3Config
+ *       Path: "STRING_VALUE", // required
+ *       RoleArn: "STRING_VALUE", // required
+ *       KMSKeyArn: "STRING_VALUE",
+ *     },
+ *   },
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Format: "STRING_VALUE",
+ * };
  * const command = new CreateForecastExportJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateForecastExportJobCommandInput - {@link CreateForecastExportJobCommandInput}
+ * @returns {@link CreateForecastExportJobCommandOutput}
  * @see {@link CreateForecastExportJobCommandInput} for command's `input` shape.
  * @see {@link CreateForecastExportJobCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>We can't process the request because it includes an invalid value or a value that exceeds
+ *       the valid range.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The limit on the number of resources per account has been exceeded.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>There is already a resource with this name. Try again with a different name.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is in use.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
+ *       again.</p>
+ *
  *
  */
 export class CreateForecastExportJobCommand extends $Command<
@@ -75,6 +120,9 @@ export class CreateForecastExportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateForecastExportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,7 +152,7 @@ export class CreateForecastExportJobCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateForecastExportJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateForecastExportJobResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +162,18 @@ export class CreateForecastExportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateForecastExportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateForecastExportJobCommand(input, context);
+    return se_CreateForecastExportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateForecastExportJobCommandOutput> {
-    return deserializeAws_json1_1CreateForecastExportJobCommand(output, context);
+    return de_CreateForecastExportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

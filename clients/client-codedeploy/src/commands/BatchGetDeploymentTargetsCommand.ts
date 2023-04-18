@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import {
-  BatchGetDeploymentTargetsInput,
-  BatchGetDeploymentTargetsInputFilterSensitiveLog,
-  BatchGetDeploymentTargetsOutput,
-  BatchGetDeploymentTargetsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchGetDeploymentTargetsCommand,
-  serializeAws_json1_1BatchGetDeploymentTargetsCommand,
-} from "../protocols/Aws_json1_1";
+import { BatchGetDeploymentTargetsInput, BatchGetDeploymentTargetsOutput } from "../models/models_0";
+import { de_BatchGetDeploymentTargetsCommand, se_BatchGetDeploymentTargetsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchGetDeploymentTargetsCommand}.
+ */
 export interface BatchGetDeploymentTargetsCommandInput extends BatchGetDeploymentTargetsInput {}
+/**
+ * @public
+ *
+ * The output of {@link BatchGetDeploymentTargetsCommand}.
+ */
 export interface BatchGetDeploymentTargetsCommandOutput extends BatchGetDeploymentTargetsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns an array of one or more targets associated with a deployment. This method
  *             works with all compute types and should be used instead of the deprecated
  *                 <code>BatchGetDeploymentInstances</code>. The maximum number of targets that can be
@@ -62,13 +65,53 @@ export interface BatchGetDeploymentTargetsCommandOutput extends BatchGetDeployme
  * import { CodeDeployClient, BatchGetDeploymentTargetsCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, BatchGetDeploymentTargetsCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
+ * const input = { // BatchGetDeploymentTargetsInput
+ *   deploymentId: "STRING_VALUE",
+ *   targetIds: [ // TargetIdList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchGetDeploymentTargetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetDeploymentTargetsCommandInput - {@link BatchGetDeploymentTargetsCommandInput}
+ * @returns {@link BatchGetDeploymentTargetsCommandOutput}
  * @see {@link BatchGetDeploymentTargetsCommandInput} for command's `input` shape.
  * @see {@link BatchGetDeploymentTargetsCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
+ *
+ * @throws {@link DeploymentDoesNotExistException} (client fault)
+ *  <p>The deployment with the IAM user or Amazon Web Services account does not
+ *             exist.</p>
+ *
+ * @throws {@link DeploymentIdRequiredException} (client fault)
+ *  <p>At least one deployment ID must be specified.</p>
+ *
+ * @throws {@link DeploymentNotStartedException} (client fault)
+ *  <p>The specified deployment has not started.</p>
+ *
+ * @throws {@link DeploymentTargetDoesNotExistException} (client fault)
+ *  <p> The provided target ID does not belong to the attempted deployment. </p>
+ *
+ * @throws {@link DeploymentTargetIdRequiredException} (client fault)
+ *  <p> A deployment target ID was not provided. </p>
+ *
+ * @throws {@link DeploymentTargetListSizeExceededException} (client fault)
+ *  <p> The maximum number of targets that can be associated with an Amazon ECS or
+ *                 Lambda deployment was exceeded. The target list of both types of
+ *             deployments must have exactly one item. This exception does not apply to EC2/On-premises
+ *             deployments. </p>
+ *
+ * @throws {@link InstanceDoesNotExistException} (client fault)
+ *  <p>The specified instance does not exist in the deployment group.</p>
+ *
+ * @throws {@link InvalidDeploymentIdException} (client fault)
+ *  <p>At least one of the deployment IDs was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidDeploymentTargetIdException} (client fault)
+ *  <p> The target ID provided was not valid. </p>
+ *
  *
  */
 export class BatchGetDeploymentTargetsCommand extends $Command<
@@ -88,6 +131,9 @@ export class BatchGetDeploymentTargetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetDeploymentTargetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +162,8 @@ export class BatchGetDeploymentTargetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetDeploymentTargetsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetDeploymentTargetsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,15 +173,21 @@ export class BatchGetDeploymentTargetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetDeploymentTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchGetDeploymentTargetsCommand(input, context);
+    return se_BatchGetDeploymentTargetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchGetDeploymentTargetsCommandOutput> {
-    return deserializeAws_json1_1BatchGetDeploymentTargetsCommand(output, context);
+    return de_BatchGetDeploymentTargetsCommand(output, context);
   }
 
   // Start section: command_body_extra

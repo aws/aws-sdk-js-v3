@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetFindingAggregatorRequest,
-  GetFindingAggregatorRequestFilterSensitiveLog,
-  GetFindingAggregatorResponse,
-  GetFindingAggregatorResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1GetFindingAggregatorCommand,
-  serializeAws_restJson1GetFindingAggregatorCommand,
-} from "../protocols/Aws_restJson1";
+import { GetFindingAggregatorRequest, GetFindingAggregatorResponse } from "../models/models_2";
+import { de_GetFindingAggregatorCommand, se_GetFindingAggregatorCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetFindingAggregatorCommand}.
+ */
 export interface GetFindingAggregatorCommandInput extends GetFindingAggregatorRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetFindingAggregatorCommand}.
+ */
 export interface GetFindingAggregatorCommandOutput extends GetFindingAggregatorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the current finding aggregation configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,39 @@ export interface GetFindingAggregatorCommandOutput extends GetFindingAggregatorR
  * import { SecurityHubClient, GetFindingAggregatorCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, GetFindingAggregatorCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = { // GetFindingAggregatorRequest
+ *   FindingAggregatorArn: "STRING_VALUE", // required
+ * };
  * const command = new GetFindingAggregatorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFindingAggregatorCommandInput - {@link GetFindingAggregatorCommandInput}
+ * @returns {@link GetFindingAggregatorCommandOutput}
  * @see {@link GetFindingAggregatorCommandInput} for command's `input` shape.
  * @see {@link GetFindingAggregatorCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have permission to perform the action specified in the request.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>Internal server error.</p>
+ *
+ * @throws {@link InvalidAccessException} (client fault)
+ *  <p>The account doesn't have permission to perform this action.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because you supplied an invalid or out-of-range value for an
+ *          input parameter.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
+ *          account or throttling limits. The error code describes the limit exceeded.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request was rejected because we can't find the specified resource.</p>
+ *
  *
  */
 export class GetFindingAggregatorCommand extends $Command<
@@ -62,6 +91,9 @@ export class GetFindingAggregatorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFindingAggregatorCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +122,8 @@ export class GetFindingAggregatorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFindingAggregatorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetFindingAggregatorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +133,18 @@ export class GetFindingAggregatorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFindingAggregatorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetFindingAggregatorCommand(input, context);
+    return se_GetFindingAggregatorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFindingAggregatorCommandOutput> {
-    return deserializeAws_restJson1GetFindingAggregatorCommand(output, context);
+    return de_GetFindingAggregatorCommand(output, context);
   }
 
   // Start section: command_body_extra

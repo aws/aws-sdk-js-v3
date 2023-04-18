@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import {
-  CreateRepositoryRequest,
-  CreateRepositoryRequestFilterSensitiveLog,
-  CreateRepositoryResult,
-  CreateRepositoryResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateRepositoryCommand,
-  serializeAws_restJson1CreateRepositoryCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateRepositoryRequest, CreateRepositoryResult } from "../models/models_0";
+import { de_CreateRepositoryCommand, se_CreateRepositoryCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateRepositoryCommand}.
+ */
 export interface CreateRepositoryCommandInput extends CreateRepositoryRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateRepositoryCommand}.
+ */
 export interface CreateRepositoryCommandOutput extends CreateRepositoryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *         Creates a repository.
  *       </p>
@@ -38,13 +41,66 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryResult, _
  * import { CodeartifactClient, CreateRepositoryCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, CreateRepositoryCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
+ * const input = { // CreateRepositoryRequest
+ *   domain: "STRING_VALUE", // required
+ *   domainOwner: "STRING_VALUE",
+ *   repository: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   upstreams: [ // UpstreamRepositoryList
+ *     { // UpstreamRepository
+ *       repositoryName: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateRepositoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRepositoryCommandInput - {@link CreateRepositoryCommandInput}
+ * @returns {@link CreateRepositoryCommandOutput}
  * @see {@link CreateRepositoryCommandInput} for command's `input` shape.
  * @see {@link CreateRepositoryCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>
+ *         The operation did not succeed because of an unauthorized access attempt.
+ *       </p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>
+ *         The operation did not succeed because prerequisites are not met.
+ *       </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>
+ *       The operation did not succeed because the resource requested is not found in the service.
+ *     </p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>
+ *         The operation did not succeed because it would have exceeded a service limit for your account.
+ *       </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>
+ *       The operation did not succeed because too many requests are sent to the service.
+ *     </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>
+ *       The operation did not succeed because a parameter in the request was sent with an invalid value.
+ *     </p>
+ *
  *
  */
 export class CreateRepositoryCommand extends $Command<
@@ -64,6 +120,9 @@ export class CreateRepositoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRepositoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +151,8 @@ export class CreateRepositoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRepositoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRepositoryResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +162,18 @@ export class CreateRepositoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRepositoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateRepositoryCommand(input, context);
+    return se_CreateRepositoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRepositoryCommandOutput> {
-    return deserializeAws_restJson1CreateRepositoryCommand(output, context);
+    return de_CreateRepositoryCommand(output, context);
   }
 
   // Start section: command_body_extra

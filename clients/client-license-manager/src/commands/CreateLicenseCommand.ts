@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
-import {
-  CreateLicenseRequest,
-  CreateLicenseRequestFilterSensitiveLog,
-  CreateLicenseResponse,
-  CreateLicenseResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateLicenseCommand,
-  serializeAws_json1_1CreateLicenseCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateLicenseRequest, CreateLicenseResponse } from "../models/models_0";
+import { de_CreateLicenseCommand, se_CreateLicenseCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateLicenseCommand}.
+ */
 export interface CreateLicenseCommandInput extends CreateLicenseRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateLicenseCommand}.
+ */
 export interface CreateLicenseCommandOutput extends CreateLicenseResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a license.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,80 @@ export interface CreateLicenseCommandOutput extends CreateLicenseResponse, __Met
  * import { LicenseManagerClient, CreateLicenseCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, CreateLicenseCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = { // CreateLicenseRequest
+ *   LicenseName: "STRING_VALUE", // required
+ *   ProductName: "STRING_VALUE", // required
+ *   ProductSKU: "STRING_VALUE", // required
+ *   Issuer: { // Issuer
+ *     Name: "STRING_VALUE", // required
+ *     SignKey: "STRING_VALUE",
+ *   },
+ *   HomeRegion: "STRING_VALUE", // required
+ *   Validity: { // DatetimeRange
+ *     Begin: "STRING_VALUE", // required
+ *     End: "STRING_VALUE",
+ *   },
+ *   Entitlements: [ // EntitlementList // required
+ *     { // Entitlement
+ *       Name: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *       MaxCount: Number("long"),
+ *       Overage: true || false,
+ *       Unit: "Count" || "None" || "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second", // required
+ *       AllowCheckIn: true || false,
+ *     },
+ *   ],
+ *   Beneficiary: "STRING_VALUE", // required
+ *   ConsumptionConfiguration: { // ConsumptionConfiguration
+ *     RenewType: "None" || "Weekly" || "Monthly",
+ *     ProvisionalConfiguration: { // ProvisionalConfiguration
+ *       MaxTimeToLiveInMinutes: Number("int"), // required
+ *     },
+ *     BorrowConfiguration: { // BorrowConfiguration
+ *       AllowEarlyCheckIn: true || false, // required
+ *       MaxTimeToLiveInMinutes: Number("int"), // required
+ *     },
+ *   },
+ *   LicenseMetadata: [ // MetadataList
+ *     { // Metadata
+ *       Name: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   ClientToken: "STRING_VALUE", // required
+ * };
  * const command = new CreateLicenseCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLicenseCommandInput - {@link CreateLicenseCommandInput}
+ * @returns {@link CreateLicenseCommandOutput}
  * @see {@link CreateLicenseCommandInput} for command's `input` shape.
  * @see {@link CreateLicenseCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to resource denied.</p>
+ *
+ * @throws {@link AuthorizationException} (client fault)
+ *  <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM
+ *          policy associated with this account.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ * @throws {@link RateLimitExceededException} (client fault)
+ *  <p>Too many requests have been submitted. Try again after a brief wait.</p>
+ *
+ * @throws {@link RedirectException} (client fault)
+ *  <p>This is not the correct Region for the resource. Try again.</p>
+ *
+ * @throws {@link ServerInternalException} (server fault)
+ *  <p>The server experienced an internal error. Try again.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The provided input is not valid. Try your request again.</p>
+ *
  *
  */
 export class CreateLicenseCommand extends $Command<
@@ -62,6 +132,9 @@ export class CreateLicenseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLicenseCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +161,8 @@ export class CreateLicenseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLicenseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLicenseResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +172,18 @@ export class CreateLicenseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLicenseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateLicenseCommand(input, context);
+    return se_CreateLicenseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLicenseCommandOutput> {
-    return deserializeAws_json1_1CreateLicenseCommand(output, context);
+    return de_CreateLicenseCommand(output, context);
   }
 
   // Start section: command_body_extra

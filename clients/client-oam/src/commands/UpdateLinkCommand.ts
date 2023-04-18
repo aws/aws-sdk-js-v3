@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateLinkInput,
-  UpdateLinkInputFilterSensitiveLog,
-  UpdateLinkOutput,
-  UpdateLinkOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateLinkInput, UpdateLinkOutput } from "../models/models_0";
 import { OAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OAMClient";
-import {
-  deserializeAws_restJson1UpdateLinkCommand,
-  serializeAws_restJson1UpdateLinkCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateLinkCommand, se_UpdateLinkCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateLinkCommand}.
+ */
 export interface UpdateLinkCommandInput extends UpdateLinkInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateLinkCommand}.
+ */
 export interface UpdateLinkCommandOutput extends UpdateLinkOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this operation to change what types of data are shared from a source account to its linked
  *             monitoring account sink. You can't change the sink or change the monitoring account with this operation.</p>
  *         <p>To update the list of tags associated with the sink, use
@@ -39,13 +42,34 @@ export interface UpdateLinkCommandOutput extends UpdateLinkOutput, __MetadataBea
  * import { OAMClient, UpdateLinkCommand } from "@aws-sdk/client-oam"; // ES Modules import
  * // const { OAMClient, UpdateLinkCommand } = require("@aws-sdk/client-oam"); // CommonJS import
  * const client = new OAMClient(config);
+ * const input = { // UpdateLinkInput
+ *   Identifier: "STRING_VALUE", // required
+ *   ResourceTypes: [ // ResourceTypesInput // required
+ *     "AWS::CloudWatch::Metric" || "AWS::Logs::LogGroup" || "AWS::XRay::Trace",
+ *   ],
+ * };
  * const command = new UpdateLinkCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateLinkCommandInput - {@link UpdateLinkCommandInput}
+ * @returns {@link UpdateLinkCommandOutput}
  * @see {@link UpdateLinkCommandInput} for command's `input` shape.
  * @see {@link UpdateLinkCommandOutput} for command's `response` shape.
  * @see {@link OAMClientResolvedConfig | config} for OAMClient's `config` shape.
+ *
+ * @throws {@link InternalServiceFault} (server fault)
+ *  <p>Unexpected error while processing the request. Retry the request.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter is specified incorrectly.</p>
+ *
+ * @throws {@link MissingRequiredParameterException} (client fault)
+ *  <p>A required parameter is missing from the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a resource that does not exist.</p>
+ *
  *
  */
 export class UpdateLinkCommand extends $Command<
@@ -65,6 +89,9 @@ export class UpdateLinkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateLinkCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +118,8 @@ export class UpdateLinkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateLinkInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateLinkOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +129,18 @@ export class UpdateLinkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateLinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateLinkCommand(input, context);
+    return se_UpdateLinkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLinkCommandOutput> {
-    return deserializeAws_restJson1UpdateLinkCommand(output, context);
+    return de_UpdateLinkCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,35 +14,65 @@ import {
 } from "@aws-sdk/types";
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import {
-  GetImageRecipeRequest,
-  GetImageRecipeRequestFilterSensitiveLog,
-  GetImageRecipeResponse,
-  GetImageRecipeResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetImageRecipeCommand,
-  serializeAws_restJson1GetImageRecipeCommand,
-} from "../protocols/Aws_restJson1";
+import { GetImageRecipeRequest, GetImageRecipeResponse } from "../models/models_0";
+import { de_GetImageRecipeCommand, se_GetImageRecipeCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetImageRecipeCommand}.
+ */
 export interface GetImageRecipeCommandInput extends GetImageRecipeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetImageRecipeCommand}.
+ */
 export interface GetImageRecipeCommandOutput extends GetImageRecipeResponse, __MetadataBearer {}
 
 /**
- * <p> Gets an image recipe.</p>
+ * @public
+ * <p>Gets an image recipe.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ImagebuilderClient, GetImageRecipeCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, GetImageRecipeCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
+ * const input = { // GetImageRecipeRequest
+ *   imageRecipeArn: "STRING_VALUE", // required
+ * };
  * const command = new GetImageRecipeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetImageRecipeCommandInput - {@link GetImageRecipeCommandInput}
+ * @returns {@link GetImageRecipeCommandOutput}
  * @see {@link GetImageRecipeCommandInput} for command's `input` shape.
  * @see {@link GetImageRecipeCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
+ *
+ * @throws {@link CallRateLimitExceededException} (client fault)
+ *  <p>You have exceeded the permitted request rate for the specific operation.</p>
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action, such as using an action or
+ * 			resource on behalf of a user that doesn't have permissions to use the action or
+ * 			resource, or specifying an invalid resource identifier.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>You are not authorized to perform the requested operation.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>You have requested an action that that the service doesn't support.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>This exception is thrown when the service encounters an unrecoverable
+ * 			exception.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is unable to process your request at this time.</p>
+ *
  *
  */
 export class GetImageRecipeCommand extends $Command<
@@ -62,6 +92,9 @@ export class GetImageRecipeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetImageRecipeCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +123,8 @@ export class GetImageRecipeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetImageRecipeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetImageRecipeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +134,18 @@ export class GetImageRecipeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetImageRecipeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetImageRecipeCommand(input, context);
+    return se_GetImageRecipeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetImageRecipeCommandOutput> {
-    return deserializeAws_restJson1GetImageRecipeCommand(output, context);
+    return de_GetImageRecipeCommand(output, context);
   }
 
   // Start section: command_body_extra

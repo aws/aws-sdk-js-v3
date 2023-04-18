@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
-import {
-  ListDataSetsRequest,
-  ListDataSetsRequestFilterSensitiveLog,
-  ListDataSetsResponse,
-  ListDataSetsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDataSetsCommand,
-  serializeAws_restJson1ListDataSetsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListDataSetsRequest, ListDataSetsResponse } from "../models/models_0";
+import { de_ListDataSetsCommand, se_ListDataSetsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListDataSetsCommand}.
+ */
 export interface ListDataSetsCommandInput extends ListDataSetsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDataSetsCommand}.
+ */
 export interface ListDataSetsCommandOutput extends ListDataSetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the data sets imported for a specific application. In Amazon Web Services Mainframe Modernization, data sets are
  *          associated with applications deployed on runtime environments. This is known as importing data
  *          sets. Currently, Amazon Web Services Mainframe Modernization can import data sets into catalogs using <a href="https://docs.aws.amazon.com/m2/latest/APIReference/API_CreateDataSetImportTask.html">CreateDataSetImportTask</a>.</p>
@@ -38,13 +41,37 @@ export interface ListDataSetsCommandOutput extends ListDataSetsResponse, __Metad
  * import { M2Client, ListDataSetsCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, ListDataSetsCommand } = require("@aws-sdk/client-m2"); // CommonJS import
  * const client = new M2Client(config);
+ * const input = { // ListDataSetsRequest
+ *   applicationId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   prefix: "STRING_VALUE",
+ * };
  * const command = new ListDataSetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDataSetsCommandInput - {@link ListDataSetsCommandInput}
+ * @returns {@link ListDataSetsCommandOutput}
  * @see {@link ListDataSetsCommandInput} for command's `input` shape.
  * @see {@link ListDataSetsCommandOutput} for command's `response` shape.
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The account or role doesn't have the right permissions to make the request.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred during the processing of the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The number of requests made exceeds the limit.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One or more parameters provided in the request is not valid.</p>
+ *
  *
  */
 export class ListDataSetsCommand extends $Command<
@@ -64,6 +91,9 @@ export class ListDataSetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDataSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +120,8 @@ export class ListDataSetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDataSetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDataSetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +131,18 @@ export class ListDataSetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDataSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDataSetsCommand(input, context);
+    return se_ListDataSetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDataSetsCommandOutput> {
-    return deserializeAws_restJson1ListDataSetsCommand(output, context);
+    return de_ListDataSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

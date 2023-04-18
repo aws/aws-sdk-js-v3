@@ -20,15 +20,23 @@ import {
   BatchDetectKeyPhrasesResponse,
   BatchDetectKeyPhrasesResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchDetectKeyPhrasesCommand,
-  serializeAws_json1_1BatchDetectKeyPhrasesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_BatchDetectKeyPhrasesCommand, se_BatchDetectKeyPhrasesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchDetectKeyPhrasesCommand}.
+ */
 export interface BatchDetectKeyPhrasesCommandInput extends BatchDetectKeyPhrasesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link BatchDetectKeyPhrasesCommand}.
+ */
 export interface BatchDetectKeyPhrasesCommandOutput extends BatchDetectKeyPhrasesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detects the key noun phrases found in a batch of documents.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +44,42 @@ export interface BatchDetectKeyPhrasesCommandOutput extends BatchDetectKeyPhrase
  * import { ComprehendClient, BatchDetectKeyPhrasesCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, BatchDetectKeyPhrasesCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // BatchDetectKeyPhrasesRequest
+ *   TextList: [ // CustomerInputStringList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   LanguageCode: "en" || "es" || "fr" || "de" || "it" || "pt" || "ar" || "hi" || "ja" || "ko" || "zh" || "zh-TW", // required
+ * };
  * const command = new BatchDetectKeyPhrasesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDetectKeyPhrasesCommandInput - {@link BatchDetectKeyPhrasesCommandInput}
+ * @returns {@link BatchDetectKeyPhrasesCommandOutput}
  * @see {@link BatchDetectKeyPhrasesCommandInput} for command's `input` shape.
  * @see {@link BatchDetectKeyPhrasesCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
+ *
+ * @throws {@link BatchSizeLimitExceededException} (client fault)
+ *  <p>The number of documents in the request exceeds the limit of 25. Try your request again
+ *       with fewer documents.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid.</p>
+ *
+ * @throws {@link TextSizeLimitExceededException} (client fault)
+ *  <p>The size of the input text exceeds the limit. Use a smaller document.</p>
+ *
+ * @throws {@link UnsupportedLanguageException} (client fault)
+ *  <p>Amazon Comprehend can't process the language of the input text. For custom entity
+ *       recognition APIs, only English, Spanish, French, Italian, German, or Portuguese are accepted.
+ *       For a list of supported languages,
+ *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html">Supported languages</a> in the Comprehend Developer Guide.
+ *     </p>
+ *
  *
  */
 export class BatchDetectKeyPhrasesCommand extends $Command<
@@ -62,6 +99,9 @@ export class BatchDetectKeyPhrasesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDetectKeyPhrasesCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,12 +141,18 @@ export class BatchDetectKeyPhrasesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDetectKeyPhrasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchDetectKeyPhrasesCommand(input, context);
+    return se_BatchDetectKeyPhrasesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDetectKeyPhrasesCommandOutput> {
-    return deserializeAws_json1_1BatchDetectKeyPhrasesCommand(output, context);
+    return de_BatchDetectKeyPhrasesCommand(output, context);
   }
 
   // Start section: command_body_extra

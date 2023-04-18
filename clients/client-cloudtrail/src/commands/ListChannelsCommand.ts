@@ -14,24 +14,25 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import {
-  ListChannelsRequest,
-  ListChannelsRequestFilterSensitiveLog,
-  ListChannelsResponse,
-  ListChannelsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListChannelsCommand,
-  serializeAws_json1_1ListChannelsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListChannelsRequest, ListChannelsResponse } from "../models/models_0";
+import { de_ListChannelsCommand, se_ListChannelsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListChannelsCommand}.
+ */
 export interface ListChannelsCommandInput extends ListChannelsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListChannelsCommand}.
+ */
 export interface ListChannelsCommandOutput extends ListChannelsResponse, __MetadataBearer {}
 
 /**
- * <p>
- *          Lists the channels in the current account, and their source names. Amazon Web Services services create service-linked channels get information about CloudTrail events on your behalf. For more information about
- *          service-linked channels, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/viewing-service-linked-channels.html">Viewing service-linked channels for CloudTrail by using the CLI</a>.
+ * @public
+ * <p> Lists the channels in the current account, and their source names.
  *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +40,30 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * import { CloudTrailClient, ListChannelsCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, ListChannelsCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = { // ListChannelsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListChannelsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListChannelsCommandInput - {@link ListChannelsCommandInput}
+ * @returns {@link ListChannelsCommandOutput}
  * @see {@link ListChannelsCommandInput} for command's `input` shape.
  * @see {@link ListChannelsCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>A token that is not valid, or a token that was previously used in a request with
+ *          different parameters. This exception is thrown if the token is not valid.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not permitted.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not supported.</p>
+ *
  *
  */
 export class ListChannelsCommand extends $Command<
@@ -65,6 +83,9 @@ export class ListChannelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListChannelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +112,8 @@ export class ListChannelsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListChannelsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListChannelsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +123,18 @@ export class ListChannelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListChannelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListChannelsCommand(input, context);
+    return se_ListChannelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListChannelsCommandOutput> {
-    return deserializeAws_json1_1ListChannelsCommand(output, context);
+    return de_ListChannelsCommand(output, context);
   }
 
   // Start section: command_body_extra

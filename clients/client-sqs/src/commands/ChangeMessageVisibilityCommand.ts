@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ChangeMessageVisibilityRequest, ChangeMessageVisibilityRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryChangeMessageVisibilityCommand,
-  serializeAws_queryChangeMessageVisibilityCommand,
-} from "../protocols/Aws_query";
+import { ChangeMessageVisibilityRequest } from "../models/models_0";
+import { de_ChangeMessageVisibilityCommand, se_ChangeMessageVisibilityCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ChangeMessageVisibilityCommand}.
+ */
 export interface ChangeMessageVisibilityCommandInput extends ChangeMessageVisibilityRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ChangeMessageVisibilityCommand}.
+ */
 export interface ChangeMessageVisibilityCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the visibility timeout of a specified message in a queue to a new value. The
  *             default visibility timeout for a message is 30 seconds. The minimum is 0 seconds. The
  *             maximum is 12 hours. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html">Visibility Timeout</a> in the <i>Amazon SQS Developer Guide</i>.</p>
@@ -64,13 +72,27 @@ export interface ChangeMessageVisibilityCommandOutput extends __MetadataBearer {
  * import { SQSClient, ChangeMessageVisibilityCommand } from "@aws-sdk/client-sqs"; // ES Modules import
  * // const { SQSClient, ChangeMessageVisibilityCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
  * const client = new SQSClient(config);
+ * const input = { // ChangeMessageVisibilityRequest
+ *   QueueUrl: "STRING_VALUE", // required
+ *   ReceiptHandle: "STRING_VALUE", // required
+ *   VisibilityTimeout: Number("int"), // required
+ * };
  * const command = new ChangeMessageVisibilityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ChangeMessageVisibilityCommandInput - {@link ChangeMessageVisibilityCommandInput}
+ * @returns {@link ChangeMessageVisibilityCommandOutput}
  * @see {@link ChangeMessageVisibilityCommandInput} for command's `input` shape.
  * @see {@link ChangeMessageVisibilityCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
+ *
+ * @throws {@link MessageNotInflight} (client fault)
+ *  <p>The specified message isn't in flight.</p>
+ *
+ * @throws {@link ReceiptHandleIsInvalid} (client fault)
+ *  <p>The specified receipt handle isn't valid.</p>
+ *
  *
  */
 export class ChangeMessageVisibilityCommand extends $Command<
@@ -90,6 +112,9 @@ export class ChangeMessageVisibilityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ChangeMessageVisibilityCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +143,8 @@ export class ChangeMessageVisibilityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ChangeMessageVisibilityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +154,18 @@ export class ChangeMessageVisibilityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ChangeMessageVisibilityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryChangeMessageVisibilityCommand(input, context);
+    return se_ChangeMessageVisibilityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ChangeMessageVisibilityCommandOutput> {
-    return deserializeAws_queryChangeMessageVisibilityCommand(output, context);
+    return de_ChangeMessageVisibilityCommand(output, context);
   }
 
   // Start section: command_body_extra

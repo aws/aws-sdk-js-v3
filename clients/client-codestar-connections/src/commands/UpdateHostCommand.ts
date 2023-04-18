@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CodeStarConnectionsClient";
-import {
-  UpdateHostInput,
-  UpdateHostInputFilterSensitiveLog,
-  UpdateHostOutput,
-  UpdateHostOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateHostCommand,
-  serializeAws_json1_0UpdateHostCommand,
-} from "../protocols/Aws_json1_0";
+import { UpdateHostInput, UpdateHostOutput } from "../models/models_0";
+import { de_UpdateHostCommand, se_UpdateHostCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateHostCommand}.
+ */
 export interface UpdateHostCommandInput extends UpdateHostInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateHostCommand}.
+ */
 export interface UpdateHostCommandOutput extends UpdateHostOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a specified host with the provided configurations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,42 @@ export interface UpdateHostCommandOutput extends UpdateHostOutput, __MetadataBea
  * import { CodeStarConnectionsClient, UpdateHostCommand } from "@aws-sdk/client-codestar-connections"; // ES Modules import
  * // const { CodeStarConnectionsClient, UpdateHostCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import
  * const client = new CodeStarConnectionsClient(config);
+ * const input = { // UpdateHostInput
+ *   HostArn: "STRING_VALUE", // required
+ *   ProviderEndpoint: "STRING_VALUE",
+ *   VpcConfiguration: { // VpcConfiguration
+ *     VpcId: "STRING_VALUE", // required
+ *     SubnetIds: [ // SubnetIds // required
+ *       "STRING_VALUE",
+ *     ],
+ *     SecurityGroupIds: [ // SecurityGroupIds // required
+ *       "STRING_VALUE",
+ *     ],
+ *     TlsCertificate: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateHostCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateHostCommandInput - {@link UpdateHostCommandInput}
+ * @returns {@link UpdateHostCommandOutput}
  * @see {@link UpdateHostCommandInput} for command's `input` shape.
  * @see {@link UpdateHostCommandOutput} for command's `response` shape.
  * @see {@link CodeStarConnectionsClientResolvedConfig | config} for CodeStarConnectionsClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Two conflicting operations have been made on the same resource.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource not found. Verify the connection resource ARN and try again.</p>
+ *
+ * @throws {@link ResourceUnavailableException} (client fault)
+ *  <p>Resource not found. Verify the ARN for the host resource and try again.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>The operation is not supported. Check the connection status and try again.</p>
+ *
  *
  */
 export class UpdateHostCommand extends $Command<
@@ -66,6 +98,9 @@ export class UpdateHostCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateHostCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +127,8 @@ export class UpdateHostCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateHostInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateHostOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +138,18 @@ export class UpdateHostCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateHostCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateHostCommand(input, context);
+    return se_UpdateHostCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateHostCommandOutput> {
-    return deserializeAws_json1_0UpdateHostCommand(output, context);
+    return de_UpdateHostCommand(output, context);
   }
 
   // Start section: command_body_extra

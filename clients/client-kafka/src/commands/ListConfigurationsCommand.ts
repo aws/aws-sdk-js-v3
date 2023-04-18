@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
-import {
-  ListConfigurationsRequest,
-  ListConfigurationsRequestFilterSensitiveLog,
-  ListConfigurationsResponse,
-  ListConfigurationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListConfigurationsCommand,
-  serializeAws_restJson1ListConfigurationsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListConfigurationsRequest, ListConfigurationsResponse } from "../models/models_0";
+import { de_ListConfigurationsCommand, se_ListConfigurationsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListConfigurationsCommand}.
+ */
 export interface ListConfigurationsCommandInput extends ListConfigurationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListConfigurationsCommand}.
+ */
 export interface ListConfigurationsCommandOutput extends ListConfigurationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all the MSK configurations in this Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,35 @@ export interface ListConfigurationsCommandOutput extends ListConfigurationsRespo
  * import { KafkaClient, ListConfigurationsCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, ListConfigurationsCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
+ * const input = { // ListConfigurationsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListConfigurationsCommandInput - {@link ListConfigurationsCommandInput}
+ * @returns {@link ListConfigurationsCommandOutput}
  * @see {@link ListConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
  *
  */
 export class ListConfigurationsCommand extends $Command<
@@ -62,6 +87,9 @@ export class ListConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +118,8 @@ export class ListConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListConfigurationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListConfigurationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +129,18 @@ export class ListConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListConfigurationsCommand(input, context);
+    return se_ListConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListConfigurationsCommandOutput> {
-    return deserializeAws_restJson1ListConfigurationsCommand(output, context);
+    return de_ListConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

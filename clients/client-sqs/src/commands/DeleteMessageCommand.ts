@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteMessageRequest, DeleteMessageRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteMessageCommand,
-  serializeAws_queryDeleteMessageCommand,
-} from "../protocols/Aws_query";
+import { DeleteMessageRequest } from "../models/models_0";
+import { de_DeleteMessageCommand, se_DeleteMessageCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteMessageCommand}.
+ */
 export interface DeleteMessageCommandInput extends DeleteMessageRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteMessageCommand}.
+ */
 export interface DeleteMessageCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified message from the specified queue. To select the message to
  *             delete, use the <code>ReceiptHandle</code> of the message (<i>not</i> the
  *                 <code>MessageId</code> which you receive when you send the message). Amazon SQS can
@@ -50,13 +58,26 @@ export interface DeleteMessageCommandOutput extends __MetadataBearer {}
  * import { SQSClient, DeleteMessageCommand } from "@aws-sdk/client-sqs"; // ES Modules import
  * // const { SQSClient, DeleteMessageCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
  * const client = new SQSClient(config);
+ * const input = { // DeleteMessageRequest
+ *   QueueUrl: "STRING_VALUE", // required
+ *   ReceiptHandle: "STRING_VALUE", // required
+ * };
  * const command = new DeleteMessageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMessageCommandInput - {@link DeleteMessageCommandInput}
+ * @returns {@link DeleteMessageCommandOutput}
  * @see {@link DeleteMessageCommandInput} for command's `input` shape.
  * @see {@link DeleteMessageCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
+ *
+ * @throws {@link InvalidIdFormat} (client fault)
+ *  <p>The specified receipt handle isn't valid for the current version.</p>
+ *
+ * @throws {@link ReceiptHandleIsInvalid} (client fault)
+ *  <p>The specified receipt handle isn't valid.</p>
+ *
  *
  */
 export class DeleteMessageCommand extends $Command<
@@ -76,6 +97,9 @@ export class DeleteMessageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMessageCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +126,8 @@ export class DeleteMessageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMessageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +137,18 @@ export class DeleteMessageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteMessageCommand(input, context);
+    return se_DeleteMessageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMessageCommandOutput> {
-    return deserializeAws_queryDeleteMessageCommand(output, context);
+    return de_DeleteMessageCommand(output, context);
   }
 
   // Start section: command_body_extra

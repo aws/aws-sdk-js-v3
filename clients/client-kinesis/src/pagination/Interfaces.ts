@@ -1,9 +1,11 @@
 // smithy-typescript generated code
 import { PaginationConfiguration } from "@aws-sdk/types";
 
-import { Kinesis } from "../Kinesis";
 import { KinesisClient } from "../KinesisClient";
 
+/**
+ * @public
+ */
 export interface KinesisPaginationConfiguration extends PaginationConfiguration {
-  client: Kinesis | KinesisClient;
+  client: KinesisClient;
 }

@@ -6,12 +6,11 @@ import {
   ListFraudsterRegistrationJobsCommandInput,
   ListFraudsterRegistrationJobsCommandOutput,
 } from "../commands/ListFraudsterRegistrationJobsCommand";
-import { VoiceID } from "../VoiceID";
 import { VoiceIDClient } from "../VoiceIDClient";
 import { VoiceIDPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: VoiceIDClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListFraudsterRegistrationJobsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: VoiceID,
-  input: ListFraudsterRegistrationJobsCommandInput,
-  ...args: any
-): Promise<ListFraudsterRegistrationJobsCommandOutput> => {
-  // @ts-ignore
-  return await client.listFraudsterRegistrationJobs(input, ...args);
-};
 export async function* paginateListFraudsterRegistrationJobs(
   config: VoiceIDPaginationConfiguration,
   input: ListFraudsterRegistrationJobsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListFraudsterRegistrationJobs(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof VoiceID) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof VoiceIDClient) {
+    if (config.client instanceof VoiceIDClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected VoiceID | VoiceIDClient");

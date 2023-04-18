@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import { DeleteStreamInput, DeleteStreamInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteStreamCommand,
-  serializeAws_json1_1DeleteStreamCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteStreamInput } from "../models/models_0";
+import { de_DeleteStreamCommand, se_DeleteStreamCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteStreamCommand}.
+ */
 export interface DeleteStreamCommandInput extends DeleteStreamInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteStreamCommand}.
+ */
 export interface DeleteStreamCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Kinesis data stream and all its shards and data. You must shut down any
  *             applications that are operating on the stream before you delete the stream. If an
  *             application attempts to operate on a deleted stream, it receives the exception
@@ -53,13 +61,41 @@ export interface DeleteStreamCommandOutput extends __MetadataBearer {}
  * import { KinesisClient, DeleteStreamCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, DeleteStreamCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
+ * const input = { // DeleteStreamInput
+ *   StreamName: "STRING_VALUE",
+ *   EnforceConsumerDeletion: true || false,
+ *   StreamARN: "STRING_VALUE",
+ * };
  * const command = new DeleteStreamCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteStreamCommandInput - {@link DeleteStreamCommandInput}
+ * @returns {@link DeleteStreamCommandOutput}
  * @see {@link DeleteStreamCommandInput} for command's `input` shape.
  * @see {@link DeleteStreamCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Specifies that you do not have the permissions required to perform this
+ *             operation.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>A specified parameter exceeds its restrictions, is not supported, or can't be used.
+ *             For more information, see the returned message.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
+ *             stream requests exceeds the maximum number allowed. </p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The resource is not available for this operation. For successful operation, the
+ *             resource must be in the <code>ACTIVE</code> state.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource could not be found. The stream might not be specified
+ *             correctly.</p>
+ *
  *
  */
 export class DeleteStreamCommand extends $Command<
@@ -81,6 +117,9 @@ export class DeleteStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +146,8 @@ export class DeleteStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteStreamInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +157,18 @@ export class DeleteStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteStreamCommand(input, context);
+    return se_DeleteStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteStreamCommandOutput> {
-    return deserializeAws_json1_1DeleteStreamCommand(output, context);
+    return de_DeleteStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

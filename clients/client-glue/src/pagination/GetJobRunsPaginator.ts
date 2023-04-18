@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { GetJobRunsCommand, GetJobRunsCommandInput, GetJobRunsCommandOutput } from "../commands/GetJobRunsCommand";
-import { Glue } from "../Glue";
 import { GlueClient } from "../GlueClient";
 import { GluePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: GlueClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new GetJobRunsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Glue,
-  input: GetJobRunsCommandInput,
-  ...args: any
-): Promise<GetJobRunsCommandOutput> => {
-  // @ts-ignore
-  return await client.getJobRuns(input, ...args);
-};
 export async function* paginateGetJobRuns(
   config: GluePaginationConfiguration,
   input: GetJobRunsCommandInput,
@@ -40,9 +31,7 @@ export async function* paginateGetJobRuns(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Glue) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof GlueClient) {
+    if (config.client instanceof GlueClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Glue | GlueClient");

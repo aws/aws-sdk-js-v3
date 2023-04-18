@@ -26,12 +26,14 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
@@ -51,6 +53,8 @@ import {
   DeleteAlternateContactCommandInput,
   DeleteAlternateContactCommandOutput,
 } from "./commands/DeleteAlternateContactCommand";
+import { DisableRegionCommandInput, DisableRegionCommandOutput } from "./commands/DisableRegionCommand";
+import { EnableRegionCommandInput, EnableRegionCommandOutput } from "./commands/EnableRegionCommand";
 import {
   GetAlternateContactCommandInput,
   GetAlternateContactCommandOutput,
@@ -59,6 +63,8 @@ import {
   GetContactInformationCommandInput,
   GetContactInformationCommandOutput,
 } from "./commands/GetContactInformationCommand";
+import { GetRegionOptStatusCommandInput, GetRegionOptStatusCommandOutput } from "./commands/GetRegionOptStatusCommand";
+import { ListRegionsCommandInput, ListRegionsCommandOutput } from "./commands/ListRegionsCommand";
 import {
   PutAlternateContactCommandInput,
   PutAlternateContactCommandOutput,
@@ -75,20 +81,37 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | DeleteAlternateContactCommandInput
+  | DisableRegionCommandInput
+  | EnableRegionCommandInput
   | GetAlternateContactCommandInput
   | GetContactInformationCommandInput
+  | GetRegionOptStatusCommandInput
+  | ListRegionsCommandInput
   | PutAlternateContactCommandInput
   | PutContactInformationCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | DeleteAlternateContactCommandOutput
+  | DisableRegionCommandOutput
+  | EnableRegionCommandOutput
   | GetAlternateContactCommandOutput
   | GetContactInformationCommandOutput
+  | GetRegionOptStatusCommandOutput
+  | ListRegionsCommandOutput
   | PutAlternateContactCommandOutput
   | PutContactInformationCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -96,11 +119,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -157,19 +180,10 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
-   * Value for how many times a request will be made at most in case of retry.
+   * Unique service identifier.
+   * @internal
    */
-  maxAttempts?: number | __Provider<number>;
-
-  /**
-   * Specifies which retry algorithm to use.
-   */
-  retryMode?: string | __Provider<string>;
-
-  /**
-   * Optional logger for logging debug/info/warn/error.
-   */
-  logger?: __Logger;
+  serviceId?: string;
 
   /**
    * Enables IPv6/IPv4 dualstack endpoint.
@@ -180,12 +194,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Enables FIPS compatible endpoints.
    */
   useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
 
   /**
    * The AWS region to which this client will send requests
@@ -205,11 +213,29 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * Value for how many times a request will be made at most in case of retry.
    */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Specifies which retry algorithm to use.
+   */
+  retryMode?: string | __Provider<string>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
+
+  /**
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   */
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type AccountClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -220,10 +246,15 @@ type AccountClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOption
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of AccountClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of AccountClient class constructor that set the region, credentials and other options.
  */
 export interface AccountClientConfig extends AccountClientConfigType {}
 
+/**
+ * @public
+ */
 type AccountClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -234,11 +265,14 @@ type AccountClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandl
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of AccountClient class. This is resolved and normalized from the {@link AccountClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of AccountClient class. This is resolved and normalized from the {@link AccountClientConfig | constructor configuration interface}.
  */
 export interface AccountClientResolvedConfig extends AccountClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Operations for Amazon Web Services Account Management</p>
  */
 export class AccountClient extends __Client<

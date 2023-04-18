@@ -25,15 +25,23 @@ import {
   AdminListDevicesResponse,
   AdminListDevicesResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1AdminListDevicesCommand,
-  serializeAws_json1_1AdminListDevicesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AdminListDevicesCommand, se_AdminListDevicesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link AdminListDevicesCommand}.
+ */
 export interface AdminListDevicesCommandInput extends AdminListDevicesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AdminListDevicesCommand}.
+ */
 export interface AdminListDevicesCommandOutput extends AdminListDevicesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists devices, as an administrator.</p>
  *         <p>Calling this action requires developer credentials.</p>
  * @example
@@ -42,13 +50,43 @@ export interface AdminListDevicesCommandOutput extends AdminListDevicesResponse,
  * import { CognitoIdentityProviderClient, AdminListDevicesCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, AdminListDevicesCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // AdminListDevicesRequest
+ *   UserPoolId: "STRING_VALUE", // required
+ *   Username: "STRING_VALUE", // required
+ *   Limit: Number("int"),
+ *   PaginationToken: "STRING_VALUE",
+ * };
  * const command = new AdminListDevicesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AdminListDevicesCommandInput - {@link AdminListDevicesCommandInput}
+ * @returns {@link AdminListDevicesCommandOutput}
  * @see {@link AdminListDevicesCommandInput} for command's `input` shape.
  * @see {@link AdminListDevicesCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
+ *             parameter.</p>
+ *
+ * @throws {@link InvalidUserPoolConfigurationException} (client fault)
+ *  <p>This exception is thrown when the user pool configuration is not valid.</p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
+ *             resource.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>This exception is thrown when the user has made too many requests for a given
+ *             operation.</p>
+ *
  *
  */
 export class AdminListDevicesCommand extends $Command<
@@ -68,6 +106,9 @@ export class AdminListDevicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AdminListDevicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,12 +149,18 @@ export class AdminListDevicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AdminListDevicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AdminListDevicesCommand(input, context);
+    return se_AdminListDevicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdminListDevicesCommandOutput> {
-    return deserializeAws_json1_1AdminListDevicesCommand(output, context);
+    return de_AdminListDevicesCommand(output, context);
   }
 
   // Start section: command_body_extra

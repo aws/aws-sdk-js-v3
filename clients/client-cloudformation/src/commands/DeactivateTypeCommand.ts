@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  DeactivateTypeInput,
-  DeactivateTypeInputFilterSensitiveLog,
-  DeactivateTypeOutput,
-  DeactivateTypeOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeactivateTypeCommand,
-  serializeAws_queryDeactivateTypeCommand,
-} from "../protocols/Aws_query";
+import { DeactivateTypeInput, DeactivateTypeOutput } from "../models/models_0";
+import { de_DeactivateTypeCommand, se_DeactivateTypeCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DeactivateTypeCommand}.
+ */
 export interface DeactivateTypeCommandInput extends DeactivateTypeInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeactivateTypeCommand}.
+ */
 export interface DeactivateTypeCommandOutput extends DeactivateTypeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deactivates a public extension that was previously activated in this account and
  *          region.</p>
  *          <p>Once deactivated, an extension can't be used in any CloudFormation operation.
@@ -41,13 +44,27 @@ export interface DeactivateTypeCommandOutput extends DeactivateTypeOutput, __Met
  * import { CloudFormationClient, DeactivateTypeCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DeactivateTypeCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // DeactivateTypeInput
+ *   TypeName: "STRING_VALUE",
+ *   Type: "RESOURCE" || "MODULE" || "HOOK",
+ *   Arn: "STRING_VALUE",
+ * };
  * const command = new DeactivateTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeactivateTypeCommandInput - {@link DeactivateTypeCommandInput}
+ * @returns {@link DeactivateTypeCommandOutput}
  * @see {@link DeactivateTypeCommandInput} for command's `input` shape.
  * @see {@link DeactivateTypeCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
+ *
+ * @throws {@link CFNRegistryException} (client fault)
+ *  <p>An error occurred during a CloudFormation registry operation.</p>
+ *
+ * @throws {@link TypeNotFoundException} (client fault)
+ *  <p>The specified extension doesn't exist in the CloudFormation registry.</p>
+ *
  *
  */
 export class DeactivateTypeCommand extends $Command<
@@ -67,6 +84,9 @@ export class DeactivateTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeactivateTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +115,8 @@ export class DeactivateTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeactivateTypeInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeactivateTypeOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +126,18 @@ export class DeactivateTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeactivateTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeactivateTypeCommand(input, context);
+    return se_DeactivateTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeactivateTypeCommandOutput> {
-    return deserializeAws_queryDeactivateTypeCommand(output, context);
+    return de_DeactivateTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

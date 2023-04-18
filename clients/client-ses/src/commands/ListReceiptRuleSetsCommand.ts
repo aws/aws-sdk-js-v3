@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListReceiptRuleSetsRequest,
-  ListReceiptRuleSetsRequestFilterSensitiveLog,
-  ListReceiptRuleSetsResponse,
-  ListReceiptRuleSetsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryListReceiptRuleSetsCommand,
-  serializeAws_queryListReceiptRuleSetsCommand,
-} from "../protocols/Aws_query";
+import { ListReceiptRuleSetsRequest, ListReceiptRuleSetsResponse } from "../models/models_0";
+import { de_ListReceiptRuleSetsCommand, se_ListReceiptRuleSetsCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListReceiptRuleSetsCommand}.
+ */
 export interface ListReceiptRuleSetsCommandInput extends ListReceiptRuleSetsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListReceiptRuleSetsCommand}.
+ */
 export interface ListReceiptRuleSetsCommandOutput extends ListReceiptRuleSetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the receipt rule sets that exist under your AWS account in the current AWS
  *             Region. If there are additional receipt rule sets to be retrieved, you will receive a
  *                 <code>NextToken</code> that you can provide to the next call to
@@ -41,13 +44,41 @@ export interface ListReceiptRuleSetsCommandOutput extends ListReceiptRuleSetsRes
  * import { SESClient, ListReceiptRuleSetsCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, ListReceiptRuleSetsCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // ListReceiptRuleSetsRequest
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListReceiptRuleSetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListReceiptRuleSetsCommandInput - {@link ListReceiptRuleSetsCommandInput}
+ * @returns {@link ListReceiptRuleSetsCommandOutput}
  * @see {@link ListReceiptRuleSetsCommandInput} for command's `input` shape.
  * @see {@link ListReceiptRuleSetsCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
+ *
+ *
+ * @example ListReceiptRuleSets
+ * ```javascript
+ * // The following example lists the receipt rule sets that exist under an AWS account:
+ * const input = {
+ *   "NextToken": ""
+ * };
+ * const command = new ListReceiptRuleSetsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "NextToken": "",
+ *   "RuleSets": [
+ *     {
+ *       "CreatedTimestamp": "2016-07-15T16:25:59.607Z",
+ *       "Name": "MyRuleSet"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: listreceiptrulesets-1469121037235
+ * ```
  *
  */
 export class ListReceiptRuleSetsCommand extends $Command<
@@ -67,6 +98,9 @@ export class ListReceiptRuleSetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListReceiptRuleSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +129,8 @@ export class ListReceiptRuleSetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListReceiptRuleSetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListReceiptRuleSetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +140,18 @@ export class ListReceiptRuleSetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListReceiptRuleSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListReceiptRuleSetsCommand(input, context);
+    return se_ListReceiptRuleSetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListReceiptRuleSetsCommandOutput> {
-    return deserializeAws_queryListReceiptRuleSetsCommand(output, context);
+    return de_ListReceiptRuleSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

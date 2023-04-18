@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StopServerRequest, StopServerRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1StopServerCommand,
-  serializeAws_json1_1StopServerCommand,
-} from "../protocols/Aws_json1_1";
+import { StopServerRequest } from "../models/models_0";
+import { de_StopServerCommand, se_StopServerCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
+/**
+ * @public
+ *
+ * The input for {@link StopServerCommand}.
+ */
 export interface StopServerCommandInput extends StopServerRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StopServerCommand}.
+ */
 export interface StopServerCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the state of a file transfer protocol-enabled server from <code>ONLINE</code> to
  *         <code>OFFLINE</code>. An <code>OFFLINE</code> server cannot accept and process file transfer
  *       jobs. Information tied to your server, such as server and user properties, are not affected by
@@ -42,13 +50,35 @@ export interface StopServerCommandOutput extends __MetadataBearer {}
  * import { TransferClient, StopServerCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, StopServerCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = { // StopServerRequest
+ *   ServerId: "STRING_VALUE", // required
+ * };
  * const command = new StopServerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopServerCommandInput - {@link StopServerCommandInput}
+ * @returns {@link StopServerCommandOutput}
  * @see {@link StopServerCommandInput} for command's `input` shape.
  * @see {@link StopServerCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
+ *
+ * @throws {@link InternalServiceError} (server fault)
+ *  <p>This exception is thrown when an error occurs in the Amazon Web ServicesTransfer Family service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
+ *       service.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
  *
  */
 export class StopServerCommand extends $Command<
@@ -68,6 +98,9 @@ export class StopServerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopServerCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +127,8 @@ export class StopServerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopServerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +138,18 @@ export class StopServerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopServerCommand(input, context);
+    return se_StopServerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopServerCommandOutput> {
-    return deserializeAws_json1_1StopServerCommand(output, context);
+    return de_StopServerCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  ListTemplateActionsRequest,
-  ListTemplateActionsRequestFilterSensitiveLog,
-  ListTemplateActionsResponse,
-  ListTemplateActionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListTemplateActionsCommand,
-  serializeAws_restJson1ListTemplateActionsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListTemplateActionsRequest, ListTemplateActionsResponse } from "../models/models_0";
+import { de_ListTemplateActionsCommand, se_ListTemplateActionsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListTemplateActionsCommand}.
+ */
 export interface ListTemplateActionsCommandInput extends ListTemplateActionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListTemplateActionsCommand}.
+ */
 export interface ListTemplateActionsCommandOutput extends ListTemplateActionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List template post migration custom actions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,32 @@ export interface ListTemplateActionsCommandOutput extends ListTemplateActionsRes
  * import { MgnClient, ListTemplateActionsCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, ListTemplateActionsCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = { // ListTemplateActionsRequest
+ *   launchConfigurationTemplateID: "STRING_VALUE", // required
+ *   filters: { // TemplateActionsRequestFilters
+ *     actionIDs: [ // ActionIDs
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListTemplateActionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTemplateActionsCommandInput - {@link ListTemplateActionsCommandInput}
+ * @returns {@link ListTemplateActionsCommandOutput}
  * @see {@link ListTemplateActionsCommandInput} for command's `input` shape.
  * @see {@link ListTemplateActionsCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource not found exception.</p>
+ *
+ * @throws {@link UninitializedAccountException} (client fault)
+ *  <p>Uninitialized account exception.</p>
+ *
  *
  */
 export class ListTemplateActionsCommand extends $Command<
@@ -62,6 +84,9 @@ export class ListTemplateActionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTemplateActionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +115,8 @@ export class ListTemplateActionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTemplateActionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTemplateActionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +126,18 @@ export class ListTemplateActionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTemplateActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListTemplateActionsCommand(input, context);
+    return se_ListTemplateActionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTemplateActionsCommandOutput> {
-    return deserializeAws_restJson1ListTemplateActionsCommand(output, context);
+    return de_ListTemplateActionsCommand(output, context);
   }
 
   // Start section: command_body_extra

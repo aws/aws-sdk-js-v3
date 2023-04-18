@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  CreateUserGroupMessage,
-  CreateUserGroupMessageFilterSensitiveLog,
-  UserGroup,
-  UserGroupFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCreateUserGroupCommand,
-  serializeAws_queryCreateUserGroupCommand,
-} from "../protocols/Aws_query";
+import { CreateUserGroupMessage, UserGroup } from "../models/models_0";
+import { de_CreateUserGroupCommand, se_CreateUserGroupCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateUserGroupCommand}.
+ */
 export interface CreateUserGroupCommandInput extends CreateUserGroupMessage {}
+/**
+ * @public
+ *
+ * The output of {@link CreateUserGroupCommand}.
+ */
 export interface CreateUserGroupCommandOutput extends UserGroup, __MetadataBearer {}
 
 /**
+ * @public
  * <p>For Redis engine version 6.0 onwards: Creates a Redis user group. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using Role Based Access Control (RBAC)</a>
  *          </p>
  * @example
@@ -37,13 +40,53 @@ export interface CreateUserGroupCommandOutput extends UserGroup, __MetadataBeare
  * import { ElastiCacheClient, CreateUserGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, CreateUserGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // CreateUserGroupMessage
+ *   UserGroupId: "STRING_VALUE", // required
+ *   Engine: "STRING_VALUE", // required
+ *   UserIds: [ // UserIdListInput
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateUserGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateUserGroupCommandInput - {@link CreateUserGroupCommandInput}
+ * @returns {@link CreateUserGroupCommandOutput}
  * @see {@link CreateUserGroupCommandInput} for command's `input` shape.
  * @see {@link CreateUserGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
+ *
+ * @throws {@link DefaultUserRequired} (client fault)
+ *  <p>You must add default user to a user group.</p>
+ *
+ * @throws {@link DuplicateUserNameFault} (client fault)
+ *  <p>A user with this username already exists.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p>The specified service linked role (SLR) was not found.</p>
+ *
+ * @throws {@link TagQuotaPerResourceExceeded} (client fault)
+ *  <p>The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.</p>
+ *
+ * @throws {@link UserGroupAlreadyExistsFault} (client fault)
+ *  <p>The user group with this ID already exists.</p>
+ *
+ * @throws {@link UserGroupQuotaExceededFault} (client fault)
+ *  <p>The number of users exceeds the user group limit.</p>
+ *
+ * @throws {@link UserNotFoundFault} (client fault)
+ *  <p>The user does not exist or could not be found.</p>
+ *
  *
  */
 export class CreateUserGroupCommand extends $Command<
@@ -63,6 +106,9 @@ export class CreateUserGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateUserGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +137,8 @@ export class CreateUserGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateUserGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: UserGroupFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +148,18 @@ export class CreateUserGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateUserGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateUserGroupCommand(input, context);
+    return se_CreateUserGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateUserGroupCommandOutput> {
-    return deserializeAws_queryCreateUserGroupCommand(output, context);
+    return de_CreateUserGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

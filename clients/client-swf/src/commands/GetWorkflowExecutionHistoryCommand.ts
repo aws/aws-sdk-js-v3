@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetWorkflowExecutionHistoryInput,
-  GetWorkflowExecutionHistoryInputFilterSensitiveLog,
-  History,
-  HistoryFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0GetWorkflowExecutionHistoryCommand,
-  serializeAws_json1_0GetWorkflowExecutionHistoryCommand,
-} from "../protocols/Aws_json1_0";
+import { GetWorkflowExecutionHistoryInput, History } from "../models/models_0";
+import { de_GetWorkflowExecutionHistoryCommand, se_GetWorkflowExecutionHistoryCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetWorkflowExecutionHistoryCommand}.
+ */
 export interface GetWorkflowExecutionHistoryCommandInput extends GetWorkflowExecutionHistoryInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetWorkflowExecutionHistoryCommand}.
+ */
 export interface GetWorkflowExecutionHistoryCommandOutput extends History, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the history of the specified workflow execution. The results may be split into
  *       multiple pages. To retrieve subsequent pages, make the call again using the
  *         <code>nextPageToken</code> returned by the initial call.</p>
@@ -65,13 +68,32 @@ export interface GetWorkflowExecutionHistoryCommandOutput extends History, __Met
  * import { SWFClient, GetWorkflowExecutionHistoryCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, GetWorkflowExecutionHistoryCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = { // GetWorkflowExecutionHistoryInput
+ *   domain: "STRING_VALUE", // required
+ *   execution: { // WorkflowExecution
+ *     workflowId: "STRING_VALUE", // required
+ *     runId: "STRING_VALUE", // required
+ *   },
+ *   nextPageToken: "STRING_VALUE",
+ *   maximumPageSize: Number("int"),
+ *   reverseOrder: true || false,
+ * };
  * const command = new GetWorkflowExecutionHistoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetWorkflowExecutionHistoryCommandInput - {@link GetWorkflowExecutionHistoryCommandInput}
+ * @returns {@link GetWorkflowExecutionHistoryCommandOutput}
  * @see {@link GetWorkflowExecutionHistoryCommandInput} for command's `input` shape.
  * @see {@link GetWorkflowExecutionHistoryCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
+ *
+ * @throws {@link OperationNotPermittedFault} (client fault)
+ *  <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+ *
+ * @throws {@link UnknownResourceFault} (client fault)
+ *  <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+ *
  *
  */
 export class GetWorkflowExecutionHistoryCommand extends $Command<
@@ -91,6 +113,9 @@ export class GetWorkflowExecutionHistoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetWorkflowExecutionHistoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +144,8 @@ export class GetWorkflowExecutionHistoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetWorkflowExecutionHistoryInputFilterSensitiveLog,
-      outputFilterSensitiveLog: HistoryFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,15 +155,21 @@ export class GetWorkflowExecutionHistoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetWorkflowExecutionHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetWorkflowExecutionHistoryCommand(input, context);
+    return se_GetWorkflowExecutionHistoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetWorkflowExecutionHistoryCommandOutput> {
-    return deserializeAws_json1_0GetWorkflowExecutionHistoryCommand(output, context);
+    return de_GetWorkflowExecutionHistoryCommand(output, context);
   }
 
   // Start section: command_body_extra

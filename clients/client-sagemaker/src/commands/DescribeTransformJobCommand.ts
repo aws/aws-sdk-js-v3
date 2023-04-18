@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeTransformJobRequest,
-  DescribeTransformJobRequestFilterSensitiveLog,
-  DescribeTransformJobResponse,
-  DescribeTransformJobResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeTransformJobCommand,
-  serializeAws_json1_1DescribeTransformJobCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeTransformJobRequest, DescribeTransformJobResponse } from "../models/models_2";
+import { de_DescribeTransformJobCommand, se_DescribeTransformJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeTransformJobCommand}.
+ */
 export interface DescribeTransformJobCommandInput extends DescribeTransformJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeTransformJobCommand}.
+ */
 export interface DescribeTransformJobCommandOutput extends DescribeTransformJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a transform job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,22 @@ export interface DescribeTransformJobCommandOutput extends DescribeTransformJobR
  * import { SageMakerClient, DescribeTransformJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeTransformJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DescribeTransformJobRequest
+ *   TransformJobName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeTransformJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTransformJobCommandInput - {@link DescribeTransformJobCommandInput}
+ * @returns {@link DescribeTransformJobCommandOutput}
  * @see {@link DescribeTransformJobCommandInput} for command's `input` shape.
  * @see {@link DescribeTransformJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class DescribeTransformJobCommand extends $Command<
@@ -62,6 +74,9 @@ export class DescribeTransformJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTransformJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +105,8 @@ export class DescribeTransformJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTransformJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTransformJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +116,18 @@ export class DescribeTransformJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTransformJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeTransformJobCommand(input, context);
+    return se_DescribeTransformJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTransformJobCommandOutput> {
-    return deserializeAws_json1_1DescribeTransformJobCommand(output, context);
+    return de_DescribeTransformJobCommand(output, context);
   }
 
   // Start section: command_body_extra

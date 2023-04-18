@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
+import { DeleteRemediationConfigurationRequest, DeleteRemediationConfigurationResponse } from "../models/models_0";
 import {
-  DeleteRemediationConfigurationRequest,
-  DeleteRemediationConfigurationRequestFilterSensitiveLog,
-  DeleteRemediationConfigurationResponse,
-  DeleteRemediationConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteRemediationConfigurationCommand,
-  serializeAws_json1_1DeleteRemediationConfigurationCommand,
+  de_DeleteRemediationConfigurationCommand,
+  se_DeleteRemediationConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteRemediationConfigurationCommand}.
+ */
 export interface DeleteRemediationConfigurationCommandInput extends DeleteRemediationConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteRemediationConfigurationCommand}.
+ */
 export interface DeleteRemediationConfigurationCommandOutput
   extends DeleteRemediationConfigurationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the remediation configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,55 @@ export interface DeleteRemediationConfigurationCommandOutput
  * import { ConfigServiceClient, DeleteRemediationConfigurationCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DeleteRemediationConfigurationCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // DeleteRemediationConfigurationRequest
+ *   ConfigRuleName: "STRING_VALUE", // required
+ *   ResourceType: "STRING_VALUE",
+ * };
  * const command = new DeleteRemediationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRemediationConfigurationCommandInput - {@link DeleteRemediationConfigurationCommandInput}
+ * @returns {@link DeleteRemediationConfigurationCommandOutput}
  * @see {@link DeleteRemediationConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteRemediationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
+ *
+ * @throws {@link InsufficientPermissionsException} (client fault)
+ *  <p>Indicates one of the following errors:</p>
+ *          <ul>
+ *             <li>
+ *                <p>For PutConfigRule, the rule cannot be created because the IAM role assigned to Config lacks permissions to perform the config:Put* action.</p>
+ *             </li>
+ *             <li>
+ *                <p>For PutConfigRule, the Lambda function cannot be invoked. Check the function ARN, and check the function's permissions.</p>
+ *             </li>
+ *             <li>
+ *                <p>For PutOrganizationConfigRule, organization Config rule cannot be created because you do not have permissions to call IAM <code>GetRole</code> action or create a service-linked role.</p>
+ *             </li>
+ *             <li>
+ *                <p>For PutConformancePack and PutOrganizationConformancePack, a conformance pack cannot be created because you do not have the following permissions: </p>
+ *                <ul>
+ *                   <li>
+ *                      <p>You do not have permission to call IAM <code>GetRole</code> action or create a service-linked role.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>You do not have permission to read Amazon S3 bucket or call SSM:GetDocument.</p>
+ *                   </li>
+ *                </ul>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One or more of the specified parameters are not valid. Verify
+ * 			that your parameters are valid and try again.</p>
+ *
+ * @throws {@link NoSuchRemediationConfigurationException} (client fault)
+ *  <p>You specified an Config rule without a remediation configuration.</p>
+ *
+ * @throws {@link RemediationInProgressException} (client fault)
+ *  <p>Remediation action is in progress. You can either cancel execution in Amazon Web Services Systems Manager or wait and try again later. </p>
+ *
  *
  */
 export class DeleteRemediationConfigurationCommand extends $Command<
@@ -64,6 +112,9 @@ export class DeleteRemediationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRemediationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +143,8 @@ export class DeleteRemediationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRemediationConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRemediationConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +154,24 @@ export class DeleteRemediationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteRemediationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteRemediationConfigurationCommand(input, context);
+    return se_DeleteRemediationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteRemediationConfigurationCommandOutput> {
-    return deserializeAws_json1_1DeleteRemediationConfigurationCommand(output, context);
+    return de_DeleteRemediationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

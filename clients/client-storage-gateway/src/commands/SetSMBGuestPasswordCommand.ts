@@ -17,18 +17,25 @@ import {
   SetSMBGuestPasswordInput,
   SetSMBGuestPasswordInputFilterSensitiveLog,
   SetSMBGuestPasswordOutput,
-  SetSMBGuestPasswordOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1SetSMBGuestPasswordCommand,
-  serializeAws_json1_1SetSMBGuestPasswordCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SetSMBGuestPasswordCommand, se_SetSMBGuestPasswordCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * @public
+ *
+ * The input for {@link SetSMBGuestPasswordCommand}.
+ */
 export interface SetSMBGuestPasswordCommandInput extends SetSMBGuestPasswordInput {}
+/**
+ * @public
+ *
+ * The output of {@link SetSMBGuestPasswordCommand}.
+ */
 export interface SetSMBGuestPasswordCommandOutput extends SetSMBGuestPasswordOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the password for the guest user <code>smbguest</code>. The <code>smbguest</code>
  *          user is the user when the authentication method for the file share is set to
  *             <code>GuestAccess</code>. This operation only supported for S3 File Gateways</p>
@@ -38,13 +45,28 @@ export interface SetSMBGuestPasswordCommandOutput extends SetSMBGuestPasswordOut
  * import { StorageGatewayClient, SetSMBGuestPasswordCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, SetSMBGuestPasswordCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // SetSMBGuestPasswordInput
+ *   GatewayARN: "STRING_VALUE", // required
+ *   Password: "STRING_VALUE", // required
+ * };
  * const command = new SetSMBGuestPasswordCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SetSMBGuestPasswordCommandInput - {@link SetSMBGuestPasswordCommandInput}
+ * @returns {@link SetSMBGuestPasswordCommandOutput}
  * @see {@link SetSMBGuestPasswordCommandInput} for command's `input` shape.
  * @see {@link SetSMBGuestPasswordCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error has occurred during the request. For more information, see the
+ *          error and message fields.</p>
+ *
+ * @throws {@link InvalidGatewayRequestException} (client fault)
+ *  <p>An exception occurred because an invalid gateway request was issued to the service. For
+ *          more information, see the error and message fields.</p>
+ *
  *
  */
 export class SetSMBGuestPasswordCommand extends $Command<
@@ -64,6 +86,9 @@ export class SetSMBGuestPasswordCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetSMBGuestPasswordCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,7 +118,7 @@ export class SetSMBGuestPasswordCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: SetSMBGuestPasswordInputFilterSensitiveLog,
-      outputFilterSensitiveLog: SetSMBGuestPasswordOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +128,18 @@ export class SetSMBGuestPasswordCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetSMBGuestPasswordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SetSMBGuestPasswordCommand(input, context);
+    return se_SetSMBGuestPasswordCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetSMBGuestPasswordCommandOutput> {
-    return deserializeAws_json1_1SetSMBGuestPasswordCommand(output, context);
+    return de_SetSMBGuestPasswordCommand(output, context);
   }
 
   // Start section: command_body_extra

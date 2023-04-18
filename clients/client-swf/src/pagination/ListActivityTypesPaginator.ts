@@ -6,12 +6,11 @@ import {
   ListActivityTypesCommandInput,
   ListActivityTypesCommandOutput,
 } from "../commands/ListActivityTypesCommand";
-import { SWF } from "../SWF";
 import { SWFClient } from "../SWFClient";
 import { SWFPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SWFClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListActivityTypesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: SWF,
-  input: ListActivityTypesCommandInput,
-  ...args: any
-): Promise<ListActivityTypesCommandOutput> => {
-  // @ts-ignore
-  return await client.listActivityTypes(input, ...args);
-};
 export async function* paginateListActivityTypes(
   config: SWFPaginationConfiguration,
   input: ListActivityTypesCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListActivityTypes(
   while (hasNext) {
     input.nextPageToken = token;
     input["maximumPageSize"] = config.pageSize;
-    if (config.client instanceof SWF) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SWFClient) {
+    if (config.client instanceof SWFClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SWF | SWFClient");

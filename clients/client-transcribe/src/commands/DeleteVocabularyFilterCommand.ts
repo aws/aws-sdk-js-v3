@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteVocabularyFilterRequest, DeleteVocabularyFilterRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteVocabularyFilterCommand,
-  serializeAws_json1_1DeleteVocabularyFilterCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteVocabularyFilterRequest } from "../models/models_0";
+import { de_DeleteVocabularyFilterCommand, se_DeleteVocabularyFilterCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteVocabularyFilterCommand}.
+ */
 export interface DeleteVocabularyFilterCommandInput extends DeleteVocabularyFilterRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteVocabularyFilterCommand}.
+ */
 export interface DeleteVocabularyFilterCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a custom vocabulary filter. To use this operation, specify the name of the
  *             custom vocabulary filter you want to delete using <code>VocabularyFilterName</code>.
  *             Custom vocabulary filter names are case sensitive.</p>
@@ -33,13 +41,37 @@ export interface DeleteVocabularyFilterCommandOutput extends __MetadataBearer {}
  * import { TranscribeClient, DeleteVocabularyFilterCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, DeleteVocabularyFilterCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
+ * const input = { // DeleteVocabularyFilterRequest
+ *   VocabularyFilterName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteVocabularyFilterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVocabularyFilterCommandInput - {@link DeleteVocabularyFilterCommandInput}
+ * @returns {@link DeleteVocabularyFilterCommandOutput}
  * @see {@link DeleteVocabularyFilterCommandInput} for command's `input` shape.
  * @see {@link DeleteVocabularyFilterCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>Your request didn't pass one or more validation tests. This can occur when the entity
+ *             you're trying to delete doesn't exist or if it's in a non-terminal state (such as
+ *                 <code>IN PROGRESS</code>). See the exception message field for more
+ *             information.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>There was an internal error. Check the error message, correct the issue, and try your
+ *             request again.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You've either sent too many requests or your input file is too long. Wait before
+ *             retrying your request, or use a smaller file and try your request again.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>We can't find the requested resource. Check that the specified name is correct and try
+ *             your request again.</p>
+ *
  *
  */
 export class DeleteVocabularyFilterCommand extends $Command<
@@ -59,6 +91,9 @@ export class DeleteVocabularyFilterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVocabularyFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -87,8 +122,8 @@ export class DeleteVocabularyFilterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVocabularyFilterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -98,12 +133,18 @@ export class DeleteVocabularyFilterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVocabularyFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteVocabularyFilterCommand(input, context);
+    return se_DeleteVocabularyFilterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVocabularyFilterCommandOutput> {
-    return deserializeAws_json1_1DeleteVocabularyFilterCommand(output, context);
+    return de_DeleteVocabularyFilterCommand(output, context);
   }
 
   // Start section: command_body_extra

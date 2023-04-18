@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  GetContactRequest,
-  GetContactRequestFilterSensitiveLog,
-  GetContactResponse,
-  GetContactResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetContactCommand,
-  serializeAws_json1_1GetContactCommand,
-} from "../protocols/Aws_json1_1";
+import { GetContactRequest, GetContactResponse, GetContactResponseFilterSensitiveLog } from "../models/models_0";
+import { de_GetContactCommand, se_GetContactCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetContactCommand}.
+ */
 export interface GetContactCommandInput extends GetContactRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetContactCommand}.
+ */
 export interface GetContactCommandOutput extends GetContactResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the contact details by the contact ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,22 @@ export interface GetContactCommandOutput extends GetContactResponse, __MetadataB
  * import { AlexaForBusinessClient, GetContactCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, GetContactCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // GetContactRequest
+ *   ContactArn: "STRING_VALUE", // required
+ * };
  * const command = new GetContactCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetContactCommandInput - {@link GetContactCommandInput}
+ * @returns {@link GetContactCommandOutput}
  * @see {@link GetContactCommandInput} for command's `input` shape.
  * @see {@link GetContactCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
  *
  */
 export class GetContactCommand extends $Command<
@@ -62,6 +74,9 @@ export class GetContactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetContactCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,7 +103,7 @@ export class GetContactCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetContactRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetContactResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -99,12 +114,18 @@ export class GetContactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetContactCommand(input, context);
+    return se_GetContactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetContactCommandOutput> {
-    return deserializeAws_json1_1GetContactCommand(output, context);
+    return de_GetContactCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateApnsChannelRequest,
-  UpdateApnsChannelRequestFilterSensitiveLog,
-  UpdateApnsChannelResponse,
-  UpdateApnsChannelResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { UpdateApnsChannelRequest, UpdateApnsChannelResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1UpdateApnsChannelCommand,
-  serializeAws_restJson1UpdateApnsChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateApnsChannelCommand, se_UpdateApnsChannelCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateApnsChannelCommand}.
+ */
 export interface UpdateApnsChannelCommandInput extends UpdateApnsChannelRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateApnsChannelCommand}.
+ */
 export interface UpdateApnsChannelCommandOutput extends UpdateApnsChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables the APNs channel for an application or updates the status and settings of the APNs channel for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,50 @@ export interface UpdateApnsChannelCommandOutput extends UpdateApnsChannelRespons
  * import { PinpointClient, UpdateApnsChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, UpdateApnsChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // UpdateApnsChannelRequest
+ *   APNSChannelRequest: { // APNSChannelRequest
+ *     BundleId: "STRING_VALUE",
+ *     Certificate: "STRING_VALUE",
+ *     DefaultAuthenticationMethod: "STRING_VALUE",
+ *     Enabled: true || false,
+ *     PrivateKey: "STRING_VALUE",
+ *     TeamId: "STRING_VALUE",
+ *     TokenKey: "STRING_VALUE",
+ *     TokenKeyId: "STRING_VALUE",
+ *   },
+ *   ApplicationId: "STRING_VALUE", // required
+ * };
  * const command = new UpdateApnsChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateApnsChannelCommandInput - {@link UpdateApnsChannelCommandInput}
+ * @returns {@link UpdateApnsChannelCommandOutput}
  * @see {@link UpdateApnsChannelCommandInput} for command's `input` shape.
  * @see {@link UpdateApnsChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link MethodNotAllowedException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link PayloadTooLargeException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
  *
  */
 export class UpdateApnsChannelCommand extends $Command<
@@ -62,6 +102,9 @@ export class UpdateApnsChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateApnsChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +133,8 @@ export class UpdateApnsChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateApnsChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateApnsChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +144,18 @@ export class UpdateApnsChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateApnsChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateApnsChannelCommand(input, context);
+    return se_UpdateApnsChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateApnsChannelCommandOutput> {
-    return deserializeAws_restJson1UpdateApnsChannelCommand(output, context);
+    return de_UpdateApnsChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

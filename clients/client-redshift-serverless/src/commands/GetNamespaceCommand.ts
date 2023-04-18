@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetNamespaceRequest,
-  GetNamespaceRequestFilterSensitiveLog,
-  GetNamespaceResponse,
-  GetNamespaceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetNamespaceCommand,
-  serializeAws_json1_1GetNamespaceCommand,
-} from "../protocols/Aws_json1_1";
+import { GetNamespaceRequest, GetNamespaceResponse, GetNamespaceResponseFilterSensitiveLog } from "../models/models_0";
+import { de_GetNamespaceCommand, se_GetNamespaceCommand } from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetNamespaceCommand}.
+ */
 export interface GetNamespaceCommandInput extends GetNamespaceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetNamespaceCommand}.
+ */
 export interface GetNamespaceCommandOutput extends GetNamespaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a namespace in Amazon Redshift Serverless.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,28 @@ export interface GetNamespaceCommandOutput extends GetNamespaceResponse, __Metad
  * import { RedshiftServerlessClient, GetNamespaceCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, GetNamespaceCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
+ * const input = { // GetNamespaceRequest
+ *   namespaceName: "STRING_VALUE", // required
+ * };
  * const command = new GetNamespaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetNamespaceCommandInput - {@link GetNamespaceCommandInput}
+ * @returns {@link GetNamespaceCommandOutput}
  * @see {@link GetNamespaceCommandInput} for command's `input` shape.
  * @see {@link GetNamespaceCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
+ *
  *
  */
 export class GetNamespaceCommand extends $Command<
@@ -66,6 +84,9 @@ export class GetNamespaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetNamespaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,7 +113,7 @@ export class GetNamespaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetNamespaceRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetNamespaceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -103,12 +124,18 @@ export class GetNamespaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetNamespaceCommand(input, context);
+    return se_GetNamespaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetNamespaceCommandOutput> {
-    return deserializeAws_json1_1GetNamespaceCommand(output, context);
+    return de_GetNamespaceCommand(output, context);
   }
 
   // Start section: command_body_extra

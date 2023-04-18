@@ -13,32 +13,35 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListEndpointsRequest,
-  ListEndpointsRequestFilterSensitiveLog,
-  ListEndpointsResult,
-  ListEndpointsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListEndpointsCommand,
-  serializeAws_restJson1ListEndpointsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListEndpointsRequest, ListEndpointsResult } from "../models/models_0";
+import { de_ListEndpointsCommand, se_ListEndpointsCommand } from "../protocols/Aws_restJson1";
 import { S3OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3OutpostsClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListEndpointsCommand}.
+ */
 export interface ListEndpointsCommandInput extends ListEndpointsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListEndpointsCommand}.
+ */
 export interface ListEndpointsCommandOutput extends ListEndpointsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists endpoints associated with the specified Outpost. </p>
- *         <p>Related actions include:</p>
- *         <ul>
+ *          <p>Related actions include:</p>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_CreateEndpoint.html">CreateEndpoint</a>
  *                </p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_DeleteEndpoint.html">DeleteEndpoint</a>
  *                </p>
  *             </li>
@@ -49,13 +52,35 @@ export interface ListEndpointsCommandOutput extends ListEndpointsResult, __Metad
  * import { S3OutpostsClient, ListEndpointsCommand } from "@aws-sdk/client-s3outposts"; // ES Modules import
  * // const { S3OutpostsClient, ListEndpointsCommand } = require("@aws-sdk/client-s3outposts"); // CommonJS import
  * const client = new S3OutpostsClient(config);
+ * const input = { // ListEndpointsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListEndpointsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEndpointsCommandInput - {@link ListEndpointsCommandInput}
+ * @returns {@link ListEndpointsCommandOutput}
  * @see {@link ListEndpointsCommandInput} for command's `input` shape.
  * @see {@link ListEndpointsCommandOutput} for command's `response` shape.
  * @see {@link S3OutpostsClientResolvedConfig | config} for S3OutpostsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access was denied for this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There was an exception with the internal server.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There was an exception validating this data.</p>
+ *
  *
  */
 export class ListEndpointsCommand extends $Command<
@@ -75,6 +100,9 @@ export class ListEndpointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEndpointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +129,8 @@ export class ListEndpointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEndpointsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEndpointsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +140,18 @@ export class ListEndpointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListEndpointsCommand(input, context);
+    return se_ListEndpointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEndpointsCommandOutput> {
-    return deserializeAws_restJson1ListEndpointsCommand(output, context);
+    return de_ListEndpointsCommand(output, context);
   }
 
   // Start section: command_body_extra

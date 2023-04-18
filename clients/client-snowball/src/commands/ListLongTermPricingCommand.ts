@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListLongTermPricingRequest,
-  ListLongTermPricingRequestFilterSensitiveLog,
-  ListLongTermPricingResult,
-  ListLongTermPricingResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListLongTermPricingCommand,
-  serializeAws_json1_1ListLongTermPricingCommand,
-} from "../protocols/Aws_json1_1";
+import { ListLongTermPricingRequest, ListLongTermPricingResult } from "../models/models_0";
+import { de_ListLongTermPricingCommand, se_ListLongTermPricingCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListLongTermPricingCommand}.
+ */
 export interface ListLongTermPricingCommandInput extends ListLongTermPricingRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListLongTermPricingCommand}.
+ */
 export interface ListLongTermPricingCommandOutput extends ListLongTermPricingResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all long-term pricing types.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,29 @@ export interface ListLongTermPricingCommandOutput extends ListLongTermPricingRes
  * import { SnowballClient, ListLongTermPricingCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, ListLongTermPricingCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
  * const client = new SnowballClient(config);
+ * const input = { // ListLongTermPricingRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListLongTermPricingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLongTermPricingCommandInput - {@link ListLongTermPricingCommandInput}
+ * @returns {@link ListLongTermPricingCommandOutput}
  * @see {@link ListLongTermPricingCommandInput} for command's `input` shape.
  * @see {@link ListLongTermPricingCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The <code>NextToken</code> string was altered unexpectedly, and the operation has
+ *       stopped. Run the operation without changing the <code>NextToken</code> string, and try
+ *       again.</p>
+ *
+ * @throws {@link InvalidResourceException} (client fault)
+ *  <p>The specified resource can't be found. Check the information you provided in your last
+ *       request, and try again.</p>
+ *
  *
  */
 export class ListLongTermPricingCommand extends $Command<
@@ -62,6 +81,9 @@ export class ListLongTermPricingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLongTermPricingCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +112,8 @@ export class ListLongTermPricingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLongTermPricingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListLongTermPricingResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +123,18 @@ export class ListLongTermPricingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLongTermPricingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListLongTermPricingCommand(input, context);
+    return se_ListLongTermPricingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLongTermPricingCommandOutput> {
-    return deserializeAws_json1_1ListLongTermPricingCommand(output, context);
+    return de_ListLongTermPricingCommand(output, context);
   }
 
   // Start section: command_body_extra

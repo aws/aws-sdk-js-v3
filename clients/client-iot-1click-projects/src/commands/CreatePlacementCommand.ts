@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoT1ClickProjectsClient";
-import {
-  CreatePlacementRequest,
-  CreatePlacementRequestFilterSensitiveLog,
-  CreatePlacementResponse,
-  CreatePlacementResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreatePlacementCommand,
-  serializeAws_restJson1CreatePlacementCommand,
-} from "../protocols/Aws_restJson1";
+import { CreatePlacementRequest, CreatePlacementResponse } from "../models/models_0";
+import { de_CreatePlacementCommand, se_CreatePlacementCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreatePlacementCommand}.
+ */
 export interface CreatePlacementCommandInput extends CreatePlacementRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreatePlacementCommand}.
+ */
 export interface CreatePlacementCommandOutput extends CreatePlacementResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an empty placement.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,35 @@ export interface CreatePlacementCommandOutput extends CreatePlacementResponse, _
  * import { IoT1ClickProjectsClient, CreatePlacementCommand } from "@aws-sdk/client-iot-1click-projects"; // ES Modules import
  * // const { IoT1ClickProjectsClient, CreatePlacementCommand } = require("@aws-sdk/client-iot-1click-projects"); // CommonJS import
  * const client = new IoT1ClickProjectsClient(config);
+ * const input = { // CreatePlacementRequest
+ *   placementName: "STRING_VALUE", // required
+ *   projectName: "STRING_VALUE", // required
+ *   attributes: { // PlacementAttributeMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreatePlacementCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePlacementCommandInput - {@link CreatePlacementCommandInput}
+ * @returns {@link CreatePlacementCommandOutput}
  * @see {@link CreatePlacementCommandInput} for command's `input` shape.
  * @see {@link CreatePlacementCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickProjectsClientResolvedConfig | config} for IoT1ClickProjectsClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ResourceConflictException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p></p>
+ *
  *
  */
 export class CreatePlacementCommand extends $Command<
@@ -66,6 +91,9 @@ export class CreatePlacementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePlacementCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +122,8 @@ export class CreatePlacementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePlacementRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreatePlacementResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +133,18 @@ export class CreatePlacementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePlacementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreatePlacementCommand(input, context);
+    return se_CreatePlacementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePlacementCommandOutput> {
-    return deserializeAws_restJson1CreatePlacementCommand(output, context);
+    return de_CreatePlacementCommand(output, context);
   }
 
   // Start section: command_body_extra

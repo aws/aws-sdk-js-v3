@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeCodeRepositoryInput,
-  DescribeCodeRepositoryInputFilterSensitiveLog,
-  DescribeCodeRepositoryOutput,
-  DescribeCodeRepositoryOutputFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeCodeRepositoryCommand,
-  serializeAws_json1_1DescribeCodeRepositoryCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeCodeRepositoryInput, DescribeCodeRepositoryOutput } from "../models/models_2";
+import { de_DescribeCodeRepositoryCommand, se_DescribeCodeRepositoryCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeCodeRepositoryCommand}.
+ */
 export interface DescribeCodeRepositoryCommandInput extends DescribeCodeRepositoryInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeCodeRepositoryCommand}.
+ */
 export interface DescribeCodeRepositoryCommandOutput extends DescribeCodeRepositoryOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets details about the specified Git repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,19 @@ export interface DescribeCodeRepositoryCommandOutput extends DescribeCodeReposit
  * import { SageMakerClient, DescribeCodeRepositoryCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeCodeRepositoryCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DescribeCodeRepositoryInput
+ *   CodeRepositoryName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeCodeRepositoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCodeRepositoryCommandInput - {@link DescribeCodeRepositoryCommandInput}
+ * @returns {@link DescribeCodeRepositoryCommandOutput}
  * @see {@link DescribeCodeRepositoryCommandInput} for command's `input` shape.
  * @see {@link DescribeCodeRepositoryCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
  *
  */
 export class DescribeCodeRepositoryCommand extends $Command<
@@ -62,6 +71,9 @@ export class DescribeCodeRepositoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCodeRepositoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +102,8 @@ export class DescribeCodeRepositoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCodeRepositoryInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeCodeRepositoryOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +113,18 @@ export class DescribeCodeRepositoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCodeRepositoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeCodeRepositoryCommand(input, context);
+    return se_DescribeCodeRepositoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCodeRepositoryCommandOutput> {
-    return deserializeAws_json1_1DescribeCodeRepositoryCommand(output, context);
+    return de_DescribeCodeRepositoryCommand(output, context);
   }
 
   // Start section: command_body_extra

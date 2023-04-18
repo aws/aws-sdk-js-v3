@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
-import {
-  TestSegmentPatternRequest,
-  TestSegmentPatternRequestFilterSensitiveLog,
-  TestSegmentPatternResponse,
-  TestSegmentPatternResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1TestSegmentPatternCommand,
-  serializeAws_restJson1TestSegmentPatternCommand,
-} from "../protocols/Aws_restJson1";
+import { TestSegmentPatternRequest, TestSegmentPatternResponse } from "../models/models_0";
+import { de_TestSegmentPatternCommand, se_TestSegmentPatternCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link TestSegmentPatternCommand}.
+ */
 export interface TestSegmentPatternCommandInput extends TestSegmentPatternRequest {}
+/**
+ * @public
+ *
+ * The output of {@link TestSegmentPatternCommand}.
+ */
 export interface TestSegmentPatternCommandOutput extends TestSegmentPatternResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this operation to test a rules pattern that you plan to use to create an audience segment.
  *       For more information about segments, see <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateSegment.html">CreateSegment</a>.</p>
  * @example
@@ -37,13 +40,29 @@ export interface TestSegmentPatternCommandOutput extends TestSegmentPatternRespo
  * import { EvidentlyClient, TestSegmentPatternCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, TestSegmentPatternCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
+ * const input = { // TestSegmentPatternRequest
+ *   pattern: "STRING_VALUE", // required
+ *   payload: "STRING_VALUE", // required
+ * };
  * const command = new TestSegmentPatternCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TestSegmentPatternCommandInput - {@link TestSegmentPatternCommandInput}
+ * @returns {@link TestSegmentPatternCommandOutput}
  * @see {@link TestSegmentPatternCommandInput} for command's `input` shape.
  * @see {@link TestSegmentPatternCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because of request throttling. Retry the request.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The value of a parameter in the request caused an error.</p>
+ *
  *
  */
 export class TestSegmentPatternCommand extends $Command<
@@ -63,6 +82,9 @@ export class TestSegmentPatternCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TestSegmentPatternCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +113,8 @@ export class TestSegmentPatternCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TestSegmentPatternRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: TestSegmentPatternResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +124,18 @@ export class TestSegmentPatternCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TestSegmentPatternCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1TestSegmentPatternCommand(input, context);
+    return se_TestSegmentPatternCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestSegmentPatternCommandOutput> {
-    return deserializeAws_restJson1TestSegmentPatternCommand(output, context);
+    return de_TestSegmentPatternCommand(output, context);
   }
 
   // Start section: command_body_extra

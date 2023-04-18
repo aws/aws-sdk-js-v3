@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import {
-  UpdateClusterVersionRequest,
-  UpdateClusterVersionRequestFilterSensitiveLog,
-  UpdateClusterVersionResponse,
-  UpdateClusterVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateClusterVersionCommand,
-  serializeAws_restJson1UpdateClusterVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateClusterVersionRequest, UpdateClusterVersionResponse } from "../models/models_0";
+import { de_UpdateClusterVersionCommand, se_UpdateClusterVersionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateClusterVersionCommand}.
+ */
 export interface UpdateClusterVersionCommandInput extends UpdateClusterVersionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateClusterVersionCommand}.
+ */
 export interface UpdateClusterVersionCommandOutput extends UpdateClusterVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an Amazon EKS cluster to the specified Kubernetes version. Your
  *             cluster continues to function during the update. The response output includes an update
  *             ID that you can use to track the status of your cluster update with the <a>DescribeUpdate</a> API operation.</p>
@@ -45,13 +48,46 @@ export interface UpdateClusterVersionCommandOutput extends UpdateClusterVersionR
  * import { EKSClient, UpdateClusterVersionCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, UpdateClusterVersionCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
+ * const input = { // UpdateClusterVersionRequest
+ *   name: "STRING_VALUE", // required
+ *   version: "STRING_VALUE", // required
+ *   clientRequestToken: "STRING_VALUE",
+ * };
  * const command = new UpdateClusterVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateClusterVersionCommandInput - {@link UpdateClusterVersionCommandInput}
+ * @returns {@link UpdateClusterVersionCommandOutput}
  * @see {@link UpdateClusterVersionCommandInput} for command's `input` shape.
  * @see {@link UpdateClusterVersionCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action. Actions can include using an
+ *             action or resource on behalf of a user that doesn't have permissions to use the action
+ *             or resource or specifying an identifier that is not valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *             request.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid given the state of the cluster. Check the state of the cluster
+ *             and the associated operations.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is in use.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found. You can view your available clusters with
+ *                 <a>ListClusters</a>. You can view your available managed node groups with
+ *                 <a>ListNodegroups</a>. Amazon EKS clusters and node groups are
+ *             Region-specific.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
  *
  */
 export class UpdateClusterVersionCommand extends $Command<
@@ -71,6 +107,9 @@ export class UpdateClusterVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateClusterVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +138,8 @@ export class UpdateClusterVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateClusterVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateClusterVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +149,18 @@ export class UpdateClusterVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateClusterVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateClusterVersionCommand(input, context);
+    return se_UpdateClusterVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateClusterVersionCommandOutput> {
-    return deserializeAws_restJson1UpdateClusterVersionCommand(output, context);
+    return de_UpdateClusterVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DisableProactiveEngagementRequest,
-  DisableProactiveEngagementRequestFilterSensitiveLog,
-  DisableProactiveEngagementResponse,
-  DisableProactiveEngagementResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DisableProactiveEngagementCommand,
-  serializeAws_json1_1DisableProactiveEngagementCommand,
-} from "../protocols/Aws_json1_1";
+import { DisableProactiveEngagementRequest, DisableProactiveEngagementResponse } from "../models/models_0";
+import { de_DisableProactiveEngagementCommand, se_DisableProactiveEngagementCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DisableProactiveEngagementCommand}.
+ */
 export interface DisableProactiveEngagementCommandInput extends DisableProactiveEngagementRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisableProactiveEngagementCommand}.
+ */
 export interface DisableProactiveEngagementCommandOutput extends DisableProactiveEngagementResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes authorization from the Shield Response Team (SRT) to notify contacts about escalations to the SRT and to initiate proactive customer support.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,33 @@ export interface DisableProactiveEngagementCommandOutput extends DisableProactiv
  * import { ShieldClient, DisableProactiveEngagementCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, DisableProactiveEngagementCommand } = require("@aws-sdk/client-shield"); // CommonJS import
  * const client = new ShieldClient(config);
+ * const input = {};
  * const command = new DisableProactiveEngagementCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableProactiveEngagementCommandInput - {@link DisableProactiveEngagementCommandInput}
+ * @returns {@link DisableProactiveEngagementCommandOutput}
  * @see {@link DisableProactiveEngagementCommandInput} for command's `input` shape.
  * @see {@link DisableProactiveEngagementCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+ *
+ * @throws {@link InvalidOperationException} (client fault)
+ *  <p>Exception that indicates that the operation would not cause any change to occur.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>Exception that indicates that the parameters passed to the API are invalid. If available, this exception includes details in additional properties. </p>
+ *
+ * @throws {@link OptimisticLockException} (client fault)
+ *  <p>Exception that indicates that the resource state has been modified by another
+ *          client. Retrieve the resource and then retry your request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+ *
  *
  */
 export class DisableProactiveEngagementCommand extends $Command<
@@ -62,6 +85,9 @@ export class DisableProactiveEngagementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableProactiveEngagementCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +116,8 @@ export class DisableProactiveEngagementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableProactiveEngagementRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisableProactiveEngagementResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +127,21 @@ export class DisableProactiveEngagementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableProactiveEngagementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisableProactiveEngagementCommand(input, context);
+    return se_DisableProactiveEngagementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisableProactiveEngagementCommandOutput> {
-    return deserializeAws_json1_1DisableProactiveEngagementCommand(output, context);
+    return de_DisableProactiveEngagementCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import {
-  GetFlowTemplateRequest,
-  GetFlowTemplateRequestFilterSensitiveLog,
-  GetFlowTemplateResponse,
-  GetFlowTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetFlowTemplateCommand,
-  serializeAws_json1_1GetFlowTemplateCommand,
-} from "../protocols/Aws_json1_1";
+import { GetFlowTemplateRequest, GetFlowTemplateResponse } from "../models/models_0";
+import { de_GetFlowTemplateCommand, se_GetFlowTemplateCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetFlowTemplateCommand}.
+ */
 export interface GetFlowTemplateCommandInput extends GetFlowTemplateRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetFlowTemplateCommand}.
+ */
 export interface GetFlowTemplateCommandOutput extends GetFlowTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Gets the latest version of the <code>DefinitionDocument</code> and <code>FlowTemplateSummary</code> for the specified workflow.</p>
@@ -38,13 +41,32 @@ export interface GetFlowTemplateCommandOutput extends GetFlowTemplateResponse, _
  * import { IoTThingsGraphClient, GetFlowTemplateCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, GetFlowTemplateCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
+ * const input = { // GetFlowTemplateRequest
+ *   id: "STRING_VALUE", // required
+ *   revisionNumber: Number("long"),
+ * };
  * const command = new GetFlowTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFlowTemplateCommandInput - {@link GetFlowTemplateCommandInput}
+ * @returns {@link GetFlowTemplateCommandOutput}
  * @see {@link GetFlowTemplateCommandInput} for command's `input` shape.
  * @see {@link GetFlowTemplateCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p></p>
+ *
  *
  */
 export class GetFlowTemplateCommand extends $Command<
@@ -64,6 +86,9 @@ export class GetFlowTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFlowTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +117,8 @@ export class GetFlowTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFlowTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetFlowTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +128,18 @@ export class GetFlowTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFlowTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetFlowTemplateCommand(input, context);
+    return se_GetFlowTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFlowTemplateCommandOutput> {
-    return deserializeAws_json1_1GetFlowTemplateCommand(output, context);
+    return de_GetFlowTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeConfigurationRevisionRequest,
-  DescribeConfigurationRevisionRequestFilterSensitiveLog,
-  DescribeConfigurationRevisionResponse,
-  DescribeConfigurationRevisionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeConfigurationRevisionRequest, DescribeConfigurationRevisionResponse } from "../models/models_0";
 import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
 import {
-  deserializeAws_restJson1DescribeConfigurationRevisionCommand,
-  serializeAws_restJson1DescribeConfigurationRevisionCommand,
+  de_DescribeConfigurationRevisionCommand,
+  se_DescribeConfigurationRevisionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeConfigurationRevisionCommand}.
+ */
 export interface DescribeConfigurationRevisionCommandInput extends DescribeConfigurationRevisionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeConfigurationRevisionCommand}.
+ */
 export interface DescribeConfigurationRevisionCommandOutput
   extends DescribeConfigurationRevisionResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the specified configuration revision for the specified configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,32 @@ export interface DescribeConfigurationRevisionCommandOutput
  * import { MqClient, DescribeConfigurationRevisionCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, DescribeConfigurationRevisionCommand } = require("@aws-sdk/client-mq"); // CommonJS import
  * const client = new MqClient(config);
+ * const input = { // DescribeConfigurationRevisionRequest
+ *   ConfigurationId: "STRING_VALUE", // required
+ *   ConfigurationRevision: "STRING_VALUE", // required
+ * };
  * const command = new DescribeConfigurationRevisionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConfigurationRevisionCommandInput - {@link DescribeConfigurationRevisionCommandInput}
+ * @returns {@link DescribeConfigurationRevisionCommandOutput}
  * @see {@link DescribeConfigurationRevisionCommandInput} for command's `input` shape.
  * @see {@link DescribeConfigurationRevisionCommandOutput} for command's `response` shape.
  * @see {@link MqClientResolvedConfig | config} for MqClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
  *
  */
 export class DescribeConfigurationRevisionCommand extends $Command<
@@ -64,6 +89,9 @@ export class DescribeConfigurationRevisionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConfigurationRevisionCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +120,8 @@ export class DescribeConfigurationRevisionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeConfigurationRevisionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeConfigurationRevisionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +131,21 @@ export class DescribeConfigurationRevisionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeConfigurationRevisionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeConfigurationRevisionCommand(input, context);
+    return se_DescribeConfigurationRevisionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeConfigurationRevisionCommandOutput> {
-    return deserializeAws_restJson1DescribeConfigurationRevisionCommand(output, context);
+    return de_DescribeConfigurationRevisionCommand(output, context);
   }
 
   // Start section: command_body_extra

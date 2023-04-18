@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
-import {
-  ListFindingsReportsRequest,
-  ListFindingsReportsRequestFilterSensitiveLog,
-  ListFindingsReportsResponse,
-  ListFindingsReportsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListFindingsReportsCommand,
-  serializeAws_restJson1ListFindingsReportsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListFindingsReportsRequest, ListFindingsReportsResponse } from "../models/models_0";
+import { de_ListFindingsReportsCommand, se_ListFindingsReportsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListFindingsReportsCommand}.
+ */
 export interface ListFindingsReportsCommandInput extends ListFindingsReportsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListFindingsReportsCommand}.
+ */
 export interface ListFindingsReportsCommandOutput extends ListFindingsReportsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the available reports for a given profiling group and time range.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,36 @@ export interface ListFindingsReportsCommandOutput extends ListFindingsReportsRes
  * import { CodeGuruProfilerClient, ListFindingsReportsCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
  * // const { CodeGuruProfilerClient, ListFindingsReportsCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
+ * const input = { // ListFindingsReportsRequest
+ *   profilingGroupName: "STRING_VALUE", // required
+ *   startTime: new Date("TIMESTAMP"), // required
+ *   endTime: new Date("TIMESTAMP"), // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   dailyReportsOnly: true || false,
+ * };
  * const command = new ListFindingsReportsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFindingsReportsCommandInput - {@link ListFindingsReportsCommandInput}
+ * @returns {@link ListFindingsReportsCommandOutput}
  * @see {@link ListFindingsReportsCommandInput} for command's `input` shape.
  * @see {@link ListFindingsReportsCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The server encountered an internal error and is unable to complete the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The parameter is not valid.</p>
+ *
  *
  */
 export class ListFindingsReportsCommand extends $Command<
@@ -62,6 +88,9 @@ export class ListFindingsReportsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFindingsReportsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +119,8 @@ export class ListFindingsReportsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFindingsReportsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListFindingsReportsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +130,18 @@ export class ListFindingsReportsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFindingsReportsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListFindingsReportsCommand(input, context);
+    return se_ListFindingsReportsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFindingsReportsCommandOutput> {
-    return deserializeAws_restJson1ListFindingsReportsCommand(output, context);
+    return de_ListFindingsReportsCommand(output, context);
   }
 
   // Start section: command_body_extra

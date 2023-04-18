@@ -6,12 +6,11 @@ import {
   ListComponentTypesCommandInput,
   ListComponentTypesCommandOutput,
 } from "../commands/ListComponentTypesCommand";
-import { IoTTwinMaker } from "../IoTTwinMaker";
 import { IoTTwinMakerClient } from "../IoTTwinMakerClient";
 import { IoTTwinMakerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: IoTTwinMakerClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListComponentTypesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: IoTTwinMaker,
-  input: ListComponentTypesCommandInput,
-  ...args: any
-): Promise<ListComponentTypesCommandOutput> => {
-  // @ts-ignore
-  return await client.listComponentTypes(input, ...args);
-};
 export async function* paginateListComponentTypes(
   config: IoTTwinMakerPaginationConfiguration,
   input: ListComponentTypesCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListComponentTypes(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof IoTTwinMaker) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IoTTwinMakerClient) {
+    if (config.client instanceof IoTTwinMakerClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected IoTTwinMaker | IoTTwinMakerClient");

@@ -14,20 +14,26 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  CreateUserRequest,
-  CreateUserRequestFilterSensitiveLog,
-  CreateUserResponse,
-  CreateUserResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_queryCreateUserCommand, serializeAws_queryCreateUserCommand } from "../protocols/Aws_query";
+import { CreateUserRequest, CreateUserResponse } from "../models/models_0";
+import { de_CreateUserCommand, se_CreateUserCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateUserCommand}.
+ */
 export interface CreateUserCommandInput extends CreateUserRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateUserCommand}.
+ */
 export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new IAM user for your Amazon Web Services account.</p>
- *         <p> For information about quotas for the number of IAM users you can create, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS
+ *          <p> For information about quotas for the number of IAM users you can create, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS
  *                 quotas</a> in the <i>IAM User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -35,13 +41,73 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * import { IAMClient, CreateUserCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, CreateUserCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // CreateUserRequest
+ *   Path: "STRING_VALUE",
+ *   UserName: "STRING_VALUE", // required
+ *   PermissionsBoundary: "STRING_VALUE",
+ *   Tags: [ // tagListType
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateUserCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateUserCommandInput - {@link CreateUserCommandInput}
+ * @returns {@link CreateUserCommandOutput}
  * @see {@link CreateUserCommandInput} for command's `input` shape.
  * @see {@link CreateUserCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>The request was rejected because multiple requests to change this object were submitted
+ *       simultaneously. Wait a few minutes and submit your request again.</p>
+ *
+ * @throws {@link EntityAlreadyExistsException} (client fault)
+ *  <p>The request was rejected because it attempted to create a resource that already
+ *       exists.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
+ *       input parameter.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request was rejected because it attempted to create resources beyond the current
+ *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
+ *
+ * @example To create an IAM user
+ * ```javascript
+ * // The following create-user command creates an IAM user named Bob in the current account.
+ * const input = {
+ *   "UserName": "Bob"
+ * };
+ * const command = new CreateUserCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "User": {
+ *     "Arn": "arn:aws:iam::123456789012:user/Bob",
+ *     "CreateDate": "2013-06-08T03:20:41.270Z",
+ *     "Path": "/",
+ *     "UserId": "AKIAIOSFODNN7EXAMPLE",
+ *     "UserName": "Bob"
+ *   }
+ * }
+ * *\/
+ * // example id: eb15f90b-e5f5-4af8-a594-e4e82b181a62
+ * ```
  *
  */
 export class CreateUserCommand extends $Command<
@@ -61,6 +127,9 @@ export class CreateUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -87,8 +156,8 @@ export class CreateUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateUserResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -98,12 +167,18 @@ export class CreateUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateUserCommand(input, context);
+    return se_CreateUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateUserCommandOutput> {
-    return deserializeAws_queryCreateUserCommand(output, context);
+    return de_CreateUserCommand(output, context);
   }
 
   // Start section: command_body_extra

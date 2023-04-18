@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteSnapshotScheduleInput,
-  DeleteSnapshotScheduleInputFilterSensitiveLog,
-  DeleteSnapshotScheduleOutput,
-  DeleteSnapshotScheduleOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteSnapshotScheduleCommand,
-  serializeAws_json1_1DeleteSnapshotScheduleCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteSnapshotScheduleInput, DeleteSnapshotScheduleOutput } from "../models/models_0";
+import { de_DeleteSnapshotScheduleCommand, se_DeleteSnapshotScheduleCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteSnapshotScheduleCommand}.
+ */
 export interface DeleteSnapshotScheduleCommandInput extends DeleteSnapshotScheduleInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteSnapshotScheduleCommand}.
+ */
 export interface DeleteSnapshotScheduleCommandOutput extends DeleteSnapshotScheduleOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a snapshot of a volume.</p>
  *
  *          <p>You can take snapshots of your gateway volumes on a scheduled or ad hoc basis. This API
@@ -50,13 +53,43 @@ export interface DeleteSnapshotScheduleCommandOutput extends DeleteSnapshotSched
  * import { StorageGatewayClient, DeleteSnapshotScheduleCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DeleteSnapshotScheduleCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // DeleteSnapshotScheduleInput
+ *   VolumeARN: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSnapshotScheduleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSnapshotScheduleCommandInput - {@link DeleteSnapshotScheduleCommandInput}
+ * @returns {@link DeleteSnapshotScheduleCommandOutput}
  * @see {@link DeleteSnapshotScheduleCommandInput} for command's `input` shape.
  * @see {@link DeleteSnapshotScheduleCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error has occurred during the request. For more information, see the
+ *          error and message fields.</p>
+ *
+ * @throws {@link InvalidGatewayRequestException} (client fault)
+ *  <p>An exception occurred because an invalid gateway request was issued to the service. For
+ *          more information, see the error and message fields.</p>
+ *
+ *
+ * @example To delete a snapshot of a volume
+ * ```javascript
+ * // This action enables you to delete a snapshot schedule for a volume.
+ * const input = {
+ *   "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
+ * };
+ * const command = new DeleteSnapshotScheduleCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
+ * }
+ * *\/
+ * // example id: to-delete-a-snapshot-of-a-volume-1471382234377
+ * ```
  *
  */
 export class DeleteSnapshotScheduleCommand extends $Command<
@@ -76,6 +109,9 @@ export class DeleteSnapshotScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSnapshotScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +140,8 @@ export class DeleteSnapshotScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSnapshotScheduleInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSnapshotScheduleOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +151,18 @@ export class DeleteSnapshotScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSnapshotScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteSnapshotScheduleCommand(input, context);
+    return se_DeleteSnapshotScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSnapshotScheduleCommandOutput> {
-    return deserializeAws_json1_1DeleteSnapshotScheduleCommand(output, context);
+    return de_DeleteSnapshotScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient";
+import { DescribeHealthServiceStatusForOrganizationResponse } from "../models/models_0";
 import {
-  DescribeHealthServiceStatusForOrganizationResponse,
-  DescribeHealthServiceStatusForOrganizationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeHealthServiceStatusForOrganizationCommand,
-  serializeAws_json1_1DescribeHealthServiceStatusForOrganizationCommand,
+  de_DescribeHealthServiceStatusForOrganizationCommand,
+  se_DescribeHealthServiceStatusForOrganizationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeHealthServiceStatusForOrganizationCommand}.
+ */
 export interface DescribeHealthServiceStatusForOrganizationCommandInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeHealthServiceStatusForOrganizationCommand}.
+ */
 export interface DescribeHealthServiceStatusForOrganizationCommandOutput
   extends DescribeHealthServiceStatusForOrganizationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation provides status information on enabling or disabling Health to work
  *          with your organization. To call this operation, you must sign in as an IAM user, assume
  *          an IAM role, or sign in as the root user (not recommended) in the organization's
@@ -39,13 +47,17 @@ export interface DescribeHealthServiceStatusForOrganizationCommandOutput
  * import { HealthClient, DescribeHealthServiceStatusForOrganizationCommand } from "@aws-sdk/client-health"; // ES Modules import
  * // const { HealthClient, DescribeHealthServiceStatusForOrganizationCommand } = require("@aws-sdk/client-health"); // CommonJS import
  * const client = new HealthClient(config);
+ * const input = {};
  * const command = new DescribeHealthServiceStatusForOrganizationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeHealthServiceStatusForOrganizationCommandInput - {@link DescribeHealthServiceStatusForOrganizationCommandInput}
+ * @returns {@link DescribeHealthServiceStatusForOrganizationCommandOutput}
  * @see {@link DescribeHealthServiceStatusForOrganizationCommandInput} for command's `input` shape.
  * @see {@link DescribeHealthServiceStatusForOrganizationCommandOutput} for command's `response` shape.
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
+ *
  *
  */
 export class DescribeHealthServiceStatusForOrganizationCommand extends $Command<
@@ -65,6 +77,9 @@ export class DescribeHealthServiceStatusForOrganizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeHealthServiceStatusForOrganizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +114,8 @@ export class DescribeHealthServiceStatusForOrganizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: DescribeHealthServiceStatusForOrganizationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,18 +125,24 @@ export class DescribeHealthServiceStatusForOrganizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeHealthServiceStatusForOrganizationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeHealthServiceStatusForOrganizationCommand(input, context);
+    return se_DescribeHealthServiceStatusForOrganizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeHealthServiceStatusForOrganizationCommandOutput> {
-    return deserializeAws_json1_1DescribeHealthServiceStatusForOrganizationCommand(output, context);
+    return de_DescribeHealthServiceStatusForOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,36 +14,60 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  DeleteDetectorRequest,
-  DeleteDetectorRequestFilterSensitiveLog,
-  DeleteDetectorResult,
-  DeleteDetectorResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteDetectorCommand,
-  serializeAws_json1_1DeleteDetectorCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteDetectorRequest, DeleteDetectorResult } from "../models/models_0";
+import { de_DeleteDetectorCommand, se_DeleteDetectorCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteDetectorCommand}.
+ */
 export interface DeleteDetectorCommandInput extends DeleteDetectorRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteDetectorCommand}.
+ */
 export interface DeleteDetectorCommandOutput extends DeleteDetectorResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the detector. Before deleting a detector, you must first delete all detector versions and rule versions associated with the detector.</p>
- * 	        <p>When you delete a detector, Amazon Fraud Detector permanently deletes the detector and the data is no longer stored in Amazon Fraud Detector.</p>
+ *          <p>When you delete a detector, Amazon Fraud Detector permanently deletes the detector and the data is no longer stored in Amazon Fraud Detector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { FraudDetectorClient, DeleteDetectorCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, DeleteDetectorCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = { // DeleteDetectorRequest
+ *   detectorId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDetectorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDetectorCommandInput - {@link DeleteDetectorCommandInput}
+ * @returns {@link DeleteDetectorCommandOutput}
  * @see {@link DeleteDetectorCommandInput} for command's `input` shape.
  * @see {@link DeleteDetectorCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>An exception indicating there was a conflict during a delete operation.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An exception indicating an internal server error.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>An exception indicating a throttling error.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An exception indicating a specified value is not allowed.</p>
+ *
  *
  */
 export class DeleteDetectorCommand extends $Command<
@@ -63,6 +87,9 @@ export class DeleteDetectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDetectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +118,8 @@ export class DeleteDetectorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDetectorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDetectorResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +129,18 @@ export class DeleteDetectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDetectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDetectorCommand(input, context);
+    return se_DeleteDetectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDetectorCommandOutput> {
-    return deserializeAws_json1_1DeleteDetectorCommand(output, context);
+    return de_DeleteDetectorCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,22 +3,41 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { MediaPackageServiceException as __BaseException } from "./MediaPackageServiceException";
 
-export enum __AdTriggersElement {
-  BREAK = "BREAK",
-  DISTRIBUTOR_ADVERTISEMENT = "DISTRIBUTOR_ADVERTISEMENT",
-  DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY = "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY",
-  DISTRIBUTOR_PLACEMENT_OPPORTUNITY = "DISTRIBUTOR_PLACEMENT_OPPORTUNITY",
-  PROVIDER_ADVERTISEMENT = "PROVIDER_ADVERTISEMENT",
-  PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY = "PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY",
-  PROVIDER_PLACEMENT_OPPORTUNITY = "PROVIDER_PLACEMENT_OPPORTUNITY",
-  SPLICE_INSERT = "SPLICE_INSERT",
-}
-
-export enum __PeriodTriggersElement {
-  ADS = "ADS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const __AdTriggersElement = {
+  BREAK: "BREAK",
+  DISTRIBUTOR_ADVERTISEMENT: "DISTRIBUTOR_ADVERTISEMENT",
+  DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY: "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY",
+  DISTRIBUTOR_PLACEMENT_OPPORTUNITY: "DISTRIBUTOR_PLACEMENT_OPPORTUNITY",
+  PROVIDER_ADVERTISEMENT: "PROVIDER_ADVERTISEMENT",
+  PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY: "PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY",
+  PROVIDER_PLACEMENT_OPPORTUNITY: "PROVIDER_PLACEMENT_OPPORTUNITY",
+  SPLICE_INSERT: "SPLICE_INSERT",
+} as const;
 
 /**
+ * @public
+ */
+export type __AdTriggersElement = (typeof __AdTriggersElement)[keyof typeof __AdTriggersElement];
+
+/**
+ * @public
+ * @enum
+ */
+export const __PeriodTriggersElement = {
+  ADS: "ADS",
+} as const;
+
+/**
+ * @public
+ */
+export type __PeriodTriggersElement = (typeof __PeriodTriggersElement)[keyof typeof __PeriodTriggersElement];
+
+/**
+ * @public
  * Configure egress access logging.
  */
 export interface EgressAccessLogs {
@@ -29,6 +48,7 @@ export interface EgressAccessLogs {
 }
 
 /**
+ * @public
  * An endpoint for ingesting source content for a Channel.
  */
 export interface IngestEndpoint {
@@ -54,6 +74,7 @@ export interface IngestEndpoint {
 }
 
 /**
+ * @public
  * An HTTP Live Streaming (HLS) ingest resource configuration.
  */
 export interface HlsIngest {
@@ -64,6 +85,7 @@ export interface HlsIngest {
 }
 
 /**
+ * @public
  * Configure ingress access logging.
  */
 export interface IngressAccessLogs {
@@ -74,6 +96,7 @@ export interface IngressAccessLogs {
 }
 
 /**
+ * @public
  * A Channel resource configuration.
  */
 export interface Channel {
@@ -81,6 +104,11 @@ export interface Channel {
    * The Amazon Resource Name (ARN) assigned to the Channel.
    */
   Arn?: string;
+
+  /**
+   * The date and time the Channel was created.
+   */
+  CreatedAt?: string;
 
   /**
    * A short text description of the Channel.
@@ -114,6 +142,7 @@ export interface Channel {
 }
 
 /**
+ * @public
  * Configuration parameters for where in an S3 bucket to place the harvested content
  */
 export interface S3Destination {
@@ -133,13 +162,23 @@ export interface S3Destination {
   RoleArn: string | undefined;
 }
 
-export enum Status {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Status = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
 
 /**
+ * @public
+ */
+export type Status = (typeof Status)[keyof typeof Status];
+
+/**
+ * @public
  * A HarvestJob resource configuration
  */
 export interface HarvestJob {
@@ -154,7 +193,7 @@ export interface HarvestJob {
   ChannelId?: string;
 
   /**
-   * The time the HarvestJob was submitted
+   * The date and time the HarvestJob was submitted.
    */
   CreatedAt?: string;
 
@@ -193,27 +232,55 @@ export interface HarvestJob {
   Status?: Status | string;
 }
 
-export enum AdMarkers {
-  DATERANGE = "DATERANGE",
-  NONE = "NONE",
-  PASSTHROUGH = "PASSTHROUGH",
-  SCTE35_ENHANCED = "SCTE35_ENHANCED",
-}
-
-export enum AdsOnDeliveryRestrictions {
-  BOTH = "BOTH",
-  NONE = "NONE",
-  RESTRICTED = "RESTRICTED",
-  UNRESTRICTED = "UNRESTRICTED",
-}
-
-export enum PlaylistType {
-  EVENT = "EVENT",
-  NONE = "NONE",
-  VOD = "VOD",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AdMarkers = {
+  DATERANGE: "DATERANGE",
+  NONE: "NONE",
+  PASSTHROUGH: "PASSTHROUGH",
+  SCTE35_ENHANCED: "SCTE35_ENHANCED",
+} as const;
 
 /**
+ * @public
+ */
+export type AdMarkers = (typeof AdMarkers)[keyof typeof AdMarkers];
+
+/**
+ * @public
+ * @enum
+ */
+export const AdsOnDeliveryRestrictions = {
+  BOTH: "BOTH",
+  NONE: "NONE",
+  RESTRICTED: "RESTRICTED",
+  UNRESTRICTED: "UNRESTRICTED",
+} as const;
+
+/**
+ * @public
+ */
+export type AdsOnDeliveryRestrictions = (typeof AdsOnDeliveryRestrictions)[keyof typeof AdsOnDeliveryRestrictions];
+
+/**
+ * @public
+ * @enum
+ */
+export const PlaylistType = {
+  EVENT: "EVENT",
+  NONE: "NONE",
+  VOD: "VOD",
+} as const;
+
+/**
+ * @public
+ */
+export type PlaylistType = (typeof PlaylistType)[keyof typeof PlaylistType];
+
+/**
+ * @public
  * A HTTP Live Streaming (HLS) manifest configuration.
  */
 export interface HlsManifest {
@@ -296,6 +363,7 @@ export interface HlsManifest {
 }
 
 /**
+ * @public
  * A HTTP Live Streaming (HLS) manifest configuration.
  */
 export interface HlsManifestCreateOrUpdateParameters {
@@ -373,6 +441,7 @@ export interface HlsManifestCreateOrUpdateParameters {
 }
 
 /**
+ * @public
  * CDN Authorization credentials
  */
 export interface Authorization {
@@ -387,33 +456,61 @@ export interface Authorization {
   SecretsRoleArn: string | undefined;
 }
 
-export enum CmafEncryptionMethod {
-  AES_CTR = "AES_CTR",
-  SAMPLE_AES = "SAMPLE_AES",
-}
-
-export enum PresetSpeke20Audio {
-  PRESET_AUDIO_1 = "PRESET-AUDIO-1",
-  PRESET_AUDIO_2 = "PRESET-AUDIO-2",
-  PRESET_AUDIO_3 = "PRESET-AUDIO-3",
-  SHARED = "SHARED",
-  UNENCRYPTED = "UNENCRYPTED",
-}
-
-export enum PresetSpeke20Video {
-  PRESET_VIDEO_1 = "PRESET-VIDEO-1",
-  PRESET_VIDEO_2 = "PRESET-VIDEO-2",
-  PRESET_VIDEO_3 = "PRESET-VIDEO-3",
-  PRESET_VIDEO_4 = "PRESET-VIDEO-4",
-  PRESET_VIDEO_5 = "PRESET-VIDEO-5",
-  PRESET_VIDEO_6 = "PRESET-VIDEO-6",
-  PRESET_VIDEO_7 = "PRESET-VIDEO-7",
-  PRESET_VIDEO_8 = "PRESET-VIDEO-8",
-  SHARED = "SHARED",
-  UNENCRYPTED = "UNENCRYPTED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CmafEncryptionMethod = {
+  AES_CTR: "AES_CTR",
+  SAMPLE_AES: "SAMPLE_AES",
+} as const;
 
 /**
+ * @public
+ */
+export type CmafEncryptionMethod = (typeof CmafEncryptionMethod)[keyof typeof CmafEncryptionMethod];
+
+/**
+ * @public
+ * @enum
+ */
+export const PresetSpeke20Audio = {
+  PRESET_AUDIO_1: "PRESET-AUDIO-1",
+  PRESET_AUDIO_2: "PRESET-AUDIO-2",
+  PRESET_AUDIO_3: "PRESET-AUDIO-3",
+  SHARED: "SHARED",
+  UNENCRYPTED: "UNENCRYPTED",
+} as const;
+
+/**
+ * @public
+ */
+export type PresetSpeke20Audio = (typeof PresetSpeke20Audio)[keyof typeof PresetSpeke20Audio];
+
+/**
+ * @public
+ * @enum
+ */
+export const PresetSpeke20Video = {
+  PRESET_VIDEO_1: "PRESET-VIDEO-1",
+  PRESET_VIDEO_2: "PRESET-VIDEO-2",
+  PRESET_VIDEO_3: "PRESET-VIDEO-3",
+  PRESET_VIDEO_4: "PRESET-VIDEO-4",
+  PRESET_VIDEO_5: "PRESET-VIDEO-5",
+  PRESET_VIDEO_6: "PRESET-VIDEO-6",
+  PRESET_VIDEO_7: "PRESET-VIDEO-7",
+  PRESET_VIDEO_8: "PRESET-VIDEO-8",
+  SHARED: "SHARED",
+  UNENCRYPTED: "UNENCRYPTED",
+} as const;
+
+/**
+ * @public
+ */
+export type PresetSpeke20Video = (typeof PresetSpeke20Video)[keyof typeof PresetSpeke20Video];
+
+/**
+ * @public
  * Use encryptionContractConfiguration to configure one or more content encryption keys for your endpoints that use SPEKE 2.0.
  * The encryption contract defines which content keys are used to encrypt the audio and video tracks in your stream.
  * To configure the encryption contract, specify which audio and video encryption presets to use.
@@ -434,6 +531,7 @@ export interface EncryptionContractConfiguration {
 }
 
 /**
+ * @public
  * A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
  */
 export interface SpekeKeyProvider {
@@ -477,6 +575,7 @@ export interface SpekeKeyProvider {
 }
 
 /**
+ * @public
  * A Common Media Application Format (CMAF) encryption configuration.
  */
 export interface CmafEncryption {
@@ -501,13 +600,23 @@ export interface CmafEncryption {
   SpekeKeyProvider: SpekeKeyProvider | undefined;
 }
 
-export enum StreamOrder {
-  ORIGINAL = "ORIGINAL",
-  VIDEO_BITRATE_ASCENDING = "VIDEO_BITRATE_ASCENDING",
-  VIDEO_BITRATE_DESCENDING = "VIDEO_BITRATE_DESCENDING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StreamOrder = {
+  ORIGINAL: "ORIGINAL",
+  VIDEO_BITRATE_ASCENDING: "VIDEO_BITRATE_ASCENDING",
+  VIDEO_BITRATE_DESCENDING: "VIDEO_BITRATE_DESCENDING",
+} as const;
 
 /**
+ * @public
+ */
+export type StreamOrder = (typeof StreamOrder)[keyof typeof StreamOrder];
+
+/**
+ * @public
  * A StreamSelection configuration.
  */
 export interface StreamSelection {
@@ -528,6 +637,7 @@ export interface StreamSelection {
 }
 
 /**
+ * @public
  * A Common Media Application Format (CMAF) packaging configuration.
  */
 export interface CmafPackage {
@@ -559,6 +669,7 @@ export interface CmafPackage {
 }
 
 /**
+ * @public
  * A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
  */
 export interface DashEncryption {
@@ -573,32 +684,69 @@ export interface DashEncryption {
   SpekeKeyProvider: SpekeKeyProvider | undefined;
 }
 
-export enum ManifestLayout {
-  COMPACT = "COMPACT",
-  FULL = "FULL",
-}
-
-export enum Profile {
-  DVB_DASH_2014 = "DVB_DASH_2014",
-  HBBTV_1_5 = "HBBTV_1_5",
-  HYBRIDCAST = "HYBRIDCAST",
-  NONE = "NONE",
-}
-
-export enum SegmentTemplateFormat {
-  NUMBER_WITH_DURATION = "NUMBER_WITH_DURATION",
-  NUMBER_WITH_TIMELINE = "NUMBER_WITH_TIMELINE",
-  TIME_WITH_TIMELINE = "TIME_WITH_TIMELINE",
-}
-
-export enum UtcTiming {
-  HTTP_HEAD = "HTTP-HEAD",
-  HTTP_ISO = "HTTP-ISO",
-  HTTP_XSDATE = "HTTP-XSDATE",
-  NONE = "NONE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ManifestLayout = {
+  COMPACT: "COMPACT",
+  FULL: "FULL",
+} as const;
 
 /**
+ * @public
+ */
+export type ManifestLayout = (typeof ManifestLayout)[keyof typeof ManifestLayout];
+
+/**
+ * @public
+ * @enum
+ */
+export const Profile = {
+  DVB_DASH_2014: "DVB_DASH_2014",
+  HBBTV_1_5: "HBBTV_1_5",
+  HYBRIDCAST: "HYBRIDCAST",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type Profile = (typeof Profile)[keyof typeof Profile];
+
+/**
+ * @public
+ * @enum
+ */
+export const SegmentTemplateFormat = {
+  NUMBER_WITH_DURATION: "NUMBER_WITH_DURATION",
+  NUMBER_WITH_TIMELINE: "NUMBER_WITH_TIMELINE",
+  TIME_WITH_TIMELINE: "TIME_WITH_TIMELINE",
+} as const;
+
+/**
+ * @public
+ */
+export type SegmentTemplateFormat = (typeof SegmentTemplateFormat)[keyof typeof SegmentTemplateFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const UtcTiming = {
+  HTTP_HEAD: "HTTP-HEAD",
+  HTTP_ISO: "HTTP-ISO",
+  HTTP_XSDATE: "HTTP-XSDATE",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type UtcTiming = (typeof UtcTiming)[keyof typeof UtcTiming];
+
+/**
+ * @public
  * A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
  */
 export interface DashPackage {
@@ -696,12 +844,22 @@ export interface DashPackage {
   UtcTimingUri?: string;
 }
 
-export enum EncryptionMethod {
-  AES_128 = "AES_128",
-  SAMPLE_AES = "SAMPLE_AES",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EncryptionMethod = {
+  AES_128: "AES_128",
+  SAMPLE_AES: "SAMPLE_AES",
+} as const;
 
 /**
+ * @public
+ */
+export type EncryptionMethod = (typeof EncryptionMethod)[keyof typeof EncryptionMethod];
+
+/**
+ * @public
  * An HTTP Live Streaming (HLS) encryption configuration.
  */
 export interface HlsEncryption {
@@ -733,6 +891,7 @@ export interface HlsEncryption {
 }
 
 /**
+ * @public
  * An HTTP Live Streaming (HLS) packaging configuration.
  */
 export interface HlsPackage {
@@ -826,6 +985,7 @@ export interface HlsPackage {
 }
 
 /**
+ * @public
  * A Microsoft Smooth Streaming (MSS) encryption configuration.
  */
 export interface MssEncryption {
@@ -836,6 +996,7 @@ export interface MssEncryption {
 }
 
 /**
+ * @public
  * A Microsoft Smooth Streaming (MSS) packaging configuration.
  */
 export interface MssPackage {
@@ -860,12 +1021,22 @@ export interface MssPackage {
   StreamSelection?: StreamSelection;
 }
 
-export enum Origination {
-  ALLOW = "ALLOW",
-  DENY = "DENY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Origination = {
+  ALLOW: "ALLOW",
+  DENY: "DENY",
+} as const;
 
 /**
+ * @public
+ */
+export type Origination = (typeof Origination)[keyof typeof Origination];
+
+/**
+ * @public
  * An OriginEndpoint resource configuration.
  */
 export interface OriginEndpoint {
@@ -888,6 +1059,11 @@ export interface OriginEndpoint {
    * A Common Media Application Format (CMAF) packaging configuration.
    */
   CmafPackage?: CmafPackage;
+
+  /**
+   * The date and time the OriginEndpoint was created.
+   */
+  CreatedAt?: string;
 
   /**
    * A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
@@ -955,6 +1131,7 @@ export interface OriginEndpoint {
 }
 
 /**
+ * @public
  * A Common Media Application Format (CMAF) packaging configuration.
  */
 export interface CmafPackageCreateOrUpdateParameters {
@@ -986,6 +1163,7 @@ export interface CmafPackageCreateOrUpdateParameters {
 }
 
 /**
+ * @public
  * the option to configure log subscription.
  */
 export interface ConfigureLogsRequest {
@@ -1005,11 +1183,19 @@ export interface ConfigureLogsRequest {
   IngressAccessLogs?: IngressAccessLogs;
 }
 
+/**
+ * @public
+ */
 export interface ConfigureLogsResponse {
   /**
    * The Amazon Resource Name (ARN) assigned to the Channel.
    */
   Arn?: string;
+
+  /**
+   * The date and time the Channel was created.
+   */
+  CreatedAt?: string;
 
   /**
    * A short text description of the Channel.
@@ -1043,6 +1229,7 @@ export interface ConfigureLogsResponse {
 }
 
 /**
+ * @public
  * The client is not authorized to access the requested resource.
  */
 export class ForbiddenException extends __BaseException {
@@ -1064,6 +1251,7 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
+ * @public
  * An unexpected error occurred.
  */
 export class InternalServerErrorException extends __BaseException {
@@ -1085,6 +1273,7 @@ export class InternalServerErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * The requested resource does not exist.
  */
 export class NotFoundException extends __BaseException {
@@ -1106,6 +1295,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * An unexpected error occurred.
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -1127,6 +1317,7 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * The client has exceeded their resource or throttling limits.
  */
 export class TooManyRequestsException extends __BaseException {
@@ -1148,6 +1339,7 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
+ * @public
  * The parameters sent in the request are not valid.
  */
 export class UnprocessableEntityException extends __BaseException {
@@ -1169,6 +1361,7 @@ export class UnprocessableEntityException extends __BaseException {
 }
 
 /**
+ * @public
  * A new Channel configuration.
  */
 export interface CreateChannelRequest {
@@ -1189,11 +1382,19 @@ export interface CreateChannelRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateChannelResponse {
   /**
    * The Amazon Resource Name (ARN) assigned to the Channel.
    */
   Arn?: string;
+
+  /**
+   * The date and time the Channel was created.
+   */
+  CreatedAt?: string;
 
   /**
    * A short text description of the Channel.
@@ -1227,6 +1428,7 @@ export interface CreateChannelResponse {
 }
 
 /**
+ * @public
  * Configuration parameters used to create a new HarvestJob.
  */
 export interface CreateHarvestJobRequest {
@@ -1258,6 +1460,9 @@ export interface CreateHarvestJobRequest {
   StartTime: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateHarvestJobResponse {
   /**
    * The Amazon Resource Name (ARN) assigned to the HarvestJob.
@@ -1270,7 +1475,7 @@ export interface CreateHarvestJobResponse {
   ChannelId?: string;
 
   /**
-   * The time the HarvestJob was submitted
+   * The date and time the HarvestJob was submitted.
    */
   CreatedAt?: string;
 
@@ -1310,6 +1515,7 @@ export interface CreateHarvestJobResponse {
 }
 
 /**
+ * @public
  * Configuration parameters used to create a new OriginEndpoint.
  */
 export interface CreateOriginEndpointRequest {
@@ -1390,6 +1596,9 @@ export interface CreateOriginEndpointRequest {
   Whitelist?: string[];
 }
 
+/**
+ * @public
+ */
 export interface CreateOriginEndpointResponse {
   /**
    * The Amazon Resource Name (ARN) assigned to the OriginEndpoint.
@@ -1410,6 +1619,11 @@ export interface CreateOriginEndpointResponse {
    * A Common Media Application Format (CMAF) packaging configuration.
    */
   CmafPackage?: CmafPackage;
+
+  /**
+   * The date and time the OriginEndpoint was created.
+   */
+  CreatedAt?: string;
 
   /**
    * A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
@@ -1476,6 +1690,9 @@ export interface CreateOriginEndpointResponse {
   Whitelist?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteChannelRequest {
   /**
    * The ID of the Channel to delete.
@@ -1483,8 +1700,14 @@ export interface DeleteChannelRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteChannelResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteOriginEndpointRequest {
   /**
    * The ID of the OriginEndpoint to delete.
@@ -1492,8 +1715,14 @@ export interface DeleteOriginEndpointRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteOriginEndpointResponse {}
 
+/**
+ * @public
+ */
 export interface DescribeChannelRequest {
   /**
    * The ID of a Channel.
@@ -1501,11 +1730,19 @@ export interface DescribeChannelRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeChannelResponse {
   /**
    * The Amazon Resource Name (ARN) assigned to the Channel.
    */
   Arn?: string;
+
+  /**
+   * The date and time the Channel was created.
+   */
+  CreatedAt?: string;
 
   /**
    * A short text description of the Channel.
@@ -1538,6 +1775,9 @@ export interface DescribeChannelResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeHarvestJobRequest {
   /**
    * The ID of the HarvestJob.
@@ -1545,6 +1785,9 @@ export interface DescribeHarvestJobRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeHarvestJobResponse {
   /**
    * The Amazon Resource Name (ARN) assigned to the HarvestJob.
@@ -1557,7 +1800,7 @@ export interface DescribeHarvestJobResponse {
   ChannelId?: string;
 
   /**
-   * The time the HarvestJob was submitted
+   * The date and time the HarvestJob was submitted.
    */
   CreatedAt?: string;
 
@@ -1596,6 +1839,9 @@ export interface DescribeHarvestJobResponse {
   Status?: Status | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeOriginEndpointRequest {
   /**
    * The ID of the OriginEndpoint.
@@ -1603,6 +1849,9 @@ export interface DescribeOriginEndpointRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeOriginEndpointResponse {
   /**
    * The Amazon Resource Name (ARN) assigned to the OriginEndpoint.
@@ -1623,6 +1872,11 @@ export interface DescribeOriginEndpointResponse {
    * A Common Media Application Format (CMAF) packaging configuration.
    */
   CmafPackage?: CmafPackage;
+
+  /**
+   * The date and time the OriginEndpoint was created.
+   */
+  CreatedAt?: string;
 
   /**
    * A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
@@ -1689,6 +1943,9 @@ export interface DescribeOriginEndpointResponse {
   Whitelist?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListChannelsRequest {
   /**
    * Upper bound on number of records to return.
@@ -1701,6 +1958,9 @@ export interface ListChannelsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListChannelsResponse {
   /**
    * A list of Channel records.
@@ -1713,6 +1973,9 @@ export interface ListChannelsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListHarvestJobsRequest {
   /**
    * When specified, the request will return only HarvestJobs associated with the given Channel ID.
@@ -1735,6 +1998,9 @@ export interface ListHarvestJobsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListHarvestJobsResponse {
   /**
    * A list of HarvestJob records.
@@ -1747,6 +2013,9 @@ export interface ListHarvestJobsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListOriginEndpointsRequest {
   /**
    * When specified, the request will return only OriginEndpoints associated with the given Channel ID.
@@ -1764,6 +2033,9 @@ export interface ListOriginEndpointsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListOriginEndpointsResponse {
   /**
    * A token that can be used to resume pagination from the end of the collection.
@@ -1776,14 +2048,23 @@ export interface ListOriginEndpointsResponse {
   OriginEndpoints?: OriginEndpoint[];
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface RotateChannelCredentialsRequest {
   /**
    * The ID of the channel to update.
@@ -1791,11 +2072,19 @@ export interface RotateChannelCredentialsRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RotateChannelCredentialsResponse {
   /**
    * The Amazon Resource Name (ARN) assigned to the Channel.
    */
   Arn?: string;
+
+  /**
+   * The date and time the Channel was created.
+   */
+  CreatedAt?: string;
 
   /**
    * A short text description of the Channel.
@@ -1828,6 +2117,9 @@ export interface RotateChannelCredentialsResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface RotateIngestEndpointCredentialsRequest {
   /**
    * The ID of the channel the IngestEndpoint is on.
@@ -1840,11 +2132,19 @@ export interface RotateIngestEndpointCredentialsRequest {
   IngestEndpointId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RotateIngestEndpointCredentialsResponse {
   /**
    * The Amazon Resource Name (ARN) assigned to the Channel.
    */
   Arn?: string;
+
+  /**
+   * The date and time the Channel was created.
+   */
+  CreatedAt?: string;
 
   /**
    * A short text description of the Channel.
@@ -1877,11 +2177,17 @@ export interface RotateIngestEndpointCredentialsResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   ResourceArn: string | undefined;
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   ResourceArn: string | undefined;
   /**
@@ -1891,6 +2197,7 @@ export interface UntagResourceRequest {
 }
 
 /**
+ * @public
  * Configuration parameters used to update the Channel.
  */
 export interface UpdateChannelRequest {
@@ -1905,11 +2212,19 @@ export interface UpdateChannelRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateChannelResponse {
   /**
    * The Amazon Resource Name (ARN) assigned to the Channel.
    */
   Arn?: string;
+
+  /**
+   * The date and time the Channel was created.
+   */
+  CreatedAt?: string;
 
   /**
    * A short text description of the Channel.
@@ -1943,6 +2258,7 @@ export interface UpdateChannelResponse {
 }
 
 /**
+ * @public
  * Configuration parameters used to update an existing OriginEndpoint.
  */
 export interface UpdateOriginEndpointRequest {
@@ -2011,6 +2327,9 @@ export interface UpdateOriginEndpointRequest {
   Whitelist?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateOriginEndpointResponse {
   /**
    * The Amazon Resource Name (ARN) assigned to the OriginEndpoint.
@@ -2031,6 +2350,11 @@ export interface UpdateOriginEndpointResponse {
    * A Common Media Application Format (CMAF) packaging configuration.
    */
   CmafPackage?: CmafPackage;
+
+  /**
+   * The date and time the OriginEndpoint was created.
+   */
+  CreatedAt?: string;
 
   /**
    * A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
@@ -2096,424 +2420,3 @@ export interface UpdateOriginEndpointResponse {
    */
   Whitelist?: string[];
 }
-
-/**
- * @internal
- */
-export const EgressAccessLogsFilterSensitiveLog = (obj: EgressAccessLogs): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IngestEndpointFilterSensitiveLog = (obj: IngestEndpoint): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HlsIngestFilterSensitiveLog = (obj: HlsIngest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IngressAccessLogsFilterSensitiveLog = (obj: IngressAccessLogs): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChannelFilterSensitiveLog = (obj: Channel): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3DestinationFilterSensitiveLog = (obj: S3Destination): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HarvestJobFilterSensitiveLog = (obj: HarvestJob): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HlsManifestFilterSensitiveLog = (obj: HlsManifest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HlsManifestCreateOrUpdateParametersFilterSensitiveLog = (
-  obj: HlsManifestCreateOrUpdateParameters
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuthorizationFilterSensitiveLog = (obj: Authorization): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EncryptionContractConfigurationFilterSensitiveLog = (obj: EncryptionContractConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SpekeKeyProviderFilterSensitiveLog = (obj: SpekeKeyProvider): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CmafEncryptionFilterSensitiveLog = (obj: CmafEncryption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StreamSelectionFilterSensitiveLog = (obj: StreamSelection): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CmafPackageFilterSensitiveLog = (obj: CmafPackage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DashEncryptionFilterSensitiveLog = (obj: DashEncryption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DashPackageFilterSensitiveLog = (obj: DashPackage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HlsEncryptionFilterSensitiveLog = (obj: HlsEncryption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HlsPackageFilterSensitiveLog = (obj: HlsPackage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MssEncryptionFilterSensitiveLog = (obj: MssEncryption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MssPackageFilterSensitiveLog = (obj: MssPackage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OriginEndpointFilterSensitiveLog = (obj: OriginEndpoint): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CmafPackageCreateOrUpdateParametersFilterSensitiveLog = (
-  obj: CmafPackageCreateOrUpdateParameters
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConfigureLogsRequestFilterSensitiveLog = (obj: ConfigureLogsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConfigureLogsResponseFilterSensitiveLog = (obj: ConfigureLogsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateChannelRequestFilterSensitiveLog = (obj: CreateChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateChannelResponseFilterSensitiveLog = (obj: CreateChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateHarvestJobRequestFilterSensitiveLog = (obj: CreateHarvestJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateHarvestJobResponseFilterSensitiveLog = (obj: CreateHarvestJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateOriginEndpointRequestFilterSensitiveLog = (obj: CreateOriginEndpointRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateOriginEndpointResponseFilterSensitiveLog = (obj: CreateOriginEndpointResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteChannelRequestFilterSensitiveLog = (obj: DeleteChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteChannelResponseFilterSensitiveLog = (obj: DeleteChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteOriginEndpointRequestFilterSensitiveLog = (obj: DeleteOriginEndpointRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteOriginEndpointResponseFilterSensitiveLog = (obj: DeleteOriginEndpointResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeChannelRequestFilterSensitiveLog = (obj: DescribeChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeChannelResponseFilterSensitiveLog = (obj: DescribeChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeHarvestJobRequestFilterSensitiveLog = (obj: DescribeHarvestJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeHarvestJobResponseFilterSensitiveLog = (obj: DescribeHarvestJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeOriginEndpointRequestFilterSensitiveLog = (obj: DescribeOriginEndpointRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeOriginEndpointResponseFilterSensitiveLog = (obj: DescribeOriginEndpointResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListChannelsRequestFilterSensitiveLog = (obj: ListChannelsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListChannelsResponseFilterSensitiveLog = (obj: ListChannelsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListHarvestJobsRequestFilterSensitiveLog = (obj: ListHarvestJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListHarvestJobsResponseFilterSensitiveLog = (obj: ListHarvestJobsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListOriginEndpointsRequestFilterSensitiveLog = (obj: ListOriginEndpointsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListOriginEndpointsResponseFilterSensitiveLog = (obj: ListOriginEndpointsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RotateChannelCredentialsRequestFilterSensitiveLog = (obj: RotateChannelCredentialsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RotateChannelCredentialsResponseFilterSensitiveLog = (obj: RotateChannelCredentialsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RotateIngestEndpointCredentialsRequestFilterSensitiveLog = (
-  obj: RotateIngestEndpointCredentialsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RotateIngestEndpointCredentialsResponseFilterSensitiveLog = (
-  obj: RotateIngestEndpointCredentialsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateChannelRequestFilterSensitiveLog = (obj: UpdateChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateChannelResponseFilterSensitiveLog = (obj: UpdateChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateOriginEndpointRequestFilterSensitiveLog = (obj: UpdateOriginEndpointRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateOriginEndpointResponseFilterSensitiveLog = (obj: UpdateOriginEndpointResponse): any => ({
-  ...obj,
-});

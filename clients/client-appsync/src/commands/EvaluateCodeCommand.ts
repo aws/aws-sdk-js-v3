@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import {
-  EvaluateCodeRequest,
-  EvaluateCodeRequestFilterSensitiveLog,
-  EvaluateCodeResponse,
-  EvaluateCodeResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1EvaluateCodeCommand,
-  serializeAws_restJson1EvaluateCodeCommand,
-} from "../protocols/Aws_restJson1";
+import { EvaluateCodeRequest, EvaluateCodeResponse } from "../models/models_0";
+import { de_EvaluateCodeCommand, se_EvaluateCodeCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link EvaluateCodeCommand}.
+ */
 export interface EvaluateCodeCommandInput extends EvaluateCodeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link EvaluateCodeCommand}.
+ */
 export interface EvaluateCodeCommandOutput extends EvaluateCodeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Evaluates the given code and returns the response. The code definition requirements depend on the specified
  *          runtime. For <code>APPSYNC_JS</code> runtimes, the code defines the request and response functions. The request
  *          function takes the incoming request after a GraphQL operation is parsed and converts it into a request
@@ -40,13 +43,35 @@ export interface EvaluateCodeCommandOutput extends EvaluateCodeResponse, __Metad
  * import { AppSyncClient, EvaluateCodeCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, EvaluateCodeCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
+ * const input = { // EvaluateCodeRequest
+ *   runtime: { // AppSyncRuntime
+ *     name: "APPSYNC_JS", // required
+ *     runtimeVersion: "STRING_VALUE", // required
+ *   },
+ *   code: "STRING_VALUE", // required
+ *   context: "STRING_VALUE", // required
+ *   function: "STRING_VALUE",
+ * };
  * const command = new EvaluateCodeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EvaluateCodeCommandInput - {@link EvaluateCodeCommandInput}
+ * @returns {@link EvaluateCodeCommandOutput}
  * @see {@link EvaluateCodeCommandInput} for command's `input` shape.
  * @see {@link EvaluateCodeCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have access to perform this operation on this resource.</p>
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the
+ *          field values, and then try again.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal AppSync error occurred. Try your request again.</p>
+ *
  *
  */
 export class EvaluateCodeCommand extends $Command<
@@ -66,6 +91,9 @@ export class EvaluateCodeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EvaluateCodeCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +120,8 @@ export class EvaluateCodeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EvaluateCodeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: EvaluateCodeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +131,18 @@ export class EvaluateCodeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EvaluateCodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1EvaluateCodeCommand(input, context);
+    return se_EvaluateCodeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EvaluateCodeCommandOutput> {
-    return deserializeAws_restJson1EvaluateCodeCommand(output, context);
+    return de_EvaluateCodeCommand(output, context);
   }
 
   // Start section: command_body_extra

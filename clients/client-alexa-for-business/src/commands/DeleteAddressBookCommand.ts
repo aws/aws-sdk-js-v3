@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  DeleteAddressBookRequest,
-  DeleteAddressBookRequestFilterSensitiveLog,
-  DeleteAddressBookResponse,
-  DeleteAddressBookResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteAddressBookCommand,
-  serializeAws_json1_1DeleteAddressBookCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteAddressBookRequest, DeleteAddressBookResponse } from "../models/models_0";
+import { de_DeleteAddressBookCommand, se_DeleteAddressBookCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteAddressBookCommand}.
+ */
 export interface DeleteAddressBookCommandInput extends DeleteAddressBookRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteAddressBookCommand}.
+ */
 export interface DeleteAddressBookCommandOutput extends DeleteAddressBookResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an address book by the address book ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,25 @@ export interface DeleteAddressBookCommandOutput extends DeleteAddressBookRespons
  * import { AlexaForBusinessClient, DeleteAddressBookCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, DeleteAddressBookCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // DeleteAddressBookRequest
+ *   AddressBookArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAddressBookCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAddressBookCommandInput - {@link DeleteAddressBookCommandInput}
+ * @returns {@link DeleteAddressBookCommandOutput}
  * @see {@link DeleteAddressBookCommandInput} for command's `input` shape.
  * @see {@link DeleteAddressBookCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is a concurrent modification of resources.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
  *
  */
 export class DeleteAddressBookCommand extends $Command<
@@ -62,6 +77,9 @@ export class DeleteAddressBookCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAddressBookCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +108,8 @@ export class DeleteAddressBookCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAddressBookRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAddressBookResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +119,18 @@ export class DeleteAddressBookCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAddressBookCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteAddressBookCommand(input, context);
+    return se_DeleteAddressBookCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAddressBookCommandOutput> {
-    return deserializeAws_json1_1DeleteAddressBookCommand(output, context);
+    return de_DeleteAddressBookCommand(output, context);
   }
 
   // Start section: command_body_extra

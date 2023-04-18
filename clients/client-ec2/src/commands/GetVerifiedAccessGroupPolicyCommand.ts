@@ -14,23 +14,26 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  GetVerifiedAccessGroupPolicyRequest,
-  GetVerifiedAccessGroupPolicyRequestFilterSensitiveLog,
-  GetVerifiedAccessGroupPolicyResult,
-  GetVerifiedAccessGroupPolicyResultFilterSensitiveLog,
-} from "../models/models_5";
-import {
-  deserializeAws_ec2GetVerifiedAccessGroupPolicyCommand,
-  serializeAws_ec2GetVerifiedAccessGroupPolicyCommand,
-} from "../protocols/Aws_ec2";
+import { GetVerifiedAccessGroupPolicyRequest, GetVerifiedAccessGroupPolicyResult } from "../models/models_5";
+import { de_GetVerifiedAccessGroupPolicyCommand, se_GetVerifiedAccessGroupPolicyCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link GetVerifiedAccessGroupPolicyCommand}.
+ */
 export interface GetVerifiedAccessGroupPolicyCommandInput extends GetVerifiedAccessGroupPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetVerifiedAccessGroupPolicyCommand}.
+ */
 export interface GetVerifiedAccessGroupPolicyCommandOutput
   extends GetVerifiedAccessGroupPolicyResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Shows the contents of the Verified Access policy associated with the group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +41,20 @@ export interface GetVerifiedAccessGroupPolicyCommandOutput
  * import { EC2Client, GetVerifiedAccessGroupPolicyCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetVerifiedAccessGroupPolicyCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // GetVerifiedAccessGroupPolicyRequest
+ *   VerifiedAccessGroupId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new GetVerifiedAccessGroupPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetVerifiedAccessGroupPolicyCommandInput - {@link GetVerifiedAccessGroupPolicyCommandInput}
+ * @returns {@link GetVerifiedAccessGroupPolicyCommandOutput}
  * @see {@link GetVerifiedAccessGroupPolicyCommandInput} for command's `input` shape.
  * @see {@link GetVerifiedAccessGroupPolicyCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class GetVerifiedAccessGroupPolicyCommand extends $Command<
@@ -64,6 +74,9 @@ export class GetVerifiedAccessGroupPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetVerifiedAccessGroupPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +105,8 @@ export class GetVerifiedAccessGroupPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetVerifiedAccessGroupPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetVerifiedAccessGroupPolicyResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +116,21 @@ export class GetVerifiedAccessGroupPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetVerifiedAccessGroupPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2GetVerifiedAccessGroupPolicyCommand(input, context);
+    return se_GetVerifiedAccessGroupPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetVerifiedAccessGroupPolicyCommandOutput> {
-    return deserializeAws_ec2GetVerifiedAccessGroupPolicyCommand(output, context);
+    return de_GetVerifiedAccessGroupPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

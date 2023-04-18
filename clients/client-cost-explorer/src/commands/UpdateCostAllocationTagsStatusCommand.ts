@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
+import { UpdateCostAllocationTagsStatusRequest, UpdateCostAllocationTagsStatusResponse } from "../models/models_0";
 import {
-  UpdateCostAllocationTagsStatusRequest,
-  UpdateCostAllocationTagsStatusRequestFilterSensitiveLog,
-  UpdateCostAllocationTagsStatusResponse,
-  UpdateCostAllocationTagsStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateCostAllocationTagsStatusCommand,
-  serializeAws_json1_1UpdateCostAllocationTagsStatusCommand,
+  de_UpdateCostAllocationTagsStatusCommand,
+  se_UpdateCostAllocationTagsStatusCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateCostAllocationTagsStatusCommand}.
+ */
 export interface UpdateCostAllocationTagsStatusCommandInput extends UpdateCostAllocationTagsStatusRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateCostAllocationTagsStatusCommand}.
+ */
 export interface UpdateCostAllocationTagsStatusCommandOutput
   extends UpdateCostAllocationTagsStatusResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates status for cost allocation tags in bulk, with maximum batch size of 20. If the tag
  *       status that's updated is the same as the existing tag status, the request doesn't fail.
  *       Instead, it doesn't have any effect on the tag status (for example, activating the active
@@ -41,13 +47,27 @@ export interface UpdateCostAllocationTagsStatusCommandOutput
  * import { CostExplorerClient, UpdateCostAllocationTagsStatusCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, UpdateCostAllocationTagsStatusCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
  * const client = new CostExplorerClient(config);
+ * const input = { // UpdateCostAllocationTagsStatusRequest
+ *   CostAllocationTagsStatus: [ // CostAllocationTagStatusList // required
+ *     { // CostAllocationTagStatusEntry
+ *       TagKey: "STRING_VALUE", // required
+ *       Status: "Active" || "Inactive", // required
+ *     },
+ *   ],
+ * };
  * const command = new UpdateCostAllocationTagsStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCostAllocationTagsStatusCommandInput - {@link UpdateCostAllocationTagsStatusCommandInput}
+ * @returns {@link UpdateCostAllocationTagsStatusCommandOutput}
  * @see {@link UpdateCostAllocationTagsStatusCommandInput} for command's `input` shape.
  * @see {@link UpdateCostAllocationTagsStatusCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You made too many calls in a short period of time. Try again later.</p>
+ *
  *
  */
 export class UpdateCostAllocationTagsStatusCommand extends $Command<
@@ -67,6 +87,9 @@ export class UpdateCostAllocationTagsStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCostAllocationTagsStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +118,8 @@ export class UpdateCostAllocationTagsStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateCostAllocationTagsStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateCostAllocationTagsStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,18 +129,24 @@ export class UpdateCostAllocationTagsStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateCostAllocationTagsStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateCostAllocationTagsStatusCommand(input, context);
+    return se_UpdateCostAllocationTagsStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateCostAllocationTagsStatusCommandOutput> {
-    return deserializeAws_json1_1UpdateCostAllocationTagsStatusCommand(output, context);
+    return de_UpdateCostAllocationTagsStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

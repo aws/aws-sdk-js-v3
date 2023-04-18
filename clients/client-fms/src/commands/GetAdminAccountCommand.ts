@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import {
-  GetAdminAccountRequest,
-  GetAdminAccountRequestFilterSensitiveLog,
-  GetAdminAccountResponse,
-  GetAdminAccountResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetAdminAccountCommand,
-  serializeAws_json1_1GetAdminAccountCommand,
-} from "../protocols/Aws_json1_1";
+import { GetAdminAccountRequest, GetAdminAccountResponse } from "../models/models_0";
+import { de_GetAdminAccountCommand, se_GetAdminAccountCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetAdminAccountCommand}.
+ */
 export interface GetAdminAccountCommandInput extends GetAdminAccountRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetAdminAccountCommand}.
+ */
 export interface GetAdminAccountCommandOutput extends GetAdminAccountResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the Organizations account that is associated with Firewall Manager
  *       as the Firewall Manager administrator.</p>
  * @example
@@ -37,13 +40,31 @@ export interface GetAdminAccountCommandOutput extends GetAdminAccountResponse, _
  * import { FMSClient, GetAdminAccountCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, GetAdminAccountCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
+ * const input = {};
  * const command = new GetAdminAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAdminAccountCommandInput - {@link GetAdminAccountCommandInput}
+ * @returns {@link GetAdminAccountCommandOutput}
  * @see {@link GetAdminAccountCommandInput} for command's `input` shape.
  * @see {@link GetAdminAccountCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (client fault)
+ *  <p>The operation failed because of a system problem, even though the request was valid. Retry
+ *       your request.</p>
+ *
+ * @throws {@link InvalidOperationException} (client fault)
+ *  <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have
+ *         submitted an <code>AssociateAdminAccount</code> request for an account ID that
+ *             was already set as the Firewall Manager administrator. Or you might have tried to access a Region
+ *   that's disabled by default, and that you need to enable for the Firewall Manager
+ *   administrator account and for Organizations before you can access it.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class GetAdminAccountCommand extends $Command<
@@ -63,6 +84,9 @@ export class GetAdminAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAdminAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +115,8 @@ export class GetAdminAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAdminAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAdminAccountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +126,18 @@ export class GetAdminAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAdminAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAdminAccountCommand(input, context);
+    return se_GetAdminAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAdminAccountCommandOutput> {
-    return deserializeAws_json1_1GetAdminAccountCommand(output, context);
+    return de_GetAdminAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

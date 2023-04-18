@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DescribeMaintenanceWindowScheduleRequest, DescribeMaintenanceWindowScheduleResult } from "../models/models_0";
 import {
-  DescribeMaintenanceWindowScheduleRequest,
-  DescribeMaintenanceWindowScheduleRequestFilterSensitiveLog,
-  DescribeMaintenanceWindowScheduleResult,
-  DescribeMaintenanceWindowScheduleResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeMaintenanceWindowScheduleCommand,
-  serializeAws_json1_1DescribeMaintenanceWindowScheduleCommand,
+  de_DescribeMaintenanceWindowScheduleCommand,
+  se_DescribeMaintenanceWindowScheduleCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeMaintenanceWindowScheduleCommand}.
+ */
 export interface DescribeMaintenanceWindowScheduleCommandInput extends DescribeMaintenanceWindowScheduleRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeMaintenanceWindowScheduleCommand}.
+ */
 export interface DescribeMaintenanceWindowScheduleCommandOutput
   extends DescribeMaintenanceWindowScheduleResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about upcoming executions of a maintenance window.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,47 @@ export interface DescribeMaintenanceWindowScheduleCommandOutput
  * import { SSMClient, DescribeMaintenanceWindowScheduleCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeMaintenanceWindowScheduleCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // DescribeMaintenanceWindowScheduleRequest
+ *   WindowId: "STRING_VALUE",
+ *   Targets: [ // Targets
+ *     { // Target
+ *       Key: "STRING_VALUE",
+ *       Values: [ // TargetValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   ResourceType: "INSTANCE" || "RESOURCE_GROUP",
+ *   Filters: [ // PatchOrchestratorFilterList
+ *     { // PatchOrchestratorFilter
+ *       Key: "STRING_VALUE",
+ *       Values: [ // PatchOrchestratorFilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeMaintenanceWindowScheduleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMaintenanceWindowScheduleCommandInput - {@link DescribeMaintenanceWindowScheduleCommandInput}
+ * @returns {@link DescribeMaintenanceWindowScheduleCommandOutput}
  * @see {@link DescribeMaintenanceWindowScheduleCommandInput} for command's `input` shape.
  * @see {@link DescribeMaintenanceWindowScheduleCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link DoesNotExistException} (client fault)
+ *  <p>Error returned when the ID specified for a resource, such as a maintenance window or patch
+ *    baseline, doesn't exist.</p>
+ *          <p>For information about resource quotas in Amazon Web Services Systems Manager, see <a href="https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm">Systems Manager service quotas</a> in the
+ *     <i>Amazon Web Services General Reference</i>.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
  *
  */
 export class DescribeMaintenanceWindowScheduleCommand extends $Command<
@@ -64,6 +104,9 @@ export class DescribeMaintenanceWindowScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMaintenanceWindowScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +135,8 @@ export class DescribeMaintenanceWindowScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeMaintenanceWindowScheduleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeMaintenanceWindowScheduleResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +146,24 @@ export class DescribeMaintenanceWindowScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeMaintenanceWindowScheduleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeMaintenanceWindowScheduleCommand(input, context);
+    return se_DescribeMaintenanceWindowScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeMaintenanceWindowScheduleCommandOutput> {
-    return deserializeAws_json1_1DescribeMaintenanceWindowScheduleCommand(output, context);
+    return de_DescribeMaintenanceWindowScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

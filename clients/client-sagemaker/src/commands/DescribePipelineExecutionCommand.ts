@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribePipelineExecutionRequest,
-  DescribePipelineExecutionRequestFilterSensitiveLog,
-  DescribePipelineExecutionResponse,
-  DescribePipelineExecutionResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribePipelineExecutionCommand,
-  serializeAws_json1_1DescribePipelineExecutionCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribePipelineExecutionRequest, DescribePipelineExecutionResponse } from "../models/models_2";
+import { de_DescribePipelineExecutionCommand, se_DescribePipelineExecutionCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribePipelineExecutionCommand}.
+ */
 export interface DescribePipelineExecutionCommandInput extends DescribePipelineExecutionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribePipelineExecutionCommand}.
+ */
 export interface DescribePipelineExecutionCommandOutput extends DescribePipelineExecutionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the details of a pipeline execution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,22 @@ export interface DescribePipelineExecutionCommandOutput extends DescribePipeline
  * import { SageMakerClient, DescribePipelineExecutionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribePipelineExecutionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DescribePipelineExecutionRequest
+ *   PipelineExecutionArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribePipelineExecutionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePipelineExecutionCommandInput - {@link DescribePipelineExecutionCommandInput}
+ * @returns {@link DescribePipelineExecutionCommandOutput}
  * @see {@link DescribePipelineExecutionCommandInput} for command's `input` shape.
  * @see {@link DescribePipelineExecutionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class DescribePipelineExecutionCommand extends $Command<
@@ -62,6 +74,9 @@ export class DescribePipelineExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePipelineExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +105,8 @@ export class DescribePipelineExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePipelineExecutionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribePipelineExecutionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +116,21 @@ export class DescribePipelineExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePipelineExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribePipelineExecutionCommand(input, context);
+    return se_DescribePipelineExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribePipelineExecutionCommandOutput> {
-    return deserializeAws_json1_1DescribePipelineExecutionCommand(output, context);
+    return de_DescribePipelineExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,24 +13,27 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  BatchModifyClusterSnapshotsMessage,
-  BatchModifyClusterSnapshotsMessageFilterSensitiveLog,
-  BatchModifyClusterSnapshotsOutputMessage,
-  BatchModifyClusterSnapshotsOutputMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryBatchModifyClusterSnapshotsCommand,
-  serializeAws_queryBatchModifyClusterSnapshotsCommand,
-} from "../protocols/Aws_query";
+import { BatchModifyClusterSnapshotsMessage, BatchModifyClusterSnapshotsOutputMessage } from "../models/models_0";
+import { de_BatchModifyClusterSnapshotsCommand, se_BatchModifyClusterSnapshotsCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchModifyClusterSnapshotsCommand}.
+ */
 export interface BatchModifyClusterSnapshotsCommandInput extends BatchModifyClusterSnapshotsMessage {}
+/**
+ * @public
+ *
+ * The output of {@link BatchModifyClusterSnapshotsCommand}.
+ */
 export interface BatchModifyClusterSnapshotsCommandOutput
   extends BatchModifyClusterSnapshotsOutputMessage,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the settings for a set of cluster snapshots.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +41,31 @@ export interface BatchModifyClusterSnapshotsCommandOutput
  * import { RedshiftClient, BatchModifyClusterSnapshotsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, BatchModifyClusterSnapshotsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // BatchModifyClusterSnapshotsMessage
+ *   SnapshotIdentifierList: [ // SnapshotIdentifierList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   ManualSnapshotRetentionPeriod: Number("int"),
+ *   Force: true || false,
+ * };
  * const command = new BatchModifyClusterSnapshotsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchModifyClusterSnapshotsCommandInput - {@link BatchModifyClusterSnapshotsCommandInput}
+ * @returns {@link BatchModifyClusterSnapshotsCommandOutput}
  * @see {@link BatchModifyClusterSnapshotsCommandInput} for command's `input` shape.
  * @see {@link BatchModifyClusterSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
+ *
+ * @throws {@link BatchModifyClusterSnapshotsLimitExceededFault} (client fault)
+ *  <p>The maximum number for snapshot identifiers has been reached. The limit is 100.
+ *         </p>
+ *
+ * @throws {@link InvalidRetentionPeriodFault} (client fault)
+ *  <p>The retention period specified is either in the past or is not a valid value.</p>
+ *          <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+ *
  *
  */
 export class BatchModifyClusterSnapshotsCommand extends $Command<
@@ -64,6 +85,9 @@ export class BatchModifyClusterSnapshotsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchModifyClusterSnapshotsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +116,8 @@ export class BatchModifyClusterSnapshotsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchModifyClusterSnapshotsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchModifyClusterSnapshotsOutputMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +127,21 @@ export class BatchModifyClusterSnapshotsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchModifyClusterSnapshotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryBatchModifyClusterSnapshotsCommand(input, context);
+    return se_BatchModifyClusterSnapshotsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchModifyClusterSnapshotsCommandOutput> {
-    return deserializeAws_queryBatchModifyClusterSnapshotsCommand(output, context);
+    return de_BatchModifyClusterSnapshotsCommand(output, context);
   }
 
   // Start section: command_body_extra

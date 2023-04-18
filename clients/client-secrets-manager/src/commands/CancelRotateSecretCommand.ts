@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CancelRotateSecretRequest,
-  CancelRotateSecretRequestFilterSensitiveLog,
-  CancelRotateSecretResponse,
-  CancelRotateSecretResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CancelRotateSecretCommand,
-  serializeAws_json1_1CancelRotateSecretCommand,
-} from "../protocols/Aws_json1_1";
+import { CancelRotateSecretRequest, CancelRotateSecretResponse } from "../models/models_0";
+import { de_CancelRotateSecretCommand, se_CancelRotateSecretCommand } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CancelRotateSecretCommand}.
+ */
 export interface CancelRotateSecretCommandInput extends CancelRotateSecretRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CancelRotateSecretCommand}.
+ */
 export interface CancelRotateSecretCommandOutput extends CancelRotateSecretResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Turns off automatic rotation, and if a rotation is currently in
  *       progress, cancels the rotation.</p>
  *          <p>If you cancel a rotation in progress, it can leave the <code>VersionStage</code>
@@ -54,13 +57,63 @@ export interface CancelRotateSecretCommandOutput extends CancelRotateSecretRespo
  * import { SecretsManagerClient, CancelRotateSecretCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, CancelRotateSecretCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
  * const client = new SecretsManagerClient(config);
+ * const input = { // CancelRotateSecretRequest
+ *   SecretId: "STRING_VALUE", // required
+ * };
  * const command = new CancelRotateSecretCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelRotateSecretCommandInput - {@link CancelRotateSecretCommandInput}
+ * @returns {@link CancelRotateSecretCommandOutput}
  * @see {@link CancelRotateSecretCommandInput} for command's `input` shape.
  * @see {@link CancelRotateSecretCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
+ *
+ * @throws {@link InternalServiceError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The parameter name or value is invalid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>A parameter value is not valid for the current state of the
+ *       resource.</p>
+ *          <p>Possible causes:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The secret is scheduled for deletion.</p>
+ *             </li>
+ *             <li>
+ *                <p>You tried to enable rotation on a secret that doesn't already have a Lambda function
+ *           ARN configured and you didn't include such an ARN as a parameter in this call. </p>
+ *             </li>
+ *             <li>
+ *                <p>The secret is managed by another service, and you must use that service to update it.
+ *           For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html">Secrets managed by other Amazon Web Services services</a>.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Secrets Manager can't find the resource that you asked for.</p>
+ *
+ *
+ * @example To cancel scheduled rotation for a secret
+ * ```javascript
+ * // The following example shows how to cancel rotation for a secret. The operation sets the RotationEnabled field to false and cancels all scheduled rotations. To resume scheduled rotations, you must re-enable rotation by calling the rotate-secret operation.
+ * const input = {
+ *   "SecretId": "MyTestDatabaseSecret"
+ * };
+ * const command = new CancelRotateSecretCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ARN": "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
+ *   "Name": "Name"
+ * }
+ * *\/
+ * // example id: to-cancel-scheduled-rotation-for-a-secret-1523996016032
+ * ```
  *
  */
 export class CancelRotateSecretCommand extends $Command<
@@ -80,6 +133,9 @@ export class CancelRotateSecretCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelRotateSecretCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +164,8 @@ export class CancelRotateSecretCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelRotateSecretRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelRotateSecretResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +175,18 @@ export class CancelRotateSecretCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelRotateSecretCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CancelRotateSecretCommand(input, context);
+    return se_CancelRotateSecretCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelRotateSecretCommandOutput> {
-    return deserializeAws_json1_1CancelRotateSecretCommand(output, context);
+    return de_CancelRotateSecretCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import {
-  GetDeploymentStatusRequest,
-  GetDeploymentStatusRequestFilterSensitiveLog,
-  GetDeploymentStatusResponse,
-  GetDeploymentStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDeploymentStatusCommand,
-  serializeAws_restJson1GetDeploymentStatusCommand,
-} from "../protocols/Aws_restJson1";
+import { GetDeploymentStatusRequest, GetDeploymentStatusResponse } from "../models/models_0";
+import { de_GetDeploymentStatusCommand, se_GetDeploymentStatusCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetDeploymentStatusCommand}.
+ */
 export interface GetDeploymentStatusCommandInput extends GetDeploymentStatusRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetDeploymentStatusCommand}.
+ */
 export interface GetDeploymentStatusCommandOutput extends GetDeploymentStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Returns the status of a deployment.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,23 @@ export interface GetDeploymentStatusCommandOutput extends GetDeploymentStatusRes
  * import { GreengrassClient, GetDeploymentStatusCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, GetDeploymentStatusCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // GetDeploymentStatusRequest
+ *   DeploymentId: "STRING_VALUE", // required
+ *   GroupId: "STRING_VALUE", // required
+ * };
  * const command = new GetDeploymentStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDeploymentStatusCommandInput - {@link GetDeploymentStatusCommandInput}
+ * @returns {@link GetDeploymentStatusCommandOutput}
  * @see {@link GetDeploymentStatusCommandInput} for command's `input` shape.
  * @see {@link GetDeploymentStatusCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  General error information.
+ *
  *
  */
 export class GetDeploymentStatusCommand extends $Command<
@@ -62,6 +75,9 @@ export class GetDeploymentStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDeploymentStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +106,8 @@ export class GetDeploymentStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDeploymentStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDeploymentStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +117,18 @@ export class GetDeploymentStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDeploymentStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDeploymentStatusCommand(input, context);
+    return se_GetDeploymentStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDeploymentStatusCommandOutput> {
-    return deserializeAws_restJson1GetDeploymentStatusCommand(output, context);
+    return de_GetDeploymentStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

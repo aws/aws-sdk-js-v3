@@ -36,13 +36,20 @@ import {
 import { ConnectParticipantClient } from "./ConnectParticipantClient";
 
 /**
- * <p>Amazon Connect is a cloud-based contact center solution that makes it easy to set up and manage
- *             a customer contact center. Amazon Connect enables customer contacts through voice or chat. Use
- *             the Amazon Connect Participant Service to manage chat participants, such as agents and
- *             customers.</p>
+ * @public
+ * <p>Amazon Connect is an easy-to-use omnichannel cloud contact center service that
+ *             enables companies of any size to deliver superior customer service at a lower cost.
+ *                 Amazon Connect communications capabilities make it easy for companies to deliver
+ *             personalized interactions across communication channels, including chat. </p>
+ *          <p>Use the Amazon Connect Participant Service to manage participants (for example,
+ *             agents, customers, and managers listening in), and to send messages and events within a
+ *             chat contact. The APIs in the service enable the following: sending chat messages,
+ *             attachment sharing, managing a participant's connection state and message events, and
+ *             retrieving chat transcripts.</p>
  */
 export class ConnectParticipant extends ConnectParticipantClient {
   /**
+   * @public
    * <p>Allows you to confirm that the attachment has been uploaded using the pre-signed URL
    *             provided in StartAttachmentUpload API. </p>
    *          <note>
@@ -83,6 +90,7 @@ export class ConnectParticipant extends ConnectParticipantClient {
   }
 
   /**
+   * @public
    * <p>Creates the participant's connection. </p>
    *          <note>
    *             <p>
@@ -97,7 +105,7 @@ export class ConnectParticipant extends ConnectParticipantClient {
    *          <p>For chat, you need to publish the following on the established websocket
    *             connection:</p>
    *          <p>
-   *             <code>{"topic":"aws/subscribe","content":{"topics":["aws/chat"]}}</code>
+   *             <code>\{"topic":"aws/subscribe","content":\{"topics":["aws/chat"]\}\}</code>
    *          </p>
    *          <p>Upon websocket URL expiry, as specified in the response ConnectionExpiry parameter,
    *             clients need to call this API again to obtain a new websocket URL and perform the same
@@ -149,6 +157,7 @@ export class ConnectParticipant extends ConnectParticipantClient {
   }
 
   /**
+   * @public
    * <p>Disconnects a participant. </p>
    *          <note>
    *             <p>
@@ -188,6 +197,7 @@ export class ConnectParticipant extends ConnectParticipantClient {
   }
 
   /**
+   * @public
    * <p>Provides a pre-signed URL for download of a completed attachment. This is an
    *             asynchronous API for use with active contacts.</p>
    *          <note>
@@ -228,7 +238,10 @@ export class ConnectParticipant extends ConnectParticipantClient {
   }
 
   /**
-   * <p>Retrieves a transcript of the session, including details about any attachments. </p>
+   * @public
+   * <p>Retrieves a transcript of the session, including details about any attachments. For
+   *             information about accessing past chat contact transcripts for a persistent chat, see
+   *                 <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable persistent chat</a>. </p>
    *          <note>
    *             <p>
    *                <code>ConnectionToken</code> is used for invoking this API instead of
@@ -267,6 +280,7 @@ export class ConnectParticipant extends ConnectParticipantClient {
   }
 
   /**
+   * @public
    * <p>Sends an event. </p>
    *          <note>
    *             <p>
@@ -300,6 +314,7 @@ export class ConnectParticipant extends ConnectParticipantClient {
   }
 
   /**
+   * @public
    * <p>Sends a message.</p>
    *          <note>
    *             <p>
@@ -333,6 +348,7 @@ export class ConnectParticipant extends ConnectParticipantClient {
   }
 
   /**
+   * @public
    * <p>Provides a pre-signed Amazon S3 URL in response for uploading the file directly to
    *             S3.</p>
    *          <note>

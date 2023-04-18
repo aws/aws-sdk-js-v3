@@ -20,15 +20,23 @@ import {
   UpdateSipMediaApplicationResponse,
   UpdateSipMediaApplicationResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateSipMediaApplicationCommand,
-  serializeAws_restJson1UpdateSipMediaApplicationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateSipMediaApplicationCommand, se_UpdateSipMediaApplicationCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateSipMediaApplicationCommand}.
+ */
 export interface UpdateSipMediaApplicationCommandInput extends UpdateSipMediaApplicationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateSipMediaApplicationCommand}.
+ */
 export interface UpdateSipMediaApplicationCommandOutput extends UpdateSipMediaApplicationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the details of the specified SIP media application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +44,50 @@ export interface UpdateSipMediaApplicationCommandOutput extends UpdateSipMediaAp
  * import { ChimeClient, UpdateSipMediaApplicationCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, UpdateSipMediaApplicationCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // UpdateSipMediaApplicationRequest
+ *   SipMediaApplicationId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Endpoints: [ // SipMediaApplicationEndpointList
+ *     { // SipMediaApplicationEndpoint
+ *       LambdaArn: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateSipMediaApplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSipMediaApplicationCommandInput - {@link UpdateSipMediaApplicationCommandInput}
+ * @returns {@link UpdateSipMediaApplicationCommandOutput}
  * @see {@link UpdateSipMediaApplicationCommandInput} for command's `input` shape.
  * @see {@link UpdateSipMediaApplicationCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be processed because of conflict in the current state of the
+ *          resource.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>One or more of the resources in the request does not exist in the system.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The client exceeded its request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client is not currently authorized to make the request.</p>
+ *
  *
  */
 export class UpdateSipMediaApplicationCommand extends $Command<
@@ -62,6 +107,9 @@ export class UpdateSipMediaApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSipMediaApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,15 +149,21 @@ export class UpdateSipMediaApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSipMediaApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateSipMediaApplicationCommand(input, context);
+    return se_UpdateSipMediaApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateSipMediaApplicationCommandOutput> {
-    return deserializeAws_restJson1UpdateSipMediaApplicationCommand(output, context);
+    return de_UpdateSipMediaApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

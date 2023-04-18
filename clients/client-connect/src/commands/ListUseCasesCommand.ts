@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  ListUseCasesRequest,
-  ListUseCasesRequestFilterSensitiveLog,
-  ListUseCasesResponse,
-  ListUseCasesResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListUseCasesCommand,
-  serializeAws_restJson1ListUseCasesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListUseCasesRequest, ListUseCasesResponse } from "../models/models_1";
+import { de_ListUseCasesCommand, se_ListUseCasesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListUseCasesCommand}.
+ */
 export interface ListUseCasesCommandInput extends ListUseCasesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListUseCasesCommand}.
+ */
 export interface ListUseCasesCommandOutput extends ListUseCasesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the use cases for the integration association. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,34 @@ export interface ListUseCasesCommandOutput extends ListUseCasesResponse, __Metad
  * import { ConnectClient, ListUseCasesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListUseCasesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // ListUseCasesRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   IntegrationAssociationId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListUseCasesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListUseCasesCommandInput - {@link ListUseCasesCommandInput}
+ * @returns {@link ListUseCasesCommandOutput}
  * @see {@link ListUseCasesCommandInput} for command's `input` shape.
  * @see {@link ListUseCasesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
  *
  */
 export class ListUseCasesCommand extends $Command<
@@ -62,6 +86,9 @@ export class ListUseCasesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListUseCasesCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +115,8 @@ export class ListUseCasesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListUseCasesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListUseCasesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +126,18 @@ export class ListUseCasesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListUseCasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListUseCasesCommand(input, context);
+    return se_ListUseCasesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUseCasesCommandOutput> {
-    return deserializeAws_restJson1ListUseCasesCommand(output, context);
+    return de_ListUseCasesCommand(output, context);
   }
 
   // Start section: command_body_extra

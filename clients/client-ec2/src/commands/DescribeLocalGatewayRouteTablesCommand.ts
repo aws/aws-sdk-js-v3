@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribeLocalGatewayRouteTablesRequest, DescribeLocalGatewayRouteTablesResult } from "../models/models_4";
 import {
-  DescribeLocalGatewayRouteTablesRequest,
-  DescribeLocalGatewayRouteTablesRequestFilterSensitiveLog,
-  DescribeLocalGatewayRouteTablesResult,
-  DescribeLocalGatewayRouteTablesResultFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeLocalGatewayRouteTablesCommand,
-  serializeAws_ec2DescribeLocalGatewayRouteTablesCommand,
+  de_DescribeLocalGatewayRouteTablesCommand,
+  se_DescribeLocalGatewayRouteTablesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeLocalGatewayRouteTablesCommand}.
+ */
 export interface DescribeLocalGatewayRouteTablesCommandInput extends DescribeLocalGatewayRouteTablesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeLocalGatewayRouteTablesCommand}.
+ */
 export interface DescribeLocalGatewayRouteTablesCommandOutput
   extends DescribeLocalGatewayRouteTablesResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more local gateway route tables. By default, all local gateway route tables are described.
  *          Alternatively, you can filter the results.</p>
  * @example
@@ -39,13 +45,32 @@ export interface DescribeLocalGatewayRouteTablesCommandOutput
  * import { EC2Client, DescribeLocalGatewayRouteTablesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeLocalGatewayRouteTablesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeLocalGatewayRouteTablesRequest
+ *   LocalGatewayRouteTableIds: [ // LocalGatewayRouteTableIdSet
+ *     "STRING_VALUE",
+ *   ],
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new DescribeLocalGatewayRouteTablesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLocalGatewayRouteTablesCommandInput - {@link DescribeLocalGatewayRouteTablesCommandInput}
+ * @returns {@link DescribeLocalGatewayRouteTablesCommandOutput}
  * @see {@link DescribeLocalGatewayRouteTablesCommandInput} for command's `input` shape.
  * @see {@link DescribeLocalGatewayRouteTablesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class DescribeLocalGatewayRouteTablesCommand extends $Command<
@@ -65,6 +90,9 @@ export class DescribeLocalGatewayRouteTablesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLocalGatewayRouteTablesCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +121,8 @@ export class DescribeLocalGatewayRouteTablesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLocalGatewayRouteTablesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLocalGatewayRouteTablesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,18 +132,24 @@ export class DescribeLocalGatewayRouteTablesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeLocalGatewayRouteTablesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeLocalGatewayRouteTablesCommand(input, context);
+    return se_DescribeLocalGatewayRouteTablesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeLocalGatewayRouteTablesCommandOutput> {
-    return deserializeAws_ec2DescribeLocalGatewayRouteTablesCommand(output, context);
+    return de_DescribeLocalGatewayRouteTablesCommand(output, context);
   }
 
   // Start section: command_body_extra

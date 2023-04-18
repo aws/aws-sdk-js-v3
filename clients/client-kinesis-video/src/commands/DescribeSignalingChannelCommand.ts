@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
-import {
-  DescribeSignalingChannelInput,
-  DescribeSignalingChannelInputFilterSensitiveLog,
-  DescribeSignalingChannelOutput,
-  DescribeSignalingChannelOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeSignalingChannelCommand,
-  serializeAws_restJson1DescribeSignalingChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeSignalingChannelInput, DescribeSignalingChannelOutput } from "../models/models_0";
+import { de_DescribeSignalingChannelCommand, se_DescribeSignalingChannelCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeSignalingChannelCommand}.
+ */
 export interface DescribeSignalingChannelCommandInput extends DescribeSignalingChannelInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeSignalingChannelCommand}.
+ */
 export interface DescribeSignalingChannelCommandOutput extends DescribeSignalingChannelOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the most current information about the signaling channel. You must specify
  *             either the name or the Amazon Resource Name (ARN) of the channel that you want to
  *             describe.</p>
@@ -38,13 +41,33 @@ export interface DescribeSignalingChannelCommandOutput extends DescribeSignaling
  * import { KinesisVideoClient, DescribeSignalingChannelCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, DescribeSignalingChannelCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
+ * const input = { // DescribeSignalingChannelInput
+ *   ChannelName: "STRING_VALUE",
+ *   ChannelARN: "STRING_VALUE",
+ * };
  * const command = new DescribeSignalingChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSignalingChannelCommandInput - {@link DescribeSignalingChannelCommandInput}
+ * @returns {@link DescribeSignalingChannelCommandOutput}
  * @see {@link DescribeSignalingChannelCommandInput} for command's `input` shape.
  * @see {@link DescribeSignalingChannelCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have required permissions to perform this operation.</p>
+ *
+ * @throws {@link ClientLimitExceededException} (client fault)
+ *  <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
+ *             allowed client calls. Try making the call later.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>The value for this input parameter is invalid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
+ *
  *
  */
 export class DescribeSignalingChannelCommand extends $Command<
@@ -64,6 +87,9 @@ export class DescribeSignalingChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSignalingChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +118,8 @@ export class DescribeSignalingChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSignalingChannelInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSignalingChannelOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +129,18 @@ export class DescribeSignalingChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSignalingChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeSignalingChannelCommand(input, context);
+    return se_DescribeSignalingChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSignalingChannelCommandOutput> {
-    return deserializeAws_restJson1DescribeSignalingChannelCommand(output, context);
+    return de_DescribeSignalingChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

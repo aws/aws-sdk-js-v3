@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateAppMonitorRequest,
-  UpdateAppMonitorRequestFilterSensitiveLog,
-  UpdateAppMonitorResponse,
-  UpdateAppMonitorResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateAppMonitorCommand,
-  serializeAws_restJson1UpdateAppMonitorCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateAppMonitorRequest, UpdateAppMonitorResponse } from "../models/models_0";
+import { de_UpdateAppMonitorCommand, se_UpdateAppMonitorCommand } from "../protocols/Aws_restJson1";
 import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateAppMonitorCommand}.
+ */
 export interface UpdateAppMonitorCommandInput extends UpdateAppMonitorRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateAppMonitorCommand}.
+ */
 export interface UpdateAppMonitorCommandOutput extends UpdateAppMonitorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the configuration of an existing app monitor. When you use this operation, only the parts of the app monitor
  *          configuration that you specify in this operation are changed. For any parameters that you omit, the existing
  *          values are kept.</p>
@@ -46,13 +49,61 @@ export interface UpdateAppMonitorCommandOutput extends UpdateAppMonitorResponse,
  * import { RUMClient, UpdateAppMonitorCommand } from "@aws-sdk/client-rum"; // ES Modules import
  * // const { RUMClient, UpdateAppMonitorCommand } = require("@aws-sdk/client-rum"); // CommonJS import
  * const client = new RUMClient(config);
+ * const input = { // UpdateAppMonitorRequest
+ *   Name: "STRING_VALUE", // required
+ *   Domain: "STRING_VALUE",
+ *   AppMonitorConfiguration: { // AppMonitorConfiguration
+ *     IdentityPoolId: "STRING_VALUE",
+ *     ExcludedPages: [ // Pages
+ *       "STRING_VALUE",
+ *     ],
+ *     IncludedPages: [
+ *       "STRING_VALUE",
+ *     ],
+ *     FavoritePages: [ // FavoritePages
+ *       "STRING_VALUE",
+ *     ],
+ *     SessionSampleRate: Number("double"),
+ *     GuestRoleArn: "STRING_VALUE",
+ *     AllowCookies: true || false,
+ *     Telemetries: [ // Telemetries
+ *       "STRING_VALUE",
+ *     ],
+ *     EnableXRay: true || false,
+ *   },
+ *   CwLogEnabled: true || false,
+ *   CustomEvents: { // CustomEvents
+ *     Status: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateAppMonitorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAppMonitorCommandInput - {@link UpdateAppMonitorCommandInput}
+ * @returns {@link UpdateAppMonitorCommandOutput}
  * @see {@link UpdateAppMonitorCommandInput} for command's `input` shape.
  * @see {@link UpdateAppMonitorCommandOutput} for command's `response` shape.
  * @see {@link RUMClientResolvedConfig | config} for RUMClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient permissions to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>This operation attempted to create a resource that already exists.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Internal service exception.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was throttled because of quota limits.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One of the arguments for the request is not valid.</p>
+ *
  *
  */
 export class UpdateAppMonitorCommand extends $Command<
@@ -72,6 +123,9 @@ export class UpdateAppMonitorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAppMonitorCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +154,8 @@ export class UpdateAppMonitorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAppMonitorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAppMonitorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +165,18 @@ export class UpdateAppMonitorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAppMonitorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateAppMonitorCommand(input, context);
+    return se_UpdateAppMonitorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAppMonitorCommandOutput> {
-    return deserializeAws_restJson1UpdateAppMonitorCommand(output, context);
+    return de_UpdateAppMonitorCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,19 +16,26 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   ListMeetingTagsRequest,
-  ListMeetingTagsRequestFilterSensitiveLog,
   ListMeetingTagsResponse,
   ListMeetingTagsResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restJson1ListMeetingTagsCommand,
-  serializeAws_restJson1ListMeetingTagsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListMeetingTagsCommand, se_ListMeetingTagsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListMeetingTagsCommand}.
+ */
 export interface ListMeetingTagsCommandInput extends ListMeetingTagsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListMeetingTagsCommand}.
+ */
 export interface ListMeetingTagsCommandOutput extends ListMeetingTagsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the tags applied to an Amazon Chime SDK meeting resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +43,40 @@ export interface ListMeetingTagsCommandOutput extends ListMeetingTagsResponse, _
  * import { ChimeClient, ListMeetingTagsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, ListMeetingTagsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // ListMeetingTagsRequest
+ *   MeetingId: "STRING_VALUE", // required
+ * };
  * const command = new ListMeetingTagsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMeetingTagsCommandInput - {@link ListMeetingTagsCommandInput}
+ * @returns {@link ListMeetingTagsCommandOutput}
  * @see {@link ListMeetingTagsCommandInput} for command's `input` shape.
  * @see {@link ListMeetingTagsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>One or more of the resources in the request does not exist in the system.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The client exceeded its request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client is not currently authorized to make the request.</p>
+ *
  *
  */
 export class ListMeetingTagsCommand extends $Command<
@@ -62,6 +96,9 @@ export class ListMeetingTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMeetingTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +127,7 @@ export class ListMeetingTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMeetingTagsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListMeetingTagsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -101,12 +138,18 @@ export class ListMeetingTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMeetingTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListMeetingTagsCommand(input, context);
+    return se_ListMeetingTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMeetingTagsCommandOutput> {
-    return deserializeAws_restJson1ListMeetingTagsCommand(output, context);
+    return de_ListMeetingTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

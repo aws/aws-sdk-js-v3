@@ -20,19 +20,26 @@ import {
 } from "../LexModelBuildingServiceClient";
 import {
   GetBotChannelAssociationsRequest,
-  GetBotChannelAssociationsRequestFilterSensitiveLog,
   GetBotChannelAssociationsResponse,
   GetBotChannelAssociationsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetBotChannelAssociationsCommand,
-  serializeAws_restJson1GetBotChannelAssociationsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetBotChannelAssociationsCommand, se_GetBotChannelAssociationsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetBotChannelAssociationsCommand}.
+ */
 export interface GetBotChannelAssociationsCommandInput extends GetBotChannelAssociationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetBotChannelAssociationsCommand}.
+ */
 export interface GetBotChannelAssociationsCommandOutput extends GetBotChannelAssociationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a list of all of the channels associated with the
  *       specified bot. </p>
  *          <p>The <code>GetBotChannelAssociations</code> operation requires
@@ -44,13 +51,34 @@ export interface GetBotChannelAssociationsCommandOutput extends GetBotChannelAss
  * import { LexModelBuildingServiceClient, GetBotChannelAssociationsCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, GetBotChannelAssociationsCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
+ * const input = { // GetBotChannelAssociationsRequest
+ *   botName: "STRING_VALUE", // required
+ *   botAlias: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nameContains: "STRING_VALUE",
+ * };
  * const command = new GetBotChannelAssociationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBotChannelAssociationsCommandInput - {@link GetBotChannelAssociationsCommandInput}
+ * @returns {@link GetBotChannelAssociationsCommandOutput}
  * @see {@link GetBotChannelAssociationsCommandInput} for command's `input` shape.
  * @see {@link GetBotChannelAssociationsCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is not well formed. For example, a value is invalid or
+ *       a required field is missing. Check the field values, and try
+ *       again.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal Amazon Lex error occurred. Try your request again.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request exceeded a limit. Try your request again.</p>
+ *
  *
  */
 export class GetBotChannelAssociationsCommand extends $Command<
@@ -70,6 +98,9 @@ export class GetBotChannelAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBotChannelAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,7 +129,7 @@ export class GetBotChannelAssociationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBotChannelAssociationsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetBotChannelAssociationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -109,15 +140,21 @@ export class GetBotChannelAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBotChannelAssociationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetBotChannelAssociationsCommand(input, context);
+    return se_GetBotChannelAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBotChannelAssociationsCommandOutput> {
-    return deserializeAws_restJson1GetBotChannelAssociationsCommand(output, context);
+    return de_GetBotChannelAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,39 +14,53 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRContainersClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRContainersClient";
-import {
-  DeleteVirtualClusterRequest,
-  DeleteVirtualClusterRequestFilterSensitiveLog,
-  DeleteVirtualClusterResponse,
-  DeleteVirtualClusterResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteVirtualClusterCommand,
-  serializeAws_restJson1DeleteVirtualClusterCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteVirtualClusterRequest, DeleteVirtualClusterResponse } from "../models/models_0";
+import { de_DeleteVirtualClusterCommand, se_DeleteVirtualClusterCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteVirtualClusterCommand}.
+ */
 export interface DeleteVirtualClusterCommandInput extends DeleteVirtualClusterRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteVirtualClusterCommand}.
+ */
 export interface DeleteVirtualClusterCommandOutput extends DeleteVirtualClusterResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a virtual cluster. Virtual cluster is a managed entity on Amazon EMR on EKS. You
- *          can create, describe, list and delete virtual clusters. They do not consume any additional
- *          resource in your system. A single virtual cluster maps to a single Kubernetes namespace.
- *          Given this relationship, you can model virtual clusters the same way you model Kubernetes
- *          namespaces to meet your requirements.</p>
+ * @public
+ * <p>Deletes a virtual cluster. Virtual cluster is a managed entity on Amazon EMR on EKS. You can create, describe, list and delete virtual clusters. They do not consume any
+ *          additional resource in your system. A single virtual cluster maps to a single Kubernetes
+ *          namespace. Given this relationship, you can model virtual clusters the same way you model
+ *          Kubernetes namespaces to meet your requirements.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EMRContainersClient, DeleteVirtualClusterCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
  * // const { EMRContainersClient, DeleteVirtualClusterCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
  * const client = new EMRContainersClient(config);
+ * const input = { // DeleteVirtualClusterRequest
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteVirtualClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVirtualClusterCommandInput - {@link DeleteVirtualClusterCommandInput}
+ * @returns {@link DeleteVirtualClusterCommandOutput}
  * @see {@link DeleteVirtualClusterCommandInput} for command's `input` shape.
  * @see {@link DeleteVirtualClusterCommandOutput} for command's `response` shape.
  * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>This is an internal server exception.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There are invalid parameters in the client request.</p>
+ *
  *
  */
 export class DeleteVirtualClusterCommand extends $Command<
@@ -66,6 +80,9 @@ export class DeleteVirtualClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVirtualClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +111,8 @@ export class DeleteVirtualClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVirtualClusterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteVirtualClusterResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +122,18 @@ export class DeleteVirtualClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVirtualClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteVirtualClusterCommand(input, context);
+    return se_DeleteVirtualClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVirtualClusterCommandOutput> {
-    return deserializeAws_restJson1DeleteVirtualClusterCommand(output, context);
+    return de_DeleteVirtualClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

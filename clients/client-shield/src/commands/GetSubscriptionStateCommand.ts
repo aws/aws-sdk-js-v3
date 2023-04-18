@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetSubscriptionStateRequest,
-  GetSubscriptionStateRequestFilterSensitiveLog,
-  GetSubscriptionStateResponse,
-  GetSubscriptionStateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetSubscriptionStateCommand,
-  serializeAws_json1_1GetSubscriptionStateCommand,
-} from "../protocols/Aws_json1_1";
+import { GetSubscriptionStateRequest, GetSubscriptionStateResponse } from "../models/models_0";
+import { de_GetSubscriptionStateCommand, se_GetSubscriptionStateCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetSubscriptionStateCommand}.
+ */
 export interface GetSubscriptionStateCommandInput extends GetSubscriptionStateRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetSubscriptionStateCommand}.
+ */
 export interface GetSubscriptionStateCommandOutput extends GetSubscriptionStateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the <code>SubscriptionState</code>, either <code>Active</code> or <code>Inactive</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,20 @@ export interface GetSubscriptionStateCommandOutput extends GetSubscriptionStateR
  * import { ShieldClient, GetSubscriptionStateCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, GetSubscriptionStateCommand } = require("@aws-sdk/client-shield"); // CommonJS import
  * const client = new ShieldClient(config);
+ * const input = {};
  * const command = new GetSubscriptionStateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSubscriptionStateCommandInput - {@link GetSubscriptionStateCommandInput}
+ * @returns {@link GetSubscriptionStateCommandOutput}
  * @see {@link GetSubscriptionStateCommandInput} for command's `input` shape.
  * @see {@link GetSubscriptionStateCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+ *
  *
  */
 export class GetSubscriptionStateCommand extends $Command<
@@ -62,6 +72,9 @@ export class GetSubscriptionStateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSubscriptionStateCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +103,8 @@ export class GetSubscriptionStateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSubscriptionStateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSubscriptionStateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +114,18 @@ export class GetSubscriptionStateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSubscriptionStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSubscriptionStateCommand(input, context);
+    return se_GetSubscriptionStateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSubscriptionStateCommandOutput> {
-    return deserializeAws_json1_1GetSubscriptionStateCommand(output, context);
+    return de_GetSubscriptionStateCommand(output, context);
   }
 
   // Start section: command_body_extra

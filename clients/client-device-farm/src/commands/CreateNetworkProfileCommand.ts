@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  CreateNetworkProfileRequest,
-  CreateNetworkProfileRequestFilterSensitiveLog,
-  CreateNetworkProfileResult,
-  CreateNetworkProfileResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateNetworkProfileCommand,
-  serializeAws_json1_1CreateNetworkProfileCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateNetworkProfileRequest, CreateNetworkProfileResult } from "../models/models_0";
+import { de_CreateNetworkProfileCommand, se_CreateNetworkProfileCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateNetworkProfileCommand}.
+ */
 export interface CreateNetworkProfileCommandInput extends CreateNetworkProfileRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateNetworkProfileCommand}.
+ */
 export interface CreateNetworkProfileCommandOutput extends CreateNetworkProfileResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a network profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,42 @@ export interface CreateNetworkProfileCommandOutput extends CreateNetworkProfileR
  * import { DeviceFarmClient, CreateNetworkProfileCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, CreateNetworkProfileCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // CreateNetworkProfileRequest
+ *   projectArn: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   type: "CURATED" || "PRIVATE",
+ *   uplinkBandwidthBits: Number("long"),
+ *   downlinkBandwidthBits: Number("long"),
+ *   uplinkDelayMs: Number("long"),
+ *   downlinkDelayMs: Number("long"),
+ *   uplinkJitterMs: Number("long"),
+ *   downlinkJitterMs: Number("long"),
+ *   uplinkLossPercent: Number("int"),
+ *   downlinkLossPercent: Number("int"),
+ * };
  * const command = new CreateNetworkProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateNetworkProfileCommandInput - {@link CreateNetworkProfileCommandInput}
+ * @returns {@link CreateNetworkProfileCommandOutput}
  * @see {@link CreateNetworkProfileCommandInput} for command's `input` shape.
  * @see {@link CreateNetworkProfileCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
+ *
+ * @throws {@link ArgumentException} (client fault)
+ *  <p>An invalid argument was specified.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A limit was exceeded.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The specified entity was not found.</p>
+ *
+ * @throws {@link ServiceAccountException} (client fault)
+ *  <p>There was a problem with the service account.</p>
+ *
  *
  */
 export class CreateNetworkProfileCommand extends $Command<
@@ -62,6 +94,9 @@ export class CreateNetworkProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateNetworkProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +125,8 @@ export class CreateNetworkProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateNetworkProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateNetworkProfileResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +136,18 @@ export class CreateNetworkProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateNetworkProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateNetworkProfileCommand(input, context);
+    return se_CreateNetworkProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateNetworkProfileCommandOutput> {
-    return deserializeAws_json1_1CreateNetworkProfileCommand(output, context);
+    return de_CreateNetworkProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

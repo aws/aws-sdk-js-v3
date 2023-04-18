@@ -245,12 +245,14 @@ import {
 import { EMRClient } from "./EMRClient";
 
 /**
+ * @public
  * <p>Amazon EMR is a web service that makes it easier to process large amounts of
  *          data efficiently. Amazon EMR uses Hadoop processing combined with several Amazon Web Services services to do tasks such as web indexing, data mining, log file analysis,
  *          machine learning, scientific simulation, and data warehouse management.</p>
  */
 export class EMR extends EMRClient {
   /**
+   * @public
    * <p>Adds an instance fleet to a running cluster.</p>
    *          <note>
    *             <p>The instance fleet configuration is available only in Amazon EMR versions
@@ -287,6 +289,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p>Adds one or more instance groups to a running cluster.</p>
    */
   public addInstanceGroups(
@@ -319,6 +322,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p>AddJobFlowSteps adds new steps to a running cluster. A maximum of 256 steps are allowed
    *          in each job flow.</p>
    *          <p>If your cluster is long-running (such as a Hive data warehouse) or complex, you may
@@ -369,6 +373,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p>Adds tags to an Amazon EMR resource, such as a cluster or an Amazon EMR
    *          Studio. Tags make it easier to associate resources in various ways, such as grouping
    *          clusters to track your Amazon EMR resource allocation costs. For more information,
@@ -399,6 +404,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p>Cancels a pending step or steps in a running cluster. Available only in Amazon EMR versions 4.8.0 and later, excluding version 5.0.0. A maximum of 256 steps are allowed in
    *          each CancelSteps request. CancelSteps is idempotent but asynchronous; it does not guarantee
    *          that a step will be canceled, even if the request is successfully submitted. When you use
@@ -429,6 +435,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p>Creates a security configuration, which is stored in the service and can be specified
    *          when a cluster is created.</p>
    */
@@ -462,6 +469,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p>Creates a new Amazon EMR Studio.</p>
    */
   public createStudio(
@@ -491,6 +499,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p>Maps a user or group to the Amazon EMR Studio specified by
    *          <code>StudioId</code>, and applies a session policy to refine Studio permissions for that
    *          user or group. Use <code>CreateStudioSessionMapping</code> to assign users to a Studio when
@@ -527,6 +536,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p>Deletes a security configuration.</p>
    */
   public deleteSecurityConfiguration(
@@ -559,6 +569,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p>Removes an Amazon EMR Studio from the Studio metadata store.</p>
    */
   public deleteStudio(
@@ -588,6 +599,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p>Removes a user or group from an Amazon EMR Studio.</p>
    */
   public deleteStudioSessionMapping(
@@ -620,6 +632,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p>Provides cluster-level details including status, hardware and software configuration,
    *          VPC settings, and so on.</p>
    */
@@ -653,6 +666,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>This API is no longer supported and will eventually be removed. We recommend you use
@@ -707,6 +721,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p>Provides details of a notebook execution.</p>
    */
   public describeNotebookExecution(
@@ -739,6 +754,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p>Provides EMR release label details, such as releases available the region where the API
    *          request is run, and the available applications for a specific EMR release label. Can also
    *          list EMR release versions that support a specified version of Spark.</p>
@@ -773,6 +789,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p>Provides the details of a security configuration by returning the configuration
    *          JSON.</p>
    */
@@ -806,6 +823,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p>Provides more detail about the cluster step.</p>
    */
   public describeStep(
@@ -835,6 +853,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p>Returns details for the specified Amazon EMR Studio including ID, Name, VPC,
    *          Studio access URL, and so on.</p>
    */
@@ -868,6 +887,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p>Returns the auto-termination policy for an Amazon EMR cluster.</p>
    */
   public getAutoTerminationPolicy(
@@ -900,6 +920,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p>Returns the Amazon EMR block public access configuration for your Amazon Web Services account in the current Region. For more information see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/configure-block-public-access.html">Configure Block
    *             Public Access for Amazon EMR</a> in the <i>Amazon EMR
    *             Management Guide</i>.</p>
@@ -934,8 +955,9 @@ export class EMR extends EMRClient {
   }
 
   /**
-   * <p>Provides Temporary, basic HTTP credentials that are associated with a given runtime IAM role
-   *          and used by a cluster with fine-grained access control activated. You can use these credentials to connect to cluster endpoints that support username-based and password-based authentication.</p>
+   * @public
+   * <p>Provides temporary, HTTP basic credentials that are associated with a given runtime IAM role
+   *          and used by a cluster with fine-grained access control activated. You can use these credentials to connect to cluster endpoints that support username and password authentication.</p>
    */
   public getClusterSessionCredentials(
     args: GetClusterSessionCredentialsCommandInput,
@@ -967,6 +989,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p>Fetches the attached managed scaling policy for an Amazon EMR cluster. </p>
    */
   public getManagedScalingPolicy(
@@ -999,6 +1022,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p>Fetches mapping details for the specified Amazon EMR Studio and identity (user
    *          or group).</p>
    */
@@ -1032,6 +1056,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p>Provides information about the bootstrap actions associated with a cluster.</p>
    */
   public listBootstrapActions(
@@ -1064,6 +1089,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p>Provides the status of all clusters visible to this Amazon Web Services account. Allows
    *          you to filter the list of clusters based on certain criteria; for example, filtering by
    *          cluster creation date and time or by status. This call returns a maximum of 50 clusters in
@@ -1097,6 +1123,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p>Lists all available details about the instance fleets in a cluster.</p>
    *          <note>
    *             <p>The instance fleet configuration is available only in Amazon EMR versions
@@ -1133,6 +1160,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p>Provides all available details about the instance groups in a cluster.</p>
    */
   public listInstanceGroups(
@@ -1165,6 +1193,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p>Provides information for all active EC2 instances and EC2 instances terminated in the
    *          last 30 days, up to a maximum of 2,000. EC2 instances in any of the following states are
    *          considered active: AWAITING_FULFILLMENT, PROVISIONING, BOOTSTRAPPING, RUNNING.</p>
@@ -1199,6 +1228,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p>Provides summaries of all notebook executions. You can filter the list based on multiple
    *          criteria such as status, time range, and editor id. Returns a maximum of 50 notebook
    *          executions and a marker to track the paging of a longer notebook execution list across
@@ -1234,6 +1264,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p>Retrieves release labels of EMR services in the region where the API is called.</p>
    */
   public listReleaseLabels(
@@ -1266,6 +1297,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p>Lists all the security configurations visible to this account, providing their creation
    *          dates and times, and their names. This call returns a maximum of 50 clusters per call, but
    *          returns a marker to track the paging of the cluster list across multiple
@@ -1301,6 +1333,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p>Provides a list of steps for the cluster in reverse order unless you specify
    *             <code>stepIds</code> with the request or filter by <code>StepStates</code>. You can
    *          specify a maximum of 10 <code>stepIDs</code>. The CLI automatically
@@ -1332,6 +1365,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of all Amazon EMR Studios associated with the Amazon Web Services account. The list includes details such as ID, Studio Access URL, and
    *          creation time for each Studio.</p>
    */
@@ -1359,6 +1393,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of all user or group session mappings for the Amazon EMR Studio
    *          specified by <code>StudioId</code>.</p>
    */
@@ -1392,6 +1427,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p>Modifies the number of steps that can be executed concurrently for the cluster specified
    *          using ClusterID.</p>
    */
@@ -1425,6 +1461,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p>Modifies the target On-Demand and target Spot capacities for the instance fleet with the
    *          specified InstanceFleetID within the cluster specified using ClusterID. The call either
    *          succeeds or fails atomically.</p>
@@ -1463,6 +1500,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p>ModifyInstanceGroups modifies the number of nodes and configuration settings of an
    *          instance group. The input parameters include the new target instance count for the group
    *          and the instance group ID. The call will either succeed or fail atomically.</p>
@@ -1497,6 +1535,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p>Creates or updates an automatic scaling policy for a core instance group or task
    *          instance group in an Amazon EMR cluster. The automatic scaling policy defines how
    *          an instance group dynamically adds and terminates EC2 instances in response to the value of
@@ -1532,6 +1571,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>Auto-termination is supported in Amazon EMR versions 5.30.0 and 6.1.0 and
    *             later. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-auto-termination-policy.html">Using an
@@ -1572,6 +1612,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p>Creates or updates an Amazon EMR block public access configuration for your
    *             Amazon Web Services account in the current Region. For more information see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/configure-block-public-access.html">Configure Block
    *             Public Access for Amazon EMR</a> in the <i>Amazon EMR
@@ -1607,6 +1648,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p>Creates or updates a managed scaling policy for an Amazon EMR cluster. The
    *          managed scaling policy defines the limits for resources, such as EC2 instances that can be
    *          added or terminated from a cluster. The policy only applies to the core and task nodes. The
@@ -1642,6 +1684,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p>Removes an automatic scaling policy from a specified instance group within an EMR
    *          cluster.</p>
    */
@@ -1675,6 +1718,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p>Removes an auto-termination policy from an Amazon EMR cluster.</p>
    */
   public removeAutoTerminationPolicy(
@@ -1707,6 +1751,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p> Removes a managed scaling policy from a specified EMR cluster. </p>
    */
   public removeManagedScalingPolicy(
@@ -1739,6 +1784,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p>Removes tags from an Amazon EMR resource, such as a cluster or Amazon EMR Studio. Tags make it easier to associate resources in various ways, such as grouping
    *          clusters to track your Amazon EMR resource allocation costs. For more information,
    *          see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html">Tag
@@ -1769,6 +1815,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p>RunJobFlow creates and starts running a new cluster (job flow). The cluster runs the
    *          steps specified. After the steps complete, the cluster stops and the HDFS partition is
    *          lost. To prevent loss of data, configure the last step of the job flow to store results in
@@ -1783,7 +1830,8 @@ export class EMR extends EMRClient {
    *          <p>If your cluster is long-running (such as a Hive data warehouse) or complex, you may
    *          require more than 256 steps to process your data. You can bypass the 256-step limitation in
    *          various ways, including using the SSH shell to connect to the master node and submitting
-   *          queries directly to the software running on the master node, such as Hive and Hadoop.</p>
+   *          queries directly to the software running on the master node, such as Hive and
+   *          Hadoop.</p>
    *          <p>For long-running clusters, we recommend that you periodically store your results.</p>
    *          <note>
    *             <p>The instance fleets configuration is available only in Amazon EMR versions
@@ -1815,6 +1863,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p>SetTerminationProtection locks a cluster (job flow) so the EC2 instances in the cluster
    *          cannot be terminated by user intervention, an API call, or in the event of a job-flow
    *          error. The cluster still terminates upon successful completion of the job flow. Calling
@@ -1861,6 +1910,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <important>
    *             <p>The SetVisibleToAllUsers parameter is no longer supported. Your cluster may be
    *             visible to all users in your account. To restrict cluster access using an IAM policy, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-access-iam.html">Identity and Access
@@ -1906,6 +1956,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p>Starts a notebook execution.</p>
    */
   public startNotebookExecution(
@@ -1938,6 +1989,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p>Stops a notebook execution.</p>
    */
   public stopNotebookExecution(
@@ -1970,6 +2022,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p>TerminateJobFlows shuts a list of clusters (job flows) down. When a job flow is shut
    *          down, any step not yet completed is canceled and the EC2 instances on which the cluster is
    *          running are stopped. Any log files not already saved are uploaded to Amazon S3 if a
@@ -2009,6 +2062,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p>Updates an Amazon EMR Studio configuration, including attributes such as name,
    *          description, and subnets.</p>
    */
@@ -2039,6 +2093,7 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * @public
    * <p>Updates the session policy attached to the user or group for the specified Amazon EMR Studio.</p>
    */
   public updateStudioSessionMapping(

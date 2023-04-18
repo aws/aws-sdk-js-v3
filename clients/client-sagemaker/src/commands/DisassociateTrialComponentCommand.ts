@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DisassociateTrialComponentRequest,
-  DisassociateTrialComponentRequestFilterSensitiveLog,
-  DisassociateTrialComponentResponse,
-  DisassociateTrialComponentResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1DisassociateTrialComponentCommand,
-  serializeAws_json1_1DisassociateTrialComponentCommand,
-} from "../protocols/Aws_json1_1";
+import { DisassociateTrialComponentRequest, DisassociateTrialComponentResponse } from "../models/models_2";
+import { de_DisassociateTrialComponentCommand, se_DisassociateTrialComponentCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DisassociateTrialComponentCommand}.
+ */
 export interface DisassociateTrialComponentCommandInput extends DisassociateTrialComponentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateTrialComponentCommand}.
+ */
 export interface DisassociateTrialComponentCommandOutput extends DisassociateTrialComponentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a trial component from a trial. This doesn't effect other trials the
  *       component is associated with. Before you can delete a component, you must disassociate the
  *       component from all trials it is associated with. To associate a trial component with a trial,
@@ -41,13 +44,23 @@ export interface DisassociateTrialComponentCommandOutput extends DisassociateTri
  * import { SageMakerClient, DisassociateTrialComponentCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DisassociateTrialComponentCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DisassociateTrialComponentRequest
+ *   TrialComponentName: "STRING_VALUE", // required
+ *   TrialName: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateTrialComponentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateTrialComponentCommandInput - {@link DisassociateTrialComponentCommandInput}
+ * @returns {@link DisassociateTrialComponentCommandOutput}
  * @see {@link DisassociateTrialComponentCommandInput} for command's `input` shape.
  * @see {@link DisassociateTrialComponentCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class DisassociateTrialComponentCommand extends $Command<
@@ -67,6 +80,9 @@ export class DisassociateTrialComponentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateTrialComponentCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +111,8 @@ export class DisassociateTrialComponentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateTrialComponentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateTrialComponentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,15 +122,21 @@ export class DisassociateTrialComponentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateTrialComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateTrialComponentCommand(input, context);
+    return se_DisassociateTrialComponentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateTrialComponentCommandOutput> {
-    return deserializeAws_json1_1DisassociateTrialComponentCommand(output, context);
+    return de_DisassociateTrialComponentCommand(output, context);
   }
 
   // Start section: command_body_extra

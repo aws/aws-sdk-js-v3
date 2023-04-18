@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  DescribeTypeRegistrationInput,
-  DescribeTypeRegistrationInputFilterSensitiveLog,
-  DescribeTypeRegistrationOutput,
-  DescribeTypeRegistrationOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeTypeRegistrationCommand,
-  serializeAws_queryDescribeTypeRegistrationCommand,
-} from "../protocols/Aws_query";
+import { DescribeTypeRegistrationInput, DescribeTypeRegistrationOutput } from "../models/models_0";
+import { de_DescribeTypeRegistrationCommand, se_DescribeTypeRegistrationCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeTypeRegistrationCommand}.
+ */
 export interface DescribeTypeRegistrationCommandInput extends DescribeTypeRegistrationInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeTypeRegistrationCommand}.
+ */
 export interface DescribeTypeRegistrationCommandOutput extends DescribeTypeRegistrationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about an extension's registration, including its current status and
  *          type and version identifiers.</p>
  *          <p>When you initiate a registration request using <code>
@@ -46,13 +49,22 @@ export interface DescribeTypeRegistrationCommandOutput extends DescribeTypeRegis
  * import { CloudFormationClient, DescribeTypeRegistrationCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DescribeTypeRegistrationCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // DescribeTypeRegistrationInput
+ *   RegistrationToken: "STRING_VALUE", // required
+ * };
  * const command = new DescribeTypeRegistrationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTypeRegistrationCommandInput - {@link DescribeTypeRegistrationCommandInput}
+ * @returns {@link DescribeTypeRegistrationCommandOutput}
  * @see {@link DescribeTypeRegistrationCommandInput} for command's `input` shape.
  * @see {@link DescribeTypeRegistrationCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
+ *
+ * @throws {@link CFNRegistryException} (client fault)
+ *  <p>An error occurred during a CloudFormation registry operation.</p>
+ *
  *
  */
 export class DescribeTypeRegistrationCommand extends $Command<
@@ -72,6 +84,9 @@ export class DescribeTypeRegistrationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTypeRegistrationCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +115,8 @@ export class DescribeTypeRegistrationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTypeRegistrationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTypeRegistrationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +126,18 @@ export class DescribeTypeRegistrationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTypeRegistrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeTypeRegistrationCommand(input, context);
+    return se_DescribeTypeRegistrationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTypeRegistrationCommandOutput> {
-    return deserializeAws_queryDescribeTypeRegistrationCommand(output, context);
+    return de_DescribeTypeRegistrationCommand(output, context);
   }
 
   // Start section: command_body_extra

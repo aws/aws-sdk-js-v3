@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  GetBucketsRequest,
-  GetBucketsRequestFilterSensitiveLog,
-  GetBucketsResult,
-  GetBucketsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetBucketsCommand,
-  serializeAws_json1_1GetBucketsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetBucketsRequest, GetBucketsResult } from "../models/models_0";
+import { de_GetBucketsCommand, se_GetBucketsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetBucketsCommand}.
+ */
 export interface GetBucketsCommandInput extends GetBucketsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetBucketsCommand}.
+ */
 export interface GetBucketsCommandOutput extends GetBucketsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about one or more Amazon Lightsail buckets. The information returned
  *       includes the synchronization status of the Amazon Simple Storage Service (Amazon S3)
  *       account-level block public access feature for your Lightsail buckets.</p>
@@ -40,13 +43,44 @@ export interface GetBucketsCommandOutput extends GetBucketsResult, __MetadataBea
  * import { LightsailClient, GetBucketsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetBucketsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // GetBucketsRequest
+ *   bucketName: "STRING_VALUE",
+ *   pageToken: "STRING_VALUE",
+ *   includeConnectedResources: true || false,
+ * };
  * const command = new GetBucketsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketsCommandInput - {@link GetBucketsCommandInput}
+ * @returns {@link GetBucketsCommandOutput}
  * @see {@link GetBucketsCommandInput} for command's `input` shape.
  * @see {@link GetBucketsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
+ *       credentials to access a resource.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Lightsail throws this exception when user input does not conform to the validation rules
+ *       of an input field.</p>
+ *          <note>
+ *             <p>Domain and distribution APIs are only available in the N. Virginia
+ *           (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services
+ *         Region configuration to <code>us-east-1</code> to create, view, or edit these
+ *         resources.</p>
+ *          </note>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Lightsail throws this exception when it cannot find a resource.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>A general service exception.</p>
+ *
+ * @throws {@link UnauthenticatedException} (client fault)
+ *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
+ *
  *
  */
 export class GetBucketsCommand extends $Command<
@@ -66,6 +100,9 @@ export class GetBucketsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +129,8 @@ export class GetBucketsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBucketsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +140,18 @@ export class GetBucketsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBucketsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetBucketsCommand(input, context);
+    return se_GetBucketsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketsCommandOutput> {
-    return deserializeAws_json1_1GetBucketsCommand(output, context);
+    return de_GetBucketsCommand(output, context);
   }
 
   // Start section: command_body_extra

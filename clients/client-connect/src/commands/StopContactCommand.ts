@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  StopContactRequest,
-  StopContactRequestFilterSensitiveLog,
-  StopContactResponse,
-  StopContactResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1StopContactCommand,
-  serializeAws_restJson1StopContactCommand,
-} from "../protocols/Aws_restJson1";
+import { StopContactRequest, StopContactResponse } from "../models/models_1";
+import { de_StopContactCommand, se_StopContactCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link StopContactCommand}.
+ */
 export interface StopContactCommandInput extends StopContactRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StopContactCommand}.
+ */
 export interface StopContactCommandOutput extends StopContactResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Ends the specified contact. This call does not work for the following initiation
  *    methods:</p>
  *          <ul>
@@ -48,13 +51,36 @@ export interface StopContactCommandOutput extends StopContactResponse, __Metadat
  * import { ConnectClient, StopContactCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, StopContactCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // StopContactRequest
+ *   ContactId: "STRING_VALUE", // required
+ *   InstanceId: "STRING_VALUE", // required
+ * };
  * const command = new StopContactCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopContactCommandInput - {@link StopContactCommandInput}
+ * @returns {@link StopContactCommandOutput}
  * @see {@link StopContactCommandInput} for command's `input` shape.
  * @see {@link StopContactCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link ContactNotFoundException} (client fault)
+ *  <p>The contact with the specified ID is not active or does not exist. Applies to Voice calls
+ *    only, not to Chat, Task, or Voice Callback.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class StopContactCommand extends $Command<
@@ -74,6 +100,9 @@ export class StopContactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopContactCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +129,8 @@ export class StopContactCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopContactRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopContactResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +140,18 @@ export class StopContactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopContactCommand(input, context);
+    return se_StopContactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopContactCommandOutput> {
-    return deserializeAws_restJson1StopContactCommand(output, context);
+    return de_StopContactCommand(output, context);
   }
 
   // Start section: command_body_extra

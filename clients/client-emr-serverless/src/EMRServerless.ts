@@ -63,6 +63,7 @@ import {
 import { EMRServerlessClient } from "./EMRServerlessClient";
 
 /**
+ * @public
  * <p>Amazon EMR Serverless is a new deployment option for Amazon EMR. EMR Serverless provides
  *          a serverless runtime environment that simplifies running analytics applications using the
  *          latest open source frameworks such as Apache Spark and Apache Hive. With EMR Serverless,
@@ -88,6 +89,7 @@ import { EMRServerlessClient } from "./EMRServerlessClient";
  */
 export class EMRServerless extends EMRServerlessClient {
   /**
+   * @public
    * <p>Cancels a job run.</p>
    */
   public cancelJobRun(
@@ -117,6 +119,7 @@ export class EMRServerless extends EMRServerlessClient {
   }
 
   /**
+   * @public
    * <p>Creates an application.</p>
    */
   public createApplication(
@@ -149,6 +152,7 @@ export class EMRServerless extends EMRServerlessClient {
   }
 
   /**
+   * @public
    * <p>Deletes an application. An application has to be in a stopped or created state in order
    *          to be deleted.</p>
    */
@@ -182,6 +186,7 @@ export class EMRServerless extends EMRServerlessClient {
   }
 
   /**
+   * @public
    * <p>Displays detailed information about a specified application.</p>
    */
   public getApplication(
@@ -214,7 +219,9 @@ export class EMRServerless extends EMRServerlessClient {
   }
 
   /**
-   * <p>Returns a URL to access the job run dashboard.</p>
+   * @public
+   * <p>Returns a URL to access the job run dashboard. The generated URL is valid for one hour,
+   *          after which you must invoke the API again to generate a new URL.</p>
    */
   public getDashboardForJobRun(
     args: GetDashboardForJobRunCommandInput,
@@ -246,6 +253,7 @@ export class EMRServerless extends EMRServerlessClient {
   }
 
   /**
+   * @public
    * <p>Displays detailed information about a job run.</p>
    */
   public getJobRun(args: GetJobRunCommandInput, options?: __HttpHandlerOptions): Promise<GetJobRunCommandOutput>;
@@ -272,6 +280,7 @@ export class EMRServerless extends EMRServerlessClient {
   }
 
   /**
+   * @public
    * <p>Lists applications based on a set of parameters.</p>
    */
   public listApplications(
@@ -304,6 +313,7 @@ export class EMRServerless extends EMRServerlessClient {
   }
 
   /**
+   * @public
    * <p>Lists job runs based on a set of parameters.</p>
    */
   public listJobRuns(args: ListJobRunsCommandInput, options?: __HttpHandlerOptions): Promise<ListJobRunsCommandOutput>;
@@ -330,6 +340,7 @@ export class EMRServerless extends EMRServerlessClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags assigned to the resources.</p>
    */
   public listTagsForResource(
@@ -362,6 +373,7 @@ export class EMRServerless extends EMRServerlessClient {
   }
 
   /**
+   * @public
    * <p>Starts a specified application and initializes initial capacity if configured.</p>
    */
   public startApplication(
@@ -394,6 +406,7 @@ export class EMRServerless extends EMRServerlessClient {
   }
 
   /**
+   * @public
    * <p>Starts a job run.</p>
    */
   public startJobRun(args: StartJobRunCommandInput, options?: __HttpHandlerOptions): Promise<StartJobRunCommandOutput>;
@@ -420,6 +433,7 @@ export class EMRServerless extends EMRServerlessClient {
   }
 
   /**
+   * @public
    * <p>Stops a specified application and releases initial capacity if configured. All scheduled
    *          and running jobs must be completed or cancelled before stopping an application.</p>
    */
@@ -453,11 +467,12 @@ export class EMRServerless extends EMRServerlessClient {
   }
 
   /**
-   * <p>Assigns tags to resources. A tag is a label that you assign to an AWS resource. Each tag
-   *          consists of a key and an optional value, both of which you define. Tags enable you to
-   *          categorize your AWS resources by attributes such as purpose, owner, or environment. When
-   *          you have many resources of the same type, you can quickly identify a specific resource
-   *          based on the tags you've assigned to it. </p>
+   * @public
+   * <p>Assigns tags to resources. A tag is a label that you assign to an Amazon Web Services
+   *          resource. Each tag consists of a key and an optional value, both of which you define. Tags
+   *          enable you to categorize your Amazon Web Services resources by attributes such as purpose,
+   *          owner, or environment. When you have many resources of the same type, you can quickly
+   *          identify a specific resource based on the tags you've assigned to it. </p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -483,6 +498,7 @@ export class EMRServerless extends EMRServerlessClient {
   }
 
   /**
+   * @public
    * <p>Removes tags from resources.</p>
    */
   public untagResource(
@@ -515,6 +531,7 @@ export class EMRServerless extends EMRServerlessClient {
   }
 
   /**
+   * @public
    * <p>Updates a specified application. An application has to be in a stopped or created state
    *          in order to be updated.</p>
    */

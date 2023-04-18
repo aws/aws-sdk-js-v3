@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
+import { StartAssessmentFrameworkShareRequest, StartAssessmentFrameworkShareResponse } from "../models/models_0";
 import {
-  StartAssessmentFrameworkShareRequest,
-  StartAssessmentFrameworkShareRequestFilterSensitiveLog,
-  StartAssessmentFrameworkShareResponse,
-  StartAssessmentFrameworkShareResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StartAssessmentFrameworkShareCommand,
-  serializeAws_restJson1StartAssessmentFrameworkShareCommand,
+  de_StartAssessmentFrameworkShareCommand,
+  se_StartAssessmentFrameworkShareCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link StartAssessmentFrameworkShareCommand}.
+ */
 export interface StartAssessmentFrameworkShareCommandInput extends StartAssessmentFrameworkShareRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartAssessmentFrameworkShareCommand}.
+ */
 export interface StartAssessmentFrameworkShareCommandOutput
   extends StartAssessmentFrameworkShareResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Creates a share request for a custom framework in Audit Manager. </p>
  *          <p>The share request specifies a recipient and notifies them that a custom framework is
  *          available. Recipients have 120 days to accept or decline the request. If no action is
@@ -74,13 +80,36 @@ export interface StartAssessmentFrameworkShareCommandOutput
  * import { AuditManagerClient, StartAssessmentFrameworkShareCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, StartAssessmentFrameworkShareCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = { // StartAssessmentFrameworkShareRequest
+ *   frameworkId: "STRING_VALUE", // required
+ *   destinationAccount: "STRING_VALUE", // required
+ *   destinationRegion: "STRING_VALUE", // required
+ *   comment: "STRING_VALUE",
+ * };
  * const command = new StartAssessmentFrameworkShareCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartAssessmentFrameworkShareCommandInput - {@link StartAssessmentFrameworkShareCommandInput}
+ * @returns {@link StartAssessmentFrameworkShareCommandOutput}
  * @see {@link StartAssessmentFrameworkShareCommandInput} for command's `input` shape.
  * @see {@link StartAssessmentFrameworkShareCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p> Your account isn't registered with Audit Manager. Check the delegated
+ *          administrator setup on the Audit Manager settings page, and try again. </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> An internal service error occurred during the processing of your request. Try again
+ *          later. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p> The resource that's specified in the request can't be found. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p> The request has invalid or missing parameters. </p>
+ *
  *
  */
 export class StartAssessmentFrameworkShareCommand extends $Command<
@@ -100,6 +129,9 @@ export class StartAssessmentFrameworkShareCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartAssessmentFrameworkShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +160,8 @@ export class StartAssessmentFrameworkShareCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartAssessmentFrameworkShareRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartAssessmentFrameworkShareResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,15 +171,21 @@ export class StartAssessmentFrameworkShareCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartAssessmentFrameworkShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartAssessmentFrameworkShareCommand(input, context);
+    return se_StartAssessmentFrameworkShareCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartAssessmentFrameworkShareCommandOutput> {
-    return deserializeAws_restJson1StartAssessmentFrameworkShareCommand(output, context);
+    return de_StartAssessmentFrameworkShareCommand(output, context);
   }
 
   // Start section: command_body_extra

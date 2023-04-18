@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import { EnableStageTransitionInput, EnableStageTransitionInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1EnableStageTransitionCommand,
-  serializeAws_json1_1EnableStageTransitionCommand,
-} from "../protocols/Aws_json1_1";
+import { EnableStageTransitionInput } from "../models/models_0";
+import { de_EnableStageTransitionCommand, se_EnableStageTransitionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link EnableStageTransitionCommand}.
+ */
 export interface EnableStageTransitionCommandInput extends EnableStageTransitionInput {}
+/**
+ * @public
+ *
+ * The output of {@link EnableStageTransitionCommand}.
+ */
 export interface EnableStageTransitionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables artifacts in a pipeline to transition to a stage in a pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +39,30 @@ export interface EnableStageTransitionCommandOutput extends __MetadataBearer {}
  * import { CodePipelineClient, EnableStageTransitionCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, EnableStageTransitionCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
+ * const input = { // EnableStageTransitionInput
+ *   pipelineName: "STRING_VALUE", // required
+ *   stageName: "STRING_VALUE", // required
+ *   transitionType: "STRING_VALUE", // required
+ * };
  * const command = new EnableStageTransitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableStageTransitionCommandInput - {@link EnableStageTransitionCommandInput}
+ * @returns {@link EnableStageTransitionCommandOutput}
  * @see {@link EnableStageTransitionCommandInput} for command's `input` shape.
  * @see {@link EnableStageTransitionCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
+ *
+ * @throws {@link PipelineNotFoundException} (client fault)
+ *  <p>The pipeline was specified in an invalid format or cannot be found.</p>
+ *
+ * @throws {@link StageNotFoundException} (client fault)
+ *  <p>The stage was specified in an invalid format or cannot be found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The validation was specified in an invalid format.</p>
+ *
  *
  */
 export class EnableStageTransitionCommand extends $Command<
@@ -57,6 +82,9 @@ export class EnableStageTransitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableStageTransitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +113,8 @@ export class EnableStageTransitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableStageTransitionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +124,18 @@ export class EnableStageTransitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableStageTransitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1EnableStageTransitionCommand(input, context);
+    return se_EnableStageTransitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableStageTransitionCommandOutput> {
-    return deserializeAws_json1_1EnableStageTransitionCommand(output, context);
+    return de_EnableStageTransitionCommand(output, context);
   }
 
   // Start section: command_body_extra

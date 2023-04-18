@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateRuleGroupRequest,
-  CreateRuleGroupRequestFilterSensitiveLog,
-  CreateRuleGroupResponse,
-  CreateRuleGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateRuleGroupCommand,
-  serializeAws_json1_1CreateRuleGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateRuleGroupRequest, CreateRuleGroupResponse } from "../models/models_0";
+import { de_CreateRuleGroupCommand, se_CreateRuleGroupCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateRuleGroupCommand}.
+ */
 export interface CreateRuleGroupCommandInput extends CreateRuleGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateRuleGroupCommand}.
+ */
 export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -58,13 +61,50 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  * import { WAFRegionalClient, CreateRuleGroupCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, CreateRuleGroupCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
+ * const input = { // CreateRuleGroupRequest
+ *   Name: "STRING_VALUE", // required
+ *   MetricName: "STRING_VALUE", // required
+ *   ChangeToken: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateRuleGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRuleGroupCommandInput - {@link CreateRuleGroupCommandInput}
+ * @returns {@link CreateRuleGroupCommandOutput}
  * @see {@link CreateRuleGroupCommandInput} for command's `input` shape.
  * @see {@link CreateRuleGroupCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
+ *
+ * @throws {@link WAFBadRequestException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link WAFDisallowedNameException} (client fault)
+ *  <p>The name specified is invalid.</p>
+ *
+ * @throws {@link WAFInternalErrorException} (server fault)
+ *  <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+ *
+ * @throws {@link WAFLimitsExceededException} (client fault)
+ *  <p>The operation exceeds a resource limit, for example, the maximum number of <code>WebACL</code> objects that you can create
+ * 			for an AWS account. For more information, see
+ * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">Limits</a> in the <i>AWS WAF Developer Guide</i>.</p>
+ *
+ * @throws {@link WAFStaleDataException} (client fault)
+ *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+ *
+ * @throws {@link WAFTagOperationException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link WAFTagOperationInternalErrorException} (server fault)
+ *  <p></p>
+ *
  *
  */
 export class CreateRuleGroupCommand extends $Command<
@@ -84,6 +124,9 @@ export class CreateRuleGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRuleGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +155,8 @@ export class CreateRuleGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRuleGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRuleGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +166,18 @@ export class CreateRuleGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRuleGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateRuleGroupCommand(input, context);
+    return se_CreateRuleGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRuleGroupCommandOutput> {
-    return deserializeAws_json1_1CreateRuleGroupCommand(output, context);
+    return de_CreateRuleGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

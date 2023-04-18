@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
+import { UpdateBusinessReportScheduleRequest, UpdateBusinessReportScheduleResponse } from "../models/models_0";
 import {
-  UpdateBusinessReportScheduleRequest,
-  UpdateBusinessReportScheduleRequestFilterSensitiveLog,
-  UpdateBusinessReportScheduleResponse,
-  UpdateBusinessReportScheduleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateBusinessReportScheduleCommand,
-  serializeAws_json1_1UpdateBusinessReportScheduleCommand,
+  de_UpdateBusinessReportScheduleCommand,
+  se_UpdateBusinessReportScheduleCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateBusinessReportScheduleCommand}.
+ */
 export interface UpdateBusinessReportScheduleCommandInput extends UpdateBusinessReportScheduleRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateBusinessReportScheduleCommand}.
+ */
 export interface UpdateBusinessReportScheduleCommandOutput
   extends UpdateBusinessReportScheduleResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the configuration of the report delivery schedule with the specified schedule
  *          ARN.</p>
  * @example
@@ -39,13 +45,32 @@ export interface UpdateBusinessReportScheduleCommandOutput
  * import { AlexaForBusinessClient, UpdateBusinessReportScheduleCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, UpdateBusinessReportScheduleCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // UpdateBusinessReportScheduleRequest
+ *   ScheduleArn: "STRING_VALUE", // required
+ *   S3BucketName: "STRING_VALUE",
+ *   S3KeyPrefix: "STRING_VALUE",
+ *   Format: "STRING_VALUE",
+ *   ScheduleName: "STRING_VALUE",
+ *   Recurrence: { // BusinessReportRecurrence
+ *     StartDate: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateBusinessReportScheduleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateBusinessReportScheduleCommandInput - {@link UpdateBusinessReportScheduleCommandInput}
+ * @returns {@link UpdateBusinessReportScheduleCommandOutput}
  * @see {@link UpdateBusinessReportScheduleCommandInput} for command's `input` shape.
  * @see {@link UpdateBusinessReportScheduleCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is a concurrent modification of resources.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
  *
  */
 export class UpdateBusinessReportScheduleCommand extends $Command<
@@ -65,6 +90,9 @@ export class UpdateBusinessReportScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateBusinessReportScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +121,8 @@ export class UpdateBusinessReportScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateBusinessReportScheduleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateBusinessReportScheduleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,15 +132,21 @@ export class UpdateBusinessReportScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateBusinessReportScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateBusinessReportScheduleCommand(input, context);
+    return se_UpdateBusinessReportScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateBusinessReportScheduleCommandOutput> {
-    return deserializeAws_json1_1UpdateBusinessReportScheduleCommand(output, context);
+    return de_UpdateBusinessReportScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

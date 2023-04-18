@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCampaignsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCampaignsClient";
-import { DeleteCampaignRequest, DeleteCampaignRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteCampaignCommand,
-  serializeAws_restJson1DeleteCampaignCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteCampaignRequest } from "../models/models_0";
+import { de_DeleteCampaignCommand, se_DeleteCampaignCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteCampaignCommand}.
+ */
 export interface DeleteCampaignCommandInput extends DeleteCampaignRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteCampaignCommand}.
+ */
 export interface DeleteCampaignCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * Deletes a campaign from the specified Amazon Connect account.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +39,31 @@ export interface DeleteCampaignCommandOutput extends __MetadataBearer {}
  * import { ConnectCampaignsClient, DeleteCampaignCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
  * // const { ConnectCampaignsClient, DeleteCampaignCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
  * const client = new ConnectCampaignsClient(config);
+ * const input = { // DeleteCampaignRequest
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteCampaignCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCampaignCommandInput - {@link DeleteCampaignCommandInput}
+ * @returns {@link DeleteCampaignCommandOutput}
  * @see {@link DeleteCampaignCommandInput} for command's `input` shape.
  * @see {@link DeleteCampaignCommandOutput} for command's `response` shape.
  * @see {@link ConnectCampaignsClientResolvedConfig | config} for ConnectCampaignsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  You do not have sufficient access to perform this action.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  Request processing failed because of an error or failure with the service.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  The specified resource was not found.
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  The input fails to satisfy the constraints specified by an AWS service.
+ *
  *
  */
 export class DeleteCampaignCommand extends $Command<
@@ -57,6 +83,9 @@ export class DeleteCampaignCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCampaignCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +114,8 @@ export class DeleteCampaignCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCampaignRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +125,18 @@ export class DeleteCampaignCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCampaignCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteCampaignCommand(input, context);
+    return se_DeleteCampaignCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCampaignCommandOutput> {
-    return deserializeAws_restJson1DeleteCampaignCommand(output, context);
+    return de_DeleteCampaignCommand(output, context);
   }
 
   // Start section: command_body_extra

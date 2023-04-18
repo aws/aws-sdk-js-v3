@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import {
-  GetInvitationsCountRequest,
-  GetInvitationsCountRequestFilterSensitiveLog,
-  GetInvitationsCountResponse,
-  GetInvitationsCountResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetInvitationsCountCommand,
-  serializeAws_restJson1GetInvitationsCountCommand,
-} from "../protocols/Aws_restJson1";
+import { GetInvitationsCountRequest, GetInvitationsCountResponse } from "../models/models_0";
+import { de_GetInvitationsCountCommand, se_GetInvitationsCountCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetInvitationsCountCommand}.
+ */
 export interface GetInvitationsCountCommandInput extends GetInvitationsCountRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetInvitationsCountCommand}.
+ */
 export interface GetInvitationsCountCommandOutput extends GetInvitationsCountResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the count of all GuardDuty membership invitations that were sent to the current
  *       member account except the currently accepted invitation.</p>
  * @example
@@ -37,13 +40,23 @@ export interface GetInvitationsCountCommandOutput extends GetInvitationsCountRes
  * import { GuardDutyClient, GetInvitationsCountCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, GetInvitationsCountCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = {};
  * const command = new GetInvitationsCountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInvitationsCountCommandInput - {@link GetInvitationsCountCommandInput}
+ * @returns {@link GetInvitationsCountCommandOutput}
  * @see {@link GetInvitationsCountCommandInput} for command's `input` shape.
  * @see {@link GetInvitationsCountCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>A bad request exception object.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>An internal server error exception object.</p>
+ *
  *
  */
 export class GetInvitationsCountCommand extends $Command<
@@ -63,6 +76,9 @@ export class GetInvitationsCountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInvitationsCountCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +107,8 @@ export class GetInvitationsCountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetInvitationsCountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetInvitationsCountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +118,18 @@ export class GetInvitationsCountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetInvitationsCountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetInvitationsCountCommand(input, context);
+    return se_GetInvitationsCountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInvitationsCountCommandOutput> {
-    return deserializeAws_restJson1GetInvitationsCountCommand(output, context);
+    return de_GetInvitationsCountCommand(output, context);
   }
 
   // Start section: command_body_extra

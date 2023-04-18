@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateCollectionRequest,
-  CreateCollectionRequestFilterSensitiveLog,
-  CreateCollectionResponse,
-  CreateCollectionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateCollectionCommand,
-  serializeAws_json1_1CreateCollectionCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateCollectionRequest, CreateCollectionResponse } from "../models/models_0";
+import { de_CreateCollectionCommand, se_CreateCollectionCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateCollectionCommand}.
+ */
 export interface CreateCollectionCommandInput extends CreateCollectionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateCollectionCommand}.
+ */
 export interface CreateCollectionCommandOutput extends CreateCollectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a collection in an AWS Region. You can add faces to the collection using the
  *         <a>IndexFaces</a> operation. </p>
  *          <p>For example, you might create collections, one for each of your application users. A
@@ -50,13 +53,64 @@ export interface CreateCollectionCommandOutput extends CreateCollectionResponse,
  * import { RekognitionClient, CreateCollectionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, CreateCollectionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // CreateCollectionRequest
+ *   CollectionId: "STRING_VALUE", // required
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateCollectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCollectionCommandInput - {@link CreateCollectionCommandInput}
+ * @returns {@link CreateCollectionCommandOutput}
  * @see {@link CreateCollectionCommandInput} for command's `input` shape.
  * @see {@link CreateCollectionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to perform the action.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
+ *       operation again.</p>
+ *
+ * @throws {@link ProvisionedThroughputExceededException} (client fault)
+ *  <p>The number of requests exceeded your throughput limit. If you want to increase this
+ *       limit, contact Amazon Rekognition.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>A resource with the specified ID already exists.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p></p>
+ *          <p>The size of the collection exceeds the allowed limit. For more information,
+ *       see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
+ *
+ * @throws {@link ThrottlingException} (server fault)
+ *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
+ *
+ * @example To create a collection
+ * ```javascript
+ * // This operation creates a Rekognition collection for storing image data.
+ * const input = {
+ *   "CollectionId": "myphotos"
+ * };
+ * const command = new CreateCollectionCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "CollectionArn": "aws:rekognition:us-west-2:123456789012:collection/myphotos",
+ *   "StatusCode": 200
+ * }
+ * *\/
+ * // example id: to-create-a-collection-1481833313674
+ * ```
  *
  */
 export class CreateCollectionCommand extends $Command<
@@ -76,6 +130,9 @@ export class CreateCollectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCollectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +161,8 @@ export class CreateCollectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCollectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCollectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +172,18 @@ export class CreateCollectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCollectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateCollectionCommand(input, context);
+    return se_CreateCollectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCollectionCommandOutput> {
-    return deserializeAws_json1_1CreateCollectionCommand(output, context);
+    return de_CreateCollectionCommand(output, context);
   }
 
   // Start section: command_body_extra

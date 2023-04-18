@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { GetInsightsCommand, GetInsightsCommandInput, GetInsightsCommandOutput } from "../commands/GetInsightsCommand";
-import { SecurityHub } from "../SecurityHub";
 import { SecurityHubClient } from "../SecurityHubClient";
 import { SecurityHubPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SecurityHubClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new GetInsightsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: SecurityHub,
-  input: GetInsightsCommandInput,
-  ...args: any
-): Promise<GetInsightsCommandOutput> => {
-  // @ts-ignore
-  return await client.getInsights(input, ...args);
-};
 export async function* paginateGetInsights(
   config: SecurityHubPaginationConfiguration,
   input: GetInsightsCommandInput,
@@ -40,9 +31,7 @@ export async function* paginateGetInsights(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof SecurityHub) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SecurityHubClient) {
+    if (config.client instanceof SecurityHubClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SecurityHub | SecurityHubClient");

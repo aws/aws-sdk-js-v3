@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import {
-  GetPublicKeyRequest,
-  GetPublicKeyRequestFilterSensitiveLog,
-  GetPublicKeyResponse,
-  GetPublicKeyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetPublicKeyCommand,
-  serializeAws_json1_1GetPublicKeyCommand,
-} from "../protocols/Aws_json1_1";
+import { GetPublicKeyRequest, GetPublicKeyResponse } from "../models/models_0";
+import { de_GetPublicKeyCommand, se_GetPublicKeyCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetPublicKeyCommand}.
+ */
 export interface GetPublicKeyCommandInput extends GetPublicKeyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetPublicKeyCommand}.
+ */
 export interface GetPublicKeyCommandOutput extends GetPublicKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the public key of an asymmetric KMS key. Unlike the private key of a asymmetric
  *       KMS key, which never leaves KMS unencrypted, callers with <code>kms:GetPublicKey</code>
  *       permission can download the public key of an asymmetric KMS key. You can share the public key
@@ -39,7 +42,6 @@ export interface GetPublicKeyCommandOutput extends GetPublicKeyResponse, __Metad
  *       public key within KMS, you benefit from the authentication, authorization, and logging that
  *       are part of every KMS operation. You also reduce of risk of encrypting data that cannot be
  *       decrypted. These features are not effective outside of KMS.</p>
- *
  *          <p>To help you use the public key safely outside of KMS, <code>GetPublicKey</code> returns
  *       important information about the public key in the response, including:</p>
  *          <ul>
@@ -74,7 +76,6 @@ export interface GetPublicKeyCommandOutput extends GetPublicKeyResponse, __Metad
  *             <b>Cross-account use</b>:
  *       Yes. To perform this operation with a KMS key in a different Amazon Web Services account, specify
  *   the key ARN or alias ARN in the value of the <code>KeyId</code> parameter.</p>
- *
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:GetPublicKey</a> (key policy)</p>
  *          <p>
@@ -86,13 +87,114 @@ export interface GetPublicKeyCommandOutput extends GetPublicKeyResponse, __Metad
  * import { KMSClient, GetPublicKeyCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, GetPublicKeyCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // GetPublicKeyRequest
+ *   KeyId: "STRING_VALUE", // required
+ *   GrantTokens: [ // GrantTokenList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetPublicKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPublicKeyCommandInput - {@link GetPublicKeyCommandInput}
+ * @returns {@link GetPublicKeyCommandOutput}
  * @see {@link GetPublicKeyCommandInput} for command's `input` shape.
  * @see {@link GetPublicKeyCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
+ *
+ * @throws {@link DependencyTimeoutException} (server fault)
+ *  <p>The system timed out while trying to fulfill the request. You can retry the
+ *       request.</p>
+ *
+ * @throws {@link DisabledException} (client fault)
+ *  <p>The request was rejected because the specified KMS key is not enabled.</p>
+ *
+ * @throws {@link InvalidArnException} (client fault)
+ *  <p>The request was rejected because a specified ARN, or an ARN in a key policy, is not
+ *       valid.</p>
+ *
+ * @throws {@link InvalidGrantTokenException} (client fault)
+ *  <p>The request was rejected because the specified grant token is not valid.</p>
+ *
+ * @throws {@link InvalidKeyUsageException} (client fault)
+ *  <p>The request was rejected for one of the following reasons: </p>
+ *          <ul>
+ *             <li>
+ *                <p>The <code>KeyUsage</code> value of the KMS key is incompatible with the API
+ *           operation.</p>
+ *             </li>
+ *             <li>
+ *                <p>The encryption algorithm or signing algorithm specified for the operation is
+ *           incompatible with the type of key material in the KMS key <code>(KeySpec</code>).</p>
+ *             </li>
+ *          </ul>
+ *          <p>For encrypting, decrypting, re-encrypting, and generating data keys, the
+ *         <code>KeyUsage</code> must be <code>ENCRYPT_DECRYPT</code>. For signing and verifying
+ *       messages, the <code>KeyUsage</code> must be <code>SIGN_VERIFY</code>. For generating and
+ *       verifying message authentication codes (MACs), the <code>KeyUsage</code> must be
+ *         <code>GENERATE_VERIFY_MAC</code>. To find the <code>KeyUsage</code> of a KMS key, use the
+ *         <a>DescribeKey</a> operation.</p>
+ *          <p>To find the encryption or signing algorithms supported for a particular KMS key, use the
+ *         <a>DescribeKey</a> operation.</p>
+ *
+ * @throws {@link KeyUnavailableException} (server fault)
+ *  <p>The request was rejected because the specified KMS key was not available. You can retry
+ *       the request.</p>
+ *
+ * @throws {@link KMSInternalException} (server fault)
+ *  <p>The request was rejected because an internal exception occurred. The request can be
+ *       retried.</p>
+ *
+ * @throws {@link KMSInvalidStateException} (client fault)
+ *  <p>The request was rejected because the state of the specified resource is not valid for this
+ *       request.</p>
+ *          <p>This exceptions means one of the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The key state of the KMS key is not compatible with the operation. </p>
+ *                <p>To find the key state, use the <a>DescribeKey</a> operation. For more
+ *           information about which key states are compatible with each KMS operation, see
+ *           <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>
+ *                      <i>Key Management Service Developer Guide</i>
+ *                   </i>.</p>
+ *             </li>
+ *             <li>
+ *                <p>For cryptographic operations on KMS keys in custom key stores, this exception represents a general failure with many possible causes. To identify the cause, see the error message that accompanies the exception.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The request was rejected because the specified entity or resource could not be
+ *       found.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>The request was rejected because a specified parameter is not supported or a specified
+ *       resource is not valid for this operation.</p>
+ *
+ *
+ * @example To download the public key of an asymmetric KMS key
+ * ```javascript
+ * // This example gets the public key of an asymmetric RSA KMS key used for encryption and decryption. The operation returns the key spec, key usage, and encryption or signing algorithms to help you use the public key correctly outside of AWS KMS.
+ * const input = {
+ *   "KeyId": "arn:aws:kms:us-west-2:111122223333:key/0987dcba-09fe-87dc-65ba-ab0987654321"
+ * };
+ * const command = new GetPublicKeyCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "CustomerMasterKeySpec": "RSA_4096",
+ *   "EncryptionAlgorithms": [
+ *     "RSAES_OAEP_SHA_1",
+ *     "RSAES_OAEP_SHA_256"
+ *   ],
+ *   "KeyId": "arn:aws:kms:us-west-2:111122223333:key/0987dcba-09fe-87dc-65ba-ab0987654321",
+ *   "KeyUsage": "ENCRYPT_DECRYPT",
+ *   "PublicKey": "<binary data>"
+ * }
+ * *\/
+ * // example id: to-download-the-public-key-of-an-asymmetric-kms-key-1628621691873
+ * ```
  *
  */
 export class GetPublicKeyCommand extends $Command<
@@ -112,6 +214,9 @@ export class GetPublicKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPublicKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,8 +243,8 @@ export class GetPublicKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPublicKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPublicKeyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -149,12 +254,18 @@ export class GetPublicKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPublicKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetPublicKeyCommand(input, context);
+    return se_GetPublicKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPublicKeyCommandOutput> {
-    return deserializeAws_json1_1GetPublicKeyCommand(output, context);
+    return de_GetPublicKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

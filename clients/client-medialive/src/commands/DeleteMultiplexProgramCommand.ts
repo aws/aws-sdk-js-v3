@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  DeleteMultiplexProgramRequest,
-  DeleteMultiplexProgramRequestFilterSensitiveLog,
-  DeleteMultiplexProgramResponse,
-  DeleteMultiplexProgramResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1DeleteMultiplexProgramCommand,
-  serializeAws_restJson1DeleteMultiplexProgramCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteMultiplexProgramRequest, DeleteMultiplexProgramResponse } from "../models/models_1";
+import { de_DeleteMultiplexProgramCommand, se_DeleteMultiplexProgramCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteMultiplexProgramCommand}.
+ */
 export interface DeleteMultiplexProgramCommandInput extends DeleteMultiplexProgramRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteMultiplexProgramCommand}.
+ */
 export interface DeleteMultiplexProgramCommandOutput extends DeleteMultiplexProgramResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Delete a program from a multiplex.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,44 @@ export interface DeleteMultiplexProgramCommandOutput extends DeleteMultiplexProg
  * import { MediaLiveClient, DeleteMultiplexProgramCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, DeleteMultiplexProgramCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = { // DeleteMultiplexProgramRequest
+ *   MultiplexId: "STRING_VALUE", // required
+ *   ProgramName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteMultiplexProgramCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMultiplexProgramCommandInput - {@link DeleteMultiplexProgramCommandInput}
+ * @returns {@link DeleteMultiplexProgramCommandOutput}
  * @see {@link DeleteMultiplexProgramCommandInput} for command's `input` shape.
  * @see {@link DeleteMultiplexProgramCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
+ *
+ * @throws {@link BadGatewayException} (server fault)
+ *  Placeholder documentation for BadGatewayException
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  Placeholder documentation for BadRequestException
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  Placeholder documentation for ConflictException
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  Placeholder documentation for ForbiddenException
+ *
+ * @throws {@link GatewayTimeoutException} (server fault)
+ *  Placeholder documentation for GatewayTimeoutException
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  Placeholder documentation for InternalServerErrorException
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  Placeholder documentation for NotFoundException
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  Placeholder documentation for TooManyRequestsException
+ *
  *
  */
 export class DeleteMultiplexProgramCommand extends $Command<
@@ -62,6 +96,9 @@ export class DeleteMultiplexProgramCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMultiplexProgramCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +127,8 @@ export class DeleteMultiplexProgramCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMultiplexProgramRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteMultiplexProgramResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +138,18 @@ export class DeleteMultiplexProgramCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMultiplexProgramCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteMultiplexProgramCommand(input, context);
+    return se_DeleteMultiplexProgramCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMultiplexProgramCommandOutput> {
-    return deserializeAws_restJson1DeleteMultiplexProgramCommand(output, context);
+    return de_DeleteMultiplexProgramCommand(output, context);
   }
 
   // Start section: command_body_extra

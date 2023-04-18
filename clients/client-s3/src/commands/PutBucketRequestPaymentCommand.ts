@@ -14,23 +14,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutBucketRequestPaymentRequest, PutBucketRequestPaymentRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restXmlPutBucketRequestPaymentCommand,
-  serializeAws_restXmlPutBucketRequestPaymentCommand,
-} from "../protocols/Aws_restXml";
+import { PutBucketRequestPaymentRequest } from "../models/models_0";
+import { de_PutBucketRequestPaymentCommand, se_PutBucketRequestPaymentCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * @public
+ *
+ * The input for {@link PutBucketRequestPaymentCommand}.
+ */
 export interface PutBucketRequestPaymentCommandInput extends PutBucketRequestPaymentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutBucketRequestPaymentCommand}.
+ */
 export interface PutBucketRequestPaymentCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the request payment configuration for a bucket. By default, the bucket owner pays
  *          for downloads from the bucket. This configuration parameter enables the bucket owner (only)
  *          to specify that the person requesting the download will be charged for the download. For
  *          more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html">Requester Pays
- *             Buckets</a>.</p>
- *
+ *          Buckets</a>.</p>
  *          <p>The following operations are related to <code>PutBucketRequestPayment</code>:</p>
  *          <ul>
  *             <li>
@@ -50,13 +57,39 @@ export interface PutBucketRequestPaymentCommandOutput extends __MetadataBearer {
  * import { S3Client, PutBucketRequestPaymentCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutBucketRequestPaymentCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // PutBucketRequestPaymentRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   ContentMD5: "STRING_VALUE",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   RequestPaymentConfiguration: { // RequestPaymentConfiguration
+ *     Payer: "Requester" || "BucketOwner", // required
+ *   },
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new PutBucketRequestPaymentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBucketRequestPaymentCommandInput - {@link PutBucketRequestPaymentCommandInput}
+ * @returns {@link PutBucketRequestPaymentCommandOutput}
  * @see {@link PutBucketRequestPaymentCommandInput} for command's `input` shape.
  * @see {@link PutBucketRequestPaymentCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
+ *
+ *
+ * @example Set request payment configuration on a bucket.
+ * ```javascript
+ * // The following example sets request payment configuration on a bucket so that person requesting the download is charged.
+ * const input = {
+ *   "Bucket": "examplebucket",
+ *   "RequestPaymentConfiguration": {
+ *     "Payer": "Requester"
+ *   }
+ * };
+ * const command = new PutBucketRequestPaymentCommand(input);
+ * await client.send(command);
+ * // example id: set-request-payment-configuration-on-a-bucket-1482343596680
+ * ```
  *
  */
 export class PutBucketRequestPaymentCommand extends $Command<
@@ -82,6 +115,9 @@ export class PutBucketRequestPaymentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBucketRequestPaymentCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +153,8 @@ export class PutBucketRequestPaymentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutBucketRequestPaymentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +164,18 @@ export class PutBucketRequestPaymentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutBucketRequestPaymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutBucketRequestPaymentCommand(input, context);
+    return se_PutBucketRequestPaymentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBucketRequestPaymentCommandOutput> {
-    return deserializeAws_restXmlPutBucketRequestPaymentCommand(output, context);
+    return de_PutBucketRequestPaymentCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CodestarNotificationsClient";
-import {
-  DeleteNotificationRuleRequest,
-  DeleteNotificationRuleRequestFilterSensitiveLog,
-  DeleteNotificationRuleResult,
-  DeleteNotificationRuleResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteNotificationRuleCommand,
-  serializeAws_restJson1DeleteNotificationRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteNotificationRuleRequest, DeleteNotificationRuleResult } from "../models/models_0";
+import { de_DeleteNotificationRuleCommand, se_DeleteNotificationRuleCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteNotificationRuleCommand}.
+ */
 export interface DeleteNotificationRuleCommandInput extends DeleteNotificationRuleRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteNotificationRuleCommand}.
+ */
 export interface DeleteNotificationRuleCommandOutput extends DeleteNotificationRuleResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a notification rule for a resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,31 @@ export interface DeleteNotificationRuleCommandOutput extends DeleteNotificationR
  * import { CodestarNotificationsClient, DeleteNotificationRuleCommand } from "@aws-sdk/client-codestar-notifications"; // ES Modules import
  * // const { CodestarNotificationsClient, DeleteNotificationRuleCommand } = require("@aws-sdk/client-codestar-notifications"); // CommonJS import
  * const client = new CodestarNotificationsClient(config);
+ * const input = { // DeleteNotificationRuleRequest
+ *   Arn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteNotificationRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNotificationRuleCommandInput - {@link DeleteNotificationRuleCommandInput}
+ * @returns {@link DeleteNotificationRuleCommandOutput}
  * @see {@link DeleteNotificationRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteNotificationRuleCommandOutput} for command's `response` shape.
  * @see {@link CodestarNotificationsClientResolvedConfig | config} for CodestarNotificationsClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>AWS CodeStar Notifications can't complete the request because the resource is being modified by
+ *       another process. Wait a few minutes and try again.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>One of the AWS CodeStar Notifications limits has been exceeded. Limits apply to
+ *             accounts, notification rules, notifications, resources, and targets. For more
+ *             information, see Limits.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
  *
  */
 export class DeleteNotificationRuleCommand extends $Command<
@@ -66,6 +87,9 @@ export class DeleteNotificationRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNotificationRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +118,8 @@ export class DeleteNotificationRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteNotificationRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteNotificationRuleResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +129,18 @@ export class DeleteNotificationRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteNotificationRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteNotificationRuleCommand(input, context);
+    return se_DeleteNotificationRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteNotificationRuleCommandOutput> {
-    return deserializeAws_restJson1DeleteNotificationRuleCommand(output, context);
+    return de_DeleteNotificationRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

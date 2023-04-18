@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateSnapshotCopyGrantMessage,
-  CreateSnapshotCopyGrantMessageFilterSensitiveLog,
-  CreateSnapshotCopyGrantResult,
-  CreateSnapshotCopyGrantResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCreateSnapshotCopyGrantCommand,
-  serializeAws_queryCreateSnapshotCopyGrantCommand,
-} from "../protocols/Aws_query";
+import { CreateSnapshotCopyGrantMessage, CreateSnapshotCopyGrantResult } from "../models/models_0";
+import { de_CreateSnapshotCopyGrantCommand, se_CreateSnapshotCopyGrantCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateSnapshotCopyGrantCommand}.
+ */
 export interface CreateSnapshotCopyGrantCommandInput extends CreateSnapshotCopyGrantMessage {}
+/**
+ * @public
+ *
+ * The output of {@link CreateSnapshotCopyGrantCommand}.
+ */
 export interface CreateSnapshotCopyGrantCommandOutput extends CreateSnapshotCopyGrantResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a snapshot copy grant that permits Amazon Redshift to use an encrypted symmetric key
  *             from Key Management Service (KMS) to encrypt copied snapshots in a
  *             destination region.</p>
- *         <p>
+ *          <p>
  * For more information about managing snapshot copy grants, go to
  * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html">Amazon Redshift Database Encryption</a>
  * in the <i>Amazon Redshift Cluster Management Guide</i>.
@@ -43,13 +46,47 @@ export interface CreateSnapshotCopyGrantCommandOutput extends CreateSnapshotCopy
  * import { RedshiftClient, CreateSnapshotCopyGrantCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, CreateSnapshotCopyGrantCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // CreateSnapshotCopyGrantMessage
+ *   SnapshotCopyGrantName: "STRING_VALUE", // required
+ *   KmsKeyId: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateSnapshotCopyGrantCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSnapshotCopyGrantCommandInput - {@link CreateSnapshotCopyGrantCommandInput}
+ * @returns {@link CreateSnapshotCopyGrantCommandOutput}
  * @see {@link CreateSnapshotCopyGrantCommandInput} for command's `input` shape.
  * @see {@link CreateSnapshotCopyGrantCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
+ *
+ * @throws {@link DependentServiceRequestThrottlingFault} (client fault)
+ *  <p>The request cannot be completed because a dependent service is throttling requests
+ *             made by Amazon Redshift on your behalf. Wait and retry the request.</p>
+ *
+ * @throws {@link InvalidTagFault} (client fault)
+ *  <p>The tag is invalid.</p>
+ *
+ * @throws {@link LimitExceededFault} (client fault)
+ *  <p>The encryption key has exceeded its grant limit in Amazon Web Services KMS.</p>
+ *
+ * @throws {@link SnapshotCopyGrantAlreadyExistsFault} (client fault)
+ *  <p>The snapshot copy grant can't be created because a grant with the same name already
+ *             exists.</p>
+ *
+ * @throws {@link SnapshotCopyGrantQuotaExceededFault} (client fault)
+ *  <p>The Amazon Web Services account has exceeded the maximum number of snapshot copy grants in this
+ *             region.</p>
+ *
+ * @throws {@link TagLimitExceededFault} (client fault)
+ *  <p>You have exceeded the number of tags allowed.</p>
+ *
  *
  */
 export class CreateSnapshotCopyGrantCommand extends $Command<
@@ -69,6 +106,9 @@ export class CreateSnapshotCopyGrantCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSnapshotCopyGrantCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +137,8 @@ export class CreateSnapshotCopyGrantCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSnapshotCopyGrantMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSnapshotCopyGrantResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +148,18 @@ export class CreateSnapshotCopyGrantCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSnapshotCopyGrantCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateSnapshotCopyGrantCommand(input, context);
+    return se_CreateSnapshotCopyGrantCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSnapshotCopyGrantCommandOutput> {
-    return deserializeAws_queryCreateSnapshotCopyGrantCommand(output, context);
+    return de_CreateSnapshotCopyGrantCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -20,15 +20,23 @@ import {
   CreateMeetingResponse,
   CreateMeetingResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateMeetingCommand,
-  serializeAws_restJson1CreateMeetingCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateMeetingCommand, se_CreateMeetingCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateMeetingCommand}.
+ */
 export interface CreateMeetingCommandInput extends CreateMeetingRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateMeetingCommand}.
+ */
 export interface CreateMeetingCommandOutput extends CreateMeetingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  * Creates a new Amazon Chime SDK meeting in the specified media Region with no initial attendees. For more information about specifying media Regions, see
  * <a href="https://docs.aws.amazon.com/chime/latest/dg/chime-sdk-meetings-regions.html">Amazon Chime SDK Media Regions</a>
@@ -46,13 +54,53 @@ export interface CreateMeetingCommandOutput extends CreateMeetingResponse, __Met
  * import { ChimeClient, CreateMeetingCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, CreateMeetingCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // CreateMeetingRequest
+ *   ClientRequestToken: "STRING_VALUE", // required
+ *   ExternalMeetingId: "STRING_VALUE",
+ *   MeetingHostId: "STRING_VALUE",
+ *   MediaRegion: "STRING_VALUE",
+ *   Tags: [ // MeetingTagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   NotificationsConfiguration: { // MeetingNotificationConfiguration
+ *     SnsTopicArn: "STRING_VALUE",
+ *     SqsQueueArn: "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateMeetingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMeetingCommandInput - {@link CreateMeetingCommandInput}
+ * @returns {@link CreateMeetingCommandOutput}
  * @see {@link CreateMeetingCommandInput} for command's `input` shape.
  * @see {@link CreateMeetingCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link ResourceLimitExceededException} (client fault)
+ *  <p>The request exceeds the resource limit.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The client exceeded its request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client is not currently authorized to make the request.</p>
+ *
  *
  */
 export class CreateMeetingCommand extends $Command<
@@ -72,6 +120,9 @@ export class CreateMeetingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMeetingCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,12 +160,18 @@ export class CreateMeetingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMeetingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateMeetingCommand(input, context);
+    return se_CreateMeetingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMeetingCommandOutput> {
-    return deserializeAws_restJson1CreateMeetingCommand(output, context);
+    return de_CreateMeetingCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetAccountRequest,
-  GetAccountRequestFilterSensitiveLog,
-  GetAccountResponse,
-  GetAccountResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetAccountRequest, GetAccountResponse } from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import {
-  deserializeAws_restJson1GetAccountCommand,
-  serializeAws_restJson1GetAccountCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetAccountCommand, se_GetAccountCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetAccountCommand}.
+ */
 export interface GetAccountCommandInput extends GetAccountRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetAccountCommand}.
+ */
 export interface GetAccountCommandOutput extends GetAccountResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Obtain information about the email-sending status and capabilities of your Amazon Pinpoint
  *             account in the current AWS Region.</p>
  * @example
@@ -37,13 +40,23 @@ export interface GetAccountCommandOutput extends GetAccountResponse, __MetadataB
  * import { PinpointEmailClient, GetAccountCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, GetAccountCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
+ * const input = {};
  * const command = new GetAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccountCommandInput - {@link GetAccountCommandInput}
+ * @returns {@link GetAccountCommandOutput}
  * @see {@link GetAccountCommandInput} for command's `input` shape.
  * @see {@link GetAccountCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input you provided is invalid.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Too many requests have been made to the operation.</p>
+ *
  *
  */
 export class GetAccountCommand extends $Command<
@@ -63,6 +76,9 @@ export class GetAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +105,8 @@ export class GetAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAccountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +116,18 @@ export class GetAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAccountCommand(input, context);
+    return se_GetAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccountCommandOutput> {
-    return deserializeAws_restJson1GetAccountCommand(output, context);
+    return de_GetAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

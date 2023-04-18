@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { Route53ResolverServiceException as __BaseException } from "./Route53ResolverServiceException";
 
 /**
+ * @public
  * <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -24,18 +25,37 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
-export enum Action {
-  ALERT = "ALERT",
-  ALLOW = "ALLOW",
-  BLOCK = "BLOCK",
-}
-
-export enum MutationProtectionStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Action = {
+  ALERT: "ALERT",
+  ALLOW: "ALLOW",
+  BLOCK: "BLOCK",
+} as const;
 
 /**
+ * @public
+ */
+export type Action = (typeof Action)[keyof typeof Action];
+
+/**
+ * @public
+ * @enum
+ */
+export const MutationProtectionStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type MutationProtectionStatus = (typeof MutationProtectionStatus)[keyof typeof MutationProtectionStatus];
+
+/**
+ * @public
  * <p>One tag that you want to add to the specified resource. A tag consists of a <code>Key</code> (a name for the tag) and a <code>Value</code>.</p>
  */
 export interface Tag {
@@ -52,6 +72,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateFirewallRuleGroupRequest {
   /**
    * <p>A unique string that identifies the request and that allows failed requests to be
@@ -77,7 +100,7 @@ export interface AssociateFirewallRuleGroupRequest {
    *          <p>You must specify a unique priority for each rule group that you associate with a single VPC.
    *            To make it easier to insert rule groups later, leave space between the numbers, for example, use 101, 200, and so on. You
    *    can change the priority setting for a rule group association after you create it.</p>
-   *    	     <p>The allowed values for <code>Priority</code> are between 100 and 9900.</p>
+   *          <p>The allowed values for <code>Priority</code> are between 100 and 9900.</p>
    */
   Priority: number | undefined;
 
@@ -98,13 +121,24 @@ export interface AssociateFirewallRuleGroupRequest {
   Tags?: Tag[];
 }
 
-export enum FirewallRuleGroupAssociationStatus {
-  COMPLETE = "COMPLETE",
-  DELETING = "DELETING",
-  UPDATING = "UPDATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FirewallRuleGroupAssociationStatus = {
+  COMPLETE: "COMPLETE",
+  DELETING: "DELETING",
+  UPDATING: "UPDATING",
+} as const;
 
 /**
+ * @public
+ */
+export type FirewallRuleGroupAssociationStatus =
+  (typeof FirewallRuleGroupAssociationStatus)[keyof typeof FirewallRuleGroupAssociationStatus];
+
+/**
+ * @public
  * <p>An association between a firewall rule group and a VPC, which enables DNS filtering for
  * 			the VPC. </p>
  */
@@ -179,6 +213,9 @@ export interface FirewallRuleGroupAssociation {
   ModificationTime?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateFirewallRuleGroupResponse {
   /**
    * <p>The association that you just created. The association has an ID that you can use to
@@ -188,7 +225,10 @@ export interface AssociateFirewallRuleGroupResponse {
 }
 
 /**
- * <p></p>
+ * @public
+ * <p>The requested state transition isn't valid. For example, you can't delete a firewall
+ * 			domain list if it is in the process of being deleted, or you can't import domains into a
+ * 			domain list that is in the process of being deleted.</p>
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
@@ -209,6 +249,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>We encountered an unknown error. Try again in a few minutes.</p>
  */
 export class InternalServiceErrorException extends __BaseException {
@@ -230,6 +271,7 @@ export class InternalServiceErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request caused one or more limits to be exceeded.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -256,6 +298,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource doesn't exist.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -282,6 +325,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was throttled. Try again in a few minutes.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -303,7 +347,9 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p></p>
+ * @public
+ * <p>You have provided an invalid command. Supported values are <code>ADD</code>,
+ * 			<code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -324,6 +370,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>In an
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_UpdateResolverEndpoint.html">UpdateResolverEndpoint</a>
  * 			request, information about an IP address to update.</p>
@@ -344,11 +391,21 @@ export interface IpAddressUpdate {
   SubnetId?: string;
 
   /**
-   * <p>The new IP address.</p>
+   * <p>The new IPv4 address.</p>
    */
   Ip?: string;
+
+  /**
+   * <p>
+   * 			The new IPv6 address.
+   * 		</p>
+   */
+  Ipv6?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateResolverEndpointIpAddressRequest {
   /**
    * <p>The ID of the Resolver endpoint that you want to associate IP addresses with.</p>
@@ -362,26 +419,60 @@ export interface AssociateResolverEndpointIpAddressRequest {
   IpAddress: IpAddressUpdate | undefined;
 }
 
-export enum ResolverEndpointDirection {
-  Inbound = "INBOUND",
-  Outbound = "OUTBOUND",
-}
-
-export enum ResolverEndpointStatus {
-  ActionNeeded = "ACTION_NEEDED",
-  AutoRecovering = "AUTO_RECOVERING",
-  Creating = "CREATING",
-  Deleting = "DELETING",
-  Operational = "OPERATIONAL",
-  Updating = "UPDATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResolverEndpointDirection = {
+  Inbound: "INBOUND",
+  Outbound: "OUTBOUND",
+} as const;
 
 /**
+ * @public
+ */
+export type ResolverEndpointDirection = (typeof ResolverEndpointDirection)[keyof typeof ResolverEndpointDirection];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResolverEndpointType = {
+  DUALSTACK: "DUALSTACK",
+  IPV4: "IPV4",
+  IPV6: "IPV6",
+} as const;
+
+/**
+ * @public
+ */
+export type ResolverEndpointType = (typeof ResolverEndpointType)[keyof typeof ResolverEndpointType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResolverEndpointStatus = {
+  ActionNeeded: "ACTION_NEEDED",
+  AutoRecovering: "AUTO_RECOVERING",
+  Creating: "CREATING",
+  Deleting: "DELETING",
+  Operational: "OPERATIONAL",
+  Updating: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type ResolverEndpointStatus = (typeof ResolverEndpointStatus)[keyof typeof ResolverEndpointStatus];
+
+/**
+ * @public
  * <p>In the response to a
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_CreateResolverEndpoint.html">CreateResolverEndpoint</a>,
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DeleteResolverEndpoint.html">DeleteResolverEndpoint</a>,
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverEndpoint.html">GetResolverEndpoint</a>,
- * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverEndpoints.html">ListResolverEndpoints</a>,
+ * 			Updates the name, or ResolverEndpointType for an endpoint,
  * 			or
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_UpdateResolverEndpoint.html">UpdateResolverEndpoint</a>
  * 			request, a complex type that contains settings for an existing inbound or outbound Resolver endpoint.</p>
@@ -420,7 +511,7 @@ export interface ResolverEndpoint {
 
   /**
    * <p>Indicates whether the Resolver endpoint allows inbound or outbound DNS queries:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>INBOUND</code>: allows DNS queries to your VPC from your network</p>
@@ -445,7 +536,7 @@ export interface ResolverEndpoint {
 
   /**
    * <p>A code that specifies the current status of the Resolver endpoint. Valid values include the following:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>CREATING</code>: Resolver is creating and configuring one or more Amazon VPC network interfaces
@@ -474,7 +565,7 @@ export interface ResolverEndpoint {
    * 				To resolve the problem, we recommend that you check each IP address that you associated with the endpoint. For each IP address
    * 				that isn't available, add another IP address and then delete the IP address that isn't available. (An endpoint must always include
    * 				at least two IP addresses.) A status of <code>ACTION_NEEDED</code> can have a variety of causes. Here are two common causes:</p>
-   * 				           <ul>
+   *                <ul>
    *                   <li>
    *                      <p>One or more of the network interfaces that are associated with the endpoint were deleted using Amazon VPC.</p>
    *                   </li>
@@ -482,7 +573,7 @@ export interface ResolverEndpoint {
    *                      <p>The network interface couldn't be created for some reason that's outside the control of Resolver.</p>
    *                   </li>
    *                </ul>
-   * 			         </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>DELETING</code>: Resolver is deleting this endpoint and the associated network interfaces.</p>
@@ -505,8 +596,18 @@ export interface ResolverEndpoint {
    * <p>The date and time that the endpoint was last modified, in Unix time format and Coordinated Universal Time (UTC).</p>
    */
   ModificationTime?: string;
+
+  /**
+   * <p>
+   * 			The Resolver endpoint IP address type.
+   * 		</p>
+   */
+  ResolverEndpointType?: ResolverEndpointType | string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateResolverEndpointIpAddressResponse {
   /**
    * <p>The response to an <code>AssociateResolverEndpointIpAddress</code> request.</p>
@@ -515,6 +616,7 @@ export interface AssociateResolverEndpointIpAddressResponse {
 }
 
 /**
+ * @public
  * <p>One or more parameters in this request are not valid.</p>
  */
 export class InvalidParameterException extends __BaseException {
@@ -541,6 +643,7 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request is invalid.</p>
  */
 export class InvalidRequestException extends __BaseException {
@@ -562,6 +665,7 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource that you tried to create already exists.</p>
  */
 export class ResourceExistsException extends __BaseException {
@@ -587,6 +691,9 @@ export class ResourceExistsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AssociateResolverQueryLogConfigRequest {
   /**
    * <p>The ID of the query logging configuration that you want to associate a VPC with.</p>
@@ -595,30 +702,50 @@ export interface AssociateResolverQueryLogConfigRequest {
 
   /**
    * <p>The ID of an Amazon VPC that you want this query logging configuration to log queries for.</p>
-   *
-   * 		       <note>
-   * 			         <p>The VPCs and the query logging configuration must be in the same Region.</p>
-   * 		       </note>
+   *          <note>
+   *             <p>The VPCs and the query logging configuration must be in the same Region.</p>
+   *          </note>
    */
   ResourceId: string | undefined;
 }
 
-export enum ResolverQueryLogConfigAssociationError {
-  AccessDenied = "ACCESS_DENIED",
-  DestinationNotFound = "DESTINATION_NOT_FOUND",
-  InternalServiceError = "INTERNAL_SERVICE_ERROR",
-  None = "NONE",
-}
-
-export enum ResolverQueryLogConfigAssociationStatus {
-  ActionNeeded = "ACTION_NEEDED",
-  Active = "ACTIVE",
-  Creating = "CREATING",
-  Deleting = "DELETING",
-  Failed = "FAILED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResolverQueryLogConfigAssociationError = {
+  AccessDenied: "ACCESS_DENIED",
+  DestinationNotFound: "DESTINATION_NOT_FOUND",
+  InternalServiceError: "INTERNAL_SERVICE_ERROR",
+  None: "NONE",
+} as const;
 
 /**
+ * @public
+ */
+export type ResolverQueryLogConfigAssociationError =
+  (typeof ResolverQueryLogConfigAssociationError)[keyof typeof ResolverQueryLogConfigAssociationError];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResolverQueryLogConfigAssociationStatus = {
+  ActionNeeded: "ACTION_NEEDED",
+  Active: "ACTIVE",
+  Creating: "CREATING",
+  Deleting: "DELETING",
+  Failed: "FAILED",
+} as const;
+
+/**
+ * @public
+ */
+export type ResolverQueryLogConfigAssociationStatus =
+  (typeof ResolverQueryLogConfigAssociationStatus)[keyof typeof ResolverQueryLogConfigAssociationStatus];
+
+/**
+ * @public
  * <p>In the response to an
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverQueryLogConfig.html">AssociateResolverQueryLogConfig</a>,
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverQueryLogConfig.html">DisassociateResolverQueryLogConfig</a>,
@@ -645,7 +772,7 @@ export interface ResolverQueryLogConfigAssociation {
 
   /**
    * <p>The status of the specified query logging association. Valid values include the following:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>CREATING</code>: Resolver is creating an association between an Amazon VPC and a query logging configuration.</p>
@@ -669,7 +796,7 @@ export interface ResolverQueryLogConfigAssociation {
 
   /**
    * <p>If the value of <code>Status</code> is <code>FAILED</code>, the value of <code>Error</code> indicates the cause:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>DESTINATION_NOT_FOUND</code>: The specified destination (for example, an Amazon S3 bucket) was deleted.</p>
@@ -679,7 +806,7 @@ export interface ResolverQueryLogConfigAssociation {
    *                   <code>ACCESS_DENIED</code>: Permissions don't allow sending logs to the destination.</p>
    *             </li>
    *          </ul>
-   * 		       <p>If the value of <code>Status</code> is a value other than <code>FAILED</code>, <code>Error</code> is null. </p>
+   *          <p>If the value of <code>Status</code> is a value other than <code>FAILED</code>, <code>Error</code> is null. </p>
    */
   Error?: ResolverQueryLogConfigAssociationError | string;
 
@@ -694,6 +821,9 @@ export interface ResolverQueryLogConfigAssociation {
   CreationTime?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateResolverQueryLogConfigResponse {
   /**
    * <p>A complex type that contains settings for a specified association between an Amazon VPC and a query logging configuration.</p>
@@ -701,6 +831,9 @@ export interface AssociateResolverQueryLogConfigResponse {
   ResolverQueryLogConfigAssociation?: ResolverQueryLogConfigAssociation;
 }
 
+/**
+ * @public
+ */
 export interface AssociateResolverRuleRequest {
   /**
    * <p>The ID of the Resolver rule that you want to associate with the VPC. To list the existing Resolver rules, use
@@ -719,15 +852,26 @@ export interface AssociateResolverRuleRequest {
   VPCId: string | undefined;
 }
 
-export enum ResolverRuleAssociationStatus {
-  Complete = "COMPLETE",
-  Creating = "CREATING",
-  Deleting = "DELETING",
-  Failed = "FAILED",
-  Overridden = "OVERRIDDEN",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResolverRuleAssociationStatus = {
+  Complete: "COMPLETE",
+  Creating: "CREATING",
+  Deleting: "DELETING",
+  Failed: "FAILED",
+  Overridden: "OVERRIDDEN",
+} as const;
 
 /**
+ * @public
+ */
+export type ResolverRuleAssociationStatus =
+  (typeof ResolverRuleAssociationStatus)[keyof typeof ResolverRuleAssociationStatus];
+
+/**
+ * @public
  * <p>In the response to an
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverRule.html">AssociateResolverRule</a>,
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverRule.html">DisassociateResolverRule</a>,
@@ -770,6 +914,9 @@ export interface ResolverRuleAssociation {
   StatusMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateResolverRuleResponse {
   /**
    * <p>Information about the <code>AssociateResolverRule</code> request, including the status of the request.</p>
@@ -778,6 +925,7 @@ export interface AssociateResolverRuleResponse {
 }
 
 /**
+ * @public
  * <p>The specified resource isn't available.</p>
  */
 export class ResourceUnavailableException extends __BaseException {
@@ -803,21 +951,52 @@ export class ResourceUnavailableException extends __BaseException {
   }
 }
 
-export enum AutodefinedReverseFlag {
-  DISABLE = "DISABLE",
-  ENABLE = "ENABLE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AutodefinedReverseFlag = {
+  DISABLE: "DISABLE",
+  ENABLE: "ENABLE",
+  USE_LOCAL_RESOURCE_SETTING: "USE_LOCAL_RESOURCE_SETTING",
+} as const;
 
-export enum BlockOverrideDnsType {
-  CNAME = "CNAME",
-}
+/**
+ * @public
+ */
+export type AutodefinedReverseFlag = (typeof AutodefinedReverseFlag)[keyof typeof AutodefinedReverseFlag];
 
-export enum BlockResponse {
-  NODATA = "NODATA",
-  NXDOMAIN = "NXDOMAIN",
-  OVERRIDE = "OVERRIDE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BlockOverrideDnsType = {
+  CNAME: "CNAME",
+} as const;
 
+/**
+ * @public
+ */
+export type BlockOverrideDnsType = (typeof BlockOverrideDnsType)[keyof typeof BlockOverrideDnsType];
+
+/**
+ * @public
+ * @enum
+ */
+export const BlockResponse = {
+  NODATA: "NODATA",
+  NXDOMAIN: "NXDOMAIN",
+  OVERRIDE: "OVERRIDE",
+} as const;
+
+/**
+ * @public
+ */
+export type BlockResponse = (typeof BlockResponse)[keyof typeof BlockResponse];
+
+/**
+ * @public
+ */
 export interface CreateFirewallDomainListRequest {
   /**
    * <p>A unique string that identifies the request and that allows you to retry failed requests
@@ -837,15 +1016,25 @@ export interface CreateFirewallDomainListRequest {
   Tags?: Tag[];
 }
 
-export enum FirewallDomainListStatus {
-  COMPLETE = "COMPLETE",
-  COMPLETE_IMPORT_FAILED = "COMPLETE_IMPORT_FAILED",
-  DELETING = "DELETING",
-  IMPORTING = "IMPORTING",
-  UPDATING = "UPDATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FirewallDomainListStatus = {
+  COMPLETE: "COMPLETE",
+  COMPLETE_IMPORT_FAILED: "COMPLETE_IMPORT_FAILED",
+  DELETING: "DELETING",
+  IMPORTING: "IMPORTING",
+  UPDATING: "UPDATING",
+} as const;
 
 /**
+ * @public
+ */
+export type FirewallDomainListStatus = (typeof FirewallDomainListStatus)[keyof typeof FirewallDomainListStatus];
+
+/**
+ * @public
  * <p>High-level information about a list of firewall domains for use in a <a>FirewallRule</a>. This is returned by <a>GetFirewallDomainList</a>.</p>
  *          <p>To retrieve the domains that are defined for this domain list, call <a>ListFirewallDomains</a>.</p>
  */
@@ -903,6 +1092,9 @@ export interface FirewallDomainList {
   ModificationTime?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateFirewallDomainListResponse {
   /**
    * <p>The
@@ -911,6 +1103,9 @@ export interface CreateFirewallDomainListResponse {
   FirewallDomainList?: FirewallDomainList;
 }
 
+/**
+ * @public
+ */
 export interface CreateFirewallRuleRequest {
   /**
    * <p>A unique string that identifies the request and that allows you to retry failed requests
@@ -1003,6 +1198,7 @@ export interface CreateFirewallRuleRequest {
 }
 
 /**
+ * @public
  * <p>A single firewall rule in a rule group.</p>
  */
 export interface FirewallRule {
@@ -1096,6 +1292,9 @@ export interface FirewallRule {
   ModificationTime?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateFirewallRuleResponse {
   /**
    * <p>The
@@ -1104,6 +1303,9 @@ export interface CreateFirewallRuleResponse {
   FirewallRule?: FirewallRule;
 }
 
+/**
+ * @public
+ */
 export interface CreateFirewallRuleGroupRequest {
   /**
    * <p>A unique string defined by you to identify the request. This allows you to retry failed
@@ -1123,19 +1325,38 @@ export interface CreateFirewallRuleGroupRequest {
   Tags?: Tag[];
 }
 
-export enum ShareStatus {
-  NotShared = "NOT_SHARED",
-  SharedByMe = "SHARED_BY_ME",
-  SharedWithMe = "SHARED_WITH_ME",
-}
-
-export enum FirewallRuleGroupStatus {
-  COMPLETE = "COMPLETE",
-  DELETING = "DELETING",
-  UPDATING = "UPDATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ShareStatus = {
+  NotShared: "NOT_SHARED",
+  SharedByMe: "SHARED_BY_ME",
+  SharedWithMe: "SHARED_WITH_ME",
+} as const;
 
 /**
+ * @public
+ */
+export type ShareStatus = (typeof ShareStatus)[keyof typeof ShareStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const FirewallRuleGroupStatus = {
+  COMPLETE: "COMPLETE",
+  DELETING: "DELETING",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type FirewallRuleGroupStatus = (typeof FirewallRuleGroupStatus)[keyof typeof FirewallRuleGroupStatus];
+
+/**
+ * @public
  * <p>High-level information for a firewall rule group. A firewall rule group is a collection of rules that DNS Firewall uses to filter DNS network traffic for a VPC. To retrieve the rules for the rule group, call <a>ListFirewallRules</a>.</p>
  */
 export interface FirewallRuleGroup {
@@ -1199,6 +1420,9 @@ export interface FirewallRuleGroup {
   ModificationTime?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateFirewallRuleGroupResponse {
   /**
    * <p>A collection of rules used to filter DNS network traffic. </p>
@@ -1207,6 +1431,7 @@ export interface CreateFirewallRuleGroupResponse {
 }
 
 /**
+ * @public
  * <p>In a
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_CreateResolverEndpoint.html">CreateResolverEndpoint</a>
  * 			request, the IP address that DNS queries originate from (for outbound endpoints) or that you forward DNS queries to (for inbound endpoints).
@@ -1219,11 +1444,21 @@ export interface IpAddressRequest {
   SubnetId: string | undefined;
 
   /**
-   * <p>The IP address that you want to use for DNS queries.</p>
+   * <p>The IPv4 address that you want to use for DNS queries.</p>
    */
   Ip?: string;
+
+  /**
+   * <p>
+   * 			The IPv6 address that you want to use for DNS queries.
+   * 		</p>
+   */
+  Ipv6?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateResolverEndpointRequest {
   /**
    * <p>A unique string that identifies the request and that allows failed requests to be retried
@@ -1247,7 +1482,7 @@ export interface CreateResolverEndpointRequest {
 
   /**
    * <p>Specify the applicable value:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>INBOUND</code>: Resolver forwards DNS queries to the DNS service for a VPC from your network</p>
@@ -1270,8 +1505,20 @@ export interface CreateResolverEndpointRequest {
    * <p>A list of the tag keys and values that you want to associate with the endpoint.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>
+   * 			For the endpoint type you can choose either IPv4, IPv6. or dual-stack.
+   * 			A dual-stack endpoint means that it will resolve via both IPv4 and IPv6. This
+   * 			endpoint type is applied to all IP addresses.
+   * 		</p>
+   */
+  ResolverEndpointType?: ResolverEndpointType | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateResolverEndpointResponse {
   /**
    * <p>Information about the <code>CreateResolverEndpoint</code> request, including the status of the request.</p>
@@ -1279,6 +1526,9 @@ export interface CreateResolverEndpointResponse {
   ResolverEndpoint?: ResolverEndpoint;
 }
 
+/**
+ * @public
+ */
 export interface CreateResolverQueryLogConfigRequest {
   /**
    * <p>The name that you want to give the query logging configuration.</p>
@@ -1288,33 +1538,32 @@ export interface CreateResolverQueryLogConfigRequest {
   /**
    * <p>The ARN of the resource that you want Resolver to send query logs. You can send query logs to an S3 bucket, a CloudWatch Logs log group,
    * 			or a Kinesis Data Firehose delivery stream. Examples of valid values include the following:</p>
-   *
-   * 		       <ul>
+   *          <ul>
    *             <li>
-   * 				           <p>
+   *                <p>
    *                   <b>S3 bucket</b>: </p>
-   * 				           <p>
+   *                <p>
    *                   <code>arn:aws:s3:::examplebucket</code>
    *                </p>
-   * 				           <p>You can optionally append a file prefix to the end of the ARN.</p>
-   * 				           <p>
+   *                <p>You can optionally append a file prefix to the end of the ARN.</p>
+   *                <p>
    *                   <code>arn:aws:s3:::examplebucket/development/</code>
    *                </p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
+   *                <p>
    *                   <b>CloudWatch Logs log group</b>: </p>
-   * 				           <p>
+   *                <p>
    *                   <code>arn:aws:logs:us-west-1:123456789012:log-group:/mystack-testgroup-12ABC1AB12A1:*</code>
    *                </p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
+   *                <p>
    *                   <b>Kinesis Data Firehose delivery stream</b>:</p>
-   * 				           <p>
+   *                <p>
    *                   <code>arn:aws:kinesis:us-east-2:0123456789:stream/my_stream_name</code>
    *                </p>
-   * 			         </li>
+   *             </li>
    *          </ul>
    */
   DestinationArn: string | undefined;
@@ -1332,14 +1581,25 @@ export interface CreateResolverQueryLogConfigRequest {
   Tags?: Tag[];
 }
 
-export enum ResolverQueryLogConfigStatus {
-  Created = "CREATED",
-  Creating = "CREATING",
-  Deleting = "DELETING",
-  Failed = "FAILED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResolverQueryLogConfigStatus = {
+  Created: "CREATED",
+  Creating: "CREATING",
+  Deleting: "DELETING",
+  Failed: "FAILED",
+} as const;
 
 /**
+ * @public
+ */
+export type ResolverQueryLogConfigStatus =
+  (typeof ResolverQueryLogConfigStatus)[keyof typeof ResolverQueryLogConfigStatus];
+
+/**
+ * @public
  * <p>In the response to a
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_CreateResolverQueryLogConfig.html">CreateResolverQueryLogConfig</a>,
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DeleteResolverQueryLogConfig.html">DeleteResolverQueryLogConfig</a>,
@@ -1361,7 +1621,7 @@ export interface ResolverQueryLogConfig {
 
   /**
    * <p>The status of the specified query logging configuration. Valid values include the following:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>CREATING</code>: Resolver is creating the query logging configuration.</p>
@@ -1379,7 +1639,7 @@ export interface ResolverQueryLogConfig {
    *                <p>
    *                   <code>FAILED</code>: Resolver can't deliver logs to the location that is specified in the query logging configuration.
    * 				Here are two common causes:</p>
-   * 				           <ul>
+   *                <ul>
    *                   <li>
    *                      <p>The specified destination (for example, an Amazon S3 bucket) was deleted.</p>
    *                   </li>
@@ -1387,7 +1647,7 @@ export interface ResolverQueryLogConfig {
    *                      <p>Permissions don't allow sending logs to the destination.</p>
    *                   </li>
    *                </ul>
-   * 			         </li>
+   *             </li>
    *          </ul>
    */
   Status?: ResolverQueryLogConfigStatus | string;
@@ -1432,6 +1692,9 @@ export interface ResolverQueryLogConfig {
   CreationTime?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateResolverQueryLogConfigResponse {
   /**
    * <p>Information about the <code>CreateResolverQueryLogConfig</code> request, including the status of the request.</p>
@@ -1439,29 +1702,49 @@ export interface CreateResolverQueryLogConfigResponse {
   ResolverQueryLogConfig?: ResolverQueryLogConfig;
 }
 
-export enum RuleTypeOption {
-  Forward = "FORWARD",
-  Recursive = "RECURSIVE",
-  System = "SYSTEM",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RuleTypeOption = {
+  Forward: "FORWARD",
+  Recursive: "RECURSIVE",
+  System: "SYSTEM",
+} as const;
 
 /**
+ * @public
+ */
+export type RuleTypeOption = (typeof RuleTypeOption)[keyof typeof RuleTypeOption];
+
+/**
+ * @public
  * <p>In a
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_CreateResolverRule.html">CreateResolverRule</a>
  * 			request, an array of the IPs that you want to forward DNS queries to.</p>
  */
 export interface TargetAddress {
   /**
-   * <p>One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.</p>
+   * <p>One IPv4 address that you want to forward DNS queries to.</p>
    */
-  Ip: string | undefined;
+  Ip?: string;
 
   /**
    * <p>The port at <code>Ip</code> that you want to forward DNS queries to.</p>
    */
   Port?: number;
+
+  /**
+   * <p>
+   * 			One IPv6 address that you want to forward DNS queries to.
+   * 		</p>
+   */
+  Ipv6?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateResolverRuleRequest {
   /**
    * <p>A unique string that identifies the request and that allows failed requests to be retried
@@ -1477,12 +1760,12 @@ export interface CreateResolverRuleRequest {
 
   /**
    * <p>When you want to forward DNS queries for specified domain name to resolvers on your network, specify <code>FORWARD</code>.</p>
-   * 		       <p>When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for
+   *          <p>When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for
    * 			a subdomain of that domain, specify <code>SYSTEM</code>.</p>
-   * 		       <p>For example, to forward DNS queries for example.com to resolvers on your network, you create a rule and specify <code>FORWARD</code>
+   *          <p>For example, to forward DNS queries for example.com to resolvers on your network, you create a rule and specify <code>FORWARD</code>
    * 			for <code>RuleType</code>. To then have Resolver process queries for apex.example.com, you create a rule and specify
    * 			<code>SYSTEM</code> for <code>RuleType</code>.</p>
-   * 		       <p>Currently, only Resolver can create rules that have a value of <code>RECURSIVE</code> for <code>RuleType</code>.</p>
+   *          <p>Currently, only Resolver can create rules that have a value of <code>RECURSIVE</code> for <code>RuleType</code>.</p>
    */
   RuleType: RuleTypeOption | string | undefined;
 
@@ -1495,7 +1778,7 @@ export interface CreateResolverRuleRequest {
 
   /**
    * <p>The IPs that you want Resolver to forward DNS queries to. You can specify only IPv4 addresses. Separate IP addresses with a space.</p>
-   * 		       <p>
+   *          <p>
    *             <code>TargetIps</code> is available only when the value of <code>Rule type</code> is <code>FORWARD</code>.</p>
    */
   TargetIps?: TargetAddress[];
@@ -1512,14 +1795,24 @@ export interface CreateResolverRuleRequest {
   Tags?: Tag[];
 }
 
-export enum ResolverRuleStatus {
-  Complete = "COMPLETE",
-  Deleting = "DELETING",
-  Failed = "FAILED",
-  Updating = "UPDATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResolverRuleStatus = {
+  Complete: "COMPLETE",
+  Deleting: "DELETING",
+  Failed: "FAILED",
+  Updating: "UPDATING",
+} as const;
 
 /**
+ * @public
+ */
+export type ResolverRuleStatus = (typeof ResolverRuleStatus)[keyof typeof ResolverRuleStatus];
+
+/**
+ * @public
  * <p>For queries that originate in your VPC, detailed information about a Resolver rule, which specifies how to route DNS queries
  * 			out of the VPC. The <code>ResolverRule</code> parameter appears in the response to a
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_CreateResolverRule.html">CreateResolverRule</a>,
@@ -1566,12 +1859,12 @@ export interface ResolverRule {
 
   /**
    * <p>When you want to forward DNS queries for specified domain name to resolvers on your network, specify <code>FORWARD</code>.</p>
-   * 		       <p>When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for
+   *          <p>When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for
    * 			a subdomain of that domain, specify <code>SYSTEM</code>.</p>
-   * 		       <p>For example, to forward DNS queries for example.com to resolvers on your network, you create a rule and specify <code>FORWARD</code>
+   *          <p>For example, to forward DNS queries for example.com to resolvers on your network, you create a rule and specify <code>FORWARD</code>
    * 			for <code>RuleType</code>. To then have Resolver process queries for apex.example.com, you create a rule and specify
    * 			<code>SYSTEM</code> for <code>RuleType</code>.</p>
-   * 		       <p>Currently, only Resolver can create rules that have a value of <code>RECURSIVE</code> for <code>RuleType</code>.</p>
+   *          <p>Currently, only Resolver can create rules that have a value of <code>RECURSIVE</code> for <code>RuleType</code>.</p>
    */
   RuleType?: RuleTypeOption | string;
 
@@ -1613,6 +1906,9 @@ export interface ResolverRule {
   ModificationTime?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateResolverRuleResponse {
   /**
    * <p>Information about the <code>CreateResolverRule</code> request, including the status of the request.</p>
@@ -1620,6 +1916,9 @@ export interface CreateResolverRuleResponse {
   ResolverRule?: ResolverRule;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFirewallDomainListRequest {
   /**
    * <p>The ID of the domain list that you want to delete. </p>
@@ -1627,6 +1926,9 @@ export interface DeleteFirewallDomainListRequest {
   FirewallDomainListId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFirewallDomainListResponse {
   /**
    * <p>The domain list that you just deleted. </p>
@@ -1634,6 +1936,9 @@ export interface DeleteFirewallDomainListResponse {
   FirewallDomainList?: FirewallDomainList;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFirewallRuleRequest {
   /**
    * <p>The unique identifier of the firewall rule group that you want to delete the rule from. </p>
@@ -1646,6 +1951,9 @@ export interface DeleteFirewallRuleRequest {
   FirewallDomainListId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFirewallRuleResponse {
   /**
    * <p>The specification for the firewall rule that you just deleted.</p>
@@ -1653,6 +1961,9 @@ export interface DeleteFirewallRuleResponse {
   FirewallRule?: FirewallRule;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFirewallRuleGroupRequest {
   /**
    * <p>The unique identifier of the firewall rule group that you want to delete. </p>
@@ -1660,6 +1971,9 @@ export interface DeleteFirewallRuleGroupRequest {
   FirewallRuleGroupId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFirewallRuleGroupResponse {
   /**
    * <p>A collection of rules used to filter DNS network traffic. </p>
@@ -1667,6 +1981,9 @@ export interface DeleteFirewallRuleGroupResponse {
   FirewallRuleGroup?: FirewallRuleGroup;
 }
 
+/**
+ * @public
+ */
 export interface DeleteResolverEndpointRequest {
   /**
    * <p>The ID of the Resolver endpoint that you want to delete.</p>
@@ -1674,6 +1991,9 @@ export interface DeleteResolverEndpointRequest {
   ResolverEndpointId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteResolverEndpointResponse {
   /**
    * <p>Information about the <code>DeleteResolverEndpoint</code> request, including the status of the request.</p>
@@ -1681,6 +2001,9 @@ export interface DeleteResolverEndpointResponse {
   ResolverEndpoint?: ResolverEndpoint;
 }
 
+/**
+ * @public
+ */
 export interface DeleteResolverQueryLogConfigRequest {
   /**
    * <p>The ID of the query logging configuration that you want to delete.</p>
@@ -1688,6 +2011,9 @@ export interface DeleteResolverQueryLogConfigRequest {
   ResolverQueryLogConfigId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteResolverQueryLogConfigResponse {
   /**
    * <p>Information about the query logging configuration that you deleted, including the status of the request.</p>
@@ -1695,6 +2021,9 @@ export interface DeleteResolverQueryLogConfigResponse {
   ResolverQueryLogConfig?: ResolverQueryLogConfig;
 }
 
+/**
+ * @public
+ */
 export interface DeleteResolverRuleRequest {
   /**
    * <p>The ID of the Resolver rule that you want to delete.</p>
@@ -1702,6 +2031,9 @@ export interface DeleteResolverRuleRequest {
   ResolverRuleId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteResolverRuleResponse {
   /**
    * <p>Information about the <code>DeleteResolverRule</code> request, including the status of the request.</p>
@@ -1710,6 +2042,7 @@ export interface DeleteResolverRuleResponse {
 }
 
 /**
+ * @public
  * <p>The resource that you tried to update or delete is currently in use.</p>
  */
 export class ResourceInUseException extends __BaseException {
@@ -1735,6 +2068,9 @@ export class ResourceInUseException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DisassociateFirewallRuleGroupRequest {
   /**
    * <p>The identifier of the <a>FirewallRuleGroupAssociation</a>. </p>
@@ -1742,6 +2078,9 @@ export interface DisassociateFirewallRuleGroupRequest {
   FirewallRuleGroupAssociationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateFirewallRuleGroupResponse {
   /**
    * <p>The firewall rule group association that you just removed. </p>
@@ -1749,6 +2088,9 @@ export interface DisassociateFirewallRuleGroupResponse {
   FirewallRuleGroupAssociation?: FirewallRuleGroupAssociation;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateResolverEndpointIpAddressRequest {
   /**
    * <p>The ID of the Resolver endpoint that you want to disassociate an IP address from.</p>
@@ -1761,6 +2103,9 @@ export interface DisassociateResolverEndpointIpAddressRequest {
   IpAddress: IpAddressUpdate | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateResolverEndpointIpAddressResponse {
   /**
    * <p>The response to an <code>DisassociateResolverEndpointIpAddress</code> request.</p>
@@ -1768,6 +2113,9 @@ export interface DisassociateResolverEndpointIpAddressResponse {
   ResolverEndpoint?: ResolverEndpoint;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateResolverQueryLogConfigRequest {
   /**
    * <p>The ID of the query logging configuration that you want to disassociate a specified VPC from.</p>
@@ -1780,6 +2128,9 @@ export interface DisassociateResolverQueryLogConfigRequest {
   ResourceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateResolverQueryLogConfigResponse {
   /**
    * <p>A complex type that contains settings for the association that you deleted between an Amazon VPC and a query logging configuration.</p>
@@ -1787,6 +2138,9 @@ export interface DisassociateResolverQueryLogConfigResponse {
   ResolverQueryLogConfigAssociation?: ResolverQueryLogConfigAssociation;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateResolverRuleRequest {
   /**
    * <p>The ID of the VPC that you want to disassociate the Resolver rule from.</p>
@@ -1799,6 +2153,9 @@ export interface DisassociateResolverRuleRequest {
   ResolverRuleId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateResolverRuleResponse {
   /**
    * <p>Information about the <code>DisassociateResolverRule</code> request, including the status of the request.</p>
@@ -1807,6 +2164,7 @@ export interface DisassociateResolverRuleResponse {
 }
 
 /**
+ * @public
  * <p>For Resolver list operations
  * 			(<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverEndpoints.html">ListResolverEndpoints</a>,
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRules.html">ListResolverRules</a>,
@@ -1816,30 +2174,28 @@ export interface DisassociateResolverRuleResponse {
  * 			and
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverDnssecConfigs.html">ListResolverDnssecConfigs</a>),
  * 			an optional specification to return a subset of objects.</p>
- * 		       <p>To filter objects, such as Resolver endpoints or Resolver rules, you specify <code>Name</code> and <code>Values</code>. For example,
+ *          <p>To filter objects, such as Resolver endpoints or Resolver rules, you specify <code>Name</code> and <code>Values</code>. For example,
  * 			to list only inbound Resolver endpoints, specify <code>Direction</code> for <code>Name</code> and specify <code>INBOUND</code> for <code>Values</code>. </p>
  */
 export interface Filter {
   /**
    * <p>The name of the parameter that you want to use to filter objects.</p>
-   * 		       <p>The valid values for <code>Name</code> depend on the action that you're including the filter in,
+   *          <p>The valid values for <code>Name</code> depend on the action that you're including the filter in,
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverEndpoints.html">ListResolverEndpoints</a>,
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRules.html">ListResolverRules</a>,
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRuleAssociations.html">ListResolverRuleAssociations</a>,
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverQueryLogConfigs.html">ListResolverQueryLogConfigs</a>,
    * 			or
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverQueryLogConfigAssociations.html">ListResolverQueryLogConfigAssociations</a>.</p>
-   *
-   * 		       <note>
-   * 			         <p>In early versions of Resolver, values for <code>Name</code> were listed as uppercase, with underscore (_) delimiters. For example,
+   *          <note>
+   *             <p>In early versions of Resolver, values for <code>Name</code> were listed as uppercase, with underscore (_) delimiters. For example,
    * 				<code>CreatorRequestId</code> was originally listed as <code>CREATOR_REQUEST_ID</code>. Uppercase values for <code>Name</code> are still supported.</p>
-   * 		       </note>
-   *
-   * 		       <p>
+   *          </note>
+   *          <p>
    *             <b>ListResolverEndpoints</b>
    *          </p>
-   * 		       <p>Valid values for <code>Name</code> include the following:</p>
-   * 		       <ul>
+   *          <p>Valid values for <code>Name</code> include the following:</p>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>CreatorRequestId</code>: The value that you specified when you created the Resolver endpoint.</p>
@@ -1880,12 +2236,11 @@ export interface Filter {
    * 				<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ResolverEndpoint.html">ResolverEndpoint</a>.</p>
    *             </li>
    *          </ul>
-   *
-   * 		       <p>
+   *          <p>
    *             <b>ListResolverRules</b>
    *          </p>
-   * 		       <p>Valid values for <code>Name</code> include the following:</p>
-   * 		       <ul>
+   *          <p>Valid values for <code>Name</code> include the following:</p>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>CreatorRequestId</code>: The value that you specified when you created the Resolver rule.</p>
@@ -1895,10 +2250,10 @@ export interface Filter {
    *                   <code>DomainName</code>: The domain name for which Resolver is forwarding DNS queries to your network. In the value that
    * 				you specify for <code>Values</code>, include a trailing dot (.) after the domain name. For example, if the domain name is example.com,
    * 				specify the following value. Note the "." after <code>com</code>:</p>
-   * 				           <p>
+   *                <p>
    *                   <code>example.com.</code>
    *                </p>
-   * 			         </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>Name</code>: The name of the Resolver rule.</p>
@@ -1906,11 +2261,11 @@ export interface Filter {
    *             <li>
    *                <p>
    *                   <code>ResolverEndpointId</code>: The ID of the Resolver endpoint that the Resolver rule is associated with.</p>
-   * 				           <note>
+   *                <note>
    *                   <p>You can filter on the Resolver endpoint only for rules that have a value of <code>FORWARD</code> for
    * 					<code>RuleType</code>.</p>
    *                </note>
-   * 			         </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>Status</code>: The status of the Resolver rule. If you specify <code>Status</code> for <code>Name</code>,
@@ -1923,12 +2278,11 @@ export interface Filter {
    * 				for <code>Name</code>, specify <code>FORWARD</code> or <code>SYSTEM</code> for <code>Values</code>.</p>
    *             </li>
    *          </ul>
-   *
-   * 		       <p>
+   *          <p>
    *             <b>ListResolverRuleAssociations</b>
    *          </p>
-   * 		       <p>Valid values for <code>Name</code> include the following:</p>
-   * 		       <ul>
+   *          <p>Valid values for <code>Name</code> include the following:</p>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>Name</code>: The name of the Resolver rule association.</p>
@@ -1942,18 +2296,17 @@ export interface Filter {
    *                   <code>Status</code>: The status of the Resolver rule association. If you specify <code>Status</code> for <code>Name</code>,
    * 				specify one of the following status codes for <code>Values</code>: <code>CREATING</code>, <code>COMPLETE</code>, <code>DELETING</code>, or
    * 				<code>FAILED</code>.</p>
-   * 			         </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>VPCId</code>: The ID of the VPC that the Resolver rule is associated with.</p>
    *             </li>
    *          </ul>
-   *
-   * 		       <p>
+   *          <p>
    *             <b>ListResolverQueryLogConfigs</b>
    *          </p>
-   * 		       <p>Valid values for <code>Name</code> include the following:</p>
-   * 		       <ul>
+   *          <p>Valid values for <code>Name</code> include the following:</p>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>Arn</code>: The ARN for the query logging configuration.</p>
@@ -1974,7 +2327,7 @@ export interface Filter {
    *             <li>
    *                <p>
    *                   <code>Destination</code>: The Amazon Web Services service that you want to forward query logs to. Valid values include the following:</p>
-   * 				           <ul>
+   *                <ul>
    *                   <li>
    *                      <p>
    *                         <code>S3</code>
@@ -1991,7 +2344,7 @@ export interface Filter {
    *                      </p>
    *                   </li>
    *                </ul>
-   * 			         </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>DestinationArn</code>: The ARN of the location that Resolver is sending query logs to. This value can be the ARN for an
@@ -2022,14 +2375,13 @@ export interface Filter {
    * 				<code>DELETING</code>, or <code>FAILED</code>. For more information, see
    * 				<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ResolverQueryLogConfig.html#Route53Resolver-Type-route53resolver_ResolverQueryLogConfig-Status">Status</a>.
    * 				</p>
-   * 			         </li>
+   *             </li>
    *          </ul>
-   *
-   * 		       <p>
+   *          <p>
    *             <b>ListResolverQueryLogConfigAssociations</b>
    *          </p>
-   * 		       <p>Valid values for <code>Name</code> include the following:</p>
-   * 		       <ul>
+   *          <p>Valid values for <code>Name</code> include the following:</p>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>CreationTime</code>: The date and time that the VPC was associated with the query logging configuration, in Unix time format and
@@ -2059,7 +2411,7 @@ export interface Filter {
    * 				<code>DELETING</code>, or <code>FAILED</code>. For more information, see
    * 			    <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ResolverQueryLogConfigAssociation.html#Route53Resolver-Type-route53resolver_ResolverQueryLogConfigAssociation-Status">Status</a>.
    * 				</p>
-   * 			         </li>
+   *             </li>
    *          </ul>
    */
   Name?: string;
@@ -2072,12 +2424,23 @@ export interface Filter {
   Values?: string[];
 }
 
-export enum FirewallFailOpenStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FirewallFailOpenStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  USE_LOCAL_RESOURCE_SETTING: "USE_LOCAL_RESOURCE_SETTING",
+} as const;
 
 /**
+ * @public
+ */
+export type FirewallFailOpenStatus = (typeof FirewallFailOpenStatus)[keyof typeof FirewallFailOpenStatus];
+
+/**
+ * @public
  * <p>Configuration of the firewall behavior provided by DNS Firewall for a single VPC from
  * 			Amazon Virtual Private Cloud (Amazon VPC). </p>
  */
@@ -2114,11 +2477,22 @@ export interface FirewallConfig {
   FirewallFailOpen?: FirewallFailOpenStatus | string;
 }
 
-export enum FirewallDomainImportOperation {
-  REPLACE = "REPLACE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FirewallDomainImportOperation = {
+  REPLACE: "REPLACE",
+} as const;
 
 /**
+ * @public
+ */
+export type FirewallDomainImportOperation =
+  (typeof FirewallDomainImportOperation)[keyof typeof FirewallDomainImportOperation];
+
+/**
+ * @public
  * <p>Minimal high-level information for a firewall domain list. The action <a>ListFirewallDomainLists</a> returns an array of these objects. </p>
  *          <p>To retrieve full information for a firewall domain list, call  <a>GetFirewallDomainList</a> and <a>ListFirewallDomains</a>.</p>
  */
@@ -2151,13 +2525,24 @@ export interface FirewallDomainListMetadata {
   ManagedOwnerName?: string;
 }
 
-export enum FirewallDomainUpdateOperation {
-  ADD = "ADD",
-  REMOVE = "REMOVE",
-  REPLACE = "REPLACE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FirewallDomainUpdateOperation = {
+  ADD: "ADD",
+  REMOVE: "REMOVE",
+  REPLACE: "REPLACE",
+} as const;
 
 /**
+ * @public
+ */
+export type FirewallDomainUpdateOperation =
+  (typeof FirewallDomainUpdateOperation)[keyof typeof FirewallDomainUpdateOperation];
+
+/**
+ * @public
  * <p>Minimal high-level information for a firewall rule group. The action <a>ListFirewallRuleGroups</a> returns an array of these objects. </p>
  *          <p>To retrieve full information for a firewall rule group, call <a>GetFirewallRuleGroup</a> and <a>ListFirewallRules</a>.</p>
  */
@@ -2197,6 +2582,9 @@ export interface FirewallRuleGroupMetadata {
   ShareStatus?: ShareStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface GetFirewallConfigRequest {
   /**
    * <p>The ID of the VPC from Amazon VPC that the configuration is for.</p>
@@ -2204,6 +2592,9 @@ export interface GetFirewallConfigRequest {
   ResourceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetFirewallConfigResponse {
   /**
    * <p>Configuration of the firewall behavior provided by DNS Firewall for a single VPC from
@@ -2212,6 +2603,9 @@ export interface GetFirewallConfigResponse {
   FirewallConfig?: FirewallConfig;
 }
 
+/**
+ * @public
+ */
 export interface GetFirewallDomainListRequest {
   /**
    * <p>The ID of the domain list.  </p>
@@ -2219,6 +2613,9 @@ export interface GetFirewallDomainListRequest {
   FirewallDomainListId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetFirewallDomainListResponse {
   /**
    * <p>The domain list that you requested.  </p>
@@ -2226,6 +2623,9 @@ export interface GetFirewallDomainListResponse {
   FirewallDomainList?: FirewallDomainList;
 }
 
+/**
+ * @public
+ */
 export interface GetFirewallRuleGroupRequest {
   /**
    * <p>The unique identifier of the firewall rule group. </p>
@@ -2233,6 +2633,9 @@ export interface GetFirewallRuleGroupRequest {
   FirewallRuleGroupId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetFirewallRuleGroupResponse {
   /**
    * <p>A collection of rules used to filter DNS network traffic. </p>
@@ -2240,6 +2643,9 @@ export interface GetFirewallRuleGroupResponse {
   FirewallRuleGroup?: FirewallRuleGroup;
 }
 
+/**
+ * @public
+ */
 export interface GetFirewallRuleGroupAssociationRequest {
   /**
    * <p>The identifier of the <a>FirewallRuleGroupAssociation</a>. </p>
@@ -2247,6 +2653,9 @@ export interface GetFirewallRuleGroupAssociationRequest {
   FirewallRuleGroupAssociationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetFirewallRuleGroupAssociationResponse {
   /**
    * <p>The association that you requested. </p>
@@ -2254,6 +2663,9 @@ export interface GetFirewallRuleGroupAssociationResponse {
   FirewallRuleGroupAssociation?: FirewallRuleGroupAssociation;
 }
 
+/**
+ * @public
+ */
 export interface GetFirewallRuleGroupPolicyRequest {
   /**
    * <p>The ARN (Amazon Resource Name) for the rule group.</p>
@@ -2261,6 +2673,9 @@ export interface GetFirewallRuleGroupPolicyRequest {
   Arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetFirewallRuleGroupPolicyResponse {
   /**
    * <p>The Identity and Access Management (Amazon Web Services IAM) policy for sharing the specified rule
@@ -2270,6 +2685,9 @@ export interface GetFirewallRuleGroupPolicyResponse {
   FirewallRuleGroupPolicy?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetResolverConfigRequest {
   /**
    * <p>Resource ID of the Amazon VPC that you want to get information about.</p>
@@ -2277,14 +2695,27 @@ export interface GetResolverConfigRequest {
   ResourceId: string | undefined;
 }
 
-export enum ResolverAutodefinedReverseStatus {
-  Disabled = "DISABLED",
-  Disabling = "DISABLING",
-  Enabled = "ENABLED",
-  Enabling = "ENABLING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResolverAutodefinedReverseStatus = {
+  Disabled: "DISABLED",
+  Disabling: "DISABLING",
+  Enabled: "ENABLED",
+  Enabling: "ENABLING",
+  UpdatingToUseLocalResourceSetting: "UPDATING_TO_USE_LOCAL_RESOURCE_SETTING",
+  UseLocalResourceSetting: "USE_LOCAL_RESOURCE_SETTING",
+} as const;
 
 /**
+ * @public
+ */
+export type ResolverAutodefinedReverseStatus =
+  (typeof ResolverAutodefinedReverseStatus)[keyof typeof ResolverAutodefinedReverseStatus];
+
+/**
+ * @public
  * <p>A complex type that contains information about a Resolver configuration for a VPC.</p>
  */
 export interface ResolverConfig {
@@ -2306,10 +2737,7 @@ export interface ResolverConfig {
   /**
    * <p> The status of whether or not the Resolver will create autodefined rules for reverse DNS
    * 			lookups. This is enabled by default. The status can be one of following:</p>
-   * 		       <p> Status of the rules generated by VPCs based on CIDR/Region for reverse DNS resolution. The
-   * 			status can be one of following:</p>
-   *
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <b>ENABLING:</b> Autodefined rules for reverse DNS lookups are being
@@ -2335,14 +2763,20 @@ export interface ResolverConfig {
   AutodefinedReverse?: ResolverAutodefinedReverseStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface GetResolverConfigResponse {
   /**
-   * <p>Information about the behavior configuration of Route 53 Resolver behavior for the VPC you
+   * <p>Information about the behavior configuration of Route 53 Resolver behavior for the VPC you
    * 			specified in the <code>GetResolverConfig</code> request.</p>
    */
   ResolverConfig?: ResolverConfig;
 }
 
+/**
+ * @public
+ */
 export interface GetResolverDnssecConfigRequest {
   /**
    * <p>The ID of the virtual private cloud (VPC) for the DNSSEC validation status.</p>
@@ -2350,14 +2784,27 @@ export interface GetResolverDnssecConfigRequest {
   ResourceId: string | undefined;
 }
 
-export enum ResolverDNSSECValidationStatus {
-  Disabled = "DISABLED",
-  Disabling = "DISABLING",
-  Enabled = "ENABLED",
-  Enabling = "ENABLING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResolverDNSSECValidationStatus = {
+  Disabled: "DISABLED",
+  Disabling: "DISABLING",
+  Enabled: "ENABLED",
+  Enabling: "ENABLING",
+  UpdateToUseLocalResourceSetting: "UPDATING_TO_USE_LOCAL_RESOURCE_SETTING",
+  UseLocalResourceSetting: "USE_LOCAL_RESOURCE_SETTING",
+} as const;
 
 /**
+ * @public
+ */
+export type ResolverDNSSECValidationStatus =
+  (typeof ResolverDNSSECValidationStatus)[keyof typeof ResolverDNSSECValidationStatus];
+
+/**
+ * @public
  * <p>A complex type that contains information about a configuration for DNSSEC validation.</p>
  */
 export interface ResolverDnssecConfig {
@@ -2378,7 +2825,7 @@ export interface ResolverDnssecConfig {
 
   /**
    * <p>The validation status for a DNSSEC configuration. The status can be one of the following:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <b>ENABLING:</b> DNSSEC validation is being enabled but is not complete.</p>
@@ -2400,6 +2847,9 @@ export interface ResolverDnssecConfig {
   ValidationStatus?: ResolverDNSSECValidationStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface GetResolverDnssecConfigResponse {
   /**
    * <p>The information about a configuration for DNSSEC validation.</p>
@@ -2407,6 +2857,9 @@ export interface GetResolverDnssecConfigResponse {
   ResolverDNSSECConfig?: ResolverDnssecConfig;
 }
 
+/**
+ * @public
+ */
 export interface GetResolverEndpointRequest {
   /**
    * <p>The ID of the Resolver endpoint that you want to get information about.</p>
@@ -2414,6 +2867,9 @@ export interface GetResolverEndpointRequest {
   ResolverEndpointId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetResolverEndpointResponse {
   /**
    * <p>Information about the Resolver endpoint that you specified in a <code>GetResolverEndpoint</code> request.</p>
@@ -2421,6 +2877,9 @@ export interface GetResolverEndpointResponse {
   ResolverEndpoint?: ResolverEndpoint;
 }
 
+/**
+ * @public
+ */
 export interface GetResolverQueryLogConfigRequest {
   /**
    * <p>The ID of the Resolver query logging configuration that you want to get information about.</p>
@@ -2428,6 +2887,9 @@ export interface GetResolverQueryLogConfigRequest {
   ResolverQueryLogConfigId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetResolverQueryLogConfigResponse {
   /**
    * <p>Information about the Resolver query logging configuration that you specified in a <code>GetQueryLogConfig</code> request.</p>
@@ -2435,6 +2897,9 @@ export interface GetResolverQueryLogConfigResponse {
   ResolverQueryLogConfig?: ResolverQueryLogConfig;
 }
 
+/**
+ * @public
+ */
 export interface GetResolverQueryLogConfigAssociationRequest {
   /**
    * <p>The ID of the Resolver query logging configuration association that you want to get information about.</p>
@@ -2442,6 +2907,9 @@ export interface GetResolverQueryLogConfigAssociationRequest {
   ResolverQueryLogConfigAssociationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetResolverQueryLogConfigAssociationResponse {
   /**
    * <p>Information about the Resolver query logging configuration association that you specified in a <code>GetQueryLogConfigAssociation</code> request.</p>
@@ -2449,6 +2917,9 @@ export interface GetResolverQueryLogConfigAssociationResponse {
   ResolverQueryLogConfigAssociation?: ResolverQueryLogConfigAssociation;
 }
 
+/**
+ * @public
+ */
 export interface GetResolverQueryLogConfigPolicyRequest {
   /**
    * <p>The ARN of the query logging configuration that you want to get the query logging policy for.</p>
@@ -2456,6 +2927,9 @@ export interface GetResolverQueryLogConfigPolicyRequest {
   Arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetResolverQueryLogConfigPolicyResponse {
   /**
    * <p>Information about the query logging policy for the query logging configuration that you specified in a
@@ -2465,6 +2939,7 @@ export interface GetResolverQueryLogConfigPolicyResponse {
 }
 
 /**
+ * @public
  * <p>The specified resource doesn't exist.</p>
  */
 export class UnknownResourceException extends __BaseException {
@@ -2485,6 +2960,9 @@ export class UnknownResourceException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetResolverRuleRequest {
   /**
    * <p>The ID of the Resolver rule that you want to get information about.</p>
@@ -2492,6 +2970,9 @@ export interface GetResolverRuleRequest {
   ResolverRuleId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetResolverRuleResponse {
   /**
    * <p>Information about the Resolver rule that you specified in a <code>GetResolverRule</code> request.</p>
@@ -2499,6 +2980,9 @@ export interface GetResolverRuleResponse {
   ResolverRule?: ResolverRule;
 }
 
+/**
+ * @public
+ */
 export interface GetResolverRuleAssociationRequest {
   /**
    * <p>The ID of the Resolver rule association that you want to get information about.</p>
@@ -2506,6 +2990,9 @@ export interface GetResolverRuleAssociationRequest {
   ResolverRuleAssociationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetResolverRuleAssociationResponse {
   /**
    * <p>Information about the Resolver rule association that you specified in a <code>GetResolverRuleAssociation</code> request.</p>
@@ -2513,6 +3000,9 @@ export interface GetResolverRuleAssociationResponse {
   ResolverRuleAssociation?: ResolverRuleAssociation;
 }
 
+/**
+ * @public
+ */
 export interface GetResolverRulePolicyRequest {
   /**
    * <p>The ID of the Resolver rule that you want to get the Resolver rule policy for.</p>
@@ -2520,6 +3010,9 @@ export interface GetResolverRulePolicyRequest {
   Arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetResolverRulePolicyResponse {
   /**
    * <p>The Resolver rule policy for the rule that you specified in a <code>GetResolverRulePolicy</code> request.</p>
@@ -2527,6 +3020,9 @@ export interface GetResolverRulePolicyResponse {
   ResolverRulePolicy?: string;
 }
 
+/**
+ * @public
+ */
 export interface ImportFirewallDomainsRequest {
   /**
    * <p>The ID of the domain list that you want to modify with the import operation.</p>
@@ -2547,6 +3043,9 @@ export interface ImportFirewallDomainsRequest {
   DomainFileUrl: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ImportFirewallDomainsResponse {
   /**
    * <p>The Id of the firewall domain list that DNS Firewall just updated.</p>
@@ -2559,7 +3058,7 @@ export interface ImportFirewallDomainsResponse {
   Name?: string;
 
   /**
-   * <p> </p>
+   * <p>Status of the import request.</p>
    */
   Status?: FirewallDomainListStatus | string;
 
@@ -2570,6 +3069,7 @@ export interface ImportFirewallDomainsResponse {
 }
 
 /**
+ * @public
  * <p>The value that you specified for <code>NextToken</code> in a <code>List</code> request isn't valid.</p>
  */
 export class InvalidNextTokenException extends __BaseException {
@@ -2591,6 +3091,7 @@ export class InvalidNextTokenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified Resolver rule policy is invalid.</p>
  */
 export class InvalidPolicyDocument extends __BaseException {
@@ -2612,6 +3113,7 @@ export class InvalidPolicyDocument extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified tag is invalid.</p>
  */
 export class InvalidTagException extends __BaseException {
@@ -2632,20 +3134,31 @@ export class InvalidTagException extends __BaseException {
   }
 }
 
-export enum IpAddressStatus {
-  Attached = "ATTACHED",
-  Attaching = "ATTACHING",
-  Creating = "CREATING",
-  DeleteFailedFasExpired = "DELETE_FAILED_FAS_EXPIRED",
-  Deleting = "DELETING",
-  Detaching = "DETACHING",
-  FailedCreation = "FAILED_CREATION",
-  FailedResourceGone = "FAILED_RESOURCE_GONE",
-  RemapAttaching = "REMAP_ATTACHING",
-  RemapDetaching = "REMAP_DETACHING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const IpAddressStatus = {
+  Attached: "ATTACHED",
+  Attaching: "ATTACHING",
+  Creating: "CREATING",
+  DeleteFailedFasExpired: "DELETE_FAILED_FAS_EXPIRED",
+  Deleting: "DELETING",
+  Detaching: "DETACHING",
+  FailedCreation: "FAILED_CREATION",
+  FailedResourceGone: "FAILED_RESOURCE_GONE",
+  RemapAttaching: "REMAP_ATTACHING",
+  RemapDetaching: "REMAP_DETACHING",
+  Updating: "UPDATING",
+} as const;
 
 /**
+ * @public
+ */
+export type IpAddressStatus = (typeof IpAddressStatus)[keyof typeof IpAddressStatus];
+
+/**
+ * @public
  * <p>In the response to a
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverEndpoint.html">GetResolverEndpoint</a>
  * 			request, information about the IP addresses that the Resolver endpoint uses for DNS queries.</p>
@@ -2662,9 +3175,16 @@ export interface IpAddressResponse {
   SubnetId?: string;
 
   /**
-   * <p>One IP address that the Resolver endpoint uses for DNS queries.</p>
+   * <p>One IPv4 address that the Resolver endpoint uses for DNS queries.</p>
    */
   Ip?: string;
+
+  /**
+   * <p>
+   * 			One IPv6 address that the Resolver endpoint uses for DNS queries.
+   * 		</p>
+   */
+  Ipv6?: string;
 
   /**
    * <p>A status code that gives the current status of the request.</p>
@@ -2687,6 +3207,9 @@ export interface IpAddressResponse {
   ModificationTime?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFirewallConfigsRequest {
   /**
    * <p>The maximum number of objects that you want Resolver to return for this request. If more
@@ -2706,6 +3229,9 @@ export interface ListFirewallConfigsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFirewallConfigsResponse {
   /**
    * <p>If objects are still available for retrieval, Resolver returns this token in the response.
@@ -2720,6 +3246,9 @@ export interface ListFirewallConfigsResponse {
   FirewallConfigs?: FirewallConfig[];
 }
 
+/**
+ * @public
+ */
 export interface ListFirewallDomainListsRequest {
   /**
    * <p>The maximum number of objects that you want Resolver to return for this request. If more
@@ -2739,6 +3268,9 @@ export interface ListFirewallDomainListsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFirewallDomainListsResponse {
   /**
    * <p>If objects are still available for retrieval, Resolver returns this token in the response.
@@ -2754,6 +3286,9 @@ export interface ListFirewallDomainListsResponse {
   FirewallDomainLists?: FirewallDomainListMetadata[];
 }
 
+/**
+ * @public
+ */
 export interface ListFirewallDomainsRequest {
   /**
    * <p>The ID of the domain list whose domains you want to retrieve. </p>
@@ -2778,6 +3313,9 @@ export interface ListFirewallDomainsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFirewallDomainsResponse {
   /**
    * <p>If objects are still available for retrieval, Resolver returns this token in the response.
@@ -2793,6 +3331,9 @@ export interface ListFirewallDomainsResponse {
   Domains?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListFirewallRuleGroupAssociationsRequest {
   /**
    * <p>The unique identifier of the firewall rule group that you want to retrieve the associations
@@ -2836,6 +3377,9 @@ export interface ListFirewallRuleGroupAssociationsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFirewallRuleGroupAssociationsResponse {
   /**
    * <p>If objects are still available for retrieval, Resolver returns this token in the response.
@@ -2850,6 +3394,9 @@ export interface ListFirewallRuleGroupAssociationsResponse {
   FirewallRuleGroupAssociations?: FirewallRuleGroupAssociation[];
 }
 
+/**
+ * @public
+ */
 export interface ListFirewallRuleGroupsRequest {
   /**
    * <p>The maximum number of objects that you want Resolver to return for this request. If more
@@ -2869,6 +3416,9 @@ export interface ListFirewallRuleGroupsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFirewallRuleGroupsResponse {
   /**
    * <p>If objects are still available for retrieval, Resolver returns this token in the response.
@@ -2883,6 +3433,9 @@ export interface ListFirewallRuleGroupsResponse {
   FirewallRuleGroups?: FirewallRuleGroupMetadata[];
 }
 
+/**
+ * @public
+ */
 export interface ListFirewallRulesRequest {
   /**
    * <p>The unique identifier of the firewall rule group that you want to retrieve the rules for. </p>
@@ -2934,6 +3487,9 @@ export interface ListFirewallRulesRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFirewallRulesResponse {
   /**
    * <p>If objects are still available for retrieval, Resolver returns this token in the response.
@@ -2949,6 +3505,9 @@ export interface ListFirewallRulesResponse {
   FirewallRules?: FirewallRule[];
 }
 
+/**
+ * @public
+ */
 export interface ListResolverConfigsRequest {
   /**
    * <p>The maximum number of Resolver configurations that you want to return in the response to
@@ -2960,21 +3519,23 @@ export interface ListResolverConfigsRequest {
   /**
    * <p>(Optional) If the current Amazon Web Services account has more than <code>MaxResults</code> Resolver configurations, use
    * 			<code>NextToken</code> to get the second and subsequent pages of results.</p>
-   * 		       <p>For the first <code>ListResolverConfigs</code> request, omit this value.</p>
-   * 		       <p>For the second and subsequent requests, get the value of <code>NextToken</code> from the previous response and
+   *          <p>For the first <code>ListResolverConfigs</code> request, omit this value.</p>
+   *          <p>For the second and subsequent requests, get the value of <code>NextToken</code> from the previous response and
    * 			specify that value for <code>NextToken</code> in the request.</p>
    */
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListResolverConfigsResponse {
   /**
    * <p>If a response includes the last of the Resolver configurations that are associated with the current Amazon Web Services account,
    * 			<code>NextToken</code> doesn't appear in the response.</p>
-   * 		       <p>If a response doesn't include the last of the configurations, you can get more configurations by submitting another
+   *          <p>If a response doesn't include the last of the configurations, you can get more configurations by submitting another
    * 			<code>ListResolverConfigs</code> request.
-   * 			Get the value of <code>NextToken</code> that Amazon Route 53
-   *              returned in the previous response and include it in
+   * 			Get the value of <code>NextToken</code> that Amazon Route 53 returned in the previous response and include it in
    * 			<code>NextToken</code> in the next request.</p>
    */
   NextToken?: string;
@@ -2986,6 +3547,9 @@ export interface ListResolverConfigsResponse {
   ResolverConfigs?: ResolverConfig[];
 }
 
+/**
+ * @public
+ */
 export interface ListResolverDnssecConfigsRequest {
   /**
    * <p>
@@ -2997,8 +3561,8 @@ export interface ListResolverDnssecConfigsRequest {
   /**
    * <p>(Optional) If the current Amazon Web Services account has more than <code>MaxResults</code> DNSSEC configurations, use <code>NextToken</code>
    * 			to get the second and subsequent pages of results.</p>
-   * 		       <p>For the first <code>ListResolverDnssecConfigs</code> request, omit this value.</p>
-   * 		       <p>For the second and subsequent requests, get the value of <code>NextToken</code> from the previous response and specify that value
+   *          <p>For the first <code>ListResolverDnssecConfigs</code> request, omit this value.</p>
+   *          <p>For the second and subsequent requests, get the value of <code>NextToken</code> from the previous response and specify that value
    * 			for <code>NextToken</code> in the request.</p>
    */
   NextToken?: string;
@@ -3009,11 +3573,14 @@ export interface ListResolverDnssecConfigsRequest {
   Filters?: Filter[];
 }
 
+/**
+ * @public
+ */
 export interface ListResolverDnssecConfigsResponse {
   /**
    * <p>If a response includes the last of the DNSSEC configurations that are associated with the current Amazon Web Services account,
    * 			<code>NextToken</code> doesn't appear in the response.</p>
-   * 		       <p>If a response doesn't include the last of the configurations, you can get more configurations by submitting another
+   *          <p>If a response doesn't include the last of the configurations, you can get more configurations by submitting another
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListResolverDnssecConfigs.html">ListResolverDnssecConfigs</a>
    * 			request. Get the value of <code>NextToken</code> that Amazon Route 53 returned in the previous response and include it in
    * 			<code>NextToken</code> in the next request.</p>
@@ -3028,6 +3595,9 @@ export interface ListResolverDnssecConfigsResponse {
   ResolverDnssecConfigs?: ResolverDnssecConfig[];
 }
 
+/**
+ * @public
+ */
 export interface ListResolverEndpointIpAddressesRequest {
   /**
    * <p>The ID of the Resolver endpoint that you want to get IP addresses for.</p>
@@ -3042,13 +3612,16 @@ export interface ListResolverEndpointIpAddressesRequest {
 
   /**
    * <p>For the first <code>ListResolverEndpointIpAddresses</code> request, omit this value.</p>
-   * 		       <p>If the specified Resolver endpoint has more than <code>MaxResults</code> IP addresses, you can submit another
+   *          <p>If the specified Resolver endpoint has more than <code>MaxResults</code> IP addresses, you can submit another
    * 			<code>ListResolverEndpointIpAddresses</code> request to get the next group of IP addresses. In the next request, specify the value of
    * 			<code>NextToken</code> from the previous response. </p>
    */
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListResolverEndpointIpAddressesResponse {
   /**
    * <p>If the specified endpoint has more than <code>MaxResults</code> IP addresses, you can submit another
@@ -3069,6 +3642,9 @@ export interface ListResolverEndpointIpAddressesResponse {
   IpAddresses?: IpAddressResponse[];
 }
 
+/**
+ * @public
+ */
 export interface ListResolverEndpointsRequest {
   /**
    * <p>The maximum number of Resolver endpoints that you want to return in the response to a <code>ListResolverEndpoints</code> request.
@@ -3078,14 +3654,14 @@ export interface ListResolverEndpointsRequest {
 
   /**
    * <p>For the first <code>ListResolverEndpoints</code> request, omit this value.</p>
-   * 		       <p>If you have more than <code>MaxResults</code> Resolver endpoints, you can submit another <code>ListResolverEndpoints</code> request
+   *          <p>If you have more than <code>MaxResults</code> Resolver endpoints, you can submit another <code>ListResolverEndpoints</code> request
    * 			to get the next group of Resolver endpoints. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>
    */
   NextToken?: string;
 
   /**
    * <p>An optional specification to return a subset of Resolver endpoints, such as all inbound Resolver endpoints.</p>
-   * 		       <note>
+   *          <note>
    *             <p>If you submit a second or subsequent <code>ListResolverEndpoints</code> request and specify the <code>NextToken</code> parameter,
    * 			you must use the same values for <code>Filters</code>, if any, as in the previous request.</p>
    *          </note>
@@ -3093,6 +3669,9 @@ export interface ListResolverEndpointsRequest {
   Filters?: Filter[];
 }
 
+/**
+ * @public
+ */
 export interface ListResolverEndpointsResponse {
   /**
    * <p>If more than <code>MaxResults</code> IP addresses match the specified criteria, you can submit another <code>ListResolverEndpoint</code> request
@@ -3111,11 +3690,23 @@ export interface ListResolverEndpointsResponse {
   ResolverEndpoints?: ResolverEndpoint[];
 }
 
-export enum SortOrder {
-  Ascending = "ASCENDING",
-  Descending = "DESCENDING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SortOrder = {
+  Ascending: "ASCENDING",
+  Descending: "DESCENDING",
+} as const;
 
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
+
+/**
+ * @public
+ */
 export interface ListResolverQueryLogConfigAssociationsRequest {
   /**
    * <p>The maximum number of query logging associations that you want to return in the response to a <code>ListResolverQueryLogConfigAssociations</code> request.
@@ -3125,7 +3716,7 @@ export interface ListResolverQueryLogConfigAssociationsRequest {
 
   /**
    * <p>For the first <code>ListResolverQueryLogConfigAssociations</code> request, omit this value.</p>
-   * 		       <p>If there are more than <code>MaxResults</code> query logging associations that match the values that you specify for <code>Filters</code>,
+   *          <p>If there are more than <code>MaxResults</code> query logging associations that match the values that you specify for <code>Filters</code>,
    * 			you can submit another <code>ListResolverQueryLogConfigAssociations</code> request to get the next group of associations. In the next request, specify the value of
    * 			<code>NextToken</code> from the previous response. </p>
    */
@@ -3133,22 +3724,21 @@ export interface ListResolverQueryLogConfigAssociationsRequest {
 
   /**
    * <p>An optional specification to return a subset of query logging associations.</p>
-   * 		       <note>
-   * 			         <p>If you submit a second or subsequent <code>ListResolverQueryLogConfigAssociations</code> request and specify the <code>NextToken</code> parameter,
+   *          <note>
+   *             <p>If you submit a second or subsequent <code>ListResolverQueryLogConfigAssociations</code> request and specify the <code>NextToken</code> parameter,
    * 				you must use the same values for <code>Filters</code>, if any, as in the previous request.</p>
-   * 		       </note>
+   *          </note>
    */
   Filters?: Filter[];
 
   /**
    * <p>The element that you want Resolver to sort query logging associations by. </p>
-   * 		       <note>
-   * 			         <p>If you submit a second or subsequent <code>ListResolverQueryLogConfigAssociations</code> request and specify the <code>NextToken</code> parameter,
+   *          <note>
+   *             <p>If you submit a second or subsequent <code>ListResolverQueryLogConfigAssociations</code> request and specify the <code>NextToken</code> parameter,
    * 				you must use the same value for <code>SortBy</code>, if any, as in the previous request.</p>
-   * 		       </note>
-   *
-   * 		       <p>Valid values include the following elements:</p>
-   * 		       <ul>
+   *          </note>
+   *          <p>Valid values include the following elements:</p>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>CreationTime</code>: The ID of the query logging association.</p>
@@ -3157,7 +3747,7 @@ export interface ListResolverQueryLogConfigAssociationsRequest {
    *                <p>
    *                   <code>Error</code>: If the value of <code>Status</code> is <code>FAILED</code>, the value of <code>Error</code>
    * 				indicates the cause: </p>
-   * 				           <ul>
+   *                <ul>
    *                   <li>
    *                      <p>
    *                         <code>DESTINATION_NOT_FOUND</code>: The specified destination (for example, an Amazon S3 bucket) was deleted.</p>
@@ -3167,8 +3757,8 @@ export interface ListResolverQueryLogConfigAssociationsRequest {
    *                         <code>ACCESS_DENIED</code>: Permissions don't allow sending logs to the destination.</p>
    *                   </li>
    *                </ul>
-   * 				           <p>If <code>Status</code> is a value other than <code>FAILED</code>, <code>ERROR</code> is null.</p>
-   * 			         </li>
+   *                <p>If <code>Status</code> is a value other than <code>FAILED</code>, <code>ERROR</code> is null.</p>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>Id</code>: The ID of the query logging association</p>
@@ -3184,8 +3774,7 @@ export interface ListResolverQueryLogConfigAssociationsRequest {
    *             <li>
    *                <p>
    *                   <code>Status</code>: The current status of the configuration. Valid values include the following:</p>
-   *
-   * 				           <ul>
+   *                <ul>
    *                   <li>
    *                      <p>
    *                         <code>CREATING</code>: Resolver is creating an association between an Amazon VPC and a query logging configuration.</p>
@@ -3203,7 +3792,7 @@ export interface ListResolverQueryLogConfigAssociationsRequest {
    *                      <p>
    *                         <code>FAILED</code>: Resolver either couldn't create or couldn't delete the query logging association.
    * 						Here are two common causes:</p>
-   * 						               <ul>
+   *                      <ul>
    *                         <li>
    *                            <p>The specified destination (for example, an Amazon S3 bucket) was deleted.</p>
    *                         </li>
@@ -3211,9 +3800,9 @@ export interface ListResolverQueryLogConfigAssociationsRequest {
    *                            <p>Permissions don't allow sending logs to the destination.</p>
    *                         </li>
    *                      </ul>
-   * 					             </li>
+   *                   </li>
    *                </ul>
-   * 			         </li>
+   *             </li>
    *          </ul>
    */
   SortBy?: string;
@@ -3221,14 +3810,17 @@ export interface ListResolverQueryLogConfigAssociationsRequest {
   /**
    * <p>If you specified a value for <code>SortBy</code>, the order that you want query logging associations to be listed in,
    * 			<code>ASCENDING</code> or <code>DESCENDING</code>.</p>
-   * 		       <note>
-   * 			         <p>If you submit a second or subsequent <code>ListResolverQueryLogConfigAssociations</code> request and specify the <code>NextToken</code> parameter,
+   *          <note>
+   *             <p>If you submit a second or subsequent <code>ListResolverQueryLogConfigAssociations</code> request and specify the <code>NextToken</code> parameter,
    * 				you must use the same value for <code>SortOrder</code>, if any, as in the previous request.</p>
-   * 		       </note>
+   *          </note>
    */
   SortOrder?: SortOrder | string;
 }
 
+/**
+ * @public
+ */
 export interface ListResolverQueryLogConfigAssociationsResponse {
   /**
    * <p>If there are more than <code>MaxResults</code> query logging associations, you can submit another <code>ListResolverQueryLogConfigAssociations</code> request
@@ -3257,6 +3849,9 @@ export interface ListResolverQueryLogConfigAssociationsResponse {
   ResolverQueryLogConfigAssociations?: ResolverQueryLogConfigAssociation[];
 }
 
+/**
+ * @public
+ */
 export interface ListResolverQueryLogConfigsRequest {
   /**
    * <p>The maximum number of query logging configurations that you want to return in the response to a <code>ListResolverQueryLogConfigs</code> request.
@@ -3266,7 +3861,7 @@ export interface ListResolverQueryLogConfigsRequest {
 
   /**
    * <p>For the first <code>ListResolverQueryLogConfigs</code> request, omit this value.</p>
-   * 		       <p>If there are more than <code>MaxResults</code> query logging configurations that match the values that you specify for <code>Filters</code>,
+   *          <p>If there are more than <code>MaxResults</code> query logging configurations that match the values that you specify for <code>Filters</code>,
    * 			you can submit another <code>ListResolverQueryLogConfigs</code> request to get the next group of configurations. In the next request, specify the value of
    * 			<code>NextToken</code> from the previous response. </p>
    */
@@ -3274,22 +3869,21 @@ export interface ListResolverQueryLogConfigsRequest {
 
   /**
    * <p>An optional specification to return a subset of query logging configurations.</p>
-   * 		       <note>
-   * 			         <p>If you submit a second or subsequent <code>ListResolverQueryLogConfigs</code> request and specify the <code>NextToken</code> parameter,
+   *          <note>
+   *             <p>If you submit a second or subsequent <code>ListResolverQueryLogConfigs</code> request and specify the <code>NextToken</code> parameter,
    * 				you must use the same values for <code>Filters</code>, if any, as in the previous request.</p>
-   * 		       </note>
+   *          </note>
    */
   Filters?: Filter[];
 
   /**
    * <p>The element that you want Resolver to sort query logging configurations by. </p>
-   * 		       <note>
-   * 			         <p>If you submit a second or subsequent <code>ListResolverQueryLogConfigs</code> request and specify the <code>NextToken</code> parameter,
+   *          <note>
+   *             <p>If you submit a second or subsequent <code>ListResolverQueryLogConfigs</code> request and specify the <code>NextToken</code> parameter,
    * 				you must use the same value for <code>SortBy</code>, if any, as in the previous request.</p>
-   * 		       </note>
-   *
-   * 		       <p>Valid values include the following elements:</p>
-   * 		       <ul>
+   *          </note>
+   *          <p>Valid values include the following elements:</p>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>Arn</code>: The ARN of the query logging configuration</p>
@@ -3330,8 +3924,7 @@ export interface ListResolverQueryLogConfigsRequest {
    *             <li>
    *                <p>
    *                   <code>Status</code>: The current status of the configuration. Valid values include the following:</p>
-   *
-   * 				           <ul>
+   *                <ul>
    *                   <li>
    *                      <p>
    *                         <code>CREATING</code>: Resolver is creating the query logging configuration.</p>
@@ -3349,7 +3942,7 @@ export interface ListResolverQueryLogConfigsRequest {
    *                      <p>
    *                         <code>FAILED</code>: Resolver either couldn't create or couldn't delete the query logging configuration.
    * 						Here are two common causes:</p>
-   * 						               <ul>
+   *                      <ul>
    *                         <li>
    *                            <p>The specified destination (for example, an Amazon S3 bucket) was deleted.</p>
    *                         </li>
@@ -3357,9 +3950,9 @@ export interface ListResolverQueryLogConfigsRequest {
    *                            <p>Permissions don't allow sending logs to the destination.</p>
    *                         </li>
    *                      </ul>
-   * 					             </li>
+   *                   </li>
    *                </ul>
-   * 			         </li>
+   *             </li>
    *          </ul>
    */
   SortBy?: string;
@@ -3367,14 +3960,17 @@ export interface ListResolverQueryLogConfigsRequest {
   /**
    * <p>If you specified a value for <code>SortBy</code>, the order that you want query logging configurations to be listed in,
    * 			<code>ASCENDING</code> or <code>DESCENDING</code>.</p>
-   * 		       <note>
-   * 			         <p>If you submit a second or subsequent <code>ListResolverQueryLogConfigs</code> request and specify the <code>NextToken</code> parameter,
+   *          <note>
+   *             <p>If you submit a second or subsequent <code>ListResolverQueryLogConfigs</code> request and specify the <code>NextToken</code> parameter,
    * 				you must use the same value for <code>SortOrder</code>, if any, as in the previous request.</p>
-   * 		       </note>
+   *          </note>
    */
   SortOrder?: SortOrder | string;
 }
 
+/**
+ * @public
+ */
 export interface ListResolverQueryLogConfigsResponse {
   /**
    * <p>If there are more than <code>MaxResults</code> query logging configurations, you can submit another <code>ListResolverQueryLogConfigs</code> request
@@ -3403,6 +3999,9 @@ export interface ListResolverQueryLogConfigsResponse {
   ResolverQueryLogConfigs?: ResolverQueryLogConfig[];
 }
 
+/**
+ * @public
+ */
 export interface ListResolverRuleAssociationsRequest {
   /**
    * <p>The maximum number of rule associations that you want to return in the response to a <code>ListResolverRuleAssociations</code> request.
@@ -3412,14 +4011,14 @@ export interface ListResolverRuleAssociationsRequest {
 
   /**
    * <p>For the first <code>ListResolverRuleAssociation</code> request, omit this value.</p>
-   * 		       <p>If you have more than <code>MaxResults</code> rule associations, you can submit another <code>ListResolverRuleAssociation</code> request
+   *          <p>If you have more than <code>MaxResults</code> rule associations, you can submit another <code>ListResolverRuleAssociation</code> request
    * 			to get the next group of rule associations. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>
    */
   NextToken?: string;
 
   /**
    * <p>An optional specification to return a subset of Resolver rules, such as Resolver rules that are associated with the same VPC ID.</p>
-   * 		       <note>
+   *          <note>
    *             <p>If you submit a second or subsequent <code>ListResolverRuleAssociations</code> request and specify the <code>NextToken</code> parameter,
    * 			you must use the same values for <code>Filters</code>, if any, as in the previous request.</p>
    *          </note>
@@ -3427,6 +4026,9 @@ export interface ListResolverRuleAssociationsRequest {
   Filters?: Filter[];
 }
 
+/**
+ * @public
+ */
 export interface ListResolverRuleAssociationsResponse {
   /**
    * <p>If more than <code>MaxResults</code> rule associations match the specified criteria, you can submit another
@@ -3447,6 +4049,9 @@ export interface ListResolverRuleAssociationsResponse {
   ResolverRuleAssociations?: ResolverRuleAssociation[];
 }
 
+/**
+ * @public
+ */
 export interface ListResolverRulesRequest {
   /**
    * <p>The maximum number of Resolver rules that you want to return in the response to a <code>ListResolverRules</code> request.
@@ -3456,14 +4061,14 @@ export interface ListResolverRulesRequest {
 
   /**
    * <p>For the first <code>ListResolverRules</code> request, omit this value.</p>
-   * 		       <p>If you have more than <code>MaxResults</code> Resolver rules, you can submit another <code>ListResolverRules</code> request
+   *          <p>If you have more than <code>MaxResults</code> Resolver rules, you can submit another <code>ListResolverRules</code> request
    * 			to get the next group of Resolver rules. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>
    */
   NextToken?: string;
 
   /**
    * <p>An optional specification to return a subset of Resolver rules, such as all Resolver rules that are associated with the same Resolver endpoint.</p>
-   * 		       <note>
+   *          <note>
    *             <p>If you submit a second or subsequent <code>ListResolverRules</code> request and specify the <code>NextToken</code> parameter,
    * 			you must use the same values for <code>Filters</code>, if any, as in the previous request.</p>
    *          </note>
@@ -3471,6 +4076,9 @@ export interface ListResolverRulesRequest {
   Filters?: Filter[];
 }
 
+/**
+ * @public
+ */
 export interface ListResolverRulesResponse {
   /**
    * <p>If more than <code>MaxResults</code> Resolver rules match the specified criteria, you can submit another
@@ -3490,6 +4098,9 @@ export interface ListResolverRulesResponse {
   ResolverRules?: ResolverRule[];
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) for the resource that you want to list tags for.</p>
@@ -3504,12 +4115,15 @@ export interface ListTagsForResourceRequest {
 
   /**
    * <p>For the first <code>ListTagsForResource</code> request, omit this value.</p>
-   * 		       <p>If you have more than <code>MaxResults</code> tags, you can submit another <code>ListTagsForResource</code> request
+   *          <p>If you have more than <code>MaxResults</code> tags, you can submit another <code>ListTagsForResource</code> request
    * 			to get the next group of tags for the resource. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>
    */
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags that are associated with the resource that you specified in the <code>ListTagsForResource</code> request.</p>
@@ -3524,6 +4138,9 @@ export interface ListTagsForResourceResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutFirewallRuleGroupPolicyRequest {
   /**
    * <p>The ARN (Amazon Resource Name) for the rule group that you want to share.</p>
@@ -3536,6 +4153,9 @@ export interface PutFirewallRuleGroupPolicyRequest {
   FirewallRuleGroupPolicy: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutFirewallRuleGroupPolicyResponse {
   /**
    * <p></p>
@@ -3543,6 +4163,9 @@ export interface PutFirewallRuleGroupPolicyResponse {
   ReturnValue?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface PutResolverQueryLogConfigPolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the account that you want to share rules with.</p>
@@ -3553,7 +4176,7 @@ export interface PutResolverQueryLogConfigPolicyRequest {
    * <p>An Identity and Access Management policy statement that lists the query logging configurations that you want to share with another Amazon Web Services account
    * 			and the operations that you want the account to be able to perform. You can specify the following operations in the <code>Actions</code> section
    * 			of the statement:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>route53resolver:AssociateResolverQueryLogConfig</code>
@@ -3575,14 +4198,14 @@ export interface PutResolverQueryLogConfigPolicyRequest {
    *                </p>
    *             </li>
    *          </ul>
-   *
-   * 		       <p>In the <code>Resource</code> section of the statement, you specify the ARNs for the query logging configurations that you want to share
+   *          <p>In the <code>Resource</code> section of the statement, you specify the ARNs for the query logging configurations that you want to share
    * 			with the account that you specified in <code>Arn</code>. </p>
    */
   ResolverQueryLogConfigPolicy: string | undefined;
 }
 
 /**
+ * @public
  * <p>The response to a <code>PutResolverQueryLogConfigPolicy</code> request.</p>
  */
 export interface PutResolverQueryLogConfigPolicyResponse {
@@ -3592,6 +4215,9 @@ export interface PutResolverQueryLogConfigPolicyResponse {
   ReturnValue?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface PutResolverRulePolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the rule that you want to share with another account.</p>
@@ -3601,7 +4227,7 @@ export interface PutResolverRulePolicyRequest {
   /**
    * <p>An Identity and Access Management policy statement that lists the rules that you want to share with another Amazon Web Services account and the operations that you want the account
    * 			to be able to perform. You can specify the following operations in the <code>Action</code> section of the statement:</p>
-   * 			      <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>route53resolver:GetResolverRule</code>
@@ -3628,14 +4254,14 @@ export interface PutResolverRulePolicyRequest {
    *                </p>
    *             </li>
    *          </ul>
-   *
-   * 		       <p>In the <code>Resource</code> section of the statement, specify the ARN for the rule that you want to share with another account. Specify the same ARN
+   *          <p>In the <code>Resource</code> section of the statement, specify the ARN for the rule that you want to share with another account. Specify the same ARN
    * 			that you specified in <code>Arn</code>.</p>
    */
   ResolverRulePolicy: string | undefined;
 }
 
 /**
+ * @public
  * <p>The response to a <code>PutResolverRulePolicy</code> request.</p>
  */
 export interface PutResolverRulePolicyResponse {
@@ -3646,6 +4272,7 @@ export interface PutResolverRulePolicyResponse {
 }
 
 /**
+ * @public
  * <p>In an
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_UpdateResolverRule.html">UpdateResolverRule</a>
  * 			request, information about the changes that you want to make.</p>
@@ -3668,41 +4295,44 @@ export interface ResolverRuleConfig {
   ResolverEndpointId?: string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) for the resource that you want to add tags to. To get the ARN for a resource, use the applicable
    * 			<code>Get</code> or <code>List</code> command: </p>
-   * 			      <ul>
+   *          <ul>
    *             <li>
-   * 					          <p>
+   *                <p>
    *                   <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverEndpoint.html">GetResolverEndpoint</a>
    *                </p>
-   * 				        </li>
+   *             </li>
    *             <li>
-   * 					          <p>
+   *                <p>
    *                   <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverRule.html">GetResolverRule</a>
    *                </p>
-   * 				        </li>
+   *             </li>
    *             <li>
-   * 					          <p>
+   *                <p>
    *                   <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverRuleAssociation.html">GetResolverRuleAssociation</a>
    *                </p>
-   * 				        </li>
+   *             </li>
    *             <li>
-   * 					          <p>
+   *                <p>
    *                   <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverEndpoints.html">ListResolverEndpoints</a>
    *                </p>
-   * 				        </li>
+   *             </li>
    *             <li>
-   * 					          <p>
+   *                <p>
    *                   <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRuleAssociations.html">ListResolverRuleAssociations</a>
    *                </p>
-   * 				        </li>
+   *             </li>
    *             <li>
-   * 					          <p>
+   *                <p>
    *                   <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRules.html">ListResolverRules</a>
    *                </p>
-   * 				        </li>
+   *             </li>
    *          </ul>
    */
   ResourceArn: string | undefined;
@@ -3713,43 +4343,49 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) for the resource that you want to remove tags from. To get the ARN for a resource, use the applicable
    * 			<code>Get</code> or <code>List</code> command: </p>
-   * 			      <ul>
+   *          <ul>
    *             <li>
-   * 					          <p>
+   *                <p>
    *                   <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverEndpoint.html">GetResolverEndpoint</a>
    *                </p>
-   * 				        </li>
+   *             </li>
    *             <li>
-   * 					          <p>
+   *                <p>
    *                   <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverRule.html">GetResolverRule</a>
    *                </p>
-   * 				        </li>
+   *             </li>
    *             <li>
-   * 					          <p>
+   *                <p>
    *                   <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverRuleAssociation.html">GetResolverRuleAssociation</a>
    *                </p>
-   * 				        </li>
+   *             </li>
    *             <li>
-   * 					          <p>
+   *                <p>
    *                   <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverEndpoints.html">ListResolverEndpoints</a>
    *                </p>
-   * 				        </li>
+   *             </li>
    *             <li>
-   * 					          <p>
+   *                <p>
    *                   <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRuleAssociations.html">ListResolverRuleAssociations</a>
    *                </p>
-   * 				        </li>
+   *             </li>
    *             <li>
-   * 					          <p>
+   *                <p>
    *                   <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRules.html">ListResolverRules</a>
    *                </p>
-   * 				        </li>
+   *             </li>
    *          </ul>
    */
   ResourceArn: string | undefined;
@@ -3760,8 +4396,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateFirewallConfigRequest {
   /**
    * <p>The ID of the VPC that the configuration is for.</p>
@@ -3785,6 +4427,9 @@ export interface UpdateFirewallConfigRequest {
   FirewallFailOpen: FirewallFailOpenStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFirewallConfigResponse {
   /**
    * <p>Configuration of the firewall behavior provided by DNS Firewall for a single VPC. </p>
@@ -3792,6 +4437,9 @@ export interface UpdateFirewallConfigResponse {
   FirewallConfig?: FirewallConfig;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFirewallDomainsRequest {
   /**
    * <p>The ID of the domain list whose domains you want to update. </p>
@@ -3819,25 +4467,31 @@ export interface UpdateFirewallDomainsRequest {
 
   /**
    * <p>A list of domains to use in the update operation.</p>
+   *          <important>
+   *             <p>There is a limit of 1000 domains per request.</p>
+   *          </important>
    *          <p>Each domain specification in your domain list must satisfy the following
    * 	requirements: </p>
    *          <ul>
    *             <li>
-   *       	        <p>It can optionally start with <code>*</code> (asterisk).</p>
-   *       	     </li>
+   *                <p>It can optionally start with <code>*</code> (asterisk).</p>
+   *             </li>
    *             <li>
-   *       	        <p>With the exception of the optional starting asterisk, it must only contain
+   *                <p>With the exception of the optional starting asterisk, it must only contain
    *       	   the following characters: <code>A-Z</code>, <code>a-z</code>,
    *       	   <code>0-9</code>, <code>-</code> (hyphen).</p>
-   *       	     </li>
+   *             </li>
    *             <li>
-   *       	        <p>It must be from 1-255 characters in length. </p>
-   *       	     </li>
+   *                <p>It must be from 1-255 characters in length. </p>
+   *             </li>
    *          </ul>
    */
   Domains: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFirewallDomainsResponse {
   /**
    * <p>The ID of the firewall domain list that DNS Firewall just updated.</p>
@@ -3850,7 +4504,7 @@ export interface UpdateFirewallDomainsResponse {
   Name?: string;
 
   /**
-   * <p> </p>
+   * <p>Status of the <code>UpdateFirewallDomains</code> request.</p>
    */
   Status?: FirewallDomainListStatus | string;
 
@@ -3860,6 +4514,9 @@ export interface UpdateFirewallDomainsResponse {
   StatusMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFirewallRuleRequest {
   /**
    * <p>The unique identifier of the firewall rule group for the rule. </p>
@@ -3939,6 +4596,9 @@ export interface UpdateFirewallRuleRequest {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFirewallRuleResponse {
   /**
    * <p>The firewall rule that you just updated. </p>
@@ -3946,6 +4606,9 @@ export interface UpdateFirewallRuleResponse {
   FirewallRule?: FirewallRule;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFirewallRuleGroupAssociationRequest {
   /**
    * <p>The identifier of the <a>FirewallRuleGroupAssociation</a>. </p>
@@ -3973,6 +4636,9 @@ export interface UpdateFirewallRuleGroupAssociationRequest {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFirewallRuleGroupAssociationResponse {
   /**
    * <p>The association that you just updated. </p>
@@ -3980,6 +4646,9 @@ export interface UpdateFirewallRuleGroupAssociationResponse {
   FirewallRuleGroupAssociation?: FirewallRuleGroupAssociation;
 }
 
+/**
+ * @public
+ */
 export interface UpdateResolverConfigRequest {
   /**
    * <p>Resource ID of the Amazon VPC that you want to update the Resolver configuration for.</p>
@@ -3991,14 +4660,21 @@ export interface UpdateResolverConfigRequest {
    * 			lookups. This is enabled by default. Disabling this option will also affect EC2-Classic
    * 			instances using ClassicLink. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a> in the
    * 					<i>Amazon EC2 guide</i>.</p>
-   * 		       <note>
+   *          <important>
+   *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the
+   * 			<i>Amazon EC2 guide</i> and the blog <a href="http://aws.amazon.com/blogs/aws/ec2-classic-is-retiring-heres-how-to-prepare/">EC2-Classic Networking is Retiring – Here’s How to Prepare</a>.</p>
+   *          </important>
+   *          <note>
    *             <p>It can take some time for the status change to be completed.</p>
    *          </note>
-   * 		       <p></p>
+   *          <p></p>
    */
   AutodefinedReverseFlag: AutodefinedReverseFlag | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateResolverConfigResponse {
   /**
    * <p>An array that contains settings for the specified Resolver configuration.</p>
@@ -4006,11 +4682,24 @@ export interface UpdateResolverConfigResponse {
   ResolverConfig?: ResolverConfig;
 }
 
-export enum Validation {
-  DISABLE = "DISABLE",
-  ENABLE = "ENABLE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Validation = {
+  DISABLE: "DISABLE",
+  ENABLE: "ENABLE",
+  USE_LOCAL_RESOURCE_SETTING: "USE_LOCAL_RESOURCE_SETTING",
+} as const;
 
+/**
+ * @public
+ */
+export type Validation = (typeof Validation)[keyof typeof Validation];
+
+/**
+ * @public
+ */
 export interface UpdateResolverDnssecConfigRequest {
   /**
    * <p>The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.</p>
@@ -4024,6 +4713,9 @@ export interface UpdateResolverDnssecConfigRequest {
   Validation: Validation | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateResolverDnssecConfigResponse {
   /**
    * <p>A complex type that contains settings for the specified DNSSEC configuration.</p>
@@ -4031,6 +4723,29 @@ export interface UpdateResolverDnssecConfigResponse {
   ResolverDNSSECConfig?: ResolverDnssecConfig;
 }
 
+/**
+ * @public
+ * <p>
+ * 			Provides information about the IP address type in response to <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_UpdateResolverEndpoint.html">UpdateResolverEndpoint</a>.
+ * 		</p>
+ */
+export interface UpdateIpAddress {
+  /**
+   * <p> The ID of the IP address, specified by the <code>ResolverEndpointId</code>. </p>
+   */
+  IpId: string | undefined;
+
+  /**
+   * <p>
+   * 			The IPv6 address that you want to use for DNS queries.
+   * 		</p>
+   */
+  Ipv6: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdateResolverEndpointRequest {
   /**
    * <p>The ID of the Resolver endpoint that you want to update.</p>
@@ -4041,8 +4756,25 @@ export interface UpdateResolverEndpointRequest {
    * <p>The name of the Resolver endpoint that you want to update.</p>
    */
   Name?: string;
+
+  /**
+   * <p>
+   * 			Specifies the endpoint type for what type of IP address the endpoint uses to forward DNS queries.
+   * 		</p>
+   */
+  ResolverEndpointType?: ResolverEndpointType | string;
+
+  /**
+   * <p>
+   * 			Updates the Resolver endpoint type to IpV4, Ipv6, or dual-stack.
+   * 		</p>
+   */
+  UpdateIpAddresses?: UpdateIpAddress[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateResolverEndpointResponse {
   /**
    * <p>The response to an <code>UpdateResolverEndpoint</code> request.</p>
@@ -4050,6 +4782,9 @@ export interface UpdateResolverEndpointResponse {
   ResolverEndpoint?: ResolverEndpoint;
 }
 
+/**
+ * @public
+ */
 export interface UpdateResolverRuleRequest {
   /**
    * <p>The ID of the Resolver rule that you want to update.</p>
@@ -4062,1104 +4797,12 @@ export interface UpdateResolverRuleRequest {
   Config: ResolverRuleConfig | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateResolverRuleResponse {
   /**
    * <p>The response to an <code>UpdateResolverRule</code> request.</p>
    */
   ResolverRule?: ResolverRule;
 }
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateFirewallRuleGroupRequestFilterSensitiveLog = (obj: AssociateFirewallRuleGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FirewallRuleGroupAssociationFilterSensitiveLog = (obj: FirewallRuleGroupAssociation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateFirewallRuleGroupResponseFilterSensitiveLog = (obj: AssociateFirewallRuleGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IpAddressUpdateFilterSensitiveLog = (obj: IpAddressUpdate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateResolverEndpointIpAddressRequestFilterSensitiveLog = (
-  obj: AssociateResolverEndpointIpAddressRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResolverEndpointFilterSensitiveLog = (obj: ResolverEndpoint): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateResolverEndpointIpAddressResponseFilterSensitiveLog = (
-  obj: AssociateResolverEndpointIpAddressResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateResolverQueryLogConfigRequestFilterSensitiveLog = (
-  obj: AssociateResolverQueryLogConfigRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResolverQueryLogConfigAssociationFilterSensitiveLog = (obj: ResolverQueryLogConfigAssociation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateResolverQueryLogConfigResponseFilterSensitiveLog = (
-  obj: AssociateResolverQueryLogConfigResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateResolverRuleRequestFilterSensitiveLog = (obj: AssociateResolverRuleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResolverRuleAssociationFilterSensitiveLog = (obj: ResolverRuleAssociation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateResolverRuleResponseFilterSensitiveLog = (obj: AssociateResolverRuleResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFirewallDomainListRequestFilterSensitiveLog = (obj: CreateFirewallDomainListRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FirewallDomainListFilterSensitiveLog = (obj: FirewallDomainList): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFirewallDomainListResponseFilterSensitiveLog = (obj: CreateFirewallDomainListResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFirewallRuleRequestFilterSensitiveLog = (obj: CreateFirewallRuleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FirewallRuleFilterSensitiveLog = (obj: FirewallRule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFirewallRuleResponseFilterSensitiveLog = (obj: CreateFirewallRuleResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFirewallRuleGroupRequestFilterSensitiveLog = (obj: CreateFirewallRuleGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FirewallRuleGroupFilterSensitiveLog = (obj: FirewallRuleGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFirewallRuleGroupResponseFilterSensitiveLog = (obj: CreateFirewallRuleGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IpAddressRequestFilterSensitiveLog = (obj: IpAddressRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateResolverEndpointRequestFilterSensitiveLog = (obj: CreateResolverEndpointRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateResolverEndpointResponseFilterSensitiveLog = (obj: CreateResolverEndpointResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateResolverQueryLogConfigRequestFilterSensitiveLog = (
-  obj: CreateResolverQueryLogConfigRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResolverQueryLogConfigFilterSensitiveLog = (obj: ResolverQueryLogConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateResolverQueryLogConfigResponseFilterSensitiveLog = (
-  obj: CreateResolverQueryLogConfigResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TargetAddressFilterSensitiveLog = (obj: TargetAddress): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateResolverRuleRequestFilterSensitiveLog = (obj: CreateResolverRuleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResolverRuleFilterSensitiveLog = (obj: ResolverRule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateResolverRuleResponseFilterSensitiveLog = (obj: CreateResolverRuleResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteFirewallDomainListRequestFilterSensitiveLog = (obj: DeleteFirewallDomainListRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteFirewallDomainListResponseFilterSensitiveLog = (obj: DeleteFirewallDomainListResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteFirewallRuleRequestFilterSensitiveLog = (obj: DeleteFirewallRuleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteFirewallRuleResponseFilterSensitiveLog = (obj: DeleteFirewallRuleResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteFirewallRuleGroupRequestFilterSensitiveLog = (obj: DeleteFirewallRuleGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteFirewallRuleGroupResponseFilterSensitiveLog = (obj: DeleteFirewallRuleGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteResolverEndpointRequestFilterSensitiveLog = (obj: DeleteResolverEndpointRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteResolverEndpointResponseFilterSensitiveLog = (obj: DeleteResolverEndpointResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteResolverQueryLogConfigRequestFilterSensitiveLog = (
-  obj: DeleteResolverQueryLogConfigRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteResolverQueryLogConfigResponseFilterSensitiveLog = (
-  obj: DeleteResolverQueryLogConfigResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteResolverRuleRequestFilterSensitiveLog = (obj: DeleteResolverRuleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteResolverRuleResponseFilterSensitiveLog = (obj: DeleteResolverRuleResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateFirewallRuleGroupRequestFilterSensitiveLog = (
-  obj: DisassociateFirewallRuleGroupRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateFirewallRuleGroupResponseFilterSensitiveLog = (
-  obj: DisassociateFirewallRuleGroupResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateResolverEndpointIpAddressRequestFilterSensitiveLog = (
-  obj: DisassociateResolverEndpointIpAddressRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateResolverEndpointIpAddressResponseFilterSensitiveLog = (
-  obj: DisassociateResolverEndpointIpAddressResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateResolverQueryLogConfigRequestFilterSensitiveLog = (
-  obj: DisassociateResolverQueryLogConfigRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateResolverQueryLogConfigResponseFilterSensitiveLog = (
-  obj: DisassociateResolverQueryLogConfigResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateResolverRuleRequestFilterSensitiveLog = (obj: DisassociateResolverRuleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateResolverRuleResponseFilterSensitiveLog = (obj: DisassociateResolverRuleResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterFilterSensitiveLog = (obj: Filter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FirewallConfigFilterSensitiveLog = (obj: FirewallConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FirewallDomainListMetadataFilterSensitiveLog = (obj: FirewallDomainListMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FirewallRuleGroupMetadataFilterSensitiveLog = (obj: FirewallRuleGroupMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFirewallConfigRequestFilterSensitiveLog = (obj: GetFirewallConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFirewallConfigResponseFilterSensitiveLog = (obj: GetFirewallConfigResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFirewallDomainListRequestFilterSensitiveLog = (obj: GetFirewallDomainListRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFirewallDomainListResponseFilterSensitiveLog = (obj: GetFirewallDomainListResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFirewallRuleGroupRequestFilterSensitiveLog = (obj: GetFirewallRuleGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFirewallRuleGroupResponseFilterSensitiveLog = (obj: GetFirewallRuleGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFirewallRuleGroupAssociationRequestFilterSensitiveLog = (
-  obj: GetFirewallRuleGroupAssociationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFirewallRuleGroupAssociationResponseFilterSensitiveLog = (
-  obj: GetFirewallRuleGroupAssociationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFirewallRuleGroupPolicyRequestFilterSensitiveLog = (obj: GetFirewallRuleGroupPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFirewallRuleGroupPolicyResponseFilterSensitiveLog = (obj: GetFirewallRuleGroupPolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResolverConfigRequestFilterSensitiveLog = (obj: GetResolverConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResolverConfigFilterSensitiveLog = (obj: ResolverConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResolverConfigResponseFilterSensitiveLog = (obj: GetResolverConfigResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResolverDnssecConfigRequestFilterSensitiveLog = (obj: GetResolverDnssecConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResolverDnssecConfigFilterSensitiveLog = (obj: ResolverDnssecConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResolverDnssecConfigResponseFilterSensitiveLog = (obj: GetResolverDnssecConfigResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResolverEndpointRequestFilterSensitiveLog = (obj: GetResolverEndpointRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResolverEndpointResponseFilterSensitiveLog = (obj: GetResolverEndpointResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResolverQueryLogConfigRequestFilterSensitiveLog = (obj: GetResolverQueryLogConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResolverQueryLogConfigResponseFilterSensitiveLog = (obj: GetResolverQueryLogConfigResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResolverQueryLogConfigAssociationRequestFilterSensitiveLog = (
-  obj: GetResolverQueryLogConfigAssociationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResolverQueryLogConfigAssociationResponseFilterSensitiveLog = (
-  obj: GetResolverQueryLogConfigAssociationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResolverQueryLogConfigPolicyRequestFilterSensitiveLog = (
-  obj: GetResolverQueryLogConfigPolicyRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResolverQueryLogConfigPolicyResponseFilterSensitiveLog = (
-  obj: GetResolverQueryLogConfigPolicyResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResolverRuleRequestFilterSensitiveLog = (obj: GetResolverRuleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResolverRuleResponseFilterSensitiveLog = (obj: GetResolverRuleResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResolverRuleAssociationRequestFilterSensitiveLog = (obj: GetResolverRuleAssociationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResolverRuleAssociationResponseFilterSensitiveLog = (obj: GetResolverRuleAssociationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResolverRulePolicyRequestFilterSensitiveLog = (obj: GetResolverRulePolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResolverRulePolicyResponseFilterSensitiveLog = (obj: GetResolverRulePolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportFirewallDomainsRequestFilterSensitiveLog = (obj: ImportFirewallDomainsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportFirewallDomainsResponseFilterSensitiveLog = (obj: ImportFirewallDomainsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IpAddressResponseFilterSensitiveLog = (obj: IpAddressResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFirewallConfigsRequestFilterSensitiveLog = (obj: ListFirewallConfigsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFirewallConfigsResponseFilterSensitiveLog = (obj: ListFirewallConfigsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFirewallDomainListsRequestFilterSensitiveLog = (obj: ListFirewallDomainListsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFirewallDomainListsResponseFilterSensitiveLog = (obj: ListFirewallDomainListsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFirewallDomainsRequestFilterSensitiveLog = (obj: ListFirewallDomainsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFirewallDomainsResponseFilterSensitiveLog = (obj: ListFirewallDomainsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFirewallRuleGroupAssociationsRequestFilterSensitiveLog = (
-  obj: ListFirewallRuleGroupAssociationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFirewallRuleGroupAssociationsResponseFilterSensitiveLog = (
-  obj: ListFirewallRuleGroupAssociationsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFirewallRuleGroupsRequestFilterSensitiveLog = (obj: ListFirewallRuleGroupsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFirewallRuleGroupsResponseFilterSensitiveLog = (obj: ListFirewallRuleGroupsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFirewallRulesRequestFilterSensitiveLog = (obj: ListFirewallRulesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFirewallRulesResponseFilterSensitiveLog = (obj: ListFirewallRulesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResolverConfigsRequestFilterSensitiveLog = (obj: ListResolverConfigsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResolverConfigsResponseFilterSensitiveLog = (obj: ListResolverConfigsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResolverDnssecConfigsRequestFilterSensitiveLog = (obj: ListResolverDnssecConfigsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResolverDnssecConfigsResponseFilterSensitiveLog = (obj: ListResolverDnssecConfigsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResolverEndpointIpAddressesRequestFilterSensitiveLog = (
-  obj: ListResolverEndpointIpAddressesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResolverEndpointIpAddressesResponseFilterSensitiveLog = (
-  obj: ListResolverEndpointIpAddressesResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResolverEndpointsRequestFilterSensitiveLog = (obj: ListResolverEndpointsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResolverEndpointsResponseFilterSensitiveLog = (obj: ListResolverEndpointsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResolverQueryLogConfigAssociationsRequestFilterSensitiveLog = (
-  obj: ListResolverQueryLogConfigAssociationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResolverQueryLogConfigAssociationsResponseFilterSensitiveLog = (
-  obj: ListResolverQueryLogConfigAssociationsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResolverQueryLogConfigsRequestFilterSensitiveLog = (obj: ListResolverQueryLogConfigsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResolverQueryLogConfigsResponseFilterSensitiveLog = (
-  obj: ListResolverQueryLogConfigsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResolverRuleAssociationsRequestFilterSensitiveLog = (
-  obj: ListResolverRuleAssociationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResolverRuleAssociationsResponseFilterSensitiveLog = (
-  obj: ListResolverRuleAssociationsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResolverRulesRequestFilterSensitiveLog = (obj: ListResolverRulesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResolverRulesResponseFilterSensitiveLog = (obj: ListResolverRulesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutFirewallRuleGroupPolicyRequestFilterSensitiveLog = (obj: PutFirewallRuleGroupPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutFirewallRuleGroupPolicyResponseFilterSensitiveLog = (obj: PutFirewallRuleGroupPolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutResolverQueryLogConfigPolicyRequestFilterSensitiveLog = (
-  obj: PutResolverQueryLogConfigPolicyRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutResolverQueryLogConfigPolicyResponseFilterSensitiveLog = (
-  obj: PutResolverQueryLogConfigPolicyResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutResolverRulePolicyRequestFilterSensitiveLog = (obj: PutResolverRulePolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutResolverRulePolicyResponseFilterSensitiveLog = (obj: PutResolverRulePolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResolverRuleConfigFilterSensitiveLog = (obj: ResolverRuleConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFirewallConfigRequestFilterSensitiveLog = (obj: UpdateFirewallConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFirewallConfigResponseFilterSensitiveLog = (obj: UpdateFirewallConfigResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFirewallDomainsRequestFilterSensitiveLog = (obj: UpdateFirewallDomainsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFirewallDomainsResponseFilterSensitiveLog = (obj: UpdateFirewallDomainsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFirewallRuleRequestFilterSensitiveLog = (obj: UpdateFirewallRuleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFirewallRuleResponseFilterSensitiveLog = (obj: UpdateFirewallRuleResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFirewallRuleGroupAssociationRequestFilterSensitiveLog = (
-  obj: UpdateFirewallRuleGroupAssociationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFirewallRuleGroupAssociationResponseFilterSensitiveLog = (
-  obj: UpdateFirewallRuleGroupAssociationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateResolverConfigRequestFilterSensitiveLog = (obj: UpdateResolverConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateResolverConfigResponseFilterSensitiveLog = (obj: UpdateResolverConfigResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateResolverDnssecConfigRequestFilterSensitiveLog = (obj: UpdateResolverDnssecConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateResolverDnssecConfigResponseFilterSensitiveLog = (obj: UpdateResolverDnssecConfigResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateResolverEndpointRequestFilterSensitiveLog = (obj: UpdateResolverEndpointRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateResolverEndpointResponseFilterSensitiveLog = (obj: UpdateResolverEndpointResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateResolverRuleRequestFilterSensitiveLog = (obj: UpdateResolverRuleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateResolverRuleResponseFilterSensitiveLog = (obj: UpdateResolverRuleResponse): any => ({
-  ...obj,
-});

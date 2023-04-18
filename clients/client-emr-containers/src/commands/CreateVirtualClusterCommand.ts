@@ -14,39 +14,69 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRContainersClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRContainersClient";
-import {
-  CreateVirtualClusterRequest,
-  CreateVirtualClusterRequestFilterSensitiveLog,
-  CreateVirtualClusterResponse,
-  CreateVirtualClusterResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateVirtualClusterCommand,
-  serializeAws_restJson1CreateVirtualClusterCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateVirtualClusterRequest, CreateVirtualClusterResponse } from "../models/models_0";
+import { de_CreateVirtualClusterCommand, se_CreateVirtualClusterCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateVirtualClusterCommand}.
+ */
 export interface CreateVirtualClusterCommandInput extends CreateVirtualClusterRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateVirtualClusterCommand}.
+ */
 export interface CreateVirtualClusterCommandOutput extends CreateVirtualClusterResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a virtual cluster. Virtual cluster is a managed entity on Amazon EMR on EKS. You
- *          can create, describe, list and delete virtual clusters. They do not consume any additional
- *          resource in your system. A single virtual cluster maps to a single Kubernetes namespace.
- *          Given this relationship, you can model virtual clusters the same way you model Kubernetes
- *          namespaces to meet your requirements.</p>
+ * @public
+ * <p>Creates a virtual cluster. Virtual cluster is a managed entity on Amazon EMR on EKS. You can create, describe, list and delete virtual clusters. They do not consume any
+ *          additional resource in your system. A single virtual cluster maps to a single Kubernetes
+ *          namespace. Given this relationship, you can model virtual clusters the same way you model
+ *          Kubernetes namespaces to meet your requirements.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EMRContainersClient, CreateVirtualClusterCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
  * // const { EMRContainersClient, CreateVirtualClusterCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
  * const client = new EMRContainersClient(config);
+ * const input = { // CreateVirtualClusterRequest
+ *   name: "STRING_VALUE", // required
+ *   containerProvider: { // ContainerProvider
+ *     type: "EKS", // required
+ *     id: "STRING_VALUE", // required
+ *     info: { // ContainerInfo Union: only one key present
+ *       eksInfo: { // EksInfo
+ *         namespace: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   clientToken: "STRING_VALUE", // required
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateVirtualClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVirtualClusterCommandInput - {@link CreateVirtualClusterCommandInput}
+ * @returns {@link CreateVirtualClusterCommandOutput}
  * @see {@link CreateVirtualClusterCommandInput} for command's `input` shape.
  * @see {@link CreateVirtualClusterCommandOutput} for command's `response` shape.
  * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>This is an internal server exception.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There are invalid parameters in the client request.</p>
+ *
  *
  */
 export class CreateVirtualClusterCommand extends $Command<
@@ -66,6 +96,9 @@ export class CreateVirtualClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVirtualClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +127,8 @@ export class CreateVirtualClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateVirtualClusterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateVirtualClusterResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +138,18 @@ export class CreateVirtualClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVirtualClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateVirtualClusterCommand(input, context);
+    return se_CreateVirtualClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVirtualClusterCommandOutput> {
-    return deserializeAws_restJson1CreateVirtualClusterCommand(output, context);
+    return de_CreateVirtualClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

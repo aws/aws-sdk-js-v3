@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
-import {
-  ListElasticsearchVersionsRequest,
-  ListElasticsearchVersionsRequestFilterSensitiveLog,
-  ListElasticsearchVersionsResponse,
-  ListElasticsearchVersionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListElasticsearchVersionsCommand,
-  serializeAws_restJson1ListElasticsearchVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListElasticsearchVersionsRequest, ListElasticsearchVersionsResponse } from "../models/models_0";
+import { de_ListElasticsearchVersionsCommand, se_ListElasticsearchVersionsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListElasticsearchVersionsCommand}.
+ */
 export interface ListElasticsearchVersionsCommandInput extends ListElasticsearchVersionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListElasticsearchVersionsCommand}.
+ */
 export interface ListElasticsearchVersionsCommandOutput extends ListElasticsearchVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List all supported Elasticsearch versions</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,32 @@ export interface ListElasticsearchVersionsCommandOutput extends ListElasticsearc
  * import { ElasticsearchServiceClient, ListElasticsearchVersionsCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, ListElasticsearchVersionsCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
+ * const input = { // ListElasticsearchVersionsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListElasticsearchVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListElasticsearchVersionsCommandInput - {@link ListElasticsearchVersionsCommandInput}
+ * @returns {@link ListElasticsearchVersionsCommandOutput}
  * @see {@link ListElasticsearchVersionsCommandInput} for command's `input` shape.
  * @see {@link ListElasticsearchVersionsCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
+ *
+ * @throws {@link BaseException} (client fault)
+ *  <p>An error occurred while processing the request.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+ *
  *
  */
 export class ListElasticsearchVersionsCommand extends $Command<
@@ -66,6 +88,9 @@ export class ListElasticsearchVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListElasticsearchVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +119,8 @@ export class ListElasticsearchVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListElasticsearchVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListElasticsearchVersionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,15 +130,21 @@ export class ListElasticsearchVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListElasticsearchVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListElasticsearchVersionsCommand(input, context);
+    return se_ListElasticsearchVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListElasticsearchVersionsCommandOutput> {
-    return deserializeAws_restJson1ListElasticsearchVersionsCommand(output, context);
+    return de_ListElasticsearchVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

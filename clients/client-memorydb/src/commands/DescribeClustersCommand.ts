@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
-import {
-  DescribeClustersRequest,
-  DescribeClustersRequestFilterSensitiveLog,
-  DescribeClustersResponse,
-  DescribeClustersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeClustersCommand,
-  serializeAws_json1_1DescribeClustersCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeClustersRequest, DescribeClustersResponse } from "../models/models_0";
+import { de_DescribeClustersCommand, se_DescribeClustersCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeClustersCommand}.
+ */
 export interface DescribeClustersCommandInput extends DescribeClustersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeClustersCommand}.
+ */
 export interface DescribeClustersCommandOutput extends DescribeClustersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about all provisioned clusters if no cluster identifier is specified, or about a specific cluster if a cluster name is supplied.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,34 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  * import { MemoryDBClient, DescribeClustersCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, DescribeClustersCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
  * const client = new MemoryDBClient(config);
+ * const input = { // DescribeClustersRequest
+ *   ClusterName: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   ShowShardDetails: true || false,
+ * };
  * const command = new DescribeClustersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeClustersCommandInput - {@link DescribeClustersCommandInput}
+ * @returns {@link DescribeClustersCommandOutput}
  * @see {@link DescribeClustersCommandInput} for command's `input` shape.
  * @see {@link DescribeClustersCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
+ *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p></p>
+ *
  *
  */
 export class DescribeClustersCommand extends $Command<
@@ -62,6 +86,9 @@ export class DescribeClustersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeClustersCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +117,8 @@ export class DescribeClustersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeClustersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeClustersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +128,18 @@ export class DescribeClustersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeClustersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeClustersCommand(input, context);
+    return se_DescribeClustersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeClustersCommandOutput> {
-    return deserializeAws_json1_1DescribeClustersCommand(output, context);
+    return de_DescribeClustersCommand(output, context);
   }
 
   // Start section: command_body_extra

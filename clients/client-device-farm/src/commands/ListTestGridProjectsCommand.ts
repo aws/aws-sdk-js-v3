@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  ListTestGridProjectsRequest,
-  ListTestGridProjectsRequestFilterSensitiveLog,
-  ListTestGridProjectsResult,
-  ListTestGridProjectsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListTestGridProjectsCommand,
-  serializeAws_json1_1ListTestGridProjectsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListTestGridProjectsRequest, ListTestGridProjectsResult } from "../models/models_0";
+import { de_ListTestGridProjectsCommand, se_ListTestGridProjectsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListTestGridProjectsCommand}.
+ */
 export interface ListTestGridProjectsCommandInput extends ListTestGridProjectsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListTestGridProjectsCommand}.
+ */
 export interface ListTestGridProjectsCommandOutput extends ListTestGridProjectsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of all Selenium testing projects in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,27 @@ export interface ListTestGridProjectsCommandOutput extends ListTestGridProjectsR
  * import { DeviceFarmClient, ListTestGridProjectsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, ListTestGridProjectsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // ListTestGridProjectsRequest
+ *   maxResult: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListTestGridProjectsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTestGridProjectsCommandInput - {@link ListTestGridProjectsCommandInput}
+ * @returns {@link ListTestGridProjectsCommandOutput}
  * @see {@link ListTestGridProjectsCommandInput} for command's `input` shape.
  * @see {@link ListTestGridProjectsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
+ *
+ * @throws {@link ArgumentException} (client fault)
+ *  <p>An invalid argument was specified.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal exception was raised in the service. Contact <a href="mailto:aws-devicefarm-support@amazon.com">aws-devicefarm-support@amazon.com</a> if you see this
+ *          error. </p>
+ *
  *
  */
 export class ListTestGridProjectsCommand extends $Command<
@@ -62,6 +79,9 @@ export class ListTestGridProjectsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTestGridProjectsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +110,8 @@ export class ListTestGridProjectsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTestGridProjectsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTestGridProjectsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +121,18 @@ export class ListTestGridProjectsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTestGridProjectsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTestGridProjectsCommand(input, context);
+    return se_ListTestGridProjectsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTestGridProjectsCommandOutput> {
-    return deserializeAws_json1_1ListTestGridProjectsCommand(output, context);
+    return de_ListTestGridProjectsCommand(output, context);
   }
 
   // Start section: command_body_extra

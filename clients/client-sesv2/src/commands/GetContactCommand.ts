@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetContactRequest,
-  GetContactRequestFilterSensitiveLog,
-  GetContactResponse,
-  GetContactResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetContactCommand,
-  serializeAws_restJson1GetContactCommand,
-} from "../protocols/Aws_restJson1";
+import { GetContactRequest, GetContactResponse } from "../models/models_0";
+import { de_GetContactCommand, se_GetContactCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
+/**
+ * @public
+ *
+ * The input for {@link GetContactCommand}.
+ */
 export interface GetContactCommandInput extends GetContactRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetContactCommand}.
+ */
 export interface GetContactCommandOutput extends GetContactResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a contact from a contact list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,29 @@ export interface GetContactCommandOutput extends GetContactResponse, __MetadataB
  * import { SESv2Client, GetContactCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, GetContactCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = { // GetContactRequest
+ *   ContactListName: "STRING_VALUE", // required
+ *   EmailAddress: "STRING_VALUE", // required
+ * };
  * const command = new GetContactCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetContactCommandInput - {@link GetContactCommandInput}
+ * @returns {@link GetContactCommandOutput}
  * @see {@link GetContactCommandInput} for command's `input` shape.
  * @see {@link GetContactCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input you provided is invalid.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource you attempted to access doesn't exist.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Too many requests have been made to the operation.</p>
+ *
  *
  */
 export class GetContactCommand extends $Command<
@@ -62,6 +81,9 @@ export class GetContactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetContactCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +110,8 @@ export class GetContactCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetContactRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetContactResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +121,18 @@ export class GetContactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetContactCommand(input, context);
+    return se_GetContactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetContactCommandOutput> {
-    return deserializeAws_restJson1GetContactCommand(output, context);
+    return de_GetContactCommand(output, context);
   }
 
   // Start section: command_body_extra

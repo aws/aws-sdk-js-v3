@@ -195,6 +195,7 @@ import {
 import { TranscribeClient } from "./TranscribeClient";
 
 /**
+ * @public
  * <p>Amazon Transcribe offers three main types of batch transcription: <b>Standard</b>, <b>Medical</b>, and
  *                 <b>Call Analytics</b>.</p>
  *          <ul>
@@ -220,21 +221,23 @@ import { TranscribeClient } from "./TranscribeClient";
  */
 export class Transcribe extends TranscribeClient {
   /**
+   * @public
    * <p>Creates a new Call Analytics category.</p>
    *          <p>All categories are automatically applied to your Call Analytics transcriptions. Note that in
    *             order to apply categories to your transcriptions, you must create them before submitting your
    *             transcription request, as categories cannot be applied retroactively.</p>
    *          <p>When creating a new category, you can use the <code>InputType</code> parameter to
-   *             label the category as a batch category (<code>POST_CALL</code>) or a streaming category
-   *             (<code>REAL_TIME</code>). Batch categories can only be applied to batch transcriptions and
-   *             streaming categories can only be applied to streaming transcriptions. If you do not include
-   *             <code>InputType</code>, your category is created as a batch category by default.</p>
+   *             label the category as a <code>POST_CALL</code> or a <code>REAL_TIME</code> category.
+   *             <code>POST_CALL</code> categories can only be applied to post-call transcriptions and
+   *             <code>REAL_TIME</code> categories can only be applied to real-time transcriptions. If you
+   *             do not include <code>InputType</code>, your category is created as a
+   *             <code>POST_CALL</code> category by default.</p>
    *          <p>Call Analytics categories are composed of rules. For each category, you must create
    *             between 1 and 20 rules. Rules can include these parameters: , , , and .</p>
    *          <p>To update an existing category, see .</p>
-   *          <p>To learn more about Call Analytics categories, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html">Creating categories for batch
+   *          <p>To learn more about Call Analytics categories, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html">Creating categories for post-call
    *             transcriptions</a> and <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-stream.html">Creating categories for
-   *                 streaming transcriptions</a>.</p>
+   *                 real-time transcriptions</a>.</p>
    */
   public createCallAnalyticsCategory(
     args: CreateCallAnalyticsCategoryCommandInput,
@@ -266,6 +269,7 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
+   * @public
    * <p>Creates a new custom language model.</p>
    *          <p>When creating a new custom language model, you must specify:</p>
    *          <ul>
@@ -314,13 +318,14 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
+   * @public
    * <p>Creates a new custom medical vocabulary.</p>
    *          <p>Before creating a new custom medical vocabulary, you must first upload a text file
-   *             that contains your new entries, phrases, and terms into an Amazon S3 bucket.
+   *             that contains your vocabulary table into an Amazon S3 bucket.
    *             Note that this differs from , where you can
    *             include a list of terms within your request using the <code>Phrases</code> flag;
    *                 <code>CreateMedicalVocabulary</code> does not support the <code>Phrases</code>
-   *             flag.</p>
+   *             flag and only accepts vocabularies in table format.</p>
    *          <p>Each language has a character set that contains all allowed characters for that
    *             specific language. If you use unsupported characters, your custom vocabulary request
    *             fails. Refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html">Character Sets for Custom Vocabularies</a> to get the character set for your
@@ -358,6 +363,7 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
+   * @public
    * <p>Creates a new custom vocabulary.</p>
    *          <p>When creating a new custom vocabulary, you can either upload a text file that contains
    *             your new entries, phrases, and terms into an Amazon S3 bucket and include the
@@ -400,6 +406,7 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
+   * @public
    * <p>Creates a new custom vocabulary filter.</p>
    *          <p>You can use custom vocabulary filters to mask, delete, or flag specific words from
    *             your transcript. Custom vocabulary filters are commonly used to mask profanity in
@@ -441,6 +448,7 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
+   * @public
    * <p>Deletes a Call Analytics category. To use this operation, specify the name of the
    *             category you want to delete using <code>CategoryName</code>. Category names are case
    *             sensitive.</p>
@@ -475,6 +483,7 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
+   * @public
    * <p>Deletes a Call Analytics job. To use this operation, specify the name of the job you
    *             want to delete using <code>CallAnalyticsJobName</code>. Job names are case
    *             sensitive.</p>
@@ -509,6 +518,7 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
+   * @public
    * <p>Deletes a custom language model. To use this operation, specify the name of the
    *             language model you want to delete using <code>ModelName</code>. custom language model
    *             names are case sensitive.</p>
@@ -543,6 +553,7 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
+   * @public
    * <p>Deletes a medical transcription job. To use this operation, specify the name of the
    *             job you want to delete using <code>MedicalTranscriptionJobName</code>. Job names are
    *             case sensitive.</p>
@@ -577,6 +588,7 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
+   * @public
    * <p>Deletes a custom medical vocabulary. To use this operation, specify the name of the
    *             custom vocabulary you want to delete using <code>VocabularyName</code>. Custom
    *             vocabulary names are case sensitive.</p>
@@ -611,6 +623,7 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
+   * @public
    * <p>Deletes a transcription job. To use this operation, specify the name of the job you
    *             want to delete using <code>TranscriptionJobName</code>. Job names are case
    *             sensitive.</p>
@@ -645,6 +658,7 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
+   * @public
    * <p>Deletes a custom vocabulary. To use this operation, specify the name of the custom
    *             vocabulary you want to delete using <code>VocabularyName</code>. Custom vocabulary names
    *             are case sensitive.</p>
@@ -679,6 +693,7 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
+   * @public
    * <p>Deletes a custom vocabulary filter. To use this operation, specify the name of the
    *             custom vocabulary filter you want to delete using <code>VocabularyFilterName</code>.
    *             Custom vocabulary filter names are case sensitive.</p>
@@ -713,6 +728,7 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
+   * @public
    * <p>Provides information about the specified custom language model.</p>
    *          <p>This operation also shows if the base language model that you used to create your
    *             custom language model has been updated. If Amazon Transcribe has updated the base
@@ -751,6 +767,7 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
+   * @public
    * <p>Provides information about the specified Call Analytics category.</p>
    *          <p>To get a list of your Call Analytics categories, use the  operation.</p>
    */
@@ -784,6 +801,7 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
+   * @public
    * <p>Provides information about the specified Call Analytics job.</p>
    *          <p>To view the job's status, refer to <code>CallAnalyticsJobStatus</code>. If the status
    *             is <code>COMPLETED</code>, the job is finished. You can find your completed transcript
@@ -827,6 +845,7 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
+   * @public
    * <p>Provides information about the specified medical transcription job.</p>
    *          <p>To view the status of the specified medical transcription job, check the
    *                 <code>TranscriptionJobStatus</code> field. If the status is <code>COMPLETED</code>,
@@ -866,6 +885,7 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
+   * @public
    * <p>Provides information about the specified custom medical vocabulary.</p>
    *          <p>To view the status of the specified custom medical vocabulary, check the
    *                 <code>VocabularyState</code> field. If the status is <code>READY</code>, your custom
@@ -903,6 +923,7 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
+   * @public
    * <p>Provides information about the specified transcription job.</p>
    *          <p>To view the status of the specified transcription job, check the
    *                 <code>TranscriptionJobStatus</code> field. If the status is <code>COMPLETED</code>,
@@ -944,6 +965,7 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
+   * @public
    * <p>Provides information about the specified custom vocabulary.</p>
    *          <p>To view the status of the specified custom vocabulary, check the
    *                 <code>VocabularyState</code> field. If the status is <code>READY</code>, your custom
@@ -982,6 +1004,7 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
+   * @public
    * <p>Provides information about the specified custom vocabulary filter.</p>
    *          <p>To get a list of your custom vocabulary filters, use the  operation.</p>
    */
@@ -1015,6 +1038,7 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
+   * @public
    * <p>Provides a list of Call Analytics categories, including all rules that make up each
    *             category.</p>
    *          <p>To get detailed information about a specific Call Analytics category, use the  operation.</p>
@@ -1049,6 +1073,7 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
+   * @public
    * <p>Provides a list of Call Analytics jobs that match the specified criteria. If no
    *             criteria are specified, all Call Analytics jobs are returned.</p>
    *          <p>To get detailed information about a specific Call Analytics job, use the  operation.</p>
@@ -1083,6 +1108,7 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
+   * @public
    * <p>Provides a list of custom language models that match the specified criteria. If no
    *             criteria are specified, all custom language models are returned.</p>
    *          <p>To get detailed information about a specific custom language model, use the  operation.</p>
@@ -1117,6 +1143,7 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
+   * @public
    * <p>Provides a list of medical transcription jobs that match the specified criteria. If no
    *             criteria are specified, all medical transcription jobs are returned.</p>
    *          <p>To get detailed information about a specific medical transcription job, use the  operation.</p>
@@ -1151,6 +1178,7 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
+   * @public
    * <p>Provides a list of custom medical vocabularies that match the specified criteria. If
    *             no criteria are specified, all custom medical vocabularies are returned.</p>
    *          <p>To get detailed information about a specific custom medical vocabulary, use the  operation.</p>
@@ -1185,6 +1213,7 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
+   * @public
    * <p>Lists all tags associated with the specified transcription job, vocabulary, model, or
    *             resource.</p>
    *          <p>To learn more about using tags with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging
@@ -1220,6 +1249,7 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
+   * @public
    * <p>Provides a list of transcription jobs that match the specified criteria. If no
    *             criteria are specified, all transcription jobs are returned.</p>
    *          <p>To get detailed information about a specific transcription job, use the  operation.</p>
@@ -1254,6 +1284,7 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
+   * @public
    * <p>Provides a list of custom vocabularies that match the specified criteria. If no
    *             criteria are specified, all custom vocabularies are returned.</p>
    *          <p>To get detailed information about a specific custom vocabulary, use the  operation.</p>
@@ -1288,6 +1319,7 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
+   * @public
    * <p>Provides a list of custom vocabulary filters that match the specified criteria. If no
    *             criteria are specified, all custom vocabularies are returned.</p>
    *          <p>To get detailed information about a specific custom vocabulary filter, use the  operation.</p>
@@ -1322,6 +1354,7 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
+   * @public
    * <p>Transcribes the audio from a customer service call and applies any additional Request
    *             Parameters you choose to include in your request.</p>
    *          <p>In addition to many standard transcription features, Call Analytics provides you with
@@ -1332,12 +1365,13 @@ export class Transcribe extends TranscribeClient {
    *          <p>If you want to apply categories to your Call Analytics job, you must create them
    *             before submitting your job request. Categories cannot be retroactively applied to a job.
    *             To create a new category, use the
-   *             operation. To learn more about Call Analytics categories, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html">Creating categories for batch
+   *             operation. To learn more about Call Analytics categories, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html">Creating categories for post-call
    *                 transcriptions</a> and <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-stream.html">Creating categories for
-   *                     streaming transcriptions</a>.</p>
+   *                     real-time transcriptions</a>.</p>
    *          <p>To make a <code>StartCallAnalyticsJob</code> request, you must first upload your media
    *             file into an Amazon S3 bucket; you can then specify the Amazon S3
    *             location of the file using the <code>Media</code> parameter.</p>
+   *          <p>Note that job queuing is enabled by default for Call Analytics jobs.</p>
    *          <p>You must include the following parameters in your <code>StartCallAnalyticsJob</code>
    *             request:</p>
    *          <ul>
@@ -1403,6 +1437,7 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
+   * @public
    * <p>Transcribes the audio from a medical dictation or conversation and applies any
    *             additional Request Parameters you choose to include in your request.</p>
    *          <p>In addition to many standard transcription features, Amazon Transcribe Medical
@@ -1483,6 +1518,7 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
+   * @public
    * <p>Transcribes the audio from a media file and applies any additional Request Parameters
    *             you choose to include in your request.</p>
    *          <p>To make a <code>StartTranscriptionJob</code> request, you must first upload your media
@@ -1549,6 +1585,7 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
+   * @public
    * <p>Adds one or more custom tags, each in the form of a key:value pair, to the specified
    *             resource.</p>
    *          <p>To learn more about using tags with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging
@@ -1578,6 +1615,7 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified tags from the specified Amazon Transcribe resource.</p>
    *          <p>If you include <code>UntagResource</code> in your request, you must also include
    *                 <code>ResourceArn</code> and <code>TagKeys</code>.</p>
@@ -1612,6 +1650,7 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
+   * @public
    * <p>Updates the specified Call Analytics category with new rules. Note that the
    *                 <code>UpdateCallAnalyticsCategory</code> operation overwrites all existing rules
    *             contained in the specified category. You cannot append additional rules onto an existing
@@ -1648,6 +1687,7 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing custom medical vocabulary with new values. This operation
    *             overwrites all existing information with your new values; you cannot append new terms
    *             onto an existing custom vocabulary.</p>
@@ -1682,6 +1722,7 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing custom vocabulary with new values. This operation overwrites all
    *             existing information with your new values; you cannot append new terms onto an existing
    *             custom vocabulary.</p>
@@ -1716,6 +1757,7 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing custom vocabulary filter with a new list of words. The new list
    *             you provide overwrites all previous entries; you cannot append new terms onto an
    *             existing custom vocabulary filter.</p>

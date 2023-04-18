@@ -13,19 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SendRawEmailRequest,
-  SendRawEmailRequestFilterSensitiveLog,
-  SendRawEmailResponse,
-  SendRawEmailResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_querySendRawEmailCommand, serializeAws_querySendRawEmailCommand } from "../protocols/Aws_query";
+import { SendRawEmailRequest, SendRawEmailResponse } from "../models/models_0";
+import { de_SendRawEmailCommand, se_SendRawEmailCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * @public
+ *
+ * The input for {@link SendRawEmailCommand}.
+ */
 export interface SendRawEmailCommandInput extends SendRawEmailRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SendRawEmailCommand}.
+ */
 export interface SendRawEmailCommandOutput extends SendRawEmailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Composes an email message and immediately queues it for sending.</p>
  *
  *         <p>This operation is more flexible than the <code>SendEmail</code> API operation. When
@@ -141,13 +147,79 @@ export interface SendRawEmailCommandOutput extends SendRawEmailResponse, __Metad
  * import { SESClient, SendRawEmailCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, SendRawEmailCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // SendRawEmailRequest
+ *   Source: "STRING_VALUE",
+ *   Destinations: [ // AddressList
+ *     "STRING_VALUE",
+ *   ],
+ *   RawMessage: { // RawMessage
+ *     Data: "BLOB_VALUE", // required
+ *   },
+ *   FromArn: "STRING_VALUE",
+ *   SourceArn: "STRING_VALUE",
+ *   ReturnPathArn: "STRING_VALUE",
+ *   Tags: [ // MessageTagList
+ *     { // MessageTag
+ *       Name: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ConfigurationSetName: "STRING_VALUE",
+ * };
  * const command = new SendRawEmailCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SendRawEmailCommandInput - {@link SendRawEmailCommandInput}
+ * @returns {@link SendRawEmailCommandOutput}
  * @see {@link SendRawEmailCommandInput} for command's `input` shape.
  * @see {@link SendRawEmailCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
+ *
+ * @throws {@link AccountSendingPausedException} (client fault)
+ *  <p>Indicates that email sending is disabled for your entire Amazon SES account.</p>
+ *         <p>You can enable or disable email sending for your Amazon SES account using <a>UpdateAccountSendingEnabled</a>.</p>
+ *
+ * @throws {@link ConfigurationSetDoesNotExistException} (client fault)
+ *  <p>Indicates that the configuration set does not exist.</p>
+ *
+ * @throws {@link ConfigurationSetSendingPausedException} (client fault)
+ *  <p>Indicates that email sending is disabled for the configuration set.</p>
+ *         <p>You can enable or disable email sending for a configuration set using <a>UpdateConfigurationSetSendingEnabled</a>.</p>
+ *
+ * @throws {@link MailFromDomainNotVerifiedException} (client fault)
+ *  <p> Indicates that the message could not be sent because Amazon SES could not read the MX
+ *             record required to use the specified MAIL FROM domain. For information about editing the
+ *             custom MAIL FROM domain settings for an identity, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-edit.html">Amazon SES Developer
+ *                 Guide</a>.</p>
+ *
+ * @throws {@link MessageRejected} (client fault)
+ *  <p>Indicates that the action failed, and the message could not be sent. Check the error
+ *             stack for more information about what caused the error.</p>
+ *
+ *
+ * @example SendRawEmail
+ * ```javascript
+ * // The following example sends an email with an attachment:
+ * const input = {
+ *   "Destinations": [],
+ *   "FromArn": "",
+ *   "RawMessage": {
+ *     "Data": "From: sender@example.com\\nTo: recipient@example.com\\nSubject: Test email (contains an attachment)\\nMIME-Version: 1.0\\nContent-type: Multipart/Mixed; boundary=\"NextPart\"\\n\\n--NextPart\\nContent-Type: text/plain\\n\\nThis is the message body.\\n\\n--NextPart\\nContent-Type: text/plain;\\nContent-Disposition: attachment; filename=\"attachment.txt\"\\n\\nThis is the text in the attachment.\\n\\n--NextPart--"
+ *   },
+ *   "ReturnPathArn": "",
+ *   "Source": "",
+ *   "SourceArn": ""
+ * };
+ * const command = new SendRawEmailCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "MessageId": "EXAMPLEf3f73d99b-c63fb06f-d263-41f8-a0fb-d0dc67d56c07-000000"
+ * }
+ * *\/
+ * // example id: sendrawemail-1469118548649
+ * ```
  *
  */
 export class SendRawEmailCommand extends $Command<
@@ -167,6 +239,9 @@ export class SendRawEmailCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendRawEmailCommandInput) {
     // Start section: command_constructor
     super();
@@ -193,8 +268,8 @@ export class SendRawEmailCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendRawEmailRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SendRawEmailResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -204,12 +279,18 @@ export class SendRawEmailCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendRawEmailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySendRawEmailCommand(input, context);
+    return se_SendRawEmailCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendRawEmailCommandOutput> {
-    return deserializeAws_querySendRawEmailCommand(output, context);
+    return de_SendRawEmailCommand(output, context);
   }
 
   // Start section: command_body_extra

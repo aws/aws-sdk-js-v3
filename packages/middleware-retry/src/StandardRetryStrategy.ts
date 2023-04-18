@@ -29,7 +29,7 @@ export interface StandardRetryStrategyOptions {
 }
 
 /**
- * @deprected use StandardRetryStrategy from @aws-sdk/util-retry
+ * @deprecated use StandardRetryStrategy from @aws-sdk/util-retry
  */
 export class StandardRetryStrategy implements RetryStrategy {
   private retryDecider: RetryDecider;

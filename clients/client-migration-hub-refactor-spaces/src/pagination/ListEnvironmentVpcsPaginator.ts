@@ -6,12 +6,11 @@ import {
   ListEnvironmentVpcsCommandInput,
   ListEnvironmentVpcsCommandOutput,
 } from "../commands/ListEnvironmentVpcsCommand";
-import { MigrationHubRefactorSpaces } from "../MigrationHubRefactorSpaces";
 import { MigrationHubRefactorSpacesClient } from "../MigrationHubRefactorSpacesClient";
 import { MigrationHubRefactorSpacesPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: MigrationHubRefactorSpacesClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListEnvironmentVpcsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: MigrationHubRefactorSpaces,
-  input: ListEnvironmentVpcsCommandInput,
-  ...args: any
-): Promise<ListEnvironmentVpcsCommandOutput> => {
-  // @ts-ignore
-  return await client.listEnvironmentVpcs(input, ...args);
-};
 export async function* paginateListEnvironmentVpcs(
   config: MigrationHubRefactorSpacesPaginationConfiguration,
   input: ListEnvironmentVpcsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListEnvironmentVpcs(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof MigrationHubRefactorSpaces) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof MigrationHubRefactorSpacesClient) {
+    if (config.client instanceof MigrationHubRefactorSpacesClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected MigrationHubRefactorSpaces | MigrationHubRefactorSpacesClient");

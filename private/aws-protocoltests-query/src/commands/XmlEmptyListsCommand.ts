@@ -12,14 +12,21 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { XmlListsOutput, XmlListsOutputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryXmlEmptyListsCommand,
-  serializeAws_queryXmlEmptyListsCommand,
-} from "../protocols/Aws_query";
+import { XmlListsOutput } from "../models/models_0";
+import { de_XmlEmptyListsCommand, se_XmlEmptyListsCommand } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
+/**
+ * @public
+ *
+ * The input for {@link XmlEmptyListsCommand}.
+ */
 export interface XmlEmptyListsCommandInput {}
+/**
+ * @public
+ *
+ * The output of {@link XmlEmptyListsCommand}.
+ */
 export interface XmlEmptyListsCommandOutput extends XmlListsOutput, __MetadataBearer {}
 
 export class XmlEmptyListsCommand extends $Command<
@@ -30,6 +37,9 @@ export class XmlEmptyListsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: XmlEmptyListsCommandInput) {
     // Start section: command_constructor
     super();
@@ -55,8 +65,8 @@ export class XmlEmptyListsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: XmlListsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -66,12 +76,18 @@ export class XmlEmptyListsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: XmlEmptyListsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryXmlEmptyListsCommand(input, context);
+    return se_XmlEmptyListsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlEmptyListsCommandOutput> {
-    return deserializeAws_queryXmlEmptyListsCommand(output, context);
+    return de_XmlEmptyListsCommand(output, context);
   }
 
   // Start section: command_body_extra

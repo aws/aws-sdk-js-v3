@@ -13,25 +13,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetObjectRetentionOutput,
-  GetObjectRetentionOutputFilterSensitiveLog,
-  GetObjectRetentionRequest,
-  GetObjectRetentionRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlGetObjectRetentionCommand,
-  serializeAws_restXmlGetObjectRetentionCommand,
-} from "../protocols/Aws_restXml";
+import { GetObjectRetentionOutput, GetObjectRetentionRequest } from "../models/models_0";
+import { de_GetObjectRetentionCommand, se_GetObjectRetentionCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * @public
+ *
+ * The input for {@link GetObjectRetentionCommand}.
+ */
 export interface GetObjectRetentionCommandInput extends GetObjectRetentionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetObjectRetentionCommand}.
+ */
 export interface GetObjectRetentionCommandOutput extends GetObjectRetentionOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves an object's retention settings. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking Objects</a>.</p>
+ * @public
+ * <p>Retrieves an object's retention settings. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking
+ *          Objects</a>.</p>
  *          <p>This action is not supported by Amazon S3 on Outposts.</p>
- *
  *          <p>The following action is related to <code>GetObjectRetention</code>:</p>
  *          <ul>
  *             <li>
@@ -46,13 +49,23 @@ export interface GetObjectRetentionCommandOutput extends GetObjectRetentionOutpu
  * import { S3Client, GetObjectRetentionCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetObjectRetentionCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // GetObjectRetentionRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   Key: "STRING_VALUE", // required
+ *   VersionId: "STRING_VALUE",
+ *   RequestPayer: "requester",
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new GetObjectRetentionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetObjectRetentionCommandInput - {@link GetObjectRetentionCommandInput}
+ * @returns {@link GetObjectRetentionCommandOutput}
  * @see {@link GetObjectRetentionCommandInput} for command's `input` shape.
  * @see {@link GetObjectRetentionCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
+ *
  *
  */
 export class GetObjectRetentionCommand extends $Command<
@@ -78,6 +91,9 @@ export class GetObjectRetentionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetObjectRetentionCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +122,8 @@ export class GetObjectRetentionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetObjectRetentionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetObjectRetentionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +133,18 @@ export class GetObjectRetentionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetObjectRetentionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetObjectRetentionCommand(input, context);
+    return se_GetObjectRetentionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetObjectRetentionCommandOutput> {
-    return deserializeAws_restXmlGetObjectRetentionCommand(output, context);
+    return de_GetObjectRetentionCommand(output, context);
   }
 
   // Start section: command_body_extra

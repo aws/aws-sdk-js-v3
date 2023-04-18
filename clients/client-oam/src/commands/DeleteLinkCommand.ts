@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteLinkInput,
-  DeleteLinkInputFilterSensitiveLog,
-  DeleteLinkOutput,
-  DeleteLinkOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteLinkInput, DeleteLinkOutput } from "../models/models_0";
 import { OAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OAMClient";
-import {
-  deserializeAws_restJson1DeleteLinkCommand,
-  serializeAws_restJson1DeleteLinkCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteLinkCommand, se_DeleteLinkCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteLinkCommand}.
+ */
 export interface DeleteLinkCommandInput extends DeleteLinkInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteLinkCommand}.
+ */
 export interface DeleteLinkCommandOutput extends DeleteLinkOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a link between a monitoring account sink and a source account. You must run this operation
  *             in the source account.</p>
  * @example
@@ -37,13 +40,31 @@ export interface DeleteLinkCommandOutput extends DeleteLinkOutput, __MetadataBea
  * import { OAMClient, DeleteLinkCommand } from "@aws-sdk/client-oam"; // ES Modules import
  * // const { OAMClient, DeleteLinkCommand } = require("@aws-sdk/client-oam"); // CommonJS import
  * const client = new OAMClient(config);
+ * const input = { // DeleteLinkInput
+ *   Identifier: "STRING_VALUE", // required
+ * };
  * const command = new DeleteLinkCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLinkCommandInput - {@link DeleteLinkCommandInput}
+ * @returns {@link DeleteLinkCommandOutput}
  * @see {@link DeleteLinkCommandInput} for command's `input` shape.
  * @see {@link DeleteLinkCommandOutput} for command's `response` shape.
  * @see {@link OAMClientResolvedConfig | config} for OAMClient's `config` shape.
+ *
+ * @throws {@link InternalServiceFault} (server fault)
+ *  <p>Unexpected error while processing the request. Retry the request.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter is specified incorrectly.</p>
+ *
+ * @throws {@link MissingRequiredParameterException} (client fault)
+ *  <p>A required parameter is missing from the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a resource that does not exist.</p>
+ *
  *
  */
 export class DeleteLinkCommand extends $Command<
@@ -63,6 +84,9 @@ export class DeleteLinkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLinkCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +113,8 @@ export class DeleteLinkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLinkInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLinkOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +124,18 @@ export class DeleteLinkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteLinkCommand(input, context);
+    return se_DeleteLinkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLinkCommandOutput> {
-    return deserializeAws_restJson1DeleteLinkCommand(output, context);
+    return de_DeleteLinkCommand(output, context);
   }
 
   // Start section: command_body_extra

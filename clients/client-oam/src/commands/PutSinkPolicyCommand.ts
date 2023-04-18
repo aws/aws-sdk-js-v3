@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutSinkPolicyInput,
-  PutSinkPolicyInputFilterSensitiveLog,
-  PutSinkPolicyOutput,
-  PutSinkPolicyOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { PutSinkPolicyInput, PutSinkPolicyOutput } from "../models/models_0";
 import { OAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OAMClient";
-import {
-  deserializeAws_restJson1PutSinkPolicyCommand,
-  serializeAws_restJson1PutSinkPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutSinkPolicyCommand, se_PutSinkPolicyCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutSinkPolicyCommand}.
+ */
 export interface PutSinkPolicyCommandInput extends PutSinkPolicyInput {}
+/**
+ * @public
+ *
+ * The output of {@link PutSinkPolicyCommand}.
+ */
 export interface PutSinkPolicyCommandOutput extends PutSinkPolicyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates the resource policy that grants permissions to source
  *             accounts to link to the monitoring account sink. When you create a sink policy, you can grant
  *             permissions to all accounts in an organization or to individual accounts.</p>
@@ -59,13 +62,32 @@ export interface PutSinkPolicyCommandOutput extends PutSinkPolicyOutput, __Metad
  * import { OAMClient, PutSinkPolicyCommand } from "@aws-sdk/client-oam"; // ES Modules import
  * // const { OAMClient, PutSinkPolicyCommand } = require("@aws-sdk/client-oam"); // CommonJS import
  * const client = new OAMClient(config);
+ * const input = { // PutSinkPolicyInput
+ *   SinkIdentifier: "STRING_VALUE", // required
+ *   Policy: "STRING_VALUE", // required
+ * };
  * const command = new PutSinkPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutSinkPolicyCommandInput - {@link PutSinkPolicyCommandInput}
+ * @returns {@link PutSinkPolicyCommandOutput}
  * @see {@link PutSinkPolicyCommandInput} for command's `input` shape.
  * @see {@link PutSinkPolicyCommandOutput} for command's `response` shape.
  * @see {@link OAMClientResolvedConfig | config} for OAMClient's `config` shape.
+ *
+ * @throws {@link InternalServiceFault} (server fault)
+ *  <p>Unexpected error while processing the request. Retry the request.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter is specified incorrectly.</p>
+ *
+ * @throws {@link MissingRequiredParameterException} (client fault)
+ *  <p>A required parameter is missing from the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a resource that does not exist.</p>
+ *
  *
  */
 export class PutSinkPolicyCommand extends $Command<
@@ -85,6 +107,9 @@ export class PutSinkPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutSinkPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +136,8 @@ export class PutSinkPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutSinkPolicyInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutSinkPolicyOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +147,18 @@ export class PutSinkPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutSinkPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutSinkPolicyCommand(input, context);
+    return se_PutSinkPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutSinkPolicyCommandOutput> {
-    return deserializeAws_restJson1PutSinkPolicyCommand(output, context);
+    return de_PutSinkPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -56,6 +56,7 @@ export * from "./PutScheduledUpdateGroupActionCommand";
 export * from "./PutWarmPoolCommand";
 export * from "./RecordLifecycleActionHeartbeatCommand";
 export * from "./ResumeProcessesCommand";
+export * from "./RollbackInstanceRefreshCommand";
 export * from "./SetDesiredCapacityCommand";
 export * from "./SetInstanceHealthCommand";
 export * from "./SetInstanceProtectionCommand";

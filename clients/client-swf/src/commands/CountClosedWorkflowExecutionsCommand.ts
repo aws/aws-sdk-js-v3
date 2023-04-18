@@ -13,22 +13,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { CountClosedWorkflowExecutionsInput, WorkflowExecutionCount } from "../models/models_0";
 import {
-  CountClosedWorkflowExecutionsInput,
-  CountClosedWorkflowExecutionsInputFilterSensitiveLog,
-  WorkflowExecutionCount,
-  WorkflowExecutionCountFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0CountClosedWorkflowExecutionsCommand,
-  serializeAws_json1_0CountClosedWorkflowExecutionsCommand,
+  de_CountClosedWorkflowExecutionsCommand,
+  se_CountClosedWorkflowExecutionsCommand,
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CountClosedWorkflowExecutionsCommand}.
+ */
 export interface CountClosedWorkflowExecutionsCommandInput extends CountClosedWorkflowExecutionsInput {}
+/**
+ * @public
+ *
+ * The output of {@link CountClosedWorkflowExecutionsCommand}.
+ */
 export interface CountClosedWorkflowExecutionsCommandOutput extends WorkflowExecutionCount, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the number of closed workflow executions within the given domain that meet the
  *       specified filtering criteria.</p>
  *          <note>
@@ -82,13 +88,46 @@ export interface CountClosedWorkflowExecutionsCommandOutput extends WorkflowExec
  * import { SWFClient, CountClosedWorkflowExecutionsCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, CountClosedWorkflowExecutionsCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = { // CountClosedWorkflowExecutionsInput
+ *   domain: "STRING_VALUE", // required
+ *   startTimeFilter: { // ExecutionTimeFilter
+ *     oldestDate: new Date("TIMESTAMP"), // required
+ *     latestDate: new Date("TIMESTAMP"),
+ *   },
+ *   closeTimeFilter: {
+ *     oldestDate: new Date("TIMESTAMP"), // required
+ *     latestDate: new Date("TIMESTAMP"),
+ *   },
+ *   executionFilter: { // WorkflowExecutionFilter
+ *     workflowId: "STRING_VALUE", // required
+ *   },
+ *   typeFilter: { // WorkflowTypeFilter
+ *     name: "STRING_VALUE", // required
+ *     version: "STRING_VALUE",
+ *   },
+ *   tagFilter: { // TagFilter
+ *     tag: "STRING_VALUE", // required
+ *   },
+ *   closeStatusFilter: { // CloseStatusFilter
+ *     status: "COMPLETED" || "FAILED" || "CANCELED" || "TERMINATED" || "CONTINUED_AS_NEW" || "TIMED_OUT", // required
+ *   },
+ * };
  * const command = new CountClosedWorkflowExecutionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CountClosedWorkflowExecutionsCommandInput - {@link CountClosedWorkflowExecutionsCommandInput}
+ * @returns {@link CountClosedWorkflowExecutionsCommandOutput}
  * @see {@link CountClosedWorkflowExecutionsCommandInput} for command's `input` shape.
  * @see {@link CountClosedWorkflowExecutionsCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
+ *
+ * @throws {@link OperationNotPermittedFault} (client fault)
+ *  <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+ *
+ * @throws {@link UnknownResourceFault} (client fault)
+ *  <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+ *
  *
  */
 export class CountClosedWorkflowExecutionsCommand extends $Command<
@@ -108,6 +147,9 @@ export class CountClosedWorkflowExecutionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CountClosedWorkflowExecutionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,8 +178,8 @@ export class CountClosedWorkflowExecutionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CountClosedWorkflowExecutionsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: WorkflowExecutionCountFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -147,15 +189,21 @@ export class CountClosedWorkflowExecutionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CountClosedWorkflowExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CountClosedWorkflowExecutionsCommand(input, context);
+    return se_CountClosedWorkflowExecutionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CountClosedWorkflowExecutionsCommandOutput> {
-    return deserializeAws_json1_0CountClosedWorkflowExecutionsCommand(output, context);
+    return de_CountClosedWorkflowExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

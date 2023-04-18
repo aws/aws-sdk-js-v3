@@ -16,19 +16,26 @@ import {
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
 import {
   TerminateRecoveryInstancesRequest,
-  TerminateRecoveryInstancesRequestFilterSensitiveLog,
   TerminateRecoveryInstancesResponse,
   TerminateRecoveryInstancesResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1TerminateRecoveryInstancesCommand,
-  serializeAws_restJson1TerminateRecoveryInstancesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_TerminateRecoveryInstancesCommand, se_TerminateRecoveryInstancesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link TerminateRecoveryInstancesCommand}.
+ */
 export interface TerminateRecoveryInstancesCommandInput extends TerminateRecoveryInstancesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link TerminateRecoveryInstancesCommand}.
+ */
 export interface TerminateRecoveryInstancesCommandOutput extends TerminateRecoveryInstancesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Initiates a Job for terminating the EC2 resources associated with the specified Recovery Instances, and then will delete the Recovery Instances from the Elastic Disaster Recovery service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +43,36 @@ export interface TerminateRecoveryInstancesCommandOutput extends TerminateRecove
  * import { DrsClient, TerminateRecoveryInstancesCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, TerminateRecoveryInstancesCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
+ * const input = { // TerminateRecoveryInstancesRequest
+ *   recoveryInstanceIDs: [ // RecoveryInstancesForTerminationRequest // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new TerminateRecoveryInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TerminateRecoveryInstancesCommandInput - {@link TerminateRecoveryInstancesCommandInput}
+ * @returns {@link TerminateRecoveryInstancesCommandOutput}
  * @see {@link TerminateRecoveryInstancesCommandInput} for command's `input` shape.
  * @see {@link TerminateRecoveryInstancesCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request could not be completed because its exceeded the service quota.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link UninitializedAccountException} (client fault)
+ *  <p>The account performing the request has not been initialized.</p>
+ *
  *
  */
 export class TerminateRecoveryInstancesCommand extends $Command<
@@ -62,6 +92,9 @@ export class TerminateRecoveryInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TerminateRecoveryInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +123,7 @@ export class TerminateRecoveryInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TerminateRecoveryInstancesRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: TerminateRecoveryInstancesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -101,15 +134,21 @@ export class TerminateRecoveryInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TerminateRecoveryInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1TerminateRecoveryInstancesCommand(input, context);
+    return se_TerminateRecoveryInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<TerminateRecoveryInstancesCommandOutput> {
-    return deserializeAws_restJson1TerminateRecoveryInstancesCommand(output, context);
+    return de_TerminateRecoveryInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

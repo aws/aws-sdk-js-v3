@@ -13,38 +13,102 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateSiteInput,
-  CreateSiteInputFilterSensitiveLog,
-  CreateSiteOutput,
-  CreateSiteOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateSiteInput, CreateSiteOutput } from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import {
-  deserializeAws_restJson1CreateSiteCommand,
-  serializeAws_restJson1CreateSiteCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateSiteCommand, se_CreateSiteCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateSiteCommand}.
+ */
 export interface CreateSiteCommandInput extends CreateSiteInput {}
+/**
+ * @public
+ *
+ * The output of {@link CreateSiteCommand}.
+ */
 export interface CreateSiteCommandOutput extends CreateSiteOutput, __MetadataBearer {}
 
 /**
- * <p>
- *       Creates a site for an Outpost.
- *     </p>
+ * @public
+ * <p> Creates a site for an Outpost. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { OutpostsClient, CreateSiteCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, CreateSiteCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
+ * const input = { // CreateSiteInput
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Notes: "STRING_VALUE",
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   OperatingAddress: { // Address
+ *     ContactName: "STRING_VALUE",
+ *     ContactPhoneNumber: "STRING_VALUE",
+ *     AddressLine1: "STRING_VALUE", // required
+ *     AddressLine2: "STRING_VALUE",
+ *     AddressLine3: "STRING_VALUE",
+ *     City: "STRING_VALUE", // required
+ *     StateOrRegion: "STRING_VALUE", // required
+ *     DistrictOrCounty: "STRING_VALUE",
+ *     PostalCode: "STRING_VALUE", // required
+ *     CountryCode: "STRING_VALUE", // required
+ *     Municipality: "STRING_VALUE",
+ *   },
+ *   ShippingAddress: {
+ *     ContactName: "STRING_VALUE",
+ *     ContactPhoneNumber: "STRING_VALUE",
+ *     AddressLine1: "STRING_VALUE", // required
+ *     AddressLine2: "STRING_VALUE",
+ *     AddressLine3: "STRING_VALUE",
+ *     City: "STRING_VALUE", // required
+ *     StateOrRegion: "STRING_VALUE", // required
+ *     DistrictOrCounty: "STRING_VALUE",
+ *     PostalCode: "STRING_VALUE", // required
+ *     CountryCode: "STRING_VALUE", // required
+ *     Municipality: "STRING_VALUE",
+ *   },
+ *   RackPhysicalProperties: { // RackPhysicalProperties
+ *     PowerDrawKva: "POWER_5_KVA" || "POWER_10_KVA" || "POWER_15_KVA" || "POWER_30_KVA",
+ *     PowerPhase: "SINGLE_PHASE" || "THREE_PHASE",
+ *     PowerConnector: "L6_30P" || "IEC309" || "AH530P7W" || "AH532P6W",
+ *     PowerFeedDrop: "ABOVE_RACK" || "BELOW_RACK",
+ *     UplinkGbps: "UPLINK_1G" || "UPLINK_10G" || "UPLINK_40G" || "UPLINK_100G",
+ *     UplinkCount: "UPLINK_COUNT_1" || "UPLINK_COUNT_2" || "UPLINK_COUNT_3" || "UPLINK_COUNT_4" || "UPLINK_COUNT_5" || "UPLINK_COUNT_6" || "UPLINK_COUNT_7" || "UPLINK_COUNT_8" || "UPLINK_COUNT_12" || "UPLINK_COUNT_16",
+ *     FiberOpticCableType: "SINGLE_MODE" || "MULTI_MODE",
+ *     OpticalStandard: "OPTIC_10GBASE_SR" || "OPTIC_10GBASE_IR" || "OPTIC_10GBASE_LR" || "OPTIC_40GBASE_SR" || "OPTIC_40GBASE_ESR" || "OPTIC_40GBASE_IR4_LR4L" || "OPTIC_40GBASE_LR4" || "OPTIC_100GBASE_SR4" || "OPTIC_100GBASE_CWDM4" || "OPTIC_100GBASE_LR4" || "OPTIC_100G_PSM4_MSA" || "OPTIC_1000BASE_LX" || "OPTIC_1000BASE_SX",
+ *     MaximumSupportedWeightLbs: "NO_LIMIT" || "MAX_1400_LBS" || "MAX_1600_LBS" || "MAX_1800_LBS" || "MAX_2000_LBS",
+ *   },
+ * };
  * const command = new CreateSiteCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSiteCommandInput - {@link CreateSiteCommandInput}
+ * @returns {@link CreateSiteCommandOutput}
  * @see {@link CreateSiteCommandInput} for command's `input` shape.
  * @see {@link CreateSiteCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have permission to perform this operation.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Updating or deleting this resource can cause an inconsistent state.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error has occurred.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>You have exceeded a service quota.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>A parameter is not valid.</p>
+ *
  *
  */
 export class CreateSiteCommand extends $Command<
@@ -64,6 +128,9 @@ export class CreateSiteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSiteCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +157,8 @@ export class CreateSiteCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSiteInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSiteOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +168,18 @@ export class CreateSiteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSiteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateSiteCommand(input, context);
+    return se_CreateSiteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSiteCommandOutput> {
-    return deserializeAws_restJson1CreateSiteCommand(output, context);
+    return de_CreateSiteCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,18 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  AllocateAddressRequest,
-  AllocateAddressRequestFilterSensitiveLog,
-  AllocateAddressResult,
-  AllocateAddressResultFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_ec2AllocateAddressCommand, serializeAws_ec2AllocateAddressCommand } from "../protocols/Aws_ec2";
+import { AllocateAddressRequest, AllocateAddressResult } from "../models/models_0";
+import { de_AllocateAddressCommand, se_AllocateAddressCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link AllocateAddressCommand}.
+ */
 export interface AllocateAddressCommandInput extends AllocateAddressRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AllocateAddressCommand}.
+ */
 export interface AllocateAddressCommandOutput extends AllocateAddressResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allocates an Elastic IP address to your Amazon Web Services account. After you allocate the Elastic IP address you can associate
  *          it with an instance or network interface. After you release an Elastic IP address, it is released to the IP address
  *          pool and can be allocated to a different Amazon Web Services account.</p>
@@ -48,13 +54,68 @@ export interface AllocateAddressCommandOutput extends AllocateAddressResult, __M
  * import { EC2Client, AllocateAddressCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AllocateAddressCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // AllocateAddressRequest
+ *   Domain: "vpc" || "standard",
+ *   Address: "STRING_VALUE",
+ *   PublicIpv4Pool: "STRING_VALUE",
+ *   NetworkBorderGroup: "STRING_VALUE",
+ *   CustomerOwnedIpv4Pool: "STRING_VALUE",
+ *   DryRun: true || false,
+ *   TagSpecifications: [ // TagSpecificationList
+ *     { // TagSpecification
+ *       ResourceType: "capacity-reservation" || "client-vpn-endpoint" || "customer-gateway" || "carrier-gateway" || "coip-pool" || "dedicated-host" || "dhcp-options" || "egress-only-internet-gateway" || "elastic-ip" || "elastic-gpu" || "export-image-task" || "export-instance-task" || "fleet" || "fpga-image" || "host-reservation" || "image" || "import-image-task" || "import-snapshot-task" || "instance" || "instance-event-window" || "internet-gateway" || "ipam" || "ipam-pool" || "ipam-scope" || "ipv4pool-ec2" || "ipv6pool-ec2" || "key-pair" || "launch-template" || "local-gateway" || "local-gateway-route-table" || "local-gateway-virtual-interface" || "local-gateway-virtual-interface-group" || "local-gateway-route-table-vpc-association" || "local-gateway-route-table-virtual-interface-group-association" || "natgateway" || "network-acl" || "network-interface" || "network-insights-analysis" || "network-insights-path" || "network-insights-access-scope" || "network-insights-access-scope-analysis" || "placement-group" || "prefix-list" || "replace-root-volume-task" || "reserved-instances" || "route-table" || "security-group" || "security-group-rule" || "snapshot" || "spot-fleet-request" || "spot-instances-request" || "subnet" || "subnet-cidr-reservation" || "traffic-mirror-filter" || "traffic-mirror-session" || "traffic-mirror-target" || "transit-gateway" || "transit-gateway-attachment" || "transit-gateway-connect-peer" || "transit-gateway-multicast-domain" || "transit-gateway-policy-table" || "transit-gateway-route-table" || "transit-gateway-route-table-announcement" || "volume" || "vpc" || "vpc-endpoint" || "vpc-endpoint-connection" || "vpc-endpoint-service" || "vpc-endpoint-service-permission" || "vpc-peering-connection" || "vpn-connection" || "vpn-gateway" || "vpc-flow-log" || "capacity-reservation-fleet" || "traffic-mirror-filter-rule" || "vpc-endpoint-connection-device-type" || "verified-access-instance" || "verified-access-group" || "verified-access-endpoint" || "verified-access-policy" || "verified-access-trust-provider" || "vpn-connection-device-type" || "vpc-block-public-access-exclusion" || "ipam-resource-discovery" || "ipam-resource-discovery-association",
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new AllocateAddressCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AllocateAddressCommandInput - {@link AllocateAddressCommandInput}
+ * @returns {@link AllocateAddressCommandOutput}
  * @see {@link AllocateAddressCommandInput} for command's `input` shape.
  * @see {@link AllocateAddressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ *
+ * @example To allocate an Elastic IP address for EC2-VPC
+ * ```javascript
+ * // This example allocates an Elastic IP address to use with an instance in a VPC.
+ * const input = {
+ *   "Domain": "vpc"
+ * };
+ * const command = new AllocateAddressCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AllocationId": "eipalloc-64d5890a",
+ *   "Domain": "vpc",
+ *   "PublicIp": "203.0.113.0"
+ * }
+ * *\/
+ * // example id: ec2-allocate-address-1
+ * ```
+ *
+ * @example To allocate an Elastic IP address for EC2-Classic
+ * ```javascript
+ * // This example allocates an Elastic IP address to use with an instance in EC2-Classic.
+ * const input = undefined;
+ * const command = new AllocateAddressCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Domain": "standard",
+ *   "PublicIp": "198.51.100.0"
+ * }
+ * *\/
+ * // example id: ec2-allocate-address-2
+ * ```
  *
  */
 export class AllocateAddressCommand extends $Command<
@@ -74,6 +135,9 @@ export class AllocateAddressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AllocateAddressCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +166,8 @@ export class AllocateAddressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AllocateAddressRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AllocateAddressResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +177,18 @@ export class AllocateAddressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AllocateAddressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2AllocateAddressCommand(input, context);
+    return se_AllocateAddressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AllocateAddressCommandOutput> {
-    return deserializeAws_ec2AllocateAddressCommand(output, context);
+    return de_AllocateAddressCommand(output, context);
   }
 
   // Start section: command_body_extra

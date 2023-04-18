@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBElasticClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBElasticClient";
-import {
-  ListClustersInput,
-  ListClustersInputFilterSensitiveLog,
-  ListClustersOutput,
-  ListClustersOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListClustersCommand,
-  serializeAws_restJson1ListClustersCommand,
-} from "../protocols/Aws_restJson1";
+import { ListClustersInput, ListClustersOutput } from "../models/models_0";
+import { de_ListClustersCommand, se_ListClustersCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListClustersCommand}.
+ */
 export interface ListClustersCommandInput extends ListClustersInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListClustersCommand}.
+ */
 export interface ListClustersCommandOutput extends ListClustersOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about provisioned Elastic DocumentDB clusters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,32 @@ export interface ListClustersCommandOutput extends ListClustersOutput, __Metadat
  * import { DocDBElasticClient, ListClustersCommand } from "@aws-sdk/client-docdb-elastic"; // ES Modules import
  * // const { DocDBElasticClient, ListClustersCommand } = require("@aws-sdk/client-docdb-elastic"); // CommonJS import
  * const client = new DocDBElasticClient(config);
+ * const input = { // ListClustersInput
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListClustersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListClustersCommandInput - {@link ListClustersCommandInput}
+ * @returns {@link ListClustersCommandOutput}
  * @see {@link ListClustersCommandInput} for command's `input` shape.
  * @see {@link ListClustersCommandOutput} for command's `response` shape.
  * @see {@link DocDBElasticClientResolvedConfig | config} for DocDBElasticClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>An exception that occurs when there are not sufficient permissions to perform an action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There was an internal server error.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>ThrottlingException will be thrown when request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>A structure defining a validation exception.</p>
+ *
  *
  */
 export class ListClustersCommand extends $Command<
@@ -62,6 +84,9 @@ export class ListClustersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListClustersCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +113,8 @@ export class ListClustersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListClustersInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListClustersOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +124,18 @@ export class ListClustersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListClustersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListClustersCommand(input, context);
+    return se_ListClustersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListClustersCommandOutput> {
-    return deserializeAws_restJson1ListClustersCommand(output, context);
+    return de_ListClustersCommand(output, context);
   }
 
   // Start section: command_body_extra

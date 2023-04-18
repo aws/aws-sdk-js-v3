@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListProvisioningArtifactsInput,
-  ListProvisioningArtifactsInputFilterSensitiveLog,
-  ListProvisioningArtifactsOutput,
-  ListProvisioningArtifactsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListProvisioningArtifactsCommand,
-  serializeAws_json1_1ListProvisioningArtifactsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListProvisioningArtifactsInput, ListProvisioningArtifactsOutput } from "../models/models_0";
+import { de_ListProvisioningArtifactsCommand, se_ListProvisioningArtifactsCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListProvisioningArtifactsCommand}.
+ */
 export interface ListProvisioningArtifactsCommandInput extends ListProvisioningArtifactsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListProvisioningArtifactsCommand}.
+ */
 export interface ListProvisioningArtifactsCommandOutput extends ListProvisioningArtifactsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all provisioning artifacts (also known as versions) for the specified product.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,26 @@ export interface ListProvisioningArtifactsCommandOutput extends ListProvisioning
  * import { ServiceCatalogClient, ListProvisioningArtifactsCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, ListProvisioningArtifactsCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // ListProvisioningArtifactsInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   ProductId: "STRING_VALUE", // required
+ * };
  * const command = new ListProvisioningArtifactsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProvisioningArtifactsCommandInput - {@link ListProvisioningArtifactsCommandInput}
+ * @returns {@link ListProvisioningArtifactsCommandOutput}
  * @see {@link ListProvisioningArtifactsCommandInput} for command's `input` shape.
  * @see {@link ListProvisioningArtifactsCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
+ *
+ * @throws {@link InvalidParametersException} (client fault)
+ *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class ListProvisioningArtifactsCommand extends $Command<
@@ -62,6 +78,9 @@ export class ListProvisioningArtifactsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProvisioningArtifactsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +109,8 @@ export class ListProvisioningArtifactsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListProvisioningArtifactsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListProvisioningArtifactsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +120,21 @@ export class ListProvisioningArtifactsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListProvisioningArtifactsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListProvisioningArtifactsCommand(input, context);
+    return se_ListProvisioningArtifactsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListProvisioningArtifactsCommandOutput> {
-    return deserializeAws_json1_1ListProvisioningArtifactsCommand(output, context);
+    return de_ListProvisioningArtifactsCommand(output, context);
   }
 
   // Start section: command_body_extra

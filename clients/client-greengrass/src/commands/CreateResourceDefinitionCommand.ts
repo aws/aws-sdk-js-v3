@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import {
-  CreateResourceDefinitionRequest,
-  CreateResourceDefinitionRequestFilterSensitiveLog,
-  CreateResourceDefinitionResponse,
-  CreateResourceDefinitionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateResourceDefinitionCommand,
-  serializeAws_restJson1CreateResourceDefinitionCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateResourceDefinitionRequest, CreateResourceDefinitionResponse } from "../models/models_0";
+import { de_CreateResourceDefinitionCommand, se_CreateResourceDefinitionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateResourceDefinitionCommand}.
+ */
 export interface CreateResourceDefinitionCommandInput extends CreateResourceDefinitionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateResourceDefinitionCommand}.
+ */
 export interface CreateResourceDefinitionCommandOutput extends CreateResourceDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Creates a resource definition which contains a list of resources to be used in a group. You can create an initial version of the definition by providing a list of resources now, or use ''CreateResourceDefinitionVersion'' later.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,73 @@ export interface CreateResourceDefinitionCommandOutput extends CreateResourceDef
  * import { GreengrassClient, CreateResourceDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, CreateResourceDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // CreateResourceDefinitionRequest
+ *   AmznClientToken: "STRING_VALUE",
+ *   InitialVersion: { // ResourceDefinitionVersion
+ *     Resources: [ // __listOfResource
+ *       { // Resource
+ *         Id: "STRING_VALUE", // required
+ *         Name: "STRING_VALUE", // required
+ *         ResourceDataContainer: { // ResourceDataContainer
+ *           LocalDeviceResourceData: { // LocalDeviceResourceData
+ *             GroupOwnerSetting: { // GroupOwnerSetting
+ *               AutoAddGroupOwner: true || false,
+ *               GroupOwner: "STRING_VALUE",
+ *             },
+ *             SourcePath: "STRING_VALUE",
+ *           },
+ *           LocalVolumeResourceData: { // LocalVolumeResourceData
+ *             DestinationPath: "STRING_VALUE",
+ *             GroupOwnerSetting: {
+ *               AutoAddGroupOwner: true || false,
+ *               GroupOwner: "STRING_VALUE",
+ *             },
+ *             SourcePath: "STRING_VALUE",
+ *           },
+ *           S3MachineLearningModelResourceData: { // S3MachineLearningModelResourceData
+ *             DestinationPath: "STRING_VALUE",
+ *             OwnerSetting: { // ResourceDownloadOwnerSetting
+ *               GroupOwner: "STRING_VALUE", // required
+ *               GroupPermission: "ro" || "rw", // required
+ *             },
+ *             S3Uri: "STRING_VALUE",
+ *           },
+ *           SageMakerMachineLearningModelResourceData: { // SageMakerMachineLearningModelResourceData
+ *             DestinationPath: "STRING_VALUE",
+ *             OwnerSetting: {
+ *               GroupOwner: "STRING_VALUE", // required
+ *               GroupPermission: "ro" || "rw", // required
+ *             },
+ *             SageMakerJobArn: "STRING_VALUE",
+ *           },
+ *           SecretsManagerSecretResourceData: { // SecretsManagerSecretResourceData
+ *             ARN: "STRING_VALUE",
+ *             AdditionalStagingLabelsToDownload: [ // __listOf__string
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   Name: "STRING_VALUE",
+ *   tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateResourceDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateResourceDefinitionCommandInput - {@link CreateResourceDefinitionCommandInput}
+ * @returns {@link CreateResourceDefinitionCommandOutput}
  * @see {@link CreateResourceDefinitionCommandInput} for command's `input` shape.
  * @see {@link CreateResourceDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  General error information.
+ *
  *
  */
 export class CreateResourceDefinitionCommand extends $Command<
@@ -62,6 +125,9 @@ export class CreateResourceDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateResourceDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +156,8 @@ export class CreateResourceDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateResourceDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateResourceDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +167,18 @@ export class CreateResourceDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateResourceDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateResourceDefinitionCommand(input, context);
+    return se_CreateResourceDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateResourceDefinitionCommandOutput> {
-    return deserializeAws_restJson1CreateResourceDefinitionCommand(output, context);
+    return de_CreateResourceDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

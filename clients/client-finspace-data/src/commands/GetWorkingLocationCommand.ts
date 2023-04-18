@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
-import {
-  GetWorkingLocationRequest,
-  GetWorkingLocationRequestFilterSensitiveLog,
-  GetWorkingLocationResponse,
-  GetWorkingLocationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetWorkingLocationCommand,
-  serializeAws_restJson1GetWorkingLocationCommand,
-} from "../protocols/Aws_restJson1";
+import { GetWorkingLocationRequest, GetWorkingLocationResponse } from "../models/models_0";
+import { de_GetWorkingLocationCommand, se_GetWorkingLocationCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetWorkingLocationCommand}.
+ */
 export interface GetWorkingLocationCommandInput extends GetWorkingLocationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetWorkingLocationCommand}.
+ */
 export interface GetWorkingLocationCommandOutput extends GetWorkingLocationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>A temporary Amazon S3 location, where you can copy your files from a source location to stage or use
  *       as a scratch space in FinSpace notebook.</p>
  * @example
@@ -37,13 +40,32 @@ export interface GetWorkingLocationCommandOutput extends GetWorkingLocationRespo
  * import { FinspaceDataClient, GetWorkingLocationCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, GetWorkingLocationCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
  * const client = new FinspaceDataClient(config);
+ * const input = { // GetWorkingLocationRequest
+ *   locationType: "STRING_VALUE",
+ * };
  * const command = new GetWorkingLocationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetWorkingLocationCommandInput - {@link GetWorkingLocationCommandInput}
+ * @returns {@link GetWorkingLocationCommandOutput}
  * @see {@link GetWorkingLocationCommandInput} for command's `input` shape.
  * @see {@link GetWorkingLocationCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
  *
  */
 export class GetWorkingLocationCommand extends $Command<
@@ -63,6 +85,9 @@ export class GetWorkingLocationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetWorkingLocationCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +116,8 @@ export class GetWorkingLocationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetWorkingLocationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetWorkingLocationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +127,18 @@ export class GetWorkingLocationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetWorkingLocationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetWorkingLocationCommand(input, context);
+    return se_GetWorkingLocationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetWorkingLocationCommandOutput> {
-    return deserializeAws_restJson1GetWorkingLocationCommand(output, context);
+    return de_GetWorkingLocationCommand(output, context);
   }
 
   // Start section: command_body_extra

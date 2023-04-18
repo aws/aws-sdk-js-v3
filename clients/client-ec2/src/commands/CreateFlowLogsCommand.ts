@@ -14,18 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  CreateFlowLogsRequest,
-  CreateFlowLogsRequestFilterSensitiveLog,
-  CreateFlowLogsResult,
-  CreateFlowLogsResultFilterSensitiveLog,
-} from "../models/models_1";
-import { deserializeAws_ec2CreateFlowLogsCommand, serializeAws_ec2CreateFlowLogsCommand } from "../protocols/Aws_ec2";
+import { CreateFlowLogsRequest, CreateFlowLogsResult } from "../models/models_1";
+import { de_CreateFlowLogsCommand, se_CreateFlowLogsCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateFlowLogsCommand}.
+ */
 export interface CreateFlowLogsCommandInput extends CreateFlowLogsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateFlowLogsCommand}.
+ */
 export interface CreateFlowLogsCommandOutput extends CreateFlowLogsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates one or more flow logs to capture information about IP traffic for a specific network interface,
  *             subnet, or VPC. </p>
  *          <p>Flow log data for a monitored network interface is recorded as flow log records, which are log events
@@ -43,13 +49,48 @@ export interface CreateFlowLogsCommandOutput extends CreateFlowLogsResult, __Met
  * import { EC2Client, CreateFlowLogsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateFlowLogsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // CreateFlowLogsRequest
+ *   DryRun: true || false,
+ *   ClientToken: "STRING_VALUE",
+ *   DeliverLogsPermissionArn: "STRING_VALUE",
+ *   DeliverCrossAccountRole: "STRING_VALUE",
+ *   LogGroupName: "STRING_VALUE",
+ *   ResourceIds: [ // FlowLogResourceIds // required
+ *     "STRING_VALUE",
+ *   ],
+ *   ResourceType: "VPC" || "Subnet" || "NetworkInterface" || "TransitGateway" || "TransitGatewayAttachment", // required
+ *   TrafficType: "ACCEPT" || "REJECT" || "ALL",
+ *   LogDestinationType: "cloud-watch-logs" || "s3" || "kinesis-data-firehose",
+ *   LogDestination: "STRING_VALUE",
+ *   LogFormat: "STRING_VALUE",
+ *   TagSpecifications: [ // TagSpecificationList
+ *     { // TagSpecification
+ *       ResourceType: "capacity-reservation" || "client-vpn-endpoint" || "customer-gateway" || "carrier-gateway" || "coip-pool" || "dedicated-host" || "dhcp-options" || "egress-only-internet-gateway" || "elastic-ip" || "elastic-gpu" || "export-image-task" || "export-instance-task" || "fleet" || "fpga-image" || "host-reservation" || "image" || "import-image-task" || "import-snapshot-task" || "instance" || "instance-event-window" || "internet-gateway" || "ipam" || "ipam-pool" || "ipam-scope" || "ipv4pool-ec2" || "ipv6pool-ec2" || "key-pair" || "launch-template" || "local-gateway" || "local-gateway-route-table" || "local-gateway-virtual-interface" || "local-gateway-virtual-interface-group" || "local-gateway-route-table-vpc-association" || "local-gateway-route-table-virtual-interface-group-association" || "natgateway" || "network-acl" || "network-interface" || "network-insights-analysis" || "network-insights-path" || "network-insights-access-scope" || "network-insights-access-scope-analysis" || "placement-group" || "prefix-list" || "replace-root-volume-task" || "reserved-instances" || "route-table" || "security-group" || "security-group-rule" || "snapshot" || "spot-fleet-request" || "spot-instances-request" || "subnet" || "subnet-cidr-reservation" || "traffic-mirror-filter" || "traffic-mirror-session" || "traffic-mirror-target" || "transit-gateway" || "transit-gateway-attachment" || "transit-gateway-connect-peer" || "transit-gateway-multicast-domain" || "transit-gateway-policy-table" || "transit-gateway-route-table" || "transit-gateway-route-table-announcement" || "volume" || "vpc" || "vpc-endpoint" || "vpc-endpoint-connection" || "vpc-endpoint-service" || "vpc-endpoint-service-permission" || "vpc-peering-connection" || "vpn-connection" || "vpn-gateway" || "vpc-flow-log" || "capacity-reservation-fleet" || "traffic-mirror-filter-rule" || "vpc-endpoint-connection-device-type" || "verified-access-instance" || "verified-access-group" || "verified-access-endpoint" || "verified-access-policy" || "verified-access-trust-provider" || "vpn-connection-device-type" || "vpc-block-public-access-exclusion" || "ipam-resource-discovery" || "ipam-resource-discovery-association",
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   MaxAggregationInterval: Number("int"),
+ *   DestinationOptions: { // DestinationOptionsRequest
+ *     FileFormat: "plain-text" || "parquet",
+ *     HiveCompatiblePartitions: true || false,
+ *     PerHourPartition: true || false,
+ *   },
+ * };
  * const command = new CreateFlowLogsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFlowLogsCommandInput - {@link CreateFlowLogsCommandInput}
+ * @returns {@link CreateFlowLogsCommandOutput}
  * @see {@link CreateFlowLogsCommandInput} for command's `input` shape.
  * @see {@link CreateFlowLogsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class CreateFlowLogsCommand extends $Command<
@@ -69,6 +110,9 @@ export class CreateFlowLogsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFlowLogsCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +141,8 @@ export class CreateFlowLogsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFlowLogsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateFlowLogsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +152,18 @@ export class CreateFlowLogsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFlowLogsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateFlowLogsCommand(input, context);
+    return se_CreateFlowLogsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFlowLogsCommandOutput> {
-    return deserializeAws_ec2CreateFlowLogsCommand(output, context);
+    return de_CreateFlowLogsCommand(output, context);
   }
 
   // Start section: command_body_extra

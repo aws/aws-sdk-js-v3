@@ -14,18 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  PutLabelRequest,
-  PutLabelRequestFilterSensitiveLog,
-  PutLabelResult,
-  PutLabelResultFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1PutLabelCommand, serializeAws_json1_1PutLabelCommand } from "../protocols/Aws_json1_1";
+import { PutLabelRequest, PutLabelResult } from "../models/models_0";
+import { de_PutLabelCommand, se_PutLabelCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutLabelCommand}.
+ */
 export interface PutLabelCommandInput extends PutLabelRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutLabelCommand}.
+ */
 export interface PutLabelCommandOutput extends PutLabelResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates label. A label classifies an event as fraudulent or legitimate. Labels are associated with event types and used to train supervised machine learning models in Amazon Fraud Detector. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -33,13 +39,41 @@ export interface PutLabelCommandOutput extends PutLabelResult, __MetadataBearer 
  * import { FraudDetectorClient, PutLabelCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, PutLabelCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = { // PutLabelRequest
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   tags: [ // tagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new PutLabelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutLabelCommandInput - {@link PutLabelCommandInput}
+ * @returns {@link PutLabelCommandOutput}
  * @see {@link PutLabelCommandInput} for command's `input` shape.
  * @see {@link PutLabelCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>An exception indicating there was a conflict during a delete operation.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An exception indicating an internal server error.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>An exception indicating a throttling error.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An exception indicating a specified value is not allowed.</p>
+ *
  *
  */
 export class PutLabelCommand extends $Command<
@@ -59,6 +93,9 @@ export class PutLabelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutLabelCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +122,8 @@ export class PutLabelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutLabelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutLabelResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +133,18 @@ export class PutLabelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutLabelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutLabelCommand(input, context);
+    return se_PutLabelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutLabelCommandOutput> {
-    return deserializeAws_json1_1PutLabelCommand(output, context);
+    return de_PutLabelCommand(output, context);
   }
 
   // Start section: command_body_extra

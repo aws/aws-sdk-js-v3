@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DeleteAutomaticTapeCreationPolicyInput, DeleteAutomaticTapeCreationPolicyOutput } from "../models/models_0";
 import {
-  DeleteAutomaticTapeCreationPolicyInput,
-  DeleteAutomaticTapeCreationPolicyInputFilterSensitiveLog,
-  DeleteAutomaticTapeCreationPolicyOutput,
-  DeleteAutomaticTapeCreationPolicyOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteAutomaticTapeCreationPolicyCommand,
-  serializeAws_json1_1DeleteAutomaticTapeCreationPolicyCommand,
+  de_DeleteAutomaticTapeCreationPolicyCommand,
+  se_DeleteAutomaticTapeCreationPolicyCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteAutomaticTapeCreationPolicyCommand}.
+ */
 export interface DeleteAutomaticTapeCreationPolicyCommandInput extends DeleteAutomaticTapeCreationPolicyInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteAutomaticTapeCreationPolicyCommand}.
+ */
 export interface DeleteAutomaticTapeCreationPolicyCommandOutput
   extends DeleteAutomaticTapeCreationPolicyOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the automatic tape creation policy of a gateway. If you delete this policy, new
  *          virtual tapes must be created manually. Use the Amazon Resource Name (ARN) of the gateway
  *          in your request to remove the policy.</p>
@@ -40,13 +46,27 @@ export interface DeleteAutomaticTapeCreationPolicyCommandOutput
  * import { StorageGatewayClient, DeleteAutomaticTapeCreationPolicyCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DeleteAutomaticTapeCreationPolicyCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // DeleteAutomaticTapeCreationPolicyInput
+ *   GatewayARN: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAutomaticTapeCreationPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAutomaticTapeCreationPolicyCommandInput - {@link DeleteAutomaticTapeCreationPolicyCommandInput}
+ * @returns {@link DeleteAutomaticTapeCreationPolicyCommandOutput}
  * @see {@link DeleteAutomaticTapeCreationPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteAutomaticTapeCreationPolicyCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error has occurred during the request. For more information, see the
+ *          error and message fields.</p>
+ *
+ * @throws {@link InvalidGatewayRequestException} (client fault)
+ *  <p>An exception occurred because an invalid gateway request was issued to the service. For
+ *          more information, see the error and message fields.</p>
+ *
  *
  */
 export class DeleteAutomaticTapeCreationPolicyCommand extends $Command<
@@ -66,6 +86,9 @@ export class DeleteAutomaticTapeCreationPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAutomaticTapeCreationPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +117,8 @@ export class DeleteAutomaticTapeCreationPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAutomaticTapeCreationPolicyInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAutomaticTapeCreationPolicyOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,18 +128,24 @@ export class DeleteAutomaticTapeCreationPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteAutomaticTapeCreationPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteAutomaticTapeCreationPolicyCommand(input, context);
+    return se_DeleteAutomaticTapeCreationPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAutomaticTapeCreationPolicyCommandOutput> {
-    return deserializeAws_json1_1DeleteAutomaticTapeCreationPolicyCommand(output, context);
+    return de_DeleteAutomaticTapeCreationPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

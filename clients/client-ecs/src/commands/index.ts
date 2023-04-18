@@ -8,6 +8,7 @@ export * from "./DeleteAttributesCommand";
 export * from "./DeleteCapacityProviderCommand";
 export * from "./DeleteClusterCommand";
 export * from "./DeleteServiceCommand";
+export * from "./DeleteTaskDefinitionsCommand";
 export * from "./DeleteTaskSetCommand";
 export * from "./DeregisterContainerInstanceCommand";
 export * from "./DeregisterTaskDefinitionCommand";

@@ -13,19 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListAppsRequest,
-  ListAppsRequestFilterSensitiveLog,
-  ListAppsResponse,
-  ListAppsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1ListAppsCommand, serializeAws_json1_1ListAppsCommand } from "../protocols/Aws_json1_1";
+import { ListAppsRequest, ListAppsResponse } from "../models/models_0";
+import { de_ListAppsCommand, se_ListAppsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListAppsCommand}.
+ */
 export interface ListAppsCommandInput extends ListAppsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListAppsCommand}.
+ */
 export interface ListAppsCommandOutput extends ListAppsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves summaries for all applications.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -33,13 +39,39 @@ export interface ListAppsCommandOutput extends ListAppsResponse, __MetadataBeare
  * import { SMSClient, ListAppsCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, ListAppsCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
+ * const input = { // ListAppsRequest
+ *   appIds: [ // AppIds
+ *     "STRING_VALUE",
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListAppsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAppsCommandInput - {@link ListAppsCommandInput}
+ * @returns {@link ListAppsCommandOutput}
  * @see {@link ListAppsCommandInput} for command's `input` shape.
  * @see {@link ListAppsCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
+ *
+ * @throws {@link InternalError} (server fault)
+ *  <p>An internal error occurred.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A specified parameter is not valid.</p>
+ *
+ * @throws {@link MissingRequiredParameterException} (client fault)
+ *  <p>A required parameter is missing.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This operation is not allowed.</p>
+ *
+ * @throws {@link UnauthorizedOperationException} (client fault)
+ *  <p>You lack permissions needed to perform this operation. Check your IAM policies,
+ *             and ensure that you are using the correct access keys.</p>
+ *
  *
  */
 export class ListAppsCommand extends $Command<ListAppsCommandInput, ListAppsCommandOutput, SMSClientResolvedConfig> {
@@ -55,6 +87,9 @@ export class ListAppsCommand extends $Command<ListAppsCommandInput, ListAppsComm
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAppsCommandInput) {
     // Start section: command_constructor
     super();
@@ -81,8 +116,8 @@ export class ListAppsCommand extends $Command<ListAppsCommandInput, ListAppsComm
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAppsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAppsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -92,12 +127,18 @@ export class ListAppsCommand extends $Command<ListAppsCommandInput, ListAppsComm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAppsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAppsCommand(input, context);
+    return se_ListAppsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAppsCommandOutput> {
-    return deserializeAws_json1_1ListAppsCommand(output, context);
+    return de_ListAppsCommand(output, context);
   }
 
   // Start section: command_body_extra

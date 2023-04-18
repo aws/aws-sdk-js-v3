@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRPUBLICClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRPUBLICClient";
-import {
-  SetRepositoryPolicyRequest,
-  SetRepositoryPolicyRequestFilterSensitiveLog,
-  SetRepositoryPolicyResponse,
-  SetRepositoryPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1SetRepositoryPolicyCommand,
-  serializeAws_json1_1SetRepositoryPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { SetRepositoryPolicyRequest, SetRepositoryPolicyResponse } from "../models/models_0";
+import { de_SetRepositoryPolicyCommand, se_SetRepositoryPolicyCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link SetRepositoryPolicyCommand}.
+ */
 export interface SetRepositoryPolicyCommandInput extends SetRepositoryPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SetRepositoryPolicyCommand}.
+ */
 export interface SetRepositoryPolicyCommandOutput extends SetRepositoryPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Applies a repository policy to the specified public repository to control access
  *          permissions. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policies.html">Amazon ECR Repository
  *             Policies</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
@@ -38,13 +41,36 @@ export interface SetRepositoryPolicyCommandOutput extends SetRepositoryPolicyRes
  * import { ECRPUBLICClient, SetRepositoryPolicyCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
  * // const { ECRPUBLICClient, SetRepositoryPolicyCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
  * const client = new ECRPUBLICClient(config);
+ * const input = { // SetRepositoryPolicyRequest
+ *   registryId: "STRING_VALUE",
+ *   repositoryName: "STRING_VALUE", // required
+ *   policyText: "STRING_VALUE", // required
+ *   force: true || false,
+ * };
  * const command = new SetRepositoryPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SetRepositoryPolicyCommandInput - {@link SetRepositoryPolicyCommandInput}
+ * @returns {@link SetRepositoryPolicyCommandOutput}
  * @see {@link SetRepositoryPolicyCommandInput} for command's `input` shape.
  * @see {@link SetRepositoryPolicyCommandOutput} for command's `response` shape.
  * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *          request.</p>
+ *
+ * @throws {@link RepositoryNotFoundException} (client fault)
+ *  <p>The specified repository can't be found. Check the spelling of the specified repository
+ *          and ensure that you're performing operations on the correct registry.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * @throws {@link UnsupportedCommandException} (client fault)
+ *  <p>The action isn't supported in this Region.</p>
+ *
  *
  */
 export class SetRepositoryPolicyCommand extends $Command<
@@ -64,6 +90,9 @@ export class SetRepositoryPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetRepositoryPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +121,8 @@ export class SetRepositoryPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetRepositoryPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SetRepositoryPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +132,18 @@ export class SetRepositoryPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetRepositoryPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SetRepositoryPolicyCommand(input, context);
+    return se_SetRepositoryPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetRepositoryPolicyCommandOutput> {
-    return deserializeAws_json1_1SetRepositoryPolicyCommand(output, context);
+    return de_SetRepositoryPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

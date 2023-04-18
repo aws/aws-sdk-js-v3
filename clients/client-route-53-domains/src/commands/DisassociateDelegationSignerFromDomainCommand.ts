@@ -15,23 +15,32 @@ import {
 
 import {
   DisassociateDelegationSignerFromDomainRequest,
-  DisassociateDelegationSignerFromDomainRequestFilterSensitiveLog,
   DisassociateDelegationSignerFromDomainResponse,
-  DisassociateDelegationSignerFromDomainResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DisassociateDelegationSignerFromDomainCommand,
-  serializeAws_json1_1DisassociateDelegationSignerFromDomainCommand,
+  de_DisassociateDelegationSignerFromDomainCommand,
+  se_DisassociateDelegationSignerFromDomainCommand,
 } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DisassociateDelegationSignerFromDomainCommand}.
+ */
 export interface DisassociateDelegationSignerFromDomainCommandInput
   extends DisassociateDelegationSignerFromDomainRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateDelegationSignerFromDomainCommand}.
+ */
 export interface DisassociateDelegationSignerFromDomainCommandOutput
   extends DisassociateDelegationSignerFromDomainResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a delegation signer (DS) record in the registry zone for this domain
  * 			name.</p>
  * @example
@@ -40,13 +49,39 @@ export interface DisassociateDelegationSignerFromDomainCommandOutput
  * import { Route53DomainsClient, DisassociateDelegationSignerFromDomainCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, DisassociateDelegationSignerFromDomainCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
+ * const input = { // DisassociateDelegationSignerFromDomainRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateDelegationSignerFromDomainCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateDelegationSignerFromDomainCommandInput - {@link DisassociateDelegationSignerFromDomainCommandInput}
+ * @returns {@link DisassociateDelegationSignerFromDomainCommandOutput}
  * @see {@link DisassociateDelegationSignerFromDomainCommandInput} for command's `input` shape.
  * @see {@link DisassociateDelegationSignerFromDomainCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
+ *
+ * @throws {@link DuplicateRequest} (client fault)
+ *  <p>The request is already in progress for the domain.</p>
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The requested item is not acceptable. For example, for APIs that accept a domain name,
+ * 			the request might specify a domain name that doesn't belong to the account that
+ * 			submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the
+ * 			password might be invalid.</p>
+ *
+ * @throws {@link OperationLimitExceeded} (client fault)
+ *  <p>The number of operations or jobs running exceeded the allowed threshold for the
+ * 			account.</p>
+ *
+ * @throws {@link TLDRulesViolation} (client fault)
+ *  <p>The top-level domain does not support this operation.</p>
+ *
+ * @throws {@link UnsupportedTLD} (client fault)
+ *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+ *
  *
  */
 export class DisassociateDelegationSignerFromDomainCommand extends $Command<
@@ -66,6 +101,9 @@ export class DisassociateDelegationSignerFromDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateDelegationSignerFromDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +132,8 @@ export class DisassociateDelegationSignerFromDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateDelegationSignerFromDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateDelegationSignerFromDomainResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,18 +143,24 @@ export class DisassociateDelegationSignerFromDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateDelegationSignerFromDomainCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateDelegationSignerFromDomainCommand(input, context);
+    return se_DisassociateDelegationSignerFromDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateDelegationSignerFromDomainCommandOutput> {
-    return deserializeAws_json1_1DisassociateDelegationSignerFromDomainCommand(output, context);
+    return de_DisassociateDelegationSignerFromDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

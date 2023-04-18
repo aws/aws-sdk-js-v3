@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  TransferInputDeviceRequest,
-  TransferInputDeviceRequestFilterSensitiveLog,
-  TransferInputDeviceResponse,
-  TransferInputDeviceResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1TransferInputDeviceCommand,
-  serializeAws_restJson1TransferInputDeviceCommand,
-} from "../protocols/Aws_restJson1";
+import { TransferInputDeviceRequest, TransferInputDeviceResponse } from "../models/models_2";
+import { de_TransferInputDeviceCommand, se_TransferInputDeviceCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link TransferInputDeviceCommand}.
+ */
 export interface TransferInputDeviceCommandInput extends TransferInputDeviceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link TransferInputDeviceCommand}.
+ */
 export interface TransferInputDeviceCommandOutput extends TransferInputDeviceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Start an input device transfer to another AWS account. After you make the request, the other account must accept or reject the transfer.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,49 @@ export interface TransferInputDeviceCommandOutput extends TransferInputDeviceRes
  * import { MediaLiveClient, TransferInputDeviceCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, TransferInputDeviceCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = { // TransferInputDeviceRequest
+ *   InputDeviceId: "STRING_VALUE", // required
+ *   TargetCustomerId: "STRING_VALUE",
+ *   TargetRegion: "STRING_VALUE",
+ *   TransferMessage: "STRING_VALUE",
+ * };
  * const command = new TransferInputDeviceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TransferInputDeviceCommandInput - {@link TransferInputDeviceCommandInput}
+ * @returns {@link TransferInputDeviceCommandOutput}
  * @see {@link TransferInputDeviceCommandInput} for command's `input` shape.
  * @see {@link TransferInputDeviceCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
+ *
+ * @throws {@link BadGatewayException} (server fault)
+ *  Placeholder documentation for BadGatewayException
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  Placeholder documentation for BadRequestException
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  Placeholder documentation for ConflictException
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  Placeholder documentation for ForbiddenException
+ *
+ * @throws {@link GatewayTimeoutException} (server fault)
+ *  Placeholder documentation for GatewayTimeoutException
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  Placeholder documentation for InternalServerErrorException
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  Placeholder documentation for NotFoundException
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  Placeholder documentation for TooManyRequestsException
+ *
+ * @throws {@link UnprocessableEntityException} (client fault)
+ *  Placeholder documentation for UnprocessableEntityException
+ *
  *
  */
 export class TransferInputDeviceCommand extends $Command<
@@ -62,6 +101,9 @@ export class TransferInputDeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TransferInputDeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +132,8 @@ export class TransferInputDeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TransferInputDeviceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: TransferInputDeviceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +143,18 @@ export class TransferInputDeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TransferInputDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1TransferInputDeviceCommand(input, context);
+    return se_TransferInputDeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TransferInputDeviceCommandOutput> {
-    return deserializeAws_restJson1TransferInputDeviceCommand(output, context);
+    return de_TransferInputDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

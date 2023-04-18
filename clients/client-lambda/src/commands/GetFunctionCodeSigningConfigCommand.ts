@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { GetFunctionCodeSigningConfigRequest, GetFunctionCodeSigningConfigResponse } from "../models/models_0";
 import {
-  GetFunctionCodeSigningConfigRequest,
-  GetFunctionCodeSigningConfigRequestFilterSensitiveLog,
-  GetFunctionCodeSigningConfigResponse,
-  GetFunctionCodeSigningConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetFunctionCodeSigningConfigCommand,
-  serializeAws_restJson1GetFunctionCodeSigningConfigCommand,
+  de_GetFunctionCodeSigningConfigCommand,
+  se_GetFunctionCodeSigningConfigCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetFunctionCodeSigningConfigCommand}.
+ */
 export interface GetFunctionCodeSigningConfigCommandInput extends GetFunctionCodeSigningConfigRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetFunctionCodeSigningConfigCommand}.
+ */
 export interface GetFunctionCodeSigningConfigCommandOutput
   extends GetFunctionCodeSigningConfigResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the code signing configuration for the specified function.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,31 @@ export interface GetFunctionCodeSigningConfigCommandOutput
  * import { LambdaClient, GetFunctionCodeSigningConfigCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, GetFunctionCodeSigningConfigCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = { // GetFunctionCodeSigningConfigRequest
+ *   FunctionName: "STRING_VALUE", // required
+ * };
  * const command = new GetFunctionCodeSigningConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFunctionCodeSigningConfigCommandInput - {@link GetFunctionCodeSigningConfigCommandInput}
+ * @returns {@link GetFunctionCodeSigningConfigCommandOutput}
  * @see {@link GetFunctionCodeSigningConfigCommandInput} for command's `input` shape.
  * @see {@link GetFunctionCodeSigningConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One of the parameters in the request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request does not exist.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>The Lambda service encountered an internal error.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
+ *
  *
  */
 export class GetFunctionCodeSigningConfigCommand extends $Command<
@@ -64,6 +88,9 @@ export class GetFunctionCodeSigningConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFunctionCodeSigningConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +119,8 @@ export class GetFunctionCodeSigningConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFunctionCodeSigningConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetFunctionCodeSigningConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +130,21 @@ export class GetFunctionCodeSigningConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFunctionCodeSigningConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetFunctionCodeSigningConfigCommand(input, context);
+    return se_GetFunctionCodeSigningConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetFunctionCodeSigningConfigCommandOutput> {
-    return deserializeAws_restJson1GetFunctionCodeSigningConfigCommand(output, context);
+    return de_GetFunctionCodeSigningConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

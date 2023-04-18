@@ -5,6 +5,8 @@ import {
 } from "@aws-sdk/smithy-client";
 
 /**
+ * @public
+ *
  * Base exception class for all service exceptions from S3Outposts service.
  */
 export class S3OutpostsServiceException extends __ServiceException {

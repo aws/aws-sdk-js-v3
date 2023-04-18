@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateCaseRequest,
-  CreateCaseRequestFilterSensitiveLog,
-  CreateCaseResponse,
-  CreateCaseResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateCaseCommand,
-  serializeAws_json1_1CreateCaseCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateCaseRequest, CreateCaseResponse } from "../models/models_0";
+import { de_CreateCaseCommand, se_CreateCaseCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateCaseCommand}.
+ */
 export interface CreateCaseCommandInput extends CreateCaseRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateCaseCommand}.
+ */
 export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a case in the Amazon Web Services Support Center. This operation is similar to how you create a case
  *             in the Amazon Web Services Support Center <a href="https://console.aws.amazon.com/support/home#/case/create">Create
  *                 Case</a> page.</p>
@@ -68,13 +71,42 @@ export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataB
  * import { SupportClient, CreateCaseCommand } from "@aws-sdk/client-support"; // ES Modules import
  * // const { SupportClient, CreateCaseCommand } = require("@aws-sdk/client-support"); // CommonJS import
  * const client = new SupportClient(config);
+ * const input = { // CreateCaseRequest
+ *   subject: "STRING_VALUE", // required
+ *   serviceCode: "STRING_VALUE",
+ *   severityCode: "STRING_VALUE",
+ *   categoryCode: "STRING_VALUE",
+ *   communicationBody: "STRING_VALUE", // required
+ *   ccEmailAddresses: [ // CcEmailAddressList
+ *     "STRING_VALUE",
+ *   ],
+ *   language: "STRING_VALUE",
+ *   issueType: "STRING_VALUE",
+ *   attachmentSetId: "STRING_VALUE",
+ * };
  * const command = new CreateCaseCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCaseCommandInput - {@link CreateCaseCommandInput}
+ * @returns {@link CreateCaseCommandOutput}
  * @see {@link CreateCaseCommandInput} for command's `input` shape.
  * @see {@link CreateCaseCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
+ *
+ * @throws {@link AttachmentSetExpired} (client fault)
+ *  <p>The expiration time of the attachment set has passed. The set expires 1 hour after it
+ *             is created.</p>
+ *
+ * @throws {@link AttachmentSetIdNotFound} (client fault)
+ *  <p>An attachment set with the specified ID could not be found.</p>
+ *
+ * @throws {@link CaseCreationLimitExceeded} (client fault)
+ *  <p>The case creation limit for the account has been exceeded.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error occurred.</p>
+ *
  *
  */
 export class CreateCaseCommand extends $Command<
@@ -94,6 +126,9 @@ export class CreateCaseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCaseCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +155,8 @@ export class CreateCaseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCaseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCaseResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +166,18 @@ export class CreateCaseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateCaseCommand(input, context);
+    return se_CreateCaseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCaseCommandOutput> {
-    return deserializeAws_json1_1CreateCaseCommand(output, context);
+    return de_CreateCaseCommand(output, context);
   }
 
   // Start section: command_body_extra

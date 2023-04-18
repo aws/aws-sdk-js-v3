@@ -14,13 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteRouteRequest, DeleteRouteRequestFilterSensitiveLog } from "../models/models_2";
-import { deserializeAws_ec2DeleteRouteCommand, serializeAws_ec2DeleteRouteCommand } from "../protocols/Aws_ec2";
+import { DeleteRouteRequest } from "../models/models_2";
+import { de_DeleteRouteCommand, se_DeleteRouteCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteRouteCommand}.
+ */
 export interface DeleteRouteCommandInput extends DeleteRouteRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteRouteCommand}.
+ */
 export interface DeleteRouteCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified route from the specified route table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -28,13 +39,35 @@ export interface DeleteRouteCommandOutput extends __MetadataBearer {}
  * import { EC2Client, DeleteRouteCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteRouteCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteRouteRequest
+ *   DestinationCidrBlock: "STRING_VALUE",
+ *   DestinationIpv6CidrBlock: "STRING_VALUE",
+ *   DestinationPrefixListId: "STRING_VALUE",
+ *   DryRun: true || false,
+ *   RouteTableId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRouteCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRouteCommandInput - {@link DeleteRouteCommandInput}
+ * @returns {@link DeleteRouteCommandOutput}
  * @see {@link DeleteRouteCommandInput} for command's `input` shape.
  * @see {@link DeleteRouteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ *
+ * @example To delete a route
+ * ```javascript
+ * // This example deletes the specified route from the specified route table.
+ * const input = {
+ *   "DestinationCidrBlock": "0.0.0.0/0",
+ *   "RouteTableId": "rtb-22574640"
+ * };
+ * const command = new DeleteRouteCommand(input);
+ * await client.send(command);
+ * // example id: ec2-delete-route-1
+ * ```
  *
  */
 export class DeleteRouteCommand extends $Command<
@@ -54,6 +87,9 @@ export class DeleteRouteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRouteCommandInput) {
     // Start section: command_constructor
     super();
@@ -80,8 +116,8 @@ export class DeleteRouteCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRouteRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -91,12 +127,18 @@ export class DeleteRouteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteRouteCommand(input, context);
+    return se_DeleteRouteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRouteCommandOutput> {
-    return deserializeAws_ec2DeleteRouteCommand(output, context);
+    return de_DeleteRouteCommand(output, context);
   }
 
   // Start section: command_body_extra

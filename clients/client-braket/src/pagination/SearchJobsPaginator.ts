@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { Braket } from "../Braket";
 import { BraketClient } from "../BraketClient";
 import { SearchJobsCommand, SearchJobsCommandInput, SearchJobsCommandOutput } from "../commands/SearchJobsCommand";
 import { BraketPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: BraketClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new SearchJobsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Braket,
-  input: SearchJobsCommandInput,
-  ...args: any
-): Promise<SearchJobsCommandOutput> => {
-  // @ts-ignore
-  return await client.searchJobs(input, ...args);
-};
 export async function* paginateSearchJobs(
   config: BraketPaginationConfiguration,
   input: SearchJobsCommandInput,
@@ -40,9 +31,7 @@ export async function* paginateSearchJobs(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Braket) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof BraketClient) {
+    if (config.client instanceof BraketClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Braket | BraketClient");

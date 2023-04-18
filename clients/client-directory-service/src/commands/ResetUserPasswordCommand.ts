@@ -18,17 +18,24 @@ import {
   ResetUserPasswordRequest,
   ResetUserPasswordRequestFilterSensitiveLog,
   ResetUserPasswordResult,
-  ResetUserPasswordResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1ResetUserPasswordCommand,
-  serializeAws_json1_1ResetUserPasswordCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ResetUserPasswordCommand, se_ResetUserPasswordCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ResetUserPasswordCommand}.
+ */
 export interface ResetUserPasswordCommandInput extends ResetUserPasswordRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ResetUserPasswordCommand}.
+ */
 export interface ResetUserPasswordCommandOutput extends ResetUserPasswordResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Resets the password for any user in your Managed Microsoft AD or Simple AD
  *       directory.</p>
  *          <p>You can reset the password for any user in your directory with the following
@@ -53,13 +60,43 @@ export interface ResetUserPasswordCommandOutput extends ResetUserPasswordResult,
  * import { DirectoryServiceClient, ResetUserPasswordCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, ResetUserPasswordCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // ResetUserPasswordRequest
+ *   DirectoryId: "STRING_VALUE", // required
+ *   UserName: "STRING_VALUE", // required
+ *   NewPassword: "STRING_VALUE", // required
+ * };
  * const command = new ResetUserPasswordCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ResetUserPasswordCommandInput - {@link ResetUserPasswordCommandInput}
+ * @returns {@link ResetUserPasswordCommandOutput}
  * @see {@link ResetUserPasswordCommandInput} for command's `input` shape.
  * @see {@link ResetUserPasswordCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>A client exception has occurred.</p>
+ *
+ * @throws {@link DirectoryUnavailableException} (client fault)
+ *  <p>The specified directory is unavailable or could not be found.</p>
+ *
+ * @throws {@link EntityDoesNotExistException} (client fault)
+ *  <p>The specified entity could not be found.</p>
+ *
+ * @throws {@link InvalidPasswordException} (client fault)
+ *  <p>The new password provided by the user does not meet the password complexity
+ *             requirements defined in your directory.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>An exception has occurred in Directory Service.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>The operation is not supported.</p>
+ *
+ * @throws {@link UserDoesNotExistException} (client fault)
+ *  <p>The user provided a username that does not exist in your directory.</p>
+ *
  *
  */
 export class ResetUserPasswordCommand extends $Command<
@@ -79,6 +116,9 @@ export class ResetUserPasswordCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResetUserPasswordCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,7 +148,7 @@ export class ResetUserPasswordCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: ResetUserPasswordRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ResetUserPasswordResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +158,18 @@ export class ResetUserPasswordCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResetUserPasswordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ResetUserPasswordCommand(input, context);
+    return se_ResetUserPasswordCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetUserPasswordCommandOutput> {
-    return deserializeAws_json1_1ResetUserPasswordCommand(output, context);
+    return de_ResetUserPasswordCommand(output, context);
   }
 
   // Start section: command_body_extra

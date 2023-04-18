@@ -16,14 +16,12 @@ automatically identifies servers, virtual machines (VMs), and network dependenci
 on-premises data centers. For more information, see the <a href="http://aws.amazon.com/application-discovery/faqs/">Amazon Web Services Application Discovery Service FAQ</a>.
 Application Discovery Service offers three ways of performing discovery and
 collecting data about your on-premises servers:</p>
-
 <ul>
 <li>
 <p>
 <b>Agentless discovery</b> is recommended for environments
 that use VMware vCenter Server. This mode doesn't require you to install an agent on each
 host. It does not work in non-VMware environments.</p>
-
 <ul>
 <li>
 <p>Agentless discovery gathers server information regardless of the operating
@@ -37,14 +35,12 @@ agent-based discovery collects that information.</p>
 </ul>
 </li>
 </ul>
-
 <ul>
 <li>
 <p>
 <b>Agent-based discovery</b> collects a richer set of data
 than agentless discovery by using the Amazon Web Services Application Discovery Agent, which you install
 on one or more hosts in your data center.</p>
-
 <ul>
 <li>
 <p> The agent captures infrastructure and application information, including an
@@ -58,7 +54,6 @@ Application Discovery Service database in the cloud. </p>
 </ul>
 </li>
 </ul>
-
 <ul>
 <li>
 <p>
@@ -66,7 +61,6 @@ Application Discovery Service database in the cloud. </p>
 Application Discovery Service, enabling you to import details of your on-premises
 environment directly into Migration Hub without using the discovery connector or discovery
 agent.</p>
-
 <ul>
 <li>
 <p>Third-party application discovery tools can query Amazon Web Services Application Discovery
@@ -80,7 +74,6 @@ associate applications with servers and track migrations.</p>
 </ul>
 </li>
 </ul>
-
 <p>
 <b>Recommendations</b>
 </p>
@@ -89,18 +82,15 @@ whenever you want to collect information about network dependencies. You can run
 and agentless discovery simultaneously. Use agentless discovery to complete the initial
 infrastructure assessment quickly, and then install agents on select hosts to collect
 additional information.</p>
-
 <p>
 <b>Working With This Guide</b>
 </p>
-
 <p>This API reference provides descriptions, syntax, and usage examples for each of the
 actions and data types for Application Discovery Service. The topic for each action shows the
 API request parameters and the response. Alternatively, you can use one of the Amazon Web Services SDKs to
 access an API that is tailored to the programming language or platform that you're using. For
 more information, see <a href="http://aws.amazon.com/tools/#SDKs">Amazon Web Services
 SDKs</a>.</p>
-
 <note>
 <ul>
 <li>
@@ -126,10 +116,8 @@ region.</p>
 </li>
 </ul>
 </note>
-
 <p>This guide is intended for use with the <a href="http://docs.aws.amazon.com/application-discovery/latest/userguide/">Amazon Web Services Application
 Discovery Service User Guide</a>.</p>
-
 <important>
 <p>All data is handled according to the <a href="http://aws.amazon.com/privacy/">Amazon Web Services
 Privacy Policy</a>. You can operate Application Discovery Service offline to inspect
@@ -334,3 +322,206 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+AssociateConfigurationItemsToApplication
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/classes/associateconfigurationitemstoapplicationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/associateconfigurationitemstoapplicationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/associateconfigurationitemstoapplicationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+BatchDeleteImportData
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/classes/batchdeleteimportdatacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/batchdeleteimportdatacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/batchdeleteimportdatacommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateApplication
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/classes/createapplicationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/createapplicationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/createapplicationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateTags
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/classes/createtagscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/createtagscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/createtagscommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteApplications
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/classes/deleteapplicationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/deleteapplicationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/deleteapplicationscommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteTags
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/classes/deletetagscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/deletetagscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/deletetagscommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeAgents
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/classes/describeagentscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/describeagentscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/describeagentscommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeConfigurations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/classes/describeconfigurationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/describeconfigurationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/describeconfigurationscommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeContinuousExports
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/classes/describecontinuousexportscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/describecontinuousexportscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/describecontinuousexportscommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeExportConfigurations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/classes/describeexportconfigurationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/describeexportconfigurationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/describeexportconfigurationscommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeExportTasks
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/classes/describeexporttaskscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/describeexporttaskscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/describeexporttaskscommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeImportTasks
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/classes/describeimporttaskscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/describeimporttaskscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/describeimporttaskscommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeTags
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/classes/describetagscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/describetagscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/describetagscommandoutput.html)
+
+</details>
+<details>
+<summary>
+DisassociateConfigurationItemsFromApplication
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/classes/disassociateconfigurationitemsfromapplicationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/disassociateconfigurationitemsfromapplicationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/disassociateconfigurationitemsfromapplicationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+ExportConfigurations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/classes/exportconfigurationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/exportconfigurationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/exportconfigurationscommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetDiscoverySummary
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/classes/getdiscoverysummarycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/getdiscoverysummarycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/getdiscoverysummarycommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListConfigurations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/classes/listconfigurationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/listconfigurationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/listconfigurationscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListServerNeighbors
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/classes/listserverneighborscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/listserverneighborscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/listserverneighborscommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartContinuousExport
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/classes/startcontinuousexportcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/startcontinuousexportcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/startcontinuousexportcommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartDataCollectionByAgentIds
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/classes/startdatacollectionbyagentidscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/startdatacollectionbyagentidscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/startdatacollectionbyagentidscommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartExportTask
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/classes/startexporttaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/startexporttaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/startexporttaskcommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartImportTask
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/classes/startimporttaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/startimporttaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/startimporttaskcommandoutput.html)
+
+</details>
+<details>
+<summary>
+StopContinuousExport
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/classes/stopcontinuousexportcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/stopcontinuousexportcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/stopcontinuousexportcommandoutput.html)
+
+</details>
+<details>
+<summary>
+StopDataCollectionByAgentIds
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/classes/stopdatacollectionbyagentidscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/stopdatacollectionbyagentidscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/stopdatacollectionbyagentidscommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateApplication
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/classes/updateapplicationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/updateapplicationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/updateapplicationcommandoutput.html)
+
+</details>

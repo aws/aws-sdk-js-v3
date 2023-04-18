@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
+import { ListQuerySuggestionsBlockListsRequest, ListQuerySuggestionsBlockListsResponse } from "../models/models_0";
 import {
-  ListQuerySuggestionsBlockListsRequest,
-  ListQuerySuggestionsBlockListsRequestFilterSensitiveLog,
-  ListQuerySuggestionsBlockListsResponse,
-  ListQuerySuggestionsBlockListsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListQuerySuggestionsBlockListsCommand,
-  serializeAws_json1_1ListQuerySuggestionsBlockListsCommand,
+  de_ListQuerySuggestionsBlockListsCommand,
+  se_ListQuerySuggestionsBlockListsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListQuerySuggestionsBlockListsCommand}.
+ */
 export interface ListQuerySuggestionsBlockListsCommandInput extends ListQuerySuggestionsBlockListsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListQuerySuggestionsBlockListsCommand}.
+ */
 export interface ListQuerySuggestionsBlockListsCommandOutput
   extends ListQuerySuggestionsBlockListsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the block lists used for query suggestions for an index.</p>
  *          <p>For information on the current quota limits for block lists, see
  *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas
@@ -44,13 +50,41 @@ export interface ListQuerySuggestionsBlockListsCommandOutput
  * import { KendraClient, ListQuerySuggestionsBlockListsCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, ListQuerySuggestionsBlockListsCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
+ * const input = { // ListQuerySuggestionsBlockListsRequest
+ *   IndexId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListQuerySuggestionsBlockListsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListQuerySuggestionsBlockListsCommandInput - {@link ListQuerySuggestionsBlockListsCommandInput}
+ * @returns {@link ListQuerySuggestionsBlockListsCommandOutput}
  * @see {@link ListQuerySuggestionsBlockListsCommandInput} for command's `input` shape.
  * @see {@link ListQuerySuggestionsBlockListsCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient access to perform this action. Please ensure you have the
+ *             required permission policies and user accounts and try again.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
+ *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource you want to use doesn’t exist. Please check you have provided the correct
+ *             resource and try again.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling. Please reduce the number of requests
+ *             and try again.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
+ *             Please provide the correct input and try again.</p>
+ *
  *
  */
 export class ListQuerySuggestionsBlockListsCommand extends $Command<
@@ -70,6 +104,9 @@ export class ListQuerySuggestionsBlockListsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListQuerySuggestionsBlockListsCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +135,8 @@ export class ListQuerySuggestionsBlockListsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListQuerySuggestionsBlockListsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListQuerySuggestionsBlockListsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,18 +146,24 @@ export class ListQuerySuggestionsBlockListsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListQuerySuggestionsBlockListsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListQuerySuggestionsBlockListsCommand(input, context);
+    return se_ListQuerySuggestionsBlockListsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListQuerySuggestionsBlockListsCommandOutput> {
-    return deserializeAws_json1_1ListQuerySuggestionsBlockListsCommand(output, context);
+    return de_ListQuerySuggestionsBlockListsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutResourcePermissionInput,
-  PutResourcePermissionInputFilterSensitiveLog,
-  PutResourcePermissionOutput,
-  PutResourcePermissionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutResourcePermissionCommand,
-  serializeAws_restJson1PutResourcePermissionCommand,
-} from "../protocols/Aws_restJson1";
+import { PutResourcePermissionInput, PutResourcePermissionOutput } from "../models/models_0";
+import { de_PutResourcePermissionCommand, se_PutResourcePermissionCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
+/**
+ * @public
+ *
+ * The input for {@link PutResourcePermissionCommand}.
+ */
 export interface PutResourcePermissionCommandInput extends PutResourcePermissionInput {}
+/**
+ * @public
+ *
+ * The output of {@link PutResourcePermissionCommand}.
+ */
 export interface PutResourcePermissionCommandOutput extends PutResourcePermissionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds permissions to the target database.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,30 @@ export interface PutResourcePermissionCommandOutput extends PutResourcePermissio
  * import { SsmSapClient, PutResourcePermissionCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
  * // const { SsmSapClient, PutResourcePermissionCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
  * const client = new SsmSapClient(config);
+ * const input = { // PutResourcePermissionInput
+ *   ActionType: "STRING_VALUE", // required
+ *   SourceResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new PutResourcePermissionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutResourcePermissionCommandInput - {@link PutResourcePermissionCommandInput}
+ * @returns {@link PutResourcePermissionCommandOutput}
  * @see {@link PutResourcePermissionCommandInput} for command's `input` shape.
  * @see {@link PutResourcePermissionCommandOutput} for command's `response` shape.
  * @see {@link SsmSapClientResolvedConfig | config} for SsmSapClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error has occurred.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource is not available.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an AWS service. </p>
+ *
  *
  */
 export class PutResourcePermissionCommand extends $Command<
@@ -62,6 +82,9 @@ export class PutResourcePermissionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutResourcePermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +113,8 @@ export class PutResourcePermissionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutResourcePermissionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutResourcePermissionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +124,18 @@ export class PutResourcePermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutResourcePermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutResourcePermissionCommand(input, context);
+    return se_PutResourcePermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutResourcePermissionCommandOutput> {
-    return deserializeAws_restJson1PutResourcePermissionCommand(output, context);
+    return de_PutResourcePermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

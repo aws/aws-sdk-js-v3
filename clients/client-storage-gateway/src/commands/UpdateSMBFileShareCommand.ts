@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateSMBFileShareInput,
-  UpdateSMBFileShareInputFilterSensitiveLog,
-  UpdateSMBFileShareOutput,
-  UpdateSMBFileShareOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateSMBFileShareCommand,
-  serializeAws_json1_1UpdateSMBFileShareCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateSMBFileShareInput, UpdateSMBFileShareOutput } from "../models/models_0";
+import { de_UpdateSMBFileShareCommand, se_UpdateSMBFileShareCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateSMBFileShareCommand}.
+ */
 export interface UpdateSMBFileShareCommandInput extends UpdateSMBFileShareInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateSMBFileShareCommand}.
+ */
 export interface UpdateSMBFileShareCommandOutput extends UpdateSMBFileShareOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a Server Message Block (SMB) file share. This operation is only supported for S3
  *          File Gateways.</p>
  *
@@ -55,13 +58,53 @@ export interface UpdateSMBFileShareCommandOutput extends UpdateSMBFileShareOutpu
  * import { StorageGatewayClient, UpdateSMBFileShareCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, UpdateSMBFileShareCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // UpdateSMBFileShareInput
+ *   FileShareARN: "STRING_VALUE", // required
+ *   KMSEncrypted: true || false,
+ *   KMSKey: "STRING_VALUE",
+ *   DefaultStorageClass: "STRING_VALUE",
+ *   ObjectACL: "STRING_VALUE",
+ *   ReadOnly: true || false,
+ *   GuessMIMETypeEnabled: true || false,
+ *   RequesterPays: true || false,
+ *   SMBACLEnabled: true || false,
+ *   AccessBasedEnumeration: true || false,
+ *   AdminUserList: [ // UserList
+ *     "STRING_VALUE",
+ *   ],
+ *   ValidUserList: [
+ *     "STRING_VALUE",
+ *   ],
+ *   InvalidUserList: [
+ *     "STRING_VALUE",
+ *   ],
+ *   AuditDestinationARN: "STRING_VALUE",
+ *   CaseSensitivity: "STRING_VALUE",
+ *   FileShareName: "STRING_VALUE",
+ *   CacheAttributes: { // CacheAttributes
+ *     CacheStaleTimeoutInSeconds: Number("int"),
+ *   },
+ *   NotificationPolicy: "STRING_VALUE",
+ *   OplocksEnabled: true || false,
+ * };
  * const command = new UpdateSMBFileShareCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSMBFileShareCommandInput - {@link UpdateSMBFileShareCommandInput}
+ * @returns {@link UpdateSMBFileShareCommandOutput}
  * @see {@link UpdateSMBFileShareCommandInput} for command's `input` shape.
  * @see {@link UpdateSMBFileShareCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error has occurred during the request. For more information, see the
+ *          error and message fields.</p>
+ *
+ * @throws {@link InvalidGatewayRequestException} (client fault)
+ *  <p>An exception occurred because an invalid gateway request was issued to the service. For
+ *          more information, see the error and message fields.</p>
+ *
  *
  */
 export class UpdateSMBFileShareCommand extends $Command<
@@ -81,6 +124,9 @@ export class UpdateSMBFileShareCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSMBFileShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +155,8 @@ export class UpdateSMBFileShareCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSMBFileShareInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSMBFileShareOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +166,18 @@ export class UpdateSMBFileShareCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSMBFileShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateSMBFileShareCommand(input, context);
+    return se_UpdateSMBFileShareCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSMBFileShareCommandOutput> {
-    return deserializeAws_json1_1UpdateSMBFileShareCommand(output, context);
+    return de_UpdateSMBFileShareCommand(output, context);
   }
 
   // Start section: command_body_extra

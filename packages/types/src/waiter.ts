@@ -1,5 +1,8 @@
 import { AbortController } from "./abort";
 
+/**
+ * @public
+ */
 export interface WaiterConfiguration<Client> {
   /**
    * Required service client

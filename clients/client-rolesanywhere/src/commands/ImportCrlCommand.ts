@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CrlDetailResponse,
-  CrlDetailResponseFilterSensitiveLog,
-  ImportCrlRequest,
-  ImportCrlRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ImportCrlCommand,
-  serializeAws_restJson1ImportCrlCommand,
-} from "../protocols/Aws_restJson1";
+import { CrlDetailResponse, ImportCrlRequest, ImportCrlRequestFilterSensitiveLog } from "../models/models_0";
+import { de_ImportCrlCommand, se_ImportCrlCommand } from "../protocols/Aws_restJson1";
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ImportCrlCommand}.
+ */
 export interface ImportCrlCommandInput extends ImportCrlRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ImportCrlCommand}.
+ */
 export interface ImportCrlCommandOutput extends CrlDetailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Imports the certificate revocation list (CRL). CRl is a list of certificates that have been revoked by the issuing certificate Authority (CA). IAM Roles Anywhere validates against the crl list before issuing credentials. </p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -40,13 +43,34 @@ export interface ImportCrlCommandOutput extends CrlDetailResponse, __MetadataBea
  * import { RolesAnywhereClient, ImportCrlCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
  * // const { RolesAnywhereClient, ImportCrlCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
  * const client = new RolesAnywhereClient(config);
+ * const input = { // ImportCrlRequest
+ *   name: "STRING_VALUE", // required
+ *   crlData: "BLOB_VALUE", // required
+ *   enabled: true || false,
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   trustAnchorArn: "STRING_VALUE", // required
+ * };
  * const command = new ImportCrlCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportCrlCommandInput - {@link ImportCrlCommandInput}
+ * @returns {@link ImportCrlCommandOutput}
  * @see {@link ImportCrlCommandInput} for command's `input` shape.
  * @see {@link ImportCrlCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Validation exception error.</p>
+ *
  *
  */
 export class ImportCrlCommand extends $Command<
@@ -66,6 +90,9 @@ export class ImportCrlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportCrlCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,7 +120,7 @@ export class ImportCrlCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: ImportCrlRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CrlDetailResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +130,18 @@ export class ImportCrlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportCrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ImportCrlCommand(input, context);
+    return se_ImportCrlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportCrlCommandOutput> {
-    return deserializeAws_restJson1ImportCrlCommand(output, context);
+    return de_ImportCrlCommand(output, context);
   }
 
   // Start section: command_body_extra

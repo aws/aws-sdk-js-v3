@@ -6,12 +6,11 @@ import {
   GetDedicatedIpsCommandInput,
   GetDedicatedIpsCommandOutput,
 } from "../commands/GetDedicatedIpsCommand";
-import { PinpointEmail } from "../PinpointEmail";
 import { PinpointEmailClient } from "../PinpointEmailClient";
 import { PinpointEmailPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: PinpointEmailClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new GetDedicatedIpsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: PinpointEmail,
-  input: GetDedicatedIpsCommandInput,
-  ...args: any
-): Promise<GetDedicatedIpsCommandOutput> => {
-  // @ts-ignore
-  return await client.getDedicatedIps(input, ...args);
-};
 export async function* paginateGetDedicatedIps(
   config: PinpointEmailPaginationConfiguration,
   input: GetDedicatedIpsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateGetDedicatedIps(
   while (hasNext) {
     input.NextToken = token;
     input["PageSize"] = config.pageSize;
-    if (config.client instanceof PinpointEmail) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof PinpointEmailClient) {
+    if (config.client instanceof PinpointEmailClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected PinpointEmail | PinpointEmailClient");

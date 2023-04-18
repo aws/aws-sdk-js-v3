@@ -682,6 +682,7 @@ import {
 import { SSMClient } from "./SSMClient";
 
 /**
+ * @public
  * <p>Amazon Web Services Systems Manager is the operations hub for your Amazon Web Services applications and resources and a secure
  *    end-to-end management solution for hybrid cloud environments that enables safe and secure
  *    operations at scale.</p>
@@ -721,6 +722,7 @@ import { SSMClient } from "./SSMClient";
  */
 export class SSM extends SSMClient {
   /**
+   * @public
    * <p>Adds or overwrites one or more tags for the specified resource. <i>Tags</i>
    *    are metadata that you can assign to your automations, documents, managed nodes, maintenance
    *    windows, Parameter Store parameters, and patch baselines. Tags enable you to categorize your
@@ -799,6 +801,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Associates a related item to a Systems Manager OpsCenter OpsItem. For example, you can associate an
    *    Incident Manager incident or analysis with an OpsItem. Incident Manager and OpsCenter are capabilities of
    *    Amazon Web Services Systems Manager.</p>
@@ -833,6 +836,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Attempts to cancel the command specified by the Command ID. There is no guarantee that the
    *    command will be terminated and the underlying process stopped.</p>
    */
@@ -866,6 +870,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Stops a maintenance window execution that is already in progress and cancels any tasks in
    *    the window that haven't already starting running. Tasks already in progress will continue to
    *    completion.</p>
@@ -900,6 +905,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Generates an activation code and activation ID you can use to register your on-premises
    *    servers, edge devices, or virtual machine (VM) with Amazon Web Services Systems Manager. Registering these machines with
    *    Systems Manager makes it possible to manage them using Systems Manager capabilities. You use the activation code and
@@ -941,6 +947,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>A State Manager association defines the state that you want to maintain on your managed
    *    nodes. For example, an association can specify that anti-virus software must be installed and
    *    running on your managed nodes, or that certain ports must be closed. For static targets, the
@@ -982,6 +989,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Associates the specified Amazon Web Services Systems Manager document (SSM document) with the specified managed nodes
    *    or targets.</p>
    *          <p>When you associate a document with one or more managed nodes using IDs or tags, Amazon Web Services Systems Manager
@@ -1020,6 +1028,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Creates a Amazon Web Services Systems Manager (SSM document). An SSM document defines the actions that Systems Manager performs
    *    on your managed nodes. For more information about SSM documents, including information about
    *    supported schemas, features, and syntax, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ssm-docs.html">Amazon Web Services Systems Manager Documents</a> in the
@@ -1055,6 +1064,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Creates a new maintenance window.</p>
    *          <note>
    *             <p>The value you specify for <code>Duration</code> determines the specific end time for the
@@ -1095,6 +1105,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Creates a new OpsItem. You must have permission in Identity and Access Management (IAM) to create a new OpsItem. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html">Getting started with
    *     OpsCenter</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    *          <p>Operations engineers and IT professionals use Amazon Web Services Systems Manager OpsCenter to view, investigate, and
@@ -1132,6 +1143,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>If you create a new application in Application Manager, Amazon Web Services Systems Manager calls this API operation to specify
    *    information about the new application, including the application type.</p>
    */
@@ -1165,6 +1177,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Creates a patch baseline.</p>
    *          <note>
    *             <p>For information about valid key-value pairs in <code>PatchFilters</code> for each supported
@@ -1201,6 +1214,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>A resource data sync helps you view data from multiple sources in a single location.
    *    Amazon Web Services Systems Manager offers two types of resource data sync: <code>SyncToDestination</code> and
    *     <code>SyncFromSource</code>.</p>
@@ -1253,6 +1267,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Deletes an activation. You aren't required to delete an activation. If you delete an
    *    activation, you can no longer use it to register additional managed nodes. Deleting an activation
    *    doesn't de-register managed nodes. You must manually de-register managed nodes.</p>
@@ -1287,6 +1302,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Disassociates the specified Amazon Web Services Systems Manager document (SSM document) from the specified managed
    *    node. If you created the association by using the <code>Targets</code> parameter, then you must
    *    delete the association by using the association ID.</p>
@@ -1325,6 +1341,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Deletes the Amazon Web Services Systems Manager document (SSM document) and all managed node associations to the
    *    document.</p>
    *          <p>Before you delete the document, we recommend that you use <a>DeleteAssociation</a> to disassociate all managed nodes that are associated with the document.</p>
@@ -1359,6 +1376,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Delete a custom inventory type or the data associated with a custom Inventory type. Deleting
    *    a custom inventory type is also referred to as deleting a custom inventory schema.</p>
    */
@@ -1392,6 +1410,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Deletes a maintenance window.</p>
    */
   public deleteMaintenanceWindow(
@@ -1424,6 +1443,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Delete OpsMetadata related to an application.</p>
    */
   public deleteOpsMetadata(
@@ -1456,6 +1476,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Delete a parameter from the system. After deleting a parameter, wait for at least 30 seconds
    *    to create a parameter with the same name.</p>
    */
@@ -1489,6 +1510,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Delete a list of parameters. After deleting a parameter, wait for at least 30 seconds to
    *    create a parameter with the same name.</p>
    */
@@ -1522,6 +1544,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Deletes a patch baseline.</p>
    */
   public deletePatchBaseline(
@@ -1554,6 +1577,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Deletes a resource data sync configuration. After the configuration is deleted, changes to
    *    data on managed nodes are no longer synced to or from the target. Deleting a sync configuration
    *    doesn't delete data.</p>
@@ -1588,6 +1612,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Deletes a Systems Manager resource policy. A resource policy helps you to define the IAM entity (for example, an Amazon Web Services account) that can manage your Systems Manager resources. Currently,
    *     <code>OpsItemGroup</code> is the only resource that supports Systems Manager resource policies. The
    *    resource policy for <code>OpsItemGroup</code> enables Amazon Web Services accounts to view and interact with
@@ -1623,6 +1648,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Removes the server or virtual machine from the list of registered servers. You can
    *    reregister the node again at any time. If you don't plan to use Run Command on the server, we
    *    suggest uninstalling SSM Agent first.</p>
@@ -1657,6 +1683,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Removes a patch group from a patch baseline.</p>
    */
   public deregisterPatchBaselineForPatchGroup(
@@ -1689,6 +1716,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Removes a target from a maintenance window.</p>
    */
   public deregisterTargetFromMaintenanceWindow(
@@ -1723,6 +1751,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Removes a task from a maintenance window.</p>
    */
   public deregisterTaskFromMaintenanceWindow(
@@ -1755,6 +1784,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Describes details about the activation, such as the date and time the activation was
    *    created, its expiration date, the Identity and Access Management (IAM) role assigned to
    *    the managed nodes in the activation, and the number of nodes registered by using this
@@ -1790,6 +1820,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Describes the association for the specified target or managed node. If you created the
    *    association by using the <code>Targets</code> parameter, then you must retrieve the association
    *    by using the association ID.</p>
@@ -1824,6 +1855,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Views all executions for a specific association ID. </p>
    */
   public describeAssociationExecutions(
@@ -1856,6 +1888,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Views information about a specific execution of a specific association.</p>
    */
   public describeAssociationExecutionTargets(
@@ -1888,6 +1921,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Provides details about all active and terminated Automation executions.</p>
    */
   public describeAutomationExecutions(
@@ -1920,6 +1954,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Information about all active and terminated step executions in an Automation
    *    workflow.</p>
    */
@@ -1953,6 +1988,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Lists all patches eligible to be included in a patch baseline.</p>
    */
   public describeAvailablePatches(
@@ -1985,6 +2021,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Describes the specified Amazon Web Services Systems Manager document (SSM document).</p>
    */
   public describeDocument(
@@ -2017,6 +2054,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Describes the permissions for a Amazon Web Services Systems Manager document (SSM document). If you created the
    *    document, you are the owner. If a document is shared, it can either be shared privately (by
    *    specifying a user's Amazon Web Services account ID) or publicly (<i>All</i>). </p>
@@ -2051,6 +2089,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>All associations for the managed node(s).</p>
    */
   public describeEffectiveInstanceAssociations(
@@ -2085,6 +2124,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the current effective patches (the patch and the approval state) for the specified
    *    patch baseline. Applies to patch baselines for Windows only.</p>
    */
@@ -2120,6 +2160,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>The status of the associations for the managed node(s).</p>
    */
   public describeInstanceAssociationsStatus(
@@ -2152,6 +2193,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Describes one or more of your managed nodes, including information about the operating
    *    system platform, the version of SSM Agent installed on the managed node, node status, and so
    *    on.</p>
@@ -2194,6 +2236,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the patches on the specified managed node and their state
    *    relative to the patch baseline being used for the node.</p>
    */
@@ -2227,6 +2270,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the high-level patch state of one or more managed nodes.</p>
    */
   public describeInstancePatchStates(
@@ -2259,6 +2303,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the high-level patch state for the managed nodes in the specified patch
    *    group.</p>
    */
@@ -2294,6 +2339,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Describes a specific delete inventory operation.</p>
    */
   public describeInventoryDeletions(
@@ -2326,6 +2372,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Lists the executions of a maintenance window. This includes information about when the
    *    maintenance window was scheduled to be active, and information about tasks registered and run
    *    with the maintenance window.</p>
@@ -2360,6 +2407,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the individual task executions (one per target) for a particular task run as part
    *    of a maintenance window execution.</p>
    */
@@ -2395,6 +2443,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>For a given maintenance window execution, lists the tasks that were run.</p>
    */
   public describeMaintenanceWindowExecutionTasks(
@@ -2429,6 +2478,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the maintenance windows in an Amazon Web Services account.</p>
    */
   public describeMaintenanceWindows(
@@ -2461,6 +2511,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about upcoming executions of a maintenance window.</p>
    */
   public describeMaintenanceWindowSchedule(
@@ -2493,6 +2544,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the maintenance window targets or tasks that a managed node is
    *    associated with.</p>
    */
@@ -2526,6 +2578,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Lists the targets registered with the maintenance window.</p>
    */
   public describeMaintenanceWindowTargets(
@@ -2558,6 +2611,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Lists the tasks in a maintenance window.</p>
    *          <note>
    *             <p>For maintenance window tasks without a specified target, you can't supply values for
@@ -2596,6 +2650,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Query a set of OpsItems. You must have permission in Identity and Access Management (IAM) to query a list of OpsItems. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html">Getting started with
    *     OpsCenter</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    *          <p>Operations engineers and IT professionals use Amazon Web Services Systems Manager OpsCenter to view, investigate, and
@@ -2633,6 +2688,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Get information about a parameter.</p>
    *          <p>Request results are returned on a best-effort basis. If you specify <code>MaxResults</code>
    *    in the request, the response includes information up to the limit specified. The number of items
@@ -2677,6 +2733,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Lists the patch baselines in your Amazon Web Services account.</p>
    */
   public describePatchBaselines(
@@ -2709,6 +2766,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Lists all patch groups that have been registered with patch baselines.</p>
    */
   public describePatchGroups(
@@ -2741,6 +2799,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Returns high-level aggregated patch compliance state information for a patch group.</p>
    */
   public describePatchGroupState(
@@ -2773,6 +2832,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Lists the properties of available patches organized by product, product family,
    *    classification, severity, and other properties of available patches. You can use the reported
    *    properties in the filters you specify in requests for operations such as <a>CreatePatchBaseline</a>, <a>UpdatePatchBaseline</a>, <a>DescribeAvailablePatches</a>, and <a>DescribePatchBaselines</a>.</p>
@@ -2868,6 +2928,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of all active sessions (both connected and disconnected) or terminated
    *    sessions from the past 30 days.</p>
    */
@@ -2901,6 +2962,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Deletes the association between an OpsItem and a related item. For example, this API
    *    operation can delete an Incident Manager incident from an OpsItem. Incident Manager is a capability of
    *    Amazon Web Services Systems Manager.</p>
@@ -2935,6 +2997,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Get detailed information about a particular Automation execution.</p>
    */
   public getAutomationExecution(
@@ -2967,6 +3030,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Gets the state of a Amazon Web Services Systems Manager change calendar at the current time or a specified time. If
    *    you specify a time, <code>GetCalendarState</code> returns the state of the calendar at that
    *    specific time, and returns the next time that the change calendar state will transition. If you
@@ -3007,6 +3071,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Returns detailed information about command execution for an invocation or plugin.</p>
    *          <p>
    *             <code>GetCommandInvocation</code> only gives the execution status of a plugin in a document.
@@ -3043,6 +3108,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the Session Manager connection status for a managed node to determine whether it is running
    *    and ready to receive Session Manager connections.</p>
    */
@@ -3076,6 +3142,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the default patch baseline. Amazon Web Services Systems Manager supports creating multiple default patch
    *    baselines. For example, you can create a default patch baseline for each operating system.</p>
    *          <p>If you don't specify an operating system value, the default patch baseline for Windows is
@@ -3111,6 +3178,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the current snapshot for the patch baseline the managed node uses. This API is
    *    primarily used by the <code>AWS-RunPatchBaseline</code> Systems Manager document (SSM document).</p>
    *          <note>
@@ -3153,6 +3221,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Gets the contents of the specified Amazon Web Services Systems Manager document (SSM document).</p>
    */
   public getDocument(args: GetDocumentCommandInput, options?: __HttpHandlerOptions): Promise<GetDocumentCommandOutput>;
@@ -3179,6 +3248,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Query inventory information. This includes managed node status, such as <code>Stopped</code>
    *    or <code>Terminated</code>.</p>
    */
@@ -3209,6 +3279,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Return a list of inventory type names for the account, or return a list of attribute names
    *    for a specific Inventory item type.</p>
    */
@@ -3242,6 +3313,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a maintenance window.</p>
    */
   public getMaintenanceWindow(
@@ -3274,6 +3346,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves details about a specific a maintenance window execution.</p>
    */
   public getMaintenanceWindowExecution(
@@ -3306,6 +3379,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the details about a specific task run as part of a maintenance window
    *    execution.</p>
    */
@@ -3339,6 +3413,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about a specific task running on a specific target.</p>
    */
   public getMaintenanceWindowExecutionTaskInvocation(
@@ -3373,6 +3448,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the details of a maintenance window task.</p>
    *          <note>
    *             <p>For maintenance window tasks without a specified target, you can't supply values for
@@ -3412,6 +3488,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Get information about an OpsItem by using the ID. You must have permission in Identity and Access Management (IAM) to view information about an OpsItem. For more information,
    *    see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html">Getting started with
    *     OpsCenter</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
@@ -3444,6 +3521,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>View operational metadata related to an application in Application Manager.</p>
    */
   public getOpsMetadata(
@@ -3476,6 +3554,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>View a summary of operations metadata (OpsData) based on specified filters and aggregators.
    *    OpsData can include information about Amazon Web Services Systems Manager OpsCenter operational workitems (OpsItems) as
    *    well as information about any Amazon Web Services resource or service configured to report OpsData to Amazon Web Services Systems Manager
@@ -3511,6 +3590,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Get information about a single parameter by specifying the parameter name.</p>
    *          <note>
    *             <p>To get information about more than one parameter at a time, use the <a>GetParameters</a> operation.</p>
@@ -3543,6 +3623,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the history of all changes to a parameter.</p>
    *          <important>
    *             <p>If you change the KMS key alias for the KMS key used to encrypt a parameter, then you must
@@ -3581,6 +3662,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Get information about one or more parameters by specifying multiple parameter names.</p>
    *          <note>
    *             <p>To get information about a single parameter, you can use the <a>GetParameter</a>
@@ -3617,6 +3699,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Retrieve information about one or more parameters in a specific hierarchy. </p>
    *          <p>Request results are returned on a best-effort basis. If you specify <code>MaxResults</code>
    *    in the request, the response includes information up to the limit specified. The number of items
@@ -3655,6 +3738,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about a patch baseline.</p>
    */
   public getPatchBaseline(
@@ -3687,6 +3771,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the patch baseline that should be used for the specified patch group.</p>
    */
   public getPatchBaselineForPatchGroup(
@@ -3719,6 +3804,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Returns an array of the <code>Policy</code> object.</p>
    */
   public getResourcePolicies(
@@ -3751,6 +3837,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>
    *             <code>ServiceSetting</code> is an account-level setting for an Amazon Web Services service. This setting
    *    defines how a user interacts with or uses a service or a feature of a service. For example, if an
@@ -3796,6 +3883,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>A parameter label is a user-defined alias to help you manage different versions of a
    *    parameter. When you modify a parameter, Amazon Web Services Systems Manager automatically saves a new version and
    *    increments the version number by one. A label can help you remember the purpose of a parameter
@@ -3864,6 +3952,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Returns all State Manager associations in the current Amazon Web Services account and Amazon Web Services Region. You
    *    can limit the results to a specific State Manager association document or managed node by
    *    specifying a filter. State Manager is a capability of Amazon Web Services Systems Manager.</p>
@@ -3898,6 +3987,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves all versions of an association for a specific association ID.</p>
    */
   public listAssociationVersions(
@@ -3930,6 +4020,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>An invocation is copy of a command sent to a specific managed node. A command can apply to
    *    one or more managed nodes. A command invocation applies to one managed node. For example, if a
    *    user runs <code>SendCommand</code> against three managed nodes, then a command invocation is
@@ -3966,6 +4057,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Lists the commands requested by users of the Amazon Web Services account.</p>
    */
   public listCommands(
@@ -3995,6 +4087,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>For a specified resource ID, this API operation returns a list of compliance statuses for
    *    different resource types. Currently, you can only specify one resource ID per call. List results
    *    depend on the criteria specified in the filter.</p>
@@ -4029,6 +4122,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Returns a summary count of compliant and non-compliant resources for a compliance type. For
    *    example, this call can return State Manager associations, patches, or custom compliance types
    *    according to the filter criteria that you specify.</p>
@@ -4063,6 +4157,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Information about approval reviews for a version of a change template in Change Manager.</p>
    */
   public listDocumentMetadataHistory(
@@ -4095,6 +4190,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Returns all Systems Manager (SSM) documents in the current Amazon Web Services account and Amazon Web Services Region. You can
    *    limit the results of this request by using a filter.</p>
    */
@@ -4128,6 +4224,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>List all versions for a document.</p>
    */
   public listDocumentVersions(
@@ -4160,6 +4257,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>A list of inventory items returned by the request.</p>
    */
   public listInventoryEntries(
@@ -4192,6 +4290,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of all OpsItem events in the current Amazon Web Services Region and Amazon Web Services account. You can
    *    limit the results to events associated with specific OpsItems by specifying a filter.</p>
    */
@@ -4225,6 +4324,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Lists all related-item resources associated with a Systems Manager OpsCenter OpsItem. OpsCenter is a
    *    capability of Amazon Web Services Systems Manager.</p>
    */
@@ -4258,6 +4358,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Amazon Web Services Systems Manager calls this API operation when displaying all Application Manager OpsMetadata objects or
    *    blobs.</p>
    */
@@ -4291,6 +4392,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Returns a resource-level summary count. The summary includes information about compliant and
    *    non-compliant statuses and detailed compliance-item severity counts, according to the filter
    *    criteria you specify.</p>
@@ -4325,6 +4427,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Lists your resource data sync configurations. Includes information about the last time a
    *    sync attempted to start, the last sync status, and the last time a sync successfully
    *    completed.</p>
@@ -4365,6 +4468,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of the tags assigned to the specified resource.</p>
    *          <p>For information about the ID format for each supported resource type, see <a>AddTagsToResource</a>.</p>
    */
@@ -4398,10 +4502,11 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Shares a Amazon Web Services Systems Manager document (SSM document)publicly or privately. If you share a document
-   *    privately, you must specify the Amazon Web Services user account IDs for those people who can use the
-   *    document. If you share a document publicly, you must specify <i>All</i> as the
-   *    account ID.</p>
+   *    privately, you must specify the Amazon Web Services user IDs for those people who can use the document. If
+   *    you share a document publicly, you must specify <i>All</i> as the account
+   *    ID.</p>
    */
   public modifyDocumentPermission(
     args: ModifyDocumentPermissionCommandInput,
@@ -4433,6 +4538,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Registers a compliance type and other compliance details on a designated resource. This
    *    operation lets you register custom compliance details with a resource. This call overwrites
    *    existing compliance information on the resource, so you must provide a full list of compliance
@@ -4520,6 +4626,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Bulk update custom inventory items on one or more managed nodes. The request adds an
    *    inventory item, if it doesn't already exist, or updates an inventory item, if it does
    *    exist.</p>
@@ -4551,6 +4658,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Add a parameter to the system.</p>
    */
   public putParameter(
@@ -4580,6 +4688,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Creates or updates a Systems Manager resource policy. A resource policy helps you to define the
    *     IAM entity (for example, an Amazon Web Services account) that can manage your Systems Manager resources.
    *    Currently, <code>OpsItemGroup</code> is the only resource that supports Systems Manager resource policies.
@@ -4616,6 +4725,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Defines the default patch baseline for the relevant operating system.</p>
    *          <p>To reset the Amazon Web Services-predefined patch baseline as the default, specify the full patch baseline
    *    Amazon Resource Name (ARN) as the baseline ID value. For example, for CentOS, specify
@@ -4652,6 +4762,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Registers a patch baseline for a patch group.</p>
    */
   public registerPatchBaselineForPatchGroup(
@@ -4684,6 +4795,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Registers a target with a maintenance window.</p>
    */
   public registerTargetWithMaintenanceWindow(
@@ -4716,6 +4828,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Adds a new task to a maintenance window.</p>
    */
   public registerTaskWithMaintenanceWindow(
@@ -4748,6 +4861,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Removes tag keys from the specified resource.</p>
    */
   public removeTagsFromResource(
@@ -4780,6 +4894,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>
    *             <code>ServiceSetting</code> is an account-level setting for an Amazon Web Services service. This setting
    *    defines how a user interacts with or uses a service or a feature of a service. For example, if an
@@ -4826,6 +4941,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Reconnects a session to a managed node after it has been disconnected. Connections can be
    *    resumed for disconnected sessions, but not terminated sessions.</p>
    *          <note>
@@ -4863,6 +4979,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Sends a signal to an Automation execution to change the current behavior or status of the
    *    execution. </p>
    */
@@ -4896,6 +5013,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Runs commands on one or more managed nodes.</p>
    */
   public sendCommand(args: SendCommandCommandInput, options?: __HttpHandlerOptions): Promise<SendCommandCommandOutput>;
@@ -4922,6 +5040,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Runs an association immediately and only one time. This operation can be helpful when
    *    troubleshooting associations.</p>
    */
@@ -4955,6 +5074,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Initiates execution of an Automation runbook.</p>
    */
   public startAutomationExecution(
@@ -4987,6 +5107,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Creates a change request for Change Manager. The Automation runbooks specified in the
    *    change request run only after all required approvals for the change request have been
    *    received.</p>
@@ -5021,6 +5142,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Initiates a connection to a target (for example, a managed node) for a Session Manager session.
    *    Returns a URL and token that can be used to open a WebSocket connection for sending input and
    *    receiving outputs.</p>
@@ -5059,6 +5181,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Stop an Automation that is currently running.</p>
    */
   public stopAutomationExecution(
@@ -5091,6 +5214,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Permanently ends a session and closes the data connection between the Session Manager client and
    *    SSM Agent on the managed node. A terminated session can't be resumed.</p>
    */
@@ -5124,6 +5248,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Remove a label or labels from a parameter.</p>
    */
   public unlabelParameterVersion(
@@ -5156,6 +5281,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Updates an association. You can update the association name and version, the document
    *    version, schedule, parameters, and Amazon Simple Storage Service (Amazon S3) output. When you
    *    call <code>UpdateAssociation</code>, the system removes all optional parameters from the request
@@ -5164,12 +5290,12 @@ export class SSM extends SSMClient {
    *    includes the <code>Name</code> parameter. Before calling this API action, we recommend that you
    *    call the <a>DescribeAssociation</a> API operation and make a note of all optional
    *    parameters required for your <code>UpdateAssociation</code> call.</p>
-   *          <p>In order to call this API operation, your Identity and Access Management (IAM) user
-   *    account, group, or role must be configured with permission to call the <a>DescribeAssociation</a> API operation. If you don't have permission to call
-   *     <code>DescribeAssociation</code>, then you receive the following error: <code>An error occurred
-   *     (AccessDeniedException) when calling the UpdateAssociation operation: User: <user_arn>
-   *     isn't authorized to perform: ssm:DescribeAssociation on resource:
-   *    <resource_arn></code>
+   *          <p>In order to call this API operation, a user, group, or role must be granted permission to
+   *    call the <a>DescribeAssociation</a> API operation. If you don't have permission to
+   *    call <code>DescribeAssociation</code>, then you receive the following error: <code>An error
+   *     occurred (AccessDeniedException) when calling the UpdateAssociation operation: User:
+   *     <user_arn> isn't authorized to perform: ssm:DescribeAssociation on resource:
+   *     <resource_arn></code>
    *          </p>
    *          <important>
    *             <p>When you update an association, the association immediately runs against the specified
@@ -5207,6 +5333,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Updates the status of the Amazon Web Services Systems Manager document (SSM document) associated with the specified
    *    managed node.</p>
    *          <p>
@@ -5244,6 +5371,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Updates one or more values for an SSM document.</p>
    */
   public updateDocument(
@@ -5276,6 +5404,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Set the default version of a document. </p>
    *          <note>
    *             <p>If you change a document version for a State Manager association, Systems Manager immediately runs
@@ -5313,6 +5442,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Updates information related to approval reviews for a specific version of a change template
    *    in Change Manager.</p>
    */
@@ -5346,6 +5476,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing maintenance window. Only specified parameters are modified.</p>
    *          <note>
    *             <p>The value you specify for <code>Duration</code> determines the specific end time for the
@@ -5386,6 +5517,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Modifies the target of an existing maintenance window. You
    *    can change the following:</p>
    *          <ul>
@@ -5443,6 +5575,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Modifies a task assigned to a maintenance window. You can't change the task type, but you
    *    can change the following values:</p>
    *          <ul>
@@ -5530,6 +5663,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Changes the Identity and Access Management (IAM) role that is assigned to the
    *    on-premises server, edge device, or virtual machines (VM). IAM roles are first
    *    assigned to these hybrid nodes during the activation process. For more information, see <a>CreateActivation</a>.</p>
@@ -5564,6 +5698,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Edit or change an OpsItem. You must have permission in Identity and Access Management (IAM) to update an OpsItem. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html">Getting started with
    *     OpsCenter</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    *          <p>Operations engineers and IT professionals use Amazon Web Services Systems Manager OpsCenter to view, investigate, and
@@ -5601,6 +5736,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Amazon Web Services Systems Manager calls this API operation when you edit OpsMetadata in Application Manager.</p>
    */
   public updateOpsMetadata(
@@ -5633,6 +5769,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Modifies an existing patch baseline. Fields not specified in the request are left
    *    unchanged.</p>
    *          <note>
@@ -5670,6 +5807,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>Update a resource data sync. After you create a resource data sync for a Region, you can't
    *    change the account options for that sync. For example, if you create a sync in the us-east-2
    *    (Ohio) Region and you choose the <code>Include only the current account</code> option, you can't
@@ -5711,6 +5849,7 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * @public
    * <p>
    *             <code>ServiceSetting</code> is an account-level setting for an Amazon Web Services service. This setting
    *    defines how a user interacts with or uses a service or a feature of a service. For example, if an

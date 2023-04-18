@@ -14,23 +14,26 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DeleteTrafficMirrorFilterRuleRequest,
-  DeleteTrafficMirrorFilterRuleRequestFilterSensitiveLog,
-  DeleteTrafficMirrorFilterRuleResult,
-  DeleteTrafficMirrorFilterRuleResultFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_ec2DeleteTrafficMirrorFilterRuleCommand,
-  serializeAws_ec2DeleteTrafficMirrorFilterRuleCommand,
-} from "../protocols/Aws_ec2";
+import { DeleteTrafficMirrorFilterRuleRequest, DeleteTrafficMirrorFilterRuleResult } from "../models/models_3";
+import { de_DeleteTrafficMirrorFilterRuleCommand, se_DeleteTrafficMirrorFilterRuleCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteTrafficMirrorFilterRuleCommand}.
+ */
 export interface DeleteTrafficMirrorFilterRuleCommandInput extends DeleteTrafficMirrorFilterRuleRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteTrafficMirrorFilterRuleCommand}.
+ */
 export interface DeleteTrafficMirrorFilterRuleCommandOutput
   extends DeleteTrafficMirrorFilterRuleResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified Traffic Mirror rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +41,20 @@ export interface DeleteTrafficMirrorFilterRuleCommandOutput
  * import { EC2Client, DeleteTrafficMirrorFilterRuleCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteTrafficMirrorFilterRuleCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteTrafficMirrorFilterRuleRequest
+ *   TrafficMirrorFilterRuleId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DeleteTrafficMirrorFilterRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTrafficMirrorFilterRuleCommandInput - {@link DeleteTrafficMirrorFilterRuleCommandInput}
+ * @returns {@link DeleteTrafficMirrorFilterRuleCommandOutput}
  * @see {@link DeleteTrafficMirrorFilterRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteTrafficMirrorFilterRuleCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class DeleteTrafficMirrorFilterRuleCommand extends $Command<
@@ -64,6 +74,9 @@ export class DeleteTrafficMirrorFilterRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTrafficMirrorFilterRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +105,8 @@ export class DeleteTrafficMirrorFilterRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTrafficMirrorFilterRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTrafficMirrorFilterRuleResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +116,21 @@ export class DeleteTrafficMirrorFilterRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTrafficMirrorFilterRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteTrafficMirrorFilterRuleCommand(input, context);
+    return se_DeleteTrafficMirrorFilterRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteTrafficMirrorFilterRuleCommandOutput> {
-    return deserializeAws_ec2DeleteTrafficMirrorFilterRuleCommand(output, context);
+    return de_DeleteTrafficMirrorFilterRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

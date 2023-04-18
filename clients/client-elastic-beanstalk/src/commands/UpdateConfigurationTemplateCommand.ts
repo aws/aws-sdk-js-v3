@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import {
-  ConfigurationSettingsDescription,
-  ConfigurationSettingsDescriptionFilterSensitiveLog,
-  UpdateConfigurationTemplateMessage,
-  UpdateConfigurationTemplateMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryUpdateConfigurationTemplateCommand,
-  serializeAws_queryUpdateConfigurationTemplateCommand,
-} from "../protocols/Aws_query";
+import { ConfigurationSettingsDescription, UpdateConfigurationTemplateMessage } from "../models/models_0";
+import { de_UpdateConfigurationTemplateCommand, se_UpdateConfigurationTemplateCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateConfigurationTemplateCommand}.
+ */
 export interface UpdateConfigurationTemplateCommandInput extends UpdateConfigurationTemplateMessage {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateConfigurationTemplateCommand}.
+ */
 export interface UpdateConfigurationTemplateCommandOutput extends ConfigurationSettingsDescription, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified configuration template to have the specified properties or
  *       configuration option values.</p>
  *          <note>
@@ -49,13 +52,70 @@ export interface UpdateConfigurationTemplateCommandOutput extends ConfigurationS
  * import { ElasticBeanstalkClient, UpdateConfigurationTemplateCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, UpdateConfigurationTemplateCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = { // UpdateConfigurationTemplateMessage
+ *   ApplicationName: "STRING_VALUE", // required
+ *   TemplateName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   OptionSettings: [ // ConfigurationOptionSettingsList
+ *     { // ConfigurationOptionSetting
+ *       ResourceName: "STRING_VALUE",
+ *       Namespace: "STRING_VALUE",
+ *       OptionName: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   OptionsToRemove: [ // OptionsSpecifierList
+ *     { // OptionSpecification
+ *       ResourceName: "STRING_VALUE",
+ *       Namespace: "STRING_VALUE",
+ *       OptionName: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateConfigurationTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateConfigurationTemplateCommandInput - {@link UpdateConfigurationTemplateCommandInput}
+ * @returns {@link UpdateConfigurationTemplateCommandOutput}
  * @see {@link UpdateConfigurationTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateConfigurationTemplateCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
+ *
+ * @throws {@link InsufficientPrivilegesException} (client fault)
+ *  <p>The specified account does not have sufficient privileges for one or more AWS
+ *       services.</p>
+ *
+ * @throws {@link TooManyBucketsException} (client fault)
+ *  <p>The specified account has reached its limit of Amazon S3 buckets.</p>
+ *
+ *
+ * @example To update a configuration template
+ * ```javascript
+ * // The following operation removes the configured CloudWatch custom health metrics configuration ConfigDocument from a saved configuration template named my-template:
+ * const input = {
+ *   "ApplicationName": "my-app",
+ *   "OptionsToRemove": [
+ *     {
+ *       "Namespace": "aws:elasticbeanstalk:healthreporting:system",
+ *       "OptionName": "ConfigDocument"
+ *     }
+ *   ],
+ *   "TemplateName": "my-template"
+ * };
+ * const command = new UpdateConfigurationTemplateCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ApplicationName": "my-app",
+ *   "DateCreated": "2015-08-20T22:39:31Z",
+ *   "DateUpdated": "2015-08-20T22:43:11Z",
+ *   "SolutionStackName": "64bit Amazon Linux 2015.03 v2.0.0 running Tomcat 8 Java 8",
+ *   "TemplateName": "my-template"
+ * }
+ * *\/
+ * // example id: to-update-a-configuration-template-1456278075300
+ * ```
  *
  */
 export class UpdateConfigurationTemplateCommand extends $Command<
@@ -75,6 +135,9 @@ export class UpdateConfigurationTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateConfigurationTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +166,8 @@ export class UpdateConfigurationTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateConfigurationTemplateMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ConfigurationSettingsDescriptionFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,15 +177,21 @@ export class UpdateConfigurationTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateConfigurationTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateConfigurationTemplateCommand(input, context);
+    return se_UpdateConfigurationTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateConfigurationTemplateCommandOutput> {
-    return deserializeAws_queryUpdateConfigurationTemplateCommand(output, context);
+    return de_UpdateConfigurationTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

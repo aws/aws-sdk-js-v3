@@ -16,21 +16,30 @@ import {
 import { KinesisAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisAnalyticsClient";
 import {
   AddApplicationReferenceDataSourceRequest,
-  AddApplicationReferenceDataSourceRequestFilterSensitiveLog,
   AddApplicationReferenceDataSourceResponse,
-  AddApplicationReferenceDataSourceResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1AddApplicationReferenceDataSourceCommand,
-  serializeAws_json1_1AddApplicationReferenceDataSourceCommand,
+  de_AddApplicationReferenceDataSourceCommand,
+  se_AddApplicationReferenceDataSourceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link AddApplicationReferenceDataSourceCommand}.
+ */
 export interface AddApplicationReferenceDataSourceCommandInput extends AddApplicationReferenceDataSourceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AddApplicationReferenceDataSourceCommand}.
+ */
 export interface AddApplicationReferenceDataSourceCommandOutput
   extends AddApplicationReferenceDataSourceResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
  *          </note>
@@ -51,13 +60,65 @@ export interface AddApplicationReferenceDataSourceCommandOutput
  * import { KinesisAnalyticsClient, AddApplicationReferenceDataSourceCommand } from "@aws-sdk/client-kinesis-analytics"; // ES Modules import
  * // const { KinesisAnalyticsClient, AddApplicationReferenceDataSourceCommand } = require("@aws-sdk/client-kinesis-analytics"); // CommonJS import
  * const client = new KinesisAnalyticsClient(config);
+ * const input = { // AddApplicationReferenceDataSourceRequest
+ *   ApplicationName: "STRING_VALUE", // required
+ *   CurrentApplicationVersionId: Number("long"), // required
+ *   ReferenceDataSource: { // ReferenceDataSource
+ *     TableName: "STRING_VALUE", // required
+ *     S3ReferenceDataSource: { // S3ReferenceDataSource
+ *       BucketARN: "STRING_VALUE", // required
+ *       FileKey: "STRING_VALUE", // required
+ *       ReferenceRoleARN: "STRING_VALUE", // required
+ *     },
+ *     ReferenceSchema: { // SourceSchema
+ *       RecordFormat: { // RecordFormat
+ *         RecordFormatType: "STRING_VALUE", // required
+ *         MappingParameters: { // MappingParameters
+ *           JSONMappingParameters: { // JSONMappingParameters
+ *             RecordRowPath: "STRING_VALUE", // required
+ *           },
+ *           CSVMappingParameters: { // CSVMappingParameters
+ *             RecordRowDelimiter: "STRING_VALUE", // required
+ *             RecordColumnDelimiter: "STRING_VALUE", // required
+ *           },
+ *         },
+ *       },
+ *       RecordEncoding: "STRING_VALUE",
+ *       RecordColumns: [ // RecordColumns // required
+ *         { // RecordColumn
+ *           Name: "STRING_VALUE", // required
+ *           Mapping: "STRING_VALUE",
+ *           SqlType: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *   },
+ * };
  * const command = new AddApplicationReferenceDataSourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AddApplicationReferenceDataSourceCommandInput - {@link AddApplicationReferenceDataSourceCommandInput}
+ * @returns {@link AddApplicationReferenceDataSourceCommandOutput}
  * @see {@link AddApplicationReferenceDataSourceCommandInput} for command's `input` shape.
  * @see {@link AddApplicationReferenceDataSourceCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsClientResolvedConfig | config} for KinesisAnalyticsClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>Specified input parameter value is invalid.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>Application is not available for this operation.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Specified application can't be found.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation. </p>
+ *
  *
  */
 export class AddApplicationReferenceDataSourceCommand extends $Command<
@@ -77,6 +138,9 @@ export class AddApplicationReferenceDataSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddApplicationReferenceDataSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +169,8 @@ export class AddApplicationReferenceDataSourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddApplicationReferenceDataSourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AddApplicationReferenceDataSourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,18 +180,24 @@ export class AddApplicationReferenceDataSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AddApplicationReferenceDataSourceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AddApplicationReferenceDataSourceCommand(input, context);
+    return se_AddApplicationReferenceDataSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AddApplicationReferenceDataSourceCommandOutput> {
-    return deserializeAws_json1_1AddApplicationReferenceDataSourceCommand(output, context);
+    return de_AddApplicationReferenceDataSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

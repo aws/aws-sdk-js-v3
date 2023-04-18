@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreatePrivateDnsNamespaceRequest,
-  CreatePrivateDnsNamespaceRequestFilterSensitiveLog,
-  CreatePrivateDnsNamespaceResponse,
-  CreatePrivateDnsNamespaceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreatePrivateDnsNamespaceCommand,
-  serializeAws_json1_1CreatePrivateDnsNamespaceCommand,
-} from "../protocols/Aws_json1_1";
+import { CreatePrivateDnsNamespaceRequest, CreatePrivateDnsNamespaceResponse } from "../models/models_0";
+import { de_CreatePrivateDnsNamespaceCommand, se_CreatePrivateDnsNamespaceCommand } from "../protocols/Aws_json1_1";
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreatePrivateDnsNamespaceCommand}.
+ */
 export interface CreatePrivateDnsNamespaceCommandInput extends CreatePrivateDnsNamespaceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreatePrivateDnsNamespaceCommand}.
+ */
 export interface CreatePrivateDnsNamespaceCommandOutput extends CreatePrivateDnsNamespaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a private namespace based on DNS, which is visible only inside a specified Amazon
  *    VPC. The namespace defines your service naming scheme. For example, if you name your namespace
  *     <code>example.com</code> and name your service <code>backend</code>, the resulting DNS name for
@@ -43,13 +46,72 @@ export interface CreatePrivateDnsNamespaceCommandOutput extends CreatePrivateDns
  * import { ServiceDiscoveryClient, CreatePrivateDnsNamespaceCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, CreatePrivateDnsNamespaceCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
+ * const input = { // CreatePrivateDnsNamespaceRequest
+ *   Name: "STRING_VALUE", // required
+ *   CreatorRequestId: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   Vpc: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Properties: { // PrivateDnsNamespaceProperties
+ *     DnsProperties: { // PrivateDnsPropertiesMutable
+ *       SOA: { // SOA
+ *         TTL: Number("long"), // required
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new CreatePrivateDnsNamespaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePrivateDnsNamespaceCommandInput - {@link CreatePrivateDnsNamespaceCommandInput}
+ * @returns {@link CreatePrivateDnsNamespaceCommandOutput}
  * @see {@link CreatePrivateDnsNamespaceCommandInput} for command's `input` shape.
  * @see {@link CreatePrivateDnsNamespaceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
+ *
+ * @throws {@link DuplicateRequest} (client fault)
+ *  <p>The operation is already in progress.</p>
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>One or more specified values aren't valid. For example, a required value might be missing, a
+ *    numeric value might be outside the allowed range, or a string value might exceed length
+ *    constraints.</p>
+ *
+ * @throws {@link NamespaceAlreadyExists} (client fault)
+ *  <p>The namespace that you're trying to create already exists.</p>
+ *
+ * @throws {@link ResourceLimitExceeded} (client fault)
+ *  <p>The resource can't be created because you've reached the quota on the number of
+ *    resources.</p>
+ *
+ * @throws {@link TooManyTagsException} (client fault)
+ *  <p>The list of tags on the resource is over the quota. The maximum number of tags that can be
+ *    applied to a resource is 50.</p>
+ *
+ *
+ * @example Example: Create private DNS namespace
+ * ```javascript
+ * // Example: Create private DNS namespace
+ * const input = {
+ *   "CreatorRequestId": "eedd6892-50f3-41b2-8af9-611d6e1d1a8c",
+ *   "Name": "example.com",
+ *   "Vpc": "vpc-1c56417b"
+ * };
+ * const command = new CreatePrivateDnsNamespaceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "OperationId": "gv4g5meo7ndmeh4fqskygvk23d2fijwa-k9302yzd"
+ * }
+ * *\/
+ * // example id: example-create-private-dns-namespace-1587058592930
+ * ```
  *
  */
 export class CreatePrivateDnsNamespaceCommand extends $Command<
@@ -69,6 +131,9 @@ export class CreatePrivateDnsNamespaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePrivateDnsNamespaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +162,8 @@ export class CreatePrivateDnsNamespaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePrivateDnsNamespaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreatePrivateDnsNamespaceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,15 +173,21 @@ export class CreatePrivateDnsNamespaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePrivateDnsNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreatePrivateDnsNamespaceCommand(input, context);
+    return se_CreatePrivateDnsNamespaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreatePrivateDnsNamespaceCommandOutput> {
-    return deserializeAws_json1_1CreatePrivateDnsNamespaceCommand(output, context);
+    return de_CreatePrivateDnsNamespaceCommand(output, context);
   }
 
   // Start section: command_body_extra

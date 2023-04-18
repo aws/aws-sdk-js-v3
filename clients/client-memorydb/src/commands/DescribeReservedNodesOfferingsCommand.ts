@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
+import { DescribeReservedNodesOfferingsRequest, DescribeReservedNodesOfferingsResponse } from "../models/models_0";
 import {
-  DescribeReservedNodesOfferingsRequest,
-  DescribeReservedNodesOfferingsRequestFilterSensitiveLog,
-  DescribeReservedNodesOfferingsResponse,
-  DescribeReservedNodesOfferingsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeReservedNodesOfferingsCommand,
-  serializeAws_json1_1DescribeReservedNodesOfferingsCommand,
+  de_DescribeReservedNodesOfferingsCommand,
+  se_DescribeReservedNodesOfferingsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeReservedNodesOfferingsCommand}.
+ */
 export interface DescribeReservedNodesOfferingsCommandInput extends DescribeReservedNodesOfferingsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeReservedNodesOfferingsCommand}.
+ */
 export interface DescribeReservedNodesOfferingsCommandOutput
   extends DescribeReservedNodesOfferingsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists available reserved node offerings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,38 @@ export interface DescribeReservedNodesOfferingsCommandOutput
  * import { MemoryDBClient, DescribeReservedNodesOfferingsCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, DescribeReservedNodesOfferingsCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
  * const client = new MemoryDBClient(config);
+ * const input = { // DescribeReservedNodesOfferingsRequest
+ *   ReservedNodesOfferingId: "STRING_VALUE",
+ *   NodeType: "STRING_VALUE",
+ *   Duration: "STRING_VALUE",
+ *   OfferingType: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeReservedNodesOfferingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReservedNodesOfferingsCommandInput - {@link DescribeReservedNodesOfferingsCommandInput}
+ * @returns {@link DescribeReservedNodesOfferingsCommandOutput}
  * @see {@link DescribeReservedNodesOfferingsCommandInput} for command's `input` shape.
  * @see {@link DescribeReservedNodesOfferingsCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ReservedNodesOfferingNotFoundFault} (client fault)
+ *  <p>The requested node offering does not exist.
+ *
+ *       </p>
+ *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p></p>
+ *
  *
  */
 export class DescribeReservedNodesOfferingsCommand extends $Command<
@@ -64,6 +95,9 @@ export class DescribeReservedNodesOfferingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReservedNodesOfferingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +126,8 @@ export class DescribeReservedNodesOfferingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeReservedNodesOfferingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeReservedNodesOfferingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +137,24 @@ export class DescribeReservedNodesOfferingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeReservedNodesOfferingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeReservedNodesOfferingsCommand(input, context);
+    return se_DescribeReservedNodesOfferingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReservedNodesOfferingsCommandOutput> {
-    return deserializeAws_json1_1DescribeReservedNodesOfferingsCommand(output, context);
+    return de_DescribeReservedNodesOfferingsCommand(output, context);
   }
 
   // Start section: command_body_extra

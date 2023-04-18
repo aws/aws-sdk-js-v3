@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteFilterRequest, DeleteFilterRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteFilterRequest } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1DeleteFilterCommand,
-  serializeAws_json1_1DeleteFilterCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteFilterCommand, se_DeleteFilterCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteFilterCommand}.
+ */
 export interface DeleteFilterCommandInput extends DeleteFilterRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteFilterCommand}.
+ */
 export interface DeleteFilterCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a filter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +39,28 @@ export interface DeleteFilterCommandOutput extends __MetadataBearer {}
  * import { PersonalizeClient, DeleteFilterCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DeleteFilterCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // DeleteFilterRequest
+ *   filterArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteFilterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFilterCommandInput - {@link DeleteFilterCommandInput}
+ * @returns {@link DeleteFilterCommandOutput}
  * @see {@link DeleteFilterCommandInput} for command's `input` shape.
  * @see {@link DeleteFilterCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is in use.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Could not find the specified resource.</p>
+ *
  *
  */
 export class DeleteFilterCommand extends $Command<
@@ -57,6 +80,9 @@ export class DeleteFilterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -83,8 +109,8 @@ export class DeleteFilterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFilterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -94,12 +120,18 @@ export class DeleteFilterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteFilterCommand(input, context);
+    return se_DeleteFilterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFilterCommandOutput> {
-    return deserializeAws_json1_1DeleteFilterCommand(output, context);
+    return de_DeleteFilterCommand(output, context);
   }
 
   // Start section: command_body_extra

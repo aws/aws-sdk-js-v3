@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoTSecureTunnelingClient";
-import {
-  CloseTunnelRequest,
-  CloseTunnelRequestFilterSensitiveLog,
-  CloseTunnelResponse,
-  CloseTunnelResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CloseTunnelCommand,
-  serializeAws_json1_1CloseTunnelCommand,
-} from "../protocols/Aws_json1_1";
+import { CloseTunnelRequest, CloseTunnelResponse } from "../models/models_0";
+import { de_CloseTunnelCommand, se_CloseTunnelCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CloseTunnelCommand}.
+ */
 export interface CloseTunnelCommandInput extends CloseTunnelRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CloseTunnelCommand}.
+ */
 export interface CloseTunnelCommandOutput extends CloseTunnelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Closes a tunnel identified by the unique tunnel id. When a <code>CloseTunnel</code>
  * 			request is received, we close the WebSocket connections between the client and proxy
  * 			server so no data can be transmitted.</p>
@@ -43,13 +46,23 @@ export interface CloseTunnelCommandOutput extends CloseTunnelResponse, __Metadat
  * import { IoTSecureTunnelingClient, CloseTunnelCommand } from "@aws-sdk/client-iotsecuretunneling"; // ES Modules import
  * // const { IoTSecureTunnelingClient, CloseTunnelCommand } = require("@aws-sdk/client-iotsecuretunneling"); // CommonJS import
  * const client = new IoTSecureTunnelingClient(config);
+ * const input = { // CloseTunnelRequest
+ *   tunnelId: "STRING_VALUE", // required
+ *   delete: true || false,
+ * };
  * const command = new CloseTunnelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CloseTunnelCommandInput - {@link CloseTunnelCommandInput}
+ * @returns {@link CloseTunnelCommandOutput}
  * @see {@link CloseTunnelCommandInput} for command's `input` shape.
  * @see {@link CloseTunnelCommandOutput} for command's `response` shape.
  * @see {@link IoTSecureTunnelingClientResolvedConfig | config} for IoTSecureTunnelingClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Thrown when an operation is attempted on a resource that does not exist.</p>
+ *
  *
  */
 export class CloseTunnelCommand extends $Command<
@@ -69,6 +82,9 @@ export class CloseTunnelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CloseTunnelCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +111,8 @@ export class CloseTunnelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CloseTunnelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CloseTunnelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +122,18 @@ export class CloseTunnelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CloseTunnelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CloseTunnelCommand(input, context);
+    return se_CloseTunnelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CloseTunnelCommandOutput> {
-    return deserializeAws_json1_1CloseTunnelCommand(output, context);
+    return de_CloseTunnelCommand(output, context);
   }
 
   // Start section: command_body_extra

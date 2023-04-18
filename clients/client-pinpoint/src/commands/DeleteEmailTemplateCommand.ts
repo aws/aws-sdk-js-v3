@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteEmailTemplateRequest,
-  DeleteEmailTemplateRequestFilterSensitiveLog,
-  DeleteEmailTemplateResponse,
-  DeleteEmailTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteEmailTemplateRequest, DeleteEmailTemplateResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1DeleteEmailTemplateCommand,
-  serializeAws_restJson1DeleteEmailTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteEmailTemplateCommand, se_DeleteEmailTemplateCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteEmailTemplateCommand}.
+ */
 export interface DeleteEmailTemplateCommandInput extends DeleteEmailTemplateRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteEmailTemplateCommand}.
+ */
 export interface DeleteEmailTemplateCommandOutput extends DeleteEmailTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a message template for messages that were sent through the email channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,41 @@ export interface DeleteEmailTemplateCommandOutput extends DeleteEmailTemplateRes
  * import { PinpointClient, DeleteEmailTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, DeleteEmailTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // DeleteEmailTemplateRequest
+ *   TemplateName: "STRING_VALUE", // required
+ *   Version: "STRING_VALUE",
+ * };
  * const command = new DeleteEmailTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEmailTemplateCommandInput - {@link DeleteEmailTemplateCommandInput}
+ * @returns {@link DeleteEmailTemplateCommandOutput}
  * @see {@link DeleteEmailTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteEmailTemplateCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link MethodNotAllowedException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link PayloadTooLargeException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
  *
  */
 export class DeleteEmailTemplateCommand extends $Command<
@@ -62,6 +93,9 @@ export class DeleteEmailTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEmailTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +124,8 @@ export class DeleteEmailTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEmailTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteEmailTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +135,18 @@ export class DeleteEmailTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEmailTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteEmailTemplateCommand(input, context);
+    return se_DeleteEmailTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEmailTemplateCommandOutput> {
-    return deserializeAws_restJson1DeleteEmailTemplateCommand(output, context);
+    return de_DeleteEmailTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

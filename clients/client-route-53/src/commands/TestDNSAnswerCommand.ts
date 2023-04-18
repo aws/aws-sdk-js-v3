@@ -14,39 +14,59 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  TestDNSAnswerRequest,
-  TestDNSAnswerRequestFilterSensitiveLog,
-  TestDNSAnswerResponse,
-  TestDNSAnswerResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlTestDNSAnswerCommand,
-  serializeAws_restXmlTestDNSAnswerCommand,
-} from "../protocols/Aws_restXml";
+import { TestDNSAnswerRequest, TestDNSAnswerResponse } from "../models/models_0";
+import { de_TestDNSAnswerCommand, se_TestDNSAnswerCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * @public
+ *
+ * The input for {@link TestDNSAnswerCommand}.
+ */
 export interface TestDNSAnswerCommandInput extends TestDNSAnswerRequest {}
+/**
+ * @public
+ *
+ * The output of {@link TestDNSAnswerCommand}.
+ */
 export interface TestDNSAnswerCommandOutput extends TestDNSAnswerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the value that Amazon Route 53 returns in response to a DNS request for a
  * 			specified record name and type. You can optionally specify the IP address of a DNS
  * 			resolver, an EDNS0 client subnet IP address, and a subnet mask. </p>
- * 		       <p>This call only supports querying public hosted zones.</p>
+ *          <p>This call only supports querying public hosted zones.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { Route53Client, TestDNSAnswerCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, TestDNSAnswerCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = { // TestDNSAnswerRequest
+ *   HostedZoneId: "STRING_VALUE", // required
+ *   RecordName: "STRING_VALUE", // required
+ *   RecordType: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS", // required
+ *   ResolverIP: "STRING_VALUE",
+ *   EDNS0ClientSubnetIP: "STRING_VALUE",
+ *   EDNS0ClientSubnetMask: "STRING_VALUE",
+ * };
  * const command = new TestDNSAnswerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TestDNSAnswerCommandInput - {@link TestDNSAnswerCommandInput}
+ * @returns {@link TestDNSAnswerCommandOutput}
  * @see {@link TestDNSAnswerCommandInput} for command's `input` shape.
  * @see {@link TestDNSAnswerCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link NoSuchHostedZone} (client fault)
+ *  <p>No hosted zone exists with the ID that you specified.</p>
+ *
  *
  */
 export class TestDNSAnswerCommand extends $Command<
@@ -66,6 +86,9 @@ export class TestDNSAnswerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TestDNSAnswerCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +116,8 @@ export class TestDNSAnswerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TestDNSAnswerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: TestDNSAnswerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +127,18 @@ export class TestDNSAnswerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TestDNSAnswerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlTestDNSAnswerCommand(input, context);
+    return se_TestDNSAnswerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestDNSAnswerCommandOutput> {
-    return deserializeAws_restXmlTestDNSAnswerCommand(output, context);
+    return de_TestDNSAnswerCommand(output, context);
   }
 
   // Start section: command_body_extra

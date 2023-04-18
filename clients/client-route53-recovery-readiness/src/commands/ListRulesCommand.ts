@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListRulesRequest,
-  ListRulesRequestFilterSensitiveLog,
-  ListRulesResponse,
-  ListRulesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListRulesCommand,
-  serializeAws_restJson1ListRulesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListRulesRequest, ListRulesResponse } from "../models/models_0";
+import { de_ListRulesCommand, se_ListRulesCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryReadinessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53RecoveryReadinessClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListRulesCommand}.
+ */
 export interface ListRulesCommandInput extends ListRulesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListRulesCommand}.
+ */
 export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all readiness rules, or lists the readiness rules for a specific resource type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,33 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * import { Route53RecoveryReadinessClient, ListRulesCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
  * // const { Route53RecoveryReadinessClient, ListRulesCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
+ * const input = { // ListRulesRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   ResourceType: "STRING_VALUE",
+ * };
  * const command = new ListRulesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRulesCommandInput - {@link ListRulesCommandInput}
+ * @returns {@link ListRulesCommandOutput}
  * @see {@link ListRulesCommandInput} for command's `input` shape.
  * @see {@link ListRulesCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  User does not have sufficient access to perform this action.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  An unexpected error occurred.
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  Request was denied due to request throttling.
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  The input fails to satisfy the constraints specified by an AWS service.
+ *
  *
  */
 export class ListRulesCommand extends $Command<
@@ -66,6 +89,9 @@ export class ListRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +118,8 @@ export class ListRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRulesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRulesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +129,18 @@ export class ListRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRulesCommand(input, context);
+    return se_ListRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRulesCommandOutput> {
-    return deserializeAws_restJson1ListRulesCommand(output, context);
+    return de_ListRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

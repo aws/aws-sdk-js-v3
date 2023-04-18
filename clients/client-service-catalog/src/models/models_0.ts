@@ -3,20 +3,28 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { ServiceCatalogServiceException as __BaseException } from "./ServiceCatalogServiceException";
 
-export enum PortfolioShareType {
-  AWS_ORGANIZATIONS = "AWS_ORGANIZATIONS",
-  AWS_SERVICECATALOG = "AWS_SERVICECATALOG",
-  IMPORTED = "IMPORTED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PortfolioShareType = {
+  AWS_ORGANIZATIONS: "AWS_ORGANIZATIONS",
+  AWS_SERVICECATALOG: "AWS_SERVICECATALOG",
+  IMPORTED: "IMPORTED",
+} as const;
 
+/**
+ * @public
+ */
+export type PortfolioShareType = (typeof PortfolioShareType)[keyof typeof PortfolioShareType];
+
+/**
+ * @public
+ */
 export interface AcceptPortfolioShareInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -57,9 +65,13 @@ export interface AcceptPortfolioShareInput {
   PortfolioShareType?: PortfolioShareType | string;
 }
 
+/**
+ * @public
+ */
 export interface AcceptPortfolioShareOutput {}
 
 /**
+ * @public
  * <p>One or more parameters provided to the operation are not valid.</p>
  */
 export class InvalidParametersException extends __BaseException {
@@ -81,6 +93,7 @@ export class InvalidParametersException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The current limits of the service would have been exceeded by this operation. Decrease your
  *          resource use or increase your service limits and retry the operation.</p>
  */
@@ -103,6 +116,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource was not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -123,13 +137,23 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
-export enum AccessLevelFilterKey {
-  ACCOUNT = "Account",
-  ROLE = "Role",
-  USER = "User",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AccessLevelFilterKey = {
+  ACCOUNT: "Account",
+  ROLE: "Role",
+  USER: "User",
+} as const;
 
 /**
+ * @public
+ */
+export type AccessLevelFilterKey = (typeof AccessLevelFilterKey)[keyof typeof AccessLevelFilterKey];
+
+/**
+ * @public
  * <p>The access level to use to filter results.</p>
  */
 export interface AccessLevelFilter {
@@ -158,13 +182,23 @@ export interface AccessLevelFilter {
   Value?: string;
 }
 
-export enum AccessStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  UNDER_CHANGE = "UNDER_CHANGE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AccessStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  UNDER_CHANGE: "UNDER_CHANGE",
+} as const;
 
 /**
+ * @public
+ */
+export type AccessStatus = (typeof AccessStatus)[keyof typeof AccessStatus];
+
+/**
+ * @public
  * <p>Information about a tag. A tag is a key-value pair. Tags are propagated
  *          to the resources created when provisioning a product.</p>
  */
@@ -180,6 +214,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateBudgetWithResourceInput {
   /**
    * <p>The name of the budget you want to associate.</p>
@@ -192,9 +229,13 @@ export interface AssociateBudgetWithResourceInput {
   ResourceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateBudgetWithResourceOutput {}
 
 /**
+ * @public
  * <p>The specified resource is a duplicate.</p>
  */
 export class DuplicateResourceException extends __BaseException {
@@ -215,19 +256,27 @@ export class DuplicateResourceException extends __BaseException {
   }
 }
 
-export enum PrincipalType {
-  IAM = "IAM",
-  IAM_PATTERN = "IAM_PATTERN",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PrincipalType = {
+  IAM: "IAM",
+  IAM_PATTERN: "IAM_PATTERN",
+} as const;
 
+/**
+ * @public
+ */
+export type PrincipalType = (typeof PrincipalType)[keyof typeof PrincipalType];
+
+/**
+ * @public
+ */
 export interface AssociatePrincipalWithPortfolioInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -246,7 +295,7 @@ export interface AssociatePrincipalWithPortfolioInput {
   PortfolioId: string | undefined;
 
   /**
-   * <p>The ARN of the principal (IAM user, role, or group). This field allows an ARN with no <code>accountID</code> if
+   * <p>The ARN of the principal (user, role, or group). This field allows an ARN with no <code>accountID</code> if
    *       <code>PrincipalType</code> is <code>IAM_PATTERN</code>. </p>
    *          <p>You can associate multiple <code>IAM</code> patterns even if the account has no principal with that name.
    *       This is useful in Principal Name Sharing if you want to share a principal without creating it in the
@@ -261,16 +310,18 @@ export interface AssociatePrincipalWithPortfolioInput {
   PrincipalType: PrincipalType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociatePrincipalWithPortfolioOutput {}
 
+/**
+ * @public
+ */
 export interface AssociateProductWithPortfolioInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -299,8 +350,14 @@ export interface AssociateProductWithPortfolioInput {
   SourcePortfolioId?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateProductWithPortfolioOutput {}
 
+/**
+ * @public
+ */
 export interface AssociateServiceActionWithProvisioningArtifactInput {
   /**
    * <p>The product identifier. For example, <code>prod-abcdzk7xy33qa</code>.</p>
@@ -322,10 +379,6 @@ export interface AssociateServiceActionWithProvisioningArtifactInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>jp</code> - Japanese</p>
    *             </li>
    *             <li>
@@ -337,8 +390,14 @@ export interface AssociateServiceActionWithProvisioningArtifactInput {
   AcceptLanguage?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateServiceActionWithProvisioningArtifactOutput {}
 
+/**
+ * @public
+ */
 export interface AssociateTagOptionWithResourceInput {
   /**
    * <p>The resource identifier.</p>
@@ -351,9 +410,13 @@ export interface AssociateTagOptionWithResourceInput {
   TagOptionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateTagOptionWithResourceOutput {}
 
 /**
+ * @public
  * <p>An attempt was made to modify a resource that is in a state that is not valid.
  *          Check your resources to ensure that they are in valid states before retrying the operation.</p>
  */
@@ -376,6 +439,7 @@ export class InvalidStateException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An operation requiring TagOptions failed because the TagOptions migration process has
  *          not been performed for this account. Use the Amazon Web Services Management Console to perform the migration
  *          process before retrying the operation.</p>
@@ -399,6 +463,7 @@ export class TagOptionNotMigratedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A self-service action association consisting of the Action ID, the Product ID, and the Provisioning Artifact ID.</p>
  */
 export interface ServiceActionAssociation {
@@ -418,6 +483,9 @@ export interface ServiceActionAssociation {
   ProvisioningArtifactId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchAssociateServiceActionWithProvisioningArtifactInput {
   /**
    * <p>One or more associations, each consisting of the Action ID, the Product ID, and the Provisioning Artifact ID.</p>
@@ -427,10 +495,6 @@ export interface BatchAssociateServiceActionWithProvisioningArtifactInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -444,15 +508,27 @@ export interface BatchAssociateServiceActionWithProvisioningArtifactInput {
   AcceptLanguage?: string;
 }
 
-export enum ServiceActionAssociationErrorCode {
-  DuplicateResourceException = "DUPLICATE_RESOURCE",
-  InternalFailure = "INTERNAL_FAILURE",
-  LimitExceededException = "LIMIT_EXCEEDED",
-  ResourceNotFoundException = "RESOURCE_NOT_FOUND",
-  ThrottlingException = "THROTTLING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ServiceActionAssociationErrorCode = {
+  DuplicateResourceException: "DUPLICATE_RESOURCE",
+  InternalFailure: "INTERNAL_FAILURE",
+  InvalidParameterException: "INVALID_PARAMETER",
+  LimitExceededException: "LIMIT_EXCEEDED",
+  ResourceNotFoundException: "RESOURCE_NOT_FOUND",
+  ThrottlingException: "THROTTLING",
+} as const;
 
 /**
+ * @public
+ */
+export type ServiceActionAssociationErrorCode =
+  (typeof ServiceActionAssociationErrorCode)[keyof typeof ServiceActionAssociationErrorCode];
+
+/**
+ * @public
  * <p>An object containing information about the error, along with identifying information about the self-service action and its associations.</p>
  */
 export interface FailedServiceActionAssociation {
@@ -482,6 +558,9 @@ export interface FailedServiceActionAssociation {
   ErrorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchAssociateServiceActionWithProvisioningArtifactOutput {
   /**
    * <p>An object that contains a list of errors, along with information to help you identify the self-service action.</p>
@@ -489,6 +568,9 @@ export interface BatchAssociateServiceActionWithProvisioningArtifactOutput {
   FailedServiceActionAssociations?: FailedServiceActionAssociation[];
 }
 
+/**
+ * @public
+ */
 export interface BatchDisassociateServiceActionFromProvisioningArtifactInput {
   /**
    * <p>One or more associations, each consisting of the Action ID, the Product ID, and the Provisioning Artifact ID.</p>
@@ -498,10 +580,6 @@ export interface BatchDisassociateServiceActionFromProvisioningArtifactInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -515,6 +593,9 @@ export interface BatchDisassociateServiceActionFromProvisioningArtifactInput {
   AcceptLanguage?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchDisassociateServiceActionFromProvisioningArtifactOutput {
   /**
    * <p>An object that contains a list of errors, along with information to help you identify the self-service action.</p>
@@ -522,22 +603,40 @@ export interface BatchDisassociateServiceActionFromProvisioningArtifactOutput {
   FailedServiceActionAssociations?: FailedServiceActionAssociation[];
 }
 
-export enum CopyOption {
-  CopyTags = "CopyTags",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CopyOption = {
+  CopyTags: "CopyTags",
+} as const;
 
-export enum ProvisioningArtifactPropertyName {
-  Id = "Id",
-}
+/**
+ * @public
+ */
+export type CopyOption = (typeof CopyOption)[keyof typeof CopyOption];
 
+/**
+ * @public
+ * @enum
+ */
+export const ProvisioningArtifactPropertyName = {
+  Id: "Id",
+} as const;
+
+/**
+ * @public
+ */
+export type ProvisioningArtifactPropertyName =
+  (typeof ProvisioningArtifactPropertyName)[keyof typeof ProvisioningArtifactPropertyName];
+
+/**
+ * @public
+ */
 export interface CopyProductInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -584,6 +683,9 @@ export interface CopyProductInput {
   IdempotencyToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CopyProductOutput {
   /**
    * <p>The token to use to track the progress of the operation.</p>
@@ -591,14 +693,13 @@ export interface CopyProductOutput {
   CopyProductToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateConstraintInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -629,11 +730,11 @@ export interface CreateConstraintInput {
    *                <p>You are required to specify either the <code>RoleArn</code> or the <code>LocalRoleName</code> but can't use both.</p>
    *                <p>Specify the <code>RoleArn</code> property as follows:</p>
    *                <p>
-   *                   <code>{"RoleArn" : "arn:aws:iam::123456789012:role/LaunchRole"}</code>
+   *                   <code>\{"RoleArn" : "arn:aws:iam::123456789012:role/LaunchRole"\}</code>
    *                </p>
    *                <p>Specify the <code>LocalRoleName</code> property as follows:</p>
    *                <p>
-   *                   <code>{"LocalRoleName": "SCBasicLaunchRole"}</code>
+   *                   <code>\{"LocalRoleName": "SCBasicLaunchRole"\}</code>
    *                </p>
    *                <p>If you specify the <code>LocalRoleName</code> property, when an account uses the launch constraint, the IAM role with that name in the account will be used. This allows launch-role constraints to be
    *                account-agnostic so the administrator can create fewer resources per shared account.</p>
@@ -647,14 +748,14 @@ export interface CreateConstraintInput {
    *             <dd>
    *                <p>Specify the <code>NotificationArns</code> property as follows:</p>
    *                <p>
-   *                   <code>{"NotificationArns" : ["arn:aws:sns:us-east-1:123456789012:Topic"]}</code>
+   *                   <code>\{"NotificationArns" : ["arn:aws:sns:us-east-1:123456789012:Topic"]\}</code>
    *                </p>
    *             </dd>
    *             <dt>RESOURCE_UPDATE</dt>
    *             <dd>
    *                <p>Specify the <code>TagUpdatesOnProvisionedProduct</code> property as follows:</p>
    *                <p>
-   *                   <code>{"Version":"2.0","Properties":{"TagUpdateOnProvisionedProduct":"String"}}</code>
+   *                   <code>\{"Version":"2.0","Properties":\{"TagUpdateOnProvisionedProduct":"String"\}\}</code>
    *                </p>
    *                <p>The <code>TagUpdatesOnProvisionedProduct</code> property accepts a string value of <code>ALLOWED</code> or <code>NOT_ALLOWED</code>.</p>
    *             </dd>
@@ -662,7 +763,7 @@ export interface CreateConstraintInput {
    *             <dd>
    *                <p>Specify the <code>Parameters</code> property as follows:</p>
    *                <p>
-   *                   <code>{"Version": "String", "Properties": {"AccountList": [ "String" ], "RegionList": [ "String" ], "AdminRole": "String", "ExecutionRole": "String"}}</code>
+   *                   <code>\{"Version": "String", "Properties": \{"AccountList": [ "String" ], "RegionList": [ "String" ], "AdminRole": "String", "ExecutionRole": "String"\}\}</code>
    *                </p>
    *                <p>You cannot have both a <code>LAUNCH</code> and a <code>STACKSET</code> constraint.</p>
    *                <p>You also cannot have more than one <code>STACKSET</code> constraint on a product and portfolio.</p>
@@ -722,6 +823,7 @@ export interface CreateConstraintInput {
 }
 
 /**
+ * @public
  * <p>Information about a constraint.</p>
  */
 export interface ConstraintDetail {
@@ -776,12 +878,24 @@ export interface ConstraintDetail {
   PortfolioId?: string;
 }
 
-export enum Status {
-  AVAILABLE = "AVAILABLE",
-  CREATING = "CREATING",
-  FAILED = "FAILED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Status = {
+  AVAILABLE: "AVAILABLE",
+  CREATING: "CREATING",
+  FAILED: "FAILED",
+} as const;
 
+/**
+ * @public
+ */
+export type Status = (typeof Status)[keyof typeof Status];
+
+/**
+ * @public
+ */
 export interface CreateConstraintOutput {
   /**
    * <p>Information about the constraint.</p>
@@ -799,14 +913,13 @@ export interface CreateConstraintOutput {
   Status?: Status | string;
 }
 
+/**
+ * @public
+ */
 export interface CreatePortfolioInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -847,6 +960,7 @@ export interface CreatePortfolioInput {
 }
 
 /**
+ * @public
  * <p>Information about a portfolio.</p>
  */
 export interface PortfolioDetail {
@@ -881,6 +995,9 @@ export interface PortfolioDetail {
   ProviderName?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreatePortfolioOutput {
   /**
    * <p>Information about the portfolio.</p>
@@ -893,13 +1010,23 @@ export interface CreatePortfolioOutput {
   Tags?: Tag[];
 }
 
-export enum OrganizationNodeType {
-  ACCOUNT = "ACCOUNT",
-  ORGANIZATION = "ORGANIZATION",
-  ORGANIZATIONAL_UNIT = "ORGANIZATIONAL_UNIT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OrganizationNodeType = {
+  ACCOUNT: "ACCOUNT",
+  ORGANIZATION: "ORGANIZATION",
+  ORGANIZATIONAL_UNIT: "ORGANIZATIONAL_UNIT",
+} as const;
 
 /**
+ * @public
+ */
+export type OrganizationNodeType = (typeof OrganizationNodeType)[keyof typeof OrganizationNodeType];
+
+/**
+ * @public
  * <p>Information about the organization node.</p>
  */
 export interface OrganizationNode {
@@ -914,14 +1041,13 @@ export interface OrganizationNode {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreatePortfolioShareInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -969,6 +1095,9 @@ export interface CreatePortfolioShareInput {
   SharePrincipals?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreatePortfolioShareOutput {
   /**
    * <p>The portfolio shares a unique identifier that only returns if the portfolio is shared to an organization node.</p>
@@ -977,6 +1106,7 @@ export interface CreatePortfolioShareOutput {
 }
 
 /**
+ * @public
  * <p>The operation is not supported.</p>
  */
 export class OperationNotSupportedException extends __BaseException {
@@ -997,18 +1127,39 @@ export class OperationNotSupportedException extends __BaseException {
   }
 }
 
-export enum ProductType {
-  CLOUD_FORMATION_TEMPLATE = "CLOUD_FORMATION_TEMPLATE",
-  MARKETPLACE = "MARKETPLACE",
-}
-
-export enum ProvisioningArtifactType {
-  CLOUD_FORMATION_TEMPLATE = "CLOUD_FORMATION_TEMPLATE",
-  MARKETPLACE_AMI = "MARKETPLACE_AMI",
-  MARKETPLACE_CAR = "MARKETPLACE_CAR",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ProductType = {
+  CLOUD_FORMATION_TEMPLATE: "CLOUD_FORMATION_TEMPLATE",
+  MARKETPLACE: "MARKETPLACE",
+  TERRAFORM_OPEN_SOURCE: "TERRAFORM_OPEN_SOURCE",
+} as const;
 
 /**
+ * @public
+ */
+export type ProductType = (typeof ProductType)[keyof typeof ProductType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ProvisioningArtifactType = {
+  CLOUD_FORMATION_TEMPLATE: "CLOUD_FORMATION_TEMPLATE",
+  MARKETPLACE_AMI: "MARKETPLACE_AMI",
+  MARKETPLACE_CAR: "MARKETPLACE_CAR",
+  TERRAFORM_OPEN_SOURCE: "TERRAFORM_OPEN_SOURCE",
+} as const;
+
+/**
+ * @public
+ */
+export type ProvisioningArtifactType = (typeof ProvisioningArtifactType)[keyof typeof ProvisioningArtifactType];
+
+/**
+ * @public
  * <p>Information about a provisioning artifact (also known as a version) for a product.</p>
  */
 export interface ProvisioningArtifactProperties {
@@ -1053,6 +1204,10 @@ export interface ProvisioningArtifactProperties {
    *                <p>
    *                   <code>MARKETPLACE_CAR</code> - Amazon Web Services Marketplace Clusters and Amazon Web Services Resources</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TERRAFORM_OPEN_SOURCE</code> - Terraform open source configuration file</p>
+   *             </li>
    *          </ul>
    */
   Type?: ProvisioningArtifactType | string;
@@ -1064,6 +1219,7 @@ export interface ProvisioningArtifactProperties {
 }
 
 /**
+ * @public
  * <p>The subtype containing details about the Codestar connection <code>Type</code>. </p>
  */
 export interface CodeStarParameters {
@@ -1091,6 +1247,7 @@ export interface CodeStarParameters {
 }
 
 /**
+ * @public
  * <p>Provides connection details.</p>
  */
 export interface SourceConnectionParameters {
@@ -1100,11 +1257,21 @@ export interface SourceConnectionParameters {
   CodeStar?: CodeStarParameters;
 }
 
-export enum SourceType {
-  CODESTAR = "CODESTAR",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SourceType = {
+  CODESTAR: "CODESTAR",
+} as const;
 
 /**
+ * @public
+ */
+export type SourceType = (typeof SourceType)[keyof typeof SourceType];
+
+/**
+ * @public
  * <p>A top level <code>ProductViewDetail</code> response containing details about the product’s connection.
  *          Service Catalog returns this field for the <code>CreateProduct</code>, <code>UpdateProduct</code>,
  *          <code>DescribeProductAsAdmin</code>, and <code>SearchProductAsAdmin</code> APIs.
@@ -1123,14 +1290,13 @@ export interface SourceConnection {
   ConnectionParameters: SourceConnectionParameters | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateProductInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -1222,6 +1388,7 @@ export interface CreateProductInput {
 }
 
 /**
+ * @public
  * <p>Summary information about a product view.</p>
  */
 export interface ProductViewSummary {
@@ -1288,12 +1455,22 @@ export interface ProductViewSummary {
   SupportUrl?: string;
 }
 
-export enum LastSyncStatus {
-  FAILED = "FAILED",
-  SUCCEEDED = "SUCCEEDED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LastSyncStatus = {
+  FAILED: "FAILED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
 
 /**
+ * @public
+ */
+export type LastSyncStatus = (typeof LastSyncStatus)[keyof typeof LastSyncStatus];
+
+/**
+ * @public
  * <p>Provides details about the product's connection sync and contains the following sub-fields. </p>
  *          <ul>
  *             <li>
@@ -1351,6 +1528,7 @@ export interface LastSync {
 }
 
 /**
+ * @public
  * <p>Provides details about the configured <code>SourceConnection</code>. </p>
  */
 export interface SourceConnectionDetail {
@@ -1398,6 +1576,7 @@ export interface SourceConnectionDetail {
 }
 
 /**
+ * @public
  * <p>Information about a product view.</p>
  */
 export interface ProductViewDetail {
@@ -1445,12 +1624,23 @@ export interface ProductViewDetail {
   SourceConnection?: SourceConnectionDetail;
 }
 
-export enum ProvisioningArtifactGuidance {
-  DEFAULT = "DEFAULT",
-  DEPRECATED = "DEPRECATED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ProvisioningArtifactGuidance = {
+  DEFAULT: "DEFAULT",
+  DEPRECATED: "DEPRECATED",
+} as const;
 
 /**
+ * @public
+ */
+export type ProvisioningArtifactGuidance =
+  (typeof ProvisioningArtifactGuidance)[keyof typeof ProvisioningArtifactGuidance];
+
+/**
+ * @public
  * <p>Information about a provisioning artifact (also known as a version) for a product.</p>
  */
 export interface ProvisioningArtifactDetail {
@@ -1515,6 +1705,9 @@ export interface ProvisioningArtifactDetail {
   SourceRevision?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateProductOutput {
   /**
    * <p>Information about the product view.</p>
@@ -1532,11 +1725,21 @@ export interface CreateProductOutput {
   Tags?: Tag[];
 }
 
-export enum ProvisionedProductPlanType {
-  CLOUDFORMATION = "CLOUDFORMATION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ProvisionedProductPlanType = {
+  CLOUDFORMATION: "CLOUDFORMATION",
+} as const;
 
 /**
+ * @public
+ */
+export type ProvisionedProductPlanType = (typeof ProvisionedProductPlanType)[keyof typeof ProvisionedProductPlanType];
+
+/**
+ * @public
  * <p>The parameter key-value pair used to update a provisioned product.</p>
  */
 export interface UpdateProvisioningParameter {
@@ -1556,14 +1759,13 @@ export interface UpdateProvisioningParameter {
   UsePreviousValue?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateProvisionedProductPlanInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -1634,6 +1836,9 @@ export interface CreateProvisionedProductPlanInput {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateProvisionedProductPlanOutput {
   /**
    * <p>The name of the plan.</p>
@@ -1661,14 +1866,13 @@ export interface CreateProvisionedProductPlanOutput {
   ProvisioningArtifactId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateProvisioningArtifactInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -1698,6 +1902,9 @@ export interface CreateProvisioningArtifactInput {
   IdempotencyToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateProvisioningArtifactOutput {
   /**
    * <p>Information about the provisioning artifact.</p>
@@ -1725,17 +1932,39 @@ export interface CreateProvisioningArtifactOutput {
   Status?: Status | string;
 }
 
-export enum ServiceActionDefinitionKey {
-  AssumeRole = "AssumeRole",
-  Name = "Name",
-  Parameters = "Parameters",
-  Version = "Version",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ServiceActionDefinitionKey = {
+  AssumeRole: "AssumeRole",
+  Name: "Name",
+  Parameters: "Parameters",
+  Version: "Version",
+} as const;
 
-export enum ServiceActionDefinitionType {
-  SsmAutomation = "SSM_AUTOMATION",
-}
+/**
+ * @public
+ */
+export type ServiceActionDefinitionKey = (typeof ServiceActionDefinitionKey)[keyof typeof ServiceActionDefinitionKey];
 
+/**
+ * @public
+ * @enum
+ */
+export const ServiceActionDefinitionType = {
+  SsmAutomation: "SSM_AUTOMATION",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceActionDefinitionType =
+  (typeof ServiceActionDefinitionType)[keyof typeof ServiceActionDefinitionType];
+
+/**
+ * @public
+ */
 export interface CreateServiceActionInput {
   /**
    * <p>The self-service action name.</p>
@@ -1768,7 +1997,7 @@ export interface CreateServiceActionInput {
    *             <dt>Parameters</dt>
    *             <dd>
    *                <p>The list of parameters in JSON format.</p>
-   *                <p>For example: <code>[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}]</code> or <code>[{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"}]</code>.</p>
+   *                <p>For example: <code>[\{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"\}]</code> or <code>[\{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"\}]</code>.</p>
    *             </dd>
    *          </dl>
    */
@@ -1782,10 +2011,6 @@ export interface CreateServiceActionInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -1806,6 +2031,7 @@ export interface CreateServiceActionInput {
 }
 
 /**
+ * @public
  * <p>Detailed information about the self-service action.</p>
  */
 export interface ServiceActionSummary {
@@ -1831,6 +2057,7 @@ export interface ServiceActionSummary {
 }
 
 /**
+ * @public
  * <p>An object containing detailed information about the self-service action.</p>
  */
 export interface ServiceActionDetail {
@@ -1845,6 +2072,9 @@ export interface ServiceActionDetail {
   Definition?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateServiceActionOutput {
   /**
    * <p>An object containing information about the self-service action.</p>
@@ -1852,6 +2082,9 @@ export interface CreateServiceActionOutput {
   ServiceActionDetail?: ServiceActionDetail;
 }
 
+/**
+ * @public
+ */
 export interface CreateTagOptionInput {
   /**
    * <p>The TagOption key.</p>
@@ -1865,6 +2098,7 @@ export interface CreateTagOptionInput {
 }
 
 /**
+ * @public
  * <p>Information about a TagOption.</p>
  */
 export interface TagOptionDetail {
@@ -1894,6 +2128,9 @@ export interface TagOptionDetail {
   Owner?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateTagOptionOutput {
   /**
    * <p>Information about the TagOption.</p>
@@ -1901,14 +2138,13 @@ export interface CreateTagOptionOutput {
   TagOptionDetail?: TagOptionDetail;
 }
 
+/**
+ * @public
+ */
 export interface DeleteConstraintInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -1927,16 +2163,18 @@ export interface DeleteConstraintInput {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteConstraintOutput {}
 
+/**
+ * @public
+ */
 export interface DeletePortfolioInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -1955,9 +2193,13 @@ export interface DeletePortfolioInput {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePortfolioOutput {}
 
 /**
+ * @public
  * <p>A resource that is currently in use. Ensure that the resource is not in use and retry the operation.</p>
  */
 export class ResourceInUseException extends __BaseException {
@@ -1978,14 +2220,13 @@ export class ResourceInUseException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeletePortfolioShareInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -2014,6 +2255,9 @@ export interface DeletePortfolioShareInput {
   OrganizationNode?: OrganizationNode;
 }
 
+/**
+ * @public
+ */
 export interface DeletePortfolioShareOutput {
   /**
    * <p>The portfolio share unique identifier. This will only be returned if delete is made to an organization node.</p>
@@ -2021,14 +2265,13 @@ export interface DeletePortfolioShareOutput {
   PortfolioShareToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteProductInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -2047,16 +2290,18 @@ export interface DeleteProductInput {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteProductOutput {}
 
+/**
+ * @public
+ */
 export interface DeleteProvisionedProductPlanInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -2081,16 +2326,18 @@ export interface DeleteProvisionedProductPlanInput {
   IgnoreErrors?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteProvisionedProductPlanOutput {}
 
+/**
+ * @public
+ */
 export interface DeleteProvisioningArtifactInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -2114,8 +2361,14 @@ export interface DeleteProvisioningArtifactInput {
   ProvisioningArtifactId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteProvisioningArtifactOutput {}
 
+/**
+ * @public
+ */
 export interface DeleteServiceActionInput {
   /**
    * <p>The self-service action identifier. For example, <code>act-fs7abcd89wxyz</code>.</p>
@@ -2125,10 +2378,6 @@ export interface DeleteServiceActionInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -2142,8 +2391,14 @@ export interface DeleteServiceActionInput {
   AcceptLanguage?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteServiceActionOutput {}
 
+/**
+ * @public
+ */
 export interface DeleteTagOptionInput {
   /**
    * <p>The TagOption identifier.</p>
@@ -2151,16 +2406,18 @@ export interface DeleteTagOptionInput {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTagOptionOutput {}
 
+/**
+ * @public
+ */
 export interface DescribeConstraintInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -2179,6 +2436,9 @@ export interface DescribeConstraintInput {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeConstraintOutput {
   /**
    * <p>Information about the constraint.</p>
@@ -2196,14 +2456,13 @@ export interface DescribeConstraintOutput {
   Status?: Status | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCopyProductStatusInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -2222,12 +2481,24 @@ export interface DescribeCopyProductStatusInput {
   CopyProductToken: string | undefined;
 }
 
-export enum CopyProductStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CopyProductStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
 
+/**
+ * @public
+ */
+export type CopyProductStatus = (typeof CopyProductStatus)[keyof typeof CopyProductStatus];
+
+/**
+ * @public
+ */
 export interface DescribeCopyProductStatusOutput {
   /**
    * <p>The status of the copy product operation.</p>
@@ -2245,14 +2516,13 @@ export interface DescribeCopyProductStatusOutput {
   StatusDetail?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribePortfolioInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -2272,6 +2542,7 @@ export interface DescribePortfolioInput {
 }
 
 /**
+ * @public
  * <p>Information about a budget.</p>
  */
 export interface BudgetDetail {
@@ -2281,6 +2552,9 @@ export interface BudgetDetail {
   BudgetName?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribePortfolioOutput {
   /**
    * <p>Information about the portfolio.</p>
@@ -2303,13 +2577,25 @@ export interface DescribePortfolioOutput {
   Budgets?: BudgetDetail[];
 }
 
-export enum DescribePortfolioShareType {
-  ACCOUNT = "ACCOUNT",
-  ORGANIZATION = "ORGANIZATION",
-  ORGANIZATIONAL_UNIT = "ORGANIZATIONAL_UNIT",
-  ORGANIZATION_MEMBER_ACCOUNT = "ORGANIZATION_MEMBER_ACCOUNT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DescribePortfolioShareType = {
+  ACCOUNT: "ACCOUNT",
+  ORGANIZATION: "ORGANIZATION",
+  ORGANIZATIONAL_UNIT: "ORGANIZATIONAL_UNIT",
+  ORGANIZATION_MEMBER_ACCOUNT: "ORGANIZATION_MEMBER_ACCOUNT",
+} as const;
 
+/**
+ * @public
+ */
+export type DescribePortfolioShareType = (typeof DescribePortfolioShareType)[keyof typeof DescribePortfolioShareType];
+
+/**
+ * @public
+ */
 export interface DescribePortfolioSharesInput {
   /**
    * <p>The unique identifier of the portfolio for which shares will be retrieved.</p>
@@ -2337,6 +2623,7 @@ export interface DescribePortfolioSharesInput {
 }
 
 /**
+ * @public
  * <p>Information about the portfolio share.</p>
  */
 export interface PortfolioShareDetail {
@@ -2371,6 +2658,9 @@ export interface PortfolioShareDetail {
   SharePrincipals?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribePortfolioSharesOutput {
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
@@ -2383,6 +2673,9 @@ export interface DescribePortfolioSharesOutput {
   PortfolioShareDetails?: PortfolioShareDetail[];
 }
 
+/**
+ * @public
+ */
 export interface DescribePortfolioShareStatusInput {
   /**
    * <p>The token for the portfolio share operation. This token is returned either by CreatePortfolioShare or by DeletePortfolioShare.</p>
@@ -2391,6 +2684,7 @@ export interface DescribePortfolioShareStatusInput {
 }
 
 /**
+ * @public
  * <p>Errors that occurred during the portfolio share operation.</p>
  */
 export interface ShareError {
@@ -2411,6 +2705,7 @@ export interface ShareError {
 }
 
 /**
+ * @public
  * <p>Information about the portfolio share operation.</p>
  */
 export interface ShareDetails {
@@ -2425,14 +2720,26 @@ export interface ShareDetails {
   ShareErrors?: ShareError[];
 }
 
-export enum ShareStatus {
-  COMPLETED = "COMPLETED",
-  COMPLETED_WITH_ERRORS = "COMPLETED_WITH_ERRORS",
-  ERROR = "ERROR",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ShareStatus = {
+  COMPLETED: "COMPLETED",
+  COMPLETED_WITH_ERRORS: "COMPLETED_WITH_ERRORS",
+  ERROR: "ERROR",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+} as const;
 
+/**
+ * @public
+ */
+export type ShareStatus = (typeof ShareStatus)[keyof typeof ShareStatus];
+
+/**
+ * @public
+ */
 export interface DescribePortfolioShareStatusOutput {
   /**
    * <p>The token for the portfolio share operation. For example, <code>share-6v24abcdefghi</code>.</p>
@@ -2460,14 +2767,13 @@ export interface DescribePortfolioShareStatusOutput {
   ShareDetails?: ShareDetails;
 }
 
+/**
+ * @public
+ */
 export interface DescribeProductInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -2492,6 +2798,7 @@ export interface DescribeProductInput {
 }
 
 /**
+ * @public
  * <p>A launch path object.</p>
  */
 export interface LaunchPath {
@@ -2507,6 +2814,7 @@ export interface LaunchPath {
 }
 
 /**
+ * @public
  * <p>Information about a provisioning artifact. A provisioning artifact is also known as a product version.</p>
  */
 export interface ProvisioningArtifact {
@@ -2536,6 +2844,9 @@ export interface ProvisioningArtifact {
   Guidance?: ProvisioningArtifactGuidance | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeProductOutput {
   /**
    * <p>Summary information about the product view.</p>
@@ -2558,14 +2869,13 @@ export interface DescribeProductOutput {
   LaunchPaths?: LaunchPath[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeProductAsAdminInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -2600,6 +2910,7 @@ export interface DescribeProductAsAdminInput {
 }
 
 /**
+ * @public
  * <p>Summary information about a provisioning artifact (also known as a version) for a product.</p>
  */
 export interface ProvisioningArtifactSummary {
@@ -2629,6 +2940,9 @@ export interface ProvisioningArtifactSummary {
   ProvisioningArtifactMetadata?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeProductAsAdminOutput {
   /**
    * <p>Information about the product view.</p>
@@ -2656,14 +2970,13 @@ export interface DescribeProductAsAdminOutput {
   Budgets?: BudgetDetail[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeProductViewInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -2682,6 +2995,9 @@ export interface DescribeProductViewInput {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeProductViewOutput {
   /**
    * <p>Summary information about the product.</p>
@@ -2695,6 +3011,7 @@ export interface DescribeProductViewOutput {
 }
 
 /**
+ * @public
  * DescribeProvisionedProductAPI input structure.
  *
  *         AcceptLanguage - [Optional]
@@ -2710,10 +3027,6 @@ export interface DescribeProvisionedProductInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -2740,6 +3053,7 @@ export interface DescribeProvisionedProductInput {
 }
 
 /**
+ * @public
  * <p>Information about a CloudWatch dashboard.</p>
  */
 export interface CloudWatchDashboard {
@@ -2749,15 +3063,25 @@ export interface CloudWatchDashboard {
   Name?: string;
 }
 
-export enum ProvisionedProductStatus {
-  AVAILABLE = "AVAILABLE",
-  ERROR = "ERROR",
-  PLAN_IN_PROGRESS = "PLAN_IN_PROGRESS",
-  TAINTED = "TAINTED",
-  UNDER_CHANGE = "UNDER_CHANGE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ProvisionedProductStatus = {
+  AVAILABLE: "AVAILABLE",
+  ERROR: "ERROR",
+  PLAN_IN_PROGRESS: "PLAN_IN_PROGRESS",
+  TAINTED: "TAINTED",
+  UNDER_CHANGE: "UNDER_CHANGE",
+} as const;
 
 /**
+ * @public
+ */
+export type ProvisionedProductStatus = (typeof ProvisionedProductStatus)[keyof typeof ProvisionedProductStatus];
+
+/**
+ * @public
  * <p>Information about a provisioned product.</p>
  */
 export interface ProvisionedProductDetail {
@@ -2905,6 +3229,9 @@ export interface ProvisionedProductDetail {
   LaunchRoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeProvisionedProductOutput {
   /**
    * <p>Information about the provisioned product.</p>
@@ -2917,14 +3244,13 @@ export interface DescribeProvisionedProductOutput {
   CloudWatchDashboards?: CloudWatchDashboard[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeProvisionedProductPlanInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -2953,16 +3279,27 @@ export interface DescribeProvisionedProductPlanInput {
   PageToken?: string;
 }
 
-export enum ProvisionedProductPlanStatus {
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  CREATE_SUCCESS = "CREATE_SUCCESS",
-  EXECUTE_FAILED = "EXECUTE_FAILED",
-  EXECUTE_IN_PROGRESS = "EXECUTE_IN_PROGRESS",
-  EXECUTE_SUCCESS = "EXECUTE_SUCCESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ProvisionedProductPlanStatus = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  CREATE_SUCCESS: "CREATE_SUCCESS",
+  EXECUTE_FAILED: "EXECUTE_FAILED",
+  EXECUTE_IN_PROGRESS: "EXECUTE_IN_PROGRESS",
+  EXECUTE_SUCCESS: "EXECUTE_SUCCESS",
+} as const;
 
 /**
+ * @public
+ */
+export type ProvisionedProductPlanStatus =
+  (typeof ProvisionedProductPlanStatus)[keyof typeof ProvisionedProductPlanStatus];
+
+/**
+ * @public
  * <p>Information about a plan.</p>
  */
 export interface ProvisionedProductPlanDetails {
@@ -3046,33 +3383,70 @@ export interface ProvisionedProductPlanDetails {
   StatusMessage?: string;
 }
 
-export enum ChangeAction {
-  ADD = "ADD",
-  MODIFY = "MODIFY",
-  REMOVE = "REMOVE",
-}
-
-export enum EvaluationType {
-  DYNAMIC = "DYNAMIC",
-  STATIC = "STATIC",
-}
-
-export enum ResourceAttribute {
-  CREATIONPOLICY = "CREATIONPOLICY",
-  DELETIONPOLICY = "DELETIONPOLICY",
-  METADATA = "METADATA",
-  PROPERTIES = "PROPERTIES",
-  TAGS = "TAGS",
-  UPDATEPOLICY = "UPDATEPOLICY",
-}
-
-export enum RequiresRecreation {
-  ALWAYS = "ALWAYS",
-  CONDITIONALLY = "CONDITIONALLY",
-  NEVER = "NEVER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ChangeAction = {
+  ADD: "ADD",
+  MODIFY: "MODIFY",
+  REMOVE: "REMOVE",
+} as const;
 
 /**
+ * @public
+ */
+export type ChangeAction = (typeof ChangeAction)[keyof typeof ChangeAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const EvaluationType = {
+  DYNAMIC: "DYNAMIC",
+  STATIC: "STATIC",
+} as const;
+
+/**
+ * @public
+ */
+export type EvaluationType = (typeof EvaluationType)[keyof typeof EvaluationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceAttribute = {
+  CREATIONPOLICY: "CREATIONPOLICY",
+  DELETIONPOLICY: "DELETIONPOLICY",
+  METADATA: "METADATA",
+  PROPERTIES: "PROPERTIES",
+  TAGS: "TAGS",
+  UPDATEPOLICY: "UPDATEPOLICY",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceAttribute = (typeof ResourceAttribute)[keyof typeof ResourceAttribute];
+
+/**
+ * @public
+ * @enum
+ */
+export const RequiresRecreation = {
+  ALWAYS: "ALWAYS",
+  CONDITIONALLY: "CONDITIONALLY",
+  NEVER: "NEVER",
+} as const;
+
+/**
+ * @public
+ */
+export type RequiresRecreation = (typeof RequiresRecreation)[keyof typeof RequiresRecreation];
+
+/**
+ * @public
  * <p>Information about a change to a resource attribute.</p>
  */
 export interface ResourceTargetDefinition {
@@ -3095,6 +3469,7 @@ export interface ResourceTargetDefinition {
 }
 
 /**
+ * @public
  * <p>Information about a change to a resource attribute.</p>
  */
 export interface ResourceChangeDetail {
@@ -3115,13 +3490,23 @@ export interface ResourceChangeDetail {
   CausingEntity?: string;
 }
 
-export enum Replacement {
-  CONDITIONAL = "CONDITIONAL",
-  FALSE = "FALSE",
-  TRUE = "TRUE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Replacement = {
+  CONDITIONAL: "CONDITIONAL",
+  FALSE: "FALSE",
+  TRUE: "TRUE",
+} as const;
 
 /**
+ * @public
+ */
+export type Replacement = (typeof Replacement)[keyof typeof Replacement];
+
+/**
+ * @public
  * <p>Information about a resource change that will occur when a plan is executed.</p>
  */
 export interface ResourceChange {
@@ -3162,6 +3547,9 @@ export interface ResourceChange {
   Details?: ResourceChangeDetail[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeProvisionedProductPlanOutput {
   /**
    * <p>Information about the plan.</p>
@@ -3179,14 +3567,13 @@ export interface DescribeProvisionedProductPlanOutput {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeProvisioningArtifactInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -3225,6 +3612,9 @@ export interface DescribeProvisioningArtifactInput {
   Verbose?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeProvisioningArtifactOutput {
   /**
    * <p>Information about the provisioning artifact.</p>
@@ -3242,14 +3632,13 @@ export interface DescribeProvisioningArtifactOutput {
   Status?: Status | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeProvisioningParametersInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -3296,6 +3685,7 @@ export interface DescribeProvisioningParametersInput {
 }
 
 /**
+ * @public
  * <p>Summary information about a constraint.</p>
  */
 export interface ConstraintSummary {
@@ -3331,6 +3721,7 @@ export interface ConstraintSummary {
 }
 
 /**
+ * @public
  * <p>Provisioning artifact output.</p>
  */
 export interface ProvisioningArtifactOutput {
@@ -3346,6 +3737,7 @@ export interface ProvisioningArtifactOutput {
 }
 
 /**
+ * @public
  * <p>The constraints that the administrator has put on the parameter.</p>
  */
 export interface ParameterConstraints {
@@ -3361,13 +3753,10 @@ export interface ParameterConstraints {
 
   /**
    * <p>A string that explains a constraint when the constraint is violated. For example, without a constraint description, a parameter that has an allowed pattern of <code>[A-Za-z0-9]+</code> displays the following error message when the user specifies an invalid value:</p>
-   *
    *          <p>
    *             <code>Malformed input-Parameter MyParameter must match pattern [A-Za-z0-9]+</code>
    *          </p>
-   *
    *          <p>By adding a constraint description, such as must only contain letters (uppercase and lowercase) and numbers, you can display the following customized error message:</p>
-   *
    *          <p>
    *             <code>Malformed input-Parameter MyParameter must only contain uppercase and lowercase letters and numbers.</code>
    *          </p>
@@ -3396,6 +3785,7 @@ export interface ParameterConstraints {
 }
 
 /**
+ * @public
  * <p>Information about a parameter used to provision a product.</p>
  */
 export interface ProvisioningArtifactParameter {
@@ -3432,6 +3822,7 @@ export interface ProvisioningArtifactParameter {
 }
 
 /**
+ * @public
  * <p>The user-defined preferences that will be applied during product provisioning, unless overridden by <code>ProvisioningPreferences</code> or <code>UpdateProvisioningPreferences</code>.</p>
  *          <p>For more information on maximum concurrent accounts and failure tolerance, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options">Stack set operation options</a> in the <i>CloudFormation User Guide</i>.</p>
  */
@@ -3450,6 +3841,7 @@ export interface ProvisioningArtifactPreferences {
 }
 
 /**
+ * @public
  * <p>Summary information about a TagOption.</p>
  */
 export interface TagOptionSummary {
@@ -3465,6 +3857,7 @@ export interface TagOptionSummary {
 }
 
 /**
+ * @public
  * <p>Additional information provided by the administrator.</p>
  */
 export interface UsageInstruction {
@@ -3479,6 +3872,9 @@ export interface UsageInstruction {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeProvisioningParametersOutput {
   /**
    * <p>Information about the parameters used to provision the product.</p>
@@ -3519,14 +3915,13 @@ export interface DescribeProvisioningParametersOutput {
   ProvisioningArtifactOutputKeys?: ProvisioningArtifactOutput[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeRecordInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -3557,6 +3952,7 @@ export interface DescribeRecordInput {
 }
 
 /**
+ * @public
  * <p>The error code and description resulting from an operation.</p>
  */
 export interface RecordError {
@@ -3572,6 +3968,7 @@ export interface RecordError {
 }
 
 /**
+ * @public
  * <p>Information about a tag, which is a key-value pair.</p>
  */
 export interface RecordTag {
@@ -3586,15 +3983,25 @@ export interface RecordTag {
   Value?: string;
 }
 
-export enum RecordStatus {
-  CREATED = "CREATED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  IN_PROGRESS_IN_ERROR = "IN_PROGRESS_IN_ERROR",
-  SUCCEEDED = "SUCCEEDED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RecordStatus = {
+  CREATED: "CREATED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  IN_PROGRESS_IN_ERROR: "IN_PROGRESS_IN_ERROR",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
 
 /**
+ * @public
+ */
+export type RecordStatus = (typeof RecordStatus)[keyof typeof RecordStatus];
+
+/**
+ * @public
  * <p>Information about a request operation.</p>
  */
 export interface RecordDetail {
@@ -3711,6 +4118,7 @@ export interface RecordDetail {
 }
 
 /**
+ * @public
  * <p>The output for the product created as the result of a request. For example, the output for
  *          a CloudFormation-backed product that creates an S3 bucket would include the S3 bucket URL.</p>
  */
@@ -3731,6 +4139,9 @@ export interface RecordOutput {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRecordOutput {
   /**
    * <p>Information about the product.</p>
@@ -3749,6 +4160,9 @@ export interface DescribeRecordOutput {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeServiceActionInput {
   /**
    * <p>The self-service action identifier.</p>
@@ -3758,10 +4172,6 @@ export interface DescribeServiceActionInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -3775,6 +4185,9 @@ export interface DescribeServiceActionInput {
   AcceptLanguage?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeServiceActionOutput {
   /**
    * <p>Detailed information about the self-service action.</p>
@@ -3782,6 +4195,9 @@ export interface DescribeServiceActionOutput {
   ServiceActionDetail?: ServiceActionDetail;
 }
 
+/**
+ * @public
+ */
 export interface DescribeServiceActionExecutionParametersInput {
   /**
    * <p>The identifier of the provisioned product.</p>
@@ -3798,10 +4214,6 @@ export interface DescribeServiceActionExecutionParametersInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>jp</code> - Japanese</p>
    *             </li>
    *             <li>
@@ -3814,6 +4226,7 @@ export interface DescribeServiceActionExecutionParametersInput {
 }
 
 /**
+ * @public
  * <p>Details of an execution parameter value that is passed to a self-service action when executed on a provisioned product.</p>
  */
 export interface ExecutionParameter {
@@ -3833,6 +4246,9 @@ export interface ExecutionParameter {
   DefaultValues?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeServiceActionExecutionParametersOutput {
   /**
    * <p>The parameters of the self-service action.</p>
@@ -3840,6 +4256,9 @@ export interface DescribeServiceActionExecutionParametersOutput {
   ServiceActionParameters?: ExecutionParameter[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeTagOptionInput {
   /**
    * <p>The TagOption identifier.</p>
@@ -3847,6 +4266,9 @@ export interface DescribeTagOptionInput {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTagOptionOutput {
   /**
    * <p>Information about the TagOption.</p>
@@ -3854,10 +4276,19 @@ export interface DescribeTagOptionOutput {
   TagOptionDetail?: TagOptionDetail;
 }
 
+/**
+ * @public
+ */
 export interface DisableAWSOrganizationsAccessInput {}
 
+/**
+ * @public
+ */
 export interface DisableAWSOrganizationsAccessOutput {}
 
+/**
+ * @public
+ */
 export interface DisassociateBudgetFromResourceInput {
   /**
    * <p>The name of the budget you want to disassociate.</p>
@@ -3870,16 +4301,18 @@ export interface DisassociateBudgetFromResourceInput {
   ResourceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateBudgetFromResourceOutput {}
 
+/**
+ * @public
+ */
 export interface DisassociatePrincipalFromPortfolioInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -3898,7 +4331,7 @@ export interface DisassociatePrincipalFromPortfolioInput {
   PortfolioId: string | undefined;
 
   /**
-   * <p>The ARN of the principal (IAM user, role, or group). This field allows an ARN with no <code>accountID</code> if
+   * <p>The ARN of the principal (user, role, or group). This field allows an ARN with no <code>accountID</code> if
    *          <code>PrincipalType</code> is <code>IAM_PATTERN</code>.</p>
    */
   PrincipalARN: string | undefined;
@@ -3910,16 +4343,18 @@ export interface DisassociatePrincipalFromPortfolioInput {
   PrincipalType?: PrincipalType | string;
 }
 
+/**
+ * @public
+ */
 export interface DisassociatePrincipalFromPortfolioOutput {}
 
+/**
+ * @public
+ */
 export interface DisassociateProductFromPortfolioInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -3943,8 +4378,14 @@ export interface DisassociateProductFromPortfolioInput {
   PortfolioId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateProductFromPortfolioOutput {}
 
+/**
+ * @public
+ */
 export interface DisassociateServiceActionFromProvisioningArtifactInput {
   /**
    * <p>The product identifier. For example, <code>prod-abcdzk7xy33qa</code>.</p>
@@ -3966,10 +4407,6 @@ export interface DisassociateServiceActionFromProvisioningArtifactInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>jp</code> - Japanese</p>
    *             </li>
    *             <li>
@@ -3981,8 +4418,14 @@ export interface DisassociateServiceActionFromProvisioningArtifactInput {
   AcceptLanguage?: string;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateServiceActionFromProvisioningArtifactOutput {}
 
+/**
+ * @public
+ */
 export interface DisassociateTagOptionFromResourceInput {
   /**
    * <p>The resource identifier.</p>
@@ -3995,20 +4438,28 @@ export interface DisassociateTagOptionFromResourceInput {
   TagOptionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateTagOptionFromResourceOutput {}
 
+/**
+ * @public
+ */
 export interface EnableAWSOrganizationsAccessInput {}
 
+/**
+ * @public
+ */
 export interface EnableAWSOrganizationsAccessOutput {}
 
+/**
+ * @public
+ */
 export interface ExecuteProvisionedProductPlanInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -4033,6 +4484,9 @@ export interface ExecuteProvisionedProductPlanInput {
   IdempotencyToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ExecuteProvisionedProductPlanOutput {
   /**
    * <p>Information about the result of provisioning the product.</p>
@@ -4040,6 +4494,9 @@ export interface ExecuteProvisionedProductPlanOutput {
   RecordDetail?: RecordDetail;
 }
 
+/**
+ * @public
+ */
 export interface ExecuteProvisionedProductServiceActionInput {
   /**
    * <p>The identifier of the provisioned product.</p>
@@ -4061,10 +4518,6 @@ export interface ExecuteProvisionedProductServiceActionInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>jp</code> - Japanese</p>
    *             </li>
    *             <li>
@@ -4083,6 +4536,9 @@ export interface ExecuteProvisionedProductServiceActionInput {
   Parameters?: Record<string, string[]>;
 }
 
+/**
+ * @public
+ */
 export interface ExecuteProvisionedProductServiceActionOutput {
   /**
    * <p>An object containing detailed information about the result of provisioning the product.</p>
@@ -4090,8 +4546,14 @@ export interface ExecuteProvisionedProductServiceActionOutput {
   RecordDetail?: RecordDetail;
 }
 
+/**
+ * @public
+ */
 export interface GetAWSOrganizationsAccessStatusInput {}
 
+/**
+ * @public
+ */
 export interface GetAWSOrganizationsAccessStatusOutput {
   /**
    * <p>The status of the portfolio share feature.</p>
@@ -4099,14 +4561,13 @@ export interface GetAWSOrganizationsAccessStatusOutput {
   AccessStatus?: AccessStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface GetProvisionedProductOutputsInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -4145,6 +4606,9 @@ export interface GetProvisionedProductOutputsInput {
   PageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetProvisionedProductOutputsOutput {
   /**
    * <p>Information about the product created as the result of a request. For example, the output for a CloudFormation-backed product that creates an S3 bucket would include the S3 bucket URL.
@@ -4158,14 +4622,13 @@ export interface GetProvisionedProductOutputsOutput {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ImportAsProvisionedProductInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -4206,6 +4669,9 @@ export interface ImportAsProvisionedProductInput {
   IdempotencyToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ImportAsProvisionedProductOutput {
   /**
    * <p>Information about a request operation.</p>
@@ -4213,14 +4679,13 @@ export interface ImportAsProvisionedProductOutput {
   RecordDetail?: RecordDetail;
 }
 
+/**
+ * @public
+ */
 export interface ListAcceptedPortfolioSharesInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -4264,6 +4729,9 @@ export interface ListAcceptedPortfolioSharesInput {
   PortfolioShareType?: PortfolioShareType | string;
 }
 
+/**
+ * @public
+ */
 export interface ListAcceptedPortfolioSharesOutput {
   /**
    * <p>Information about the portfolios.</p>
@@ -4276,14 +4744,13 @@ export interface ListAcceptedPortfolioSharesOutput {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListBudgetsForResourceInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -4312,6 +4779,9 @@ export interface ListBudgetsForResourceInput {
   PageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListBudgetsForResourceOutput {
   /**
    * <p>Information about the associated budgets.</p>
@@ -4324,14 +4794,13 @@ export interface ListBudgetsForResourceOutput {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListConstraintsForPortfolioInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -4365,6 +4834,9 @@ export interface ListConstraintsForPortfolioInput {
   PageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListConstraintsForPortfolioOutput {
   /**
    * <p>Information about the constraints.</p>
@@ -4377,14 +4849,13 @@ export interface ListConstraintsForPortfolioOutput {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListLaunchPathsInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -4414,6 +4885,7 @@ export interface ListLaunchPathsInput {
 }
 
 /**
+ * @public
  * <p>Summary information about a product path for a user.</p>
  */
 export interface LaunchPathSummary {
@@ -4438,6 +4910,9 @@ export interface LaunchPathSummary {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListLaunchPathsOutput {
   /**
    * <p>Information about the launch path.</p>
@@ -4450,14 +4925,13 @@ export interface ListLaunchPathsOutput {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListOrganizationPortfolioAccessInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -4505,6 +4979,9 @@ export interface ListOrganizationPortfolioAccessInput {
   PageSize?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListOrganizationPortfolioAccessOutput {
   /**
    * <p>Displays information about the organization nodes.</p>
@@ -4517,14 +4994,13 @@ export interface ListOrganizationPortfolioAccessOutput {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPortfolioAccessInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -4558,6 +5034,9 @@ export interface ListPortfolioAccessInput {
   PageSize?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListPortfolioAccessOutput {
   /**
    * <p>Information about the Amazon Web Services accounts with access to the portfolio.</p>
@@ -4570,14 +5049,13 @@ export interface ListPortfolioAccessOutput {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPortfoliosInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -4601,6 +5079,9 @@ export interface ListPortfoliosInput {
   PageSize?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListPortfoliosOutput {
   /**
    * <p>Information about the portfolios.</p>
@@ -4613,14 +5094,13 @@ export interface ListPortfoliosOutput {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPortfoliosForProductInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -4649,6 +5129,9 @@ export interface ListPortfoliosForProductInput {
   PageSize?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListPortfoliosForProductOutput {
   /**
    * <p>Information about the portfolios.</p>
@@ -4661,14 +5144,13 @@ export interface ListPortfoliosForProductOutput {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPrincipalsForPortfolioInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -4698,11 +5180,12 @@ export interface ListPrincipalsForPortfolioInput {
 }
 
 /**
+ * @public
  * <p>Information about a principal.</p>
  */
 export interface Principal {
   /**
-   * <p>The ARN of the principal (IAM user, role, or group). This field allows for an ARN with no <code>accountID</code> if the
+   * <p>The ARN of the principal (user, role, or group). This field allows for an ARN with no <code>accountID</code> if the
    *       <code>PrincipalType</code> is an <code>IAM_PATTERN</code>. </p>
    */
   PrincipalARN?: string;
@@ -4714,6 +5197,9 @@ export interface Principal {
   PrincipalType?: PrincipalType | string;
 }
 
+/**
+ * @public
+ */
 export interface ListPrincipalsForPortfolioOutput {
   /**
    * <p>The <code>PrincipalARN</code>s and corresponding <code>PrincipalType</code>s associated with the portfolio.</p>
@@ -4726,14 +5212,13 @@ export interface ListPrincipalsForPortfolioOutput {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListProvisionedProductPlansInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -4768,6 +5253,7 @@ export interface ListProvisionedProductPlansInput {
 }
 
 /**
+ * @public
  * <p>Summary information about a plan.</p>
  */
 export interface ProvisionedProductPlanSummary {
@@ -4802,6 +5288,9 @@ export interface ProvisionedProductPlanSummary {
   ProvisioningArtifactId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListProvisionedProductPlansOutput {
   /**
    * <p>Information about the plans.</p>
@@ -4814,14 +5303,13 @@ export interface ListProvisionedProductPlansOutput {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListProvisioningArtifactsInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -4840,6 +5328,9 @@ export interface ListProvisioningArtifactsInput {
   ProductId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListProvisioningArtifactsOutput {
   /**
    * <p>Information about the provisioning artifacts.</p>
@@ -4852,6 +5343,9 @@ export interface ListProvisioningArtifactsOutput {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListProvisioningArtifactsForServiceActionInput {
   /**
    * <p>The self-service action identifier. For example, <code>act-fs7abcd89wxyz</code>.</p>
@@ -4873,10 +5367,6 @@ export interface ListProvisioningArtifactsForServiceActionInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>jp</code> - Japanese</p>
    *             </li>
    *             <li>
@@ -4889,6 +5379,7 @@ export interface ListProvisioningArtifactsForServiceActionInput {
 }
 
 /**
+ * @public
  * <p>An object that contains summary information about a product view and a provisioning artifact.</p>
  */
 export interface ProvisioningArtifactView {
@@ -4903,6 +5394,9 @@ export interface ProvisioningArtifactView {
   ProvisioningArtifact?: ProvisioningArtifact;
 }
 
+/**
+ * @public
+ */
 export interface ListProvisioningArtifactsForServiceActionOutput {
   /**
    * <p>An array of objects with information about product views and provisioning artifacts.</p>
@@ -4916,6 +5410,7 @@ export interface ListProvisioningArtifactsForServiceActionOutput {
 }
 
 /**
+ * @public
  * <p>The search filter to use when listing history records.</p>
  */
 export interface ListRecordHistorySearchFilter {
@@ -4940,14 +5435,13 @@ export interface ListRecordHistorySearchFilter {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRecordHistoryInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -4981,6 +5475,9 @@ export interface ListRecordHistoryInput {
   PageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRecordHistoryOutput {
   /**
    * <p>The records, in reverse chronological order.</p>
@@ -4993,6 +5490,9 @@ export interface ListRecordHistoryOutput {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListResourcesForTagOptionInput {
   /**
    * <p>The TagOption identifier.</p>
@@ -5028,6 +5528,7 @@ export interface ListResourcesForTagOptionInput {
 }
 
 /**
+ * @public
  * <p>Information about a resource.</p>
  */
 export interface ResourceDetail {
@@ -5057,6 +5558,9 @@ export interface ResourceDetail {
   CreatedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListResourcesForTagOptionOutput {
   /**
    * <p>Information about the resources.</p>
@@ -5069,14 +5573,13 @@ export interface ListResourcesForTagOptionOutput {
   PageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListServiceActionsInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -5100,6 +5603,9 @@ export interface ListServiceActionsInput {
   PageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListServiceActionsOutput {
   /**
    * <p>An object containing information about the service actions associated with the provisioning artifact.</p>
@@ -5112,6 +5618,9 @@ export interface ListServiceActionsOutput {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListServiceActionsForProvisioningArtifactInput {
   /**
    * <p>The product identifier. For example, <code>prod-abcdzk7xy33qa</code>.</p>
@@ -5138,10 +5647,6 @@ export interface ListServiceActionsForProvisioningArtifactInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>jp</code> - Japanese</p>
    *             </li>
    *             <li>
@@ -5153,6 +5658,9 @@ export interface ListServiceActionsForProvisioningArtifactInput {
   AcceptLanguage?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListServiceActionsForProvisioningArtifactOutput {
   /**
    * <p>An object containing information about the self-service actions associated with the provisioning artifact.</p>
@@ -5165,14 +5673,13 @@ export interface ListServiceActionsForProvisioningArtifactOutput {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListStackInstancesForProvisionedProductInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -5201,13 +5708,23 @@ export interface ListStackInstancesForProvisionedProductInput {
   PageSize?: number;
 }
 
-export enum StackInstanceStatus {
-  CURRENT = "CURRENT",
-  INOPERABLE = "INOPERABLE",
-  OUTDATED = "OUTDATED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StackInstanceStatus = {
+  CURRENT: "CURRENT",
+  INOPERABLE: "INOPERABLE",
+  OUTDATED: "OUTDATED",
+} as const;
 
 /**
+ * @public
+ */
+export type StackInstanceStatus = (typeof StackInstanceStatus)[keyof typeof StackInstanceStatus];
+
+/**
+ * @public
  * <p>An CloudFormation stack, in a specific account and Region, that's part of a stack set operation. A stack instance is a reference to an attempted or actual stack in a given account within a given Region. A stack instance can exist without a stack—for example, if the stack couldn't be created for some reason. A stack instance is associated with only one stack set. Each stack instance contains the ID of its associated stack set, as well as the ID of the actual stack and the stack status. </p>
  */
 export interface StackInstance {
@@ -5243,6 +5760,9 @@ export interface StackInstance {
   StackInstanceStatus?: StackInstanceStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListStackInstancesForProvisionedProductOutput {
   /**
    * <p>List of stack instances.</p>
@@ -5256,6 +5776,7 @@ export interface ListStackInstancesForProvisionedProductOutput {
 }
 
 /**
+ * @public
  * <p>Filters to use when listing TagOptions.</p>
  */
 export interface ListTagOptionsFilters {
@@ -5275,6 +5796,9 @@ export interface ListTagOptionsFilters {
   Active?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ListTagOptionsInput {
   /**
    * <p>The search filters. If no search filters are specified, the output includes all TagOptions.</p>
@@ -5292,6 +5816,9 @@ export interface ListTagOptionsInput {
   PageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagOptionsOutput {
   /**
    * <p>Information about the TagOptions.</p>
@@ -5305,6 +5832,251 @@ export interface ListTagOptionsOutput {
 }
 
 /**
+ * @public
+ * <p>
+ *          The unique key-value pair
+ *          for a tag
+ *          that identifies provisioned product resources.
+ *       </p>
+ */
+export interface UniqueTagResourceIdentifier {
+  /**
+   * <p>
+   *          A unique key
+   *          that's attached
+   *          to a resource.
+   *       </p>
+   */
+  Key?: string;
+
+  /**
+   * <p>
+   *          A unique value
+   *          that's attached
+   *          to a resource.
+   *       </p>
+   */
+  Value?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *          The ID
+ *          for the provisioned product resources
+ *          that are part
+ *          of a resource group.
+ *       </p>
+ */
+export interface EngineWorkflowResourceIdentifier {
+  /**
+   * <p>
+   *          The unique key-value pair
+   *          for a tag
+   *          that identifies provisioned product resources.
+   *       </p>
+   */
+  UniqueTag?: UniqueTagResourceIdentifier;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const EngineWorkflowStatus = {
+  FAILED: "FAILED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type EngineWorkflowStatus = (typeof EngineWorkflowStatus)[keyof typeof EngineWorkflowStatus];
+
+/**
+ * @public
+ */
+export interface NotifyProvisionProductEngineWorkflowResultInput {
+  /**
+   * <p>
+   *          The encrypted contents
+   *          of the provisioning engine execution payload
+   *          that Service Catalog sends
+   *          after the Terraform product provisioning workflow starts.
+   *       </p>
+   */
+  WorkflowToken: string | undefined;
+
+  /**
+   * <p>
+   *          The identifier
+   *          of the record.
+   *       </p>
+   */
+  RecordId: string | undefined;
+
+  /**
+   * <p>
+   *          The status
+   *          of the provisioning engine execution.
+   *       </p>
+   */
+  Status: EngineWorkflowStatus | string | undefined;
+
+  /**
+   * <p>
+   *          The reason
+   *          why the provisioning engine execution failed.
+   *       </p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>
+   *          The ID
+   *          for the provisioned product resources
+   *          that are part
+   *          of a resource group.
+   *       </p>
+   */
+  ResourceIdentifier?: EngineWorkflowResourceIdentifier;
+
+  /**
+   * <p>
+   *          The output
+   *          of the provisioning engine execution.
+   *       </p>
+   */
+  Outputs?: RecordOutput[];
+
+  /**
+   * <p>
+   *          The idempotency token
+   *          that identifies the provisioning engine execution.
+   *       </p>
+   */
+  IdempotencyToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface NotifyProvisionProductEngineWorkflowResultOutput {}
+
+/**
+ * @public
+ */
+export interface NotifyTerminateProvisionedProductEngineWorkflowResultInput {
+  /**
+   * <p>
+   *          The encrypted contents
+   *          of the terminate engine execution payload
+   *          that Service Catalog sends
+   *          after the Terraform product terminate workflow starts.
+   *       </p>
+   */
+  WorkflowToken: string | undefined;
+
+  /**
+   * <p>
+   *          The identifier
+   *          of the record.
+   *       </p>
+   */
+  RecordId: string | undefined;
+
+  /**
+   * <p>
+   *          The status
+   *          of the terminate engine execution.
+   *       </p>
+   */
+  Status: EngineWorkflowStatus | string | undefined;
+
+  /**
+   * <p>
+   *          The reason
+   *          why the terminate engine execution failed.
+   *       </p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>
+   *          The idempotency token
+   *          that identifies the terminate engine execution.
+   *       </p>
+   */
+  IdempotencyToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface NotifyTerminateProvisionedProductEngineWorkflowResultOutput {}
+
+/**
+ * @public
+ */
+export interface NotifyUpdateProvisionedProductEngineWorkflowResultInput {
+  /**
+   * <p>
+   *          The encrypted contents
+   *          of the update engine execution payload
+   *          that Service Catalog sends
+   *          after the Terraform product update workflow starts.
+   *       </p>
+   */
+  WorkflowToken: string | undefined;
+
+  /**
+   * <p>
+   *          The identifier
+   *          of the record.
+   *       </p>
+   */
+  RecordId: string | undefined;
+
+  /**
+   * <p>
+   *          The status
+   *          of the update engine execution.
+   *       </p>
+   */
+  Status: EngineWorkflowStatus | string | undefined;
+
+  /**
+   * <p>
+   *          The reason
+   *          why the update engine execution failed.
+   *       </p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>
+   *          The output
+   *          of the update engine execution.
+   *       </p>
+   */
+  Outputs?: RecordOutput[];
+
+  /**
+   * <p>
+   *          The idempotency token
+   *          that identifies the update engine execution.
+   *       </p>
+   */
+  IdempotencyToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface NotifyUpdateProvisionedProductEngineWorkflowResultOutput {}
+
+/**
+ * @public
  * <p>Information about a parameter used to provision a product.</p>
  */
 export interface ProvisioningParameter {
@@ -5320,6 +6092,7 @@ export interface ProvisioningParameter {
 }
 
 /**
+ * @public
  * <p>The user-defined preferences that will be applied when updating a provisioned
  *          product. Not all preferences are applicable to all provisioned product type</p>
  *          <p>One or more Amazon Web Services accounts that will have access to the provisioned product.</p>
@@ -5382,14 +6155,13 @@ export interface ProvisioningPreferences {
   StackSetMaxConcurrencyPercentage?: number;
 }
 
+/**
+ * @public
+ */
 export interface ProvisionProductInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -5468,6 +6240,9 @@ export interface ProvisionProductInput {
   ProvisionToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ProvisionProductOutput {
   /**
    * <p>Information about the result of provisioning the product.</p>
@@ -5475,14 +6250,13 @@ export interface ProvisionProductOutput {
   RecordDetail?: RecordDetail;
 }
 
+/**
+ * @public
+ */
 export interface RejectPortfolioShareInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -5523,16 +6297,18 @@ export interface RejectPortfolioShareInput {
   PortfolioShareType?: PortfolioShareType | string;
 }
 
+/**
+ * @public
+ */
 export interface RejectPortfolioShareOutput {}
 
+/**
+ * @public
+ */
 export interface ScanProvisionedProductsInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -5561,6 +6337,9 @@ export interface ScanProvisionedProductsInput {
   PageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ScanProvisionedProductsOutput {
   /**
    * <p>Information about the provisioned products.</p>
@@ -5573,32 +6352,58 @@ export interface ScanProvisionedProductsOutput {
   NextPageToken?: string;
 }
 
-export enum ProductViewFilterBy {
-  FullTextSearch = "FullTextSearch",
-  Owner = "Owner",
-  ProductType = "ProductType",
-  SourceProductId = "SourceProductId",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ProductViewFilterBy = {
+  FullTextSearch: "FullTextSearch",
+  Owner: "Owner",
+  ProductType: "ProductType",
+  SourceProductId: "SourceProductId",
+} as const;
 
-export enum ProductViewSortBy {
-  CreationDate = "CreationDate",
-  Title = "Title",
-  VersionCount = "VersionCount",
-}
+/**
+ * @public
+ */
+export type ProductViewFilterBy = (typeof ProductViewFilterBy)[keyof typeof ProductViewFilterBy];
 
-export enum SortOrder {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ProductViewSortBy = {
+  CreationDate: "CreationDate",
+  Title: "Title",
+  VersionCount: "VersionCount",
+} as const;
 
+/**
+ * @public
+ */
+export type ProductViewSortBy = (typeof ProductViewSortBy)[keyof typeof ProductViewSortBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const SortOrder = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
+
+/**
+ * @public
+ */
 export interface SearchProductsInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -5639,6 +6444,7 @@ export interface SearchProductsInput {
 }
 
 /**
+ * @public
  * <p>A single product view aggregation value/count pair, containing metadata about each
  *          product to which the calling user has access.</p>
  */
@@ -5654,6 +6460,9 @@ export interface ProductViewAggregationValue {
   ApproximateCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface SearchProductsOutput {
   /**
    * <p>Information about the product views.</p>
@@ -5671,18 +6480,26 @@ export interface SearchProductsOutput {
   NextPageToken?: string;
 }
 
-export enum ProductSource {
-  ACCOUNT = "ACCOUNT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ProductSource = {
+  ACCOUNT: "ACCOUNT",
+} as const;
 
+/**
+ * @public
+ */
+export type ProductSource = (typeof ProductSource)[keyof typeof ProductSource];
+
+/**
+ * @public
+ */
 export interface SearchProductsAsAdminInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -5732,6 +6549,9 @@ export interface SearchProductsAsAdminInput {
   ProductSource?: ProductSource | string;
 }
 
+/**
+ * @public
+ */
 export interface SearchProductsAsAdminOutput {
   /**
    * <p>Information about the product views.</p>
@@ -5744,18 +6564,27 @@ export interface SearchProductsAsAdminOutput {
   NextPageToken?: string;
 }
 
-export enum ProvisionedProductViewFilterBy {
-  SearchQuery = "SearchQuery",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ProvisionedProductViewFilterBy = {
+  SearchQuery: "SearchQuery",
+} as const;
 
+/**
+ * @public
+ */
+export type ProvisionedProductViewFilterBy =
+  (typeof ProvisionedProductViewFilterBy)[keyof typeof ProvisionedProductViewFilterBy];
+
+/**
+ * @public
+ */
 export interface SearchProvisionedProductsInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -5809,6 +6638,7 @@ export interface SearchProvisionedProductsInput {
 }
 
 /**
+ * @public
  * <p>Information about a provisioned product.</p>
  */
 export interface ProvisionedProductAttribute {
@@ -5971,16 +6801,19 @@ export interface ProvisionedProductAttribute {
   ProvisioningArtifactName?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM user.</p>
+   * <p>The Amazon Resource Name (ARN) of the user.</p>
    */
   UserArn?: string;
 
   /**
-   * <p>The ARN of the IAM user in the session. This ARN might contain a session ID.</p>
+   * <p>The ARN of the user in the session. This ARN might contain a session ID.</p>
    */
   UserArnSession?: string;
 }
 
+/**
+ * @public
+ */
 export interface SearchProvisionedProductsOutput {
   /**
    * <p>Information about the provisioned products.</p>
@@ -5998,6 +6831,9 @@ export interface SearchProvisionedProductsOutput {
   NextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface TerminateProvisionedProductInput {
   /**
    * <p>The name of the provisioned product. You cannot specify both
@@ -6030,10 +6866,6 @@ export interface TerminateProvisionedProductInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>jp</code> - Japanese</p>
    *             </li>
    *             <li>
@@ -6053,6 +6885,9 @@ export interface TerminateProvisionedProductInput {
   RetainPhysicalResources?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface TerminateProvisionedProductOutput {
   /**
    * <p>Information about the result of this request.</p>
@@ -6060,14 +6895,13 @@ export interface TerminateProvisionedProductOutput {
   RecordDetail?: RecordDetail;
 }
 
+/**
+ * @public
+ */
 export interface UpdateConstraintInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -6098,11 +6932,11 @@ export interface UpdateConstraintInput {
    *                <p>You are required to specify either the <code>RoleArn</code> or the <code>LocalRoleName</code> but can't use both.</p>
    *                <p>Specify the <code>RoleArn</code> property as follows:</p>
    *                <p>
-   *                   <code>{"RoleArn" : "arn:aws:iam::123456789012:role/LaunchRole"}</code>
+   *                   <code>\{"RoleArn" : "arn:aws:iam::123456789012:role/LaunchRole"\}</code>
    *                </p>
    *                <p>Specify the <code>LocalRoleName</code> property as follows:</p>
    *                <p>
-   *                   <code>{"LocalRoleName": "SCBasicLaunchRole"}</code>
+   *                   <code>\{"LocalRoleName": "SCBasicLaunchRole"\}</code>
    *                </p>
    *                <p>If you specify the <code>LocalRoleName</code> property, when an account uses the launch constraint, the IAM role with that name in the account will be used. This allows launch-role constraints to be
    *                   account-agnostic so the administrator can create fewer resources per shared account.</p>
@@ -6116,14 +6950,14 @@ export interface UpdateConstraintInput {
    *             <dd>
    *                <p>Specify the <code>NotificationArns</code> property as follows:</p>
    *                <p>
-   *                   <code>{"NotificationArns" : ["arn:aws:sns:us-east-1:123456789012:Topic"]}</code>
+   *                   <code>\{"NotificationArns" : ["arn:aws:sns:us-east-1:123456789012:Topic"]\}</code>
    *                </p>
    *             </dd>
    *             <dt>RESOURCE_UPDATE</dt>
    *             <dd>
    *                <p>Specify the <code>TagUpdatesOnProvisionedProduct</code> property as follows:</p>
    *                <p>
-   *                   <code>{"Version":"2.0","Properties":{"TagUpdateOnProvisionedProduct":"String"}}</code>
+   *                   <code>\{"Version":"2.0","Properties":\{"TagUpdateOnProvisionedProduct":"String"\}\}</code>
    *                </p>
    *                <p>The <code>TagUpdatesOnProvisionedProduct</code> property accepts a string value of <code>ALLOWED</code> or <code>NOT_ALLOWED</code>.</p>
    *             </dd>
@@ -6131,7 +6965,7 @@ export interface UpdateConstraintInput {
    *             <dd>
    *                <p>Specify the <code>Parameters</code> property as follows:</p>
    *                <p>
-   *                   <code>{"Version": "String", "Properties": {"AccountList": [ "String" ], "RegionList": [ "String" ], "AdminRole": "String", "ExecutionRole": "String"}}</code>
+   *                   <code>\{"Version": "String", "Properties": \{"AccountList": [ "String" ], "RegionList": [ "String" ], "AdminRole": "String", "ExecutionRole": "String"\}\}</code>
    *                </p>
    *                <p>You cannot have both a <code>LAUNCH</code> and a <code>STACKSET</code> constraint.</p>
    *                <p>You also cannot have more than one <code>STACKSET</code> constraint on a product and portfolio.</p>
@@ -6147,6 +6981,9 @@ export interface UpdateConstraintInput {
   Parameters?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateConstraintOutput {
   /**
    * <p>Information about the constraint.</p>
@@ -6164,14 +7001,13 @@ export interface UpdateConstraintOutput {
   Status?: Status | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePortfolioInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -6215,6 +7051,9 @@ export interface UpdatePortfolioInput {
   RemoveTags?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdatePortfolioOutput {
   /**
    * <p>Information about the portfolio.</p>
@@ -6227,14 +7066,13 @@ export interface UpdatePortfolioOutput {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface UpdatePortfolioShareInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -6275,6 +7113,9 @@ export interface UpdatePortfolioShareInput {
   SharePrincipals?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePortfolioShareOutput {
   /**
    * <p>The token that tracks the status of the <code>UpdatePortfolioShare</code> operation for external account to account or  organizational type sharing.</p>
@@ -6289,14 +7130,13 @@ export interface UpdatePortfolioShareOutput {
   Status?: ShareStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateProductInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -6379,6 +7219,9 @@ export interface UpdateProductInput {
   SourceConnection?: SourceConnection;
 }
 
+/**
+ * @public
+ */
 export interface UpdateProductOutput {
   /**
    * <p>Information about the product view.</p>
@@ -6391,13 +7234,23 @@ export interface UpdateProductOutput {
   Tags?: Tag[];
 }
 
-export enum StackSetOperationType {
-  CREATE = "CREATE",
-  DELETE = "DELETE",
-  UPDATE = "UPDATE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StackSetOperationType = {
+  CREATE: "CREATE",
+  DELETE: "DELETE",
+  UPDATE: "UPDATE",
+} as const;
 
 /**
+ * @public
+ */
+export type StackSetOperationType = (typeof StackSetOperationType)[keyof typeof StackSetOperationType];
+
+/**
+ * @public
  * <p>The user-defined preferences that will be applied when updating a provisioned product. Not all preferences are applicable to all provisioned product types.</p>
  */
 export interface UpdateProvisioningPreferences {
@@ -6471,14 +7324,13 @@ export interface UpdateProvisioningPreferences {
   StackSetOperationType?: StackSetOperationType | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateProvisionedProductInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -6554,6 +7406,9 @@ export interface UpdateProvisionedProductInput {
   UpdateToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateProvisionedProductOutput {
   /**
    * <p>Information about the result of the request.</p>
@@ -6561,19 +7416,27 @@ export interface UpdateProvisionedProductOutput {
   RecordDetail?: RecordDetail;
 }
 
-export enum PropertyKey {
-  LaunchRole = "LAUNCH_ROLE",
-  Owner = "OWNER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PropertyKey = {
+  LaunchRole: "LAUNCH_ROLE",
+  Owner: "OWNER",
+} as const;
 
+/**
+ * @public
+ */
+export type PropertyKey = (typeof PropertyKey)[keyof typeof PropertyKey];
+
+/**
+ * @public
+ */
 export interface UpdateProvisionedProductPropertiesInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -6599,8 +7462,7 @@ export interface UpdateProvisionedProductPropertiesInput {
    *          calls a provisioning operation such as <code>UpdateProvisionedProduct</code>,
    *             <code>TerminateProvisionedProduct</code>, or
    *             <code>ExecuteProvisionedProductServiceAction</code>. Only a role ARN is valid. A user ARN is invalid. </p>
-   *
-   *          <p>The <code>OWNER</code> key accepts IAM user ARNs, IAM role ARNs, and STS
+   *          <p>The <code>OWNER</code> key accepts user ARNs, IAM role ARNs, and STS
    *          assumed-role ARNs. The owner is the user that has permission to see, update, terminate, and
    *          execute service actions in the provisioned product.</p>
    *          <p>The administrator can change the owner of a provisioned product to another IAM or STS entity within the
@@ -6622,6 +7484,9 @@ export interface UpdateProvisionedProductPropertiesInput {
   IdempotencyToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateProvisionedProductPropertiesOutput {
   /**
    * <p>The provisioned product identifier.</p>
@@ -6644,14 +7509,13 @@ export interface UpdateProvisionedProductPropertiesOutput {
   Status?: RecordStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateProvisioningArtifactInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -6700,6 +7564,9 @@ export interface UpdateProvisioningArtifactInput {
   Guidance?: ProvisioningArtifactGuidance | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateProvisioningArtifactOutput {
   /**
    * <p>Information about the provisioning artifact.</p>
@@ -6717,6 +7584,9 @@ export interface UpdateProvisioningArtifactOutput {
   Status?: Status | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateServiceActionInput {
   /**
    * <p>The self-service action identifier.</p>
@@ -6743,10 +7613,6 @@ export interface UpdateServiceActionInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>jp</code> - Japanese</p>
    *             </li>
    *             <li>
@@ -6758,6 +7624,9 @@ export interface UpdateServiceActionInput {
   AcceptLanguage?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateServiceActionOutput {
   /**
    * <p>Detailed information about the self-service action.</p>
@@ -6765,6 +7634,9 @@ export interface UpdateServiceActionOutput {
   ServiceActionDetail?: ServiceActionDetail;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTagOptionInput {
   /**
    * <p>The TagOption identifier.</p>
@@ -6782,1719 +7654,12 @@ export interface UpdateTagOptionInput {
   Active?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTagOptionOutput {
   /**
    * <p>Information about the TagOption.</p>
    */
   TagOptionDetail?: TagOptionDetail;
 }
-
-/**
- * @internal
- */
-export const AcceptPortfolioShareInputFilterSensitiveLog = (obj: AcceptPortfolioShareInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AcceptPortfolioShareOutputFilterSensitiveLog = (obj: AcceptPortfolioShareOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AccessLevelFilterFilterSensitiveLog = (obj: AccessLevelFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateBudgetWithResourceInputFilterSensitiveLog = (obj: AssociateBudgetWithResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateBudgetWithResourceOutputFilterSensitiveLog = (obj: AssociateBudgetWithResourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociatePrincipalWithPortfolioInputFilterSensitiveLog = (
-  obj: AssociatePrincipalWithPortfolioInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociatePrincipalWithPortfolioOutputFilterSensitiveLog = (
-  obj: AssociatePrincipalWithPortfolioOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateProductWithPortfolioInputFilterSensitiveLog = (obj: AssociateProductWithPortfolioInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateProductWithPortfolioOutputFilterSensitiveLog = (
-  obj: AssociateProductWithPortfolioOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateServiceActionWithProvisioningArtifactInputFilterSensitiveLog = (
-  obj: AssociateServiceActionWithProvisioningArtifactInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateServiceActionWithProvisioningArtifactOutputFilterSensitiveLog = (
-  obj: AssociateServiceActionWithProvisioningArtifactOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateTagOptionWithResourceInputFilterSensitiveLog = (
-  obj: AssociateTagOptionWithResourceInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateTagOptionWithResourceOutputFilterSensitiveLog = (
-  obj: AssociateTagOptionWithResourceOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServiceActionAssociationFilterSensitiveLog = (obj: ServiceActionAssociation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchAssociateServiceActionWithProvisioningArtifactInputFilterSensitiveLog = (
-  obj: BatchAssociateServiceActionWithProvisioningArtifactInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FailedServiceActionAssociationFilterSensitiveLog = (obj: FailedServiceActionAssociation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchAssociateServiceActionWithProvisioningArtifactOutputFilterSensitiveLog = (
-  obj: BatchAssociateServiceActionWithProvisioningArtifactOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDisassociateServiceActionFromProvisioningArtifactInputFilterSensitiveLog = (
-  obj: BatchDisassociateServiceActionFromProvisioningArtifactInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDisassociateServiceActionFromProvisioningArtifactOutputFilterSensitiveLog = (
-  obj: BatchDisassociateServiceActionFromProvisioningArtifactOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CopyProductInputFilterSensitiveLog = (obj: CopyProductInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CopyProductOutputFilterSensitiveLog = (obj: CopyProductOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateConstraintInputFilterSensitiveLog = (obj: CreateConstraintInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConstraintDetailFilterSensitiveLog = (obj: ConstraintDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateConstraintOutputFilterSensitiveLog = (obj: CreateConstraintOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePortfolioInputFilterSensitiveLog = (obj: CreatePortfolioInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PortfolioDetailFilterSensitiveLog = (obj: PortfolioDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePortfolioOutputFilterSensitiveLog = (obj: CreatePortfolioOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OrganizationNodeFilterSensitiveLog = (obj: OrganizationNode): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePortfolioShareInputFilterSensitiveLog = (obj: CreatePortfolioShareInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePortfolioShareOutputFilterSensitiveLog = (obj: CreatePortfolioShareOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProvisioningArtifactPropertiesFilterSensitiveLog = (obj: ProvisioningArtifactProperties): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CodeStarParametersFilterSensitiveLog = (obj: CodeStarParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SourceConnectionParametersFilterSensitiveLog = (obj: SourceConnectionParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SourceConnectionFilterSensitiveLog = (obj: SourceConnection): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateProductInputFilterSensitiveLog = (obj: CreateProductInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProductViewSummaryFilterSensitiveLog = (obj: ProductViewSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LastSyncFilterSensitiveLog = (obj: LastSync): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SourceConnectionDetailFilterSensitiveLog = (obj: SourceConnectionDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProductViewDetailFilterSensitiveLog = (obj: ProductViewDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProvisioningArtifactDetailFilterSensitiveLog = (obj: ProvisioningArtifactDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateProductOutputFilterSensitiveLog = (obj: CreateProductOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateProvisioningParameterFilterSensitiveLog = (obj: UpdateProvisioningParameter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateProvisionedProductPlanInputFilterSensitiveLog = (obj: CreateProvisionedProductPlanInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateProvisionedProductPlanOutputFilterSensitiveLog = (obj: CreateProvisionedProductPlanOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateProvisioningArtifactInputFilterSensitiveLog = (obj: CreateProvisioningArtifactInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateProvisioningArtifactOutputFilterSensitiveLog = (obj: CreateProvisioningArtifactOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateServiceActionInputFilterSensitiveLog = (obj: CreateServiceActionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServiceActionSummaryFilterSensitiveLog = (obj: ServiceActionSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServiceActionDetailFilterSensitiveLog = (obj: ServiceActionDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateServiceActionOutputFilterSensitiveLog = (obj: CreateServiceActionOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTagOptionInputFilterSensitiveLog = (obj: CreateTagOptionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagOptionDetailFilterSensitiveLog = (obj: TagOptionDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTagOptionOutputFilterSensitiveLog = (obj: CreateTagOptionOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteConstraintInputFilterSensitiveLog = (obj: DeleteConstraintInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteConstraintOutputFilterSensitiveLog = (obj: DeleteConstraintOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePortfolioInputFilterSensitiveLog = (obj: DeletePortfolioInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePortfolioOutputFilterSensitiveLog = (obj: DeletePortfolioOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePortfolioShareInputFilterSensitiveLog = (obj: DeletePortfolioShareInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePortfolioShareOutputFilterSensitiveLog = (obj: DeletePortfolioShareOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteProductInputFilterSensitiveLog = (obj: DeleteProductInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteProductOutputFilterSensitiveLog = (obj: DeleteProductOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteProvisionedProductPlanInputFilterSensitiveLog = (obj: DeleteProvisionedProductPlanInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteProvisionedProductPlanOutputFilterSensitiveLog = (obj: DeleteProvisionedProductPlanOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteProvisioningArtifactInputFilterSensitiveLog = (obj: DeleteProvisioningArtifactInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteProvisioningArtifactOutputFilterSensitiveLog = (obj: DeleteProvisioningArtifactOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteServiceActionInputFilterSensitiveLog = (obj: DeleteServiceActionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteServiceActionOutputFilterSensitiveLog = (obj: DeleteServiceActionOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTagOptionInputFilterSensitiveLog = (obj: DeleteTagOptionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTagOptionOutputFilterSensitiveLog = (obj: DeleteTagOptionOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeConstraintInputFilterSensitiveLog = (obj: DescribeConstraintInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeConstraintOutputFilterSensitiveLog = (obj: DescribeConstraintOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeCopyProductStatusInputFilterSensitiveLog = (obj: DescribeCopyProductStatusInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeCopyProductStatusOutputFilterSensitiveLog = (obj: DescribeCopyProductStatusOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePortfolioInputFilterSensitiveLog = (obj: DescribePortfolioInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BudgetDetailFilterSensitiveLog = (obj: BudgetDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePortfolioOutputFilterSensitiveLog = (obj: DescribePortfolioOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePortfolioSharesInputFilterSensitiveLog = (obj: DescribePortfolioSharesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PortfolioShareDetailFilterSensitiveLog = (obj: PortfolioShareDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePortfolioSharesOutputFilterSensitiveLog = (obj: DescribePortfolioSharesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePortfolioShareStatusInputFilterSensitiveLog = (obj: DescribePortfolioShareStatusInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ShareErrorFilterSensitiveLog = (obj: ShareError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ShareDetailsFilterSensitiveLog = (obj: ShareDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePortfolioShareStatusOutputFilterSensitiveLog = (obj: DescribePortfolioShareStatusOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeProductInputFilterSensitiveLog = (obj: DescribeProductInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchPathFilterSensitiveLog = (obj: LaunchPath): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProvisioningArtifactFilterSensitiveLog = (obj: ProvisioningArtifact): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeProductOutputFilterSensitiveLog = (obj: DescribeProductOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeProductAsAdminInputFilterSensitiveLog = (obj: DescribeProductAsAdminInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProvisioningArtifactSummaryFilterSensitiveLog = (obj: ProvisioningArtifactSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeProductAsAdminOutputFilterSensitiveLog = (obj: DescribeProductAsAdminOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeProductViewInputFilterSensitiveLog = (obj: DescribeProductViewInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeProductViewOutputFilterSensitiveLog = (obj: DescribeProductViewOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeProvisionedProductInputFilterSensitiveLog = (obj: DescribeProvisionedProductInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CloudWatchDashboardFilterSensitiveLog = (obj: CloudWatchDashboard): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProvisionedProductDetailFilterSensitiveLog = (obj: ProvisionedProductDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeProvisionedProductOutputFilterSensitiveLog = (obj: DescribeProvisionedProductOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeProvisionedProductPlanInputFilterSensitiveLog = (
-  obj: DescribeProvisionedProductPlanInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProvisionedProductPlanDetailsFilterSensitiveLog = (obj: ProvisionedProductPlanDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceTargetDefinitionFilterSensitiveLog = (obj: ResourceTargetDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceChangeDetailFilterSensitiveLog = (obj: ResourceChangeDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceChangeFilterSensitiveLog = (obj: ResourceChange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeProvisionedProductPlanOutputFilterSensitiveLog = (
-  obj: DescribeProvisionedProductPlanOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeProvisioningArtifactInputFilterSensitiveLog = (obj: DescribeProvisioningArtifactInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeProvisioningArtifactOutputFilterSensitiveLog = (obj: DescribeProvisioningArtifactOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeProvisioningParametersInputFilterSensitiveLog = (
-  obj: DescribeProvisioningParametersInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConstraintSummaryFilterSensitiveLog = (obj: ConstraintSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProvisioningArtifactOutputFilterSensitiveLog = (obj: ProvisioningArtifactOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ParameterConstraintsFilterSensitiveLog = (obj: ParameterConstraints): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProvisioningArtifactParameterFilterSensitiveLog = (obj: ProvisioningArtifactParameter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProvisioningArtifactPreferencesFilterSensitiveLog = (obj: ProvisioningArtifactPreferences): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagOptionSummaryFilterSensitiveLog = (obj: TagOptionSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UsageInstructionFilterSensitiveLog = (obj: UsageInstruction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeProvisioningParametersOutputFilterSensitiveLog = (
-  obj: DescribeProvisioningParametersOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRecordInputFilterSensitiveLog = (obj: DescribeRecordInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecordErrorFilterSensitiveLog = (obj: RecordError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecordTagFilterSensitiveLog = (obj: RecordTag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecordDetailFilterSensitiveLog = (obj: RecordDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecordOutputFilterSensitiveLog = (obj: RecordOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRecordOutputFilterSensitiveLog = (obj: DescribeRecordOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeServiceActionInputFilterSensitiveLog = (obj: DescribeServiceActionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeServiceActionOutputFilterSensitiveLog = (obj: DescribeServiceActionOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeServiceActionExecutionParametersInputFilterSensitiveLog = (
-  obj: DescribeServiceActionExecutionParametersInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExecutionParameterFilterSensitiveLog = (obj: ExecutionParameter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeServiceActionExecutionParametersOutputFilterSensitiveLog = (
-  obj: DescribeServiceActionExecutionParametersOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTagOptionInputFilterSensitiveLog = (obj: DescribeTagOptionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTagOptionOutputFilterSensitiveLog = (obj: DescribeTagOptionOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableAWSOrganizationsAccessInputFilterSensitiveLog = (obj: DisableAWSOrganizationsAccessInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableAWSOrganizationsAccessOutputFilterSensitiveLog = (
-  obj: DisableAWSOrganizationsAccessOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateBudgetFromResourceInputFilterSensitiveLog = (
-  obj: DisassociateBudgetFromResourceInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateBudgetFromResourceOutputFilterSensitiveLog = (
-  obj: DisassociateBudgetFromResourceOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociatePrincipalFromPortfolioInputFilterSensitiveLog = (
-  obj: DisassociatePrincipalFromPortfolioInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociatePrincipalFromPortfolioOutputFilterSensitiveLog = (
-  obj: DisassociatePrincipalFromPortfolioOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateProductFromPortfolioInputFilterSensitiveLog = (
-  obj: DisassociateProductFromPortfolioInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateProductFromPortfolioOutputFilterSensitiveLog = (
-  obj: DisassociateProductFromPortfolioOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateServiceActionFromProvisioningArtifactInputFilterSensitiveLog = (
-  obj: DisassociateServiceActionFromProvisioningArtifactInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateServiceActionFromProvisioningArtifactOutputFilterSensitiveLog = (
-  obj: DisassociateServiceActionFromProvisioningArtifactOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateTagOptionFromResourceInputFilterSensitiveLog = (
-  obj: DisassociateTagOptionFromResourceInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateTagOptionFromResourceOutputFilterSensitiveLog = (
-  obj: DisassociateTagOptionFromResourceOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableAWSOrganizationsAccessInputFilterSensitiveLog = (obj: EnableAWSOrganizationsAccessInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableAWSOrganizationsAccessOutputFilterSensitiveLog = (obj: EnableAWSOrganizationsAccessOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExecuteProvisionedProductPlanInputFilterSensitiveLog = (obj: ExecuteProvisionedProductPlanInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExecuteProvisionedProductPlanOutputFilterSensitiveLog = (
-  obj: ExecuteProvisionedProductPlanOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExecuteProvisionedProductServiceActionInputFilterSensitiveLog = (
-  obj: ExecuteProvisionedProductServiceActionInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExecuteProvisionedProductServiceActionOutputFilterSensitiveLog = (
-  obj: ExecuteProvisionedProductServiceActionOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAWSOrganizationsAccessStatusInputFilterSensitiveLog = (
-  obj: GetAWSOrganizationsAccessStatusInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAWSOrganizationsAccessStatusOutputFilterSensitiveLog = (
-  obj: GetAWSOrganizationsAccessStatusOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetProvisionedProductOutputsInputFilterSensitiveLog = (obj: GetProvisionedProductOutputsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetProvisionedProductOutputsOutputFilterSensitiveLog = (obj: GetProvisionedProductOutputsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportAsProvisionedProductInputFilterSensitiveLog = (obj: ImportAsProvisionedProductInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportAsProvisionedProductOutputFilterSensitiveLog = (obj: ImportAsProvisionedProductOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAcceptedPortfolioSharesInputFilterSensitiveLog = (obj: ListAcceptedPortfolioSharesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAcceptedPortfolioSharesOutputFilterSensitiveLog = (obj: ListAcceptedPortfolioSharesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListBudgetsForResourceInputFilterSensitiveLog = (obj: ListBudgetsForResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListBudgetsForResourceOutputFilterSensitiveLog = (obj: ListBudgetsForResourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListConstraintsForPortfolioInputFilterSensitiveLog = (obj: ListConstraintsForPortfolioInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListConstraintsForPortfolioOutputFilterSensitiveLog = (obj: ListConstraintsForPortfolioOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLaunchPathsInputFilterSensitiveLog = (obj: ListLaunchPathsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchPathSummaryFilterSensitiveLog = (obj: LaunchPathSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLaunchPathsOutputFilterSensitiveLog = (obj: ListLaunchPathsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListOrganizationPortfolioAccessInputFilterSensitiveLog = (
-  obj: ListOrganizationPortfolioAccessInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListOrganizationPortfolioAccessOutputFilterSensitiveLog = (
-  obj: ListOrganizationPortfolioAccessOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPortfolioAccessInputFilterSensitiveLog = (obj: ListPortfolioAccessInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPortfolioAccessOutputFilterSensitiveLog = (obj: ListPortfolioAccessOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPortfoliosInputFilterSensitiveLog = (obj: ListPortfoliosInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPortfoliosOutputFilterSensitiveLog = (obj: ListPortfoliosOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPortfoliosForProductInputFilterSensitiveLog = (obj: ListPortfoliosForProductInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPortfoliosForProductOutputFilterSensitiveLog = (obj: ListPortfoliosForProductOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPrincipalsForPortfolioInputFilterSensitiveLog = (obj: ListPrincipalsForPortfolioInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PrincipalFilterSensitiveLog = (obj: Principal): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPrincipalsForPortfolioOutputFilterSensitiveLog = (obj: ListPrincipalsForPortfolioOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListProvisionedProductPlansInputFilterSensitiveLog = (obj: ListProvisionedProductPlansInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProvisionedProductPlanSummaryFilterSensitiveLog = (obj: ProvisionedProductPlanSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListProvisionedProductPlansOutputFilterSensitiveLog = (obj: ListProvisionedProductPlansOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListProvisioningArtifactsInputFilterSensitiveLog = (obj: ListProvisioningArtifactsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListProvisioningArtifactsOutputFilterSensitiveLog = (obj: ListProvisioningArtifactsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListProvisioningArtifactsForServiceActionInputFilterSensitiveLog = (
-  obj: ListProvisioningArtifactsForServiceActionInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProvisioningArtifactViewFilterSensitiveLog = (obj: ProvisioningArtifactView): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListProvisioningArtifactsForServiceActionOutputFilterSensitiveLog = (
-  obj: ListProvisioningArtifactsForServiceActionOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRecordHistorySearchFilterFilterSensitiveLog = (obj: ListRecordHistorySearchFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRecordHistoryInputFilterSensitiveLog = (obj: ListRecordHistoryInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRecordHistoryOutputFilterSensitiveLog = (obj: ListRecordHistoryOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResourcesForTagOptionInputFilterSensitiveLog = (obj: ListResourcesForTagOptionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceDetailFilterSensitiveLog = (obj: ResourceDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResourcesForTagOptionOutputFilterSensitiveLog = (obj: ListResourcesForTagOptionOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListServiceActionsInputFilterSensitiveLog = (obj: ListServiceActionsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListServiceActionsOutputFilterSensitiveLog = (obj: ListServiceActionsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListServiceActionsForProvisioningArtifactInputFilterSensitiveLog = (
-  obj: ListServiceActionsForProvisioningArtifactInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListServiceActionsForProvisioningArtifactOutputFilterSensitiveLog = (
-  obj: ListServiceActionsForProvisioningArtifactOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStackInstancesForProvisionedProductInputFilterSensitiveLog = (
-  obj: ListStackInstancesForProvisionedProductInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StackInstanceFilterSensitiveLog = (obj: StackInstance): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStackInstancesForProvisionedProductOutputFilterSensitiveLog = (
-  obj: ListStackInstancesForProvisionedProductOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagOptionsFiltersFilterSensitiveLog = (obj: ListTagOptionsFilters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagOptionsInputFilterSensitiveLog = (obj: ListTagOptionsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagOptionsOutputFilterSensitiveLog = (obj: ListTagOptionsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProvisioningParameterFilterSensitiveLog = (obj: ProvisioningParameter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProvisioningPreferencesFilterSensitiveLog = (obj: ProvisioningPreferences): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProvisionProductInputFilterSensitiveLog = (obj: ProvisionProductInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProvisionProductOutputFilterSensitiveLog = (obj: ProvisionProductOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RejectPortfolioShareInputFilterSensitiveLog = (obj: RejectPortfolioShareInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RejectPortfolioShareOutputFilterSensitiveLog = (obj: RejectPortfolioShareOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScanProvisionedProductsInputFilterSensitiveLog = (obj: ScanProvisionedProductsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScanProvisionedProductsOutputFilterSensitiveLog = (obj: ScanProvisionedProductsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchProductsInputFilterSensitiveLog = (obj: SearchProductsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProductViewAggregationValueFilterSensitiveLog = (obj: ProductViewAggregationValue): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchProductsOutputFilterSensitiveLog = (obj: SearchProductsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchProductsAsAdminInputFilterSensitiveLog = (obj: SearchProductsAsAdminInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchProductsAsAdminOutputFilterSensitiveLog = (obj: SearchProductsAsAdminOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchProvisionedProductsInputFilterSensitiveLog = (obj: SearchProvisionedProductsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProvisionedProductAttributeFilterSensitiveLog = (obj: ProvisionedProductAttribute): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchProvisionedProductsOutputFilterSensitiveLog = (obj: SearchProvisionedProductsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TerminateProvisionedProductInputFilterSensitiveLog = (obj: TerminateProvisionedProductInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TerminateProvisionedProductOutputFilterSensitiveLog = (obj: TerminateProvisionedProductOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateConstraintInputFilterSensitiveLog = (obj: UpdateConstraintInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateConstraintOutputFilterSensitiveLog = (obj: UpdateConstraintOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePortfolioInputFilterSensitiveLog = (obj: UpdatePortfolioInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePortfolioOutputFilterSensitiveLog = (obj: UpdatePortfolioOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePortfolioShareInputFilterSensitiveLog = (obj: UpdatePortfolioShareInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePortfolioShareOutputFilterSensitiveLog = (obj: UpdatePortfolioShareOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateProductInputFilterSensitiveLog = (obj: UpdateProductInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateProductOutputFilterSensitiveLog = (obj: UpdateProductOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateProvisioningPreferencesFilterSensitiveLog = (obj: UpdateProvisioningPreferences): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateProvisionedProductInputFilterSensitiveLog = (obj: UpdateProvisionedProductInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateProvisionedProductOutputFilterSensitiveLog = (obj: UpdateProvisionedProductOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateProvisionedProductPropertiesInputFilterSensitiveLog = (
-  obj: UpdateProvisionedProductPropertiesInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateProvisionedProductPropertiesOutputFilterSensitiveLog = (
-  obj: UpdateProvisionedProductPropertiesOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateProvisioningArtifactInputFilterSensitiveLog = (obj: UpdateProvisioningArtifactInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateProvisioningArtifactOutputFilterSensitiveLog = (obj: UpdateProvisioningArtifactOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateServiceActionInputFilterSensitiveLog = (obj: UpdateServiceActionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateServiceActionOutputFilterSensitiveLog = (obj: UpdateServiceActionOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTagOptionInputFilterSensitiveLog = (obj: UpdateTagOptionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTagOptionOutputFilterSensitiveLog = (obj: UpdateTagOptionOutput): any => ({
-  ...obj,
-});

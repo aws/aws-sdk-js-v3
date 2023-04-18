@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import {
-  ListBackendEnvironmentsRequest,
-  ListBackendEnvironmentsRequestFilterSensitiveLog,
-  ListBackendEnvironmentsResult,
-  ListBackendEnvironmentsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListBackendEnvironmentsCommand,
-  serializeAws_restJson1ListBackendEnvironmentsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListBackendEnvironmentsRequest, ListBackendEnvironmentsResult } from "../models/models_0";
+import { de_ListBackendEnvironmentsCommand, se_ListBackendEnvironmentsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListBackendEnvironmentsCommand}.
+ */
 export interface ListBackendEnvironmentsCommandInput extends ListBackendEnvironmentsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListBackendEnvironmentsCommand}.
+ */
 export interface ListBackendEnvironmentsCommandOutput extends ListBackendEnvironmentsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Lists the backend environments for an Amplify app. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,31 @@ export interface ListBackendEnvironmentsCommandOutput extends ListBackendEnviron
  * import { AmplifyClient, ListBackendEnvironmentsCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, ListBackendEnvironmentsCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
+ * const input = { // ListBackendEnvironmentsRequest
+ *   appId: "STRING_VALUE", // required
+ *   environmentName: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListBackendEnvironmentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBackendEnvironmentsCommandInput - {@link ListBackendEnvironmentsCommandInput}
+ * @returns {@link ListBackendEnvironmentsCommandOutput}
  * @see {@link ListBackendEnvironmentsCommandInput} for command's `input` shape.
  * @see {@link ListBackendEnvironmentsCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p> A request contains unexpected data. </p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p> The service failed to perform an operation due to an internal issue. </p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p> An operation failed due to a lack of access. </p>
+ *
  *
  */
 export class ListBackendEnvironmentsCommand extends $Command<
@@ -62,6 +83,9 @@ export class ListBackendEnvironmentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBackendEnvironmentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +114,8 @@ export class ListBackendEnvironmentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBackendEnvironmentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListBackendEnvironmentsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +125,18 @@ export class ListBackendEnvironmentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBackendEnvironmentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListBackendEnvironmentsCommand(input, context);
+    return se_ListBackendEnvironmentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBackendEnvironmentsCommandOutput> {
-    return deserializeAws_restJson1ListBackendEnvironmentsCommand(output, context);
+    return de_ListBackendEnvironmentsCommand(output, context);
   }
 
   // Start section: command_body_extra

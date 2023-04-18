@@ -15,22 +15,31 @@ import {
 
 import {
   DisassociateQualificationFromWorkerRequest,
-  DisassociateQualificationFromWorkerRequestFilterSensitiveLog,
   DisassociateQualificationFromWorkerResponse,
-  DisassociateQualificationFromWorkerResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import {
-  deserializeAws_json1_1DisassociateQualificationFromWorkerCommand,
-  serializeAws_json1_1DisassociateQualificationFromWorkerCommand,
+  de_DisassociateQualificationFromWorkerCommand,
+  se_DisassociateQualificationFromWorkerCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DisassociateQualificationFromWorkerCommand}.
+ */
 export interface DisassociateQualificationFromWorkerCommandInput extends DisassociateQualificationFromWorkerRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateQualificationFromWorkerCommand}.
+ */
 export interface DisassociateQualificationFromWorkerCommandOutput
   extends DisassociateQualificationFromWorkerResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The 	<code>DisassociateQualificationFromWorker</code>
  *             revokes a previously granted Qualification from a user.
@@ -45,13 +54,27 @@ export interface DisassociateQualificationFromWorkerCommandOutput
  * import { MTurkClient, DisassociateQualificationFromWorkerCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, DisassociateQualificationFromWorkerCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = { // DisassociateQualificationFromWorkerRequest
+ *   WorkerId: "STRING_VALUE", // required
+ *   QualificationTypeId: "STRING_VALUE", // required
+ *   Reason: "STRING_VALUE",
+ * };
  * const command = new DisassociateQualificationFromWorkerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateQualificationFromWorkerCommandInput - {@link DisassociateQualificationFromWorkerCommandInput}
+ * @returns {@link DisassociateQualificationFromWorkerCommandOutput}
  * @see {@link DisassociateQualificationFromWorkerCommandInput} for command's `input` shape.
  * @see {@link DisassociateQualificationFromWorkerCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
+ *
+ * @throws {@link RequestError} (client fault)
+ *  <p>Your request is invalid.</p>
+ *
+ * @throws {@link ServiceFault} (server fault)
+ *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
  *
  */
 export class DisassociateQualificationFromWorkerCommand extends $Command<
@@ -71,6 +94,9 @@ export class DisassociateQualificationFromWorkerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateQualificationFromWorkerCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +125,8 @@ export class DisassociateQualificationFromWorkerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateQualificationFromWorkerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateQualificationFromWorkerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,18 +136,24 @@ export class DisassociateQualificationFromWorkerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateQualificationFromWorkerCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateQualificationFromWorkerCommand(input, context);
+    return se_DisassociateQualificationFromWorkerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateQualificationFromWorkerCommandOutput> {
-    return deserializeAws_json1_1DisassociateQualificationFromWorkerCommand(output, context);
+    return de_DisassociateQualificationFromWorkerCommand(output, context);
   }
 
   // Start section: command_body_extra

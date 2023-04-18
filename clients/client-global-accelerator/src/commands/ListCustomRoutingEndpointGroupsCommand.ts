@@ -18,23 +18,29 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
+import { ListCustomRoutingEndpointGroupsRequest, ListCustomRoutingEndpointGroupsResponse } from "../models/models_0";
 import {
-  ListCustomRoutingEndpointGroupsRequest,
-  ListCustomRoutingEndpointGroupsRequestFilterSensitiveLog,
-  ListCustomRoutingEndpointGroupsResponse,
-  ListCustomRoutingEndpointGroupsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListCustomRoutingEndpointGroupsCommand,
-  serializeAws_json1_1ListCustomRoutingEndpointGroupsCommand,
+  de_ListCustomRoutingEndpointGroupsCommand,
+  se_ListCustomRoutingEndpointGroupsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListCustomRoutingEndpointGroupsCommand}.
+ */
 export interface ListCustomRoutingEndpointGroupsCommandInput extends ListCustomRoutingEndpointGroupsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListCustomRoutingEndpointGroupsCommand}.
+ */
 export interface ListCustomRoutingEndpointGroupsCommandOutput
   extends ListCustomRoutingEndpointGroupsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the endpoint groups that are associated with a listener for a custom routing accelerator. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,13 +48,33 @@ export interface ListCustomRoutingEndpointGroupsCommandOutput
  * import { GlobalAcceleratorClient, ListCustomRoutingEndpointGroupsCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, ListCustomRoutingEndpointGroupsCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
+ * const input = { // ListCustomRoutingEndpointGroupsRequest
+ *   ListenerArn: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListCustomRoutingEndpointGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCustomRoutingEndpointGroupsCommandInput - {@link ListCustomRoutingEndpointGroupsCommandInput}
+ * @returns {@link ListCustomRoutingEndpointGroupsCommandOutput}
  * @see {@link ListCustomRoutingEndpointGroupsCommandInput} for command's `input` shape.
  * @see {@link ListCustomRoutingEndpointGroupsCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>There was an internal error for Global Accelerator.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>An argument that you specified is invalid.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>There isn't another item to return.</p>
+ *
+ * @throws {@link ListenerNotFoundException} (client fault)
+ *  <p>The listener that you specified doesn't exist.</p>
+ *
  *
  */
 export class ListCustomRoutingEndpointGroupsCommand extends $Command<
@@ -68,6 +94,9 @@ export class ListCustomRoutingEndpointGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCustomRoutingEndpointGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +125,8 @@ export class ListCustomRoutingEndpointGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCustomRoutingEndpointGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCustomRoutingEndpointGroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,18 +136,24 @@ export class ListCustomRoutingEndpointGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListCustomRoutingEndpointGroupsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCustomRoutingEndpointGroupsCommand(input, context);
+    return se_ListCustomRoutingEndpointGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListCustomRoutingEndpointGroupsCommandOutput> {
-    return deserializeAws_json1_1ListCustomRoutingEndpointGroupsCommand(output, context);
+    return de_ListCustomRoutingEndpointGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetConnectPeerRequest,
-  GetConnectPeerRequestFilterSensitiveLog,
-  GetConnectPeerResponse,
-  GetConnectPeerResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetConnectPeerRequest, GetConnectPeerResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1GetConnectPeerCommand,
-  serializeAws_restJson1GetConnectPeerCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetConnectPeerCommand, se_GetConnectPeerCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetConnectPeerCommand}.
+ */
 export interface GetConnectPeerCommandInput extends GetConnectPeerRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetConnectPeerCommand}.
+ */
 export interface GetConnectPeerCommandOutput extends GetConnectPeerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a core network Connect peer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,34 @@ export interface GetConnectPeerCommandOutput extends GetConnectPeerResponse, __M
  * import { NetworkManagerClient, GetConnectPeerCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetConnectPeerCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // GetConnectPeerRequest
+ *   ConnectPeerId: "STRING_VALUE", // required
+ * };
  * const command = new GetConnectPeerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetConnectPeerCommandInput - {@link GetConnectPeerCommandInput}
+ * @returns {@link GetConnectPeerCommandOutput}
  * @see {@link GetConnectPeerCommandInput} for command's `input` shape.
  * @see {@link GetConnectPeerCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request has failed due to an internal error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints.</p>
+ *
  *
  */
 export class GetConnectPeerCommand extends $Command<
@@ -62,6 +86,9 @@ export class GetConnectPeerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetConnectPeerCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +117,8 @@ export class GetConnectPeerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetConnectPeerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetConnectPeerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +128,18 @@ export class GetConnectPeerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetConnectPeerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetConnectPeerCommand(input, context);
+    return se_GetConnectPeerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConnectPeerCommandOutput> {
-    return deserializeAws_restJson1GetConnectPeerCommand(output, context);
+    return de_GetConnectPeerCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -154,6 +154,7 @@ import {
 import { LexModelBuildingServiceClient } from "./LexModelBuildingServiceClient";
 
 /**
+ * @public
  * <fullname>Amazon Lex Build-Time Actions</fullname>
  *          <p> Amazon Lex is an AWS service for building conversational voice and text
  *       interfaces. Use these actions to create, update, and delete conversational
@@ -161,6 +162,7 @@ import { LexModelBuildingServiceClient } from "./LexModelBuildingServiceClient";
  */
 export class LexModelBuildingService extends LexModelBuildingServiceClient {
   /**
+   * @public
    * <p>Creates a new version of the bot based on the <code>$LATEST</code>
    *       version. If the <code>$LATEST</code> version of this resource hasn't
    *       changed since you created the last version, Amazon Lex doesn't create a new
@@ -205,6 +207,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   }
 
   /**
+   * @public
    * <p>Creates a new version of an intent based on the
    *         <code>$LATEST</code> version of the intent. If the <code>$LATEST</code>
    *       version of this intent hasn't changed since you last updated it, Amazon Lex
@@ -250,6 +253,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   }
 
   /**
+   * @public
    * <p>Creates a new version of a slot type based on the
    *         <code>$LATEST</code> version of the specified slot type. If the
    *         <code>$LATEST</code> version of this resource has not changed since the
@@ -297,6 +301,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   }
 
   /**
+   * @public
    * <p>Deletes all versions of the bot, including the <code>$LATEST</code>
    *       version. To delete a specific version of the bot, use the <a>DeleteBotVersion</a> operation. The <code>DeleteBot</code>
    *       operation doesn't immediately remove the bot schema. Instead, it is marked
@@ -339,6 +344,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   }
 
   /**
+   * @public
    * <p>Deletes an alias for the specified bot. </p>
    *          <p>You can't delete an alias that is used in the association between a
    *       bot and a messaging channel. If an alias is used in a channel association,
@@ -379,6 +385,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   }
 
   /**
+   * @public
    * <p>Deletes the association between an Amazon Lex bot and a messaging
    *       platform.</p>
    *          <p>This operation requires permission for the
@@ -414,6 +421,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   }
 
   /**
+   * @public
    * <p>Deletes a specific version of a bot. To delete all versions of a
    *       bot, use the <a>DeleteBot</a> operation. </p>
    *          <p>This operation requires permissions for the
@@ -449,6 +457,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   }
 
   /**
+   * @public
    * <p>Deletes all versions of the intent, including the
    *         <code>$LATEST</code> version. To delete a specific version of the
    *       intent, use the <a>DeleteIntentVersion</a> operation.</p>
@@ -495,6 +504,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   }
 
   /**
+   * @public
    * <p>Deletes a specific version of an intent. To delete all versions of
    *       a intent, use the <a>DeleteIntent</a> operation. </p>
    *          <p>This operation requires permissions for the
@@ -530,6 +540,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   }
 
   /**
+   * @public
    * <p>Deletes all versions of the slot type, including the
    *         <code>$LATEST</code> version. To delete a specific version of the slot
    *       type, use the <a>DeleteSlotTypeVersion</a> operation.</p>
@@ -578,6 +589,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   }
 
   /**
+   * @public
    * <p>Deletes a specific version of a slot type. To delete all versions
    *       of a slot type, use the <a>DeleteSlotType</a> operation. </p>
    *          <p>This operation requires permissions for the
@@ -613,6 +625,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   }
 
   /**
+   * @public
    * <p>Deletes stored utterances.</p>
    *          <p>Amazon Lex stores the utterances that users send to your bot. Utterances
    *       are stored for 15 days for use with the <a>GetUtterancesView</a> operation, and then stored indefinitely for use in improving the
@@ -656,6 +669,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns metadata information for a specific bot. You must provide
    *       the bot name and the bot version or alias. </p>
    *          <p> This operation requires permissions for the
@@ -685,6 +699,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns information about an Amazon Lex bot alias. For more information
    *       about aliases, see <a>versioning-aliases</a>.</p>
    *          <p>This operation requires permissions for the
@@ -714,6 +729,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of aliases for a specified Amazon Lex bot.</p>
    *          <p>This operation requires permissions for the
    *         <code>lex:GetBotAliases</code> action.</p>
@@ -748,6 +764,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the association between an Amazon Lex bot and
    *       a messaging platform.</p>
    *          <p>This operation requires permissions for the
@@ -783,6 +800,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   }
 
   /**
+   * @public
    * <p> Returns a list of all of the channels associated with the
    *       specified bot. </p>
    *          <p>The <code>GetBotChannelAssociations</code> operation requires
@@ -819,6 +837,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns bot information as follows: </p>
    *          <ul>
    *             <li>
@@ -859,6 +878,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   }
 
   /**
+   * @public
    * <p>Gets information about all of the versions of a bot.</p>
    *          <p>The <code>GetBotVersions</code> operation returns a
    *         <code>BotMetadata</code> object for each version of a bot. For example,
@@ -901,6 +921,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a built-in intent.</p>
    *          <p>This operation requires permission for the
    *         <code>lex:GetBuiltinIntent</code> action.</p>
@@ -935,6 +956,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   }
 
   /**
+   * @public
    * <p>Gets a list of built-in intents that meet the specified
    *       criteria.</p>
    *          <p>This operation requires permission for the
@@ -970,6 +992,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   }
 
   /**
+   * @public
    * <p>Gets a list of built-in slot types that meet the specified
    *       criteria.</p>
    *          <p>For a list of built-in slot types, see <a href="https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/slot-type-reference">Slot Type Reference</a> in the <i>Alexa Skills
@@ -1008,6 +1031,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   }
 
   /**
+   * @public
    * <p>Exports the contents of a Amazon Lex resource in a specified format.
    *     </p>
    */
@@ -1035,6 +1059,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   }
 
   /**
+   * @public
    * <p>Gets information about an import job started with the
    *         <code>StartImport</code> operation.</p>
    */
@@ -1062,6 +1087,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   }
 
   /**
+   * @public
    * <p> Returns information about an intent. In addition to the intent
    *       name, you must specify the intent version. </p>
    *          <p> This operation requires permissions to perform the
@@ -1091,6 +1117,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns intent information as follows: </p>
    *          <ul>
    *             <li>
@@ -1131,6 +1158,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   }
 
   /**
+   * @public
    * <p>Gets information about all of the versions of an intent.</p>
    *          <p>The <code>GetIntentVersions</code> operation returns an
    *         <code>IntentMetadata</code> object for each version of an intent. For
@@ -1173,6 +1201,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   }
 
   /**
+   * @public
    * <p>Provides details about an ongoing or complete migration from an
    *       Amazon Lex V1 bot to an Amazon Lex V2 bot. Use this operation to view the migration
    *       alerts and warnings related to the migration.</p>
@@ -1204,6 +1233,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   }
 
   /**
+   * @public
    * <p>Gets a list of migrations between Amazon Lex V1 and Amazon Lex V2.</p>
    */
   public getMigrations(
@@ -1236,6 +1266,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a specific version of a slot type. In
    *       addition to specifying the slot type name, you must specify the slot type
    *       version.</p>
@@ -1266,6 +1297,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns slot type information as follows: </p>
    *          <ul>
    *             <li>
@@ -1309,6 +1341,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   }
 
   /**
+   * @public
    * <p>Gets information about all versions of a slot type.</p>
    *          <p>The <code>GetSlotTypeVersions</code> operation returns a
    *         <code>SlotTypeMetadata</code> object for each version of a slot type.
@@ -1351,6 +1384,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   }
 
   /**
+   * @public
    * <p>Use the <code>GetUtterancesView</code> operation to get information
    *       about the utterances that your users have made to your bot. You can use
    *       this list to tune the utterances that your bot responds to.</p>
@@ -1406,6 +1440,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   }
 
   /**
+   * @public
    * <p>Gets a list of tags associated with the specified resource. Only bots,
    *       bot aliases, and bot channels can have tags associated with them.</p>
    */
@@ -1439,6 +1474,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   }
 
   /**
+   * @public
    * <p>Creates an Amazon Lex conversational bot or replaces an existing bot.
    *       When you create or update a bot you are only required to specify a name, a
    *       locale, and whether the bot is directed toward children under age 13. You
@@ -1482,6 +1518,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   }
 
   /**
+   * @public
    * <p>Creates an alias for the specified version of the bot or replaces
    *       an alias for the specified bot. To change the version of the bot that the
    *       alias points to, replace the alias. For more information about aliases,
@@ -1513,6 +1550,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   }
 
   /**
+   * @public
    * <p>Creates an intent or replaces an existing intent.</p>
    *          <p>To define the interaction between the user and your bot, you use
    *       one or more intents. For a pizza ordering bot, for example, you would
@@ -1596,6 +1634,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   }
 
   /**
+   * @public
    * <p>Creates a custom slot type or replaces an existing custom slot
    *       type.</p>
    *          <p>To create a custom slot type, specify a name for the slot type and
@@ -1637,6 +1676,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   }
 
   /**
+   * @public
    * <p>Starts a job to import a resource to Amazon Lex.</p>
    */
   public startImport(args: StartImportCommandInput, options?: __HttpHandlerOptions): Promise<StartImportCommandOutput>;
@@ -1663,6 +1703,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   }
 
   /**
+   * @public
    * <p>Starts migrating a bot from Amazon Lex V1 to Amazon Lex V2. Migrate your bot when
    *       you want to take advantage of the new features of Amazon Lex V2.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/migrate.html">Migrating a bot</a> in the <i>Amazon Lex
@@ -1698,6 +1739,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   }
 
   /**
+   * @public
    * <p>Adds the specified tags to the specified resource. If a tag key
    *       already exists, the existing value is replaced with the new value.</p>
    */
@@ -1725,6 +1767,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   }
 
   /**
+   * @public
    * <p>Removes tags from a bot, bot alias or bot channel.</p>
    */
   public untagResource(

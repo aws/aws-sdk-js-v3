@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
-import {
-  UpdateLicenseConfigurationRequest,
-  UpdateLicenseConfigurationRequestFilterSensitiveLog,
-  UpdateLicenseConfigurationResponse,
-  UpdateLicenseConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateLicenseConfigurationCommand,
-  serializeAws_json1_1UpdateLicenseConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateLicenseConfigurationRequest, UpdateLicenseConfigurationResponse } from "../models/models_0";
+import { de_UpdateLicenseConfigurationCommand, se_UpdateLicenseConfigurationCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateLicenseConfigurationCommand}.
+ */
 export interface UpdateLicenseConfigurationCommandInput extends UpdateLicenseConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateLicenseConfigurationCommand}.
+ */
 export interface UpdateLicenseConfigurationCommandOutput extends UpdateLicenseConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the attributes of an existing license configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,61 @@ export interface UpdateLicenseConfigurationCommandOutput extends UpdateLicenseCo
  * import { LicenseManagerClient, UpdateLicenseConfigurationCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, UpdateLicenseConfigurationCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = { // UpdateLicenseConfigurationRequest
+ *   LicenseConfigurationArn: "STRING_VALUE", // required
+ *   LicenseConfigurationStatus: "AVAILABLE" || "DISABLED",
+ *   LicenseRules: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ *   LicenseCount: Number("long"),
+ *   LicenseCountHardLimit: true || false,
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   ProductInformationList: [ // ProductInformationList
+ *     { // ProductInformation
+ *       ResourceType: "STRING_VALUE", // required
+ *       ProductInformationFilterList: [ // ProductInformationFilterList // required
+ *         { // ProductInformationFilter
+ *           ProductInformationFilterName: "STRING_VALUE", // required
+ *           ProductInformationFilterValue: [
+ *             "STRING_VALUE",
+ *           ],
+ *           ProductInformationFilterComparator: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   DisassociateWhenNotFound: true || false,
+ * };
  * const command = new UpdateLicenseConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateLicenseConfigurationCommandInput - {@link UpdateLicenseConfigurationCommandInput}
+ * @returns {@link UpdateLicenseConfigurationCommandOutput}
  * @see {@link UpdateLicenseConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateLicenseConfigurationCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to resource denied.</p>
+ *
+ * @throws {@link AuthorizationException} (client fault)
+ *  <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM
+ *          policy associated with this account.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ * @throws {@link RateLimitExceededException} (client fault)
+ *  <p>Too many requests have been submitted. Try again after a brief wait.</p>
+ *
+ * @throws {@link ResourceLimitExceededException} (client fault)
+ *  <p>Your resource limits have been exceeded.</p>
+ *
+ * @throws {@link ServerInternalException} (server fault)
+ *  <p>The server experienced an internal error. Try again.</p>
+ *
  *
  */
 export class UpdateLicenseConfigurationCommand extends $Command<
@@ -62,6 +113,9 @@ export class UpdateLicenseConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateLicenseConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +144,8 @@ export class UpdateLicenseConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateLicenseConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateLicenseConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +155,21 @@ export class UpdateLicenseConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateLicenseConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateLicenseConfigurationCommand(input, context);
+    return se_UpdateLicenseConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateLicenseConfigurationCommandOutput> {
-    return deserializeAws_json1_1UpdateLicenseConfigurationCommand(output, context);
+    return de_UpdateLicenseConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

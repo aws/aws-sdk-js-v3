@@ -15,20 +15,27 @@ import {
 
 import {
   CreateCliTokenRequest,
-  CreateCliTokenRequestFilterSensitiveLog,
   CreateCliTokenResponse,
   CreateCliTokenResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { MWAAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MWAAClient";
-import {
-  deserializeAws_restJson1CreateCliTokenCommand,
-  serializeAws_restJson1CreateCliTokenCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateCliTokenCommand, se_CreateCliTokenCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateCliTokenCommand}.
+ */
 export interface CreateCliTokenCommandInput extends CreateCliTokenRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateCliTokenCommand}.
+ */
 export interface CreateCliTokenCommandOutput extends CreateCliTokenResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a CLI token for the Airflow CLI. To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/call-mwaa-apis-cli.html">Creating an Apache Airflow CLI token</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +43,22 @@ export interface CreateCliTokenCommandOutput extends CreateCliTokenResponse, __M
  * import { MWAAClient, CreateCliTokenCommand } from "@aws-sdk/client-mwaa"; // ES Modules import
  * // const { MWAAClient, CreateCliTokenCommand } = require("@aws-sdk/client-mwaa"); // CommonJS import
  * const client = new MWAAClient(config);
+ * const input = { // CreateCliTokenRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new CreateCliTokenCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCliTokenCommandInput - {@link CreateCliTokenCommandInput}
+ * @returns {@link CreateCliTokenCommandOutput}
  * @see {@link CreateCliTokenCommandInput} for command's `input` shape.
  * @see {@link CreateCliTokenCommandOutput} for command's `response` shape.
  * @see {@link MWAAClientResolvedConfig | config} for MWAAClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>ResourceNotFoundException: The resource is not available.</p>
+ *
  *
  */
 export class CreateCliTokenCommand extends $Command<
@@ -62,6 +78,9 @@ export class CreateCliTokenCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCliTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +109,7 @@ export class CreateCliTokenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCliTokenRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CreateCliTokenResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -101,12 +120,18 @@ export class CreateCliTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCliTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateCliTokenCommand(input, context);
+    return se_CreateCliTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCliTokenCommandOutput> {
-    return deserializeAws_restJson1CreateCliTokenCommand(output, context);
+    return de_CreateCliTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

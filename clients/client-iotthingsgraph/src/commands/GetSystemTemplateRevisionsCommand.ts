@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import {
-  GetSystemTemplateRevisionsRequest,
-  GetSystemTemplateRevisionsRequestFilterSensitiveLog,
-  GetSystemTemplateRevisionsResponse,
-  GetSystemTemplateRevisionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetSystemTemplateRevisionsCommand,
-  serializeAws_json1_1GetSystemTemplateRevisionsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetSystemTemplateRevisionsRequest, GetSystemTemplateRevisionsResponse } from "../models/models_0";
+import { de_GetSystemTemplateRevisionsCommand, se_GetSystemTemplateRevisionsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetSystemTemplateRevisionsCommand}.
+ */
 export interface GetSystemTemplateRevisionsCommandInput extends GetSystemTemplateRevisionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetSystemTemplateRevisionsCommand}.
+ */
 export interface GetSystemTemplateRevisionsCommandOutput extends GetSystemTemplateRevisionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Gets revisions made to the specified system template. Only the previous 100 revisions are stored. If the system has been deprecated, this action will return
@@ -39,13 +42,33 @@ export interface GetSystemTemplateRevisionsCommandOutput extends GetSystemTempla
  * import { IoTThingsGraphClient, GetSystemTemplateRevisionsCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, GetSystemTemplateRevisionsCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
+ * const input = { // GetSystemTemplateRevisionsRequest
+ *   id: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new GetSystemTemplateRevisionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSystemTemplateRevisionsCommandInput - {@link GetSystemTemplateRevisionsCommandInput}
+ * @returns {@link GetSystemTemplateRevisionsCommandOutput}
  * @see {@link GetSystemTemplateRevisionsCommandInput} for command's `input` shape.
  * @see {@link GetSystemTemplateRevisionsCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p></p>
+ *
  *
  */
 export class GetSystemTemplateRevisionsCommand extends $Command<
@@ -65,6 +88,9 @@ export class GetSystemTemplateRevisionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSystemTemplateRevisionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +119,8 @@ export class GetSystemTemplateRevisionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSystemTemplateRevisionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSystemTemplateRevisionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,15 +130,21 @@ export class GetSystemTemplateRevisionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSystemTemplateRevisionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSystemTemplateRevisionsCommand(input, context);
+    return se_GetSystemTemplateRevisionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSystemTemplateRevisionsCommandOutput> {
-    return deserializeAws_json1_1GetSystemTemplateRevisionsCommand(output, context);
+    return de_GetSystemTemplateRevisionsCommand(output, context);
   }
 
   // Start section: command_body_extra

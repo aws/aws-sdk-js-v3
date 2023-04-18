@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import {
-  Connections,
-  ConnectionsFilterSensitiveLog,
-  DescribeConnectionsRequest,
-  DescribeConnectionsRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeConnectionsCommand,
-  serializeAws_json1_1DescribeConnectionsCommand,
-} from "../protocols/Aws_json1_1";
+import { Connections, DescribeConnectionsRequest } from "../models/models_0";
+import { de_DescribeConnectionsCommand, se_DescribeConnectionsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeConnectionsCommand}.
+ */
 export interface DescribeConnectionsCommandInput extends DescribeConnectionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeConnectionsCommand}.
+ */
 export interface DescribeConnectionsCommandOutput extends Connections, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Displays the specified connection or all connections in this Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,25 @@ export interface DescribeConnectionsCommandOutput extends Connections, __Metadat
  * import { DirectConnectClient, DescribeConnectionsCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DescribeConnectionsCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // DescribeConnectionsRequest
+ *   connectionId: "STRING_VALUE",
+ * };
  * const command = new DescribeConnectionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConnectionsCommandInput - {@link DescribeConnectionsCommandInput}
+ * @returns {@link DescribeConnectionsCommandOutput}
  * @see {@link DescribeConnectionsCommandInput} for command's `input` shape.
  * @see {@link DescribeConnectionsCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
+ *
+ * @throws {@link DirectConnectClientException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link DirectConnectServerException} (server fault)
+ *  <p>A server-side error occurred.</p>
+ *
  *
  */
 export class DescribeConnectionsCommand extends $Command<
@@ -62,6 +77,9 @@ export class DescribeConnectionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConnectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +108,8 @@ export class DescribeConnectionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeConnectionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ConnectionsFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +119,18 @@ export class DescribeConnectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeConnectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeConnectionsCommand(input, context);
+    return se_DescribeConnectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeConnectionsCommandOutput> {
-    return deserializeAws_json1_1DescribeConnectionsCommand(output, context);
+    return de_DescribeConnectionsCommand(output, context);
   }
 
   // Start section: command_body_extra

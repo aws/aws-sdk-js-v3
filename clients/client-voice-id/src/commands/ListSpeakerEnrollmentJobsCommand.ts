@@ -15,20 +15,27 @@ import {
 
 import {
   ListSpeakerEnrollmentJobsRequest,
-  ListSpeakerEnrollmentJobsRequestFilterSensitiveLog,
   ListSpeakerEnrollmentJobsResponse,
   ListSpeakerEnrollmentJobsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0ListSpeakerEnrollmentJobsCommand,
-  serializeAws_json1_0ListSpeakerEnrollmentJobsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListSpeakerEnrollmentJobsCommand, se_ListSpeakerEnrollmentJobsCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListSpeakerEnrollmentJobsCommand}.
+ */
 export interface ListSpeakerEnrollmentJobsCommandInput extends ListSpeakerEnrollmentJobsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListSpeakerEnrollmentJobsCommand}.
+ */
 export interface ListSpeakerEnrollmentJobsCommandOutput extends ListSpeakerEnrollmentJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the speaker enrollment jobs in the domain with the specified
  *                 <code>JobStatus</code>. If <code>JobStatus</code> is not provided, this lists all
  *             jobs with all possible speaker enrollment job statuses.</p>
@@ -38,13 +45,43 @@ export interface ListSpeakerEnrollmentJobsCommandOutput extends ListSpeakerEnrol
  * import { VoiceIDClient, ListSpeakerEnrollmentJobsCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
  * // const { VoiceIDClient, ListSpeakerEnrollmentJobsCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
  * const client = new VoiceIDClient(config);
+ * const input = { // ListSpeakerEnrollmentJobsRequest
+ *   DomainId: "STRING_VALUE", // required
+ *   JobStatus: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListSpeakerEnrollmentJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSpeakerEnrollmentJobsCommandInput - {@link ListSpeakerEnrollmentJobsCommandInput}
+ * @returns {@link ListSpeakerEnrollmentJobsCommandOutput}
  * @see {@link ListSpeakerEnrollmentJobsCommandInput} for command's `input` shape.
  * @see {@link ListSpeakerEnrollmentJobsCommandOutput} for command's `response` shape.
  * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action. Check the error message
+ *             and try again.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request failed due to an unknown error on the server side.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource cannot be found. Check the <code>ResourceType</code> and error
+ *             message for more details.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling. Please slow down your request rate.
+ *             Refer to <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html##voiceid-api-quotas">
+ *                 Amazon Connect Voice ID Service API throttling quotas </a> and try your
+ *             request again.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request failed one or more validations; check the error message for more
+ *             details.</p>
+ *
  *
  */
 export class ListSpeakerEnrollmentJobsCommand extends $Command<
@@ -64,6 +101,9 @@ export class ListSpeakerEnrollmentJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSpeakerEnrollmentJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,7 +132,7 @@ export class ListSpeakerEnrollmentJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSpeakerEnrollmentJobsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListSpeakerEnrollmentJobsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -103,15 +143,21 @@ export class ListSpeakerEnrollmentJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSpeakerEnrollmentJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListSpeakerEnrollmentJobsCommand(input, context);
+    return se_ListSpeakerEnrollmentJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSpeakerEnrollmentJobsCommandOutput> {
-    return deserializeAws_json1_0ListSpeakerEnrollmentJobsCommand(output, context);
+    return de_ListSpeakerEnrollmentJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

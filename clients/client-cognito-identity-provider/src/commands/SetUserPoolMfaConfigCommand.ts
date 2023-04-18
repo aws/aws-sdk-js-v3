@@ -19,21 +19,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import {
-  SetUserPoolMfaConfigRequest,
-  SetUserPoolMfaConfigRequestFilterSensitiveLog,
-  SetUserPoolMfaConfigResponse,
-  SetUserPoolMfaConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1SetUserPoolMfaConfigCommand,
-  serializeAws_json1_1SetUserPoolMfaConfigCommand,
-} from "../protocols/Aws_json1_1";
+import { SetUserPoolMfaConfigRequest, SetUserPoolMfaConfigResponse } from "../models/models_0";
+import { de_SetUserPoolMfaConfigCommand, se_SetUserPoolMfaConfigCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link SetUserPoolMfaConfigCommand}.
+ */
 export interface SetUserPoolMfaConfigCommandInput extends SetUserPoolMfaConfigRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SetUserPoolMfaConfigCommand}.
+ */
 export interface SetUserPoolMfaConfigCommandOutput extends SetUserPoolMfaConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the user pool multi-factor authentication (MFA) configuration.</p>
  *
  *          <note>
@@ -59,13 +62,59 @@ export interface SetUserPoolMfaConfigCommandOutput extends SetUserPoolMfaConfigR
  * import { CognitoIdentityProviderClient, SetUserPoolMfaConfigCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, SetUserPoolMfaConfigCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // SetUserPoolMfaConfigRequest
+ *   UserPoolId: "STRING_VALUE", // required
+ *   SmsMfaConfiguration: { // SmsMfaConfigType
+ *     SmsAuthenticationMessage: "STRING_VALUE",
+ *     SmsConfiguration: { // SmsConfigurationType
+ *       SnsCallerArn: "STRING_VALUE", // required
+ *       ExternalId: "STRING_VALUE",
+ *       SnsRegion: "STRING_VALUE",
+ *     },
+ *   },
+ *   SoftwareTokenMfaConfiguration: { // SoftwareTokenMfaConfigType
+ *     Enabled: true || false,
+ *   },
+ *   MfaConfiguration: "OFF" || "ON" || "OPTIONAL",
+ * };
  * const command = new SetUserPoolMfaConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SetUserPoolMfaConfigCommandInput - {@link SetUserPoolMfaConfigCommandInput}
+ * @returns {@link SetUserPoolMfaConfigCommandOutput}
  * @see {@link SetUserPoolMfaConfigCommandInput} for command's `input` shape.
  * @see {@link SetUserPoolMfaConfigCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
+ *             parameter.</p>
+ *
+ * @throws {@link InvalidSmsRoleAccessPolicyException} (client fault)
+ *  <p>This exception is returned when the role provided for SMS configuration doesn't have
+ *             permission to publish using Amazon SNS.</p>
+ *
+ * @throws {@link InvalidSmsRoleTrustRelationshipException} (client fault)
+ *  <p>This exception is thrown when the trust relationship is not valid for the role
+ *             provided for SMS configuration. This can happen if you don't trust
+ *             <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does
+ *             not match what is provided in the SMS configuration for the user pool.</p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
+ *             resource.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>This exception is thrown when the user has made too many requests for a given
+ *             operation.</p>
+ *
  *
  */
 export class SetUserPoolMfaConfigCommand extends $Command<
@@ -85,6 +134,9 @@ export class SetUserPoolMfaConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetUserPoolMfaConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +166,8 @@ export class SetUserPoolMfaConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetUserPoolMfaConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SetUserPoolMfaConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +177,18 @@ export class SetUserPoolMfaConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetUserPoolMfaConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SetUserPoolMfaConfigCommand(input, context);
+    return se_SetUserPoolMfaConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetUserPoolMfaConfigCommandOutput> {
-    return deserializeAws_json1_1SetUserPoolMfaConfigCommand(output, context);
+    return de_SetUserPoolMfaConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,23 +14,26 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ModifyInstanceMetadataOptionsRequest,
-  ModifyInstanceMetadataOptionsRequestFilterSensitiveLog,
-  ModifyInstanceMetadataOptionsResult,
-  ModifyInstanceMetadataOptionsResultFilterSensitiveLog,
-} from "../models/models_6";
-import {
-  deserializeAws_ec2ModifyInstanceMetadataOptionsCommand,
-  serializeAws_ec2ModifyInstanceMetadataOptionsCommand,
-} from "../protocols/Aws_ec2";
+import { ModifyInstanceMetadataOptionsRequest, ModifyInstanceMetadataOptionsResult } from "../models/models_6";
+import { de_ModifyInstanceMetadataOptionsCommand, se_ModifyInstanceMetadataOptionsCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link ModifyInstanceMetadataOptionsCommand}.
+ */
 export interface ModifyInstanceMetadataOptionsCommandInput extends ModifyInstanceMetadataOptionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ModifyInstanceMetadataOptionsCommand}.
+ */
 export interface ModifyInstanceMetadataOptionsCommandOutput
   extends ModifyInstanceMetadataOptionsResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modify the instance metadata parameters on a running or stopped instance. When you
  *             modify the parameters on a stopped instance, they are applied when the instance is
  *             started. When you modify the parameters on a running instance, the API responds with a
@@ -44,13 +47,25 @@ export interface ModifyInstanceMetadataOptionsCommandOutput
  * import { EC2Client, ModifyInstanceMetadataOptionsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyInstanceMetadataOptionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ModifyInstanceMetadataOptionsRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   HttpTokens: "optional" || "required",
+ *   HttpPutResponseHopLimit: Number("int"),
+ *   HttpEndpoint: "disabled" || "enabled",
+ *   DryRun: true || false,
+ *   HttpProtocolIpv6: "disabled" || "enabled",
+ *   InstanceMetadataTags: "disabled" || "enabled",
+ * };
  * const command = new ModifyInstanceMetadataOptionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyInstanceMetadataOptionsCommandInput - {@link ModifyInstanceMetadataOptionsCommandInput}
+ * @returns {@link ModifyInstanceMetadataOptionsCommandOutput}
  * @see {@link ModifyInstanceMetadataOptionsCommandInput} for command's `input` shape.
  * @see {@link ModifyInstanceMetadataOptionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class ModifyInstanceMetadataOptionsCommand extends $Command<
@@ -70,6 +85,9 @@ export class ModifyInstanceMetadataOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyInstanceMetadataOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +116,8 @@ export class ModifyInstanceMetadataOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyInstanceMetadataOptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyInstanceMetadataOptionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,15 +127,21 @@ export class ModifyInstanceMetadataOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyInstanceMetadataOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyInstanceMetadataOptionsCommand(input, context);
+    return se_ModifyInstanceMetadataOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyInstanceMetadataOptionsCommandOutput> {
-    return deserializeAws_ec2ModifyInstanceMetadataOptionsCommand(output, context);
+    return de_ModifyInstanceMetadataOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

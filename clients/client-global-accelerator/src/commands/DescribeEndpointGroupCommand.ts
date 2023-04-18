@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import {
-  DescribeEndpointGroupRequest,
-  DescribeEndpointGroupRequestFilterSensitiveLog,
-  DescribeEndpointGroupResponse,
-  DescribeEndpointGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeEndpointGroupCommand,
-  serializeAws_json1_1DescribeEndpointGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeEndpointGroupRequest, DescribeEndpointGroupResponse } from "../models/models_0";
+import { de_DescribeEndpointGroupCommand, se_DescribeEndpointGroupCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeEndpointGroupCommand}.
+ */
 export interface DescribeEndpointGroupCommandInput extends DescribeEndpointGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeEndpointGroupCommand}.
+ */
 export interface DescribeEndpointGroupCommandOutput extends DescribeEndpointGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describe an endpoint group. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,28 @@ export interface DescribeEndpointGroupCommandOutput extends DescribeEndpointGrou
  * import { GlobalAcceleratorClient, DescribeEndpointGroupCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, DescribeEndpointGroupCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
+ * const input = { // DescribeEndpointGroupRequest
+ *   EndpointGroupArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeEndpointGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEndpointGroupCommandInput - {@link DescribeEndpointGroupCommandInput}
+ * @returns {@link DescribeEndpointGroupCommandOutput}
  * @see {@link DescribeEndpointGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeEndpointGroupCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
+ *
+ * @throws {@link EndpointGroupNotFoundException} (client fault)
+ *  <p>The endpoint group that you specified doesn't exist.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>There was an internal error for Global Accelerator.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>An argument that you specified is invalid.</p>
+ *
  *
  */
 export class DescribeEndpointGroupCommand extends $Command<
@@ -66,6 +84,9 @@ export class DescribeEndpointGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEndpointGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +115,8 @@ export class DescribeEndpointGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEndpointGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEndpointGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +126,18 @@ export class DescribeEndpointGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEndpointGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEndpointGroupCommand(input, context);
+    return se_DescribeEndpointGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEndpointGroupCommandOutput> {
-    return deserializeAws_json1_1DescribeEndpointGroupCommand(output, context);
+    return de_DescribeEndpointGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

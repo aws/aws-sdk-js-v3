@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteSequenceStoreRequest,
-  DeleteSequenceStoreRequestFilterSensitiveLog,
-  DeleteSequenceStoreResponse,
-  DeleteSequenceStoreResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteSequenceStoreRequest, DeleteSequenceStoreResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1DeleteSequenceStoreCommand,
-  serializeAws_restJson1DeleteSequenceStoreCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteSequenceStoreCommand, se_DeleteSequenceStoreCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteSequenceStoreCommand}.
+ */
 export interface DeleteSequenceStoreCommandInput extends DeleteSequenceStoreRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteSequenceStoreCommand}.
+ */
 export interface DeleteSequenceStoreCommandOutput extends DeleteSequenceStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a sequence store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,40 @@ export interface DeleteSequenceStoreCommandOutput extends DeleteSequenceStoreRes
  * import { OmicsClient, DeleteSequenceStoreCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, DeleteSequenceStoreCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = { // DeleteSequenceStoreRequest
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSequenceStoreCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSequenceStoreCommandInput - {@link DeleteSequenceStoreCommandInput}
+ * @returns {@link DeleteSequenceStoreCommandOutput}
  * @see {@link DeleteSequenceStoreCommandInput} for command's `input` shape.
  * @see {@link DeleteSequenceStoreCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request cannot be applied to the target resource in its current state.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred. Try the request again.</p>
+ *
+ * @throws {@link RequestTimeoutException} (client fault)
+ *  <p>The request timed out.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The target resource was not found in the current Region.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
  *
  */
 export class DeleteSequenceStoreCommand extends $Command<
@@ -62,6 +92,9 @@ export class DeleteSequenceStoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSequenceStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +123,8 @@ export class DeleteSequenceStoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSequenceStoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSequenceStoreResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +134,18 @@ export class DeleteSequenceStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSequenceStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSequenceStoreCommand(input, context);
+    return se_DeleteSequenceStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSequenceStoreCommandOutput> {
-    return deserializeAws_restJson1DeleteSequenceStoreCommand(output, context);
+    return de_DeleteSequenceStoreCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  UpdateScriptInput,
-  UpdateScriptInputFilterSensitiveLog,
-  UpdateScriptOutput,
-  UpdateScriptOutputFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1UpdateScriptCommand,
-  serializeAws_json1_1UpdateScriptCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateScriptInput, UpdateScriptOutput } from "../models/models_1";
+import { de_UpdateScriptCommand, se_UpdateScriptCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateScriptCommand}.
+ */
 export interface UpdateScriptCommandInput extends UpdateScriptInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateScriptCommand}.
+ */
 export interface UpdateScriptCommandOutput extends UpdateScriptOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates Realtime script metadata and content.</p>
  *         <p>To update script metadata, specify the script ID and provide updated name and/or
  *             version values. </p>
@@ -57,13 +60,42 @@ export interface UpdateScriptCommandOutput extends UpdateScriptOutput, __Metadat
  * import { GameLiftClient, UpdateScriptCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, UpdateScriptCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // UpdateScriptInput
+ *   ScriptId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Version: "STRING_VALUE",
+ *   StorageLocation: { // S3Location
+ *     Bucket: "STRING_VALUE",
+ *     Key: "STRING_VALUE",
+ *     RoleArn: "STRING_VALUE",
+ *     ObjectVersion: "STRING_VALUE",
+ *   },
+ *   ZipFile: "BLOB_VALUE",
+ * };
  * const command = new UpdateScriptCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateScriptCommandInput - {@link UpdateScriptCommandInput}
+ * @returns {@link UpdateScriptCommandOutput}
  * @see {@link UpdateScriptCommandInput} for command's `input` shape.
  * @see {@link UpdateScriptCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an unrecoverable internal failure while processing the
+ *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
+ *             values before retrying.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
  *
  */
 export class UpdateScriptCommand extends $Command<
@@ -83,6 +115,9 @@ export class UpdateScriptCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateScriptCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +144,8 @@ export class UpdateScriptCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateScriptInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateScriptOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +155,18 @@ export class UpdateScriptCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateScriptCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateScriptCommand(input, context);
+    return se_UpdateScriptCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateScriptCommandOutput> {
-    return deserializeAws_json1_1UpdateScriptCommand(output, context);
+    return de_UpdateScriptCommand(output, context);
   }
 
   // Start section: command_body_extra

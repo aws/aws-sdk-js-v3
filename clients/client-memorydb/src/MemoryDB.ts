@@ -162,12 +162,14 @@ import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } fr
 import { MemoryDBClient } from "./MemoryDBClient";
 
 /**
+ * @public
  * <p>MemoryDB for Redis is a fully managed, Redis-compatible, in-memory database that delivers ultra-fast performance and Multi-AZ durability for modern applications built using microservices architectures.
  *
  *        MemoryDB stores the entire database in-memory, enabling low latency and high throughput data access. It is compatible with Redis, a popular open source data store, enabling you to leverage Redis’ flexible and friendly data structures, APIs, and commands.</p>
  */
 export class MemoryDB extends MemoryDBClient {
   /**
+   * @public
    * <p>Apply the service update to a list of clusters supplied. For more information on service updates and applying them, see <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/managing-updates.html#applying-updates">Applying the service updates</a>.</p>
    */
   public batchUpdateCluster(
@@ -200,6 +202,7 @@ export class MemoryDB extends MemoryDBClient {
   }
 
   /**
+   * @public
    * <p>Makes a copy of an existing snapshot.</p>
    */
   public copySnapshot(
@@ -229,6 +232,7 @@ export class MemoryDB extends MemoryDBClient {
   }
 
   /**
+   * @public
    * <p>Creates an Access Control List. For more information, see <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/clusters.acls.html">Authenticating users with Access Contol Lists (ACLs)</a>.</p>
    */
   public createACL(args: CreateACLCommandInput, options?: __HttpHandlerOptions): Promise<CreateACLCommandOutput>;
@@ -255,6 +259,7 @@ export class MemoryDB extends MemoryDBClient {
   }
 
   /**
+   * @public
    * <p>Creates a cluster. All nodes in the cluster run the same protocol-compliant engine software.</p>
    */
   public createCluster(
@@ -287,6 +292,7 @@ export class MemoryDB extends MemoryDBClient {
   }
 
   /**
+   * @public
    * <p>Creates a new MemoryDB parameter group. A parameter group is a collection of parameters and their values that are applied to all of the nodes in any cluster. For
    *          more information, see <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/parametergroups.html">Configuring engine parameters using parameter groups</a>.
    *
@@ -322,6 +328,7 @@ export class MemoryDB extends MemoryDBClient {
   }
 
   /**
+   * @public
    * <p>Creates a copy of an entire cluster at a specific moment in time.</p>
    */
   public createSnapshot(
@@ -354,6 +361,7 @@ export class MemoryDB extends MemoryDBClient {
   }
 
   /**
+   * @public
    * <p>Creates a subnet group. A subnet group is a collection of subnets (typically private) that you can designate for your clusters running in an Amazon Virtual Private Cloud (VPC) environment.
    *
    *          When you create a cluster in an Amazon VPC, you must specify a subnet group. MemoryDB uses that subnet group to choose a subnet and IP addresses within that subnet to associate with your nodes.
@@ -389,6 +397,7 @@ export class MemoryDB extends MemoryDBClient {
   }
 
   /**
+   * @public
    * <p>Creates a MemoryDB user. For more information, see <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/clusters.acls.html">Authenticating users with Access Contol Lists (ACLs)</a>.</p>
    */
   public createUser(args: CreateUserCommandInput, options?: __HttpHandlerOptions): Promise<CreateUserCommandOutput>;
@@ -415,6 +424,7 @@ export class MemoryDB extends MemoryDBClient {
   }
 
   /**
+   * @public
    * <p>Deletes an Access Control List. The ACL must first be disassociated from the cluster before it can be deleted. For more information, see <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/clusters.acls.html">Authenticating users with Access Contol Lists (ACLs)</a>.</p>
    */
   public deleteACL(args: DeleteACLCommandInput, options?: __HttpHandlerOptions): Promise<DeleteACLCommandOutput>;
@@ -441,6 +451,7 @@ export class MemoryDB extends MemoryDBClient {
   }
 
   /**
+   * @public
    * <p>Deletes a cluster. It also deletes all associated nodes and node endpoints</p>
    */
   public deleteCluster(
@@ -473,6 +484,7 @@ export class MemoryDB extends MemoryDBClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified parameter group. You cannot delete a parameter group if it is associated with any clusters.
    *          You cannot delete the default parameter groups in your account.</p>
    */
@@ -506,6 +518,7 @@ export class MemoryDB extends MemoryDBClient {
   }
 
   /**
+   * @public
    * <p>Deletes an existing snapshot. When you receive a successful response from this operation, MemoryDB immediately begins deleting the snapshot; you cannot cancel or revert this operation.</p>
    */
   public deleteSnapshot(
@@ -538,6 +551,7 @@ export class MemoryDB extends MemoryDBClient {
   }
 
   /**
+   * @public
    * <p>Deletes a subnet group. You cannot delete a default subnet group or one that is associated with any clusters.</p>
    */
   public deleteSubnetGroup(
@@ -570,6 +584,7 @@ export class MemoryDB extends MemoryDBClient {
   }
 
   /**
+   * @public
    * <p>Deletes a user. The user will be removed from all ACLs and in turn removed from all clusters.</p>
    */
   public deleteUser(args: DeleteUserCommandInput, options?: __HttpHandlerOptions): Promise<DeleteUserCommandOutput>;
@@ -596,6 +611,7 @@ export class MemoryDB extends MemoryDBClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of ACLs</p>
    */
   public describeACLs(
@@ -625,6 +641,7 @@ export class MemoryDB extends MemoryDBClient {
   }
 
   /**
+   * @public
    * <p>Returns information about all provisioned clusters if no cluster identifier is specified, or about a specific cluster if a cluster name is supplied.</p>
    */
   public describeClusters(
@@ -657,6 +674,7 @@ export class MemoryDB extends MemoryDBClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of the available Redis engine versions.</p>
    */
   public describeEngineVersions(
@@ -689,6 +707,7 @@ export class MemoryDB extends MemoryDBClient {
   }
 
   /**
+   * @public
    * <p>Returns events related to clusters, security groups, and parameter groups. You can obtain events specific to a particular cluster, security group, or parameter group by providing the name as a parameter.
    *
    *          By default, only the events occurring within the last hour are returned; however, you can retrieve up to 14 days' worth of events if necessary.</p>
@@ -723,6 +742,7 @@ export class MemoryDB extends MemoryDBClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of parameter group descriptions. If a parameter group name is specified, the list contains only the descriptions for that group.</p>
    */
   public describeParameterGroups(
@@ -755,6 +775,7 @@ export class MemoryDB extends MemoryDBClient {
   }
 
   /**
+   * @public
    * <p>Returns the detailed parameter list for a particular parameter group.</p>
    */
   public describeParameters(
@@ -787,6 +808,7 @@ export class MemoryDB extends MemoryDBClient {
   }
 
   /**
+   * @public
    * <p>Returns information about reserved nodes for this account, or about a specified reserved node.</p>
    */
   public describeReservedNodes(
@@ -819,6 +841,7 @@ export class MemoryDB extends MemoryDBClient {
   }
 
   /**
+   * @public
    * <p>Lists available reserved node offerings.</p>
    */
   public describeReservedNodesOfferings(
@@ -851,6 +874,7 @@ export class MemoryDB extends MemoryDBClient {
   }
 
   /**
+   * @public
    * <p>Returns details of the service updates</p>
    */
   public describeServiceUpdates(
@@ -883,6 +907,7 @@ export class MemoryDB extends MemoryDBClient {
   }
 
   /**
+   * @public
    * <p>Returns information about cluster snapshots. By default, DescribeSnapshots lists all of your snapshots; it can optionally describe a single snapshot,
    *          or just the snapshots associated with a particular cluster.</p>
    */
@@ -916,6 +941,7 @@ export class MemoryDB extends MemoryDBClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of subnet group descriptions. If a subnet group name is specified, the list contains only the description of that group.</p>
    */
   public describeSubnetGroups(
@@ -948,6 +974,7 @@ export class MemoryDB extends MemoryDBClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of users.</p>
    */
   public describeUsers(
@@ -980,6 +1007,7 @@ export class MemoryDB extends MemoryDBClient {
   }
 
   /**
+   * @public
    * <p>Used to failover a shard. This API is designed for testing the behavior of your application in case of MemoryDB failover. It is not designed to be used as a production-level tool for initiating
    *          a failover to overcome a problem you may have with the cluster. Moreover, in certain conditions such as large scale operational events, Amazon may block this API. </p>
    */
@@ -1013,6 +1041,7 @@ export class MemoryDB extends MemoryDBClient {
   }
 
   /**
+   * @public
    * <p>Lists all available node types that you can scale to from your cluster's current node type.
    *
    *          When you use the UpdateCluster operation to scale your cluster, the value of the NodeType parameter must be one of the node types returned by this operation.</p>
@@ -1047,6 +1076,7 @@ export class MemoryDB extends MemoryDBClient {
   }
 
   /**
+   * @public
    * <p>Lists all tags currently on a named resource.
    *
    *          A tag is a key-value pair where the key and value are case-sensitive. You can use tags to categorize and track your MemoryDB resources.
@@ -1077,6 +1107,7 @@ export class MemoryDB extends MemoryDBClient {
   }
 
   /**
+   * @public
    * <p>Allows you to purchase a reserved  node offering. Reserved nodes are not eligible for cancellation and are non-refundable.</p>
    */
   public purchaseReservedNodesOffering(
@@ -1109,6 +1140,7 @@ export class MemoryDB extends MemoryDBClient {
   }
 
   /**
+   * @public
    * <p>Modifies the parameters of a parameter group to the engine or system default value. You can reset specific parameters by submitting a list of parameter names. To reset the entire parameter group, specify the AllParameters and ParameterGroupName parameters.</p>
    */
   public resetParameterGroup(
@@ -1141,6 +1173,7 @@ export class MemoryDB extends MemoryDBClient {
   }
 
   /**
+   * @public
    * <p>A tag is a key-value pair where the key and value are case-sensitive. You can use tags to categorize and track all your MemoryDB resources.
    *
    *          When you add or remove tags on clusters, those actions will be replicated to all nodes in the cluster. For more information, see
@@ -1176,6 +1209,7 @@ export class MemoryDB extends MemoryDBClient {
   }
 
   /**
+   * @public
    * <p>Use this operation to remove tags on a resource</p>
    */
   public untagResource(
@@ -1208,6 +1242,7 @@ export class MemoryDB extends MemoryDBClient {
   }
 
   /**
+   * @public
    * <p>Changes the list of users that belong to the Access Control List.</p>
    */
   public updateACL(args: UpdateACLCommandInput, options?: __HttpHandlerOptions): Promise<UpdateACLCommandOutput>;
@@ -1234,6 +1269,7 @@ export class MemoryDB extends MemoryDBClient {
   }
 
   /**
+   * @public
    * <p>Modifies the settings for a cluster. You can use this operation to change one or more cluster configuration settings by specifying the settings and the new values.</p>
    */
   public updateCluster(
@@ -1266,6 +1302,7 @@ export class MemoryDB extends MemoryDBClient {
   }
 
   /**
+   * @public
    * <p>Updates the parameters of a parameter group. You can modify up to 20 parameters in a single request by submitting a list parameter name and value pairs.</p>
    */
   public updateParameterGroup(
@@ -1298,6 +1335,7 @@ export class MemoryDB extends MemoryDBClient {
   }
 
   /**
+   * @public
    * <p>Updates a subnet group. For more information, see <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/ubnetGroups.Modifying.html">Updating a subnet group</a>
    *          </p>
    */
@@ -1331,6 +1369,7 @@ export class MemoryDB extends MemoryDBClient {
   }
 
   /**
+   * @public
    * <p>Changes user password(s) and/or access string.</p>
    */
   public updateUser(args: UpdateUserCommandInput, options?: __HttpHandlerOptions): Promise<UpdateUserCommandOutput>;

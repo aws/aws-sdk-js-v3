@@ -16,21 +16,30 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeTransitGatewayVpcAttachmentsRequest,
-  DescribeTransitGatewayVpcAttachmentsRequestFilterSensitiveLog,
   DescribeTransitGatewayVpcAttachmentsResult,
-  DescribeTransitGatewayVpcAttachmentsResultFilterSensitiveLog,
 } from "../models/models_4";
 import {
-  deserializeAws_ec2DescribeTransitGatewayVpcAttachmentsCommand,
-  serializeAws_ec2DescribeTransitGatewayVpcAttachmentsCommand,
+  de_DescribeTransitGatewayVpcAttachmentsCommand,
+  se_DescribeTransitGatewayVpcAttachmentsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeTransitGatewayVpcAttachmentsCommand}.
+ */
 export interface DescribeTransitGatewayVpcAttachmentsCommandInput extends DescribeTransitGatewayVpcAttachmentsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeTransitGatewayVpcAttachmentsCommand}.
+ */
 export interface DescribeTransitGatewayVpcAttachmentsCommandOutput
   extends DescribeTransitGatewayVpcAttachmentsResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more VPC attachments. By default, all VPC attachments are described.
  *          Alternatively, you can filter the results.</p>
  * @example
@@ -39,13 +48,32 @@ export interface DescribeTransitGatewayVpcAttachmentsCommandOutput
  * import { EC2Client, DescribeTransitGatewayVpcAttachmentsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeTransitGatewayVpcAttachmentsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeTransitGatewayVpcAttachmentsRequest
+ *   TransitGatewayAttachmentIds: [ // TransitGatewayAttachmentIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new DescribeTransitGatewayVpcAttachmentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTransitGatewayVpcAttachmentsCommandInput - {@link DescribeTransitGatewayVpcAttachmentsCommandInput}
+ * @returns {@link DescribeTransitGatewayVpcAttachmentsCommandOutput}
  * @see {@link DescribeTransitGatewayVpcAttachmentsCommandInput} for command's `input` shape.
  * @see {@link DescribeTransitGatewayVpcAttachmentsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class DescribeTransitGatewayVpcAttachmentsCommand extends $Command<
@@ -65,6 +93,9 @@ export class DescribeTransitGatewayVpcAttachmentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTransitGatewayVpcAttachmentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +124,8 @@ export class DescribeTransitGatewayVpcAttachmentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTransitGatewayVpcAttachmentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTransitGatewayVpcAttachmentsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,18 +135,24 @@ export class DescribeTransitGatewayVpcAttachmentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeTransitGatewayVpcAttachmentsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeTransitGatewayVpcAttachmentsCommand(input, context);
+    return se_DescribeTransitGatewayVpcAttachmentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTransitGatewayVpcAttachmentsCommandOutput> {
-    return deserializeAws_ec2DescribeTransitGatewayVpcAttachmentsCommand(output, context);
+    return de_DescribeTransitGatewayVpcAttachmentsCommand(output, context);
   }
 
   // Start section: command_body_extra

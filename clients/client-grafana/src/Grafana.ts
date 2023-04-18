@@ -90,19 +90,23 @@ import {
 import { GrafanaClient } from "./GrafanaClient";
 
 /**
- * <p>Amazon Managed Grafana is a fully managed and secure data visualization service that you can use to
- *        instantly query, correlate, and visualize operational metrics, logs, and traces from multiple sources.
- *        Amazon Managed Grafana makes it easy to deploy, operate, and scale Grafana, a widely deployed data visualization tool
- *        that is popular for its extensible data support.</p>
- *          <p>With Amazon Managed Grafana, you create logically isolated Grafana servers called <i>workspaces</i>. In
- *         a workspace,  you can create  Grafana dashboards and visualizations to analyze your metrics, logs, and traces without having to
- *        build, package, or deploy any hardware to run Grafana servers.  </p>
+ * @public
+ * <p>Amazon Managed Grafana is a fully managed and secure data visualization service that
+ *             you can use to instantly query, correlate, and visualize operational metrics, logs, and
+ *             traces from multiple sources. Amazon Managed Grafana makes it easy to deploy, operate, and
+ *             scale Grafana, a widely deployed data visualization tool that is popular for its
+ *             extensible data support.</p>
+ *          <p>With Amazon Managed Grafana, you create logically isolated Grafana servers called
+ *                 <i>workspaces</i>. In a workspace, you can create Grafana dashboards
+ *             and visualizations to analyze your metrics, logs, and traces without having to build,
+ *             package, or deploy any hardware to run Grafana servers. </p>
  */
 export class Grafana extends GrafanaClient {
   /**
+   * @public
    * <p>Assigns a Grafana Enterprise license to a workspace. Upgrading to Grafana Enterprise
-   *             incurs additional fees. For more information, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/upgrade-to-Grafana-Enterprise.html">Upgrade a workspace to
-   *                 Grafana Enterprise</a>.</p>
+   *             incurs additional fees. For more information, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/upgrade-to-Grafana-Enterprise.html">Upgrade a
+   *                 workspace to Grafana Enterprise</a>.</p>
    */
   public associateLicense(
     args: AssociateLicenseCommandInput,
@@ -134,11 +138,12 @@ export class Grafana extends GrafanaClient {
   }
 
   /**
+   * @public
    * <p>Creates a <i>workspace</i>. In a workspace, you can create Grafana
-   *             dashboards and visualizations to analyze your metrics, logs, and traces. You don't have to
-   *             build, package, or deploy any hardware to run the Grafana server.</p>
-   *         <p>Don't use <code>CreateWorkspace</code> to modify an existing workspace. Instead,
-   *             use <a href="https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateWorkspace.html">UpdateWorkspace</a>.</p>
+   *             dashboards and visualizations to analyze your metrics, logs, and traces. You don't have
+   *             to build, package, or deploy any hardware to run the Grafana server.</p>
+   *          <p>Don't use <code>CreateWorkspace</code> to modify an existing workspace. Instead, use
+   *                 <a href="https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateWorkspace.html">UpdateWorkspace</a>.</p>
    */
   public createWorkspace(
     args: CreateWorkspaceCommandInput,
@@ -170,9 +175,9 @@ export class Grafana extends GrafanaClient {
   }
 
   /**
-   * <p>Creates a Grafana API key for the workspace.  This key can be used to
-   *             authenticate requests sent to the workspace's HTTP API.
-   *             See <a href="https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html">https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html</a>
+   * @public
+   * <p>Creates a Grafana API key for the workspace. This key can be used to authenticate
+   *             requests sent to the workspace's HTTP API. See <a href="https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html">https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html</a>
    *             for available APIs and example requests.</p>
    */
   public createWorkspaceApiKey(
@@ -205,6 +210,7 @@ export class Grafana extends GrafanaClient {
   }
 
   /**
+   * @public
    * <p>Deletes an Amazon Managed Grafana workspace.</p>
    */
   public deleteWorkspace(
@@ -237,6 +243,7 @@ export class Grafana extends GrafanaClient {
   }
 
   /**
+   * @public
    * <p>Deletes a Grafana API key for the workspace.</p>
    */
   public deleteWorkspaceApiKey(
@@ -269,6 +276,7 @@ export class Grafana extends GrafanaClient {
   }
 
   /**
+   * @public
    * <p>Displays information about one Amazon Managed Grafana workspace.</p>
    */
   public describeWorkspace(
@@ -301,7 +309,9 @@ export class Grafana extends GrafanaClient {
   }
 
   /**
-   * <p>Displays information about the authentication methods used in one Amazon Managed Grafana workspace.</p>
+   * @public
+   * <p>Displays information about the authentication methods used in one Amazon Managed Grafana
+   *             workspace.</p>
    */
   public describeWorkspaceAuthentication(
     args: DescribeWorkspaceAuthenticationCommandInput,
@@ -333,6 +343,7 @@ export class Grafana extends GrafanaClient {
   }
 
   /**
+   * @public
    * <p>Gets the current configuration string for the given workspace.</p>
    */
   public describeWorkspaceConfiguration(
@@ -365,6 +376,7 @@ export class Grafana extends GrafanaClient {
   }
 
   /**
+   * @public
    * <p>Removes the Grafana Enterprise license from a workspace.</p>
    */
   public disassociateLicense(
@@ -397,13 +409,13 @@ export class Grafana extends GrafanaClient {
   }
 
   /**
+   * @public
    * <p>Lists the users and groups who have the Grafana <code>Admin</code> and
-   *             <code>Editor</code> roles in this workspace. If you use this
-   *             operation without specifying <code>userId</code> or <code>groupId</code>, the operation returns
-   *             the roles of all users
-   *             and groups. If you specify a <code>userId</code> or a <code>groupId</code>, only the roles
-   *             for that user or group are returned. If you do this, you can specify only one <code>userId</code> or
-   *             one <code>groupId</code>.</p>
+   *                 <code>Editor</code> roles in this workspace. If you use this operation without
+   *             specifying <code>userId</code> or <code>groupId</code>, the operation returns the roles
+   *             of all users and groups. If you specify a <code>userId</code> or a <code>groupId</code>,
+   *             only the roles for that user or group are returned. If you do this, you can specify only
+   *             one <code>userId</code> or one <code>groupId</code>.</p>
    */
   public listPermissions(
     args: ListPermissionsCommandInput,
@@ -435,9 +447,11 @@ export class Grafana extends GrafanaClient {
   }
 
   /**
-   * <p>The <code>ListTagsForResource</code> operation returns the tags that
-   *             are associated with the Amazon Managed Service for Grafana resource specified by the <code>resourceArn</code>.
-   *             Currently, the only resource that can be tagged is a workspace. </p>
+   * @public
+   * <p>The <code>ListTagsForResource</code> operation returns the tags that are associated
+   *             with the Amazon Managed Service for Grafana resource specified by the
+   *                 <code>resourceArn</code>. Currently, the only resource that can be tagged is a
+   *             workspace. </p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -469,6 +483,7 @@ export class Grafana extends GrafanaClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of Amazon Managed Grafana workspaces in the account, with some information
    *             about each workspace. For more complete information about one workspace, use <a href="https://docs.aws.amazon.com/AAMG/latest/APIReference/API_DescribeWorkspace.html">DescribeWorkspace</a>.</p>
    */
@@ -502,11 +517,13 @@ export class Grafana extends GrafanaClient {
   }
 
   /**
-   * <p>The <code>TagResource</code> operation associates tags with an Amazon Managed Grafana resource.
-   *             Currently, the only resource that can be tagged is workspaces. </p>
-   *         <p>If you specify a new tag key for the resource, this tag is appended to the list of tags associated
-   *             with the resource.  If you specify a tag key that is already associated with the resource, the new tag
-   *             value that you specify replaces the previous value for that tag.</p>
+   * @public
+   * <p>The <code>TagResource</code> operation associates tags with an Amazon Managed Grafana
+   *             resource. Currently, the only resource that can be tagged is workspaces. </p>
+   *          <p>If you specify a new tag key for the resource, this tag is appended to the list of
+   *             tags associated with the resource. If you specify a tag key that is already associated
+   *             with the resource, the new tag value that you specify replaces the previous value for
+   *             that tag.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -532,8 +549,9 @@ export class Grafana extends GrafanaClient {
   }
 
   /**
-   * <p>The <code>UntagResource</code> operation removes the association of the tag with the Amazon Managed Grafana resource.
-   *         </p>
+   * @public
+   * <p>The <code>UntagResource</code> operation removes the association of the tag with the
+   *             Amazon Managed Grafana resource. </p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -565,7 +583,9 @@ export class Grafana extends GrafanaClient {
   }
 
   /**
-   * <p>Updates which users in a workspace have the Grafana <code>Admin</code> or <code>Editor</code> roles.</p>
+   * @public
+   * <p>Updates which users in a workspace have the Grafana <code>Admin</code> or
+   *                 <code>Editor</code> roles.</p>
    */
   public updatePermissions(
     args: UpdatePermissionsCommandInput,
@@ -597,12 +617,13 @@ export class Grafana extends GrafanaClient {
   }
 
   /**
-   * <p>Modifies an existing Amazon Managed Grafana workspace. If you use this operation and omit any
-   *             optional parameters, the existing values of those parameters are not changed.</p>
-   *         <p>To modify the user authentication methods that the workspace uses, such as SAML or IAM Identity Center,
-   *             use <a href="https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateWorkspaceAuthentication.html">UpdateWorkspaceAuthentication</a>.</p>
-   *         <p>To modify which users in the workspace have the <code>Admin</code> and <code>Editor</code> Grafana roles,
-   *             use <a href="https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdatePermissions.html">UpdatePermissions</a>.</p>
+   * @public
+   * <p>Modifies an existing Amazon Managed Grafana workspace. If you use this operation and omit
+   *             any optional parameters, the existing values of those parameters are not changed.</p>
+   *          <p>To modify the user authentication methods that the workspace uses, such as SAML or
+   *                 IAM Identity Center, use <a href="https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateWorkspaceAuthentication.html">UpdateWorkspaceAuthentication</a>.</p>
+   *          <p>To modify which users in the workspace have the <code>Admin</code> and
+   *                 <code>Editor</code> Grafana roles, use <a href="https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdatePermissions.html">UpdatePermissions</a>.</p>
    */
   public updateWorkspace(
     args: UpdateWorkspaceCommandInput,
@@ -634,10 +655,15 @@ export class Grafana extends GrafanaClient {
   }
 
   /**
+   * @public
    * <p>Use this operation to define the identity provider (IdP) that this workspace
    *             authenticates users from, using SAML. You can also map SAML assertion attributes to
-   *             workspace user information and define which groups in the assertion attribute are to have
-   *             the <code>Admin</code> and <code>Editor</code> roles in the workspace.</p>
+   *             workspace user information and define which groups in the assertion attribute are to
+   *             have the <code>Admin</code> and <code>Editor</code> roles in the workspace.</p>
+   *          <note>
+   *             <p>Changes to the authentication method for a workspace may take a few minutes to
+   *                 take effect.</p>
+   *          </note>
    */
   public updateWorkspaceAuthentication(
     args: UpdateWorkspaceAuthenticationCommandInput,
@@ -669,6 +695,7 @@ export class Grafana extends GrafanaClient {
   }
 
   /**
+   * @public
    * <p>Updates the configuration string for the given workspace</p>
    */
   public updateWorkspaceConfiguration(

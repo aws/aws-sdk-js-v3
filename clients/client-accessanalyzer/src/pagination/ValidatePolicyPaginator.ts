@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { AccessAnalyzer } from "../AccessAnalyzer";
 import { AccessAnalyzerClient } from "../AccessAnalyzerClient";
 import {
   ValidatePolicyCommand,
@@ -11,7 +10,7 @@ import {
 import { AccessAnalyzerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: AccessAnalyzerClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ValidatePolicyCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: AccessAnalyzer,
-  input: ValidatePolicyCommandInput,
-  ...args: any
-): Promise<ValidatePolicyCommandOutput> => {
-  // @ts-ignore
-  return await client.validatePolicy(input, ...args);
-};
 export async function* paginateValidatePolicy(
   config: AccessAnalyzerPaginationConfiguration,
   input: ValidatePolicyCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateValidatePolicy(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof AccessAnalyzer) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof AccessAnalyzerClient) {
+    if (config.client instanceof AccessAnalyzerClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected AccessAnalyzer | AccessAnalyzerClient");

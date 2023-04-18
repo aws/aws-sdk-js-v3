@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeFleetInstancesRequest,
-  DescribeFleetInstancesRequestFilterSensitiveLog,
-  DescribeFleetInstancesResult,
-  DescribeFleetInstancesResultFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeFleetInstancesCommand,
-  serializeAws_ec2DescribeFleetInstancesCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeFleetInstancesRequest, DescribeFleetInstancesResult } from "../models/models_3";
+import { de_DescribeFleetInstancesCommand, se_DescribeFleetInstancesCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeFleetInstancesCommand}.
+ */
 export interface DescribeFleetInstancesCommandInput extends DescribeFleetInstancesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeFleetInstancesCommand}.
+ */
 export interface DescribeFleetInstancesCommandOutput extends DescribeFleetInstancesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the running instances for the specified EC2 Fleet.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#monitor-ec2-fleet">Monitor your EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
@@ -37,13 +40,30 @@ export interface DescribeFleetInstancesCommandOutput extends DescribeFleetInstan
  * import { EC2Client, DescribeFleetInstancesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeFleetInstancesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeFleetInstancesRequest
+ *   DryRun: true || false,
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   FleetId: "STRING_VALUE", // required
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new DescribeFleetInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFleetInstancesCommandInput - {@link DescribeFleetInstancesCommandInput}
+ * @returns {@link DescribeFleetInstancesCommandOutput}
  * @see {@link DescribeFleetInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class DescribeFleetInstancesCommand extends $Command<
@@ -63,6 +83,9 @@ export class DescribeFleetInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFleetInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +114,8 @@ export class DescribeFleetInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFleetInstancesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFleetInstancesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +125,18 @@ export class DescribeFleetInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFleetInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeFleetInstancesCommand(input, context);
+    return se_DescribeFleetInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFleetInstancesCommandOutput> {
-    return deserializeAws_ec2DescribeFleetInstancesCommand(output, context);
+    return de_DescribeFleetInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

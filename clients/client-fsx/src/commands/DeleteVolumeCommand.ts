@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import {
-  DeleteVolumeRequest,
-  DeleteVolumeRequestFilterSensitiveLog,
-  DeleteVolumeResponse,
-  DeleteVolumeResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteVolumeCommand,
-  serializeAws_json1_1DeleteVolumeCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteVolumeRequest, DeleteVolumeResponse } from "../models/models_0";
+import { de_DeleteVolumeCommand, se_DeleteVolumeCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteVolumeCommand}.
+ */
 export interface DeleteVolumeCommandInput extends DeleteVolumeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteVolumeCommand}.
+ */
 export interface DeleteVolumeCommandOutput extends DeleteVolumeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Amazon FSx for NetApp ONTAP or Amazon FSx for OpenZFS
  *             volume.</p>
  * @example
@@ -37,13 +40,48 @@ export interface DeleteVolumeCommandOutput extends DeleteVolumeResponse, __Metad
  * import { FSxClient, DeleteVolumeCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, DeleteVolumeCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = { // DeleteVolumeRequest
+ *   ClientRequestToken: "STRING_VALUE",
+ *   VolumeId: "STRING_VALUE", // required
+ *   OntapConfiguration: { // DeleteVolumeOntapConfiguration
+ *     SkipFinalBackup: true || false,
+ *     FinalBackupTags: [ // Tags
+ *       { // Tag
+ *         Key: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ *   OpenZFSConfiguration: { // DeleteVolumeOpenZFSConfiguration
+ *     Options: [ // DeleteOpenZFSVolumeOptions
+ *       "DELETE_CHILD_VOLUMES_AND_SNAPSHOTS",
+ *     ],
+ *   },
+ * };
  * const command = new DeleteVolumeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVolumeCommandInput - {@link DeleteVolumeCommandInput}
+ * @returns {@link DeleteVolumeCommandOutput}
  * @see {@link DeleteVolumeCommandInput} for command's `input` shape.
  * @see {@link DeleteVolumeCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
+ *
+ * @throws {@link BadRequest} (client fault)
+ *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * @throws {@link IncompatibleParameterError} (client fault)
+ *  <p>The error returned when a second request is received with the same client request
+ *             token but different parameters settings. A client request token should always uniquely
+ *             identify a single request.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>A generic error indicating a server-side failure.</p>
+ *
+ * @throws {@link VolumeNotFound} (client fault)
+ *  <p>No Amazon FSx volumes were found based upon the supplied parameters.</p>
+ *
  *
  */
 export class DeleteVolumeCommand extends $Command<
@@ -63,6 +101,9 @@ export class DeleteVolumeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVolumeCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +130,8 @@ export class DeleteVolumeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVolumeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteVolumeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +141,18 @@ export class DeleteVolumeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteVolumeCommand(input, context);
+    return se_DeleteVolumeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVolumeCommandOutput> {
-    return deserializeAws_json1_1DeleteVolumeCommand(output, context);
+    return de_DeleteVolumeCommand(output, context);
   }
 
   // Start section: command_body_extra

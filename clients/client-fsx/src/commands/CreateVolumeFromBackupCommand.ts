@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import {
-  CreateVolumeFromBackupRequest,
-  CreateVolumeFromBackupRequestFilterSensitiveLog,
-  CreateVolumeFromBackupResponse,
-  CreateVolumeFromBackupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateVolumeFromBackupCommand,
-  serializeAws_json1_1CreateVolumeFromBackupCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateVolumeFromBackupRequest, CreateVolumeFromBackupResponse } from "../models/models_0";
+import { de_CreateVolumeFromBackupCommand, se_CreateVolumeFromBackupCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateVolumeFromBackupCommand}.
+ */
 export interface CreateVolumeFromBackupCommandInput extends CreateVolumeFromBackupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateVolumeFromBackupCommand}.
+ */
 export interface CreateVolumeFromBackupCommandOutput extends CreateVolumeFromBackupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new Amazon FSx for NetApp ONTAP volume from an
  *             existing Amazon FSx volume backup.</p>
  * @example
@@ -37,13 +40,68 @@ export interface CreateVolumeFromBackupCommandOutput extends CreateVolumeFromBac
  * import { FSxClient, CreateVolumeFromBackupCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, CreateVolumeFromBackupCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = { // CreateVolumeFromBackupRequest
+ *   BackupId: "STRING_VALUE", // required
+ *   ClientRequestToken: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ *   OntapConfiguration: { // CreateOntapVolumeConfiguration
+ *     JunctionPath: "STRING_VALUE",
+ *     SecurityStyle: "UNIX" || "NTFS" || "MIXED",
+ *     SizeInMegabytes: Number("int"), // required
+ *     StorageEfficiencyEnabled: true || false,
+ *     StorageVirtualMachineId: "STRING_VALUE", // required
+ *     TieringPolicy: { // TieringPolicy
+ *       CoolingPeriod: Number("int"),
+ *       Name: "SNAPSHOT_ONLY" || "AUTO" || "ALL" || "NONE",
+ *     },
+ *     OntapVolumeType: "RW" || "DP",
+ *     SnapshotPolicy: "STRING_VALUE",
+ *     CopyTagsToBackups: true || false,
+ *   },
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateVolumeFromBackupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVolumeFromBackupCommandInput - {@link CreateVolumeFromBackupCommandInput}
+ * @returns {@link CreateVolumeFromBackupCommandOutput}
  * @see {@link CreateVolumeFromBackupCommandInput} for command's `input` shape.
  * @see {@link CreateVolumeFromBackupCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
+ *
+ * @throws {@link BackupNotFound} (client fault)
+ *  <p>No Amazon FSx backups were found based upon the supplied parameters.</p>
+ *
+ * @throws {@link BadRequest} (client fault)
+ *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * @throws {@link FileSystemNotFound} (client fault)
+ *  <p>No Amazon FSx file systems were found based upon supplied parameters.</p>
+ *
+ * @throws {@link IncompatibleParameterError} (client fault)
+ *  <p>The error returned when a second request is received with the same client request
+ *             token but different parameters settings. A client request token should always uniquely
+ *             identify a single request.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>A generic error indicating a server-side failure.</p>
+ *
+ * @throws {@link MissingVolumeConfiguration} (client fault)
+ *  <p>A volume configuration is required for this operation.</p>
+ *
+ * @throws {@link ServiceLimitExceeded} (client fault)
+ *  <p>An error indicating that a particular service limit was exceeded. You can increase
+ *             some service limits by contacting Amazon Web Services Support.</p>
+ *
+ * @throws {@link StorageVirtualMachineNotFound} (client fault)
+ *  <p>No FSx for ONTAP SVMs were found based upon the supplied parameters.</p>
+ *
  *
  */
 export class CreateVolumeFromBackupCommand extends $Command<
@@ -63,6 +121,9 @@ export class CreateVolumeFromBackupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVolumeFromBackupCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +152,8 @@ export class CreateVolumeFromBackupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateVolumeFromBackupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateVolumeFromBackupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +163,18 @@ export class CreateVolumeFromBackupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVolumeFromBackupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateVolumeFromBackupCommand(input, context);
+    return se_CreateVolumeFromBackupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVolumeFromBackupCommandOutput> {
-    return deserializeAws_json1_1CreateVolumeFromBackupCommand(output, context);
+    return de_CreateVolumeFromBackupCommand(output, context);
   }
 
   // Start section: command_body_extra

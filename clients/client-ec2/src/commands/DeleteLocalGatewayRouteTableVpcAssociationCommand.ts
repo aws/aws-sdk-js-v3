@@ -16,22 +16,31 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DeleteLocalGatewayRouteTableVpcAssociationRequest,
-  DeleteLocalGatewayRouteTableVpcAssociationRequestFilterSensitiveLog,
   DeleteLocalGatewayRouteTableVpcAssociationResult,
-  DeleteLocalGatewayRouteTableVpcAssociationResultFilterSensitiveLog,
 } from "../models/models_2";
 import {
-  deserializeAws_ec2DeleteLocalGatewayRouteTableVpcAssociationCommand,
-  serializeAws_ec2DeleteLocalGatewayRouteTableVpcAssociationCommand,
+  de_DeleteLocalGatewayRouteTableVpcAssociationCommand,
+  se_DeleteLocalGatewayRouteTableVpcAssociationCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteLocalGatewayRouteTableVpcAssociationCommand}.
+ */
 export interface DeleteLocalGatewayRouteTableVpcAssociationCommandInput
   extends DeleteLocalGatewayRouteTableVpcAssociationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteLocalGatewayRouteTableVpcAssociationCommand}.
+ */
 export interface DeleteLocalGatewayRouteTableVpcAssociationCommandOutput
   extends DeleteLocalGatewayRouteTableVpcAssociationResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified association between a VPC and local gateway route table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +48,20 @@ export interface DeleteLocalGatewayRouteTableVpcAssociationCommandOutput
  * import { EC2Client, DeleteLocalGatewayRouteTableVpcAssociationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteLocalGatewayRouteTableVpcAssociationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteLocalGatewayRouteTableVpcAssociationRequest
+ *   LocalGatewayRouteTableVpcAssociationId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DeleteLocalGatewayRouteTableVpcAssociationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLocalGatewayRouteTableVpcAssociationCommandInput - {@link DeleteLocalGatewayRouteTableVpcAssociationCommandInput}
+ * @returns {@link DeleteLocalGatewayRouteTableVpcAssociationCommandOutput}
  * @see {@link DeleteLocalGatewayRouteTableVpcAssociationCommandInput} for command's `input` shape.
  * @see {@link DeleteLocalGatewayRouteTableVpcAssociationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class DeleteLocalGatewayRouteTableVpcAssociationCommand extends $Command<
@@ -65,6 +81,9 @@ export class DeleteLocalGatewayRouteTableVpcAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLocalGatewayRouteTableVpcAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +118,8 @@ export class DeleteLocalGatewayRouteTableVpcAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLocalGatewayRouteTableVpcAssociationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLocalGatewayRouteTableVpcAssociationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,18 +129,24 @@ export class DeleteLocalGatewayRouteTableVpcAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteLocalGatewayRouteTableVpcAssociationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteLocalGatewayRouteTableVpcAssociationCommand(input, context);
+    return se_DeleteLocalGatewayRouteTableVpcAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteLocalGatewayRouteTableVpcAssociationCommandOutput> {
-    return deserializeAws_ec2DeleteLocalGatewayRouteTableVpcAssociationCommand(output, context);
+    return de_DeleteLocalGatewayRouteTableVpcAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

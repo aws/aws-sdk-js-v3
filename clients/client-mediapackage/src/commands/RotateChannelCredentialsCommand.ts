@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaPackageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageClient";
-import {
-  RotateChannelCredentialsRequest,
-  RotateChannelCredentialsRequestFilterSensitiveLog,
-  RotateChannelCredentialsResponse,
-  RotateChannelCredentialsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1RotateChannelCredentialsCommand,
-  serializeAws_restJson1RotateChannelCredentialsCommand,
-} from "../protocols/Aws_restJson1";
+import { RotateChannelCredentialsRequest, RotateChannelCredentialsResponse } from "../models/models_0";
+import { de_RotateChannelCredentialsCommand, se_RotateChannelCredentialsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link RotateChannelCredentialsCommand}.
+ */
 export interface RotateChannelCredentialsCommandInput extends RotateChannelCredentialsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RotateChannelCredentialsCommand}.
+ */
 export interface RotateChannelCredentialsCommandOutput extends RotateChannelCredentialsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * Changes the Channel's first IngestEndpoint's username and password. WARNING - This API is deprecated. Please use RotateIngestEndpointCredentials instead
@@ -38,13 +41,37 @@ export interface RotateChannelCredentialsCommandOutput extends RotateChannelCred
  * import { MediaPackageClient, RotateChannelCredentialsCommand } from "@aws-sdk/client-mediapackage"; // ES Modules import
  * // const { MediaPackageClient, RotateChannelCredentialsCommand } = require("@aws-sdk/client-mediapackage"); // CommonJS import
  * const client = new MediaPackageClient(config);
+ * const input = { // RotateChannelCredentialsRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new RotateChannelCredentialsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RotateChannelCredentialsCommandInput - {@link RotateChannelCredentialsCommandInput}
+ * @returns {@link RotateChannelCredentialsCommandOutput}
  * @see {@link RotateChannelCredentialsCommandInput} for command's `input` shape.
  * @see {@link RotateChannelCredentialsCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageClientResolvedConfig | config} for MediaPackageClient's `config` shape.
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  The client is not authorized to access the requested resource.
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  An unexpected error occurred.
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  The requested resource does not exist.
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  An unexpected error occurred.
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  The client has exceeded their resource or throttling limits.
+ *
+ * @throws {@link UnprocessableEntityException} (client fault)
+ *  The parameters sent in the request are not valid.
+ *
  *
  */
 export class RotateChannelCredentialsCommand extends $Command<
@@ -64,6 +91,9 @@ export class RotateChannelCredentialsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RotateChannelCredentialsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +122,8 @@ export class RotateChannelCredentialsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RotateChannelCredentialsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RotateChannelCredentialsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +133,18 @@ export class RotateChannelCredentialsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RotateChannelCredentialsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RotateChannelCredentialsCommand(input, context);
+    return se_RotateChannelCredentialsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RotateChannelCredentialsCommandOutput> {
-    return deserializeAws_restJson1RotateChannelCredentialsCommand(output, context);
+    return de_RotateChannelCredentialsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  RevokeInvitationRequest,
-  RevokeInvitationRequestFilterSensitiveLog,
-  RevokeInvitationResponse,
-  RevokeInvitationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RevokeInvitationCommand,
-  serializeAws_json1_1RevokeInvitationCommand,
-} from "../protocols/Aws_json1_1";
+import { RevokeInvitationRequest, RevokeInvitationResponse } from "../models/models_0";
+import { de_RevokeInvitationCommand, se_RevokeInvitationCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link RevokeInvitationCommand}.
+ */
 export interface RevokeInvitationCommandInput extends RevokeInvitationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RevokeInvitationCommand}.
+ */
 export interface RevokeInvitationCommandOutput extends RevokeInvitationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Revokes an invitation and invalidates the enrollment URL.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,26 @@ export interface RevokeInvitationCommandOutput extends RevokeInvitationResponse,
  * import { AlexaForBusinessClient, RevokeInvitationCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, RevokeInvitationCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // RevokeInvitationRequest
+ *   UserArn: "STRING_VALUE",
+ *   EnrollmentId: "STRING_VALUE",
+ * };
  * const command = new RevokeInvitationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RevokeInvitationCommandInput - {@link RevokeInvitationCommandInput}
+ * @returns {@link RevokeInvitationCommandOutput}
  * @see {@link RevokeInvitationCommandInput} for command's `input` shape.
  * @see {@link RevokeInvitationCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is a concurrent modification of resources.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
  *
  */
 export class RevokeInvitationCommand extends $Command<
@@ -62,6 +78,9 @@ export class RevokeInvitationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RevokeInvitationCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +109,8 @@ export class RevokeInvitationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RevokeInvitationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RevokeInvitationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +120,18 @@ export class RevokeInvitationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RevokeInvitationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RevokeInvitationCommand(input, context);
+    return se_RevokeInvitationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RevokeInvitationCommandOutput> {
-    return deserializeAws_json1_1RevokeInvitationCommand(output, context);
+    return de_RevokeInvitationCommand(output, context);
   }
 
   // Start section: command_body_extra

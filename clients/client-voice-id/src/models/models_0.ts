@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { VoiceIDServiceException as __BaseException } from "./VoiceIDServiceException";
 
 /**
+ * @public
  * <p>You do not have sufficient permissions to perform this action. Check the error message
  *             and try again.</p>
  */
@@ -26,6 +27,286 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
+ */
+export interface AssociateFraudsterRequest {
+  /**
+   * <p>The identifier of the domain that contains the fraudster.</p>
+   */
+  DomainId: string | undefined;
+
+  /**
+   * <p>The identifier of the watchlist you want to associate with the fraudster.</p>
+   */
+  WatchlistId: string | undefined;
+
+  /**
+   * <p>The identifier of the fraudster to be associated with the watchlist.</p>
+   */
+  FraudsterId: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Contains all the information about a fraudster.</p>
+ */
+export interface Fraudster {
+  /**
+   * <p>The identifier of the domain that contains the fraudster.</p>
+   */
+  DomainId?: string;
+
+  /**
+   * <p>The service-generated identifier for the fraudster.</p>
+   */
+  GeneratedFraudsterId?: string;
+
+  /**
+   * <p>The timestamp of when Voice ID identified the fraudster.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>The identifier of the watchlists the fraudster is a part of.</p>
+   */
+  WatchlistIds?: string[];
+}
+
+/**
+ * @public
+ */
+export interface AssociateFraudsterResponse {
+  /**
+   * <p>Contains all the information about a fraudster.</p>
+   */
+  Fraudster?: Fraudster;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ConflictType = {
+  ANOTHER_ACTIVE_STREAM: "ANOTHER_ACTIVE_STREAM",
+  CANNOT_CHANGE_SPEAKER_AFTER_ENROLLMENT: "CANNOT_CHANGE_SPEAKER_AFTER_ENROLLMENT",
+  CANNOT_DELETE_NON_EMPTY_WATCHLIST: "CANNOT_DELETE_NON_EMPTY_WATCHLIST",
+  CONCURRENT_CHANGES: "CONCURRENT_CHANGES",
+  DOMAIN_LOCKED_FROM_ENCRYPTION_UPDATES: "DOMAIN_LOCKED_FROM_ENCRYPTION_UPDATES",
+  DOMAIN_NOT_ACTIVE: "DOMAIN_NOT_ACTIVE",
+  ENROLLMENT_ALREADY_EXISTS: "ENROLLMENT_ALREADY_EXISTS",
+  FRAUDSTER_MUST_BELONG_TO_AT_LEAST_ONE_WATCHLIST: "FRAUDSTER_MUST_BELONG_TO_AT_LEAST_ONE_WATCHLIST",
+  SPEAKER_NOT_SET: "SPEAKER_NOT_SET",
+  SPEAKER_OPTED_OUT: "SPEAKER_OPTED_OUT",
+} as const;
+
+/**
+ * @public
+ */
+export type ConflictType = (typeof ConflictType)[keyof typeof ConflictType];
+
+/**
+ * @public
+ * <p>The request failed due to a conflict. Check the <code>ConflictType</code> and error
+ *             message for more details.</p>
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * <p>The type of conflict which caused a ConflictException. Possible types and the
+   *             corresponding error messages are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DOMAIN_NOT_ACTIVE</code>: The domain is not active.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CANNOT_CHANGE_SPEAKER_AFTER_ENROLLMENT</code>: You cannot change the
+   *                     speaker ID after an enrollment has been requested.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ENROLLMENT_ALREADY_EXISTS</code>: There is already an enrollment for
+   *                     this session.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SPEAKER_NOT_SET</code>: You must set the speaker ID before requesting an
+   *                     enrollment.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SPEAKER_OPTED_OUT</code>: You cannot request an enrollment for an opted
+   *                     out speaker.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CONCURRENT_CHANGES</code>: The request could not be processed as the
+   *                     resource was modified by another request during execution.</p>
+   *             </li>
+   *          </ul>
+   */
+  ConflictType?: ConflictType | string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Message = opts.Message;
+    this.ConflictType = opts.ConflictType;
+  }
+}
+
+/**
+ * @public
+ * <p>The request failed due to an unknown error on the server side.</p>
+ */
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceType = {
+  BATCH_JOB: "BATCH_JOB",
+  COMPLIANCE_CONSENT: "COMPLIANCE_CONSENT",
+  DOMAIN: "DOMAIN",
+  FRAUDSTER: "FRAUDSTER",
+  SESSION: "SESSION",
+  SPEAKER: "SPEAKER",
+  WATCHLIST: "WATCHLIST",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+
+/**
+ * @public
+ * <p>The specified resource cannot be found. Check the <code>ResourceType</code> and error
+ *             message for more details.</p>
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * <p>The type of resource which cannot not be found. Possible types are
+   *                 <code>BATCH_JOB</code>, <code>COMPLIANCE_CONSENT</code>, <code>DOMAIN</code>,
+   *                 <code>FRAUDSTER</code>, <code>SESSION</code> and <code>SPEAKER</code>.</p>
+   */
+  ResourceType?: ResourceType | string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+    this.ResourceType = opts.ResourceType;
+  }
+}
+
+/**
+ * @public
+ * <p>The request exceeded the service quota. Refer to <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#voiceid-quotas">Voice ID Service Quotas</a> and try your request again.</p>
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * <p>The request was denied due to request throttling. Please slow down your request rate.
+ *             Refer to <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html##voiceid-api-quotas">
+ *                 Amazon Connect Voice ID Service API throttling quotas </a> and try your
+ *             request again.</p>
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * <p>The request failed one or more validations; check the error message for more
+ *             details.</p>
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
  * <p>The configuration used to authenticate a speaker during a session.</p>
  */
 export interface AuthenticationConfiguration {
@@ -35,17 +316,27 @@ export interface AuthenticationConfiguration {
   AcceptanceThreshold: number | undefined;
 }
 
-export enum AuthenticationDecision {
-  ACCEPT = "ACCEPT",
-  NOT_ENOUGH_SPEECH = "NOT_ENOUGH_SPEECH",
-  REJECT = "REJECT",
-  SPEAKER_EXPIRED = "SPEAKER_EXPIRED",
-  SPEAKER_ID_NOT_PROVIDED = "SPEAKER_ID_NOT_PROVIDED",
-  SPEAKER_NOT_ENROLLED = "SPEAKER_NOT_ENROLLED",
-  SPEAKER_OPTED_OUT = "SPEAKER_OPTED_OUT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AuthenticationDecision = {
+  ACCEPT: "ACCEPT",
+  NOT_ENOUGH_SPEECH: "NOT_ENOUGH_SPEECH",
+  REJECT: "REJECT",
+  SPEAKER_EXPIRED: "SPEAKER_EXPIRED",
+  SPEAKER_ID_NOT_PROVIDED: "SPEAKER_ID_NOT_PROVIDED",
+  SPEAKER_NOT_ENROLLED: "SPEAKER_NOT_ENROLLED",
+  SPEAKER_OPTED_OUT: "SPEAKER_OPTED_OUT",
+} as const;
 
 /**
+ * @public
+ */
+export type AuthenticationDecision = (typeof AuthenticationDecision)[keyof typeof AuthenticationDecision];
+
+/**
+ * @public
  * <p>The authentication result produced by Voice ID, processed against the current session
  *             state and streamed audio of the speaker.</p>
  */
@@ -60,13 +351,13 @@ export interface AuthenticationResult {
   AuthenticationResultId?: string;
 
   /**
-   * <p>A timestamp indicating when audio aggregation started for this authentication
+   * <p>A timestamp of when audio aggregation started for this authentication
    *             result.</p>
    */
   AudioAggregationStartedAt?: Date;
 
   /**
-   * <p>A timestamp indicating when audio aggregation ended for this authentication
+   * <p>A timestamp of when audio aggregation ended for this authentication
    *             result.</p>
    */
   AudioAggregationEndedAt?: Date;
@@ -103,77 +394,8 @@ export interface AuthenticationResult {
   Configuration?: AuthenticationConfiguration;
 }
 
-export enum ConflictType {
-  ANOTHER_ACTIVE_STREAM = "ANOTHER_ACTIVE_STREAM",
-  CANNOT_CHANGE_SPEAKER_AFTER_ENROLLMENT = "CANNOT_CHANGE_SPEAKER_AFTER_ENROLLMENT",
-  CONCURRENT_CHANGES = "CONCURRENT_CHANGES",
-  DOMAIN_LOCKED_FROM_ENCRYPTION_UPDATES = "DOMAIN_LOCKED_FROM_ENCRYPTION_UPDATES",
-  DOMAIN_NOT_ACTIVE = "DOMAIN_NOT_ACTIVE",
-  ENROLLMENT_ALREADY_EXISTS = "ENROLLMENT_ALREADY_EXISTS",
-  SPEAKER_NOT_SET = "SPEAKER_NOT_SET",
-  SPEAKER_OPTED_OUT = "SPEAKER_OPTED_OUT",
-}
-
 /**
- * <p>The request failed due to a conflict. Check the <code>ConflictType</code> and error
- *             message for more details.</p>
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * <p>The type of conflict which caused a ConflictException. Possible types and the
-   *             corresponding error messages are as follows:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>DOMAIN_NOT_ACTIVE</code>: The domain is not active.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>CANNOT_CHANGE_SPEAKER_AFTER_ENROLLMENT</code>: You cannot change the
-   *                     speaker ID after an enrollment has been requested.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>ENROLLMENT_ALREADY_EXISTS</code>: There is already an enrollment for
-   *                     this session.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>SPEAKER_NOT_SET</code>: You must set the speaker ID before requesting an
-   *                     enrollment.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>SPEAKER_OPTED_OUT</code>: You cannot request an enrollment for an opted
-   *                     out speaker.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>CONCURRENT_CHANGES</code>: The request could not be processed as the
-   *                     resource was modified by another request during execution.</p>
-   *             </li>
-   *          </ul>
-   */
-  ConflictType?: ConflictType | string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-    this.ConflictType = opts.ConflictType;
-  }
-}
-
-/**
+ * @public
  * <p>The configuration containing information about the customer managed key used for
  *             encrypting customer data.</p>
  */
@@ -186,7 +408,9 @@ export interface ServerSideEncryptionConfiguration {
 }
 
 /**
- * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ * @public
+ * <p>The tags used to organize, track, or control access for this resource. For example, \{
+ *             "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
  */
 export interface Tag {
   /**
@@ -202,6 +426,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateDomainRequest {
   /**
    * <p>The name of the domain.</p>
@@ -209,7 +436,7 @@ export interface CreateDomainRequest {
   Name: string | undefined;
 
   /**
-   * <p>A brief description of the domain.</p>
+   * <p>A brief description of this domain.</p>
    */
   Description?: string;
 
@@ -221,8 +448,10 @@ export interface CreateDomainRequest {
   ServerSideEncryptionConfiguration: ServerSideEncryptionConfiguration | undefined;
 
   /**
-   * <p>The idempotency token for creating a new domain. If not provided, Amazon Web Services
-   *             SDK populates this field.</p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    */
   ClientToken?: string;
 
@@ -232,19 +461,39 @@ export interface CreateDomainRequest {
   Tags?: Tag[];
 }
 
-export enum DomainStatus {
-  ACTIVE = "ACTIVE",
-  PENDING = "PENDING",
-  SUSPENDED = "SUSPENDED",
-}
-
-export enum ServerSideEncryptionUpdateStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DomainStatus = {
+  ACTIVE: "ACTIVE",
+  PENDING: "PENDING",
+  SUSPENDED: "SUSPENDED",
+} as const;
 
 /**
+ * @public
+ */
+export type DomainStatus = (typeof DomainStatus)[keyof typeof DomainStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ServerSideEncryptionUpdateStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type ServerSideEncryptionUpdateStatus =
+  (typeof ServerSideEncryptionUpdateStatus)[keyof typeof ServerSideEncryptionUpdateStatus];
+
+/**
+ * @public
  * <p>Details about the most recent server-side encryption configuration update. When the
  *             server-side encryption configuration is changed, dependency on the old KMS key is removed through an asynchronous process. When this update is
  *             complete, the domain’s data can only be accessed using the new KMS key.</p>
@@ -273,11 +522,23 @@ export interface ServerSideEncryptionUpdateDetails {
 }
 
 /**
+ * @public
+ * <p>Details of the watchlists in a domain.</p>
+ */
+export interface WatchlistDetails {
+  /**
+   * <p>The identifier of the default watchlist.</p>
+   */
+  DefaultWatchlistId: string | undefined;
+}
+
+/**
+ * @public
  * <p>Contains all the information about a domain.</p>
  */
 export interface Domain {
   /**
-   * <p>The service-generated identifier for the domain.</p>
+   * <p>The identifier of the domain.</p>
    */
   DomainId?: string;
 
@@ -287,12 +548,12 @@ export interface Domain {
   Arn?: string;
 
   /**
-   * <p>The client-provided name for the domain.</p>
+   * <p>The name for the domain.</p>
    */
   Name?: string;
 
   /**
-   * <p>The client-provided description of the domain.</p>
+   * <p>The description of the domain.</p>
    */
   Description?: string;
 
@@ -308,12 +569,12 @@ export interface Domain {
   ServerSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
 
   /**
-   * <p>The timestamp at which the domain is created.</p>
+   * <p>The timestamp of when the domain was created.</p>
    */
   CreatedAt?: Date;
 
   /**
-   * <p>The timestamp showing the domain's last update.</p>
+   * <p>The timestamp of when the domain was last update.</p>
    */
   UpdatedAt?: Date;
 
@@ -323,8 +584,16 @@ export interface Domain {
    *             complete, the domain's data can only be accessed using the new KMS key.</p>
    */
   ServerSideEncryptionUpdateDetails?: ServerSideEncryptionUpdateDetails;
+
+  /**
+   * <p>The watchlist details of a domain. Contains the default watchlist ID of the domain.</p>
+   */
+  WatchlistDetails?: WatchlistDetails;
 }
 
+/**
+ * @public
+ */
 export interface CreateDomainResponse {
   /**
    * <p>Information about the newly created domain.</p>
@@ -333,131 +602,87 @@ export interface CreateDomainResponse {
 }
 
 /**
- * <p>The request failed due to an unknown error on the server side.</p>
+ * @public
  */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  Message?: string;
+export interface CreateWatchlistRequest {
   /**
-   * @internal
+   * <p>The identifier of the domain that contains the watchlist.</p>
    */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-  }
-}
+  DomainId: string | undefined;
 
-export enum ResourceType {
-  BATCH_JOB = "BATCH_JOB",
-  COMPLIANCE_CONSENT = "COMPLIANCE_CONSENT",
-  DOMAIN = "DOMAIN",
-  FRAUDSTER = "FRAUDSTER",
-  SESSION = "SESSION",
-  SPEAKER = "SPEAKER",
+  /**
+   * <p>The name of the watchlist.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A brief description of this watchlist.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   */
+  ClientToken?: string;
 }
 
 /**
- * <p>The specified resource cannot be found. Check the <code>ResourceType</code> and error
- *             message for more details.</p>
+ * @public
+ * <p>Contains all the information about a watchlist.</p>
  */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string;
+export interface Watchlist {
   /**
-   * <p>The type of resource which cannot not be found. Possible types are
-   *                 <code>BATCH_JOB</code>, <code>COMPLIANCE_CONSENT</code>, <code>DOMAIN</code>,
-   *                 <code>FRAUDSTER</code>, <code>SESSION</code> and <code>SPEAKER</code>.</p>
+   * <p>The identifier of the domain that contains the watchlist.</p>
    */
-  ResourceType?: ResourceType | string;
+  DomainId?: string;
+
   /**
-   * @internal
+   * <p>The identifier of the watchlist.</p>
    */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-    this.ResourceType = opts.ResourceType;
-  }
+  WatchlistId?: string;
+
+  /**
+   * <p>The name for the watchlist.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The description of the watchlist.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Whether the specified watchlist is the default watchlist of a domain.</p>
+   */
+  DefaultWatchlist?: boolean;
+
+  /**
+   * <p>The timestamp of when the watchlist was created.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>The timestamp of when the watchlist was updated.</p>
+   */
+  UpdatedAt?: Date;
 }
 
 /**
- * <p>The request exceeded the service quota. Refer to <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#voiceid-quotas">Voice ID Service Quotas</a> and try your request again.</p>
+ * @public
  */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string;
+export interface CreateWatchlistResponse {
   /**
-   * @internal
+   * <p>Information about the newly created watchlist.</p>
    */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.Message = opts.Message;
-  }
+  Watchlist?: Watchlist;
 }
 
 /**
- * <p>The request was denied due to request throttling. Please slow down your request rate.
- *             Refer to <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html##voiceid-api-quotas">
- *                 Amazon Connect Voice ID Service API throttling quotas </a> and try your
- *             request again.</p>
+ * @public
  */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request failed one or more validations; check the error message for more
- *             details.</p>
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
 export interface DeleteDomainRequest {
   /**
    * <p>The identifier of the domain you want to delete.</p>
@@ -465,9 +690,12 @@ export interface DeleteDomainRequest {
   DomainId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFraudsterRequest {
   /**
-   * <p>The identifier of the domain containing the fraudster.</p>
+   * <p>The identifier of the domain that contains the fraudster.</p>
    */
   DomainId: string | undefined;
 
@@ -477,9 +705,12 @@ export interface DeleteFraudsterRequest {
   FraudsterId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSpeakerRequest {
   /**
-   * <p>The identifier of the domain containing the speaker.</p>
+   * <p>The identifier of the domain that contains the speaker.</p>
    */
   DomainId: string | undefined;
 
@@ -489,13 +720,34 @@ export interface DeleteSpeakerRequest {
   SpeakerId: string | undefined;
 }
 
+/**
+ * @public
+ */
+export interface DeleteWatchlistRequest {
+  /**
+   * <p>The identifier of the domain that contains the watchlist.</p>
+   */
+  DomainId: string | undefined;
+
+  /**
+   * <p>The identifier of the watchlist to be deleted.</p>
+   */
+  WatchlistId: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeDomainRequest {
   /**
-   * <p>The identifier of the domain you are describing.</p>
+   * <p>The identifier of the domain that you are describing.</p>
    */
   DomainId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDomainResponse {
   /**
    * <p>Information about the specified domain.</p>
@@ -503,9 +755,12 @@ export interface DescribeDomainResponse {
   Domain?: Domain;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFraudsterRequest {
   /**
-   * <p>The identifier of the domain containing the fraudster.</p>
+   * <p>The identifier of the domain that contains the fraudster.</p>
    */
   DomainId: string | undefined;
 
@@ -516,25 +771,8 @@ export interface DescribeFraudsterRequest {
 }
 
 /**
- * <p>Contains all the information about a fraudster.</p>
+ * @public
  */
-export interface Fraudster {
-  /**
-   * <p>The identifier for the domain containing the fraudster.</p>
-   */
-  DomainId?: string;
-
-  /**
-   * <p>The service-generated identifier for the fraudster.</p>
-   */
-  GeneratedFraudsterId?: string;
-
-  /**
-   * <p>The timestamp when Voice ID identified the fraudster.</p>
-   */
-  CreatedAt?: Date;
-}
-
 export interface DescribeFraudsterResponse {
   /**
    * <p>Information about the specified fraudster.</p>
@@ -542,19 +780,23 @@ export interface DescribeFraudsterResponse {
   Fraudster?: Fraudster;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFraudsterRegistrationJobRequest {
   /**
-   * <p>The identifier for the domain containing the fraudster registration job.</p>
+   * <p>The identifier of the domain that contains the fraudster registration job.</p>
    */
   DomainId: string | undefined;
 
   /**
-   * <p>The identifier for the fraudster registration job you are describing.</p>
+   * <p>The identifier of the fraudster registration job you are describing.</p>
    */
   JobId: string | undefined;
 }
 
 /**
+ * @public
  * <p>Contains error details for a failed batch job.</p>
  */
 export interface FailureDetails {
@@ -570,6 +812,7 @@ export interface FailureDetails {
 }
 
 /**
+ * @public
  * <p>The configuration containing input file information for a batch job.</p>
  */
 export interface InputDataConfig {
@@ -581,6 +824,7 @@ export interface InputDataConfig {
 }
 
 /**
+ * @public
  * <p>Indicates the completion progress for a batch job.</p>
  */
 export interface JobProgress {
@@ -591,15 +835,26 @@ export interface JobProgress {
   PercentComplete?: number;
 }
 
-export enum FraudsterRegistrationJobStatus {
-  COMPLETED = "COMPLETED",
-  COMPLETED_WITH_ERRORS = "COMPLETED_WITH_ERRORS",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUBMITTED = "SUBMITTED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FraudsterRegistrationJobStatus = {
+  COMPLETED: "COMPLETED",
+  COMPLETED_WITH_ERRORS: "COMPLETED_WITH_ERRORS",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUBMITTED: "SUBMITTED",
+} as const;
 
 /**
+ * @public
+ */
+export type FraudsterRegistrationJobStatus =
+  (typeof FraudsterRegistrationJobStatus)[keyof typeof FraudsterRegistrationJobStatus];
+
+/**
+ * @public
  * <p>The configuration containing output file information for a batch job.</p>
  */
 export interface OutputDataConfig {
@@ -620,15 +875,24 @@ export interface OutputDataConfig {
   KmsKeyId?: string;
 }
 
-export enum DuplicateRegistrationAction {
-  REGISTER_AS_NEW = "REGISTER_AS_NEW",
-  SKIP = "SKIP",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DuplicateRegistrationAction = {
+  REGISTER_AS_NEW: "REGISTER_AS_NEW",
+  SKIP: "SKIP",
+} as const;
 
 /**
- * <p>The configuration defining the action to take when a duplicate fraudster is detected,
- *             and the similarity threshold to use for detecting a duplicate fraudster during a batch
- *             fraudster registration job.</p>
+ * @public
+ */
+export type DuplicateRegistrationAction =
+  (typeof DuplicateRegistrationAction)[keyof typeof DuplicateRegistrationAction];
+
+/**
+ * @public
+ * <p>The registration configuration to be used during the batch fraudster registration job.</p>
  */
 export interface RegistrationConfig {
   /**
@@ -644,9 +908,16 @@ export interface RegistrationConfig {
    *             the new fraudster a duplicate.</p>
    */
   FraudsterSimilarityThreshold?: number;
+
+  /**
+   * <p>The identifiers of watchlists that a fraudster is registered to. If a watchlist isn't provided, the fraudsters are registered to the default watchlist.
+   *         </p>
+   */
+  WatchlistIds?: string[];
 }
 
 /**
+ * @public
  * <p>Contains all the information about a fraudster registration job.</p>
  */
 export interface FraudsterRegistrationJob {
@@ -666,7 +937,7 @@ export interface FraudsterRegistrationJob {
   JobStatus?: FraudsterRegistrationJobStatus | string;
 
   /**
-   * <p>The identifier of the domain containing the fraudster registration job.</p>
+   * <p>The identifier of the domain that contains the fraudster registration job.</p>
    */
   DomainId?: string;
 
@@ -697,12 +968,12 @@ export interface FraudsterRegistrationJob {
   OutputDataConfig?: OutputDataConfig;
 
   /**
-   * <p>A timestamp showing the creation time of the fraudster registration job.</p>
+   * <p>A timestamp of when the fraudster registration job was created.</p>
    */
   CreatedAt?: Date;
 
   /**
-   * <p>A timestamp showing when the fraudster registration job ended.</p>
+   * <p>A timestamp of when the fraudster registration job ended.</p>
    */
   EndedAt?: Date;
 
@@ -722,6 +993,9 @@ export interface FraudsterRegistrationJob {
   JobProgress?: JobProgress;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFraudsterRegistrationJobResponse {
   /**
    * <p>Contains details about the specified fraudster registration job.</p>
@@ -729,6 +1003,9 @@ export interface DescribeFraudsterRegistrationJobResponse {
   Job?: FraudsterRegistrationJob;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSpeakerRequest {
   /**
    * <p>The identifier of the domain that contains the speaker.</p>
@@ -741,14 +1018,24 @@ export interface DescribeSpeakerRequest {
   SpeakerId: string | undefined;
 }
 
-export enum SpeakerStatus {
-  ENROLLED = "ENROLLED",
-  EXPIRED = "EXPIRED",
-  OPTED_OUT = "OPTED_OUT",
-  PENDING = "PENDING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SpeakerStatus = {
+  ENROLLED: "ENROLLED",
+  EXPIRED: "EXPIRED",
+  OPTED_OUT: "OPTED_OUT",
+  PENDING: "PENDING",
+} as const;
 
 /**
+ * @public
+ */
+export type SpeakerStatus = (typeof SpeakerStatus)[keyof typeof SpeakerStatus];
+
+/**
+ * @public
  * <p>Contains all the information about a speaker.</p>
  */
 export interface Speaker {
@@ -773,22 +1060,25 @@ export interface Speaker {
   Status?: SpeakerStatus | string;
 
   /**
-   * <p>A timestamp showing when the speaker is created. </p>
+   * <p>A timestamp of when the speaker was created. </p>
    */
   CreatedAt?: Date;
 
   /**
-   * <p>A timestamp showing the speaker's last update.</p>
+   * <p>A timestamp of the speaker's last update.</p>
    */
   UpdatedAt?: Date;
 
   /**
-   * <p>The timestamp when the speaker was last accessed for enrollment, re-enrollment or a
+   * <p>The timestamp of when the speaker was last accessed for enrollment, re-enrollment or a
    *             successful authentication. This timestamp is accurate to one hour.</p>
    */
   LastAccessedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSpeakerResponse {
   /**
    * <p>Information about the specified speaker.</p>
@@ -796,9 +1086,12 @@ export interface DescribeSpeakerResponse {
   Speaker?: Speaker;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSpeakerEnrollmentJobRequest {
   /**
-   * <p>The identifier of the domain containing the speaker enrollment job.</p>
+   * <p>The identifier of the domain that contains the speaker enrollment job.</p>
    */
   DomainId: string | undefined;
 
@@ -808,20 +1101,37 @@ export interface DescribeSpeakerEnrollmentJobRequest {
   JobId: string | undefined;
 }
 
-export enum ExistingEnrollmentAction {
-  OVERWRITE = "OVERWRITE",
-  SKIP = "SKIP",
-}
-
-export enum FraudDetectionAction {
-  FAIL = "FAIL",
-  IGNORE = "IGNORE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ExistingEnrollmentAction = {
+  OVERWRITE: "OVERWRITE",
+  SKIP: "SKIP",
+} as const;
 
 /**
- * <p>The configuration defining the action to take when a speaker is flagged by the fraud
- *             detection system during a batch speaker enrollment job, and the risk threshold to use
- *             for identification.</p>
+ * @public
+ */
+export type ExistingEnrollmentAction = (typeof ExistingEnrollmentAction)[keyof typeof ExistingEnrollmentAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const FraudDetectionAction = {
+  FAIL: "FAIL",
+  IGNORE: "IGNORE",
+} as const;
+
+/**
+ * @public
+ */
+export type FraudDetectionAction = (typeof FraudDetectionAction)[keyof typeof FraudDetectionAction];
+
+/**
+ * @public
+ * <p>The fraud detection configuration to be used during the batch speaker enrollment job.</p>
  */
 export interface EnrollmentJobFraudDetectionConfig {
   /**
@@ -838,9 +1148,16 @@ export interface EnrollmentJobFraudDetectionConfig {
    *             threshold, the speaker is considered a fraudster.</p>
    */
   RiskThreshold?: number;
+
+  /**
+   * <p>The identifier of watchlists against which fraud detection is performed.
+   *         </p>
+   */
+  WatchlistIds?: string[];
 }
 
 /**
+ * @public
  * <p>Contains configurations defining enrollment behavior for the batch job.</p>
  */
 export interface EnrollmentConfig {
@@ -859,15 +1176,25 @@ export interface EnrollmentConfig {
   FraudDetectionConfig?: EnrollmentJobFraudDetectionConfig;
 }
 
-export enum SpeakerEnrollmentJobStatus {
-  COMPLETED = "COMPLETED",
-  COMPLETED_WITH_ERRORS = "COMPLETED_WITH_ERRORS",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUBMITTED = "SUBMITTED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SpeakerEnrollmentJobStatus = {
+  COMPLETED: "COMPLETED",
+  COMPLETED_WITH_ERRORS: "COMPLETED_WITH_ERRORS",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUBMITTED: "SUBMITTED",
+} as const;
 
 /**
+ * @public
+ */
+export type SpeakerEnrollmentJobStatus = (typeof SpeakerEnrollmentJobStatus)[keyof typeof SpeakerEnrollmentJobStatus];
+
+/**
+ * @public
  * <p>Contains all the information about a speaker enrollment job.</p>
  */
 export interface SpeakerEnrollmentJob {
@@ -917,12 +1244,12 @@ export interface SpeakerEnrollmentJob {
   OutputDataConfig?: OutputDataConfig;
 
   /**
-   * <p>A timestamp showing the creation of the speaker enrollment job.</p>
+   * <p>A timestamp of when the speaker enrollment job was created.</p>
    */
   CreatedAt?: Date;
 
   /**
-   * <p>A timestamp showing when the speaker enrollment job ended. </p>
+   * <p>A timestamp of when the speaker enrollment job ended. </p>
    */
   EndedAt?: Date;
 
@@ -942,6 +1269,9 @@ export interface SpeakerEnrollmentJob {
   JobProgress?: JobProgress;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSpeakerEnrollmentJobResponse {
   /**
    * <p>Contains details about the specified speaker enrollment job.</p>
@@ -949,27 +1279,87 @@ export interface DescribeSpeakerEnrollmentJobResponse {
   Job?: SpeakerEnrollmentJob;
 }
 
+/**
+ * @public
+ */
+export interface DescribeWatchlistRequest {
+  /**
+   * <p>The identifier of the domain that contains the watchlist.</p>
+   */
+  DomainId: string | undefined;
+
+  /**
+   * <p>The identifier of the watchlist that you are describing.</p>
+   */
+  WatchlistId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeWatchlistResponse {
+  /**
+   * <p>Information about the specified watchlist.</p>
+   */
+  Watchlist?: Watchlist;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateFraudsterRequest {
+  /**
+   * <p>The identifier of the domain that contains the fraudster.</p>
+   */
+  DomainId: string | undefined;
+
+  /**
+   * <p>The identifier of the watchlist that you want to disassociate from the fraudster.</p>
+   */
+  WatchlistId: string | undefined;
+
+  /**
+   * <p>The identifier of the fraudster to be disassociated from the watchlist.</p>
+   */
+  FraudsterId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateFraudsterResponse {
+  /**
+   * <p>Contains all the information about a fraudster.</p>
+   */
+  Fraudster?: Fraudster;
+}
+
+/**
+ * @public
+ */
 export interface ListDomainsRequest {
   /**
-   * <p>The maximum number of domains to list per API call.</p>
+   * <p>The maximum number of results that are returned per call. You can use
+   *             <code>NextToken</code> to obtain more pages of results. The default is 100; the maximum allowed page size is also 100.</p>
    */
   MaxResults?: number;
 
   /**
    * <p>If <code>NextToken</code> is returned, there are more results available. The value of
-   *                 <code>NextToken</code> is a unique pagination token for each page. Make the call
+   *             <code>NextToken</code> is a unique pagination token for each page. Make the call
    *             again using the returned token to retrieve the next page. Keep all other arguments
-   *             unchanged. Each pagination token expires after 24 hours. </p>
+   *             unchanged. Each pagination token expires after 24 hours.</p>
    */
   NextToken?: string;
 }
 
 /**
+ * @public
  * <p>Contains a summary of information about a domain.</p>
  */
 export interface DomainSummary {
   /**
-   * <p>The service-generated identifier for the domain.</p>
+   * <p>The identifier of the domain.</p>
    */
   DomainId?: string;
 
@@ -984,7 +1374,7 @@ export interface DomainSummary {
   Name?: string;
 
   /**
-   * <p>The client-provided description of the domain.</p>
+   * <p>The description of the domain.</p>
    */
   Description?: string;
 
@@ -1000,12 +1390,12 @@ export interface DomainSummary {
   ServerSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
 
   /**
-   * <p>The timestamp showing when the domain is created.</p>
+   * <p>The timestamp of when the domain was created.</p>
    */
   CreatedAt?: Date;
 
   /**
-   * <p>The timestamp showing the domain's last update.</p>
+   * <p>The timestamp of when the domain was last updated.</p>
    */
   UpdatedAt?: Date;
 
@@ -1015,8 +1405,16 @@ export interface DomainSummary {
    *             complete, the domain's data can only be accessed using the new KMS key.</p>
    */
   ServerSideEncryptionUpdateDetails?: ServerSideEncryptionUpdateDetails;
+
+  /**
+   * <p>Provides information about <code>watchlistDetails</code> and <code>DefaultWatchlistID</code>. </p>
+   */
+  WatchlistDetails?: WatchlistDetails;
 }
 
+/**
+ * @public
+ */
 export interface ListDomainsResponse {
   /**
    * <p>A list containing details about each domain in the Amazon Web Services account.</p>
@@ -1025,13 +1423,16 @@ export interface ListDomainsResponse {
 
   /**
    * <p>If <code>NextToken</code> is returned, there are more results available. The value of
-   *                 <code>NextToken</code> is a unique pagination token for each page. Make the call
+   *             <code>NextToken</code> is a unique pagination token for each page. Make the call
    *             again using the returned token to retrieve the next page. Keep all other arguments
-   *             unchanged. Each pagination token expires after 24 hours. </p>
+   *             unchanged. Each pagination token expires after 24 hours.</p>
    */
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDomainRequest {
   /**
    * <p>The identifier of the domain to be updated.</p>
@@ -1044,7 +1445,7 @@ export interface UpdateDomainRequest {
   Name: string | undefined;
 
   /**
-   * <p>A brief description of the domain.</p>
+   * <p>A brief description about this domain.</p>
    */
   Description?: string;
 
@@ -1060,6 +1461,9 @@ export interface UpdateDomainRequest {
   ServerSideEncryptionConfiguration: ServerSideEncryptionConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDomainResponse {
   /**
    * <p>Details about the updated domain</p>
@@ -1067,6 +1471,9 @@ export interface UpdateDomainResponse {
   Domain?: Domain;
 }
 
+/**
+ * @public
+ */
 export interface EvaluateSessionRequest {
   /**
    * <p>The identifier of the domain where the session started.</p>
@@ -1081,6 +1488,7 @@ export interface EvaluateSessionRequest {
 }
 
 /**
+ * @public
  * <p>The configuration used for performing fraud detection over a speaker during a
  *             session.</p>
  */
@@ -1090,21 +1498,46 @@ export interface FraudDetectionConfiguration {
    *             risk score calculated by Voice ID is higher than the threshold, the speaker is
    *             considered a fraudster.</p>
    */
-  RiskThreshold: number | undefined;
-}
+  RiskThreshold?: number;
 
-export enum FraudDetectionDecision {
-  HIGH_RISK = "HIGH_RISK",
-  LOW_RISK = "LOW_RISK",
-  NOT_ENOUGH_SPEECH = "NOT_ENOUGH_SPEECH",
-}
-
-export enum FraudDetectionReason {
-  KNOWN_FRAUDSTER = "KNOWN_FRAUDSTER",
-  VOICE_SPOOFING = "VOICE_SPOOFING",
+  /**
+   * <p>The identifier of the watchlist against which fraud detection is performed.
+   *         </p>
+   */
+  WatchlistId?: string;
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const FraudDetectionDecision = {
+  HIGH_RISK: "HIGH_RISK",
+  LOW_RISK: "LOW_RISK",
+  NOT_ENOUGH_SPEECH: "NOT_ENOUGH_SPEECH",
+} as const;
+
+/**
+ * @public
+ */
+export type FraudDetectionDecision = (typeof FraudDetectionDecision)[keyof typeof FraudDetectionDecision];
+
+/**
+ * @public
+ * @enum
+ */
+export const FraudDetectionReason = {
+  KNOWN_FRAUDSTER: "KNOWN_FRAUDSTER",
+  VOICE_SPOOFING: "VOICE_SPOOFING",
+} as const;
+
+/**
+ * @public
+ */
+export type FraudDetectionReason = (typeof FraudDetectionReason)[keyof typeof FraudDetectionReason];
+
+/**
+ * @public
  * <p>Contains details produced as a result of performing known fraudster risk analysis on a
  *             speaker.</p>
  */
@@ -1123,6 +1556,7 @@ export interface KnownFraudsterRisk {
 }
 
 /**
+ * @public
  * <p>The details resulting from 'Voice Spoofing Risk' analysis of the speaker.</p>
  */
 export interface VoiceSpoofingRisk {
@@ -1133,6 +1567,7 @@ export interface VoiceSpoofingRisk {
 }
 
 /**
+ * @public
  * <p>Details regarding various fraud risk analyses performed against the current session
  *             state and streamed audio of the speaker.</p>
  */
@@ -1149,6 +1584,7 @@ export interface FraudRiskDetails {
 }
 
 /**
+ * @public
  * <p>The fraud detection result produced by Voice ID, processed against the current
  *             session state and streamed audio of the speaker.</p>
  */
@@ -1163,13 +1599,13 @@ export interface FraudDetectionResult {
   FraudDetectionResultId?: string;
 
   /**
-   * <p>A timestamp indicating when audio aggregation started for this fraud detection
+   * <p>A timestamp of when audio aggregation started for this fraud detection
    *             result.</p>
    */
   AudioAggregationStartedAt?: Date;
 
   /**
-   * <p>A timestamp indicating when audio aggregation ended for this fraud detection
+   * <p>A timestamp of when audio aggregation ended for this fraud detection
    *             result.</p>
    */
   AudioAggregationEndedAt?: Date;
@@ -1200,15 +1636,27 @@ export interface FraudDetectionResult {
   RiskDetails?: FraudRiskDetails;
 }
 
-export enum StreamingStatus {
-  ENDED = "ENDED",
-  ONGOING = "ONGOING",
-  PENDING_CONFIGURATION = "PENDING_CONFIGURATION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StreamingStatus = {
+  ENDED: "ENDED",
+  ONGOING: "ONGOING",
+  PENDING_CONFIGURATION: "PENDING_CONFIGURATION",
+} as const;
 
+/**
+ * @public
+ */
+export type StreamingStatus = (typeof StreamingStatus)[keyof typeof StreamingStatus];
+
+/**
+ * @public
+ */
 export interface EvaluateSessionResponse {
   /**
-   * <p>The identifier of the domain containing the session.</p>
+   * <p>The identifier of the domain that contains the session.</p>
    */
   DomainId?: string;
 
@@ -1249,6 +1697,7 @@ export interface EvaluateSessionResponse {
 }
 
 /**
+ * @public
  * <p>Contains a summary of information about a fraudster registration job.</p>
  */
 export interface FraudsterRegistrationJobSummary {
@@ -1268,17 +1717,17 @@ export interface FraudsterRegistrationJobSummary {
   JobStatus?: FraudsterRegistrationJobStatus | string;
 
   /**
-   * <p>The identifier of the domain containing the fraudster registration job.</p>
+   * <p>The identifier of the domain that contains the fraudster registration job.</p>
    */
   DomainId?: string;
 
   /**
-   * <p>A timestamp showing when the fraudster registration job is created. </p>
+   * <p>A timestamp of when the fraudster registration job was created. </p>
    */
   CreatedAt?: Date;
 
   /**
-   * <p>A timestamp showing when the fraudster registration job ended.</p>
+   * <p>A timestamp of when the fraudster registration job ended.</p>
    */
   EndedAt?: Date;
 
@@ -1298,9 +1747,39 @@ export interface FraudsterRegistrationJobSummary {
   JobProgress?: JobProgress;
 }
 
+/**
+ * @public
+ * <p>Contains a summary of information about a fraudster.
+ *         </p>
+ */
+export interface FraudsterSummary {
+  /**
+   * <p>The identifier of the domain that contains the fraudster summary.</p>
+   */
+  DomainId?: string;
+
+  /**
+   * <p>The service-generated identifier for the fraudster.</p>
+   */
+  GeneratedFraudsterId?: string;
+
+  /**
+   * <p>The timestamp of when the fraudster summary was created.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>The identifier of the watchlists the fraudster is a part of.</p>
+   */
+  WatchlistIds?: string[];
+}
+
+/**
+ * @public
+ */
 export interface ListFraudsterRegistrationJobsRequest {
   /**
-   * <p>The identifier of the domain containing the fraudster registration Jobs.</p>
+   * <p>The identifier of the domain that contains the fraudster registration Jobs.</p>
    */
   DomainId: string | undefined;
 
@@ -1311,20 +1790,22 @@ export interface ListFraudsterRegistrationJobsRequest {
 
   /**
    * <p>The maximum number of results that are returned per call. You can use
-   *                 <code>NextToken</code> to obtain further pages of results. The default is 100; the
-   *             maximum allowed page size is also 100. </p>
+   *             <code>NextToken</code> to obtain more pages of results. The default is 100; the maximum allowed page size is also 100. </p>
    */
   MaxResults?: number;
 
   /**
    * <p>If <code>NextToken</code> is returned, there are more results available. The value of
-   *                 <code>NextToken</code> is a unique pagination token for each page. Make the call
+   *             <code>NextToken</code> is a unique pagination token for each page. Make the call
    *             again using the returned token to retrieve the next page. Keep all other arguments
-   *             unchanged. Each pagination token expires after 24 hours. </p>
+   *             unchanged. Each pagination token expires after 24 hours.</p>
    */
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFraudsterRegistrationJobsResponse {
   /**
    * <p>A list containing details about each specified fraudster registration job.</p>
@@ -1333,16 +1814,69 @@ export interface ListFraudsterRegistrationJobsResponse {
 
   /**
    * <p>If <code>NextToken</code> is returned, there are more results available. The value of
-   *                 <code>NextToken</code> is a unique pagination token for each page. Make the call
+   *             <code>NextToken</code> is a unique pagination token for each page. Make the call
    *             again using the returned token to retrieve the next page. Keep all other arguments
-   *             unchanged. Each pagination token expires after 24 hours. </p>
+   *             unchanged. Each pagination token expires after 24 hours.</p>
    */
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
+export interface ListFraudstersRequest {
+  /**
+   * <p>The identifier of the domain. </p>
+   */
+  DomainId: string | undefined;
+
+  /**
+   * <p>The identifier of the watchlist. If provided, all fraudsters in the watchlist are listed. If not provided, all fraudsters in the domain are listed.</p>
+   */
+  WatchlistId?: string;
+
+  /**
+   * <p>The maximum number of results that are returned per call. You can use
+   *             <code>NextToken</code> to obtain more pages of results. The default is 100; the maximum allowed page size is also 100.    </p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>If <code>NextToken</code> is returned, there are more results available. The value of
+   *             <code>NextToken</code> is a unique pagination token for each page. Make the call
+   *             again using the returned token to retrieve the next page. Keep all other arguments
+   *             unchanged. Each pagination token expires after 24 hours.
+   *         </p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListFraudstersResponse {
+  /**
+   * <p>A list that contains details about each fraudster in the Amazon Web Services account.
+   *         </p>
+   */
+  FraudsterSummaries?: FraudsterSummary[];
+
+  /**
+   * <p>If <code>NextToken</code> is returned, there are more results available. The value of
+   *             <code>NextToken</code> is a unique pagination token for each page. Make the call
+   *             again using the returned token to retrieve the next page. Keep all other arguments
+   *             unchanged. Each pagination token expires after 24 hours.
+   *         </p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface ListSpeakerEnrollmentJobsRequest {
   /**
-   * <p>The identifier of the domain containing the speaker enrollment jobs.</p>
+   * <p>The identifier of the domain that contains the speaker enrollment jobs.</p>
    */
   DomainId: string | undefined;
 
@@ -1353,21 +1887,21 @@ export interface ListSpeakerEnrollmentJobsRequest {
 
   /**
    * <p>The maximum number of results that are returned per call. You can use
-   *                 <code>NextToken</code> to obtain further pages of results. The default is 100; the
-   *             maximum allowed page size is also 100. </p>
+   *             <code>NextToken</code> to obtain more pages of results. The default is 100; the maximum allowed page size is also 100.</p>
    */
   MaxResults?: number;
 
   /**
    * <p>If <code>NextToken</code> is returned, there are more results available. The value of
-   *                 <code>NextToken</code> is a unique pagination token for each page. Make the call
+   *             <code>NextToken</code> is a unique pagination token for each page. Make the call
    *             again using the returned token to retrieve the next page. Keep all other arguments
-   *             unchanged. Each pagination token expires after 24 hours. </p>
+   *             unchanged. Each pagination token expires after 24 hours.</p>
    */
   NextToken?: string;
 }
 
 /**
+ * @public
  * <p>Contains a summary of information about a speaker enrollment job.</p>
  */
 export interface SpeakerEnrollmentJobSummary {
@@ -1392,12 +1926,12 @@ export interface SpeakerEnrollmentJobSummary {
   DomainId?: string;
 
   /**
-   * <p>A timestamp showing the creation time of the speaker enrollment job.</p>
+   * <p>A timestamp of when of the speaker enrollment job was created.</p>
    */
   CreatedAt?: Date;
 
   /**
-   * <p>A timestamp showing when the speaker enrollment job ended.</p>
+   * <p>A timestamp of when the speaker enrollment job ended.</p>
    */
   EndedAt?: Date;
 
@@ -1417,6 +1951,9 @@ export interface SpeakerEnrollmentJobSummary {
   JobProgress?: JobProgress;
 }
 
+/**
+ * @public
+ */
 export interface ListSpeakerEnrollmentJobsResponse {
   /**
    * <p>A list containing details about each specified speaker enrollment job.</p>
@@ -1425,13 +1962,16 @@ export interface ListSpeakerEnrollmentJobsResponse {
 
   /**
    * <p>If <code>NextToken</code> is returned, there are more results available. The value of
-   *                 <code>NextToken</code> is a unique pagination token for each page. Make the call
+   *             <code>NextToken</code> is a unique pagination token for each page. Make the call
    *             again using the returned token to retrieve the next page. Keep all other arguments
    *             unchanged. Each pagination token expires after 24 hours. </p>
    */
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSpeakersRequest {
   /**
    * <p>The identifier of the domain.</p>
@@ -1440,21 +1980,21 @@ export interface ListSpeakersRequest {
 
   /**
    * <p>The maximum number of results that are returned per call. You can use
-   *                 <code>NextToken</code> to obtain further pages of results. The default is 100; the
-   *             maximum allowed page size is also 100. </p>
+   *             <code>NextToken</code> to obtain more pages of results. The default is 100; the maximum allowed page size is also 100. </p>
    */
   MaxResults?: number;
 
   /**
    * <p>If <code>NextToken</code> is returned, there are more results available. The value of
-   *                 <code>NextToken</code> is a unique pagination token for each page. Make the call
+   *             <code>NextToken</code> is a unique pagination token for each page. Make the call
    *             again using the returned token to retrieve the next page. Keep all other arguments
-   *             unchanged. Each pagination token expires after 24 hours. </p>
+   *             unchanged. Each pagination token expires after 24 hours.</p>
    */
   NextToken?: string;
 }
 
 /**
+ * @public
  * <p>Contains a summary of information about a speaker.</p>
  */
 export interface SpeakerSummary {
@@ -1495,6 +2035,9 @@ export interface SpeakerSummary {
   LastAccessedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListSpeakersResponse {
   /**
    * <p>A list containing details about each speaker in the Amazon Web Services account.
@@ -1504,13 +2047,16 @@ export interface ListSpeakersResponse {
 
   /**
    * <p>If <code>NextToken</code> is returned, there are more results available. The value of
-   *                 <code>NextToken</code> is a unique pagination token for each page. Make the call
+   *             <code>NextToken</code> is a unique pagination token for each page. Make the call
    *             again using the returned token to retrieve the next page. Keep all other arguments
    *             unchanged. Each pagination token expires after 24 hours. </p>
    */
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the Voice ID resource for which you want to list
@@ -1519,6 +2065,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The list of tags associated with the specified resource.</p>
@@ -1526,9 +2075,99 @@ export interface ListTagsForResourceResponse {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
+export interface ListWatchlistsRequest {
+  /**
+   * <p>The identifier of the domain.</p>
+   */
+  DomainId: string | undefined;
+
+  /**
+   * <p>The maximum number of results that are returned per call. You can use
+   *             <code>NextToken</code> to obtain more pages of results. The default is 100; the maximum allowed page size is also 100.
+   *         </p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>If <code>NextToken</code> is returned, there are more results available. The value of
+   *             <code>NextToken</code> is a unique pagination token for each page. Make the call
+   *             again using the returned token to retrieve the next page. Keep all other arguments
+   *             unchanged. Each pagination token expires after 24 hours.
+   *         </p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * <p>Contains a summary of information about a watchlist.</p>
+ */
+export interface WatchlistSummary {
+  /**
+   * <p>The identifier of the domain that contains the watchlist.</p>
+   */
+  DomainId?: string;
+
+  /**
+   * <p>The identifier of the watchlist.</p>
+   */
+  WatchlistId?: string;
+
+  /**
+   * <p>The name for the watchlist.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The description of the watchlist.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Whether the specified watchlist is the default watchlist of a domain.</p>
+   */
+  DefaultWatchlist?: boolean;
+
+  /**
+   * <p>The timestamp of when the watchlist was created.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>The timestamp of when the watchlist was last updated.</p>
+   */
+  UpdatedAt?: Date;
+}
+
+/**
+ * @public
+ */
+export interface ListWatchlistsResponse {
+  /**
+   * <p>A list that contains details about each watchlist in the Amazon Web Services account.
+   *         </p>
+   */
+  WatchlistSummaries?: WatchlistSummary[];
+
+  /**
+   * <p>If <code>NextToken</code> is returned, there are more results available. The value of
+   *             <code>NextToken</code> is a unique pagination token for each page. Make the call
+   *             again using the returned token to retrieve the next page. Keep all other arguments
+   *             unchanged. Each pagination token expires after 24 hours.
+   *         </p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface OptOutSpeakerRequest {
   /**
-   * <p>The identifier of the domain containing the speaker.</p>
+   * <p>The identifier of the domain that contains the speaker.</p>
    */
   DomainId: string | undefined;
 
@@ -1538,6 +2177,9 @@ export interface OptOutSpeakerRequest {
   SpeakerId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface OptOutSpeakerResponse {
   /**
    * <p>Details about the opted-out speaker.</p>
@@ -1545,10 +2187,15 @@ export interface OptOutSpeakerResponse {
   Speaker?: Speaker;
 }
 
+/**
+ * @public
+ */
 export interface StartFraudsterRegistrationJobRequest {
   /**
-   * <p>The idempotency token for starting a new fraudster registration job. If not provided,
-   *                 Amazon Web Services SDK populates this field.</p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    */
   ClientToken?: string;
 
@@ -1558,7 +2205,7 @@ export interface StartFraudsterRegistrationJobRequest {
   JobName?: string;
 
   /**
-   * <p>The identifier of the domain containing the fraudster registration job and in which
+   * <p>The identifier of the domain that contains the fraudster registration job and in which
    *             the fraudsters are registered.</p>
    */
   DomainId: string | undefined;
@@ -1593,6 +2240,9 @@ export interface StartFraudsterRegistrationJobRequest {
   OutputDataConfig: OutputDataConfig | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartFraudsterRegistrationJobResponse {
   /**
    * <p>Details about the started fraudster registration job.</p>
@@ -1600,10 +2250,15 @@ export interface StartFraudsterRegistrationJobResponse {
   Job?: FraudsterRegistrationJob;
 }
 
+/**
+ * @public
+ */
 export interface StartSpeakerEnrollmentJobRequest {
   /**
-   * <p>The idempotency token for starting a new speaker enrollment Job. If not provided,
-   *                 Amazon Web Services SDK populates this field.</p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    */
   ClientToken?: string;
 
@@ -1646,6 +2301,9 @@ export interface StartSpeakerEnrollmentJobRequest {
   OutputDataConfig: OutputDataConfig | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartSpeakerEnrollmentJobResponse {
   /**
    * <p>Details about the started speaker enrollment job.</p>
@@ -1653,6 +2311,9 @@ export interface StartSpeakerEnrollmentJobResponse {
   Job?: SpeakerEnrollmentJob;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the Voice ID resource you want to tag.</p>
@@ -1665,8 +2326,14 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the Voice ID resource you want to remove tags
@@ -1680,13 +2347,52 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateWatchlistRequest {
+  /**
+   * <p>The identifier of the domain that contains the watchlist.</p>
+   */
+  DomainId: string | undefined;
+
+  /**
+   * <p>The identifier of the watchlist to be updated.</p>
+   */
+  WatchlistId: string | undefined;
+
+  /**
+   * <p>The name of the watchlist.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>A brief description about this watchlist.</p>
+   */
+  Description?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateWatchlistResponse {
+  /**
+   * <p>Details about the updated watchlist.</p>
+   */
+  Watchlist?: Watchlist;
+}
 
 /**
  * @internal
  */
-export const AuthenticationConfigurationFilterSensitiveLog = (obj: AuthenticationConfiguration): any => ({
+export const AssociateFraudsterRequestFilterSensitiveLog = (obj: AssociateFraudsterRequest): any => ({
   ...obj,
+  ...(obj.FraudsterId && { FraudsterId: SENSITIVE_STRING }),
 });
 
 /**
@@ -1695,13 +2401,6 @@ export const AuthenticationConfigurationFilterSensitiveLog = (obj: Authenticatio
 export const AuthenticationResultFilterSensitiveLog = (obj: AuthenticationResult): any => ({
   ...obj,
   ...(obj.CustomerSpeakerId && { CustomerSpeakerId: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ServerSideEncryptionConfigurationFilterSensitiveLog = (obj: ServerSideEncryptionConfiguration): any => ({
-  ...obj,
 });
 
 /**
@@ -1726,13 +2425,6 @@ export const CreateDomainRequestFilterSensitiveLog = (obj: CreateDomainRequest):
 /**
  * @internal
  */
-export const ServerSideEncryptionUpdateDetailsFilterSensitiveLog = (obj: ServerSideEncryptionUpdateDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DomainFilterSensitiveLog = (obj: Domain): any => ({
   ...obj,
   ...(obj.Name && { Name: SENSITIVE_STRING }),
@@ -1750,8 +2442,27 @@ export const CreateDomainResponseFilterSensitiveLog = (obj: CreateDomainResponse
 /**
  * @internal
  */
-export const DeleteDomainRequestFilterSensitiveLog = (obj: DeleteDomainRequest): any => ({
+export const CreateWatchlistRequestFilterSensitiveLog = (obj: CreateWatchlistRequest): any => ({
   ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const WatchlistFilterSensitiveLog = (obj: Watchlist): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateWatchlistResponseFilterSensitiveLog = (obj: CreateWatchlistResponse): any => ({
+  ...obj,
+  ...(obj.Watchlist && { Watchlist: WatchlistFilterSensitiveLog(obj.Watchlist) }),
 });
 
 /**
@@ -1773,13 +2484,6 @@ export const DeleteSpeakerRequestFilterSensitiveLog = (obj: DeleteSpeakerRequest
 /**
  * @internal
  */
-export const DescribeDomainRequestFilterSensitiveLog = (obj: DescribeDomainRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeDomainResponseFilterSensitiveLog = (obj: DescribeDomainResponse): any => ({
   ...obj,
   ...(obj.Domain && { Domain: DomainFilterSensitiveLog(obj.Domain) }),
@@ -1791,64 +2495,6 @@ export const DescribeDomainResponseFilterSensitiveLog = (obj: DescribeDomainResp
 export const DescribeFraudsterRequestFilterSensitiveLog = (obj: DescribeFraudsterRequest): any => ({
   ...obj,
   ...(obj.FraudsterId && { FraudsterId: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const FraudsterFilterSensitiveLog = (obj: Fraudster): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFraudsterResponseFilterSensitiveLog = (obj: DescribeFraudsterResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFraudsterRegistrationJobRequestFilterSensitiveLog = (
-  obj: DescribeFraudsterRegistrationJobRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FailureDetailsFilterSensitiveLog = (obj: FailureDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InputDataConfigFilterSensitiveLog = (obj: InputDataConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobProgressFilterSensitiveLog = (obj: JobProgress): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OutputDataConfigFilterSensitiveLog = (obj: OutputDataConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegistrationConfigFilterSensitiveLog = (obj: RegistrationConfig): any => ({
-  ...obj,
 });
 
 /**
@@ -1896,29 +2542,6 @@ export const DescribeSpeakerResponseFilterSensitiveLog = (obj: DescribeSpeakerRe
 /**
  * @internal
  */
-export const DescribeSpeakerEnrollmentJobRequestFilterSensitiveLog = (
-  obj: DescribeSpeakerEnrollmentJobRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnrollmentJobFraudDetectionConfigFilterSensitiveLog = (obj: EnrollmentJobFraudDetectionConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnrollmentConfigFilterSensitiveLog = (obj: EnrollmentConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const SpeakerEnrollmentJobFilterSensitiveLog = (obj: SpeakerEnrollmentJob): any => ({
   ...obj,
   ...(obj.JobName && { JobName: SENSITIVE_STRING }),
@@ -1937,8 +2560,17 @@ export const DescribeSpeakerEnrollmentJobResponseFilterSensitiveLog = (
 /**
  * @internal
  */
-export const ListDomainsRequestFilterSensitiveLog = (obj: ListDomainsRequest): any => ({
+export const DescribeWatchlistResponseFilterSensitiveLog = (obj: DescribeWatchlistResponse): any => ({
   ...obj,
+  ...(obj.Watchlist && { Watchlist: WatchlistFilterSensitiveLog(obj.Watchlist) }),
+});
+
+/**
+ * @internal
+ */
+export const DisassociateFraudsterRequestFilterSensitiveLog = (obj: DisassociateFraudsterRequest): any => ({
+  ...obj,
+  ...(obj.FraudsterId && { FraudsterId: SENSITIVE_STRING }),
 });
 
 /**
@@ -1980,48 +2612,6 @@ export const UpdateDomainResponseFilterSensitiveLog = (obj: UpdateDomainResponse
 /**
  * @internal
  */
-export const EvaluateSessionRequestFilterSensitiveLog = (obj: EvaluateSessionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FraudDetectionConfigurationFilterSensitiveLog = (obj: FraudDetectionConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KnownFraudsterRiskFilterSensitiveLog = (obj: KnownFraudsterRisk): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VoiceSpoofingRiskFilterSensitiveLog = (obj: VoiceSpoofingRisk): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FraudRiskDetailsFilterSensitiveLog = (obj: FraudRiskDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FraudDetectionResultFilterSensitiveLog = (obj: FraudDetectionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const EvaluateSessionResponseFilterSensitiveLog = (obj: EvaluateSessionResponse): any => ({
   ...obj,
   ...(obj.AuthenticationResult && {
@@ -2040,15 +2630,6 @@ export const FraudsterRegistrationJobSummaryFilterSensitiveLog = (obj: Fraudster
 /**
  * @internal
  */
-export const ListFraudsterRegistrationJobsRequestFilterSensitiveLog = (
-  obj: ListFraudsterRegistrationJobsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListFraudsterRegistrationJobsResponseFilterSensitiveLog = (
   obj: ListFraudsterRegistrationJobsResponse
 ): any => ({
@@ -2056,13 +2637,6 @@ export const ListFraudsterRegistrationJobsResponseFilterSensitiveLog = (
   ...(obj.JobSummaries && {
     JobSummaries: obj.JobSummaries.map((item) => FraudsterRegistrationJobSummaryFilterSensitiveLog(item)),
   }),
-});
-
-/**
- * @internal
- */
-export const ListSpeakerEnrollmentJobsRequestFilterSensitiveLog = (obj: ListSpeakerEnrollmentJobsRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -2086,13 +2660,6 @@ export const ListSpeakerEnrollmentJobsResponseFilterSensitiveLog = (obj: ListSpe
 /**
  * @internal
  */
-export const ListSpeakersRequestFilterSensitiveLog = (obj: ListSpeakersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const SpeakerSummaryFilterSensitiveLog = (obj: SpeakerSummary): any => ({
   ...obj,
   ...(obj.CustomerSpeakerId && { CustomerSpeakerId: SENSITIVE_STRING }),
@@ -2111,16 +2678,28 @@ export const ListSpeakersResponseFilterSensitiveLog = (obj: ListSpeakersResponse
 /**
  * @internal
  */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
   ...obj,
+  ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
 });
 
 /**
  * @internal
  */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+export const WatchlistSummaryFilterSensitiveLog = (obj: WatchlistSummary): any => ({
   ...obj,
-  ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListWatchlistsResponseFilterSensitiveLog = (obj: ListWatchlistsResponse): any => ({
+  ...obj,
+  ...(obj.WatchlistSummaries && {
+    WatchlistSummaries: obj.WatchlistSummaries.map((item) => WatchlistSummaryFilterSensitiveLog(item)),
+  }),
 });
 
 /**
@@ -2186,13 +2765,6 @@ export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): a
 /**
  * @internal
  */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
   ...obj,
   ...(obj.TagKeys && { TagKeys: SENSITIVE_STRING }),
@@ -2201,6 +2773,16 @@ export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest
 /**
  * @internal
  */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+export const UpdateWatchlistRequestFilterSensitiveLog = (obj: UpdateWatchlistRequest): any => ({
   ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateWatchlistResponseFilterSensitiveLog = (obj: UpdateWatchlistResponse): any => ({
+  ...obj,
+  ...(obj.Watchlist && { Watchlist: WatchlistFilterSensitiveLog(obj.Watchlist) }),
 });

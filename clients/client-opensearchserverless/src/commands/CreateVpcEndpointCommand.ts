@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateVpcEndpointRequest,
-  CreateVpcEndpointRequestFilterSensitiveLog,
-  CreateVpcEndpointResponse,
-  CreateVpcEndpointResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateVpcEndpointRequest, CreateVpcEndpointResponse } from "../models/models_0";
 import {
   OpenSearchServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import {
-  deserializeAws_json1_0CreateVpcEndpointCommand,
-  serializeAws_json1_0CreateVpcEndpointCommand,
-} from "../protocols/Aws_json1_0";
+import { de_CreateVpcEndpointCommand, se_CreateVpcEndpointCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateVpcEndpointCommand}.
+ */
 export interface CreateVpcEndpointCommandInput extends CreateVpcEndpointRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateVpcEndpointCommand}.
+ */
 export interface CreateVpcEndpointCommandOutput extends CreateVpcEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an OpenSearch Serverless-managed interface VPC endpoint. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html">Access
  *                 Amazon OpenSearch Serverless using an interface endpoint</a>.</p>
  * @example
@@ -41,13 +44,42 @@ export interface CreateVpcEndpointCommandOutput extends CreateVpcEndpointRespons
  * import { OpenSearchServerlessClient, CreateVpcEndpointCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, CreateVpcEndpointCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
+ * const input = { // CreateVpcEndpointRequest
+ *   name: "STRING_VALUE", // required
+ *   vpcId: "STRING_VALUE", // required
+ *   subnetIds: [ // SubnetIds // required
+ *     "STRING_VALUE",
+ *   ],
+ *   securityGroupIds: [ // SecurityGroupIds
+ *     "STRING_VALUE",
+ *   ],
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new CreateVpcEndpointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVpcEndpointCommandInput - {@link CreateVpcEndpointCommandInput}
+ * @returns {@link CreateVpcEndpointCommandOutput}
  * @see {@link CreateVpcEndpointCommandInput} for command's `input` shape.
  * @see {@link CreateVpcEndpointCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>When creating a resource, thrown when a resource with the same name already exists
+ *             or is being created. When deleting a resource, thrown when the resource is not in
+ *             the ACTIVE or FAILED state.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Thrown when an error internal to the service occurs while processing a request.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Thrown when you attempt to create more resources than the service allows based on service quotas.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Thrown when the HTTP request contains invalid input or is missing required
+ *             input.</p>
+ *
  *
  */
 export class CreateVpcEndpointCommand extends $Command<
@@ -67,6 +99,9 @@ export class CreateVpcEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVpcEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +130,8 @@ export class CreateVpcEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateVpcEndpointRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateVpcEndpointResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +141,18 @@ export class CreateVpcEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVpcEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateVpcEndpointCommand(input, context);
+    return se_CreateVpcEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVpcEndpointCommandOutput> {
-    return deserializeAws_json1_0CreateVpcEndpointCommand(output, context);
+    return de_CreateVpcEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

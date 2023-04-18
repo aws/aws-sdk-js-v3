@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListLanguagesRequest,
-  ListLanguagesRequestFilterSensitiveLog,
-  ListLanguagesResponse,
-  ListLanguagesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListLanguagesCommand,
-  serializeAws_json1_1ListLanguagesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListLanguagesRequest, ListLanguagesResponse } from "../models/models_0";
+import { de_ListLanguagesCommand, se_ListLanguagesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListLanguagesCommand}.
+ */
 export interface ListLanguagesCommandInput extends ListLanguagesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListLanguagesCommand}.
+ */
 export interface ListLanguagesCommandOutput extends ListLanguagesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a list of languages (RFC-5646 codes and names) that Amazon Translate supports.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,35 @@ export interface ListLanguagesCommandOutput extends ListLanguagesResponse, __Met
  * import { TranslateClient, ListLanguagesCommand } from "@aws-sdk/client-translate"; // ES Modules import
  * // const { TranslateClient, ListLanguagesCommand } = require("@aws-sdk/client-translate"); // CommonJS import
  * const client = new TranslateClient(config);
+ * const input = { // ListLanguagesRequest
+ *   DisplayLanguageCode: "de" || "en" || "es" || "fr" || "it" || "ja" || "ko" || "pt" || "zh" || "zh-TW",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListLanguagesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLanguagesCommandInput - {@link ListLanguagesCommandInput}
+ * @returns {@link ListLanguagesCommandOutput}
  * @see {@link ListLanguagesCommandInput} for command's `input` shape.
  * @see {@link ListLanguagesCommandOutput} for command's `response` shape.
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value of the parameter is not valid. Review the value of the parameter you are using
+ *       to correct it, and then retry your operation.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p> You have made too many requests within a short period of time. Wait for a short time and
+ *       then try your request again.</p>
+ *
+ * @throws {@link UnsupportedDisplayLanguageCodeException} (client fault)
+ *  <p>Requested display language code is not supported.</p>
+ *
  *
  */
 export class ListLanguagesCommand extends $Command<
@@ -62,6 +87,9 @@ export class ListLanguagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLanguagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +116,8 @@ export class ListLanguagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLanguagesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListLanguagesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +127,18 @@ export class ListLanguagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLanguagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListLanguagesCommand(input, context);
+    return se_ListLanguagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLanguagesCommandOutput> {
-    return deserializeAws_json1_1ListLanguagesCommand(output, context);
+    return de_ListLanguagesCommand(output, context);
   }
 
   // Start section: command_body_extra

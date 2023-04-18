@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import {
-  DescribeStreamSummaryInput,
-  DescribeStreamSummaryInputFilterSensitiveLog,
-  DescribeStreamSummaryOutput,
-  DescribeStreamSummaryOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeStreamSummaryCommand,
-  serializeAws_json1_1DescribeStreamSummaryCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeStreamSummaryInput, DescribeStreamSummaryOutput } from "../models/models_0";
+import { de_DescribeStreamSummaryCommand, se_DescribeStreamSummaryCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeStreamSummaryCommand}.
+ */
 export interface DescribeStreamSummaryCommandInput extends DescribeStreamSummaryInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeStreamSummaryCommand}.
+ */
 export interface DescribeStreamSummaryCommandOutput extends DescribeStreamSummaryOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a summarized description of the specified Kinesis data stream without the
  *             shard list.</p>
  *          <note>
@@ -47,13 +50,36 @@ export interface DescribeStreamSummaryCommandOutput extends DescribeStreamSummar
  * import { KinesisClient, DescribeStreamSummaryCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, DescribeStreamSummaryCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
+ * const input = { // DescribeStreamSummaryInput
+ *   StreamName: "STRING_VALUE",
+ *   StreamARN: "STRING_VALUE",
+ * };
  * const command = new DescribeStreamSummaryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStreamSummaryCommandInput - {@link DescribeStreamSummaryCommandInput}
+ * @returns {@link DescribeStreamSummaryCommandOutput}
  * @see {@link DescribeStreamSummaryCommandInput} for command's `input` shape.
  * @see {@link DescribeStreamSummaryCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Specifies that you do not have the permissions required to perform this
+ *             operation.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>A specified parameter exceeds its restrictions, is not supported, or can't be used.
+ *             For more information, see the returned message.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
+ *             stream requests exceeds the maximum number allowed. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource could not be found. The stream might not be specified
+ *             correctly.</p>
+ *
  *
  */
 export class DescribeStreamSummaryCommand extends $Command<
@@ -75,6 +101,9 @@ export class DescribeStreamSummaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStreamSummaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +132,8 @@ export class DescribeStreamSummaryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeStreamSummaryInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeStreamSummaryOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +143,18 @@ export class DescribeStreamSummaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeStreamSummaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeStreamSummaryCommand(input, context);
+    return se_DescribeStreamSummaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeStreamSummaryCommandOutput> {
-    return deserializeAws_json1_1DescribeStreamSummaryCommand(output, context);
+    return de_DescribeStreamSummaryCommand(output, context);
   }
 
   // Start section: command_body_extra

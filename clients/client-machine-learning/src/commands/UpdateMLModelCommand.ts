@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import {
-  UpdateMLModelInput,
-  UpdateMLModelInputFilterSensitiveLog,
-  UpdateMLModelOutput,
-  UpdateMLModelOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateMLModelCommand,
-  serializeAws_json1_1UpdateMLModelCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateMLModelInput, UpdateMLModelOutput } from "../models/models_0";
+import { de_UpdateMLModelCommand, se_UpdateMLModelCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateMLModelCommand}.
+ */
 export interface UpdateMLModelCommandInput extends UpdateMLModelInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateMLModelCommand}.
+ */
 export interface UpdateMLModelCommandOutput extends UpdateMLModelOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the <code>MLModelName</code> and the <code>ScoreThreshold</code> of an <code>MLModel</code>.</p>
  *         <p>You can use the <code>GetMLModel</code> operation to view the contents of the updated data element.</p>
  * @example
@@ -37,13 +40,30 @@ export interface UpdateMLModelCommandOutput extends UpdateMLModelOutput, __Metad
  * import { MachineLearningClient, UpdateMLModelCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, UpdateMLModelCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
+ * const input = { // UpdateMLModelInput
+ *   MLModelId: "STRING_VALUE", // required
+ *   MLModelName: "STRING_VALUE",
+ *   ScoreThreshold: Number("float"),
+ * };
  * const command = new UpdateMLModelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateMLModelCommandInput - {@link UpdateMLModelCommandInput}
+ * @returns {@link UpdateMLModelCommandOutput}
  * @see {@link UpdateMLModelCommandInput} for command's `input` shape.
  * @see {@link UpdateMLModelCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An error on the server occurred when trying to process a request.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A specified resource cannot be located.</p>
+ *
  *
  */
 export class UpdateMLModelCommand extends $Command<
@@ -63,6 +83,9 @@ export class UpdateMLModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateMLModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +112,8 @@ export class UpdateMLModelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateMLModelInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateMLModelOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +123,18 @@ export class UpdateMLModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateMLModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateMLModelCommand(input, context);
+    return se_UpdateMLModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMLModelCommandOutput> {
-    return deserializeAws_json1_1UpdateMLModelCommand(output, context);
+    return de_UpdateMLModelCommand(output, context);
   }
 
   // Start section: command_body_extra

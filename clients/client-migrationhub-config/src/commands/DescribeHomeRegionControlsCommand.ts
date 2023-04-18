@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubConfigClient";
-import {
-  DescribeHomeRegionControlsRequest,
-  DescribeHomeRegionControlsRequestFilterSensitiveLog,
-  DescribeHomeRegionControlsResult,
-  DescribeHomeRegionControlsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeHomeRegionControlsCommand,
-  serializeAws_json1_1DescribeHomeRegionControlsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeHomeRegionControlsRequest, DescribeHomeRegionControlsResult } from "../models/models_0";
+import { de_DescribeHomeRegionControlsCommand, se_DescribeHomeRegionControlsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeHomeRegionControlsCommand}.
+ */
 export interface DescribeHomeRegionControlsCommandInput extends DescribeHomeRegionControlsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeHomeRegionControlsCommand}.
+ */
 export interface DescribeHomeRegionControlsCommandOutput extends DescribeHomeRegionControlsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API permits filtering on the <code>ControlId</code> and <code>HomeRegion</code>
  *       fields.</p>
  * @example
@@ -41,13 +44,44 @@ export interface DescribeHomeRegionControlsCommandOutput extends DescribeHomeReg
  * import { MigrationHubConfigClient, DescribeHomeRegionControlsCommand } from "@aws-sdk/client-migrationhub-config"; // ES Modules import
  * // const { MigrationHubConfigClient, DescribeHomeRegionControlsCommand } = require("@aws-sdk/client-migrationhub-config"); // CommonJS import
  * const client = new MigrationHubConfigClient(config);
+ * const input = { // DescribeHomeRegionControlsRequest
+ *   ControlId: "STRING_VALUE",
+ *   HomeRegion: "STRING_VALUE",
+ *   Target: { // Target
+ *     Type: "STRING_VALUE", // required
+ *     Id: "STRING_VALUE",
+ *   },
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeHomeRegionControlsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeHomeRegionControlsCommandInput - {@link DescribeHomeRegionControlsCommandInput}
+ * @returns {@link DescribeHomeRegionControlsCommandOutput}
  * @see {@link DescribeHomeRegionControlsCommandInput} for command's `input` shape.
  * @see {@link DescribeHomeRegionControlsCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubConfigClientResolvedConfig | config} for MigrationHubConfigClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Exception raised when an internal, configuration, or dependency error is
+ *       encountered.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Exception raised when the provided input violates a policy constraint or is entered in the
+ *       wrong format or data type.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>Exception raised when a request fails due to temporary unavailability of the
+ *       service.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
  *
  */
 export class DescribeHomeRegionControlsCommand extends $Command<
@@ -67,6 +101,9 @@ export class DescribeHomeRegionControlsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeHomeRegionControlsCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +132,8 @@ export class DescribeHomeRegionControlsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeHomeRegionControlsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeHomeRegionControlsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,15 +143,21 @@ export class DescribeHomeRegionControlsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeHomeRegionControlsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeHomeRegionControlsCommand(input, context);
+    return se_DescribeHomeRegionControlsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeHomeRegionControlsCommandOutput> {
-    return deserializeAws_json1_1DescribeHomeRegionControlsCommand(output, context);
+    return de_DescribeHomeRegionControlsCommand(output, context);
   }
 
   // Start section: command_body_extra

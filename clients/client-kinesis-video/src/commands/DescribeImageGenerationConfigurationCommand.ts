@@ -16,21 +16,30 @@ import {
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
 import {
   DescribeImageGenerationConfigurationInput,
-  DescribeImageGenerationConfigurationInputFilterSensitiveLog,
   DescribeImageGenerationConfigurationOutput,
-  DescribeImageGenerationConfigurationOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeImageGenerationConfigurationCommand,
-  serializeAws_restJson1DescribeImageGenerationConfigurationCommand,
+  de_DescribeImageGenerationConfigurationCommand,
+  se_DescribeImageGenerationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeImageGenerationConfigurationCommand}.
+ */
 export interface DescribeImageGenerationConfigurationCommandInput extends DescribeImageGenerationConfigurationInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeImageGenerationConfigurationCommand}.
+ */
 export interface DescribeImageGenerationConfigurationCommandOutput
   extends DescribeImageGenerationConfigurationOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the <code>ImageGenerationConfiguration</code> for a given Kinesis video stream.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +47,33 @@ export interface DescribeImageGenerationConfigurationCommandOutput
  * import { KinesisVideoClient, DescribeImageGenerationConfigurationCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, DescribeImageGenerationConfigurationCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
+ * const input = { // DescribeImageGenerationConfigurationInput
+ *   StreamName: "STRING_VALUE",
+ *   StreamARN: "STRING_VALUE",
+ * };
  * const command = new DescribeImageGenerationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeImageGenerationConfigurationCommandInput - {@link DescribeImageGenerationConfigurationCommandInput}
+ * @returns {@link DescribeImageGenerationConfigurationCommandOutput}
  * @see {@link DescribeImageGenerationConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeImageGenerationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have required permissions to perform this operation.</p>
+ *
+ * @throws {@link ClientLimitExceededException} (client fault)
+ *  <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
+ *             allowed client calls. Try making the call later.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>The value for this input parameter is invalid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
+ *
  *
  */
 export class DescribeImageGenerationConfigurationCommand extends $Command<
@@ -64,6 +93,9 @@ export class DescribeImageGenerationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeImageGenerationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +124,8 @@ export class DescribeImageGenerationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeImageGenerationConfigurationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeImageGenerationConfigurationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +135,24 @@ export class DescribeImageGenerationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeImageGenerationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeImageGenerationConfigurationCommand(input, context);
+    return se_DescribeImageGenerationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeImageGenerationConfigurationCommandOutput> {
-    return deserializeAws_restJson1DescribeImageGenerationConfigurationCommand(output, context);
+    return de_DescribeImageGenerationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

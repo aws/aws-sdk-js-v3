@@ -6,12 +6,11 @@ import {
   ListMetricAttributionMetricsCommandInput,
   ListMetricAttributionMetricsCommandOutput,
 } from "../commands/ListMetricAttributionMetricsCommand";
-import { Personalize } from "../Personalize";
 import { PersonalizeClient } from "../PersonalizeClient";
 import { PersonalizePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: PersonalizeClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListMetricAttributionMetricsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Personalize,
-  input: ListMetricAttributionMetricsCommandInput,
-  ...args: any
-): Promise<ListMetricAttributionMetricsCommandOutput> => {
-  // @ts-ignore
-  return await client.listMetricAttributionMetrics(input, ...args);
-};
 export async function* paginateListMetricAttributionMetrics(
   config: PersonalizePaginationConfiguration,
   input: ListMetricAttributionMetricsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListMetricAttributionMetrics(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Personalize) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof PersonalizeClient) {
+    if (config.client instanceof PersonalizeClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Personalize | PersonalizeClient");

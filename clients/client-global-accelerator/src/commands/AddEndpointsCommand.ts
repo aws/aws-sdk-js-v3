@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import {
-  AddEndpointsRequest,
-  AddEndpointsRequestFilterSensitiveLog,
-  AddEndpointsResponse,
-  AddEndpointsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AddEndpointsCommand,
-  serializeAws_json1_1AddEndpointsCommand,
-} from "../protocols/Aws_json1_1";
+import { AddEndpointsRequest, AddEndpointsResponse } from "../models/models_0";
+import { de_AddEndpointsCommand, se_AddEndpointsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link AddEndpointsCommand}.
+ */
 export interface AddEndpointsCommandInput extends AddEndpointsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AddEndpointsCommand}.
+ */
 export interface AddEndpointsCommandOutput extends AddEndpointsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Add endpoints to an endpoint group. The <code>AddEndpoints</code> API operation is the recommended option for adding endpoints. The
  * 			alternative options are to add endpoints when you create an endpoint group (with the
  * 			<a href="https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateEndpointGroup.html">CreateEndpointGroup</a> API)
@@ -55,13 +58,44 @@ export interface AddEndpointsCommandOutput extends AddEndpointsResponse, __Metad
  * import { GlobalAcceleratorClient, AddEndpointsCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, AddEndpointsCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
+ * const input = { // AddEndpointsRequest
+ *   EndpointConfigurations: [ // EndpointConfigurations // required
+ *     { // EndpointConfiguration
+ *       EndpointId: "STRING_VALUE",
+ *       Weight: Number("int"),
+ *       ClientIPPreservationEnabled: true || false,
+ *     },
+ *   ],
+ *   EndpointGroupArn: "STRING_VALUE", // required
+ * };
  * const command = new AddEndpointsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AddEndpointsCommandInput - {@link AddEndpointsCommandInput}
+ * @returns {@link AddEndpointsCommandOutput}
  * @see {@link AddEndpointsCommandInput} for command's `input` shape.
  * @see {@link AddEndpointsCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have access permission.</p>
+ *
+ * @throws {@link EndpointGroupNotFoundException} (client fault)
+ *  <p>The endpoint group that you specified doesn't exist.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>There was an internal error for Global Accelerator.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>An argument that you specified is invalid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>Processing your request would cause you to exceed an Global Accelerator limit.</p>
+ *
+ * @throws {@link TransactionInProgressException} (client fault)
+ *  <p>There's already a transaction in progress. Another transaction can't be processed.</p>
+ *
  *
  */
 export class AddEndpointsCommand extends $Command<
@@ -81,6 +115,9 @@ export class AddEndpointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddEndpointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +144,8 @@ export class AddEndpointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddEndpointsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AddEndpointsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +155,18 @@ export class AddEndpointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AddEndpointsCommand(input, context);
+    return se_AddEndpointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddEndpointsCommandOutput> {
-    return deserializeAws_json1_1AddEndpointsCommand(output, context);
+    return de_AddEndpointsCommand(output, context);
   }
 
   // Start section: command_body_extra

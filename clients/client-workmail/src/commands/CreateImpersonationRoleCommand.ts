@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateImpersonationRoleRequest,
-  CreateImpersonationRoleRequestFilterSensitiveLog,
-  CreateImpersonationRoleResponse,
-  CreateImpersonationRoleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateImpersonationRoleCommand,
-  serializeAws_json1_1CreateImpersonationRoleCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateImpersonationRoleRequest, CreateImpersonationRoleResponse } from "../models/models_0";
+import { de_CreateImpersonationRoleCommand, se_CreateImpersonationRoleCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateImpersonationRoleCommand}.
+ */
 export interface CreateImpersonationRoleCommandInput extends CreateImpersonationRoleRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateImpersonationRoleCommand}.
+ */
 export interface CreateImpersonationRoleCommandOutput extends CreateImpersonationRoleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an impersonation role for the given WorkMail organization.</p>
  *          <p>
  *             <i>Idempotency</i> ensures that an API request completes no more than one
@@ -41,13 +44,59 @@ export interface CreateImpersonationRoleCommandOutput extends CreateImpersonatio
  * import { WorkMailClient, CreateImpersonationRoleCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, CreateImpersonationRoleCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = { // CreateImpersonationRoleRequest
+ *   ClientToken: "STRING_VALUE",
+ *   OrganizationId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Type: "FULL_ACCESS" || "READ_ONLY", // required
+ *   Description: "STRING_VALUE",
+ *   Rules: [ // ImpersonationRuleList // required
+ *     { // ImpersonationRule
+ *       ImpersonationRuleId: "STRING_VALUE", // required
+ *       Name: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       Effect: "ALLOW" || "DENY", // required
+ *       TargetUsers: [ // TargetUsers
+ *         "STRING_VALUE",
+ *       ],
+ *       NotTargetUsers: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new CreateImpersonationRoleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateImpersonationRoleCommandInput - {@link CreateImpersonationRoleCommandInput}
+ * @returns {@link CreateImpersonationRoleCommandOutput}
  * @see {@link CreateImpersonationRoleCommandInput} for command's `input` shape.
  * @see {@link CreateImpersonationRoleCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>The identifier supplied for the user, group, or resource does not exist in your
+ *          organization.</p>
+ *
+ * @throws {@link EntityStateException} (client fault)
+ *  <p>You are performing an operation on a user, group, or resource that isn't in the
+ *          expected state, such as trying to delete an active user.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request exceeds the limit of the resource.</p>
+ *
+ * @throws {@link OrganizationNotFoundException} (client fault)
+ *  <p>An operation received a valid organization identifier that either doesn't belong or
+ *          exist in the system.</p>
+ *
+ * @throws {@link OrganizationStateException} (client fault)
+ *  <p>The organization must have a valid state to perform certain
+ *          operations on the organization or its members.</p>
+ *
  *
  */
 export class CreateImpersonationRoleCommand extends $Command<
@@ -67,6 +116,9 @@ export class CreateImpersonationRoleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateImpersonationRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +147,8 @@ export class CreateImpersonationRoleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateImpersonationRoleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateImpersonationRoleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +158,18 @@ export class CreateImpersonationRoleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateImpersonationRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateImpersonationRoleCommand(input, context);
+    return se_CreateImpersonationRoleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateImpersonationRoleCommandOutput> {
-    return deserializeAws_json1_1CreateImpersonationRoleCommand(output, context);
+    return de_CreateImpersonationRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListFirewallDomainListsRequest,
-  ListFirewallDomainListsRequestFilterSensitiveLog,
-  ListFirewallDomainListsResponse,
-  ListFirewallDomainListsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListFirewallDomainListsCommand,
-  serializeAws_json1_1ListFirewallDomainListsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListFirewallDomainListsRequest, ListFirewallDomainListsResponse } from "../models/models_0";
+import { de_ListFirewallDomainListsCommand, se_ListFirewallDomainListsCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListFirewallDomainListsCommand}.
+ */
 export interface ListFirewallDomainListsCommandInput extends ListFirewallDomainListsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListFirewallDomainListsCommand}.
+ */
 export interface ListFirewallDomainListsCommandOutput extends ListFirewallDomainListsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the firewall domain lists that you have defined. For each firewall domain list, you can retrieve the domains that are defined for a list by calling <a>ListFirewallDomains</a>. </p>
  *          <p>A single call to this list operation might return only a partial list of the domain lists. For information, see <code>MaxResults</code>. </p>
  * @example
@@ -37,13 +40,33 @@ export interface ListFirewallDomainListsCommandOutput extends ListFirewallDomain
  * import { Route53ResolverClient, ListFirewallDomainListsCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, ListFirewallDomainListsCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = { // ListFirewallDomainListsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListFirewallDomainListsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFirewallDomainListsCommandInput - {@link ListFirewallDomainListsCommandInput}
+ * @returns {@link ListFirewallDomainListsCommandOutput}
  * @see {@link ListFirewallDomainListsCommandInput} for command's `input` shape.
  * @see {@link ListFirewallDomainListsCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (client fault)
+ *  <p>We encountered an unknown error. Try again in a few minutes.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was throttled. Try again in a few minutes.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>You have provided an invalid command. Supported values are <code>ADD</code>,
+ * 			<code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
+ *
  *
  */
 export class ListFirewallDomainListsCommand extends $Command<
@@ -63,6 +86,9 @@ export class ListFirewallDomainListsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFirewallDomainListsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +117,8 @@ export class ListFirewallDomainListsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFirewallDomainListsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListFirewallDomainListsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +128,18 @@ export class ListFirewallDomainListsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFirewallDomainListsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListFirewallDomainListsCommand(input, context);
+    return se_ListFirewallDomainListsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFirewallDomainListsCommandOutput> {
-    return deserializeAws_json1_1ListFirewallDomainListsCommand(output, context);
+    return de_ListFirewallDomainListsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,18 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import {
-  ReEncryptRequest,
-  ReEncryptRequestFilterSensitiveLog,
-  ReEncryptResponse,
-  ReEncryptResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1ReEncryptCommand, serializeAws_json1_1ReEncryptCommand } from "../protocols/Aws_json1_1";
+import { ReEncryptRequest, ReEncryptResponse } from "../models/models_0";
+import { de_ReEncryptCommand, se_ReEncryptCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ReEncryptCommand}.
+ */
 export interface ReEncryptCommandInput extends ReEncryptRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ReEncryptCommand}.
+ */
 export interface ReEncryptCommandOutput extends ReEncryptResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Decrypts ciphertext and then reencrypts it entirely within KMS. You can use this
  *       operation to change the KMS key under which data is encrypted, such as when you <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#rotate-keys-manually">manually
  *         rotate</a> a KMS key or change the KMS key that protects a ciphertext. You can also use
@@ -65,7 +71,6 @@ export interface ReEncryptCommandOutput extends ReEncryptResponse, __MetadataBea
  *           specify the KMS key that re-encrypts the data after it is decrypted. If the destination
  *           KMS key is an asymmetric KMS key, you must also provide the encryption algorithm. The
  *           algorithm that you choose must be compatible with the KMS key.</p>
- *
  *                <important>
  *                   <p>When you use an asymmetric KMS key to encrypt or reencrypt data, be sure to record the KMS key and encryption algorithm that you choose. You will be required to provide the same KMS key and encryption algorithm when you decrypt the data. If the KMS key and algorithm do not match the values used to encrypt the data, the decrypt operation fails.</p>
  *                   <p>You are not required to supply the key ID and encryption algorithm when you decrypt with symmetric encryption KMS keys because KMS stores this information in the ciphertext blob. KMS cannot store metadata in ciphertext generated with asymmetric keys. The standard format for asymmetric key ciphertext does not include configurable fields.</p>
@@ -79,7 +84,6 @@ export interface ReEncryptCommandOutput extends ReEncryptResponse, __MetadataBea
  *       destination KMS key can be in different Amazon Web Services accounts. Either or both KMS keys can be in a
  *       different account than the caller. To specify a KMS key in a different account, you must use
  *       its key ARN or alias ARN.</p>
- *
  *          <p>
  *             <b>Required permissions</b>:</p>
  *          <ul>
@@ -98,7 +102,6 @@ export interface ReEncryptCommandOutput extends ReEncryptResponse, __MetadataBea
  *       permission in your <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">key policy</a>. This permission is
  *       automatically included in the key policy when you use the console to create a KMS key. But you
  *       must include it manually when you create a KMS key programmatically or when you use the <a>PutKeyPolicy</a> operation to set a key policy.</p>
- *
  *          <p>
  *             <b>Related operations:</b>
  *          </p>
@@ -130,13 +133,126 @@ export interface ReEncryptCommandOutput extends ReEncryptResponse, __MetadataBea
  * import { KMSClient, ReEncryptCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, ReEncryptCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // ReEncryptRequest
+ *   CiphertextBlob: "BLOB_VALUE", // required
+ *   SourceEncryptionContext: { // EncryptionContextType
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   SourceKeyId: "STRING_VALUE",
+ *   DestinationKeyId: "STRING_VALUE", // required
+ *   DestinationEncryptionContext: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   SourceEncryptionAlgorithm: "SYMMETRIC_DEFAULT" || "RSAES_OAEP_SHA_1" || "RSAES_OAEP_SHA_256" || "SM2PKE",
+ *   DestinationEncryptionAlgorithm: "SYMMETRIC_DEFAULT" || "RSAES_OAEP_SHA_1" || "RSAES_OAEP_SHA_256" || "SM2PKE",
+ *   GrantTokens: [ // GrantTokenList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ReEncryptCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ReEncryptCommandInput - {@link ReEncryptCommandInput}
+ * @returns {@link ReEncryptCommandOutput}
  * @see {@link ReEncryptCommandInput} for command's `input` shape.
  * @see {@link ReEncryptCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
+ *
+ * @throws {@link DependencyTimeoutException} (server fault)
+ *  <p>The system timed out while trying to fulfill the request. You can retry the
+ *       request.</p>
+ *
+ * @throws {@link DisabledException} (client fault)
+ *  <p>The request was rejected because the specified KMS key is not enabled.</p>
+ *
+ * @throws {@link IncorrectKeyException} (client fault)
+ *  <p>The request was rejected because the specified KMS key cannot decrypt the data. The
+ *         <code>KeyId</code> in a <a>Decrypt</a> request and the <code>SourceKeyId</code>
+ *       in a <a>ReEncrypt</a> request must identify the same KMS key that was used to
+ *       encrypt the ciphertext.</p>
+ *
+ * @throws {@link InvalidCiphertextException} (client fault)
+ *  <p>From the <a>Decrypt</a> or <a>ReEncrypt</a> operation, the request
+ *       was rejected because the specified ciphertext, or additional authenticated data incorporated
+ *       into the ciphertext, such as the encryption context, is corrupted, missing, or otherwise
+ *       invalid.</p>
+ *          <p>From the <a>ImportKeyMaterial</a> operation, the request was rejected because
+ *       KMS could not decrypt the encrypted (wrapped) key material. </p>
+ *
+ * @throws {@link InvalidGrantTokenException} (client fault)
+ *  <p>The request was rejected because the specified grant token is not valid.</p>
+ *
+ * @throws {@link InvalidKeyUsageException} (client fault)
+ *  <p>The request was rejected for one of the following reasons: </p>
+ *          <ul>
+ *             <li>
+ *                <p>The <code>KeyUsage</code> value of the KMS key is incompatible with the API
+ *           operation.</p>
+ *             </li>
+ *             <li>
+ *                <p>The encryption algorithm or signing algorithm specified for the operation is
+ *           incompatible with the type of key material in the KMS key <code>(KeySpec</code>).</p>
+ *             </li>
+ *          </ul>
+ *          <p>For encrypting, decrypting, re-encrypting, and generating data keys, the
+ *         <code>KeyUsage</code> must be <code>ENCRYPT_DECRYPT</code>. For signing and verifying
+ *       messages, the <code>KeyUsage</code> must be <code>SIGN_VERIFY</code>. For generating and
+ *       verifying message authentication codes (MACs), the <code>KeyUsage</code> must be
+ *         <code>GENERATE_VERIFY_MAC</code>. To find the <code>KeyUsage</code> of a KMS key, use the
+ *         <a>DescribeKey</a> operation.</p>
+ *          <p>To find the encryption or signing algorithms supported for a particular KMS key, use the
+ *         <a>DescribeKey</a> operation.</p>
+ *
+ * @throws {@link KeyUnavailableException} (server fault)
+ *  <p>The request was rejected because the specified KMS key was not available. You can retry
+ *       the request.</p>
+ *
+ * @throws {@link KMSInternalException} (server fault)
+ *  <p>The request was rejected because an internal exception occurred. The request can be
+ *       retried.</p>
+ *
+ * @throws {@link KMSInvalidStateException} (client fault)
+ *  <p>The request was rejected because the state of the specified resource is not valid for this
+ *       request.</p>
+ *          <p>This exceptions means one of the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The key state of the KMS key is not compatible with the operation. </p>
+ *                <p>To find the key state, use the <a>DescribeKey</a> operation. For more
+ *           information about which key states are compatible with each KMS operation, see
+ *           <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>
+ *                      <i>Key Management Service Developer Guide</i>
+ *                   </i>.</p>
+ *             </li>
+ *             <li>
+ *                <p>For cryptographic operations on KMS keys in custom key stores, this exception represents a general failure with many possible causes. To identify the cause, see the error message that accompanies the exception.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The request was rejected because the specified entity or resource could not be
+ *       found.</p>
+ *
+ *
+ * @example To reencrypt data
+ * ```javascript
+ * // The following example reencrypts data with the specified KMS key.
+ * const input = {
+ *   "CiphertextBlob": "<binary data>",
+ *   "DestinationKeyId": "0987dcba-09fe-87dc-65ba-ab0987654321"
+ * };
+ * const command = new ReEncryptCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "CiphertextBlob": "<binary data>",
+ *   "KeyId": "arn:aws:kms:us-east-2:111122223333:key/0987dcba-09fe-87dc-65ba-ab0987654321",
+ *   "SourceKeyId": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+ * }
+ * *\/
+ * // example id: to-reencrypt-data-1481230358001
+ * ```
  *
  */
 export class ReEncryptCommand extends $Command<ReEncryptCommandInput, ReEncryptCommandOutput, KMSClientResolvedConfig> {
@@ -152,6 +268,9 @@ export class ReEncryptCommand extends $Command<ReEncryptCommandInput, ReEncryptC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReEncryptCommandInput) {
     // Start section: command_constructor
     super();
@@ -178,8 +297,8 @@ export class ReEncryptCommand extends $Command<ReEncryptCommandInput, ReEncryptC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReEncryptRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ReEncryptResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -189,12 +308,18 @@ export class ReEncryptCommand extends $Command<ReEncryptCommandInput, ReEncryptC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReEncryptCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ReEncryptCommand(input, context);
+    return se_ReEncryptCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReEncryptCommandOutput> {
-    return deserializeAws_json1_1ReEncryptCommand(output, context);
+    return de_ReEncryptCommand(output, context);
   }
 
   // Start section: command_body_extra

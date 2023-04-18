@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  CreateTopicRuleDestinationRequest,
-  CreateTopicRuleDestinationRequestFilterSensitiveLog,
-  CreateTopicRuleDestinationResponse,
-  CreateTopicRuleDestinationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateTopicRuleDestinationCommand,
-  serializeAws_restJson1CreateTopicRuleDestinationCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateTopicRuleDestinationRequest, CreateTopicRuleDestinationResponse } from "../models/models_0";
+import { de_CreateTopicRuleDestinationCommand, se_CreateTopicRuleDestinationCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateTopicRuleDestinationCommand}.
+ */
 export interface CreateTopicRuleDestinationCommandInput extends CreateTopicRuleDestinationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateTopicRuleDestinationCommand}.
+ */
 export interface CreateTopicRuleDestinationCommandOutput extends CreateTopicRuleDestinationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a topic rule destination. The destination must be confirmed prior to use.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateTopicRuleDestination</a> action.</p>
  * @example
@@ -37,13 +40,49 @@ export interface CreateTopicRuleDestinationCommandOutput extends CreateTopicRule
  * import { IoTClient, CreateTopicRuleDestinationCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateTopicRuleDestinationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // CreateTopicRuleDestinationRequest
+ *   destinationConfiguration: { // TopicRuleDestinationConfiguration
+ *     httpUrlConfiguration: { // HttpUrlDestinationConfiguration
+ *       confirmationUrl: "STRING_VALUE", // required
+ *     },
+ *     vpcConfiguration: { // VpcDestinationConfiguration
+ *       subnetIds: [ // SubnetIdList // required
+ *         "STRING_VALUE",
+ *       ],
+ *       securityGroups: [ // SecurityGroupList
+ *         "STRING_VALUE",
+ *       ],
+ *       vpcId: "STRING_VALUE", // required
+ *       roleArn: "STRING_VALUE", // required
+ *     },
+ *   },
+ * };
  * const command = new CreateTopicRuleDestinationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTopicRuleDestinationCommandInput - {@link CreateTopicRuleDestinationCommandInput}
+ * @returns {@link CreateTopicRuleDestinationCommandOutput}
  * @see {@link CreateTopicRuleDestinationCommandInput} for command's `input` shape.
  * @see {@link CreateTopicRuleDestinationCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link ConflictingResourceUpdateException} (client fault)
+ *  <p>A conflicting resource update exception. This exception is thrown when two pending
+ *          updates cause a conflict.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The resource already exists.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
  *
  */
 export class CreateTopicRuleDestinationCommand extends $Command<
@@ -63,6 +102,9 @@ export class CreateTopicRuleDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTopicRuleDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +133,8 @@ export class CreateTopicRuleDestinationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTopicRuleDestinationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateTopicRuleDestinationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,15 +144,21 @@ export class CreateTopicRuleDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTopicRuleDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateTopicRuleDestinationCommand(input, context);
+    return se_CreateTopicRuleDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateTopicRuleDestinationCommandOutput> {
-    return deserializeAws_restJson1CreateTopicRuleDestinationCommand(output, context);
+    return de_CreateTopicRuleDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

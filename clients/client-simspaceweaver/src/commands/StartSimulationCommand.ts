@@ -17,18 +17,25 @@ import {
   StartSimulationInput,
   StartSimulationInputFilterSensitiveLog,
   StartSimulationOutput,
-  StartSimulationOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartSimulationCommand,
-  serializeAws_restJson1StartSimulationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartSimulationCommand, se_StartSimulationCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SimSpaceWeaverClientResolvedConfig } from "../SimSpaceWeaverClient";
 
+/**
+ * @public
+ *
+ * The input for {@link StartSimulationCommand}.
+ */
 export interface StartSimulationCommandInput extends StartSimulationInput {}
+/**
+ * @public
+ *
+ * The output of {@link StartSimulationCommand}.
+ */
 export interface StartSimulationCommandOutput extends StartSimulationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a simulation with the given name and schema.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +43,45 @@ export interface StartSimulationCommandOutput extends StartSimulationOutput, __M
  * import { SimSpaceWeaverClient, StartSimulationCommand } from "@aws-sdk/client-simspaceweaver"; // ES Modules import
  * // const { SimSpaceWeaverClient, StartSimulationCommand } = require("@aws-sdk/client-simspaceweaver"); // CommonJS import
  * const client = new SimSpaceWeaverClient(config);
+ * const input = { // StartSimulationInput
+ *   ClientToken: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   RoleArn: "STRING_VALUE", // required
+ *   SchemaS3Location: { // S3Location
+ *     BucketName: "STRING_VALUE",
+ *     ObjectKey: "STRING_VALUE",
+ *   },
+ *   MaximumDuration: "STRING_VALUE",
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new StartSimulationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartSimulationCommandInput - {@link StartSimulationCommandInput}
+ * @returns {@link StartSimulationCommandOutput}
  * @see {@link StartSimulationCommandInput} for command's `input` shape.
  * @see {@link StartSimulationCommandOutput} for command's `response` shape.
  * @see {@link SimSpaceWeaverClientResolvedConfig | config} for SimSpaceWeaverClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p/>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p/>
+ *
  *
  */
 export class StartSimulationCommand extends $Command<
@@ -62,6 +101,9 @@ export class StartSimulationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartSimulationCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,7 +133,7 @@ export class StartSimulationCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: StartSimulationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StartSimulationOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +143,18 @@ export class StartSimulationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartSimulationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartSimulationCommand(input, context);
+    return se_StartSimulationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartSimulationCommandOutput> {
-    return deserializeAws_restJson1StartSimulationCommand(output, context);
+    return de_StartSimulationCommand(output, context);
   }
 
   // Start section: command_body_extra

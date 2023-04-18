@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ProfileDetailResponse,
-  ProfileDetailResponseFilterSensitiveLog,
-  UpdateProfileRequest,
-  UpdateProfileRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateProfileCommand,
-  serializeAws_restJson1UpdateProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { ProfileDetailResponse, UpdateProfileRequest } from "../models/models_0";
+import { de_UpdateProfileCommand, se_UpdateProfileCommand } from "../protocols/Aws_restJson1";
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateProfileCommand}.
+ */
 export interface UpdateProfileCommandInput extends UpdateProfileRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateProfileCommand}.
+ */
 export interface UpdateProfileCommandOutput extends ProfileDetailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the profile. A profile is configuration resource to list the roles that RolesAnywhere service is trusted to assume. In addition, by applying a profile you can scope-down permissions with IAM managed policies.</p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -40,13 +43,37 @@ export interface UpdateProfileCommandOutput extends ProfileDetailResponse, __Met
  * import { RolesAnywhereClient, UpdateProfileCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
  * // const { RolesAnywhereClient, UpdateProfileCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
  * const client = new RolesAnywhereClient(config);
+ * const input = { // UpdateProfileRequest
+ *   profileId: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   sessionPolicy: "STRING_VALUE",
+ *   roleArns: [ // RoleArnList
+ *     "STRING_VALUE",
+ *   ],
+ *   managedPolicyArns: [ // ManagedPolicyList
+ *     "STRING_VALUE",
+ *   ],
+ *   durationSeconds: Number("int"),
+ * };
  * const command = new UpdateProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateProfileCommandInput - {@link UpdateProfileCommandInput}
+ * @returns {@link UpdateProfileCommandOutput}
  * @see {@link UpdateProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateProfileCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Validation exception error.</p>
+ *
  *
  */
 export class UpdateProfileCommand extends $Command<
@@ -66,6 +93,9 @@ export class UpdateProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +122,8 @@ export class UpdateProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ProfileDetailResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +133,18 @@ export class UpdateProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateProfileCommand(input, context);
+    return se_UpdateProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateProfileCommandOutput> {
-    return deserializeAws_restJson1UpdateProfileCommand(output, context);
+    return de_UpdateProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  CancelCapacityReservationRequest,
-  CancelCapacityReservationRequestFilterSensitiveLog,
-  CancelCapacityReservationResult,
-  CancelCapacityReservationResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_ec2CancelCapacityReservationCommand,
-  serializeAws_ec2CancelCapacityReservationCommand,
-} from "../protocols/Aws_ec2";
+import { CancelCapacityReservationRequest, CancelCapacityReservationResult } from "../models/models_0";
+import { de_CancelCapacityReservationCommand, se_CancelCapacityReservationCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link CancelCapacityReservationCommand}.
+ */
 export interface CancelCapacityReservationCommandInput extends CancelCapacityReservationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CancelCapacityReservationCommand}.
+ */
 export interface CancelCapacityReservationCommandOutput extends CancelCapacityReservationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels the specified Capacity Reservation, releases the reserved capacity, and changes the Capacity Reservation's state to
  * 			<code>cancelled</code>.</p>
  *          <p>Instances running in the reserved capacity continue running until you stop them. Stopped
@@ -41,13 +44,20 @@ export interface CancelCapacityReservationCommandOutput extends CancelCapacityRe
  * import { EC2Client, CancelCapacityReservationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CancelCapacityReservationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // CancelCapacityReservationRequest
+ *   CapacityReservationId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new CancelCapacityReservationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelCapacityReservationCommandInput - {@link CancelCapacityReservationCommandInput}
+ * @returns {@link CancelCapacityReservationCommandOutput}
  * @see {@link CancelCapacityReservationCommandInput} for command's `input` shape.
  * @see {@link CancelCapacityReservationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class CancelCapacityReservationCommand extends $Command<
@@ -67,6 +77,9 @@ export class CancelCapacityReservationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelCapacityReservationCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +108,8 @@ export class CancelCapacityReservationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelCapacityReservationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelCapacityReservationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,15 +119,21 @@ export class CancelCapacityReservationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelCapacityReservationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CancelCapacityReservationCommand(input, context);
+    return se_CancelCapacityReservationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelCapacityReservationCommandOutput> {
-    return deserializeAws_ec2CancelCapacityReservationCommand(output, context);
+    return de_CancelCapacityReservationCommand(output, context);
   }
 
   // Start section: command_body_extra

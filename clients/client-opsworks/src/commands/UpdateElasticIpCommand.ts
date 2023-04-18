@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateElasticIpRequest, UpdateElasticIpRequestFilterSensitiveLog } from "../models/models_0";
+import { UpdateElasticIpRequest } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1UpdateElasticIpCommand,
-  serializeAws_json1_1UpdateElasticIpCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateElasticIpCommand, se_UpdateElasticIpCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateElasticIpCommand}.
+ */
 export interface UpdateElasticIpCommandInput extends UpdateElasticIpRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateElasticIpCommand}.
+ */
 export interface UpdateElasticIpCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a registered Elastic IP address's name. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource Management</a>.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
@@ -36,13 +44,26 @@ export interface UpdateElasticIpCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, UpdateElasticIpCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, UpdateElasticIpCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // UpdateElasticIpRequest
+ *   ElasticIp: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ * };
  * const command = new UpdateElasticIpCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateElasticIpCommandInput - {@link UpdateElasticIpCommandInput}
+ * @returns {@link UpdateElasticIpCommandOutput}
  * @see {@link UpdateElasticIpCommandInput} for command's `input` shape.
  * @see {@link UpdateElasticIpCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Indicates that a resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that a request was not valid.</p>
+ *
  *
  */
 export class UpdateElasticIpCommand extends $Command<
@@ -62,6 +83,9 @@ export class UpdateElasticIpCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateElasticIpCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +114,8 @@ export class UpdateElasticIpCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateElasticIpRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +125,18 @@ export class UpdateElasticIpCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateElasticIpCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateElasticIpCommand(input, context);
+    return se_UpdateElasticIpCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateElasticIpCommandOutput> {
-    return deserializeAws_json1_1UpdateElasticIpCommand(output, context);
+    return de_UpdateElasticIpCommand(output, context);
   }
 
   // Start section: command_body_extra

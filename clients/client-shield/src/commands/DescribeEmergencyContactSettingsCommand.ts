@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DescribeEmergencyContactSettingsRequest, DescribeEmergencyContactSettingsResponse } from "../models/models_0";
 import {
-  DescribeEmergencyContactSettingsRequest,
-  DescribeEmergencyContactSettingsRequestFilterSensitiveLog,
-  DescribeEmergencyContactSettingsResponse,
-  DescribeEmergencyContactSettingsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeEmergencyContactSettingsCommand,
-  serializeAws_json1_1DescribeEmergencyContactSettingsCommand,
+  de_DescribeEmergencyContactSettingsCommand,
+  se_DescribeEmergencyContactSettingsCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeEmergencyContactSettingsCommand}.
+ */
 export interface DescribeEmergencyContactSettingsCommandInput extends DescribeEmergencyContactSettingsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeEmergencyContactSettingsCommand}.
+ */
 export interface DescribeEmergencyContactSettingsCommandOutput
   extends DescribeEmergencyContactSettingsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>A list of email addresses and phone numbers that the Shield Response Team (SRT) can use to contact you if you have proactive engagement enabled, for escalations to the SRT and to initiate proactive customer support.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,23 @@ export interface DescribeEmergencyContactSettingsCommandOutput
  * import { ShieldClient, DescribeEmergencyContactSettingsCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, DescribeEmergencyContactSettingsCommand } = require("@aws-sdk/client-shield"); // CommonJS import
  * const client = new ShieldClient(config);
+ * const input = {};
  * const command = new DescribeEmergencyContactSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEmergencyContactSettingsCommandInput - {@link DescribeEmergencyContactSettingsCommandInput}
+ * @returns {@link DescribeEmergencyContactSettingsCommandOutput}
  * @see {@link DescribeEmergencyContactSettingsCommandInput} for command's `input` shape.
  * @see {@link DescribeEmergencyContactSettingsCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+ *
  *
  */
 export class DescribeEmergencyContactSettingsCommand extends $Command<
@@ -64,6 +80,9 @@ export class DescribeEmergencyContactSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEmergencyContactSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +111,8 @@ export class DescribeEmergencyContactSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEmergencyContactSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEmergencyContactSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +122,24 @@ export class DescribeEmergencyContactSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeEmergencyContactSettingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEmergencyContactSettingsCommand(input, context);
+    return se_DescribeEmergencyContactSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEmergencyContactSettingsCommandOutput> {
-    return deserializeAws_json1_1DescribeEmergencyContactSettingsCommand(output, context);
+    return de_DescribeEmergencyContactSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

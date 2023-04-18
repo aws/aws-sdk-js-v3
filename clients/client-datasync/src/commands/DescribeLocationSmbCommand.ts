@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import {
-  DescribeLocationSmbRequest,
-  DescribeLocationSmbRequestFilterSensitiveLog,
-  DescribeLocationSmbResponse,
-  DescribeLocationSmbResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeLocationSmbCommand,
-  serializeAws_json1_1DescribeLocationSmbCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeLocationSmbRequest, DescribeLocationSmbResponse } from "../models/models_0";
+import { de_DescribeLocationSmbCommand, se_DescribeLocationSmbCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeLocationSmbCommand}.
+ */
 export interface DescribeLocationSmbCommandInput extends DescribeLocationSmbRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeLocationSmbCommand}.
+ */
 export interface DescribeLocationSmbCommandOutput extends DescribeLocationSmbResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns metadata, such as the path and user information about an SMB location.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,25 @@ export interface DescribeLocationSmbCommandOutput extends DescribeLocationSmbRes
  * import { DataSyncClient, DescribeLocationSmbCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, DescribeLocationSmbCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = { // DescribeLocationSmbRequest
+ *   LocationArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeLocationSmbCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLocationSmbCommandInput - {@link DescribeLocationSmbCommandInput}
+ * @returns {@link DescribeLocationSmbCommandOutput}
  * @see {@link DescribeLocationSmbCommandInput} for command's `input` shape.
  * @see {@link DescribeLocationSmbCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception is thrown when an error occurs in the DataSync service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
  *
  */
 export class DescribeLocationSmbCommand extends $Command<
@@ -62,6 +77,9 @@ export class DescribeLocationSmbCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLocationSmbCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +108,8 @@ export class DescribeLocationSmbCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLocationSmbRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLocationSmbResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +119,18 @@ export class DescribeLocationSmbCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLocationSmbCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeLocationSmbCommand(input, context);
+    return se_DescribeLocationSmbCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLocationSmbCommandOutput> {
-    return deserializeAws_json1_1DescribeLocationSmbCommand(output, context);
+    return de_DescribeLocationSmbCommand(output, context);
   }
 
   // Start section: command_body_extra

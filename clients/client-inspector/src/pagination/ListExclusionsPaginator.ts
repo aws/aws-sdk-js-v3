@@ -6,12 +6,11 @@ import {
   ListExclusionsCommandInput,
   ListExclusionsCommandOutput,
 } from "../commands/ListExclusionsCommand";
-import { Inspector } from "../Inspector";
 import { InspectorClient } from "../InspectorClient";
 import { InspectorPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: InspectorClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListExclusionsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Inspector,
-  input: ListExclusionsCommandInput,
-  ...args: any
-): Promise<ListExclusionsCommandOutput> => {
-  // @ts-ignore
-  return await client.listExclusions(input, ...args);
-};
 export async function* paginateListExclusions(
   config: InspectorPaginationConfiguration,
   input: ListExclusionsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListExclusions(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Inspector) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof InspectorClient) {
+    if (config.client instanceof InspectorClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Inspector | InspectorClient");

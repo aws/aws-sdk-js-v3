@@ -16,21 +16,30 @@ import {
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import {
   AssociateWirelessDeviceWithFuotaTaskRequest,
-  AssociateWirelessDeviceWithFuotaTaskRequestFilterSensitiveLog,
   AssociateWirelessDeviceWithFuotaTaskResponse,
-  AssociateWirelessDeviceWithFuotaTaskResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1AssociateWirelessDeviceWithFuotaTaskCommand,
-  serializeAws_restJson1AssociateWirelessDeviceWithFuotaTaskCommand,
+  de_AssociateWirelessDeviceWithFuotaTaskCommand,
+  se_AssociateWirelessDeviceWithFuotaTaskCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link AssociateWirelessDeviceWithFuotaTaskCommand}.
+ */
 export interface AssociateWirelessDeviceWithFuotaTaskCommandInput extends AssociateWirelessDeviceWithFuotaTaskRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AssociateWirelessDeviceWithFuotaTaskCommand}.
+ */
 export interface AssociateWirelessDeviceWithFuotaTaskCommandOutput
   extends AssociateWirelessDeviceWithFuotaTaskResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associate a wireless device with a FUOTA task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +47,38 @@ export interface AssociateWirelessDeviceWithFuotaTaskCommandOutput
  * import { IoTWirelessClient, AssociateWirelessDeviceWithFuotaTaskCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, AssociateWirelessDeviceWithFuotaTaskCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // AssociateWirelessDeviceWithFuotaTaskRequest
+ *   Id: "STRING_VALUE", // required
+ *   WirelessDeviceId: "STRING_VALUE", // required
+ * };
  * const command = new AssociateWirelessDeviceWithFuotaTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateWirelessDeviceWithFuotaTaskCommandInput - {@link AssociateWirelessDeviceWithFuotaTaskCommandInput}
+ * @returns {@link AssociateWirelessDeviceWithFuotaTaskCommandOutput}
  * @see {@link AssociateWirelessDeviceWithFuotaTaskCommandInput} for command's `input` shape.
  * @see {@link AssociateWirelessDeviceWithFuotaTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>User does not have permission to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred while processing a request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because it exceeded the allowed API request rate.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input did not meet the specified constraints.</p>
+ *
  *
  */
 export class AssociateWirelessDeviceWithFuotaTaskCommand extends $Command<
@@ -64,6 +98,9 @@ export class AssociateWirelessDeviceWithFuotaTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateWirelessDeviceWithFuotaTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +129,8 @@ export class AssociateWirelessDeviceWithFuotaTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateWirelessDeviceWithFuotaTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateWirelessDeviceWithFuotaTaskResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +140,24 @@ export class AssociateWirelessDeviceWithFuotaTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateWirelessDeviceWithFuotaTaskCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateWirelessDeviceWithFuotaTaskCommand(input, context);
+    return se_AssociateWirelessDeviceWithFuotaTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateWirelessDeviceWithFuotaTaskCommandOutput> {
-    return deserializeAws_restJson1AssociateWirelessDeviceWithFuotaTaskCommand(output, context);
+    return de_AssociateWirelessDeviceWithFuotaTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

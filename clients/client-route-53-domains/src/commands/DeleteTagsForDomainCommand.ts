@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteTagsForDomainRequest,
-  DeleteTagsForDomainRequestFilterSensitiveLog,
-  DeleteTagsForDomainResponse,
-  DeleteTagsForDomainResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteTagsForDomainCommand,
-  serializeAws_json1_1DeleteTagsForDomainCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteTagsForDomainRequest, DeleteTagsForDomainResponse } from "../models/models_0";
+import { de_DeleteTagsForDomainCommand, se_DeleteTagsForDomainCommand } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteTagsForDomainCommand}.
+ */
 export interface DeleteTagsForDomainCommandInput extends DeleteTagsForDomainRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteTagsForDomainCommand}.
+ */
 export interface DeleteTagsForDomainCommandOutput extends DeleteTagsForDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation deletes the specified tags for a domain.</p>
  *          <p>All tag operations are eventually consistent; subsequent operations might not
  * 			immediately represent all issued operations.</p>
@@ -38,13 +41,35 @@ export interface DeleteTagsForDomainCommandOutput extends DeleteTagsForDomainRes
  * import { Route53DomainsClient, DeleteTagsForDomainCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, DeleteTagsForDomainCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
+ * const input = { // DeleteTagsForDomainRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   TagsToDelete: [ // TagKeyList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DeleteTagsForDomainCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTagsForDomainCommandInput - {@link DeleteTagsForDomainCommandInput}
+ * @returns {@link DeleteTagsForDomainCommandOutput}
  * @see {@link DeleteTagsForDomainCommandInput} for command's `input` shape.
  * @see {@link DeleteTagsForDomainCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The requested item is not acceptable. For example, for APIs that accept a domain name,
+ * 			the request might specify a domain name that doesn't belong to the account that
+ * 			submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the
+ * 			password might be invalid.</p>
+ *
+ * @throws {@link OperationLimitExceeded} (client fault)
+ *  <p>The number of operations or jobs running exceeded the allowed threshold for the
+ * 			account.</p>
+ *
+ * @throws {@link UnsupportedTLD} (client fault)
+ *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+ *
  *
  */
 export class DeleteTagsForDomainCommand extends $Command<
@@ -64,6 +89,9 @@ export class DeleteTagsForDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTagsForDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +120,8 @@ export class DeleteTagsForDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTagsForDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTagsForDomainResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +131,18 @@ export class DeleteTagsForDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTagsForDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteTagsForDomainCommand(input, context);
+    return se_DeleteTagsForDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTagsForDomainCommandOutput> {
-    return deserializeAws_json1_1DeleteTagsForDomainCommand(output, context);
+    return de_DeleteTagsForDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,22 +16,31 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   GetInstanceTypesFromInstanceRequirementsRequest,
-  GetInstanceTypesFromInstanceRequirementsRequestFilterSensitiveLog,
   GetInstanceTypesFromInstanceRequirementsResult,
-  GetInstanceTypesFromInstanceRequirementsResultFilterSensitiveLog,
 } from "../models/models_5";
 import {
-  deserializeAws_ec2GetInstanceTypesFromInstanceRequirementsCommand,
-  serializeAws_ec2GetInstanceTypesFromInstanceRequirementsCommand,
+  de_GetInstanceTypesFromInstanceRequirementsCommand,
+  se_GetInstanceTypesFromInstanceRequirementsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link GetInstanceTypesFromInstanceRequirementsCommand}.
+ */
 export interface GetInstanceTypesFromInstanceRequirementsCommandInput
   extends GetInstanceTypesFromInstanceRequirementsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetInstanceTypesFromInstanceRequirementsCommand}.
+ */
 export interface GetInstanceTypesFromInstanceRequirementsCommandOutput
   extends GetInstanceTypesFromInstanceRequirementsResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of instance types with the specified instance attributes. You can
  *          use the response to preview the instance types without launching instances. Note
  *          that the response does not consider capacity.</p>
@@ -48,13 +57,95 @@ export interface GetInstanceTypesFromInstanceRequirementsCommandOutput
  * import { EC2Client, GetInstanceTypesFromInstanceRequirementsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetInstanceTypesFromInstanceRequirementsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // GetInstanceTypesFromInstanceRequirementsRequest
+ *   DryRun: true || false,
+ *   ArchitectureTypes: [ // ArchitectureTypeSet // required
+ *     "i386" || "x86_64" || "arm64" || "x86_64_mac" || "arm64_mac",
+ *   ],
+ *   VirtualizationTypes: [ // VirtualizationTypeSet // required
+ *     "hvm" || "paravirtual",
+ *   ],
+ *   InstanceRequirements: { // InstanceRequirementsRequest
+ *     VCpuCount: { // VCpuCountRangeRequest
+ *       Min: Number("int"), // required
+ *       Max: Number("int"),
+ *     },
+ *     MemoryMiB: { // MemoryMiBRequest
+ *       Min: Number("int"), // required
+ *       Max: Number("int"),
+ *     },
+ *     CpuManufacturers: [ // CpuManufacturerSet
+ *       "intel" || "amd" || "amazon-web-services",
+ *     ],
+ *     MemoryGiBPerVCpu: { // MemoryGiBPerVCpuRequest
+ *       Min: Number("double"),
+ *       Max: Number("double"),
+ *     },
+ *     ExcludedInstanceTypes: [ // ExcludedInstanceTypeSet
+ *       "STRING_VALUE",
+ *     ],
+ *     InstanceGenerations: [ // InstanceGenerationSet
+ *       "current" || "previous",
+ *     ],
+ *     SpotMaxPricePercentageOverLowestPrice: Number("int"),
+ *     OnDemandMaxPricePercentageOverLowestPrice: Number("int"),
+ *     BareMetal: "included" || "required" || "excluded",
+ *     BurstablePerformance: "included" || "required" || "excluded",
+ *     RequireHibernateSupport: true || false,
+ *     NetworkInterfaceCount: { // NetworkInterfaceCountRequest
+ *       Min: Number("int"),
+ *       Max: Number("int"),
+ *     },
+ *     LocalStorage: "included" || "required" || "excluded",
+ *     LocalStorageTypes: [ // LocalStorageTypeSet
+ *       "hdd" || "ssd",
+ *     ],
+ *     TotalLocalStorageGB: { // TotalLocalStorageGBRequest
+ *       Min: Number("double"),
+ *       Max: Number("double"),
+ *     },
+ *     BaselineEbsBandwidthMbps: { // BaselineEbsBandwidthMbpsRequest
+ *       Min: Number("int"),
+ *       Max: Number("int"),
+ *     },
+ *     AcceleratorTypes: [ // AcceleratorTypeSet
+ *       "gpu" || "fpga" || "inference",
+ *     ],
+ *     AcceleratorCount: { // AcceleratorCountRequest
+ *       Min: Number("int"),
+ *       Max: Number("int"),
+ *     },
+ *     AcceleratorManufacturers: [ // AcceleratorManufacturerSet
+ *       "nvidia" || "amd" || "amazon-web-services" || "xilinx",
+ *     ],
+ *     AcceleratorNames: [ // AcceleratorNameSet
+ *       "a100" || "v100" || "k80" || "t4" || "m60" || "radeon-pro-v520" || "vu9p" || "inferentia" || "k520",
+ *     ],
+ *     AcceleratorTotalMemoryMiB: { // AcceleratorTotalMemoryMiBRequest
+ *       Min: Number("int"),
+ *       Max: Number("int"),
+ *     },
+ *     NetworkBandwidthGbps: { // NetworkBandwidthGbpsRequest
+ *       Min: Number("double"),
+ *       Max: Number("double"),
+ *     },
+ *     AllowedInstanceTypes: [ // AllowedInstanceTypeSet
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetInstanceTypesFromInstanceRequirementsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInstanceTypesFromInstanceRequirementsCommandInput - {@link GetInstanceTypesFromInstanceRequirementsCommandInput}
+ * @returns {@link GetInstanceTypesFromInstanceRequirementsCommandOutput}
  * @see {@link GetInstanceTypesFromInstanceRequirementsCommandInput} for command's `input` shape.
  * @see {@link GetInstanceTypesFromInstanceRequirementsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class GetInstanceTypesFromInstanceRequirementsCommand extends $Command<
@@ -74,6 +165,9 @@ export class GetInstanceTypesFromInstanceRequirementsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInstanceTypesFromInstanceRequirementsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +202,8 @@ export class GetInstanceTypesFromInstanceRequirementsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetInstanceTypesFromInstanceRequirementsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetInstanceTypesFromInstanceRequirementsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,18 +213,24 @@ export class GetInstanceTypesFromInstanceRequirementsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetInstanceTypesFromInstanceRequirementsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2GetInstanceTypesFromInstanceRequirementsCommand(input, context);
+    return se_GetInstanceTypesFromInstanceRequirementsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetInstanceTypesFromInstanceRequirementsCommandOutput> {
-    return deserializeAws_ec2GetInstanceTypesFromInstanceRequirementsCommand(output, context);
+    return de_GetInstanceTypesFromInstanceRequirementsCommand(output, context);
   }
 
   // Start section: command_body_extra

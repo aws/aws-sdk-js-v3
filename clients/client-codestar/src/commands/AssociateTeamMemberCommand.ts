@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeStarClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeStarClient";
-import {
-  AssociateTeamMemberRequest,
-  AssociateTeamMemberRequestFilterSensitiveLog,
-  AssociateTeamMemberResult,
-  AssociateTeamMemberResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateTeamMemberCommand,
-  serializeAws_json1_1AssociateTeamMemberCommand,
-} from "../protocols/Aws_json1_1";
+import { AssociateTeamMemberRequest, AssociateTeamMemberResult } from "../models/models_0";
+import { de_AssociateTeamMemberCommand, se_AssociateTeamMemberCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link AssociateTeamMemberCommand}.
+ */
 export interface AssociateTeamMemberCommandInput extends AssociateTeamMemberRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AssociateTeamMemberCommand}.
+ */
 export interface AssociateTeamMemberCommandOutput extends AssociateTeamMemberResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds an IAM user to the team for an AWS CodeStar project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,45 @@ export interface AssociateTeamMemberCommandOutput extends AssociateTeamMemberRes
  * import { CodeStarClient, AssociateTeamMemberCommand } from "@aws-sdk/client-codestar"; // ES Modules import
  * // const { CodeStarClient, AssociateTeamMemberCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
  * const client = new CodeStarClient(config);
+ * const input = { // AssociateTeamMemberRequest
+ *   projectId: "STRING_VALUE", // required
+ *   clientRequestToken: "STRING_VALUE",
+ *   userArn: "STRING_VALUE", // required
+ *   projectRole: "STRING_VALUE", // required
+ *   remoteAccessAllowed: true || false,
+ * };
  * const command = new AssociateTeamMemberCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateTeamMemberCommandInput - {@link AssociateTeamMemberCommandInput}
+ * @returns {@link AssociateTeamMemberCommandOutput}
  * @see {@link AssociateTeamMemberCommandInput} for command's `input` shape.
  * @see {@link AssociateTeamMemberCommandOutput} for command's `response` shape.
  * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (server fault)
+ *  <p>Another modification is being made. That modification must complete before you can make
+ *       your change.</p>
+ *
+ * @throws {@link InvalidServiceRoleException} (client fault)
+ *  <p>The service role is not valid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A resource limit has been exceeded.</p>
+ *
+ * @throws {@link ProjectConfigurationException} (client fault)
+ *  <p>Project configuration information is required but not specified.</p>
+ *
+ * @throws {@link ProjectNotFoundException} (client fault)
+ *  <p>The specified AWS CodeStar project was not found.</p>
+ *
+ * @throws {@link TeamMemberAlreadyAssociatedException} (client fault)
+ *  <p>The team member is already associated with a role in this project.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The specified input is either not valid, or it could not be validated.</p>
+ *
  *
  */
 export class AssociateTeamMemberCommand extends $Command<
@@ -62,6 +97,9 @@ export class AssociateTeamMemberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateTeamMemberCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +128,8 @@ export class AssociateTeamMemberCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateTeamMemberRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateTeamMemberResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +139,18 @@ export class AssociateTeamMemberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateTeamMemberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateTeamMemberCommand(input, context);
+    return se_AssociateTeamMemberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateTeamMemberCommandOutput> {
-    return deserializeAws_json1_1AssociateTeamMemberCommand(output, context);
+    return de_AssociateTeamMemberCommand(output, context);
   }
 
   // Start section: command_body_extra

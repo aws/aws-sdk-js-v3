@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteStreamingSessionRequest,
-  DeleteStreamingSessionRequestFilterSensitiveLog,
-  DeleteStreamingSessionResponse,
-  DeleteStreamingSessionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteStreamingSessionRequest, DeleteStreamingSessionResponse } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1DeleteStreamingSessionCommand,
-  serializeAws_restJson1DeleteStreamingSessionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteStreamingSessionCommand, se_DeleteStreamingSessionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteStreamingSessionCommand}.
+ */
 export interface DeleteStreamingSessionCommandInput extends DeleteStreamingSessionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteStreamingSessionCommand}.
+ */
 export interface DeleteStreamingSessionCommandOutput extends DeleteStreamingSessionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes streaming session resource.</p>
  *         <p>After invoking this operation, use GetStreamingSession to poll the resource until it
  *             transitions to a <code>DELETED</code> state.</p>
@@ -40,13 +43,45 @@ export interface DeleteStreamingSessionCommandOutput extends DeleteStreamingSess
  * import { NimbleClient, DeleteStreamingSessionCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, DeleteStreamingSessionCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = { // DeleteStreamingSessionRequest
+ *   clientToken: "STRING_VALUE",
+ *   sessionId: "STRING_VALUE", // required
+ *   studioId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteStreamingSessionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteStreamingSessionCommandInput - {@link DeleteStreamingSessionCommandInput}
+ * @returns {@link DeleteStreamingSessionCommandOutput}
  * @see {@link DeleteStreamingSessionCommandInput} for command's `input` shape.
  * @see {@link DeleteStreamingSessionCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to perform this operation. Check your IAM
+ *             policies, and ensure that you are using the correct access keys.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Another operation is in progress. </p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>An internal error has occurred. Please retry your request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Your current quota does not allow you to perform the request action. You can request
+ *             increases for some quotas, and other quotas cannot be increased.</p>
+ *         <p>Please use Amazon Web Services Service Quotas to request an increase. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request throughput limit was exceeded.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One of the parameters in the request is invalid.</p>
+ *
  *
  */
 export class DeleteStreamingSessionCommand extends $Command<
@@ -66,6 +101,9 @@ export class DeleteStreamingSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteStreamingSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +132,8 @@ export class DeleteStreamingSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteStreamingSessionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteStreamingSessionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +143,18 @@ export class DeleteStreamingSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteStreamingSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteStreamingSessionCommand(input, context);
+    return se_DeleteStreamingSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteStreamingSessionCommandOutput> {
-    return deserializeAws_restJson1DeleteStreamingSessionCommand(output, context);
+    return de_DeleteStreamingSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

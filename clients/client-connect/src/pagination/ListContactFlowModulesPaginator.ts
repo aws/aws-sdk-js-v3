@@ -6,12 +6,11 @@ import {
   ListContactFlowModulesCommandInput,
   ListContactFlowModulesCommandOutput,
 } from "../commands/ListContactFlowModulesCommand";
-import { Connect } from "../Connect";
 import { ConnectClient } from "../ConnectClient";
 import { ConnectPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ConnectClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListContactFlowModulesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Connect,
-  input: ListContactFlowModulesCommandInput,
-  ...args: any
-): Promise<ListContactFlowModulesCommandOutput> => {
-  // @ts-ignore
-  return await client.listContactFlowModules(input, ...args);
-};
 export async function* paginateListContactFlowModules(
   config: ConnectPaginationConfiguration,
   input: ListContactFlowModulesCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListContactFlowModules(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Connect) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ConnectClient) {
+    if (config.client instanceof ConnectClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Connect | ConnectClient");

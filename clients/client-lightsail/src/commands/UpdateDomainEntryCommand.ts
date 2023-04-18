@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  UpdateDomainEntryRequest,
-  UpdateDomainEntryRequestFilterSensitiveLog,
-  UpdateDomainEntryResult,
-  UpdateDomainEntryResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1UpdateDomainEntryCommand,
-  serializeAws_json1_1UpdateDomainEntryCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateDomainEntryRequest, UpdateDomainEntryResult } from "../models/models_1";
+import { de_UpdateDomainEntryCommand, se_UpdateDomainEntryCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateDomainEntryCommand}.
+ */
 export interface UpdateDomainEntryCommandInput extends UpdateDomainEntryRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateDomainEntryCommand}.
+ */
 export interface UpdateDomainEntryCommandOutput extends UpdateDomainEntryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a domain recordset after it is created.</p>
  *          <p>The <code>update domain entry</code> operation supports tag-based access control via
  *       resource tags applied to the resource identified by <code>domain name</code>. For more
@@ -39,13 +42,59 @@ export interface UpdateDomainEntryCommandOutput extends UpdateDomainEntryResult,
  * import { LightsailClient, UpdateDomainEntryCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, UpdateDomainEntryCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // UpdateDomainEntryRequest
+ *   domainName: "STRING_VALUE", // required
+ *   domainEntry: { // DomainEntry
+ *     id: "STRING_VALUE",
+ *     name: "STRING_VALUE",
+ *     target: "STRING_VALUE",
+ *     isAlias: true || false,
+ *     type: "STRING_VALUE",
+ *     options: { // DomainEntryOptions
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new UpdateDomainEntryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDomainEntryCommandInput - {@link UpdateDomainEntryCommandInput}
+ * @returns {@link UpdateDomainEntryCommandOutput}
  * @see {@link UpdateDomainEntryCommandInput} for command's `input` shape.
  * @see {@link UpdateDomainEntryCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
+ *       credentials to access a resource.</p>
+ *
+ * @throws {@link AccountSetupInProgressException} (client fault)
+ *  <p>Lightsail throws this exception when an account is still in the setup in progress
+ *       state.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Lightsail throws this exception when user input does not conform to the validation rules
+ *       of an input field.</p>
+ *          <note>
+ *             <p>Domain and distribution APIs are only available in the N. Virginia
+ *           (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services
+ *         Region configuration to <code>us-east-1</code> to create, view, or edit these
+ *         resources.</p>
+ *          </note>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Lightsail throws this exception when it cannot find a resource.</p>
+ *
+ * @throws {@link OperationFailureException} (client fault)
+ *  <p>Lightsail throws this exception when an operation fails to execute.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>A general service exception.</p>
+ *
+ * @throws {@link UnauthenticatedException} (client fault)
+ *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
+ *
  *
  */
 export class UpdateDomainEntryCommand extends $Command<
@@ -65,6 +114,9 @@ export class UpdateDomainEntryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDomainEntryCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +145,8 @@ export class UpdateDomainEntryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDomainEntryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDomainEntryResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +156,18 @@ export class UpdateDomainEntryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDomainEntryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDomainEntryCommand(input, context);
+    return se_UpdateDomainEntryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDomainEntryCommandOutput> {
-    return deserializeAws_json1_1UpdateDomainEntryCommand(output, context);
+    return de_UpdateDomainEntryCommand(output, context);
   }
 
   // Start section: command_body_extra

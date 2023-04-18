@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
-import {
-  ListDataSetImportHistoryRequest,
-  ListDataSetImportHistoryRequestFilterSensitiveLog,
-  ListDataSetImportHistoryResponse,
-  ListDataSetImportHistoryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDataSetImportHistoryCommand,
-  serializeAws_restJson1ListDataSetImportHistoryCommand,
-} from "../protocols/Aws_restJson1";
+import { ListDataSetImportHistoryRequest, ListDataSetImportHistoryResponse } from "../models/models_0";
+import { de_ListDataSetImportHistoryCommand, se_ListDataSetImportHistoryCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListDataSetImportHistoryCommand}.
+ */
 export interface ListDataSetImportHistoryCommandInput extends ListDataSetImportHistoryRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDataSetImportHistoryCommand}.
+ */
 export interface ListDataSetImportHistoryCommandOutput extends ListDataSetImportHistoryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the data set imports for the specified application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,36 @@ export interface ListDataSetImportHistoryCommandOutput extends ListDataSetImport
  * import { M2Client, ListDataSetImportHistoryCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, ListDataSetImportHistoryCommand } = require("@aws-sdk/client-m2"); // CommonJS import
  * const client = new M2Client(config);
+ * const input = { // ListDataSetImportHistoryRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   applicationId: "STRING_VALUE", // required
+ * };
  * const command = new ListDataSetImportHistoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDataSetImportHistoryCommandInput - {@link ListDataSetImportHistoryCommandInput}
+ * @returns {@link ListDataSetImportHistoryCommandOutput}
  * @see {@link ListDataSetImportHistoryCommandInput} for command's `input` shape.
  * @see {@link ListDataSetImportHistoryCommandOutput} for command's `response` shape.
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The account or role doesn't have the right permissions to make the request.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred during the processing of the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The number of requests made exceeds the limit.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One or more parameters provided in the request is not valid.</p>
+ *
  *
  */
 export class ListDataSetImportHistoryCommand extends $Command<
@@ -62,6 +88,9 @@ export class ListDataSetImportHistoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDataSetImportHistoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +119,8 @@ export class ListDataSetImportHistoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDataSetImportHistoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDataSetImportHistoryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +130,18 @@ export class ListDataSetImportHistoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDataSetImportHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDataSetImportHistoryCommand(input, context);
+    return se_ListDataSetImportHistoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDataSetImportHistoryCommandOutput> {
-    return deserializeAws_restJson1ListDataSetImportHistoryCommand(output, context);
+    return de_ListDataSetImportHistoryCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import {
-  DescribeLocationEfsRequest,
-  DescribeLocationEfsRequestFilterSensitiveLog,
-  DescribeLocationEfsResponse,
-  DescribeLocationEfsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeLocationEfsCommand,
-  serializeAws_json1_1DescribeLocationEfsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeLocationEfsRequest, DescribeLocationEfsResponse } from "../models/models_0";
+import { de_DescribeLocationEfsCommand, se_DescribeLocationEfsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeLocationEfsCommand}.
+ */
 export interface DescribeLocationEfsCommandInput extends DescribeLocationEfsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeLocationEfsCommand}.
+ */
 export interface DescribeLocationEfsCommandOutput extends DescribeLocationEfsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns metadata about your DataSync location for an Amazon EFS file system.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,25 @@ export interface DescribeLocationEfsCommandOutput extends DescribeLocationEfsRes
  * import { DataSyncClient, DescribeLocationEfsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, DescribeLocationEfsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = { // DescribeLocationEfsRequest
+ *   LocationArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeLocationEfsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLocationEfsCommandInput - {@link DescribeLocationEfsCommandInput}
+ * @returns {@link DescribeLocationEfsCommandOutput}
  * @see {@link DescribeLocationEfsCommandInput} for command's `input` shape.
  * @see {@link DescribeLocationEfsCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception is thrown when an error occurs in the DataSync service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
  *
  */
 export class DescribeLocationEfsCommand extends $Command<
@@ -62,6 +77,9 @@ export class DescribeLocationEfsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLocationEfsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +108,8 @@ export class DescribeLocationEfsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLocationEfsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLocationEfsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +119,18 @@ export class DescribeLocationEfsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLocationEfsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeLocationEfsCommand(input, context);
+    return se_DescribeLocationEfsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLocationEfsCommandOutput> {
-    return deserializeAws_json1_1DescribeLocationEfsCommand(output, context);
+    return de_DescribeLocationEfsCommand(output, context);
   }
 
   // Start section: command_body_extra

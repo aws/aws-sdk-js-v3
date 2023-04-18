@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  DeleteRoomSkillParameterRequest,
-  DeleteRoomSkillParameterRequestFilterSensitiveLog,
-  DeleteRoomSkillParameterResponse,
-  DeleteRoomSkillParameterResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteRoomSkillParameterCommand,
-  serializeAws_json1_1DeleteRoomSkillParameterCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteRoomSkillParameterRequest, DeleteRoomSkillParameterResponse } from "../models/models_0";
+import { de_DeleteRoomSkillParameterCommand, se_DeleteRoomSkillParameterCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteRoomSkillParameterCommand}.
+ */
 export interface DeleteRoomSkillParameterCommandInput extends DeleteRoomSkillParameterRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteRoomSkillParameterCommand}.
+ */
 export interface DeleteRoomSkillParameterCommandOutput extends DeleteRoomSkillParameterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes room skill parameter details by room, skill, and parameter key ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,24 @@ export interface DeleteRoomSkillParameterCommandOutput extends DeleteRoomSkillPa
  * import { AlexaForBusinessClient, DeleteRoomSkillParameterCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, DeleteRoomSkillParameterCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // DeleteRoomSkillParameterRequest
+ *   RoomArn: "STRING_VALUE",
+ *   SkillId: "STRING_VALUE", // required
+ *   ParameterKey: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRoomSkillParameterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRoomSkillParameterCommandInput - {@link DeleteRoomSkillParameterCommandInput}
+ * @returns {@link DeleteRoomSkillParameterCommandOutput}
  * @see {@link DeleteRoomSkillParameterCommandInput} for command's `input` shape.
  * @see {@link DeleteRoomSkillParameterCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is a concurrent modification of resources.</p>
+ *
  *
  */
 export class DeleteRoomSkillParameterCommand extends $Command<
@@ -62,6 +76,9 @@ export class DeleteRoomSkillParameterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRoomSkillParameterCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +107,8 @@ export class DeleteRoomSkillParameterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRoomSkillParameterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRoomSkillParameterResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +118,18 @@ export class DeleteRoomSkillParameterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRoomSkillParameterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteRoomSkillParameterCommand(input, context);
+    return se_DeleteRoomSkillParameterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRoomSkillParameterCommandOutput> {
-    return deserializeAws_json1_1DeleteRoomSkillParameterCommand(output, context);
+    return de_DeleteRoomSkillParameterCommand(output, context);
   }
 
   // Start section: command_body_extra

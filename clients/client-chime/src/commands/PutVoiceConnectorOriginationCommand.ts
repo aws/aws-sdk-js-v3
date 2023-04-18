@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
+import { PutVoiceConnectorOriginationRequest, PutVoiceConnectorOriginationResponse } from "../models/models_1";
 import {
-  PutVoiceConnectorOriginationRequest,
-  PutVoiceConnectorOriginationRequestFilterSensitiveLog,
-  PutVoiceConnectorOriginationResponse,
-  PutVoiceConnectorOriginationResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1PutVoiceConnectorOriginationCommand,
-  serializeAws_restJson1PutVoiceConnectorOriginationCommand,
+  de_PutVoiceConnectorOriginationCommand,
+  se_PutVoiceConnectorOriginationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutVoiceConnectorOriginationCommand}.
+ */
 export interface PutVoiceConnectorOriginationCommandInput extends PutVoiceConnectorOriginationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutVoiceConnectorOriginationCommand}.
+ */
 export interface PutVoiceConnectorOriginationCommandOutput
   extends PutVoiceConnectorOriginationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds origination settings for the specified Amazon Chime Voice Connector.</p>
  *
  *          <note>
@@ -42,13 +48,52 @@ export interface PutVoiceConnectorOriginationCommandOutput
  * import { ChimeClient, PutVoiceConnectorOriginationCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, PutVoiceConnectorOriginationCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // PutVoiceConnectorOriginationRequest
+ *   VoiceConnectorId: "STRING_VALUE", // required
+ *   Origination: { // Origination
+ *     Routes: [ // OriginationRouteList
+ *       { // OriginationRoute
+ *         Host: "STRING_VALUE",
+ *         Port: Number("int"),
+ *         Protocol: "STRING_VALUE",
+ *         Priority: Number("int"),
+ *         Weight: Number("int"),
+ *       },
+ *     ],
+ *     Disabled: true || false,
+ *   },
+ * };
  * const command = new PutVoiceConnectorOriginationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutVoiceConnectorOriginationCommandInput - {@link PutVoiceConnectorOriginationCommandInput}
+ * @returns {@link PutVoiceConnectorOriginationCommandOutput}
  * @see {@link PutVoiceConnectorOriginationCommandInput} for command's `input` shape.
  * @see {@link PutVoiceConnectorOriginationCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>One or more of the resources in the request does not exist in the system.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The client exceeded its request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client is not currently authorized to make the request.</p>
+ *
  *
  */
 export class PutVoiceConnectorOriginationCommand extends $Command<
@@ -68,6 +113,9 @@ export class PutVoiceConnectorOriginationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutVoiceConnectorOriginationCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +144,8 @@ export class PutVoiceConnectorOriginationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutVoiceConnectorOriginationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutVoiceConnectorOriginationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,15 +155,21 @@ export class PutVoiceConnectorOriginationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutVoiceConnectorOriginationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutVoiceConnectorOriginationCommand(input, context);
+    return se_PutVoiceConnectorOriginationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutVoiceConnectorOriginationCommandOutput> {
-    return deserializeAws_restJson1PutVoiceConnectorOriginationCommand(output, context);
+    return de_PutVoiceConnectorOriginationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import {
-  UpdateChannelReadMarkerRequest,
-  UpdateChannelReadMarkerRequestFilterSensitiveLog,
-  UpdateChannelReadMarkerResponse,
-  UpdateChannelReadMarkerResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateChannelReadMarkerCommand,
-  serializeAws_restJson1UpdateChannelReadMarkerCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateChannelReadMarkerRequest, UpdateChannelReadMarkerResponse } from "../models/models_1";
+import { de_UpdateChannelReadMarkerCommand, se_UpdateChannelReadMarkerCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateChannelReadMarkerCommand}.
+ */
 export interface UpdateChannelReadMarkerCommandInput extends UpdateChannelReadMarkerRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateChannelReadMarkerCommand}.
+ */
 export interface UpdateChannelReadMarkerCommandOutput extends UpdateChannelReadMarkerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The details of the time when a user last read messages in a channel.</p>
  *
  *          <note>
@@ -42,13 +45,42 @@ export interface UpdateChannelReadMarkerCommandOutput extends UpdateChannelReadM
  * import { ChimeClient, UpdateChannelReadMarkerCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, UpdateChannelReadMarkerCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // UpdateChannelReadMarkerRequest
+ *   ChannelArn: "STRING_VALUE", // required
+ *   ChimeBearer: "STRING_VALUE",
+ * };
  * const command = new UpdateChannelReadMarkerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateChannelReadMarkerCommandInput - {@link UpdateChannelReadMarkerCommandInput}
+ * @returns {@link UpdateChannelReadMarkerCommandOutput}
  * @see {@link UpdateChannelReadMarkerCommandInput} for command's `input` shape.
  * @see {@link UpdateChannelReadMarkerCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be processed because of conflict in the current state of the
+ *          resource.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The client exceeded its request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client is not currently authorized to make the request.</p>
+ *
  *
  */
 export class UpdateChannelReadMarkerCommand extends $Command<
@@ -68,6 +100,9 @@ export class UpdateChannelReadMarkerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateChannelReadMarkerCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +131,8 @@ export class UpdateChannelReadMarkerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateChannelReadMarkerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateChannelReadMarkerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +142,18 @@ export class UpdateChannelReadMarkerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateChannelReadMarkerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateChannelReadMarkerCommand(input, context);
+    return se_UpdateChannelReadMarkerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateChannelReadMarkerCommandOutput> {
-    return deserializeAws_restJson1UpdateChannelReadMarkerCommand(output, context);
+    return de_UpdateChannelReadMarkerCommand(output, context);
   }
 
   // Start section: command_body_extra

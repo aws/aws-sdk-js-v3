@@ -16,21 +16,30 @@ import {
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import {
   DescribeApplicationFleetAssociationsRequest,
-  DescribeApplicationFleetAssociationsRequestFilterSensitiveLog,
   DescribeApplicationFleetAssociationsResult,
-  DescribeApplicationFleetAssociationsResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeApplicationFleetAssociationsCommand,
-  serializeAws_json1_1DescribeApplicationFleetAssociationsCommand,
+  de_DescribeApplicationFleetAssociationsCommand,
+  se_DescribeApplicationFleetAssociationsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeApplicationFleetAssociationsCommand}.
+ */
 export interface DescribeApplicationFleetAssociationsCommandInput extends DescribeApplicationFleetAssociationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeApplicationFleetAssociationsCommand}.
+ */
 export interface DescribeApplicationFleetAssociationsCommandOutput
   extends DescribeApplicationFleetAssociationsResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list that describes one or more application fleet associations. Either ApplicationArn or FleetName must be specified.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +47,28 @@ export interface DescribeApplicationFleetAssociationsCommandOutput
  * import { AppStreamClient, DescribeApplicationFleetAssociationsCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DescribeApplicationFleetAssociationsCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = { // DescribeApplicationFleetAssociationsRequest
+ *   FleetName: "STRING_VALUE",
+ *   ApplicationArn: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeApplicationFleetAssociationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeApplicationFleetAssociationsCommandInput - {@link DescribeApplicationFleetAssociationsCommandInput}
+ * @returns {@link DescribeApplicationFleetAssociationsCommandOutput}
  * @see {@link DescribeApplicationFleetAssociationsCommandInput} for command's `input` shape.
  * @see {@link DescribeApplicationFleetAssociationsCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>The attempted operation is not permitted.</p>
+ *
  *
  */
 export class DescribeApplicationFleetAssociationsCommand extends $Command<
@@ -64,6 +88,9 @@ export class DescribeApplicationFleetAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeApplicationFleetAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +119,8 @@ export class DescribeApplicationFleetAssociationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeApplicationFleetAssociationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeApplicationFleetAssociationsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +130,24 @@ export class DescribeApplicationFleetAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeApplicationFleetAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeApplicationFleetAssociationsCommand(input, context);
+    return se_DescribeApplicationFleetAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeApplicationFleetAssociationsCommandOutput> {
-    return deserializeAws_json1_1DescribeApplicationFleetAssociationsCommand(output, context);
+    return de_DescribeApplicationFleetAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  DeleteClassifierRequest,
-  DeleteClassifierRequestFilterSensitiveLog,
-  DeleteClassifierResponse,
-  DeleteClassifierResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteClassifierCommand,
-  serializeAws_json1_1DeleteClassifierCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteClassifierRequest, DeleteClassifierResponse } from "../models/models_1";
+import { de_DeleteClassifierCommand, se_DeleteClassifierCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteClassifierCommand}.
+ */
 export interface DeleteClassifierCommandInput extends DeleteClassifierRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteClassifierCommand}.
+ */
 export interface DeleteClassifierCommandOutput extends DeleteClassifierResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a classifier from the Data Catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,25 @@ export interface DeleteClassifierCommandOutput extends DeleteClassifierResponse,
  * import { GlueClient, DeleteClassifierCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DeleteClassifierCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // DeleteClassifierRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteClassifierCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteClassifierCommandInput - {@link DeleteClassifierCommandInput}
+ * @returns {@link DeleteClassifierCommandOutput}
  * @see {@link DeleteClassifierCommandInput} for command's `input` shape.
  * @see {@link DeleteClassifierCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class DeleteClassifierCommand extends $Command<
@@ -62,6 +77,9 @@ export class DeleteClassifierCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteClassifierCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +108,8 @@ export class DeleteClassifierCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteClassifierRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteClassifierResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +119,18 @@ export class DeleteClassifierCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteClassifierCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteClassifierCommand(input, context);
+    return se_DeleteClassifierCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteClassifierCommandOutput> {
-    return deserializeAws_json1_1DeleteClassifierCommand(output, context);
+    return de_DeleteClassifierCommand(output, context);
   }
 
   // Start section: command_body_extra

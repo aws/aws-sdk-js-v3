@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoT1ClickProjectsClient";
-import {
-  GetDevicesInPlacementRequest,
-  GetDevicesInPlacementRequestFilterSensitiveLog,
-  GetDevicesInPlacementResponse,
-  GetDevicesInPlacementResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDevicesInPlacementCommand,
-  serializeAws_restJson1GetDevicesInPlacementCommand,
-} from "../protocols/Aws_restJson1";
+import { GetDevicesInPlacementRequest, GetDevicesInPlacementResponse } from "../models/models_0";
+import { de_GetDevicesInPlacementCommand, se_GetDevicesInPlacementCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetDevicesInPlacementCommand}.
+ */
 export interface GetDevicesInPlacementCommandInput extends GetDevicesInPlacementRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetDevicesInPlacementCommand}.
+ */
 export interface GetDevicesInPlacementCommandOutput extends GetDevicesInPlacementResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an object enumerating the devices in a placement.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,29 @@ export interface GetDevicesInPlacementCommandOutput extends GetDevicesInPlacemen
  * import { IoT1ClickProjectsClient, GetDevicesInPlacementCommand } from "@aws-sdk/client-iot-1click-projects"; // ES Modules import
  * // const { IoT1ClickProjectsClient, GetDevicesInPlacementCommand } = require("@aws-sdk/client-iot-1click-projects"); // CommonJS import
  * const client = new IoT1ClickProjectsClient(config);
+ * const input = { // GetDevicesInPlacementRequest
+ *   projectName: "STRING_VALUE", // required
+ *   placementName: "STRING_VALUE", // required
+ * };
  * const command = new GetDevicesInPlacementCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDevicesInPlacementCommandInput - {@link GetDevicesInPlacementCommandInput}
+ * @returns {@link GetDevicesInPlacementCommandOutput}
  * @see {@link GetDevicesInPlacementCommandInput} for command's `input` shape.
  * @see {@link GetDevicesInPlacementCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickProjectsClientResolvedConfig | config} for IoT1ClickProjectsClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p></p>
+ *
  *
  */
 export class GetDevicesInPlacementCommand extends $Command<
@@ -66,6 +85,9 @@ export class GetDevicesInPlacementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDevicesInPlacementCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +116,8 @@ export class GetDevicesInPlacementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDevicesInPlacementRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDevicesInPlacementResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +127,18 @@ export class GetDevicesInPlacementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDevicesInPlacementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDevicesInPlacementCommand(input, context);
+    return se_GetDevicesInPlacementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDevicesInPlacementCommandOutput> {
-    return deserializeAws_restJson1GetDevicesInPlacementCommand(output, context);
+    return de_GetDevicesInPlacementCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,16 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import { DenyCustomRoutingTrafficRequest, DenyCustomRoutingTrafficRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DenyCustomRoutingTrafficCommand,
-  serializeAws_json1_1DenyCustomRoutingTrafficCommand,
-} from "../protocols/Aws_json1_1";
+import { DenyCustomRoutingTrafficRequest } from "../models/models_0";
+import { de_DenyCustomRoutingTrafficCommand, se_DenyCustomRoutingTrafficCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DenyCustomRoutingTrafficCommand}.
+ */
 export interface DenyCustomRoutingTrafficCommandInput extends DenyCustomRoutingTrafficRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DenyCustomRoutingTrafficCommand}.
+ */
 export interface DenyCustomRoutingTrafficCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Specify the Amazon EC2 instance (destination) IP addresses and ports for a VPC subnet endpoint that cannot receive traffic
  * 			for a custom routing accelerator. You can deny traffic to all destinations in the VPC endpoint, or deny traffic to a
  * 			specified list of destination IP addresses and ports. Note that you cannot specify IP addresses
@@ -40,13 +48,36 @@ export interface DenyCustomRoutingTrafficCommandOutput extends __MetadataBearer 
  * import { GlobalAcceleratorClient, DenyCustomRoutingTrafficCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, DenyCustomRoutingTrafficCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
+ * const input = { // DenyCustomRoutingTrafficRequest
+ *   EndpointGroupArn: "STRING_VALUE", // required
+ *   EndpointId: "STRING_VALUE", // required
+ *   DestinationAddresses: [ // DestinationAddresses
+ *     "STRING_VALUE",
+ *   ],
+ *   DestinationPorts: [ // DestinationPorts
+ *     Number("int"),
+ *   ],
+ *   DenyAllTrafficToEndpoint: true || false,
+ * };
  * const command = new DenyCustomRoutingTrafficCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DenyCustomRoutingTrafficCommandInput - {@link DenyCustomRoutingTrafficCommandInput}
+ * @returns {@link DenyCustomRoutingTrafficCommandOutput}
  * @see {@link DenyCustomRoutingTrafficCommandInput} for command's `input` shape.
  * @see {@link DenyCustomRoutingTrafficCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
+ *
+ * @throws {@link EndpointGroupNotFoundException} (client fault)
+ *  <p>The endpoint group that you specified doesn't exist.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>There was an internal error for Global Accelerator.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>An argument that you specified is invalid.</p>
+ *
  *
  */
 export class DenyCustomRoutingTrafficCommand extends $Command<
@@ -66,6 +97,9 @@ export class DenyCustomRoutingTrafficCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DenyCustomRoutingTrafficCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +128,8 @@ export class DenyCustomRoutingTrafficCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DenyCustomRoutingTrafficRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +139,18 @@ export class DenyCustomRoutingTrafficCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DenyCustomRoutingTrafficCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DenyCustomRoutingTrafficCommand(input, context);
+    return se_DenyCustomRoutingTrafficCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DenyCustomRoutingTrafficCommandOutput> {
-    return deserializeAws_json1_1DenyCustomRoutingTrafficCommand(output, context);
+    return de_DenyCustomRoutingTrafficCommand(output, context);
   }
 
   // Start section: command_body_extra

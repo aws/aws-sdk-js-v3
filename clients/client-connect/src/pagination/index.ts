@@ -3,6 +3,8 @@ export * from "./GetCurrentMetricDataPaginator";
 export * from "./GetCurrentUserDataPaginator";
 
 export * from "./GetMetricDataPaginator";
+
+export * from "./GetMetricDataV2Paginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
 export * from "./ListAgentStatusesPaginator";

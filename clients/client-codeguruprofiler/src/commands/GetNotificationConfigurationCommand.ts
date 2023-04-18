@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
+import { GetNotificationConfigurationRequest, GetNotificationConfigurationResponse } from "../models/models_0";
 import {
-  GetNotificationConfigurationRequest,
-  GetNotificationConfigurationRequestFilterSensitiveLog,
-  GetNotificationConfigurationResponse,
-  GetNotificationConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetNotificationConfigurationCommand,
-  serializeAws_restJson1GetNotificationConfigurationCommand,
+  de_GetNotificationConfigurationCommand,
+  se_GetNotificationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetNotificationConfigurationCommand}.
+ */
 export interface GetNotificationConfigurationCommandInput extends GetNotificationConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetNotificationConfigurationCommand}.
+ */
 export interface GetNotificationConfigurationCommandOutput
   extends GetNotificationConfigurationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get the current configuration for anomaly notifications for a profiling group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,31 @@ export interface GetNotificationConfigurationCommandOutput
  * import { CodeGuruProfilerClient, GetNotificationConfigurationCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
  * // const { CodeGuruProfilerClient, GetNotificationConfigurationCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
+ * const input = { // GetNotificationConfigurationRequest
+ *   profilingGroupName: "STRING_VALUE", // required
+ * };
  * const command = new GetNotificationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetNotificationConfigurationCommandInput - {@link GetNotificationConfigurationCommandInput}
+ * @returns {@link GetNotificationConfigurationCommandOutput}
  * @see {@link GetNotificationConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetNotificationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The server encountered an internal error and is unable to complete the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The parameter is not valid.</p>
+ *
  *
  */
 export class GetNotificationConfigurationCommand extends $Command<
@@ -64,6 +88,9 @@ export class GetNotificationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetNotificationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +119,8 @@ export class GetNotificationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetNotificationConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetNotificationConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +130,21 @@ export class GetNotificationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetNotificationConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetNotificationConfigurationCommand(input, context);
+    return se_GetNotificationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetNotificationConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetNotificationConfigurationCommand(output, context);
+    return de_GetNotificationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

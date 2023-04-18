@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
-import {
-  UpdateProfileRequest,
-  UpdateProfileRequestFilterSensitiveLog,
-  UpdateProfileResponse,
-  UpdateProfileResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateProfileCommand,
-  serializeAws_restJson1UpdateProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateProfileRequest, UpdateProfileResponse } from "../models/models_0";
+import { de_UpdateProfileCommand, se_UpdateProfileCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateProfileCommand}.
+ */
 export interface UpdateProfileCommandInput extends UpdateProfileRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateProfileCommand}.
+ */
 export interface UpdateProfileCommandOutput extends UpdateProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the properties of a profile. The ProfileId is required for updating a customer
  *          profile.</p>
  *          <p>When calling the UpdateProfile API, specifying an empty string value means that any
@@ -40,13 +43,104 @@ export interface UpdateProfileCommandOutput extends UpdateProfileResponse, __Met
  * import { CustomerProfilesClient, UpdateProfileCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, UpdateProfileCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
+ * const input = { // UpdateProfileRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   ProfileId: "STRING_VALUE", // required
+ *   AdditionalInformation: "STRING_VALUE",
+ *   AccountNumber: "STRING_VALUE",
+ *   PartyType: "INDIVIDUAL" || "BUSINESS" || "OTHER",
+ *   BusinessName: "STRING_VALUE",
+ *   FirstName: "STRING_VALUE",
+ *   MiddleName: "STRING_VALUE",
+ *   LastName: "STRING_VALUE",
+ *   BirthDate: "STRING_VALUE",
+ *   Gender: "MALE" || "FEMALE" || "UNSPECIFIED",
+ *   PhoneNumber: "STRING_VALUE",
+ *   MobilePhoneNumber: "STRING_VALUE",
+ *   HomePhoneNumber: "STRING_VALUE",
+ *   BusinessPhoneNumber: "STRING_VALUE",
+ *   EmailAddress: "STRING_VALUE",
+ *   PersonalEmailAddress: "STRING_VALUE",
+ *   BusinessEmailAddress: "STRING_VALUE",
+ *   Address: { // UpdateAddress
+ *     Address1: "STRING_VALUE",
+ *     Address2: "STRING_VALUE",
+ *     Address3: "STRING_VALUE",
+ *     Address4: "STRING_VALUE",
+ *     City: "STRING_VALUE",
+ *     County: "STRING_VALUE",
+ *     State: "STRING_VALUE",
+ *     Province: "STRING_VALUE",
+ *     Country: "STRING_VALUE",
+ *     PostalCode: "STRING_VALUE",
+ *   },
+ *   ShippingAddress: {
+ *     Address1: "STRING_VALUE",
+ *     Address2: "STRING_VALUE",
+ *     Address3: "STRING_VALUE",
+ *     Address4: "STRING_VALUE",
+ *     City: "STRING_VALUE",
+ *     County: "STRING_VALUE",
+ *     State: "STRING_VALUE",
+ *     Province: "STRING_VALUE",
+ *     Country: "STRING_VALUE",
+ *     PostalCode: "STRING_VALUE",
+ *   },
+ *   MailingAddress: {
+ *     Address1: "STRING_VALUE",
+ *     Address2: "STRING_VALUE",
+ *     Address3: "STRING_VALUE",
+ *     Address4: "STRING_VALUE",
+ *     City: "STRING_VALUE",
+ *     County: "STRING_VALUE",
+ *     State: "STRING_VALUE",
+ *     Province: "STRING_VALUE",
+ *     Country: "STRING_VALUE",
+ *     PostalCode: "STRING_VALUE",
+ *   },
+ *   BillingAddress: {
+ *     Address1: "STRING_VALUE",
+ *     Address2: "STRING_VALUE",
+ *     Address3: "STRING_VALUE",
+ *     Address4: "STRING_VALUE",
+ *     City: "STRING_VALUE",
+ *     County: "STRING_VALUE",
+ *     State: "STRING_VALUE",
+ *     Province: "STRING_VALUE",
+ *     Country: "STRING_VALUE",
+ *     PostalCode: "STRING_VALUE",
+ *   },
+ *   Attributes: { // UpdateAttributes
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   PartyTypeString: "STRING_VALUE",
+ *   GenderString: "STRING_VALUE",
+ * };
  * const command = new UpdateProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateProfileCommandInput - {@link UpdateProfileCommandInput}
+ * @returns {@link UpdateProfileCommandOutput}
  * @see {@link UpdateProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateProfileCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input you provided is invalid.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource does not exist, or access was denied.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>You exceeded the maximum number of requests.</p>
+ *
  *
  */
 export class UpdateProfileCommand extends $Command<
@@ -66,6 +160,9 @@ export class UpdateProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +189,8 @@ export class UpdateProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateProfileResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +200,18 @@ export class UpdateProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateProfileCommand(input, context);
+    return se_UpdateProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateProfileCommandOutput> {
-    return deserializeAws_restJson1UpdateProfileCommand(output, context);
+    return de_UpdateProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,42 +14,64 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  UpdateGlobalTableInput,
-  UpdateGlobalTableInputFilterSensitiveLog,
-  UpdateGlobalTableOutput,
-  UpdateGlobalTableOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateGlobalTableCommand,
-  serializeAws_json1_0UpdateGlobalTableCommand,
-} from "../protocols/Aws_json1_0";
+import { UpdateGlobalTableInput, UpdateGlobalTableOutput } from "../models/models_0";
+import { de_UpdateGlobalTableCommand, se_UpdateGlobalTableCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateGlobalTableCommand}.
+ */
 export interface UpdateGlobalTableCommandInput extends UpdateGlobalTableInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateGlobalTableCommand}.
+ */
 export interface UpdateGlobalTableCommandOutput extends UpdateGlobalTableOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds or removes replicas in the specified global table. The global table must already
  *             exist to be able to use this operation. Any replica to be added must be empty, have the
  *             same name as the global table, have the same key schema, have DynamoDB Streams enabled,
  *             and have the same provisioned and maximum write capacity units.</p>
- *         <note>
- *             <p>Although you can use <code>UpdateGlobalTable</code> to add replicas and remove
+ *          <important>
+ *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
+ *                 2017.11.29 (Legacy)</a> of global tables. We recommend using
+ *                 <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21 (Current)</a>
+ *                 when creating new global tables, as it provides greater flexibility, higher efficiency and consumes less write capacity than
+ *                 2017.11.29 (Legacy). To determine which version you are using, see
+ *                 <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.DetermineVersion.html">Determining the version</a>.
+ *                 To update existing global tables from version 2017.11.29 (Legacy) to version
+ *                 2019.11.21 (Current), see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/V2globaltables_upgrade.html">
+ *                     Updating global tables</a>.
+ *             </p>
+ *          </important>
+ *          <note>
+ *             <p>
+ *                 This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
+ *                     2017.11.29</a> of global tables. If you are using global tables <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version
+ *                         2019.11.21</a> you can use <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeTable.html">DescribeTable</a> instead.
+ *             </p>
+ *             <p>
+ *                 Although you can use <code>UpdateGlobalTable</code> to add replicas and remove
  *                 replicas in a single request, for simplicity we recommend that you issue separate
- *                 requests for adding or removing replicas.</p>
- *         </note>
- *         <p> If global secondary indexes are specified, then the following conditions must also be
+ *                 requests for adding or removing replicas.
+ *             </p>
+ *          </note>
+ *          <p> If global secondary indexes are specified, then the following conditions must also be
  *             met: </p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p> The global secondary indexes must have the same name. </p>
+ *                <p> The global secondary indexes must have the same name. </p>
  *             </li>
  *             <li>
- *                 <p> The global secondary indexes must have the same hash key and sort key (if
+ *                <p> The global secondary indexes must have the same hash key and sort key (if
  *                     present). </p>
  *             </li>
  *             <li>
- *                 <p> The global secondary indexes must have the same provisioned and maximum write
+ *                <p> The global secondary indexes must have the same provisioned and maximum write
  *                     capacity units. </p>
  *             </li>
  *          </ul>
@@ -59,13 +81,47 @@ export interface UpdateGlobalTableCommandOutput extends UpdateGlobalTableOutput,
  * import { DynamoDBClient, UpdateGlobalTableCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, UpdateGlobalTableCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = { // UpdateGlobalTableInput
+ *   GlobalTableName: "STRING_VALUE", // required
+ *   ReplicaUpdates: [ // ReplicaUpdateList // required
+ *     { // ReplicaUpdate
+ *       Create: { // CreateReplicaAction
+ *         RegionName: "STRING_VALUE", // required
+ *       },
+ *       Delete: { // DeleteReplicaAction
+ *         RegionName: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new UpdateGlobalTableCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateGlobalTableCommandInput - {@link UpdateGlobalTableCommandInput}
+ * @returns {@link UpdateGlobalTableCommandOutput}
  * @see {@link UpdateGlobalTableCommandInput} for command's `input` shape.
  * @see {@link UpdateGlobalTableCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
+ *
+ * @throws {@link GlobalTableNotFoundException} (client fault)
+ *  <p>The specified global table does not exist.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidEndpointException} (client fault)
+ *
+ * @throws {@link ReplicaAlreadyExistsException} (client fault)
+ *  <p>The specified replica is already part of the global table.</p>
+ *
+ * @throws {@link ReplicaNotFoundException} (client fault)
+ *  <p>The specified replica is no longer part of the global table.</p>
+ *
+ * @throws {@link TableNotFoundException} (client fault)
+ *  <p>A source table with the name <code>TableName</code> does not currently exist within
+ *             the subscriber's account or the subscriber is operating in the wrong Amazon Web Services Region.</p>
+ *
  *
  */
 export class UpdateGlobalTableCommand extends $Command<
@@ -85,6 +141,9 @@ export class UpdateGlobalTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateGlobalTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +172,8 @@ export class UpdateGlobalTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateGlobalTableInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateGlobalTableOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +183,18 @@ export class UpdateGlobalTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateGlobalTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateGlobalTableCommand(input, context);
+    return se_UpdateGlobalTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGlobalTableCommandOutput> {
-    return deserializeAws_json1_0UpdateGlobalTableCommand(output, context);
+    return de_UpdateGlobalTableCommand(output, context);
   }
 
   // Start section: command_body_extra

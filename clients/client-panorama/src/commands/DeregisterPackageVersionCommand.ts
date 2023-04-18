@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeregisterPackageVersionRequest,
-  DeregisterPackageVersionRequestFilterSensitiveLog,
-  DeregisterPackageVersionResponse,
-  DeregisterPackageVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeregisterPackageVersionRequest, DeregisterPackageVersionResponse } from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
-import {
-  deserializeAws_restJson1DeregisterPackageVersionCommand,
-  serializeAws_restJson1DeregisterPackageVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeregisterPackageVersionCommand, se_DeregisterPackageVersionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeregisterPackageVersionCommand}.
+ */
 export interface DeregisterPackageVersionCommandInput extends DeregisterPackageVersionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeregisterPackageVersionCommand}.
+ */
 export interface DeregisterPackageVersionCommandOutput extends DeregisterPackageVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deregisters a package version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,38 @@ export interface DeregisterPackageVersionCommandOutput extends DeregisterPackage
  * import { PanoramaClient, DeregisterPackageVersionCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, DeregisterPackageVersionCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
  * const client = new PanoramaClient(config);
+ * const input = { // DeregisterPackageVersionRequest
+ *   OwnerAccount: "STRING_VALUE",
+ *   PackageId: "STRING_VALUE", // required
+ *   PackageVersion: "STRING_VALUE", // required
+ *   PatchVersion: "STRING_VALUE", // required
+ *   UpdatedLatestPatchVersion: "STRING_VALUE",
+ * };
  * const command = new DeregisterPackageVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterPackageVersionCommandInput - {@link DeregisterPackageVersionCommandInput}
+ * @returns {@link DeregisterPackageVersionCommandOutput}
  * @see {@link DeregisterPackageVersionCommandInput} for command's `input` shape.
  * @see {@link DeregisterPackageVersionCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The requestor does not have permission to access the target action or resource.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The target resource is in use.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error occurred.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The target resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request contains an invalid parameter value.</p>
+ *
  *
  */
 export class DeregisterPackageVersionCommand extends $Command<
@@ -62,6 +90,9 @@ export class DeregisterPackageVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterPackageVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +121,8 @@ export class DeregisterPackageVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterPackageVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeregisterPackageVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +132,18 @@ export class DeregisterPackageVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterPackageVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeregisterPackageVersionCommand(input, context);
+    return se_DeregisterPackageVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterPackageVersionCommandOutput> {
-    return deserializeAws_restJson1DeregisterPackageVersionCommand(output, context);
+    return de_DeregisterPackageVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

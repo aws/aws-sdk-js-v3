@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DeleteRumMetricsDestinationRequest, DeleteRumMetricsDestinationResponse } from "../models/models_0";
 import {
-  DeleteRumMetricsDestinationRequest,
-  DeleteRumMetricsDestinationRequestFilterSensitiveLog,
-  DeleteRumMetricsDestinationResponse,
-  DeleteRumMetricsDestinationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteRumMetricsDestinationCommand,
-  serializeAws_restJson1DeleteRumMetricsDestinationCommand,
+  de_DeleteRumMetricsDestinationCommand,
+  se_DeleteRumMetricsDestinationCommand,
 } from "../protocols/Aws_restJson1";
 import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteRumMetricsDestinationCommand}.
+ */
 export interface DeleteRumMetricsDestinationCommandInput extends DeleteRumMetricsDestinationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteRumMetricsDestinationCommand}.
+ */
 export interface DeleteRumMetricsDestinationCommandOutput
   extends DeleteRumMetricsDestinationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a destination for CloudWatch RUM extended metrics, so that the specified app monitor stops
  *          sending extended metrics to that destination.</p>
  * @example
@@ -39,13 +45,39 @@ export interface DeleteRumMetricsDestinationCommandOutput
  * import { RUMClient, DeleteRumMetricsDestinationCommand } from "@aws-sdk/client-rum"; // ES Modules import
  * // const { RUMClient, DeleteRumMetricsDestinationCommand } = require("@aws-sdk/client-rum"); // CommonJS import
  * const client = new RUMClient(config);
+ * const input = { // DeleteRumMetricsDestinationRequest
+ *   AppMonitorName: "STRING_VALUE", // required
+ *   Destination: "STRING_VALUE", // required
+ *   DestinationArn: "STRING_VALUE",
+ * };
  * const command = new DeleteRumMetricsDestinationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRumMetricsDestinationCommandInput - {@link DeleteRumMetricsDestinationCommandInput}
+ * @returns {@link DeleteRumMetricsDestinationCommandOutput}
  * @see {@link DeleteRumMetricsDestinationCommandInput} for command's `input` shape.
  * @see {@link DeleteRumMetricsDestinationCommandOutput} for command's `response` shape.
  * @see {@link RUMClientResolvedConfig | config} for RUMClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient permissions to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>This operation attempted to create a resource that already exists.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Internal service exception.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was throttled because of quota limits.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One of the arguments for the request is not valid.</p>
+ *
  *
  */
 export class DeleteRumMetricsDestinationCommand extends $Command<
@@ -65,6 +97,9 @@ export class DeleteRumMetricsDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRumMetricsDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +128,8 @@ export class DeleteRumMetricsDestinationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRumMetricsDestinationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRumMetricsDestinationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,15 +139,21 @@ export class DeleteRumMetricsDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRumMetricsDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteRumMetricsDestinationCommand(input, context);
+    return se_DeleteRumMetricsDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteRumMetricsDestinationCommandOutput> {
-    return deserializeAws_restJson1DeleteRumMetricsDestinationCommand(output, context);
+    return de_DeleteRumMetricsDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

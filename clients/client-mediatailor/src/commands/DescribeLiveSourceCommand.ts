@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
-import {
-  DescribeLiveSourceRequest,
-  DescribeLiveSourceRequestFilterSensitiveLog,
-  DescribeLiveSourceResponse,
-  DescribeLiveSourceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeLiveSourceCommand,
-  serializeAws_restJson1DescribeLiveSourceCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeLiveSourceRequest, DescribeLiveSourceResponse } from "../models/models_0";
+import { de_DescribeLiveSourceCommand, se_DescribeLiveSourceCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeLiveSourceCommand}.
+ */
 export interface DescribeLiveSourceCommandInput extends DescribeLiveSourceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeLiveSourceCommand}.
+ */
 export interface DescribeLiveSourceCommandOutput extends DescribeLiveSourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The live source to describe.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,20 @@ export interface DescribeLiveSourceCommandOutput extends DescribeLiveSourceRespo
  * import { MediaTailorClient, DescribeLiveSourceCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, DescribeLiveSourceCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
+ * const input = { // DescribeLiveSourceRequest
+ *   LiveSourceName: "STRING_VALUE", // required
+ *   SourceLocationName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeLiveSourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLiveSourceCommandInput - {@link DescribeLiveSourceCommandInput}
+ * @returns {@link DescribeLiveSourceCommandOutput}
  * @see {@link DescribeLiveSourceCommandInput} for command's `input` shape.
  * @see {@link DescribeLiveSourceCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
+ *
  *
  */
 export class DescribeLiveSourceCommand extends $Command<
@@ -62,6 +72,9 @@ export class DescribeLiveSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLiveSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +103,8 @@ export class DescribeLiveSourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLiveSourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLiveSourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +114,18 @@ export class DescribeLiveSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLiveSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeLiveSourceCommand(input, context);
+    return se_DescribeLiveSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLiveSourceCommandOutput> {
-    return deserializeAws_restJson1DescribeLiveSourceCommand(output, context);
+    return de_DescribeLiveSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

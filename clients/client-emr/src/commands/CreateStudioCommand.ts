@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import {
-  CreateStudioInput,
-  CreateStudioInputFilterSensitiveLog,
-  CreateStudioOutput,
-  CreateStudioOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateStudioCommand,
-  serializeAws_json1_1CreateStudioCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateStudioInput, CreateStudioOutput } from "../models/models_0";
+import { de_CreateStudioCommand, se_CreateStudioCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateStudioCommand}.
+ */
 export interface CreateStudioCommandInput extends CreateStudioInput {}
+/**
+ * @public
+ *
+ * The output of {@link CreateStudioCommand}.
+ */
 export interface CreateStudioCommandOutput extends CreateStudioOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new Amazon EMR Studio.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,45 @@ export interface CreateStudioCommandOutput extends CreateStudioOutput, __Metadat
  * import { EMRClient, CreateStudioCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, CreateStudioCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = { // CreateStudioInput
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   AuthMode: "SSO" || "IAM", // required
+ *   VpcId: "STRING_VALUE", // required
+ *   SubnetIds: [ // SubnetIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   ServiceRole: "STRING_VALUE", // required
+ *   UserRole: "STRING_VALUE",
+ *   WorkspaceSecurityGroupId: "STRING_VALUE", // required
+ *   EngineSecurityGroupId: "STRING_VALUE", // required
+ *   DefaultS3Location: "STRING_VALUE", // required
+ *   IdpAuthUrl: "STRING_VALUE",
+ *   IdpRelayStateParameterName: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateStudioCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateStudioCommandInput - {@link CreateStudioCommandInput}
+ * @returns {@link CreateStudioCommandOutput}
  * @see {@link CreateStudioCommandInput} for command's `input` shape.
  * @see {@link CreateStudioCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>This exception occurs when there is an internal failure in the Amazon EMR
+ *          service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception occurs when there is something wrong with user input.</p>
+ *
  *
  */
 export class CreateStudioCommand extends $Command<
@@ -62,6 +97,9 @@ export class CreateStudioCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateStudioCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +126,8 @@ export class CreateStudioCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateStudioInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateStudioOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +137,18 @@ export class CreateStudioCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateStudioCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateStudioCommand(input, context);
+    return se_CreateStudioCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStudioCommandOutput> {
-    return deserializeAws_json1_1CreateStudioCommand(output, context);
+    return de_CreateStudioCommand(output, context);
   }
 
   // Start section: command_body_extra

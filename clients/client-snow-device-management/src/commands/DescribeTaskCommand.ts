@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeTaskInput,
-  DescribeTaskInputFilterSensitiveLog,
-  DescribeTaskOutput,
-  DescribeTaskOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeTaskCommand,
-  serializeAws_restJson1DescribeTaskCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeTaskInput, DescribeTaskOutput } from "../models/models_0";
+import { de_DescribeTaskCommand, se_DescribeTaskCommand } from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
   SnowDeviceManagementClientResolvedConfig,
 } from "../SnowDeviceManagementClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeTaskCommand}.
+ */
 export interface DescribeTaskCommandInput extends DescribeTaskInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeTaskCommand}.
+ */
 export interface DescribeTaskCommandOutput extends DescribeTaskOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Checks the metadata for a given task on a device. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,34 @@ export interface DescribeTaskCommandOutput extends DescribeTaskOutput, __Metadat
  * import { SnowDeviceManagementClient, DescribeTaskCommand } from "@aws-sdk/client-snow-device-management"; // ES Modules import
  * // const { SnowDeviceManagementClient, DescribeTaskCommand } = require("@aws-sdk/client-snow-device-management"); // CommonJS import
  * const client = new SnowDeviceManagementClient(config);
+ * const input = { // DescribeTaskInput
+ *   taskId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTaskCommandInput - {@link DescribeTaskCommandInput}
+ * @returns {@link DescribeTaskCommandOutput}
  * @see {@link DescribeTaskCommandInput} for command's `input` shape.
  * @see {@link DescribeTaskCommandOutput} for command's `response` shape.
  * @see {@link SnowDeviceManagementClientResolvedConfig | config} for SnowDeviceManagementClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred while processing the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a resource that doesn't exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
  *
  */
 export class DescribeTaskCommand extends $Command<
@@ -66,6 +90,9 @@ export class DescribeTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +119,8 @@ export class DescribeTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTaskInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTaskOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +130,18 @@ export class DescribeTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeTaskCommand(input, context);
+    return se_DescribeTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTaskCommandOutput> {
-    return deserializeAws_restJson1DescribeTaskCommand(output, context);
+    return de_DescribeTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

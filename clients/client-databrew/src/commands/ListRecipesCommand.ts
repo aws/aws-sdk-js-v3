@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
-import {
-  ListRecipesRequest,
-  ListRecipesRequestFilterSensitiveLog,
-  ListRecipesResponse,
-  ListRecipesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListRecipesCommand,
-  serializeAws_restJson1ListRecipesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListRecipesRequest, ListRecipesResponse } from "../models/models_0";
+import { de_ListRecipesCommand, se_ListRecipesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListRecipesCommand}.
+ */
 export interface ListRecipesCommandInput extends ListRecipesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListRecipesCommand}.
+ */
 export interface ListRecipesCommandOutput extends ListRecipesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all of the DataBrew recipes that are defined.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,24 @@ export interface ListRecipesCommandOutput extends ListRecipesResponse, __Metadat
  * import { DataBrewClient, ListRecipesCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, ListRecipesCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
+ * const input = { // ListRecipesRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   RecipeVersion: "STRING_VALUE",
+ * };
  * const command = new ListRecipesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRecipesCommandInput - {@link ListRecipesCommandInput}
+ * @returns {@link ListRecipesCommandOutput}
  * @see {@link ListRecipesCommandInput} for command's `input` shape.
  * @see {@link ListRecipesCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input parameters for this request failed validation.</p>
+ *
  *
  */
 export class ListRecipesCommand extends $Command<
@@ -62,6 +76,9 @@ export class ListRecipesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRecipesCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +105,8 @@ export class ListRecipesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRecipesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRecipesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +116,18 @@ export class ListRecipesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRecipesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRecipesCommand(input, context);
+    return se_ListRecipesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRecipesCommandOutput> {
-    return deserializeAws_restJson1ListRecipesCommand(output, context);
+    return de_ListRecipesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  ListComputeInput,
-  ListComputeInputFilterSensitiveLog,
-  ListComputeOutput,
-  ListComputeOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListComputeCommand,
-  serializeAws_json1_1ListComputeCommand,
-} from "../protocols/Aws_json1_1";
+import { ListComputeInput, ListComputeOutput } from "../models/models_0";
+import { de_ListComputeCommand, se_ListComputeCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListComputeCommand}.
+ */
 export interface ListComputeCommandInput extends ListComputeInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListComputeCommand}.
+ */
 export interface ListComputeCommandOutput extends ListComputeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves all compute resources registered to a fleet in your Amazon Web Services account. You can filter the result set by location.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,33 @@ export interface ListComputeCommandOutput extends ListComputeOutput, __MetadataB
  * import { GameLiftClient, ListComputeCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, ListComputeCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // ListComputeInput
+ *   FleetId: "STRING_VALUE", // required
+ *   Location: "STRING_VALUE",
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListComputeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListComputeCommandInput - {@link ListComputeCommandInput}
+ * @returns {@link ListComputeCommandOutput}
  * @see {@link ListComputeCommandInput} for command's `input` shape.
  * @see {@link ListComputeCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an unrecoverable internal failure while processing the
+ *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
+ *             values before retrying.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
  *
  */
 export class ListComputeCommand extends $Command<
@@ -62,6 +85,9 @@ export class ListComputeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListComputeCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +114,8 @@ export class ListComputeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListComputeInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListComputeOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +125,18 @@ export class ListComputeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListComputeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListComputeCommand(input, context);
+    return se_ListComputeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListComputeCommandOutput> {
-    return deserializeAws_json1_1ListComputeCommand(output, context);
+    return de_ListComputeCommand(output, context);
   }
 
   // Start section: command_body_extra

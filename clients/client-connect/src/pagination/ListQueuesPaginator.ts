@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListQueuesCommand, ListQueuesCommandInput, ListQueuesCommandOutput } from "../commands/ListQueuesCommand";
-import { Connect } from "../Connect";
 import { ConnectClient } from "../ConnectClient";
 import { ConnectPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ConnectClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListQueuesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Connect,
-  input: ListQueuesCommandInput,
-  ...args: any
-): Promise<ListQueuesCommandOutput> => {
-  // @ts-ignore
-  return await client.listQueues(input, ...args);
-};
 export async function* paginateListQueues(
   config: ConnectPaginationConfiguration,
   input: ListQueuesCommandInput,
@@ -40,9 +31,7 @@ export async function* paginateListQueues(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Connect) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ConnectClient) {
+    if (config.client instanceof ConnectClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Connect | ConnectClient");

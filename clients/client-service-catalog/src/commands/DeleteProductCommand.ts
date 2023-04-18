@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteProductInput,
-  DeleteProductInputFilterSensitiveLog,
-  DeleteProductOutput,
-  DeleteProductOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteProductCommand,
-  serializeAws_json1_1DeleteProductCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteProductInput, DeleteProductOutput } from "../models/models_0";
+import { de_DeleteProductCommand, se_DeleteProductCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteProductCommand}.
+ */
 export interface DeleteProductCommandInput extends DeleteProductInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteProductCommand}.
+ */
 export interface DeleteProductCommandOutput extends DeleteProductOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified product.</p>
  *          <p>You cannot delete a product if it was shared with you or is associated with a portfolio.</p>
  *          <p>A delegated admin is authorized to invoke this command.</p>
@@ -38,13 +41,34 @@ export interface DeleteProductCommandOutput extends DeleteProductOutput, __Metad
  * import { ServiceCatalogClient, DeleteProductCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DeleteProductCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // DeleteProductInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteProductCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteProductCommandInput - {@link DeleteProductCommandInput}
+ * @returns {@link DeleteProductCommandOutput}
  * @see {@link DeleteProductCommandInput} for command's `input` shape.
  * @see {@link DeleteProductCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
+ *
+ * @throws {@link InvalidParametersException} (client fault)
+ *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>A resource that is currently in use. Ensure that the resource is not in use and retry the operation.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link TagOptionNotMigratedException} (client fault)
+ *  <p>An operation requiring TagOptions failed because the TagOptions migration process has
+ *          not been performed for this account. Use the Amazon Web Services Management Console to perform the migration
+ *          process before retrying the operation.</p>
+ *
  *
  */
 export class DeleteProductCommand extends $Command<
@@ -64,6 +88,9 @@ export class DeleteProductCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteProductCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +117,8 @@ export class DeleteProductCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteProductInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteProductOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +128,18 @@ export class DeleteProductCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteProductCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteProductCommand(input, context);
+    return se_DeleteProductCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteProductCommandOutput> {
-    return deserializeAws_json1_1DeleteProductCommand(output, context);
+    return de_DeleteProductCommand(output, context);
   }
 
   // Start section: command_body_extra

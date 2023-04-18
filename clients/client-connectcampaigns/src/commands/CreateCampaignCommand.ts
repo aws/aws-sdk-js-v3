@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCampaignsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCampaignsClient";
-import {
-  CreateCampaignRequest,
-  CreateCampaignRequestFilterSensitiveLog,
-  CreateCampaignResponse,
-  CreateCampaignResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateCampaignCommand,
-  serializeAws_restJson1CreateCampaignCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateCampaignRequest, CreateCampaignResponse } from "../models/models_0";
+import { de_CreateCampaignCommand, se_CreateCampaignCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateCampaignCommand}.
+ */
 export interface CreateCampaignCommandInput extends CreateCampaignRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateCampaignCommand}.
+ */
 export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Creates a campaign for the specified Amazon Connect account. This API is idempotent.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,60 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  * import { ConnectCampaignsClient, CreateCampaignCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
  * // const { ConnectCampaignsClient, CreateCampaignCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
  * const client = new ConnectCampaignsClient(config);
+ * const input = { // CreateCampaignRequest
+ *   name: "STRING_VALUE", // required
+ *   connectInstanceId: "STRING_VALUE", // required
+ *   dialerConfig: { // DialerConfig Union: only one key present
+ *     progressiveDialerConfig: { // ProgressiveDialerConfig
+ *       bandwidthAllocation: Number("double"), // required
+ *     },
+ *     predictiveDialerConfig: { // PredictiveDialerConfig
+ *       bandwidthAllocation: Number("double"), // required
+ *     },
+ *   },
+ *   outboundCallConfig: { // OutboundCallConfig
+ *     connectContactFlowId: "STRING_VALUE", // required
+ *     connectSourcePhoneNumber: "STRING_VALUE",
+ *     connectQueueId: "STRING_VALUE", // required
+ *     answerMachineDetectionConfig: { // AnswerMachineDetectionConfig
+ *       enableAnswerMachineDetection: true || false, // required
+ *     },
+ *   },
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateCampaignCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCampaignCommandInput - {@link CreateCampaignCommandInput}
+ * @returns {@link CreateCampaignCommandOutput}
  * @see {@link CreateCampaignCommandInput} for command's `input` shape.
  * @see {@link CreateCampaignCommandOutput} for command's `response` shape.
  * @see {@link ConnectCampaignsClientResolvedConfig | config} for ConnectCampaignsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  You do not have sufficient access to perform this action.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  The request could not be processed because of conflict in the current state of the resource.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  Request processing failed because of an error or failure with the service.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  The specified resource was not found.
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  Request would cause a service quota to be exceeded.
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  The request was denied due to request throttling.
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  The input fails to satisfy the constraints specified by an AWS service.
+ *
  *
  */
 export class CreateCampaignCommand extends $Command<
@@ -62,6 +112,9 @@ export class CreateCampaignCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCampaignCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +143,8 @@ export class CreateCampaignCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCampaignRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCampaignResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +154,18 @@ export class CreateCampaignCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCampaignCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateCampaignCommand(input, context);
+    return se_CreateCampaignCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCampaignCommandOutput> {
-    return deserializeAws_restJson1CreateCampaignCommand(output, context);
+    return de_CreateCampaignCommand(output, context);
   }
 
   // Start section: command_body_extra

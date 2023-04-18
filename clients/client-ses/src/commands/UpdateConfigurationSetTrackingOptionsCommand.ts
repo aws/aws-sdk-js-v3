@@ -15,23 +15,32 @@ import {
 
 import {
   UpdateConfigurationSetTrackingOptionsRequest,
-  UpdateConfigurationSetTrackingOptionsRequestFilterSensitiveLog,
   UpdateConfigurationSetTrackingOptionsResponse,
-  UpdateConfigurationSetTrackingOptionsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_queryUpdateConfigurationSetTrackingOptionsCommand,
-  serializeAws_queryUpdateConfigurationSetTrackingOptionsCommand,
+  de_UpdateConfigurationSetTrackingOptionsCommand,
+  se_UpdateConfigurationSetTrackingOptionsCommand,
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateConfigurationSetTrackingOptionsCommand}.
+ */
 export interface UpdateConfigurationSetTrackingOptionsCommandInput
   extends UpdateConfigurationSetTrackingOptionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateConfigurationSetTrackingOptionsCommand}.
+ */
 export interface UpdateConfigurationSetTrackingOptionsCommandOutput
   extends UpdateConfigurationSetTrackingOptionsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies an association between a configuration set and a custom domain for open and
  *             click event tracking. </p>
  *         <p>By default, images and links used for tracking open and click events are hosted on
@@ -43,13 +52,41 @@ export interface UpdateConfigurationSetTrackingOptionsCommandOutput
  * import { SESClient, UpdateConfigurationSetTrackingOptionsCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, UpdateConfigurationSetTrackingOptionsCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // UpdateConfigurationSetTrackingOptionsRequest
+ *   ConfigurationSetName: "STRING_VALUE", // required
+ *   TrackingOptions: { // TrackingOptions
+ *     CustomRedirectDomain: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateConfigurationSetTrackingOptionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateConfigurationSetTrackingOptionsCommandInput - {@link UpdateConfigurationSetTrackingOptionsCommandInput}
+ * @returns {@link UpdateConfigurationSetTrackingOptionsCommandOutput}
  * @see {@link UpdateConfigurationSetTrackingOptionsCommandInput} for command's `input` shape.
  * @see {@link UpdateConfigurationSetTrackingOptionsCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
+ *
+ * @throws {@link ConfigurationSetDoesNotExistException} (client fault)
+ *  <p>Indicates that the configuration set does not exist.</p>
+ *
+ * @throws {@link InvalidTrackingOptionsException} (client fault)
+ *  <p>Indicates that the custom domain to be used for open and click tracking redirects is
+ *             invalid. This error appears most often in the following situations:</p>
+ *         <ul>
+ *             <li>
+ *                 <p>When the tracking domain you specified is not verified in Amazon SES.</p>
+ *             </li>
+ *             <li>
+ *                 <p>When the tracking domain you specified is not a valid domain or
+ *                     subdomain.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link TrackingOptionsDoesNotExistException} (client fault)
+ *  <p>Indicates that the TrackingOptions object you specified does not exist.</p>
+ *
  *
  */
 export class UpdateConfigurationSetTrackingOptionsCommand extends $Command<
@@ -69,6 +106,9 @@ export class UpdateConfigurationSetTrackingOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateConfigurationSetTrackingOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +137,8 @@ export class UpdateConfigurationSetTrackingOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateConfigurationSetTrackingOptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateConfigurationSetTrackingOptionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,18 +148,24 @@ export class UpdateConfigurationSetTrackingOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateConfigurationSetTrackingOptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateConfigurationSetTrackingOptionsCommand(input, context);
+    return se_UpdateConfigurationSetTrackingOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateConfigurationSetTrackingOptionsCommandOutput> {
-    return deserializeAws_queryUpdateConfigurationSetTrackingOptionsCommand(output, context);
+    return de_UpdateConfigurationSetTrackingOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

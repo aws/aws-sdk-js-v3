@@ -13,15 +13,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ConvertRecoveryPointToSnapshotRequest, ConvertRecoveryPointToSnapshotResponse } from "../models/models_0";
 import {
-  ConvertRecoveryPointToSnapshotRequest,
-  ConvertRecoveryPointToSnapshotRequestFilterSensitiveLog,
-  ConvertRecoveryPointToSnapshotResponse,
-  ConvertRecoveryPointToSnapshotResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ConvertRecoveryPointToSnapshotCommand,
-  serializeAws_json1_1ConvertRecoveryPointToSnapshotCommand,
+  de_ConvertRecoveryPointToSnapshotCommand,
+  se_ConvertRecoveryPointToSnapshotCommand,
 } from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
@@ -29,12 +24,23 @@ import {
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ConvertRecoveryPointToSnapshotCommand}.
+ */
 export interface ConvertRecoveryPointToSnapshotCommandInput extends ConvertRecoveryPointToSnapshotRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ConvertRecoveryPointToSnapshotCommand}.
+ */
 export interface ConvertRecoveryPointToSnapshotCommandOutput
   extends ConvertRecoveryPointToSnapshotResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Converts a recovery point to a snapshot. For more information about recovery points and snapshots,
  *          see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery.html">Working with snapshots and recovery points</a>.</p>
  * @example
@@ -43,13 +49,45 @@ export interface ConvertRecoveryPointToSnapshotCommandOutput
  * import { RedshiftServerlessClient, ConvertRecoveryPointToSnapshotCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, ConvertRecoveryPointToSnapshotCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
+ * const input = { // ConvertRecoveryPointToSnapshotRequest
+ *   recoveryPointId: "STRING_VALUE", // required
+ *   snapshotName: "STRING_VALUE", // required
+ *   retentionPeriod: Number("int"),
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new ConvertRecoveryPointToSnapshotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ConvertRecoveryPointToSnapshotCommandInput - {@link ConvertRecoveryPointToSnapshotCommandInput}
+ * @returns {@link ConvertRecoveryPointToSnapshotCommandOutput}
  * @see {@link ConvertRecoveryPointToSnapshotCommandInput} for command's `input` shape.
  * @see {@link ConvertRecoveryPointToSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The submitted action has conflicts.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The service limit was exceeded.</p>
+ *
+ * @throws {@link TooManyTagsException} (client fault)
+ *  <p>The request exceeded the number of tags allowed for a resource.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
+ *
  *
  */
 export class ConvertRecoveryPointToSnapshotCommand extends $Command<
@@ -69,6 +107,9 @@ export class ConvertRecoveryPointToSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ConvertRecoveryPointToSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +138,8 @@ export class ConvertRecoveryPointToSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ConvertRecoveryPointToSnapshotRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ConvertRecoveryPointToSnapshotResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,18 +149,24 @@ export class ConvertRecoveryPointToSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ConvertRecoveryPointToSnapshotCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ConvertRecoveryPointToSnapshotCommand(input, context);
+    return se_ConvertRecoveryPointToSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ConvertRecoveryPointToSnapshotCommandOutput> {
-    return deserializeAws_json1_1ConvertRecoveryPointToSnapshotCommand(output, context);
+    return de_ConvertRecoveryPointToSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

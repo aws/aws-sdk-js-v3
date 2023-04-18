@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListTablesCommand, ListTablesCommandInput, ListTablesCommandOutput } from "../commands/ListTablesCommand";
-import { Keyspaces } from "../Keyspaces";
 import { KeyspacesClient } from "../KeyspacesClient";
 import { KeyspacesPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: KeyspacesClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListTablesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Keyspaces,
-  input: ListTablesCommandInput,
-  ...args: any
-): Promise<ListTablesCommandOutput> => {
-  // @ts-ignore
-  return await client.listTables(input, ...args);
-};
 export async function* paginateListTables(
   config: KeyspacesPaginationConfiguration,
   input: ListTablesCommandInput,
@@ -40,9 +31,7 @@ export async function* paginateListTables(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Keyspaces) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof KeyspacesClient) {
+    if (config.client instanceof KeyspacesClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Keyspaces | KeyspacesClient");

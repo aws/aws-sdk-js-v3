@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
+import { DescribeSentimentDetectionJobRequest, DescribeSentimentDetectionJobResponse } from "../models/models_0";
 import {
-  DescribeSentimentDetectionJobRequest,
-  DescribeSentimentDetectionJobRequestFilterSensitiveLog,
-  DescribeSentimentDetectionJobResponse,
-  DescribeSentimentDetectionJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeSentimentDetectionJobCommand,
-  serializeAws_json1_1DescribeSentimentDetectionJobCommand,
+  de_DescribeSentimentDetectionJobCommand,
+  se_DescribeSentimentDetectionJobCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeSentimentDetectionJobCommand}.
+ */
 export interface DescribeSentimentDetectionJobCommandInput extends DescribeSentimentDetectionJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeSentimentDetectionJobCommand}.
+ */
 export interface DescribeSentimentDetectionJobCommandOutput
   extends DescribeSentimentDetectionJobResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the properties associated with a sentiment detection job. Use this operation to get
  *       the status of a detection job.</p>
  * @example
@@ -39,13 +45,31 @@ export interface DescribeSentimentDetectionJobCommandOutput
  * import { ComprehendClient, DescribeSentimentDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DescribeSentimentDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // DescribeSentimentDetectionJobRequest
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeSentimentDetectionJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSentimentDetectionJobCommandInput - {@link DescribeSentimentDetectionJobCommandInput}
+ * @returns {@link DescribeSentimentDetectionJobCommandOutput}
  * @see {@link DescribeSentimentDetectionJobCommandInput} for command's `input` shape.
  * @see {@link DescribeSentimentDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid.</p>
+ *
+ * @throws {@link JobNotFoundException} (client fault)
+ *  <p>The specified job was not found. Check the job ID and try again.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ *
  *
  */
 export class DescribeSentimentDetectionJobCommand extends $Command<
@@ -65,6 +89,9 @@ export class DescribeSentimentDetectionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSentimentDetectionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +120,8 @@ export class DescribeSentimentDetectionJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSentimentDetectionJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSentimentDetectionJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,15 +131,21 @@ export class DescribeSentimentDetectionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSentimentDetectionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeSentimentDetectionJobCommand(input, context);
+    return se_DescribeSentimentDetectionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSentimentDetectionJobCommandOutput> {
-    return deserializeAws_json1_1DescribeSentimentDetectionJobCommand(output, context);
+    return de_DescribeSentimentDetectionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

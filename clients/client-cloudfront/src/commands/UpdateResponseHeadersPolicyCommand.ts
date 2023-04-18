@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  UpdateResponseHeadersPolicyRequest,
-  UpdateResponseHeadersPolicyRequestFilterSensitiveLog,
-  UpdateResponseHeadersPolicyResult,
-  UpdateResponseHeadersPolicyResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlUpdateResponseHeadersPolicyCommand,
-  serializeAws_restXmlUpdateResponseHeadersPolicyCommand,
-} from "../protocols/Aws_restXml";
+import { UpdateResponseHeadersPolicyRequest, UpdateResponseHeadersPolicyResult } from "../models/models_1";
+import { de_UpdateResponseHeadersPolicyCommand, se_UpdateResponseHeadersPolicyCommand } from "../protocols/Aws_restXml";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateResponseHeadersPolicyCommand}.
+ */
 export interface UpdateResponseHeadersPolicyCommandInput extends UpdateResponseHeadersPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateResponseHeadersPolicyCommand}.
+ */
 export interface UpdateResponseHeadersPolicyCommandOutput extends UpdateResponseHeadersPolicyResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a response headers policy.</p>
  *          <p>When you update a response headers policy, the entire policy is replaced. You cannot
  * 			update some policy fields independent of others. To update a response headers policy
@@ -54,13 +57,150 @@ export interface UpdateResponseHeadersPolicyCommandOutput extends UpdateResponse
  * import { CloudFrontClient, UpdateResponseHeadersPolicyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, UpdateResponseHeadersPolicyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // UpdateResponseHeadersPolicyRequest
+ *   ResponseHeadersPolicyConfig: { // ResponseHeadersPolicyConfig
+ *     Comment: "STRING_VALUE",
+ *     Name: "STRING_VALUE", // required
+ *     CorsConfig: { // ResponseHeadersPolicyCorsConfig
+ *       AccessControlAllowOrigins: { // ResponseHeadersPolicyAccessControlAllowOrigins
+ *         Quantity: Number("int"), // required
+ *         Items: [ // AccessControlAllowOriginsList // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       AccessControlAllowHeaders: { // ResponseHeadersPolicyAccessControlAllowHeaders
+ *         Quantity: Number("int"), // required
+ *         Items: [ // AccessControlAllowHeadersList // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       AccessControlAllowMethods: { // ResponseHeadersPolicyAccessControlAllowMethods
+ *         Quantity: Number("int"), // required
+ *         Items: [ // AccessControlAllowMethodsList // required
+ *           "GET" || "POST" || "OPTIONS" || "PUT" || "DELETE" || "PATCH" || "HEAD" || "ALL",
+ *         ],
+ *       },
+ *       AccessControlAllowCredentials: true || false, // required
+ *       AccessControlExposeHeaders: { // ResponseHeadersPolicyAccessControlExposeHeaders
+ *         Quantity: Number("int"), // required
+ *         Items: [ // AccessControlExposeHeadersList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       AccessControlMaxAgeSec: Number("int"),
+ *       OriginOverride: true || false, // required
+ *     },
+ *     SecurityHeadersConfig: { // ResponseHeadersPolicySecurityHeadersConfig
+ *       XSSProtection: { // ResponseHeadersPolicyXSSProtection
+ *         Override: true || false, // required
+ *         Protection: true || false, // required
+ *         ModeBlock: true || false,
+ *         ReportUri: "STRING_VALUE",
+ *       },
+ *       FrameOptions: { // ResponseHeadersPolicyFrameOptions
+ *         Override: true || false, // required
+ *         FrameOption: "DENY" || "SAMEORIGIN", // required
+ *       },
+ *       ReferrerPolicy: { // ResponseHeadersPolicyReferrerPolicy
+ *         Override: true || false, // required
+ *         ReferrerPolicy: "no-referrer" || "no-referrer-when-downgrade" || "origin" || "origin-when-cross-origin" || "same-origin" || "strict-origin" || "strict-origin-when-cross-origin" || "unsafe-url", // required
+ *       },
+ *       ContentSecurityPolicy: { // ResponseHeadersPolicyContentSecurityPolicy
+ *         Override: true || false, // required
+ *         ContentSecurityPolicy: "STRING_VALUE", // required
+ *       },
+ *       ContentTypeOptions: { // ResponseHeadersPolicyContentTypeOptions
+ *         Override: true || false, // required
+ *       },
+ *       StrictTransportSecurity: { // ResponseHeadersPolicyStrictTransportSecurity
+ *         Override: true || false, // required
+ *         IncludeSubdomains: true || false,
+ *         Preload: true || false,
+ *         AccessControlMaxAgeSec: Number("int"), // required
+ *       },
+ *     },
+ *     ServerTimingHeadersConfig: { // ResponseHeadersPolicyServerTimingHeadersConfig
+ *       Enabled: true || false, // required
+ *       SamplingRate: Number("double"),
+ *     },
+ *     CustomHeadersConfig: { // ResponseHeadersPolicyCustomHeadersConfig
+ *       Quantity: Number("int"), // required
+ *       Items: [ // ResponseHeadersPolicyCustomHeaderList
+ *         { // ResponseHeadersPolicyCustomHeader
+ *           Header: "STRING_VALUE", // required
+ *           Value: "STRING_VALUE", // required
+ *           Override: true || false, // required
+ *         },
+ *       ],
+ *     },
+ *     RemoveHeadersConfig: { // ResponseHeadersPolicyRemoveHeadersConfig
+ *       Quantity: Number("int"), // required
+ *       Items: [ // ResponseHeadersPolicyRemoveHeaderList
+ *         { // ResponseHeadersPolicyRemoveHeader
+ *           Header: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   Id: "STRING_VALUE", // required
+ *   IfMatch: "STRING_VALUE",
+ * };
  * const command = new UpdateResponseHeadersPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateResponseHeadersPolicyCommandInput - {@link UpdateResponseHeadersPolicyCommandInput}
+ * @returns {@link UpdateResponseHeadersPolicyCommandOutput}
  * @see {@link UpdateResponseHeadersPolicyCommandInput} for command's `input` shape.
  * @see {@link UpdateResponseHeadersPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link IllegalUpdate} (client fault)
+ *  <p>The update contains modifications that are not allowed.</p>
+ *
+ * @throws {@link InconsistentQuantities} (client fault)
+ *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't
+ * 			match.</p>
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link InvalidIfMatchVersion} (client fault)
+ *  <p>The <code>If-Match</code> version is missing or not valid.</p>
+ *
+ * @throws {@link NoSuchResponseHeadersPolicy} (client fault)
+ *  <p>The response headers policy does not exist.</p>
+ *
+ * @throws {@link PreconditionFailed} (client fault)
+ *  <p>The precondition in one or more of the request fields evaluated to
+ * 			<code>false</code>.</p>
+ *
+ * @throws {@link ResponseHeadersPolicyAlreadyExists} (client fault)
+ *  <p>A response headers policy with this name already exists. You must provide a unique
+ * 			name. To modify an existing response headers policy, use
+ * 				<code>UpdateResponseHeadersPolicy</code>.</p>
+ *
+ * @throws {@link TooLongCSPInResponseHeadersPolicy} (client fault)
+ *  <p>The length of the <code>Content-Security-Policy</code> header value in the response
+ * 			headers policy exceeds the maximum.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
+ * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *
+ * @throws {@link TooManyCustomHeadersInResponseHeadersPolicy} (client fault)
+ *  <p>The number of custom headers in the response headers policy exceeds the
+ * 			maximum.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
+ * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *
+ * @throws {@link TooManyRemoveHeadersInResponseHeadersPolicy} (client fault)
+ *  <p>The number of headers in <code>RemoveHeadersConfig</code> in the response headers
+ * 			policy exceeds the maximum.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
+ * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+ *
  *
  */
 export class UpdateResponseHeadersPolicyCommand extends $Command<
@@ -80,6 +220,9 @@ export class UpdateResponseHeadersPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateResponseHeadersPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +251,8 @@ export class UpdateResponseHeadersPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateResponseHeadersPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateResponseHeadersPolicyResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,15 +262,21 @@ export class UpdateResponseHeadersPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateResponseHeadersPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlUpdateResponseHeadersPolicyCommand(input, context);
+    return se_UpdateResponseHeadersPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateResponseHeadersPolicyCommandOutput> {
-    return deserializeAws_restXmlUpdateResponseHeadersPolicyCommand(output, context);
+    return de_UpdateResponseHeadersPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

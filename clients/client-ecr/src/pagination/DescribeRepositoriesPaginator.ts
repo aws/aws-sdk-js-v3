@@ -6,12 +6,11 @@ import {
   DescribeRepositoriesCommandInput,
   DescribeRepositoriesCommandOutput,
 } from "../commands/DescribeRepositoriesCommand";
-import { ECR } from "../ECR";
 import { ECRClient } from "../ECRClient";
 import { ECRPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ECRClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeRepositoriesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ECR,
-  input: DescribeRepositoriesCommandInput,
-  ...args: any
-): Promise<DescribeRepositoriesCommandOutput> => {
-  // @ts-ignore
-  return await client.describeRepositories(input, ...args);
-};
 export async function* paginateDescribeRepositories(
   config: ECRPaginationConfiguration,
   input: DescribeRepositoriesCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateDescribeRepositories(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof ECR) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ECRClient) {
+    if (config.client instanceof ECRClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ECR | ECRClient");

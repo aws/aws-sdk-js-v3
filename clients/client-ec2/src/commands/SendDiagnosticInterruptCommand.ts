@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { SendDiagnosticInterruptRequest, SendDiagnosticInterruptRequestFilterSensitiveLog } from "../models/models_6";
-import {
-  deserializeAws_ec2SendDiagnosticInterruptCommand,
-  serializeAws_ec2SendDiagnosticInterruptCommand,
-} from "../protocols/Aws_ec2";
+import { SendDiagnosticInterruptRequest } from "../models/models_6";
+import { de_SendDiagnosticInterruptCommand, se_SendDiagnosticInterruptCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link SendDiagnosticInterruptCommand}.
+ */
 export interface SendDiagnosticInterruptCommandInput extends SendDiagnosticInterruptRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SendDiagnosticInterruptCommand}.
+ */
 export interface SendDiagnosticInterruptCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends a diagnostic interrupt to the specified Amazon EC2 instance to trigger a
  *                 <i>kernel panic</i> (on Linux instances), or a <i>blue
  *                 screen</i>/<i>stop error</i> (on Windows instances). For
@@ -45,13 +53,20 @@ export interface SendDiagnosticInterruptCommandOutput extends __MetadataBearer {
  * import { EC2Client, SendDiagnosticInterruptCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, SendDiagnosticInterruptCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // SendDiagnosticInterruptRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new SendDiagnosticInterruptCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SendDiagnosticInterruptCommandInput - {@link SendDiagnosticInterruptCommandInput}
+ * @returns {@link SendDiagnosticInterruptCommandOutput}
  * @see {@link SendDiagnosticInterruptCommandInput} for command's `input` shape.
  * @see {@link SendDiagnosticInterruptCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class SendDiagnosticInterruptCommand extends $Command<
@@ -71,6 +86,9 @@ export class SendDiagnosticInterruptCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendDiagnosticInterruptCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +117,8 @@ export class SendDiagnosticInterruptCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendDiagnosticInterruptRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +128,18 @@ export class SendDiagnosticInterruptCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendDiagnosticInterruptCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2SendDiagnosticInterruptCommand(input, context);
+    return se_SendDiagnosticInterruptCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendDiagnosticInterruptCommandOutput> {
-    return deserializeAws_ec2SendDiagnosticInterruptCommand(output, context);
+    return de_SendDiagnosticInterruptCommand(output, context);
   }
 
   // Start section: command_body_extra

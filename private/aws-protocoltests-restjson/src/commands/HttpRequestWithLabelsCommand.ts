@@ -12,17 +12,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { HttpRequestWithLabelsInput, HttpRequestWithLabelsInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1HttpRequestWithLabelsCommand,
-  serializeAws_restJson1HttpRequestWithLabelsCommand,
-} from "../protocols/Aws_restJson1";
+import { HttpRequestWithLabelsInput } from "../models/models_0";
+import { de_HttpRequestWithLabelsCommand, se_HttpRequestWithLabelsCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * @public
+ *
+ * The input for {@link HttpRequestWithLabelsCommand}.
+ */
 export interface HttpRequestWithLabelsCommandInput extends HttpRequestWithLabelsInput {}
+/**
+ * @public
+ *
+ * The output of {@link HttpRequestWithLabelsCommand}.
+ */
 export interface HttpRequestWithLabelsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * The example tests how requests are serialized when there's no input
  * payload but there are HTTP labels.
  * @example
@@ -31,13 +39,26 @@ export interface HttpRequestWithLabelsCommandOutput extends __MetadataBearer {}
  * import { RestJsonProtocolClient, HttpRequestWithLabelsCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, HttpRequestWithLabelsCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
+ * const input = { // HttpRequestWithLabelsInput
+ *   string: "STRING_VALUE", // required
+ *   short: Number("short"), // required
+ *   integer: Number("int"), // required
+ *   long: Number("long"), // required
+ *   float: Number("float"), // required
+ *   double: Number("double"), // required
+ *   boolean: true || false, // required
+ *   timestamp: new Date("TIMESTAMP"), // required
+ * };
  * const command = new HttpRequestWithLabelsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param HttpRequestWithLabelsCommandInput - {@link HttpRequestWithLabelsCommandInput}
+ * @returns {@link HttpRequestWithLabelsCommandOutput}
  * @see {@link HttpRequestWithLabelsCommandInput} for command's `input` shape.
  * @see {@link HttpRequestWithLabelsCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
+ *
  *
  */
 export class HttpRequestWithLabelsCommand extends $Command<
@@ -48,6 +69,9 @@ export class HttpRequestWithLabelsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: HttpRequestWithLabelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,8 +97,8 @@ export class HttpRequestWithLabelsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: HttpRequestWithLabelsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,12 +108,18 @@ export class HttpRequestWithLabelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: HttpRequestWithLabelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1HttpRequestWithLabelsCommand(input, context);
+    return se_HttpRequestWithLabelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<HttpRequestWithLabelsCommandOutput> {
-    return deserializeAws_restJson1HttpRequestWithLabelsCommand(output, context);
+    return de_HttpRequestWithLabelsCommand(output, context);
   }
 
   // Start section: command_body_extra

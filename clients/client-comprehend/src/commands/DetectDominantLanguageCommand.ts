@@ -20,15 +20,23 @@ import {
   DetectDominantLanguageResponse,
   DetectDominantLanguageResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1DetectDominantLanguageCommand,
-  serializeAws_json1_1DetectDominantLanguageCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DetectDominantLanguageCommand, se_DetectDominantLanguageCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DetectDominantLanguageCommand}.
+ */
 export interface DetectDominantLanguageCommandInput extends DetectDominantLanguageRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DetectDominantLanguageCommand}.
+ */
 export interface DetectDominantLanguageCommandOutput extends DetectDominantLanguageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Determines the dominant language of the input text. For a list of languages that Amazon
  *       Comprehend can detect, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-languages.html">Amazon Comprehend Supported Languages</a>. </p>
  * @example
@@ -37,13 +45,28 @@ export interface DetectDominantLanguageCommandOutput extends DetectDominantLangu
  * import { ComprehendClient, DetectDominantLanguageCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DetectDominantLanguageCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // DetectDominantLanguageRequest
+ *   Text: "STRING_VALUE", // required
+ * };
  * const command = new DetectDominantLanguageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DetectDominantLanguageCommandInput - {@link DetectDominantLanguageCommandInput}
+ * @returns {@link DetectDominantLanguageCommandOutput}
  * @see {@link DetectDominantLanguageCommandInput} for command's `input` shape.
  * @see {@link DetectDominantLanguageCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid.</p>
+ *
+ * @throws {@link TextSizeLimitExceededException} (client fault)
+ *  <p>The size of the input text exceeds the limit. Use a smaller document.</p>
+ *
  *
  */
 export class DetectDominantLanguageCommand extends $Command<
@@ -63,6 +86,9 @@ export class DetectDominantLanguageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetectDominantLanguageCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,12 +128,18 @@ export class DetectDominantLanguageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetectDominantLanguageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DetectDominantLanguageCommand(input, context);
+    return se_DetectDominantLanguageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectDominantLanguageCommandOutput> {
-    return deserializeAws_json1_1DetectDominantLanguageCommand(output, context);
+    return de_DetectDominantLanguageCommand(output, context);
   }
 
   // Start section: command_body_extra

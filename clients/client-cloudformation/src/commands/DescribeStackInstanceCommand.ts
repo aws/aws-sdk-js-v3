@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  DescribeStackInstanceInput,
-  DescribeStackInstanceInputFilterSensitiveLog,
-  DescribeStackInstanceOutput,
-  DescribeStackInstanceOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeStackInstanceCommand,
-  serializeAws_queryDescribeStackInstanceCommand,
-} from "../protocols/Aws_query";
+import { DescribeStackInstanceInput, DescribeStackInstanceOutput } from "../models/models_0";
+import { de_DescribeStackInstanceCommand, se_DescribeStackInstanceCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeStackInstanceCommand}.
+ */
 export interface DescribeStackInstanceCommandInput extends DescribeStackInstanceInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeStackInstanceCommand}.
+ */
 export interface DescribeStackInstanceCommandOutput extends DescribeStackInstanceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the stack instance that's associated with the specified stack set, Amazon Web Services account, and Region.</p>
  *          <p>For a list of stack instances that are associated with a specific stack set, use <a>ListStackInstances</a>.</p>
  * @example
@@ -37,13 +40,28 @@ export interface DescribeStackInstanceCommandOutput extends DescribeStackInstanc
  * import { CloudFormationClient, DescribeStackInstanceCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DescribeStackInstanceCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // DescribeStackInstanceInput
+ *   StackSetName: "STRING_VALUE", // required
+ *   StackInstanceAccount: "STRING_VALUE", // required
+ *   StackInstanceRegion: "STRING_VALUE", // required
+ *   CallAs: "SELF" || "DELEGATED_ADMIN",
+ * };
  * const command = new DescribeStackInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStackInstanceCommandInput - {@link DescribeStackInstanceCommandInput}
+ * @returns {@link DescribeStackInstanceCommandOutput}
  * @see {@link DescribeStackInstanceCommandInput} for command's `input` shape.
  * @see {@link DescribeStackInstanceCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
+ *
+ * @throws {@link StackInstanceNotFoundException} (client fault)
+ *  <p>The specified stack instance doesn't exist.</p>
+ *
+ * @throws {@link StackSetNotFoundException} (client fault)
+ *  <p>The specified stack set doesn't exist.</p>
+ *
  *
  */
 export class DescribeStackInstanceCommand extends $Command<
@@ -63,6 +81,9 @@ export class DescribeStackInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStackInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +112,8 @@ export class DescribeStackInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeStackInstanceInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeStackInstanceOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +123,18 @@ export class DescribeStackInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeStackInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeStackInstanceCommand(input, context);
+    return se_DescribeStackInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeStackInstanceCommandOutput> {
-    return deserializeAws_queryDescribeStackInstanceCommand(output, context);
+    return de_DescribeStackInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

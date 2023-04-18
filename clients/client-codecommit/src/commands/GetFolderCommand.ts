@@ -14,18 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import {
-  GetFolderInput,
-  GetFolderInputFilterSensitiveLog,
-  GetFolderOutput,
-  GetFolderOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1GetFolderCommand, serializeAws_json1_1GetFolderCommand } from "../protocols/Aws_json1_1";
+import { GetFolderInput, GetFolderOutput } from "../models/models_0";
+import { de_GetFolderCommand, se_GetFolderCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetFolderCommand}.
+ */
 export interface GetFolderCommandInput extends GetFolderInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetFolderCommand}.
+ */
 export interface GetFolderCommandOutput extends GetFolderOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the contents of a specified folder in a repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -33,13 +39,67 @@ export interface GetFolderCommandOutput extends GetFolderOutput, __MetadataBeare
  * import { CodeCommitClient, GetFolderCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, GetFolderCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // GetFolderInput
+ *   repositoryName: "STRING_VALUE", // required
+ *   commitSpecifier: "STRING_VALUE",
+ *   folderPath: "STRING_VALUE", // required
+ * };
  * const command = new GetFolderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFolderCommandInput - {@link GetFolderCommandInput}
+ * @returns {@link GetFolderCommandOutput}
  * @see {@link GetFolderCommandInput} for command's `input` shape.
  * @see {@link GetFolderCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
+ *
+ * @throws {@link CommitDoesNotExistException} (client fault)
+ *  <p>The specified commit does not exist or no commit was specified, and the specified repository has no default branch.</p>
+ *
+ * @throws {@link EncryptionIntegrityChecksFailedException} (server fault)
+ *  <p>An encryption integrity check failed.</p>
+ *
+ * @throws {@link EncryptionKeyAccessDeniedException} (client fault)
+ *  <p>An encryption key could not be accessed.</p>
+ *
+ * @throws {@link EncryptionKeyDisabledException} (client fault)
+ *  <p>The encryption key is disabled.</p>
+ *
+ * @throws {@link EncryptionKeyNotFoundException} (client fault)
+ *  <p>No encryption key was found.</p>
+ *
+ * @throws {@link EncryptionKeyUnavailableException} (client fault)
+ *  <p>The encryption key is not available.</p>
+ *
+ * @throws {@link FolderDoesNotExistException} (client fault)
+ *  <p>The specified folder does not exist. Either the folder name is not correct, or you did
+ *             not enter the full path to the folder.</p>
+ *
+ * @throws {@link InvalidCommitException} (client fault)
+ *  <p>The specified commit is not valid.</p>
+ *
+ * @throws {@link InvalidPathException} (client fault)
+ *  <p>The specified path is not valid.</p>
+ *
+ * @throws {@link InvalidRepositoryNameException} (client fault)
+ *  <p>A specified repository name is not valid.</p>
+ *
+ *         <note>
+ *             <p>This exception occurs only when a specified repository name is not valid. Other
+ *                 exceptions occur when a required repository parameter is missing, or when a
+ *                 specified repository does not exist.</p>
+ *          </note>
+ *
+ * @throws {@link PathRequiredException} (client fault)
+ *  <p>The folderPath for a location cannot be null.</p>
+ *
+ * @throws {@link RepositoryDoesNotExistException} (client fault)
+ *  <p>The specified repository does not exist.</p>
+ *
+ * @throws {@link RepositoryNameRequiredException} (client fault)
+ *  <p>A repository name is required, but was not specified.</p>
+ *
  *
  */
 export class GetFolderCommand extends $Command<
@@ -59,6 +119,9 @@ export class GetFolderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFolderCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +148,8 @@ export class GetFolderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFolderInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetFolderOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +159,18 @@ export class GetFolderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFolderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetFolderCommand(input, context);
+    return se_GetFolderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFolderCommandOutput> {
-    return deserializeAws_json1_1GetFolderCommand(output, context);
+    return de_GetFolderCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
-import {
-  UpgradeElasticsearchDomainRequest,
-  UpgradeElasticsearchDomainRequestFilterSensitiveLog,
-  UpgradeElasticsearchDomainResponse,
-  UpgradeElasticsearchDomainResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpgradeElasticsearchDomainCommand,
-  serializeAws_restJson1UpgradeElasticsearchDomainCommand,
-} from "../protocols/Aws_restJson1";
+import { UpgradeElasticsearchDomainRequest, UpgradeElasticsearchDomainResponse } from "../models/models_0";
+import { de_UpgradeElasticsearchDomainCommand, se_UpgradeElasticsearchDomainCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpgradeElasticsearchDomainCommand}.
+ */
 export interface UpgradeElasticsearchDomainCommandInput extends UpgradeElasticsearchDomainRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpgradeElasticsearchDomainCommand}.
+ */
 export interface UpgradeElasticsearchDomainCommandOutput extends UpgradeElasticsearchDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows you to either upgrade your domain or perform an Upgrade eligibility check to a compatible Elasticsearch version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,39 @@ export interface UpgradeElasticsearchDomainCommandOutput extends UpgradeElastics
  * import { ElasticsearchServiceClient, UpgradeElasticsearchDomainCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, UpgradeElasticsearchDomainCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
+ * const input = { // UpgradeElasticsearchDomainRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   TargetVersion: "STRING_VALUE", // required
+ *   PerformCheckOnly: true || false,
+ * };
  * const command = new UpgradeElasticsearchDomainCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpgradeElasticsearchDomainCommandInput - {@link UpgradeElasticsearchDomainCommandInput}
+ * @returns {@link UpgradeElasticsearchDomainCommandOutput}
  * @see {@link UpgradeElasticsearchDomainCommandInput} for command's `input` shape.
  * @see {@link UpgradeElasticsearchDomainCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
+ *
+ * @throws {@link BaseException} (client fault)
+ *  <p>An error occurred while processing the request.</p>
+ *
+ * @throws {@link DisabledOperationException} (client fault)
+ *  <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>An exception for creating a resource that already exists. Gives http status code of 400.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+ *
  *
  */
 export class UpgradeElasticsearchDomainCommand extends $Command<
@@ -66,6 +95,9 @@ export class UpgradeElasticsearchDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpgradeElasticsearchDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +126,8 @@ export class UpgradeElasticsearchDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpgradeElasticsearchDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpgradeElasticsearchDomainResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,15 +137,21 @@ export class UpgradeElasticsearchDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpgradeElasticsearchDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpgradeElasticsearchDomainCommand(input, context);
+    return se_UpgradeElasticsearchDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpgradeElasticsearchDomainCommandOutput> {
-    return deserializeAws_restJson1UpgradeElasticsearchDomainCommand(output, context);
+    return de_UpgradeElasticsearchDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

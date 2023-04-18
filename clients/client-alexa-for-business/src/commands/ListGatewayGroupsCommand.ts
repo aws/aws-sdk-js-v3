@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  ListGatewayGroupsRequest,
-  ListGatewayGroupsRequestFilterSensitiveLog,
-  ListGatewayGroupsResponse,
-  ListGatewayGroupsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListGatewayGroupsCommand,
-  serializeAws_json1_1ListGatewayGroupsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListGatewayGroupsRequest, ListGatewayGroupsResponse } from "../models/models_0";
+import { de_ListGatewayGroupsCommand, se_ListGatewayGroupsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListGatewayGroupsCommand}.
+ */
 export interface ListGatewayGroupsCommandInput extends ListGatewayGroupsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListGatewayGroupsCommand}.
+ */
 export interface ListGatewayGroupsCommandOutput extends ListGatewayGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of gateway group summaries. Use GetGatewayGroup to retrieve details of
  *          a specific gateway group.</p>
  * @example
@@ -37,13 +40,20 @@ export interface ListGatewayGroupsCommandOutput extends ListGatewayGroupsRespons
  * import { AlexaForBusinessClient, ListGatewayGroupsCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, ListGatewayGroupsCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // ListGatewayGroupsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListGatewayGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListGatewayGroupsCommandInput - {@link ListGatewayGroupsCommandInput}
+ * @returns {@link ListGatewayGroupsCommandOutput}
  * @see {@link ListGatewayGroupsCommandInput} for command's `input` shape.
  * @see {@link ListGatewayGroupsCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
  *
  */
 export class ListGatewayGroupsCommand extends $Command<
@@ -63,6 +73,9 @@ export class ListGatewayGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListGatewayGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +104,8 @@ export class ListGatewayGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListGatewayGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListGatewayGroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +115,18 @@ export class ListGatewayGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListGatewayGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListGatewayGroupsCommand(input, context);
+    return se_ListGatewayGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGatewayGroupsCommandOutput> {
-    return deserializeAws_json1_1ListGatewayGroupsCommand(output, context);
+    return de_ListGatewayGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

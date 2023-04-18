@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import {
-  TestMetricFilterRequest,
-  TestMetricFilterRequestFilterSensitiveLog,
-  TestMetricFilterResponse,
-  TestMetricFilterResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1TestMetricFilterCommand,
-  serializeAws_json1_1TestMetricFilterCommand,
-} from "../protocols/Aws_json1_1";
+import { TestMetricFilterRequest, TestMetricFilterResponse } from "../models/models_0";
+import { de_TestMetricFilterCommand, se_TestMetricFilterCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link TestMetricFilterCommand}.
+ */
 export interface TestMetricFilterCommandInput extends TestMetricFilterRequest {}
+/**
+ * @public
+ *
+ * The output of {@link TestMetricFilterCommand}.
+ */
 export interface TestMetricFilterCommandOutput extends TestMetricFilterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Tests the filter pattern of a metric filter against a sample of log event messages. You
  *       can use this operation to validate the correctness of a metric filter pattern.</p>
  * @example
@@ -37,13 +40,28 @@ export interface TestMetricFilterCommandOutput extends TestMetricFilterResponse,
  * import { CloudWatchLogsClient, TestMetricFilterCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, TestMetricFilterCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = { // TestMetricFilterRequest
+ *   filterPattern: "STRING_VALUE", // required
+ *   logEventMessages: [ // TestEventMessages // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new TestMetricFilterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TestMetricFilterCommandInput - {@link TestMetricFilterCommandInput}
+ * @returns {@link TestMetricFilterCommandOutput}
  * @see {@link TestMetricFilterCommandInput} for command's `input` shape.
  * @see {@link TestMetricFilterCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter is specified incorrectly.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service cannot complete the request.</p>
+ *
  *
  */
 export class TestMetricFilterCommand extends $Command<
@@ -63,6 +81,9 @@ export class TestMetricFilterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TestMetricFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +112,8 @@ export class TestMetricFilterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TestMetricFilterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: TestMetricFilterResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +123,18 @@ export class TestMetricFilterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TestMetricFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1TestMetricFilterCommand(input, context);
+    return se_TestMetricFilterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestMetricFilterCommandOutput> {
-    return deserializeAws_json1_1TestMetricFilterCommand(output, context);
+    return de_TestMetricFilterCommand(output, context);
   }
 
   // Start section: command_body_extra

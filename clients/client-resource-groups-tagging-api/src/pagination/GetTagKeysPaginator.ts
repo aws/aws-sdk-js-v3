@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { GetTagKeysCommand, GetTagKeysCommandInput, GetTagKeysCommandOutput } from "../commands/GetTagKeysCommand";
-import { ResourceGroupsTaggingAPI } from "../ResourceGroupsTaggingAPI";
 import { ResourceGroupsTaggingAPIClient } from "../ResourceGroupsTaggingAPIClient";
 import { ResourceGroupsTaggingAPIPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ResourceGroupsTaggingAPIClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new GetTagKeysCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ResourceGroupsTaggingAPI,
-  input: GetTagKeysCommandInput,
-  ...args: any
-): Promise<GetTagKeysCommandOutput> => {
-  // @ts-ignore
-  return await client.getTagKeys(input, ...args);
-};
 export async function* paginateGetTagKeys(
   config: ResourceGroupsTaggingAPIPaginationConfiguration,
   input: GetTagKeysCommandInput,
@@ -39,9 +30,7 @@ export async function* paginateGetTagKeys(
   let page: GetTagKeysCommandOutput;
   while (hasNext) {
     input.PaginationToken = token;
-    if (config.client instanceof ResourceGroupsTaggingAPI) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ResourceGroupsTaggingAPIClient) {
+    if (config.client instanceof ResourceGroupsTaggingAPIClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ResourceGroupsTaggingAPI | ResourceGroupsTaggingAPIClient");

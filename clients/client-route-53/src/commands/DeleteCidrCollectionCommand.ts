@@ -14,22 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteCidrCollectionRequest,
-  DeleteCidrCollectionRequestFilterSensitiveLog,
-  DeleteCidrCollectionResponse,
-  DeleteCidrCollectionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlDeleteCidrCollectionCommand,
-  serializeAws_restXmlDeleteCidrCollectionCommand,
-} from "../protocols/Aws_restXml";
+import { DeleteCidrCollectionRequest, DeleteCidrCollectionResponse } from "../models/models_0";
+import { de_DeleteCidrCollectionCommand, se_DeleteCidrCollectionCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteCidrCollectionCommand}.
+ */
 export interface DeleteCidrCollectionCommandInput extends DeleteCidrCollectionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteCidrCollectionCommand}.
+ */
 export interface DeleteCidrCollectionCommandOutput extends DeleteCidrCollectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a CIDR collection in the current Amazon Web Services account. The collection
  * 			must be empty before it can be deleted.</p>
  * @example
@@ -38,13 +41,32 @@ export interface DeleteCidrCollectionCommandOutput extends DeleteCidrCollectionR
  * import { Route53Client, DeleteCidrCollectionCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, DeleteCidrCollectionCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = { // DeleteCidrCollectionRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteCidrCollectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCidrCollectionCommandInput - {@link DeleteCidrCollectionCommandInput}
+ * @returns {@link DeleteCidrCollectionCommandOutput}
  * @see {@link DeleteCidrCollectionCommandInput} for command's `input` shape.
  * @see {@link DeleteCidrCollectionCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
+ *
+ * @throws {@link CidrCollectionInUseException} (client fault)
+ *  <p>This CIDR collection is in use, and isn't empty.</p>
+ *
+ * @throws {@link ConcurrentModification} (client fault)
+ *  <p>Another user submitted a request to create, update, or delete the object at the same
+ * 			time that you did. Retry the request. </p>
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link NoSuchCidrCollectionException} (client fault)
+ *  <p>The CIDR collection you specified, doesn't exist.</p>
+ *
  *
  */
 export class DeleteCidrCollectionCommand extends $Command<
@@ -64,6 +86,9 @@ export class DeleteCidrCollectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCidrCollectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +118,8 @@ export class DeleteCidrCollectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCidrCollectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCidrCollectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +129,18 @@ export class DeleteCidrCollectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCidrCollectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteCidrCollectionCommand(input, context);
+    return se_DeleteCidrCollectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCidrCollectionCommandOutput> {
-    return deserializeAws_restXmlDeleteCidrCollectionCommand(output, context);
+    return de_DeleteCidrCollectionCommand(output, context);
   }
 
   // Start section: command_body_extra

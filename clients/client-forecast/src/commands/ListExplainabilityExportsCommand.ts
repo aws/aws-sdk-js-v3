@@ -14,24 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import {
-  ListExplainabilityExportsRequest,
-  ListExplainabilityExportsRequestFilterSensitiveLog,
-  ListExplainabilityExportsResponse,
-  ListExplainabilityExportsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListExplainabilityExportsCommand,
-  serializeAws_json1_1ListExplainabilityExportsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListExplainabilityExportsRequest, ListExplainabilityExportsResponse } from "../models/models_0";
+import { de_ListExplainabilityExportsCommand, se_ListExplainabilityExportsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListExplainabilityExportsCommand}.
+ */
 export interface ListExplainabilityExportsCommandInput extends ListExplainabilityExportsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListExplainabilityExportsCommand}.
+ */
 export interface ListExplainabilityExportsCommandOutput extends ListExplainabilityExportsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of Explainability exports created using the <a>CreateExplainabilityExport</a> operation. This operation returns a summary
  *             for each Explainability export. You can filter the list using an array of <a>Filter</a> objects.</p>
- *         <p>To retrieve the complete set of properties for a particular Explainability export, use
+ *          <p>To retrieve the complete set of properties for a particular Explainability export, use
  *             the ARN with the <a>DescribeExplainability</a> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +42,34 @@ export interface ListExplainabilityExportsCommandOutput extends ListExplainabili
  * import { ForecastClient, ListExplainabilityExportsCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, ListExplainabilityExportsCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = { // ListExplainabilityExportsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Filters: [ // Filters
+ *     { // Filter
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *       Condition: "IS" || "IS_NOT", // required
+ *     },
+ *   ],
+ * };
  * const command = new ListExplainabilityExportsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListExplainabilityExportsCommandInput - {@link ListExplainabilityExportsCommandInput}
+ * @returns {@link ListExplainabilityExportsCommandOutput}
  * @see {@link ListExplainabilityExportsCommandInput} for command's `input` shape.
  * @see {@link ListExplainabilityExportsCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>We can't process the request because it includes an invalid value or a value that exceeds
+ *       the valid range.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The token is not valid. Tokens expire after 24 hours.</p>
+ *
  *
  */
 export class ListExplainabilityExportsCommand extends $Command<
@@ -65,6 +89,9 @@ export class ListExplainabilityExportsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListExplainabilityExportsCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +120,8 @@ export class ListExplainabilityExportsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListExplainabilityExportsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListExplainabilityExportsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,15 +131,21 @@ export class ListExplainabilityExportsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListExplainabilityExportsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListExplainabilityExportsCommand(input, context);
+    return se_ListExplainabilityExportsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListExplainabilityExportsCommandOutput> {
-    return deserializeAws_json1_1ListExplainabilityExportsCommand(output, context);
+    return de_ListExplainabilityExportsCommand(output, context);
   }
 
   // Start section: command_body_extra

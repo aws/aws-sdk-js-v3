@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { DeleteLayerVersionRequest, DeleteLayerVersionRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteLayerVersionCommand,
-  serializeAws_restJson1DeleteLayerVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteLayerVersionRequest } from "../models/models_0";
+import { de_DeleteLayerVersionCommand, se_DeleteLayerVersionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteLayerVersionCommand}.
+ */
 export interface DeleteLayerVersionCommandInput extends DeleteLayerVersionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteLayerVersionCommand}.
+ */
 export interface DeleteLayerVersionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
  *         layer</a>. Deleted versions can no longer be viewed or added to functions. To avoid
  *       breaking functions, a copy of the version remains in Lambda until no functions refer to it.</p>
@@ -33,13 +41,26 @@ export interface DeleteLayerVersionCommandOutput extends __MetadataBearer {}
  * import { LambdaClient, DeleteLayerVersionCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, DeleteLayerVersionCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = { // DeleteLayerVersionRequest
+ *   LayerName: "STRING_VALUE", // required
+ *   VersionNumber: Number("long"), // required
+ * };
  * const command = new DeleteLayerVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLayerVersionCommandInput - {@link DeleteLayerVersionCommandInput}
+ * @returns {@link DeleteLayerVersionCommandOutput}
  * @see {@link DeleteLayerVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteLayerVersionCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>The Lambda service encountered an internal error.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
+ *
  *
  */
 export class DeleteLayerVersionCommand extends $Command<
@@ -59,6 +80,9 @@ export class DeleteLayerVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLayerVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -87,8 +111,8 @@ export class DeleteLayerVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLayerVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -98,12 +122,18 @@ export class DeleteLayerVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLayerVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteLayerVersionCommand(input, context);
+    return se_DeleteLayerVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLayerVersionCommandOutput> {
-    return deserializeAws_restJson1DeleteLayerVersionCommand(output, context);
+    return de_DeleteLayerVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

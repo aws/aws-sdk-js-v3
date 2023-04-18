@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetSessionRequest,
-  GetSessionRequestFilterSensitiveLog,
-  GetSessionResponse,
-  GetSessionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSessionCommand,
-  serializeAws_restJson1GetSessionCommand,
-} from "../protocols/Aws_restJson1";
+import { GetSessionRequest, GetSessionResponse } from "../models/models_0";
+import { de_GetSessionCommand, se_GetSessionCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetSessionCommand}.
+ */
 export interface GetSessionCommandInput extends GetSessionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetSessionCommand}.
+ */
 export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information for a specified session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,29 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  * import { WisdomClient, GetSessionCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, GetSessionCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
+ * const input = { // GetSessionRequest
+ *   assistantId: "STRING_VALUE", // required
+ *   sessionId: "STRING_VALUE", // required
+ * };
  * const command = new GetSessionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSessionCommandInput - {@link GetSessionCommandInput}
+ * @returns {@link GetSessionCommandOutput}
  * @see {@link GetSessionCommandInput} for command's `input` shape.
  * @see {@link GetSessionCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by a service.</p>
+ *
  *
  */
 export class GetSessionCommand extends $Command<
@@ -62,6 +81,9 @@ export class GetSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +110,8 @@ export class GetSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSessionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSessionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +121,18 @@ export class GetSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSessionCommand(input, context);
+    return se_GetSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSessionCommandOutput> {
-    return deserializeAws_restJson1GetSessionCommand(output, context);
+    return de_GetSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

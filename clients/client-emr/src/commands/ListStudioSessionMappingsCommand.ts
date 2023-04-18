@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import {
-  ListStudioSessionMappingsInput,
-  ListStudioSessionMappingsInputFilterSensitiveLog,
-  ListStudioSessionMappingsOutput,
-  ListStudioSessionMappingsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListStudioSessionMappingsCommand,
-  serializeAws_json1_1ListStudioSessionMappingsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListStudioSessionMappingsInput, ListStudioSessionMappingsOutput } from "../models/models_0";
+import { de_ListStudioSessionMappingsCommand, se_ListStudioSessionMappingsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListStudioSessionMappingsCommand}.
+ */
 export interface ListStudioSessionMappingsCommandInput extends ListStudioSessionMappingsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListStudioSessionMappingsCommand}.
+ */
 export interface ListStudioSessionMappingsCommandOutput extends ListStudioSessionMappingsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all user or group session mappings for the Amazon EMR Studio
  *          specified by <code>StudioId</code>.</p>
  * @example
@@ -37,13 +40,28 @@ export interface ListStudioSessionMappingsCommandOutput extends ListStudioSessio
  * import { EMRClient, ListStudioSessionMappingsCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, ListStudioSessionMappingsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = { // ListStudioSessionMappingsInput
+ *   StudioId: "STRING_VALUE",
+ *   IdentityType: "USER" || "GROUP",
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new ListStudioSessionMappingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStudioSessionMappingsCommandInput - {@link ListStudioSessionMappingsCommandInput}
+ * @returns {@link ListStudioSessionMappingsCommandOutput}
  * @see {@link ListStudioSessionMappingsCommandInput} for command's `input` shape.
  * @see {@link ListStudioSessionMappingsCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Indicates that an error occurred while processing the request and that the request was
+ *          not completed.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception occurs when there is something wrong with user input.</p>
+ *
  *
  */
 export class ListStudioSessionMappingsCommand extends $Command<
@@ -63,6 +81,9 @@ export class ListStudioSessionMappingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStudioSessionMappingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +112,8 @@ export class ListStudioSessionMappingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListStudioSessionMappingsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListStudioSessionMappingsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,15 +123,21 @@ export class ListStudioSessionMappingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStudioSessionMappingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListStudioSessionMappingsCommand(input, context);
+    return se_ListStudioSessionMappingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListStudioSessionMappingsCommandOutput> {
-    return deserializeAws_json1_1ListStudioSessionMappingsCommand(output, context);
+    return de_ListStudioSessionMappingsCommand(output, context);
   }
 
   // Start section: command_body_extra

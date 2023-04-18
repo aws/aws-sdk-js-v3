@@ -17,19 +17,26 @@ import {
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
 import {
   SubscribeToShardInput,
-  SubscribeToShardInputFilterSensitiveLog,
   SubscribeToShardOutput,
   SubscribeToShardOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1SubscribeToShardCommand,
-  serializeAws_json1_1SubscribeToShardCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SubscribeToShardCommand, se_SubscribeToShardCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link SubscribeToShardCommand}.
+ */
 export interface SubscribeToShardCommandInput extends SubscribeToShardInput {}
+/**
+ * @public
+ *
+ * The output of {@link SubscribeToShardCommand}.
+ */
 export interface SubscribeToShardCommandOutput extends SubscribeToShardOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation establishes an HTTP/2 connection between the consumer you specify in
  *             the <code>ConsumerARN</code> parameter and the shard you specify in the
  *                 <code>ShardId</code> parameter. After the connection is successfully established,
@@ -59,13 +66,45 @@ export interface SubscribeToShardCommandOutput extends SubscribeToShardOutput, _
  * import { KinesisClient, SubscribeToShardCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, SubscribeToShardCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
+ * const input = { // SubscribeToShardInput
+ *   ConsumerARN: "STRING_VALUE", // required
+ *   ShardId: "STRING_VALUE", // required
+ *   StartingPosition: { // StartingPosition
+ *     Type: "AT_SEQUENCE_NUMBER" || "AFTER_SEQUENCE_NUMBER" || "TRIM_HORIZON" || "LATEST" || "AT_TIMESTAMP", // required
+ *     SequenceNumber: "STRING_VALUE",
+ *     Timestamp: new Date("TIMESTAMP"),
+ *   },
+ * };
  * const command = new SubscribeToShardCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SubscribeToShardCommandInput - {@link SubscribeToShardCommandInput}
+ * @returns {@link SubscribeToShardCommandOutput}
  * @see {@link SubscribeToShardCommandInput} for command's `input` shape.
  * @see {@link SubscribeToShardCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Specifies that you do not have the permissions required to perform this
+ *             operation.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>A specified parameter exceeds its restrictions, is not supported, or can't be used.
+ *             For more information, see the returned message.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
+ *             stream requests exceeds the maximum number allowed. </p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The resource is not available for this operation. For successful operation, the
+ *             resource must be in the <code>ACTIVE</code> state.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource could not be found. The stream might not be specified
+ *             correctly.</p>
+ *
  *
  */
 export class SubscribeToShardCommand extends $Command<
@@ -87,6 +126,9 @@ export class SubscribeToShardCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SubscribeToShardCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,7 +157,7 @@ export class SubscribeToShardCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SubscribeToShardInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: SubscribeToShardOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -126,15 +168,21 @@ export class SubscribeToShardCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SubscribeToShardCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SubscribeToShardCommand(input, context);
+    return se_SubscribeToShardCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __EventStreamSerdeContext
   ): Promise<SubscribeToShardCommandOutput> {
-    return deserializeAws_json1_1SubscribeToShardCommand(output, context);
+    return de_SubscribeToShardCommand(output, context);
   }
 
   // Start section: command_body_extra

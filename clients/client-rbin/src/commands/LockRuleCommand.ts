@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  LockRuleRequest,
-  LockRuleRequestFilterSensitiveLog,
-  LockRuleResponse,
-  LockRuleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1LockRuleCommand,
-  serializeAws_restJson1LockRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { LockRuleRequest, LockRuleResponse } from "../models/models_0";
+import { de_LockRuleCommand, se_LockRuleCommand } from "../protocols/Aws_restJson1";
 import { RbinClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RbinClient";
 
+/**
+ * @public
+ *
+ * The input for {@link LockRuleCommand}.
+ */
 export interface LockRuleCommandInput extends LockRuleRequest {}
+/**
+ * @public
+ *
+ * The output of {@link LockRuleCommand}.
+ */
 export interface LockRuleCommandOutput extends LockRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Locks a retention rule. A locked retention rule can't be modified or deleted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,37 @@ export interface LockRuleCommandOutput extends LockRuleResponse, __MetadataBeare
  * import { RbinClient, LockRuleCommand } from "@aws-sdk/client-rbin"; // ES Modules import
  * // const { RbinClient, LockRuleCommand } = require("@aws-sdk/client-rbin"); // CommonJS import
  * const client = new RbinClient(config);
+ * const input = { // LockRuleRequest
+ *   Identifier: "STRING_VALUE", // required
+ *   LockConfiguration: { // LockConfiguration
+ *     UnlockDelay: { // UnlockDelay
+ *       UnlockDelayValue: Number("int"), // required
+ *       UnlockDelayUnit: "DAYS", // required
+ *     },
+ *   },
+ * };
  * const command = new LockRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param LockRuleCommandInput - {@link LockRuleCommandInput}
+ * @returns {@link LockRuleCommandOutput}
  * @see {@link LockRuleCommandInput} for command's `input` shape.
  * @see {@link LockRuleCommandOutput} for command's `response` shape.
  * @see {@link RbinClientResolvedConfig | config} for RbinClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The specified retention rule lock request can't be completed.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The service could not respond to the request due to an internal problem.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One or more of the parameters in the request is not valid.</p>
+ *
  *
  */
 export class LockRuleCommand extends $Command<LockRuleCommandInput, LockRuleCommandOutput, RbinClientResolvedConfig> {
@@ -58,6 +85,9 @@ export class LockRuleCommand extends $Command<LockRuleCommandInput, LockRuleComm
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: LockRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -84,8 +114,8 @@ export class LockRuleCommand extends $Command<LockRuleCommandInput, LockRuleComm
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: LockRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: LockRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -95,12 +125,18 @@ export class LockRuleCommand extends $Command<LockRuleCommandInput, LockRuleComm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: LockRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1LockRuleCommand(input, context);
+    return se_LockRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<LockRuleCommandOutput> {
-    return deserializeAws_restJson1LockRuleCommand(output, context);
+    return de_LockRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

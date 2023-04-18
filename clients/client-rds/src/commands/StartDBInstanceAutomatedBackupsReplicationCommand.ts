@@ -16,23 +16,32 @@ import {
 
 import {
   StartDBInstanceAutomatedBackupsReplicationMessage,
-  StartDBInstanceAutomatedBackupsReplicationMessageFilterSensitiveLog,
   StartDBInstanceAutomatedBackupsReplicationResult,
-  StartDBInstanceAutomatedBackupsReplicationResultFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_queryStartDBInstanceAutomatedBackupsReplicationCommand,
-  serializeAws_queryStartDBInstanceAutomatedBackupsReplicationCommand,
+  de_StartDBInstanceAutomatedBackupsReplicationCommand,
+  se_StartDBInstanceAutomatedBackupsReplicationCommand,
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link StartDBInstanceAutomatedBackupsReplicationCommand}.
+ */
 export interface StartDBInstanceAutomatedBackupsReplicationCommandInput
   extends StartDBInstanceAutomatedBackupsReplicationMessage {}
+/**
+ * @public
+ *
+ * The output of {@link StartDBInstanceAutomatedBackupsReplicationCommand}.
+ */
 export interface StartDBInstanceAutomatedBackupsReplicationCommandOutput
   extends StartDBInstanceAutomatedBackupsReplicationResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables replication of automated backups to a different Amazon Web Services Region.</p>
  *          <p>This command doesn't apply to RDS Custom.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html">
@@ -44,13 +53,78 @@ export interface StartDBInstanceAutomatedBackupsReplicationCommandOutput
  * import { RDSClient, StartDBInstanceAutomatedBackupsReplicationCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, StartDBInstanceAutomatedBackupsReplicationCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // StartDBInstanceAutomatedBackupsReplicationMessage
+ *   SourceDBInstanceArn: "STRING_VALUE", // required
+ *   BackupRetentionPeriod: Number("int"),
+ *   KmsKeyId: "STRING_VALUE",
+ *   PreSignedUrl: "STRING_VALUE",
+ * };
  * const command = new StartDBInstanceAutomatedBackupsReplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartDBInstanceAutomatedBackupsReplicationCommandInput - {@link StartDBInstanceAutomatedBackupsReplicationCommandInput}
+ * @returns {@link StartDBInstanceAutomatedBackupsReplicationCommandOutput}
  * @see {@link StartDBInstanceAutomatedBackupsReplicationCommandInput} for command's `input` shape.
  * @see {@link StartDBInstanceAutomatedBackupsReplicationCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ * @throws {@link DBInstanceAutomatedBackupQuotaExceededFault} (client fault)
+ *  <p>The quota for retained automated backups was exceeded. This prevents you
+ *             from retaining any additional automated backups. The retained automated backups
+ *             quota is the same as your DB Instance quota.</p>
+ *
+ * @throws {@link DBInstanceNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *
+ * @throws {@link InvalidDBInstanceStateFault} (client fault)
+ *  <p>The DB instance isn't in a valid state.</p>
+ *
+ * @throws {@link KMSKeyNotAccessibleFault} (client fault)
+ *  <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+ *
+ * @throws {@link StorageTypeNotSupportedFault} (client fault)
+ *  <p>Storage of the <code>StorageType</code> specified can't be associated
+ *             with the DB instance.</p>
+ *
+ *
+ * @example To enable cross-Region automated backups
+ * ```javascript
+ * // The following example replicates automated backups from a DB instance in the US East (N. Virginia) Region. The backup retention period is 14 days.
+ * const input = {
+ *   "BackupRetentionPeriod": 14,
+ *   "SourceDBInstanceArn": "arn:aws:rds:us-east-1:123456789012:db:new-orcl-db"
+ * };
+ * const command = new StartDBInstanceAutomatedBackupsReplicationCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBInstanceAutomatedBackup": {
+ *     "AllocatedStorage": 20,
+ *     "BackupRetentionPeriod": 14,
+ *     "DBInstanceArn": "arn:aws:rds:us-east-1:123456789012:db:new-orcl-db",
+ *     "DBInstanceAutomatedBackupsArn": "arn:aws:rds:us-west-2:123456789012:auto-backup:ab-jkib2gfq5rv7replzadausbrktni2bn4example",
+ *     "DBInstanceIdentifier": "new-orcl-db",
+ *     "DbiResourceId": "db-JKIB2GFQ5RV7REPLZA4EXAMPLE",
+ *     "Encrypted": false,
+ *     "Engine": "oracle-se2",
+ *     "EngineVersion": "12.1.0.2.v21",
+ *     "IAMDatabaseAuthenticationEnabled": false,
+ *     "InstanceCreateTime": "2020-12-04T15:28:31Z",
+ *     "LicenseModel": "bring-your-own-license",
+ *     "MasterUsername": "admin",
+ *     "OptionGroupName": "default:oracle-se2-12-1",
+ *     "Port": 1521,
+ *     "Region": "us-east-1",
+ *     "RestoreWindow": {},
+ *     "Status": "pending",
+ *     "StorageType": "gp2"
+ *   }
+ * }
+ * *\/
+ * // example id: to-enable-cross-region-automated-backups-1680033438352
+ * ```
  *
  */
 export class StartDBInstanceAutomatedBackupsReplicationCommand extends $Command<
@@ -70,6 +144,9 @@ export class StartDBInstanceAutomatedBackupsReplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartDBInstanceAutomatedBackupsReplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +182,8 @@ export class StartDBInstanceAutomatedBackupsReplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartDBInstanceAutomatedBackupsReplicationMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: StartDBInstanceAutomatedBackupsReplicationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,18 +193,24 @@ export class StartDBInstanceAutomatedBackupsReplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StartDBInstanceAutomatedBackupsReplicationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryStartDBInstanceAutomatedBackupsReplicationCommand(input, context);
+    return se_StartDBInstanceAutomatedBackupsReplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartDBInstanceAutomatedBackupsReplicationCommandOutput> {
-    return deserializeAws_queryStartDBInstanceAutomatedBackupsReplicationCommand(output, context);
+    return de_StartDBInstanceAutomatedBackupsReplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

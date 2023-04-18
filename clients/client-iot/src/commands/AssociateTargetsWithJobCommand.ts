@@ -14,48 +14,77 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  AssociateTargetsWithJobRequest,
-  AssociateTargetsWithJobRequestFilterSensitiveLog,
-  AssociateTargetsWithJobResponse,
-  AssociateTargetsWithJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateTargetsWithJobCommand,
-  serializeAws_restJson1AssociateTargetsWithJobCommand,
-} from "../protocols/Aws_restJson1";
+import { AssociateTargetsWithJobRequest, AssociateTargetsWithJobResponse } from "../models/models_0";
+import { de_AssociateTargetsWithJobCommand, se_AssociateTargetsWithJobCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link AssociateTargetsWithJobCommand}.
+ */
 export interface AssociateTargetsWithJobCommandInput extends AssociateTargetsWithJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AssociateTargetsWithJobCommand}.
+ */
 export interface AssociateTargetsWithJobCommandOutput extends AssociateTargetsWithJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a group with a continuous job. The following criteria must be met: </p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>The job must have been created with the <code>targetSelection</code> field set to
+ *                <p>The job must have been created with the <code>targetSelection</code> field set to
  *                     "CONTINUOUS".</p>
  *             </li>
  *             <li>
- *                 <p>The job status must currently be "IN_PROGRESS".</p>
+ *                <p>The job status must currently be "IN_PROGRESS".</p>
  *             </li>
  *             <li>
- *                 <p>The total number of targets associated with a job must not exceed 100.</p>
+ *                <p>The total number of targets associated with a job must not exceed 100.</p>
  *             </li>
  *          </ul>
- *         <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AssociateTargetsWithJob</a> action.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AssociateTargetsWithJob</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, AssociateTargetsWithJobCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, AssociateTargetsWithJobCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // AssociateTargetsWithJobRequest
+ *   targets: [ // JobTargets // required
+ *     "STRING_VALUE",
+ *   ],
+ *   jobId: "STRING_VALUE", // required
+ *   comment: "STRING_VALUE",
+ *   namespaceId: "STRING_VALUE",
+ * };
  * const command = new AssociateTargetsWithJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateTargetsWithJobCommandInput - {@link AssociateTargetsWithJobCommandInput}
+ * @returns {@link AssociateTargetsWithJobCommandOutput}
  * @see {@link AssociateTargetsWithJobCommandInput} for command's `input` shape.
  * @see {@link AssociateTargetsWithJobCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A limit has been exceeded.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
  *
  */
 export class AssociateTargetsWithJobCommand extends $Command<
@@ -75,6 +104,9 @@ export class AssociateTargetsWithJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateTargetsWithJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +135,8 @@ export class AssociateTargetsWithJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateTargetsWithJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateTargetsWithJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +146,18 @@ export class AssociateTargetsWithJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateTargetsWithJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateTargetsWithJobCommand(input, context);
+    return se_AssociateTargetsWithJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateTargetsWithJobCommandOutput> {
-    return deserializeAws_restJson1AssociateTargetsWithJobCommand(output, context);
+    return de_AssociateTargetsWithJobCommand(output, context);
   }
 
   // Start section: command_body_extra

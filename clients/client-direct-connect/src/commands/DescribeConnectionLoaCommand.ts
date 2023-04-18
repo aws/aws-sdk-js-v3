@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import {
-  DescribeConnectionLoaRequest,
-  DescribeConnectionLoaRequestFilterSensitiveLog,
-  DescribeConnectionLoaResponse,
-  DescribeConnectionLoaResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeConnectionLoaCommand,
-  serializeAws_json1_1DescribeConnectionLoaCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeConnectionLoaRequest, DescribeConnectionLoaResponse } from "../models/models_0";
+import { de_DescribeConnectionLoaCommand, se_DescribeConnectionLoaCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeConnectionLoaCommand}.
+ */
 export interface DescribeConnectionLoaCommandInput extends DescribeConnectionLoaRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeConnectionLoaCommand}.
+ */
 export interface DescribeConnectionLoaCommandOutput extends DescribeConnectionLoaResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Deprecated. Use <a>DescribeLoa</a> instead.</p>
@@ -43,13 +46,27 @@ export interface DescribeConnectionLoaCommandOutput extends DescribeConnectionLo
  * import { DirectConnectClient, DescribeConnectionLoaCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DescribeConnectionLoaCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // DescribeConnectionLoaRequest
+ *   connectionId: "STRING_VALUE", // required
+ *   providerName: "STRING_VALUE",
+ *   loaContentType: "application/pdf",
+ * };
  * const command = new DescribeConnectionLoaCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConnectionLoaCommandInput - {@link DescribeConnectionLoaCommandInput}
+ * @returns {@link DescribeConnectionLoaCommandOutput}
  * @see {@link DescribeConnectionLoaCommandInput} for command's `input` shape.
  * @see {@link DescribeConnectionLoaCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
+ *
+ * @throws {@link DirectConnectClientException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link DirectConnectServerException} (server fault)
+ *  <p>A server-side error occurred.</p>
+ *
  *
  */
 export class DescribeConnectionLoaCommand extends $Command<
@@ -69,6 +86,9 @@ export class DescribeConnectionLoaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConnectionLoaCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +117,8 @@ export class DescribeConnectionLoaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeConnectionLoaRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeConnectionLoaResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +128,18 @@ export class DescribeConnectionLoaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeConnectionLoaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeConnectionLoaCommand(input, context);
+    return se_DescribeConnectionLoaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeConnectionLoaCommandOutput> {
-    return deserializeAws_json1_1DescribeConnectionLoaCommand(output, context);
+    return de_DescribeConnectionLoaCommand(output, context);
   }
 
   // Start section: command_body_extra

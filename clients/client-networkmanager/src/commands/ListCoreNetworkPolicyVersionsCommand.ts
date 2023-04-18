@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListCoreNetworkPolicyVersionsRequest,
-  ListCoreNetworkPolicyVersionsRequestFilterSensitiveLog,
-  ListCoreNetworkPolicyVersionsResponse,
-  ListCoreNetworkPolicyVersionsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListCoreNetworkPolicyVersionsRequest, ListCoreNetworkPolicyVersionsResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
-  deserializeAws_restJson1ListCoreNetworkPolicyVersionsCommand,
-  serializeAws_restJson1ListCoreNetworkPolicyVersionsCommand,
+  de_ListCoreNetworkPolicyVersionsCommand,
+  se_ListCoreNetworkPolicyVersionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListCoreNetworkPolicyVersionsCommand}.
+ */
 export interface ListCoreNetworkPolicyVersionsCommandInput extends ListCoreNetworkPolicyVersionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListCoreNetworkPolicyVersionsCommand}.
+ */
 export interface ListCoreNetworkPolicyVersionsCommandOutput
   extends ListCoreNetworkPolicyVersionsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of core network policy versions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,36 @@ export interface ListCoreNetworkPolicyVersionsCommandOutput
  * import { NetworkManagerClient, ListCoreNetworkPolicyVersionsCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, ListCoreNetworkPolicyVersionsCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // ListCoreNetworkPolicyVersionsRequest
+ *   CoreNetworkId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListCoreNetworkPolicyVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCoreNetworkPolicyVersionsCommandInput - {@link ListCoreNetworkPolicyVersionsCommandInput}
+ * @returns {@link ListCoreNetworkPolicyVersionsCommandOutput}
  * @see {@link ListCoreNetworkPolicyVersionsCommandInput} for command's `input` shape.
  * @see {@link ListCoreNetworkPolicyVersionsCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request has failed due to an internal error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints.</p>
+ *
  *
  */
 export class ListCoreNetworkPolicyVersionsCommand extends $Command<
@@ -64,6 +93,9 @@ export class ListCoreNetworkPolicyVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCoreNetworkPolicyVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +124,8 @@ export class ListCoreNetworkPolicyVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCoreNetworkPolicyVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCoreNetworkPolicyVersionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +135,21 @@ export class ListCoreNetworkPolicyVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCoreNetworkPolicyVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListCoreNetworkPolicyVersionsCommand(input, context);
+    return se_ListCoreNetworkPolicyVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListCoreNetworkPolicyVersionsCommandOutput> {
-    return deserializeAws_restJson1ListCoreNetworkPolicyVersionsCommand(output, context);
+    return de_ListCoreNetworkPolicyVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ModifyWorkspacePropertiesRequest,
-  ModifyWorkspacePropertiesRequestFilterSensitiveLog,
-  ModifyWorkspacePropertiesResult,
-  ModifyWorkspacePropertiesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ModifyWorkspacePropertiesCommand,
-  serializeAws_json1_1ModifyWorkspacePropertiesCommand,
-} from "../protocols/Aws_json1_1";
+import { ModifyWorkspacePropertiesRequest, ModifyWorkspacePropertiesResult } from "../models/models_0";
+import { de_ModifyWorkspacePropertiesCommand, se_ModifyWorkspacePropertiesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ModifyWorkspacePropertiesCommand}.
+ */
 export interface ModifyWorkspacePropertiesCommandInput extends ModifyWorkspacePropertiesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ModifyWorkspacePropertiesCommand}.
+ */
 export interface ModifyWorkspacePropertiesCommandOutput extends ModifyWorkspacePropertiesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the specified WorkSpace properties. For important information about how to
  *          modify the size of the root and user volumes, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html"> Modify a WorkSpace</a>.
  *       </p>
@@ -44,13 +47,52 @@ export interface ModifyWorkspacePropertiesCommandOutput extends ModifyWorkspaceP
  * import { WorkSpacesClient, ModifyWorkspacePropertiesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, ModifyWorkspacePropertiesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // ModifyWorkspacePropertiesRequest
+ *   WorkspaceId: "STRING_VALUE", // required
+ *   WorkspaceProperties: { // WorkspaceProperties
+ *     RunningMode: "AUTO_STOP" || "ALWAYS_ON" || "MANUAL",
+ *     RunningModeAutoStopTimeoutInMinutes: Number("int"),
+ *     RootVolumeSizeGib: Number("int"),
+ *     UserVolumeSizeGib: Number("int"),
+ *     ComputeTypeName: "VALUE" || "STANDARD" || "PERFORMANCE" || "POWER" || "GRAPHICS" || "POWERPRO" || "GRAPHICSPRO" || "GRAPHICS_G4DN" || "GRAPHICSPRO_G4DN",
+ *     Protocols: [ // ProtocolList
+ *       "PCOIP" || "WSP",
+ *     ],
+ *   },
+ * };
  * const command = new ModifyWorkspacePropertiesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyWorkspacePropertiesCommandInput - {@link ModifyWorkspacePropertiesCommandInput}
+ * @returns {@link ModifyWorkspacePropertiesCommandOutput}
  * @see {@link ModifyWorkspacePropertiesCommandInput} for command's `input` shape.
  * @see {@link ModifyWorkspacePropertiesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The user is not authorized to access a resource.</p>
+ *
+ * @throws {@link InvalidParameterValuesException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ * @throws {@link InvalidResourceStateException} (client fault)
+ *  <p>The state of the resource is not valid for this operation.</p>
+ *
+ * @throws {@link OperationInProgressException} (client fault)
+ *  <p>The properties of this WorkSpace are currently being modified. Try again in a moment.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link ResourceUnavailableException} (client fault)
+ *  <p>The specified resource is not available.</p>
+ *
+ * @throws {@link UnsupportedWorkspaceConfigurationException} (client fault)
+ *  <p>The configuration of this WorkSpace is not supported for this operation. For more information, see
+ *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/required-service-components.html">Required
+ *             Configuration and Service Components for WorkSpaces </a>.</p>
+ *
  *
  */
 export class ModifyWorkspacePropertiesCommand extends $Command<
@@ -70,6 +112,9 @@ export class ModifyWorkspacePropertiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyWorkspacePropertiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +143,8 @@ export class ModifyWorkspacePropertiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyWorkspacePropertiesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyWorkspacePropertiesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,15 +154,21 @@ export class ModifyWorkspacePropertiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyWorkspacePropertiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ModifyWorkspacePropertiesCommand(input, context);
+    return se_ModifyWorkspacePropertiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyWorkspacePropertiesCommandOutput> {
-    return deserializeAws_json1_1ModifyWorkspacePropertiesCommand(output, context);
+    return de_ModifyWorkspacePropertiesCommand(output, context);
   }
 
   // Start section: command_body_extra

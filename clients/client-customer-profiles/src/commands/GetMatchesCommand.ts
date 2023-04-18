@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
-import {
-  GetMatchesRequest,
-  GetMatchesRequestFilterSensitiveLog,
-  GetMatchesResponse,
-  GetMatchesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetMatchesCommand,
-  serializeAws_restJson1GetMatchesCommand,
-} from "../protocols/Aws_restJson1";
+import { GetMatchesRequest, GetMatchesResponse } from "../models/models_0";
+import { de_GetMatchesCommand, se_GetMatchesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetMatchesCommand}.
+ */
 export interface GetMatchesCommandInput extends GetMatchesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetMatchesCommand}.
+ */
 export interface GetMatchesCommandOutput extends GetMatchesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Before calling this API, use <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateDomain.html">CreateDomain</a> or
  *             <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UpdateDomain.html">UpdateDomain</a> to
  *          enable identity resolution: set <code>Matching</code> to true.</p>
@@ -80,13 +83,36 @@ export interface GetMatchesCommandOutput extends GetMatchesResponse, __MetadataB
  * import { CustomerProfilesClient, GetMatchesCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, GetMatchesCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
+ * const input = { // GetMatchesRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new GetMatchesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMatchesCommandInput - {@link GetMatchesCommandInput}
+ * @returns {@link GetMatchesCommandOutput}
  * @see {@link GetMatchesCommandInput} for command's `input` shape.
  * @see {@link GetMatchesCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input you provided is invalid.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource does not exist, or access was denied.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>You exceeded the maximum number of requests.</p>
+ *
  *
  */
 export class GetMatchesCommand extends $Command<
@@ -106,6 +132,9 @@ export class GetMatchesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMatchesCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,8 +161,8 @@ export class GetMatchesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMatchesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMatchesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,12 +172,18 @@ export class GetMatchesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMatchesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMatchesCommand(input, context);
+    return se_GetMatchesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMatchesCommandOutput> {
-    return deserializeAws_restJson1GetMatchesCommand(output, context);
+    return de_GetMatchesCommand(output, context);
   }
 
   // Start section: command_body_extra

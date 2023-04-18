@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteEventSubscriptionMessage, DeleteEventSubscriptionMessageFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteEventSubscriptionCommand,
-  serializeAws_queryDeleteEventSubscriptionCommand,
-} from "../protocols/Aws_query";
+import { DeleteEventSubscriptionMessage } from "../models/models_0";
+import { de_DeleteEventSubscriptionCommand, se_DeleteEventSubscriptionCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteEventSubscriptionCommand}.
+ */
 export interface DeleteEventSubscriptionCommandInput extends DeleteEventSubscriptionMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteEventSubscriptionCommand}.
+ */
 export interface DeleteEventSubscriptionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Amazon Redshift event notification subscription.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +39,27 @@ export interface DeleteEventSubscriptionCommandOutput extends __MetadataBearer {
  * import { RedshiftClient, DeleteEventSubscriptionCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DeleteEventSubscriptionCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DeleteEventSubscriptionMessage
+ *   SubscriptionName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEventSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEventSubscriptionCommandInput - {@link DeleteEventSubscriptionCommandInput}
+ * @returns {@link DeleteEventSubscriptionCommandOutput}
  * @see {@link DeleteEventSubscriptionCommandInput} for command's `input` shape.
  * @see {@link DeleteEventSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
+ *
+ * @throws {@link InvalidSubscriptionStateFault} (client fault)
+ *  <p>The subscription request is invalid because it is a duplicate request. This
+ *             subscription request is already in progress.</p>
+ *
+ * @throws {@link SubscriptionNotFoundFault} (client fault)
+ *  <p>An Amazon Redshift event notification subscription with the specified name does not
+ *             exist.</p>
+ *
  *
  */
 export class DeleteEventSubscriptionCommand extends $Command<
@@ -57,6 +79,9 @@ export class DeleteEventSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEventSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +110,8 @@ export class DeleteEventSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEventSubscriptionMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +121,18 @@ export class DeleteEventSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEventSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteEventSubscriptionCommand(input, context);
+    return se_DeleteEventSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEventSubscriptionCommandOutput> {
-    return deserializeAws_queryDeleteEventSubscriptionCommand(output, context);
+    return de_DeleteEventSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

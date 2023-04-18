@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import {
-  ListMonitorEvaluationsRequest,
-  ListMonitorEvaluationsRequestFilterSensitiveLog,
-  ListMonitorEvaluationsResponse,
-  ListMonitorEvaluationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListMonitorEvaluationsCommand,
-  serializeAws_json1_1ListMonitorEvaluationsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListMonitorEvaluationsRequest, ListMonitorEvaluationsResponse } from "../models/models_0";
+import { de_ListMonitorEvaluationsCommand, se_ListMonitorEvaluationsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListMonitorEvaluationsCommand}.
+ */
 export interface ListMonitorEvaluationsCommandInput extends ListMonitorEvaluationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListMonitorEvaluationsCommand}.
+ */
 export interface ListMonitorEvaluationsCommandOutput extends ListMonitorEvaluationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the monitoring evaluation results and predictor events collected by
  *          the monitor resource during different windows of time.</p>
  *          <p>For information about monitoring see <a>predictor-monitoring</a>. For
@@ -39,13 +42,39 @@ export interface ListMonitorEvaluationsCommandOutput extends ListMonitorEvaluati
  * import { ForecastClient, ListMonitorEvaluationsCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, ListMonitorEvaluationsCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = { // ListMonitorEvaluationsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   MonitorArn: "STRING_VALUE", // required
+ *   Filters: [ // Filters
+ *     { // Filter
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *       Condition: "IS" || "IS_NOT", // required
+ *     },
+ *   ],
+ * };
  * const command = new ListMonitorEvaluationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMonitorEvaluationsCommandInput - {@link ListMonitorEvaluationsCommandInput}
+ * @returns {@link ListMonitorEvaluationsCommandOutput}
  * @see {@link ListMonitorEvaluationsCommandInput} for command's `input` shape.
  * @see {@link ListMonitorEvaluationsCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>We can't process the request because it includes an invalid value or a value that exceeds
+ *       the valid range.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The token is not valid. Tokens expire after 24 hours.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
+ *       again.</p>
+ *
  *
  */
 export class ListMonitorEvaluationsCommand extends $Command<
@@ -65,6 +94,9 @@ export class ListMonitorEvaluationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMonitorEvaluationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +125,8 @@ export class ListMonitorEvaluationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMonitorEvaluationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMonitorEvaluationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +136,18 @@ export class ListMonitorEvaluationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMonitorEvaluationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListMonitorEvaluationsCommand(input, context);
+    return se_ListMonitorEvaluationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMonitorEvaluationsCommandOutput> {
-    return deserializeAws_json1_1ListMonitorEvaluationsCommand(output, context);
+    return de_ListMonitorEvaluationsCommand(output, context);
   }
 
   // Start section: command_body_extra

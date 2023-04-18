@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListDeviceResourcesInput,
-  ListDeviceResourcesInputFilterSensitiveLog,
-  ListDeviceResourcesOutput,
-  ListDeviceResourcesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDeviceResourcesCommand,
-  serializeAws_restJson1ListDeviceResourcesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListDeviceResourcesInput, ListDeviceResourcesOutput } from "../models/models_0";
+import { de_ListDeviceResourcesCommand, se_ListDeviceResourcesCommand } from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
   SnowDeviceManagementClientResolvedConfig,
 } from "../SnowDeviceManagementClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListDeviceResourcesCommand}.
+ */
 export interface ListDeviceResourcesCommandInput extends ListDeviceResourcesInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListDeviceResourcesCommand}.
+ */
 export interface ListDeviceResourcesCommandOutput extends ListDeviceResourcesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the Amazon Web Services resources available for a device. Currently, Amazon EC2 instances are the only supported resource type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,37 @@ export interface ListDeviceResourcesCommandOutput extends ListDeviceResourcesOut
  * import { SnowDeviceManagementClient, ListDeviceResourcesCommand } from "@aws-sdk/client-snow-device-management"; // ES Modules import
  * // const { SnowDeviceManagementClient, ListDeviceResourcesCommand } = require("@aws-sdk/client-snow-device-management"); // CommonJS import
  * const client = new SnowDeviceManagementClient(config);
+ * const input = { // ListDeviceResourcesInput
+ *   managedDeviceId: "STRING_VALUE", // required
+ *   type: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListDeviceResourcesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDeviceResourcesCommandInput - {@link ListDeviceResourcesCommandInput}
+ * @returns {@link ListDeviceResourcesCommandOutput}
  * @see {@link ListDeviceResourcesCommandInput} for command's `input` shape.
  * @see {@link ListDeviceResourcesCommandOutput} for command's `response` shape.
  * @see {@link SnowDeviceManagementClientResolvedConfig | config} for SnowDeviceManagementClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred while processing the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a resource that doesn't exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
  *
  */
 export class ListDeviceResourcesCommand extends $Command<
@@ -66,6 +93,9 @@ export class ListDeviceResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDeviceResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +124,8 @@ export class ListDeviceResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDeviceResourcesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDeviceResourcesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +135,18 @@ export class ListDeviceResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDeviceResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDeviceResourcesCommand(input, context);
+    return se_ListDeviceResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDeviceResourcesCommandOutput> {
-    return deserializeAws_restJson1ListDeviceResourcesCommand(output, context);
+    return de_ListDeviceResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

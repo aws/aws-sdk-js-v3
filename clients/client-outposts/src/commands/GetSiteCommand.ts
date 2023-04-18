@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetSiteInput,
-  GetSiteInputFilterSensitiveLog,
-  GetSiteOutput,
-  GetSiteOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GetSiteInput, GetSiteOutput } from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import {
-  deserializeAws_restJson1GetSiteCommand,
-  serializeAws_restJson1GetSiteCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetSiteCommand, se_GetSiteCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetSiteCommand}.
+ */
 export interface GetSiteCommandInput extends GetSiteInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetSiteCommand}.
+ */
 export interface GetSiteCommandOutput extends GetSiteOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the specified Outpost site.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,31 @@ export interface GetSiteCommandOutput extends GetSiteOutput, __MetadataBearer {}
  * import { OutpostsClient, GetSiteCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, GetSiteCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
+ * const input = { // GetSiteInput
+ *   SiteId: "STRING_VALUE", // required
+ * };
  * const command = new GetSiteCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSiteCommandInput - {@link GetSiteCommandInput}
+ * @returns {@link GetSiteCommandOutput}
  * @see {@link GetSiteCommandInput} for command's `input` shape.
  * @see {@link GetSiteCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have permission to perform this operation.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error has occurred.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The specified request is not valid.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>A parameter is not valid.</p>
+ *
  *
  */
 export class GetSiteCommand extends $Command<GetSiteCommandInput, GetSiteCommandOutput, OutpostsClientResolvedConfig> {
@@ -58,6 +79,9 @@ export class GetSiteCommand extends $Command<GetSiteCommandInput, GetSiteCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSiteCommandInput) {
     // Start section: command_constructor
     super();
@@ -84,8 +108,8 @@ export class GetSiteCommand extends $Command<GetSiteCommandInput, GetSiteCommand
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSiteInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSiteOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -95,12 +119,18 @@ export class GetSiteCommand extends $Command<GetSiteCommandInput, GetSiteCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSiteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSiteCommand(input, context);
+    return se_GetSiteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSiteCommandOutput> {
-    return deserializeAws_restJson1GetSiteCommand(output, context);
+    return de_GetSiteCommand(output, context);
   }
 
   // Start section: command_body_extra

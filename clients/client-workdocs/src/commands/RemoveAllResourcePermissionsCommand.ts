@@ -18,15 +18,26 @@ import {
   RemoveAllResourcePermissionsRequestFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1RemoveAllResourcePermissionsCommand,
-  serializeAws_restJson1RemoveAllResourcePermissionsCommand,
+  de_RemoveAllResourcePermissionsCommand,
+  se_RemoveAllResourcePermissionsCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
+/**
+ * @public
+ *
+ * The input for {@link RemoveAllResourcePermissionsCommand}.
+ */
 export interface RemoveAllResourcePermissionsCommandInput extends RemoveAllResourcePermissionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RemoveAllResourcePermissionsCommand}.
+ */
 export interface RemoveAllResourcePermissionsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes all the permissions from the specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -34,13 +45,34 @@ export interface RemoveAllResourcePermissionsCommandOutput extends __MetadataBea
  * import { WorkDocsClient, RemoveAllResourcePermissionsCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, RemoveAllResourcePermissionsCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
+ * const input = { // RemoveAllResourcePermissionsRequest
+ *   AuthenticationToken: "STRING_VALUE",
+ *   ResourceId: "STRING_VALUE", // required
+ * };
  * const command = new RemoveAllResourcePermissionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveAllResourcePermissionsCommandInput - {@link RemoveAllResourcePermissionsCommandInput}
+ * @returns {@link RemoveAllResourcePermissionsCommandOutput}
  * @see {@link RemoveAllResourcePermissionsCommandInput} for command's `input` shape.
  * @see {@link RemoveAllResourcePermissionsCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
+ *
+ * @throws {@link FailedDependencyException} (client fault)
+ *  <p>The Directory Service cannot reach an on-premises instance. Or a dependency
+ *             under the control of the organization is failing, such as a connected Active
+ *             Directory.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>One or more of the dependencies is unavailable.</p>
+ *
+ * @throws {@link UnauthorizedOperationException} (client fault)
+ *  <p>The operation is not permitted.</p>
+ *
+ * @throws {@link UnauthorizedResourceAccessException} (client fault)
+ *  <p>The caller does not have access to perform the action on the resource.</p>
+ *
  *
  */
 export class RemoveAllResourcePermissionsCommand extends $Command<
@@ -60,6 +92,9 @@ export class RemoveAllResourcePermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveAllResourcePermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,7 +124,7 @@ export class RemoveAllResourcePermissionsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: RemoveAllResourcePermissionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,15 +134,21 @@ export class RemoveAllResourcePermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveAllResourcePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RemoveAllResourcePermissionsCommand(input, context);
+    return se_RemoveAllResourcePermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveAllResourcePermissionsCommandOutput> {
-    return deserializeAws_restJson1RemoveAllResourcePermissionsCommand(output, context);
+    return de_RemoveAllResourcePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

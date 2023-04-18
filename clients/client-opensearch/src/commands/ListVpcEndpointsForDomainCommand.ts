@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListVpcEndpointsForDomainRequest,
-  ListVpcEndpointsForDomainRequestFilterSensitiveLog,
-  ListVpcEndpointsForDomainResponse,
-  ListVpcEndpointsForDomainResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListVpcEndpointsForDomainRequest, ListVpcEndpointsForDomainResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  deserializeAws_restJson1ListVpcEndpointsForDomainCommand,
-  serializeAws_restJson1ListVpcEndpointsForDomainCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListVpcEndpointsForDomainCommand, se_ListVpcEndpointsForDomainCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListVpcEndpointsForDomainCommand}.
+ */
 export interface ListVpcEndpointsForDomainCommandInput extends ListVpcEndpointsForDomainRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListVpcEndpointsForDomainCommand}.
+ */
 export interface ListVpcEndpointsForDomainCommandOutput extends ListVpcEndpointsForDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves all Amazon OpenSearch Service-managed VPC endpoints associated with a particular
  *    domain.</p>
  * @example
@@ -37,13 +40,32 @@ export interface ListVpcEndpointsForDomainCommandOutput extends ListVpcEndpoints
  * import { OpenSearchClient, ListVpcEndpointsForDomainCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, ListVpcEndpointsForDomainCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = { // ListVpcEndpointsForDomainRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListVpcEndpointsForDomainCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListVpcEndpointsForDomainCommandInput - {@link ListVpcEndpointsForDomainCommandInput}
+ * @returns {@link ListVpcEndpointsForDomainCommandOutput}
  * @see {@link ListVpcEndpointsForDomainCommandInput} for command's `input` shape.
  * @see {@link ListVpcEndpointsForDomainCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
+ *
+ * @throws {@link BaseException} (client fault)
+ *  <p>An error occurred while processing the request.</p>
+ *
+ * @throws {@link DisabledOperationException} (client fault)
+ *  <p>An error occured because the client wanted to access a not supported operation.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An exception for accessing or deleting a resource that does not exist..</p>
+ *
  *
  */
 export class ListVpcEndpointsForDomainCommand extends $Command<
@@ -63,6 +85,9 @@ export class ListVpcEndpointsForDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListVpcEndpointsForDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +116,8 @@ export class ListVpcEndpointsForDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListVpcEndpointsForDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListVpcEndpointsForDomainResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,15 +127,21 @@ export class ListVpcEndpointsForDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListVpcEndpointsForDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListVpcEndpointsForDomainCommand(input, context);
+    return se_ListVpcEndpointsForDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListVpcEndpointsForDomainCommandOutput> {
-    return deserializeAws_restJson1ListVpcEndpointsForDomainCommand(output, context);
+    return de_ListVpcEndpointsForDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

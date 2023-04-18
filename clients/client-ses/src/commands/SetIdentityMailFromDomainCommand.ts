@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SetIdentityMailFromDomainRequest,
-  SetIdentityMailFromDomainRequestFilterSensitiveLog,
-  SetIdentityMailFromDomainResponse,
-  SetIdentityMailFromDomainResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_querySetIdentityMailFromDomainCommand,
-  serializeAws_querySetIdentityMailFromDomainCommand,
-} from "../protocols/Aws_query";
+import { SetIdentityMailFromDomainRequest, SetIdentityMailFromDomainResponse } from "../models/models_0";
+import { de_SetIdentityMailFromDomainCommand, se_SetIdentityMailFromDomainCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * @public
+ *
+ * The input for {@link SetIdentityMailFromDomainCommand}.
+ */
 export interface SetIdentityMailFromDomainCommandInput extends SetIdentityMailFromDomainRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SetIdentityMailFromDomainCommand}.
+ */
 export interface SetIdentityMailFromDomainCommandOutput extends SetIdentityMailFromDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables or disables the custom MAIL FROM domain setup for a verified identity (an
  *             email address or a domain).</p>
  *         <important>
@@ -45,13 +48,34 @@ export interface SetIdentityMailFromDomainCommandOutput extends SetIdentityMailF
  * import { SESClient, SetIdentityMailFromDomainCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, SetIdentityMailFromDomainCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // SetIdentityMailFromDomainRequest
+ *   Identity: "STRING_VALUE", // required
+ *   MailFromDomain: "STRING_VALUE",
+ *   BehaviorOnMXFailure: "STRING_VALUE",
+ * };
  * const command = new SetIdentityMailFromDomainCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SetIdentityMailFromDomainCommandInput - {@link SetIdentityMailFromDomainCommandInput}
+ * @returns {@link SetIdentityMailFromDomainCommandOutput}
  * @see {@link SetIdentityMailFromDomainCommandInput} for command's `input` shape.
  * @see {@link SetIdentityMailFromDomainCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
+ *
+ *
+ * @example SetIdentityMailFromDomain
+ * ```javascript
+ * // The following example configures Amazon SES to use a custom MAIL FROM domain for an identity:
+ * const input = {
+ *   "BehaviorOnMXFailure": "UseDefaultValue",
+ *   "Identity": "user@example.com",
+ *   "MailFromDomain": "bounces.example.com"
+ * };
+ * const command = new SetIdentityMailFromDomainCommand(input);
+ * await client.send(command);
+ * // example id: setidentitymailfromdomain-1469057693908
+ * ```
  *
  */
 export class SetIdentityMailFromDomainCommand extends $Command<
@@ -71,6 +95,9 @@ export class SetIdentityMailFromDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetIdentityMailFromDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +126,8 @@ export class SetIdentityMailFromDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetIdentityMailFromDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SetIdentityMailFromDomainResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,15 +137,21 @@ export class SetIdentityMailFromDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetIdentityMailFromDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySetIdentityMailFromDomainCommand(input, context);
+    return se_SetIdentityMailFromDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetIdentityMailFromDomainCommandOutput> {
-    return deserializeAws_querySetIdentityMailFromDomainCommand(output, context);
+    return de_SetIdentityMailFromDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

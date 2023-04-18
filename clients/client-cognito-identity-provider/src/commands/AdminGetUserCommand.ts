@@ -25,15 +25,23 @@ import {
   AdminGetUserResponse,
   AdminGetUserResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1AdminGetUserCommand,
-  serializeAws_json1_1AdminGetUserCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AdminGetUserCommand, se_AdminGetUserCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link AdminGetUserCommand}.
+ */
 export interface AdminGetUserCommandInput extends AdminGetUserRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AdminGetUserCommand}.
+ */
 export interface AdminGetUserCommandOutput extends AdminGetUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the specified user by user name in a user pool as an administrator. Works on any
  *             user.</p>
  *         <p>Calling this action requires developer credentials.</p>
@@ -43,13 +51,41 @@ export interface AdminGetUserCommandOutput extends AdminGetUserResponse, __Metad
  * import { CognitoIdentityProviderClient, AdminGetUserCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, AdminGetUserCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // AdminGetUserRequest
+ *   UserPoolId: "STRING_VALUE", // required
+ *   Username: "STRING_VALUE", // required
+ * };
  * const command = new AdminGetUserCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AdminGetUserCommandInput - {@link AdminGetUserCommandInput}
+ * @returns {@link AdminGetUserCommandOutput}
  * @see {@link AdminGetUserCommandInput} for command's `input` shape.
  * @see {@link AdminGetUserCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
+ *             parameter.</p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
+ *             resource.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>This exception is thrown when the user has made too many requests for a given
+ *             operation.</p>
+ *
+ * @throws {@link UserNotFoundException} (client fault)
+ *  <p>This exception is thrown when a user isn't found.</p>
+ *
  *
  */
 export class AdminGetUserCommand extends $Command<
@@ -69,6 +105,9 @@ export class AdminGetUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AdminGetUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,12 +146,18 @@ export class AdminGetUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AdminGetUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AdminGetUserCommand(input, context);
+    return se_AdminGetUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdminGetUserCommandOutput> {
-    return deserializeAws_json1_1AdminGetUserCommand(output, context);
+    return de_AdminGetUserCommand(output, context);
   }
 
   // Start section: command_body_extra

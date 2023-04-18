@@ -16,22 +16,31 @@ import {
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
 import {
   GetEffectiveRecommendationPreferencesRequest,
-  GetEffectiveRecommendationPreferencesRequestFilterSensitiveLog,
   GetEffectiveRecommendationPreferencesResponse,
-  GetEffectiveRecommendationPreferencesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0GetEffectiveRecommendationPreferencesCommand,
-  serializeAws_json1_0GetEffectiveRecommendationPreferencesCommand,
+  de_GetEffectiveRecommendationPreferencesCommand,
+  se_GetEffectiveRecommendationPreferencesCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link GetEffectiveRecommendationPreferencesCommand}.
+ */
 export interface GetEffectiveRecommendationPreferencesCommandInput
   extends GetEffectiveRecommendationPreferencesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetEffectiveRecommendationPreferencesCommand}.
+ */
 export interface GetEffectiveRecommendationPreferencesCommandOutput
   extends GetEffectiveRecommendationPreferencesResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the recommendation preferences that are in effect for a given resource, such
  *             as enhanced infrastructure metrics. Considers all applicable preferences that you might
  *             have set at the resource, account, and organization level.</p>
@@ -44,13 +53,44 @@ export interface GetEffectiveRecommendationPreferencesCommandOutput
  * import { ComputeOptimizerClient, GetEffectiveRecommendationPreferencesCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
  * // const { ComputeOptimizerClient, GetEffectiveRecommendationPreferencesCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
+ * const input = { // GetEffectiveRecommendationPreferencesRequest
+ *   resourceArn: "STRING_VALUE", // required
+ * };
  * const command = new GetEffectiveRecommendationPreferencesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEffectiveRecommendationPreferencesCommandInput - {@link GetEffectiveRecommendationPreferencesCommandInput}
+ * @returns {@link GetEffectiveRecommendationPreferencesCommandOutput}
  * @see {@link GetEffectiveRecommendationPreferencesCommandInput} for command's `input` shape.
  * @see {@link GetEffectiveRecommendationPreferencesCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error has occurred. Try your call again.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value supplied for the input parameter is out of range or not valid.</p>
+ *
+ * @throws {@link MissingAuthenticationToken} (client fault)
+ *  <p>The request must contain either a valid (registered) Amazon Web Services access key ID
+ *             or X.509 certificate.</p>
+ *
+ * @throws {@link OptInRequiredException} (client fault)
+ *  <p>The account is not opted in to Compute Optimizer.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource that is required for the action doesn't exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request has failed due to a temporary failure of the server.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
  *
  */
 export class GetEffectiveRecommendationPreferencesCommand extends $Command<
@@ -70,6 +110,9 @@ export class GetEffectiveRecommendationPreferencesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEffectiveRecommendationPreferencesCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +141,8 @@ export class GetEffectiveRecommendationPreferencesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEffectiveRecommendationPreferencesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetEffectiveRecommendationPreferencesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,18 +152,24 @@ export class GetEffectiveRecommendationPreferencesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetEffectiveRecommendationPreferencesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetEffectiveRecommendationPreferencesCommand(input, context);
+    return se_GetEffectiveRecommendationPreferencesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetEffectiveRecommendationPreferencesCommandOutput> {
-    return deserializeAws_json1_0GetEffectiveRecommendationPreferencesCommand(output, context);
+    return de_GetEffectiveRecommendationPreferencesCommand(output, context);
   }
 
   // Start section: command_body_extra

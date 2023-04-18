@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteDeviceFleetRequest, DeleteDeviceFleetRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteDeviceFleetCommand,
-  serializeAws_json1_1DeleteDeviceFleetCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteDeviceFleetRequest } from "../models/models_1";
+import { de_DeleteDeviceFleetCommand, se_DeleteDeviceFleetCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteDeviceFleetCommand}.
+ */
 export interface DeleteDeviceFleetCommandInput extends DeleteDeviceFleetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteDeviceFleetCommand}.
+ */
 export interface DeleteDeviceFleetCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a fleet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +39,22 @@ export interface DeleteDeviceFleetCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, DeleteDeviceFleetCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteDeviceFleetCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DeleteDeviceFleetRequest
+ *   DeviceFleetName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDeviceFleetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDeviceFleetCommandInput - {@link DeleteDeviceFleetCommandInput}
+ * @returns {@link DeleteDeviceFleetCommandOutput}
  * @see {@link DeleteDeviceFleetCommandInput} for command's `input` shape.
  * @see {@link DeleteDeviceFleetCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceInUse} (client fault)
+ *  <p>Resource being accessed is in use.</p>
+ *
  *
  */
 export class DeleteDeviceFleetCommand extends $Command<
@@ -57,6 +74,9 @@ export class DeleteDeviceFleetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDeviceFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +105,8 @@ export class DeleteDeviceFleetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDeviceFleetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +116,18 @@ export class DeleteDeviceFleetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDeviceFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDeviceFleetCommand(input, context);
+    return se_DeleteDeviceFleetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDeviceFleetCommandOutput> {
-    return deserializeAws_json1_1DeleteDeviceFleetCommand(output, context);
+    return de_DeleteDeviceFleetCommand(output, context);
   }
 
   // Start section: command_body_extra

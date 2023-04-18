@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
+import { CreateBusinessReportScheduleRequest, CreateBusinessReportScheduleResponse } from "../models/models_0";
 import {
-  CreateBusinessReportScheduleRequest,
-  CreateBusinessReportScheduleRequestFilterSensitiveLog,
-  CreateBusinessReportScheduleResponse,
-  CreateBusinessReportScheduleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateBusinessReportScheduleCommand,
-  serializeAws_json1_1CreateBusinessReportScheduleCommand,
+  de_CreateBusinessReportScheduleCommand,
+  se_CreateBusinessReportScheduleCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateBusinessReportScheduleCommand}.
+ */
 export interface CreateBusinessReportScheduleCommandInput extends CreateBusinessReportScheduleRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateBusinessReportScheduleCommand}.
+ */
 export interface CreateBusinessReportScheduleCommandOutput
   extends CreateBusinessReportScheduleResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a recurring schedule for usage reports to deliver to the specified S3
  *          location with a specified daily or weekly interval.</p>
  * @example
@@ -39,13 +45,38 @@ export interface CreateBusinessReportScheduleCommandOutput
  * import { AlexaForBusinessClient, CreateBusinessReportScheduleCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, CreateBusinessReportScheduleCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // CreateBusinessReportScheduleRequest
+ *   ScheduleName: "STRING_VALUE",
+ *   S3BucketName: "STRING_VALUE",
+ *   S3KeyPrefix: "STRING_VALUE",
+ *   Format: "STRING_VALUE", // required
+ *   ContentRange: { // BusinessReportContentRange
+ *     Interval: "STRING_VALUE", // required
+ *   },
+ *   Recurrence: { // BusinessReportRecurrence
+ *     StartDate: "STRING_VALUE",
+ *   },
+ *   ClientRequestToken: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateBusinessReportScheduleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBusinessReportScheduleCommandInput - {@link CreateBusinessReportScheduleCommandInput}
+ * @returns {@link CreateBusinessReportScheduleCommandOutput}
  * @see {@link CreateBusinessReportScheduleCommandInput} for command's `input` shape.
  * @see {@link CreateBusinessReportScheduleCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
+ * @throws {@link AlreadyExistsException} (client fault)
+ *  <p>The resource being created already exists.</p>
+ *
  *
  */
 export class CreateBusinessReportScheduleCommand extends $Command<
@@ -65,6 +96,9 @@ export class CreateBusinessReportScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBusinessReportScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +127,8 @@ export class CreateBusinessReportScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateBusinessReportScheduleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateBusinessReportScheduleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,15 +138,21 @@ export class CreateBusinessReportScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBusinessReportScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateBusinessReportScheduleCommand(input, context);
+    return se_CreateBusinessReportScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateBusinessReportScheduleCommandOutput> {
-    return deserializeAws_json1_1CreateBusinessReportScheduleCommand(output, context);
+    return de_CreateBusinessReportScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

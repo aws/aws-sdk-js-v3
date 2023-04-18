@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import {
-  DeleteFunctionRequest,
-  DeleteFunctionRequestFilterSensitiveLog,
-  DeleteFunctionResponse,
-  DeleteFunctionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteFunctionCommand,
-  serializeAws_restJson1DeleteFunctionCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteFunctionRequest, DeleteFunctionResponse } from "../models/models_0";
+import { de_DeleteFunctionCommand, se_DeleteFunctionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteFunctionCommand}.
+ */
 export interface DeleteFunctionCommandInput extends DeleteFunctionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteFunctionCommand}.
+ */
 export interface DeleteFunctionCommandOutput extends DeleteFunctionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a <code>Function</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,33 @@ export interface DeleteFunctionCommandOutput extends DeleteFunctionResponse, __M
  * import { AppSyncClient, DeleteFunctionCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, DeleteFunctionCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
+ * const input = { // DeleteFunctionRequest
+ *   apiId: "STRING_VALUE", // required
+ *   functionId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteFunctionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFunctionCommandInput - {@link DeleteFunctionCommandInput}
+ * @returns {@link DeleteFunctionCommandOutput}
  * @see {@link DeleteFunctionCommandInput} for command's `input` shape.
  * @see {@link DeleteFunctionCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>Another modification is in progress at this time and it must complete before you can make your
+ *          change.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal AppSync error occurred. Try your request again.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource specified in the request was not found. Check the resource, and then try again.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You aren't authorized to perform this operation.</p>
+ *
  *
  */
 export class DeleteFunctionCommand extends $Command<
@@ -62,6 +85,9 @@ export class DeleteFunctionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFunctionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +116,8 @@ export class DeleteFunctionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFunctionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFunctionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +127,18 @@ export class DeleteFunctionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteFunctionCommand(input, context);
+    return se_DeleteFunctionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFunctionCommandOutput> {
-    return deserializeAws_restJson1DeleteFunctionCommand(output, context);
+    return de_DeleteFunctionCommand(output, context);
   }
 
   // Start section: command_body_extra

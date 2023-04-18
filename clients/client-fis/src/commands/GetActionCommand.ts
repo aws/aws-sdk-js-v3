@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FisClient";
-import {
-  GetActionRequest,
-  GetActionRequestFilterSensitiveLog,
-  GetActionResponse,
-  GetActionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetActionCommand,
-  serializeAws_restJson1GetActionCommand,
-} from "../protocols/Aws_restJson1";
+import { GetActionRequest, GetActionResponse } from "../models/models_0";
+import { de_GetActionCommand, se_GetActionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetActionCommand}.
+ */
 export interface GetActionCommandInput extends GetActionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetActionCommand}.
+ */
 export interface GetActionCommandOutput extends GetActionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the specified FIS action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,25 @@ export interface GetActionCommandOutput extends GetActionResponse, __MetadataBea
  * import { FisClient, GetActionCommand } from "@aws-sdk/client-fis"; // ES Modules import
  * // const { FisClient, GetActionCommand } = require("@aws-sdk/client-fis"); // CommonJS import
  * const client = new FisClient(config);
+ * const input = { // GetActionRequest
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new GetActionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetActionCommandInput - {@link GetActionCommandInput}
+ * @returns {@link GetActionCommandOutput}
  * @see {@link GetActionCommandInput} for command's `input` shape.
  * @see {@link GetActionCommandOutput} for command's `response` shape.
  * @see {@link FisClientResolvedConfig | config} for FisClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource cannot be found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
+ *
  *
  */
 export class GetActionCommand extends $Command<GetActionCommandInput, GetActionCommandOutput, FisClientResolvedConfig> {
@@ -58,6 +73,9 @@ export class GetActionCommand extends $Command<GetActionCommandInput, GetActionC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -84,8 +102,8 @@ export class GetActionCommand extends $Command<GetActionCommandInput, GetActionC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetActionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetActionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -95,12 +113,18 @@ export class GetActionCommand extends $Command<GetActionCommandInput, GetActionC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetActionCommand(input, context);
+    return se_GetActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetActionCommandOutput> {
-    return deserializeAws_restJson1GetActionCommand(output, context);
+    return de_GetActionCommand(output, context);
   }
 
   // Start section: command_body_extra

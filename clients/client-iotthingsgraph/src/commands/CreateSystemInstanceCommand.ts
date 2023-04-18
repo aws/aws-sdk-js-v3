@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import {
-  CreateSystemInstanceRequest,
-  CreateSystemInstanceRequestFilterSensitiveLog,
-  CreateSystemInstanceResponse,
-  CreateSystemInstanceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateSystemInstanceCommand,
-  serializeAws_json1_1CreateSystemInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateSystemInstanceRequest, CreateSystemInstanceResponse } from "../models/models_0";
+import { de_CreateSystemInstanceCommand, se_CreateSystemInstanceCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateSystemInstanceCommand}.
+ */
 export interface CreateSystemInstanceCommandInput extends CreateSystemInstanceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateSystemInstanceCommand}.
+ */
 export interface CreateSystemInstanceCommandOutput extends CreateSystemInstanceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Creates a system instance. </p>
@@ -46,13 +49,51 @@ export interface CreateSystemInstanceCommandOutput extends CreateSystemInstanceR
  * import { IoTThingsGraphClient, CreateSystemInstanceCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, CreateSystemInstanceCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
+ * const input = { // CreateSystemInstanceRequest
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   definition: { // DefinitionDocument
+ *     language: "STRING_VALUE", // required
+ *     text: "STRING_VALUE", // required
+ *   },
+ *   target: "STRING_VALUE", // required
+ *   greengrassGroupName: "STRING_VALUE",
+ *   s3BucketName: "STRING_VALUE",
+ *   metricsConfiguration: { // MetricsConfiguration
+ *     cloudMetricEnabled: true || false,
+ *     metricRuleRoleArn: "STRING_VALUE",
+ *   },
+ *   flowActionsRoleArn: "STRING_VALUE",
+ * };
  * const command = new CreateSystemInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSystemInstanceCommandInput - {@link CreateSystemInstanceCommandInput}
+ * @returns {@link CreateSystemInstanceCommandOutput}
  * @see {@link CreateSystemInstanceCommandInput} for command's `input` shape.
  * @see {@link CreateSystemInstanceCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p></p>
+ *
  *
  */
 export class CreateSystemInstanceCommand extends $Command<
@@ -72,6 +113,9 @@ export class CreateSystemInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSystemInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +144,8 @@ export class CreateSystemInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSystemInstanceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSystemInstanceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +155,18 @@ export class CreateSystemInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSystemInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateSystemInstanceCommand(input, context);
+    return se_CreateSystemInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSystemInstanceCommandOutput> {
-    return deserializeAws_json1_1CreateSystemInstanceCommand(output, context);
+    return de_CreateSystemInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

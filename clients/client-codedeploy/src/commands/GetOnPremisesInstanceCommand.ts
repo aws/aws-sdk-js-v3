@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import {
-  GetOnPremisesInstanceInput,
-  GetOnPremisesInstanceInputFilterSensitiveLog,
-  GetOnPremisesInstanceOutput,
-  GetOnPremisesInstanceOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetOnPremisesInstanceCommand,
-  serializeAws_json1_1GetOnPremisesInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { GetOnPremisesInstanceInput, GetOnPremisesInstanceOutput } from "../models/models_0";
+import { de_GetOnPremisesInstanceCommand, se_GetOnPremisesInstanceCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetOnPremisesInstanceCommand}.
+ */
 export interface GetOnPremisesInstanceCommandInput extends GetOnPremisesInstanceInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetOnPremisesInstanceCommand}.
+ */
 export interface GetOnPremisesInstanceCommandOutput extends GetOnPremisesInstanceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Gets information about an on-premises instance. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,28 @@ export interface GetOnPremisesInstanceCommandOutput extends GetOnPremisesInstanc
  * import { CodeDeployClient, GetOnPremisesInstanceCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, GetOnPremisesInstanceCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
+ * const input = { // GetOnPremisesInstanceInput
+ *   instanceName: "STRING_VALUE", // required
+ * };
  * const command = new GetOnPremisesInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetOnPremisesInstanceCommandInput - {@link GetOnPremisesInstanceCommandInput}
+ * @returns {@link GetOnPremisesInstanceCommandOutput}
  * @see {@link GetOnPremisesInstanceCommandInput} for command's `input` shape.
  * @see {@link GetOnPremisesInstanceCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
+ *
+ * @throws {@link InstanceNameRequiredException} (client fault)
+ *  <p>An on-premises instance name was not specified.</p>
+ *
+ * @throws {@link InstanceNotRegisteredException} (client fault)
+ *  <p>The specified on-premises instance is not registered.</p>
+ *
+ * @throws {@link InvalidInstanceNameException} (client fault)
+ *  <p>The on-premises instance name was specified in an invalid format.</p>
+ *
  *
  */
 export class GetOnPremisesInstanceCommand extends $Command<
@@ -62,6 +80,9 @@ export class GetOnPremisesInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetOnPremisesInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +111,8 @@ export class GetOnPremisesInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetOnPremisesInstanceInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetOnPremisesInstanceOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +122,18 @@ export class GetOnPremisesInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetOnPremisesInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetOnPremisesInstanceCommand(input, context);
+    return se_GetOnPremisesInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetOnPremisesInstanceCommandOutput> {
-    return deserializeAws_json1_1GetOnPremisesInstanceCommand(output, context);
+    return de_GetOnPremisesInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CostAndUsageReportServiceClient";
-import {
-  DeleteReportDefinitionRequest,
-  DeleteReportDefinitionRequestFilterSensitiveLog,
-  DeleteReportDefinitionResponse,
-  DeleteReportDefinitionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteReportDefinitionCommand,
-  serializeAws_json1_1DeleteReportDefinitionCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteReportDefinitionRequest, DeleteReportDefinitionResponse } from "../models/models_0";
+import { de_DeleteReportDefinitionCommand, se_DeleteReportDefinitionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteReportDefinitionCommand}.
+ */
 export interface DeleteReportDefinitionCommandInput extends DeleteReportDefinitionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteReportDefinitionCommand}.
+ */
 export interface DeleteReportDefinitionCommandOutput extends DeleteReportDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified report.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,36 @@ export interface DeleteReportDefinitionCommandOutput extends DeleteReportDefinit
  * import { CostAndUsageReportServiceClient, DeleteReportDefinitionCommand } from "@aws-sdk/client-cost-and-usage-report-service"; // ES Modules import
  * // const { CostAndUsageReportServiceClient, DeleteReportDefinitionCommand } = require("@aws-sdk/client-cost-and-usage-report-service"); // CommonJS import
  * const client = new CostAndUsageReportServiceClient(config);
+ * const input = { // DeleteReportDefinitionRequest
+ *   ReportName: "STRING_VALUE",
+ * };
  * const command = new DeleteReportDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteReportDefinitionCommandInput - {@link DeleteReportDefinitionCommandInput}
+ * @returns {@link DeleteReportDefinitionCommandOutput}
  * @see {@link DeleteReportDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteReportDefinitionCommandOutput} for command's `response` shape.
  * @see {@link CostAndUsageReportServiceClientResolvedConfig | config} for CostAndUsageReportServiceClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>An error on the server occurred during the processing of your request. Try again later.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
+ *
+ * @example To delete the AWS Cost and Usage report named ExampleReport.
+ * ```javascript
+ * // The following example deletes the AWS Cost and Usage report named ExampleReport.
+ * const input = {
+ *   "ReportName": "ExampleReport"
+ * };
+ * const command = new DeleteReportDefinitionCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-a-report
+ * ```
  *
  */
 export class DeleteReportDefinitionCommand extends $Command<
@@ -66,6 +92,9 @@ export class DeleteReportDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteReportDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +123,8 @@ export class DeleteReportDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteReportDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteReportDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +134,18 @@ export class DeleteReportDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteReportDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteReportDefinitionCommand(input, context);
+    return se_DeleteReportDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteReportDefinitionCommandOutput> {
-    return deserializeAws_json1_1DeleteReportDefinitionCommand(output, context);
+    return de_DeleteReportDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

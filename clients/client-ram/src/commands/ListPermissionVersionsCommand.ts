@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListPermissionVersionsRequest,
-  ListPermissionVersionsRequestFilterSensitiveLog,
-  ListPermissionVersionsResponse,
-  ListPermissionVersionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListPermissionVersionsCommand,
-  serializeAws_restJson1ListPermissionVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListPermissionVersionsRequest, ListPermissionVersionsResponse } from "../models/models_0";
+import { de_ListPermissionVersionsCommand, se_ListPermissionVersionsCommand } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListPermissionVersionsCommand}.
+ */
 export interface ListPermissionVersionsCommandInput extends ListPermissionVersionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListPermissionVersionsCommand}.
+ */
 export interface ListPermissionVersionsCommandOutput extends ListPermissionVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the available versions of the specified RAM permission.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,42 @@ export interface ListPermissionVersionsCommandOutput extends ListPermissionVersi
  * import { RAMClient, ListPermissionVersionsCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, ListPermissionVersionsCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
+ * const input = { // ListPermissionVersionsRequest
+ *   permissionArn: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListPermissionVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPermissionVersionsCommandInput - {@link ListPermissionVersionsCommandInput}
+ * @returns {@link ListPermissionVersionsCommandOutput}
  * @see {@link ListPermissionVersionsCommandInput} for command's `input` shape.
  * @see {@link ListPermissionVersionsCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The specified value for <code>NextToken</code> is not valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter is not valid.</p>
+ *
+ * @throws {@link MalformedArnException} (client fault)
+ *  <p>The format of an Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>The requested operation is not permitted.</p>
+ *
+ * @throws {@link ServerInternalException} (server fault)
+ *  <p>The service could not respond to the request due to an internal problem.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is not available.</p>
+ *
+ * @throws {@link UnknownResourceException} (client fault)
+ *  <p>A specified resource was not found.</p>
+ *
  *
  */
 export class ListPermissionVersionsCommand extends $Command<
@@ -62,6 +94,9 @@ export class ListPermissionVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPermissionVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +125,8 @@ export class ListPermissionVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPermissionVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPermissionVersionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +136,18 @@ export class ListPermissionVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPermissionVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPermissionVersionsCommand(input, context);
+    return se_ListPermissionVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPermissionVersionsCommandOutput> {
-    return deserializeAws_restJson1ListPermissionVersionsCommand(output, context);
+    return de_ListPermissionVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
+import { DBClusterParameterGroupsMessage, DescribeDBClusterParameterGroupsMessage } from "../models/models_0";
 import {
-  DBClusterParameterGroupsMessage,
-  DBClusterParameterGroupsMessageFilterSensitiveLog,
-  DescribeDBClusterParameterGroupsMessage,
-  DescribeDBClusterParameterGroupsMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeDBClusterParameterGroupsCommand,
-  serializeAws_queryDescribeDBClusterParameterGroupsCommand,
+  de_DescribeDBClusterParameterGroupsCommand,
+  se_DescribeDBClusterParameterGroupsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeDBClusterParameterGroupsCommand}.
+ */
 export interface DescribeDBClusterParameterGroupsCommandInput extends DescribeDBClusterParameterGroupsMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeDBClusterParameterGroupsCommand}.
+ */
 export interface DescribeDBClusterParameterGroupsCommandOutput
   extends DBClusterParameterGroupsMessage,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of <code>DBClusterParameterGroup</code> descriptions. If a <code>DBClusterParameterGroupName</code> parameter is specified, the list contains only the description of the specified cluster parameter group. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,33 @@ export interface DescribeDBClusterParameterGroupsCommandOutput
  * import { DocDBClient, DescribeDBClusterParameterGroupsCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, DescribeDBClusterParameterGroupsCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = { // DescribeDBClusterParameterGroupsMessage
+ *   DBClusterParameterGroupName: "STRING_VALUE",
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeDBClusterParameterGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDBClusterParameterGroupsCommandInput - {@link DescribeDBClusterParameterGroupsCommandInput}
+ * @returns {@link DescribeDBClusterParameterGroupsCommandOutput}
  * @see {@link DescribeDBClusterParameterGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeDBClusterParameterGroupsCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
+ *
+ * @throws {@link DBParameterGroupNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBParameterGroupName</code> doesn't refer to an existing parameter group. </p>
+ *
  *
  */
 export class DescribeDBClusterParameterGroupsCommand extends $Command<
@@ -64,6 +90,9 @@ export class DescribeDBClusterParameterGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDBClusterParameterGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +121,8 @@ export class DescribeDBClusterParameterGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDBClusterParameterGroupsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DBClusterParameterGroupsMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +132,24 @@ export class DescribeDBClusterParameterGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeDBClusterParameterGroupsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBClusterParameterGroupsCommand(input, context);
+    return se_DescribeDBClusterParameterGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDBClusterParameterGroupsCommandOutput> {
-    return deserializeAws_queryDescribeDBClusterParameterGroupsCommand(output, context);
+    return de_DescribeDBClusterParameterGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

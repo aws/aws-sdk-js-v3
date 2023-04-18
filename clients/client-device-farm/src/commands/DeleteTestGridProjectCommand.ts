@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  DeleteTestGridProjectRequest,
-  DeleteTestGridProjectRequestFilterSensitiveLog,
-  DeleteTestGridProjectResult,
-  DeleteTestGridProjectResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteTestGridProjectCommand,
-  serializeAws_json1_1DeleteTestGridProjectCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteTestGridProjectRequest, DeleteTestGridProjectResult } from "../models/models_0";
+import { de_DeleteTestGridProjectCommand, se_DeleteTestGridProjectCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteTestGridProjectCommand}.
+ */
 export interface DeleteTestGridProjectCommandInput extends DeleteTestGridProjectRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteTestGridProjectCommand}.
+ */
 export interface DeleteTestGridProjectCommandOutput extends DeleteTestGridProjectResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Deletes a Selenium testing project and all content generated under it. </p>
  *          <important>
  *             <p>You cannot undo this operation.</p>
@@ -42,13 +45,32 @@ export interface DeleteTestGridProjectCommandOutput extends DeleteTestGridProjec
  * import { DeviceFarmClient, DeleteTestGridProjectCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, DeleteTestGridProjectCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // DeleteTestGridProjectRequest
+ *   projectArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteTestGridProjectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTestGridProjectCommandInput - {@link DeleteTestGridProjectCommandInput}
+ * @returns {@link DeleteTestGridProjectCommandOutput}
  * @see {@link DeleteTestGridProjectCommandInput} for command's `input` shape.
  * @see {@link DeleteTestGridProjectCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
+ *
+ * @throws {@link ArgumentException} (client fault)
+ *  <p>An invalid argument was specified.</p>
+ *
+ * @throws {@link CannotDeleteException} (client fault)
+ *  <p>The requested object could not be deleted.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal exception was raised in the service. Contact <a href="mailto:aws-devicefarm-support@amazon.com">aws-devicefarm-support@amazon.com</a> if you see this
+ *          error. </p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The specified entity was not found.</p>
+ *
  *
  */
 export class DeleteTestGridProjectCommand extends $Command<
@@ -68,6 +90,9 @@ export class DeleteTestGridProjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTestGridProjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +121,8 @@ export class DeleteTestGridProjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTestGridProjectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTestGridProjectResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +132,18 @@ export class DeleteTestGridProjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTestGridProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteTestGridProjectCommand(input, context);
+    return se_DeleteTestGridProjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTestGridProjectCommandOutput> {
-    return deserializeAws_json1_1DeleteTestGridProjectCommand(output, context);
+    return de_DeleteTestGridProjectCommand(output, context);
   }
 
   // Start section: command_body_extra

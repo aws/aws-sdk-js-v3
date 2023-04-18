@@ -14,19 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import {
-  DeleteDataProtectionPolicyRequest,
-  DeleteDataProtectionPolicyRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteDataProtectionPolicyCommand,
-  serializeAws_json1_1DeleteDataProtectionPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteDataProtectionPolicyRequest } from "../models/models_0";
+import { de_DeleteDataProtectionPolicyCommand, se_DeleteDataProtectionPolicyCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteDataProtectionPolicyCommand}.
+ */
 export interface DeleteDataProtectionPolicyCommandInput extends DeleteDataProtectionPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteDataProtectionPolicyCommand}.
+ */
 export interface DeleteDataProtectionPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the data protection policy from the specified log group. </p>
  *          <p>For more information about data protection policies, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDataProtectionPolicy.html">PutDataProtectionPolicy</a>.</p>
  * @example
@@ -35,13 +40,31 @@ export interface DeleteDataProtectionPolicyCommandOutput extends __MetadataBeare
  * import { CloudWatchLogsClient, DeleteDataProtectionPolicyCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DeleteDataProtectionPolicyCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = { // DeleteDataProtectionPolicyRequest
+ *   logGroupIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDataProtectionPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDataProtectionPolicyCommandInput - {@link DeleteDataProtectionPolicyCommandInput}
+ * @returns {@link DeleteDataProtectionPolicyCommandOutput}
  * @see {@link DeleteDataProtectionPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteDataProtectionPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter is specified incorrectly.</p>
+ *
+ * @throws {@link OperationAbortedException} (client fault)
+ *  <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service cannot complete the request.</p>
+ *
  *
  */
 export class DeleteDataProtectionPolicyCommand extends $Command<
@@ -61,6 +84,9 @@ export class DeleteDataProtectionPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDataProtectionPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +115,8 @@ export class DeleteDataProtectionPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDataProtectionPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,15 +126,21 @@ export class DeleteDataProtectionPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDataProtectionPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDataProtectionPolicyCommand(input, context);
+    return se_DeleteDataProtectionPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDataProtectionPolicyCommandOutput> {
-    return deserializeAws_json1_1DeleteDataProtectionPolicyCommand(output, context);
+    return de_DeleteDataProtectionPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

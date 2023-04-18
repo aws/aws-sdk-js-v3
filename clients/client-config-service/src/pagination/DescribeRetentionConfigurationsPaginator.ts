@@ -6,12 +6,11 @@ import {
   DescribeRetentionConfigurationsCommandInput,
   DescribeRetentionConfigurationsCommandOutput,
 } from "../commands/DescribeRetentionConfigurationsCommand";
-import { ConfigService } from "../ConfigService";
 import { ConfigServiceClient } from "../ConfigServiceClient";
 import { ConfigServicePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ConfigServiceClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeRetentionConfigurationsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ConfigService,
-  input: DescribeRetentionConfigurationsCommandInput,
-  ...args: any
-): Promise<DescribeRetentionConfigurationsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeRetentionConfigurations(input, ...args);
-};
 export async function* paginateDescribeRetentionConfigurations(
   config: ConfigServicePaginationConfiguration,
   input: DescribeRetentionConfigurationsCommandInput,
@@ -43,9 +34,7 @@ export async function* paginateDescribeRetentionConfigurations(
   let page: DescribeRetentionConfigurationsCommandOutput;
   while (hasNext) {
     input.NextToken = token;
-    if (config.client instanceof ConfigService) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ConfigServiceClient) {
+    if (config.client instanceof ConfigServiceClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ConfigService | ConfigServiceClient");

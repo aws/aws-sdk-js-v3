@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
+import { DisassociateFromMasterAccountRequest, DisassociateFromMasterAccountResponse } from "../models/models_0";
 import {
-  DisassociateFromMasterAccountRequest,
-  DisassociateFromMasterAccountRequestFilterSensitiveLog,
-  DisassociateFromMasterAccountResponse,
-  DisassociateFromMasterAccountResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateFromMasterAccountCommand,
-  serializeAws_restJson1DisassociateFromMasterAccountCommand,
+  de_DisassociateFromMasterAccountCommand,
+  se_DisassociateFromMasterAccountCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DisassociateFromMasterAccountCommand}.
+ */
 export interface DisassociateFromMasterAccountCommandInput extends DisassociateFromMasterAccountRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateFromMasterAccountCommand}.
+ */
 export interface DisassociateFromMasterAccountCommandOutput
   extends DisassociateFromMasterAccountResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Disassociates the current GuardDuty member account from its administrator account.</p>
@@ -40,13 +46,25 @@ export interface DisassociateFromMasterAccountCommandOutput
  * import { GuardDutyClient, DisassociateFromMasterAccountCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, DisassociateFromMasterAccountCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = { // DisassociateFromMasterAccountRequest
+ *   DetectorId: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateFromMasterAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateFromMasterAccountCommandInput - {@link DisassociateFromMasterAccountCommandInput}
+ * @returns {@link DisassociateFromMasterAccountCommandOutput}
  * @see {@link DisassociateFromMasterAccountCommandInput} for command's `input` shape.
  * @see {@link DisassociateFromMasterAccountCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>A bad request exception object.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>An internal server error exception object.</p>
+ *
  *
  */
 export class DisassociateFromMasterAccountCommand extends $Command<
@@ -66,6 +84,9 @@ export class DisassociateFromMasterAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateFromMasterAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +115,8 @@ export class DisassociateFromMasterAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateFromMasterAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateFromMasterAccountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,15 +126,21 @@ export class DisassociateFromMasterAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateFromMasterAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateFromMasterAccountCommand(input, context);
+    return se_DisassociateFromMasterAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateFromMasterAccountCommandOutput> {
-    return deserializeAws_restJson1DisassociateFromMasterAccountCommand(output, context);
+    return de_DisassociateFromMasterAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateLedgerRequest,
-  CreateLedgerRequestFilterSensitiveLog,
-  CreateLedgerResponse,
-  CreateLedgerResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateLedgerCommand,
-  serializeAws_restJson1CreateLedgerCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateLedgerRequest, CreateLedgerResponse } from "../models/models_0";
+import { de_CreateLedgerCommand, se_CreateLedgerCommand } from "../protocols/Aws_restJson1";
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateLedgerCommand}.
+ */
 export interface CreateLedgerCommandInput extends CreateLedgerRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateLedgerCommand}.
+ */
 export interface CreateLedgerCommandOutput extends CreateLedgerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new ledger in your Amazon Web Services account in the current Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,37 @@ export interface CreateLedgerCommandOutput extends CreateLedgerResponse, __Metad
  * import { QLDBClient, CreateLedgerCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, CreateLedgerCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
  * const client = new QLDBClient(config);
+ * const input = { // CreateLedgerRequest
+ *   Name: "STRING_VALUE", // required
+ *   Tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   PermissionsMode: "STRING_VALUE", // required
+ *   DeletionProtection: true || false,
+ *   KmsKey: "STRING_VALUE",
+ * };
  * const command = new CreateLedgerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLedgerCommandInput - {@link CreateLedgerCommandInput}
+ * @returns {@link CreateLedgerCommandOutput}
  * @see {@link CreateLedgerCommandInput} for command's `input` shape.
  * @see {@link CreateLedgerCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters in the request aren't valid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You have reached the limit on the maximum number of resources allowed.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The specified resource already exists.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource can't be modified at this time.</p>
+ *
  *
  */
 export class CreateLedgerCommand extends $Command<
@@ -62,6 +89,9 @@ export class CreateLedgerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLedgerCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +118,8 @@ export class CreateLedgerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLedgerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLedgerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +129,18 @@ export class CreateLedgerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLedgerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateLedgerCommand(input, context);
+    return se_CreateLedgerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLedgerCommandOutput> {
-    return deserializeAws_restJson1CreateLedgerCommand(output, context);
+    return de_CreateLedgerCommand(output, context);
   }
 
   // Start section: command_body_extra

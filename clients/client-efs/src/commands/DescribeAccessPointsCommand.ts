@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import {
-  DescribeAccessPointsRequest,
-  DescribeAccessPointsRequestFilterSensitiveLog,
-  DescribeAccessPointsResponse,
-  DescribeAccessPointsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeAccessPointsCommand,
-  serializeAws_restJson1DescribeAccessPointsCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeAccessPointsRequest, DescribeAccessPointsResponse } from "../models/models_0";
+import { de_DescribeAccessPointsCommand, se_DescribeAccessPointsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeAccessPointsCommand}.
+ */
 export interface DescribeAccessPointsCommandInput extends DescribeAccessPointsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeAccessPointsCommand}.
+ */
 export interface DescribeAccessPointsCommandOutput extends DescribeAccessPointsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the description of a specific Amazon EFS access point if the <code>AccessPointId</code> is provided.
  *       If you provide an EFS <code>FileSystemId</code>, it returns descriptions of all access points for that file system.
  *       You can provide either an <code>AccessPointId</code> or a <code>FileSystemId</code> in the request, but not both. </p>
@@ -39,13 +42,37 @@ export interface DescribeAccessPointsCommandOutput extends DescribeAccessPointsR
  * import { EFSClient, DescribeAccessPointsCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, DescribeAccessPointsCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
+ * const input = { // DescribeAccessPointsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   AccessPointId: "STRING_VALUE",
+ *   FileSystemId: "STRING_VALUE",
+ * };
  * const command = new DescribeAccessPointsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAccessPointsCommandInput - {@link DescribeAccessPointsCommandInput}
+ * @returns {@link DescribeAccessPointsCommandOutput}
  * @see {@link DescribeAccessPointsCommandInput} for command's `input` shape.
  * @see {@link DescribeAccessPointsCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
+ *
+ * @throws {@link AccessPointNotFound} (client fault)
+ *  <p>Returned if the specified <code>AccessPointId</code> value doesn't exist in the
+ *             requester's Amazon Web Services account.</p>
+ *
+ * @throws {@link BadRequest} (client fault)
+ *  <p>Returned if the request is malformed or contains an error such as an invalid
+ *             parameter value or a missing required parameter.</p>
+ *
+ * @throws {@link FileSystemNotFound} (client fault)
+ *  <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the
+ *             requester's Amazon Web Services account.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Returned if an error occurred on the server side.</p>
+ *
  *
  */
 export class DescribeAccessPointsCommand extends $Command<
@@ -65,6 +92,9 @@ export class DescribeAccessPointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAccessPointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +123,8 @@ export class DescribeAccessPointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAccessPointsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAccessPointsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +134,18 @@ export class DescribeAccessPointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAccessPointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAccessPointsCommand(input, context);
+    return se_DescribeAccessPointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAccessPointsCommandOutput> {
-    return deserializeAws_restJson1DescribeAccessPointsCommand(output, context);
+    return de_DescribeAccessPointsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -6,12 +6,11 @@ import {
   DescribeEventsCommandInput,
   DescribeEventsCommandOutput,
 } from "../commands/DescribeEventsCommand";
-import { DocDB } from "../DocDB";
 import { DocDBClient } from "../DocDBClient";
 import { DocDBPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DocDBClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeEventsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: DocDB,
-  input: DescribeEventsCommandInput,
-  ...args: any
-): Promise<DescribeEventsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeEvents(input, ...args);
-};
 export async function* paginateDescribeEvents(
   config: DocDBPaginationConfiguration,
   input: DescribeEventsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateDescribeEvents(
   while (hasNext) {
     input.Marker = token;
     input["MaxRecords"] = config.pageSize;
-    if (config.client instanceof DocDB) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DocDBClient) {
+    if (config.client instanceof DocDBClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected DocDB | DocDBClient");

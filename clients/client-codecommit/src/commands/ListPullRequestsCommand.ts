@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import {
-  ListPullRequestsInput,
-  ListPullRequestsInputFilterSensitiveLog,
-  ListPullRequestsOutput,
-  ListPullRequestsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListPullRequestsCommand,
-  serializeAws_json1_1ListPullRequestsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListPullRequestsInput, ListPullRequestsOutput } from "../models/models_0";
+import { de_ListPullRequestsCommand, se_ListPullRequestsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListPullRequestsCommand}.
+ */
 export interface ListPullRequestsCommandInput extends ListPullRequestsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListPullRequestsCommand}.
+ */
 export interface ListPullRequestsCommandOutput extends ListPullRequestsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of pull requests for a specified repository. The return list can be refined by pull request
  *         status or pull request author ARN.</p>
  * @example
@@ -37,13 +40,68 @@ export interface ListPullRequestsCommandOutput extends ListPullRequestsOutput, _
  * import { CodeCommitClient, ListPullRequestsCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, ListPullRequestsCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // ListPullRequestsInput
+ *   repositoryName: "STRING_VALUE", // required
+ *   authorArn: "STRING_VALUE",
+ *   pullRequestStatus: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListPullRequestsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPullRequestsCommandInput - {@link ListPullRequestsCommandInput}
+ * @returns {@link ListPullRequestsCommandOutput}
  * @see {@link ListPullRequestsCommandInput} for command's `input` shape.
  * @see {@link ListPullRequestsCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
+ *
+ * @throws {@link AuthorDoesNotExistException} (client fault)
+ *  <p>The specified Amazon Resource Name (ARN) does not exist in the AWS account.</p>
+ *
+ * @throws {@link EncryptionIntegrityChecksFailedException} (server fault)
+ *  <p>An encryption integrity check failed.</p>
+ *
+ * @throws {@link EncryptionKeyAccessDeniedException} (client fault)
+ *  <p>An encryption key could not be accessed.</p>
+ *
+ * @throws {@link EncryptionKeyDisabledException} (client fault)
+ *  <p>The encryption key is disabled.</p>
+ *
+ * @throws {@link EncryptionKeyNotFoundException} (client fault)
+ *  <p>No encryption key was found.</p>
+ *
+ * @throws {@link EncryptionKeyUnavailableException} (client fault)
+ *  <p>The encryption key is not available.</p>
+ *
+ * @throws {@link InvalidAuthorArnException} (client fault)
+ *  <p>The Amazon Resource Name (ARN) is not valid. Make sure that you have provided the full ARN for the author of the pull request, and then try again.</p>
+ *
+ * @throws {@link InvalidContinuationTokenException} (client fault)
+ *  <p>The specified continuation token is not valid.</p>
+ *
+ * @throws {@link InvalidMaxResultsException} (client fault)
+ *  <p>The specified number of maximum results is not valid.</p>
+ *
+ * @throws {@link InvalidPullRequestStatusException} (client fault)
+ *  <p>The pull request status is not valid. The only valid values are <code>OPEN</code> and <code>CLOSED</code>.</p>
+ *
+ * @throws {@link InvalidRepositoryNameException} (client fault)
+ *  <p>A specified repository name is not valid.</p>
+ *
+ *         <note>
+ *             <p>This exception occurs only when a specified repository name is not valid. Other
+ *                 exceptions occur when a required repository parameter is missing, or when a
+ *                 specified repository does not exist.</p>
+ *          </note>
+ *
+ * @throws {@link RepositoryDoesNotExistException} (client fault)
+ *  <p>The specified repository does not exist.</p>
+ *
+ * @throws {@link RepositoryNameRequiredException} (client fault)
+ *  <p>A repository name is required, but was not specified.</p>
+ *
  *
  */
 export class ListPullRequestsCommand extends $Command<
@@ -63,6 +121,9 @@ export class ListPullRequestsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPullRequestsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +152,8 @@ export class ListPullRequestsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPullRequestsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPullRequestsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +163,18 @@ export class ListPullRequestsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPullRequestsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListPullRequestsCommand(input, context);
+    return se_ListPullRequestsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPullRequestsCommandOutput> {
-    return deserializeAws_json1_1ListPullRequestsCommand(output, context);
+    return de_ListPullRequestsCommand(output, context);
   }
 
   // Start section: command_body_extra

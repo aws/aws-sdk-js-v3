@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import {
-  DescribeEndpointTypesMessage,
-  DescribeEndpointTypesMessageFilterSensitiveLog,
-  DescribeEndpointTypesResponse,
-  DescribeEndpointTypesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeEndpointTypesCommand,
-  serializeAws_json1_1DescribeEndpointTypesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeEndpointTypesMessage, DescribeEndpointTypesResponse } from "../models/models_0";
+import { de_DescribeEndpointTypesCommand, se_DescribeEndpointTypesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeEndpointTypesCommand}.
+ */
 export interface DescribeEndpointTypesCommandInput extends DescribeEndpointTypesMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeEndpointTypesCommand}.
+ */
 export interface DescribeEndpointTypesCommandOutput extends DescribeEndpointTypesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the type of endpoints available.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,55 @@ export interface DescribeEndpointTypesCommandOutput extends DescribeEndpointType
  * import { DatabaseMigrationServiceClient, DescribeEndpointTypesCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DescribeEndpointTypesCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // DescribeEndpointTypesMessage
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeEndpointTypesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEndpointTypesCommandInput - {@link DescribeEndpointTypesCommandInput}
+ * @returns {@link DescribeEndpointTypesCommandOutput}
  * @see {@link DescribeEndpointTypesCommandInput} for command's `input` shape.
  * @see {@link DescribeEndpointTypesCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
+ *
+ *
+ * @example Describe endpoint types
+ * ```javascript
+ * // Returns information about the type of endpoints available.
+ * const input = {
+ *   "Filters": [
+ *     {
+ *       "Name": "string",
+ *       "Values": [
+ *         "string",
+ *         "string"
+ *       ]
+ *     }
+ *   ],
+ *   "Marker": "",
+ *   "MaxRecords": 123
+ * };
+ * const command = new DescribeEndpointTypesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Marker": "",
+ *   "SupportedEndpointTypes": []
+ * }
+ * *\/
+ * // example id: describe-endpoint-types-1481754742591
+ * ```
  *
  */
 export class DescribeEndpointTypesCommand extends $Command<
@@ -66,6 +111,9 @@ export class DescribeEndpointTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEndpointTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +142,8 @@ export class DescribeEndpointTypesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEndpointTypesMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEndpointTypesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +153,18 @@ export class DescribeEndpointTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEndpointTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEndpointTypesCommand(input, context);
+    return se_DescribeEndpointTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEndpointTypesCommandOutput> {
-    return deserializeAws_json1_1DescribeEndpointTypesCommand(output, context);
+    return de_DescribeEndpointTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

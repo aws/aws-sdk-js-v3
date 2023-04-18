@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateAssistantAssociationRequest,
-  CreateAssistantAssociationRequestFilterSensitiveLog,
-  CreateAssistantAssociationResponse,
-  CreateAssistantAssociationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateAssistantAssociationCommand,
-  serializeAws_restJson1CreateAssistantAssociationCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateAssistantAssociationRequest, CreateAssistantAssociationResponse } from "../models/models_0";
+import { de_CreateAssistantAssociationCommand, se_CreateAssistantAssociationCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateAssistantAssociationCommand}.
+ */
 export interface CreateAssistantAssociationCommandInput extends CreateAssistantAssociationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateAssistantAssociationCommand}.
+ */
 export interface CreateAssistantAssociationCommandOutput extends CreateAssistantAssociationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an association between an Amazon Connect Wisdom assistant and another resource. Currently, the
  *       only supported association is with a knowledge base. An assistant can have only a single
  *       association.</p>
@@ -38,13 +41,46 @@ export interface CreateAssistantAssociationCommandOutput extends CreateAssistant
  * import { WisdomClient, CreateAssistantAssociationCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, CreateAssistantAssociationCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
+ * const input = { // CreateAssistantAssociationRequest
+ *   assistantId: "STRING_VALUE", // required
+ *   associationType: "STRING_VALUE", // required
+ *   association: { // AssistantAssociationInputData Union: only one key present
+ *     knowledgeBaseId: "STRING_VALUE",
+ *   },
+ *   clientToken: "STRING_VALUE",
+ *   tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateAssistantAssociationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAssistantAssociationCommandInput - {@link CreateAssistantAssociationCommandInput}
+ * @returns {@link CreateAssistantAssociationCommandOutput}
  * @see {@link CreateAssistantAssociationCommandInput} for command's `input` shape.
  * @see {@link CreateAssistantAssociationCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be processed because of conflict in the current state of the
+ *       resource. For example, if you're using a <code>Create</code> API (such as
+ *         <code>CreateAssistant</code>) that accepts name, a conflicting resource (usually with the
+ *       same name) is being created or mutated.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>You've exceeded your service quota. To perform the requested action, remove some of the
+ *       relevant resources, or use service quotas to request a service quota increase.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by a service.</p>
+ *
  *
  */
 export class CreateAssistantAssociationCommand extends $Command<
@@ -64,6 +100,9 @@ export class CreateAssistantAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAssistantAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +131,8 @@ export class CreateAssistantAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAssistantAssociationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAssistantAssociationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +142,21 @@ export class CreateAssistantAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAssistantAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAssistantAssociationCommand(input, context);
+    return se_CreateAssistantAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateAssistantAssociationCommandOutput> {
-    return deserializeAws_restJson1CreateAssistantAssociationCommand(output, context);
+    return de_CreateAssistantAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

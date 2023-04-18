@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTRoboRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTRoboRunnerClient";
-import {
-  ListWorkerFleetsRequest,
-  ListWorkerFleetsRequestFilterSensitiveLog,
-  ListWorkerFleetsResponse,
-  ListWorkerFleetsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListWorkerFleetsCommand,
-  serializeAws_restJson1ListWorkerFleetsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListWorkerFleetsRequest, ListWorkerFleetsResponse } from "../models/models_0";
+import { de_ListWorkerFleetsCommand, se_ListWorkerFleetsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListWorkerFleetsCommand}.
+ */
 export interface ListWorkerFleetsCommandInput extends ListWorkerFleetsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListWorkerFleetsCommand}.
+ */
 export interface ListWorkerFleetsCommandOutput extends ListWorkerFleetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Grants permission to list worker fleets
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,36 @@ export interface ListWorkerFleetsCommandOutput extends ListWorkerFleetsResponse,
  * import { IoTRoboRunnerClient, ListWorkerFleetsCommand } from "@aws-sdk/client-iot-roborunner"; // ES Modules import
  * // const { IoTRoboRunnerClient, ListWorkerFleetsCommand } = require("@aws-sdk/client-iot-roborunner"); // CommonJS import
  * const client = new IoTRoboRunnerClient(config);
+ * const input = { // ListWorkerFleetsRequest
+ *   site: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListWorkerFleetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWorkerFleetsCommandInput - {@link ListWorkerFleetsCommandInput}
+ * @returns {@link ListWorkerFleetsCommandOutput}
  * @see {@link ListWorkerFleetsCommandInput} for command's `input` shape.
  * @see {@link ListWorkerFleetsCommandOutput} for command's `response` shape.
  * @see {@link IoTRoboRunnerClientResolvedConfig | config} for IoTRoboRunnerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *   User does not have sufficient access to perform this action.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  Exception thrown if something goes wrong within the service.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  Exception thrown if a resource referenced in the request doesn't exist.
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  Exception thrown if the api has been called too quickly be the client.
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  Exception thrown if an invalid parameter is provided to an API.
+ *
  *
  */
 export class ListWorkerFleetsCommand extends $Command<
@@ -62,6 +88,9 @@ export class ListWorkerFleetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWorkerFleetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +119,8 @@ export class ListWorkerFleetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListWorkerFleetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListWorkerFleetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +130,18 @@ export class ListWorkerFleetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListWorkerFleetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListWorkerFleetsCommand(input, context);
+    return se_ListWorkerFleetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWorkerFleetsCommandOutput> {
-    return deserializeAws_restJson1ListWorkerFleetsCommand(output, context);
+    return de_ListWorkerFleetsCommand(output, context);
   }
 
   // Start section: command_body_extra

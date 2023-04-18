@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import {
-  GetQueryExecutionInput,
-  GetQueryExecutionInputFilterSensitiveLog,
-  GetQueryExecutionOutput,
-  GetQueryExecutionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetQueryExecutionCommand,
-  serializeAws_json1_1GetQueryExecutionCommand,
-} from "../protocols/Aws_json1_1";
+import { GetQueryExecutionInput, GetQueryExecutionOutput } from "../models/models_0";
+import { de_GetQueryExecutionCommand, se_GetQueryExecutionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetQueryExecutionCommand}.
+ */
 export interface GetQueryExecutionCommandInput extends GetQueryExecutionInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetQueryExecutionCommand}.
+ */
 export interface GetQueryExecutionCommandOutput extends GetQueryExecutionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a single execution of a query if you have access to the
  *             workgroup in which the query ran. Each time a query executes, information about the
  *             query execution is saved with a unique ID.</p>
@@ -38,13 +41,27 @@ export interface GetQueryExecutionCommandOutput extends GetQueryExecutionOutput,
  * import { AthenaClient, GetQueryExecutionCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, GetQueryExecutionCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = { // GetQueryExecutionInput
+ *   QueryExecutionId: "STRING_VALUE", // required
+ * };
  * const command = new GetQueryExecutionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetQueryExecutionCommandInput - {@link GetQueryExecutionCommandInput}
+ * @returns {@link GetQueryExecutionCommandOutput}
  * @see {@link GetQueryExecutionCommandInput} for command's `input` shape.
  * @see {@link GetQueryExecutionCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Indicates a platform issue, which may be due to a transient condition or
+ *             outage.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>Indicates that something is wrong with the input to the request. For example, a
+ *             required parameter may be missing or out of range.</p>
+ *
  *
  */
 export class GetQueryExecutionCommand extends $Command<
@@ -64,6 +81,9 @@ export class GetQueryExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetQueryExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +112,8 @@ export class GetQueryExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetQueryExecutionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetQueryExecutionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +123,18 @@ export class GetQueryExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetQueryExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetQueryExecutionCommand(input, context);
+    return se_GetQueryExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetQueryExecutionCommandOutput> {
-    return deserializeAws_json1_1GetQueryExecutionCommand(output, context);
+    return de_GetQueryExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateFindingAggregatorRequest,
-  CreateFindingAggregatorRequestFilterSensitiveLog,
-  CreateFindingAggregatorResponse,
-  CreateFindingAggregatorResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1CreateFindingAggregatorCommand,
-  serializeAws_restJson1CreateFindingAggregatorCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateFindingAggregatorRequest, CreateFindingAggregatorResponse } from "../models/models_1";
+import { de_CreateFindingAggregatorCommand, se_CreateFindingAggregatorCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateFindingAggregatorCommand}.
+ */
 export interface CreateFindingAggregatorCommandInput extends CreateFindingAggregatorRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateFindingAggregatorCommand}.
+ */
 export interface CreateFindingAggregatorCommandOutput extends CreateFindingAggregatorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used to enable finding aggregation. Must be called from the aggregation Region.</p>
  *          <p>For more details about cross-Region replication, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/finding-aggregation.html">Configuring finding aggregation</a> in the <i>Security Hub User Guide</i>.
  *       </p>
@@ -38,13 +41,39 @@ export interface CreateFindingAggregatorCommandOutput extends CreateFindingAggre
  * import { SecurityHubClient, CreateFindingAggregatorCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, CreateFindingAggregatorCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = { // CreateFindingAggregatorRequest
+ *   RegionLinkingMode: "STRING_VALUE", // required
+ *   Regions: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new CreateFindingAggregatorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFindingAggregatorCommandInput - {@link CreateFindingAggregatorCommandInput}
+ * @returns {@link CreateFindingAggregatorCommandOutput}
  * @see {@link CreateFindingAggregatorCommandInput} for command's `input` shape.
  * @see {@link CreateFindingAggregatorCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have permission to perform the action specified in the request.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>Internal server error.</p>
+ *
+ * @throws {@link InvalidAccessException} (client fault)
+ *  <p>The account doesn't have permission to perform this action.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because you supplied an invalid or out-of-range value for an
+ *          input parameter.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
+ *          account or throttling limits. The error code describes the limit exceeded.</p>
+ *
  *
  */
 export class CreateFindingAggregatorCommand extends $Command<
@@ -64,6 +93,9 @@ export class CreateFindingAggregatorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFindingAggregatorCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +124,8 @@ export class CreateFindingAggregatorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFindingAggregatorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateFindingAggregatorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +135,18 @@ export class CreateFindingAggregatorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFindingAggregatorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateFindingAggregatorCommand(input, context);
+    return se_CreateFindingAggregatorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFindingAggregatorCommandOutput> {
-    return deserializeAws_restJson1CreateFindingAggregatorCommand(output, context);
+    return de_CreateFindingAggregatorCommand(output, context);
   }
 
   // Start section: command_body_extra

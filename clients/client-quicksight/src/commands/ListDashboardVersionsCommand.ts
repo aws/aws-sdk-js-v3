@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListDashboardVersionsRequest,
-  ListDashboardVersionsRequestFilterSensitiveLog,
-  ListDashboardVersionsResponse,
-  ListDashboardVersionsResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1ListDashboardVersionsCommand,
-  serializeAws_restJson1ListDashboardVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListDashboardVersionsRequest, ListDashboardVersionsResponse } from "../models/models_3";
+import { de_ListDashboardVersionsCommand, se_ListDashboardVersionsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListDashboardVersionsCommand}.
+ */
 export interface ListDashboardVersionsCommandInput extends ListDashboardVersionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDashboardVersionsCommand}.
+ */
 export interface ListDashboardVersionsCommandOutput extends ListDashboardVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the versions of the dashboards in the Amazon QuickSight subscription.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,43 @@ export interface ListDashboardVersionsCommandOutput extends ListDashboardVersion
  * import { QuickSightClient, ListDashboardVersionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, ListDashboardVersionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // ListDashboardVersionsRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   DashboardId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListDashboardVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDashboardVersionsCommandInput - {@link ListDashboardVersionsCommandInput}
+ * @returns {@link ListDashboardVersionsCommandOutput}
  * @see {@link ListDashboardVersionsCommandInput} for command's `input` shape.
  * @see {@link ListDashboardVersionsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal failure occurred.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The <code>NextToken</code> value isn't valid.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One or more parameters has a value that isn't valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>One or more resources can't be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Access is throttled.</p>
+ *
+ * @throws {@link UnsupportedUserEditionException} (client fault)
+ *  <p>This error indicates that you are calling an operation on an Amazon QuickSight
+ * 			subscription where the edition doesn't include support for that operation. Amazon
+ * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
+ * 			capability is available in every edition.</p>
+ *
  *
  */
 export class ListDashboardVersionsCommand extends $Command<
@@ -62,6 +95,9 @@ export class ListDashboardVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDashboardVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +126,8 @@ export class ListDashboardVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDashboardVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDashboardVersionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +137,18 @@ export class ListDashboardVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDashboardVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDashboardVersionsCommand(input, context);
+    return se_ListDashboardVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDashboardVersionsCommandOutput> {
-    return deserializeAws_restJson1ListDashboardVersionsCommand(output, context);
+    return de_ListDashboardVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

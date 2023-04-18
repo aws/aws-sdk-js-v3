@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
-import {
-  SampleChannelDataRequest,
-  SampleChannelDataRequestFilterSensitiveLog,
-  SampleChannelDataResponse,
-  SampleChannelDataResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1SampleChannelDataCommand,
-  serializeAws_restJson1SampleChannelDataCommand,
-} from "../protocols/Aws_restJson1";
+import { SampleChannelDataRequest, SampleChannelDataResponse } from "../models/models_0";
+import { de_SampleChannelDataCommand, se_SampleChannelDataCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link SampleChannelDataCommand}.
+ */
 export interface SampleChannelDataCommandInput extends SampleChannelDataRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SampleChannelDataCommand}.
+ */
 export interface SampleChannelDataCommandOutput extends SampleChannelDataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a sample of messages from the specified channel ingested during the specified
  *       timeframe. Up to 10 messages can be retrieved.</p>
  * @example
@@ -37,13 +40,37 @@ export interface SampleChannelDataCommandOutput extends SampleChannelDataRespons
  * import { IoTAnalyticsClient, SampleChannelDataCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, SampleChannelDataCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
+ * const input = { // SampleChannelDataRequest
+ *   channelName: "STRING_VALUE", // required
+ *   maxMessages: Number("int"),
+ *   startTime: new Date("TIMESTAMP"),
+ *   endTime: new Date("TIMESTAMP"),
+ * };
  * const command = new SampleChannelDataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SampleChannelDataCommandInput - {@link SampleChannelDataCommandInput}
+ * @returns {@link SampleChannelDataCommandOutput}
  * @see {@link SampleChannelDataCommandInput} for command's `input` shape.
  * @see {@link SampleChannelDataCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>There was an internal failure.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request was not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource with the specified name could not be found.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
  *
  */
 export class SampleChannelDataCommand extends $Command<
@@ -63,6 +90,9 @@ export class SampleChannelDataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SampleChannelDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +121,8 @@ export class SampleChannelDataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SampleChannelDataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SampleChannelDataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +132,18 @@ export class SampleChannelDataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SampleChannelDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SampleChannelDataCommand(input, context);
+    return se_SampleChannelDataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SampleChannelDataCommandOutput> {
-    return deserializeAws_restJson1SampleChannelDataCommand(output, context);
+    return de_SampleChannelDataCommand(output, context);
   }
 
   // Start section: command_body_extra

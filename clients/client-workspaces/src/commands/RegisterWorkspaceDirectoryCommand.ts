@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RegisterWorkspaceDirectoryRequest,
-  RegisterWorkspaceDirectoryRequestFilterSensitiveLog,
-  RegisterWorkspaceDirectoryResult,
-  RegisterWorkspaceDirectoryResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RegisterWorkspaceDirectoryCommand,
-  serializeAws_json1_1RegisterWorkspaceDirectoryCommand,
-} from "../protocols/Aws_json1_1";
+import { RegisterWorkspaceDirectoryRequest, RegisterWorkspaceDirectoryResult } from "../models/models_0";
+import { de_RegisterWorkspaceDirectoryCommand, se_RegisterWorkspaceDirectoryCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * @public
+ *
+ * The input for {@link RegisterWorkspaceDirectoryCommand}.
+ */
 export interface RegisterWorkspaceDirectoryCommandInput extends RegisterWorkspaceDirectoryRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RegisterWorkspaceDirectoryCommand}.
+ */
 export interface RegisterWorkspaceDirectoryCommandOutput extends RegisterWorkspaceDirectoryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers the specified directory. This operation is asynchronous and returns before the
  *          WorkSpace directory is registered. If this is the first time you are registering a
  *          directory, you will need to create the workspaces_DefaultRole role before you can register
@@ -40,13 +43,59 @@ export interface RegisterWorkspaceDirectoryCommandOutput extends RegisterWorkspa
  * import { WorkSpacesClient, RegisterWorkspaceDirectoryCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, RegisterWorkspaceDirectoryCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // RegisterWorkspaceDirectoryRequest
+ *   DirectoryId: "STRING_VALUE", // required
+ *   SubnetIds: [ // SubnetIds
+ *     "STRING_VALUE",
+ *   ],
+ *   EnableWorkDocs: true || false, // required
+ *   EnableSelfService: true || false,
+ *   Tenancy: "DEDICATED" || "SHARED",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new RegisterWorkspaceDirectoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterWorkspaceDirectoryCommandInput - {@link RegisterWorkspaceDirectoryCommandInput}
+ * @returns {@link RegisterWorkspaceDirectoryCommandOutput}
  * @see {@link RegisterWorkspaceDirectoryCommandInput} for command's `input` shape.
  * @see {@link RegisterWorkspaceDirectoryCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The user is not authorized to access a resource.</p>
+ *
+ * @throws {@link InvalidParameterValuesException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ * @throws {@link InvalidResourceStateException} (client fault)
+ *  <p>The state of the resource is not valid for this operation.</p>
+ *
+ * @throws {@link OperationNotSupportedException} (client fault)
+ *  <p>This operation is not supported.</p>
+ *
+ * @throws {@link ResourceLimitExceededException} (client fault)
+ *  <p>Your resource limits have been exceeded.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link UnsupportedNetworkConfigurationException} (client fault)
+ *  <p>The configuration of this network is not supported for this operation, or your network configuration
+ *          conflicts with the Amazon WorkSpaces management network IP range. For more information, see
+ *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-vpc.html">
+ *             Configure a VPC for Amazon WorkSpaces</a>.</p>
+ *
+ * @throws {@link WorkspacesDefaultRoleNotFoundException} (client fault)
+ *  <p>The workspaces_DefaultRole role could not be found. If this is the first time you are registering a directory, you
+ *          will need to create the workspaces_DefaultRole role before you can register a directory. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role">Creating the workspaces_DefaultRole Role</a>.</p>
+ *
  *
  */
 export class RegisterWorkspaceDirectoryCommand extends $Command<
@@ -66,6 +115,9 @@ export class RegisterWorkspaceDirectoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterWorkspaceDirectoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +146,8 @@ export class RegisterWorkspaceDirectoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterWorkspaceDirectoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterWorkspaceDirectoryResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,15 +157,21 @@ export class RegisterWorkspaceDirectoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterWorkspaceDirectoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterWorkspaceDirectoryCommand(input, context);
+    return se_RegisterWorkspaceDirectoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RegisterWorkspaceDirectoryCommandOutput> {
-    return deserializeAws_json1_1RegisterWorkspaceDirectoryCommand(output, context);
+    return de_RegisterWorkspaceDirectoryCommand(output, context);
   }
 
   // Start section: command_body_extra

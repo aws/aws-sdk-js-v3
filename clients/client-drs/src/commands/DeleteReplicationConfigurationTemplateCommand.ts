@@ -16,22 +16,31 @@ import {
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
 import {
   DeleteReplicationConfigurationTemplateRequest,
-  DeleteReplicationConfigurationTemplateRequestFilterSensitiveLog,
   DeleteReplicationConfigurationTemplateResponse,
-  DeleteReplicationConfigurationTemplateResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteReplicationConfigurationTemplateCommand,
-  serializeAws_restJson1DeleteReplicationConfigurationTemplateCommand,
+  de_DeleteReplicationConfigurationTemplateCommand,
+  se_DeleteReplicationConfigurationTemplateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteReplicationConfigurationTemplateCommand}.
+ */
 export interface DeleteReplicationConfigurationTemplateCommandInput
   extends DeleteReplicationConfigurationTemplateRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteReplicationConfigurationTemplateCommand}.
+ */
 export interface DeleteReplicationConfigurationTemplateCommandOutput
   extends DeleteReplicationConfigurationTemplateResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a single Replication Configuration Template by ID</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +48,34 @@ export interface DeleteReplicationConfigurationTemplateCommandOutput
  * import { DrsClient, DeleteReplicationConfigurationTemplateCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, DeleteReplicationConfigurationTemplateCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
+ * const input = { // DeleteReplicationConfigurationTemplateRequest
+ *   replicationConfigurationTemplateID: "STRING_VALUE", // required
+ * };
  * const command = new DeleteReplicationConfigurationTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteReplicationConfigurationTemplateCommandInput - {@link DeleteReplicationConfigurationTemplateCommandInput}
+ * @returns {@link DeleteReplicationConfigurationTemplateCommandOutput}
  * @see {@link DeleteReplicationConfigurationTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteReplicationConfigurationTemplateCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource for this operation was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link UninitializedAccountException} (client fault)
+ *  <p>The account performing the request has not been initialized.</p>
+ *
  *
  */
 export class DeleteReplicationConfigurationTemplateCommand extends $Command<
@@ -65,6 +95,9 @@ export class DeleteReplicationConfigurationTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteReplicationConfigurationTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +126,8 @@ export class DeleteReplicationConfigurationTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteReplicationConfigurationTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteReplicationConfigurationTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,18 +137,24 @@ export class DeleteReplicationConfigurationTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteReplicationConfigurationTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteReplicationConfigurationTemplateCommand(input, context);
+    return se_DeleteReplicationConfigurationTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteReplicationConfigurationTemplateCommandOutput> {
-    return deserializeAws_restJson1DeleteReplicationConfigurationTemplateCommand(output, context);
+    return de_DeleteReplicationConfigurationTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

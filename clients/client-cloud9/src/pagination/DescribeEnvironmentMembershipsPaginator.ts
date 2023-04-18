@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { Cloud9 } from "../Cloud9";
 import { Cloud9Client } from "../Cloud9Client";
 import {
   DescribeEnvironmentMembershipsCommand,
@@ -11,7 +10,7 @@ import {
 import { Cloud9PaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: Cloud9Client,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeEnvironmentMembershipsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Cloud9,
-  input: DescribeEnvironmentMembershipsCommandInput,
-  ...args: any
-): Promise<DescribeEnvironmentMembershipsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeEnvironmentMemberships(input, ...args);
-};
 export async function* paginateDescribeEnvironmentMemberships(
   config: Cloud9PaginationConfiguration,
   input: DescribeEnvironmentMembershipsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateDescribeEnvironmentMemberships(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Cloud9) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof Cloud9Client) {
+    if (config.client instanceof Cloud9Client) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Cloud9 | Cloud9Client");

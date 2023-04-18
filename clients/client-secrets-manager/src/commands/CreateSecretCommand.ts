@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateSecretRequest,
-  CreateSecretRequestFilterSensitiveLog,
-  CreateSecretResponse,
-  CreateSecretResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateSecretCommand,
-  serializeAws_json1_1CreateSecretCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateSecretRequest, CreateSecretRequestFilterSensitiveLog, CreateSecretResponse } from "../models/models_0";
+import { de_CreateSecretCommand, se_CreateSecretCommand } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateSecretCommand}.
+ */
 export interface CreateSecretCommandInput extends CreateSecretRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateSecretCommand}.
+ */
 export interface CreateSecretCommandOutput extends CreateSecretResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new secret. A <i>secret</i> can be a password, a set of
  *       credentials such as a user name and password, an OAuth token, or other secret information
  *       that you store in an encrypted form in Secrets Manager. The secret also
@@ -71,13 +74,105 @@ export interface CreateSecretCommandOutput extends CreateSecretResponse, __Metad
  * import { SecretsManagerClient, CreateSecretCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, CreateSecretCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
  * const client = new SecretsManagerClient(config);
+ * const input = { // CreateSecretRequest
+ *   Name: "STRING_VALUE", // required
+ *   ClientRequestToken: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   KmsKeyId: "STRING_VALUE",
+ *   SecretBinary: "BLOB_VALUE",
+ *   SecretString: "STRING_VALUE",
+ *   Tags: [ // TagListType
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   AddReplicaRegions: [ // AddReplicaRegionListType
+ *     { // ReplicaRegionType
+ *       Region: "STRING_VALUE",
+ *       KmsKeyId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   ForceOverwriteReplicaSecret: true || false,
+ * };
  * const command = new CreateSecretCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSecretCommandInput - {@link CreateSecretCommandInput}
+ * @returns {@link CreateSecretCommandOutput}
  * @see {@link CreateSecretCommandInput} for command's `input` shape.
  * @see {@link CreateSecretCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
+ *
+ * @throws {@link DecryptionFailure} (client fault)
+ *  <p>Secrets Manager can't decrypt the protected secret text using the provided KMS key. </p>
+ *
+ * @throws {@link EncryptionFailure} (client fault)
+ *  <p>Secrets Manager can't encrypt the protected secret text using the provided KMS key. Check that the
+ *       KMS key is available, enabled, and not in an invalid state. For more
+ *       information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key state: Effect on your KMS key</a>.</p>
+ *
+ * @throws {@link InternalServiceError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The parameter name or value is invalid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>A parameter value is not valid for the current state of the
+ *       resource.</p>
+ *          <p>Possible causes:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The secret is scheduled for deletion.</p>
+ *             </li>
+ *             <li>
+ *                <p>You tried to enable rotation on a secret that doesn't already have a Lambda function
+ *           ARN configured and you didn't include such an ARN as a parameter in this call. </p>
+ *             </li>
+ *             <li>
+ *                <p>The secret is managed by another service, and you must use that service to update it.
+ *           For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html">Secrets managed by other Amazon Web Services services</a>.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request failed because it would exceed one of the Secrets Manager quotas.</p>
+ *
+ * @throws {@link MalformedPolicyDocumentException} (client fault)
+ *  <p>The resource policy has syntax errors.</p>
+ *
+ * @throws {@link PreconditionNotMetException} (client fault)
+ *  <p>The request failed because you did not complete all the prerequisite steps.</p>
+ *
+ * @throws {@link ResourceExistsException} (client fault)
+ *  <p>A resource with the ID you requested already exists.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Secrets Manager can't find the resource that you asked for.</p>
+ *
+ *
+ * @example To create a basic secret
+ * ```javascript
+ * // The following example shows how to create a secret. The credentials stored in the encrypted secret value are retrieved from a file on disk named mycreds.json.
+ * const input = {
+ *   "ClientRequestToken": "EXAMPLE1-90ab-cdef-fedc-ba987SECRET1",
+ *   "Description": "My test database secret created with the CLI",
+ *   "Name": "MyTestDatabaseSecret",
+ *   "SecretString": "{\"username\":\"david\",\"password\":\"EXAMPLE-PASSWORD\"}"
+ * };
+ * const command = new CreateSecretCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ARN": "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
+ *   "Name": "MyTestDatabaseSecret",
+ *   "VersionId": "EXAMPLE1-90ab-cdef-fedc-ba987SECRET1"
+ * }
+ * *\/
+ * // example id: to-create-a-basic-secret-1523996473658
+ * ```
  *
  */
 export class CreateSecretCommand extends $Command<
@@ -97,6 +192,9 @@ export class CreateSecretCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSecretCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,7 +222,7 @@ export class CreateSecretCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateSecretRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSecretResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +232,18 @@ export class CreateSecretCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSecretCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateSecretCommand(input, context);
+    return se_CreateSecretCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSecretCommandOutput> {
-    return deserializeAws_json1_1CreateSecretCommand(output, context);
+    return de_CreateSecretCommand(output, context);
   }
 
   // Start section: command_body_extra

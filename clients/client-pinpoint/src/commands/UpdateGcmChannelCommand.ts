@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateGcmChannelRequest,
-  UpdateGcmChannelRequestFilterSensitiveLog,
-  UpdateGcmChannelResponse,
-  UpdateGcmChannelResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { UpdateGcmChannelRequest, UpdateGcmChannelResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1UpdateGcmChannelCommand,
-  serializeAws_restJson1UpdateGcmChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateGcmChannelCommand, se_UpdateGcmChannelCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateGcmChannelCommand}.
+ */
 export interface UpdateGcmChannelCommandInput extends UpdateGcmChannelRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateGcmChannelCommand}.
+ */
 export interface UpdateGcmChannelCommandOutput extends UpdateGcmChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables the GCM channel for an application or updates the status and settings of the GCM channel for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,44 @@ export interface UpdateGcmChannelCommandOutput extends UpdateGcmChannelResponse,
  * import { PinpointClient, UpdateGcmChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, UpdateGcmChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // UpdateGcmChannelRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   GCMChannelRequest: { // GCMChannelRequest
+ *     ApiKey: "STRING_VALUE", // required
+ *     Enabled: true || false,
+ *   },
+ * };
  * const command = new UpdateGcmChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateGcmChannelCommandInput - {@link UpdateGcmChannelCommandInput}
+ * @returns {@link UpdateGcmChannelCommandOutput}
  * @see {@link UpdateGcmChannelCommandInput} for command's `input` shape.
  * @see {@link UpdateGcmChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link MethodNotAllowedException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link PayloadTooLargeException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
  *
  */
 export class UpdateGcmChannelCommand extends $Command<
@@ -62,6 +96,9 @@ export class UpdateGcmChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateGcmChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +127,8 @@ export class UpdateGcmChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateGcmChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateGcmChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +138,18 @@ export class UpdateGcmChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateGcmChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateGcmChannelCommand(input, context);
+    return se_UpdateGcmChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGcmChannelCommandOutput> {
-    return deserializeAws_restJson1UpdateGcmChannelCommand(output, context);
+    return de_UpdateGcmChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetServiceGraphRequest,
-  GetServiceGraphRequestFilterSensitiveLog,
-  GetServiceGraphResult,
-  GetServiceGraphResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetServiceGraphCommand,
-  serializeAws_restJson1GetServiceGraphCommand,
-} from "../protocols/Aws_restJson1";
+import { GetServiceGraphRequest, GetServiceGraphResult } from "../models/models_0";
+import { de_GetServiceGraphCommand, se_GetServiceGraphCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetServiceGraphCommand}.
+ */
 export interface GetServiceGraphCommandInput extends GetServiceGraphRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetServiceGraphCommand}.
+ */
 export interface GetServiceGraphCommandOutput extends GetServiceGraphResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a document that describes services that process incoming requests, and
  *       downstream services that they call as a result. Root services process incoming requests and
  *       make calls to downstream services. Root services are applications that use the <a href="https://docs.aws.amazon.com/xray/index.html">Amazon Web Services X-Ray SDK</a>.
@@ -40,13 +43,29 @@ export interface GetServiceGraphCommandOutput extends GetServiceGraphResult, __M
  * import { XRayClient, GetServiceGraphCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, GetServiceGraphCommand } = require("@aws-sdk/client-xray"); // CommonJS import
  * const client = new XRayClient(config);
+ * const input = { // GetServiceGraphRequest
+ *   StartTime: new Date("TIMESTAMP"), // required
+ *   EndTime: new Date("TIMESTAMP"), // required
+ *   GroupName: "STRING_VALUE",
+ *   GroupARN: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetServiceGraphCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetServiceGraphCommandInput - {@link GetServiceGraphCommandInput}
+ * @returns {@link GetServiceGraphCommandOutput}
  * @see {@link GetServiceGraphCommandInput} for command's `input` shape.
  * @see {@link GetServiceGraphCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is missing required parameters or has invalid parameters.</p>
+ *
+ * @throws {@link ThrottledException} (client fault)
+ *  <p>The request exceeds the maximum number of requests per second.</p>
+ *
  *
  */
 export class GetServiceGraphCommand extends $Command<
@@ -66,6 +85,9 @@ export class GetServiceGraphCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetServiceGraphCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +116,8 @@ export class GetServiceGraphCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetServiceGraphRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetServiceGraphResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +127,18 @@ export class GetServiceGraphCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetServiceGraphCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetServiceGraphCommand(input, context);
+    return se_GetServiceGraphCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetServiceGraphCommandOutput> {
-    return deserializeAws_restJson1GetServiceGraphCommand(output, context);
+    return de_GetServiceGraphCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -21,16 +21,27 @@ import {
   RegisterAppInstanceUserEndpointResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1RegisterAppInstanceUserEndpointCommand,
-  serializeAws_restJson1RegisterAppInstanceUserEndpointCommand,
+  de_RegisterAppInstanceUserEndpointCommand,
+  se_RegisterAppInstanceUserEndpointCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link RegisterAppInstanceUserEndpointCommand}.
+ */
 export interface RegisterAppInstanceUserEndpointCommandInput extends RegisterAppInstanceUserEndpointRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RegisterAppInstanceUserEndpointCommand}.
+ */
 export interface RegisterAppInstanceUserEndpointCommandOutput
   extends RegisterAppInstanceUserEndpointResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers an endpoint under an Amazon Chime <code>AppInstanceUser</code>. The endpoint receives messages for a user. For push notifications, the endpoint is a mobile device used to receive mobile push notifications for a user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +49,53 @@ export interface RegisterAppInstanceUserEndpointCommandOutput
  * import { ChimeSDKIdentityClient, RegisterAppInstanceUserEndpointCommand } from "@aws-sdk/client-chime-sdk-identity"; // ES Modules import
  * // const { ChimeSDKIdentityClient, RegisterAppInstanceUserEndpointCommand } = require("@aws-sdk/client-chime-sdk-identity"); // CommonJS import
  * const client = new ChimeSDKIdentityClient(config);
+ * const input = { // RegisterAppInstanceUserEndpointRequest
+ *   AppInstanceUserArn: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Type: "APNS" || "APNS_SANDBOX" || "GCM", // required
+ *   ResourceArn: "STRING_VALUE", // required
+ *   EndpointAttributes: { // EndpointAttributes
+ *     DeviceToken: "STRING_VALUE", // required
+ *     VoipDeviceToken: "STRING_VALUE",
+ *   },
+ *   ClientRequestToken: "STRING_VALUE", // required
+ *   AllowMessages: "ALL" || "NONE",
+ * };
  * const command = new RegisterAppInstanceUserEndpointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterAppInstanceUserEndpointCommandInput - {@link RegisterAppInstanceUserEndpointCommandInput}
+ * @returns {@link RegisterAppInstanceUserEndpointCommandOutput}
  * @see {@link RegisterAppInstanceUserEndpointCommandInput} for command's `input` shape.
  * @see {@link RegisterAppInstanceUserEndpointCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for ChimeSDKIdentityClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be processed because of conflict in the current state of the
+ *          resource.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link ResourceLimitExceededException} (client fault)
+ *  <p>The request exceeds the resource limit.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The client exceeded its request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client is not currently authorized to make the request.</p>
+ *
  *
  */
 export class RegisterAppInstanceUserEndpointCommand extends $Command<
@@ -64,6 +115,9 @@ export class RegisterAppInstanceUserEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterAppInstanceUserEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,18 +157,24 @@ export class RegisterAppInstanceUserEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RegisterAppInstanceUserEndpointCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1RegisterAppInstanceUserEndpointCommand(input, context);
+    return se_RegisterAppInstanceUserEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RegisterAppInstanceUserEndpointCommandOutput> {
-    return deserializeAws_restJson1RegisterAppInstanceUserEndpointCommand(output, context);
+    return de_RegisterAppInstanceUserEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

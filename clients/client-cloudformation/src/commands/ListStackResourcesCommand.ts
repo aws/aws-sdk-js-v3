@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  ListStackResourcesInput,
-  ListStackResourcesInputFilterSensitiveLog,
-  ListStackResourcesOutput,
-  ListStackResourcesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryListStackResourcesCommand,
-  serializeAws_queryListStackResourcesCommand,
-} from "../protocols/Aws_query";
+import { ListStackResourcesInput, ListStackResourcesOutput } from "../models/models_0";
+import { de_ListStackResourcesCommand, se_ListStackResourcesCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link ListStackResourcesCommand}.
+ */
 export interface ListStackResourcesCommandInput extends ListStackResourcesInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListStackResourcesCommand}.
+ */
 export interface ListStackResourcesCommandOutput extends ListStackResourcesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns descriptions of all resources of the specified stack.</p>
  *          <p>For deleted stacks, ListStackResources returns resource information for up to 90 days
  *          after the stack has been deleted.</p>
@@ -38,13 +41,20 @@ export interface ListStackResourcesCommandOutput extends ListStackResourcesOutpu
  * import { CloudFormationClient, ListStackResourcesCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, ListStackResourcesCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // ListStackResourcesInput
+ *   StackName: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListStackResourcesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStackResourcesCommandInput - {@link ListStackResourcesCommandInput}
+ * @returns {@link ListStackResourcesCommandOutput}
  * @see {@link ListStackResourcesCommandInput} for command's `input` shape.
  * @see {@link ListStackResourcesCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
+ *
  *
  */
 export class ListStackResourcesCommand extends $Command<
@@ -64,6 +74,9 @@ export class ListStackResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStackResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +105,8 @@ export class ListStackResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListStackResourcesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListStackResourcesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +116,18 @@ export class ListStackResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStackResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListStackResourcesCommand(input, context);
+    return se_ListStackResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStackResourcesCommandOutput> {
-    return deserializeAws_queryListStackResourcesCommand(output, context);
+    return de_ListStackResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AssumeImpersonationRoleRequest,
-  AssumeImpersonationRoleRequestFilterSensitiveLog,
-  AssumeImpersonationRoleResponse,
-  AssumeImpersonationRoleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AssumeImpersonationRoleCommand,
-  serializeAws_json1_1AssumeImpersonationRoleCommand,
-} from "../protocols/Aws_json1_1";
+import { AssumeImpersonationRoleRequest, AssumeImpersonationRoleResponse } from "../models/models_0";
+import { de_AssumeImpersonationRoleCommand, se_AssumeImpersonationRoleCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * @public
+ *
+ * The input for {@link AssumeImpersonationRoleCommand}.
+ */
 export interface AssumeImpersonationRoleCommandInput extends AssumeImpersonationRoleRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AssumeImpersonationRoleCommand}.
+ */
 export interface AssumeImpersonationRoleCommandOutput extends AssumeImpersonationRoleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Assumes an impersonation role for the given WorkMail organization. This method returns an
  *          authentication token you can use to make impersonated calls.</p>
  * @example
@@ -37,13 +40,34 @@ export interface AssumeImpersonationRoleCommandOutput extends AssumeImpersonatio
  * import { WorkMailClient, AssumeImpersonationRoleCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, AssumeImpersonationRoleCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = { // AssumeImpersonationRoleRequest
+ *   OrganizationId: "STRING_VALUE", // required
+ *   ImpersonationRoleId: "STRING_VALUE", // required
+ * };
  * const command = new AssumeImpersonationRoleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssumeImpersonationRoleCommandInput - {@link AssumeImpersonationRoleCommandInput}
+ * @returns {@link AssumeImpersonationRoleCommandOutput}
  * @see {@link AssumeImpersonationRoleCommandInput} for command's `input` shape.
  * @see {@link AssumeImpersonationRoleCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link OrganizationNotFoundException} (client fault)
+ *  <p>An operation received a valid organization identifier that either doesn't belong or
+ *          exist in the system.</p>
+ *
+ * @throws {@link OrganizationStateException} (client fault)
+ *  <p>The organization must have a valid state to perform certain
+ *          operations on the organization or its members.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource cannot be found.</p>
+ *
  *
  */
 export class AssumeImpersonationRoleCommand extends $Command<
@@ -63,6 +87,9 @@ export class AssumeImpersonationRoleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssumeImpersonationRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +118,8 @@ export class AssumeImpersonationRoleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssumeImpersonationRoleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssumeImpersonationRoleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +129,18 @@ export class AssumeImpersonationRoleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssumeImpersonationRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssumeImpersonationRoleCommand(input, context);
+    return se_AssumeImpersonationRoleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssumeImpersonationRoleCommandOutput> {
-    return deserializeAws_json1_1AssumeImpersonationRoleCommand(output, context);
+    return de_AssumeImpersonationRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

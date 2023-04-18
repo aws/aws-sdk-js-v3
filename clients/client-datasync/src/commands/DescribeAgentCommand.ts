@@ -14,37 +14,50 @@ import {
 } from "@aws-sdk/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import {
-  DescribeAgentRequest,
-  DescribeAgentRequestFilterSensitiveLog,
-  DescribeAgentResponse,
-  DescribeAgentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeAgentCommand,
-  serializeAws_json1_1DescribeAgentCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeAgentRequest, DescribeAgentResponse } from "../models/models_0";
+import { de_DescribeAgentCommand, se_DescribeAgentCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeAgentCommand}.
+ */
 export interface DescribeAgentCommandInput extends DescribeAgentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeAgentCommand}.
+ */
 export interface DescribeAgentCommandOutput extends DescribeAgentResponse, __MetadataBearer {}
 
 /**
- * <p>Returns metadata such as the name, the network interfaces, and the status (that is,
- *       whether the agent is running or not) for an agent. To specify which agent to describe, use the
- *       Amazon Resource Name (ARN) of the agent in your request. </p>
+ * @public
+ * <p>Returns metadata about an DataSync agent, such as its name, endpoint type, and status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataSyncClient, DescribeAgentCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, DescribeAgentCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = { // DescribeAgentRequest
+ *   AgentArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeAgentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAgentCommandInput - {@link DescribeAgentCommandInput}
+ * @returns {@link DescribeAgentCommandOutput}
  * @see {@link DescribeAgentCommandInput} for command's `input` shape.
  * @see {@link DescribeAgentCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception is thrown when an error occurs in the DataSync service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
  *
  */
 export class DescribeAgentCommand extends $Command<
@@ -64,6 +77,9 @@ export class DescribeAgentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAgentCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +106,8 @@ export class DescribeAgentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAgentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAgentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +117,18 @@ export class DescribeAgentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAgentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAgentCommand(input, context);
+    return se_DescribeAgentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAgentCommandOutput> {
-    return deserializeAws_json1_1DescribeAgentCommand(output, context);
+    return de_DescribeAgentCommand(output, context);
   }
 
   // Start section: command_body_extra

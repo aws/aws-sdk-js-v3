@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import {
-  ImportKeyMaterialRequest,
-  ImportKeyMaterialRequestFilterSensitiveLog,
-  ImportKeyMaterialResponse,
-  ImportKeyMaterialResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ImportKeyMaterialCommand,
-  serializeAws_json1_1ImportKeyMaterialCommand,
-} from "../protocols/Aws_json1_1";
+import { ImportKeyMaterialRequest, ImportKeyMaterialResponse } from "../models/models_0";
+import { de_ImportKeyMaterialCommand, se_ImportKeyMaterialCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ImportKeyMaterialCommand}.
+ */
 export interface ImportKeyMaterialCommandInput extends ImportKeyMaterialRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ImportKeyMaterialCommand}.
+ */
 export interface ImportKeyMaterialCommandOutput extends ImportKeyMaterialResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Imports key material into an existing symmetric encryption KMS key that was created
  *       without key material. After you successfully import key material into a KMS key, you can
  *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html#reimport-key-material">reimport the same key material</a> into that KMS key, but you cannot import different
@@ -76,7 +79,6 @@ export interface ImportKeyMaterialCommandOutput extends ImportKeyMaterialRespons
  * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
  *             <b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a different Amazon Web Services account.</p>
- *
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ImportKeyMaterial</a> (key policy)</p>
  *          <p>
@@ -100,13 +102,95 @@ export interface ImportKeyMaterialCommandOutput extends ImportKeyMaterialRespons
  * import { KMSClient, ImportKeyMaterialCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, ImportKeyMaterialCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // ImportKeyMaterialRequest
+ *   KeyId: "STRING_VALUE", // required
+ *   ImportToken: "BLOB_VALUE", // required
+ *   EncryptedKeyMaterial: "BLOB_VALUE", // required
+ *   ValidTo: new Date("TIMESTAMP"),
+ *   ExpirationModel: "KEY_MATERIAL_EXPIRES" || "KEY_MATERIAL_DOES_NOT_EXPIRE",
+ * };
  * const command = new ImportKeyMaterialCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportKeyMaterialCommandInput - {@link ImportKeyMaterialCommandInput}
+ * @returns {@link ImportKeyMaterialCommandOutput}
  * @see {@link ImportKeyMaterialCommandInput} for command's `input` shape.
  * @see {@link ImportKeyMaterialCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
+ *
+ * @throws {@link DependencyTimeoutException} (server fault)
+ *  <p>The system timed out while trying to fulfill the request. You can retry the
+ *       request.</p>
+ *
+ * @throws {@link ExpiredImportTokenException} (client fault)
+ *  <p>The request was rejected because the specified import token is expired. Use <a>GetParametersForImport</a> to get a new import token and public key, use the new
+ *       public key to encrypt the key material, and then try the request again.</p>
+ *
+ * @throws {@link IncorrectKeyMaterialException} (client fault)
+ *  <p>The request was rejected because the key material in the request is, expired, invalid, or
+ *       is not the same key material that was previously imported into this KMS key.</p>
+ *
+ * @throws {@link InvalidArnException} (client fault)
+ *  <p>The request was rejected because a specified ARN, or an ARN in a key policy, is not
+ *       valid.</p>
+ *
+ * @throws {@link InvalidCiphertextException} (client fault)
+ *  <p>From the <a>Decrypt</a> or <a>ReEncrypt</a> operation, the request
+ *       was rejected because the specified ciphertext, or additional authenticated data incorporated
+ *       into the ciphertext, such as the encryption context, is corrupted, missing, or otherwise
+ *       invalid.</p>
+ *          <p>From the <a>ImportKeyMaterial</a> operation, the request was rejected because
+ *       KMS could not decrypt the encrypted (wrapped) key material. </p>
+ *
+ * @throws {@link InvalidImportTokenException} (client fault)
+ *  <p>The request was rejected because the provided import token is invalid or is associated
+ *       with a different KMS key.</p>
+ *
+ * @throws {@link KMSInternalException} (server fault)
+ *  <p>The request was rejected because an internal exception occurred. The request can be
+ *       retried.</p>
+ *
+ * @throws {@link KMSInvalidStateException} (client fault)
+ *  <p>The request was rejected because the state of the specified resource is not valid for this
+ *       request.</p>
+ *          <p>This exceptions means one of the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The key state of the KMS key is not compatible with the operation. </p>
+ *                <p>To find the key state, use the <a>DescribeKey</a> operation. For more
+ *           information about which key states are compatible with each KMS operation, see
+ *           <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>
+ *                      <i>Key Management Service Developer Guide</i>
+ *                   </i>.</p>
+ *             </li>
+ *             <li>
+ *                <p>For cryptographic operations on KMS keys in custom key stores, this exception represents a general failure with many possible causes. To identify the cause, see the error message that accompanies the exception.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The request was rejected because the specified entity or resource could not be
+ *       found.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>The request was rejected because a specified parameter is not supported or a specified
+ *       resource is not valid for this operation.</p>
+ *
+ *
+ * @example To import key material into a KMS key
+ * ```javascript
+ * // The following example imports key material into the specified KMS key.
+ * const input = {
+ *   "EncryptedKeyMaterial": "<binary data>",
+ *   "ExpirationModel": "KEY_MATERIAL_DOES_NOT_EXPIRE",
+ *   "ImportToken": "<binary data>",
+ *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
+ * };
+ * const command = new ImportKeyMaterialCommand(input);
+ * await client.send(command);
+ * // example id: to-import-key-material-into-a-cmk-1480630551969
+ * ```
  *
  */
 export class ImportKeyMaterialCommand extends $Command<
@@ -126,6 +210,9 @@ export class ImportKeyMaterialCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportKeyMaterialCommandInput) {
     // Start section: command_constructor
     super();
@@ -154,8 +241,8 @@ export class ImportKeyMaterialCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ImportKeyMaterialRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ImportKeyMaterialResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -165,12 +252,18 @@ export class ImportKeyMaterialCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportKeyMaterialCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ImportKeyMaterialCommand(input, context);
+    return se_ImportKeyMaterialCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportKeyMaterialCommandOutput> {
-    return deserializeAws_json1_1ImportKeyMaterialCommand(output, context);
+    return de_ImportKeyMaterialCommand(output, context);
   }
 
   // Start section: command_body_extra

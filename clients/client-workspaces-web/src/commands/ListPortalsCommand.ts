@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListPortalsRequest,
-  ListPortalsRequestFilterSensitiveLog,
-  ListPortalsResponse,
-  ListPortalsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListPortalsCommand,
-  serializeAws_restJson1ListPortalsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListPortalsRequest, ListPortalsResponse, ListPortalsResponseFilterSensitiveLog } from "../models/models_0";
+import { de_ListPortalsCommand, se_ListPortalsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListPortalsCommand}.
+ */
 export interface ListPortalsCommandInput extends ListPortalsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListPortalsCommand}.
+ */
 export interface ListPortalsCommandOutput extends ListPortalsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list or web portals.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,32 @@ export interface ListPortalsCommandOutput extends ListPortalsResponse, __Metadat
  * import { WorkSpacesWebClient, ListPortalsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, ListPortalsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = { // ListPortalsRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListPortalsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPortalsCommandInput - {@link ListPortalsCommandInput}
+ * @returns {@link ListPortalsCommandOutput}
  * @see {@link ListPortalsCommandInput} for command's `input` shape.
  * @see {@link ListPortalsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access is denied.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There is an internal server error.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>There is a throttling error.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There is a validation error.</p>
+ *
  *
  */
 export class ListPortalsCommand extends $Command<
@@ -62,6 +84,9 @@ export class ListPortalsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPortalsCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,7 +113,7 @@ export class ListPortalsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPortalsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListPortalsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -99,12 +124,18 @@ export class ListPortalsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPortalsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPortalsCommand(input, context);
+    return se_ListPortalsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPortalsCommandOutput> {
-    return deserializeAws_restJson1ListPortalsCommand(output, context);
+    return de_ListPortalsCommand(output, context);
   }
 
   // Start section: command_body_extra

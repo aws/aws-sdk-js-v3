@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
+import { ExportEC2InstanceRecommendationsRequest, ExportEC2InstanceRecommendationsResponse } from "../models/models_0";
 import {
-  ExportEC2InstanceRecommendationsRequest,
-  ExportEC2InstanceRecommendationsRequestFilterSensitiveLog,
-  ExportEC2InstanceRecommendationsResponse,
-  ExportEC2InstanceRecommendationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ExportEC2InstanceRecommendationsCommand,
-  serializeAws_json1_0ExportEC2InstanceRecommendationsCommand,
+  de_ExportEC2InstanceRecommendationsCommand,
+  se_ExportEC2InstanceRecommendationsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link ExportEC2InstanceRecommendationsCommand}.
+ */
 export interface ExportEC2InstanceRecommendationsCommandInput extends ExportEC2InstanceRecommendationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ExportEC2InstanceRecommendationsCommand}.
+ */
 export interface ExportEC2InstanceRecommendationsCommandOutput
   extends ExportEC2InstanceRecommendationsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Exports optimization recommendations for Amazon EC2 instances.</p>
  *          <p>Recommendations are exported in a comma-separated values (.csv) file, and its metadata
  *             in a JavaScript Object Notation (JSON) (.json) file, to an existing Amazon Simple Storage Service (Amazon S3) bucket that you specify. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html">Exporting
@@ -43,13 +49,68 @@ export interface ExportEC2InstanceRecommendationsCommandOutput
  * import { ComputeOptimizerClient, ExportEC2InstanceRecommendationsCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
  * // const { ComputeOptimizerClient, ExportEC2InstanceRecommendationsCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
+ * const input = { // ExportEC2InstanceRecommendationsRequest
+ *   accountIds: [ // AccountIds
+ *     "STRING_VALUE",
+ *   ],
+ *   filters: [ // Filters
+ *     { // Filter
+ *       name: "Finding" || "FindingReasonCodes" || "RecommendationSourceType",
+ *       values: [ // FilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   fieldsToExport: [ // ExportableInstanceFields
+ *     "AccountId" || "InstanceArn" || "InstanceName" || "Finding" || "FindingReasonCodes" || "LookbackPeriodInDays" || "CurrentInstanceType" || "UtilizationMetricsCpuMaximum" || "UtilizationMetricsMemoryMaximum" || "UtilizationMetricsEbsReadOpsPerSecondMaximum" || "UtilizationMetricsEbsWriteOpsPerSecondMaximum" || "UtilizationMetricsEbsReadBytesPerSecondMaximum" || "UtilizationMetricsEbsWriteBytesPerSecondMaximum" || "UtilizationMetricsDiskReadOpsPerSecondMaximum" || "UtilizationMetricsDiskWriteOpsPerSecondMaximum" || "UtilizationMetricsDiskReadBytesPerSecondMaximum" || "UtilizationMetricsDiskWriteBytesPerSecondMaximum" || "UtilizationMetricsNetworkInBytesPerSecondMaximum" || "UtilizationMetricsNetworkOutBytesPerSecondMaximum" || "UtilizationMetricsNetworkPacketsInPerSecondMaximum" || "UtilizationMetricsNetworkPacketsOutPerSecondMaximum" || "CurrentOnDemandPrice" || "CurrentStandardOneYearNoUpfrontReservedPrice" || "CurrentStandardThreeYearNoUpfrontReservedPrice" || "CurrentVCpus" || "CurrentMemory" || "CurrentStorage" || "CurrentNetwork" || "RecommendationOptionsInstanceType" || "RecommendationOptionsProjectedUtilizationMetricsCpuMaximum" || "RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum" || "RecommendationOptionsPlatformDifferences" || "RecommendationOptionsPerformanceRisk" || "RecommendationOptionsVcpus" || "RecommendationOptionsMemory" || "RecommendationOptionsStorage" || "RecommendationOptionsNetwork" || "RecommendationOptionsOnDemandPrice" || "RecommendationOptionsStandardOneYearNoUpfrontReservedPrice" || "RecommendationOptionsStandardThreeYearNoUpfrontReservedPrice" || "RecommendationsSourcesRecommendationSourceArn" || "RecommendationsSourcesRecommendationSourceType" || "LastRefreshTimestamp" || "CurrentPerformanceRisk" || "RecommendationOptionsSavingsOpportunityPercentage" || "RecommendationOptionsEstimatedMonthlySavingsCurrency" || "RecommendationOptionsEstimatedMonthlySavingsValue" || "EffectiveRecommendationPreferencesCpuVendorArchitectures" || "EffectiveRecommendationPreferencesEnhancedInfrastructureMetrics" || "EffectiveRecommendationPreferencesInferredWorkloadTypes" || "InferredWorkloadTypes" || "RecommendationOptionsMigrationEffort" || "EffectiveRecommendationPreferencesExternalMetricsSource" || "InstanceState",
+ *   ],
+ *   s3DestinationConfig: { // S3DestinationConfig
+ *     bucket: "STRING_VALUE",
+ *     keyPrefix: "STRING_VALUE",
+ *   },
+ *   fileFormat: "Csv",
+ *   includeMemberAccounts: true || false,
+ *   recommendationPreferences: { // RecommendationPreferences
+ *     cpuVendorArchitectures: [ // CpuVendorArchitectures
+ *       "AWS_ARM64" || "CURRENT",
+ *     ],
+ *   },
+ * };
  * const command = new ExportEC2InstanceRecommendationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ExportEC2InstanceRecommendationsCommandInput - {@link ExportEC2InstanceRecommendationsCommandInput}
+ * @returns {@link ExportEC2InstanceRecommendationsCommandOutput}
  * @see {@link ExportEC2InstanceRecommendationsCommandInput} for command's `input` shape.
  * @see {@link ExportEC2InstanceRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error has occurred. Try your call again.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value supplied for the input parameter is out of range or not valid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request exceeds a limit of the service.</p>
+ *
+ * @throws {@link MissingAuthenticationToken} (client fault)
+ *  <p>The request must contain either a valid (registered) Amazon Web Services access key ID
+ *             or X.509 certificate.</p>
+ *
+ * @throws {@link OptInRequiredException} (client fault)
+ *  <p>The account is not opted in to Compute Optimizer.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request has failed due to a temporary failure of the server.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
  *
  */
 export class ExportEC2InstanceRecommendationsCommand extends $Command<
@@ -69,6 +130,9 @@ export class ExportEC2InstanceRecommendationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExportEC2InstanceRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +161,8 @@ export class ExportEC2InstanceRecommendationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExportEC2InstanceRecommendationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ExportEC2InstanceRecommendationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,18 +172,24 @@ export class ExportEC2InstanceRecommendationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ExportEC2InstanceRecommendationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0ExportEC2InstanceRecommendationsCommand(input, context);
+    return se_ExportEC2InstanceRecommendationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ExportEC2InstanceRecommendationsCommandOutput> {
-    return deserializeAws_json1_0ExportEC2InstanceRecommendationsCommand(output, context);
+    return de_ExportEC2InstanceRecommendationsCommand(output, context);
   }
 
   // Start section: command_body_extra

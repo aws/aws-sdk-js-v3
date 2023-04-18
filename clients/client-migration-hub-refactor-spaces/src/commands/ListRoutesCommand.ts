@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubRefactorSpacesClient";
-import {
-  ListRoutesRequest,
-  ListRoutesRequestFilterSensitiveLog,
-  ListRoutesResponse,
-  ListRoutesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListRoutesCommand,
-  serializeAws_restJson1ListRoutesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListRoutesRequest, ListRoutesResponse, ListRoutesResponseFilterSensitiveLog } from "../models/models_0";
+import { de_ListRoutesCommand, se_ListRoutesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListRoutesCommand}.
+ */
 export interface ListRoutesCommandInput extends ListRoutesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListRoutesCommand}.
+ */
 export interface ListRoutesCommandOutput extends ListRoutesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the Amazon Web Services Migration Hub Refactor Spaces routes within an application. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,44 @@ export interface ListRoutesCommandOutput extends ListRoutesResponse, __MetadataB
  * import { MigrationHubRefactorSpacesClient, ListRoutesCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
  * // const { MigrationHubRefactorSpacesClient, ListRoutesCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
  * const client = new MigrationHubRefactorSpacesClient(config);
+ * const input = { // ListRoutesRequest
+ *   EnvironmentIdentifier: "STRING_VALUE", // required
+ *   ApplicationIdentifier: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListRoutesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRoutesCommandInput - {@link ListRoutesCommandInput}
+ * @returns {@link ListRoutesCommandOutput}
  * @see {@link ListRoutesCommandInput} for command's `input` shape.
  * @see {@link ListRoutesCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubRefactorSpacesClientResolvedConfig | config} for MigrationHubRefactorSpacesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The user does not have sufficient access to perform this action. </p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred while processing the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a resource that does not exist. </p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request would cause a service quota to be exceeded. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Request was denied because the request was throttled. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input does not satisfy the constraints specified by an Amazon Web Service.
+ *     </p>
+ *
  *
  */
 export class ListRoutesCommand extends $Command<
@@ -66,6 +100,9 @@ export class ListRoutesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRoutesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,7 +129,7 @@ export class ListRoutesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRoutesRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListRoutesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -103,12 +140,18 @@ export class ListRoutesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRoutesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRoutesCommand(input, context);
+    return se_ListRoutesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRoutesCommandOutput> {
-    return deserializeAws_restJson1ListRoutesCommand(output, context);
+    return de_ListRoutesCommand(output, context);
   }
 
   // Start section: command_body_extra

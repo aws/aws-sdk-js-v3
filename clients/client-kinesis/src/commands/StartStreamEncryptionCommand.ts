@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import { StartStreamEncryptionInput, StartStreamEncryptionInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1StartStreamEncryptionCommand,
-  serializeAws_json1_1StartStreamEncryptionCommand,
-} from "../protocols/Aws_json1_1";
+import { StartStreamEncryptionInput } from "../models/models_0";
+import { de_StartStreamEncryptionCommand, se_StartStreamEncryptionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link StartStreamEncryptionCommand}.
+ */
 export interface StartStreamEncryptionCommandInput extends StartStreamEncryptionInput {}
+/**
+ * @public
+ *
+ * The output of {@link StartStreamEncryptionCommand}.
+ */
 export interface StartStreamEncryptionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables or updates server-side encryption using an Amazon Web Services KMS key for a
  *             specified stream. </p>
  *          <p>Starting encryption is an asynchronous operation. Upon receiving the request, Kinesis
@@ -50,13 +58,69 @@ export interface StartStreamEncryptionCommandOutput extends __MetadataBearer {}
  * import { KinesisClient, StartStreamEncryptionCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, StartStreamEncryptionCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
+ * const input = { // StartStreamEncryptionInput
+ *   StreamName: "STRING_VALUE",
+ *   EncryptionType: "NONE" || "KMS", // required
+ *   KeyId: "STRING_VALUE", // required
+ *   StreamARN: "STRING_VALUE",
+ * };
  * const command = new StartStreamEncryptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartStreamEncryptionCommandInput - {@link StartStreamEncryptionCommandInput}
+ * @returns {@link StartStreamEncryptionCommandOutput}
  * @see {@link StartStreamEncryptionCommandInput} for command's `input` shape.
  * @see {@link StartStreamEncryptionCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Specifies that you do not have the permissions required to perform this
+ *             operation.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>A specified parameter exceeds its restrictions, is not supported, or can't be used.
+ *             For more information, see the returned message.</p>
+ *
+ * @throws {@link KMSAccessDeniedException} (client fault)
+ *  <p>The ciphertext references a key that doesn't exist or that you don't have access
+ *             to.</p>
+ *
+ * @throws {@link KMSDisabledException} (client fault)
+ *  <p>The request was rejected because the specified customer master key (CMK) isn't
+ *             enabled.</p>
+ *
+ * @throws {@link KMSInvalidStateException} (client fault)
+ *  <p>The request was rejected because the state of the specified resource isn't valid for
+ *             this request. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use of a
+ *                 Customer Master Key</a> in the <i>Amazon Web Services Key Management
+ *                 Service Developer Guide</i>.</p>
+ *
+ * @throws {@link KMSNotFoundException} (client fault)
+ *  <p>The request was rejected because the specified entity or resource can't be
+ *             found.</p>
+ *
+ * @throws {@link KMSOptInRequired} (client fault)
+ *  <p>The Amazon Web Services access key ID needs a subscription for the service.</p>
+ *
+ * @throws {@link KMSThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling. For more information about
+ *             throttling, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second">Limits</a> in
+ *             the <i>Amazon Web Services Key Management Service Developer
+ *             Guide</i>.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
+ *             stream requests exceeds the maximum number allowed. </p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The resource is not available for this operation. For successful operation, the
+ *             resource must be in the <code>ACTIVE</code> state.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource could not be found. The stream might not be specified
+ *             correctly.</p>
+ *
  *
  */
 export class StartStreamEncryptionCommand extends $Command<
@@ -78,6 +142,9 @@ export class StartStreamEncryptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartStreamEncryptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +173,8 @@ export class StartStreamEncryptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartStreamEncryptionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +184,18 @@ export class StartStreamEncryptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartStreamEncryptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartStreamEncryptionCommand(input, context);
+    return se_StartStreamEncryptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartStreamEncryptionCommandOutput> {
-    return deserializeAws_json1_1StartStreamEncryptionCommand(output, context);
+    return de_StartStreamEncryptionCommand(output, context);
   }
 
   // Start section: command_body_extra

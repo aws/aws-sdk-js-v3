@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import {
-  SearchSystemTemplatesRequest,
-  SearchSystemTemplatesRequestFilterSensitiveLog,
-  SearchSystemTemplatesResponse,
-  SearchSystemTemplatesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1SearchSystemTemplatesCommand,
-  serializeAws_json1_1SearchSystemTemplatesCommand,
-} from "../protocols/Aws_json1_1";
+import { SearchSystemTemplatesRequest, SearchSystemTemplatesResponse } from "../models/models_0";
+import { de_SearchSystemTemplatesCommand, se_SearchSystemTemplatesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link SearchSystemTemplatesCommand}.
+ */
 export interface SearchSystemTemplatesCommandInput extends SearchSystemTemplatesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SearchSystemTemplatesCommand}.
+ */
 export interface SearchSystemTemplatesCommandOutput extends SearchSystemTemplatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Searches for summary information about systems in the user's account. You can filter by the ID of a workflow to return only systems that use the specified workflow.</p>
@@ -38,13 +41,37 @@ export interface SearchSystemTemplatesCommandOutput extends SearchSystemTemplate
  * import { IoTThingsGraphClient, SearchSystemTemplatesCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, SearchSystemTemplatesCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
+ * const input = { // SearchSystemTemplatesRequest
+ *   filters: [ // SystemTemplateFilters
+ *     { // SystemTemplateFilter
+ *       name: "STRING_VALUE", // required
+ *       value: [ // SystemTemplateFilterValues // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new SearchSystemTemplatesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchSystemTemplatesCommandInput - {@link SearchSystemTemplatesCommandInput}
+ * @returns {@link SearchSystemTemplatesCommandOutput}
  * @see {@link SearchSystemTemplatesCommandInput} for command's `input` shape.
  * @see {@link SearchSystemTemplatesCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p></p>
+ *
  *
  */
 export class SearchSystemTemplatesCommand extends $Command<
@@ -64,6 +91,9 @@ export class SearchSystemTemplatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchSystemTemplatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +122,8 @@ export class SearchSystemTemplatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchSystemTemplatesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchSystemTemplatesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +133,18 @@ export class SearchSystemTemplatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchSystemTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SearchSystemTemplatesCommand(input, context);
+    return se_SearchSystemTemplatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchSystemTemplatesCommandOutput> {
-    return deserializeAws_json1_1SearchSystemTemplatesCommand(output, context);
+    return de_SearchSystemTemplatesCommand(output, context);
   }
 
   // Start section: command_body_extra

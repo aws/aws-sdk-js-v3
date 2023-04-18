@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
+import { ListObservabilityConfigurationsRequest, ListObservabilityConfigurationsResponse } from "../models/models_0";
 import {
-  ListObservabilityConfigurationsRequest,
-  ListObservabilityConfigurationsRequestFilterSensitiveLog,
-  ListObservabilityConfigurationsResponse,
-  ListObservabilityConfigurationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListObservabilityConfigurationsCommand,
-  serializeAws_json1_0ListObservabilityConfigurationsCommand,
+  de_ListObservabilityConfigurationsCommand,
+  se_ListObservabilityConfigurationsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link ListObservabilityConfigurationsCommand}.
+ */
 export interface ListObservabilityConfigurationsCommandInput extends ListObservabilityConfigurationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListObservabilityConfigurationsCommand}.
+ */
 export interface ListObservabilityConfigurationsCommandOutput
   extends ListObservabilityConfigurationsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of active App Runner observability configurations in your Amazon Web Services account. You can query the revisions for a specific
  *       configuration name or the revisions for all active configurations in your account. You can optionally query only the latest revision of each requested
  *       name.</p>
@@ -42,13 +48,28 @@ export interface ListObservabilityConfigurationsCommandOutput
  * import { AppRunnerClient, ListObservabilityConfigurationsCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, ListObservabilityConfigurationsCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
+ * const input = { // ListObservabilityConfigurationsRequest
+ *   ObservabilityConfigurationName: "STRING_VALUE",
+ *   LatestOnly: true || false,
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListObservabilityConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListObservabilityConfigurationsCommandInput - {@link ListObservabilityConfigurationsCommandInput}
+ * @returns {@link ListObservabilityConfigurationsCommandOutput}
  * @see {@link ListObservabilityConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListObservabilityConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>An unexpected service exception occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+ *
  *
  */
 export class ListObservabilityConfigurationsCommand extends $Command<
@@ -68,6 +89,9 @@ export class ListObservabilityConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListObservabilityConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +120,8 @@ export class ListObservabilityConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListObservabilityConfigurationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListObservabilityConfigurationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,18 +131,24 @@ export class ListObservabilityConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListObservabilityConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListObservabilityConfigurationsCommand(input, context);
+    return se_ListObservabilityConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListObservabilityConfigurationsCommandOutput> {
-    return deserializeAws_json1_0ListObservabilityConfigurationsCommand(output, context);
+    return de_ListObservabilityConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

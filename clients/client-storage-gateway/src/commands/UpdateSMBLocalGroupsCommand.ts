@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateSMBLocalGroupsInput,
-  UpdateSMBLocalGroupsInputFilterSensitiveLog,
-  UpdateSMBLocalGroupsOutput,
-  UpdateSMBLocalGroupsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateSMBLocalGroupsCommand,
-  serializeAws_json1_1UpdateSMBLocalGroupsCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateSMBLocalGroupsInput, UpdateSMBLocalGroupsOutput } from "../models/models_0";
+import { de_UpdateSMBLocalGroupsCommand, se_UpdateSMBLocalGroupsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateSMBLocalGroupsCommand}.
+ */
 export interface UpdateSMBLocalGroupsCommandInput extends UpdateSMBLocalGroupsInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateSMBLocalGroupsCommand}.
+ */
 export interface UpdateSMBLocalGroupsCommandOutput extends UpdateSMBLocalGroupsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the list of Active Directory users and groups that have special permissions for
  *          SMB file shares on the gateway.</p>
  * @example
@@ -37,13 +40,32 @@ export interface UpdateSMBLocalGroupsCommandOutput extends UpdateSMBLocalGroupsO
  * import { StorageGatewayClient, UpdateSMBLocalGroupsCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, UpdateSMBLocalGroupsCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // UpdateSMBLocalGroupsInput
+ *   GatewayARN: "STRING_VALUE", // required
+ *   SMBLocalGroups: { // SMBLocalGroups
+ *     GatewayAdmins: [ // UserList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new UpdateSMBLocalGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSMBLocalGroupsCommandInput - {@link UpdateSMBLocalGroupsCommandInput}
+ * @returns {@link UpdateSMBLocalGroupsCommandOutput}
  * @see {@link UpdateSMBLocalGroupsCommandInput} for command's `input` shape.
  * @see {@link UpdateSMBLocalGroupsCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error has occurred during the request. For more information, see the
+ *          error and message fields.</p>
+ *
+ * @throws {@link InvalidGatewayRequestException} (client fault)
+ *  <p>An exception occurred because an invalid gateway request was issued to the service. For
+ *          more information, see the error and message fields.</p>
+ *
  *
  */
 export class UpdateSMBLocalGroupsCommand extends $Command<
@@ -63,6 +85,9 @@ export class UpdateSMBLocalGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSMBLocalGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +116,8 @@ export class UpdateSMBLocalGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSMBLocalGroupsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSMBLocalGroupsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +127,18 @@ export class UpdateSMBLocalGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSMBLocalGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateSMBLocalGroupsCommand(input, context);
+    return se_UpdateSMBLocalGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSMBLocalGroupsCommandOutput> {
-    return deserializeAws_json1_1UpdateSMBLocalGroupsCommand(output, context);
+    return de_UpdateSMBLocalGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

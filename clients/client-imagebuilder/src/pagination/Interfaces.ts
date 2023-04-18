@@ -1,9 +1,11 @@
 // smithy-typescript generated code
 import { PaginationConfiguration } from "@aws-sdk/types";
 
-import { Imagebuilder } from "../Imagebuilder";
 import { ImagebuilderClient } from "../ImagebuilderClient";
 
+/**
+ * @public
+ */
 export interface ImagebuilderPaginationConfiguration extends PaginationConfiguration {
-  client: Imagebuilder | ImagebuilderClient;
+  client: ImagebuilderClient;
 }

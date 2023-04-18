@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListLFTagsCommand, ListLFTagsCommandInput, ListLFTagsCommandOutput } from "../commands/ListLFTagsCommand";
-import { LakeFormation } from "../LakeFormation";
 import { LakeFormationClient } from "../LakeFormationClient";
 import { LakeFormationPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: LakeFormationClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListLFTagsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: LakeFormation,
-  input: ListLFTagsCommandInput,
-  ...args: any
-): Promise<ListLFTagsCommandOutput> => {
-  // @ts-ignore
-  return await client.listLFTags(input, ...args);
-};
 export async function* paginateListLFTags(
   config: LakeFormationPaginationConfiguration,
   input: ListLFTagsCommandInput,
@@ -40,9 +31,7 @@ export async function* paginateListLFTags(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof LakeFormation) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof LakeFormationClient) {
+    if (config.client instanceof LakeFormationClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected LakeFormation | LakeFormationClient");

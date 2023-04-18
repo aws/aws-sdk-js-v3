@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import {
-  DescribeFargateProfileRequest,
-  DescribeFargateProfileRequestFilterSensitiveLog,
-  DescribeFargateProfileResponse,
-  DescribeFargateProfileResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeFargateProfileCommand,
-  serializeAws_restJson1DescribeFargateProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeFargateProfileRequest, DescribeFargateProfileResponse } from "../models/models_0";
+import { de_DescribeFargateProfileCommand, se_DescribeFargateProfileCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeFargateProfileCommand}.
+ */
 export interface DescribeFargateProfileCommandInput extends DescribeFargateProfileRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeFargateProfileCommand}.
+ */
 export interface DescribeFargateProfileCommandOutput extends DescribeFargateProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns descriptive information about an Fargate profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,38 @@ export interface DescribeFargateProfileCommandOutput extends DescribeFargateProf
  * import { EKSClient, DescribeFargateProfileCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, DescribeFargateProfileCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
+ * const input = { // DescribeFargateProfileRequest
+ *   clusterName: "STRING_VALUE", // required
+ *   fargateProfileName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeFargateProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFargateProfileCommandInput - {@link DescribeFargateProfileCommandInput}
+ * @returns {@link DescribeFargateProfileCommandOutput}
  * @see {@link DescribeFargateProfileCommandInput} for command's `input` shape.
  * @see {@link DescribeFargateProfileCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action. Actions can include using an
+ *             action or resource on behalf of a user that doesn't have permissions to use the action
+ *             or resource or specifying an identifier that is not valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *             request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found. You can view your available clusters with
+ *                 <a>ListClusters</a>. You can view your available managed node groups with
+ *                 <a>ListNodegroups</a>. Amazon EKS clusters and node groups are
+ *             Region-specific.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
  *
  */
 export class DescribeFargateProfileCommand extends $Command<
@@ -62,6 +90,9 @@ export class DescribeFargateProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFargateProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +121,8 @@ export class DescribeFargateProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFargateProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFargateProfileResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +132,18 @@ export class DescribeFargateProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFargateProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeFargateProfileCommand(input, context);
+    return se_DescribeFargateProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFargateProfileCommandOutput> {
-    return deserializeAws_restJson1DescribeFargateProfileCommand(output, context);
+    return de_DescribeFargateProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

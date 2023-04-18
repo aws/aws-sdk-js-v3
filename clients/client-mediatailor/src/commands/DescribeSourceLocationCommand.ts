@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
-import {
-  DescribeSourceLocationRequest,
-  DescribeSourceLocationRequestFilterSensitiveLog,
-  DescribeSourceLocationResponse,
-  DescribeSourceLocationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeSourceLocationCommand,
-  serializeAws_restJson1DescribeSourceLocationCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeSourceLocationRequest, DescribeSourceLocationResponse } from "../models/models_0";
+import { de_DescribeSourceLocationCommand, se_DescribeSourceLocationCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeSourceLocationCommand}.
+ */
 export interface DescribeSourceLocationCommandInput extends DescribeSourceLocationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeSourceLocationCommand}.
+ */
 export interface DescribeSourceLocationCommandOutput extends DescribeSourceLocationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a source location. A source location is a container for sources. For more information about source locations, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-source-locations.html">Working with source locations</a> in the <i>MediaTailor User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,19 @@ export interface DescribeSourceLocationCommandOutput extends DescribeSourceLocat
  * import { MediaTailorClient, DescribeSourceLocationCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, DescribeSourceLocationCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
+ * const input = { // DescribeSourceLocationRequest
+ *   SourceLocationName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeSourceLocationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSourceLocationCommandInput - {@link DescribeSourceLocationCommandInput}
+ * @returns {@link DescribeSourceLocationCommandOutput}
  * @see {@link DescribeSourceLocationCommandInput} for command's `input` shape.
  * @see {@link DescribeSourceLocationCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
+ *
  *
  */
 export class DescribeSourceLocationCommand extends $Command<
@@ -62,6 +71,9 @@ export class DescribeSourceLocationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSourceLocationCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +102,8 @@ export class DescribeSourceLocationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSourceLocationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSourceLocationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +113,18 @@ export class DescribeSourceLocationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSourceLocationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeSourceLocationCommand(input, context);
+    return se_DescribeSourceLocationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSourceLocationCommandOutput> {
-    return deserializeAws_restJson1DescribeSourceLocationCommand(output, context);
+    return de_DescribeSourceLocationCommand(output, context);
   }
 
   // Start section: command_body_extra

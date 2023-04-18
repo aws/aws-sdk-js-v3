@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  DeleteTaskSetRequest,
-  DeleteTaskSetRequestFilterSensitiveLog,
-  DeleteTaskSetResponse,
-  DeleteTaskSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteTaskSetCommand,
-  serializeAws_json1_1DeleteTaskSetCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteTaskSetRequest, DeleteTaskSetResponse } from "../models/models_0";
+import { de_DeleteTaskSetCommand, se_DeleteTaskSetCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteTaskSetCommand}.
+ */
 export interface DeleteTaskSetCommandInput extends DeleteTaskSetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteTaskSetCommand}.
+ */
 export interface DeleteTaskSetCommandOutput extends DeleteTaskSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specified task set within a service. This is used when a service uses the
  * 				<code>EXTERNAL</code> deployment controller type. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">Amazon ECS deployment types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * @example
@@ -37,13 +40,55 @@ export interface DeleteTaskSetCommandOutput extends DeleteTaskSetResponse, __Met
  * import { ECSClient, DeleteTaskSetCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, DeleteTaskSetCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // DeleteTaskSetRequest
+ *   cluster: "STRING_VALUE", // required
+ *   service: "STRING_VALUE", // required
+ *   taskSet: "STRING_VALUE", // required
+ *   force: true || false,
+ * };
  * const command = new DeleteTaskSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTaskSetCommandInput - {@link DeleteTaskSetCommandInput}
+ * @returns {@link DeleteTaskSetCommandOutput}
  * @see {@link DeleteTaskSetCommandInput} for command's `input` shape.
  * @see {@link DeleteTaskSetCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have authorization to perform the requested action.</p>
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action. This client action might be using
+ * 			an action or resource on behalf of a user that doesn't have permissions to use the
+ * 			action or resource,. Or, it might be specifying an identifier that isn't valid.</p>
+ *
+ * @throws {@link ClusterNotFoundException} (client fault)
+ *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter isn't valid. Review the available parameters for the API
+ * 			request.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server issue.</p>
+ *
+ * @throws {@link ServiceNotActiveException} (client fault)
+ *  <p>The specified service isn't active. You can't update a service that's inactive. If you
+ * 			have previously deleted a service, you can re-create it with <a>CreateService</a>.</p>
+ *
+ * @throws {@link ServiceNotFoundException} (client fault)
+ *  <p>The specified service wasn't found. You can view your available services with <a>ListServices</a>. Amazon ECS services are cluster specific and Region
+ * 			specific.</p>
+ *
+ * @throws {@link TaskSetNotFoundException} (client fault)
+ *  <p>The specified task set wasn't found. You can view your available task sets with <a>DescribeTaskSets</a>. Task sets are specific to each cluster, service and
+ * 			Region.</p>
+ *
+ * @throws {@link UnsupportedFeatureException} (client fault)
+ *  <p>The specified task isn't supported in this Region.</p>
+ *
  *
  */
 export class DeleteTaskSetCommand extends $Command<
@@ -63,6 +108,9 @@ export class DeleteTaskSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTaskSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +137,8 @@ export class DeleteTaskSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTaskSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTaskSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +148,18 @@ export class DeleteTaskSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTaskSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteTaskSetCommand(input, context);
+    return se_DeleteTaskSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTaskSetCommandOutput> {
-    return deserializeAws_json1_1DeleteTaskSetCommand(output, context);
+    return de_DeleteTaskSetCommand(output, context);
   }
 
   // Start section: command_body_extra

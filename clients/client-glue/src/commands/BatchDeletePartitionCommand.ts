@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  BatchDeletePartitionRequest,
-  BatchDeletePartitionRequestFilterSensitiveLog,
-  BatchDeletePartitionResponse,
-  BatchDeletePartitionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchDeletePartitionCommand,
-  serializeAws_json1_1BatchDeletePartitionCommand,
-} from "../protocols/Aws_json1_1";
+import { BatchDeletePartitionRequest, BatchDeletePartitionResponse } from "../models/models_0";
+import { de_BatchDeletePartitionCommand, se_BatchDeletePartitionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchDeletePartitionCommand}.
+ */
 export interface BatchDeletePartitionCommandInput extends BatchDeletePartitionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link BatchDeletePartitionCommand}.
+ */
 export interface BatchDeletePartitionCommandOutput extends BatchDeletePartitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes one or more partitions in a batch operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,40 @@ export interface BatchDeletePartitionCommandOutput extends BatchDeletePartitionR
  * import { GlueClient, BatchDeletePartitionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, BatchDeletePartitionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // BatchDeletePartitionRequest
+ *   CatalogId: "STRING_VALUE",
+ *   DatabaseName: "STRING_VALUE", // required
+ *   TableName: "STRING_VALUE", // required
+ *   PartitionsToDelete: [ // BatchDeletePartitionValueList // required
+ *     { // PartitionValueList
+ *       Values: [ // ValueStringList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new BatchDeletePartitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDeletePartitionCommandInput - {@link BatchDeletePartitionCommandInput}
+ * @returns {@link BatchDeletePartitionCommandOutput}
  * @see {@link BatchDeletePartitionCommandInput} for command's `input` shape.
  * @see {@link BatchDeletePartitionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class BatchDeletePartitionCommand extends $Command<
@@ -62,6 +92,9 @@ export class BatchDeletePartitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDeletePartitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +123,8 @@ export class BatchDeletePartitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDeletePartitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchDeletePartitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +134,18 @@ export class BatchDeletePartitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDeletePartitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchDeletePartitionCommand(input, context);
+    return se_BatchDeletePartitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeletePartitionCommandOutput> {
-    return deserializeAws_json1_1BatchDeletePartitionCommand(output, context);
+    return de_BatchDeletePartitionCommand(output, context);
   }
 
   // Start section: command_body_extra

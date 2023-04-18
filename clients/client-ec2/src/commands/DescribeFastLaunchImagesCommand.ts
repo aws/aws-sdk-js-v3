@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeFastLaunchImagesRequest,
-  DescribeFastLaunchImagesRequestFilterSensitiveLog,
-  DescribeFastLaunchImagesResult,
-  DescribeFastLaunchImagesResultFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeFastLaunchImagesCommand,
-  serializeAws_ec2DescribeFastLaunchImagesCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeFastLaunchImagesRequest, DescribeFastLaunchImagesResult } from "../models/models_3";
+import { de_DescribeFastLaunchImagesCommand, se_DescribeFastLaunchImagesCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeFastLaunchImagesCommand}.
+ */
 export interface DescribeFastLaunchImagesCommandInput extends DescribeFastLaunchImagesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeFastLaunchImagesCommand}.
+ */
 export interface DescribeFastLaunchImagesCommandOutput extends DescribeFastLaunchImagesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describe details for Windows AMIs that are configured for faster launching.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,32 @@ export interface DescribeFastLaunchImagesCommandOutput extends DescribeFastLaunc
  * import { EC2Client, DescribeFastLaunchImagesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeFastLaunchImagesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeFastLaunchImagesRequest
+ *   ImageIds: [ // FastLaunchImageIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new DescribeFastLaunchImagesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFastLaunchImagesCommandInput - {@link DescribeFastLaunchImagesCommandInput}
+ * @returns {@link DescribeFastLaunchImagesCommandOutput}
  * @see {@link DescribeFastLaunchImagesCommandInput} for command's `input` shape.
  * @see {@link DescribeFastLaunchImagesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class DescribeFastLaunchImagesCommand extends $Command<
@@ -62,6 +84,9 @@ export class DescribeFastLaunchImagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFastLaunchImagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +115,8 @@ export class DescribeFastLaunchImagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFastLaunchImagesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFastLaunchImagesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +126,18 @@ export class DescribeFastLaunchImagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFastLaunchImagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeFastLaunchImagesCommand(input, context);
+    return se_DescribeFastLaunchImagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFastLaunchImagesCommandOutput> {
-    return deserializeAws_ec2DescribeFastLaunchImagesCommand(output, context);
+    return de_DescribeFastLaunchImagesCommand(output, context);
   }
 
   // Start section: command_body_extra

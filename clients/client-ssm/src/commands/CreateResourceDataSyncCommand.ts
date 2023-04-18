@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateResourceDataSyncRequest,
-  CreateResourceDataSyncRequestFilterSensitiveLog,
-  CreateResourceDataSyncResult,
-  CreateResourceDataSyncResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateResourceDataSyncCommand,
-  serializeAws_json1_1CreateResourceDataSyncCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateResourceDataSyncRequest, CreateResourceDataSyncResult } from "../models/models_0";
+import { de_CreateResourceDataSyncCommand, se_CreateResourceDataSyncCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateResourceDataSyncCommand}.
+ */
 export interface CreateResourceDataSyncCommandInput extends CreateResourceDataSyncRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateResourceDataSyncCommand}.
+ */
 export interface CreateResourceDataSyncCommandOutput extends CreateResourceDataSyncResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>A resource data sync helps you view data from multiple sources in a single location.
  *    Amazon Web Services Systems Manager offers two types of resource data sync: <code>SyncToDestination</code> and
  *     <code>SyncFromSource</code>.</p>
@@ -56,13 +59,58 @@ export interface CreateResourceDataSyncCommandOutput extends CreateResourceDataS
  * import { SSMClient, CreateResourceDataSyncCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, CreateResourceDataSyncCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // CreateResourceDataSyncRequest
+ *   SyncName: "STRING_VALUE", // required
+ *   S3Destination: { // ResourceDataSyncS3Destination
+ *     BucketName: "STRING_VALUE", // required
+ *     Prefix: "STRING_VALUE",
+ *     SyncFormat: "JsonSerDe", // required
+ *     Region: "STRING_VALUE", // required
+ *     AWSKMSKeyARN: "STRING_VALUE",
+ *     DestinationDataSharing: { // ResourceDataSyncDestinationDataSharing
+ *       DestinationDataSharingType: "STRING_VALUE",
+ *     },
+ *   },
+ *   SyncType: "STRING_VALUE",
+ *   SyncSource: { // ResourceDataSyncSource
+ *     SourceType: "STRING_VALUE", // required
+ *     AwsOrganizationsSource: { // ResourceDataSyncAwsOrganizationsSource
+ *       OrganizationSourceType: "STRING_VALUE", // required
+ *       OrganizationalUnits: [ // ResourceDataSyncOrganizationalUnitList
+ *         { // ResourceDataSyncOrganizationalUnit
+ *           OrganizationalUnitId: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *     SourceRegions: [ // ResourceDataSyncSourceRegionList // required
+ *       "STRING_VALUE",
+ *     ],
+ *     IncludeFutureRegions: true || false,
+ *     EnableAllOpsDataSources: true || false,
+ *   },
+ * };
  * const command = new CreateResourceDataSyncCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateResourceDataSyncCommandInput - {@link CreateResourceDataSyncCommandInput}
+ * @returns {@link CreateResourceDataSyncCommandOutput}
  * @see {@link CreateResourceDataSyncCommandInput} for command's `input` shape.
  * @see {@link CreateResourceDataSyncCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link ResourceDataSyncAlreadyExistsException} (client fault)
+ *  <p>A sync configuration with the same name already exists.</p>
+ *
+ * @throws {@link ResourceDataSyncCountExceededException} (client fault)
+ *  <p>You have exceeded the allowed maximum sync configurations.</p>
+ *
+ * @throws {@link ResourceDataSyncInvalidConfigurationException} (client fault)
+ *  <p>The specified sync configuration is invalid.</p>
+ *
  *
  */
 export class CreateResourceDataSyncCommand extends $Command<
@@ -82,6 +130,9 @@ export class CreateResourceDataSyncCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateResourceDataSyncCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +161,8 @@ export class CreateResourceDataSyncCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateResourceDataSyncRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateResourceDataSyncResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +172,18 @@ export class CreateResourceDataSyncCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateResourceDataSyncCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateResourceDataSyncCommand(input, context);
+    return se_CreateResourceDataSyncCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateResourceDataSyncCommandOutput> {
-    return deserializeAws_json1_1CreateResourceDataSyncCommand(output, context);
+    return de_CreateResourceDataSyncCommand(output, context);
   }
 
   // Start section: command_body_extra

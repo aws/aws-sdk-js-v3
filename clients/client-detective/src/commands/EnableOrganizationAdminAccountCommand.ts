@@ -14,19 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
+import { EnableOrganizationAdminAccountRequest } from "../models/models_0";
 import {
-  EnableOrganizationAdminAccountRequest,
-  EnableOrganizationAdminAccountRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1EnableOrganizationAdminAccountCommand,
-  serializeAws_restJson1EnableOrganizationAdminAccountCommand,
+  de_EnableOrganizationAdminAccountCommand,
+  se_EnableOrganizationAdminAccountCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link EnableOrganizationAdminAccountCommand}.
+ */
 export interface EnableOrganizationAdminAccountCommandInput extends EnableOrganizationAdminAccountRequest {}
+/**
+ * @public
+ *
+ * The output of {@link EnableOrganizationAdminAccountCommand}.
+ */
 export interface EnableOrganizationAdminAccountCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Designates the Detective administrator account for the organization in the
  *          current Region.</p>
  *          <p>If the account does not have Detective enabled, then enables Detective
@@ -45,13 +53,33 @@ export interface EnableOrganizationAdminAccountCommandOutput extends __MetadataB
  * import { DetectiveClient, EnableOrganizationAdminAccountCommand } from "@aws-sdk/client-detective"; // ES Modules import
  * // const { DetectiveClient, EnableOrganizationAdminAccountCommand } = require("@aws-sdk/client-detective"); // CommonJS import
  * const client = new DetectiveClient(config);
+ * const input = { // EnableOrganizationAdminAccountRequest
+ *   AccountId: "STRING_VALUE", // required
+ * };
  * const command = new EnableOrganizationAdminAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableOrganizationAdminAccountCommandInput - {@link EnableOrganizationAdminAccountCommandInput}
+ * @returns {@link EnableOrganizationAdminAccountCommandOutput}
  * @see {@link EnableOrganizationAdminAccountCommandInput} for command's `input` shape.
  * @see {@link EnableOrganizationAdminAccountCommandOutput} for command's `response` shape.
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The request issuer does not have permission to access this resource or perform this
+ *          operation.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request was valid but failed because of a problem with the service.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The request cannot be completed because too many other requests are occurring at the
+ *          same time.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request parameters are invalid.</p>
+ *
  *
  */
 export class EnableOrganizationAdminAccountCommand extends $Command<
@@ -71,6 +99,9 @@ export class EnableOrganizationAdminAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableOrganizationAdminAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +130,8 @@ export class EnableOrganizationAdminAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableOrganizationAdminAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,18 +141,24 @@ export class EnableOrganizationAdminAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: EnableOrganizationAdminAccountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1EnableOrganizationAdminAccountCommand(input, context);
+    return se_EnableOrganizationAdminAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EnableOrganizationAdminAccountCommandOutput> {
-    return deserializeAws_restJson1EnableOrganizationAdminAccountCommand(output, context);
+    return de_EnableOrganizationAdminAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

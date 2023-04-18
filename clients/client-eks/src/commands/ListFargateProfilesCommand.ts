@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import {
-  ListFargateProfilesRequest,
-  ListFargateProfilesRequestFilterSensitiveLog,
-  ListFargateProfilesResponse,
-  ListFargateProfilesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListFargateProfilesCommand,
-  serializeAws_restJson1ListFargateProfilesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListFargateProfilesRequest, ListFargateProfilesResponse } from "../models/models_0";
+import { de_ListFargateProfilesCommand, se_ListFargateProfilesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListFargateProfilesCommand}.
+ */
 export interface ListFargateProfilesCommandInput extends ListFargateProfilesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListFargateProfilesCommand}.
+ */
 export interface ListFargateProfilesCommandOutput extends ListFargateProfilesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the Fargate profiles associated with the specified cluster in
  *             your Amazon Web Services account in the specified Region.</p>
  * @example
@@ -37,13 +40,39 @@ export interface ListFargateProfilesCommandOutput extends ListFargateProfilesRes
  * import { EKSClient, ListFargateProfilesCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, ListFargateProfilesCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
+ * const input = { // ListFargateProfilesRequest
+ *   clusterName: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListFargateProfilesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFargateProfilesCommandInput - {@link ListFargateProfilesCommandInput}
+ * @returns {@link ListFargateProfilesCommandOutput}
  * @see {@link ListFargateProfilesCommandInput} for command's `input` shape.
  * @see {@link ListFargateProfilesCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action. Actions can include using an
+ *             action or resource on behalf of a user that doesn't have permissions to use the action
+ *             or resource or specifying an identifier that is not valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *             request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found. You can view your available clusters with
+ *                 <a>ListClusters</a>. You can view your available managed node groups with
+ *                 <a>ListNodegroups</a>. Amazon EKS clusters and node groups are
+ *             Region-specific.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
  *
  */
 export class ListFargateProfilesCommand extends $Command<
@@ -63,6 +92,9 @@ export class ListFargateProfilesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFargateProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +123,8 @@ export class ListFargateProfilesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFargateProfilesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListFargateProfilesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +134,18 @@ export class ListFargateProfilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFargateProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListFargateProfilesCommand(input, context);
+    return se_ListFargateProfilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFargateProfilesCommandOutput> {
-    return deserializeAws_restJson1ListFargateProfilesCommand(output, context);
+    return de_ListFargateProfilesCommand(output, context);
   }
 
   // Start section: command_body_extra

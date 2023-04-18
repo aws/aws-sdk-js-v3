@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListWorldTemplatesRequest,
-  ListWorldTemplatesRequestFilterSensitiveLog,
-  ListWorldTemplatesResponse,
-  ListWorldTemplatesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListWorldTemplatesCommand,
-  serializeAws_restJson1ListWorldTemplatesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListWorldTemplatesRequest, ListWorldTemplatesResponse } from "../models/models_0";
+import { de_ListWorldTemplatesCommand, se_ListWorldTemplatesCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListWorldTemplatesCommand}.
+ */
 export interface ListWorldTemplatesCommandInput extends ListWorldTemplatesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListWorldTemplatesCommand}.
+ */
 export interface ListWorldTemplatesCommandOutput extends ListWorldTemplatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists world templates.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,30 @@ export interface ListWorldTemplatesCommandOutput extends ListWorldTemplatesRespo
  * import { RoboMakerClient, ListWorldTemplatesCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, ListWorldTemplatesCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = { // ListWorldTemplatesRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListWorldTemplatesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWorldTemplatesCommandInput - {@link ListWorldTemplatesCommandInput}
+ * @returns {@link ListWorldTemplatesCommandOutput}
  * @see {@link ListWorldTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListWorldTemplatesCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>AWS RoboMaker experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter specified in a request is not valid, is unsupported, or cannot be used. The
+ *          returned message provides an explanation of the error value.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
+ *
  *
  */
 export class ListWorldTemplatesCommand extends $Command<
@@ -62,6 +82,9 @@ export class ListWorldTemplatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWorldTemplatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +113,8 @@ export class ListWorldTemplatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListWorldTemplatesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListWorldTemplatesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +124,18 @@ export class ListWorldTemplatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListWorldTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListWorldTemplatesCommand(input, context);
+    return se_ListWorldTemplatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWorldTemplatesCommandOutput> {
-    return deserializeAws_restJson1ListWorldTemplatesCommand(output, context);
+    return de_ListWorldTemplatesCommand(output, context);
   }
 
   // Start section: command_body_extra

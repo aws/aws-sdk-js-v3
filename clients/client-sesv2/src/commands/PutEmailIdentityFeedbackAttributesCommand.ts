@@ -15,29 +15,38 @@ import {
 
 import {
   PutEmailIdentityFeedbackAttributesRequest,
-  PutEmailIdentityFeedbackAttributesRequestFilterSensitiveLog,
   PutEmailIdentityFeedbackAttributesResponse,
-  PutEmailIdentityFeedbackAttributesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1PutEmailIdentityFeedbackAttributesCommand,
-  serializeAws_restJson1PutEmailIdentityFeedbackAttributesCommand,
+  de_PutEmailIdentityFeedbackAttributesCommand,
+  se_PutEmailIdentityFeedbackAttributesCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
+/**
+ * @public
+ *
+ * The input for {@link PutEmailIdentityFeedbackAttributesCommand}.
+ */
 export interface PutEmailIdentityFeedbackAttributesCommandInput extends PutEmailIdentityFeedbackAttributesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutEmailIdentityFeedbackAttributesCommand}.
+ */
 export interface PutEmailIdentityFeedbackAttributesCommandOutput
   extends PutEmailIdentityFeedbackAttributesResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used to enable or disable feedback forwarding for an identity. This setting determines
  *             what happens when an identity is used to send an email that results in a bounce or
  *             complaint event.</p>
- *         <p>If the value is <code>true</code>, you receive email notifications when bounce or
+ *          <p>If the value is <code>true</code>, you receive email notifications when bounce or
  *             complaint events occur. These notifications are sent to the address that you specified
  *             in the <code>Return-Path</code> header of the original email.</p>
- *         <p>You're required to have a method of tracking bounces and complaints. If you haven't
+ *          <p>You're required to have a method of tracking bounces and complaints. If you haven't
  *             set up another mechanism for receiving bounce or complaint notifications (for example,
  *             by setting up an event destination), you receive an email notification when these events
  *             occur (even if this setting is disabled).</p>
@@ -47,13 +56,29 @@ export interface PutEmailIdentityFeedbackAttributesCommandOutput
  * import { SESv2Client, PutEmailIdentityFeedbackAttributesCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, PutEmailIdentityFeedbackAttributesCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = { // PutEmailIdentityFeedbackAttributesRequest
+ *   EmailIdentity: "STRING_VALUE", // required
+ *   EmailForwardingEnabled: true || false,
+ * };
  * const command = new PutEmailIdentityFeedbackAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutEmailIdentityFeedbackAttributesCommandInput - {@link PutEmailIdentityFeedbackAttributesCommandInput}
+ * @returns {@link PutEmailIdentityFeedbackAttributesCommandOutput}
  * @see {@link PutEmailIdentityFeedbackAttributesCommandInput} for command's `input` shape.
  * @see {@link PutEmailIdentityFeedbackAttributesCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input you provided is invalid.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource you attempted to access doesn't exist.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Too many requests have been made to the operation.</p>
+ *
  *
  */
 export class PutEmailIdentityFeedbackAttributesCommand extends $Command<
@@ -73,6 +98,9 @@ export class PutEmailIdentityFeedbackAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutEmailIdentityFeedbackAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +129,8 @@ export class PutEmailIdentityFeedbackAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutEmailIdentityFeedbackAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutEmailIdentityFeedbackAttributesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,18 +140,24 @@ export class PutEmailIdentityFeedbackAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutEmailIdentityFeedbackAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutEmailIdentityFeedbackAttributesCommand(input, context);
+    return se_PutEmailIdentityFeedbackAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutEmailIdentityFeedbackAttributesCommandOutput> {
-    return deserializeAws_restJson1PutEmailIdentityFeedbackAttributesCommand(output, context);
+    return de_PutEmailIdentityFeedbackAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

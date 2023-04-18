@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import {
-  GetConnectivityInfoRequest,
-  GetConnectivityInfoRequestFilterSensitiveLog,
-  GetConnectivityInfoResponse,
-  GetConnectivityInfoResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetConnectivityInfoCommand,
-  serializeAws_restJson1GetConnectivityInfoCommand,
-} from "../protocols/Aws_restJson1";
+import { GetConnectivityInfoRequest, GetConnectivityInfoResponse } from "../models/models_0";
+import { de_GetConnectivityInfoCommand, se_GetConnectivityInfoCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetConnectivityInfoCommand}.
+ */
 export interface GetConnectivityInfoCommandInput extends GetConnectivityInfoRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetConnectivityInfoCommand}.
+ */
 export interface GetConnectivityInfoCommandOutput extends GetConnectivityInfoResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Retrieves the connectivity information for a core.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,25 @@ export interface GetConnectivityInfoCommandOutput extends GetConnectivityInfoRes
  * import { GreengrassClient, GetConnectivityInfoCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, GetConnectivityInfoCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // GetConnectivityInfoRequest
+ *   ThingName: "STRING_VALUE", // required
+ * };
  * const command = new GetConnectivityInfoCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetConnectivityInfoCommandInput - {@link GetConnectivityInfoCommandInput}
+ * @returns {@link GetConnectivityInfoCommandOutput}
  * @see {@link GetConnectivityInfoCommandInput} for command's `input` shape.
  * @see {@link GetConnectivityInfoCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  General error information.
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  General error information.
+ *
  *
  */
 export class GetConnectivityInfoCommand extends $Command<
@@ -62,6 +77,9 @@ export class GetConnectivityInfoCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetConnectivityInfoCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +108,8 @@ export class GetConnectivityInfoCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetConnectivityInfoRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetConnectivityInfoResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +119,18 @@ export class GetConnectivityInfoCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetConnectivityInfoCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetConnectivityInfoCommand(input, context);
+    return se_GetConnectivityInfoCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConnectivityInfoCommandOutput> {
-    return deserializeAws_restJson1GetConnectivityInfoCommand(output, context);
+    return de_GetConnectivityInfoCommand(output, context);
   }
 
   // Start section: command_body_extra

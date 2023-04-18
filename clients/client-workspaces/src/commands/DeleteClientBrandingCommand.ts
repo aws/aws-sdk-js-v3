@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteClientBrandingRequest,
-  DeleteClientBrandingRequestFilterSensitiveLog,
-  DeleteClientBrandingResult,
-  DeleteClientBrandingResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteClientBrandingCommand,
-  serializeAws_json1_1DeleteClientBrandingCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteClientBrandingRequest, DeleteClientBrandingResult } from "../models/models_0";
+import { de_DeleteClientBrandingCommand, se_DeleteClientBrandingCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteClientBrandingCommand}.
+ */
 export interface DeleteClientBrandingCommandInput extends DeleteClientBrandingRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteClientBrandingCommand}.
+ */
 export interface DeleteClientBrandingCommandOutput extends DeleteClientBrandingResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes customized client branding. Client branding allows you to customize your
  *          WorkSpace's client login portal. You can tailor your login portal company logo, the support
  *          email address, support link, link to reset password, and a custom message for users trying
@@ -41,13 +44,31 @@ export interface DeleteClientBrandingCommandOutput extends DeleteClientBrandingR
  * import { WorkSpacesClient, DeleteClientBrandingCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DeleteClientBrandingCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // DeleteClientBrandingRequest
+ *   ResourceId: "STRING_VALUE", // required
+ *   Platforms: [ // ClientDeviceTypeList // required
+ *     "DeviceTypeWindows" || "DeviceTypeOsx" || "DeviceTypeAndroid" || "DeviceTypeIos" || "DeviceTypeLinux" || "DeviceTypeWeb",
+ *   ],
+ * };
  * const command = new DeleteClientBrandingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteClientBrandingCommandInput - {@link DeleteClientBrandingCommandInput}
+ * @returns {@link DeleteClientBrandingCommandOutput}
  * @see {@link DeleteClientBrandingCommandInput} for command's `input` shape.
  * @see {@link DeleteClientBrandingCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The user is not authorized to access a resource.</p>
+ *
+ * @throws {@link InvalidParameterValuesException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
  *
  */
 export class DeleteClientBrandingCommand extends $Command<
@@ -67,6 +88,9 @@ export class DeleteClientBrandingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteClientBrandingCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +119,8 @@ export class DeleteClientBrandingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteClientBrandingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteClientBrandingResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +130,18 @@ export class DeleteClientBrandingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteClientBrandingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteClientBrandingCommand(input, context);
+    return se_DeleteClientBrandingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteClientBrandingCommandOutput> {
-    return deserializeAws_json1_1DeleteClientBrandingCommand(output, context);
+    return de_DeleteClientBrandingCommand(output, context);
   }
 
   // Start section: command_body_extra

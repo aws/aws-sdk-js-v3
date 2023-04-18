@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteEventSubscriptionMessage,
-  DeleteEventSubscriptionMessageFilterSensitiveLog,
-  DeleteEventSubscriptionResult,
-  DeleteEventSubscriptionResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteEventSubscriptionCommand,
-  serializeAws_queryDeleteEventSubscriptionCommand,
-} from "../protocols/Aws_query";
+import { DeleteEventSubscriptionMessage, DeleteEventSubscriptionResult } from "../models/models_0";
+import { de_DeleteEventSubscriptionCommand, se_DeleteEventSubscriptionCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteEventSubscriptionCommand}.
+ */
 export interface DeleteEventSubscriptionCommandInput extends DeleteEventSubscriptionMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteEventSubscriptionCommand}.
+ */
 export interface DeleteEventSubscriptionCommandOutput extends DeleteEventSubscriptionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an RDS event notification subscription.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,57 @@ export interface DeleteEventSubscriptionCommandOutput extends DeleteEventSubscri
  * import { RDSClient, DeleteEventSubscriptionCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DeleteEventSubscriptionCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // DeleteEventSubscriptionMessage
+ *   SubscriptionName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEventSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEventSubscriptionCommandInput - {@link DeleteEventSubscriptionCommandInput}
+ * @returns {@link DeleteEventSubscriptionCommandOutput}
  * @see {@link DeleteEventSubscriptionCommandInput} for command's `input` shape.
  * @see {@link DeleteEventSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ * @throws {@link InvalidEventSubscriptionStateFault} (client fault)
+ *  <p>This error can occur if someone else is modifying a subscription. You should retry the action.</p>
+ *
+ * @throws {@link SubscriptionNotFoundFault} (client fault)
+ *  <p>The subscription name does not exist.</p>
+ *
+ *
+ * @example To delete an event subscription
+ * ```javascript
+ * // The following example deletes the specified event subscription.
+ * const input = {
+ *   "SubscriptionName": "my-instance-events"
+ * };
+ * const command = new DeleteEventSubscriptionCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "EventSubscription": {
+ *     "CustSubscriptionId": "my-instance-events",
+ *     "CustomerAwsId": "123456789012",
+ *     "Enabled": false,
+ *     "EventCategoriesList": [
+ *       "backup",
+ *       "recovery"
+ *     ],
+ *     "EventSubscriptionArn": "arn:aws:rds:us-east-1:123456789012:es:my-instance-events",
+ *     "SnsTopicArn": "arn:aws:sns:us-east-1:123456789012:interesting-events",
+ *     "SourceIdsList": [
+ *       "test-instance"
+ *     ],
+ *     "SourceType": "db-instance",
+ *     "Status": "deleting",
+ *     "SubscriptionCreationTime": "2018-07-31 23:22:01.893"
+ *   }
+ * }
+ * *\/
+ * // example id: to-delete-an-event-subscription-1680128383147
+ * ```
  *
  */
 export class DeleteEventSubscriptionCommand extends $Command<
@@ -62,6 +109,9 @@ export class DeleteEventSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEventSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +140,8 @@ export class DeleteEventSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEventSubscriptionMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteEventSubscriptionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +151,18 @@ export class DeleteEventSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEventSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteEventSubscriptionCommand(input, context);
+    return se_DeleteEventSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEventSubscriptionCommandOutput> {
-    return deserializeAws_queryDeleteEventSubscriptionCommand(output, context);
+    return de_DeleteEventSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

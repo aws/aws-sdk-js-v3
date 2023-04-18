@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  RetryDataReplicationRequest,
-  RetryDataReplicationRequestFilterSensitiveLog,
-  SourceServer,
-  SourceServerFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1RetryDataReplicationCommand,
-  serializeAws_restJson1RetryDataReplicationCommand,
-} from "../protocols/Aws_restJson1";
+import { RetryDataReplicationRequest, SourceServer, SourceServerFilterSensitiveLog } from "../models/models_0";
+import { de_RetryDataReplicationCommand, se_RetryDataReplicationCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link RetryDataReplicationCommand}.
+ */
 export interface RetryDataReplicationCommandInput extends RetryDataReplicationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RetryDataReplicationCommand}.
+ */
 export interface RetryDataReplicationCommandOutput extends SourceServer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Causes the data replication initiation sequence to begin immediately upon next Handshake for specified SourceServer IDs, regardless of when the previous initiation started. This command will not work if the SourceServer is not stalled or is in a DISCONNECTED or STOPPED state.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,28 @@ export interface RetryDataReplicationCommandOutput extends SourceServer, __Metad
  * import { MgnClient, RetryDataReplicationCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, RetryDataReplicationCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = { // RetryDataReplicationRequest
+ *   sourceServerID: "STRING_VALUE", // required
+ * };
  * const command = new RetryDataReplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RetryDataReplicationCommandInput - {@link RetryDataReplicationCommandInput}
+ * @returns {@link RetryDataReplicationCommandOutput}
  * @see {@link RetryDataReplicationCommandInput} for command's `input` shape.
  * @see {@link RetryDataReplicationCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource not found exception.</p>
+ *
+ * @throws {@link UninitializedAccountException} (client fault)
+ *  <p>Uninitialized account exception.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Validate exception.</p>
+ *
  *
  */
 export class RetryDataReplicationCommand extends $Command<
@@ -62,6 +80,9 @@ export class RetryDataReplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RetryDataReplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +111,7 @@ export class RetryDataReplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RetryDataReplicationRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: SourceServerFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -101,12 +122,18 @@ export class RetryDataReplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RetryDataReplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RetryDataReplicationCommand(input, context);
+    return se_RetryDataReplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RetryDataReplicationCommandOutput> {
-    return deserializeAws_restJson1RetryDataReplicationCommand(output, context);
+    return de_RetryDataReplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

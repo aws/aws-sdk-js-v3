@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SyncDeploymentJobRequest,
-  SyncDeploymentJobRequestFilterSensitiveLog,
-  SyncDeploymentJobResponse,
-  SyncDeploymentJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1SyncDeploymentJobCommand,
-  serializeAws_restJson1SyncDeploymentJobCommand,
-} from "../protocols/Aws_restJson1";
+import { SyncDeploymentJobRequest, SyncDeploymentJobResponse } from "../models/models_0";
+import { de_SyncDeploymentJobCommand, se_SyncDeploymentJobCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link SyncDeploymentJobCommand}.
+ */
 export interface SyncDeploymentJobCommandInput extends SyncDeploymentJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SyncDeploymentJobCommand}.
+ */
 export interface SyncDeploymentJobCommandOutput extends SyncDeploymentJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Syncrhonizes robots in a fleet to the latest deployment. This is helpful if robots were added after a deployment.</p>
@@ -41,13 +44,44 @@ export interface SyncDeploymentJobCommandOutput extends SyncDeploymentJobRespons
  * import { RoboMakerClient, SyncDeploymentJobCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, SyncDeploymentJobCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = { // SyncDeploymentJobRequest
+ *   clientRequestToken: "STRING_VALUE", // required
+ *   fleet: "STRING_VALUE", // required
+ * };
  * const command = new SyncDeploymentJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SyncDeploymentJobCommandInput - {@link SyncDeploymentJobCommandInput}
+ * @returns {@link SyncDeploymentJobCommandOutput}
  * @see {@link SyncDeploymentJobCommandInput} for command's `input` shape.
  * @see {@link SyncDeploymentJobCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
+ *
+ * @throws {@link ConcurrentDeploymentException} (client fault)
+ *  <p>The failure percentage threshold percentage was met.</p>
+ *
+ * @throws {@link IdempotentParameterMismatchException} (client fault)
+ *  <p>The request uses the same client token as a previous, but non-identical request. Do not
+ *          reuse a client token with different requests, unless the requests are identical. </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>AWS RoboMaker experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter specified in a request is not valid, is unsupported, or cannot be used. The
+ *          returned message provides an explanation of the error value.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
+ *          stream requests exceeds the maximum number allowed. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
+ *
  *
  */
 export class SyncDeploymentJobCommand extends $Command<
@@ -67,6 +101,9 @@ export class SyncDeploymentJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SyncDeploymentJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +132,8 @@ export class SyncDeploymentJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SyncDeploymentJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SyncDeploymentJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +143,18 @@ export class SyncDeploymentJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SyncDeploymentJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SyncDeploymentJobCommand(input, context);
+    return se_SyncDeploymentJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SyncDeploymentJobCommandOutput> {
-    return deserializeAws_restJson1SyncDeploymentJobCommand(output, context);
+    return de_SyncDeploymentJobCommand(output, context);
   }
 
   // Start section: command_body_extra

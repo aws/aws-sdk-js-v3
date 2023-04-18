@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetCampaignVersionRequest,
-  GetCampaignVersionRequestFilterSensitiveLog,
-  GetCampaignVersionResponse,
-  GetCampaignVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetCampaignVersionRequest, GetCampaignVersionResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1GetCampaignVersionCommand,
-  serializeAws_restJson1GetCampaignVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetCampaignVersionCommand, se_GetCampaignVersionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetCampaignVersionCommand}.
+ */
 export interface GetCampaignVersionCommandInput extends GetCampaignVersionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetCampaignVersionCommand}.
+ */
 export interface GetCampaignVersionCommandOutput extends GetCampaignVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the status, configuration, and other settings for a specific version of a campaign.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,42 @@ export interface GetCampaignVersionCommandOutput extends GetCampaignVersionRespo
  * import { PinpointClient, GetCampaignVersionCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetCampaignVersionCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // GetCampaignVersionRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   CampaignId: "STRING_VALUE", // required
+ *   Version: "STRING_VALUE", // required
+ * };
  * const command = new GetCampaignVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCampaignVersionCommandInput - {@link GetCampaignVersionCommandInput}
+ * @returns {@link GetCampaignVersionCommandOutput}
  * @see {@link GetCampaignVersionCommandInput} for command's `input` shape.
  * @see {@link GetCampaignVersionCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link MethodNotAllowedException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link PayloadTooLargeException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
  *
  */
 export class GetCampaignVersionCommand extends $Command<
@@ -62,6 +94,9 @@ export class GetCampaignVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCampaignVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +125,8 @@ export class GetCampaignVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCampaignVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCampaignVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +136,18 @@ export class GetCampaignVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCampaignVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetCampaignVersionCommand(input, context);
+    return se_GetCampaignVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCampaignVersionCommandOutput> {
-    return deserializeAws_restJson1GetCampaignVersionCommand(output, context);
+    return de_GetCampaignVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

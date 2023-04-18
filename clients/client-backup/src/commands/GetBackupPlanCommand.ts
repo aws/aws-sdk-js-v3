@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import {
-  GetBackupPlanInput,
-  GetBackupPlanInputFilterSensitiveLog,
-  GetBackupPlanOutput,
-  GetBackupPlanOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetBackupPlanCommand,
-  serializeAws_restJson1GetBackupPlanCommand,
-} from "../protocols/Aws_restJson1";
+import { GetBackupPlanInput, GetBackupPlanOutput, GetBackupPlanOutputFilterSensitiveLog } from "../models/models_0";
+import { de_GetBackupPlanCommand, se_GetBackupPlanCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetBackupPlanCommand}.
+ */
 export interface GetBackupPlanCommandInput extends GetBackupPlanInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetBackupPlanCommand}.
+ */
 export interface GetBackupPlanCommandOutput extends GetBackupPlanOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns <code>BackupPlan</code> details for the specified <code>BackupPlanId</code>. The
  *          details are the body of a backup plan in JSON format, in addition to plan metadata.</p>
  * @example
@@ -37,13 +40,33 @@ export interface GetBackupPlanCommandOutput extends GetBackupPlanOutput, __Metad
  * import { BackupClient, GetBackupPlanCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, GetBackupPlanCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // GetBackupPlanInput
+ *   BackupPlanId: "STRING_VALUE", // required
+ *   VersionId: "STRING_VALUE",
+ * };
  * const command = new GetBackupPlanCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBackupPlanCommandInput - {@link GetBackupPlanCommandInput}
+ * @returns {@link GetBackupPlanCommandOutput}
  * @see {@link GetBackupPlanCommandInput} for command's `input` shape.
  * @see {@link GetBackupPlanCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
+ *          out of range.</p>
+ *
+ * @throws {@link MissingParameterValueException} (client fault)
+ *  <p>Indicates that a required parameter is missing.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource that is required for the action doesn't exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request failed due to a temporary failure of the server.</p>
+ *
  *
  */
 export class GetBackupPlanCommand extends $Command<
@@ -63,6 +86,9 @@ export class GetBackupPlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBackupPlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,7 +115,7 @@ export class GetBackupPlanCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBackupPlanInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetBackupPlanOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -100,12 +126,18 @@ export class GetBackupPlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBackupPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetBackupPlanCommand(input, context);
+    return se_GetBackupPlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBackupPlanCommandOutput> {
-    return deserializeAws_restJson1GetBackupPlanCommand(output, context);
+    return de_GetBackupPlanCommand(output, context);
   }
 
   // Start section: command_body_extra

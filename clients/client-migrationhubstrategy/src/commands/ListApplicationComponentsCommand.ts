@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
-import {
-  ListApplicationComponentsRequest,
-  ListApplicationComponentsRequestFilterSensitiveLog,
-  ListApplicationComponentsResponse,
-  ListApplicationComponentsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListApplicationComponentsCommand,
-  serializeAws_restJson1ListApplicationComponentsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListApplicationComponentsRequest, ListApplicationComponentsResponse } from "../models/models_0";
+import { de_ListApplicationComponentsCommand, se_ListApplicationComponentsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListApplicationComponentsCommand}.
+ */
 export interface ListApplicationComponentsCommandInput extends ListApplicationComponentsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListApplicationComponentsCommand}.
+ */
 export interface ListApplicationComponentsCommandOutput extends ListApplicationComponentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Retrieves a list of all the application components (processes). </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,42 @@ export interface ListApplicationComponentsCommandOutput extends ListApplicationC
  * import { MigrationHubStrategyClient, ListApplicationComponentsCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, ListApplicationComponentsCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
+ * const input = { // ListApplicationComponentsRequest
+ *   applicationComponentCriteria: "STRING_VALUE",
+ *   filterValue: "STRING_VALUE",
+ *   sort: "STRING_VALUE",
+ *   groupIdFilter: [ // GroupIds
+ *     { // Group
+ *       name: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListApplicationComponentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListApplicationComponentsCommandInput - {@link ListApplicationComponentsCommandInput}
+ * @returns {@link ListApplicationComponentsCommandOutput}
  * @see {@link ListApplicationComponentsCommandInput} for command's `input` shape.
  * @see {@link ListApplicationComponentsCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p> The user does not have permission to perform the action. Check the
+ *       AWS Identity and Access Management (IAM) policy associated with this user.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> The server experienced an internal error. Try again. </p>
+ *
+ * @throws {@link ServiceLinkedRoleLockClientException} (client fault)
+ *  <p> Exception to indicate that the service-linked role (SLR) is locked. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p> The request body isn't valid. </p>
+ *
  *
  */
 export class ListApplicationComponentsCommand extends $Command<
@@ -66,6 +98,9 @@ export class ListApplicationComponentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListApplicationComponentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +129,8 @@ export class ListApplicationComponentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListApplicationComponentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListApplicationComponentsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,15 +140,21 @@ export class ListApplicationComponentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListApplicationComponentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListApplicationComponentsCommand(input, context);
+    return se_ListApplicationComponentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListApplicationComponentsCommandOutput> {
-    return deserializeAws_restJson1ListApplicationComponentsCommand(output, context);
+    return de_ListApplicationComponentsCommand(output, context);
   }
 
   // Start section: command_body_extra

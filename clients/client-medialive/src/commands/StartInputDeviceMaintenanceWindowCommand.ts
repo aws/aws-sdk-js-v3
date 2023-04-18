@@ -14,23 +14,30 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
+import { StartInputDeviceMaintenanceWindowRequest } from "../models/models_1";
+import { StartInputDeviceMaintenanceWindowResponse } from "../models/models_2";
 import {
-  StartInputDeviceMaintenanceWindowRequest,
-  StartInputDeviceMaintenanceWindowRequestFilterSensitiveLog,
-  StartInputDeviceMaintenanceWindowResponse,
-  StartInputDeviceMaintenanceWindowResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1StartInputDeviceMaintenanceWindowCommand,
-  serializeAws_restJson1StartInputDeviceMaintenanceWindowCommand,
+  de_StartInputDeviceMaintenanceWindowCommand,
+  se_StartInputDeviceMaintenanceWindowCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link StartInputDeviceMaintenanceWindowCommand}.
+ */
 export interface StartInputDeviceMaintenanceWindowCommandInput extends StartInputDeviceMaintenanceWindowRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartInputDeviceMaintenanceWindowCommand}.
+ */
 export interface StartInputDeviceMaintenanceWindowCommandOutput
   extends StartInputDeviceMaintenanceWindowResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * Start a maintenance window for the specified input device. Starting a maintenance window will give the device up to two hours to install software. If the device was streaming prior to the maintenance, it will resume streaming when the software is fully installed. Devices automatically install updates while they are powered on and their MediaLive channels are stopped. A maintenance window allows you to update a device without having to stop MediaLive channels that use the device. The device must remain powered on and connected to the internet for the duration of the maintenance.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +45,43 @@ export interface StartInputDeviceMaintenanceWindowCommandOutput
  * import { MediaLiveClient, StartInputDeviceMaintenanceWindowCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, StartInputDeviceMaintenanceWindowCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = { // StartInputDeviceMaintenanceWindowRequest
+ *   InputDeviceId: "STRING_VALUE", // required
+ * };
  * const command = new StartInputDeviceMaintenanceWindowCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartInputDeviceMaintenanceWindowCommandInput - {@link StartInputDeviceMaintenanceWindowCommandInput}
+ * @returns {@link StartInputDeviceMaintenanceWindowCommandOutput}
  * @see {@link StartInputDeviceMaintenanceWindowCommandInput} for command's `input` shape.
  * @see {@link StartInputDeviceMaintenanceWindowCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
+ *
+ * @throws {@link BadGatewayException} (server fault)
+ *  Placeholder documentation for BadGatewayException
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  Placeholder documentation for BadRequestException
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  Placeholder documentation for ForbiddenException
+ *
+ * @throws {@link GatewayTimeoutException} (server fault)
+ *  Placeholder documentation for GatewayTimeoutException
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  Placeholder documentation for InternalServerErrorException
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  Placeholder documentation for NotFoundException
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  Placeholder documentation for TooManyRequestsException
+ *
+ * @throws {@link UnprocessableEntityException} (client fault)
+ *  Placeholder documentation for UnprocessableEntityException
+ *
  *
  */
 export class StartInputDeviceMaintenanceWindowCommand extends $Command<
@@ -64,6 +101,9 @@ export class StartInputDeviceMaintenanceWindowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartInputDeviceMaintenanceWindowCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +132,8 @@ export class StartInputDeviceMaintenanceWindowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartInputDeviceMaintenanceWindowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartInputDeviceMaintenanceWindowResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +143,24 @@ export class StartInputDeviceMaintenanceWindowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StartInputDeviceMaintenanceWindowCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartInputDeviceMaintenanceWindowCommand(input, context);
+    return se_StartInputDeviceMaintenanceWindowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartInputDeviceMaintenanceWindowCommandOutput> {
-    return deserializeAws_restJson1StartInputDeviceMaintenanceWindowCommand(output, context);
+    return de_StartInputDeviceMaintenanceWindowCommand(output, context);
   }
 
   // Start section: command_body_extra

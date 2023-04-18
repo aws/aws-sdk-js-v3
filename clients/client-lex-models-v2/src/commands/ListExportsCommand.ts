@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import {
-  ListExportsRequest,
-  ListExportsRequestFilterSensitiveLog,
-  ListExportsResponse,
-  ListExportsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListExportsCommand,
-  serializeAws_restJson1ListExportsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListExportsRequest, ListExportsResponse } from "../models/models_0";
+import { de_ListExportsCommand, se_ListExportsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListExportsCommand}.
+ */
 export interface ListExportsCommandInput extends ListExportsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListExportsCommand}.
+ */
 export interface ListExportsCommandOutput extends ListExportsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the exports for a bot, bot locale, or custom vocabulary.
  *          Exports are kept in the list for 7 days.</p>
  * @example
@@ -37,13 +40,48 @@ export interface ListExportsCommandOutput extends ListExportsResponse, __Metadat
  * import { LexModelsV2Client, ListExportsCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, ListExportsCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = { // ListExportsRequest
+ *   botId: "STRING_VALUE",
+ *   botVersion: "STRING_VALUE",
+ *   sortBy: { // ExportSortBy
+ *     attribute: "LastUpdatedDateTime", // required
+ *     order: "Ascending" || "Descending", // required
+ *   },
+ *   filters: [ // ExportFilters
+ *     { // ExportFilter
+ *       name: "ExportResourceType", // required
+ *       values: [ // FilterValues // required
+ *         "STRING_VALUE",
+ *       ],
+ *       operator: "CO" || "EQ", // required
+ *     },
+ *   ],
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   localeId: "STRING_VALUE",
+ * };
  * const command = new ListExportsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListExportsCommandInput - {@link ListExportsCommandInput}
+ * @returns {@link ListExportsCommandOutput}
  * @see {@link ListExportsCommandInput} for command's `input` shape.
  * @see {@link ListExportsCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The service encountered an unexpected condition. Try your request
+ *          again.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Your request rate is too high. Reduce the frequency of
+ *          requests.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One of the input parameters in your request isn't valid. Check the
+ *          parameters and try your request again.</p>
+ *
  *
  */
 export class ListExportsCommand extends $Command<
@@ -63,6 +101,9 @@ export class ListExportsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListExportsCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +130,8 @@ export class ListExportsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListExportsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListExportsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +141,18 @@ export class ListExportsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListExportsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListExportsCommand(input, context);
+    return se_ListExportsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListExportsCommandOutput> {
-    return deserializeAws_restJson1ListExportsCommand(output, context);
+    return de_ListExportsCommand(output, context);
   }
 
   // Start section: command_body_extra

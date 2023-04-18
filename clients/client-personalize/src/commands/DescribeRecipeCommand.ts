@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeRecipeRequest,
-  DescribeRecipeRequestFilterSensitiveLog,
-  DescribeRecipeResponse,
-  DescribeRecipeResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeRecipeRequest, DescribeRecipeResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1DescribeRecipeCommand,
-  serializeAws_json1_1DescribeRecipeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeRecipeCommand, se_DescribeRecipeCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeRecipeCommand}.
+ */
 export interface DescribeRecipeCommandInput extends DescribeRecipeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeRecipeCommand}.
+ */
 export interface DescribeRecipeCommandOutput extends DescribeRecipeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a recipe.</p>
  *          <p>A recipe contains three items:</p>
  *          <ul>
@@ -54,13 +57,25 @@ export interface DescribeRecipeCommandOutput extends DescribeRecipeResponse, __M
  * import { PersonalizeClient, DescribeRecipeCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DescribeRecipeCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // DescribeRecipeRequest
+ *   recipeArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeRecipeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRecipeCommandInput - {@link DescribeRecipeCommandInput}
+ * @returns {@link DescribeRecipeCommandOutput}
  * @see {@link DescribeRecipeCommandInput} for command's `input` shape.
  * @see {@link DescribeRecipeCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Could not find the specified resource.</p>
+ *
  *
  */
 export class DescribeRecipeCommand extends $Command<
@@ -80,6 +95,9 @@ export class DescribeRecipeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRecipeCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +126,8 @@ export class DescribeRecipeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRecipeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRecipeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +137,18 @@ export class DescribeRecipeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRecipeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeRecipeCommand(input, context);
+    return se_DescribeRecipeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRecipeCommandOutput> {
-    return deserializeAws_json1_1DescribeRecipeCommand(output, context);
+    return de_DescribeRecipeCommand(output, context);
   }
 
   // Start section: command_body_extra

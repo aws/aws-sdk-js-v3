@@ -13,20 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetAccountSendingEnabledResponse,
-  GetAccountSendingEnabledResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryGetAccountSendingEnabledCommand,
-  serializeAws_queryGetAccountSendingEnabledCommand,
-} from "../protocols/Aws_query";
+import { GetAccountSendingEnabledResponse } from "../models/models_0";
+import { de_GetAccountSendingEnabledCommand, se_GetAccountSendingEnabledCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetAccountSendingEnabledCommand}.
+ */
 export interface GetAccountSendingEnabledCommandInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetAccountSendingEnabledCommand}.
+ */
 export interface GetAccountSendingEnabledCommandOutput extends GetAccountSendingEnabledResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the email sending status of the Amazon SES account for the current region.</p>
  *         <p>You can execute this operation no more than once per second.</p>
  * @example
@@ -35,13 +40,31 @@ export interface GetAccountSendingEnabledCommandOutput extends GetAccountSending
  * import { SESClient, GetAccountSendingEnabledCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, GetAccountSendingEnabledCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = {};
  * const command = new GetAccountSendingEnabledCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccountSendingEnabledCommandInput - {@link GetAccountSendingEnabledCommandInput}
+ * @returns {@link GetAccountSendingEnabledCommandOutput}
  * @see {@link GetAccountSendingEnabledCommandInput} for command's `input` shape.
  * @see {@link GetAccountSendingEnabledCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
+ *
+ *
+ * @example GetAccountSendingEnabled
+ * ```javascript
+ * // The following example returns if sending status for an account is enabled. (true / false):
+ * const input = undefined;
+ * const command = new GetAccountSendingEnabledCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Enabled": true
+ * }
+ * *\/
+ * // example id: getaccountsendingenabled-1469047741333
+ * ```
  *
  */
 export class GetAccountSendingEnabledCommand extends $Command<
@@ -61,6 +84,9 @@ export class GetAccountSendingEnabledCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccountSendingEnabledCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +115,8 @@ export class GetAccountSendingEnabledCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: GetAccountSendingEnabledResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +126,18 @@ export class GetAccountSendingEnabledCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAccountSendingEnabledCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetAccountSendingEnabledCommand(input, context);
+    return se_GetAccountSendingEnabledCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccountSendingEnabledCommandOutput> {
-    return deserializeAws_queryGetAccountSendingEnabledCommand(output, context);
+    return de_GetAccountSendingEnabledCommand(output, context);
   }
 
   // Start section: command_body_extra

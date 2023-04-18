@@ -4,6 +4,9 @@ import { Readable } from "stream";
 
 import { PollyServiceException as __BaseException } from "./PollyServiceException";
 
+/**
+ * @public
+ */
 export interface DeleteLexiconInput {
   /**
    * <p>The name of the lexicon to delete. Must be an existing lexicon in
@@ -12,9 +15,13 @@ export interface DeleteLexiconInput {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLexiconOutput {}
 
 /**
+ * @public
  * <p>Amazon Polly can't find the specified lexicon. This could be caused by a
  *       lexicon that is missing, its name is misspelled or specifying a lexicon
  *       that is in a different region.</p>
@@ -38,6 +45,7 @@ export class LexiconNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An unknown condition has caused a service failure.</p>
  */
 export class ServiceFailureException extends __BaseException {
@@ -56,50 +64,71 @@ export class ServiceFailureException extends __BaseException {
   }
 }
 
-export enum Engine {
-  NEURAL = "neural",
-  STANDARD = "standard",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Engine = {
+  NEURAL: "neural",
+  STANDARD: "standard",
+} as const;
 
-export enum LanguageCode {
-  ar_AE = "ar-AE",
-  arb = "arb",
-  ca_ES = "ca-ES",
-  cmn_CN = "cmn-CN",
-  cy_GB = "cy-GB",
-  da_DK = "da-DK",
-  de_AT = "de-AT",
-  de_DE = "de-DE",
-  en_AU = "en-AU",
-  en_GB = "en-GB",
-  en_GB_WLS = "en-GB-WLS",
-  en_IN = "en-IN",
-  en_NZ = "en-NZ",
-  en_US = "en-US",
-  en_ZA = "en-ZA",
-  es_ES = "es-ES",
-  es_MX = "es-MX",
-  es_US = "es-US",
-  fi_FI = "fi-FI",
-  fr_CA = "fr-CA",
-  fr_FR = "fr-FR",
-  hi_IN = "hi-IN",
-  is_IS = "is-IS",
-  it_IT = "it-IT",
-  ja_JP = "ja-JP",
-  ko_KR = "ko-KR",
-  nb_NO = "nb-NO",
-  nl_NL = "nl-NL",
-  pl_PL = "pl-PL",
-  pt_BR = "pt-BR",
-  pt_PT = "pt-PT",
-  ro_RO = "ro-RO",
-  ru_RU = "ru-RU",
-  sv_SE = "sv-SE",
-  tr_TR = "tr-TR",
-  yue_CN = "yue-CN",
-}
+/**
+ * @public
+ */
+export type Engine = (typeof Engine)[keyof typeof Engine];
 
+/**
+ * @public
+ * @enum
+ */
+export const LanguageCode = {
+  ar_AE: "ar-AE",
+  arb: "arb",
+  ca_ES: "ca-ES",
+  cmn_CN: "cmn-CN",
+  cy_GB: "cy-GB",
+  da_DK: "da-DK",
+  de_AT: "de-AT",
+  de_DE: "de-DE",
+  en_AU: "en-AU",
+  en_GB: "en-GB",
+  en_GB_WLS: "en-GB-WLS",
+  en_IN: "en-IN",
+  en_NZ: "en-NZ",
+  en_US: "en-US",
+  en_ZA: "en-ZA",
+  es_ES: "es-ES",
+  es_MX: "es-MX",
+  es_US: "es-US",
+  fi_FI: "fi-FI",
+  fr_CA: "fr-CA",
+  fr_FR: "fr-FR",
+  hi_IN: "hi-IN",
+  is_IS: "is-IS",
+  it_IT: "it-IT",
+  ja_JP: "ja-JP",
+  ko_KR: "ko-KR",
+  nb_NO: "nb-NO",
+  nl_NL: "nl-NL",
+  pl_PL: "pl-PL",
+  pt_BR: "pt-BR",
+  pt_PT: "pt-PT",
+  ro_RO: "ro-RO",
+  ru_RU: "ru-RU",
+  sv_SE: "sv-SE",
+  tr_TR: "tr-TR",
+  yue_CN: "yue-CN",
+} as const;
+
+/**
+ * @public
+ */
+export type LanguageCode = (typeof LanguageCode)[keyof typeof LanguageCode];
+
+/**
+ * @public
+ */
 export interface DescribeVoicesInput {
   /**
    * <p>Specifies the engine (<code>standard</code> or <code>neural</code>)
@@ -133,94 +162,122 @@ export interface DescribeVoicesInput {
   NextToken?: string;
 }
 
-export enum Gender {
-  Female = "Female",
-  Male = "Male",
-}
-
-export enum VoiceId {
-  Aditi = "Aditi",
-  Amy = "Amy",
-  Aria = "Aria",
-  Arlet = "Arlet",
-  Arthur = "Arthur",
-  Astrid = "Astrid",
-  Ayanda = "Ayanda",
-  Bianca = "Bianca",
-  Brian = "Brian",
-  Camila = "Camila",
-  Carla = "Carla",
-  Carmen = "Carmen",
-  Celine = "Celine",
-  Chantal = "Chantal",
-  Conchita = "Conchita",
-  Cristiano = "Cristiano",
-  Daniel = "Daniel",
-  Dora = "Dora",
-  Elin = "Elin",
-  Emma = "Emma",
-  Enrique = "Enrique",
-  Ewa = "Ewa",
-  Filiz = "Filiz",
-  Gabrielle = "Gabrielle",
-  Geraint = "Geraint",
-  Giorgio = "Giorgio",
-  Gwyneth = "Gwyneth",
-  Hala = "Hala",
-  Hannah = "Hannah",
-  Hans = "Hans",
-  Hiujin = "Hiujin",
-  Ida = "Ida",
-  Ines = "Ines",
-  Ivy = "Ivy",
-  Jacek = "Jacek",
-  Jan = "Jan",
-  Joanna = "Joanna",
-  Joey = "Joey",
-  Justin = "Justin",
-  Kajal = "Kajal",
-  Karl = "Karl",
-  Kendra = "Kendra",
-  Kevin = "Kevin",
-  Kimberly = "Kimberly",
-  Laura = "Laura",
-  Lea = "Lea",
-  Liam = "Liam",
-  Liv = "Liv",
-  Lotte = "Lotte",
-  Lucia = "Lucia",
-  Lupe = "Lupe",
-  Mads = "Mads",
-  Maja = "Maja",
-  Marlene = "Marlene",
-  Mathieu = "Mathieu",
-  Matthew = "Matthew",
-  Maxim = "Maxim",
-  Mia = "Mia",
-  Miguel = "Miguel",
-  Mizuki = "Mizuki",
-  Naja = "Naja",
-  Nicole = "Nicole",
-  Ola = "Ola",
-  Olivia = "Olivia",
-  Pedro = "Pedro",
-  Penelope = "Penelope",
-  Raveena = "Raveena",
-  Ricardo = "Ricardo",
-  Ruben = "Ruben",
-  Russell = "Russell",
-  Salli = "Salli",
-  Seoyeon = "Seoyeon",
-  Suvi = "Suvi",
-  Takumi = "Takumi",
-  Tatyana = "Tatyana",
-  Vicki = "Vicki",
-  Vitoria = "Vitoria",
-  Zeina = "Zeina",
-  Zhiyu = "Zhiyu",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Gender = {
+  Female: "Female",
+  Male: "Male",
+} as const;
 
 /**
+ * @public
+ */
+export type Gender = (typeof Gender)[keyof typeof Gender];
+
+/**
+ * @public
+ * @enum
+ */
+export const VoiceId = {
+  Aditi: "Aditi",
+  Adriano: "Adriano",
+  Amy: "Amy",
+  Andres: "Andres",
+  Aria: "Aria",
+  Arlet: "Arlet",
+  Arthur: "Arthur",
+  Astrid: "Astrid",
+  Ayanda: "Ayanda",
+  Bianca: "Bianca",
+  Brian: "Brian",
+  Camila: "Camila",
+  Carla: "Carla",
+  Carmen: "Carmen",
+  Celine: "Celine",
+  Chantal: "Chantal",
+  Conchita: "Conchita",
+  Cristiano: "Cristiano",
+  Daniel: "Daniel",
+  Dora: "Dora",
+  Elin: "Elin",
+  Emma: "Emma",
+  Enrique: "Enrique",
+  Ewa: "Ewa",
+  Filiz: "Filiz",
+  Gabrielle: "Gabrielle",
+  Geraint: "Geraint",
+  Giorgio: "Giorgio",
+  Gwyneth: "Gwyneth",
+  Hala: "Hala",
+  Hannah: "Hannah",
+  Hans: "Hans",
+  Hiujin: "Hiujin",
+  Ida: "Ida",
+  Ines: "Ines",
+  Ivy: "Ivy",
+  Jacek: "Jacek",
+  Jan: "Jan",
+  Joanna: "Joanna",
+  Joey: "Joey",
+  Justin: "Justin",
+  Kajal: "Kajal",
+  Karl: "Karl",
+  Kazuha: "Kazuha",
+  Kendra: "Kendra",
+  Kevin: "Kevin",
+  Kimberly: "Kimberly",
+  Laura: "Laura",
+  Lea: "Lea",
+  Liam: "Liam",
+  Liv: "Liv",
+  Lotte: "Lotte",
+  Lucia: "Lucia",
+  Lupe: "Lupe",
+  Mads: "Mads",
+  Maja: "Maja",
+  Marlene: "Marlene",
+  Mathieu: "Mathieu",
+  Matthew: "Matthew",
+  Maxim: "Maxim",
+  Mia: "Mia",
+  Miguel: "Miguel",
+  Mizuki: "Mizuki",
+  Naja: "Naja",
+  Nicole: "Nicole",
+  Ola: "Ola",
+  Olivia: "Olivia",
+  Pedro: "Pedro",
+  Penelope: "Penelope",
+  Raveena: "Raveena",
+  Remi: "Remi",
+  Ricardo: "Ricardo",
+  Ruben: "Ruben",
+  Russell: "Russell",
+  Ruth: "Ruth",
+  Salli: "Salli",
+  Seoyeon: "Seoyeon",
+  Sergio: "Sergio",
+  Stephen: "Stephen",
+  Suvi: "Suvi",
+  Takumi: "Takumi",
+  Tatyana: "Tatyana",
+  Thiago: "Thiago",
+  Tomoko: "Tomoko",
+  Vicki: "Vicki",
+  Vitoria: "Vitoria",
+  Zeina: "Zeina",
+  Zhiyu: "Zhiyu",
+} as const;
+
+/**
+ * @public
+ */
+export type VoiceId = (typeof VoiceId)[keyof typeof VoiceId];
+
+/**
+ * @public
  * <p>Description of the voice.</p>
  */
 export interface Voice {
@@ -269,6 +326,9 @@ export interface Voice {
   SupportedEngines?: (Engine | string)[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeVoicesOutput {
   /**
    * <p>A list of voices with their properties.</p>
@@ -284,6 +344,7 @@ export interface DescribeVoicesOutput {
 }
 
 /**
+ * @public
  * <p>The NextToken is invalid. Verify that it's spelled correctly, and
  *       then try again.</p>
  */
@@ -304,6 +365,7 @@ export class InvalidNextTokenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This engine is not compatible with the voice that you have designated.
  *       Choose a new voice that is compatible with the engine or change the engine
  *       and restart the operation.</p>
@@ -324,6 +386,9 @@ export class EngineNotSupportedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetLexiconInput {
   /**
    * <p>Name of the lexicon.</p>
@@ -332,6 +397,7 @@ export interface GetLexiconInput {
 }
 
 /**
+ * @public
  * <p>Provides lexicon name and lexicon content in string format. For
  *       more information, see <a href="https://www.w3.org/TR/pronunciation-lexicon/">Pronunciation Lexicon
  *         Specification (PLS) Version 1.0</a>.</p>
@@ -350,6 +416,7 @@ export interface Lexicon {
 }
 
 /**
+ * @public
  * <p>Contains metadata describing the lexicon such as the number of
  *       lexemes, language code, and so on. For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
  */
@@ -388,6 +455,9 @@ export interface LexiconAttributes {
   Size?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetLexiconOutput {
   /**
    * <p>Lexicon object that provides name and the string content of the
@@ -403,6 +473,9 @@ export interface GetLexiconOutput {
   LexiconAttributes?: LexiconAttributes;
 }
 
+/**
+ * @public
+ */
 export interface GetSpeechSynthesisTaskInput {
   /**
    * <p>The Amazon Polly generated identifier for a speech synthesis task.</p>
@@ -410,33 +483,70 @@ export interface GetSpeechSynthesisTaskInput {
   TaskId: string | undefined;
 }
 
-export enum OutputFormat {
-  JSON = "json",
-  MP3 = "mp3",
-  OGG_VORBIS = "ogg_vorbis",
-  PCM = "pcm",
-}
-
-export enum SpeechMarkType {
-  SENTENCE = "sentence",
-  SSML = "ssml",
-  VISEME = "viseme",
-  WORD = "word",
-}
-
-export enum TaskStatus {
-  COMPLETED = "completed",
-  FAILED = "failed",
-  IN_PROGRESS = "inProgress",
-  SCHEDULED = "scheduled",
-}
-
-export enum TextType {
-  SSML = "ssml",
-  TEXT = "text",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OutputFormat = {
+  JSON: "json",
+  MP3: "mp3",
+  OGG_VORBIS: "ogg_vorbis",
+  PCM: "pcm",
+} as const;
 
 /**
+ * @public
+ */
+export type OutputFormat = (typeof OutputFormat)[keyof typeof OutputFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const SpeechMarkType = {
+  SENTENCE: "sentence",
+  SSML: "ssml",
+  VISEME: "viseme",
+  WORD: "word",
+} as const;
+
+/**
+ * @public
+ */
+export type SpeechMarkType = (typeof SpeechMarkType)[keyof typeof SpeechMarkType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TaskStatus = {
+  COMPLETED: "completed",
+  FAILED: "failed",
+  IN_PROGRESS: "inProgress",
+  SCHEDULED: "scheduled",
+} as const;
+
+/**
+ * @public
+ */
+export type TaskStatus = (typeof TaskStatus)[keyof typeof TaskStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const TextType = {
+  SSML: "ssml",
+  TEXT: "text",
+} as const;
+
+/**
+ * @public
+ */
+export type TextType = (typeof TextType)[keyof typeof TextType];
+
+/**
+ * @public
  * <p>SynthesisTask object that provides information about a speech
  *       synthesis task.</p>
  */
@@ -539,6 +649,9 @@ export interface SynthesisTask {
   LanguageCode?: LanguageCode | string;
 }
 
+/**
+ * @public
+ */
 export interface GetSpeechSynthesisTaskOutput {
   /**
    * <p>SynthesisTask object that provides information from the requested
@@ -549,6 +662,7 @@ export interface GetSpeechSynthesisTaskOutput {
 }
 
 /**
+ * @public
  * <p>The provided Task ID is not valid. Please provide a valid Task ID and
  *       try again.</p>
  */
@@ -569,6 +683,7 @@ export class InvalidTaskIdException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The Speech Synthesis task with requested Task ID cannot be
  *       found.</p>
  */
@@ -589,6 +704,7 @@ export class SynthesisTaskNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Amazon Polly can't find the specified lexicon. Verify that the lexicon's
  *       name is spelled correctly, and then try again.</p>
  */
@@ -609,6 +725,7 @@ export class InvalidLexiconException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The provided Amazon S3 bucket name is invalid. Please check your input
  *       with S3 bucket naming requirements and try again.</p>
  */
@@ -629,6 +746,7 @@ export class InvalidS3BucketException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The provided Amazon S3 key prefix is invalid. Please provide a valid
  *       S3 object key name.</p>
  */
@@ -649,6 +767,7 @@ export class InvalidS3KeyException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified sample rate is not valid.</p>
  */
 export class InvalidSampleRateException extends __BaseException {
@@ -668,6 +787,7 @@ export class InvalidSampleRateException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The provided SNS topic ARN is invalid. Please provide a valid SNS
  *       topic ARN and try again.</p>
  */
@@ -688,6 +808,7 @@ export class InvalidSnsTopicArnException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The SSML you provided is invalid. Verify the SSML syntax, spelling
  *       of tags and values, and then try again.</p>
  */
@@ -708,6 +829,7 @@ export class InvalidSsmlException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The language specified is not currently supported by Amazon Polly in this
  *       capacity.</p>
  */
@@ -728,6 +850,7 @@ export class LanguageNotSupportedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Describes the content of the lexicon.</p>
  */
 export interface LexiconDescription {
@@ -743,6 +866,7 @@ export interface LexiconDescription {
 }
 
 /**
+ * @public
  * <p>The maximum size of the specified lexicon would be exceeded by this
  *       operation.</p>
  */
@@ -762,6 +886,9 @@ export class LexiconSizeExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListLexiconsInput {
   /**
    * <p>An opaque pagination token returned from previous
@@ -771,6 +898,9 @@ export interface ListLexiconsInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListLexiconsOutput {
   /**
    * <p>A list of lexicon names and attributes.</p>
@@ -785,6 +915,9 @@ export interface ListLexiconsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSpeechSynthesisTasksInput {
   /**
    * <p>Maximum number of speech synthesis tasks returned in a List
@@ -805,6 +938,9 @@ export interface ListSpeechSynthesisTasksInput {
   Status?: TaskStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListSpeechSynthesisTasksOutput {
   /**
    * <p>An opaque pagination token returned from the previous List operation
@@ -822,6 +958,7 @@ export interface ListSpeechSynthesisTasksOutput {
 }
 
 /**
+ * @public
  * <p>Speech marks are not supported for the <code>OutputFormat</code>
  *       selected. Speech marks are only available for content in <code>json</code>
  *       format.</p>
@@ -843,6 +980,7 @@ export class MarksNotSupportedForFormatException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The maximum size of the lexeme would be exceeded by this
  *       operation.</p>
  */
@@ -863,6 +1001,7 @@ export class MaxLexemeLengthExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The maximum number of lexicons would be exceeded by this
  *       operation.</p>
  */
@@ -882,10 +1021,13 @@ export class MaxLexiconsNumberExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface PutLexiconInput {
   /**
    * <p>Name of the lexicon. The name must follow the regular express
-   *       format [0-9A-Za-z]{1,20}. That is, the name is a case-sensitive
+   *       format [0-9A-Za-z]\{1,20\}. That is, the name is a case-sensitive
    *       alphanumeric string up to 20 characters long. </p>
    */
   Name: string | undefined;
@@ -896,9 +1038,13 @@ export interface PutLexiconInput {
   Content: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutLexiconOutput {}
 
 /**
+ * @public
  * <p>The alphabet specified by the lexicon is not a supported alphabet.
  *       Valid values are <code>x-sampa</code> and <code>ipa</code>.</p>
  */
@@ -919,6 +1065,7 @@ export class UnsupportedPlsAlphabetException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The language specified in the lexicon is unsupported. For a list of
  *       supported languages, see <a href="https://docs.aws.amazon.com/polly/latest/dg/API_LexiconAttributes.html">Lexicon Attributes</a>.</p>
  */
@@ -939,6 +1086,7 @@ export class UnsupportedPlsLanguageException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>SSML speech marks are not supported for plain text-type
  *       input.</p>
  */
@@ -958,6 +1106,9 @@ export class SsmlMarksNotSupportedForTextTypeException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface StartSpeechSynthesisTaskInput {
   /**
    * <p>Specifies the engine (<code>standard</code> or <code>neural</code>)
@@ -1042,6 +1193,9 @@ export interface StartSpeechSynthesisTaskInput {
   VoiceId: VoiceId | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartSpeechSynthesisTaskOutput {
   /**
    * <p>SynthesisTask object that provides information and attributes about a
@@ -1051,6 +1205,7 @@ export interface StartSpeechSynthesisTaskOutput {
 }
 
 /**
+ * @public
  * <p>The value of the "Text" parameter is longer than the accepted
  *       limits. For the <code>SynthesizeSpeech</code> API, the limit for input
  *       text is a maximum of 6000 characters total, of which no more than 3000 can
@@ -1075,6 +1230,9 @@ export class TextLengthExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface SynthesizeSpeechInput {
   /**
    * <p>Specifies the engine (<code>standard</code> or <code>neural</code>)
@@ -1092,7 +1250,6 @@ export interface SynthesizeSpeechInput {
    *          <p>Valid Values: <code>standard</code> | <code>neural</code>
    *          </p>
    *          <p>Required: Yes</p>
-   *
    *          <p>
    *             <b>Standard voices</b>
    *          </p>
@@ -1168,6 +1325,9 @@ export interface SynthesizeSpeechInput {
   VoiceId: VoiceId | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SynthesizeSpeechOutput {
   /**
    * <p> Stream containing the synthesized speech. </p>
@@ -1213,58 +1373,9 @@ export interface SynthesizeSpeechOutput {
 /**
  * @internal
  */
-export const DeleteLexiconInputFilterSensitiveLog = (obj: DeleteLexiconInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteLexiconOutputFilterSensitiveLog = (obj: DeleteLexiconOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVoicesInputFilterSensitiveLog = (obj: DescribeVoicesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VoiceFilterSensitiveLog = (obj: Voice): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVoicesOutputFilterSensitiveLog = (obj: DescribeVoicesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLexiconInputFilterSensitiveLog = (obj: GetLexiconInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const LexiconFilterSensitiveLog = (obj: Lexicon): any => ({
   ...obj,
   ...(obj.Content && { Content: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const LexiconAttributesFilterSensitiveLog = (obj: LexiconAttributes): any => ({
-  ...obj,
 });
 
 /**
@@ -1278,93 +1389,9 @@ export const GetLexiconOutputFilterSensitiveLog = (obj: GetLexiconOutput): any =
 /**
  * @internal
  */
-export const GetSpeechSynthesisTaskInputFilterSensitiveLog = (obj: GetSpeechSynthesisTaskInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SynthesisTaskFilterSensitiveLog = (obj: SynthesisTask): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSpeechSynthesisTaskOutputFilterSensitiveLog = (obj: GetSpeechSynthesisTaskOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LexiconDescriptionFilterSensitiveLog = (obj: LexiconDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLexiconsInputFilterSensitiveLog = (obj: ListLexiconsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLexiconsOutputFilterSensitiveLog = (obj: ListLexiconsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSpeechSynthesisTasksInputFilterSensitiveLog = (obj: ListSpeechSynthesisTasksInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSpeechSynthesisTasksOutputFilterSensitiveLog = (obj: ListSpeechSynthesisTasksOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const PutLexiconInputFilterSensitiveLog = (obj: PutLexiconInput): any => ({
   ...obj,
   ...(obj.Content && { Content: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const PutLexiconOutputFilterSensitiveLog = (obj: PutLexiconOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartSpeechSynthesisTaskInputFilterSensitiveLog = (obj: StartSpeechSynthesisTaskInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartSpeechSynthesisTaskOutputFilterSensitiveLog = (obj: StartSpeechSynthesisTaskOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SynthesizeSpeechInputFilterSensitiveLog = (obj: SynthesizeSpeechInput): any => ({
-  ...obj,
 });
 
 /**

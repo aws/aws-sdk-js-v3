@@ -12,22 +12,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { TestBodyStructureInputOutput, TestBodyStructureInputOutputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1TestBodyStructureCommand,
-  serializeAws_restJson1TestBodyStructureCommand,
-} from "../protocols/Aws_restJson1";
+import { TestBodyStructureInputOutput } from "../models/models_0";
+import { de_TestBodyStructureCommand, se_TestBodyStructureCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * @public
+ *
+ * The input for {@link TestBodyStructureCommand}.
+ */
 export interface TestBodyStructureCommandInput extends TestBodyStructureInputOutput {}
+/**
+ * @public
+ *
+ * The output of {@link TestBodyStructureCommand}.
+ */
 export interface TestBodyStructureCommandOutput extends TestBodyStructureInputOutput, __MetadataBearer {}
 
 /**
+ * @public
  * This example operation serializes a structure in the HTTP body.
  *
  * It should ensure Content-Type: application/json is
  * used in all requests and that an "empty" body is
- * an empty JSON document ({}).
+ * an empty JSON document (\{\}).
  *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -35,13 +43,22 @@ export interface TestBodyStructureCommandOutput extends TestBodyStructureInputOu
  * import { RestJsonProtocolClient, TestBodyStructureCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, TestBodyStructureCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
+ * const input = { // TestBodyStructureInputOutput
+ *   testId: "STRING_VALUE",
+ *   testConfig: { // TestConfig
+ *     timeout: Number("int"),
+ *   },
+ * };
  * const command = new TestBodyStructureCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TestBodyStructureCommandInput - {@link TestBodyStructureCommandInput}
+ * @returns {@link TestBodyStructureCommandOutput}
  * @see {@link TestBodyStructureCommandInput} for command's `input` shape.
  * @see {@link TestBodyStructureCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
+ *
  *
  */
 export class TestBodyStructureCommand extends $Command<
@@ -52,6 +69,9 @@ export class TestBodyStructureCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: TestBodyStructureCommandInput) {
     // Start section: command_constructor
     super();
@@ -77,8 +97,8 @@ export class TestBodyStructureCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TestBodyStructureInputOutputFilterSensitiveLog,
-      outputFilterSensitiveLog: TestBodyStructureInputOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -88,12 +108,18 @@ export class TestBodyStructureCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TestBodyStructureCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1TestBodyStructureCommand(input, context);
+    return se_TestBodyStructureCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestBodyStructureCommandOutput> {
-    return deserializeAws_restJson1TestBodyStructureCommand(output, context);
+    return de_TestBodyStructureCommand(output, context);
   }
 
   // Start section: command_body_extra

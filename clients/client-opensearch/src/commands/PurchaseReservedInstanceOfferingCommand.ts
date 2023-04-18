@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PurchaseReservedInstanceOfferingRequest,
-  PurchaseReservedInstanceOfferingRequestFilterSensitiveLog,
-  PurchaseReservedInstanceOfferingResponse,
-  PurchaseReservedInstanceOfferingResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PurchaseReservedInstanceOfferingRequest, PurchaseReservedInstanceOfferingResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import {
-  deserializeAws_restJson1PurchaseReservedInstanceOfferingCommand,
-  serializeAws_restJson1PurchaseReservedInstanceOfferingCommand,
+  de_PurchaseReservedInstanceOfferingCommand,
+  se_PurchaseReservedInstanceOfferingCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link PurchaseReservedInstanceOfferingCommand}.
+ */
 export interface PurchaseReservedInstanceOfferingCommandInput extends PurchaseReservedInstanceOfferingRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PurchaseReservedInstanceOfferingCommand}.
+ */
 export interface PurchaseReservedInstanceOfferingCommandOutput
   extends PurchaseReservedInstanceOfferingResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows you to purchase Amazon OpenSearch Service Reserved Instances.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,39 @@ export interface PurchaseReservedInstanceOfferingCommandOutput
  * import { OpenSearchClient, PurchaseReservedInstanceOfferingCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, PurchaseReservedInstanceOfferingCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = { // PurchaseReservedInstanceOfferingRequest
+ *   ReservedInstanceOfferingId: "STRING_VALUE", // required
+ *   ReservationName: "STRING_VALUE", // required
+ *   InstanceCount: Number("int"),
+ * };
  * const command = new PurchaseReservedInstanceOfferingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PurchaseReservedInstanceOfferingCommandInput - {@link PurchaseReservedInstanceOfferingCommandInput}
+ * @returns {@link PurchaseReservedInstanceOfferingCommandOutput}
  * @see {@link PurchaseReservedInstanceOfferingCommandInput} for command's `input` shape.
  * @see {@link PurchaseReservedInstanceOfferingCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
+ *
+ * @throws {@link DisabledOperationException} (client fault)
+ *  <p>An error occured because the client wanted to access a not supported operation.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>An exception for trying to create more than the allowed number of resources or sub-resources.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>An exception for creating a resource that already exists.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An exception for accessing or deleting a resource that does not exist..</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+ *
  *
  */
 export class PurchaseReservedInstanceOfferingCommand extends $Command<
@@ -64,6 +96,9 @@ export class PurchaseReservedInstanceOfferingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PurchaseReservedInstanceOfferingCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +127,8 @@ export class PurchaseReservedInstanceOfferingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PurchaseReservedInstanceOfferingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PurchaseReservedInstanceOfferingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +138,24 @@ export class PurchaseReservedInstanceOfferingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PurchaseReservedInstanceOfferingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PurchaseReservedInstanceOfferingCommand(input, context);
+    return se_PurchaseReservedInstanceOfferingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PurchaseReservedInstanceOfferingCommandOutput> {
-    return deserializeAws_restJson1PurchaseReservedInstanceOfferingCommand(output, context);
+    return de_PurchaseReservedInstanceOfferingCommand(output, context);
   }
 
   // Start section: command_body_extra

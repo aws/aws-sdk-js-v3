@@ -15,20 +15,27 @@ import {
 
 import {
   DescribeExecutionInput,
-  DescribeExecutionInputFilterSensitiveLog,
   DescribeExecutionOutput,
   DescribeExecutionOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeExecutionCommand,
-  serializeAws_json1_0DescribeExecutionCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DescribeExecutionCommand, se_DescribeExecutionCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeExecutionCommand}.
+ */
 export interface DescribeExecutionCommandInput extends DescribeExecutionInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeExecutionCommand}.
+ */
 export interface DescribeExecutionCommandOutput extends DescribeExecutionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides all information about a state machine execution, such as the state machine associated with the execution, the execution input and output, and relevant execution metadata. Use this API action to return the Map Run ARN if the execution was dispatched by a Map Run.</p>
  *          <note>
  *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
@@ -40,13 +47,25 @@ export interface DescribeExecutionCommandOutput extends DescribeExecutionOutput,
  * import { SFNClient, DescribeExecutionCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, DescribeExecutionCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
+ * const input = { // DescribeExecutionInput
+ *   executionArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeExecutionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeExecutionCommandInput - {@link DescribeExecutionCommandInput}
+ * @returns {@link DescribeExecutionCommandOutput}
  * @see {@link DescribeExecutionCommandInput} for command's `input` shape.
  * @see {@link DescribeExecutionCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
+ *
+ * @throws {@link ExecutionDoesNotExist} (client fault)
+ *  <p>The specified execution does not exist.</p>
+ *
+ * @throws {@link InvalidArn} (client fault)
+ *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+ *
  *
  */
 export class DescribeExecutionCommand extends $Command<
@@ -66,6 +85,9 @@ export class DescribeExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,7 +116,7 @@ export class DescribeExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeExecutionInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeExecutionOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -105,12 +127,18 @@ export class DescribeExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeExecutionCommand(input, context);
+    return se_DescribeExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeExecutionCommandOutput> {
-    return deserializeAws_json1_0DescribeExecutionCommand(output, context);
+    return de_DescribeExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

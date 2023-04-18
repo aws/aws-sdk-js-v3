@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  CreateScriptInput,
-  CreateScriptInputFilterSensitiveLog,
-  CreateScriptOutput,
-  CreateScriptOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateScriptCommand,
-  serializeAws_json1_1CreateScriptCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateScriptInput, CreateScriptOutput } from "../models/models_0";
+import { de_CreateScriptCommand, se_CreateScriptCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateScriptCommand}.
+ */
 export interface CreateScriptCommandInput extends CreateScriptInput {}
+/**
+ * @public
+ *
+ * The output of {@link CreateScriptCommand}.
+ */
 export interface CreateScriptCommandOutput extends CreateScriptOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new script record for your Realtime Servers script. Realtime scripts are JavaScript that
  *             provide configuration settings and optional custom game logic for your game. The script
  *             is deployed when you create a Realtime Servers fleet to host your game sessions. Script logic is
@@ -75,13 +78,55 @@ export interface CreateScriptCommandOutput extends CreateScriptOutput, __Metadat
  * import { GameLiftClient, CreateScriptCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, CreateScriptCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // CreateScriptInput
+ *   Name: "STRING_VALUE",
+ *   Version: "STRING_VALUE",
+ *   StorageLocation: { // S3Location
+ *     Bucket: "STRING_VALUE",
+ *     Key: "STRING_VALUE",
+ *     RoleArn: "STRING_VALUE",
+ *     ObjectVersion: "STRING_VALUE",
+ *   },
+ *   ZipFile: "BLOB_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateScriptCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateScriptCommandInput - {@link CreateScriptCommandInput}
+ * @returns {@link CreateScriptCommandOutput}
  * @see {@link CreateScriptCommandInput} for command's `input` shape.
  * @see {@link CreateScriptCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The requested operation would cause a conflict with the current state of a service
+ *             resource associated with the request. Resolve the conflict before retrying this
+ *             request.</p>
+ *         <p></p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an unrecoverable internal failure while processing the
+ *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
+ *             values before retrying.</p>
+ *
+ * @throws {@link TaggingFailedException} (client fault)
+ *  <p>The requested tagging operation did not succeed. This may be due to invalid tag format
+ *             or the maximum tag limit may have been exceeded. Resolve the issue before
+ *             retrying.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
  *
  */
 export class CreateScriptCommand extends $Command<
@@ -101,6 +146,9 @@ export class CreateScriptCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateScriptCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +175,8 @@ export class CreateScriptCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateScriptInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateScriptOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,12 +186,18 @@ export class CreateScriptCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateScriptCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateScriptCommand(input, context);
+    return se_CreateScriptCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateScriptCommandOutput> {
-    return deserializeAws_json1_1CreateScriptCommand(output, context);
+    return de_CreateScriptCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -6,12 +6,11 @@ import {
   DescribeAffectedEntitiesForOrganizationCommandInput,
   DescribeAffectedEntitiesForOrganizationCommandOutput,
 } from "../commands/DescribeAffectedEntitiesForOrganizationCommand";
-import { Health } from "../Health";
 import { HealthClient } from "../HealthClient";
 import { HealthPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: HealthClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeAffectedEntitiesForOrganizationCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Health,
-  input: DescribeAffectedEntitiesForOrganizationCommandInput,
-  ...args: any
-): Promise<DescribeAffectedEntitiesForOrganizationCommandOutput> => {
-  // @ts-ignore
-  return await client.describeAffectedEntitiesForOrganization(input, ...args);
-};
 export async function* paginateDescribeAffectedEntitiesForOrganization(
   config: HealthPaginationConfiguration,
   input: DescribeAffectedEntitiesForOrganizationCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateDescribeAffectedEntitiesForOrganization(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Health) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof HealthClient) {
+    if (config.client instanceof HealthClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Health | HealthClient");

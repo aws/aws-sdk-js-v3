@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  AssociateAddressRequest,
-  AssociateAddressRequestFilterSensitiveLog,
-  AssociateAddressResult,
-  AssociateAddressResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_ec2AssociateAddressCommand,
-  serializeAws_ec2AssociateAddressCommand,
-} from "../protocols/Aws_ec2";
+import { AssociateAddressRequest, AssociateAddressResult } from "../models/models_0";
+import { de_AssociateAddressCommand, se_AssociateAddressCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link AssociateAddressCommand}.
+ */
 export interface AssociateAddressCommandInput extends AssociateAddressRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AssociateAddressCommand}.
+ */
 export interface AssociateAddressCommandOutput extends AssociateAddressResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates an Elastic IP address, or carrier IP address (for instances that are in
  *       subnets in Wavelength Zones) with an instance or a network interface. Before you can use an
  *       Elastic IP address, you must allocate it to your account.</p>
@@ -63,13 +66,71 @@ export interface AssociateAddressCommandOutput extends AssociateAddressResult, _
  * import { EC2Client, AssociateAddressCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AssociateAddressCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // AssociateAddressRequest
+ *   AllocationId: "STRING_VALUE",
+ *   InstanceId: "STRING_VALUE",
+ *   PublicIp: "STRING_VALUE",
+ *   AllowReassociation: true || false,
+ *   DryRun: true || false,
+ *   NetworkInterfaceId: "STRING_VALUE",
+ *   PrivateIpAddress: "STRING_VALUE",
+ * };
  * const command = new AssociateAddressCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateAddressCommandInput - {@link AssociateAddressCommandInput}
+ * @returns {@link AssociateAddressCommandOutput}
  * @see {@link AssociateAddressCommandInput} for command's `input` shape.
  * @see {@link AssociateAddressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ *
+ * @example To associate an Elastic IP address in EC2-VPC
+ * ```javascript
+ * // This example associates the specified Elastic IP address with the specified instance in a VPC.
+ * const input = {
+ *   "AllocationId": "eipalloc-64d5890a",
+ *   "InstanceId": "i-0b263919b6498b123"
+ * };
+ * const command = new AssociateAddressCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AssociationId": "eipassoc-2bebb745"
+ * }
+ * *\/
+ * // example id: ec2-associate-address-1
+ * ```
+ *
+ * @example To associate an Elastic IP address with a network interface
+ * ```javascript
+ * // This example associates the specified Elastic IP address with the specified network interface.
+ * const input = {
+ *   "AllocationId": "eipalloc-64d5890a",
+ *   "NetworkInterfaceId": "eni-1a2b3c4d"
+ * };
+ * const command = new AssociateAddressCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AssociationId": "eipassoc-2bebb745"
+ * }
+ * *\/
+ * // example id: ec2-associate-address-2
+ * ```
+ *
+ * @example To associate an Elastic IP address in EC2-Classic
+ * ```javascript
+ * // This example associates an Elastic IP address with an instance in EC2-Classic.
+ * const input = {
+ *   "InstanceId": "i-07ffe74c7330ebf53",
+ *   "PublicIp": "198.51.100.0"
+ * };
+ * const command = new AssociateAddressCommand(input);
+ * await client.send(command);
+ * // example id: ec2-associate-address-3
+ * ```
  *
  */
 export class AssociateAddressCommand extends $Command<
@@ -89,6 +150,9 @@ export class AssociateAddressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateAddressCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +181,8 @@ export class AssociateAddressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateAddressRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateAddressResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +192,18 @@ export class AssociateAddressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateAddressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2AssociateAddressCommand(input, context);
+    return se_AssociateAddressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateAddressCommandOutput> {
-    return deserializeAws_ec2AssociateAddressCommand(output, context);
+    return de_AssociateAddressCommand(output, context);
   }
 
   // Start section: command_body_extra

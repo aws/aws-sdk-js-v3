@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateModelPackageGroupInput,
-  CreateModelPackageGroupInputFilterSensitiveLog,
-  CreateModelPackageGroupOutput,
-  CreateModelPackageGroupOutputFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1CreateModelPackageGroupCommand,
-  serializeAws_json1_1CreateModelPackageGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateModelPackageGroupInput, CreateModelPackageGroupOutput } from "../models/models_1";
+import { de_CreateModelPackageGroupCommand, se_CreateModelPackageGroupCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateModelPackageGroupCommand}.
+ */
 export interface CreateModelPackageGroupCommandInput extends CreateModelPackageGroupInput {}
+/**
+ * @public
+ *
+ * The output of {@link CreateModelPackageGroupCommand}.
+ */
 export interface CreateModelPackageGroupCommandOutput extends CreateModelPackageGroupOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a model group. A model group contains a group of model versions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,30 @@ export interface CreateModelPackageGroupCommandOutput extends CreateModelPackage
  * import { SageMakerClient, CreateModelPackageGroupCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateModelPackageGroupCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // CreateModelPackageGroupInput
+ *   ModelPackageGroupName: "STRING_VALUE", // required
+ *   ModelPackageGroupDescription: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateModelPackageGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateModelPackageGroupCommandInput - {@link CreateModelPackageGroupCommandInput}
+ * @returns {@link CreateModelPackageGroupCommandOutput}
  * @see {@link CreateModelPackageGroupCommandInput} for command's `input` shape.
  * @see {@link CreateModelPackageGroupCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceLimitExceeded} (client fault)
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
+ *             training jobs created. </p>
+ *
  *
  */
 export class CreateModelPackageGroupCommand extends $Command<
@@ -62,6 +82,9 @@ export class CreateModelPackageGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateModelPackageGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +113,8 @@ export class CreateModelPackageGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateModelPackageGroupInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateModelPackageGroupOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +124,18 @@ export class CreateModelPackageGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateModelPackageGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateModelPackageGroupCommand(input, context);
+    return se_CreateModelPackageGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateModelPackageGroupCommandOutput> {
-    return deserializeAws_json1_1CreateModelPackageGroupCommand(output, context);
+    return de_CreateModelPackageGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

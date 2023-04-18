@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
+import { DescribeAlertManagerDefinitionRequest, DescribeAlertManagerDefinitionResponse } from "../models/models_0";
 import {
-  DescribeAlertManagerDefinitionRequest,
-  DescribeAlertManagerDefinitionRequestFilterSensitiveLog,
-  DescribeAlertManagerDefinitionResponse,
-  DescribeAlertManagerDefinitionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeAlertManagerDefinitionCommand,
-  serializeAws_restJson1DescribeAlertManagerDefinitionCommand,
+  de_DescribeAlertManagerDefinitionCommand,
+  se_DescribeAlertManagerDefinitionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeAlertManagerDefinitionCommand}.
+ */
 export interface DescribeAlertManagerDefinitionCommandInput extends DescribeAlertManagerDefinitionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeAlertManagerDefinitionCommand}.
+ */
 export interface DescribeAlertManagerDefinitionCommandOutput
   extends DescribeAlertManagerDefinitionResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * Describes an alert manager definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,34 @@ export interface DescribeAlertManagerDefinitionCommandOutput
  * import { AmpClient, DescribeAlertManagerDefinitionCommand } from "@aws-sdk/client-amp"; // ES Modules import
  * // const { AmpClient, DescribeAlertManagerDefinitionCommand } = require("@aws-sdk/client-amp"); // CommonJS import
  * const client = new AmpClient(config);
+ * const input = { // DescribeAlertManagerDefinitionRequest
+ *   workspaceId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeAlertManagerDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAlertManagerDefinitionCommandInput - {@link DescribeAlertManagerDefinitionCommandInput}
+ * @returns {@link DescribeAlertManagerDefinitionCommandOutput}
  * @see {@link DescribeAlertManagerDefinitionCommandInput} for command's `input` shape.
  * @see {@link DescribeAlertManagerDefinitionCommandOutput} for command's `response` shape.
  * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  User does not have sufficient access to perform this action.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  Unexpected error during processing of request.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  Request references a resource which does not exist.
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  Request was denied due to request throttling.
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  The input fails to satisfy the constraints specified by an AWS service.
+ *
  *
  */
 export class DescribeAlertManagerDefinitionCommand extends $Command<
@@ -64,6 +91,9 @@ export class DescribeAlertManagerDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAlertManagerDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +122,8 @@ export class DescribeAlertManagerDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAlertManagerDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAlertManagerDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +133,24 @@ export class DescribeAlertManagerDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeAlertManagerDefinitionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAlertManagerDefinitionCommand(input, context);
+    return se_DescribeAlertManagerDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAlertManagerDefinitionCommandOutput> {
-    return deserializeAws_restJson1DescribeAlertManagerDefinitionCommand(output, context);
+    return de_DescribeAlertManagerDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

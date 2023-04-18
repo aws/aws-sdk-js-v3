@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  ListCACertificatesRequest,
-  ListCACertificatesRequestFilterSensitiveLog,
-  ListCACertificatesResponse,
-  ListCACertificatesResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListCACertificatesCommand,
-  serializeAws_restJson1ListCACertificatesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListCACertificatesRequest, ListCACertificatesResponse } from "../models/models_1";
+import { de_ListCACertificatesCommand, se_ListCACertificatesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListCACertificatesCommand}.
+ */
 export interface ListCACertificatesCommandInput extends ListCACertificatesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListCACertificatesCommand}.
+ */
 export interface ListCACertificatesCommandOutput extends ListCACertificatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the CA certificates registered for your Amazon Web Services account.</p>
  *          <p>The results are paginated with a default page size of 25. You can use the returned
  *          marker to retrieve additional results.</p>
@@ -39,13 +42,37 @@ export interface ListCACertificatesCommandOutput extends ListCACertificatesRespo
  * import { IoTClient, ListCACertificatesCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListCACertificatesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // ListCACertificatesRequest
+ *   pageSize: Number("int"),
+ *   marker: "STRING_VALUE",
+ *   ascendingOrder: true || false,
+ *   templateName: "STRING_VALUE",
+ * };
  * const command = new ListCACertificatesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCACertificatesCommandInput - {@link ListCACertificatesCommandInput}
+ * @returns {@link ListCACertificatesCommandOutput}
  * @see {@link ListCACertificatesCommandInput} for command's `input` shape.
  * @see {@link ListCACertificatesCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You are not authorized to perform this operation.</p>
+ *
  *
  */
 export class ListCACertificatesCommand extends $Command<
@@ -65,6 +92,9 @@ export class ListCACertificatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCACertificatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +123,8 @@ export class ListCACertificatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCACertificatesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCACertificatesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +134,18 @@ export class ListCACertificatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCACertificatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListCACertificatesCommand(input, context);
+    return se_ListCACertificatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCACertificatesCommandOutput> {
-    return deserializeAws_restJson1ListCACertificatesCommand(output, context);
+    return de_ListCACertificatesCommand(output, context);
   }
 
   // Start section: command_body_extra

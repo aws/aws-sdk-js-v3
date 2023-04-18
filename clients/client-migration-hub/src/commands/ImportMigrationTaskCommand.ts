@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
-import {
-  ImportMigrationTaskRequest,
-  ImportMigrationTaskRequestFilterSensitiveLog,
-  ImportMigrationTaskResult,
-  ImportMigrationTaskResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ImportMigrationTaskCommand,
-  serializeAws_json1_1ImportMigrationTaskCommand,
-} from "../protocols/Aws_json1_1";
+import { ImportMigrationTaskRequest, ImportMigrationTaskResult } from "../models/models_0";
+import { de_ImportMigrationTaskCommand, se_ImportMigrationTaskCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ImportMigrationTaskCommand}.
+ */
 export interface ImportMigrationTaskCommandInput extends ImportMigrationTaskRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ImportMigrationTaskCommand}.
+ */
 export interface ImportMigrationTaskCommandOutput extends ImportMigrationTaskResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers a new migration task which represents a server, database, etc., being migrated
  *          to AWS by a migration tool.</p>
  *          <p>This API is a prerequisite to calling the <code>NotifyMigrationTaskState</code> API as
@@ -39,13 +42,55 @@ export interface ImportMigrationTaskCommandOutput extends ImportMigrationTaskRes
  * import { MigrationHubClient, ImportMigrationTaskCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
  * // const { MigrationHubClient, ImportMigrationTaskCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
  * const client = new MigrationHubClient(config);
+ * const input = { // ImportMigrationTaskRequest
+ *   ProgressUpdateStream: "STRING_VALUE", // required
+ *   MigrationTaskName: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new ImportMigrationTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportMigrationTaskCommandInput - {@link ImportMigrationTaskCommandInput}
+ * @returns {@link ImportMigrationTaskCommandOutput}
  * @see {@link ImportMigrationTaskCommandInput} for command's `input` shape.
  * @see {@link ImportMigrationTaskCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link DryRunOperation} (client fault)
+ *  <p>Exception raised to indicate a successfully authorized action when the
+ *             <code>DryRun</code> flag is set to "true".</p>
+ *
+ * @throws {@link HomeRegionNotSetException} (client fault)
+ *  <p>The home region is not set. Set the home region to continue.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Exception raised when an internal, configuration, or dependency error is
+ *          encountered.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Exception raised when the provided input violates a policy constraint or is entered in
+ *          the wrong format or data type.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Exception raised when the request references a resource (Application Discovery Service
+ *          configuration, update stream, migration task, etc.) that does not exist in Application
+ *          Discovery Service (Application Discovery Service) or in Migration Hub's repository.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>Exception raised when there is an internal, configuration, or dependency error
+ *          encountered.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link UnauthorizedOperation} (client fault)
+ *  <p>Exception raised to indicate a request was not authorized when the <code>DryRun</code>
+ *          flag is set to "true".</p>
+ *
  *
  */
 export class ImportMigrationTaskCommand extends $Command<
@@ -65,6 +110,9 @@ export class ImportMigrationTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportMigrationTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +141,8 @@ export class ImportMigrationTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ImportMigrationTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ImportMigrationTaskResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +152,18 @@ export class ImportMigrationTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportMigrationTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ImportMigrationTaskCommand(input, context);
+    return se_ImportMigrationTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportMigrationTaskCommandOutput> {
-    return deserializeAws_json1_1ImportMigrationTaskCommand(output, context);
+    return de_ImportMigrationTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

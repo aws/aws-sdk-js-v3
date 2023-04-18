@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateSMBSecurityStrategyInput,
-  UpdateSMBSecurityStrategyInputFilterSensitiveLog,
-  UpdateSMBSecurityStrategyOutput,
-  UpdateSMBSecurityStrategyOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateSMBSecurityStrategyCommand,
-  serializeAws_json1_1UpdateSMBSecurityStrategyCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateSMBSecurityStrategyInput, UpdateSMBSecurityStrategyOutput } from "../models/models_0";
+import { de_UpdateSMBSecurityStrategyCommand, se_UpdateSMBSecurityStrategyCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateSMBSecurityStrategyCommand}.
+ */
 export interface UpdateSMBSecurityStrategyCommandInput extends UpdateSMBSecurityStrategyInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateSMBSecurityStrategyCommand}.
+ */
 export interface UpdateSMBSecurityStrategyCommandOutput extends UpdateSMBSecurityStrategyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the SMB security strategy on a file gateway. This action is only supported in
  *          file gateways.</p>
  *
@@ -43,13 +46,28 @@ export interface UpdateSMBSecurityStrategyCommandOutput extends UpdateSMBSecurit
  * import { StorageGatewayClient, UpdateSMBSecurityStrategyCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, UpdateSMBSecurityStrategyCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // UpdateSMBSecurityStrategyInput
+ *   GatewayARN: "STRING_VALUE", // required
+ *   SMBSecurityStrategy: "STRING_VALUE", // required
+ * };
  * const command = new UpdateSMBSecurityStrategyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSMBSecurityStrategyCommandInput - {@link UpdateSMBSecurityStrategyCommandInput}
+ * @returns {@link UpdateSMBSecurityStrategyCommandOutput}
  * @see {@link UpdateSMBSecurityStrategyCommandInput} for command's `input` shape.
  * @see {@link UpdateSMBSecurityStrategyCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error has occurred during the request. For more information, see the
+ *          error and message fields.</p>
+ *
+ * @throws {@link InvalidGatewayRequestException} (client fault)
+ *  <p>An exception occurred because an invalid gateway request was issued to the service. For
+ *          more information, see the error and message fields.</p>
+ *
  *
  */
 export class UpdateSMBSecurityStrategyCommand extends $Command<
@@ -69,6 +87,9 @@ export class UpdateSMBSecurityStrategyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSMBSecurityStrategyCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +118,8 @@ export class UpdateSMBSecurityStrategyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSMBSecurityStrategyInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSMBSecurityStrategyOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,15 +129,21 @@ export class UpdateSMBSecurityStrategyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSMBSecurityStrategyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateSMBSecurityStrategyCommand(input, context);
+    return se_UpdateSMBSecurityStrategyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateSMBSecurityStrategyCommandOutput> {
-    return deserializeAws_json1_1UpdateSMBSecurityStrategyCommand(output, context);
+    return de_UpdateSMBSecurityStrategyCommand(output, context);
   }
 
   // Start section: command_body_extra

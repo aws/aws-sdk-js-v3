@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
+import { DisableOrganizationAdminAccountRequest, DisableOrganizationAdminAccountResponse } from "../models/models_0";
 import {
-  DisableOrganizationAdminAccountRequest,
-  DisableOrganizationAdminAccountRequestFilterSensitiveLog,
-  DisableOrganizationAdminAccountResponse,
-  DisableOrganizationAdminAccountResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DisableOrganizationAdminAccountCommand,
-  serializeAws_restJson1DisableOrganizationAdminAccountCommand,
+  de_DisableOrganizationAdminAccountCommand,
+  se_DisableOrganizationAdminAccountCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DisableOrganizationAdminAccountCommand}.
+ */
 export interface DisableOrganizationAdminAccountCommandInput extends DisableOrganizationAdminAccountRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisableOrganizationAdminAccountCommand}.
+ */
 export interface DisableOrganizationAdminAccountCommandOutput
   extends DisableOrganizationAdminAccountResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables an Amazon Web Services account within the Organization as the GuardDuty delegated
  *       administrator.</p>
  * @example
@@ -39,13 +45,25 @@ export interface DisableOrganizationAdminAccountCommandOutput
  * import { GuardDutyClient, DisableOrganizationAdminAccountCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, DisableOrganizationAdminAccountCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = { // DisableOrganizationAdminAccountRequest
+ *   AdminAccountId: "STRING_VALUE", // required
+ * };
  * const command = new DisableOrganizationAdminAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableOrganizationAdminAccountCommandInput - {@link DisableOrganizationAdminAccountCommandInput}
+ * @returns {@link DisableOrganizationAdminAccountCommandOutput}
  * @see {@link DisableOrganizationAdminAccountCommandInput} for command's `input` shape.
  * @see {@link DisableOrganizationAdminAccountCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>A bad request exception object.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>An internal server error exception object.</p>
+ *
  *
  */
 export class DisableOrganizationAdminAccountCommand extends $Command<
@@ -65,6 +83,9 @@ export class DisableOrganizationAdminAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableOrganizationAdminAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +114,8 @@ export class DisableOrganizationAdminAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableOrganizationAdminAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisableOrganizationAdminAccountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,18 +125,24 @@ export class DisableOrganizationAdminAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisableOrganizationAdminAccountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisableOrganizationAdminAccountCommand(input, context);
+    return se_DisableOrganizationAdminAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisableOrganizationAdminAccountCommandOutput> {
-    return deserializeAws_restJson1DisableOrganizationAdminAccountCommand(output, context);
+    return de_DisableOrganizationAdminAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

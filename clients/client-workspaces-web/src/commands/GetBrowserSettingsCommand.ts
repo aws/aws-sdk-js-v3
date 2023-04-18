@@ -15,20 +15,27 @@ import {
 
 import {
   GetBrowserSettingsRequest,
-  GetBrowserSettingsRequestFilterSensitiveLog,
   GetBrowserSettingsResponse,
   GetBrowserSettingsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetBrowserSettingsCommand,
-  serializeAws_restJson1GetBrowserSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetBrowserSettingsCommand, se_GetBrowserSettingsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetBrowserSettingsCommand}.
+ */
 export interface GetBrowserSettingsCommandInput extends GetBrowserSettingsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetBrowserSettingsCommand}.
+ */
 export interface GetBrowserSettingsCommandOutput extends GetBrowserSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets browser settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +43,34 @@ export interface GetBrowserSettingsCommandOutput extends GetBrowserSettingsRespo
  * import { WorkSpacesWebClient, GetBrowserSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, GetBrowserSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = { // GetBrowserSettingsRequest
+ *   browserSettingsArn: "STRING_VALUE", // required
+ * };
  * const command = new GetBrowserSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBrowserSettingsCommandInput - {@link GetBrowserSettingsCommandInput}
+ * @returns {@link GetBrowserSettingsCommandOutput}
  * @see {@link GetBrowserSettingsCommandInput} for command's `input` shape.
  * @see {@link GetBrowserSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access is denied.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There is an internal server error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource cannot be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>There is a throttling error.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There is a validation error.</p>
+ *
  *
  */
 export class GetBrowserSettingsCommand extends $Command<
@@ -62,6 +90,9 @@ export class GetBrowserSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBrowserSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +121,7 @@ export class GetBrowserSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBrowserSettingsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetBrowserSettingsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -101,12 +132,18 @@ export class GetBrowserSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBrowserSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetBrowserSettingsCommand(input, context);
+    return se_GetBrowserSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBrowserSettingsCommandOutput> {
-    return deserializeAws_restJson1GetBrowserSettingsCommand(output, context);
+    return de_GetBrowserSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

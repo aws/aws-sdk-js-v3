@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeCommandsRequest,
-  DescribeCommandsRequestFilterSensitiveLog,
-  DescribeCommandsResult,
-  DescribeCommandsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeCommandsRequest, DescribeCommandsResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1DescribeCommandsCommand,
-  serializeAws_json1_1DescribeCommandsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeCommandsCommand, se_DescribeCommandsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeCommandsCommand}.
+ */
 export interface DescribeCommandsCommandInput extends DescribeCommandsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeCommandsCommand}.
+ */
 export interface DescribeCommandsCommandOutput extends DescribeCommandsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the results of specified commands.</p>
  *          <note>
  *             <p>This call accepts only one resource-identifying parameter.</p>
@@ -44,13 +47,29 @@ export interface DescribeCommandsCommandOutput extends DescribeCommandsResult, _
  * import { OpsWorksClient, DescribeCommandsCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DescribeCommandsCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // DescribeCommandsRequest
+ *   DeploymentId: "STRING_VALUE",
+ *   InstanceId: "STRING_VALUE",
+ *   CommandIds: [ // Strings
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeCommandsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCommandsCommandInput - {@link DescribeCommandsCommandInput}
+ * @returns {@link DescribeCommandsCommandOutput}
  * @see {@link DescribeCommandsCommandInput} for command's `input` shape.
  * @see {@link DescribeCommandsCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Indicates that a resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that a request was not valid.</p>
+ *
  *
  */
 export class DescribeCommandsCommand extends $Command<
@@ -70,6 +89,9 @@ export class DescribeCommandsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCommandsCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +120,8 @@ export class DescribeCommandsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCommandsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeCommandsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +131,18 @@ export class DescribeCommandsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCommandsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeCommandsCommand(input, context);
+    return se_DescribeCommandsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCommandsCommandOutput> {
-    return deserializeAws_json1_1DescribeCommandsCommand(output, context);
+    return de_DescribeCommandsCommand(output, context);
   }
 
   // Start section: command_body_extra

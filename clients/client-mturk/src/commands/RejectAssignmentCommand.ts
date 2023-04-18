@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RejectAssignmentRequest,
-  RejectAssignmentRequestFilterSensitiveLog,
-  RejectAssignmentResponse,
-  RejectAssignmentResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { RejectAssignmentRequest, RejectAssignmentResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import {
-  deserializeAws_json1_1RejectAssignmentCommand,
-  serializeAws_json1_1RejectAssignmentCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RejectAssignmentCommand, se_RejectAssignmentCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link RejectAssignmentCommand}.
+ */
 export interface RejectAssignmentCommandInput extends RejectAssignmentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RejectAssignmentCommand}.
+ */
 export interface RejectAssignmentCommandOutput extends RejectAssignmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The <code>RejectAssignment</code> operation rejects the results of a completed assignment.
  *         </p>
@@ -48,13 +51,26 @@ export interface RejectAssignmentCommandOutput extends RejectAssignmentResponse,
  * import { MTurkClient, RejectAssignmentCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, RejectAssignmentCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = { // RejectAssignmentRequest
+ *   AssignmentId: "STRING_VALUE", // required
+ *   RequesterFeedback: "STRING_VALUE", // required
+ * };
  * const command = new RejectAssignmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RejectAssignmentCommandInput - {@link RejectAssignmentCommandInput}
+ * @returns {@link RejectAssignmentCommandOutput}
  * @see {@link RejectAssignmentCommandInput} for command's `input` shape.
  * @see {@link RejectAssignmentCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
+ *
+ * @throws {@link RequestError} (client fault)
+ *  <p>Your request is invalid.</p>
+ *
+ * @throws {@link ServiceFault} (server fault)
+ *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
  *
  */
 export class RejectAssignmentCommand extends $Command<
@@ -74,6 +90,9 @@ export class RejectAssignmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RejectAssignmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +121,8 @@ export class RejectAssignmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RejectAssignmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RejectAssignmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +132,18 @@ export class RejectAssignmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RejectAssignmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RejectAssignmentCommand(input, context);
+    return se_RejectAssignmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RejectAssignmentCommandOutput> {
-    return deserializeAws_json1_1RejectAssignmentCommand(output, context);
+    return de_RejectAssignmentCommand(output, context);
   }
 
   // Start section: command_body_extra

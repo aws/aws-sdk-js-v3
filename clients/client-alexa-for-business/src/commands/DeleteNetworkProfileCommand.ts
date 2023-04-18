@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  DeleteNetworkProfileRequest,
-  DeleteNetworkProfileRequestFilterSensitiveLog,
-  DeleteNetworkProfileResponse,
-  DeleteNetworkProfileResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteNetworkProfileCommand,
-  serializeAws_json1_1DeleteNetworkProfileCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteNetworkProfileRequest, DeleteNetworkProfileResponse } from "../models/models_0";
+import { de_DeleteNetworkProfileCommand, se_DeleteNetworkProfileCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteNetworkProfileCommand}.
+ */
 export interface DeleteNetworkProfileCommandInput extends DeleteNetworkProfileRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteNetworkProfileCommand}.
+ */
 export interface DeleteNetworkProfileCommandOutput extends DeleteNetworkProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a network profile by the network profile ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,28 @@ export interface DeleteNetworkProfileCommandOutput extends DeleteNetworkProfileR
  * import { AlexaForBusinessClient, DeleteNetworkProfileCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, DeleteNetworkProfileCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // DeleteNetworkProfileRequest
+ *   NetworkProfileArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteNetworkProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNetworkProfileCommandInput - {@link DeleteNetworkProfileCommandInput}
+ * @returns {@link DeleteNetworkProfileCommandOutput}
  * @see {@link DeleteNetworkProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteNetworkProfileCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is a concurrent modification of resources.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The resource in the request is already in use.</p>
+ *
  *
  */
 export class DeleteNetworkProfileCommand extends $Command<
@@ -62,6 +80,9 @@ export class DeleteNetworkProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNetworkProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +111,8 @@ export class DeleteNetworkProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteNetworkProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteNetworkProfileResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +122,18 @@ export class DeleteNetworkProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteNetworkProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteNetworkProfileCommand(input, context);
+    return se_DeleteNetworkProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteNetworkProfileCommandOutput> {
-    return deserializeAws_json1_1DeleteNetworkProfileCommand(output, context);
+    return de_DeleteNetworkProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateMilestoneInput,
-  CreateMilestoneInputFilterSensitiveLog,
-  CreateMilestoneOutput,
-  CreateMilestoneOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateMilestoneCommand,
-  serializeAws_restJson1CreateMilestoneCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateMilestoneInput, CreateMilestoneOutput } from "../models/models_0";
+import { de_CreateMilestoneCommand, se_CreateMilestoneCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateMilestoneCommand}.
+ */
 export interface CreateMilestoneCommandInput extends CreateMilestoneInput {}
+/**
+ * @public
+ *
+ * The output of {@link CreateMilestoneCommand}.
+ */
 export interface CreateMilestoneCommandOutput extends CreateMilestoneOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a milestone for an existing workload.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,42 @@ export interface CreateMilestoneCommandOutput extends CreateMilestoneOutput, __M
  * import { WellArchitectedClient, CreateMilestoneCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, CreateMilestoneCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
+ * const input = { // CreateMilestoneInput
+ *   WorkloadId: "STRING_VALUE", // required
+ *   MilestoneName: "STRING_VALUE", // required
+ *   ClientRequestToken: "STRING_VALUE", // required
+ * };
  * const command = new CreateMilestoneCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMilestoneCommandInput - {@link CreateMilestoneCommandInput}
+ * @returns {@link CreateMilestoneCommandOutput}
  * @see {@link CreateMilestoneCommandInput} for command's `input` shape.
  * @see {@link CreateMilestoneCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>User does not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The resource has already been processed, was deleted, or is too large.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There is a problem with the Well-Architected Tool API service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource was not found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The user has reached their resource quota.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The user input is not valid.</p>
+ *
  *
  */
 export class CreateMilestoneCommand extends $Command<
@@ -62,6 +94,9 @@ export class CreateMilestoneCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMilestoneCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +125,8 @@ export class CreateMilestoneCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateMilestoneInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateMilestoneOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +136,18 @@ export class CreateMilestoneCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMilestoneCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateMilestoneCommand(input, context);
+    return se_CreateMilestoneCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMilestoneCommandOutput> {
-    return deserializeAws_restJson1CreateMilestoneCommand(output, context);
+    return de_CreateMilestoneCommand(output, context);
   }
 
   // Start section: command_body_extra

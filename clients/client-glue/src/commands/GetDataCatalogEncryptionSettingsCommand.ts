@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { GetDataCatalogEncryptionSettingsRequest, GetDataCatalogEncryptionSettingsResponse } from "../models/models_1";
 import {
-  GetDataCatalogEncryptionSettingsRequest,
-  GetDataCatalogEncryptionSettingsRequestFilterSensitiveLog,
-  GetDataCatalogEncryptionSettingsResponse,
-  GetDataCatalogEncryptionSettingsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetDataCatalogEncryptionSettingsCommand,
-  serializeAws_json1_1GetDataCatalogEncryptionSettingsCommand,
+  de_GetDataCatalogEncryptionSettingsCommand,
+  se_GetDataCatalogEncryptionSettingsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetDataCatalogEncryptionSettingsCommand}.
+ */
 export interface GetDataCatalogEncryptionSettingsCommandInput extends GetDataCatalogEncryptionSettingsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetDataCatalogEncryptionSettingsCommand}.
+ */
 export interface GetDataCatalogEncryptionSettingsCommandOutput
   extends GetDataCatalogEncryptionSettingsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the security configuration for a specified catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,28 @@ export interface GetDataCatalogEncryptionSettingsCommandOutput
  * import { GlueClient, GetDataCatalogEncryptionSettingsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetDataCatalogEncryptionSettingsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // GetDataCatalogEncryptionSettingsRequest
+ *   CatalogId: "STRING_VALUE",
+ * };
  * const command = new GetDataCatalogEncryptionSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDataCatalogEncryptionSettingsCommandInput - {@link GetDataCatalogEncryptionSettingsCommandInput}
+ * @returns {@link GetDataCatalogEncryptionSettingsCommandOutput}
  * @see {@link GetDataCatalogEncryptionSettingsCommandInput} for command's `input` shape.
  * @see {@link GetDataCatalogEncryptionSettingsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class GetDataCatalogEncryptionSettingsCommand extends $Command<
@@ -64,6 +85,9 @@ export class GetDataCatalogEncryptionSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDataCatalogEncryptionSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +116,8 @@ export class GetDataCatalogEncryptionSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDataCatalogEncryptionSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDataCatalogEncryptionSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +127,24 @@ export class GetDataCatalogEncryptionSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetDataCatalogEncryptionSettingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDataCatalogEncryptionSettingsCommand(input, context);
+    return se_GetDataCatalogEncryptionSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDataCatalogEncryptionSettingsCommandOutput> {
-    return deserializeAws_json1_1GetDataCatalogEncryptionSettingsCommand(output, context);
+    return de_GetDataCatalogEncryptionSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import {
-  CreateApiDestinationRequest,
-  CreateApiDestinationRequestFilterSensitiveLog,
-  CreateApiDestinationResponse,
-  CreateApiDestinationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateApiDestinationCommand,
-  serializeAws_json1_1CreateApiDestinationCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateApiDestinationRequest, CreateApiDestinationResponse } from "../models/models_0";
+import { de_CreateApiDestinationCommand, se_CreateApiDestinationCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateApiDestinationCommand}.
+ */
 export interface CreateApiDestinationCommandInput extends CreateApiDestinationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateApiDestinationCommand}.
+ */
 export interface CreateApiDestinationCommandOutput extends CreateApiDestinationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an API destination, which is an HTTP invocation endpoint configured as a target
  *       for events.</p>
  * @example
@@ -37,13 +40,37 @@ export interface CreateApiDestinationCommandOutput extends CreateApiDestinationR
  * import { CloudWatchEventsClient, CreateApiDestinationCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, CreateApiDestinationCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
+ * const input = { // CreateApiDestinationRequest
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   ConnectionArn: "STRING_VALUE", // required
+ *   InvocationEndpoint: "STRING_VALUE", // required
+ *   HttpMethod: "STRING_VALUE", // required
+ *   InvocationRateLimitPerSecond: Number("int"),
+ * };
  * const command = new CreateApiDestinationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateApiDestinationCommandInput - {@link CreateApiDestinationCommandInput}
+ * @returns {@link CreateApiDestinationCommandOutput}
  * @see {@link CreateApiDestinationCommandInput} for command's `input` shape.
  * @see {@link CreateApiDestinationCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request failed because it attempted to create resource beyond the allowed service
+ *       quota.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The resource you are trying to create already exists.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An entity that you specified does not exist.</p>
+ *
  *
  */
 export class CreateApiDestinationCommand extends $Command<
@@ -63,6 +90,9 @@ export class CreateApiDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateApiDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +121,8 @@ export class CreateApiDestinationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateApiDestinationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateApiDestinationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +132,18 @@ export class CreateApiDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateApiDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateApiDestinationCommand(input, context);
+    return se_CreateApiDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateApiDestinationCommandOutput> {
-    return deserializeAws_json1_1CreateApiDestinationCommand(output, context);
+    return de_CreateApiDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
+import { ListEntityRecognizerSummariesRequest, ListEntityRecognizerSummariesResponse } from "../models/models_0";
 import {
-  ListEntityRecognizerSummariesRequest,
-  ListEntityRecognizerSummariesRequestFilterSensitiveLog,
-  ListEntityRecognizerSummariesResponse,
-  ListEntityRecognizerSummariesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListEntityRecognizerSummariesCommand,
-  serializeAws_json1_1ListEntityRecognizerSummariesCommand,
+  de_ListEntityRecognizerSummariesCommand,
+  se_ListEntityRecognizerSummariesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListEntityRecognizerSummariesCommand}.
+ */
 export interface ListEntityRecognizerSummariesCommandInput extends ListEntityRecognizerSummariesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListEntityRecognizerSummariesCommand}.
+ */
 export interface ListEntityRecognizerSummariesCommandOutput
   extends ListEntityRecognizerSummariesResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of summaries for the entity recognizers that you have created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,29 @@ export interface ListEntityRecognizerSummariesCommandOutput
  * import { ComprehendClient, ListEntityRecognizerSummariesCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, ListEntityRecognizerSummariesCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // ListEntityRecognizerSummariesRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListEntityRecognizerSummariesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEntityRecognizerSummariesCommandInput - {@link ListEntityRecognizerSummariesCommandInput}
+ * @returns {@link ListEntityRecognizerSummariesCommandOutput}
  * @see {@link ListEntityRecognizerSummariesCommandInput} for command's `input` shape.
  * @see {@link ListEntityRecognizerSummariesCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ *
  *
  */
 export class ListEntityRecognizerSummariesCommand extends $Command<
@@ -64,6 +86,9 @@ export class ListEntityRecognizerSummariesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEntityRecognizerSummariesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +117,8 @@ export class ListEntityRecognizerSummariesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEntityRecognizerSummariesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEntityRecognizerSummariesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +128,21 @@ export class ListEntityRecognizerSummariesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEntityRecognizerSummariesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListEntityRecognizerSummariesCommand(input, context);
+    return se_ListEntityRecognizerSummariesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListEntityRecognizerSummariesCommandOutput> {
-    return deserializeAws_json1_1ListEntityRecognizerSummariesCommand(output, context);
+    return de_ListEntityRecognizerSummariesCommand(output, context);
   }
 
   // Start section: command_body_extra

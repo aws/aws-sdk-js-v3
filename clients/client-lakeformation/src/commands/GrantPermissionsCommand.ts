@@ -14,36 +14,118 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import {
-  GrantPermissionsRequest,
-  GrantPermissionsRequestFilterSensitiveLog,
-  GrantPermissionsResponse,
-  GrantPermissionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GrantPermissionsCommand,
-  serializeAws_restJson1GrantPermissionsCommand,
-} from "../protocols/Aws_restJson1";
+import { GrantPermissionsRequest, GrantPermissionsResponse } from "../models/models_0";
+import { de_GrantPermissionsCommand, se_GrantPermissionsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GrantPermissionsCommand}.
+ */
 export interface GrantPermissionsCommandInput extends GrantPermissionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GrantPermissionsCommand}.
+ */
 export interface GrantPermissionsCommandOutput extends GrantPermissionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Grants permissions to the principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3.</p>
- * 	        <p>For information about permissions, see <a href="https://docs-aws.amazon.com/lake-formation/latest/dg/security-data-access.html">Security and Access Control to Metadata and Data</a>.</p>
+ *          <p>For information about permissions, see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html">Security and Access Control to Metadata and Data</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LakeFormationClient, GrantPermissionsCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, GrantPermissionsCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
+ * const input = { // GrantPermissionsRequest
+ *   CatalogId: "STRING_VALUE",
+ *   Principal: { // DataLakePrincipal
+ *     DataLakePrincipalIdentifier: "STRING_VALUE",
+ *   },
+ *   Resource: { // Resource
+ *     Catalog: {},
+ *     Database: { // DatabaseResource
+ *       CatalogId: "STRING_VALUE",
+ *       Name: "STRING_VALUE", // required
+ *     },
+ *     Table: { // TableResource
+ *       CatalogId: "STRING_VALUE",
+ *       DatabaseName: "STRING_VALUE", // required
+ *       Name: "STRING_VALUE",
+ *       TableWildcard: {},
+ *     },
+ *     TableWithColumns: { // TableWithColumnsResource
+ *       CatalogId: "STRING_VALUE",
+ *       DatabaseName: "STRING_VALUE", // required
+ *       Name: "STRING_VALUE", // required
+ *       ColumnNames: [ // ColumnNames
+ *         "STRING_VALUE",
+ *       ],
+ *       ColumnWildcard: { // ColumnWildcard
+ *         ExcludedColumnNames: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *     DataLocation: { // DataLocationResource
+ *       CatalogId: "STRING_VALUE",
+ *       ResourceArn: "STRING_VALUE", // required
+ *     },
+ *     DataCellsFilter: { // DataCellsFilterResource
+ *       TableCatalogId: "STRING_VALUE",
+ *       DatabaseName: "STRING_VALUE",
+ *       TableName: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *     },
+ *     LFTag: { // LFTagKeyResource
+ *       CatalogId: "STRING_VALUE",
+ *       TagKey: "STRING_VALUE", // required
+ *       TagValues: [ // TagValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     LFTagPolicy: { // LFTagPolicyResource
+ *       CatalogId: "STRING_VALUE",
+ *       ResourceType: "DATABASE" || "TABLE", // required
+ *       Expression: [ // Expression // required
+ *         { // LFTag
+ *           TagKey: "STRING_VALUE", // required
+ *           TagValues: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   Permissions: [ // PermissionList // required
+ *     "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_TAG" || "ASSOCIATE",
+ *   ],
+ *   PermissionsWithGrantOption: [
+ *     "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_TAG" || "ASSOCIATE",
+ *   ],
+ * };
  * const command = new GrantPermissionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GrantPermissionsCommandInput - {@link GrantPermissionsCommandInput}
+ * @returns {@link GrantPermissionsCommandOutput}
  * @see {@link GrantPermissionsCommandInput} for command's `input` shape.
  * @see {@link GrantPermissionsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>Two processes are trying to modify a resource simultaneously.</p>
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
  *
  */
 export class GrantPermissionsCommand extends $Command<
@@ -63,6 +145,9 @@ export class GrantPermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GrantPermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +176,8 @@ export class GrantPermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GrantPermissionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GrantPermissionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +187,18 @@ export class GrantPermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GrantPermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GrantPermissionsCommand(input, context);
+    return se_GrantPermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GrantPermissionsCommandOutput> {
-    return deserializeAws_restJson1GrantPermissionsCommand(output, context);
+    return de_GrantPermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

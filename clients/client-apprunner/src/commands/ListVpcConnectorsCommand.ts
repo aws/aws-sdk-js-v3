@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
-import {
-  ListVpcConnectorsRequest,
-  ListVpcConnectorsRequestFilterSensitiveLog,
-  ListVpcConnectorsResponse,
-  ListVpcConnectorsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListVpcConnectorsCommand,
-  serializeAws_json1_0ListVpcConnectorsCommand,
-} from "../protocols/Aws_json1_0";
+import { ListVpcConnectorsRequest, ListVpcConnectorsResponse } from "../models/models_0";
+import { de_ListVpcConnectorsCommand, se_ListVpcConnectorsCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link ListVpcConnectorsCommand}.
+ */
 export interface ListVpcConnectorsCommandInput extends ListVpcConnectorsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListVpcConnectorsCommand}.
+ */
 export interface ListVpcConnectorsCommandOutput extends ListVpcConnectorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of App Runner VPC connectors in your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,26 @@ export interface ListVpcConnectorsCommandOutput extends ListVpcConnectorsRespons
  * import { AppRunnerClient, ListVpcConnectorsCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, ListVpcConnectorsCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
+ * const input = { // ListVpcConnectorsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListVpcConnectorsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListVpcConnectorsCommandInput - {@link ListVpcConnectorsCommandInput}
+ * @returns {@link ListVpcConnectorsCommandOutput}
  * @see {@link ListVpcConnectorsCommandInput} for command's `input` shape.
  * @see {@link ListVpcConnectorsCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>An unexpected service exception occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+ *
  *
  */
 export class ListVpcConnectorsCommand extends $Command<
@@ -62,6 +78,9 @@ export class ListVpcConnectorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListVpcConnectorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +109,8 @@ export class ListVpcConnectorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListVpcConnectorsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListVpcConnectorsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +120,18 @@ export class ListVpcConnectorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListVpcConnectorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListVpcConnectorsCommand(input, context);
+    return se_ListVpcConnectorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVpcConnectorsCommandOutput> {
-    return deserializeAws_json1_0ListVpcConnectorsCommand(output, context);
+    return de_ListVpcConnectorsCommand(output, context);
   }
 
   // Start section: command_body_extra

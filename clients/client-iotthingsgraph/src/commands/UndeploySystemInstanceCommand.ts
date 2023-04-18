@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import {
-  UndeploySystemInstanceRequest,
-  UndeploySystemInstanceRequestFilterSensitiveLog,
-  UndeploySystemInstanceResponse,
-  UndeploySystemInstanceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UndeploySystemInstanceCommand,
-  serializeAws_json1_1UndeploySystemInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { UndeploySystemInstanceRequest, UndeploySystemInstanceResponse } from "../models/models_0";
+import { de_UndeploySystemInstanceCommand, se_UndeploySystemInstanceCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UndeploySystemInstanceCommand}.
+ */
 export interface UndeploySystemInstanceCommandInput extends UndeploySystemInstanceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UndeploySystemInstanceCommand}.
+ */
 export interface UndeploySystemInstanceCommandOutput extends UndeploySystemInstanceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Removes a system instance from its target (Cloud or Greengrass).</p>
@@ -38,13 +41,34 @@ export interface UndeploySystemInstanceCommandOutput extends UndeploySystemInsta
  * import { IoTThingsGraphClient, UndeploySystemInstanceCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, UndeploySystemInstanceCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
+ * const input = { // UndeploySystemInstanceRequest
+ *   id: "STRING_VALUE",
+ * };
  * const command = new UndeploySystemInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UndeploySystemInstanceCommandInput - {@link UndeploySystemInstanceCommandInput}
+ * @returns {@link UndeploySystemInstanceCommandOutput}
  * @see {@link UndeploySystemInstanceCommandInput} for command's `input` shape.
  * @see {@link UndeploySystemInstanceCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p></p>
+ *
  *
  */
 export class UndeploySystemInstanceCommand extends $Command<
@@ -64,6 +88,9 @@ export class UndeploySystemInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UndeploySystemInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +119,8 @@ export class UndeploySystemInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UndeploySystemInstanceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UndeploySystemInstanceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +130,18 @@ export class UndeploySystemInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UndeploySystemInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UndeploySystemInstanceCommand(input, context);
+    return se_UndeploySystemInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UndeploySystemInstanceCommandOutput> {
-    return deserializeAws_json1_1UndeploySystemInstanceCommand(output, context);
+    return de_UndeploySystemInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

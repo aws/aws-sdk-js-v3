@@ -18,17 +18,24 @@ import {
   CreateFileSystemRequest,
   CreateFileSystemRequestFilterSensitiveLog,
   CreateFileSystemResponse,
-  CreateFileSystemResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateFileSystemCommand,
-  serializeAws_json1_1CreateFileSystemCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateFileSystemCommand, se_CreateFileSystemCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateFileSystemCommand}.
+ */
 export interface CreateFileSystemCommandInput extends CreateFileSystemRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateFileSystemCommand}.
+ */
 export interface CreateFileSystemCommandOutput extends CreateFileSystemResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new, empty Amazon FSx file system. You can create the following supported
  *         Amazon FSx file systems using the <code>CreateFileSystem</code> API operation:</p>
  *          <ul>
@@ -81,13 +88,251 @@ export interface CreateFileSystemCommandOutput extends CreateFileSystemResponse,
  * import { FSxClient, CreateFileSystemCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, CreateFileSystemCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = { // CreateFileSystemRequest
+ *   ClientRequestToken: "STRING_VALUE",
+ *   FileSystemType: "WINDOWS" || "LUSTRE" || "ONTAP" || "OPENZFS", // required
+ *   StorageCapacity: Number("int"), // required
+ *   StorageType: "SSD" || "HDD",
+ *   SubnetIds: [ // SubnetIds // required
+ *     "STRING_VALUE",
+ *   ],
+ *   SecurityGroupIds: [ // SecurityGroupIds
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   KmsKeyId: "STRING_VALUE",
+ *   WindowsConfiguration: { // CreateFileSystemWindowsConfiguration
+ *     ActiveDirectoryId: "STRING_VALUE",
+ *     SelfManagedActiveDirectoryConfiguration: { // SelfManagedActiveDirectoryConfiguration
+ *       DomainName: "STRING_VALUE", // required
+ *       OrganizationalUnitDistinguishedName: "STRING_VALUE",
+ *       FileSystemAdministratorsGroup: "STRING_VALUE",
+ *       UserName: "STRING_VALUE", // required
+ *       Password: "STRING_VALUE", // required
+ *       DnsIps: [ // DnsIps // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     DeploymentType: "MULTI_AZ_1" || "SINGLE_AZ_1" || "SINGLE_AZ_2",
+ *     PreferredSubnetId: "STRING_VALUE",
+ *     ThroughputCapacity: Number("int"), // required
+ *     WeeklyMaintenanceStartTime: "STRING_VALUE",
+ *     DailyAutomaticBackupStartTime: "STRING_VALUE",
+ *     AutomaticBackupRetentionDays: Number("int"),
+ *     CopyTagsToBackups: true || false,
+ *     Aliases: [ // AlternateDNSNames
+ *       "STRING_VALUE",
+ *     ],
+ *     AuditLogConfiguration: { // WindowsAuditLogCreateConfiguration
+ *       FileAccessAuditLogLevel: "DISABLED" || "SUCCESS_ONLY" || "FAILURE_ONLY" || "SUCCESS_AND_FAILURE", // required
+ *       FileShareAccessAuditLogLevel: "DISABLED" || "SUCCESS_ONLY" || "FAILURE_ONLY" || "SUCCESS_AND_FAILURE", // required
+ *       AuditLogDestination: "STRING_VALUE",
+ *     },
+ *   },
+ *   LustreConfiguration: { // CreateFileSystemLustreConfiguration
+ *     WeeklyMaintenanceStartTime: "STRING_VALUE",
+ *     ImportPath: "STRING_VALUE",
+ *     ExportPath: "STRING_VALUE",
+ *     ImportedFileChunkSize: Number("int"),
+ *     DeploymentType: "SCRATCH_1" || "SCRATCH_2" || "PERSISTENT_1" || "PERSISTENT_2",
+ *     AutoImportPolicy: "NONE" || "NEW" || "NEW_CHANGED" || "NEW_CHANGED_DELETED",
+ *     PerUnitStorageThroughput: Number("int"),
+ *     DailyAutomaticBackupStartTime: "STRING_VALUE",
+ *     AutomaticBackupRetentionDays: Number("int"),
+ *     CopyTagsToBackups: true || false,
+ *     DriveCacheType: "NONE" || "READ",
+ *     DataCompressionType: "NONE" || "LZ4",
+ *     LogConfiguration: { // LustreLogCreateConfiguration
+ *       Level: "DISABLED" || "WARN_ONLY" || "ERROR_ONLY" || "WARN_ERROR", // required
+ *       Destination: "STRING_VALUE",
+ *     },
+ *     RootSquashConfiguration: { // LustreRootSquashConfiguration
+ *       RootSquash: "STRING_VALUE",
+ *       NoSquashNids: [ // LustreNoSquashNids
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ *   OntapConfiguration: { // CreateFileSystemOntapConfiguration
+ *     AutomaticBackupRetentionDays: Number("int"),
+ *     DailyAutomaticBackupStartTime: "STRING_VALUE",
+ *     DeploymentType: "MULTI_AZ_1" || "SINGLE_AZ_1", // required
+ *     EndpointIpAddressRange: "STRING_VALUE",
+ *     FsxAdminPassword: "STRING_VALUE",
+ *     DiskIopsConfiguration: { // DiskIopsConfiguration
+ *       Mode: "AUTOMATIC" || "USER_PROVISIONED",
+ *       Iops: Number("long"),
+ *     },
+ *     PreferredSubnetId: "STRING_VALUE",
+ *     RouteTableIds: [ // RouteTableIds
+ *       "STRING_VALUE",
+ *     ],
+ *     ThroughputCapacity: Number("int"), // required
+ *     WeeklyMaintenanceStartTime: "STRING_VALUE",
+ *   },
+ *   FileSystemTypeVersion: "STRING_VALUE",
+ *   OpenZFSConfiguration: { // CreateFileSystemOpenZFSConfiguration
+ *     AutomaticBackupRetentionDays: Number("int"),
+ *     CopyTagsToBackups: true || false,
+ *     CopyTagsToVolumes: true || false,
+ *     DailyAutomaticBackupStartTime: "STRING_VALUE",
+ *     DeploymentType: "SINGLE_AZ_1" || "SINGLE_AZ_2", // required
+ *     ThroughputCapacity: Number("int"), // required
+ *     WeeklyMaintenanceStartTime: "STRING_VALUE",
+ *     DiskIopsConfiguration: {
+ *       Mode: "AUTOMATIC" || "USER_PROVISIONED",
+ *       Iops: Number("long"),
+ *     },
+ *     RootVolumeConfiguration: { // OpenZFSCreateRootVolumeConfiguration
+ *       RecordSizeKiB: Number("int"),
+ *       DataCompressionType: "NONE" || "ZSTD" || "LZ4",
+ *       NfsExports: [ // OpenZFSNfsExports
+ *         { // OpenZFSNfsExport
+ *           ClientConfigurations: [ // OpenZFSClientConfigurations // required
+ *             { // OpenZFSClientConfiguration
+ *               Clients: "STRING_VALUE", // required
+ *               Options: [ // OpenZFSNfsExportOptions // required
+ *                 "STRING_VALUE",
+ *               ],
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       UserAndGroupQuotas: [ // OpenZFSUserAndGroupQuotas
+ *         { // OpenZFSUserOrGroupQuota
+ *           Type: "USER" || "GROUP", // required
+ *           Id: Number("int"), // required
+ *           StorageCapacityQuotaGiB: Number("int"), // required
+ *         },
+ *       ],
+ *       CopyTagsToSnapshots: true || false,
+ *       ReadOnly: true || false,
+ *     },
+ *   },
+ * };
  * const command = new CreateFileSystemCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFileSystemCommandInput - {@link CreateFileSystemCommandInput}
+ * @returns {@link CreateFileSystemCommandOutput}
  * @see {@link CreateFileSystemCommandInput} for command's `input` shape.
  * @see {@link CreateFileSystemCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
+ *
+ * @throws {@link ActiveDirectoryError} (client fault)
+ *  <p>An Active Directory error.</p>
+ *
+ * @throws {@link BadRequest} (client fault)
+ *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * @throws {@link IncompatibleParameterError} (client fault)
+ *  <p>The error returned when a second request is received with the same client request
+ *             token but different parameters settings. A client request token should always uniquely
+ *             identify a single request.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>A generic error indicating a server-side failure.</p>
+ *
+ * @throws {@link InvalidExportPath} (client fault)
+ *  <p>The path provided for data repository export isn't valid.</p>
+ *
+ * @throws {@link InvalidImportPath} (client fault)
+ *  <p>The path provided for data repository import isn't valid.</p>
+ *
+ * @throws {@link InvalidNetworkSettings} (client fault)
+ *  <p>One or more network settings specified in the request are invalid.</p>
+ *
+ * @throws {@link InvalidPerUnitStorageThroughput} (client fault)
+ *  <p>An invalid value for <code>PerUnitStorageThroughput</code> was provided. Please create your file system again, using a valid value.</p>
+ *
+ * @throws {@link MissingFileSystemConfiguration} (client fault)
+ *  <p>A file system configuration is required for this operation.</p>
+ *
+ * @throws {@link ServiceLimitExceeded} (client fault)
+ *  <p>An error indicating that a particular service limit was exceeded. You can increase
+ *             some service limits by contacting Amazon Web Services Support.</p>
+ *
+ *
+ * @example To create a new file system
+ * ```javascript
+ * // This operation creates a new Amazon FSx for Windows File Server file system.
+ * const input = {
+ *   "ClientRequestToken": "a8ca07e4-61ec-4399-99f4-19853801bcd5",
+ *   "FileSystemType": "WINDOWS",
+ *   "KmsKeyId": "arn:aws:kms:us-east-1:012345678912:key/1111abcd-2222-3333-4444-55556666eeff",
+ *   "SecurityGroupIds": [
+ *     "sg-edcd9784"
+ *   ],
+ *   "StorageCapacity": 3200,
+ *   "StorageType": "HDD",
+ *   "SubnetIds": [
+ *     "subnet-1234abcd"
+ *   ],
+ *   "Tags": [
+ *     {
+ *       "Key": "Name",
+ *       "Value": "MyFileSystem"
+ *     }
+ *   ],
+ *   "WindowsConfiguration": {
+ *     "ActiveDirectoryId": "d-1234abcd12",
+ *     "Aliases": [
+ *       "accounting.corp.example.com"
+ *     ],
+ *     "AutomaticBackupRetentionDays": 30,
+ *     "DailyAutomaticBackupStartTime": "05:00",
+ *     "ThroughputCapacity": 32,
+ *     "WeeklyMaintenanceStartTime": "1:05:00"
+ *   }
+ * };
+ * const command = new CreateFileSystemCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "FileSystem": {
+ *     "CreationTime": "1481841524.0",
+ *     "DNSName": "fs-0123456789abcdef0.fsx.com",
+ *     "FileSystemId": "fs-0123456789abcdef0",
+ *     "KmsKeyId": "arn:aws:kms:us-east-1:012345678912:key/1111abcd-2222-3333-4444-55556666eeff",
+ *     "Lifecycle": "CREATING",
+ *     "OwnerId": "012345678912",
+ *     "ResourceARN": "arn:aws:fsx:us-east-1:012345678912:file-system/fs-0123456789abcdef0",
+ *     "StorageCapacity": 3200,
+ *     "StorageType": "HDD",
+ *     "SubnetIds": [
+ *       "subnet-1234abcd"
+ *     ],
+ *     "Tags": [
+ *       {
+ *         "Key": "Name",
+ *         "Value": "MyFileSystem"
+ *       }
+ *     ],
+ *     "VpcId": "vpc-ab1234cd",
+ *     "WindowsConfiguration": {
+ *       "ActiveDirectoryId": "d-1234abcd12",
+ *       "Aliases": [
+ *         {
+ *           "Lifecycle": "CREATING",
+ *           "Name": "accounting.corp.example.com"
+ *         }
+ *       ],
+ *       "AutomaticBackupRetentionDays": 30,
+ *       "DailyAutomaticBackupStartTime": "05:00",
+ *       "ThroughputCapacity": 32,
+ *       "WeeklyMaintenanceStartTime": "1:05:00"
+ *     }
+ *   }
+ * }
+ * *\/
+ * // example id: to-create-a-new-file-system-1481840798547
+ * ```
  *
  */
 export class CreateFileSystemCommand extends $Command<
@@ -107,6 +352,9 @@ export class CreateFileSystemCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFileSystemCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,7 +384,7 @@ export class CreateFileSystemCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateFileSystemRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateFileSystemResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -146,12 +394,18 @@ export class CreateFileSystemCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFileSystemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateFileSystemCommand(input, context);
+    return se_CreateFileSystemCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFileSystemCommandOutput> {
-    return deserializeAws_json1_1CreateFileSystemCommand(output, context);
+    return de_CreateFileSystemCommand(output, context);
   }
 
   // Start section: command_body_extra

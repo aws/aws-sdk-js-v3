@@ -1,16 +1,18 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -61,7 +63,10 @@ import {
   TooManyRequestsException,
 } from "../models/models_0";
 
-export const serializeAws_restJson1AssociateDeviceWithPlacementCommand = async (
+/**
+ * serializeAws_restJson1AssociateDeviceWithPlacementCommand
+ */
+export const se_AssociateDeviceWithPlacementCommand = async (
   input: AssociateDeviceWithPlacementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -90,9 +95,11 @@ export const serializeAws_restJson1AssociateDeviceWithPlacementCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.deviceId != null && { deviceId: input.deviceId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      deviceId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -104,7 +111,10 @@ export const serializeAws_restJson1AssociateDeviceWithPlacementCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreatePlacementCommand = async (
+/**
+ * serializeAws_restJson1CreatePlacementCommand
+ */
+export const se_CreatePlacementCommand = async (
   input: CreatePlacementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -116,12 +126,12 @@ export const serializeAws_restJson1CreatePlacementCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{projectName}/placements";
   resolvedPath = __resolvedPath(resolvedPath, input, "projectName", () => input.projectName!, "{projectName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.attributes != null && {
-      attributes: serializeAws_restJson1PlacementAttributeMap(input.attributes, context),
-    }),
-    ...(input.placementName != null && { placementName: input.placementName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      attributes: (_) => _json(_),
+      placementName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -133,7 +143,10 @@ export const serializeAws_restJson1CreatePlacementCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateProjectCommand = async (
+/**
+ * serializeAws_restJson1CreateProjectCommand
+ */
+export const se_CreateProjectCommand = async (
   input: CreateProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -143,14 +156,14 @@ export const serializeAws_restJson1CreateProjectCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects";
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.placementTemplate != null && {
-      placementTemplate: serializeAws_restJson1PlacementTemplate(input.placementTemplate, context),
-    }),
-    ...(input.projectName != null && { projectName: input.projectName }),
-    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      placementTemplate: (_) => _json(_),
+      projectName: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -162,7 +175,10 @@ export const serializeAws_restJson1CreateProjectCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeletePlacementCommand = async (
+/**
+ * serializeAws_restJson1DeletePlacementCommand
+ */
+export const se_DeletePlacementCommand = async (
   input: DeletePlacementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -192,7 +208,10 @@ export const serializeAws_restJson1DeletePlacementCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteProjectCommand = async (
+/**
+ * serializeAws_restJson1DeleteProjectCommand
+ */
+export const se_DeleteProjectCommand = async (
   input: DeleteProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -212,7 +231,10 @@ export const serializeAws_restJson1DeleteProjectCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribePlacementCommand = async (
+/**
+ * serializeAws_restJson1DescribePlacementCommand
+ */
+export const se_DescribePlacementCommand = async (
   input: DescribePlacementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -242,7 +264,10 @@ export const serializeAws_restJson1DescribePlacementCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeProjectCommand = async (
+/**
+ * serializeAws_restJson1DescribeProjectCommand
+ */
+export const se_DescribeProjectCommand = async (
   input: DescribeProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -262,7 +287,10 @@ export const serializeAws_restJson1DescribeProjectCommand = async (
   });
 };
 
-export const serializeAws_restJson1DisassociateDeviceFromPlacementCommand = async (
+/**
+ * serializeAws_restJson1DisassociateDeviceFromPlacementCommand
+ */
+export const se_DisassociateDeviceFromPlacementCommand = async (
   input: DisassociateDeviceFromPlacementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -300,7 +328,10 @@ export const serializeAws_restJson1DisassociateDeviceFromPlacementCommand = asyn
   });
 };
 
-export const serializeAws_restJson1GetDevicesInPlacementCommand = async (
+/**
+ * serializeAws_restJson1GetDevicesInPlacementCommand
+ */
+export const se_GetDevicesInPlacementCommand = async (
   input: GetDevicesInPlacementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -330,7 +361,10 @@ export const serializeAws_restJson1GetDevicesInPlacementCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListPlacementsCommand = async (
+/**
+ * serializeAws_restJson1ListPlacementsCommand
+ */
+export const se_ListPlacementsCommand = async (
   input: ListPlacementsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -356,7 +390,10 @@ export const serializeAws_restJson1ListPlacementsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListProjectsCommand = async (
+/**
+ * serializeAws_restJson1ListProjectsCommand
+ */
+export const se_ListProjectsCommand = async (
   input: ListProjectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -380,7 +417,10 @@ export const serializeAws_restJson1ListProjectsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -400,7 +440,10 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1TagResourceCommand = async (
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -411,9 +454,11 @@ export const serializeAws_restJson1TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -425,7 +470,10 @@ export const serializeAws_restJson1TagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UntagResourceCommand = async (
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -452,7 +500,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdatePlacementCommand = async (
+/**
+ * serializeAws_restJson1UpdatePlacementCommand
+ */
+export const se_UpdatePlacementCommand = async (
   input: UpdatePlacementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -473,11 +524,11 @@ export const serializeAws_restJson1UpdatePlacementCommand = async (
   );
   resolvedPath = __resolvedPath(resolvedPath, input, "projectName", () => input.projectName!, "{projectName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.attributes != null && {
-      attributes: serializeAws_restJson1PlacementAttributeMap(input.attributes, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      attributes: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -489,7 +540,10 @@ export const serializeAws_restJson1UpdatePlacementCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateProjectCommand = async (
+/**
+ * serializeAws_restJson1UpdateProjectCommand
+ */
+export const se_UpdateProjectCommand = async (
   input: UpdateProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -500,12 +554,12 @@ export const serializeAws_restJson1UpdateProjectCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{projectName}";
   resolvedPath = __resolvedPath(resolvedPath, input, "projectName", () => input.projectName!, "{projectName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.description != null && { description: input.description }),
-    ...(input.placementTemplate != null && {
-      placementTemplate: serializeAws_restJson1PlacementTemplate(input.placementTemplate, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      placementTemplate: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -517,12 +571,15 @@ export const serializeAws_restJson1UpdateProjectCommand = async (
   });
 };
 
-export const deserializeAws_restJson1AssociateDeviceWithPlacementCommand = async (
+/**
+ * deserializeAws_restJson1AssociateDeviceWithPlacementCommand
+ */
+export const de_AssociateDeviceWithPlacementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateDeviceWithPlacementCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1AssociateDeviceWithPlacementCommandError(output, context);
+    return de_AssociateDeviceWithPlacementCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -531,7 +588,10 @@ export const deserializeAws_restJson1AssociateDeviceWithPlacementCommand = async
   return contents;
 };
 
-const deserializeAws_restJson1AssociateDeviceWithPlacementCommandError = async (
+/**
+ * deserializeAws_restJson1AssociateDeviceWithPlacementCommandError
+ */
+const de_AssociateDeviceWithPlacementCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateDeviceWithPlacementCommandOutput> => {
@@ -543,33 +603,35 @@ const deserializeAws_restJson1AssociateDeviceWithPlacementCommandError = async (
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1clickprojects#InternalFailureException":
-      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.iot1clickprojects#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceConflictException":
     case "com.amazonaws.iot1clickprojects#ResourceConflictException":
-      throw await deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context);
+      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iot1clickprojects#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreatePlacementCommand = async (
+/**
+ * deserializeAws_restJson1CreatePlacementCommand
+ */
+export const de_CreatePlacementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePlacementCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreatePlacementCommandError(output, context);
+    return de_CreatePlacementCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -578,7 +640,10 @@ export const deserializeAws_restJson1CreatePlacementCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CreatePlacementCommandError = async (
+/**
+ * deserializeAws_restJson1CreatePlacementCommandError
+ */
+const de_CreatePlacementCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePlacementCommandOutput> => {
@@ -590,33 +655,35 @@ const deserializeAws_restJson1CreatePlacementCommandError = async (
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1clickprojects#InternalFailureException":
-      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.iot1clickprojects#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceConflictException":
     case "com.amazonaws.iot1clickprojects#ResourceConflictException":
-      throw await deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context);
+      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iot1clickprojects#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateProjectCommand = async (
+/**
+ * deserializeAws_restJson1CreateProjectCommand
+ */
+export const de_CreateProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateProjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateProjectCommandError(output, context);
+    return de_CreateProjectCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -625,7 +692,10 @@ export const deserializeAws_restJson1CreateProjectCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CreateProjectCommandError = async (
+/**
+ * deserializeAws_restJson1CreateProjectCommandError
+ */
+const de_CreateProjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateProjectCommandOutput> => {
@@ -637,30 +707,32 @@ const deserializeAws_restJson1CreateProjectCommandError = async (
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1clickprojects#InternalFailureException":
-      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.iot1clickprojects#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceConflictException":
     case "com.amazonaws.iot1clickprojects#ResourceConflictException":
-      throw await deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context);
+      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeletePlacementCommand = async (
+/**
+ * deserializeAws_restJson1DeletePlacementCommand
+ */
+export const de_DeletePlacementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePlacementCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeletePlacementCommandError(output, context);
+    return de_DeletePlacementCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -669,7 +741,10 @@ export const deserializeAws_restJson1DeletePlacementCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeletePlacementCommandError = async (
+/**
+ * deserializeAws_restJson1DeletePlacementCommandError
+ */
+const de_DeletePlacementCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePlacementCommandOutput> => {
@@ -681,33 +756,35 @@ const deserializeAws_restJson1DeletePlacementCommandError = async (
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1clickprojects#InternalFailureException":
-      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.iot1clickprojects#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iot1clickprojects#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.iot1clickprojects#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteProjectCommand = async (
+/**
+ * deserializeAws_restJson1DeleteProjectCommand
+ */
+export const de_DeleteProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteProjectCommandError(output, context);
+    return de_DeleteProjectCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -716,7 +793,10 @@ export const deserializeAws_restJson1DeleteProjectCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteProjectCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteProjectCommandError
+ */
+const de_DeleteProjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProjectCommandOutput> => {
@@ -728,45 +808,51 @@ const deserializeAws_restJson1DeleteProjectCommandError = async (
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1clickprojects#InternalFailureException":
-      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.iot1clickprojects#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iot1clickprojects#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.iot1clickprojects#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribePlacementCommand = async (
+/**
+ * deserializeAws_restJson1DescribePlacementCommand
+ */
+export const de_DescribePlacementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePlacementCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribePlacementCommandError(output, context);
+    return de_DescribePlacementCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.placement != null) {
-    contents.placement = deserializeAws_restJson1PlacementDescription(data.placement, context);
-  }
+  const doc = take(data, {
+    placement: (_) => de_PlacementDescription(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribePlacementCommandError = async (
+/**
+ * deserializeAws_restJson1DescribePlacementCommandError
+ */
+const de_DescribePlacementCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePlacementCommandOutput> => {
@@ -778,42 +864,48 @@ const deserializeAws_restJson1DescribePlacementCommandError = async (
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1clickprojects#InternalFailureException":
-      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.iot1clickprojects#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iot1clickprojects#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeProjectCommand = async (
+/**
+ * deserializeAws_restJson1DescribeProjectCommand
+ */
+export const de_DescribeProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeProjectCommandError(output, context);
+    return de_DescribeProjectCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.project != null) {
-    contents.project = deserializeAws_restJson1ProjectDescription(data.project, context);
-  }
+  const doc = take(data, {
+    project: (_) => de_ProjectDescription(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeProjectCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeProjectCommandError
+ */
+const de_DescribeProjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProjectCommandOutput> => {
@@ -825,30 +917,32 @@ const deserializeAws_restJson1DescribeProjectCommandError = async (
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1clickprojects#InternalFailureException":
-      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.iot1clickprojects#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iot1clickprojects#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DisassociateDeviceFromPlacementCommand = async (
+/**
+ * deserializeAws_restJson1DisassociateDeviceFromPlacementCommand
+ */
+export const de_DisassociateDeviceFromPlacementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateDeviceFromPlacementCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DisassociateDeviceFromPlacementCommandError(output, context);
+    return de_DisassociateDeviceFromPlacementCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -857,7 +951,10 @@ export const deserializeAws_restJson1DisassociateDeviceFromPlacementCommand = as
   return contents;
 };
 
-const deserializeAws_restJson1DisassociateDeviceFromPlacementCommandError = async (
+/**
+ * deserializeAws_restJson1DisassociateDeviceFromPlacementCommandError
+ */
+const de_DisassociateDeviceFromPlacementCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateDeviceFromPlacementCommandOutput> => {
@@ -869,45 +966,51 @@ const deserializeAws_restJson1DisassociateDeviceFromPlacementCommandError = asyn
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1clickprojects#InternalFailureException":
-      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.iot1clickprojects#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iot1clickprojects#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.iot1clickprojects#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetDevicesInPlacementCommand = async (
+/**
+ * deserializeAws_restJson1GetDevicesInPlacementCommand
+ */
+export const de_GetDevicesInPlacementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDevicesInPlacementCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetDevicesInPlacementCommandError(output, context);
+    return de_GetDevicesInPlacementCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.devices != null) {
-    contents.devices = deserializeAws_restJson1DeviceMap(data.devices, context);
-  }
+  const doc = take(data, {
+    devices: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetDevicesInPlacementCommandError = async (
+/**
+ * deserializeAws_restJson1GetDevicesInPlacementCommandError
+ */
+const de_GetDevicesInPlacementCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDevicesInPlacementCommandOutput> => {
@@ -919,45 +1022,49 @@ const deserializeAws_restJson1GetDevicesInPlacementCommandError = async (
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1clickprojects#InternalFailureException":
-      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.iot1clickprojects#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iot1clickprojects#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListPlacementsCommand = async (
+/**
+ * deserializeAws_restJson1ListPlacementsCommand
+ */
+export const de_ListPlacementsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPlacementsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListPlacementsCommandError(output, context);
+    return de_ListPlacementsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.placements != null) {
-    contents.placements = deserializeAws_restJson1PlacementSummaryList(data.placements, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    placements: (_) => de_PlacementSummaryList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListPlacementsCommandError = async (
+/**
+ * deserializeAws_restJson1ListPlacementsCommandError
+ */
+const de_ListPlacementsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPlacementsCommandOutput> => {
@@ -969,45 +1076,49 @@ const deserializeAws_restJson1ListPlacementsCommandError = async (
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1clickprojects#InternalFailureException":
-      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.iot1clickprojects#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iot1clickprojects#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListProjectsCommand = async (
+/**
+ * deserializeAws_restJson1ListProjectsCommand
+ */
+export const de_ListProjectsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProjectsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListProjectsCommandError(output, context);
+    return de_ListProjectsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.projects != null) {
-    contents.projects = deserializeAws_restJson1ProjectSummaryList(data.projects, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    projects: (_) => de_ProjectSummaryList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListProjectsCommandError = async (
+/**
+ * deserializeAws_restJson1ListProjectsCommandError
+ */
+const de_ListProjectsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProjectsCommandOutput> => {
@@ -1019,39 +1130,45 @@ const deserializeAws_restJson1ListProjectsCommandError = async (
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1clickprojects#InternalFailureException":
-      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.iot1clickprojects#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -1063,30 +1180,32 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1clickprojects#InternalFailureException":
-      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.iot1clickprojects#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iot1clickprojects#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1TagResourceCommand = async (
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1095,7 +1214,10 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1TagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -1107,30 +1229,32 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1clickprojects#InternalFailureException":
-      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.iot1clickprojects#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iot1clickprojects#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UntagResourceCommand = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1139,7 +1263,10 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UntagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -1151,30 +1278,32 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1clickprojects#InternalFailureException":
-      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.iot1clickprojects#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iot1clickprojects#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdatePlacementCommand = async (
+/**
+ * deserializeAws_restJson1UpdatePlacementCommand
+ */
+export const de_UpdatePlacementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePlacementCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdatePlacementCommandError(output, context);
+    return de_UpdatePlacementCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1183,7 +1312,10 @@ export const deserializeAws_restJson1UpdatePlacementCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UpdatePlacementCommandError = async (
+/**
+ * deserializeAws_restJson1UpdatePlacementCommandError
+ */
+const de_UpdatePlacementCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePlacementCommandOutput> => {
@@ -1195,33 +1327,35 @@ const deserializeAws_restJson1UpdatePlacementCommandError = async (
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1clickprojects#InternalFailureException":
-      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.iot1clickprojects#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iot1clickprojects#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.iot1clickprojects#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateProjectCommand = async (
+/**
+ * deserializeAws_restJson1UpdateProjectCommand
+ */
+export const de_UpdateProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateProjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateProjectCommandError(output, context);
+    return de_UpdateProjectCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1230,7 +1364,10 @@ export const deserializeAws_restJson1UpdateProjectCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UpdateProjectCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateProjectCommandError
+ */
+const de_UpdateProjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateProjectCommandOutput> => {
@@ -1242,40 +1379,41 @@ const deserializeAws_restJson1UpdateProjectCommandError = async (
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1clickprojects#InternalFailureException":
-      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.iot1clickprojects#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iot1clickprojects#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.iot1clickprojects#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
-const deserializeAws_restJson1InternalFailureExceptionResponse = async (
+const throwDefaultError = withBaseException(__BaseException);
+/**
+ * deserializeAws_restJson1InternalFailureExceptionRes
+ */
+const de_InternalFailureExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalFailureException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.code != null) {
-    contents.code = __expectString(data.code);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    code: __expectString,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalFailureException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1283,18 +1421,20 @@ const deserializeAws_restJson1InternalFailureExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InvalidRequestExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InvalidRequestExceptionRes
+ */
+const de_InvalidRequestExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.code != null) {
-    contents.code = __expectString(data.code);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    code: __expectString,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1302,18 +1442,20 @@ const deserializeAws_restJson1InvalidRequestExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceConflictExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceConflictExceptionRes
+ */
+const de_ResourceConflictExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.code != null) {
-    contents.code = __expectString(data.code);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    code: __expectString,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1321,18 +1463,20 @@ const deserializeAws_restJson1ResourceConflictExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.code != null) {
-    contents.code = __expectString(data.code);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    code: __expectString,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1340,18 +1484,20 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
+/**
+ * deserializeAws_restJson1TooManyRequestsExceptionRes
+ */
+const de_TooManyRequestsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyRequestsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.code != null) {
-    contents.code = __expectString(data.code);
-  }
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    code: __expectString,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TooManyRequestsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1359,272 +1505,112 @@ const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1DefaultPlacementAttributeMap = (
-  input: Record<string, string>,
-  context: __SerdeContext
-): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
+// se_DefaultPlacementAttributeMap omitted.
+
+// se_DeviceCallbackOverrideMap omitted.
+
+// se_DeviceTemplate omitted.
+
+// se_DeviceTemplateMap omitted.
+
+// se_PlacementAttributeMap omitted.
+
+// se_PlacementTemplate omitted.
+
+// se_TagMap omitted.
+
+// de_DefaultPlacementAttributeMap omitted.
+
+// de_DeviceCallbackOverrideMap omitted.
+
+// de_DeviceMap omitted.
+
+// de_DeviceTemplate omitted.
+
+// de_DeviceTemplateMap omitted.
+
+// de_PlacementAttributeMap omitted.
+
+/**
+ * deserializeAws_restJson1PlacementDescription
+ */
+const de_PlacementDescription = (output: any, context: __SerdeContext): PlacementDescription => {
+  return take(output, {
+    attributes: _json,
+    createdDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    placementName: __expectString,
+    projectName: __expectString,
+    updatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-const serializeAws_restJson1DeviceCallbackOverrideMap = (
-  input: Record<string, string>,
-  context: __SerdeContext
-): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
+/**
+ * deserializeAws_restJson1PlacementSummary
+ */
+const de_PlacementSummary = (output: any, context: __SerdeContext): PlacementSummary => {
+  return take(output, {
+    createdDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    placementName: __expectString,
+    projectName: __expectString,
+    updatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-const serializeAws_restJson1DeviceTemplate = (input: DeviceTemplate, context: __SerdeContext): any => {
-  return {
-    ...(input.callbackOverrides != null && {
-      callbackOverrides: serializeAws_restJson1DeviceCallbackOverrideMap(input.callbackOverrides, context),
-    }),
-    ...(input.deviceType != null && { deviceType: input.deviceType }),
-  };
-};
-
-const serializeAws_restJson1DeviceTemplateMap = (
-  input: Record<string, DeviceTemplate>,
-  context: __SerdeContext
-): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = serializeAws_restJson1DeviceTemplate(value, context);
-    return acc;
-  }, {});
-};
-
-const serializeAws_restJson1PlacementAttributeMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
-
-const serializeAws_restJson1PlacementTemplate = (input: PlacementTemplate, context: __SerdeContext): any => {
-  return {
-    ...(input.defaultAttributes != null && {
-      defaultAttributes: serializeAws_restJson1DefaultPlacementAttributeMap(input.defaultAttributes, context),
-    }),
-    ...(input.deviceTemplates != null && {
-      deviceTemplates: serializeAws_restJson1DeviceTemplateMap(input.deviceTemplates, context),
-    }),
-  };
-};
-
-const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
-
-const deserializeAws_restJson1DefaultPlacementAttributeMap = (
-  output: any,
-  context: __SerdeContext
-): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
-
-const deserializeAws_restJson1DeviceCallbackOverrideMap = (
-  output: any,
-  context: __SerdeContext
-): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
-
-const deserializeAws_restJson1DeviceMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
-
-const deserializeAws_restJson1DeviceTemplate = (output: any, context: __SerdeContext): DeviceTemplate => {
-  return {
-    callbackOverrides:
-      output.callbackOverrides != null
-        ? deserializeAws_restJson1DeviceCallbackOverrideMap(output.callbackOverrides, context)
-        : undefined,
-    deviceType: __expectString(output.deviceType),
-  } as any;
-};
-
-const deserializeAws_restJson1DeviceTemplateMap = (
-  output: any,
-  context: __SerdeContext
-): Record<string, DeviceTemplate> => {
-  return Object.entries(output).reduce((acc: Record<string, DeviceTemplate>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = deserializeAws_restJson1DeviceTemplate(value, context);
-    return acc;
-  }, {});
-};
-
-const deserializeAws_restJson1PlacementAttributeMap = (
-  output: any,
-  context: __SerdeContext
-): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
-
-const deserializeAws_restJson1PlacementDescription = (output: any, context: __SerdeContext): PlacementDescription => {
-  return {
-    attributes:
-      output.attributes != null ? deserializeAws_restJson1PlacementAttributeMap(output.attributes, context) : undefined,
-    createdDate:
-      output.createdDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
-        : undefined,
-    placementName: __expectString(output.placementName),
-    projectName: __expectString(output.projectName),
-    updatedDate:
-      output.updatedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedDate)))
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1PlacementSummary = (output: any, context: __SerdeContext): PlacementSummary => {
-  return {
-    createdDate:
-      output.createdDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
-        : undefined,
-    placementName: __expectString(output.placementName),
-    projectName: __expectString(output.projectName),
-    updatedDate:
-      output.updatedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedDate)))
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1PlacementSummaryList = (output: any, context: __SerdeContext): PlacementSummary[] => {
+/**
+ * deserializeAws_restJson1PlacementSummaryList
+ */
+const de_PlacementSummaryList = (output: any, context: __SerdeContext): PlacementSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1PlacementSummary(entry, context);
+      return de_PlacementSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1PlacementTemplate = (output: any, context: __SerdeContext): PlacementTemplate => {
-  return {
-    defaultAttributes:
-      output.defaultAttributes != null
-        ? deserializeAws_restJson1DefaultPlacementAttributeMap(output.defaultAttributes, context)
-        : undefined,
-    deviceTemplates:
-      output.deviceTemplates != null
-        ? deserializeAws_restJson1DeviceTemplateMap(output.deviceTemplates, context)
-        : undefined,
-  } as any;
+// de_PlacementTemplate omitted.
+
+/**
+ * deserializeAws_restJson1ProjectDescription
+ */
+const de_ProjectDescription = (output: any, context: __SerdeContext): ProjectDescription => {
+  return take(output, {
+    arn: __expectString,
+    createdDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    placementTemplate: _json,
+    projectName: __expectString,
+    tags: _json,
+    updatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-const deserializeAws_restJson1ProjectDescription = (output: any, context: __SerdeContext): ProjectDescription => {
-  return {
-    arn: __expectString(output.arn),
-    createdDate:
-      output.createdDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
-        : undefined,
-    description: __expectString(output.description),
-    placementTemplate:
-      output.placementTemplate != null
-        ? deserializeAws_restJson1PlacementTemplate(output.placementTemplate, context)
-        : undefined,
-    projectName: __expectString(output.projectName),
-    tags: output.tags != null ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
-    updatedDate:
-      output.updatedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedDate)))
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_restJson1ProjectSummary
+ */
+const de_ProjectSummary = (output: any, context: __SerdeContext): ProjectSummary => {
+  return take(output, {
+    arn: __expectString,
+    createdDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    projectName: __expectString,
+    tags: _json,
+    updatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-const deserializeAws_restJson1ProjectSummary = (output: any, context: __SerdeContext): ProjectSummary => {
-  return {
-    arn: __expectString(output.arn),
-    createdDate:
-      output.createdDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
-        : undefined,
-    projectName: __expectString(output.projectName),
-    tags: output.tags != null ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
-    updatedDate:
-      output.updatedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedDate)))
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1ProjectSummaryList = (output: any, context: __SerdeContext): ProjectSummary[] => {
+/**
+ * deserializeAws_restJson1ProjectSummaryList
+ */
+const de_ProjectSummaryList = (output: any, context: __SerdeContext): ProjectSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ProjectSummary(entry, context);
+      return de_ProjectSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_TagMap omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

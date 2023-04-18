@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import {
-  DeleteDirectConnectGatewayRequest,
-  DeleteDirectConnectGatewayRequestFilterSensitiveLog,
-  DeleteDirectConnectGatewayResult,
-  DeleteDirectConnectGatewayResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteDirectConnectGatewayCommand,
-  serializeAws_json1_1DeleteDirectConnectGatewayCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteDirectConnectGatewayRequest, DeleteDirectConnectGatewayResult } from "../models/models_0";
+import { de_DeleteDirectConnectGatewayCommand, se_DeleteDirectConnectGatewayCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteDirectConnectGatewayCommand}.
+ */
 export interface DeleteDirectConnectGatewayCommandInput extends DeleteDirectConnectGatewayRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteDirectConnectGatewayCommand}.
+ */
 export interface DeleteDirectConnectGatewayCommandOutput extends DeleteDirectConnectGatewayResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified Direct Connect gateway. You must first delete all virtual interfaces that are
  *       attached to the Direct Connect gateway and disassociate all virtual private gateways associated
  *       with the Direct Connect gateway.</p>
@@ -38,13 +41,25 @@ export interface DeleteDirectConnectGatewayCommandOutput extends DeleteDirectCon
  * import { DirectConnectClient, DeleteDirectConnectGatewayCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DeleteDirectConnectGatewayCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // DeleteDirectConnectGatewayRequest
+ *   directConnectGatewayId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDirectConnectGatewayCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDirectConnectGatewayCommandInput - {@link DeleteDirectConnectGatewayCommandInput}
+ * @returns {@link DeleteDirectConnectGatewayCommandOutput}
  * @see {@link DeleteDirectConnectGatewayCommandInput} for command's `input` shape.
  * @see {@link DeleteDirectConnectGatewayCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
+ *
+ * @throws {@link DirectConnectClientException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link DirectConnectServerException} (server fault)
+ *  <p>A server-side error occurred.</p>
+ *
  *
  */
 export class DeleteDirectConnectGatewayCommand extends $Command<
@@ -64,6 +79,9 @@ export class DeleteDirectConnectGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDirectConnectGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +110,8 @@ export class DeleteDirectConnectGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDirectConnectGatewayRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDirectConnectGatewayResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +121,21 @@ export class DeleteDirectConnectGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDirectConnectGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDirectConnectGatewayCommand(input, context);
+    return se_DeleteDirectConnectGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDirectConnectGatewayCommandOutput> {
-    return deserializeAws_json1_1DeleteDirectConnectGatewayCommand(output, context);
+    return de_DeleteDirectConnectGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

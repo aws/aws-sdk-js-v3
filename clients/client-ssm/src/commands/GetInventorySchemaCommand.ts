@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetInventorySchemaRequest,
-  GetInventorySchemaRequestFilterSensitiveLog,
-  GetInventorySchemaResult,
-  GetInventorySchemaResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetInventorySchemaCommand,
-  serializeAws_json1_1GetInventorySchemaCommand,
-} from "../protocols/Aws_json1_1";
+import { GetInventorySchemaRequest, GetInventorySchemaResult } from "../models/models_1";
+import { de_GetInventorySchemaCommand, se_GetInventorySchemaCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetInventorySchemaCommand}.
+ */
 export interface GetInventorySchemaCommandInput extends GetInventorySchemaRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetInventorySchemaCommand}.
+ */
 export interface GetInventorySchemaCommandOutput extends GetInventorySchemaResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Return a list of inventory type names for the account, or return a list of attribute names
  *    for a specific Inventory item type.</p>
  * @example
@@ -37,13 +40,32 @@ export interface GetInventorySchemaCommandOutput extends GetInventorySchemaResul
  * import { SSMClient, GetInventorySchemaCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetInventorySchemaCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // GetInventorySchemaRequest
+ *   TypeName: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Aggregator: true || false,
+ *   SubType: true || false,
+ * };
  * const command = new GetInventorySchemaCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInventorySchemaCommandInput - {@link GetInventorySchemaCommandInput}
+ * @returns {@link GetInventorySchemaCommandOutput}
  * @see {@link GetInventorySchemaCommandInput} for command's `input` shape.
  * @see {@link GetInventorySchemaCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidNextToken} (client fault)
+ *  <p>The specified token isn't valid.</p>
+ *
+ * @throws {@link InvalidTypeNameException} (client fault)
+ *  <p>The parameter type name isn't valid.</p>
+ *
  *
  */
 export class GetInventorySchemaCommand extends $Command<
@@ -63,6 +85,9 @@ export class GetInventorySchemaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInventorySchemaCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +116,8 @@ export class GetInventorySchemaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetInventorySchemaRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetInventorySchemaResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +127,18 @@ export class GetInventorySchemaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetInventorySchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetInventorySchemaCommand(input, context);
+    return se_GetInventorySchemaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInventorySchemaCommandOutput> {
-    return deserializeAws_json1_1GetInventorySchemaCommand(output, context);
+    return de_GetInventorySchemaCommand(output, context);
   }
 
   // Start section: command_body_extra

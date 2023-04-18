@@ -14,28 +14,33 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
-import {
-  CreateDomainRequest,
-  CreateDomainRequestFilterSensitiveLog,
-  CreateDomainResponse,
-  CreateDomainResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDomainCommand,
-  serializeAws_restJson1CreateDomainCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateDomainRequest, CreateDomainResponse } from "../models/models_0";
+import { de_CreateDomainCommand, se_CreateDomainCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateDomainCommand}.
+ */
 export interface CreateDomainCommandInput extends CreateDomainRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateDomainCommand}.
+ */
 export interface CreateDomainCommandOutput extends CreateDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a domain, which is a container for all case data, such as cases, fields, templates
  *       and layouts. Each Amazon Connect instance can be associated with only one Cases
  *       domain.</p>
  *          <important>
  *             <p>This will not associate your connect instance to Cases domain. Instead, use the
  *           Amazon Connect
- *         <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateIntegrationAssociation.html">CreateIntegrationAssociation</a> API.</p>
+ *         <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateIntegrationAssociation.html">CreateIntegrationAssociation</a> API. You need specific IAM
+ *         permissions to successfully associate the Cases domain. For more information, see
+ *           <a href="https://docs.aws.amazon.com/connect/latest/adminguide/required-permissions-iam-cases.html#onboard-cases-iam">Onboard to Cases</a>.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,13 +48,41 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * import { ConnectCasesClient, CreateDomainCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, CreateDomainCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
  * const client = new ConnectCasesClient(config);
+ * const input = { // CreateDomainRequest
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new CreateDomainCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDomainCommandInput - {@link CreateDomainCommandInput}
+ * @returns {@link CreateDomainCommandOutput}
  * @see {@link CreateDomainCommandInput} for command's `input` shape.
  * @see {@link CreateDomainCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The requested operation would cause a conflict with the current state of a service
+ *       resource associated with the request. Resolve the conflict before retrying this request. See
+ *       the accompanying error message for details.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>We couldn't process your request because of an issue with the server. Try again
+ *       later.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The service quota has been exceeded. For a list of service quotas, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the <i>Amazon Connect
+ *         Administrator Guide</i>.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate has been exceeded for this API. Please try again after a few minutes.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request isn't valid. Check the syntax and try again.</p>
+ *
  *
  */
 export class CreateDomainCommand extends $Command<
@@ -69,6 +102,9 @@ export class CreateDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +131,8 @@ export class CreateDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDomainResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +142,18 @@ export class CreateDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDomainCommand(input, context);
+    return se_CreateDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDomainCommandOutput> {
-    return deserializeAws_restJson1CreateDomainCommand(output, context);
+    return de_CreateDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

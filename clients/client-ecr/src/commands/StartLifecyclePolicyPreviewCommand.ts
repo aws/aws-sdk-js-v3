@@ -14,23 +14,26 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import {
-  StartLifecyclePolicyPreviewRequest,
-  StartLifecyclePolicyPreviewRequestFilterSensitiveLog,
-  StartLifecyclePolicyPreviewResponse,
-  StartLifecyclePolicyPreviewResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartLifecyclePolicyPreviewCommand,
-  serializeAws_json1_1StartLifecyclePolicyPreviewCommand,
-} from "../protocols/Aws_json1_1";
+import { StartLifecyclePolicyPreviewRequest, StartLifecyclePolicyPreviewResponse } from "../models/models_0";
+import { de_StartLifecyclePolicyPreviewCommand, se_StartLifecyclePolicyPreviewCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link StartLifecyclePolicyPreviewCommand}.
+ */
 export interface StartLifecyclePolicyPreviewCommandInput extends StartLifecyclePolicyPreviewRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartLifecyclePolicyPreviewCommand}.
+ */
 export interface StartLifecyclePolicyPreviewCommandOutput
   extends StartLifecyclePolicyPreviewResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a preview of a lifecycle policy for the specified repository. This allows you
  *             to see the results before associating the lifecycle policy with the repository.</p>
  * @example
@@ -39,13 +42,40 @@ export interface StartLifecyclePolicyPreviewCommandOutput
  * import { ECRClient, StartLifecyclePolicyPreviewCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, StartLifecyclePolicyPreviewCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
+ * const input = { // StartLifecyclePolicyPreviewRequest
+ *   registryId: "STRING_VALUE",
+ *   repositoryName: "STRING_VALUE", // required
+ *   lifecyclePolicyText: "STRING_VALUE",
+ * };
  * const command = new StartLifecyclePolicyPreviewCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartLifecyclePolicyPreviewCommandInput - {@link StartLifecyclePolicyPreviewCommandInput}
+ * @returns {@link StartLifecyclePolicyPreviewCommandOutput}
  * @see {@link StartLifecyclePolicyPreviewCommandInput} for command's `input` shape.
  * @see {@link StartLifecyclePolicyPreviewCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *             request.</p>
+ *
+ * @throws {@link LifecyclePolicyNotFoundException} (client fault)
+ *  <p>The lifecycle policy could not be found, and no policy is set to the
+ *             repository.</p>
+ *
+ * @throws {@link LifecyclePolicyPreviewInProgressException} (client fault)
+ *  <p>The previous lifecycle policy preview request has not completed. Wait and try
+ *             again.</p>
+ *
+ * @throws {@link RepositoryNotFoundException} (client fault)
+ *  <p>The specified repository could not be found. Check the spelling of the specified
+ *             repository and ensure that you are performing operations on the correct registry.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
  *
  */
 export class StartLifecyclePolicyPreviewCommand extends $Command<
@@ -65,6 +95,9 @@ export class StartLifecyclePolicyPreviewCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartLifecyclePolicyPreviewCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +126,8 @@ export class StartLifecyclePolicyPreviewCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartLifecyclePolicyPreviewRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartLifecyclePolicyPreviewResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,15 +137,21 @@ export class StartLifecyclePolicyPreviewCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartLifecyclePolicyPreviewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartLifecyclePolicyPreviewCommand(input, context);
+    return se_StartLifecyclePolicyPreviewCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartLifecyclePolicyPreviewCommandOutput> {
-    return deserializeAws_json1_1StartLifecyclePolicyPreviewCommand(output, context);
+    return de_StartLifecyclePolicyPreviewCommand(output, context);
   }
 
   // Start section: command_body_extra

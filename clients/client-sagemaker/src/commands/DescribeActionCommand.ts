@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeActionRequest,
-  DescribeActionRequestFilterSensitiveLog,
-  DescribeActionResponse,
-  DescribeActionResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1DescribeActionCommand,
-  serializeAws_json1_1DescribeActionCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeActionRequest, DescribeActionResponse } from "../models/models_2";
+import { de_DescribeActionCommand, se_DescribeActionCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeActionCommand}.
+ */
 export interface DescribeActionCommandInput extends DescribeActionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeActionCommand}.
+ */
 export interface DescribeActionCommandOutput extends DescribeActionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes an action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,22 @@ export interface DescribeActionCommandOutput extends DescribeActionResponse, __M
  * import { SageMakerClient, DescribeActionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeActionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DescribeActionRequest
+ *   ActionName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeActionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeActionCommandInput - {@link DescribeActionCommandInput}
+ * @returns {@link DescribeActionCommandOutput}
  * @see {@link DescribeActionCommandInput} for command's `input` shape.
  * @see {@link DescribeActionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class DescribeActionCommand extends $Command<
@@ -62,6 +74,9 @@ export class DescribeActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +105,8 @@ export class DescribeActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeActionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeActionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +116,18 @@ export class DescribeActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeActionCommand(input, context);
+    return se_DescribeActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeActionCommandOutput> {
-    return deserializeAws_json1_1DescribeActionCommand(output, context);
+    return de_DescribeActionCommand(output, context);
   }
 
   // Start section: command_body_extra

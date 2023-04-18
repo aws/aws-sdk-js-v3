@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
-import {
-  DisassociateAccountsInput,
-  DisassociateAccountsInputFilterSensitiveLog,
-  DisassociateAccountsOutput,
-  DisassociateAccountsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateAccountsCommand,
-  serializeAws_restJson1DisassociateAccountsCommand,
-} from "../protocols/Aws_restJson1";
+import { DisassociateAccountsInput, DisassociateAccountsOutput } from "../models/models_0";
+import { de_DisassociateAccountsCommand, se_DisassociateAccountsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DisassociateAccountsCommand}.
+ */
 export interface DisassociateAccountsCommandInput extends DisassociateAccountsInput {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateAccountsCommand}.
+ */
 export interface DisassociateAccountsCommandOutput extends DisassociateAccountsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified list of account IDs from the given billing group. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,45 @@ export interface DisassociateAccountsCommandOutput extends DisassociateAccountsO
  * import { BillingconductorClient, DisassociateAccountsCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, DisassociateAccountsCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
  * const client = new BillingconductorClient(config);
+ * const input = { // DisassociateAccountsInput
+ *   Arn: "STRING_VALUE", // required
+ *   AccountIds: [ // AccountIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DisassociateAccountsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateAccountsCommandInput - {@link DisassociateAccountsCommandInput}
+ * @returns {@link DisassociateAccountsCommandOutput}
  * @see {@link DisassociateAccountsCommandInput} for command's `input` shape.
  * @see {@link DisassociateAccountsCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.
+ *     </p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>You can cause an inconsistent state by updating or deleting a resource.
+ *     </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred while processing a request.
+ *     </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a resource that doesn't exist.
+ *     </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.
+ *     </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+ *
  *
  */
 export class DisassociateAccountsCommand extends $Command<
@@ -62,6 +97,9 @@ export class DisassociateAccountsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateAccountsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +128,8 @@ export class DisassociateAccountsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateAccountsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateAccountsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +139,18 @@ export class DisassociateAccountsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateAccountsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateAccountsCommand(input, context);
+    return se_DisassociateAccountsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateAccountsCommandOutput> {
-    return deserializeAws_restJson1DisassociateAccountsCommand(output, context);
+    return de_DisassociateAccountsCommand(output, context);
   }
 
   // Start section: command_body_extra

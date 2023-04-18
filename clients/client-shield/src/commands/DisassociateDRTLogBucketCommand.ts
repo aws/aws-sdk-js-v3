@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DisassociateDRTLogBucketRequest,
-  DisassociateDRTLogBucketRequestFilterSensitiveLog,
-  DisassociateDRTLogBucketResponse,
-  DisassociateDRTLogBucketResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DisassociateDRTLogBucketCommand,
-  serializeAws_json1_1DisassociateDRTLogBucketCommand,
-} from "../protocols/Aws_json1_1";
+import { DisassociateDRTLogBucketRequest, DisassociateDRTLogBucketResponse } from "../models/models_0";
+import { de_DisassociateDRTLogBucketCommand, se_DisassociateDRTLogBucketCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DisassociateDRTLogBucketCommand}.
+ */
 export interface DisassociateDRTLogBucketCommandInput extends DisassociateDRTLogBucketRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateDRTLogBucketCommand}.
+ */
 export interface DisassociateDRTLogBucketCommandOutput extends DisassociateDRTLogBucketResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the Shield Response Team's (SRT) access to the specified Amazon S3 bucket containing the logs that you shared previously.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,38 @@ export interface DisassociateDRTLogBucketCommandOutput extends DisassociateDRTLo
  * import { ShieldClient, DisassociateDRTLogBucketCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, DisassociateDRTLogBucketCommand } = require("@aws-sdk/client-shield"); // CommonJS import
  * const client = new ShieldClient(config);
+ * const input = { // DisassociateDRTLogBucketRequest
+ *   LogBucket: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateDRTLogBucketCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateDRTLogBucketCommandInput - {@link DisassociateDRTLogBucketCommandInput}
+ * @returns {@link DisassociateDRTLogBucketCommandOutput}
  * @see {@link DisassociateDRTLogBucketCommandInput} for command's `input` shape.
  * @see {@link DisassociateDRTLogBucketCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedForDependencyException} (client fault)
+ *  <p>In order to grant the necessary access to the Shield Response Team (SRT) the user submitting the request must have the <code>iam:PassRole</code> permission. This error indicates the user did not have the appropriate permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">Granting a User Permissions to Pass a Role to an Amazon Web Services Service</a>. </p>
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+ *
+ * @throws {@link InvalidOperationException} (client fault)
+ *  <p>Exception that indicates that the operation would not cause any change to occur.</p>
+ *
+ * @throws {@link NoAssociatedRoleException} (client fault)
+ *  <p>The ARN of the role that you specified does not exist.</p>
+ *
+ * @throws {@link OptimisticLockException} (client fault)
+ *  <p>Exception that indicates that the resource state has been modified by another
+ *          client. Retrieve the resource and then retry your request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+ *
  *
  */
 export class DisassociateDRTLogBucketCommand extends $Command<
@@ -62,6 +90,9 @@ export class DisassociateDRTLogBucketCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateDRTLogBucketCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +121,8 @@ export class DisassociateDRTLogBucketCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateDRTLogBucketRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateDRTLogBucketResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +132,18 @@ export class DisassociateDRTLogBucketCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateDRTLogBucketCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateDRTLogBucketCommand(input, context);
+    return se_DisassociateDRTLogBucketCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateDRTLogBucketCommandOutput> {
-    return deserializeAws_json1_1DisassociateDRTLogBucketCommand(output, context);
+    return de_DisassociateDRTLogBucketCommand(output, context);
   }
 
   // Start section: command_body_extra

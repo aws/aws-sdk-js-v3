@@ -6,12 +6,11 @@ import {
   ListEnvironmentTemplatesCommandInput,
   ListEnvironmentTemplatesCommandOutput,
 } from "../commands/ListEnvironmentTemplatesCommand";
-import { Proton } from "../Proton";
 import { ProtonClient } from "../ProtonClient";
 import { ProtonPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ProtonClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListEnvironmentTemplatesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Proton,
-  input: ListEnvironmentTemplatesCommandInput,
-  ...args: any
-): Promise<ListEnvironmentTemplatesCommandOutput> => {
-  // @ts-ignore
-  return await client.listEnvironmentTemplates(input, ...args);
-};
 export async function* paginateListEnvironmentTemplates(
   config: ProtonPaginationConfiguration,
   input: ListEnvironmentTemplatesCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListEnvironmentTemplates(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Proton) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ProtonClient) {
+    if (config.client instanceof ProtonClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Proton | ProtonClient");

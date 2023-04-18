@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateDatalakeRequest,
-  CreateDatalakeRequestFilterSensitiveLog,
-  CreateDatalakeResponse,
-  CreateDatalakeResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDatalakeCommand,
-  serializeAws_restJson1CreateDatalakeCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateDatalakeRequest, CreateDatalakeResponse } from "../models/models_0";
+import { de_CreateDatalakeCommand, se_CreateDatalakeCommand } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateDatalakeCommand}.
+ */
 export interface CreateDatalakeCommandInput extends CreateDatalakeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateDatalakeCommand}.
+ */
 export interface CreateDatalakeCommandOutput extends CreateDatalakeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Initializes an Amazon Security Lake instance with the provided (or default) configuration. You
  *          can enable Security Lake in Amazon Web Services Regions with customized settings before enabling
  *          log collection in Regions. You can either use the <code>enableAll</code> parameter to
@@ -51,13 +54,70 @@ export interface CreateDatalakeCommandOutput extends CreateDatalakeResponse, __M
  * import { SecurityLakeClient, CreateDatalakeCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, CreateDatalakeCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
+ * const input = { // CreateDatalakeRequest
+ *   regions: [ // RegionSet
+ *     "STRING_VALUE",
+ *   ],
+ *   configurations: { // LakeConfigurationRequestMap
+ *     "<keys>": { // LakeConfigurationRequest
+ *       encryptionKey: "STRING_VALUE",
+ *       retentionSettings: [ // RetentionSettingList
+ *         { // RetentionSetting
+ *           storageClass: "STRING_VALUE",
+ *           retentionPeriod: Number("int"),
+ *         },
+ *       ],
+ *       tagsMap: { // TagsMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       replicationDestinationRegions: [
+ *         "STRING_VALUE",
+ *       ],
+ *       replicationRoleArn: "STRING_VALUE",
+ *     },
+ *   },
+ *   enableAll: true || false,
+ *   metaStoreManagerRoleArn: "STRING_VALUE",
+ * };
  * const command = new CreateDatalakeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDatalakeCommandInput - {@link CreateDatalakeCommandInput}
+ * @returns {@link CreateDatalakeCommandOutput}
  * @see {@link CreateDatalakeCommandInput} for command's `input` shape.
  * @see {@link CreateDatalakeCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action. Access denied errors appear when Amazon Security Lake explicitly or implicitly denies an authorization
+ *          request. An explicit denial occurs when a policy contains a Deny statement for the specific
+ *          Amazon Web Services action. An implicit denial occurs when there is no applicable Deny statement and also
+ *          no applicable Allow statement.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Occurs when a conflict with a previous successful write is detected. This generally
+ *          occurs when the previous write did not have time to propagate to the host serving the
+ *          current request. A retry (with appropriate backoff logic) is the recommended response to
+ *          this exception.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Internal service exceptions are sometimes caused by transient issues. Before you start
+ *          troubleshooting, perform the operation again. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>You have exceeded your service quota. To perform the requested action, remove some of
+ *          the relevant resources, or use Service Quotas to request a service quota increase. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The limit on the number of requests per second was exceeded. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Your signing certificate could not be validated. </p>
+ *
  *
  */
 export class CreateDatalakeCommand extends $Command<
@@ -77,6 +137,9 @@ export class CreateDatalakeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDatalakeCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +168,8 @@ export class CreateDatalakeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDatalakeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDatalakeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +179,18 @@ export class CreateDatalakeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDatalakeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDatalakeCommand(input, context);
+    return se_CreateDatalakeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDatalakeCommandOutput> {
-    return deserializeAws_restJson1CreateDatalakeCommand(output, context);
+    return de_CreateDatalakeCommand(output, context);
   }
 
   // Start section: command_body_extra

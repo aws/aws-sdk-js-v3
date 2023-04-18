@@ -14,19 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import {
-  DeleteIntegrationResponseRequest,
-  DeleteIntegrationResponseRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteIntegrationResponseCommand,
-  serializeAws_restJson1DeleteIntegrationResponseCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteIntegrationResponseRequest } from "../models/models_0";
+import { de_DeleteIntegrationResponseCommand, se_DeleteIntegrationResponseCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteIntegrationResponseCommand}.
+ */
 export interface DeleteIntegrationResponseCommandInput extends DeleteIntegrationResponseRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteIntegrationResponseCommand}.
+ */
 export interface DeleteIntegrationResponseCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an IntegrationResponses.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -34,13 +39,27 @@ export interface DeleteIntegrationResponseCommandOutput extends __MetadataBearer
  * import { ApiGatewayV2Client, DeleteIntegrationResponseCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, DeleteIntegrationResponseCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = { // DeleteIntegrationResponseRequest
+ *   ApiId: "STRING_VALUE", // required
+ *   IntegrationId: "STRING_VALUE", // required
+ *   IntegrationResponseId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteIntegrationResponseCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteIntegrationResponseCommandInput - {@link DeleteIntegrationResponseCommandInput}
+ * @returns {@link DeleteIntegrationResponseCommandOutput}
  * @see {@link DeleteIntegrationResponseCommandInput} for command's `input` shape.
  * @see {@link DeleteIntegrationResponseCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource specified in the request was not found. See the message field for more information.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
+ *
  *
  */
 export class DeleteIntegrationResponseCommand extends $Command<
@@ -60,6 +79,9 @@ export class DeleteIntegrationResponseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteIntegrationResponseCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +110,8 @@ export class DeleteIntegrationResponseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteIntegrationResponseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,15 +121,21 @@ export class DeleteIntegrationResponseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteIntegrationResponseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteIntegrationResponseCommand(input, context);
+    return se_DeleteIntegrationResponseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteIntegrationResponseCommandOutput> {
-    return deserializeAws_restJson1DeleteIntegrationResponseCommand(output, context);
+    return de_DeleteIntegrationResponseCommand(output, context);
   }
 
   // Start section: command_body_extra

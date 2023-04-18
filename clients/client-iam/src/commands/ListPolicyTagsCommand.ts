@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  ListPolicyTagsRequest,
-  ListPolicyTagsRequestFilterSensitiveLog,
-  ListPolicyTagsResponse,
-  ListPolicyTagsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryListPolicyTagsCommand,
-  serializeAws_queryListPolicyTagsCommand,
-} from "../protocols/Aws_query";
+import { ListPolicyTagsRequest, ListPolicyTagsResponse } from "../models/models_0";
+import { de_ListPolicyTagsCommand, se_ListPolicyTagsCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link ListPolicyTagsCommand}.
+ */
 export interface ListPolicyTagsCommandInput extends ListPolicyTagsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListPolicyTagsCommand}.
+ */
 export interface ListPolicyTagsCommandOutput extends ListPolicyTagsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the tags that are attached to the specified IAM customer managed policy.
  *       The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
  *       <i>IAM User Guide</i>.</p>
@@ -38,13 +41,33 @@ export interface ListPolicyTagsCommandOutput extends ListPolicyTagsResponse, __M
  * import { IAMClient, ListPolicyTagsCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListPolicyTagsCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // ListPolicyTagsRequest
+ *   PolicyArn: "STRING_VALUE", // required
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListPolicyTagsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPolicyTagsCommandInput - {@link ListPolicyTagsCommandInput}
+ * @returns {@link ListPolicyTagsCommandOutput}
  * @see {@link ListPolicyTagsCommandInput} for command's `input` shape.
  * @see {@link ListPolicyTagsCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
+ *       input parameter.</p>
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
  *
  */
 export class ListPolicyTagsCommand extends $Command<
@@ -64,6 +87,9 @@ export class ListPolicyTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPolicyTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +118,8 @@ export class ListPolicyTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPolicyTagsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPolicyTagsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +129,18 @@ export class ListPolicyTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPolicyTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListPolicyTagsCommand(input, context);
+    return se_ListPolicyTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPolicyTagsCommandOutput> {
-    return deserializeAws_queryListPolicyTagsCommand(output, context);
+    return de_ListPolicyTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

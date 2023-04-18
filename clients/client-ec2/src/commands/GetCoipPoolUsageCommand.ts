@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  GetCoipPoolUsageRequest,
-  GetCoipPoolUsageRequestFilterSensitiveLog,
-  GetCoipPoolUsageResult,
-  GetCoipPoolUsageResultFilterSensitiveLog,
-} from "../models/models_5";
-import {
-  deserializeAws_ec2GetCoipPoolUsageCommand,
-  serializeAws_ec2GetCoipPoolUsageCommand,
-} from "../protocols/Aws_ec2";
+import { GetCoipPoolUsageRequest, GetCoipPoolUsageResult } from "../models/models_5";
+import { de_GetCoipPoolUsageCommand, se_GetCoipPoolUsageCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link GetCoipPoolUsageCommand}.
+ */
 export interface GetCoipPoolUsageCommandInput extends GetCoipPoolUsageRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetCoipPoolUsageCommand}.
+ */
 export interface GetCoipPoolUsageCommandOutput extends GetCoipPoolUsageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the allocations from the specified customer-owned address pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,30 @@ export interface GetCoipPoolUsageCommandOutput extends GetCoipPoolUsageResult, _
  * import { EC2Client, GetCoipPoolUsageCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetCoipPoolUsageCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // GetCoipPoolUsageRequest
+ *   PoolId: "STRING_VALUE", // required
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new GetCoipPoolUsageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCoipPoolUsageCommandInput - {@link GetCoipPoolUsageCommandInput}
+ * @returns {@link GetCoipPoolUsageCommandOutput}
  * @see {@link GetCoipPoolUsageCommandInput} for command's `input` shape.
  * @see {@link GetCoipPoolUsageCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class GetCoipPoolUsageCommand extends $Command<
@@ -62,6 +82,9 @@ export class GetCoipPoolUsageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCoipPoolUsageCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +113,8 @@ export class GetCoipPoolUsageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCoipPoolUsageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCoipPoolUsageResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +124,18 @@ export class GetCoipPoolUsageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCoipPoolUsageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2GetCoipPoolUsageCommand(input, context);
+    return se_GetCoipPoolUsageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCoipPoolUsageCommandOutput> {
-    return deserializeAws_ec2GetCoipPoolUsageCommand(output, context);
+    return de_GetCoipPoolUsageCommand(output, context);
   }
 
   // Start section: command_body_extra

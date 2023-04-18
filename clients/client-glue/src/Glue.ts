@@ -886,11 +886,13 @@ import {
 import { GlueClient } from "./GlueClient";
 
 /**
+ * @public
  * <fullname>Glue</fullname>
  *          <p>Defines the public endpoint for the Glue service.</p>
  */
 export class Glue extends GlueClient {
   /**
+   * @public
    * <p>Creates one or more partitions in a batch operation.</p>
    */
   public batchCreatePartition(
@@ -923,6 +925,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Deletes a list of connection definitions from the Data Catalog.</p>
    */
   public batchDeleteConnection(
@@ -955,6 +958,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Deletes one or more partitions in a batch operation.</p>
    */
   public batchDeletePartition(
@@ -987,6 +991,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Deletes multiple tables at once.</p>
    *          <note>
    *             <p>After completing this operation, you no longer have access to the table versions and
@@ -1029,6 +1034,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Deletes a specified batch of versions of a table.</p>
    */
   public batchDeleteTableVersion(
@@ -1061,6 +1067,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about a list of blueprints.</p>
    */
   public batchGetBlueprints(
@@ -1093,6 +1100,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of resource metadata for a given list of crawler names. After calling the <code>ListCrawlers</code> operation, you can call this operation to access the data to which you have been granted permissions. This operation supports all IAM permissions, including permission conditions that uses tags.</p>
    */
   public batchGetCrawlers(
@@ -1125,6 +1133,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the details for the custom patterns specified by a list of names.</p>
    */
   public batchGetCustomEntityTypes(
@@ -1157,6 +1166,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of data quality results for the specified result IDs.</p>
    */
   public batchGetDataQualityResult(
@@ -1189,6 +1199,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of resource metadata for a given list of development endpoint names. After
    *       calling the <code>ListDevEndpoints</code> operation, you can call this operation to access the
    *       data to which you have been granted permissions. This operation supports all IAM permissions,
@@ -1224,6 +1235,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of resource metadata for a given list of job names. After calling the <code>ListJobs</code> operation, you can call this operation to access the data to which you have been granted permissions. This operation supports all IAM permissions, including permission conditions that uses tags.
    * </p>
    */
@@ -1254,6 +1266,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves partitions in a batch request.</p>
    */
   public batchGetPartition(
@@ -1286,6 +1299,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of resource metadata for a given list of trigger names. After calling the <code>ListTriggers</code> operation, you can call this operation to access the data to which you have been granted permissions. This operation supports all IAM permissions, including permission conditions that uses tags.</p>
    */
   public batchGetTriggers(
@@ -1318,6 +1332,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of resource metadata for a given list of workflow names. After calling the <code>ListWorkflows</code> operation, you can call this operation to access the data to which you have been granted permissions. This operation supports all IAM permissions, including permission conditions that uses tags.</p>
    */
   public batchGetWorkflows(
@@ -1350,6 +1365,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Stops one or more job runs for a specified job definition.</p>
    */
   public batchStopJobRun(
@@ -1382,6 +1398,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Updates one or more partitions in a batch operation.</p>
    */
   public batchUpdatePartition(
@@ -1414,6 +1431,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Cancels the specified recommendation run that was being used to generate rules.</p>
    */
   public cancelDataQualityRuleRecommendationRun(
@@ -1448,6 +1466,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Cancels a run where a ruleset is being evaluated against a data source.</p>
    */
   public cancelDataQualityRulesetEvaluationRun(
@@ -1482,6 +1501,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Cancels (stops) a task run. Machine learning task runs are asynchronous tasks that Glue runs on your behalf as part of various machine learning workflows. You can cancel a
    *       machine learning task run at any time by calling <code>CancelMLTaskRun</code> with a task
    *       run's parent transform's <code>TransformID</code> and the task run's <code>TaskRunId</code>. </p>
@@ -1516,6 +1536,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Cancels the statement.</p>
    */
   public cancelStatement(
@@ -1548,6 +1569,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Validates the supplied schema. This call has no side effects, it simply validates using the supplied schema using <code>DataFormat</code> as the format. Since it does not take a schema set name, no compatibility checks are performed.</p>
    */
   public checkSchemaVersionValidity(
@@ -1580,6 +1602,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Registers a blueprint with Glue.</p>
    */
   public createBlueprint(
@@ -1612,6 +1635,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Creates a classifier in the user's account. This can be a <code>GrokClassifier</code>, an
    *         <code>XMLClassifier</code>, a <code>JsonClassifier</code>, or a <code>CsvClassifier</code>,
    *       depending on which field of the request is present.</p>
@@ -1646,6 +1670,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Creates a connection definition in the Data Catalog.</p>
    */
   public createConnection(
@@ -1678,6 +1703,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Creates a new crawler with specified targets, role, configuration, and optional schedule.
    *       At least one crawl target must be specified, in the <code>s3Targets</code> field, the
    *         <code>jdbcTargets</code> field, or the <code>DynamoDBTargets</code> field.</p>
@@ -1712,6 +1738,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Creates a custom pattern that is used to detect sensitive data across the columns and rows of your structured data.</p>
    *          <p>Each custom pattern you create specifies a regular expression and an optional list of context words. If no context words are passed only a regular expression is checked.</p>
    */
@@ -1745,6 +1772,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Creates a new database in a Data Catalog.</p>
    */
   public createDatabase(
@@ -1777,6 +1805,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Creates a data quality ruleset with DQDL rules applied to a specified Glue table.</p>
    *          <p>You create the ruleset using the Data Quality Definition Language (DQDL). For more information, see the Glue developer guide.</p>
    */
@@ -1810,6 +1839,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Creates a new development endpoint.</p>
    */
   public createDevEndpoint(
@@ -1842,6 +1872,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Creates a new job definition.</p>
    */
   public createJob(args: CreateJobCommandInput, options?: __HttpHandlerOptions): Promise<CreateJobCommandOutput>;
@@ -1868,6 +1899,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Creates an Glue machine learning transform. This operation creates the transform and
    *       all the necessary parameters to train it.</p>
    *          <p>Call this operation as the first step in the process of using a machine learning transform
@@ -1910,6 +1942,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Creates a new partition.</p>
    */
   public createPartition(
@@ -1942,6 +1975,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Creates a specified partition index in an existing table.</p>
    */
   public createPartitionIndex(
@@ -1974,6 +2008,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Creates a new registry which may be used to hold a collection of schemas.</p>
    */
   public createRegistry(
@@ -2006,6 +2041,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Creates a new schema set and registers the schema definition. Returns an error if the schema set already exists without actually registering the version.</p>
    *          <p>When the schema set is created, a version checkpoint will be set to the first version. Compatibility mode "DISABLED" restricts any additional schema versions from being added after the first schema version. For all other compatibility modes, validation of compatibility settings will be applied only from the second version onwards when the <code>RegisterSchemaVersion</code> API is used.</p>
    *          <p>When this API is called without a <code>RegistryId</code>, this will create an entry for a "default-registry" in the registry database tables, if it is not already present.</p>
@@ -2037,6 +2073,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Transforms a directed acyclic graph (DAG) into code.</p>
    */
   public createScript(
@@ -2066,6 +2103,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Creates a new security configuration. A security configuration is a set of security properties that can be used by Glue. You can use a security configuration to encrypt data at rest. For information about using security configurations in Glue, see <a href="https://docs.aws.amazon.com/glue/latest/dg/encryption-security-configuration.html">Encrypting Data Written by Crawlers, Jobs, and Development Endpoints</a>.</p>
    */
   public createSecurityConfiguration(
@@ -2098,6 +2136,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Creates a new session.</p>
    */
   public createSession(
@@ -2130,6 +2169,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Creates a new table definition in the Data Catalog.</p>
    */
   public createTable(args: CreateTableCommandInput, options?: __HttpHandlerOptions): Promise<CreateTableCommandOutput>;
@@ -2156,6 +2196,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Creates a new trigger.</p>
    */
   public createTrigger(
@@ -2188,6 +2229,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Creates a new function definition in the Data Catalog.</p>
    */
   public createUserDefinedFunction(
@@ -2220,6 +2262,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Creates a new workflow.</p>
    */
   public createWorkflow(
@@ -2252,6 +2295,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Deletes an existing blueprint.</p>
    */
   public deleteBlueprint(
@@ -2284,6 +2328,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Removes a classifier from the Data Catalog.</p>
    */
   public deleteClassifier(
@@ -2316,6 +2361,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Delete the partition column statistics of a column.</p>
    *          <p>The Identity and Access Management (IAM) permission required for this operation is <code>DeletePartition</code>.</p>
    */
@@ -2349,6 +2395,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves table statistics of columns.</p>
    *          <p>The Identity and Access Management (IAM) permission required for this operation is <code>DeleteTable</code>.</p>
    */
@@ -2382,6 +2429,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Deletes a connection from the Data Catalog.</p>
    */
   public deleteConnection(
@@ -2414,6 +2462,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Removes a specified crawler from the Glue Data Catalog, unless the crawler state is
    *         <code>RUNNING</code>.</p>
    */
@@ -2447,6 +2496,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Deletes a custom pattern by specifying its name.</p>
    */
   public deleteCustomEntityType(
@@ -2479,6 +2529,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Removes a specified database from a Data Catalog.</p>
    *          <note>
    *             <p>After completing this operation, you no longer have access to the tables (and all table
@@ -2523,6 +2574,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Deletes a data quality ruleset.</p>
    */
   public deleteDataQualityRuleset(
@@ -2555,6 +2607,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Deletes a specified development endpoint.</p>
    */
   public deleteDevEndpoint(
@@ -2587,6 +2640,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Deletes a specified job definition. If the job definition
    *       is not found, no exception is thrown.</p>
    */
@@ -2614,6 +2668,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Deletes an Glue machine learning transform. Machine learning transforms are a special
    *       type of transform that use machine learning to learn the details of the transformation to be
    *       performed by learning from examples provided by humans. These transformations are then saved
@@ -2651,6 +2706,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Deletes a specified partition.</p>
    */
   public deletePartition(
@@ -2683,6 +2739,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Deletes a specified partition index from an existing table.</p>
    */
   public deletePartitionIndex(
@@ -2715,6 +2772,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Delete the entire registry including schema and all of its versions. To get the status of the delete operation, you can call the <code>GetRegistry</code> API after the asynchronous call. Deleting a registry will deactivate all online operations for the registry such as the <code>UpdateRegistry</code>, <code>CreateSchema</code>, <code>UpdateSchema</code>, and <code>RegisterSchemaVersion</code> APIs. </p>
    */
   public deleteRegistry(
@@ -2747,6 +2805,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Deletes a specified policy.</p>
    */
   public deleteResourcePolicy(
@@ -2779,6 +2838,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Deletes the entire schema set, including the schema set and all of its versions. To get the status of the delete operation, you can call <code>GetSchema</code> API after the asynchronous call. Deleting a registry will deactivate all online operations for the schema, such as the <code>GetSchemaByDefinition</code>, and <code>RegisterSchemaVersion</code> APIs.</p>
    */
   public deleteSchema(
@@ -2808,6 +2868,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Remove versions from the specified schema. A version number or range may be supplied. If the compatibility mode forbids deleting of a version that is necessary, such as BACKWARDS_FULL, an error is returned.  Calling the <code>GetSchemaVersions</code> API after this call will list the status of the deleted versions.</p>
    *          <p>When the range of version numbers contain check pointed version, the API will return a 409 conflict and will not proceed with the deletion. You have to remove the checkpoint first using the <code>DeleteSchemaCheckpoint</code> API before using this API.</p>
    *          <p>You cannot use the <code>DeleteSchemaVersions</code> API to delete the first schema version in the schema set. The first schema version can only be deleted by the <code>DeleteSchema</code> API. This operation will also delete the attached <code>SchemaVersionMetadata</code> under the schema versions. Hard deletes will be enforced on the database.</p>
@@ -2843,6 +2904,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Deletes a specified security configuration.</p>
    */
   public deleteSecurityConfiguration(
@@ -2875,6 +2937,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Deletes the session.</p>
    */
   public deleteSession(
@@ -2907,6 +2970,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Removes a table definition from the Data Catalog.</p>
    *          <note>
    *             <p>After completing this operation, you no longer have access to the table versions and
@@ -2943,6 +3007,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Deletes a specified version of a table.</p>
    */
   public deleteTableVersion(
@@ -2975,6 +3040,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Deletes a specified trigger. If the trigger is not found, no
    *       exception is thrown.</p>
    */
@@ -3008,6 +3074,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Deletes an existing function definition from the Data Catalog.</p>
    */
   public deleteUserDefinedFunction(
@@ -3040,6 +3107,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Deletes a workflow.</p>
    */
   public deleteWorkflow(
@@ -3072,6 +3140,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the details of a blueprint.</p>
    */
   public getBlueprint(
@@ -3101,6 +3170,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the details of a blueprint run.</p>
    */
   public getBlueprintRun(
@@ -3133,6 +3203,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the details of blueprint runs for a specified blueprint.</p>
    */
   public getBlueprintRuns(
@@ -3165,6 +3236,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the status of a migration operation.</p>
    */
   public getCatalogImportStatus(
@@ -3197,6 +3269,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieve a classifier by name.</p>
    */
   public getClassifier(
@@ -3229,6 +3302,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Lists all classifier objects in the Data Catalog.</p>
    */
   public getClassifiers(
@@ -3261,6 +3335,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves partition statistics of columns.</p>
    *          <p>The Identity and Access Management (IAM) permission required for this operation is <code>GetPartition</code>.</p>
    */
@@ -3294,6 +3369,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves table statistics of columns.</p>
    *          <p>The Identity and Access Management (IAM) permission required for this operation is <code>GetTable</code>.</p>
    */
@@ -3327,6 +3403,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a connection definition from the Data Catalog.</p>
    */
   public getConnection(
@@ -3359,6 +3436,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of connection definitions from the Data Catalog.</p>
    */
   public getConnections(
@@ -3391,6 +3469,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves metadata for a specified crawler.</p>
    */
   public getCrawler(args: GetCrawlerCommandInput, options?: __HttpHandlerOptions): Promise<GetCrawlerCommandOutput>;
@@ -3417,6 +3496,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves metrics about specified crawlers.</p>
    */
   public getCrawlerMetrics(
@@ -3449,6 +3529,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves metadata for all crawlers defined in the customer
    *       account.</p>
    */
@@ -3476,6 +3557,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the details of a custom pattern by specifying its name.</p>
    */
   public getCustomEntityType(
@@ -3508,6 +3590,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the definition of a specified database.</p>
    */
   public getDatabase(args: GetDatabaseCommandInput, options?: __HttpHandlerOptions): Promise<GetDatabaseCommandOutput>;
@@ -3534,6 +3617,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves all databases defined in a given Data Catalog.</p>
    */
   public getDatabases(
@@ -3563,6 +3647,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the security configuration for a specified catalog.</p>
    */
   public getDataCatalogEncryptionSettings(
@@ -3595,6 +3680,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Transforms a Python script into a directed acyclic graph (DAG). </p>
    */
   public getDataflowGraph(
@@ -3627,6 +3713,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the result of a data quality rule evaluation.</p>
    */
   public getDataQualityResult(
@@ -3659,6 +3746,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Gets the specified recommendation run that was used to generate rules.</p>
    */
   public getDataQualityRuleRecommendationRun(
@@ -3691,6 +3779,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Returns an existing ruleset by identifier or name.</p>
    */
   public getDataQualityRuleset(
@@ -3723,6 +3812,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a specific run where a ruleset is evaluated against a data source.</p>
    */
   public getDataQualityRulesetEvaluationRun(
@@ -3755,6 +3845,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about a specified development endpoint.</p>
    *          <note>
    *             <p>When you create a development endpoint in a virtual private cloud (VPC), Glue returns only
@@ -3792,6 +3883,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves all the development endpoints in this Amazon Web Services account.</p>
    *          <note>
    *             <p>When you create a development endpoint in a virtual private cloud (VPC), Glue returns only a private IP address
@@ -3829,6 +3921,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves an existing job definition.</p>
    */
   public getJob(args: GetJobCommandInput, options?: __HttpHandlerOptions): Promise<GetJobCommandOutput>;
@@ -3855,6 +3948,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Returns information on a job bookmark entry.</p>
    *          <p>For more information about enabling and using job bookmarks, see:</p>
    *          <ul>
@@ -3905,6 +3999,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the metadata for a given job run.</p>
    */
   public getJobRun(args: GetJobRunCommandInput, options?: __HttpHandlerOptions): Promise<GetJobRunCommandOutput>;
@@ -3931,6 +4026,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves metadata for all runs of a given job definition.</p>
    */
   public getJobRuns(args: GetJobRunsCommandInput, options?: __HttpHandlerOptions): Promise<GetJobRunsCommandOutput>;
@@ -3957,6 +4053,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves all current job definitions.</p>
    */
   public getJobs(args: GetJobsCommandInput, options?: __HttpHandlerOptions): Promise<GetJobsCommandOutput>;
@@ -3983,6 +4080,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Creates mappings.</p>
    */
   public getMapping(args: GetMappingCommandInput, options?: __HttpHandlerOptions): Promise<GetMappingCommandOutput>;
@@ -4009,6 +4107,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Gets details for a specific task run on a machine learning transform. Machine learning
    *       task runs are asynchronous tasks that Glue runs on your behalf as part of various machine
    *       learning workflows. You can check the stats of any task run by calling
@@ -4042,6 +4141,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Gets a list of runs for a machine learning transform. Machine learning task runs are
    *       asynchronous tasks that Glue runs on your behalf as part of various machine learning
    *       workflows. You can get a sortable, filterable list of machine learning task runs by calling
@@ -4079,6 +4179,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Gets an Glue machine learning transform artifact and all its corresponding metadata.
    *       Machine learning transforms are a special type of transform that use machine learning to learn
    *       the details of the transformation to be performed by learning from examples provided by
@@ -4115,6 +4216,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Gets a sortable, filterable list of existing Glue machine learning transforms. Machine
    *       learning transforms are a special type of transform that use machine learning to learn the
    *       details of the transformation to be performed by learning from examples provided by humans.
@@ -4151,6 +4253,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about a specified partition.</p>
    */
   public getPartition(
@@ -4180,6 +4283,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the partition indexes associated with a table.</p>
    */
   public getPartitionIndexes(
@@ -4212,6 +4316,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the partitions in a table.</p>
    */
   public getPartitions(
@@ -4244,6 +4349,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Gets code to perform a specified mapping.</p>
    */
   public getPlan(args: GetPlanCommandInput, options?: __HttpHandlerOptions): Promise<GetPlanCommandOutput>;
@@ -4270,6 +4376,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Describes the specified registry in detail.</p>
    */
   public getRegistry(args: GetRegistryCommandInput, options?: __HttpHandlerOptions): Promise<GetRegistryCommandOutput>;
@@ -4296,6 +4403,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the resource policies set on individual resources by Resource Access Manager
    *       during cross-account permission grants. Also retrieves the Data Catalog resource
    *       policy.</p>
@@ -4333,6 +4441,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a specified resource policy.</p>
    */
   public getResourcePolicy(
@@ -4365,6 +4474,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Describes the specified schema in detail.</p>
    */
   public getSchema(args: GetSchemaCommandInput, options?: __HttpHandlerOptions): Promise<GetSchemaCommandOutput>;
@@ -4391,6 +4501,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a schema by the <code>SchemaDefinition</code>. The schema definition is sent to the Schema Registry, canonicalized, and hashed. If the hash is matched within the scope of the <code>SchemaName</code> or ARN (or the default registry, if none is supplied), that schema’s metadata is returned. Otherwise, a 404 or NotFound error is returned. Schema versions in <code>Deleted</code> statuses will not be included in the results.</p>
    */
   public getSchemaByDefinition(
@@ -4423,6 +4534,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Get the specified schema by its unique ID assigned when a version of the schema is created or registered. Schema versions in Deleted status will not be included in the results.</p>
    */
   public getSchemaVersion(
@@ -4455,6 +4567,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Fetches the schema version difference in the specified difference type between two stored schema versions in the Schema Registry.</p>
    *          <p>This API allows you to compare two schema versions between two schema definitions under the same schema.</p>
    */
@@ -4488,6 +4601,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a specified security configuration.</p>
    */
   public getSecurityConfiguration(
@@ -4520,6 +4634,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of all security configurations.</p>
    */
   public getSecurityConfigurations(
@@ -4552,6 +4667,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the session.</p>
    */
   public getSession(args: GetSessionCommandInput, options?: __HttpHandlerOptions): Promise<GetSessionCommandOutput>;
@@ -4578,6 +4694,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the statement.</p>
    */
   public getStatement(
@@ -4607,6 +4724,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the <code>Table</code> definition in a Data Catalog for
    *       a specified table.</p>
    */
@@ -4634,6 +4752,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the definitions of some or all of the tables in a given
    *       <code>Database</code>.</p>
    */
@@ -4661,6 +4780,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a specified version of a table.</p>
    */
   public getTableVersion(
@@ -4693,6 +4813,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of strings that identify available versions of
    *       a specified table.</p>
    */
@@ -4726,6 +4847,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of tags associated with a resource.</p>
    */
   public getTags(args: GetTagsCommandInput, options?: __HttpHandlerOptions): Promise<GetTagsCommandOutput>;
@@ -4752,6 +4874,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the definition of a trigger.</p>
    */
   public getTrigger(args: GetTriggerCommandInput, options?: __HttpHandlerOptions): Promise<GetTriggerCommandOutput>;
@@ -4778,6 +4901,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Gets all the triggers associated with a job.</p>
    */
   public getTriggers(args: GetTriggersCommandInput, options?: __HttpHandlerOptions): Promise<GetTriggersCommandOutput>;
@@ -4803,6 +4927,12 @@ export class Glue extends GlueClient {
     }
   }
 
+  /**
+   * @public
+   * <p>Retrieves partition metadata from the Data Catalog that contains unfiltered
+   *           metadata.</p>
+   *          <p>For IAM authorization, the public IAM action associated with this API is <code>glue:GetPartition</code>.</p>
+   */
   public getUnfilteredPartitionMetadata(
     args: GetUnfilteredPartitionMetadataCommandInput,
     options?: __HttpHandlerOptions
@@ -4832,6 +4962,12 @@ export class Glue extends GlueClient {
     }
   }
 
+  /**
+   * @public
+   * <p>Retrieves partition metadata from the Data Catalog that contains unfiltered
+   *           metadata.</p>
+   *          <p>For IAM authorization, the public IAM action associated with this API is <code>glue:GetPartitions</code>.</p>
+   */
   public getUnfilteredPartitionsMetadata(
     args: GetUnfilteredPartitionsMetadataCommandInput,
     options?: __HttpHandlerOptions
@@ -4861,6 +4997,12 @@ export class Glue extends GlueClient {
     }
   }
 
+  /**
+   * @public
+   * <p>Retrieves table metadata from the Data Catalog that contains unfiltered
+   *           metadata.</p>
+   *          <p>For IAM authorization, the public IAM action associated with this API is <code>glue:GetTable</code>.</p>
+   */
   public getUnfilteredTableMetadata(
     args: GetUnfilteredTableMetadataCommandInput,
     options?: __HttpHandlerOptions
@@ -4891,6 +5033,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a specified function definition from the Data Catalog.</p>
    */
   public getUserDefinedFunction(
@@ -4923,6 +5066,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves multiple function definitions from the Data Catalog.</p>
    */
   public getUserDefinedFunctions(
@@ -4955,6 +5099,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves resource metadata for a workflow.</p>
    */
   public getWorkflow(args: GetWorkflowCommandInput, options?: __HttpHandlerOptions): Promise<GetWorkflowCommandOutput>;
@@ -4981,6 +5126,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the metadata for a given workflow run. </p>
    */
   public getWorkflowRun(
@@ -5013,6 +5159,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the workflow run properties which were set during the run.</p>
    */
   public getWorkflowRunProperties(
@@ -5045,6 +5192,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves metadata for all runs of a given workflow.</p>
    */
   public getWorkflowRuns(
@@ -5077,6 +5225,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Imports an existing Amazon Athena Data Catalog to Glue.</p>
    */
   public importCatalogToGlue(
@@ -5109,6 +5258,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Lists all the blueprint names in an account.</p>
    */
   public listBlueprints(
@@ -5141,6 +5291,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the names of all crawler resources in this Amazon Web Services account, or the
    *       resources with the specified tag. This operation allows you to see which
    *       resources are available in your account, and their names.</p>
@@ -5175,6 +5326,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Returns all the crawls of a specified crawler. Returns only the crawls that have occurred since the launch date of the crawler history feature, and only retains up to 12 months of crawls. Older crawls will not be returned.</p>
    *          <p>You may use this API to:</p>
    *          <ul>
@@ -5216,6 +5368,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Lists all the custom patterns that have been created.</p>
    */
   public listCustomEntityTypes(
@@ -5248,6 +5401,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Returns all data quality execution results for your account.</p>
    */
   public listDataQualityResults(
@@ -5280,6 +5434,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Lists the recommendation runs meeting the filter criteria.</p>
    */
   public listDataQualityRuleRecommendationRuns(
@@ -5314,6 +5469,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Lists all the runs meeting the filter criteria, where a ruleset is evaluated against a data source.</p>
    */
   public listDataQualityRulesetEvaluationRuns(
@@ -5346,6 +5502,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Returns a paginated list of rulesets for the specified list of Glue tables.</p>
    */
   public listDataQualityRulesets(
@@ -5378,6 +5535,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the names of all <code>DevEndpoint</code> resources in this Amazon Web Services account, or the
    *       resources with the specified tag. This operation allows you to see which resources are
    *       available in your account, and their names.</p>
@@ -5415,6 +5573,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the names of all job resources in this Amazon Web Services account, or the resources with the specified tag. This operation allows you to see which resources are available in your account, and their names.</p>
    *          <p>This operation takes the optional <code>Tags</code> field, which you can use as a filter on
    *       the response so that tagged resources can be retrieved as a group. If you choose to use tags
@@ -5444,6 +5603,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p> Retrieves a sortable, filterable list of existing Glue machine learning transforms in this Amazon Web Services account,
    *        or the resources with the specified tag. This operation takes the optional <code>Tags</code> field, which you can use as
    *        a filter of the responses so that tagged resources can be retrieved as a group. If you choose to use tag
@@ -5480,6 +5640,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of registries that you have created, with minimal registry information. Registries in the <code>Deleting</code> status will not be included in the results. Empty results will be returned if there are no registries available.</p>
    */
   public listRegistries(
@@ -5512,6 +5673,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of schemas with minimal details. Schemas in Deleting status will not be included in the results. Empty results will be returned if there are no schemas available.</p>
    *          <p>When the <code>RegistryId</code> is not provided, all the schemas across registries will be part of the API response.</p>
    */
@@ -5539,6 +5701,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of schema versions that you have created, with minimal information. Schema versions in Deleted status will not be included in the results. Empty results will be returned if there are no schema versions available.</p>
    */
   public listSchemaVersions(
@@ -5571,6 +5734,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieve a list of sessions.</p>
    */
   public listSessions(
@@ -5600,6 +5764,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Lists statements for the session.</p>
    */
   public listStatements(
@@ -5632,6 +5797,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the names of all trigger resources in this Amazon Web Services account, or the resources with the specified tag. This operation allows you to see which resources are available in your account, and their names.</p>
    *          <p>This operation takes the optional <code>Tags</code> field, which you can use as a filter on
    *       the response so that tagged resources can be retrieved as a group. If you choose to use tags
@@ -5664,6 +5830,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Lists names of workflows created in the account.</p>
    */
   public listWorkflows(
@@ -5696,6 +5863,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Sets the security configuration for a specified catalog. After the configuration has been
    *       set, the specified encryption is applied to every catalog write thereafter.</p>
    */
@@ -5729,6 +5897,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Sets the Data Catalog resource policy for access control.</p>
    */
   public putResourcePolicy(
@@ -5761,6 +5930,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Puts the metadata key value pair for a specified schema version ID. A maximum of 10 key value pairs will be allowed per schema version. They can be added over one or more calls.</p>
    */
   public putSchemaVersionMetadata(
@@ -5793,6 +5963,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Puts the specified workflow run properties for the given workflow run. If a property already exists for the specified run, then it overrides the value otherwise adds the property to existing properties.</p>
    */
   public putWorkflowRunProperties(
@@ -5825,6 +5996,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Queries for the schema version metadata information. </p>
    */
   public querySchemaVersionMetadata(
@@ -5857,6 +6029,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Adds a new version to the existing schema. Returns an error if new version of schema does not meet the compatibility requirements of the schema set. This API will not create a new schema set and will return a 404 error if the schema set is not already present in the Schema Registry.</p>
    *          <p>If this is the first schema definition to be registered in the Schema Registry, this API will store the schema version and return immediately. Otherwise, this call has the potential to run longer than other operations due to compatibility modes. You can call the <code>GetSchemaVersion</code> API with the <code>SchemaVersionId</code> to check compatibility modes.</p>
    *          <p>If the same schema definition is already stored in Schema Registry as a version, the schema ID of the existing schema is returned to the caller.</p>
@@ -5891,6 +6064,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Removes a key value pair from the schema version metadata for the specified schema version ID.</p>
    */
   public removeSchemaVersionMetadata(
@@ -5923,6 +6097,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Resets a bookmark entry.</p>
    *          <p>For more information about enabling and using job bookmarks, see:</p>
    *          <ul>
@@ -5973,6 +6148,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Restarts selected nodes of a previous partially completed workflow run and resumes the workflow run. The selected nodes and all nodes that are downstream from the selected nodes are run.</p>
    */
   public resumeWorkflowRun(
@@ -6005,6 +6181,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Executes the statement.</p>
    */
   public runStatement(
@@ -6034,6 +6211,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Searches a set of tables based on properties in the table metadata as well as on the parent database. You can search against text or filter conditions. </p>
    *          <p>You can only get tables that you have access to based on the security policies defined in Lake Formation. You need at least a read-only access to the table for it to be returned. If you do not have access to all the columns in the table, these columns will not be searched against when returning the list of tables back to you. If you have access to the columns but not the data in the columns, those columns and the associated metadata for those columns will be included in the search. </p>
    */
@@ -6064,6 +6242,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Starts a new run of the specified blueprint.</p>
    */
   public startBlueprintRun(
@@ -6096,6 +6275,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Starts a crawl using the specified crawler, regardless
    *       of what is scheduled. If the crawler is already running, returns a
    *       <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-exceptions.html#aws-glue-api-exceptions-CrawlerRunningException">CrawlerRunningException</a>.</p>
@@ -6127,6 +6307,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Changes the schedule state of the specified crawler to
    *       <code>SCHEDULED</code>, unless the crawler is already running or the
    *       schedule state is already <code>SCHEDULED</code>.</p>
@@ -6161,6 +6342,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Starts a recommendation run that is used to generate rules when you don't know what rules to write. Glue Data Quality analyzes the data and comes up with recommendations for a potential ruleset. You can then triage the ruleset and modify the generated ruleset to your liking.</p>
    */
   public startDataQualityRuleRecommendationRun(
@@ -6195,6 +6377,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Once you have a ruleset definition (either recommended or your own), you call this operation to evaluate the ruleset against a data source (Glue table). The evaluation computes results which you can retrieve with the <code>GetDataQualityResult</code> API.</p>
    */
   public startDataQualityRulesetEvaluationRun(
@@ -6227,6 +6410,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Begins an asynchronous task to export all labeled data for a particular transform. This
    *       task is the only label-related API call that is not part of the typical active learning
    *       workflow. You typically use <code>StartExportLabelsTaskRun</code> when you want to work with
@@ -6267,6 +6451,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Enables you to provide additional labels (examples of truth) to be used to teach the
    *       machine learning transform and improve its quality. This API operation is generally used as
    *       part of the active learning workflow that starts with the
@@ -6320,6 +6505,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Starts a job run using a job definition.</p>
    */
   public startJobRun(args: StartJobRunCommandInput, options?: __HttpHandlerOptions): Promise<StartJobRunCommandOutput>;
@@ -6346,6 +6532,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Starts a task to estimate the quality of the transform. </p>
    *          <p>When you provide label sets as examples of truth, Glue machine learning uses some of
    *       those examples to learn from them. The rest of the labels are used as a test to estimate
@@ -6383,6 +6570,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Starts the active learning workflow for your machine learning transform to improve the
    *       transform's quality by generating label sets and adding labels.</p>
    *          <p>When the <code>StartMLLabelingSetGenerationTaskRun</code> finishes, Glue will have
@@ -6425,6 +6613,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Starts an existing trigger. See <a href="https://docs.aws.amazon.com/glue/latest/dg/trigger-job.html">Triggering
    *       Jobs</a> for information about how different types of trigger are
    *       started.</p>
@@ -6456,6 +6645,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Starts a new run of the specified workflow.</p>
    */
   public startWorkflowRun(
@@ -6488,6 +6678,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>If the specified crawler is running, stops the crawl.</p>
    */
   public stopCrawler(args: StopCrawlerCommandInput, options?: __HttpHandlerOptions): Promise<StopCrawlerCommandOutput>;
@@ -6514,6 +6705,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Sets the schedule state of the specified crawler to
    *       <code>NOT_SCHEDULED</code>, but does not stop the crawler if it is
    *       already running.</p>
@@ -6548,6 +6740,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Stops the session.</p>
    */
   public stopSession(args: StopSessionCommandInput, options?: __HttpHandlerOptions): Promise<StopSessionCommandOutput>;
@@ -6574,6 +6767,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Stops a specified trigger.</p>
    */
   public stopTrigger(args: StopTriggerCommandInput, options?: __HttpHandlerOptions): Promise<StopTriggerCommandOutput>;
@@ -6600,6 +6794,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Stops the execution of the specified workflow run.</p>
    */
   public stopWorkflowRun(
@@ -6632,6 +6827,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Adds tags to a resource. A tag is a label you can assign to an Amazon Web Services resource.
    *       In Glue, you can tag only certain resources. For information about what
    *       resources you can tag, see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">Amazon Web Services Tags in Glue</a>.</p>
@@ -6660,6 +6856,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Removes tags from a resource.</p>
    */
   public untagResource(
@@ -6692,6 +6889,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Updates a registered blueprint.</p>
    */
   public updateBlueprint(
@@ -6724,6 +6922,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Modifies an existing classifier (a <code>GrokClassifier</code>,
    *       an <code>XMLClassifier</code>, a <code>JsonClassifier</code>, or a <code>CsvClassifier</code>, depending on
    *       which field is present).</p>
@@ -6758,6 +6957,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Creates or updates partition statistics of columns.</p>
    *          <p>The Identity and Access Management (IAM) permission required for this operation is <code>UpdatePartition</code>.</p>
    */
@@ -6791,6 +6991,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Creates or updates table statistics of columns.</p>
    *          <p>The Identity and Access Management (IAM) permission required for this operation is <code>UpdateTable</code>.</p>
    */
@@ -6824,6 +7025,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Updates a connection definition in the Data Catalog.</p>
    */
   public updateConnection(
@@ -6856,6 +7058,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Updates a crawler. If a crawler is
    *       running, you must stop it using <code>StopCrawler</code> before updating
    *       it.</p>
@@ -6890,6 +7093,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Updates the schedule of a crawler using a <code>cron</code> expression. </p>
    */
   public updateCrawlerSchedule(
@@ -6922,6 +7126,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing database definition in a Data Catalog.</p>
    */
   public updateDatabase(
@@ -6954,6 +7159,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Updates the specified data quality ruleset.</p>
    */
   public updateDataQualityRuleset(
@@ -6986,6 +7192,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Updates a specified development endpoint.</p>
    */
   public updateDevEndpoint(
@@ -7018,6 +7225,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing job definition. The previous job definition is completely overwritten by this information.</p>
    */
   public updateJob(args: UpdateJobCommandInput, options?: __HttpHandlerOptions): Promise<UpdateJobCommandOutput>;
@@ -7044,6 +7252,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Synchronizes a job from the source control repository. This operation takes the job artifacts that are located in the remote repository and updates the Glue internal stores with these artifacts.</p>
    *          <p>This API supports optional parameters which take in the repository information.</p>
    */
@@ -7077,6 +7286,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing machine learning transform. Call this operation to tune the algorithm parameters to achieve better results.</p>
    *          <p>After calling this operation, you can call the <code>StartMLEvaluationTaskRun</code>
    *       operation to assess how well your new parameters achieved your goals (such as improving the
@@ -7112,6 +7322,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Updates a partition.</p>
    */
   public updatePartition(
@@ -7144,6 +7355,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing registry which is used to hold a collection of schemas. The updated properties relate to the registry, and do not modify any of the schemas within the registry. </p>
    */
   public updateRegistry(
@@ -7176,6 +7388,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Updates the description, compatibility setting, or version checkpoint for a schema set.</p>
    *          <p>For updating the compatibility setting, the call will not validate compatibility for the entire set of schema versions with the new compatibility setting. If the value for <code>Compatibility</code> is provided, the <code>VersionNumber</code> (a checkpoint) is also required. The API will validate the checkpoint version number for consistency.</p>
    *          <p>If the value for the <code>VersionNumber</code> (checkpoint) is provided, <code>Compatibility</code> is optional and this can be used to set/reset a checkpoint for the schema.</p>
@@ -7208,6 +7421,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Synchronizes a job to the source control repository. This operation takes the job artifacts from the Glue internal stores and makes a commit to the remote repository that is configured on the job.</p>
    *          <p>This API supports optional parameters which take in the repository information.</p>
    */
@@ -7241,6 +7455,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Updates a metadata table in the Data Catalog.</p>
    */
   public updateTable(args: UpdateTableCommandInput, options?: __HttpHandlerOptions): Promise<UpdateTableCommandOutput>;
@@ -7267,6 +7482,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Updates a trigger definition.</p>
    */
   public updateTrigger(
@@ -7299,6 +7515,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing function definition in the Data Catalog.</p>
    */
   public updateUserDefinedFunction(
@@ -7331,6 +7548,7 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing workflow.</p>
    */
   public updateWorkflow(

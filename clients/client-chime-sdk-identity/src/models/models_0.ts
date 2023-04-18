@@ -3,12 +3,22 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { ChimeSDKIdentityServiceException as __BaseException } from "./ChimeSDKIdentityServiceException";
 
-export enum AllowMessages {
-  ALL = "ALL",
-  NONE = "NONE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AllowMessages = {
+  ALL: "ALL",
+  NONE: "NONE",
+} as const;
 
 /**
+ * @public
+ */
+export type AllowMessages = (typeof AllowMessages)[keyof typeof AllowMessages];
+
+/**
+ * @public
  * <p>The details of an <code>AppInstance</code>, an instance of an Amazon Chime SDK messaging
  *          application.</p>
  */
@@ -40,7 +50,8 @@ export interface AppInstance {
 }
 
 /**
- * <p>The details of a user.</p>
+ * @public
+ * <p>The details of a user or bot.</p>
  */
 export interface Identity {
   /**
@@ -55,7 +66,8 @@ export interface Identity {
 }
 
 /**
- * <p>The details of an <code>AppInstanceAdmin</code>.</p>
+ * @public
+ * <p>The name and ARN of the admin for the <code>AppInstance</code>.</p>
  */
 export interface AppInstanceAdmin {
   /**
@@ -75,6 +87,7 @@ export interface AppInstanceAdmin {
 }
 
 /**
+ * @public
  * <p>Summary of the details of an <code>AppInstanceAdmin</code>.</p>
  */
 export interface AppInstanceAdminSummary {
@@ -85,6 +98,118 @@ export interface AppInstanceAdminSummary {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const RespondsTo = {
+  STANDARD_MESSAGES: "STANDARD_MESSAGES",
+} as const;
+
+/**
+ * @public
+ */
+export type RespondsTo = (typeof RespondsTo)[keyof typeof RespondsTo];
+
+/**
+ * @public
+ * <p>The configuration for an Amazon Lex V2 bot.</p>
+ */
+export interface LexConfiguration {
+  /**
+   * <p>Determines whether the Amazon Lex V2 bot responds to all standard messages. Control messages are not supported.</p>
+   */
+  RespondsTo: RespondsTo | string | undefined;
+
+  /**
+   * <p>The ARN of the Amazon Lex V2 bot's alias. The ARN uses this format:
+   *          <code>arn:aws:lex:REGION:ACCOUNT:bot-alias/MYBOTID/MYBOTALIAS</code>
+   *          </p>
+   */
+  LexBotAliasArn: string | undefined;
+
+  /**
+   * <p>Identifies the Amazon Lex V2 bot's language and locale. The string must match one of the
+   *          supported locales in Amazon Lex V2. All of the intents, slot types, and slots used in the bot must have the same
+   *          locale. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a> in the <i>Amazon Lex V2 Developer Guide</i>.</p>
+   */
+  LocaleId: string | undefined;
+
+  /**
+   * <p>The name of the welcome intent configured in the Amazon Lex V2 bot.</p>
+   */
+  WelcomeIntent?: string;
+}
+
+/**
+ * @public
+ * <p>A structure that contains configuration data.</p>
+ */
+export interface Configuration {
+  /**
+   * <p>The configuration for an Amazon Lex V2 bot.</p>
+   */
+  Lex: LexConfiguration | undefined;
+}
+
+/**
+ * @public
+ * <p>An Amazon Lex V2 chat bot created under an <code>AppInstance</code>.</p>
+ */
+export interface AppInstanceBot {
+  /**
+   * <p>The ARN of the AppInstanceBot.</p>
+   */
+  AppInstanceBotArn?: string;
+
+  /**
+   * <p>The name of the AppInstanceBot.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The data processing instructions for an AppInstanceBot.</p>
+   */
+  Configuration?: Configuration;
+
+  /**
+   * <p>The time at which the <code>AppInstanceBot</code> was created.</p>
+   */
+  CreatedTimestamp?: Date;
+
+  /**
+   * <p>The time at which the <code>AppInstanceBot</code> was last updated.</p>
+   */
+  LastUpdatedTimestamp?: Date;
+
+  /**
+   * <p>The metadata for an AppInstanceBot.</p>
+   */
+  Metadata?: string;
+}
+
+/**
+ * @public
+ * <p>High-level information about an AppInstanceBot.</p>
+ */
+export interface AppInstanceBotSummary {
+  /**
+   * <p>The ARN of the AppInstanceBot.</p>
+   */
+  AppInstanceBotArn?: string;
+
+  /**
+   * <p>The name of the AppInstanceBox.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The metadata of the AppInstanceBot.</p>
+   */
+  Metadata?: string;
+}
+
+/**
+ * @public
  * <p>Summary of the data for an <code>AppInstance</code>.</p>
  */
 export interface AppInstanceSummary {
@@ -105,6 +230,7 @@ export interface AppInstanceSummary {
 }
 
 /**
+ * @public
  * <p>The details of the retention settings for a channel.</p>
  */
 export interface ChannelRetentionSettings {
@@ -115,6 +241,7 @@ export interface ChannelRetentionSettings {
 }
 
 /**
+ * @public
  * <p>The details of the data-retention settings for an <code>AppInstance</code>.</p>
  */
 export interface AppInstanceRetentionSettings {
@@ -125,6 +252,36 @@ export interface AppInstanceRetentionSettings {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const ExpirationCriterion = {
+  CREATED_TIMESTAMP: "CREATED_TIMESTAMP",
+} as const;
+
+/**
+ * @public
+ */
+export type ExpirationCriterion = (typeof ExpirationCriterion)[keyof typeof ExpirationCriterion];
+
+/**
+ * @public
+ * <p>Determines the interval after which an <code>AppInstanceUser</code> is automatically deleted.</p>
+ */
+export interface ExpirationSettings {
+  /**
+   * <p>The period in days after which an <code>AppInstanceUser</code> will be automatically deleted.</p>
+   */
+  ExpirationDays: number | undefined;
+
+  /**
+   * <p>Specifies the conditions under which an <code>AppInstanceUser</code> will expire.</p>
+   */
+  ExpirationCriterion: ExpirationCriterion | string | undefined;
+}
+
+/**
+ * @public
  * <p>The details of an <code>AppInstanceUser</code>.</p>
  */
 export interface AppInstanceUser {
@@ -152,9 +309,15 @@ export interface AppInstanceUser {
    * <p>The time at which the <code>AppInstanceUser</code> was last updated.</p>
    */
   LastUpdatedTimestamp?: Date;
+
+  /**
+   * <p>The interval after which an <code>AppInstanceUser</code> is automatically deleted.</p>
+   */
+  ExpirationSettings?: ExpirationSettings;
 }
 
 /**
+ * @public
  * <p>The attributes of an <code>Endpoint</code>.</p>
  */
 export interface EndpointAttributes {
@@ -169,17 +332,36 @@ export interface EndpointAttributes {
   VoipDeviceToken?: string;
 }
 
-export enum EndpointStatus {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
-
-export enum EndpointStatusReason {
-  INVALID_DEVICE_TOKEN = "INVALID_DEVICE_TOKEN",
-  INVALID_PINPOINT_ARN = "INVALID_PINPOINT_ARN",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EndpointStatus = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+} as const;
 
 /**
+ * @public
+ */
+export type EndpointStatus = (typeof EndpointStatus)[keyof typeof EndpointStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const EndpointStatusReason = {
+  INVALID_DEVICE_TOKEN: "INVALID_DEVICE_TOKEN",
+  INVALID_PINPOINT_ARN: "INVALID_PINPOINT_ARN",
+} as const;
+
+/**
+ * @public
+ */
+export type EndpointStatusReason = (typeof EndpointStatusReason)[keyof typeof EndpointStatusReason];
+
+/**
+ * @public
  * <p>A read-only field that represents the state of an <code>AppInstanceUserEndpoint</code>. Supported values:</p>
  *          <ul>
  *             <li>
@@ -214,13 +396,24 @@ export interface EndpointState {
   StatusReason?: EndpointStatusReason | string;
 }
 
-export enum AppInstanceUserEndpointType {
-  APNS = "APNS",
-  APNS_SANDBOX = "APNS_SANDBOX",
-  GCM = "GCM",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AppInstanceUserEndpointType = {
+  APNS: "APNS",
+  APNS_SANDBOX: "APNS_SANDBOX",
+  GCM: "GCM",
+} as const;
 
 /**
+ * @public
+ */
+export type AppInstanceUserEndpointType =
+  (typeof AppInstanceUserEndpointType)[keyof typeof AppInstanceUserEndpointType];
+
+/**
+ * @public
  * <p>An endpoint under an Amazon Chime <code>AppInstanceUser</code> that receives messages for a user. For push notifications, the endpoint is a mobile device used to receive mobile push notifications for a user.</p>
  */
 export interface AppInstanceUserEndpoint {
@@ -297,6 +490,7 @@ export interface AppInstanceUserEndpoint {
 }
 
 /**
+ * @public
  * <p>Summary of the details of an <code>AppInstanceUserEndpoint</code>.</p>
  */
 export interface AppInstanceUserEndpointSummary {
@@ -333,6 +527,7 @@ export interface AppInstanceUserEndpointSummary {
 }
 
 /**
+ * @public
  * <p>Summary of the details of an <code>AppInstanceUser</code>.</p>
  */
 export interface AppInstanceUserSummary {
@@ -352,25 +547,35 @@ export interface AppInstanceUserSummary {
   Metadata?: string;
 }
 
-export enum ErrorCode {
-  AccessDenied = "AccessDenied",
-  BadRequest = "BadRequest",
-  Conflict = "Conflict",
-  Forbidden = "Forbidden",
-  NotFound = "NotFound",
-  PhoneNumberAssociationsExist = "PhoneNumberAssociationsExist",
-  PreconditionFailed = "PreconditionFailed",
-  ResourceLimitExceeded = "ResourceLimitExceeded",
-  ServiceFailure = "ServiceFailure",
-  ServiceUnavailable = "ServiceUnavailable",
-  Throttled = "Throttled",
-  Throttling = "Throttling",
-  Unauthorized = "Unauthorized",
-  Unprocessable = "Unprocessable",
-  VoiceConnectorGroupAssociationsExist = "VoiceConnectorGroupAssociationsExist",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ErrorCode = {
+  AccessDenied: "AccessDenied",
+  BadRequest: "BadRequest",
+  Conflict: "Conflict",
+  Forbidden: "Forbidden",
+  NotFound: "NotFound",
+  PhoneNumberAssociationsExist: "PhoneNumberAssociationsExist",
+  PreconditionFailed: "PreconditionFailed",
+  ResourceLimitExceeded: "ResourceLimitExceeded",
+  ServiceFailure: "ServiceFailure",
+  ServiceUnavailable: "ServiceUnavailable",
+  Throttled: "Throttled",
+  Throttling: "Throttling",
+  Unauthorized: "Unauthorized",
+  Unprocessable: "Unprocessable",
+  VoiceConnectorGroupAssociationsExist: "VoiceConnectorGroupAssociationsExist",
+} as const;
 
 /**
+ * @public
+ */
+export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
+
+/**
+ * @public
  * <p>The input parameters don't match the service's restrictions.</p>
  */
 export class BadRequestException extends __BaseException {
@@ -394,6 +599,7 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request could not be processed because of conflict in the current state of the
  *          resource.</p>
  */
@@ -418,6 +624,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A tag object containing a key-value pair.</p>
  */
 export interface Tag {
@@ -432,6 +639,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateAppInstanceRequest {
   /**
    * <p>The name of the <code>AppInstance</code>.</p>
@@ -444,16 +654,19 @@ export interface CreateAppInstanceRequest {
   Metadata?: string;
 
   /**
-   * <p>The <code>ClientRequestToken</code> of the <code>AppInstance</code>.</p>
+   * <p>The unique ID of the request. Use different tokens to create different <code>AppInstances</code>.</p>
    */
   ClientRequestToken?: string;
 
   /**
-   * <p>Tags assigned to the <code>AppInstanceUser</code>.</p>
+   * <p>Tags assigned to the <code>AppInstance</code>.</p>
    */
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateAppInstanceResponse {
   /**
    * <p>The Amazon Resource Number (ARN) of the <code>AppInstance</code>.</p>
@@ -462,6 +675,7 @@ export interface CreateAppInstanceResponse {
 }
 
 /**
+ * @public
  * <p>The client is permanently forbidden from making the request.</p>
  */
 export class ForbiddenException extends __BaseException {
@@ -485,6 +699,7 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request exceeds the resource limit.</p>
  */
 export class ResourceLimitExceededException extends __BaseException {
@@ -508,6 +723,7 @@ export class ResourceLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The service encountered an unexpected error.</p>
  */
 export class ServiceFailureException extends __BaseException {
@@ -531,6 +747,7 @@ export class ServiceFailureException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The service is currently unavailable.</p>
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -554,6 +771,7 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The client exceeded its request rate limit.</p>
  */
 export class ThrottledClientException extends __BaseException {
@@ -577,6 +795,7 @@ export class ThrottledClientException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The client is not currently authorized to make the request.</p>
  */
 export class UnauthorizedClientException extends __BaseException {
@@ -599,6 +818,9 @@ export class UnauthorizedClientException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateAppInstanceAdminRequest {
   /**
    * <p>The ARN of the administrator of the current <code>AppInstance</code>.</p>
@@ -611,9 +833,13 @@ export interface CreateAppInstanceAdminRequest {
   AppInstanceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateAppInstanceAdminResponse {
   /**
-   * <p>The name and ARN of the admin for the <code>AppInstance</code>.</p>
+   * <p>The ARN and name of the administrator, the ARN of the <code>AppInstance</code>, and the created and
+   *          last-updated timestamps. All timestamps use epoch milliseconds.</p>
    */
   AppInstanceAdmin?: Identity;
 
@@ -623,6 +849,54 @@ export interface CreateAppInstanceAdminResponse {
   AppInstanceArn?: string;
 }
 
+/**
+ * @public
+ */
+export interface CreateAppInstanceBotRequest {
+  /**
+   * <p>The ARN of the <code>AppInstance</code> request.</p>
+   */
+  AppInstanceArn: string | undefined;
+
+  /**
+   * <p>The user's name.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The request metadata. Limited to a 1KB string in UTF-8.</p>
+   */
+  Metadata?: string;
+
+  /**
+   * <p>The unique ID for the client making the request. Use different tokens for different <code>AppInstanceBots</code>.</p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * <p>The tags assigned to the <code>AppInstanceBot</code>.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>Configuration information about the Amazon Lex V2 V2 bot.</p>
+   */
+  Configuration: Configuration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAppInstanceBotResponse {
+  /**
+   * <p>The ARN of the <code>AppinstanceBot</code>.</p>
+   */
+  AppInstanceBotArn?: string;
+}
+
+/**
+ * @public
+ */
 export interface CreateAppInstanceUserRequest {
   /**
    * <p>The ARN of the <code>AppInstance</code> request.</p>
@@ -645,7 +919,7 @@ export interface CreateAppInstanceUserRequest {
   Metadata?: string;
 
   /**
-   * <p>The token assigned to the user requesting an <code>AppInstance</code>.</p>
+   * <p>The unique ID of the request. Use different tokens to request additional <code>AppInstances</code>.</p>
    */
   ClientRequestToken?: string;
 
@@ -653,8 +927,16 @@ export interface CreateAppInstanceUserRequest {
    * <p>Tags assigned to the <code>AppInstanceUser</code>.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>Settings that control the interval after which the <code>AppInstanceUser</code> is automatically deleted.</p>
+   */
+  ExpirationSettings?: ExpirationSettings;
 }
 
+/**
+ * @public
+ */
 export interface CreateAppInstanceUserResponse {
   /**
    * <p>The user's ARN.</p>
@@ -662,6 +944,9 @@ export interface CreateAppInstanceUserResponse {
   AppInstanceUserArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAppInstanceRequest {
   /**
    * <p>The ARN of the <code>AppInstance</code>.</p>
@@ -669,6 +954,9 @@ export interface DeleteAppInstanceRequest {
   AppInstanceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAppInstanceAdminRequest {
   /**
    * <p>The ARN of the <code>AppInstance</code>'s administrator.</p>
@@ -681,6 +969,19 @@ export interface DeleteAppInstanceAdminRequest {
   AppInstanceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
+export interface DeleteAppInstanceBotRequest {
+  /**
+   * <p>The ARN of the <code>AppInstanceBot</code> being deleted.</p>
+   */
+  AppInstanceBotArn: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteAppInstanceUserRequest {
   /**
    * <p>The ARN of the user request being deleted.</p>
@@ -688,6 +989,9 @@ export interface DeleteAppInstanceUserRequest {
   AppInstanceUserArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterAppInstanceUserEndpointRequest {
   /**
    * <p>The ARN of the <code>AppInstanceUser</code>.</p>
@@ -700,6 +1004,9 @@ export interface DeregisterAppInstanceUserEndpointRequest {
   EndpointId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAppInstanceRequest {
   /**
    * <p>The ARN of the <code>AppInstance</code>.</p>
@@ -707,6 +1014,9 @@ export interface DescribeAppInstanceRequest {
   AppInstanceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAppInstanceResponse {
   /**
    * <p>The ARN, metadata, created and last-updated timestamps, and the name of the
@@ -715,6 +1025,9 @@ export interface DescribeAppInstanceResponse {
   AppInstance?: AppInstance;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAppInstanceAdminRequest {
   /**
    * <p>The ARN of the <code>AppInstanceAdmin</code>.</p>
@@ -727,6 +1040,9 @@ export interface DescribeAppInstanceAdminRequest {
   AppInstanceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAppInstanceAdminResponse {
   /**
    * <p>The ARN and name of the <code>AppInstanceUser</code>, the ARN of the
@@ -736,6 +1052,53 @@ export interface DescribeAppInstanceAdminResponse {
   AppInstanceAdmin?: AppInstanceAdmin;
 }
 
+/**
+ * @public
+ */
+export interface DescribeAppInstanceBotRequest {
+  /**
+   * <p>The ARN of the <code>AppInstanceBot</code>.</p>
+   */
+  AppInstanceBotArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAppInstanceBotResponse {
+  /**
+   * <p>The detials of the <code>AppInstanceBot</code>.</p>
+   */
+  AppInstanceBot?: AppInstanceBot;
+}
+
+/**
+ * @public
+ * <p>One or more of the resources in the request does not exist in the system.</p>
+ */
+export class NotFoundException extends __BaseException {
+  readonly name: "NotFoundException" = "NotFoundException";
+  readonly $fault: "client" = "client";
+  Code?: ErrorCode | string;
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
+    super({
+      name: "NotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotFoundException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
 export interface DescribeAppInstanceUserRequest {
   /**
    * <p>The ARN of the <code>AppInstanceUser</code>.</p>
@@ -743,6 +1106,9 @@ export interface DescribeAppInstanceUserRequest {
   AppInstanceUserArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAppInstanceUserResponse {
   /**
    * <p>The name of the <code>AppInstanceUser</code>.</p>
@@ -750,6 +1116,9 @@ export interface DescribeAppInstanceUserResponse {
   AppInstanceUser?: AppInstanceUser;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAppInstanceUserEndpointRequest {
   /**
    * <p>The ARN of the <code>AppInstanceUser</code>.</p>
@@ -762,6 +1131,9 @@ export interface DescribeAppInstanceUserEndpointRequest {
   EndpointId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAppInstanceUserEndpointResponse {
   /**
    * <p>The full details of an <code>AppInstanceUserEndpoint</code>: the <code>AppInstanceUserArn</code>, ID, name, type, resource ARN, attributes,
@@ -770,6 +1142,9 @@ export interface DescribeAppInstanceUserEndpointResponse {
   AppInstanceUserEndpoint?: AppInstanceUserEndpoint;
 }
 
+/**
+ * @public
+ */
 export interface GetAppInstanceRetentionSettingsRequest {
   /**
    * <p>The ARN of the <code>AppInstance</code>.</p>
@@ -777,6 +1152,9 @@ export interface GetAppInstanceRetentionSettingsRequest {
   AppInstanceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAppInstanceRetentionSettingsResponse {
   /**
    * <p>The retention settings for the <code>AppInstance</code>.</p>
@@ -790,6 +1168,9 @@ export interface GetAppInstanceRetentionSettingsResponse {
   InitiateDeletionTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListAppInstanceAdminsRequest {
   /**
    * <p>The ARN of the <code>AppInstance</code>.</p>
@@ -808,6 +1189,9 @@ export interface ListAppInstanceAdminsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAppInstanceAdminsResponse {
   /**
    * <p>The ARN of the <code>AppInstance</code>.</p>
@@ -826,6 +1210,49 @@ export interface ListAppInstanceAdminsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
+export interface ListAppInstanceBotsRequest {
+  /**
+   * <p>The ARN of the <code>AppInstance</code>.</p>
+   */
+  AppInstanceArn: string | undefined;
+
+  /**
+   * <p>The maximum number of requests to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token passed by previous API calls until all requested bots are returned.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListAppInstanceBotsResponse {
+  /**
+   * <p>The ARN of the AppInstance.</p>
+   */
+  AppInstanceArn?: string;
+
+  /**
+   * <p>The information for each requested <code>AppInstanceBot</code>.</p>
+   */
+  AppInstanceBots?: AppInstanceBotSummary[];
+
+  /**
+   * <p>The token passed by previous API calls until all requested bots are returned.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface ListAppInstancesRequest {
   /**
    * <p>The maximum number of <code>AppInstance</code>s that you want to return.</p>
@@ -839,6 +1266,9 @@ export interface ListAppInstancesRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAppInstancesResponse {
   /**
    * <p>The information for each <code>AppInstance</code>.</p>
@@ -852,6 +1282,9 @@ export interface ListAppInstancesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAppInstanceUserEndpointsRequest {
   /**
    * <p>The ARN of the <code>AppInstanceUser</code>.</p>
@@ -869,6 +1302,9 @@ export interface ListAppInstanceUserEndpointsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAppInstanceUserEndpointsResponse {
   /**
    * <p>The information for each requested <code>AppInstanceUserEndpoint</code>.</p>
@@ -881,6 +1317,9 @@ export interface ListAppInstanceUserEndpointsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAppInstanceUsersRequest {
   /**
    * <p>The ARN of the <code>AppInstance</code>.</p>
@@ -898,6 +1337,9 @@ export interface ListAppInstanceUsersRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAppInstanceUsersResponse {
   /**
    * <p>The ARN of the <code>AppInstance</code>.</p>
@@ -915,6 +1357,9 @@ export interface ListAppInstanceUsersResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -922,6 +1367,9 @@ export interface ListTagsForResourceRequest {
   ResourceARN: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tag key-value pairs.</p>
@@ -929,6 +1377,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface PutAppInstanceRetentionSettingsRequest {
   /**
    * <p>The ARN of the <code>AppInstance</code>.</p>
@@ -941,6 +1392,9 @@ export interface PutAppInstanceRetentionSettingsRequest {
   AppInstanceRetentionSettings: AppInstanceRetentionSettings | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutAppInstanceRetentionSettingsResponse {
   /**
    * <p>The time in days to retain data. Data type: number.</p>
@@ -953,6 +1407,39 @@ export interface PutAppInstanceRetentionSettingsResponse {
   InitiateDeletionTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
+export interface PutAppInstanceUserExpirationSettingsRequest {
+  /**
+   * <p>The ARN of the <code>AppInstanceUser</code>.</p>
+   */
+  AppInstanceUserArn: string | undefined;
+
+  /**
+   * <p>Settings that control the interval after which an <code>AppInstanceUser</code> is automatically deleted.</p>
+   */
+  ExpirationSettings?: ExpirationSettings;
+}
+
+/**
+ * @public
+ */
+export interface PutAppInstanceUserExpirationSettingsResponse {
+  /**
+   * <p>The ARN of the <code>AppInstanceUser</code>.</p>
+   */
+  AppInstanceUserArn?: string;
+
+  /**
+   * <p>Settings that control the interval after which an <code>AppInstanceUser</code> is automatically deleted.</p>
+   */
+  ExpirationSettings?: ExpirationSettings;
+}
+
+/**
+ * @public
+ */
 export interface RegisterAppInstanceUserEndpointRequest {
   /**
    * <p>The ARN of the <code>AppInstanceUser</code>.</p>
@@ -995,7 +1482,7 @@ export interface RegisterAppInstanceUserEndpointRequest {
   EndpointAttributes: EndpointAttributes | undefined;
 
   /**
-   * <p>The idempotency token for each client request. </p>
+   * <p>The unique ID assigned to the request. Use different tokens to register other endpoints.</p>
    */
   ClientRequestToken?: string;
 
@@ -1006,6 +1493,9 @@ export interface RegisterAppInstanceUserEndpointRequest {
   AllowMessages?: AllowMessages | string;
 }
 
+/**
+ * @public
+ */
 export interface RegisterAppInstanceUserEndpointResponse {
   /**
    * <p>The ARN of the <code>AppInstanceUser</code>.</p>
@@ -1018,6 +1508,9 @@ export interface RegisterAppInstanceUserEndpointResponse {
   EndpointId?: string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The resource ARN.</p>
@@ -1030,6 +1523,9 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The resource ARN.</p>
@@ -1042,6 +1538,9 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAppInstanceRequest {
   /**
    * <p>The ARN of the <code>AppInstance</code>.</p>
@@ -1059,6 +1558,9 @@ export interface UpdateAppInstanceRequest {
   Metadata: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAppInstanceResponse {
   /**
    * <p>The ARN of the <code>AppInstance</code>.</p>
@@ -1066,6 +1568,39 @@ export interface UpdateAppInstanceResponse {
   AppInstanceArn?: string;
 }
 
+/**
+ * @public
+ */
+export interface UpdateAppInstanceBotRequest {
+  /**
+   * <p>The ARN of the <code>AppInstanceBot</code>.</p>
+   */
+  AppInstanceBotArn: string | undefined;
+
+  /**
+   * <p>The name of the <code>AppInstanceBot</code>.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The metadata of the <code>AppInstanceBot</code>.</p>
+   */
+  Metadata: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAppInstanceBotResponse {
+  /**
+   * <p>The ARN of the <code>AppInstanceBot</code>.</p>
+   */
+  AppInstanceBotArn?: string;
+}
+
+/**
+ * @public
+ */
 export interface UpdateAppInstanceUserRequest {
   /**
    * <p>The ARN of the <code>AppInstanceUser</code>.</p>
@@ -1083,6 +1618,9 @@ export interface UpdateAppInstanceUserRequest {
   Metadata: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAppInstanceUserResponse {
   /**
    * <p>The ARN of the <code>AppInstanceUser</code>.</p>
@@ -1090,6 +1628,9 @@ export interface UpdateAppInstanceUserResponse {
   AppInstanceUserArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAppInstanceUserEndpointRequest {
   /**
    * <p>The ARN of the <code>AppInstanceUser</code>.</p>
@@ -1113,6 +1654,9 @@ export interface UpdateAppInstanceUserEndpointRequest {
   AllowMessages?: AllowMessages | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAppInstanceUserEndpointResponse {
   /**
    * <p>The ARN of the <code>AppInstanceUser</code>.</p>
@@ -1161,7 +1705,7 @@ export const AppInstanceAdminSummaryFilterSensitiveLog = (obj: AppInstanceAdminS
 /**
  * @internal
  */
-export const AppInstanceSummaryFilterSensitiveLog = (obj: AppInstanceSummary): any => ({
+export const AppInstanceBotFilterSensitiveLog = (obj: AppInstanceBot): any => ({
   ...obj,
   ...(obj.Name && { Name: SENSITIVE_STRING }),
   ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
@@ -1170,15 +1714,19 @@ export const AppInstanceSummaryFilterSensitiveLog = (obj: AppInstanceSummary): a
 /**
  * @internal
  */
-export const ChannelRetentionSettingsFilterSensitiveLog = (obj: ChannelRetentionSettings): any => ({
+export const AppInstanceBotSummaryFilterSensitiveLog = (obj: AppInstanceBotSummary): any => ({
   ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
 });
 
 /**
  * @internal
  */
-export const AppInstanceRetentionSettingsFilterSensitiveLog = (obj: AppInstanceRetentionSettings): any => ({
+export const AppInstanceSummaryFilterSensitiveLog = (obj: AppInstanceSummary): any => ({
   ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
 });
 
 /**
@@ -1202,19 +1750,11 @@ export const EndpointAttributesFilterSensitiveLog = (obj: EndpointAttributes): a
 /**
  * @internal
  */
-export const EndpointStateFilterSensitiveLog = (obj: EndpointState): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const AppInstanceUserEndpointFilterSensitiveLog = (obj: AppInstanceUserEndpoint): any => ({
   ...obj,
   ...(obj.AppInstanceUserArn && { AppInstanceUserArn: SENSITIVE_STRING }),
   ...(obj.EndpointId && { EndpointId: SENSITIVE_STRING }),
   ...(obj.Name && { Name: SENSITIVE_STRING }),
-  ...(obj.ResourceArn && { ResourceArn: SENSITIVE_STRING }),
   ...(obj.EndpointAttributes && { EndpointAttributes: EndpointAttributesFilterSensitiveLog(obj.EndpointAttributes) }),
 });
 
@@ -1253,22 +1793,7 @@ export const CreateAppInstanceRequestFilterSensitiveLog = (obj: CreateAppInstanc
   ...obj,
   ...(obj.Name && { Name: SENSITIVE_STRING }),
   ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
-  ...(obj.ClientRequestToken && { ClientRequestToken: SENSITIVE_STRING }),
   ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const CreateAppInstanceResponseFilterSensitiveLog = (obj: CreateAppInstanceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAppInstanceAdminRequestFilterSensitiveLog = (obj: CreateAppInstanceAdminRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -1282,41 +1807,22 @@ export const CreateAppInstanceAdminResponseFilterSensitiveLog = (obj: CreateAppI
 /**
  * @internal
  */
-export const CreateAppInstanceUserRequestFilterSensitiveLog = (obj: CreateAppInstanceUserRequest): any => ({
+export const CreateAppInstanceBotRequestFilterSensitiveLog = (obj: CreateAppInstanceBotRequest): any => ({
   ...obj,
-  ...(obj.AppInstanceUserId && { AppInstanceUserId: SENSITIVE_STRING }),
   ...(obj.Name && { Name: SENSITIVE_STRING }),
   ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
-  ...(obj.ClientRequestToken && { ClientRequestToken: SENSITIVE_STRING }),
   ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
 });
 
 /**
  * @internal
  */
-export const CreateAppInstanceUserResponseFilterSensitiveLog = (obj: CreateAppInstanceUserResponse): any => ({
+export const CreateAppInstanceUserRequestFilterSensitiveLog = (obj: CreateAppInstanceUserRequest): any => ({
   ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAppInstanceRequestFilterSensitiveLog = (obj: DeleteAppInstanceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAppInstanceAdminRequestFilterSensitiveLog = (obj: DeleteAppInstanceAdminRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAppInstanceUserRequestFilterSensitiveLog = (obj: DeleteAppInstanceUserRequest): any => ({
-  ...obj,
+  ...(obj.AppInstanceUserId && { AppInstanceUserId: SENSITIVE_STRING }),
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
+  ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
 });
 
 /**
@@ -1333,23 +1839,9 @@ export const DeregisterAppInstanceUserEndpointRequestFilterSensitiveLog = (
 /**
  * @internal
  */
-export const DescribeAppInstanceRequestFilterSensitiveLog = (obj: DescribeAppInstanceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeAppInstanceResponseFilterSensitiveLog = (obj: DescribeAppInstanceResponse): any => ({
   ...obj,
   ...(obj.AppInstance && { AppInstance: AppInstanceFilterSensitiveLog(obj.AppInstance) }),
-});
-
-/**
- * @internal
- */
-export const DescribeAppInstanceAdminRequestFilterSensitiveLog = (obj: DescribeAppInstanceAdminRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -1363,8 +1855,9 @@ export const DescribeAppInstanceAdminResponseFilterSensitiveLog = (obj: Describe
 /**
  * @internal
  */
-export const DescribeAppInstanceUserRequestFilterSensitiveLog = (obj: DescribeAppInstanceUserRequest): any => ({
+export const DescribeAppInstanceBotResponseFilterSensitiveLog = (obj: DescribeAppInstanceBotResponse): any => ({
   ...obj,
+  ...(obj.AppInstanceBot && { AppInstanceBot: AppInstanceBotFilterSensitiveLog(obj.AppInstanceBot) }),
 });
 
 /**
@@ -1401,24 +1894,6 @@ export const DescribeAppInstanceUserEndpointResponseFilterSensitiveLog = (
 /**
  * @internal
  */
-export const GetAppInstanceRetentionSettingsRequestFilterSensitiveLog = (
-  obj: GetAppInstanceRetentionSettingsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAppInstanceRetentionSettingsResponseFilterSensitiveLog = (
-  obj: GetAppInstanceRetentionSettingsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListAppInstanceAdminsRequestFilterSensitiveLog = (obj: ListAppInstanceAdminsRequest): any => ({
   ...obj,
   ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
@@ -1431,6 +1906,25 @@ export const ListAppInstanceAdminsResponseFilterSensitiveLog = (obj: ListAppInst
   ...obj,
   ...(obj.AppInstanceAdmins && {
     AppInstanceAdmins: obj.AppInstanceAdmins.map((item) => AppInstanceAdminSummaryFilterSensitiveLog(item)),
+  }),
+  ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListAppInstanceBotsRequestFilterSensitiveLog = (obj: ListAppInstanceBotsRequest): any => ({
+  ...obj,
+  ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListAppInstanceBotsResponseFilterSensitiveLog = (obj: ListAppInstanceBotsResponse): any => ({
+  ...obj,
+  ...(obj.AppInstanceBots && {
+    AppInstanceBots: obj.AppInstanceBots.map((item) => AppInstanceBotSummaryFilterSensitiveLog(item)),
   }),
   ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
 });
@@ -1500,34 +1994,9 @@ export const ListAppInstanceUsersResponseFilterSensitiveLog = (obj: ListAppInsta
 /**
  * @internal
  */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
   ...obj,
   ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const PutAppInstanceRetentionSettingsRequestFilterSensitiveLog = (
-  obj: PutAppInstanceRetentionSettingsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutAppInstanceRetentionSettingsResponseFilterSensitiveLog = (
-  obj: PutAppInstanceRetentionSettingsResponse
-): any => ({
-  ...obj,
 });
 
 /**
@@ -1539,9 +2008,7 @@ export const RegisterAppInstanceUserEndpointRequestFilterSensitiveLog = (
   ...obj,
   ...(obj.AppInstanceUserArn && { AppInstanceUserArn: SENSITIVE_STRING }),
   ...(obj.Name && { Name: SENSITIVE_STRING }),
-  ...(obj.ResourceArn && { ResourceArn: SENSITIVE_STRING }),
   ...(obj.EndpointAttributes && { EndpointAttributes: EndpointAttributesFilterSensitiveLog(obj.EndpointAttributes) }),
-  ...(obj.ClientRequestToken && { ClientRequestToken: SENSITIVE_STRING }),
 });
 
 /**
@@ -1583,8 +2050,10 @@ export const UpdateAppInstanceRequestFilterSensitiveLog = (obj: UpdateAppInstanc
 /**
  * @internal
  */
-export const UpdateAppInstanceResponseFilterSensitiveLog = (obj: UpdateAppInstanceResponse): any => ({
+export const UpdateAppInstanceBotRequestFilterSensitiveLog = (obj: UpdateAppInstanceBotRequest): any => ({
   ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
 });
 
 /**
@@ -1594,13 +2063,6 @@ export const UpdateAppInstanceUserRequestFilterSensitiveLog = (obj: UpdateAppIns
   ...obj,
   ...(obj.Name && { Name: SENSITIVE_STRING }),
   ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateAppInstanceUserResponseFilterSensitiveLog = (obj: UpdateAppInstanceUserResponse): any => ({
-  ...obj,
 });
 
 /**

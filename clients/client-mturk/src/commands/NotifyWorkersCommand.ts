@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  NotifyWorkersRequest,
-  NotifyWorkersRequestFilterSensitiveLog,
-  NotifyWorkersResponse,
-  NotifyWorkersResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { NotifyWorkersRequest, NotifyWorkersResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import {
-  deserializeAws_json1_1NotifyWorkersCommand,
-  serializeAws_json1_1NotifyWorkersCommand,
-} from "../protocols/Aws_json1_1";
+import { de_NotifyWorkersCommand, se_NotifyWorkersCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link NotifyWorkersCommand}.
+ */
 export interface NotifyWorkersCommandInput extends NotifyWorkersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link NotifyWorkersCommand}.
+ */
 export interface NotifyWorkersCommandOutput extends NotifyWorkersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The
  *             <code>NotifyWorkers</code>
@@ -45,13 +48,29 @@ export interface NotifyWorkersCommandOutput extends NotifyWorkersResponse, __Met
  * import { MTurkClient, NotifyWorkersCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, NotifyWorkersCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = { // NotifyWorkersRequest
+ *   Subject: "STRING_VALUE", // required
+ *   MessageText: "STRING_VALUE", // required
+ *   WorkerIds: [ // CustomerIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new NotifyWorkersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param NotifyWorkersCommandInput - {@link NotifyWorkersCommandInput}
+ * @returns {@link NotifyWorkersCommandOutput}
  * @see {@link NotifyWorkersCommandInput} for command's `input` shape.
  * @see {@link NotifyWorkersCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
+ *
+ * @throws {@link RequestError} (client fault)
+ *  <p>Your request is invalid.</p>
+ *
+ * @throws {@link ServiceFault} (server fault)
+ *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
  *
  */
 export class NotifyWorkersCommand extends $Command<
@@ -71,6 +90,9 @@ export class NotifyWorkersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: NotifyWorkersCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +119,8 @@ export class NotifyWorkersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: NotifyWorkersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: NotifyWorkersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +130,18 @@ export class NotifyWorkersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: NotifyWorkersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1NotifyWorkersCommand(input, context);
+    return se_NotifyWorkersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<NotifyWorkersCommandOutput> {
-    return deserializeAws_json1_1NotifyWorkersCommand(output, context);
+    return de_NotifyWorkersCommand(output, context);
   }
 
   // Start section: command_body_extra

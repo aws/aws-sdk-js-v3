@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  DescribeAuditFindingRequest,
-  DescribeAuditFindingRequestFilterSensitiveLog,
-  DescribeAuditFindingResponse,
-  DescribeAuditFindingResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1DescribeAuditFindingCommand,
-  serializeAws_restJson1DescribeAuditFindingCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeAuditFindingRequest, DescribeAuditFindingResponse } from "../models/models_1";
+import { de_DescribeAuditFindingCommand, se_DescribeAuditFindingCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeAuditFindingCommand}.
+ */
 export interface DescribeAuditFindingCommandInput extends DescribeAuditFindingRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeAuditFindingCommand}.
+ */
 export interface DescribeAuditFindingCommandOutput extends DescribeAuditFindingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a single audit finding. Properties include the reason for
  *       noncompliance, the severity of the issue,
  *       and the start time
@@ -41,13 +44,31 @@ export interface DescribeAuditFindingCommandOutput extends DescribeAuditFindingR
  * import { IoTClient, DescribeAuditFindingCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeAuditFindingCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // DescribeAuditFindingRequest
+ *   findingId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeAuditFindingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAuditFindingCommandInput - {@link DescribeAuditFindingCommandInput}
+ * @returns {@link DescribeAuditFindingCommandOutput}
  * @see {@link DescribeAuditFindingCommandInput} for command's `input` shape.
  * @see {@link DescribeAuditFindingCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
  *
  */
 export class DescribeAuditFindingCommand extends $Command<
@@ -67,6 +88,9 @@ export class DescribeAuditFindingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAuditFindingCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +119,8 @@ export class DescribeAuditFindingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAuditFindingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAuditFindingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +130,18 @@ export class DescribeAuditFindingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAuditFindingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAuditFindingCommand(input, context);
+    return se_DescribeAuditFindingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAuditFindingCommandOutput> {
-    return deserializeAws_restJson1DescribeAuditFindingCommand(output, context);
+    return de_DescribeAuditFindingCommand(output, context);
   }
 
   // Start section: command_body_extra

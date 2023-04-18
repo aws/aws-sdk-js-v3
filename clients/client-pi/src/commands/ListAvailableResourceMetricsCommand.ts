@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListAvailableResourceMetricsRequest,
-  ListAvailableResourceMetricsRequestFilterSensitiveLog,
-  ListAvailableResourceMetricsResponse,
-  ListAvailableResourceMetricsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListAvailableResourceMetricsRequest, ListAvailableResourceMetricsResponse } from "../models/models_0";
 import { PIClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PIClient";
 import {
-  deserializeAws_json1_1ListAvailableResourceMetricsCommand,
-  serializeAws_json1_1ListAvailableResourceMetricsCommand,
+  de_ListAvailableResourceMetricsCommand,
+  se_ListAvailableResourceMetricsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListAvailableResourceMetricsCommand}.
+ */
 export interface ListAvailableResourceMetricsCommandInput extends ListAvailableResourceMetricsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListAvailableResourceMetricsCommand}.
+ */
 export interface ListAvailableResourceMetricsCommandOutput
   extends ListAvailableResourceMetricsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieve metrics of the specified types that can be queried for a specified DB instance.
  *       </p>
  * @example
@@ -39,13 +45,34 @@ export interface ListAvailableResourceMetricsCommandOutput
  * import { PIClient, ListAvailableResourceMetricsCommand } from "@aws-sdk/client-pi"; // ES Modules import
  * // const { PIClient, ListAvailableResourceMetricsCommand } = require("@aws-sdk/client-pi"); // CommonJS import
  * const client = new PIClient(config);
+ * const input = { // ListAvailableResourceMetricsRequest
+ *   ServiceType: "RDS" || "DOCDB", // required
+ *   Identifier: "STRING_VALUE", // required
+ *   MetricTypes: [ // MetricTypeList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListAvailableResourceMetricsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAvailableResourceMetricsCommandInput - {@link ListAvailableResourceMetricsCommandInput}
+ * @returns {@link ListAvailableResourceMetricsCommandOutput}
  * @see {@link ListAvailableResourceMetricsCommandInput} for command's `input` shape.
  * @see {@link ListAvailableResourceMetricsCommandOutput} for command's `response` shape.
  * @see {@link PIClientResolvedConfig | config} for PIClient's `config` shape.
+ *
+ * @throws {@link InternalServiceError} (server fault)
+ *  <p>The request failed due to an unknown error.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>One of the arguments provided is invalid for this request.</p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>The user is not authorized to perform this request.</p>
+ *
  *
  */
 export class ListAvailableResourceMetricsCommand extends $Command<
@@ -65,6 +92,9 @@ export class ListAvailableResourceMetricsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAvailableResourceMetricsCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +123,8 @@ export class ListAvailableResourceMetricsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAvailableResourceMetricsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAvailableResourceMetricsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,15 +134,21 @@ export class ListAvailableResourceMetricsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAvailableResourceMetricsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAvailableResourceMetricsCommand(input, context);
+    return se_ListAvailableResourceMetricsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAvailableResourceMetricsCommandOutput> {
-    return deserializeAws_json1_1ListAvailableResourceMetricsCommand(output, context);
+    return de_ListAvailableResourceMetricsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  GetTestGridSessionRequest,
-  GetTestGridSessionRequestFilterSensitiveLog,
-  GetTestGridSessionResult,
-  GetTestGridSessionResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetTestGridSessionCommand,
-  serializeAws_json1_1GetTestGridSessionCommand,
-} from "../protocols/Aws_json1_1";
+import { GetTestGridSessionRequest, GetTestGridSessionResult } from "../models/models_0";
+import { de_GetTestGridSessionCommand, se_GetTestGridSessionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetTestGridSessionCommand}.
+ */
 export interface GetTestGridSessionCommandInput extends GetTestGridSessionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetTestGridSessionCommand}.
+ */
 export interface GetTestGridSessionCommandOutput extends GetTestGridSessionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>A session is an instance of a browser created through a <code>RemoteWebDriver</code> with the URL from <a>CreateTestGridUrlResult$url</a>. You can use the following to look up sessions:</p>
  *          <ul>
  *             <li>
@@ -45,13 +48,31 @@ export interface GetTestGridSessionCommandOutput extends GetTestGridSessionResul
  * import { DeviceFarmClient, GetTestGridSessionCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, GetTestGridSessionCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // GetTestGridSessionRequest
+ *   projectArn: "STRING_VALUE",
+ *   sessionId: "STRING_VALUE",
+ *   sessionArn: "STRING_VALUE",
+ * };
  * const command = new GetTestGridSessionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTestGridSessionCommandInput - {@link GetTestGridSessionCommandInput}
+ * @returns {@link GetTestGridSessionCommandOutput}
  * @see {@link GetTestGridSessionCommandInput} for command's `input` shape.
  * @see {@link GetTestGridSessionCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
+ *
+ * @throws {@link ArgumentException} (client fault)
+ *  <p>An invalid argument was specified.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal exception was raised in the service. Contact <a href="mailto:aws-devicefarm-support@amazon.com">aws-devicefarm-support@amazon.com</a> if you see this
+ *          error. </p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The specified entity was not found.</p>
+ *
  *
  */
 export class GetTestGridSessionCommand extends $Command<
@@ -71,6 +92,9 @@ export class GetTestGridSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTestGridSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +123,8 @@ export class GetTestGridSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTestGridSessionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTestGridSessionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +134,18 @@ export class GetTestGridSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTestGridSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetTestGridSessionCommand(input, context);
+    return se_GetTestGridSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTestGridSessionCommandOutput> {
-    return deserializeAws_json1_1GetTestGridSessionCommand(output, context);
+    return de_GetTestGridSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

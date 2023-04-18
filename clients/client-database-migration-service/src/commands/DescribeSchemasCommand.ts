@@ -18,23 +18,25 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import {
-  DescribeSchemasMessage,
-  DescribeSchemasMessageFilterSensitiveLog,
-  DescribeSchemasResponse,
-  DescribeSchemasResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeSchemasCommand,
-  serializeAws_json1_1DescribeSchemasCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeSchemasMessage, DescribeSchemasResponse } from "../models/models_0";
+import { de_DescribeSchemasCommand, se_DescribeSchemasCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeSchemasCommand}.
+ */
 export interface DescribeSchemasCommandInput extends DescribeSchemasMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeSchemasCommand}.
+ */
 export interface DescribeSchemasCommandOutput extends DescribeSchemasResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the schema for the specified endpoint.</p>
- *
  *          <p></p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,13 +44,46 @@ export interface DescribeSchemasCommandOutput extends DescribeSchemasResponse, _
  * import { DatabaseMigrationServiceClient, DescribeSchemasCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DescribeSchemasCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // DescribeSchemasMessage
+ *   EndpointArn: "STRING_VALUE", // required
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeSchemasCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSchemasCommandInput - {@link DescribeSchemasCommandInput}
+ * @returns {@link DescribeSchemasCommandOutput}
  * @see {@link DescribeSchemasCommandInput} for command's `input` shape.
  * @see {@link DescribeSchemasCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
+ *
+ * @throws {@link InvalidResourceStateFault} (client fault)
+ *  <p>The resource is in a state that prevents it from being used for database migration.</p>
+ *
+ * @throws {@link ResourceNotFoundFault} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ *
+ * @example Describe schemas
+ * ```javascript
+ * // Returns information about the schema for the specified endpoint.
+ * const input = {
+ *   "EndpointArn": "",
+ *   "Marker": "",
+ *   "MaxRecords": 123
+ * };
+ * const command = new DescribeSchemasCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Marker": "",
+ *   "Schemas": []
+ * }
+ * *\/
+ * // example id: describe-schemas-1481755933924
+ * ```
  *
  */
 export class DescribeSchemasCommand extends $Command<
@@ -68,6 +103,9 @@ export class DescribeSchemasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSchemasCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +134,8 @@ export class DescribeSchemasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSchemasMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSchemasResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +145,18 @@ export class DescribeSchemasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSchemasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeSchemasCommand(input, context);
+    return se_DescribeSchemasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSchemasCommandOutput> {
-    return deserializeAws_json1_1DescribeSchemasCommand(output, context);
+    return de_DescribeSchemasCommand(output, context);
   }
 
   // Start section: command_body_extra

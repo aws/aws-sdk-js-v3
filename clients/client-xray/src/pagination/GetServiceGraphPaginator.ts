@@ -6,12 +6,11 @@ import {
   GetServiceGraphCommandInput,
   GetServiceGraphCommandOutput,
 } from "../commands/GetServiceGraphCommand";
-import { XRay } from "../XRay";
 import { XRayClient } from "../XRayClient";
 import { XRayPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: XRayClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new GetServiceGraphCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: XRay,
-  input: GetServiceGraphCommandInput,
-  ...args: any
-): Promise<GetServiceGraphCommandOutput> => {
-  // @ts-ignore
-  return await client.getServiceGraph(input, ...args);
-};
 export async function* paginateGetServiceGraph(
   config: XRayPaginationConfiguration,
   input: GetServiceGraphCommandInput,
@@ -43,9 +34,7 @@ export async function* paginateGetServiceGraph(
   let page: GetServiceGraphCommandOutput;
   while (hasNext) {
     input.NextToken = token;
-    if (config.client instanceof XRay) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof XRayClient) {
+    if (config.client instanceof XRayClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected XRay | XRayClient");

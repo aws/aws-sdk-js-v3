@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import {
-  DeleteSecurityConfigurationInput,
-  DeleteSecurityConfigurationInputFilterSensitiveLog,
-  DeleteSecurityConfigurationOutput,
-  DeleteSecurityConfigurationOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteSecurityConfigurationCommand,
-  serializeAws_json1_1DeleteSecurityConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteSecurityConfigurationInput, DeleteSecurityConfigurationOutput } from "../models/models_0";
+import { de_DeleteSecurityConfigurationCommand, se_DeleteSecurityConfigurationCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteSecurityConfigurationCommand}.
+ */
 export interface DeleteSecurityConfigurationCommandInput extends DeleteSecurityConfigurationInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteSecurityConfigurationCommand}.
+ */
 export interface DeleteSecurityConfigurationCommandOutput extends DeleteSecurityConfigurationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a security configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,26 @@ export interface DeleteSecurityConfigurationCommandOutput extends DeleteSecurity
  * import { EMRClient, DeleteSecurityConfigurationCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, DeleteSecurityConfigurationCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = { // DeleteSecurityConfigurationInput
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSecurityConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSecurityConfigurationCommandInput - {@link DeleteSecurityConfigurationCommandInput}
+ * @returns {@link DeleteSecurityConfigurationCommandOutput}
  * @see {@link DeleteSecurityConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteSecurityConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>This exception occurs when there is an internal failure in the Amazon EMR
+ *          service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception occurs when there is something wrong with user input.</p>
+ *
  *
  */
 export class DeleteSecurityConfigurationCommand extends $Command<
@@ -62,6 +78,9 @@ export class DeleteSecurityConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSecurityConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +109,8 @@ export class DeleteSecurityConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSecurityConfigurationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSecurityConfigurationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +120,21 @@ export class DeleteSecurityConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSecurityConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteSecurityConfigurationCommand(input, context);
+    return se_DeleteSecurityConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteSecurityConfigurationCommandOutput> {
-    return deserializeAws_json1_1DeleteSecurityConfigurationCommand(output, context);
+    return de_DeleteSecurityConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

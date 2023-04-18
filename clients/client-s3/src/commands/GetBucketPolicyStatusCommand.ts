@@ -13,29 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetBucketPolicyStatusOutput,
-  GetBucketPolicyStatusOutputFilterSensitiveLog,
-  GetBucketPolicyStatusRequest,
-  GetBucketPolicyStatusRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlGetBucketPolicyStatusCommand,
-  serializeAws_restXmlGetBucketPolicyStatusCommand,
-} from "../protocols/Aws_restXml";
+import { GetBucketPolicyStatusOutput, GetBucketPolicyStatusRequest } from "../models/models_0";
+import { de_GetBucketPolicyStatusCommand, se_GetBucketPolicyStatusCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * @public
+ *
+ * The input for {@link GetBucketPolicyStatusCommand}.
+ */
 export interface GetBucketPolicyStatusCommandInput extends GetBucketPolicyStatusRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetBucketPolicyStatusCommand}.
+ */
 export interface GetBucketPolicyStatusCommandOutput extends GetBucketPolicyStatusOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the policy status for an Amazon S3 bucket, indicating whether the bucket is public.
  *          In order to use this operation, you must have the <code>s3:GetBucketPolicyStatus</code>
  *          permission. For more information about Amazon S3 permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying Permissions in a
- *          Policy</a>.</p>
- *
+ *             Policy</a>.</p>
  *          <p> For more information about when Amazon S3 considers a bucket public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a>. </p>
- *
  *          <p>The following operations are related to <code>GetBucketPolicyStatus</code>:</p>
  *          <ul>
  *             <li>
@@ -66,13 +67,20 @@ export interface GetBucketPolicyStatusCommandOutput extends GetBucketPolicyStatu
  * import { S3Client, GetBucketPolicyStatusCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetBucketPolicyStatusCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // GetBucketPolicyStatusRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new GetBucketPolicyStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketPolicyStatusCommandInput - {@link GetBucketPolicyStatusCommandInput}
+ * @returns {@link GetBucketPolicyStatusCommandOutput}
  * @see {@link GetBucketPolicyStatusCommandInput} for command's `input` shape.
  * @see {@link GetBucketPolicyStatusCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
+ *
  *
  */
 export class GetBucketPolicyStatusCommand extends $Command<
@@ -98,6 +106,9 @@ export class GetBucketPolicyStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketPolicyStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +137,8 @@ export class GetBucketPolicyStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketPolicyStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBucketPolicyStatusOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +148,18 @@ export class GetBucketPolicyStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBucketPolicyStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetBucketPolicyStatusCommand(input, context);
+    return se_GetBucketPolicyStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketPolicyStatusCommandOutput> {
-    return deserializeAws_restXmlGetBucketPolicyStatusCommand(output, context);
+    return de_GetBucketPolicyStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

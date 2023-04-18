@@ -17,18 +17,25 @@ import {
   DescribeGroupsRequest,
   DescribeGroupsRequestFilterSensitiveLog,
   DescribeGroupsResponse,
-  DescribeGroupsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeGroupsCommand,
-  serializeAws_restJson1DescribeGroupsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeGroupsCommand, se_DescribeGroupsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeGroupsCommand}.
+ */
 export interface DescribeGroupsCommandInput extends DescribeGroupsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeGroupsCommand}.
+ */
 export interface DescribeGroupsCommandOutput extends DescribeGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the groups specified by the query. Groups are defined by the underlying
  *             Active Directory.</p>
  * @example
@@ -37,13 +44,37 @@ export interface DescribeGroupsCommandOutput extends DescribeGroupsResponse, __M
  * import { WorkDocsClient, DescribeGroupsCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, DescribeGroupsCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
+ * const input = { // DescribeGroupsRequest
+ *   AuthenticationToken: "STRING_VALUE",
+ *   SearchQuery: "STRING_VALUE", // required
+ *   OrganizationId: "STRING_VALUE",
+ *   Marker: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new DescribeGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeGroupsCommandInput - {@link DescribeGroupsCommandInput}
+ * @returns {@link DescribeGroupsCommandOutput}
  * @see {@link DescribeGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeGroupsCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
+ *
+ * @throws {@link FailedDependencyException} (client fault)
+ *  <p>The Directory Service cannot reach an on-premises instance. Or a dependency
+ *             under the control of the organization is failing, such as a connected Active
+ *             Directory.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>One or more of the dependencies is unavailable.</p>
+ *
+ * @throws {@link UnauthorizedOperationException} (client fault)
+ *  <p>The operation is not permitted.</p>
+ *
+ * @throws {@link UnauthorizedResourceAccessException} (client fault)
+ *  <p>The caller does not have access to perform the action on the resource.</p>
+ *
  *
  */
 export class DescribeGroupsCommand extends $Command<
@@ -63,6 +94,9 @@ export class DescribeGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,7 +126,7 @@ export class DescribeGroupsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: DescribeGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeGroupsResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +136,18 @@ export class DescribeGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeGroupsCommand(input, context);
+    return se_DescribeGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeGroupsCommandOutput> {
-    return deserializeAws_restJson1DescribeGroupsCommand(output, context);
+    return de_DescribeGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

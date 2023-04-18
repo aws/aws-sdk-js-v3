@@ -20,19 +20,26 @@ import {
 } from "../DatabaseMigrationServiceClient";
 import {
   DescribeEndpointsMessage,
-  DescribeEndpointsMessageFilterSensitiveLog,
   DescribeEndpointsResponse,
   DescribeEndpointsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeEndpointsCommand,
-  serializeAws_json1_1DescribeEndpointsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeEndpointsCommand, se_DescribeEndpointsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeEndpointsCommand}.
+ */
 export interface DescribeEndpointsCommandInput extends DescribeEndpointsMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeEndpointsCommand}.
+ */
 export interface DescribeEndpointsCommandOutput extends DescribeEndpointsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the endpoints for your account in the current region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +47,58 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
  * import { DatabaseMigrationServiceClient, DescribeEndpointsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DescribeEndpointsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // DescribeEndpointsMessage
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeEndpointsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEndpointsCommandInput - {@link DescribeEndpointsCommandInput}
+ * @returns {@link DescribeEndpointsCommandOutput}
  * @see {@link DescribeEndpointsCommandInput} for command's `input` shape.
  * @see {@link DescribeEndpointsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundFault} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ *
+ * @example Describe endpoints
+ * ```javascript
+ * // Returns information about the endpoints for your account in the current region.
+ * const input = {
+ *   "Filters": [
+ *     {
+ *       "Name": "string",
+ *       "Values": [
+ *         "string",
+ *         "string"
+ *       ]
+ *     }
+ *   ],
+ *   "Marker": "",
+ *   "MaxRecords": 123
+ * };
+ * const command = new DescribeEndpointsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Endpoints": [],
+ *   "Marker": ""
+ * }
+ * *\/
+ * // example id: describe-endpoints-1481754926060
+ * ```
  *
  */
 export class DescribeEndpointsCommand extends $Command<
@@ -66,6 +118,9 @@ export class DescribeEndpointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEndpointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,7 +149,7 @@ export class DescribeEndpointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEndpointsMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeEndpointsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -105,12 +160,18 @@ export class DescribeEndpointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEndpointsCommand(input, context);
+    return se_DescribeEndpointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEndpointsCommandOutput> {
-    return deserializeAws_json1_1DescribeEndpointsCommand(output, context);
+    return de_DescribeEndpointsCommand(output, context);
   }
 
   // Start section: command_body_extra

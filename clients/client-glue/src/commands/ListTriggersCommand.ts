@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  ListTriggersRequest,
-  ListTriggersRequestFilterSensitiveLog,
-  ListTriggersResponse,
-  ListTriggersResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1ListTriggersCommand,
-  serializeAws_json1_1ListTriggersCommand,
-} from "../protocols/Aws_json1_1";
+import { ListTriggersRequest, ListTriggersResponse } from "../models/models_2";
+import { de_ListTriggersCommand, se_ListTriggersCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListTriggersCommand}.
+ */
 export interface ListTriggersCommandInput extends ListTriggersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListTriggersCommand}.
+ */
 export interface ListTriggersCommandOutput extends ListTriggersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the names of all trigger resources in this Amazon Web Services account, or the resources with the specified tag. This operation allows you to see which resources are available in your account, and their names.</p>
  *          <p>This operation takes the optional <code>Tags</code> field, which you can use as a filter on
  *       the response so that tagged resources can be retrieved as a group. If you choose to use tags
@@ -39,13 +42,36 @@ export interface ListTriggersCommandOutput extends ListTriggersResponse, __Metad
  * import { GlueClient, ListTriggersCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, ListTriggersCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // ListTriggersRequest
+ *   NextToken: "STRING_VALUE",
+ *   DependentJobName: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new ListTriggersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTriggersCommandInput - {@link ListTriggersCommandInput}
+ * @returns {@link ListTriggersCommandOutput}
  * @see {@link ListTriggersCommandInput} for command's `input` shape.
  * @see {@link ListTriggersCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class ListTriggersCommand extends $Command<
@@ -65,6 +91,9 @@ export class ListTriggersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTriggersCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +120,8 @@ export class ListTriggersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTriggersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTriggersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +131,18 @@ export class ListTriggersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTriggersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTriggersCommand(input, context);
+    return se_ListTriggersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTriggersCommandOutput> {
-    return deserializeAws_json1_1ListTriggersCommand(output, context);
+    return de_ListTriggersCommand(output, context);
   }
 
   // Start section: command_body_extra

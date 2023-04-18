@@ -14,23 +14,25 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import {
-  DeregisterResourceRequest,
-  DeregisterResourceRequestFilterSensitiveLog,
-  DeregisterResourceResponse,
-  DeregisterResourceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeregisterResourceCommand,
-  serializeAws_restJson1DeregisterResourceCommand,
-} from "../protocols/Aws_restJson1";
+import { DeregisterResourceRequest, DeregisterResourceResponse } from "../models/models_0";
+import { de_DeregisterResourceCommand, se_DeregisterResourceCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeregisterResourceCommand}.
+ */
 export interface DeregisterResourceCommandInput extends DeregisterResourceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeregisterResourceCommand}.
+ */
 export interface DeregisterResourceCommandOutput extends DeregisterResourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deregisters the resource as managed by the Data Catalog.</p>
- *
  *          <p>When you deregister a path, Lake Formation removes the path from the inline policy attached to your service-linked role.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +40,31 @@ export interface DeregisterResourceCommandOutput extends DeregisterResourceRespo
  * import { LakeFormationClient, DeregisterResourceCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, DeregisterResourceCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
+ * const input = { // DeregisterResourceRequest
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new DeregisterResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterResourceCommandInput - {@link DeregisterResourceCommandInput}
+ * @returns {@link DeregisterResourceCommandOutput}
  * @see {@link DeregisterResourceCommandInput} for command's `input` shape.
  * @see {@link DeregisterResourceCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class DeregisterResourceCommand extends $Command<
@@ -64,6 +84,9 @@ export class DeregisterResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +115,8 @@ export class DeregisterResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeregisterResourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +126,18 @@ export class DeregisterResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeregisterResourceCommand(input, context);
+    return se_DeregisterResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterResourceCommandOutput> {
-    return deserializeAws_restJson1DeregisterResourceCommand(output, context);
+    return de_DeregisterResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

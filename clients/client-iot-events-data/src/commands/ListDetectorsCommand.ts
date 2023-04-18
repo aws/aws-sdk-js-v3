@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTEventsDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsDataClient";
-import {
-  ListDetectorsRequest,
-  ListDetectorsRequestFilterSensitiveLog,
-  ListDetectorsResponse,
-  ListDetectorsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDetectorsCommand,
-  serializeAws_restJson1ListDetectorsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListDetectorsRequest, ListDetectorsResponse } from "../models/models_0";
+import { de_ListDetectorsCommand, se_ListDetectorsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListDetectorsCommand}.
+ */
 export interface ListDetectorsCommandInput extends ListDetectorsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDetectorsCommand}.
+ */
 export interface ListDetectorsCommandOutput extends ListDetectorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists detectors (the instances of a detector model).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,37 @@ export interface ListDetectorsCommandOutput extends ListDetectorsResponse, __Met
  * import { IoTEventsDataClient, ListDetectorsCommand } from "@aws-sdk/client-iot-events-data"; // ES Modules import
  * // const { IoTEventsDataClient, ListDetectorsCommand } = require("@aws-sdk/client-iot-events-data"); // CommonJS import
  * const client = new IoTEventsDataClient(config);
+ * const input = { // ListDetectorsRequest
+ *   detectorModelName: "STRING_VALUE", // required
+ *   stateName: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListDetectorsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDetectorsCommandInput - {@link ListDetectorsCommandInput}
+ * @returns {@link ListDetectorsCommandOutput}
  * @see {@link ListDetectorsCommandInput} for command's `input` shape.
  * @see {@link ListDetectorsCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsDataClientResolvedConfig | config} for IoTEventsDataClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal failure occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request was invalid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource was not found.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request could not be completed due to throttling.</p>
+ *
  *
  */
 export class ListDetectorsCommand extends $Command<
@@ -62,6 +89,9 @@ export class ListDetectorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDetectorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +118,8 @@ export class ListDetectorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDetectorsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDetectorsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +129,18 @@ export class ListDetectorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDetectorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDetectorsCommand(input, context);
+    return se_ListDetectorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDetectorsCommandOutput> {
-    return deserializeAws_restJson1ListDetectorsCommand(output, context);
+    return de_ListDetectorsCommand(output, context);
   }
 
   // Start section: command_body_extra

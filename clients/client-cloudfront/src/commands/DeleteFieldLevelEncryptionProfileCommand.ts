@@ -14,19 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
+import { DeleteFieldLevelEncryptionProfileRequest } from "../models/models_1";
 import {
-  DeleteFieldLevelEncryptionProfileRequest,
-  DeleteFieldLevelEncryptionProfileRequestFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlDeleteFieldLevelEncryptionProfileCommand,
-  serializeAws_restXmlDeleteFieldLevelEncryptionProfileCommand,
+  de_DeleteFieldLevelEncryptionProfileCommand,
+  se_DeleteFieldLevelEncryptionProfileCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteFieldLevelEncryptionProfileCommand}.
+ */
 export interface DeleteFieldLevelEncryptionProfileCommandInput extends DeleteFieldLevelEncryptionProfileRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteFieldLevelEncryptionProfileCommand}.
+ */
 export interface DeleteFieldLevelEncryptionProfileCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Remove a field-level encryption profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -34,13 +42,36 @@ export interface DeleteFieldLevelEncryptionProfileCommandOutput extends __Metada
  * import { CloudFrontClient, DeleteFieldLevelEncryptionProfileCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, DeleteFieldLevelEncryptionProfileCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // DeleteFieldLevelEncryptionProfileRequest
+ *   Id: "STRING_VALUE", // required
+ *   IfMatch: "STRING_VALUE",
+ * };
  * const command = new DeleteFieldLevelEncryptionProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFieldLevelEncryptionProfileCommandInput - {@link DeleteFieldLevelEncryptionProfileCommandInput}
+ * @returns {@link DeleteFieldLevelEncryptionProfileCommandOutput}
  * @see {@link DeleteFieldLevelEncryptionProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteFieldLevelEncryptionProfileCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link FieldLevelEncryptionProfileInUse} (client fault)
+ *  <p>The specified profile for field-level encryption is in use.</p>
+ *
+ * @throws {@link InvalidIfMatchVersion} (client fault)
+ *  <p>The <code>If-Match</code> version is missing or not valid.</p>
+ *
+ * @throws {@link NoSuchFieldLevelEncryptionProfile} (client fault)
+ *  <p>The specified profile for field-level encryption doesn't exist.</p>
+ *
+ * @throws {@link PreconditionFailed} (client fault)
+ *  <p>The precondition in one or more of the request fields evaluated to
+ * 			<code>false</code>.</p>
+ *
  *
  */
 export class DeleteFieldLevelEncryptionProfileCommand extends $Command<
@@ -60,6 +91,9 @@ export class DeleteFieldLevelEncryptionProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFieldLevelEncryptionProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +122,8 @@ export class DeleteFieldLevelEncryptionProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFieldLevelEncryptionProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,18 +133,24 @@ export class DeleteFieldLevelEncryptionProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteFieldLevelEncryptionProfileCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteFieldLevelEncryptionProfileCommand(input, context);
+    return se_DeleteFieldLevelEncryptionProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteFieldLevelEncryptionProfileCommandOutput> {
-    return deserializeAws_restXmlDeleteFieldLevelEncryptionProfileCommand(output, context);
+    return de_DeleteFieldLevelEncryptionProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

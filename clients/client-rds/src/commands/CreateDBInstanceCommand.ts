@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateDBInstanceMessage,
-  CreateDBInstanceMessageFilterSensitiveLog,
-  CreateDBInstanceResult,
-  CreateDBInstanceResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCreateDBInstanceCommand,
-  serializeAws_queryCreateDBInstanceCommand,
-} from "../protocols/Aws_query";
+import { CreateDBInstanceMessage, CreateDBInstanceResult } from "../models/models_0";
+import { de_CreateDBInstanceCommand, se_CreateDBInstanceCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateDBInstanceCommand}.
+ */
 export interface CreateDBInstanceCommandInput extends CreateDBInstanceMessage {}
+/**
+ * @public
+ *
+ * The output of {@link CreateDBInstanceCommand}.
+ */
 export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new DB instance.</p>
  *          <p>The new DB instance can be an RDS DB instance, or it can be a DB instance in an Aurora DB cluster.
  *            For an Aurora DB cluster, you can call this operation multiple times to add more than one DB instance
@@ -44,13 +47,275 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  * import { RDSClient, CreateDBInstanceCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CreateDBInstanceCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // CreateDBInstanceMessage
+ *   DBName: "STRING_VALUE",
+ *   DBInstanceIdentifier: "STRING_VALUE", // required
+ *   AllocatedStorage: Number("int"),
+ *   DBInstanceClass: "STRING_VALUE", // required
+ *   Engine: "STRING_VALUE", // required
+ *   MasterUsername: "STRING_VALUE",
+ *   MasterUserPassword: "STRING_VALUE",
+ *   DBSecurityGroups: [ // DBSecurityGroupNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   AvailabilityZone: "STRING_VALUE",
+ *   DBSubnetGroupName: "STRING_VALUE",
+ *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   DBParameterGroupName: "STRING_VALUE",
+ *   BackupRetentionPeriod: Number("int"),
+ *   PreferredBackupWindow: "STRING_VALUE",
+ *   Port: Number("int"),
+ *   MultiAZ: true || false,
+ *   EngineVersion: "STRING_VALUE",
+ *   AutoMinorVersionUpgrade: true || false,
+ *   LicenseModel: "STRING_VALUE",
+ *   Iops: Number("int"),
+ *   OptionGroupName: "STRING_VALUE",
+ *   CharacterSetName: "STRING_VALUE",
+ *   NcharCharacterSetName: "STRING_VALUE",
+ *   PubliclyAccessible: true || false,
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   DBClusterIdentifier: "STRING_VALUE",
+ *   StorageType: "STRING_VALUE",
+ *   TdeCredentialArn: "STRING_VALUE",
+ *   TdeCredentialPassword: "STRING_VALUE",
+ *   StorageEncrypted: true || false,
+ *   KmsKeyId: "STRING_VALUE",
+ *   Domain: "STRING_VALUE",
+ *   CopyTagsToSnapshot: true || false,
+ *   MonitoringInterval: Number("int"),
+ *   MonitoringRoleArn: "STRING_VALUE",
+ *   DomainIAMRoleName: "STRING_VALUE",
+ *   PromotionTier: Number("int"),
+ *   Timezone: "STRING_VALUE",
+ *   EnableIAMDatabaseAuthentication: true || false,
+ *   EnablePerformanceInsights: true || false,
+ *   PerformanceInsightsKMSKeyId: "STRING_VALUE",
+ *   PerformanceInsightsRetentionPeriod: Number("int"),
+ *   EnableCloudwatchLogsExports: [ // LogTypeList
+ *     "STRING_VALUE",
+ *   ],
+ *   ProcessorFeatures: [ // ProcessorFeatureList
+ *     { // ProcessorFeature
+ *       Name: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   DeletionProtection: true || false,
+ *   MaxAllocatedStorage: Number("int"),
+ *   EnableCustomerOwnedIp: true || false,
+ *   CustomIamInstanceProfile: "STRING_VALUE",
+ *   BackupTarget: "STRING_VALUE",
+ *   NetworkType: "STRING_VALUE",
+ *   StorageThroughput: Number("int"),
+ *   ManageMasterUserPassword: true || false,
+ *   MasterUserSecretKmsKeyId: "STRING_VALUE",
+ *   CACertificateIdentifier: "STRING_VALUE",
+ * };
  * const command = new CreateDBInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDBInstanceCommandInput - {@link CreateDBInstanceCommandInput}
+ * @returns {@link CreateDBInstanceCommandOutput}
  * @see {@link CreateDBInstanceCommandInput} for command's `input` shape.
  * @see {@link CreateDBInstanceCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ * @throws {@link AuthorizationNotFoundFault} (client fault)
+ *  <p>The specified CIDR IP range or Amazon EC2 security group might not be authorized
+ *             for the specified DB security group.</p>
+ *          <p>Or, RDS might not be authorized to perform necessary actions using IAM on your
+ *             behalf.</p>
+ *
+ * @throws {@link BackupPolicyNotFoundFault} (client fault)
+ *
+ * @throws {@link CertificateNotFoundFault} (client fault)
+ *  <p>
+ *             <code>CertificateIdentifier</code> doesn't refer to an
+ *         existing certificate.</p>
+ *
+ * @throws {@link DBClusterNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+ *
+ * @throws {@link DBInstanceAlreadyExistsFault} (client fault)
+ *  <p>The user already has a DB instance with the given identifier.</p>
+ *
+ * @throws {@link DBParameterGroupNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBParameterGroupName</code> doesn't refer to an
+ *         existing DB parameter group.</p>
+ *
+ * @throws {@link DBSecurityGroupNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBSecurityGroupName</code> doesn't refer to an existing DB security group.</p>
+ *
+ * @throws {@link DBSubnetGroupDoesNotCoverEnoughAZs} (client fault)
+ *  <p>Subnets in the DB subnet group should cover at least two Availability Zones unless there is only one Availability Zone.</p>
+ *
+ * @throws {@link DBSubnetGroupNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBSubnetGroupName</code> doesn't refer to an existing DB subnet group.</p>
+ *
+ * @throws {@link DomainNotFoundFault} (client fault)
+ *  <p>
+ *             <code>Domain</code> doesn't refer to an existing Active Directory domain.</p>
+ *
+ * @throws {@link InstanceQuotaExceededFault} (client fault)
+ *  <p>The request would result in the user exceeding the allowed number of DB
+ *             instances.</p>
+ *
+ * @throws {@link InsufficientDBInstanceCapacityFault} (client fault)
+ *  <p>The specified DB instance class isn't available in the specified Availability
+ *             Zone.</p>
+ *
+ * @throws {@link InvalidDBClusterStateFault} (client fault)
+ *  <p>The requested operation can't be performed while the cluster is in this state.</p>
+ *
+ * @throws {@link InvalidSubnet} (client fault)
+ *  <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>
+ *
+ * @throws {@link InvalidVPCNetworkStateFault} (client fault)
+ *  <p>The DB subnet group doesn't cover all Availability Zones after it's
+ *             created because of users' change.</p>
+ *
+ * @throws {@link KMSKeyNotAccessibleFault} (client fault)
+ *  <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+ *
+ * @throws {@link NetworkTypeNotSupported} (client fault)
+ *  <p>The network type is invalid for the DB instance. Valid nework type values are <code>IPV4</code> and <code>DUAL</code>.</p>
+ *
+ * @throws {@link OptionGroupNotFoundFault} (client fault)
+ *  <p>The specified option group could not be found.</p>
+ *
+ * @throws {@link ProvisionedIopsNotAvailableInAZFault} (client fault)
+ *  <p>Provisioned IOPS not available in the specified Availability Zone.</p>
+ *
+ * @throws {@link StorageQuotaExceededFault} (client fault)
+ *  <p>The request would result in the user exceeding the allowed amount of storage
+ *             available across all DB instances.</p>
+ *
+ * @throws {@link StorageTypeNotSupportedFault} (client fault)
+ *  <p>Storage of the <code>StorageType</code> specified can't be associated
+ *             with the DB instance.</p>
+ *
+ *
+ * @example To create a DB instance
+ * ```javascript
+ * // The following example uses the required options to launch a new DB instance.
+ * const input = {
+ *   "AllocatedStorage": 20,
+ *   "DBInstanceClass": "db.t3.micro",
+ *   "DBInstanceIdentifier": "test-mysql-instance",
+ *   "Engine": "mysql",
+ *   "MasterUserPassword": "secret99",
+ *   "MasterUsername": "admin"
+ * };
+ * const command = new CreateDBInstanceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBInstance": {
+ *     "AllocatedStorage": 20,
+ *     "AssociatedRoles": [],
+ *     "AutoMinorVersionUpgrade": true,
+ *     "BackupRetentionPeriod": 1,
+ *     "CACertificateIdentifier": "rds-ca-2019",
+ *     "CopyTagsToSnapshot": false,
+ *     "DBInstanceArn": "arn:aws:rds:us-west-2:123456789012:db:test-mysql-instance",
+ *     "DBInstanceClass": "db.t3.micro",
+ *     "DBInstanceIdentifier": "test-mysql-instance",
+ *     "DBInstanceStatus": "creating",
+ *     "DBParameterGroups": [
+ *       {
+ *         "DBParameterGroupName": "default.mysql5.7",
+ *         "ParameterApplyStatus": "in-sync"
+ *       }
+ *     ],
+ *     "DBSecurityGroups": [],
+ *     "DBSubnetGroup": {
+ *       "DBSubnetGroupDescription": "default",
+ *       "DBSubnetGroupName": "default",
+ *       "SubnetGroupStatus": "Complete",
+ *       "Subnets": [
+ *         {
+ *           "SubnetAvailabilityZone": {
+ *             "Name": "us-west-2c"
+ *           },
+ *           "SubnetIdentifier": "subnet-########",
+ *           "SubnetStatus": "Active"
+ *         },
+ *         {
+ *           "SubnetAvailabilityZone": {
+ *             "Name": "us-west-2d"
+ *           },
+ *           "SubnetIdentifier": "subnet-########",
+ *           "SubnetStatus": "Active"
+ *         },
+ *         {
+ *           "SubnetAvailabilityZone": {
+ *             "Name": "us-west-2a"
+ *           },
+ *           "SubnetIdentifier": "subnet-########",
+ *           "SubnetStatus": "Active"
+ *         },
+ *         {
+ *           "SubnetAvailabilityZone": {
+ *             "Name": "us-west-2b"
+ *           },
+ *           "SubnetIdentifier": "subnet-########",
+ *           "SubnetStatus": "Active"
+ *         }
+ *       ],
+ *       "VpcId": "vpc-2ff2ff2f"
+ *     },
+ *     "DbInstancePort": 0,
+ *     "DbiResourceId": "db-5555EXAMPLE44444444EXAMPLE",
+ *     "DeletionProtection": false,
+ *     "DomainMemberships": [],
+ *     "Engine": "mysql",
+ *     "EngineVersion": "5.7.22",
+ *     "IAMDatabaseAuthenticationEnabled": false,
+ *     "LicenseModel": "general-public-license",
+ *     "MasterUsername": "admin",
+ *     "MonitoringInterval": 0,
+ *     "MultiAZ": false,
+ *     "OptionGroupMemberships": [
+ *       {
+ *         "OptionGroupName": "default:mysql-5-7",
+ *         "Status": "in-sync"
+ *       }
+ *     ],
+ *     "PendingModifiedValues": {
+ *       "MasterUserPassword": "****"
+ *     },
+ *     "PerformanceInsightsEnabled": false,
+ *     "PreferredBackupWindow": "12:55-13:25",
+ *     "PreferredMaintenanceWindow": "sun:08:07-sun:08:37",
+ *     "PubliclyAccessible": true,
+ *     "ReadReplicaDBInstanceIdentifiers": [],
+ *     "StorageEncrypted": false,
+ *     "StorageType": "gp2",
+ *     "VpcSecurityGroups": [
+ *       {
+ *         "Status": "active",
+ *         "VpcSecurityGroupId": "sg-12345abc"
+ *       }
+ *     ]
+ *   }
+ * }
+ * *\/
+ * // example id: to-create-a-db-instance-1679703299533
+ * ```
  *
  */
 export class CreateDBInstanceCommand extends $Command<
@@ -70,6 +335,9 @@ export class CreateDBInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDBInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +366,8 @@ export class CreateDBInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDBInstanceMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDBInstanceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +377,18 @@ export class CreateDBInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDBInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateDBInstanceCommand(input, context);
+    return se_CreateDBInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDBInstanceCommandOutput> {
-    return deserializeAws_queryCreateDBInstanceCommand(output, context);
+    return de_CreateDBInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

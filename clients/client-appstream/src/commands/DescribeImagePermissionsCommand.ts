@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import {
-  DescribeImagePermissionsRequest,
-  DescribeImagePermissionsRequestFilterSensitiveLog,
-  DescribeImagePermissionsResult,
-  DescribeImagePermissionsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeImagePermissionsCommand,
-  serializeAws_json1_1DescribeImagePermissionsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeImagePermissionsRequest, DescribeImagePermissionsResult } from "../models/models_0";
+import { de_DescribeImagePermissionsCommand, se_DescribeImagePermissionsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeImagePermissionsCommand}.
+ */
 export interface DescribeImagePermissionsCommandInput extends DescribeImagePermissionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeImagePermissionsCommand}.
+ */
 export interface DescribeImagePermissionsCommandOutput extends DescribeImagePermissionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list that describes the permissions for shared AWS account IDs on a private image that you own. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,27 @@ export interface DescribeImagePermissionsCommandOutput extends DescribeImagePerm
  * import { AppStreamClient, DescribeImagePermissionsCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DescribeImagePermissionsCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = { // DescribeImagePermissionsRequest
+ *   Name: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   SharedAwsAccountIds: [ // AwsAccountIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeImagePermissionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeImagePermissionsCommandInput - {@link DescribeImagePermissionsCommandInput}
+ * @returns {@link DescribeImagePermissionsCommandOutput}
  * @see {@link DescribeImagePermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribeImagePermissionsCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class DescribeImagePermissionsCommand extends $Command<
@@ -62,6 +79,9 @@ export class DescribeImagePermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeImagePermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +110,8 @@ export class DescribeImagePermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeImagePermissionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeImagePermissionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +121,18 @@ export class DescribeImagePermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeImagePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeImagePermissionsCommand(input, context);
+    return se_DescribeImagePermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeImagePermissionsCommandOutput> {
-    return deserializeAws_json1_1DescribeImagePermissionsCommand(output, context);
+    return de_DescribeImagePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

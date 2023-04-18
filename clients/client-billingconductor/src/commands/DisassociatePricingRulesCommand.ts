@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
-import {
-  DisassociatePricingRulesInput,
-  DisassociatePricingRulesInputFilterSensitiveLog,
-  DisassociatePricingRulesOutput,
-  DisassociatePricingRulesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociatePricingRulesCommand,
-  serializeAws_restJson1DisassociatePricingRulesCommand,
-} from "../protocols/Aws_restJson1";
+import { DisassociatePricingRulesInput, DisassociatePricingRulesOutput } from "../models/models_0";
+import { de_DisassociatePricingRulesCommand, se_DisassociatePricingRulesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DisassociatePricingRulesCommand}.
+ */
 export interface DisassociatePricingRulesCommandInput extends DisassociatePricingRulesInput {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociatePricingRulesCommand}.
+ */
 export interface DisassociatePricingRulesCommandOutput extends DisassociatePricingRulesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Disassociates a list of pricing rules from a pricing plan.
  *     </p>
@@ -38,13 +41,45 @@ export interface DisassociatePricingRulesCommandOutput extends DisassociatePrici
  * import { BillingconductorClient, DisassociatePricingRulesCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, DisassociatePricingRulesCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
  * const client = new BillingconductorClient(config);
+ * const input = { // DisassociatePricingRulesInput
+ *   Arn: "STRING_VALUE", // required
+ *   PricingRuleArns: [ // PricingRuleArnsNonEmptyInput // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DisassociatePricingRulesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociatePricingRulesCommandInput - {@link DisassociatePricingRulesCommandInput}
+ * @returns {@link DisassociatePricingRulesCommandOutput}
  * @see {@link DisassociatePricingRulesCommandInput} for command's `input` shape.
  * @see {@link DisassociatePricingRulesCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.
+ *     </p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>You can cause an inconsistent state by updating or deleting a resource.
+ *     </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred while processing a request.
+ *     </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a resource that doesn't exist.
+ *     </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.
+ *     </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+ *
  *
  */
 export class DisassociatePricingRulesCommand extends $Command<
@@ -64,6 +99,9 @@ export class DisassociatePricingRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociatePricingRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +130,8 @@ export class DisassociatePricingRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociatePricingRulesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociatePricingRulesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +141,18 @@ export class DisassociatePricingRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociatePricingRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociatePricingRulesCommand(input, context);
+    return se_DisassociatePricingRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociatePricingRulesCommandOutput> {
-    return deserializeAws_restJson1DisassociatePricingRulesCommand(output, context);
+    return de_DisassociatePricingRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

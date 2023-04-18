@@ -14,34 +14,32 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import {
-  RegisterResourceRequest,
-  RegisterResourceRequestFilterSensitiveLog,
-  RegisterResourceResponse,
-  RegisterResourceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1RegisterResourceCommand,
-  serializeAws_restJson1RegisterResourceCommand,
-} from "../protocols/Aws_restJson1";
+import { RegisterResourceRequest, RegisterResourceResponse } from "../models/models_0";
+import { de_RegisterResourceCommand, se_RegisterResourceCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link RegisterResourceCommand}.
+ */
 export interface RegisterResourceCommandInput extends RegisterResourceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RegisterResourceCommand}.
+ */
 export interface RegisterResourceCommandOutput extends RegisterResourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers the resource as managed by the Data Catalog.</p>
- *
  *          <p>To add or update data, Lake Formation needs read/write access to the chosen Amazon S3 path. Choose a role that you know has permission to do this, or choose the AWSServiceRoleForLakeFormationDataAccess service-linked role. When you register the first Amazon S3 path, the service-linked role and a new inline policy are created on your behalf. Lake Formation adds the first path to the inline policy and attaches it to the service-linked role. When you register subsequent paths, Lake Formation adds the path to the existing policy.</p>
- *
  *          <p>The following request registers a new location and gives Lake Formation permission to use the service-linked role to access that location.</p>
- *
  *          <p>
  *             <code>ResourceArn = arn:aws:s3:::my-bucket
  * UseServiceLinkedRole = true</code>
  *          </p>
- *
- * 	        <p>If <code>UseServiceLinkedRole</code> is not set to true, you must provide or set the <code>RoleArn</code>:</p>
- *
+ *          <p>If <code>UseServiceLinkedRole</code> is not set to true, you must provide or set the <code>RoleArn</code>:</p>
  *          <p>
  *             <code>arn:aws:iam::12345:role/my-data-access-role</code>
  *          </p>
@@ -51,13 +49,43 @@ export interface RegisterResourceCommandOutput extends RegisterResourceResponse,
  * import { LakeFormationClient, RegisterResourceCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, RegisterResourceCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
+ * const input = { // RegisterResourceRequest
+ *   ResourceArn: "STRING_VALUE", // required
+ *   UseServiceLinkedRole: true || false,
+ *   RoleArn: "STRING_VALUE",
+ *   WithFederation: true || false,
+ * };
  * const command = new RegisterResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterResourceCommandInput - {@link RegisterResourceCommandInput}
+ * @returns {@link RegisterResourceCommandOutput}
  * @see {@link RegisterResourceCommandInput} for command's `input` shape.
  * @see {@link RegisterResourceCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to a resource was denied.</p>
+ *
+ * @throws {@link AlreadyExistsException} (client fault)
+ *  <p>A resource to be created or added already exists.</p>
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ * @throws {@link ResourceNumberLimitExceededException} (client fault)
+ *  <p>A resource numerical limit was exceeded.</p>
+ *
  *
  */
 export class RegisterResourceCommand extends $Command<
@@ -77,6 +105,9 @@ export class RegisterResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +136,8 @@ export class RegisterResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterResourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +147,18 @@ export class RegisterResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RegisterResourceCommand(input, context);
+    return se_RegisterResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterResourceCommandOutput> {
-    return deserializeAws_restJson1RegisterResourceCommand(output, context);
+    return de_RegisterResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

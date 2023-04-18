@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  AttachDiskRequest,
-  AttachDiskRequestFilterSensitiveLog,
-  AttachDiskResult,
-  AttachDiskResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AttachDiskCommand,
-  serializeAws_json1_1AttachDiskCommand,
-} from "../protocols/Aws_json1_1";
+import { AttachDiskRequest, AttachDiskResult } from "../models/models_0";
+import { de_AttachDiskCommand, se_AttachDiskCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link AttachDiskCommand}.
+ */
 export interface AttachDiskCommandInput extends AttachDiskRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AttachDiskCommand}.
+ */
 export interface AttachDiskCommandOutput extends AttachDiskResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches a block storage disk to a running or stopped Lightsail instance and exposes it
  *       to the instance with the specified disk name.</p>
  *          <p>The <code>attach disk</code> operation supports tag-based access control via resource tags
@@ -40,13 +43,52 @@ export interface AttachDiskCommandOutput extends AttachDiskResult, __MetadataBea
  * import { LightsailClient, AttachDiskCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, AttachDiskCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // AttachDiskRequest
+ *   diskName: "STRING_VALUE", // required
+ *   instanceName: "STRING_VALUE", // required
+ *   diskPath: "STRING_VALUE", // required
+ *   autoMounting: true || false,
+ * };
  * const command = new AttachDiskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AttachDiskCommandInput - {@link AttachDiskCommandInput}
+ * @returns {@link AttachDiskCommandOutput}
  * @see {@link AttachDiskCommandInput} for command's `input` shape.
  * @see {@link AttachDiskCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
+ *       credentials to access a resource.</p>
+ *
+ * @throws {@link AccountSetupInProgressException} (client fault)
+ *  <p>Lightsail throws this exception when an account is still in the setup in progress
+ *       state.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Lightsail throws this exception when user input does not conform to the validation rules
+ *       of an input field.</p>
+ *          <note>
+ *             <p>Domain and distribution APIs are only available in the N. Virginia
+ *           (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services
+ *         Region configuration to <code>us-east-1</code> to create, view, or edit these
+ *         resources.</p>
+ *          </note>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Lightsail throws this exception when it cannot find a resource.</p>
+ *
+ * @throws {@link OperationFailureException} (client fault)
+ *  <p>Lightsail throws this exception when an operation fails to execute.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>A general service exception.</p>
+ *
+ * @throws {@link UnauthenticatedException} (client fault)
+ *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
+ *
  *
  */
 export class AttachDiskCommand extends $Command<
@@ -66,6 +108,9 @@ export class AttachDiskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AttachDiskCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +137,8 @@ export class AttachDiskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AttachDiskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AttachDiskResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +148,18 @@ export class AttachDiskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AttachDiskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AttachDiskCommand(input, context);
+    return se_AttachDiskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachDiskCommandOutput> {
-    return deserializeAws_json1_1AttachDiskCommand(output, context);
+    return de_AttachDiskCommand(output, context);
   }
 
   // Start section: command_body_extra

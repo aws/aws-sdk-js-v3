@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import {
-  ListInvitationsRequest,
-  ListInvitationsRequestFilterSensitiveLog,
-  ListInvitationsResponse,
-  ListInvitationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListInvitationsCommand,
-  serializeAws_restJson1ListInvitationsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListInvitationsRequest, ListInvitationsResponse } from "../models/models_0";
+import { de_ListInvitationsCommand, se_ListInvitationsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListInvitationsCommand}.
+ */
 export interface ListInvitationsCommandInput extends ListInvitationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListInvitationsCommand}.
+ */
 export interface ListInvitationsCommandOutput extends ListInvitationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all GuardDuty membership invitations that were sent to the current Amazon Web Services
  *       account.</p>
  * @example
@@ -37,13 +40,26 @@ export interface ListInvitationsCommandOutput extends ListInvitationsResponse, _
  * import { GuardDutyClient, ListInvitationsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, ListInvitationsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = { // ListInvitationsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListInvitationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInvitationsCommandInput - {@link ListInvitationsCommandInput}
+ * @returns {@link ListInvitationsCommandOutput}
  * @see {@link ListInvitationsCommandInput} for command's `input` shape.
  * @see {@link ListInvitationsCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>A bad request exception object.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>An internal server error exception object.</p>
+ *
  *
  */
 export class ListInvitationsCommand extends $Command<
@@ -63,6 +79,9 @@ export class ListInvitationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInvitationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +110,8 @@ export class ListInvitationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListInvitationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListInvitationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +121,18 @@ export class ListInvitationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListInvitationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListInvitationsCommand(input, context);
+    return se_ListInvitationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInvitationsCommandOutput> {
-    return deserializeAws_restJson1ListInvitationsCommand(output, context);
+    return de_ListInvitationsCommand(output, context);
   }
 
   // Start section: command_body_extra

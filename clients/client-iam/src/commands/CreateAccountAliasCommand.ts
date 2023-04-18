@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { CreateAccountAliasRequest, CreateAccountAliasRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryCreateAccountAliasCommand,
-  serializeAws_queryCreateAccountAliasCommand,
-} from "../protocols/Aws_query";
+import { CreateAccountAliasRequest } from "../models/models_0";
+import { de_CreateAccountAliasCommand, se_CreateAccountAliasCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateAccountAliasCommand}.
+ */
 export interface CreateAccountAliasCommandInput extends CreateAccountAliasRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateAccountAliasCommand}.
+ */
 export interface CreateAccountAliasCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an alias for your Amazon Web Services account. For information about using an Amazon Web Services account
  *             alias, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html">Using an
  *                 alias for your Amazon Web Services account ID</a> in the
@@ -34,13 +42,42 @@ export interface CreateAccountAliasCommandOutput extends __MetadataBearer {}
  * import { IAMClient, CreateAccountAliasCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, CreateAccountAliasCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // CreateAccountAliasRequest
+ *   AccountAlias: "STRING_VALUE", // required
+ * };
  * const command = new CreateAccountAliasCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAccountAliasCommandInput - {@link CreateAccountAliasCommandInput}
+ * @returns {@link CreateAccountAliasCommandOutput}
  * @see {@link CreateAccountAliasCommandInput} for command's `input` shape.
  * @see {@link CreateAccountAliasCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link EntityAlreadyExistsException} (client fault)
+ *  <p>The request was rejected because it attempted to create a resource that already
+ *       exists.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request was rejected because it attempted to create resources beyond the current
+ *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
+ *
+ * @example To create an account alias
+ * ```javascript
+ * // The following command associates the alias examplecorp to your AWS account.
+ * const input = {
+ *   "AccountAlias": "examplecorp"
+ * };
+ * const command = new CreateAccountAliasCommand(input);
+ * await client.send(command);
+ * // example id: 5adaf6fb-94fc-4ca2-b825-2fbc2062add1
+ * ```
  *
  */
 export class CreateAccountAliasCommand extends $Command<
@@ -60,6 +97,9 @@ export class CreateAccountAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAccountAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +128,8 @@ export class CreateAccountAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAccountAliasRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +139,18 @@ export class CreateAccountAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAccountAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateAccountAliasCommand(input, context);
+    return se_CreateAccountAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAccountAliasCommandOutput> {
-    return deserializeAws_queryCreateAccountAliasCommand(output, context);
+    return de_CreateAccountAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

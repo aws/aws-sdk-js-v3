@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppIntegrationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppIntegrationsClient";
-import {
-  UpdateDataIntegrationRequest,
-  UpdateDataIntegrationRequestFilterSensitiveLog,
-  UpdateDataIntegrationResponse,
-  UpdateDataIntegrationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateDataIntegrationCommand,
-  serializeAws_restJson1UpdateDataIntegrationCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateDataIntegrationRequest, UpdateDataIntegrationResponse } from "../models/models_0";
+import { de_UpdateDataIntegrationCommand, se_UpdateDataIntegrationCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateDataIntegrationCommand}.
+ */
 export interface UpdateDataIntegrationCommandInput extends UpdateDataIntegrationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateDataIntegrationCommand}.
+ */
 export interface UpdateDataIntegrationCommandOutput extends UpdateDataIntegrationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the description of a DataIntegration.</p>
  *          <note>
  *             <p>You cannot create a DataIntegration association for a DataIntegration that has been previously associated.
@@ -41,13 +44,36 @@ export interface UpdateDataIntegrationCommandOutput extends UpdateDataIntegratio
  * import { AppIntegrationsClient, UpdateDataIntegrationCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
  * // const { AppIntegrationsClient, UpdateDataIntegrationCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import
  * const client = new AppIntegrationsClient(config);
+ * const input = { // UpdateDataIntegrationRequest
+ *   Identifier: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ * };
  * const command = new UpdateDataIntegrationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDataIntegrationCommandInput - {@link UpdateDataIntegrationCommandInput}
+ * @returns {@link UpdateDataIntegrationCommandOutput}
  * @see {@link UpdateDataIntegrationCommandInput} for command's `input` shape.
  * @see {@link UpdateDataIntegrationCommandOutput} for command's `response` shape.
  * @see {@link AppIntegrationsClientResolvedConfig | config} for AppIntegrationsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServiceError} (server fault)
+ *  <p>Request processing failed due to an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
  *
  */
 export class UpdateDataIntegrationCommand extends $Command<
@@ -67,6 +93,9 @@ export class UpdateDataIntegrationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDataIntegrationCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +124,8 @@ export class UpdateDataIntegrationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDataIntegrationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDataIntegrationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +135,18 @@ export class UpdateDataIntegrationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDataIntegrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDataIntegrationCommand(input, context);
+    return se_UpdateDataIntegrationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDataIntegrationCommandOutput> {
-    return deserializeAws_restJson1UpdateDataIntegrationCommand(output, context);
+    return de_UpdateDataIntegrationCommand(output, context);
   }
 
   // Start section: command_body_extra

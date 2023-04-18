@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import {
-  StopDBClusterMessage,
-  StopDBClusterMessageFilterSensitiveLog,
-  StopDBClusterResult,
-  StopDBClusterResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryStopDBClusterCommand,
-  serializeAws_queryStopDBClusterCommand,
-} from "../protocols/Aws_query";
+import { StopDBClusterMessage, StopDBClusterResult } from "../models/models_0";
+import { de_StopDBClusterCommand, se_StopDBClusterCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link StopDBClusterCommand}.
+ */
 export interface StopDBClusterCommandInput extends StopDBClusterMessage {}
+/**
+ * @public
+ *
+ * The output of {@link StopDBClusterCommand}.
+ */
 export interface StopDBClusterCommandOutput extends StopDBClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops the running cluster that is specified by <code>DBClusterIdentifier</code>. The
  *             cluster must be in the <i>available</i> state. For more information, see
  *                 <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-stop-start.html">Stopping and
@@ -39,13 +42,30 @@ export interface StopDBClusterCommandOutput extends StopDBClusterResult, __Metad
  * import { DocDBClient, StopDBClusterCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, StopDBClusterCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = { // StopDBClusterMessage
+ *   DBClusterIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new StopDBClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopDBClusterCommandInput - {@link StopDBClusterCommandInput}
+ * @returns {@link StopDBClusterCommandOutput}
  * @see {@link StopDBClusterCommandInput} for command's `input` shape.
  * @see {@link StopDBClusterCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
+ *
+ * @throws {@link DBClusterNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBClusterIdentifier</code> doesn't refer to an existing cluster. </p>
+ *
+ * @throws {@link InvalidDBClusterStateFault} (client fault)
+ *  <p>The cluster isn't in a valid state.</p>
+ *
+ * @throws {@link InvalidDBInstanceStateFault} (client fault)
+ *  <p> The specified instance isn't in the <i>available</i> state.
+ *         </p>
+ *
  *
  */
 export class StopDBClusterCommand extends $Command<
@@ -65,6 +85,9 @@ export class StopDBClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopDBClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +114,8 @@ export class StopDBClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopDBClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: StopDBClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +125,18 @@ export class StopDBClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryStopDBClusterCommand(input, context);
+    return se_StopDBClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopDBClusterCommandOutput> {
-    return deserializeAws_queryStopDBClusterCommand(output, context);
+    return de_StopDBClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

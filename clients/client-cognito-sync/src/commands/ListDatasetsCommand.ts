@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
-import {
-  ListDatasetsRequest,
-  ListDatasetsRequestFilterSensitiveLog,
-  ListDatasetsResponse,
-  ListDatasetsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDatasetsCommand,
-  serializeAws_restJson1ListDatasetsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListDatasetsRequest, ListDatasetsResponse } from "../models/models_0";
+import { de_ListDatasetsCommand, se_ListDatasetsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListDatasetsCommand}.
+ */
 export interface ListDatasetsCommandInput extends ListDatasetsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDatasetsCommand}.
+ */
 export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists datasets for an identity. With Amazon Cognito Sync, each identity has access only to
  *          its own data. Thus, the credentials used to make this API call need to have access to the
  *          identity data.</p>
@@ -48,16 +51,16 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * X-AMZ-DATE: 20141111T215640Z
  * AUTHORIZATION: AWS4-HMAC-SHA256 Credential=<credential>, SignedHeaders=content-type;host;x-amz-date;x-amz-target;x-amzn-requestid, Signature=<signature>
  *
- * {
+ * \{
  *     "Operation": "com.amazonaws.cognito.sync.model#ListDatasets",
  *     "Service": "com.amazonaws.cognito.sync.model#AWSCognitoSyncService",
  *     "Input":
- *     {
+ *     \{
  *         "IdentityPoolId": "IDENTITY_POOL_ID",
  *         "IdentityId": "IDENTITY_ID",
  *         "MaxResults": "3"
- *     }
- * }
+ *     \}
+ * \}
  *                </request>
  *             <response>
  * 1.1 200 OK
@@ -66,13 +69,13 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * content-length: 355
  * date: Tue, 11 Nov 2014 21:56:40 GMT
  *
- * {
+ * \{
  *     "Output":
- *     {
+ *     \{
  *         "__type": "com.amazonaws.cognito.sync.model#ListDatasetsResponse",
  *         "Count": 1,
  *         "Datasets": [
- *         {
+ *         \{
  *             "CreationDate": 1.412974057151E9,
  *             "DataStorage": 16,
  *             "DatasetName": "my_list",
@@ -80,11 +83,11 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  *             "LastModifiedBy": "123456789012",
  *             "LastModifiedDate": 1.412974057244E9,
  *             "NumRecords": 1
- *         }],
+ *         \}],
  *         "NextToken": null
- *     },
+ *     \},
  *     "Version": "1.0"
- * }
+ * \}
  *                </response>
  *          </example>
  *       </examples>
@@ -94,13 +97,38 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * import { CognitoSyncClient, ListDatasetsCommand } from "@aws-sdk/client-cognito-sync"; // ES Modules import
  * // const { CognitoSyncClient, ListDatasetsCommand } = require("@aws-sdk/client-cognito-sync"); // CommonJS import
  * const client = new CognitoSyncClient(config);
+ * const input = { // ListDatasetsRequest
+ *   IdentityPoolId: "STRING_VALUE", // required
+ *   IdentityId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListDatasetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDatasetsCommandInput - {@link ListDatasetsCommandInput}
+ * @returns {@link ListDatasetsCommandOutput}
  * @see {@link ListDatasetsCommandInput} for command's `input` shape.
  * @see {@link ListDatasetsCommandOutput} for command's `response` shape.
  * @see {@link CognitoSyncClientResolvedConfig | config} for CognitoSyncClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  Indicates an internal service
+ *       error.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  Thrown when a request parameter does not comply
+ *       with the associated constraints.
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  Thrown when a user is not authorized to access the
+ *       requested resource.
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  Thrown if the request is
+ *       throttled.
+ *
  *
  */
 export class ListDatasetsCommand extends $Command<
@@ -120,6 +148,9 @@ export class ListDatasetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDatasetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,8 +177,8 @@ export class ListDatasetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDatasetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDatasetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -157,12 +188,18 @@ export class ListDatasetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDatasetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDatasetsCommand(input, context);
+    return se_ListDatasetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDatasetsCommandOutput> {
-    return deserializeAws_restJson1ListDatasetsCommand(output, context);
+    return de_ListDatasetsCommand(output, context);
   }
 
   // Start section: command_body_extra

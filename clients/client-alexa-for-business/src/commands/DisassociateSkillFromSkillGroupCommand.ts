@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
+import { DisassociateSkillFromSkillGroupRequest, DisassociateSkillFromSkillGroupResponse } from "../models/models_0";
 import {
-  DisassociateSkillFromSkillGroupRequest,
-  DisassociateSkillFromSkillGroupRequestFilterSensitiveLog,
-  DisassociateSkillFromSkillGroupResponse,
-  DisassociateSkillFromSkillGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DisassociateSkillFromSkillGroupCommand,
-  serializeAws_json1_1DisassociateSkillFromSkillGroupCommand,
+  de_DisassociateSkillFromSkillGroupCommand,
+  se_DisassociateSkillFromSkillGroupCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DisassociateSkillFromSkillGroupCommand}.
+ */
 export interface DisassociateSkillFromSkillGroupCommandInput extends DisassociateSkillFromSkillGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateSkillFromSkillGroupCommand}.
+ */
 export interface DisassociateSkillFromSkillGroupCommandOutput
   extends DisassociateSkillFromSkillGroupResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a skill from a skill group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,26 @@ export interface DisassociateSkillFromSkillGroupCommandOutput
  * import { AlexaForBusinessClient, DisassociateSkillFromSkillGroupCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, DisassociateSkillFromSkillGroupCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // DisassociateSkillFromSkillGroupRequest
+ *   SkillGroupArn: "STRING_VALUE",
+ *   SkillId: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateSkillFromSkillGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateSkillFromSkillGroupCommandInput - {@link DisassociateSkillFromSkillGroupCommandInput}
+ * @returns {@link DisassociateSkillFromSkillGroupCommandOutput}
  * @see {@link DisassociateSkillFromSkillGroupCommandInput} for command's `input` shape.
  * @see {@link DisassociateSkillFromSkillGroupCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is a concurrent modification of resources.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
  *
  */
 export class DisassociateSkillFromSkillGroupCommand extends $Command<
@@ -64,6 +83,9 @@ export class DisassociateSkillFromSkillGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateSkillFromSkillGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +114,8 @@ export class DisassociateSkillFromSkillGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateSkillFromSkillGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateSkillFromSkillGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +125,24 @@ export class DisassociateSkillFromSkillGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateSkillFromSkillGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateSkillFromSkillGroupCommand(input, context);
+    return se_DisassociateSkillFromSkillGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateSkillFromSkillGroupCommandOutput> {
-    return deserializeAws_json1_1DisassociateSkillFromSkillGroupCommand(output, context);
+    return de_DisassociateSkillFromSkillGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

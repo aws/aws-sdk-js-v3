@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
-import {
-  GetBulkPublishDetailsRequest,
-  GetBulkPublishDetailsRequestFilterSensitiveLog,
-  GetBulkPublishDetailsResponse,
-  GetBulkPublishDetailsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetBulkPublishDetailsCommand,
-  serializeAws_restJson1GetBulkPublishDetailsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetBulkPublishDetailsRequest, GetBulkPublishDetailsResponse } from "../models/models_0";
+import { de_GetBulkPublishDetailsCommand, se_GetBulkPublishDetailsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetBulkPublishDetailsCommand}.
+ */
 export interface GetBulkPublishDetailsCommandInput extends GetBulkPublishDetailsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetBulkPublishDetailsCommand}.
+ */
 export interface GetBulkPublishDetailsCommandOutput extends GetBulkPublishDetailsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get the status of the last BulkPublish operation for an identity pool.</p><p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,35 @@ export interface GetBulkPublishDetailsCommandOutput extends GetBulkPublishDetail
  * import { CognitoSyncClient, GetBulkPublishDetailsCommand } from "@aws-sdk/client-cognito-sync"; // ES Modules import
  * // const { CognitoSyncClient, GetBulkPublishDetailsCommand } = require("@aws-sdk/client-cognito-sync"); // CommonJS import
  * const client = new CognitoSyncClient(config);
+ * const input = { // GetBulkPublishDetailsRequest
+ *   IdentityPoolId: "STRING_VALUE", // required
+ * };
  * const command = new GetBulkPublishDetailsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBulkPublishDetailsCommandInput - {@link GetBulkPublishDetailsCommandInput}
+ * @returns {@link GetBulkPublishDetailsCommandOutput}
  * @see {@link GetBulkPublishDetailsCommandInput} for command's `input` shape.
  * @see {@link GetBulkPublishDetailsCommandOutput} for command's `response` shape.
  * @see {@link CognitoSyncClientResolvedConfig | config} for CognitoSyncClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  Indicates an internal service
+ *       error.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  Thrown when a request parameter does not comply
+ *       with the associated constraints.
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  Thrown when a user is not authorized to access the
+ *       requested resource.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  Thrown if the resource doesn't
+ *       exist.
+ *
  *
  */
 export class GetBulkPublishDetailsCommand extends $Command<
@@ -62,6 +87,9 @@ export class GetBulkPublishDetailsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBulkPublishDetailsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +118,8 @@ export class GetBulkPublishDetailsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBulkPublishDetailsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBulkPublishDetailsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +129,18 @@ export class GetBulkPublishDetailsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBulkPublishDetailsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetBulkPublishDetailsCommand(input, context);
+    return se_GetBulkPublishDetailsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBulkPublishDetailsCommandOutput> {
-    return deserializeAws_restJson1GetBulkPublishDetailsCommand(output, context);
+    return de_GetBulkPublishDetailsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  UpdateProfileRequest,
-  UpdateProfileRequestFilterSensitiveLog,
-  UpdateProfileResponse,
-  UpdateProfileResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateProfileCommand,
-  serializeAws_json1_1UpdateProfileCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateProfileRequest, UpdateProfileResponse } from "../models/models_0";
+import { de_UpdateProfileCommand, se_UpdateProfileCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateProfileCommand}.
+ */
 export interface UpdateProfileCommandInput extends UpdateProfileRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateProfileCommand}.
+ */
 export interface UpdateProfileCommandOutput extends UpdateProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing room profile by room profile ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,58 @@ export interface UpdateProfileCommandOutput extends UpdateProfileResponse, __Met
  * import { AlexaForBusinessClient, UpdateProfileCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, UpdateProfileCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // UpdateProfileRequest
+ *   ProfileArn: "STRING_VALUE",
+ *   ProfileName: "STRING_VALUE",
+ *   IsDefault: true || false,
+ *   Timezone: "STRING_VALUE",
+ *   Address: "STRING_VALUE",
+ *   DistanceUnit: "STRING_VALUE",
+ *   TemperatureUnit: "STRING_VALUE",
+ *   WakeWord: "STRING_VALUE",
+ *   Locale: "STRING_VALUE",
+ *   SetupModeDisabled: true || false,
+ *   MaxVolumeLimit: Number("int"),
+ *   PSTNEnabled: true || false,
+ *   DataRetentionOptIn: true || false,
+ *   MeetingRoomConfiguration: { // UpdateMeetingRoomConfiguration
+ *     RoomUtilizationMetricsEnabled: true || false,
+ *     EndOfMeetingReminder: { // UpdateEndOfMeetingReminder
+ *       ReminderAtMinutes: [ // EndOfMeetingReminderMinutesList
+ *         Number("int"),
+ *       ],
+ *       ReminderType: "STRING_VALUE",
+ *       Enabled: true || false,
+ *     },
+ *     InstantBooking: { // UpdateInstantBooking
+ *       DurationInMinutes: Number("int"),
+ *       Enabled: true || false,
+ *     },
+ *     RequireCheckIn: { // UpdateRequireCheckIn
+ *       ReleaseAfterMinutes: Number("int"),
+ *       Enabled: true || false,
+ *     },
+ *   },
+ * };
  * const command = new UpdateProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateProfileCommandInput - {@link UpdateProfileCommandInput}
+ * @returns {@link UpdateProfileCommandOutput}
  * @see {@link UpdateProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateProfileCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is a concurrent modification of resources.</p>
+ *
+ * @throws {@link NameInUseException} (client fault)
+ *  <p>The name sent in the request is already in use.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
  *
  */
 export class UpdateProfileCommand extends $Command<
@@ -62,6 +110,9 @@ export class UpdateProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +139,8 @@ export class UpdateProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateProfileResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +150,18 @@ export class UpdateProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateProfileCommand(input, context);
+    return se_UpdateProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateProfileCommandOutput> {
-    return deserializeAws_json1_1UpdateProfileCommand(output, context);
+    return de_UpdateProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

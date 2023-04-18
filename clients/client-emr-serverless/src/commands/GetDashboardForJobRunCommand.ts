@@ -14,35 +14,56 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRServerlessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRServerlessClient";
-import {
-  GetDashboardForJobRunRequest,
-  GetDashboardForJobRunRequestFilterSensitiveLog,
-  GetDashboardForJobRunResponse,
-  GetDashboardForJobRunResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDashboardForJobRunCommand,
-  serializeAws_restJson1GetDashboardForJobRunCommand,
-} from "../protocols/Aws_restJson1";
+import { GetDashboardForJobRunRequest, GetDashboardForJobRunResponse } from "../models/models_0";
+import { de_GetDashboardForJobRunCommand, se_GetDashboardForJobRunCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetDashboardForJobRunCommand}.
+ */
 export interface GetDashboardForJobRunCommandInput extends GetDashboardForJobRunRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetDashboardForJobRunCommand}.
+ */
 export interface GetDashboardForJobRunCommandOutput extends GetDashboardForJobRunResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a URL to access the job run dashboard.</p>
+ * @public
+ * <p>Returns a URL to access the job run dashboard. The generated URL is valid for one hour,
+ *          after which you must invoke the API again to generate a new URL.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EMRServerlessClient, GetDashboardForJobRunCommand } from "@aws-sdk/client-emr-serverless"; // ES Modules import
  * // const { EMRServerlessClient, GetDashboardForJobRunCommand } = require("@aws-sdk/client-emr-serverless"); // CommonJS import
  * const client = new EMRServerlessClient(config);
+ * const input = { // GetDashboardForJobRunRequest
+ *   applicationId: "STRING_VALUE", // required
+ *   jobRunId: "STRING_VALUE", // required
+ * };
  * const command = new GetDashboardForJobRunCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDashboardForJobRunCommandInput - {@link GetDashboardForJobRunCommandInput}
+ * @returns {@link GetDashboardForJobRunCommandOutput}
  * @see {@link GetDashboardForJobRunCommandInput} for command's `input` shape.
  * @see {@link GetDashboardForJobRunCommandOutput} for command's `response` shape.
  * @see {@link EMRServerlessClientResolvedConfig | config} for EMRServerlessClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
+ *          service.</p>
+ *
  *
  */
 export class GetDashboardForJobRunCommand extends $Command<
@@ -62,6 +83,9 @@ export class GetDashboardForJobRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDashboardForJobRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +114,8 @@ export class GetDashboardForJobRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDashboardForJobRunRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDashboardForJobRunResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +125,18 @@ export class GetDashboardForJobRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDashboardForJobRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDashboardForJobRunCommand(input, context);
+    return se_GetDashboardForJobRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDashboardForJobRunCommandOutput> {
-    return deserializeAws_restJson1GetDashboardForJobRunCommand(output, context);
+    return de_GetDashboardForJobRunCommand(output, context);
   }
 
   // Start section: command_body_extra

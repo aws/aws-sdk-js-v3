@@ -185,6 +185,7 @@ import {
 import { SSOAdminClient } from "./SSOAdminClient";
 
 /**
+ * @public
  * <p>AWS IAM Identity Center (successor to AWS Single Sign-On) helps you securely create, or connect, your workforce identities and manage their
  *       access centrally across AWS accounts and applications. IAM Identity Center is the recommended
  *       approach for workforce authentication and authorization in AWS, for organizations of any size
@@ -210,6 +211,7 @@ import { SSOAdminClient } from "./SSOAdminClient";
  */
 export class SSOAdmin extends SSOAdminClient {
   /**
+   * @public
    * <p>Attaches the specified customer managed policy to the specified <a>PermissionSet</a>.</p>
    */
   public attachCustomerManagedPolicyReferenceToPermissionSet(
@@ -244,6 +246,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
+   * @public
    * <p>Attaches an AWS managed policy ARN to a permission set.</p>
    *          <note>
    *             <p>If the permission set is already referenced by one or more account assignments, you will
@@ -284,6 +287,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
+   * @public
    * <p>Assigns access to a principal for a specified AWS account using a specified
    *       permission set.</p>
    *          <note>
@@ -335,6 +339,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
+   * @public
    * <p>Enables the attributes-based access control (ABAC) feature for the specified IAM Identity Center
    *       instance. You can also specify new attributes to add to your ABAC configuration during the
    *       enabling process. For more information about ABAC, see <a href="/singlesignon/latest/userguide/abac.html">Attribute-Based Access Control</a> in the <i>IAM Identity Center User Guide</i>.</p>
@@ -375,6 +380,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
+   * @public
    * <p>Creates a permission set within a specified IAM Identity Center instance.</p>
    *          <note>
    *             <p>To grant users and groups access to AWS account resources, use <code>
@@ -412,6 +418,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
+   * @public
    * <p>Deletes a principal's access from a specified AWS account using a specified permission
    *       set.</p>
    *          <note>
@@ -448,6 +455,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
+   * @public
    * <p>Deletes the inline policy from a specified permission set.</p>
    */
   public deleteInlinePolicyFromPermissionSet(
@@ -480,6 +488,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
+   * @public
    * <p>Disables the attributes-based access control (ABAC) feature for the specified IAM Identity Center
    *       instance and deletes all of the attribute mappings that have been configured. Once deleted,
    *       any attributes that are received from an identity source and any custom attributes you have
@@ -517,6 +526,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
+   * @public
    * <p>Deletes the permissions boundary from a specified <a>PermissionSet</a>.</p>
    */
   public deletePermissionsBoundaryFromPermissionSet(
@@ -551,6 +561,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified permission set.</p>
    */
   public deletePermissionSet(
@@ -583,6 +594,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
+   * @public
    * <p>Describes the status of the assignment creation request.</p>
    */
   public describeAccountAssignmentCreationStatus(
@@ -617,6 +629,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
+   * @public
    * <p>Describes the status of the assignment deletion request.</p>
    */
   public describeAccountAssignmentDeletionStatus(
@@ -651,6 +664,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
+   * @public
    * <p>Returns the list of IAM Identity Center identity store attributes that have been configured to work
    *       with attributes-based access control (ABAC) for the specified IAM Identity Center instance. This will not
    *       return attributes configured and sent by an external identity provider. For more information about ABAC, see <a href="/singlesignon/latest/userguide/abac.html">Attribute-Based Access Control</a> in the <i>IAM Identity Center User Guide</i>.</p>
@@ -687,6 +701,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
+   * @public
    * <p>Gets the details of the permission set.</p>
    */
   public describePermissionSet(
@@ -719,6 +734,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
+   * @public
    * <p>Describes the status for the given permission set provisioning request.</p>
    */
   public describePermissionSetProvisioningStatus(
@@ -753,6 +769,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
+   * @public
    * <p>Detaches the specified customer managed policy from the specified <a>PermissionSet</a>.</p>
    */
   public detachCustomerManagedPolicyReferenceFromPermissionSet(
@@ -787,6 +804,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
+   * @public
    * <p>Detaches the attached AWS managed policy ARN from the specified permission set.</p>
    */
   public detachManagedPolicyFromPermissionSet(
@@ -819,6 +837,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
+   * @public
    * <p>Obtains the inline policy assigned to the permission set.</p>
    */
   public getInlinePolicyForPermissionSet(
@@ -851,6 +870,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
+   * @public
    * <p>Obtains the permissions boundary for a specified <a>PermissionSet</a>.</p>
    */
   public getPermissionsBoundaryForPermissionSet(
@@ -885,6 +905,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
+   * @public
    * <p>Lists the status of the AWS account assignment creation requests for a specified IAM Identity Center
    *       instance.</p>
    */
@@ -918,6 +939,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
+   * @public
    * <p>Lists the status of the AWS account assignment deletion requests for a specified IAM Identity Center
    *       instance.</p>
    */
@@ -951,6 +973,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
+   * @public
    * <p>Lists the assignee of the specified AWS account with the specified permission set.</p>
    */
   public listAccountAssignments(
@@ -983,6 +1006,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
+   * @public
    * <p>Lists all the AWS accounts where the specified permission set is provisioned.</p>
    */
   public listAccountsForProvisionedPermissionSet(
@@ -1017,6 +1041,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
+   * @public
    * <p>Lists all customer managed policies attached to a specified <a>PermissionSet</a>.</p>
    */
   public listCustomerManagedPolicyReferencesInPermissionSet(
@@ -1051,6 +1076,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
+   * @public
    * <p>Lists the IAM Identity Center instances that the caller has access to.</p>
    */
   public listInstances(
@@ -1083,6 +1109,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
+   * @public
    * <p>Lists the AWS managed policy that is attached to a specified permission set.</p>
    */
   public listManagedPoliciesInPermissionSet(
@@ -1115,6 +1142,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
+   * @public
    * <p>Lists the status of the permission set provisioning requests for a specified IAM Identity Center
    *       instance.</p>
    */
@@ -1148,6 +1176,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
+   * @public
    * <p>Lists the <a>PermissionSet</a>s in an IAM Identity Center instance.</p>
    */
   public listPermissionSets(
@@ -1180,6 +1209,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
+   * @public
    * <p>Lists all the permission sets that are provisioned to a specified AWS account.</p>
    */
   public listPermissionSetsProvisionedToAccount(
@@ -1214,6 +1244,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags that are attached to a specified resource.</p>
    */
   public listTagsForResource(
@@ -1246,6 +1277,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
+   * @public
    * <p>The process by which a specified permission set is provisioned to the specified
    *       target.</p>
    */
@@ -1279,6 +1311,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
+   * @public
    * <p>Attaches an inline policy to a permission set.</p>
    *          <note>
    *             <p>If the permission set is already referenced by one or more account assignments, you will
@@ -1318,6 +1351,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
+   * @public
    * <p>Attaches an AWS managed or customer managed policy to the specified <a>PermissionSet</a> as a permissions boundary.</p>
    */
   public putPermissionsBoundaryToPermissionSet(
@@ -1352,6 +1386,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
+   * @public
    * <p>Associates a set of tags with a specified resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -1378,6 +1413,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
+   * @public
    * <p>Disassociates a set of tags from a specified resource.</p>
    */
   public untagResource(
@@ -1410,6 +1446,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
+   * @public
    * <p>Updates the IAM Identity Center identity store attributes that you can use with the IAM Identity Center instance
    *       for attributes-based access control (ABAC). When using an external identity provider as an
    *       identity source, you can pass attributes through the SAML assertion as an alternative to
@@ -1449,6 +1486,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing permission set.</p>
    */
   public updatePermissionSet(

@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/util-body-length-node",
   "description": "Determines the length of a request body in node.js",
-  "version": "3.208.0",
+  "version": "3.310.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -18,8 +18,8 @@
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
-    "typedoc": "0.19.2",
-    "typescript": "~4.6.2"
+    "typedoc": "0.23.23",
+    "typescript": "~4.9.5"
   },
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -30,7 +30,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "tslib": "^2.3.1"
+    "tslib": "^2.5.0"
   },
   "engines": {
     "node": ">=14.0.0"
@@ -43,12 +43,15 @@
     }
   },
   "files": [
-    "dist-*"
+    "dist-*/**"
   ],
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/util-body-length-node",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
     "directory": "packages/util-body-length-node"
+  },
+  "typedoc": {
+    "entryPoint": "src/index.ts"
   }
 }

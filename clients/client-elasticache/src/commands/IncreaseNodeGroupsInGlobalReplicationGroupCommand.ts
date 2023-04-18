@@ -16,22 +16,31 @@ import {
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import {
   IncreaseNodeGroupsInGlobalReplicationGroupMessage,
-  IncreaseNodeGroupsInGlobalReplicationGroupMessageFilterSensitiveLog,
   IncreaseNodeGroupsInGlobalReplicationGroupResult,
-  IncreaseNodeGroupsInGlobalReplicationGroupResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_queryIncreaseNodeGroupsInGlobalReplicationGroupCommand,
-  serializeAws_queryIncreaseNodeGroupsInGlobalReplicationGroupCommand,
+  de_IncreaseNodeGroupsInGlobalReplicationGroupCommand,
+  se_IncreaseNodeGroupsInGlobalReplicationGroupCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link IncreaseNodeGroupsInGlobalReplicationGroupCommand}.
+ */
 export interface IncreaseNodeGroupsInGlobalReplicationGroupCommandInput
   extends IncreaseNodeGroupsInGlobalReplicationGroupMessage {}
+/**
+ * @public
+ *
+ * The output of {@link IncreaseNodeGroupsInGlobalReplicationGroupCommand}.
+ */
 export interface IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput
   extends IncreaseNodeGroupsInGlobalReplicationGroupResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Increase the number of node groups in the Global datastore</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +48,44 @@ export interface IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput
  * import { ElastiCacheClient, IncreaseNodeGroupsInGlobalReplicationGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, IncreaseNodeGroupsInGlobalReplicationGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // IncreaseNodeGroupsInGlobalReplicationGroupMessage
+ *   GlobalReplicationGroupId: "STRING_VALUE", // required
+ *   NodeGroupCount: Number("int"), // required
+ *   RegionalConfigurations: [ // RegionalConfigurationList
+ *     { // RegionalConfiguration
+ *       ReplicationGroupId: "STRING_VALUE", // required
+ *       ReplicationGroupRegion: "STRING_VALUE", // required
+ *       ReshardingConfiguration: [ // ReshardingConfigurationList // required
+ *         { // ReshardingConfiguration
+ *           NodeGroupId: "STRING_VALUE",
+ *           PreferredAvailabilityZones: [ // AvailabilityZonesList
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   ApplyImmediately: true || false, // required
+ * };
  * const command = new IncreaseNodeGroupsInGlobalReplicationGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param IncreaseNodeGroupsInGlobalReplicationGroupCommandInput - {@link IncreaseNodeGroupsInGlobalReplicationGroupCommandInput}
+ * @returns {@link IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput}
  * @see {@link IncreaseNodeGroupsInGlobalReplicationGroupCommandInput} for command's `input` shape.
  * @see {@link IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
+ *
+ * @throws {@link GlobalReplicationGroupNotFoundFault} (client fault)
+ *  <p>The Global datastore does not exist</p>
+ *
+ * @throws {@link InvalidGlobalReplicationGroupStateFault} (client fault)
+ *  <p>The Global datastore is not available or in primary-only state.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
  *
  */
 export class IncreaseNodeGroupsInGlobalReplicationGroupCommand extends $Command<
@@ -65,6 +105,9 @@ export class IncreaseNodeGroupsInGlobalReplicationGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: IncreaseNodeGroupsInGlobalReplicationGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +142,8 @@ export class IncreaseNodeGroupsInGlobalReplicationGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: IncreaseNodeGroupsInGlobalReplicationGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: IncreaseNodeGroupsInGlobalReplicationGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,18 +153,24 @@ export class IncreaseNodeGroupsInGlobalReplicationGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: IncreaseNodeGroupsInGlobalReplicationGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryIncreaseNodeGroupsInGlobalReplicationGroupCommand(input, context);
+    return se_IncreaseNodeGroupsInGlobalReplicationGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput> {
-    return deserializeAws_queryIncreaseNodeGroupsInGlobalReplicationGroupCommand(output, context);
+    return de_IncreaseNodeGroupsInGlobalReplicationGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

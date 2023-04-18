@@ -26,12 +26,14 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
@@ -47,10 +49,13 @@ import {
   UserAgent as __UserAgent,
 } from "@aws-sdk/types";
 
+import { AssociateFraudsterCommandInput, AssociateFraudsterCommandOutput } from "./commands/AssociateFraudsterCommand";
 import { CreateDomainCommandInput, CreateDomainCommandOutput } from "./commands/CreateDomainCommand";
+import { CreateWatchlistCommandInput, CreateWatchlistCommandOutput } from "./commands/CreateWatchlistCommand";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
 import { DeleteFraudsterCommandInput, DeleteFraudsterCommandOutput } from "./commands/DeleteFraudsterCommand";
 import { DeleteSpeakerCommandInput, DeleteSpeakerCommandOutput } from "./commands/DeleteSpeakerCommand";
+import { DeleteWatchlistCommandInput, DeleteWatchlistCommandOutput } from "./commands/DeleteWatchlistCommand";
 import { DescribeDomainCommandInput, DescribeDomainCommandOutput } from "./commands/DescribeDomainCommand";
 import { DescribeFraudsterCommandInput, DescribeFraudsterCommandOutput } from "./commands/DescribeFraudsterCommand";
 import {
@@ -62,12 +67,18 @@ import {
   DescribeSpeakerEnrollmentJobCommandInput,
   DescribeSpeakerEnrollmentJobCommandOutput,
 } from "./commands/DescribeSpeakerEnrollmentJobCommand";
+import { DescribeWatchlistCommandInput, DescribeWatchlistCommandOutput } from "./commands/DescribeWatchlistCommand";
+import {
+  DisassociateFraudsterCommandInput,
+  DisassociateFraudsterCommandOutput,
+} from "./commands/DisassociateFraudsterCommand";
 import { EvaluateSessionCommandInput, EvaluateSessionCommandOutput } from "./commands/EvaluateSessionCommand";
 import { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
 import {
   ListFraudsterRegistrationJobsCommandInput,
   ListFraudsterRegistrationJobsCommandOutput,
 } from "./commands/ListFraudsterRegistrationJobsCommand";
+import { ListFraudstersCommandInput, ListFraudstersCommandOutput } from "./commands/ListFraudstersCommand";
 import {
   ListSpeakerEnrollmentJobsCommandInput,
   ListSpeakerEnrollmentJobsCommandOutput,
@@ -77,6 +88,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { ListWatchlistsCommandInput, ListWatchlistsCommandOutput } from "./commands/ListWatchlistsCommand";
 import { OptOutSpeakerCommandInput, OptOutSpeakerCommandOutput } from "./commands/OptOutSpeakerCommand";
 import {
   StartFraudsterRegistrationJobCommandInput,
@@ -89,6 +101,7 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateDomainCommandInput, UpdateDomainCommandOutput } from "./commands/UpdateDomainCommand";
+import { UpdateWatchlistCommandInput, UpdateWatchlistCommandOutput } from "./commands/UpdateWatchlistCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -97,52 +110,77 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
+  | AssociateFraudsterCommandInput
   | CreateDomainCommandInput
+  | CreateWatchlistCommandInput
   | DeleteDomainCommandInput
   | DeleteFraudsterCommandInput
   | DeleteSpeakerCommandInput
+  | DeleteWatchlistCommandInput
   | DescribeDomainCommandInput
   | DescribeFraudsterCommandInput
   | DescribeFraudsterRegistrationJobCommandInput
   | DescribeSpeakerCommandInput
   | DescribeSpeakerEnrollmentJobCommandInput
+  | DescribeWatchlistCommandInput
+  | DisassociateFraudsterCommandInput
   | EvaluateSessionCommandInput
   | ListDomainsCommandInput
   | ListFraudsterRegistrationJobsCommandInput
+  | ListFraudstersCommandInput
   | ListSpeakerEnrollmentJobsCommandInput
   | ListSpeakersCommandInput
   | ListTagsForResourceCommandInput
+  | ListWatchlistsCommandInput
   | OptOutSpeakerCommandInput
   | StartFraudsterRegistrationJobCommandInput
   | StartSpeakerEnrollmentJobCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
-  | UpdateDomainCommandInput;
+  | UpdateDomainCommandInput
+  | UpdateWatchlistCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
+  | AssociateFraudsterCommandOutput
   | CreateDomainCommandOutput
+  | CreateWatchlistCommandOutput
   | DeleteDomainCommandOutput
   | DeleteFraudsterCommandOutput
   | DeleteSpeakerCommandOutput
+  | DeleteWatchlistCommandOutput
   | DescribeDomainCommandOutput
   | DescribeFraudsterCommandOutput
   | DescribeFraudsterRegistrationJobCommandOutput
   | DescribeSpeakerCommandOutput
   | DescribeSpeakerEnrollmentJobCommandOutput
+  | DescribeWatchlistCommandOutput
+  | DisassociateFraudsterCommandOutput
   | EvaluateSessionCommandOutput
   | ListDomainsCommandOutput
   | ListFraudsterRegistrationJobsCommandOutput
+  | ListFraudstersCommandOutput
   | ListSpeakerEnrollmentJobsCommandOutput
   | ListSpeakersCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListWatchlistsCommandOutput
   | OptOutSpeakerCommandOutput
   | StartFraudsterRegistrationJobCommandOutput
   | StartSpeakerEnrollmentJobCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
-  | UpdateDomainCommandOutput;
+  | UpdateDomainCommandOutput
+  | UpdateWatchlistCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -150,11 +188,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -211,19 +249,10 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
-   * Value for how many times a request will be made at most in case of retry.
+   * Unique service identifier.
+   * @internal
    */
-  maxAttempts?: number | __Provider<number>;
-
-  /**
-   * Specifies which retry algorithm to use.
-   */
-  retryMode?: string | __Provider<string>;
-
-  /**
-   * Optional logger for logging debug/info/warn/error.
-   */
-  logger?: __Logger;
+  serviceId?: string;
 
   /**
    * Enables IPv6/IPv4 dualstack endpoint.
@@ -234,12 +263,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Enables FIPS compatible endpoints.
    */
   useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
 
   /**
    * The AWS region to which this client will send requests
@@ -259,11 +282,29 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * Value for how many times a request will be made at most in case of retry.
    */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Specifies which retry algorithm to use.
+   */
+  retryMode?: string | __Provider<string>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
+
+  /**
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   */
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type VoiceIDClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -274,10 +315,15 @@ type VoiceIDClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOption
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of VoiceIDClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of VoiceIDClient class constructor that set the region, credentials and other options.
  */
 export interface VoiceIDClientConfig extends VoiceIDClientConfigType {}
 
+/**
+ * @public
+ */
 type VoiceIDClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -288,13 +334,16 @@ type VoiceIDClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandl
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of VoiceIDClient class. This is resolved and normalized from the {@link VoiceIDClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of VoiceIDClient class. This is resolved and normalized from the {@link VoiceIDClientConfig | constructor configuration interface}.
  */
 export interface VoiceIDClientResolvedConfig extends VoiceIDClientResolvedConfigType {}
 
 /**
- * <p>Amazon Connect Voice ID provides real-time caller authentication and fraud screening. This guide
- *             describes the APIs used for this service. </p>
+ * @public
+ * <p>Amazon Connect Voice ID provides real-time caller authentication and fraud risk detection, which
+ *             make voice interactions in contact centers more secure and efficient.</p>
  */
 export class VoiceIDClient extends __Client<
   __HttpHandlerOptions,

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  GetTrafficDistributionRequest,
-  GetTrafficDistributionRequestFilterSensitiveLog,
-  GetTrafficDistributionResponse,
-  GetTrafficDistributionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetTrafficDistributionCommand,
-  serializeAws_restJson1GetTrafficDistributionCommand,
-} from "../protocols/Aws_restJson1";
+import { GetTrafficDistributionRequest, GetTrafficDistributionResponse } from "../models/models_0";
+import { de_GetTrafficDistributionCommand, se_GetTrafficDistributionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetTrafficDistributionCommand}.
+ */
 export interface GetTrafficDistributionCommandInput extends GetTrafficDistributionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetTrafficDistributionCommand}.
+ */
 export interface GetTrafficDistributionCommandOutput extends GetTrafficDistributionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the current traffic distribution for a given traffic distribution group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,34 @@ export interface GetTrafficDistributionCommandOutput extends GetTrafficDistribut
  * import { ConnectClient, GetTrafficDistributionCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, GetTrafficDistributionCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // GetTrafficDistributionRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetTrafficDistributionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTrafficDistributionCommandInput - {@link GetTrafficDistributionCommandInput}
+ * @returns {@link GetTrafficDistributionCommandOutput}
  * @see {@link GetTrafficDistributionCommandInput} for command's `input` shape.
  * @see {@link GetTrafficDistributionCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
  *
  */
 export class GetTrafficDistributionCommand extends $Command<
@@ -62,6 +86,9 @@ export class GetTrafficDistributionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTrafficDistributionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +117,8 @@ export class GetTrafficDistributionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTrafficDistributionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTrafficDistributionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +128,18 @@ export class GetTrafficDistributionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTrafficDistributionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTrafficDistributionCommand(input, context);
+    return se_GetTrafficDistributionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTrafficDistributionCommandOutput> {
-    return deserializeAws_restJson1GetTrafficDistributionCommand(output, context);
+    return de_GetTrafficDistributionCommand(output, context);
   }
 
   // Start section: command_body_extra

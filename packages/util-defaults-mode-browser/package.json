@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-defaults-mode-browser",
-  "version": "3.234.0",
+  "version": "3.315.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -22,7 +22,7 @@
     "@aws-sdk/property-provider": "*",
     "@aws-sdk/types": "*",
     "bowser": "^2.11.0",
-    "tslib": "^2.3.1"
+    "tslib": "^2.5.0"
   },
   "devDependencies": {
     "@aws-sdk/smithy-client": "*",
@@ -31,8 +31,8 @@
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
-    "typedoc": "0.19.2",
-    "typescript": "~4.6.2"
+    "typedoc": "0.23.23",
+    "typescript": "~4.9.5"
   },
   "engines": {
     "node": ">= 10.0.0"
@@ -45,7 +45,7 @@
     }
   },
   "files": [
-    "dist-*"
+    "dist-*/**"
   ],
   "react-native": {
     "./dist-es/resolveDefaultsModeConfig": "./dist-es/resolveDefaultsModeConfig.native"
@@ -55,5 +55,8 @@
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
     "directory": "packages/util-defaults-mode-node"
+  },
+  "typedoc": {
+    "entryPoint": "src/index.ts"
   }
 }

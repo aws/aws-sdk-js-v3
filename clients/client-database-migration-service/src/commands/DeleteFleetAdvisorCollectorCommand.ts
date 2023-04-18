@@ -18,16 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { DeleteCollectorRequest, DeleteCollectorRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteFleetAdvisorCollectorCommand,
-  serializeAws_json1_1DeleteFleetAdvisorCollectorCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteCollectorRequest } from "../models/models_0";
+import { de_DeleteFleetAdvisorCollectorCommand, se_DeleteFleetAdvisorCollectorCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteFleetAdvisorCollectorCommand}.
+ */
 export interface DeleteFleetAdvisorCollectorCommandInput extends DeleteCollectorRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteFleetAdvisorCollectorCommand}.
+ */
 export interface DeleteFleetAdvisorCollectorCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified Fleet Advisor collector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -35,13 +43,25 @@ export interface DeleteFleetAdvisorCollectorCommandOutput extends __MetadataBear
  * import { DatabaseMigrationServiceClient, DeleteFleetAdvisorCollectorCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DeleteFleetAdvisorCollectorCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // DeleteCollectorRequest
+ *   CollectorReferencedId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteFleetAdvisorCollectorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFleetAdvisorCollectorCommandInput - {@link DeleteFleetAdvisorCollectorCommandInput}
+ * @returns {@link DeleteFleetAdvisorCollectorCommandOutput}
  * @see {@link DeleteFleetAdvisorCollectorCommandInput} for command's `input` shape.
  * @see {@link DeleteFleetAdvisorCollectorCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
+ *
+ * @throws {@link CollectorNotFoundFault} (client fault)
+ *  <p>The specified collector doesn't exist.</p>
+ *
+ * @throws {@link InvalidResourceStateFault} (client fault)
+ *  <p>The resource is in a state that prevents it from being used for database migration.</p>
+ *
  *
  */
 export class DeleteFleetAdvisorCollectorCommand extends $Command<
@@ -61,6 +81,9 @@ export class DeleteFleetAdvisorCollectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFleetAdvisorCollectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +112,8 @@ export class DeleteFleetAdvisorCollectorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCollectorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,15 +123,21 @@ export class DeleteFleetAdvisorCollectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFleetAdvisorCollectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteFleetAdvisorCollectorCommand(input, context);
+    return se_DeleteFleetAdvisorCollectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteFleetAdvisorCollectorCommandOutput> {
-    return deserializeAws_json1_1DeleteFleetAdvisorCollectorCommand(output, context);
+    return de_DeleteFleetAdvisorCollectorCommand(output, context);
   }
 
   // Start section: command_body_extra

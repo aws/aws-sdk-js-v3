@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  ApproveSkillRequest,
-  ApproveSkillRequestFilterSensitiveLog,
-  ApproveSkillResponse,
-  ApproveSkillResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ApproveSkillCommand,
-  serializeAws_json1_1ApproveSkillCommand,
-} from "../protocols/Aws_json1_1";
+import { ApproveSkillRequest, ApproveSkillResponse } from "../models/models_0";
+import { de_ApproveSkillCommand, se_ApproveSkillCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ApproveSkillCommand}.
+ */
 export interface ApproveSkillCommandInput extends ApproveSkillRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ApproveSkillCommand}.
+ */
 export interface ApproveSkillCommandOutput extends ApproveSkillResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a skill with the organization under the customer's AWS account. If a skill
  *          is private, the user implicitly accepts access to this skill during enablement.</p>
  * @example
@@ -37,13 +40,28 @@ export interface ApproveSkillCommandOutput extends ApproveSkillResponse, __Metad
  * import { AlexaForBusinessClient, ApproveSkillCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, ApproveSkillCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // ApproveSkillRequest
+ *   SkillId: "STRING_VALUE", // required
+ * };
  * const command = new ApproveSkillCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ApproveSkillCommandInput - {@link ApproveSkillCommandInput}
+ * @returns {@link ApproveSkillCommandOutput}
  * @see {@link ApproveSkillCommandInput} for command's `input` shape.
  * @see {@link ApproveSkillCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is a concurrent modification of resources.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You are performing an action that would put you beyond your account's limits.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
  *
  */
 export class ApproveSkillCommand extends $Command<
@@ -63,6 +81,9 @@ export class ApproveSkillCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ApproveSkillCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +110,8 @@ export class ApproveSkillCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ApproveSkillRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ApproveSkillResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +121,18 @@ export class ApproveSkillCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ApproveSkillCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ApproveSkillCommand(input, context);
+    return se_ApproveSkillCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ApproveSkillCommandOutput> {
-    return deserializeAws_json1_1ApproveSkillCommand(output, context);
+    return de_ApproveSkillCommand(output, context);
   }
 
   // Start section: command_body_extra

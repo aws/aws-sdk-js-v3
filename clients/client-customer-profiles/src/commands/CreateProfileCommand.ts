@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
-import {
-  CreateProfileRequest,
-  CreateProfileRequestFilterSensitiveLog,
-  CreateProfileResponse,
-  CreateProfileResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateProfileCommand,
-  serializeAws_restJson1CreateProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateProfileRequest, CreateProfileResponse } from "../models/models_0";
+import { de_CreateProfileCommand, se_CreateProfileCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateProfileCommand}.
+ */
 export interface CreateProfileCommandInput extends CreateProfileRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateProfileCommand}.
+ */
 export interface CreateProfileCommandOutput extends CreateProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a standard profile.</p>
  *          <p>A standard profile represents the following attributes for a customer profile in a
  *          domain.</p>
@@ -38,13 +41,103 @@ export interface CreateProfileCommandOutput extends CreateProfileResponse, __Met
  * import { CustomerProfilesClient, CreateProfileCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, CreateProfileCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
+ * const input = { // CreateProfileRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   AccountNumber: "STRING_VALUE",
+ *   AdditionalInformation: "STRING_VALUE",
+ *   PartyType: "INDIVIDUAL" || "BUSINESS" || "OTHER",
+ *   BusinessName: "STRING_VALUE",
+ *   FirstName: "STRING_VALUE",
+ *   MiddleName: "STRING_VALUE",
+ *   LastName: "STRING_VALUE",
+ *   BirthDate: "STRING_VALUE",
+ *   Gender: "MALE" || "FEMALE" || "UNSPECIFIED",
+ *   PhoneNumber: "STRING_VALUE",
+ *   MobilePhoneNumber: "STRING_VALUE",
+ *   HomePhoneNumber: "STRING_VALUE",
+ *   BusinessPhoneNumber: "STRING_VALUE",
+ *   EmailAddress: "STRING_VALUE",
+ *   PersonalEmailAddress: "STRING_VALUE",
+ *   BusinessEmailAddress: "STRING_VALUE",
+ *   Address: { // Address
+ *     Address1: "STRING_VALUE",
+ *     Address2: "STRING_VALUE",
+ *     Address3: "STRING_VALUE",
+ *     Address4: "STRING_VALUE",
+ *     City: "STRING_VALUE",
+ *     County: "STRING_VALUE",
+ *     State: "STRING_VALUE",
+ *     Province: "STRING_VALUE",
+ *     Country: "STRING_VALUE",
+ *     PostalCode: "STRING_VALUE",
+ *   },
+ *   ShippingAddress: {
+ *     Address1: "STRING_VALUE",
+ *     Address2: "STRING_VALUE",
+ *     Address3: "STRING_VALUE",
+ *     Address4: "STRING_VALUE",
+ *     City: "STRING_VALUE",
+ *     County: "STRING_VALUE",
+ *     State: "STRING_VALUE",
+ *     Province: "STRING_VALUE",
+ *     Country: "STRING_VALUE",
+ *     PostalCode: "STRING_VALUE",
+ *   },
+ *   MailingAddress: {
+ *     Address1: "STRING_VALUE",
+ *     Address2: "STRING_VALUE",
+ *     Address3: "STRING_VALUE",
+ *     Address4: "STRING_VALUE",
+ *     City: "STRING_VALUE",
+ *     County: "STRING_VALUE",
+ *     State: "STRING_VALUE",
+ *     Province: "STRING_VALUE",
+ *     Country: "STRING_VALUE",
+ *     PostalCode: "STRING_VALUE",
+ *   },
+ *   BillingAddress: {
+ *     Address1: "STRING_VALUE",
+ *     Address2: "STRING_VALUE",
+ *     Address3: "STRING_VALUE",
+ *     Address4: "STRING_VALUE",
+ *     City: "STRING_VALUE",
+ *     County: "STRING_VALUE",
+ *     State: "STRING_VALUE",
+ *     Province: "STRING_VALUE",
+ *     Country: "STRING_VALUE",
+ *     PostalCode: "STRING_VALUE",
+ *   },
+ *   Attributes: { // Attributes
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   PartyTypeString: "STRING_VALUE",
+ *   GenderString: "STRING_VALUE",
+ * };
  * const command = new CreateProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateProfileCommandInput - {@link CreateProfileCommandInput}
+ * @returns {@link CreateProfileCommandOutput}
  * @see {@link CreateProfileCommandInput} for command's `input` shape.
  * @see {@link CreateProfileCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input you provided is invalid.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource does not exist, or access was denied.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>You exceeded the maximum number of requests.</p>
+ *
  *
  */
 export class CreateProfileCommand extends $Command<
@@ -64,6 +157,9 @@ export class CreateProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +186,8 @@ export class CreateProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateProfileResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +197,18 @@ export class CreateProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateProfileCommand(input, context);
+    return se_CreateProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateProfileCommandOutput> {
-    return deserializeAws_restJson1CreateProfileCommand(output, context);
+    return de_CreateProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

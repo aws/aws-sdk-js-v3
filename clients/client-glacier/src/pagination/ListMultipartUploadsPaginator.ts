@@ -6,12 +6,11 @@ import {
   ListMultipartUploadsCommandInput,
   ListMultipartUploadsCommandOutput,
 } from "../commands/ListMultipartUploadsCommand";
-import { Glacier } from "../Glacier";
 import { GlacierClient } from "../GlacierClient";
 import { GlacierPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: GlacierClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListMultipartUploadsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Glacier,
-  input: ListMultipartUploadsCommandInput,
-  ...args: any
-): Promise<ListMultipartUploadsCommandOutput> => {
-  // @ts-ignore
-  return await client.listMultipartUploads(input, ...args);
-};
 export async function* paginateListMultipartUploads(
   config: GlacierPaginationConfiguration,
   input: ListMultipartUploadsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListMultipartUploads(
   while (hasNext) {
     input.marker = token;
     input["limit"] = config.pageSize;
-    if (config.client instanceof Glacier) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof GlacierClient) {
+    if (config.client instanceof GlacierClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Glacier | GlacierClient");

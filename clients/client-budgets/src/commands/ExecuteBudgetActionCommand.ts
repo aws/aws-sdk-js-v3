@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
-import {
-  ExecuteBudgetActionRequest,
-  ExecuteBudgetActionRequestFilterSensitiveLog,
-  ExecuteBudgetActionResponse,
-  ExecuteBudgetActionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ExecuteBudgetActionCommand,
-  serializeAws_json1_1ExecuteBudgetActionCommand,
-} from "../protocols/Aws_json1_1";
+import { ExecuteBudgetActionRequest, ExecuteBudgetActionResponse } from "../models/models_0";
+import { de_ExecuteBudgetActionCommand, se_ExecuteBudgetActionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ExecuteBudgetActionCommand}.
+ */
 export interface ExecuteBudgetActionCommandInput extends ExecuteBudgetActionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ExecuteBudgetActionCommand}.
+ */
 export interface ExecuteBudgetActionCommandOutput extends ExecuteBudgetActionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *          Executes a budget action.
  *       </p>
@@ -38,13 +41,43 @@ export interface ExecuteBudgetActionCommandOutput extends ExecuteBudgetActionRes
  * import { BudgetsClient, ExecuteBudgetActionCommand } from "@aws-sdk/client-budgets"; // ES Modules import
  * // const { BudgetsClient, ExecuteBudgetActionCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
  * const client = new BudgetsClient(config);
+ * const input = { // ExecuteBudgetActionRequest
+ *   AccountId: "STRING_VALUE", // required
+ *   BudgetName: "STRING_VALUE", // required
+ *   ActionId: "STRING_VALUE", // required
+ *   ExecutionType: "STRING_VALUE", // required
+ * };
  * const command = new ExecuteBudgetActionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ExecuteBudgetActionCommandInput - {@link ExecuteBudgetActionCommandInput}
+ * @returns {@link ExecuteBudgetActionCommandOutput}
  * @see {@link ExecuteBudgetActionCommandInput} for command's `input` shape.
  * @see {@link ExecuteBudgetActionCommandOutput} for command's `response` shape.
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to use this operation with the given parameters.</p>
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>An error on the server occurred during the processing of your request. Try again later.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>We can’t locate the resource that you specified.</p>
+ *
+ * @throws {@link ResourceLockedException} (client fault)
+ *  <p> The request was received and recognized by the server, but the server rejected that
+ *       particular method for the requested resource. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>
+ *       The number of API requests has exceeded the maximum allowed API request throttling limit for the account.
+ *     </p>
+ *
  *
  */
 export class ExecuteBudgetActionCommand extends $Command<
@@ -64,6 +97,9 @@ export class ExecuteBudgetActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExecuteBudgetActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +128,8 @@ export class ExecuteBudgetActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExecuteBudgetActionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ExecuteBudgetActionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +139,18 @@ export class ExecuteBudgetActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExecuteBudgetActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ExecuteBudgetActionCommand(input, context);
+    return se_ExecuteBudgetActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExecuteBudgetActionCommandOutput> {
-    return deserializeAws_json1_1ExecuteBudgetActionCommand(output, context);
+    return de_ExecuteBudgetActionCommand(output, context);
   }
 
   // Start section: command_body_extra

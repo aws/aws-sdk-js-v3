@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import {
-  SearchThingsRequest,
-  SearchThingsRequestFilterSensitiveLog,
-  SearchThingsResponse,
-  SearchThingsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1SearchThingsCommand,
-  serializeAws_json1_1SearchThingsCommand,
-} from "../protocols/Aws_json1_1";
+import { SearchThingsRequest, SearchThingsResponse } from "../models/models_0";
+import { de_SearchThingsCommand, se_SearchThingsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link SearchThingsCommand}.
+ */
 export interface SearchThingsCommandInput extends SearchThingsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SearchThingsCommand}.
+ */
 export interface SearchThingsCommandOutput extends SearchThingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Searches for things associated with the specified entity. You can search by both device and device model.</p>
@@ -41,13 +44,34 @@ export interface SearchThingsCommandOutput extends SearchThingsResponse, __Metad
  * import { IoTThingsGraphClient, SearchThingsCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, SearchThingsCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
+ * const input = { // SearchThingsRequest
+ *   entityId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   namespaceVersion: Number("long"),
+ * };
  * const command = new SearchThingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchThingsCommandInput - {@link SearchThingsCommandInput}
+ * @returns {@link SearchThingsCommandOutput}
  * @see {@link SearchThingsCommandInput} for command's `input` shape.
  * @see {@link SearchThingsCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p></p>
+ *
  *
  */
 export class SearchThingsCommand extends $Command<
@@ -67,6 +91,9 @@ export class SearchThingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchThingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +120,8 @@ export class SearchThingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchThingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchThingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +131,18 @@ export class SearchThingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchThingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SearchThingsCommand(input, context);
+    return se_SearchThingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchThingsCommandOutput> {
-    return deserializeAws_json1_1SearchThingsCommand(output, context);
+    return de_SearchThingsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import {
-  ListBulkDeploymentsRequest,
-  ListBulkDeploymentsRequestFilterSensitiveLog,
-  ListBulkDeploymentsResponse,
-  ListBulkDeploymentsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListBulkDeploymentsCommand,
-  serializeAws_restJson1ListBulkDeploymentsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListBulkDeploymentsRequest, ListBulkDeploymentsResponse } from "../models/models_0";
+import { de_ListBulkDeploymentsCommand, se_ListBulkDeploymentsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListBulkDeploymentsCommand}.
+ */
 export interface ListBulkDeploymentsCommandInput extends ListBulkDeploymentsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListBulkDeploymentsCommand}.
+ */
 export interface ListBulkDeploymentsCommandOutput extends ListBulkDeploymentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Returns a list of bulk deployments.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,23 @@ export interface ListBulkDeploymentsCommandOutput extends ListBulkDeploymentsRes
  * import { GreengrassClient, ListBulkDeploymentsCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, ListBulkDeploymentsCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // ListBulkDeploymentsRequest
+ *   MaxResults: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListBulkDeploymentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBulkDeploymentsCommandInput - {@link ListBulkDeploymentsCommandInput}
+ * @returns {@link ListBulkDeploymentsCommandOutput}
  * @see {@link ListBulkDeploymentsCommandInput} for command's `input` shape.
  * @see {@link ListBulkDeploymentsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  General error information.
+ *
  *
  */
 export class ListBulkDeploymentsCommand extends $Command<
@@ -62,6 +75,9 @@ export class ListBulkDeploymentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBulkDeploymentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +106,8 @@ export class ListBulkDeploymentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBulkDeploymentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListBulkDeploymentsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +117,18 @@ export class ListBulkDeploymentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBulkDeploymentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListBulkDeploymentsCommand(input, context);
+    return se_ListBulkDeploymentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBulkDeploymentsCommandOutput> {
-    return deserializeAws_restJson1ListBulkDeploymentsCommand(output, context);
+    return de_ListBulkDeploymentsCommand(output, context);
   }
 
   // Start section: command_body_extra

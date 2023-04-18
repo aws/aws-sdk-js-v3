@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
+import { DescribeLocationObjectStorageRequest, DescribeLocationObjectStorageResponse } from "../models/models_0";
 import {
-  DescribeLocationObjectStorageRequest,
-  DescribeLocationObjectStorageRequestFilterSensitiveLog,
-  DescribeLocationObjectStorageResponse,
-  DescribeLocationObjectStorageResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeLocationObjectStorageCommand,
-  serializeAws_json1_1DescribeLocationObjectStorageCommand,
+  de_DescribeLocationObjectStorageCommand,
+  se_DescribeLocationObjectStorageCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeLocationObjectStorageCommand}.
+ */
 export interface DescribeLocationObjectStorageCommandInput extends DescribeLocationObjectStorageRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeLocationObjectStorageCommand}.
+ */
 export interface DescribeLocationObjectStorageCommandOutput
   extends DescribeLocationObjectStorageResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns metadata about your DataSync location for an object storage system.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,25 @@ export interface DescribeLocationObjectStorageCommandOutput
  * import { DataSyncClient, DescribeLocationObjectStorageCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, DescribeLocationObjectStorageCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = { // DescribeLocationObjectStorageRequest
+ *   LocationArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeLocationObjectStorageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLocationObjectStorageCommandInput - {@link DescribeLocationObjectStorageCommandInput}
+ * @returns {@link DescribeLocationObjectStorageCommandOutput}
  * @see {@link DescribeLocationObjectStorageCommandInput} for command's `input` shape.
  * @see {@link DescribeLocationObjectStorageCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception is thrown when an error occurs in the DataSync service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
  *
  */
 export class DescribeLocationObjectStorageCommand extends $Command<
@@ -64,6 +82,9 @@ export class DescribeLocationObjectStorageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLocationObjectStorageCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +113,8 @@ export class DescribeLocationObjectStorageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLocationObjectStorageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLocationObjectStorageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +124,21 @@ export class DescribeLocationObjectStorageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLocationObjectStorageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeLocationObjectStorageCommand(input, context);
+    return se_DescribeLocationObjectStorageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeLocationObjectStorageCommandOutput> {
-    return deserializeAws_json1_1DescribeLocationObjectStorageCommand(output, context);
+    return de_DescribeLocationObjectStorageCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { ECSServiceException as __BaseException } from "./ECSServiceException";
 
 /**
+ * @public
  * <p>You don't have authorization to perform the requested action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -22,16 +23,26 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
-export enum AgentUpdateStatus {
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  STAGED = "STAGED",
-  STAGING = "STAGING",
-  UPDATED = "UPDATED",
-  UPDATING = "UPDATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AgentUpdateStatus = {
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  STAGED: "STAGED",
+  STAGING: "STAGING",
+  UPDATED: "UPDATED",
+  UPDATING: "UPDATING",
+} as const;
 
 /**
+ * @public
+ */
+export type AgentUpdateStatus = (typeof AgentUpdateStatus)[keyof typeof AgentUpdateStatus];
+
+/**
+ * @public
  * <p>These errors are usually caused by a client action. This client action might be using
  * 			an action or resource on behalf of a user that doesn't have permissions to use the
  * 			action or resource,. Or, it might be specifying an identifier that isn't valid.</p>
@@ -52,18 +63,28 @@ export class ClientException extends __BaseException {
   }
 }
 
-export enum ManagedScalingStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ManagedScalingStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type ManagedScalingStatus = (typeof ManagedScalingStatus)[keyof typeof ManagedScalingStatus];
+
+/**
+ * @public
  * <p>The managed scaling settings for the Auto Scaling group capacity provider.</p>
- *          <p>When managed scaling is enabled, Amazon ECS manages the scale-in and scale-out actions of
+ *          <p>When managed scaling is turned on, Amazon ECS manages the scale-in and scale-out actions of
  * 			the Auto Scaling group. Amazon ECS manages a target tracking scaling policy using an Amazon ECS
  * 			managed CloudWatch metric with the specified <code>targetCapacity</code> value as the target
  * 			value for the metric. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/asg-capacity-providers.html#asg-capacity-providers-managed-scaling">Using managed scaling</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
- *          <p>If managed scaling is disabled, the user must manage the scaling of the Auto Scaling
+ *          <p>If managed scaling is off, the user must manage the scaling of the Auto Scaling
  * 			group.</p>
  */
 export interface ManagedScaling {
@@ -73,9 +94,12 @@ export interface ManagedScaling {
   status?: ManagedScalingStatus | string;
 
   /**
-   * <p>The target capacity value for the capacity provider. The specified value must be
-   * 			greater than <code>0</code> and less than or equal to <code>100</code>. A value of
-   * 				<code>100</code> results in the Amazon EC2 instances in your Auto Scaling group being
+   * <p>The target capacity utilization as a percentage for the capacity provider. The
+   * 			specified value must be greater than <code>0</code> and less than or equal to
+   * 				<code>100</code>. For example, if you want the capacity provider to maintain 10%
+   * 			spare capacity, then that means the utilization is 90%, so use a
+   * 				<code>targetCapacity</code> of <code>90</code>. The default value of
+   * 				<code>100</code> percent results in the Amazon EC2 instances in your Auto Scaling group being
    * 			completely used.</p>
    */
   targetCapacity?: number;
@@ -108,12 +132,23 @@ export interface ManagedScaling {
   instanceWarmupPeriod?: number;
 }
 
-export enum ManagedTerminationProtection {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ManagedTerminationProtection = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type ManagedTerminationProtection =
+  (typeof ManagedTerminationProtection)[keyof typeof ManagedTerminationProtection];
+
+/**
+ * @public
  * <p>The details of the Auto Scaling group for the capacity provider.</p>
  */
 export interface AutoScalingGroupProvider {
@@ -130,22 +165,23 @@ export interface AutoScalingGroupProvider {
   /**
    * <p>The managed termination protection setting to use for the Auto Scaling group capacity
    * 			provider. This determines whether the Auto Scaling group has managed termination
-   * 			protection. The default is disabled.</p>
+   * 			protection. The default is off.</p>
    *          <important>
    *             <p>When using managed termination protection, managed scaling must also be used
    * 				otherwise managed termination protection doesn't work.</p>
    *          </important>
-   *          <p>When managed termination protection is enabled, Amazon ECS prevents the Amazon EC2 instances in
-   * 			an Auto Scaling group that contain tasks from being terminated during a scale-in action.
-   * 			The Auto Scaling group and each instance in the Auto Scaling group must have instance
-   * 			protection from scale-in actions enabled as well. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection">Instance Protection</a> in the <i>Auto Scaling User Guide</i>.</p>
-   *          <p>When managed termination protection is disabled, your Amazon EC2 instances aren't protected
-   * 			from termination when the Auto Scaling group scales in.</p>
+   *          <p>When managed termination protection is on, Amazon ECS prevents the Amazon EC2 instances in an Auto
+   * 			Scaling group that contain tasks from being terminated during a scale-in action. The
+   * 			Auto Scaling group and each instance in the Auto Scaling group must have instance
+   * 			protection from scale-in actions on as well. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection">Instance Protection</a> in the <i>Auto Scaling User Guide</i>.</p>
+   *          <p>When managed termination protection is off, your Amazon EC2 instances aren't protected from
+   * 			termination when the Auto Scaling group scales in.</p>
    */
   managedTerminationProtection?: ManagedTerminationProtection | string;
 }
 
 /**
+ * @public
  * <p>The metadata that you apply to a resource to help you categorize and organize them.
  * 			Each tag consists of a key and an optional value. You define them.</p>
  *          <p>The following basic restrictions apply to tags:</p>
@@ -194,6 +230,9 @@ export interface Tag {
   value?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateCapacityProviderRequest {
   /**
    * <p>The name of the capacity provider. Up to 255 characters are allowed. They include
@@ -247,21 +286,41 @@ export interface CreateCapacityProviderRequest {
   tags?: Tag[];
 }
 
-export enum CapacityProviderStatus {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
-
-export enum CapacityProviderUpdateStatus {
-  DELETE_COMPLETE = "DELETE_COMPLETE",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  UPDATE_COMPLETE = "UPDATE_COMPLETE",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CapacityProviderStatus = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+} as const;
 
 /**
+ * @public
+ */
+export type CapacityProviderStatus = (typeof CapacityProviderStatus)[keyof typeof CapacityProviderStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const CapacityProviderUpdateStatus = {
+  DELETE_COMPLETE: "DELETE_COMPLETE",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  UPDATE_COMPLETE: "UPDATE_COMPLETE",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type CapacityProviderUpdateStatus =
+  (typeof CapacityProviderUpdateStatus)[keyof typeof CapacityProviderUpdateStatus];
+
+/**
+ * @public
  * <p>The details for a capacity provider.</p>
  */
 export interface CapacityProvider {
@@ -353,6 +412,9 @@ export interface CapacityProvider {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateCapacityProviderResponse {
   /**
    * <p>The full description of the new capacity provider.</p>
@@ -361,6 +423,7 @@ export interface CreateCapacityProviderResponse {
 }
 
 /**
+ * @public
  * <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
  */
@@ -381,6 +444,7 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The limit for the resource was exceeded.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -400,6 +464,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>These errors are usually caused by a server issue.</p>
  */
 export class ServerException extends __BaseException {
@@ -419,6 +484,7 @@ export class ServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>There's already a current Amazon ECS container agent update in progress on the container
  * 			instance that's specified. If the container agent becomes disconnected while it's in a
  * 			transitional stage, such as <code>PENDING</code> or <code>STAGING</code>, the update
@@ -442,6 +508,7 @@ export class UpdateInProgressException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The log configuration for the results of the execute command actions. The logs can be
  * 			sent to CloudWatch Logs or an Amazon S3 bucket.</p>
  */
@@ -455,8 +522,8 @@ export interface ExecuteCommandLogConfiguration {
   cloudWatchLogGroupName?: string;
 
   /**
-   * <p>Determines whether to use encryption on the CloudWatch logs. If not specified,
-   * 			encryption will be disabled.</p>
+   * <p>Determines whether to use encryption on the CloudWatch logs. If not specified, encryption
+   * 			will be off.</p>
    */
   cloudWatchEncryptionEnabled?: boolean;
 
@@ -480,13 +547,23 @@ export interface ExecuteCommandLogConfiguration {
   s3KeyPrefix?: string;
 }
 
-export enum ExecuteCommandLogging {
-  DEFAULT = "DEFAULT",
-  NONE = "NONE",
-  OVERRIDE = "OVERRIDE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ExecuteCommandLogging = {
+  DEFAULT: "DEFAULT",
+  NONE: "NONE",
+  OVERRIDE: "OVERRIDE",
+} as const;
 
 /**
+ * @public
+ */
+export type ExecuteCommandLogging = (typeof ExecuteCommandLogging)[keyof typeof ExecuteCommandLogging];
+
+/**
+ * @public
  * <p>The details of the execute command configuration.</p>
  */
 export interface ExecuteCommandConfiguration {
@@ -530,6 +607,7 @@ export interface ExecuteCommandConfiguration {
 }
 
 /**
+ * @public
  * <p>The execute command configuration for the cluster.</p>
  */
 export interface ClusterConfiguration {
@@ -540,6 +618,7 @@ export interface ClusterConfiguration {
 }
 
 /**
+ * @public
  * <p>The details of a capacity provider strategy. A capacity provider strategy can be set
  * 			when using the <a>RunTask</a> or <a>CreateCluster</a> APIs or as
  * 			the default capacity provider strategy for a cluster with the <a>CreateCluster</a> API.</p>
@@ -595,6 +674,7 @@ export interface CapacityProviderStrategyItem {
 }
 
 /**
+ * @public
  * <p>Use this parameter to set a default Service Connect namespace. After you set a default
  * 	Service Connect namespace, any new services with Service Connect turned on that are created in the cluster are added as
  * 	client services in the namespace. This setting only applies to new services that set the <code>enabled</code> parameter to
@@ -624,38 +704,51 @@ export interface ClusterServiceConnectDefaultsRequest {
    *          <p>If you update the service with an empty string <code>""</code> for the namespace name,
    * 			the cluster configuration for Service Connect is removed. Note that the namespace will
    * 			remain in Cloud Map and must be deleted separately.</p>
-   *          <p>For more information about Cloud Map, see <a href="https://docs.aws.amazon.com/">Working
+   *          <p>For more information about Cloud Map, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/working-with-services.html">Working
    * 				with Services</a> in the <i>Cloud Map Developer Guide</i>.</p>
    */
   namespace: string | undefined;
 }
 
-export enum ClusterSettingName {
-  CONTAINER_INSIGHTS = "containerInsights",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ClusterSettingName = {
+  CONTAINER_INSIGHTS: "containerInsights",
+} as const;
 
 /**
+ * @public
+ */
+export type ClusterSettingName = (typeof ClusterSettingName)[keyof typeof ClusterSettingName];
+
+/**
+ * @public
  * <p>The settings to use when creating a cluster. This parameter is used to turn on CloudWatch
  * 			Container Insights for a cluster.</p>
  */
 export interface ClusterSetting {
   /**
-   * <p>The name of the cluster setting. The only supported value is
-   * 				<code>containerInsights</code>.</p>
+   * <p>The name of the cluster setting. The value is <code>containerInsights</code> .</p>
    */
   name?: ClusterSettingName | string;
 
   /**
-   * <p>The value to set for the cluster setting. The supported values are
-   * 				<code>enabled</code> and <code>disabled</code>. If <code>enabled</code> is
-   * 			specified, CloudWatch Container Insights will be enabled for the cluster, otherwise it will be
-   * 			disabled unless the <code>containerInsights</code> account setting is enabled. If a
-   * 			cluster value is specified, it will override the <code>containerInsights</code> value
-   * 			set with <a>PutAccountSetting</a> or <a>PutAccountSettingDefault</a>.</p>
+   * <p>The value to set for the cluster setting. The supported values are <code>enabled</code> and
+   * 				<code>disabled</code>. </p>
+   *          <p>If you set <code>name</code> to  <code>containerInsights</code> and <code>value</code>
+   * 			to <code>enabled</code>, CloudWatch Container Insights will be on for the cluster, otherwise
+   * 			it will be off unless the <code>containerInsights</code> account setting is turned on.
+   * 			If a cluster value is specified, it will override the <code>containerInsights</code>
+   * 			value set with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSetting.html">PutAccountSetting</a> or <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSettingDefault.html">PutAccountSettingDefault</a>.</p>
    */
   value?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateClusterRequest {
   /**
    * <p>The name of your cluster. If you don't specify a name for your cluster, you create a
@@ -717,24 +810,24 @@ export interface CreateClusterRequest {
    * <p>The short name of one or more capacity providers to associate with the cluster. A
    * 			capacity provider must be associated with a cluster before it can be included as part of
    * 			the default capacity provider strategy of the cluster or used in a capacity provider
-   * 			strategy when calling the <a>CreateService</a> or <a>RunTask</a>
+   * 			strategy when calling the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html">CreateService</a> or <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html">RunTask</a>
    * 			actions.</p>
    *          <p>If specifying a capacity provider that uses an Auto Scaling group, the capacity
    * 			provider must be created but not associated with another cluster. New Auto Scaling group
-   * 			capacity providers can be created with the <a>CreateCapacityProvider</a> API
+   * 			capacity providers can be created with the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateCapacityProvider.html">CreateCapacityProvider</a> API
    * 			operation.</p>
    *          <p>To use a Fargate capacity provider, specify either the <code>FARGATE</code> or
    * 				<code>FARGATE_SPOT</code> capacity providers. The Fargate capacity providers are
    * 			available to all accounts and only need to be associated with a cluster to be
    * 			used.</p>
-   *          <p>The <a>PutClusterCapacityProviders</a> API operation is used to update the
+   *          <p>The <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutCapacityProvider.html">PutCapacityProvider</a> API operation is used to update the
    * 			list of available capacity providers for a cluster after the cluster is created.</p>
    */
   capacityProviders?: string[];
 
   /**
    * <p>The capacity provider strategy to set as the default for the cluster. After a default
-   * 			capacity provider strategy is set for a cluster, when you call the <a>RunTask</a> or <a>CreateService</a> APIs with no capacity
+   * 			capacity provider strategy is set for a cluster, when you call the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html">CreateService</a> or <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html">RunTask</a> APIs with no capacity
    * 			provider strategy or launch type specified, the default capacity provider strategy for
    * 			the cluster is used.</p>
    *          <p>If a default capacity provider strategy isn't defined for a cluster when it was
@@ -761,6 +854,7 @@ export interface CreateClusterRequest {
 }
 
 /**
+ * @public
  * <p>A key-value pair object.</p>
  */
 export interface KeyValuePair {
@@ -778,6 +872,7 @@ export interface KeyValuePair {
 }
 
 /**
+ * @public
  * <p>An object representing a container instance or task attachment.</p>
  */
 export interface Attachment {
@@ -807,6 +902,7 @@ export interface Attachment {
 }
 
 /**
+ * @public
  * <p>Use this parameter to set a default Service Connect namespace. After you set a default
  * 	Service Connect namespace, any new services with Service Connect turned on that are created in the cluster are added as
  * 	client services in the namespace. This setting only applies to new services that set the <code>enabled</code> parameter to
@@ -829,6 +925,7 @@ export interface ClusterServiceConnectDefaults {
 }
 
 /**
+ * @public
  * <p>A regional grouping of one or more container instances where you can run task
  * 			requests. Each account receives a default cluster the first time you use the Amazon ECS
  * 			service, but you may also create other clusters. Clusters may contain more than one
@@ -978,8 +1075,8 @@ export interface Cluster {
   tags?: Tag[];
 
   /**
-   * <p>The settings for the cluster. This parameter indicates whether CloudWatch Container Insights
-   * 			is enabled or disabled for a cluster.</p>
+   * <p>The settings for the cluster. This parameter indicates whether CloudWatch Container Insights is on
+   * 			or off for a cluster.</p>
    */
   settings?: ClusterSetting[];
 
@@ -1039,6 +1136,9 @@ export interface Cluster {
   serviceConnectDefaults?: ClusterServiceConnectDefaults;
 }
 
+/**
+ * @public
+ */
 export interface CreateClusterResponse {
   /**
    * <p>The full description of your new cluster.</p>
@@ -1047,6 +1147,7 @@ export interface CreateClusterResponse {
 }
 
 /**
+ * @public
  * <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
  */
 export class ClusterNotFoundException extends __BaseException {
@@ -1066,6 +1167,7 @@ export class ClusterNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One of the methods which provide a way for you to quickly identify when a deployment
  * 			has failed, and then to optionally roll back the failure to the last working
  * 			deployment.</p>
@@ -1100,12 +1202,13 @@ export interface DeploymentAlarms {
 }
 
 /**
+ * @public
  * <note>
  *             <p>The deployment circuit breaker can only be used for services using the rolling
- * 				update (<code>ECS</code>) deployment type that aren't behind a Classic Load Balancer.</p>
+ * 				update (<code>ECS</code>) deployment type.</p>
  *          </note>
  *          <p>The <b>deployment circuit breaker</b> determines whether a
- * 			service deployment will fail if the service can't reach a steady state. If enabled, a
+ * 			service deployment will fail if the service can't reach a steady state. If it is turned on, a
  * 			service deployment will transition to a failed state and stop launching new tasks. You
  * 			can also configure Amazon ECS to roll back your service to the last completed deployment
  * 			after a failure. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html">Rolling
@@ -1126,6 +1229,7 @@ export interface DeploymentCircuitBreaker {
 }
 
 /**
+ * @public
  * <p>Optional deployment parameters that control how many tasks run during a deployment and
  * 			the ordering of stopping and starting tasks.</p>
  */
@@ -1136,10 +1240,13 @@ export interface DeploymentConfiguration {
    * 				update (<code>ECS</code>) deployment type.</p>
    *          </note>
    *          <p>The <b>deployment circuit breaker</b> determines whether a
-   * 			service deployment will fail if the service can't reach a steady state. If deployment
-   * 			circuit breaker is enabled, a service deployment will transition to a failed state and
-   * 			stop launching new tasks. If rollback is enabled, when a service deployment fails, the
-   * 			service is rolled back to the last deployment that completed successfully.</p>
+   * 			service deployment will fail if the service can't reach a steady state. If you use the deployment
+   * 			circuit breaker, a service deployment will transition to a failed state and
+   * 			stop launching new tasks. If  you use the rollback option, when a service deployment fails, the
+   * 			service is rolled back to the last deployment that completed successfully. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html">Rolling
+   * 				update</a> in the <i>Amazon Elastic Container Service Developer
+   * 					Guide</i>
+   *          </p>
    */
   deploymentCircuitBreaker?: DeploymentCircuitBreaker;
 
@@ -1232,13 +1339,23 @@ export interface DeploymentConfiguration {
   alarms?: DeploymentAlarms;
 }
 
-export enum DeploymentControllerType {
-  CODE_DEPLOY = "CODE_DEPLOY",
-  ECS = "ECS",
-  EXTERNAL = "EXTERNAL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeploymentControllerType = {
+  CODE_DEPLOY: "CODE_DEPLOY",
+  ECS: "ECS",
+  EXTERNAL: "EXTERNAL",
+} as const;
 
 /**
+ * @public
+ */
+export type DeploymentControllerType = (typeof DeploymentControllerType)[keyof typeof DeploymentControllerType];
+
+/**
+ * @public
  * <p>The deployment controller to use for the service. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">Amazon ECS deployment types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  */
 export interface DeploymentController {
@@ -1271,16 +1388,24 @@ export interface DeploymentController {
   type: DeploymentControllerType | string | undefined;
 }
 
-export enum LaunchType {
-  EC2 = "EC2",
-  EXTERNAL = "EXTERNAL",
-  FARGATE = "FARGATE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LaunchType = {
+  EC2: "EC2",
+  EXTERNAL: "EXTERNAL",
+  FARGATE: "FARGATE",
+} as const;
 
 /**
+ * @public
+ */
+export type LaunchType = (typeof LaunchType)[keyof typeof LaunchType];
+
+/**
+ * @public
  * <p>The load balancer configuration to use with a service or task set.</p>
- *          <p>For specific notes and restrictions regarding the use of load balancers with services
- * 			and task sets, see the CreateService and CreateTaskSet actions.</p>
  *          <p>When you add, update, or remove a load balancer configuration, Amazon ECS starts a new
  * 			deployment with the updated Elastic Load Balancing configuration. This causes tasks to register to and
  * 			deregister from load balancers.</p>
@@ -1336,12 +1461,22 @@ export interface LoadBalancer {
   containerPort?: number;
 }
 
-export enum AssignPublicIp {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AssignPublicIp = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type AssignPublicIp = (typeof AssignPublicIp)[keyof typeof AssignPublicIp];
+
+/**
+ * @public
  * <p>An object representing the networking details for a task or service.</p>
  */
 export interface AwsVpcConfiguration {
@@ -1373,7 +1508,8 @@ export interface AwsVpcConfiguration {
 }
 
 /**
- * <p>An object representing the network configuration for a task or service.</p>
+ * @public
+ * <p>The network configuration for a task or service.</p>
  */
 export interface NetworkConfiguration {
   /**
@@ -1385,12 +1521,22 @@ export interface NetworkConfiguration {
   awsvpcConfiguration?: AwsVpcConfiguration;
 }
 
-export enum PlacementConstraintType {
-  DISTINCT_INSTANCE = "distinctInstance",
-  MEMBER_OF = "memberOf",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PlacementConstraintType = {
+  DISTINCT_INSTANCE: "distinctInstance",
+  MEMBER_OF: "memberOf",
+} as const;
 
 /**
+ * @public
+ */
+export type PlacementConstraintType = (typeof PlacementConstraintType)[keyof typeof PlacementConstraintType];
+
+/**
+ * @public
  * <p>An object representing a constraint on task placement. For more information, see
  * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html">Task placement constraints</a> in the
  * 			<i>Amazon Elastic Container Service Developer Guide</i>.</p>
@@ -1416,13 +1562,23 @@ export interface PlacementConstraint {
   expression?: string;
 }
 
-export enum PlacementStrategyType {
-  BINPACK = "binpack",
-  RANDOM = "random",
-  SPREAD = "spread",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PlacementStrategyType = {
+  BINPACK: "binpack",
+  RANDOM: "random",
+  SPREAD: "spread",
+} as const;
 
 /**
+ * @public
+ */
+export type PlacementStrategyType = (typeof PlacementStrategyType)[keyof typeof PlacementStrategyType];
+
+/**
+ * @public
  * <p>The task placement strategy for a task or service. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html">Task placement strategies</a> in the
  * 			<i>Amazon Elastic Container Service Developer Guide</i>.</p>
  */
@@ -1450,29 +1606,57 @@ export interface PlacementStrategy {
   field?: string;
 }
 
-export enum PropagateTags {
-  NONE = "NONE",
-  SERVICE = "SERVICE",
-  TASK_DEFINITION = "TASK_DEFINITION",
-}
-
-export enum SchedulingStrategy {
-  DAEMON = "DAEMON",
-  REPLICA = "REPLICA",
-}
-
-export enum LogDriver {
-  AWSFIRELENS = "awsfirelens",
-  AWSLOGS = "awslogs",
-  FLUENTD = "fluentd",
-  GELF = "gelf",
-  JOURNALD = "journald",
-  JSON_FILE = "json-file",
-  SPLUNK = "splunk",
-  SYSLOG = "syslog",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PropagateTags = {
+  NONE: "NONE",
+  SERVICE: "SERVICE",
+  TASK_DEFINITION: "TASK_DEFINITION",
+} as const;
 
 /**
+ * @public
+ */
+export type PropagateTags = (typeof PropagateTags)[keyof typeof PropagateTags];
+
+/**
+ * @public
+ * @enum
+ */
+export const SchedulingStrategy = {
+  DAEMON: "DAEMON",
+  REPLICA: "REPLICA",
+} as const;
+
+/**
+ * @public
+ */
+export type SchedulingStrategy = (typeof SchedulingStrategy)[keyof typeof SchedulingStrategy];
+
+/**
+ * @public
+ * @enum
+ */
+export const LogDriver = {
+  AWSFIRELENS: "awsfirelens",
+  AWSLOGS: "awslogs",
+  FLUENTD: "fluentd",
+  GELF: "gelf",
+  JOURNALD: "journald",
+  JSON_FILE: "json-file",
+  SPLUNK: "splunk",
+  SYSLOG: "syslog",
+} as const;
+
+/**
+ * @public
+ */
+export type LogDriver = (typeof LogDriver)[keyof typeof LogDriver];
+
+/**
+ * @public
  * <p>An object representing the secret to expose to your container. Secrets can be exposed
  * 			to a container in the following ways:</p>
  *          <ul>
@@ -1511,6 +1695,7 @@ export interface Secret {
 }
 
 /**
+ * @public
  * <p>The log configuration for the container. This parameter maps to <code>LogConfig</code>
  * 			in the <a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
  * 				<code>--log-driver</code> option to <a href="https://docs.docker.com/engine/reference/commandline/run/">
@@ -1574,7 +1759,7 @@ export interface LogConfiguration {
   logDriver: LogDriver | string | undefined;
 
   /**
-   * <p>The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: <code>sudo docker version --format '{{.Server.APIVersion}}'</code>
+   * <p>The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: <code>sudo docker version --format '\{\{.Server.APIVersion\}\}'</code>
    *          </p>
    */
   options?: Record<string, string>;
@@ -1587,6 +1772,7 @@ export interface LogConfiguration {
 }
 
 /**
+ * @public
  * <p>Each alias ("endpoint") is a fully-qualified name and port number that other tasks
  * 			("clients") can use to connect to this service.</p>
  *          <p>Each name and port mapping must be unique within the namespace.</p>
@@ -1622,6 +1808,7 @@ export interface ServiceConnectClientAlias {
 }
 
 /**
+ * @public
  * <p>The Service Connect service object configuration. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html">Service Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  */
 export interface ServiceConnectService {
@@ -1635,7 +1822,7 @@ export interface ServiceConnectService {
    * <p>The <code>discoveryName</code> is the name of the new Cloud Map service that Amazon ECS creates
    * 			for this Amazon ECS service. This must be unique within the Cloud Map namespace. The name can contain up to 64 characters. The name can include lowercase letters,
    * 			numbers, underscores (_), and hyphens (-). The name can't start with a hyphen.</p>
-   *          <p>If this parameter isn't specified, the default value of <code>discoveryName.namespace</code> is used. If the <code>discoveryName</code> isn't specified, the port mapping name from the task definition is used in <code>portName.namespace</code>.</p>
+   *          <p>If the <code>discoveryName</code> isn't specified, the port mapping name from the task definition is used in <code>portName.namespace</code>.</p>
    */
   discoveryName?: string;
 
@@ -1666,6 +1853,7 @@ export interface ServiceConnectService {
 }
 
 /**
+ * @public
  * <p>The Service Connect configuration of your Amazon ECS service. The configuration for this
  * 			service to discover and connect to services, and be discovered by, and connected from,
  * 			other services within a namespace.</p>
@@ -1685,7 +1873,7 @@ export interface ServiceConnectConfiguration {
   /**
    * <p>The namespace name or full Amazon Resource Name (ARN) of the Cloud Map namespace for use with Service Connect. The namespace must be in
    * 			the same Amazon Web Services Region as the Amazon ECS service and cluster. The type of namespace doesn't
-   * 			affect Service Connect. For more information about Cloud Map, see <a href="https://docs.aws.amazon.com/">Working with Services</a> in the
+   * 			affect Service Connect. For more information about Cloud Map, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/working-with-services.html">Working with Services</a> in the
    * 			<i>Cloud Map Developer Guide</i>.</p>
    */
   namespace?: string;
@@ -1748,6 +1936,7 @@ export interface ServiceConnectConfiguration {
 }
 
 /**
+ * @public
  * <p>The details for the service registry.</p>
  *          <p>Each service may be associated with one service registry. Multiple service registries
  * 			for each service are not supported.</p>
@@ -1794,6 +1983,9 @@ export interface ServiceRegistry {
   containerPort?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateServiceRequest {
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the cluster that you run your service on.
@@ -1814,6 +2006,7 @@ export interface CreateServiceRequest {
    * 			isn't specified, the latest <code>ACTIVE</code> revision is used.</p>
    *          <p>A task definition must be specified if the service uses either the <code>ECS</code> or
    * 				<code>CODE_DEPLOY</code> deployment controllers.</p>
+   *          <p>For more information about deployment types, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">Amazon ECS deployment types</a>.</p>
    */
   taskDefinition?: string;
 
@@ -2077,12 +2270,12 @@ export interface CreateServiceRequest {
   /**
    * <p>Specifies whether to propagate the tags from the task definition to the task. If no
    * 			value is specified, the tags aren't propagated. Tags can only be propagated to the task
-   * 			during task creation. To add tags to a task after task creation, use the <a>TagResource</a> API action.</p>
+   * 			during task creation. To add tags to a task after task creation, use the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_TagResource.html">TagResource</a> API action.</p>
    */
   propagateTags?: PropagateTags | string;
 
   /**
-   * <p>Determines whether the execute command functionality is enabled for the service. If
+   * <p>Determines whether the execute command functionality is turned on for the service. If
    * 				<code>true</code>, this enables execute command functionality on all containers in
    * 			the service tasks.</p>
    */
@@ -2101,13 +2294,23 @@ export interface CreateServiceRequest {
   serviceConnectConfiguration?: ServiceConnectConfiguration;
 }
 
-export enum DeploymentRolloutState {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeploymentRolloutState = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
 
 /**
+ * @public
+ */
+export type DeploymentRolloutState = (typeof DeploymentRolloutState)[keyof typeof DeploymentRolloutState];
+
+/**
+ * @public
  * <p>The Service Connect resource. Each configuration maps a discovery name to a
  * 			Cloud Map service name. The data is stored in Cloud Map as part of the
  * 			Service Connect configuration for each discovery name of this Amazon ECS service.</p>
@@ -2122,7 +2325,7 @@ export interface ServiceConnectServiceResource {
    *          <p>The <code>discoveryName</code> is the name of the new Cloud Map service that Amazon ECS creates
    * 			for this Amazon ECS service. This must be unique within the Cloud Map namespace. The name can contain up to 64 characters. The name can include lowercase letters,
    * 			numbers, underscores (_), and hyphens (-). The name can't start with a hyphen.</p>
-   *          <p>If this parameter isn't specified, the default value of <code>discoveryName.namespace</code> is used. If the <code>discoveryName</code> isn't specified, the port mapping name from the task definition is used in <code>portName.namespace</code>.</p>
+   *          <p>If the <code>discoveryName</code> isn't specified, the port mapping name from the task definition is used in <code>portName.namespace</code>.</p>
    */
   discoveryName?: string;
 
@@ -2135,6 +2338,7 @@ export interface ServiceConnectServiceResource {
 }
 
 /**
+ * @public
  * <p>The details of an Amazon ECS service deployment. This is used only when a service uses the
  * 				<code>ECS</code> deployment controller type.</p>
  */
@@ -2252,7 +2456,7 @@ export interface Deployment {
    *          <p>The rollout state of the deployment. When a service deployment is started, it begins
    * 			in an <code>IN_PROGRESS</code> state. When the service reaches a steady state, the
    * 			deployment transitions to a <code>COMPLETED</code> state. If the service fails to reach
-   * 			a steady state and circuit breaker is enabled, the deployment transitions to a
+   * 			a steady state and circuit breaker is turned on, the deployment transitions to a
    * 				<code>FAILED</code> state. A deployment in <code>FAILED</code> state doesn't launch
    * 			any new tasks. For more information, see <a>DeploymentCircuitBreaker</a>.</p>
    */
@@ -2286,6 +2490,7 @@ export interface Deployment {
 }
 
 /**
+ * @public
  * <p>The details for an event that's associated with a service.</p>
  */
 export interface ServiceEvent {
@@ -2305,11 +2510,21 @@ export interface ServiceEvent {
   message?: string;
 }
 
-export enum ScaleUnit {
-  PERCENT = "PERCENT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ScaleUnit = {
+  PERCENT: "PERCENT",
+} as const;
 
 /**
+ * @public
+ */
+export type ScaleUnit = (typeof ScaleUnit)[keyof typeof ScaleUnit];
+
+/**
+ * @public
  * <p>A floating-point percentage of the desired number of tasks to place and keep running
  * 			in the task set.</p>
  */
@@ -2326,12 +2541,22 @@ export interface Scale {
   unit?: ScaleUnit | string;
 }
 
-export enum StabilityStatus {
-  STABILIZING = "STABILIZING",
-  STEADY_STATE = "STEADY_STATE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StabilityStatus = {
+  STABILIZING: "STABILIZING",
+  STEADY_STATE: "STEADY_STATE",
+} as const;
 
 /**
+ * @public
+ */
+export type StabilityStatus = (typeof StabilityStatus)[keyof typeof StabilityStatus];
+
+/**
+ * @public
  * <p>Information about a set of Amazon ECS tasks in either an CodeDeploy or an <code>EXTERNAL</code>
  * 			deployment. An Amazon ECS task set includes details such as the desired number of tasks, how
  * 			many tasks are running, and whether the task set serves production traffic.</p>
@@ -2552,7 +2777,8 @@ export interface TaskSet {
 }
 
 /**
- * <p>Details on a service within a cluster</p>
+ * @public
+ * <p>Details on a service within a cluster.</p>
  */
 export interface Service {
   /**
@@ -2792,13 +3018,16 @@ export interface Service {
   propagateTags?: PropagateTags | string;
 
   /**
-   * <p>Determines whether the execute command functionality is enabled for the service. If
-   * 				<code>true</code>, the execute command functionality is enabled for all containers
+   * <p>Determines whether the execute command functionality is turned on for the service. If
+   * 				<code>true</code>, the execute command functionality is turned on for all containers
    * 			in tasks as part of the service.</p>
    */
   enableExecuteCommand?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateServiceResponse {
   /**
    * <p>The full description of your service following the create call.</p>
@@ -2817,6 +3046,7 @@ export interface CreateServiceResponse {
 }
 
 /**
+ * @public
  * <p>The specified namespace wasn't found.</p>
  */
 export class NamespaceNotFoundException extends __BaseException {
@@ -2836,6 +3066,7 @@ export class NamespaceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified platform version doesn't satisfy the required capabilities of the task
  * 			definition.</p>
  */
@@ -2856,6 +3087,7 @@ export class PlatformTaskDefinitionIncompatibilityException extends __BaseExcept
 }
 
 /**
+ * @public
  * <p>The specified platform version doesn't exist.</p>
  */
 export class PlatformUnknownException extends __BaseException {
@@ -2875,6 +3107,7 @@ export class PlatformUnknownException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified task isn't supported in this Region.</p>
  */
 export class UnsupportedFeatureException extends __BaseException {
@@ -2893,6 +3126,9 @@ export class UnsupportedFeatureException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateTaskSetRequest {
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the service to create the task set in.</p>
@@ -3025,6 +3261,9 @@ export interface CreateTaskSetRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateTaskSetResponse {
   /**
    * <p>Information about a set of Amazon ECS tasks in either an CodeDeploy or an
@@ -3036,6 +3275,7 @@ export interface CreateTaskSetResponse {
 }
 
 /**
+ * @public
  * <p>The specified service isn't active. You can't update a service that's inactive. If you
  * 			have previously deleted a service, you can re-create it with <a>CreateService</a>.</p>
  */
@@ -3056,6 +3296,7 @@ export class ServiceNotActiveException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified service wasn't found. You can view your available services with <a>ListServices</a>. Amazon ECS services are cluster specific and Region
  * 			specific.</p>
  */
@@ -3075,14 +3316,27 @@ export class ServiceNotFoundException extends __BaseException {
   }
 }
 
-export enum SettingName {
-  AWSVPC_TRUNKING = "awsvpcTrunking",
-  CONTAINER_INSIGHTS = "containerInsights",
-  CONTAINER_INSTANCE_LONG_ARN_FORMAT = "containerInstanceLongArnFormat",
-  SERVICE_LONG_ARN_FORMAT = "serviceLongArnFormat",
-  TASK_LONG_ARN_FORMAT = "taskLongArnFormat",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SettingName = {
+  AWSVPC_TRUNKING: "awsvpcTrunking",
+  CONTAINER_INSIGHTS: "containerInsights",
+  CONTAINER_INSTANCE_LONG_ARN_FORMAT: "containerInstanceLongArnFormat",
+  FARGATE_FIPS_MODE: "fargateFIPSMode",
+  SERVICE_LONG_ARN_FORMAT: "serviceLongArnFormat",
+  TASK_LONG_ARN_FORMAT: "taskLongArnFormat",
+} as const;
 
+/**
+ * @public
+ */
+export type SettingName = (typeof SettingName)[keyof typeof SettingName];
+
+/**
+ * @public
+ */
 export interface DeleteAccountSettingRequest {
   /**
    * <p>The resource name to disable the account setting for. If
@@ -3096,9 +3350,8 @@ export interface DeleteAccountSettingRequest {
   name: SettingName | string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the principal. It can be an IAM user, IAM role, or
-   * 			the root user. If you specify the root user, it disables the account setting for all IAM
-   * 			users, IAM roles, and the root user of the account unless an IAM user or role explicitly
+   * <p>The Amazon Resource Name (ARN) of the principal. It can be an user, role, or
+   * 			the root user. If you specify the root user, it disables the account setting for all users, roles, and the root user of the account unless a user or role explicitly
    * 			overrides these settings. If this field is omitted, the setting is changed only for the
    * 			authenticated user.</p>
    */
@@ -3106,6 +3359,7 @@ export interface DeleteAccountSettingRequest {
 }
 
 /**
+ * @public
  * <p>The current account setting for a resource.</p>
  */
 export interface Setting {
@@ -3115,18 +3369,20 @@ export interface Setting {
   name?: SettingName | string;
 
   /**
-   * <p>Determines whether the account setting is enabled or disabled for the specified
-   * 			resource.</p>
+   * <p>Determines whether the account setting is on or off for the specified resource.</p>
    */
   value?: string;
 
   /**
-   * <p>The ARN of the principal. It can be an IAM user, IAM role, or the root user. If this
+   * <p>The ARN of the principal. It can be a user, role, or the root user. If this
    * 			field is omitted, the authenticated user is assumed.</p>
    */
   principalArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAccountSettingResponse {
   /**
    * <p>The account setting for the specified principal ARN.</p>
@@ -3134,11 +3390,21 @@ export interface DeleteAccountSettingResponse {
   setting?: Setting;
 }
 
-export enum TargetType {
-  CONTAINER_INSTANCE = "container-instance",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TargetType = {
+  CONTAINER_INSTANCE: "container-instance",
+} as const;
 
 /**
+ * @public
+ */
+export type TargetType = (typeof TargetType)[keyof typeof TargetType];
+
+/**
+ * @public
  * <p>An attribute is a name-value pair that's associated with an Amazon ECS object. Use
  * 			attributes to extend the Amazon ECS data model by adding custom metadata to your resources.
  * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html#attributes">Attributes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
@@ -3172,6 +3438,9 @@ export interface Attribute {
   targetId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAttributesRequest {
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the cluster that contains the resource to delete
@@ -3188,6 +3457,9 @@ export interface DeleteAttributesRequest {
   attributes: Attribute[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAttributesResponse {
   /**
    * <p>A list of attribute objects that were successfully deleted from your resource.</p>
@@ -3196,6 +3468,7 @@ export interface DeleteAttributesResponse {
 }
 
 /**
+ * @public
  * <p>The specified target wasn't found. You can view your available container instances
  * 			with <a>ListContainerInstances</a>. Amazon ECS container instances are
  * 			cluster-specific and Region-specific.</p>
@@ -3216,6 +3489,9 @@ export class TargetNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteCapacityProviderRequest {
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the capacity provider to delete.</p>
@@ -3223,6 +3499,9 @@ export interface DeleteCapacityProviderRequest {
   capacityProvider: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCapacityProviderResponse {
   /**
    * <p>The details of the capacity provider.</p>
@@ -3231,6 +3510,7 @@ export interface DeleteCapacityProviderResponse {
 }
 
 /**
+ * @public
  * <p>You can't delete a cluster that has registered container instances. First, deregister
  * 			the container instances before you can delete the cluster. For more information, see
  * 				<a>DeregisterContainerInstance</a>.</p>
@@ -3252,6 +3532,7 @@ export class ClusterContainsContainerInstancesException extends __BaseException 
 }
 
 /**
+ * @public
  * <p>You can't delete a cluster that contains services. First, update the service to reduce
  * 			its desired task count to 0, and then delete the service. For more information, see
  * 				<a>UpdateService</a> and <a>DeleteService</a>.</p>
@@ -3273,6 +3554,7 @@ export class ClusterContainsServicesException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You can't delete a cluster that has active tasks.</p>
  */
 export class ClusterContainsTasksException extends __BaseException {
@@ -3291,6 +3573,9 @@ export class ClusterContainsTasksException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteClusterRequest {
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the cluster to delete.</p>
@@ -3298,6 +3583,9 @@ export interface DeleteClusterRequest {
   cluster: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteClusterResponse {
   /**
    * <p>The full description of the deleted cluster.</p>
@@ -3305,6 +3593,9 @@ export interface DeleteClusterResponse {
   cluster?: Cluster;
 }
 
+/**
+ * @public
+ */
 export interface DeleteServiceRequest {
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to delete.
@@ -3325,6 +3616,9 @@ export interface DeleteServiceRequest {
   force?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteServiceResponse {
   /**
    * <p>The full description of the deleted service.</p>
@@ -3332,404 +3626,74 @@ export interface DeleteServiceResponse {
   service?: Service;
 }
 
-export interface DeleteTaskSetRequest {
-  /**
-   * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task
-   * 			set found in to delete.</p>
-   */
-  cluster: string | undefined;
-
-  /**
-   * <p>The short name or full Amazon Resource Name (ARN) of the service that hosts the task set to
-   * 			delete.</p>
-   */
-  service: string | undefined;
-
-  /**
-   * <p>The task set ID or full Amazon Resource Name (ARN) of the task set to delete.</p>
-   */
-  taskSet: string | undefined;
-
-  /**
-   * <p>If <code>true</code>, you can delete a task set even if it hasn't been scaled down to
-   * 			zero.</p>
-   */
-  force?: boolean;
-}
-
-export interface DeleteTaskSetResponse {
-  /**
-   * <p>Details about the task set.</p>
-   */
-  taskSet?: TaskSet;
-}
-
 /**
- * <p>The specified task set wasn't found. You can view your available task sets with <a>DescribeTaskSets</a>. Task sets are specific to each cluster, service and
- * 			Region.</p>
+ * @public
  */
-export class TaskSetNotFoundException extends __BaseException {
-  readonly name: "TaskSetNotFoundException" = "TaskSetNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TaskSetNotFoundException, __BaseException>) {
-    super({
-      name: "TaskSetNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TaskSetNotFoundException.prototype);
-  }
-}
-
-export interface DeregisterContainerInstanceRequest {
-  /**
-   * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instance to
-   * 			deregister. If you do not specify a cluster, the default cluster is assumed.</p>
-   */
-  cluster?: string;
-
-  /**
-   * <p>The container instance ID or full ARN of the container instance to deregister. For
-   * 			more information about the ARN format, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids">Amazon Resource Name (ARN)</a> in the <i>Amazon ECS Developer Guide</i>.</p>
-   */
-  containerInstance: string | undefined;
-
-  /**
-   * <p>Forces the container instance to be deregistered. If you have tasks running on the
-   * 			container instance when you deregister it with the <code>force</code> option, these
-   * 			tasks remain running until you terminate the instance or the tasks stop through some
-   * 			other means, but they're orphaned (no longer monitored or accounted for by Amazon ECS). If an
-   * 			orphaned task on your container instance is part of an Amazon ECS service, then the service
-   * 			scheduler starts another copy of that task, on a different container instance if
-   * 			possible. </p>
-   *          <p>Any containers in orphaned service tasks that are registered with a Classic Load Balancer or an Application Load Balancer
-   * 			target group are deregistered. They begin connection draining according to the settings
-   * 			on the load balancer or target group.</p>
-   */
-  force?: boolean;
-}
-
-export enum InstanceHealthCheckState {
-  IMPAIRED = "IMPAIRED",
-  INITIALIZING = "INITIALIZING",
-  INSUFFICIENT_DATA = "INSUFFICIENT_DATA",
-  OK = "OK",
-}
-
-export enum InstanceHealthCheckType {
-  CONTAINER_RUNTIME = "CONTAINER_RUNTIME",
-}
-
-/**
- * <p>An object representing the result of a container instance health status check.</p>
- */
-export interface InstanceHealthCheckResult {
-  /**
-   * <p>The type of container instance health status that was verified.</p>
-   */
-  type?: InstanceHealthCheckType | string;
-
-  /**
-   * <p>The container instance health status.</p>
-   */
-  status?: InstanceHealthCheckState | string;
-
-  /**
-   * <p>The Unix timestamp for when the container instance health status was last
-   * 			updated.</p>
-   */
-  lastUpdated?: Date;
-
-  /**
-   * <p>The Unix timestamp for when the container instance health status last changed.</p>
-   */
-  lastStatusChange?: Date;
-}
-
-/**
- * <p>An object representing the health status of the container instance.</p>
- */
-export interface ContainerInstanceHealthStatus {
-  /**
-   * <p>The overall health status of the container instance. This is an aggregate status of
-   * 			all container instance health checks.</p>
-   */
-  overallStatus?: InstanceHealthCheckState | string;
-
-  /**
-   * <p>An array of objects representing the details of the container instance health
-   * 			status.</p>
-   */
-  details?: InstanceHealthCheckResult[];
-}
-
-/**
- * <p>Describes the resources available for a container instance.</p>
- */
-export interface Resource {
-  /**
-   * <p>The name of the resource, such as <code>CPU</code>, <code>MEMORY</code>,
-   * 				<code>PORTS</code>, <code>PORTS_UDP</code>, or a user-defined resource.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The type of the resource. Valid values: <code>INTEGER</code>, <code>DOUBLE</code>,
-   * 				<code>LONG</code>, or <code>STRINGSET</code>.</p>
-   */
-  type?: string;
-
-  /**
-   * <p>When the <code>doubleValue</code> type is set, the value of the resource must be a
-   * 			double precision floating-point type.</p>
-   */
-  doubleValue?: number;
-
-  /**
-   * <p>When the <code>longValue</code> type is set, the value of the resource must be an
-   * 			extended precision floating-point type.</p>
-   */
-  longValue?: number;
-
-  /**
-   * <p>When the <code>integerValue</code> type is set, the value of the resource must be an
-   * 			integer.</p>
-   */
-  integerValue?: number;
-
-  /**
-   * <p>When the <code>stringSetValue</code> type is set, the value of the resource must be a
-   * 			string type.</p>
-   */
-  stringSetValue?: string[];
-}
-
-/**
- * <p>The Docker and Amazon ECS container agent version information about a container
- * 			instance.</p>
- */
-export interface VersionInfo {
-  /**
-   * <p>The version number of the Amazon ECS container agent.</p>
-   */
-  agentVersion?: string;
-
-  /**
-   * <p>The Git commit hash for the Amazon ECS container agent build on the <a href="https://github.com/aws/amazon-ecs-agent/commits/master">amazon-ecs-agent
-   * 			</a> GitHub repository.</p>
-   */
-  agentHash?: string;
-
-  /**
-   * <p>The Docker version that's running on the container instance.</p>
-   */
-  dockerVersion?: string;
-}
-
-/**
- * <p>An Amazon EC2 or External instance that's running the Amazon ECS agent and has been registered
- * 			with a cluster.</p>
- */
-export interface ContainerInstance {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the container instance. For more information about the ARN format,
-   * 			see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids">Amazon Resource Name (ARN)</a> in the <i>Amazon ECS Developer Guide</i>.</p>
-   */
-  containerInstanceArn?: string;
-
-  /**
-   * <p>The ID of the container instance. For Amazon EC2 instances, this value is the Amazon EC2
-   * 			instance ID. For external instances, this value is the Amazon Web Services Systems Manager managed instance ID.</p>
-   */
-  ec2InstanceId?: string;
-
-  /**
-   * <p>The capacity provider that's associated with the container instance.</p>
-   */
-  capacityProviderName?: string;
-
-  /**
-   * <p>The version counter for the container instance. Every time a container instance
-   * 			experiences a change that triggers a CloudWatch event, the version counter is
-   * 			incremented. If you're replicating your Amazon ECS container instance state with CloudWatch
-   * 			Events, you can compare the version of a container instance reported by the Amazon ECS APIs
-   * 			with the version reported in CloudWatch Events for the container instance (inside the
-   * 				<code>detail</code> object) to verify that the version in your event stream is
-   * 			current.</p>
-   */
-  version?: number;
-
-  /**
-   * <p>The version information for the Amazon ECS container agent and Docker daemon running on the
-   * 			container instance.</p>
-   */
-  versionInfo?: VersionInfo;
-
-  /**
-   * <p>For CPU and memory resource types, this parameter describes the remaining CPU and
-   * 			memory that wasn't already allocated to tasks and is therefore available for new tasks.
-   * 			For port resource types, this parameter describes the ports that were reserved by the
-   * 			Amazon ECS container agent (at instance registration time) and any task containers that have
-   * 			reserved port mappings on the host (with the <code>host</code> or <code>bridge</code>
-   * 			network mode). Any port that's not specified here is available for new tasks.</p>
-   */
-  remainingResources?: Resource[];
-
-  /**
-   * <p>For CPU and memory resource types, this parameter describes the amount of each
-   * 			resource that was available on the container instance when the container agent
-   * 			registered it with Amazon ECS. This value represents the total amount of CPU and memory that
-   * 			can be allocated on this container instance to tasks. For port resource types, this
-   * 			parameter describes the ports that were reserved by the Amazon ECS container agent when it
-   * 			registered the container instance with Amazon ECS.</p>
-   */
-  registeredResources?: Resource[];
-
-  /**
-   * <p>The status of the container instance. The valid values are <code>REGISTERING</code>,
-   * 				<code>REGISTRATION_FAILED</code>, <code>ACTIVE</code>, <code>INACTIVE</code>,
-   * 				<code>DEREGISTERING</code>, or <code>DRAINING</code>.</p>
-   *          <p>If your account has opted in to the <code>awsvpcTrunking</code> account setting, then
-   * 			any newly registered container instance will transition to a <code>REGISTERING</code>
-   * 			status while the trunk elastic network interface is provisioned for the instance. If the
-   * 			registration fails, the instance will transition to a <code>REGISTRATION_FAILED</code>
-   * 			status. You can describe the container instance and see the reason for failure in the
-   * 				<code>statusReason</code> parameter. Once the container instance is terminated, the
-   * 			instance transitions to a <code>DEREGISTERING</code> status while the trunk elastic
-   * 			network interface is deprovisioned. The instance then transitions to an
-   * 				<code>INACTIVE</code> status.</p>
-   *          <p>The <code>ACTIVE</code> status indicates that the container instance can accept tasks.
-   * 			The <code>DRAINING</code> indicates that new tasks aren't placed on the container
-   * 			instance and any service tasks running on the container instance are removed if
-   * 			possible. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-draining.html">Container instance draining</a> in the
-   * 			<i>Amazon Elastic Container Service Developer Guide</i>.</p>
-   */
-  status?: string;
-
-  /**
-   * <p>The reason that the container instance reached its current status.</p>
-   */
-  statusReason?: string;
-
-  /**
-   * <p>This parameter returns <code>true</code> if the agent is connected to Amazon ECS. An
-   * 			instance with an agent that may be unhealthy or stopped return <code>false</code>. Only
-   * 			instances connected to an agent can accept task placement requests.</p>
-   */
-  agentConnected?: boolean;
-
-  /**
-   * <p>The number of tasks on the container instance that are in the <code>RUNNING</code>
-   * 			status.</p>
-   */
-  runningTasksCount?: number;
-
-  /**
-   * <p>The number of tasks on the container instance that are in the <code>PENDING</code>
-   * 			status.</p>
-   */
-  pendingTasksCount?: number;
-
-  /**
-   * <p>The status of the most recent agent update. If an update wasn't ever requested, this
-   * 			value is <code>NULL</code>.</p>
-   */
-  agentUpdateStatus?: AgentUpdateStatus | string;
-
-  /**
-   * <p>The attributes set for the container instance, either by the Amazon ECS container agent at
-   * 			instance registration or manually with the <a>PutAttributes</a>
-   * 			operation.</p>
-   */
-  attributes?: Attribute[];
-
-  /**
-   * <p>The Unix timestamp for the time when the container instance was registered.</p>
-   */
-  registeredAt?: Date;
-
-  /**
-   * <p>The resources attached to a container instance, such as an elastic network
-   * 			interface.</p>
-   */
-  attachments?: Attachment[];
-
-  /**
-   * <p>The metadata that you apply to the container instance to help you categorize and
-   * 			organize them. Each tag consists of a key and an optional value. You define both.</p>
-   *          <p>The following basic restrictions apply to tags:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Maximum number of tags per resource - 50</p>
-   *             </li>
-   *             <li>
-   *                <p>For each resource, each tag key must be unique, and each tag key can have only
-   *                     one value.</p>
-   *             </li>
-   *             <li>
-   *                <p>Maximum key length - 128 Unicode characters in UTF-8</p>
-   *             </li>
-   *             <li>
-   *                <p>Maximum value length - 256 Unicode characters in UTF-8</p>
-   *             </li>
-   *             <li>
-   *                <p>If your tagging schema is used across multiple services and resources,
-   *                     remember that other services may have restrictions on allowed characters.
-   *                     Generally allowed characters are: letters, numbers, and spaces representable in
-   *                     UTF-8, and the following characters: + - = . _ : / @.</p>
-   *             </li>
-   *             <li>
-   *                <p>Tag keys and values are case-sensitive.</p>
-   *             </li>
-   *             <li>
-   *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase
-   *                     combination of such as a prefix for either keys or values as it is reserved for
-   *                     Amazon Web Services use. You cannot edit or delete tag keys or values with this prefix. Tags with
-   *                     this prefix do not count against your tags per resource limit.</p>
-   *             </li>
-   *          </ul>
-   */
-  tags?: Tag[];
-
-  /**
-   * <p>An object representing the health status of the container instance.</p>
-   */
-  healthStatus?: ContainerInstanceHealthStatus;
-}
-
-export interface DeregisterContainerInstanceResponse {
-  /**
-   * <p>The container instance that was deregistered.</p>
-   */
-  containerInstance?: ContainerInstance;
-}
-
-export interface DeregisterTaskDefinitionRequest {
+export interface DeleteTaskDefinitionsRequest {
   /**
    * <p>The <code>family</code> and <code>revision</code> (<code>family:revision</code>) or
-   * 			full Amazon Resource Name (ARN) of the task definition to deregister. You must specify a
+   * 			full Amazon Resource Name (ARN) of the task definition to delete. You must specify a
    * 				<code>revision</code>.</p>
+   *          <p>You can specify up to 10 task definitions as a comma separated list.</p>
    */
-  taskDefinition: string | undefined;
-}
-
-export enum Compatibility {
-  EC2 = "EC2",
-  EXTERNAL = "EXTERNAL",
-  FARGATE = "FARGATE",
-}
-
-export enum ContainerCondition {
-  COMPLETE = "COMPLETE",
-  HEALTHY = "HEALTHY",
-  START = "START",
-  SUCCESS = "SUCCESS",
+  taskDefinitions: string[] | undefined;
 }
 
 /**
+ * @public
+ * <p>A failed resource. For a list of common causes, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/api_failures_messages.html">API failure
+ * 				reasons</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ */
+export interface Failure {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the failed resource.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The reason for the failure.</p>
+   */
+  reason?: string;
+
+  /**
+   * <p>The details of the failure.</p>
+   */
+  detail?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Compatibility = {
+  EC2: "EC2",
+  EXTERNAL: "EXTERNAL",
+  FARGATE: "FARGATE",
+} as const;
+
+/**
+ * @public
+ */
+export type Compatibility = (typeof Compatibility)[keyof typeof Compatibility];
+
+/**
+ * @public
+ * @enum
+ */
+export const ContainerCondition = {
+  COMPLETE: "COMPLETE",
+  HEALTHY: "HEALTHY",
+  START: "START",
+  SUCCESS: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type ContainerCondition = (typeof ContainerCondition)[keyof typeof ContainerCondition];
+
+/**
+ * @public
  * <p>The dependencies defined for container startup and shutdown. A container can contain
  * 			multiple dependencies. When a dependency is defined for container startup, for container
  * 			shutdown it is reversed.</p>
@@ -3798,11 +3762,21 @@ export interface ContainerDependency {
   condition: ContainerCondition | string | undefined;
 }
 
-export enum EnvironmentFileType {
-  S3 = "s3",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EnvironmentFileType = {
+  S3: "s3",
+} as const;
 
 /**
+ * @public
+ */
+export type EnvironmentFileType = (typeof EnvironmentFileType)[keyof typeof EnvironmentFileType];
+
+/**
+ * @public
  * <p>A list of files containing the environment variables to pass to a container. You can
  * 			specify up to ten environment files. The file must have a <code>.env</code> file
  * 			extension. Each line in an environment file should contain an environment variable in
@@ -3841,6 +3815,7 @@ export interface EnvironmentFile {
 }
 
 /**
+ * @public
  * <p>Hostnames and IP address entries that are added to the <code>/etc/hosts</code> file of
  * 			a container via the <code>extraHosts</code> parameter of its <a>ContainerDefinition</a>. </p>
  */
@@ -3856,12 +3831,22 @@ export interface HostEntry {
   ipAddress: string | undefined;
 }
 
-export enum FirelensConfigurationType {
-  FLUENTBIT = "fluentbit",
-  FLUENTD = "fluentd",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FirelensConfigurationType = {
+  FLUENTBIT: "fluentbit",
+  FLUENTD: "fluentd",
+} as const;
 
 /**
+ * @public
+ */
+export type FirelensConfigurationType = (typeof FirelensConfigurationType)[keyof typeof FirelensConfigurationType];
+
+/**
+ * @public
  * <p>The FireLens configuration for the container. This is used to specify and configure a
  * 			log router for container logs. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html">Custom log routing</a>
  * 			in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
@@ -3878,7 +3863,7 @@ export interface FirelensConfiguration {
    * 			used to specify a custom configuration file or to add additional metadata, such as the
    * 			task, task definition, cluster, and container instance details to the log event. If
    * 			specified, the syntax to use is
-   * 				<code>"options":{"enable-ecs-log-metadata":"true|false","config-file-type:"s3|file","config-file-value":"arn:aws:s3:::mybucket/fluent.conf|filepath"}</code>.
+   * 				<code>"options":\{"enable-ecs-log-metadata":"true|false","config-file-type:"s3|file","config-file-value":"arn:aws:s3:::mybucket/fluent.conf|filepath"\}</code>.
    * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html#firelens-taskdef">Creating
    * 				a task definition that uses a FireLens configuration</a> in the
    * 			<i>Amazon Elastic Container Service Developer Guide</i>.</p>
@@ -3891,10 +3876,11 @@ export interface FirelensConfiguration {
 }
 
 /**
+ * @public
  * <p>An object representing a container health check. Health check parameters that are
  * 			specified in a container definition override any Docker health checks that exist in the
  * 			container image (such as those specified in a parent image or from the image's
- * 			Dockerfile).</p>
+ * 			Dockerfile). This configuration maps to the <code>HEALTHCHECK</code> parameter of <a href="https://docs.docker.com/engine/reference/run/">docker run</a>.</p>
  *          <note>
  *             <p>The Amazon ECS container agent only monitors and reports on the health checks specified
  * 				in the task definition. Amazon ECS does not monitor Docker health checks that are
@@ -3923,8 +3909,8 @@ export interface FirelensConfiguration {
  *             </li>
  *          </ul>
  *          <p>The following describes the possible <code>healthStatus</code> values for a task. The
- * 			container health check status of nonessential containers only affects the health status
- * 			of a task if no essential containers have health checks defined.</p>
+ * 			container health check status of
+ * 			non-essential containers don't have an effect on the health status of a task.</p>
  *          <ul>
  *             <li>
  *                <p>
@@ -3939,22 +3925,15 @@ export interface FirelensConfiguration {
  *             <li>
  *                <p>
  *                   <code>UNKNOWN</code>-The essential containers within the task are still
- * 					having their health checks evaluated or there are only nonessential containers
- * 					with health checks defined.</p>
+ * 					having their health checks evaluated, there are only nonessential containers
+ * 					with health checks defined, or there are no container health checks
+ * 					defined.</p>
  *             </li>
  *          </ul>
  *          <p>If a task is run manually, and not as part of a service, the task will continue its
  * 			lifecycle regardless of its health status. For tasks that are part of a service, if the
  * 			task reports as unhealthy then the task will be stopped and the service scheduler will
  * 			replace it.</p>
- *          <important>
- *             <p>For tasks that are a part of a service and the service uses the <code>ECS</code>
- * 				rolling deployment type, the deployment is paused while the new tasks have the
- * 					<code>UNKNOWN</code> task health check status. For example, tasks that define
- * 				health checks for nonessential containers when no essential containers have health
- * 				checks will have the <code>UNKNOWN</code> health check status indefinitely which
- * 				prevents the deployment from completing.</p>
- *          </important>
  *          <p>The following are notes about container health check support:</p>
  *          <ul>
  *             <li>
@@ -3980,14 +3959,14 @@ export interface HealthCheck {
    * 			healthy. The string array must start with <code>CMD</code> to run the command arguments
    * 			directly, or <code>CMD-SHELL</code> to run the command with the container's default
    * 			shell. </p>
-   *          <p> When you use the Amazon Web Services Management Console JSON panel, the Command Line Interface, or the APIs, enclose the list
-   * 			of commands in brackets.</p>
+   *          <p> When you use the Amazon Web Services Management Console JSON panel, the Command Line Interface, or the APIs, enclose the list of
+   * 			commands in double quotes and brackets.</p>
    *          <p>
    *             <code>[ "CMD-SHELL", "curl -f http://localhost/ || exit 1" ]</code>
    *          </p>
-   *          <p>You don't need to include the brackets when you use the Amazon Web Services Management Console.</p>
+   *          <p>You don't include the double quotes and brackets when you use the Amazon Web Services Management Console.</p>
    *          <p>
-   *             <code> "CMD-SHELL", "curl -f http://localhost/ || exit 1" </code>
+   *             <code> CMD-SHELL, curl -f http://localhost/ || exit 1</code>
    *          </p>
    *          <p>An exit code of 0 indicates success, and non-zero exit code indicates failure. For
    * 			more information, see <code>HealthCheck</code> in the <a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a container</a>
@@ -4017,7 +3996,7 @@ export interface HealthCheck {
   /**
    * <p>The optional grace period to provide containers time to bootstrap before failed health
    * 			checks count towards the maximum number of retries. You can specify between 0 and 300
-   * 			seconds. By default, the <code>startPeriod</code> is disabled.</p>
+   * 			seconds. By default, the <code>startPeriod</code> is off.</p>
    *          <note>
    *             <p>If a health check succeeds within the <code>startPeriod</code>, then the container
    * 				is considered healthy and any subsequent failures count toward the maximum number of
@@ -4028,6 +4007,7 @@ export interface HealthCheck {
 }
 
 /**
+ * @public
  * <p>The Linux capabilities for the container that are added to or dropped from the default
  * 			configuration provided by Docker. For more information about the default capabilities
  * 			and the non-default available capabilities, see <a href="https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities">Runtime privilege and Linux capabilities</a> in the <i>Docker run
@@ -4076,13 +4056,23 @@ export interface KernelCapabilities {
   drop?: string[];
 }
 
-export enum DeviceCgroupPermission {
-  MKNOD = "mknod",
-  READ = "read",
-  WRITE = "write",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeviceCgroupPermission = {
+  MKNOD: "mknod",
+  READ: "read",
+  WRITE: "write",
+} as const;
 
 /**
+ * @public
+ */
+export type DeviceCgroupPermission = (typeof DeviceCgroupPermission)[keyof typeof DeviceCgroupPermission];
+
+/**
+ * @public
  * <p>An object representing a container instance host device.</p>
  */
 export interface Device {
@@ -4105,6 +4095,7 @@ export interface Device {
 }
 
 /**
+ * @public
  * <p>The container path, mount options, and size of the tmpfs mount.</p>
  */
 export interface Tmpfs {
@@ -4132,7 +4123,8 @@ export interface Tmpfs {
 }
 
 /**
- * <p>Linux-specific options that are applied to the container, such as Linux <a>KernelCapabilities</a>.</p>
+ * @public
+ * <p>The Linux-specific options that are applied to the container, such as Linux <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KernelCapabilities.html">KernelCapabilities</a>.</p>
  */
 export interface LinuxParameters {
   /**
@@ -4160,7 +4152,7 @@ export interface LinuxParameters {
 
   /**
    * <p>Run an <code>init</code> process inside the container that forwards signals and reaps
-   * 			processes. This parameter maps to the <code>--init</code> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker run</a>. This parameter requires version 1.25 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: <code>sudo docker version --format '{{.Server.APIVersion}}'</code>
+   * 			processes. This parameter maps to the <code>--init</code> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker run</a>. This parameter requires version 1.25 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: <code>sudo docker version --format '\{\{.Server.APIVersion\}\}'</code>
    *          </p>
    */
   initProcessEnabled?: boolean;
@@ -4220,7 +4212,8 @@ export interface LinuxParameters {
 }
 
 /**
- * <p>Details for a volume mount point that's used in a container definition.</p>
+ * @public
+ * <p>The details for a volume mount point that's used in a container definition.</p>
  */
 export interface MountPoint {
   /**
@@ -4242,18 +4235,37 @@ export interface MountPoint {
   readOnly?: boolean;
 }
 
-export enum ApplicationProtocol {
-  GRPC = "grpc",
-  HTTP = "http",
-  HTTP2 = "http2",
-}
-
-export enum TransportProtocol {
-  TCP = "tcp",
-  UDP = "udp",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ApplicationProtocol = {
+  GRPC: "grpc",
+  HTTP: "http",
+  HTTP2: "http2",
+} as const;
 
 /**
+ * @public
+ */
+export type ApplicationProtocol = (typeof ApplicationProtocol)[keyof typeof ApplicationProtocol];
+
+/**
+ * @public
+ * @enum
+ */
+export const TransportProtocol = {
+  TCP: "tcp",
+  UDP: "udp",
+} as const;
+
+/**
+ * @public
+ */
+export type TransportProtocol = (typeof TransportProtocol)[keyof typeof TransportProtocol];
+
+/**
+ * @public
  * <p>Port mappings allow containers to access ports on the host container instance to send
  * 			or receive traffic. Port mappings are specified as part of the container
  * 			definition.</p>
@@ -4294,9 +4306,9 @@ export interface PortMapping {
    * 						<code>containerPort</code>. This is a static mapping strategy.</p>
    *             </li>
    *             <li>
-   *                <p>For containers in a task with the <code>bridge</code> network mode, the Amazon ECS
-   * 					agent finds open ports on the host and automaticaly binds them to the container
-   * 					ports. This is a dynamic mapping strategy.</p>
+   *                <p>For containers in a task with the <code>bridge</code> network mode, the Amazon ECS agent finds
+   * 					open ports on the host and automatically binds them to the container ports. This
+   * 					is a dynamic mapping strategy.</p>
    *             </li>
    *          </ul>
    *          <p>If you use containers in a task with the <code>awsvpc</code> or <code>host</code>
@@ -4318,7 +4330,7 @@ export interface PortMapping {
    * 			Amazon ECS container agent ports 51678-51680. Any host port that was previously specified in
    * 			a running task is also reserved while the task is running. That is, after a task stops,
    * 			the host port is released. The current reserved ports are displayed in the
-   * 				<code>remainingResources</code> of <a>DescribeContainerInstances</a>
+   * 			<code>remainingResources</code> of <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeContainerInstances.html">DescribeContainerInstances</a>
    * 			output. A container instance can have up to 100 reserved ports at a time. This number
    * 			includes the default reserved ports. Automatically assigned ports aren't included in the
    * 			100 reserved ports quota.</p>
@@ -4359,7 +4371,8 @@ export interface PortMapping {
   appProtocol?: ApplicationProtocol | string;
 
   /**
-   * <p>The port number range on the container that's bound to the dynamically mapped host port range.</p>
+   * <p>The port number range on the container that's bound to the dynamically mapped host port
+   * 			range. </p>
    *          <p>The following rules apply when you specify a <code>containerPortRange</code>:</p>
    *          <ul>
    *             <li>
@@ -4422,6 +4435,7 @@ export interface PortMapping {
 }
 
 /**
+ * @public
  * <p>The repository credentials for private registry authentication.</p>
  */
 export interface RepositoryCredentials {
@@ -4438,14 +4452,24 @@ export interface RepositoryCredentials {
   credentialsParameter: string | undefined;
 }
 
-export enum ResourceType {
-  GPU = "GPU",
-  INFERENCE_ACCELERATOR = "InferenceAccelerator",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResourceType = {
+  GPU: "GPU",
+  INFERENCE_ACCELERATOR: "InferenceAccelerator",
+} as const;
 
 /**
- * <p>The type and amount of a resource to assign to a container. The supported resource
- * 			types are GPUs and Elastic Inference accelerators. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-gpu.html">Working with
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+
+/**
+ * @public
+ * <p>The type and amount of a resource to assign to a container. The supported resource types are
+ * 			GPUs and Elastic Inference accelerators. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-gpu.html">Working with
  * 				GPUs on Amazon ECS</a> or <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-inference.html">Working with
  * 				Amazon Elastic Inference on Amazon ECS</a> in the <i>Amazon Elastic Container Service Developer Guide</i>
  *          </p>
@@ -4458,7 +4482,7 @@ export interface ResourceRequirement {
    * 			of GPUs that's reserved for all containers in a task can't exceed the number of
    * 			available GPUs on the container instance that the task is launched on.</p>
    *          <p>If the <code>InferenceAccelerator</code> type is used, the <code>value</code> matches
-   * 			the <code>deviceName</code> for an <a>InferenceAccelerator</a> specified in a
+   * 			the <code>deviceName</code> for an <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_InferenceAccelerator.html">InferenceAccelerator</a> specified in a
    * 			task definition.</p>
    */
   value: string | undefined;
@@ -4471,6 +4495,7 @@ export interface ResourceRequirement {
 }
 
 /**
+ * @public
  * <p>A list of namespaced kernel parameters to set in the container. This parameter maps to
  * 				<code>Sysctls</code> in the <a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a container</a> section of the
  * 			<a href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the <code>--sysctl</code> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker run</a>.</p>
@@ -4507,33 +4532,45 @@ export interface SystemControl {
   value?: string;
 }
 
-export enum UlimitName {
-  CORE = "core",
-  CPU = "cpu",
-  DATA = "data",
-  FSIZE = "fsize",
-  LOCKS = "locks",
-  MEMLOCK = "memlock",
-  MSGQUEUE = "msgqueue",
-  NICE = "nice",
-  NOFILE = "nofile",
-  NPROC = "nproc",
-  RSS = "rss",
-  RTPRIO = "rtprio",
-  RTTIME = "rttime",
-  SIGPENDING = "sigpending",
-  STACK = "stack",
-}
+/**
+ * @public
+ * @enum
+ */
+export const UlimitName = {
+  CORE: "core",
+  CPU: "cpu",
+  DATA: "data",
+  FSIZE: "fsize",
+  LOCKS: "locks",
+  MEMLOCK: "memlock",
+  MSGQUEUE: "msgqueue",
+  NICE: "nice",
+  NOFILE: "nofile",
+  NPROC: "nproc",
+  RSS: "rss",
+  RTPRIO: "rtprio",
+  RTTIME: "rttime",
+  SIGPENDING: "sigpending",
+  STACK: "stack",
+} as const;
 
 /**
+ * @public
+ */
+export type UlimitName = (typeof UlimitName)[keyof typeof UlimitName];
+
+/**
+ * @public
  * <p>The <code>ulimit</code> settings to pass to the container.</p>
  *          <p>Amazon ECS tasks hosted on Fargate use the default
  * 							resource limit values set by the operating system with the exception of
  * 							the <code>nofile</code> resource limit parameter which Fargate
  * 							overrides. The <code>nofile</code> resource limit sets a restriction on
  * 							the number of open files that a container can use. The default
- * 								<code>nofile</code> soft limit is <code>1024</code> and hard limit
+ * 								<code>nofile</code> soft limit is <code>1024</code> and the default hard limit
  * 							is <code>4096</code>.</p>
+ *          <p>You can specify the <code>ulimit</code> settings for a container in a task
+ * 			definition.</p>
  */
 export interface Ulimit {
   /**
@@ -4553,6 +4590,7 @@ export interface Ulimit {
 }
 
 /**
+ * @public
  * <p>Details on a data volume from another container in the same task definition.</p>
  */
 export interface VolumeFrom {
@@ -4571,6 +4609,7 @@ export interface VolumeFrom {
 }
 
 /**
+ * @public
  * <p>Container definitions are used in task definitions to describe the different
  * 			containers that are launched as part of a task.</p>
  */
@@ -5044,9 +5083,9 @@ export interface ContainerDefinition {
   workingDirectory?: string;
 
   /**
-   * <p>When this parameter is true, networking is disabled within the container. This
-   * 			parameter maps to <code>NetworkDisabled</code> in the <a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a container</a>
-   * 			section of the <a href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a>.</p>
+   * <p>When this parameter is true, networking is off within the container. This parameter maps to
+   * 				<code>NetworkDisabled</code> in the <a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a container</a> section of
+   * 			the <a href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a>.</p>
    *          <note>
    *             <p>This parameter is not supported for Windows containers.</p>
    *          </note>
@@ -5110,13 +5149,18 @@ export interface ContainerDefinition {
   extraHosts?: HostEntry[];
 
   /**
-   * <p>A list of strings to provide custom labels for SELinux and AppArmor multi-level
-   * 			security systems. This field isn't valid for containers in tasks using the
-   * 			Fargate launch type.</p>
-   *          <p>With Windows containers, this parameter can be used to reference a credential spec
-   * 			file when configuring a container for Active Directory authentication. For more
+   * <p>A list of strings to provide custom configuration for multiple
+   * 			security systems. For more information about valid values, see <a href="https://docs.docker.com/engine/reference/run/#security-configuration">Docker Run Security Configuration</a>. This field isn't valid
+   * 			for containers in tasks using the Fargate launch
+   * 			type.</p>
+   *          <p>For Linux tasks on EC2, this parameter can be used to reference custom
+   * 			labels for SELinux and AppArmor multi-level security systems.</p>
+   *          <p>For any tasks on EC2, this parameter can be used to reference a
+   * 			credential spec file that configures a container for Active Directory
+   * 			authentication. For more
    * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows-gmsa.html">Using gMSAs for Windows
-   * 				Containers</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 				Containers</a> and <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/linux-gmsa.html">Using gMSAs for Linux
+   * 					Containers</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    *          <p>This parameter maps to <code>SecurityOpt</code> in the
    * 			<a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
    * 				<code>--security-opt</code> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker
@@ -5153,7 +5197,7 @@ export interface ContainerDefinition {
   /**
    * <p>A key/value map of labels to add to the container. This parameter maps to
    * 				<code>Labels</code> in the <a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a container</a> section of the
-   * 			<a href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the <code>--label</code> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker run</a>. This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: <code>sudo docker version --format '{{.Server.APIVersion}}'</code>
+   * 			<a href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the <code>--label</code> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker run</a>. This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: <code>sudo docker version --format '\{\{.Server.APIVersion\}\}'</code>
    *          </p>
    */
   dockerLabels?: Record<string, string>;
@@ -5169,9 +5213,9 @@ export interface ContainerDefinition {
    * 							the <code>nofile</code> resource limit parameter which Fargate
    * 							overrides. The <code>nofile</code> resource limit sets a restriction on
    * 							the number of open files that a container can use. The default
-   * 								<code>nofile</code> soft limit is <code>1024</code> and hard limit
+   * 								<code>nofile</code> soft limit is <code>1024</code> and the default hard limit
    * 							is <code>4096</code>.</p>
-   *          <p>This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: <code>sudo docker version --format '{{.Server.APIVersion}}'</code>
+   *          <p>This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: <code>sudo docker version --format '\{\{.Server.APIVersion\}\}'</code>
    *          </p>
    *          <note>
    *             <p>This parameter is not supported for Windows containers.</p>
@@ -5197,7 +5241,7 @@ export interface ContainerDefinition {
    * 				daemon (shown in the <a>LogConfiguration</a> data type). Additional log
    * 				drivers may be available in future releases of the Amazon ECS container agent.</p>
    *          </note>
-   *          <p>This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: <code>sudo docker version --format '{{.Server.APIVersion}}'</code>
+   *          <p>This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: <code>sudo docker version --format '\{\{.Server.APIVersion\}\}'</code>
    *          </p>
    *          <note>
    *             <p>The Amazon ECS container agent running on a container instance must register the
@@ -5250,14 +5294,19 @@ export interface ContainerDefinition {
 }
 
 /**
+ * @public
  * <p>The amount of ephemeral storage to allocate for the task. This parameter is used to
  * 			expand the total amount of ephemeral storage available, beyond the default amount, for
  * 			tasks hosted on Fargate. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/userguide/using_data_volumes.html">Fargate task
  * 				storage</a> in the <i>Amazon ECS User Guide for Fargate</i>.</p>
  *          <note>
- *             <p>This parameter is only supported for tasks hosted on Fargate using
- * 				Linux platform version <code>1.4.0</code> or later. This parameter is not supported
- * 				for Windows containers on Fargate.</p>
+ *             <p>For tasks using the Fargate launch type, the task requires
+ * 				the following platforms:</p>
+ *             <ul>
+ *                <li>
+ *                   <p>Linux platform version <code>1.4.0</code> or later.</p>
+ *                </li>
+ *             </ul>
  *          </note>
  */
 export interface EphemeralStorage {
@@ -5270,13 +5319,14 @@ export interface EphemeralStorage {
 }
 
 /**
+ * @public
  * <p>Details on an Elastic Inference accelerator. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-inference.html">Working with Amazon Elastic Inference on
  * 				Amazon ECS</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  */
 export interface InferenceAccelerator {
   /**
    * <p>The Elastic Inference accelerator device name. The <code>deviceName</code> must also
-   * 			be referenced in a container definition as a <a>ResourceRequirement</a>.</p>
+   * 			be referenced in a container definition as a <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ResourceRequirement.html">ResourceRequirement</a>.</p>
    */
   deviceName: string | undefined;
 
@@ -5286,30 +5336,68 @@ export interface InferenceAccelerator {
   deviceType: string | undefined;
 }
 
-export enum IpcMode {
-  HOST = "host",
-  NONE = "none",
-  TASK = "task",
-}
-
-export enum NetworkMode {
-  AWSVPC = "awsvpc",
-  BRIDGE = "bridge",
-  HOST = "host",
-  NONE = "none",
-}
-
-export enum PidMode {
-  HOST = "host",
-  TASK = "task",
-}
-
-export enum TaskDefinitionPlacementConstraintType {
-  MEMBER_OF = "memberOf",
-}
+/**
+ * @public
+ * @enum
+ */
+export const IpcMode = {
+  HOST: "host",
+  NONE: "none",
+  TASK: "task",
+} as const;
 
 /**
- * <p>An object representing a constraint on task placement in the task definition. For more
+ * @public
+ */
+export type IpcMode = (typeof IpcMode)[keyof typeof IpcMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const NetworkMode = {
+  AWSVPC: "awsvpc",
+  BRIDGE: "bridge",
+  HOST: "host",
+  NONE: "none",
+} as const;
+
+/**
+ * @public
+ */
+export type NetworkMode = (typeof NetworkMode)[keyof typeof NetworkMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const PidMode = {
+  HOST: "host",
+  TASK: "task",
+} as const;
+
+/**
+ * @public
+ */
+export type PidMode = (typeof PidMode)[keyof typeof PidMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const TaskDefinitionPlacementConstraintType = {
+  MEMBER_OF: "memberOf",
+} as const;
+
+/**
+ * @public
+ */
+export type TaskDefinitionPlacementConstraintType =
+  (typeof TaskDefinitionPlacementConstraintType)[keyof typeof TaskDefinitionPlacementConstraintType];
+
+/**
+ * @public
+ * <p>The constraint on task placement in the task definition. For more
  * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html">Task placement constraints</a> in the
  * 			<i>Amazon Elastic Container Service Developer Guide</i>.</p>
  *          <note>
@@ -5330,11 +5418,21 @@ export interface TaskDefinitionPlacementConstraint {
   expression?: string;
 }
 
-export enum ProxyConfigurationType {
-  APPMESH = "APPMESH",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ProxyConfigurationType = {
+  APPMESH: "APPMESH",
+} as const;
 
 /**
+ * @public
+ */
+export type ProxyConfigurationType = (typeof ProxyConfigurationType)[keyof typeof ProxyConfigurationType];
+
+/**
+ * @public
  * <p>The configuration details for the App Mesh proxy.</p>
  *          <p>For tasks that use the EC2 launch type, the container instances require
  * 			at least version 1.26.0 of the container agent and at least version 1.26.0-1 of the
@@ -5406,23 +5504,42 @@ export interface ProxyConfiguration {
   properties?: KeyValuePair[];
 }
 
-export enum CPUArchitecture {
-  ARM64 = "ARM64",
-  X86_64 = "X86_64",
-}
-
-export enum OSFamily {
-  LINUX = "LINUX",
-  WINDOWS_SERVER_2004_CORE = "WINDOWS_SERVER_2004_CORE",
-  WINDOWS_SERVER_2016_FULL = "WINDOWS_SERVER_2016_FULL",
-  WINDOWS_SERVER_2019_CORE = "WINDOWS_SERVER_2019_CORE",
-  WINDOWS_SERVER_2019_FULL = "WINDOWS_SERVER_2019_FULL",
-  WINDOWS_SERVER_2022_CORE = "WINDOWS_SERVER_2022_CORE",
-  WINDOWS_SERVER_2022_FULL = "WINDOWS_SERVER_2022_FULL",
-  WINDOWS_SERVER_20H2_CORE = "WINDOWS_SERVER_20H2_CORE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CPUArchitecture = {
+  ARM64: "ARM64",
+  X86_64: "X86_64",
+} as const;
 
 /**
+ * @public
+ */
+export type CPUArchitecture = (typeof CPUArchitecture)[keyof typeof CPUArchitecture];
+
+/**
+ * @public
+ * @enum
+ */
+export const OSFamily = {
+  LINUX: "LINUX",
+  WINDOWS_SERVER_2004_CORE: "WINDOWS_SERVER_2004_CORE",
+  WINDOWS_SERVER_2016_FULL: "WINDOWS_SERVER_2016_FULL",
+  WINDOWS_SERVER_2019_CORE: "WINDOWS_SERVER_2019_CORE",
+  WINDOWS_SERVER_2019_FULL: "WINDOWS_SERVER_2019_FULL",
+  WINDOWS_SERVER_2022_CORE: "WINDOWS_SERVER_2022_CORE",
+  WINDOWS_SERVER_2022_FULL: "WINDOWS_SERVER_2022_FULL",
+  WINDOWS_SERVER_20H2_CORE: "WINDOWS_SERVER_20H2_CORE",
+} as const;
+
+/**
+ * @public
+ */
+export type OSFamily = (typeof OSFamily)[keyof typeof OSFamily];
+
+/**
+ * @public
  * <p>Information about the platform for the Amazon ECS service or task.</p>
  *          <p>For more information about <code>RuntimePlatform</code>, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform">RuntimePlatform</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  */
@@ -5441,17 +5558,37 @@ export interface RuntimePlatform {
   operatingSystemFamily?: OSFamily | string;
 }
 
-export enum TaskDefinitionStatus {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
-
-export enum Scope {
-  SHARED = "shared",
-  TASK = "task",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TaskDefinitionStatus = {
+  ACTIVE: "ACTIVE",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  INACTIVE: "INACTIVE",
+} as const;
 
 /**
+ * @public
+ */
+export type TaskDefinitionStatus = (typeof TaskDefinitionStatus)[keyof typeof TaskDefinitionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const Scope = {
+  SHARED: "shared",
+  TASK: "task",
+} as const;
+
+/**
+ * @public
+ */
+export type Scope = (typeof Scope)[keyof typeof Scope];
+
+/**
+ * @public
  * <p>This parameter is specified when you're using Docker volumes. Docker volumes are only
  * 			supported when you're using the EC2 launch type. Windows containers only
  * 			support the use of the <code>local</code> driver. To use bind mounts, specify a
@@ -5505,12 +5642,22 @@ export interface DockerVolumeConfiguration {
   labels?: Record<string, string>;
 }
 
-export enum EFSAuthorizationConfigIAM {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EFSAuthorizationConfigIAM = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type EFSAuthorizationConfigIAM = (typeof EFSAuthorizationConfigIAM)[keyof typeof EFSAuthorizationConfigIAM];
+
+/**
+ * @public
  * <p>The authorization configuration details for the Amazon EFS file system.</p>
  */
 export interface EFSAuthorizationConfig {
@@ -5518,15 +5665,15 @@ export interface EFSAuthorizationConfig {
    * <p>The Amazon EFS access point ID to use. If an access point is specified, the root directory
    * 			value specified in the <code>EFSVolumeConfiguration</code> must either be omitted or set
    * 			to <code>/</code> which will enforce the path set on the EFS access point. If an access
-   * 			point is used, transit encryption must be enabled in the
+   * 			point is used, transit encryption must be on in the
    * 				<code>EFSVolumeConfiguration</code>. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html">Working with Amazon
    * 				EFS access points</a> in the <i>Amazon Elastic File System User Guide</i>.</p>
    */
   accessPointId?: string;
 
   /**
-   * <p>Determines whether to use the Amazon ECS task IAM role defined in a task definition when
-   * 			mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the
+   * <p>Determines whether to use the Amazon ECS task role defined in a task definition when
+   * 			mounting the Amazon EFS file system. If it is turned on, transit encryption must be turned on in the
    * 				<code>EFSVolumeConfiguration</code>. If this parameter is omitted, the default value
    * 			of <code>DISABLED</code> is used. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/efs-volumes.html#efs-volume-accesspoints">Using
    * 				Amazon EFS access points</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
@@ -5534,12 +5681,22 @@ export interface EFSAuthorizationConfig {
   iam?: EFSAuthorizationConfigIAM | string;
 }
 
-export enum EFSTransitEncryption {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EFSTransitEncryption = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type EFSTransitEncryption = (typeof EFSTransitEncryption)[keyof typeof EFSTransitEncryption];
+
+/**
+ * @public
  * <p>This parameter is specified when you're using an Amazon Elastic File System file system for task
  * 			storage. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/efs-volumes.html">Amazon EFS volumes</a> in the
  * 			<i>Amazon Elastic Container Service Developer Guide</i>.</p>
@@ -5564,7 +5721,7 @@ export interface EFSVolumeConfiguration {
 
   /**
    * <p>Determines whether to use encryption for Amazon EFS data in transit between the Amazon ECS host
-   * 			and the Amazon EFS server. Transit encryption must be enabled if Amazon EFS IAM authorization is
+   * 			and the Amazon EFS server. Transit encryption must be turned on if Amazon EFS IAM authorization is
    * 			used. If this parameter is omitted, the default value of <code>DISABLED</code> is used.
    * 			For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/encryption-in-transit.html">Encrypting data in transit</a> in
    * 			the <i>Amazon Elastic File System User Guide</i>.</p>
@@ -5586,6 +5743,7 @@ export interface EFSVolumeConfiguration {
 }
 
 /**
+ * @public
  * <p>The authorization configuration details for Amazon FSx for Windows File Server file system. See <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_FSxWindowsFileServerVolumeConfiguration.html">FSxWindowsFileServerVolumeConfiguration</a> in the <i>Amazon ECS API
  * 				Reference</i>.</p>
  *          <p>For more information and the input format, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/wfsx-volumes.html">Amazon FSx for Windows File Server Volumes</a>
@@ -5607,6 +5765,7 @@ export interface FSxWindowsFileServerAuthorizationConfig {
 }
 
 /**
+ * @public
  * <p>This parameter is specified when you're using <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/what-is.html">Amazon FSx for Windows File Server</a> file system for task
  * 			storage.</p>
  *          <p>For more information and the input format, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/wfsx-volumes.html">Amazon FSx for Windows File Server volumes</a>
@@ -5631,6 +5790,7 @@ export interface FSxWindowsFileServerVolumeConfiguration {
 }
 
 /**
+ * @public
  * <p>Details on a container instance bind mount host volume.</p>
  */
 export interface HostVolumeProperties {
@@ -5650,6 +5810,7 @@ export interface HostVolumeProperties {
 }
 
 /**
+ * @public
  * <p>A data volume that's used in a task definition. For tasks that use the Amazon Elastic File System
  * 			(Amazon EFS), specify an <code>efsVolumeConfiguration</code>. For Windows tasks that use
  * 			Amazon FSx for Windows File Server file system, specify a
@@ -5706,6 +5867,7 @@ export interface Volume {
 }
 
 /**
+ * @public
  * <p>The details of a task definition which describes the container and volume definitions
  * 			of an Amazon Elastic Container Service task. You can specify which Docker images to use, the required
  * 			resources, and other configurations related to launching the task definition through an
@@ -5846,8 +6008,8 @@ export interface TaskDefinition {
   runtimePlatform?: RuntimePlatform;
 
   /**
-   * <p>The task launch types the task definition was validated against. To determine which
-   * 			task launch types the task definition is validated for, see the <a>TaskDefinition$compatibilities</a> parameter.</p>
+   * <p>The task launch types the task definition was validated against.  For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon ECS launch types</a>
+   * 			in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   requiresCompatibilities?: (Compatibility | string)[];
 
@@ -6020,6 +6182,447 @@ export interface TaskDefinition {
   ephemeralStorage?: EphemeralStorage;
 }
 
+/**
+ * @public
+ */
+export interface DeleteTaskDefinitionsResponse {
+  /**
+   * <p>The list of deleted task definitions.</p>
+   */
+  taskDefinitions?: TaskDefinition[];
+
+  /**
+   * <p>Any failures associated with the call.</p>
+   */
+  failures?: Failure[];
+}
+
+/**
+ * @public
+ */
+export interface DeleteTaskSetRequest {
+  /**
+   * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task
+   * 			set found in to delete.</p>
+   */
+  cluster: string | undefined;
+
+  /**
+   * <p>The short name or full Amazon Resource Name (ARN) of the service that hosts the task set to
+   * 			delete.</p>
+   */
+  service: string | undefined;
+
+  /**
+   * <p>The task set ID or full Amazon Resource Name (ARN) of the task set to delete.</p>
+   */
+  taskSet: string | undefined;
+
+  /**
+   * <p>If <code>true</code>, you can delete a task set even if it hasn't been scaled down to
+   * 			zero.</p>
+   */
+  force?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTaskSetResponse {
+  /**
+   * <p>Details about the task set.</p>
+   */
+  taskSet?: TaskSet;
+}
+
+/**
+ * @public
+ * <p>The specified task set wasn't found. You can view your available task sets with <a>DescribeTaskSets</a>. Task sets are specific to each cluster, service and
+ * 			Region.</p>
+ */
+export class TaskSetNotFoundException extends __BaseException {
+  readonly name: "TaskSetNotFoundException" = "TaskSetNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TaskSetNotFoundException, __BaseException>) {
+    super({
+      name: "TaskSetNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TaskSetNotFoundException.prototype);
+  }
+}
+
+/**
+ * @public
+ */
+export interface DeregisterContainerInstanceRequest {
+  /**
+   * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instance to
+   * 			deregister. If you do not specify a cluster, the default cluster is assumed.</p>
+   */
+  cluster?: string;
+
+  /**
+   * <p>The container instance ID or full ARN of the container instance to deregister. For
+   * 			more information about the ARN format, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids">Amazon Resource Name (ARN)</a> in the <i>Amazon ECS Developer Guide</i>.</p>
+   */
+  containerInstance: string | undefined;
+
+  /**
+   * <p>Forces the container instance to be deregistered. If you have tasks running on the
+   * 			container instance when you deregister it with the <code>force</code> option, these
+   * 			tasks remain running until you terminate the instance or the tasks stop through some
+   * 			other means, but they're orphaned (no longer monitored or accounted for by Amazon ECS). If an
+   * 			orphaned task on your container instance is part of an Amazon ECS service, then the service
+   * 			scheduler starts another copy of that task, on a different container instance if
+   * 			possible. </p>
+   *          <p>Any containers in orphaned service tasks that are registered with a Classic Load Balancer or an Application Load Balancer
+   * 			target group are deregistered. They begin connection draining according to the settings
+   * 			on the load balancer or target group.</p>
+   */
+  force?: boolean;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const InstanceHealthCheckState = {
+  IMPAIRED: "IMPAIRED",
+  INITIALIZING: "INITIALIZING",
+  INSUFFICIENT_DATA: "INSUFFICIENT_DATA",
+  OK: "OK",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceHealthCheckState = (typeof InstanceHealthCheckState)[keyof typeof InstanceHealthCheckState];
+
+/**
+ * @public
+ * @enum
+ */
+export const InstanceHealthCheckType = {
+  CONTAINER_RUNTIME: "CONTAINER_RUNTIME",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceHealthCheckType = (typeof InstanceHealthCheckType)[keyof typeof InstanceHealthCheckType];
+
+/**
+ * @public
+ * <p>An object representing the result of a container instance health status check.</p>
+ */
+export interface InstanceHealthCheckResult {
+  /**
+   * <p>The type of container instance health status that was verified.</p>
+   */
+  type?: InstanceHealthCheckType | string;
+
+  /**
+   * <p>The container instance health status.</p>
+   */
+  status?: InstanceHealthCheckState | string;
+
+  /**
+   * <p>The Unix timestamp for when the container instance health status was last
+   * 			updated.</p>
+   */
+  lastUpdated?: Date;
+
+  /**
+   * <p>The Unix timestamp for when the container instance health status last changed.</p>
+   */
+  lastStatusChange?: Date;
+}
+
+/**
+ * @public
+ * <p>An object representing the health status of the container instance.</p>
+ */
+export interface ContainerInstanceHealthStatus {
+  /**
+   * <p>The overall health status of the container instance. This is an aggregate status of
+   * 			all container instance health checks.</p>
+   */
+  overallStatus?: InstanceHealthCheckState | string;
+
+  /**
+   * <p>An array of objects representing the details of the container instance health
+   * 			status.</p>
+   */
+  details?: InstanceHealthCheckResult[];
+}
+
+/**
+ * @public
+ * <p>Describes the resources available for a container instance.</p>
+ */
+export interface Resource {
+  /**
+   * <p>The name of the resource, such as <code>CPU</code>, <code>MEMORY</code>,
+   * 				<code>PORTS</code>, <code>PORTS_UDP</code>, or a user-defined resource.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The type of the resource. Valid values: <code>INTEGER</code>, <code>DOUBLE</code>,
+   * 				<code>LONG</code>, or <code>STRINGSET</code>.</p>
+   */
+  type?: string;
+
+  /**
+   * <p>When the <code>doubleValue</code> type is set, the value of the resource must be a
+   * 			double precision floating-point type.</p>
+   */
+  doubleValue?: number;
+
+  /**
+   * <p>When the <code>longValue</code> type is set, the value of the resource must be an
+   * 			extended precision floating-point type.</p>
+   */
+  longValue?: number;
+
+  /**
+   * <p>When the <code>integerValue</code> type is set, the value of the resource must be an
+   * 			integer.</p>
+   */
+  integerValue?: number;
+
+  /**
+   * <p>When the <code>stringSetValue</code> type is set, the value of the resource must be a
+   * 			string type.</p>
+   */
+  stringSetValue?: string[];
+}
+
+/**
+ * @public
+ * <p>The Docker and Amazon ECS container agent version information about a container
+ * 			instance.</p>
+ */
+export interface VersionInfo {
+  /**
+   * <p>The version number of the Amazon ECS container agent.</p>
+   */
+  agentVersion?: string;
+
+  /**
+   * <p>The Git commit hash for the Amazon ECS container agent build on the <a href="https://github.com/aws/amazon-ecs-agent/commits/master">amazon-ecs-agent
+   * 			</a> GitHub repository.</p>
+   */
+  agentHash?: string;
+
+  /**
+   * <p>The Docker version that's running on the container instance.</p>
+   */
+  dockerVersion?: string;
+}
+
+/**
+ * @public
+ * <p>An Amazon EC2 or External instance that's running the Amazon ECS agent and has been registered
+ * 			with a cluster.</p>
+ */
+export interface ContainerInstance {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the container instance. For more information about the ARN format,
+   * 			see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids">Amazon Resource Name (ARN)</a> in the <i>Amazon ECS Developer Guide</i>.</p>
+   */
+  containerInstanceArn?: string;
+
+  /**
+   * <p>The ID of the container instance. For Amazon EC2 instances, this value is the Amazon EC2
+   * 			instance ID. For external instances, this value is the Amazon Web Services Systems Manager managed instance ID.</p>
+   */
+  ec2InstanceId?: string;
+
+  /**
+   * <p>The capacity provider that's associated with the container instance.</p>
+   */
+  capacityProviderName?: string;
+
+  /**
+   * <p>The version counter for the container instance. Every time a container instance
+   * 			experiences a change that triggers a CloudWatch event, the version counter is
+   * 			incremented. If you're replicating your Amazon ECS container instance state with CloudWatch
+   * 			Events, you can compare the version of a container instance reported by the Amazon ECS APIs
+   * 			with the version reported in CloudWatch Events for the container instance (inside the
+   * 				<code>detail</code> object) to verify that the version in your event stream is
+   * 			current.</p>
+   */
+  version?: number;
+
+  /**
+   * <p>The version information for the Amazon ECS container agent and Docker daemon running on the
+   * 			container instance.</p>
+   */
+  versionInfo?: VersionInfo;
+
+  /**
+   * <p>For CPU and memory resource types, this parameter describes the remaining CPU and
+   * 			memory that wasn't already allocated to tasks and is therefore available for new tasks.
+   * 			For port resource types, this parameter describes the ports that were reserved by the
+   * 			Amazon ECS container agent (at instance registration time) and any task containers that have
+   * 			reserved port mappings on the host (with the <code>host</code> or <code>bridge</code>
+   * 			network mode). Any port that's not specified here is available for new tasks.</p>
+   */
+  remainingResources?: Resource[];
+
+  /**
+   * <p>For CPU and memory resource types, this parameter describes the amount of each
+   * 			resource that was available on the container instance when the container agent
+   * 			registered it with Amazon ECS. This value represents the total amount of CPU and memory that
+   * 			can be allocated on this container instance to tasks. For port resource types, this
+   * 			parameter describes the ports that were reserved by the Amazon ECS container agent when it
+   * 			registered the container instance with Amazon ECS.</p>
+   */
+  registeredResources?: Resource[];
+
+  /**
+   * <p>The status of the container instance. The valid values are <code>REGISTERING</code>,
+   * 				<code>REGISTRATION_FAILED</code>, <code>ACTIVE</code>, <code>INACTIVE</code>,
+   * 				<code>DEREGISTERING</code>, or <code>DRAINING</code>.</p>
+   *          <p>If your account has opted in to the <code>awsvpcTrunking</code> account setting, then
+   * 			any newly registered container instance will transition to a <code>REGISTERING</code>
+   * 			status while the trunk elastic network interface is provisioned for the instance. If the
+   * 			registration fails, the instance will transition to a <code>REGISTRATION_FAILED</code>
+   * 			status. You can describe the container instance and see the reason for failure in the
+   * 				<code>statusReason</code> parameter. Once the container instance is terminated, the
+   * 			instance transitions to a <code>DEREGISTERING</code> status while the trunk elastic
+   * 			network interface is deprovisioned. The instance then transitions to an
+   * 				<code>INACTIVE</code> status.</p>
+   *          <p>The <code>ACTIVE</code> status indicates that the container instance can accept tasks.
+   * 			The <code>DRAINING</code> indicates that new tasks aren't placed on the container
+   * 			instance and any service tasks running on the container instance are removed if
+   * 			possible. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-draining.html">Container instance draining</a> in the
+   * 			<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   */
+  status?: string;
+
+  /**
+   * <p>The reason that the container instance reached its current status.</p>
+   */
+  statusReason?: string;
+
+  /**
+   * <p>This parameter returns <code>true</code> if the agent is connected to Amazon ECS. An
+   * 			instance with an agent that may be unhealthy or stopped return <code>false</code>. Only
+   * 			instances connected to an agent can accept task placement requests.</p>
+   */
+  agentConnected?: boolean;
+
+  /**
+   * <p>The number of tasks on the container instance that are in the <code>RUNNING</code>
+   * 			status.</p>
+   */
+  runningTasksCount?: number;
+
+  /**
+   * <p>The number of tasks on the container instance that are in the <code>PENDING</code>
+   * 			status.</p>
+   */
+  pendingTasksCount?: number;
+
+  /**
+   * <p>The status of the most recent agent update. If an update wasn't ever requested, this
+   * 			value is <code>NULL</code>.</p>
+   */
+  agentUpdateStatus?: AgentUpdateStatus | string;
+
+  /**
+   * <p>The attributes set for the container instance, either by the Amazon ECS container agent at
+   * 			instance registration or manually with the <a>PutAttributes</a>
+   * 			operation.</p>
+   */
+  attributes?: Attribute[];
+
+  /**
+   * <p>The Unix timestamp for the time when the container instance was registered.</p>
+   */
+  registeredAt?: Date;
+
+  /**
+   * <p>The resources attached to a container instance, such as an elastic network
+   * 			interface.</p>
+   */
+  attachments?: Attachment[];
+
+  /**
+   * <p>The metadata that you apply to the container instance to help you categorize and
+   * 			organize them. Each tag consists of a key and an optional value. You define both.</p>
+   *          <p>The following basic restrictions apply to tags:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Maximum number of tags per resource - 50</p>
+   *             </li>
+   *             <li>
+   *                <p>For each resource, each tag key must be unique, and each tag key can have only
+   *                     one value.</p>
+   *             </li>
+   *             <li>
+   *                <p>Maximum key length - 128 Unicode characters in UTF-8</p>
+   *             </li>
+   *             <li>
+   *                <p>Maximum value length - 256 Unicode characters in UTF-8</p>
+   *             </li>
+   *             <li>
+   *                <p>If your tagging schema is used across multiple services and resources,
+   *                     remember that other services may have restrictions on allowed characters.
+   *                     Generally allowed characters are: letters, numbers, and spaces representable in
+   *                     UTF-8, and the following characters: + - = . _ : / @.</p>
+   *             </li>
+   *             <li>
+   *                <p>Tag keys and values are case-sensitive.</p>
+   *             </li>
+   *             <li>
+   *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase
+   *                     combination of such as a prefix for either keys or values as it is reserved for
+   *                     Amazon Web Services use. You cannot edit or delete tag keys or values with this prefix. Tags with
+   *                     this prefix do not count against your tags per resource limit.</p>
+   *             </li>
+   *          </ul>
+   */
+  tags?: Tag[];
+
+  /**
+   * <p>An object representing the health status of the container instance.</p>
+   */
+  healthStatus?: ContainerInstanceHealthStatus;
+}
+
+/**
+ * @public
+ */
+export interface DeregisterContainerInstanceResponse {
+  /**
+   * <p>The container instance that was deregistered.</p>
+   */
+  containerInstance?: ContainerInstance;
+}
+
+/**
+ * @public
+ */
+export interface DeregisterTaskDefinitionRequest {
+  /**
+   * <p>The <code>family</code> and <code>revision</code> (<code>family:revision</code>) or
+   * 			full Amazon Resource Name (ARN) of the task definition to deregister. You must specify a
+   * 				<code>revision</code>.</p>
+   */
+  taskDefinition: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeregisterTaskDefinitionResponse {
   /**
    * <p>The full description of the deregistered task.</p>
@@ -6027,10 +6630,22 @@ export interface DeregisterTaskDefinitionResponse {
   taskDefinition?: TaskDefinition;
 }
 
-export enum CapacityProviderField {
-  TAGS = "TAGS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CapacityProviderField = {
+  TAGS: "TAGS",
+} as const;
 
+/**
+ * @public
+ */
+export type CapacityProviderField = (typeof CapacityProviderField)[keyof typeof CapacityProviderField];
+
+/**
+ * @public
+ */
 export interface DescribeCapacityProvidersRequest {
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of one or more capacity providers. Up to
@@ -6074,26 +6689,8 @@ export interface DescribeCapacityProvidersRequest {
 }
 
 /**
- * <p>A failed resource. For a list of common causes, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/api_failures_messages.html">API failure
- * 				reasons</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * @public
  */
-export interface Failure {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the failed resource.</p>
-   */
-  arn?: string;
-
-  /**
-   * <p>The reason for the failure.</p>
-   */
-  reason?: string;
-
-  /**
-   * <p>The details of the failure.</p>
-   */
-  detail?: string;
-}
-
 export interface DescribeCapacityProvidersResponse {
   /**
    * <p>The list of capacity providers.</p>
@@ -6115,14 +6712,26 @@ export interface DescribeCapacityProvidersResponse {
   nextToken?: string;
 }
 
-export enum ClusterField {
-  ATTACHMENTS = "ATTACHMENTS",
-  CONFIGURATIONS = "CONFIGURATIONS",
-  SETTINGS = "SETTINGS",
-  STATISTICS = "STATISTICS",
-  TAGS = "TAGS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ClusterField = {
+  ATTACHMENTS: "ATTACHMENTS",
+  CONFIGURATIONS: "CONFIGURATIONS",
+  SETTINGS: "SETTINGS",
+  STATISTICS: "STATISTICS",
+  TAGS: "TAGS",
+} as const;
 
+/**
+ * @public
+ */
+export type ClusterField = (typeof ClusterField)[keyof typeof ClusterField];
+
+/**
+ * @public
+ */
 export interface DescribeClustersRequest {
   /**
    * <p>A list of up to 100 cluster names or full cluster Amazon Resource Name (ARN) entries.
@@ -6147,6 +6756,9 @@ export interface DescribeClustersRequest {
   include?: (ClusterField | string)[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeClustersResponse {
   /**
    * <p>The list of clusters.</p>
@@ -6159,11 +6771,23 @@ export interface DescribeClustersResponse {
   failures?: Failure[];
 }
 
-export enum ContainerInstanceField {
-  CONTAINER_INSTANCE_HEALTH = "CONTAINER_INSTANCE_HEALTH",
-  TAGS = "TAGS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ContainerInstanceField = {
+  CONTAINER_INSTANCE_HEALTH: "CONTAINER_INSTANCE_HEALTH",
+  TAGS: "TAGS",
+} as const;
 
+/**
+ * @public
+ */
+export type ContainerInstanceField = (typeof ContainerInstanceField)[keyof typeof ContainerInstanceField];
+
+/**
+ * @public
+ */
 export interface DescribeContainerInstancesRequest {
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instances to
@@ -6188,6 +6812,9 @@ export interface DescribeContainerInstancesRequest {
   include?: (ContainerInstanceField | string)[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeContainerInstancesResponse {
   /**
    * <p>The list of container instances.</p>
@@ -6200,10 +6827,22 @@ export interface DescribeContainerInstancesResponse {
   failures?: Failure[];
 }
 
-export enum ServiceField {
-  TAGS = "TAGS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ServiceField = {
+  TAGS: "TAGS",
+} as const;
 
+/**
+ * @public
+ */
+export type ServiceField = (typeof ServiceField)[keyof typeof ServiceField];
+
+/**
+ * @public
+ */
 export interface DescribeServicesRequest {
   /**
    * <p>The short name or full Amazon Resource Name (ARN)the cluster that hosts the service to describe.
@@ -6226,6 +6865,9 @@ export interface DescribeServicesRequest {
   include?: (ServiceField | string)[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeServicesResponse {
   /**
    * <p>The list of services described.</p>
@@ -6238,10 +6880,22 @@ export interface DescribeServicesResponse {
   failures?: Failure[];
 }
 
-export enum TaskDefinitionField {
-  TAGS = "TAGS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TaskDefinitionField = {
+  TAGS: "TAGS",
+} as const;
 
+/**
+ * @public
+ */
+export type TaskDefinitionField = (typeof TaskDefinitionField)[keyof typeof TaskDefinitionField];
+
+/**
+ * @public
+ */
 export interface DescribeTaskDefinitionRequest {
   /**
    * <p>The <code>family</code> for the latest <code>ACTIVE</code> revision,
@@ -6259,6 +6913,9 @@ export interface DescribeTaskDefinitionRequest {
   include?: (TaskDefinitionField | string)[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeTaskDefinitionResponse {
   /**
    * <p>The full task definition description.</p>
@@ -6303,10 +6960,22 @@ export interface DescribeTaskDefinitionResponse {
   tags?: Tag[];
 }
 
-export enum TaskField {
-  TAGS = "TAGS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TaskField = {
+  TAGS: "TAGS",
+} as const;
 
+/**
+ * @public
+ */
+export type TaskField = (typeof TaskField)[keyof typeof TaskField];
+
+/**
+ * @public
+ */
 export interface DescribeTasksRequest {
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task or tasks to
@@ -6328,22 +6997,50 @@ export interface DescribeTasksRequest {
   include?: (TaskField | string)[];
 }
 
-export enum Connectivity {
-  CONNECTED = "CONNECTED",
-  DISCONNECTED = "DISCONNECTED",
-}
-
-export enum HealthStatus {
-  HEALTHY = "HEALTHY",
-  UNHEALTHY = "UNHEALTHY",
-  UNKNOWN = "UNKNOWN",
-}
-
-export enum ManagedAgentName {
-  ExecuteCommandAgent = "ExecuteCommandAgent",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Connectivity = {
+  CONNECTED: "CONNECTED",
+  DISCONNECTED: "DISCONNECTED",
+} as const;
 
 /**
+ * @public
+ */
+export type Connectivity = (typeof Connectivity)[keyof typeof Connectivity];
+
+/**
+ * @public
+ * @enum
+ */
+export const HealthStatus = {
+  HEALTHY: "HEALTHY",
+  UNHEALTHY: "UNHEALTHY",
+  UNKNOWN: "UNKNOWN",
+} as const;
+
+/**
+ * @public
+ */
+export type HealthStatus = (typeof HealthStatus)[keyof typeof HealthStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ManagedAgentName = {
+  ExecuteCommandAgent: "ExecuteCommandAgent",
+} as const;
+
+/**
+ * @public
+ */
+export type ManagedAgentName = (typeof ManagedAgentName)[keyof typeof ManagedAgentName];
+
+/**
+ * @public
  * <p>Details about the managed agent status for the container.</p>
  */
 export interface ManagedAgent {
@@ -6353,7 +7050,7 @@ export interface ManagedAgent {
   lastStartedAt?: Date;
 
   /**
-   * <p>The name of the managed agent. When the execute command feature is enabled, the
+   * <p>The name of the managed agent. When the execute command feature is turned on, the
    * 			managed agent name is <code>ExecuteCommandAgent</code>.</p>
    */
   name?: ManagedAgentName | string;
@@ -6370,6 +7067,7 @@ export interface ManagedAgent {
 }
 
 /**
+ * @public
  * <p>Details on the network bindings between a container and its host container instance.
  * 			After a task reaches the <code>RUNNING</code> status, manual and automatic host and
  * 			container port assignments are visible in the <code>networkBindings</code> section of
@@ -6397,7 +7095,8 @@ export interface NetworkBinding {
   protocol?: TransportProtocol | string;
 
   /**
-   * <p>The port number range on the container that's bound to the dynamically mapped host port range.</p>
+   * <p>The port number range on the container that's bound to the dynamically mapped host port
+   * 			range.</p>
    *          <p>The following rules apply when you specify a <code>containerPortRange</code>:</p>
    *          <ul>
    *             <li>
@@ -6466,6 +7165,7 @@ export interface NetworkBinding {
 }
 
 /**
+ * @public
  * <p>An object representing the elastic network interface for tasks that use the
  * 				<code>awsvpc</code> network mode.</p>
  */
@@ -6487,6 +7187,7 @@ export interface NetworkInterface {
 }
 
 /**
+ * @public
  * <p>A Docker container that's part of a task.</p>
  */
 export interface Container {
@@ -6586,9 +7287,10 @@ export interface Container {
 }
 
 /**
+ * @public
  * <p>The overrides that are sent to a container. An empty container override can be passed
- * 			in. An example of an empty container override is <code>{"containerOverrides": [ ]
- * 				}</code>. If a non-empty container override is specified, the <code>name</code>
+ * 			in. An example of an empty container override is <code>\{"containerOverrides": [ ]
+ * 				\}</code>. If a non-empty container override is specified, the <code>name</code>
  * 			parameter must be included.</p>
  */
 export interface ContainerOverride {
@@ -6645,6 +7347,7 @@ export interface ContainerOverride {
 }
 
 /**
+ * @public
  * <p>Details on an Elastic Inference accelerator task override. This parameter is used to
  * 			override the Elastic Inference accelerator specified in the task definition. For more
  * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-inference.html">Working with Amazon
@@ -6664,6 +7367,7 @@ export interface InferenceAcceleratorOverride {
 }
 
 /**
+ * @public
  * <p>The overrides that are associated with a task.</p>
  */
 export interface TaskOverride {
@@ -6683,7 +7387,7 @@ export interface TaskOverride {
   inferenceAcceleratorOverrides?: InferenceAcceleratorOverride[];
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the task execution IAM role override for the task. For more
+   * <p>The Amazon Resource Name (ARN) of the task execution role override for the task. For more
    * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html">Amazon ECS task
    * 				execution IAM role</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
@@ -6695,7 +7399,7 @@ export interface TaskOverride {
   memory?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers
+   * <p>The Amazon Resource Name (ARN) of the role that containers in this task can assume. All containers
    * 			in this task are granted the permissions that are specified in this role. For more
    * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html">IAM Role for Tasks</a>
    * 			in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
@@ -6720,16 +7424,26 @@ export interface TaskOverride {
   ephemeralStorage?: EphemeralStorage;
 }
 
-export enum TaskStopCode {
-  ESSENTIAL_CONTAINER_EXITED = "EssentialContainerExited",
-  SERVICE_SCHEDULER_INITIATED = "ServiceSchedulerInitiated",
-  SPOT_INTERRUPTION = "SpotInterruption",
-  TASK_FAILED_TO_START = "TaskFailedToStart",
-  TERMINATION_NOTICE = "TerminationNotice",
-  USER_INITIATED = "UserInitiated",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TaskStopCode = {
+  ESSENTIAL_CONTAINER_EXITED: "EssentialContainerExited",
+  SERVICE_SCHEDULER_INITIATED: "ServiceSchedulerInitiated",
+  SPOT_INTERRUPTION: "SpotInterruption",
+  TASK_FAILED_TO_START: "TaskFailedToStart",
+  TERMINATION_NOTICE: "TerminationNotice",
+  USER_INITIATED: "UserInitiated",
+} as const;
 
 /**
+ * @public
+ */
+export type TaskStopCode = (typeof TaskStopCode)[keyof typeof TaskStopCode];
+
+/**
+ * @public
  * <p>Details on a task in a cluster.</p>
  */
 export interface Task {
@@ -6837,8 +7551,8 @@ export interface Task {
   desiredStatus?: string;
 
   /**
-   * <p>Determines whether execute command functionality is enabled for this task. If
-   * 				<code>true</code>, execute command functionality is enabled on all the containers in
+   * <p>Determines whether execute command functionality is turned on for this task. If
+   * 				<code>true</code>, execute command functionality is turned on all the containers in
    * 			the task.</p>
    */
   enableExecuteCommand?: boolean;
@@ -7093,6 +7807,9 @@ export interface Task {
   ephemeralStorage?: EphemeralStorage;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTasksResponse {
   /**
    * <p>The list of tasks.</p>
@@ -7105,10 +7822,22 @@ export interface DescribeTasksResponse {
   failures?: Failure[];
 }
 
-export enum TaskSetField {
-  TAGS = "TAGS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TaskSetField = {
+  TAGS: "TAGS",
+} as const;
 
+/**
+ * @public
+ */
+export type TaskSetField = (typeof TaskSetField)[keyof typeof TaskSetField];
+
+/**
+ * @public
+ */
 export interface DescribeTaskSetsRequest {
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task
@@ -7135,6 +7864,9 @@ export interface DescribeTaskSetsRequest {
   include?: (TaskSetField | string)[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeTaskSetsResponse {
   /**
    * <p>The list of task sets described.</p>
@@ -7147,6 +7879,9 @@ export interface DescribeTaskSetsResponse {
   failures?: Failure[];
 }
 
+/**
+ * @public
+ */
 export interface DiscoverPollEndpointRequest {
   /**
    * <p>The container instance ID or full ARN of the container instance. For more
@@ -7161,6 +7896,9 @@ export interface DiscoverPollEndpointRequest {
   cluster?: string;
 }
 
+/**
+ * @public
+ */
 export interface DiscoverPollEndpointResponse {
   /**
    * <p>The endpoint for the Amazon ECS agent to poll.</p>
@@ -7179,6 +7917,9 @@ export interface DiscoverPollEndpointResponse {
   serviceConnectEndpoint?: string;
 }
 
+/**
+ * @public
+ */
 export interface ExecuteCommandRequest {
   /**
    * <p>The Amazon Resource Name (ARN) or short name of the cluster the task is running in.
@@ -7209,6 +7950,7 @@ export interface ExecuteCommandRequest {
 }
 
 /**
+ * @public
  * <p>The details for the execute command session.</p>
  */
 export interface Session {
@@ -7230,6 +7972,9 @@ export interface Session {
   tokenValue?: string;
 }
 
+/**
+ * @public
+ */
 export interface ExecuteCommandResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
@@ -7266,6 +8011,7 @@ export interface ExecuteCommandResponse {
 }
 
 /**
+ * @public
  * <p>The execute command cannot run. This error can be caused by any of the following
  * 			configuration issues:</p>
  *          <ul>
@@ -7276,8 +8022,8 @@ export interface ExecuteCommandResponse {
  *                <p>The SSM agent is not installed or is not running</p>
  *             </li>
  *             <li>
- *                <p> There is an interface Amazon VPC endpoint for Amazon ECS, but there is not one for
- * 					for Systems Manager Session Manager</p>
+ *                <p> There is an interface Amazon VPC endpoint for Amazon ECS, but there is not one for Systems
+ * 					Manager Session Manager</p>
  *             </li>
  *          </ul>
  *          <p>For information about how to troubleshoot the issues, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-exec.html">Troubleshooting issues with ECS
@@ -7299,6 +8045,9 @@ export class TargetNotConnectedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetTaskProtectionRequest {
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task
@@ -7313,6 +8062,7 @@ export interface GetTaskProtectionRequest {
 }
 
 /**
+ * @public
  * <p>An object representing the protection status details for a task. You can set the
  * 			protection status with the <a>UpdateTaskProtection</a> API and get the status
  * 			of tasks with the <a>GetTaskProtection</a> API.</p>
@@ -7324,7 +8074,7 @@ export interface ProtectedTask {
   taskArn?: string;
 
   /**
-   * <p>The protection status of the task. If scale-in protection is enabled for a task, the
+   * <p>The protection status of the task. If scale-in protection is on for a task, the
    * 			value is <code>true</code>. Otherwise, it is <code>false</code>.</p>
    */
   protectionEnabled?: boolean;
@@ -7335,6 +8085,9 @@ export interface ProtectedTask {
   expirationDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetTaskProtectionResponse {
   /**
    * <p>A list of tasks with the following information.</p>
@@ -7346,7 +8099,7 @@ export interface GetTaskProtectionResponse {
    *             <li>
    *                <p>
    *                   <code>protectionEnabled</code>: The protection status of the task. If scale-in
-   * 					protection is enabled for a task, the value is <code>true</code>. Otherwise, it
+   * 					protection is turned on for a task, the value is <code>true</code>. Otherwise, it
    * 					is <code>false</code>.</p>
    *             </li>
    *             <li>
@@ -7365,6 +8118,7 @@ export interface GetTaskProtectionResponse {
 }
 
 /**
+ * @public
  * <p>The specified resource wasn't found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -7383,6 +8137,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListAccountSettingsRequest {
   /**
    * <p>The name of the account setting you want to list the settings for.</p>
@@ -7396,7 +8153,7 @@ export interface ListAccountSettingsRequest {
   value?: string;
 
   /**
-   * <p>The ARN of the principal, which can be an IAM user, IAM role, or the root user. If
+   * <p>The ARN of the principal, which can be a user, role, or the root user. If
    * 			this field is omitted, the account settings are listed only for the authenticated
    * 			user.</p>
    *          <note>
@@ -7441,6 +8198,9 @@ export interface ListAccountSettingsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListAccountSettingsResponse {
   /**
    * <p>The account settings for the resource.</p>
@@ -7457,6 +8217,9 @@ export interface ListAccountSettingsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAttributesRequest {
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the cluster to list attributes.
@@ -7505,6 +8268,9 @@ export interface ListAttributesRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListAttributesResponse {
   /**
    * <p>A list of attribute objects that meet the criteria of the request.</p>
@@ -7521,6 +8287,9 @@ export interface ListAttributesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListClustersRequest {
   /**
    * <p>The <code>nextToken</code> value returned from a <code>ListClusters</code> request
@@ -7547,6 +8316,9 @@ export interface ListClustersRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListClustersResponse {
   /**
    * <p>The list of full Amazon Resource Name (ARN) entries for each cluster that's associated with your
@@ -7564,14 +8336,26 @@ export interface ListClustersResponse {
   nextToken?: string;
 }
 
-export enum ContainerInstanceStatus {
-  ACTIVE = "ACTIVE",
-  DEREGISTERING = "DEREGISTERING",
-  DRAINING = "DRAINING",
-  REGISTERING = "REGISTERING",
-  REGISTRATION_FAILED = "REGISTRATION_FAILED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ContainerInstanceStatus = {
+  ACTIVE: "ACTIVE",
+  DEREGISTERING: "DEREGISTERING",
+  DRAINING: "DRAINING",
+  REGISTERING: "REGISTERING",
+  REGISTRATION_FAILED: "REGISTRATION_FAILED",
+} as const;
 
+/**
+ * @public
+ */
+export type ContainerInstanceStatus = (typeof ContainerInstanceStatus)[keyof typeof ContainerInstanceStatus];
+
+/**
+ * @public
+ */
 export interface ListContainerInstancesRequest {
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instances to
@@ -7621,6 +8405,9 @@ export interface ListContainerInstancesRequest {
   status?: ContainerInstanceStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListContainerInstancesResponse {
   /**
    * <p>The list of container instances with full ARN entries for each container instance
@@ -7638,6 +8425,9 @@ export interface ListContainerInstancesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListServicesRequest {
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the cluster to use when filtering the
@@ -7682,6 +8472,9 @@ export interface ListServicesRequest {
   schedulingStrategy?: SchedulingStrategy | string;
 }
 
+/**
+ * @public
+ */
 export interface ListServicesResponse {
   /**
    * <p>The list of full ARN entries for each service that's associated with the specified
@@ -7699,6 +8492,9 @@ export interface ListServicesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListServicesByNamespaceRequest {
   /**
    * <p>The namespace name or full Amazon Resource Name (ARN) of the Cloud Map namespace to list the services in.</p>
@@ -7736,6 +8532,9 @@ export interface ListServicesByNamespaceRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListServicesByNamespaceResponse {
   /**
    * <p>The list of full ARN entries for each service that's associated with the specified
@@ -7753,6 +8552,9 @@ export interface ListServicesByNamespaceResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for. Currently, the
@@ -7762,6 +8564,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags for the resource.</p>
@@ -7769,12 +8574,24 @@ export interface ListTagsForResourceResponse {
   tags?: Tag[];
 }
 
-export enum TaskDefinitionFamilyStatus {
-  ACTIVE = "ACTIVE",
-  ALL = "ALL",
-  INACTIVE = "INACTIVE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TaskDefinitionFamilyStatus = {
+  ACTIVE: "ACTIVE",
+  ALL: "ALL",
+  INACTIVE: "INACTIVE",
+} as const;
 
+/**
+ * @public
+ */
+export type TaskDefinitionFamilyStatus = (typeof TaskDefinitionFamilyStatus)[keyof typeof TaskDefinitionFamilyStatus];
+
+/**
+ * @public
+ */
 export interface ListTaskDefinitionFamiliesRequest {
   /**
    * <p>The <code>familyPrefix</code> is a string that's used to filter the results of
@@ -7825,6 +8642,9 @@ export interface ListTaskDefinitionFamiliesRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListTaskDefinitionFamiliesResponse {
   /**
    * <p>The list of task definition family names that match the
@@ -7842,11 +8662,23 @@ export interface ListTaskDefinitionFamiliesResponse {
   nextToken?: string;
 }
 
-export enum SortOrder {
-  ASC = "ASC",
-  DESC = "DESC",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SortOrder = {
+  ASC: "ASC",
+  DESC: "DESC",
+} as const;
 
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
+
+/**
+ * @public
+ */
 export interface ListTaskDefinitionsRequest {
   /**
    * <p>The full family name to filter the <code>ListTaskDefinitions</code> results with.
@@ -7901,6 +8733,9 @@ export interface ListTaskDefinitionsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListTaskDefinitionsResponse {
   /**
    * <p>The list of task definition Amazon Resource Name (ARN) entries for the <code>ListTaskDefinitions</code>
@@ -7918,12 +8753,24 @@ export interface ListTaskDefinitionsResponse {
   nextToken?: string;
 }
 
-export enum DesiredStatus {
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  STOPPED = "STOPPED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DesiredStatus = {
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  STOPPED: "STOPPED",
+} as const;
 
+/**
+ * @public
+ */
+export type DesiredStatus = (typeof DesiredStatus)[keyof typeof DesiredStatus];
+
+/**
+ * @public
+ */
 export interface ListTasksRequest {
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the cluster to use when filtering the
@@ -8008,6 +8855,9 @@ export interface ListTasksRequest {
   launchType?: LaunchType | string;
 }
 
+/**
+ * @public
+ */
 export interface ListTasksResponse {
   /**
    * <p>The list of task ARN entries for the <code>ListTasks</code> request.</p>
@@ -8024,6 +8874,9 @@ export interface ListTasksResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutAccountSettingRequest {
   /**
    * <p>The Amazon ECS resource name for which to modify the account setting. If
@@ -8033,7 +8886,8 @@ export interface PutAccountSettingRequest {
    * 			specified, the ARN and resource ID for your Amazon ECS container instances is affected. If
    * 				<code>awsvpcTrunking</code> is specified, the elastic network interface (ENI) limit
    * 			for your Amazon ECS container instances is affected. If <code>containerInsights</code> is
-   * 			specified, the default setting for CloudWatch Container Insights for your clusters is
+   * 			specified, the default setting for Amazon Web Services CloudWatch Container Insights for your clusters is
+   * 			affected. If <code>fargateFIPSMode</code> is specified, Fargate FIPS 140 compliance is
    * 			affected.</p>
    */
   name: SettingName | string | undefined;
@@ -8045,9 +8899,9 @@ export interface PutAccountSettingRequest {
   value: string | undefined;
 
   /**
-   * <p>The ARN of the principal, which can be an IAM user, IAM role, or the root user. If
-   * 			you specify the root user, it modifies the account setting for all IAM users, IAM roles,
-   * 			and the root user of the account unless an IAM user or role explicitly overrides these
+   * <p>The ARN of the principal, which can be a user, role, or the root user. If
+   * 			you specify the root user, it modifies the account setting for all users, roles,
+   * 			and the root user of the account unless a user or role explicitly overrides these
    * 			settings. If this field is omitted, the setting is changed only for the authenticated
    * 			user.</p>
    *          <note>
@@ -8058,6 +8912,9 @@ export interface PutAccountSettingRequest {
   principalArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutAccountSettingResponse {
   /**
    * <p>The current account setting for a resource.</p>
@@ -8065,6 +8922,9 @@ export interface PutAccountSettingResponse {
   setting?: Setting;
 }
 
+/**
+ * @public
+ */
 export interface PutAccountSettingDefaultRequest {
   /**
    * <p>The resource name for which to modify the account setting. If
@@ -8074,11 +8934,12 @@ export interface PutAccountSettingDefaultRequest {
    * 			specified, the ARN and resource ID for your Amazon ECS container instances is affected. If
    * 				<code>awsvpcTrunking</code> is specified, the ENI limit for your Amazon ECS container
    * 			instances is affected. If <code>containerInsights</code> is specified, the default
-   * 			setting for CloudWatch Container Insights for your clusters is affected.</p>
-   *          <p>Fargate is transitioning from task count-based quotas to vCPU-based quotas. You can
-   * 			set the name to <code>fargateVCPULimit</code> to opt in or opt out of the vCPU-based
-   * 			quotas. For information about the opt in timeline, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#fargate-quota-timeline">Fargate vCPU-based quotas timeline</a> in the
-   * 				<i>Amazon ECS Developer Guide</i>.</p>
+   * 			setting for Amazon Web Services CloudWatch Container Insights for your clusters is affected. </p>
+   *          <p>When you specify <code>fargateFIPSMode</code> for the <code>name</code> and
+   * 				<code>enabled</code> for the <code>value</code>, Fargate uses FIPS-140 compliant
+   * 			cryptographic algorithms on your tasks. For more information about FIPS-140 compliance
+   * 			with Fargate, see <a href="https://docs.aws.amazon.com/AWSEC2ContainerServiceDocs/build/server-root/AmazonECS/latest/developerguide/ecs-fips-compliance.html"> Amazon Web Services Fargate Federal Information Processing Standard (FIPS) 140-2
+   * 				compliance</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   name: SettingName | string | undefined;
 
@@ -8089,6 +8950,9 @@ export interface PutAccountSettingDefaultRequest {
   value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutAccountSettingDefaultResponse {
   /**
    * <p>The current setting for a resource.</p>
@@ -8097,6 +8961,7 @@ export interface PutAccountSettingDefaultResponse {
 }
 
 /**
+ * @public
  * <p>You can apply up to 10 custom attributes for each resource. You can view the
  * 			attributes of a resource with <a>ListAttributes</a>. You can remove existing
  * 			attributes on a resource with <a>DeleteAttributes</a>.</p>
@@ -8117,6 +8982,9 @@ export class AttributeLimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface PutAttributesRequest {
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the cluster that contains the resource to apply
@@ -8131,6 +8999,9 @@ export interface PutAttributesRequest {
   attributes: Attribute[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutAttributesResponse {
   /**
    * <p>The attributes applied to your resource.</p>
@@ -8138,6 +9009,9 @@ export interface PutAttributesResponse {
   attributes?: Attribute[];
 }
 
+/**
+ * @public
+ */
 export interface PutClusterCapacityProvidersRequest {
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the cluster to modify the capacity provider
@@ -8177,6 +9051,9 @@ export interface PutClusterCapacityProvidersRequest {
   defaultCapacityProviderStrategy: CapacityProviderStrategyItem[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutClusterCapacityProvidersResponse {
   /**
    * <p>Details about the cluster.</p>
@@ -8185,6 +9062,7 @@ export interface PutClusterCapacityProvidersResponse {
 }
 
 /**
+ * @public
  * <p>The specified resource is in-use and can't be removed.</p>
  */
 export class ResourceInUseException extends __BaseException {
@@ -8203,11 +9081,21 @@ export class ResourceInUseException extends __BaseException {
   }
 }
 
-export enum PlatformDeviceType {
-  GPU = "GPU",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PlatformDeviceType = {
+  GPU: "GPU",
+} as const;
 
 /**
+ * @public
+ */
+export type PlatformDeviceType = (typeof PlatformDeviceType)[keyof typeof PlatformDeviceType];
+
+/**
+ * @public
  * <p>The devices that are available on the container instance. The only supported device
  * 			type is a GPU.</p>
  */
@@ -8226,6 +9114,9 @@ export interface PlatformDevice {
   type: PlatformDeviceType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RegisterContainerInstanceRequest {
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the cluster to register your container instance
@@ -8314,6 +9205,9 @@ export interface RegisterContainerInstanceRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface RegisterContainerInstanceResponse {
   /**
    * <p>The container instance that was registered.</p>
@@ -8321,6 +9215,9 @@ export interface RegisterContainerInstanceResponse {
   containerInstance?: ContainerInstance;
 }
 
+/**
+ * @public
+ */
 export interface RegisterTaskDefinitionRequest {
   /**
    * <p>You must specify a <code>family</code> for a task definition. You can use it track
@@ -8614,8 +9511,8 @@ export interface RegisterTaskDefinitionRequest {
    * 			tasks hosted on Fargate. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/userguide/using_data_volumes.html">Fargate task
    * 				storage</a> in the <i>Amazon ECS User Guide for Fargate</i>.</p>
    *          <note>
-   *             <p>This parameter is only supported for tasks hosted on Fargate using
-   * 				the following platform versions:</p>
+   *             <p>For tasks using the Fargate launch type, the task requires
+   * 				the following platforms:</p>
    *             <ul>
    *                <li>
    *                   <p>Linux platform version <code>1.4.0</code> or later.</p>
@@ -8634,6 +9531,9 @@ export interface RegisterTaskDefinitionRequest {
   runtimePlatform?: RuntimePlatform;
 }
 
+/**
+ * @public
+ */
 export interface RegisterTaskDefinitionResponse {
   /**
    * <p>The full description of the registered task definition.</p>
@@ -8647,6 +9547,7 @@ export interface RegisterTaskDefinitionResponse {
 }
 
 /**
+ * @public
  * <p>Your Amazon Web Services account was blocked. For more information, contact <a href="http://aws.amazon.com/contact-us/">
  * 				Amazon Web Services Support</a>.</p>
  */
@@ -8666,6 +9567,9 @@ export class BlockedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface RunTaskRequest {
   /**
    * <p>The capacity provider strategy to use for the task.</p>
@@ -8847,10 +9751,10 @@ export interface RunTaskRequest {
    * <p>The <code>family</code> and <code>revision</code> (<code>family:revision</code>) or
    * 			full ARN of the task definition to run. If a <code>revision</code> isn't specified,
    * 			the latest <code>ACTIVE</code> revision is used.</p>
-   *          <p>When you create an IAM policy for run-task, you can set the resource to be the latest
+   *          <p>When you create a policy for run-task, you can set the resource to be the latest
    * 			task definition revision, or a specific revision.</p>
    *          <p>The full ARN value must match the value that you specified as the
-   * 				<code>Resource</code> of the IAM principal's permissions policy.</p>
+   * 				<code>Resource</code> of the principal's permissions policy.</p>
    *          <p>When you specify the policy resource as the latest task definition version (by setting
    * 			the <code>Resource</code> in the policy to
    * 				<code>arn:aws:ecs:us-east-1:111122223333:task-definition/TaskFamilyName</code>),
@@ -8867,6 +9771,9 @@ export interface RunTaskRequest {
   taskDefinition: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RunTaskResponse {
   /**
    * <p>A full description of the tasks that were run. The tasks that were successfully placed
@@ -8880,6 +9787,9 @@ export interface RunTaskResponse {
   failures?: Failure[];
 }
 
+/**
+ * @public
+ */
 export interface StartTaskRequest {
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the cluster where to start your task.
@@ -8901,7 +9811,7 @@ export interface StartTaskRequest {
   enableECSManagedTags?: boolean;
 
   /**
-   * <p>Whether or not the execute command functionality is enabled for the task. If
+   * <p>Whether or not the execute command functionality is turned on for the task. If
    * 				<code>true</code>, this enables execute command functionality on all containers in
    * 			the task.</p>
    */
@@ -9001,6 +9911,9 @@ export interface StartTaskRequest {
   taskDefinition: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartTaskResponse {
   /**
    * <p>A full description of the tasks that were started. Each task that was successfully
@@ -9014,6 +9927,9 @@ export interface StartTaskResponse {
   failures?: Failure[];
 }
 
+/**
+ * @public
+ */
 export interface StopTaskRequest {
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task to stop.
@@ -9022,7 +9938,7 @@ export interface StopTaskRequest {
   cluster?: string;
 
   /**
-   * <p>The task ID or full Amazon Resource Name (ARN) of the task to stop.</p>
+   * <p>The task ID of the task to stop.</p>
    */
   task: string | undefined;
 
@@ -9035,6 +9951,9 @@ export interface StopTaskRequest {
   reason?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopTaskResponse {
   /**
    * <p>The task that was stopped.</p>
@@ -9043,6 +9962,7 @@ export interface StopTaskResponse {
 }
 
 /**
+ * @public
  * <p>An object representing a change in state for a task attachment.</p>
  */
 export interface AttachmentStateChange {
@@ -9057,6 +9977,9 @@ export interface AttachmentStateChange {
   status: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SubmitAttachmentStateChangesRequest {
   /**
    * <p>The short name or full ARN of the cluster that hosts the container instance the
@@ -9070,6 +9993,9 @@ export interface SubmitAttachmentStateChangesRequest {
   attachments: AttachmentStateChange[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SubmitAttachmentStateChangesResponse {
   /**
    * <p>Acknowledgement of the state change.</p>
@@ -9077,6 +10003,9 @@ export interface SubmitAttachmentStateChangesResponse {
   acknowledgment?: string;
 }
 
+/**
+ * @public
+ */
 export interface SubmitContainerStateChangeRequest {
   /**
    * <p>The short name or full ARN of the cluster that hosts the container.</p>
@@ -9119,6 +10048,9 @@ export interface SubmitContainerStateChangeRequest {
   networkBindings?: NetworkBinding[];
 }
 
+/**
+ * @public
+ */
 export interface SubmitContainerStateChangeResponse {
   /**
    * <p>Acknowledgement of the state change.</p>
@@ -9127,6 +10059,7 @@ export interface SubmitContainerStateChangeResponse {
 }
 
 /**
+ * @public
  * <p>An object that represents a change in state for a container.</p>
  */
 export interface ContainerStateChange {
@@ -9168,6 +10101,7 @@ export interface ContainerStateChange {
 }
 
 /**
+ * @public
  * <p>An object representing a change in state for a managed agent.</p>
  */
 export interface ManagedAgentStateChange {
@@ -9192,6 +10126,9 @@ export interface ManagedAgentStateChange {
   reason?: string;
 }
 
+/**
+ * @public
+ */
 export interface SubmitTaskStateChangeRequest {
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task.</p>
@@ -9244,6 +10181,9 @@ export interface SubmitTaskStateChangeRequest {
   executionStoppedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface SubmitTaskStateChangeResponse {
   /**
    * <p>Acknowledgement of the state change.</p>
@@ -9251,6 +10191,9 @@ export interface SubmitTaskStateChangeResponse {
   acknowledgment?: string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to add tags to. Currently, the supported resources are
@@ -9296,8 +10239,14 @@ export interface TagResourceRequest {
   tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to delete tags from. Currently, the supported resources
@@ -9312,9 +10261,13 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
 /**
+ * @public
  * <p>The details of the Auto Scaling group capacity provider to update.</p>
  */
 export interface AutoScalingGroupProviderUpdate {
@@ -9331,16 +10284,19 @@ export interface AutoScalingGroupProviderUpdate {
    *             <p>When using managed termination protection, managed scaling must also be used
    * 				otherwise managed termination protection doesn't work.</p>
    *          </important>
-   *          <p>When managed termination protection is enabled, Amazon ECS prevents the Amazon EC2 instances in
-   * 			an Auto Scaling group that contain tasks from being terminated during a scale-in action.
-   * 			The Auto Scaling group and each instance in the Auto Scaling group must have instance
-   * 			protection from scale-in actions enabled. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection">Instance Protection</a> in the <i>Auto Scaling User Guide</i>.</p>
-   *          <p>When managed termination protection is disabled, your Amazon EC2 instances aren't protected
-   * 			from termination when the Auto Scaling group scales in.</p>
+   *          <p>When managed termination protection is on, Amazon ECS prevents the Amazon EC2 instances in an Auto
+   * 			Scaling group that contain tasks from being terminated during a scale-in action. The
+   * 			Auto Scaling group and each instance in the Auto Scaling group must have instance
+   * 			protection from scale-in actions on. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection">Instance Protection</a> in the <i>Auto Scaling User Guide</i>.</p>
+   *          <p>When managed termination protection is off, your Amazon EC2 instances aren't protected from
+   * 			termination when the Auto Scaling group scales in.</p>
    */
   managedTerminationProtection?: ManagedTerminationProtection | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCapacityProviderRequest {
   /**
    * <p>The name of the capacity provider to update.</p>
@@ -9354,6 +10310,9 @@ export interface UpdateCapacityProviderRequest {
   autoScalingGroupProvider: AutoScalingGroupProviderUpdate | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCapacityProviderResponse {
   /**
    * <p>Details about the capacity provider.</p>
@@ -9361,6 +10320,9 @@ export interface UpdateCapacityProviderResponse {
   capacityProvider?: CapacityProvider;
 }
 
+/**
+ * @public
+ */
 export interface UpdateClusterRequest {
   /**
    * <p>The name of the cluster to modify the settings for.</p>
@@ -9394,6 +10356,9 @@ export interface UpdateClusterRequest {
   serviceConnectDefaults?: ClusterServiceConnectDefaultsRequest;
 }
 
+/**
+ * @public
+ */
 export interface UpdateClusterResponse {
   /**
    * <p>Details about the cluster.</p>
@@ -9401,6 +10366,9 @@ export interface UpdateClusterResponse {
   cluster?: Cluster;
 }
 
+/**
+ * @public
+ */
 export interface UpdateClusterSettingsRequest {
   /**
    * <p>The name of the cluster to modify the settings for.</p>
@@ -9423,6 +10391,9 @@ export interface UpdateClusterSettingsRequest {
   settings: ClusterSetting[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateClusterSettingsResponse {
   /**
    * <p>Details about the cluster</p>
@@ -9431,6 +10402,7 @@ export interface UpdateClusterSettingsResponse {
 }
 
 /**
+ * @public
  * <p>Amazon ECS can't determine the current version of the Amazon ECS container agent on the
  * 			container instance and doesn't have enough information to proceed with an update. This
  * 			could be because the agent running on the container instance is a previous or custom
@@ -9453,6 +10425,7 @@ export class MissingVersionException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>There's no update available for this Amazon ECS container agent. This might be because the
  * 			agent is already running the latest version or because it's so old that there's no
  * 			update path to the current version.</p>
@@ -9473,6 +10446,9 @@ export class NoUpdateAvailableException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UpdateContainerAgentRequest {
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the cluster that your container instance is
@@ -9487,6 +10463,9 @@ export interface UpdateContainerAgentRequest {
   containerInstance: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateContainerAgentResponse {
   /**
    * <p>The container instance that the container agent was updated for.</p>
@@ -9494,6 +10473,9 @@ export interface UpdateContainerAgentResponse {
   containerInstance?: ContainerInstance;
 }
 
+/**
+ * @public
+ */
 export interface UpdateContainerInstancesStateRequest {
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instance to
@@ -9517,6 +10499,9 @@ export interface UpdateContainerInstancesStateRequest {
   status: ContainerInstanceStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateContainerInstancesStateResponse {
   /**
    * <p>The list of container instances.</p>
@@ -9529,6 +10514,9 @@ export interface UpdateContainerInstancesStateResponse {
   failures?: Failure[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateServiceRequest {
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the cluster that your service runs on.
@@ -9719,6 +10707,9 @@ export interface UpdateServiceRequest {
   serviceConnectConfiguration?: ServiceConnectConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdateServiceResponse {
   /**
    * <p>The full description of your service following the update call.</p>
@@ -9726,6 +10717,9 @@ export interface UpdateServiceResponse {
   service?: Service;
 }
 
+/**
+ * @public
+ */
 export interface UpdateServicePrimaryTaskSetRequest {
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task
@@ -9745,6 +10739,9 @@ export interface UpdateServicePrimaryTaskSetRequest {
   primaryTaskSet: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateServicePrimaryTaskSetResponse {
   /**
    * <p>The details about the task set.</p>
@@ -9752,6 +10749,9 @@ export interface UpdateServicePrimaryTaskSetResponse {
   taskSet?: TaskSet;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTaskProtectionRequest {
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task
@@ -9782,6 +10782,9 @@ export interface UpdateTaskProtectionRequest {
   expiresInMinutes?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTaskProtectionResponse {
   /**
    * <p>A list of tasks with the following information.</p>
@@ -9793,7 +10796,7 @@ export interface UpdateTaskProtectionResponse {
    *             <li>
    *                <p>
    *                   <code>protectionEnabled</code>: The protection status of the task. If scale-in
-   * 					protection is enabled for a task, the value is <code>true</code>. Otherwise, it
+   * 					protection is turned on for a task, the value is <code>true</code>. Otherwise, it
    * 					is <code>false</code>.</p>
    *             </li>
    *             <li>
@@ -9811,6 +10814,9 @@ export interface UpdateTaskProtectionResponse {
   failures?: Failure[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateTaskSetRequest {
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task
@@ -9835,874 +10841,15 @@ export interface UpdateTaskSetRequest {
   scale: Scale | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTaskSetResponse {
   /**
    * <p>Details about the task set.</p>
    */
   taskSet?: TaskSet;
 }
-
-/**
- * @internal
- */
-export const ManagedScalingFilterSensitiveLog = (obj: ManagedScaling): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoScalingGroupProviderFilterSensitiveLog = (obj: AutoScalingGroupProvider): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCapacityProviderRequestFilterSensitiveLog = (obj: CreateCapacityProviderRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CapacityProviderFilterSensitiveLog = (obj: CapacityProvider): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCapacityProviderResponseFilterSensitiveLog = (obj: CreateCapacityProviderResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExecuteCommandLogConfigurationFilterSensitiveLog = (obj: ExecuteCommandLogConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExecuteCommandConfigurationFilterSensitiveLog = (obj: ExecuteCommandConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClusterConfigurationFilterSensitiveLog = (obj: ClusterConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CapacityProviderStrategyItemFilterSensitiveLog = (obj: CapacityProviderStrategyItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClusterServiceConnectDefaultsRequestFilterSensitiveLog = (
-  obj: ClusterServiceConnectDefaultsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClusterSettingFilterSensitiveLog = (obj: ClusterSetting): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateClusterRequestFilterSensitiveLog = (obj: CreateClusterRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KeyValuePairFilterSensitiveLog = (obj: KeyValuePair): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttachmentFilterSensitiveLog = (obj: Attachment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClusterServiceConnectDefaultsFilterSensitiveLog = (obj: ClusterServiceConnectDefaults): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClusterFilterSensitiveLog = (obj: Cluster): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateClusterResponseFilterSensitiveLog = (obj: CreateClusterResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeploymentAlarmsFilterSensitiveLog = (obj: DeploymentAlarms): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeploymentCircuitBreakerFilterSensitiveLog = (obj: DeploymentCircuitBreaker): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeploymentConfigurationFilterSensitiveLog = (obj: DeploymentConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeploymentControllerFilterSensitiveLog = (obj: DeploymentController): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LoadBalancerFilterSensitiveLog = (obj: LoadBalancer): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsVpcConfigurationFilterSensitiveLog = (obj: AwsVpcConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkConfigurationFilterSensitiveLog = (obj: NetworkConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PlacementConstraintFilterSensitiveLog = (obj: PlacementConstraint): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PlacementStrategyFilterSensitiveLog = (obj: PlacementStrategy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SecretFilterSensitiveLog = (obj: Secret): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LogConfigurationFilterSensitiveLog = (obj: LogConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServiceConnectClientAliasFilterSensitiveLog = (obj: ServiceConnectClientAlias): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServiceConnectServiceFilterSensitiveLog = (obj: ServiceConnectService): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServiceConnectConfigurationFilterSensitiveLog = (obj: ServiceConnectConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServiceRegistryFilterSensitiveLog = (obj: ServiceRegistry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateServiceRequestFilterSensitiveLog = (obj: CreateServiceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServiceConnectServiceResourceFilterSensitiveLog = (obj: ServiceConnectServiceResource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeploymentFilterSensitiveLog = (obj: Deployment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServiceEventFilterSensitiveLog = (obj: ServiceEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScaleFilterSensitiveLog = (obj: Scale): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TaskSetFilterSensitiveLog = (obj: TaskSet): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServiceFilterSensitiveLog = (obj: Service): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateServiceResponseFilterSensitiveLog = (obj: CreateServiceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTaskSetRequestFilterSensitiveLog = (obj: CreateTaskSetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTaskSetResponseFilterSensitiveLog = (obj: CreateTaskSetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAccountSettingRequestFilterSensitiveLog = (obj: DeleteAccountSettingRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SettingFilterSensitiveLog = (obj: Setting): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAccountSettingResponseFilterSensitiveLog = (obj: DeleteAccountSettingResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttributeFilterSensitiveLog = (obj: Attribute): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAttributesRequestFilterSensitiveLog = (obj: DeleteAttributesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAttributesResponseFilterSensitiveLog = (obj: DeleteAttributesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCapacityProviderRequestFilterSensitiveLog = (obj: DeleteCapacityProviderRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCapacityProviderResponseFilterSensitiveLog = (obj: DeleteCapacityProviderResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteClusterRequestFilterSensitiveLog = (obj: DeleteClusterRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteClusterResponseFilterSensitiveLog = (obj: DeleteClusterResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteServiceRequestFilterSensitiveLog = (obj: DeleteServiceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteServiceResponseFilterSensitiveLog = (obj: DeleteServiceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTaskSetRequestFilterSensitiveLog = (obj: DeleteTaskSetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTaskSetResponseFilterSensitiveLog = (obj: DeleteTaskSetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterContainerInstanceRequestFilterSensitiveLog = (obj: DeregisterContainerInstanceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceHealthCheckResultFilterSensitiveLog = (obj: InstanceHealthCheckResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ContainerInstanceHealthStatusFilterSensitiveLog = (obj: ContainerInstanceHealthStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceFilterSensitiveLog = (obj: Resource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VersionInfoFilterSensitiveLog = (obj: VersionInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ContainerInstanceFilterSensitiveLog = (obj: ContainerInstance): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterContainerInstanceResponseFilterSensitiveLog = (
-  obj: DeregisterContainerInstanceResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterTaskDefinitionRequestFilterSensitiveLog = (obj: DeregisterTaskDefinitionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ContainerDependencyFilterSensitiveLog = (obj: ContainerDependency): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnvironmentFileFilterSensitiveLog = (obj: EnvironmentFile): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HostEntryFilterSensitiveLog = (obj: HostEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FirelensConfigurationFilterSensitiveLog = (obj: FirelensConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HealthCheckFilterSensitiveLog = (obj: HealthCheck): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KernelCapabilitiesFilterSensitiveLog = (obj: KernelCapabilities): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeviceFilterSensitiveLog = (obj: Device): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TmpfsFilterSensitiveLog = (obj: Tmpfs): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LinuxParametersFilterSensitiveLog = (obj: LinuxParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MountPointFilterSensitiveLog = (obj: MountPoint): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PortMappingFilterSensitiveLog = (obj: PortMapping): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RepositoryCredentialsFilterSensitiveLog = (obj: RepositoryCredentials): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceRequirementFilterSensitiveLog = (obj: ResourceRequirement): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SystemControlFilterSensitiveLog = (obj: SystemControl): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UlimitFilterSensitiveLog = (obj: Ulimit): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VolumeFromFilterSensitiveLog = (obj: VolumeFrom): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ContainerDefinitionFilterSensitiveLog = (obj: ContainerDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EphemeralStorageFilterSensitiveLog = (obj: EphemeralStorage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InferenceAcceleratorFilterSensitiveLog = (obj: InferenceAccelerator): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TaskDefinitionPlacementConstraintFilterSensitiveLog = (obj: TaskDefinitionPlacementConstraint): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProxyConfigurationFilterSensitiveLog = (obj: ProxyConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuntimePlatformFilterSensitiveLog = (obj: RuntimePlatform): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DockerVolumeConfigurationFilterSensitiveLog = (obj: DockerVolumeConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EFSAuthorizationConfigFilterSensitiveLog = (obj: EFSAuthorizationConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EFSVolumeConfigurationFilterSensitiveLog = (obj: EFSVolumeConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FSxWindowsFileServerAuthorizationConfigFilterSensitiveLog = (
-  obj: FSxWindowsFileServerAuthorizationConfig
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FSxWindowsFileServerVolumeConfigurationFilterSensitiveLog = (
-  obj: FSxWindowsFileServerVolumeConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HostVolumePropertiesFilterSensitiveLog = (obj: HostVolumeProperties): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VolumeFilterSensitiveLog = (obj: Volume): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TaskDefinitionFilterSensitiveLog = (obj: TaskDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterTaskDefinitionResponseFilterSensitiveLog = (obj: DeregisterTaskDefinitionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeCapacityProvidersRequestFilterSensitiveLog = (obj: DescribeCapacityProvidersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FailureFilterSensitiveLog = (obj: Failure): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeCapacityProvidersResponseFilterSensitiveLog = (obj: DescribeCapacityProvidersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeClustersRequestFilterSensitiveLog = (obj: DescribeClustersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeClustersResponseFilterSensitiveLog = (obj: DescribeClustersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeContainerInstancesRequestFilterSensitiveLog = (obj: DescribeContainerInstancesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeContainerInstancesResponseFilterSensitiveLog = (obj: DescribeContainerInstancesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeServicesRequestFilterSensitiveLog = (obj: DescribeServicesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeServicesResponseFilterSensitiveLog = (obj: DescribeServicesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTaskDefinitionRequestFilterSensitiveLog = (obj: DescribeTaskDefinitionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTaskDefinitionResponseFilterSensitiveLog = (obj: DescribeTaskDefinitionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTasksRequestFilterSensitiveLog = (obj: DescribeTasksRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ManagedAgentFilterSensitiveLog = (obj: ManagedAgent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkBindingFilterSensitiveLog = (obj: NetworkBinding): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkInterfaceFilterSensitiveLog = (obj: NetworkInterface): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ContainerFilterSensitiveLog = (obj: Container): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ContainerOverrideFilterSensitiveLog = (obj: ContainerOverride): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InferenceAcceleratorOverrideFilterSensitiveLog = (obj: InferenceAcceleratorOverride): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TaskOverrideFilterSensitiveLog = (obj: TaskOverride): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TaskFilterSensitiveLog = (obj: Task): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTasksResponseFilterSensitiveLog = (obj: DescribeTasksResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTaskSetsRequestFilterSensitiveLog = (obj: DescribeTaskSetsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTaskSetsResponseFilterSensitiveLog = (obj: DescribeTaskSetsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DiscoverPollEndpointRequestFilterSensitiveLog = (obj: DiscoverPollEndpointRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DiscoverPollEndpointResponseFilterSensitiveLog = (obj: DiscoverPollEndpointResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExecuteCommandRequestFilterSensitiveLog = (obj: ExecuteCommandRequest): any => ({
-  ...obj,
-});
 
 /**
  * @internal
@@ -10718,534 +10865,4 @@ export const SessionFilterSensitiveLog = (obj: Session): any => ({
 export const ExecuteCommandResponseFilterSensitiveLog = (obj: ExecuteCommandResponse): any => ({
   ...obj,
   ...(obj.session && { session: SessionFilterSensitiveLog(obj.session) }),
-});
-
-/**
- * @internal
- */
-export const GetTaskProtectionRequestFilterSensitiveLog = (obj: GetTaskProtectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProtectedTaskFilterSensitiveLog = (obj: ProtectedTask): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTaskProtectionResponseFilterSensitiveLog = (obj: GetTaskProtectionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAccountSettingsRequestFilterSensitiveLog = (obj: ListAccountSettingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAccountSettingsResponseFilterSensitiveLog = (obj: ListAccountSettingsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAttributesRequestFilterSensitiveLog = (obj: ListAttributesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAttributesResponseFilterSensitiveLog = (obj: ListAttributesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListClustersRequestFilterSensitiveLog = (obj: ListClustersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListClustersResponseFilterSensitiveLog = (obj: ListClustersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListContainerInstancesRequestFilterSensitiveLog = (obj: ListContainerInstancesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListContainerInstancesResponseFilterSensitiveLog = (obj: ListContainerInstancesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListServicesRequestFilterSensitiveLog = (obj: ListServicesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListServicesResponseFilterSensitiveLog = (obj: ListServicesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListServicesByNamespaceRequestFilterSensitiveLog = (obj: ListServicesByNamespaceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListServicesByNamespaceResponseFilterSensitiveLog = (obj: ListServicesByNamespaceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTaskDefinitionFamiliesRequestFilterSensitiveLog = (obj: ListTaskDefinitionFamiliesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTaskDefinitionFamiliesResponseFilterSensitiveLog = (obj: ListTaskDefinitionFamiliesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTaskDefinitionsRequestFilterSensitiveLog = (obj: ListTaskDefinitionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTaskDefinitionsResponseFilterSensitiveLog = (obj: ListTaskDefinitionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTasksRequestFilterSensitiveLog = (obj: ListTasksRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTasksResponseFilterSensitiveLog = (obj: ListTasksResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutAccountSettingRequestFilterSensitiveLog = (obj: PutAccountSettingRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutAccountSettingResponseFilterSensitiveLog = (obj: PutAccountSettingResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutAccountSettingDefaultRequestFilterSensitiveLog = (obj: PutAccountSettingDefaultRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutAccountSettingDefaultResponseFilterSensitiveLog = (obj: PutAccountSettingDefaultResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutAttributesRequestFilterSensitiveLog = (obj: PutAttributesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutAttributesResponseFilterSensitiveLog = (obj: PutAttributesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutClusterCapacityProvidersRequestFilterSensitiveLog = (obj: PutClusterCapacityProvidersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutClusterCapacityProvidersResponseFilterSensitiveLog = (
-  obj: PutClusterCapacityProvidersResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PlatformDeviceFilterSensitiveLog = (obj: PlatformDevice): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterContainerInstanceRequestFilterSensitiveLog = (obj: RegisterContainerInstanceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterContainerInstanceResponseFilterSensitiveLog = (obj: RegisterContainerInstanceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterTaskDefinitionRequestFilterSensitiveLog = (obj: RegisterTaskDefinitionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterTaskDefinitionResponseFilterSensitiveLog = (obj: RegisterTaskDefinitionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RunTaskRequestFilterSensitiveLog = (obj: RunTaskRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RunTaskResponseFilterSensitiveLog = (obj: RunTaskResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartTaskRequestFilterSensitiveLog = (obj: StartTaskRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartTaskResponseFilterSensitiveLog = (obj: StartTaskResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopTaskRequestFilterSensitiveLog = (obj: StopTaskRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopTaskResponseFilterSensitiveLog = (obj: StopTaskResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttachmentStateChangeFilterSensitiveLog = (obj: AttachmentStateChange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SubmitAttachmentStateChangesRequestFilterSensitiveLog = (
-  obj: SubmitAttachmentStateChangesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SubmitAttachmentStateChangesResponseFilterSensitiveLog = (
-  obj: SubmitAttachmentStateChangesResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SubmitContainerStateChangeRequestFilterSensitiveLog = (obj: SubmitContainerStateChangeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SubmitContainerStateChangeResponseFilterSensitiveLog = (obj: SubmitContainerStateChangeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ContainerStateChangeFilterSensitiveLog = (obj: ContainerStateChange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ManagedAgentStateChangeFilterSensitiveLog = (obj: ManagedAgentStateChange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SubmitTaskStateChangeRequestFilterSensitiveLog = (obj: SubmitTaskStateChangeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SubmitTaskStateChangeResponseFilterSensitiveLog = (obj: SubmitTaskStateChangeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoScalingGroupProviderUpdateFilterSensitiveLog = (obj: AutoScalingGroupProviderUpdate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCapacityProviderRequestFilterSensitiveLog = (obj: UpdateCapacityProviderRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCapacityProviderResponseFilterSensitiveLog = (obj: UpdateCapacityProviderResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateClusterRequestFilterSensitiveLog = (obj: UpdateClusterRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateClusterResponseFilterSensitiveLog = (obj: UpdateClusterResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateClusterSettingsRequestFilterSensitiveLog = (obj: UpdateClusterSettingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateClusterSettingsResponseFilterSensitiveLog = (obj: UpdateClusterSettingsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateContainerAgentRequestFilterSensitiveLog = (obj: UpdateContainerAgentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateContainerAgentResponseFilterSensitiveLog = (obj: UpdateContainerAgentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateContainerInstancesStateRequestFilterSensitiveLog = (
-  obj: UpdateContainerInstancesStateRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateContainerInstancesStateResponseFilterSensitiveLog = (
-  obj: UpdateContainerInstancesStateResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateServiceRequestFilterSensitiveLog = (obj: UpdateServiceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateServiceResponseFilterSensitiveLog = (obj: UpdateServiceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateServicePrimaryTaskSetRequestFilterSensitiveLog = (obj: UpdateServicePrimaryTaskSetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateServicePrimaryTaskSetResponseFilterSensitiveLog = (
-  obj: UpdateServicePrimaryTaskSetResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTaskProtectionRequestFilterSensitiveLog = (obj: UpdateTaskProtectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTaskProtectionResponseFilterSensitiveLog = (obj: UpdateTaskProtectionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTaskSetRequestFilterSensitiveLog = (obj: UpdateTaskSetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTaskSetResponseFilterSensitiveLog = (obj: UpdateTaskSetResponse): any => ({
-  ...obj,
 });

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateAnnotationStoreRequest,
-  UpdateAnnotationStoreRequestFilterSensitiveLog,
-  UpdateAnnotationStoreResponse,
-  UpdateAnnotationStoreResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateAnnotationStoreRequest, UpdateAnnotationStoreResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1UpdateAnnotationStoreCommand,
-  serializeAws_restJson1UpdateAnnotationStoreCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateAnnotationStoreCommand, se_UpdateAnnotationStoreCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateAnnotationStoreCommand}.
+ */
 export interface UpdateAnnotationStoreCommandInput extends UpdateAnnotationStoreRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateAnnotationStoreCommand}.
+ */
 export interface UpdateAnnotationStoreCommandOutput extends UpdateAnnotationStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an annotation store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,35 @@ export interface UpdateAnnotationStoreCommandOutput extends UpdateAnnotationStor
  * import { OmicsClient, UpdateAnnotationStoreCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, UpdateAnnotationStoreCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = { // UpdateAnnotationStoreRequest
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ * };
  * const command = new UpdateAnnotationStoreCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAnnotationStoreCommandInput - {@link UpdateAnnotationStoreCommandInput}
+ * @returns {@link UpdateAnnotationStoreCommandOutput}
  * @see {@link UpdateAnnotationStoreCommandInput} for command's `input` shape.
  * @see {@link UpdateAnnotationStoreCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred. Try the request again.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The target resource was not found in the current Region.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
  *
  */
 export class UpdateAnnotationStoreCommand extends $Command<
@@ -62,6 +87,9 @@ export class UpdateAnnotationStoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAnnotationStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +118,8 @@ export class UpdateAnnotationStoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAnnotationStoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAnnotationStoreResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +129,18 @@ export class UpdateAnnotationStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAnnotationStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateAnnotationStoreCommand(input, context);
+    return se_UpdateAnnotationStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAnnotationStoreCommandOutput> {
-    return deserializeAws_restJson1UpdateAnnotationStoreCommand(output, context);
+    return de_UpdateAnnotationStoreCommand(output, context);
   }
 
   // Start section: command_body_extra

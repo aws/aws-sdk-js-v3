@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
+import { UpdateRecoveryPointLifecycleInput, UpdateRecoveryPointLifecycleOutput } from "../models/models_0";
 import {
-  UpdateRecoveryPointLifecycleInput,
-  UpdateRecoveryPointLifecycleInputFilterSensitiveLog,
-  UpdateRecoveryPointLifecycleOutput,
-  UpdateRecoveryPointLifecycleOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateRecoveryPointLifecycleCommand,
-  serializeAws_restJson1UpdateRecoveryPointLifecycleCommand,
+  de_UpdateRecoveryPointLifecycleCommand,
+  se_UpdateRecoveryPointLifecycleCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateRecoveryPointLifecycleCommand}.
+ */
 export interface UpdateRecoveryPointLifecycleCommandInput extends UpdateRecoveryPointLifecycleInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateRecoveryPointLifecycleCommand}.
+ */
 export interface UpdateRecoveryPointLifecycleCommandOutput
   extends UpdateRecoveryPointLifecycleOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the transition lifecycle of a recovery point.</p>
  *          <p>The lifecycle defines when a protected resource is transitioned to cold storage and when
  *          it expires. Backup transitions and expires backups automatically according to
@@ -50,13 +56,41 @@ export interface UpdateRecoveryPointLifecycleCommandOutput
  * import { BackupClient, UpdateRecoveryPointLifecycleCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, UpdateRecoveryPointLifecycleCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // UpdateRecoveryPointLifecycleInput
+ *   BackupVaultName: "STRING_VALUE", // required
+ *   RecoveryPointArn: "STRING_VALUE", // required
+ *   Lifecycle: { // Lifecycle
+ *     MoveToColdStorageAfterDays: Number("long"),
+ *     DeleteAfterDays: Number("long"),
+ *   },
+ * };
  * const command = new UpdateRecoveryPointLifecycleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRecoveryPointLifecycleCommandInput - {@link UpdateRecoveryPointLifecycleCommandInput}
+ * @returns {@link UpdateRecoveryPointLifecycleCommandOutput}
  * @see {@link UpdateRecoveryPointLifecycleCommandInput} for command's `input` shape.
  * @see {@link UpdateRecoveryPointLifecycleCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
+ *          out of range.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>Indicates that something is wrong with the input to the request. For example, a
+ *          parameter is of the wrong type.</p>
+ *
+ * @throws {@link MissingParameterValueException} (client fault)
+ *  <p>Indicates that a required parameter is missing.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource that is required for the action doesn't exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request failed due to a temporary failure of the server.</p>
+ *
  *
  */
 export class UpdateRecoveryPointLifecycleCommand extends $Command<
@@ -76,6 +110,9 @@ export class UpdateRecoveryPointLifecycleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRecoveryPointLifecycleCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +141,8 @@ export class UpdateRecoveryPointLifecycleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRecoveryPointLifecycleInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateRecoveryPointLifecycleOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,15 +152,21 @@ export class UpdateRecoveryPointLifecycleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRecoveryPointLifecycleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateRecoveryPointLifecycleCommand(input, context);
+    return se_UpdateRecoveryPointLifecycleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateRecoveryPointLifecycleCommandOutput> {
-    return deserializeAws_restJson1UpdateRecoveryPointLifecycleCommand(output, context);
+    return de_UpdateRecoveryPointLifecycleCommand(output, context);
   }
 
   // Start section: command_body_extra

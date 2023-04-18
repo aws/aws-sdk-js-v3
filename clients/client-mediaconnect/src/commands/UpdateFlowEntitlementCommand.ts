@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
-import {
-  UpdateFlowEntitlementRequest,
-  UpdateFlowEntitlementRequestFilterSensitiveLog,
-  UpdateFlowEntitlementResponse,
-  UpdateFlowEntitlementResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateFlowEntitlementCommand,
-  serializeAws_restJson1UpdateFlowEntitlementCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateFlowEntitlementRequest, UpdateFlowEntitlementResponse } from "../models/models_0";
+import { de_UpdateFlowEntitlementCommand, se_UpdateFlowEntitlementCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateFlowEntitlementCommand}.
+ */
 export interface UpdateFlowEntitlementCommandInput extends UpdateFlowEntitlementRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateFlowEntitlementCommand}.
+ */
 export interface UpdateFlowEntitlementCommandOutput extends UpdateFlowEntitlementResponse, __MetadataBearer {}
 
 /**
+ * @public
  * You can change an entitlement's description, subscribers, and encryption. If you change the subscribers, the service will remove the outputs that are are used by the subscribers that are removed.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,54 @@ export interface UpdateFlowEntitlementCommandOutput extends UpdateFlowEntitlemen
  * import { MediaConnectClient, UpdateFlowEntitlementCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, UpdateFlowEntitlementCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
+ * const input = { // UpdateFlowEntitlementRequest
+ *   Description: "STRING_VALUE",
+ *   Encryption: { // UpdateEncryption
+ *     Algorithm: "aes128" || "aes192" || "aes256",
+ *     ConstantInitializationVector: "STRING_VALUE",
+ *     DeviceId: "STRING_VALUE",
+ *     KeyType: "speke" || "static-key" || "srt-password",
+ *     Region: "STRING_VALUE",
+ *     ResourceId: "STRING_VALUE",
+ *     RoleArn: "STRING_VALUE",
+ *     SecretArn: "STRING_VALUE",
+ *     Url: "STRING_VALUE",
+ *   },
+ *   EntitlementArn: "STRING_VALUE", // required
+ *   EntitlementStatus: "ENABLED" || "DISABLED",
+ *   FlowArn: "STRING_VALUE", // required
+ *   Subscribers: [ // __listOf__string
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateFlowEntitlementCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFlowEntitlementCommandInput - {@link UpdateFlowEntitlementCommandInput}
+ * @returns {@link UpdateFlowEntitlementCommandOutput}
  * @see {@link UpdateFlowEntitlementCommandInput} for command's `input` shape.
  * @see {@link UpdateFlowEntitlementCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *
  *
  */
 export class UpdateFlowEntitlementCommand extends $Command<
@@ -62,6 +106,9 @@ export class UpdateFlowEntitlementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFlowEntitlementCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +137,8 @@ export class UpdateFlowEntitlementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFlowEntitlementRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFlowEntitlementResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +148,18 @@ export class UpdateFlowEntitlementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFlowEntitlementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateFlowEntitlementCommand(input, context);
+    return se_UpdateFlowEntitlementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFlowEntitlementCommandOutput> {
-    return deserializeAws_restJson1UpdateFlowEntitlementCommand(output, context);
+    return de_UpdateFlowEntitlementCommand(output, context);
   }
 
   // Start section: command_body_extra

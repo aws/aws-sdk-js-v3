@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
-import {
-  ListServersRequest,
-  ListServersRequestFilterSensitiveLog,
-  ListServersResponse,
-  ListServersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListServersCommand,
-  serializeAws_restJson1ListServersCommand,
-} from "../protocols/Aws_restJson1";
+import { ListServersRequest, ListServersResponse } from "../models/models_0";
+import { de_ListServersCommand, se_ListServersCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListServersCommand}.
+ */
 export interface ListServersCommandInput extends ListServersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListServersCommand}.
+ */
 export interface ListServersCommandOutput extends ListServersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a list of all the servers. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,42 @@ export interface ListServersCommandOutput extends ListServersResponse, __Metadat
  * import { MigrationHubStrategyClient, ListServersCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, ListServersCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
+ * const input = { // ListServersRequest
+ *   serverCriteria: "STRING_VALUE",
+ *   filterValue: "STRING_VALUE",
+ *   sort: "STRING_VALUE",
+ *   groupIdFilter: [ // GroupIds
+ *     { // Group
+ *       name: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListServersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListServersCommandInput - {@link ListServersCommandInput}
+ * @returns {@link ListServersCommandOutput}
  * @see {@link ListServersCommandInput} for command's `input` shape.
  * @see {@link ListServersCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p> The user does not have permission to perform the action. Check the
+ *       AWS Identity and Access Management (IAM) policy associated with this user.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> The server experienced an internal error. Try again. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p> The request was denied due to request throttling. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p> The request body isn't valid. </p>
+ *
  *
  */
 export class ListServersCommand extends $Command<
@@ -66,6 +98,9 @@ export class ListServersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListServersCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +127,8 @@ export class ListServersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListServersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListServersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +138,18 @@ export class ListServersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListServersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListServersCommand(input, context);
+    return se_ListServersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListServersCommandOutput> {
-    return deserializeAws_restJson1ListServersCommand(output, context);
+    return de_ListServersCommand(output, context);
   }
 
   // Start section: command_body_extra

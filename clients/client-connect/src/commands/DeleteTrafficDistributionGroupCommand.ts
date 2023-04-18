@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import { DeleteTrafficDistributionGroupRequest, DeleteTrafficDistributionGroupResponse } from "../models/models_0";
 import {
-  DeleteTrafficDistributionGroupRequest,
-  DeleteTrafficDistributionGroupRequestFilterSensitiveLog,
-  DeleteTrafficDistributionGroupResponse,
-  DeleteTrafficDistributionGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteTrafficDistributionGroupCommand,
-  serializeAws_restJson1DeleteTrafficDistributionGroupCommand,
+  de_DeleteTrafficDistributionGroupCommand,
+  se_DeleteTrafficDistributionGroupCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteTrafficDistributionGroupCommand}.
+ */
 export interface DeleteTrafficDistributionGroupCommandInput extends DeleteTrafficDistributionGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteTrafficDistributionGroupCommand}.
+ */
 export interface DeleteTrafficDistributionGroupCommandOutput
   extends DeleteTrafficDistributionGroupResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a traffic distribution group. This API can be called only in the Region where the traffic distribution group is
  *    created.</p>
  *          <p>For more information about deleting traffic distribution groups, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/delete-traffic-distribution-groups.html">Delete traffic distribution groups</a> in
@@ -41,13 +47,34 @@ export interface DeleteTrafficDistributionGroupCommandOutput
  * import { ConnectClient, DeleteTrafficDistributionGroupCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DeleteTrafficDistributionGroupCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // DeleteTrafficDistributionGroupRequest
+ *   TrafficDistributionGroupId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteTrafficDistributionGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTrafficDistributionGroupCommandInput - {@link DeleteTrafficDistributionGroupCommandInput}
+ * @returns {@link DeleteTrafficDistributionGroupCommandOutput}
  * @see {@link DeleteTrafficDistributionGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteTrafficDistributionGroupCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>That resource is already in use. Please try another.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
  *
  */
 export class DeleteTrafficDistributionGroupCommand extends $Command<
@@ -67,6 +94,9 @@ export class DeleteTrafficDistributionGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTrafficDistributionGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +125,8 @@ export class DeleteTrafficDistributionGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTrafficDistributionGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTrafficDistributionGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,18 +136,24 @@ export class DeleteTrafficDistributionGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteTrafficDistributionGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteTrafficDistributionGroupCommand(input, context);
+    return se_DeleteTrafficDistributionGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteTrafficDistributionGroupCommandOutput> {
-    return deserializeAws_restJson1DeleteTrafficDistributionGroupCommand(output, context);
+    return de_DeleteTrafficDistributionGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

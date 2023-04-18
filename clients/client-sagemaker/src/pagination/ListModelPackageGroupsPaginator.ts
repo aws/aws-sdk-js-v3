@@ -6,12 +6,11 @@ import {
   ListModelPackageGroupsCommandInput,
   ListModelPackageGroupsCommandOutput,
 } from "../commands/ListModelPackageGroupsCommand";
-import { SageMaker } from "../SageMaker";
 import { SageMakerClient } from "../SageMakerClient";
 import { SageMakerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SageMakerClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListModelPackageGroupsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: SageMaker,
-  input: ListModelPackageGroupsCommandInput,
-  ...args: any
-): Promise<ListModelPackageGroupsCommandOutput> => {
-  // @ts-ignore
-  return await client.listModelPackageGroups(input, ...args);
-};
 export async function* paginateListModelPackageGroups(
   config: SageMakerPaginationConfiguration,
   input: ListModelPackageGroupsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListModelPackageGroups(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof SageMaker) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SageMakerClient) {
+    if (config.client instanceof SageMakerClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SageMaker | SageMakerClient");

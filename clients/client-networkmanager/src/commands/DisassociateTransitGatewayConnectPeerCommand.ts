@@ -15,23 +15,32 @@ import {
 
 import {
   DisassociateTransitGatewayConnectPeerRequest,
-  DisassociateTransitGatewayConnectPeerRequestFilterSensitiveLog,
   DisassociateTransitGatewayConnectPeerResponse,
-  DisassociateTransitGatewayConnectPeerResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
-  deserializeAws_restJson1DisassociateTransitGatewayConnectPeerCommand,
-  serializeAws_restJson1DisassociateTransitGatewayConnectPeerCommand,
+  de_DisassociateTransitGatewayConnectPeerCommand,
+  se_DisassociateTransitGatewayConnectPeerCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DisassociateTransitGatewayConnectPeerCommand}.
+ */
 export interface DisassociateTransitGatewayConnectPeerCommandInput
   extends DisassociateTransitGatewayConnectPeerRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateTransitGatewayConnectPeerCommand}.
+ */
 export interface DisassociateTransitGatewayConnectPeerCommandOutput
   extends DisassociateTransitGatewayConnectPeerResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a transit gateway Connect peer from a device and link.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +48,39 @@ export interface DisassociateTransitGatewayConnectPeerCommandOutput
  * import { NetworkManagerClient, DisassociateTransitGatewayConnectPeerCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, DisassociateTransitGatewayConnectPeerCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // DisassociateTransitGatewayConnectPeerRequest
+ *   GlobalNetworkId: "STRING_VALUE", // required
+ *   TransitGatewayConnectPeerArn: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateTransitGatewayConnectPeerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateTransitGatewayConnectPeerCommandInput - {@link DisassociateTransitGatewayConnectPeerCommandInput}
+ * @returns {@link DisassociateTransitGatewayConnectPeerCommandOutput}
  * @see {@link DisassociateTransitGatewayConnectPeerCommandInput} for command's `input` shape.
  * @see {@link DisassociateTransitGatewayConnectPeerCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There was a conflict processing the request. Updating or deleting the resource can
+ *             cause an inconsistent state.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request has failed due to an internal error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints.</p>
+ *
  *
  */
 export class DisassociateTransitGatewayConnectPeerCommand extends $Command<
@@ -65,6 +100,9 @@ export class DisassociateTransitGatewayConnectPeerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateTransitGatewayConnectPeerCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +131,8 @@ export class DisassociateTransitGatewayConnectPeerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateTransitGatewayConnectPeerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateTransitGatewayConnectPeerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,18 +142,24 @@ export class DisassociateTransitGatewayConnectPeerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateTransitGatewayConnectPeerCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateTransitGatewayConnectPeerCommand(input, context);
+    return se_DisassociateTransitGatewayConnectPeerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateTransitGatewayConnectPeerCommandOutput> {
-    return deserializeAws_restJson1DisassociateTransitGatewayConnectPeerCommand(output, context);
+    return de_DisassociateTransitGatewayConnectPeerCommand(output, context);
   }
 
   // Start section: command_body_extra

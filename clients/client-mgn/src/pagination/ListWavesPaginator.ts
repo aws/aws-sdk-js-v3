@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListWavesCommand, ListWavesCommandInput, ListWavesCommandOutput } from "../commands/ListWavesCommand";
-import { Mgn } from "../Mgn";
 import { MgnClient } from "../MgnClient";
 import { MgnPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: MgnClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListWavesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Mgn,
-  input: ListWavesCommandInput,
-  ...args: any
-): Promise<ListWavesCommandOutput> => {
-  // @ts-ignore
-  return await client.listWaves(input, ...args);
-};
 export async function* paginateListWaves(
   config: MgnPaginationConfiguration,
   input: ListWavesCommandInput,
@@ -40,9 +31,7 @@ export async function* paginateListWaves(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Mgn) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof MgnClient) {
+    if (config.client instanceof MgnClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Mgn | MgnClient");

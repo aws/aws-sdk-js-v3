@@ -13,20 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StopHyperParameterTuningJobRequest,
-  StopHyperParameterTuningJobRequestFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1StopHyperParameterTuningJobCommand,
-  serializeAws_json1_1StopHyperParameterTuningJobCommand,
-} from "../protocols/Aws_json1_1";
+import { StopHyperParameterTuningJobRequest } from "../models/models_3";
+import { de_StopHyperParameterTuningJobCommand, se_StopHyperParameterTuningJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link StopHyperParameterTuningJobCommand}.
+ */
 export interface StopHyperParameterTuningJobCommandInput extends StopHyperParameterTuningJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StopHyperParameterTuningJobCommand}.
+ */
 export interface StopHyperParameterTuningJobCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a running hyperparameter tuning job and all running training jobs that the
  *             tuning job launched.</p>
  *          <p>All model artifacts output from the training jobs are stored in Amazon Simple Storage Service (Amazon S3). All
@@ -40,13 +45,22 @@ export interface StopHyperParameterTuningJobCommandOutput extends __MetadataBear
  * import { SageMakerClient, StopHyperParameterTuningJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, StopHyperParameterTuningJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // StopHyperParameterTuningJobRequest
+ *   HyperParameterTuningJobName: "STRING_VALUE", // required
+ * };
  * const command = new StopHyperParameterTuningJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopHyperParameterTuningJobCommandInput - {@link StopHyperParameterTuningJobCommandInput}
+ * @returns {@link StopHyperParameterTuningJobCommandOutput}
  * @see {@link StopHyperParameterTuningJobCommandInput} for command's `input` shape.
  * @see {@link StopHyperParameterTuningJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class StopHyperParameterTuningJobCommand extends $Command<
@@ -66,6 +80,9 @@ export class StopHyperParameterTuningJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopHyperParameterTuningJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +111,8 @@ export class StopHyperParameterTuningJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopHyperParameterTuningJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,15 +122,21 @@ export class StopHyperParameterTuningJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopHyperParameterTuningJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopHyperParameterTuningJobCommand(input, context);
+    return se_StopHyperParameterTuningJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopHyperParameterTuningJobCommandOutput> {
-    return deserializeAws_json1_1StopHyperParameterTuningJobCommand(output, context);
+    return de_StopHyperParameterTuningJobCommand(output, context);
   }
 
   // Start section: command_body_extra

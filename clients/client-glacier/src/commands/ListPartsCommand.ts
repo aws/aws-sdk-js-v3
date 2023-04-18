@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import {
-  ListPartsInput,
-  ListPartsInputFilterSensitiveLog,
-  ListPartsOutput,
-  ListPartsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListPartsCommand,
-  serializeAws_restJson1ListPartsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListPartsInput, ListPartsOutput } from "../models/models_0";
+import { de_ListPartsCommand, se_ListPartsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListPartsCommand}.
+ */
 export interface ListPartsCommandInput extends ListPartsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListPartsCommand}.
+ */
 export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation lists the parts of an archive that have been uploaded in a specific
  *          multipart upload. You can make this request at any time during an in-progress multipart
  *          upload before you complete the upload (see <a>CompleteMultipartUpload</a>. List
@@ -57,13 +60,69 @@ export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBeare
  * import { GlacierClient, ListPartsCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, ListPartsCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
+ * const input = { // ListPartsInput
+ *   accountId: "STRING_VALUE", // required
+ *   vaultName: "STRING_VALUE", // required
+ *   uploadId: "STRING_VALUE", // required
+ *   marker: "STRING_VALUE",
+ *   limit: Number("int"),
+ * };
  * const command = new ListPartsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPartsCommandInput - {@link ListPartsCommandInput}
+ * @returns {@link ListPartsCommandOutput}
  * @see {@link ListPartsCommandInput} for command's `input` shape.
  * @see {@link ListPartsCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>Returned if a parameter of the request is incorrectly specified.</p>
+ *
+ * @throws {@link MissingParameterValueException} (client fault)
+ *  <p>Returned if a required header or parameter is missing from the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't
+ *          exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>Returned if the service cannot complete the request.</p>
+ *
+ *
+ * @example To list the parts of an archive that have been uploaded in a multipart upload
+ * ```javascript
+ * // The example lists all the parts of a multipart upload.
+ * const input = {
+ *   "accountId": "-",
+ *   "uploadId": "OW2fM5iVylEpFEMM9_HpKowRapC3vn5sSL39_396UW9zLFUWVrnRHaPjUJddQ5OxSHVXjYtrN47NBZ-khxOjyEXAMPLE",
+ *   "vaultName": "examplevault"
+ * };
+ * const command = new ListPartsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ArchiveDescription": "archive description",
+ *   "CreationDate": "2012-03-20T17:03:43.221Z",
+ *   "Marker": "null",
+ *   "MultipartUploadId": "OW2fM5iVylEpFEMM9_HpKowRapC3vn5sSL39_396UW9zLFUWVrnRHaPjUJddQ5OxSHVXjYtrN47NBZ-khxOjyEXAMPLE",
+ *   "PartSizeInBytes": 4194304,
+ *   "Parts": [
+ *     {
+ *       "RangeInBytes": "0-4194303",
+ *       "SHA256TreeHash": "01d34dabf7be316472c93b1ef80721f5d4"
+ *     },
+ *     {
+ *       "RangeInBytes": "4194304-8388607",
+ *       "SHA256TreeHash": "0195875365afda349fc21c84c099987164"
+ *     }
+ *   ],
+ *   "VaultARN": "arn:aws:glacier:us-west-2:012345678901:vaults/demo1-vault"
+ * }
+ * *\/
+ * // example id: to-list-the-parts-of-an-archive-that-have-been-uploaded-in-a-multipart-upload-1481921767590
+ * ```
  *
  */
 export class ListPartsCommand extends $Command<
@@ -83,6 +142,9 @@ export class ListPartsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPartsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +171,8 @@ export class ListPartsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPartsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPartsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +182,18 @@ export class ListPartsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPartsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPartsCommand(input, context);
+    return se_ListPartsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPartsCommandOutput> {
-    return deserializeAws_restJson1ListPartsCommand(output, context);
+    return de_ListPartsCommand(output, context);
   }
 
   // Start section: command_body_extra

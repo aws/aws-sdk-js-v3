@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteNetworkRequest,
-  DeleteNetworkRequestFilterSensitiveLog,
-  DeleteNetworkResponse,
-  DeleteNetworkResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteNetworkRequest, DeleteNetworkResponse } from "../models/models_0";
 import { PrivateNetworksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PrivateNetworksClient";
-import {
-  deserializeAws_restJson1DeleteNetworkCommand,
-  serializeAws_restJson1DeleteNetworkCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteNetworkCommand, se_DeleteNetworkCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteNetworkCommand}.
+ */
 export interface DeleteNetworkCommandInput extends DeleteNetworkRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteNetworkCommand}.
+ */
 export interface DeleteNetworkCommandOutput extends DeleteNetworkResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified network. You must delete network sites before you delete the
  *             network. For more information, see
  *             <a href="https://docs.aws.amazon.com/private-networks/latest/APIReference/API_DeleteNetworkSite.html">DeleteNetworkSite</a> in the
@@ -39,13 +42,32 @@ export interface DeleteNetworkCommandOutput extends DeleteNetworkResponse, __Met
  * import { PrivateNetworksClient, DeleteNetworkCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
  * // const { PrivateNetworksClient, DeleteNetworkCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
  * const client = new PrivateNetworksClient(config);
+ * const input = { // DeleteNetworkRequest
+ *   networkArn: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new DeleteNetworkCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNetworkCommandInput - {@link DeleteNetworkCommandInput}
+ * @returns {@link DeleteNetworkCommandOutput}
  * @see {@link DeleteNetworkCommandInput} for command's `input` shape.
  * @see {@link DeleteNetworkCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have permission to perform this operation.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Information about an internal error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request failed validation.</p>
+ *
  *
  */
 export class DeleteNetworkCommand extends $Command<
@@ -65,6 +87,9 @@ export class DeleteNetworkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNetworkCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +116,8 @@ export class DeleteNetworkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteNetworkRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteNetworkResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +127,18 @@ export class DeleteNetworkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteNetworkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteNetworkCommand(input, context);
+    return se_DeleteNetworkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteNetworkCommandOutput> {
-    return deserializeAws_restJson1DeleteNetworkCommand(output, context);
+    return de_DeleteNetworkCommand(output, context);
   }
 
   // Start section: command_body_extra

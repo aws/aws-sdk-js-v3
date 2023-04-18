@@ -20,21 +20,30 @@ import {
 } from "../ConnectContactLensClient";
 import {
   ListRealtimeContactAnalysisSegmentsRequest,
-  ListRealtimeContactAnalysisSegmentsRequestFilterSensitiveLog,
   ListRealtimeContactAnalysisSegmentsResponse,
-  ListRealtimeContactAnalysisSegmentsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListRealtimeContactAnalysisSegmentsCommand,
-  serializeAws_restJson1ListRealtimeContactAnalysisSegmentsCommand,
+  de_ListRealtimeContactAnalysisSegmentsCommand,
+  se_ListRealtimeContactAnalysisSegmentsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListRealtimeContactAnalysisSegmentsCommand}.
+ */
 export interface ListRealtimeContactAnalysisSegmentsCommandInput extends ListRealtimeContactAnalysisSegmentsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListRealtimeContactAnalysisSegmentsCommand}.
+ */
 export interface ListRealtimeContactAnalysisSegmentsCommandOutput
   extends ListRealtimeContactAnalysisSegmentsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a list of analysis segments for a real-time analysis session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,13 +51,37 @@ export interface ListRealtimeContactAnalysisSegmentsCommandOutput
  * import { ConnectContactLensClient, ListRealtimeContactAnalysisSegmentsCommand } from "@aws-sdk/client-connect-contact-lens"; // ES Modules import
  * // const { ConnectContactLensClient, ListRealtimeContactAnalysisSegmentsCommand } = require("@aws-sdk/client-connect-contact-lens"); // CommonJS import
  * const client = new ConnectContactLensClient(config);
+ * const input = { // ListRealtimeContactAnalysisSegmentsRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   ContactId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListRealtimeContactAnalysisSegmentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRealtimeContactAnalysisSegmentsCommandInput - {@link ListRealtimeContactAnalysisSegmentsCommandInput}
+ * @returns {@link ListRealtimeContactAnalysisSegmentsCommandOutput}
  * @see {@link ListRealtimeContactAnalysisSegmentsCommandInput} for command's `input` shape.
  * @see {@link ListRealtimeContactAnalysisSegmentsCommandOutput} for command's `response` shape.
  * @see {@link ConnectContactLensClientResolvedConfig | config} for ConnectContactLensClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed due to an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
  *
  */
 export class ListRealtimeContactAnalysisSegmentsCommand extends $Command<
@@ -68,6 +101,9 @@ export class ListRealtimeContactAnalysisSegmentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRealtimeContactAnalysisSegmentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +132,8 @@ export class ListRealtimeContactAnalysisSegmentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRealtimeContactAnalysisSegmentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRealtimeContactAnalysisSegmentsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,18 +143,24 @@ export class ListRealtimeContactAnalysisSegmentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListRealtimeContactAnalysisSegmentsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRealtimeContactAnalysisSegmentsCommand(input, context);
+    return se_ListRealtimeContactAnalysisSegmentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListRealtimeContactAnalysisSegmentsCommandOutput> {
-    return deserializeAws_restJson1ListRealtimeContactAnalysisSegmentsCommand(output, context);
+    return de_ListRealtimeContactAnalysisSegmentsCommand(output, context);
   }
 
   // Start section: command_body_extra

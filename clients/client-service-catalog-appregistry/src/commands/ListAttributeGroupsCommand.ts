@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListAttributeGroupsRequest,
-  ListAttributeGroupsRequestFilterSensitiveLog,
-  ListAttributeGroupsResponse,
-  ListAttributeGroupsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAttributeGroupsCommand,
-  serializeAws_restJson1ListAttributeGroupsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListAttributeGroupsRequest, ListAttributeGroupsResponse } from "../models/models_0";
+import { de_ListAttributeGroupsCommand, se_ListAttributeGroupsCommand } from "../protocols/Aws_restJson1";
 import {
   ServiceCatalogAppRegistryClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ServiceCatalogAppRegistryClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListAttributeGroupsCommand}.
+ */
 export interface ListAttributeGroupsCommandInput extends ListAttributeGroupsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListAttributeGroupsCommand}.
+ */
 export interface ListAttributeGroupsCommandOutput extends ListAttributeGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all attribute groups which you have access to. Results are paginated.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,26 @@ export interface ListAttributeGroupsCommandOutput extends ListAttributeGroupsRes
  * import { ServiceCatalogAppRegistryClient, ListAttributeGroupsCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
  * // const { ServiceCatalogAppRegistryClient, ListAttributeGroupsCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
  * const client = new ServiceCatalogAppRegistryClient(config);
+ * const input = { // ListAttributeGroupsRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListAttributeGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAttributeGroupsCommandInput - {@link ListAttributeGroupsCommandInput}
+ * @returns {@link ListAttributeGroupsCommandOutput}
  * @see {@link ListAttributeGroupsCommandInput} for command's `input` shape.
  * @see {@link ListAttributeGroupsCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The service is experiencing internal problems.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request has invalid or missing parameters.</p>
+ *
  *
  */
 export class ListAttributeGroupsCommand extends $Command<
@@ -66,6 +82,9 @@ export class ListAttributeGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAttributeGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +113,8 @@ export class ListAttributeGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAttributeGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAttributeGroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +124,18 @@ export class ListAttributeGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAttributeGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAttributeGroupsCommand(input, context);
+    return se_ListAttributeGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAttributeGroupsCommandOutput> {
-    return deserializeAws_restJson1ListAttributeGroupsCommand(output, context);
+    return de_ListAttributeGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

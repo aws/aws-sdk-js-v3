@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
-import {
-  ListRecipeVersionsRequest,
-  ListRecipeVersionsRequestFilterSensitiveLog,
-  ListRecipeVersionsResponse,
-  ListRecipeVersionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListRecipeVersionsCommand,
-  serializeAws_restJson1ListRecipeVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListRecipeVersionsRequest, ListRecipeVersionsResponse } from "../models/models_0";
+import { de_ListRecipeVersionsCommand, se_ListRecipeVersionsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListRecipeVersionsCommand}.
+ */
 export interface ListRecipeVersionsCommandInput extends ListRecipeVersionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListRecipeVersionsCommand}.
+ */
 export interface ListRecipeVersionsCommandOutput extends ListRecipeVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the versions of a particular DataBrew recipe, except for
  *                 <code>LATEST_WORKING</code>.</p>
  * @example
@@ -37,13 +40,24 @@ export interface ListRecipeVersionsCommandOutput extends ListRecipeVersionsRespo
  * import { DataBrewClient, ListRecipeVersionsCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, ListRecipeVersionsCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
+ * const input = { // ListRecipeVersionsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new ListRecipeVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRecipeVersionsCommandInput - {@link ListRecipeVersionsCommandInput}
+ * @returns {@link ListRecipeVersionsCommandOutput}
  * @see {@link ListRecipeVersionsCommandInput} for command's `input` shape.
  * @see {@link ListRecipeVersionsCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input parameters for this request failed validation.</p>
+ *
  *
  */
 export class ListRecipeVersionsCommand extends $Command<
@@ -63,6 +77,9 @@ export class ListRecipeVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRecipeVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +108,8 @@ export class ListRecipeVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRecipeVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRecipeVersionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +119,18 @@ export class ListRecipeVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRecipeVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRecipeVersionsCommand(input, context);
+    return se_ListRecipeVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRecipeVersionsCommandOutput> {
-    return deserializeAws_restJson1ListRecipeVersionsCommand(output, context);
+    return de_ListRecipeVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -6,12 +6,11 @@ import {
   GetAttributeValuesCommandInput,
   GetAttributeValuesCommandOutput,
 } from "../commands/GetAttributeValuesCommand";
-import { Pricing } from "../Pricing";
 import { PricingClient } from "../PricingClient";
 import { PricingPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: PricingClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new GetAttributeValuesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Pricing,
-  input: GetAttributeValuesCommandInput,
-  ...args: any
-): Promise<GetAttributeValuesCommandOutput> => {
-  // @ts-ignore
-  return await client.getAttributeValues(input, ...args);
-};
 export async function* paginateGetAttributeValues(
   config: PricingPaginationConfiguration,
   input: GetAttributeValuesCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateGetAttributeValues(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Pricing) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof PricingClient) {
+    if (config.client instanceof PricingClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Pricing | PricingClient");

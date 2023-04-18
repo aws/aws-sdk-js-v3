@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeNodeRequest,
-  DescribeNodeRequestFilterSensitiveLog,
-  DescribeNodeResponse,
-  DescribeNodeResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeNodeRequest, DescribeNodeResponse } from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
-import {
-  deserializeAws_restJson1DescribeNodeCommand,
-  serializeAws_restJson1DescribeNodeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeNodeCommand, se_DescribeNodeCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeNodeCommand}.
+ */
 export interface DescribeNodeCommandInput extends DescribeNodeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeNodeCommand}.
+ */
 export interface DescribeNodeCommandOutput extends DescribeNodeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a node.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,35 @@ export interface DescribeNodeCommandOutput extends DescribeNodeResponse, __Metad
  * import { PanoramaClient, DescribeNodeCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, DescribeNodeCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
  * const client = new PanoramaClient(config);
+ * const input = { // DescribeNodeRequest
+ *   NodeId: "STRING_VALUE", // required
+ *   OwnerAccount: "STRING_VALUE",
+ * };
  * const command = new DescribeNodeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeNodeCommandInput - {@link DescribeNodeCommandInput}
+ * @returns {@link DescribeNodeCommandOutput}
  * @see {@link DescribeNodeCommandInput} for command's `input` shape.
  * @see {@link DescribeNodeCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The requestor does not have permission to access the target action or resource.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The target resource is in use.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error occurred.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The target resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request contains an invalid parameter value.</p>
+ *
  *
  */
 export class DescribeNodeCommand extends $Command<
@@ -62,6 +87,9 @@ export class DescribeNodeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeNodeCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +116,8 @@ export class DescribeNodeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeNodeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeNodeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +127,18 @@ export class DescribeNodeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeNodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeNodeCommand(input, context);
+    return se_DescribeNodeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeNodeCommandOutput> {
-    return deserializeAws_restJson1DescribeNodeCommand(output, context);
+    return de_DescribeNodeCommand(output, context);
   }
 
   // Start section: command_body_extra

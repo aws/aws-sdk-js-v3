@@ -14,18 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudHSMV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMV2Client";
-import {
-  CreateHsmRequest,
-  CreateHsmRequestFilterSensitiveLog,
-  CreateHsmResponse,
-  CreateHsmResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1CreateHsmCommand, serializeAws_json1_1CreateHsmCommand } from "../protocols/Aws_json1_1";
+import { CreateHsmRequest, CreateHsmResponse } from "../models/models_0";
+import { de_CreateHsmCommand, se_CreateHsmCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateHsmCommand}.
+ */
 export interface CreateHsmCommandInput extends CreateHsmRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateHsmCommand}.
+ */
 export interface CreateHsmCommandOutput extends CreateHsmResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new hardware security module (HSM) in the specified AWS CloudHSM
  *       cluster.</p>
  * @example
@@ -34,13 +40,39 @@ export interface CreateHsmCommandOutput extends CreateHsmResponse, __MetadataBea
  * import { CloudHSMV2Client, CreateHsmCommand } from "@aws-sdk/client-cloudhsm-v2"; // ES Modules import
  * // const { CloudHSMV2Client, CreateHsmCommand } = require("@aws-sdk/client-cloudhsm-v2"); // CommonJS import
  * const client = new CloudHSMV2Client(config);
+ * const input = { // CreateHsmRequest
+ *   ClusterId: "STRING_VALUE", // required
+ *   AvailabilityZone: "STRING_VALUE", // required
+ *   IpAddress: "STRING_VALUE",
+ * };
  * const command = new CreateHsmCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateHsmCommandInput - {@link CreateHsmCommandInput}
+ * @returns {@link CreateHsmCommandOutput}
  * @see {@link CreateHsmCommandInput} for command's `input` shape.
  * @see {@link CreateHsmCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMV2ClientResolvedConfig | config} for CloudHSMV2Client's `config` shape.
+ *
+ * @throws {@link CloudHsmAccessDeniedException} (client fault)
+ *  <p>The request was rejected because the requester does not have permission to perform the
+ *       requested operation.</p>
+ *
+ * @throws {@link CloudHsmInternalFailureException} (server fault)
+ *  <p>The request was rejected because of an AWS CloudHSM internal failure. The request can
+ *       be retried.</p>
+ *
+ * @throws {@link CloudHsmInvalidRequestException} (client fault)
+ *  <p>The request was rejected because it is not a valid request.</p>
+ *
+ * @throws {@link CloudHsmResourceNotFoundException} (client fault)
+ *  <p>The request was rejected because it refers to a resource that cannot be
+ *       found.</p>
+ *
+ * @throws {@link CloudHsmServiceException} (client fault)
+ *  <p>The request was rejected because an error occurred.</p>
+ *
  *
  */
 export class CreateHsmCommand extends $Command<
@@ -60,6 +92,9 @@ export class CreateHsmCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateHsmCommandInput) {
     // Start section: command_constructor
     super();
@@ -86,8 +121,8 @@ export class CreateHsmCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateHsmRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateHsmResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -97,12 +132,18 @@ export class CreateHsmCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateHsmCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateHsmCommand(input, context);
+    return se_CreateHsmCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateHsmCommandOutput> {
-    return deserializeAws_json1_1CreateHsmCommand(output, context);
+    return de_CreateHsmCommand(output, context);
   }
 
   // Start section: command_body_extra

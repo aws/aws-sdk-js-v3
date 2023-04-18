@@ -6,12 +6,11 @@ import {
   DescribeDBParameterGroupsCommandInput,
   DescribeDBParameterGroupsCommandOutput,
 } from "../commands/DescribeDBParameterGroupsCommand";
-import { RDS } from "../RDS";
 import { RDSClient } from "../RDSClient";
 import { RDSPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: RDSClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeDBParameterGroupsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: RDS,
-  input: DescribeDBParameterGroupsCommandInput,
-  ...args: any
-): Promise<DescribeDBParameterGroupsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeDBParameterGroups(input, ...args);
-};
 export async function* paginateDescribeDBParameterGroups(
   config: RDSPaginationConfiguration,
   input: DescribeDBParameterGroupsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateDescribeDBParameterGroups(
   while (hasNext) {
     input.Marker = token;
     input["MaxRecords"] = config.pageSize;
-    if (config.client instanceof RDS) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof RDSClient) {
+    if (config.client instanceof RDSClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected RDS | RDSClient");

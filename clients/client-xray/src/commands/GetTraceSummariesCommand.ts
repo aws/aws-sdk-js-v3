@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetTraceSummariesRequest,
-  GetTraceSummariesRequestFilterSensitiveLog,
-  GetTraceSummariesResult,
-  GetTraceSummariesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetTraceSummariesCommand,
-  serializeAws_restJson1GetTraceSummariesCommand,
-} from "../protocols/Aws_restJson1";
+import { GetTraceSummariesRequest, GetTraceSummariesResult } from "../models/models_0";
+import { de_GetTraceSummariesCommand, se_GetTraceSummariesCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetTraceSummariesCommand}.
+ */
 export interface GetTraceSummariesCommandInput extends GetTraceSummariesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetTraceSummariesCommand}.
+ */
 export interface GetTraceSummariesCommandOutput extends GetTraceSummariesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves IDs and annotations for traces available for a specified time frame using an
  *       optional filter. To get the full traces, pass the trace IDs to
  *       <code>BatchGetTraces</code>.</p>
@@ -52,13 +55,34 @@ export interface GetTraceSummariesCommandOutput extends GetTraceSummariesResult,
  * import { XRayClient, GetTraceSummariesCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, GetTraceSummariesCommand } = require("@aws-sdk/client-xray"); // CommonJS import
  * const client = new XRayClient(config);
+ * const input = { // GetTraceSummariesRequest
+ *   StartTime: new Date("TIMESTAMP"), // required
+ *   EndTime: new Date("TIMESTAMP"), // required
+ *   TimeRangeType: "TraceId" || "Event",
+ *   Sampling: true || false,
+ *   SamplingStrategy: { // SamplingStrategy
+ *     Name: "PartialScan" || "FixedRate",
+ *     Value: Number("double"),
+ *   },
+ *   FilterExpression: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetTraceSummariesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTraceSummariesCommandInput - {@link GetTraceSummariesCommandInput}
+ * @returns {@link GetTraceSummariesCommandOutput}
  * @see {@link GetTraceSummariesCommandInput} for command's `input` shape.
  * @see {@link GetTraceSummariesCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is missing required parameters or has invalid parameters.</p>
+ *
+ * @throws {@link ThrottledException} (client fault)
+ *  <p>The request exceeds the maximum number of requests per second.</p>
+ *
  *
  */
 export class GetTraceSummariesCommand extends $Command<
@@ -78,6 +102,9 @@ export class GetTraceSummariesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTraceSummariesCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +133,8 @@ export class GetTraceSummariesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTraceSummariesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTraceSummariesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +144,18 @@ export class GetTraceSummariesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTraceSummariesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTraceSummariesCommand(input, context);
+    return se_GetTraceSummariesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTraceSummariesCommandOutput> {
-    return deserializeAws_restJson1GetTraceSummariesCommand(output, context);
+    return de_GetTraceSummariesCommand(output, context);
   }
 
   // Start section: command_body_extra

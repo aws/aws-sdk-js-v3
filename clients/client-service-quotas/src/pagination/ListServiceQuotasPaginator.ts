@@ -6,12 +6,11 @@ import {
   ListServiceQuotasCommandInput,
   ListServiceQuotasCommandOutput,
 } from "../commands/ListServiceQuotasCommand";
-import { ServiceQuotas } from "../ServiceQuotas";
 import { ServiceQuotasClient } from "../ServiceQuotasClient";
 import { ServiceQuotasPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ServiceQuotasClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListServiceQuotasCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ServiceQuotas,
-  input: ListServiceQuotasCommandInput,
-  ...args: any
-): Promise<ListServiceQuotasCommandOutput> => {
-  // @ts-ignore
-  return await client.listServiceQuotas(input, ...args);
-};
 export async function* paginateListServiceQuotas(
   config: ServiceQuotasPaginationConfiguration,
   input: ListServiceQuotasCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListServiceQuotas(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof ServiceQuotas) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ServiceQuotasClient) {
+    if (config.client instanceof ServiceQuotasClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ServiceQuotas | ServiceQuotasClient");

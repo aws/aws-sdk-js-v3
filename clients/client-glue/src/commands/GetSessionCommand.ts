@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetSessionRequest,
-  GetSessionRequestFilterSensitiveLog,
-  GetSessionResponse,
-  GetSessionResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetSessionCommand,
-  serializeAws_json1_1GetSessionCommand,
-} from "../protocols/Aws_json1_1";
+import { GetSessionRequest, GetSessionResponse } from "../models/models_1";
+import { de_GetSessionCommand, se_GetSessionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetSessionCommand}.
+ */
 export interface GetSessionCommandInput extends GetSessionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetSessionCommand}.
+ */
 export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,35 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  * import { GlueClient, GetSessionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetSessionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // GetSessionRequest
+ *   Id: "STRING_VALUE", // required
+ *   RequestOrigin: "STRING_VALUE",
+ * };
  * const command = new GetSessionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSessionCommandInput - {@link GetSessionCommandInput}
+ * @returns {@link GetSessionCommandOutput}
  * @see {@link GetSessionCommandInput} for command's `input` shape.
  * @see {@link GetSessionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to a resource was denied.</p>
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class GetSessionCommand extends $Command<
@@ -62,6 +87,9 @@ export class GetSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +116,8 @@ export class GetSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSessionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSessionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +127,18 @@ export class GetSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSessionCommand(input, context);
+    return se_GetSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSessionCommandOutput> {
-    return deserializeAws_json1_1GetSessionCommand(output, context);
+    return de_GetSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

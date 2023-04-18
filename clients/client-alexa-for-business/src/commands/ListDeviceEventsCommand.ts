@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  ListDeviceEventsRequest,
-  ListDeviceEventsRequestFilterSensitiveLog,
-  ListDeviceEventsResponse,
-  ListDeviceEventsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListDeviceEventsCommand,
-  serializeAws_json1_1ListDeviceEventsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListDeviceEventsRequest, ListDeviceEventsResponse } from "../models/models_0";
+import { de_ListDeviceEventsCommand, se_ListDeviceEventsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListDeviceEventsCommand}.
+ */
 export interface ListDeviceEventsCommandInput extends ListDeviceEventsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDeviceEventsCommand}.
+ */
 export interface ListDeviceEventsCommandOutput extends ListDeviceEventsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the device event history, including device connection status, for up to 30
  *          days.</p>
  * @example
@@ -37,13 +40,25 @@ export interface ListDeviceEventsCommandOutput extends ListDeviceEventsResponse,
  * import { AlexaForBusinessClient, ListDeviceEventsCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, ListDeviceEventsCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // ListDeviceEventsRequest
+ *   DeviceArn: "STRING_VALUE", // required
+ *   EventType: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListDeviceEventsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDeviceEventsCommandInput - {@link ListDeviceEventsCommandInput}
+ * @returns {@link ListDeviceEventsCommandOutput}
  * @see {@link ListDeviceEventsCommandInput} for command's `input` shape.
  * @see {@link ListDeviceEventsCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
  *
  */
 export class ListDeviceEventsCommand extends $Command<
@@ -63,6 +78,9 @@ export class ListDeviceEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDeviceEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +109,8 @@ export class ListDeviceEventsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDeviceEventsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDeviceEventsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +120,18 @@ export class ListDeviceEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDeviceEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDeviceEventsCommand(input, context);
+    return se_ListDeviceEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDeviceEventsCommandOutput> {
-    return deserializeAws_json1_1ListDeviceEventsCommand(output, context);
+    return de_ListDeviceEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

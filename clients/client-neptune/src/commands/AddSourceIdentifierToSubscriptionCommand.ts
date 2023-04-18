@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AddSourceIdentifierToSubscriptionMessage,
-  AddSourceIdentifierToSubscriptionMessageFilterSensitiveLog,
-  AddSourceIdentifierToSubscriptionResult,
-  AddSourceIdentifierToSubscriptionResultFilterSensitiveLog,
-} from "../models/models_0";
+import { AddSourceIdentifierToSubscriptionMessage, AddSourceIdentifierToSubscriptionResult } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import {
-  deserializeAws_queryAddSourceIdentifierToSubscriptionCommand,
-  serializeAws_queryAddSourceIdentifierToSubscriptionCommand,
+  de_AddSourceIdentifierToSubscriptionCommand,
+  se_AddSourceIdentifierToSubscriptionCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link AddSourceIdentifierToSubscriptionCommand}.
+ */
 export interface AddSourceIdentifierToSubscriptionCommandInput extends AddSourceIdentifierToSubscriptionMessage {}
+/**
+ * @public
+ *
+ * The output of {@link AddSourceIdentifierToSubscriptionCommand}.
+ */
 export interface AddSourceIdentifierToSubscriptionCommandOutput
   extends AddSourceIdentifierToSubscriptionResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a source identifier to an existing event notification subscription.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,26 @@ export interface AddSourceIdentifierToSubscriptionCommandOutput
  * import { NeptuneClient, AddSourceIdentifierToSubscriptionCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, AddSourceIdentifierToSubscriptionCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = { // AddSourceIdentifierToSubscriptionMessage
+ *   SubscriptionName: "STRING_VALUE", // required
+ *   SourceIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new AddSourceIdentifierToSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AddSourceIdentifierToSubscriptionCommandInput - {@link AddSourceIdentifierToSubscriptionCommandInput}
+ * @returns {@link AddSourceIdentifierToSubscriptionCommandOutput}
  * @see {@link AddSourceIdentifierToSubscriptionCommandInput} for command's `input` shape.
  * @see {@link AddSourceIdentifierToSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
+ *
+ * @throws {@link SourceNotFoundFault} (client fault)
+ *  <p>The source could not be found.</p>
+ *
+ * @throws {@link SubscriptionNotFoundFault} (client fault)
+ *  <p>The designated subscription could not be found.</p>
+ *
  *
  */
 export class AddSourceIdentifierToSubscriptionCommand extends $Command<
@@ -64,6 +83,9 @@ export class AddSourceIdentifierToSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddSourceIdentifierToSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +114,8 @@ export class AddSourceIdentifierToSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddSourceIdentifierToSubscriptionMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: AddSourceIdentifierToSubscriptionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +125,24 @@ export class AddSourceIdentifierToSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AddSourceIdentifierToSubscriptionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryAddSourceIdentifierToSubscriptionCommand(input, context);
+    return se_AddSourceIdentifierToSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AddSourceIdentifierToSubscriptionCommandOutput> {
-    return deserializeAws_queryAddSourceIdentifierToSubscriptionCommand(output, context);
+    return de_AddSourceIdentifierToSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

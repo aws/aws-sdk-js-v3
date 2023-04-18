@@ -20,15 +20,23 @@ import {
   TestFunctionResult,
   TestFunctionResultFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restXmlTestFunctionCommand,
-  serializeAws_restXmlTestFunctionCommand,
-} from "../protocols/Aws_restXml";
+import { de_TestFunctionCommand, se_TestFunctionCommand } from "../protocols/Aws_restXml";
 
+/**
+ * @public
+ *
+ * The input for {@link TestFunctionCommand}.
+ */
 export interface TestFunctionCommandInput extends TestFunctionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link TestFunctionCommand}.
+ */
 export interface TestFunctionCommandOutput extends TestFunctionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Tests a CloudFront function.</p>
  *          <p>To test a function, you provide an <i>event object</i> that represents
  * 			an HTTP request or response that your CloudFront distribution could receive in production.
@@ -45,13 +53,37 @@ export interface TestFunctionCommandOutput extends TestFunctionResult, __Metadat
  * import { CloudFrontClient, TestFunctionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, TestFunctionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // TestFunctionRequest
+ *   Name: "STRING_VALUE", // required
+ *   IfMatch: "STRING_VALUE", // required
+ *   Stage: "DEVELOPMENT" || "LIVE",
+ *   EventObject: "BLOB_VALUE", // required
+ * };
  * const command = new TestFunctionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TestFunctionCommandInput - {@link TestFunctionCommandInput}
+ * @returns {@link TestFunctionCommandOutput}
  * @see {@link TestFunctionCommandInput} for command's `input` shape.
  * @see {@link TestFunctionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link InvalidIfMatchVersion} (client fault)
+ *  <p>The <code>If-Match</code> version is missing or not valid.</p>
+ *
+ * @throws {@link NoSuchFunctionExists} (client fault)
+ *  <p>The function does not exist.</p>
+ *
+ * @throws {@link TestFunctionFailed} (server fault)
+ *  <p>The CloudFront function failed.</p>
+ *
+ * @throws {@link UnsupportedOperation} (client fault)
+ *  <p>This operation is not supported in this region.</p>
+ *
  *
  */
 export class TestFunctionCommand extends $Command<
@@ -71,6 +103,9 @@ export class TestFunctionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TestFunctionCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,12 +143,18 @@ export class TestFunctionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TestFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlTestFunctionCommand(input, context);
+    return se_TestFunctionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestFunctionCommandOutput> {
-    return deserializeAws_restXmlTestFunctionCommand(output, context);
+    return de_TestFunctionCommand(output, context);
   }
 
   // Start section: command_body_extra

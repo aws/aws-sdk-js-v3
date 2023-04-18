@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeFlowDefinitionRequest,
-  DescribeFlowDefinitionRequestFilterSensitiveLog,
-  DescribeFlowDefinitionResponse,
-  DescribeFlowDefinitionResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeFlowDefinitionCommand,
-  serializeAws_json1_1DescribeFlowDefinitionCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeFlowDefinitionRequest, DescribeFlowDefinitionResponse } from "../models/models_2";
+import { de_DescribeFlowDefinitionCommand, se_DescribeFlowDefinitionCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeFlowDefinitionCommand}.
+ */
 export interface DescribeFlowDefinitionCommandInput extends DescribeFlowDefinitionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeFlowDefinitionCommand}.
+ */
 export interface DescribeFlowDefinitionCommandOutput extends DescribeFlowDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the specified flow definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,22 @@ export interface DescribeFlowDefinitionCommandOutput extends DescribeFlowDefinit
  * import { SageMakerClient, DescribeFlowDefinitionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeFlowDefinitionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DescribeFlowDefinitionRequest
+ *   FlowDefinitionName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeFlowDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFlowDefinitionCommandInput - {@link DescribeFlowDefinitionCommandInput}
+ * @returns {@link DescribeFlowDefinitionCommandOutput}
  * @see {@link DescribeFlowDefinitionCommandInput} for command's `input` shape.
  * @see {@link DescribeFlowDefinitionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class DescribeFlowDefinitionCommand extends $Command<
@@ -62,6 +74,9 @@ export class DescribeFlowDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFlowDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +105,8 @@ export class DescribeFlowDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFlowDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFlowDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +116,18 @@ export class DescribeFlowDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFlowDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeFlowDefinitionCommand(input, context);
+    return se_DescribeFlowDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFlowDefinitionCommandOutput> {
-    return deserializeAws_json1_1DescribeFlowDefinitionCommand(output, context);
+    return de_DescribeFlowDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

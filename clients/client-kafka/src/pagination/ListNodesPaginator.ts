@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListNodesCommand, ListNodesCommandInput, ListNodesCommandOutput } from "../commands/ListNodesCommand";
-import { Kafka } from "../Kafka";
 import { KafkaClient } from "../KafkaClient";
 import { KafkaPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: KafkaClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListNodesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Kafka,
-  input: ListNodesCommandInput,
-  ...args: any
-): Promise<ListNodesCommandOutput> => {
-  // @ts-ignore
-  return await client.listNodes(input, ...args);
-};
 export async function* paginateListNodes(
   config: KafkaPaginationConfiguration,
   input: ListNodesCommandInput,
@@ -40,9 +31,7 @@ export async function* paginateListNodes(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Kafka) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof KafkaClient) {
+    if (config.client instanceof KafkaClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Kafka | KafkaClient");

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import {
-  EvaluateMappingTemplateRequest,
-  EvaluateMappingTemplateRequestFilterSensitiveLog,
-  EvaluateMappingTemplateResponse,
-  EvaluateMappingTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1EvaluateMappingTemplateCommand,
-  serializeAws_restJson1EvaluateMappingTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { EvaluateMappingTemplateRequest, EvaluateMappingTemplateResponse } from "../models/models_0";
+import { de_EvaluateMappingTemplateCommand, se_EvaluateMappingTemplateCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link EvaluateMappingTemplateCommand}.
+ */
 export interface EvaluateMappingTemplateCommandInput extends EvaluateMappingTemplateRequest {}
+/**
+ * @public
+ *
+ * The output of {@link EvaluateMappingTemplateCommand}.
+ */
 export interface EvaluateMappingTemplateCommandOutput extends EvaluateMappingTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Evaluates a given template and returns the response. The mapping template can be a request or response
  *          template.</p>
  *          <p>Request templates take the incoming request after a GraphQL operation is parsed and convert it into a
@@ -41,13 +44,30 @@ export interface EvaluateMappingTemplateCommandOutput extends EvaluateMappingTem
  * import { AppSyncClient, EvaluateMappingTemplateCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, EvaluateMappingTemplateCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
+ * const input = { // EvaluateMappingTemplateRequest
+ *   template: "STRING_VALUE", // required
+ *   context: "STRING_VALUE", // required
+ * };
  * const command = new EvaluateMappingTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EvaluateMappingTemplateCommandInput - {@link EvaluateMappingTemplateCommandInput}
+ * @returns {@link EvaluateMappingTemplateCommandOutput}
  * @see {@link EvaluateMappingTemplateCommandInput} for command's `input` shape.
  * @see {@link EvaluateMappingTemplateCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have access to perform this operation on this resource.</p>
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the
+ *          field values, and then try again.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal AppSync error occurred. Try your request again.</p>
+ *
  *
  */
 export class EvaluateMappingTemplateCommand extends $Command<
@@ -67,6 +87,9 @@ export class EvaluateMappingTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EvaluateMappingTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +118,8 @@ export class EvaluateMappingTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EvaluateMappingTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: EvaluateMappingTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +129,18 @@ export class EvaluateMappingTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EvaluateMappingTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1EvaluateMappingTemplateCommand(input, context);
+    return se_EvaluateMappingTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EvaluateMappingTemplateCommandOutput> {
-    return deserializeAws_restJson1EvaluateMappingTemplateCommand(output, context);
+    return de_EvaluateMappingTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

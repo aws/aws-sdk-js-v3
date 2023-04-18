@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
-import { DeletePipelineInput, DeletePipelineInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeletePipelineCommand,
-  serializeAws_json1_1DeletePipelineCommand,
-} from "../protocols/Aws_json1_1";
+import { DeletePipelineInput } from "../models/models_0";
+import { de_DeletePipelineCommand, se_DeletePipelineCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeletePipelineCommand}.
+ */
 export interface DeletePipelineCommandInput extends DeletePipelineInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeletePipelineCommand}.
+ */
 export interface DeletePipelineCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a pipeline, its pipeline definition, and its run history.
  *            AWS Data Pipeline attempts to cancel instances associated with the pipeline that are currently being processed by task runners.</p>
  *         <p>Deleting a pipeline cannot be undone. You cannot query or restore a deleted pipeline.
@@ -41,7 +49,7 @@ export interface DeletePipelineCommandOutput extends __MetadataBearer {}
  * X-Amz-Date: Mon, 12 Nov 2012 17:49:52 GMT
  * Authorization: AuthParams
  *
- * {"pipelineId": "df-06372391ZG65EXAMPLE"}
+ * \{"pipelineId": "df-06372391ZG65EXAMPLE"\}
  *
  *             </request>
  *
@@ -62,13 +70,28 @@ export interface DeletePipelineCommandOutput extends __MetadataBearer {}
  * import { DataPipelineClient, DeletePipelineCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
  * // const { DataPipelineClient, DeletePipelineCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import
  * const client = new DataPipelineClient(config);
+ * const input = { // DeletePipelineInput
+ *   pipelineId: "STRING_VALUE", // required
+ * };
  * const command = new DeletePipelineCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePipelineCommandInput - {@link DeletePipelineCommandInput}
+ * @returns {@link DeletePipelineCommandOutput}
  * @see {@link DeletePipelineCommandInput} for command's `input` shape.
  * @see {@link DeletePipelineCommandOutput} for command's `response` shape.
  * @see {@link DataPipelineClientResolvedConfig | config} for DataPipelineClient's `config` shape.
+ *
+ * @throws {@link InternalServiceError} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.</p>
+ *
+ * @throws {@link PipelineNotFoundException} (client fault)
+ *  <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
+ *
  *
  */
 export class DeletePipelineCommand extends $Command<
@@ -88,6 +111,9 @@ export class DeletePipelineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePipelineCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +142,8 @@ export class DeletePipelineCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePipelineInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +153,18 @@ export class DeletePipelineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeletePipelineCommand(input, context);
+    return se_DeletePipelineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePipelineCommandOutput> {
-    return deserializeAws_json1_1DeletePipelineCommand(output, context);
+    return de_DeletePipelineCommand(output, context);
   }
 
   // Start section: command_body_extra

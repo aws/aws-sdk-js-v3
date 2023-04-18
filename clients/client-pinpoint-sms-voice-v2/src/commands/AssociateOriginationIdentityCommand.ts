@@ -13,28 +13,34 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AssociateOriginationIdentityRequest,
-  AssociateOriginationIdentityRequestFilterSensitiveLog,
-  AssociateOriginationIdentityResult,
-  AssociateOriginationIdentityResultFilterSensitiveLog,
-} from "../models/models_0";
+import { AssociateOriginationIdentityRequest, AssociateOriginationIdentityResult } from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
 import {
-  deserializeAws_json1_0AssociateOriginationIdentityCommand,
-  serializeAws_json1_0AssociateOriginationIdentityCommand,
+  de_AssociateOriginationIdentityCommand,
+  se_AssociateOriginationIdentityCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link AssociateOriginationIdentityCommand}.
+ */
 export interface AssociateOriginationIdentityCommandInput extends AssociateOriginationIdentityRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AssociateOriginationIdentityCommand}.
+ */
 export interface AssociateOriginationIdentityCommandOutput
   extends AssociateOriginationIdentityResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates the specified origination identity with a pool.</p>
  *         <p>If the origination identity is a phone number and is already associated with another
  *             pool, an Error is returned. A sender ID can be associated with multiple pools.</p>
@@ -46,13 +52,49 @@ export interface AssociateOriginationIdentityCommandOutput
  * import { PinpointSMSVoiceV2Client, AssociateOriginationIdentityCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, AssociateOriginationIdentityCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
+ * const input = { // AssociateOriginationIdentityRequest
+ *   PoolId: "STRING_VALUE", // required
+ *   OriginationIdentity: "STRING_VALUE", // required
+ *   IsoCountryCode: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new AssociateOriginationIdentityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateOriginationIdentityCommandInput - {@link AssociateOriginationIdentityCommandInput}
+ * @returns {@link AssociateOriginationIdentityCommandOutput}
  * @see {@link AssociateOriginationIdentityCommandInput} for command's `input` shape.
  * @see {@link AssociateOriginationIdentityCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The request was denied because you don't have sufficient permissions to access the
+ *             resource.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Your request has conflicting operations. This can occur if you're trying to perform
+ *             more than one operation on the same resource at the same time or it could be that the
+ *             requested action isn't valid for the current state or configuration of the
+ *             resource.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The API encountered an unexpected error and couldn't complete the request. You might
+ *             be able to successfully issue the request again in the future.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A requested resource couldn't be found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request would cause a service quota to be exceeded.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>An error that occurred because too many requests were sent during a certain amount of
+ *             time.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>A validation exception for a field.</p>
+ *
  *
  */
 export class AssociateOriginationIdentityCommand extends $Command<
@@ -72,6 +114,9 @@ export class AssociateOriginationIdentityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateOriginationIdentityCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +145,8 @@ export class AssociateOriginationIdentityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateOriginationIdentityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateOriginationIdentityResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,15 +156,21 @@ export class AssociateOriginationIdentityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateOriginationIdentityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0AssociateOriginationIdentityCommand(input, context);
+    return se_AssociateOriginationIdentityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateOriginationIdentityCommandOutput> {
-    return deserializeAws_json1_0AssociateOriginationIdentityCommand(output, context);
+    return de_AssociateOriginationIdentityCommand(output, context);
   }
 
   // Start section: command_body_extra

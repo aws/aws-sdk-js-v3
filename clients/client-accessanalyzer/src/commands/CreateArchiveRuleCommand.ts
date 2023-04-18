@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
-import { CreateArchiveRuleRequest, CreateArchiveRuleRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateArchiveRuleCommand,
-  serializeAws_restJson1CreateArchiveRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateArchiveRuleRequest } from "../models/models_0";
+import { de_CreateArchiveRuleCommand, se_CreateArchiveRuleCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateArchiveRuleCommand}.
+ */
 export interface CreateArchiveRuleCommandInput extends CreateArchiveRuleRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateArchiveRuleCommand}.
+ */
 export interface CreateArchiveRuleCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an archive rule for the specified analyzer. Archive rules automatically archive
  *          new findings that meet the criteria you define when you create the rule.</p>
  *          <p>To learn about filter keys that you can use to create an archive rule, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html">IAM Access Analyzer filter keys</a> in the <b>IAM User Guide</b>.</p>
@@ -33,13 +41,56 @@ export interface CreateArchiveRuleCommandOutput extends __MetadataBearer {}
  * import { AccessAnalyzerClient, CreateArchiveRuleCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, CreateArchiveRuleCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
+ * const input = { // CreateArchiveRuleRequest
+ *   analyzerName: "STRING_VALUE", // required
+ *   ruleName: "STRING_VALUE", // required
+ *   filter: { // FilterCriteriaMap // required
+ *     "<keys>": { // Criterion
+ *       eq: [ // ValueList
+ *         "STRING_VALUE",
+ *       ],
+ *       neq: [
+ *         "STRING_VALUE",
+ *       ],
+ *       contains: [
+ *         "STRING_VALUE",
+ *       ],
+ *       exists: true || false,
+ *     },
+ *   },
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new CreateArchiveRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateArchiveRuleCommandInput - {@link CreateArchiveRuleCommandInput}
+ * @returns {@link CreateArchiveRuleCommandOutput}
  * @see {@link CreateArchiveRuleCommandInput} for command's `input` shape.
  * @see {@link CreateArchiveRuleCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>A conflict exception error.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Internal server error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Service quote met error.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Throttling limit exceeded error.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Validation exception error.</p>
+ *
  *
  */
 export class CreateArchiveRuleCommand extends $Command<
@@ -59,6 +110,9 @@ export class CreateArchiveRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateArchiveRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -87,8 +141,8 @@ export class CreateArchiveRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateArchiveRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -98,12 +152,18 @@ export class CreateArchiveRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateArchiveRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateArchiveRuleCommand(input, context);
+    return se_CreateArchiveRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateArchiveRuleCommandOutput> {
-    return deserializeAws_restJson1CreateArchiveRuleCommand(output, context);
+    return de_CreateArchiveRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

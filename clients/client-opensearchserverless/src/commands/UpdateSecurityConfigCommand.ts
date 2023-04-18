@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateSecurityConfigRequest,
-  UpdateSecurityConfigRequestFilterSensitiveLog,
-  UpdateSecurityConfigResponse,
-  UpdateSecurityConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateSecurityConfigRequest, UpdateSecurityConfigResponse } from "../models/models_0";
 import {
   OpenSearchServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import {
-  deserializeAws_json1_0UpdateSecurityConfigCommand,
-  serializeAws_json1_0UpdateSecurityConfigCommand,
-} from "../protocols/Aws_json1_0";
+import { de_UpdateSecurityConfigCommand, se_UpdateSecurityConfigCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateSecurityConfigCommand}.
+ */
 export interface UpdateSecurityConfigCommandInput extends UpdateSecurityConfigRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateSecurityConfigCommand}.
+ */
 export interface UpdateSecurityConfigCommandOutput extends UpdateSecurityConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a security configuration for OpenSearch Serverless. For more information, see
  *             <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html">SAML
  *                 authentication for Amazon OpenSearch Serverless</a>.</p>
@@ -42,13 +45,43 @@ export interface UpdateSecurityConfigCommandOutput extends UpdateSecurityConfigR
  * import { OpenSearchServerlessClient, UpdateSecurityConfigCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, UpdateSecurityConfigCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
+ * const input = { // UpdateSecurityConfigRequest
+ *   id: "STRING_VALUE", // required
+ *   configVersion: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   samlOptions: { // SamlConfigOptions
+ *     metadata: "STRING_VALUE", // required
+ *     userAttribute: "STRING_VALUE",
+ *     groupAttribute: "STRING_VALUE",
+ *     sessionTimeout: Number("int"),
+ *   },
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new UpdateSecurityConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSecurityConfigCommandInput - {@link UpdateSecurityConfigCommandInput}
+ * @returns {@link UpdateSecurityConfigCommandOutput}
  * @see {@link UpdateSecurityConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateSecurityConfigCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>When creating a resource, thrown when a resource with the same name already exists
+ *             or is being created. When deleting a resource, thrown when the resource is not in
+ *             the ACTIVE or FAILED state.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Thrown when an error internal to the service occurs while processing a request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Thrown when accessing or deleting a resource that does not exist.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Thrown when the HTTP request contains invalid input or is missing required
+ *             input.</p>
+ *
  *
  */
 export class UpdateSecurityConfigCommand extends $Command<
@@ -68,6 +101,9 @@ export class UpdateSecurityConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSecurityConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +132,8 @@ export class UpdateSecurityConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSecurityConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSecurityConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +143,18 @@ export class UpdateSecurityConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSecurityConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateSecurityConfigCommand(input, context);
+    return se_UpdateSecurityConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSecurityConfigCommandOutput> {
-    return deserializeAws_json1_0UpdateSecurityConfigCommand(output, context);
+    return de_UpdateSecurityConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

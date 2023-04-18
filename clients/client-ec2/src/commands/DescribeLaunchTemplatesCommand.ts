@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeLaunchTemplatesRequest,
-  DescribeLaunchTemplatesRequestFilterSensitiveLog,
-  DescribeLaunchTemplatesResult,
-  DescribeLaunchTemplatesResultFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeLaunchTemplatesCommand,
-  serializeAws_ec2DescribeLaunchTemplatesCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeLaunchTemplatesRequest, DescribeLaunchTemplatesResult } from "../models/models_4";
+import { de_DescribeLaunchTemplatesCommand, se_DescribeLaunchTemplatesCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeLaunchTemplatesCommand}.
+ */
 export interface DescribeLaunchTemplatesCommandInput extends DescribeLaunchTemplatesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeLaunchTemplatesCommand}.
+ */
 export interface DescribeLaunchTemplatesCommandOutput extends DescribeLaunchTemplatesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more launch templates.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,62 @@ export interface DescribeLaunchTemplatesCommandOutput extends DescribeLaunchTemp
  * import { EC2Client, DescribeLaunchTemplatesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeLaunchTemplatesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeLaunchTemplatesRequest
+ *   DryRun: true || false,
+ *   LaunchTemplateIds: [ // LaunchTemplateIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   LaunchTemplateNames: [ // LaunchTemplateNameStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeLaunchTemplatesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLaunchTemplatesCommandInput - {@link DescribeLaunchTemplatesCommandInput}
+ * @returns {@link DescribeLaunchTemplatesCommandOutput}
  * @see {@link DescribeLaunchTemplatesCommandInput} for command's `input` shape.
  * @see {@link DescribeLaunchTemplatesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ *
+ * @example To describe a launch template
+ * ```javascript
+ * // This example describes the specified launch template.
+ * const input = {
+ *   "LaunchTemplateIds": [
+ *     "lt-01238c059e3466abc"
+ *   ]
+ * };
+ * const command = new DescribeLaunchTemplatesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "LaunchTemplates": [
+ *     {
+ *       "CreateTime": "2018-01-16T04:32:57.000Z",
+ *       "CreatedBy": "arn:aws:iam::123456789012:root",
+ *       "DefaultVersionNumber": 1,
+ *       "LatestVersionNumber": 1,
+ *       "LaunchTemplateId": "lt-01238c059e3466abc",
+ *       "LaunchTemplateName": "my-template"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-a-launch-template-1529344182862
+ * ```
  *
  */
 export class DescribeLaunchTemplatesCommand extends $Command<
@@ -62,6 +114,9 @@ export class DescribeLaunchTemplatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLaunchTemplatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +145,8 @@ export class DescribeLaunchTemplatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLaunchTemplatesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLaunchTemplatesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +156,18 @@ export class DescribeLaunchTemplatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLaunchTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeLaunchTemplatesCommand(input, context);
+    return se_DescribeLaunchTemplatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLaunchTemplatesCommandOutput> {
-    return deserializeAws_ec2DescribeLaunchTemplatesCommand(output, context);
+    return de_DescribeLaunchTemplatesCommand(output, context);
   }
 
   // Start section: command_body_extra

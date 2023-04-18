@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { APIGateway } from "../APIGateway";
 import { APIGatewayClient } from "../APIGatewayClient";
 import {
   GetBasePathMappingsCommand,
@@ -11,7 +10,7 @@ import {
 import { APIGatewayPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: APIGatewayClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new GetBasePathMappingsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: APIGateway,
-  input: GetBasePathMappingsCommandInput,
-  ...args: any
-): Promise<GetBasePathMappingsCommandOutput> => {
-  // @ts-ignore
-  return await client.getBasePathMappings(input, ...args);
-};
 export async function* paginateGetBasePathMappings(
   config: APIGatewayPaginationConfiguration,
   input: GetBasePathMappingsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateGetBasePathMappings(
   while (hasNext) {
     input.position = token;
     input["limit"] = config.pageSize;
-    if (config.client instanceof APIGateway) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof APIGatewayClient) {
+    if (config.client instanceof APIGatewayClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected APIGateway | APIGatewayClient");

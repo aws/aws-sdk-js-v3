@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateExportJobRequest,
-  CreateExportJobRequestFilterSensitiveLog,
-  CreateExportJobResponse,
-  CreateExportJobResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateExportJobRequest, CreateExportJobResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1CreateExportJobCommand,
-  serializeAws_restJson1CreateExportJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateExportJobCommand, se_CreateExportJobCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateExportJobCommand}.
+ */
 export interface CreateExportJobCommandInput extends CreateExportJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateExportJobCommand}.
+ */
 export interface CreateExportJobCommandOutput extends CreateExportJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an export job for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,46 @@ export interface CreateExportJobCommandOutput extends CreateExportJobResponse, _
  * import { PinpointClient, CreateExportJobCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, CreateExportJobCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // CreateExportJobRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   ExportJobRequest: { // ExportJobRequest
+ *     RoleArn: "STRING_VALUE", // required
+ *     S3UrlPrefix: "STRING_VALUE", // required
+ *     SegmentId: "STRING_VALUE",
+ *     SegmentVersion: Number("int"),
+ *   },
+ * };
  * const command = new CreateExportJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateExportJobCommandInput - {@link CreateExportJobCommandInput}
+ * @returns {@link CreateExportJobCommandOutput}
  * @see {@link CreateExportJobCommandInput} for command's `input` shape.
  * @see {@link CreateExportJobCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link MethodNotAllowedException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link PayloadTooLargeException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
  *
  */
 export class CreateExportJobCommand extends $Command<
@@ -62,6 +98,9 @@ export class CreateExportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateExportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +129,8 @@ export class CreateExportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateExportJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateExportJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +140,18 @@ export class CreateExportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateExportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateExportJobCommand(input, context);
+    return se_CreateExportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateExportJobCommandOutput> {
-    return deserializeAws_restJson1CreateExportJobCommand(output, context);
+    return de_CreateExportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

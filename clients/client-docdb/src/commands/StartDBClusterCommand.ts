@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import {
-  StartDBClusterMessage,
-  StartDBClusterMessageFilterSensitiveLog,
-  StartDBClusterResult,
-  StartDBClusterResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryStartDBClusterCommand,
-  serializeAws_queryStartDBClusterCommand,
-} from "../protocols/Aws_query";
+import { StartDBClusterMessage, StartDBClusterResult } from "../models/models_0";
+import { de_StartDBClusterCommand, se_StartDBClusterCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link StartDBClusterCommand}.
+ */
 export interface StartDBClusterCommandInput extends StartDBClusterMessage {}
+/**
+ * @public
+ *
+ * The output of {@link StartDBClusterCommand}.
+ */
 export interface StartDBClusterCommandOutput extends StartDBClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Restarts the stopped cluster that is specified by <code>DBClusterIdentifier</code>.
  *             For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-stop-start.html">Stopping and
  *                 Starting an Amazon DocumentDB Cluster</a>.</p>
@@ -38,13 +41,30 @@ export interface StartDBClusterCommandOutput extends StartDBClusterResult, __Met
  * import { DocDBClient, StartDBClusterCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, StartDBClusterCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = { // StartDBClusterMessage
+ *   DBClusterIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new StartDBClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartDBClusterCommandInput - {@link StartDBClusterCommandInput}
+ * @returns {@link StartDBClusterCommandOutput}
  * @see {@link StartDBClusterCommandInput} for command's `input` shape.
  * @see {@link StartDBClusterCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
+ *
+ * @throws {@link DBClusterNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBClusterIdentifier</code> doesn't refer to an existing cluster. </p>
+ *
+ * @throws {@link InvalidDBClusterStateFault} (client fault)
+ *  <p>The cluster isn't in a valid state.</p>
+ *
+ * @throws {@link InvalidDBInstanceStateFault} (client fault)
+ *  <p> The specified instance isn't in the <i>available</i> state.
+ *         </p>
+ *
  *
  */
 export class StartDBClusterCommand extends $Command<
@@ -64,6 +84,9 @@ export class StartDBClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartDBClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +115,8 @@ export class StartDBClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartDBClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: StartDBClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +126,18 @@ export class StartDBClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryStartDBClusterCommand(input, context);
+    return se_StartDBClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartDBClusterCommandOutput> {
-    return deserializeAws_queryStartDBClusterCommand(output, context);
+    return de_StartDBClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

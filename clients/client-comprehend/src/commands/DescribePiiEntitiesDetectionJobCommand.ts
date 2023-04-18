@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
+import { DescribePiiEntitiesDetectionJobRequest, DescribePiiEntitiesDetectionJobResponse } from "../models/models_0";
 import {
-  DescribePiiEntitiesDetectionJobRequest,
-  DescribePiiEntitiesDetectionJobRequestFilterSensitiveLog,
-  DescribePiiEntitiesDetectionJobResponse,
-  DescribePiiEntitiesDetectionJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribePiiEntitiesDetectionJobCommand,
-  serializeAws_json1_1DescribePiiEntitiesDetectionJobCommand,
+  de_DescribePiiEntitiesDetectionJobCommand,
+  se_DescribePiiEntitiesDetectionJobCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribePiiEntitiesDetectionJobCommand}.
+ */
 export interface DescribePiiEntitiesDetectionJobCommandInput extends DescribePiiEntitiesDetectionJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribePiiEntitiesDetectionJobCommand}.
+ */
 export interface DescribePiiEntitiesDetectionJobCommandOutput
   extends DescribePiiEntitiesDetectionJobResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the properties associated with a PII entities detection job. For example, you can use
  *       this operation to get the job status.</p>
  * @example
@@ -39,13 +45,31 @@ export interface DescribePiiEntitiesDetectionJobCommandOutput
  * import { ComprehendClient, DescribePiiEntitiesDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DescribePiiEntitiesDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // DescribePiiEntitiesDetectionJobRequest
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new DescribePiiEntitiesDetectionJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePiiEntitiesDetectionJobCommandInput - {@link DescribePiiEntitiesDetectionJobCommandInput}
+ * @returns {@link DescribePiiEntitiesDetectionJobCommandOutput}
  * @see {@link DescribePiiEntitiesDetectionJobCommandInput} for command's `input` shape.
  * @see {@link DescribePiiEntitiesDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid.</p>
+ *
+ * @throws {@link JobNotFoundException} (client fault)
+ *  <p>The specified job was not found. Check the job ID and try again.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ *
  *
  */
 export class DescribePiiEntitiesDetectionJobCommand extends $Command<
@@ -65,6 +89,9 @@ export class DescribePiiEntitiesDetectionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePiiEntitiesDetectionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +120,8 @@ export class DescribePiiEntitiesDetectionJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePiiEntitiesDetectionJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribePiiEntitiesDetectionJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,18 +131,24 @@ export class DescribePiiEntitiesDetectionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribePiiEntitiesDetectionJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribePiiEntitiesDetectionJobCommand(input, context);
+    return se_DescribePiiEntitiesDetectionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribePiiEntitiesDetectionJobCommandOutput> {
-    return deserializeAws_json1_1DescribePiiEntitiesDetectionJobCommand(output, context);
+    return de_DescribePiiEntitiesDetectionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

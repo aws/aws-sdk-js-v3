@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import {
-  DescribeRuleRequest,
-  DescribeRuleRequestFilterSensitiveLog,
-  DescribeRuleResponse,
-  DescribeRuleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeRuleCommand,
-  serializeAws_json1_1DescribeRuleCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeRuleRequest, DescribeRuleResponse } from "../models/models_0";
+import { de_DescribeRuleCommand, se_DescribeRuleCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeRuleCommand}.
+ */
 export interface DescribeRuleCommandInput extends DescribeRuleRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeRuleCommand}.
+ */
 export interface DescribeRuleCommandOutput extends DescribeRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified rule.</p>
  *          <p>DescribeRule does not list the targets of a rule. To see the targets associated with a
  *       rule, use <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_ListTargetsByRule.html">ListTargetsByRule</a>.</p>
@@ -38,13 +41,26 @@ export interface DescribeRuleCommandOutput extends DescribeRuleResponse, __Metad
  * import { EventBridgeClient, DescribeRuleCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, DescribeRuleCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
+ * const input = { // DescribeRuleRequest
+ *   Name: "STRING_VALUE", // required
+ *   EventBusName: "STRING_VALUE",
+ * };
  * const command = new DescribeRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRuleCommandInput - {@link DescribeRuleCommandInput}
+ * @returns {@link DescribeRuleCommandOutput}
  * @see {@link DescribeRuleCommandInput} for command's `input` shape.
  * @see {@link DescribeRuleCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An entity that you specified does not exist.</p>
+ *
  *
  */
 export class DescribeRuleCommand extends $Command<
@@ -64,6 +80,9 @@ export class DescribeRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +109,8 @@ export class DescribeRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +120,18 @@ export class DescribeRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeRuleCommand(input, context);
+    return se_DescribeRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRuleCommandOutput> {
-    return deserializeAws_json1_1DescribeRuleCommand(output, context);
+    return de_DescribeRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

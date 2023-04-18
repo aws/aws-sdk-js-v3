@@ -23,6 +23,9 @@ import {
   Script,
 } from "./models_0";
 
+/**
+ * @public
+ */
 export interface UpdateFleetPortSettingsOutput {
   /**
    * <p>A unique identifier for the fleet that was updated.</p>
@@ -35,10 +38,22 @@ export interface UpdateFleetPortSettingsOutput {
   FleetArn?: string;
 }
 
-export enum GameServerHealthCheck {
-  HEALTHY = "HEALTHY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const GameServerHealthCheck = {
+  HEALTHY: "HEALTHY",
+} as const;
 
+/**
+ * @public
+ */
+export type GameServerHealthCheck = (typeof GameServerHealthCheck)[keyof typeof GameServerHealthCheck];
+
+/**
+ * @public
+ */
 export interface UpdateGameServerInput {
   /**
    * <p>A unique identifier for the game server group where the game server is running.</p>
@@ -69,6 +84,9 @@ export interface UpdateGameServerInput {
   HealthCheck?: GameServerHealthCheck | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGameServerOutput {
   /**
    * <p>Object that describes the newly updated game server.</p>
@@ -76,6 +94,9 @@ export interface UpdateGameServerOutput {
   GameServer?: GameServer;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGameServerGroupInput {
   /**
    * <p>A unique identifier for the game server group. Use either the name or ARN value.</p>
@@ -142,6 +163,9 @@ export interface UpdateGameServerGroupInput {
   BalancingStrategy?: BalancingStrategy | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGameServerGroupOutput {
   /**
    * <p>An object that describes the game server group resource with updated properties.
@@ -150,6 +174,9 @@ export interface UpdateGameServerGroupOutput {
   GameServerGroup?: GameServerGroup;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGameSessionInput {
   /**
    * <p>A unique identifier for the game session to update. </p>
@@ -190,6 +217,9 @@ export interface UpdateGameSessionInput {
   ProtectionPolicy?: ProtectionPolicy | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGameSessionOutput {
   /**
    * <p>The updated game session properties.</p>
@@ -197,6 +227,9 @@ export interface UpdateGameSessionOutput {
   GameSession?: GameSession;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGameSessionQueueInput {
   /**
    * <p>A descriptive label that is associated with game session queue. Queue names must be unique within each Region. You can use either the queue ID or ARN value. </p>
@@ -251,6 +284,9 @@ export interface UpdateGameSessionQueueInput {
   NotificationTarget?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGameSessionQueueOutput {
   /**
    * <p>An object that describes the newly updated game session queue.</p>
@@ -258,6 +294,9 @@ export interface UpdateGameSessionQueueOutput {
   GameSessionQueue?: GameSessionQueue;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMatchmakingConfigurationInput {
   /**
    * <p>A unique identifier for the matchmaking configuration to update. You can use either the configuration name or ARN value. </p>
@@ -367,6 +406,9 @@ export interface UpdateMatchmakingConfigurationInput {
   FlexMatchMode?: FlexMatchMode | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMatchmakingConfigurationOutput {
   /**
    * <p>The updated matchmaking configuration.</p>
@@ -374,6 +416,9 @@ export interface UpdateMatchmakingConfigurationOutput {
   Configuration?: MatchmakingConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRuntimeConfigurationInput {
   /**
    * <p>A unique identifier for the fleet to update runtime configuration for. You can use either the fleet ID or ARN
@@ -390,6 +435,9 @@ export interface UpdateRuntimeConfigurationInput {
   RuntimeConfiguration: RuntimeConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRuntimeConfigurationOutput {
   /**
    * <p>The runtime configuration currently in use by all instances in the fleet. If the
@@ -398,6 +446,9 @@ export interface UpdateRuntimeConfigurationOutput {
   RuntimeConfiguration?: RuntimeConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdateScriptInput {
   /**
    * <p>A unique identifier for the Realtime script to update. You can use either the script ID or ARN value.</p>
@@ -436,6 +487,9 @@ export interface UpdateScriptInput {
   ZipFile?: Uint8Array;
 }
 
+/**
+ * @public
+ */
 export interface UpdateScriptOutput {
   /**
    * <p>The newly created script record with a unique script ID. The new script's storage
@@ -448,6 +502,9 @@ export interface UpdateScriptOutput {
   Script?: Script;
 }
 
+/**
+ * @public
+ */
 export interface ValidateMatchmakingRuleSetInput {
   /**
    * <p>A collection of matchmaking rules to validate, formatted as a JSON string.</p>
@@ -455,132 +512,12 @@ export interface ValidateMatchmakingRuleSetInput {
   RuleSetBody: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ValidateMatchmakingRuleSetOutput {
   /**
    * <p>A response indicating whether the rule set is valid.</p>
    */
   Valid?: boolean;
 }
-
-/**
- * @internal
- */
-export const UpdateFleetPortSettingsOutputFilterSensitiveLog = (obj: UpdateFleetPortSettingsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateGameServerInputFilterSensitiveLog = (obj: UpdateGameServerInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateGameServerOutputFilterSensitiveLog = (obj: UpdateGameServerOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateGameServerGroupInputFilterSensitiveLog = (obj: UpdateGameServerGroupInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateGameServerGroupOutputFilterSensitiveLog = (obj: UpdateGameServerGroupOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateGameSessionInputFilterSensitiveLog = (obj: UpdateGameSessionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateGameSessionOutputFilterSensitiveLog = (obj: UpdateGameSessionOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateGameSessionQueueInputFilterSensitiveLog = (obj: UpdateGameSessionQueueInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateGameSessionQueueOutputFilterSensitiveLog = (obj: UpdateGameSessionQueueOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateMatchmakingConfigurationInputFilterSensitiveLog = (
-  obj: UpdateMatchmakingConfigurationInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateMatchmakingConfigurationOutputFilterSensitiveLog = (
-  obj: UpdateMatchmakingConfigurationOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRuntimeConfigurationInputFilterSensitiveLog = (obj: UpdateRuntimeConfigurationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRuntimeConfigurationOutputFilterSensitiveLog = (obj: UpdateRuntimeConfigurationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateScriptInputFilterSensitiveLog = (obj: UpdateScriptInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateScriptOutputFilterSensitiveLog = (obj: UpdateScriptOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidateMatchmakingRuleSetInputFilterSensitiveLog = (obj: ValidateMatchmakingRuleSetInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidateMatchmakingRuleSetOutputFilterSensitiveLog = (obj: ValidateMatchmakingRuleSetOutput): any => ({
-  ...obj,
-});

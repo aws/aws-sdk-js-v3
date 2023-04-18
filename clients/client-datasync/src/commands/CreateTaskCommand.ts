@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import {
-  CreateTaskRequest,
-  CreateTaskRequestFilterSensitiveLog,
-  CreateTaskResponse,
-  CreateTaskResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateTaskCommand,
-  serializeAws_json1_1CreateTaskCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateTaskRequest, CreateTaskResponse } from "../models/models_0";
+import { de_CreateTaskCommand, se_CreateTaskCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateTaskCommand}.
+ */
 export interface CreateTaskCommandInput extends CreateTaskRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateTaskCommand}.
+ */
 export interface CreateTaskCommandOutput extends CreateTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Configures a task, which defines where and how DataSync transfers your
  *       data.</p>
  *          <p>A task includes a source location, a destination location, and the preferences for how and
@@ -40,13 +43,66 @@ export interface CreateTaskCommandOutput extends CreateTaskResponse, __MetadataB
  * import { DataSyncClient, CreateTaskCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, CreateTaskCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = { // CreateTaskRequest
+ *   SourceLocationArn: "STRING_VALUE", // required
+ *   DestinationLocationArn: "STRING_VALUE", // required
+ *   CloudWatchLogGroupArn: "STRING_VALUE",
+ *   Name: "STRING_VALUE",
+ *   Options: { // Options
+ *     VerifyMode: "POINT_IN_TIME_CONSISTENT" || "ONLY_FILES_TRANSFERRED" || "NONE",
+ *     OverwriteMode: "ALWAYS" || "NEVER",
+ *     Atime: "NONE" || "BEST_EFFORT",
+ *     Mtime: "NONE" || "PRESERVE",
+ *     Uid: "NONE" || "INT_VALUE" || "NAME" || "BOTH",
+ *     Gid: "NONE" || "INT_VALUE" || "NAME" || "BOTH",
+ *     PreserveDeletedFiles: "PRESERVE" || "REMOVE",
+ *     PreserveDevices: "NONE" || "PRESERVE",
+ *     PosixPermissions: "NONE" || "PRESERVE",
+ *     BytesPerSecond: Number("long"),
+ *     TaskQueueing: "ENABLED" || "DISABLED",
+ *     LogLevel: "OFF" || "BASIC" || "TRANSFER",
+ *     TransferMode: "CHANGED" || "ALL",
+ *     SecurityDescriptorCopyFlags: "NONE" || "OWNER_DACL" || "OWNER_DACL_SACL",
+ *     ObjectTags: "PRESERVE" || "NONE",
+ *   },
+ *   Excludes: [ // FilterList
+ *     { // FilterRule
+ *       FilterType: "SIMPLE_PATTERN",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Schedule: { // TaskSchedule
+ *     ScheduleExpression: "STRING_VALUE", // required
+ *   },
+ *   Tags: [ // InputTagList
+ *     { // TagListEntry
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Includes: [
+ *     {
+ *       FilterType: "SIMPLE_PATTERN",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTaskCommandInput - {@link CreateTaskCommandInput}
+ * @returns {@link CreateTaskCommandOutput}
  * @see {@link CreateTaskCommandInput} for command's `input` shape.
  * @see {@link CreateTaskCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception is thrown when an error occurs in the DataSync service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
  *
  */
 export class CreateTaskCommand extends $Command<
@@ -66,6 +122,9 @@ export class CreateTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +151,8 @@ export class CreateTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateTaskResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +162,18 @@ export class CreateTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateTaskCommand(input, context);
+    return se_CreateTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTaskCommandOutput> {
-    return deserializeAws_json1_1CreateTaskCommand(output, context);
+    return de_CreateTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

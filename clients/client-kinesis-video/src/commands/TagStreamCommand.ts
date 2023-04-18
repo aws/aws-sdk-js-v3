@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
-import {
-  TagStreamInput,
-  TagStreamInputFilterSensitiveLog,
-  TagStreamOutput,
-  TagStreamOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1TagStreamCommand,
-  serializeAws_restJson1TagStreamCommand,
-} from "../protocols/Aws_restJson1";
+import { TagStreamInput, TagStreamOutput } from "../models/models_0";
+import { de_TagStreamCommand, se_TagStreamCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link TagStreamCommand}.
+ */
 export interface TagStreamCommandInput extends TagStreamInput {}
+/**
+ * @public
+ *
+ * The output of {@link TagStreamCommand}.
+ */
 export interface TagStreamCommandOutput extends TagStreamOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds one or more tags to a stream. A <i>tag</i> is a key-value pair
  *             (the value is optional) that you can define and assign to Amazon Web Services resources. If you specify
  *             a tag that already exists, the tag value is replaced with the value that you specify in
@@ -45,13 +48,43 @@ export interface TagStreamCommandOutput extends TagStreamOutput, __MetadataBeare
  * import { KinesisVideoClient, TagStreamCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, TagStreamCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
+ * const input = { // TagStreamInput
+ *   StreamARN: "STRING_VALUE",
+ *   StreamName: "STRING_VALUE",
+ *   Tags: { // ResourceTags // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new TagStreamCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TagStreamCommandInput - {@link TagStreamCommandInput}
+ * @returns {@link TagStreamCommandOutput}
  * @see {@link TagStreamCommandInput} for command's `input` shape.
  * @see {@link TagStreamCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
+ *
+ * @throws {@link ClientLimitExceededException} (client fault)
+ *  <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
+ *             allowed client calls. Try making the call later.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>The value for this input parameter is invalid.</p>
+ *
+ * @throws {@link InvalidResourceFormatException} (client fault)
+ *  <p>The format of the <code>StreamARN</code> is invalid.</p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>The caller is not authorized to perform this operation.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
+ *
+ * @throws {@link TagsPerResourceExceededLimitException} (client fault)
+ *  <p>You have exceeded the limit of tags that you can associate with the resource.
+ *             A Kinesis video stream can support up to 50 tags. </p>
+ *
  *
  */
 export class TagStreamCommand extends $Command<
@@ -71,6 +104,9 @@ export class TagStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TagStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +133,8 @@ export class TagStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagStreamInputFilterSensitiveLog,
-      outputFilterSensitiveLog: TagStreamOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +144,18 @@ export class TagStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TagStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1TagStreamCommand(input, context);
+    return se_TagStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagStreamCommandOutput> {
-    return deserializeAws_restJson1TagStreamCommand(output, context);
+    return de_TagStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

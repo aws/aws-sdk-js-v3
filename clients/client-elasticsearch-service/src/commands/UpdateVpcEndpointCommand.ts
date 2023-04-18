@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
-import {
-  UpdateVpcEndpointRequest,
-  UpdateVpcEndpointRequestFilterSensitiveLog,
-  UpdateVpcEndpointResponse,
-  UpdateVpcEndpointResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateVpcEndpointCommand,
-  serializeAws_restJson1UpdateVpcEndpointCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateVpcEndpointRequest, UpdateVpcEndpointResponse } from "../models/models_0";
+import { de_UpdateVpcEndpointCommand, se_UpdateVpcEndpointCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateVpcEndpointCommand}.
+ */
 export interface UpdateVpcEndpointCommandInput extends UpdateVpcEndpointRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateVpcEndpointCommand}.
+ */
 export interface UpdateVpcEndpointCommandOutput extends UpdateVpcEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies an Amazon OpenSearch Service-managed interface VPC endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,45 @@ export interface UpdateVpcEndpointCommandOutput extends UpdateVpcEndpointRespons
  * import { ElasticsearchServiceClient, UpdateVpcEndpointCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, UpdateVpcEndpointCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
+ * const input = { // UpdateVpcEndpointRequest
+ *   VpcEndpointId: "STRING_VALUE", // required
+ *   VpcOptions: { // VPCOptions
+ *     SubnetIds: [ // StringList
+ *       "STRING_VALUE",
+ *     ],
+ *     SecurityGroupIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new UpdateVpcEndpointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateVpcEndpointCommandInput - {@link UpdateVpcEndpointCommandInput}
+ * @returns {@link UpdateVpcEndpointCommandOutput}
  * @see {@link UpdateVpcEndpointCommandInput} for command's `input` shape.
  * @see {@link UpdateVpcEndpointCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
+ *
+ * @throws {@link BaseException} (client fault)
+ *  <p>An error occurred while processing the request.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>An error occurred because the client attempts to remove a resource that is currently in use. Returns HTTP status code 409.</p>
+ *
+ * @throws {@link DisabledOperationException} (client fault)
+ *  <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+ *
  *
  */
 export class UpdateVpcEndpointCommand extends $Command<
@@ -66,6 +101,9 @@ export class UpdateVpcEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateVpcEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +132,8 @@ export class UpdateVpcEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateVpcEndpointRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateVpcEndpointResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +143,18 @@ export class UpdateVpcEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateVpcEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateVpcEndpointCommand(input, context);
+    return se_UpdateVpcEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVpcEndpointCommandOutput> {
-    return deserializeAws_restJson1UpdateVpcEndpointCommand(output, context);
+    return de_UpdateVpcEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeDataSharesMessage,
-  DescribeDataSharesMessageFilterSensitiveLog,
-  DescribeDataSharesResult,
-  DescribeDataSharesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeDataSharesCommand,
-  serializeAws_queryDescribeDataSharesCommand,
-} from "../protocols/Aws_query";
+import { DescribeDataSharesMessage, DescribeDataSharesResult } from "../models/models_0";
+import { de_DescribeDataSharesCommand, se_DescribeDataSharesCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeDataSharesCommand}.
+ */
 export interface DescribeDataSharesCommandInput extends DescribeDataSharesMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeDataSharesCommand}.
+ */
 export interface DescribeDataSharesCommandOutput extends DescribeDataSharesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Shows the status of any inbound or outbound datashares available in the specified
  *             account.</p>
  * @example
@@ -37,13 +40,24 @@ export interface DescribeDataSharesCommandOutput extends DescribeDataSharesResul
  * import { RedshiftClient, DescribeDataSharesCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeDataSharesCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DescribeDataSharesMessage
+ *   DataShareArn: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeDataSharesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDataSharesCommandInput - {@link DescribeDataSharesCommandInput}
+ * @returns {@link DescribeDataSharesCommandOutput}
  * @see {@link DescribeDataSharesCommandInput} for command's `input` shape.
  * @see {@link DescribeDataSharesCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
+ *
+ * @throws {@link InvalidDataShareFault} (client fault)
+ *  <p>There is an error with the datashare.</p>
+ *
  *
  */
 export class DescribeDataSharesCommand extends $Command<
@@ -63,6 +77,9 @@ export class DescribeDataSharesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDataSharesCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +108,8 @@ export class DescribeDataSharesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDataSharesMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDataSharesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +119,18 @@ export class DescribeDataSharesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDataSharesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDataSharesCommand(input, context);
+    return se_DescribeDataSharesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDataSharesCommandOutput> {
-    return deserializeAws_queryDescribeDataSharesCommand(output, context);
+    return de_DescribeDataSharesCommand(output, context);
   }
 
   // Start section: command_body_extra

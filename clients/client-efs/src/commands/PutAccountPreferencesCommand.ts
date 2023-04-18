@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import {
-  PutAccountPreferencesRequest,
-  PutAccountPreferencesRequestFilterSensitiveLog,
-  PutAccountPreferencesResponse,
-  PutAccountPreferencesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutAccountPreferencesCommand,
-  serializeAws_restJson1PutAccountPreferencesCommand,
-} from "../protocols/Aws_restJson1";
+import { PutAccountPreferencesRequest, PutAccountPreferencesResponse } from "../models/models_0";
+import { de_PutAccountPreferencesCommand, se_PutAccountPreferencesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutAccountPreferencesCommand}.
+ */
 export interface PutAccountPreferencesCommandInput extends PutAccountPreferencesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutAccountPreferencesCommand}.
+ */
 export interface PutAccountPreferencesCommandOutput extends PutAccountPreferencesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this operation to set the account preference in the current Amazon Web Services Region
  *       to use long 17 character (63 bit) or short 8 character (32 bit) resource IDs for
  *       new EFS file system and mount target resources. All existing resource IDs are not affected
@@ -46,13 +49,26 @@ export interface PutAccountPreferencesCommandOutput extends PutAccountPreference
  * import { EFSClient, PutAccountPreferencesCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, PutAccountPreferencesCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
+ * const input = { // PutAccountPreferencesRequest
+ *   ResourceIdType: "LONG_ID" || "SHORT_ID", // required
+ * };
  * const command = new PutAccountPreferencesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAccountPreferencesCommandInput - {@link PutAccountPreferencesCommandInput}
+ * @returns {@link PutAccountPreferencesCommandOutput}
  * @see {@link PutAccountPreferencesCommandInput} for command's `input` shape.
  * @see {@link PutAccountPreferencesCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
+ *
+ * @throws {@link BadRequest} (client fault)
+ *  <p>Returned if the request is malformed or contains an error such as an invalid
+ *             parameter value or a missing required parameter.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Returned if an error occurred on the server side.</p>
+ *
  *
  */
 export class PutAccountPreferencesCommand extends $Command<
@@ -72,6 +88,9 @@ export class PutAccountPreferencesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAccountPreferencesCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +119,8 @@ export class PutAccountPreferencesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutAccountPreferencesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutAccountPreferencesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +130,18 @@ export class PutAccountPreferencesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutAccountPreferencesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutAccountPreferencesCommand(input, context);
+    return se_PutAccountPreferencesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutAccountPreferencesCommandOutput> {
-    return deserializeAws_restJson1PutAccountPreferencesCommand(output, context);
+    return de_PutAccountPreferencesCommand(output, context);
   }
 
   // Start section: command_body_extra

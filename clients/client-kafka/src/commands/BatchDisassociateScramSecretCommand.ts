@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
+import { BatchDisassociateScramSecretRequest, BatchDisassociateScramSecretResponse } from "../models/models_0";
 import {
-  BatchDisassociateScramSecretRequest,
-  BatchDisassociateScramSecretRequestFilterSensitiveLog,
-  BatchDisassociateScramSecretResponse,
-  BatchDisassociateScramSecretResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchDisassociateScramSecretCommand,
-  serializeAws_restJson1BatchDisassociateScramSecretCommand,
+  de_BatchDisassociateScramSecretCommand,
+  se_BatchDisassociateScramSecretCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchDisassociateScramSecretCommand}.
+ */
 export interface BatchDisassociateScramSecretCommandInput extends BatchDisassociateScramSecretRequest {}
+/**
+ * @public
+ *
+ * The output of {@link BatchDisassociateScramSecretCommand}.
+ */
 export interface BatchDisassociateScramSecretCommandOutput
   extends BatchDisassociateScramSecretResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates one or more Scram Secrets from an Amazon MSK cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,43 @@ export interface BatchDisassociateScramSecretCommandOutput
  * import { KafkaClient, BatchDisassociateScramSecretCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, BatchDisassociateScramSecretCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
+ * const input = { // BatchDisassociateScramSecretRequest
+ *   ClusterArn: "STRING_VALUE", // required
+ *   SecretArnList: [ // __listOf__string // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchDisassociateScramSecretCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDisassociateScramSecretCommandInput - {@link BatchDisassociateScramSecretCommandInput}
+ * @returns {@link BatchDisassociateScramSecretCommandOutput}
  * @see {@link BatchDisassociateScramSecretCommandInput} for command's `input` shape.
  * @see {@link BatchDisassociateScramSecretCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
  *
  */
 export class BatchDisassociateScramSecretCommand extends $Command<
@@ -64,6 +100,9 @@ export class BatchDisassociateScramSecretCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDisassociateScramSecretCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +131,8 @@ export class BatchDisassociateScramSecretCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDisassociateScramSecretRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchDisassociateScramSecretResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +142,21 @@ export class BatchDisassociateScramSecretCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDisassociateScramSecretCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchDisassociateScramSecretCommand(input, context);
+    return se_BatchDisassociateScramSecretCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchDisassociateScramSecretCommandOutput> {
-    return deserializeAws_restJson1BatchDisassociateScramSecretCommand(output, context);
+    return de_BatchDisassociateScramSecretCommand(output, context);
   }
 
   // Start section: command_body_extra

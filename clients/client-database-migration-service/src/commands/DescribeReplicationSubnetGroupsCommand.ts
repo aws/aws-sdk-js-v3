@@ -18,23 +18,29 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
+import { DescribeReplicationSubnetGroupsMessage, DescribeReplicationSubnetGroupsResponse } from "../models/models_0";
 import {
-  DescribeReplicationSubnetGroupsMessage,
-  DescribeReplicationSubnetGroupsMessageFilterSensitiveLog,
-  DescribeReplicationSubnetGroupsResponse,
-  DescribeReplicationSubnetGroupsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeReplicationSubnetGroupsCommand,
-  serializeAws_json1_1DescribeReplicationSubnetGroupsCommand,
+  de_DescribeReplicationSubnetGroupsCommand,
+  se_DescribeReplicationSubnetGroupsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeReplicationSubnetGroupsCommand}.
+ */
 export interface DescribeReplicationSubnetGroupsCommandInput extends DescribeReplicationSubnetGroupsMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeReplicationSubnetGroupsCommand}.
+ */
 export interface DescribeReplicationSubnetGroupsCommandOutput
   extends DescribeReplicationSubnetGroupsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the replication subnet groups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,13 +48,58 @@ export interface DescribeReplicationSubnetGroupsCommandOutput
  * import { DatabaseMigrationServiceClient, DescribeReplicationSubnetGroupsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DescribeReplicationSubnetGroupsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // DescribeReplicationSubnetGroupsMessage
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeReplicationSubnetGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReplicationSubnetGroupsCommandInput - {@link DescribeReplicationSubnetGroupsCommandInput}
+ * @returns {@link DescribeReplicationSubnetGroupsCommandOutput}
  * @see {@link DescribeReplicationSubnetGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeReplicationSubnetGroupsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundFault} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ *
+ * @example Describe replication subnet groups
+ * ```javascript
+ * // Returns information about the replication subnet groups.
+ * const input = {
+ *   "Filters": [
+ *     {
+ *       "Name": "string",
+ *       "Values": [
+ *         "string",
+ *         "string"
+ *       ]
+ *     }
+ *   ],
+ *   "Marker": "",
+ *   "MaxRecords": 123
+ * };
+ * const command = new DescribeReplicationSubnetGroupsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Marker": "",
+ *   "ReplicationSubnetGroups": []
+ * }
+ * *\/
+ * // example id: describe-replication-subnet-groups-1481755621284
+ * ```
  *
  */
 export class DescribeReplicationSubnetGroupsCommand extends $Command<
@@ -68,6 +119,9 @@ export class DescribeReplicationSubnetGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReplicationSubnetGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +150,8 @@ export class DescribeReplicationSubnetGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeReplicationSubnetGroupsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeReplicationSubnetGroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,18 +161,24 @@ export class DescribeReplicationSubnetGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeReplicationSubnetGroupsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeReplicationSubnetGroupsCommand(input, context);
+    return se_DescribeReplicationSubnetGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReplicationSubnetGroupsCommandOutput> {
-    return deserializeAws_json1_1DescribeReplicationSubnetGroupsCommand(output, context);
+    return de_DescribeReplicationSubnetGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

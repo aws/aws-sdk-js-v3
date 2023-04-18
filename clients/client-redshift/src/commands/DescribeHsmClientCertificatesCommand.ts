@@ -13,30 +13,36 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DescribeHsmClientCertificatesMessage, HsmClientCertificateMessage } from "../models/models_0";
 import {
-  DescribeHsmClientCertificatesMessage,
-  DescribeHsmClientCertificatesMessageFilterSensitiveLog,
-  HsmClientCertificateMessage,
-  HsmClientCertificateMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeHsmClientCertificatesCommand,
-  serializeAws_queryDescribeHsmClientCertificatesCommand,
+  de_DescribeHsmClientCertificatesCommand,
+  se_DescribeHsmClientCertificatesCommand,
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeHsmClientCertificatesCommand}.
+ */
 export interface DescribeHsmClientCertificatesCommandInput extends DescribeHsmClientCertificatesMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeHsmClientCertificatesCommand}.
+ */
 export interface DescribeHsmClientCertificatesCommandOutput extends HsmClientCertificateMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the specified HSM client certificate. If no certificate
  *             ID is specified, returns information about all the HSM certificates owned by your Amazon Web Services account.</p>
- *         <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns
+ *          <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns
  *             all HSM client certificates that match any combination of the specified keys and values.
  *             For example, if you have <code>owner</code> and <code>environment</code> for tag keys,
  *             and <code>admin</code> and <code>test</code> for tag values, all HSM client certificates
  *             that have any combination of those values are returned.</p>
- *         <p>If both tag keys and values are omitted from the request, HSM client certificates
+ *          <p>If both tag keys and values are omitted from the request, HSM client certificates
  *             are returned regardless of whether they have tag keys or values associated with
  *             them.</p>
  * @example
@@ -45,13 +51,34 @@ export interface DescribeHsmClientCertificatesCommandOutput extends HsmClientCer
  * import { RedshiftClient, DescribeHsmClientCertificatesCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeHsmClientCertificatesCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DescribeHsmClientCertificatesMessage
+ *   HsmClientCertificateIdentifier: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ *   TagKeys: [ // TagKeyList
+ *     "STRING_VALUE",
+ *   ],
+ *   TagValues: [ // TagValueList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeHsmClientCertificatesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeHsmClientCertificatesCommandInput - {@link DescribeHsmClientCertificatesCommandInput}
+ * @returns {@link DescribeHsmClientCertificatesCommandOutput}
  * @see {@link DescribeHsmClientCertificatesCommandInput} for command's `input` shape.
  * @see {@link DescribeHsmClientCertificatesCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
+ *
+ * @throws {@link HsmClientCertificateNotFoundFault} (client fault)
+ *  <p>There is no Amazon Redshift HSM client certificate with the specified
+ *             identifier.</p>
+ *
+ * @throws {@link InvalidTagFault} (client fault)
+ *  <p>The tag is invalid.</p>
+ *
  *
  */
 export class DescribeHsmClientCertificatesCommand extends $Command<
@@ -71,6 +98,9 @@ export class DescribeHsmClientCertificatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeHsmClientCertificatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +129,8 @@ export class DescribeHsmClientCertificatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeHsmClientCertificatesMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: HsmClientCertificateMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,15 +140,21 @@ export class DescribeHsmClientCertificatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeHsmClientCertificatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeHsmClientCertificatesCommand(input, context);
+    return se_DescribeHsmClientCertificatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeHsmClientCertificatesCommandOutput> {
-    return deserializeAws_queryDescribeHsmClientCertificatesCommand(output, context);
+    return de_DescribeHsmClientCertificatesCommand(output, context);
   }
 
   // Start section: command_body_extra

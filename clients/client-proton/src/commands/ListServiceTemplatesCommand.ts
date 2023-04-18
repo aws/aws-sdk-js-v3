@@ -15,20 +15,27 @@ import {
 
 import {
   ListServiceTemplatesInput,
-  ListServiceTemplatesInputFilterSensitiveLog,
   ListServiceTemplatesOutput,
   ListServiceTemplatesOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0ListServiceTemplatesCommand,
-  serializeAws_json1_0ListServiceTemplatesCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListServiceTemplatesCommand, se_ListServiceTemplatesCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListServiceTemplatesCommand}.
+ */
 export interface ListServiceTemplatesCommandInput extends ListServiceTemplatesInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListServiceTemplatesCommand}.
+ */
 export interface ListServiceTemplatesCommandOutput extends ListServiceTemplatesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List service templates with detail data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +43,32 @@ export interface ListServiceTemplatesCommandOutput extends ListServiceTemplatesO
  * import { ProtonClient, ListServiceTemplatesCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, ListServiceTemplatesCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // ListServiceTemplatesInput
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListServiceTemplatesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListServiceTemplatesCommandInput - {@link ListServiceTemplatesCommandInput}
+ * @returns {@link ListServiceTemplatesCommandOutput}
  * @see {@link ListServiceTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListServiceTemplatesCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>There <i>isn't</i> sufficient access for performing this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request failed to register with the service.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+ *
  *
  */
 export class ListServiceTemplatesCommand extends $Command<
@@ -62,6 +88,9 @@ export class ListServiceTemplatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListServiceTemplatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +119,7 @@ export class ListServiceTemplatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListServiceTemplatesInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListServiceTemplatesOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -101,12 +130,18 @@ export class ListServiceTemplatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListServiceTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListServiceTemplatesCommand(input, context);
+    return se_ListServiceTemplatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListServiceTemplatesCommandOutput> {
-    return deserializeAws_json1_0ListServiceTemplatesCommand(output, context);
+    return de_ListServiceTemplatesCommand(output, context);
   }
 
   // Start section: command_body_extra

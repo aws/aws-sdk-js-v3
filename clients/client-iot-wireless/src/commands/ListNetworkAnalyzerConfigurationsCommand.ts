@@ -16,21 +16,30 @@ import {
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import {
   ListNetworkAnalyzerConfigurationsRequest,
-  ListNetworkAnalyzerConfigurationsRequestFilterSensitiveLog,
   ListNetworkAnalyzerConfigurationsResponse,
-  ListNetworkAnalyzerConfigurationsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListNetworkAnalyzerConfigurationsCommand,
-  serializeAws_restJson1ListNetworkAnalyzerConfigurationsCommand,
+  de_ListNetworkAnalyzerConfigurationsCommand,
+  se_ListNetworkAnalyzerConfigurationsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListNetworkAnalyzerConfigurationsCommand}.
+ */
 export interface ListNetworkAnalyzerConfigurationsCommandInput extends ListNetworkAnalyzerConfigurationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListNetworkAnalyzerConfigurationsCommand}.
+ */
 export interface ListNetworkAnalyzerConfigurationsCommandOutput
   extends ListNetworkAnalyzerConfigurationsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the network analyzer configurations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +47,32 @@ export interface ListNetworkAnalyzerConfigurationsCommandOutput
  * import { IoTWirelessClient, ListNetworkAnalyzerConfigurationsCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, ListNetworkAnalyzerConfigurationsCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // ListNetworkAnalyzerConfigurationsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListNetworkAnalyzerConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListNetworkAnalyzerConfigurationsCommandInput - {@link ListNetworkAnalyzerConfigurationsCommandInput}
+ * @returns {@link ListNetworkAnalyzerConfigurationsCommandOutput}
  * @see {@link ListNetworkAnalyzerConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListNetworkAnalyzerConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>User does not have permission to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred while processing a request.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because it exceeded the allowed API request rate.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input did not meet the specified constraints.</p>
+ *
  *
  */
 export class ListNetworkAnalyzerConfigurationsCommand extends $Command<
@@ -64,6 +92,9 @@ export class ListNetworkAnalyzerConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListNetworkAnalyzerConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +123,8 @@ export class ListNetworkAnalyzerConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListNetworkAnalyzerConfigurationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListNetworkAnalyzerConfigurationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +134,24 @@ export class ListNetworkAnalyzerConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListNetworkAnalyzerConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListNetworkAnalyzerConfigurationsCommand(input, context);
+    return se_ListNetworkAnalyzerConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListNetworkAnalyzerConfigurationsCommandOutput> {
-    return deserializeAws_restJson1ListNetworkAnalyzerConfigurationsCommand(output, context);
+    return de_ListNetworkAnalyzerConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,36 +13,63 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeAppRequest,
-  DescribeAppRequestFilterSensitiveLog,
-  DescribeAppResponse,
-  DescribeAppResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeAppCommand,
-  serializeAws_restJson1DescribeAppCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeAppRequest, DescribeAppResponse, DescribeAppResponseFilterSensitiveLog } from "../models/models_0";
+import { de_DescribeAppCommand, se_DescribeAppCommand } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeAppCommand}.
+ */
 export interface DescribeAppCommandInput extends DescribeAppRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeAppCommand}.
+ */
 export interface DescribeAppCommandOutput extends DescribeAppResponse, __MetadataBearer {}
 
 /**
- * <p>Describes an AWS Resilience Hub application.</p>
+ * @public
+ * <p>Describes an Resilience Hub application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ResiliencehubClient, DescribeAppCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, DescribeAppCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = { // DescribeAppRequest
+ *   appArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeAppCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAppCommandInput - {@link DescribeAppCommandInput}
+ * @returns {@link DescribeAppCommandOutput}
  * @see {@link DescribeAppCommandInput} for command's `input` shape.
  * @see {@link DescribeAppCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have permissions to perform the requested operation. The user or role that is
+ *       making the request must have at least one IAM permissions policy attached that grants the
+ *       required permissions.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
+ *       service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception occurs when the specified resource could not be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>This exception occurs when a request is not valid.</p>
+ *
  *
  */
 export class DescribeAppCommand extends $Command<
@@ -62,6 +89,9 @@ export class DescribeAppCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAppCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,7 +118,7 @@ export class DescribeAppCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAppRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeAppResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -99,12 +129,18 @@ export class DescribeAppCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAppCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAppCommand(input, context);
+    return se_DescribeAppCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAppCommandOutput> {
-    return deserializeAws_restJson1DescribeAppCommand(output, context);
+    return de_DescribeAppCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
-import {
-  DescribeHapgRequest,
-  DescribeHapgRequestFilterSensitiveLog,
-  DescribeHapgResponse,
-  DescribeHapgResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeHapgCommand,
-  serializeAws_json1_1DescribeHapgCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeHapgRequest, DescribeHapgResponse } from "../models/models_0";
+import { de_DescribeHapgCommand, se_DescribeHapgCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeHapgCommand}.
+ */
 export interface DescribeHapgCommandInput extends DescribeHapgRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeHapgCommand}.
+ */
 export interface DescribeHapgCommandOutput extends DescribeHapgResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
  *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
  *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
@@ -46,13 +49,28 @@ export interface DescribeHapgCommandOutput extends DescribeHapgResponse, __Metad
  * import { CloudHSMClient, DescribeHapgCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
  * // const { CloudHSMClient, DescribeHapgCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
  * const client = new CloudHSMClient(config);
+ * const input = { // DescribeHapgRequest
+ *   HapgArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeHapgCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeHapgCommandInput - {@link DescribeHapgCommandInput}
+ * @returns {@link DescribeHapgCommandOutput}
  * @see {@link DescribeHapgCommandInput} for command's `input` shape.
  * @see {@link DescribeHapgCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMClientResolvedConfig | config} for CloudHSMClient's `config` shape.
+ *
+ * @throws {@link CloudHsmInternalException} (server fault)
+ *  <p>Indicates that an internal error occurred.</p>
+ *
+ * @throws {@link CloudHsmServiceException} (client fault)
+ *  <p>Indicates that an exception occurred in the AWS CloudHSM service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>Indicates that one or more of the request parameters are not valid.</p>
+ *
  *
  */
 export class DescribeHapgCommand extends $Command<
@@ -72,6 +90,9 @@ export class DescribeHapgCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeHapgCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +119,8 @@ export class DescribeHapgCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeHapgRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeHapgResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +130,18 @@ export class DescribeHapgCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeHapgCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeHapgCommand(input, context);
+    return se_DescribeHapgCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeHapgCommandOutput> {
-    return deserializeAws_json1_1DescribeHapgCommand(output, context);
+    return de_DescribeHapgCommand(output, context);
   }
 
   // Start section: command_body_extra

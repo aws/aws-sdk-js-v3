@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  LaunchConfiguration,
-  LaunchConfigurationFilterSensitiveLog,
-  UpdateLaunchConfigurationRequest,
-  UpdateLaunchConfigurationRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateLaunchConfigurationCommand,
-  serializeAws_restJson1UpdateLaunchConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { LaunchConfiguration, UpdateLaunchConfigurationRequest } from "../models/models_0";
+import { de_UpdateLaunchConfigurationCommand, se_UpdateLaunchConfigurationCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateLaunchConfigurationCommand}.
+ */
 export interface UpdateLaunchConfigurationCommandInput extends UpdateLaunchConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateLaunchConfigurationCommand}.
+ */
 export interface UpdateLaunchConfigurationCommandOutput extends LaunchConfiguration, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates multiple LaunchConfigurations by Source Server ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,69 @@ export interface UpdateLaunchConfigurationCommandOutput extends LaunchConfigurat
  * import { MgnClient, UpdateLaunchConfigurationCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, UpdateLaunchConfigurationCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = { // UpdateLaunchConfigurationRequest
+ *   sourceServerID: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   launchDisposition: "STRING_VALUE",
+ *   targetInstanceTypeRightSizingMethod: "STRING_VALUE",
+ *   copyPrivateIp: true || false,
+ *   copyTags: true || false,
+ *   licensing: { // Licensing
+ *     osByol: true || false,
+ *   },
+ *   bootMode: "STRING_VALUE",
+ *   postLaunchActions: { // PostLaunchActions
+ *     deployment: "STRING_VALUE",
+ *     s3LogBucket: "STRING_VALUE",
+ *     s3OutputKeyPrefix: "STRING_VALUE",
+ *     cloudWatchLogGroupName: "STRING_VALUE",
+ *     ssmDocuments: [ // SsmDocuments
+ *       { // SsmDocument
+ *         actionName: "STRING_VALUE", // required
+ *         ssmDocumentName: "STRING_VALUE", // required
+ *         timeoutSeconds: Number("int"),
+ *         mustSucceedForCutover: true || false,
+ *         parameters: { // SsmDocumentParameters
+ *           "<keys>": [ // SsmParameterStoreParameters
+ *             { // SsmParameterStoreParameter
+ *               parameterType: "STRING_VALUE", // required
+ *               parameterName: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
+ *         externalParameters: { // SsmDocumentExternalParameters
+ *           "<keys>": { // SsmExternalParameter Union: only one key present
+ *             dynamicPath: "STRING_VALUE",
+ *           },
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   enableMapAutoTagging: true || false,
+ *   mapAutoTaggingMpeID: "STRING_VALUE",
+ * };
  * const command = new UpdateLaunchConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateLaunchConfigurationCommandInput - {@link UpdateLaunchConfigurationCommandInput}
+ * @returns {@link UpdateLaunchConfigurationCommandOutput}
  * @see {@link UpdateLaunchConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateLaunchConfigurationCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource not found exception.</p>
+ *
+ * @throws {@link UninitializedAccountException} (client fault)
+ *  <p>Uninitialized account exception.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Validate exception.</p>
+ *
  *
  */
 export class UpdateLaunchConfigurationCommand extends $Command<
@@ -62,6 +121,9 @@ export class UpdateLaunchConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateLaunchConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +152,8 @@ export class UpdateLaunchConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateLaunchConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: LaunchConfigurationFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +163,21 @@ export class UpdateLaunchConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateLaunchConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateLaunchConfigurationCommand(input, context);
+    return se_UpdateLaunchConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateLaunchConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateLaunchConfigurationCommand(output, context);
+    return de_UpdateLaunchConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

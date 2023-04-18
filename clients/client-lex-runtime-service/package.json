@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-lex-runtime-service",
   "description": "AWS SDK for JavaScript Lex Runtime Service Client for Node.js, Browser and React Native",
-  "version": "3.245.0",
+  "version": "3.315.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -11,17 +11,18 @@
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+    "extract:docs": "api-extractor run --local",
+    "generate:client": "node ../../scripts/generate-clients/single-service --solo lex-runtime-service",
     "test": "yarn test:unit",
-    "test:unit": "ts-mocha test/**/*.spec.ts",
-    "generate:client": "(cd ../../ && yarn generate-clients -g ./codegen/sdk-codegen/aws-models/lex-runtime-service.json --keepFiles)"
+    "test:unit": "ts-mocha test/**/*.spec.ts"
   },
   "main": "./dist-cjs/index.js",
   "types": "./dist-types/index.d.ts",
   "module": "./dist-es/index.js",
   "sideEffects": false,
   "dependencies": {
-    "@aws-crypto/sha256-browser": "2.0.0",
-    "@aws-crypto/sha256-js": "2.0.0",
+    "@aws-crypto/sha256-browser": "3.0.0",
+    "@aws-crypto/sha256-js": "3.0.0",
     "@aws-sdk/client-sts": "*",
     "@aws-sdk/config-resolver": "*",
     "@aws-sdk/credential-provider-node": "*",
@@ -55,9 +56,8 @@
     "@aws-sdk/util-stream-node": "*",
     "@aws-sdk/util-user-agent-browser": "*",
     "@aws-sdk/util-user-agent-node": "*",
-    "@aws-sdk/util-utf8-browser": "*",
-    "@aws-sdk/util-utf8-node": "*",
-    "tslib": "^2.3.1"
+    "@aws-sdk/util-utf8": "*",
+    "tslib": "^2.5.0"
   },
   "devDependencies": {
     "@aws-sdk/service-client-documentation-generator": "*",
@@ -68,13 +68,8 @@
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
-    "typedoc": "0.19.2",
-    "typescript": "~4.6.2"
-  },
-  "overrides": {
-    "typedoc": {
-      "typescript": "~4.6.2"
-    }
+    "typedoc": "0.23.23",
+    "typescript": "~4.9.5"
   },
   "engines": {
     "node": ">=14.0.0"
@@ -87,7 +82,7 @@
     }
   },
   "files": [
-    "dist-*"
+    "dist-*/**"
   ],
   "author": {
     "name": "AWS SDK for JavaScript Team",

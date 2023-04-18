@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import {
-  BatchGetAssetPropertyValueRequest,
-  BatchGetAssetPropertyValueRequestFilterSensitiveLog,
-  BatchGetAssetPropertyValueResponse,
-  BatchGetAssetPropertyValueResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchGetAssetPropertyValueCommand,
-  serializeAws_restJson1BatchGetAssetPropertyValueCommand,
-} from "../protocols/Aws_restJson1";
+import { BatchGetAssetPropertyValueRequest, BatchGetAssetPropertyValueResponse } from "../models/models_0";
+import { de_BatchGetAssetPropertyValueCommand, se_BatchGetAssetPropertyValueCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchGetAssetPropertyValueCommand}.
+ */
 export interface BatchGetAssetPropertyValueCommandInput extends BatchGetAssetPropertyValueRequest {}
+/**
+ * @public
+ *
+ * The output of {@link BatchGetAssetPropertyValueCommand}.
+ */
 export interface BatchGetAssetPropertyValueCommandOutput extends BatchGetAssetPropertyValueResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the current value for one or more asset properties. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#current-values">Querying
  *         current values</a> in the <i>IoT SiteWise User Guide</i>.</p>
  * @example
@@ -37,13 +40,43 @@ export interface BatchGetAssetPropertyValueCommandOutput extends BatchGetAssetPr
  * import { IoTSiteWiseClient, BatchGetAssetPropertyValueCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, BatchGetAssetPropertyValueCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = { // BatchGetAssetPropertyValueRequest
+ *   entries: [ // BatchGetAssetPropertyValueEntries // required
+ *     { // BatchGetAssetPropertyValueEntry
+ *       entryId: "STRING_VALUE", // required
+ *       assetId: "STRING_VALUE",
+ *       propertyId: "STRING_VALUE",
+ *       propertyAlias: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new BatchGetAssetPropertyValueCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetAssetPropertyValueCommandInput - {@link BatchGetAssetPropertyValueCommandInput}
+ * @returns {@link BatchGetAssetPropertyValueCommandOutput}
  * @see {@link BatchGetAssetPropertyValueCommandInput} for command's `input` shape.
  * @see {@link BatchGetAssetPropertyValueCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>IoT SiteWise can't process your request right now. Try again later.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
+ *       unsupported characters. Check your request and try again.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The requested service is unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Your request exceeded a rate limit. For example, you might have exceeded the number of
+ *       IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so
+ *       on.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ *
  *
  */
 export class BatchGetAssetPropertyValueCommand extends $Command<
@@ -63,6 +96,9 @@ export class BatchGetAssetPropertyValueCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetAssetPropertyValueCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +127,8 @@ export class BatchGetAssetPropertyValueCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetAssetPropertyValueRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetAssetPropertyValueResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,15 +138,21 @@ export class BatchGetAssetPropertyValueCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetAssetPropertyValueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchGetAssetPropertyValueCommand(input, context);
+    return se_BatchGetAssetPropertyValueCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchGetAssetPropertyValueCommandOutput> {
-    return deserializeAws_restJson1BatchGetAssetPropertyValueCommand(output, context);
+    return de_BatchGetAssetPropertyValueCommand(output, context);
   }
 
   // Start section: command_body_extra

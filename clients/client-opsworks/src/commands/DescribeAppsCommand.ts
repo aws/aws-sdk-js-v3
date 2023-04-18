@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeAppsRequest,
-  DescribeAppsRequestFilterSensitiveLog,
-  DescribeAppsResult,
-  DescribeAppsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeAppsRequest, DescribeAppsResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1DescribeAppsCommand,
-  serializeAws_json1_1DescribeAppsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeAppsCommand, se_DescribeAppsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeAppsCommand}.
+ */
 export interface DescribeAppsCommandInput extends DescribeAppsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeAppsCommand}.
+ */
 export interface DescribeAppsCommandOutput extends DescribeAppsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Requests a description of a specified set of apps.</p>
  *          <note>
  *             <p>This call accepts only one resource-identifying parameter.</p>
@@ -44,13 +47,28 @@ export interface DescribeAppsCommandOutput extends DescribeAppsResult, __Metadat
  * import { OpsWorksClient, DescribeAppsCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DescribeAppsCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // DescribeAppsRequest
+ *   StackId: "STRING_VALUE",
+ *   AppIds: [ // Strings
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeAppsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAppsCommandInput - {@link DescribeAppsCommandInput}
+ * @returns {@link DescribeAppsCommandOutput}
  * @see {@link DescribeAppsCommandInput} for command's `input` shape.
  * @see {@link DescribeAppsCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Indicates that a resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that a request was not valid.</p>
+ *
  *
  */
 export class DescribeAppsCommand extends $Command<
@@ -70,6 +88,9 @@ export class DescribeAppsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAppsCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +117,8 @@ export class DescribeAppsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAppsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAppsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +128,18 @@ export class DescribeAppsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAppsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAppsCommand(input, context);
+    return se_DescribeAppsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAppsCommandOutput> {
-    return deserializeAws_json1_1DescribeAppsCommand(output, context);
+    return de_DescribeAppsCommand(output, context);
   }
 
   // Start section: command_body_extra

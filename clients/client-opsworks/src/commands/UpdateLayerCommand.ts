@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateLayerRequest, UpdateLayerRequestFilterSensitiveLog } from "../models/models_0";
+import { UpdateLayerRequest } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1UpdateLayerCommand,
-  serializeAws_json1_1UpdateLayerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateLayerCommand, se_UpdateLayerCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateLayerCommand}.
+ */
 export interface UpdateLayerCommandInput extends UpdateLayerRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateLayerCommand}.
+ */
 export interface UpdateLayerCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a specified layer.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
@@ -36,13 +44,91 @@ export interface UpdateLayerCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, UpdateLayerCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, UpdateLayerCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // UpdateLayerRequest
+ *   LayerId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Shortname: "STRING_VALUE",
+ *   Attributes: { // LayerAttributes
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   CloudWatchLogsConfiguration: { // CloudWatchLogsConfiguration
+ *     Enabled: true || false,
+ *     LogStreams: [ // CloudWatchLogsLogStreams
+ *       { // CloudWatchLogsLogStream
+ *         LogGroupName: "STRING_VALUE",
+ *         DatetimeFormat: "STRING_VALUE",
+ *         TimeZone: "STRING_VALUE",
+ *         File: "STRING_VALUE",
+ *         FileFingerprintLines: "STRING_VALUE",
+ *         MultiLineStartPattern: "STRING_VALUE",
+ *         InitialPosition: "STRING_VALUE",
+ *         Encoding: "STRING_VALUE",
+ *         BufferDuration: Number("int"),
+ *         BatchCount: Number("int"),
+ *         BatchSize: Number("int"),
+ *       },
+ *     ],
+ *   },
+ *   CustomInstanceProfileArn: "STRING_VALUE",
+ *   CustomJson: "STRING_VALUE",
+ *   CustomSecurityGroupIds: [ // Strings
+ *     "STRING_VALUE",
+ *   ],
+ *   Packages: [
+ *     "STRING_VALUE",
+ *   ],
+ *   VolumeConfigurations: [ // VolumeConfigurations
+ *     { // VolumeConfiguration
+ *       MountPoint: "STRING_VALUE", // required
+ *       RaidLevel: Number("int"),
+ *       NumberOfDisks: Number("int"), // required
+ *       Size: Number("int"), // required
+ *       VolumeType: "STRING_VALUE",
+ *       Iops: Number("int"),
+ *       Encrypted: true || false,
+ *     },
+ *   ],
+ *   EnableAutoHealing: true || false,
+ *   AutoAssignElasticIps: true || false,
+ *   AutoAssignPublicIps: true || false,
+ *   CustomRecipes: { // Recipes
+ *     Setup: [
+ *       "STRING_VALUE",
+ *     ],
+ *     Configure: [
+ *       "STRING_VALUE",
+ *     ],
+ *     Deploy: [
+ *       "STRING_VALUE",
+ *     ],
+ *     Undeploy: "<Strings>",
+ *     Shutdown: "<Strings>",
+ *   },
+ *   InstallUpdatesOnBoot: true || false,
+ *   UseEbsOptimizedInstances: true || false,
+ *   LifecycleEventConfiguration: { // LifecycleEventConfiguration
+ *     Shutdown: { // ShutdownEventConfiguration
+ *       ExecutionTimeout: Number("int"),
+ *       DelayUntilElbConnectionsDrained: true || false,
+ *     },
+ *   },
+ * };
  * const command = new UpdateLayerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateLayerCommandInput - {@link UpdateLayerCommandInput}
+ * @returns {@link UpdateLayerCommandOutput}
  * @see {@link UpdateLayerCommandInput} for command's `input` shape.
  * @see {@link UpdateLayerCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Indicates that a resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that a request was not valid.</p>
+ *
  *
  */
 export class UpdateLayerCommand extends $Command<
@@ -62,6 +148,9 @@ export class UpdateLayerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateLayerCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +177,8 @@ export class UpdateLayerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateLayerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +188,18 @@ export class UpdateLayerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateLayerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateLayerCommand(input, context);
+    return se_UpdateLayerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLayerCommandOutput> {
-    return deserializeAws_json1_1UpdateLayerCommand(output, context);
+    return de_UpdateLayerCommand(output, context);
   }
 
   // Start section: command_body_extra

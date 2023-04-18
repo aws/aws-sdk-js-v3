@@ -6,12 +6,11 @@ import {
   ListInstanceGroupsCommandInput,
   ListInstanceGroupsCommandOutput,
 } from "../commands/ListInstanceGroupsCommand";
-import { EMR } from "../EMR";
 import { EMRClient } from "../EMRClient";
 import { EMRPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: EMRClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListInstanceGroupsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: EMR,
-  input: ListInstanceGroupsCommandInput,
-  ...args: any
-): Promise<ListInstanceGroupsCommandOutput> => {
-  // @ts-ignore
-  return await client.listInstanceGroups(input, ...args);
-};
 export async function* paginateListInstanceGroups(
   config: EMRPaginationConfiguration,
   input: ListInstanceGroupsCommandInput,
@@ -43,9 +34,7 @@ export async function* paginateListInstanceGroups(
   let page: ListInstanceGroupsCommandOutput;
   while (hasNext) {
     input.Marker = token;
-    if (config.client instanceof EMR) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof EMRClient) {
+    if (config.client instanceof EMRClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected EMR | EMRClient");

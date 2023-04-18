@@ -15,24 +15,31 @@ import {
 
 import {
   ListNamespacesRequest,
-  ListNamespacesRequestFilterSensitiveLog,
   ListNamespacesResponse,
   ListNamespacesResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListNamespacesCommand,
-  serializeAws_json1_1ListNamespacesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListNamespacesCommand, se_ListNamespacesCommand } from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListNamespacesCommand}.
+ */
 export interface ListNamespacesCommandInput extends ListNamespacesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListNamespacesCommand}.
+ */
 export interface ListNamespacesCommandOutput extends ListNamespacesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a list of specified namespaces.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +47,26 @@ export interface ListNamespacesCommandOutput extends ListNamespacesResponse, __M
  * import { RedshiftServerlessClient, ListNamespacesCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, ListNamespacesCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
+ * const input = { // ListNamespacesRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListNamespacesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListNamespacesCommandInput - {@link ListNamespacesCommandInput}
+ * @returns {@link ListNamespacesCommandOutput}
  * @see {@link ListNamespacesCommandInput} for command's `input` shape.
  * @see {@link ListNamespacesCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
+ *
  *
  */
 export class ListNamespacesCommand extends $Command<
@@ -66,6 +86,9 @@ export class ListNamespacesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListNamespacesCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,7 +117,7 @@ export class ListNamespacesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListNamespacesRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListNamespacesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -105,12 +128,18 @@ export class ListNamespacesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListNamespacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListNamespacesCommand(input, context);
+    return se_ListNamespacesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNamespacesCommandOutput> {
-    return deserializeAws_json1_1ListNamespacesCommand(output, context);
+    return de_ListNamespacesCommand(output, context);
   }
 
   // Start section: command_body_extra

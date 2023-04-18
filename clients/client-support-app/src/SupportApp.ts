@@ -54,6 +54,7 @@ import {
 import { SupportAppClient } from "./SupportAppClient";
 
 /**
+ * @public
  * <fullname>Amazon Web Services Support App in Slack</fullname>
  *          <p>You can use the Amazon Web Services Support App in Slack API to manage your support cases in Slack for your
  *       Amazon Web Services account. After you configure your Slack workspace and channel with the Amazon Web Services Support App, you can
@@ -111,6 +112,7 @@ import { SupportAppClient } from "./SupportAppClient";
  */
 export class SupportApp extends SupportAppClient {
   /**
+   * @public
    * <p>Creates a Slack channel configuration for your Amazon Web Services account.</p>
    *          <note>
    *             <ul>
@@ -163,6 +165,7 @@ export class SupportApp extends SupportAppClient {
   }
 
   /**
+   * @public
    * <p>Deletes an alias for an Amazon Web Services account ID. The alias appears in the Amazon Web Services Support App page of the
    *       Amazon Web Services Support Center. The alias also appears in Slack messages from the Amazon Web Services Support App.</p>
    */
@@ -196,6 +199,7 @@ export class SupportApp extends SupportAppClient {
   }
 
   /**
+   * @public
    * <p>Deletes a Slack channel configuration from your Amazon Web Services account. This operation doesn't
    *       delete your Slack channel.</p>
    */
@@ -229,6 +233,7 @@ export class SupportApp extends SupportAppClient {
   }
 
   /**
+   * @public
    * <p>Deletes a Slack workspace configuration from your Amazon Web Services account. This operation doesn't
    *       delete your Slack workspace.</p>
    */
@@ -262,6 +267,7 @@ export class SupportApp extends SupportAppClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the alias from an Amazon Web Services account ID. The alias appears in the Amazon Web Services Support App page of
    *       the Amazon Web Services Support Center. The alias also appears in Slack messages from the Amazon Web Services Support App.</p>
    */
@@ -295,6 +301,7 @@ export class SupportApp extends SupportAppClient {
   }
 
   /**
+   * @public
    * <p>Lists the Slack channel configurations for an Amazon Web Services account.</p>
    */
   public listSlackChannelConfigurations(
@@ -327,6 +334,7 @@ export class SupportApp extends SupportAppClient {
   }
 
   /**
+   * @public
    * <p>Lists the Slack workspace configurations for an Amazon Web Services account.</p>
    */
   public listSlackWorkspaceConfigurations(
@@ -359,6 +367,7 @@ export class SupportApp extends SupportAppClient {
   }
 
   /**
+   * @public
    * <p>Creates or updates an individual alias for each Amazon Web Services account ID. The alias appears in the
    *       Amazon Web Services Support App page of the Amazon Web Services Support Center. The alias also appears in Slack messages from the
    *       Amazon Web Services Support App.</p>
@@ -393,6 +402,7 @@ export class SupportApp extends SupportAppClient {
   }
 
   /**
+   * @public
    * <p>Registers a Slack workspace for your Amazon Web Services account. To call this API, your account must be
    *       part of an organization in Organizations.</p>
    *          <p>If you're the <i>management account</i> and you want to register Slack
@@ -456,6 +466,7 @@ export class SupportApp extends SupportAppClient {
   }
 
   /**
+   * @public
    * <p>Updates the configuration for a Slack channel, such as case update notifications.</p>
    */
   public updateSlackChannelConfiguration(

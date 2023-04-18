@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import {
-  UpdateApiRequest,
-  UpdateApiRequestFilterSensitiveLog,
-  UpdateApiResponse,
-  UpdateApiResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateApiCommand,
-  serializeAws_restJson1UpdateApiCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateApiRequest, UpdateApiResponse } from "../models/models_0";
+import { de_UpdateApiCommand, se_UpdateApiCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateApiCommand}.
+ */
 export interface UpdateApiCommandInput extends UpdateApiRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateApiCommand}.
+ */
 export interface UpdateApiCommandOutput extends UpdateApiResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an Api resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,57 @@ export interface UpdateApiCommandOutput extends UpdateApiResponse, __MetadataBea
  * import { ApiGatewayV2Client, UpdateApiCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, UpdateApiCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = { // UpdateApiRequest
+ *   ApiId: "STRING_VALUE", // required
+ *   ApiKeySelectionExpression: "STRING_VALUE",
+ *   CorsConfiguration: { // Cors
+ *     AllowCredentials: true || false,
+ *     AllowHeaders: [ // CorsHeaderList
+ *       "STRING_VALUE",
+ *     ],
+ *     AllowMethods: [ // CorsMethodList
+ *       "STRING_VALUE",
+ *     ],
+ *     AllowOrigins: [ // CorsOriginList
+ *       "STRING_VALUE",
+ *     ],
+ *     ExposeHeaders: [
+ *       "STRING_VALUE",
+ *     ],
+ *     MaxAge: Number("int"),
+ *   },
+ *   CredentialsArn: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   DisableSchemaValidation: true || false,
+ *   DisableExecuteApiEndpoint: true || false,
+ *   Name: "STRING_VALUE",
+ *   RouteKey: "STRING_VALUE",
+ *   RouteSelectionExpression: "STRING_VALUE",
+ *   Target: "STRING_VALUE",
+ *   Version: "STRING_VALUE",
+ * };
  * const command = new UpdateApiCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateApiCommandInput - {@link UpdateApiCommandInput}
+ * @returns {@link UpdateApiCommandOutput}
  * @see {@link UpdateApiCommandInput} for command's `input` shape.
  * @see {@link UpdateApiCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource specified in the request was not found. See the message field for more information.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
+ *
  *
  */
 export class UpdateApiCommand extends $Command<
@@ -62,6 +109,9 @@ export class UpdateApiCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateApiCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +138,8 @@ export class UpdateApiCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateApiRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateApiResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +149,18 @@ export class UpdateApiCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateApiCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateApiCommand(input, context);
+    return se_UpdateApiCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateApiCommandOutput> {
-    return deserializeAws_restJson1UpdateApiCommand(output, context);
+    return de_UpdateApiCommand(output, context);
   }
 
   // Start section: command_body_extra

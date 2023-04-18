@@ -6,12 +6,11 @@ import {
   ListFileSharesCommandInput,
   ListFileSharesCommandOutput,
 } from "../commands/ListFileSharesCommand";
-import { StorageGateway } from "../StorageGateway";
 import { StorageGatewayClient } from "../StorageGatewayClient";
 import { StorageGatewayPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: StorageGatewayClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListFileSharesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: StorageGateway,
-  input: ListFileSharesCommandInput,
-  ...args: any
-): Promise<ListFileSharesCommandOutput> => {
-  // @ts-ignore
-  return await client.listFileShares(input, ...args);
-};
 export async function* paginateListFileShares(
   config: StorageGatewayPaginationConfiguration,
   input: ListFileSharesCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListFileShares(
   while (hasNext) {
     input.Marker = token;
     input["Limit"] = config.pageSize;
-    if (config.client instanceof StorageGateway) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof StorageGatewayClient) {
+    if (config.client instanceof StorageGatewayClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected StorageGateway | StorageGatewayClient");

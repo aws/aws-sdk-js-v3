@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetSecurityPolicyRequest,
-  GetSecurityPolicyRequestFilterSensitiveLog,
-  GetSecurityPolicyResponse,
-  GetSecurityPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetSecurityPolicyRequest, GetSecurityPolicyResponse } from "../models/models_0";
 import {
   OpenSearchServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import {
-  deserializeAws_json1_0GetSecurityPolicyCommand,
-  serializeAws_json1_0GetSecurityPolicyCommand,
-} from "../protocols/Aws_json1_0";
+import { de_GetSecurityPolicyCommand, se_GetSecurityPolicyCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link GetSecurityPolicyCommand}.
+ */
 export interface GetSecurityPolicyCommandInput extends GetSecurityPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetSecurityPolicyCommand}.
+ */
 export interface GetSecurityPolicyCommandOutput extends GetSecurityPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a configured OpenSearch Serverless security policy. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html">Network access
  *             for Amazon OpenSearch Serverless</a> and <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html">Encryption at
  *                 rest for Amazon OpenSearch Serverless</a>.</p>
@@ -42,13 +45,30 @@ export interface GetSecurityPolicyCommandOutput extends GetSecurityPolicyRespons
  * import { OpenSearchServerlessClient, GetSecurityPolicyCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, GetSecurityPolicyCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
+ * const input = { // GetSecurityPolicyRequest
+ *   type: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new GetSecurityPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSecurityPolicyCommandInput - {@link GetSecurityPolicyCommandInput}
+ * @returns {@link GetSecurityPolicyCommandOutput}
  * @see {@link GetSecurityPolicyCommandInput} for command's `input` shape.
  * @see {@link GetSecurityPolicyCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Thrown when an error internal to the service occurs while processing a request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Thrown when accessing or deleting a resource that does not exist.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Thrown when the HTTP request contains invalid input or is missing required
+ *             input.</p>
+ *
  *
  */
 export class GetSecurityPolicyCommand extends $Command<
@@ -68,6 +88,9 @@ export class GetSecurityPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSecurityPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +119,8 @@ export class GetSecurityPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSecurityPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSecurityPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +130,18 @@ export class GetSecurityPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSecurityPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetSecurityPolicyCommand(input, context);
+    return se_GetSecurityPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSecurityPolicyCommandOutput> {
-    return deserializeAws_json1_0GetSecurityPolicyCommand(output, context);
+    return de_GetSecurityPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

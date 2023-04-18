@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeUserProfileRequest,
-  DescribeUserProfileRequestFilterSensitiveLog,
-  DescribeUserProfileResponse,
-  DescribeUserProfileResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeUserProfileCommand,
-  serializeAws_json1_1DescribeUserProfileCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeUserProfileRequest, DescribeUserProfileResponse } from "../models/models_2";
+import { de_DescribeUserProfileCommand, se_DescribeUserProfileCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeUserProfileCommand}.
+ */
 export interface DescribeUserProfileCommandInput extends DescribeUserProfileRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeUserProfileCommand}.
+ */
 export interface DescribeUserProfileCommandOutput extends DescribeUserProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a user profile. For more information, see <code>CreateUserProfile</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,23 @@ export interface DescribeUserProfileCommandOutput extends DescribeUserProfileRes
  * import { SageMakerClient, DescribeUserProfileCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeUserProfileCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DescribeUserProfileRequest
+ *   DomainId: "STRING_VALUE", // required
+ *   UserProfileName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeUserProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeUserProfileCommandInput - {@link DescribeUserProfileCommandInput}
+ * @returns {@link DescribeUserProfileCommandOutput}
  * @see {@link DescribeUserProfileCommandInput} for command's `input` shape.
  * @see {@link DescribeUserProfileCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class DescribeUserProfileCommand extends $Command<
@@ -62,6 +75,9 @@ export class DescribeUserProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeUserProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +106,8 @@ export class DescribeUserProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeUserProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeUserProfileResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +117,18 @@ export class DescribeUserProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeUserProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeUserProfileCommand(input, context);
+    return se_DescribeUserProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeUserProfileCommandOutput> {
-    return deserializeAws_json1_1DescribeUserProfileCommand(output, context);
+    return de_DescribeUserProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

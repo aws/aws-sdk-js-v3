@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
-import {
-  GetCompatibleKafkaVersionsRequest,
-  GetCompatibleKafkaVersionsRequestFilterSensitiveLog,
-  GetCompatibleKafkaVersionsResponse,
-  GetCompatibleKafkaVersionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetCompatibleKafkaVersionsCommand,
-  serializeAws_restJson1GetCompatibleKafkaVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetCompatibleKafkaVersionsRequest, GetCompatibleKafkaVersionsResponse } from "../models/models_0";
+import { de_GetCompatibleKafkaVersionsCommand, se_GetCompatibleKafkaVersionsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetCompatibleKafkaVersionsCommand}.
+ */
 export interface GetCompatibleKafkaVersionsCommandInput extends GetCompatibleKafkaVersionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetCompatibleKafkaVersionsCommand}.
+ */
 export interface GetCompatibleKafkaVersionsCommandOutput extends GetCompatibleKafkaVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the Apache Kafka versions to which you can update the MSK cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,40 @@ export interface GetCompatibleKafkaVersionsCommandOutput extends GetCompatibleKa
  * import { KafkaClient, GetCompatibleKafkaVersionsCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, GetCompatibleKafkaVersionsCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
+ * const input = { // GetCompatibleKafkaVersionsRequest
+ *   ClusterArn: "STRING_VALUE",
+ * };
  * const command = new GetCompatibleKafkaVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCompatibleKafkaVersionsCommandInput - {@link GetCompatibleKafkaVersionsCommandInput}
+ * @returns {@link GetCompatibleKafkaVersionsCommandOutput}
  * @see {@link GetCompatibleKafkaVersionsCommandInput} for command's `input` shape.
  * @see {@link GetCompatibleKafkaVersionsCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
  *
  */
 export class GetCompatibleKafkaVersionsCommand extends $Command<
@@ -62,6 +92,9 @@ export class GetCompatibleKafkaVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCompatibleKafkaVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +123,8 @@ export class GetCompatibleKafkaVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCompatibleKafkaVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCompatibleKafkaVersionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +134,21 @@ export class GetCompatibleKafkaVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCompatibleKafkaVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetCompatibleKafkaVersionsCommand(input, context);
+    return se_GetCompatibleKafkaVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCompatibleKafkaVersionsCommandOutput> {
-    return deserializeAws_restJson1GetCompatibleKafkaVersionsCommand(output, context);
+    return de_GetCompatibleKafkaVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

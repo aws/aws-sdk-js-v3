@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  CancelBundleTaskRequest,
-  CancelBundleTaskRequestFilterSensitiveLog,
-  CancelBundleTaskResult,
-  CancelBundleTaskResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_ec2CancelBundleTaskCommand,
-  serializeAws_ec2CancelBundleTaskCommand,
-} from "../protocols/Aws_ec2";
+import { CancelBundleTaskRequest, CancelBundleTaskResult } from "../models/models_0";
+import { de_CancelBundleTaskCommand, se_CancelBundleTaskCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link CancelBundleTaskCommand}.
+ */
 export interface CancelBundleTaskCommandInput extends CancelBundleTaskRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CancelBundleTaskCommand}.
+ */
 export interface CancelBundleTaskCommandOutput extends CancelBundleTaskResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels a bundling operation for an instance store-backed Windows instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,20 @@ export interface CancelBundleTaskCommandOutput extends CancelBundleTaskResult, _
  * import { EC2Client, CancelBundleTaskCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CancelBundleTaskCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // CancelBundleTaskRequest
+ *   BundleId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new CancelBundleTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelBundleTaskCommandInput - {@link CancelBundleTaskCommandInput}
+ * @returns {@link CancelBundleTaskCommandOutput}
  * @see {@link CancelBundleTaskCommandInput} for command's `input` shape.
  * @see {@link CancelBundleTaskCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class CancelBundleTaskCommand extends $Command<
@@ -62,6 +72,9 @@ export class CancelBundleTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelBundleTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +103,8 @@ export class CancelBundleTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelBundleTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelBundleTaskResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +114,18 @@ export class CancelBundleTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelBundleTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CancelBundleTaskCommand(input, context);
+    return se_CancelBundleTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelBundleTaskCommandOutput> {
-    return deserializeAws_ec2CancelBundleTaskCommand(output, context);
+    return de_CancelBundleTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

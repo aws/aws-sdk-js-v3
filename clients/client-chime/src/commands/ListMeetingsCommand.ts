@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import {
-  ListMeetingsRequest,
-  ListMeetingsRequestFilterSensitiveLog,
-  ListMeetingsResponse,
-  ListMeetingsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListMeetingsCommand,
-  serializeAws_restJson1ListMeetingsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListMeetingsRequest, ListMeetingsResponse, ListMeetingsResponseFilterSensitiveLog } from "../models/models_1";
+import { de_ListMeetingsCommand, se_ListMeetingsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListMeetingsCommand}.
+ */
 export interface ListMeetingsCommandInput extends ListMeetingsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListMeetingsCommand}.
+ */
 export interface ListMeetingsCommandOutput extends ListMeetingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  * Lists up to 100 active Amazon Chime SDK meetings. For more information about the Amazon Chime SDK, see
  * <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
@@ -39,13 +42,38 @@ export interface ListMeetingsCommandOutput extends ListMeetingsResponse, __Metad
  * import { ChimeClient, ListMeetingsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, ListMeetingsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // ListMeetingsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListMeetingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMeetingsCommandInput - {@link ListMeetingsCommandInput}
+ * @returns {@link ListMeetingsCommandOutput}
  * @see {@link ListMeetingsCommandInput} for command's `input` shape.
  * @see {@link ListMeetingsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The client exceeded its request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client is not currently authorized to make the request.</p>
+ *
  *
  */
 export class ListMeetingsCommand extends $Command<
@@ -65,6 +93,9 @@ export class ListMeetingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMeetingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,7 +122,7 @@ export class ListMeetingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMeetingsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListMeetingsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -102,12 +133,18 @@ export class ListMeetingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMeetingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListMeetingsCommand(input, context);
+    return se_ListMeetingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMeetingsCommandOutput> {
-    return deserializeAws_restJson1ListMeetingsCommand(output, context);
+    return de_ListMeetingsCommand(output, context);
   }
 
   // Start section: command_body_extra

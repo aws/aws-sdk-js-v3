@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  DescribeMultiplexRequest,
-  DescribeMultiplexRequestFilterSensitiveLog,
-  DescribeMultiplexResponse,
-  DescribeMultiplexResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1DescribeMultiplexCommand,
-  serializeAws_restJson1DescribeMultiplexCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeMultiplexRequest, DescribeMultiplexResponse } from "../models/models_1";
+import { de_DescribeMultiplexCommand, se_DescribeMultiplexCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeMultiplexCommand}.
+ */
 export interface DescribeMultiplexCommandInput extends DescribeMultiplexRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeMultiplexCommand}.
+ */
 export interface DescribeMultiplexCommandOutput extends DescribeMultiplexResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Gets details about a multiplex.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,40 @@ export interface DescribeMultiplexCommandOutput extends DescribeMultiplexRespons
  * import { MediaLiveClient, DescribeMultiplexCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, DescribeMultiplexCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = { // DescribeMultiplexRequest
+ *   MultiplexId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeMultiplexCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMultiplexCommandInput - {@link DescribeMultiplexCommandInput}
+ * @returns {@link DescribeMultiplexCommandOutput}
  * @see {@link DescribeMultiplexCommandInput} for command's `input` shape.
  * @see {@link DescribeMultiplexCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
+ *
+ * @throws {@link BadGatewayException} (server fault)
+ *  Placeholder documentation for BadGatewayException
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  Placeholder documentation for BadRequestException
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  Placeholder documentation for ForbiddenException
+ *
+ * @throws {@link GatewayTimeoutException} (server fault)
+ *  Placeholder documentation for GatewayTimeoutException
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  Placeholder documentation for InternalServerErrorException
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  Placeholder documentation for NotFoundException
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  Placeholder documentation for TooManyRequestsException
+ *
  *
  */
 export class DescribeMultiplexCommand extends $Command<
@@ -62,6 +92,9 @@ export class DescribeMultiplexCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMultiplexCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +123,8 @@ export class DescribeMultiplexCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeMultiplexRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeMultiplexResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +134,18 @@ export class DescribeMultiplexCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeMultiplexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeMultiplexCommand(input, context);
+    return se_DescribeMultiplexCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeMultiplexCommandOutput> {
-    return deserializeAws_restJson1DescribeMultiplexCommand(output, context);
+    return de_DescribeMultiplexCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
+import { UpdateMediaStorageConfigurationInput, UpdateMediaStorageConfigurationOutput } from "../models/models_0";
 import {
-  UpdateMediaStorageConfigurationInput,
-  UpdateMediaStorageConfigurationInputFilterSensitiveLog,
-  UpdateMediaStorageConfigurationOutput,
-  UpdateMediaStorageConfigurationOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateMediaStorageConfigurationCommand,
-  serializeAws_restJson1UpdateMediaStorageConfigurationCommand,
+  de_UpdateMediaStorageConfigurationCommand,
+  se_UpdateMediaStorageConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateMediaStorageConfigurationCommand}.
+ */
 export interface UpdateMediaStorageConfigurationCommandInput extends UpdateMediaStorageConfigurationInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateMediaStorageConfigurationCommand}.
+ */
 export interface UpdateMediaStorageConfigurationCommandOutput
   extends UpdateMediaStorageConfigurationOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a <code>SignalingChannel</code> to a stream to store the media. There are two signaling modes that
  *             can specified :</p>
  *          <ul>
@@ -49,13 +55,59 @@ export interface UpdateMediaStorageConfigurationCommandOutput
  * import { KinesisVideoClient, UpdateMediaStorageConfigurationCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, UpdateMediaStorageConfigurationCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
+ * const input = { // UpdateMediaStorageConfigurationInput
+ *   ChannelARN: "STRING_VALUE", // required
+ *   MediaStorageConfiguration: { // MediaStorageConfiguration
+ *     StreamARN: "STRING_VALUE",
+ *     Status: "ENABLED" || "DISABLED", // required
+ *   },
+ * };
  * const command = new UpdateMediaStorageConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateMediaStorageConfigurationCommandInput - {@link UpdateMediaStorageConfigurationCommandInput}
+ * @returns {@link UpdateMediaStorageConfigurationCommandOutput}
  * @see {@link UpdateMediaStorageConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateMediaStorageConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have required permissions to perform this operation.</p>
+ *
+ * @throws {@link ClientLimitExceededException} (client fault)
+ *  <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
+ *             allowed client calls. Try making the call later.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>The value for this input parameter is invalid.</p>
+ *
+ * @throws {@link NoDataRetentionException} (client fault)
+ *  <p>The Stream data retention in hours is equal to zero.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>When the input <code>StreamARN</code> or <code>ChannelARN</code>
+ *             in <code>CLOUD_STORAGE_MODE</code> is already mapped to a different
+ *             Kinesis Video Stream resource, or if the provided input <code>StreamARN</code>
+ *             or <code>ChannelARN</code> is not in Active status, try one of the following : </p>
+ *          <ol>
+ *             <li>
+ *                <p>The <code>DescribeMediaStorageConfiguration</code> API to determine what the stream given channel is mapped to.
+ *             </p>
+ *             </li>
+ *             <li>
+ *                <p>The <code>DescribeMappedResourceConfiguration</code> API to determine the channel that the given stream is mapped to.
+ *             </p>
+ *             </li>
+ *             <li>
+ *                <p>The <code>DescribeStream</code> or <code>DescribeSignalingChannel</code> API to determine the status of the resource.
+ *             </p>
+ *             </li>
+ *          </ol>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
+ *
  *
  */
 export class UpdateMediaStorageConfigurationCommand extends $Command<
@@ -75,6 +127,9 @@ export class UpdateMediaStorageConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateMediaStorageConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +158,8 @@ export class UpdateMediaStorageConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateMediaStorageConfigurationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateMediaStorageConfigurationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,18 +169,24 @@ export class UpdateMediaStorageConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateMediaStorageConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateMediaStorageConfigurationCommand(input, context);
+    return se_UpdateMediaStorageConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateMediaStorageConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateMediaStorageConfigurationCommand(output, context);
+    return de_UpdateMediaStorageConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,21 +19,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import {
-  CreateUserPoolDomainRequest,
-  CreateUserPoolDomainRequestFilterSensitiveLog,
-  CreateUserPoolDomainResponse,
-  CreateUserPoolDomainResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateUserPoolDomainCommand,
-  serializeAws_json1_1CreateUserPoolDomainCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateUserPoolDomainRequest, CreateUserPoolDomainResponse } from "../models/models_0";
+import { de_CreateUserPoolDomainCommand, se_CreateUserPoolDomainCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateUserPoolDomainCommand}.
+ */
 export interface CreateUserPoolDomainCommandInput extends CreateUserPoolDomainRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateUserPoolDomainCommand}.
+ */
 export interface CreateUserPoolDomainCommandOutput extends CreateUserPoolDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new domain for a user pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,13 +44,41 @@ export interface CreateUserPoolDomainCommandOutput extends CreateUserPoolDomainR
  * import { CognitoIdentityProviderClient, CreateUserPoolDomainCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, CreateUserPoolDomainCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // CreateUserPoolDomainRequest
+ *   Domain: "STRING_VALUE", // required
+ *   UserPoolId: "STRING_VALUE", // required
+ *   CustomDomainConfig: { // CustomDomainConfigType
+ *     CertificateArn: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new CreateUserPoolDomainCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateUserPoolDomainCommandInput - {@link CreateUserPoolDomainCommandInput}
+ * @returns {@link CreateUserPoolDomainCommandOutput}
  * @see {@link CreateUserPoolDomainCommandInput} for command's `input` shape.
  * @see {@link CreateUserPoolDomainCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
+ *             parameter.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services
+ *             resource.</p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
+ *             resource.</p>
+ *
  *
  */
 export class CreateUserPoolDomainCommand extends $Command<
@@ -67,6 +98,9 @@ export class CreateUserPoolDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateUserPoolDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +130,8 @@ export class CreateUserPoolDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateUserPoolDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateUserPoolDomainResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +141,18 @@ export class CreateUserPoolDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateUserPoolDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateUserPoolDomainCommand(input, context);
+    return se_CreateUserPoolDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateUserPoolDomainCommandOutput> {
-    return deserializeAws_json1_1CreateUserPoolDomainCommand(output, context);
+    return de_CreateUserPoolDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

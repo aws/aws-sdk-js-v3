@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import {
-  ListMeshesInput,
-  ListMeshesInputFilterSensitiveLog,
-  ListMeshesOutput,
-  ListMeshesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListMeshesCommand,
-  serializeAws_restJson1ListMeshesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListMeshesInput, ListMeshesOutput } from "../models/models_0";
+import { de_ListMeshesCommand, se_ListMeshesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListMeshesCommand}.
+ */
 export interface ListMeshesCommandInput extends ListMeshesInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListMeshesCommand}.
+ */
 export interface ListMeshesCommandOutput extends ListMeshesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of existing service meshes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,41 @@ export interface ListMeshesCommandOutput extends ListMeshesOutput, __MetadataBea
  * import { AppMeshClient, ListMeshesCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, ListMeshesCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
+ * const input = { // ListMeshesInput
+ *   nextToken: "STRING_VALUE",
+ *   limit: Number("int"),
+ * };
  * const command = new ListMeshesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMeshesCommandInput - {@link ListMeshesCommandInput}
+ * @returns {@link ListMeshesCommandOutput}
  * @see {@link ListMeshesCommandInput} for command's `input` shape.
  * @see {@link ListMeshesCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request syntax was malformed. Check your request syntax and try again.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>You don't have permissions to perform this action.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception, or
+ *          failure.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The specified resource doesn't exist. Check your request syntax and try again.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request has failed due to a temporary failure of the service.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The maximum request rate permitted by the App Mesh APIs has been exceeded for
+ *          your account. For best results, use an increasing or variable sleep interval between
+ *          requests.</p>
+ *
  *
  */
 export class ListMeshesCommand extends $Command<
@@ -62,6 +93,9 @@ export class ListMeshesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMeshesCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +122,8 @@ export class ListMeshesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMeshesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMeshesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +133,18 @@ export class ListMeshesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMeshesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListMeshesCommand(input, context);
+    return se_ListMeshesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMeshesCommandOutput> {
-    return deserializeAws_restJson1ListMeshesCommand(output, context);
+    return de_ListMeshesCommand(output, context);
   }
 
   // Start section: command_body_extra

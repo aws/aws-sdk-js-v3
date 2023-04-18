@@ -8,6 +8,11 @@ import {
   CreateAppInstanceAdminCommandOutput,
 } from "./commands/CreateAppInstanceAdminCommand";
 import {
+  CreateAppInstanceBotCommand,
+  CreateAppInstanceBotCommandInput,
+  CreateAppInstanceBotCommandOutput,
+} from "./commands/CreateAppInstanceBotCommand";
+import {
   CreateAppInstanceCommand,
   CreateAppInstanceCommandInput,
   CreateAppInstanceCommandOutput,
@@ -22,6 +27,11 @@ import {
   DeleteAppInstanceAdminCommandInput,
   DeleteAppInstanceAdminCommandOutput,
 } from "./commands/DeleteAppInstanceAdminCommand";
+import {
+  DeleteAppInstanceBotCommand,
+  DeleteAppInstanceBotCommandInput,
+  DeleteAppInstanceBotCommandOutput,
+} from "./commands/DeleteAppInstanceBotCommand";
 import {
   DeleteAppInstanceCommand,
   DeleteAppInstanceCommandInput,
@@ -42,6 +52,11 @@ import {
   DescribeAppInstanceAdminCommandInput,
   DescribeAppInstanceAdminCommandOutput,
 } from "./commands/DescribeAppInstanceAdminCommand";
+import {
+  DescribeAppInstanceBotCommand,
+  DescribeAppInstanceBotCommandInput,
+  DescribeAppInstanceBotCommandOutput,
+} from "./commands/DescribeAppInstanceBotCommand";
 import {
   DescribeAppInstanceCommand,
   DescribeAppInstanceCommandInput,
@@ -68,6 +83,11 @@ import {
   ListAppInstanceAdminsCommandOutput,
 } from "./commands/ListAppInstanceAdminsCommand";
 import {
+  ListAppInstanceBotsCommand,
+  ListAppInstanceBotsCommandInput,
+  ListAppInstanceBotsCommandOutput,
+} from "./commands/ListAppInstanceBotsCommand";
+import {
   ListAppInstancesCommand,
   ListAppInstancesCommandInput,
   ListAppInstancesCommandOutput,
@@ -93,6 +113,11 @@ import {
   PutAppInstanceRetentionSettingsCommandOutput,
 } from "./commands/PutAppInstanceRetentionSettingsCommand";
 import {
+  PutAppInstanceUserExpirationSettingsCommand,
+  PutAppInstanceUserExpirationSettingsCommandInput,
+  PutAppInstanceUserExpirationSettingsCommandOutput,
+} from "./commands/PutAppInstanceUserExpirationSettingsCommand";
+import {
   RegisterAppInstanceUserEndpointCommand,
   RegisterAppInstanceUserEndpointCommandInput,
   RegisterAppInstanceUserEndpointCommandOutput,
@@ -103,6 +128,11 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import {
+  UpdateAppInstanceBotCommand,
+  UpdateAppInstanceBotCommandInput,
+  UpdateAppInstanceBotCommandOutput,
+} from "./commands/UpdateAppInstanceBotCommand";
 import {
   UpdateAppInstanceCommand,
   UpdateAppInstanceCommandInput,
@@ -120,6 +150,7 @@ import {
 } from "./commands/UpdateAppInstanceUserEndpointCommand";
 
 /**
+ * @public
  * <p>The Amazon Chime SDK Identity APIs in this section allow software developers to create
  *          and manage unique instances of their messaging applications. These APIs provide the
  *          overarching framework for creating and sending messages. For more information about the
@@ -127,6 +158,7 @@ import {
  */
 export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   /**
+   * @public
    * <p>Creates an Amazon Chime SDK messaging <code>AppInstance</code> under an AWS account.
    *          Only SDK messaging customers use this API. <code>CreateAppInstance</code> supports
    *          idempotency behavior as described in the AWS API Standard.</p>
@@ -162,9 +194,10 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
-   * <p>Promotes an <code>AppInstanceUser</code> to an <code>AppInstanceAdmin</code>. The
-   *          promoted user can perform the following actions. </p>
-   *
+   * @public
+   * <p>Promotes an <code>AppInstanceUser</code> or <code>AppInstanceBot</code> to an
+   *          <code>AppInstanceAdmin</code>. The
+   *          promoted entity can perform the following actions. </p>
    *          <ul>
    *             <li>
    *                <p>
@@ -176,8 +209,7 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
    *                   <code>DeleteChannelMessage</code> actions.</p>
    *             </li>
    *          </ul>
-   *
-   *          <p>Only an <code>AppInstanceUser</code> can be promoted to an <code>AppInstanceAdmin</code>
+   *          <p>Only an <code>AppInstanceUser</code> and <code>AppInstanceBot</code> can be promoted to an <code>AppInstanceAdmin</code>
    *          role.</p>
    */
   public createAppInstanceAdmin(
@@ -210,6 +242,41 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
+   * @public
+   * <p>Creates a bot under an Amazon Chime <code>AppInstance</code>. The request consists of a
+   *          unique <code>Configuration</code> and <code>Name</code> for that bot.</p>
+   */
+  public createAppInstanceBot(
+    args: CreateAppInstanceBotCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAppInstanceBotCommandOutput>;
+  public createAppInstanceBot(
+    args: CreateAppInstanceBotCommandInput,
+    cb: (err: any, data?: CreateAppInstanceBotCommandOutput) => void
+  ): void;
+  public createAppInstanceBot(
+    args: CreateAppInstanceBotCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAppInstanceBotCommandOutput) => void
+  ): void;
+  public createAppInstanceBot(
+    args: CreateAppInstanceBotCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAppInstanceBotCommandOutput) => void),
+    cb?: (err: any, data?: CreateAppInstanceBotCommandOutput) => void
+  ): Promise<CreateAppInstanceBotCommandOutput> | void {
+    const command = new CreateAppInstanceBotCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Creates a user under an Amazon Chime <code>AppInstance</code>. The request consists of a
    *          unique <code>appInstanceUserId</code> and <code>Name</code> for that user.</p>
    */
@@ -243,6 +310,7 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
+   * @public
    * <p>Deletes an <code>AppInstance</code> and all associated data asynchronously.</p>
    */
   public deleteAppInstance(
@@ -275,7 +343,9 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
-   * <p>Demotes an <code>AppInstanceAdmin</code> to an <code>AppInstanceUser</code>. This action
+   * @public
+   * <p>Demotes an <code>AppInstanceAdmin</code> to an <code>AppInstanceUser</code> or
+   *          <code>AppInstanceBot</code>. This action
    *          does not delete the user.</p>
    */
   public deleteAppInstanceAdmin(
@@ -308,6 +378,40 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
+   * @public
+   * <p>Deletes an <code>AppInstanceBot</code>.</p>
+   */
+  public deleteAppInstanceBot(
+    args: DeleteAppInstanceBotCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAppInstanceBotCommandOutput>;
+  public deleteAppInstanceBot(
+    args: DeleteAppInstanceBotCommandInput,
+    cb: (err: any, data?: DeleteAppInstanceBotCommandOutput) => void
+  ): void;
+  public deleteAppInstanceBot(
+    args: DeleteAppInstanceBotCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAppInstanceBotCommandOutput) => void
+  ): void;
+  public deleteAppInstanceBot(
+    args: DeleteAppInstanceBotCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAppInstanceBotCommandOutput) => void),
+    cb?: (err: any, data?: DeleteAppInstanceBotCommandOutput) => void
+  ): Promise<DeleteAppInstanceBotCommandOutput> | void {
+    const command = new DeleteAppInstanceBotCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Deletes an <code>AppInstanceUser</code>.</p>
    */
   public deleteAppInstanceUser(
@@ -340,6 +444,7 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
+   * @public
    * <p>Deregisters an <code>AppInstanceUserEndpoint</code>.</p>
    */
   public deregisterAppInstanceUserEndpoint(
@@ -372,6 +477,7 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
+   * @public
    * <p>Returns the full details of an <code>AppInstance</code>.</p>
    */
   public describeAppInstance(
@@ -404,6 +510,7 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
+   * @public
    * <p>Returns the full details of an <code>AppInstanceAdmin</code>.</p>
    */
   public describeAppInstanceAdmin(
@@ -436,6 +543,40 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
+   * @public
+   * <p>The <code>AppInstanceBot's</code> information.</p>
+   */
+  public describeAppInstanceBot(
+    args: DescribeAppInstanceBotCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAppInstanceBotCommandOutput>;
+  public describeAppInstanceBot(
+    args: DescribeAppInstanceBotCommandInput,
+    cb: (err: any, data?: DescribeAppInstanceBotCommandOutput) => void
+  ): void;
+  public describeAppInstanceBot(
+    args: DescribeAppInstanceBotCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAppInstanceBotCommandOutput) => void
+  ): void;
+  public describeAppInstanceBot(
+    args: DescribeAppInstanceBotCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAppInstanceBotCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAppInstanceBotCommandOutput) => void
+  ): Promise<DescribeAppInstanceBotCommandOutput> | void {
+    const command = new DescribeAppInstanceBotCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Returns the full details of an <code>AppInstanceUser</code>.</p>
    */
   public describeAppInstanceUser(
@@ -468,6 +609,7 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
+   * @public
    * <p>Returns the full details of an <code>AppInstanceUserEndpoint</code>.</p>
    */
   public describeAppInstanceUserEndpoint(
@@ -500,6 +642,7 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
+   * @public
    * <p>Gets the retention settings for an <code>AppInstance</code>.</p>
    */
   public getAppInstanceRetentionSettings(
@@ -532,6 +675,7 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of the administrators in the <code>AppInstance</code>.</p>
    */
   public listAppInstanceAdmins(
@@ -564,6 +708,40 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
+   * @public
+   * <p>Lists all <code>AppInstanceBots</code> created under a single <code>AppInstance</code>.</p>
+   */
+  public listAppInstanceBots(
+    args: ListAppInstanceBotsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAppInstanceBotsCommandOutput>;
+  public listAppInstanceBots(
+    args: ListAppInstanceBotsCommandInput,
+    cb: (err: any, data?: ListAppInstanceBotsCommandOutput) => void
+  ): void;
+  public listAppInstanceBots(
+    args: ListAppInstanceBotsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAppInstanceBotsCommandOutput) => void
+  ): void;
+  public listAppInstanceBots(
+    args: ListAppInstanceBotsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAppInstanceBotsCommandOutput) => void),
+    cb?: (err: any, data?: ListAppInstanceBotsCommandOutput) => void
+  ): Promise<ListAppInstanceBotsCommandOutput> | void {
+    const command = new ListAppInstanceBotsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Lists all Amazon Chime <code>AppInstance</code>s created under a single AWS
    *          account.</p>
    */
@@ -597,6 +775,7 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
+   * @public
    * <p>Lists all the <code>AppInstanceUserEndpoints</code> created under a single <code>AppInstanceUser</code>.</p>
    */
   public listAppInstanceUserEndpoints(
@@ -629,6 +808,7 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
+   * @public
    * <p>List all <code>AppInstanceUsers</code> created under a single
    *          <code>AppInstance</code>.</p>
    */
@@ -662,6 +842,7 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags applied to an Amazon Chime SDK identity resource.</p>
    */
   public listTagsForResource(
@@ -694,6 +875,7 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
+   * @public
    * <p>Sets the amount of time in days that a given <code>AppInstance</code> retains
    *          data.</p>
    */
@@ -727,6 +909,46 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
+   * @public
+   * <p>Sets the number of days before the <code>AppInstanceUser</code> is automatically deleted.</p>
+   *          <note>
+   *             <p>A background process deletes expired <code>AppInstanceUsers</code> within 6 hours of expiration.
+   *             Actual deletion times may vary.</p>
+   *             <p>Expired <code>AppInstanceUsers</code> that have not yet been deleted appear as active, and you can update
+   *             their expiration settings. The system honors the new settings.</p>
+   *          </note>
+   */
+  public putAppInstanceUserExpirationSettings(
+    args: PutAppInstanceUserExpirationSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutAppInstanceUserExpirationSettingsCommandOutput>;
+  public putAppInstanceUserExpirationSettings(
+    args: PutAppInstanceUserExpirationSettingsCommandInput,
+    cb: (err: any, data?: PutAppInstanceUserExpirationSettingsCommandOutput) => void
+  ): void;
+  public putAppInstanceUserExpirationSettings(
+    args: PutAppInstanceUserExpirationSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutAppInstanceUserExpirationSettingsCommandOutput) => void
+  ): void;
+  public putAppInstanceUserExpirationSettings(
+    args: PutAppInstanceUserExpirationSettingsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutAppInstanceUserExpirationSettingsCommandOutput) => void),
+    cb?: (err: any, data?: PutAppInstanceUserExpirationSettingsCommandOutput) => void
+  ): Promise<PutAppInstanceUserExpirationSettingsCommandOutput> | void {
+    const command = new PutAppInstanceUserExpirationSettingsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Registers an endpoint under an Amazon Chime <code>AppInstanceUser</code>. The endpoint receives messages for a user. For push notifications, the endpoint is a mobile device used to receive mobile push notifications for a user.</p>
    */
   public registerAppInstanceUserEndpoint(
@@ -759,6 +981,7 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
+   * @public
    * <p>Applies the specified tags to the specified Amazon Chime SDK identity resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -785,6 +1008,7 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified tags from the specified Amazon Chime SDK identity resource.</p>
    */
   public untagResource(
@@ -817,6 +1041,7 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
+   * @public
    * <p>Updates <code>AppInstance</code> metadata.</p>
    */
   public updateAppInstance(
@@ -849,6 +1074,40 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
+   * @public
+   * <p>Updates the name and metadata of an <code>AppInstanceBot</code>.</p>
+   */
+  public updateAppInstanceBot(
+    args: UpdateAppInstanceBotCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAppInstanceBotCommandOutput>;
+  public updateAppInstanceBot(
+    args: UpdateAppInstanceBotCommandInput,
+    cb: (err: any, data?: UpdateAppInstanceBotCommandOutput) => void
+  ): void;
+  public updateAppInstanceBot(
+    args: UpdateAppInstanceBotCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAppInstanceBotCommandOutput) => void
+  ): void;
+  public updateAppInstanceBot(
+    args: UpdateAppInstanceBotCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAppInstanceBotCommandOutput) => void),
+    cb?: (err: any, data?: UpdateAppInstanceBotCommandOutput) => void
+  ): Promise<UpdateAppInstanceBotCommandOutput> | void {
+    const command = new UpdateAppInstanceBotCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Updates the details of an <code>AppInstanceUser</code>. You can update names and
    *          metadata.</p>
    */
@@ -882,6 +1141,7 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
+   * @public
    * <p>Updates the details of an <code>AppInstanceUserEndpoint</code>. You can update the name and <code>AllowMessage</code> values.</p>
    */
   public updateAppInstanceUserEndpoint(

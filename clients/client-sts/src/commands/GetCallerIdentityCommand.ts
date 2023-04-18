@@ -14,22 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetCallerIdentityRequest,
-  GetCallerIdentityRequestFilterSensitiveLog,
-  GetCallerIdentityResponse,
-  GetCallerIdentityResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryGetCallerIdentityCommand,
-  serializeAws_queryGetCallerIdentityCommand,
-} from "../protocols/Aws_query";
+import { GetCallerIdentityRequest, GetCallerIdentityResponse } from "../models/models_0";
+import { de_GetCallerIdentityCommand, se_GetCallerIdentityCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetCallerIdentityCommand}.
+ */
 export interface GetCallerIdentityCommandInput extends GetCallerIdentityRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetCallerIdentityCommand}.
+ */
 export interface GetCallerIdentityCommandOutput extends GetCallerIdentityResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns details about the IAM user or role whose credentials are used to call the
  *          operation.</p>
  *          <note>
@@ -46,13 +49,65 @@ export interface GetCallerIdentityCommandOutput extends GetCallerIdentityRespons
  * import { STSClient, GetCallerIdentityCommand } from "@aws-sdk/client-sts"; // ES Modules import
  * // const { STSClient, GetCallerIdentityCommand } = require("@aws-sdk/client-sts"); // CommonJS import
  * const client = new STSClient(config);
+ * const input = {};
  * const command = new GetCallerIdentityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCallerIdentityCommandInput - {@link GetCallerIdentityCommandInput}
+ * @returns {@link GetCallerIdentityCommandOutput}
  * @see {@link GetCallerIdentityCommandInput} for command's `input` shape.
  * @see {@link GetCallerIdentityCommandOutput} for command's `response` shape.
  * @see {@link STSClientResolvedConfig | config} for STSClient's `config` shape.
+ *
+ *
+ * @example To get details about a calling IAM user
+ * ```javascript
+ * // This example shows a request and response made with the credentials for a user named Alice in the AWS account 123456789012.
+ * const input = {};
+ * const command = new GetCallerIdentityCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Account": "123456789012",
+ *   "Arn": "arn:aws:iam::123456789012:user/Alice",
+ *   "UserId": "AKIAI44QH8DHBEXAMPLE"
+ * }
+ * *\/
+ * // example id: to-get-details-about-a-calling-iam-user-1480540050376
+ * ```
+ *
+ * @example To get details about a calling user federated with AssumeRole
+ * ```javascript
+ * // This example shows a request and response made with temporary credentials created by AssumeRole. The name of the assumed role is my-role-name, and the RoleSessionName is set to my-role-session-name.
+ * const input = {};
+ * const command = new GetCallerIdentityCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Account": "123456789012",
+ *   "Arn": "arn:aws:sts::123456789012:assumed-role/my-role-name/my-role-session-name",
+ *   "UserId": "AKIAI44QH8DHBEXAMPLE:my-role-session-name"
+ * }
+ * *\/
+ * // example id: to-get-details-about-a-calling-user-federated-with-assumerole-1480540158545
+ * ```
+ *
+ * @example To get details about a calling user federated with GetFederationToken
+ * ```javascript
+ * // This example shows a request and response made with temporary credentials created by using GetFederationToken. The Name parameter is set to my-federated-user-name.
+ * const input = {};
+ * const command = new GetCallerIdentityCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Account": "123456789012",
+ *   "Arn": "arn:aws:sts::123456789012:federated-user/my-federated-user-name",
+ *   "UserId": "123456789012:my-federated-user-name"
+ * }
+ * *\/
+ * // example id: to-get-details-about-a-calling-user-federated-with-getfederationtoken-1480540231316
+ * ```
  *
  */
 export class GetCallerIdentityCommand extends $Command<
@@ -73,6 +128,9 @@ export class GetCallerIdentityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCallerIdentityCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +160,8 @@ export class GetCallerIdentityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCallerIdentityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCallerIdentityResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +171,18 @@ export class GetCallerIdentityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCallerIdentityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetCallerIdentityCommand(input, context);
+    return se_GetCallerIdentityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCallerIdentityCommandOutput> {
-    return deserializeAws_queryGetCallerIdentityCommand(output, context);
+    return de_GetCallerIdentityCommand(output, context);
   }
 
   // Start section: command_body_extra

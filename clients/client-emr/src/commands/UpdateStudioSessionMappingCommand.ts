@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { UpdateStudioSessionMappingInput, UpdateStudioSessionMappingInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateStudioSessionMappingCommand,
-  serializeAws_json1_1UpdateStudioSessionMappingCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateStudioSessionMappingInput } from "../models/models_0";
+import { de_UpdateStudioSessionMappingCommand, se_UpdateStudioSessionMappingCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateStudioSessionMappingCommand}.
+ */
 export interface UpdateStudioSessionMappingCommandInput extends UpdateStudioSessionMappingInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateStudioSessionMappingCommand}.
+ */
 export interface UpdateStudioSessionMappingCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the session policy attached to the user or group for the specified Amazon EMR Studio.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +39,30 @@ export interface UpdateStudioSessionMappingCommandOutput extends __MetadataBeare
  * import { EMRClient, UpdateStudioSessionMappingCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, UpdateStudioSessionMappingCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = { // UpdateStudioSessionMappingInput
+ *   StudioId: "STRING_VALUE", // required
+ *   IdentityId: "STRING_VALUE",
+ *   IdentityName: "STRING_VALUE",
+ *   IdentityType: "USER" || "GROUP", // required
+ *   SessionPolicyArn: "STRING_VALUE", // required
+ * };
  * const command = new UpdateStudioSessionMappingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateStudioSessionMappingCommandInput - {@link UpdateStudioSessionMappingCommandInput}
+ * @returns {@link UpdateStudioSessionMappingCommandOutput}
  * @see {@link UpdateStudioSessionMappingCommandInput} for command's `input` shape.
  * @see {@link UpdateStudioSessionMappingCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Indicates that an error occurred while processing the request and that the request was
+ *          not completed.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception occurs when there is something wrong with user input.</p>
+ *
  *
  */
 export class UpdateStudioSessionMappingCommand extends $Command<
@@ -57,6 +82,9 @@ export class UpdateStudioSessionMappingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateStudioSessionMappingCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +113,8 @@ export class UpdateStudioSessionMappingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateStudioSessionMappingInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,15 +124,21 @@ export class UpdateStudioSessionMappingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateStudioSessionMappingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateStudioSessionMappingCommand(input, context);
+    return se_UpdateStudioSessionMappingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateStudioSessionMappingCommandOutput> {
-    return deserializeAws_json1_1UpdateStudioSessionMappingCommand(output, context);
+    return de_UpdateStudioSessionMappingCommand(output, context);
   }
 
   // Start section: command_body_extra

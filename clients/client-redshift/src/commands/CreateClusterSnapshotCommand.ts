@@ -13,25 +13,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateClusterSnapshotMessage,
-  CreateClusterSnapshotMessageFilterSensitiveLog,
-  CreateClusterSnapshotResult,
-  CreateClusterSnapshotResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCreateClusterSnapshotCommand,
-  serializeAws_queryCreateClusterSnapshotCommand,
-} from "../protocols/Aws_query";
+import { CreateClusterSnapshotMessage, CreateClusterSnapshotResult } from "../models/models_0";
+import { de_CreateClusterSnapshotCommand, se_CreateClusterSnapshotCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateClusterSnapshotCommand}.
+ */
 export interface CreateClusterSnapshotCommandInput extends CreateClusterSnapshotMessage {}
+/**
+ * @public
+ *
+ * The output of {@link CreateClusterSnapshotCommand}.
+ */
 export interface CreateClusterSnapshotCommandOutput extends CreateClusterSnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a manual snapshot of the specified cluster. The cluster must be in the
  *                 <code>available</code> state. </p>
- *         <p>
+ *          <p>
  * For more information about working with snapshots, go to
  * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">Amazon Redshift Snapshots</a>
  * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
@@ -41,13 +44,52 @@ export interface CreateClusterSnapshotCommandOutput extends CreateClusterSnapsho
  * import { RedshiftClient, CreateClusterSnapshotCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, CreateClusterSnapshotCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // CreateClusterSnapshotMessage
+ *   SnapshotIdentifier: "STRING_VALUE", // required
+ *   ClusterIdentifier: "STRING_VALUE", // required
+ *   ManualSnapshotRetentionPeriod: Number("int"),
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateClusterSnapshotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateClusterSnapshotCommandInput - {@link CreateClusterSnapshotCommandInput}
+ * @returns {@link CreateClusterSnapshotCommandOutput}
  * @see {@link CreateClusterSnapshotCommandInput} for command's `input` shape.
  * @see {@link CreateClusterSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
+ *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+ *         </p>
+ *
+ * @throws {@link ClusterSnapshotAlreadyExistsFault} (client fault)
+ *  <p>The value specified as a snapshot identifier is already used by an existing
+ *             snapshot.</p>
+ *
+ * @throws {@link ClusterSnapshotQuotaExceededFault} (client fault)
+ *  <p>The request would result in the user exceeding the allowed number of cluster
+ *             snapshots.</p>
+ *
+ * @throws {@link InvalidClusterStateFault} (client fault)
+ *  <p>The specified cluster is not in the <code>available</code> state. </p>
+ *
+ * @throws {@link InvalidRetentionPeriodFault} (client fault)
+ *  <p>The retention period specified is either in the past or is not a valid value.</p>
+ *          <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+ *
+ * @throws {@link InvalidTagFault} (client fault)
+ *  <p>The tag is invalid.</p>
+ *
+ * @throws {@link TagLimitExceededFault} (client fault)
+ *  <p>You have exceeded the number of tags allowed.</p>
+ *
  *
  */
 export class CreateClusterSnapshotCommand extends $Command<
@@ -67,6 +109,9 @@ export class CreateClusterSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateClusterSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +140,8 @@ export class CreateClusterSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateClusterSnapshotMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateClusterSnapshotResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +151,18 @@ export class CreateClusterSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateClusterSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateClusterSnapshotCommand(input, context);
+    return se_CreateClusterSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateClusterSnapshotCommandOutput> {
-    return deserializeAws_queryCreateClusterSnapshotCommand(output, context);
+    return de_CreateClusterSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

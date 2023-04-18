@@ -11,7 +11,6 @@ import { calculateBodyLength } from "@aws-sdk/util-body-length-browser";
 import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "@aws-sdk/util-retry";
 import { sdkStreamMixin } from "@aws-sdk/util-stream-browser";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-browser";
-import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-browser";
 import { GlacierClientConfig } from "./GlacierClient";
 import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared";
 import { loadConfigsForDefaultMode } from "@aws-sdk/smithy-client";
@@ -45,7 +44,5 @@ export const getRuntimeConfig = (config: GlacierClientConfig) => {
     streamCollector: config?.streamCollector ?? streamCollector,
     useDualstackEndpoint: config?.useDualstackEndpoint ?? (() => Promise.resolve(DEFAULT_USE_DUALSTACK_ENDPOINT)),
     useFipsEndpoint: config?.useFipsEndpoint ?? (() => Promise.resolve(DEFAULT_USE_FIPS_ENDPOINT)),
-    utf8Decoder: config?.utf8Decoder ?? fromUtf8,
-    utf8Encoder: config?.utf8Encoder ?? toUtf8,
   };
 };

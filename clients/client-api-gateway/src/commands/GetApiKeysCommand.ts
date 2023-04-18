@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  ApiKeys,
-  ApiKeysFilterSensitiveLog,
-  GetApiKeysRequest,
-  GetApiKeysRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetApiKeysCommand,
-  serializeAws_restJson1GetApiKeysCommand,
-} from "../protocols/Aws_restJson1";
+import { ApiKeys, GetApiKeysRequest } from "../models/models_0";
+import { de_GetApiKeysCommand, se_GetApiKeysCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetApiKeysCommand}.
+ */
 export interface GetApiKeysCommandInput extends GetApiKeysRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetApiKeysCommand}.
+ */
 export interface GetApiKeysCommandOutput extends ApiKeys, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the current ApiKeys resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,35 @@ export interface GetApiKeysCommandOutput extends ApiKeys, __MetadataBearer {}
  * import { APIGatewayClient, GetApiKeysCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetApiKeysCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // GetApiKeysRequest
+ *   position: "STRING_VALUE",
+ *   limit: Number("int"),
+ *   nameQuery: "STRING_VALUE",
+ *   customerId: "STRING_VALUE",
+ *   includeValues: true || false,
+ * };
  * const command = new GetApiKeysCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetApiKeysCommandInput - {@link GetApiKeysCommandInput}
+ * @returns {@link GetApiKeysCommandOutput}
  * @see {@link GetApiKeysCommandInput} for command's `input` shape.
  * @see {@link GetApiKeysCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The request is denied because the caller has insufficient permissions.</p>
+ *
  *
  */
 export class GetApiKeysCommand extends $Command<
@@ -62,6 +87,9 @@ export class GetApiKeysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetApiKeysCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +116,8 @@ export class GetApiKeysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetApiKeysRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ApiKeysFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +127,18 @@ export class GetApiKeysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetApiKeysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetApiKeysCommand(input, context);
+    return se_GetApiKeysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetApiKeysCommandOutput> {
-    return deserializeAws_restJson1GetApiKeysCommand(output, context);
+    return de_GetApiKeysCommand(output, context);
   }
 
   // Start section: command_body_extra

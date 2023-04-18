@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateDBClusterParameterGroupMessage,
-  CreateDBClusterParameterGroupMessageFilterSensitiveLog,
-  CreateDBClusterParameterGroupResult,
-  CreateDBClusterParameterGroupResultFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateDBClusterParameterGroupMessage, CreateDBClusterParameterGroupResult } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import {
-  deserializeAws_queryCreateDBClusterParameterGroupCommand,
-  serializeAws_queryCreateDBClusterParameterGroupCommand,
+  de_CreateDBClusterParameterGroupCommand,
+  se_CreateDBClusterParameterGroupCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateDBClusterParameterGroupCommand}.
+ */
 export interface CreateDBClusterParameterGroupCommandInput extends CreateDBClusterParameterGroupMessage {}
+/**
+ * @public
+ *
+ * The output of {@link CreateDBClusterParameterGroupCommand}.
+ */
 export interface CreateDBClusterParameterGroupCommandOutput
   extends CreateDBClusterParameterGroupResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new DB cluster parameter group.</p>
  *          <p>Parameters in a DB cluster parameter group apply to all of the instances in a DB
  *       cluster.</p>
@@ -62,13 +68,33 @@ export interface CreateDBClusterParameterGroupCommandOutput
  * import { NeptuneClient, CreateDBClusterParameterGroupCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, CreateDBClusterParameterGroupCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = { // CreateDBClusterParameterGroupMessage
+ *   DBClusterParameterGroupName: "STRING_VALUE", // required
+ *   DBParameterGroupFamily: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateDBClusterParameterGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDBClusterParameterGroupCommandInput - {@link CreateDBClusterParameterGroupCommandInput}
+ * @returns {@link CreateDBClusterParameterGroupCommandOutput}
  * @see {@link CreateDBClusterParameterGroupCommandInput} for command's `input` shape.
  * @see {@link CreateDBClusterParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
+ *
+ * @throws {@link DBParameterGroupAlreadyExistsFault} (client fault)
+ *  <p>A DB parameter group with the same name exists.</p>
+ *
+ * @throws {@link DBParameterGroupQuotaExceededFault} (client fault)
+ *  <p>Request would result in user exceeding the allowed number of DB parameter groups.</p>
+ *
  *
  */
 export class CreateDBClusterParameterGroupCommand extends $Command<
@@ -88,6 +114,9 @@ export class CreateDBClusterParameterGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDBClusterParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +145,8 @@ export class CreateDBClusterParameterGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDBClusterParameterGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDBClusterParameterGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,15 +156,21 @@ export class CreateDBClusterParameterGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDBClusterParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateDBClusterParameterGroupCommand(input, context);
+    return se_CreateDBClusterParameterGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDBClusterParameterGroupCommandOutput> {
-    return deserializeAws_queryCreateDBClusterParameterGroupCommand(output, context);
+    return de_CreateDBClusterParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import {
-  GetIntentRequest,
-  GetIntentRequestFilterSensitiveLog,
-  GetIntentResponse,
-  GetIntentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetIntentCommand,
-  serializeAws_restJson1GetIntentCommand,
-} from "../protocols/Aws_restJson1";
+import { GetIntentRequest, GetIntentResponse } from "../models/models_0";
+import { de_GetIntentCommand, se_GetIntentCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetIntentCommand}.
+ */
 export interface GetIntentCommandInput extends GetIntentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetIntentCommand}.
+ */
 export interface GetIntentCommandOutput extends GetIntentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns information about an intent. In addition to the intent
  *       name, you must specify the intent version. </p>
  *          <p> This operation requires permissions to perform the
@@ -43,13 +46,182 @@ export interface GetIntentCommandOutput extends GetIntentResponse, __MetadataBea
  * import { LexModelBuildingServiceClient, GetIntentCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, GetIntentCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
+ * const input = { // GetIntentRequest
+ *   name: "STRING_VALUE", // required
+ *   version: "STRING_VALUE", // required
+ * };
  * const command = new GetIntentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetIntentCommandInput - {@link GetIntentCommandInput}
+ * @returns {@link GetIntentCommandOutput}
  * @see {@link GetIntentCommandInput} for command's `input` shape.
  * @see {@link GetIntentCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is not well formed. For example, a value is invalid or
+ *       a required field is missing. Check the field values, and try
+ *       again.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal Amazon Lex error occurred. Try your request again.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request exceeded a limit. Try your request again.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource specified in the request was not found. Check the
+ *       resource and try again.</p>
+ *
+ *
+ * @example To get a information about an intent
+ * ```javascript
+ * // This example shows how to get information about an intent.
+ * const input = {
+ *   "version": "$LATEST",
+ *   "name": "DocOrderPizza"
+ * };
+ * const command = new GetIntentCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "version": "$LATEST",
+ *   "name": "DocOrderPizza",
+ *   "checksum": "ca9bc13d-afc8-4706-bbaf-091f7a5935d6",
+ *   "conclusionStatement": {
+ *     "messages": [
+ *       {
+ *         "content": "All right, I ordered  you a {Crust} crust {Type} pizza with {Sauce} sauce.",
+ *         "contentType": "PlainText"
+ *       },
+ *       {
+ *         "content": "OK, your {Crust} crust {Type} pizza with {Sauce} sauce is on the way.",
+ *         "contentType": "PlainText"
+ *       }
+ *     ],
+ *     "responseCard": "foo"
+ *   },
+ *   "confirmationPrompt": {
+ *     "maxAttempts": 1,
+ *     "messages": [
+ *       {
+ *         "content": "Should I order  your {Crust} crust {Type} pizza with {Sauce} sauce?",
+ *         "contentType": "PlainText"
+ *       }
+ *     ]
+ *   },
+ *   "createdDate": 1494359783.453,
+ *   "description": "Order a pizza from a local pizzeria.",
+ *   "fulfillmentActivity": {
+ *     "type": "ReturnIntent"
+ *   },
+ *   "lastUpdatedDate": 1494359783.453,
+ *   "rejectionStatement": {
+ *     "messages": [
+ *       {
+ *         "content": "Ok, I'll cancel your order.",
+ *         "contentType": "PlainText"
+ *       },
+ *       {
+ *         "content": "I cancelled your order.",
+ *         "contentType": "PlainText"
+ *       }
+ *     ]
+ *   },
+ *   "sampleUtterances": [
+ *     "Order me a pizza.",
+ *     "Order me a {Type} pizza.",
+ *     "I want a {Crust} crust {Type} pizza",
+ *     "I want a {Crust} crust {Type} pizza with {Sauce} sauce."
+ *   ],
+ *   "slots": [
+ *     {
+ *       "name": "Type",
+ *       "description": "The type of pizza to order.",
+ *       "priority": 1,
+ *       "sampleUtterances": [
+ *         "Get me a {Type} pizza.",
+ *         "A {Type} pizza please.",
+ *         "I'd like a {Type} pizza."
+ *       ],
+ *       "slotConstraint": "Required",
+ *       "slotType": "DocPizzaType",
+ *       "slotTypeVersion": "$LATEST",
+ *       "valueElicitationPrompt": {
+ *         "maxAttempts": 1,
+ *         "messages": [
+ *           {
+ *             "content": "What type of pizza would you like?",
+ *             "contentType": "PlainText"
+ *           },
+ *           {
+ *             "content": "Vegie or cheese pizza?",
+ *             "contentType": "PlainText"
+ *           },
+ *           {
+ *             "content": "I can get you a vegie or a cheese pizza.",
+ *             "contentType": "PlainText"
+ *           }
+ *         ]
+ *       }
+ *     },
+ *     {
+ *       "name": "Crust",
+ *       "description": "The type of pizza crust to order.",
+ *       "priority": 2,
+ *       "sampleUtterances": [
+ *         "Make it a {Crust} crust.",
+ *         "I'd like a {Crust} crust."
+ *       ],
+ *       "slotConstraint": "Required",
+ *       "slotType": "DocPizzaCrustType",
+ *       "slotTypeVersion": "$LATEST",
+ *       "valueElicitationPrompt": {
+ *         "maxAttempts": 1,
+ *         "messages": [
+ *           {
+ *             "content": "What type of crust would you like?",
+ *             "contentType": "PlainText"
+ *           },
+ *           {
+ *             "content": "Thick or thin crust?",
+ *             "contentType": "PlainText"
+ *           }
+ *         ]
+ *       }
+ *     },
+ *     {
+ *       "name": "Sauce",
+ *       "description": "The type of sauce to use on the pizza.",
+ *       "priority": 3,
+ *       "sampleUtterances": [
+ *         "Make it {Sauce} sauce.",
+ *         "I'd like {Sauce} sauce."
+ *       ],
+ *       "slotConstraint": "Required",
+ *       "slotType": "DocPizzaSauceType",
+ *       "slotTypeVersion": "$LATEST",
+ *       "valueElicitationPrompt": {
+ *         "maxAttempts": 1,
+ *         "messages": [
+ *           {
+ *             "content": "White or red sauce?",
+ *             "contentType": "PlainText"
+ *           },
+ *           {
+ *             "content": "Garlic or tomato sauce?",
+ *             "contentType": "PlainText"
+ *           }
+ *         ]
+ *       }
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-get-a-information-about-an-intent-1494432574147
+ * ```
  *
  */
 export class GetIntentCommand extends $Command<
@@ -69,6 +241,9 @@ export class GetIntentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetIntentCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +270,8 @@ export class GetIntentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetIntentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetIntentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +281,18 @@ export class GetIntentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetIntentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetIntentCommand(input, context);
+    return se_GetIntentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIntentCommandOutput> {
-    return deserializeAws_restJson1GetIntentCommand(output, context);
+    return de_GetIntentCommand(output, context);
   }
 
   // Start section: command_body_extra

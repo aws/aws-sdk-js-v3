@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetRoutingControlStateRequest,
-  GetRoutingControlStateRequestFilterSensitiveLog,
-  GetRoutingControlStateResponse,
-  GetRoutingControlStateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0GetRoutingControlStateCommand,
-  serializeAws_json1_0GetRoutingControlStateCommand,
-} from "../protocols/Aws_json1_0";
+import { GetRoutingControlStateRequest, GetRoutingControlStateResponse } from "../models/models_0";
+import { de_GetRoutingControlStateCommand, se_GetRoutingControlStateCommand } from "../protocols/Aws_json1_0";
 import {
   Route53RecoveryClusterClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53RecoveryClusterClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetRoutingControlStateCommand}.
+ */
 export interface GetRoutingControlStateCommandInput extends GetRoutingControlStateRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetRoutingControlStateCommand}.
+ */
 export interface GetRoutingControlStateCommandOutput extends GetRoutingControlStateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get the state for a routing control. A routing control is a simple on/off switch that you
  * 				can use to route traffic to cells. When a routing control state is On, traffic flows to a cell. When
  * 				the state is Off, traffic does not flow. </p>
@@ -70,13 +73,37 @@ export interface GetRoutingControlStateCommandOutput extends GetRoutingControlSt
  * import { Route53RecoveryClusterClient, GetRoutingControlStateCommand } from "@aws-sdk/client-route53-recovery-cluster"; // ES Modules import
  * // const { Route53RecoveryClusterClient, GetRoutingControlStateCommand } = require("@aws-sdk/client-route53-recovery-cluster"); // CommonJS import
  * const client = new Route53RecoveryClusterClient(config);
+ * const input = { // GetRoutingControlStateRequest
+ *   RoutingControlArn: "STRING_VALUE", // required
+ * };
  * const command = new GetRoutingControlStateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRoutingControlStateCommandInput - {@link GetRoutingControlStateCommandInput}
+ * @returns {@link GetRoutingControlStateCommandOutput}
  * @see {@link GetRoutingControlStateCommandInput} for command's `input` shape.
  * @see {@link GetRoutingControlStateCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryClusterClientResolvedConfig | config} for Route53RecoveryClusterClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient permissions to perform this action.</p>
+ *
+ * @throws {@link EndpointTemporarilyUnavailableException} (server fault)
+ *  <p>The cluster endpoint isn't available. Try another cluster endpoint.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There was an unexpected error during processing of the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a routing control or control panel that was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because of request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There was a validation error on the request.</p>
+ *
  *
  */
 export class GetRoutingControlStateCommand extends $Command<
@@ -96,6 +123,9 @@ export class GetRoutingControlStateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRoutingControlStateCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +154,8 @@ export class GetRoutingControlStateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRoutingControlStateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRoutingControlStateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +165,18 @@ export class GetRoutingControlStateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRoutingControlStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetRoutingControlStateCommand(input, context);
+    return se_GetRoutingControlStateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRoutingControlStateCommandOutput> {
-    return deserializeAws_json1_0GetRoutingControlStateCommand(output, context);
+    return de_GetRoutingControlStateCommand(output, context);
   }
 
   // Start section: command_body_extra

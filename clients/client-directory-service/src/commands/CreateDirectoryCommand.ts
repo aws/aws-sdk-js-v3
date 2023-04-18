@@ -18,17 +18,24 @@ import {
   CreateDirectoryRequest,
   CreateDirectoryRequestFilterSensitiveLog,
   CreateDirectoryResult,
-  CreateDirectoryResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateDirectoryCommand,
-  serializeAws_json1_1CreateDirectoryCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateDirectoryCommand, se_CreateDirectoryCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateDirectoryCommand}.
+ */
 export interface CreateDirectoryCommandInput extends CreateDirectoryRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateDirectoryCommand}.
+ */
 export interface CreateDirectoryCommandOutput extends CreateDirectoryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Simple AD directory. For more information, see <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_simple_ad.html">Simple Active Directory</a> in the <i>Directory Service Admin
  *         Guide</i>.</p>
  *          <p>Before you call <code>CreateDirectory</code>, ensure that all of the required permissions
@@ -41,13 +48,49 @@ export interface CreateDirectoryCommandOutput extends CreateDirectoryResult, __M
  * import { DirectoryServiceClient, CreateDirectoryCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, CreateDirectoryCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // CreateDirectoryRequest
+ *   Name: "STRING_VALUE", // required
+ *   ShortName: "STRING_VALUE",
+ *   Password: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Size: "Small" || "Large", // required
+ *   VpcSettings: { // DirectoryVpcSettings
+ *     VpcId: "STRING_VALUE", // required
+ *     SubnetIds: [ // SubnetIds // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateDirectoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDirectoryCommandInput - {@link CreateDirectoryCommandInput}
+ * @returns {@link CreateDirectoryCommandOutput}
  * @see {@link CreateDirectoryCommandInput} for command's `input` shape.
  * @see {@link CreateDirectoryCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>A client exception has occurred.</p>
+ *
+ * @throws {@link DirectoryLimitExceededException} (client fault)
+ *  <p>The maximum number of directories in the region has been reached. You can use the
+ *                 <a>GetDirectoryLimits</a> operation to determine your directory limits in
+ *             the region.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>An exception has occurred in Directory Service.</p>
+ *
  *
  */
 export class CreateDirectoryCommand extends $Command<
@@ -67,6 +110,9 @@ export class CreateDirectoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDirectoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,7 +142,7 @@ export class CreateDirectoryCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateDirectoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDirectoryResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +152,18 @@ export class CreateDirectoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDirectoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDirectoryCommand(input, context);
+    return se_CreateDirectoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDirectoryCommandOutput> {
-    return deserializeAws_json1_1CreateDirectoryCommand(output, context);
+    return de_CreateDirectoryCommand(output, context);
   }
 
   // Start section: command_body_extra

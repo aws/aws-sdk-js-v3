@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeOpsItemsRequest,
-  DescribeOpsItemsRequestFilterSensitiveLog,
-  DescribeOpsItemsResponse,
-  DescribeOpsItemsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1DescribeOpsItemsCommand,
-  serializeAws_json1_1DescribeOpsItemsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeOpsItemsRequest, DescribeOpsItemsResponse } from "../models/models_1";
+import { de_DescribeOpsItemsCommand, se_DescribeOpsItemsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeOpsItemsCommand}.
+ */
 export interface DescribeOpsItemsCommandInput extends DescribeOpsItemsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeOpsItemsCommand}.
+ */
 export interface DescribeOpsItemsCommandOutput extends DescribeOpsItemsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Query a set of OpsItems. You must have permission in Identity and Access Management (IAM) to query a list of OpsItems. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html">Getting started with
  *     OpsCenter</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
  *          <p>Operations engineers and IT professionals use Amazon Web Services Systems Manager OpsCenter to view, investigate, and
@@ -41,13 +44,32 @@ export interface DescribeOpsItemsCommandOutput extends DescribeOpsItemsResponse,
  * import { SSMClient, DescribeOpsItemsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeOpsItemsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // DescribeOpsItemsRequest
+ *   OpsItemFilters: [ // OpsItemFilters
+ *     { // OpsItemFilter
+ *       Key: "Status" || "CreatedBy" || "Source" || "Priority" || "Title" || "OpsItemId" || "CreatedTime" || "LastModifiedTime" || "ActualStartTime" || "ActualEndTime" || "PlannedStartTime" || "PlannedEndTime" || "OperationalData" || "OperationalDataKey" || "OperationalDataValue" || "ResourceId" || "AutomationId" || "Category" || "Severity" || "OpsItemType" || "ChangeRequestByRequesterArn" || "ChangeRequestByRequesterName" || "ChangeRequestByApproverArn" || "ChangeRequestByApproverName" || "ChangeRequestByTemplate" || "ChangeRequestByTargetsResourceGroup" || "InsightByType" || "AccountId", // required
+ *       Values: [ // OpsItemFilterValues // required
+ *         "STRING_VALUE",
+ *       ],
+ *       Operator: "Equal" || "Contains" || "GreaterThan" || "LessThan", // required
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeOpsItemsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeOpsItemsCommandInput - {@link DescribeOpsItemsCommandInput}
+ * @returns {@link DescribeOpsItemsCommandOutput}
  * @see {@link DescribeOpsItemsCommandInput} for command's `input` shape.
  * @see {@link DescribeOpsItemsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
  *
  */
 export class DescribeOpsItemsCommand extends $Command<
@@ -67,6 +89,9 @@ export class DescribeOpsItemsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeOpsItemsCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +120,8 @@ export class DescribeOpsItemsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeOpsItemsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeOpsItemsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +131,18 @@ export class DescribeOpsItemsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeOpsItemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeOpsItemsCommand(input, context);
+    return se_DescribeOpsItemsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeOpsItemsCommandOutput> {
-    return deserializeAws_json1_1DescribeOpsItemsCommand(output, context);
+    return de_DescribeOpsItemsCommand(output, context);
   }
 
   // Start section: command_body_extra

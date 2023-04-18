@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetVocabularyFilterRequest,
-  GetVocabularyFilterRequestFilterSensitiveLog,
-  GetVocabularyFilterResponse,
-  GetVocabularyFilterResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetVocabularyFilterCommand,
-  serializeAws_json1_1GetVocabularyFilterCommand,
-} from "../protocols/Aws_json1_1";
+import { GetVocabularyFilterRequest, GetVocabularyFilterResponse } from "../models/models_0";
+import { de_GetVocabularyFilterCommand, se_GetVocabularyFilterCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetVocabularyFilterCommand}.
+ */
 export interface GetVocabularyFilterCommandInput extends GetVocabularyFilterRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetVocabularyFilterCommand}.
+ */
 export interface GetVocabularyFilterCommandOutput extends GetVocabularyFilterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information about the specified custom vocabulary filter.</p>
  *          <p>To get a list of your custom vocabulary filters, use the  operation.</p>
  * @example
@@ -37,13 +40,37 @@ export interface GetVocabularyFilterCommandOutput extends GetVocabularyFilterRes
  * import { TranscribeClient, GetVocabularyFilterCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, GetVocabularyFilterCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
+ * const input = { // GetVocabularyFilterRequest
+ *   VocabularyFilterName: "STRING_VALUE", // required
+ * };
  * const command = new GetVocabularyFilterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetVocabularyFilterCommandInput - {@link GetVocabularyFilterCommandInput}
+ * @returns {@link GetVocabularyFilterCommandOutput}
  * @see {@link GetVocabularyFilterCommandInput} for command's `input` shape.
  * @see {@link GetVocabularyFilterCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>Your request didn't pass one or more validation tests. This can occur when the entity
+ *             you're trying to delete doesn't exist or if it's in a non-terminal state (such as
+ *                 <code>IN PROGRESS</code>). See the exception message field for more
+ *             information.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>There was an internal error. Check the error message, correct the issue, and try your
+ *             request again.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You've either sent too many requests or your input file is too long. Wait before
+ *             retrying your request, or use a smaller file and try your request again.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>We can't find the requested resource. Check that the specified name is correct and try
+ *             your request again.</p>
+ *
  *
  */
 export class GetVocabularyFilterCommand extends $Command<
@@ -63,6 +90,9 @@ export class GetVocabularyFilterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetVocabularyFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +121,8 @@ export class GetVocabularyFilterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetVocabularyFilterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetVocabularyFilterResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +132,18 @@ export class GetVocabularyFilterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetVocabularyFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetVocabularyFilterCommand(input, context);
+    return se_GetVocabularyFilterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVocabularyFilterCommandOutput> {
-    return deserializeAws_json1_1GetVocabularyFilterCommand(output, context);
+    return de_GetVocabularyFilterCommand(output, context);
   }
 
   // Start section: command_body_extra

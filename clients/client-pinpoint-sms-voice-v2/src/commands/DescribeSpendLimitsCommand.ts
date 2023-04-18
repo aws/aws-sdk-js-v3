@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeSpendLimitsRequest,
-  DescribeSpendLimitsRequestFilterSensitiveLog,
-  DescribeSpendLimitsResult,
-  DescribeSpendLimitsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeSpendLimitsRequest, DescribeSpendLimitsResult } from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import {
-  deserializeAws_json1_0DescribeSpendLimitsCommand,
-  serializeAws_json1_0DescribeSpendLimitsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DescribeSpendLimitsCommand, se_DescribeSpendLimitsCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeSpendLimitsCommand}.
+ */
 export interface DescribeSpendLimitsCommandInput extends DescribeSpendLimitsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeSpendLimitsCommand}.
+ */
 export interface DescribeSpendLimitsCommandOutput extends DescribeSpendLimitsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the current Amazon Pinpoint monthly spend limits for sending voice and
  *             text messages.</p>
  *         <p>When you establish an Amazon Web Services account, the account has initial monthly
@@ -46,13 +49,35 @@ export interface DescribeSpendLimitsCommandOutput extends DescribeSpendLimitsRes
  * import { PinpointSMSVoiceV2Client, DescribeSpendLimitsCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, DescribeSpendLimitsCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
+ * const input = { // DescribeSpendLimitsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeSpendLimitsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSpendLimitsCommandInput - {@link DescribeSpendLimitsCommandInput}
+ * @returns {@link DescribeSpendLimitsCommandOutput}
  * @see {@link DescribeSpendLimitsCommandInput} for command's `input` shape.
  * @see {@link DescribeSpendLimitsCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The request was denied because you don't have sufficient permissions to access the
+ *             resource.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The API encountered an unexpected error and couldn't complete the request. You might
+ *             be able to successfully issue the request again in the future.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>An error that occurred because too many requests were sent during a certain amount of
+ *             time.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>A validation exception for a field.</p>
+ *
  *
  */
 export class DescribeSpendLimitsCommand extends $Command<
@@ -72,6 +97,9 @@ export class DescribeSpendLimitsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSpendLimitsCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +128,8 @@ export class DescribeSpendLimitsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSpendLimitsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSpendLimitsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +139,18 @@ export class DescribeSpendLimitsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSpendLimitsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeSpendLimitsCommand(input, context);
+    return se_DescribeSpendLimitsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSpendLimitsCommandOutput> {
-    return deserializeAws_json1_0DescribeSpendLimitsCommand(output, context);
+    return de_DescribeSpendLimitsCommand(output, context);
   }
 
   // Start section: command_body_extra

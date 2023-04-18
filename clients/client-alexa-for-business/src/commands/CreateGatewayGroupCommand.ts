@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  CreateGatewayGroupRequest,
-  CreateGatewayGroupRequestFilterSensitiveLog,
-  CreateGatewayGroupResponse,
-  CreateGatewayGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateGatewayGroupCommand,
-  serializeAws_json1_1CreateGatewayGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateGatewayGroupRequest, CreateGatewayGroupResponse } from "../models/models_0";
+import { de_CreateGatewayGroupCommand, se_CreateGatewayGroupCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateGatewayGroupCommand}.
+ */
 export interface CreateGatewayGroupCommandInput extends CreateGatewayGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateGatewayGroupCommand}.
+ */
 export interface CreateGatewayGroupCommandOutput extends CreateGatewayGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a gateway group with the specified details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,33 @@ export interface CreateGatewayGroupCommandOutput extends CreateGatewayGroupRespo
  * import { AlexaForBusinessClient, CreateGatewayGroupCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, CreateGatewayGroupCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // CreateGatewayGroupRequest
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   ClientRequestToken: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateGatewayGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGatewayGroupCommandInput - {@link CreateGatewayGroupCommandInput}
+ * @returns {@link CreateGatewayGroupCommandOutput}
  * @see {@link CreateGatewayGroupCommandInput} for command's `input` shape.
  * @see {@link CreateGatewayGroupCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
+ * @throws {@link AlreadyExistsException} (client fault)
+ *  <p>The resource being created already exists.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You are performing an action that would put you beyond your account's limits.</p>
+ *
  *
  */
 export class CreateGatewayGroupCommand extends $Command<
@@ -62,6 +85,9 @@ export class CreateGatewayGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGatewayGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +116,8 @@ export class CreateGatewayGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateGatewayGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateGatewayGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +127,18 @@ export class CreateGatewayGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateGatewayGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateGatewayGroupCommand(input, context);
+    return se_CreateGatewayGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGatewayGroupCommandOutput> {
-    return deserializeAws_json1_1CreateGatewayGroupCommand(output, context);
+    return de_CreateGatewayGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

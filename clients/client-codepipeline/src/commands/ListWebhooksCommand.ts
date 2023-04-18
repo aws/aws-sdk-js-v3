@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import {
-  ListWebhooksInput,
-  ListWebhooksInputFilterSensitiveLog,
-  ListWebhooksOutput,
-  ListWebhooksOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListWebhooksCommand,
-  serializeAws_json1_1ListWebhooksCommand,
-} from "../protocols/Aws_json1_1";
+import { ListWebhooksInput, ListWebhooksOutput } from "../models/models_0";
+import { de_ListWebhooksCommand, se_ListWebhooksCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListWebhooksCommand}.
+ */
 export interface ListWebhooksCommandInput extends ListWebhooksInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListWebhooksCommand}.
+ */
 export interface ListWebhooksCommandOutput extends ListWebhooksOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a listing of all the webhooks in this AWS Region for this account. The output
  *             lists all webhooks and includes the webhook URL and ARN and the configuration for each
  *             webhook.</p>
@@ -38,13 +41,27 @@ export interface ListWebhooksCommandOutput extends ListWebhooksOutput, __Metadat
  * import { CodePipelineClient, ListWebhooksCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, ListWebhooksCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
+ * const input = { // ListWebhooksInput
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListWebhooksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWebhooksCommandInput - {@link ListWebhooksCommandInput}
+ * @returns {@link ListWebhooksCommandOutput}
  * @see {@link ListWebhooksCommandInput} for command's `input` shape.
  * @see {@link ListWebhooksCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The next token was specified in an invalid format. Make sure that the next token
+ *             you provide is the token returned by a previous call.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The validation was specified in an invalid format.</p>
+ *
  *
  */
 export class ListWebhooksCommand extends $Command<
@@ -64,6 +81,9 @@ export class ListWebhooksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWebhooksCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +110,8 @@ export class ListWebhooksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListWebhooksInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListWebhooksOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +121,18 @@ export class ListWebhooksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListWebhooksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListWebhooksCommand(input, context);
+    return se_ListWebhooksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWebhooksCommandOutput> {
-    return deserializeAws_json1_1ListWebhooksCommand(output, context);
+    return de_ListWebhooksCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,22 +15,31 @@ import {
 
 import {
   GetIdentityNotificationAttributesRequest,
-  GetIdentityNotificationAttributesRequestFilterSensitiveLog,
   GetIdentityNotificationAttributesResponse,
-  GetIdentityNotificationAttributesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_queryGetIdentityNotificationAttributesCommand,
-  serializeAws_queryGetIdentityNotificationAttributesCommand,
+  de_GetIdentityNotificationAttributesCommand,
+  se_GetIdentityNotificationAttributesCommand,
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetIdentityNotificationAttributesCommand}.
+ */
 export interface GetIdentityNotificationAttributesCommandInput extends GetIdentityNotificationAttributesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetIdentityNotificationAttributesCommand}.
+ */
 export interface GetIdentityNotificationAttributesCommandOutput
   extends GetIdentityNotificationAttributesResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Given a list of verified identities (email addresses and/or domains), returns a
  *             structure describing identity notification attributes.</p>
  *         <p>This operation is throttled at one request per second and can only get notification
@@ -43,13 +52,49 @@ export interface GetIdentityNotificationAttributesCommandOutput
  * import { SESClient, GetIdentityNotificationAttributesCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, GetIdentityNotificationAttributesCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // GetIdentityNotificationAttributesRequest
+ *   Identities: [ // IdentityList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetIdentityNotificationAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetIdentityNotificationAttributesCommandInput - {@link GetIdentityNotificationAttributesCommandInput}
+ * @returns {@link GetIdentityNotificationAttributesCommandOutput}
  * @see {@link GetIdentityNotificationAttributesCommandInput} for command's `input` shape.
  * @see {@link GetIdentityNotificationAttributesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
+ *
+ *
+ * @example GetIdentityNotificationAttributes
+ * ```javascript
+ * // The following example returns the notification attributes for an identity:
+ * const input = {
+ *   "Identities": [
+ *     "example.com"
+ *   ]
+ * };
+ * const command = new GetIdentityNotificationAttributesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "NotificationAttributes": {
+ *     "example.com": {
+ *       "BounceTopic": "arn:aws:sns:us-east-1:EXAMPLE65304:ExampleTopic",
+ *       "ComplaintTopic": "arn:aws:sns:us-east-1:EXAMPLE65304:ExampleTopic",
+ *       "DeliveryTopic": "arn:aws:sns:us-east-1:EXAMPLE65304:ExampleTopic",
+ *       "ForwardingEnabled": true,
+ *       "HeadersInBounceNotificationsEnabled": false,
+ *       "HeadersInComplaintNotificationsEnabled": false,
+ *       "HeadersInDeliveryNotificationsEnabled": false
+ *     }
+ *   }
+ * }
+ * *\/
+ * // example id: getidentitynotificationattributes-1469123466947
+ * ```
  *
  */
 export class GetIdentityNotificationAttributesCommand extends $Command<
@@ -69,6 +114,9 @@ export class GetIdentityNotificationAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetIdentityNotificationAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +145,8 @@ export class GetIdentityNotificationAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetIdentityNotificationAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetIdentityNotificationAttributesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,18 +156,24 @@ export class GetIdentityNotificationAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetIdentityNotificationAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryGetIdentityNotificationAttributesCommand(input, context);
+    return se_GetIdentityNotificationAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetIdentityNotificationAttributesCommandOutput> {
-    return deserializeAws_queryGetIdentityNotificationAttributesCommand(output, context);
+    return de_GetIdentityNotificationAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

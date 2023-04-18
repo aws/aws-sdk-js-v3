@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteMaintenanceWindowRequest,
-  DeleteMaintenanceWindowRequestFilterSensitiveLog,
-  DeleteMaintenanceWindowResult,
-  DeleteMaintenanceWindowResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteMaintenanceWindowCommand,
-  serializeAws_json1_1DeleteMaintenanceWindowCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteMaintenanceWindowRequest, DeleteMaintenanceWindowResult } from "../models/models_0";
+import { de_DeleteMaintenanceWindowCommand, se_DeleteMaintenanceWindowCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteMaintenanceWindowCommand}.
+ */
 export interface DeleteMaintenanceWindowCommandInput extends DeleteMaintenanceWindowRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteMaintenanceWindowCommand}.
+ */
 export interface DeleteMaintenanceWindowCommandOutput extends DeleteMaintenanceWindowResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a maintenance window.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,22 @@ export interface DeleteMaintenanceWindowCommandOutput extends DeleteMaintenanceW
  * import { SSMClient, DeleteMaintenanceWindowCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DeleteMaintenanceWindowCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // DeleteMaintenanceWindowRequest
+ *   WindowId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteMaintenanceWindowCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMaintenanceWindowCommandInput - {@link DeleteMaintenanceWindowCommandInput}
+ * @returns {@link DeleteMaintenanceWindowCommandOutput}
  * @see {@link DeleteMaintenanceWindowCommandInput} for command's `input` shape.
  * @see {@link DeleteMaintenanceWindowCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
  *
  */
 export class DeleteMaintenanceWindowCommand extends $Command<
@@ -62,6 +74,9 @@ export class DeleteMaintenanceWindowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMaintenanceWindowCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +105,8 @@ export class DeleteMaintenanceWindowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMaintenanceWindowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteMaintenanceWindowResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +116,18 @@ export class DeleteMaintenanceWindowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMaintenanceWindowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteMaintenanceWindowCommand(input, context);
+    return se_DeleteMaintenanceWindowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMaintenanceWindowCommandOutput> {
-    return deserializeAws_json1_1DeleteMaintenanceWindowCommand(output, context);
+    return de_DeleteMaintenanceWindowCommand(output, context);
   }
 
   // Start section: command_body_extra

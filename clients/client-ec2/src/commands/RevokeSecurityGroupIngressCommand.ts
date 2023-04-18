@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  RevokeSecurityGroupIngressRequest,
-  RevokeSecurityGroupIngressRequestFilterSensitiveLog,
-  RevokeSecurityGroupIngressResult,
-  RevokeSecurityGroupIngressResultFilterSensitiveLog,
-} from "../models/models_6";
-import {
-  deserializeAws_ec2RevokeSecurityGroupIngressCommand,
-  serializeAws_ec2RevokeSecurityGroupIngressCommand,
-} from "../protocols/Aws_ec2";
+import { RevokeSecurityGroupIngressRequest, RevokeSecurityGroupIngressResult } from "../models/models_6";
+import { de_RevokeSecurityGroupIngressCommand, se_RevokeSecurityGroupIngressCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link RevokeSecurityGroupIngressCommand}.
+ */
 export interface RevokeSecurityGroupIngressCommandInput extends RevokeSecurityGroupIngressRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RevokeSecurityGroupIngressCommand}.
+ */
 export interface RevokeSecurityGroupIngressCommandOutput extends RevokeSecurityGroupIngressResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified inbound (ingress) rules from a security group.</p>
  *          <p>You can specify rules using either rule IDs or security group rule properties. If you use
  *            rule properties, the values that you specify (for example, ports) must match the existing rule's
@@ -50,13 +53,66 @@ export interface RevokeSecurityGroupIngressCommandOutput extends RevokeSecurityG
  * import { EC2Client, RevokeSecurityGroupIngressCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, RevokeSecurityGroupIngressCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // RevokeSecurityGroupIngressRequest
+ *   CidrIp: "STRING_VALUE",
+ *   FromPort: Number("int"),
+ *   GroupId: "STRING_VALUE",
+ *   GroupName: "STRING_VALUE",
+ *   IpPermissions: [ // IpPermissionList
+ *     { // IpPermission
+ *       FromPort: Number("int"),
+ *       IpProtocol: "STRING_VALUE",
+ *       IpRanges: [ // IpRangeList
+ *         { // IpRange
+ *           CidrIp: "STRING_VALUE",
+ *           Description: "STRING_VALUE",
+ *         },
+ *       ],
+ *       Ipv6Ranges: [ // Ipv6RangeList
+ *         { // Ipv6Range
+ *           CidrIpv6: "STRING_VALUE",
+ *           Description: "STRING_VALUE",
+ *         },
+ *       ],
+ *       PrefixListIds: [ // PrefixListIdList
+ *         { // PrefixListId
+ *           Description: "STRING_VALUE",
+ *           PrefixListId: "STRING_VALUE",
+ *         },
+ *       ],
+ *       ToPort: Number("int"),
+ *       UserIdGroupPairs: [ // UserIdGroupPairList
+ *         { // UserIdGroupPair
+ *           Description: "STRING_VALUE",
+ *           GroupId: "STRING_VALUE",
+ *           GroupName: "STRING_VALUE",
+ *           PeeringStatus: "STRING_VALUE",
+ *           UserId: "STRING_VALUE",
+ *           VpcId: "STRING_VALUE",
+ *           VpcPeeringConnectionId: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   IpProtocol: "STRING_VALUE",
+ *   SourceSecurityGroupName: "STRING_VALUE",
+ *   SourceSecurityGroupOwnerId: "STRING_VALUE",
+ *   ToPort: Number("int"),
+ *   DryRun: true || false,
+ *   SecurityGroupRuleIds: [ // SecurityGroupRuleIdList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new RevokeSecurityGroupIngressCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RevokeSecurityGroupIngressCommandInput - {@link RevokeSecurityGroupIngressCommandInput}
+ * @returns {@link RevokeSecurityGroupIngressCommandOutput}
  * @see {@link RevokeSecurityGroupIngressCommandInput} for command's `input` shape.
  * @see {@link RevokeSecurityGroupIngressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class RevokeSecurityGroupIngressCommand extends $Command<
@@ -76,6 +132,9 @@ export class RevokeSecurityGroupIngressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RevokeSecurityGroupIngressCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +163,8 @@ export class RevokeSecurityGroupIngressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RevokeSecurityGroupIngressRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RevokeSecurityGroupIngressResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,15 +174,21 @@ export class RevokeSecurityGroupIngressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RevokeSecurityGroupIngressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2RevokeSecurityGroupIngressCommand(input, context);
+    return se_RevokeSecurityGroupIngressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RevokeSecurityGroupIngressCommandOutput> {
-    return deserializeAws_ec2RevokeSecurityGroupIngressCommand(output, context);
+    return de_RevokeSecurityGroupIngressCommand(output, context);
   }
 
   // Start section: command_body_extra

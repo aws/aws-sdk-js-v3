@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { ConnectCasesServiceException as __BaseException } from "./ConnectCasesServiceException";
 
 /**
+ * @public
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -23,6 +24,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested operation would cause a conflict with the current state of a service
  *       resource associated with the request. Resolve the conflict before retrying this request. See
  *       the accompanying error message for details.</p>
@@ -44,6 +46,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Object to store union of Field values.</p>
  */
 export type FieldValueUnion =
@@ -52,6 +55,9 @@ export type FieldValueUnion =
   | FieldValueUnion.StringValueMember
   | FieldValueUnion.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace FieldValueUnion {
   /**
    * <p>String value type.</p>
@@ -107,6 +113,7 @@ export namespace FieldValueUnion {
 }
 
 /**
+ * @public
  * <p>Object for case field values.</p>
  */
 export interface FieldValue {
@@ -121,6 +128,9 @@ export interface FieldValue {
   value: FieldValueUnion | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateCaseRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -147,6 +157,9 @@ export interface CreateCaseRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateCaseResponse {
   /**
    * <p>A unique identifier of the case.</p>
@@ -160,6 +173,7 @@ export interface CreateCaseResponse {
 }
 
 /**
+ * @public
  * <p>We couldn't process your request because of an issue with the server. Try again
  *       later.</p>
  */
@@ -187,6 +201,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>We couldn't find the requested resource. Check that your resources exists and were created
  *       in the same Amazon Web Services Region as your request, and try your request again.</p>
  */
@@ -219,6 +234,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The rate has been exceeded for this API. Please try again after a few minutes.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -239,6 +255,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request isn't valid. Check the syntax and try again.</p>
  */
 export class ValidationException extends __BaseException {
@@ -258,6 +275,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Object for unique identifier of a field.</p>
  */
 export interface FieldIdentifier {
@@ -267,6 +285,9 @@ export interface FieldIdentifier {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetCaseRequest {
   /**
    * <p>A unique identifier of the case.</p>
@@ -290,6 +311,9 @@ export interface GetCaseRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCaseResponse {
   /**
    * <p>A list of detailed field information. </p>
@@ -312,6 +336,9 @@ export interface GetCaseResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListCasesForContactRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -336,6 +363,7 @@ export interface ListCasesForContactRequest {
 }
 
 /**
+ * @public
  * <p>Case summary information.</p>
  */
 export interface CaseSummary {
@@ -350,6 +378,9 @@ export interface CaseSummary {
   templateId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListCasesForContactResponse {
   /**
    * <p>A list of Case summary information.</p>
@@ -362,11 +393,21 @@ export interface ListCasesForContactResponse {
   nextToken?: string;
 }
 
-export enum CommentBodyTextType {
-  PLAINTEXT = "Text/Plain",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CommentBodyTextType = {
+  PLAINTEXT: "Text/Plain",
+} as const;
 
 /**
+ * @public
+ */
+export type CommentBodyTextType = (typeof CommentBodyTextType)[keyof typeof CommentBodyTextType];
+
+/**
+ * @public
  * <p>Represents the content of a <code>Comment</code> to be returned to agents.</p>
  */
 export interface CommentContent {
@@ -382,6 +423,7 @@ export interface CommentContent {
 }
 
 /**
+ * @public
  * <p>An object that represents an Amazon Connect contact object. </p>
  */
 export interface Contact {
@@ -392,6 +434,7 @@ export interface Contact {
 }
 
 /**
+ * @public
  * <p>Represents the content of a related item to be created.</p>
  */
 export type RelatedItemInputContent =
@@ -399,6 +442,9 @@ export type RelatedItemInputContent =
   | RelatedItemInputContent.ContactMember
   | RelatedItemInputContent.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace RelatedItemInputContent {
   /**
    * <p>Object representing a contact in Amazon Connect as an API request field.</p>
@@ -437,11 +483,23 @@ export namespace RelatedItemInputContent {
   };
 }
 
-export enum RelatedItemType {
-  COMMENT = "Comment",
-  CONTACT = "Contact",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RelatedItemType = {
+  COMMENT: "Comment",
+  CONTACT: "Contact",
+} as const;
 
+/**
+ * @public
+ */
+export type RelatedItemType = (typeof RelatedItemType)[keyof typeof RelatedItemType];
+
+/**
+ * @public
+ */
 export interface CreateRelatedItemRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -464,6 +522,9 @@ export interface CreateRelatedItemRequest {
   content: RelatedItemInputContent | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateRelatedItemResponse {
   /**
    * <p>The unique identifier of the related item.</p>
@@ -477,6 +538,7 @@ export interface CreateRelatedItemResponse {
 }
 
 /**
+ * @public
  * <p>The service quota has been exceeded. For a list of service quotas, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the <i>Amazon Connect
  *         Administrator Guide</i>.</p>
  */
@@ -497,11 +559,13 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A filter for related items of type <code>Comment</code>.</p>
  */
 export interface CommentFilter {}
 
 /**
+ * @public
  * <p>A filter for related items of type <code>Contact</code>.</p>
  */
 export interface ContactFilter {
@@ -517,6 +581,7 @@ export interface ContactFilter {
 }
 
 /**
+ * @public
  * <p>The list of types of related items and their parameters to use for filtering.</p>
  */
 export type RelatedItemTypeFilter =
@@ -524,6 +589,9 @@ export type RelatedItemTypeFilter =
   | RelatedItemTypeFilter.ContactMember
   | RelatedItemTypeFilter.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace RelatedItemTypeFilter {
   /**
    * <p>A filter for related items of type <code>Contact</code>.</p>
@@ -562,6 +630,9 @@ export namespace RelatedItemTypeFilter {
   };
 }
 
+/**
+ * @public
+ */
 export interface SearchRelatedItemsRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -591,6 +662,7 @@ export interface SearchRelatedItemsRequest {
 }
 
 /**
+ * @public
  * <p>An object that represents a content of an Amazon Connect contact object.</p>
  */
 export interface ContactContent {
@@ -612,6 +684,7 @@ export interface ContactContent {
 }
 
 /**
+ * @public
  * <p>Represents the content of a particular type of related item.</p>
  */
 export type RelatedItemContent =
@@ -619,6 +692,9 @@ export type RelatedItemContent =
   | RelatedItemContent.ContactMember
   | RelatedItemContent.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace RelatedItemContent {
   /**
    * <p>Represents the content of a contact to be returned to agents.</p>
@@ -658,6 +734,7 @@ export namespace RelatedItemContent {
 }
 
 /**
+ * @public
  * <p>A list of items that represent RelatedItems.</p>
  */
 export interface SearchRelatedItemsResponseItem {
@@ -687,6 +764,9 @@ export interface SearchRelatedItemsResponseItem {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface SearchRelatedItemsResponse {
   /**
    * <p>The token for the next set of results. This is null if there are no more results to return.</p>
@@ -700,6 +780,7 @@ export interface SearchRelatedItemsResponse {
 }
 
 /**
+ * @public
  * <p>A filter for fields. Only one value can be provided.</p>
  */
 export type FieldFilter =
@@ -711,6 +792,9 @@ export type FieldFilter =
   | FieldFilter.LessThanOrEqualToMember
   | FieldFilter.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace FieldFilter {
   /**
    * <p>Object containing field identifier and value information.</p>
@@ -821,12 +905,22 @@ export namespace FieldFilter {
   };
 }
 
-export enum Order {
-  ASCENDING = "Asc",
-  DESCENDING = "Desc",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Order = {
+  ASCENDING: "Asc",
+  DESCENDING: "Desc",
+} as const;
 
 /**
+ * @public
+ */
+export type Order = (typeof Order)[keyof typeof Order];
+
+/**
+ * @public
  * <p>A structured set of sort terms.</p>
  */
 export interface Sort {
@@ -842,6 +936,7 @@ export interface Sort {
 }
 
 /**
+ * @public
  * <p>A list of items that represent cases.</p>
  */
 export interface SearchCasesResponseItem {
@@ -866,6 +961,9 @@ export interface SearchCasesResponseItem {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface SearchCasesResponse {
   /**
    * <p>The token for the next set of results. This is null if there are no more results to return.</p>
@@ -879,6 +977,9 @@ export interface SearchCasesResponse {
   cases: SearchCasesResponseItem[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCaseRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -897,8 +998,14 @@ export interface UpdateCaseRequest {
   fields: FieldValue[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCaseResponse {}
 
+/**
+ * @public
+ */
 export interface CreateDomainRequest {
   /**
    * <p>The name for your Cases domain. It must be unique for your Amazon Web Services
@@ -907,12 +1014,24 @@ export interface CreateDomainRequest {
   name: string | undefined;
 }
 
-export enum DomainStatus {
-  ACTIVE = "Active",
-  CREATION_FAILED = "CreationFailed",
-  CREATION_IN_PROGRESS = "CreationInProgress",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DomainStatus = {
+  ACTIVE: "Active",
+  CREATION_FAILED: "CreationFailed",
+  CREATION_IN_PROGRESS: "CreationInProgress",
+} as const;
 
+/**
+ * @public
+ */
+export type DomainStatus = (typeof DomainStatus)[keyof typeof DomainStatus];
+
+/**
+ * @public
+ */
 export interface CreateDomainResponse {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -930,6 +1049,24 @@ export interface CreateDomainResponse {
   domainStatus: DomainStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
+export interface DeleteDomainRequest {
+  /**
+   * <p>The unique identifier of the Cases domain. </p>
+   */
+  domainId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDomainResponse {}
+
+/**
+ * @public
+ */
 export interface GetCaseEventConfigurationRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -938,6 +1075,7 @@ export interface GetCaseEventConfigurationRequest {
 }
 
 /**
+ * @public
  * <p>Details of what case data is published through the case event stream.</p>
  */
 export interface CaseEventIncludedData {
@@ -948,6 +1086,7 @@ export interface CaseEventIncludedData {
 }
 
 /**
+ * @public
  * <p>Details of what related item data is published through the case event stream.</p>
  */
 export interface RelatedItemEventIncludedData {
@@ -958,6 +1097,7 @@ export interface RelatedItemEventIncludedData {
 }
 
 /**
+ * @public
  * <p>Details of what case and related item data is published through the case event
  *       stream.</p>
  */
@@ -974,6 +1114,7 @@ export interface EventIncludedData {
 }
 
 /**
+ * @public
  * <p>Configuration to enable EventBridge case event delivery and determine what data is
  *       delivered.</p>
  */
@@ -990,6 +1131,9 @@ export interface EventBridgeConfiguration {
   includedData?: EventIncludedData;
 }
 
+/**
+ * @public
+ */
 export interface GetCaseEventConfigurationResponse {
   /**
    * <p>Configuration to enable EventBridge case event delivery and determine what data is
@@ -998,6 +1142,9 @@ export interface GetCaseEventConfigurationResponse {
   eventBridge: EventBridgeConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDomainRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -1005,6 +1152,9 @@ export interface GetDomainRequest {
   domainId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDomainResponse {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -1037,6 +1187,9 @@ export interface GetDomainResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListDomainsRequest {
   /**
    * <p>The maximum number of results to return per page.</p>
@@ -1051,6 +1204,7 @@ export interface ListDomainsRequest {
 }
 
 /**
+ * @public
  * <p>Object for the summarized details of the domain.</p>
  */
 export interface DomainSummary {
@@ -1070,6 +1224,9 @@ export interface DomainSummary {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListDomainsResponse {
   /**
    * <p>The Cases domain.</p>
@@ -1082,6 +1239,9 @@ export interface ListDomainsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutCaseEventConfigurationRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -1095,8 +1255,14 @@ export interface PutCaseEventConfigurationRequest {
   eventBridge: EventBridgeConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutCaseEventConfigurationResponse {}
 
+/**
+ * @public
+ */
 export interface BatchGetFieldRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -1110,6 +1276,7 @@ export interface BatchGetFieldRequest {
 }
 
 /**
+ * @public
  * <p>Object for errors on fields.</p>
  */
 export interface FieldError {
@@ -1129,20 +1296,39 @@ export interface FieldError {
   message?: string;
 }
 
-export enum FieldNamespace {
-  CUSTOM = "Custom",
-  SYSTEM = "System",
-}
-
-export enum FieldType {
-  BOOLEAN = "Boolean",
-  DATE_TIME = "DateTime",
-  NUMBER = "Number",
-  SINGLE_SELECT = "SingleSelect",
-  TEXT = "Text",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FieldNamespace = {
+  CUSTOM: "Custom",
+  SYSTEM: "System",
+} as const;
 
 /**
+ * @public
+ */
+export type FieldNamespace = (typeof FieldNamespace)[keyof typeof FieldNamespace];
+
+/**
+ * @public
+ * @enum
+ */
+export const FieldType = {
+  BOOLEAN: "Boolean",
+  DATE_TIME: "DateTime",
+  NUMBER: "Number",
+  SINGLE_SELECT: "SingleSelect",
+  TEXT: "Text",
+} as const;
+
+/**
+ * @public
+ */
+export type FieldType = (typeof FieldType)[keyof typeof FieldType];
+
+/**
+ * @public
  * <p>Object to store detailed field information.</p>
  */
 export interface GetFieldResponse {
@@ -1182,6 +1368,9 @@ export interface GetFieldResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetFieldResponse {
   /**
    * <p>A list of detailed field information. </p>
@@ -1195,6 +1384,7 @@ export interface BatchGetFieldResponse {
 }
 
 /**
+ * @public
  * <p>Object for field Options information.</p>
  */
 export interface FieldOption {
@@ -1217,6 +1407,9 @@ export interface FieldOption {
   active: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchPutFieldOptionsRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -1235,6 +1428,7 @@ export interface BatchPutFieldOptionsRequest {
 }
 
 /**
+ * @public
  * <p>Object for field Options errors.</p>
  */
 export interface FieldOptionError {
@@ -1254,6 +1448,9 @@ export interface FieldOptionError {
   value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchPutFieldOptionsResponse {
   /**
    * <p>A list of field errors. </p>
@@ -1261,6 +1458,9 @@ export interface BatchPutFieldOptionsResponse {
   errors?: FieldOptionError[];
 }
 
+/**
+ * @public
+ */
 export interface CreateFieldRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -1283,6 +1483,9 @@ export interface CreateFieldRequest {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateFieldResponse {
   /**
    * <p>The unique identifier of a field.</p>
@@ -1295,6 +1498,9 @@ export interface CreateFieldResponse {
   fieldArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListFieldOptionsRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -1324,6 +1530,9 @@ export interface ListFieldOptionsRequest {
   values?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListFieldOptionsResponse {
   /**
    * <p>A list of <code>FieldOption</code> objects.</p>
@@ -1336,6 +1545,9 @@ export interface ListFieldOptionsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFieldsRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -1355,6 +1567,7 @@ export interface ListFieldsRequest {
 }
 
 /**
+ * @public
  * <p>Object for the summarized details of the field.</p>
  */
 export interface FieldSummary {
@@ -1384,6 +1597,9 @@ export interface FieldSummary {
   namespace: FieldNamespace | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListFieldsResponse {
   /**
    * <p>List of detailed field information.</p>
@@ -1396,6 +1612,9 @@ export interface ListFieldsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFieldRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -1418,9 +1637,13 @@ export interface UpdateFieldRequest {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFieldResponse {}
 
 /**
+ * @public
  * <p>Object for field related information.</p>
  */
 export interface FieldItem {
@@ -1431,6 +1654,7 @@ export interface FieldItem {
 }
 
 /**
+ * @public
  * <p>Object for a group of fields and associated properties.</p>
  */
 export interface FieldGroup {
@@ -1446,10 +1670,14 @@ export interface FieldGroup {
 }
 
 /**
+ * @public
  * <p>This represents a sections within a panel or tab of the page layout.</p>
  */
 export type Section = Section.FieldGroupMember | Section.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace Section {
   /**
    * <p>Consists of a group of fields and associated properties.</p>
@@ -1476,6 +1704,7 @@ export namespace Section {
 }
 
 /**
+ * @public
  * <p>Ordered list containing different kinds of sections that can be added. A LayoutSections
  *       object can only contain one section.</p>
  */
@@ -1487,6 +1716,7 @@ export interface LayoutSections {
 }
 
 /**
+ * @public
  * <p>Content specific to <code>BasicLayout</code> type. It configures fields in the top panel
  *       and More Info tab of agent application. </p>
  */
@@ -1503,10 +1733,14 @@ export interface BasicLayout {
 }
 
 /**
+ * @public
  * <p>Object to store union of different versions of layout content.</p>
  */
 export type LayoutContent = LayoutContent.BasicMember | LayoutContent.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace LayoutContent {
   /**
    * <p>Content specific to <code>BasicLayout</code> type. It configures fields in the top panel
@@ -1533,6 +1767,9 @@ export namespace LayoutContent {
   };
 }
 
+/**
+ * @public
+ */
 export interface CreateLayoutRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -1551,6 +1788,9 @@ export interface CreateLayoutRequest {
   content: LayoutContent | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateLayoutResponse {
   /**
    * <p>The unique identifier of the layout.</p>
@@ -1563,6 +1803,9 @@ export interface CreateLayoutResponse {
   layoutArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetLayoutRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -1575,6 +1818,9 @@ export interface GetLayoutRequest {
   layoutId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetLayoutResponse {
   /**
    * <p>The unique identifier of the layout.</p>
@@ -1603,6 +1849,9 @@ export interface GetLayoutResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListLayoutsRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -1622,6 +1871,7 @@ export interface ListLayoutsRequest {
 }
 
 /**
+ * @public
  * <p>Object for the summarized details of the layout.</p>
  */
 export interface LayoutSummary {
@@ -1641,6 +1891,9 @@ export interface LayoutSummary {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListLayoutsResponse {
   /**
    * <p>The layouts for the domain.</p>
@@ -1653,6 +1906,9 @@ export interface ListLayoutsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateLayoutRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -1676,8 +1932,14 @@ export interface UpdateLayoutRequest {
   content?: LayoutContent;
 }
 
+/**
+ * @public
+ */
 export interface UpdateLayoutResponse {}
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN)</p>
@@ -1685,6 +1947,9 @@ export interface ListTagsForResourceRequest {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
@@ -1692,6 +1957,9 @@ export interface ListTagsForResourceResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN)</p>
@@ -1705,6 +1973,7 @@ export interface TagResourceRequest {
 }
 
 /**
+ * @public
  * <p>Object to store configuration of layouts associated to the template.</p>
  */
 export interface LayoutConfiguration {
@@ -1715,6 +1984,7 @@ export interface LayoutConfiguration {
 }
 
 /**
+ * @public
  * <p>List of fields that must have a value provided to create a case.</p>
  */
 export interface RequiredField {
@@ -1724,11 +1994,23 @@ export interface RequiredField {
   fieldId: string | undefined;
 }
 
-export enum TemplateStatus {
-  ACTIVE = "Active",
-  INACTIVE = "Inactive",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TemplateStatus = {
+  ACTIVE: "Active",
+  INACTIVE: "Inactive",
+} as const;
 
+/**
+ * @public
+ */
+export type TemplateStatus = (typeof TemplateStatus)[keyof typeof TemplateStatus];
+
+/**
+ * @public
+ */
 export interface CreateTemplateRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -1762,6 +2044,9 @@ export interface CreateTemplateRequest {
   status?: TemplateStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateTemplateResponse {
   /**
    * <p>A unique identifier of a template.</p>
@@ -1774,6 +2059,9 @@ export interface CreateTemplateResponse {
   templateArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetTemplateRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -1786,6 +2074,9 @@ export interface GetTemplateRequest {
   templateId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetTemplateResponse {
   /**
    * <p>A unique identifier of a template.</p>
@@ -1829,6 +2120,9 @@ export interface GetTemplateResponse {
   status: TemplateStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTemplatesRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -1853,6 +2147,7 @@ export interface ListTemplatesRequest {
 }
 
 /**
+ * @public
  * <p>Template summary information.</p>
  */
 export interface TemplateSummary {
@@ -1877,6 +2172,9 @@ export interface TemplateSummary {
   status: TemplateStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTemplatesResponse {
   /**
    * <p>List of template summary objects.</p>
@@ -1889,6 +2187,9 @@ export interface ListTemplatesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTemplateRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -1927,8 +2228,14 @@ export interface UpdateTemplateRequest {
   status?: TemplateStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTemplateResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN)</p>
@@ -1942,6 +2249,7 @@ export interface UntagResourceRequest {
 }
 
 /**
+ * @public
  * <p>A filter for cases. Only one value can be provided.</p>
  */
 export type CaseFilter =
@@ -1950,6 +2258,9 @@ export type CaseFilter =
   | CaseFilter.NotMember
   | CaseFilter.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace CaseFilter {
   /**
    * <p>A list of fields to filter on.</p>
@@ -2003,6 +2314,9 @@ export namespace CaseFilter {
   };
 }
 
+/**
+ * @public
+ */
 export interface SearchCasesRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -2042,694 +2356,3 @@ export interface SearchCasesRequest {
    */
   fields?: FieldIdentifier[];
 }
-
-/**
- * @internal
- */
-export const FieldValueUnionFilterSensitiveLog = (obj: FieldValueUnion): any => {
-  if (obj.stringValue !== undefined) return { stringValue: obj.stringValue };
-  if (obj.doubleValue !== undefined) return { doubleValue: obj.doubleValue };
-  if (obj.booleanValue !== undefined) return { booleanValue: obj.booleanValue };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const FieldValueFilterSensitiveLog = (obj: FieldValue): any => ({
-  ...obj,
-  ...(obj.value && { value: FieldValueUnionFilterSensitiveLog(obj.value) }),
-});
-
-/**
- * @internal
- */
-export const CreateCaseRequestFilterSensitiveLog = (obj: CreateCaseRequest): any => ({
-  ...obj,
-  ...(obj.fields && { fields: obj.fields.map((item) => FieldValueFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const CreateCaseResponseFilterSensitiveLog = (obj: CreateCaseResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FieldIdentifierFilterSensitiveLog = (obj: FieldIdentifier): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCaseRequestFilterSensitiveLog = (obj: GetCaseRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCaseResponseFilterSensitiveLog = (obj: GetCaseResponse): any => ({
-  ...obj,
-  ...(obj.fields && { fields: obj.fields.map((item) => FieldValueFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ListCasesForContactRequestFilterSensitiveLog = (obj: ListCasesForContactRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CaseSummaryFilterSensitiveLog = (obj: CaseSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCasesForContactResponseFilterSensitiveLog = (obj: ListCasesForContactResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CommentContentFilterSensitiveLog = (obj: CommentContent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ContactFilterSensitiveLog = (obj: Contact): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RelatedItemInputContentFilterSensitiveLog = (obj: RelatedItemInputContent): any => {
-  if (obj.contact !== undefined) return { contact: ContactFilterSensitiveLog(obj.contact) };
-  if (obj.comment !== undefined) return { comment: CommentContentFilterSensitiveLog(obj.comment) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const CreateRelatedItemRequestFilterSensitiveLog = (obj: CreateRelatedItemRequest): any => ({
-  ...obj,
-  ...(obj.content && { content: RelatedItemInputContentFilterSensitiveLog(obj.content) }),
-});
-
-/**
- * @internal
- */
-export const CreateRelatedItemResponseFilterSensitiveLog = (obj: CreateRelatedItemResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CommentFilterFilterSensitiveLog = (obj: CommentFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ContactFilterFilterSensitiveLog = (obj: ContactFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RelatedItemTypeFilterFilterSensitiveLog = (obj: RelatedItemTypeFilter): any => {
-  if (obj.contact !== undefined) return { contact: ContactFilterFilterSensitiveLog(obj.contact) };
-  if (obj.comment !== undefined) return { comment: CommentFilterFilterSensitiveLog(obj.comment) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const SearchRelatedItemsRequestFilterSensitiveLog = (obj: SearchRelatedItemsRequest): any => ({
-  ...obj,
-  ...(obj.filters && { filters: obj.filters.map((item) => RelatedItemTypeFilterFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ContactContentFilterSensitiveLog = (obj: ContactContent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RelatedItemContentFilterSensitiveLog = (obj: RelatedItemContent): any => {
-  if (obj.contact !== undefined) return { contact: ContactContentFilterSensitiveLog(obj.contact) };
-  if (obj.comment !== undefined) return { comment: CommentContentFilterSensitiveLog(obj.comment) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const SearchRelatedItemsResponseItemFilterSensitiveLog = (obj: SearchRelatedItemsResponseItem): any => ({
-  ...obj,
-  ...(obj.content && { content: RelatedItemContentFilterSensitiveLog(obj.content) }),
-});
-
-/**
- * @internal
- */
-export const SearchRelatedItemsResponseFilterSensitiveLog = (obj: SearchRelatedItemsResponse): any => ({
-  ...obj,
-  ...(obj.relatedItems && {
-    relatedItems: obj.relatedItems.map((item) => SearchRelatedItemsResponseItemFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const FieldFilterFilterSensitiveLog = (obj: FieldFilter): any => {
-  if (obj.equalTo !== undefined) return { equalTo: FieldValueFilterSensitiveLog(obj.equalTo) };
-  if (obj.contains !== undefined) return { contains: FieldValueFilterSensitiveLog(obj.contains) };
-  if (obj.greaterThan !== undefined) return { greaterThan: FieldValueFilterSensitiveLog(obj.greaterThan) };
-  if (obj.greaterThanOrEqualTo !== undefined)
-    return { greaterThanOrEqualTo: FieldValueFilterSensitiveLog(obj.greaterThanOrEqualTo) };
-  if (obj.lessThan !== undefined) return { lessThan: FieldValueFilterSensitiveLog(obj.lessThan) };
-  if (obj.lessThanOrEqualTo !== undefined)
-    return { lessThanOrEqualTo: FieldValueFilterSensitiveLog(obj.lessThanOrEqualTo) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const SortFilterSensitiveLog = (obj: Sort): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchCasesResponseItemFilterSensitiveLog = (obj: SearchCasesResponseItem): any => ({
-  ...obj,
-  ...(obj.fields && { fields: obj.fields.map((item) => FieldValueFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const SearchCasesResponseFilterSensitiveLog = (obj: SearchCasesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCaseRequestFilterSensitiveLog = (obj: UpdateCaseRequest): any => ({
-  ...obj,
-  ...(obj.fields && { fields: obj.fields.map((item) => FieldValueFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const UpdateCaseResponseFilterSensitiveLog = (obj: UpdateCaseResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDomainRequestFilterSensitiveLog = (obj: CreateDomainRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDomainResponseFilterSensitiveLog = (obj: CreateDomainResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCaseEventConfigurationRequestFilterSensitiveLog = (obj: GetCaseEventConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CaseEventIncludedDataFilterSensitiveLog = (obj: CaseEventIncludedData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RelatedItemEventIncludedDataFilterSensitiveLog = (obj: RelatedItemEventIncludedData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventIncludedDataFilterSensitiveLog = (obj: EventIncludedData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventBridgeConfigurationFilterSensitiveLog = (obj: EventBridgeConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCaseEventConfigurationResponseFilterSensitiveLog = (obj: GetCaseEventConfigurationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDomainRequestFilterSensitiveLog = (obj: GetDomainRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDomainResponseFilterSensitiveLog = (obj: GetDomainResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDomainsRequestFilterSensitiveLog = (obj: ListDomainsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DomainSummaryFilterSensitiveLog = (obj: DomainSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDomainsResponseFilterSensitiveLog = (obj: ListDomainsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutCaseEventConfigurationRequestFilterSensitiveLog = (obj: PutCaseEventConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutCaseEventConfigurationResponseFilterSensitiveLog = (obj: PutCaseEventConfigurationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetFieldRequestFilterSensitiveLog = (obj: BatchGetFieldRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FieldErrorFilterSensitiveLog = (obj: FieldError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFieldResponseFilterSensitiveLog = (obj: GetFieldResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetFieldResponseFilterSensitiveLog = (obj: BatchGetFieldResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FieldOptionFilterSensitiveLog = (obj: FieldOption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchPutFieldOptionsRequestFilterSensitiveLog = (obj: BatchPutFieldOptionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FieldOptionErrorFilterSensitiveLog = (obj: FieldOptionError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchPutFieldOptionsResponseFilterSensitiveLog = (obj: BatchPutFieldOptionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFieldRequestFilterSensitiveLog = (obj: CreateFieldRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFieldResponseFilterSensitiveLog = (obj: CreateFieldResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFieldOptionsRequestFilterSensitiveLog = (obj: ListFieldOptionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFieldOptionsResponseFilterSensitiveLog = (obj: ListFieldOptionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFieldsRequestFilterSensitiveLog = (obj: ListFieldsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FieldSummaryFilterSensitiveLog = (obj: FieldSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFieldsResponseFilterSensitiveLog = (obj: ListFieldsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFieldRequestFilterSensitiveLog = (obj: UpdateFieldRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFieldResponseFilterSensitiveLog = (obj: UpdateFieldResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FieldItemFilterSensitiveLog = (obj: FieldItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FieldGroupFilterSensitiveLog = (obj: FieldGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SectionFilterSensitiveLog = (obj: Section): any => {
-  if (obj.fieldGroup !== undefined) return { fieldGroup: FieldGroupFilterSensitiveLog(obj.fieldGroup) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const LayoutSectionsFilterSensitiveLog = (obj: LayoutSections): any => ({
-  ...obj,
-  ...(obj.sections && { sections: obj.sections.map((item) => SectionFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const BasicLayoutFilterSensitiveLog = (obj: BasicLayout): any => ({
-  ...obj,
-  ...(obj.topPanel && { topPanel: LayoutSectionsFilterSensitiveLog(obj.topPanel) }),
-  ...(obj.moreInfo && { moreInfo: LayoutSectionsFilterSensitiveLog(obj.moreInfo) }),
-});
-
-/**
- * @internal
- */
-export const LayoutContentFilterSensitiveLog = (obj: LayoutContent): any => {
-  if (obj.basic !== undefined) return { basic: BasicLayoutFilterSensitiveLog(obj.basic) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const CreateLayoutRequestFilterSensitiveLog = (obj: CreateLayoutRequest): any => ({
-  ...obj,
-  ...(obj.content && { content: LayoutContentFilterSensitiveLog(obj.content) }),
-});
-
-/**
- * @internal
- */
-export const CreateLayoutResponseFilterSensitiveLog = (obj: CreateLayoutResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLayoutRequestFilterSensitiveLog = (obj: GetLayoutRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLayoutResponseFilterSensitiveLog = (obj: GetLayoutResponse): any => ({
-  ...obj,
-  ...(obj.content && { content: LayoutContentFilterSensitiveLog(obj.content) }),
-});
-
-/**
- * @internal
- */
-export const ListLayoutsRequestFilterSensitiveLog = (obj: ListLayoutsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LayoutSummaryFilterSensitiveLog = (obj: LayoutSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLayoutsResponseFilterSensitiveLog = (obj: ListLayoutsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateLayoutRequestFilterSensitiveLog = (obj: UpdateLayoutRequest): any => ({
-  ...obj,
-  ...(obj.content && { content: LayoutContentFilterSensitiveLog(obj.content) }),
-});
-
-/**
- * @internal
- */
-export const UpdateLayoutResponseFilterSensitiveLog = (obj: UpdateLayoutResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LayoutConfigurationFilterSensitiveLog = (obj: LayoutConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RequiredFieldFilterSensitiveLog = (obj: RequiredField): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTemplateRequestFilterSensitiveLog = (obj: CreateTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTemplateResponseFilterSensitiveLog = (obj: CreateTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTemplateRequestFilterSensitiveLog = (obj: GetTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTemplateResponseFilterSensitiveLog = (obj: GetTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTemplatesRequestFilterSensitiveLog = (obj: ListTemplatesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TemplateSummaryFilterSensitiveLog = (obj: TemplateSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTemplatesResponseFilterSensitiveLog = (obj: ListTemplatesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTemplateRequestFilterSensitiveLog = (obj: UpdateTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTemplateResponseFilterSensitiveLog = (obj: UpdateTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CaseFilterFilterSensitiveLog = (obj: CaseFilter): any => {
-  if (obj.field !== undefined) return { field: FieldFilterFilterSensitiveLog(obj.field) };
-  if (obj.not !== undefined) return { not: CaseFilterFilterSensitiveLog(obj.not) };
-  if (obj.andAll !== undefined) return { andAll: obj.andAll.map((item) => CaseFilterFilterSensitiveLog(item)) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const SearchCasesRequestFilterSensitiveLog = (obj: SearchCasesRequest): any => ({
-  ...obj,
-  ...(obj.filter && { filter: CaseFilterFilterSensitiveLog(obj.filter) }),
-});

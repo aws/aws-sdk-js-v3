@@ -7,6 +7,11 @@ import {
   CancelChangeSetCommandOutput,
 } from "./commands/CancelChangeSetCommand";
 import {
+  DeleteResourcePolicyCommand,
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
+import {
   DescribeChangeSetCommand,
   DescribeChangeSetCommandInput,
   DescribeChangeSetCommandOutput,
@@ -16,6 +21,11 @@ import {
   DescribeEntityCommandInput,
   DescribeEntityCommandOutput,
 } from "./commands/DescribeEntityCommand";
+import {
+  GetResourcePolicyCommand,
+  GetResourcePolicyCommandInput,
+  GetResourcePolicyCommandOutput,
+} from "./commands/GetResourcePolicyCommand";
 import {
   ListChangeSetsCommand,
   ListChangeSetsCommandInput,
@@ -32,6 +42,11 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  PutResourcePolicyCommand,
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
+} from "./commands/PutResourcePolicyCommand";
+import {
   StartChangeSetCommand,
   StartChangeSetCommandInput,
   StartChangeSetCommandOutput,
@@ -45,15 +60,17 @@ import {
 import { MarketplaceCatalogClient } from "./MarketplaceCatalogClient";
 
 /**
+ * @public
  * <p>Catalog API actions allow you to manage your entities through list, describe, and
  *             update capabilities. An entity can be a product or an offer on AWS Marketplace. </p>
- *         <p>You can automate your entity update process by integrating the AWS Marketplace Catalog
+ *          <p>You can automate your entity update process by integrating the AWS Marketplace Catalog
  *             API with your AWS Marketplace product build or deployment pipelines. You can also create
  *             your own applications on top of the Catalog API to manage your products on AWS
  *             Marketplace.</p>
  */
 export class MarketplaceCatalog extends MarketplaceCatalogClient {
   /**
+   * @public
    * <p>Used to cancel an open change request. Must be sent before the status of the request
    *             changes to <code>APPLYING</code>, the final stage of completing your change request. You
    *             can describe a change during the 60-day request history retention period for API
@@ -89,6 +106,41 @@ export class MarketplaceCatalog extends MarketplaceCatalogClient {
   }
 
   /**
+   * @public
+   * <p>Deletes a resource-based policy on an Entity that is identified by its resource
+   *             ARN.</p>
+   */
+  public deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteResourcePolicyCommandOutput>;
+  public deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+  public deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+  public deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteResourcePolicyCommandOutput) => void),
+    cb?: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): Promise<DeleteResourcePolicyCommandOutput> | void {
+    const command = new DeleteResourcePolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Provides information about a given change set.</p>
    */
   public describeChangeSet(
@@ -121,6 +173,7 @@ export class MarketplaceCatalog extends MarketplaceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Returns the metadata and content of the entity.</p>
    */
   public describeEntity(
@@ -153,11 +206,46 @@ export class MarketplaceCatalog extends MarketplaceCatalogClient {
   }
 
   /**
+   * @public
+   * <p>Gets a resource-based policy of an Entity that is identified by its resource
+   *             ARN.</p>
+   */
+  public getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourcePolicyCommandOutput>;
+  public getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
+  ): void;
+  public getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
+  ): void;
+  public getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResourcePolicyCommandOutput) => void),
+    cb?: (err: any, data?: GetResourcePolicyCommandOutput) => void
+  ): Promise<GetResourcePolicyCommandOutput> | void {
+    const command = new GetResourcePolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Returns the list of change sets owned by the account being used to make the call. You
    *             can filter this list by providing any combination of <code>entityId</code>,
    *                 <code>ChangeSetName</code>, and status. If you provide more than one filter, the API
    *             operation applies a logical AND between the filters.</p>
-   *         <p>You can describe a change during the 60-day request history retention period for API
+   *          <p>You can describe a change during the 60-day request history retention period for API
    *             calls.</p>
    */
   public listChangeSets(
@@ -190,6 +278,7 @@ export class MarketplaceCatalog extends MarketplaceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Provides the list of entities of a given type.</p>
    */
   public listEntities(
@@ -219,6 +308,7 @@ export class MarketplaceCatalog extends MarketplaceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Lists all tags that have been added to a resource (either an <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#catalog-api-entities">entity</a> or <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#working-with-change-sets">change set</a>).</p>
    */
   public listTagsForResource(
@@ -251,6 +341,41 @@ export class MarketplaceCatalog extends MarketplaceCatalogClient {
   }
 
   /**
+   * @public
+   * <p>Attaches a resource-based policy to an Entity. Examples of an entity include:
+   *                 <code>AmiProduct</code> and <code>ContainerProduct</code>.</p>
+   */
+  public putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutResourcePolicyCommandOutput>;
+  public putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+  public putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+  public putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutResourcePolicyCommandOutput) => void),
+    cb?: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): Promise<PutResourcePolicyCommandOutput> | void {
+    const command = new PutResourcePolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Allows you to request changes for your entities. Within a single
    *                 <code>ChangeSet</code>, you can't start the same change type against the same entity
    *             multiple times. Additionally, when a <code>ChangeSet</code> is running, all the entities
@@ -258,10 +383,12 @@ export class MarketplaceCatalog extends MarketplaceCatalogClient {
    *             succeeded, cancelled, or failed). If you try to start a change set containing a change
    *             against an entity that is already locked, you will receive a
    *                 <code>ResourceInUseException</code> error.</p>
-   *         <p>For example, you can't start the <code>ChangeSet</code> described in the <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_StartChangeSet.html#API_StartChangeSet_Examples">example</a> later in this topic because it contains two changes to run the same
+   *          <p>For example, you can't start the <code>ChangeSet</code> described in the <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_StartChangeSet.html#API_StartChangeSet_Examples">example</a> later in this topic because it contains two changes to run the same
    *             change type (<code>AddRevisions</code>) against the same entity
    *                 (<code>entity-id@1</code>).</p>
-   *         <p>For more information about working with change sets, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#working-with-change-sets"> Working with change sets</a>.</p>
+   *          <p>For more information about working with change sets, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#working-with-change-sets"> Working with change sets</a>. For information on change types for single-AMI
+   *             products, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/ami-products.html#working-with-single-AMI-products">Working with single-AMI products</a>. Als, for more information on change types
+   *             available for container-based products, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/container-products.html#working-with-container-products">Working with container products</a>.</p>
    */
   public startChangeSet(
     args: StartChangeSetCommandInput,
@@ -293,6 +420,7 @@ export class MarketplaceCatalog extends MarketplaceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Tags a resource (either an <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#catalog-api-entities">entity</a> or <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#working-with-change-sets">change set</a>).</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -319,6 +447,7 @@ export class MarketplaceCatalog extends MarketplaceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Removes a tag or list of tags from a resource (either an <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#catalog-api-entities">entity</a> or <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#working-with-change-sets">change set</a>).</p>
    */
   public untagResource(

@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
+import { SubmitAttachmentStateChangesRequest, SubmitAttachmentStateChangesResponse } from "../models/models_0";
 import {
-  SubmitAttachmentStateChangesRequest,
-  SubmitAttachmentStateChangesRequestFilterSensitiveLog,
-  SubmitAttachmentStateChangesResponse,
-  SubmitAttachmentStateChangesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1SubmitAttachmentStateChangesCommand,
-  serializeAws_json1_1SubmitAttachmentStateChangesCommand,
+  de_SubmitAttachmentStateChangesCommand,
+  se_SubmitAttachmentStateChangesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link SubmitAttachmentStateChangesCommand}.
+ */
 export interface SubmitAttachmentStateChangesCommandInput extends SubmitAttachmentStateChangesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SubmitAttachmentStateChangesCommand}.
+ */
 export interface SubmitAttachmentStateChangesCommandOutput
   extends SubmitAttachmentStateChangesResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This action is only used by the Amazon ECS agent, and it is not intended for use outside of the agent.</p>
  *          </note>
@@ -41,13 +47,40 @@ export interface SubmitAttachmentStateChangesCommandOutput
  * import { ECSClient, SubmitAttachmentStateChangesCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, SubmitAttachmentStateChangesCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // SubmitAttachmentStateChangesRequest
+ *   cluster: "STRING_VALUE",
+ *   attachments: [ // AttachmentStateChanges // required
+ *     { // AttachmentStateChange
+ *       attachmentArn: "STRING_VALUE", // required
+ *       status: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new SubmitAttachmentStateChangesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SubmitAttachmentStateChangesCommandInput - {@link SubmitAttachmentStateChangesCommandInput}
+ * @returns {@link SubmitAttachmentStateChangesCommandOutput}
  * @see {@link SubmitAttachmentStateChangesCommandInput} for command's `input` shape.
  * @see {@link SubmitAttachmentStateChangesCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have authorization to perform the requested action.</p>
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action. This client action might be using
+ * 			an action or resource on behalf of a user that doesn't have permissions to use the
+ * 			action or resource,. Or, it might be specifying an identifier that isn't valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter isn't valid. Review the available parameters for the API
+ * 			request.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server issue.</p>
+ *
  *
  */
 export class SubmitAttachmentStateChangesCommand extends $Command<
@@ -67,6 +100,9 @@ export class SubmitAttachmentStateChangesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SubmitAttachmentStateChangesCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +131,8 @@ export class SubmitAttachmentStateChangesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SubmitAttachmentStateChangesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SubmitAttachmentStateChangesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,15 +142,21 @@ export class SubmitAttachmentStateChangesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SubmitAttachmentStateChangesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SubmitAttachmentStateChangesCommand(input, context);
+    return se_SubmitAttachmentStateChangesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SubmitAttachmentStateChangesCommandOutput> {
-    return deserializeAws_json1_1SubmitAttachmentStateChangesCommand(output, context);
+    return de_SubmitAttachmentStateChangesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  RemoveIpRoutesRequest,
-  RemoveIpRoutesRequestFilterSensitiveLog,
-  RemoveIpRoutesResult,
-  RemoveIpRoutesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RemoveIpRoutesCommand,
-  serializeAws_json1_1RemoveIpRoutesCommand,
-} from "../protocols/Aws_json1_1";
+import { RemoveIpRoutesRequest, RemoveIpRoutesResult } from "../models/models_0";
+import { de_RemoveIpRoutesCommand, se_RemoveIpRoutesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link RemoveIpRoutesCommand}.
+ */
 export interface RemoveIpRoutesCommandInput extends RemoveIpRoutesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RemoveIpRoutesCommand}.
+ */
 export interface RemoveIpRoutesCommandOutput extends RemoveIpRoutesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes IP address blocks from a directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,37 @@ export interface RemoveIpRoutesCommandOutput extends RemoveIpRoutesResult, __Met
  * import { DirectoryServiceClient, RemoveIpRoutesCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, RemoveIpRoutesCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // RemoveIpRoutesRequest
+ *   DirectoryId: "STRING_VALUE", // required
+ *   CidrIps: [ // CidrIps // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new RemoveIpRoutesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveIpRoutesCommandInput - {@link RemoveIpRoutesCommandInput}
+ * @returns {@link RemoveIpRoutesCommandOutput}
  * @see {@link RemoveIpRoutesCommandInput} for command's `input` shape.
  * @see {@link RemoveIpRoutesCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>A client exception has occurred.</p>
+ *
+ * @throws {@link DirectoryUnavailableException} (client fault)
+ *  <p>The specified directory is unavailable or could not be found.</p>
+ *
+ * @throws {@link EntityDoesNotExistException} (client fault)
+ *  <p>The specified entity could not be found.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>An exception has occurred in Directory Service.</p>
+ *
  *
  */
 export class RemoveIpRoutesCommand extends $Command<
@@ -62,6 +89,9 @@ export class RemoveIpRoutesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveIpRoutesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +120,8 @@ export class RemoveIpRoutesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveIpRoutesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RemoveIpRoutesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +131,18 @@ export class RemoveIpRoutesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveIpRoutesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RemoveIpRoutesCommand(input, context);
+    return se_RemoveIpRoutesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveIpRoutesCommandOutput> {
-    return deserializeAws_json1_1RemoveIpRoutesCommand(output, context);
+    return de_RemoveIpRoutesCommand(output, context);
   }
 
   // Start section: command_body_extra

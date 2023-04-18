@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  DescribeJobsRequest,
-  DescribeJobsRequestFilterSensitiveLog,
-  DescribeJobsResponse,
-  DescribeJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeJobsCommand,
-  serializeAws_restJson1DescribeJobsCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeJobsRequest, DescribeJobsResponse, DescribeJobsResponseFilterSensitiveLog } from "../models/models_0";
+import { de_DescribeJobsCommand, se_DescribeJobsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeJobsCommand}.
+ */
 export interface DescribeJobsCommandInput extends DescribeJobsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeJobsCommand}.
+ */
 export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of Jobs. Use the JobsID and fromDate and toData filters to limit which jobs are returned. The response is sorted by creationDataTime - latest date first. Jobs are normally created by the StartTest, StartCutover, and TerminateTargetInstances APIs. Jobs are also created by DiagnosticLaunch and TerminateDiagnosticInstances, which are APIs available only to *Support* and only used in response to relevant support tickets.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,33 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  * import { MgnClient, DescribeJobsCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, DescribeJobsCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = { // DescribeJobsRequest
+ *   filters: { // DescribeJobsRequestFilters
+ *     jobIDs: [ // DescribeJobsRequestFiltersJobIDs
+ *       "STRING_VALUE",
+ *     ],
+ *     fromDate: "STRING_VALUE",
+ *     toDate: "STRING_VALUE",
+ *   },
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeJobsCommandInput - {@link DescribeJobsCommandInput}
+ * @returns {@link DescribeJobsCommandOutput}
  * @see {@link DescribeJobsCommandInput} for command's `input` shape.
  * @see {@link DescribeJobsCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
+ *
+ * @throws {@link UninitializedAccountException} (client fault)
+ *  <p>Uninitialized account exception.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Validate exception.</p>
+ *
  *
  */
 export class DescribeJobsCommand extends $Command<
@@ -62,6 +85,9 @@ export class DescribeJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,7 +114,7 @@ export class DescribeJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeJobsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeJobsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -99,12 +125,18 @@ export class DescribeJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeJobsCommand(input, context);
+    return se_DescribeJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeJobsCommandOutput> {
-    return deserializeAws_restJson1DescribeJobsCommand(output, context);
+    return de_DescribeJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

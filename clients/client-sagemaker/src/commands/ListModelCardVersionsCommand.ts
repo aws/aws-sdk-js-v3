@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListModelCardVersionsRequest,
-  ListModelCardVersionsRequestFilterSensitiveLog,
-  ListModelCardVersionsResponse,
-  ListModelCardVersionsResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1ListModelCardVersionsCommand,
-  serializeAws_json1_1ListModelCardVersionsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListModelCardVersionsRequest, ListModelCardVersionsResponse } from "../models/models_3";
+import { de_ListModelCardVersionsCommand, se_ListModelCardVersionsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListModelCardVersionsCommand}.
+ */
 export interface ListModelCardVersionsCommandInput extends ListModelCardVersionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListModelCardVersionsCommand}.
+ */
 export interface ListModelCardVersionsCommandOutput extends ListModelCardVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List existing versions of an Amazon SageMaker Model Card.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,29 @@ export interface ListModelCardVersionsCommandOutput extends ListModelCardVersion
  * import { SageMakerClient, ListModelCardVersionsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListModelCardVersionsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListModelCardVersionsRequest
+ *   CreationTimeAfter: new Date("TIMESTAMP"),
+ *   CreationTimeBefore: new Date("TIMESTAMP"),
+ *   MaxResults: Number("int"),
+ *   ModelCardName: "STRING_VALUE", // required
+ *   ModelCardStatus: "Draft" || "PendingReview" || "Approved" || "Archived",
+ *   NextToken: "STRING_VALUE",
+ *   SortBy: "Version",
+ *   SortOrder: "Ascending" || "Descending",
+ * };
  * const command = new ListModelCardVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListModelCardVersionsCommandInput - {@link ListModelCardVersionsCommandInput}
+ * @returns {@link ListModelCardVersionsCommandOutput}
  * @see {@link ListModelCardVersionsCommandInput} for command's `input` shape.
  * @see {@link ListModelCardVersionsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class ListModelCardVersionsCommand extends $Command<
@@ -62,6 +81,9 @@ export class ListModelCardVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListModelCardVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +112,8 @@ export class ListModelCardVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListModelCardVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListModelCardVersionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +123,18 @@ export class ListModelCardVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListModelCardVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListModelCardVersionsCommand(input, context);
+    return se_ListModelCardVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListModelCardVersionsCommandOutput> {
-    return deserializeAws_json1_1ListModelCardVersionsCommand(output, context);
+    return de_ListModelCardVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

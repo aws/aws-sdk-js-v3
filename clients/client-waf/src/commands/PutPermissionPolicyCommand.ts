@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutPermissionPolicyRequest,
-  PutPermissionPolicyRequestFilterSensitiveLog,
-  PutPermissionPolicyResponse,
-  PutPermissionPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutPermissionPolicyCommand,
-  serializeAws_json1_1PutPermissionPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { PutPermissionPolicyRequest, PutPermissionPolicyResponse } from "../models/models_0";
+import { de_PutPermissionPolicyCommand, se_PutPermissionPolicyCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
+/**
+ * @public
+ *
+ * The input for {@link PutPermissionPolicyCommand}.
+ */
 export interface PutPermissionPolicyCommandInput extends PutPermissionPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutPermissionPolicyCommand}.
+ */
 export interface PutPermissionPolicyCommandOutput extends PutPermissionPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -76,13 +79,61 @@ export interface PutPermissionPolicyCommandOutput extends PutPermissionPolicyRes
  * import { WAFClient, PutPermissionPolicyCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, PutPermissionPolicyCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = { // PutPermissionPolicyRequest
+ *   ResourceArn: "STRING_VALUE", // required
+ *   Policy: "STRING_VALUE", // required
+ * };
  * const command = new PutPermissionPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutPermissionPolicyCommandInput - {@link PutPermissionPolicyCommandInput}
+ * @returns {@link PutPermissionPolicyCommandOutput}
  * @see {@link PutPermissionPolicyCommandInput} for command's `input` shape.
  * @see {@link PutPermissionPolicyCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
+ *
+ * @throws {@link WAFInternalErrorException} (server fault)
+ *  <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+ *
+ * @throws {@link WAFInvalidPermissionPolicyException} (client fault)
+ *  <p>The operation failed because the specified policy is not in the proper format. </p>
+ *          <p>The policy is subject to the following restrictions:</p>
+ *          <ul>
+ *             <li>
+ *                <p>You can attach only one policy with each <code>PutPermissionPolicy</code> request.</p>
+ *             </li>
+ *             <li>
+ *                <p>The policy must include an <code>Effect</code>, <code>Action</code> and <code>Principal</code>. </p>
+ *             </li>
+ *             <li>
+ *
+ *                <p>
+ *                   <code>Effect</code> must specify <code>Allow</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>The <code>Action</code> in the policy must be <code>waf:UpdateWebACL</code>, <code>waf-regional:UpdateWebACL</code>, <code>waf:GetRuleGroup</code> and <code>waf-regional:GetRuleGroup</code> . Any extra or wildcard actions in the policy will be rejected.</p>
+ *             </li>
+ *             <li>
+ *                <p>The policy cannot include a <code>Resource</code> parameter.</p>
+ *             </li>
+ *             <li>
+ *                <p>The ARN in the request must be a valid WAF RuleGroup ARN and the RuleGroup must exist in the same region.</p>
+ *             </li>
+ *             <li>
+ *                <p>The user making the request must be the owner of the RuleGroup.</p>
+ *             </li>
+ *             <li>
+ *                <p>Your policy must be composed using IAM Policy version 2012-10-17.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link WAFNonexistentItemException} (client fault)
+ *  <p>The operation failed because the referenced object doesn't exist.</p>
+ *
+ * @throws {@link WAFStaleDataException} (client fault)
+ *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+ *
  *
  */
 export class PutPermissionPolicyCommand extends $Command<
@@ -102,6 +153,9 @@ export class PutPermissionPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutPermissionPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +184,8 @@ export class PutPermissionPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutPermissionPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutPermissionPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +195,18 @@ export class PutPermissionPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutPermissionPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutPermissionPolicyCommand(input, context);
+    return se_PutPermissionPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutPermissionPolicyCommandOutput> {
-    return deserializeAws_json1_1PutPermissionPolicyCommand(output, context);
+    return de_PutPermissionPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

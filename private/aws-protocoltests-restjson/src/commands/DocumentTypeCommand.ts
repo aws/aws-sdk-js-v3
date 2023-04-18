@@ -12,17 +12,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DocumentTypeInputOutput, DocumentTypeInputOutputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DocumentTypeCommand,
-  serializeAws_restJson1DocumentTypeCommand,
-} from "../protocols/Aws_restJson1";
+import { DocumentTypeInputOutput } from "../models/models_0";
+import { de_DocumentTypeCommand, se_DocumentTypeCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DocumentTypeCommand}.
+ */
 export interface DocumentTypeCommandInput extends DocumentTypeInputOutput {}
+/**
+ * @public
+ *
+ * The output of {@link DocumentTypeCommand}.
+ */
 export interface DocumentTypeCommandOutput extends DocumentTypeInputOutput, __MetadataBearer {}
 
 /**
+ * @public
  * This example serializes a document as part of the payload.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -30,13 +38,20 @@ export interface DocumentTypeCommandOutput extends DocumentTypeInputOutput, __Me
  * import { RestJsonProtocolClient, DocumentTypeCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, DocumentTypeCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
+ * const input = { // DocumentTypeInputOutput
+ *   stringValue: "STRING_VALUE",
+ *   documentValue: "DOCUMENT_VALUE",
+ * };
  * const command = new DocumentTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DocumentTypeCommandInput - {@link DocumentTypeCommandInput}
+ * @returns {@link DocumentTypeCommandOutput}
  * @see {@link DocumentTypeCommandInput} for command's `input` shape.
  * @see {@link DocumentTypeCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
+ *
  *
  */
 export class DocumentTypeCommand extends $Command<
@@ -47,6 +62,9 @@ export class DocumentTypeCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: DocumentTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,8 +90,8 @@ export class DocumentTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DocumentTypeInputOutputFilterSensitiveLog,
-      outputFilterSensitiveLog: DocumentTypeInputOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +101,18 @@ export class DocumentTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DocumentTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DocumentTypeCommand(input, context);
+    return se_DocumentTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DocumentTypeCommandOutput> {
-    return deserializeAws_restJson1DocumentTypeCommand(output, context);
+    return de_DocumentTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

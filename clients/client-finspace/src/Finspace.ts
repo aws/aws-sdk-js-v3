@@ -40,10 +40,12 @@ import {
 import { FinspaceClient } from "./FinspaceClient";
 
 /**
+ * @public
  * <p>The FinSpace management service provides the APIs for managing FinSpace environments.</p>
  */
 export class Finspace extends FinspaceClient {
   /**
+   * @public
    * <p>Create a new FinSpace environment.</p>
    */
   public createEnvironment(
@@ -76,6 +78,7 @@ export class Finspace extends FinspaceClient {
   }
 
   /**
+   * @public
    * <p>Delete an FinSpace environment.</p>
    */
   public deleteEnvironment(
@@ -108,6 +111,7 @@ export class Finspace extends FinspaceClient {
   }
 
   /**
+   * @public
    * <p>Returns the FinSpace environment object.</p>
    */
   public getEnvironment(
@@ -140,6 +144,7 @@ export class Finspace extends FinspaceClient {
   }
 
   /**
+   * @public
    * <p>A list of all of your FinSpace environments.</p>
    */
   public listEnvironments(
@@ -172,6 +177,7 @@ export class Finspace extends FinspaceClient {
   }
 
   /**
+   * @public
    * <p>A list of all tags for a resource.</p>
    */
   public listTagsForResource(
@@ -204,6 +210,7 @@ export class Finspace extends FinspaceClient {
   }
 
   /**
+   * @public
    * <p>Adds metadata tags to a FinSpace resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -230,6 +237,7 @@ export class Finspace extends FinspaceClient {
   }
 
   /**
+   * @public
    * <p>Removes metadata tags from a FinSpace resource.</p>
    */
   public untagResource(
@@ -262,6 +270,7 @@ export class Finspace extends FinspaceClient {
   }
 
   /**
+   * @public
    * <p>Update your FinSpace environment.</p>
    */
   public updateEnvironment(

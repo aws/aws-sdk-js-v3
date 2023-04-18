@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { CreateDatalakeDelegatedAdminRequest, CreateDatalakeDelegatedAdminResponse } from "../models/models_0";
 import {
-  CreateDatalakeDelegatedAdminRequest,
-  CreateDatalakeDelegatedAdminRequestFilterSensitiveLog,
-  CreateDatalakeDelegatedAdminResponse,
-  CreateDatalakeDelegatedAdminResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDatalakeDelegatedAdminCommand,
-  serializeAws_restJson1CreateDatalakeDelegatedAdminCommand,
+  de_CreateDatalakeDelegatedAdminCommand,
+  se_CreateDatalakeDelegatedAdminCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateDatalakeDelegatedAdminCommand}.
+ */
 export interface CreateDatalakeDelegatedAdminCommandInput extends CreateDatalakeDelegatedAdminRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateDatalakeDelegatedAdminCommand}.
+ */
 export interface CreateDatalakeDelegatedAdminCommandOutput
   extends CreateDatalakeDelegatedAdminResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Designates the Amazon Security Lake delegated administrator account for the organization. This
  *          API can only be called by the organization management account. The organization management
  *          account cannot be the delegated administrator account.</p>
@@ -40,13 +46,35 @@ export interface CreateDatalakeDelegatedAdminCommandOutput
  * import { SecurityLakeClient, CreateDatalakeDelegatedAdminCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, CreateDatalakeDelegatedAdminCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
+ * const input = { // CreateDatalakeDelegatedAdminRequest
+ *   account: "STRING_VALUE", // required
+ * };
  * const command = new CreateDatalakeDelegatedAdminCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDatalakeDelegatedAdminCommandInput - {@link CreateDatalakeDelegatedAdminCommandInput}
+ * @returns {@link CreateDatalakeDelegatedAdminCommandOutput}
  * @see {@link CreateDatalakeDelegatedAdminCommandInput} for command's `input` shape.
  * @see {@link CreateDatalakeDelegatedAdminCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action. Access denied errors appear when Amazon Security Lake explicitly or implicitly denies an authorization
+ *          request. An explicit denial occurs when a policy contains a Deny statement for the specific
+ *          Amazon Web Services action. An implicit denial occurs when there is no applicable Deny statement and also
+ *          no applicable Allow statement.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Internal service exceptions are sometimes caused by transient issues. Before you start
+ *          troubleshooting, perform the operation again. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The limit on the number of requests per second was exceeded. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Your signing certificate could not be validated. </p>
+ *
  *
  */
 export class CreateDatalakeDelegatedAdminCommand extends $Command<
@@ -66,6 +94,9 @@ export class CreateDatalakeDelegatedAdminCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDatalakeDelegatedAdminCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +125,8 @@ export class CreateDatalakeDelegatedAdminCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDatalakeDelegatedAdminRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDatalakeDelegatedAdminResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,15 +136,21 @@ export class CreateDatalakeDelegatedAdminCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDatalakeDelegatedAdminCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDatalakeDelegatedAdminCommand(input, context);
+    return se_CreateDatalakeDelegatedAdminCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDatalakeDelegatedAdminCommandOutput> {
-    return deserializeAws_restJson1CreateDatalakeDelegatedAdminCommand(output, context);
+    return de_CreateDatalakeDelegatedAdminCommand(output, context);
   }
 
   // Start section: command_body_extra

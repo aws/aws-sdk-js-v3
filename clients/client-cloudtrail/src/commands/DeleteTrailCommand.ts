@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import {
-  DeleteTrailRequest,
-  DeleteTrailRequestFilterSensitiveLog,
-  DeleteTrailResponse,
-  DeleteTrailResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteTrailCommand,
-  serializeAws_json1_1DeleteTrailCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteTrailRequest, DeleteTrailResponse } from "../models/models_0";
+import { de_DeleteTrailCommand, se_DeleteTrailCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteTrailCommand}.
+ */
 export interface DeleteTrailCommandInput extends DeleteTrailRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteTrailCommand}.
+ */
 export interface DeleteTrailCommandOutput extends DeleteTrailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a trail. This operation must be called from the region in which the trail was
  *          created. <code>DeleteTrail</code> cannot be called on the shadow trails (replicated trails
  *          in other regions) of a trail that is enabled in all regions.</p>
@@ -38,13 +41,89 @@ export interface DeleteTrailCommandOutput extends DeleteTrailResponse, __Metadat
  * import { CloudTrailClient, DeleteTrailCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, DeleteTrailCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = { // DeleteTrailRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteTrailCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTrailCommandInput - {@link DeleteTrailCommandInput}
+ * @returns {@link DeleteTrailCommandOutput}
  * @see {@link DeleteTrailCommandInput} for command's `input` shape.
  * @see {@link DeleteTrailCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
+ *
+ * @throws {@link CloudTrailARNInvalidException} (client fault)
+ *  <p>This exception is thrown when an operation is called with a trail ARN that is not valid.
+ *          The following is the format of a trail ARN.</p>
+ *          <p>
+ *             <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
+ *          </p>
+ *          <p>This exception is also thrown when you call <code>AddTags</code> or <code>RemoveTags</code> on a trail, event data store, or channel with a resource ARN that is not valid.</p>
+ *          <p>The following is the format of an event data store ARN:
+ *          <code>arn:aws:cloudtrail:us-east-2:12345678910:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
+ *          </p>
+ *          <p>The following is the format of a channel ARN:
+ *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>
+ *          </p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>This exception is thrown when the specified resource is not ready for an operation. This
+ *          can occur when you try to run an operation on a resource before CloudTrail has time
+ *          to fully load the resource, or because another operation is modifying the resource. If this exception occurs, wait a few minutes, and then try the
+ *          operation again.</p>
+ *
+ * @throws {@link InsufficientDependencyServiceAccessPermissionException} (client fault)
+ *  <p>This exception is thrown when the IAM user or role that is used to create
+ *          the organization resource lacks one or more required permissions for creating an
+ *          organization resource in a required service.</p>
+ *
+ * @throws {@link InvalidHomeRegionException} (client fault)
+ *  <p>This exception is thrown when an operation is called on a trail from a region other than
+ *          the region in which the trail was created.</p>
+ *
+ * @throws {@link InvalidTrailNameException} (client fault)
+ *  <p>This exception is thrown when the provided trail name is not valid. Trail names must
+ *          meet the following requirements:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores
+ *                (_), or dashes (-)</p>
+ *             </li>
+ *             <li>
+ *                <p>Start with a letter or number, and end with a letter or number</p>
+ *             </li>
+ *             <li>
+ *                <p>Be between 3 and 128 characters</p>
+ *             </li>
+ *             <li>
+ *                <p>Have no adjacent periods, underscores or dashes. Names like
+ *                   <code>my-_namespace</code> and <code>my--namespace</code> are not valid.</p>
+ *             </li>
+ *             <li>
+ *                <p>Not be in IP address format (for example, 192.168.5.4)</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link NoManagementAccountSLRExistsException} (client fault)
+ *  <p> This exception is thrown when the management account does not have a service-linked
+ *          role. </p>
+ *
+ * @throws {@link NotOrganizationMasterAccountException} (client fault)
+ *  <p>This exception is thrown when the Amazon Web Services account making the request to
+ *          create or update an organization trail or event data store is not the management account
+ *          for an organization in Organizations. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a> or <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-event-data-store.html">Create an event data store</a>.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not permitted.</p>
+ *
+ * @throws {@link TrailNotFoundException} (client fault)
+ *  <p>This exception is thrown when the trail with the given name is not found.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not supported.</p>
+ *
  *
  */
 export class DeleteTrailCommand extends $Command<
@@ -64,6 +143,9 @@ export class DeleteTrailCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTrailCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +172,8 @@ export class DeleteTrailCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTrailRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTrailResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +183,18 @@ export class DeleteTrailCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTrailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteTrailCommand(input, context);
+    return se_DeleteTrailCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTrailCommandOutput> {
-    return deserializeAws_json1_1DeleteTrailCommand(output, context);
+    return de_DeleteTrailCommand(output, context);
   }
 
   // Start section: command_body_extra

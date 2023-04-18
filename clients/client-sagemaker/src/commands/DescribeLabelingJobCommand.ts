@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeLabelingJobRequest,
-  DescribeLabelingJobRequestFilterSensitiveLog,
-  DescribeLabelingJobResponse,
-  DescribeLabelingJobResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeLabelingJobCommand,
-  serializeAws_json1_1DescribeLabelingJobCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeLabelingJobRequest, DescribeLabelingJobResponse } from "../models/models_2";
+import { de_DescribeLabelingJobCommand, se_DescribeLabelingJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeLabelingJobCommand}.
+ */
 export interface DescribeLabelingJobCommandInput extends DescribeLabelingJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeLabelingJobCommand}.
+ */
 export interface DescribeLabelingJobCommandOutput extends DescribeLabelingJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a labeling job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,22 @@ export interface DescribeLabelingJobCommandOutput extends DescribeLabelingJobRes
  * import { SageMakerClient, DescribeLabelingJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeLabelingJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DescribeLabelingJobRequest
+ *   LabelingJobName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeLabelingJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLabelingJobCommandInput - {@link DescribeLabelingJobCommandInput}
+ * @returns {@link DescribeLabelingJobCommandOutput}
  * @see {@link DescribeLabelingJobCommandInput} for command's `input` shape.
  * @see {@link DescribeLabelingJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class DescribeLabelingJobCommand extends $Command<
@@ -62,6 +74,9 @@ export class DescribeLabelingJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLabelingJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +105,8 @@ export class DescribeLabelingJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLabelingJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLabelingJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +116,18 @@ export class DescribeLabelingJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLabelingJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeLabelingJobCommand(input, context);
+    return se_DescribeLabelingJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLabelingJobCommandOutput> {
-    return deserializeAws_json1_1DescribeLabelingJobCommand(output, context);
+    return de_DescribeLabelingJobCommand(output, context);
   }
 
   // Start section: command_body_extra

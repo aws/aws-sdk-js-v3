@@ -13,34 +13,37 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ClustersMessage,
-  ClustersMessageFilterSensitiveLog,
-  DescribeClustersMessage,
-  DescribeClustersMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeClustersCommand,
-  serializeAws_queryDescribeClustersCommand,
-} from "../protocols/Aws_query";
+import { ClustersMessage, DescribeClustersMessage } from "../models/models_0";
+import { de_DescribeClustersCommand, se_DescribeClustersCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeClustersCommand}.
+ */
 export interface DescribeClustersCommandInput extends DescribeClustersMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeClustersCommand}.
+ */
 export interface DescribeClustersCommandOutput extends ClustersMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns properties of provisioned clusters including general cluster properties,
  *             cluster database properties, maintenance and backup properties, and security and access
  *             properties. This operation supports pagination.
  * For more information about managing clusters, go to
  * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a>
  * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
- *         <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns
+ *          <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns
  *             all clusters that match any combination of the specified keys and values. For example,
  *             if you have <code>owner</code> and <code>environment</code> for tag keys, and
  *                 <code>admin</code> and <code>test</code> for tag values, all clusters that have any
  *             combination of those values are returned.</p>
- *         <p>If both tag keys and values are omitted from the request, clusters are returned
+ *          <p>If both tag keys and values are omitted from the request, clusters are returned
  *             regardless of whether they have tag keys or values associated with them.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,13 +51,34 @@ export interface DescribeClustersCommandOutput extends ClustersMessage, __Metada
  * import { RedshiftClient, DescribeClustersCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeClustersCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DescribeClustersMessage
+ *   ClusterIdentifier: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ *   TagKeys: [ // TagKeyList
+ *     "STRING_VALUE",
+ *   ],
+ *   TagValues: [ // TagValueList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeClustersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeClustersCommandInput - {@link DescribeClustersCommandInput}
+ * @returns {@link DescribeClustersCommandOutput}
  * @see {@link DescribeClustersCommandInput} for command's `input` shape.
  * @see {@link DescribeClustersCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
+ *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+ *         </p>
+ *
+ * @throws {@link InvalidTagFault} (client fault)
+ *  <p>The tag is invalid.</p>
+ *
  *
  */
 export class DescribeClustersCommand extends $Command<
@@ -74,6 +98,9 @@ export class DescribeClustersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeClustersCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +129,8 @@ export class DescribeClustersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeClustersMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ClustersMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +140,18 @@ export class DescribeClustersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeClustersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeClustersCommand(input, context);
+    return se_DescribeClustersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeClustersCommandOutput> {
-    return deserializeAws_queryDescribeClustersCommand(output, context);
+    return de_DescribeClustersCommand(output, context);
   }
 
   // Start section: command_body_extra

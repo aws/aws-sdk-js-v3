@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  ListIpRoutesRequest,
-  ListIpRoutesRequestFilterSensitiveLog,
-  ListIpRoutesResult,
-  ListIpRoutesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListIpRoutesCommand,
-  serializeAws_json1_1ListIpRoutesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListIpRoutesRequest, ListIpRoutesResult } from "../models/models_0";
+import { de_ListIpRoutesCommand, se_ListIpRoutesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListIpRoutesCommand}.
+ */
 export interface ListIpRoutesCommandInput extends ListIpRoutesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListIpRoutesCommand}.
+ */
 export interface ListIpRoutesCommandOutput extends ListIpRoutesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the address blocks that you have added to a directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,36 @@ export interface ListIpRoutesCommandOutput extends ListIpRoutesResult, __Metadat
  * import { DirectoryServiceClient, ListIpRoutesCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, ListIpRoutesCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // ListIpRoutesRequest
+ *   DirectoryId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListIpRoutesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListIpRoutesCommandInput - {@link ListIpRoutesCommandInput}
+ * @returns {@link ListIpRoutesCommandOutput}
  * @see {@link ListIpRoutesCommandInput} for command's `input` shape.
  * @see {@link ListIpRoutesCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>A client exception has occurred.</p>
+ *
+ * @throws {@link EntityDoesNotExistException} (client fault)
+ *  <p>The specified entity could not be found.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The <code>NextToken</code> value is not valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>An exception has occurred in Directory Service.</p>
+ *
  *
  */
 export class ListIpRoutesCommand extends $Command<
@@ -62,6 +88,9 @@ export class ListIpRoutesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListIpRoutesCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +117,8 @@ export class ListIpRoutesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListIpRoutesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListIpRoutesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +128,18 @@ export class ListIpRoutesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListIpRoutesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListIpRoutesCommand(input, context);
+    return se_ListIpRoutesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListIpRoutesCommandOutput> {
-    return deserializeAws_json1_1ListIpRoutesCommand(output, context);
+    return de_ListIpRoutesCommand(output, context);
   }
 
   // Start section: command_body_extra

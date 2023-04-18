@@ -15,20 +15,27 @@ import {
 
 import {
   DescribeAnalysisDefinitionRequest,
-  DescribeAnalysisDefinitionRequestFilterSensitiveLog,
   DescribeAnalysisDefinitionResponse,
   DescribeAnalysisDefinitionResponseFilterSensitiveLog,
 } from "../models/models_2";
-import {
-  deserializeAws_restJson1DescribeAnalysisDefinitionCommand,
-  serializeAws_restJson1DescribeAnalysisDefinitionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeAnalysisDefinitionCommand, se_DescribeAnalysisDefinitionCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeAnalysisDefinitionCommand}.
+ */
 export interface DescribeAnalysisDefinitionCommandInput extends DescribeAnalysisDefinitionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeAnalysisDefinitionCommand}.
+ */
 export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysisDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a detailed description of the definition of an analysis.</p>
  *          <note>
  *             <p>If you do not need to know details about the content of an Analysis, for instance if you
@@ -44,13 +51,50 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * import { QuickSightClient, DescribeAnalysisDefinitionCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeAnalysisDefinitionCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // DescribeAnalysisDefinitionRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   AnalysisId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeAnalysisDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAnalysisDefinitionCommandInput - {@link DescribeAnalysisDefinitionCommandInput}
+ * @returns {@link DescribeAnalysisDefinitionCommandOutput}
  * @see {@link DescribeAnalysisDefinitionCommandInput} for command's `input` shape.
  * @see {@link DescribeAnalysisDefinitionCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have access to this item. The provided credentials couldn't be
+ * 			validated. You might not be authorized to carry out the request. Make sure that your
+ * 			account is authorized to use the Amazon QuickSight service, that your policies have the
+ * 			correct permissions, and that you are using the correct credentials.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal failure occurred.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One or more parameters has a value that isn't valid.</p>
+ *
+ * @throws {@link ResourceExistsException} (client fault)
+ *  <p>The resource specified already exists. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>One or more resources can't be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Access is throttled.</p>
+ *
+ * @throws {@link UnsupportedUserEditionException} (client fault)
+ *  <p>This error indicates that you are calling an operation on an Amazon QuickSight
+ * 			subscription where the edition doesn't include support for that operation. Amazon
+ * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
+ * 			capability is available in every edition.</p>
+ *
  *
  */
 export class DescribeAnalysisDefinitionCommand extends $Command<
@@ -70,6 +114,9 @@ export class DescribeAnalysisDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAnalysisDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,7 +145,7 @@ export class DescribeAnalysisDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAnalysisDefinitionRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeAnalysisDefinitionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -109,15 +156,21 @@ export class DescribeAnalysisDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAnalysisDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAnalysisDefinitionCommand(input, context);
+    return se_DescribeAnalysisDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAnalysisDefinitionCommandOutput> {
-    return deserializeAws_restJson1DescribeAnalysisDefinitionCommand(output, context);
+    return de_DescribeAnalysisDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

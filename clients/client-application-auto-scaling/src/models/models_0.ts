@@ -3,13 +3,23 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { ApplicationAutoScalingServiceException as __BaseException } from "./ApplicationAutoScalingServiceException";
 
-export enum AdjustmentType {
-  ChangeInCapacity = "ChangeInCapacity",
-  ExactCapacity = "ExactCapacity",
-  PercentChangeInCapacity = "PercentChangeInCapacity",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AdjustmentType = {
+  ChangeInCapacity: "ChangeInCapacity",
+  ExactCapacity: "ExactCapacity",
+  PercentChangeInCapacity: "PercentChangeInCapacity",
+} as const;
 
 /**
+ * @public
+ */
+export type AdjustmentType = (typeof AdjustmentType)[keyof typeof AdjustmentType];
+
+/**
+ * @public
  * <p>Represents a CloudWatch alarm associated with a scaling policy.</p>
  */
 export interface Alarm {
@@ -25,6 +35,7 @@ export interface Alarm {
 }
 
 /**
+ * @public
  * <p>Concurrent updates caused an exception, for example, if you request an update to an
  *          Application Auto Scaling resource that already has a pending update.</p>
  */
@@ -46,46 +57,67 @@ export class ConcurrentUpdateException extends __BaseException {
   }
 }
 
-export enum ScalableDimension {
-  AppstreamFleetDesiredCapacity = "appstream:fleet:DesiredCapacity",
-  CassandraTableReadCapacityUnits = "cassandra:table:ReadCapacityUnits",
-  CassandraTableWriteCapacityUnits = "cassandra:table:WriteCapacityUnits",
-  ComprehendDocClassifierEndpointInferenceUnits = "comprehend:document-classifier-endpoint:DesiredInferenceUnits",
-  ComprehendEntityRecognizerEndpointInferenceUnits = "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits",
-  CustomResourceScalableDimension = "custom-resource:ResourceType:Property",
-  DynamoDBIndexReadCapacityUnits = "dynamodb:index:ReadCapacityUnits",
-  DynamoDBIndexWriteCapacityUnits = "dynamodb:index:WriteCapacityUnits",
-  DynamoDBTableReadCapacityUnits = "dynamodb:table:ReadCapacityUnits",
-  DynamoDBTableWriteCapacityUnits = "dynamodb:table:WriteCapacityUnits",
-  EC2SpotFleetRequestTargetCapacity = "ec2:spot-fleet-request:TargetCapacity",
-  ECSServiceDesiredCount = "ecs:service:DesiredCount",
-  EMRInstanceGroupInstanceCount = "elasticmapreduce:instancegroup:InstanceCount",
-  ElastiCacheReplicationGroupNodeGroups = "elasticache:replication-group:NodeGroups",
-  ElastiCacheReplicationGroupReplicas = "elasticache:replication-group:Replicas",
-  KafkaBrokerStorageVolumeSize = "kafka:broker-storage:VolumeSize",
-  LambdaFunctionProvisionedConcurrency = "lambda:function:ProvisionedConcurrency",
-  NeptuneClusterReadReplicaCount = "neptune:cluster:ReadReplicaCount",
-  RDSClusterReadReplicaCount = "rds:cluster:ReadReplicaCount",
-  SageMakerVariantDesiredInstanceCount = "sagemaker:variant:DesiredInstanceCount",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ScalableDimension = {
+  AppstreamFleetDesiredCapacity: "appstream:fleet:DesiredCapacity",
+  CassandraTableReadCapacityUnits: "cassandra:table:ReadCapacityUnits",
+  CassandraTableWriteCapacityUnits: "cassandra:table:WriteCapacityUnits",
+  ComprehendDocClassifierEndpointInferenceUnits: "comprehend:document-classifier-endpoint:DesiredInferenceUnits",
+  ComprehendEntityRecognizerEndpointInferenceUnits: "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits",
+  CustomResourceScalableDimension: "custom-resource:ResourceType:Property",
+  DynamoDBIndexReadCapacityUnits: "dynamodb:index:ReadCapacityUnits",
+  DynamoDBIndexWriteCapacityUnits: "dynamodb:index:WriteCapacityUnits",
+  DynamoDBTableReadCapacityUnits: "dynamodb:table:ReadCapacityUnits",
+  DynamoDBTableWriteCapacityUnits: "dynamodb:table:WriteCapacityUnits",
+  EC2SpotFleetRequestTargetCapacity: "ec2:spot-fleet-request:TargetCapacity",
+  ECSServiceDesiredCount: "ecs:service:DesiredCount",
+  EMRInstanceGroupInstanceCount: "elasticmapreduce:instancegroup:InstanceCount",
+  ElastiCacheReplicationGroupNodeGroups: "elasticache:replication-group:NodeGroups",
+  ElastiCacheReplicationGroupReplicas: "elasticache:replication-group:Replicas",
+  KafkaBrokerStorageVolumeSize: "kafka:broker-storage:VolumeSize",
+  LambdaFunctionProvisionedConcurrency: "lambda:function:ProvisionedConcurrency",
+  NeptuneClusterReadReplicaCount: "neptune:cluster:ReadReplicaCount",
+  RDSClusterReadReplicaCount: "rds:cluster:ReadReplicaCount",
+  SageMakerVariantDesiredInstanceCount: "sagemaker:variant:DesiredInstanceCount",
+} as const;
 
-export enum ServiceNamespace {
-  APPSTREAM = "appstream",
-  CASSANDRA = "cassandra",
-  COMPREHEND = "comprehend",
-  CUSTOM_RESOURCE = "custom-resource",
-  DYNAMODB = "dynamodb",
-  EC2 = "ec2",
-  ECS = "ecs",
-  ELASTICACHE = "elasticache",
-  EMR = "elasticmapreduce",
-  KAFKA = "kafka",
-  LAMBDA = "lambda",
-  NEPTUNE = "neptune",
-  RDS = "rds",
-  SAGEMAKER = "sagemaker",
-}
+/**
+ * @public
+ */
+export type ScalableDimension = (typeof ScalableDimension)[keyof typeof ScalableDimension];
 
+/**
+ * @public
+ * @enum
+ */
+export const ServiceNamespace = {
+  APPSTREAM: "appstream",
+  CASSANDRA: "cassandra",
+  COMPREHEND: "comprehend",
+  CUSTOM_RESOURCE: "custom-resource",
+  DYNAMODB: "dynamodb",
+  EC2: "ec2",
+  ECS: "ecs",
+  ELASTICACHE: "elasticache",
+  EMR: "elasticmapreduce",
+  KAFKA: "kafka",
+  LAMBDA: "lambda",
+  NEPTUNE: "neptune",
+  RDS: "rds",
+  SAGEMAKER: "sagemaker",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceNamespace = (typeof ServiceNamespace)[keyof typeof ServiceNamespace];
+
+/**
+ * @public
+ */
 export interface DeleteScalingPolicyRequest {
   /**
    * <p>The name of the scaling policy.</p>
@@ -105,65 +137,65 @@ export interface DeleteScalingPolicyRequest {
    *             <li>
    *                <p>ECS service - The resource type is <code>service</code> and the unique identifier is the cluster name
    *                and service name. Example: <code>service/default/sample-webapp</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Spot Fleet - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
    *                Spot Fleet request ID. Example: <code>spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>EMR cluster - The resource type is <code>instancegroup</code> and the unique identifier is the cluster ID and instance group ID.
    *                Example: <code>instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>AppStream 2.0 fleet - The resource type is <code>fleet</code> and the unique identifier is the fleet name.
    *                Example: <code>fleet/sample-fleet</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>DynamoDB table - The resource type is <code>table</code> and the unique identifier is the table name.
    *                Example: <code>table/my-table</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>DynamoDB global secondary index - The resource type is <code>index</code> and the unique identifier is the index name.
    *                Example: <code>table/my-table/index/my-table-index</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Aurora DB cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name.
    *                Example: <code>cluster:my-db-cluster</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>SageMaker endpoint variant - The resource type is <code>variant</code> and the unique identifier is the resource ID.
    *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Custom resources are not supported with a resource type. This parameter must specify the <code>OutputValue</code> from the CloudFormation template stack used to access the resources. The unique identifier is defined by the service provider. More information
    *                is available in our <a href="https://github.com/aws/aws-auto-scaling-custom-resource">GitHub
    *                   repository</a>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon Comprehend document classification endpoint - The resource type and unique identifier are specified using the endpoint ARN. Example: <code>arn:aws:comprehend:us-west-2:123456789012:document-classifier-endpoint/EXAMPLE</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon Comprehend entity recognizer endpoint - The resource type and unique identifier are specified using the endpoint ARN. Example: <code>arn:aws:comprehend:us-west-2:123456789012:entity-recognizer-endpoint/EXAMPLE</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Lambda provisioned concurrency - The resource type is <code>function</code> and the unique identifier is the function name with a function version or alias name suffix that is not <code>$LATEST</code>.
    *                Example: <code>function:my-function:prod</code> or <code>function:my-function:1</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon Keyspaces table - The resource type is <code>table</code> and the unique identifier is the table name.
    *                Example: <code>keyspace/mykeyspace/table/mytable</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon MSK cluster - The resource type and unique identifier are specified using the cluster ARN.
    *                Example: <code>arn:aws:kafka:us-east-1:123456789012:cluster/demo-cluster-1/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon ElastiCache replication group - The resource type is <code>replication-group</code> and the unique identifier is the replication group name.
    *                Example: <code>replication-group/mycluster</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Neptune cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name. Example: <code>cluster:mycluster</code>.</p>
-   *            </li>
+   *             </li>
    *          </ul>
    */
   ResourceId: string | undefined;
@@ -174,91 +206,95 @@ export interface DeleteScalingPolicyRequest {
    *             <li>
    *                <p>
    *                   <code>ecs:service:DesiredCount</code> - The desired task count of an ECS service.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>elasticmapreduce:instancegroup:InstanceCount</code> - The instance count of an EMR Instance Group.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot Fleet.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>appstream:fleet:DesiredCapacity</code> - The desired capacity of an AppStream 2.0 fleet.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:table:ReadCapacityUnits</code> - The provisioned read capacity for a DynamoDB table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:table:WriteCapacityUnits</code> - The provisioned write capacity for a DynamoDB table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:index:ReadCapacityUnits</code> - The provisioned read capacity for a DynamoDB global secondary index.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:index:WriteCapacityUnits</code> - The provisioned write capacity for a DynamoDB global secondary index.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>rds:cluster:ReadReplicaCount</code> - The count of Aurora Replicas in an Aurora DB cluster. Available for Aurora MySQL-compatible edition and Aurora PostgreSQL-compatible edition.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for a SageMaker model endpoint variant.</p>
-   *            </li>
+   *             </li>
    *             <li>
-   *               <p>
+   *                <p>
    *                   <code>custom-resource:ResourceType:Property</code> - The scalable dimension for a custom resource provided by your own application or service.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>comprehend:document-classifier-endpoint:DesiredInferenceUnits</code> - The number of inference units for an Amazon Comprehend document classification endpoint.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>comprehend:entity-recognizer-endpoint:DesiredInferenceUnits</code> - The number of inference units for an Amazon Comprehend entity recognizer endpoint.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>lambda:function:ProvisionedConcurrency</code> - The provisioned concurrency for a Lambda function.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>cassandra:table:ReadCapacityUnits</code> - The provisioned read capacity for an Amazon Keyspaces table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>cassandra:table:WriteCapacityUnits</code> - The provisioned write capacity for an Amazon Keyspaces table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>kafka:broker-storage:VolumeSize</code> - The provisioned volume size (in GiB) for brokers in an Amazon MSK cluster.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>elasticache:replication-group:NodeGroups</code> - The number of node groups for an Amazon ElastiCache replication group.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>elasticache:replication-group:Replicas</code> - The number of replicas per node group for an Amazon ElastiCache replication group.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>neptune:cluster:ReadReplicaCount</code> - The count of read replicas in an Amazon Neptune DB cluster.</p>
-   *            </li>
+   *             </li>
    *          </ul>
    */
   ScalableDimension: ScalableDimension | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteScalingPolicyResponse {}
 
 /**
+ * @public
  * <p>The service encountered an internal error.</p>
  */
 export class InternalServiceException extends __BaseException {
@@ -280,6 +316,7 @@ export class InternalServiceException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified object could not be found. For any operation that depends on the existence
  *          of a scalable target, this exception is thrown if the scalable target with the specified
  *          service namespace, resource ID, and scalable dimension does not exist. For any operation
@@ -305,6 +342,7 @@ export class ObjectNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An exception was thrown for a validation issue. Review the available parameters for the
  *          API request.</p>
  */
@@ -326,6 +364,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteScheduledActionRequest {
   /**
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
@@ -345,65 +386,65 @@ export interface DeleteScheduledActionRequest {
    *             <li>
    *                <p>ECS service - The resource type is <code>service</code> and the unique identifier is the cluster name
    *                and service name. Example: <code>service/default/sample-webapp</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Spot Fleet - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
    *                Spot Fleet request ID. Example: <code>spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>EMR cluster - The resource type is <code>instancegroup</code> and the unique identifier is the cluster ID and instance group ID.
    *                Example: <code>instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>AppStream 2.0 fleet - The resource type is <code>fleet</code> and the unique identifier is the fleet name.
    *                Example: <code>fleet/sample-fleet</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>DynamoDB table - The resource type is <code>table</code> and the unique identifier is the table name.
    *                Example: <code>table/my-table</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>DynamoDB global secondary index - The resource type is <code>index</code> and the unique identifier is the index name.
    *                Example: <code>table/my-table/index/my-table-index</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Aurora DB cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name.
    *                Example: <code>cluster:my-db-cluster</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>SageMaker endpoint variant - The resource type is <code>variant</code> and the unique identifier is the resource ID.
    *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Custom resources are not supported with a resource type. This parameter must specify the <code>OutputValue</code> from the CloudFormation template stack used to access the resources. The unique identifier is defined by the service provider. More information
    *                is available in our <a href="https://github.com/aws/aws-auto-scaling-custom-resource">GitHub
    *                   repository</a>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon Comprehend document classification endpoint - The resource type and unique identifier are specified using the endpoint ARN. Example: <code>arn:aws:comprehend:us-west-2:123456789012:document-classifier-endpoint/EXAMPLE</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon Comprehend entity recognizer endpoint - The resource type and unique identifier are specified using the endpoint ARN. Example: <code>arn:aws:comprehend:us-west-2:123456789012:entity-recognizer-endpoint/EXAMPLE</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Lambda provisioned concurrency - The resource type is <code>function</code> and the unique identifier is the function name with a function version or alias name suffix that is not <code>$LATEST</code>.
    *                Example: <code>function:my-function:prod</code> or <code>function:my-function:1</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon Keyspaces table - The resource type is <code>table</code> and the unique identifier is the table name.
    *                Example: <code>keyspace/mykeyspace/table/mytable</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon MSK cluster - The resource type and unique identifier are specified using the cluster ARN.
    *                Example: <code>arn:aws:kafka:us-east-1:123456789012:cluster/demo-cluster-1/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon ElastiCache replication group - The resource type is <code>replication-group</code> and the unique identifier is the replication group name.
    *                Example: <code>replication-group/mycluster</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Neptune cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name. Example: <code>cluster:mycluster</code>.</p>
-   *            </li>
+   *             </li>
    *          </ul>
    */
   ResourceId: string | undefined;
@@ -414,90 +455,96 @@ export interface DeleteScheduledActionRequest {
    *             <li>
    *                <p>
    *                   <code>ecs:service:DesiredCount</code> - The desired task count of an ECS service.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>elasticmapreduce:instancegroup:InstanceCount</code> - The instance count of an EMR Instance Group.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot Fleet.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>appstream:fleet:DesiredCapacity</code> - The desired capacity of an AppStream 2.0 fleet.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:table:ReadCapacityUnits</code> - The provisioned read capacity for a DynamoDB table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:table:WriteCapacityUnits</code> - The provisioned write capacity for a DynamoDB table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:index:ReadCapacityUnits</code> - The provisioned read capacity for a DynamoDB global secondary index.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:index:WriteCapacityUnits</code> - The provisioned write capacity for a DynamoDB global secondary index.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>rds:cluster:ReadReplicaCount</code> - The count of Aurora Replicas in an Aurora DB cluster. Available for Aurora MySQL-compatible edition and Aurora PostgreSQL-compatible edition.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for a SageMaker model endpoint variant.</p>
-   *            </li>
+   *             </li>
    *             <li>
-   *               <p>
+   *                <p>
    *                   <code>custom-resource:ResourceType:Property</code> - The scalable dimension for a custom resource provided by your own application or service.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>comprehend:document-classifier-endpoint:DesiredInferenceUnits</code> - The number of inference units for an Amazon Comprehend document classification endpoint.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>comprehend:entity-recognizer-endpoint:DesiredInferenceUnits</code> - The number of inference units for an Amazon Comprehend entity recognizer endpoint.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>lambda:function:ProvisionedConcurrency</code> - The provisioned concurrency for a Lambda function.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>cassandra:table:ReadCapacityUnits</code> - The provisioned read capacity for an Amazon Keyspaces table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>cassandra:table:WriteCapacityUnits</code> - The provisioned write capacity for an Amazon Keyspaces table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>kafka:broker-storage:VolumeSize</code> - The provisioned volume size (in GiB) for brokers in an Amazon MSK cluster.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>elasticache:replication-group:NodeGroups</code> - The number of node groups for an Amazon ElastiCache replication group.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>elasticache:replication-group:Replicas</code> - The number of replicas per node group for an Amazon ElastiCache replication group.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>neptune:cluster:ReadReplicaCount</code> - The count of read replicas in an Amazon Neptune DB cluster.</p>
-   *            </li>
+   *             </li>
    *          </ul>
    */
   ScalableDimension: ScalableDimension | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteScheduledActionResponse {}
 
+/**
+ * @public
+ */
 export interface DeregisterScalableTargetRequest {
   /**
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
@@ -512,65 +559,65 @@ export interface DeregisterScalableTargetRequest {
    *             <li>
    *                <p>ECS service - The resource type is <code>service</code> and the unique identifier is the cluster name
    *                and service name. Example: <code>service/default/sample-webapp</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Spot Fleet - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
    *                Spot Fleet request ID. Example: <code>spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>EMR cluster - The resource type is <code>instancegroup</code> and the unique identifier is the cluster ID and instance group ID.
    *                Example: <code>instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>AppStream 2.0 fleet - The resource type is <code>fleet</code> and the unique identifier is the fleet name.
    *                Example: <code>fleet/sample-fleet</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>DynamoDB table - The resource type is <code>table</code> and the unique identifier is the table name.
    *                Example: <code>table/my-table</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>DynamoDB global secondary index - The resource type is <code>index</code> and the unique identifier is the index name.
    *                Example: <code>table/my-table/index/my-table-index</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Aurora DB cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name.
    *                Example: <code>cluster:my-db-cluster</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>SageMaker endpoint variant - The resource type is <code>variant</code> and the unique identifier is the resource ID.
    *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Custom resources are not supported with a resource type. This parameter must specify the <code>OutputValue</code> from the CloudFormation template stack used to access the resources. The unique identifier is defined by the service provider. More information
    *                is available in our <a href="https://github.com/aws/aws-auto-scaling-custom-resource">GitHub
    *                   repository</a>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon Comprehend document classification endpoint - The resource type and unique identifier are specified using the endpoint ARN. Example: <code>arn:aws:comprehend:us-west-2:123456789012:document-classifier-endpoint/EXAMPLE</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon Comprehend entity recognizer endpoint - The resource type and unique identifier are specified using the endpoint ARN. Example: <code>arn:aws:comprehend:us-west-2:123456789012:entity-recognizer-endpoint/EXAMPLE</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Lambda provisioned concurrency - The resource type is <code>function</code> and the unique identifier is the function name with a function version or alias name suffix that is not <code>$LATEST</code>.
    *                Example: <code>function:my-function:prod</code> or <code>function:my-function:1</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon Keyspaces table - The resource type is <code>table</code> and the unique identifier is the table name.
    *                Example: <code>keyspace/mykeyspace/table/mytable</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon MSK cluster - The resource type and unique identifier are specified using the cluster ARN.
    *                Example: <code>arn:aws:kafka:us-east-1:123456789012:cluster/demo-cluster-1/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon ElastiCache replication group - The resource type is <code>replication-group</code> and the unique identifier is the replication group name.
    *                Example: <code>replication-group/mycluster</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Neptune cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name. Example: <code>cluster:mycluster</code>.</p>
-   *            </li>
+   *             </li>
    *          </ul>
    */
   ResourceId: string | undefined;
@@ -582,90 +629,96 @@ export interface DeregisterScalableTargetRequest {
    *             <li>
    *                <p>
    *                   <code>ecs:service:DesiredCount</code> - The desired task count of an ECS service.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>elasticmapreduce:instancegroup:InstanceCount</code> - The instance count of an EMR Instance Group.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot Fleet.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>appstream:fleet:DesiredCapacity</code> - The desired capacity of an AppStream 2.0 fleet.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:table:ReadCapacityUnits</code> - The provisioned read capacity for a DynamoDB table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:table:WriteCapacityUnits</code> - The provisioned write capacity for a DynamoDB table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:index:ReadCapacityUnits</code> - The provisioned read capacity for a DynamoDB global secondary index.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:index:WriteCapacityUnits</code> - The provisioned write capacity for a DynamoDB global secondary index.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>rds:cluster:ReadReplicaCount</code> - The count of Aurora Replicas in an Aurora DB cluster. Available for Aurora MySQL-compatible edition and Aurora PostgreSQL-compatible edition.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for a SageMaker model endpoint variant.</p>
-   *            </li>
+   *             </li>
    *             <li>
-   *               <p>
+   *                <p>
    *                   <code>custom-resource:ResourceType:Property</code> - The scalable dimension for a custom resource provided by your own application or service.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>comprehend:document-classifier-endpoint:DesiredInferenceUnits</code> - The number of inference units for an Amazon Comprehend document classification endpoint.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>comprehend:entity-recognizer-endpoint:DesiredInferenceUnits</code> - The number of inference units for an Amazon Comprehend entity recognizer endpoint.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>lambda:function:ProvisionedConcurrency</code> - The provisioned concurrency for a Lambda function.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>cassandra:table:ReadCapacityUnits</code> - The provisioned read capacity for an Amazon Keyspaces table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>cassandra:table:WriteCapacityUnits</code> - The provisioned write capacity for an Amazon Keyspaces table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>kafka:broker-storage:VolumeSize</code> - The provisioned volume size (in GiB) for brokers in an Amazon MSK cluster.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>elasticache:replication-group:NodeGroups</code> - The number of node groups for an Amazon ElastiCache replication group.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>elasticache:replication-group:Replicas</code> - The number of replicas per node group for an Amazon ElastiCache replication group.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>neptune:cluster:ReadReplicaCount</code> - The count of read replicas in an Amazon Neptune DB cluster.</p>
-   *            </li>
+   *             </li>
    *          </ul>
    */
   ScalableDimension: ScalableDimension | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterScalableTargetResponse {}
 
+/**
+ * @public
+ */
 export interface DescribeScalableTargetsRequest {
   /**
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
@@ -680,65 +733,65 @@ export interface DescribeScalableTargetsRequest {
    *             <li>
    *                <p>ECS service - The resource type is <code>service</code> and the unique identifier is the cluster name
    *                and service name. Example: <code>service/default/sample-webapp</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Spot Fleet - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
    *                Spot Fleet request ID. Example: <code>spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>EMR cluster - The resource type is <code>instancegroup</code> and the unique identifier is the cluster ID and instance group ID.
    *                Example: <code>instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>AppStream 2.0 fleet - The resource type is <code>fleet</code> and the unique identifier is the fleet name.
    *                Example: <code>fleet/sample-fleet</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>DynamoDB table - The resource type is <code>table</code> and the unique identifier is the table name.
    *                Example: <code>table/my-table</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>DynamoDB global secondary index - The resource type is <code>index</code> and the unique identifier is the index name.
    *                Example: <code>table/my-table/index/my-table-index</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Aurora DB cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name.
    *                Example: <code>cluster:my-db-cluster</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>SageMaker endpoint variant - The resource type is <code>variant</code> and the unique identifier is the resource ID.
    *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Custom resources are not supported with a resource type. This parameter must specify the <code>OutputValue</code> from the CloudFormation template stack used to access the resources. The unique identifier is defined by the service provider. More information
    *                is available in our <a href="https://github.com/aws/aws-auto-scaling-custom-resource">GitHub
    *                   repository</a>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon Comprehend document classification endpoint - The resource type and unique identifier are specified using the endpoint ARN. Example: <code>arn:aws:comprehend:us-west-2:123456789012:document-classifier-endpoint/EXAMPLE</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon Comprehend entity recognizer endpoint - The resource type and unique identifier are specified using the endpoint ARN. Example: <code>arn:aws:comprehend:us-west-2:123456789012:entity-recognizer-endpoint/EXAMPLE</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Lambda provisioned concurrency - The resource type is <code>function</code> and the unique identifier is the function name with a function version or alias name suffix that is not <code>$LATEST</code>.
    *                Example: <code>function:my-function:prod</code> or <code>function:my-function:1</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon Keyspaces table - The resource type is <code>table</code> and the unique identifier is the table name.
    *                Example: <code>keyspace/mykeyspace/table/mytable</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon MSK cluster - The resource type and unique identifier are specified using the cluster ARN.
    *                Example: <code>arn:aws:kafka:us-east-1:123456789012:cluster/demo-cluster-1/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon ElastiCache replication group - The resource type is <code>replication-group</code> and the unique identifier is the replication group name.
    *                Example: <code>replication-group/mycluster</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Neptune cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name. Example: <code>cluster:mycluster</code>.</p>
-   *            </li>
+   *             </li>
    *          </ul>
    */
   ResourceIds?: string[];
@@ -750,83 +803,83 @@ export interface DescribeScalableTargetsRequest {
    *             <li>
    *                <p>
    *                   <code>ecs:service:DesiredCount</code> - The desired task count of an ECS service.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>elasticmapreduce:instancegroup:InstanceCount</code> - The instance count of an EMR Instance Group.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot Fleet.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>appstream:fleet:DesiredCapacity</code> - The desired capacity of an AppStream 2.0 fleet.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:table:ReadCapacityUnits</code> - The provisioned read capacity for a DynamoDB table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:table:WriteCapacityUnits</code> - The provisioned write capacity for a DynamoDB table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:index:ReadCapacityUnits</code> - The provisioned read capacity for a DynamoDB global secondary index.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:index:WriteCapacityUnits</code> - The provisioned write capacity for a DynamoDB global secondary index.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>rds:cluster:ReadReplicaCount</code> - The count of Aurora Replicas in an Aurora DB cluster. Available for Aurora MySQL-compatible edition and Aurora PostgreSQL-compatible edition.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for a SageMaker model endpoint variant.</p>
-   *            </li>
+   *             </li>
    *             <li>
-   *               <p>
+   *                <p>
    *                   <code>custom-resource:ResourceType:Property</code> - The scalable dimension for a custom resource provided by your own application or service.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>comprehend:document-classifier-endpoint:DesiredInferenceUnits</code> - The number of inference units for an Amazon Comprehend document classification endpoint.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>comprehend:entity-recognizer-endpoint:DesiredInferenceUnits</code> - The number of inference units for an Amazon Comprehend entity recognizer endpoint.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>lambda:function:ProvisionedConcurrency</code> - The provisioned concurrency for a Lambda function.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>cassandra:table:ReadCapacityUnits</code> - The provisioned read capacity for an Amazon Keyspaces table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>cassandra:table:WriteCapacityUnits</code> - The provisioned write capacity for an Amazon Keyspaces table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>kafka:broker-storage:VolumeSize</code> - The provisioned volume size (in GiB) for brokers in an Amazon MSK cluster.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>elasticache:replication-group:NodeGroups</code> - The number of node groups for an Amazon ElastiCache replication group.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>elasticache:replication-group:Replicas</code> - The number of replicas per node group for an Amazon ElastiCache replication group.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>neptune:cluster:ReadReplicaCount</code> - The count of read replicas in an Amazon Neptune DB cluster.</p>
-   *            </li>
+   *             </li>
    *          </ul>
    */
   ScalableDimension?: ScalableDimension | string;
@@ -849,6 +902,7 @@ export interface DescribeScalableTargetsRequest {
 }
 
 /**
+ * @public
  * <p>Specifies whether the scaling activities for a scalable target are in a suspended state.
  *       </p>
  */
@@ -876,6 +930,7 @@ export interface SuspendedState {
 }
 
 /**
+ * @public
  * <p>Represents a scalable target.</p>
  */
 export interface ScalableTarget {
@@ -892,65 +947,65 @@ export interface ScalableTarget {
    *             <li>
    *                <p>ECS service - The resource type is <code>service</code> and the unique identifier is the cluster name
    *                and service name. Example: <code>service/default/sample-webapp</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Spot Fleet - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
    *                Spot Fleet request ID. Example: <code>spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>EMR cluster - The resource type is <code>instancegroup</code> and the unique identifier is the cluster ID and instance group ID.
    *                Example: <code>instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>AppStream 2.0 fleet - The resource type is <code>fleet</code> and the unique identifier is the fleet name.
    *                Example: <code>fleet/sample-fleet</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>DynamoDB table - The resource type is <code>table</code> and the unique identifier is the table name.
    *                Example: <code>table/my-table</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>DynamoDB global secondary index - The resource type is <code>index</code> and the unique identifier is the index name.
    *                Example: <code>table/my-table/index/my-table-index</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Aurora DB cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name.
    *                Example: <code>cluster:my-db-cluster</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>SageMaker endpoint variant - The resource type is <code>variant</code> and the unique identifier is the resource ID.
    *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Custom resources are not supported with a resource type. This parameter must specify the <code>OutputValue</code> from the CloudFormation template stack used to access the resources. The unique identifier is defined by the service provider. More information
    *                is available in our <a href="https://github.com/aws/aws-auto-scaling-custom-resource">GitHub
    *                   repository</a>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon Comprehend document classification endpoint - The resource type and unique identifier are specified using the endpoint ARN. Example: <code>arn:aws:comprehend:us-west-2:123456789012:document-classifier-endpoint/EXAMPLE</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon Comprehend entity recognizer endpoint - The resource type and unique identifier are specified using the endpoint ARN. Example: <code>arn:aws:comprehend:us-west-2:123456789012:entity-recognizer-endpoint/EXAMPLE</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Lambda provisioned concurrency - The resource type is <code>function</code> and the unique identifier is the function name with a function version or alias name suffix that is not <code>$LATEST</code>.
    *                Example: <code>function:my-function:prod</code> or <code>function:my-function:1</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon Keyspaces table - The resource type is <code>table</code> and the unique identifier is the table name.
    *                Example: <code>keyspace/mykeyspace/table/mytable</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon MSK cluster - The resource type and unique identifier are specified using the cluster ARN.
    *                Example: <code>arn:aws:kafka:us-east-1:123456789012:cluster/demo-cluster-1/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon ElastiCache replication group - The resource type is <code>replication-group</code> and the unique identifier is the replication group name.
    *                Example: <code>replication-group/mycluster</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Neptune cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name. Example: <code>cluster:mycluster</code>.</p>
-   *            </li>
+   *             </li>
    *          </ul>
    */
   ResourceId: string | undefined;
@@ -962,83 +1017,83 @@ export interface ScalableTarget {
    *             <li>
    *                <p>
    *                   <code>ecs:service:DesiredCount</code> - The desired task count of an ECS service.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>elasticmapreduce:instancegroup:InstanceCount</code> - The instance count of an EMR Instance Group.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot Fleet.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>appstream:fleet:DesiredCapacity</code> - The desired capacity of an AppStream 2.0 fleet.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:table:ReadCapacityUnits</code> - The provisioned read capacity for a DynamoDB table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:table:WriteCapacityUnits</code> - The provisioned write capacity for a DynamoDB table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:index:ReadCapacityUnits</code> - The provisioned read capacity for a DynamoDB global secondary index.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:index:WriteCapacityUnits</code> - The provisioned write capacity for a DynamoDB global secondary index.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>rds:cluster:ReadReplicaCount</code> - The count of Aurora Replicas in an Aurora DB cluster. Available for Aurora MySQL-compatible edition and Aurora PostgreSQL-compatible edition.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for a SageMaker model endpoint variant.</p>
-   *            </li>
+   *             </li>
    *             <li>
-   *               <p>
+   *                <p>
    *                   <code>custom-resource:ResourceType:Property</code> - The scalable dimension for a custom resource provided by your own application or service.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>comprehend:document-classifier-endpoint:DesiredInferenceUnits</code> - The number of inference units for an Amazon Comprehend document classification endpoint.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>comprehend:entity-recognizer-endpoint:DesiredInferenceUnits</code> - The number of inference units for an Amazon Comprehend entity recognizer endpoint.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>lambda:function:ProvisionedConcurrency</code> - The provisioned concurrency for a Lambda function.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>cassandra:table:ReadCapacityUnits</code> - The provisioned read capacity for an Amazon Keyspaces table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>cassandra:table:WriteCapacityUnits</code> - The provisioned write capacity for an Amazon Keyspaces table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>kafka:broker-storage:VolumeSize</code> - The provisioned volume size (in GiB) for brokers in an Amazon MSK cluster.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>elasticache:replication-group:NodeGroups</code> - The number of node groups for an Amazon ElastiCache replication group.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>elasticache:replication-group:Replicas</code> - The number of replicas per node group for an Amazon ElastiCache replication group.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>neptune:cluster:ReadReplicaCount</code> - The count of read replicas in an Amazon Neptune DB cluster.</p>
-   *            </li>
+   *             </li>
    *          </ul>
    */
   ScalableDimension: ScalableDimension | string | undefined;
@@ -1065,12 +1120,20 @@ export interface ScalableTarget {
   CreationTime: Date | undefined;
 
   /**
-   * <p>Specifies whether the scaling activities for a scalable target are in a suspended state.
-   *       </p>
+   * <p>Specifies whether the scaling activities for a scalable target are in a suspended
+   *          state.</p>
    */
   SuspendedState?: SuspendedState;
+
+  /**
+   * <p>The ARN of the scalable target.</p>
+   */
+  ScalableTargetARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeScalableTargetsResponse {
   /**
    * <p>The scalable targets that match the request parameters.</p>
@@ -1085,6 +1148,7 @@ export interface DescribeScalableTargetsResponse {
 }
 
 /**
+ * @public
  * <p>The next token supplied was invalid.</p>
  */
 export class InvalidNextTokenException extends __BaseException {
@@ -1105,6 +1169,9 @@ export class InvalidNextTokenException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeScalingActivitiesRequest {
   /**
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
@@ -1119,65 +1186,65 @@ export interface DescribeScalingActivitiesRequest {
    *             <li>
    *                <p>ECS service - The resource type is <code>service</code> and the unique identifier is the cluster name
    *                and service name. Example: <code>service/default/sample-webapp</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Spot Fleet - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
    *                Spot Fleet request ID. Example: <code>spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>EMR cluster - The resource type is <code>instancegroup</code> and the unique identifier is the cluster ID and instance group ID.
    *                Example: <code>instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>AppStream 2.0 fleet - The resource type is <code>fleet</code> and the unique identifier is the fleet name.
    *                Example: <code>fleet/sample-fleet</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>DynamoDB table - The resource type is <code>table</code> and the unique identifier is the table name.
    *                Example: <code>table/my-table</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>DynamoDB global secondary index - The resource type is <code>index</code> and the unique identifier is the index name.
    *                Example: <code>table/my-table/index/my-table-index</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Aurora DB cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name.
    *                Example: <code>cluster:my-db-cluster</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>SageMaker endpoint variant - The resource type is <code>variant</code> and the unique identifier is the resource ID.
    *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Custom resources are not supported with a resource type. This parameter must specify the <code>OutputValue</code> from the CloudFormation template stack used to access the resources. The unique identifier is defined by the service provider. More information
    *                is available in our <a href="https://github.com/aws/aws-auto-scaling-custom-resource">GitHub
    *                   repository</a>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon Comprehend document classification endpoint - The resource type and unique identifier are specified using the endpoint ARN. Example: <code>arn:aws:comprehend:us-west-2:123456789012:document-classifier-endpoint/EXAMPLE</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon Comprehend entity recognizer endpoint - The resource type and unique identifier are specified using the endpoint ARN. Example: <code>arn:aws:comprehend:us-west-2:123456789012:entity-recognizer-endpoint/EXAMPLE</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Lambda provisioned concurrency - The resource type is <code>function</code> and the unique identifier is the function name with a function version or alias name suffix that is not <code>$LATEST</code>.
    *                Example: <code>function:my-function:prod</code> or <code>function:my-function:1</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon Keyspaces table - The resource type is <code>table</code> and the unique identifier is the table name.
    *                Example: <code>keyspace/mykeyspace/table/mytable</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon MSK cluster - The resource type and unique identifier are specified using the cluster ARN.
    *                Example: <code>arn:aws:kafka:us-east-1:123456789012:cluster/demo-cluster-1/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon ElastiCache replication group - The resource type is <code>replication-group</code> and the unique identifier is the replication group name.
    *                Example: <code>replication-group/mycluster</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Neptune cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name. Example: <code>cluster:mycluster</code>.</p>
-   *            </li>
+   *             </li>
    *          </ul>
    */
   ResourceId?: string;
@@ -1189,83 +1256,83 @@ export interface DescribeScalingActivitiesRequest {
    *             <li>
    *                <p>
    *                   <code>ecs:service:DesiredCount</code> - The desired task count of an ECS service.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>elasticmapreduce:instancegroup:InstanceCount</code> - The instance count of an EMR Instance Group.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot Fleet.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>appstream:fleet:DesiredCapacity</code> - The desired capacity of an AppStream 2.0 fleet.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:table:ReadCapacityUnits</code> - The provisioned read capacity for a DynamoDB table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:table:WriteCapacityUnits</code> - The provisioned write capacity for a DynamoDB table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:index:ReadCapacityUnits</code> - The provisioned read capacity for a DynamoDB global secondary index.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:index:WriteCapacityUnits</code> - The provisioned write capacity for a DynamoDB global secondary index.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>rds:cluster:ReadReplicaCount</code> - The count of Aurora Replicas in an Aurora DB cluster. Available for Aurora MySQL-compatible edition and Aurora PostgreSQL-compatible edition.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for a SageMaker model endpoint variant.</p>
-   *            </li>
+   *             </li>
    *             <li>
-   *               <p>
+   *                <p>
    *                   <code>custom-resource:ResourceType:Property</code> - The scalable dimension for a custom resource provided by your own application or service.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>comprehend:document-classifier-endpoint:DesiredInferenceUnits</code> - The number of inference units for an Amazon Comprehend document classification endpoint.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>comprehend:entity-recognizer-endpoint:DesiredInferenceUnits</code> - The number of inference units for an Amazon Comprehend entity recognizer endpoint.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>lambda:function:ProvisionedConcurrency</code> - The provisioned concurrency for a Lambda function.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>cassandra:table:ReadCapacityUnits</code> - The provisioned read capacity for an Amazon Keyspaces table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>cassandra:table:WriteCapacityUnits</code> - The provisioned write capacity for an Amazon Keyspaces table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>kafka:broker-storage:VolumeSize</code> - The provisioned volume size (in GiB) for brokers in an Amazon MSK cluster.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>elasticache:replication-group:NodeGroups</code> - The number of node groups for an Amazon ElastiCache replication group.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>elasticache:replication-group:Replicas</code> - The number of replicas per node group for an Amazon ElastiCache replication group.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>neptune:cluster:ReadReplicaCount</code> - The count of read replicas in an Amazon Neptune DB cluster.</p>
-   *            </li>
+   *             </li>
    *          </ul>
    */
   ScalableDimension?: ScalableDimension | string;
@@ -1296,6 +1363,7 @@ export interface DescribeScalingActivitiesRequest {
 }
 
 /**
+ * @public
  * <p>Describes the reason for an activity that isn't scaled (<i>not scaled
  *             activity</i>), in machine-readable format. For help interpreting the not scaled
  *          reason details, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scaling-activities.html">Scaling activities for Application Auto Scaling</a>.</p>
@@ -1304,7 +1372,6 @@ export interface NotScaledReason {
   /**
    * <p>A code that represents the reason for not scaling.</p>
    *          <p>Valid values:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>AutoScalingAnticipatedFlapping</p>
@@ -1341,16 +1408,26 @@ export interface NotScaledReason {
   CurrentCapacity?: number;
 }
 
-export enum ScalingActivityStatusCode {
-  Failed = "Failed",
-  InProgress = "InProgress",
-  Overridden = "Overridden",
-  Pending = "Pending",
-  Successful = "Successful",
-  Unfulfilled = "Unfulfilled",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ScalingActivityStatusCode = {
+  Failed: "Failed",
+  InProgress: "InProgress",
+  Overridden: "Overridden",
+  Pending: "Pending",
+  Successful: "Successful",
+  Unfulfilled: "Unfulfilled",
+} as const;
 
 /**
+ * @public
+ */
+export type ScalingActivityStatusCode = (typeof ScalingActivityStatusCode)[keyof typeof ScalingActivityStatusCode];
+
+/**
+ * @public
  * <p>Represents a scaling activity.</p>
  */
 export interface ScalingActivity {
@@ -1372,65 +1449,65 @@ export interface ScalingActivity {
    *             <li>
    *                <p>ECS service - The resource type is <code>service</code> and the unique identifier is the cluster name
    *                and service name. Example: <code>service/default/sample-webapp</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Spot Fleet - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
    *                Spot Fleet request ID. Example: <code>spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>EMR cluster - The resource type is <code>instancegroup</code> and the unique identifier is the cluster ID and instance group ID.
    *                Example: <code>instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>AppStream 2.0 fleet - The resource type is <code>fleet</code> and the unique identifier is the fleet name.
    *                Example: <code>fleet/sample-fleet</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>DynamoDB table - The resource type is <code>table</code> and the unique identifier is the table name.
    *                Example: <code>table/my-table</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>DynamoDB global secondary index - The resource type is <code>index</code> and the unique identifier is the index name.
    *                Example: <code>table/my-table/index/my-table-index</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Aurora DB cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name.
    *                Example: <code>cluster:my-db-cluster</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>SageMaker endpoint variant - The resource type is <code>variant</code> and the unique identifier is the resource ID.
    *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Custom resources are not supported with a resource type. This parameter must specify the <code>OutputValue</code> from the CloudFormation template stack used to access the resources. The unique identifier is defined by the service provider. More information
    *                is available in our <a href="https://github.com/aws/aws-auto-scaling-custom-resource">GitHub
    *                   repository</a>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon Comprehend document classification endpoint - The resource type and unique identifier are specified using the endpoint ARN. Example: <code>arn:aws:comprehend:us-west-2:123456789012:document-classifier-endpoint/EXAMPLE</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon Comprehend entity recognizer endpoint - The resource type and unique identifier are specified using the endpoint ARN. Example: <code>arn:aws:comprehend:us-west-2:123456789012:entity-recognizer-endpoint/EXAMPLE</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Lambda provisioned concurrency - The resource type is <code>function</code> and the unique identifier is the function name with a function version or alias name suffix that is not <code>$LATEST</code>.
    *                Example: <code>function:my-function:prod</code> or <code>function:my-function:1</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon Keyspaces table - The resource type is <code>table</code> and the unique identifier is the table name.
    *                Example: <code>keyspace/mykeyspace/table/mytable</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon MSK cluster - The resource type and unique identifier are specified using the cluster ARN.
    *                Example: <code>arn:aws:kafka:us-east-1:123456789012:cluster/demo-cluster-1/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon ElastiCache replication group - The resource type is <code>replication-group</code> and the unique identifier is the replication group name.
    *                Example: <code>replication-group/mycluster</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Neptune cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name. Example: <code>cluster:mycluster</code>.</p>
-   *            </li>
+   *             </li>
    *          </ul>
    */
   ResourceId: string | undefined;
@@ -1441,83 +1518,83 @@ export interface ScalingActivity {
    *             <li>
    *                <p>
    *                   <code>ecs:service:DesiredCount</code> - The desired task count of an ECS service.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>elasticmapreduce:instancegroup:InstanceCount</code> - The instance count of an EMR Instance Group.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot Fleet.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>appstream:fleet:DesiredCapacity</code> - The desired capacity of an AppStream 2.0 fleet.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:table:ReadCapacityUnits</code> - The provisioned read capacity for a DynamoDB table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:table:WriteCapacityUnits</code> - The provisioned write capacity for a DynamoDB table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:index:ReadCapacityUnits</code> - The provisioned read capacity for a DynamoDB global secondary index.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:index:WriteCapacityUnits</code> - The provisioned write capacity for a DynamoDB global secondary index.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>rds:cluster:ReadReplicaCount</code> - The count of Aurora Replicas in an Aurora DB cluster. Available for Aurora MySQL-compatible edition and Aurora PostgreSQL-compatible edition.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for a SageMaker model endpoint variant.</p>
-   *            </li>
+   *             </li>
    *             <li>
-   *               <p>
+   *                <p>
    *                   <code>custom-resource:ResourceType:Property</code> - The scalable dimension for a custom resource provided by your own application or service.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>comprehend:document-classifier-endpoint:DesiredInferenceUnits</code> - The number of inference units for an Amazon Comprehend document classification endpoint.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>comprehend:entity-recognizer-endpoint:DesiredInferenceUnits</code> - The number of inference units for an Amazon Comprehend entity recognizer endpoint.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>lambda:function:ProvisionedConcurrency</code> - The provisioned concurrency for a Lambda function.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>cassandra:table:ReadCapacityUnits</code> - The provisioned read capacity for an Amazon Keyspaces table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>cassandra:table:WriteCapacityUnits</code> - The provisioned write capacity for an Amazon Keyspaces table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>kafka:broker-storage:VolumeSize</code> - The provisioned volume size (in GiB) for brokers in an Amazon MSK cluster.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>elasticache:replication-group:NodeGroups</code> - The number of node groups for an Amazon ElastiCache replication group.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>elasticache:replication-group:Replicas</code> - The number of replicas per node group for an Amazon ElastiCache replication group.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>neptune:cluster:ReadReplicaCount</code> - The count of read replicas in an Amazon Neptune DB cluster.</p>
-   *            </li>
+   *             </li>
    *          </ul>
    */
   ScalableDimension: ScalableDimension | string | undefined;
@@ -1564,6 +1641,9 @@ export interface ScalingActivity {
   NotScaledReasons?: NotScaledReason[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeScalingActivitiesResponse {
   /**
    * <p>A list of scaling activity objects.</p>
@@ -1577,6 +1657,9 @@ export interface DescribeScalingActivitiesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeScalingPoliciesRequest {
   /**
    * <p>The names of the scaling policies to describe.</p>
@@ -1596,65 +1679,65 @@ export interface DescribeScalingPoliciesRequest {
    *             <li>
    *                <p>ECS service - The resource type is <code>service</code> and the unique identifier is the cluster name
    *                and service name. Example: <code>service/default/sample-webapp</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Spot Fleet - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
    *                Spot Fleet request ID. Example: <code>spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>EMR cluster - The resource type is <code>instancegroup</code> and the unique identifier is the cluster ID and instance group ID.
    *                Example: <code>instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>AppStream 2.0 fleet - The resource type is <code>fleet</code> and the unique identifier is the fleet name.
    *                Example: <code>fleet/sample-fleet</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>DynamoDB table - The resource type is <code>table</code> and the unique identifier is the table name.
    *                Example: <code>table/my-table</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>DynamoDB global secondary index - The resource type is <code>index</code> and the unique identifier is the index name.
    *                Example: <code>table/my-table/index/my-table-index</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Aurora DB cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name.
    *                Example: <code>cluster:my-db-cluster</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>SageMaker endpoint variant - The resource type is <code>variant</code> and the unique identifier is the resource ID.
    *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Custom resources are not supported with a resource type. This parameter must specify the <code>OutputValue</code> from the CloudFormation template stack used to access the resources. The unique identifier is defined by the service provider. More information
    *                is available in our <a href="https://github.com/aws/aws-auto-scaling-custom-resource">GitHub
    *                   repository</a>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon Comprehend document classification endpoint - The resource type and unique identifier are specified using the endpoint ARN. Example: <code>arn:aws:comprehend:us-west-2:123456789012:document-classifier-endpoint/EXAMPLE</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon Comprehend entity recognizer endpoint - The resource type and unique identifier are specified using the endpoint ARN. Example: <code>arn:aws:comprehend:us-west-2:123456789012:entity-recognizer-endpoint/EXAMPLE</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Lambda provisioned concurrency - The resource type is <code>function</code> and the unique identifier is the function name with a function version or alias name suffix that is not <code>$LATEST</code>.
    *                Example: <code>function:my-function:prod</code> or <code>function:my-function:1</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon Keyspaces table - The resource type is <code>table</code> and the unique identifier is the table name.
    *                Example: <code>keyspace/mykeyspace/table/mytable</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon MSK cluster - The resource type and unique identifier are specified using the cluster ARN.
    *                Example: <code>arn:aws:kafka:us-east-1:123456789012:cluster/demo-cluster-1/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon ElastiCache replication group - The resource type is <code>replication-group</code> and the unique identifier is the replication group name.
    *                Example: <code>replication-group/mycluster</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Neptune cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name. Example: <code>cluster:mycluster</code>.</p>
-   *            </li>
+   *             </li>
    *          </ul>
    */
   ResourceId?: string;
@@ -1666,83 +1749,83 @@ export interface DescribeScalingPoliciesRequest {
    *             <li>
    *                <p>
    *                   <code>ecs:service:DesiredCount</code> - The desired task count of an ECS service.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>elasticmapreduce:instancegroup:InstanceCount</code> - The instance count of an EMR Instance Group.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot Fleet.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>appstream:fleet:DesiredCapacity</code> - The desired capacity of an AppStream 2.0 fleet.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:table:ReadCapacityUnits</code> - The provisioned read capacity for a DynamoDB table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:table:WriteCapacityUnits</code> - The provisioned write capacity for a DynamoDB table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:index:ReadCapacityUnits</code> - The provisioned read capacity for a DynamoDB global secondary index.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:index:WriteCapacityUnits</code> - The provisioned write capacity for a DynamoDB global secondary index.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>rds:cluster:ReadReplicaCount</code> - The count of Aurora Replicas in an Aurora DB cluster. Available for Aurora MySQL-compatible edition and Aurora PostgreSQL-compatible edition.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for a SageMaker model endpoint variant.</p>
-   *            </li>
+   *             </li>
    *             <li>
-   *               <p>
+   *                <p>
    *                   <code>custom-resource:ResourceType:Property</code> - The scalable dimension for a custom resource provided by your own application or service.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>comprehend:document-classifier-endpoint:DesiredInferenceUnits</code> - The number of inference units for an Amazon Comprehend document classification endpoint.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>comprehend:entity-recognizer-endpoint:DesiredInferenceUnits</code> - The number of inference units for an Amazon Comprehend entity recognizer endpoint.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>lambda:function:ProvisionedConcurrency</code> - The provisioned concurrency for a Lambda function.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>cassandra:table:ReadCapacityUnits</code> - The provisioned read capacity for an Amazon Keyspaces table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>cassandra:table:WriteCapacityUnits</code> - The provisioned write capacity for an Amazon Keyspaces table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>kafka:broker-storage:VolumeSize</code> - The provisioned volume size (in GiB) for brokers in an Amazon MSK cluster.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>elasticache:replication-group:NodeGroups</code> - The number of node groups for an Amazon ElastiCache replication group.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>elasticache:replication-group:Replicas</code> - The number of replicas per node group for an Amazon ElastiCache replication group.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>neptune:cluster:ReadReplicaCount</code> - The count of read replicas in an Amazon Neptune DB cluster.</p>
-   *            </li>
+   *             </li>
    *          </ul>
    */
   ScalableDimension?: ScalableDimension | string;
@@ -1764,18 +1847,37 @@ export interface DescribeScalingPoliciesRequest {
   NextToken?: string;
 }
 
-export enum PolicyType {
-  StepScaling = "StepScaling",
-  TargetTrackingScaling = "TargetTrackingScaling",
-}
-
-export enum MetricAggregationType {
-  Average = "Average",
-  Maximum = "Maximum",
-  Minimum = "Minimum",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PolicyType = {
+  StepScaling: "StepScaling",
+  TargetTrackingScaling: "TargetTrackingScaling",
+} as const;
 
 /**
+ * @public
+ */
+export type PolicyType = (typeof PolicyType)[keyof typeof PolicyType];
+
+/**
+ * @public
+ * @enum
+ */
+export const MetricAggregationType = {
+  Average: "Average",
+  Maximum: "Maximum",
+  Minimum: "Minimum",
+} as const;
+
+/**
+ * @public
+ */
+export type MetricAggregationType = (typeof MetricAggregationType)[keyof typeof MetricAggregationType];
+
+/**
+ * @public
  * <p>Represents a step adjustment for a <a href="https://docs.aws.amazon.com/autoscaling/application/APIReference/API_StepScalingPolicyConfiguration.html">StepScalingPolicyConfiguration</a>. Describes an adjustment based on the difference
  *          between the value of the aggregated CloudWatch metric and the breach threshold that you've
  *          defined for the alarm. </p>
@@ -1783,12 +1885,14 @@ export enum MetricAggregationType {
  *          50:</p>
  *          <ul>
  *             <li>
- *                <p>To trigger the adjustment when the metric is greater than or equal to 50 and less
- *                than 60, specify a lower bound of 0 and an upper bound of 10.</p>
+ *                <p>To initiate the adjustment when the metric is greater than or equal to 50 and less
+ *                than 60, specify a lower bound of <code>0</code> and an upper bound of
+ *                   <code>10</code>.</p>
  *             </li>
  *             <li>
- *                <p>To trigger the adjustment when the metric is greater than 40 and less than or
- *                equal to 50, specify a lower bound of -10 and an upper bound of 0.</p>
+ *                <p>To initiate the adjustment when the metric is greater than 40 and less than or
+ *                equal to 50, specify a lower bound of <code>-10</code> and an upper bound of
+ *                   <code>0</code>.</p>
  *             </li>
  *          </ul>
  *          <p>There are a few rules for the step adjustments for your step policy:</p>
@@ -1815,7 +1919,7 @@ export interface StepAdjustment {
   /**
    * <p>The lower bound for the difference between the alarm threshold and the CloudWatch metric. If
    *          the metric value is above the breach threshold, the lower bound is inclusive (the metric
-   *          must be greater than or equal to the threshold plus the lower bound). Otherwise, it is
+   *          must be greater than or equal to the threshold plus the lower bound). Otherwise, it's
    *          exclusive (the metric must be greater than the threshold plus the lower bound). A null
    *          value indicates negative infinity.</p>
    */
@@ -1824,7 +1928,7 @@ export interface StepAdjustment {
   /**
    * <p>The upper bound for the difference between the alarm threshold and the CloudWatch metric. If
    *          the metric value is above the breach threshold, the upper bound is exclusive (the metric
-   *          must be less than the threshold plus the upper bound). Otherwise, it is inclusive (the
+   *          must be less than the threshold plus the upper bound). Otherwise, it's inclusive (the
    *          metric must be less than or equal to the threshold plus the upper bound). A null value
    *          indicates positive infinity.</p>
    *          <p>The upper bound must be greater than the lower bound.</p>
@@ -1840,6 +1944,7 @@ export interface StepAdjustment {
 }
 
 /**
+ * @public
  * <p>Represents a step scaling policy configuration to use with Application Auto Scaling.</p>
  */
 export interface StepScalingPolicyConfiguration {
@@ -1894,46 +1999,46 @@ export interface StepScalingPolicyConfiguration {
    *          <ul>
    *             <li>
    *                <p>AppStream 2.0 fleets</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Aurora DB clusters</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>ECS services</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>EMR clusters</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p> Neptune clusters</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>SageMaker endpoint variants</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Spot Fleets</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Custom resources</p>
-   *            </li>
+   *             </li>
    *          </ul>
    *          <p>For all other scalable targets, the default value is 0:</p>
    *          <ul>
    *             <li>
    *                <p>Amazon Comprehend document classification and entity recognizer endpoints</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>DynamoDB tables and global secondary indexes</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon Keyspaces tables</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Lambda provisioned concurrency</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon MSK broker storage</p>
-   *            </li>
+   *             </li>
    *          </ul>
    */
   Cooldown?: number;
@@ -1947,6 +2052,7 @@ export interface StepScalingPolicyConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes the dimension names and values associated with a metric.</p>
  */
 export interface MetricDimension {
@@ -1961,15 +2067,156 @@ export interface MetricDimension {
   Value: string | undefined;
 }
 
-export enum MetricStatistic {
-  Average = "Average",
-  Maximum = "Maximum",
-  Minimum = "Minimum",
-  SampleCount = "SampleCount",
-  Sum = "Sum",
+/**
+ * @public
+ * <p>Describes the dimension of a metric.</p>
+ */
+export interface TargetTrackingMetricDimension {
+  /**
+   * <p>The name of the dimension.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The value of the dimension.</p>
+   */
+  Value: string | undefined;
 }
 
 /**
+ * @public
+ * <p>Represents a specific metric.</p>
+ *          <p>Metric is a property of the <a>TargetTrackingMetricStat</a> object.</p>
+ */
+export interface TargetTrackingMetric {
+  /**
+   * <p>The dimensions for the metric. For the list of available dimensions, see the Amazon Web Services
+   *          documentation available from the table in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html">Amazon Web Services
+   *             services that publish CloudWatch metrics </a> in the <i>Amazon CloudWatch User
+   *             Guide</i>. </p>
+   *          <p>Conditional: If you published your metric with dimensions, you must specify the same
+   *          dimensions in your scaling policy.</p>
+   */
+  Dimensions?: TargetTrackingMetricDimension[];
+
+  /**
+   * <p>The name of the metric.</p>
+   */
+  MetricName?: string;
+
+  /**
+   * <p>The namespace of the metric. For more information, see the table in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html">Amazon Web Services
+   *             services that publish CloudWatch metrics </a> in the <i>Amazon CloudWatch User
+   *             Guide</i>.</p>
+   */
+  Namespace?: string;
+}
+
+/**
+ * @public
+ * <p>This structure defines the CloudWatch metric to return, along with the statistic, period, and
+ *          unit.</p>
+ *          <p>For more information about the CloudWatch terminology below, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html">Amazon CloudWatch
+ *             concepts</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
+ */
+export interface TargetTrackingMetricStat {
+  /**
+   * <p>The CloudWatch metric to return, including the metric name, namespace, and dimensions. To get
+   *          the exact metric name, namespace, and dimensions, inspect the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html">Metric</a> object that is
+   *          returned by a call to <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html">ListMetrics</a>.</p>
+   */
+  Metric: TargetTrackingMetric | undefined;
+
+  /**
+   * <p>The statistic to return. It can include any CloudWatch statistic or extended statistic. For a
+   *          list of valid values, see the table in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic">Statistics</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
+   *          <p>The most commonly used metric for scaling is <code>Average</code>.</p>
+   */
+  Stat: string | undefined;
+
+  /**
+   * <p>The unit to use for the returned data points. For a complete list of the units that CloudWatch
+   *          supports, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html">MetricDatum</a> data
+   *          type in the <i>Amazon CloudWatch API Reference</i>.</p>
+   */
+  Unit?: string;
+}
+
+/**
+ * @public
+ * <p>The metric data to return. Also defines whether this call is returning data for one
+ *          metric only, or whether it is performing a math expression on the values of returned metric
+ *          statistics to create a new time series. A time series is a series of data points, each of
+ *          which is associated with a timestamp.</p>
+ *          <p>For more information and examples, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking-metric-math.html">Create a target tracking scaling policy for Application Auto Scaling using metric math</a> in the
+ *          <i>Application Auto Scaling User Guide</i>.</p>
+ */
+export interface TargetTrackingMetricDataQuery {
+  /**
+   * <p>The math expression to perform on the returned data, if this object is performing a math
+   *          expression. This expression can use the <code>Id</code> of the other metrics to refer to
+   *          those metrics, and can also use the <code>Id</code> of other expressions to use the result
+   *          of those expressions. </p>
+   *          <p>Conditional: Within each <code>TargetTrackingMetricDataQuery</code> object, you must
+   *          specify either <code>Expression</code> or <code>MetricStat</code>, but not both.</p>
+   */
+  Expression?: string;
+
+  /**
+   * <p>A short name that identifies the object's results in the response. This name must be
+   *          unique among all <code>MetricDataQuery</code> objects specified for a single scaling
+   *          policy. If you are performing math expressions on this set of data, this name represents
+   *          that data and can serve as a variable in the mathematical expression. The valid characters
+   *          are letters, numbers, and underscores. The first character must be a lowercase letter.
+   *       </p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>A human-readable label for this metric or expression. This is especially useful if this
+   *          is a math expression, so that you know what the value represents.</p>
+   */
+  Label?: string;
+
+  /**
+   * <p>Information about the metric data to return.</p>
+   *          <p>Conditional: Within each <code>MetricDataQuery</code> object, you must specify either
+   *             <code>Expression</code> or <code>MetricStat</code>, but not both.</p>
+   */
+  MetricStat?: TargetTrackingMetricStat;
+
+  /**
+   * <p>Indicates whether to return the timestamps and raw data values of this metric. </p>
+   *          <p>If you use any math expressions, specify <code>true</code> for this value for only the
+   *          final math expression that the metric specification is based on. You must specify
+   *             <code>false</code> for <code>ReturnData</code> for all the other metrics and expressions
+   *          used in the metric specification.</p>
+   *          <p>If you are only retrieving metrics and not performing any math expressions, do not
+   *          specify anything for <code>ReturnData</code>. This sets it to its default
+   *             (<code>true</code>).</p>
+   */
+  ReturnData?: boolean;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MetricStatistic = {
+  Average: "Average",
+  Maximum: "Maximum",
+  Minimum: "Minimum",
+  SampleCount: "SampleCount",
+  Sum: "Sum",
+} as const;
+
+/**
+ * @public
+ */
+export type MetricStatistic = (typeof MetricStatistic)[keyof typeof MetricStatistic];
+
+/**
+ * @public
  * <p>Represents a CloudWatch metric of your choosing for a target tracking scaling policy to use
  *          with Application Auto Scaling.</p>
  *          <p>For information about the available metrics for a service, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html">Amazon Web Services
@@ -1990,24 +2237,20 @@ export enum MetricStatistic {
  *                increase when capacity decreases. </p>
  *             </li>
  *          </ul>
- *          <p>For an example of how creating new metrics can be useful, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-using-sqs-queue.html">Scaling
- *             based on Amazon SQS</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. This topic
- *          mentions Auto Scaling groups, but the same scenario for Amazon SQS can apply to the target tracking
- *          scaling policies that you create for a Spot Fleet by using the Application Auto Scaling API.</p>
  *          <p>For more information about the CloudWatch terminology below, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html">Amazon CloudWatch
  *             concepts</a> in the <i>Amazon CloudWatch User Guide</i>. </p>
  */
 export interface CustomizedMetricSpecification {
   /**
    * <p>The name of the metric. To get the exact metric name, namespace, and dimensions, inspect
-   *          the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html">Metric</a> object that is returned by a call to <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html">ListMetrics</a>.</p>
+   *          the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html">Metric</a> object that's returned by a call to <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html">ListMetrics</a>.</p>
    */
-  MetricName: string | undefined;
+  MetricName?: string;
 
   /**
    * <p>The namespace of the metric.</p>
    */
-  Namespace: string | undefined;
+  Namespace?: string;
 
   /**
    * <p>The dimensions of the metric. </p>
@@ -2019,7 +2262,7 @@ export interface CustomizedMetricSpecification {
   /**
    * <p>The statistic of the metric.</p>
    */
-  Statistic: MetricStatistic | string | undefined;
+  Statistic?: MetricStatistic | string;
 
   /**
    * <p>The unit of the metric. For a complete list of the units that CloudWatch supports, see the
@@ -2027,33 +2270,49 @@ export interface CustomizedMetricSpecification {
    *          type in the <i>Amazon CloudWatch API Reference</i>.</p>
    */
   Unit?: string;
-}
 
-export enum MetricType {
-  ALBRequestCountPerTarget = "ALBRequestCountPerTarget",
-  AppStreamAverageCapacityUtilization = "AppStreamAverageCapacityUtilization",
-  CassandraReadCapacityUtilization = "CassandraReadCapacityUtilization",
-  CassandraWriteCapacityUtilization = "CassandraWriteCapacityUtilization",
-  ComprehendInferenceUtilization = "ComprehendInferenceUtilization",
-  DynamoDBReadCapacityUtilization = "DynamoDBReadCapacityUtilization",
-  DynamoDBWriteCapacityUtilization = "DynamoDBWriteCapacityUtilization",
-  EC2SpotFleetRequestAverageCPUUtilization = "EC2SpotFleetRequestAverageCPUUtilization",
-  EC2SpotFleetRequestAverageNetworkIn = "EC2SpotFleetRequestAverageNetworkIn",
-  EC2SpotFleetRequestAverageNetworkOut = "EC2SpotFleetRequestAverageNetworkOut",
-  ECSServiceAverageCPUUtilization = "ECSServiceAverageCPUUtilization",
-  ECSServiceAverageMemoryUtilization = "ECSServiceAverageMemoryUtilization",
-  ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage = "ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage",
-  ElastiCachePrimaryEngineCPUUtilization = "ElastiCachePrimaryEngineCPUUtilization",
-  ElastiCacheReplicaEngineCPUUtilization = "ElastiCacheReplicaEngineCPUUtilization",
-  KafkaBrokerStorageUtilization = "KafkaBrokerStorageUtilization",
-  LambdaProvisionedConcurrencyUtilization = "LambdaProvisionedConcurrencyUtilization",
-  NeptuneReaderAverageCPUUtilization = "NeptuneReaderAverageCPUUtilization",
-  RDSReaderAverageCPUUtilization = "RDSReaderAverageCPUUtilization",
-  RDSReaderAverageDatabaseConnections = "RDSReaderAverageDatabaseConnections",
-  SageMakerVariantInvocationsPerInstance = "SageMakerVariantInvocationsPerInstance",
+  /**
+   * <p>The metrics to include in the target tracking scaling policy, as a metric data query.
+   *          This can include both raw metric and metric math expressions.</p>
+   */
+  Metrics?: TargetTrackingMetricDataQuery[];
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const MetricType = {
+  ALBRequestCountPerTarget: "ALBRequestCountPerTarget",
+  AppStreamAverageCapacityUtilization: "AppStreamAverageCapacityUtilization",
+  CassandraReadCapacityUtilization: "CassandraReadCapacityUtilization",
+  CassandraWriteCapacityUtilization: "CassandraWriteCapacityUtilization",
+  ComprehendInferenceUtilization: "ComprehendInferenceUtilization",
+  DynamoDBReadCapacityUtilization: "DynamoDBReadCapacityUtilization",
+  DynamoDBWriteCapacityUtilization: "DynamoDBWriteCapacityUtilization",
+  EC2SpotFleetRequestAverageCPUUtilization: "EC2SpotFleetRequestAverageCPUUtilization",
+  EC2SpotFleetRequestAverageNetworkIn: "EC2SpotFleetRequestAverageNetworkIn",
+  EC2SpotFleetRequestAverageNetworkOut: "EC2SpotFleetRequestAverageNetworkOut",
+  ECSServiceAverageCPUUtilization: "ECSServiceAverageCPUUtilization",
+  ECSServiceAverageMemoryUtilization: "ECSServiceAverageMemoryUtilization",
+  ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage: "ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage",
+  ElastiCachePrimaryEngineCPUUtilization: "ElastiCachePrimaryEngineCPUUtilization",
+  ElastiCacheReplicaEngineCPUUtilization: "ElastiCacheReplicaEngineCPUUtilization",
+  KafkaBrokerStorageUtilization: "KafkaBrokerStorageUtilization",
+  LambdaProvisionedConcurrencyUtilization: "LambdaProvisionedConcurrencyUtilization",
+  NeptuneReaderAverageCPUUtilization: "NeptuneReaderAverageCPUUtilization",
+  RDSReaderAverageCPUUtilization: "RDSReaderAverageCPUUtilization",
+  RDSReaderAverageDatabaseConnections: "RDSReaderAverageDatabaseConnections",
+  SageMakerVariantInvocationsPerInstance: "SageMakerVariantInvocationsPerInstance",
+} as const;
+
+/**
+ * @public
+ */
+export type MetricType = (typeof MetricType)[keyof typeof MetricType];
+
+/**
+ * @public
  * <p>Represents a predefined metric for a target tracking scaling policy to use with
  *          Application Auto Scaling.</p>
  *          <p>Only the Amazon Web Services that you're using send metrics to Amazon CloudWatch. To determine whether a
@@ -2075,26 +2334,27 @@ export interface PredefinedMetricSpecification {
    *          <p>You create the resource label by appending the final portion of the load balancer ARN
    *             and the final portion of the target group ARN into a single value, separated by a forward
    *             slash (/). The format of the resource label is:</p>
-   *         <p>
+   *          <p>
    *             <code>app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff</code>.</p>
-   *         <p>Where:</p>
-   *         <ul>
+   *          <p>Where:</p>
+   *          <ul>
    *             <li>
-   *                 <p>app/<load-balancer-name>/<load-balancer-id> is the final portion of
+   *                <p>app/<load-balancer-name>/<load-balancer-id> is the final portion of
    *                     the load balancer ARN</p>
    *             </li>
    *             <li>
-   *                 <p>targetgroup/<target-group-name>/<target-group-id> is the final portion
+   *                <p>targetgroup/<target-group-name>/<target-group-id> is the final portion
    *                     of the target group ARN.</p>
    *             </li>
    *          </ul>
-   *         <p>To find the ARN for an Application Load Balancer, use the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html">DescribeLoadBalancers</a> API operation. To find the ARN for the target group, use
+   *          <p>To find the ARN for an Application Load Balancer, use the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html">DescribeLoadBalancers</a> API operation. To find the ARN for the target group, use
    *             the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html">DescribeTargetGroups</a> API operation.</p>
    */
   ResourceLabel?: string;
 }
 
 /**
+ * @public
  * <p>Represents a target tracking scaling policy configuration to use with Application Auto Scaling.</p>
  */
 export interface TargetTrackingScalingPolicyConfiguration {
@@ -2139,46 +2399,46 @@ export interface TargetTrackingScalingPolicyConfiguration {
    *          <ul>
    *             <li>
    *                <p>AppStream 2.0 fleets</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Aurora DB clusters</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>ECS services</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>EMR clusters</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p> Neptune clusters</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>SageMaker endpoint variants</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Spot Fleets</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Custom resources</p>
-   *            </li>
+   *             </li>
    *          </ul>
    *          <p>For all other scalable targets, the default value is 0:</p>
    *          <ul>
    *             <li>
    *                <p>Amazon Comprehend document classification and entity recognizer endpoints</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>DynamoDB tables and global secondary indexes</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon Keyspaces tables</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Lambda provisioned concurrency</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon MSK broker storage</p>
-   *            </li>
+   *             </li>
    *          </ul>
    */
   ScaleOutCooldown?: number;
@@ -2196,46 +2456,46 @@ export interface TargetTrackingScalingPolicyConfiguration {
    *          <ul>
    *             <li>
    *                <p>AppStream 2.0 fleets</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Aurora DB clusters</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>ECS services</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>EMR clusters</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p> Neptune clusters</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>SageMaker endpoint variants</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Spot Fleets</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Custom resources</p>
-   *            </li>
+   *             </li>
    *          </ul>
    *          <p>For all other scalable targets, the default value is 0:</p>
    *          <ul>
    *             <li>
    *                <p>Amazon Comprehend document classification and entity recognizer endpoints</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>DynamoDB tables and global secondary indexes</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon Keyspaces tables</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Lambda provisioned concurrency</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon MSK broker storage</p>
-   *            </li>
+   *             </li>
    *          </ul>
    */
   ScaleInCooldown?: number;
@@ -2251,6 +2511,7 @@ export interface TargetTrackingScalingPolicyConfiguration {
 }
 
 /**
+ * @public
  * <p>Represents a scaling policy to use with Application Auto Scaling.</p>
  *          <p>For more information about configuring scaling policies for a specific service, see
  *             <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/integrated-services-list.html">Amazon Web Services services
@@ -2281,65 +2542,65 @@ export interface ScalingPolicy {
    *             <li>
    *                <p>ECS service - The resource type is <code>service</code> and the unique identifier is the cluster name
    *                and service name. Example: <code>service/default/sample-webapp</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Spot Fleet - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
    *                Spot Fleet request ID. Example: <code>spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>EMR cluster - The resource type is <code>instancegroup</code> and the unique identifier is the cluster ID and instance group ID.
    *                Example: <code>instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>AppStream 2.0 fleet - The resource type is <code>fleet</code> and the unique identifier is the fleet name.
    *                Example: <code>fleet/sample-fleet</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>DynamoDB table - The resource type is <code>table</code> and the unique identifier is the table name.
    *                Example: <code>table/my-table</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>DynamoDB global secondary index - The resource type is <code>index</code> and the unique identifier is the index name.
    *                Example: <code>table/my-table/index/my-table-index</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Aurora DB cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name.
    *                Example: <code>cluster:my-db-cluster</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>SageMaker endpoint variant - The resource type is <code>variant</code> and the unique identifier is the resource ID.
    *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Custom resources are not supported with a resource type. This parameter must specify the <code>OutputValue</code> from the CloudFormation template stack used to access the resources. The unique identifier is defined by the service provider. More information
    *                is available in our <a href="https://github.com/aws/aws-auto-scaling-custom-resource">GitHub
    *                   repository</a>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon Comprehend document classification endpoint - The resource type and unique identifier are specified using the endpoint ARN. Example: <code>arn:aws:comprehend:us-west-2:123456789012:document-classifier-endpoint/EXAMPLE</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon Comprehend entity recognizer endpoint - The resource type and unique identifier are specified using the endpoint ARN. Example: <code>arn:aws:comprehend:us-west-2:123456789012:entity-recognizer-endpoint/EXAMPLE</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Lambda provisioned concurrency - The resource type is <code>function</code> and the unique identifier is the function name with a function version or alias name suffix that is not <code>$LATEST</code>.
    *                Example: <code>function:my-function:prod</code> or <code>function:my-function:1</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon Keyspaces table - The resource type is <code>table</code> and the unique identifier is the table name.
    *                Example: <code>keyspace/mykeyspace/table/mytable</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon MSK cluster - The resource type and unique identifier are specified using the cluster ARN.
    *                Example: <code>arn:aws:kafka:us-east-1:123456789012:cluster/demo-cluster-1/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon ElastiCache replication group - The resource type is <code>replication-group</code> and the unique identifier is the replication group name.
    *                Example: <code>replication-group/mycluster</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Neptune cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name. Example: <code>cluster:mycluster</code>.</p>
-   *            </li>
+   *             </li>
    *          </ul>
    */
   ResourceId: string | undefined;
@@ -2350,83 +2611,83 @@ export interface ScalingPolicy {
    *             <li>
    *                <p>
    *                   <code>ecs:service:DesiredCount</code> - The desired task count of an ECS service.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>elasticmapreduce:instancegroup:InstanceCount</code> - The instance count of an EMR Instance Group.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot Fleet.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>appstream:fleet:DesiredCapacity</code> - The desired capacity of an AppStream 2.0 fleet.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:table:ReadCapacityUnits</code> - The provisioned read capacity for a DynamoDB table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:table:WriteCapacityUnits</code> - The provisioned write capacity for a DynamoDB table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:index:ReadCapacityUnits</code> - The provisioned read capacity for a DynamoDB global secondary index.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:index:WriteCapacityUnits</code> - The provisioned write capacity for a DynamoDB global secondary index.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>rds:cluster:ReadReplicaCount</code> - The count of Aurora Replicas in an Aurora DB cluster. Available for Aurora MySQL-compatible edition and Aurora PostgreSQL-compatible edition.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for a SageMaker model endpoint variant.</p>
-   *            </li>
+   *             </li>
    *             <li>
-   *               <p>
+   *                <p>
    *                   <code>custom-resource:ResourceType:Property</code> - The scalable dimension for a custom resource provided by your own application or service.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>comprehend:document-classifier-endpoint:DesiredInferenceUnits</code> - The number of inference units for an Amazon Comprehend document classification endpoint.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>comprehend:entity-recognizer-endpoint:DesiredInferenceUnits</code> - The number of inference units for an Amazon Comprehend entity recognizer endpoint.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>lambda:function:ProvisionedConcurrency</code> - The provisioned concurrency for a Lambda function.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>cassandra:table:ReadCapacityUnits</code> - The provisioned read capacity for an Amazon Keyspaces table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>cassandra:table:WriteCapacityUnits</code> - The provisioned write capacity for an Amazon Keyspaces table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>kafka:broker-storage:VolumeSize</code> - The provisioned volume size (in GiB) for brokers in an Amazon MSK cluster.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>elasticache:replication-group:NodeGroups</code> - The number of node groups for an Amazon ElastiCache replication group.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>elasticache:replication-group:Replicas</code> - The number of replicas per node group for an Amazon ElastiCache replication group.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>neptune:cluster:ReadReplicaCount</code> - The count of read replicas in an Amazon Neptune DB cluster.</p>
-   *            </li>
+   *             </li>
    *          </ul>
    */
   ScalableDimension: ScalableDimension | string | undefined;
@@ -2463,6 +2724,9 @@ export interface ScalingPolicy {
   CreationTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeScalingPoliciesResponse {
   /**
    * <p>Information about the scaling policies.</p>
@@ -2477,6 +2741,7 @@ export interface DescribeScalingPoliciesResponse {
 }
 
 /**
+ * @public
  * <p>Failed access to resources caused an exception. This exception is thrown when Application Auto Scaling
  *          is unable to retrieve the alarms associated with a scaling policy due to a client error,
  *          for example, if the role ARN specified for a scalable target does not have permission to
@@ -2500,6 +2765,9 @@ export class FailedResourceAccessException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeScheduledActionsRequest {
   /**
    * <p>The names of the scheduled actions to describe.</p>
@@ -2519,65 +2787,65 @@ export interface DescribeScheduledActionsRequest {
    *             <li>
    *                <p>ECS service - The resource type is <code>service</code> and the unique identifier is the cluster name
    *                and service name. Example: <code>service/default/sample-webapp</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Spot Fleet - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
    *                Spot Fleet request ID. Example: <code>spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>EMR cluster - The resource type is <code>instancegroup</code> and the unique identifier is the cluster ID and instance group ID.
    *                Example: <code>instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>AppStream 2.0 fleet - The resource type is <code>fleet</code> and the unique identifier is the fleet name.
    *                Example: <code>fleet/sample-fleet</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>DynamoDB table - The resource type is <code>table</code> and the unique identifier is the table name.
    *                Example: <code>table/my-table</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>DynamoDB global secondary index - The resource type is <code>index</code> and the unique identifier is the index name.
    *                Example: <code>table/my-table/index/my-table-index</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Aurora DB cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name.
    *                Example: <code>cluster:my-db-cluster</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>SageMaker endpoint variant - The resource type is <code>variant</code> and the unique identifier is the resource ID.
    *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Custom resources are not supported with a resource type. This parameter must specify the <code>OutputValue</code> from the CloudFormation template stack used to access the resources. The unique identifier is defined by the service provider. More information
    *                is available in our <a href="https://github.com/aws/aws-auto-scaling-custom-resource">GitHub
    *                   repository</a>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon Comprehend document classification endpoint - The resource type and unique identifier are specified using the endpoint ARN. Example: <code>arn:aws:comprehend:us-west-2:123456789012:document-classifier-endpoint/EXAMPLE</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon Comprehend entity recognizer endpoint - The resource type and unique identifier are specified using the endpoint ARN. Example: <code>arn:aws:comprehend:us-west-2:123456789012:entity-recognizer-endpoint/EXAMPLE</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Lambda provisioned concurrency - The resource type is <code>function</code> and the unique identifier is the function name with a function version or alias name suffix that is not <code>$LATEST</code>.
    *                Example: <code>function:my-function:prod</code> or <code>function:my-function:1</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon Keyspaces table - The resource type is <code>table</code> and the unique identifier is the table name.
    *                Example: <code>keyspace/mykeyspace/table/mytable</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon MSK cluster - The resource type and unique identifier are specified using the cluster ARN.
    *                Example: <code>arn:aws:kafka:us-east-1:123456789012:cluster/demo-cluster-1/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon ElastiCache replication group - The resource type is <code>replication-group</code> and the unique identifier is the replication group name.
    *                Example: <code>replication-group/mycluster</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Neptune cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name. Example: <code>cluster:mycluster</code>.</p>
-   *            </li>
+   *             </li>
    *          </ul>
    */
   ResourceId?: string;
@@ -2589,83 +2857,83 @@ export interface DescribeScheduledActionsRequest {
    *             <li>
    *                <p>
    *                   <code>ecs:service:DesiredCount</code> - The desired task count of an ECS service.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>elasticmapreduce:instancegroup:InstanceCount</code> - The instance count of an EMR Instance Group.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot Fleet.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>appstream:fleet:DesiredCapacity</code> - The desired capacity of an AppStream 2.0 fleet.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:table:ReadCapacityUnits</code> - The provisioned read capacity for a DynamoDB table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:table:WriteCapacityUnits</code> - The provisioned write capacity for a DynamoDB table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:index:ReadCapacityUnits</code> - The provisioned read capacity for a DynamoDB global secondary index.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:index:WriteCapacityUnits</code> - The provisioned write capacity for a DynamoDB global secondary index.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>rds:cluster:ReadReplicaCount</code> - The count of Aurora Replicas in an Aurora DB cluster. Available for Aurora MySQL-compatible edition and Aurora PostgreSQL-compatible edition.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for a SageMaker model endpoint variant.</p>
-   *            </li>
+   *             </li>
    *             <li>
-   *               <p>
+   *                <p>
    *                   <code>custom-resource:ResourceType:Property</code> - The scalable dimension for a custom resource provided by your own application or service.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>comprehend:document-classifier-endpoint:DesiredInferenceUnits</code> - The number of inference units for an Amazon Comprehend document classification endpoint.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>comprehend:entity-recognizer-endpoint:DesiredInferenceUnits</code> - The number of inference units for an Amazon Comprehend entity recognizer endpoint.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>lambda:function:ProvisionedConcurrency</code> - The provisioned concurrency for a Lambda function.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>cassandra:table:ReadCapacityUnits</code> - The provisioned read capacity for an Amazon Keyspaces table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>cassandra:table:WriteCapacityUnits</code> - The provisioned write capacity for an Amazon Keyspaces table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>kafka:broker-storage:VolumeSize</code> - The provisioned volume size (in GiB) for brokers in an Amazon MSK cluster.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>elasticache:replication-group:NodeGroups</code> - The number of node groups for an Amazon ElastiCache replication group.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>elasticache:replication-group:Replicas</code> - The number of replicas per node group for an Amazon ElastiCache replication group.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>neptune:cluster:ReadReplicaCount</code> - The count of read replicas in an Amazon Neptune DB cluster.</p>
-   *            </li>
+   *             </li>
    *          </ul>
    */
   ScalableDimension?: ScalableDimension | string;
@@ -2688,6 +2956,7 @@ export interface DescribeScheduledActionsRequest {
 }
 
 /**
+ * @public
  * <p>Represents the minimum and maximum capacity for a scheduled action.</p>
  */
 export interface ScalableTargetAction {
@@ -2712,6 +2981,7 @@ export interface ScalableTargetAction {
 }
 
 /**
+ * @public
  * <p>Represents a scheduled action.</p>
  */
 export interface ScheduledAction {
@@ -2753,7 +3023,7 @@ export interface ScheduledAction {
    *          <p>The cron format consists of six fields separated by white spaces: [Minutes] [Hours] [Day_of_Month] [Month] [Day_of_Week] [Year].</p>
    *          <p>For rate expressions, <i>value</i> is a positive integer and <i>unit</i> is
    *          <code>minute</code> | <code>minutes</code> | <code>hour</code> | <code>hours</code> | <code>day</code> | <code>days</code>.</p>
-   *            <p>For more information and examples, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/examples-scheduled-actions.html">Example scheduled actions for Application Auto Scaling</a> in the <i>Application Auto Scaling User Guide</i>.</p>
+   *          <p>For more information and examples, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/examples-scheduled-actions.html">Example scheduled actions for Application Auto Scaling</a> in the <i>Application Auto Scaling User Guide</i>.</p>
    */
   Schedule: string | undefined;
 
@@ -2770,65 +3040,65 @@ export interface ScheduledAction {
    *             <li>
    *                <p>ECS service - The resource type is <code>service</code> and the unique identifier is the cluster name
    *                and service name. Example: <code>service/default/sample-webapp</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Spot Fleet - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
    *                Spot Fleet request ID. Example: <code>spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>EMR cluster - The resource type is <code>instancegroup</code> and the unique identifier is the cluster ID and instance group ID.
    *                Example: <code>instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>AppStream 2.0 fleet - The resource type is <code>fleet</code> and the unique identifier is the fleet name.
    *                Example: <code>fleet/sample-fleet</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>DynamoDB table - The resource type is <code>table</code> and the unique identifier is the table name.
    *                Example: <code>table/my-table</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>DynamoDB global secondary index - The resource type is <code>index</code> and the unique identifier is the index name.
    *                Example: <code>table/my-table/index/my-table-index</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Aurora DB cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name.
    *                Example: <code>cluster:my-db-cluster</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>SageMaker endpoint variant - The resource type is <code>variant</code> and the unique identifier is the resource ID.
    *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Custom resources are not supported with a resource type. This parameter must specify the <code>OutputValue</code> from the CloudFormation template stack used to access the resources. The unique identifier is defined by the service provider. More information
    *                is available in our <a href="https://github.com/aws/aws-auto-scaling-custom-resource">GitHub
    *                   repository</a>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon Comprehend document classification endpoint - The resource type and unique identifier are specified using the endpoint ARN. Example: <code>arn:aws:comprehend:us-west-2:123456789012:document-classifier-endpoint/EXAMPLE</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon Comprehend entity recognizer endpoint - The resource type and unique identifier are specified using the endpoint ARN. Example: <code>arn:aws:comprehend:us-west-2:123456789012:entity-recognizer-endpoint/EXAMPLE</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Lambda provisioned concurrency - The resource type is <code>function</code> and the unique identifier is the function name with a function version or alias name suffix that is not <code>$LATEST</code>.
    *                Example: <code>function:my-function:prod</code> or <code>function:my-function:1</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon Keyspaces table - The resource type is <code>table</code> and the unique identifier is the table name.
    *                Example: <code>keyspace/mykeyspace/table/mytable</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon MSK cluster - The resource type and unique identifier are specified using the cluster ARN.
    *                Example: <code>arn:aws:kafka:us-east-1:123456789012:cluster/demo-cluster-1/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon ElastiCache replication group - The resource type is <code>replication-group</code> and the unique identifier is the replication group name.
    *                Example: <code>replication-group/mycluster</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Neptune cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name. Example: <code>cluster:mycluster</code>.</p>
-   *            </li>
+   *             </li>
    *          </ul>
    */
   ResourceId: string | undefined;
@@ -2839,83 +3109,83 @@ export interface ScheduledAction {
    *             <li>
    *                <p>
    *                   <code>ecs:service:DesiredCount</code> - The desired task count of an ECS service.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>elasticmapreduce:instancegroup:InstanceCount</code> - The instance count of an EMR Instance Group.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot Fleet.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>appstream:fleet:DesiredCapacity</code> - The desired capacity of an AppStream 2.0 fleet.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:table:ReadCapacityUnits</code> - The provisioned read capacity for a DynamoDB table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:table:WriteCapacityUnits</code> - The provisioned write capacity for a DynamoDB table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:index:ReadCapacityUnits</code> - The provisioned read capacity for a DynamoDB global secondary index.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:index:WriteCapacityUnits</code> - The provisioned write capacity for a DynamoDB global secondary index.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>rds:cluster:ReadReplicaCount</code> - The count of Aurora Replicas in an Aurora DB cluster. Available for Aurora MySQL-compatible edition and Aurora PostgreSQL-compatible edition.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for a SageMaker model endpoint variant.</p>
-   *            </li>
+   *             </li>
    *             <li>
-   *               <p>
+   *                <p>
    *                   <code>custom-resource:ResourceType:Property</code> - The scalable dimension for a custom resource provided by your own application or service.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>comprehend:document-classifier-endpoint:DesiredInferenceUnits</code> - The number of inference units for an Amazon Comprehend document classification endpoint.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>comprehend:entity-recognizer-endpoint:DesiredInferenceUnits</code> - The number of inference units for an Amazon Comprehend entity recognizer endpoint.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>lambda:function:ProvisionedConcurrency</code> - The provisioned concurrency for a Lambda function.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>cassandra:table:ReadCapacityUnits</code> - The provisioned read capacity for an Amazon Keyspaces table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>cassandra:table:WriteCapacityUnits</code> - The provisioned write capacity for an Amazon Keyspaces table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>kafka:broker-storage:VolumeSize</code> - The provisioned volume size (in GiB) for brokers in an Amazon MSK cluster.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>elasticache:replication-group:NodeGroups</code> - The number of node groups for an Amazon ElastiCache replication group.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>elasticache:replication-group:Replicas</code> - The number of replicas per node group for an Amazon ElastiCache replication group.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>neptune:cluster:ReadReplicaCount</code> - The count of read replicas in an Amazon Neptune DB cluster.</p>
-   *            </li>
+   *             </li>
    *          </ul>
    */
   ScalableDimension?: ScalableDimension | string;
@@ -2944,6 +3214,9 @@ export interface ScheduledAction {
   CreationTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeScheduledActionsResponse {
   /**
    * <p>Information about the scheduled actions.</p>
@@ -2958,6 +3231,58 @@ export interface DescribeScheduledActionsResponse {
 }
 
 /**
+ * @public
+ */
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>Specify the ARN of the scalable target.</p>
+   *          <p>For example:
+   *          <code>arn:aws:application-autoscaling:us-east-1:123456789012:scalable-target/1234abcd56ab78cd901ef1234567890ab123</code>
+   *          </p>
+   *          <p>To get the ARN for a scalable target, use <a>DescribeScalableTargets</a>.</p>
+   */
+  ResourceARN: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>A list of tags. Each tag consists of a tag key and a tag value.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ * <p>The specified resource doesn't exist.</p>
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * <p>The name of the Application Auto Scaling resource. This value is an Amazon Resource Name (ARN).</p>
+   */
+  ResourceName?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+    this.ResourceName = opts.ResourceName;
+  }
+}
+
+/**
+ * @public
  * <p>A per-account resource limit is exceeded. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-limits.html">Application Auto Scaling service quotas</a>.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -2978,6 +3303,9 @@ export class LimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface PutScalingPolicyRequest {
   /**
    * <p>The name of the scaling policy.</p>
@@ -2999,65 +3327,65 @@ export interface PutScalingPolicyRequest {
    *             <li>
    *                <p>ECS service - The resource type is <code>service</code> and the unique identifier is the cluster name
    *                and service name. Example: <code>service/default/sample-webapp</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Spot Fleet - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
    *                Spot Fleet request ID. Example: <code>spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>EMR cluster - The resource type is <code>instancegroup</code> and the unique identifier is the cluster ID and instance group ID.
    *                Example: <code>instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>AppStream 2.0 fleet - The resource type is <code>fleet</code> and the unique identifier is the fleet name.
    *                Example: <code>fleet/sample-fleet</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>DynamoDB table - The resource type is <code>table</code> and the unique identifier is the table name.
    *                Example: <code>table/my-table</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>DynamoDB global secondary index - The resource type is <code>index</code> and the unique identifier is the index name.
    *                Example: <code>table/my-table/index/my-table-index</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Aurora DB cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name.
    *                Example: <code>cluster:my-db-cluster</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>SageMaker endpoint variant - The resource type is <code>variant</code> and the unique identifier is the resource ID.
    *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Custom resources are not supported with a resource type. This parameter must specify the <code>OutputValue</code> from the CloudFormation template stack used to access the resources. The unique identifier is defined by the service provider. More information
    *                is available in our <a href="https://github.com/aws/aws-auto-scaling-custom-resource">GitHub
    *                   repository</a>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon Comprehend document classification endpoint - The resource type and unique identifier are specified using the endpoint ARN. Example: <code>arn:aws:comprehend:us-west-2:123456789012:document-classifier-endpoint/EXAMPLE</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon Comprehend entity recognizer endpoint - The resource type and unique identifier are specified using the endpoint ARN. Example: <code>arn:aws:comprehend:us-west-2:123456789012:entity-recognizer-endpoint/EXAMPLE</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Lambda provisioned concurrency - The resource type is <code>function</code> and the unique identifier is the function name with a function version or alias name suffix that is not <code>$LATEST</code>.
    *                Example: <code>function:my-function:prod</code> or <code>function:my-function:1</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon Keyspaces table - The resource type is <code>table</code> and the unique identifier is the table name.
    *                Example: <code>keyspace/mykeyspace/table/mytable</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon MSK cluster - The resource type and unique identifier are specified using the cluster ARN.
    *                Example: <code>arn:aws:kafka:us-east-1:123456789012:cluster/demo-cluster-1/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon ElastiCache replication group - The resource type is <code>replication-group</code> and the unique identifier is the replication group name.
    *                Example: <code>replication-group/mycluster</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Neptune cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name. Example: <code>cluster:mycluster</code>.</p>
-   *            </li>
+   *             </li>
    *          </ul>
    */
   ResourceId: string | undefined;
@@ -3068,83 +3396,83 @@ export interface PutScalingPolicyRequest {
    *             <li>
    *                <p>
    *                   <code>ecs:service:DesiredCount</code> - The desired task count of an ECS service.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>elasticmapreduce:instancegroup:InstanceCount</code> - The instance count of an EMR Instance Group.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot Fleet.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>appstream:fleet:DesiredCapacity</code> - The desired capacity of an AppStream 2.0 fleet.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:table:ReadCapacityUnits</code> - The provisioned read capacity for a DynamoDB table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:table:WriteCapacityUnits</code> - The provisioned write capacity for a DynamoDB table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:index:ReadCapacityUnits</code> - The provisioned read capacity for a DynamoDB global secondary index.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:index:WriteCapacityUnits</code> - The provisioned write capacity for a DynamoDB global secondary index.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>rds:cluster:ReadReplicaCount</code> - The count of Aurora Replicas in an Aurora DB cluster. Available for Aurora MySQL-compatible edition and Aurora PostgreSQL-compatible edition.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for a SageMaker model endpoint variant.</p>
-   *            </li>
+   *             </li>
    *             <li>
-   *               <p>
+   *                <p>
    *                   <code>custom-resource:ResourceType:Property</code> - The scalable dimension for a custom resource provided by your own application or service.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>comprehend:document-classifier-endpoint:DesiredInferenceUnits</code> - The number of inference units for an Amazon Comprehend document classification endpoint.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>comprehend:entity-recognizer-endpoint:DesiredInferenceUnits</code> - The number of inference units for an Amazon Comprehend entity recognizer endpoint.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>lambda:function:ProvisionedConcurrency</code> - The provisioned concurrency for a Lambda function.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>cassandra:table:ReadCapacityUnits</code> - The provisioned read capacity for an Amazon Keyspaces table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>cassandra:table:WriteCapacityUnits</code> - The provisioned write capacity for an Amazon Keyspaces table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>kafka:broker-storage:VolumeSize</code> - The provisioned volume size (in GiB) for brokers in an Amazon MSK cluster.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>elasticache:replication-group:NodeGroups</code> - The number of node groups for an Amazon ElastiCache replication group.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>elasticache:replication-group:Replicas</code> - The number of replicas per node group for an Amazon ElastiCache replication group.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>neptune:cluster:ReadReplicaCount</code> - The count of read replicas in an Amazon Neptune DB cluster.</p>
-   *            </li>
+   *             </li>
    *          </ul>
    */
   ScalableDimension: ScalableDimension | string | undefined;
@@ -3179,6 +3507,9 @@ export interface PutScalingPolicyRequest {
   TargetTrackingScalingPolicyConfiguration?: TargetTrackingScalingPolicyConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface PutScalingPolicyResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the resulting scaling policy.</p>
@@ -3191,6 +3522,9 @@ export interface PutScalingPolicyResponse {
   Alarms?: Alarm[];
 }
 
+/**
+ * @public
+ */
 export interface PutScheduledActionRequest {
   /**
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
@@ -3220,7 +3554,7 @@ export interface PutScheduledActionRequest {
    *          <p>The cron format consists of six fields separated by white spaces: [Minutes] [Hours] [Day_of_Month] [Month] [Day_of_Week] [Year].</p>
    *          <p>For rate expressions, <i>value</i> is a positive integer and <i>unit</i> is
    *          <code>minute</code> | <code>minutes</code> | <code>hour</code> | <code>hours</code> | <code>day</code> | <code>days</code>.</p>
-   *            <p>For more information and examples, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/examples-scheduled-actions.html">Example scheduled actions for Application Auto Scaling</a> in the <i>Application Auto Scaling User Guide</i>.</p>
+   *          <p>For more information and examples, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/examples-scheduled-actions.html">Example scheduled actions for Application Auto Scaling</a> in the <i>Application Auto Scaling User Guide</i>.</p>
    */
   Schedule?: string;
 
@@ -3245,65 +3579,65 @@ export interface PutScheduledActionRequest {
    *             <li>
    *                <p>ECS service - The resource type is <code>service</code> and the unique identifier is the cluster name
    *                and service name. Example: <code>service/default/sample-webapp</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Spot Fleet - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
    *                Spot Fleet request ID. Example: <code>spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>EMR cluster - The resource type is <code>instancegroup</code> and the unique identifier is the cluster ID and instance group ID.
    *                Example: <code>instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>AppStream 2.0 fleet - The resource type is <code>fleet</code> and the unique identifier is the fleet name.
    *                Example: <code>fleet/sample-fleet</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>DynamoDB table - The resource type is <code>table</code> and the unique identifier is the table name.
    *                Example: <code>table/my-table</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>DynamoDB global secondary index - The resource type is <code>index</code> and the unique identifier is the index name.
    *                Example: <code>table/my-table/index/my-table-index</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Aurora DB cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name.
    *                Example: <code>cluster:my-db-cluster</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>SageMaker endpoint variant - The resource type is <code>variant</code> and the unique identifier is the resource ID.
    *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Custom resources are not supported with a resource type. This parameter must specify the <code>OutputValue</code> from the CloudFormation template stack used to access the resources. The unique identifier is defined by the service provider. More information
    *                is available in our <a href="https://github.com/aws/aws-auto-scaling-custom-resource">GitHub
    *                   repository</a>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon Comprehend document classification endpoint - The resource type and unique identifier are specified using the endpoint ARN. Example: <code>arn:aws:comprehend:us-west-2:123456789012:document-classifier-endpoint/EXAMPLE</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon Comprehend entity recognizer endpoint - The resource type and unique identifier are specified using the endpoint ARN. Example: <code>arn:aws:comprehend:us-west-2:123456789012:entity-recognizer-endpoint/EXAMPLE</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Lambda provisioned concurrency - The resource type is <code>function</code> and the unique identifier is the function name with a function version or alias name suffix that is not <code>$LATEST</code>.
    *                Example: <code>function:my-function:prod</code> or <code>function:my-function:1</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon Keyspaces table - The resource type is <code>table</code> and the unique identifier is the table name.
    *                Example: <code>keyspace/mykeyspace/table/mytable</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon MSK cluster - The resource type and unique identifier are specified using the cluster ARN.
    *                Example: <code>arn:aws:kafka:us-east-1:123456789012:cluster/demo-cluster-1/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon ElastiCache replication group - The resource type is <code>replication-group</code> and the unique identifier is the replication group name.
    *                Example: <code>replication-group/mycluster</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Neptune cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name. Example: <code>cluster:mycluster</code>.</p>
-   *            </li>
+   *             </li>
    *          </ul>
    */
   ResourceId: string | undefined;
@@ -3314,83 +3648,83 @@ export interface PutScheduledActionRequest {
    *             <li>
    *                <p>
    *                   <code>ecs:service:DesiredCount</code> - The desired task count of an ECS service.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>elasticmapreduce:instancegroup:InstanceCount</code> - The instance count of an EMR Instance Group.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot Fleet.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>appstream:fleet:DesiredCapacity</code> - The desired capacity of an AppStream 2.0 fleet.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:table:ReadCapacityUnits</code> - The provisioned read capacity for a DynamoDB table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:table:WriteCapacityUnits</code> - The provisioned write capacity for a DynamoDB table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:index:ReadCapacityUnits</code> - The provisioned read capacity for a DynamoDB global secondary index.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:index:WriteCapacityUnits</code> - The provisioned write capacity for a DynamoDB global secondary index.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>rds:cluster:ReadReplicaCount</code> - The count of Aurora Replicas in an Aurora DB cluster. Available for Aurora MySQL-compatible edition and Aurora PostgreSQL-compatible edition.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for a SageMaker model endpoint variant.</p>
-   *            </li>
+   *             </li>
    *             <li>
-   *               <p>
+   *                <p>
    *                   <code>custom-resource:ResourceType:Property</code> - The scalable dimension for a custom resource provided by your own application or service.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>comprehend:document-classifier-endpoint:DesiredInferenceUnits</code> - The number of inference units for an Amazon Comprehend document classification endpoint.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>comprehend:entity-recognizer-endpoint:DesiredInferenceUnits</code> - The number of inference units for an Amazon Comprehend entity recognizer endpoint.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>lambda:function:ProvisionedConcurrency</code> - The provisioned concurrency for a Lambda function.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>cassandra:table:ReadCapacityUnits</code> - The provisioned read capacity for an Amazon Keyspaces table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>cassandra:table:WriteCapacityUnits</code> - The provisioned write capacity for an Amazon Keyspaces table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>kafka:broker-storage:VolumeSize</code> - The provisioned volume size (in GiB) for brokers in an Amazon MSK cluster.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>elasticache:replication-group:NodeGroups</code> - The number of node groups for an Amazon ElastiCache replication group.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>elasticache:replication-group:Replicas</code> - The number of replicas per node group for an Amazon ElastiCache replication group.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>neptune:cluster:ReadReplicaCount</code> - The count of read replicas in an Amazon Neptune DB cluster.</p>
-   *            </li>
+   *             </li>
    *          </ul>
    */
   ScalableDimension: ScalableDimension | string | undefined;
@@ -3414,8 +3748,14 @@ export interface PutScheduledActionRequest {
   ScalableTargetAction?: ScalableTargetAction;
 }
 
+/**
+ * @public
+ */
 export interface PutScheduledActionResponse {}
 
+/**
+ * @public
+ */
 export interface RegisterScalableTargetRequest {
   /**
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
@@ -3430,65 +3770,65 @@ export interface RegisterScalableTargetRequest {
    *             <li>
    *                <p>ECS service - The resource type is <code>service</code> and the unique identifier is the cluster name
    *                and service name. Example: <code>service/default/sample-webapp</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Spot Fleet - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
    *                Spot Fleet request ID. Example: <code>spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>EMR cluster - The resource type is <code>instancegroup</code> and the unique identifier is the cluster ID and instance group ID.
    *                Example: <code>instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>AppStream 2.0 fleet - The resource type is <code>fleet</code> and the unique identifier is the fleet name.
    *                Example: <code>fleet/sample-fleet</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>DynamoDB table - The resource type is <code>table</code> and the unique identifier is the table name.
    *                Example: <code>table/my-table</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>DynamoDB global secondary index - The resource type is <code>index</code> and the unique identifier is the index name.
    *                Example: <code>table/my-table/index/my-table-index</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Aurora DB cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name.
    *                Example: <code>cluster:my-db-cluster</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>SageMaker endpoint variant - The resource type is <code>variant</code> and the unique identifier is the resource ID.
    *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Custom resources are not supported with a resource type. This parameter must specify the <code>OutputValue</code> from the CloudFormation template stack used to access the resources. The unique identifier is defined by the service provider. More information
    *                is available in our <a href="https://github.com/aws/aws-auto-scaling-custom-resource">GitHub
    *                   repository</a>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon Comprehend document classification endpoint - The resource type and unique identifier are specified using the endpoint ARN. Example: <code>arn:aws:comprehend:us-west-2:123456789012:document-classifier-endpoint/EXAMPLE</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon Comprehend entity recognizer endpoint - The resource type and unique identifier are specified using the endpoint ARN. Example: <code>arn:aws:comprehend:us-west-2:123456789012:entity-recognizer-endpoint/EXAMPLE</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Lambda provisioned concurrency - The resource type is <code>function</code> and the unique identifier is the function name with a function version or alias name suffix that is not <code>$LATEST</code>.
    *                Example: <code>function:my-function:prod</code> or <code>function:my-function:1</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon Keyspaces table - The resource type is <code>table</code> and the unique identifier is the table name.
    *                Example: <code>keyspace/mykeyspace/table/mytable</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon MSK cluster - The resource type and unique identifier are specified using the cluster ARN.
    *                Example: <code>arn:aws:kafka:us-east-1:123456789012:cluster/demo-cluster-1/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon ElastiCache replication group - The resource type is <code>replication-group</code> and the unique identifier is the replication group name.
    *                Example: <code>replication-group/mycluster</code>.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Neptune cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name. Example: <code>cluster:mycluster</code>.</p>
-   *            </li>
+   *             </li>
    *          </ul>
    */
   ResourceId: string | undefined;
@@ -3500,83 +3840,83 @@ export interface RegisterScalableTargetRequest {
    *             <li>
    *                <p>
    *                   <code>ecs:service:DesiredCount</code> - The desired task count of an ECS service.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>elasticmapreduce:instancegroup:InstanceCount</code> - The instance count of an EMR Instance Group.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot Fleet.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>appstream:fleet:DesiredCapacity</code> - The desired capacity of an AppStream 2.0 fleet.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:table:ReadCapacityUnits</code> - The provisioned read capacity for a DynamoDB table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:table:WriteCapacityUnits</code> - The provisioned write capacity for a DynamoDB table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:index:ReadCapacityUnits</code> - The provisioned read capacity for a DynamoDB global secondary index.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>dynamodb:index:WriteCapacityUnits</code> - The provisioned write capacity for a DynamoDB global secondary index.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>rds:cluster:ReadReplicaCount</code> - The count of Aurora Replicas in an Aurora DB cluster. Available for Aurora MySQL-compatible edition and Aurora PostgreSQL-compatible edition.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for a SageMaker model endpoint variant.</p>
-   *            </li>
+   *             </li>
    *             <li>
-   *               <p>
+   *                <p>
    *                   <code>custom-resource:ResourceType:Property</code> - The scalable dimension for a custom resource provided by your own application or service.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>comprehend:document-classifier-endpoint:DesiredInferenceUnits</code> - The number of inference units for an Amazon Comprehend document classification endpoint.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>comprehend:entity-recognizer-endpoint:DesiredInferenceUnits</code> - The number of inference units for an Amazon Comprehend entity recognizer endpoint.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>lambda:function:ProvisionedConcurrency</code> - The provisioned concurrency for a Lambda function.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>cassandra:table:ReadCapacityUnits</code> - The provisioned read capacity for an Amazon Keyspaces table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>cassandra:table:WriteCapacityUnits</code> - The provisioned write capacity for an Amazon Keyspaces table.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>kafka:broker-storage:VolumeSize</code> - The provisioned volume size (in GiB) for brokers in an Amazon MSK cluster.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>elasticache:replication-group:NodeGroups</code> - The number of node groups for an Amazon ElastiCache replication group.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>elasticache:replication-group:Replicas</code> - The number of replicas per node group for an Amazon ElastiCache replication group.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>neptune:cluster:ReadReplicaCount</code> - The count of read replicas in an Amazon Neptune DB cluster.</p>
-   *            </li>
+   *             </li>
    *          </ul>
    */
   ScalableDimension: ScalableDimension | string | undefined;
@@ -3626,7 +3966,7 @@ export interface RegisterScalableTargetRequest {
    * <p>The maximum value that you plan to scale out to. When a scaling policy is in effect,
    *          Application Auto Scaling can scale out (expand) as needed to the maximum capacity limit in response to
    *          changing demand. This property is required when registering a new scalable target.</p>
-   *          <p>Although you can specify a large maximum capacity, note that service quotas may impose
+   *          <p>Although you can specify a large maximum capacity, note that service quotas might impose
    *          lower limits. Each service has its own default quotas for the maximum capacity of the
    *          resource. If you want to specify a higher limit, you can request an increase. For more
    *          information, consult the documentation for that service. For information about the default
@@ -3670,246 +4010,108 @@ export interface RegisterScalableTargetRequest {
    *          Guide</i>.</p>
    */
   SuspendedState?: SuspendedState;
+
+  /**
+   * <p>Assigns one or more tags to the scalable target. Use this parameter to tag the scalable
+   *          target when it is created. To tag an existing scalable target, use the <a>TagResource</a> operation.</p>
+   *          <p>Each tag consists of a tag key and a tag value. Both the tag key and the tag value are
+   *          required. You cannot have more than one tag on a scalable target with the same tag
+   *          key.</p>
+   *          <p>Use tags to control access to a scalable target. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/resource-tagging-support.html">Tagging support
+   *          for Application Auto Scaling</a> in the <i>Application Auto Scaling User Guide</i>.</p>
+   */
+  Tags?: Record<string, string>;
 }
 
-export interface RegisterScalableTargetResponse {}
+/**
+ * @public
+ */
+export interface RegisterScalableTargetResponse {
+  /**
+   * <p>The ARN of the scalable target.</p>
+   */
+  ScalableTargetARN?: string;
+}
 
 /**
- * @internal
+ * @public
  */
-export const AlarmFilterSensitiveLog = (obj: Alarm): any => ({
-  ...obj,
-});
+export interface TagResourceRequest {
+  /**
+   * <p>Identifies the Application Auto Scaling scalable target that you want to apply tags to.</p>
+   *          <p>For example:
+   *          <code>arn:aws:application-autoscaling:us-east-1:123456789012:scalable-target/1234abcd56ab78cd901ef1234567890ab123</code>
+   *          </p>
+   *          <p>To get the ARN for a scalable target, use <a>DescribeScalableTargets</a>.</p>
+   */
+  ResourceARN: string | undefined;
+
+  /**
+   * <p>The tags assigned to the resource. A tag is a label that you assign to an AWS
+   *          resource.</p>
+   *          <p>Each tag consists of a tag key and a tag value.</p>
+   *          <p>You cannot have more than one tag on an Application Auto Scaling scalable target with the same tag key.
+   *          If you specify an existing tag key with a different tag value, Application Auto Scaling replaces the
+   *          current tag value with the specified one.</p>
+   *          <p>For information about the rules that apply to tag keys and tag values, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">User-defined tag
+   *          restrictions</a> in the <i>Amazon Web Services Billing and Cost Management User
+   *             Guide</i>.</p>
+   */
+  Tags: Record<string, string> | undefined;
+}
 
 /**
- * @internal
+ * @public
  */
-export const DeleteScalingPolicyRequestFilterSensitiveLog = (obj: DeleteScalingPolicyRequest): any => ({
-  ...obj,
-});
+export interface TagResourceResponse {}
 
 /**
- * @internal
+ * @public
+ * <p>The request contains too many tags. Try the request again with fewer tags.</p>
  */
-export const DeleteScalingPolicyResponseFilterSensitiveLog = (obj: DeleteScalingPolicyResponse): any => ({
-  ...obj,
-});
+export class TooManyTagsException extends __BaseException {
+  readonly name: "TooManyTagsException" = "TooManyTagsException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * <p>The name of the Application Auto Scaling resource. This value is an Amazon Resource Name (ARN).</p>
+   */
+  ResourceName?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
+    super({
+      name: "TooManyTagsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTagsException.prototype);
+    this.Message = opts.Message;
+    this.ResourceName = opts.ResourceName;
+  }
+}
 
 /**
- * @internal
+ * @public
  */
-export const DeleteScheduledActionRequestFilterSensitiveLog = (obj: DeleteScheduledActionRequest): any => ({
-  ...obj,
-});
+export interface UntagResourceRequest {
+  /**
+   * <p>Identifies the Application Auto Scaling scalable target from which to remove tags.</p>
+   *          <p>For example:
+   *          <code>arn:aws:application-autoscaling:us-east-1:123456789012:scalable-target/1234abcd56ab78cd901ef1234567890ab123</code>
+   *          </p>
+   *          <p>To get the ARN for a scalable target, use <a>DescribeScalableTargets</a>.</p>
+   */
+  ResourceARN: string | undefined;
+
+  /**
+   * <p>One or more tag keys. Specify only the tag keys, not the tag values.</p>
+   */
+  TagKeys: string[] | undefined;
+}
 
 /**
- * @internal
+ * @public
  */
-export const DeleteScheduledActionResponseFilterSensitiveLog = (obj: DeleteScheduledActionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterScalableTargetRequestFilterSensitiveLog = (obj: DeregisterScalableTargetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterScalableTargetResponseFilterSensitiveLog = (obj: DeregisterScalableTargetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeScalableTargetsRequestFilterSensitiveLog = (obj: DescribeScalableTargetsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SuspendedStateFilterSensitiveLog = (obj: SuspendedState): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScalableTargetFilterSensitiveLog = (obj: ScalableTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeScalableTargetsResponseFilterSensitiveLog = (obj: DescribeScalableTargetsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeScalingActivitiesRequestFilterSensitiveLog = (obj: DescribeScalingActivitiesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NotScaledReasonFilterSensitiveLog = (obj: NotScaledReason): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScalingActivityFilterSensitiveLog = (obj: ScalingActivity): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeScalingActivitiesResponseFilterSensitiveLog = (obj: DescribeScalingActivitiesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeScalingPoliciesRequestFilterSensitiveLog = (obj: DescribeScalingPoliciesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StepAdjustmentFilterSensitiveLog = (obj: StepAdjustment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StepScalingPolicyConfigurationFilterSensitiveLog = (obj: StepScalingPolicyConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetricDimensionFilterSensitiveLog = (obj: MetricDimension): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CustomizedMetricSpecificationFilterSensitiveLog = (obj: CustomizedMetricSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PredefinedMetricSpecificationFilterSensitiveLog = (obj: PredefinedMetricSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TargetTrackingScalingPolicyConfigurationFilterSensitiveLog = (
-  obj: TargetTrackingScalingPolicyConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScalingPolicyFilterSensitiveLog = (obj: ScalingPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeScalingPoliciesResponseFilterSensitiveLog = (obj: DescribeScalingPoliciesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeScheduledActionsRequestFilterSensitiveLog = (obj: DescribeScheduledActionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScalableTargetActionFilterSensitiveLog = (obj: ScalableTargetAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScheduledActionFilterSensitiveLog = (obj: ScheduledAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeScheduledActionsResponseFilterSensitiveLog = (obj: DescribeScheduledActionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutScalingPolicyRequestFilterSensitiveLog = (obj: PutScalingPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutScalingPolicyResponseFilterSensitiveLog = (obj: PutScalingPolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutScheduledActionRequestFilterSensitiveLog = (obj: PutScheduledActionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutScheduledActionResponseFilterSensitiveLog = (obj: PutScheduledActionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterScalableTargetRequestFilterSensitiveLog = (obj: RegisterScalableTargetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterScalableTargetResponseFilterSensitiveLog = (obj: RegisterScalableTargetResponse): any => ({
-  ...obj,
-});
+export interface UntagResourceResponse {}

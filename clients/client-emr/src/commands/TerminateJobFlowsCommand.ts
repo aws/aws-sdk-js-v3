@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { TerminateJobFlowsInput, TerminateJobFlowsInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1TerminateJobFlowsCommand,
-  serializeAws_json1_1TerminateJobFlowsCommand,
-} from "../protocols/Aws_json1_1";
+import { TerminateJobFlowsInput } from "../models/models_0";
+import { de_TerminateJobFlowsCommand, se_TerminateJobFlowsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link TerminateJobFlowsCommand}.
+ */
 export interface TerminateJobFlowsCommandInput extends TerminateJobFlowsInput {}
+/**
+ * @public
+ *
+ * The output of {@link TerminateJobFlowsCommand}.
+ */
 export interface TerminateJobFlowsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>TerminateJobFlows shuts a list of clusters (job flows) down. When a job flow is shut
  *          down, any step not yet completed is canceled and the EC2 instances on which the cluster is
  *          running are stopped. Any log files not already saved are uploaded to Amazon S3 if a
@@ -38,13 +46,25 @@ export interface TerminateJobFlowsCommandOutput extends __MetadataBearer {}
  * import { EMRClient, TerminateJobFlowsCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, TerminateJobFlowsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = { // TerminateJobFlowsInput
+ *   JobFlowIds: [ // XmlStringList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new TerminateJobFlowsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TerminateJobFlowsCommandInput - {@link TerminateJobFlowsCommandInput}
+ * @returns {@link TerminateJobFlowsCommandOutput}
  * @see {@link TerminateJobFlowsCommandInput} for command's `input` shape.
  * @see {@link TerminateJobFlowsCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Indicates that an error occurred while processing the request and that the request was
+ *          not completed.</p>
+ *
  *
  */
 export class TerminateJobFlowsCommand extends $Command<
@@ -64,6 +84,9 @@ export class TerminateJobFlowsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TerminateJobFlowsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +115,8 @@ export class TerminateJobFlowsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TerminateJobFlowsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +126,18 @@ export class TerminateJobFlowsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TerminateJobFlowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1TerminateJobFlowsCommand(input, context);
+    return se_TerminateJobFlowsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TerminateJobFlowsCommandOutput> {
-    return deserializeAws_json1_1TerminateJobFlowsCommand(output, context);
+    return de_TerminateJobFlowsCommand(output, context);
   }
 
   // Start section: command_body_extra

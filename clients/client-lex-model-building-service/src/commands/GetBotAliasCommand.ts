@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import {
-  GetBotAliasRequest,
-  GetBotAliasRequestFilterSensitiveLog,
-  GetBotAliasResponse,
-  GetBotAliasResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetBotAliasCommand,
-  serializeAws_restJson1GetBotAliasCommand,
-} from "../protocols/Aws_restJson1";
+import { GetBotAliasRequest, GetBotAliasResponse } from "../models/models_0";
+import { de_GetBotAliasCommand, se_GetBotAliasCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetBotAliasCommand}.
+ */
 export interface GetBotAliasCommandInput extends GetBotAliasRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetBotAliasCommand}.
+ */
 export interface GetBotAliasCommandOutput extends GetBotAliasResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about an Amazon Lex bot alias. For more information
  *       about aliases, see <a>versioning-aliases</a>.</p>
  *          <p>This operation requires permissions for the
@@ -43,13 +46,35 @@ export interface GetBotAliasCommandOutput extends GetBotAliasResponse, __Metadat
  * import { LexModelBuildingServiceClient, GetBotAliasCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, GetBotAliasCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
+ * const input = { // GetBotAliasRequest
+ *   name: "STRING_VALUE", // required
+ *   botName: "STRING_VALUE", // required
+ * };
  * const command = new GetBotAliasCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBotAliasCommandInput - {@link GetBotAliasCommandInput}
+ * @returns {@link GetBotAliasCommandOutput}
  * @see {@link GetBotAliasCommandInput} for command's `input` shape.
  * @see {@link GetBotAliasCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is not well formed. For example, a value is invalid or
+ *       a required field is missing. Check the field values, and try
+ *       again.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal Amazon Lex error occurred. Try your request again.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request exceeded a limit. Try your request again.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource specified in the request was not found. Check the
+ *       resource and try again.</p>
+ *
  *
  */
 export class GetBotAliasCommand extends $Command<
@@ -69,6 +94,9 @@ export class GetBotAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBotAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +123,8 @@ export class GetBotAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBotAliasRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBotAliasResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +134,18 @@ export class GetBotAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBotAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetBotAliasCommand(input, context);
+    return se_GetBotAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBotAliasCommandOutput> {
-    return deserializeAws_restJson1GetBotAliasCommand(output, context);
+    return de_GetBotAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

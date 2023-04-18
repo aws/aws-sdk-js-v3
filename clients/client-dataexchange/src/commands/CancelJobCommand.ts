@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
-import { CancelJobRequest, CancelJobRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1CancelJobCommand,
-  serializeAws_restJson1CancelJobCommand,
-} from "../protocols/Aws_restJson1";
+import { CancelJobRequest } from "../models/models_0";
+import { de_CancelJobCommand, se_CancelJobCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CancelJobCommand}.
+ */
 export interface CancelJobCommandInput extends CancelJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CancelJobCommand}.
+ */
 export interface CancelJobCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation cancels a job. Jobs can be cancelled only when they are in the WAITING state.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +39,34 @@ export interface CancelJobCommandOutput extends __MetadataBearer {}
  * import { DataExchangeClient, CancelJobCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, CancelJobCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
  * const client = new DataExchangeClient(config);
+ * const input = { // CancelJobRequest
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new CancelJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelJobCommandInput - {@link CancelJobCommandInput}
+ * @returns {@link CancelJobCommandOutput}
  * @see {@link CancelJobCommandInput} for command's `input` shape.
  * @see {@link CancelJobCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An exception occurred with the service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource couldn't be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The limit on the number of requests per second was exceeded.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request was invalid.</p>
+ *
  *
  */
 export class CancelJobCommand extends $Command<
@@ -57,6 +86,9 @@ export class CancelJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -83,8 +115,8 @@ export class CancelJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -94,12 +126,18 @@ export class CancelJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelJobCommand(input, context);
+    return se_CancelJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelJobCommandOutput> {
-    return deserializeAws_restJson1CancelJobCommand(output, context);
+    return de_CancelJobCommand(output, context);
   }
 
   // Start section: command_body_extra

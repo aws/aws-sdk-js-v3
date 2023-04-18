@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisAnalyticsClient";
-import {
-  CreateApplicationRequest,
-  CreateApplicationRequestFilterSensitiveLog,
-  CreateApplicationResponse,
-  CreateApplicationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateApplicationCommand,
-  serializeAws_json1_1CreateApplicationCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateApplicationRequest, CreateApplicationResponse } from "../models/models_0";
+import { de_CreateApplicationCommand, se_CreateApplicationCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateApplicationCommand}.
+ */
 export interface CreateApplicationCommandInput extends CreateApplicationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateApplicationCommand}.
+ */
 export interface CreateApplicationCommandOutput extends CreateApplicationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
  *          </note>
@@ -62,13 +65,115 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * import { KinesisAnalyticsClient, CreateApplicationCommand } from "@aws-sdk/client-kinesis-analytics"; // ES Modules import
  * // const { KinesisAnalyticsClient, CreateApplicationCommand } = require("@aws-sdk/client-kinesis-analytics"); // CommonJS import
  * const client = new KinesisAnalyticsClient(config);
+ * const input = { // CreateApplicationRequest
+ *   ApplicationName: "STRING_VALUE", // required
+ *   ApplicationDescription: "STRING_VALUE",
+ *   Inputs: [ // Inputs
+ *     { // Input
+ *       NamePrefix: "STRING_VALUE", // required
+ *       InputProcessingConfiguration: { // InputProcessingConfiguration
+ *         InputLambdaProcessor: { // InputLambdaProcessor
+ *           ResourceARN: "STRING_VALUE", // required
+ *           RoleARN: "STRING_VALUE", // required
+ *         },
+ *       },
+ *       KinesisStreamsInput: { // KinesisStreamsInput
+ *         ResourceARN: "STRING_VALUE", // required
+ *         RoleARN: "STRING_VALUE", // required
+ *       },
+ *       KinesisFirehoseInput: { // KinesisFirehoseInput
+ *         ResourceARN: "STRING_VALUE", // required
+ *         RoleARN: "STRING_VALUE", // required
+ *       },
+ *       InputParallelism: { // InputParallelism
+ *         Count: Number("int"),
+ *       },
+ *       InputSchema: { // SourceSchema
+ *         RecordFormat: { // RecordFormat
+ *           RecordFormatType: "STRING_VALUE", // required
+ *           MappingParameters: { // MappingParameters
+ *             JSONMappingParameters: { // JSONMappingParameters
+ *               RecordRowPath: "STRING_VALUE", // required
+ *             },
+ *             CSVMappingParameters: { // CSVMappingParameters
+ *               RecordRowDelimiter: "STRING_VALUE", // required
+ *               RecordColumnDelimiter: "STRING_VALUE", // required
+ *             },
+ *           },
+ *         },
+ *         RecordEncoding: "STRING_VALUE",
+ *         RecordColumns: [ // RecordColumns // required
+ *           { // RecordColumn
+ *             Name: "STRING_VALUE", // required
+ *             Mapping: "STRING_VALUE",
+ *             SqlType: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   Outputs: [ // Outputs
+ *     { // Output
+ *       Name: "STRING_VALUE", // required
+ *       KinesisStreamsOutput: { // KinesisStreamsOutput
+ *         ResourceARN: "STRING_VALUE", // required
+ *         RoleARN: "STRING_VALUE", // required
+ *       },
+ *       KinesisFirehoseOutput: { // KinesisFirehoseOutput
+ *         ResourceARN: "STRING_VALUE", // required
+ *         RoleARN: "STRING_VALUE", // required
+ *       },
+ *       LambdaOutput: { // LambdaOutput
+ *         ResourceARN: "STRING_VALUE", // required
+ *         RoleARN: "STRING_VALUE", // required
+ *       },
+ *       DestinationSchema: { // DestinationSchema
+ *         RecordFormatType: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
+ *   CloudWatchLoggingOptions: [ // CloudWatchLoggingOptions
+ *     { // CloudWatchLoggingOption
+ *       LogStreamARN: "STRING_VALUE", // required
+ *       RoleARN: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ApplicationCode: "STRING_VALUE",
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateApplicationCommandInput - {@link CreateApplicationCommandInput}
+ * @returns {@link CreateApplicationCommandOutput}
  * @see {@link CreateApplicationCommandInput} for command's `input` shape.
  * @see {@link CreateApplicationCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsClientResolvedConfig | config} for KinesisAnalyticsClient's `config` shape.
+ *
+ * @throws {@link CodeValidationException} (client fault)
+ *  <p>User-provided application code (query) is invalid. This can be a simple syntax error.</p>
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>Specified input parameter value is invalid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>Exceeded the number of applications allowed.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>Application is not available for this operation.</p>
+ *
+ * @throws {@link TooManyTagsException} (client fault)
+ *  <p>Application created with too many tags, or too many tags added to an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.</p>
+ *
  *
  */
 export class CreateApplicationCommand extends $Command<
@@ -88,6 +193,9 @@ export class CreateApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +224,8 @@ export class CreateApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateApplicationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateApplicationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +235,18 @@ export class CreateApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateApplicationCommand(input, context);
+    return se_CreateApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateApplicationCommandOutput> {
-    return deserializeAws_json1_1CreateApplicationCommand(output, context);
+    return de_CreateApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

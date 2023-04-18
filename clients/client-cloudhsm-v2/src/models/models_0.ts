@@ -3,14 +3,24 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { CloudHSMV2ServiceException as __BaseException } from "./CloudHSMV2ServiceException";
 
-export enum BackupState {
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DELETED = "DELETED",
-  PENDING_DELETION = "PENDING_DELETION",
-  READY = "READY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BackupState = {
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DELETED: "DELETED",
+  PENDING_DELETION: "PENDING_DELETION",
+  READY: "READY",
+} as const;
 
 /**
+ * @public
+ */
+export type BackupState = (typeof BackupState)[keyof typeof BackupState];
+
+/**
+ * @public
  * <p>Contains a tag. A tag is a key-value pair.</p>
  */
 export interface Tag {
@@ -26,6 +36,7 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>Contains information about a backup of an AWS CloudHSM cluster. All backup objects
  *       contain the <code>BackupId</code>, <code>BackupState</code>, <code>ClusterId</code>, and
  *         <code>CreateTimestamp</code> parameters. Backups that were copied into a destination region
@@ -94,15 +105,34 @@ export interface Backup {
   TagList?: Tag[];
 }
 
-export enum BackupPolicy {
-  DEFAULT = "DEFAULT",
-}
-
-export enum BackupRetentionType {
-  DAYS = "DAYS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BackupPolicy = {
+  DEFAULT: "DEFAULT",
+} as const;
 
 /**
+ * @public
+ */
+export type BackupPolicy = (typeof BackupPolicy)[keyof typeof BackupPolicy];
+
+/**
+ * @public
+ * @enum
+ */
+export const BackupRetentionType = {
+  DAYS: "DAYS",
+} as const;
+
+/**
+ * @public
+ */
+export type BackupRetentionType = (typeof BackupRetentionType)[keyof typeof BackupRetentionType];
+
+/**
+ * @public
  * <p>A policy that defines the number of days to retain backups.</p>
  */
 export interface BackupRetentionPolicy {
@@ -119,6 +149,7 @@ export interface BackupRetentionPolicy {
 }
 
 /**
+ * @public
  * <p>The request was rejected because the requester does not have permission to perform the
  *       requested operation.</p>
  */
@@ -141,6 +172,7 @@ export class CloudHsmAccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because of an AWS CloudHSM internal failure. The request can
  *       be retried.</p>
  */
@@ -163,6 +195,7 @@ export class CloudHsmInternalFailureException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because it is not a valid request.</p>
  */
 export class CloudHsmInvalidRequestException extends __BaseException {
@@ -184,6 +217,7 @@ export class CloudHsmInvalidRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because it refers to a resource that cannot be
  *       found.</p>
  */
@@ -206,6 +240,7 @@ export class CloudHsmResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because an error occurred.</p>
  */
 export class CloudHsmServiceException extends __BaseException {
@@ -227,6 +262,7 @@ export class CloudHsmServiceException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because of a tagging failure. Verify the tag conditions in all applicable policies, and then retry the request.</p>
  */
 export class CloudHsmTagException extends __BaseException {
@@ -247,6 +283,9 @@ export class CloudHsmTagException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CopyBackupToRegionRequest {
   /**
    * <p>The AWS region that will contain your copied CloudHSM cluster backup.</p>
@@ -265,6 +304,7 @@ export interface CopyBackupToRegionRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about the backup that will be copied and created by the <a>CopyBackupToRegion</a> operation.</p>
  */
 export interface DestinationBackup {
@@ -289,6 +329,9 @@ export interface DestinationBackup {
   SourceCluster?: string;
 }
 
+/**
+ * @public
+ */
 export interface CopyBackupToRegionResponse {
   /**
    * <p>Information on the backup that will be copied to the destination region, including
@@ -301,6 +344,9 @@ export interface CopyBackupToRegionResponse {
   DestinationBackup?: DestinationBackup;
 }
 
+/**
+ * @public
+ */
 export interface CreateClusterRequest {
   /**
    * <p>A policy that defines how the service retains backups.</p>
@@ -341,6 +387,7 @@ export interface CreateClusterRequest {
 }
 
 /**
+ * @public
  * <p>Contains one or more certificates or a certificate signing request (CSR).</p>
  */
 export interface Certificates {
@@ -372,15 +419,25 @@ export interface Certificates {
   ClusterCertificate?: string;
 }
 
-export enum HsmState {
-  ACTIVE = "ACTIVE",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DEGRADED = "DEGRADED",
-  DELETED = "DELETED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const HsmState = {
+  ACTIVE: "ACTIVE",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DEGRADED: "DEGRADED",
+  DELETED: "DELETED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+} as const;
 
 /**
+ * @public
+ */
+export type HsmState = (typeof HsmState)[keyof typeof HsmState];
+
+/**
+ * @public
  * <p>Contains information about a hardware security module (HSM) in an AWS CloudHSM
  *       cluster.</p>
  */
@@ -426,19 +483,29 @@ export interface Hsm {
   StateMessage?: string;
 }
 
-export enum ClusterState {
-  ACTIVE = "ACTIVE",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DEGRADED = "DEGRADED",
-  DELETED = "DELETED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  INITIALIZED = "INITIALIZED",
-  INITIALIZE_IN_PROGRESS = "INITIALIZE_IN_PROGRESS",
-  UNINITIALIZED = "UNINITIALIZED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ClusterState = {
+  ACTIVE: "ACTIVE",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DEGRADED: "DEGRADED",
+  DELETED: "DELETED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  INITIALIZED: "INITIALIZED",
+  INITIALIZE_IN_PROGRESS: "INITIALIZE_IN_PROGRESS",
+  UNINITIALIZED: "UNINITIALIZED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+} as const;
 
 /**
+ * @public
+ */
+export type ClusterState = (typeof ClusterState)[keyof typeof ClusterState];
+
+/**
+ * @public
  * <p>Contains information about an AWS CloudHSM cluster.</p>
  */
 export interface Cluster {
@@ -520,6 +587,9 @@ export interface Cluster {
   TagList?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateClusterResponse {
   /**
    * <p>Information about the cluster that was created.</p>
@@ -527,6 +597,9 @@ export interface CreateClusterResponse {
   Cluster?: Cluster;
 }
 
+/**
+ * @public
+ */
 export interface CreateHsmRequest {
   /**
    * <p>The identifier (ID) of the HSM's cluster. To find the cluster ID, use <a>DescribeClusters</a>.</p>
@@ -547,6 +620,9 @@ export interface CreateHsmRequest {
   IpAddress?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateHsmResponse {
   /**
    * <p>Information about the HSM that was created.</p>
@@ -554,6 +630,9 @@ export interface CreateHsmResponse {
   Hsm?: Hsm;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBackupRequest {
   /**
    * <p>The ID of the backup to be deleted. To find the ID of a backup, use the <a>DescribeBackups</a> operation.</p>
@@ -561,6 +640,9 @@ export interface DeleteBackupRequest {
   BackupId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBackupResponse {
   /**
    * <p>Information on the <code>Backup</code> object deleted.</p>
@@ -568,6 +650,9 @@ export interface DeleteBackupResponse {
   Backup?: Backup;
 }
 
+/**
+ * @public
+ */
 export interface DeleteClusterRequest {
   /**
    * <p>The identifier (ID) of the cluster that you are deleting. To find the cluster ID, use
@@ -576,6 +661,9 @@ export interface DeleteClusterRequest {
   ClusterId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteClusterResponse {
   /**
    * <p>Information about the cluster that was deleted.</p>
@@ -583,6 +671,9 @@ export interface DeleteClusterResponse {
   Cluster?: Cluster;
 }
 
+/**
+ * @public
+ */
 export interface DeleteHsmRequest {
   /**
    * <p>The identifier (ID) of the cluster that contains the HSM that you are
@@ -608,6 +699,9 @@ export interface DeleteHsmRequest {
   EniIp?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteHsmResponse {
   /**
    * <p>The identifier (ID) of the HSM that was deleted.</p>
@@ -615,6 +709,9 @@ export interface DeleteHsmResponse {
   HsmId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBackupsRequest {
   /**
    * <p>The <code>NextToken</code> value that you received in the previous response. Use this
@@ -652,6 +749,9 @@ export interface DescribeBackupsRequest {
   SortAscending?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBackupsResponse {
   /**
    * <p>A list of backups.</p>
@@ -666,6 +766,9 @@ export interface DescribeBackupsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeClustersRequest {
   /**
    * <p>One or more filters to limit the items returned in the response.</p>
@@ -691,6 +794,9 @@ export interface DescribeClustersRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeClustersResponse {
   /**
    * <p>A list of clusters.</p>
@@ -705,6 +811,9 @@ export interface DescribeClustersResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface InitializeClusterRequest {
   /**
    * <p>The identifier (ID) of the cluster that you are claiming. To find the cluster ID, use
@@ -727,6 +836,9 @@ export interface InitializeClusterRequest {
   TrustAnchor: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface InitializeClusterResponse {
   /**
    * <p>The cluster's state.</p>
@@ -739,6 +851,9 @@ export interface InitializeClusterResponse {
   StateMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsRequest {
   /**
    * <p>The cluster identifier (ID) for the cluster whose tags you are getting. To find the
@@ -759,6 +874,9 @@ export interface ListTagsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsResponse {
   /**
    * <p>A list of tags.</p>
@@ -772,6 +890,9 @@ export interface ListTagsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ModifyBackupAttributesRequest {
   /**
    * <p>The identifier (ID) of the backup to modify. To find the ID of a backup, use the <a>DescribeBackups</a> operation.</p>
@@ -785,6 +906,9 @@ export interface ModifyBackupAttributesRequest {
   NeverExpires: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ModifyBackupAttributesResponse {
   /**
    * <p>Contains information about a backup of an AWS CloudHSM cluster. All backup objects
@@ -797,6 +921,9 @@ export interface ModifyBackupAttributesResponse {
   Backup?: Backup;
 }
 
+/**
+ * @public
+ */
 export interface ModifyClusterRequest {
   /**
    * <p>A policy that defines how the service retains backups.</p>
@@ -810,6 +937,9 @@ export interface ModifyClusterRequest {
   ClusterId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ModifyClusterResponse {
   /**
    * <p>Contains information about an AWS CloudHSM cluster.</p>
@@ -817,6 +947,9 @@ export interface ModifyClusterResponse {
   Cluster?: Cluster;
 }
 
+/**
+ * @public
+ */
 export interface RestoreBackupRequest {
   /**
    * <p>The ID of the backup to be restored. To find the ID of a backup, use the <a>DescribeBackups</a> operation.</p>
@@ -824,6 +957,9 @@ export interface RestoreBackupRequest {
   BackupId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RestoreBackupResponse {
   /**
    * <p>Information on the <code>Backup</code> object created.</p>
@@ -831,6 +967,9 @@ export interface RestoreBackupResponse {
   Backup?: Backup;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The cluster identifier (ID) for the cluster that you are tagging. To find the cluster
@@ -844,8 +983,14 @@ export interface TagResourceRequest {
   TagList: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The cluster identifier (ID) for the cluster whose tags you are removing. To find the
@@ -860,263 +1005,7 @@ export interface UntagResourceRequest {
   TagKeyList: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BackupFilterSensitiveLog = (obj: Backup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BackupRetentionPolicyFilterSensitiveLog = (obj: BackupRetentionPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CopyBackupToRegionRequestFilterSensitiveLog = (obj: CopyBackupToRegionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DestinationBackupFilterSensitiveLog = (obj: DestinationBackup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CopyBackupToRegionResponseFilterSensitiveLog = (obj: CopyBackupToRegionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateClusterRequestFilterSensitiveLog = (obj: CreateClusterRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CertificatesFilterSensitiveLog = (obj: Certificates): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HsmFilterSensitiveLog = (obj: Hsm): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClusterFilterSensitiveLog = (obj: Cluster): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateClusterResponseFilterSensitiveLog = (obj: CreateClusterResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateHsmRequestFilterSensitiveLog = (obj: CreateHsmRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateHsmResponseFilterSensitiveLog = (obj: CreateHsmResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteBackupRequestFilterSensitiveLog = (obj: DeleteBackupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteBackupResponseFilterSensitiveLog = (obj: DeleteBackupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteClusterRequestFilterSensitiveLog = (obj: DeleteClusterRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteClusterResponseFilterSensitiveLog = (obj: DeleteClusterResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteHsmRequestFilterSensitiveLog = (obj: DeleteHsmRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteHsmResponseFilterSensitiveLog = (obj: DeleteHsmResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeBackupsRequestFilterSensitiveLog = (obj: DescribeBackupsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeBackupsResponseFilterSensitiveLog = (obj: DescribeBackupsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeClustersRequestFilterSensitiveLog = (obj: DescribeClustersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeClustersResponseFilterSensitiveLog = (obj: DescribeClustersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InitializeClusterRequestFilterSensitiveLog = (obj: InitializeClusterRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InitializeClusterResponseFilterSensitiveLog = (obj: InitializeClusterResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsRequestFilterSensitiveLog = (obj: ListTagsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsResponseFilterSensitiveLog = (obj: ListTagsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyBackupAttributesRequestFilterSensitiveLog = (obj: ModifyBackupAttributesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyBackupAttributesResponseFilterSensitiveLog = (obj: ModifyBackupAttributesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyClusterRequestFilterSensitiveLog = (obj: ModifyClusterRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyClusterResponseFilterSensitiveLog = (obj: ModifyClusterResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RestoreBackupRequestFilterSensitiveLog = (obj: RestoreBackupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RestoreBackupResponseFilterSensitiveLog = (obj: RestoreBackupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});

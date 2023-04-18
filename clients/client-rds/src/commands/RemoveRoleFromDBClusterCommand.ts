@@ -13,25 +13,33 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RemoveRoleFromDBClusterMessage, RemoveRoleFromDBClusterMessageFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_queryRemoveRoleFromDBClusterCommand,
-  serializeAws_queryRemoveRoleFromDBClusterCommand,
-} from "../protocols/Aws_query";
+import { RemoveRoleFromDBClusterMessage } from "../models/models_1";
+import { de_RemoveRoleFromDBClusterCommand, se_RemoveRoleFromDBClusterCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link RemoveRoleFromDBClusterCommand}.
+ */
 export interface RemoveRoleFromDBClusterCommandInput extends RemoveRoleFromDBClusterMessage {}
+/**
+ * @public
+ *
+ * The output of {@link RemoveRoleFromDBClusterCommand}.
+ */
 export interface RemoveRoleFromDBClusterCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the asssociation of an Amazon Web Services Identity and Access Management (IAM) role from a
  *             DB cluster.</p>
  *          <p>For more information on Amazon Aurora DB clusters, see
  *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
  *                 What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
- *          <p>For more information on Multi-AZ DB clusters, see
- *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
- *                 Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
+ *          <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB
+ *                 cluster deployments</a> in the <i>Amazon RDS User
+ *             Guide.</i>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +47,43 @@ export interface RemoveRoleFromDBClusterCommandOutput extends __MetadataBearer {
  * import { RDSClient, RemoveRoleFromDBClusterCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, RemoveRoleFromDBClusterCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // RemoveRoleFromDBClusterMessage
+ *   DBClusterIdentifier: "STRING_VALUE", // required
+ *   RoleArn: "STRING_VALUE", // required
+ *   FeatureName: "STRING_VALUE",
+ * };
  * const command = new RemoveRoleFromDBClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveRoleFromDBClusterCommandInput - {@link RemoveRoleFromDBClusterCommandInput}
+ * @returns {@link RemoveRoleFromDBClusterCommandOutput}
  * @see {@link RemoveRoleFromDBClusterCommandInput} for command's `input` shape.
  * @see {@link RemoveRoleFromDBClusterCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ * @throws {@link DBClusterNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+ *
+ * @throws {@link DBClusterRoleNotFoundFault} (client fault)
+ *  <p>The specified IAM role Amazon Resource Name (ARN) isn't associated with the specified DB cluster.</p>
+ *
+ * @throws {@link InvalidDBClusterStateFault} (client fault)
+ *  <p>The requested operation can't be performed while the cluster is in this state.</p>
+ *
+ *
+ * @example To disassociate an Identity and Access Management (IAM) role from a DB cluster
+ * ```javascript
+ * // The following example removes a role from a DB cluster.
+ * const input = {
+ *   "DBClusterIdentifier": "mydbcluster",
+ *   "RoleArn": "arn:aws:iam::123456789012:role/RDSLoadFromS3"
+ * };
+ * const command = new RemoveRoleFromDBClusterCommand(input);
+ * await client.send(command);
+ * // example id: to-disassociate-an-identity-and-access-management-iam-role-from-a-db-cluster-1680072359521
+ * ```
  *
  */
 export class RemoveRoleFromDBClusterCommand extends $Command<
@@ -65,6 +103,9 @@ export class RemoveRoleFromDBClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveRoleFromDBClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +134,8 @@ export class RemoveRoleFromDBClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveRoleFromDBClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +145,18 @@ export class RemoveRoleFromDBClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveRoleFromDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRemoveRoleFromDBClusterCommand(input, context);
+    return se_RemoveRoleFromDBClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveRoleFromDBClusterCommandOutput> {
-    return deserializeAws_queryRemoveRoleFromDBClusterCommand(output, context);
+    return de_RemoveRoleFromDBClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

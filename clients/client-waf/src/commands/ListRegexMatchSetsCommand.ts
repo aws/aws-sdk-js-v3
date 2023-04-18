@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListRegexMatchSetsRequest,
-  ListRegexMatchSetsRequestFilterSensitiveLog,
-  ListRegexMatchSetsResponse,
-  ListRegexMatchSetsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListRegexMatchSetsCommand,
-  serializeAws_json1_1ListRegexMatchSetsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListRegexMatchSetsRequest, ListRegexMatchSetsResponse } from "../models/models_0";
+import { de_ListRegexMatchSetsCommand, se_ListRegexMatchSetsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListRegexMatchSetsCommand}.
+ */
 export interface ListRegexMatchSetsCommandInput extends ListRegexMatchSetsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListRegexMatchSetsCommand}.
+ */
 export interface ListRegexMatchSetsCommandOutput extends ListRegexMatchSetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -44,13 +47,26 @@ export interface ListRegexMatchSetsCommandOutput extends ListRegexMatchSetsRespo
  * import { WAFClient, ListRegexMatchSetsCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, ListRegexMatchSetsCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = { // ListRegexMatchSetsRequest
+ *   NextMarker: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListRegexMatchSetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRegexMatchSetsCommandInput - {@link ListRegexMatchSetsCommandInput}
+ * @returns {@link ListRegexMatchSetsCommandOutput}
  * @see {@link ListRegexMatchSetsCommandInput} for command's `input` shape.
  * @see {@link ListRegexMatchSetsCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
+ *
+ * @throws {@link WAFInternalErrorException} (server fault)
+ *  <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+ *
+ * @throws {@link WAFInvalidAccountException} (client fault)
+ *  <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+ *
  *
  */
 export class ListRegexMatchSetsCommand extends $Command<
@@ -70,6 +86,9 @@ export class ListRegexMatchSetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRegexMatchSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +117,8 @@ export class ListRegexMatchSetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRegexMatchSetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRegexMatchSetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +128,18 @@ export class ListRegexMatchSetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRegexMatchSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListRegexMatchSetsCommand(input, context);
+    return se_ListRegexMatchSetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRegexMatchSetsCommandOutput> {
-    return deserializeAws_json1_1ListRegexMatchSetsCommand(output, context);
+    return de_ListRegexMatchSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

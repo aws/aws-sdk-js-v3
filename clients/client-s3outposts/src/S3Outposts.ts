@@ -17,6 +17,11 @@ import {
   ListEndpointsCommandOutput,
 } from "./commands/ListEndpointsCommand";
 import {
+  ListOutpostsWithS3Command,
+  ListOutpostsWithS3CommandInput,
+  ListOutpostsWithS3CommandOutput,
+} from "./commands/ListOutpostsWithS3Command";
+import {
   ListSharedEndpointsCommand,
   ListSharedEndpointsCommandInput,
   ListSharedEndpointsCommandOutput,
@@ -24,17 +29,19 @@ import {
 import { S3OutpostsClient } from "./S3OutpostsClient";
 
 /**
+ * @public
  * <p>Amazon S3 on Outposts provides access to S3 on Outposts operations.</p>
  */
 export class S3Outposts extends S3OutpostsClient {
   /**
+   * @public
    * <p>Creates an endpoint and associates it with the specified Outpost.</p>
-   *         <note>
+   *          <note>
    *             <p>It can take up to 5 minutes for this action to finish.</p>
    *          </note>
-   *         <p></p>
-   *         <p>Related actions include:</p>
-   *         <ul>
+   *          <p></p>
+   *          <p>Related actions include:</p>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_DeleteEndpoint.html">DeleteEndpoint</a>
@@ -77,13 +84,14 @@ export class S3Outposts extends S3OutpostsClient {
   }
 
   /**
+   * @public
    * <p>Deletes an endpoint.</p>
-   *             <note>
+   *          <note>
    *             <p>It can take up to 5 minutes for this action to finish.</p>
    *          </note>
-   *         <p></p>
-   *         <p>Related actions include:</p>
-   *         <ul>
+   *          <p></p>
+   *          <p>Related actions include:</p>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_CreateEndpoint.html">CreateEndpoint</a>
@@ -126,16 +134,17 @@ export class S3Outposts extends S3OutpostsClient {
   }
 
   /**
+   * @public
    * <p>Lists endpoints associated with the specified Outpost. </p>
-   *         <p>Related actions include:</p>
-   *         <ul>
+   *          <p>Related actions include:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_CreateEndpoint.html">CreateEndpoint</a>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_DeleteEndpoint.html">DeleteEndpoint</a>
    *                </p>
    *             </li>
@@ -171,16 +180,52 @@ export class S3Outposts extends S3OutpostsClient {
   }
 
   /**
+   * @public
+   * <p>Lists the Outposts with S3 on Outposts capacity for your Amazon Web Services account.
+   *             Includes S3 on Outposts that you have access to as the Outposts owner, or as a shared user
+   *             from Resource Access Manager (RAM). </p>
+   */
+  public listOutpostsWithS3(
+    args: ListOutpostsWithS3CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListOutpostsWithS3CommandOutput>;
+  public listOutpostsWithS3(
+    args: ListOutpostsWithS3CommandInput,
+    cb: (err: any, data?: ListOutpostsWithS3CommandOutput) => void
+  ): void;
+  public listOutpostsWithS3(
+    args: ListOutpostsWithS3CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListOutpostsWithS3CommandOutput) => void
+  ): void;
+  public listOutpostsWithS3(
+    args: ListOutpostsWithS3CommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListOutpostsWithS3CommandOutput) => void),
+    cb?: (err: any, data?: ListOutpostsWithS3CommandOutput) => void
+  ): Promise<ListOutpostsWithS3CommandOutput> | void {
+    const command = new ListOutpostsWithS3Command(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Lists all endpoints associated with an Outpost that has been shared by Amazon Web Services Resource Access Manager (RAM).</p>
-   *         <p>Related actions include:</p>
-   *         <ul>
+   *          <p>Related actions include:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_CreateEndpoint.html">CreateEndpoint</a>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_DeleteEndpoint.html">DeleteEndpoint</a>
    *                </p>
    *             </li>

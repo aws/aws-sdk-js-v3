@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import {
-  GetJobTemplateRequest,
-  GetJobTemplateRequestFilterSensitiveLog,
-  GetJobTemplateResponse,
-  GetJobTemplateResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1GetJobTemplateCommand,
-  serializeAws_restJson1GetJobTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { GetJobTemplateRequest, GetJobTemplateResponse } from "../models/models_2";
+import { de_GetJobTemplateCommand, se_GetJobTemplateCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetJobTemplateCommand}.
+ */
 export interface GetJobTemplateCommandInput extends GetJobTemplateRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetJobTemplateCommand}.
+ */
 export interface GetJobTemplateCommandOutput extends GetJobTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Retrieve the JSON for a specific job template.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,37 @@ export interface GetJobTemplateCommandOutput extends GetJobTemplateResponse, __M
  * import { MediaConvertClient, GetJobTemplateCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, GetJobTemplateCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
  * const client = new MediaConvertClient(config);
+ * const input = { // GetJobTemplateRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new GetJobTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetJobTemplateCommandInput - {@link GetJobTemplateCommandInput}
+ * @returns {@link GetJobTemplateCommandOutput}
  * @see {@link GetJobTemplateCommandInput} for command's `input` shape.
  * @see {@link GetJobTemplateCommandOutput} for command's `response` shape.
  * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  The service can't process your request because of a problem in the request. Please check your request form and syntax.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  The service couldn't complete your request because there is a conflict with the current state of the resource.
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  You don't have permissions for this action with the credentials you sent.
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  The service encountered an unexpected condition and can't fulfill your request.
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  The resource you requested doesn't exist.
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
+ *
  *
  */
 export class GetJobTemplateCommand extends $Command<
@@ -62,6 +89,9 @@ export class GetJobTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetJobTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +120,8 @@ export class GetJobTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetJobTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetJobTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +131,18 @@ export class GetJobTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetJobTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetJobTemplateCommand(input, context);
+    return se_GetJobTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetJobTemplateCommandOutput> {
-    return deserializeAws_restJson1GetJobTemplateCommand(output, context);
+    return de_GetJobTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

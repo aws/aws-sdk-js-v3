@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateRepositoryInput,
-  CreateRepositoryInputFilterSensitiveLog,
-  CreateRepositoryOutput,
-  CreateRepositoryOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateRepositoryCommand,
-  serializeAws_json1_0CreateRepositoryCommand,
-} from "../protocols/Aws_json1_0";
+import { CreateRepositoryInput, CreateRepositoryOutput } from "../models/models_0";
+import { de_CreateRepositoryCommand, se_CreateRepositoryCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateRepositoryCommand}.
+ */
 export interface CreateRepositoryCommandInput extends CreateRepositoryInput {}
+/**
+ * @public
+ *
+ * The output of {@link CreateRepositoryCommand}.
+ */
 export interface CreateRepositoryCommandOutput extends CreateRepositoryOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create and register a link to a repository. Proton uses the link to repeatedly access the repository, to either push to it (self-managed
  *       provisioning) or pull from it (template sync). You can share a linked repository across multiple resources (like environments using self-managed
  *       provisioning, or synced templates). When you create a repository link, Proton creates a <a href="https://docs.aws.amazon.com/proton/latest/userguide/using-service-linked-roles.html">service-linked role</a> for you.</p>
@@ -41,13 +44,47 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryOutput, _
  * import { ProtonClient, CreateRepositoryCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, CreateRepositoryCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // CreateRepositoryInput
+ *   provider: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ *   connectionArn: "STRING_VALUE", // required
+ *   encryptionKey: "STRING_VALUE",
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateRepositoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRepositoryCommandInput - {@link CreateRepositoryCommandInput}
+ * @returns {@link CreateRepositoryCommandOutput}
  * @see {@link CreateRepositoryCommandInput} for command's `input` shape.
  * @see {@link CreateRepositoryCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>There <i>isn't</i> sufficient access for performing this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request <i>couldn't</i> be made due to a conflicting operation or resource.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request failed to register with the service.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>A quota was exceeded. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-limits.html">Proton Quotas</a> in
+ *       the <i>Proton User Guide</i>.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+ *
  *
  */
 export class CreateRepositoryCommand extends $Command<
@@ -67,6 +104,9 @@ export class CreateRepositoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRepositoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +135,8 @@ export class CreateRepositoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRepositoryInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRepositoryOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +146,18 @@ export class CreateRepositoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRepositoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateRepositoryCommand(input, context);
+    return se_CreateRepositoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRepositoryCommandOutput> {
-    return deserializeAws_json1_0CreateRepositoryCommand(output, context);
+    return de_CreateRepositoryCommand(output, context);
   }
 
   // Start section: command_body_extra

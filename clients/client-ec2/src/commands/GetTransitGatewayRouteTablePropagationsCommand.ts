@@ -16,22 +16,31 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   GetTransitGatewayRouteTablePropagationsRequest,
-  GetTransitGatewayRouteTablePropagationsRequestFilterSensitiveLog,
   GetTransitGatewayRouteTablePropagationsResult,
-  GetTransitGatewayRouteTablePropagationsResultFilterSensitiveLog,
 } from "../models/models_5";
 import {
-  deserializeAws_ec2GetTransitGatewayRouteTablePropagationsCommand,
-  serializeAws_ec2GetTransitGatewayRouteTablePropagationsCommand,
+  de_GetTransitGatewayRouteTablePropagationsCommand,
+  se_GetTransitGatewayRouteTablePropagationsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link GetTransitGatewayRouteTablePropagationsCommand}.
+ */
 export interface GetTransitGatewayRouteTablePropagationsCommandInput
   extends GetTransitGatewayRouteTablePropagationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetTransitGatewayRouteTablePropagationsCommand}.
+ */
 export interface GetTransitGatewayRouteTablePropagationsCommandOutput
   extends GetTransitGatewayRouteTablePropagationsResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the route table propagations for the specified transit gateway route table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +48,30 @@ export interface GetTransitGatewayRouteTablePropagationsCommandOutput
  * import { EC2Client, GetTransitGatewayRouteTablePropagationsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetTransitGatewayRouteTablePropagationsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // GetTransitGatewayRouteTablePropagationsRequest
+ *   TransitGatewayRouteTableId: "STRING_VALUE", // required
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new GetTransitGatewayRouteTablePropagationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTransitGatewayRouteTablePropagationsCommandInput - {@link GetTransitGatewayRouteTablePropagationsCommandInput}
+ * @returns {@link GetTransitGatewayRouteTablePropagationsCommandOutput}
  * @see {@link GetTransitGatewayRouteTablePropagationsCommandInput} for command's `input` shape.
  * @see {@link GetTransitGatewayRouteTablePropagationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class GetTransitGatewayRouteTablePropagationsCommand extends $Command<
@@ -65,6 +91,9 @@ export class GetTransitGatewayRouteTablePropagationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTransitGatewayRouteTablePropagationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +128,8 @@ export class GetTransitGatewayRouteTablePropagationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTransitGatewayRouteTablePropagationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTransitGatewayRouteTablePropagationsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,18 +139,24 @@ export class GetTransitGatewayRouteTablePropagationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetTransitGatewayRouteTablePropagationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2GetTransitGatewayRouteTablePropagationsCommand(input, context);
+    return se_GetTransitGatewayRouteTablePropagationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetTransitGatewayRouteTablePropagationsCommandOutput> {
-    return deserializeAws_ec2GetTransitGatewayRouteTablePropagationsCommand(output, context);
+    return de_GetTransitGatewayRouteTablePropagationsCommand(output, context);
   }
 
   // Start section: command_body_extra

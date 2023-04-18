@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetDocumentAnalysisRequest,
-  GetDocumentAnalysisRequestFilterSensitiveLog,
-  GetDocumentAnalysisResponse,
-  GetDocumentAnalysisResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetDocumentAnalysisCommand,
-  serializeAws_json1_1GetDocumentAnalysisCommand,
-} from "../protocols/Aws_json1_1";
+import { GetDocumentAnalysisRequest, GetDocumentAnalysisResponse } from "../models/models_0";
+import { de_GetDocumentAnalysisCommand, se_GetDocumentAnalysisCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetDocumentAnalysisCommand}.
+ */
 export interface GetDocumentAnalysisCommandInput extends GetDocumentAnalysisRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetDocumentAnalysisCommand}.
+ */
 export interface GetDocumentAnalysisCommandOutput extends GetDocumentAnalysisResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the results for an Amazon Textract asynchronous operation that analyzes text in a
  *          document.</p>
  *          <p>You start asynchronous text analysis by calling <a>StartDocumentAnalysis</a>,
@@ -72,19 +75,15 @@ export interface GetDocumentAnalysisCommandOutput extends GetDocumentAnalysisRes
  *                score.</p>
  *             </li>
  *          </ul>
- *
  *          <note>
  *             <p>While processing a document with queries, look out for
  *                <code>INVALID_REQUEST_PARAMETERS</code> output. This indicates that either the per
  *             page query limit has been exceeded or that the operation is trying to query a page in
  *             the document which doesn’t exist. </p>
  *          </note>
- *
  *          <p>Selection elements such as check boxes and option buttons (radio buttons) can be
  *          detected in form data and in tables. A SELECTION_ELEMENT <code>Block</code> object contains
  *          information about a selection element, including the selection status.</p>
- *
- *
  *          <p>Use the <code>MaxResults</code> parameter to limit the number of blocks that are
  *          returned. If there are more results than specified in <code>MaxResults</code>, the value of
  *             <code>NextToken</code> in the operation response contains a pagination token for getting
@@ -100,13 +99,55 @@ export interface GetDocumentAnalysisCommandOutput extends GetDocumentAnalysisRes
  * import { TextractClient, GetDocumentAnalysisCommand } from "@aws-sdk/client-textract"; // ES Modules import
  * // const { TextractClient, GetDocumentAnalysisCommand } = require("@aws-sdk/client-textract"); // CommonJS import
  * const client = new TextractClient(config);
+ * const input = { // GetDocumentAnalysisRequest
+ *   JobId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetDocumentAnalysisCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDocumentAnalysisCommandInput - {@link GetDocumentAnalysisCommandInput}
+ * @returns {@link GetDocumentAnalysisCommandOutput}
  * @see {@link GetDocumentAnalysisCommandInput} for command's `input` shape.
  * @see {@link GetDocumentAnalysisCommandOutput} for command's `response` shape.
  * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You aren't authorized to perform the action. Use the Amazon Resource Name (ARN)
+ *             of an authorized user or IAM role to perform the operation.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Amazon Textract experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidJobIdException} (client fault)
+ *  <p>An invalid job identifier was passed to an asynchronous analysis operation.</p>
+ *
+ * @throws {@link InvalidKMSKeyException} (client fault)
+ *  <p> Indicates you do not have decrypt permissions with the KMS key entered, or the KMS key
+ *         was entered incorrectly. </p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>An input parameter violated a constraint. For example, in synchronous operations,
+ *        an <code>InvalidParameterException</code> exception occurs
+ *       when neither of the <code>S3Object</code> or <code>Bytes</code> values are supplied in the <code>Document</code>
+ *       request parameter.
+ *        Validate your parameter before calling the API operation again.</p>
+ *
+ * @throws {@link InvalidS3ObjectException} (client fault)
+ *  <p>Amazon Textract is unable to access the S3 object that's specified in the request.
+ *          for more information, <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Configure Access to Amazon S3</a>
+ *          For troubleshooting information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/troubleshooting.html">Troubleshooting Amazon S3</a>
+ *          </p>
+ *
+ * @throws {@link ProvisionedThroughputExceededException} (client fault)
+ *  <p>The number of requests exceeded your throughput limit. If you want to increase this limit,
+ *          contact Amazon Textract.</p>
+ *
+ * @throws {@link ThrottlingException} (server fault)
+ *  <p>Amazon Textract is temporarily unable to process the request. Try your call again.</p>
+ *
  *
  */
 export class GetDocumentAnalysisCommand extends $Command<
@@ -126,6 +167,9 @@ export class GetDocumentAnalysisCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDocumentAnalysisCommandInput) {
     // Start section: command_constructor
     super();
@@ -154,8 +198,8 @@ export class GetDocumentAnalysisCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDocumentAnalysisRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDocumentAnalysisResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -165,12 +209,18 @@ export class GetDocumentAnalysisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDocumentAnalysisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDocumentAnalysisCommand(input, context);
+    return se_GetDocumentAnalysisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDocumentAnalysisCommandOutput> {
-    return deserializeAws_json1_1GetDocumentAnalysisCommand(output, context);
+    return de_GetDocumentAnalysisCommand(output, context);
   }
 
   // Start section: command_body_extra

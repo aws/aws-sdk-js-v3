@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import { AbortEnvironmentUpdateMessage, AbortEnvironmentUpdateMessageFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryAbortEnvironmentUpdateCommand,
-  serializeAws_queryAbortEnvironmentUpdateCommand,
-} from "../protocols/Aws_query";
+import { AbortEnvironmentUpdateMessage } from "../models/models_0";
+import { de_AbortEnvironmentUpdateCommand, se_AbortEnvironmentUpdateCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link AbortEnvironmentUpdateCommand}.
+ */
 export interface AbortEnvironmentUpdateCommandInput extends AbortEnvironmentUpdateMessage {}
+/**
+ * @public
+ *
+ * The output of {@link AbortEnvironmentUpdateCommand}.
+ */
 export interface AbortEnvironmentUpdateCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels in-progress environment configuration update or application version
  *       deployment.</p>
  * @example
@@ -32,13 +40,35 @@ export interface AbortEnvironmentUpdateCommandOutput extends __MetadataBearer {}
  * import { ElasticBeanstalkClient, AbortEnvironmentUpdateCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, AbortEnvironmentUpdateCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = { // AbortEnvironmentUpdateMessage
+ *   EnvironmentId: "STRING_VALUE",
+ *   EnvironmentName: "STRING_VALUE",
+ * };
  * const command = new AbortEnvironmentUpdateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AbortEnvironmentUpdateCommandInput - {@link AbortEnvironmentUpdateCommandInput}
+ * @returns {@link AbortEnvironmentUpdateCommandOutput}
  * @see {@link AbortEnvironmentUpdateCommandInput} for command's `input` shape.
  * @see {@link AbortEnvironmentUpdateCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
+ *
+ * @throws {@link InsufficientPrivilegesException} (client fault)
+ *  <p>The specified account does not have sufficient privileges for one or more AWS
+ *       services.</p>
+ *
+ *
+ * @example To abort a deployment
+ * ```javascript
+ * // The following code aborts a running application version deployment for an environment named my-env:
+ * const input = {
+ *   "EnvironmentName": "my-env"
+ * };
+ * const command = new AbortEnvironmentUpdateCommand(input);
+ * await client.send(command);
+ * // example id: to-abort-a-deployment-1456267848227
+ * ```
  *
  */
 export class AbortEnvironmentUpdateCommand extends $Command<
@@ -58,6 +88,9 @@ export class AbortEnvironmentUpdateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AbortEnvironmentUpdateCommandInput) {
     // Start section: command_constructor
     super();
@@ -86,8 +119,8 @@ export class AbortEnvironmentUpdateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AbortEnvironmentUpdateMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -97,12 +130,18 @@ export class AbortEnvironmentUpdateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AbortEnvironmentUpdateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryAbortEnvironmentUpdateCommand(input, context);
+    return se_AbortEnvironmentUpdateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AbortEnvironmentUpdateCommandOutput> {
-    return deserializeAws_queryAbortEnvironmentUpdateCommand(output, context);
+    return de_AbortEnvironmentUpdateCommand(output, context);
   }
 
   // Start section: command_body_extra

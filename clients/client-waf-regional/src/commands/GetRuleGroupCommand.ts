@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetRuleGroupRequest,
-  GetRuleGroupRequestFilterSensitiveLog,
-  GetRuleGroupResponse,
-  GetRuleGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetRuleGroupCommand,
-  serializeAws_json1_1GetRuleGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { GetRuleGroupRequest, GetRuleGroupResponse } from "../models/models_0";
+import { de_GetRuleGroupCommand, se_GetRuleGroupCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetRuleGroupCommand}.
+ */
 export interface GetRuleGroupCommandInput extends GetRuleGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetRuleGroupCommand}.
+ */
 export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -45,13 +48,25 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  * import { WAFRegionalClient, GetRuleGroupCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, GetRuleGroupCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
+ * const input = { // GetRuleGroupRequest
+ *   RuleGroupId: "STRING_VALUE", // required
+ * };
  * const command = new GetRuleGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRuleGroupCommandInput - {@link GetRuleGroupCommandInput}
+ * @returns {@link GetRuleGroupCommandOutput}
  * @see {@link GetRuleGroupCommandInput} for command's `input` shape.
  * @see {@link GetRuleGroupCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
+ *
+ * @throws {@link WAFInternalErrorException} (server fault)
+ *  <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+ *
+ * @throws {@link WAFNonexistentItemException} (client fault)
+ *  <p>The operation failed because the referenced object doesn't exist.</p>
+ *
  *
  */
 export class GetRuleGroupCommand extends $Command<
@@ -71,6 +86,9 @@ export class GetRuleGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRuleGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +115,8 @@ export class GetRuleGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRuleGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRuleGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +126,18 @@ export class GetRuleGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRuleGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRuleGroupCommand(input, context);
+    return se_GetRuleGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRuleGroupCommandOutput> {
-    return deserializeAws_json1_1GetRuleGroupCommand(output, context);
+    return de_GetRuleGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

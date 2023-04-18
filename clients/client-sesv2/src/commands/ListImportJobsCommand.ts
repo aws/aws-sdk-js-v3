@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListImportJobsRequest,
-  ListImportJobsRequestFilterSensitiveLog,
-  ListImportJobsResponse,
-  ListImportJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListImportJobsCommand,
-  serializeAws_restJson1ListImportJobsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListImportJobsRequest, ListImportJobsResponse } from "../models/models_0";
+import { de_ListImportJobsCommand, se_ListImportJobsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
+/**
+ * @public
+ *
+ * The input for {@link ListImportJobsCommand}.
+ */
 export interface ListImportJobsCommandInput extends ListImportJobsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListImportJobsCommand}.
+ */
 export interface ListImportJobsCommandOutput extends ListImportJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all of the import jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,27 @@ export interface ListImportJobsCommandOutput extends ListImportJobsResponse, __M
  * import { SESv2Client, ListImportJobsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, ListImportJobsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = { // ListImportJobsRequest
+ *   ImportDestinationType: "SUPPRESSION_LIST" || "CONTACT_LIST",
+ *   NextToken: "STRING_VALUE",
+ *   PageSize: Number("int"),
+ * };
  * const command = new ListImportJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListImportJobsCommandInput - {@link ListImportJobsCommandInput}
+ * @returns {@link ListImportJobsCommandOutput}
  * @see {@link ListImportJobsCommandInput} for command's `input` shape.
  * @see {@link ListImportJobsCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input you provided is invalid.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Too many requests have been made to the operation.</p>
+ *
  *
  */
 export class ListImportJobsCommand extends $Command<
@@ -62,6 +79,9 @@ export class ListImportJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListImportJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +110,8 @@ export class ListImportJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListImportJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListImportJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +121,18 @@ export class ListImportJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListImportJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListImportJobsCommand(input, context);
+    return se_ListImportJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListImportJobsCommandOutput> {
-    return deserializeAws_restJson1ListImportJobsCommand(output, context);
+    return de_ListImportJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

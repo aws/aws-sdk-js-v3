@@ -16,22 +16,31 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeTransitGatewayMulticastDomainsRequest,
-  DescribeTransitGatewayMulticastDomainsRequestFilterSensitiveLog,
   DescribeTransitGatewayMulticastDomainsResult,
-  DescribeTransitGatewayMulticastDomainsResultFilterSensitiveLog,
 } from "../models/models_4";
 import {
-  deserializeAws_ec2DescribeTransitGatewayMulticastDomainsCommand,
-  serializeAws_ec2DescribeTransitGatewayMulticastDomainsCommand,
+  de_DescribeTransitGatewayMulticastDomainsCommand,
+  se_DescribeTransitGatewayMulticastDomainsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeTransitGatewayMulticastDomainsCommand}.
+ */
 export interface DescribeTransitGatewayMulticastDomainsCommandInput
   extends DescribeTransitGatewayMulticastDomainsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeTransitGatewayMulticastDomainsCommand}.
+ */
 export interface DescribeTransitGatewayMulticastDomainsCommandOutput
   extends DescribeTransitGatewayMulticastDomainsResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more transit gateway multicast domains.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +48,32 @@ export interface DescribeTransitGatewayMulticastDomainsCommandOutput
  * import { EC2Client, DescribeTransitGatewayMulticastDomainsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeTransitGatewayMulticastDomainsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeTransitGatewayMulticastDomainsRequest
+ *   TransitGatewayMulticastDomainIds: [ // TransitGatewayMulticastDomainIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new DescribeTransitGatewayMulticastDomainsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTransitGatewayMulticastDomainsCommandInput - {@link DescribeTransitGatewayMulticastDomainsCommandInput}
+ * @returns {@link DescribeTransitGatewayMulticastDomainsCommandOutput}
  * @see {@link DescribeTransitGatewayMulticastDomainsCommandInput} for command's `input` shape.
  * @see {@link DescribeTransitGatewayMulticastDomainsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class DescribeTransitGatewayMulticastDomainsCommand extends $Command<
@@ -65,6 +93,9 @@ export class DescribeTransitGatewayMulticastDomainsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTransitGatewayMulticastDomainsCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +124,8 @@ export class DescribeTransitGatewayMulticastDomainsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTransitGatewayMulticastDomainsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTransitGatewayMulticastDomainsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,18 +135,24 @@ export class DescribeTransitGatewayMulticastDomainsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeTransitGatewayMulticastDomainsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeTransitGatewayMulticastDomainsCommand(input, context);
+    return se_DescribeTransitGatewayMulticastDomainsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTransitGatewayMulticastDomainsCommandOutput> {
-    return deserializeAws_ec2DescribeTransitGatewayMulticastDomainsCommand(output, context);
+    return de_DescribeTransitGatewayMulticastDomainsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -17,32 +17,69 @@ import {
   UpdateApplicationSettingsInput,
   UpdateApplicationSettingsInputFilterSensitiveLog,
   UpdateApplicationSettingsOutput,
-  UpdateApplicationSettingsOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateApplicationSettingsCommand,
-  serializeAws_restJson1UpdateApplicationSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateApplicationSettingsCommand, se_UpdateApplicationSettingsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateApplicationSettingsCommand}.
+ */
 export interface UpdateApplicationSettingsCommandInput extends UpdateApplicationSettingsInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateApplicationSettingsCommand}.
+ */
 export interface UpdateApplicationSettingsCommandOutput extends UpdateApplicationSettingsOutput, __MetadataBearer {}
 
 /**
- * <p/>
+ * @public
+ * <p>Updates the settings of an application registered with AWS Systems Manager for
+ *          SAP.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SsmSapClient, UpdateApplicationSettingsCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
  * // const { SsmSapClient, UpdateApplicationSettingsCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
  * const client = new SsmSapClient(config);
+ * const input = { // UpdateApplicationSettingsInput
+ *   ApplicationId: "STRING_VALUE", // required
+ *   CredentialsToAddOrUpdate: [ // ApplicationCredentialList
+ *     { // ApplicationCredential
+ *       DatabaseName: "STRING_VALUE", // required
+ *       CredentialType: "STRING_VALUE", // required
+ *       SecretId: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   CredentialsToRemove: [
+ *     {
+ *       DatabaseName: "STRING_VALUE", // required
+ *       CredentialType: "STRING_VALUE", // required
+ *       SecretId: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new UpdateApplicationSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateApplicationSettingsCommandInput - {@link UpdateApplicationSettingsCommandInput}
+ * @returns {@link UpdateApplicationSettingsCommandOutput}
  * @see {@link UpdateApplicationSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateApplicationSettingsCommandOutput} for command's `response` shape.
  * @see {@link SsmSapClientResolvedConfig | config} for SsmSapClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error has occurred.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource is not available.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an AWS service. </p>
+ *
  *
  */
 export class UpdateApplicationSettingsCommand extends $Command<
@@ -62,6 +99,9 @@ export class UpdateApplicationSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateApplicationSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,7 +131,7 @@ export class UpdateApplicationSettingsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateApplicationSettingsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateApplicationSettingsOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +141,21 @@ export class UpdateApplicationSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateApplicationSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateApplicationSettingsCommand(input, context);
+    return se_UpdateApplicationSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateApplicationSettingsCommandOutput> {
-    return deserializeAws_restJson1UpdateApplicationSettingsCommand(output, context);
+    return de_UpdateApplicationSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

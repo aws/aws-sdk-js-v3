@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListTableRestoreStatusRequest,
-  ListTableRestoreStatusRequestFilterSensitiveLog,
-  ListTableRestoreStatusResponse,
-  ListTableRestoreStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListTableRestoreStatusCommand,
-  serializeAws_json1_1ListTableRestoreStatusCommand,
-} from "../protocols/Aws_json1_1";
+import { ListTableRestoreStatusRequest, ListTableRestoreStatusResponse } from "../models/models_0";
+import { de_ListTableRestoreStatusCommand, se_ListTableRestoreStatusCommand } from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListTableRestoreStatusCommand}.
+ */
 export interface ListTableRestoreStatusCommandInput extends ListTableRestoreStatusRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListTableRestoreStatusCommand}.
+ */
 export interface ListTableRestoreStatusCommandOutput extends ListTableRestoreStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about an array of <code>TableRestoreStatus</code> objects.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,31 @@ export interface ListTableRestoreStatusCommandOutput extends ListTableRestoreSta
  * import { RedshiftServerlessClient, ListTableRestoreStatusCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, ListTableRestoreStatusCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
+ * const input = { // ListTableRestoreStatusRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   namespaceName: "STRING_VALUE",
+ *   workgroupName: "STRING_VALUE",
+ * };
  * const command = new ListTableRestoreStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTableRestoreStatusCommandInput - {@link ListTableRestoreStatusCommandInput}
+ * @returns {@link ListTableRestoreStatusCommandOutput}
  * @see {@link ListTableRestoreStatusCommandInput} for command's `input` shape.
  * @see {@link ListTableRestoreStatusCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
+ *
+ * @throws {@link InvalidPaginationException} (client fault)
+ *  <p>The provided pagination token is invalid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
+ *
  *
  */
 export class ListTableRestoreStatusCommand extends $Command<
@@ -66,6 +87,9 @@ export class ListTableRestoreStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTableRestoreStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +118,8 @@ export class ListTableRestoreStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTableRestoreStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTableRestoreStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +129,18 @@ export class ListTableRestoreStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTableRestoreStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTableRestoreStatusCommand(input, context);
+    return se_ListTableRestoreStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTableRestoreStatusCommandOutput> {
-    return deserializeAws_json1_1ListTableRestoreStatusCommand(output, context);
+    return de_ListTableRestoreStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

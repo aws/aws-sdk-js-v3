@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DeleteNetworkInsightsPathRequest,
-  DeleteNetworkInsightsPathRequestFilterSensitiveLog,
-  DeleteNetworkInsightsPathResult,
-  DeleteNetworkInsightsPathResultFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_ec2DeleteNetworkInsightsPathCommand,
-  serializeAws_ec2DeleteNetworkInsightsPathCommand,
-} from "../protocols/Aws_ec2";
+import { DeleteNetworkInsightsPathRequest, DeleteNetworkInsightsPathResult } from "../models/models_2";
+import { de_DeleteNetworkInsightsPathCommand, se_DeleteNetworkInsightsPathCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteNetworkInsightsPathCommand}.
+ */
 export interface DeleteNetworkInsightsPathCommandInput extends DeleteNetworkInsightsPathRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteNetworkInsightsPathCommand}.
+ */
 export interface DeleteNetworkInsightsPathCommandOutput extends DeleteNetworkInsightsPathResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified path.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,20 @@ export interface DeleteNetworkInsightsPathCommandOutput extends DeleteNetworkIns
  * import { EC2Client, DeleteNetworkInsightsPathCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteNetworkInsightsPathCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteNetworkInsightsPathRequest
+ *   DryRun: true || false,
+ *   NetworkInsightsPathId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteNetworkInsightsPathCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNetworkInsightsPathCommandInput - {@link DeleteNetworkInsightsPathCommandInput}
+ * @returns {@link DeleteNetworkInsightsPathCommandOutput}
  * @see {@link DeleteNetworkInsightsPathCommandInput} for command's `input` shape.
  * @see {@link DeleteNetworkInsightsPathCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class DeleteNetworkInsightsPathCommand extends $Command<
@@ -62,6 +72,9 @@ export class DeleteNetworkInsightsPathCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNetworkInsightsPathCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +103,8 @@ export class DeleteNetworkInsightsPathCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteNetworkInsightsPathRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteNetworkInsightsPathResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +114,21 @@ export class DeleteNetworkInsightsPathCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteNetworkInsightsPathCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteNetworkInsightsPathCommand(input, context);
+    return se_DeleteNetworkInsightsPathCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteNetworkInsightsPathCommandOutput> {
-    return deserializeAws_ec2DeleteNetworkInsightsPathCommand(output, context);
+    return de_DeleteNetworkInsightsPathCommand(output, context);
   }
 
   // Start section: command_body_extra

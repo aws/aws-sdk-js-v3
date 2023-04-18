@@ -33,6 +33,11 @@ import {
   DeleteDomainPermissionsPolicyCommandOutput,
 } from "./commands/DeleteDomainPermissionsPolicyCommand";
 import {
+  DeletePackageCommand,
+  DeletePackageCommandInput,
+  DeletePackageCommandOutput,
+} from "./commands/DeletePackageCommand";
+import {
   DeletePackageVersionsCommand,
   DeletePackageVersionsCommandInput,
   DeletePackageVersionsCommandOutput,
@@ -144,6 +149,11 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  PublishPackageVersionCommand,
+  PublishPackageVersionCommandInput,
+  PublishPackageVersionCommandOutput,
+} from "./commands/PublishPackageVersionCommand";
+import {
   PutDomainPermissionsPolicyCommand,
   PutDomainPermissionsPolicyCommandInput,
   PutDomainPermissionsPolicyCommandOutput,
@@ -176,18 +186,17 @@ import {
 } from "./commands/UpdateRepositoryCommand";
 
 /**
+ * @public
  * <p> CodeArtifact is a fully managed artifact repository compatible with language-native
  *       package managers and build tools such as npm, Apache Maven, pip, and dotnet. You can use CodeArtifact to
  *       share packages with development teams and pull packages. Packages can be pulled from both
  *       public and CodeArtifact repositories. You can also create an upstream relationship between a CodeArtifact
  *       repository and another repository, which effectively merges their contents from the point of
  *       view of a package manager client. </p>
- *
  *          <p>
  *             <b>CodeArtifact Components</b>
  *          </p>
  *          <p>Use the information in this guide to help you work with the following CodeArtifact components:</p>
- *
  *          <ul>
  *             <li>
  *                <p>
@@ -263,7 +272,6 @@ import {
  *             <code>.tgz</code> file or Maven POM and JAR files.</p>
  *             </li>
  *          </ul>
- *
  *          <p>CodeArtifact supports these operations:</p>
  *          <ul>
  *             <li>
@@ -293,6 +301,10 @@ import {
  *             <li>
  *                <p>
  *                   <code>DeleteDomainPermissionsPolicy</code>: Deletes the resource policy that is set on a domain.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>DeletePackage</code>: Deletes a package and all associated package versions.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -424,6 +436,10 @@ import {
  *             </li>
  *             <li>
  *                <p>
+ *                   <code>PublishPackageVersion</code>: Creates a new package version containing one or more assets.</p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <code>PutDomainPermissionsPolicy</code>: Attaches a resource policy to a domain.</p>
  *             </li>
  *             <li>
@@ -448,6 +464,7 @@ import {
  */
 export class Codeartifact extends CodeartifactClient {
   /**
+   * @public
    * <p>Adds an existing external connection to a repository. One external connection is allowed
    *       per repository.</p>
    *          <note>
@@ -484,6 +501,7 @@ export class Codeartifact extends CodeartifactClient {
   }
 
   /**
+   * @public
    * <p>
    *         Copies package versions from one repository to another repository in the same domain.
    *       </p>
@@ -523,13 +541,13 @@ export class Codeartifact extends CodeartifactClient {
   }
 
   /**
+   * @public
    * <p>
    *       Creates a domain. CodeArtifact <i>domains</i> make it easier to manage multiple repositories across an
    *         organization. You can use a domain to apply permissions across many
    *         repositories owned by different Amazon Web Services accounts. An asset is stored only once
    *         in a domain, even if it's in multiple repositories.
    *     </p>
-   *
    *          <p>Although you can have multiple domains, we recommend a single production domain that contains all
    *         published artifacts so that your development teams can find and share packages. You can use a second
    *         pre-production domain to test changes to the production domain configuration.
@@ -562,6 +580,7 @@ export class Codeartifact extends CodeartifactClient {
   }
 
   /**
+   * @public
    * <p>
    *         Creates a repository.
    *       </p>
@@ -596,6 +615,7 @@ export class Codeartifact extends CodeartifactClient {
   }
 
   /**
+   * @public
    * <p>
    *          Deletes a domain. You cannot delete a domain that contains repositories. If you want to delete a domain
    *          with repositories, first delete its repositories.
@@ -628,6 +648,7 @@ export class Codeartifact extends CodeartifactClient {
   }
 
   /**
+   * @public
    * <p>
    *         Deletes the resource policy set on a domain.
    *       </p>
@@ -662,11 +683,46 @@ export class Codeartifact extends CodeartifactClient {
   }
 
   /**
+   * @public
+   * <p>Deletes a package and all associated package versions. A deleted package cannot be restored. To delete one or more package versions, use the
+   *      <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DeletePackageVersions.html">DeletePackageVersions</a> API.</p>
+   */
+  public deletePackage(
+    args: DeletePackageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePackageCommandOutput>;
+  public deletePackage(
+    args: DeletePackageCommandInput,
+    cb: (err: any, data?: DeletePackageCommandOutput) => void
+  ): void;
+  public deletePackage(
+    args: DeletePackageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePackageCommandOutput) => void
+  ): void;
+  public deletePackage(
+    args: DeletePackageCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePackageCommandOutput) => void),
+    cb?: (err: any, data?: DeletePackageCommandOutput) => void
+  ): Promise<DeletePackageCommandOutput> | void {
+    const command = new DeletePackageCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p> Deletes one or more versions of a package. A deleted package version cannot be restored
    *       in your repository. If you want to remove a package version from your repository and be able
    *       to restore it later, set its status to <code>Archived</code>. Archived packages cannot be
    *       downloaded from a repository and don't show up with list package APIs (for example,
-   *           <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html">ListackageVersions</a>), but you can restore them using <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdatePackageVersionsStatus.html">UpdatePackageVersionsStatus</a>. </p>
+   *           <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html">ListPackageVersions</a>), but you can restore them using <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdatePackageVersionsStatus.html">UpdatePackageVersionsStatus</a>. </p>
    */
   public deletePackageVersions(
     args: DeletePackageVersionsCommandInput,
@@ -698,6 +754,7 @@ export class Codeartifact extends CodeartifactClient {
   }
 
   /**
+   * @public
    * <p>
    *          Deletes a repository.
    *        </p>
@@ -732,6 +789,7 @@ export class Codeartifact extends CodeartifactClient {
   }
 
   /**
+   * @public
    * <p>
    *         Deletes the resource policy that is set on a repository. After a resource policy is deleted, the
    *         permissions allowed and denied by the deleted policy are removed. The effect of deleting a resource policy might not be immediate.
@@ -773,6 +831,7 @@ export class Codeartifact extends CodeartifactClient {
   }
 
   /**
+   * @public
    * <p>
    *          Returns a
    *       <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DomainDescription.html">DomainDescription</a>
@@ -809,6 +868,7 @@ export class Codeartifact extends CodeartifactClient {
   }
 
   /**
+   * @public
    * <p> Returns a
    *       <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageDescription.html">PackageDescription</a>
    *       object that contains information about the requested package.</p>
@@ -843,6 +903,7 @@ export class Codeartifact extends CodeartifactClient {
   }
 
   /**
+   * @public
    * <p>
    *        Returns a
    *        <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html">PackageVersionDescription</a>
@@ -879,6 +940,7 @@ export class Codeartifact extends CodeartifactClient {
   }
 
   /**
+   * @public
    * <p>
    *          Returns a <code>RepositoryDescription</code> object that contains detailed information
    *         about the requested repository.
@@ -914,6 +976,7 @@ export class Codeartifact extends CodeartifactClient {
   }
 
   /**
+   * @public
    * <p>
    *       Removes an existing external connection from a repository.
    *     </p>
@@ -948,17 +1011,16 @@ export class Codeartifact extends CodeartifactClient {
   }
 
   /**
+   * @public
    * <p>
    *       Deletes the assets in package versions and sets the package versions' status to <code>Disposed</code>.
    *       A disposed package version cannot be restored in your repository because its assets are deleted.
    *     </p>
-   *
    *          <p>
    *       To view all disposed package versions in a repository, use <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html">ListPackageVersions</a> and set the
    *       <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html#API_ListPackageVersions_RequestSyntax">status</a> parameter
    *       to <code>Disposed</code>.
    *     </p>
-   *
    *          <p>
    *       To view information about a disposed package version, use <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DescribePackageVersion.html">DescribePackageVersion</a>.
    *     </p>
@@ -993,6 +1055,7 @@ export class Codeartifact extends CodeartifactClient {
   }
 
   /**
+   * @public
    * <p>
    *         Generates a temporary authorization token for accessing repositories in the domain.
    *         This API requires the <code>codeartifact:GetAuthorizationToken</code> and <code>sts:GetServiceBearerToken</code> permissions.
@@ -1045,6 +1108,7 @@ export class Codeartifact extends CodeartifactClient {
   }
 
   /**
+   * @public
    * <p>
    *         Returns the resource policy attached to the specified domain.
    *       </p>
@@ -1086,6 +1150,7 @@ export class Codeartifact extends CodeartifactClient {
   }
 
   /**
+   * @public
    * <p>
    *       Returns an asset (or file) that is in a package. For example, for a Maven package version, use
    *       <code>GetPackageVersionAsset</code> to download a <code>JAR</code> file, a <code>POM</code> file,
@@ -1122,10 +1187,9 @@ export class Codeartifact extends CodeartifactClient {
   }
 
   /**
+   * @public
    * <p>
-   *          Gets the readme file or descriptive text for a package version. For packages that do not contain a readme file, CodeArtifact
-   *          extracts a description from a metadata file. For example, from the <code><description></code> element in the
-   *         <code>pom.xml</code> file of a Maven package.
+   *          Gets the readme file or descriptive text for a package version.
    *       </p>
    *          <p>
    *        The returned text might contain formatting. For example, it might contain formatting for Markdown or reStructuredText.
@@ -1161,6 +1225,7 @@ export class Codeartifact extends CodeartifactClient {
   }
 
   /**
+   * @public
    * <p>
    *       Returns the endpoint of a repository for a specific package format. A repository has one endpoint for each
    *       package format:
@@ -1218,6 +1283,7 @@ export class Codeartifact extends CodeartifactClient {
   }
 
   /**
+   * @public
    * <p>
    *         Returns the resource policy that is set on a repository.
    *       </p>
@@ -1252,6 +1318,7 @@ export class Codeartifact extends CodeartifactClient {
   }
 
   /**
+   * @public
    * <p> Returns a list of <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html">DomainSummary</a> objects for all domains owned by the Amazon Web Services account that makes
    *       this call. Each returned <code>DomainSummary</code> object contains information about a
    *       domain. </p>
@@ -1280,6 +1347,7 @@ export class Codeartifact extends CodeartifactClient {
   }
 
   /**
+   * @public
    * <p>
    *         Returns a list of
    *         <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageSummary.html">PackageSummary</a>
@@ -1313,6 +1381,7 @@ export class Codeartifact extends CodeartifactClient {
   }
 
   /**
+   * @public
    * <p>
    *        Returns a list of
    *        <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_AssetSummary.html">AssetSummary</a>
@@ -1349,6 +1418,7 @@ export class Codeartifact extends CodeartifactClient {
   }
 
   /**
+   * @public
    * <p>
    *          Returns the direct dependencies for a package version. The dependencies are returned as
    *         <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageDependency.html">PackageDependency</a>
@@ -1387,10 +1457,11 @@ export class Codeartifact extends CodeartifactClient {
   }
 
   /**
+   * @public
    * <p>
    *         Returns a list of
    *         <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionSummary.html">PackageVersionSummary</a>
-   *         objects for package versions in a repository that match the request parameters.
+   *         objects for package versions in a repository that match the request parameters. Package versions of all statuses will be returned by default when calling <code>list-package-versions</code> with no  <code>--status</code> parameter.
    *       </p>
    */
   public listPackageVersions(
@@ -1423,6 +1494,7 @@ export class Codeartifact extends CodeartifactClient {
   }
 
   /**
+   * @public
    * <p>
    *        Returns a list of
    *        <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_RepositorySummary.html">RepositorySummary</a>
@@ -1460,6 +1532,7 @@ export class Codeartifact extends CodeartifactClient {
   }
 
   /**
+   * @public
    * <p>
    *        Returns a list of
    *        <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_RepositorySummary.html">RepositorySummary</a>
@@ -1497,6 +1570,7 @@ export class Codeartifact extends CodeartifactClient {
   }
 
   /**
+   * @public
    * <p>Gets information about Amazon Web Services tags for a specified Amazon Resource Name (ARN) in CodeArtifact.</p>
    */
   public listTagsForResource(
@@ -1529,6 +1603,49 @@ export class Codeartifact extends CodeartifactClient {
   }
 
   /**
+   * @public
+   * <p>Creates a new package version containing one or more assets (or files).</p>
+   *          <p>The <code>unfinished</code> flag can be used to keep the package version in the
+   *         <code>Unfinished</code> state until all of its assets have been uploaded (see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/packages-overview.html#package-version-status.html#package-version-status">Package version status</a> in the <i>CodeArtifact user guide</i>). To set
+   *       the package version’s status to <code>Published</code>, omit the <code>unfinished</code> flag
+   *       when uploading the final asset, or set the status using <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdatePackageVersionsStatus.html">UpdatePackageVersionStatus</a>. Once a package version’s status is set to
+   *         <code>Published</code>, it cannot change back to <code>Unfinished</code>.</p>
+   *          <note>
+   *             <p>Only generic packages can be published using this API. For more information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-generic.html">Using generic
+   *           packages</a> in the <i>CodeArtifact User Guide</i>.</p>
+   *          </note>
+   */
+  public publishPackageVersion(
+    args: PublishPackageVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PublishPackageVersionCommandOutput>;
+  public publishPackageVersion(
+    args: PublishPackageVersionCommandInput,
+    cb: (err: any, data?: PublishPackageVersionCommandOutput) => void
+  ): void;
+  public publishPackageVersion(
+    args: PublishPackageVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PublishPackageVersionCommandOutput) => void
+  ): void;
+  public publishPackageVersion(
+    args: PublishPackageVersionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PublishPackageVersionCommandOutput) => void),
+    cb?: (err: any, data?: PublishPackageVersionCommandOutput) => void
+  ): Promise<PublishPackageVersionCommandOutput> | void {
+    const command = new PublishPackageVersionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>
    *         Sets a resource policy on a domain that specifies permissions to access it.
    *       </p>
@@ -1568,6 +1685,7 @@ export class Codeartifact extends CodeartifactClient {
   }
 
   /**
+   * @public
    * <p>Sets the package origin configuration for a package.</p>
    *          <p>The package origin configuration determines how new versions of a package can be added to a repository. You can allow or block direct
    *     publishing of new package versions, or ingestion and retaining of new package versions from an external connection or upstream source.
@@ -1608,6 +1726,7 @@ export class Codeartifact extends CodeartifactClient {
   }
 
   /**
+   * @public
    * <p>
    *         Sets the resource policy on a repository that specifies permissions to access it.
    *       </p>
@@ -1647,6 +1766,7 @@ export class Codeartifact extends CodeartifactClient {
   }
 
   /**
+   * @public
    * <p>Adds or updates tags for a resource in CodeArtifact.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -1673,6 +1793,7 @@ export class Codeartifact extends CodeartifactClient {
   }
 
   /**
+   * @public
    * <p>Removes tags from a resource in CodeArtifact.</p>
    */
   public untagResource(
@@ -1705,6 +1826,7 @@ export class Codeartifact extends CodeartifactClient {
   }
 
   /**
+   * @public
    * <p>
    *       Updates the status of one or more versions of a package. Using <code>UpdatePackageVersionsStatus</code>,
    *       you can update the status of package versions to <code>Archived</code>, <code>Published</code>, or <code>Unlisted</code>.
@@ -1742,6 +1864,7 @@ export class Codeartifact extends CodeartifactClient {
   }
 
   /**
+   * @public
    * <p>
    *          Update the properties of a repository.
    *        </p>

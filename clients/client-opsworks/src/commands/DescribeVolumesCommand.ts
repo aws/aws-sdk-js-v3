@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeVolumesRequest,
-  DescribeVolumesRequestFilterSensitiveLog,
-  DescribeVolumesResult,
-  DescribeVolumesResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeVolumesRequest, DescribeVolumesResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1DescribeVolumesCommand,
-  serializeAws_json1_1DescribeVolumesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeVolumesCommand, se_DescribeVolumesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeVolumesCommand}.
+ */
 export interface DescribeVolumesCommandInput extends DescribeVolumesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeVolumesCommand}.
+ */
 export interface DescribeVolumesCommandOutput extends DescribeVolumesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes an instance's Amazon EBS volumes.</p>
  *          <note>
  *             <p>This call accepts only one resource-identifying parameter.</p>
@@ -44,13 +47,30 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResult, __M
  * import { OpsWorksClient, DescribeVolumesCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DescribeVolumesCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // DescribeVolumesRequest
+ *   InstanceId: "STRING_VALUE",
+ *   StackId: "STRING_VALUE",
+ *   RaidArrayId: "STRING_VALUE",
+ *   VolumeIds: [ // Strings
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeVolumesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVolumesCommandInput - {@link DescribeVolumesCommandInput}
+ * @returns {@link DescribeVolumesCommandOutput}
  * @see {@link DescribeVolumesCommandInput} for command's `input` shape.
  * @see {@link DescribeVolumesCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Indicates that a resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that a request was not valid.</p>
+ *
  *
  */
 export class DescribeVolumesCommand extends $Command<
@@ -70,6 +90,9 @@ export class DescribeVolumesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVolumesCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +121,8 @@ export class DescribeVolumesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVolumesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeVolumesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +132,18 @@ export class DescribeVolumesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVolumesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeVolumesCommand(input, context);
+    return se_DescribeVolumesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVolumesCommandOutput> {
-    return deserializeAws_json1_1DescribeVolumesCommand(output, context);
+    return de_DescribeVolumesCommand(output, context);
   }
 
   // Start section: command_body_extra

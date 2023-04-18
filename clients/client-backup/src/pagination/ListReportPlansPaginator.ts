@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { Backup } from "../Backup";
 import { BackupClient } from "../BackupClient";
 import {
   ListReportPlansCommand,
@@ -11,7 +10,7 @@ import {
 import { BackupPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: BackupClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListReportPlansCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Backup,
-  input: ListReportPlansCommandInput,
-  ...args: any
-): Promise<ListReportPlansCommandOutput> => {
-  // @ts-ignore
-  return await client.listReportPlans(input, ...args);
-};
 export async function* paginateListReportPlans(
   config: BackupPaginationConfiguration,
   input: ListReportPlansCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListReportPlans(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Backup) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof BackupClient) {
+    if (config.client instanceof BackupClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Backup | BackupClient");

@@ -13,40 +13,60 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ModifyActivityStreamRequest,
-  ModifyActivityStreamRequestFilterSensitiveLog,
-  ModifyActivityStreamResponse,
-  ModifyActivityStreamResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryModifyActivityStreamCommand,
-  serializeAws_queryModifyActivityStreamCommand,
-} from "../protocols/Aws_query";
+import { ModifyActivityStreamRequest, ModifyActivityStreamResponse } from "../models/models_1";
+import { de_ModifyActivityStreamCommand, se_ModifyActivityStreamCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ModifyActivityStreamCommand}.
+ */
 export interface ModifyActivityStreamCommandInput extends ModifyActivityStreamRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ModifyActivityStreamCommand}.
+ */
 export interface ModifyActivityStreamCommandOutput extends ModifyActivityStreamResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the audit policy state of a database activity stream to either locked (default) or unlocked. A locked policy is read-only,
  *             whereas an unlocked policy is read/write. If your activity stream is started and locked, you can unlock it, customize your audit policy,
  *             and then lock your activity stream. Restarting the activity stream isn't required. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/DBActivityStreams.Modifying.html"> Modifying a database activity stream</a> in the
  *                 <i>Amazon RDS User Guide</i>. </p>
- *          <p>This operation is supported for RDS for Oracle only.</p>
+ *          <p>This operation is supported for RDS for Oracle and Microsoft SQL Server.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RDSClient, ModifyActivityStreamCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ModifyActivityStreamCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // ModifyActivityStreamRequest
+ *   ResourceArn: "STRING_VALUE",
+ *   AuditPolicyState: "locked" || "unlocked",
+ * };
  * const command = new ModifyActivityStreamCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyActivityStreamCommandInput - {@link ModifyActivityStreamCommandInput}
+ * @returns {@link ModifyActivityStreamCommandOutput}
  * @see {@link ModifyActivityStreamCommandInput} for command's `input` shape.
  * @see {@link ModifyActivityStreamCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ * @throws {@link DBInstanceNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *
+ * @throws {@link InvalidDBInstanceStateFault} (client fault)
+ *  <p>The DB instance isn't in a valid state.</p>
+ *
+ * @throws {@link ResourceNotFoundFault} (client fault)
+ *  <p>The specified resource ID was not found.</p>
+ *
  *
  */
 export class ModifyActivityStreamCommand extends $Command<
@@ -66,6 +86,9 @@ export class ModifyActivityStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyActivityStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +117,8 @@ export class ModifyActivityStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyActivityStreamRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyActivityStreamResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +128,18 @@ export class ModifyActivityStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyActivityStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyActivityStreamCommand(input, context);
+    return se_ModifyActivityStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyActivityStreamCommandOutput> {
-    return deserializeAws_queryModifyActivityStreamCommand(output, context);
+    return de_ModifyActivityStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

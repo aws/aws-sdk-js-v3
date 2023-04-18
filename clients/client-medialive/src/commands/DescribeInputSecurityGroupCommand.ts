@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  DescribeInputSecurityGroupRequest,
-  DescribeInputSecurityGroupRequestFilterSensitiveLog,
-  DescribeInputSecurityGroupResponse,
-  DescribeInputSecurityGroupResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1DescribeInputSecurityGroupCommand,
-  serializeAws_restJson1DescribeInputSecurityGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeInputSecurityGroupRequest, DescribeInputSecurityGroupResponse } from "../models/models_1";
+import { de_DescribeInputSecurityGroupCommand, se_DescribeInputSecurityGroupCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeInputSecurityGroupCommand}.
+ */
 export interface DescribeInputSecurityGroupCommandInput extends DescribeInputSecurityGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeInputSecurityGroupCommand}.
+ */
 export interface DescribeInputSecurityGroupCommandOutput extends DescribeInputSecurityGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Produces a summary of an Input Security Group
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,40 @@ export interface DescribeInputSecurityGroupCommandOutput extends DescribeInputSe
  * import { MediaLiveClient, DescribeInputSecurityGroupCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, DescribeInputSecurityGroupCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = { // DescribeInputSecurityGroupRequest
+ *   InputSecurityGroupId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeInputSecurityGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInputSecurityGroupCommandInput - {@link DescribeInputSecurityGroupCommandInput}
+ * @returns {@link DescribeInputSecurityGroupCommandOutput}
  * @see {@link DescribeInputSecurityGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeInputSecurityGroupCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
+ *
+ * @throws {@link BadGatewayException} (server fault)
+ *  Placeholder documentation for BadGatewayException
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  Placeholder documentation for BadRequestException
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  Placeholder documentation for ForbiddenException
+ *
+ * @throws {@link GatewayTimeoutException} (server fault)
+ *  Placeholder documentation for GatewayTimeoutException
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  Placeholder documentation for InternalServerErrorException
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  Placeholder documentation for NotFoundException
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  Placeholder documentation for TooManyRequestsException
+ *
  *
  */
 export class DescribeInputSecurityGroupCommand extends $Command<
@@ -62,6 +92,9 @@ export class DescribeInputSecurityGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInputSecurityGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +123,8 @@ export class DescribeInputSecurityGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInputSecurityGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeInputSecurityGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +134,21 @@ export class DescribeInputSecurityGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInputSecurityGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeInputSecurityGroupCommand(input, context);
+    return se_DescribeInputSecurityGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeInputSecurityGroupCommandOutput> {
-    return deserializeAws_restJson1DescribeInputSecurityGroupCommand(output, context);
+    return de_DescribeInputSecurityGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  DeleteSnapshotMessage,
-  DeleteSnapshotMessageFilterSensitiveLog,
-  DeleteSnapshotResult,
-  DeleteSnapshotResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteSnapshotCommand,
-  serializeAws_queryDeleteSnapshotCommand,
-} from "../protocols/Aws_query";
+import { DeleteSnapshotMessage, DeleteSnapshotResult } from "../models/models_0";
+import { de_DeleteSnapshotCommand, se_DeleteSnapshotCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteSnapshotCommand}.
+ */
 export interface DeleteSnapshotCommandInput extends DeleteSnapshotMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteSnapshotCommand}.
+ */
 export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing snapshot. When you receive a
  *             successful response from this operation, ElastiCache immediately begins deleting the snapshot;
  *             you cannot cancel or revert this operation.</p>
@@ -41,13 +44,74 @@ export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResult, __Met
  * import { ElastiCacheClient, DeleteSnapshotCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DeleteSnapshotCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // DeleteSnapshotMessage
+ *   SnapshotName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSnapshotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSnapshotCommandInput - {@link DeleteSnapshotCommandInput}
+ * @returns {@link DeleteSnapshotCommandOutput}
  * @see {@link DeleteSnapshotCommandInput} for command's `input` shape.
  * @see {@link DeleteSnapshotCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
+ * @throws {@link InvalidSnapshotStateFault} (client fault)
+ *  <p>The current state of the snapshot does not allow the requested operation to occur.</p>
+ *
+ * @throws {@link SnapshotNotFoundFault} (client fault)
+ *  <p>The requested snapshot name does not refer to an existing snapshot.</p>
+ *
+ *
+ * @example DeleteSnapshot
+ * ```javascript
+ * // Deletes the Redis snapshot snapshot-20160822.
+ * const input = {
+ *   "SnapshotName": "snapshot-20161212"
+ * };
+ * const command = new DeleteSnapshotCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Snapshot": {
+ *     "AutoMinorVersionUpgrade": true,
+ *     "CacheClusterCreateTime": "2016-12-21T22:27:12.543Z",
+ *     "CacheClusterId": "my-redis5",
+ *     "CacheNodeType": "cache.m3.large",
+ *     "CacheParameterGroupName": "default.redis3.2",
+ *     "CacheSubnetGroupName": "default",
+ *     "Engine": "redis",
+ *     "EngineVersion": "3.2.4",
+ *     "NodeSnapshots": [
+ *       {
+ *         "CacheNodeCreateTime": "2016-12-21T22:27:12.543Z",
+ *         "CacheNodeId": "0001",
+ *         "CacheSize": "3 MB",
+ *         "SnapshotCreateTime": "2016-12-21T22:30:26Z"
+ *       }
+ *     ],
+ *     "NumCacheNodes": 1,
+ *     "Port": 6379,
+ *     "PreferredAvailabilityZone": "us-east-1c",
+ *     "PreferredMaintenanceWindow": "fri:05:30-fri:06:30",
+ *     "SnapshotName": "snapshot-20161212",
+ *     "SnapshotRetentionLimit": 7,
+ *     "SnapshotSource": "manual",
+ *     "SnapshotStatus": "deleting",
+ *     "SnapshotWindow": "10:00-11:00",
+ *     "VpcId": "vpc-91280df6"
+ *   }
+ * }
+ * *\/
+ * // example id: deletesnapshot-1475011945779
+ * ```
  *
  */
 export class DeleteSnapshotCommand extends $Command<
@@ -67,6 +131,9 @@ export class DeleteSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +162,8 @@ export class DeleteSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSnapshotMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSnapshotResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +173,18 @@ export class DeleteSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteSnapshotCommand(input, context);
+    return se_DeleteSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSnapshotCommandOutput> {
-    return deserializeAws_queryDeleteSnapshotCommand(output, context);
+    return de_DeleteSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

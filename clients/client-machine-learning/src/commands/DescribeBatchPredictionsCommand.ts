@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import {
-  DescribeBatchPredictionsInput,
-  DescribeBatchPredictionsInputFilterSensitiveLog,
-  DescribeBatchPredictionsOutput,
-  DescribeBatchPredictionsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeBatchPredictionsCommand,
-  serializeAws_json1_1DescribeBatchPredictionsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeBatchPredictionsInput, DescribeBatchPredictionsOutput } from "../models/models_0";
+import { de_DescribeBatchPredictionsCommand, se_DescribeBatchPredictionsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeBatchPredictionsCommand}.
+ */
 export interface DescribeBatchPredictionsCommandInput extends DescribeBatchPredictionsInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeBatchPredictionsCommand}.
+ */
 export interface DescribeBatchPredictionsCommandOutput extends DescribeBatchPredictionsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of <code>BatchPrediction</code> operations that match the search criteria in the request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,35 @@ export interface DescribeBatchPredictionsCommandOutput extends DescribeBatchPred
  * import { MachineLearningClient, DescribeBatchPredictionsCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, DescribeBatchPredictionsCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
+ * const input = { // DescribeBatchPredictionsInput
+ *   FilterVariable: "STRING_VALUE",
+ *   EQ: "STRING_VALUE",
+ *   GT: "STRING_VALUE",
+ *   LT: "STRING_VALUE",
+ *   GE: "STRING_VALUE",
+ *   LE: "STRING_VALUE",
+ *   NE: "STRING_VALUE",
+ *   Prefix: "STRING_VALUE",
+ *   SortOrder: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new DescribeBatchPredictionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBatchPredictionsCommandInput - {@link DescribeBatchPredictionsCommandInput}
+ * @returns {@link DescribeBatchPredictionsCommandOutput}
  * @see {@link DescribeBatchPredictionsCommandInput} for command's `input` shape.
  * @see {@link DescribeBatchPredictionsCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An error on the server occurred when trying to process a request.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+ *
  *
  */
 export class DescribeBatchPredictionsCommand extends $Command<
@@ -62,6 +87,9 @@ export class DescribeBatchPredictionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBatchPredictionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +118,8 @@ export class DescribeBatchPredictionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeBatchPredictionsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeBatchPredictionsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +129,18 @@ export class DescribeBatchPredictionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeBatchPredictionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeBatchPredictionsCommand(input, context);
+    return se_DescribeBatchPredictionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBatchPredictionsCommandOutput> {
-    return deserializeAws_json1_1DescribeBatchPredictionsCommand(output, context);
+    return de_DescribeBatchPredictionsCommand(output, context);
   }
 
   // Start section: command_body_extra

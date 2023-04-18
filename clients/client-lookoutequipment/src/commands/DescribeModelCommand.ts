@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
-import {
-  DescribeModelRequest,
-  DescribeModelRequestFilterSensitiveLog,
-  DescribeModelResponse,
-  DescribeModelResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeModelCommand,
-  serializeAws_json1_0DescribeModelCommand,
-} from "../protocols/Aws_json1_0";
+import { DescribeModelRequest, DescribeModelResponse } from "../models/models_0";
+import { de_DescribeModelCommand, se_DescribeModelCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeModelCommand}.
+ */
 export interface DescribeModelCommandInput extends DescribeModelRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeModelCommand}.
+ */
 export interface DescribeModelCommandOutput extends DescribeModelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a JSON containing the overall information about a specific ML model, including
  *          model name and ARN, dataset, training and evaluation information, status, and so on.
  *       </p>
@@ -38,13 +41,38 @@ export interface DescribeModelCommandOutput extends DescribeModelResponse, __Met
  * import { LookoutEquipmentClient, DescribeModelCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, DescribeModelCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
+ * const input = { // DescribeModelRequest
+ *   ModelName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeModelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeModelCommandInput - {@link DescribeModelCommandInput}
+ * @returns {@link DescribeModelCommandOutput}
  * @see {@link DescribeModelCommandInput} for command's `input` shape.
  * @see {@link DescribeModelCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The request could not be completed because you do not have access to the resource.
+ *       </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> Processing of the request has failed because of an unknown error, exception or failure.
+ *       </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p> The resource requested could not be found. Verify the resource ID and retry your
+ *          request. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a
+ *          related AWS service that's being utilized. </p>
+ *
  *
  */
 export class DescribeModelCommand extends $Command<
@@ -64,6 +92,9 @@ export class DescribeModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +121,8 @@ export class DescribeModelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeModelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeModelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +132,18 @@ export class DescribeModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeModelCommand(input, context);
+    return se_DescribeModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeModelCommandOutput> {
-    return deserializeAws_json1_0DescribeModelCommand(output, context);
+    return de_DescribeModelCommand(output, context);
   }
 
   // Start section: command_body_extra

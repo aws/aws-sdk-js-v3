@@ -19,21 +19,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import {
-  ListResourceServersRequest,
-  ListResourceServersRequestFilterSensitiveLog,
-  ListResourceServersResponse,
-  ListResourceServersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListResourceServersCommand,
-  serializeAws_json1_1ListResourceServersCommand,
-} from "../protocols/Aws_json1_1";
+import { ListResourceServersRequest, ListResourceServersResponse } from "../models/models_0";
+import { de_ListResourceServersCommand, se_ListResourceServersCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListResourceServersCommand}.
+ */
 export interface ListResourceServersCommandInput extends ListResourceServersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListResourceServersCommand}.
+ */
 export interface ListResourceServersCommandOutput extends ListResourceServersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the resource servers for a user pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,13 +44,39 @@ export interface ListResourceServersCommandOutput extends ListResourceServersRes
  * import { CognitoIdentityProviderClient, ListResourceServersCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, ListResourceServersCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // ListResourceServersRequest
+ *   UserPoolId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListResourceServersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResourceServersCommandInput - {@link ListResourceServersCommandInput}
+ * @returns {@link ListResourceServersCommandOutput}
  * @see {@link ListResourceServersCommandInput} for command's `input` shape.
  * @see {@link ListResourceServersCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
+ *             parameter.</p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
+ *             resource.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>This exception is thrown when the user has made too many requests for a given
+ *             operation.</p>
+ *
  *
  */
 export class ListResourceServersCommand extends $Command<
@@ -67,6 +96,9 @@ export class ListResourceServersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResourceServersCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +128,8 @@ export class ListResourceServersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListResourceServersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListResourceServersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +139,18 @@ export class ListResourceServersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResourceServersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListResourceServersCommand(input, context);
+    return se_ListResourceServersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResourceServersCommandOutput> {
-    return deserializeAws_json1_1ListResourceServersCommand(output, context);
+    return de_ListResourceServersCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
+import { HostedConfigurationVersions, ListHostedConfigurationVersionsRequest } from "../models/models_0";
 import {
-  HostedConfigurationVersions,
-  HostedConfigurationVersionsFilterSensitiveLog,
-  ListHostedConfigurationVersionsRequest,
-  ListHostedConfigurationVersionsRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListHostedConfigurationVersionsCommand,
-  serializeAws_restJson1ListHostedConfigurationVersionsCommand,
+  de_ListHostedConfigurationVersionsCommand,
+  se_ListHostedConfigurationVersionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListHostedConfigurationVersionsCommand}.
+ */
 export interface ListHostedConfigurationVersionsCommandInput extends ListHostedConfigurationVersionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListHostedConfigurationVersionsCommand}.
+ */
 export interface ListHostedConfigurationVersionsCommandOutput extends HostedConfigurationVersions, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists configurations stored in the AppConfig hosted configuration store by
  *          version.</p>
  * @example
@@ -37,13 +43,56 @@ export interface ListHostedConfigurationVersionsCommandOutput extends HostedConf
  * import { AppConfigClient, ListHostedConfigurationVersionsCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, ListHostedConfigurationVersionsCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = { // ListHostedConfigurationVersionsRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   ConfigurationProfileId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   VersionLabel: "STRING_VALUE",
+ * };
  * const command = new ListHostedConfigurationVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListHostedConfigurationVersionsCommandInput - {@link ListHostedConfigurationVersionsCommandInput}
+ * @returns {@link ListHostedConfigurationVersionsCommandOutput}
  * @see {@link ListHostedConfigurationVersionsCommandInput} for command's `input` shape.
  * @see {@link ListHostedConfigurationVersionsCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There was an internal failure in the AppConfig service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource could not be found.</p>
+ *
+ *
+ * @example To list the available hosted configuration versions
+ * ```javascript
+ * // The following list-hosted-configuration-versions example lists the configurations versions hosted in the AWS AppConfig hosted configuration store for the specified application and configuration profile.
+ * const input = {
+ *   "ApplicationId": "339ohji",
+ *   "ConfigurationProfileId": "ur8hx2f"
+ * };
+ * const command = new ListHostedConfigurationVersionsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Items": [
+ *     {
+ *       "ApplicationId": "339ohji",
+ *       "ConfigurationProfileId": "ur8hx2f",
+ *       "ContentType": "application/json",
+ *       "VersionNumber": 1
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-list-the-available-hosted-configuration-versions-1632267647667
+ * ```
  *
  */
 export class ListHostedConfigurationVersionsCommand extends $Command<
@@ -63,6 +112,9 @@ export class ListHostedConfigurationVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListHostedConfigurationVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +143,8 @@ export class ListHostedConfigurationVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListHostedConfigurationVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: HostedConfigurationVersionsFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,18 +154,24 @@ export class ListHostedConfigurationVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListHostedConfigurationVersionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListHostedConfigurationVersionsCommand(input, context);
+    return se_ListHostedConfigurationVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListHostedConfigurationVersionsCommandOutput> {
-    return deserializeAws_restJson1ListHostedConfigurationVersionsCommand(output, context);
+    return de_ListHostedConfigurationVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

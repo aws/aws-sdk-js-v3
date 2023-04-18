@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { ChimeSDKMessaging } from "../ChimeSDKMessaging";
 import { ChimeSDKMessagingClient } from "../ChimeSDKMessagingClient";
 import {
   ListChannelFlowsCommand,
@@ -11,7 +10,7 @@ import {
 import { ChimeSDKMessagingPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ChimeSDKMessagingClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListChannelFlowsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ChimeSDKMessaging,
-  input: ListChannelFlowsCommandInput,
-  ...args: any
-): Promise<ListChannelFlowsCommandOutput> => {
-  // @ts-ignore
-  return await client.listChannelFlows(input, ...args);
-};
 export async function* paginateListChannelFlows(
   config: ChimeSDKMessagingPaginationConfiguration,
   input: ListChannelFlowsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListChannelFlows(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof ChimeSDKMessaging) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ChimeSDKMessagingClient) {
+    if (config.client instanceof ChimeSDKMessagingClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ChimeSDKMessaging | ChimeSDKMessagingClient");

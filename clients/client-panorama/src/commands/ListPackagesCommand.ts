@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListPackagesRequest,
-  ListPackagesRequestFilterSensitiveLog,
-  ListPackagesResponse,
-  ListPackagesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListPackagesRequest, ListPackagesResponse } from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
-import {
-  deserializeAws_restJson1ListPackagesCommand,
-  serializeAws_restJson1ListPackagesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListPackagesCommand, se_ListPackagesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListPackagesCommand}.
+ */
 export interface ListPackagesCommandInput extends ListPackagesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListPackagesCommand}.
+ */
 export interface ListPackagesCommandOutput extends ListPackagesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of packages.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,35 @@ export interface ListPackagesCommandOutput extends ListPackagesResponse, __Metad
  * import { PanoramaClient, ListPackagesCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, ListPackagesCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
  * const client = new PanoramaClient(config);
+ * const input = { // ListPackagesRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListPackagesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPackagesCommandInput - {@link ListPackagesCommandInput}
+ * @returns {@link ListPackagesCommandOutput}
  * @see {@link ListPackagesCommandInput} for command's `input` shape.
  * @see {@link ListPackagesCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The requestor does not have permission to access the target action or resource.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The target resource is in use.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error occurred.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The target resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request contains an invalid parameter value.</p>
+ *
  *
  */
 export class ListPackagesCommand extends $Command<
@@ -62,6 +87,9 @@ export class ListPackagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPackagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +116,8 @@ export class ListPackagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPackagesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPackagesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +127,18 @@ export class ListPackagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPackagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPackagesCommand(input, context);
+    return se_ListPackagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPackagesCommandOutput> {
-    return deserializeAws_restJson1ListPackagesCommand(output, context);
+    return de_ListPackagesCommand(output, context);
   }
 
   // Start section: command_body_extra

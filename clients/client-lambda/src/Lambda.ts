@@ -141,8 +141,18 @@ import {
   GetProvisionedConcurrencyConfigCommandInput,
   GetProvisionedConcurrencyConfigCommandOutput,
 } from "./commands/GetProvisionedConcurrencyConfigCommand";
+import {
+  GetRuntimeManagementConfigCommand,
+  GetRuntimeManagementConfigCommandInput,
+  GetRuntimeManagementConfigCommandOutput,
+} from "./commands/GetRuntimeManagementConfigCommand";
 import { InvokeAsyncCommand, InvokeAsyncCommandInput, InvokeAsyncCommandOutput } from "./commands/InvokeAsyncCommand";
 import { InvokeCommand, InvokeCommandInput, InvokeCommandOutput } from "./commands/InvokeCommand";
+import {
+  InvokeWithResponseStreamCommand,
+  InvokeWithResponseStreamCommandInput,
+  InvokeWithResponseStreamCommandOutput,
+} from "./commands/InvokeWithResponseStreamCommand";
 import { ListAliasesCommand, ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand";
 import {
   ListCodeSigningConfigsCommand,
@@ -222,6 +232,11 @@ import {
   PutProvisionedConcurrencyConfigCommandOutput,
 } from "./commands/PutProvisionedConcurrencyConfigCommand";
 import {
+  PutRuntimeManagementConfigCommand,
+  PutRuntimeManagementConfigCommandInput,
+  PutRuntimeManagementConfigCommandOutput,
+} from "./commands/PutRuntimeManagementConfigCommand";
+import {
   RemoveLayerVersionPermissionCommand,
   RemoveLayerVersionPermissionCommandInput,
   RemoveLayerVersionPermissionCommandOutput,
@@ -271,6 +286,7 @@ import {
 import { LambdaClient } from "./LambdaClient";
 
 /**
+ * @public
  * <fullname>Lambda</fullname>
  *          <p>
  *             <b>Overview</b>
@@ -339,6 +355,7 @@ import { LambdaClient } from "./LambdaClient";
  */
 export class Lambda extends LambdaClient {
   /**
+   * @public
    * <p>Adds permissions to the resource-based policy of a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
    *         layer</a>. Use this action to grant layer
    *       usage permission to other accounts. You can grant permission to a single account, all accounts in an organization,
@@ -376,6 +393,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Grants an Amazon Web Service, Amazon Web Services account, or Amazon Web Services organization
    *       permission to use a function. You can apply the policy at the function level, or specify a qualifier to restrict
    *       access to a single version or alias. If you use a qualifier, the invoker must use the full Amazon Resource Name
@@ -420,7 +438,8 @@ export class Lambda extends LambdaClient {
   }
 
   /**
-   * <p>Creates an <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a> for a
+   * @public
+   * <p>Creates an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">alias</a> for a
    *       Lambda function version. Use aliases to provide clients with a function identifier that you can update to invoke a
    *       different version.</p>
    *          <p>You can also map an alias to split invocation requests between two versions. Use the
@@ -451,6 +470,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Creates a code signing configuration. A <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html">code signing configuration</a> defines a list of
    *       allowed signing profiles and defines the code-signing validation policy (action to be taken if deployment
    *       validation checks fail). </p>
@@ -485,6 +505,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Creates a mapping between an event source and an Lambda function. Lambda reads items from the event source and invokes the function.</p>
    *          <p>For details about how to configure different event sources, see the following topics. </p>
    *          <ul>
@@ -522,6 +543,12 @@ export class Lambda extends LambdaClient {
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html">
    *             Apache Kafka</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html">
+   *             Amazon DocumentDB</a>
    *                </p>
    *             </li>
    *          </ul>
@@ -586,6 +613,12 @@ export class Lambda extends LambdaClient {
    *           Apache Kafka</a>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html#docdb-configuration">
+   *           Amazon DocumentDB</a>
+   *                </p>
+   *             </li>
    *          </ul>
    */
   public createEventSourceMapping(
@@ -618,6 +651,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Creates a Lambda function. To create a function, you need a <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html">deployment package</a> and an <a href="https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role">execution role</a>. The
    *       deployment package is a .zip file archive or container image that contains your function code. The execution role
    *       grants the function permission to use Amazon Web Services, such as Amazon CloudWatch Logs for log
@@ -687,6 +721,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Creates a Lambda function URL with the specified configuration parameters. A function URL is
    *       a dedicated HTTP(S) endpoint that you can use to invoke your function.</p>
    */
@@ -720,7 +755,8 @@ export class Lambda extends LambdaClient {
   }
 
   /**
-   * <p>Deletes a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a>.</p>
+   * @public
+   * <p>Deletes a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">alias</a>.</p>
    */
   public deleteAlias(args: DeleteAliasCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAliasCommandOutput>;
   public deleteAlias(args: DeleteAliasCommandInput, cb: (err: any, data?: DeleteAliasCommandOutput) => void): void;
@@ -746,6 +782,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Deletes the code signing configuration. You can delete the code signing configuration only if no function is
    *       using it. </p>
    */
@@ -779,6 +816,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Deletes an <a href="https://docs.aws.amazon.com/lambda/latest/dg/intro-invocation-modes.html">event source
    *         mapping</a>. You can get the identifier of a mapping from the output of <a>ListEventSourceMappings</a>.</p>
    *          <p>When you delete an event source mapping, it enters a <code>Deleting</code> state and might not be completely
@@ -814,6 +852,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Deletes a Lambda function. To delete a specific function version, use the <code>Qualifier</code> parameter.
    *       Otherwise, all versions and aliases are deleted.</p>
    *          <p>To delete Lambda event source mappings that invoke a function, use <a>DeleteEventSourceMapping</a>. For Amazon Web Services and resources that invoke your function
@@ -849,6 +888,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Removes the code signing configuration from the function.</p>
    */
   public deleteFunctionCodeSigningConfig(
@@ -881,6 +921,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Removes a concurrent execution limit from a function.</p>
    */
   public deleteFunctionConcurrency(
@@ -913,6 +954,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Deletes the configuration for asynchronous invocation for a function, version, or alias.</p>
    *          <p>To configure options for asynchronous invocation, use <a>PutFunctionEventInvokeConfig</a>.</p>
    */
@@ -946,6 +988,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Deletes a Lambda function URL. When you delete a function URL, you
    *       can't recover it. Creating a new function URL results in a different URL address.</p>
    */
@@ -979,6 +1022,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Deletes a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
    *         layer</a>. Deleted versions can no longer be viewed or added to functions. To avoid
    *       breaking functions, a copy of the version remains in Lambda until no functions refer to it.</p>
@@ -1013,6 +1057,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Deletes the provisioned concurrency configuration for a function.</p>
    */
   public deleteProvisionedConcurrencyConfig(
@@ -1045,6 +1090,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Retrieves details about your account's <a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html">limits</a> and usage in an Amazon Web Services Region.</p>
    */
   public getAccountSettings(
@@ -1077,7 +1123,8 @@ export class Lambda extends LambdaClient {
   }
 
   /**
-   * <p>Returns details about a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a>.</p>
+   * @public
+   * <p>Returns details about a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">alias</a>.</p>
    */
   public getAlias(args: GetAliasCommandInput, options?: __HttpHandlerOptions): Promise<GetAliasCommandOutput>;
   public getAlias(args: GetAliasCommandInput, cb: (err: any, data?: GetAliasCommandOutput) => void): void;
@@ -1103,6 +1150,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the specified code signing configuration.</p>
    */
   public getCodeSigningConfig(
@@ -1135,6 +1183,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Returns details about an event source mapping. You can get the identifier of a mapping from the output of
    *         <a>ListEventSourceMappings</a>.</p>
    */
@@ -1168,6 +1217,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the function or function version, with a link to download the deployment package
    *       that's valid for 10 minutes. If you specify a function version, only details that are specific to that version are
    *       returned.</p>
@@ -1196,6 +1246,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Returns the code signing configuration for the specified function.</p>
    */
   public getFunctionCodeSigningConfig(
@@ -1228,6 +1279,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Returns details about the reserved concurrency configuration for a function. To set a concurrency limit for a
    *       function, use <a>PutFunctionConcurrency</a>.</p>
    */
@@ -1261,6 +1313,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Returns the version-specific settings of a Lambda function or version. The output includes only options that
    *       can vary between versions of a function. To modify these settings, use <a>UpdateFunctionConfiguration</a>.</p>
    *          <p>To get all of a function's details, including function-level settings, use <a>GetFunction</a>.</p>
@@ -1295,6 +1348,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the configuration for asynchronous invocation for a function, version, or alias.</p>
    *          <p>To configure options for asynchronous invocation, use <a>PutFunctionEventInvokeConfig</a>.</p>
    */
@@ -1328,6 +1382,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Returns details about a Lambda function URL.</p>
    */
   public getFunctionUrlConfig(
@@ -1360,6 +1415,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
    *         layer</a>, with a link to download the layer archive
    *         that's valid for 10 minutes.</p>
@@ -1394,6 +1450,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
    *         layer</a>, with a link to download the layer archive
    *         that's valid for 10 minutes.</p>
@@ -1428,6 +1485,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Returns the permission policy for a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
    *         layer</a>. For more information, see <a>AddLayerVersionPermission</a>.</p>
    */
@@ -1461,6 +1519,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Returns the <a href="https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html">resource-based IAM policy</a> for a function, version, or alias.</p>
    */
   public getPolicy(args: GetPolicyCommandInput, options?: __HttpHandlerOptions): Promise<GetPolicyCommandOutput>;
@@ -1487,6 +1546,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the provisioned concurrency configuration for a function's alias or version.</p>
    */
   public getProvisionedConcurrencyConfig(
@@ -1519,6 +1579,42 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
+   * <p>Retrieves the runtime management configuration for a function's version. If the runtime update mode is <b>Manual</b>, this includes the ARN of the
+   *       runtime version and the runtime update mode. If the runtime update mode is <b>Auto</b> or <b>Function update</b>,
+   *       this includes the runtime update mode and <code>null</code> is returned for the ARN. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html">Runtime updates</a>.</p>
+   */
+  public getRuntimeManagementConfig(
+    args: GetRuntimeManagementConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRuntimeManagementConfigCommandOutput>;
+  public getRuntimeManagementConfig(
+    args: GetRuntimeManagementConfigCommandInput,
+    cb: (err: any, data?: GetRuntimeManagementConfigCommandOutput) => void
+  ): void;
+  public getRuntimeManagementConfig(
+    args: GetRuntimeManagementConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRuntimeManagementConfigCommandOutput) => void
+  ): void;
+  public getRuntimeManagementConfig(
+    args: GetRuntimeManagementConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRuntimeManagementConfigCommandOutput) => void),
+    cb?: (err: any, data?: GetRuntimeManagementConfigCommandOutput) => void
+  ): Promise<GetRuntimeManagementConfigCommandOutput> | void {
+    const command = new GetRuntimeManagementConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Invokes a Lambda function. You can invoke a function synchronously (and wait for the response), or
    *       asynchronously. To invoke a function asynchronously, set <code>InvocationType</code> to <code>Event</code>.</p>
    *          <p>For <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-sync.html">synchronous invocation</a>,
@@ -1569,6 +1665,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <important>
@@ -1600,7 +1697,44 @@ export class Lambda extends LambdaClient {
   }
 
   /**
-   * <p>Returns a list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">aliases</a>
+   * @public
+   * <p>Configure your Lambda functions to stream response payloads back to clients. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html">Configuring a Lambda function to stream responses</a>.</p>
+   *          <p>This operation requires permission for the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awslambda.html">lambda:InvokeFunction</a> action. For details on how to set up
+   *       permissions for cross-account invocations, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountinvoke">Granting function
+   *         access to other accounts</a>.</p>
+   */
+  public invokeWithResponseStream(
+    args: InvokeWithResponseStreamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<InvokeWithResponseStreamCommandOutput>;
+  public invokeWithResponseStream(
+    args: InvokeWithResponseStreamCommandInput,
+    cb: (err: any, data?: InvokeWithResponseStreamCommandOutput) => void
+  ): void;
+  public invokeWithResponseStream(
+    args: InvokeWithResponseStreamCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: InvokeWithResponseStreamCommandOutput) => void
+  ): void;
+  public invokeWithResponseStream(
+    args: InvokeWithResponseStreamCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: InvokeWithResponseStreamCommandOutput) => void),
+    cb?: (err: any, data?: InvokeWithResponseStreamCommandOutput) => void
+  ): Promise<InvokeWithResponseStreamCommandOutput> | void {
+    const command = new InvokeWithResponseStreamCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Returns a list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">aliases</a>
    *       for a Lambda function.</p>
    */
   public listAliases(args: ListAliasesCommandInput, options?: __HttpHandlerOptions): Promise<ListAliasesCommandOutput>;
@@ -1627,6 +1761,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuring-codesigning.html">code
    *         signing configurations</a>. A request returns up to 10,000 configurations per
    *       call. You can use the <code>MaxItems</code> parameter to return fewer configurations per call. </p>
@@ -1661,6 +1796,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Lists event source mappings. Specify an <code>EventSourceArn</code> to show only event source mappings for a
    *       single event source.</p>
    */
@@ -1694,6 +1830,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of configurations for asynchronous invocation for a function.</p>
    *          <p>To configure options for asynchronous invocation, use <a>PutFunctionEventInvokeConfig</a>.</p>
    */
@@ -1727,6 +1864,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of Lambda functions, with the version-specific configuration of each. Lambda returns up to 50
    *       functions per call.</p>
    *          <p>Set <code>FunctionVersion</code> to <code>ALL</code> to include all published versions of each function in
@@ -1734,7 +1872,7 @@ export class Lambda extends LambdaClient {
    *          <note>
    *             <p>The <code>ListFunctions</code> operation returns a subset of the <a>FunctionConfiguration</a> fields.
    *         To get the additional fields (State, StateReasonCode, StateReason, LastUpdateStatus, LastUpdateStatusReason,
-   *         LastUpdateStatusReasonCode) for a function or version, use <a>GetFunction</a>.</p>
+   *         LastUpdateStatusReasonCode,  RuntimeVersionConfig) for a function or version, use <a>GetFunction</a>.</p>
    *          </note>
    */
   public listFunctions(
@@ -1767,6 +1905,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>List the functions that use the specified code signing configuration. You can use this method prior to deleting a
    *       code signing configuration, to verify that no functions are using it.</p>
    */
@@ -1800,6 +1939,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of Lambda function URLs for the specified function.</p>
    */
   public listFunctionUrlConfigs(
@@ -1832,6 +1972,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Lists <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-layers.html">Lambda
    *         layers</a> and shows information about the latest version of each. Specify a
    *         <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime
@@ -1863,6 +2004,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Lists the versions of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
    *         layer</a>. Versions that have been deleted aren't listed. Specify a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime identifier</a> to list only
    *       versions that indicate that they're compatible with that runtime. Specify a compatible architecture to include only
@@ -1898,6 +2040,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of provisioned concurrency configurations for a function.</p>
    */
   public listProvisionedConcurrencyConfigs(
@@ -1930,6 +2073,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Returns a function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a>. You can
    *       also view tags with <a>GetFunction</a>.</p>
    */
@@ -1957,6 +2101,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">versions</a>,
    *       with the version-specific configuration of each. Lambda returns up to 50 versions per call.</p>
    */
@@ -1990,6 +2135,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Creates an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
    *         layer</a> from a ZIP archive. Each time you call <code>PublishLayerVersion</code> with the same
    *       layer name, a new version is created.</p>
@@ -2025,6 +2171,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Creates a <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">version</a> from the
    *       current code and configuration of a function. Use versions to create a snapshot of your function code and
    *       configuration that doesn't change.</p>
@@ -2063,6 +2210,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Update the code signing configuration for the function. Changes to the code signing configuration take effect the
    *       next time a user tries to deploy a code package to the function. </p>
    */
@@ -2096,6 +2244,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Sets the maximum number of simultaneous executions for a function, and reserves capacity for that concurrency
    *       level.</p>
    *          <p>Concurrency settings apply to the function as a whole, including all published versions and the unpublished
@@ -2136,6 +2285,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Configures options for <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html">asynchronous
    *         invocation</a> on a function, version, or alias. If a configuration already exists for a function, version,
    *       or alias, this operation overwrites it. If you exclude any settings, they are removed. To set one option without
@@ -2178,6 +2328,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Adds a provisioned concurrency configuration to a function's alias or version.</p>
    */
   public putProvisionedConcurrencyConfig(
@@ -2210,6 +2361,41 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
+   * <p>Sets the runtime management configuration for a function's version. For more information,
+   *       see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html">Runtime updates</a>.</p>
+   */
+  public putRuntimeManagementConfig(
+    args: PutRuntimeManagementConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutRuntimeManagementConfigCommandOutput>;
+  public putRuntimeManagementConfig(
+    args: PutRuntimeManagementConfigCommandInput,
+    cb: (err: any, data?: PutRuntimeManagementConfigCommandOutput) => void
+  ): void;
+  public putRuntimeManagementConfig(
+    args: PutRuntimeManagementConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutRuntimeManagementConfigCommandOutput) => void
+  ): void;
+  public putRuntimeManagementConfig(
+    args: PutRuntimeManagementConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutRuntimeManagementConfigCommandOutput) => void),
+    cb?: (err: any, data?: PutRuntimeManagementConfigCommandOutput) => void
+  ): Promise<PutRuntimeManagementConfigCommandOutput> | void {
+    const command = new PutRuntimeManagementConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Removes a statement from the permissions policy for a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
    *         layer</a>. For more information, see
    *         <a>AddLayerVersionPermission</a>.</p>
@@ -2244,6 +2430,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Revokes function-use permission from an Amazon Web Service or another Amazon Web Services account. You
    *       can get the ID of the statement from the output of <a>GetPolicy</a>.</p>
    */
@@ -2277,6 +2464,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Adds <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a> to a function.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -2303,6 +2491,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Removes <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a> from a function.</p>
    */
   public untagResource(
@@ -2335,7 +2524,8 @@ export class Lambda extends LambdaClient {
   }
 
   /**
-   * <p>Updates the configuration of a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a>.</p>
+   * @public
+   * <p>Updates the configuration of a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">alias</a>.</p>
    */
   public updateAlias(args: UpdateAliasCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAliasCommandOutput>;
   public updateAlias(args: UpdateAliasCommandInput, cb: (err: any, data?: UpdateAliasCommandOutput) => void): void;
@@ -2361,6 +2551,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Update the code signing configuration. Changes to the code signing configuration take effect the next time a
    *       user tries to deploy a code package to the function. </p>
    */
@@ -2394,6 +2585,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Updates an event source mapping. You can change the function that Lambda invokes, or pause
    *       invocation and resume later from the same location.</p>
    *          <p>For details about how to configure different event sources, see the following topics. </p>
@@ -2432,6 +2624,12 @@ export class Lambda extends LambdaClient {
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html">
    *             Apache Kafka</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html">
+   *             Amazon DocumentDB</a>
    *                </p>
    *             </li>
    *          </ul>
@@ -2496,6 +2694,12 @@ export class Lambda extends LambdaClient {
    *           Apache Kafka</a>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html#docdb-configuration">
+   *           Amazon DocumentDB</a>
+   *                </p>
+   *             </li>
    *          </ul>
    */
   public updateEventSourceMapping(
@@ -2528,6 +2732,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Updates a Lambda function's code. If code signing is enabled for the function, the code package
    *       must be signed by a trusted publisher. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html">Configuring code signing for Lambda</a>.</p>
    *          <p>If the function's package type is <code>Image</code>, then you must specify the code package in
@@ -2575,6 +2780,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Modify the version-specific settings of a Lambda function.</p>
    *          <p>When you update a function, Lambda provisions an instance of the function and its supporting
    *       resources. If your function connects to a VPC, this process can take a minute. During this time, you can't modify
@@ -2618,6 +2824,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Updates the configuration for asynchronous invocation for a function, version, or alias.</p>
    *          <p>To configure options for asynchronous invocation, use <a>PutFunctionEventInvokeConfig</a>.</p>
    */
@@ -2651,6 +2858,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @public
    * <p>Updates the configuration for a Lambda function URL.</p>
    */
   public updateFunctionUrlConfig(

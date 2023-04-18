@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetRateBasedRuleRequest,
-  GetRateBasedRuleRequestFilterSensitiveLog,
-  GetRateBasedRuleResponse,
-  GetRateBasedRuleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetRateBasedRuleCommand,
-  serializeAws_json1_1GetRateBasedRuleCommand,
-} from "../protocols/Aws_json1_1";
+import { GetRateBasedRuleRequest, GetRateBasedRuleResponse } from "../models/models_0";
+import { de_GetRateBasedRuleCommand, se_GetRateBasedRuleCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetRateBasedRuleCommand}.
+ */
 export interface GetRateBasedRuleCommandInput extends GetRateBasedRuleRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetRateBasedRuleCommand}.
+ */
 export interface GetRateBasedRuleCommandOutput extends GetRateBasedRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -46,13 +49,28 @@ export interface GetRateBasedRuleCommandOutput extends GetRateBasedRuleResponse,
  * import { WAFRegionalClient, GetRateBasedRuleCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, GetRateBasedRuleCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
+ * const input = { // GetRateBasedRuleRequest
+ *   RuleId: "STRING_VALUE", // required
+ * };
  * const command = new GetRateBasedRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRateBasedRuleCommandInput - {@link GetRateBasedRuleCommandInput}
+ * @returns {@link GetRateBasedRuleCommandOutput}
  * @see {@link GetRateBasedRuleCommandInput} for command's `input` shape.
  * @see {@link GetRateBasedRuleCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
+ *
+ * @throws {@link WAFInternalErrorException} (server fault)
+ *  <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+ *
+ * @throws {@link WAFInvalidAccountException} (client fault)
+ *  <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+ *
+ * @throws {@link WAFNonexistentItemException} (client fault)
+ *  <p>The operation failed because the referenced object doesn't exist.</p>
+ *
  *
  */
 export class GetRateBasedRuleCommand extends $Command<
@@ -72,6 +90,9 @@ export class GetRateBasedRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRateBasedRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +121,8 @@ export class GetRateBasedRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRateBasedRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRateBasedRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +132,18 @@ export class GetRateBasedRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRateBasedRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRateBasedRuleCommand(input, context);
+    return se_GetRateBasedRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRateBasedRuleCommandOutput> {
-    return deserializeAws_json1_1GetRateBasedRuleCommand(output, context);
+    return de_GetRateBasedRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

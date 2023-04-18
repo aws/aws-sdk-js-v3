@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
-import {
-  PutPlaybackConfigurationRequest,
-  PutPlaybackConfigurationRequestFilterSensitiveLog,
-  PutPlaybackConfigurationResponse,
-  PutPlaybackConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutPlaybackConfigurationCommand,
-  serializeAws_restJson1PutPlaybackConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { PutPlaybackConfigurationRequest, PutPlaybackConfigurationResponse } from "../models/models_0";
+import { de_PutPlaybackConfigurationCommand, se_PutPlaybackConfigurationCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutPlaybackConfigurationCommand}.
+ */
 export interface PutPlaybackConfigurationCommandInput extends PutPlaybackConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutPlaybackConfigurationCommand}.
+ */
 export interface PutPlaybackConfigurationCommandOutput extends PutPlaybackConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a playback configuration. For information about MediaTailor configurations, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html">Working with configurations in AWS Elemental MediaTailor</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,57 @@ export interface PutPlaybackConfigurationCommandOutput extends PutPlaybackConfig
  * import { MediaTailorClient, PutPlaybackConfigurationCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, PutPlaybackConfigurationCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
+ * const input = { // PutPlaybackConfigurationRequest
+ *   AdDecisionServerUrl: "STRING_VALUE",
+ *   AvailSuppression: { // AvailSuppression
+ *     Mode: "OFF" || "BEHIND_LIVE_EDGE",
+ *     Value: "STRING_VALUE",
+ *   },
+ *   Bumper: { // Bumper
+ *     EndUrl: "STRING_VALUE",
+ *     StartUrl: "STRING_VALUE",
+ *   },
+ *   CdnConfiguration: { // CdnConfiguration
+ *     AdSegmentUrlPrefix: "STRING_VALUE",
+ *     ContentSegmentUrlPrefix: "STRING_VALUE",
+ *   },
+ *   ConfigurationAliases: { // ConfigurationAliasesRequest
+ *     "<keys>": { // __mapOf__string
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ *   DashConfiguration: { // DashConfigurationForPut
+ *     MpdLocation: "STRING_VALUE",
+ *     OriginManifestType: "SINGLE_PERIOD" || "MULTI_PERIOD",
+ *   },
+ *   LivePreRollConfiguration: { // LivePreRollConfiguration
+ *     AdDecisionServerUrl: "STRING_VALUE",
+ *     MaxDurationSeconds: Number("int"),
+ *   },
+ *   ManifestProcessingRules: { // ManifestProcessingRules
+ *     AdMarkerPassthrough: { // AdMarkerPassthrough
+ *       Enabled: true || false,
+ *     },
+ *   },
+ *   Name: "STRING_VALUE", // required
+ *   PersonalizationThresholdSeconds: Number("int"),
+ *   SlateAdUrl: "STRING_VALUE",
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   TranscodeProfileName: "STRING_VALUE",
+ *   VideoContentSourceUrl: "STRING_VALUE",
+ * };
  * const command = new PutPlaybackConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutPlaybackConfigurationCommandInput - {@link PutPlaybackConfigurationCommandInput}
+ * @returns {@link PutPlaybackConfigurationCommandOutput}
  * @see {@link PutPlaybackConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutPlaybackConfigurationCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
+ *
  *
  */
 export class PutPlaybackConfigurationCommand extends $Command<
@@ -62,6 +109,9 @@ export class PutPlaybackConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutPlaybackConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +140,8 @@ export class PutPlaybackConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutPlaybackConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutPlaybackConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +151,18 @@ export class PutPlaybackConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutPlaybackConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutPlaybackConfigurationCommand(input, context);
+    return se_PutPlaybackConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutPlaybackConfigurationCommandOutput> {
-    return deserializeAws_restJson1PutPlaybackConfigurationCommand(output, context);
+    return de_PutPlaybackConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

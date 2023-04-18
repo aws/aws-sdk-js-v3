@@ -14,18 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  GetRoomRequest,
-  GetRoomRequestFilterSensitiveLog,
-  GetRoomResponse,
-  GetRoomResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1GetRoomCommand, serializeAws_json1_1GetRoomCommand } from "../protocols/Aws_json1_1";
+import { GetRoomRequest, GetRoomResponse } from "../models/models_0";
+import { de_GetRoomCommand, se_GetRoomCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetRoomCommand}.
+ */
 export interface GetRoomCommandInput extends GetRoomRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetRoomCommand}.
+ */
 export interface GetRoomCommandOutput extends GetRoomResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets room details by room ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -33,13 +39,22 @@ export interface GetRoomCommandOutput extends GetRoomResponse, __MetadataBearer 
  * import { AlexaForBusinessClient, GetRoomCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, GetRoomCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // GetRoomRequest
+ *   RoomArn: "STRING_VALUE",
+ * };
  * const command = new GetRoomCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRoomCommandInput - {@link GetRoomCommandInput}
+ * @returns {@link GetRoomCommandOutput}
  * @see {@link GetRoomCommandInput} for command's `input` shape.
  * @see {@link GetRoomCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
  *
  */
 export class GetRoomCommand extends $Command<
@@ -59,6 +74,9 @@ export class GetRoomCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRoomCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +103,8 @@ export class GetRoomCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRoomRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRoomResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +114,18 @@ export class GetRoomCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRoomCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRoomCommand(input, context);
+    return se_GetRoomCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRoomCommandOutput> {
-    return deserializeAws_json1_1GetRoomCommand(output, context);
+    return de_GetRoomCommand(output, context);
   }
 
   // Start section: command_body_extra

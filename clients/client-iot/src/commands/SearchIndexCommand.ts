@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  SearchIndexRequest,
-  SearchIndexRequestFilterSensitiveLog,
-  SearchIndexResponse,
-  SearchIndexResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1SearchIndexCommand,
-  serializeAws_restJson1SearchIndexCommand,
-} from "../protocols/Aws_restJson1";
+import { SearchIndexRequest, SearchIndexResponse } from "../models/models_2";
+import { de_SearchIndexCommand, se_SearchIndexCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link SearchIndexCommand}.
+ */
 export interface SearchIndexCommandInput extends SearchIndexRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SearchIndexCommand}.
+ */
 export interface SearchIndexCommandOutput extends SearchIndexResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The query search index.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">SearchIndex</a> action.</p>
  * @example
@@ -37,13 +40,47 @@ export interface SearchIndexCommandOutput extends SearchIndexResponse, __Metadat
  * import { IoTClient, SearchIndexCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, SearchIndexCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // SearchIndexRequest
+ *   indexName: "STRING_VALUE",
+ *   queryString: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   queryVersion: "STRING_VALUE",
+ * };
  * const command = new SearchIndexCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchIndexCommandInput - {@link SearchIndexCommandInput}
+ * @returns {@link SearchIndexCommandOutput}
  * @see {@link SearchIndexCommandInput} for command's `input` shape.
  * @see {@link SearchIndexCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link IndexNotReadyException} (client fault)
+ *  <p>The index is not ready.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidQueryException} (client fault)
+ *  <p>The query is invalid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You are not authorized to perform this operation.</p>
+ *
  *
  */
 export class SearchIndexCommand extends $Command<
@@ -63,6 +100,9 @@ export class SearchIndexCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchIndexCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +129,8 @@ export class SearchIndexCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchIndexRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchIndexResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +140,18 @@ export class SearchIndexCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchIndexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchIndexCommand(input, context);
+    return se_SearchIndexCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchIndexCommandOutput> {
-    return deserializeAws_restJson1SearchIndexCommand(output, context);
+    return de_SearchIndexCommand(output, context);
   }
 
   // Start section: command_body_extra

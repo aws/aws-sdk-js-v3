@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListGroupsCommand, ListGroupsCommandInput, ListGroupsCommandOutput } from "../commands/ListGroupsCommand";
-import { IAM } from "../IAM";
 import { IAMClient } from "../IAMClient";
 import { IAMPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: IAMClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListGroupsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: IAM,
-  input: ListGroupsCommandInput,
-  ...args: any
-): Promise<ListGroupsCommandOutput> => {
-  // @ts-ignore
-  return await client.listGroups(input, ...args);
-};
 export async function* paginateListGroups(
   config: IAMPaginationConfiguration,
   input: ListGroupsCommandInput,
@@ -40,9 +31,7 @@ export async function* paginateListGroups(
   while (hasNext) {
     input.Marker = token;
     input["MaxItems"] = config.pageSize;
-    if (config.client instanceof IAM) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IAMClient) {
+    if (config.client instanceof IAMClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected IAM | IAMClient");

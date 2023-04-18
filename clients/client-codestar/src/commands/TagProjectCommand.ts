@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeStarClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeStarClient";
-import {
-  TagProjectRequest,
-  TagProjectRequestFilterSensitiveLog,
-  TagProjectResult,
-  TagProjectResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1TagProjectCommand,
-  serializeAws_json1_1TagProjectCommand,
-} from "../protocols/Aws_json1_1";
+import { TagProjectRequest, TagProjectResult } from "../models/models_0";
+import { de_TagProjectCommand, se_TagProjectCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link TagProjectCommand}.
+ */
 export interface TagProjectCommandInput extends TagProjectRequest {}
+/**
+ * @public
+ *
+ * The output of {@link TagProjectCommand}.
+ */
 export interface TagProjectCommandOutput extends TagProjectResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds tags to a project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,35 @@ export interface TagProjectCommandOutput extends TagProjectResult, __MetadataBea
  * import { CodeStarClient, TagProjectCommand } from "@aws-sdk/client-codestar"; // ES Modules import
  * // const { CodeStarClient, TagProjectCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
  * const client = new CodeStarClient(config);
+ * const input = { // TagProjectRequest
+ *   id: "STRING_VALUE", // required
+ *   tags: { // Tags // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new TagProjectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TagProjectCommandInput - {@link TagProjectCommandInput}
+ * @returns {@link TagProjectCommandOutput}
  * @see {@link TagProjectCommandInput} for command's `input` shape.
  * @see {@link TagProjectCommandOutput} for command's `response` shape.
  * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (server fault)
+ *  <p>Another modification is being made. That modification must complete before you can make
+ *       your change.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A resource limit has been exceeded.</p>
+ *
+ * @throws {@link ProjectNotFoundException} (client fault)
+ *  <p>The specified AWS CodeStar project was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The specified input is either not valid, or it could not be validated.</p>
+ *
  *
  */
 export class TagProjectCommand extends $Command<
@@ -62,6 +87,9 @@ export class TagProjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TagProjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +116,8 @@ export class TagProjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagProjectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: TagProjectResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +127,18 @@ export class TagProjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TagProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1TagProjectCommand(input, context);
+    return se_TagProjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagProjectCommandOutput> {
-    return deserializeAws_json1_1TagProjectCommand(output, context);
+    return de_TagProjectCommand(output, context);
   }
 
   // Start section: command_body_extra

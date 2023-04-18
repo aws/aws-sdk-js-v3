@@ -13,24 +13,27 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RequestServiceQuotaIncreaseRequest,
-  RequestServiceQuotaIncreaseRequestFilterSensitiveLog,
-  RequestServiceQuotaIncreaseResponse,
-  RequestServiceQuotaIncreaseResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RequestServiceQuotaIncreaseCommand,
-  serializeAws_json1_1RequestServiceQuotaIncreaseCommand,
-} from "../protocols/Aws_json1_1";
+import { RequestServiceQuotaIncreaseRequest, RequestServiceQuotaIncreaseResponse } from "../models/models_0";
+import { de_RequestServiceQuotaIncreaseCommand, se_RequestServiceQuotaIncreaseCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
+/**
+ * @public
+ *
+ * The input for {@link RequestServiceQuotaIncreaseCommand}.
+ */
 export interface RequestServiceQuotaIncreaseCommandInput extends RequestServiceQuotaIncreaseRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RequestServiceQuotaIncreaseCommand}.
+ */
 export interface RequestServiceQuotaIncreaseCommandOutput
   extends RequestServiceQuotaIncreaseResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Submits a quota increase request for the specified quota.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +41,50 @@ export interface RequestServiceQuotaIncreaseCommandOutput
  * import { ServiceQuotasClient, RequestServiceQuotaIncreaseCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
  * // const { ServiceQuotasClient, RequestServiceQuotaIncreaseCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import
  * const client = new ServiceQuotasClient(config);
+ * const input = { // RequestServiceQuotaIncreaseRequest
+ *   ServiceCode: "STRING_VALUE", // required
+ *   QuotaCode: "STRING_VALUE", // required
+ *   DesiredValue: Number("double"), // required
+ * };
  * const command = new RequestServiceQuotaIncreaseCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RequestServiceQuotaIncreaseCommandInput - {@link RequestServiceQuotaIncreaseCommandInput}
+ * @returns {@link RequestServiceQuotaIncreaseCommandOutput}
  * @see {@link RequestServiceQuotaIncreaseCommandInput} for command's `input` shape.
  * @see {@link RequestServiceQuotaIncreaseCommandOutput} for command's `response` shape.
  * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permission to perform this action.</p>
+ *
+ * @throws {@link DependencyAccessDeniedException} (client fault)
+ *  <p>You can't perform this action because a dependency does not have access.</p>
+ *
+ * @throws {@link IllegalArgumentException} (client fault)
+ *  <p>Invalid input was provided.</p>
+ *
+ * @throws {@link InvalidResourceStateException} (client fault)
+ *  <p>The resource is in an invalid state.</p>
+ *
+ * @throws {@link NoSuchResourceException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link QuotaExceededException} (client fault)
+ *  <p>You have exceeded your service quota. To perform the requested action, remove some of the
+ *       relevant resources, or use Service Quotas to request a service quota increase.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The specified resource already exists.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>Something went wrong.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request
+ *       an increase for this quota.</p>
+ *
  *
  */
 export class RequestServiceQuotaIncreaseCommand extends $Command<
@@ -64,6 +104,9 @@ export class RequestServiceQuotaIncreaseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RequestServiceQuotaIncreaseCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +135,8 @@ export class RequestServiceQuotaIncreaseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RequestServiceQuotaIncreaseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RequestServiceQuotaIncreaseResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +146,21 @@ export class RequestServiceQuotaIncreaseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RequestServiceQuotaIncreaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RequestServiceQuotaIncreaseCommand(input, context);
+    return se_RequestServiceQuotaIncreaseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RequestServiceQuotaIncreaseCommandOutput> {
-    return deserializeAws_json1_1RequestServiceQuotaIncreaseCommand(output, context);
+    return de_RequestServiceQuotaIncreaseCommand(output, context);
   }
 
   // Start section: command_body_extra

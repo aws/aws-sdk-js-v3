@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteGlobalClusterMessage,
-  DeleteGlobalClusterMessageFilterSensitiveLog,
-  DeleteGlobalClusterResult,
-  DeleteGlobalClusterResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteGlobalClusterMessage, DeleteGlobalClusterResult } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryDeleteGlobalClusterCommand,
-  serializeAws_queryDeleteGlobalClusterCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteGlobalClusterCommand, se_DeleteGlobalClusterCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteGlobalClusterCommand}.
+ */
 export interface DeleteGlobalClusterCommandInput extends DeleteGlobalClusterMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteGlobalClusterCommand}.
+ */
 export interface DeleteGlobalClusterCommandOutput extends DeleteGlobalClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a global database. The primary and all secondary clusters must
  *       already be detached or deleted first.</p>
  * @example
@@ -37,13 +40,25 @@ export interface DeleteGlobalClusterCommandOutput extends DeleteGlobalClusterRes
  * import { NeptuneClient, DeleteGlobalClusterCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DeleteGlobalClusterCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = { // DeleteGlobalClusterMessage
+ *   GlobalClusterIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new DeleteGlobalClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteGlobalClusterCommandInput - {@link DeleteGlobalClusterCommandInput}
+ * @returns {@link DeleteGlobalClusterCommandOutput}
  * @see {@link DeleteGlobalClusterCommandInput} for command's `input` shape.
  * @see {@link DeleteGlobalClusterCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
+ *
+ * @throws {@link GlobalClusterNotFoundFault} (client fault)
+ *  <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database cluster. </p>
+ *
+ * @throws {@link InvalidGlobalClusterStateFault} (client fault)
+ *  <p>The global cluster is in an invalid state and can't perform the requested operation. </p>
+ *
  *
  */
 export class DeleteGlobalClusterCommand extends $Command<
@@ -63,6 +78,9 @@ export class DeleteGlobalClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteGlobalClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +109,8 @@ export class DeleteGlobalClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteGlobalClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteGlobalClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +120,18 @@ export class DeleteGlobalClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteGlobalClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteGlobalClusterCommand(input, context);
+    return se_DeleteGlobalClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGlobalClusterCommandOutput> {
-    return deserializeAws_queryDeleteGlobalClusterCommand(output, context);
+    return de_DeleteGlobalClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

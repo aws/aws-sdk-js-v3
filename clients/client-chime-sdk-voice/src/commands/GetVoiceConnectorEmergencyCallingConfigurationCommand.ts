@@ -16,21 +16,75 @@ import {
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import {
   GetVoiceConnectorEmergencyCallingConfigurationRequest,
-  GetVoiceConnectorEmergencyCallingConfigurationRequestFilterSensitiveLog,
   GetVoiceConnectorEmergencyCallingConfigurationResponse,
   GetVoiceConnectorEmergencyCallingConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetVoiceConnectorEmergencyCallingConfigurationCommand,
-  serializeAws_restJson1GetVoiceConnectorEmergencyCallingConfigurationCommand,
+  de_GetVoiceConnectorEmergencyCallingConfigurationCommand,
+  se_GetVoiceConnectorEmergencyCallingConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetVoiceConnectorEmergencyCallingConfigurationCommand}.
+ */
 export interface GetVoiceConnectorEmergencyCallingConfigurationCommandInput
   extends GetVoiceConnectorEmergencyCallingConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetVoiceConnectorEmergencyCallingConfigurationCommand}.
+ */
 export interface GetVoiceConnectorEmergencyCallingConfigurationCommandOutput
   extends GetVoiceConnectorEmergencyCallingConfigurationResponse,
     __MetadataBearer {}
 
+/**
+ * @public
+ * <p>Retrieves the emergency calling configuration details for the specified Voice Connector.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeSDKVoiceClient, GetVoiceConnectorEmergencyCallingConfigurationCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
+ * // const { ChimeSDKVoiceClient, GetVoiceConnectorEmergencyCallingConfigurationCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * const client = new ChimeSDKVoiceClient(config);
+ * const input = { // GetVoiceConnectorEmergencyCallingConfigurationRequest
+ *   VoiceConnectorId: "STRING_VALUE", // required
+ * };
+ * const command = new GetVoiceConnectorEmergencyCallingConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @param GetVoiceConnectorEmergencyCallingConfigurationCommandInput - {@link GetVoiceConnectorEmergencyCallingConfigurationCommandInput}
+ * @returns {@link GetVoiceConnectorEmergencyCallingConfigurationCommandOutput}
+ * @see {@link GetVoiceConnectorEmergencyCallingConfigurationCommandInput} for command's `input` shape.
+ * @see {@link GetVoiceConnectorEmergencyCallingConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The requested resource couldn't be found.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The number of customer requests exceeds the request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client isn't authorized to request a resource.</p>
+ *
+ *
+ */
 export class GetVoiceConnectorEmergencyCallingConfigurationCommand extends $Command<
   GetVoiceConnectorEmergencyCallingConfigurationCommandInput,
   GetVoiceConnectorEmergencyCallingConfigurationCommandOutput,
@@ -48,6 +102,9 @@ export class GetVoiceConnectorEmergencyCallingConfigurationCommand extends $Comm
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetVoiceConnectorEmergencyCallingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -82,7 +139,7 @@ export class GetVoiceConnectorEmergencyCallingConfigurationCommand extends $Comm
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetVoiceConnectorEmergencyCallingConfigurationRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetVoiceConnectorEmergencyCallingConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -93,18 +150,24 @@ export class GetVoiceConnectorEmergencyCallingConfigurationCommand extends $Comm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetVoiceConnectorEmergencyCallingConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetVoiceConnectorEmergencyCallingConfigurationCommand(input, context);
+    return se_GetVoiceConnectorEmergencyCallingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetVoiceConnectorEmergencyCallingConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetVoiceConnectorEmergencyCallingConfigurationCommand(output, context);
+    return de_GetVoiceConnectorEmergencyCallingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

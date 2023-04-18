@@ -19,16 +19,24 @@ import {
   UpdateMaintenanceWindowTaskResult,
   UpdateMaintenanceWindowTaskResultFilterSensitiveLog,
 } from "../models/models_2";
-import {
-  deserializeAws_json1_1UpdateMaintenanceWindowTaskCommand,
-  serializeAws_json1_1UpdateMaintenanceWindowTaskCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateMaintenanceWindowTaskCommand, se_UpdateMaintenanceWindowTaskCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateMaintenanceWindowTaskCommand}.
+ */
 export interface UpdateMaintenanceWindowTaskCommandInput extends UpdateMaintenanceWindowTaskRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateMaintenanceWindowTaskCommand}.
+ */
 export interface UpdateMaintenanceWindowTaskCommandOutput extends UpdateMaintenanceWindowTaskResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies a task assigned to a maintenance window. You can't change the task type, but you
  *    can change the following values:</p>
  *          <ul>
@@ -91,13 +99,111 @@ export interface UpdateMaintenanceWindowTaskCommandOutput extends UpdateMaintena
  * import { SSMClient, UpdateMaintenanceWindowTaskCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, UpdateMaintenanceWindowTaskCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // UpdateMaintenanceWindowTaskRequest
+ *   WindowId: "STRING_VALUE", // required
+ *   WindowTaskId: "STRING_VALUE", // required
+ *   Targets: [ // Targets
+ *     { // Target
+ *       Key: "STRING_VALUE",
+ *       Values: [ // TargetValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   TaskArn: "STRING_VALUE",
+ *   ServiceRoleArn: "STRING_VALUE",
+ *   TaskParameters: { // MaintenanceWindowTaskParameters
+ *     "<keys>": { // MaintenanceWindowTaskParameterValueExpression
+ *       Values: [ // MaintenanceWindowTaskParameterValueList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ *   TaskInvocationParameters: { // MaintenanceWindowTaskInvocationParameters
+ *     RunCommand: { // MaintenanceWindowRunCommandParameters
+ *       Comment: "STRING_VALUE",
+ *       CloudWatchOutputConfig: { // CloudWatchOutputConfig
+ *         CloudWatchLogGroupName: "STRING_VALUE",
+ *         CloudWatchOutputEnabled: true || false,
+ *       },
+ *       DocumentHash: "STRING_VALUE",
+ *       DocumentHashType: "Sha256" || "Sha1",
+ *       DocumentVersion: "STRING_VALUE",
+ *       NotificationConfig: { // NotificationConfig
+ *         NotificationArn: "STRING_VALUE",
+ *         NotificationEvents: [ // NotificationEventList
+ *           "All" || "InProgress" || "Success" || "TimedOut" || "Cancelled" || "Failed",
+ *         ],
+ *         NotificationType: "Command" || "Invocation",
+ *       },
+ *       OutputS3BucketName: "STRING_VALUE",
+ *       OutputS3KeyPrefix: "STRING_VALUE",
+ *       Parameters: { // Parameters
+ *         "<keys>": [ // ParameterValueList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       ServiceRoleArn: "STRING_VALUE",
+ *       TimeoutSeconds: Number("int"),
+ *     },
+ *     Automation: { // MaintenanceWindowAutomationParameters
+ *       DocumentVersion: "STRING_VALUE",
+ *       Parameters: { // AutomationParameterMap
+ *         "<keys>": [ // AutomationParameterValueList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *     StepFunctions: { // MaintenanceWindowStepFunctionsParameters
+ *       Input: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *     },
+ *     Lambda: { // MaintenanceWindowLambdaParameters
+ *       ClientContext: "STRING_VALUE",
+ *       Qualifier: "STRING_VALUE",
+ *       Payload: "BLOB_VALUE",
+ *     },
+ *   },
+ *   Priority: Number("int"),
+ *   MaxConcurrency: "STRING_VALUE",
+ *   MaxErrors: "STRING_VALUE",
+ *   LoggingInfo: { // LoggingInfo
+ *     S3BucketName: "STRING_VALUE", // required
+ *     S3KeyPrefix: "STRING_VALUE",
+ *     S3Region: "STRING_VALUE", // required
+ *   },
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   Replace: true || false,
+ *   CutoffBehavior: "CONTINUE_TASK" || "CANCEL_TASK",
+ *   AlarmConfiguration: { // AlarmConfiguration
+ *     IgnorePollAlarmFailure: true || false,
+ *     Alarms: [ // AlarmList // required
+ *       { // Alarm
+ *         Name: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new UpdateMaintenanceWindowTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateMaintenanceWindowTaskCommandInput - {@link UpdateMaintenanceWindowTaskCommandInput}
+ * @returns {@link UpdateMaintenanceWindowTaskCommandOutput}
  * @see {@link UpdateMaintenanceWindowTaskCommandInput} for command's `input` shape.
  * @see {@link UpdateMaintenanceWindowTaskCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link DoesNotExistException} (client fault)
+ *  <p>Error returned when the ID specified for a resource, such as a maintenance window or patch
+ *    baseline, doesn't exist.</p>
+ *          <p>For information about resource quotas in Amazon Web Services Systems Manager, see <a href="https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm">Systems Manager service quotas</a> in the
+ *     <i>Amazon Web Services General Reference</i>.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
  *
  */
 export class UpdateMaintenanceWindowTaskCommand extends $Command<
@@ -117,6 +223,9 @@ export class UpdateMaintenanceWindowTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateMaintenanceWindowTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -156,15 +265,21 @@ export class UpdateMaintenanceWindowTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateMaintenanceWindowTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateMaintenanceWindowTaskCommand(input, context);
+    return se_UpdateMaintenanceWindowTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateMaintenanceWindowTaskCommandOutput> {
-    return deserializeAws_json1_1UpdateMaintenanceWindowTaskCommand(output, context);
+    return de_UpdateMaintenanceWindowTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

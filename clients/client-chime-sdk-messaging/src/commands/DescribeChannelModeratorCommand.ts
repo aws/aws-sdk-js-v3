@@ -20,19 +20,26 @@ import {
 } from "../ChimeSDKMessagingClient";
 import {
   DescribeChannelModeratorRequest,
-  DescribeChannelModeratorRequestFilterSensitiveLog,
   DescribeChannelModeratorResponse,
   DescribeChannelModeratorResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeChannelModeratorCommand,
-  serializeAws_restJson1DescribeChannelModeratorCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeChannelModeratorCommand, se_DescribeChannelModeratorCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeChannelModeratorCommand}.
+ */
 export interface DescribeChannelModeratorCommandInput extends DescribeChannelModeratorRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeChannelModeratorCommand}.
+ */
 export interface DescribeChannelModeratorCommandOutput extends DescribeChannelModeratorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the full details of a single ChannelModerator.</p>
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
@@ -45,13 +52,42 @@ export interface DescribeChannelModeratorCommandOutput extends DescribeChannelMo
  * import { ChimeSDKMessagingClient, DescribeChannelModeratorCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, DescribeChannelModeratorCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
+ * const input = { // DescribeChannelModeratorRequest
+ *   ChannelArn: "STRING_VALUE", // required
+ *   ChannelModeratorArn: "STRING_VALUE", // required
+ *   ChimeBearer: "STRING_VALUE", // required
+ * };
  * const command = new DescribeChannelModeratorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeChannelModeratorCommandInput - {@link DescribeChannelModeratorCommandInput}
+ * @returns {@link DescribeChannelModeratorCommandOutput}
  * @see {@link DescribeChannelModeratorCommandInput} for command's `input` shape.
  * @see {@link DescribeChannelModeratorCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>One or more of the resources in the request does not exist in the system.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The client exceeded its request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client is not currently authorized to make the request.</p>
+ *
  *
  */
 export class DescribeChannelModeratorCommand extends $Command<
@@ -71,6 +107,9 @@ export class DescribeChannelModeratorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeChannelModeratorCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,7 +138,7 @@ export class DescribeChannelModeratorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeChannelModeratorRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeChannelModeratorResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -110,12 +149,18 @@ export class DescribeChannelModeratorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeChannelModeratorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeChannelModeratorCommand(input, context);
+    return se_DescribeChannelModeratorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeChannelModeratorCommandOutput> {
-    return deserializeAws_restJson1DescribeChannelModeratorCommand(output, context);
+    return de_DescribeChannelModeratorCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateApnsVoipSandboxChannelRequest,
-  UpdateApnsVoipSandboxChannelRequestFilterSensitiveLog,
-  UpdateApnsVoipSandboxChannelResponse,
-  UpdateApnsVoipSandboxChannelResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { UpdateApnsVoipSandboxChannelRequest, UpdateApnsVoipSandboxChannelResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
-  deserializeAws_restJson1UpdateApnsVoipSandboxChannelCommand,
-  serializeAws_restJson1UpdateApnsVoipSandboxChannelCommand,
+  de_UpdateApnsVoipSandboxChannelCommand,
+  se_UpdateApnsVoipSandboxChannelCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateApnsVoipSandboxChannelCommand}.
+ */
 export interface UpdateApnsVoipSandboxChannelCommandInput extends UpdateApnsVoipSandboxChannelRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateApnsVoipSandboxChannelCommand}.
+ */
 export interface UpdateApnsVoipSandboxChannelCommandOutput
   extends UpdateApnsVoipSandboxChannelResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables the APNs VoIP sandbox channel for an application or updates the status and settings of the APNs VoIP sandbox channel for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,50 @@ export interface UpdateApnsVoipSandboxChannelCommandOutput
  * import { PinpointClient, UpdateApnsVoipSandboxChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, UpdateApnsVoipSandboxChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // UpdateApnsVoipSandboxChannelRequest
+ *   APNSVoipSandboxChannelRequest: { // APNSVoipSandboxChannelRequest
+ *     BundleId: "STRING_VALUE",
+ *     Certificate: "STRING_VALUE",
+ *     DefaultAuthenticationMethod: "STRING_VALUE",
+ *     Enabled: true || false,
+ *     PrivateKey: "STRING_VALUE",
+ *     TeamId: "STRING_VALUE",
+ *     TokenKey: "STRING_VALUE",
+ *     TokenKeyId: "STRING_VALUE",
+ *   },
+ *   ApplicationId: "STRING_VALUE", // required
+ * };
  * const command = new UpdateApnsVoipSandboxChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateApnsVoipSandboxChannelCommandInput - {@link UpdateApnsVoipSandboxChannelCommandInput}
+ * @returns {@link UpdateApnsVoipSandboxChannelCommandOutput}
  * @see {@link UpdateApnsVoipSandboxChannelCommandInput} for command's `input` shape.
  * @see {@link UpdateApnsVoipSandboxChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link MethodNotAllowedException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link PayloadTooLargeException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
  *
  */
 export class UpdateApnsVoipSandboxChannelCommand extends $Command<
@@ -64,6 +107,9 @@ export class UpdateApnsVoipSandboxChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateApnsVoipSandboxChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +138,8 @@ export class UpdateApnsVoipSandboxChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateApnsVoipSandboxChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateApnsVoipSandboxChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +149,21 @@ export class UpdateApnsVoipSandboxChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateApnsVoipSandboxChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateApnsVoipSandboxChannelCommand(input, context);
+    return se_UpdateApnsVoipSandboxChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateApnsVoipSandboxChannelCommandOutput> {
-    return deserializeAws_restJson1UpdateApnsVoipSandboxChannelCommand(output, context);
+    return de_UpdateApnsVoipSandboxChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

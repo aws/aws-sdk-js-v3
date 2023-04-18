@@ -14,19 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
+import { RemoveTagsFromOnPremisesInstancesInput } from "../models/models_0";
 import {
-  RemoveTagsFromOnPremisesInstancesInput,
-  RemoveTagsFromOnPremisesInstancesInputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RemoveTagsFromOnPremisesInstancesCommand,
-  serializeAws_json1_1RemoveTagsFromOnPremisesInstancesCommand,
+  de_RemoveTagsFromOnPremisesInstancesCommand,
+  se_RemoveTagsFromOnPremisesInstancesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link RemoveTagsFromOnPremisesInstancesCommand}.
+ */
 export interface RemoveTagsFromOnPremisesInstancesCommandInput extends RemoveTagsFromOnPremisesInstancesInput {}
+/**
+ * @public
+ *
+ * The output of {@link RemoveTagsFromOnPremisesInstancesCommand}.
+ */
 export interface RemoveTagsFromOnPremisesInstancesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes one or more tags from one or more on-premises instances.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -34,13 +42,49 @@ export interface RemoveTagsFromOnPremisesInstancesCommandOutput extends __Metada
  * import { CodeDeployClient, RemoveTagsFromOnPremisesInstancesCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, RemoveTagsFromOnPremisesInstancesCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
+ * const input = { // RemoveTagsFromOnPremisesInstancesInput
+ *   tags: [ // TagList // required
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   instanceNames: [ // InstanceNameList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new RemoveTagsFromOnPremisesInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveTagsFromOnPremisesInstancesCommandInput - {@link RemoveTagsFromOnPremisesInstancesCommandInput}
+ * @returns {@link RemoveTagsFromOnPremisesInstancesCommandOutput}
  * @see {@link RemoveTagsFromOnPremisesInstancesCommandInput} for command's `input` shape.
  * @see {@link RemoveTagsFromOnPremisesInstancesCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
+ *
+ * @throws {@link InstanceLimitExceededException} (client fault)
+ *  <p>The maximum number of allowed on-premises instances in a single call was
+ *             exceeded.</p>
+ *
+ * @throws {@link InstanceNameRequiredException} (client fault)
+ *  <p>An on-premises instance name was not specified.</p>
+ *
+ * @throws {@link InstanceNotRegisteredException} (client fault)
+ *  <p>The specified on-premises instance is not registered.</p>
+ *
+ * @throws {@link InvalidInstanceNameException} (client fault)
+ *  <p>The on-premises instance name was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidTagException} (client fault)
+ *  <p>The tag was specified in an invalid format.</p>
+ *
+ * @throws {@link TagLimitExceededException} (client fault)
+ *  <p>The maximum allowed number of tags was exceeded.</p>
+ *
+ * @throws {@link TagRequiredException} (client fault)
+ *  <p>A tag was not specified.</p>
+ *
  *
  */
 export class RemoveTagsFromOnPremisesInstancesCommand extends $Command<
@@ -60,6 +104,9 @@ export class RemoveTagsFromOnPremisesInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveTagsFromOnPremisesInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +135,8 @@ export class RemoveTagsFromOnPremisesInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveTagsFromOnPremisesInstancesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,18 +146,24 @@ export class RemoveTagsFromOnPremisesInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RemoveTagsFromOnPremisesInstancesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1RemoveTagsFromOnPremisesInstancesCommand(input, context);
+    return se_RemoveTagsFromOnPremisesInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveTagsFromOnPremisesInstancesCommandOutput> {
-    return deserializeAws_json1_1RemoveTagsFromOnPremisesInstancesCommand(output, context);
+    return de_RemoveTagsFromOnPremisesInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

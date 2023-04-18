@@ -15,23 +15,32 @@ import {
 
 import {
   DeleteConfigurationSetEventDestinationRequest,
-  DeleteConfigurationSetEventDestinationRequestFilterSensitiveLog,
   DeleteConfigurationSetEventDestinationResponse,
-  DeleteConfigurationSetEventDestinationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { PinpointSMSVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointSMSVoiceClient";
 import {
-  deserializeAws_restJson1DeleteConfigurationSetEventDestinationCommand,
-  serializeAws_restJson1DeleteConfigurationSetEventDestinationCommand,
+  de_DeleteConfigurationSetEventDestinationCommand,
+  se_DeleteConfigurationSetEventDestinationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteConfigurationSetEventDestinationCommand}.
+ */
 export interface DeleteConfigurationSetEventDestinationCommandInput
   extends DeleteConfigurationSetEventDestinationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteConfigurationSetEventDestinationCommand}.
+ */
 export interface DeleteConfigurationSetEventDestinationCommandOutput
   extends DeleteConfigurationSetEventDestinationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * Deletes an event destination in a configuration set.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +48,32 @@ export interface DeleteConfigurationSetEventDestinationCommandOutput
  * import { PinpointSMSVoiceClient, DeleteConfigurationSetEventDestinationCommand } from "@aws-sdk/client-pinpoint-sms-voice"; // ES Modules import
  * // const { PinpointSMSVoiceClient, DeleteConfigurationSetEventDestinationCommand } = require("@aws-sdk/client-pinpoint-sms-voice"); // CommonJS import
  * const client = new PinpointSMSVoiceClient(config);
+ * const input = { // DeleteConfigurationSetEventDestinationRequest
+ *   ConfigurationSetName: "STRING_VALUE", // required
+ *   EventDestinationName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteConfigurationSetEventDestinationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteConfigurationSetEventDestinationCommandInput - {@link DeleteConfigurationSetEventDestinationCommandInput}
+ * @returns {@link DeleteConfigurationSetEventDestinationCommandOutput}
  * @see {@link DeleteConfigurationSetEventDestinationCommandInput} for command's `input` shape.
  * @see {@link DeleteConfigurationSetEventDestinationCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceClientResolvedConfig | config} for PinpointSMSVoiceClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  The input you provided is invalid.
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  The resource you attempted to access doesn't exist.
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  You've issued too many requests to the resource. Wait a few minutes, and then try again.
+ *
  *
  */
 export class DeleteConfigurationSetEventDestinationCommand extends $Command<
@@ -65,6 +93,9 @@ export class DeleteConfigurationSetEventDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteConfigurationSetEventDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +124,8 @@ export class DeleteConfigurationSetEventDestinationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteConfigurationSetEventDestinationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteConfigurationSetEventDestinationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,18 +135,24 @@ export class DeleteConfigurationSetEventDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteConfigurationSetEventDestinationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteConfigurationSetEventDestinationCommand(input, context);
+    return se_DeleteConfigurationSetEventDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteConfigurationSetEventDestinationCommandOutput> {
-    return deserializeAws_restJson1DeleteConfigurationSetEventDestinationCommand(output, context);
+    return de_DeleteConfigurationSetEventDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

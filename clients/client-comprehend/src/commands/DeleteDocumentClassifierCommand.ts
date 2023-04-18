@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import {
-  DeleteDocumentClassifierRequest,
-  DeleteDocumentClassifierRequestFilterSensitiveLog,
-  DeleteDocumentClassifierResponse,
-  DeleteDocumentClassifierResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteDocumentClassifierCommand,
-  serializeAws_json1_1DeleteDocumentClassifierCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteDocumentClassifierRequest, DeleteDocumentClassifierResponse } from "../models/models_0";
+import { de_DeleteDocumentClassifierCommand, se_DeleteDocumentClassifierCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteDocumentClassifierCommand}.
+ */
 export interface DeleteDocumentClassifierCommandInput extends DeleteDocumentClassifierRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteDocumentClassifierCommand}.
+ */
 export interface DeleteDocumentClassifierCommandOutput extends DeleteDocumentClassifierResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a previously created document classifier</p>
  *          <p>Only those classifiers that are in terminated states (IN_ERROR, TRAINED) will be deleted.
  *       If an active inference job is using the model, a <code>ResourceInUseException</code> will be
@@ -42,13 +45,39 @@ export interface DeleteDocumentClassifierCommandOutput extends DeleteDocumentCla
  * import { ComprehendClient, DeleteDocumentClassifierCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DeleteDocumentClassifierCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // DeleteDocumentClassifierRequest
+ *   DocumentClassifierArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDocumentClassifierCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDocumentClassifierCommandInput - {@link DeleteDocumentClassifierCommandInput}
+ * @returns {@link DeleteDocumentClassifierCommandOutput}
  * @see {@link DeleteDocumentClassifierCommandInput} for command's `input` shape.
  * @see {@link DeleteDocumentClassifierCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource name is already in use. Use a different name and try your request
+ *       again.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+ *
+ * @throws {@link ResourceUnavailableException} (client fault)
+ *  <p>The specified resource is not available. Check the resource and try your request
+ *       again.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ *
  *
  */
 export class DeleteDocumentClassifierCommand extends $Command<
@@ -68,6 +97,9 @@ export class DeleteDocumentClassifierCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDocumentClassifierCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +128,8 @@ export class DeleteDocumentClassifierCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDocumentClassifierRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDocumentClassifierResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +139,18 @@ export class DeleteDocumentClassifierCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDocumentClassifierCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDocumentClassifierCommand(input, context);
+    return se_DeleteDocumentClassifierCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDocumentClassifierCommandOutput> {
-    return deserializeAws_json1_1DeleteDocumentClassifierCommand(output, context);
+    return de_DeleteDocumentClassifierCommand(output, context);
   }
 
   // Start section: command_body_extra

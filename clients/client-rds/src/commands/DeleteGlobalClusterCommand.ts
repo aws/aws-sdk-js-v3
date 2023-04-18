@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteGlobalClusterMessage,
-  DeleteGlobalClusterMessageFilterSensitiveLog,
-  DeleteGlobalClusterResult,
-  DeleteGlobalClusterResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteGlobalClusterCommand,
-  serializeAws_queryDeleteGlobalClusterCommand,
-} from "../protocols/Aws_query";
+import { DeleteGlobalClusterMessage, DeleteGlobalClusterResult } from "../models/models_0";
+import { de_DeleteGlobalClusterCommand, se_DeleteGlobalClusterCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteGlobalClusterCommand}.
+ */
 export interface DeleteGlobalClusterCommandInput extends DeleteGlobalClusterMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteGlobalClusterCommand}.
+ */
 export interface DeleteGlobalClusterCommandOutput extends DeleteGlobalClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a global database cluster. The primary and secondary clusters must already be detached or
  *         destroyed first.</p>
  *          <note>
@@ -40,13 +43,51 @@ export interface DeleteGlobalClusterCommandOutput extends DeleteGlobalClusterRes
  * import { RDSClient, DeleteGlobalClusterCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DeleteGlobalClusterCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // DeleteGlobalClusterMessage
+ *   GlobalClusterIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new DeleteGlobalClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteGlobalClusterCommandInput - {@link DeleteGlobalClusterCommandInput}
+ * @returns {@link DeleteGlobalClusterCommandOutput}
  * @see {@link DeleteGlobalClusterCommandInput} for command's `input` shape.
  * @see {@link DeleteGlobalClusterCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ * @throws {@link GlobalClusterNotFoundFault} (client fault)
+ *  <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database cluster.</p>
+ *
+ * @throws {@link InvalidGlobalClusterStateFault} (client fault)
+ *  <p>The global cluster is in an invalid state and can't perform the requested operation.</p>
+ *
+ *
+ * @example To delete a global DB cluster
+ * ```javascript
+ * // The following example deletes an Aurora MySQL-compatible global DB cluster.
+ * const input = {
+ *   "GlobalClusterIdentifier": "myglobalcluster"
+ * };
+ * const command = new DeleteGlobalClusterCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "GlobalCluster": {
+ *     "DeletionProtection": false,
+ *     "Engine": "aurora-mysql",
+ *     "EngineVersion": "5.7.mysql_aurora.2.07.2",
+ *     "GlobalClusterArn": "arn:aws:rds::123456789012:global-cluster:myglobalcluster",
+ *     "GlobalClusterIdentifier": "myglobalcluster",
+ *     "GlobalClusterMembers": [],
+ *     "GlobalClusterResourceId": "cluster-f0e523bfe07aabb",
+ *     "Status": "available",
+ *     "StorageEncrypted": false
+ *   }
+ * }
+ * *\/
+ * // example id: to-delete-a-global-db-cluster-1680128523630
+ * ```
  *
  */
 export class DeleteGlobalClusterCommand extends $Command<
@@ -66,6 +107,9 @@ export class DeleteGlobalClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteGlobalClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +138,8 @@ export class DeleteGlobalClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteGlobalClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteGlobalClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +149,18 @@ export class DeleteGlobalClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteGlobalClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteGlobalClusterCommand(input, context);
+    return se_DeleteGlobalClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGlobalClusterCommandOutput> {
-    return deserializeAws_queryDeleteGlobalClusterCommand(output, context);
+    return de_DeleteGlobalClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

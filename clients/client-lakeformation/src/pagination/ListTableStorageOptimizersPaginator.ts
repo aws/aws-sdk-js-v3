@@ -6,12 +6,11 @@ import {
   ListTableStorageOptimizersCommandInput,
   ListTableStorageOptimizersCommandOutput,
 } from "../commands/ListTableStorageOptimizersCommand";
-import { LakeFormation } from "../LakeFormation";
 import { LakeFormationClient } from "../LakeFormationClient";
 import { LakeFormationPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: LakeFormationClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListTableStorageOptimizersCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: LakeFormation,
-  input: ListTableStorageOptimizersCommandInput,
-  ...args: any
-): Promise<ListTableStorageOptimizersCommandOutput> => {
-  // @ts-ignore
-  return await client.listTableStorageOptimizers(input, ...args);
-};
 export async function* paginateListTableStorageOptimizers(
   config: LakeFormationPaginationConfiguration,
   input: ListTableStorageOptimizersCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListTableStorageOptimizers(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof LakeFormation) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof LakeFormationClient) {
+    if (config.client instanceof LakeFormationClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected LakeFormation | LakeFormationClient");

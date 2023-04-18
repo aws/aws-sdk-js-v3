@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import {
-  DeleteFlowTemplateRequest,
-  DeleteFlowTemplateRequestFilterSensitiveLog,
-  DeleteFlowTemplateResponse,
-  DeleteFlowTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteFlowTemplateCommand,
-  serializeAws_json1_1DeleteFlowTemplateCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteFlowTemplateRequest, DeleteFlowTemplateResponse } from "../models/models_0";
+import { de_DeleteFlowTemplateCommand, se_DeleteFlowTemplateCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteFlowTemplateCommand}.
+ */
 export interface DeleteFlowTemplateCommandInput extends DeleteFlowTemplateRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteFlowTemplateCommand}.
+ */
 export interface DeleteFlowTemplateCommandOutput extends DeleteFlowTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Deletes a workflow. Any new system or deployment that contains this workflow will fail to update or deploy.
@@ -39,13 +42,31 @@ export interface DeleteFlowTemplateCommandOutput extends DeleteFlowTemplateRespo
  * import { IoTThingsGraphClient, DeleteFlowTemplateCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, DeleteFlowTemplateCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
+ * const input = { // DeleteFlowTemplateRequest
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteFlowTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFlowTemplateCommandInput - {@link DeleteFlowTemplateCommandInput}
+ * @returns {@link DeleteFlowTemplateCommandOutput}
  * @see {@link DeleteFlowTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteFlowTemplateCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p></p>
+ *
  *
  */
 export class DeleteFlowTemplateCommand extends $Command<
@@ -65,6 +86,9 @@ export class DeleteFlowTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFlowTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +117,8 @@ export class DeleteFlowTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFlowTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFlowTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +128,18 @@ export class DeleteFlowTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFlowTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteFlowTemplateCommand(input, context);
+    return se_DeleteFlowTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFlowTemplateCommandOutput> {
-    return deserializeAws_json1_1DeleteFlowTemplateCommand(output, context);
+    return de_DeleteFlowTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

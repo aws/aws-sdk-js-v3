@@ -18,17 +18,24 @@ import {
   PutSkillAuthorizationRequest,
   PutSkillAuthorizationRequestFilterSensitiveLog,
   PutSkillAuthorizationResponse,
-  PutSkillAuthorizationResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutSkillAuthorizationCommand,
-  serializeAws_json1_1PutSkillAuthorizationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutSkillAuthorizationCommand, se_PutSkillAuthorizationCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutSkillAuthorizationCommand}.
+ */
 export interface PutSkillAuthorizationCommandInput extends PutSkillAuthorizationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutSkillAuthorizationCommand}.
+ */
 export interface PutSkillAuthorizationCommandOutput extends PutSkillAuthorizationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Links a user's account to a third-party skill provider. If this API operation is
  *          called by an assumed IAM role, the skill being linked must be a private skill. Also, the
  *          skill must be owned by the AWS account that assumed the IAM role.</p>
@@ -38,13 +45,29 @@ export interface PutSkillAuthorizationCommandOutput extends PutSkillAuthorizatio
  * import { AlexaForBusinessClient, PutSkillAuthorizationCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, PutSkillAuthorizationCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // PutSkillAuthorizationRequest
+ *   AuthorizationResult: { // AuthorizationResult // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   SkillId: "STRING_VALUE", // required
+ *   RoomArn: "STRING_VALUE",
+ * };
  * const command = new PutSkillAuthorizationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutSkillAuthorizationCommandInput - {@link PutSkillAuthorizationCommandInput}
+ * @returns {@link PutSkillAuthorizationCommandOutput}
  * @see {@link PutSkillAuthorizationCommandInput} for command's `input` shape.
  * @see {@link PutSkillAuthorizationCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is a concurrent modification of resources.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The caller has no permissions to operate on the resource involved in the API call.</p>
+ *
  *
  */
 export class PutSkillAuthorizationCommand extends $Command<
@@ -64,6 +87,9 @@ export class PutSkillAuthorizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutSkillAuthorizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,7 +119,7 @@ export class PutSkillAuthorizationCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: PutSkillAuthorizationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutSkillAuthorizationResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +129,18 @@ export class PutSkillAuthorizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutSkillAuthorizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutSkillAuthorizationCommand(input, context);
+    return se_PutSkillAuthorizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutSkillAuthorizationCommandOutput> {
-    return deserializeAws_json1_1PutSkillAuthorizationCommand(output, context);
+    return de_PutSkillAuthorizationCommand(output, context);
   }
 
   // Start section: command_body_extra

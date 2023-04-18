@@ -15,22 +15,31 @@ import {
 
 import {
   GetDatalakeExceptionsSubscriptionRequest,
-  GetDatalakeExceptionsSubscriptionRequestFilterSensitiveLog,
   GetDatalakeExceptionsSubscriptionResponse,
-  GetDatalakeExceptionsSubscriptionResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetDatalakeExceptionsSubscriptionCommand,
-  serializeAws_restJson1GetDatalakeExceptionsSubscriptionCommand,
+  de_GetDatalakeExceptionsSubscriptionCommand,
+  se_GetDatalakeExceptionsSubscriptionCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetDatalakeExceptionsSubscriptionCommand}.
+ */
 export interface GetDatalakeExceptionsSubscriptionCommandInput extends GetDatalakeExceptionsSubscriptionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetDatalakeExceptionsSubscriptionCommand}.
+ */
 export interface GetDatalakeExceptionsSubscriptionCommandOutput
   extends GetDatalakeExceptionsSubscriptionResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the details of exception notifications for the account in Amazon Security Lake.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +47,35 @@ export interface GetDatalakeExceptionsSubscriptionCommandOutput
  * import { SecurityLakeClient, GetDatalakeExceptionsSubscriptionCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, GetDatalakeExceptionsSubscriptionCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
+ * const input = {};
  * const command = new GetDatalakeExceptionsSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDatalakeExceptionsSubscriptionCommandInput - {@link GetDatalakeExceptionsSubscriptionCommandInput}
+ * @returns {@link GetDatalakeExceptionsSubscriptionCommandOutput}
  * @see {@link GetDatalakeExceptionsSubscriptionCommandInput} for command's `input` shape.
  * @see {@link GetDatalakeExceptionsSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action. Access denied errors appear when Amazon Security Lake explicitly or implicitly denies an authorization
+ *          request. An explicit denial occurs when a policy contains a Deny statement for the specific
+ *          Amazon Web Services action. An implicit denial occurs when there is no applicable Deny statement and also
+ *          no applicable Allow statement.</p>
+ *
+ * @throws {@link AccountNotFoundException} (client fault)
+ *  <p>Amazon Security Lake cannot find an Amazon Web Services account with the accountID that you
+ *          specified, or the account whose credentials you used to make this request isn't a member of
+ *          an organization.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Internal service exceptions are sometimes caused by transient issues. Before you start
+ *          troubleshooting, perform the operation again. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Your signing certificate could not be validated. </p>
+ *
  *
  */
 export class GetDatalakeExceptionsSubscriptionCommand extends $Command<
@@ -64,6 +95,9 @@ export class GetDatalakeExceptionsSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDatalakeExceptionsSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +126,8 @@ export class GetDatalakeExceptionsSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDatalakeExceptionsSubscriptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDatalakeExceptionsSubscriptionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +137,24 @@ export class GetDatalakeExceptionsSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetDatalakeExceptionsSubscriptionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDatalakeExceptionsSubscriptionCommand(input, context);
+    return se_GetDatalakeExceptionsSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDatalakeExceptionsSubscriptionCommandOutput> {
-    return deserializeAws_restJson1GetDatalakeExceptionsSubscriptionCommand(output, context);
+    return de_GetDatalakeExceptionsSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CodestarNotificationsClient";
-import {
-  DeleteTargetRequest,
-  DeleteTargetRequestFilterSensitiveLog,
-  DeleteTargetResult,
-  DeleteTargetResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteTargetCommand,
-  serializeAws_restJson1DeleteTargetCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteTargetRequest, DeleteTargetRequestFilterSensitiveLog, DeleteTargetResult } from "../models/models_0";
+import { de_DeleteTargetCommand, se_DeleteTargetCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteTargetCommand}.
+ */
 export interface DeleteTargetCommandInput extends DeleteTargetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteTargetCommand}.
+ */
 export interface DeleteTargetCommandOutput extends DeleteTargetResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specified target for notifications.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,23 @@ export interface DeleteTargetCommandOutput extends DeleteTargetResult, __Metadat
  * import { CodestarNotificationsClient, DeleteTargetCommand } from "@aws-sdk/client-codestar-notifications"; // ES Modules import
  * // const { CodestarNotificationsClient, DeleteTargetCommand } = require("@aws-sdk/client-codestar-notifications"); // CommonJS import
  * const client = new CodestarNotificationsClient(config);
+ * const input = { // DeleteTargetRequest
+ *   TargetAddress: "STRING_VALUE", // required
+ *   ForceUnsubscribeAll: true || false,
+ * };
  * const command = new DeleteTargetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTargetCommandInput - {@link DeleteTargetCommandInput}
+ * @returns {@link DeleteTargetCommandOutput}
  * @see {@link DeleteTargetCommandInput} for command's `input` shape.
  * @see {@link DeleteTargetCommandOutput} for command's `response` shape.
  * @see {@link CodestarNotificationsClientResolvedConfig | config} for CodestarNotificationsClient's `config` shape.
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
  *
  */
 export class DeleteTargetCommand extends $Command<
@@ -66,6 +79,9 @@ export class DeleteTargetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTargetCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,7 +109,7 @@ export class DeleteTargetCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: DeleteTargetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTargetResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +119,18 @@ export class DeleteTargetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTargetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteTargetCommand(input, context);
+    return se_DeleteTargetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTargetCommandOutput> {
-    return deserializeAws_restJson1DeleteTargetCommand(output, context);
+    return de_DeleteTargetCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,25 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeInstancesRequest,
-  DescribeInstancesRequestFilterSensitiveLog,
-  DescribeInstancesResult,
-  DescribeInstancesResultFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeInstancesCommand,
-  serializeAws_ec2DescribeInstancesCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeInstancesRequest } from "../models/models_3";
+import { DescribeInstancesResult } from "../models/models_4";
+import { de_DescribeInstancesCommand, se_DescribeInstancesCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeInstancesCommand}.
+ */
 export interface DescribeInstancesCommandInput extends DescribeInstancesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeInstancesCommand}.
+ */
 export interface DescribeInstancesCommandOutput extends DescribeInstancesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified instances or all instances.</p>
  *          <p>If you specify instance IDs, the output includes information for only the specified
  *             instances. If you specify filters, the output includes information for only those
@@ -51,13 +55,81 @@ export interface DescribeInstancesCommandOutput extends DescribeInstancesResult,
  * import { EC2Client, DescribeInstancesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeInstancesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeInstancesRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   InstanceIds: [ // InstanceIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   DryRun: true || false,
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInstancesCommandInput - {@link DescribeInstancesCommandInput}
+ * @returns {@link DescribeInstancesCommandOutput}
  * @see {@link DescribeInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ *
+ * @example To describe an Amazon EC2 instance
+ * ```javascript
+ * // This example describes the specified instance.
+ * const input = {
+ *   "InstanceIds": [
+ *     "i-1234567890abcdef0"
+ *   ]
+ * };
+ * const command = new DescribeInstancesCommand(input);
+ * await client.send(command);
+ * // example id: to-describe-an-amazon-ec2-instance-1529025982172
+ * ```
+ *
+ * @example To describe the instances with a specific instance type
+ * ```javascript
+ * // This example describes the instances with the t2.micro instance type.
+ * const input = {
+ *   "Filters": [
+ *     {
+ *       "Name": "instance-type",
+ *       "Values": [
+ *         "t2.micro"
+ *       ]
+ *     }
+ *   ]
+ * };
+ * const command = new DescribeInstancesCommand(input);
+ * await client.send(command);
+ * // example id: to-describe-the-instances-with-the-instance-type-t2micro-1529026147602
+ * ```
+ *
+ * @example To describe the instances with a specific tag
+ * ```javascript
+ * // This example describes the instances with the Purpose=test tag.
+ * const input = {
+ *   "Filters": [
+ *     {
+ *       "Name": "tag:Purpose",
+ *       "Values": [
+ *         "test"
+ *       ]
+ *     }
+ *   ]
+ * };
+ * const command = new DescribeInstancesCommand(input);
+ * await client.send(command);
+ * // example id: to-describe-the-instances-with-a-specific-tag-1529026251928
+ * ```
  *
  */
 export class DescribeInstancesCommand extends $Command<
@@ -77,6 +149,9 @@ export class DescribeInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +180,8 @@ export class DescribeInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInstancesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeInstancesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +191,18 @@ export class DescribeInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeInstancesCommand(input, context);
+    return se_DescribeInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeInstancesCommandOutput> {
-    return deserializeAws_ec2DescribeInstancesCommand(output, context);
+    return de_DescribeInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

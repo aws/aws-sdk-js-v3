@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  BasePathMappings,
-  BasePathMappingsFilterSensitiveLog,
-  GetBasePathMappingsRequest,
-  GetBasePathMappingsRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetBasePathMappingsCommand,
-  serializeAws_restJson1GetBasePathMappingsCommand,
-} from "../protocols/Aws_restJson1";
+import { BasePathMappings, GetBasePathMappingsRequest } from "../models/models_0";
+import { de_GetBasePathMappingsCommand, se_GetBasePathMappingsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetBasePathMappingsCommand}.
+ */
 export interface GetBasePathMappingsCommandInput extends GetBasePathMappingsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetBasePathMappingsCommand}.
+ */
 export interface GetBasePathMappingsCommandOutput extends BasePathMappings, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Represents a collection of BasePathMapping resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,33 @@ export interface GetBasePathMappingsCommandOutput extends BasePathMappings, __Me
  * import { APIGatewayClient, GetBasePathMappingsCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetBasePathMappingsCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // GetBasePathMappingsRequest
+ *   domainName: "STRING_VALUE", // required
+ *   position: "STRING_VALUE",
+ *   limit: Number("int"),
+ * };
  * const command = new GetBasePathMappingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBasePathMappingsCommandInput - {@link GetBasePathMappingsCommandInput}
+ * @returns {@link GetBasePathMappingsCommandOutput}
  * @see {@link GetBasePathMappingsCommandInput} for command's `input` shape.
  * @see {@link GetBasePathMappingsCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The request is denied because the caller has insufficient permissions.</p>
+ *
  *
  */
 export class GetBasePathMappingsCommand extends $Command<
@@ -62,6 +85,9 @@ export class GetBasePathMappingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBasePathMappingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +116,8 @@ export class GetBasePathMappingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBasePathMappingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BasePathMappingsFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +127,18 @@ export class GetBasePathMappingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBasePathMappingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetBasePathMappingsCommand(input, context);
+    return se_GetBasePathMappingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBasePathMappingsCommandOutput> {
-    return deserializeAws_restJson1GetBasePathMappingsCommand(output, context);
+    return de_GetBasePathMappingsCommand(output, context);
   }
 
   // Start section: command_body_extra

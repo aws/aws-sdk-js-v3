@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
+import { DescribeNotificationConfigurationInput, DescribeNotificationConfigurationOutput } from "../models/models_0";
 import {
-  DescribeNotificationConfigurationInput,
-  DescribeNotificationConfigurationInputFilterSensitiveLog,
-  DescribeNotificationConfigurationOutput,
-  DescribeNotificationConfigurationOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeNotificationConfigurationCommand,
-  serializeAws_restJson1DescribeNotificationConfigurationCommand,
+  de_DescribeNotificationConfigurationCommand,
+  se_DescribeNotificationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeNotificationConfigurationCommand}.
+ */
 export interface DescribeNotificationConfigurationCommandInput extends DescribeNotificationConfigurationInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeNotificationConfigurationCommand}.
+ */
 export interface DescribeNotificationConfigurationCommandOutput
   extends DescribeNotificationConfigurationOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the <code>NotificationConfiguration</code> for a given Kinesis video stream.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,33 @@ export interface DescribeNotificationConfigurationCommandOutput
  * import { KinesisVideoClient, DescribeNotificationConfigurationCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, DescribeNotificationConfigurationCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
+ * const input = { // DescribeNotificationConfigurationInput
+ *   StreamName: "STRING_VALUE",
+ *   StreamARN: "STRING_VALUE",
+ * };
  * const command = new DescribeNotificationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeNotificationConfigurationCommandInput - {@link DescribeNotificationConfigurationCommandInput}
+ * @returns {@link DescribeNotificationConfigurationCommandOutput}
  * @see {@link DescribeNotificationConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeNotificationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have required permissions to perform this operation.</p>
+ *
+ * @throws {@link ClientLimitExceededException} (client fault)
+ *  <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
+ *             allowed client calls. Try making the call later.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>The value for this input parameter is invalid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
+ *
  *
  */
 export class DescribeNotificationConfigurationCommand extends $Command<
@@ -64,6 +90,9 @@ export class DescribeNotificationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeNotificationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +121,8 @@ export class DescribeNotificationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeNotificationConfigurationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeNotificationConfigurationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +132,24 @@ export class DescribeNotificationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeNotificationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeNotificationConfigurationCommand(input, context);
+    return se_DescribeNotificationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeNotificationConfigurationCommandOutput> {
-    return deserializeAws_restJson1DescribeNotificationConfigurationCommand(output, context);
+    return de_DescribeNotificationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

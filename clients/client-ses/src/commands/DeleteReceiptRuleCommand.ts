@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteReceiptRuleRequest,
-  DeleteReceiptRuleRequestFilterSensitiveLog,
-  DeleteReceiptRuleResponse,
-  DeleteReceiptRuleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteReceiptRuleCommand,
-  serializeAws_queryDeleteReceiptRuleCommand,
-} from "../protocols/Aws_query";
+import { DeleteReceiptRuleRequest, DeleteReceiptRuleResponse } from "../models/models_0";
+import { de_DeleteReceiptRuleCommand, se_DeleteReceiptRuleCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteReceiptRuleCommand}.
+ */
 export interface DeleteReceiptRuleCommandInput extends DeleteReceiptRuleRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteReceiptRuleCommand}.
+ */
 export interface DeleteReceiptRuleCommandOutput extends DeleteReceiptRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified receipt rule.</p>
  *         <p>For information about managing receipt rules, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html">Amazon SES
  *                 Developer Guide</a>.</p>
@@ -39,13 +42,35 @@ export interface DeleteReceiptRuleCommandOutput extends DeleteReceiptRuleRespons
  * import { SESClient, DeleteReceiptRuleCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, DeleteReceiptRuleCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // DeleteReceiptRuleRequest
+ *   RuleSetName: "STRING_VALUE", // required
+ *   RuleName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteReceiptRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteReceiptRuleCommandInput - {@link DeleteReceiptRuleCommandInput}
+ * @returns {@link DeleteReceiptRuleCommandOutput}
  * @see {@link DeleteReceiptRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteReceiptRuleCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
+ *
+ * @throws {@link RuleSetDoesNotExistException} (client fault)
+ *  <p>Indicates that the provided receipt rule set does not exist.</p>
+ *
+ *
+ * @example DeleteReceiptRule
+ * ```javascript
+ * // The following example deletes a receipt rule:
+ * const input = {
+ *   "RuleName": "MyRule",
+ *   "RuleSetName": "MyRuleSet"
+ * };
+ * const command = new DeleteReceiptRuleCommand(input);
+ * await client.send(command);
+ * // example id: deletereceiptrule-1469055563599
+ * ```
  *
  */
 export class DeleteReceiptRuleCommand extends $Command<
@@ -65,6 +90,9 @@ export class DeleteReceiptRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteReceiptRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +121,8 @@ export class DeleteReceiptRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteReceiptRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteReceiptRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +132,18 @@ export class DeleteReceiptRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteReceiptRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteReceiptRuleCommand(input, context);
+    return se_DeleteReceiptRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteReceiptRuleCommandOutput> {
-    return deserializeAws_queryDeleteReceiptRuleCommand(output, context);
+    return de_DeleteReceiptRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

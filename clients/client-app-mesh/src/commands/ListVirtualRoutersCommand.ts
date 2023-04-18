@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import {
-  ListVirtualRoutersInput,
-  ListVirtualRoutersInputFilterSensitiveLog,
-  ListVirtualRoutersOutput,
-  ListVirtualRoutersOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListVirtualRoutersCommand,
-  serializeAws_restJson1ListVirtualRoutersCommand,
-} from "../protocols/Aws_restJson1";
+import { ListVirtualRoutersInput, ListVirtualRoutersOutput } from "../models/models_0";
+import { de_ListVirtualRoutersCommand, se_ListVirtualRoutersCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListVirtualRoutersCommand}.
+ */
 export interface ListVirtualRoutersCommandInput extends ListVirtualRoutersInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListVirtualRoutersCommand}.
+ */
 export interface ListVirtualRoutersCommandOutput extends ListVirtualRoutersOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of existing virtual routers in a service mesh.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,43 @@ export interface ListVirtualRoutersCommandOutput extends ListVirtualRoutersOutpu
  * import { AppMeshClient, ListVirtualRoutersCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, ListVirtualRoutersCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
+ * const input = { // ListVirtualRoutersInput
+ *   meshName: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   limit: Number("int"),
+ *   meshOwner: "STRING_VALUE",
+ * };
  * const command = new ListVirtualRoutersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListVirtualRoutersCommandInput - {@link ListVirtualRoutersCommandInput}
+ * @returns {@link ListVirtualRoutersCommandOutput}
  * @see {@link ListVirtualRoutersCommandInput} for command's `input` shape.
  * @see {@link ListVirtualRoutersCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request syntax was malformed. Check your request syntax and try again.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>You don't have permissions to perform this action.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception, or
+ *          failure.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The specified resource doesn't exist. Check your request syntax and try again.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request has failed due to a temporary failure of the service.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The maximum request rate permitted by the App Mesh APIs has been exceeded for
+ *          your account. For best results, use an increasing or variable sleep interval between
+ *          requests.</p>
+ *
  *
  */
 export class ListVirtualRoutersCommand extends $Command<
@@ -62,6 +95,9 @@ export class ListVirtualRoutersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListVirtualRoutersCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +126,8 @@ export class ListVirtualRoutersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListVirtualRoutersInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListVirtualRoutersOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +137,18 @@ export class ListVirtualRoutersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListVirtualRoutersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListVirtualRoutersCommand(input, context);
+    return se_ListVirtualRoutersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVirtualRoutersCommandOutput> {
-    return deserializeAws_restJson1ListVirtualRoutersCommand(output, context);
+    return de_ListVirtualRoutersCommand(output, context);
   }
 
   // Start section: command_body_extra

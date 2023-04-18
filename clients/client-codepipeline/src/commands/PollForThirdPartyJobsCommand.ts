@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import {
-  PollForThirdPartyJobsInput,
-  PollForThirdPartyJobsInputFilterSensitiveLog,
-  PollForThirdPartyJobsOutput,
-  PollForThirdPartyJobsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PollForThirdPartyJobsCommand,
-  serializeAws_json1_1PollForThirdPartyJobsCommand,
-} from "../protocols/Aws_json1_1";
+import { PollForThirdPartyJobsInput, PollForThirdPartyJobsOutput } from "../models/models_0";
+import { de_PollForThirdPartyJobsCommand, se_PollForThirdPartyJobsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link PollForThirdPartyJobsCommand}.
+ */
 export interface PollForThirdPartyJobsCommandInput extends PollForThirdPartyJobsInput {}
+/**
+ * @public
+ *
+ * The output of {@link PollForThirdPartyJobsCommand}.
+ */
 export interface PollForThirdPartyJobsCommandOutput extends PollForThirdPartyJobsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Determines whether there are any third party jobs for a job worker to act on. Used
  *             for partner actions only.</p>
  *         <important>
@@ -42,13 +45,31 @@ export interface PollForThirdPartyJobsCommandOutput extends PollForThirdPartyJob
  * import { CodePipelineClient, PollForThirdPartyJobsCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, PollForThirdPartyJobsCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
+ * const input = { // PollForThirdPartyJobsInput
+ *   actionTypeId: { // ActionTypeId
+ *     category: "STRING_VALUE", // required
+ *     owner: "STRING_VALUE", // required
+ *     provider: "STRING_VALUE", // required
+ *     version: "STRING_VALUE", // required
+ *   },
+ *   maxBatchSize: Number("int"),
+ * };
  * const command = new PollForThirdPartyJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PollForThirdPartyJobsCommandInput - {@link PollForThirdPartyJobsCommandInput}
+ * @returns {@link PollForThirdPartyJobsCommandOutput}
  * @see {@link PollForThirdPartyJobsCommandInput} for command's `input` shape.
  * @see {@link PollForThirdPartyJobsCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
+ *
+ * @throws {@link ActionTypeNotFoundException} (client fault)
+ *  <p>The specified action type cannot be found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The validation was specified in an invalid format.</p>
+ *
  *
  */
 export class PollForThirdPartyJobsCommand extends $Command<
@@ -68,6 +89,9 @@ export class PollForThirdPartyJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PollForThirdPartyJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +120,8 @@ export class PollForThirdPartyJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PollForThirdPartyJobsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PollForThirdPartyJobsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +131,18 @@ export class PollForThirdPartyJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PollForThirdPartyJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PollForThirdPartyJobsCommand(input, context);
+    return se_PollForThirdPartyJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PollForThirdPartyJobsCommandOutput> {
-    return deserializeAws_json1_1PollForThirdPartyJobsCommand(output, context);
+    return de_PollForThirdPartyJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeWorkteamRequest,
-  DescribeWorkteamRequestFilterSensitiveLog,
-  DescribeWorkteamResponse,
-  DescribeWorkteamResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeWorkteamCommand,
-  serializeAws_json1_1DescribeWorkteamCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeWorkteamRequest, DescribeWorkteamResponse } from "../models/models_2";
+import { de_DescribeWorkteamCommand, se_DescribeWorkteamCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeWorkteamCommand}.
+ */
 export interface DescribeWorkteamCommandInput extends DescribeWorkteamRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeWorkteamCommand}.
+ */
 export interface DescribeWorkteamCommandOutput extends DescribeWorkteamResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a specific work team. You can see information such as the
  *             create date, the last updated date, membership information, and the work team's Amazon
  *             Resource Name (ARN).</p>
@@ -38,13 +41,19 @@ export interface DescribeWorkteamCommandOutput extends DescribeWorkteamResponse,
  * import { SageMakerClient, DescribeWorkteamCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeWorkteamCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DescribeWorkteamRequest
+ *   WorkteamName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeWorkteamCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeWorkteamCommandInput - {@link DescribeWorkteamCommandInput}
+ * @returns {@link DescribeWorkteamCommandOutput}
  * @see {@link DescribeWorkteamCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkteamCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
  *
  */
 export class DescribeWorkteamCommand extends $Command<
@@ -64,6 +73,9 @@ export class DescribeWorkteamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeWorkteamCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +104,8 @@ export class DescribeWorkteamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeWorkteamRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeWorkteamResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +115,18 @@ export class DescribeWorkteamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeWorkteamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeWorkteamCommand(input, context);
+    return se_DescribeWorkteamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeWorkteamCommandOutput> {
-    return deserializeAws_json1_1DescribeWorkteamCommand(output, context);
+    return de_DescribeWorkteamCommand(output, context);
   }
 
   // Start section: command_body_extra

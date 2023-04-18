@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SendTemplatedEmailRequest,
-  SendTemplatedEmailRequestFilterSensitiveLog,
-  SendTemplatedEmailResponse,
-  SendTemplatedEmailResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_querySendTemplatedEmailCommand,
-  serializeAws_querySendTemplatedEmailCommand,
-} from "../protocols/Aws_query";
+import { SendTemplatedEmailRequest, SendTemplatedEmailResponse } from "../models/models_0";
+import { de_SendTemplatedEmailCommand, se_SendTemplatedEmailCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * @public
+ *
+ * The input for {@link SendTemplatedEmailCommand}.
+ */
 export interface SendTemplatedEmailCommandInput extends SendTemplatedEmailRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SendTemplatedEmailCommand}.
+ */
 export interface SendTemplatedEmailCommandOutput extends SendTemplatedEmailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Composes an email message using an email template and immediately queues it for
  *             sending.</p>
  *         <p>In order to send email using the <code>SendTemplatedEmail</code> operation, your call
@@ -85,13 +88,71 @@ export interface SendTemplatedEmailCommandOutput extends SendTemplatedEmailRespo
  * import { SESClient, SendTemplatedEmailCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, SendTemplatedEmailCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // SendTemplatedEmailRequest
+ *   Source: "STRING_VALUE", // required
+ *   Destination: { // Destination
+ *     ToAddresses: [ // AddressList
+ *       "STRING_VALUE",
+ *     ],
+ *     CcAddresses: [
+ *       "STRING_VALUE",
+ *     ],
+ *     BccAddresses: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   ReplyToAddresses: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ReturnPath: "STRING_VALUE",
+ *   SourceArn: "STRING_VALUE",
+ *   ReturnPathArn: "STRING_VALUE",
+ *   Tags: [ // MessageTagList
+ *     { // MessageTag
+ *       Name: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ConfigurationSetName: "STRING_VALUE",
+ *   Template: "STRING_VALUE", // required
+ *   TemplateArn: "STRING_VALUE",
+ *   TemplateData: "STRING_VALUE", // required
+ * };
  * const command = new SendTemplatedEmailCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SendTemplatedEmailCommandInput - {@link SendTemplatedEmailCommandInput}
+ * @returns {@link SendTemplatedEmailCommandOutput}
  * @see {@link SendTemplatedEmailCommandInput} for command's `input` shape.
  * @see {@link SendTemplatedEmailCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
+ *
+ * @throws {@link AccountSendingPausedException} (client fault)
+ *  <p>Indicates that email sending is disabled for your entire Amazon SES account.</p>
+ *         <p>You can enable or disable email sending for your Amazon SES account using <a>UpdateAccountSendingEnabled</a>.</p>
+ *
+ * @throws {@link ConfigurationSetDoesNotExistException} (client fault)
+ *  <p>Indicates that the configuration set does not exist.</p>
+ *
+ * @throws {@link ConfigurationSetSendingPausedException} (client fault)
+ *  <p>Indicates that email sending is disabled for the configuration set.</p>
+ *         <p>You can enable or disable email sending for a configuration set using <a>UpdateConfigurationSetSendingEnabled</a>.</p>
+ *
+ * @throws {@link MailFromDomainNotVerifiedException} (client fault)
+ *  <p> Indicates that the message could not be sent because Amazon SES could not read the MX
+ *             record required to use the specified MAIL FROM domain. For information about editing the
+ *             custom MAIL FROM domain settings for an identity, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-edit.html">Amazon SES Developer
+ *                 Guide</a>.</p>
+ *
+ * @throws {@link MessageRejected} (client fault)
+ *  <p>Indicates that the action failed, and the message could not be sent. Check the error
+ *             stack for more information about what caused the error.</p>
+ *
+ * @throws {@link TemplateDoesNotExistException} (client fault)
+ *  <p>Indicates that the Template object you specified does not exist in your Amazon SES
+ *             account.</p>
+ *
  *
  */
 export class SendTemplatedEmailCommand extends $Command<
@@ -111,6 +172,9 @@ export class SendTemplatedEmailCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendTemplatedEmailCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,8 +203,8 @@ export class SendTemplatedEmailCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendTemplatedEmailRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SendTemplatedEmailResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -150,12 +214,18 @@ export class SendTemplatedEmailCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendTemplatedEmailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySendTemplatedEmailCommand(input, context);
+    return se_SendTemplatedEmailCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendTemplatedEmailCommandOutput> {
-    return deserializeAws_querySendTemplatedEmailCommand(output, context);
+    return de_SendTemplatedEmailCommand(output, context);
   }
 
   // Start section: command_body_extra

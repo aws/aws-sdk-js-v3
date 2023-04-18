@@ -15,23 +15,32 @@ import {
 
 import {
   AcceptDomainTransferFromAnotherAwsAccountRequest,
-  AcceptDomainTransferFromAnotherAwsAccountRequestFilterSensitiveLog,
   AcceptDomainTransferFromAnotherAwsAccountResponse,
-  AcceptDomainTransferFromAnotherAwsAccountResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1AcceptDomainTransferFromAnotherAwsAccountCommand,
-  serializeAws_json1_1AcceptDomainTransferFromAnotherAwsAccountCommand,
+  de_AcceptDomainTransferFromAnotherAwsAccountCommand,
+  se_AcceptDomainTransferFromAnotherAwsAccountCommand,
 } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
+/**
+ * @public
+ *
+ * The input for {@link AcceptDomainTransferFromAnotherAwsAccountCommand}.
+ */
 export interface AcceptDomainTransferFromAnotherAwsAccountCommandInput
   extends AcceptDomainTransferFromAnotherAwsAccountRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AcceptDomainTransferFromAnotherAwsAccountCommand}.
+ */
 export interface AcceptDomainTransferFromAnotherAwsAccountCommandOutput
   extends AcceptDomainTransferFromAnotherAwsAccountResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Accepts the transfer of a domain from another Amazon Web Services account to the
  * 				currentAmazon Web Services account. You initiate a transfer between Amazon Web Services accounts using <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html">TransferDomainToAnotherAwsAccount</a>.</p>
  *          <p>If you use the CLI command at <a href="https://docs.aws.amazon.com/cli/latest/reference/route53domains/accept-domain-transfer-from-another-aws-account.html">accept-domain-transfer-from-another-aws-account</a>, use JSON format as input
@@ -45,13 +54,36 @@ export interface AcceptDomainTransferFromAnotherAwsAccountCommandOutput
  * import { Route53DomainsClient, AcceptDomainTransferFromAnotherAwsAccountCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, AcceptDomainTransferFromAnotherAwsAccountCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
+ * const input = { // AcceptDomainTransferFromAnotherAwsAccountRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   Password: "STRING_VALUE", // required
+ * };
  * const command = new AcceptDomainTransferFromAnotherAwsAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AcceptDomainTransferFromAnotherAwsAccountCommandInput - {@link AcceptDomainTransferFromAnotherAwsAccountCommandInput}
+ * @returns {@link AcceptDomainTransferFromAnotherAwsAccountCommandOutput}
  * @see {@link AcceptDomainTransferFromAnotherAwsAccountCommandInput} for command's `input` shape.
  * @see {@link AcceptDomainTransferFromAnotherAwsAccountCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
+ *
+ * @throws {@link DomainLimitExceeded} (client fault)
+ *  <p>The number of domains has exceeded the allowed threshold for the account.</p>
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The requested item is not acceptable. For example, for APIs that accept a domain name,
+ * 			the request might specify a domain name that doesn't belong to the account that
+ * 			submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the
+ * 			password might be invalid.</p>
+ *
+ * @throws {@link OperationLimitExceeded} (client fault)
+ *  <p>The number of operations or jobs running exceeded the allowed threshold for the
+ * 			account.</p>
+ *
+ * @throws {@link UnsupportedTLD} (client fault)
+ *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+ *
  *
  */
 export class AcceptDomainTransferFromAnotherAwsAccountCommand extends $Command<
@@ -71,6 +103,9 @@ export class AcceptDomainTransferFromAnotherAwsAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcceptDomainTransferFromAnotherAwsAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +140,8 @@ export class AcceptDomainTransferFromAnotherAwsAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AcceptDomainTransferFromAnotherAwsAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AcceptDomainTransferFromAnotherAwsAccountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,18 +151,24 @@ export class AcceptDomainTransferFromAnotherAwsAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AcceptDomainTransferFromAnotherAwsAccountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AcceptDomainTransferFromAnotherAwsAccountCommand(input, context);
+    return se_AcceptDomainTransferFromAnotherAwsAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AcceptDomainTransferFromAnotherAwsAccountCommandOutput> {
-    return deserializeAws_json1_1AcceptDomainTransferFromAnotherAwsAccountCommand(output, context);
+    return de_AcceptDomainTransferFromAnotherAwsAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

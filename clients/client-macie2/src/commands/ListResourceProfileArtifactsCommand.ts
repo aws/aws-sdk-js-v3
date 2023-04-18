@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
+import { ListResourceProfileArtifactsRequest, ListResourceProfileArtifactsResponse } from "../models/models_1";
 import {
-  ListResourceProfileArtifactsRequest,
-  ListResourceProfileArtifactsRequestFilterSensitiveLog,
-  ListResourceProfileArtifactsResponse,
-  ListResourceProfileArtifactsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListResourceProfileArtifactsCommand,
-  serializeAws_restJson1ListResourceProfileArtifactsCommand,
+  de_ListResourceProfileArtifactsCommand,
+  se_ListResourceProfileArtifactsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListResourceProfileArtifactsCommand}.
+ */
 export interface ListResourceProfileArtifactsCommandInput extends ListResourceProfileArtifactsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListResourceProfileArtifactsCommand}.
+ */
 export interface ListResourceProfileArtifactsCommandOutput
   extends ListResourceProfileArtifactsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about objects that were selected from an S3 bucket for automated sensitive data discovery.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,35 @@ export interface ListResourceProfileArtifactsCommandOutput
  * import { Macie2Client, ListResourceProfileArtifactsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, ListResourceProfileArtifactsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = { // ListResourceProfileArtifactsRequest
+ *   nextToken: "STRING_VALUE",
+ *   resourceArn: "STRING_VALUE", // required
+ * };
  * const command = new ListResourceProfileArtifactsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResourceProfileArtifactsCommandInput - {@link ListResourceProfileArtifactsCommandInput}
+ * @returns {@link ListResourceProfileArtifactsCommandOutput}
  * @see {@link ListResourceProfileArtifactsCommandInput} for command's `input` shape.
  * @see {@link ListResourceProfileArtifactsCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+ *
  *
  */
 export class ListResourceProfileArtifactsCommand extends $Command<
@@ -64,6 +92,9 @@ export class ListResourceProfileArtifactsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResourceProfileArtifactsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +123,8 @@ export class ListResourceProfileArtifactsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListResourceProfileArtifactsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListResourceProfileArtifactsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +134,21 @@ export class ListResourceProfileArtifactsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResourceProfileArtifactsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListResourceProfileArtifactsCommand(input, context);
+    return se_ListResourceProfileArtifactsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListResourceProfileArtifactsCommandOutput> {
-    return deserializeAws_restJson1ListResourceProfileArtifactsCommand(output, context);
+    return de_ListResourceProfileArtifactsCommand(output, context);
   }
 
   // Start section: command_body_extra

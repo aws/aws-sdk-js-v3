@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  StartMLEvaluationTaskRunRequest,
-  StartMLEvaluationTaskRunRequestFilterSensitiveLog,
-  StartMLEvaluationTaskRunResponse,
-  StartMLEvaluationTaskRunResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1StartMLEvaluationTaskRunCommand,
-  serializeAws_json1_1StartMLEvaluationTaskRunCommand,
-} from "../protocols/Aws_json1_1";
+import { StartMLEvaluationTaskRunRequest, StartMLEvaluationTaskRunResponse } from "../models/models_2";
+import { de_StartMLEvaluationTaskRunCommand, se_StartMLEvaluationTaskRunCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link StartMLEvaluationTaskRunCommand}.
+ */
 export interface StartMLEvaluationTaskRunCommandInput extends StartMLEvaluationTaskRunRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartMLEvaluationTaskRunCommand}.
+ */
 export interface StartMLEvaluationTaskRunCommandOutput extends StartMLEvaluationTaskRunResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a task to estimate the quality of the transform. </p>
  *          <p>When you provide label sets as examples of truth, Glue machine learning uses some of
  *       those examples to learn from them. The rest of the labels are used as a test to estimate
@@ -41,13 +44,37 @@ export interface StartMLEvaluationTaskRunCommandOutput extends StartMLEvaluation
  * import { GlueClient, StartMLEvaluationTaskRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, StartMLEvaluationTaskRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // StartMLEvaluationTaskRunRequest
+ *   TransformId: "STRING_VALUE", // required
+ * };
  * const command = new StartMLEvaluationTaskRunCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartMLEvaluationTaskRunCommandInput - {@link StartMLEvaluationTaskRunCommandInput}
+ * @returns {@link StartMLEvaluationTaskRunCommandOutput}
  * @see {@link StartMLEvaluationTaskRunCommandInput} for command's `input` shape.
  * @see {@link StartMLEvaluationTaskRunCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link ConcurrentRunsExceededException} (client fault)
+ *  <p>Too many jobs are being run concurrently.</p>
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link MLTransformNotReadyException} (client fault)
+ *  <p>The machine learning transform is not ready to run.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class StartMLEvaluationTaskRunCommand extends $Command<
@@ -67,6 +94,9 @@ export class StartMLEvaluationTaskRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartMLEvaluationTaskRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +125,8 @@ export class StartMLEvaluationTaskRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartMLEvaluationTaskRunRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartMLEvaluationTaskRunResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +136,18 @@ export class StartMLEvaluationTaskRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartMLEvaluationTaskRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartMLEvaluationTaskRunCommand(input, context);
+    return se_StartMLEvaluationTaskRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartMLEvaluationTaskRunCommandOutput> {
-    return deserializeAws_json1_1StartMLEvaluationTaskRunCommand(output, context);
+    return de_StartMLEvaluationTaskRunCommand(output, context);
   }
 
   // Start section: command_body_extra

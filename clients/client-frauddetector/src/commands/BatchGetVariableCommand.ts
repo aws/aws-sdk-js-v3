@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  BatchGetVariableRequest,
-  BatchGetVariableRequestFilterSensitiveLog,
-  BatchGetVariableResult,
-  BatchGetVariableResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchGetVariableCommand,
-  serializeAws_json1_1BatchGetVariableCommand,
-} from "../protocols/Aws_json1_1";
+import { BatchGetVariableRequest, BatchGetVariableResult } from "../models/models_0";
+import { de_BatchGetVariableCommand, se_BatchGetVariableCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchGetVariableCommand}.
+ */
 export interface BatchGetVariableCommandInput extends BatchGetVariableRequest {}
+/**
+ * @public
+ *
+ * The output of {@link BatchGetVariableCommand}.
+ */
 export interface BatchGetVariableCommandOutput extends BatchGetVariableResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a batch of variables.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,33 @@ export interface BatchGetVariableCommandOutput extends BatchGetVariableResult, _
  * import { FraudDetectorClient, BatchGetVariableCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, BatchGetVariableCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = { // BatchGetVariableRequest
+ *   names: [ // NameList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchGetVariableCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetVariableCommandInput - {@link BatchGetVariableCommandInput}
+ * @returns {@link BatchGetVariableCommandOutput}
  * @see {@link BatchGetVariableCommandInput} for command's `input` shape.
  * @see {@link BatchGetVariableCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An exception indicating an internal server error.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>An exception indicating a throttling error.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An exception indicating a specified value is not allowed.</p>
+ *
  *
  */
 export class BatchGetVariableCommand extends $Command<
@@ -62,6 +85,9 @@ export class BatchGetVariableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetVariableCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +116,8 @@ export class BatchGetVariableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetVariableRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetVariableResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +127,18 @@ export class BatchGetVariableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetVariableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchGetVariableCommand(input, context);
+    return se_BatchGetVariableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetVariableCommandOutput> {
-    return deserializeAws_json1_1BatchGetVariableCommand(output, context);
+    return de_BatchGetVariableCommand(output, context);
   }
 
   // Start section: command_body_extra

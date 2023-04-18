@@ -26,6 +26,9 @@ import {
   SuppressDataIdentifier,
 } from "./models_0";
 
+/**
+ * @public
+ */
 export interface ListInvitationsRequest {
   /**
    * <p>The maximum number of items to include in each page of a paginated response.</p>
@@ -38,6 +41,9 @@ export interface ListInvitationsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListInvitationsResponse {
   /**
    * <p>An array of objects, one for each invitation that was received by the account.</p>
@@ -50,6 +56,9 @@ export interface ListInvitationsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListManagedDataIdentifiersRequest {
   /**
    * <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
@@ -57,6 +66,9 @@ export interface ListManagedDataIdentifiersRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListManagedDataIdentifiersResponse {
   /**
    * <p>An array of objects, one for each managed data identifier.</p>
@@ -69,6 +81,9 @@ export interface ListManagedDataIdentifiersResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListMembersRequest {
   /**
    * <p>The maximum number of items to include in each page of a paginated response.</p>
@@ -86,6 +101,9 @@ export interface ListMembersRequest {
   onlyAssociated?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListMembersResponse {
   /**
    * <p>An array of objects, one for each account that's associated with the administrator account and matches the criteria specified in the request.</p>
@@ -98,6 +116,9 @@ export interface ListMembersResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListOrganizationAdminAccountsRequest {
   /**
    * <p>The maximum number of items to include in each page of a paginated response.</p>
@@ -110,6 +131,9 @@ export interface ListOrganizationAdminAccountsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListOrganizationAdminAccountsResponse {
   /**
    * <p>An array of objects, one for each delegated Amazon Macie administrator account for the organization. Only one of these accounts can have a status of ENABLED.</p>
@@ -122,6 +146,9 @@ export interface ListOrganizationAdminAccountsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListResourceProfileArtifactsRequest {
   /**
    * <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
@@ -134,9 +161,12 @@ export interface ListResourceProfileArtifactsRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListResourceProfileArtifactsResponse {
   /**
-   * <p>An array of objects, one for each S3 object that Amazon Macie selected for analysis.</p>
+   * <p>An array of objects, one for each of 1-100 S3 objects that Amazon Macie selected for analysis.</p> <p>If Macie has analyzed more than 100 objects in the bucket, Macie populates the array based on the value for the ResourceProfileArtifact.sensitive field for an object: true (sensitive), followed by false (not sensitive). Macie then populates any remaining items in the array with information about objects where the value for the ResourceProfileArtifact.classificationResultStatus field is SKIPPED.</p>
    */
   artifacts?: ResourceProfileArtifact[];
 
@@ -146,6 +176,9 @@ export interface ListResourceProfileArtifactsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListResourceProfileDetectionsRequest {
   /**
    * <p>The maximum number of items to include in each page of a paginated response.</p>
@@ -163,6 +196,9 @@ export interface ListResourceProfileDetectionsRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListResourceProfileDetectionsResponse {
   /**
    * <p>An array of objects, one for each type of sensitive data that Amazon Macie found in the bucket. Each object reports the number of occurrences of the specified type and provides information about the custom data identifier or managed data identifier that detected the data.</p>
@@ -175,6 +211,9 @@ export interface ListResourceProfileDetectionsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSensitivityInspectionTemplatesRequest {
   /**
    * <p>The maximum number of items to include in each page of a paginated response.</p>
@@ -187,6 +226,9 @@ export interface ListSensitivityInspectionTemplatesRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSensitivityInspectionTemplatesResponse {
   /**
    * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
@@ -199,6 +241,9 @@ export interface ListSensitivityInspectionTemplatesResponse {
   sensitivityInspectionTemplates?: SensitivityInspectionTemplatesEntry[];
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -206,6 +251,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>A map of key-value pairs that specifies which tags (keys and values) are associated with the resource.</p>
@@ -213,6 +261,9 @@ export interface ListTagsForResourceResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface PutClassificationExportConfigurationRequest {
   /**
    * <p>The location to store data classification results in, and the encryption settings to use when storing results in that location.</p>
@@ -220,6 +271,9 @@ export interface PutClassificationExportConfigurationRequest {
   configuration: ClassificationExportConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutClassificationExportConfigurationResponse {
   /**
    * <p>The location where the data classification results are stored, and the encryption settings that are used when storing results in that location.</p>
@@ -227,6 +281,9 @@ export interface PutClassificationExportConfigurationResponse {
   configuration?: ClassificationExportConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface PutFindingsPublicationConfigurationRequest {
   /**
    * <p>A unique, case-sensitive token that you provide to ensure the idempotency of the request.</p>
@@ -239,9 +296,13 @@ export interface PutFindingsPublicationConfigurationRequest {
   securityHubConfiguration?: SecurityHubConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface PutFindingsPublicationConfigurationResponse {}
 
 /**
+ * @public
  * <p>Specifies property- and tag-based conditions that define filter criteria for including or excluding Amazon Web Services resources from the query results.</p>
  */
 export interface SearchResourcesCriteriaBlock {
@@ -252,6 +313,7 @@ export interface SearchResourcesCriteriaBlock {
 }
 
 /**
+ * @public
  * <p>Specifies property- and tag-based conditions that define filter criteria for including or excluding S3 buckets from the query results. Exclude conditions take precedence over include conditions.</p>
  */
 export interface SearchResourcesBucketCriteria {
@@ -266,14 +328,25 @@ export interface SearchResourcesBucketCriteria {
   includes?: SearchResourcesCriteriaBlock;
 }
 
-export enum SearchResourcesSortAttributeName {
-  ACCOUNT_ID = "ACCOUNT_ID",
-  RESOURCE_NAME = "RESOURCE_NAME",
-  S3_CLASSIFIABLE_OBJECT_COUNT = "S3_CLASSIFIABLE_OBJECT_COUNT",
-  S3_CLASSIFIABLE_SIZE_IN_BYTES = "S3_CLASSIFIABLE_SIZE_IN_BYTES",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SearchResourcesSortAttributeName = {
+  ACCOUNT_ID: "ACCOUNT_ID",
+  RESOURCE_NAME: "RESOURCE_NAME",
+  S3_CLASSIFIABLE_OBJECT_COUNT: "S3_CLASSIFIABLE_OBJECT_COUNT",
+  S3_CLASSIFIABLE_SIZE_IN_BYTES: "S3_CLASSIFIABLE_SIZE_IN_BYTES",
+} as const;
 
 /**
+ * @public
+ */
+export type SearchResourcesSortAttributeName =
+  (typeof SearchResourcesSortAttributeName)[keyof typeof SearchResourcesSortAttributeName];
+
+/**
+ * @public
  * <p>Specifies criteria for sorting the results of a query for information about Amazon Web Services resources that Amazon Macie monitors and analyzes.</p>
  */
 export interface SearchResourcesSortCriteria {
@@ -288,6 +361,9 @@ export interface SearchResourcesSortCriteria {
   orderBy?: OrderBy | string;
 }
 
+/**
+ * @public
+ */
 export interface SearchResourcesRequest {
   /**
    * <p>The filter conditions that determine which S3 buckets to include or exclude from the query results.</p>
@@ -310,6 +386,9 @@ export interface SearchResourcesRequest {
   sortCriteria?: SearchResourcesSortCriteria;
 }
 
+/**
+ * @public
+ */
 export interface SearchResourcesResponse {
   /**
    * <p>An array of objects, one for each resource that matches the filter criteria specified in the request.</p>
@@ -322,6 +401,9 @@ export interface SearchResourcesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -334,8 +416,14 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface TestCustomDataIdentifierRequest {
   /**
    * <p>An array that lists specific character sequences (<i>ignore words</i>) to exclude from the results. If the text matched by the regular expression contains any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4-90 UTF-8 characters. Ignore words are case sensitive.</p>
@@ -363,6 +451,9 @@ export interface TestCustomDataIdentifierRequest {
   sampleText: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TestCustomDataIdentifierResponse {
   /**
    * <p>The number of occurrences of sample text that matched the criteria specified by the custom data identifier.</p>
@@ -370,6 +461,9 @@ export interface TestCustomDataIdentifierResponse {
   matchCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -382,8 +476,14 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateAllowListRequest {
   /**
    * <p>The criteria that specify the text or text pattern to ignore. The criteria can be the location and name of an S3 object that lists specific text to ignore (s3WordsList), or a regular expression that defines a text pattern to ignore (regex).</p> <p>You can change a list's underlying criteria, such as the name of the S3 object or the regular expression to use. However, you can't change the type from s3WordsList to regex or the other way around.</p>
@@ -406,6 +506,9 @@ export interface UpdateAllowListRequest {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAllowListResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the allow list.</p>
@@ -418,6 +521,9 @@ export interface UpdateAllowListResponse {
   id?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAutomatedDiscoveryConfigurationRequest {
   /**
    * <p>The new status of automated sensitive data discovery for the account. Valid values are: ENABLED, start or resume automated sensitive data discovery activities for the account; and, DISABLED, stop performing automated sensitive data discovery activities for the account.</p> <p>When you enable automated sensitive data discovery for the first time, Amazon Macie uses default configuration settings to determine which data sources to analyze and which managed data identifiers to use. To change these settings, use the UpdateClassificationScope and UpdateSensitivityInspectionTemplate operations, respectively. If you change the settings and subsequently disable the configuration, Amazon Macie retains your changes.</p>
@@ -425,8 +531,14 @@ export interface UpdateAutomatedDiscoveryConfigurationRequest {
   status: AutomatedDiscoveryStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAutomatedDiscoveryConfigurationResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateClassificationJobRequest {
   /**
    * <p>The unique identifier for the classification job.</p>
@@ -439,9 +551,13 @@ export interface UpdateClassificationJobRequest {
   jobStatus: JobStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateClassificationJobResponse {}
 
 /**
+ * @public
  * <p>Specifies S3 buckets to add or remove from the exclusion list defined by the classification scope for an Amazon Macie account.</p>
  */
 export interface S3ClassificationScopeExclusionUpdate {
@@ -457,6 +573,7 @@ export interface S3ClassificationScopeExclusionUpdate {
 }
 
 /**
+ * @public
  * <p>Specifies changes to the list of S3 buckets that are excluded from automated sensitive data discovery for an Amazon Macie account.</p>
  */
 export interface S3ClassificationScopeUpdate {
@@ -466,6 +583,9 @@ export interface S3ClassificationScopeUpdate {
   excludes: S3ClassificationScopeExclusionUpdate | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateClassificationScopeRequest {
   /**
    * <p>The unique identifier for the Amazon Macie resource that the request applies to.</p>
@@ -478,8 +598,14 @@ export interface UpdateClassificationScopeRequest {
   s3?: S3ClassificationScopeUpdate;
 }
 
+/**
+ * @public
+ */
 export interface UpdateClassificationScopeResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateFindingsFilterRequest {
   /**
    * <p>The action to perform on findings that match the filter criteria (findingCriteria). Valid values are: ARCHIVE, suppress (automatically archive) the findings; and, NOOP, don't perform any action on the findings.</p>
@@ -492,7 +618,7 @@ export interface UpdateFindingsFilterRequest {
   clientToken?: string;
 
   /**
-   * <p>A custom description of the filter. The description can contain as many as 512 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the description of a filter. Other users might be able to see this description, depending on the actions that they're allowed to perform in Amazon Macie.</p>
+   * <p>A custom description of the filter. The description can contain as many as 512 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the description of a filter. Other users of your account might be able to see this description, depending on the actions that they're allowed to perform in Amazon Macie.</p>
    */
   description?: string;
 
@@ -507,7 +633,7 @@ export interface UpdateFindingsFilterRequest {
   id: string | undefined;
 
   /**
-   * <p>A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the name of a filter. Other users might be able to see this name, depending on the actions that they're allowed to perform in Amazon Macie.</p>
+   * <p>A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the name of a filter. Other users of your account might be able to see this name, depending on the actions that they're allowed to perform in Amazon Macie.</p>
    */
   name?: string;
 
@@ -517,6 +643,9 @@ export interface UpdateFindingsFilterRequest {
   position?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFindingsFilterResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the filter that was updated.</p>
@@ -529,6 +658,9 @@ export interface UpdateFindingsFilterResponse {
   id?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMacieSessionRequest {
   /**
    * <p>Specifies how often to publish updates to policy findings for the account. This includes publishing updates to Security Hub and Amazon EventBridge (formerly Amazon CloudWatch Events).</p>
@@ -541,8 +673,14 @@ export interface UpdateMacieSessionRequest {
   status?: MacieStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMacieSessionResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateMemberSessionRequest {
   /**
    * <p>The unique identifier for the Amazon Macie resource that the request applies to.</p>
@@ -555,8 +693,14 @@ export interface UpdateMemberSessionRequest {
   status: MacieStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMemberSessionResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateOrganizationConfigurationRequest {
   /**
    * <p>Specifies whether to enable Amazon Macie automatically for an account when the account is added to the organization in Organizations.</p>
@@ -564,8 +708,14 @@ export interface UpdateOrganizationConfigurationRequest {
   autoEnable: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateOrganizationConfigurationResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateResourceProfileRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.</p>
@@ -578,8 +728,14 @@ export interface UpdateResourceProfileRequest {
   sensitivityScoreOverride?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateResourceProfileResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateResourceProfileDetectionsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.</p>
@@ -592,8 +748,14 @@ export interface UpdateResourceProfileDetectionsRequest {
   suppressDataIdentifiers?: SuppressDataIdentifier[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateResourceProfileDetectionsResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateRevealConfigurationRequest {
   /**
    * <p>The new configuration settings and the status of the configuration for the account.</p>
@@ -601,6 +763,9 @@ export interface UpdateRevealConfigurationRequest {
   configuration: RevealConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRevealConfigurationResponse {
   /**
    * <p>The new configuration settings and the status of the configuration for the account.</p>
@@ -608,9 +773,12 @@ export interface UpdateRevealConfigurationResponse {
   configuration?: RevealConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSensitivityInspectionTemplateRequest {
   /**
-   * <p>A custom description of the template.</p>
+   * <p>A custom description of the template. The description can contain as many as 200 characters.</p>
    */
   description?: string;
 
@@ -630,445 +798,7 @@ export interface UpdateSensitivityInspectionTemplateRequest {
   includes?: SensitivityInspectionTemplateIncludes;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSensitivityInspectionTemplateResponse {}
-
-/**
- * @internal
- */
-export const ListInvitationsRequestFilterSensitiveLog = (obj: ListInvitationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListInvitationsResponseFilterSensitiveLog = (obj: ListInvitationsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListManagedDataIdentifiersRequestFilterSensitiveLog = (obj: ListManagedDataIdentifiersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListManagedDataIdentifiersResponseFilterSensitiveLog = (obj: ListManagedDataIdentifiersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMembersRequestFilterSensitiveLog = (obj: ListMembersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMembersResponseFilterSensitiveLog = (obj: ListMembersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListOrganizationAdminAccountsRequestFilterSensitiveLog = (
-  obj: ListOrganizationAdminAccountsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListOrganizationAdminAccountsResponseFilterSensitiveLog = (
-  obj: ListOrganizationAdminAccountsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResourceProfileArtifactsRequestFilterSensitiveLog = (
-  obj: ListResourceProfileArtifactsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResourceProfileArtifactsResponseFilterSensitiveLog = (
-  obj: ListResourceProfileArtifactsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResourceProfileDetectionsRequestFilterSensitiveLog = (
-  obj: ListResourceProfileDetectionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResourceProfileDetectionsResponseFilterSensitiveLog = (
-  obj: ListResourceProfileDetectionsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSensitivityInspectionTemplatesRequestFilterSensitiveLog = (
-  obj: ListSensitivityInspectionTemplatesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSensitivityInspectionTemplatesResponseFilterSensitiveLog = (
-  obj: ListSensitivityInspectionTemplatesResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutClassificationExportConfigurationRequestFilterSensitiveLog = (
-  obj: PutClassificationExportConfigurationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutClassificationExportConfigurationResponseFilterSensitiveLog = (
-  obj: PutClassificationExportConfigurationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutFindingsPublicationConfigurationRequestFilterSensitiveLog = (
-  obj: PutFindingsPublicationConfigurationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutFindingsPublicationConfigurationResponseFilterSensitiveLog = (
-  obj: PutFindingsPublicationConfigurationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchResourcesCriteriaBlockFilterSensitiveLog = (obj: SearchResourcesCriteriaBlock): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchResourcesBucketCriteriaFilterSensitiveLog = (obj: SearchResourcesBucketCriteria): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchResourcesSortCriteriaFilterSensitiveLog = (obj: SearchResourcesSortCriteria): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchResourcesRequestFilterSensitiveLog = (obj: SearchResourcesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchResourcesResponseFilterSensitiveLog = (obj: SearchResourcesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TestCustomDataIdentifierRequestFilterSensitiveLog = (obj: TestCustomDataIdentifierRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TestCustomDataIdentifierResponseFilterSensitiveLog = (obj: TestCustomDataIdentifierResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAllowListRequestFilterSensitiveLog = (obj: UpdateAllowListRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAllowListResponseFilterSensitiveLog = (obj: UpdateAllowListResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAutomatedDiscoveryConfigurationRequestFilterSensitiveLog = (
-  obj: UpdateAutomatedDiscoveryConfigurationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAutomatedDiscoveryConfigurationResponseFilterSensitiveLog = (
-  obj: UpdateAutomatedDiscoveryConfigurationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateClassificationJobRequestFilterSensitiveLog = (obj: UpdateClassificationJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateClassificationJobResponseFilterSensitiveLog = (obj: UpdateClassificationJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3ClassificationScopeExclusionUpdateFilterSensitiveLog = (
-  obj: S3ClassificationScopeExclusionUpdate
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3ClassificationScopeUpdateFilterSensitiveLog = (obj: S3ClassificationScopeUpdate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateClassificationScopeRequestFilterSensitiveLog = (obj: UpdateClassificationScopeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateClassificationScopeResponseFilterSensitiveLog = (obj: UpdateClassificationScopeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFindingsFilterRequestFilterSensitiveLog = (obj: UpdateFindingsFilterRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFindingsFilterResponseFilterSensitiveLog = (obj: UpdateFindingsFilterResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateMacieSessionRequestFilterSensitiveLog = (obj: UpdateMacieSessionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateMacieSessionResponseFilterSensitiveLog = (obj: UpdateMacieSessionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateMemberSessionRequestFilterSensitiveLog = (obj: UpdateMemberSessionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateMemberSessionResponseFilterSensitiveLog = (obj: UpdateMemberSessionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateOrganizationConfigurationRequestFilterSensitiveLog = (
-  obj: UpdateOrganizationConfigurationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateOrganizationConfigurationResponseFilterSensitiveLog = (
-  obj: UpdateOrganizationConfigurationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateResourceProfileRequestFilterSensitiveLog = (obj: UpdateResourceProfileRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateResourceProfileResponseFilterSensitiveLog = (obj: UpdateResourceProfileResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateResourceProfileDetectionsRequestFilterSensitiveLog = (
-  obj: UpdateResourceProfileDetectionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateResourceProfileDetectionsResponseFilterSensitiveLog = (
-  obj: UpdateResourceProfileDetectionsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRevealConfigurationRequestFilterSensitiveLog = (obj: UpdateRevealConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRevealConfigurationResponseFilterSensitiveLog = (obj: UpdateRevealConfigurationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSensitivityInspectionTemplateRequestFilterSensitiveLog = (
-  obj: UpdateSensitivityInspectionTemplateRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSensitivityInspectionTemplateResponseFilterSensitiveLog = (
-  obj: UpdateSensitivityInspectionTemplateResponse
-): any => ({
-  ...obj,
-});

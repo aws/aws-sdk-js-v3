@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisAnalyticsClient";
-import {
-  UpdateApplicationRequest,
-  UpdateApplicationRequestFilterSensitiveLog,
-  UpdateApplicationResponse,
-  UpdateApplicationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateApplicationCommand,
-  serializeAws_json1_1UpdateApplicationCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateApplicationRequest, UpdateApplicationResponse } from "../models/models_0";
+import { de_UpdateApplicationCommand, se_UpdateApplicationCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateApplicationCommand}.
+ */
 export interface UpdateApplicationCommandInput extends UpdateApplicationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateApplicationCommand}.
+ */
 export interface UpdateApplicationCommandOutput extends UpdateApplicationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
  *          </note>
@@ -45,13 +48,147 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * import { KinesisAnalyticsClient, UpdateApplicationCommand } from "@aws-sdk/client-kinesis-analytics"; // ES Modules import
  * // const { KinesisAnalyticsClient, UpdateApplicationCommand } = require("@aws-sdk/client-kinesis-analytics"); // CommonJS import
  * const client = new KinesisAnalyticsClient(config);
+ * const input = { // UpdateApplicationRequest
+ *   ApplicationName: "STRING_VALUE", // required
+ *   CurrentApplicationVersionId: Number("long"), // required
+ *   ApplicationUpdate: { // ApplicationUpdate
+ *     InputUpdates: [ // InputUpdates
+ *       { // InputUpdate
+ *         InputId: "STRING_VALUE", // required
+ *         NamePrefixUpdate: "STRING_VALUE",
+ *         InputProcessingConfigurationUpdate: { // InputProcessingConfigurationUpdate
+ *           InputLambdaProcessorUpdate: { // InputLambdaProcessorUpdate
+ *             ResourceARNUpdate: "STRING_VALUE",
+ *             RoleARNUpdate: "STRING_VALUE",
+ *           },
+ *         },
+ *         KinesisStreamsInputUpdate: { // KinesisStreamsInputUpdate
+ *           ResourceARNUpdate: "STRING_VALUE",
+ *           RoleARNUpdate: "STRING_VALUE",
+ *         },
+ *         KinesisFirehoseInputUpdate: { // KinesisFirehoseInputUpdate
+ *           ResourceARNUpdate: "STRING_VALUE",
+ *           RoleARNUpdate: "STRING_VALUE",
+ *         },
+ *         InputSchemaUpdate: { // InputSchemaUpdate
+ *           RecordFormatUpdate: { // RecordFormat
+ *             RecordFormatType: "STRING_VALUE", // required
+ *             MappingParameters: { // MappingParameters
+ *               JSONMappingParameters: { // JSONMappingParameters
+ *                 RecordRowPath: "STRING_VALUE", // required
+ *               },
+ *               CSVMappingParameters: { // CSVMappingParameters
+ *                 RecordRowDelimiter: "STRING_VALUE", // required
+ *                 RecordColumnDelimiter: "STRING_VALUE", // required
+ *               },
+ *             },
+ *           },
+ *           RecordEncodingUpdate: "STRING_VALUE",
+ *           RecordColumnUpdates: [ // RecordColumns
+ *             { // RecordColumn
+ *               Name: "STRING_VALUE", // required
+ *               Mapping: "STRING_VALUE",
+ *               SqlType: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
+ *         InputParallelismUpdate: { // InputParallelismUpdate
+ *           CountUpdate: Number("int"),
+ *         },
+ *       },
+ *     ],
+ *     ApplicationCodeUpdate: "STRING_VALUE",
+ *     OutputUpdates: [ // OutputUpdates
+ *       { // OutputUpdate
+ *         OutputId: "STRING_VALUE", // required
+ *         NameUpdate: "STRING_VALUE",
+ *         KinesisStreamsOutputUpdate: { // KinesisStreamsOutputUpdate
+ *           ResourceARNUpdate: "STRING_VALUE",
+ *           RoleARNUpdate: "STRING_VALUE",
+ *         },
+ *         KinesisFirehoseOutputUpdate: { // KinesisFirehoseOutputUpdate
+ *           ResourceARNUpdate: "STRING_VALUE",
+ *           RoleARNUpdate: "STRING_VALUE",
+ *         },
+ *         LambdaOutputUpdate: { // LambdaOutputUpdate
+ *           ResourceARNUpdate: "STRING_VALUE",
+ *           RoleARNUpdate: "STRING_VALUE",
+ *         },
+ *         DestinationSchemaUpdate: { // DestinationSchema
+ *           RecordFormatType: "STRING_VALUE", // required
+ *         },
+ *       },
+ *     ],
+ *     ReferenceDataSourceUpdates: [ // ReferenceDataSourceUpdates
+ *       { // ReferenceDataSourceUpdate
+ *         ReferenceId: "STRING_VALUE", // required
+ *         TableNameUpdate: "STRING_VALUE",
+ *         S3ReferenceDataSourceUpdate: { // S3ReferenceDataSourceUpdate
+ *           BucketARNUpdate: "STRING_VALUE",
+ *           FileKeyUpdate: "STRING_VALUE",
+ *           ReferenceRoleARNUpdate: "STRING_VALUE",
+ *         },
+ *         ReferenceSchemaUpdate: { // SourceSchema
+ *           RecordFormat: {
+ *             RecordFormatType: "STRING_VALUE", // required
+ *             MappingParameters: {
+ *               JSONMappingParameters: {
+ *                 RecordRowPath: "STRING_VALUE", // required
+ *               },
+ *               CSVMappingParameters: {
+ *                 RecordRowDelimiter: "STRING_VALUE", // required
+ *                 RecordColumnDelimiter: "STRING_VALUE", // required
+ *               },
+ *             },
+ *           },
+ *           RecordEncoding: "STRING_VALUE",
+ *           RecordColumns: [ // required
+ *             {
+ *               Name: "STRING_VALUE", // required
+ *               Mapping: "STRING_VALUE",
+ *               SqlType: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
+ *       },
+ *     ],
+ *     CloudWatchLoggingOptionUpdates: [ // CloudWatchLoggingOptionUpdates
+ *       { // CloudWatchLoggingOptionUpdate
+ *         CloudWatchLoggingOptionId: "STRING_VALUE", // required
+ *         LogStreamARNUpdate: "STRING_VALUE",
+ *         RoleARNUpdate: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new UpdateApplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateApplicationCommandInput - {@link UpdateApplicationCommandInput}
+ * @returns {@link UpdateApplicationCommandOutput}
  * @see {@link UpdateApplicationCommandInput} for command's `input` shape.
  * @see {@link UpdateApplicationCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsClientResolvedConfig | config} for KinesisAnalyticsClient's `config` shape.
+ *
+ * @throws {@link CodeValidationException} (client fault)
+ *  <p>User-provided application code (query) is invalid. This can be a simple syntax error.</p>
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>Specified input parameter value is invalid.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>Application is not available for this operation.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Specified application can't be found.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation. </p>
+ *
  *
  */
 export class UpdateApplicationCommand extends $Command<
@@ -71,6 +208,9 @@ export class UpdateApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +239,8 @@ export class UpdateApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateApplicationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateApplicationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +250,18 @@ export class UpdateApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateApplicationCommand(input, context);
+    return se_UpdateApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateApplicationCommandOutput> {
-    return deserializeAws_json1_1UpdateApplicationCommand(output, context);
+    return de_UpdateApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

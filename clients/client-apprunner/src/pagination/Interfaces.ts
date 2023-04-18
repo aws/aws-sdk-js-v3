@@ -1,9 +1,11 @@
 // smithy-typescript generated code
 import { PaginationConfiguration } from "@aws-sdk/types";
 
-import { AppRunner } from "../AppRunner";
 import { AppRunnerClient } from "../AppRunnerClient";
 
+/**
+ * @public
+ */
 export interface AppRunnerPaginationConfiguration extends PaginationConfiguration {
-  client: AppRunner | AppRunnerClient;
+  client: AppRunnerClient;
 }

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteAnnotationStoreRequest,
-  DeleteAnnotationStoreRequestFilterSensitiveLog,
-  DeleteAnnotationStoreResponse,
-  DeleteAnnotationStoreResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteAnnotationStoreRequest, DeleteAnnotationStoreResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1DeleteAnnotationStoreCommand,
-  serializeAws_restJson1DeleteAnnotationStoreCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteAnnotationStoreCommand, se_DeleteAnnotationStoreCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteAnnotationStoreCommand}.
+ */
 export interface DeleteAnnotationStoreCommandInput extends DeleteAnnotationStoreRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteAnnotationStoreCommand}.
+ */
 export interface DeleteAnnotationStoreCommandOutput extends DeleteAnnotationStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an annotation store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,38 @@ export interface DeleteAnnotationStoreCommandOutput extends DeleteAnnotationStor
  * import { OmicsClient, DeleteAnnotationStoreCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, DeleteAnnotationStoreCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = { // DeleteAnnotationStoreRequest
+ *   name: "STRING_VALUE", // required
+ *   force: true || false,
+ * };
  * const command = new DeleteAnnotationStoreCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAnnotationStoreCommandInput - {@link DeleteAnnotationStoreCommandInput}
+ * @returns {@link DeleteAnnotationStoreCommandOutput}
  * @see {@link DeleteAnnotationStoreCommandInput} for command's `input` shape.
  * @see {@link DeleteAnnotationStoreCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request cannot be applied to the target resource in its current state.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred. Try the request again.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The target resource was not found in the current Region.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
  *
  */
 export class DeleteAnnotationStoreCommand extends $Command<
@@ -62,6 +90,9 @@ export class DeleteAnnotationStoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAnnotationStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +121,8 @@ export class DeleteAnnotationStoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAnnotationStoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAnnotationStoreResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +132,18 @@ export class DeleteAnnotationStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAnnotationStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAnnotationStoreCommand(input, context);
+    return se_DeleteAnnotationStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAnnotationStoreCommandOutput> {
-    return deserializeAws_restJson1DeleteAnnotationStoreCommand(output, context);
+    return de_DeleteAnnotationStoreCommand(output, context);
   }
 
   // Start section: command_body_extra

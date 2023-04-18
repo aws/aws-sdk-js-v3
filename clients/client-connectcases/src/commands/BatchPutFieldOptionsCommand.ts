@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
-import {
-  BatchPutFieldOptionsRequest,
-  BatchPutFieldOptionsRequestFilterSensitiveLog,
-  BatchPutFieldOptionsResponse,
-  BatchPutFieldOptionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchPutFieldOptionsCommand,
-  serializeAws_restJson1BatchPutFieldOptionsCommand,
-} from "../protocols/Aws_restJson1";
+import { BatchPutFieldOptionsRequest, BatchPutFieldOptionsResponse } from "../models/models_0";
+import { de_BatchPutFieldOptionsCommand, se_BatchPutFieldOptionsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchPutFieldOptionsCommand}.
+ */
 export interface BatchPutFieldOptionsCommandInput extends BatchPutFieldOptionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link BatchPutFieldOptionsCommand}.
+ */
 export interface BatchPutFieldOptionsCommandOutput extends BatchPutFieldOptionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates and updates a set of field options for a single select field in a Cases
  *       domain.</p>
  * @example
@@ -37,13 +40,48 @@ export interface BatchPutFieldOptionsCommandOutput extends BatchPutFieldOptionsR
  * import { ConnectCasesClient, BatchPutFieldOptionsCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, BatchPutFieldOptionsCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
  * const client = new ConnectCasesClient(config);
+ * const input = { // BatchPutFieldOptionsRequest
+ *   domainId: "STRING_VALUE", // required
+ *   fieldId: "STRING_VALUE", // required
+ *   options: [ // FieldOptionsList // required
+ *     { // FieldOption
+ *       name: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *       active: true || false, // required
+ *     },
+ *   ],
+ * };
  * const command = new BatchPutFieldOptionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchPutFieldOptionsCommandInput - {@link BatchPutFieldOptionsCommandInput}
+ * @returns {@link BatchPutFieldOptionsCommandOutput}
  * @see {@link BatchPutFieldOptionsCommandInput} for command's `input` shape.
  * @see {@link BatchPutFieldOptionsCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>We couldn't process your request because of an issue with the server. Try again
+ *       later.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>We couldn't find the requested resource. Check that your resources exists and were created
+ *       in the same Amazon Web Services Region as your request, and try your request again.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The service quota has been exceeded. For a list of service quotas, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the <i>Amazon Connect
+ *         Administrator Guide</i>.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate has been exceeded for this API. Please try again after a few minutes.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request isn't valid. Check the syntax and try again.</p>
+ *
  *
  */
 export class BatchPutFieldOptionsCommand extends $Command<
@@ -63,6 +101,9 @@ export class BatchPutFieldOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchPutFieldOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +132,8 @@ export class BatchPutFieldOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchPutFieldOptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchPutFieldOptionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +143,18 @@ export class BatchPutFieldOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchPutFieldOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchPutFieldOptionsCommand(input, context);
+    return se_BatchPutFieldOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchPutFieldOptionsCommandOutput> {
-    return deserializeAws_restJson1BatchPutFieldOptionsCommand(output, context);
+    return de_BatchPutFieldOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

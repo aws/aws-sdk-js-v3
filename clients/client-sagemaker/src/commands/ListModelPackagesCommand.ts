@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListModelPackagesInput,
-  ListModelPackagesInputFilterSensitiveLog,
-  ListModelPackagesOutput,
-  ListModelPackagesOutputFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1ListModelPackagesCommand,
-  serializeAws_json1_1ListModelPackagesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListModelPackagesInput, ListModelPackagesOutput } from "../models/models_3";
+import { de_ListModelPackagesCommand, se_ListModelPackagesCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListModelPackagesCommand}.
+ */
 export interface ListModelPackagesCommandInput extends ListModelPackagesInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListModelPackagesCommand}.
+ */
 export interface ListModelPackagesCommandOutput extends ListModelPackagesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the model packages that have been created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,28 @@ export interface ListModelPackagesCommandOutput extends ListModelPackagesOutput,
  * import { SageMakerClient, ListModelPackagesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListModelPackagesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListModelPackagesInput
+ *   CreationTimeAfter: new Date("TIMESTAMP"),
+ *   CreationTimeBefore: new Date("TIMESTAMP"),
+ *   MaxResults: Number("int"),
+ *   NameContains: "STRING_VALUE",
+ *   ModelApprovalStatus: "Approved" || "Rejected" || "PendingManualApproval",
+ *   ModelPackageGroupName: "STRING_VALUE",
+ *   ModelPackageType: "Versioned" || "Unversioned" || "Both",
+ *   NextToken: "STRING_VALUE",
+ *   SortBy: "Name" || "CreationTime",
+ *   SortOrder: "Ascending" || "Descending",
+ * };
  * const command = new ListModelPackagesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListModelPackagesCommandInput - {@link ListModelPackagesCommandInput}
+ * @returns {@link ListModelPackagesCommandOutput}
  * @see {@link ListModelPackagesCommandInput} for command's `input` shape.
  * @see {@link ListModelPackagesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
  *
  */
 export class ListModelPackagesCommand extends $Command<
@@ -62,6 +80,9 @@ export class ListModelPackagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListModelPackagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +111,8 @@ export class ListModelPackagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListModelPackagesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListModelPackagesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +122,18 @@ export class ListModelPackagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListModelPackagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListModelPackagesCommand(input, context);
+    return se_ListModelPackagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListModelPackagesCommandOutput> {
-    return deserializeAws_json1_1ListModelPackagesCommand(output, context);
+    return de_ListModelPackagesCommand(output, context);
   }
 
   // Start section: command_body_extra

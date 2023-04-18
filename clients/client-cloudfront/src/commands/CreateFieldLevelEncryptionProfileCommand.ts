@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
+import { CreateFieldLevelEncryptionProfileRequest, CreateFieldLevelEncryptionProfileResult } from "../models/models_0";
 import {
-  CreateFieldLevelEncryptionProfileRequest,
-  CreateFieldLevelEncryptionProfileRequestFilterSensitiveLog,
-  CreateFieldLevelEncryptionProfileResult,
-  CreateFieldLevelEncryptionProfileResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlCreateFieldLevelEncryptionProfileCommand,
-  serializeAws_restXmlCreateFieldLevelEncryptionProfileCommand,
+  de_CreateFieldLevelEncryptionProfileCommand,
+  se_CreateFieldLevelEncryptionProfileCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateFieldLevelEncryptionProfileCommand}.
+ */
 export interface CreateFieldLevelEncryptionProfileCommandInput extends CreateFieldLevelEncryptionProfileRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateFieldLevelEncryptionProfileCommand}.
+ */
 export interface CreateFieldLevelEncryptionProfileCommandOutput
   extends CreateFieldLevelEncryptionProfileResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a field-level encryption profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,65 @@ export interface CreateFieldLevelEncryptionProfileCommandOutput
  * import { CloudFrontClient, CreateFieldLevelEncryptionProfileCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, CreateFieldLevelEncryptionProfileCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // CreateFieldLevelEncryptionProfileRequest
+ *   FieldLevelEncryptionProfileConfig: { // FieldLevelEncryptionProfileConfig
+ *     Name: "STRING_VALUE", // required
+ *     CallerReference: "STRING_VALUE", // required
+ *     Comment: "STRING_VALUE",
+ *     EncryptionEntities: { // EncryptionEntities
+ *       Quantity: Number("int"), // required
+ *       Items: [ // EncryptionEntityList
+ *         { // EncryptionEntity
+ *           PublicKeyId: "STRING_VALUE", // required
+ *           ProviderId: "STRING_VALUE", // required
+ *           FieldPatterns: { // FieldPatterns
+ *             Quantity: Number("int"), // required
+ *             Items: [ // FieldPatternList
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         },
+ *       ],
+ *     },
+ *   },
+ * };
  * const command = new CreateFieldLevelEncryptionProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFieldLevelEncryptionProfileCommandInput - {@link CreateFieldLevelEncryptionProfileCommandInput}
+ * @returns {@link CreateFieldLevelEncryptionProfileCommandOutput}
  * @see {@link CreateFieldLevelEncryptionProfileCommandInput} for command's `input` shape.
  * @see {@link CreateFieldLevelEncryptionProfileCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link FieldLevelEncryptionProfileAlreadyExists} (client fault)
+ *  <p>The specified profile for field-level encryption already exists.</p>
+ *
+ * @throws {@link FieldLevelEncryptionProfileSizeExceeded} (client fault)
+ *  <p>The maximum size of a profile for field-level encryption was exceeded.</p>
+ *
+ * @throws {@link InconsistentQuantities} (client fault)
+ *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't
+ * 			match.</p>
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link NoSuchPublicKey} (client fault)
+ *  <p>The specified public key doesn't exist.</p>
+ *
+ * @throws {@link TooManyFieldLevelEncryptionEncryptionEntities} (client fault)
+ *  <p>The maximum number of encryption entities for field-level encryption have been
+ * 			created.</p>
+ *
+ * @throws {@link TooManyFieldLevelEncryptionFieldPatterns} (client fault)
+ *  <p>The maximum number of field patterns for field-level encryption have been
+ * 			created.</p>
+ *
+ * @throws {@link TooManyFieldLevelEncryptionProfiles} (client fault)
+ *  <p>The maximum number of profiles for field-level encryption have been created.</p>
+ *
  *
  */
 export class CreateFieldLevelEncryptionProfileCommand extends $Command<
@@ -64,6 +122,9 @@ export class CreateFieldLevelEncryptionProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFieldLevelEncryptionProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +153,8 @@ export class CreateFieldLevelEncryptionProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFieldLevelEncryptionProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateFieldLevelEncryptionProfileResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +164,24 @@ export class CreateFieldLevelEncryptionProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateFieldLevelEncryptionProfileCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateFieldLevelEncryptionProfileCommand(input, context);
+    return se_CreateFieldLevelEncryptionProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateFieldLevelEncryptionProfileCommandOutput> {
-    return deserializeAws_restXmlCreateFieldLevelEncryptionProfileCommand(output, context);
+    return de_CreateFieldLevelEncryptionProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

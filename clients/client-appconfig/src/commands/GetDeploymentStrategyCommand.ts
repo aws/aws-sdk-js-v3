@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import {
-  DeploymentStrategy,
-  DeploymentStrategyFilterSensitiveLog,
-  GetDeploymentStrategyRequest,
-  GetDeploymentStrategyRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDeploymentStrategyCommand,
-  serializeAws_restJson1GetDeploymentStrategyCommand,
-} from "../protocols/Aws_restJson1";
+import { DeploymentStrategy, GetDeploymentStrategyRequest } from "../models/models_0";
+import { de_GetDeploymentStrategyCommand, se_GetDeploymentStrategyCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetDeploymentStrategyCommand}.
+ */
 export interface GetDeploymentStrategyCommandInput extends GetDeploymentStrategyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetDeploymentStrategyCommand}.
+ */
 export interface GetDeploymentStrategyCommandOutput extends DeploymentStrategy, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about a deployment strategy. A deployment strategy defines
  *          important criteria for rolling out your configuration to the designated targets. A
  *          deployment strategy includes the overall duration required, a percentage of targets to
@@ -40,13 +43,50 @@ export interface GetDeploymentStrategyCommandOutput extends DeploymentStrategy, 
  * import { AppConfigClient, GetDeploymentStrategyCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, GetDeploymentStrategyCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = { // GetDeploymentStrategyRequest
+ *   DeploymentStrategyId: "STRING_VALUE", // required
+ * };
  * const command = new GetDeploymentStrategyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDeploymentStrategyCommandInput - {@link GetDeploymentStrategyCommandInput}
+ * @returns {@link GetDeploymentStrategyCommandOutput}
  * @see {@link GetDeploymentStrategyCommandInput} for command's `input` shape.
  * @see {@link GetDeploymentStrategyCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There was an internal failure in the AppConfig service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource could not be found.</p>
+ *
+ *
+ * @example To retrieve details of a deployment strategy
+ * ```javascript
+ * // The following get-deployment-strategy example lists the details of the specified deployment strategy.
+ * const input = {
+ *   "DeploymentStrategyId": "1225qzk"
+ * };
+ * const command = new GetDeploymentStrategyCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DeploymentDurationInMinutes": 15,
+ *   "FinalBakeTimeInMinutes": 0,
+ *   "GrowthFactor": 25,
+ *   "GrowthType": "LINEAR",
+ *   "Id": "1225qzk",
+ *   "Name": "Example-Deployment",
+ *   "ReplicateTo": "SSM_DOCUMENT"
+ * }
+ * *\/
+ * // example id: to-retrieve-details-of-a-deployment-strategy-1632266385805
+ * ```
  *
  */
 export class GetDeploymentStrategyCommand extends $Command<
@@ -66,6 +106,9 @@ export class GetDeploymentStrategyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDeploymentStrategyCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +137,8 @@ export class GetDeploymentStrategyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDeploymentStrategyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeploymentStrategyFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +148,18 @@ export class GetDeploymentStrategyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDeploymentStrategyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDeploymentStrategyCommand(input, context);
+    return se_GetDeploymentStrategyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDeploymentStrategyCommandOutput> {
-    return deserializeAws_restJson1GetDeploymentStrategyCommand(output, context);
+    return de_GetDeploymentStrategyCommand(output, context);
   }
 
   // Start section: command_body_extra

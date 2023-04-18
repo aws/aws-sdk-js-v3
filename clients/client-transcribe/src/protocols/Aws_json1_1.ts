@@ -1,17 +1,17 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
-  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
-  expectUnion as __expectUnion,
   limitedParseFloat32 as __limitedParseFloat32,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -165,7 +165,6 @@ import {
   CreateCallAnalyticsCategoryRequest,
   CreateCallAnalyticsCategoryResponse,
   CreateLanguageModelRequest,
-  CreateLanguageModelResponse,
   CreateMedicalVocabularyRequest,
   CreateMedicalVocabularyResponse,
   CreateVocabularyFilterRequest,
@@ -173,9 +172,7 @@ import {
   CreateVocabularyRequest,
   CreateVocabularyResponse,
   DeleteCallAnalyticsCategoryRequest,
-  DeleteCallAnalyticsCategoryResponse,
   DeleteCallAnalyticsJobRequest,
-  DeleteCallAnalyticsJobResponse,
   DeleteLanguageModelRequest,
   DeleteMedicalTranscriptionJobRequest,
   DeleteMedicalVocabularyRequest,
@@ -218,7 +215,6 @@ import {
   ListMedicalVocabulariesRequest,
   ListMedicalVocabulariesResponse,
   ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
   ListTranscriptionJobsRequest,
   ListTranscriptionJobsResponse,
   ListVocabulariesRequest,
@@ -226,7 +222,6 @@ import {
   ListVocabularyFiltersRequest,
   ListVocabularyFiltersResponse,
   Media,
-  MedicalTranscript,
   MedicalTranscriptionJob,
   MedicalTranscriptionJobSummary,
   MedicalTranscriptionSetting,
@@ -247,16 +242,12 @@ import {
   StartTranscriptionJobResponse,
   SubtitleFormat,
   Subtitles,
-  SubtitlesOutput,
   Tag,
   TagResourceRequest,
-  TagResourceResponse,
-  Transcript,
   TranscriptFilter,
   TranscriptionJob,
   TranscriptionJobSummary,
   UntagResourceRequest,
-  UntagResourceResponse,
   UpdateCallAnalyticsCategoryRequest,
   UpdateCallAnalyticsCategoryResponse,
   UpdateMedicalVocabularyRequest,
@@ -270,531 +261,537 @@ import {
 } from "../models/models_0";
 import { TranscribeServiceException as __BaseException } from "../models/TranscribeServiceException";
 
-export const serializeAws_json1_1CreateCallAnalyticsCategoryCommand = async (
+/**
+ * serializeAws_json1_1CreateCallAnalyticsCategoryCommand
+ */
+export const se_CreateCallAnalyticsCategoryCommand = async (
   input: CreateCallAnalyticsCategoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.CreateCallAnalyticsCategory",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateCallAnalyticsCategory");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateCallAnalyticsCategoryRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateLanguageModelCommand = async (
+/**
+ * serializeAws_json1_1CreateLanguageModelCommand
+ */
+export const se_CreateLanguageModelCommand = async (
   input: CreateLanguageModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.CreateLanguageModel",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateLanguageModel");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateLanguageModelRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateMedicalVocabularyCommand = async (
+/**
+ * serializeAws_json1_1CreateMedicalVocabularyCommand
+ */
+export const se_CreateMedicalVocabularyCommand = async (
   input: CreateMedicalVocabularyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.CreateMedicalVocabulary",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateMedicalVocabulary");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateMedicalVocabularyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateVocabularyCommand = async (
+/**
+ * serializeAws_json1_1CreateVocabularyCommand
+ */
+export const se_CreateVocabularyCommand = async (
   input: CreateVocabularyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.CreateVocabulary",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateVocabulary");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateVocabularyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateVocabularyFilterCommand = async (
+/**
+ * serializeAws_json1_1CreateVocabularyFilterCommand
+ */
+export const se_CreateVocabularyFilterCommand = async (
   input: CreateVocabularyFilterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.CreateVocabularyFilter",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateVocabularyFilter");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateVocabularyFilterRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteCallAnalyticsCategoryCommand = async (
+/**
+ * serializeAws_json1_1DeleteCallAnalyticsCategoryCommand
+ */
+export const se_DeleteCallAnalyticsCategoryCommand = async (
   input: DeleteCallAnalyticsCategoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.DeleteCallAnalyticsCategory",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteCallAnalyticsCategory");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteCallAnalyticsCategoryRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteCallAnalyticsJobCommand = async (
+/**
+ * serializeAws_json1_1DeleteCallAnalyticsJobCommand
+ */
+export const se_DeleteCallAnalyticsJobCommand = async (
   input: DeleteCallAnalyticsJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.DeleteCallAnalyticsJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteCallAnalyticsJob");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteCallAnalyticsJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteLanguageModelCommand = async (
+/**
+ * serializeAws_json1_1DeleteLanguageModelCommand
+ */
+export const se_DeleteLanguageModelCommand = async (
   input: DeleteLanguageModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.DeleteLanguageModel",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteLanguageModel");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteLanguageModelRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteMedicalTranscriptionJobCommand = async (
+/**
+ * serializeAws_json1_1DeleteMedicalTranscriptionJobCommand
+ */
+export const se_DeleteMedicalTranscriptionJobCommand = async (
   input: DeleteMedicalTranscriptionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.DeleteMedicalTranscriptionJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteMedicalTranscriptionJob");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteMedicalTranscriptionJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteMedicalVocabularyCommand = async (
+/**
+ * serializeAws_json1_1DeleteMedicalVocabularyCommand
+ */
+export const se_DeleteMedicalVocabularyCommand = async (
   input: DeleteMedicalVocabularyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.DeleteMedicalVocabulary",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteMedicalVocabulary");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteMedicalVocabularyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteTranscriptionJobCommand = async (
+/**
+ * serializeAws_json1_1DeleteTranscriptionJobCommand
+ */
+export const se_DeleteTranscriptionJobCommand = async (
   input: DeleteTranscriptionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.DeleteTranscriptionJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteTranscriptionJob");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteTranscriptionJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteVocabularyCommand = async (
+/**
+ * serializeAws_json1_1DeleteVocabularyCommand
+ */
+export const se_DeleteVocabularyCommand = async (
   input: DeleteVocabularyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.DeleteVocabulary",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteVocabulary");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteVocabularyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteVocabularyFilterCommand = async (
+/**
+ * serializeAws_json1_1DeleteVocabularyFilterCommand
+ */
+export const se_DeleteVocabularyFilterCommand = async (
   input: DeleteVocabularyFilterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.DeleteVocabularyFilter",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteVocabularyFilter");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteVocabularyFilterRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeLanguageModelCommand = async (
+/**
+ * serializeAws_json1_1DescribeLanguageModelCommand
+ */
+export const se_DescribeLanguageModelCommand = async (
   input: DescribeLanguageModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.DescribeLanguageModel",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeLanguageModel");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeLanguageModelRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetCallAnalyticsCategoryCommand = async (
+/**
+ * serializeAws_json1_1GetCallAnalyticsCategoryCommand
+ */
+export const se_GetCallAnalyticsCategoryCommand = async (
   input: GetCallAnalyticsCategoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.GetCallAnalyticsCategory",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetCallAnalyticsCategory");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetCallAnalyticsCategoryRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetCallAnalyticsJobCommand = async (
+/**
+ * serializeAws_json1_1GetCallAnalyticsJobCommand
+ */
+export const se_GetCallAnalyticsJobCommand = async (
   input: GetCallAnalyticsJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.GetCallAnalyticsJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetCallAnalyticsJob");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetCallAnalyticsJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetMedicalTranscriptionJobCommand = async (
+/**
+ * serializeAws_json1_1GetMedicalTranscriptionJobCommand
+ */
+export const se_GetMedicalTranscriptionJobCommand = async (
   input: GetMedicalTranscriptionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.GetMedicalTranscriptionJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetMedicalTranscriptionJob");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetMedicalTranscriptionJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetMedicalVocabularyCommand = async (
+/**
+ * serializeAws_json1_1GetMedicalVocabularyCommand
+ */
+export const se_GetMedicalVocabularyCommand = async (
   input: GetMedicalVocabularyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.GetMedicalVocabulary",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetMedicalVocabulary");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetMedicalVocabularyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetTranscriptionJobCommand = async (
+/**
+ * serializeAws_json1_1GetTranscriptionJobCommand
+ */
+export const se_GetTranscriptionJobCommand = async (
   input: GetTranscriptionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.GetTranscriptionJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetTranscriptionJob");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetTranscriptionJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetVocabularyCommand = async (
+/**
+ * serializeAws_json1_1GetVocabularyCommand
+ */
+export const se_GetVocabularyCommand = async (
   input: GetVocabularyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.GetVocabulary",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetVocabulary");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetVocabularyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetVocabularyFilterCommand = async (
+/**
+ * serializeAws_json1_1GetVocabularyFilterCommand
+ */
+export const se_GetVocabularyFilterCommand = async (
   input: GetVocabularyFilterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.GetVocabularyFilter",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetVocabularyFilter");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetVocabularyFilterRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListCallAnalyticsCategoriesCommand = async (
+/**
+ * serializeAws_json1_1ListCallAnalyticsCategoriesCommand
+ */
+export const se_ListCallAnalyticsCategoriesCommand = async (
   input: ListCallAnalyticsCategoriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.ListCallAnalyticsCategories",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListCallAnalyticsCategories");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListCallAnalyticsCategoriesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListCallAnalyticsJobsCommand = async (
+/**
+ * serializeAws_json1_1ListCallAnalyticsJobsCommand
+ */
+export const se_ListCallAnalyticsJobsCommand = async (
   input: ListCallAnalyticsJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.ListCallAnalyticsJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListCallAnalyticsJobs");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListCallAnalyticsJobsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListLanguageModelsCommand = async (
+/**
+ * serializeAws_json1_1ListLanguageModelsCommand
+ */
+export const se_ListLanguageModelsCommand = async (
   input: ListLanguageModelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.ListLanguageModels",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListLanguageModels");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListLanguageModelsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListMedicalTranscriptionJobsCommand = async (
+/**
+ * serializeAws_json1_1ListMedicalTranscriptionJobsCommand
+ */
+export const se_ListMedicalTranscriptionJobsCommand = async (
   input: ListMedicalTranscriptionJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.ListMedicalTranscriptionJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListMedicalTranscriptionJobs");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListMedicalTranscriptionJobsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListMedicalVocabulariesCommand = async (
+/**
+ * serializeAws_json1_1ListMedicalVocabulariesCommand
+ */
+export const se_ListMedicalVocabulariesCommand = async (
   input: ListMedicalVocabulariesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.ListMedicalVocabularies",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListMedicalVocabularies");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListMedicalVocabulariesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_json1_1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListTranscriptionJobsCommand = async (
+/**
+ * serializeAws_json1_1ListTranscriptionJobsCommand
+ */
+export const se_ListTranscriptionJobsCommand = async (
   input: ListTranscriptionJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.ListTranscriptionJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTranscriptionJobs");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListTranscriptionJobsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListVocabulariesCommand = async (
+/**
+ * serializeAws_json1_1ListVocabulariesCommand
+ */
+export const se_ListVocabulariesCommand = async (
   input: ListVocabulariesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.ListVocabularies",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListVocabularies");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListVocabulariesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListVocabularyFiltersCommand = async (
+/**
+ * serializeAws_json1_1ListVocabularyFiltersCommand
+ */
+export const se_ListVocabularyFiltersCommand = async (
   input: ListVocabularyFiltersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.ListVocabularyFilters",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListVocabularyFilters");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListVocabularyFiltersRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1StartCallAnalyticsJobCommand = async (
+/**
+ * serializeAws_json1_1StartCallAnalyticsJobCommand
+ */
+export const se_StartCallAnalyticsJobCommand = async (
   input: StartCallAnalyticsJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.StartCallAnalyticsJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartCallAnalyticsJob");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1StartCallAnalyticsJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1StartMedicalTranscriptionJobCommand = async (
+/**
+ * serializeAws_json1_1StartMedicalTranscriptionJobCommand
+ */
+export const se_StartMedicalTranscriptionJobCommand = async (
   input: StartMedicalTranscriptionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.StartMedicalTranscriptionJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartMedicalTranscriptionJob");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1StartMedicalTranscriptionJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1StartTranscriptionJobCommand = async (
+/**
+ * serializeAws_json1_1StartTranscriptionJobCommand
+ */
+export const se_StartTranscriptionJobCommand = async (
   input: StartTranscriptionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.StartTranscriptionJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartTranscriptionJob");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1StartTranscriptionJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1TagResourceCommand = async (
+/**
+ * serializeAws_json1_1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UntagResourceCommand = async (
+/**
+ * serializeAws_json1_1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateCallAnalyticsCategoryCommand = async (
+/**
+ * serializeAws_json1_1UpdateCallAnalyticsCategoryCommand
+ */
+export const se_UpdateCallAnalyticsCategoryCommand = async (
   input: UpdateCallAnalyticsCategoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.UpdateCallAnalyticsCategory",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateCallAnalyticsCategory");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateCallAnalyticsCategoryRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateMedicalVocabularyCommand = async (
+/**
+ * serializeAws_json1_1UpdateMedicalVocabularyCommand
+ */
+export const se_UpdateMedicalVocabularyCommand = async (
   input: UpdateMedicalVocabularyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.UpdateMedicalVocabulary",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateMedicalVocabulary");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateMedicalVocabularyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateVocabularyCommand = async (
+/**
+ * serializeAws_json1_1UpdateVocabularyCommand
+ */
+export const se_UpdateVocabularyCommand = async (
   input: UpdateVocabularyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.UpdateVocabulary",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateVocabulary");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateVocabularyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateVocabularyFilterCommand = async (
+/**
+ * serializeAws_json1_1UpdateVocabularyFilterCommand
+ */
+export const se_UpdateVocabularyFilterCommand = async (
   input: UpdateVocabularyFilterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.UpdateVocabularyFilter",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateVocabularyFilter");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateVocabularyFilterRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_1CreateCallAnalyticsCategoryCommand = async (
+/**
+ * deserializeAws_json1_1CreateCallAnalyticsCategoryCommand
+ */
+export const de_CreateCallAnalyticsCategoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCallAnalyticsCategoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateCallAnalyticsCategoryCommandError(output, context);
+    return de_CreateCallAnalyticsCategoryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateCallAnalyticsCategoryResponse(data, context);
+  contents = de_CreateCallAnalyticsCategoryResponse(data, context);
   const response: CreateCallAnalyticsCategoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateCallAnalyticsCategoryCommandError = async (
+/**
+ * deserializeAws_json1_1CreateCallAnalyticsCategoryCommandError
+ */
+const de_CreateCallAnalyticsCategoryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCallAnalyticsCategoryCommandOutput> => {
@@ -806,45 +803,50 @@ const deserializeAws_json1_1CreateCallAnalyticsCategoryCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.transcribe#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
-      throw await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1CreateLanguageModelCommand = async (
+/**
+ * deserializeAws_json1_1CreateLanguageModelCommand
+ */
+export const de_CreateLanguageModelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLanguageModelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateLanguageModelCommandError(output, context);
+    return de_CreateLanguageModelCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateLanguageModelResponse(data, context);
+  contents = _json(data);
   const response: CreateLanguageModelCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateLanguageModelCommandError = async (
+/**
+ * deserializeAws_json1_1CreateLanguageModelCommandError
+ */
+const de_CreateLanguageModelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLanguageModelCommandOutput> => {
@@ -856,45 +858,50 @@ const deserializeAws_json1_1CreateLanguageModelCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.transcribe#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
-      throw await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1CreateMedicalVocabularyCommand = async (
+/**
+ * deserializeAws_json1_1CreateMedicalVocabularyCommand
+ */
+export const de_CreateMedicalVocabularyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateMedicalVocabularyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateMedicalVocabularyCommandError(output, context);
+    return de_CreateMedicalVocabularyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateMedicalVocabularyResponse(data, context);
+  contents = de_CreateMedicalVocabularyResponse(data, context);
   const response: CreateMedicalVocabularyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateMedicalVocabularyCommandError = async (
+/**
+ * deserializeAws_json1_1CreateMedicalVocabularyCommandError
+ */
+const de_CreateMedicalVocabularyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateMedicalVocabularyCommandOutput> => {
@@ -906,45 +913,50 @@ const deserializeAws_json1_1CreateMedicalVocabularyCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.transcribe#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
-      throw await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1CreateVocabularyCommand = async (
+/**
+ * deserializeAws_json1_1CreateVocabularyCommand
+ */
+export const de_CreateVocabularyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVocabularyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateVocabularyCommandError(output, context);
+    return de_CreateVocabularyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateVocabularyResponse(data, context);
+  contents = de_CreateVocabularyResponse(data, context);
   const response: CreateVocabularyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateVocabularyCommandError = async (
+/**
+ * deserializeAws_json1_1CreateVocabularyCommandError
+ */
+const de_CreateVocabularyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVocabularyCommandOutput> => {
@@ -956,45 +968,50 @@ const deserializeAws_json1_1CreateVocabularyCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.transcribe#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
-      throw await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1CreateVocabularyFilterCommand = async (
+/**
+ * deserializeAws_json1_1CreateVocabularyFilterCommand
+ */
+export const de_CreateVocabularyFilterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVocabularyFilterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateVocabularyFilterCommandError(output, context);
+    return de_CreateVocabularyFilterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateVocabularyFilterResponse(data, context);
+  contents = de_CreateVocabularyFilterResponse(data, context);
   const response: CreateVocabularyFilterCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateVocabularyFilterCommandError = async (
+/**
+ * deserializeAws_json1_1CreateVocabularyFilterCommandError
+ */
+const de_CreateVocabularyFilterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVocabularyFilterCommandOutput> => {
@@ -1006,45 +1023,50 @@ const deserializeAws_json1_1CreateVocabularyFilterCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.transcribe#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
-      throw await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteCallAnalyticsCategoryCommand = async (
+/**
+ * deserializeAws_json1_1DeleteCallAnalyticsCategoryCommand
+ */
+export const de_DeleteCallAnalyticsCategoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCallAnalyticsCategoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteCallAnalyticsCategoryCommandError(output, context);
+    return de_DeleteCallAnalyticsCategoryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteCallAnalyticsCategoryResponse(data, context);
+  contents = _json(data);
   const response: DeleteCallAnalyticsCategoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteCallAnalyticsCategoryCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteCallAnalyticsCategoryCommandError
+ */
+const de_DeleteCallAnalyticsCategoryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCallAnalyticsCategoryCommandOutput> => {
@@ -1056,45 +1078,50 @@ const deserializeAws_json1_1DeleteCallAnalyticsCategoryCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
-      throw await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.transcribe#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteCallAnalyticsJobCommand = async (
+/**
+ * deserializeAws_json1_1DeleteCallAnalyticsJobCommand
+ */
+export const de_DeleteCallAnalyticsJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCallAnalyticsJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteCallAnalyticsJobCommandError(output, context);
+    return de_DeleteCallAnalyticsJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteCallAnalyticsJobResponse(data, context);
+  contents = _json(data);
   const response: DeleteCallAnalyticsJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteCallAnalyticsJobCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteCallAnalyticsJobCommandError
+ */
+const de_DeleteCallAnalyticsJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCallAnalyticsJobCommandOutput> => {
@@ -1106,39 +1133,44 @@ const deserializeAws_json1_1DeleteCallAnalyticsJobCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
-      throw await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteLanguageModelCommand = async (
+/**
+ * deserializeAws_json1_1DeleteLanguageModelCommand
+ */
+export const de_DeleteLanguageModelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLanguageModelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteLanguageModelCommandError(output, context);
+    return de_DeleteLanguageModelCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteLanguageModelCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteLanguageModelCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteLanguageModelCommandError
+ */
+const de_DeleteLanguageModelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLanguageModelCommandOutput> => {
@@ -1150,39 +1182,44 @@ const deserializeAws_json1_1DeleteLanguageModelCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
-      throw await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteMedicalTranscriptionJobCommand = async (
+/**
+ * deserializeAws_json1_1DeleteMedicalTranscriptionJobCommand
+ */
+export const de_DeleteMedicalTranscriptionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMedicalTranscriptionJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteMedicalTranscriptionJobCommandError(output, context);
+    return de_DeleteMedicalTranscriptionJobCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteMedicalTranscriptionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteMedicalTranscriptionJobCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteMedicalTranscriptionJobCommandError
+ */
+const de_DeleteMedicalTranscriptionJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMedicalTranscriptionJobCommandOutput> => {
@@ -1194,39 +1231,44 @@ const deserializeAws_json1_1DeleteMedicalTranscriptionJobCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
-      throw await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteMedicalVocabularyCommand = async (
+/**
+ * deserializeAws_json1_1DeleteMedicalVocabularyCommand
+ */
+export const de_DeleteMedicalVocabularyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMedicalVocabularyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteMedicalVocabularyCommandError(output, context);
+    return de_DeleteMedicalVocabularyCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteMedicalVocabularyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteMedicalVocabularyCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteMedicalVocabularyCommandError
+ */
+const de_DeleteMedicalVocabularyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMedicalVocabularyCommandOutput> => {
@@ -1238,42 +1280,47 @@ const deserializeAws_json1_1DeleteMedicalVocabularyCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
-      throw await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.transcribe#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteTranscriptionJobCommand = async (
+/**
+ * deserializeAws_json1_1DeleteTranscriptionJobCommand
+ */
+export const de_DeleteTranscriptionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTranscriptionJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteTranscriptionJobCommandError(output, context);
+    return de_DeleteTranscriptionJobCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteTranscriptionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteTranscriptionJobCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteTranscriptionJobCommandError
+ */
+const de_DeleteTranscriptionJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTranscriptionJobCommandOutput> => {
@@ -1285,39 +1332,44 @@ const deserializeAws_json1_1DeleteTranscriptionJobCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
-      throw await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteVocabularyCommand = async (
+/**
+ * deserializeAws_json1_1DeleteVocabularyCommand
+ */
+export const de_DeleteVocabularyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVocabularyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteVocabularyCommandError(output, context);
+    return de_DeleteVocabularyCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteVocabularyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteVocabularyCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteVocabularyCommandError
+ */
+const de_DeleteVocabularyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVocabularyCommandOutput> => {
@@ -1329,42 +1381,47 @@ const deserializeAws_json1_1DeleteVocabularyCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
-      throw await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.transcribe#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteVocabularyFilterCommand = async (
+/**
+ * deserializeAws_json1_1DeleteVocabularyFilterCommand
+ */
+export const de_DeleteVocabularyFilterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVocabularyFilterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteVocabularyFilterCommandError(output, context);
+    return de_DeleteVocabularyFilterCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteVocabularyFilterCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteVocabularyFilterCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteVocabularyFilterCommandError
+ */
+const de_DeleteVocabularyFilterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVocabularyFilterCommandOutput> => {
@@ -1376,45 +1433,50 @@ const deserializeAws_json1_1DeleteVocabularyFilterCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
-      throw await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.transcribe#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeLanguageModelCommand = async (
+/**
+ * deserializeAws_json1_1DescribeLanguageModelCommand
+ */
+export const de_DescribeLanguageModelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeLanguageModelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeLanguageModelCommandError(output, context);
+    return de_DescribeLanguageModelCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeLanguageModelResponse(data, context);
+  contents = de_DescribeLanguageModelResponse(data, context);
   const response: DescribeLanguageModelCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeLanguageModelCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeLanguageModelCommandError
+ */
+const de_DescribeLanguageModelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeLanguageModelCommandOutput> => {
@@ -1426,45 +1488,50 @@ const deserializeAws_json1_1DescribeLanguageModelCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
-      throw await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.transcribe#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1GetCallAnalyticsCategoryCommand = async (
+/**
+ * deserializeAws_json1_1GetCallAnalyticsCategoryCommand
+ */
+export const de_GetCallAnalyticsCategoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCallAnalyticsCategoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetCallAnalyticsCategoryCommandError(output, context);
+    return de_GetCallAnalyticsCategoryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetCallAnalyticsCategoryResponse(data, context);
+  contents = de_GetCallAnalyticsCategoryResponse(data, context);
   const response: GetCallAnalyticsCategoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetCallAnalyticsCategoryCommandError = async (
+/**
+ * deserializeAws_json1_1GetCallAnalyticsCategoryCommandError
+ */
+const de_GetCallAnalyticsCategoryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCallAnalyticsCategoryCommandOutput> => {
@@ -1476,45 +1543,50 @@ const deserializeAws_json1_1GetCallAnalyticsCategoryCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
-      throw await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.transcribe#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1GetCallAnalyticsJobCommand = async (
+/**
+ * deserializeAws_json1_1GetCallAnalyticsJobCommand
+ */
+export const de_GetCallAnalyticsJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCallAnalyticsJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetCallAnalyticsJobCommandError(output, context);
+    return de_GetCallAnalyticsJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetCallAnalyticsJobResponse(data, context);
+  contents = de_GetCallAnalyticsJobResponse(data, context);
   const response: GetCallAnalyticsJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetCallAnalyticsJobCommandError = async (
+/**
+ * deserializeAws_json1_1GetCallAnalyticsJobCommandError
+ */
+const de_GetCallAnalyticsJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCallAnalyticsJobCommandOutput> => {
@@ -1526,45 +1598,50 @@ const deserializeAws_json1_1GetCallAnalyticsJobCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
-      throw await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.transcribe#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1GetMedicalTranscriptionJobCommand = async (
+/**
+ * deserializeAws_json1_1GetMedicalTranscriptionJobCommand
+ */
+export const de_GetMedicalTranscriptionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMedicalTranscriptionJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetMedicalTranscriptionJobCommandError(output, context);
+    return de_GetMedicalTranscriptionJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetMedicalTranscriptionJobResponse(data, context);
+  contents = de_GetMedicalTranscriptionJobResponse(data, context);
   const response: GetMedicalTranscriptionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetMedicalTranscriptionJobCommandError = async (
+/**
+ * deserializeAws_json1_1GetMedicalTranscriptionJobCommandError
+ */
+const de_GetMedicalTranscriptionJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMedicalTranscriptionJobCommandOutput> => {
@@ -1576,45 +1653,50 @@ const deserializeAws_json1_1GetMedicalTranscriptionJobCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
-      throw await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.transcribe#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1GetMedicalVocabularyCommand = async (
+/**
+ * deserializeAws_json1_1GetMedicalVocabularyCommand
+ */
+export const de_GetMedicalVocabularyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMedicalVocabularyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetMedicalVocabularyCommandError(output, context);
+    return de_GetMedicalVocabularyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetMedicalVocabularyResponse(data, context);
+  contents = de_GetMedicalVocabularyResponse(data, context);
   const response: GetMedicalVocabularyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetMedicalVocabularyCommandError = async (
+/**
+ * deserializeAws_json1_1GetMedicalVocabularyCommandError
+ */
+const de_GetMedicalVocabularyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMedicalVocabularyCommandOutput> => {
@@ -1626,45 +1708,50 @@ const deserializeAws_json1_1GetMedicalVocabularyCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
-      throw await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.transcribe#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1GetTranscriptionJobCommand = async (
+/**
+ * deserializeAws_json1_1GetTranscriptionJobCommand
+ */
+export const de_GetTranscriptionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTranscriptionJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetTranscriptionJobCommandError(output, context);
+    return de_GetTranscriptionJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetTranscriptionJobResponse(data, context);
+  contents = de_GetTranscriptionJobResponse(data, context);
   const response: GetTranscriptionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetTranscriptionJobCommandError = async (
+/**
+ * deserializeAws_json1_1GetTranscriptionJobCommandError
+ */
+const de_GetTranscriptionJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTranscriptionJobCommandOutput> => {
@@ -1676,45 +1763,50 @@ const deserializeAws_json1_1GetTranscriptionJobCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
-      throw await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.transcribe#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1GetVocabularyCommand = async (
+/**
+ * deserializeAws_json1_1GetVocabularyCommand
+ */
+export const de_GetVocabularyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVocabularyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetVocabularyCommandError(output, context);
+    return de_GetVocabularyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetVocabularyResponse(data, context);
+  contents = de_GetVocabularyResponse(data, context);
   const response: GetVocabularyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetVocabularyCommandError = async (
+/**
+ * deserializeAws_json1_1GetVocabularyCommandError
+ */
+const de_GetVocabularyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVocabularyCommandOutput> => {
@@ -1726,45 +1818,50 @@ const deserializeAws_json1_1GetVocabularyCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
-      throw await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.transcribe#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1GetVocabularyFilterCommand = async (
+/**
+ * deserializeAws_json1_1GetVocabularyFilterCommand
+ */
+export const de_GetVocabularyFilterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVocabularyFilterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetVocabularyFilterCommandError(output, context);
+    return de_GetVocabularyFilterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetVocabularyFilterResponse(data, context);
+  contents = de_GetVocabularyFilterResponse(data, context);
   const response: GetVocabularyFilterCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetVocabularyFilterCommandError = async (
+/**
+ * deserializeAws_json1_1GetVocabularyFilterCommandError
+ */
+const de_GetVocabularyFilterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVocabularyFilterCommandOutput> => {
@@ -1776,45 +1873,50 @@ const deserializeAws_json1_1GetVocabularyFilterCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
-      throw await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.transcribe#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListCallAnalyticsCategoriesCommand = async (
+/**
+ * deserializeAws_json1_1ListCallAnalyticsCategoriesCommand
+ */
+export const de_ListCallAnalyticsCategoriesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCallAnalyticsCategoriesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListCallAnalyticsCategoriesCommandError(output, context);
+    return de_ListCallAnalyticsCategoriesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListCallAnalyticsCategoriesResponse(data, context);
+  contents = de_ListCallAnalyticsCategoriesResponse(data, context);
   const response: ListCallAnalyticsCategoriesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListCallAnalyticsCategoriesCommandError = async (
+/**
+ * deserializeAws_json1_1ListCallAnalyticsCategoriesCommandError
+ */
+const de_ListCallAnalyticsCategoriesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCallAnalyticsCategoriesCommandOutput> => {
@@ -1826,42 +1928,47 @@ const deserializeAws_json1_1ListCallAnalyticsCategoriesCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
-      throw await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListCallAnalyticsJobsCommand = async (
+/**
+ * deserializeAws_json1_1ListCallAnalyticsJobsCommand
+ */
+export const de_ListCallAnalyticsJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCallAnalyticsJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListCallAnalyticsJobsCommandError(output, context);
+    return de_ListCallAnalyticsJobsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListCallAnalyticsJobsResponse(data, context);
+  contents = de_ListCallAnalyticsJobsResponse(data, context);
   const response: ListCallAnalyticsJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListCallAnalyticsJobsCommandError = async (
+/**
+ * deserializeAws_json1_1ListCallAnalyticsJobsCommandError
+ */
+const de_ListCallAnalyticsJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCallAnalyticsJobsCommandOutput> => {
@@ -1873,42 +1980,47 @@ const deserializeAws_json1_1ListCallAnalyticsJobsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
-      throw await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListLanguageModelsCommand = async (
+/**
+ * deserializeAws_json1_1ListLanguageModelsCommand
+ */
+export const de_ListLanguageModelsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLanguageModelsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListLanguageModelsCommandError(output, context);
+    return de_ListLanguageModelsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListLanguageModelsResponse(data, context);
+  contents = de_ListLanguageModelsResponse(data, context);
   const response: ListLanguageModelsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListLanguageModelsCommandError = async (
+/**
+ * deserializeAws_json1_1ListLanguageModelsCommandError
+ */
+const de_ListLanguageModelsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLanguageModelsCommandOutput> => {
@@ -1920,42 +2032,47 @@ const deserializeAws_json1_1ListLanguageModelsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
-      throw await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListMedicalTranscriptionJobsCommand = async (
+/**
+ * deserializeAws_json1_1ListMedicalTranscriptionJobsCommand
+ */
+export const de_ListMedicalTranscriptionJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMedicalTranscriptionJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListMedicalTranscriptionJobsCommandError(output, context);
+    return de_ListMedicalTranscriptionJobsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListMedicalTranscriptionJobsResponse(data, context);
+  contents = de_ListMedicalTranscriptionJobsResponse(data, context);
   const response: ListMedicalTranscriptionJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListMedicalTranscriptionJobsCommandError = async (
+/**
+ * deserializeAws_json1_1ListMedicalTranscriptionJobsCommandError
+ */
+const de_ListMedicalTranscriptionJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMedicalTranscriptionJobsCommandOutput> => {
@@ -1967,42 +2084,47 @@ const deserializeAws_json1_1ListMedicalTranscriptionJobsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
-      throw await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListMedicalVocabulariesCommand = async (
+/**
+ * deserializeAws_json1_1ListMedicalVocabulariesCommand
+ */
+export const de_ListMedicalVocabulariesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMedicalVocabulariesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListMedicalVocabulariesCommandError(output, context);
+    return de_ListMedicalVocabulariesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListMedicalVocabulariesResponse(data, context);
+  contents = de_ListMedicalVocabulariesResponse(data, context);
   const response: ListMedicalVocabulariesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListMedicalVocabulariesCommandError = async (
+/**
+ * deserializeAws_json1_1ListMedicalVocabulariesCommandError
+ */
+const de_ListMedicalVocabulariesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMedicalVocabulariesCommandOutput> => {
@@ -2014,42 +2136,47 @@ const deserializeAws_json1_1ListMedicalVocabulariesCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
-      throw await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -2061,45 +2188,50 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
-      throw await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.transcribe#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListTranscriptionJobsCommand = async (
+/**
+ * deserializeAws_json1_1ListTranscriptionJobsCommand
+ */
+export const de_ListTranscriptionJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTranscriptionJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListTranscriptionJobsCommandError(output, context);
+    return de_ListTranscriptionJobsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTranscriptionJobsResponse(data, context);
+  contents = de_ListTranscriptionJobsResponse(data, context);
   const response: ListTranscriptionJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListTranscriptionJobsCommandError = async (
+/**
+ * deserializeAws_json1_1ListTranscriptionJobsCommandError
+ */
+const de_ListTranscriptionJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTranscriptionJobsCommandOutput> => {
@@ -2111,42 +2243,47 @@ const deserializeAws_json1_1ListTranscriptionJobsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
-      throw await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListVocabulariesCommand = async (
+/**
+ * deserializeAws_json1_1ListVocabulariesCommand
+ */
+export const de_ListVocabulariesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVocabulariesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListVocabulariesCommandError(output, context);
+    return de_ListVocabulariesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListVocabulariesResponse(data, context);
+  contents = de_ListVocabulariesResponse(data, context);
   const response: ListVocabulariesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListVocabulariesCommandError = async (
+/**
+ * deserializeAws_json1_1ListVocabulariesCommandError
+ */
+const de_ListVocabulariesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVocabulariesCommandOutput> => {
@@ -2158,42 +2295,47 @@ const deserializeAws_json1_1ListVocabulariesCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
-      throw await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListVocabularyFiltersCommand = async (
+/**
+ * deserializeAws_json1_1ListVocabularyFiltersCommand
+ */
+export const de_ListVocabularyFiltersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVocabularyFiltersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListVocabularyFiltersCommandError(output, context);
+    return de_ListVocabularyFiltersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListVocabularyFiltersResponse(data, context);
+  contents = de_ListVocabularyFiltersResponse(data, context);
   const response: ListVocabularyFiltersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListVocabularyFiltersCommandError = async (
+/**
+ * deserializeAws_json1_1ListVocabularyFiltersCommandError
+ */
+const de_ListVocabularyFiltersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVocabularyFiltersCommandOutput> => {
@@ -2205,42 +2347,47 @@ const deserializeAws_json1_1ListVocabularyFiltersCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
-      throw await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1StartCallAnalyticsJobCommand = async (
+/**
+ * deserializeAws_json1_1StartCallAnalyticsJobCommand
+ */
+export const de_StartCallAnalyticsJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartCallAnalyticsJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1StartCallAnalyticsJobCommandError(output, context);
+    return de_StartCallAnalyticsJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartCallAnalyticsJobResponse(data, context);
+  contents = de_StartCallAnalyticsJobResponse(data, context);
   const response: StartCallAnalyticsJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1StartCallAnalyticsJobCommandError = async (
+/**
+ * deserializeAws_json1_1StartCallAnalyticsJobCommandError
+ */
+const de_StartCallAnalyticsJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartCallAnalyticsJobCommandOutput> => {
@@ -2252,45 +2399,50 @@ const deserializeAws_json1_1StartCallAnalyticsJobCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.transcribe#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
-      throw await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1StartMedicalTranscriptionJobCommand = async (
+/**
+ * deserializeAws_json1_1StartMedicalTranscriptionJobCommand
+ */
+export const de_StartMedicalTranscriptionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartMedicalTranscriptionJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1StartMedicalTranscriptionJobCommandError(output, context);
+    return de_StartMedicalTranscriptionJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartMedicalTranscriptionJobResponse(data, context);
+  contents = de_StartMedicalTranscriptionJobResponse(data, context);
   const response: StartMedicalTranscriptionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1StartMedicalTranscriptionJobCommandError = async (
+/**
+ * deserializeAws_json1_1StartMedicalTranscriptionJobCommandError
+ */
+const de_StartMedicalTranscriptionJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartMedicalTranscriptionJobCommandOutput> => {
@@ -2302,45 +2454,50 @@ const deserializeAws_json1_1StartMedicalTranscriptionJobCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.transcribe#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
-      throw await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1StartTranscriptionJobCommand = async (
+/**
+ * deserializeAws_json1_1StartTranscriptionJobCommand
+ */
+export const de_StartTranscriptionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartTranscriptionJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1StartTranscriptionJobCommandError(output, context);
+    return de_StartTranscriptionJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartTranscriptionJobResponse(data, context);
+  contents = de_StartTranscriptionJobResponse(data, context);
   const response: StartTranscriptionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1StartTranscriptionJobCommandError = async (
+/**
+ * deserializeAws_json1_1StartTranscriptionJobCommandError
+ */
+const de_StartTranscriptionJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartTranscriptionJobCommandOutput> => {
@@ -2352,45 +2509,50 @@ const deserializeAws_json1_1StartTranscriptionJobCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.transcribe#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
-      throw await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1TagResourceCommand = async (
+/**
+ * deserializeAws_json1_1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceResponse(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1TagResourceCommandError = async (
+/**
+ * deserializeAws_json1_1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -2402,48 +2564,53 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.transcribe#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
-      throw await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.transcribe#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UntagResourceCommand = async (
+/**
+ * deserializeAws_json1_1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UntagResourceCommandError = async (
+/**
+ * deserializeAws_json1_1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -2455,48 +2622,53 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.transcribe#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
-      throw await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.transcribe#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UpdateCallAnalyticsCategoryCommand = async (
+/**
+ * deserializeAws_json1_1UpdateCallAnalyticsCategoryCommand
+ */
+export const de_UpdateCallAnalyticsCategoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCallAnalyticsCategoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateCallAnalyticsCategoryCommandError(output, context);
+    return de_UpdateCallAnalyticsCategoryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateCallAnalyticsCategoryResponse(data, context);
+  contents = de_UpdateCallAnalyticsCategoryResponse(data, context);
   const response: UpdateCallAnalyticsCategoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdateCallAnalyticsCategoryCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateCallAnalyticsCategoryCommandError
+ */
+const de_UpdateCallAnalyticsCategoryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCallAnalyticsCategoryCommandOutput> => {
@@ -2508,48 +2680,53 @@ const deserializeAws_json1_1UpdateCallAnalyticsCategoryCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.transcribe#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
-      throw await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.transcribe#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UpdateMedicalVocabularyCommand = async (
+/**
+ * deserializeAws_json1_1UpdateMedicalVocabularyCommand
+ */
+export const de_UpdateMedicalVocabularyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateMedicalVocabularyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateMedicalVocabularyCommandError(output, context);
+    return de_UpdateMedicalVocabularyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateMedicalVocabularyResponse(data, context);
+  contents = de_UpdateMedicalVocabularyResponse(data, context);
   const response: UpdateMedicalVocabularyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdateMedicalVocabularyCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateMedicalVocabularyCommandError
+ */
+const de_UpdateMedicalVocabularyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateMedicalVocabularyCommandOutput> => {
@@ -2561,48 +2738,53 @@ const deserializeAws_json1_1UpdateMedicalVocabularyCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.transcribe#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
-      throw await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.transcribe#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UpdateVocabularyCommand = async (
+/**
+ * deserializeAws_json1_1UpdateVocabularyCommand
+ */
+export const de_UpdateVocabularyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateVocabularyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateVocabularyCommandError(output, context);
+    return de_UpdateVocabularyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateVocabularyResponse(data, context);
+  contents = de_UpdateVocabularyResponse(data, context);
   const response: UpdateVocabularyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdateVocabularyCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateVocabularyCommandError
+ */
+const de_UpdateVocabularyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateVocabularyCommandOutput> => {
@@ -2614,48 +2796,53 @@ const deserializeAws_json1_1UpdateVocabularyCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.transcribe#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
-      throw await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.transcribe#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UpdateVocabularyFilterCommand = async (
+/**
+ * deserializeAws_json1_1UpdateVocabularyFilterCommand
+ */
+export const de_UpdateVocabularyFilterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateVocabularyFilterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateVocabularyFilterCommandError(output, context);
+    return de_UpdateVocabularyFilterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateVocabularyFilterResponse(data, context);
+  contents = de_UpdateVocabularyFilterResponse(data, context);
   const response: UpdateVocabularyFilterCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdateVocabularyFilterCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateVocabularyFilterCommandError
+ */
+const de_UpdateVocabularyFilterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateVocabularyFilterCommandOutput> => {
@@ -2667,33 +2854,32 @@ const deserializeAws_json1_1UpdateVocabularyFilterCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
-      throw await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
-      throw await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context);
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.transcribe#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const deserializeAws_json1_1BadRequestExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<BadRequestException> => {
+/**
+ * deserializeAws_json1_1BadRequestExceptionRes
+ */
+const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1BadRequestException(body, context);
+  const deserialized: any = _json(body);
   const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2701,12 +2887,12 @@ const deserializeAws_json1_1BadRequestExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
+/**
+ * deserializeAws_json1_1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ConflictException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2714,12 +2900,15 @@ const deserializeAws_json1_1ConflictExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InternalFailureExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InternalFailureExceptionRes
+ */
+const de_InternalFailureExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalFailureException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InternalFailureException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalFailureException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2727,12 +2916,15 @@ const deserializeAws_json1_1InternalFailureExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1LimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1LimitExceededExceptionRes
+ */
+const de_LimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2740,12 +2932,12 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1NotFoundExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<NotFoundException> => {
+/**
+ * deserializeAws_json1_1NotFoundExceptionRes
+ */
+const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1NotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new NotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2753,1924 +2945,834 @@ const deserializeAws_json1_1NotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1AbsoluteTimeRange = (input: AbsoluteTimeRange, context: __SerdeContext): any => {
-  return {
-    ...(input.EndTime != null && { EndTime: input.EndTime }),
-    ...(input.First != null && { First: input.First }),
-    ...(input.Last != null && { Last: input.Last }),
-    ...(input.StartTime != null && { StartTime: input.StartTime }),
-  };
-};
+// se_AbsoluteTimeRange omitted.
 
-const serializeAws_json1_1CallAnalyticsJobSettings = (
-  input: CallAnalyticsJobSettings,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ContentRedaction != null && {
-      ContentRedaction: serializeAws_json1_1ContentRedaction(input.ContentRedaction, context),
-    }),
-    ...(input.LanguageIdSettings != null && {
-      LanguageIdSettings: serializeAws_json1_1LanguageIdSettingsMap(input.LanguageIdSettings, context),
-    }),
-    ...(input.LanguageModelName != null && { LanguageModelName: input.LanguageModelName }),
-    ...(input.LanguageOptions != null && {
-      LanguageOptions: serializeAws_json1_1LanguageOptions(input.LanguageOptions, context),
-    }),
-    ...(input.VocabularyFilterMethod != null && { VocabularyFilterMethod: input.VocabularyFilterMethod }),
-    ...(input.VocabularyFilterName != null && { VocabularyFilterName: input.VocabularyFilterName }),
-    ...(input.VocabularyName != null && { VocabularyName: input.VocabularyName }),
-  };
-};
+// se_CallAnalyticsJobSettings omitted.
 
-const serializeAws_json1_1ChannelDefinition = (input: ChannelDefinition, context: __SerdeContext): any => {
-  return {
-    ...(input.ChannelId != null && { ChannelId: input.ChannelId }),
-    ...(input.ParticipantRole != null && { ParticipantRole: input.ParticipantRole }),
-  };
-};
+// se_ChannelDefinition omitted.
 
-const serializeAws_json1_1ChannelDefinitions = (input: ChannelDefinition[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_1ChannelDefinition(entry, context);
-    });
-};
+// se_ChannelDefinitions omitted.
 
-const serializeAws_json1_1ContentRedaction = (input: ContentRedaction, context: __SerdeContext): any => {
-  return {
-    ...(input.PiiEntityTypes != null && {
-      PiiEntityTypes: serializeAws_json1_1PiiEntityTypes(input.PiiEntityTypes, context),
-    }),
-    ...(input.RedactionOutput != null && { RedactionOutput: input.RedactionOutput }),
-    ...(input.RedactionType != null && { RedactionType: input.RedactionType }),
-  };
-};
+// se_ContentRedaction omitted.
 
-const serializeAws_json1_1CreateCallAnalyticsCategoryRequest = (
-  input: CreateCallAnalyticsCategoryRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CategoryName != null && { CategoryName: input.CategoryName }),
-    ...(input.InputType != null && { InputType: input.InputType }),
-    ...(input.Rules != null && { Rules: serializeAws_json1_1RuleList(input.Rules, context) }),
-  };
-};
+// se_CreateCallAnalyticsCategoryRequest omitted.
 
-const serializeAws_json1_1CreateLanguageModelRequest = (
-  input: CreateLanguageModelRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.BaseModelName != null && { BaseModelName: input.BaseModelName }),
-    ...(input.InputDataConfig != null && {
-      InputDataConfig: serializeAws_json1_1InputDataConfig(input.InputDataConfig, context),
-    }),
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.ModelName != null && { ModelName: input.ModelName }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
-  };
-};
+// se_CreateLanguageModelRequest omitted.
 
-const serializeAws_json1_1CreateMedicalVocabularyRequest = (
-  input: CreateMedicalVocabularyRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
-    ...(input.VocabularyFileUri != null && { VocabularyFileUri: input.VocabularyFileUri }),
-    ...(input.VocabularyName != null && { VocabularyName: input.VocabularyName }),
-  };
-};
+// se_CreateMedicalVocabularyRequest omitted.
 
-const serializeAws_json1_1CreateVocabularyFilterRequest = (
-  input: CreateVocabularyFilterRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
-    ...(input.VocabularyFilterFileUri != null && { VocabularyFilterFileUri: input.VocabularyFilterFileUri }),
-    ...(input.VocabularyFilterName != null && { VocabularyFilterName: input.VocabularyFilterName }),
-    ...(input.Words != null && { Words: serializeAws_json1_1Words(input.Words, context) }),
-  };
-};
+// se_CreateVocabularyFilterRequest omitted.
 
-const serializeAws_json1_1CreateVocabularyRequest = (input: CreateVocabularyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.Phrases != null && { Phrases: serializeAws_json1_1Phrases(input.Phrases, context) }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
-    ...(input.VocabularyFileUri != null && { VocabularyFileUri: input.VocabularyFileUri }),
-    ...(input.VocabularyName != null && { VocabularyName: input.VocabularyName }),
-  };
-};
+// se_CreateVocabularyRequest omitted.
 
-const serializeAws_json1_1DeleteCallAnalyticsCategoryRequest = (
-  input: DeleteCallAnalyticsCategoryRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CategoryName != null && { CategoryName: input.CategoryName }),
-  };
-};
+// se_DeleteCallAnalyticsCategoryRequest omitted.
 
-const serializeAws_json1_1DeleteCallAnalyticsJobRequest = (
-  input: DeleteCallAnalyticsJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CallAnalyticsJobName != null && { CallAnalyticsJobName: input.CallAnalyticsJobName }),
-  };
-};
+// se_DeleteCallAnalyticsJobRequest omitted.
 
-const serializeAws_json1_1DeleteLanguageModelRequest = (
-  input: DeleteLanguageModelRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ModelName != null && { ModelName: input.ModelName }),
-  };
-};
+// se_DeleteLanguageModelRequest omitted.
 
-const serializeAws_json1_1DeleteMedicalTranscriptionJobRequest = (
-  input: DeleteMedicalTranscriptionJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MedicalTranscriptionJobName != null && {
-      MedicalTranscriptionJobName: input.MedicalTranscriptionJobName,
-    }),
-  };
-};
+// se_DeleteMedicalTranscriptionJobRequest omitted.
 
-const serializeAws_json1_1DeleteMedicalVocabularyRequest = (
-  input: DeleteMedicalVocabularyRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.VocabularyName != null && { VocabularyName: input.VocabularyName }),
-  };
-};
+// se_DeleteMedicalVocabularyRequest omitted.
 
-const serializeAws_json1_1DeleteTranscriptionJobRequest = (
-  input: DeleteTranscriptionJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.TranscriptionJobName != null && { TranscriptionJobName: input.TranscriptionJobName }),
-  };
-};
+// se_DeleteTranscriptionJobRequest omitted.
 
-const serializeAws_json1_1DeleteVocabularyFilterRequest = (
-  input: DeleteVocabularyFilterRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.VocabularyFilterName != null && { VocabularyFilterName: input.VocabularyFilterName }),
-  };
-};
+// se_DeleteVocabularyFilterRequest omitted.
 
-const serializeAws_json1_1DeleteVocabularyRequest = (input: DeleteVocabularyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.VocabularyName != null && { VocabularyName: input.VocabularyName }),
-  };
-};
+// se_DeleteVocabularyRequest omitted.
 
-const serializeAws_json1_1DescribeLanguageModelRequest = (
-  input: DescribeLanguageModelRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ModelName != null && { ModelName: input.ModelName }),
-  };
-};
+// se_DescribeLanguageModelRequest omitted.
 
-const serializeAws_json1_1GetCallAnalyticsCategoryRequest = (
-  input: GetCallAnalyticsCategoryRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CategoryName != null && { CategoryName: input.CategoryName }),
-  };
-};
+// se_GetCallAnalyticsCategoryRequest omitted.
 
-const serializeAws_json1_1GetCallAnalyticsJobRequest = (
-  input: GetCallAnalyticsJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CallAnalyticsJobName != null && { CallAnalyticsJobName: input.CallAnalyticsJobName }),
-  };
-};
+// se_GetCallAnalyticsJobRequest omitted.
 
-const serializeAws_json1_1GetMedicalTranscriptionJobRequest = (
-  input: GetMedicalTranscriptionJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MedicalTranscriptionJobName != null && {
-      MedicalTranscriptionJobName: input.MedicalTranscriptionJobName,
-    }),
-  };
-};
+// se_GetMedicalTranscriptionJobRequest omitted.
 
-const serializeAws_json1_1GetMedicalVocabularyRequest = (
-  input: GetMedicalVocabularyRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.VocabularyName != null && { VocabularyName: input.VocabularyName }),
-  };
-};
+// se_GetMedicalVocabularyRequest omitted.
 
-const serializeAws_json1_1GetTranscriptionJobRequest = (
-  input: GetTranscriptionJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.TranscriptionJobName != null && { TranscriptionJobName: input.TranscriptionJobName }),
-  };
-};
+// se_GetTranscriptionJobRequest omitted.
 
-const serializeAws_json1_1GetVocabularyFilterRequest = (
-  input: GetVocabularyFilterRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.VocabularyFilterName != null && { VocabularyFilterName: input.VocabularyFilterName }),
-  };
-};
+// se_GetVocabularyFilterRequest omitted.
 
-const serializeAws_json1_1GetVocabularyRequest = (input: GetVocabularyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.VocabularyName != null && { VocabularyName: input.VocabularyName }),
-  };
-};
+// se_GetVocabularyRequest omitted.
 
-const serializeAws_json1_1InputDataConfig = (input: InputDataConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
-    ...(input.S3Uri != null && { S3Uri: input.S3Uri }),
-    ...(input.TuningDataS3Uri != null && { TuningDataS3Uri: input.TuningDataS3Uri }),
-  };
-};
+// se_InputDataConfig omitted.
 
-const serializeAws_json1_1InterruptionFilter = (input: InterruptionFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.AbsoluteTimeRange != null && {
-      AbsoluteTimeRange: serializeAws_json1_1AbsoluteTimeRange(input.AbsoluteTimeRange, context),
-    }),
-    ...(input.Negate != null && { Negate: input.Negate }),
-    ...(input.ParticipantRole != null && { ParticipantRole: input.ParticipantRole }),
-    ...(input.RelativeTimeRange != null && {
-      RelativeTimeRange: serializeAws_json1_1RelativeTimeRange(input.RelativeTimeRange, context),
-    }),
-    ...(input.Threshold != null && { Threshold: input.Threshold }),
-  };
-};
+// se_InterruptionFilter omitted.
 
-const serializeAws_json1_1JobExecutionSettings = (input: JobExecutionSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.AllowDeferredExecution != null && { AllowDeferredExecution: input.AllowDeferredExecution }),
-    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
-  };
-};
+// se_JobExecutionSettings omitted.
 
-const serializeAws_json1_1KMSEncryptionContextMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_KMSEncryptionContextMap omitted.
 
-const serializeAws_json1_1LanguageIdSettings = (input: LanguageIdSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.LanguageModelName != null && { LanguageModelName: input.LanguageModelName }),
-    ...(input.VocabularyFilterName != null && { VocabularyFilterName: input.VocabularyFilterName }),
-    ...(input.VocabularyName != null && { VocabularyName: input.VocabularyName }),
-  };
-};
+// se_LanguageIdSettings omitted.
 
-const serializeAws_json1_1LanguageIdSettingsMap = (
-  input: Record<string, LanguageIdSettings>,
-  context: __SerdeContext
-): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [LanguageCode | string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = serializeAws_json1_1LanguageIdSettings(value, context);
-    return acc;
-  }, {});
-};
+// se_LanguageIdSettingsMap omitted.
 
-const serializeAws_json1_1LanguageOptions = (input: (LanguageCode | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_LanguageOptions omitted.
 
-const serializeAws_json1_1ListCallAnalyticsCategoriesRequest = (
-  input: ListCallAnalyticsCategoriesRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListCallAnalyticsCategoriesRequest omitted.
 
-const serializeAws_json1_1ListCallAnalyticsJobsRequest = (
-  input: ListCallAnalyticsJobsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.JobNameContains != null && { JobNameContains: input.JobNameContains }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.Status != null && { Status: input.Status }),
-  };
-};
+// se_ListCallAnalyticsJobsRequest omitted.
 
-const serializeAws_json1_1ListLanguageModelsRequest = (
-  input: ListLanguageModelsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NameContains != null && { NameContains: input.NameContains }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.StatusEquals != null && { StatusEquals: input.StatusEquals }),
-  };
-};
+// se_ListLanguageModelsRequest omitted.
 
-const serializeAws_json1_1ListMedicalTranscriptionJobsRequest = (
-  input: ListMedicalTranscriptionJobsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.JobNameContains != null && { JobNameContains: input.JobNameContains }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.Status != null && { Status: input.Status }),
-  };
-};
+// se_ListMedicalTranscriptionJobsRequest omitted.
 
-const serializeAws_json1_1ListMedicalVocabulariesRequest = (
-  input: ListMedicalVocabulariesRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NameContains != null && { NameContains: input.NameContains }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.StateEquals != null && { StateEquals: input.StateEquals }),
-  };
-};
+// se_ListMedicalVocabulariesRequest omitted.
 
-const serializeAws_json1_1ListTagsForResourceRequest = (
-  input: ListTagsForResourceRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  };
-};
+// se_ListTagsForResourceRequest omitted.
 
-const serializeAws_json1_1ListTranscriptionJobsRequest = (
-  input: ListTranscriptionJobsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.JobNameContains != null && { JobNameContains: input.JobNameContains }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.Status != null && { Status: input.Status }),
-  };
-};
+// se_ListTranscriptionJobsRequest omitted.
 
-const serializeAws_json1_1ListVocabulariesRequest = (input: ListVocabulariesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NameContains != null && { NameContains: input.NameContains }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.StateEquals != null && { StateEquals: input.StateEquals }),
-  };
-};
+// se_ListVocabulariesRequest omitted.
 
-const serializeAws_json1_1ListVocabularyFiltersRequest = (
-  input: ListVocabularyFiltersRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NameContains != null && { NameContains: input.NameContains }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListVocabularyFiltersRequest omitted.
 
-const serializeAws_json1_1Media = (input: Media, context: __SerdeContext): any => {
-  return {
-    ...(input.MediaFileUri != null && { MediaFileUri: input.MediaFileUri }),
-    ...(input.RedactedMediaFileUri != null && { RedactedMediaFileUri: input.RedactedMediaFileUri }),
-  };
-};
+// se_Media omitted.
 
-const serializeAws_json1_1MedicalTranscriptionSetting = (
-  input: MedicalTranscriptionSetting,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ChannelIdentification != null && { ChannelIdentification: input.ChannelIdentification }),
-    ...(input.MaxAlternatives != null && { MaxAlternatives: input.MaxAlternatives }),
-    ...(input.MaxSpeakerLabels != null && { MaxSpeakerLabels: input.MaxSpeakerLabels }),
-    ...(input.ShowAlternatives != null && { ShowAlternatives: input.ShowAlternatives }),
-    ...(input.ShowSpeakerLabels != null && { ShowSpeakerLabels: input.ShowSpeakerLabels }),
-    ...(input.VocabularyName != null && { VocabularyName: input.VocabularyName }),
-  };
-};
+// se_MedicalTranscriptionSetting omitted.
 
-const serializeAws_json1_1ModelSettings = (input: ModelSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.LanguageModelName != null && { LanguageModelName: input.LanguageModelName }),
-  };
-};
+// se_ModelSettings omitted.
 
-const serializeAws_json1_1NonTalkTimeFilter = (input: NonTalkTimeFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.AbsoluteTimeRange != null && {
-      AbsoluteTimeRange: serializeAws_json1_1AbsoluteTimeRange(input.AbsoluteTimeRange, context),
-    }),
-    ...(input.Negate != null && { Negate: input.Negate }),
-    ...(input.RelativeTimeRange != null && {
-      RelativeTimeRange: serializeAws_json1_1RelativeTimeRange(input.RelativeTimeRange, context),
-    }),
-    ...(input.Threshold != null && { Threshold: input.Threshold }),
-  };
-};
+// se_NonTalkTimeFilter omitted.
 
-const serializeAws_json1_1Phrases = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_Phrases omitted.
 
-const serializeAws_json1_1PiiEntityTypes = (input: (PiiEntityType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_PiiEntityTypes omitted.
 
-const serializeAws_json1_1RelativeTimeRange = (input: RelativeTimeRange, context: __SerdeContext): any => {
-  return {
-    ...(input.EndPercentage != null && { EndPercentage: input.EndPercentage }),
-    ...(input.First != null && { First: input.First }),
-    ...(input.Last != null && { Last: input.Last }),
-    ...(input.StartPercentage != null && { StartPercentage: input.StartPercentage }),
-  };
-};
+// se_RelativeTimeRange omitted.
 
-const serializeAws_json1_1Rule = (input: Rule, context: __SerdeContext): any => {
-  return Rule.visit(input, {
-    InterruptionFilter: (value) => ({ InterruptionFilter: serializeAws_json1_1InterruptionFilter(value, context) }),
-    NonTalkTimeFilter: (value) => ({ NonTalkTimeFilter: serializeAws_json1_1NonTalkTimeFilter(value, context) }),
-    SentimentFilter: (value) => ({ SentimentFilter: serializeAws_json1_1SentimentFilter(value, context) }),
-    TranscriptFilter: (value) => ({ TranscriptFilter: serializeAws_json1_1TranscriptFilter(value, context) }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
+// se_Rule omitted.
 
-const serializeAws_json1_1RuleList = (input: Rule[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_1Rule(entry, context);
-    });
-};
+// se_RuleList omitted.
 
-const serializeAws_json1_1SentimentFilter = (input: SentimentFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.AbsoluteTimeRange != null && {
-      AbsoluteTimeRange: serializeAws_json1_1AbsoluteTimeRange(input.AbsoluteTimeRange, context),
-    }),
-    ...(input.Negate != null && { Negate: input.Negate }),
-    ...(input.ParticipantRole != null && { ParticipantRole: input.ParticipantRole }),
-    ...(input.RelativeTimeRange != null && {
-      RelativeTimeRange: serializeAws_json1_1RelativeTimeRange(input.RelativeTimeRange, context),
-    }),
-    ...(input.Sentiments != null && { Sentiments: serializeAws_json1_1SentimentValueList(input.Sentiments, context) }),
-  };
-};
+// se_SentimentFilter omitted.
 
-const serializeAws_json1_1SentimentValueList = (input: (SentimentValue | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SentimentValueList omitted.
 
-const serializeAws_json1_1Settings = (input: Settings, context: __SerdeContext): any => {
-  return {
-    ...(input.ChannelIdentification != null && { ChannelIdentification: input.ChannelIdentification }),
-    ...(input.MaxAlternatives != null && { MaxAlternatives: input.MaxAlternatives }),
-    ...(input.MaxSpeakerLabels != null && { MaxSpeakerLabels: input.MaxSpeakerLabels }),
-    ...(input.ShowAlternatives != null && { ShowAlternatives: input.ShowAlternatives }),
-    ...(input.ShowSpeakerLabels != null && { ShowSpeakerLabels: input.ShowSpeakerLabels }),
-    ...(input.VocabularyFilterMethod != null && { VocabularyFilterMethod: input.VocabularyFilterMethod }),
-    ...(input.VocabularyFilterName != null && { VocabularyFilterName: input.VocabularyFilterName }),
-    ...(input.VocabularyName != null && { VocabularyName: input.VocabularyName }),
-  };
-};
+// se_Settings omitted.
 
-const serializeAws_json1_1StartCallAnalyticsJobRequest = (
-  input: StartCallAnalyticsJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CallAnalyticsJobName != null && { CallAnalyticsJobName: input.CallAnalyticsJobName }),
-    ...(input.ChannelDefinitions != null && {
-      ChannelDefinitions: serializeAws_json1_1ChannelDefinitions(input.ChannelDefinitions, context),
-    }),
-    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
-    ...(input.Media != null && { Media: serializeAws_json1_1Media(input.Media, context) }),
-    ...(input.OutputEncryptionKMSKeyId != null && { OutputEncryptionKMSKeyId: input.OutputEncryptionKMSKeyId }),
-    ...(input.OutputLocation != null && { OutputLocation: input.OutputLocation }),
-    ...(input.Settings != null && { Settings: serializeAws_json1_1CallAnalyticsJobSettings(input.Settings, context) }),
-  };
-};
+// se_StartCallAnalyticsJobRequest omitted.
 
-const serializeAws_json1_1StartMedicalTranscriptionJobRequest = (
-  input: StartMedicalTranscriptionJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ContentIdentificationType != null && { ContentIdentificationType: input.ContentIdentificationType }),
-    ...(input.KMSEncryptionContext != null && {
-      KMSEncryptionContext: serializeAws_json1_1KMSEncryptionContextMap(input.KMSEncryptionContext, context),
-    }),
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.Media != null && { Media: serializeAws_json1_1Media(input.Media, context) }),
-    ...(input.MediaFormat != null && { MediaFormat: input.MediaFormat }),
-    ...(input.MediaSampleRateHertz != null && { MediaSampleRateHertz: input.MediaSampleRateHertz }),
-    ...(input.MedicalTranscriptionJobName != null && {
-      MedicalTranscriptionJobName: input.MedicalTranscriptionJobName,
-    }),
-    ...(input.OutputBucketName != null && { OutputBucketName: input.OutputBucketName }),
-    ...(input.OutputEncryptionKMSKeyId != null && { OutputEncryptionKMSKeyId: input.OutputEncryptionKMSKeyId }),
-    ...(input.OutputKey != null && { OutputKey: input.OutputKey }),
-    ...(input.Settings != null && {
-      Settings: serializeAws_json1_1MedicalTranscriptionSetting(input.Settings, context),
-    }),
-    ...(input.Specialty != null && { Specialty: input.Specialty }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_StartMedicalTranscriptionJobRequest omitted.
 
-const serializeAws_json1_1StartTranscriptionJobRequest = (
-  input: StartTranscriptionJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ContentRedaction != null && {
-      ContentRedaction: serializeAws_json1_1ContentRedaction(input.ContentRedaction, context),
-    }),
-    ...(input.IdentifyLanguage != null && { IdentifyLanguage: input.IdentifyLanguage }),
-    ...(input.IdentifyMultipleLanguages != null && { IdentifyMultipleLanguages: input.IdentifyMultipleLanguages }),
-    ...(input.JobExecutionSettings != null && {
-      JobExecutionSettings: serializeAws_json1_1JobExecutionSettings(input.JobExecutionSettings, context),
-    }),
-    ...(input.KMSEncryptionContext != null && {
-      KMSEncryptionContext: serializeAws_json1_1KMSEncryptionContextMap(input.KMSEncryptionContext, context),
-    }),
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.LanguageIdSettings != null && {
-      LanguageIdSettings: serializeAws_json1_1LanguageIdSettingsMap(input.LanguageIdSettings, context),
-    }),
-    ...(input.LanguageOptions != null && {
-      LanguageOptions: serializeAws_json1_1LanguageOptions(input.LanguageOptions, context),
-    }),
-    ...(input.Media != null && { Media: serializeAws_json1_1Media(input.Media, context) }),
-    ...(input.MediaFormat != null && { MediaFormat: input.MediaFormat }),
-    ...(input.MediaSampleRateHertz != null && { MediaSampleRateHertz: input.MediaSampleRateHertz }),
-    ...(input.ModelSettings != null && {
-      ModelSettings: serializeAws_json1_1ModelSettings(input.ModelSettings, context),
-    }),
-    ...(input.OutputBucketName != null && { OutputBucketName: input.OutputBucketName }),
-    ...(input.OutputEncryptionKMSKeyId != null && { OutputEncryptionKMSKeyId: input.OutputEncryptionKMSKeyId }),
-    ...(input.OutputKey != null && { OutputKey: input.OutputKey }),
-    ...(input.Settings != null && { Settings: serializeAws_json1_1Settings(input.Settings, context) }),
-    ...(input.Subtitles != null && { Subtitles: serializeAws_json1_1Subtitles(input.Subtitles, context) }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
-    ...(input.TranscriptionJobName != null && { TranscriptionJobName: input.TranscriptionJobName }),
-  };
-};
+// se_StartTranscriptionJobRequest omitted.
 
-const serializeAws_json1_1StringTargetList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_StringTargetList omitted.
 
-const serializeAws_json1_1SubtitleFormats = (input: (SubtitleFormat | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SubtitleFormats omitted.
 
-const serializeAws_json1_1Subtitles = (input: Subtitles, context: __SerdeContext): any => {
-  return {
-    ...(input.Formats != null && { Formats: serializeAws_json1_1SubtitleFormats(input.Formats, context) }),
-    ...(input.OutputStartIndex != null && { OutputStartIndex: input.OutputStartIndex }),
-  };
-};
+// se_Subtitles omitted.
 
-const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyList omitted.
 
-const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_1Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
-const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
-  };
-};
+// se_TagResourceRequest omitted.
 
-const serializeAws_json1_1TranscriptFilter = (input: TranscriptFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.AbsoluteTimeRange != null && {
-      AbsoluteTimeRange: serializeAws_json1_1AbsoluteTimeRange(input.AbsoluteTimeRange, context),
-    }),
-    ...(input.Negate != null && { Negate: input.Negate }),
-    ...(input.ParticipantRole != null && { ParticipantRole: input.ParticipantRole }),
-    ...(input.RelativeTimeRange != null && {
-      RelativeTimeRange: serializeAws_json1_1RelativeTimeRange(input.RelativeTimeRange, context),
-    }),
-    ...(input.Targets != null && { Targets: serializeAws_json1_1StringTargetList(input.Targets, context) }),
-    ...(input.TranscriptFilterType != null && { TranscriptFilterType: input.TranscriptFilterType }),
-  };
-};
+// se_TranscriptFilter omitted.
 
-const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
-  };
-};
+// se_UntagResourceRequest omitted.
 
-const serializeAws_json1_1UpdateCallAnalyticsCategoryRequest = (
-  input: UpdateCallAnalyticsCategoryRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CategoryName != null && { CategoryName: input.CategoryName }),
-    ...(input.InputType != null && { InputType: input.InputType }),
-    ...(input.Rules != null && { Rules: serializeAws_json1_1RuleList(input.Rules, context) }),
-  };
-};
+// se_UpdateCallAnalyticsCategoryRequest omitted.
 
-const serializeAws_json1_1UpdateMedicalVocabularyRequest = (
-  input: UpdateMedicalVocabularyRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.VocabularyFileUri != null && { VocabularyFileUri: input.VocabularyFileUri }),
-    ...(input.VocabularyName != null && { VocabularyName: input.VocabularyName }),
-  };
-};
+// se_UpdateMedicalVocabularyRequest omitted.
 
-const serializeAws_json1_1UpdateVocabularyFilterRequest = (
-  input: UpdateVocabularyFilterRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.VocabularyFilterFileUri != null && { VocabularyFilterFileUri: input.VocabularyFilterFileUri }),
-    ...(input.VocabularyFilterName != null && { VocabularyFilterName: input.VocabularyFilterName }),
-    ...(input.Words != null && { Words: serializeAws_json1_1Words(input.Words, context) }),
-  };
-};
+// se_UpdateVocabularyFilterRequest omitted.
 
-const serializeAws_json1_1UpdateVocabularyRequest = (input: UpdateVocabularyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.Phrases != null && { Phrases: serializeAws_json1_1Phrases(input.Phrases, context) }),
-    ...(input.VocabularyFileUri != null && { VocabularyFileUri: input.VocabularyFileUri }),
-    ...(input.VocabularyName != null && { VocabularyName: input.VocabularyName }),
-  };
-};
+// se_UpdateVocabularyRequest omitted.
 
-const serializeAws_json1_1Words = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_Words omitted.
 
-const deserializeAws_json1_1AbsoluteTimeRange = (output: any, context: __SerdeContext): AbsoluteTimeRange => {
-  return {
-    EndTime: __expectLong(output.EndTime),
-    First: __expectLong(output.First),
-    Last: __expectLong(output.Last),
-    StartTime: __expectLong(output.StartTime),
-  } as any;
-};
+// de_AbsoluteTimeRange omitted.
 
-const deserializeAws_json1_1BadRequestException = (output: any, context: __SerdeContext): BadRequestException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_BadRequestException omitted.
 
-const deserializeAws_json1_1CallAnalyticsJob = (output: any, context: __SerdeContext): CallAnalyticsJob => {
-  return {
-    CallAnalyticsJobName: __expectString(output.CallAnalyticsJobName),
-    CallAnalyticsJobStatus: __expectString(output.CallAnalyticsJobStatus),
-    ChannelDefinitions:
-      output.ChannelDefinitions != null
-        ? deserializeAws_json1_1ChannelDefinitions(output.ChannelDefinitions, context)
-        : undefined,
-    CompletionTime:
-      output.CompletionTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionTime)))
-        : undefined,
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
-    FailureReason: __expectString(output.FailureReason),
-    IdentifiedLanguageScore: __limitedParseFloat32(output.IdentifiedLanguageScore),
-    LanguageCode: __expectString(output.LanguageCode),
-    Media: output.Media != null ? deserializeAws_json1_1Media(output.Media, context) : undefined,
-    MediaFormat: __expectString(output.MediaFormat),
-    MediaSampleRateHertz: __expectInt32(output.MediaSampleRateHertz),
-    Settings:
-      output.Settings != null ? deserializeAws_json1_1CallAnalyticsJobSettings(output.Settings, context) : undefined,
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-    Transcript: output.Transcript != null ? deserializeAws_json1_1Transcript(output.Transcript, context) : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1CallAnalyticsJob
+ */
+const de_CallAnalyticsJob = (output: any, context: __SerdeContext): CallAnalyticsJob => {
+  return take(output, {
+    CallAnalyticsJobName: __expectString,
+    CallAnalyticsJobStatus: __expectString,
+    ChannelDefinitions: _json,
+    CompletionTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DataAccessRoleArn: __expectString,
+    FailureReason: __expectString,
+    IdentifiedLanguageScore: __limitedParseFloat32,
+    LanguageCode: __expectString,
+    Media: _json,
+    MediaFormat: __expectString,
+    MediaSampleRateHertz: __expectInt32,
+    Settings: _json,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Transcript: _json,
+  }) as any;
 };
 
-const deserializeAws_json1_1CallAnalyticsJobSettings = (
-  output: any,
-  context: __SerdeContext
-): CallAnalyticsJobSettings => {
-  return {
-    ContentRedaction:
-      output.ContentRedaction != null
-        ? deserializeAws_json1_1ContentRedaction(output.ContentRedaction, context)
-        : undefined,
-    LanguageIdSettings:
-      output.LanguageIdSettings != null
-        ? deserializeAws_json1_1LanguageIdSettingsMap(output.LanguageIdSettings, context)
-        : undefined,
-    LanguageModelName: __expectString(output.LanguageModelName),
-    LanguageOptions:
-      output.LanguageOptions != null
-        ? deserializeAws_json1_1LanguageOptions(output.LanguageOptions, context)
-        : undefined,
-    VocabularyFilterMethod: __expectString(output.VocabularyFilterMethod),
-    VocabularyFilterName: __expectString(output.VocabularyFilterName),
-    VocabularyName: __expectString(output.VocabularyName),
-  } as any;
-};
+// de_CallAnalyticsJobSettings omitted.
 
-const deserializeAws_json1_1CallAnalyticsJobSummaries = (
-  output: any,
-  context: __SerdeContext
-): CallAnalyticsJobSummary[] => {
+/**
+ * deserializeAws_json1_1CallAnalyticsJobSummaries
+ */
+const de_CallAnalyticsJobSummaries = (output: any, context: __SerdeContext): CallAnalyticsJobSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1CallAnalyticsJobSummary(entry, context);
+      return de_CallAnalyticsJobSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1CallAnalyticsJobSummary = (
-  output: any,
-  context: __SerdeContext
-): CallAnalyticsJobSummary => {
-  return {
-    CallAnalyticsJobName: __expectString(output.CallAnalyticsJobName),
-    CallAnalyticsJobStatus: __expectString(output.CallAnalyticsJobStatus),
-    CompletionTime:
-      output.CompletionTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionTime)))
-        : undefined,
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    FailureReason: __expectString(output.FailureReason),
-    LanguageCode: __expectString(output.LanguageCode),
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1CallAnalyticsJobSummary
+ */
+const de_CallAnalyticsJobSummary = (output: any, context: __SerdeContext): CallAnalyticsJobSummary => {
+  return take(output, {
+    CallAnalyticsJobName: __expectString,
+    CallAnalyticsJobStatus: __expectString,
+    CompletionTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FailureReason: __expectString,
+    LanguageCode: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-const deserializeAws_json1_1CategoryProperties = (output: any, context: __SerdeContext): CategoryProperties => {
-  return {
-    CategoryName: __expectString(output.CategoryName),
-    CreateTime:
-      output.CreateTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateTime))) : undefined,
-    InputType: __expectString(output.InputType),
-    LastUpdateTime:
-      output.LastUpdateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateTime)))
-        : undefined,
-    Rules: output.Rules != null ? deserializeAws_json1_1RuleList(output.Rules, context) : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1CategoryProperties
+ */
+const de_CategoryProperties = (output: any, context: __SerdeContext): CategoryProperties => {
+  return take(output, {
+    CategoryName: __expectString,
+    CreateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    InputType: __expectString,
+    LastUpdateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Rules: _json,
+  }) as any;
 };
 
-const deserializeAws_json1_1CategoryPropertiesList = (output: any, context: __SerdeContext): CategoryProperties[] => {
+/**
+ * deserializeAws_json1_1CategoryPropertiesList
+ */
+const de_CategoryPropertiesList = (output: any, context: __SerdeContext): CategoryProperties[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1CategoryProperties(entry, context);
+      return de_CategoryProperties(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ChannelDefinition = (output: any, context: __SerdeContext): ChannelDefinition => {
-  return {
-    ChannelId: __expectInt32(output.ChannelId),
-    ParticipantRole: __expectString(output.ParticipantRole),
-  } as any;
-};
+// de_ChannelDefinition omitted.
 
-const deserializeAws_json1_1ChannelDefinitions = (output: any, context: __SerdeContext): ChannelDefinition[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1ChannelDefinition(entry, context);
-    });
-  return retVal;
-};
+// de_ChannelDefinitions omitted.
 
-const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_ConflictException omitted.
 
-const deserializeAws_json1_1ContentRedaction = (output: any, context: __SerdeContext): ContentRedaction => {
-  return {
-    PiiEntityTypes:
-      output.PiiEntityTypes != null ? deserializeAws_json1_1PiiEntityTypes(output.PiiEntityTypes, context) : undefined,
-    RedactionOutput: __expectString(output.RedactionOutput),
-    RedactionType: __expectString(output.RedactionType),
-  } as any;
-};
+// de_ContentRedaction omitted.
 
-const deserializeAws_json1_1CreateCallAnalyticsCategoryResponse = (
+/**
+ * deserializeAws_json1_1CreateCallAnalyticsCategoryResponse
+ */
+const de_CreateCallAnalyticsCategoryResponse = (
   output: any,
   context: __SerdeContext
 ): CreateCallAnalyticsCategoryResponse => {
-  return {
-    CategoryProperties:
-      output.CategoryProperties != null
-        ? deserializeAws_json1_1CategoryProperties(output.CategoryProperties, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    CategoryProperties: (_: any) => de_CategoryProperties(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1CreateLanguageModelResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateLanguageModelResponse => {
-  return {
-    BaseModelName: __expectString(output.BaseModelName),
-    InputDataConfig:
-      output.InputDataConfig != null
-        ? deserializeAws_json1_1InputDataConfig(output.InputDataConfig, context)
-        : undefined,
-    LanguageCode: __expectString(output.LanguageCode),
-    ModelName: __expectString(output.ModelName),
-    ModelStatus: __expectString(output.ModelStatus),
-  } as any;
+// de_CreateLanguageModelResponse omitted.
+
+/**
+ * deserializeAws_json1_1CreateMedicalVocabularyResponse
+ */
+const de_CreateMedicalVocabularyResponse = (output: any, context: __SerdeContext): CreateMedicalVocabularyResponse => {
+  return take(output, {
+    FailureReason: __expectString,
+    LanguageCode: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VocabularyName: __expectString,
+    VocabularyState: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1CreateMedicalVocabularyResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateMedicalVocabularyResponse => {
-  return {
-    FailureReason: __expectString(output.FailureReason),
-    LanguageCode: __expectString(output.LanguageCode),
-    LastModifiedTime:
-      output.LastModifiedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
-        : undefined,
-    VocabularyName: __expectString(output.VocabularyName),
-    VocabularyState: __expectString(output.VocabularyState),
-  } as any;
+/**
+ * deserializeAws_json1_1CreateVocabularyFilterResponse
+ */
+const de_CreateVocabularyFilterResponse = (output: any, context: __SerdeContext): CreateVocabularyFilterResponse => {
+  return take(output, {
+    LanguageCode: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VocabularyFilterName: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1CreateVocabularyFilterResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateVocabularyFilterResponse => {
-  return {
-    LanguageCode: __expectString(output.LanguageCode),
-    LastModifiedTime:
-      output.LastModifiedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
-        : undefined,
-    VocabularyFilterName: __expectString(output.VocabularyFilterName),
-  } as any;
+/**
+ * deserializeAws_json1_1CreateVocabularyResponse
+ */
+const de_CreateVocabularyResponse = (output: any, context: __SerdeContext): CreateVocabularyResponse => {
+  return take(output, {
+    FailureReason: __expectString,
+    LanguageCode: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VocabularyName: __expectString,
+    VocabularyState: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1CreateVocabularyResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateVocabularyResponse => {
-  return {
-    FailureReason: __expectString(output.FailureReason),
-    LanguageCode: __expectString(output.LanguageCode),
-    LastModifiedTime:
-      output.LastModifiedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
-        : undefined,
-    VocabularyName: __expectString(output.VocabularyName),
-    VocabularyState: __expectString(output.VocabularyState),
-  } as any;
+// de_DeleteCallAnalyticsCategoryResponse omitted.
+
+// de_DeleteCallAnalyticsJobResponse omitted.
+
+/**
+ * deserializeAws_json1_1DescribeLanguageModelResponse
+ */
+const de_DescribeLanguageModelResponse = (output: any, context: __SerdeContext): DescribeLanguageModelResponse => {
+  return take(output, {
+    LanguageModel: (_: any) => de_LanguageModel(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1DeleteCallAnalyticsCategoryResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteCallAnalyticsCategoryResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1DeleteCallAnalyticsJobResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteCallAnalyticsJobResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1DescribeLanguageModelResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeLanguageModelResponse => {
-  return {
-    LanguageModel:
-      output.LanguageModel != null ? deserializeAws_json1_1LanguageModel(output.LanguageModel, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1GetCallAnalyticsCategoryResponse = (
+/**
+ * deserializeAws_json1_1GetCallAnalyticsCategoryResponse
+ */
+const de_GetCallAnalyticsCategoryResponse = (
   output: any,
   context: __SerdeContext
 ): GetCallAnalyticsCategoryResponse => {
-  return {
-    CategoryProperties:
-      output.CategoryProperties != null
-        ? deserializeAws_json1_1CategoryProperties(output.CategoryProperties, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    CategoryProperties: (_: any) => de_CategoryProperties(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1GetCallAnalyticsJobResponse = (
-  output: any,
-  context: __SerdeContext
-): GetCallAnalyticsJobResponse => {
-  return {
-    CallAnalyticsJob:
-      output.CallAnalyticsJob != null
-        ? deserializeAws_json1_1CallAnalyticsJob(output.CallAnalyticsJob, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1GetCallAnalyticsJobResponse
+ */
+const de_GetCallAnalyticsJobResponse = (output: any, context: __SerdeContext): GetCallAnalyticsJobResponse => {
+  return take(output, {
+    CallAnalyticsJob: (_: any) => de_CallAnalyticsJob(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1GetMedicalTranscriptionJobResponse = (
+/**
+ * deserializeAws_json1_1GetMedicalTranscriptionJobResponse
+ */
+const de_GetMedicalTranscriptionJobResponse = (
   output: any,
   context: __SerdeContext
 ): GetMedicalTranscriptionJobResponse => {
-  return {
-    MedicalTranscriptionJob:
-      output.MedicalTranscriptionJob != null
-        ? deserializeAws_json1_1MedicalTranscriptionJob(output.MedicalTranscriptionJob, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    MedicalTranscriptionJob: (_: any) => de_MedicalTranscriptionJob(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1GetMedicalVocabularyResponse = (
-  output: any,
-  context: __SerdeContext
-): GetMedicalVocabularyResponse => {
-  return {
-    DownloadUri: __expectString(output.DownloadUri),
-    FailureReason: __expectString(output.FailureReason),
-    LanguageCode: __expectString(output.LanguageCode),
-    LastModifiedTime:
-      output.LastModifiedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
-        : undefined,
-    VocabularyName: __expectString(output.VocabularyName),
-    VocabularyState: __expectString(output.VocabularyState),
-  } as any;
+/**
+ * deserializeAws_json1_1GetMedicalVocabularyResponse
+ */
+const de_GetMedicalVocabularyResponse = (output: any, context: __SerdeContext): GetMedicalVocabularyResponse => {
+  return take(output, {
+    DownloadUri: __expectString,
+    FailureReason: __expectString,
+    LanguageCode: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VocabularyName: __expectString,
+    VocabularyState: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1GetTranscriptionJobResponse = (
-  output: any,
-  context: __SerdeContext
-): GetTranscriptionJobResponse => {
-  return {
-    TranscriptionJob:
-      output.TranscriptionJob != null
-        ? deserializeAws_json1_1TranscriptionJob(output.TranscriptionJob, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1GetTranscriptionJobResponse
+ */
+const de_GetTranscriptionJobResponse = (output: any, context: __SerdeContext): GetTranscriptionJobResponse => {
+  return take(output, {
+    TranscriptionJob: (_: any) => de_TranscriptionJob(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1GetVocabularyFilterResponse = (
-  output: any,
-  context: __SerdeContext
-): GetVocabularyFilterResponse => {
-  return {
-    DownloadUri: __expectString(output.DownloadUri),
-    LanguageCode: __expectString(output.LanguageCode),
-    LastModifiedTime:
-      output.LastModifiedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
-        : undefined,
-    VocabularyFilterName: __expectString(output.VocabularyFilterName),
-  } as any;
+/**
+ * deserializeAws_json1_1GetVocabularyFilterResponse
+ */
+const de_GetVocabularyFilterResponse = (output: any, context: __SerdeContext): GetVocabularyFilterResponse => {
+  return take(output, {
+    DownloadUri: __expectString,
+    LanguageCode: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VocabularyFilterName: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1GetVocabularyResponse = (output: any, context: __SerdeContext): GetVocabularyResponse => {
-  return {
-    DownloadUri: __expectString(output.DownloadUri),
-    FailureReason: __expectString(output.FailureReason),
-    LanguageCode: __expectString(output.LanguageCode),
-    LastModifiedTime:
-      output.LastModifiedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
-        : undefined,
-    VocabularyName: __expectString(output.VocabularyName),
-    VocabularyState: __expectString(output.VocabularyState),
-  } as any;
+/**
+ * deserializeAws_json1_1GetVocabularyResponse
+ */
+const de_GetVocabularyResponse = (output: any, context: __SerdeContext): GetVocabularyResponse => {
+  return take(output, {
+    DownloadUri: __expectString,
+    FailureReason: __expectString,
+    LanguageCode: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VocabularyName: __expectString,
+    VocabularyState: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1InputDataConfig = (output: any, context: __SerdeContext): InputDataConfig => {
-  return {
-    DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
-    S3Uri: __expectString(output.S3Uri),
-    TuningDataS3Uri: __expectString(output.TuningDataS3Uri),
-  } as any;
+// de_InputDataConfig omitted.
+
+// de_InternalFailureException omitted.
+
+// de_InterruptionFilter omitted.
+
+// de_JobExecutionSettings omitted.
+
+/**
+ * deserializeAws_json1_1LanguageCodeItem
+ */
+const de_LanguageCodeItem = (output: any, context: __SerdeContext): LanguageCodeItem => {
+  return take(output, {
+    DurationInSeconds: __limitedParseFloat32,
+    LanguageCode: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1InternalFailureException = (
-  output: any,
-  context: __SerdeContext
-): InternalFailureException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_1InterruptionFilter = (output: any, context: __SerdeContext): InterruptionFilter => {
-  return {
-    AbsoluteTimeRange:
-      output.AbsoluteTimeRange != null
-        ? deserializeAws_json1_1AbsoluteTimeRange(output.AbsoluteTimeRange, context)
-        : undefined,
-    Negate: __expectBoolean(output.Negate),
-    ParticipantRole: __expectString(output.ParticipantRole),
-    RelativeTimeRange:
-      output.RelativeTimeRange != null
-        ? deserializeAws_json1_1RelativeTimeRange(output.RelativeTimeRange, context)
-        : undefined,
-    Threshold: __expectLong(output.Threshold),
-  } as any;
-};
-
-const deserializeAws_json1_1JobExecutionSettings = (output: any, context: __SerdeContext): JobExecutionSettings => {
-  return {
-    AllowDeferredExecution: __expectBoolean(output.AllowDeferredExecution),
-    DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
-  } as any;
-};
-
-const deserializeAws_json1_1LanguageCodeItem = (output: any, context: __SerdeContext): LanguageCodeItem => {
-  return {
-    DurationInSeconds: __limitedParseFloat32(output.DurationInSeconds),
-    LanguageCode: __expectString(output.LanguageCode),
-  } as any;
-};
-
-const deserializeAws_json1_1LanguageCodeList = (output: any, context: __SerdeContext): LanguageCodeItem[] => {
+/**
+ * deserializeAws_json1_1LanguageCodeList
+ */
+const de_LanguageCodeList = (output: any, context: __SerdeContext): LanguageCodeItem[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1LanguageCodeItem(entry, context);
+      return de_LanguageCodeItem(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1LanguageIdSettings = (output: any, context: __SerdeContext): LanguageIdSettings => {
-  return {
-    LanguageModelName: __expectString(output.LanguageModelName),
-    VocabularyFilterName: __expectString(output.VocabularyFilterName),
-    VocabularyName: __expectString(output.VocabularyName),
-  } as any;
+// de_LanguageIdSettings omitted.
+
+// de_LanguageIdSettingsMap omitted.
+
+/**
+ * deserializeAws_json1_1LanguageModel
+ */
+const de_LanguageModel = (output: any, context: __SerdeContext): LanguageModel => {
+  return take(output, {
+    BaseModelName: __expectString,
+    CreateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FailureReason: __expectString,
+    InputDataConfig: _json,
+    LanguageCode: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ModelName: __expectString,
+    ModelStatus: __expectString,
+    UpgradeAvailability: __expectBoolean,
+  }) as any;
 };
 
-const deserializeAws_json1_1LanguageIdSettingsMap = (
-  output: any,
-  context: __SerdeContext
-): Record<string, LanguageIdSettings> => {
-  return Object.entries(output).reduce(
-    (acc: Record<string, LanguageIdSettings>, [key, value]: [LanguageCode | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = deserializeAws_json1_1LanguageIdSettings(value, context);
-      return acc;
-    },
-    {}
-  );
-};
+// de_LanguageOptions omitted.
 
-const deserializeAws_json1_1LanguageModel = (output: any, context: __SerdeContext): LanguageModel => {
-  return {
-    BaseModelName: __expectString(output.BaseModelName),
-    CreateTime:
-      output.CreateTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateTime))) : undefined,
-    FailureReason: __expectString(output.FailureReason),
-    InputDataConfig:
-      output.InputDataConfig != null
-        ? deserializeAws_json1_1InputDataConfig(output.InputDataConfig, context)
-        : undefined,
-    LanguageCode: __expectString(output.LanguageCode),
-    LastModifiedTime:
-      output.LastModifiedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
-        : undefined,
-    ModelName: __expectString(output.ModelName),
-    ModelStatus: __expectString(output.ModelStatus),
-    UpgradeAvailability: __expectBoolean(output.UpgradeAvailability),
-  } as any;
-};
+// de_LimitExceededException omitted.
 
-const deserializeAws_json1_1LanguageOptions = (output: any, context: __SerdeContext): (LanguageCode | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_1ListCallAnalyticsCategoriesResponse = (
+/**
+ * deserializeAws_json1_1ListCallAnalyticsCategoriesResponse
+ */
+const de_ListCallAnalyticsCategoriesResponse = (
   output: any,
   context: __SerdeContext
 ): ListCallAnalyticsCategoriesResponse => {
-  return {
-    Categories:
-      output.Categories != null ? deserializeAws_json1_1CategoryPropertiesList(output.Categories, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    Categories: (_: any) => de_CategoryPropertiesList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1ListCallAnalyticsJobsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListCallAnalyticsJobsResponse => {
-  return {
-    CallAnalyticsJobSummaries:
-      output.CallAnalyticsJobSummaries != null
-        ? deserializeAws_json1_1CallAnalyticsJobSummaries(output.CallAnalyticsJobSummaries, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-    Status: __expectString(output.Status),
-  } as any;
+/**
+ * deserializeAws_json1_1ListCallAnalyticsJobsResponse
+ */
+const de_ListCallAnalyticsJobsResponse = (output: any, context: __SerdeContext): ListCallAnalyticsJobsResponse => {
+  return take(output, {
+    CallAnalyticsJobSummaries: (_: any) => de_CallAnalyticsJobSummaries(_, context),
+    NextToken: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1ListLanguageModelsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListLanguageModelsResponse => {
-  return {
-    Models: output.Models != null ? deserializeAws_json1_1Models(output.Models, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+/**
+ * deserializeAws_json1_1ListLanguageModelsResponse
+ */
+const de_ListLanguageModelsResponse = (output: any, context: __SerdeContext): ListLanguageModelsResponse => {
+  return take(output, {
+    Models: (_: any) => de_Models(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1ListMedicalTranscriptionJobsResponse = (
+/**
+ * deserializeAws_json1_1ListMedicalTranscriptionJobsResponse
+ */
+const de_ListMedicalTranscriptionJobsResponse = (
   output: any,
   context: __SerdeContext
 ): ListMedicalTranscriptionJobsResponse => {
-  return {
-    MedicalTranscriptionJobSummaries:
-      output.MedicalTranscriptionJobSummaries != null
-        ? deserializeAws_json1_1MedicalTranscriptionJobSummaries(output.MedicalTranscriptionJobSummaries, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    MedicalTranscriptionJobSummaries: (_: any) => de_MedicalTranscriptionJobSummaries(_, context),
+    NextToken: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1ListMedicalVocabulariesResponse = (
-  output: any,
-  context: __SerdeContext
-): ListMedicalVocabulariesResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Status: __expectString(output.Status),
-    Vocabularies:
-      output.Vocabularies != null ? deserializeAws_json1_1Vocabularies(output.Vocabularies, context) : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1ListMedicalVocabulariesResponse
+ */
+const de_ListMedicalVocabulariesResponse = (output: any, context: __SerdeContext): ListMedicalVocabulariesResponse => {
+  return take(output, {
+    NextToken: __expectString,
+    Status: __expectString,
+    Vocabularies: (_: any) => de_Vocabularies(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1ListTagsForResourceResponse = (
-  output: any,
-  context: __SerdeContext
-): ListTagsForResourceResponse => {
-  return {
-    ResourceArn: __expectString(output.ResourceArn),
-    Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
-  } as any;
+// de_ListTagsForResourceResponse omitted.
+
+/**
+ * deserializeAws_json1_1ListTranscriptionJobsResponse
+ */
+const de_ListTranscriptionJobsResponse = (output: any, context: __SerdeContext): ListTranscriptionJobsResponse => {
+  return take(output, {
+    NextToken: __expectString,
+    Status: __expectString,
+    TranscriptionJobSummaries: (_: any) => de_TranscriptionJobSummaries(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1ListTranscriptionJobsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListTranscriptionJobsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Status: __expectString(output.Status),
-    TranscriptionJobSummaries:
-      output.TranscriptionJobSummaries != null
-        ? deserializeAws_json1_1TranscriptionJobSummaries(output.TranscriptionJobSummaries, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1ListVocabulariesResponse
+ */
+const de_ListVocabulariesResponse = (output: any, context: __SerdeContext): ListVocabulariesResponse => {
+  return take(output, {
+    NextToken: __expectString,
+    Status: __expectString,
+    Vocabularies: (_: any) => de_Vocabularies(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1ListVocabulariesResponse = (
-  output: any,
-  context: __SerdeContext
-): ListVocabulariesResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Status: __expectString(output.Status),
-    Vocabularies:
-      output.Vocabularies != null ? deserializeAws_json1_1Vocabularies(output.Vocabularies, context) : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1ListVocabularyFiltersResponse
+ */
+const de_ListVocabularyFiltersResponse = (output: any, context: __SerdeContext): ListVocabularyFiltersResponse => {
+  return take(output, {
+    NextToken: __expectString,
+    VocabularyFilters: (_: any) => de_VocabularyFilters(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1ListVocabularyFiltersResponse = (
-  output: any,
-  context: __SerdeContext
-): ListVocabularyFiltersResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    VocabularyFilters:
-      output.VocabularyFilters != null
-        ? deserializeAws_json1_1VocabularyFilters(output.VocabularyFilters, context)
-        : undefined,
-  } as any;
+// de_Media omitted.
+
+// de_MedicalTranscript omitted.
+
+/**
+ * deserializeAws_json1_1MedicalTranscriptionJob
+ */
+const de_MedicalTranscriptionJob = (output: any, context: __SerdeContext): MedicalTranscriptionJob => {
+  return take(output, {
+    CompletionTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ContentIdentificationType: __expectString,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FailureReason: __expectString,
+    LanguageCode: __expectString,
+    Media: _json,
+    MediaFormat: __expectString,
+    MediaSampleRateHertz: __expectInt32,
+    MedicalTranscriptionJobName: __expectString,
+    Settings: _json,
+    Specialty: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Tags: _json,
+    Transcript: _json,
+    TranscriptionJobStatus: __expectString,
+    Type: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1Media = (output: any, context: __SerdeContext): Media => {
-  return {
-    MediaFileUri: __expectString(output.MediaFileUri),
-    RedactedMediaFileUri: __expectString(output.RedactedMediaFileUri),
-  } as any;
-};
-
-const deserializeAws_json1_1MedicalTranscript = (output: any, context: __SerdeContext): MedicalTranscript => {
-  return {
-    TranscriptFileUri: __expectString(output.TranscriptFileUri),
-  } as any;
-};
-
-const deserializeAws_json1_1MedicalTranscriptionJob = (
-  output: any,
-  context: __SerdeContext
-): MedicalTranscriptionJob => {
-  return {
-    CompletionTime:
-      output.CompletionTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionTime)))
-        : undefined,
-    ContentIdentificationType: __expectString(output.ContentIdentificationType),
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    FailureReason: __expectString(output.FailureReason),
-    LanguageCode: __expectString(output.LanguageCode),
-    Media: output.Media != null ? deserializeAws_json1_1Media(output.Media, context) : undefined,
-    MediaFormat: __expectString(output.MediaFormat),
-    MediaSampleRateHertz: __expectInt32(output.MediaSampleRateHertz),
-    MedicalTranscriptionJobName: __expectString(output.MedicalTranscriptionJobName),
-    Settings:
-      output.Settings != null ? deserializeAws_json1_1MedicalTranscriptionSetting(output.Settings, context) : undefined,
-    Specialty: __expectString(output.Specialty),
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-    Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
-    Transcript:
-      output.Transcript != null ? deserializeAws_json1_1MedicalTranscript(output.Transcript, context) : undefined,
-    TranscriptionJobStatus: __expectString(output.TranscriptionJobStatus),
-    Type: __expectString(output.Type),
-  } as any;
-};
-
-const deserializeAws_json1_1MedicalTranscriptionJobSummaries = (
+/**
+ * deserializeAws_json1_1MedicalTranscriptionJobSummaries
+ */
+const de_MedicalTranscriptionJobSummaries = (
   output: any,
   context: __SerdeContext
 ): MedicalTranscriptionJobSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1MedicalTranscriptionJobSummary(entry, context);
+      return de_MedicalTranscriptionJobSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1MedicalTranscriptionJobSummary = (
-  output: any,
-  context: __SerdeContext
-): MedicalTranscriptionJobSummary => {
-  return {
-    CompletionTime:
-      output.CompletionTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionTime)))
-        : undefined,
-    ContentIdentificationType: __expectString(output.ContentIdentificationType),
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    FailureReason: __expectString(output.FailureReason),
-    LanguageCode: __expectString(output.LanguageCode),
-    MedicalTranscriptionJobName: __expectString(output.MedicalTranscriptionJobName),
-    OutputLocationType: __expectString(output.OutputLocationType),
-    Specialty: __expectString(output.Specialty),
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-    TranscriptionJobStatus: __expectString(output.TranscriptionJobStatus),
-    Type: __expectString(output.Type),
-  } as any;
+/**
+ * deserializeAws_json1_1MedicalTranscriptionJobSummary
+ */
+const de_MedicalTranscriptionJobSummary = (output: any, context: __SerdeContext): MedicalTranscriptionJobSummary => {
+  return take(output, {
+    CompletionTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ContentIdentificationType: __expectString,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FailureReason: __expectString,
+    LanguageCode: __expectString,
+    MedicalTranscriptionJobName: __expectString,
+    OutputLocationType: __expectString,
+    Specialty: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    TranscriptionJobStatus: __expectString,
+    Type: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1MedicalTranscriptionSetting = (
-  output: any,
-  context: __SerdeContext
-): MedicalTranscriptionSetting => {
-  return {
-    ChannelIdentification: __expectBoolean(output.ChannelIdentification),
-    MaxAlternatives: __expectInt32(output.MaxAlternatives),
-    MaxSpeakerLabels: __expectInt32(output.MaxSpeakerLabels),
-    ShowAlternatives: __expectBoolean(output.ShowAlternatives),
-    ShowSpeakerLabels: __expectBoolean(output.ShowSpeakerLabels),
-    VocabularyName: __expectString(output.VocabularyName),
-  } as any;
-};
+// de_MedicalTranscriptionSetting omitted.
 
-const deserializeAws_json1_1Models = (output: any, context: __SerdeContext): LanguageModel[] => {
+/**
+ * deserializeAws_json1_1Models
+ */
+const de_Models = (output: any, context: __SerdeContext): LanguageModel[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1LanguageModel(entry, context);
+      return de_LanguageModel(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ModelSettings = (output: any, context: __SerdeContext): ModelSettings => {
-  return {
-    LanguageModelName: __expectString(output.LanguageModelName),
-  } as any;
+// de_ModelSettings omitted.
+
+// de_NonTalkTimeFilter omitted.
+
+// de_NotFoundException omitted.
+
+// de_PiiEntityTypes omitted.
+
+// de_RelativeTimeRange omitted.
+
+// de_Rule omitted.
+
+// de_RuleList omitted.
+
+// de_SentimentFilter omitted.
+
+// de_SentimentValueList omitted.
+
+// de_Settings omitted.
+
+/**
+ * deserializeAws_json1_1StartCallAnalyticsJobResponse
+ */
+const de_StartCallAnalyticsJobResponse = (output: any, context: __SerdeContext): StartCallAnalyticsJobResponse => {
+  return take(output, {
+    CallAnalyticsJob: (_: any) => de_CallAnalyticsJob(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1NonTalkTimeFilter = (output: any, context: __SerdeContext): NonTalkTimeFilter => {
-  return {
-    AbsoluteTimeRange:
-      output.AbsoluteTimeRange != null
-        ? deserializeAws_json1_1AbsoluteTimeRange(output.AbsoluteTimeRange, context)
-        : undefined,
-    Negate: __expectBoolean(output.Negate),
-    RelativeTimeRange:
-      output.RelativeTimeRange != null
-        ? deserializeAws_json1_1RelativeTimeRange(output.RelativeTimeRange, context)
-        : undefined,
-    Threshold: __expectLong(output.Threshold),
-  } as any;
-};
-
-const deserializeAws_json1_1NotFoundException = (output: any, context: __SerdeContext): NotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_1PiiEntityTypes = (output: any, context: __SerdeContext): (PiiEntityType | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1RelativeTimeRange = (output: any, context: __SerdeContext): RelativeTimeRange => {
-  return {
-    EndPercentage: __expectInt32(output.EndPercentage),
-    First: __expectInt32(output.First),
-    Last: __expectInt32(output.Last),
-    StartPercentage: __expectInt32(output.StartPercentage),
-  } as any;
-};
-
-const deserializeAws_json1_1Rule = (output: any, context: __SerdeContext): Rule => {
-  if (output.InterruptionFilter != null) {
-    return {
-      InterruptionFilter: deserializeAws_json1_1InterruptionFilter(output.InterruptionFilter, context),
-    };
-  }
-  if (output.NonTalkTimeFilter != null) {
-    return {
-      NonTalkTimeFilter: deserializeAws_json1_1NonTalkTimeFilter(output.NonTalkTimeFilter, context),
-    };
-  }
-  if (output.SentimentFilter != null) {
-    return {
-      SentimentFilter: deserializeAws_json1_1SentimentFilter(output.SentimentFilter, context),
-    };
-  }
-  if (output.TranscriptFilter != null) {
-    return {
-      TranscriptFilter: deserializeAws_json1_1TranscriptFilter(output.TranscriptFilter, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
-
-const deserializeAws_json1_1RuleList = (output: any, context: __SerdeContext): Rule[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Rule(__expectUnion(entry), context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1SentimentFilter = (output: any, context: __SerdeContext): SentimentFilter => {
-  return {
-    AbsoluteTimeRange:
-      output.AbsoluteTimeRange != null
-        ? deserializeAws_json1_1AbsoluteTimeRange(output.AbsoluteTimeRange, context)
-        : undefined,
-    Negate: __expectBoolean(output.Negate),
-    ParticipantRole: __expectString(output.ParticipantRole),
-    RelativeTimeRange:
-      output.RelativeTimeRange != null
-        ? deserializeAws_json1_1RelativeTimeRange(output.RelativeTimeRange, context)
-        : undefined,
-    Sentiments:
-      output.Sentiments != null ? deserializeAws_json1_1SentimentValueList(output.Sentiments, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1SentimentValueList = (
-  output: any,
-  context: __SerdeContext
-): (SentimentValue | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1Settings = (output: any, context: __SerdeContext): Settings => {
-  return {
-    ChannelIdentification: __expectBoolean(output.ChannelIdentification),
-    MaxAlternatives: __expectInt32(output.MaxAlternatives),
-    MaxSpeakerLabels: __expectInt32(output.MaxSpeakerLabels),
-    ShowAlternatives: __expectBoolean(output.ShowAlternatives),
-    ShowSpeakerLabels: __expectBoolean(output.ShowSpeakerLabels),
-    VocabularyFilterMethod: __expectString(output.VocabularyFilterMethod),
-    VocabularyFilterName: __expectString(output.VocabularyFilterName),
-    VocabularyName: __expectString(output.VocabularyName),
-  } as any;
-};
-
-const deserializeAws_json1_1StartCallAnalyticsJobResponse = (
-  output: any,
-  context: __SerdeContext
-): StartCallAnalyticsJobResponse => {
-  return {
-    CallAnalyticsJob:
-      output.CallAnalyticsJob != null
-        ? deserializeAws_json1_1CallAnalyticsJob(output.CallAnalyticsJob, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1StartMedicalTranscriptionJobResponse = (
+/**
+ * deserializeAws_json1_1StartMedicalTranscriptionJobResponse
+ */
+const de_StartMedicalTranscriptionJobResponse = (
   output: any,
   context: __SerdeContext
 ): StartMedicalTranscriptionJobResponse => {
-  return {
-    MedicalTranscriptionJob:
-      output.MedicalTranscriptionJob != null
-        ? deserializeAws_json1_1MedicalTranscriptionJob(output.MedicalTranscriptionJob, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    MedicalTranscriptionJob: (_: any) => de_MedicalTranscriptionJob(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1StartTranscriptionJobResponse = (
-  output: any,
-  context: __SerdeContext
-): StartTranscriptionJobResponse => {
-  return {
-    TranscriptionJob:
-      output.TranscriptionJob != null
-        ? deserializeAws_json1_1TranscriptionJob(output.TranscriptionJob, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1StartTranscriptionJobResponse
+ */
+const de_StartTranscriptionJobResponse = (output: any, context: __SerdeContext): StartTranscriptionJobResponse => {
+  return take(output, {
+    TranscriptionJob: (_: any) => de_TranscriptionJob(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1StringTargetList = (output: any, context: __SerdeContext): string[] => {
+// de_StringTargetList omitted.
+
+// de_SubtitleFileUris omitted.
+
+// de_SubtitleFormats omitted.
+
+// de_SubtitlesOutput omitted.
+
+// de_Tag omitted.
+
+// de_TagList omitted.
+
+// de_TagResourceResponse omitted.
+
+// de_Transcript omitted.
+
+// de_TranscriptFilter omitted.
+
+/**
+ * deserializeAws_json1_1TranscriptionJob
+ */
+const de_TranscriptionJob = (output: any, context: __SerdeContext): TranscriptionJob => {
+  return take(output, {
+    CompletionTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ContentRedaction: _json,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FailureReason: __expectString,
+    IdentifiedLanguageScore: __limitedParseFloat32,
+    IdentifyLanguage: __expectBoolean,
+    IdentifyMultipleLanguages: __expectBoolean,
+    JobExecutionSettings: _json,
+    LanguageCode: __expectString,
+    LanguageCodes: (_: any) => de_LanguageCodeList(_, context),
+    LanguageIdSettings: _json,
+    LanguageOptions: _json,
+    Media: _json,
+    MediaFormat: __expectString,
+    MediaSampleRateHertz: __expectInt32,
+    ModelSettings: _json,
+    Settings: _json,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Subtitles: _json,
+    Tags: _json,
+    Transcript: _json,
+    TranscriptionJobName: __expectString,
+    TranscriptionJobStatus: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1TranscriptionJobSummaries
+ */
+const de_TranscriptionJobSummaries = (output: any, context: __SerdeContext): TranscriptionJobSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
+      return de_TranscriptionJobSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1SubtitleFileUris = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
+/**
+ * deserializeAws_json1_1TranscriptionJobSummary
+ */
+const de_TranscriptionJobSummary = (output: any, context: __SerdeContext): TranscriptionJobSummary => {
+  return take(output, {
+    CompletionTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ContentRedaction: _json,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FailureReason: __expectString,
+    IdentifiedLanguageScore: __limitedParseFloat32,
+    IdentifyLanguage: __expectBoolean,
+    IdentifyMultipleLanguages: __expectBoolean,
+    LanguageCode: __expectString,
+    LanguageCodes: (_: any) => de_LanguageCodeList(_, context),
+    ModelSettings: _json,
+    OutputLocationType: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    TranscriptionJobName: __expectString,
+    TranscriptionJobStatus: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1SubtitleFormats = (output: any, context: __SerdeContext): (SubtitleFormat | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_UntagResourceResponse omitted.
 
-const deserializeAws_json1_1SubtitlesOutput = (output: any, context: __SerdeContext): SubtitlesOutput => {
-  return {
-    Formats: output.Formats != null ? deserializeAws_json1_1SubtitleFormats(output.Formats, context) : undefined,
-    OutputStartIndex: __expectInt32(output.OutputStartIndex),
-    SubtitleFileUris:
-      output.SubtitleFileUris != null
-        ? deserializeAws_json1_1SubtitleFileUris(output.SubtitleFileUris, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
-
-const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Tag(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1Transcript = (output: any, context: __SerdeContext): Transcript => {
-  return {
-    RedactedTranscriptFileUri: __expectString(output.RedactedTranscriptFileUri),
-    TranscriptFileUri: __expectString(output.TranscriptFileUri),
-  } as any;
-};
-
-const deserializeAws_json1_1TranscriptFilter = (output: any, context: __SerdeContext): TranscriptFilter => {
-  return {
-    AbsoluteTimeRange:
-      output.AbsoluteTimeRange != null
-        ? deserializeAws_json1_1AbsoluteTimeRange(output.AbsoluteTimeRange, context)
-        : undefined,
-    Negate: __expectBoolean(output.Negate),
-    ParticipantRole: __expectString(output.ParticipantRole),
-    RelativeTimeRange:
-      output.RelativeTimeRange != null
-        ? deserializeAws_json1_1RelativeTimeRange(output.RelativeTimeRange, context)
-        : undefined,
-    Targets: output.Targets != null ? deserializeAws_json1_1StringTargetList(output.Targets, context) : undefined,
-    TranscriptFilterType: __expectString(output.TranscriptFilterType),
-  } as any;
-};
-
-const deserializeAws_json1_1TranscriptionJob = (output: any, context: __SerdeContext): TranscriptionJob => {
-  return {
-    CompletionTime:
-      output.CompletionTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionTime)))
-        : undefined,
-    ContentRedaction:
-      output.ContentRedaction != null
-        ? deserializeAws_json1_1ContentRedaction(output.ContentRedaction, context)
-        : undefined,
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    FailureReason: __expectString(output.FailureReason),
-    IdentifiedLanguageScore: __limitedParseFloat32(output.IdentifiedLanguageScore),
-    IdentifyLanguage: __expectBoolean(output.IdentifyLanguage),
-    IdentifyMultipleLanguages: __expectBoolean(output.IdentifyMultipleLanguages),
-    JobExecutionSettings:
-      output.JobExecutionSettings != null
-        ? deserializeAws_json1_1JobExecutionSettings(output.JobExecutionSettings, context)
-        : undefined,
-    LanguageCode: __expectString(output.LanguageCode),
-    LanguageCodes:
-      output.LanguageCodes != null ? deserializeAws_json1_1LanguageCodeList(output.LanguageCodes, context) : undefined,
-    LanguageIdSettings:
-      output.LanguageIdSettings != null
-        ? deserializeAws_json1_1LanguageIdSettingsMap(output.LanguageIdSettings, context)
-        : undefined,
-    LanguageOptions:
-      output.LanguageOptions != null
-        ? deserializeAws_json1_1LanguageOptions(output.LanguageOptions, context)
-        : undefined,
-    Media: output.Media != null ? deserializeAws_json1_1Media(output.Media, context) : undefined,
-    MediaFormat: __expectString(output.MediaFormat),
-    MediaSampleRateHertz: __expectInt32(output.MediaSampleRateHertz),
-    ModelSettings:
-      output.ModelSettings != null ? deserializeAws_json1_1ModelSettings(output.ModelSettings, context) : undefined,
-    Settings: output.Settings != null ? deserializeAws_json1_1Settings(output.Settings, context) : undefined,
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-    Subtitles: output.Subtitles != null ? deserializeAws_json1_1SubtitlesOutput(output.Subtitles, context) : undefined,
-    Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
-    Transcript: output.Transcript != null ? deserializeAws_json1_1Transcript(output.Transcript, context) : undefined,
-    TranscriptionJobName: __expectString(output.TranscriptionJobName),
-    TranscriptionJobStatus: __expectString(output.TranscriptionJobStatus),
-  } as any;
-};
-
-const deserializeAws_json1_1TranscriptionJobSummaries = (
-  output: any,
-  context: __SerdeContext
-): TranscriptionJobSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1TranscriptionJobSummary(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1TranscriptionJobSummary = (
-  output: any,
-  context: __SerdeContext
-): TranscriptionJobSummary => {
-  return {
-    CompletionTime:
-      output.CompletionTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionTime)))
-        : undefined,
-    ContentRedaction:
-      output.ContentRedaction != null
-        ? deserializeAws_json1_1ContentRedaction(output.ContentRedaction, context)
-        : undefined,
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    FailureReason: __expectString(output.FailureReason),
-    IdentifiedLanguageScore: __limitedParseFloat32(output.IdentifiedLanguageScore),
-    IdentifyLanguage: __expectBoolean(output.IdentifyLanguage),
-    IdentifyMultipleLanguages: __expectBoolean(output.IdentifyMultipleLanguages),
-    LanguageCode: __expectString(output.LanguageCode),
-    LanguageCodes:
-      output.LanguageCodes != null ? deserializeAws_json1_1LanguageCodeList(output.LanguageCodes, context) : undefined,
-    ModelSettings:
-      output.ModelSettings != null ? deserializeAws_json1_1ModelSettings(output.ModelSettings, context) : undefined,
-    OutputLocationType: __expectString(output.OutputLocationType),
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-    TranscriptionJobName: __expectString(output.TranscriptionJobName),
-    TranscriptionJobStatus: __expectString(output.TranscriptionJobStatus),
-  } as any;
-};
-
-const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1UpdateCallAnalyticsCategoryResponse = (
+/**
+ * deserializeAws_json1_1UpdateCallAnalyticsCategoryResponse
+ */
+const de_UpdateCallAnalyticsCategoryResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateCallAnalyticsCategoryResponse => {
-  return {
-    CategoryProperties:
-      output.CategoryProperties != null
-        ? deserializeAws_json1_1CategoryProperties(output.CategoryProperties, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    CategoryProperties: (_: any) => de_CategoryProperties(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1UpdateMedicalVocabularyResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateMedicalVocabularyResponse => {
-  return {
-    LanguageCode: __expectString(output.LanguageCode),
-    LastModifiedTime:
-      output.LastModifiedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
-        : undefined,
-    VocabularyName: __expectString(output.VocabularyName),
-    VocabularyState: __expectString(output.VocabularyState),
-  } as any;
+/**
+ * deserializeAws_json1_1UpdateMedicalVocabularyResponse
+ */
+const de_UpdateMedicalVocabularyResponse = (output: any, context: __SerdeContext): UpdateMedicalVocabularyResponse => {
+  return take(output, {
+    LanguageCode: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VocabularyName: __expectString,
+    VocabularyState: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1UpdateVocabularyFilterResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateVocabularyFilterResponse => {
-  return {
-    LanguageCode: __expectString(output.LanguageCode),
-    LastModifiedTime:
-      output.LastModifiedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
-        : undefined,
-    VocabularyFilterName: __expectString(output.VocabularyFilterName),
-  } as any;
+/**
+ * deserializeAws_json1_1UpdateVocabularyFilterResponse
+ */
+const de_UpdateVocabularyFilterResponse = (output: any, context: __SerdeContext): UpdateVocabularyFilterResponse => {
+  return take(output, {
+    LanguageCode: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VocabularyFilterName: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1UpdateVocabularyResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateVocabularyResponse => {
-  return {
-    LanguageCode: __expectString(output.LanguageCode),
-    LastModifiedTime:
-      output.LastModifiedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
-        : undefined,
-    VocabularyName: __expectString(output.VocabularyName),
-    VocabularyState: __expectString(output.VocabularyState),
-  } as any;
+/**
+ * deserializeAws_json1_1UpdateVocabularyResponse
+ */
+const de_UpdateVocabularyResponse = (output: any, context: __SerdeContext): UpdateVocabularyResponse => {
+  return take(output, {
+    LanguageCode: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VocabularyName: __expectString,
+    VocabularyState: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1Vocabularies = (output: any, context: __SerdeContext): VocabularyInfo[] => {
+/**
+ * deserializeAws_json1_1Vocabularies
+ */
+const de_Vocabularies = (output: any, context: __SerdeContext): VocabularyInfo[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1VocabularyInfo(entry, context);
+      return de_VocabularyInfo(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1VocabularyFilterInfo = (output: any, context: __SerdeContext): VocabularyFilterInfo => {
-  return {
-    LanguageCode: __expectString(output.LanguageCode),
-    LastModifiedTime:
-      output.LastModifiedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
-        : undefined,
-    VocabularyFilterName: __expectString(output.VocabularyFilterName),
-  } as any;
+/**
+ * deserializeAws_json1_1VocabularyFilterInfo
+ */
+const de_VocabularyFilterInfo = (output: any, context: __SerdeContext): VocabularyFilterInfo => {
+  return take(output, {
+    LanguageCode: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VocabularyFilterName: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1VocabularyFilters = (output: any, context: __SerdeContext): VocabularyFilterInfo[] => {
+/**
+ * deserializeAws_json1_1VocabularyFilters
+ */
+const de_VocabularyFilters = (output: any, context: __SerdeContext): VocabularyFilterInfo[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1VocabularyFilterInfo(entry, context);
+      return de_VocabularyFilterInfo(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1VocabularyInfo = (output: any, context: __SerdeContext): VocabularyInfo => {
-  return {
-    LanguageCode: __expectString(output.LanguageCode),
-    LastModifiedTime:
-      output.LastModifiedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
-        : undefined,
-    VocabularyName: __expectString(output.VocabularyName),
-    VocabularyState: __expectString(output.VocabularyState),
-  } as any;
+/**
+ * deserializeAws_json1_1VocabularyInfo
+ */
+const de_VocabularyInfo = (output: any, context: __SerdeContext): VocabularyInfo => {
+  return take(output, {
+    LanguageCode: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VocabularyName: __expectString,
+    VocabularyState: __expectString,
+  }) as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -4693,6 +3795,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,
@@ -4717,6 +3820,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `Transcribe.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

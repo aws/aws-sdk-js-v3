@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  Application,
-  ApplicationFilterSensitiveLog,
-  ArchiveApplicationRequest,
-  ArchiveApplicationRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ArchiveApplicationCommand,
-  serializeAws_restJson1ArchiveApplicationCommand,
-} from "../protocols/Aws_restJson1";
+import { Application, ApplicationFilterSensitiveLog, ArchiveApplicationRequest } from "../models/models_0";
+import { de_ArchiveApplicationCommand, se_ArchiveApplicationCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ArchiveApplicationCommand}.
+ */
 export interface ArchiveApplicationCommandInput extends ArchiveApplicationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ArchiveApplicationCommand}.
+ */
 export interface ArchiveApplicationCommandOutput extends Application, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Archive application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,31 @@ export interface ArchiveApplicationCommandOutput extends Application, __Metadata
  * import { MgnClient, ArchiveApplicationCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, ArchiveApplicationCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = { // ArchiveApplicationRequest
+ *   applicationID: "STRING_VALUE", // required
+ * };
  * const command = new ArchiveApplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ArchiveApplicationCommandInput - {@link ArchiveApplicationCommandInput}
+ * @returns {@link ArchiveApplicationCommandOutput}
  * @see {@link ArchiveApplicationCommandInput} for command's `input` shape.
  * @see {@link ArchiveApplicationCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource not found exception.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request could not be completed because its exceeded the service quota.</p>
+ *
+ * @throws {@link UninitializedAccountException} (client fault)
+ *  <p>Uninitialized account exception.</p>
+ *
  *
  */
 export class ArchiveApplicationCommand extends $Command<
@@ -62,6 +83,9 @@ export class ArchiveApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ArchiveApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +114,7 @@ export class ArchiveApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ArchiveApplicationRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ApplicationFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -101,12 +125,18 @@ export class ArchiveApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ArchiveApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ArchiveApplicationCommand(input, context);
+    return se_ArchiveApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ArchiveApplicationCommandOutput> {
-    return deserializeAws_restJson1ArchiveApplicationCommand(output, context);
+    return de_ArchiveApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateHostKeyRequest,
-  UpdateHostKeyRequestFilterSensitiveLog,
-  UpdateHostKeyResponse,
-  UpdateHostKeyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateHostKeyCommand,
-  serializeAws_json1_1UpdateHostKeyCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateHostKeyRequest, UpdateHostKeyResponse } from "../models/models_0";
+import { de_UpdateHostKeyCommand, se_UpdateHostKeyCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateHostKeyCommand}.
+ */
 export interface UpdateHostKeyCommandInput extends UpdateHostKeyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateHostKeyCommand}.
+ */
 export interface UpdateHostKeyCommandOutput extends UpdateHostKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the description for the host key that's specified by the <code>ServerId</code> and
  *         <code>HostKeyId</code> parameters.</p>
  * @example
@@ -37,13 +40,37 @@ export interface UpdateHostKeyCommandOutput extends UpdateHostKeyResponse, __Met
  * import { TransferClient, UpdateHostKeyCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, UpdateHostKeyCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = { // UpdateHostKeyRequest
+ *   ServerId: "STRING_VALUE", // required
+ *   HostKeyId: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE", // required
+ * };
  * const command = new UpdateHostKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateHostKeyCommandInput - {@link UpdateHostKeyCommandInput}
+ * @returns {@link UpdateHostKeyCommandOutput}
  * @see {@link UpdateHostKeyCommandInput} for command's `input` shape.
  * @see {@link UpdateHostKeyCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
+ *
+ * @throws {@link InternalServiceError} (server fault)
+ *  <p>This exception is thrown when an error occurs in the Amazon Web ServicesTransfer Family service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
+ *       service.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
  *
  */
 export class UpdateHostKeyCommand extends $Command<
@@ -63,6 +90,9 @@ export class UpdateHostKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateHostKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +119,8 @@ export class UpdateHostKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateHostKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateHostKeyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +130,18 @@ export class UpdateHostKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateHostKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateHostKeyCommand(input, context);
+    return se_UpdateHostKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateHostKeyCommandOutput> {
-    return deserializeAws_json1_1UpdateHostKeyCommand(output, context);
+    return de_UpdateHostKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

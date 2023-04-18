@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListDatasetExportJobsRequest,
-  ListDatasetExportJobsRequestFilterSensitiveLog,
-  ListDatasetExportJobsResponse,
-  ListDatasetExportJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListDatasetExportJobsRequest, ListDatasetExportJobsResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1ListDatasetExportJobsCommand,
-  serializeAws_json1_1ListDatasetExportJobsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListDatasetExportJobsCommand, se_ListDatasetExportJobsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListDatasetExportJobsCommand}.
+ */
 export interface ListDatasetExportJobsCommandInput extends ListDatasetExportJobsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDatasetExportJobsCommand}.
+ */
 export interface ListDatasetExportJobsCommandOutput extends ListDatasetExportJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of dataset export jobs that use the given dataset. When
  *       a dataset is not specified, all the dataset export jobs associated with
  *       the account are listed. The response provides the properties for each
@@ -41,13 +44,27 @@ export interface ListDatasetExportJobsCommandOutput extends ListDatasetExportJob
  * import { PersonalizeClient, ListDatasetExportJobsCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, ListDatasetExportJobsCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // ListDatasetExportJobsRequest
+ *   datasetArn: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListDatasetExportJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDatasetExportJobsCommandInput - {@link ListDatasetExportJobsCommandInput}
+ * @returns {@link ListDatasetExportJobsCommandOutput}
  * @see {@link ListDatasetExportJobsCommandInput} for command's `input` shape.
  * @see {@link ListDatasetExportJobsCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The token is not valid.</p>
+ *
  *
  */
 export class ListDatasetExportJobsCommand extends $Command<
@@ -67,6 +84,9 @@ export class ListDatasetExportJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDatasetExportJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +115,8 @@ export class ListDatasetExportJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDatasetExportJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDatasetExportJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +126,18 @@ export class ListDatasetExportJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDatasetExportJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDatasetExportJobsCommand(input, context);
+    return se_ListDatasetExportJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDatasetExportJobsCommandOutput> {
-    return deserializeAws_json1_1ListDatasetExportJobsCommand(output, context);
+    return de_ListDatasetExportJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  DescribeStackResourcesInput,
-  DescribeStackResourcesInputFilterSensitiveLog,
-  DescribeStackResourcesOutput,
-  DescribeStackResourcesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeStackResourcesCommand,
-  serializeAws_queryDescribeStackResourcesCommand,
-} from "../protocols/Aws_query";
+import { DescribeStackResourcesInput, DescribeStackResourcesOutput } from "../models/models_0";
+import { de_DescribeStackResourcesCommand, se_DescribeStackResourcesCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeStackResourcesCommand}.
+ */
 export interface DescribeStackResourcesCommandInput extends DescribeStackResourcesInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeStackResourcesCommand}.
+ */
 export interface DescribeStackResourcesCommandOutput extends DescribeStackResourcesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns Amazon Web Services resource descriptions for running and deleted stacks. If
  *             <code>StackName</code> is specified, all the associated resources that are part of the
  *          stack are returned. If <code>PhysicalResourceId</code> is specified, the associated
@@ -54,13 +57,21 @@ export interface DescribeStackResourcesCommandOutput extends DescribeStackResour
  * import { CloudFormationClient, DescribeStackResourcesCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DescribeStackResourcesCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // DescribeStackResourcesInput
+ *   StackName: "STRING_VALUE",
+ *   LogicalResourceId: "STRING_VALUE",
+ *   PhysicalResourceId: "STRING_VALUE",
+ * };
  * const command = new DescribeStackResourcesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStackResourcesCommandInput - {@link DescribeStackResourcesCommandInput}
+ * @returns {@link DescribeStackResourcesCommandOutput}
  * @see {@link DescribeStackResourcesCommandInput} for command's `input` shape.
  * @see {@link DescribeStackResourcesCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
+ *
  *
  */
 export class DescribeStackResourcesCommand extends $Command<
@@ -80,6 +91,9 @@ export class DescribeStackResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStackResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +122,8 @@ export class DescribeStackResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeStackResourcesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeStackResourcesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +133,18 @@ export class DescribeStackResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeStackResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeStackResourcesCommand(input, context);
+    return se_DescribeStackResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeStackResourcesCommandOutput> {
-    return deserializeAws_queryDescribeStackResourcesCommand(output, context);
+    return de_DescribeStackResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

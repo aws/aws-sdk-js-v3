@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
-import {
-  CreateLoggingConfigurationRequest,
-  CreateLoggingConfigurationRequestFilterSensitiveLog,
-  CreateLoggingConfigurationResponse,
-  CreateLoggingConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateLoggingConfigurationCommand,
-  serializeAws_restJson1CreateLoggingConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateLoggingConfigurationRequest, CreateLoggingConfigurationResponse } from "../models/models_0";
+import { de_CreateLoggingConfigurationCommand, se_CreateLoggingConfigurationCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateLoggingConfigurationCommand}.
+ */
 export interface CreateLoggingConfigurationCommandInput extends CreateLoggingConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateLoggingConfigurationCommand}.
+ */
 export interface CreateLoggingConfigurationCommandOutput extends CreateLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Create logging configuration.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,33 @@ export interface CreateLoggingConfigurationCommandOutput extends CreateLoggingCo
  * import { AmpClient, CreateLoggingConfigurationCommand } from "@aws-sdk/client-amp"; // ES Modules import
  * // const { AmpClient, CreateLoggingConfigurationCommand } = require("@aws-sdk/client-amp"); // CommonJS import
  * const client = new AmpClient(config);
+ * const input = { // CreateLoggingConfigurationRequest
+ *   workspaceId: "STRING_VALUE", // required
+ *   logGroupArn: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new CreateLoggingConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLoggingConfigurationCommandInput - {@link CreateLoggingConfigurationCommandInput}
+ * @returns {@link CreateLoggingConfigurationCommandOutput}
  * @see {@link CreateLoggingConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateLoggingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  User does not have sufficient access to perform this action.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  Unexpected error during processing of request.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  Request references a resource which does not exist.
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  The input fails to satisfy the constraints specified by an AWS service.
+ *
  *
  */
 export class CreateLoggingConfigurationCommand extends $Command<
@@ -62,6 +85,9 @@ export class CreateLoggingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLoggingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +116,8 @@ export class CreateLoggingConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLoggingConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLoggingConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +127,21 @@ export class CreateLoggingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLoggingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateLoggingConfigurationCommand(input, context);
+    return se_CreateLoggingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateLoggingConfigurationCommandOutput> {
-    return deserializeAws_restJson1CreateLoggingConfigurationCommand(output, context);
+    return de_CreateLoggingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

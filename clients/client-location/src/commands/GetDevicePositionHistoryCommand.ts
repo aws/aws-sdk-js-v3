@@ -16,19 +16,26 @@ import {
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import {
   GetDevicePositionHistoryRequest,
-  GetDevicePositionHistoryRequestFilterSensitiveLog,
   GetDevicePositionHistoryResponse,
   GetDevicePositionHistoryResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDevicePositionHistoryCommand,
-  serializeAws_restJson1GetDevicePositionHistoryCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetDevicePositionHistoryCommand, se_GetDevicePositionHistoryCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetDevicePositionHistoryCommand}.
+ */
 export interface GetDevicePositionHistoryCommandInput extends GetDevicePositionHistoryRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetDevicePositionHistoryCommand}.
+ */
 export interface GetDevicePositionHistoryCommandOutput extends GetDevicePositionHistoryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the device position history from a tracker resource within a specified range
  *             of time.</p>
  *          <note>
@@ -40,13 +47,40 @@ export interface GetDevicePositionHistoryCommandOutput extends GetDevicePosition
  * import { LocationClient, GetDevicePositionHistoryCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, GetDevicePositionHistoryCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = { // GetDevicePositionHistoryRequest
+ *   TrackerName: "STRING_VALUE", // required
+ *   DeviceId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   StartTimeInclusive: new Date("TIMESTAMP"),
+ *   EndTimeExclusive: new Date("TIMESTAMP"),
+ *   MaxResults: Number("int"),
+ * };
  * const command = new GetDevicePositionHistoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDevicePositionHistoryCommandInput - {@link GetDevicePositionHistoryCommandInput}
+ * @returns {@link GetDevicePositionHistoryCommandOutput}
  * @see {@link GetDevicePositionHistoryCommandInput} for command's `input` shape.
  * @see {@link GetDevicePositionHistoryCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The request was denied because of insufficient access or permissions. Check with an
+ *       administrator to verify your permissions.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource that you've entered was not found in your AWS account.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because of request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input failed to meet the constraints specified by the AWS service. </p>
+ *
  *
  */
 export class GetDevicePositionHistoryCommand extends $Command<
@@ -66,6 +100,9 @@ export class GetDevicePositionHistoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDevicePositionHistoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,7 +131,7 @@ export class GetDevicePositionHistoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDevicePositionHistoryRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetDevicePositionHistoryResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -105,12 +142,18 @@ export class GetDevicePositionHistoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDevicePositionHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDevicePositionHistoryCommand(input, context);
+    return se_GetDevicePositionHistoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDevicePositionHistoryCommandOutput> {
-    return deserializeAws_restJson1GetDevicePositionHistoryCommand(output, context);
+    return de_GetDevicePositionHistoryCommand(output, context);
   }
 
   // Start section: command_body_extra

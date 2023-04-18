@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import {
-  GetLayerVersionRequest,
-  GetLayerVersionRequestFilterSensitiveLog,
-  GetLayerVersionResponse,
-  GetLayerVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetLayerVersionCommand,
-  serializeAws_restJson1GetLayerVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { GetLayerVersionRequest, GetLayerVersionResponse } from "../models/models_0";
+import { de_GetLayerVersionCommand, se_GetLayerVersionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetLayerVersionCommand}.
+ */
 export interface GetLayerVersionCommandInput extends GetLayerVersionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetLayerVersionCommand}.
+ */
 export interface GetLayerVersionCommandOutput extends GetLayerVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
  *         layer</a>, with a link to download the layer archive
  *         that's valid for 10 minutes.</p>
@@ -38,13 +41,32 @@ export interface GetLayerVersionCommandOutput extends GetLayerVersionResponse, _
  * import { LambdaClient, GetLayerVersionCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, GetLayerVersionCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = { // GetLayerVersionRequest
+ *   LayerName: "STRING_VALUE", // required
+ *   VersionNumber: Number("long"), // required
+ * };
  * const command = new GetLayerVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLayerVersionCommandInput - {@link GetLayerVersionCommandInput}
+ * @returns {@link GetLayerVersionCommandOutput}
  * @see {@link GetLayerVersionCommandInput} for command's `input` shape.
  * @see {@link GetLayerVersionCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One of the parameters in the request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request does not exist.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>The Lambda service encountered an internal error.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
+ *
  *
  */
 export class GetLayerVersionCommand extends $Command<
@@ -64,6 +86,9 @@ export class GetLayerVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLayerVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +117,8 @@ export class GetLayerVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLayerVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetLayerVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +128,18 @@ export class GetLayerVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLayerVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetLayerVersionCommand(input, context);
+    return se_GetLayerVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLayerVersionCommandOutput> {
-    return deserializeAws_restJson1GetLayerVersionCommand(output, context);
+    return de_GetLayerVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

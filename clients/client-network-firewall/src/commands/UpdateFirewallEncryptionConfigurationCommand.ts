@@ -15,23 +15,32 @@ import {
 
 import {
   UpdateFirewallEncryptionConfigurationRequest,
-  UpdateFirewallEncryptionConfigurationRequestFilterSensitiveLog,
   UpdateFirewallEncryptionConfigurationResponse,
-  UpdateFirewallEncryptionConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
 import {
-  deserializeAws_json1_0UpdateFirewallEncryptionConfigurationCommand,
-  serializeAws_json1_0UpdateFirewallEncryptionConfigurationCommand,
+  de_UpdateFirewallEncryptionConfigurationCommand,
+  se_UpdateFirewallEncryptionConfigurationCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateFirewallEncryptionConfigurationCommand}.
+ */
 export interface UpdateFirewallEncryptionConfigurationCommandInput
   extends UpdateFirewallEncryptionConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateFirewallEncryptionConfigurationCommand}.
+ */
 export interface UpdateFirewallEncryptionConfigurationCommandOutput
   extends UpdateFirewallEncryptionConfigurationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>A complex type that contains settings for encryption of your firewall resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +48,57 @@ export interface UpdateFirewallEncryptionConfigurationCommandOutput
  * import { NetworkFirewallClient, UpdateFirewallEncryptionConfigurationCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, UpdateFirewallEncryptionConfigurationCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
+ * const input = { // UpdateFirewallEncryptionConfigurationRequest
+ *   UpdateToken: "STRING_VALUE",
+ *   FirewallArn: "STRING_VALUE",
+ *   FirewallName: "STRING_VALUE",
+ *   EncryptionConfiguration: { // EncryptionConfiguration
+ *     KeyId: "STRING_VALUE",
+ *     Type: "CUSTOMER_KMS" || "AWS_OWNED_KMS_KEY", // required
+ *   },
+ * };
  * const command = new UpdateFirewallEncryptionConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFirewallEncryptionConfigurationCommandInput - {@link UpdateFirewallEncryptionConfigurationCommandInput}
+ * @returns {@link UpdateFirewallEncryptionConfigurationCommandOutput}
  * @see {@link UpdateFirewallEncryptionConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateFirewallEncryptionConfigurationCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Your request is valid, but Network Firewall couldn’t perform the operation because of a
+ *          system problem. Retry your request. </p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The operation failed because of a problem with your request. Examples include: </p>
+ *          <ul>
+ *             <li>
+ *                <p>You specified an unsupported parameter name or value.</p>
+ *             </li>
+ *             <li>
+ *                <p>You tried to update a property with a value that isn't among the available
+ *                types.</p>
+ *             </li>
+ *             <li>
+ *                <p>Your request references an ARN that is malformed, or corresponds to a resource
+ *                that isn't valid in the context of the request.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link InvalidTokenException} (client fault)
+ *  <p>The token you provided is stale or isn't valid for the operation. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Unable to locate a resource using the parameters that you provided.</p>
+ *
+ * @throws {@link ResourceOwnerCheckException} (client fault)
+ *  <p>Unable to change the resource because your account doesn't own it. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Unable to process the request due to throttling limitations.</p>
+ *
  *
  */
 export class UpdateFirewallEncryptionConfigurationCommand extends $Command<
@@ -65,6 +118,9 @@ export class UpdateFirewallEncryptionConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFirewallEncryptionConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +149,8 @@ export class UpdateFirewallEncryptionConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFirewallEncryptionConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFirewallEncryptionConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,18 +160,24 @@ export class UpdateFirewallEncryptionConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateFirewallEncryptionConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateFirewallEncryptionConfigurationCommand(input, context);
+    return se_UpdateFirewallEncryptionConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateFirewallEncryptionConfigurationCommandOutput> {
-    return deserializeAws_json1_0UpdateFirewallEncryptionConfigurationCommand(output, context);
+    return de_UpdateFirewallEncryptionConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

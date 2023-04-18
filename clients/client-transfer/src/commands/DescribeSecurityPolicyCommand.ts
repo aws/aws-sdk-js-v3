@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeSecurityPolicyRequest,
-  DescribeSecurityPolicyRequestFilterSensitiveLog,
-  DescribeSecurityPolicyResponse,
-  DescribeSecurityPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeSecurityPolicyCommand,
-  serializeAws_json1_1DescribeSecurityPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeSecurityPolicyRequest, DescribeSecurityPolicyResponse } from "../models/models_0";
+import { de_DescribeSecurityPolicyCommand, se_DescribeSecurityPolicyCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeSecurityPolicyCommand}.
+ */
 export interface DescribeSecurityPolicyCommandInput extends DescribeSecurityPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeSecurityPolicyCommand}.
+ */
 export interface DescribeSecurityPolicyCommandOutput extends DescribeSecurityPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the security policy that is attached to your file transfer protocol-enabled
  *       server. The response contains a description of the security policy's properties. For more
  *       information about security policies, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html">Working with security
@@ -39,13 +42,32 @@ export interface DescribeSecurityPolicyCommandOutput extends DescribeSecurityPol
  * import { TransferClient, DescribeSecurityPolicyCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, DescribeSecurityPolicyCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = { // DescribeSecurityPolicyRequest
+ *   SecurityPolicyName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeSecurityPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSecurityPolicyCommandInput - {@link DescribeSecurityPolicyCommandInput}
+ * @returns {@link DescribeSecurityPolicyCommandOutput}
  * @see {@link DescribeSecurityPolicyCommandInput} for command's `input` shape.
  * @see {@link DescribeSecurityPolicyCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
+ *
+ * @throws {@link InternalServiceError} (server fault)
+ *  <p>This exception is thrown when an error occurs in the Amazon Web ServicesTransfer Family service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
+ *       service.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+ *
  *
  */
 export class DescribeSecurityPolicyCommand extends $Command<
@@ -65,6 +87,9 @@ export class DescribeSecurityPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSecurityPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +118,8 @@ export class DescribeSecurityPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSecurityPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSecurityPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +129,18 @@ export class DescribeSecurityPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSecurityPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeSecurityPolicyCommand(input, context);
+    return se_DescribeSecurityPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSecurityPolicyCommandOutput> {
-    return deserializeAws_json1_1DescribeSecurityPolicyCommand(output, context);
+    return de_DescribeSecurityPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

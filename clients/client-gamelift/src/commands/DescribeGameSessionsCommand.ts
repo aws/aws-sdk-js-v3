@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  DescribeGameSessionsInput,
-  DescribeGameSessionsInputFilterSensitiveLog,
-  DescribeGameSessionsOutput,
-  DescribeGameSessionsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeGameSessionsCommand,
-  serializeAws_json1_1DescribeGameSessionsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeGameSessionsInput, DescribeGameSessionsOutput } from "../models/models_0";
+import { de_DescribeGameSessionsCommand, se_DescribeGameSessionsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeGameSessionsCommand}.
+ */
 export interface DescribeGameSessionsCommandInput extends DescribeGameSessionsInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeGameSessionsCommand}.
+ */
 export interface DescribeGameSessionsCommandOutput extends DescribeGameSessionsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a set of one or more game sessions in a specific fleet location. You can
  *             optionally filter the results by current game session status.</p>
  *         <p>This operation can be used in the following ways: </p>
@@ -77,13 +80,48 @@ export interface DescribeGameSessionsCommandOutput extends DescribeGameSessionsO
  * import { GameLiftClient, DescribeGameSessionsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeGameSessionsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // DescribeGameSessionsInput
+ *   FleetId: "STRING_VALUE",
+ *   GameSessionId: "STRING_VALUE",
+ *   AliasId: "STRING_VALUE",
+ *   Location: "STRING_VALUE",
+ *   StatusFilter: "STRING_VALUE",
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeGameSessionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeGameSessionsCommandInput - {@link DescribeGameSessionsCommandInput}
+ * @returns {@link DescribeGameSessionsCommandOutput}
  * @see {@link DescribeGameSessionsCommandInput} for command's `input` shape.
  * @see {@link DescribeGameSessionsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an unrecoverable internal failure while processing the
+ *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
+ *             values before retrying.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *
+ * @throws {@link TerminalRoutingStrategyException} (client fault)
+ *  <p>The service is unable to resolve the routing for a particular alias because it has a
+ *             terminal <code>RoutingStrategy</code> associated with it. The message returned in this
+ *             exception is the message defined in the routing strategy itself. Such requests should
+ *             only be retried if the routing strategy for the specified alias is modified. </p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
+ * @throws {@link UnsupportedRegionException} (client fault)
+ *  <p>The requested operation is not supported in the Region specified.</p>
+ *
  *
  */
 export class DescribeGameSessionsCommand extends $Command<
@@ -103,6 +141,9 @@ export class DescribeGameSessionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeGameSessionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,8 +172,8 @@ export class DescribeGameSessionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeGameSessionsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeGameSessionsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,12 +183,18 @@ export class DescribeGameSessionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeGameSessionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeGameSessionsCommand(input, context);
+    return se_DescribeGameSessionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeGameSessionsCommandOutput> {
-    return deserializeAws_json1_1DescribeGameSessionsCommand(output, context);
+    return de_DescribeGameSessionsCommand(output, context);
   }
 
   // Start section: command_body_extra

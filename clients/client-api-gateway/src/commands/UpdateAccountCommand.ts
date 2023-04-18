@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  Account,
-  AccountFilterSensitiveLog,
-  UpdateAccountRequest,
-  UpdateAccountRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateAccountCommand,
-  serializeAws_restJson1UpdateAccountCommand,
-} from "../protocols/Aws_restJson1";
+import { Account, UpdateAccountRequest } from "../models/models_0";
+import { de_UpdateAccountCommand, se_UpdateAccountCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateAccountCommand}.
+ */
 export interface UpdateAccountCommandInput extends UpdateAccountRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateAccountCommand}.
+ */
 export interface UpdateAccountCommandOutput extends Account, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes information about the current Account resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,44 @@ export interface UpdateAccountCommandOutput extends Account, __MetadataBearer {}
  * import { APIGatewayClient, UpdateAccountCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, UpdateAccountCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // UpdateAccountRequest
+ *   patchOperations: [ // ListOfPatchOperation
+ *     { // PatchOperation
+ *       op: "add" || "remove" || "replace" || "move" || "copy" || "test",
+ *       path: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *       from: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAccountCommandInput - {@link UpdateAccountCommandInput}
+ * @returns {@link UpdateAccountCommandOutput}
  * @see {@link UpdateAccountCommandInput} for command's `input` shape.
  * @see {@link UpdateAccountCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The request is denied because the caller has insufficient permissions.</p>
+ *
  *
  */
 export class UpdateAccountCommand extends $Command<
@@ -62,6 +96,9 @@ export class UpdateAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +125,8 @@ export class UpdateAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AccountFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +136,18 @@ export class UpdateAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateAccountCommand(input, context);
+    return se_UpdateAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAccountCommandOutput> {
-    return deserializeAws_restJson1UpdateAccountCommand(output, context);
+    return de_UpdateAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

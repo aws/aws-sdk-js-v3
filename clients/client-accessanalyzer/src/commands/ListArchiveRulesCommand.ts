@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
-import {
-  ListArchiveRulesRequest,
-  ListArchiveRulesRequestFilterSensitiveLog,
-  ListArchiveRulesResponse,
-  ListArchiveRulesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListArchiveRulesCommand,
-  serializeAws_restJson1ListArchiveRulesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListArchiveRulesRequest, ListArchiveRulesResponse } from "../models/models_0";
+import { de_ListArchiveRulesCommand, se_ListArchiveRulesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListArchiveRulesCommand}.
+ */
 export interface ListArchiveRulesCommandInput extends ListArchiveRulesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListArchiveRulesCommand}.
+ */
 export interface ListArchiveRulesCommandOutput extends ListArchiveRulesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of archive rules created for the specified analyzer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,33 @@ export interface ListArchiveRulesCommandOutput extends ListArchiveRulesResponse,
  * import { AccessAnalyzerClient, ListArchiveRulesCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, ListArchiveRulesCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
+ * const input = { // ListArchiveRulesRequest
+ *   analyzerName: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListArchiveRulesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListArchiveRulesCommandInput - {@link ListArchiveRulesCommandInput}
+ * @returns {@link ListArchiveRulesCommandOutput}
  * @see {@link ListArchiveRulesCommandInput} for command's `input` shape.
  * @see {@link ListArchiveRulesCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Internal server error.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Throttling limit exceeded error.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Validation exception error.</p>
+ *
  *
  */
 export class ListArchiveRulesCommand extends $Command<
@@ -62,6 +85,9 @@ export class ListArchiveRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListArchiveRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +116,8 @@ export class ListArchiveRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListArchiveRulesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListArchiveRulesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +127,18 @@ export class ListArchiveRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListArchiveRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListArchiveRulesCommand(input, context);
+    return se_ListArchiveRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListArchiveRulesCommandOutput> {
-    return deserializeAws_restJson1ListArchiveRulesCommand(output, context);
+    return de_ListArchiveRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

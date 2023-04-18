@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DescribeHyperParameterTuningJobRequest, DescribeHyperParameterTuningJobResponse } from "../models/models_2";
 import {
-  DescribeHyperParameterTuningJobRequest,
-  DescribeHyperParameterTuningJobRequestFilterSensitiveLog,
-  DescribeHyperParameterTuningJobResponse,
-  DescribeHyperParameterTuningJobResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeHyperParameterTuningJobCommand,
-  serializeAws_json1_1DescribeHyperParameterTuningJobCommand,
+  de_DescribeHyperParameterTuningJobCommand,
+  se_DescribeHyperParameterTuningJobCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeHyperParameterTuningJobCommand}.
+ */
 export interface DescribeHyperParameterTuningJobCommandInput extends DescribeHyperParameterTuningJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeHyperParameterTuningJobCommand}.
+ */
 export interface DescribeHyperParameterTuningJobCommandOutput
   extends DescribeHyperParameterTuningJobResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets
  *             a description of a hyperparameter tuning job.</p>
  * @example
@@ -39,13 +45,22 @@ export interface DescribeHyperParameterTuningJobCommandOutput
  * import { SageMakerClient, DescribeHyperParameterTuningJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeHyperParameterTuningJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DescribeHyperParameterTuningJobRequest
+ *   HyperParameterTuningJobName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeHyperParameterTuningJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeHyperParameterTuningJobCommandInput - {@link DescribeHyperParameterTuningJobCommandInput}
+ * @returns {@link DescribeHyperParameterTuningJobCommandOutput}
  * @see {@link DescribeHyperParameterTuningJobCommandInput} for command's `input` shape.
  * @see {@link DescribeHyperParameterTuningJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class DescribeHyperParameterTuningJobCommand extends $Command<
@@ -65,6 +80,9 @@ export class DescribeHyperParameterTuningJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeHyperParameterTuningJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +111,8 @@ export class DescribeHyperParameterTuningJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeHyperParameterTuningJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeHyperParameterTuningJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,18 +122,24 @@ export class DescribeHyperParameterTuningJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeHyperParameterTuningJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeHyperParameterTuningJobCommand(input, context);
+    return se_DescribeHyperParameterTuningJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeHyperParameterTuningJobCommandOutput> {
-    return deserializeAws_json1_1DescribeHyperParameterTuningJobCommand(output, context);
+    return de_DescribeHyperParameterTuningJobCommand(output, context);
   }
 
   // Start section: command_body_extra

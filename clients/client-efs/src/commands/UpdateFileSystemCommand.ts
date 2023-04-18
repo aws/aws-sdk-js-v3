@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import {
-  FileSystemDescription,
-  FileSystemDescriptionFilterSensitiveLog,
-  UpdateFileSystemRequest,
-  UpdateFileSystemRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateFileSystemCommand,
-  serializeAws_restJson1UpdateFileSystemCommand,
-} from "../protocols/Aws_restJson1";
+import { FileSystemDescription, UpdateFileSystemRequest } from "../models/models_0";
+import { de_UpdateFileSystemCommand, se_UpdateFileSystemCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateFileSystemCommand}.
+ */
 export interface UpdateFileSystemCommandInput extends UpdateFileSystemRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateFileSystemCommand}.
+ */
 export interface UpdateFileSystemCommandOutput extends FileSystemDescription, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the throughput mode or the amount of provisioned throughput of an existing file
  *       system.</p>
  * @example
@@ -37,13 +40,50 @@ export interface UpdateFileSystemCommandOutput extends FileSystemDescription, __
  * import { EFSClient, UpdateFileSystemCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, UpdateFileSystemCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
+ * const input = { // UpdateFileSystemRequest
+ *   FileSystemId: "STRING_VALUE", // required
+ *   ThroughputMode: "bursting" || "provisioned" || "elastic",
+ *   ProvisionedThroughputInMibps: Number("double"),
+ * };
  * const command = new UpdateFileSystemCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFileSystemCommandInput - {@link UpdateFileSystemCommandInput}
+ * @returns {@link UpdateFileSystemCommandOutput}
  * @see {@link UpdateFileSystemCommandInput} for command's `input` shape.
  * @see {@link UpdateFileSystemCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
+ *
+ * @throws {@link BadRequest} (client fault)
+ *  <p>Returned if the request is malformed or contains an error such as an invalid
+ *             parameter value or a missing required parameter.</p>
+ *
+ * @throws {@link FileSystemNotFound} (client fault)
+ *  <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the
+ *             requester's Amazon Web Services account.</p>
+ *
+ * @throws {@link IncorrectFileSystemLifeCycleState} (client fault)
+ *  <p>Returned if the file system's lifecycle state is not "available".</p>
+ *
+ * @throws {@link InsufficientThroughputCapacity} (server fault)
+ *  <p>Returned if there's not enough capacity to provision additional throughput. This value
+ *             might be returned when you try to create a file system in provisioned throughput mode,
+ *             when you attempt to increase the provisioned throughput of an existing file system, or
+ *             when you attempt to change an existing file system from Bursting Throughput to
+ *             Provisioned Throughput mode. Try again later.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Returned if an error occurred on the server side.</p>
+ *
+ * @throws {@link ThroughputLimitExceeded} (client fault)
+ *  <p>Returned if the throughput mode or amount of provisioned throughput can't be changed
+ *             because the throughput limit of 1024 MiB/s has been reached.</p>
+ *
+ * @throws {@link TooManyRequests} (client fault)
+ *  <p>Returned if you don’t wait at least 24 hours before either changing the throughput mode, or
+ *             decreasing the Provisioned Throughput value.</p>
+ *
  *
  */
 export class UpdateFileSystemCommand extends $Command<
@@ -63,6 +103,9 @@ export class UpdateFileSystemCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFileSystemCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +134,8 @@ export class UpdateFileSystemCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFileSystemRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: FileSystemDescriptionFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +145,18 @@ export class UpdateFileSystemCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFileSystemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateFileSystemCommand(input, context);
+    return se_UpdateFileSystemCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFileSystemCommandOutput> {
-    return deserializeAws_restJson1UpdateFileSystemCommand(output, context);
+    return de_UpdateFileSystemCommand(output, context);
   }
 
   // Start section: command_body_extra

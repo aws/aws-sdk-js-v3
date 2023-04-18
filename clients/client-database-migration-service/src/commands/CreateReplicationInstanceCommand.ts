@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import {
-  CreateReplicationInstanceMessage,
-  CreateReplicationInstanceMessageFilterSensitiveLog,
-  CreateReplicationInstanceResponse,
-  CreateReplicationInstanceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateReplicationInstanceCommand,
-  serializeAws_json1_1CreateReplicationInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateReplicationInstanceMessage, CreateReplicationInstanceResponse } from "../models/models_0";
+import { de_CreateReplicationInstanceCommand, se_CreateReplicationInstanceCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateReplicationInstanceCommand}.
+ */
 export interface CreateReplicationInstanceCommandInput extends CreateReplicationInstanceMessage {}
+/**
+ * @public
+ *
+ * The output of {@link CreateReplicationInstanceCommand}.
+ */
 export interface CreateReplicationInstanceCommandOutput extends CreateReplicationInstanceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates the replication instance using the specified parameters.</p>
  *          <p>DMS requires that your account have certain roles with appropriate permissions
  *          before you can create a replication instance. For information on the required roles, see
@@ -45,13 +48,154 @@ export interface CreateReplicationInstanceCommandOutput extends CreateReplicatio
  * import { DatabaseMigrationServiceClient, CreateReplicationInstanceCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, CreateReplicationInstanceCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // CreateReplicationInstanceMessage
+ *   ReplicationInstanceIdentifier: "STRING_VALUE", // required
+ *   AllocatedStorage: Number("int"),
+ *   ReplicationInstanceClass: "STRING_VALUE", // required
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   AvailabilityZone: "STRING_VALUE",
+ *   ReplicationSubnetGroupIdentifier: "STRING_VALUE",
+ *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   MultiAZ: true || false,
+ *   EngineVersion: "STRING_VALUE",
+ *   AutoMinorVersionUpgrade: true || false,
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *       ResourceArn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   KmsKeyId: "STRING_VALUE",
+ *   PubliclyAccessible: true || false,
+ *   DnsNameServers: "STRING_VALUE",
+ *   ResourceIdentifier: "STRING_VALUE",
+ *   NetworkType: "STRING_VALUE",
+ * };
  * const command = new CreateReplicationInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateReplicationInstanceCommandInput - {@link CreateReplicationInstanceCommandInput}
+ * @returns {@link CreateReplicationInstanceCommandOutput}
  * @see {@link CreateReplicationInstanceCommandInput} for command's `input` shape.
  * @see {@link CreateReplicationInstanceCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedFault} (client fault)
+ *  <p>DMS was denied access to the endpoint. Check that the
+ *             role is correctly configured.</p>
+ *
+ * @throws {@link InsufficientResourceCapacityFault} (client fault)
+ *  <p>There are not enough resources allocated to the database migration.</p>
+ *
+ * @throws {@link InvalidResourceStateFault} (client fault)
+ *  <p>The resource is in a state that prevents it from being used for database migration.</p>
+ *
+ * @throws {@link InvalidSubnet} (client fault)
+ *  <p>The subnet provided is invalid.</p>
+ *
+ * @throws {@link KMSKeyNotAccessibleFault} (client fault)
+ *  <p>DMS cannot access the KMS key.</p>
+ *
+ * @throws {@link ReplicationSubnetGroupDoesNotCoverEnoughAZs} (client fault)
+ *  <p>The replication subnet group does not cover enough Availability Zones (AZs). Edit the replication subnet group and add more AZs.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsFault} (client fault)
+ *  <p>The resource you are attempting to create already exists.</p>
+ *
+ * @throws {@link ResourceNotFoundFault} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link ResourceQuotaExceededFault} (client fault)
+ *  <p>The quota for this resource quota has been exceeded.</p>
+ *
+ * @throws {@link StorageQuotaExceededFault} (client fault)
+ *  <p>The storage quota has been exceeded.</p>
+ *
+ *
+ * @example Create replication instance
+ * ```javascript
+ * // Creates the replication instance using the specified parameters.
+ * const input = {
+ *   "AllocatedStorage": 123,
+ *   "AutoMinorVersionUpgrade": true,
+ *   "AvailabilityZone": "",
+ *   "EngineVersion": "",
+ *   "KmsKeyId": "",
+ *   "MultiAZ": true,
+ *   "PreferredMaintenanceWindow": "",
+ *   "PubliclyAccessible": true,
+ *   "ReplicationInstanceClass": "",
+ *   "ReplicationInstanceIdentifier": "",
+ *   "ReplicationSubnetGroupIdentifier": "",
+ *   "Tags": [
+ *     {
+ *       "Key": "string",
+ *       "Value": "string"
+ *     }
+ *   ],
+ *   "VpcSecurityGroupIds": []
+ * };
+ * const command = new CreateReplicationInstanceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ReplicationInstance": {
+ *     "AllocatedStorage": 5,
+ *     "AutoMinorVersionUpgrade": true,
+ *     "EngineVersion": "1.5.0",
+ *     "KmsKeyId": "arn:aws:kms:us-east-1:123456789012:key/4c1731d6-5435-ed4d-be13-d53411a7cfbd",
+ *     "PendingModifiedValues": {},
+ *     "PreferredMaintenanceWindow": "sun:06:00-sun:14:00",
+ *     "PubliclyAccessible": true,
+ *     "ReplicationInstanceArn": "arn:aws:dms:us-east-1:123456789012:rep:6UTDJGBOUS3VI3SUWA66XFJCJQ",
+ *     "ReplicationInstanceClass": "dms.t2.micro",
+ *     "ReplicationInstanceIdentifier": "test-rep-1",
+ *     "ReplicationInstanceStatus": "creating",
+ *     "ReplicationSubnetGroup": {
+ *       "ReplicationSubnetGroupDescription": "default",
+ *       "ReplicationSubnetGroupIdentifier": "default",
+ *       "SubnetGroupStatus": "Complete",
+ *       "Subnets": [
+ *         {
+ *           "SubnetAvailabilityZone": {
+ *             "Name": "us-east-1d"
+ *           },
+ *           "SubnetIdentifier": "subnet-f6dd91af",
+ *           "SubnetStatus": "Active"
+ *         },
+ *         {
+ *           "SubnetAvailabilityZone": {
+ *             "Name": "us-east-1b"
+ *           },
+ *           "SubnetIdentifier": "subnet-3605751d",
+ *           "SubnetStatus": "Active"
+ *         },
+ *         {
+ *           "SubnetAvailabilityZone": {
+ *             "Name": "us-east-1c"
+ *           },
+ *           "SubnetIdentifier": "subnet-c2daefb5",
+ *           "SubnetStatus": "Active"
+ *         },
+ *         {
+ *           "SubnetAvailabilityZone": {
+ *             "Name": "us-east-1e"
+ *           },
+ *           "SubnetIdentifier": "subnet-85e90cb8",
+ *           "SubnetStatus": "Active"
+ *         }
+ *       ],
+ *       "VpcId": "vpc-6741a603"
+ *     }
+ *   }
+ * }
+ * *\/
+ * // example id: create-replication-instance-1481746705295
+ * ```
  *
  */
 export class CreateReplicationInstanceCommand extends $Command<
@@ -71,6 +215,9 @@ export class CreateReplicationInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateReplicationInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +246,8 @@ export class CreateReplicationInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateReplicationInstanceMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateReplicationInstanceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,15 +257,21 @@ export class CreateReplicationInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateReplicationInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateReplicationInstanceCommand(input, context);
+    return se_CreateReplicationInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateReplicationInstanceCommandOutput> {
-    return deserializeAws_json1_1CreateReplicationInstanceCommand(output, context);
+    return de_CreateReplicationInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

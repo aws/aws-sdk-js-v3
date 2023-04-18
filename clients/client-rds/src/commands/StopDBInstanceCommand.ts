@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StopDBInstanceMessage,
-  StopDBInstanceMessageFilterSensitiveLog,
-  StopDBInstanceResult,
-  StopDBInstanceResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryStopDBInstanceCommand,
-  serializeAws_queryStopDBInstanceCommand,
-} from "../protocols/Aws_query";
+import { StopDBInstanceMessage, StopDBInstanceResult } from "../models/models_1";
+import { de_StopDBInstanceCommand, se_StopDBInstanceCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link StopDBInstanceCommand}.
+ */
 export interface StopDBInstanceCommandInput extends StopDBInstanceMessage {}
+/**
+ * @public
+ *
+ * The output of {@link StopDBInstanceCommand}.
+ */
 export interface StopDBInstanceCommandOutput extends StopDBInstanceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops an Amazon RDS DB instance. When you stop a DB instance, Amazon RDS retains the DB instance's metadata, including its endpoint,
  *             DB parameter group, and option group membership. Amazon RDS also retains the transaction logs so you can do a point-in-time restore if
  *             necessary.</p>
@@ -47,13 +50,56 @@ export interface StopDBInstanceCommandOutput extends StopDBInstanceResult, __Met
  * import { RDSClient, StopDBInstanceCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, StopDBInstanceCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // StopDBInstanceMessage
+ *   DBInstanceIdentifier: "STRING_VALUE", // required
+ *   DBSnapshotIdentifier: "STRING_VALUE",
+ * };
  * const command = new StopDBInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopDBInstanceCommandInput - {@link StopDBInstanceCommandInput}
+ * @returns {@link StopDBInstanceCommandOutput}
  * @see {@link StopDBInstanceCommandInput} for command's `input` shape.
  * @see {@link StopDBInstanceCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ * @throws {@link DBInstanceNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *
+ * @throws {@link DBSnapshotAlreadyExistsFault} (client fault)
+ *  <p>
+ *             <code>DBSnapshotIdentifier</code> is already used by an existing snapshot.</p>
+ *
+ * @throws {@link InvalidDBClusterStateFault} (client fault)
+ *  <p>The requested operation can't be performed while the cluster is in this state.</p>
+ *
+ * @throws {@link InvalidDBInstanceStateFault} (client fault)
+ *  <p>The DB instance isn't in a valid state.</p>
+ *
+ * @throws {@link SnapshotQuotaExceededFault} (client fault)
+ *  <p>The request would result in the user exceeding the allowed number of DB
+ *             snapshots.</p>
+ *
+ *
+ * @example To stop a DB instance
+ * ```javascript
+ * // The following example stops the specified DB instance.
+ * const input = {
+ *   "DBInstanceIdentifier": "test-instance"
+ * };
+ * const command = new StopDBInstanceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBInstance": {
+ *     "DBInstanceStatus": "stopping"
+ *   }
+ * }
+ * *\/
+ * // example id: to-stop-a-db-instance-1679701630959
+ * ```
  *
  */
 export class StopDBInstanceCommand extends $Command<
@@ -73,6 +119,9 @@ export class StopDBInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopDBInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +150,8 @@ export class StopDBInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopDBInstanceMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: StopDBInstanceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +161,18 @@ export class StopDBInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopDBInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryStopDBInstanceCommand(input, context);
+    return se_StopDBInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopDBInstanceCommandOutput> {
-    return deserializeAws_queryStopDBInstanceCommand(output, context);
+    return de_StopDBInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

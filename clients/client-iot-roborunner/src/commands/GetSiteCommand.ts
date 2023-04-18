@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTRoboRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTRoboRunnerClient";
-import {
-  GetSiteRequest,
-  GetSiteRequestFilterSensitiveLog,
-  GetSiteResponse,
-  GetSiteResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSiteCommand,
-  serializeAws_restJson1GetSiteCommand,
-} from "../protocols/Aws_restJson1";
+import { GetSiteRequest, GetSiteResponse } from "../models/models_0";
+import { de_GetSiteCommand, se_GetSiteCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetSiteCommand}.
+ */
 export interface GetSiteCommandInput extends GetSiteRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetSiteCommand}.
+ */
 export interface GetSiteCommandOutput extends GetSiteResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Grants permission to get a site
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,34 @@ export interface GetSiteCommandOutput extends GetSiteResponse, __MetadataBearer 
  * import { IoTRoboRunnerClient, GetSiteCommand } from "@aws-sdk/client-iot-roborunner"; // ES Modules import
  * // const { IoTRoboRunnerClient, GetSiteCommand } = require("@aws-sdk/client-iot-roborunner"); // CommonJS import
  * const client = new IoTRoboRunnerClient(config);
+ * const input = { // GetSiteRequest
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new GetSiteCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSiteCommandInput - {@link GetSiteCommandInput}
+ * @returns {@link GetSiteCommandOutput}
  * @see {@link GetSiteCommandInput} for command's `input` shape.
  * @see {@link GetSiteCommandOutput} for command's `response` shape.
  * @see {@link IoTRoboRunnerClientResolvedConfig | config} for IoTRoboRunnerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *   User does not have sufficient access to perform this action.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  Exception thrown if something goes wrong within the service.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  Exception thrown if a resource referenced in the request doesn't exist.
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  Exception thrown if the api has been called too quickly be the client.
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  Exception thrown if an invalid parameter is provided to an API.
+ *
  *
  */
 export class GetSiteCommand extends $Command<
@@ -62,6 +86,9 @@ export class GetSiteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSiteCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +115,8 @@ export class GetSiteCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSiteRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSiteResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +126,18 @@ export class GetSiteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSiteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSiteCommand(input, context);
+    return se_GetSiteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSiteCommandOutput> {
-    return deserializeAws_restJson1GetSiteCommand(output, context);
+    return de_GetSiteCommand(output, context);
   }
 
   // Start section: command_body_extra

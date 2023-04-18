@@ -6,12 +6,11 @@ import {
   ListBillingGroupsCommandInput,
   ListBillingGroupsCommandOutput,
 } from "../commands/ListBillingGroupsCommand";
-import { IoT } from "../IoT";
 import { IoTClient } from "../IoTClient";
 import { IoTPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: IoTClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListBillingGroupsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: IoT,
-  input: ListBillingGroupsCommandInput,
-  ...args: any
-): Promise<ListBillingGroupsCommandOutput> => {
-  // @ts-ignore
-  return await client.listBillingGroups(input, ...args);
-};
 export async function* paginateListBillingGroups(
   config: IoTPaginationConfiguration,
   input: ListBillingGroupsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListBillingGroups(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof IoT) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IoTClient) {
+    if (config.client instanceof IoTClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected IoT | IoTClient");

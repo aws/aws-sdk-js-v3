@@ -5,6 +5,7 @@ import { Readable } from "stream";
 import { LookoutVisionServiceException as __BaseException } from "./LookoutVisionServiceException";
 
 /**
+ * @public
  * <p>You are not authorized to perform the action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -26,6 +27,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Information about the pixels in an anomaly mask. For more information, see <a>Anomaly</a>.
  *       <code>PixelAnomaly</code> is only returned by image segmentation models.</p>
  */
@@ -44,6 +46,7 @@ export interface PixelAnomaly {
 }
 
 /**
+ * @public
  * <p>Information about an anomaly type found on an image by an image segmentation model.
  *          For more information, see <a>DetectAnomalies</a>.</p>
  */
@@ -61,15 +64,25 @@ export interface Anomaly {
   PixelAnomaly?: PixelAnomaly;
 }
 
-export enum ResourceType {
-  DATASET = "DATASET",
-  MODEL = "MODEL",
-  MODEL_PACKAGE_JOB = "MODEL_PACKAGE_JOB",
-  PROJECT = "PROJECT",
-  TRIAL = "TRIAL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResourceType = {
+  DATASET: "DATASET",
+  MODEL: "MODEL",
+  MODEL_PACKAGE_JOB: "MODEL_PACKAGE_JOB",
+  PROJECT: "PROJECT",
+  TRIAL: "TRIAL",
+} as const;
 
 /**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+
+/**
+ * @public
  * <p>The update or deletion of a resource caused an inconsistent state.</p>
  */
 export class ConflictException extends __BaseException {
@@ -102,6 +115,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Amazon S3 Location information for an input manifest file. </p>
  */
 export interface InputS3Object {
@@ -122,6 +136,7 @@ export interface InputS3Object {
 }
 
 /**
+ * @public
  * <p>Location information about a manifest file. You can use a manifest file to
  *       create a dataset.</p>
  */
@@ -133,6 +148,7 @@ export interface DatasetGroundTruthManifest {
 }
 
 /**
+ * @public
  * <p>Information about the location of a manifest file that Amazon Lookout for Vision uses to to create a dataset.</p>
  */
 export interface DatasetSource {
@@ -142,6 +158,9 @@ export interface DatasetSource {
   GroundTruthManifest?: DatasetGroundTruthManifest;
 }
 
+/**
+ * @public
+ */
 export interface CreateDatasetRequest {
   /**
    * <p>The name of the project in which you want to create a dataset.</p>
@@ -183,20 +202,30 @@ export interface CreateDatasetRequest {
   ClientToken?: string;
 }
 
-export enum DatasetStatus {
-  CREATE_COMPLETE = "CREATE_COMPLETE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DELETE_COMPLETE = "DELETE_COMPLETE",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  UPDATE_COMPLETE = "UPDATE_COMPLETE",
-  UPDATE_FAILED_ROLLBACK_COMPLETE = "UPDATE_FAILED_ROLLBACK_COMPLETE",
-  UPDATE_FAILED_ROLLBACK_IN_PROGRESS = "UPDATE_FAILED_ROLLBACK_IN_PROGRESS",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DatasetStatus = {
+  CREATE_COMPLETE: "CREATE_COMPLETE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DELETE_COMPLETE: "DELETE_COMPLETE",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  UPDATE_COMPLETE: "UPDATE_COMPLETE",
+  UPDATE_FAILED_ROLLBACK_COMPLETE: "UPDATE_FAILED_ROLLBACK_COMPLETE",
+  UPDATE_FAILED_ROLLBACK_IN_PROGRESS: "UPDATE_FAILED_ROLLBACK_IN_PROGRESS",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+} as const;
 
 /**
+ * @public
+ */
+export type DatasetStatus = (typeof DatasetStatus)[keyof typeof DatasetStatus];
+
+/**
+ * @public
  * <p>Summary information for an Amazon Lookout for Vision dataset. For more information,
  *       see <a>DescribeDataset</a> and <a>ProjectDescription</a>.</p>
  */
@@ -222,6 +251,9 @@ export interface DatasetMetadata {
   StatusMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateDatasetResponse {
   /**
    * <p>Information about the dataset.</p>
@@ -230,6 +262,7 @@ export interface CreateDatasetResponse {
 }
 
 /**
+ * @public
  * <p>Amazon Lookout for Vision experienced a service issue. Try your call again.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -256,6 +289,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource could not be found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -288,6 +322,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A service quota was exceeded the allowed limit. For more information, see
  *         Limits in Amazon Lookout for Vision in the Amazon Lookout for Vision Developer Guide. </p>
  */
@@ -333,6 +368,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Amazon Lookout for Vision is temporarily unable to process the request. Try your call again.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -371,6 +407,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An input validation error occured. For example, invalid characters in a project name,
  *       or if a pagination token is invalid.</p>
  */
@@ -393,6 +430,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Information about the location of training output or the output of a model packaging job.</p>
  */
 export interface S3Location {
@@ -410,6 +448,7 @@ export interface S3Location {
 }
 
 /**
+ * @public
  * <p>The S3 location where Amazon Lookout for Vision saves model training files.</p>
  */
 export interface OutputConfig {
@@ -420,6 +459,7 @@ export interface OutputConfig {
 }
 
 /**
+ * @public
  * <p>A key and value pair that is attached to the specified Amazon Lookout for Vision model.</p>
  */
 export interface Tag {
@@ -434,6 +474,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateModelRequest {
   /**
    * <p>The name of the project in which you want to create a model version.</p>
@@ -480,6 +523,7 @@ export interface CreateModelRequest {
 }
 
 /**
+ * @public
  * <p>Information about the evaluation performance of a trained model. </p>
  */
 export interface ModelPerformance {
@@ -499,19 +543,29 @@ export interface ModelPerformance {
   Precision?: number;
 }
 
-export enum ModelStatus {
-  DELETING = "DELETING",
-  HOSTED = "HOSTED",
-  HOSTING_FAILED = "HOSTING_FAILED",
-  STARTING_HOSTING = "STARTING_HOSTING",
-  STOPPING_HOSTING = "STOPPING_HOSTING",
-  SYSTEM_UPDATING = "SYSTEM_UPDATING",
-  TRAINED = "TRAINED",
-  TRAINING = "TRAINING",
-  TRAINING_FAILED = "TRAINING_FAILED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ModelStatus = {
+  DELETING: "DELETING",
+  HOSTED: "HOSTED",
+  HOSTING_FAILED: "HOSTING_FAILED",
+  STARTING_HOSTING: "STARTING_HOSTING",
+  STOPPING_HOSTING: "STOPPING_HOSTING",
+  SYSTEM_UPDATING: "SYSTEM_UPDATING",
+  TRAINED: "TRAINED",
+  TRAINING: "TRAINING",
+  TRAINING_FAILED: "TRAINING_FAILED",
+} as const;
 
 /**
+ * @public
+ */
+export type ModelStatus = (typeof ModelStatus)[keyof typeof ModelStatus];
+
+/**
+ * @public
  * <p>Describes an Amazon Lookout for Vision model.</p>
  */
 export interface ModelMetadata {
@@ -551,6 +605,9 @@ export interface ModelMetadata {
   Performance?: ModelPerformance;
 }
 
+/**
+ * @public
+ */
 export interface CreateModelResponse {
   /**
    * <p>The response from a call to <code>CreateModel</code>.</p>
@@ -558,6 +615,9 @@ export interface CreateModelResponse {
   ModelMetadata?: ModelMetadata;
 }
 
+/**
+ * @public
+ */
 export interface CreateProjectRequest {
   /**
    * <p>The name for the project.</p>
@@ -582,6 +642,7 @@ export interface CreateProjectRequest {
 }
 
 /**
+ * @public
  * <p>Metadata about an Amazon Lookout for Vision project.</p>
  */
 export interface ProjectMetadata {
@@ -601,6 +662,9 @@ export interface ProjectMetadata {
   CreationTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateProjectResponse {
   /**
    * <p>Information about the project.</p>
@@ -609,6 +673,7 @@ export interface CreateProjectResponse {
 }
 
 /**
+ * @public
  * <p>Statistics about the images in a dataset.</p>
  */
 export interface DatasetImageStats {
@@ -634,6 +699,7 @@ export interface DatasetImageStats {
 }
 
 /**
+ * @public
  * <p>The description for a dataset. For more information, see <a>DescribeDataset</a>.</p>
  */
 export interface DatasetDescription {
@@ -674,6 +740,9 @@ export interface DatasetDescription {
   ImageStats?: DatasetImageStats;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDatasetRequest {
   /**
    * <p>The name of the project that contains the dataset that you want to delete.</p>
@@ -702,8 +771,14 @@ export interface DeleteDatasetRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDatasetResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteModelRequest {
   /**
    * <p>The name of the project that contains the model that you want to delete.</p>
@@ -732,6 +807,9 @@ export interface DeleteModelRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteModelResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the model that was deleted.</p>
@@ -739,6 +817,9 @@ export interface DeleteModelResponse {
   ModelArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteProjectRequest {
   /**
    * <p>The name of the project to delete.</p>
@@ -761,6 +842,9 @@ export interface DeleteProjectRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteProjectResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the project that was deleted.</p>
@@ -768,6 +852,9 @@ export interface DeleteProjectResponse {
   ProjectArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDatasetRequest {
   /**
    * <p>The name of the project that contains the dataset that you want to describe.</p>
@@ -783,6 +870,9 @@ export interface DescribeDatasetRequest {
   DatasetType: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDatasetResponse {
   /**
    * <p>The description of the requested dataset. </p>
@@ -790,6 +880,9 @@ export interface DescribeDatasetResponse {
   DatasetDescription?: DatasetDescription;
 }
 
+/**
+ * @public
+ */
 export interface DescribeModelRequest {
   /**
    * <p>The project that contains the version of a model that you want to describe.</p>
@@ -803,6 +896,7 @@ export interface DescribeModelRequest {
 }
 
 /**
+ * @public
  * <p>The S3 location where Amazon Lookout for Vision saves training output.</p>
  */
 export interface OutputS3Object {
@@ -818,6 +912,7 @@ export interface OutputS3Object {
 }
 
 /**
+ * @public
  * <p>Describes an Amazon Lookout for Vision model.</p>
  */
 export interface ModelDescription {
@@ -897,6 +992,9 @@ export interface ModelDescription {
   MaxInferenceUnits?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeModelResponse {
   /**
    * <p>Contains the description of the model.</p>
@@ -904,6 +1002,9 @@ export interface DescribeModelResponse {
   ModelDescription?: ModelDescription;
 }
 
+/**
+ * @public
+ */
 export interface DescribeModelPackagingJobRequest {
   /**
    * <p>The name of the project that contains the model packaging job that you want to describe.
@@ -919,24 +1020,61 @@ export interface DescribeModelPackagingJobRequest {
   JobName: string | undefined;
 }
 
-export enum TargetDevice {
-  JETSON_XAVIER = "jetson_xavier",
-}
-
-export enum TargetPlatformAccelerator {
-  NVIDIA = "NVIDIA",
-}
-
-export enum TargetPlatformArch {
-  ARM64 = "ARM64",
-  X86_64 = "X86_64",
-}
-
-export enum TargetPlatformOs {
-  LINUX = "LINUX",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TargetDevice = {
+  JETSON_XAVIER: "jetson_xavier",
+} as const;
 
 /**
+ * @public
+ */
+export type TargetDevice = (typeof TargetDevice)[keyof typeof TargetDevice];
+
+/**
+ * @public
+ * @enum
+ */
+export const TargetPlatformAccelerator = {
+  NVIDIA: "NVIDIA",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetPlatformAccelerator = (typeof TargetPlatformAccelerator)[keyof typeof TargetPlatformAccelerator];
+
+/**
+ * @public
+ * @enum
+ */
+export const TargetPlatformArch = {
+  ARM64: "ARM64",
+  X86_64: "X86_64",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetPlatformArch = (typeof TargetPlatformArch)[keyof typeof TargetPlatformArch];
+
+/**
+ * @public
+ * @enum
+ */
+export const TargetPlatformOs = {
+  LINUX: "LINUX",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetPlatformOs = (typeof TargetPlatformOs)[keyof typeof TargetPlatformOs];
+
+/**
+ * @public
  * <p>The platform on which a model runs on an AWS IoT Greengrass core device.</p>
  */
 export interface TargetPlatform {
@@ -962,12 +1100,12 @@ export interface TargetPlatform {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>mcpu</code>: CPU micro-architecture. For example, <code>{'mcpu': 'skylake-avx512'}</code>
+   *                   <code>mcpu</code>: CPU micro-architecture. For example, <code>\{'mcpu': 'skylake-avx512'\}</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>mattr</code>: CPU flags. For example, <code>{'mattr': ['+neon', '+vfpv4']}</code>
+   *                   <code>mattr</code>: CPU flags. For example, <code>\{'mattr': ['+neon', '+vfpv4']\}</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -976,6 +1114,7 @@ export interface TargetPlatform {
 }
 
 /**
+ * @public
  * <p>Configuration information for the AWS IoT Greengrass component created in a model packaging job.
  *    For more information, see <a>StartModelPackagingJob</a>.
  * </p>
@@ -1050,6 +1189,7 @@ export interface GreengrassConfiguration {
 }
 
 /**
+ * @public
  * <p>
  * Configuration information for a Amazon Lookout for Vision model packaging job. For more information,
  * see <a>StartModelPackagingJob</a>.
@@ -1065,6 +1205,7 @@ export interface ModelPackagingConfiguration {
 }
 
 /**
+ * @public
  * <p>Information about the AWS IoT Greengrass component created by a model packaging job.
  *
  * </p>
@@ -1093,6 +1234,7 @@ export interface GreengrassOutputDetails {
 }
 
 /**
+ * @public
  * <p>
  * Information about the output from a model packaging job.
  * </p>
@@ -1106,14 +1248,24 @@ export interface ModelPackagingOutputDetails {
   Greengrass?: GreengrassOutputDetails;
 }
 
-export enum ModelPackagingJobStatus {
-  CREATED = "CREATED",
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  SUCCEEDED = "SUCCEEDED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ModelPackagingJobStatus = {
+  CREATED: "CREATED",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
 
 /**
+ * @public
+ */
+export type ModelPackagingJobStatus = (typeof ModelPackagingJobStatus)[keyof typeof ModelPackagingJobStatus];
+
+/**
+ * @public
  * <p>
  * Information about a model packaging job. For more information, see
  * <a>DescribeModelPackagingJob</a>.
@@ -1198,6 +1350,9 @@ export interface ModelPackagingDescription {
   LastUpdatedTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeModelPackagingJobResponse {
   /**
    * <p>The description of the model packaging job.
@@ -1206,6 +1361,9 @@ export interface DescribeModelPackagingJobResponse {
   ModelPackagingDescription?: ModelPackagingDescription;
 }
 
+/**
+ * @public
+ */
 export interface DescribeProjectRequest {
   /**
    * <p>The name of the project that you want to describe.</p>
@@ -1214,6 +1372,7 @@ export interface DescribeProjectRequest {
 }
 
 /**
+ * @public
  * <p>Describe an Amazon Lookout for Vision project. For more information, see <a>DescribeProject</a>.</p>
  */
 export interface ProjectDescription {
@@ -1238,6 +1397,9 @@ export interface ProjectDescription {
   Datasets?: DatasetMetadata[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeProjectResponse {
   /**
    * <p>The description of the project.</p>
@@ -1245,6 +1407,9 @@ export interface DescribeProjectResponse {
   ProjectDescription?: ProjectDescription;
 }
 
+/**
+ * @public
+ */
 export interface DetectAnomaliesRequest {
   /**
    * <p>The name of the project that contains the model version that you want to use.</p>
@@ -1269,6 +1434,7 @@ export interface DetectAnomaliesRequest {
 }
 
 /**
+ * @public
  * <p>The source for an image.</p>
  */
 export interface ImageSource {
@@ -1279,6 +1445,7 @@ export interface ImageSource {
 }
 
 /**
+ * @public
  * <p>The prediction results from a call to <a>DetectAnomalies</a>.
  *       <code>DetectAnomalyResult</code> includes classification information for the prediction (<code>IsAnomalous</code> and <code>Confidence</code>).
  *          If the model you use is an image segementation model, <code>DetectAnomalyResult</code> also includes segmentation information (<code>Anomalies</code>
@@ -1325,6 +1492,9 @@ export interface DetectAnomalyResult {
   AnomalyMask?: Uint8Array;
 }
 
+/**
+ * @public
+ */
 export interface DetectAnomaliesResponse {
   /**
    * <p>The results of the <code>DetectAnomalies</code> operation.</p>
@@ -1332,6 +1502,9 @@ export interface DetectAnomaliesResponse {
   DetectAnomalyResult?: DetectAnomalyResult;
 }
 
+/**
+ * @public
+ */
 export interface ListDatasetEntriesRequest {
   /**
    * <p>The name of the project that contains the dataset that you want to list.</p>
@@ -1388,6 +1561,9 @@ export interface ListDatasetEntriesRequest {
   SourceRefContains?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDatasetEntriesResponse {
   /**
    * <p>A list of the entries (JSON Lines) within the dataset.</p>
@@ -1401,6 +1577,9 @@ export interface ListDatasetEntriesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListModelPackagingJobsRequest {
   /**
    * <p>
@@ -1425,6 +1604,7 @@ export interface ListModelPackagingJobsRequest {
 }
 
 /**
+ * @public
  * <p>
  *    Metadata for a model packaging job. For more information, see <a>ListModelPackagingJobs</a>.
  * </p>
@@ -1489,6 +1669,9 @@ export interface ModelPackagingJobMetadata {
   LastUpdatedTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListModelPackagingJobsResponse {
   /**
    * <p>
@@ -1506,6 +1689,9 @@ export interface ListModelPackagingJobsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListModelsRequest {
   /**
    * <p>The name of the project that contains the model versions that you want to list.</p>
@@ -1527,6 +1713,9 @@ export interface ListModelsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListModelsResponse {
   /**
    * <p>A list of model versions in the specified project. </p>
@@ -1540,6 +1729,9 @@ export interface ListModelsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListProjectsRequest {
   /**
    * <p>If the previous response was incomplete (because there is more data to retrieve),
@@ -1556,6 +1748,9 @@ export interface ListProjectsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListProjectsResponse {
   /**
    * <p>A list of projects in your AWS account.</p>
@@ -1569,6 +1764,9 @@ export interface ListProjectsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the model for which you want to list tags. </p>
@@ -1576,6 +1774,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>A map of tag keys and values attached to the specified model.</p>
@@ -1583,6 +1784,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface StartModelRequest {
   /**
    * <p>The name of the project that contains the model that you want to start.</p>
@@ -1627,14 +1831,26 @@ export interface StartModelRequest {
   MaxInferenceUnits?: number;
 }
 
-export enum ModelHostingStatus {
-  HOSTED = "HOSTED",
-  HOSTING_FAILED = "HOSTING_FAILED",
-  STARTING_HOSTING = "STARTING_HOSTING",
-  STOPPING_HOSTING = "STOPPING_HOSTING",
-  SYSTEM_UPDATING = "SYSTEM_UPDATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ModelHostingStatus = {
+  HOSTED: "HOSTED",
+  HOSTING_FAILED: "HOSTING_FAILED",
+  STARTING_HOSTING: "STARTING_HOSTING",
+  STOPPING_HOSTING: "STOPPING_HOSTING",
+  SYSTEM_UPDATING: "SYSTEM_UPDATING",
+} as const;
 
+/**
+ * @public
+ */
+export type ModelHostingStatus = (typeof ModelHostingStatus)[keyof typeof ModelHostingStatus];
+
+/**
+ * @public
+ */
 export interface StartModelResponse {
   /**
    * <p>The current running status of the model.</p>
@@ -1642,6 +1858,9 @@ export interface StartModelResponse {
   Status?: ModelHostingStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface StartModelPackagingJobRequest {
   /**
    * <p>
@@ -1693,6 +1912,9 @@ export interface StartModelPackagingJobRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartModelPackagingJobResponse {
   /**
    * <p>The job name for the model packaging job. If you don't supply a job name in the <code>JobName</code> input parameter,
@@ -1703,6 +1925,9 @@ export interface StartModelPackagingJobResponse {
   JobName?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopModelRequest {
   /**
    * <p>The name of the project that contains the model that you want to stop.</p>
@@ -1733,6 +1958,9 @@ export interface StopModelRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopModelResponse {
   /**
    * <p>The status of the model.</p>
@@ -1740,6 +1968,9 @@ export interface StopModelResponse {
   Status?: ModelHostingStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the model to assign the tags.</p>
@@ -1752,8 +1983,14 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the model from which you want to remove tags. </p>
@@ -1766,8 +2003,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateDatasetEntriesRequest {
   /**
    * <p>The name of the project that contains the dataset that you want to update.</p>
@@ -1804,6 +2047,9 @@ export interface UpdateDatasetEntriesRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDatasetEntriesResponse {
   /**
    * <p>The status of the dataset update.</p>
@@ -1814,489 +2060,6 @@ export interface UpdateDatasetEntriesResponse {
 /**
  * @internal
  */
-export const PixelAnomalyFilterSensitiveLog = (obj: PixelAnomaly): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnomalyFilterSensitiveLog = (obj: Anomaly): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InputS3ObjectFilterSensitiveLog = (obj: InputS3Object): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DatasetGroundTruthManifestFilterSensitiveLog = (obj: DatasetGroundTruthManifest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DatasetSourceFilterSensitiveLog = (obj: DatasetSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDatasetRequestFilterSensitiveLog = (obj: CreateDatasetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DatasetMetadataFilterSensitiveLog = (obj: DatasetMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDatasetResponseFilterSensitiveLog = (obj: CreateDatasetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3LocationFilterSensitiveLog = (obj: S3Location): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OutputConfigFilterSensitiveLog = (obj: OutputConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateModelRequestFilterSensitiveLog = (obj: CreateModelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModelPerformanceFilterSensitiveLog = (obj: ModelPerformance): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModelMetadataFilterSensitiveLog = (obj: ModelMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateModelResponseFilterSensitiveLog = (obj: CreateModelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateProjectRequestFilterSensitiveLog = (obj: CreateProjectRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProjectMetadataFilterSensitiveLog = (obj: ProjectMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateProjectResponseFilterSensitiveLog = (obj: CreateProjectResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DatasetImageStatsFilterSensitiveLog = (obj: DatasetImageStats): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DatasetDescriptionFilterSensitiveLog = (obj: DatasetDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDatasetRequestFilterSensitiveLog = (obj: DeleteDatasetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDatasetResponseFilterSensitiveLog = (obj: DeleteDatasetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteModelRequestFilterSensitiveLog = (obj: DeleteModelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteModelResponseFilterSensitiveLog = (obj: DeleteModelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteProjectRequestFilterSensitiveLog = (obj: DeleteProjectRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteProjectResponseFilterSensitiveLog = (obj: DeleteProjectResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDatasetRequestFilterSensitiveLog = (obj: DescribeDatasetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDatasetResponseFilterSensitiveLog = (obj: DescribeDatasetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeModelRequestFilterSensitiveLog = (obj: DescribeModelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OutputS3ObjectFilterSensitiveLog = (obj: OutputS3Object): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModelDescriptionFilterSensitiveLog = (obj: ModelDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeModelResponseFilterSensitiveLog = (obj: DescribeModelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeModelPackagingJobRequestFilterSensitiveLog = (obj: DescribeModelPackagingJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TargetPlatformFilterSensitiveLog = (obj: TargetPlatform): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GreengrassConfigurationFilterSensitiveLog = (obj: GreengrassConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModelPackagingConfigurationFilterSensitiveLog = (obj: ModelPackagingConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GreengrassOutputDetailsFilterSensitiveLog = (obj: GreengrassOutputDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModelPackagingOutputDetailsFilterSensitiveLog = (obj: ModelPackagingOutputDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModelPackagingDescriptionFilterSensitiveLog = (obj: ModelPackagingDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeModelPackagingJobResponseFilterSensitiveLog = (obj: DescribeModelPackagingJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeProjectRequestFilterSensitiveLog = (obj: DescribeProjectRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProjectDescriptionFilterSensitiveLog = (obj: ProjectDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeProjectResponseFilterSensitiveLog = (obj: DescribeProjectResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DetectAnomaliesRequestFilterSensitiveLog = (obj: DetectAnomaliesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImageSourceFilterSensitiveLog = (obj: ImageSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DetectAnomalyResultFilterSensitiveLog = (obj: DetectAnomalyResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DetectAnomaliesResponseFilterSensitiveLog = (obj: DetectAnomaliesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDatasetEntriesRequestFilterSensitiveLog = (obj: ListDatasetEntriesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDatasetEntriesResponseFilterSensitiveLog = (obj: ListDatasetEntriesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelPackagingJobsRequestFilterSensitiveLog = (obj: ListModelPackagingJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModelPackagingJobMetadataFilterSensitiveLog = (obj: ModelPackagingJobMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelPackagingJobsResponseFilterSensitiveLog = (obj: ListModelPackagingJobsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelsRequestFilterSensitiveLog = (obj: ListModelsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelsResponseFilterSensitiveLog = (obj: ListModelsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListProjectsRequestFilterSensitiveLog = (obj: ListProjectsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListProjectsResponseFilterSensitiveLog = (obj: ListProjectsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartModelRequestFilterSensitiveLog = (obj: StartModelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartModelResponseFilterSensitiveLog = (obj: StartModelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartModelPackagingJobRequestFilterSensitiveLog = (obj: StartModelPackagingJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartModelPackagingJobResponseFilterSensitiveLog = (obj: StartModelPackagingJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopModelRequestFilterSensitiveLog = (obj: StopModelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopModelResponseFilterSensitiveLog = (obj: StopModelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDatasetEntriesRequestFilterSensitiveLog = (obj: UpdateDatasetEntriesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDatasetEntriesResponseFilterSensitiveLog = (obj: UpdateDatasetEntriesResponse): any => ({
   ...obj,
 });

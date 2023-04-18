@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
-import { DeletePermissionRequest, DeletePermissionRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeletePermissionCommand,
-  serializeAws_json1_1DeletePermissionCommand,
-} from "../protocols/Aws_json1_1";
+import { DeletePermissionRequest } from "../models/models_0";
+import { de_DeletePermissionCommand, se_DeletePermissionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeletePermissionCommand}.
+ */
 export interface DeletePermissionCommandInput extends DeletePermissionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeletePermissionCommand}.
+ */
 export interface DeletePermissionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Revokes permissions on a private CA granted to the Certificate Manager (ACM) service principal
  * 			(acm.amazonaws.com). </p>
  *          <p>These permissions allow ACM to issue and renew ACM certificates that reside in the
@@ -59,13 +67,35 @@ export interface DeletePermissionCommandOutput extends __MetadataBearer {}
  * import { ACMPCAClient, DeletePermissionCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
  * // const { ACMPCAClient, DeletePermissionCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
  * const client = new ACMPCAClient(config);
+ * const input = { // DeletePermissionRequest
+ *   CertificateAuthorityArn: "STRING_VALUE", // required
+ *   Principal: "STRING_VALUE", // required
+ *   SourceAccount: "STRING_VALUE",
+ * };
  * const command = new DeletePermissionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePermissionCommandInput - {@link DeletePermissionCommandInput}
+ * @returns {@link DeletePermissionCommandOutput}
  * @see {@link DeletePermissionCommandInput} for command's `input` shape.
  * @see {@link DeletePermissionCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
+ *
+ * @throws {@link InvalidArnException} (client fault)
+ *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing
+ * 			resource.</p>
+ *
+ * @throws {@link InvalidStateException} (client fault)
+ *  <p>The state of the private CA does not allow this action to occur.</p>
+ *
+ * @throws {@link RequestFailedException} (client fault)
+ *  <p>The request has failed for an unspecified reason.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy
+ * 			cannot be found.</p>
+ *
  *
  */
 export class DeletePermissionCommand extends $Command<
@@ -85,6 +115,9 @@ export class DeletePermissionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +146,8 @@ export class DeletePermissionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePermissionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +157,18 @@ export class DeletePermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeletePermissionCommand(input, context);
+    return se_DeletePermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePermissionCommandOutput> {
-    return deserializeAws_json1_1DeletePermissionCommand(output, context);
+    return de_DeletePermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

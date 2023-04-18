@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  UpdateDeviceInstanceRequest,
-  UpdateDeviceInstanceRequestFilterSensitiveLog,
-  UpdateDeviceInstanceResult,
-  UpdateDeviceInstanceResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateDeviceInstanceCommand,
-  serializeAws_json1_1UpdateDeviceInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateDeviceInstanceRequest, UpdateDeviceInstanceResult } from "../models/models_0";
+import { de_UpdateDeviceInstanceCommand, se_UpdateDeviceInstanceCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateDeviceInstanceCommand}.
+ */
 export interface UpdateDeviceInstanceCommandInput extends UpdateDeviceInstanceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateDeviceInstanceCommand}.
+ */
 export interface UpdateDeviceInstanceCommandOutput extends UpdateDeviceInstanceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates information about a private device instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,35 @@ export interface UpdateDeviceInstanceCommandOutput extends UpdateDeviceInstanceR
  * import { DeviceFarmClient, UpdateDeviceInstanceCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, UpdateDeviceInstanceCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // UpdateDeviceInstanceRequest
+ *   arn: "STRING_VALUE", // required
+ *   profileArn: "STRING_VALUE",
+ *   labels: [ // InstanceLabels
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateDeviceInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDeviceInstanceCommandInput - {@link UpdateDeviceInstanceCommandInput}
+ * @returns {@link UpdateDeviceInstanceCommandOutput}
  * @see {@link UpdateDeviceInstanceCommandInput} for command's `input` shape.
  * @see {@link UpdateDeviceInstanceCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
+ *
+ * @throws {@link ArgumentException} (client fault)
+ *  <p>An invalid argument was specified.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A limit was exceeded.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The specified entity was not found.</p>
+ *
+ * @throws {@link ServiceAccountException} (client fault)
+ *  <p>There was a problem with the service account.</p>
+ *
  *
  */
 export class UpdateDeviceInstanceCommand extends $Command<
@@ -62,6 +87,9 @@ export class UpdateDeviceInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDeviceInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +118,8 @@ export class UpdateDeviceInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDeviceInstanceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDeviceInstanceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +129,18 @@ export class UpdateDeviceInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDeviceInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDeviceInstanceCommand(input, context);
+    return se_UpdateDeviceInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDeviceInstanceCommandOutput> {
-    return deserializeAws_json1_1UpdateDeviceInstanceCommand(output, context);
+    return de_UpdateDeviceInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

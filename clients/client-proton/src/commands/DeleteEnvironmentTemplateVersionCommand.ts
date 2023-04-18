@@ -15,22 +15,32 @@ import {
 
 import {
   DeleteEnvironmentTemplateVersionInput,
-  DeleteEnvironmentTemplateVersionInputFilterSensitiveLog,
   DeleteEnvironmentTemplateVersionOutput,
   DeleteEnvironmentTemplateVersionOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0DeleteEnvironmentTemplateVersionCommand,
-  serializeAws_json1_0DeleteEnvironmentTemplateVersionCommand,
+  de_DeleteEnvironmentTemplateVersionCommand,
+  se_DeleteEnvironmentTemplateVersionCommand,
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteEnvironmentTemplateVersionCommand}.
+ */
 export interface DeleteEnvironmentTemplateVersionCommandInput extends DeleteEnvironmentTemplateVersionInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteEnvironmentTemplateVersionCommand}.
+ */
 export interface DeleteEnvironmentTemplateVersionCommandOutput
   extends DeleteEnvironmentTemplateVersionOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>If no other minor versions of an environment template exist, delete a major version of the environment template if it's not the
  *         <code>Recommended</code> version. Delete the <code>Recommended</code> version of the environment template if no other major versions or minor versions
  *       of the environment template exist. A major version of an environment template is a version that's not backward compatible.</p>
@@ -43,13 +53,39 @@ export interface DeleteEnvironmentTemplateVersionCommandOutput
  * import { ProtonClient, DeleteEnvironmentTemplateVersionCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, DeleteEnvironmentTemplateVersionCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // DeleteEnvironmentTemplateVersionInput
+ *   templateName: "STRING_VALUE", // required
+ *   majorVersion: "STRING_VALUE", // required
+ *   minorVersion: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEnvironmentTemplateVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEnvironmentTemplateVersionCommandInput - {@link DeleteEnvironmentTemplateVersionCommandInput}
+ * @returns {@link DeleteEnvironmentTemplateVersionCommandOutput}
  * @see {@link DeleteEnvironmentTemplateVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteEnvironmentTemplateVersionCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>There <i>isn't</i> sufficient access for performing this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request <i>couldn't</i> be made due to a conflicting operation or resource.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request failed to register with the service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource <i>wasn't</i> found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+ *
  *
  */
 export class DeleteEnvironmentTemplateVersionCommand extends $Command<
@@ -69,6 +105,9 @@ export class DeleteEnvironmentTemplateVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEnvironmentTemplateVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,7 +136,7 @@ export class DeleteEnvironmentTemplateVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEnvironmentTemplateVersionInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DeleteEnvironmentTemplateVersionOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -108,18 +147,24 @@ export class DeleteEnvironmentTemplateVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteEnvironmentTemplateVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteEnvironmentTemplateVersionCommand(input, context);
+    return se_DeleteEnvironmentTemplateVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteEnvironmentTemplateVersionCommandOutput> {
-    return deserializeAws_json1_0DeleteEnvironmentTemplateVersionCommand(output, context);
+    return de_DeleteEnvironmentTemplateVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

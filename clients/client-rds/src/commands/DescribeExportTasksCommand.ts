@@ -13,23 +13,26 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeExportTasksMessage,
-  DescribeExportTasksMessageFilterSensitiveLog,
-  ExportTasksMessage,
-  ExportTasksMessageFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryDescribeExportTasksCommand,
-  serializeAws_queryDescribeExportTasksCommand,
-} from "../protocols/Aws_query";
+import { DescribeExportTasksMessage, ExportTasksMessage } from "../models/models_1";
+import { de_DescribeExportTasksCommand, se_DescribeExportTasksCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeExportTasksCommand}.
+ */
 export interface DescribeExportTasksCommandInput extends DescribeExportTasksMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeExportTasksCommand}.
+ */
 export interface DescribeExportTasksCommandOutput extends ExportTasksMessage, __MetadataBearer {}
 
 /**
- * <p>Returns information about a snapshot export to Amazon S3. This API operation supports
+ * @public
+ * <p>Returns information about a snapshot or cluster export to Amazon S3. This API operation supports
  *             pagination.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,13 +40,75 @@ export interface DescribeExportTasksCommandOutput extends ExportTasksMessage, __
  * import { RDSClient, DescribeExportTasksCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeExportTasksCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // DescribeExportTasksMessage
+ *   ExportTaskIdentifier: "STRING_VALUE",
+ *   SourceArn: "STRING_VALUE",
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   SourceType: "SNAPSHOT" || "CLUSTER",
+ * };
  * const command = new DescribeExportTasksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeExportTasksCommandInput - {@link DescribeExportTasksCommandInput}
+ * @returns {@link DescribeExportTasksCommandOutput}
  * @see {@link DescribeExportTasksCommandInput} for command's `input` shape.
  * @see {@link DescribeExportTasksCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ * @throws {@link ExportTaskNotFoundFault} (client fault)
+ *  <p>The export task doesn't exist.</p>
+ *
+ *
+ * @example To describe snapshot export tasks
+ * ```javascript
+ * // The following example returns information about snapshot exports to Amazon S3.
+ * const input = {};
+ * const command = new DescribeExportTasksCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ExportTasks": [
+ *     {
+ *       "ExportTaskIdentifier": "test-snapshot-export",
+ *       "IamRoleArn": "arn:aws:iam::123456789012:role/service-role/ExportRole",
+ *       "KmsKeyId": "arn:aws:kms:us-west-2:123456789012:key/abcd0000-7fca-4128-82f2-aabbccddeeff",
+ *       "PercentProgress": 100,
+ *       "S3Bucket": "mybucket",
+ *       "S3Prefix": "",
+ *       "SnapshotTime": "2020-03-02T18:26:28.163Z",
+ *       "SourceArn": "arn:aws:rds:us-west-2:123456789012:snapshot:test-snapshot",
+ *       "Status": "COMPLETE",
+ *       "TaskEndTime": "2020-03-02T19:10:31.985Z",
+ *       "TaskStartTime": "2020-03-02T18:57:56.896Z",
+ *       "TotalExtractedDataInGB": 0
+ *     },
+ *     {
+ *       "ExportTaskIdentifier": "my-s3-export",
+ *       "IamRoleArn": "arn:aws:iam::123456789012:role/service-role/ExportRole",
+ *       "KmsKeyId": "arn:aws:kms:us-west-2:123456789012:key/abcd0000-7fca-4128-82f2-aabbccddeeff",
+ *       "PercentProgress": 0,
+ *       "S3Bucket": "mybucket",
+ *       "S3Prefix": "",
+ *       "SnapshotTime": "2020-03-27T20:48:42.023Z",
+ *       "SourceArn": "arn:aws:rds:us-west-2:123456789012:snapshot:db5-snapshot-test",
+ *       "Status": "STARTING",
+ *       "TotalExtractedDataInGB": 0
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-snapshot-export-tasks-1680282299489
+ * ```
  *
  */
 export class DescribeExportTasksCommand extends $Command<
@@ -63,6 +128,9 @@ export class DescribeExportTasksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeExportTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +159,8 @@ export class DescribeExportTasksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeExportTasksMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ExportTasksMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +170,18 @@ export class DescribeExportTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeExportTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeExportTasksCommand(input, context);
+    return se_DescribeExportTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeExportTasksCommandOutput> {
-    return deserializeAws_queryDescribeExportTasksCommand(output, context);
+    return de_DescribeExportTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

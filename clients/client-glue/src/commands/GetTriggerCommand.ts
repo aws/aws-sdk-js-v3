@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetTriggerRequest,
-  GetTriggerRequestFilterSensitiveLog,
-  GetTriggerResponse,
-  GetTriggerResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetTriggerCommand,
-  serializeAws_json1_1GetTriggerCommand,
-} from "../protocols/Aws_json1_1";
+import { GetTriggerRequest, GetTriggerResponse } from "../models/models_1";
+import { de_GetTriggerCommand, se_GetTriggerCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetTriggerCommand}.
+ */
 export interface GetTriggerCommandInput extends GetTriggerRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetTriggerCommand}.
+ */
 export interface GetTriggerCommandOutput extends GetTriggerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the definition of a trigger.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,31 @@ export interface GetTriggerCommandOutput extends GetTriggerResponse, __MetadataB
  * import { GlueClient, GetTriggerCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetTriggerCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // GetTriggerRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new GetTriggerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTriggerCommandInput - {@link GetTriggerCommandInput}
+ * @returns {@link GetTriggerCommandOutput}
  * @see {@link GetTriggerCommandInput} for command's `input` shape.
  * @see {@link GetTriggerCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class GetTriggerCommand extends $Command<
@@ -62,6 +83,9 @@ export class GetTriggerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTriggerCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +112,8 @@ export class GetTriggerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTriggerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTriggerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +123,18 @@ export class GetTriggerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTriggerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetTriggerCommand(input, context);
+    return se_GetTriggerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTriggerCommandOutput> {
-    return deserializeAws_json1_1GetTriggerCommand(output, context);
+    return de_GetTriggerCommand(output, context);
   }
 
   // Start section: command_body_extra

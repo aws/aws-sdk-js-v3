@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetSecurityConfigurationsRequest,
-  GetSecurityConfigurationsRequestFilterSensitiveLog,
-  GetSecurityConfigurationsResponse,
-  GetSecurityConfigurationsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetSecurityConfigurationsCommand,
-  serializeAws_json1_1GetSecurityConfigurationsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetSecurityConfigurationsRequest, GetSecurityConfigurationsResponse } from "../models/models_1";
+import { de_GetSecurityConfigurationsCommand, se_GetSecurityConfigurationsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetSecurityConfigurationsCommand}.
+ */
 export interface GetSecurityConfigurationsCommandInput extends GetSecurityConfigurationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetSecurityConfigurationsCommand}.
+ */
 export interface GetSecurityConfigurationsCommandOutput extends GetSecurityConfigurationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of all security configurations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,32 @@ export interface GetSecurityConfigurationsCommandOutput extends GetSecurityConfi
  * import { GlueClient, GetSecurityConfigurationsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetSecurityConfigurationsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // GetSecurityConfigurationsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetSecurityConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSecurityConfigurationsCommandInput - {@link GetSecurityConfigurationsCommandInput}
+ * @returns {@link GetSecurityConfigurationsCommandOutput}
  * @see {@link GetSecurityConfigurationsCommandInput} for command's `input` shape.
  * @see {@link GetSecurityConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class GetSecurityConfigurationsCommand extends $Command<
@@ -62,6 +84,9 @@ export class GetSecurityConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSecurityConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +115,8 @@ export class GetSecurityConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSecurityConfigurationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSecurityConfigurationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +126,21 @@ export class GetSecurityConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSecurityConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSecurityConfigurationsCommand(input, context);
+    return se_GetSecurityConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSecurityConfigurationsCommandOutput> {
-    return deserializeAws_json1_1GetSecurityConfigurationsCommand(output, context);
+    return de_GetSecurityConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

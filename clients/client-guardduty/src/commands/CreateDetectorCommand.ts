@@ -14,38 +14,88 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import {
-  CreateDetectorRequest,
-  CreateDetectorRequestFilterSensitiveLog,
-  CreateDetectorResponse,
-  CreateDetectorResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDetectorCommand,
-  serializeAws_restJson1CreateDetectorCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateDetectorRequest, CreateDetectorResponse } from "../models/models_0";
+import { de_CreateDetectorCommand, se_CreateDetectorCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateDetectorCommand}.
+ */
 export interface CreateDetectorCommandInput extends CreateDetectorRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateDetectorCommand}.
+ */
 export interface CreateDetectorCommandOutput extends CreateDetectorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a single Amazon GuardDuty detector. A detector is a resource that represents the
  *       GuardDuty service. To start using GuardDuty, you must create a detector in each Region where
  *       you enable the service. You can have only one detector per account per Region. All data
  *       sources are enabled in a new detector by default.</p>
+ *          <p>There might be regional differences because some data sources might not be
+ *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
+ *       information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GuardDutyClient, CreateDetectorCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, CreateDetectorCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = { // CreateDetectorRequest
+ *   Enable: true || false, // required
+ *   ClientToken: "STRING_VALUE",
+ *   FindingPublishingFrequency: "FIFTEEN_MINUTES" || "ONE_HOUR" || "SIX_HOURS",
+ *   DataSources: { // DataSourceConfigurations
+ *     S3Logs: { // S3LogsConfiguration
+ *       Enable: true || false, // required
+ *     },
+ *     Kubernetes: { // KubernetesConfiguration
+ *       AuditLogs: { // KubernetesAuditLogsConfiguration
+ *         Enable: true || false, // required
+ *       },
+ *     },
+ *     MalwareProtection: { // MalwareProtectionConfiguration
+ *       ScanEc2InstanceWithFindings: { // ScanEc2InstanceWithFindings
+ *         EbsVolumes: true || false,
+ *       },
+ *     },
+ *   },
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Features: [ // DetectorFeatureConfigurations
+ *     { // DetectorFeatureConfiguration
+ *       Name: "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "EKS_RUNTIME_MONITORING",
+ *       Status: "ENABLED" || "DISABLED",
+ *       AdditionalConfiguration: [ // DetectorAdditionalConfigurations
+ *         { // DetectorAdditionalConfiguration
+ *           Name: "EKS_ADDON_MANAGEMENT",
+ *           Status: "ENABLED" || "DISABLED",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new CreateDetectorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDetectorCommandInput - {@link CreateDetectorCommandInput}
+ * @returns {@link CreateDetectorCommandOutput}
  * @see {@link CreateDetectorCommandInput} for command's `input` shape.
  * @see {@link CreateDetectorCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>A bad request exception object.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>An internal server error exception object.</p>
+ *
  *
  */
 export class CreateDetectorCommand extends $Command<
@@ -65,6 +115,9 @@ export class CreateDetectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDetectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +146,8 @@ export class CreateDetectorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDetectorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDetectorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +157,18 @@ export class CreateDetectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDetectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDetectorCommand(input, context);
+    return se_CreateDetectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDetectorCommandOutput> {
-    return deserializeAws_restJson1CreateDetectorCommand(output, context);
+    return de_CreateDetectorCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  DescribeFleetCapacityInput,
-  DescribeFleetCapacityInputFilterSensitiveLog,
-  DescribeFleetCapacityOutput,
-  DescribeFleetCapacityOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeFleetCapacityCommand,
-  serializeAws_json1_1DescribeFleetCapacityCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeFleetCapacityInput, DescribeFleetCapacityOutput } from "../models/models_0";
+import { de_DescribeFleetCapacityCommand, se_DescribeFleetCapacityCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeFleetCapacityCommand}.
+ */
 export interface DescribeFleetCapacityCommandInput extends DescribeFleetCapacityInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeFleetCapacityCommand}.
+ */
 export interface DescribeFleetCapacityCommandOutput extends DescribeFleetCapacityOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the resource capacity settings for one or more fleets. The data returned
  *             includes the current fleet capacity (number of EC2 instances), and settings that can
  *             control how capacity scaling. For fleets with remote locations, this operation retrieves
@@ -71,13 +74,37 @@ export interface DescribeFleetCapacityCommandOutput extends DescribeFleetCapacit
  * import { GameLiftClient, DescribeFleetCapacityCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeFleetCapacityCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // DescribeFleetCapacityInput
+ *   FleetIds: [ // FleetIdOrArnList
+ *     "STRING_VALUE",
+ *   ],
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeFleetCapacityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFleetCapacityCommandInput - {@link DescribeFleetCapacityCommandInput}
+ * @returns {@link DescribeFleetCapacityCommandOutput}
  * @see {@link DescribeFleetCapacityCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetCapacityCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an unrecoverable internal failure while processing the
+ *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
+ *             values before retrying.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
  *
  */
 export class DescribeFleetCapacityCommand extends $Command<
@@ -97,6 +124,9 @@ export class DescribeFleetCapacityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFleetCapacityCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +155,8 @@ export class DescribeFleetCapacityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFleetCapacityInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFleetCapacityOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +166,18 @@ export class DescribeFleetCapacityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFleetCapacityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeFleetCapacityCommand(input, context);
+    return se_DescribeFleetCapacityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFleetCapacityCommandOutput> {
-    return deserializeAws_json1_1DescribeFleetCapacityCommand(output, context);
+    return de_DescribeFleetCapacityCommand(output, context);
   }
 
   // Start section: command_body_extra

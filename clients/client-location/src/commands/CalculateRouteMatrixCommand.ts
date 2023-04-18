@@ -20,15 +20,23 @@ import {
   CalculateRouteMatrixResponse,
   CalculateRouteMatrixResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CalculateRouteMatrixCommand,
-  serializeAws_restJson1CalculateRouteMatrixCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CalculateRouteMatrixCommand, se_CalculateRouteMatrixCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CalculateRouteMatrixCommand}.
+ */
 export interface CalculateRouteMatrixCommandInput extends CalculateRouteMatrixRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CalculateRouteMatrixCommand}.
+ */
 export interface CalculateRouteMatrixCommandOutput extends CalculateRouteMatrixResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route-matrix.html"> Calculates a route
  *                 matrix</a> given the following required parameters:
@@ -77,13 +85,67 @@ export interface CalculateRouteMatrixCommandOutput extends CalculateRouteMatrixR
  * import { LocationClient, CalculateRouteMatrixCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, CalculateRouteMatrixCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = { // CalculateRouteMatrixRequest
+ *   CalculatorName: "STRING_VALUE", // required
+ *   DeparturePositions: [ // PositionList // required
+ *     [ // Position
+ *       Number("double"),
+ *     ],
+ *   ],
+ *   DestinationPositions: [ // required
+ *     [
+ *       Number("double"),
+ *     ],
+ *   ],
+ *   TravelMode: "STRING_VALUE",
+ *   DepartureTime: new Date("TIMESTAMP"),
+ *   DepartNow: true || false,
+ *   DistanceUnit: "STRING_VALUE",
+ *   CarModeOptions: { // CalculateRouteCarModeOptions
+ *     AvoidFerries: true || false,
+ *     AvoidTolls: true || false,
+ *   },
+ *   TruckModeOptions: { // CalculateRouteTruckModeOptions
+ *     AvoidFerries: true || false,
+ *     AvoidTolls: true || false,
+ *     Dimensions: { // TruckDimensions
+ *       Length: Number("double"),
+ *       Height: Number("double"),
+ *       Width: Number("double"),
+ *       Unit: "STRING_VALUE",
+ *     },
+ *     Weight: { // TruckWeight
+ *       Total: Number("double"),
+ *       Unit: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new CalculateRouteMatrixCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CalculateRouteMatrixCommandInput - {@link CalculateRouteMatrixCommandInput}
+ * @returns {@link CalculateRouteMatrixCommandOutput}
  * @see {@link CalculateRouteMatrixCommandInput} for command's `input` shape.
  * @see {@link CalculateRouteMatrixCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The request was denied because of insufficient access or permissions. Check with an
+ *       administrator to verify your permissions.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource that you've entered was not found in your AWS account.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because of request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input failed to meet the constraints specified by the AWS service. </p>
+ *
  *
  */
 export class CalculateRouteMatrixCommand extends $Command<
@@ -103,6 +165,9 @@ export class CalculateRouteMatrixCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CalculateRouteMatrixCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,12 +207,18 @@ export class CalculateRouteMatrixCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CalculateRouteMatrixCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CalculateRouteMatrixCommand(input, context);
+    return se_CalculateRouteMatrixCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CalculateRouteMatrixCommandOutput> {
-    return deserializeAws_restJson1CalculateRouteMatrixCommand(output, context);
+    return de_CalculateRouteMatrixCommand(output, context);
   }
 
   // Start section: command_body_extra

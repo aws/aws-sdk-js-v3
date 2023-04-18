@@ -26,12 +26,14 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
@@ -119,6 +121,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | BatchGetCollectionCommandInput
   | BatchGetVpcEndpointCommandInput
@@ -152,6 +157,9 @@ export type ServiceInputTypes =
   | UpdateSecurityPolicyCommandInput
   | UpdateVpcEndpointCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | BatchGetCollectionCommandOutput
   | BatchGetVpcEndpointCommandOutput
@@ -185,6 +193,9 @@ export type ServiceOutputTypes =
   | UpdateSecurityPolicyCommandOutput
   | UpdateVpcEndpointCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -192,11 +203,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -253,19 +264,10 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
-   * Value for how many times a request will be made at most in case of retry.
+   * Unique service identifier.
+   * @internal
    */
-  maxAttempts?: number | __Provider<number>;
-
-  /**
-   * Specifies which retry algorithm to use.
-   */
-  retryMode?: string | __Provider<string>;
-
-  /**
-   * Optional logger for logging debug/info/warn/error.
-   */
-  logger?: __Logger;
+  serviceId?: string;
 
   /**
    * Enables IPv6/IPv4 dualstack endpoint.
@@ -276,12 +278,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Enables FIPS compatible endpoints.
    */
   useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
 
   /**
    * The AWS region to which this client will send requests
@@ -301,11 +297,29 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * Value for how many times a request will be made at most in case of retry.
    */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Specifies which retry algorithm to use.
+   */
+  retryMode?: string | __Provider<string>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
+
+  /**
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   */
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type OpenSearchServerlessClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -316,10 +330,15 @@ type OpenSearchServerlessClientConfigType = Partial<__SmithyConfiguration<__Http
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of OpenSearchServerlessClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of OpenSearchServerlessClient class constructor that set the region, credentials and other options.
  */
 export interface OpenSearchServerlessClientConfig extends OpenSearchServerlessClientConfigType {}
 
+/**
+ * @public
+ */
 type OpenSearchServerlessClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -330,19 +349,22 @@ type OpenSearchServerlessClientResolvedConfigType = __SmithyResolvedConfiguratio
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of OpenSearchServerlessClient class. This is resolved and normalized from the {@link OpenSearchServerlessClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of OpenSearchServerlessClient class. This is resolved and normalized from the {@link OpenSearchServerlessClientConfig | constructor configuration interface}.
  */
 export interface OpenSearchServerlessClientResolvedConfig extends OpenSearchServerlessClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Use the Amazon OpenSearch Serverless API to create, configure, and manage OpenSearch Serverless collections and
  *             security policies.</p>
- *         <p>OpenSearch Serverless is an on-demand, pre-provisioned serverless configuration for
+ *          <p>OpenSearch Serverless is an on-demand, pre-provisioned serverless configuration for
  *             Amazon OpenSearch Service. OpenSearch Serverless removes the operational complexities of provisioning,
  *             configuring, and tuning your OpenSearch clusters. It enables you to easily search and
  *             analyze petabytes of data without having to worry about the underlying infrastructure
  *             and data management.</p>
- *         <p> To learn more about OpenSearch Serverless, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html">What is
+ *          <p> To learn more about OpenSearch Serverless, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html">What is
  *                 Amazon OpenSearch Serverless?</a>
  *          </p>
  */

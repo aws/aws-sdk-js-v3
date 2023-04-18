@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeSessionsRequest,
-  DescribeSessionsRequestFilterSensitiveLog,
-  DescribeSessionsResponse,
-  DescribeSessionsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1DescribeSessionsCommand,
-  serializeAws_json1_1DescribeSessionsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeSessionsRequest, DescribeSessionsResponse } from "../models/models_1";
+import { de_DescribeSessionsCommand, se_DescribeSessionsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeSessionsCommand}.
+ */
 export interface DescribeSessionsCommandInput extends DescribeSessionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeSessionsCommand}.
+ */
 export interface DescribeSessionsCommandOutput extends DescribeSessionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of all active sessions (both connected and disconnected) or terminated
  *    sessions from the past 30 days.</p>
  * @example
@@ -37,13 +40,36 @@ export interface DescribeSessionsCommandOutput extends DescribeSessionsResponse,
  * import { SSMClient, DescribeSessionsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeSessionsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // DescribeSessionsRequest
+ *   State: "Active" || "History", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Filters: [ // SessionFilterList
+ *     { // SessionFilter
+ *       key: "InvokedAfter" || "InvokedBefore" || "Target" || "Owner" || "Status" || "SessionId", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new DescribeSessionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSessionsCommandInput - {@link DescribeSessionsCommandInput}
+ * @returns {@link DescribeSessionsCommandOutput}
  * @see {@link DescribeSessionsCommandInput} for command's `input` shape.
  * @see {@link DescribeSessionsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidFilterKey} (client fault)
+ *  <p>The specified key isn't valid.</p>
+ *
+ * @throws {@link InvalidNextToken} (client fault)
+ *  <p>The specified token isn't valid.</p>
+ *
  *
  */
 export class DescribeSessionsCommand extends $Command<
@@ -63,6 +89,9 @@ export class DescribeSessionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSessionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +120,8 @@ export class DescribeSessionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSessionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSessionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +131,18 @@ export class DescribeSessionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSessionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeSessionsCommand(input, context);
+    return se_DescribeSessionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSessionsCommandOutput> {
-    return deserializeAws_json1_1DescribeSessionsCommand(output, context);
+    return de_DescribeSessionsCommand(output, context);
   }
 
   // Start section: command_body_extra

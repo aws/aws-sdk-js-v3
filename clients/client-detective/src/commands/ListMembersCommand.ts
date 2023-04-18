@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
-import {
-  ListMembersRequest,
-  ListMembersRequestFilterSensitiveLog,
-  ListMembersResponse,
-  ListMembersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListMembersCommand,
-  serializeAws_restJson1ListMembersCommand,
-} from "../protocols/Aws_restJson1";
+import { ListMembersRequest, ListMembersResponse } from "../models/models_0";
+import { de_ListMembersCommand, se_ListMembersCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListMembersCommand}.
+ */
 export interface ListMembersCommandInput extends ListMembersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListMembersCommand}.
+ */
 export interface ListMembersCommandOutput extends ListMembersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the list of member accounts for a behavior graph.</p>
  *          <p>For invited accounts, the results do not include member accounts that were removed from
  *          the behavior graph.</p>
@@ -41,13 +44,34 @@ export interface ListMembersCommandOutput extends ListMembersResponse, __Metadat
  * import { DetectiveClient, ListMembersCommand } from "@aws-sdk/client-detective"; // ES Modules import
  * // const { DetectiveClient, ListMembersCommand } = require("@aws-sdk/client-detective"); // CommonJS import
  * const client = new DetectiveClient(config);
+ * const input = { // ListMembersRequest
+ *   GraphArn: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListMembersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMembersCommandInput - {@link ListMembersCommandInput}
+ * @returns {@link ListMembersCommandOutput}
  * @see {@link ListMembersCommandInput} for command's `input` shape.
  * @see {@link ListMembersCommandOutput} for command's `response` shape.
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The request issuer does not have permission to access this resource or perform this
+ *          operation.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request was valid but failed because of a problem with the service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request refers to a nonexistent resource.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request parameters are invalid.</p>
+ *
  *
  */
 export class ListMembersCommand extends $Command<
@@ -67,6 +91,9 @@ export class ListMembersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMembersCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +120,8 @@ export class ListMembersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMembersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMembersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +131,18 @@ export class ListMembersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListMembersCommand(input, context);
+    return se_ListMembersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMembersCommandOutput> {
-    return deserializeAws_restJson1ListMembersCommand(output, context);
+    return de_ListMembersCommand(output, context);
   }
 
   // Start section: command_body_extra

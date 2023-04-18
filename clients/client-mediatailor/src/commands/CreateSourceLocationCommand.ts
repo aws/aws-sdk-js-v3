@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
-import {
-  CreateSourceLocationRequest,
-  CreateSourceLocationRequestFilterSensitiveLog,
-  CreateSourceLocationResponse,
-  CreateSourceLocationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateSourceLocationCommand,
-  serializeAws_restJson1CreateSourceLocationCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateSourceLocationRequest, CreateSourceLocationResponse } from "../models/models_0";
+import { de_CreateSourceLocationCommand, se_CreateSourceLocationCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateSourceLocationCommand}.
+ */
 export interface CreateSourceLocationCommandInput extends CreateSourceLocationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateSourceLocationCommand}.
+ */
 export interface CreateSourceLocationCommandOutput extends CreateSourceLocationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a source location. A source location is a container for sources. For more information about source locations, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-source-locations.html">Working with source locations</a> in the <i>MediaTailor User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,42 @@ export interface CreateSourceLocationCommandOutput extends CreateSourceLocationR
  * import { MediaTailorClient, CreateSourceLocationCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, CreateSourceLocationCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
+ * const input = { // CreateSourceLocationRequest
+ *   AccessConfiguration: { // AccessConfiguration
+ *     AccessType: "S3_SIGV4" || "SECRETS_MANAGER_ACCESS_TOKEN",
+ *     SecretsManagerAccessTokenConfiguration: { // SecretsManagerAccessTokenConfiguration
+ *       HeaderName: "STRING_VALUE",
+ *       SecretArn: "STRING_VALUE",
+ *       SecretStringKey: "STRING_VALUE",
+ *     },
+ *   },
+ *   DefaultSegmentDeliveryConfiguration: { // DefaultSegmentDeliveryConfiguration
+ *     BaseUrl: "STRING_VALUE",
+ *   },
+ *   HttpConfiguration: { // HttpConfiguration
+ *     BaseUrl: "STRING_VALUE", // required
+ *   },
+ *   SegmentDeliveryConfigurations: [ // __listOfSegmentDeliveryConfiguration
+ *     { // SegmentDeliveryConfiguration
+ *       BaseUrl: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *     },
+ *   ],
+ *   SourceLocationName: "STRING_VALUE", // required
+ *   Tags: { // __mapOf__string
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateSourceLocationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSourceLocationCommandInput - {@link CreateSourceLocationCommandInput}
+ * @returns {@link CreateSourceLocationCommandOutput}
  * @see {@link CreateSourceLocationCommandInput} for command's `input` shape.
  * @see {@link CreateSourceLocationCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
+ *
  *
  */
 export class CreateSourceLocationCommand extends $Command<
@@ -62,6 +94,9 @@ export class CreateSourceLocationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSourceLocationCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +125,8 @@ export class CreateSourceLocationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSourceLocationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSourceLocationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +136,18 @@ export class CreateSourceLocationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSourceLocationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateSourceLocationCommand(input, context);
+    return se_CreateSourceLocationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSourceLocationCommandOutput> {
-    return deserializeAws_restJson1CreateSourceLocationCommand(output, context);
+    return de_CreateSourceLocationCommand(output, context);
   }
 
   // Start section: command_body_extra

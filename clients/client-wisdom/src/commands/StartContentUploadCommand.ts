@@ -15,20 +15,27 @@ import {
 
 import {
   StartContentUploadRequest,
-  StartContentUploadRequestFilterSensitiveLog,
   StartContentUploadResponse,
   StartContentUploadResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartContentUploadCommand,
-  serializeAws_restJson1StartContentUploadCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartContentUploadCommand, se_StartContentUploadCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
+/**
+ * @public
+ *
+ * The input for {@link StartContentUploadCommand}.
+ */
 export interface StartContentUploadCommandInput extends StartContentUploadRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartContentUploadCommand}.
+ */
 export interface StartContentUploadCommandOutput extends StartContentUploadResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get a URL to upload content to a knowledge base. To upload content, first make a PUT
  *       request to the returned URL with your file, making sure to include the required headers. Then
  *       use <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_CreateContent.html">CreateContent</a> to finalize the content creation process or <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_UpdateContent.html">UpdateContent</a> to modify an existing resource. You can only upload content to a
@@ -39,13 +46,29 @@ export interface StartContentUploadCommandOutput extends StartContentUploadRespo
  * import { WisdomClient, StartContentUploadCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, StartContentUploadCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
+ * const input = { // StartContentUploadRequest
+ *   knowledgeBaseId: "STRING_VALUE", // required
+ *   contentType: "STRING_VALUE", // required
+ * };
  * const command = new StartContentUploadCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartContentUploadCommandInput - {@link StartContentUploadCommandInput}
+ * @returns {@link StartContentUploadCommandOutput}
  * @see {@link StartContentUploadCommandInput} for command's `input` shape.
  * @see {@link StartContentUploadCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by a service.</p>
+ *
  *
  */
 export class StartContentUploadCommand extends $Command<
@@ -65,6 +88,9 @@ export class StartContentUploadCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartContentUploadCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,7 +119,7 @@ export class StartContentUploadCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartContentUploadRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: StartContentUploadResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -104,12 +130,18 @@ export class StartContentUploadCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartContentUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartContentUploadCommand(input, context);
+    return se_StartContentUploadCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartContentUploadCommandOutput> {
-    return deserializeAws_restJson1StartContentUploadCommand(output, context);
+    return de_StartContentUploadCommand(output, context);
   }
 
   // Start section: command_body_extra

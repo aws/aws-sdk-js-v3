@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import {
-  GetIntrospectionSchemaRequest,
-  GetIntrospectionSchemaRequestFilterSensitiveLog,
-  GetIntrospectionSchemaResponse,
-  GetIntrospectionSchemaResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetIntrospectionSchemaCommand,
-  serializeAws_restJson1GetIntrospectionSchemaCommand,
-} from "../protocols/Aws_restJson1";
+import { GetIntrospectionSchemaRequest, GetIntrospectionSchemaResponse } from "../models/models_0";
+import { de_GetIntrospectionSchemaCommand, se_GetIntrospectionSchemaCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetIntrospectionSchemaCommand}.
+ */
 export interface GetIntrospectionSchemaCommandInput extends GetIntrospectionSchemaRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetIntrospectionSchemaCommand}.
+ */
 export interface GetIntrospectionSchemaCommandOutput extends GetIntrospectionSchemaResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the introspection schema for a GraphQL API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,33 @@ export interface GetIntrospectionSchemaCommandOutput extends GetIntrospectionSch
  * import { AppSyncClient, GetIntrospectionSchemaCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, GetIntrospectionSchemaCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
+ * const input = { // GetIntrospectionSchemaRequest
+ *   apiId: "STRING_VALUE", // required
+ *   format: "SDL" || "JSON", // required
+ *   includeDirectives: true || false,
+ * };
  * const command = new GetIntrospectionSchemaCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetIntrospectionSchemaCommandInput - {@link GetIntrospectionSchemaCommandInput}
+ * @returns {@link GetIntrospectionSchemaCommandOutput}
  * @see {@link GetIntrospectionSchemaCommandInput} for command's `input` shape.
  * @see {@link GetIntrospectionSchemaCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
+ *
+ * @throws {@link GraphQLSchemaException} (client fault)
+ *  <p>The GraphQL schema is not valid.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal AppSync error occurred. Try your request again.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource specified in the request was not found. Check the resource, and then try again.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You aren't authorized to perform this operation.</p>
+ *
  *
  */
 export class GetIntrospectionSchemaCommand extends $Command<
@@ -62,6 +85,9 @@ export class GetIntrospectionSchemaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetIntrospectionSchemaCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +116,8 @@ export class GetIntrospectionSchemaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetIntrospectionSchemaRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetIntrospectionSchemaResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +127,18 @@ export class GetIntrospectionSchemaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetIntrospectionSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetIntrospectionSchemaCommand(input, context);
+    return se_GetIntrospectionSchemaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIntrospectionSchemaCommandOutput> {
-    return deserializeAws_restJson1GetIntrospectionSchemaCommand(output, context);
+    return de_GetIntrospectionSchemaCommand(output, context);
   }
 
   // Start section: command_body_extra

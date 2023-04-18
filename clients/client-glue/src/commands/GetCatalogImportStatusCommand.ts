@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetCatalogImportStatusRequest,
-  GetCatalogImportStatusRequestFilterSensitiveLog,
-  GetCatalogImportStatusResponse,
-  GetCatalogImportStatusResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetCatalogImportStatusCommand,
-  serializeAws_json1_1GetCatalogImportStatusCommand,
-} from "../protocols/Aws_json1_1";
+import { GetCatalogImportStatusRequest, GetCatalogImportStatusResponse } from "../models/models_1";
+import { de_GetCatalogImportStatusCommand, se_GetCatalogImportStatusCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetCatalogImportStatusCommand}.
+ */
 export interface GetCatalogImportStatusCommandInput extends GetCatalogImportStatusRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetCatalogImportStatusCommand}.
+ */
 export interface GetCatalogImportStatusCommandOutput extends GetCatalogImportStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the status of a migration operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,25 @@ export interface GetCatalogImportStatusCommandOutput extends GetCatalogImportSta
  * import { GlueClient, GetCatalogImportStatusCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetCatalogImportStatusCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // GetCatalogImportStatusRequest
+ *   CatalogId: "STRING_VALUE",
+ * };
  * const command = new GetCatalogImportStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCatalogImportStatusCommandInput - {@link GetCatalogImportStatusCommandInput}
+ * @returns {@link GetCatalogImportStatusCommandOutput}
  * @see {@link GetCatalogImportStatusCommandInput} for command's `input` shape.
  * @see {@link GetCatalogImportStatusCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class GetCatalogImportStatusCommand extends $Command<
@@ -62,6 +77,9 @@ export class GetCatalogImportStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCatalogImportStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +108,8 @@ export class GetCatalogImportStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCatalogImportStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCatalogImportStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +119,18 @@ export class GetCatalogImportStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCatalogImportStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetCatalogImportStatusCommand(input, context);
+    return se_GetCatalogImportStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCatalogImportStatusCommandOutput> {
-    return deserializeAws_json1_1GetCatalogImportStatusCommand(output, context);
+    return de_GetCatalogImportStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

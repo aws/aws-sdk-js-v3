@@ -17,21 +17,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupStorageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupStorageClient";
-import {
-  GetChunkInput,
-  GetChunkInputFilterSensitiveLog,
-  GetChunkOutput,
-  GetChunkOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetChunkCommand,
-  serializeAws_restJson1GetChunkCommand,
-} from "../protocols/Aws_restJson1";
+import { GetChunkInput, GetChunkOutput, GetChunkOutputFilterSensitiveLog } from "../models/models_0";
+import { de_GetChunkCommand, se_GetChunkCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetChunkCommand}.
+ */
 export interface GetChunkCommandInput extends GetChunkInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetChunkCommand}.
+ */
 export interface GetChunkCommandOutput extends __WithSdkStreamMixin<GetChunkOutput, "Data">, __MetadataBearer {}
 
 /**
+ * @public
  * Gets the specified object's chunk.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +42,41 @@ export interface GetChunkCommandOutput extends __WithSdkStreamMixin<GetChunkOutp
  * import { BackupStorageClient, GetChunkCommand } from "@aws-sdk/client-backupstorage"; // ES Modules import
  * // const { BackupStorageClient, GetChunkCommand } = require("@aws-sdk/client-backupstorage"); // CommonJS import
  * const client = new BackupStorageClient(config);
+ * const input = { // GetChunkInput
+ *   StorageJobId: "STRING_VALUE", // required
+ *   ChunkToken: "STRING_VALUE", // required
+ * };
  * const command = new GetChunkCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetChunkCommandInput - {@link GetChunkCommandInput}
+ * @returns {@link GetChunkCommandOutput}
  * @see {@link GetChunkCommandInput} for command's `input` shape.
  * @see {@link GetChunkCommandOutput} for command's `response` shape.
  * @see {@link BackupStorageClientResolvedConfig | config} for BackupStorageClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *
+ * @throws {@link IllegalArgumentException} (client fault)
+ *  Non-retryable exception, indicates client error (wrong argument passed to API).
+ *     See exception message for details.
+ *
+ * @throws {@link KMSInvalidKeyUsageException} (client fault)
+ *  Non-retryable exception. Indicates the KMS key usage is incorrect. See exception message for details.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  Non-retryable exception. Attempted to make an operation on non-existing or expired resource.
+ *
+ * @throws {@link RetryableException} (server fault)
+ *  Retryable exception. In general indicates internal failure that can be fixed by retry.
+ *
+ * @throws {@link ServiceInternalException} (server fault)
+ *  Deprecated. To be removed from the model.
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  Increased rate over throttling limits. Can be retried with exponential backoff.
+ *
  *
  */
 export class GetChunkCommand extends $Command<
@@ -65,6 +96,9 @@ export class GetChunkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetChunkCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,7 +125,7 @@ export class GetChunkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetChunkInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetChunkOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -102,15 +136,21 @@ export class GetChunkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetChunkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetChunkCommand(input, context);
+    return se_GetChunkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext
   ): Promise<GetChunkCommandOutput> {
-    return deserializeAws_restJson1GetChunkCommand(output, context);
+    return de_GetChunkCommand(output, context);
   }
 
   // Start section: command_body_extra

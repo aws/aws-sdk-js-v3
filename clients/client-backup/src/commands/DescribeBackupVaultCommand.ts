@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import {
-  DescribeBackupVaultInput,
-  DescribeBackupVaultInputFilterSensitiveLog,
-  DescribeBackupVaultOutput,
-  DescribeBackupVaultOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeBackupVaultCommand,
-  serializeAws_restJson1DescribeBackupVaultCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeBackupVaultInput, DescribeBackupVaultOutput } from "../models/models_0";
+import { de_DescribeBackupVaultCommand, se_DescribeBackupVaultCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeBackupVaultCommand}.
+ */
 export interface DescribeBackupVaultCommandInput extends DescribeBackupVaultInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeBackupVaultCommand}.
+ */
 export interface DescribeBackupVaultCommandOutput extends DescribeBackupVaultOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns metadata about a backup vault specified by its name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,32 @@ export interface DescribeBackupVaultCommandOutput extends DescribeBackupVaultOut
  * import { BackupClient, DescribeBackupVaultCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, DescribeBackupVaultCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // DescribeBackupVaultInput
+ *   BackupVaultName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeBackupVaultCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBackupVaultCommandInput - {@link DescribeBackupVaultCommandInput}
+ * @returns {@link DescribeBackupVaultCommandOutput}
  * @see {@link DescribeBackupVaultCommandInput} for command's `input` shape.
  * @see {@link DescribeBackupVaultCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
+ *          out of range.</p>
+ *
+ * @throws {@link MissingParameterValueException} (client fault)
+ *  <p>Indicates that a required parameter is missing.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource that is required for the action doesn't exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request failed due to a temporary failure of the server.</p>
+ *
  *
  */
 export class DescribeBackupVaultCommand extends $Command<
@@ -62,6 +84,9 @@ export class DescribeBackupVaultCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBackupVaultCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +115,8 @@ export class DescribeBackupVaultCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeBackupVaultInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeBackupVaultOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +126,18 @@ export class DescribeBackupVaultCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeBackupVaultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeBackupVaultCommand(input, context);
+    return se_DescribeBackupVaultCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBackupVaultCommandOutput> {
-    return deserializeAws_restJson1DescribeBackupVaultCommand(output, context);
+    return de_DescribeBackupVaultCommand(output, context);
   }
 
   // Start section: command_body_extra

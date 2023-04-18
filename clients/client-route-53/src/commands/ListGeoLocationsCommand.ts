@@ -13,30 +13,33 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListGeoLocationsRequest,
-  ListGeoLocationsRequestFilterSensitiveLog,
-  ListGeoLocationsResponse,
-  ListGeoLocationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlListGeoLocationsCommand,
-  serializeAws_restXmlListGeoLocationsCommand,
-} from "../protocols/Aws_restXml";
+import { ListGeoLocationsRequest, ListGeoLocationsResponse } from "../models/models_0";
+import { de_ListGeoLocationsCommand, se_ListGeoLocationsCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * @public
+ *
+ * The input for {@link ListGeoLocationsCommand}.
+ */
 export interface ListGeoLocationsCommandInput extends ListGeoLocationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListGeoLocationsCommand}.
+ */
 export interface ListGeoLocationsCommandOutput extends ListGeoLocationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of supported geographic locations.</p>
- * 		       <p>Countries are listed first, and continents are listed last. If Amazon Route 53
+ *          <p>Countries are listed first, and continents are listed last. If Amazon Route 53
  * 			supports subdivisions for a country (for example, states or provinces), the subdivisions
  * 			for that country are listed in alphabetical order immediately after the corresponding
  * 			country.</p>
- * 		       <p>Route 53 does not perform authorization for this API because it retrieves information
+ *          <p>Route 53 does not perform authorization for this API because it retrieves information
  * 			that is already available to the public.</p>
- * 		       <p>For a list of supported geolocation codes, see the <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GeoLocation.html">GeoLocation</a> data
+ *          <p>For a list of supported geolocation codes, see the <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GeoLocation.html">GeoLocation</a> data
  * 			type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,13 +47,25 @@ export interface ListGeoLocationsCommandOutput extends ListGeoLocationsResponse,
  * import { Route53Client, ListGeoLocationsCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, ListGeoLocationsCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = { // ListGeoLocationsRequest
+ *   StartContinentCode: "STRING_VALUE",
+ *   StartCountryCode: "STRING_VALUE",
+ *   StartSubdivisionCode: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListGeoLocationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListGeoLocationsCommandInput - {@link ListGeoLocationsCommandInput}
+ * @returns {@link ListGeoLocationsCommandOutput}
  * @see {@link ListGeoLocationsCommandInput} for command's `input` shape.
  * @see {@link ListGeoLocationsCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
  *
  */
 export class ListGeoLocationsCommand extends $Command<
@@ -70,6 +85,9 @@ export class ListGeoLocationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListGeoLocationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +116,8 @@ export class ListGeoLocationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListGeoLocationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListGeoLocationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +127,18 @@ export class ListGeoLocationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListGeoLocationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListGeoLocationsCommand(input, context);
+    return se_ListGeoLocationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGeoLocationsCommandOutput> {
-    return deserializeAws_restXmlListGeoLocationsCommand(output, context);
+    return de_ListGeoLocationsCommand(output, context);
   }
 
   // Start section: command_body_extra

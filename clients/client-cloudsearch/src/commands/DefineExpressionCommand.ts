@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import {
-  DefineExpressionRequest,
-  DefineExpressionRequestFilterSensitiveLog,
-  DefineExpressionResponse,
-  DefineExpressionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDefineExpressionCommand,
-  serializeAws_queryDefineExpressionCommand,
-} from "../protocols/Aws_query";
+import { DefineExpressionRequest, DefineExpressionResponse } from "../models/models_0";
+import { de_DefineExpressionCommand, se_DefineExpressionCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DefineExpressionCommand}.
+ */
 export interface DefineExpressionCommandInput extends DefineExpressionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DefineExpressionCommand}.
+ */
 export interface DefineExpressionCommandOutput extends DefineExpressionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Configures an <code><a>Expression</a></code> for the search domain. Used to create new expressions and modify existing ones.  If the expression exists, the new configuration replaces the old one. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html" target="_blank">Configuring Expressions</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,42 @@ export interface DefineExpressionCommandOutput extends DefineExpressionResponse,
  * import { CloudSearchClient, DefineExpressionCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
  * // const { CloudSearchClient, DefineExpressionCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
  * const client = new CloudSearchClient(config);
+ * const input = { // DefineExpressionRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   Expression: { // Expression
+ *     ExpressionName: "STRING_VALUE", // required
+ *     ExpressionValue: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new DefineExpressionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DefineExpressionCommandInput - {@link DefineExpressionCommandInput}
+ * @returns {@link DefineExpressionCommandOutput}
  * @see {@link DefineExpressionCommandInput} for command's `input` shape.
  * @see {@link DefineExpressionCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
+ *
+ * @throws {@link BaseException} (client fault)
+ *  <p>An error occurred while processing the request.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>An internal error occurred while processing the request. If this problem persists,
+ *       report an issue from the <a href="http://status.aws.amazon.com/" target="_blank">Service Health Dashboard</a>.</p>
+ *
+ * @throws {@link InvalidTypeException} (client fault)
+ *  <p>The request was rejected because it specified an invalid type definition.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request was rejected because a resource limit has already been met.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request was rejected because it attempted to reference a resource that does not exist.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request was rejected because it has invalid parameters.</p>
+ *
  *
  */
 export class DefineExpressionCommand extends $Command<
@@ -62,6 +94,9 @@ export class DefineExpressionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DefineExpressionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +125,8 @@ export class DefineExpressionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DefineExpressionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DefineExpressionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +136,18 @@ export class DefineExpressionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DefineExpressionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDefineExpressionCommand(input, context);
+    return se_DefineExpressionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DefineExpressionCommandOutput> {
-    return deserializeAws_queryDefineExpressionCommand(output, context);
+    return de_DefineExpressionCommand(output, context);
   }
 
   // Start section: command_body_extra

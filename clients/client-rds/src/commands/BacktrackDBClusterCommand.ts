@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  BacktrackDBClusterMessage,
-  BacktrackDBClusterMessageFilterSensitiveLog,
-  DBClusterBacktrack,
-  DBClusterBacktrackFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryBacktrackDBClusterCommand,
-  serializeAws_queryBacktrackDBClusterCommand,
-} from "../protocols/Aws_query";
+import { BacktrackDBClusterMessage, DBClusterBacktrack } from "../models/models_0";
+import { de_BacktrackDBClusterCommand, se_BacktrackDBClusterCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link BacktrackDBClusterCommand}.
+ */
 export interface BacktrackDBClusterCommandInput extends BacktrackDBClusterMessage {}
+/**
+ * @public
+ *
+ * The output of {@link BacktrackDBClusterCommand}.
+ */
 export interface BacktrackDBClusterCommandOutput extends DBClusterBacktrack, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Backtracks a DB cluster to a specific time, without creating a new DB cluster.</p>
  *          <p>For more information on backtracking, see
  *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.Backtrack.html">
@@ -43,13 +46,29 @@ export interface BacktrackDBClusterCommandOutput extends DBClusterBacktrack, __M
  * import { RDSClient, BacktrackDBClusterCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, BacktrackDBClusterCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // BacktrackDBClusterMessage
+ *   DBClusterIdentifier: "STRING_VALUE", // required
+ *   BacktrackTo: new Date("TIMESTAMP"), // required
+ *   Force: true || false,
+ *   UseEarliestTimeOnPointInTimeUnavailable: true || false,
+ * };
  * const command = new BacktrackDBClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BacktrackDBClusterCommandInput - {@link BacktrackDBClusterCommandInput}
+ * @returns {@link BacktrackDBClusterCommandOutput}
  * @see {@link BacktrackDBClusterCommandInput} for command's `input` shape.
  * @see {@link BacktrackDBClusterCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ * @throws {@link DBClusterNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+ *
+ * @throws {@link InvalidDBClusterStateFault} (client fault)
+ *  <p>The requested operation can't be performed while the cluster is in this state.</p>
+ *
  *
  */
 export class BacktrackDBClusterCommand extends $Command<
@@ -69,6 +88,9 @@ export class BacktrackDBClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BacktrackDBClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +119,8 @@ export class BacktrackDBClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BacktrackDBClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DBClusterBacktrackFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +130,18 @@ export class BacktrackDBClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BacktrackDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryBacktrackDBClusterCommand(input, context);
+    return se_BacktrackDBClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BacktrackDBClusterCommandOutput> {
-    return deserializeAws_queryBacktrackDBClusterCommand(output, context);
+    return de_BacktrackDBClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

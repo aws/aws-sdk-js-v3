@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import {
-  DescribeAccountPreferencesRequest,
-  DescribeAccountPreferencesRequestFilterSensitiveLog,
-  DescribeAccountPreferencesResponse,
-  DescribeAccountPreferencesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeAccountPreferencesCommand,
-  serializeAws_restJson1DescribeAccountPreferencesCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeAccountPreferencesRequest, DescribeAccountPreferencesResponse } from "../models/models_0";
+import { de_DescribeAccountPreferencesCommand, se_DescribeAccountPreferencesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeAccountPreferencesCommand}.
+ */
 export interface DescribeAccountPreferencesCommandInput extends DescribeAccountPreferencesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeAccountPreferencesCommand}.
+ */
 export interface DescribeAccountPreferencesCommandOutput extends DescribeAccountPreferencesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the account preferences settings for the Amazon Web Services account associated with the user making the request, in the current Amazon Web Services Region.
  *       For more information, see <a href="efs/latest/ug/manage-efs-resource-ids.html">Managing Amazon EFS resource IDs</a>.</p>
  * @example
@@ -37,13 +40,23 @@ export interface DescribeAccountPreferencesCommandOutput extends DescribeAccount
  * import { EFSClient, DescribeAccountPreferencesCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, DescribeAccountPreferencesCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
+ * const input = { // DescribeAccountPreferencesRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeAccountPreferencesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAccountPreferencesCommandInput - {@link DescribeAccountPreferencesCommandInput}
+ * @returns {@link DescribeAccountPreferencesCommandOutput}
  * @see {@link DescribeAccountPreferencesCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountPreferencesCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Returned if an error occurred on the server side.</p>
+ *
  *
  */
 export class DescribeAccountPreferencesCommand extends $Command<
@@ -63,6 +76,9 @@ export class DescribeAccountPreferencesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAccountPreferencesCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +107,8 @@ export class DescribeAccountPreferencesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAccountPreferencesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAccountPreferencesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,15 +118,21 @@ export class DescribeAccountPreferencesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAccountPreferencesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAccountPreferencesCommand(input, context);
+    return se_DescribeAccountPreferencesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAccountPreferencesCommandOutput> {
-    return deserializeAws_restJson1DescribeAccountPreferencesCommand(output, context);
+    return de_DescribeAccountPreferencesCommand(output, context);
   }
 
   // Start section: command_body_extra

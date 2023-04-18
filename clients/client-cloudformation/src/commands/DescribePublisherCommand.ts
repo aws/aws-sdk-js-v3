@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  DescribePublisherInput,
-  DescribePublisherInputFilterSensitiveLog,
-  DescribePublisherOutput,
-  DescribePublisherOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribePublisherCommand,
-  serializeAws_queryDescribePublisherCommand,
-} from "../protocols/Aws_query";
+import { DescribePublisherInput, DescribePublisherOutput } from "../models/models_0";
+import { de_DescribePublisherCommand, se_DescribePublisherCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribePublisherCommand}.
+ */
 export interface DescribePublisherCommandInput extends DescribePublisherInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribePublisherCommand}.
+ */
 export interface DescribePublisherCommandOutput extends DescribePublisherOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a CloudFormation extension publisher.</p>
  *          <p>If you don't supply a <code>PublisherId</code>, and you have registered as an extension
  *          publisher, <code>DescribePublisher</code> returns information about your own publisher
@@ -53,13 +56,22 @@ export interface DescribePublisherCommandOutput extends DescribePublisherOutput,
  * import { CloudFormationClient, DescribePublisherCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DescribePublisherCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // DescribePublisherInput
+ *   PublisherId: "STRING_VALUE",
+ * };
  * const command = new DescribePublisherCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePublisherCommandInput - {@link DescribePublisherCommandInput}
+ * @returns {@link DescribePublisherCommandOutput}
  * @see {@link DescribePublisherCommandInput} for command's `input` shape.
  * @see {@link DescribePublisherCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
+ *
+ * @throws {@link CFNRegistryException} (client fault)
+ *  <p>An error occurred during a CloudFormation registry operation.</p>
+ *
  *
  */
 export class DescribePublisherCommand extends $Command<
@@ -79,6 +91,9 @@ export class DescribePublisherCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePublisherCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +122,8 @@ export class DescribePublisherCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePublisherInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribePublisherOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +133,18 @@ export class DescribePublisherCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePublisherCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribePublisherCommand(input, context);
+    return se_DescribePublisherCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePublisherCommandOutput> {
-    return deserializeAws_queryDescribePublisherCommand(output, context);
+    return de_DescribePublisherCommand(output, context);
   }
 
   // Start section: command_body_extra

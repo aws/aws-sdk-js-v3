@@ -13,45 +13,63 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutDedicatedIpInPoolRequest,
-  PutDedicatedIpInPoolRequestFilterSensitiveLog,
-  PutDedicatedIpInPoolResponse,
-  PutDedicatedIpInPoolResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutDedicatedIpInPoolCommand,
-  serializeAws_restJson1PutDedicatedIpInPoolCommand,
-} from "../protocols/Aws_restJson1";
+import { PutDedicatedIpInPoolRequest, PutDedicatedIpInPoolResponse } from "../models/models_0";
+import { de_PutDedicatedIpInPoolCommand, se_PutDedicatedIpInPoolCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
+/**
+ * @public
+ *
+ * The input for {@link PutDedicatedIpInPoolCommand}.
+ */
 export interface PutDedicatedIpInPoolCommandInput extends PutDedicatedIpInPoolRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutDedicatedIpInPoolCommand}.
+ */
 export interface PutDedicatedIpInPoolCommandOutput extends PutDedicatedIpInPoolResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Move a dedicated IP address to an existing dedicated IP pool.</p>
- *         <note>
+ *          <note>
  *             <p>The dedicated IP address that you specify must already exist, and must be
  *                 associated with your Amazon Web Services account.
  *
  *             </p>
  *             <p>The dedicated IP pool you specify must already exist. You can create a new pool by
  *                 using the <code>CreateDedicatedIpPool</code> operation.</p>
- *
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SESv2Client, PutDedicatedIpInPoolCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, PutDedicatedIpInPoolCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = { // PutDedicatedIpInPoolRequest
+ *   Ip: "STRING_VALUE", // required
+ *   DestinationPoolName: "STRING_VALUE", // required
+ * };
  * const command = new PutDedicatedIpInPoolCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutDedicatedIpInPoolCommandInput - {@link PutDedicatedIpInPoolCommandInput}
+ * @returns {@link PutDedicatedIpInPoolCommandOutput}
  * @see {@link PutDedicatedIpInPoolCommandInput} for command's `input` shape.
  * @see {@link PutDedicatedIpInPoolCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input you provided is invalid.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource you attempted to access doesn't exist.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Too many requests have been made to the operation.</p>
+ *
  *
  */
 export class PutDedicatedIpInPoolCommand extends $Command<
@@ -71,6 +89,9 @@ export class PutDedicatedIpInPoolCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutDedicatedIpInPoolCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +120,8 @@ export class PutDedicatedIpInPoolCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutDedicatedIpInPoolRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutDedicatedIpInPoolResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +131,18 @@ export class PutDedicatedIpInPoolCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutDedicatedIpInPoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutDedicatedIpInPoolCommand(input, context);
+    return se_PutDedicatedIpInPoolCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutDedicatedIpInPoolCommandOutput> {
-    return deserializeAws_restJson1PutDedicatedIpInPoolCommand(output, context);
+    return de_PutDedicatedIpInPoolCommand(output, context);
   }
 
   // Start section: command_body_extra

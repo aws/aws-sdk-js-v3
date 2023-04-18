@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import {
-  GetMigrationsRequest,
-  GetMigrationsRequestFilterSensitiveLog,
-  GetMigrationsResponse,
-  GetMigrationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetMigrationsCommand,
-  serializeAws_restJson1GetMigrationsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetMigrationsRequest, GetMigrationsResponse } from "../models/models_0";
+import { de_GetMigrationsCommand, se_GetMigrationsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetMigrationsCommand}.
+ */
 export interface GetMigrationsCommandInput extends GetMigrationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetMigrationsCommand}.
+ */
 export interface GetMigrationsCommandOutput extends GetMigrationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of migrations between Amazon Lex V1 and Amazon Lex V2.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,35 @@ export interface GetMigrationsCommandOutput extends GetMigrationsResponse, __Met
  * import { LexModelBuildingServiceClient, GetMigrationsCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, GetMigrationsCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
+ * const input = { // GetMigrationsRequest
+ *   sortByAttribute: "STRING_VALUE",
+ *   sortByOrder: "STRING_VALUE",
+ *   v1BotNameContains: "STRING_VALUE",
+ *   migrationStatusEquals: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new GetMigrationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMigrationsCommandInput - {@link GetMigrationsCommandInput}
+ * @returns {@link GetMigrationsCommandOutput}
  * @see {@link GetMigrationsCommandInput} for command's `input` shape.
  * @see {@link GetMigrationsCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is not well formed. For example, a value is invalid or
+ *       a required field is missing. Check the field values, and try
+ *       again.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal Amazon Lex error occurred. Try your request again.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request exceeded a limit. Try your request again.</p>
+ *
  *
  */
 export class GetMigrationsCommand extends $Command<
@@ -66,6 +91,9 @@ export class GetMigrationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMigrationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +120,8 @@ export class GetMigrationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMigrationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMigrationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +131,18 @@ export class GetMigrationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMigrationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMigrationsCommand(input, context);
+    return se_GetMigrationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMigrationsCommandOutput> {
-    return deserializeAws_restJson1GetMigrationsCommand(output, context);
+    return de_GetMigrationsCommand(output, context);
   }
 
   // Start section: command_body_extra

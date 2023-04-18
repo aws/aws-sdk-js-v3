@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListPagesByEngagementRequest,
-  ListPagesByEngagementRequestFilterSensitiveLog,
-  ListPagesByEngagementResult,
-  ListPagesByEngagementResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListPagesByEngagementCommand,
-  serializeAws_json1_1ListPagesByEngagementCommand,
-} from "../protocols/Aws_json1_1";
+import { ListPagesByEngagementRequest, ListPagesByEngagementResult } from "../models/models_0";
+import { de_ListPagesByEngagementCommand, se_ListPagesByEngagementCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListPagesByEngagementCommand}.
+ */
 export interface ListPagesByEngagementCommandInput extends ListPagesByEngagementRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListPagesByEngagementCommand}.
+ */
 export interface ListPagesByEngagementCommandOutput extends ListPagesByEngagementResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the engagements to contact channels that occurred by engaging a contact.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,37 @@ export interface ListPagesByEngagementCommandOutput extends ListPagesByEngagemen
  * import { SSMContactsClient, ListPagesByEngagementCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, ListPagesByEngagementCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
  * const client = new SSMContactsClient(config);
+ * const input = { // ListPagesByEngagementRequest
+ *   EngagementId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListPagesByEngagementCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPagesByEngagementCommandInput - {@link ListPagesByEngagementCommandInput}
+ * @returns {@link ListPagesByEngagementCommandOutput}
  * @see {@link ListPagesByEngagementCommandInput} for command's `input` shape.
  * @see {@link ListPagesByEngagementCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient access to perform this operation.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Unexpected error occurred while processing the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Request references a resource that doesn't exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
+ *          service.</p>
+ *
  *
  */
 export class ListPagesByEngagementCommand extends $Command<
@@ -62,6 +89,9 @@ export class ListPagesByEngagementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPagesByEngagementCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +120,8 @@ export class ListPagesByEngagementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPagesByEngagementRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPagesByEngagementResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +131,18 @@ export class ListPagesByEngagementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPagesByEngagementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListPagesByEngagementCommand(input, context);
+    return se_ListPagesByEngagementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPagesByEngagementCommandOutput> {
-    return deserializeAws_json1_1ListPagesByEngagementCommand(output, context);
+    return de_ListPagesByEngagementCommand(output, context);
   }
 
   // Start section: command_body_extra

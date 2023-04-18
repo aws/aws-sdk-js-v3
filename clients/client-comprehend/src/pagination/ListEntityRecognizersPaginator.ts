@@ -6,12 +6,11 @@ import {
   ListEntityRecognizersCommandInput,
   ListEntityRecognizersCommandOutput,
 } from "../commands/ListEntityRecognizersCommand";
-import { Comprehend } from "../Comprehend";
 import { ComprehendClient } from "../ComprehendClient";
 import { ComprehendPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ComprehendClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListEntityRecognizersCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Comprehend,
-  input: ListEntityRecognizersCommandInput,
-  ...args: any
-): Promise<ListEntityRecognizersCommandOutput> => {
-  // @ts-ignore
-  return await client.listEntityRecognizers(input, ...args);
-};
 export async function* paginateListEntityRecognizers(
   config: ComprehendPaginationConfiguration,
   input: ListEntityRecognizersCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListEntityRecognizers(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Comprehend) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ComprehendClient) {
+    if (config.client instanceof ComprehendClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Comprehend | ComprehendClient");

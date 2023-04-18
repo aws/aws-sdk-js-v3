@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ModifySnapshotTierRequest,
-  ModifySnapshotTierRequestFilterSensitiveLog,
-  ModifySnapshotTierResult,
-  ModifySnapshotTierResultFilterSensitiveLog,
-} from "../models/models_6";
-import {
-  deserializeAws_ec2ModifySnapshotTierCommand,
-  serializeAws_ec2ModifySnapshotTierCommand,
-} from "../protocols/Aws_ec2";
+import { ModifySnapshotTierRequest, ModifySnapshotTierResult } from "../models/models_6";
+import { de_ModifySnapshotTierCommand, se_ModifySnapshotTierCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link ModifySnapshotTierCommand}.
+ */
 export interface ModifySnapshotTierCommandInput extends ModifySnapshotTierRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ModifySnapshotTierCommand}.
+ */
 export interface ModifySnapshotTierCommandOutput extends ModifySnapshotTierResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Archives an Amazon EBS snapshot. When you archive a snapshot, it is converted to a full
  *       snapshot that includes all of the blocks of data that were written to the volume at the
  *       time the snapshot was created, and moved from the standard tier to the archive
@@ -40,13 +43,21 @@ export interface ModifySnapshotTierCommandOutput extends ModifySnapshotTierResul
  * import { EC2Client, ModifySnapshotTierCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifySnapshotTierCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ModifySnapshotTierRequest
+ *   SnapshotId: "STRING_VALUE", // required
+ *   StorageTier: "archive",
+ *   DryRun: true || false,
+ * };
  * const command = new ModifySnapshotTierCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifySnapshotTierCommandInput - {@link ModifySnapshotTierCommandInput}
+ * @returns {@link ModifySnapshotTierCommandOutput}
  * @see {@link ModifySnapshotTierCommandInput} for command's `input` shape.
  * @see {@link ModifySnapshotTierCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class ModifySnapshotTierCommand extends $Command<
@@ -66,6 +77,9 @@ export class ModifySnapshotTierCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifySnapshotTierCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +108,8 @@ export class ModifySnapshotTierCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifySnapshotTierRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifySnapshotTierResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +119,18 @@ export class ModifySnapshotTierCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifySnapshotTierCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifySnapshotTierCommand(input, context);
+    return se_ModifySnapshotTierCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifySnapshotTierCommandOutput> {
-    return deserializeAws_ec2ModifySnapshotTierCommand(output, context);
+    return de_ModifySnapshotTierCommand(output, context);
   }
 
   // Start section: command_body_extra

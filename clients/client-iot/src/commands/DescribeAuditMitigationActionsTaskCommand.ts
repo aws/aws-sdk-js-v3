@@ -16,21 +16,30 @@ import {
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import {
   DescribeAuditMitigationActionsTaskRequest,
-  DescribeAuditMitigationActionsTaskRequestFilterSensitiveLog,
   DescribeAuditMitigationActionsTaskResponse,
-  DescribeAuditMitigationActionsTaskResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1DescribeAuditMitigationActionsTaskCommand,
-  serializeAws_restJson1DescribeAuditMitigationActionsTaskCommand,
+  de_DescribeAuditMitigationActionsTaskCommand,
+  se_DescribeAuditMitigationActionsTaskCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeAuditMitigationActionsTaskCommand}.
+ */
 export interface DescribeAuditMitigationActionsTaskCommandInput extends DescribeAuditMitigationActionsTaskRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeAuditMitigationActionsTaskCommand}.
+ */
 export interface DescribeAuditMitigationActionsTaskCommandOutput
   extends DescribeAuditMitigationActionsTaskResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about an audit mitigation task that is used to apply mitigation actions to a set of audit findings. Properties include the actions being applied, the audit checks to which they're being applied, the task status, and aggregated task statistics.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +47,31 @@ export interface DescribeAuditMitigationActionsTaskCommandOutput
  * import { IoTClient, DescribeAuditMitigationActionsTaskCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeAuditMitigationActionsTaskCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // DescribeAuditMitigationActionsTaskRequest
+ *   taskId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeAuditMitigationActionsTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAuditMitigationActionsTaskCommandInput - {@link DescribeAuditMitigationActionsTaskCommandInput}
+ * @returns {@link DescribeAuditMitigationActionsTaskCommandOutput}
  * @see {@link DescribeAuditMitigationActionsTaskCommandInput} for command's `input` shape.
  * @see {@link DescribeAuditMitigationActionsTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
  *
  */
 export class DescribeAuditMitigationActionsTaskCommand extends $Command<
@@ -64,6 +91,9 @@ export class DescribeAuditMitigationActionsTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAuditMitigationActionsTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +122,8 @@ export class DescribeAuditMitigationActionsTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAuditMitigationActionsTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAuditMitigationActionsTaskResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +133,24 @@ export class DescribeAuditMitigationActionsTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeAuditMitigationActionsTaskCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAuditMitigationActionsTaskCommand(input, context);
+    return se_DescribeAuditMitigationActionsTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAuditMitigationActionsTaskCommandOutput> {
-    return deserializeAws_restJson1DescribeAuditMitigationActionsTaskCommand(output, context);
+    return de_DescribeAuditMitigationActionsTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

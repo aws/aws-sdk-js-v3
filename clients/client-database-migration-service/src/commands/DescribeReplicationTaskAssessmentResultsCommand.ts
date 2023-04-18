@@ -20,22 +20,31 @@ import {
 } from "../DatabaseMigrationServiceClient";
 import {
   DescribeReplicationTaskAssessmentResultsMessage,
-  DescribeReplicationTaskAssessmentResultsMessageFilterSensitiveLog,
   DescribeReplicationTaskAssessmentResultsResponse,
-  DescribeReplicationTaskAssessmentResultsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeReplicationTaskAssessmentResultsCommand,
-  serializeAws_json1_1DescribeReplicationTaskAssessmentResultsCommand,
+  de_DescribeReplicationTaskAssessmentResultsCommand,
+  se_DescribeReplicationTaskAssessmentResultsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeReplicationTaskAssessmentResultsCommand}.
+ */
 export interface DescribeReplicationTaskAssessmentResultsCommandInput
   extends DescribeReplicationTaskAssessmentResultsMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeReplicationTaskAssessmentResultsCommand}.
+ */
 export interface DescribeReplicationTaskAssessmentResultsCommandOutput
   extends DescribeReplicationTaskAssessmentResultsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the task assessment results from the Amazon S3 bucket that DMS creates in your
  *           Amazon Web Services account.  This action always returns the
  *          latest results.</p>
@@ -48,13 +57,24 @@ export interface DescribeReplicationTaskAssessmentResultsCommandOutput
  * import { DatabaseMigrationServiceClient, DescribeReplicationTaskAssessmentResultsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DescribeReplicationTaskAssessmentResultsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // DescribeReplicationTaskAssessmentResultsMessage
+ *   ReplicationTaskArn: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeReplicationTaskAssessmentResultsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReplicationTaskAssessmentResultsCommandInput - {@link DescribeReplicationTaskAssessmentResultsCommandInput}
+ * @returns {@link DescribeReplicationTaskAssessmentResultsCommandOutput}
  * @see {@link DescribeReplicationTaskAssessmentResultsCommandInput} for command's `input` shape.
  * @see {@link DescribeReplicationTaskAssessmentResultsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundFault} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
  *
  */
 export class DescribeReplicationTaskAssessmentResultsCommand extends $Command<
@@ -74,6 +94,9 @@ export class DescribeReplicationTaskAssessmentResultsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReplicationTaskAssessmentResultsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +131,8 @@ export class DescribeReplicationTaskAssessmentResultsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeReplicationTaskAssessmentResultsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeReplicationTaskAssessmentResultsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,18 +142,24 @@ export class DescribeReplicationTaskAssessmentResultsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeReplicationTaskAssessmentResultsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeReplicationTaskAssessmentResultsCommand(input, context);
+    return se_DescribeReplicationTaskAssessmentResultsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReplicationTaskAssessmentResultsCommandOutput> {
-    return deserializeAws_json1_1DescribeReplicationTaskAssessmentResultsCommand(output, context);
+    return de_DescribeReplicationTaskAssessmentResultsCommand(output, context);
   }
 
   // Start section: command_body_extra

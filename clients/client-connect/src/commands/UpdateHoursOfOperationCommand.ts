@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateHoursOfOperationRequest, UpdateHoursOfOperationRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateHoursOfOperationCommand,
-  serializeAws_restJson1UpdateHoursOfOperationCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateHoursOfOperationRequest } from "../models/models_1";
+import { de_UpdateHoursOfOperationCommand, se_UpdateHoursOfOperationCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateHoursOfOperationCommand}.
+ */
 export interface UpdateHoursOfOperationCommandInput extends UpdateHoursOfOperationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateHoursOfOperationCommand}.
+ */
 export interface UpdateHoursOfOperationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Updates the hours of operation.</p>
  * @example
@@ -32,13 +40,54 @@ export interface UpdateHoursOfOperationCommandOutput extends __MetadataBearer {}
  * import { ConnectClient, UpdateHoursOfOperationCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateHoursOfOperationCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // UpdateHoursOfOperationRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   HoursOfOperationId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   TimeZone: "STRING_VALUE",
+ *   Config: [ // HoursOfOperationConfigList
+ *     { // HoursOfOperationConfig
+ *       Day: "SUNDAY" || "MONDAY" || "TUESDAY" || "WEDNESDAY" || "THURSDAY" || "FRIDAY" || "SATURDAY", // required
+ *       StartTime: { // HoursOfOperationTimeSlice
+ *         Hours: Number("int"), // required
+ *         Minutes: Number("int"), // required
+ *       },
+ *       EndTime: {
+ *         Hours: Number("int"), // required
+ *         Minutes: Number("int"), // required
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new UpdateHoursOfOperationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateHoursOfOperationCommandInput - {@link UpdateHoursOfOperationCommandInput}
+ * @returns {@link UpdateHoursOfOperationCommandOutput}
  * @see {@link UpdateHoursOfOperationCommandInput} for command's `input` shape.
  * @see {@link UpdateHoursOfOperationCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link DuplicateResourceException} (client fault)
+ *  <p>A resource with the specified name already exists.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
  *
  */
 export class UpdateHoursOfOperationCommand extends $Command<
@@ -58,6 +107,9 @@ export class UpdateHoursOfOperationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateHoursOfOperationCommandInput) {
     // Start section: command_constructor
     super();
@@ -86,8 +138,8 @@ export class UpdateHoursOfOperationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateHoursOfOperationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -97,12 +149,18 @@ export class UpdateHoursOfOperationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateHoursOfOperationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateHoursOfOperationCommand(input, context);
+    return se_UpdateHoursOfOperationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateHoursOfOperationCommandOutput> {
-    return deserializeAws_restJson1UpdateHoursOfOperationCommand(output, context);
+    return de_UpdateHoursOfOperationCommand(output, context);
   }
 
   // Start section: command_body_extra

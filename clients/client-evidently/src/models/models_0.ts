@@ -7,6 +7,7 @@ import {
 import { EvidentlyServiceException as __BaseException } from "./EvidentlyServiceException";
 
 /**
+ * @public
  * <p>You do not have sufficient permissions to perform this action. </p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -26,6 +27,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This structure assigns a feature variation to one user session.</p>
  */
 export interface EvaluationRequest {
@@ -48,6 +50,9 @@ export interface EvaluationRequest {
   evaluationContext?: __LazyJsonString | string;
 }
 
+/**
+ * @public
+ */
 export interface BatchEvaluateFeatureRequest {
   /**
    * <p>The name or ARN of the project that contains the feature being evaluated.</p>
@@ -61,6 +66,7 @@ export interface BatchEvaluateFeatureRequest {
 }
 
 /**
+ * @public
  * <p>The value assigned to a feature variation. This structure must contain exactly one
  *       field. It can be <code>boolValue</code>, <code>doubleValue</code>, <code>longValue</code>, or
  *         <code>stringValue</code>.</p>
@@ -72,6 +78,9 @@ export type VariableValue =
   | VariableValue.StringValueMember
   | VariableValue.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace VariableValue {
   /**
    * <p>If this feature uses the Boolean variation type, this field contains the Boolean value of
@@ -147,6 +156,7 @@ export namespace VariableValue {
 }
 
 /**
+ * @public
  * <p>This structure displays the results of one feature evaluation assignment to one user
  *       session.</p>
  */
@@ -191,6 +201,9 @@ export interface EvaluationResult {
   details?: __LazyJsonString | string;
 }
 
+/**
+ * @public
+ */
 export interface BatchEvaluateFeatureResponse {
   /**
    * <p>An array of structures, where each structure displays the results of one feature evaluation
@@ -200,6 +213,7 @@ export interface BatchEvaluateFeatureResponse {
 }
 
 /**
+ * @public
  * <p>The request references a resource that does not exist.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -231,6 +245,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied because of request throttling. Retry the request.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -262,6 +277,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A structure containing an error name and message.</p>
  */
 export interface ValidationExceptionField {
@@ -276,14 +292,24 @@ export interface ValidationExceptionField {
   message: string | undefined;
 }
 
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "cannotParse",
-  FIELD_VALIDATION_FAILED = "fieldValidationFailed",
-  OTHER = "other",
-  UNKNOWN_OPERATION = "unknownOperation",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "cannotParse",
+  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
+  OTHER: "other",
+  UNKNOWN_OPERATION: "unknownOperation",
+} as const;
 
 /**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
+
+/**
+ * @public
  * <p>The value of a parameter in the request caused an error.</p>
  */
 export class ValidationException extends __BaseException {
@@ -314,12 +340,22 @@ export class ValidationException extends __BaseException {
   }
 }
 
-export enum ChangeDirectionEnum {
-  DECREASE = "DECREASE",
-  INCREASE = "INCREASE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ChangeDirectionEnum = {
+  DECREASE: "DECREASE",
+  INCREASE: "INCREASE",
+} as const;
 
 /**
+ * @public
+ */
+export type ChangeDirectionEnum = (typeof ChangeDirectionEnum)[keyof typeof ChangeDirectionEnum];
+
+/**
+ * @public
  * <p>A structure containing the CloudWatch Logs log group where the project stores evaluation
  *        events.</p>
  */
@@ -332,6 +368,7 @@ export interface CloudWatchLogsDestination {
 }
 
 /**
+ * @public
  * <p>A structure containing the CloudWatch Logs log group where the project stores evaluation
  *        events.</p>
  */
@@ -344,6 +381,7 @@ export interface CloudWatchLogsDestinationConfig {
 }
 
 /**
+ * @public
  * <p>A resource was in an inconsistent state during an update or a deletion.</p>
  */
 export class ConflictException extends __BaseException {
@@ -375,6 +413,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This structure defines a metric that you want to use to evaluate the variations
  *        during a launch or experiment.</p>
  */
@@ -409,6 +448,7 @@ export interface MetricDefinitionConfig {
 }
 
 /**
+ * @public
  * <p>Use this structure to tell Evidently whether higher or lower values are desired for a metric that is
  *        used in an experiment.</p>
  */
@@ -430,6 +470,7 @@ export interface MetricGoalConfig {
 }
 
 /**
+ * @public
  * <p>A structure that contains the configuration of which variation to use as the "control"
  *       version. The "control" version  is used for comparison with other variations. This structure
  *       also specifies how much experiment traffic is allocated to each variation.</p>
@@ -450,6 +491,7 @@ export interface OnlineAbConfig {
 }
 
 /**
+ * @public
  * <p>A structure that defines one treatment in an experiment. A treatment is a variation of the feature
  *       that you are including in the experiment.</p>
  */
@@ -475,6 +517,9 @@ export interface TreatmentConfig {
   variation: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateExperimentRequest {
   /**
    * <p>The name or ARN of the project that you want to create the new experiment in.</p>
@@ -537,7 +582,6 @@ export interface CreateExperimentRequest {
    *        permissions by granting a user
    *        permission to access or change only resources with certain tag values.</p>
    *          <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.</p>
-   *
    *          <p>You can associate as many as 50 tags with an experiment.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
    */
@@ -545,6 +589,7 @@ export interface CreateExperimentRequest {
 }
 
 /**
+ * @public
  * <p>This structure contains the date and time that the experiment started and ended.</p>
  */
 export interface ExperimentExecution {
@@ -560,6 +605,7 @@ export interface ExperimentExecution {
 }
 
 /**
+ * @public
  * <p>This structure defines a metric that is being used to evaluate the variations
  *       during a launch or experiment.</p>
  */
@@ -594,6 +640,7 @@ export interface MetricDefinition {
 }
 
 /**
+ * @public
  * <p>A structure that tells Evidently whether higher or lower values are desired for a metric that is
  *        used in an experiment.</p>
  */
@@ -615,6 +662,7 @@ export interface MetricGoal {
 }
 
 /**
+ * @public
  * <p>A structure that contains the configuration of which variation to use as the "control"
  *       version. The "control" version is used for comparison with other variations. This structure
  *       also specifies how much experiment traffic is allocated to each variation.</p>
@@ -635,6 +683,7 @@ export interface OnlineAbDefinition {
 }
 
 /**
+ * @public
  * <p>This structure contains the time and date that Evidently completed the analysis of the experiment.</p>
  */
 export interface ExperimentSchedule {
@@ -644,15 +693,25 @@ export interface ExperimentSchedule {
   analysisCompleteTime?: Date;
 }
 
-export enum ExperimentStatus {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-  CREATED = "CREATED",
-  RUNNING = "RUNNING",
-  UPDATING = "UPDATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ExperimentStatus = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  CREATED: "CREATED",
+  RUNNING: "RUNNING",
+  UPDATING: "UPDATING",
+} as const;
 
 /**
+ * @public
+ */
+export type ExperimentStatus = (typeof ExperimentStatus)[keyof typeof ExperimentStatus];
+
+/**
+ * @public
  * <p>A structure that defines one treatment in an experiment. A treatment is a variation of the feature
  *        that you are including in the experiment.</p>
  */
@@ -674,11 +733,21 @@ export interface Treatment {
   featureVariations?: Record<string, string>;
 }
 
-export enum ExperimentType {
-  ONLINE_AB_EXPERIMENT = "aws.evidently.onlineab",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ExperimentType = {
+  ONLINE_AB_EXPERIMENT: "aws.evidently.onlineab",
+} as const;
 
 /**
+ * @public
+ */
+export type ExperimentType = (typeof ExperimentType)[keyof typeof ExperimentType];
+
+/**
+ * @public
  * <p>A structure containing the configuration details of an experiment.</p>
  */
 export interface Experiment {
@@ -783,6 +852,9 @@ export interface Experiment {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateExperimentResponse {
   /**
    * <p>A structure containing the configuration details of the experiment
@@ -792,6 +864,7 @@ export interface CreateExperimentResponse {
 }
 
 /**
+ * @public
  * <p>The request would cause a service quota to be exceeded.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -834,12 +907,22 @@ export class ServiceQuotaExceededException extends __BaseException {
   }
 }
 
-export enum FeatureEvaluationStrategy {
-  ALL_RULES = "ALL_RULES",
-  DEFAULT_VARIATION = "DEFAULT_VARIATION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FeatureEvaluationStrategy = {
+  ALL_RULES: "ALL_RULES",
+  DEFAULT_VARIATION: "DEFAULT_VARIATION",
+} as const;
 
 /**
+ * @public
+ */
+export type FeatureEvaluationStrategy = (typeof FeatureEvaluationStrategy)[keyof typeof FeatureEvaluationStrategy];
+
+/**
+ * @public
  * <p>This structure contains the name and variation value of one variation of a feature.</p>
  */
 export interface VariationConfig {
@@ -854,6 +937,9 @@ export interface VariationConfig {
   value: VariableValue | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateFeatureRequest {
   /**
    * <p>The name or ARN of the project that is to contain the new feature.</p>
@@ -898,7 +984,6 @@ export interface CreateFeatureRequest {
    *        permissions by granting a user
    *        permission to access or change only resources with certain tag values.</p>
    *          <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.</p>
-   *
    *          <p>You can associate as many as 50 tags with a feature.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
    */
@@ -909,11 +994,14 @@ export interface CreateFeatureRequest {
    *       is specified by a key-value pair . For each key, specify a user by entering their user ID,
    *       account ID, or some other identifier. For the value, specify the name of the variation that
    *       they are to be served.</p>
+   *          <p>This parameter is limited to 2500 overrides or a total of 40KB. The 40KB limit includes an overhead of 6 bytes
+   *      per override.</p>
    */
   entityOverrides?: Record<string, string>;
 }
 
 /**
+ * @public
  * <p>A structure that contains the information about an evaluation rule for this feature,
  *       if it is used in a launch or experiment.</p>
  */
@@ -930,19 +1018,38 @@ export interface EvaluationRule {
   type: string | undefined;
 }
 
-export enum FeatureStatus {
-  AVAILABLE = "AVAILABLE",
-  UPDATING = "UPDATING",
-}
-
-export enum VariationValueType {
-  BOOLEAN = "BOOLEAN",
-  DOUBLE = "DOUBLE",
-  LONG = "LONG",
-  STRING = "STRING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FeatureStatus = {
+  AVAILABLE: "AVAILABLE",
+  UPDATING: "UPDATING",
+} as const;
 
 /**
+ * @public
+ */
+export type FeatureStatus = (typeof FeatureStatus)[keyof typeof FeatureStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const VariationValueType = {
+  BOOLEAN: "BOOLEAN",
+  DOUBLE: "DOUBLE",
+  LONG: "LONG",
+  STRING: "STRING",
+} as const;
+
+/**
+ * @public
+ */
+export type VariationValueType = (typeof VariationValueType)[keyof typeof VariationValueType];
+
+/**
+ * @public
  * <p>This structure contains the name and variation value of one variation of a feature.</p>
  */
 export interface Variation {
@@ -958,6 +1065,7 @@ export interface Variation {
 }
 
 /**
+ * @public
  * <p>This structure contains information about one Evidently feature in your account.</p>
  */
 export interface Feature {
@@ -1046,6 +1154,9 @@ export interface Feature {
   entityOverrides?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateFeatureResponse {
   /**
    * <p>A structure that contains information about the new feature.</p>
@@ -1054,6 +1165,7 @@ export interface CreateFeatureResponse {
 }
 
 /**
+ * @public
  * <p>A structure that defines one launch group in a launch. A launch group is a variation of
  *       the feature that you are including in the launch.</p>
  */
@@ -1080,6 +1192,7 @@ export interface LaunchGroupConfig {
 }
 
 /**
+ * @public
  * <p>A structure that defines a metric to be used to monitor performance of the variations during a launch.</p>
  */
 export interface MetricMonitorConfig {
@@ -1090,6 +1203,7 @@ export interface MetricMonitorConfig {
 }
 
 /**
+ * @public
  * <p>This structure specifies a segment
  *       that you have already created, and defines the traffic split for that segment to be used in a launch.</p>
  */
@@ -1115,6 +1229,7 @@ export interface SegmentOverride {
 }
 
 /**
+ * @public
  * <p>This structure defines the traffic allocation percentages among the feature
  *        variations during one step of a launch, and the start time of that step.</p>
  */
@@ -1128,7 +1243,6 @@ export interface ScheduledSplitConfig {
    * <p>The traffic allocation percentages among the feature variations during one step of a
    *       launch. This is a set of key-value pairs. The keys are variation names. The values represent
    *       the percentage of traffic to allocate to that variation during this step.</p>
-   *
    *          <p>The values is expressed in thousandths of a percent,
    *        so assigning a weight of 50000 assigns 50% of traffic to that variation.</p>
    *          <p>If the sum of the weights for all the variations in a segment override does not add up to 100,000,
@@ -1150,6 +1264,7 @@ export interface ScheduledSplitConfig {
 }
 
 /**
+ * @public
  * <p>An array of structures that define the traffic allocation percentages among the feature
  *       variations during each step of a launch. This also defines the start time of each step.</p>
  */
@@ -1162,6 +1277,9 @@ export interface ScheduledSplitsLaunchConfig {
   steps: ScheduledSplitConfig[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateLaunchRequest {
   /**
    * <p>The name or ARN of the project that you want to create the launch in.</p>
@@ -1209,7 +1327,6 @@ export interface CreateLaunchRequest {
    *        permissions by granting a user
    *        permission to access or change only resources with certain tag values.</p>
    *          <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.</p>
-   *
    *          <p>You can associate as many as 50 tags with a launch.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
    */
@@ -1217,6 +1334,7 @@ export interface CreateLaunchRequest {
 }
 
 /**
+ * @public
  * <p>This structure contains information about the start and end times of the launch.</p>
  */
 export interface LaunchExecution {
@@ -1232,6 +1350,7 @@ export interface LaunchExecution {
 }
 
 /**
+ * @public
  * <p>A structure that defines one launch group in a launch. A launch group is a variation of the feature
  *       that you are including in the launch.</p>
  */
@@ -1253,6 +1372,7 @@ export interface LaunchGroup {
 }
 
 /**
+ * @public
  * <p>A structure that defines a metric to be used to monitor performance of the variations during a launch.</p>
  */
 export interface MetricMonitor {
@@ -1263,6 +1383,7 @@ export interface MetricMonitor {
 }
 
 /**
+ * @public
  * <p>This structure defines the traffic allocation percentages among the feature
  *        variations during one step of a launch, and the start time of that step.</p>
  */
@@ -1297,6 +1418,7 @@ export interface ScheduledSplit {
 }
 
 /**
+ * @public
  * <p>An array of structures that define the traffic allocation percentages among the feature
  *       variations during each step of a launch. This also defines the start time of each step.</p>
  */
@@ -1309,19 +1431,38 @@ export interface ScheduledSplitsLaunchDefinition {
   steps?: ScheduledSplit[];
 }
 
-export enum LaunchStatus {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-  CREATED = "CREATED",
-  RUNNING = "RUNNING",
-  UPDATING = "UPDATING",
-}
-
-export enum LaunchType {
-  SCHEDULED_SPLITS_LAUNCH = "aws.evidently.splits",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LaunchStatus = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  CREATED: "CREATED",
+  RUNNING: "RUNNING",
+  UPDATING: "UPDATING",
+} as const;
 
 /**
+ * @public
+ */
+export type LaunchStatus = (typeof LaunchStatus)[keyof typeof LaunchStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const LaunchType = {
+  SCHEDULED_SPLITS_LAUNCH: "aws.evidently.splits",
+} as const;
+
+/**
+ * @public
+ */
+export type LaunchType = (typeof LaunchType)[keyof typeof LaunchType];
+
+/**
+ * @public
  * <p>This structure contains the configuration details of one Evidently launch.</p>
  */
 export interface Launch {
@@ -1405,6 +1546,9 @@ export interface Launch {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateLaunchResponse {
   /**
    * <p>A structure that contains the configuration of the launch that was created.</p>
@@ -1413,6 +1557,7 @@ export interface CreateLaunchResponse {
 }
 
 /**
+ * @public
  * <p>Use this parameter to configure client-side evaluation for your project. Client-side evaluation allows your application to assign
  *       variations to user
  *       sessions locally instead of by calling the <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html">EvaluateFeature</a> operation to assign the
@@ -1435,6 +1580,7 @@ export interface ProjectAppConfigResourceConfig {
 }
 
 /**
+ * @public
  * <p>If the project stores evaluation events in an Amazon S3 bucket, this structure
  *        stores the bucket name and bucket prefix.</p>
  */
@@ -1451,6 +1597,7 @@ export interface S3DestinationConfig {
 }
 
 /**
+ * @public
  * <p>A structure that contains information about where Evidently is to store
  *        evaluation events for longer term storage.</p>
  */
@@ -1468,6 +1615,9 @@ export interface ProjectDataDeliveryConfig {
   cloudWatchLogs?: CloudWatchLogsDestinationConfig;
 }
 
+/**
+ * @public
+ */
 export interface CreateProjectRequest {
   /**
    * <p>The name for the project.</p>
@@ -1508,7 +1658,6 @@ export interface CreateProjectRequest {
    *        permissions by granting a user
    *        permission to access or change only resources with certain tag values.</p>
    *          <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.</p>
-   *
    *          <p>You can associate as many as 50 tags with a project.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
    */
@@ -1516,6 +1665,7 @@ export interface CreateProjectRequest {
 }
 
 /**
+ * @public
  * <p>This is a structure that defines the configuration of how your application
  *       integrates with AppConfig to run client-side evaluation.</p>
  */
@@ -1538,6 +1688,7 @@ export interface ProjectAppConfigResource {
 }
 
 /**
+ * @public
  * <p>If the project stores evaluation events in an Amazon S3 bucket, this structure
  *        stores the bucket name and bucket prefix.</p>
  */
@@ -1554,6 +1705,7 @@ export interface S3Destination {
 }
 
 /**
+ * @public
  * <p>A structure that contains information about where Evidently is to store
  *        evaluation events for longer term storage.</p>
  */
@@ -1571,12 +1723,22 @@ export interface ProjectDataDelivery {
   cloudWatchLogs?: CloudWatchLogsDestination;
 }
 
-export enum ProjectStatus {
-  AVAILABLE = "AVAILABLE",
-  UPDATING = "UPDATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ProjectStatus = {
+  AVAILABLE: "AVAILABLE",
+  UPDATING: "UPDATING",
+} as const;
 
 /**
+ * @public
+ */
+export type ProjectStatus = (typeof ProjectStatus)[keyof typeof ProjectStatus];
+
+/**
+ * @public
  * <p>This structure defines a project, which is the logical object in Evidently that can contain features, launches, and
  *       experiments. Use projects to group similar features together.</p>
  */
@@ -1656,6 +1818,9 @@ export interface Project {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateProjectResponse {
   /**
    * <p>A structure that contains information about the created project.</p>
@@ -1663,6 +1828,9 @@ export interface CreateProjectResponse {
   project: Project | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateSegmentRequest {
   /**
    * <p>A name for the segment.</p>
@@ -1687,7 +1855,6 @@ export interface CreateSegmentRequest {
    *       permissions by granting a user
    *       permission to access or change only resources with certain tag values.</p>
    *          <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.</p>
-   *
    *          <p>You can associate as many as 50 tags with a segment.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
    */
@@ -1695,6 +1862,7 @@ export interface CreateSegmentRequest {
 }
 
 /**
+ * @public
  * <p>This structure contains information about one audience <i>segment</i>. You can use segments
  *     in your experiments and launches to narrow the user sessions used for experiment or launch to only the user
  *     sessions that match one or more criteria.</p>
@@ -1750,6 +1918,9 @@ export interface Segment {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateSegmentResponse {
   /**
    * <p>A structure that contains the complete information about the segment that was just created.</p>
@@ -1757,6 +1928,9 @@ export interface CreateSegmentResponse {
   segment: Segment | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteExperimentRequest {
   /**
    * <p>The name or ARN of the project that contains the experiment to delete.</p>
@@ -1769,9 +1943,13 @@ export interface DeleteExperimentRequest {
   experiment: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteExperimentResponse {}
 
 /**
+ * @public
  * <p>Unexpected error while processing the request. Retry the request.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -1791,6 +1969,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The service was unavailable. Retry the request.</p>
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -1809,6 +1988,9 @@ export class ServiceUnavailableException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteFeatureRequest {
   /**
    * <p>The name or ARN of the project that contains the feature to delete.</p>
@@ -1821,8 +2003,14 @@ export interface DeleteFeatureRequest {
   feature: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFeatureResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteLaunchRequest {
   /**
    * <p>The name or ARN of the project that contains the launch to delete.</p>
@@ -1835,8 +2023,14 @@ export interface DeleteLaunchRequest {
   launch: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLaunchResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteProjectRequest {
   /**
    * <p>The name or ARN of the project to delete.</p>
@@ -1844,8 +2038,14 @@ export interface DeleteProjectRequest {
   project: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteProjectResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteSegmentRequest {
   /**
    * <p>Specifies the segment to delete.</p>
@@ -1853,8 +2053,14 @@ export interface DeleteSegmentRequest {
   segment: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSegmentResponse {}
 
+/**
+ * @public
+ */
 export interface EvaluateFeatureRequest {
   /**
    * <p>The name or ARN of the project that contains this feature.</p>
@@ -1879,12 +2085,14 @@ export interface EvaluateFeatureRequest {
    *       this value to match user sessions with defined audience segments. For more information, see
    *       <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html">Use segments to focus your
    *         audience</a>.</p>
-   *
    *          <p>If you include this parameter, the value must be a JSON object. A JSON array is not supported.</p>
    */
   evaluationContext?: __LazyJsonString | string;
 }
 
+/**
+ * @public
+ */
 export interface EvaluateFeatureResponse {
   /**
    * <p>The name of the variation that was served to the user session.</p>
@@ -1912,12 +2120,22 @@ export interface EvaluateFeatureResponse {
   details?: __LazyJsonString | string;
 }
 
-export enum EventType {
-  CUSTOM = "aws.evidently.custom",
-  EVALUATION = "aws.evidently.evaluation",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EventType = {
+  CUSTOM: "aws.evidently.custom",
+  EVALUATION: "aws.evidently.evaluation",
+} as const;
 
 /**
+ * @public
+ */
+export type EventType = (typeof EventType)[keyof typeof EventType];
+
+/**
+ * @public
  * <p>A structure that contains the information about one evaluation event or custom event sent to Evidently.
  *         This is a JSON payload. If this event specifies a pre-defined event type, the payload must follow the
  *         defined event schema.</p>
@@ -1942,6 +2160,9 @@ export interface Event {
   data: __LazyJsonString | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the resource that you want to see the tags of.</p>
@@ -1949,6 +2170,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The list of tag keys and values associated with the resource you specified.</p>
@@ -1956,6 +2180,9 @@ export interface ListTagsForResourceResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetExperimentRequest {
   /**
    * <p>The name or ARN of the project that contains the experiment.</p>
@@ -1968,6 +2195,9 @@ export interface GetExperimentRequest {
   experiment: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetExperimentResponse {
   /**
    * <p>A structure containing the configuration details of the experiment.</p>
@@ -1975,21 +2205,52 @@ export interface GetExperimentResponse {
   experiment?: Experiment;
 }
 
-export enum ExperimentBaseStat {
-  MEAN = "Mean",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ExperimentBaseStat = {
+  MEAN: "Mean",
+} as const;
 
-export enum ExperimentReportName {
-  BAYESIAN_INFERENCE = "BayesianInference",
-}
+/**
+ * @public
+ */
+export type ExperimentBaseStat = (typeof ExperimentBaseStat)[keyof typeof ExperimentBaseStat];
 
-export enum ExperimentResultRequestType {
-  BASE_STAT = "BaseStat",
-  CONFIDENCE_INTERVAL = "ConfidenceInterval",
-  P_VALUE = "PValue",
-  TREATMENT_EFFECT = "TreatmentEffect",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ExperimentReportName = {
+  BAYESIAN_INFERENCE: "BayesianInference",
+} as const;
 
+/**
+ * @public
+ */
+export type ExperimentReportName = (typeof ExperimentReportName)[keyof typeof ExperimentReportName];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExperimentResultRequestType = {
+  BASE_STAT: "BaseStat",
+  CONFIDENCE_INTERVAL: "ConfidenceInterval",
+  P_VALUE: "PValue",
+  TREATMENT_EFFECT: "TreatmentEffect",
+} as const;
+
+/**
+ * @public
+ */
+export type ExperimentResultRequestType =
+  (typeof ExperimentResultRequestType)[keyof typeof ExperimentResultRequestType];
+
+/**
+ * @public
+ */
 export interface GetExperimentResultsRequest {
   /**
    * <p>The name or ARN of the project that contains the experiment that you want to see the results of.</p>
@@ -2074,6 +2335,7 @@ export interface GetExperimentResultsRequest {
 }
 
 /**
+ * @public
  * <p>A structure that contains results of an experiment.</p>
  */
 export interface ExperimentReport {
@@ -2098,15 +2360,26 @@ export interface ExperimentReport {
   content?: __LazyJsonString | string;
 }
 
-export enum ExperimentResultResponseType {
-  CONFIDENCE_INTERVAL_LOWERBOUND = "ConfidenceIntervalLowerBound",
-  CONFIDENCE_INTERVAL_UPPERBOUND = "ConfidenceIntervalUpperBound",
-  MEAN = "Mean",
-  P_VALUE = "PValue",
-  TREATMENT_EFFECT = "TreatmentEffect",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ExperimentResultResponseType = {
+  CONFIDENCE_INTERVAL_LOWERBOUND: "ConfidenceIntervalLowerBound",
+  CONFIDENCE_INTERVAL_UPPERBOUND: "ConfidenceIntervalUpperBound",
+  MEAN: "Mean",
+  P_VALUE: "PValue",
+  TREATMENT_EFFECT: "TreatmentEffect",
+} as const;
 
 /**
+ * @public
+ */
+export type ExperimentResultResponseType =
+  (typeof ExperimentResultResponseType)[keyof typeof ExperimentResultResponseType];
+
+/**
+ * @public
  * <p>A structure that contains experiment results for one metric that is monitored in
  *       the experiment.</p>
  */
@@ -2132,6 +2405,9 @@ export interface ExperimentResultsData {
   values?: number[];
 }
 
+/**
+ * @public
+ */
 export interface GetExperimentResultsResponse {
   /**
    * <p>An array of structures that include experiment results including metric names and values. </p>
@@ -2156,6 +2432,9 @@ export interface GetExperimentResultsResponse {
   details?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListExperimentsRequest {
   /**
    * <p>The name or ARN of the project to return the experiment list from.</p>
@@ -2179,6 +2458,9 @@ export interface ListExperimentsRequest {
   status?: ExperimentStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListExperimentsResponse {
   /**
    * <p>An array of structures that contain the configuration details of the experiments in the
@@ -2193,6 +2475,9 @@ export interface ListExperimentsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartExperimentRequest {
   /**
    * <p>The name or ARN of the project that contains the experiment to start.</p>
@@ -2211,6 +2496,9 @@ export interface StartExperimentRequest {
   analysisCompleteTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartExperimentResponse {
   /**
    * <p>A timestamp that indicates when the experiment started.</p>
@@ -2218,11 +2506,23 @@ export interface StartExperimentResponse {
   startedTime?: Date;
 }
 
-export enum ExperimentStopDesiredState {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ExperimentStopDesiredState = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+} as const;
 
+/**
+ * @public
+ */
+export type ExperimentStopDesiredState = (typeof ExperimentStopDesiredState)[keyof typeof ExperimentStopDesiredState];
+
+/**
+ * @public
+ */
 export interface StopExperimentRequest {
   /**
    * <p>The name or ARN of the project that contains the experiment to stop.</p>
@@ -2246,6 +2546,9 @@ export interface StopExperimentRequest {
   reason?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopExperimentResponse {
   /**
    * <p>The date and time that the experiment stopped.</p>
@@ -2253,6 +2556,9 @@ export interface StopExperimentResponse {
   endedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface UpdateExperimentRequest {
   /**
    * <p>The name or ARN of the project that contains the experiment that you want to update.</p>
@@ -2318,6 +2624,9 @@ export interface UpdateExperimentRequest {
   onlineAbConfig?: OnlineAbConfig;
 }
 
+/**
+ * @public
+ */
 export interface UpdateExperimentResponse {
   /**
    * <p>A structure containing the configuration details of the experiment
@@ -2326,6 +2635,9 @@ export interface UpdateExperimentResponse {
   experiment: Experiment | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetFeatureRequest {
   /**
    * <p>The name or ARN of the project that contains the feature.</p>
@@ -2338,6 +2650,9 @@ export interface GetFeatureRequest {
   feature: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetFeatureResponse {
   /**
    * <p>A structure containing the configuration details of the feature.</p>
@@ -2345,6 +2660,9 @@ export interface GetFeatureResponse {
   feature: Feature | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListFeaturesRequest {
   /**
    * <p>The name or ARN of the project to return the feature list from.</p>
@@ -2364,6 +2682,7 @@ export interface ListFeaturesRequest {
 }
 
 /**
+ * @public
  * <p>This structure contains information about one Evidently feature in your account.</p>
  */
 export interface FeatureSummary {
@@ -2422,6 +2741,9 @@ export interface FeatureSummary {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListFeaturesResponse {
   /**
    * <p>An array of structures that contain the configuration details of the features in the
@@ -2436,6 +2758,9 @@ export interface ListFeaturesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFeatureRequest {
   /**
    * <p>The name or ARN of the project that contains the feature to be updated.</p>
@@ -2487,10 +2812,15 @@ export interface UpdateFeatureRequest {
    *       is specified by a key-value pair . For each key, specify a user by entering their user ID,
    *       account ID, or some other identifier. For the value, specify the name of the variation that
    *       they are to be served.</p>
+   *          <p>This parameter is limited to 2500 overrides or a total of 40KB. The 40KB limit includes an overhead of 6 bytes
+   *       per override.</p>
    */
   entityOverrides?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFeatureResponse {
   /**
    * <p>A structure that contains information about the updated feature.</p>
@@ -2498,6 +2828,9 @@ export interface UpdateFeatureResponse {
   feature: Feature | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetProjectRequest {
   /**
    * <p>The name or ARN of the project that you want to see the details of.</p>
@@ -2505,6 +2838,9 @@ export interface GetProjectRequest {
   project: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetProjectResponse {
   /**
    * <p>A structure containing the configuration details of the project.</p>
@@ -2512,6 +2848,9 @@ export interface GetProjectResponse {
   project: Project | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetLaunchRequest {
   /**
    * <p>The name or ARN of the project that contains the launch.</p>
@@ -2524,6 +2863,9 @@ export interface GetLaunchRequest {
   launch: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetLaunchResponse {
   /**
    * <p>A structure containing the configuration details of the launch.</p>
@@ -2531,6 +2873,9 @@ export interface GetLaunchResponse {
   launch?: Launch;
 }
 
+/**
+ * @public
+ */
 export interface ListLaunchesRequest {
   /**
    * <p>The name or ARN of the project to return the launch list from.</p>
@@ -2554,6 +2899,9 @@ export interface ListLaunchesRequest {
   status?: LaunchStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListLaunchesResponse {
   /**
    * <p>An array of structures that contain the configuration details of the launches in the
@@ -2568,6 +2916,9 @@ export interface ListLaunchesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartLaunchRequest {
   /**
    * <p>The name or ARN of the project that contains the launch to start.</p>
@@ -2580,6 +2931,9 @@ export interface StartLaunchRequest {
   launch: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartLaunchResponse {
   /**
    * <p>A structure that contains information about the launch that was started.</p>
@@ -2587,11 +2941,23 @@ export interface StartLaunchResponse {
   launch: Launch | undefined;
 }
 
-export enum LaunchStopDesiredState {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LaunchStopDesiredState = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+} as const;
 
+/**
+ * @public
+ */
+export type LaunchStopDesiredState = (typeof LaunchStopDesiredState)[keyof typeof LaunchStopDesiredState];
+
+/**
+ * @public
+ */
 export interface StopLaunchRequest {
   /**
    * <p>The name or ARN of the project that contains the launch that you want to stop.</p>
@@ -2615,6 +2981,9 @@ export interface StopLaunchRequest {
   reason?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopLaunchResponse {
   /**
    * <p>The date and time that the launch stopped.</p>
@@ -2622,6 +2991,9 @@ export interface StopLaunchResponse {
   endedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface UpdateLaunchRequest {
   /**
    * <p>The name or ARN of the project that contains the launch that you want to update.</p>
@@ -2665,6 +3037,9 @@ export interface UpdateLaunchRequest {
   scheduledSplitsConfig?: ScheduledSplitsLaunchConfig;
 }
 
+/**
+ * @public
+ */
 export interface UpdateLaunchResponse {
   /**
    * <p>A structure that contains the new configuration of the launch that was updated.</p>
@@ -2672,6 +3047,9 @@ export interface UpdateLaunchResponse {
   launch: Launch | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListProjectsRequest {
   /**
    * <p>The maximum number of results to include in the response.</p>
@@ -2686,6 +3064,7 @@ export interface ListProjectsRequest {
 }
 
 /**
+ * @public
  * <p>A structure that contains configuration information about an Evidently project.</p>
  */
 export interface ProjectSummary {
@@ -2750,6 +3129,9 @@ export interface ProjectSummary {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListProjectsResponse {
   /**
    * <p>An array of structures that contain the configuration details of the projects in the Region.</p>
@@ -2763,6 +3145,9 @@ export interface ListProjectsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutProjectEventsRequest {
   /**
    * <p>The name or ARN of the project to write the events to.</p>
@@ -2777,6 +3162,7 @@ export interface PutProjectEventsRequest {
 }
 
 /**
+ * @public
  * <p>A structure that contains Evidently's response to the sent events, including an event ID and error codes, if any. </p>
  */
 export interface PutProjectEventsResultEntry {
@@ -2798,6 +3184,9 @@ export interface PutProjectEventsResultEntry {
   errorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutProjectEventsResponse {
   /**
    * <p>The number of events in the operation that could not be used by Evidently.</p>
@@ -2811,6 +3200,9 @@ export interface PutProjectEventsResponse {
   eventResults?: PutProjectEventsResultEntry[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateProjectRequest {
   /**
    * <p>The name or ARN of the project to update.</p>
@@ -2834,6 +3226,9 @@ export interface UpdateProjectRequest {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateProjectResponse {
   /**
    * <p>A structure containing information about the updated project.</p>
@@ -2841,6 +3236,9 @@ export interface UpdateProjectResponse {
   project: Project | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateProjectDataDeliveryRequest {
   /**
    * <p>The name or ARN of the project that you want to modify the data storage options for.</p>
@@ -2859,6 +3257,9 @@ export interface UpdateProjectDataDeliveryRequest {
   cloudWatchLogs?: CloudWatchLogsDestinationConfig;
 }
 
+/**
+ * @public
+ */
 export interface UpdateProjectDataDeliveryResponse {
   /**
    * <p>A structure containing details about the project that you updated.</p>
@@ -2866,6 +3267,9 @@ export interface UpdateProjectDataDeliveryResponse {
   project: Project | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSegmentRequest {
   /**
    * <p>The ARN of the segment to return information for.</p>
@@ -2873,6 +3277,9 @@ export interface GetSegmentRequest {
   segment: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSegmentResponse {
   /**
    * <p>A structure that contains the complete information about the segment.</p>
@@ -2880,11 +3287,24 @@ export interface GetSegmentResponse {
   segment: Segment | undefined;
 }
 
-export enum SegmentReferenceResourceType {
-  EXPERIMENT = "EXPERIMENT",
-  LAUNCH = "LAUNCH",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SegmentReferenceResourceType = {
+  EXPERIMENT: "EXPERIMENT",
+  LAUNCH: "LAUNCH",
+} as const;
 
+/**
+ * @public
+ */
+export type SegmentReferenceResourceType =
+  (typeof SegmentReferenceResourceType)[keyof typeof SegmentReferenceResourceType];
+
+/**
+ * @public
+ */
 export interface ListSegmentReferencesRequest {
   /**
    * <p>The ARN of the segment that you want to view information for.</p>
@@ -2909,6 +3329,7 @@ export interface ListSegmentReferencesRequest {
 }
 
 /**
+ * @public
  * <p>A structure that contains information about one experiment or launch that
  *       uses the specified segment.  </p>
  */
@@ -2949,6 +3370,9 @@ export interface RefResource {
   lastUpdatedOn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSegmentReferencesResponse {
   /**
    * <p>An array of structures, where each structure contains information about one experiment or launch that
@@ -2963,6 +3387,9 @@ export interface ListSegmentReferencesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSegmentsRequest {
   /**
    * <p>The maximum number of results to include in the response. If you omit this, the default of 50 is used.</p>
@@ -2976,6 +3403,9 @@ export interface ListSegmentsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSegmentsResponse {
   /**
    * <p>An array of structures that contain information about the segments in this Region.</p>
@@ -2989,6 +3419,9 @@ export interface ListSegmentsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The ARN of the CloudWatch Evidently resource that you're adding tags to.</p>
@@ -3001,8 +3434,14 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface TestSegmentPatternRequest {
   /**
    * <p>The pattern to test.</p>
@@ -3015,6 +3454,9 @@ export interface TestSegmentPatternRequest {
   payload: __LazyJsonString | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TestSegmentPatternResponse {
   /**
    * <p>Returns <code>true</code> if the pattern matches the payload.</p>
@@ -3022,6 +3464,9 @@ export interface TestSegmentPatternResponse {
   match: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The ARN of the CloudWatch Evidently resource that you're removing tags from.</p>
@@ -3034,882 +3479,7 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
-
-/**
- * @internal
- */
-export const EvaluationRequestFilterSensitiveLog = (obj: EvaluationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchEvaluateFeatureRequestFilterSensitiveLog = (obj: BatchEvaluateFeatureRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VariableValueFilterSensitiveLog = (obj: VariableValue): any => {
-  if (obj.boolValue !== undefined) return { boolValue: obj.boolValue };
-  if (obj.stringValue !== undefined) return { stringValue: obj.stringValue };
-  if (obj.longValue !== undefined) return { longValue: obj.longValue };
-  if (obj.doubleValue !== undefined) return { doubleValue: obj.doubleValue };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const EvaluationResultFilterSensitiveLog = (obj: EvaluationResult): any => ({
-  ...obj,
-  ...(obj.value && { value: VariableValueFilterSensitiveLog(obj.value) }),
-});
-
-/**
- * @internal
- */
-export const BatchEvaluateFeatureResponseFilterSensitiveLog = (obj: BatchEvaluateFeatureResponse): any => ({
-  ...obj,
-  ...(obj.results && { results: obj.results.map((item) => EvaluationResultFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CloudWatchLogsDestinationFilterSensitiveLog = (obj: CloudWatchLogsDestination): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CloudWatchLogsDestinationConfigFilterSensitiveLog = (obj: CloudWatchLogsDestinationConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetricDefinitionConfigFilterSensitiveLog = (obj: MetricDefinitionConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetricGoalConfigFilterSensitiveLog = (obj: MetricGoalConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OnlineAbConfigFilterSensitiveLog = (obj: OnlineAbConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TreatmentConfigFilterSensitiveLog = (obj: TreatmentConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateExperimentRequestFilterSensitiveLog = (obj: CreateExperimentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExperimentExecutionFilterSensitiveLog = (obj: ExperimentExecution): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetricDefinitionFilterSensitiveLog = (obj: MetricDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetricGoalFilterSensitiveLog = (obj: MetricGoal): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OnlineAbDefinitionFilterSensitiveLog = (obj: OnlineAbDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExperimentScheduleFilterSensitiveLog = (obj: ExperimentSchedule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TreatmentFilterSensitiveLog = (obj: Treatment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExperimentFilterSensitiveLog = (obj: Experiment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateExperimentResponseFilterSensitiveLog = (obj: CreateExperimentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VariationConfigFilterSensitiveLog = (obj: VariationConfig): any => ({
-  ...obj,
-  ...(obj.value && { value: VariableValueFilterSensitiveLog(obj.value) }),
-});
-
-/**
- * @internal
- */
-export const CreateFeatureRequestFilterSensitiveLog = (obj: CreateFeatureRequest): any => ({
-  ...obj,
-  ...(obj.variations && { variations: obj.variations.map((item) => VariationConfigFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const EvaluationRuleFilterSensitiveLog = (obj: EvaluationRule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VariationFilterSensitiveLog = (obj: Variation): any => ({
-  ...obj,
-  ...(obj.value && { value: VariableValueFilterSensitiveLog(obj.value) }),
-});
-
-/**
- * @internal
- */
-export const FeatureFilterSensitiveLog = (obj: Feature): any => ({
-  ...obj,
-  ...(obj.variations && { variations: obj.variations.map((item) => VariationFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const CreateFeatureResponseFilterSensitiveLog = (obj: CreateFeatureResponse): any => ({
-  ...obj,
-  ...(obj.feature && { feature: FeatureFilterSensitiveLog(obj.feature) }),
-});
-
-/**
- * @internal
- */
-export const LaunchGroupConfigFilterSensitiveLog = (obj: LaunchGroupConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetricMonitorConfigFilterSensitiveLog = (obj: MetricMonitorConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SegmentOverrideFilterSensitiveLog = (obj: SegmentOverride): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScheduledSplitConfigFilterSensitiveLog = (obj: ScheduledSplitConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScheduledSplitsLaunchConfigFilterSensitiveLog = (obj: ScheduledSplitsLaunchConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLaunchRequestFilterSensitiveLog = (obj: CreateLaunchRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchExecutionFilterSensitiveLog = (obj: LaunchExecution): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchGroupFilterSensitiveLog = (obj: LaunchGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetricMonitorFilterSensitiveLog = (obj: MetricMonitor): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScheduledSplitFilterSensitiveLog = (obj: ScheduledSplit): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScheduledSplitsLaunchDefinitionFilterSensitiveLog = (obj: ScheduledSplitsLaunchDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchFilterSensitiveLog = (obj: Launch): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLaunchResponseFilterSensitiveLog = (obj: CreateLaunchResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProjectAppConfigResourceConfigFilterSensitiveLog = (obj: ProjectAppConfigResourceConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3DestinationConfigFilterSensitiveLog = (obj: S3DestinationConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProjectDataDeliveryConfigFilterSensitiveLog = (obj: ProjectDataDeliveryConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateProjectRequestFilterSensitiveLog = (obj: CreateProjectRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProjectAppConfigResourceFilterSensitiveLog = (obj: ProjectAppConfigResource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3DestinationFilterSensitiveLog = (obj: S3Destination): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProjectDataDeliveryFilterSensitiveLog = (obj: ProjectDataDelivery): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProjectFilterSensitiveLog = (obj: Project): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateProjectResponseFilterSensitiveLog = (obj: CreateProjectResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSegmentRequestFilterSensitiveLog = (obj: CreateSegmentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SegmentFilterSensitiveLog = (obj: Segment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSegmentResponseFilterSensitiveLog = (obj: CreateSegmentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteExperimentRequestFilterSensitiveLog = (obj: DeleteExperimentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteExperimentResponseFilterSensitiveLog = (obj: DeleteExperimentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteFeatureRequestFilterSensitiveLog = (obj: DeleteFeatureRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteFeatureResponseFilterSensitiveLog = (obj: DeleteFeatureResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteLaunchRequestFilterSensitiveLog = (obj: DeleteLaunchRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteLaunchResponseFilterSensitiveLog = (obj: DeleteLaunchResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteProjectRequestFilterSensitiveLog = (obj: DeleteProjectRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteProjectResponseFilterSensitiveLog = (obj: DeleteProjectResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSegmentRequestFilterSensitiveLog = (obj: DeleteSegmentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSegmentResponseFilterSensitiveLog = (obj: DeleteSegmentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EvaluateFeatureRequestFilterSensitiveLog = (obj: EvaluateFeatureRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EvaluateFeatureResponseFilterSensitiveLog = (obj: EvaluateFeatureResponse): any => ({
-  ...obj,
-  ...(obj.value && { value: VariableValueFilterSensitiveLog(obj.value) }),
-});
-
-/**
- * @internal
- */
-export const EventFilterSensitiveLog = (obj: Event): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetExperimentRequestFilterSensitiveLog = (obj: GetExperimentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetExperimentResponseFilterSensitiveLog = (obj: GetExperimentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetExperimentResultsRequestFilterSensitiveLog = (obj: GetExperimentResultsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExperimentReportFilterSensitiveLog = (obj: ExperimentReport): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExperimentResultsDataFilterSensitiveLog = (obj: ExperimentResultsData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetExperimentResultsResponseFilterSensitiveLog = (obj: GetExperimentResultsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListExperimentsRequestFilterSensitiveLog = (obj: ListExperimentsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListExperimentsResponseFilterSensitiveLog = (obj: ListExperimentsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartExperimentRequestFilterSensitiveLog = (obj: StartExperimentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartExperimentResponseFilterSensitiveLog = (obj: StartExperimentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopExperimentRequestFilterSensitiveLog = (obj: StopExperimentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopExperimentResponseFilterSensitiveLog = (obj: StopExperimentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateExperimentRequestFilterSensitiveLog = (obj: UpdateExperimentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateExperimentResponseFilterSensitiveLog = (obj: UpdateExperimentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFeatureRequestFilterSensitiveLog = (obj: GetFeatureRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFeatureResponseFilterSensitiveLog = (obj: GetFeatureResponse): any => ({
-  ...obj,
-  ...(obj.feature && { feature: FeatureFilterSensitiveLog(obj.feature) }),
-});
-
-/**
- * @internal
- */
-export const ListFeaturesRequestFilterSensitiveLog = (obj: ListFeaturesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FeatureSummaryFilterSensitiveLog = (obj: FeatureSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFeaturesResponseFilterSensitiveLog = (obj: ListFeaturesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFeatureRequestFilterSensitiveLog = (obj: UpdateFeatureRequest): any => ({
-  ...obj,
-  ...(obj.addOrUpdateVariations && {
-    addOrUpdateVariations: obj.addOrUpdateVariations.map((item) => VariationConfigFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const UpdateFeatureResponseFilterSensitiveLog = (obj: UpdateFeatureResponse): any => ({
-  ...obj,
-  ...(obj.feature && { feature: FeatureFilterSensitiveLog(obj.feature) }),
-});
-
-/**
- * @internal
- */
-export const GetProjectRequestFilterSensitiveLog = (obj: GetProjectRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetProjectResponseFilterSensitiveLog = (obj: GetProjectResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLaunchRequestFilterSensitiveLog = (obj: GetLaunchRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLaunchResponseFilterSensitiveLog = (obj: GetLaunchResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLaunchesRequestFilterSensitiveLog = (obj: ListLaunchesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLaunchesResponseFilterSensitiveLog = (obj: ListLaunchesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartLaunchRequestFilterSensitiveLog = (obj: StartLaunchRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartLaunchResponseFilterSensitiveLog = (obj: StartLaunchResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopLaunchRequestFilterSensitiveLog = (obj: StopLaunchRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopLaunchResponseFilterSensitiveLog = (obj: StopLaunchResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateLaunchRequestFilterSensitiveLog = (obj: UpdateLaunchRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateLaunchResponseFilterSensitiveLog = (obj: UpdateLaunchResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListProjectsRequestFilterSensitiveLog = (obj: ListProjectsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProjectSummaryFilterSensitiveLog = (obj: ProjectSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListProjectsResponseFilterSensitiveLog = (obj: ListProjectsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutProjectEventsRequestFilterSensitiveLog = (obj: PutProjectEventsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutProjectEventsResultEntryFilterSensitiveLog = (obj: PutProjectEventsResultEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutProjectEventsResponseFilterSensitiveLog = (obj: PutProjectEventsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateProjectRequestFilterSensitiveLog = (obj: UpdateProjectRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateProjectResponseFilterSensitiveLog = (obj: UpdateProjectResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateProjectDataDeliveryRequestFilterSensitiveLog = (obj: UpdateProjectDataDeliveryRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateProjectDataDeliveryResponseFilterSensitiveLog = (obj: UpdateProjectDataDeliveryResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSegmentRequestFilterSensitiveLog = (obj: GetSegmentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSegmentResponseFilterSensitiveLog = (obj: GetSegmentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSegmentReferencesRequestFilterSensitiveLog = (obj: ListSegmentReferencesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RefResourceFilterSensitiveLog = (obj: RefResource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSegmentReferencesResponseFilterSensitiveLog = (obj: ListSegmentReferencesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSegmentsRequestFilterSensitiveLog = (obj: ListSegmentsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSegmentsResponseFilterSensitiveLog = (obj: ListSegmentsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TestSegmentPatternRequestFilterSensitiveLog = (obj: TestSegmentPatternRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TestSegmentPatternResponseFilterSensitiveLog = (obj: TestSegmentPatternResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});

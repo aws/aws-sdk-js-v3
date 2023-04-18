@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetSegmentVersionsRequest,
-  GetSegmentVersionsRequestFilterSensitiveLog,
-  GetSegmentVersionsResponse,
-  GetSegmentVersionsResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { GetSegmentVersionsRequest, GetSegmentVersionsResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1GetSegmentVersionsCommand,
-  serializeAws_restJson1GetSegmentVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetSegmentVersionsCommand, se_GetSegmentVersionsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetSegmentVersionsCommand}.
+ */
 export interface GetSegmentVersionsCommandInput extends GetSegmentVersionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetSegmentVersionsCommand}.
+ */
 export interface GetSegmentVersionsCommandOutput extends GetSegmentVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the configuration, dimension, and other settings for all the versions of a specific segment that's associated with an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,43 @@ export interface GetSegmentVersionsCommandOutput extends GetSegmentVersionsRespo
  * import { PinpointClient, GetSegmentVersionsCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetSegmentVersionsCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // GetSegmentVersionsRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   PageSize: "STRING_VALUE",
+ *   SegmentId: "STRING_VALUE", // required
+ *   Token: "STRING_VALUE",
+ * };
  * const command = new GetSegmentVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSegmentVersionsCommandInput - {@link GetSegmentVersionsCommandInput}
+ * @returns {@link GetSegmentVersionsCommandOutput}
  * @see {@link GetSegmentVersionsCommandInput} for command's `input` shape.
  * @see {@link GetSegmentVersionsCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link MethodNotAllowedException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link PayloadTooLargeException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
  *
  */
 export class GetSegmentVersionsCommand extends $Command<
@@ -62,6 +95,9 @@ export class GetSegmentVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSegmentVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +126,8 @@ export class GetSegmentVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSegmentVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSegmentVersionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +137,18 @@ export class GetSegmentVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSegmentVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSegmentVersionsCommand(input, context);
+    return se_GetSegmentVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSegmentVersionsCommandOutput> {
-    return deserializeAws_restJson1GetSegmentVersionsCommand(output, context);
+    return de_GetSegmentVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

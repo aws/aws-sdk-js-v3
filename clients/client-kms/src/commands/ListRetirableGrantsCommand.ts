@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import {
-  ListGrantsResponse,
-  ListGrantsResponseFilterSensitiveLog,
-  ListRetirableGrantsRequest,
-  ListRetirableGrantsRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListRetirableGrantsCommand,
-  serializeAws_json1_1ListRetirableGrantsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListGrantsResponse, ListRetirableGrantsRequest } from "../models/models_0";
+import { de_ListRetirableGrantsCommand, se_ListRetirableGrantsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListRetirableGrantsCommand}.
+ */
 export interface ListRetirableGrantsCommandInput extends ListRetirableGrantsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListRetirableGrantsCommand}.
+ */
 export interface ListRetirableGrantsCommandOutput extends ListGrantsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about all grants in the Amazon Web Services account and Region that have the
  *       specified retiring principal. </p>
  *          <p>You can specify any principal in your Amazon Web Services account. The grants that are returned include
@@ -44,7 +47,6 @@ export interface ListRetirableGrantsCommandOutput extends ListGrantsResponse, __
  *       Amazon Web Services account. However, this operation can return grants in any Amazon Web Services account. You do not need
  *         <code>kms:ListRetirableGrants</code> permission (or any other additional permission) in any
  *       Amazon Web Services account other than your own.</p>
- *
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ListRetirableGrants</a> (IAM policy) in your
  *       Amazon Web Services account.</p>
@@ -79,13 +81,71 @@ export interface ListRetirableGrantsCommandOutput extends ListGrantsResponse, __
  * import { KMSClient, ListRetirableGrantsCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, ListRetirableGrantsCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // ListRetirableGrantsRequest
+ *   Limit: Number("int"),
+ *   Marker: "STRING_VALUE",
+ *   RetiringPrincipal: "STRING_VALUE", // required
+ * };
  * const command = new ListRetirableGrantsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRetirableGrantsCommandInput - {@link ListRetirableGrantsCommandInput}
+ * @returns {@link ListRetirableGrantsCommandOutput}
  * @see {@link ListRetirableGrantsCommandInput} for command's `input` shape.
  * @see {@link ListRetirableGrantsCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
+ *
+ * @throws {@link DependencyTimeoutException} (server fault)
+ *  <p>The system timed out while trying to fulfill the request. You can retry the
+ *       request.</p>
+ *
+ * @throws {@link InvalidArnException} (client fault)
+ *  <p>The request was rejected because a specified ARN, or an ARN in a key policy, is not
+ *       valid.</p>
+ *
+ * @throws {@link InvalidMarkerException} (client fault)
+ *  <p>The request was rejected because the marker that specifies where pagination should next
+ *       begin is not valid.</p>
+ *
+ * @throws {@link KMSInternalException} (server fault)
+ *  <p>The request was rejected because an internal exception occurred. The request can be
+ *       retried.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The request was rejected because the specified entity or resource could not be
+ *       found.</p>
+ *
+ *
+ * @example To list grants that the specified principal can retire
+ * ```javascript
+ * // The following example lists the grants that the specified principal (identity) can retire.
+ * const input = {
+ *   "RetiringPrincipal": "arn:aws:iam::111122223333:role/ExampleRole"
+ * };
+ * const command = new ListRetirableGrantsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Grants": [
+ *     {
+ *       "CreationDate": "2016-12-07T11:09:35-08:00",
+ *       "GrantId": "0c237476b39f8bc44e45212e08498fbe3151305030726c0590dd8d3e9f3d6a60",
+ *       "GranteePrincipal": "arn:aws:iam::111122223333:role/ExampleRole",
+ *       "IssuingAccount": "arn:aws:iam::444455556666:root",
+ *       "KeyId": "arn:aws:kms:us-east-2:444455556666:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+ *       "Operations": [
+ *         "Decrypt",
+ *         "Encrypt"
+ *       ],
+ *       "RetiringPrincipal": "arn:aws:iam::111122223333:role/ExampleRole"
+ *     }
+ *   ],
+ *   "Truncated": false
+ * }
+ * *\/
+ * // example id: to-list-grants-that-the-specified-principal-can-retire-1481140499620
+ * ```
  *
  */
 export class ListRetirableGrantsCommand extends $Command<
@@ -105,6 +165,9 @@ export class ListRetirableGrantsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRetirableGrantsCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,8 +196,8 @@ export class ListRetirableGrantsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRetirableGrantsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListGrantsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -144,12 +207,18 @@ export class ListRetirableGrantsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRetirableGrantsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListRetirableGrantsCommand(input, context);
+    return se_ListRetirableGrantsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRetirableGrantsCommandOutput> {
-    return deserializeAws_json1_1ListRetirableGrantsCommand(output, context);
+    return de_ListRetirableGrantsCommand(output, context);
   }
 
   // Start section: command_body_extra

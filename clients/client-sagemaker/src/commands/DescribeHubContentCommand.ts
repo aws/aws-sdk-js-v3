@@ -13,36 +13,54 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeHubContentRequest,
-  DescribeHubContentRequestFilterSensitiveLog,
-  DescribeHubContentResponse,
-  DescribeHubContentResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeHubContentCommand,
-  serializeAws_json1_1DescribeHubContentCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeHubContentRequest, DescribeHubContentResponse } from "../models/models_2";
+import { de_DescribeHubContentCommand, se_DescribeHubContentCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeHubContentCommand}.
+ */
 export interface DescribeHubContentCommandInput extends DescribeHubContentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeHubContentCommand}.
+ */
 export interface DescribeHubContentCommandOutput extends DescribeHubContentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describe the content of a hub.</p>
+ *          <note>
+ *             <p>Hub APIs are only callable through SageMaker Studio.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, DescribeHubContentCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeHubContentCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DescribeHubContentRequest
+ *   HubName: "STRING_VALUE", // required
+ *   HubContentType: "Model" || "Notebook", // required
+ *   HubContentName: "STRING_VALUE", // required
+ *   HubContentVersion: "STRING_VALUE",
+ * };
  * const command = new DescribeHubContentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeHubContentCommandInput - {@link DescribeHubContentCommandInput}
+ * @returns {@link DescribeHubContentCommandOutput}
  * @see {@link DescribeHubContentCommandInput} for command's `input` shape.
  * @see {@link DescribeHubContentCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class DescribeHubContentCommand extends $Command<
@@ -62,6 +80,9 @@ export class DescribeHubContentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeHubContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +111,8 @@ export class DescribeHubContentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeHubContentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeHubContentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +122,18 @@ export class DescribeHubContentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeHubContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeHubContentCommand(input, context);
+    return se_DescribeHubContentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeHubContentCommandOutput> {
-    return deserializeAws_json1_1DescribeHubContentCommand(output, context);
+    return de_DescribeHubContentCommand(output, context);
   }
 
   // Start section: command_body_extra

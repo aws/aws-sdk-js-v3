@@ -15,22 +15,31 @@ import {
 
 import {
   DescribeConnectionAliasPermissionsRequest,
-  DescribeConnectionAliasPermissionsRequestFilterSensitiveLog,
   DescribeConnectionAliasPermissionsResult,
-  DescribeConnectionAliasPermissionsResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeConnectionAliasPermissionsCommand,
-  serializeAws_json1_1DescribeConnectionAliasPermissionsCommand,
+  de_DescribeConnectionAliasPermissionsCommand,
+  se_DescribeConnectionAliasPermissionsCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeConnectionAliasPermissionsCommand}.
+ */
 export interface DescribeConnectionAliasPermissionsCommandInput extends DescribeConnectionAliasPermissionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeConnectionAliasPermissionsCommand}.
+ */
 export interface DescribeConnectionAliasPermissionsCommandOutput
   extends DescribeConnectionAliasPermissionsResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the permissions that the owner of a connection alias has granted to another
  *             Amazon Web Services account for the specified connection alias. For more information, see
  *             <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html"> Cross-Region
@@ -41,13 +50,33 @@ export interface DescribeConnectionAliasPermissionsCommandOutput
  * import { WorkSpacesClient, DescribeConnectionAliasPermissionsCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DescribeConnectionAliasPermissionsCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // DescribeConnectionAliasPermissionsRequest
+ *   AliasId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeConnectionAliasPermissionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConnectionAliasPermissionsCommandInput - {@link DescribeConnectionAliasPermissionsCommandInput}
+ * @returns {@link DescribeConnectionAliasPermissionsCommandOutput}
  * @see {@link DescribeConnectionAliasPermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribeConnectionAliasPermissionsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The user is not authorized to access a resource.</p>
+ *
+ * @throws {@link InvalidParameterValuesException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ * @throws {@link OperationNotSupportedException} (client fault)
+ *  <p>This operation is not supported.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
  *
  */
 export class DescribeConnectionAliasPermissionsCommand extends $Command<
@@ -67,6 +96,9 @@ export class DescribeConnectionAliasPermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConnectionAliasPermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +127,8 @@ export class DescribeConnectionAliasPermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeConnectionAliasPermissionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeConnectionAliasPermissionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,18 +138,24 @@ export class DescribeConnectionAliasPermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeConnectionAliasPermissionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeConnectionAliasPermissionsCommand(input, context);
+    return se_DescribeConnectionAliasPermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeConnectionAliasPermissionsCommandOutput> {
-    return deserializeAws_json1_1DescribeConnectionAliasPermissionsCommand(output, context);
+    return de_DescribeConnectionAliasPermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

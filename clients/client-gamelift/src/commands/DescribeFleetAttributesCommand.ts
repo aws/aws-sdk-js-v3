@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  DescribeFleetAttributesInput,
-  DescribeFleetAttributesInputFilterSensitiveLog,
-  DescribeFleetAttributesOutput,
-  DescribeFleetAttributesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeFleetAttributesCommand,
-  serializeAws_json1_1DescribeFleetAttributesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeFleetAttributesInput, DescribeFleetAttributesOutput } from "../models/models_0";
+import { de_DescribeFleetAttributesCommand, se_DescribeFleetAttributesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeFleetAttributesCommand}.
+ */
 export interface DescribeFleetAttributesCommandInput extends DescribeFleetAttributesInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeFleetAttributesCommand}.
+ */
 export interface DescribeFleetAttributesCommandOutput extends DescribeFleetAttributesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves core fleet-wide properties, including the computing hardware and deployment
  *             configuration for all instances in the fleet.</p>
  *         <p>This operation can be used in the following ways: </p>
@@ -63,13 +66,37 @@ export interface DescribeFleetAttributesCommandOutput extends DescribeFleetAttri
  * import { GameLiftClient, DescribeFleetAttributesCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeFleetAttributesCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // DescribeFleetAttributesInput
+ *   FleetIds: [ // FleetIdOrArnList
+ *     "STRING_VALUE",
+ *   ],
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeFleetAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFleetAttributesCommandInput - {@link DescribeFleetAttributesCommandInput}
+ * @returns {@link DescribeFleetAttributesCommandOutput}
  * @see {@link DescribeFleetAttributesCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetAttributesCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an unrecoverable internal failure while processing the
+ *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
+ *             values before retrying.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
  *
  */
 export class DescribeFleetAttributesCommand extends $Command<
@@ -89,6 +116,9 @@ export class DescribeFleetAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFleetAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +147,8 @@ export class DescribeFleetAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFleetAttributesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFleetAttributesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +158,18 @@ export class DescribeFleetAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFleetAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeFleetAttributesCommand(input, context);
+    return se_DescribeFleetAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFleetAttributesCommandOutput> {
-    return deserializeAws_json1_1DescribeFleetAttributesCommand(output, context);
+    return de_DescribeFleetAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

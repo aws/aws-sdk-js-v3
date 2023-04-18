@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import {
-  CreateQueueRequest,
-  CreateQueueRequestFilterSensitiveLog,
-  CreateQueueResponse,
-  CreateQueueResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1CreateQueueCommand,
-  serializeAws_restJson1CreateQueueCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateQueueRequest, CreateQueueResponse } from "../models/models_1";
+import { de_CreateQueueCommand, se_CreateQueueCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateQueueCommand}.
+ */
 export interface CreateQueueCommandInput extends CreateQueueRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateQueueCommand}.
+ */
 export interface CreateQueueCommandOutput extends CreateQueueResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Create a new transcoding queue. For information about queues, see Working With Queues in the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,48 @@ export interface CreateQueueCommandOutput extends CreateQueueResponse, __Metadat
  * import { MediaConvertClient, CreateQueueCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, CreateQueueCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
  * const client = new MediaConvertClient(config);
+ * const input = { // CreateQueueRequest
+ *   Description: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ *   PricingPlan: "ON_DEMAND" || "RESERVED",
+ *   ReservationPlanSettings: { // ReservationPlanSettings
+ *     Commitment: "ONE_YEAR", // required
+ *     RenewalType: "AUTO_RENEW" || "EXPIRE", // required
+ *     ReservedSlots: Number("int"), // required
+ *   },
+ *   Status: "ACTIVE" || "PAUSED",
+ *   Tags: { // __mapOf__string
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateQueueCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateQueueCommandInput - {@link CreateQueueCommandInput}
+ * @returns {@link CreateQueueCommandOutput}
  * @see {@link CreateQueueCommandInput} for command's `input` shape.
  * @see {@link CreateQueueCommandOutput} for command's `response` shape.
  * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  The service can't process your request because of a problem in the request. Please check your request form and syntax.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  The service couldn't complete your request because there is a conflict with the current state of the resource.
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  You don't have permissions for this action with the credentials you sent.
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  The service encountered an unexpected condition and can't fulfill your request.
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  The resource you requested doesn't exist.
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
+ *
  *
  */
 export class CreateQueueCommand extends $Command<
@@ -62,6 +100,9 @@ export class CreateQueueCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateQueueCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +129,8 @@ export class CreateQueueCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateQueueRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateQueueResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +140,18 @@ export class CreateQueueCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateQueueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateQueueCommand(input, context);
+    return se_CreateQueueCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateQueueCommandOutput> {
-    return deserializeAws_restJson1CreateQueueCommand(output, context);
+    return de_CreateQueueCommand(output, context);
   }
 
   // Start section: command_body_extra

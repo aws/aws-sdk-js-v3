@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutVisionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutVisionClient";
-import {
-  ListModelPackagingJobsRequest,
-  ListModelPackagingJobsRequestFilterSensitiveLog,
-  ListModelPackagingJobsResponse,
-  ListModelPackagingJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListModelPackagingJobsCommand,
-  serializeAws_restJson1ListModelPackagingJobsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListModelPackagingJobsRequest, ListModelPackagingJobsResponse } from "../models/models_0";
+import { de_ListModelPackagingJobsCommand, se_ListModelPackagingJobsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListModelPackagingJobsCommand}.
+ */
 export interface ListModelPackagingJobsCommandInput extends ListModelPackagingJobsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListModelPackagingJobsCommand}.
+ */
 export interface ListModelPackagingJobsCommandOutput extends ListModelPackagingJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  * Lists the model packaging jobs created for an Amazon Lookout for Vision project.
  * </p>
@@ -44,13 +47,37 @@ export interface ListModelPackagingJobsCommandOutput extends ListModelPackagingJ
  * import { LookoutVisionClient, ListModelPackagingJobsCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
  * // const { LookoutVisionClient, ListModelPackagingJobsCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
  * const client = new LookoutVisionClient(config);
+ * const input = { // ListModelPackagingJobsRequest
+ *   ProjectName: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListModelPackagingJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListModelPackagingJobsCommandInput - {@link ListModelPackagingJobsCommandInput}
+ * @returns {@link ListModelPackagingJobsCommandOutput}
  * @see {@link ListModelPackagingJobsCommandInput} for command's `input` shape.
  * @see {@link ListModelPackagingJobsCommandOutput} for command's `response` shape.
  * @see {@link LookoutVisionClientResolvedConfig | config} for LookoutVisionClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to perform the action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Amazon Lookout for Vision experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Amazon Lookout for Vision is temporarily unable to process the request. Try your call again.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An input validation error occured. For example, invalid characters in a project name,
+ *       or if a pagination token is invalid.</p>
+ *
  *
  */
 export class ListModelPackagingJobsCommand extends $Command<
@@ -70,6 +97,9 @@ export class ListModelPackagingJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListModelPackagingJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +128,8 @@ export class ListModelPackagingJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListModelPackagingJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListModelPackagingJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +139,18 @@ export class ListModelPackagingJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListModelPackagingJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListModelPackagingJobsCommand(input, context);
+    return se_ListModelPackagingJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListModelPackagingJobsCommandOutput> {
-    return deserializeAws_restJson1ListModelPackagingJobsCommand(output, context);
+    return de_ListModelPackagingJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

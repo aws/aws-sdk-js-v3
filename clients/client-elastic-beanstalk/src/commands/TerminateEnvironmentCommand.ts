@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import {
-  EnvironmentDescription,
-  EnvironmentDescriptionFilterSensitiveLog,
-  TerminateEnvironmentMessage,
-  TerminateEnvironmentMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryTerminateEnvironmentCommand,
-  serializeAws_queryTerminateEnvironmentCommand,
-} from "../protocols/Aws_query";
+import { EnvironmentDescription, TerminateEnvironmentMessage } from "../models/models_0";
+import { de_TerminateEnvironmentCommand, se_TerminateEnvironmentCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link TerminateEnvironmentCommand}.
+ */
 export interface TerminateEnvironmentCommandInput extends TerminateEnvironmentMessage {}
+/**
+ * @public
+ *
+ * The output of {@link TerminateEnvironmentCommand}.
+ */
 export interface TerminateEnvironmentCommandOutput extends EnvironmentDescription, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Terminates the specified environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,57 @@ export interface TerminateEnvironmentCommandOutput extends EnvironmentDescriptio
  * import { ElasticBeanstalkClient, TerminateEnvironmentCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, TerminateEnvironmentCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = { // TerminateEnvironmentMessage
+ *   EnvironmentId: "STRING_VALUE",
+ *   EnvironmentName: "STRING_VALUE",
+ *   TerminateResources: true || false,
+ *   ForceTerminate: true || false,
+ * };
  * const command = new TerminateEnvironmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TerminateEnvironmentCommandInput - {@link TerminateEnvironmentCommandInput}
+ * @returns {@link TerminateEnvironmentCommandOutput}
  * @see {@link TerminateEnvironmentCommandInput} for command's `input` shape.
  * @see {@link TerminateEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
+ *
+ * @throws {@link InsufficientPrivilegesException} (client fault)
+ *  <p>The specified account does not have sufficient privileges for one or more AWS
+ *       services.</p>
+ *
+ *
+ * @example To terminate an environment
+ * ```javascript
+ * // The following operation terminates an Elastic Beanstalk environment named my-env:
+ * const input = {
+ *   "EnvironmentName": "my-env"
+ * };
+ * const command = new TerminateEnvironmentCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AbortableOperationInProgress": false,
+ *   "ApplicationName": "my-app",
+ *   "CNAME": "my-env.elasticbeanstalk.com",
+ *   "DateCreated": "2015-08-12T18:52:53.622Z",
+ *   "DateUpdated": "2015-08-12T19:05:54.744Z",
+ *   "EndpointURL": "awseb-e-f-AWSEBLoa-1I9XUMP4-8492WNUP202574.us-west-2.elb.amazonaws.com",
+ *   "EnvironmentId": "e-fh2eravpns",
+ *   "EnvironmentName": "my-env",
+ *   "Health": "Grey",
+ *   "SolutionStackName": "64bit Amazon Linux 2015.03 v2.0.0 running Tomcat 8 Java 8",
+ *   "Status": "Terminating",
+ *   "Tier": {
+ *     "Name": "WebServer",
+ *     "Type": "Standard",
+ *     "Version": " "
+ *   }
+ * }
+ * *\/
+ * // example id: to-terminate-an-environment-1456277888556
+ * ```
  *
  */
 export class TerminateEnvironmentCommand extends $Command<
@@ -62,6 +109,9 @@ export class TerminateEnvironmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TerminateEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +140,8 @@ export class TerminateEnvironmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TerminateEnvironmentMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: EnvironmentDescriptionFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +151,18 @@ export class TerminateEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TerminateEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryTerminateEnvironmentCommand(input, context);
+    return se_TerminateEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TerminateEnvironmentCommandOutput> {
-    return deserializeAws_queryTerminateEnvironmentCommand(output, context);
+    return de_TerminateEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

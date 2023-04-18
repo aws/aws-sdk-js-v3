@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import { RequestEnvironmentInfoMessage, RequestEnvironmentInfoMessageFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryRequestEnvironmentInfoCommand,
-  serializeAws_queryRequestEnvironmentInfoCommand,
-} from "../protocols/Aws_query";
+import { RequestEnvironmentInfoMessage } from "../models/models_0";
+import { de_RequestEnvironmentInfoCommand, se_RequestEnvironmentInfoCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link RequestEnvironmentInfoCommand}.
+ */
 export interface RequestEnvironmentInfoCommandInput extends RequestEnvironmentInfoMessage {}
+/**
+ * @public
+ *
+ * The output of {@link RequestEnvironmentInfoCommand}.
+ */
 export interface RequestEnvironmentInfoCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Initiates a request to compile the specified type of information of the deployed
  *       environment.</p>
  *          <p> Setting the <code>InfoType</code> to <code>tail</code> compiles the last lines from
@@ -46,13 +54,33 @@ export interface RequestEnvironmentInfoCommandOutput extends __MetadataBearer {}
  * import { ElasticBeanstalkClient, RequestEnvironmentInfoCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, RequestEnvironmentInfoCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = { // RequestEnvironmentInfoMessage
+ *   EnvironmentId: "STRING_VALUE",
+ *   EnvironmentName: "STRING_VALUE",
+ *   InfoType: "tail" || "bundle", // required
+ * };
  * const command = new RequestEnvironmentInfoCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RequestEnvironmentInfoCommandInput - {@link RequestEnvironmentInfoCommandInput}
+ * @returns {@link RequestEnvironmentInfoCommandOutput}
  * @see {@link RequestEnvironmentInfoCommandInput} for command's `input` shape.
  * @see {@link RequestEnvironmentInfoCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
+ *
+ *
+ * @example To request tailed logs
+ * ```javascript
+ * // The following operation requests logs from an environment named my-env:
+ * const input = {
+ *   "EnvironmentName": "my-env",
+ *   "InfoType": "tail"
+ * };
+ * const command = new RequestEnvironmentInfoCommand(input);
+ * await client.send(command);
+ * // example id: to-request-tailed-logs-1456277657045
+ * ```
  *
  */
 export class RequestEnvironmentInfoCommand extends $Command<
@@ -72,6 +100,9 @@ export class RequestEnvironmentInfoCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RequestEnvironmentInfoCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +131,8 @@ export class RequestEnvironmentInfoCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RequestEnvironmentInfoMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +142,18 @@ export class RequestEnvironmentInfoCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RequestEnvironmentInfoCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRequestEnvironmentInfoCommand(input, context);
+    return se_RequestEnvironmentInfoCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RequestEnvironmentInfoCommandOutput> {
-    return deserializeAws_queryRequestEnvironmentInfoCommand(output, context);
+    return de_RequestEnvironmentInfoCommand(output, context);
   }
 
   // Start section: command_body_extra

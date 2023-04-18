@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetTraceGraphRequest,
-  GetTraceGraphRequestFilterSensitiveLog,
-  GetTraceGraphResult,
-  GetTraceGraphResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetTraceGraphCommand,
-  serializeAws_restJson1GetTraceGraphCommand,
-} from "../protocols/Aws_restJson1";
+import { GetTraceGraphRequest, GetTraceGraphResult } from "../models/models_0";
+import { de_GetTraceGraphCommand, se_GetTraceGraphCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetTraceGraphCommand}.
+ */
 export interface GetTraceGraphCommandInput extends GetTraceGraphRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetTraceGraphCommand}.
+ */
 export interface GetTraceGraphCommandOutput extends GetTraceGraphResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a service graph for one or more specific trace IDs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,28 @@ export interface GetTraceGraphCommandOutput extends GetTraceGraphResult, __Metad
  * import { XRayClient, GetTraceGraphCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, GetTraceGraphCommand } = require("@aws-sdk/client-xray"); // CommonJS import
  * const client = new XRayClient(config);
+ * const input = { // GetTraceGraphRequest
+ *   TraceIds: [ // TraceIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetTraceGraphCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTraceGraphCommandInput - {@link GetTraceGraphCommandInput}
+ * @returns {@link GetTraceGraphCommandOutput}
  * @see {@link GetTraceGraphCommandInput} for command's `input` shape.
  * @see {@link GetTraceGraphCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is missing required parameters or has invalid parameters.</p>
+ *
+ * @throws {@link ThrottledException} (client fault)
+ *  <p>The request exceeds the maximum number of requests per second.</p>
+ *
  *
  */
 export class GetTraceGraphCommand extends $Command<
@@ -62,6 +80,9 @@ export class GetTraceGraphCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTraceGraphCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +109,8 @@ export class GetTraceGraphCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTraceGraphRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTraceGraphResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +120,18 @@ export class GetTraceGraphCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTraceGraphCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTraceGraphCommand(input, context);
+    return se_GetTraceGraphCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTraceGraphCommandOutput> {
-    return deserializeAws_restJson1GetTraceGraphCommand(output, context);
+    return de_GetTraceGraphCommand(output, context);
   }
 
   // Start section: command_body_extra

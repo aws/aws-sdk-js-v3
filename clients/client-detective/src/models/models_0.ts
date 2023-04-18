@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { DetectiveServiceException as __BaseException } from "./DetectiveServiceException";
 
+/**
+ * @public
+ */
 export interface AcceptInvitationRequest {
   /**
    * <p>The ARN of the behavior graph that the member account is accepting the invitation
@@ -12,13 +15,23 @@ export interface AcceptInvitationRequest {
   GraphArn: string | undefined;
 }
 
-export enum ErrorCode {
-  InternalError = "INTERNAL_ERROR",
-  InvalidGraphArn = "INVALID_GRAPH_ARN",
-  InvalidRequestBody = "INVALID_REQUEST_BODY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ErrorCode = {
+  InternalError: "INTERNAL_ERROR",
+  InvalidGraphArn: "INVALID_GRAPH_ARN",
+  InvalidRequestBody: "INVALID_REQUEST_BODY",
+} as const;
 
 /**
+ * @public
+ */
+export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
+
+/**
+ * @public
  * <p>The request issuer does not have permission to access this resource or perform this
  *          operation.</p>
  */
@@ -64,6 +77,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request attempted an invalid action.</p>
  */
 export class ConflictException extends __BaseException {
@@ -85,6 +99,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was valid but failed because of a problem with the service.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -106,6 +121,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request refers to a nonexistent resource.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -127,6 +143,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request parameters are invalid.</p>
  */
 export class ValidationException extends __BaseException {
@@ -159,6 +176,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An Amazon Web Services account that is the administrator account of or a member of a
  *          behavior graph.</p>
  */
@@ -176,6 +194,7 @@ export interface Account {
 }
 
 /**
+ * @public
  * <p>Information about the Detective administrator account for an
  *          organization.</p>
  */
@@ -199,6 +218,9 @@ export interface Administrator {
   DelegationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetGraphMemberDatasourcesRequest {
   /**
    * <p>The ARN of the behavior graph.</p>
@@ -212,18 +234,38 @@ export interface BatchGetGraphMemberDatasourcesRequest {
   AccountIds: string[] | undefined;
 }
 
-export enum DatasourcePackage {
-  DETECTIVE_CORE = "DETECTIVE_CORE",
-  EKS_AUDIT = "EKS_AUDIT",
-}
-
-export enum DatasourcePackageIngestState {
-  DISABLED = "DISABLED",
-  STARTED = "STARTED",
-  STOPPED = "STOPPED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DatasourcePackage = {
+  DETECTIVE_CORE: "DETECTIVE_CORE",
+  EKS_AUDIT: "EKS_AUDIT",
+} as const;
 
 /**
+ * @public
+ */
+export type DatasourcePackage = (typeof DatasourcePackage)[keyof typeof DatasourcePackage];
+
+/**
+ * @public
+ * @enum
+ */
+export const DatasourcePackageIngestState = {
+  DISABLED: "DISABLED",
+  STARTED: "STARTED",
+  STOPPED: "STOPPED",
+} as const;
+
+/**
+ * @public
+ */
+export type DatasourcePackageIngestState =
+  (typeof DatasourcePackageIngestState)[keyof typeof DatasourcePackageIngestState];
+
+/**
+ * @public
  * <p>Details on when data collection began for a source package.</p>
  */
 export interface TimestampForCollection {
@@ -235,6 +277,7 @@ export interface TimestampForCollection {
 }
 
 /**
+ * @public
  * <p>Details on data source packages for members of the behavior graph.</p>
  */
 export interface MembershipDatasources {
@@ -255,6 +298,7 @@ export interface MembershipDatasources {
 }
 
 /**
+ * @public
  * <p>A member account that was included in a request but for which the request could not be
  *          processed.</p>
  */
@@ -271,6 +315,9 @@ export interface UnprocessedAccount {
   Reason?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetGraphMemberDatasourcesResponse {
   /**
    * <p>Details on the status of data source packages for members of the behavior graph.</p>
@@ -283,6 +330,9 @@ export interface BatchGetGraphMemberDatasourcesResponse {
   UnprocessedAccounts?: UnprocessedAccount[];
 }
 
+/**
+ * @public
+ */
 export interface BatchGetMembershipDatasourcesRequest {
   /**
    * <p>The ARN of the behavior graph.</p>
@@ -291,6 +341,7 @@ export interface BatchGetMembershipDatasourcesRequest {
 }
 
 /**
+ * @public
  * <p>Behavior graphs that could not be processed in the request.</p>
  */
 export interface UnprocessedGraph {
@@ -306,6 +357,9 @@ export interface UnprocessedGraph {
   Reason?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetMembershipDatasourcesResponse {
   /**
    * <p>Details on the data source package history for an member of the behavior graph.</p>
@@ -318,6 +372,9 @@ export interface BatchGetMembershipDatasourcesResponse {
   UnprocessedGraphs?: UnprocessedGraph[];
 }
 
+/**
+ * @public
+ */
 export interface CreateGraphRequest {
   /**
    * <p>The tags to assign to the new behavior graph. You can add up to 50 tags. For each tag,
@@ -327,6 +384,9 @@ export interface CreateGraphRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateGraphResponse {
   /**
    * <p>The ARN of the new behavior graph.</p>
@@ -335,6 +395,7 @@ export interface CreateGraphResponse {
 }
 
 /**
+ * @public
  * <p>This request cannot be completed for one of the following reasons.</p>
  *          <ul>
  *             <li>
@@ -375,6 +436,9 @@ export class ServiceQuotaExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateMembersRequest {
   /**
    * <p>The ARN of the behavior graph.</p>
@@ -406,25 +470,53 @@ export interface CreateMembersRequest {
   Accounts: Account[] | undefined;
 }
 
-export enum MemberDisabledReason {
-  VOLUME_TOO_HIGH = "VOLUME_TOO_HIGH",
-  VOLUME_UNKNOWN = "VOLUME_UNKNOWN",
-}
-
-export enum InvitationType {
-  INVITATION = "INVITATION",
-  ORGANIZATION = "ORGANIZATION",
-}
-
-export enum MemberStatus {
-  ACCEPTED_BUT_DISABLED = "ACCEPTED_BUT_DISABLED",
-  ENABLED = "ENABLED",
-  INVITED = "INVITED",
-  VERIFICATION_FAILED = "VERIFICATION_FAILED",
-  VERIFICATION_IN_PROGRESS = "VERIFICATION_IN_PROGRESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MemberDisabledReason = {
+  VOLUME_TOO_HIGH: "VOLUME_TOO_HIGH",
+  VOLUME_UNKNOWN: "VOLUME_UNKNOWN",
+} as const;
 
 /**
+ * @public
+ */
+export type MemberDisabledReason = (typeof MemberDisabledReason)[keyof typeof MemberDisabledReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const InvitationType = {
+  INVITATION: "INVITATION",
+  ORGANIZATION: "ORGANIZATION",
+} as const;
+
+/**
+ * @public
+ */
+export type InvitationType = (typeof InvitationType)[keyof typeof InvitationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const MemberStatus = {
+  ACCEPTED_BUT_DISABLED: "ACCEPTED_BUT_DISABLED",
+  ENABLED: "ENABLED",
+  INVITED: "INVITED",
+  VERIFICATION_FAILED: "VERIFICATION_FAILED",
+  VERIFICATION_IN_PROGRESS: "VERIFICATION_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type MemberStatus = (typeof MemberStatus)[keyof typeof MemberStatus];
+
+/**
+ * @public
  * <p>Information on the usage of a data source package in the behavior graph.</p>
  */
 export interface DatasourcePackageUsageInfo {
@@ -441,6 +533,7 @@ export interface DatasourcePackageUsageInfo {
 }
 
 /**
+ * @public
  * <p>Details about a member account in a behavior graph.</p>
  */
 export interface MemberDetail {
@@ -608,6 +701,9 @@ export interface MemberDetail {
   DatasourcePackageIngestStates?: Record<string, DatasourcePackageIngestState | string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateMembersResponse {
   /**
    * <p>The set of member account invitation or enablement requests that Detective was
@@ -625,6 +721,9 @@ export interface CreateMembersResponse {
   UnprocessedAccounts?: UnprocessedAccount[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteGraphRequest {
   /**
    * <p>The ARN of the behavior graph to disable.</p>
@@ -632,6 +731,9 @@ export interface DeleteGraphRequest {
   GraphArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMembersRequest {
   /**
    * <p>The ARN of the behavior graph to remove members from.</p>
@@ -645,6 +747,9 @@ export interface DeleteMembersRequest {
   AccountIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMembersResponse {
   /**
    * <p>The list of Amazon Web Services account identifiers for the member accounts that Detective successfully removed from the behavior graph.</p>
@@ -659,6 +764,9 @@ export interface DeleteMembersResponse {
   UnprocessedAccounts?: UnprocessedAccount[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeOrganizationConfigurationRequest {
   /**
    * <p>The ARN of the organization behavior graph.</p>
@@ -666,6 +774,9 @@ export interface DescribeOrganizationConfigurationRequest {
   GraphArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeOrganizationConfigurationResponse {
   /**
    * <p>Indicates whether to automatically enable new organization accounts as member accounts
@@ -675,6 +786,7 @@ export interface DescribeOrganizationConfigurationResponse {
 }
 
 /**
+ * @public
  * <p>The request cannot be completed because too many other requests are occurring at the
  *          same time.</p>
  */
@@ -696,6 +808,9 @@ export class TooManyRequestsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DisassociateMembershipRequest {
   /**
    * <p>The ARN of the behavior graph to remove the member account from.</p>
@@ -705,6 +820,9 @@ export interface DisassociateMembershipRequest {
   GraphArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface EnableOrganizationAdminAccountRequest {
   /**
    * <p>The Amazon Web Services account identifier of the account to designate as the Detective administrator account for the organization.</p>
@@ -712,6 +830,9 @@ export interface EnableOrganizationAdminAccountRequest {
   AccountId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetMembersRequest {
   /**
    * <p>The ARN of the behavior graph for which to request the member details.</p>
@@ -728,6 +849,9 @@ export interface GetMembersRequest {
   AccountIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetMembersResponse {
   /**
    * <p>The member account details that Detective is returning in response to the
@@ -743,6 +867,9 @@ export interface GetMembersResponse {
   UnprocessedAccounts?: UnprocessedAccount[];
 }
 
+/**
+ * @public
+ */
 export interface ListDatasourcePackagesRequest {
   /**
    * <p>The ARN of the behavior graph.</p>
@@ -763,6 +890,7 @@ export interface ListDatasourcePackagesRequest {
 }
 
 /**
+ * @public
  * <p>Details about the data source packages ingested by your behavior graph.</p>
  */
 export interface DatasourcePackageIngestDetail {
@@ -777,6 +905,9 @@ export interface DatasourcePackageIngestDetail {
   LastIngestStateChange?: Record<string, TimestampForCollection>;
 }
 
+/**
+ * @public
+ */
 export interface ListDatasourcePackagesResponse {
   /**
    * <p>Details on the data source packages active in the behavior graph.</p>
@@ -791,6 +922,9 @@ export interface ListDatasourcePackagesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListGraphsRequest {
   /**
    * <p>For requests to get the next page of results, the pagination token that was returned
@@ -807,6 +941,7 @@ export interface ListGraphsRequest {
 }
 
 /**
+ * @public
  * <p>A behavior graph in Detective.</p>
  */
 export interface Graph {
@@ -822,6 +957,9 @@ export interface Graph {
   CreatedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListGraphsResponse {
   /**
    * <p>A list of behavior graphs that the account is an administrator account for.</p>
@@ -835,6 +973,9 @@ export interface ListGraphsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListInvitationsRequest {
   /**
    * <p>For requests to retrieve the next page of results, the pagination token that was
@@ -851,6 +992,9 @@ export interface ListInvitationsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListInvitationsResponse {
   /**
    * <p>The list of behavior graphs for which the member account has open or accepted
@@ -865,6 +1009,9 @@ export interface ListInvitationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListMembersRequest {
   /**
    * <p>The ARN of the behavior graph for which to retrieve the list of member accounts.</p>
@@ -885,6 +1032,9 @@ export interface ListMembersRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListMembersResponse {
   /**
    * <p>The list of member accounts in the behavior graph.</p>
@@ -904,6 +1054,9 @@ export interface ListMembersResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListOrganizationAdminAccountsRequest {
   /**
    * <p>For requests to get the next page of results, the pagination token that was returned
@@ -918,6 +1071,9 @@ export interface ListOrganizationAdminAccountsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListOrganizationAdminAccountsResponse {
   /**
    * <p>The list of Detective administrator accounts.</p>
@@ -931,6 +1087,9 @@ export interface ListOrganizationAdminAccountsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the behavior graph for which to retrieve the tag values.</p>
@@ -938,6 +1097,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tag values that are assigned to the behavior graph. The request returns up to 50 tag
@@ -946,6 +1108,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface RejectInvitationRequest {
   /**
    * <p>The ARN of the behavior graph to reject the invitation to.</p>
@@ -955,6 +1120,9 @@ export interface RejectInvitationRequest {
   GraphArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartMonitoringMemberRequest {
   /**
    * <p>The ARN of the behavior graph.</p>
@@ -969,6 +1137,9 @@ export interface StartMonitoringMemberRequest {
   AccountId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The ARN of the behavior graph to assign the tags to.</p>
@@ -983,8 +1154,14 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The ARN of the behavior graph to remove the tags from.</p>
@@ -998,8 +1175,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateDatasourcePackagesRequest {
   /**
    * <p>The ARN of the behavior graph.</p>
@@ -1012,6 +1195,9 @@ export interface UpdateDatasourcePackagesRequest {
   DatasourcePackages: (DatasourcePackage | string)[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateOrganizationConfigurationRequest {
   /**
    * <p>The ARN of the organization behavior graph.</p>
@@ -1024,359 +1210,3 @@ export interface UpdateOrganizationConfigurationRequest {
    */
   AutoEnable?: boolean;
 }
-
-/**
- * @internal
- */
-export const AcceptInvitationRequestFilterSensitiveLog = (obj: AcceptInvitationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AccountFilterSensitiveLog = (obj: Account): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AdministratorFilterSensitiveLog = (obj: Administrator): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetGraphMemberDatasourcesRequestFilterSensitiveLog = (
-  obj: BatchGetGraphMemberDatasourcesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TimestampForCollectionFilterSensitiveLog = (obj: TimestampForCollection): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MembershipDatasourcesFilterSensitiveLog = (obj: MembershipDatasources): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UnprocessedAccountFilterSensitiveLog = (obj: UnprocessedAccount): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetGraphMemberDatasourcesResponseFilterSensitiveLog = (
-  obj: BatchGetGraphMemberDatasourcesResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetMembershipDatasourcesRequestFilterSensitiveLog = (
-  obj: BatchGetMembershipDatasourcesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UnprocessedGraphFilterSensitiveLog = (obj: UnprocessedGraph): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetMembershipDatasourcesResponseFilterSensitiveLog = (
-  obj: BatchGetMembershipDatasourcesResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateGraphRequestFilterSensitiveLog = (obj: CreateGraphRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateGraphResponseFilterSensitiveLog = (obj: CreateGraphResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateMembersRequestFilterSensitiveLog = (obj: CreateMembersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DatasourcePackageUsageInfoFilterSensitiveLog = (obj: DatasourcePackageUsageInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MemberDetailFilterSensitiveLog = (obj: MemberDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateMembersResponseFilterSensitiveLog = (obj: CreateMembersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteGraphRequestFilterSensitiveLog = (obj: DeleteGraphRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMembersRequestFilterSensitiveLog = (obj: DeleteMembersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMembersResponseFilterSensitiveLog = (obj: DeleteMembersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeOrganizationConfigurationRequestFilterSensitiveLog = (
-  obj: DescribeOrganizationConfigurationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeOrganizationConfigurationResponseFilterSensitiveLog = (
-  obj: DescribeOrganizationConfigurationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateMembershipRequestFilterSensitiveLog = (obj: DisassociateMembershipRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableOrganizationAdminAccountRequestFilterSensitiveLog = (
-  obj: EnableOrganizationAdminAccountRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMembersRequestFilterSensitiveLog = (obj: GetMembersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMembersResponseFilterSensitiveLog = (obj: GetMembersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDatasourcePackagesRequestFilterSensitiveLog = (obj: ListDatasourcePackagesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DatasourcePackageIngestDetailFilterSensitiveLog = (obj: DatasourcePackageIngestDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDatasourcePackagesResponseFilterSensitiveLog = (obj: ListDatasourcePackagesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListGraphsRequestFilterSensitiveLog = (obj: ListGraphsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GraphFilterSensitiveLog = (obj: Graph): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListGraphsResponseFilterSensitiveLog = (obj: ListGraphsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListInvitationsRequestFilterSensitiveLog = (obj: ListInvitationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListInvitationsResponseFilterSensitiveLog = (obj: ListInvitationsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMembersRequestFilterSensitiveLog = (obj: ListMembersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMembersResponseFilterSensitiveLog = (obj: ListMembersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListOrganizationAdminAccountsRequestFilterSensitiveLog = (
-  obj: ListOrganizationAdminAccountsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListOrganizationAdminAccountsResponseFilterSensitiveLog = (
-  obj: ListOrganizationAdminAccountsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RejectInvitationRequestFilterSensitiveLog = (obj: RejectInvitationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartMonitoringMemberRequestFilterSensitiveLog = (obj: StartMonitoringMemberRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDatasourcePackagesRequestFilterSensitiveLog = (obj: UpdateDatasourcePackagesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateOrganizationConfigurationRequestFilterSensitiveLog = (
-  obj: UpdateOrganizationConfigurationRequest
-): any => ({
-  ...obj,
-});

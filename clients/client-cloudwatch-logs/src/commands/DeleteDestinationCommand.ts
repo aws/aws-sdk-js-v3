@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import { DeleteDestinationRequest, DeleteDestinationRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteDestinationCommand,
-  serializeAws_json1_1DeleteDestinationCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteDestinationRequest } from "../models/models_0";
+import { de_DeleteDestinationCommand, se_DeleteDestinationCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteDestinationCommand}.
+ */
 export interface DeleteDestinationCommandInput extends DeleteDestinationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteDestinationCommand}.
+ */
 export interface DeleteDestinationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified destination, and eventually disables all the
  *       subscription filters that publish to it. This operation does not delete the
  *       physical resource encapsulated by the destination.</p>
@@ -33,13 +41,31 @@ export interface DeleteDestinationCommandOutput extends __MetadataBearer {}
  * import { CloudWatchLogsClient, DeleteDestinationCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DeleteDestinationCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = { // DeleteDestinationRequest
+ *   destinationName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDestinationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDestinationCommandInput - {@link DeleteDestinationCommandInput}
+ * @returns {@link DeleteDestinationCommandOutput}
  * @see {@link DeleteDestinationCommandInput} for command's `input` shape.
  * @see {@link DeleteDestinationCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter is specified incorrectly.</p>
+ *
+ * @throws {@link OperationAbortedException} (client fault)
+ *  <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service cannot complete the request.</p>
+ *
  *
  */
 export class DeleteDestinationCommand extends $Command<
@@ -59,6 +85,9 @@ export class DeleteDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -87,8 +116,8 @@ export class DeleteDestinationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDestinationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -98,12 +127,18 @@ export class DeleteDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDestinationCommand(input, context);
+    return se_DeleteDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDestinationCommandOutput> {
-    return deserializeAws_json1_1DeleteDestinationCommand(output, context);
+    return de_DeleteDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

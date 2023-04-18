@@ -13,24 +13,27 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListDocumentMetadataHistoryRequest,
-  ListDocumentMetadataHistoryRequestFilterSensitiveLog,
-  ListDocumentMetadataHistoryResponse,
-  ListDocumentMetadataHistoryResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1ListDocumentMetadataHistoryCommand,
-  serializeAws_json1_1ListDocumentMetadataHistoryCommand,
-} from "../protocols/Aws_json1_1";
+import { ListDocumentMetadataHistoryRequest, ListDocumentMetadataHistoryResponse } from "../models/models_1";
+import { de_ListDocumentMetadataHistoryCommand, se_ListDocumentMetadataHistoryCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListDocumentMetadataHistoryCommand}.
+ */
 export interface ListDocumentMetadataHistoryCommandInput extends ListDocumentMetadataHistoryRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDocumentMetadataHistoryCommand}.
+ */
 export interface ListDocumentMetadataHistoryCommandOutput
   extends ListDocumentMetadataHistoryResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Information about approval reviews for a version of a change template in Change Manager.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +41,35 @@ export interface ListDocumentMetadataHistoryCommandOutput
  * import { SSMClient, ListDocumentMetadataHistoryCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ListDocumentMetadataHistoryCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // ListDocumentMetadataHistoryRequest
+ *   Name: "STRING_VALUE", // required
+ *   DocumentVersion: "STRING_VALUE",
+ *   Metadata: "DocumentReviews", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListDocumentMetadataHistoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDocumentMetadataHistoryCommandInput - {@link ListDocumentMetadataHistoryCommandInput}
+ * @returns {@link ListDocumentMetadataHistoryCommandOutput}
  * @see {@link ListDocumentMetadataHistoryCommandInput} for command's `input` shape.
  * @see {@link ListDocumentMetadataHistoryCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidDocument} (client fault)
+ *  <p>The specified SSM document doesn't exist.</p>
+ *
+ * @throws {@link InvalidDocumentVersion} (client fault)
+ *  <p>The document version isn't valid or doesn't exist.</p>
+ *
+ * @throws {@link InvalidNextToken} (client fault)
+ *  <p>The specified token isn't valid.</p>
+ *
  *
  */
 export class ListDocumentMetadataHistoryCommand extends $Command<
@@ -64,6 +89,9 @@ export class ListDocumentMetadataHistoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDocumentMetadataHistoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +120,8 @@ export class ListDocumentMetadataHistoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDocumentMetadataHistoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDocumentMetadataHistoryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +131,21 @@ export class ListDocumentMetadataHistoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDocumentMetadataHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDocumentMetadataHistoryCommand(input, context);
+    return se_ListDocumentMetadataHistoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDocumentMetadataHistoryCommandOutput> {
-    return deserializeAws_json1_1ListDocumentMetadataHistoryCommand(output, context);
+    return de_ListDocumentMetadataHistoryCommand(output, context);
   }
 
   // Start section: command_body_extra

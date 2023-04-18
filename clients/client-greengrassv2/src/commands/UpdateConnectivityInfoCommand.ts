@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassV2Client";
-import {
-  UpdateConnectivityInfoRequest,
-  UpdateConnectivityInfoRequestFilterSensitiveLog,
-  UpdateConnectivityInfoResponse,
-  UpdateConnectivityInfoResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateConnectivityInfoCommand,
-  serializeAws_restJson1UpdateConnectivityInfoCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateConnectivityInfoRequest, UpdateConnectivityInfoResponse } from "../models/models_0";
+import { de_UpdateConnectivityInfoCommand, se_UpdateConnectivityInfoCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateConnectivityInfoCommand}.
+ */
 export interface UpdateConnectivityInfoCommandInput extends UpdateConnectivityInfoRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateConnectivityInfoCommand}.
+ */
 export interface UpdateConnectivityInfoCommandOutput extends UpdateConnectivityInfoResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates connectivity information for a Greengrass core device.</p>
  *          <p>Connectivity information includes endpoints and ports where client devices
  *       can connect to an MQTT broker on the core device. When a client device
@@ -42,13 +45,34 @@ export interface UpdateConnectivityInfoCommandOutput extends UpdateConnectivityI
  * import { GreengrassV2Client, UpdateConnectivityInfoCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
  * // const { GreengrassV2Client, UpdateConnectivityInfoCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
  * const client = new GreengrassV2Client(config);
+ * const input = { // UpdateConnectivityInfoRequest
+ *   thingName: "STRING_VALUE", // required
+ *   connectivityInfo: [ // connectivityInfoList // required
+ *     { // ConnectivityInfo
+ *       id: "STRING_VALUE",
+ *       hostAddress: "STRING_VALUE",
+ *       portNumber: Number("int"),
+ *       metadata: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateConnectivityInfoCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateConnectivityInfoCommandInput - {@link UpdateConnectivityInfoCommandInput}
+ * @returns {@link UpdateConnectivityInfoCommandOutput}
  * @see {@link UpdateConnectivityInfoCommandInput} for command's `input` shape.
  * @see {@link UpdateConnectivityInfoCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>IoT Greengrass can't process your request right now. Try again later.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
+ *       unsupported characters.</p>
+ *
  *
  */
 export class UpdateConnectivityInfoCommand extends $Command<
@@ -68,6 +92,9 @@ export class UpdateConnectivityInfoCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateConnectivityInfoCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +123,8 @@ export class UpdateConnectivityInfoCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateConnectivityInfoRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateConnectivityInfoResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +134,18 @@ export class UpdateConnectivityInfoCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateConnectivityInfoCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateConnectivityInfoCommand(input, context);
+    return se_UpdateConnectivityInfoCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateConnectivityInfoCommandOutput> {
-    return deserializeAws_restJson1UpdateConnectivityInfoCommand(output, context);
+    return de_UpdateConnectivityInfoCommand(output, context);
   }
 
   // Start section: command_body_extra

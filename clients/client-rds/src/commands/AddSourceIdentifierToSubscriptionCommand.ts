@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { AddSourceIdentifierToSubscriptionMessage, AddSourceIdentifierToSubscriptionResult } from "../models/models_0";
 import {
-  AddSourceIdentifierToSubscriptionMessage,
-  AddSourceIdentifierToSubscriptionMessageFilterSensitiveLog,
-  AddSourceIdentifierToSubscriptionResult,
-  AddSourceIdentifierToSubscriptionResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryAddSourceIdentifierToSubscriptionCommand,
-  serializeAws_queryAddSourceIdentifierToSubscriptionCommand,
+  de_AddSourceIdentifierToSubscriptionCommand,
+  se_AddSourceIdentifierToSubscriptionCommand,
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link AddSourceIdentifierToSubscriptionCommand}.
+ */
 export interface AddSourceIdentifierToSubscriptionCommandInput extends AddSourceIdentifierToSubscriptionMessage {}
+/**
+ * @public
+ *
+ * The output of {@link AddSourceIdentifierToSubscriptionCommand}.
+ */
 export interface AddSourceIdentifierToSubscriptionCommandOutput
   extends AddSourceIdentifierToSubscriptionResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a source identifier to an existing RDS event notification subscription.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,60 @@ export interface AddSourceIdentifierToSubscriptionCommandOutput
  * import { RDSClient, AddSourceIdentifierToSubscriptionCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, AddSourceIdentifierToSubscriptionCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // AddSourceIdentifierToSubscriptionMessage
+ *   SubscriptionName: "STRING_VALUE", // required
+ *   SourceIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new AddSourceIdentifierToSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AddSourceIdentifierToSubscriptionCommandInput - {@link AddSourceIdentifierToSubscriptionCommandInput}
+ * @returns {@link AddSourceIdentifierToSubscriptionCommandOutput}
  * @see {@link AddSourceIdentifierToSubscriptionCommandInput} for command's `input` shape.
  * @see {@link AddSourceIdentifierToSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ * @throws {@link SourceNotFoundFault} (client fault)
+ *  <p>The requested source could not be found.</p>
+ *
+ * @throws {@link SubscriptionNotFoundFault} (client fault)
+ *  <p>The subscription name does not exist.</p>
+ *
+ *
+ * @example To add a source identifier to a subscription
+ * ```javascript
+ * // The following example adds another source identifier to an existing subscription.
+ * const input = {
+ *   "SourceIdentifier": "test-instance-repl",
+ *   "SubscriptionName": "my-instance-events"
+ * };
+ * const command = new AddSourceIdentifierToSubscriptionCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "EventSubscription": {
+ *     "CustSubscriptionId": "my-instance-events",
+ *     "CustomerAwsId": "123456789012",
+ *     "Enabled": false,
+ *     "EventCategoriesList": [
+ *       "backup",
+ *       "recovery"
+ *     ],
+ *     "EventSubscriptionArn": "arn:aws:rds:us-east-1:123456789012:es:my-instance-events",
+ *     "SnsTopicArn": "arn:aws:sns:us-east-1:123456789012:interesting-events",
+ *     "SourceIdsList": [
+ *       "test-instance",
+ *       "test-instance-repl"
+ *     ],
+ *     "SourceType": "db-instance",
+ *     "Status": "modifying",
+ *     "SubscriptionCreationTime": "Tue Jul 31 23:22:01 UTC 2018"
+ *   }
+ * }
+ * *\/
+ * // example id: to-add-a-source-identifier-to-a-subscription-1679691771786
+ * ```
  *
  */
 export class AddSourceIdentifierToSubscriptionCommand extends $Command<
@@ -64,6 +117,9 @@ export class AddSourceIdentifierToSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddSourceIdentifierToSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +148,8 @@ export class AddSourceIdentifierToSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddSourceIdentifierToSubscriptionMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: AddSourceIdentifierToSubscriptionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +159,24 @@ export class AddSourceIdentifierToSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AddSourceIdentifierToSubscriptionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryAddSourceIdentifierToSubscriptionCommand(input, context);
+    return se_AddSourceIdentifierToSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AddSourceIdentifierToSubscriptionCommandOutput> {
-    return deserializeAws_queryAddSourceIdentifierToSubscriptionCommand(output, context);
+    return de_AddSourceIdentifierToSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  DescribeServiceUpdatesMessage,
-  DescribeServiceUpdatesMessageFilterSensitiveLog,
-  ServiceUpdatesMessage,
-  ServiceUpdatesMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeServiceUpdatesCommand,
-  serializeAws_queryDescribeServiceUpdatesCommand,
-} from "../protocols/Aws_query";
+import { DescribeServiceUpdatesMessage, ServiceUpdatesMessage } from "../models/models_0";
+import { de_DescribeServiceUpdatesCommand, se_DescribeServiceUpdatesCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeServiceUpdatesCommand}.
+ */
 export interface DescribeServiceUpdatesCommandInput extends DescribeServiceUpdatesMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeServiceUpdatesCommand}.
+ */
 export interface DescribeServiceUpdatesCommandOutput extends ServiceUpdatesMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns details of the service updates</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,33 @@ export interface DescribeServiceUpdatesCommandOutput extends ServiceUpdatesMessa
  * import { ElastiCacheClient, DescribeServiceUpdatesCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DescribeServiceUpdatesCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // DescribeServiceUpdatesMessage
+ *   ServiceUpdateName: "STRING_VALUE",
+ *   ServiceUpdateStatus: [ // ServiceUpdateStatusList
+ *     "available" || "cancelled" || "expired",
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeServiceUpdatesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeServiceUpdatesCommandInput - {@link DescribeServiceUpdatesCommandInput}
+ * @returns {@link DescribeServiceUpdatesCommandOutput}
  * @see {@link DescribeServiceUpdatesCommandInput} for command's `input` shape.
  * @see {@link DescribeServiceUpdatesCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
+ * @throws {@link ServiceUpdateNotFoundFault} (client fault)
+ *  <p>The service update doesn't exist</p>
+ *
  *
  */
 export class DescribeServiceUpdatesCommand extends $Command<
@@ -62,6 +85,9 @@ export class DescribeServiceUpdatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeServiceUpdatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +116,8 @@ export class DescribeServiceUpdatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeServiceUpdatesMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ServiceUpdatesMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +127,18 @@ export class DescribeServiceUpdatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeServiceUpdatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeServiceUpdatesCommand(input, context);
+    return se_DescribeServiceUpdatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeServiceUpdatesCommandOutput> {
-    return deserializeAws_queryDescribeServiceUpdatesCommand(output, context);
+    return de_DescribeServiceUpdatesCommand(output, context);
   }
 
   // Start section: command_body_extra

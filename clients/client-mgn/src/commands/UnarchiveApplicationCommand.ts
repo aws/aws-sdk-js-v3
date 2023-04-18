@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  Application,
-  ApplicationFilterSensitiveLog,
-  UnarchiveApplicationRequest,
-  UnarchiveApplicationRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UnarchiveApplicationCommand,
-  serializeAws_restJson1UnarchiveApplicationCommand,
-} from "../protocols/Aws_restJson1";
+import { Application, ApplicationFilterSensitiveLog, UnarchiveApplicationRequest } from "../models/models_0";
+import { de_UnarchiveApplicationCommand, se_UnarchiveApplicationCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UnarchiveApplicationCommand}.
+ */
 export interface UnarchiveApplicationCommandInput extends UnarchiveApplicationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UnarchiveApplicationCommand}.
+ */
 export interface UnarchiveApplicationCommandOutput extends Application, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Unarchive application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,28 @@ export interface UnarchiveApplicationCommandOutput extends Application, __Metada
  * import { MgnClient, UnarchiveApplicationCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, UnarchiveApplicationCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = { // UnarchiveApplicationRequest
+ *   applicationID: "STRING_VALUE", // required
+ * };
  * const command = new UnarchiveApplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UnarchiveApplicationCommandInput - {@link UnarchiveApplicationCommandInput}
+ * @returns {@link UnarchiveApplicationCommandOutput}
  * @see {@link UnarchiveApplicationCommandInput} for command's `input` shape.
  * @see {@link UnarchiveApplicationCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource not found exception.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request could not be completed because its exceeded the service quota.</p>
+ *
+ * @throws {@link UninitializedAccountException} (client fault)
+ *  <p>Uninitialized account exception.</p>
+ *
  *
  */
 export class UnarchiveApplicationCommand extends $Command<
@@ -62,6 +80,9 @@ export class UnarchiveApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UnarchiveApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +111,7 @@ export class UnarchiveApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UnarchiveApplicationRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ApplicationFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -101,12 +122,18 @@ export class UnarchiveApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UnarchiveApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UnarchiveApplicationCommand(input, context);
+    return se_UnarchiveApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnarchiveApplicationCommandOutput> {
-    return deserializeAws_restJson1UnarchiveApplicationCommand(output, context);
+    return de_UnarchiveApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

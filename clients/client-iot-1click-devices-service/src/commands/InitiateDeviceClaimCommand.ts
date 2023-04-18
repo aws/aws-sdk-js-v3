@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoT1ClickDevicesServiceClient";
-import {
-  InitiateDeviceClaimRequest,
-  InitiateDeviceClaimRequestFilterSensitiveLog,
-  InitiateDeviceClaimResponse,
-  InitiateDeviceClaimResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1InitiateDeviceClaimCommand,
-  serializeAws_restJson1InitiateDeviceClaimCommand,
-} from "../protocols/Aws_restJson1";
+import { InitiateDeviceClaimRequest, InitiateDeviceClaimResponse } from "../models/models_0";
+import { de_InitiateDeviceClaimCommand, se_InitiateDeviceClaimCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link InitiateDeviceClaimCommand}.
+ */
 export interface InitiateDeviceClaimCommandInput extends InitiateDeviceClaimRequest {}
+/**
+ * @public
+ *
+ * The output of {@link InitiateDeviceClaimCommand}.
+ */
 export interface InitiateDeviceClaimCommandOutput extends InitiateDeviceClaimResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Given a device ID, initiates a claim request for the associated device.</p><note>
  *  <p>Claiming a device consists of initiating a claim, then publishing a device event,
  *  and finalizing the claim. For a device of type button, a device event can
@@ -44,13 +47,27 @@ export interface InitiateDeviceClaimCommandOutput extends InitiateDeviceClaimRes
  * import { IoT1ClickDevicesServiceClient, InitiateDeviceClaimCommand } from "@aws-sdk/client-iot-1click-devices-service"; // ES Modules import
  * // const { IoT1ClickDevicesServiceClient, InitiateDeviceClaimCommand } = require("@aws-sdk/client-iot-1click-devices-service"); // CommonJS import
  * const client = new IoT1ClickDevicesServiceClient(config);
+ * const input = { // InitiateDeviceClaimRequest
+ *   DeviceId: "STRING_VALUE", // required
+ * };
  * const command = new InitiateDeviceClaimCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param InitiateDeviceClaimCommandInput - {@link InitiateDeviceClaimCommandInput}
+ * @returns {@link InitiateDeviceClaimCommandOutput}
  * @see {@link InitiateDeviceClaimCommandInput} for command's `input` shape.
  * @see {@link InitiateDeviceClaimCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for IoT1ClickDevicesServiceClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *
+ * @throws {@link ResourceConflictException} (client fault)
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *
  *
  */
 export class InitiateDeviceClaimCommand extends $Command<
@@ -70,6 +87,9 @@ export class InitiateDeviceClaimCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: InitiateDeviceClaimCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +118,8 @@ export class InitiateDeviceClaimCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: InitiateDeviceClaimRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: InitiateDeviceClaimResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +129,18 @@ export class InitiateDeviceClaimCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: InitiateDeviceClaimCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1InitiateDeviceClaimCommand(input, context);
+    return se_InitiateDeviceClaimCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InitiateDeviceClaimCommandOutput> {
-    return deserializeAws_restJson1InitiateDeviceClaimCommand(output, context);
+    return de_InitiateDeviceClaimCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteCampaignRequest, DeleteCampaignRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteCampaignRequest } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1DeleteCampaignCommand,
-  serializeAws_json1_1DeleteCampaignCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteCampaignCommand, se_DeleteCampaignCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteCampaignCommand}.
+ */
 export interface DeleteCampaignCommandInput extends DeleteCampaignRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteCampaignCommand}.
+ */
 export interface DeleteCampaignCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a campaign by deleting the solution deployment. The solution that
  *       the campaign is based on is not deleted and can be redeployed when needed. A deleted campaign can no
  *       longer be specified in a
@@ -36,13 +44,28 @@ export interface DeleteCampaignCommandOutput extends __MetadataBearer {}
  * import { PersonalizeClient, DeleteCampaignCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DeleteCampaignCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // DeleteCampaignRequest
+ *   campaignArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteCampaignCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCampaignCommandInput - {@link DeleteCampaignCommandInput}
+ * @returns {@link DeleteCampaignCommandOutput}
  * @see {@link DeleteCampaignCommandInput} for command's `input` shape.
  * @see {@link DeleteCampaignCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is in use.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Could not find the specified resource.</p>
+ *
  *
  */
 export class DeleteCampaignCommand extends $Command<
@@ -62,6 +85,9 @@ export class DeleteCampaignCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCampaignCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +116,8 @@ export class DeleteCampaignCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCampaignRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +127,18 @@ export class DeleteCampaignCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCampaignCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteCampaignCommand(input, context);
+    return se_DeleteCampaignCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCampaignCommandOutput> {
-    return deserializeAws_json1_1DeleteCampaignCommand(output, context);
+    return de_DeleteCampaignCommand(output, context);
   }
 
   // Start section: command_body_extra

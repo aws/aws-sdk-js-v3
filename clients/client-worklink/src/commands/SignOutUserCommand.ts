@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SignOutUserRequest,
-  SignOutUserRequestFilterSensitiveLog,
-  SignOutUserResponse,
-  SignOutUserResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1SignOutUserCommand,
-  serializeAws_restJson1SignOutUserCommand,
-} from "../protocols/Aws_restJson1";
+import { SignOutUserRequest, SignOutUserResponse } from "../models/models_0";
+import { de_SignOutUserCommand, se_SignOutUserCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
+/**
+ * @public
+ *
+ * The input for {@link SignOutUserCommand}.
+ */
 export interface SignOutUserCommandInput extends SignOutUserRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SignOutUserCommand}.
+ */
 export interface SignOutUserCommandOutput extends SignOutUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Signs the user out from all of their devices. The user can sign in again if they have
@@ -39,13 +42,35 @@ export interface SignOutUserCommandOutput extends SignOutUserResponse, __Metadat
  * import { WorkLinkClient, SignOutUserCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, SignOutUserCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
+ * const input = { // SignOutUserRequest
+ *   FleetArn: "STRING_VALUE", // required
+ *   Username: "STRING_VALUE", // required
+ * };
  * const command = new SignOutUserCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SignOutUserCommandInput - {@link SignOutUserCommandInput}
+ * @returns {@link SignOutUserCommandOutput}
  * @see {@link SignOutUserCommandInput} for command's `input` shape.
  * @see {@link SignOutUserCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource was not found.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The number of requests exceeds the limit.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You are not authorized to perform this action.</p>
+ *
  *
  */
 export class SignOutUserCommand extends $Command<
@@ -65,6 +90,9 @@ export class SignOutUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SignOutUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +119,8 @@ export class SignOutUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SignOutUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SignOutUserResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +130,18 @@ export class SignOutUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SignOutUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SignOutUserCommand(input, context);
+    return se_SignOutUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SignOutUserCommandOutput> {
-    return deserializeAws_restJson1SignOutUserCommand(output, context);
+    return de_SignOutUserCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
-import {
-  ListLicenseConversionTasksRequest,
-  ListLicenseConversionTasksRequestFilterSensitiveLog,
-  ListLicenseConversionTasksResponse,
-  ListLicenseConversionTasksResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListLicenseConversionTasksCommand,
-  serializeAws_json1_1ListLicenseConversionTasksCommand,
-} from "../protocols/Aws_json1_1";
+import { ListLicenseConversionTasksRequest, ListLicenseConversionTasksResponse } from "../models/models_0";
+import { de_ListLicenseConversionTasksCommand, se_ListLicenseConversionTasksCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListLicenseConversionTasksCommand}.
+ */
 export interface ListLicenseConversionTasksCommandInput extends ListLicenseConversionTasksRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListLicenseConversionTasksCommand}.
+ */
 export interface ListLicenseConversionTasksCommandOutput extends ListLicenseConversionTasksResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the license type conversion tasks for your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,44 @@ export interface ListLicenseConversionTasksCommandOutput extends ListLicenseConv
  * import { LicenseManagerClient, ListLicenseConversionTasksCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, ListLicenseConversionTasksCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = { // ListLicenseConversionTasksRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Filters: [ // Filters
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // FilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new ListLicenseConversionTasksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLicenseConversionTasksCommandInput - {@link ListLicenseConversionTasksCommandInput}
+ * @returns {@link ListLicenseConversionTasksCommandOutput}
  * @see {@link ListLicenseConversionTasksCommandInput} for command's `input` shape.
  * @see {@link ListLicenseConversionTasksCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to resource denied.</p>
+ *
+ * @throws {@link AuthorizationException} (client fault)
+ *  <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM
+ *          policy associated with this account.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ * @throws {@link RateLimitExceededException} (client fault)
+ *  <p>Too many requests have been submitted. Try again after a brief wait.</p>
+ *
+ * @throws {@link ServerInternalException} (server fault)
+ *  <p>The server experienced an internal error. Try again.</p>
+ *
  *
  */
 export class ListLicenseConversionTasksCommand extends $Command<
@@ -62,6 +96,9 @@ export class ListLicenseConversionTasksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLicenseConversionTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +127,8 @@ export class ListLicenseConversionTasksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLicenseConversionTasksRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListLicenseConversionTasksResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +138,21 @@ export class ListLicenseConversionTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLicenseConversionTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListLicenseConversionTasksCommand(input, context);
+    return se_ListLicenseConversionTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListLicenseConversionTasksCommandOutput> {
-    return deserializeAws_json1_1ListLicenseConversionTasksCommand(output, context);
+    return de_ListLicenseConversionTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

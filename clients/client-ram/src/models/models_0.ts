@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { RAMServiceException as __BaseException } from "./RAMServiceException";
 
+/**
+ * @public
+ */
 export interface AcceptResourceShareInvitationRequest {
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resoure Name (ARN)</a> of the invitation that you want to accept.</p>
@@ -22,20 +25,41 @@ export interface AcceptResourceShareInvitationRequest {
   clientToken?: string;
 }
 
-export enum ResourceShareAssociationType {
-  PRINCIPAL = "PRINCIPAL",
-  RESOURCE = "RESOURCE",
-}
-
-export enum ResourceShareAssociationStatus {
-  ASSOCIATED = "ASSOCIATED",
-  ASSOCIATING = "ASSOCIATING",
-  DISASSOCIATED = "DISASSOCIATED",
-  DISASSOCIATING = "DISASSOCIATING",
-  FAILED = "FAILED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResourceShareAssociationType = {
+  PRINCIPAL: "PRINCIPAL",
+  RESOURCE: "RESOURCE",
+} as const;
 
 /**
+ * @public
+ */
+export type ResourceShareAssociationType =
+  (typeof ResourceShareAssociationType)[keyof typeof ResourceShareAssociationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceShareAssociationStatus = {
+  ASSOCIATED: "ASSOCIATED",
+  ASSOCIATING: "ASSOCIATING",
+  DISASSOCIATED: "DISASSOCIATED",
+  DISASSOCIATING: "DISASSOCIATING",
+  FAILED: "FAILED",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceShareAssociationStatus =
+  (typeof ResourceShareAssociationStatus)[keyof typeof ResourceShareAssociationStatus];
+
+/**
+ * @public
  * <p>Describes an association with a resource share and either a principal or a resource.</p>
  */
 export interface ResourceShareAssociation {
@@ -111,14 +135,25 @@ export interface ResourceShareAssociation {
   external?: boolean;
 }
 
-export enum ResourceShareInvitationStatus {
-  ACCEPTED = "ACCEPTED",
-  EXPIRED = "EXPIRED",
-  PENDING = "PENDING",
-  REJECTED = "REJECTED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResourceShareInvitationStatus = {
+  ACCEPTED: "ACCEPTED",
+  EXPIRED: "EXPIRED",
+  PENDING: "PENDING",
+  REJECTED: "REJECTED",
+} as const;
 
 /**
+ * @public
+ */
+export type ResourceShareInvitationStatus =
+  (typeof ResourceShareInvitationStatus)[keyof typeof ResourceShareInvitationStatus];
+
+/**
+ * @public
  * <p>Describes an invitation for an Amazon Web Services account to join a resource share.</p>
  */
 export interface ResourceShareInvitation {
@@ -170,6 +205,9 @@ export interface ResourceShareInvitation {
   receiverArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface AcceptResourceShareInvitationResponse {
   /**
    * <p>An object that contains information about the specified invitation.</p>
@@ -186,6 +224,7 @@ export interface AcceptResourceShareInvitationResponse {
 }
 
 /**
+ * @public
  * <p>The client token input parameter was matched one used with a previous call to the
  *             operation, but at least one of the other input parameters is different from the previous
  *             call.</p>
@@ -207,6 +246,7 @@ export class IdempotentParameterMismatchException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The client token is not valid.</p>
  */
 export class InvalidClientTokenException extends __BaseException {
@@ -226,6 +266,7 @@ export class InvalidClientTokenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The format of an Amazon Resource Name (ARN) is not valid.</p>
  */
 export class MalformedArnException extends __BaseException {
@@ -245,6 +286,7 @@ export class MalformedArnException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested operation is not permitted.</p>
  */
 export class OperationNotPermittedException extends __BaseException {
@@ -264,6 +306,7 @@ export class OperationNotPermittedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified invitation was already accepted.</p>
  */
 export class ResourceShareInvitationAlreadyAcceptedException extends __BaseException {
@@ -283,6 +326,7 @@ export class ResourceShareInvitationAlreadyAcceptedException extends __BaseExcep
 }
 
 /**
+ * @public
  * <p>The specified invitation was already rejected.</p>
  */
 export class ResourceShareInvitationAlreadyRejectedException extends __BaseException {
@@ -302,6 +346,7 @@ export class ResourceShareInvitationAlreadyRejectedException extends __BaseExcep
 }
 
 /**
+ * @public
  * <p>The specified Amazon Resource Name (ARN) for an invitation was not found.</p>
  */
 export class ResourceShareInvitationArnNotFoundException extends __BaseException {
@@ -321,6 +366,7 @@ export class ResourceShareInvitationArnNotFoundException extends __BaseException
 }
 
 /**
+ * @public
  * <p>The specified invitation is expired.</p>
  */
 export class ResourceShareInvitationExpiredException extends __BaseException {
@@ -340,6 +386,7 @@ export class ResourceShareInvitationExpiredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The service could not respond to the request due to an internal problem.</p>
  */
 export class ServerInternalException extends __BaseException {
@@ -359,6 +406,7 @@ export class ServerInternalException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The service is not available.</p>
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -377,6 +425,9 @@ export class ServiceUnavailableException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AssociateResourceShareRequest {
   /**
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resoure Name (ARN)</a> of the resource share that you want to add principals or resources
@@ -443,6 +494,9 @@ export interface AssociateResourceShareRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateResourceShareResponse {
   /**
    * <p>An array of objects that contain information about the associations.</p>
@@ -459,6 +513,7 @@ export interface AssociateResourceShareResponse {
 }
 
 /**
+ * @public
  * <p>A parameter is not valid.</p>
  */
 export class InvalidParameterException extends __BaseException {
@@ -478,6 +533,7 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested state transition is not valid.</p>
  */
 export class InvalidStateTransitionException extends __BaseException {
@@ -497,6 +553,7 @@ export class InvalidStateTransitionException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This request would exceed the limit for resource shares for your account.</p>
  */
 export class ResourceShareLimitExceededException extends __BaseException {
@@ -516,6 +573,7 @@ export class ResourceShareLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You exceeded the rate at which you are allowed to perform this operation. Please try
  *             again later.</p>
  */
@@ -536,6 +594,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A specified resource was not found.</p>
  */
 export class UnknownResourceException extends __BaseException {
@@ -554,6 +613,9 @@ export class UnknownResourceException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AssociateResourceSharePermissionRequest {
   /**
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resoure Name (ARN)</a> of the resource share to which you want to add or replace
@@ -603,6 +665,9 @@ export interface AssociateResourceSharePermissionRequest {
   permissionVersion?: number;
 }
 
+/**
+ * @public
+ */
 export interface AssociateResourceSharePermissionResponse {
   /**
    * <p>A return value of <code>true</code> indicates that the request succeeded.
@@ -620,6 +685,7 @@ export interface AssociateResourceSharePermissionResponse {
 }
 
 /**
+ * @public
  * <p>A structure containing a tag. A tag is metadata that you can attach to your resources
  *             to help organize and categorize them. You can also use them to help you secure your
  *             resources. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Controlling access to Amazon Web Services resources
@@ -641,6 +707,9 @@ export interface Tag {
   value?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateResourceShareRequest {
   /**
    * <p>Specifies the name of the resource share.</p>
@@ -726,21 +795,40 @@ export interface CreateResourceShareRequest {
   permissionArns?: string[];
 }
 
-export enum ResourceShareFeatureSet {
-  CREATED_FROM_POLICY = "CREATED_FROM_POLICY",
-  PROMOTING_TO_STANDARD = "PROMOTING_TO_STANDARD",
-  STANDARD = "STANDARD",
-}
-
-export enum ResourceShareStatus {
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResourceShareFeatureSet = {
+  CREATED_FROM_POLICY: "CREATED_FROM_POLICY",
+  PROMOTING_TO_STANDARD: "PROMOTING_TO_STANDARD",
+  STANDARD: "STANDARD",
+} as const;
 
 /**
+ * @public
+ */
+export type ResourceShareFeatureSet = (typeof ResourceShareFeatureSet)[keyof typeof ResourceShareFeatureSet];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceShareStatus = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceShareStatus = (typeof ResourceShareStatus)[keyof typeof ResourceShareStatus];
+
+/**
+ * @public
  * <p>Describes a resource share in RAM.</p>
  */
 export interface ResourceShare {
@@ -816,6 +904,9 @@ export interface ResourceShare {
   featureSet?: ResourceShareFeatureSet | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateResourceShareResponse {
   /**
    * <p>An object with information about the new resource share.</p>
@@ -832,6 +923,7 @@ export interface CreateResourceShareResponse {
 }
 
 /**
+ * @public
  * <p>The specified tag key is a reserved word and can't be used.</p>
  */
 export class TagPolicyViolationException extends __BaseException {
@@ -850,6 +942,9 @@ export class TagPolicyViolationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteResourceShareRequest {
   /**
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resoure Name (ARN)</a> of the resource share to delete.</p>
@@ -869,6 +964,9 @@ export interface DeleteResourceShareRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteResourceShareResponse {
   /**
    * <p>A return value of <code>true</code> indicates that the request succeeded.
@@ -885,6 +983,9 @@ export interface DeleteResourceShareResponse {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateResourceShareRequest {
   /**
    * <p>Specifies <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resoure Name (ARN)</a> of the resource share that you want to remove resources from.</p>
@@ -949,6 +1050,9 @@ export interface DisassociateResourceShareRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateResourceShareResponse {
   /**
    * <p>An array of objects that contain information about the updated associations for this
@@ -965,6 +1069,9 @@ export interface DisassociateResourceShareResponse {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateResourceSharePermissionRequest {
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resoure Name (ARN)</a> of the resource share from which you want to disassociate a permission.</p>
@@ -990,6 +1097,9 @@ export interface DisassociateResourceSharePermissionRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateResourceSharePermissionResponse {
   /**
    * <p>A return value of <code>true</code> indicates that the request succeeded.
@@ -1006,8 +1116,14 @@ export interface DisassociateResourceSharePermissionResponse {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface EnableSharingWithAwsOrganizationRequest {}
 
+/**
+ * @public
+ */
 export interface EnableSharingWithAwsOrganizationResponse {
   /**
    * <p>A return value of <code>true</code> indicates that the request succeeded.
@@ -1016,6 +1132,9 @@ export interface EnableSharingWithAwsOrganizationResponse {
   returnValue?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetPermissionRequest {
   /**
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resoure Name (ARN)</a> of the permission whose contents you want to retrieve.
@@ -1032,6 +1151,7 @@ export interface GetPermissionRequest {
 }
 
 /**
+ * @public
  * <p>Information about an RAM permission.</p>
  */
 export interface ResourceSharePermissionDetail {
@@ -1085,6 +1205,9 @@ export interface ResourceSharePermissionDetail {
   isResourceTypeDefault?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetPermissionResponse {
   /**
    * <p>An object that contains information about the permission.</p>
@@ -1092,6 +1215,9 @@ export interface GetPermissionResponse {
   permission?: ResourceSharePermissionDetail;
 }
 
+/**
+ * @public
+ */
 export interface GetResourcePoliciesRequest {
   /**
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> of the resources whose policies you want to retrieve.</p>
@@ -1126,6 +1252,9 @@ export interface GetResourcePoliciesRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetResourcePoliciesResponse {
   /**
    * <p>An array of resource policy documents in JSON format.</p>
@@ -1143,6 +1272,7 @@ export interface GetResourcePoliciesResponse {
 }
 
 /**
+ * @public
  * <p>The specified value for <code>NextToken</code> is not valid.</p>
  */
 export class InvalidNextTokenException extends __BaseException {
@@ -1162,6 +1292,7 @@ export class InvalidNextTokenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified Amazon Resource Name (ARN) was not found.</p>
  */
 export class ResourceArnNotFoundException extends __BaseException {
@@ -1180,6 +1311,9 @@ export class ResourceArnNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetResourceShareAssociationsRequest {
   /**
    * <p>Specifies whether you want to retrieve the associations that involve a specified
@@ -1249,6 +1383,9 @@ export interface GetResourceShareAssociationsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetResourceShareAssociationsResponse {
   /**
    * <p>An array of objects that contain the details about the associations.</p>
@@ -1265,6 +1402,9 @@ export interface GetResourceShareAssociationsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetResourceShareInvitationsRequest {
   /**
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> of the resource share invitations you want information about.</p>
@@ -1301,6 +1441,9 @@ export interface GetResourceShareInvitationsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetResourceShareInvitationsResponse {
   /**
    * <p>An array of objects that contain the details about the invitations.</p>
@@ -1318,6 +1461,7 @@ export interface GetResourceShareInvitationsResponse {
 }
 
 /**
+ * @public
  * <p>The specified value for <code>MaxResults</code> is not valid.</p>
  */
 export class InvalidMaxResultsException extends __BaseException {
@@ -1336,12 +1480,22 @@ export class InvalidMaxResultsException extends __BaseException {
   }
 }
 
-export enum ResourceOwner {
-  OTHER_ACCOUNTS = "OTHER-ACCOUNTS",
-  SELF = "SELF",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResourceOwner = {
+  OTHER_ACCOUNTS: "OTHER-ACCOUNTS",
+  SELF: "SELF",
+} as const;
 
 /**
+ * @public
+ */
+export type ResourceOwner = (typeof ResourceOwner)[keyof typeof ResourceOwner];
+
+/**
+ * @public
  * <p>A tag key and optional list of possible values that you can use to filter results for
  *             tagged resources.</p>
  */
@@ -1358,6 +1512,9 @@ export interface TagFilter {
   tagValues?: string[];
 }
 
+/**
+ * @public
+ */
 export interface GetResourceSharesRequest {
   /**
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> of individual resource shares that you want information about.</p>
@@ -1433,6 +1590,9 @@ export interface GetResourceSharesRequest {
   permissionArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetResourceSharesResponse {
   /**
    * <p>An array of objects that contain the information about the resource shares.</p>
@@ -1449,12 +1609,24 @@ export interface GetResourceSharesResponse {
   nextToken?: string;
 }
 
-export enum ResourceRegionScopeFilter {
-  ALL = "ALL",
-  GLOBAL = "GLOBAL",
-  REGIONAL = "REGIONAL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResourceRegionScopeFilter = {
+  ALL: "ALL",
+  GLOBAL: "GLOBAL",
+  REGIONAL: "REGIONAL",
+} as const;
 
+/**
+ * @public
+ */
+export type ResourceRegionScopeFilter = (typeof ResourceRegionScopeFilter)[keyof typeof ResourceRegionScopeFilter];
+
+/**
+ * @public
+ */
 export interface ListPendingInvitationResourcesRequest {
   /**
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resoure Name (ARN)</a> of the invitation. You can use <a>GetResourceShareInvitations</a> to find the ARN of the invitation.</p>
@@ -1508,20 +1680,39 @@ export interface ListPendingInvitationResourcesRequest {
   resourceRegionScope?: ResourceRegionScopeFilter | string;
 }
 
-export enum ResourceRegionScope {
-  GLOBAL = "GLOBAL",
-  REGIONAL = "REGIONAL",
-}
-
-export enum ResourceStatus {
-  AVAILABLE = "AVAILABLE",
-  LIMIT_EXCEEDED = "LIMIT_EXCEEDED",
-  PENDING = "PENDING",
-  UNAVAILABLE = "UNAVAILABLE",
-  ZONAL_RESOURCE_INACCESSIBLE = "ZONAL_RESOURCE_INACCESSIBLE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResourceRegionScope = {
+  GLOBAL: "GLOBAL",
+  REGIONAL: "REGIONAL",
+} as const;
 
 /**
+ * @public
+ */
+export type ResourceRegionScope = (typeof ResourceRegionScope)[keyof typeof ResourceRegionScope];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceStatus = {
+  AVAILABLE: "AVAILABLE",
+  LIMIT_EXCEEDED: "LIMIT_EXCEEDED",
+  PENDING: "PENDING",
+  UNAVAILABLE: "UNAVAILABLE",
+  ZONAL_RESOURCE_INACCESSIBLE: "ZONAL_RESOURCE_INACCESSIBLE",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceStatus = (typeof ResourceStatus)[keyof typeof ResourceStatus];
+
+/**
+ * @public
  * <p>Describes a resource associated with a resource share in RAM.</p>
  */
 export interface Resource {
@@ -1587,6 +1778,9 @@ export interface Resource {
   resourceRegionScope?: ResourceRegionScope | string;
 }
 
+/**
+ * @public
+ */
 export interface ListPendingInvitationResourcesResponse {
   /**
    * <p>An array of objects that contain the information about the resources included the
@@ -1605,6 +1799,7 @@ export interface ListPendingInvitationResourcesResponse {
 }
 
 /**
+ * @public
  * <p>A required input parameter is missing.</p>
  */
 export class MissingRequiredParameterException extends __BaseException {
@@ -1623,6 +1818,9 @@ export class MissingRequiredParameterException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListPermissionsRequest {
   /**
    * <p>Specifies that you want to list permissions for only the specified resource type. For
@@ -1656,6 +1854,7 @@ export interface ListPermissionsRequest {
 }
 
 /**
+ * @public
  * <p>Information about an RAM permission that is associated with a resource share and any of its
  *             resources of a specified type.</p>
  */
@@ -1708,6 +1907,9 @@ export interface ResourceSharePermissionSummary {
   isResourceTypeDefault?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ListPermissionsResponse {
   /**
    * <p>An array of objects with information about the permissions.</p>
@@ -1724,6 +1926,9 @@ export interface ListPermissionsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPermissionVersionsRequest {
   /**
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resoure Name (ARN)</a> of the RAM permission whose versions you want to list. You
@@ -1755,6 +1960,9 @@ export interface ListPermissionVersionsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListPermissionVersionsResponse {
   /**
    * <p>An array of objects that contain details for each of the available versions.</p>
@@ -1771,6 +1979,9 @@ export interface ListPermissionVersionsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPrincipalsRequest {
   /**
    * <p>Specifies that you want to list information for only resource shares that match the
@@ -1875,6 +2086,7 @@ export interface ListPrincipalsRequest {
 }
 
 /**
+ * @public
  * <p>Describes a principal for use with Resource Access Manager.</p>
  */
 export interface Principal {
@@ -1905,6 +2117,9 @@ export interface Principal {
   external?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ListPrincipalsResponse {
   /**
    * <p>An array of objects that contain the details about the principals.</p>
@@ -1922,6 +2137,7 @@ export interface ListPrincipalsResponse {
 }
 
 /**
+ * @public
  * <p>The specified resource type is not valid.</p>
  */
 export class InvalidResourceTypeException extends __BaseException {
@@ -1940,6 +2156,9 @@ export class InvalidResourceTypeException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListResourcesRequest {
   /**
    * <p>Specifies that you want to list only the resource shares that match the following:</p>
@@ -2034,6 +2253,9 @@ export interface ListResourcesRequest {
   resourceRegionScope?: ResourceRegionScopeFilter | string;
 }
 
+/**
+ * @public
+ */
 export interface ListResourcesResponse {
   /**
    * <p>An array of objects that contain information about the resources.</p>
@@ -2050,6 +2272,9 @@ export interface ListResourcesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListResourceSharePermissionsRequest {
   /**
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resoure Name (ARN)</a> of the resource share for which you want to retrieve the associated
@@ -2080,6 +2305,9 @@ export interface ListResourceSharePermissionsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListResourceSharePermissionsResponse {
   /**
    * <p>An array of objects that describe the permissions associated with the resource share.</p>
@@ -2096,6 +2324,9 @@ export interface ListResourceSharePermissionsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListResourceTypesRequest {
   /**
    * <p>Specifies that you want to receive the next page of results. Valid
@@ -2145,6 +2376,7 @@ export interface ListResourceTypesRequest {
 }
 
 /**
+ * @public
  * <p>Information about a shareable resource type and the Amazon Web Services service to which resources
  *             of that type belong.</p>
  */
@@ -2178,6 +2410,9 @@ export interface ServiceNameAndResourceType {
   resourceRegionScope?: ResourceRegionScope | string;
 }
 
+/**
+ * @public
+ */
 export interface ListResourceTypesResponse {
   /**
    * <p>An array of objects that contain information about the resource types that can be
@@ -2195,6 +2430,9 @@ export interface ListResourceTypesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface PromoteResourceShareCreatedFromPolicyRequest {
   /**
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resoure Name (ARN)</a> of the resource share to promote.</p>
@@ -2202,6 +2440,9 @@ export interface PromoteResourceShareCreatedFromPolicyRequest {
   resourceShareArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PromoteResourceShareCreatedFromPolicyResponse {
   /**
    * <p>A return value of <code>true</code> indicates that the request succeeded.
@@ -2210,6 +2451,9 @@ export interface PromoteResourceShareCreatedFromPolicyResponse {
   returnValue?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface RejectResourceShareInvitationRequest {
   /**
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resoure Name (ARN)</a> of the invitation that you want to reject.</p>
@@ -2229,6 +2473,9 @@ export interface RejectResourceShareInvitationRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface RejectResourceShareInvitationResponse {
   /**
    * <p>An object that contains the details about the rejected invitation.</p>
@@ -2245,6 +2492,7 @@ export interface RejectResourceShareInvitationResponse {
 }
 
 /**
+ * @public
  * <p>This request would exceed the limit for tags for your account.</p>
  */
 export class TagLimitExceededException extends __BaseException {
@@ -2263,6 +2511,9 @@ export class TagLimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resoure Name (ARN)</a> of the resource share that you want to add tags to.</p>
@@ -2276,8 +2527,14 @@ export interface TagResourceRequest {
   tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resoure Name (ARN)</a> of the resource share that you want to remove tags from. The tags are
@@ -2291,8 +2548,14 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateResourceShareRequest {
   /**
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resoure Name (ARN)</a> of the resource share that you want to modify.</p>
@@ -2323,6 +2586,9 @@ export interface UpdateResourceShareRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateResourceShareResponse {
   /**
    * <p>Information about the resource share.</p>
@@ -2337,461 +2603,3 @@ export interface UpdateResourceShareResponse {
    */
   clientToken?: string;
 }
-
-/**
- * @internal
- */
-export const AcceptResourceShareInvitationRequestFilterSensitiveLog = (
-  obj: AcceptResourceShareInvitationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceShareAssociationFilterSensitiveLog = (obj: ResourceShareAssociation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceShareInvitationFilterSensitiveLog = (obj: ResourceShareInvitation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AcceptResourceShareInvitationResponseFilterSensitiveLog = (
-  obj: AcceptResourceShareInvitationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateResourceShareRequestFilterSensitiveLog = (obj: AssociateResourceShareRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateResourceShareResponseFilterSensitiveLog = (obj: AssociateResourceShareResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateResourceSharePermissionRequestFilterSensitiveLog = (
-  obj: AssociateResourceSharePermissionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateResourceSharePermissionResponseFilterSensitiveLog = (
-  obj: AssociateResourceSharePermissionResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateResourceShareRequestFilterSensitiveLog = (obj: CreateResourceShareRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceShareFilterSensitiveLog = (obj: ResourceShare): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateResourceShareResponseFilterSensitiveLog = (obj: CreateResourceShareResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteResourceShareRequestFilterSensitiveLog = (obj: DeleteResourceShareRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteResourceShareResponseFilterSensitiveLog = (obj: DeleteResourceShareResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateResourceShareRequestFilterSensitiveLog = (obj: DisassociateResourceShareRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateResourceShareResponseFilterSensitiveLog = (obj: DisassociateResourceShareResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateResourceSharePermissionRequestFilterSensitiveLog = (
-  obj: DisassociateResourceSharePermissionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateResourceSharePermissionResponseFilterSensitiveLog = (
-  obj: DisassociateResourceSharePermissionResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableSharingWithAwsOrganizationRequestFilterSensitiveLog = (
-  obj: EnableSharingWithAwsOrganizationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableSharingWithAwsOrganizationResponseFilterSensitiveLog = (
-  obj: EnableSharingWithAwsOrganizationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPermissionRequestFilterSensitiveLog = (obj: GetPermissionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceSharePermissionDetailFilterSensitiveLog = (obj: ResourceSharePermissionDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPermissionResponseFilterSensitiveLog = (obj: GetPermissionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResourcePoliciesRequestFilterSensitiveLog = (obj: GetResourcePoliciesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResourcePoliciesResponseFilterSensitiveLog = (obj: GetResourcePoliciesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResourceShareAssociationsRequestFilterSensitiveLog = (
-  obj: GetResourceShareAssociationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResourceShareAssociationsResponseFilterSensitiveLog = (
-  obj: GetResourceShareAssociationsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResourceShareInvitationsRequestFilterSensitiveLog = (obj: GetResourceShareInvitationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResourceShareInvitationsResponseFilterSensitiveLog = (
-  obj: GetResourceShareInvitationsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterFilterSensitiveLog = (obj: TagFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResourceSharesRequestFilterSensitiveLog = (obj: GetResourceSharesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResourceSharesResponseFilterSensitiveLog = (obj: GetResourceSharesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPendingInvitationResourcesRequestFilterSensitiveLog = (
-  obj: ListPendingInvitationResourcesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceFilterSensitiveLog = (obj: Resource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPendingInvitationResourcesResponseFilterSensitiveLog = (
-  obj: ListPendingInvitationResourcesResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPermissionsRequestFilterSensitiveLog = (obj: ListPermissionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceSharePermissionSummaryFilterSensitiveLog = (obj: ResourceSharePermissionSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPermissionsResponseFilterSensitiveLog = (obj: ListPermissionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPermissionVersionsRequestFilterSensitiveLog = (obj: ListPermissionVersionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPermissionVersionsResponseFilterSensitiveLog = (obj: ListPermissionVersionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPrincipalsRequestFilterSensitiveLog = (obj: ListPrincipalsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PrincipalFilterSensitiveLog = (obj: Principal): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPrincipalsResponseFilterSensitiveLog = (obj: ListPrincipalsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResourcesRequestFilterSensitiveLog = (obj: ListResourcesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResourcesResponseFilterSensitiveLog = (obj: ListResourcesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResourceSharePermissionsRequestFilterSensitiveLog = (
-  obj: ListResourceSharePermissionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResourceSharePermissionsResponseFilterSensitiveLog = (
-  obj: ListResourceSharePermissionsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResourceTypesRequestFilterSensitiveLog = (obj: ListResourceTypesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServiceNameAndResourceTypeFilterSensitiveLog = (obj: ServiceNameAndResourceType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResourceTypesResponseFilterSensitiveLog = (obj: ListResourceTypesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PromoteResourceShareCreatedFromPolicyRequestFilterSensitiveLog = (
-  obj: PromoteResourceShareCreatedFromPolicyRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PromoteResourceShareCreatedFromPolicyResponseFilterSensitiveLog = (
-  obj: PromoteResourceShareCreatedFromPolicyResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RejectResourceShareInvitationRequestFilterSensitiveLog = (
-  obj: RejectResourceShareInvitationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RejectResourceShareInvitationResponseFilterSensitiveLog = (
-  obj: RejectResourceShareInvitationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateResourceShareRequestFilterSensitiveLog = (obj: UpdateResourceShareRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateResourceShareResponseFilterSensitiveLog = (obj: UpdateResourceShareResponse): any => ({
-  ...obj,
-});

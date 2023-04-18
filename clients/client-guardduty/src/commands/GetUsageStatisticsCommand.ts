@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import {
-  GetUsageStatisticsRequest,
-  GetUsageStatisticsRequestFilterSensitiveLog,
-  GetUsageStatisticsResponse,
-  GetUsageStatisticsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetUsageStatisticsCommand,
-  serializeAws_restJson1GetUsageStatisticsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetUsageStatisticsRequest, GetUsageStatisticsResponse } from "../models/models_0";
+import { de_GetUsageStatisticsCommand, se_GetUsageStatisticsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetUsageStatisticsCommand}.
+ */
 export interface GetUsageStatisticsCommandInput extends GetUsageStatisticsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetUsageStatisticsCommand}.
+ */
 export interface GetUsageStatisticsCommandOutput extends GetUsageStatisticsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists Amazon GuardDuty usage statistics over the last 30 days for the specified detector
  *       ID. For newly enabled detectors or data sources, the cost returned will include only the usage
  *       so far under 30 days. This may differ from the cost metrics in the console, which project
@@ -39,13 +42,43 @@ export interface GetUsageStatisticsCommandOutput extends GetUsageStatisticsRespo
  * import { GuardDutyClient, GetUsageStatisticsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, GetUsageStatisticsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = { // GetUsageStatisticsRequest
+ *   DetectorId: "STRING_VALUE", // required
+ *   UsageStatisticType: "SUM_BY_ACCOUNT" || "SUM_BY_DATA_SOURCE" || "SUM_BY_RESOURCE" || "TOP_RESOURCES" || "SUM_BY_FEATURES", // required
+ *   UsageCriteria: { // UsageCriteria
+ *     AccountIds: [ // AccountIds
+ *       "STRING_VALUE",
+ *     ],
+ *     DataSources: [ // DataSourceList
+ *       "FLOW_LOGS" || "CLOUD_TRAIL" || "DNS_LOGS" || "S3_LOGS" || "KUBERNETES_AUDIT_LOGS" || "EC2_MALWARE_SCAN",
+ *     ],
+ *     Resources: [ // ResourceList
+ *       "STRING_VALUE",
+ *     ],
+ *     Features: [ // UsageFeatureList
+ *       "FLOW_LOGS" || "CLOUD_TRAIL" || "DNS_LOGS" || "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "LAMBDA_NETWORK_LOGS" || "EKS_RUNTIME_MONITORING",
+ *     ],
+ *   },
+ *   Unit: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetUsageStatisticsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetUsageStatisticsCommandInput - {@link GetUsageStatisticsCommandInput}
+ * @returns {@link GetUsageStatisticsCommandOutput}
  * @see {@link GetUsageStatisticsCommandInput} for command's `input` shape.
  * @see {@link GetUsageStatisticsCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>A bad request exception object.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>An internal server error exception object.</p>
+ *
  *
  */
 export class GetUsageStatisticsCommand extends $Command<
@@ -65,6 +98,9 @@ export class GetUsageStatisticsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetUsageStatisticsCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +129,8 @@ export class GetUsageStatisticsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetUsageStatisticsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetUsageStatisticsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +140,18 @@ export class GetUsageStatisticsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetUsageStatisticsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetUsageStatisticsCommand(input, context);
+    return se_GetUsageStatisticsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUsageStatisticsCommandOutput> {
-    return deserializeAws_restJson1GetUsageStatisticsCommand(output, context);
+    return de_GetUsageStatisticsCommand(output, context);
   }
 
   // Start section: command_body_extra

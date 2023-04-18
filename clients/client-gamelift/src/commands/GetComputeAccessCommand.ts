@@ -16,19 +16,26 @@ import {
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import {
   GetComputeAccessInput,
-  GetComputeAccessInputFilterSensitiveLog,
   GetComputeAccessOutput,
   GetComputeAccessOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetComputeAccessCommand,
-  serializeAws_json1_1GetComputeAccessCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetComputeAccessCommand, se_GetComputeAccessCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetComputeAccessCommand}.
+ */
 export interface GetComputeAccessCommandInput extends GetComputeAccessInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetComputeAccessCommand}.
+ */
 export interface GetComputeAccessCommandOutput extends GetComputeAccessOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Requests remote access to a fleet instance. Remote access is useful for debugging,
  *             gathering benchmarking data, or observing activity in real time. </p>
  *         <p>To remotely access an instance, you need credentials that match the operating system
@@ -58,13 +65,34 @@ export interface GetComputeAccessCommandOutput extends GetComputeAccessOutput, _
  * import { GameLiftClient, GetComputeAccessCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, GetComputeAccessCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // GetComputeAccessInput
+ *   FleetId: "STRING_VALUE", // required
+ *   ComputeName: "STRING_VALUE", // required
+ * };
  * const command = new GetComputeAccessCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetComputeAccessCommandInput - {@link GetComputeAccessCommandInput}
+ * @returns {@link GetComputeAccessCommandOutput}
  * @see {@link GetComputeAccessCommandInput} for command's `input` shape.
  * @see {@link GetComputeAccessCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an unrecoverable internal failure while processing the
+ *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
+ *             values before retrying.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
  *
  */
 export class GetComputeAccessCommand extends $Command<
@@ -84,6 +112,9 @@ export class GetComputeAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetComputeAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,7 +143,7 @@ export class GetComputeAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetComputeAccessInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetComputeAccessOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -123,12 +154,18 @@ export class GetComputeAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetComputeAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetComputeAccessCommand(input, context);
+    return se_GetComputeAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetComputeAccessCommandOutput> {
-    return deserializeAws_json1_1GetComputeAccessCommand(output, context);
+    return de_GetComputeAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

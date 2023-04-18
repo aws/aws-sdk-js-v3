@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AssociateResourceRequest,
-  AssociateResourceRequestFilterSensitiveLog,
-  AssociateResourceResponse,
-  AssociateResourceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateResourceCommand,
-  serializeAws_restJson1AssociateResourceCommand,
-} from "../protocols/Aws_restJson1";
+import { AssociateResourceRequest, AssociateResourceResponse } from "../models/models_0";
+import { de_AssociateResourceCommand, se_AssociateResourceCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
+/**
+ * @public
+ *
+ * The input for {@link AssociateResourceCommand}.
+ */
 export interface AssociateResourceCommandInput extends AssociateResourceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AssociateResourceCommand}.
+ */
 export interface AssociateResourceCommandOutput extends AssociateResourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a canary with a group. Using groups can help you with
  *          managing and automating your canaries, and you can also view aggregated run results and statistics
  *          for all canaries in a group. </p>
@@ -39,13 +42,35 @@ export interface AssociateResourceCommandOutput extends AssociateResourceRespons
  * import { SyntheticsClient, AssociateResourceCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
  * // const { SyntheticsClient, AssociateResourceCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
  * const client = new SyntheticsClient(config);
+ * const input = { // AssociateResourceRequest
+ *   GroupIdentifier: "STRING_VALUE", // required
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new AssociateResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateResourceCommandInput - {@link AssociateResourceCommandInput}
+ * @returns {@link AssociateResourceCommandOutput}
  * @see {@link AssociateResourceCommandInput} for command's `input` shape.
  * @see {@link AssociateResourceCommandOutput} for command's `response` shape.
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>A conflicting operation is already in progress.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unknown internal error occurred.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>One of the specified resources was not found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request exceeded a service quota value.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>A parameter could not be validated.</p>
+ *
  *
  */
 export class AssociateResourceCommand extends $Command<
@@ -65,6 +90,9 @@ export class AssociateResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +121,8 @@ export class AssociateResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateResourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +132,18 @@ export class AssociateResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateResourceCommand(input, context);
+    return se_AssociateResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateResourceCommandOutput> {
-    return deserializeAws_restJson1AssociateResourceCommand(output, context);
+    return de_AssociateResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  EnableFastLaunchRequest,
-  EnableFastLaunchRequestFilterSensitiveLog,
-  EnableFastLaunchResult,
-  EnableFastLaunchResultFilterSensitiveLog,
-} from "../models/models_5";
-import {
-  deserializeAws_ec2EnableFastLaunchCommand,
-  serializeAws_ec2EnableFastLaunchCommand,
-} from "../protocols/Aws_ec2";
+import { EnableFastLaunchRequest, EnableFastLaunchResult } from "../models/models_5";
+import { de_EnableFastLaunchCommand, se_EnableFastLaunchCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link EnableFastLaunchCommand}.
+ */
 export interface EnableFastLaunchCommandInput extends EnableFastLaunchRequest {}
+/**
+ * @public
+ *
+ * The output of {@link EnableFastLaunchCommand}.
+ */
 export interface EnableFastLaunchCommandOutput extends EnableFastLaunchResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>When you enable faster launching for a Windows AMI, images are pre-provisioned,
  * 			using snapshots to launch instances up to 65% faster. To create the optimized Windows
  * 			image, Amazon EC2 launches an instance and runs through Sysprep steps, rebooting as required.
@@ -44,13 +47,30 @@ export interface EnableFastLaunchCommandOutput extends EnableFastLaunchResult, _
  * import { EC2Client, EnableFastLaunchCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, EnableFastLaunchCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // EnableFastLaunchRequest
+ *   ImageId: "STRING_VALUE", // required
+ *   ResourceType: "STRING_VALUE",
+ *   SnapshotConfiguration: { // FastLaunchSnapshotConfigurationRequest
+ *     TargetResourceCount: Number("int"),
+ *   },
+ *   LaunchTemplate: { // FastLaunchLaunchTemplateSpecificationRequest
+ *     LaunchTemplateId: "STRING_VALUE",
+ *     LaunchTemplateName: "STRING_VALUE",
+ *     Version: "STRING_VALUE", // required
+ *   },
+ *   MaxParallelLaunches: Number("int"),
+ *   DryRun: true || false,
+ * };
  * const command = new EnableFastLaunchCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableFastLaunchCommandInput - {@link EnableFastLaunchCommandInput}
+ * @returns {@link EnableFastLaunchCommandOutput}
  * @see {@link EnableFastLaunchCommandInput} for command's `input` shape.
  * @see {@link EnableFastLaunchCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class EnableFastLaunchCommand extends $Command<
@@ -70,6 +90,9 @@ export class EnableFastLaunchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableFastLaunchCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +121,8 @@ export class EnableFastLaunchCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableFastLaunchRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: EnableFastLaunchResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +132,18 @@ export class EnableFastLaunchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableFastLaunchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2EnableFastLaunchCommand(input, context);
+    return se_EnableFastLaunchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableFastLaunchCommandOutput> {
-    return deserializeAws_ec2EnableFastLaunchCommand(output, context);
+    return de_EnableFastLaunchCommand(output, context);
   }
 
   // Start section: command_body_extra

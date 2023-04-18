@@ -14,22 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetPublicAccessBlockOutput,
-  GetPublicAccessBlockOutputFilterSensitiveLog,
-  GetPublicAccessBlockRequest,
-  GetPublicAccessBlockRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlGetPublicAccessBlockCommand,
-  serializeAws_restXmlGetPublicAccessBlockCommand,
-} from "../protocols/Aws_restXml";
+import { GetPublicAccessBlockOutput, GetPublicAccessBlockRequest } from "../models/models_0";
+import { de_GetPublicAccessBlockCommand, se_GetPublicAccessBlockCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetPublicAccessBlockCommand}.
+ */
 export interface GetPublicAccessBlockCommandInput extends GetPublicAccessBlockRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetPublicAccessBlockCommand}.
+ */
 export interface GetPublicAccessBlockCommandOutput extends GetPublicAccessBlockOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the <code>PublicAccessBlock</code> configuration for an Amazon Web Services account. For
  *          more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html"> Using Amazon S3 block
  *             public access</a>.</p>
@@ -52,13 +55,24 @@ export interface GetPublicAccessBlockCommandOutput extends GetPublicAccessBlockO
  * import { S3ControlClient, GetPublicAccessBlockCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, GetPublicAccessBlockCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = { // GetPublicAccessBlockRequest
+ *   AccountId: "STRING_VALUE",
+ * };
  * const command = new GetPublicAccessBlockCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPublicAccessBlockCommandInput - {@link GetPublicAccessBlockCommandInput}
+ * @returns {@link GetPublicAccessBlockCommandOutput}
  * @see {@link GetPublicAccessBlockCommandInput} for command's `input` shape.
  * @see {@link GetPublicAccessBlockCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
+ *
+ * @throws {@link NoSuchPublicAccessBlockConfiguration} (client fault)
+ *  <p>Amazon S3 throws this exception if you make a <code>GetPublicAccessBlock</code> request
+ *          against an account that doesn't have a <code>PublicAccessBlockConfiguration</code>
+ *          set.</p>
+ *
  *
  */
 export class GetPublicAccessBlockCommand extends $Command<
@@ -81,6 +95,9 @@ export class GetPublicAccessBlockCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPublicAccessBlockCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +127,8 @@ export class GetPublicAccessBlockCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPublicAccessBlockRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPublicAccessBlockOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +138,18 @@ export class GetPublicAccessBlockCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPublicAccessBlockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetPublicAccessBlockCommand(input, context);
+    return se_GetPublicAccessBlockCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPublicAccessBlockCommandOutput> {
-    return deserializeAws_restXmlGetPublicAccessBlockCommand(output, context);
+    return de_GetPublicAccessBlockCommand(output, context);
   }
 
   // Start section: command_body_extra

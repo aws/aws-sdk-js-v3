@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListAvailableResourceDimensionsRequest,
-  ListAvailableResourceDimensionsRequestFilterSensitiveLog,
-  ListAvailableResourceDimensionsResponse,
-  ListAvailableResourceDimensionsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListAvailableResourceDimensionsRequest, ListAvailableResourceDimensionsResponse } from "../models/models_0";
 import { PIClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PIClient";
 import {
-  deserializeAws_json1_1ListAvailableResourceDimensionsCommand,
-  serializeAws_json1_1ListAvailableResourceDimensionsCommand,
+  de_ListAvailableResourceDimensionsCommand,
+  se_ListAvailableResourceDimensionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListAvailableResourceDimensionsCommand}.
+ */
 export interface ListAvailableResourceDimensionsCommandInput extends ListAvailableResourceDimensionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListAvailableResourceDimensionsCommand}.
+ */
 export interface ListAvailableResourceDimensionsCommandOutput
   extends ListAvailableResourceDimensionsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieve the dimensions that can be queried for each specified metric type on a specified DB instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,34 @@ export interface ListAvailableResourceDimensionsCommandOutput
  * import { PIClient, ListAvailableResourceDimensionsCommand } from "@aws-sdk/client-pi"; // ES Modules import
  * // const { PIClient, ListAvailableResourceDimensionsCommand } = require("@aws-sdk/client-pi"); // CommonJS import
  * const client = new PIClient(config);
+ * const input = { // ListAvailableResourceDimensionsRequest
+ *   ServiceType: "RDS" || "DOCDB", // required
+ *   Identifier: "STRING_VALUE", // required
+ *   Metrics: [ // DimensionsMetricList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListAvailableResourceDimensionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAvailableResourceDimensionsCommandInput - {@link ListAvailableResourceDimensionsCommandInput}
+ * @returns {@link ListAvailableResourceDimensionsCommandOutput}
  * @see {@link ListAvailableResourceDimensionsCommandInput} for command's `input` shape.
  * @see {@link ListAvailableResourceDimensionsCommandOutput} for command's `response` shape.
  * @see {@link PIClientResolvedConfig | config} for PIClient's `config` shape.
+ *
+ * @throws {@link InternalServiceError} (server fault)
+ *  <p>The request failed due to an unknown error.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>One of the arguments provided is invalid for this request.</p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>The user is not authorized to perform this request.</p>
+ *
  *
  */
 export class ListAvailableResourceDimensionsCommand extends $Command<
@@ -64,6 +91,9 @@ export class ListAvailableResourceDimensionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAvailableResourceDimensionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +122,8 @@ export class ListAvailableResourceDimensionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAvailableResourceDimensionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAvailableResourceDimensionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +133,24 @@ export class ListAvailableResourceDimensionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListAvailableResourceDimensionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAvailableResourceDimensionsCommand(input, context);
+    return se_ListAvailableResourceDimensionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAvailableResourceDimensionsCommandOutput> {
-    return deserializeAws_json1_1ListAvailableResourceDimensionsCommand(output, context);
+    return de_ListAvailableResourceDimensionsCommand(output, context);
   }
 
   // Start section: command_body_extra

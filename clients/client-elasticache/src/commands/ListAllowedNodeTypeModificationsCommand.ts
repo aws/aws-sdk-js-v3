@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
+import { AllowedNodeTypeModificationsMessage, ListAllowedNodeTypeModificationsMessage } from "../models/models_0";
 import {
-  AllowedNodeTypeModificationsMessage,
-  AllowedNodeTypeModificationsMessageFilterSensitiveLog,
-  ListAllowedNodeTypeModificationsMessage,
-  ListAllowedNodeTypeModificationsMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryListAllowedNodeTypeModificationsCommand,
-  serializeAws_queryListAllowedNodeTypeModificationsCommand,
+  de_ListAllowedNodeTypeModificationsCommand,
+  se_ListAllowedNodeTypeModificationsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link ListAllowedNodeTypeModificationsCommand}.
+ */
 export interface ListAllowedNodeTypeModificationsCommandInput extends ListAllowedNodeTypeModificationsMessage {}
+/**
+ * @public
+ *
+ * The output of {@link ListAllowedNodeTypeModificationsCommand}.
+ */
 export interface ListAllowedNodeTypeModificationsCommandOutput
   extends AllowedNodeTypeModificationsMessage,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all available node types that you
  *             can scale your Redis cluster's or replication group's current node type.</p>
  *          <p>When you use the <code>ModifyCacheCluster</code> or <code>ModifyReplicationGroup</code> operations to
@@ -42,13 +48,57 @@ export interface ListAllowedNodeTypeModificationsCommandOutput
  * import { ElastiCacheClient, ListAllowedNodeTypeModificationsCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, ListAllowedNodeTypeModificationsCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // ListAllowedNodeTypeModificationsMessage
+ *   CacheClusterId: "STRING_VALUE",
+ *   ReplicationGroupId: "STRING_VALUE",
+ * };
  * const command = new ListAllowedNodeTypeModificationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAllowedNodeTypeModificationsCommandInput - {@link ListAllowedNodeTypeModificationsCommandInput}
+ * @returns {@link ListAllowedNodeTypeModificationsCommandOutput}
  * @see {@link ListAllowedNodeTypeModificationsCommandInput} for command's `input` shape.
  * @see {@link ListAllowedNodeTypeModificationsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
+ *
+ * @throws {@link CacheClusterNotFoundFault} (client fault)
+ *  <p>The requested cluster ID does not refer to an existing cluster.</p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
+ * @throws {@link ReplicationGroupNotFoundFault} (client fault)
+ *  <p>The specified replication group does not exist.</p>
+ *
+ *
+ * @example ListAllowedNodeTypeModifications
+ * ```javascript
+ * // Lists all available node types that you can scale your Redis cluster's or replication group's current node type up to.
+ * const input = {
+ *   "ReplicationGroupId": "myreplgroup"
+ * };
+ * const command = new ListAllowedNodeTypeModificationsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ScaleUpModifications": [
+ *     "cache.m4.10xlarge",
+ *     "cache.m4.2xlarge",
+ *     "cache.m4.4xlarge",
+ *     "cache.m4.xlarge",
+ *     "cache.r3.2xlarge",
+ *     "cache.r3.4xlarge",
+ *     "cache.r3.8xlarge",
+ *     "cache.r3.xlarge"
+ *   ]
+ * }
+ * *\/
+ * // example id: listallowednodetypemodifications-1481748494872
+ * ```
  *
  */
 export class ListAllowedNodeTypeModificationsCommand extends $Command<
@@ -68,6 +118,9 @@ export class ListAllowedNodeTypeModificationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAllowedNodeTypeModificationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +149,8 @@ export class ListAllowedNodeTypeModificationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAllowedNodeTypeModificationsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: AllowedNodeTypeModificationsMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,18 +160,24 @@ export class ListAllowedNodeTypeModificationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListAllowedNodeTypeModificationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryListAllowedNodeTypeModificationsCommand(input, context);
+    return se_ListAllowedNodeTypeModificationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAllowedNodeTypeModificationsCommandOutput> {
-    return deserializeAws_queryListAllowedNodeTypeModificationsCommand(output, context);
+    return de_ListAllowedNodeTypeModificationsCommand(output, context);
   }
 
   // Start section: command_body_extra

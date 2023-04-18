@@ -18,23 +18,29 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
+import { RemoveAvailabilityZonesInput, RemoveAvailabilityZonesOutput } from "../models/models_0";
 import {
-  RemoveAvailabilityZonesInput,
-  RemoveAvailabilityZonesInputFilterSensitiveLog,
-  RemoveAvailabilityZonesOutput,
-  RemoveAvailabilityZonesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDisableAvailabilityZonesForLoadBalancerCommand,
-  serializeAws_queryDisableAvailabilityZonesForLoadBalancerCommand,
+  de_DisableAvailabilityZonesForLoadBalancerCommand,
+  se_DisableAvailabilityZonesForLoadBalancerCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DisableAvailabilityZonesForLoadBalancerCommand}.
+ */
 export interface DisableAvailabilityZonesForLoadBalancerCommandInput extends RemoveAvailabilityZonesInput {}
+/**
+ * @public
+ *
+ * The output of {@link DisableAvailabilityZonesForLoadBalancerCommand}.
+ */
 export interface DisableAvailabilityZonesForLoadBalancerCommandOutput
   extends RemoveAvailabilityZonesOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified Availability Zones from the set of Availability Zones for the specified load balancer
  *             in EC2-Classic or a default VPC.</p>
  *         <p>For load balancers in a non-default VPC, use <a>DetachLoadBalancerFromSubnets</a>.</p>
@@ -50,13 +56,49 @@ export interface DisableAvailabilityZonesForLoadBalancerCommandOutput
  * import { ElasticLoadBalancingClient, DisableAvailabilityZonesForLoadBalancerCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
  * // const { ElasticLoadBalancingClient, DisableAvailabilityZonesForLoadBalancerCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
+ * const input = { // RemoveAvailabilityZonesInput
+ *   LoadBalancerName: "STRING_VALUE", // required
+ *   AvailabilityZones: [ // AvailabilityZones // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DisableAvailabilityZonesForLoadBalancerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableAvailabilityZonesForLoadBalancerCommandInput - {@link DisableAvailabilityZonesForLoadBalancerCommandInput}
+ * @returns {@link DisableAvailabilityZonesForLoadBalancerCommandOutput}
  * @see {@link DisableAvailabilityZonesForLoadBalancerCommandInput} for command's `input` shape.
  * @see {@link DisableAvailabilityZonesForLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
+ *
+ * @throws {@link AccessPointNotFoundException} (client fault)
+ *  <p>The specified load balancer does not exist.</p>
+ *
+ * @throws {@link InvalidConfigurationRequestException} (client fault)
+ *  <p>The requested configuration change is not valid.</p>
+ *
+ *
+ * @example To disable an Availability Zone for a load balancer
+ * ```javascript
+ * // This example removes the specified Availability Zone from the set of Availability Zones for the specified load balancer.
+ * const input = {
+ *   "AvailabilityZones": [
+ *     "us-west-2a"
+ *   ],
+ *   "LoadBalancerName": "my-load-balancer"
+ * };
+ * const command = new DisableAvailabilityZonesForLoadBalancerCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AvailabilityZones": [
+ *     "us-west-2b"
+ *   ]
+ * }
+ * *\/
+ * // example id: elb-disable-availability-zones-for-load-balancer-1
+ * ```
  *
  */
 export class DisableAvailabilityZonesForLoadBalancerCommand extends $Command<
@@ -76,6 +118,9 @@ export class DisableAvailabilityZonesForLoadBalancerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableAvailabilityZonesForLoadBalancerCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +155,8 @@ export class DisableAvailabilityZonesForLoadBalancerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveAvailabilityZonesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: RemoveAvailabilityZonesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,18 +166,24 @@ export class DisableAvailabilityZonesForLoadBalancerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisableAvailabilityZonesForLoadBalancerCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDisableAvailabilityZonesForLoadBalancerCommand(input, context);
+    return se_DisableAvailabilityZonesForLoadBalancerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisableAvailabilityZonesForLoadBalancerCommandOutput> {
-    return deserializeAws_queryDisableAvailabilityZonesForLoadBalancerCommand(output, context);
+    return de_DisableAvailabilityZonesForLoadBalancerCommand(output, context);
   }
 
   // Start section: command_body_extra

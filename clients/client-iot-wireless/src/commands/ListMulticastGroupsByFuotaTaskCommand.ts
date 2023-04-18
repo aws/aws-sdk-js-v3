@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
+import { ListMulticastGroupsByFuotaTaskRequest, ListMulticastGroupsByFuotaTaskResponse } from "../models/models_0";
 import {
-  ListMulticastGroupsByFuotaTaskRequest,
-  ListMulticastGroupsByFuotaTaskRequestFilterSensitiveLog,
-  ListMulticastGroupsByFuotaTaskResponse,
-  ListMulticastGroupsByFuotaTaskResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListMulticastGroupsByFuotaTaskCommand,
-  serializeAws_restJson1ListMulticastGroupsByFuotaTaskCommand,
+  de_ListMulticastGroupsByFuotaTaskCommand,
+  se_ListMulticastGroupsByFuotaTaskCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListMulticastGroupsByFuotaTaskCommand}.
+ */
 export interface ListMulticastGroupsByFuotaTaskCommandInput extends ListMulticastGroupsByFuotaTaskRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListMulticastGroupsByFuotaTaskCommand}.
+ */
 export interface ListMulticastGroupsByFuotaTaskCommandOutput
   extends ListMulticastGroupsByFuotaTaskResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>List all multicast groups associated with a fuota task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,36 @@ export interface ListMulticastGroupsByFuotaTaskCommandOutput
  * import { IoTWirelessClient, ListMulticastGroupsByFuotaTaskCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, ListMulticastGroupsByFuotaTaskCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // ListMulticastGroupsByFuotaTaskRequest
+ *   Id: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListMulticastGroupsByFuotaTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMulticastGroupsByFuotaTaskCommandInput - {@link ListMulticastGroupsByFuotaTaskCommandInput}
+ * @returns {@link ListMulticastGroupsByFuotaTaskCommandOutput}
  * @see {@link ListMulticastGroupsByFuotaTaskCommandInput} for command's `input` shape.
  * @see {@link ListMulticastGroupsByFuotaTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>User does not have permission to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred while processing a request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because it exceeded the allowed API request rate.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input did not meet the specified constraints.</p>
+ *
  *
  */
 export class ListMulticastGroupsByFuotaTaskCommand extends $Command<
@@ -64,6 +93,9 @@ export class ListMulticastGroupsByFuotaTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMulticastGroupsByFuotaTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +124,8 @@ export class ListMulticastGroupsByFuotaTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMulticastGroupsByFuotaTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMulticastGroupsByFuotaTaskResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +135,24 @@ export class ListMulticastGroupsByFuotaTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListMulticastGroupsByFuotaTaskCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListMulticastGroupsByFuotaTaskCommand(input, context);
+    return se_ListMulticastGroupsByFuotaTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListMulticastGroupsByFuotaTaskCommandOutput> {
-    return deserializeAws_restJson1ListMulticastGroupsByFuotaTaskCommand(output, context);
+    return de_ListMulticastGroupsByFuotaTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -17,22 +17,29 @@ import {
   GetPersonalizedRankingRequest,
   GetPersonalizedRankingRequestFilterSensitiveLog,
   GetPersonalizedRankingResponse,
-  GetPersonalizedRankingResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   PersonalizeRuntimeClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PersonalizeRuntimeClient";
-import {
-  deserializeAws_restJson1GetPersonalizedRankingCommand,
-  serializeAws_restJson1GetPersonalizedRankingCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetPersonalizedRankingCommand, se_GetPersonalizedRankingCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetPersonalizedRankingCommand}.
+ */
 export interface GetPersonalizedRankingCommandInput extends GetPersonalizedRankingRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetPersonalizedRankingCommand}.
+ */
 export interface GetPersonalizedRankingCommandOutput extends GetPersonalizedRankingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Re-ranks a list of recommended items for the given user. The first item in the list is
  *       deemed the most likely item to be of interest to the user.</p>
  *          <note>
@@ -45,13 +52,36 @@ export interface GetPersonalizedRankingCommandOutput extends GetPersonalizedRank
  * import { PersonalizeRuntimeClient, GetPersonalizedRankingCommand } from "@aws-sdk/client-personalize-runtime"; // ES Modules import
  * // const { PersonalizeRuntimeClient, GetPersonalizedRankingCommand } = require("@aws-sdk/client-personalize-runtime"); // CommonJS import
  * const client = new PersonalizeRuntimeClient(config);
+ * const input = { // GetPersonalizedRankingRequest
+ *   campaignArn: "STRING_VALUE", // required
+ *   inputList: [ // InputList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   userId: "STRING_VALUE", // required
+ *   context: { // Context
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   filterArn: "STRING_VALUE",
+ *   filterValues: { // FilterValues
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new GetPersonalizedRankingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPersonalizedRankingCommandInput - {@link GetPersonalizedRankingCommandInput}
+ * @returns {@link GetPersonalizedRankingCommandOutput}
  * @see {@link GetPersonalizedRankingCommandInput} for command's `input` shape.
  * @see {@link GetPersonalizedRankingCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeRuntimeClientResolvedConfig | config} for PersonalizeRuntimeClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
  *
  */
 export class GetPersonalizedRankingCommand extends $Command<
@@ -71,6 +101,9 @@ export class GetPersonalizedRankingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPersonalizedRankingCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,7 +133,7 @@ export class GetPersonalizedRankingCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: GetPersonalizedRankingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPersonalizedRankingResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +143,18 @@ export class GetPersonalizedRankingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPersonalizedRankingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetPersonalizedRankingCommand(input, context);
+    return se_GetPersonalizedRankingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPersonalizedRankingCommandOutput> {
-    return deserializeAws_restJson1GetPersonalizedRankingCommand(output, context);
+    return de_GetPersonalizedRankingCommand(output, context);
   }
 
   // Start section: command_body_extra

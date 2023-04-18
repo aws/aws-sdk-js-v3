@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateGatewaySoftwareNowInput,
-  UpdateGatewaySoftwareNowInputFilterSensitiveLog,
-  UpdateGatewaySoftwareNowOutput,
-  UpdateGatewaySoftwareNowOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateGatewaySoftwareNowCommand,
-  serializeAws_json1_1UpdateGatewaySoftwareNowCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateGatewaySoftwareNowInput, UpdateGatewaySoftwareNowOutput } from "../models/models_0";
+import { de_UpdateGatewaySoftwareNowCommand, se_UpdateGatewaySoftwareNowCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateGatewaySoftwareNowCommand}.
+ */
 export interface UpdateGatewaySoftwareNowCommandInput extends UpdateGatewaySoftwareNowInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateGatewaySoftwareNowCommand}.
+ */
 export interface UpdateGatewaySoftwareNowCommandOutput extends UpdateGatewaySoftwareNowOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the gateway virtual machine (VM) software. The request immediately triggers the
  *          software update.</p>
  *
@@ -51,13 +54,43 @@ export interface UpdateGatewaySoftwareNowCommandOutput extends UpdateGatewaySoft
  * import { StorageGatewayClient, UpdateGatewaySoftwareNowCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, UpdateGatewaySoftwareNowCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // UpdateGatewaySoftwareNowInput
+ *   GatewayARN: "STRING_VALUE", // required
+ * };
  * const command = new UpdateGatewaySoftwareNowCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateGatewaySoftwareNowCommandInput - {@link UpdateGatewaySoftwareNowCommandInput}
+ * @returns {@link UpdateGatewaySoftwareNowCommandOutput}
  * @see {@link UpdateGatewaySoftwareNowCommandInput} for command's `input` shape.
  * @see {@link UpdateGatewaySoftwareNowCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error has occurred during the request. For more information, see the
+ *          error and message fields.</p>
+ *
+ * @throws {@link InvalidGatewayRequestException} (client fault)
+ *  <p>An exception occurred because an invalid gateway request was issued to the service. For
+ *          more information, see the error and message fields.</p>
+ *
+ *
+ * @example To update a gateway's VM software
+ * ```javascript
+ * // Updates the gateway virtual machine (VM) software. The request immediately triggers the software update.
+ * const input = {
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ * };
+ * const command = new UpdateGatewaySoftwareNowCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ * }
+ * *\/
+ * // example id: to-update-a-gateways-vm-software-1472152020929
+ * ```
  *
  */
 export class UpdateGatewaySoftwareNowCommand extends $Command<
@@ -77,6 +110,9 @@ export class UpdateGatewaySoftwareNowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateGatewaySoftwareNowCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +141,8 @@ export class UpdateGatewaySoftwareNowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateGatewaySoftwareNowInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateGatewaySoftwareNowOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +152,18 @@ export class UpdateGatewaySoftwareNowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateGatewaySoftwareNowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateGatewaySoftwareNowCommand(input, context);
+    return se_UpdateGatewaySoftwareNowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGatewaySoftwareNowCommandOutput> {
-    return deserializeAws_json1_1UpdateGatewaySoftwareNowCommand(output, context);
+    return de_UpdateGatewaySoftwareNowCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,35 +14,41 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { GetAccountAuthorizationDetailsRequest, GetAccountAuthorizationDetailsResponse } from "../models/models_0";
 import {
-  GetAccountAuthorizationDetailsRequest,
-  GetAccountAuthorizationDetailsRequestFilterSensitiveLog,
-  GetAccountAuthorizationDetailsResponse,
-  GetAccountAuthorizationDetailsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryGetAccountAuthorizationDetailsCommand,
-  serializeAws_queryGetAccountAuthorizationDetailsCommand,
+  de_GetAccountAuthorizationDetailsCommand,
+  se_GetAccountAuthorizationDetailsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link GetAccountAuthorizationDetailsCommand}.
+ */
 export interface GetAccountAuthorizationDetailsCommandInput extends GetAccountAuthorizationDetailsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetAccountAuthorizationDetailsCommand}.
+ */
 export interface GetAccountAuthorizationDetailsCommandOutput
   extends GetAccountAuthorizationDetailsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about all IAM users, groups, roles, and policies in your Amazon Web Services
  *             account, including their relationships to one another. Use this operation to obtain a
  *             snapshot of the configuration of IAM permissions (users, groups, roles, and policies)
  *             in your account.</p>
- *         <note>
+ *          <note>
  *             <p>Policies returned by this operation are URL-encoded compliant
  *     with <a href="https://tools.ietf.org/html/rfc3986">RFC 3986</a>. You can use a URL
  *     decoding method to convert the policy back to plain JSON text. For example, if you use Java, you
  *     can use the <code>decode</code> method of the <code>java.net.URLDecoder</code> utility class in
  *     the Java SDK. Other languages and SDKs provide similar functionality.</p>
  *          </note>
- *         <p>You can optionally filter the results using the <code>Filter</code> parameter. You can
+ *          <p>You can optionally filter the results using the <code>Filter</code> parameter. You can
  *             paginate the results using the <code>MaxItems</code> and <code>Marker</code>
  *             parameters.</p>
  * @example
@@ -51,13 +57,27 @@ export interface GetAccountAuthorizationDetailsCommandOutput
  * import { IAMClient, GetAccountAuthorizationDetailsCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GetAccountAuthorizationDetailsCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // GetAccountAuthorizationDetailsRequest
+ *   Filter: [ // entityListType
+ *     "User" || "Role" || "Group" || "LocalManagedPolicy" || "AWSManagedPolicy",
+ *   ],
+ *   MaxItems: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new GetAccountAuthorizationDetailsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccountAuthorizationDetailsCommandInput - {@link GetAccountAuthorizationDetailsCommandInput}
+ * @returns {@link GetAccountAuthorizationDetailsCommandOutput}
  * @see {@link GetAccountAuthorizationDetailsCommandInput} for command's `input` shape.
  * @see {@link GetAccountAuthorizationDetailsCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
  *
  */
 export class GetAccountAuthorizationDetailsCommand extends $Command<
@@ -77,6 +97,9 @@ export class GetAccountAuthorizationDetailsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccountAuthorizationDetailsCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +128,8 @@ export class GetAccountAuthorizationDetailsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAccountAuthorizationDetailsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAccountAuthorizationDetailsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,18 +139,24 @@ export class GetAccountAuthorizationDetailsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetAccountAuthorizationDetailsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryGetAccountAuthorizationDetailsCommand(input, context);
+    return se_GetAccountAuthorizationDetailsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetAccountAuthorizationDetailsCommandOutput> {
-    return deserializeAws_queryGetAccountAuthorizationDetailsCommand(output, context);
+    return de_GetAccountAuthorizationDetailsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { CreateNetworkInterfacePermissionRequest, CreateNetworkInterfacePermissionResult } from "../models/models_1";
 import {
-  CreateNetworkInterfacePermissionRequest,
-  CreateNetworkInterfacePermissionRequestFilterSensitiveLog,
-  CreateNetworkInterfacePermissionResult,
-  CreateNetworkInterfacePermissionResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_ec2CreateNetworkInterfacePermissionCommand,
-  serializeAws_ec2CreateNetworkInterfacePermissionCommand,
+  de_CreateNetworkInterfacePermissionCommand,
+  se_CreateNetworkInterfacePermissionCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateNetworkInterfacePermissionCommand}.
+ */
 export interface CreateNetworkInterfacePermissionCommandInput extends CreateNetworkInterfacePermissionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateNetworkInterfacePermissionCommand}.
+ */
 export interface CreateNetworkInterfacePermissionCommandOutput
   extends CreateNetworkInterfacePermissionResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Grants an Amazon Web Services-authorized account permission to attach the specified network interface to
  *             an instance in their account.</p>
  *          <p>You can grant permission to a single Amazon Web Services account only, and only one account at a time.</p>
@@ -40,13 +46,23 @@ export interface CreateNetworkInterfacePermissionCommandOutput
  * import { EC2Client, CreateNetworkInterfacePermissionCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateNetworkInterfacePermissionCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // CreateNetworkInterfacePermissionRequest
+ *   NetworkInterfaceId: "STRING_VALUE", // required
+ *   AwsAccountId: "STRING_VALUE",
+ *   AwsService: "STRING_VALUE",
+ *   Permission: "INSTANCE-ATTACH" || "EIP-ASSOCIATE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new CreateNetworkInterfacePermissionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateNetworkInterfacePermissionCommandInput - {@link CreateNetworkInterfacePermissionCommandInput}
+ * @returns {@link CreateNetworkInterfacePermissionCommandOutput}
  * @see {@link CreateNetworkInterfacePermissionCommandInput} for command's `input` shape.
  * @see {@link CreateNetworkInterfacePermissionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class CreateNetworkInterfacePermissionCommand extends $Command<
@@ -66,6 +82,9 @@ export class CreateNetworkInterfacePermissionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateNetworkInterfacePermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +113,8 @@ export class CreateNetworkInterfacePermissionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateNetworkInterfacePermissionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateNetworkInterfacePermissionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,18 +124,24 @@ export class CreateNetworkInterfacePermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateNetworkInterfacePermissionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateNetworkInterfacePermissionCommand(input, context);
+    return se_CreateNetworkInterfacePermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateNetworkInterfacePermissionCommandOutput> {
-    return deserializeAws_ec2CreateNetworkInterfacePermissionCommand(output, context);
+    return de_CreateNetworkInterfacePermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

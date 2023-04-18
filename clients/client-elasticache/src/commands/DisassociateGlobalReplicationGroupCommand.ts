@@ -16,21 +16,30 @@ import {
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import {
   DisassociateGlobalReplicationGroupMessage,
-  DisassociateGlobalReplicationGroupMessageFilterSensitiveLog,
   DisassociateGlobalReplicationGroupResult,
-  DisassociateGlobalReplicationGroupResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_queryDisassociateGlobalReplicationGroupCommand,
-  serializeAws_queryDisassociateGlobalReplicationGroupCommand,
+  de_DisassociateGlobalReplicationGroupCommand,
+  se_DisassociateGlobalReplicationGroupCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DisassociateGlobalReplicationGroupCommand}.
+ */
 export interface DisassociateGlobalReplicationGroupCommandInput extends DisassociateGlobalReplicationGroupMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateGlobalReplicationGroupCommand}.
+ */
 export interface DisassociateGlobalReplicationGroupCommandOutput
   extends DisassociateGlobalReplicationGroupResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Remove a secondary cluster from the Global datastore using the Global datastore name. The secondary cluster will no longer receive updates from the primary cluster, but will remain as a standalone cluster in that Amazon region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +47,33 @@ export interface DisassociateGlobalReplicationGroupCommandOutput
  * import { ElastiCacheClient, DisassociateGlobalReplicationGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DisassociateGlobalReplicationGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // DisassociateGlobalReplicationGroupMessage
+ *   GlobalReplicationGroupId: "STRING_VALUE", // required
+ *   ReplicationGroupId: "STRING_VALUE", // required
+ *   ReplicationGroupRegion: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateGlobalReplicationGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateGlobalReplicationGroupCommandInput - {@link DisassociateGlobalReplicationGroupCommandInput}
+ * @returns {@link DisassociateGlobalReplicationGroupCommandOutput}
  * @see {@link DisassociateGlobalReplicationGroupCommandInput} for command's `input` shape.
  * @see {@link DisassociateGlobalReplicationGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
+ *
+ * @throws {@link GlobalReplicationGroupNotFoundFault} (client fault)
+ *  <p>The Global datastore does not exist</p>
+ *
+ * @throws {@link InvalidGlobalReplicationGroupStateFault} (client fault)
+ *  <p>The Global datastore is not available or in primary-only state.</p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
  *
  */
 export class DisassociateGlobalReplicationGroupCommand extends $Command<
@@ -64,6 +93,9 @@ export class DisassociateGlobalReplicationGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateGlobalReplicationGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +124,8 @@ export class DisassociateGlobalReplicationGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateGlobalReplicationGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateGlobalReplicationGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +135,24 @@ export class DisassociateGlobalReplicationGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateGlobalReplicationGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDisassociateGlobalReplicationGroupCommand(input, context);
+    return se_DisassociateGlobalReplicationGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateGlobalReplicationGroupCommandOutput> {
-    return deserializeAws_queryDisassociateGlobalReplicationGroupCommand(output, context);
+    return de_DisassociateGlobalReplicationGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  ListInstanceStorageConfigsRequest,
-  ListInstanceStorageConfigsRequestFilterSensitiveLog,
-  ListInstanceStorageConfigsResponse,
-  ListInstanceStorageConfigsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListInstanceStorageConfigsCommand,
-  serializeAws_restJson1ListInstanceStorageConfigsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListInstanceStorageConfigsRequest, ListInstanceStorageConfigsResponse } from "../models/models_1";
+import { de_ListInstanceStorageConfigsCommand, se_ListInstanceStorageConfigsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListInstanceStorageConfigsCommand}.
+ */
 export interface ListInstanceStorageConfigsCommandInput extends ListInstanceStorageConfigsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListInstanceStorageConfigsCommand}.
+ */
 export interface ListInstanceStorageConfigsCommandOutput extends ListInstanceStorageConfigsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Returns a paginated list of storage configs for the identified instance and resource
  *    type.</p>
@@ -38,13 +41,37 @@ export interface ListInstanceStorageConfigsCommandOutput extends ListInstanceSto
  * import { ConnectClient, ListInstanceStorageConfigsCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListInstanceStorageConfigsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // ListInstanceStorageConfigsRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   ResourceType: "CHAT_TRANSCRIPTS" || "CALL_RECORDINGS" || "SCHEDULED_REPORTS" || "MEDIA_STREAMS" || "CONTACT_TRACE_RECORDS" || "AGENT_EVENTS" || "REAL_TIME_CONTACT_ANALYSIS_SEGMENTS" || "ATTACHMENTS" || "CONTACT_EVALUATIONS", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListInstanceStorageConfigsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInstanceStorageConfigsCommandInput - {@link ListInstanceStorageConfigsCommandInput}
+ * @returns {@link ListInstanceStorageConfigsCommandOutput}
  * @see {@link ListInstanceStorageConfigsCommandInput} for command's `input` shape.
  * @see {@link ListInstanceStorageConfigsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
  *
  */
 export class ListInstanceStorageConfigsCommand extends $Command<
@@ -64,6 +91,9 @@ export class ListInstanceStorageConfigsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInstanceStorageConfigsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +122,8 @@ export class ListInstanceStorageConfigsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListInstanceStorageConfigsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListInstanceStorageConfigsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +133,21 @@ export class ListInstanceStorageConfigsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListInstanceStorageConfigsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListInstanceStorageConfigsCommand(input, context);
+    return se_ListInstanceStorageConfigsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListInstanceStorageConfigsCommandOutput> {
-    return deserializeAws_restJson1ListInstanceStorageConfigsCommand(output, context);
+    return de_ListInstanceStorageConfigsCommand(output, context);
   }
 
   // Start section: command_body_extra

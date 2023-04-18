@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
-import {
-  DeleteApplicationsRequest,
-  DeleteApplicationsRequestFilterSensitiveLog,
-  DeleteApplicationsResponse,
-  DeleteApplicationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteApplicationsCommand,
-  serializeAws_json1_1DeleteApplicationsCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteApplicationsRequest, DeleteApplicationsResponse } from "../models/models_0";
+import { de_DeleteApplicationsCommand, se_DeleteApplicationsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteApplicationsCommand}.
+ */
 export interface DeleteApplicationsCommandInput extends DeleteApplicationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteApplicationsCommand}.
+ */
 export interface DeleteApplicationsCommandOutput extends DeleteApplicationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a list of applications and their associations with configuration
  *       items.</p>
  * @example
@@ -41,13 +44,38 @@ export interface DeleteApplicationsCommandOutput extends DeleteApplicationsRespo
  * import { ApplicationDiscoveryServiceClient, DeleteApplicationsCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
  * // const { ApplicationDiscoveryServiceClient, DeleteApplicationsCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
+ * const input = { // DeleteApplicationsRequest
+ *   configurationIds: [ // ApplicationIdsList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DeleteApplicationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteApplicationsCommandInput - {@link DeleteApplicationsCommandInput}
+ * @returns {@link DeleteApplicationsCommandOutput}
  * @see {@link DeleteApplicationsCommandInput} for command's `input` shape.
  * @see {@link DeleteApplicationsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
+ *
+ * @throws {@link AuthorizationErrorException} (client fault)
+ *  <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM
+ *       policy associated with this account.</p>
+ *
+ * @throws {@link HomeRegionNotSetException} (client fault)
+ *  <p>The home region is not set. Set the home region to continue.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters are not valid. Verify the parameters and try again.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value of one or more parameters are either invalid or out of range. Verify the
+ *       parameter values and try again.</p>
+ *
+ * @throws {@link ServerInternalErrorException} (server fault)
+ *  <p>The server experienced an internal error. Try again.</p>
+ *
  *
  */
 export class DeleteApplicationsCommand extends $Command<
@@ -67,6 +95,9 @@ export class DeleteApplicationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteApplicationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +126,8 @@ export class DeleteApplicationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteApplicationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteApplicationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +137,18 @@ export class DeleteApplicationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteApplicationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteApplicationsCommand(input, context);
+    return se_DeleteApplicationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteApplicationsCommandOutput> {
-    return deserializeAws_json1_1DeleteApplicationsCommand(output, context);
+    return de_DeleteApplicationsCommand(output, context);
   }
 
   // Start section: command_body_extra

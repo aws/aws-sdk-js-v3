@@ -20,19 +20,26 @@ import {
 } from "../ChimeSDKMessagingClient";
 import {
   DescribeChannelFlowRequest,
-  DescribeChannelFlowRequestFilterSensitiveLog,
   DescribeChannelFlowResponse,
   DescribeChannelFlowResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeChannelFlowCommand,
-  serializeAws_restJson1DescribeChannelFlowCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeChannelFlowCommand, se_DescribeChannelFlowCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeChannelFlowCommand}.
+ */
 export interface DescribeChannelFlowCommandInput extends DescribeChannelFlowRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeChannelFlowCommand}.
+ */
 export interface DescribeChannelFlowCommandOutput extends DescribeChannelFlowResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the full details of a channel flow in an Amazon Chime <code>AppInstance</code>. This is a developer API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +47,37 @@ export interface DescribeChannelFlowCommandOutput extends DescribeChannelFlowRes
  * import { ChimeSDKMessagingClient, DescribeChannelFlowCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, DescribeChannelFlowCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
+ * const input = { // DescribeChannelFlowRequest
+ *   ChannelFlowArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeChannelFlowCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeChannelFlowCommandInput - {@link DescribeChannelFlowCommandInput}
+ * @returns {@link DescribeChannelFlowCommandOutput}
  * @see {@link DescribeChannelFlowCommandInput} for command's `input` shape.
  * @see {@link DescribeChannelFlowCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The client exceeded its request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client is not currently authorized to make the request.</p>
+ *
  *
  */
 export class DescribeChannelFlowCommand extends $Command<
@@ -66,6 +97,9 @@ export class DescribeChannelFlowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeChannelFlowCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,7 +128,7 @@ export class DescribeChannelFlowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeChannelFlowRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeChannelFlowResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -105,12 +139,18 @@ export class DescribeChannelFlowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeChannelFlowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeChannelFlowCommand(input, context);
+    return se_DescribeChannelFlowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeChannelFlowCommandOutput> {
-    return deserializeAws_restJson1DescribeChannelFlowCommand(output, context);
+    return de_DescribeChannelFlowCommand(output, context);
   }
 
   // Start section: command_body_extra

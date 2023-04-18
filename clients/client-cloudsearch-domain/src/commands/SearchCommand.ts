@@ -18,18 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CloudSearchDomainClient";
-import {
-  SearchRequest,
-  SearchRequestFilterSensitiveLog,
-  SearchResponse,
-  SearchResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_restJson1SearchCommand, serializeAws_restJson1SearchCommand } from "../protocols/Aws_restJson1";
+import { SearchRequest, SearchResponse } from "../models/models_0";
+import { de_SearchCommand, se_SearchCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link SearchCommand}.
+ */
 export interface SearchCommandInput extends SearchRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SearchCommand}.
+ */
 export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of documents that match the specified search criteria. How you specify the search criteria depends on which query parser you use. Amazon CloudSearch supports four query parsers:</p>
  *       <ul>
  *          <li><code>simple</code>: search all <code>text</code> and <code>text-array</code> fields for the specified string. Search for phrases, individual terms, and prefixes. </li>
@@ -45,13 +51,35 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * import { CloudSearchDomainClient, SearchCommand } from "@aws-sdk/client-cloudsearch-domain"; // ES Modules import
  * // const { CloudSearchDomainClient, SearchCommand } = require("@aws-sdk/client-cloudsearch-domain"); // CommonJS import
  * const client = new CloudSearchDomainClient(config);
+ * const input = { // SearchRequest
+ *   cursor: "STRING_VALUE",
+ *   expr: "STRING_VALUE",
+ *   facet: "STRING_VALUE",
+ *   filterQuery: "STRING_VALUE",
+ *   highlight: "STRING_VALUE",
+ *   partial: true || false,
+ *   query: "STRING_VALUE", // required
+ *   queryOptions: "STRING_VALUE",
+ *   queryParser: "STRING_VALUE",
+ *   return: "STRING_VALUE",
+ *   size: Number("long"),
+ *   sort: "STRING_VALUE",
+ *   start: Number("long"),
+ *   stats: "STRING_VALUE",
+ * };
  * const command = new SearchCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchCommandInput - {@link SearchCommandInput}
+ * @returns {@link SearchCommandOutput}
  * @see {@link SearchCommandInput} for command's `input` shape.
  * @see {@link SearchCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchDomainClientResolvedConfig | config} for CloudSearchDomainClient's `config` shape.
+ *
+ * @throws {@link SearchException} (client fault)
+ *  <p>Information about any problems encountered while processing a search request.</p>
+ *
  *
  */
 export class SearchCommand extends $Command<
@@ -71,6 +99,9 @@ export class SearchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +128,8 @@ export class SearchCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +139,18 @@ export class SearchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchCommand(input, context);
+    return se_SearchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchCommandOutput> {
-    return deserializeAws_restJson1SearchCommand(output, context);
+    return de_SearchCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  DescribeMitigationActionRequest,
-  DescribeMitigationActionRequestFilterSensitiveLog,
-  DescribeMitigationActionResponse,
-  DescribeMitigationActionResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1DescribeMitigationActionCommand,
-  serializeAws_restJson1DescribeMitigationActionCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeMitigationActionRequest, DescribeMitigationActionResponse } from "../models/models_1";
+import { de_DescribeMitigationActionCommand, se_DescribeMitigationActionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeMitigationActionCommand}.
+ */
 export interface DescribeMitigationActionCommandInput extends DescribeMitigationActionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeMitigationActionCommand}.
+ */
 export interface DescribeMitigationActionCommandOutput extends DescribeMitigationActionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a mitigation action.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeMitigationAction</a> action.</p>
  * @example
@@ -37,13 +40,31 @@ export interface DescribeMitigationActionCommandOutput extends DescribeMitigatio
  * import { IoTClient, DescribeMitigationActionCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeMitigationActionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // DescribeMitigationActionRequest
+ *   actionName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeMitigationActionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMitigationActionCommandInput - {@link DescribeMitigationActionCommandInput}
+ * @returns {@link DescribeMitigationActionCommandOutput}
  * @see {@link DescribeMitigationActionCommandInput} for command's `input` shape.
  * @see {@link DescribeMitigationActionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
  *
  */
 export class DescribeMitigationActionCommand extends $Command<
@@ -63,6 +84,9 @@ export class DescribeMitigationActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMitigationActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +115,8 @@ export class DescribeMitigationActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeMitigationActionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeMitigationActionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +126,18 @@ export class DescribeMitigationActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeMitigationActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeMitigationActionCommand(input, context);
+    return se_DescribeMitigationActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeMitigationActionCommandOutput> {
-    return deserializeAws_restJson1DescribeMitigationActionCommand(output, context);
+    return de_DescribeMitigationActionCommand(output, context);
   }
 
   // Start section: command_body_extra

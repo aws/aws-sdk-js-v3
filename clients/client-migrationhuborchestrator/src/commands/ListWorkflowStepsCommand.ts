@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubOrchestratorClient";
-import {
-  ListWorkflowStepsRequest,
-  ListWorkflowStepsRequestFilterSensitiveLog,
-  ListWorkflowStepsResponse,
-  ListWorkflowStepsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListWorkflowStepsCommand,
-  serializeAws_restJson1ListWorkflowStepsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListWorkflowStepsRequest, ListWorkflowStepsResponse } from "../models/models_0";
+import { de_ListWorkflowStepsCommand, se_ListWorkflowStepsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListWorkflowStepsCommand}.
+ */
 export interface ListWorkflowStepsCommandInput extends ListWorkflowStepsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListWorkflowStepsCommand}.
+ */
 export interface ListWorkflowStepsCommandOutput extends ListWorkflowStepsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the steps in a workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,34 @@ export interface ListWorkflowStepsCommandOutput extends ListWorkflowStepsRespons
  * import { MigrationHubOrchestratorClient, ListWorkflowStepsCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
  * // const { MigrationHubOrchestratorClient, ListWorkflowStepsCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
  * const client = new MigrationHubOrchestratorClient(config);
+ * const input = { // ListWorkflowStepsRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   workflowId: "STRING_VALUE", // required
+ *   stepGroupId: "STRING_VALUE", // required
+ * };
  * const command = new ListWorkflowStepsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWorkflowStepsCommandInput - {@link ListWorkflowStepsCommandInput}
+ * @returns {@link ListWorkflowStepsCommandOutput}
  * @see {@link ListWorkflowStepsCommandInput} for command's `input` shape.
  * @see {@link ListWorkflowStepsCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error has occurred.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
  *
  */
 export class ListWorkflowStepsCommand extends $Command<
@@ -66,6 +90,9 @@ export class ListWorkflowStepsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWorkflowStepsCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +121,8 @@ export class ListWorkflowStepsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListWorkflowStepsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListWorkflowStepsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +132,18 @@ export class ListWorkflowStepsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListWorkflowStepsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListWorkflowStepsCommand(input, context);
+    return se_ListWorkflowStepsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWorkflowStepsCommandOutput> {
-    return deserializeAws_restJson1ListWorkflowStepsCommand(output, context);
+    return de_ListWorkflowStepsCommand(output, context);
   }
 
   // Start section: command_body_extra

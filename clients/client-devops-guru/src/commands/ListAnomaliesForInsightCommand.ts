@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
-import {
-  ListAnomaliesForInsightRequest,
-  ListAnomaliesForInsightRequestFilterSensitiveLog,
-  ListAnomaliesForInsightResponse,
-  ListAnomaliesForInsightResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAnomaliesForInsightCommand,
-  serializeAws_restJson1ListAnomaliesForInsightCommand,
-} from "../protocols/Aws_restJson1";
+import { ListAnomaliesForInsightRequest, ListAnomaliesForInsightResponse } from "../models/models_0";
+import { de_ListAnomaliesForInsightCommand, se_ListAnomaliesForInsightCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListAnomaliesForInsightCommand}.
+ */
 export interface ListAnomaliesForInsightCommandInput extends ListAnomaliesForInsightRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListAnomaliesForInsightCommand}.
+ */
 export interface ListAnomaliesForInsightCommandOutput extends ListAnomaliesForInsightResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a list of the anomalies that belong to an insight that you specify using its
  * 			ID. </p>
  * @example
@@ -37,13 +40,52 @@ export interface ListAnomaliesForInsightCommandOutput extends ListAnomaliesForIn
  * import { DevOpsGuruClient, ListAnomaliesForInsightCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, ListAnomaliesForInsightCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
  * const client = new DevOpsGuruClient(config);
+ * const input = { // ListAnomaliesForInsightRequest
+ *   InsightId: "STRING_VALUE", // required
+ *   StartTimeRange: { // StartTimeRange
+ *     FromTime: new Date("TIMESTAMP"),
+ *     ToTime: new Date("TIMESTAMP"),
+ *   },
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   AccountId: "STRING_VALUE",
+ *   Filters: { // ListAnomaliesForInsightFilters
+ *     ServiceCollection: { // ServiceCollection
+ *       ServiceNames: [ // ServiceNames
+ *         "API_GATEWAY" || "APPLICATION_ELB" || "AUTO_SCALING_GROUP" || "CLOUD_FRONT" || "DYNAMO_DB" || "EC2" || "ECS" || "EKS" || "ELASTIC_BEANSTALK" || "ELASTI_CACHE" || "ELB" || "ES" || "KINESIS" || "LAMBDA" || "NAT_GATEWAY" || "NETWORK_ELB" || "RDS" || "REDSHIFT" || "ROUTE_53" || "S3" || "SAGE_MAKER" || "SNS" || "SQS" || "STEP_FUNCTIONS" || "SWF",
+ *       ],
+ *     },
+ *   },
+ * };
  * const command = new ListAnomaliesForInsightCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAnomaliesForInsightCommandInput - {@link ListAnomaliesForInsightCommandInput}
+ * @returns {@link ListAnomaliesForInsightCommandOutput}
  * @see {@link ListAnomaliesForInsightCommandInput} for command's `input` shape.
  * @see {@link ListAnomaliesForInsightCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p> You don't have permissions to perform the requested operation. The user or role that
+ * 			is making the request must have at least one IAM permissions policy attached that grants
+ * 			the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access Management</a> in the
+ * 				<i>IAM User Guide</i>. </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal failure in an Amazon service occurred.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A requested resource could not be found</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to a request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p> Contains information about data passed in to a field during a request that is not
+ * 			valid. </p>
+ *
  *
  */
 export class ListAnomaliesForInsightCommand extends $Command<
@@ -63,6 +105,9 @@ export class ListAnomaliesForInsightCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAnomaliesForInsightCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +136,8 @@ export class ListAnomaliesForInsightCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAnomaliesForInsightRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAnomaliesForInsightResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +147,18 @@ export class ListAnomaliesForInsightCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAnomaliesForInsightCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAnomaliesForInsightCommand(input, context);
+    return se_ListAnomaliesForInsightCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAnomaliesForInsightCommandOutput> {
-    return deserializeAws_restJson1ListAnomaliesForInsightCommand(output, context);
+    return de_ListAnomaliesForInsightCommand(output, context);
   }
 
   // Start section: command_body_extra

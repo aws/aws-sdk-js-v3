@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteReferenceRequest,
-  DeleteReferenceRequestFilterSensitiveLog,
-  DeleteReferenceResponse,
-  DeleteReferenceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteReferenceRequest, DeleteReferenceResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1DeleteReferenceCommand,
-  serializeAws_restJson1DeleteReferenceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteReferenceCommand, se_DeleteReferenceCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteReferenceCommand}.
+ */
 export interface DeleteReferenceCommandInput extends DeleteReferenceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteReferenceCommand}.
+ */
 export interface DeleteReferenceCommandOutput extends DeleteReferenceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a genome reference.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,41 @@ export interface DeleteReferenceCommandOutput extends DeleteReferenceResponse, _
  * import { OmicsClient, DeleteReferenceCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, DeleteReferenceCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = { // DeleteReferenceRequest
+ *   id: "STRING_VALUE", // required
+ *   referenceStoreId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteReferenceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteReferenceCommandInput - {@link DeleteReferenceCommandInput}
+ * @returns {@link DeleteReferenceCommandOutput}
  * @see {@link DeleteReferenceCommandInput} for command's `input` shape.
  * @see {@link DeleteReferenceCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request cannot be applied to the target resource in its current state.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred. Try the request again.</p>
+ *
+ * @throws {@link RequestTimeoutException} (client fault)
+ *  <p>The request timed out.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The target resource was not found in the current Region.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
  *
  */
 export class DeleteReferenceCommand extends $Command<
@@ -62,6 +93,9 @@ export class DeleteReferenceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteReferenceCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +124,8 @@ export class DeleteReferenceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteReferenceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteReferenceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +135,18 @@ export class DeleteReferenceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteReferenceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteReferenceCommand(input, context);
+    return se_DeleteReferenceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteReferenceCommandOutput> {
-    return deserializeAws_restJson1DeleteReferenceCommand(output, context);
+    return de_DeleteReferenceCommand(output, context);
   }
 
   // Start section: command_body_extra

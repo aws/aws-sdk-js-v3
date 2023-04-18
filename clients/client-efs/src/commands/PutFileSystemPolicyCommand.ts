@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import {
-  FileSystemPolicyDescription,
-  FileSystemPolicyDescriptionFilterSensitiveLog,
-  PutFileSystemPolicyRequest,
-  PutFileSystemPolicyRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutFileSystemPolicyCommand,
-  serializeAws_restJson1PutFileSystemPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { FileSystemPolicyDescription, PutFileSystemPolicyRequest } from "../models/models_0";
+import { de_PutFileSystemPolicyCommand, se_PutFileSystemPolicyCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutFileSystemPolicyCommand}.
+ */
 export interface PutFileSystemPolicyCommandInput extends PutFileSystemPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutFileSystemPolicyCommand}.
+ */
 export interface PutFileSystemPolicyCommandOutput extends FileSystemPolicyDescription, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Applies an Amazon EFS <code>FileSystemPolicy</code> to an Amazon EFS file system.
  *       A file system policy is an IAM resource-based policy and can contain multiple policy statements.
  *       A file system always has exactly one file system policy, which can be the default policy or
@@ -47,13 +50,40 @@ export interface PutFileSystemPolicyCommandOutput extends FileSystemPolicyDescri
  * import { EFSClient, PutFileSystemPolicyCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, PutFileSystemPolicyCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
+ * const input = { // PutFileSystemPolicyRequest
+ *   FileSystemId: "STRING_VALUE", // required
+ *   Policy: "STRING_VALUE", // required
+ *   BypassPolicyLockoutSafetyCheck: true || false,
+ * };
  * const command = new PutFileSystemPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutFileSystemPolicyCommandInput - {@link PutFileSystemPolicyCommandInput}
+ * @returns {@link PutFileSystemPolicyCommandOutput}
  * @see {@link PutFileSystemPolicyCommandInput} for command's `input` shape.
  * @see {@link PutFileSystemPolicyCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
+ *
+ * @throws {@link BadRequest} (client fault)
+ *  <p>Returned if the request is malformed or contains an error such as an invalid
+ *             parameter value or a missing required parameter.</p>
+ *
+ * @throws {@link FileSystemNotFound} (client fault)
+ *  <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the
+ *             requester's Amazon Web Services account.</p>
+ *
+ * @throws {@link IncorrectFileSystemLifeCycleState} (client fault)
+ *  <p>Returned if the file system's lifecycle state is not "available".</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Returned if an error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidPolicyException} (client fault)
+ *  <p>Returned if the <code>FileSystemPolicy</code> is malformed or contains an error such
+ *             as a parameter value that is not valid or a missing required parameter. Returned in the
+ *             case of a policy lockout safety check error.</p>
+ *
  *
  */
 export class PutFileSystemPolicyCommand extends $Command<
@@ -73,6 +103,9 @@ export class PutFileSystemPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutFileSystemPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +134,8 @@ export class PutFileSystemPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutFileSystemPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: FileSystemPolicyDescriptionFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +145,18 @@ export class PutFileSystemPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutFileSystemPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutFileSystemPolicyCommand(input, context);
+    return se_PutFileSystemPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutFileSystemPolicyCommandOutput> {
-    return deserializeAws_restJson1PutFileSystemPolicyCommand(output, context);
+    return de_PutFileSystemPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

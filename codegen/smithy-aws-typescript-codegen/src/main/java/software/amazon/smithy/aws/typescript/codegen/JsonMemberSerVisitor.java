@@ -38,6 +38,8 @@ final class JsonMemberSerVisitor extends DocumentMemberSerVisitor {
      */
     JsonMemberSerVisitor(GenerationContext context, String dataSource, Format defaultTimestampFormat) {
         super(context, dataSource, defaultTimestampFormat);
+        context.getWriter().addImport("_json", null, "@aws-sdk/smithy-client");
+        serdeElision.setEnabledForModel(!context.getSettings().generateServerSdk());
     }
 
     @Override

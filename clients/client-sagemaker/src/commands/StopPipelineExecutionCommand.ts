@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StopPipelineExecutionRequest,
-  StopPipelineExecutionRequestFilterSensitiveLog,
-  StopPipelineExecutionResponse,
-  StopPipelineExecutionResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1StopPipelineExecutionCommand,
-  serializeAws_json1_1StopPipelineExecutionCommand,
-} from "../protocols/Aws_json1_1";
+import { StopPipelineExecutionRequest, StopPipelineExecutionResponse } from "../models/models_3";
+import { de_StopPipelineExecutionCommand, se_StopPipelineExecutionCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link StopPipelineExecutionCommand}.
+ */
 export interface StopPipelineExecutionCommandInput extends StopPipelineExecutionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StopPipelineExecutionCommand}.
+ */
 export interface StopPipelineExecutionCommandOutput extends StopPipelineExecutionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a pipeline execution.</p>
  *          <p>
  *             <b>Callback Step</b>
@@ -58,13 +61,23 @@ export interface StopPipelineExecutionCommandOutput extends StopPipelineExecutio
  * import { SageMakerClient, StopPipelineExecutionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, StopPipelineExecutionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // StopPipelineExecutionRequest
+ *   PipelineExecutionArn: "STRING_VALUE", // required
+ *   ClientRequestToken: "STRING_VALUE", // required
+ * };
  * const command = new StopPipelineExecutionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopPipelineExecutionCommandInput - {@link StopPipelineExecutionCommandInput}
+ * @returns {@link StopPipelineExecutionCommandOutput}
  * @see {@link StopPipelineExecutionCommandInput} for command's `input` shape.
  * @see {@link StopPipelineExecutionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class StopPipelineExecutionCommand extends $Command<
@@ -84,6 +97,9 @@ export class StopPipelineExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopPipelineExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +128,8 @@ export class StopPipelineExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopPipelineExecutionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopPipelineExecutionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +139,18 @@ export class StopPipelineExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopPipelineExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopPipelineExecutionCommand(input, context);
+    return se_StopPipelineExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopPipelineExecutionCommandOutput> {
-    return deserializeAws_json1_1StopPipelineExecutionCommand(output, context);
+    return de_StopPipelineExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

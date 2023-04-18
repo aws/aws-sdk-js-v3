@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import {
-  SetSecurityGroupsInput,
-  SetSecurityGroupsInputFilterSensitiveLog,
-  SetSecurityGroupsOutput,
-  SetSecurityGroupsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_querySetSecurityGroupsCommand,
-  serializeAws_querySetSecurityGroupsCommand,
-} from "../protocols/Aws_query";
+import { SetSecurityGroupsInput, SetSecurityGroupsOutput } from "../models/models_0";
+import { de_SetSecurityGroupsCommand, se_SetSecurityGroupsCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link SetSecurityGroupsCommand}.
+ */
 export interface SetSecurityGroupsCommandInput extends SetSecurityGroupsInput {}
+/**
+ * @public
+ *
+ * The output of {@link SetSecurityGroupsCommand}.
+ */
 export interface SetSecurityGroupsCommandOutput extends SetSecurityGroupsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates the specified security groups with the specified Application Load Balancer. The
  *       specified security groups override the previously associated security groups.</p>
  *          <p>You can't specify a security group for a Network Load Balancer or Gateway Load
@@ -43,13 +46,52 @@ export interface SetSecurityGroupsCommandOutput extends SetSecurityGroupsOutput,
  * import { ElasticLoadBalancingV2Client, SetSecurityGroupsCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, SetSecurityGroupsCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
+ * const input = { // SetSecurityGroupsInput
+ *   LoadBalancerArn: "STRING_VALUE", // required
+ *   SecurityGroups: [ // SecurityGroups // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new SetSecurityGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SetSecurityGroupsCommandInput - {@link SetSecurityGroupsCommandInput}
+ * @returns {@link SetSecurityGroupsCommandOutput}
  * @see {@link SetSecurityGroupsCommandInput} for command's `input` shape.
  * @see {@link SetSecurityGroupsCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
+ *
+ * @throws {@link InvalidConfigurationRequestException} (client fault)
+ *  <p>The requested configuration is not valid.</p>
+ *
+ * @throws {@link InvalidSecurityGroupException} (client fault)
+ *  <p>The specified security group does not exist.</p>
+ *
+ * @throws {@link LoadBalancerNotFoundException} (client fault)
+ *  <p>The specified load balancer does not exist.</p>
+ *
+ *
+ * @example To associate a security group with a load balancer
+ * ```javascript
+ * // This example associates the specified security group with the specified load balancer.
+ * const input = {
+ *   "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188",
+ *   "SecurityGroups": [
+ *     "sg-5943793c"
+ *   ]
+ * };
+ * const command = new SetSecurityGroupsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "SecurityGroupIds": [
+ *     "sg-5943793c"
+ *   ]
+ * }
+ * *\/
+ * // example id: elbv2-set-security-groups-1
+ * ```
  *
  */
 export class SetSecurityGroupsCommand extends $Command<
@@ -69,6 +111,9 @@ export class SetSecurityGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetSecurityGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +142,8 @@ export class SetSecurityGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetSecurityGroupsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: SetSecurityGroupsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +153,18 @@ export class SetSecurityGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetSecurityGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySetSecurityGroupsCommand(input, context);
+    return se_SetSecurityGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetSecurityGroupsCommandOutput> {
-    return deserializeAws_querySetSecurityGroupsCommand(output, context);
+    return de_SetSecurityGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
-import {
-  DeleteVodSourceRequest,
-  DeleteVodSourceRequestFilterSensitiveLog,
-  DeleteVodSourceResponse,
-  DeleteVodSourceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteVodSourceCommand,
-  serializeAws_restJson1DeleteVodSourceCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteVodSourceRequest, DeleteVodSourceResponse } from "../models/models_0";
+import { de_DeleteVodSourceCommand, se_DeleteVodSourceCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteVodSourceCommand}.
+ */
 export interface DeleteVodSourceCommandInput extends DeleteVodSourceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteVodSourceCommand}.
+ */
 export interface DeleteVodSourceCommandOutput extends DeleteVodSourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The video on demand (VOD) source to delete.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,20 @@ export interface DeleteVodSourceCommandOutput extends DeleteVodSourceResponse, _
  * import { MediaTailorClient, DeleteVodSourceCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, DeleteVodSourceCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
+ * const input = { // DeleteVodSourceRequest
+ *   SourceLocationName: "STRING_VALUE", // required
+ *   VodSourceName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteVodSourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVodSourceCommandInput - {@link DeleteVodSourceCommandInput}
+ * @returns {@link DeleteVodSourceCommandOutput}
  * @see {@link DeleteVodSourceCommandInput} for command's `input` shape.
  * @see {@link DeleteVodSourceCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
+ *
  *
  */
 export class DeleteVodSourceCommand extends $Command<
@@ -62,6 +72,9 @@ export class DeleteVodSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVodSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +103,8 @@ export class DeleteVodSourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVodSourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteVodSourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +114,18 @@ export class DeleteVodSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVodSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteVodSourceCommand(input, context);
+    return se_DeleteVodSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVodSourceCommandOutput> {
-    return deserializeAws_restJson1DeleteVodSourceCommand(output, context);
+    return de_DeleteVodSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

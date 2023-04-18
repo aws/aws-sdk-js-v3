@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 const fs = require("fs");
 const path = require("path");
 
@@ -10,11 +8,11 @@ const { getPrunedRulesetObject } = require("./getPrunedRulesetObject");
 /**
  * Run compression on ruleset objects for SDK clients.
  */
-const main = () => {
+const main = (singleModel = undefined) => {
   const root = path.join(__dirname, "..", "..");
   const clientsFolder = path.join(root, "clients");
   const modelsFolder = path.join(root, "codegen", "sdk-codegen", "aws-models");
-  const modelsList = fs.readdirSync(modelsFolder);
+  const modelsList = singleModel ? [`${singleModel}.json`] : fs.readdirSync(modelsFolder);
   const tempFolder = path.join(__dirname, "temp");
 
   // clean temp folder.
@@ -88,4 +86,4 @@ ${selectedAlgorithm.toCodeString("export const ruleSet: RuleSetObject = $;")}
   return 0;
 };
 
-main();
+module.exports = main;

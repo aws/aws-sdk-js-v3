@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeDeviceEc2Input,
-  DescribeDeviceEc2InputFilterSensitiveLog,
-  DescribeDeviceEc2Output,
-  DescribeDeviceEc2OutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeDeviceEc2InstancesCommand,
-  serializeAws_restJson1DescribeDeviceEc2InstancesCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeDeviceEc2Input, DescribeDeviceEc2Output } from "../models/models_0";
+import { de_DescribeDeviceEc2InstancesCommand, se_DescribeDeviceEc2InstancesCommand } from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
   SnowDeviceManagementClientResolvedConfig,
 } from "../SnowDeviceManagementClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeDeviceEc2InstancesCommand}.
+ */
 export interface DescribeDeviceEc2InstancesCommandInput extends DescribeDeviceEc2Input {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeDeviceEc2InstancesCommand}.
+ */
 export interface DescribeDeviceEc2InstancesCommandOutput extends DescribeDeviceEc2Output, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Checks the current state of the Amazon EC2 instances. The output is similar to
  *         <code>describeDevice</code>, but the results are sourced from the device cache in the
  *       Amazon Web Services Cloud and include a subset of the available fields. </p>
@@ -42,13 +45,37 @@ export interface DescribeDeviceEc2InstancesCommandOutput extends DescribeDeviceE
  * import { SnowDeviceManagementClient, DescribeDeviceEc2InstancesCommand } from "@aws-sdk/client-snow-device-management"; // ES Modules import
  * // const { SnowDeviceManagementClient, DescribeDeviceEc2InstancesCommand } = require("@aws-sdk/client-snow-device-management"); // CommonJS import
  * const client = new SnowDeviceManagementClient(config);
+ * const input = { // DescribeDeviceEc2Input
+ *   managedDeviceId: "STRING_VALUE", // required
+ *   instanceIds: [ // InstanceIdsList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeDeviceEc2InstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDeviceEc2InstancesCommandInput - {@link DescribeDeviceEc2InstancesCommandInput}
+ * @returns {@link DescribeDeviceEc2InstancesCommandOutput}
  * @see {@link DescribeDeviceEc2InstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeDeviceEc2InstancesCommandOutput} for command's `response` shape.
  * @see {@link SnowDeviceManagementClientResolvedConfig | config} for SnowDeviceManagementClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred while processing the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a resource that doesn't exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
  *
  */
 export class DescribeDeviceEc2InstancesCommand extends $Command<
@@ -68,6 +95,9 @@ export class DescribeDeviceEc2InstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDeviceEc2InstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +126,8 @@ export class DescribeDeviceEc2InstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDeviceEc2InputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDeviceEc2OutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,15 +137,21 @@ export class DescribeDeviceEc2InstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDeviceEc2InstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeDeviceEc2InstancesCommand(input, context);
+    return se_DescribeDeviceEc2InstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDeviceEc2InstancesCommandOutput> {
-    return deserializeAws_restJson1DescribeDeviceEc2InstancesCommand(output, context);
+    return de_DescribeDeviceEc2InstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeTransitGatewaysRequest,
-  DescribeTransitGatewaysRequestFilterSensitiveLog,
-  DescribeTransitGatewaysResult,
-  DescribeTransitGatewaysResultFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeTransitGatewaysCommand,
-  serializeAws_ec2DescribeTransitGatewaysCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeTransitGatewaysRequest, DescribeTransitGatewaysResult } from "../models/models_4";
+import { de_DescribeTransitGatewaysCommand, se_DescribeTransitGatewaysCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeTransitGatewaysCommand}.
+ */
 export interface DescribeTransitGatewaysCommandInput extends DescribeTransitGatewaysRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeTransitGatewaysCommand}.
+ */
 export interface DescribeTransitGatewaysCommandOutput extends DescribeTransitGatewaysResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more transit gateways. By default, all transit gateways are described. Alternatively, you can
  *          filter the results.</p>
  * @example
@@ -37,13 +40,32 @@ export interface DescribeTransitGatewaysCommandOutput extends DescribeTransitGat
  * import { EC2Client, DescribeTransitGatewaysCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeTransitGatewaysCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeTransitGatewaysRequest
+ *   TransitGatewayIds: [ // TransitGatewayIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new DescribeTransitGatewaysCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTransitGatewaysCommandInput - {@link DescribeTransitGatewaysCommandInput}
+ * @returns {@link DescribeTransitGatewaysCommandOutput}
  * @see {@link DescribeTransitGatewaysCommandInput} for command's `input` shape.
  * @see {@link DescribeTransitGatewaysCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class DescribeTransitGatewaysCommand extends $Command<
@@ -63,6 +85,9 @@ export class DescribeTransitGatewaysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTransitGatewaysCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +116,8 @@ export class DescribeTransitGatewaysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTransitGatewaysRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTransitGatewaysResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +127,18 @@ export class DescribeTransitGatewaysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTransitGatewaysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeTransitGatewaysCommand(input, context);
+    return se_DescribeTransitGatewaysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTransitGatewaysCommandOutput> {
-    return deserializeAws_ec2DescribeTransitGatewaysCommand(output, context);
+    return de_DescribeTransitGatewaysCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,20 +19,28 @@ import {
   CreateNamespaceResponse,
   CreateNamespaceResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateNamespaceCommand,
-  serializeAws_json1_1CreateNamespaceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateNamespaceCommand, se_CreateNamespaceCommand } from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateNamespaceCommand}.
+ */
 export interface CreateNamespaceCommandInput extends CreateNamespaceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateNamespaceCommand}.
+ */
 export interface CreateNamespaceCommandOutput extends CreateNamespaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a namespace in Amazon Redshift Serverless.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +48,48 @@ export interface CreateNamespaceCommandOutput extends CreateNamespaceResponse, _
  * import { RedshiftServerlessClient, CreateNamespaceCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, CreateNamespaceCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
+ * const input = { // CreateNamespaceRequest
+ *   namespaceName: "STRING_VALUE", // required
+ *   adminUsername: "STRING_VALUE",
+ *   adminUserPassword: "STRING_VALUE",
+ *   dbName: "STRING_VALUE",
+ *   kmsKeyId: "STRING_VALUE",
+ *   defaultIamRoleArn: "STRING_VALUE",
+ *   iamRoles: [ // IamRoleArnList
+ *     "STRING_VALUE",
+ *   ],
+ *   logExports: [ // LogExportList
+ *     "STRING_VALUE",
+ *   ],
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateNamespaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateNamespaceCommandInput - {@link CreateNamespaceCommandInput}
+ * @returns {@link CreateNamespaceCommandOutput}
  * @see {@link CreateNamespaceCommandInput} for command's `input` shape.
  * @see {@link CreateNamespaceCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The submitted action has conflicts.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * @throws {@link TooManyTagsException} (client fault)
+ *  <p>The request exceeded the number of tags allowed for a resource.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
+ *
  *
  */
 export class CreateNamespaceCommand extends $Command<
@@ -66,6 +109,9 @@ export class CreateNamespaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateNamespaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,12 +151,18 @@ export class CreateNamespaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateNamespaceCommand(input, context);
+    return se_CreateNamespaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateNamespaceCommandOutput> {
-    return deserializeAws_json1_1CreateNamespaceCommand(output, context);
+    return de_CreateNamespaceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetCustomEntityTypeRequest,
-  GetCustomEntityTypeRequestFilterSensitiveLog,
-  GetCustomEntityTypeResponse,
-  GetCustomEntityTypeResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetCustomEntityTypeCommand,
-  serializeAws_json1_1GetCustomEntityTypeCommand,
-} from "../protocols/Aws_json1_1";
+import { GetCustomEntityTypeRequest, GetCustomEntityTypeResponse } from "../models/models_1";
+import { de_GetCustomEntityTypeCommand, se_GetCustomEntityTypeCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetCustomEntityTypeCommand}.
+ */
 export interface GetCustomEntityTypeCommandInput extends GetCustomEntityTypeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetCustomEntityTypeCommand}.
+ */
 export interface GetCustomEntityTypeCommandOutput extends GetCustomEntityTypeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the details of a custom pattern by specifying its name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,34 @@ export interface GetCustomEntityTypeCommandOutput extends GetCustomEntityTypeRes
  * import { GlueClient, GetCustomEntityTypeCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetCustomEntityTypeCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // GetCustomEntityTypeRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new GetCustomEntityTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCustomEntityTypeCommandInput - {@link GetCustomEntityTypeCommandInput}
+ * @returns {@link GetCustomEntityTypeCommandOutput}
  * @see {@link GetCustomEntityTypeCommandInput} for command's `input` shape.
  * @see {@link GetCustomEntityTypeCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to a resource was denied.</p>
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class GetCustomEntityTypeCommand extends $Command<
@@ -62,6 +86,9 @@ export class GetCustomEntityTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCustomEntityTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +117,8 @@ export class GetCustomEntityTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCustomEntityTypeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCustomEntityTypeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +128,18 @@ export class GetCustomEntityTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCustomEntityTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetCustomEntityTypeCommand(input, context);
+    return se_GetCustomEntityTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCustomEntityTypeCommandOutput> {
-    return deserializeAws_json1_1GetCustomEntityTypeCommand(output, context);
+    return de_GetCustomEntityTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

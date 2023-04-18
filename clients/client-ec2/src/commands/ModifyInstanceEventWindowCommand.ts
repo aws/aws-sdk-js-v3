@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ModifyInstanceEventWindowRequest,
-  ModifyInstanceEventWindowRequestFilterSensitiveLog,
-  ModifyInstanceEventWindowResult,
-  ModifyInstanceEventWindowResultFilterSensitiveLog,
-} from "../models/models_6";
-import {
-  deserializeAws_ec2ModifyInstanceEventWindowCommand,
-  serializeAws_ec2ModifyInstanceEventWindowCommand,
-} from "../protocols/Aws_ec2";
+import { ModifyInstanceEventWindowRequest, ModifyInstanceEventWindowResult } from "../models/models_6";
+import { de_ModifyInstanceEventWindowCommand, se_ModifyInstanceEventWindowCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link ModifyInstanceEventWindowCommand}.
+ */
 export interface ModifyInstanceEventWindowCommandInput extends ModifyInstanceEventWindowRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ModifyInstanceEventWindowCommand}.
+ */
 export interface ModifyInstanceEventWindowCommandOutput extends ModifyInstanceEventWindowResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the specified event window.</p>
  *          <p>You can define either a set of time ranges or a cron expression when modifying the event
  *          window, but not both.</p>
@@ -43,13 +46,30 @@ export interface ModifyInstanceEventWindowCommandOutput extends ModifyInstanceEv
  * import { EC2Client, ModifyInstanceEventWindowCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyInstanceEventWindowCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ModifyInstanceEventWindowRequest
+ *   DryRun: true || false,
+ *   Name: "STRING_VALUE",
+ *   InstanceEventWindowId: "STRING_VALUE", // required
+ *   TimeRanges: [ // InstanceEventWindowTimeRangeRequestSet
+ *     { // InstanceEventWindowTimeRangeRequest
+ *       StartWeekDay: "sunday" || "monday" || "tuesday" || "wednesday" || "thursday" || "friday" || "saturday",
+ *       StartHour: Number("int"),
+ *       EndWeekDay: "sunday" || "monday" || "tuesday" || "wednesday" || "thursday" || "friday" || "saturday",
+ *       EndHour: Number("int"),
+ *     },
+ *   ],
+ *   CronExpression: "STRING_VALUE",
+ * };
  * const command = new ModifyInstanceEventWindowCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyInstanceEventWindowCommandInput - {@link ModifyInstanceEventWindowCommandInput}
+ * @returns {@link ModifyInstanceEventWindowCommandOutput}
  * @see {@link ModifyInstanceEventWindowCommandInput} for command's `input` shape.
  * @see {@link ModifyInstanceEventWindowCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class ModifyInstanceEventWindowCommand extends $Command<
@@ -69,6 +89,9 @@ export class ModifyInstanceEventWindowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyInstanceEventWindowCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +120,8 @@ export class ModifyInstanceEventWindowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyInstanceEventWindowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyInstanceEventWindowResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,15 +131,21 @@ export class ModifyInstanceEventWindowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyInstanceEventWindowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyInstanceEventWindowCommand(input, context);
+    return se_ModifyInstanceEventWindowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyInstanceEventWindowCommandOutput> {
-    return deserializeAws_ec2ModifyInstanceEventWindowCommand(output, context);
+    return de_ModifyInstanceEventWindowCommand(output, context);
   }
 
   // Start section: command_body_extra

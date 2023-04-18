@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CrlDetailResponse,
-  CrlDetailResponseFilterSensitiveLog,
-  ScalarCrlRequest,
-  ScalarCrlRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1EnableCrlCommand,
-  serializeAws_restJson1EnableCrlCommand,
-} from "../protocols/Aws_restJson1";
+import { CrlDetailResponse, ScalarCrlRequest } from "../models/models_0";
+import { de_EnableCrlCommand, se_EnableCrlCommand } from "../protocols/Aws_restJson1";
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
+/**
+ * @public
+ *
+ * The input for {@link EnableCrlCommand}.
+ */
 export interface EnableCrlCommandInput extends ScalarCrlRequest {}
+/**
+ * @public
+ *
+ * The output of {@link EnableCrlCommand}.
+ */
 export interface EnableCrlCommandOutput extends CrlDetailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables a certificate revocation list (CRL). When enabled, certificates stored in the CRL are unauthorized to receive session credentials.</p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -40,13 +43,25 @@ export interface EnableCrlCommandOutput extends CrlDetailResponse, __MetadataBea
  * import { RolesAnywhereClient, EnableCrlCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
  * // const { RolesAnywhereClient, EnableCrlCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
  * const client = new RolesAnywhereClient(config);
+ * const input = { // ScalarCrlRequest
+ *   crlId: "STRING_VALUE", // required
+ * };
  * const command = new EnableCrlCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableCrlCommandInput - {@link EnableCrlCommandInput}
+ * @returns {@link EnableCrlCommandOutput}
  * @see {@link EnableCrlCommandInput} for command's `input` shape.
  * @see {@link EnableCrlCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
  *
  */
 export class EnableCrlCommand extends $Command<
@@ -66,6 +81,9 @@ export class EnableCrlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableCrlCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +110,8 @@ export class EnableCrlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ScalarCrlRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CrlDetailResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +121,18 @@ export class EnableCrlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableCrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1EnableCrlCommand(input, context);
+    return se_EnableCrlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableCrlCommandOutput> {
-    return deserializeAws_restJson1EnableCrlCommand(output, context);
+    return de_EnableCrlCommand(output, context);
   }
 
   // Start section: command_body_extra

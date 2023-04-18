@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  UpdateMultiplexRequest,
-  UpdateMultiplexRequestFilterSensitiveLog,
-  UpdateMultiplexResponse,
-  UpdateMultiplexResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1UpdateMultiplexCommand,
-  serializeAws_restJson1UpdateMultiplexCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateMultiplexRequest, UpdateMultiplexResponse } from "../models/models_2";
+import { de_UpdateMultiplexCommand, se_UpdateMultiplexCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateMultiplexCommand}.
+ */
 export interface UpdateMultiplexCommandInput extends UpdateMultiplexRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateMultiplexCommand}.
+ */
 export interface UpdateMultiplexCommandOutput extends UpdateMultiplexResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Updates a multiplex.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,50 @@ export interface UpdateMultiplexCommandOutput extends UpdateMultiplexResponse, _
  * import { MediaLiveClient, UpdateMultiplexCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, UpdateMultiplexCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = { // UpdateMultiplexRequest
+ *   MultiplexId: "STRING_VALUE", // required
+ *   MultiplexSettings: { // MultiplexSettings
+ *     MaximumVideoBufferDelayMilliseconds: Number("int"),
+ *     TransportStreamBitrate: Number("int"), // required
+ *     TransportStreamId: Number("int"), // required
+ *     TransportStreamReservedBitrate: Number("int"),
+ *   },
+ *   Name: "STRING_VALUE",
+ * };
  * const command = new UpdateMultiplexCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateMultiplexCommandInput - {@link UpdateMultiplexCommandInput}
+ * @returns {@link UpdateMultiplexCommandOutput}
  * @see {@link UpdateMultiplexCommandInput} for command's `input` shape.
  * @see {@link UpdateMultiplexCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
+ *
+ * @throws {@link BadGatewayException} (server fault)
+ *  Placeholder documentation for BadGatewayException
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  Placeholder documentation for BadRequestException
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  Placeholder documentation for ConflictException
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  Placeholder documentation for ForbiddenException
+ *
+ * @throws {@link GatewayTimeoutException} (server fault)
+ *  Placeholder documentation for GatewayTimeoutException
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  Placeholder documentation for InternalServerErrorException
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  Placeholder documentation for NotFoundException
+ *
+ * @throws {@link UnprocessableEntityException} (client fault)
+ *  Placeholder documentation for UnprocessableEntityException
+ *
  *
  */
 export class UpdateMultiplexCommand extends $Command<
@@ -62,6 +102,9 @@ export class UpdateMultiplexCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateMultiplexCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +133,8 @@ export class UpdateMultiplexCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateMultiplexRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateMultiplexResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +144,18 @@ export class UpdateMultiplexCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateMultiplexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateMultiplexCommand(input, context);
+    return se_UpdateMultiplexCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMultiplexCommandOutput> {
-    return deserializeAws_restJson1UpdateMultiplexCommand(output, context);
+    return de_UpdateMultiplexCommand(output, context);
   }
 
   // Start section: command_body_extra

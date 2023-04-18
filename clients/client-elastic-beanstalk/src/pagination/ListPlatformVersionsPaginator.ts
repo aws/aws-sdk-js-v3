@@ -6,12 +6,11 @@ import {
   ListPlatformVersionsCommandInput,
   ListPlatformVersionsCommandOutput,
 } from "../commands/ListPlatformVersionsCommand";
-import { ElasticBeanstalk } from "../ElasticBeanstalk";
 import { ElasticBeanstalkClient } from "../ElasticBeanstalkClient";
 import { ElasticBeanstalkPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ElasticBeanstalkClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListPlatformVersionsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ElasticBeanstalk,
-  input: ListPlatformVersionsCommandInput,
-  ...args: any
-): Promise<ListPlatformVersionsCommandOutput> => {
-  // @ts-ignore
-  return await client.listPlatformVersions(input, ...args);
-};
 export async function* paginateListPlatformVersions(
   config: ElasticBeanstalkPaginationConfiguration,
   input: ListPlatformVersionsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListPlatformVersions(
   while (hasNext) {
     input.NextToken = token;
     input["MaxRecords"] = config.pageSize;
-    if (config.client instanceof ElasticBeanstalk) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ElasticBeanstalkClient) {
+    if (config.client instanceof ElasticBeanstalkClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ElasticBeanstalk | ElasticBeanstalkClient");

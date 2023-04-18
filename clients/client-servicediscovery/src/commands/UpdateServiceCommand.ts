@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateServiceRequest,
-  UpdateServiceRequestFilterSensitiveLog,
-  UpdateServiceResponse,
-  UpdateServiceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateServiceCommand,
-  serializeAws_json1_1UpdateServiceCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateServiceRequest, UpdateServiceResponse } from "../models/models_0";
+import { de_UpdateServiceCommand, se_UpdateServiceCommand } from "../protocols/Aws_json1_1";
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateServiceCommand}.
+ */
 export interface UpdateServiceCommandInput extends UpdateServiceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateServiceCommand}.
+ */
 export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Submits a request to perform the following operations:</p>
  *          <ul>
  *             <li>
@@ -62,13 +65,77 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * import { ServiceDiscoveryClient, UpdateServiceCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, UpdateServiceCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
+ * const input = { // UpdateServiceRequest
+ *   Id: "STRING_VALUE", // required
+ *   Service: { // ServiceChange
+ *     Description: "STRING_VALUE",
+ *     DnsConfig: { // DnsConfigChange
+ *       DnsRecords: [ // DnsRecordList // required
+ *         { // DnsRecord
+ *           Type: "SRV" || "A" || "AAAA" || "CNAME", // required
+ *           TTL: Number("long"), // required
+ *         },
+ *       ],
+ *     },
+ *     HealthCheckConfig: { // HealthCheckConfig
+ *       Type: "HTTP" || "HTTPS" || "TCP", // required
+ *       ResourcePath: "STRING_VALUE",
+ *       FailureThreshold: Number("int"),
+ *     },
+ *   },
+ * };
  * const command = new UpdateServiceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateServiceCommandInput - {@link UpdateServiceCommandInput}
+ * @returns {@link UpdateServiceCommandOutput}
  * @see {@link UpdateServiceCommandInput} for command's `input` shape.
  * @see {@link UpdateServiceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
+ *
+ * @throws {@link DuplicateRequest} (client fault)
+ *  <p>The operation is already in progress.</p>
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>One or more specified values aren't valid. For example, a required value might be missing, a
+ *    numeric value might be outside the allowed range, or a string value might exceed length
+ *    constraints.</p>
+ *
+ * @throws {@link ServiceNotFound} (client fault)
+ *  <p>No service exists with the specified ID.</p>
+ *
+ *
+ * @example UpdateService Example
+ * ```javascript
+ * // This example submits a request to replace the DnsConfig and HealthCheckConfig settings of a specified service.
+ * const input = {
+ *   "Id": "srv-e4anhexample0004",
+ *   "Service": {
+ *     "DnsConfig": {
+ *       "DnsRecords": [
+ *         {
+ *           "TTL": 60,
+ *           "Type": "A"
+ *         }
+ *       ]
+ *     },
+ *     "HealthCheckConfig": {
+ *       "FailureThreshold": 2,
+ *       "ResourcePath": "/",
+ *       "Type": "HTTP"
+ *     }
+ *   }
+ * };
+ * const command = new UpdateServiceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "OperationId": "m35hsdrkxwjffm3xef4bxyy6vc3ewakx-jdn3y5g5"
+ * }
+ * *\/
+ * // example id: updateservice-example-1590117830880
+ * ```
  *
  */
 export class UpdateServiceCommand extends $Command<
@@ -88,6 +155,9 @@ export class UpdateServiceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateServiceCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +184,8 @@ export class UpdateServiceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateServiceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateServiceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +195,18 @@ export class UpdateServiceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateServiceCommand(input, context);
+    return se_UpdateServiceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateServiceCommandOutput> {
-    return deserializeAws_json1_1UpdateServiceCommand(output, context);
+    return de_UpdateServiceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -17,18 +17,25 @@ import {
   AssociateNodeRequest,
   AssociateNodeRequestFilterSensitiveLog,
   AssociateNodeResponse,
-  AssociateNodeResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
-import {
-  deserializeAws_json1_1AssociateNodeCommand,
-  serializeAws_json1_1AssociateNodeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AssociateNodeCommand, se_AssociateNodeCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link AssociateNodeCommand}.
+ */
 export interface AssociateNodeCommandInput extends AssociateNodeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AssociateNodeCommand}.
+ */
 export interface AssociateNodeCommandOutput extends AssociateNodeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Associates a new node with the server. For more information about how to disassociate a node, see <a>DisassociateNode</a>.</p>
  *          <p>
  *       On a Chef server: This command is an alternative to  <code>knife bootstrap</code>.</p>
@@ -52,13 +59,38 @@ export interface AssociateNodeCommandOutput extends AssociateNodeResponse, __Met
  * import { OpsWorksCMClient, AssociateNodeCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
  * // const { OpsWorksCMClient, AssociateNodeCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
  * const client = new OpsWorksCMClient(config);
+ * const input = { // AssociateNodeRequest
+ *   ServerName: "STRING_VALUE", // required
+ *   NodeName: "STRING_VALUE", // required
+ *   EngineAttributes: [ // EngineAttributes // required
+ *     { // EngineAttribute
+ *       Name: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new AssociateNodeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateNodeCommandInput - {@link AssociateNodeCommandInput}
+ * @returns {@link AssociateNodeCommandOutput}
  * @see {@link AssociateNodeCommandInput} for command's `input` shape.
  * @see {@link AssociateNodeCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksCMClientResolvedConfig | config} for OpsWorksCMClient's `config` shape.
+ *
+ * @throws {@link InvalidStateException} (client fault)
+ *  <p>The resource is in a state that does not allow you to perform a specified action.
+ *     </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource does not exist, or access was denied.
+ *     </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One or more of the provided request parameters are not valid.
+ *     </p>
+ *
  *
  */
 export class AssociateNodeCommand extends $Command<
@@ -78,6 +110,9 @@ export class AssociateNodeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateNodeCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,7 +140,7 @@ export class AssociateNodeCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: AssociateNodeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateNodeResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +150,18 @@ export class AssociateNodeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateNodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateNodeCommand(input, context);
+    return se_AssociateNodeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateNodeCommandOutput> {
-    return deserializeAws_json1_1AssociateNodeCommand(output, context);
+    return de_AssociateNodeCommand(output, context);
   }
 
   // Start section: command_body_extra

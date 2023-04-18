@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListAssistantsRequest,
-  ListAssistantsRequestFilterSensitiveLog,
-  ListAssistantsResponse,
-  ListAssistantsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAssistantsCommand,
-  serializeAws_restJson1ListAssistantsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListAssistantsRequest, ListAssistantsResponse } from "../models/models_0";
+import { de_ListAssistantsCommand, se_ListAssistantsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListAssistantsCommand}.
+ */
 export interface ListAssistantsCommandInput extends ListAssistantsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListAssistantsCommand}.
+ */
 export interface ListAssistantsCommandOutput extends ListAssistantsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists information about assistants.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,26 @@ export interface ListAssistantsCommandOutput extends ListAssistantsResponse, __M
  * import { WisdomClient, ListAssistantsCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, ListAssistantsCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
+ * const input = { // ListAssistantsRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListAssistantsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAssistantsCommandInput - {@link ListAssistantsCommandInput}
+ * @returns {@link ListAssistantsCommandOutput}
  * @see {@link ListAssistantsCommandInput} for command's `input` shape.
  * @see {@link ListAssistantsCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by a service.</p>
+ *
  *
  */
 export class ListAssistantsCommand extends $Command<
@@ -62,6 +78,9 @@ export class ListAssistantsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAssistantsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +109,8 @@ export class ListAssistantsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAssistantsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAssistantsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +120,18 @@ export class ListAssistantsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAssistantsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAssistantsCommand(input, context);
+    return se_ListAssistantsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssistantsCommandOutput> {
-    return deserializeAws_restJson1ListAssistantsCommand(output, context);
+    return de_ListAssistantsCommand(output, context);
   }
 
   // Start section: command_body_extra

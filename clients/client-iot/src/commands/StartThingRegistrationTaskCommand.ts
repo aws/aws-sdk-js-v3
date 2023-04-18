@@ -14,36 +14,60 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  StartThingRegistrationTaskRequest,
-  StartThingRegistrationTaskRequestFilterSensitiveLog,
-  StartThingRegistrationTaskResponse,
-  StartThingRegistrationTaskResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1StartThingRegistrationTaskCommand,
-  serializeAws_restJson1StartThingRegistrationTaskCommand,
-} from "../protocols/Aws_restJson1";
+import { StartThingRegistrationTaskRequest, StartThingRegistrationTaskResponse } from "../models/models_2";
+import { de_StartThingRegistrationTaskCommand, se_StartThingRegistrationTaskCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link StartThingRegistrationTaskCommand}.
+ */
 export interface StartThingRegistrationTaskCommandInput extends StartThingRegistrationTaskRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartThingRegistrationTaskCommand}.
+ */
 export interface StartThingRegistrationTaskCommandOutput extends StartThingRegistrationTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a bulk thing provisioning task.</p>
- * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">StartThingRegistrationTask</a> action.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">StartThingRegistrationTask</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, StartThingRegistrationTaskCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, StartThingRegistrationTaskCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // StartThingRegistrationTaskRequest
+ *   templateBody: "STRING_VALUE", // required
+ *   inputFileBucket: "STRING_VALUE", // required
+ *   inputFileKey: "STRING_VALUE", // required
+ *   roleArn: "STRING_VALUE", // required
+ * };
  * const command = new StartThingRegistrationTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartThingRegistrationTaskCommandInput - {@link StartThingRegistrationTaskCommandInput}
+ * @returns {@link StartThingRegistrationTaskCommandOutput}
  * @see {@link StartThingRegistrationTaskCommandInput} for command's `input` shape.
  * @see {@link StartThingRegistrationTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You are not authorized to perform this operation.</p>
+ *
  *
  */
 export class StartThingRegistrationTaskCommand extends $Command<
@@ -63,6 +87,9 @@ export class StartThingRegistrationTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartThingRegistrationTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +118,8 @@ export class StartThingRegistrationTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartThingRegistrationTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartThingRegistrationTaskResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,15 +129,21 @@ export class StartThingRegistrationTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartThingRegistrationTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartThingRegistrationTaskCommand(input, context);
+    return se_StartThingRegistrationTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartThingRegistrationTaskCommandOutput> {
-    return deserializeAws_restJson1StartThingRegistrationTaskCommand(output, context);
+    return de_StartThingRegistrationTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

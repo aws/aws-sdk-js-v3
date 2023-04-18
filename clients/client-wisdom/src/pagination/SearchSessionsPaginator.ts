@@ -6,12 +6,11 @@ import {
   SearchSessionsCommandInput,
   SearchSessionsCommandOutput,
 } from "../commands/SearchSessionsCommand";
-import { Wisdom } from "../Wisdom";
 import { WisdomClient } from "../WisdomClient";
 import { WisdomPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: WisdomClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new SearchSessionsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Wisdom,
-  input: SearchSessionsCommandInput,
-  ...args: any
-): Promise<SearchSessionsCommandOutput> => {
-  // @ts-ignore
-  return await client.searchSessions(input, ...args);
-};
 export async function* paginateSearchSessions(
   config: WisdomPaginationConfiguration,
   input: SearchSessionsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateSearchSessions(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Wisdom) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof WisdomClient) {
+    if (config.client instanceof WisdomClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Wisdom | WisdomClient");

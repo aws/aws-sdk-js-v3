@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import {
-  SearchDatabasesByLFTagsRequest,
-  SearchDatabasesByLFTagsRequestFilterSensitiveLog,
-  SearchDatabasesByLFTagsResponse,
-  SearchDatabasesByLFTagsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1SearchDatabasesByLFTagsCommand,
-  serializeAws_restJson1SearchDatabasesByLFTagsCommand,
-} from "../protocols/Aws_restJson1";
+import { SearchDatabasesByLFTagsRequest, SearchDatabasesByLFTagsResponse } from "../models/models_0";
+import { de_SearchDatabasesByLFTagsCommand, se_SearchDatabasesByLFTagsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link SearchDatabasesByLFTagsCommand}.
+ */
 export interface SearchDatabasesByLFTagsCommandInput extends SearchDatabasesByLFTagsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SearchDatabasesByLFTagsCommand}.
+ */
 export interface SearchDatabasesByLFTagsCommandOutput extends SearchDatabasesByLFTagsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation allows a search on <code>DATABASE</code> resources by <code>TagCondition</code>. This operation is used by admins who want to grant user permissions on certain <code>TagConditions</code>. Before making a grant, the admin can use <code>SearchDatabasesByTags</code> to find all resources where the given <code>TagConditions</code> are valid to verify whether the returned resources can be shared.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,47 @@ export interface SearchDatabasesByLFTagsCommandOutput extends SearchDatabasesByL
  * import { LakeFormationClient, SearchDatabasesByLFTagsCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, SearchDatabasesByLFTagsCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
+ * const input = { // SearchDatabasesByLFTagsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   CatalogId: "STRING_VALUE",
+ *   Expression: [ // Expression // required
+ *     { // LFTag
+ *       TagKey: "STRING_VALUE", // required
+ *       TagValues: [ // TagValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new SearchDatabasesByLFTagsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchDatabasesByLFTagsCommandInput - {@link SearchDatabasesByLFTagsCommandInput}
+ * @returns {@link SearchDatabasesByLFTagsCommandOutput}
  * @see {@link SearchDatabasesByLFTagsCommandInput} for command's `input` shape.
  * @see {@link SearchDatabasesByLFTagsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to a resource was denied.</p>
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist.</p>
+ *
+ * @throws {@link GlueEncryptionException} (client fault)
+ *  <p>An encryption operation failed.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class SearchDatabasesByLFTagsCommand extends $Command<
@@ -62,6 +99,9 @@ export class SearchDatabasesByLFTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchDatabasesByLFTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +130,8 @@ export class SearchDatabasesByLFTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchDatabasesByLFTagsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchDatabasesByLFTagsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +141,18 @@ export class SearchDatabasesByLFTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchDatabasesByLFTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchDatabasesByLFTagsCommand(input, context);
+    return se_SearchDatabasesByLFTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchDatabasesByLFTagsCommandOutput> {
-    return deserializeAws_restJson1SearchDatabasesByLFTagsCommand(output, context);
+    return de_SearchDatabasesByLFTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

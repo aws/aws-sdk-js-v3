@@ -4,12 +4,23 @@ import { Readable } from "stream";
 
 import { EBSServiceException as __BaseException } from "./EBSServiceException";
 
-export enum AccessDeniedExceptionReason {
-  DEPENDENCY_ACCESS_DENIED = "DEPENDENCY_ACCESS_DENIED",
-  UNAUTHORIZED_ACCOUNT = "UNAUTHORIZED_ACCOUNT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AccessDeniedExceptionReason = {
+  DEPENDENCY_ACCESS_DENIED: "DEPENDENCY_ACCESS_DENIED",
+  UNAUTHORIZED_ACCOUNT: "UNAUTHORIZED_ACCOUNT",
+} as const;
 
 /**
+ * @public
+ */
+export type AccessDeniedExceptionReason =
+  (typeof AccessDeniedExceptionReason)[keyof typeof AccessDeniedExceptionReason];
+
+/**
+ * @public
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -36,6 +47,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A block of data in an Amazon Elastic Block Store snapshot.</p>
  */
 export interface Block {
@@ -51,6 +63,7 @@ export interface Block {
 }
 
 /**
+ * @public
  * <p>A block of data in an Amazon Elastic Block Store snapshot that is different from another snapshot of
  *             the same volume/snapshot lineage.</p>
  */
@@ -74,14 +87,35 @@ export interface ChangedBlock {
   SecondBlockToken?: string;
 }
 
-export enum ChecksumAggregationMethod {
-  CHECKSUM_AGGREGATION_LINEAR = "LINEAR",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ChecksumAggregationMethod = {
+  CHECKSUM_AGGREGATION_LINEAR: "LINEAR",
+} as const;
 
-export enum ChecksumAlgorithm {
-  CHECKSUM_ALGORITHM_SHA256 = "SHA256",
-}
+/**
+ * @public
+ */
+export type ChecksumAggregationMethod = (typeof ChecksumAggregationMethod)[keyof typeof ChecksumAggregationMethod];
 
+/**
+ * @public
+ * @enum
+ */
+export const ChecksumAlgorithm = {
+  CHECKSUM_ALGORITHM_SHA256: "SHA256",
+} as const;
+
+/**
+ * @public
+ */
+export type ChecksumAlgorithm = (typeof ChecksumAlgorithm)[keyof typeof ChecksumAlgorithm];
+
+/**
+ * @public
+ */
 export interface CompleteSnapshotRequest {
   /**
    * <p>The ID of the snapshot.</p>
@@ -116,12 +150,24 @@ export interface CompleteSnapshotRequest {
   ChecksumAggregationMethod?: ChecksumAggregationMethod | string;
 }
 
-export enum Status {
-  COMPLETED = "completed",
-  ERROR = "error",
-  PENDING = "pending",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Status = {
+  COMPLETED: "completed",
+  ERROR: "error",
+  PENDING: "pending",
+} as const;
 
+/**
+ * @public
+ */
+export type Status = (typeof Status)[keyof typeof Status];
+
+/**
+ * @public
+ */
 export interface CompleteSnapshotResponse {
   /**
    * <p>The status of the snapshot.</p>
@@ -130,6 +176,7 @@ export interface CompleteSnapshotResponse {
 }
 
 /**
+ * @public
  * <p>An internal error has occurred.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -150,13 +197,24 @@ export class InternalServerException extends __BaseException {
   }
 }
 
-export enum RequestThrottledExceptionReason {
-  ACCOUNT_THROTTLED = "ACCOUNT_THROTTLED",
-  DEPENDENCY_REQUEST_THROTTLED = "DEPENDENCY_REQUEST_THROTTLED",
-  RESOURCE_LEVEL_THROTTLE = "RESOURCE_LEVEL_THROTTLE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RequestThrottledExceptionReason = {
+  ACCOUNT_THROTTLED: "ACCOUNT_THROTTLED",
+  DEPENDENCY_REQUEST_THROTTLED: "DEPENDENCY_REQUEST_THROTTLED",
+  RESOURCE_LEVEL_THROTTLE: "RESOURCE_LEVEL_THROTTLE",
+} as const;
 
 /**
+ * @public
+ */
+export type RequestThrottledExceptionReason =
+  (typeof RequestThrottledExceptionReason)[keyof typeof RequestThrottledExceptionReason];
+
+/**
+ * @public
  * <p>The number of API requests has exceed the maximum allowed API request throttling
  *             limit.</p>
  */
@@ -183,12 +241,23 @@ export class RequestThrottledException extends __BaseException {
   }
 }
 
-export enum ResourceNotFoundExceptionReason {
-  DEPENDENCY_RESOURCE_NOT_FOUND = "DEPENDENCY_RESOURCE_NOT_FOUND",
-  SNAPSHOT_NOT_FOUND = "SNAPSHOT_NOT_FOUND",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResourceNotFoundExceptionReason = {
+  DEPENDENCY_RESOURCE_NOT_FOUND: "DEPENDENCY_RESOURCE_NOT_FOUND",
+  SNAPSHOT_NOT_FOUND: "SNAPSHOT_NOT_FOUND",
+} as const;
 
 /**
+ * @public
+ */
+export type ResourceNotFoundExceptionReason =
+  (typeof ResourceNotFoundExceptionReason)[keyof typeof ResourceNotFoundExceptionReason];
+
+/**
+ * @public
  * <p>The specified resource does not exist.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -214,11 +283,22 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
-export enum ServiceQuotaExceededExceptionReason {
-  DEPENDENCY_SERVICE_QUOTA_EXCEEDED = "DEPENDENCY_SERVICE_QUOTA_EXCEEDED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ServiceQuotaExceededExceptionReason = {
+  DEPENDENCY_SERVICE_QUOTA_EXCEEDED: "DEPENDENCY_SERVICE_QUOTA_EXCEEDED",
+} as const;
 
 /**
+ * @public
+ */
+export type ServiceQuotaExceededExceptionReason =
+  (typeof ServiceQuotaExceededExceptionReason)[keyof typeof ServiceQuotaExceededExceptionReason];
+
+/**
+ * @public
  * <p>Your current service quotas do not allow you to perform this action.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -244,22 +324,32 @@ export class ServiceQuotaExceededException extends __BaseException {
   }
 }
 
-export enum ValidationExceptionReason {
-  CONFLICTING_BLOCK_UPDATE = "CONFLICTING_BLOCK_UPDATE",
-  INVALID_BLOCK = "INVALID_BLOCK",
-  INVALID_BLOCK_TOKEN = "INVALID_BLOCK_TOKEN",
-  INVALID_CONTENT_ENCODING = "INVALID_CONTENT_ENCODING",
-  INVALID_CUSTOMER_KEY = "INVALID_CUSTOMER_KEY",
-  INVALID_DEPENDENCY_REQUEST = "INVALID_DEPENDENCY_REQUEST",
-  INVALID_PAGE_TOKEN = "INVALID_PAGE_TOKEN",
-  INVALID_PARAMETER_VALUE = "INVALID_PARAMETER_VALUE",
-  INVALID_SNAPSHOT_ID = "INVALID_SNAPSHOT_ID",
-  INVALID_TAG = "INVALID_TAG",
-  INVALID_VOLUME_SIZE = "INVALID_VOLUME_SIZE",
-  UNRELATED_SNAPSHOTS = "UNRELATED_SNAPSHOTS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ValidationExceptionReason = {
+  CONFLICTING_BLOCK_UPDATE: "CONFLICTING_BLOCK_UPDATE",
+  INVALID_BLOCK: "INVALID_BLOCK",
+  INVALID_BLOCK_TOKEN: "INVALID_BLOCK_TOKEN",
+  INVALID_CONTENT_ENCODING: "INVALID_CONTENT_ENCODING",
+  INVALID_CUSTOMER_KEY: "INVALID_CUSTOMER_KEY",
+  INVALID_DEPENDENCY_REQUEST: "INVALID_DEPENDENCY_REQUEST",
+  INVALID_PAGE_TOKEN: "INVALID_PAGE_TOKEN",
+  INVALID_PARAMETER_VALUE: "INVALID_PARAMETER_VALUE",
+  INVALID_SNAPSHOT_ID: "INVALID_SNAPSHOT_ID",
+  INVALID_TAG: "INVALID_TAG",
+  INVALID_VOLUME_SIZE: "INVALID_VOLUME_SIZE",
+  UNRELATED_SNAPSHOTS: "UNRELATED_SNAPSHOTS",
+} as const;
 
 /**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
+
+/**
+ * @public
  * <p>The input fails to satisfy the constraints of the EBS direct APIs.</p>
  */
 export class ValidationException extends __BaseException {
@@ -286,6 +376,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You have reached the limit for concurrent API requests. For more information, see
  *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-accessing-snapshot.html#ebsapi-performance">Optimizing performance of the EBS direct APIs</a> in the <i>Amazon Elastic Compute Cloud
  *                 User Guide</i>.</p>
@@ -309,6 +400,7 @@ export class ConcurrentLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request uses the same client token as a previous, but non-identical
  *             request.</p>
  */
@@ -330,6 +422,9 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetSnapshotBlockRequest {
   /**
    * <p>The ID of the snapshot containing the block from which to get data.</p>
@@ -359,6 +454,9 @@ export interface GetSnapshotBlockRequest {
   BlockToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSnapshotBlockResponse {
   /**
    * <p>The size of the data in the block.</p>
@@ -381,6 +479,9 @@ export interface GetSnapshotBlockResponse {
   ChecksumAlgorithm?: ChecksumAlgorithm | string;
 }
 
+/**
+ * @public
+ */
 export interface ListChangedBlocksRequest {
   /**
    * <p>The ID of the first snapshot to use for the comparison.</p>
@@ -429,6 +530,9 @@ export interface ListChangedBlocksRequest {
   StartingBlockIndex?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListChangedBlocksResponse {
   /**
    * <p>An array of objects containing information about the changed blocks.</p>
@@ -457,6 +561,9 @@ export interface ListChangedBlocksResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSnapshotBlocksRequest {
   /**
    * <p>The ID of the snapshot from which to get block indexes and block tokens.</p>
@@ -491,6 +598,9 @@ export interface ListSnapshotBlocksRequest {
   StartingBlockIndex?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListSnapshotBlocksResponse {
   /**
    * <p>An array of objects containing information about the blocks.</p>
@@ -519,6 +629,9 @@ export interface ListSnapshotBlocksResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutSnapshotBlockRequest {
   /**
    * <p>The ID of the snapshot.</p>
@@ -582,6 +695,9 @@ export interface PutSnapshotBlockRequest {
   ChecksumAlgorithm: ChecksumAlgorithm | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutSnapshotBlockResponse {
   /**
    * <p>The SHA256 checksum generated for the block data by Amazon EBS.</p>
@@ -595,6 +711,7 @@ export interface PutSnapshotBlockResponse {
 }
 
 /**
+ * @public
  * <p>Describes a tag.</p>
  */
 export interface Tag {
@@ -609,6 +726,9 @@ export interface Tag {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartSnapshotRequest {
   /**
    * <p>The size of the volume, in GiB. The maximum size is <code>65536</code> GiB (64
@@ -725,6 +845,9 @@ export interface StartSnapshotRequest {
   Timeout?: number;
 }
 
+/**
+ * @public
+ */
 export interface StartSnapshotResponse {
   /**
    * <p>The description of the snapshot.</p>
@@ -782,35 +905,7 @@ export interface StartSnapshotResponse {
 /**
  * @internal
  */
-export const BlockFilterSensitiveLog = (obj: Block): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ChangedBlockFilterSensitiveLog = (obj: ChangedBlock): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CompleteSnapshotRequestFilterSensitiveLog = (obj: CompleteSnapshotRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CompleteSnapshotResponseFilterSensitiveLog = (obj: CompleteSnapshotResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSnapshotBlockRequestFilterSensitiveLog = (obj: GetSnapshotBlockRequest): any => ({
   ...obj,
 });
 
@@ -825,23 +920,9 @@ export const GetSnapshotBlockResponseFilterSensitiveLog = (obj: GetSnapshotBlock
 /**
  * @internal
  */
-export const ListChangedBlocksRequestFilterSensitiveLog = (obj: ListChangedBlocksRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListChangedBlocksResponseFilterSensitiveLog = (obj: ListChangedBlocksResponse): any => ({
   ...obj,
   ...(obj.ChangedBlocks && { ChangedBlocks: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ListSnapshotBlocksRequestFilterSensitiveLog = (obj: ListSnapshotBlocksRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -858,20 +939,6 @@ export const ListSnapshotBlocksResponseFilterSensitiveLog = (obj: ListSnapshotBl
 export const PutSnapshotBlockRequestFilterSensitiveLog = (obj: PutSnapshotBlockRequest): any => ({
   ...obj,
   ...(obj.BlockData && { BlockData: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const PutSnapshotBlockResponseFilterSensitiveLog = (obj: PutSnapshotBlockResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
 });
 
 /**

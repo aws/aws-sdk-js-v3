@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListLoggingConfigurationsRequest,
-  ListLoggingConfigurationsRequestFilterSensitiveLog,
-  ListLoggingConfigurationsResponse,
-  ListLoggingConfigurationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListLoggingConfigurationsCommand,
-  serializeAws_json1_1ListLoggingConfigurationsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListLoggingConfigurationsRequest, ListLoggingConfigurationsResponse } from "../models/models_0";
+import { de_ListLoggingConfigurationsCommand, se_ListLoggingConfigurationsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
+/**
+ * @public
+ *
+ * The input for {@link ListLoggingConfigurationsCommand}.
+ */
 export interface ListLoggingConfigurationsCommandInput extends ListLoggingConfigurationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListLoggingConfigurationsCommand}.
+ */
 export interface ListLoggingConfigurationsCommandOutput extends ListLoggingConfigurationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves an array of your <a>LoggingConfiguration</a> objects.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,49 @@ export interface ListLoggingConfigurationsCommandOutput extends ListLoggingConfi
  * import { WAFV2Client, ListLoggingConfigurationsCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, ListLoggingConfigurationsCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
+ * const input = { // ListLoggingConfigurationsRequest
+ *   Scope: "CLOUDFRONT" || "REGIONAL", // required
+ *   NextMarker: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListLoggingConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLoggingConfigurationsCommandInput - {@link ListLoggingConfigurationsCommandInput}
+ * @returns {@link ListLoggingConfigurationsCommandOutput}
  * @see {@link ListLoggingConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListLoggingConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
+ *
+ * @throws {@link WAFInternalErrorException} (server fault)
+ *  <p>Your request is valid, but WAF couldn’t perform the operation because of a system
+ *          problem. Retry your request. </p>
+ *
+ * @throws {@link WAFInvalidOperationException} (client fault)
+ *  <p>The operation isn't valid. </p>
+ *
+ * @throws {@link WAFInvalidParameterException} (client fault)
+ *  <p>The operation failed because WAF didn't recognize a parameter in the request. For
+ *          example: </p>
+ *          <ul>
+ *             <li>
+ *                <p>You specified a parameter name or value that isn't valid.</p>
+ *             </li>
+ *             <li>
+ *                <p>Your nested statement isn't valid. You might have tried to nest a statement that
+ *                can’t be nested. </p>
+ *             </li>
+ *             <li>
+ *                <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that
+ *                isn't among the types available at <a>DefaultAction</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>Your request references an ARN that is malformed, or corresponds to a resource
+ *                with which a web ACL can't be associated.</p>
+ *             </li>
+ *          </ul>
+ *
  *
  */
 export class ListLoggingConfigurationsCommand extends $Command<
@@ -62,6 +101,9 @@ export class ListLoggingConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLoggingConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +132,8 @@ export class ListLoggingConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLoggingConfigurationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListLoggingConfigurationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +143,21 @@ export class ListLoggingConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLoggingConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListLoggingConfigurationsCommand(input, context);
+    return se_ListLoggingConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListLoggingConfigurationsCommandOutput> {
-    return deserializeAws_json1_1ListLoggingConfigurationsCommand(output, context);
+    return de_ListLoggingConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

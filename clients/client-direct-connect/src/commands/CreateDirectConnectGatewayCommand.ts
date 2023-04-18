@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import {
-  CreateDirectConnectGatewayRequest,
-  CreateDirectConnectGatewayRequestFilterSensitiveLog,
-  CreateDirectConnectGatewayResult,
-  CreateDirectConnectGatewayResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateDirectConnectGatewayCommand,
-  serializeAws_json1_1CreateDirectConnectGatewayCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateDirectConnectGatewayRequest, CreateDirectConnectGatewayResult } from "../models/models_0";
+import { de_CreateDirectConnectGatewayCommand, se_CreateDirectConnectGatewayCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateDirectConnectGatewayCommand}.
+ */
 export interface CreateDirectConnectGatewayCommandInput extends CreateDirectConnectGatewayRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateDirectConnectGatewayCommand}.
+ */
 export interface CreateDirectConnectGatewayCommandOutput extends CreateDirectConnectGatewayResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Direct Connect gateway, which is an intermediate object that enables you to connect a set
  *       of virtual interfaces and virtual private gateways. A Direct Connect gateway is global and visible in any
  *       Amazon Web Services Region after it is created. The virtual interfaces and virtual private gateways that
@@ -41,13 +44,26 @@ export interface CreateDirectConnectGatewayCommandOutput extends CreateDirectCon
  * import { DirectConnectClient, CreateDirectConnectGatewayCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, CreateDirectConnectGatewayCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // CreateDirectConnectGatewayRequest
+ *   directConnectGatewayName: "STRING_VALUE", // required
+ *   amazonSideAsn: Number("long"),
+ * };
  * const command = new CreateDirectConnectGatewayCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDirectConnectGatewayCommandInput - {@link CreateDirectConnectGatewayCommandInput}
+ * @returns {@link CreateDirectConnectGatewayCommandOutput}
  * @see {@link CreateDirectConnectGatewayCommandInput} for command's `input` shape.
  * @see {@link CreateDirectConnectGatewayCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
+ *
+ * @throws {@link DirectConnectClientException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link DirectConnectServerException} (server fault)
+ *  <p>A server-side error occurred.</p>
+ *
  *
  */
 export class CreateDirectConnectGatewayCommand extends $Command<
@@ -67,6 +83,9 @@ export class CreateDirectConnectGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDirectConnectGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +114,8 @@ export class CreateDirectConnectGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDirectConnectGatewayRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDirectConnectGatewayResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,15 +125,21 @@ export class CreateDirectConnectGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDirectConnectGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDirectConnectGatewayCommand(input, context);
+    return se_CreateDirectConnectGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDirectConnectGatewayCommandOutput> {
-    return deserializeAws_json1_1CreateDirectConnectGatewayCommand(output, context);
+    return de_CreateDirectConnectGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

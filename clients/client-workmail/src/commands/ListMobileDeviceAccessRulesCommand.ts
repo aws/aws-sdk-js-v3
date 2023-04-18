@@ -13,24 +13,27 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListMobileDeviceAccessRulesRequest,
-  ListMobileDeviceAccessRulesRequestFilterSensitiveLog,
-  ListMobileDeviceAccessRulesResponse,
-  ListMobileDeviceAccessRulesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListMobileDeviceAccessRulesCommand,
-  serializeAws_json1_1ListMobileDeviceAccessRulesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListMobileDeviceAccessRulesRequest, ListMobileDeviceAccessRulesResponse } from "../models/models_0";
+import { de_ListMobileDeviceAccessRulesCommand, se_ListMobileDeviceAccessRulesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListMobileDeviceAccessRulesCommand}.
+ */
 export interface ListMobileDeviceAccessRulesCommandInput extends ListMobileDeviceAccessRulesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListMobileDeviceAccessRulesCommand}.
+ */
 export interface ListMobileDeviceAccessRulesCommandOutput
   extends ListMobileDeviceAccessRulesResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the mobile device access rules for the specified WorkMail organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +41,30 @@ export interface ListMobileDeviceAccessRulesCommandOutput
  * import { WorkMailClient, ListMobileDeviceAccessRulesCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, ListMobileDeviceAccessRulesCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = { // ListMobileDeviceAccessRulesRequest
+ *   OrganizationId: "STRING_VALUE", // required
+ * };
  * const command = new ListMobileDeviceAccessRulesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMobileDeviceAccessRulesCommandInput - {@link ListMobileDeviceAccessRulesCommandInput}
+ * @returns {@link ListMobileDeviceAccessRulesCommandOutput}
  * @see {@link ListMobileDeviceAccessRulesCommandInput} for command's `input` shape.
  * @see {@link ListMobileDeviceAccessRulesCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link OrganizationNotFoundException} (client fault)
+ *  <p>An operation received a valid organization identifier that either doesn't belong or
+ *          exist in the system.</p>
+ *
+ * @throws {@link OrganizationStateException} (client fault)
+ *  <p>The organization must have a valid state to perform certain
+ *          operations on the organization or its members.</p>
+ *
  *
  */
 export class ListMobileDeviceAccessRulesCommand extends $Command<
@@ -64,6 +84,9 @@ export class ListMobileDeviceAccessRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMobileDeviceAccessRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +115,8 @@ export class ListMobileDeviceAccessRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMobileDeviceAccessRulesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMobileDeviceAccessRulesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +126,21 @@ export class ListMobileDeviceAccessRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMobileDeviceAccessRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListMobileDeviceAccessRulesCommand(input, context);
+    return se_ListMobileDeviceAccessRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListMobileDeviceAccessRulesCommandOutput> {
-    return deserializeAws_json1_1ListMobileDeviceAccessRulesCommand(output, context);
+    return de_ListMobileDeviceAccessRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

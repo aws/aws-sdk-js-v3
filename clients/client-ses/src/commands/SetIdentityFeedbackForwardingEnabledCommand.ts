@@ -15,22 +15,31 @@ import {
 
 import {
   SetIdentityFeedbackForwardingEnabledRequest,
-  SetIdentityFeedbackForwardingEnabledRequestFilterSensitiveLog,
   SetIdentityFeedbackForwardingEnabledResponse,
-  SetIdentityFeedbackForwardingEnabledResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_querySetIdentityFeedbackForwardingEnabledCommand,
-  serializeAws_querySetIdentityFeedbackForwardingEnabledCommand,
+  de_SetIdentityFeedbackForwardingEnabledCommand,
+  se_SetIdentityFeedbackForwardingEnabledCommand,
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * @public
+ *
+ * The input for {@link SetIdentityFeedbackForwardingEnabledCommand}.
+ */
 export interface SetIdentityFeedbackForwardingEnabledCommandInput extends SetIdentityFeedbackForwardingEnabledRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SetIdentityFeedbackForwardingEnabledCommand}.
+ */
 export interface SetIdentityFeedbackForwardingEnabledCommandOutput
   extends SetIdentityFeedbackForwardingEnabledResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Given an identity (an email address or a domain), enables or disables whether Amazon SES
  *             forwards bounce and complaint notifications as email. Feedback forwarding can only be
  *             disabled when Amazon Simple Notification Service (Amazon SNS) topics are specified for both bounces and
@@ -48,13 +57,32 @@ export interface SetIdentityFeedbackForwardingEnabledCommandOutput
  * import { SESClient, SetIdentityFeedbackForwardingEnabledCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, SetIdentityFeedbackForwardingEnabledCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // SetIdentityFeedbackForwardingEnabledRequest
+ *   Identity: "STRING_VALUE", // required
+ *   ForwardingEnabled: true || false, // required
+ * };
  * const command = new SetIdentityFeedbackForwardingEnabledCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SetIdentityFeedbackForwardingEnabledCommandInput - {@link SetIdentityFeedbackForwardingEnabledCommandInput}
+ * @returns {@link SetIdentityFeedbackForwardingEnabledCommandOutput}
  * @see {@link SetIdentityFeedbackForwardingEnabledCommandInput} for command's `input` shape.
  * @see {@link SetIdentityFeedbackForwardingEnabledCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
+ *
+ *
+ * @example SetIdentityFeedbackForwardingEnabled
+ * ```javascript
+ * // The following example configures Amazon SES to forward an identity's bounces and complaints via email:
+ * const input = {
+ *   "ForwardingEnabled": true,
+ *   "Identity": "user@example.com"
+ * };
+ * const command = new SetIdentityFeedbackForwardingEnabledCommand(input);
+ * await client.send(command);
+ * // example id: setidentityfeedbackforwardingenabled-1469056811329
+ * ```
  *
  */
 export class SetIdentityFeedbackForwardingEnabledCommand extends $Command<
@@ -74,6 +102,9 @@ export class SetIdentityFeedbackForwardingEnabledCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetIdentityFeedbackForwardingEnabledCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +133,8 @@ export class SetIdentityFeedbackForwardingEnabledCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetIdentityFeedbackForwardingEnabledRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SetIdentityFeedbackForwardingEnabledResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,18 +144,24 @@ export class SetIdentityFeedbackForwardingEnabledCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: SetIdentityFeedbackForwardingEnabledCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_querySetIdentityFeedbackForwardingEnabledCommand(input, context);
+    return se_SetIdentityFeedbackForwardingEnabledCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetIdentityFeedbackForwardingEnabledCommandOutput> {
-    return deserializeAws_querySetIdentityFeedbackForwardingEnabledCommand(output, context);
+    return de_SetIdentityFeedbackForwardingEnabledCommand(output, context);
   }
 
   // Start section: command_body_extra

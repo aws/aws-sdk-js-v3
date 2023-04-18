@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import {
-  GetAuthorizationTokenRequest,
-  GetAuthorizationTokenRequestFilterSensitiveLog,
-  GetAuthorizationTokenResult,
-  GetAuthorizationTokenResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAuthorizationTokenCommand,
-  serializeAws_restJson1GetAuthorizationTokenCommand,
-} from "../protocols/Aws_restJson1";
+import { GetAuthorizationTokenRequest, GetAuthorizationTokenResult } from "../models/models_0";
+import { de_GetAuthorizationTokenCommand, se_GetAuthorizationTokenCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetAuthorizationTokenCommand}.
+ */
 export interface GetAuthorizationTokenCommandInput extends GetAuthorizationTokenRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetAuthorizationTokenCommand}.
+ */
 export interface GetAuthorizationTokenCommandOutput extends GetAuthorizationTokenResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *         Generates a temporary authorization token for accessing repositories in the domain.
  *         This API requires the <code>codeartifact:GetAuthorizationToken</code> and <code>sts:GetServiceBearerToken</code> permissions.
@@ -56,13 +59,44 @@ export interface GetAuthorizationTokenCommandOutput extends GetAuthorizationToke
  * import { CodeartifactClient, GetAuthorizationTokenCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, GetAuthorizationTokenCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
+ * const input = { // GetAuthorizationTokenRequest
+ *   domain: "STRING_VALUE", // required
+ *   domainOwner: "STRING_VALUE",
+ *   durationSeconds: Number("long"),
+ * };
  * const command = new GetAuthorizationTokenCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAuthorizationTokenCommandInput - {@link GetAuthorizationTokenCommandInput}
+ * @returns {@link GetAuthorizationTokenCommandOutput}
  * @see {@link GetAuthorizationTokenCommandInput} for command's `input` shape.
  * @see {@link GetAuthorizationTokenCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>
+ *         The operation did not succeed because of an unauthorized access attempt.
+ *       </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>
+ *       The operation did not succeed because the resource requested is not found in the service.
+ *     </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>
+ *       The operation did not succeed because too many requests are sent to the service.
+ *     </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>
+ *       The operation did not succeed because a parameter in the request was sent with an invalid value.
+ *     </p>
+ *
  *
  */
 export class GetAuthorizationTokenCommand extends $Command<
@@ -82,6 +116,9 @@ export class GetAuthorizationTokenCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAuthorizationTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +147,8 @@ export class GetAuthorizationTokenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAuthorizationTokenRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAuthorizationTokenResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +158,18 @@ export class GetAuthorizationTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAuthorizationTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAuthorizationTokenCommand(input, context);
+    return se_GetAuthorizationTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAuthorizationTokenCommandOutput> {
-    return deserializeAws_restJson1GetAuthorizationTokenCommand(output, context);
+    return de_GetAuthorizationTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,21 +16,30 @@ import {
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import {
   ListBulkDeploymentDetailedReportsRequest,
-  ListBulkDeploymentDetailedReportsRequestFilterSensitiveLog,
   ListBulkDeploymentDetailedReportsResponse,
-  ListBulkDeploymentDetailedReportsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListBulkDeploymentDetailedReportsCommand,
-  serializeAws_restJson1ListBulkDeploymentDetailedReportsCommand,
+  de_ListBulkDeploymentDetailedReportsCommand,
+  se_ListBulkDeploymentDetailedReportsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListBulkDeploymentDetailedReportsCommand}.
+ */
 export interface ListBulkDeploymentDetailedReportsCommandInput extends ListBulkDeploymentDetailedReportsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListBulkDeploymentDetailedReportsCommand}.
+ */
 export interface ListBulkDeploymentDetailedReportsCommandOutput
   extends ListBulkDeploymentDetailedReportsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * Gets a paginated list of the deployments that have been started in a bulk deployment operation, and their current deployment status.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +47,24 @@ export interface ListBulkDeploymentDetailedReportsCommandOutput
  * import { GreengrassClient, ListBulkDeploymentDetailedReportsCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, ListBulkDeploymentDetailedReportsCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // ListBulkDeploymentDetailedReportsRequest
+ *   BulkDeploymentId: "STRING_VALUE", // required
+ *   MaxResults: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListBulkDeploymentDetailedReportsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBulkDeploymentDetailedReportsCommandInput - {@link ListBulkDeploymentDetailedReportsCommandInput}
+ * @returns {@link ListBulkDeploymentDetailedReportsCommandOutput}
  * @see {@link ListBulkDeploymentDetailedReportsCommandInput} for command's `input` shape.
  * @see {@link ListBulkDeploymentDetailedReportsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  General error information.
+ *
  *
  */
 export class ListBulkDeploymentDetailedReportsCommand extends $Command<
@@ -64,6 +84,9 @@ export class ListBulkDeploymentDetailedReportsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBulkDeploymentDetailedReportsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +115,8 @@ export class ListBulkDeploymentDetailedReportsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBulkDeploymentDetailedReportsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListBulkDeploymentDetailedReportsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +126,24 @@ export class ListBulkDeploymentDetailedReportsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListBulkDeploymentDetailedReportsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListBulkDeploymentDetailedReportsCommand(input, context);
+    return se_ListBulkDeploymentDetailedReportsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListBulkDeploymentDetailedReportsCommandOutput> {
-    return deserializeAws_restJson1ListBulkDeploymentDetailedReportsCommand(output, context);
+    return de_ListBulkDeploymentDetailedReportsCommand(output, context);
   }
 
   // Start section: command_body_extra

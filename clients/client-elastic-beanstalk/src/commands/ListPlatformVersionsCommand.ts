@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import {
-  ListPlatformVersionsRequest,
-  ListPlatformVersionsRequestFilterSensitiveLog,
-  ListPlatformVersionsResult,
-  ListPlatformVersionsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryListPlatformVersionsCommand,
-  serializeAws_queryListPlatformVersionsCommand,
-} from "../protocols/Aws_query";
+import { ListPlatformVersionsRequest, ListPlatformVersionsResult } from "../models/models_0";
+import { de_ListPlatformVersionsCommand, se_ListPlatformVersionsCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link ListPlatformVersionsCommand}.
+ */
 export interface ListPlatformVersionsCommandInput extends ListPlatformVersionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListPlatformVersionsCommand}.
+ */
 export interface ListPlatformVersionsCommandOutput extends ListPlatformVersionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the platform versions available for your account in an AWS Region. Provides
  *       summary information about each platform version. Compare to <a>DescribePlatformVersion</a>, which provides full details about a single platform
  *       version.</p>
@@ -40,13 +43,36 @@ export interface ListPlatformVersionsCommandOutput extends ListPlatformVersionsR
  * import { ElasticBeanstalkClient, ListPlatformVersionsCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, ListPlatformVersionsCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = { // ListPlatformVersionsRequest
+ *   Filters: [ // PlatformFilters
+ *     { // PlatformFilter
+ *       Type: "STRING_VALUE",
+ *       Operator: "STRING_VALUE",
+ *       Values: [ // PlatformFilterValueList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListPlatformVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPlatformVersionsCommandInput - {@link ListPlatformVersionsCommandInput}
+ * @returns {@link ListPlatformVersionsCommandOutput}
  * @see {@link ListPlatformVersionsCommandInput} for command's `input` shape.
  * @see {@link ListPlatformVersionsCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
+ *
+ * @throws {@link ElasticBeanstalkServiceException} (client fault)
+ *  <p>A generic service exception has occurred.</p>
+ *
+ * @throws {@link InsufficientPrivilegesException} (client fault)
+ *  <p>The specified account does not have sufficient privileges for one or more AWS
+ *       services.</p>
+ *
  *
  */
 export class ListPlatformVersionsCommand extends $Command<
@@ -66,6 +92,9 @@ export class ListPlatformVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPlatformVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +123,8 @@ export class ListPlatformVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPlatformVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPlatformVersionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +134,18 @@ export class ListPlatformVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPlatformVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListPlatformVersionsCommand(input, context);
+    return se_ListPlatformVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPlatformVersionsCommandOutput> {
-    return deserializeAws_queryListPlatformVersionsCommand(output, context);
+    return de_ListPlatformVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

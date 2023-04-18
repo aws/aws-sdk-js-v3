@@ -39,6 +39,7 @@ import {
 import { MacieClient } from "./MacieClient";
 
 /**
+ * @public
  * <fullname>Amazon Macie Classic</fullname>
  *          <p>Amazon Macie Classic has been discontinued and is no longer available.</p>
  *
@@ -49,6 +50,7 @@ import { MacieClient } from "./MacieClient";
  */
 export class Macie extends MacieClient {
   /**
+   * @public
    * <p>(Discontinued) Associates a specified Amazon Web Services account with Amazon Macie Classic as a member
    *       account.</p>
    */
@@ -82,6 +84,7 @@ export class Macie extends MacieClient {
   }
 
   /**
+   * @public
    * <p>(Discontinued) Associates specified S3 resources with Amazon Macie Classic for
    *       monitoring and data classification. If <code>memberAccountId</code> isn't specified, the action associates
    *       specified S3 resources with Macie Classic for the current Macie Classic administrator account.
@@ -118,6 +121,7 @@ export class Macie extends MacieClient {
   }
 
   /**
+   * @public
    * <p>(Discontinued) Removes the specified member account from Amazon Macie
    *       Classic.</p>
    */
@@ -151,6 +155,7 @@ export class Macie extends MacieClient {
   }
 
   /**
+   * @public
    * <p>(Discontinued) Removes specified S3 resources from being monitored by Amazon Macie
    *       Classic. If <code>memberAccountId</code> isn't specified, the action removes specified S3 resources from
    *       Macie Classic for the current Macie Classic administrator account. If <code>memberAccountId</code> is
@@ -187,6 +192,7 @@ export class Macie extends MacieClient {
   }
 
   /**
+   * @public
    * <p>(Discontinued) Lists all Amazon Macie Classic member accounts for the current Macie
    *       Classic administrator account.</p>
    */
@@ -220,6 +226,7 @@ export class Macie extends MacieClient {
   }
 
   /**
+   * @public
    * <p>(Discontinued) Lists all the S3 resources associated with Amazon Macie Classic. If
    *       <code>memberAccountId</code> isn't specified, the action lists the S3 resources associated with Macie
    *       Classic for the current Macie Classic administrator account. If <code>memberAccountId</code> is specified,
@@ -256,6 +263,7 @@ export class Macie extends MacieClient {
   }
 
   /**
+   * @public
    * <p>(Discontinued) Updates the classification types for the specified S3 resources. If
    *       <code>memberAccountId</code> isn't specified, the action updates the classification types of the S3
    *       resources associated with Amazon Macie Classic for the current Macie Classic administrator

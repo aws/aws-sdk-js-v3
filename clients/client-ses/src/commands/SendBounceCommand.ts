@@ -13,19 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SendBounceRequest,
-  SendBounceRequestFilterSensitiveLog,
-  SendBounceResponse,
-  SendBounceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_querySendBounceCommand, serializeAws_querySendBounceCommand } from "../protocols/Aws_query";
+import { SendBounceRequest, SendBounceResponse } from "../models/models_0";
+import { de_SendBounceCommand, se_SendBounceCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * @public
+ *
+ * The input for {@link SendBounceCommand}.
+ */
 export interface SendBounceCommandInput extends SendBounceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SendBounceCommand}.
+ */
 export interface SendBounceCommandOutput extends SendBounceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates and sends a bounce message to the sender of an email you received through
  *             Amazon SES. You can only use this API on an email up to 24 hours after you receive it.</p>
  *         <note>
@@ -41,13 +47,57 @@ export interface SendBounceCommandOutput extends SendBounceResponse, __MetadataB
  * import { SESClient, SendBounceCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, SendBounceCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // SendBounceRequest
+ *   OriginalMessageId: "STRING_VALUE", // required
+ *   BounceSender: "STRING_VALUE", // required
+ *   Explanation: "STRING_VALUE",
+ *   MessageDsn: { // MessageDsn
+ *     ReportingMta: "STRING_VALUE", // required
+ *     ArrivalDate: new Date("TIMESTAMP"),
+ *     ExtensionFields: [ // ExtensionFieldList
+ *       { // ExtensionField
+ *         Name: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ *   BouncedRecipientInfoList: [ // BouncedRecipientInfoList // required
+ *     { // BouncedRecipientInfo
+ *       Recipient: "STRING_VALUE", // required
+ *       RecipientArn: "STRING_VALUE",
+ *       BounceType: "STRING_VALUE",
+ *       RecipientDsnFields: { // RecipientDsnFields
+ *         FinalRecipient: "STRING_VALUE",
+ *         Action: "STRING_VALUE", // required
+ *         RemoteMta: "STRING_VALUE",
+ *         Status: "STRING_VALUE", // required
+ *         DiagnosticCode: "STRING_VALUE",
+ *         LastAttemptDate: new Date("TIMESTAMP"),
+ *         ExtensionFields: [
+ *           {
+ *             Name: "STRING_VALUE", // required
+ *             Value: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   BounceSenderArn: "STRING_VALUE",
+ * };
  * const command = new SendBounceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SendBounceCommandInput - {@link SendBounceCommandInput}
+ * @returns {@link SendBounceCommandOutput}
  * @see {@link SendBounceCommandInput} for command's `input` shape.
  * @see {@link SendBounceCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
+ *
+ * @throws {@link MessageRejected} (client fault)
+ *  <p>Indicates that the action failed, and the message could not be sent. Check the error
+ *             stack for more information about what caused the error.</p>
+ *
  *
  */
 export class SendBounceCommand extends $Command<
@@ -67,6 +117,9 @@ export class SendBounceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendBounceCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +146,8 @@ export class SendBounceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendBounceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SendBounceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +157,18 @@ export class SendBounceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendBounceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySendBounceCommand(input, context);
+    return se_SendBounceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendBounceCommandOutput> {
-    return deserializeAws_querySendBounceCommand(output, context);
+    return de_SendBounceCommand(output, context);
   }
 
   // Start section: command_body_extra

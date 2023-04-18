@@ -14,35 +14,78 @@ import {
 } from "@aws-sdk/types";
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import {
-  ListImageRecipesRequest,
-  ListImageRecipesRequestFilterSensitiveLog,
-  ListImageRecipesResponse,
-  ListImageRecipesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListImageRecipesCommand,
-  serializeAws_restJson1ListImageRecipesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListImageRecipesRequest, ListImageRecipesResponse } from "../models/models_0";
+import { de_ListImageRecipesCommand, se_ListImageRecipesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListImageRecipesCommand}.
+ */
 export interface ListImageRecipesCommandInput extends ListImageRecipesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListImageRecipesCommand}.
+ */
 export interface ListImageRecipesCommandOutput extends ListImageRecipesResponse, __MetadataBearer {}
 
 /**
- * <p> Returns a list of image recipes.</p>
+ * @public
+ * <p>Returns a list of image recipes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ImagebuilderClient, ListImageRecipesCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, ListImageRecipesCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
+ * const input = { // ListImageRecipesRequest
+ *   owner: "Self" || "Shared" || "Amazon" || "ThirdParty",
+ *   filters: [ // FilterList
+ *     { // Filter
+ *       name: "STRING_VALUE",
+ *       values: [ // FilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListImageRecipesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListImageRecipesCommandInput - {@link ListImageRecipesCommandInput}
+ * @returns {@link ListImageRecipesCommandOutput}
  * @see {@link ListImageRecipesCommandInput} for command's `input` shape.
  * @see {@link ListImageRecipesCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
+ *
+ * @throws {@link CallRateLimitExceededException} (client fault)
+ *  <p>You have exceeded the permitted request rate for the specific operation.</p>
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action, such as using an action or
+ * 			resource on behalf of a user that doesn't have permissions to use the action or
+ * 			resource, or specifying an invalid resource identifier.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>You are not authorized to perform the requested operation.</p>
+ *
+ * @throws {@link InvalidPaginationTokenException} (client fault)
+ *  <p>You have provided an invalid pagination token in your request.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>You have requested an action that that the service doesn't support.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>This exception is thrown when the service encounters an unrecoverable
+ * 			exception.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is unable to process your request at this time.</p>
+ *
  *
  */
 export class ListImageRecipesCommand extends $Command<
@@ -62,6 +105,9 @@ export class ListImageRecipesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListImageRecipesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +136,8 @@ export class ListImageRecipesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListImageRecipesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListImageRecipesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +147,18 @@ export class ListImageRecipesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListImageRecipesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListImageRecipesCommand(input, context);
+    return se_ListImageRecipesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListImageRecipesCommandOutput> {
-    return deserializeAws_restJson1ListImageRecipesCommand(output, context);
+    return de_ListImageRecipesCommand(output, context);
   }
 
   // Start section: command_body_extra

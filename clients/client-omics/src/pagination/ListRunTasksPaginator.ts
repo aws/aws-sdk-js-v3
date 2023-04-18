@@ -6,12 +6,11 @@ import {
   ListRunTasksCommandInput,
   ListRunTasksCommandOutput,
 } from "../commands/ListRunTasksCommand";
-import { Omics } from "../Omics";
 import { OmicsClient } from "../OmicsClient";
 import { OmicsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: OmicsClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListRunTasksCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Omics,
-  input: ListRunTasksCommandInput,
-  ...args: any
-): Promise<ListRunTasksCommandOutput> => {
-  // @ts-ignore
-  return await client.listRunTasks(input, ...args);
-};
 export async function* paginateListRunTasks(
   config: OmicsPaginationConfiguration,
   input: ListRunTasksCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListRunTasks(
   while (hasNext) {
     input.startingToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Omics) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof OmicsClient) {
+    if (config.client instanceof OmicsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Omics | OmicsClient");

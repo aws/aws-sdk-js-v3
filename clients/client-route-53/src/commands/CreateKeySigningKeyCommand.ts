@@ -14,22 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateKeySigningKeyRequest,
-  CreateKeySigningKeyRequestFilterSensitiveLog,
-  CreateKeySigningKeyResponse,
-  CreateKeySigningKeyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlCreateKeySigningKeyCommand,
-  serializeAws_restXmlCreateKeySigningKeyCommand,
-} from "../protocols/Aws_restXml";
+import { CreateKeySigningKeyRequest, CreateKeySigningKeyResponse } from "../models/models_0";
+import { de_CreateKeySigningKeyCommand, se_CreateKeySigningKeyCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateKeySigningKeyCommand}.
+ */
 export interface CreateKeySigningKeyCommandInput extends CreateKeySigningKeyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateKeySigningKeyCommand}.
+ */
 export interface CreateKeySigningKeyCommandOutput extends CreateKeySigningKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new key-signing key (KSK) associated with a hosted zone. You can only have
  * 			two KSKs per hosted zone.</p>
  * @example
@@ -38,13 +41,58 @@ export interface CreateKeySigningKeyCommandOutput extends CreateKeySigningKeyRes
  * import { Route53Client, CreateKeySigningKeyCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, CreateKeySigningKeyCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = { // CreateKeySigningKeyRequest
+ *   CallerReference: "STRING_VALUE", // required
+ *   HostedZoneId: "STRING_VALUE", // required
+ *   KeyManagementServiceArn: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Status: "STRING_VALUE", // required
+ * };
  * const command = new CreateKeySigningKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateKeySigningKeyCommandInput - {@link CreateKeySigningKeyCommandInput}
+ * @returns {@link CreateKeySigningKeyCommandOutput}
  * @see {@link CreateKeySigningKeyCommandInput} for command's `input` shape.
  * @see {@link CreateKeySigningKeyCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
+ *
+ * @throws {@link ConcurrentModification} (client fault)
+ *  <p>Another user submitted a request to create, update, or delete the object at the same
+ * 			time that you did. Retry the request. </p>
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>Parameter name is not valid.</p>
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link InvalidKeySigningKeyName} (client fault)
+ *  <p>The key-signing key (KSK) name that you specified isn't a valid name.</p>
+ *
+ * @throws {@link InvalidKeySigningKeyStatus} (client fault)
+ *  <p>The key-signing key (KSK) status isn't valid or another KSK has the status
+ * 				<code>INTERNAL_FAILURE</code>.</p>
+ *
+ * @throws {@link InvalidKMSArn} (client fault)
+ *  <p>The KeyManagementServiceArn that you specified isn't valid to use with DNSSEC
+ * 			signing.</p>
+ *
+ * @throws {@link InvalidSigningStatus} (client fault)
+ *  <p>Your hosted zone status isn't valid for this operation. In the hosted zone, change the
+ * 			status to enable <code>DNSSEC</code> or disable <code>DNSSEC</code>.</p>
+ *
+ * @throws {@link KeySigningKeyAlreadyExists} (client fault)
+ *  <p>You've already created a key-signing key (KSK) with this name or with the same customer managed key ARN.</p>
+ *
+ * @throws {@link NoSuchHostedZone} (client fault)
+ *  <p>No hosted zone exists with the ID that you specified.</p>
+ *
+ * @throws {@link TooManyKeySigningKeys} (client fault)
+ *  <p>You've reached the limit for the number of key-signing keys (KSKs). Remove at least
+ * 			one KSK, and then try again.</p>
+ *
  *
  */
 export class CreateKeySigningKeyCommand extends $Command<
@@ -64,6 +112,9 @@ export class CreateKeySigningKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateKeySigningKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +144,8 @@ export class CreateKeySigningKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateKeySigningKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateKeySigningKeyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +155,18 @@ export class CreateKeySigningKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateKeySigningKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateKeySigningKeyCommand(input, context);
+    return se_CreateKeySigningKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateKeySigningKeyCommandOutput> {
-    return deserializeAws_restXmlCreateKeySigningKeyCommand(output, context);
+    return de_CreateKeySigningKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

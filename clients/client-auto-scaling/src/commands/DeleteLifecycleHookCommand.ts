@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import {
-  DeleteLifecycleHookAnswer,
-  DeleteLifecycleHookAnswerFilterSensitiveLog,
-  DeleteLifecycleHookType,
-  DeleteLifecycleHookTypeFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteLifecycleHookCommand,
-  serializeAws_queryDeleteLifecycleHookCommand,
-} from "../protocols/Aws_query";
+import { DeleteLifecycleHookAnswer, DeleteLifecycleHookType } from "../models/models_0";
+import { de_DeleteLifecycleHookCommand, se_DeleteLifecycleHookCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteLifecycleHookCommand}.
+ */
 export interface DeleteLifecycleHookCommandInput extends DeleteLifecycleHookType {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteLifecycleHookCommand}.
+ */
 export interface DeleteLifecycleHookCommandOutput extends DeleteLifecycleHookAnswer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified lifecycle hook.</p>
  *          <p>If there are any outstanding lifecycle actions, they are completed first
  *                 (<code>ABANDON</code> for launching instances, <code>CONTINUE</code> for terminating
@@ -39,13 +42,36 @@ export interface DeleteLifecycleHookCommandOutput extends DeleteLifecycleHookAns
  * import { AutoScalingClient, DeleteLifecycleHookCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DeleteLifecycleHookCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = { // DeleteLifecycleHookType
+ *   LifecycleHookName: "STRING_VALUE", // required
+ *   AutoScalingGroupName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteLifecycleHookCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLifecycleHookCommandInput - {@link DeleteLifecycleHookCommandInput}
+ * @returns {@link DeleteLifecycleHookCommandOutput}
  * @see {@link DeleteLifecycleHookCommandInput} for command's `input` shape.
  * @see {@link DeleteLifecycleHookCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
+ *
+ * @throws {@link ResourceContentionFault} (server fault)
+ *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
+ *             instance, or load balancer).</p>
+ *
+ *
+ * @example To delete a lifecycle hook
+ * ```javascript
+ * // This example deletes the specified lifecycle hook.
+ * const input = {
+ *   "AutoScalingGroupName": "my-auto-scaling-group",
+ *   "LifecycleHookName": "my-lifecycle-hook"
+ * };
+ * const command = new DeleteLifecycleHookCommand(input);
+ * await client.send(command);
+ * // example id: autoscaling-delete-lifecycle-hook-1
+ * ```
  *
  */
 export class DeleteLifecycleHookCommand extends $Command<
@@ -65,6 +91,9 @@ export class DeleteLifecycleHookCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLifecycleHookCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +122,8 @@ export class DeleteLifecycleHookCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLifecycleHookTypeFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLifecycleHookAnswerFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +133,18 @@ export class DeleteLifecycleHookCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLifecycleHookCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteLifecycleHookCommand(input, context);
+    return se_DeleteLifecycleHookCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLifecycleHookCommandOutput> {
-    return deserializeAws_queryDeleteLifecycleHookCommand(output, context);
+    return de_DeleteLifecycleHookCommand(output, context);
   }
 
   // Start section: command_body_extra

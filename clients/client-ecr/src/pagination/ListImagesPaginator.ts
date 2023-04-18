@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListImagesCommand, ListImagesCommandInput, ListImagesCommandOutput } from "../commands/ListImagesCommand";
-import { ECR } from "../ECR";
 import { ECRClient } from "../ECRClient";
 import { ECRPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ECRClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListImagesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ECR,
-  input: ListImagesCommandInput,
-  ...args: any
-): Promise<ListImagesCommandOutput> => {
-  // @ts-ignore
-  return await client.listImages(input, ...args);
-};
 export async function* paginateListImages(
   config: ECRPaginationConfiguration,
   input: ListImagesCommandInput,
@@ -40,9 +31,7 @@ export async function* paginateListImages(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof ECR) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ECRClient) {
+    if (config.client instanceof ECRClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ECR | ECRClient");

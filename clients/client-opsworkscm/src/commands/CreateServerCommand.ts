@@ -20,15 +20,23 @@ import {
   CreateServerResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
-import {
-  deserializeAws_json1_1CreateServerCommand,
-  serializeAws_json1_1CreateServerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateServerCommand, se_CreateServerCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateServerCommand}.
+ */
 export interface CreateServerCommandInput extends CreateServerRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateServerCommand}.
+ */
 export interface CreateServerCommandOutput extends CreateServerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Creates and immedately starts a new server. The server is ready to use when it is in the <code>HEALTHY</code> state. By default, you can create a maximum of 10 servers.
  *     </p>
@@ -63,13 +71,69 @@ export interface CreateServerCommandOutput extends CreateServerResponse, __Metad
  * import { OpsWorksCMClient, CreateServerCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
  * // const { OpsWorksCMClient, CreateServerCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
  * const client = new OpsWorksCMClient(config);
+ * const input = { // CreateServerRequest
+ *   AssociatePublicIpAddress: true || false,
+ *   CustomDomain: "STRING_VALUE",
+ *   CustomCertificate: "STRING_VALUE",
+ *   CustomPrivateKey: "STRING_VALUE",
+ *   DisableAutomatedBackup: true || false,
+ *   Engine: "STRING_VALUE", // required
+ *   EngineModel: "STRING_VALUE",
+ *   EngineVersion: "STRING_VALUE",
+ *   EngineAttributes: [ // EngineAttributes
+ *     { // EngineAttribute
+ *       Name: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   BackupRetentionCount: Number("int"),
+ *   ServerName: "STRING_VALUE", // required
+ *   InstanceProfileArn: "STRING_VALUE", // required
+ *   InstanceType: "STRING_VALUE", // required
+ *   KeyPair: "STRING_VALUE",
+ *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   PreferredBackupWindow: "STRING_VALUE",
+ *   SecurityGroupIds: [ // Strings
+ *     "STRING_VALUE",
+ *   ],
+ *   ServiceRoleArn: "STRING_VALUE", // required
+ *   SubnetIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   BackupId: "STRING_VALUE",
+ * };
  * const command = new CreateServerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateServerCommandInput - {@link CreateServerCommandInput}
+ * @returns {@link CreateServerCommandOutput}
  * @see {@link CreateServerCommandInput} for command's `input` shape.
  * @see {@link CreateServerCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksCMClientResolvedConfig | config} for OpsWorksCMClient's `config` shape.
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The limit of servers or backups has been reached.
+ *     </p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The requested resource cannot be created because it already exists.
+ *     </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource does not exist, or access was denied.
+ *     </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One or more of the provided request parameters are not valid.
+ *     </p>
+ *
  *
  */
 export class CreateServerCommand extends $Command<
@@ -89,6 +153,9 @@ export class CreateServerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateServerCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,12 +193,18 @@ export class CreateServerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateServerCommand(input, context);
+    return se_CreateServerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateServerCommandOutput> {
-    return deserializeAws_json1_1CreateServerCommand(output, context);
+    return de_CreateServerCommand(output, context);
   }
 
   // Start section: command_body_extra

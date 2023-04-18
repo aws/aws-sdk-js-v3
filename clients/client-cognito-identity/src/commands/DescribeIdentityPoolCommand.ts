@@ -15,21 +15,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
-import {
-  DescribeIdentityPoolInput,
-  DescribeIdentityPoolInputFilterSensitiveLog,
-  IdentityPool,
-  IdentityPoolFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeIdentityPoolCommand,
-  serializeAws_json1_1DescribeIdentityPoolCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeIdentityPoolInput, IdentityPool } from "../models/models_0";
+import { de_DescribeIdentityPoolCommand, se_DescribeIdentityPoolCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeIdentityPoolCommand}.
+ */
 export interface DescribeIdentityPoolCommandInput extends DescribeIdentityPoolInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeIdentityPoolCommand}.
+ */
 export interface DescribeIdentityPoolCommandOutput extends IdentityPool, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets details about a particular identity pool, including the pool name, ID
  *          description, creation date, and current number of users.</p>
  *          <p>You must use AWS Developer credentials to call this API.</p>
@@ -39,13 +42,35 @@ export interface DescribeIdentityPoolCommandOutput extends IdentityPool, __Metad
  * import { CognitoIdentityClient, DescribeIdentityPoolCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
  * // const { CognitoIdentityClient, DescribeIdentityPoolCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
  * const client = new CognitoIdentityClient(config);
+ * const input = { // DescribeIdentityPoolInput
+ *   IdentityPoolId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeIdentityPoolCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeIdentityPoolCommandInput - {@link DescribeIdentityPoolCommandInput}
+ * @returns {@link DescribeIdentityPoolCommandOutput}
  * @see {@link DescribeIdentityPoolCommandInput} for command's `input` shape.
  * @see {@link DescribeIdentityPoolCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>Thrown when the service encounters an error during processing the request.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>Thrown for missing or bad input parameter(s).</p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>Thrown when a user is not authorized to access the requested resource.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Thrown when the requested resource (for example, a dataset or record) does not
+ *          exist.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Thrown when a request is throttled.</p>
+ *
  *
  */
 export class DescribeIdentityPoolCommand extends $Command<
@@ -65,6 +90,9 @@ export class DescribeIdentityPoolCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeIdentityPoolCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +122,8 @@ export class DescribeIdentityPoolCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeIdentityPoolInputFilterSensitiveLog,
-      outputFilterSensitiveLog: IdentityPoolFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +133,18 @@ export class DescribeIdentityPoolCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeIdentityPoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeIdentityPoolCommand(input, context);
+    return se_DescribeIdentityPoolCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeIdentityPoolCommandOutput> {
-    return deserializeAws_json1_1DescribeIdentityPoolCommand(output, context);
+    return de_DescribeIdentityPoolCommand(output, context);
   }
 
   // Start section: command_body_extra

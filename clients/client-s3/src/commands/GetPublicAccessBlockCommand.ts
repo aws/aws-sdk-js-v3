@@ -13,27 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetPublicAccessBlockOutput,
-  GetPublicAccessBlockOutputFilterSensitiveLog,
-  GetPublicAccessBlockRequest,
-  GetPublicAccessBlockRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlGetPublicAccessBlockCommand,
-  serializeAws_restXmlGetPublicAccessBlockCommand,
-} from "../protocols/Aws_restXml";
+import { GetPublicAccessBlockOutput, GetPublicAccessBlockRequest } from "../models/models_0";
+import { de_GetPublicAccessBlockCommand, se_GetPublicAccessBlockCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * @public
+ *
+ * The input for {@link GetPublicAccessBlockCommand}.
+ */
 export interface GetPublicAccessBlockCommandInput extends GetPublicAccessBlockRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetPublicAccessBlockCommand}.
+ */
 export interface GetPublicAccessBlockCommandOutput extends GetPublicAccessBlockOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the <code>PublicAccessBlock</code> configuration for an Amazon S3 bucket. To use
  *          this operation, you must have the <code>s3:GetBucketPublicAccessBlock</code> permission.
  *          For more information about Amazon S3 permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying Permissions in a
- *          Policy</a>.</p>
- *
+ *             Policy</a>.</p>
  *          <important>
  *             <p>When Amazon S3 evaluates the <code>PublicAccessBlock</code> configuration for a bucket or
  *             an object, it checks the <code>PublicAccessBlock</code> configuration for both the
@@ -42,9 +44,7 @@ export interface GetPublicAccessBlockCommandOutput extends GetPublicAccessBlockO
  *             account, Amazon S3 uses the most restrictive combination of the bucket-level and
  *             account-level settings.</p>
  *          </important>
- *
  *          <p>For more information about when Amazon S3 considers a bucket or an object public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a>.</p>
- *
  *          <p>The following operations are related to <code>GetPublicAccessBlock</code>:</p>
  *          <ul>
  *             <li>
@@ -75,13 +75,20 @@ export interface GetPublicAccessBlockCommandOutput extends GetPublicAccessBlockO
  * import { S3Client, GetPublicAccessBlockCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetPublicAccessBlockCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // GetPublicAccessBlockRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new GetPublicAccessBlockCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPublicAccessBlockCommandInput - {@link GetPublicAccessBlockCommandInput}
+ * @returns {@link GetPublicAccessBlockCommandOutput}
  * @see {@link GetPublicAccessBlockCommandInput} for command's `input` shape.
  * @see {@link GetPublicAccessBlockCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
+ *
  *
  */
 export class GetPublicAccessBlockCommand extends $Command<
@@ -107,6 +114,9 @@ export class GetPublicAccessBlockCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPublicAccessBlockCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,8 +145,8 @@ export class GetPublicAccessBlockCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPublicAccessBlockRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPublicAccessBlockOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -146,12 +156,18 @@ export class GetPublicAccessBlockCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPublicAccessBlockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetPublicAccessBlockCommand(input, context);
+    return se_GetPublicAccessBlockCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPublicAccessBlockCommandOutput> {
-    return deserializeAws_restXmlGetPublicAccessBlockCommand(output, context);
+    return de_GetPublicAccessBlockCommand(output, context);
   }
 
   // Start section: command_body_extra

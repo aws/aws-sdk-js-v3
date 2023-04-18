@@ -17,20 +17,30 @@ import {
   CreateAvailabilityConfigurationRequest,
   CreateAvailabilityConfigurationRequestFilterSensitiveLog,
   CreateAvailabilityConfigurationResponse,
-  CreateAvailabilityConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1CreateAvailabilityConfigurationCommand,
-  serializeAws_json1_1CreateAvailabilityConfigurationCommand,
+  de_CreateAvailabilityConfigurationCommand,
+  se_CreateAvailabilityConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateAvailabilityConfigurationCommand}.
+ */
 export interface CreateAvailabilityConfigurationCommandInput extends CreateAvailabilityConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateAvailabilityConfigurationCommand}.
+ */
 export interface CreateAvailabilityConfigurationCommandOutput
   extends CreateAvailabilityConfigurationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an <code>AvailabilityConfiguration</code> for the given WorkMail organization and domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +48,46 @@ export interface CreateAvailabilityConfigurationCommandOutput
  * import { WorkMailClient, CreateAvailabilityConfigurationCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, CreateAvailabilityConfigurationCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = { // CreateAvailabilityConfigurationRequest
+ *   ClientToken: "STRING_VALUE",
+ *   OrganizationId: "STRING_VALUE", // required
+ *   DomainName: "STRING_VALUE", // required
+ *   EwsProvider: { // EwsAvailabilityProvider
+ *     EwsEndpoint: "STRING_VALUE", // required
+ *     EwsUsername: "STRING_VALUE", // required
+ *     EwsPassword: "STRING_VALUE", // required
+ *   },
+ *   LambdaProvider: { // LambdaAvailabilityProvider
+ *     LambdaArn: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new CreateAvailabilityConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAvailabilityConfigurationCommandInput - {@link CreateAvailabilityConfigurationCommandInput}
+ * @returns {@link CreateAvailabilityConfigurationCommandOutput}
  * @see {@link CreateAvailabilityConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateAvailabilityConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request exceeds the limit of the resource.</p>
+ *
+ * @throws {@link NameAvailabilityException} (client fault)
+ *  <p>The user, group, or resource name isn't unique in WorkMail.</p>
+ *
+ * @throws {@link OrganizationNotFoundException} (client fault)
+ *  <p>An operation received a valid organization identifier that either doesn't belong or
+ *          exist in the system.</p>
+ *
+ * @throws {@link OrganizationStateException} (client fault)
+ *  <p>The organization must have a valid state to perform certain
+ *          operations on the organization or its members.</p>
+ *
  *
  */
 export class CreateAvailabilityConfigurationCommand extends $Command<
@@ -64,6 +107,9 @@ export class CreateAvailabilityConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAvailabilityConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,7 +139,7 @@ export class CreateAvailabilityConfigurationCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateAvailabilityConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAvailabilityConfigurationResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +149,24 @@ export class CreateAvailabilityConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateAvailabilityConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateAvailabilityConfigurationCommand(input, context);
+    return se_CreateAvailabilityConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateAvailabilityConfigurationCommandOutput> {
-    return deserializeAws_json1_1CreateAvailabilityConfigurationCommand(output, context);
+    return de_CreateAvailabilityConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

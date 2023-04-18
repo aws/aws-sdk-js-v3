@@ -14,26 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  UpdateTaskProtectionRequest,
-  UpdateTaskProtectionRequestFilterSensitiveLog,
-  UpdateTaskProtectionResponse,
-  UpdateTaskProtectionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateTaskProtectionCommand,
-  serializeAws_json1_1UpdateTaskProtectionCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateTaskProtectionRequest, UpdateTaskProtectionResponse } from "../models/models_0";
+import { de_UpdateTaskProtectionCommand, se_UpdateTaskProtectionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateTaskProtectionCommand}.
+ */
 export interface UpdateTaskProtectionCommandInput extends UpdateTaskProtectionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateTaskProtectionCommand}.
+ */
 export interface UpdateTaskProtectionCommandOutput extends UpdateTaskProtectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the protection status of a task. You can set <code>protectionEnabled</code> to
  * 				<code>true</code> to protect your task from termination during scale-in events from
  * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-auto-scaling.html">Service
  * 				Autoscaling</a> or <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">deployments</a>.</p>
- *          <p>Task-protection, by default, expires after 2 hours at which point Amazon ECS unsets the
+ *          <p>Task-protection, by default, expires after 2 hours at which point Amazon ECS clears the
  * 				<code>protectionEnabled</code> property making the task eligible for termination by
  * 			a subsequent scale-in event.</p>
  *          <p>You can specify a custom expiration period for task protection from 1 minute to up to
@@ -62,13 +65,129 @@ export interface UpdateTaskProtectionCommandOutput extends UpdateTaskProtectionR
  * import { ECSClient, UpdateTaskProtectionCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, UpdateTaskProtectionCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // UpdateTaskProtectionRequest
+ *   cluster: "STRING_VALUE", // required
+ *   tasks: [ // StringList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   protectionEnabled: true || false, // required
+ *   expiresInMinutes: Number("int"),
+ * };
  * const command = new UpdateTaskProtectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTaskProtectionCommandInput - {@link UpdateTaskProtectionCommandInput}
+ * @returns {@link UpdateTaskProtectionCommandOutput}
  * @see {@link UpdateTaskProtectionCommandInput} for command's `input` shape.
  * @see {@link UpdateTaskProtectionCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have authorization to perform the requested action.</p>
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action. This client action might be using
+ * 			an action or resource on behalf of a user that doesn't have permissions to use the
+ * 			action or resource,. Or, it might be specifying an identifier that isn't valid.</p>
+ *
+ * @throws {@link ClusterNotFoundException} (client fault)
+ *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter isn't valid. Review the available parameters for the API
+ * 			request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource wasn't found.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server issue.</p>
+ *
+ * @throws {@link UnsupportedFeatureException} (client fault)
+ *  <p>The specified task isn't supported in this Region.</p>
+ *
+ *
+ * @example To set task scale-in protection for a task for 60 minutes
+ * ```javascript
+ * // This example enables scale-in protection for a task for 60 minutes.
+ * const input = {
+ *   "cluster": "test-task-protection",
+ *   "expiresInMinutes": 60,
+ *   "protectionEnabled": true,
+ *   "tasks": [
+ *     "b8b1cf532d0e46ba8d44a40d1de16772"
+ *   ]
+ * };
+ * const command = new UpdateTaskProtectionCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "failures": [],
+ *   "protectedTasks": [
+ *     {
+ *       "expirationDate": "2022-11-02T06:56:32.553Z",
+ *       "protectionEnabled": true,
+ *       "taskArn": "arn:aws:ecs:us-west-2:012345678910:task/b8b1cf532d0e46ba8d44a40d1de16772"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: enable-the-protection-status-for-a-single-task-for-60-minutes-2022-11-02T06:56:32.553Z
+ * ```
+ *
+ * @example To set task scale-in protection for the default time period in minutes
+ * ```javascript
+ * // This example enables task scale-in protection for a task, without specifying the expiresInMinutes parameter, for the default protection period of 120 minutes.
+ * const input = {
+ *   "cluster": "test-task-protection",
+ *   "protectionEnabled": true,
+ *   "tasks": [
+ *     "b8b1cf532d0e46ba8d44a40d1de16772"
+ *   ]
+ * };
+ * const command = new UpdateTaskProtectionCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "failures": [],
+ *   "protectedTasks": [
+ *     {
+ *       "expirationDate": "2022-11-02T06:56:32.553Z",
+ *       "protectionEnabled": true,
+ *       "taskArn": "arn:aws:ecs:us-west-2:012345678910:task/b8b1cf532d0e46ba8d44a40d1de16772"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: enable-the-protection-status-for-a-single-task-with-default-expiresinminutes-2022-11-02T06:56:32.553Z
+ * ```
+ *
+ * @example To remove task scale-in protection
+ * ```javascript
+ * // This example removes scale-in protection for a task.
+ * const input = {
+ *   "cluster": "test-task-protection",
+ *   "protectionEnabled": false,
+ *   "tasks": [
+ *     "b8b1cf532d0e46ba8d44a40d1de16772"
+ *   ]
+ * };
+ * const command = new UpdateTaskProtectionCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "failures": [],
+ *   "protectedTasks": [
+ *     {
+ *       "protectionEnabled": false,
+ *       "taskArn": "arn:aws:ecs:us-west-2:012345678910:task/b8b1cf532d0e46ba8d44a40d1de16772"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: disable-scale-in-protection-on-a-single-task
+ * ```
  *
  */
 export class UpdateTaskProtectionCommand extends $Command<
@@ -88,6 +207,9 @@ export class UpdateTaskProtectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTaskProtectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +238,8 @@ export class UpdateTaskProtectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTaskProtectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTaskProtectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +249,18 @@ export class UpdateTaskProtectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTaskProtectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateTaskProtectionCommand(input, context);
+    return se_UpdateTaskProtectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTaskProtectionCommandOutput> {
-    return deserializeAws_json1_1UpdateTaskProtectionCommand(output, context);
+    return de_UpdateTaskProtectionCommand(output, context);
   }
 
   // Start section: command_body_extra

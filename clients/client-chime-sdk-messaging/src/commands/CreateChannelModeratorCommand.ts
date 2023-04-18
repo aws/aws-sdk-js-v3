@@ -20,21 +20,27 @@ import {
 } from "../ChimeSDKMessagingClient";
 import {
   CreateChannelModeratorRequest,
-  CreateChannelModeratorRequestFilterSensitiveLog,
   CreateChannelModeratorResponse,
   CreateChannelModeratorResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateChannelModeratorCommand,
-  serializeAws_restJson1CreateChannelModeratorCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateChannelModeratorCommand, se_CreateChannelModeratorCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateChannelModeratorCommand}.
+ */
 export interface CreateChannelModeratorCommandInput extends CreateChannelModeratorRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateChannelModeratorCommand}.
+ */
 export interface CreateChannelModeratorCommandOutput extends CreateChannelModeratorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new <code>ChannelModerator</code>. A channel moderator can:</p>
- *
  *          <ul>
  *             <li>
  *                <p>Add and remove other members of the channel.</p>
@@ -52,10 +58,9 @@ export interface CreateChannelModeratorCommandOutput extends CreateChannelModera
  *                <p>List messages in the channel.</p>
  *             </li>
  *          </ul>
- *
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
- *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+ *                ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code>of the user that makes the API call as the value in
  *             the header.</p>
  *          </note>
  * @example
@@ -64,13 +69,46 @@ export interface CreateChannelModeratorCommandOutput extends CreateChannelModera
  * import { ChimeSDKMessagingClient, CreateChannelModeratorCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, CreateChannelModeratorCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
+ * const input = { // CreateChannelModeratorRequest
+ *   ChannelArn: "STRING_VALUE", // required
+ *   ChannelModeratorArn: "STRING_VALUE", // required
+ *   ChimeBearer: "STRING_VALUE", // required
+ * };
  * const command = new CreateChannelModeratorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateChannelModeratorCommandInput - {@link CreateChannelModeratorCommandInput}
+ * @returns {@link CreateChannelModeratorCommandOutput}
  * @see {@link CreateChannelModeratorCommandInput} for command's `input` shape.
  * @see {@link CreateChannelModeratorCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be processed because of conflict in the current state of the
+ *          resource.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link ResourceLimitExceededException} (client fault)
+ *  <p>The request exceeds the resource limit.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The client exceeded its request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client is not currently authorized to make the request.</p>
+ *
  *
  */
 export class CreateChannelModeratorCommand extends $Command<
@@ -90,6 +128,9 @@ export class CreateChannelModeratorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateChannelModeratorCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,7 +159,7 @@ export class CreateChannelModeratorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateChannelModeratorRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CreateChannelModeratorResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -129,12 +170,18 @@ export class CreateChannelModeratorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateChannelModeratorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateChannelModeratorCommand(input, context);
+    return se_CreateChannelModeratorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateChannelModeratorCommandOutput> {
-    return deserializeAws_restJson1CreateChannelModeratorCommand(output, context);
+    return de_CreateChannelModeratorCommand(output, context);
   }
 
   // Start section: command_body_extra

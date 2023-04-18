@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  AcceptVpcPeeringConnectionRequest,
-  AcceptVpcPeeringConnectionRequestFilterSensitiveLog,
-  AcceptVpcPeeringConnectionResult,
-  AcceptVpcPeeringConnectionResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_ec2AcceptVpcPeeringConnectionCommand,
-  serializeAws_ec2AcceptVpcPeeringConnectionCommand,
-} from "../protocols/Aws_ec2";
+import { AcceptVpcPeeringConnectionRequest, AcceptVpcPeeringConnectionResult } from "../models/models_0";
+import { de_AcceptVpcPeeringConnectionCommand, se_AcceptVpcPeeringConnectionCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link AcceptVpcPeeringConnectionCommand}.
+ */
 export interface AcceptVpcPeeringConnectionCommandInput extends AcceptVpcPeeringConnectionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AcceptVpcPeeringConnectionCommand}.
+ */
 export interface AcceptVpcPeeringConnectionCommandOutput extends AcceptVpcPeeringConnectionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Accept a VPC peering connection request. To accept a request, the VPC peering connection must
  *       be in the <code>pending-acceptance</code> state, and you must be the owner of the peer VPC.
  *       Use <a>DescribeVpcPeeringConnections</a> to view your outstanding VPC
@@ -41,13 +44,20 @@ export interface AcceptVpcPeeringConnectionCommandOutput extends AcceptVpcPeerin
  * import { EC2Client, AcceptVpcPeeringConnectionCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AcceptVpcPeeringConnectionCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // AcceptVpcPeeringConnectionRequest
+ *   DryRun: true || false,
+ *   VpcPeeringConnectionId: "STRING_VALUE", // required
+ * };
  * const command = new AcceptVpcPeeringConnectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AcceptVpcPeeringConnectionCommandInput - {@link AcceptVpcPeeringConnectionCommandInput}
+ * @returns {@link AcceptVpcPeeringConnectionCommandOutput}
  * @see {@link AcceptVpcPeeringConnectionCommandInput} for command's `input` shape.
  * @see {@link AcceptVpcPeeringConnectionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class AcceptVpcPeeringConnectionCommand extends $Command<
@@ -67,6 +77,9 @@ export class AcceptVpcPeeringConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcceptVpcPeeringConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +108,8 @@ export class AcceptVpcPeeringConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AcceptVpcPeeringConnectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AcceptVpcPeeringConnectionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,15 +119,21 @@ export class AcceptVpcPeeringConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AcceptVpcPeeringConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2AcceptVpcPeeringConnectionCommand(input, context);
+    return se_AcceptVpcPeeringConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AcceptVpcPeeringConnectionCommandOutput> {
-    return deserializeAws_ec2AcceptVpcPeeringConnectionCommand(output, context);
+    return de_AcceptVpcPeeringConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

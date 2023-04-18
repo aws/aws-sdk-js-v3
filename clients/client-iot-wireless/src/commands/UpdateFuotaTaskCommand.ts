@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  UpdateFuotaTaskRequest,
-  UpdateFuotaTaskRequestFilterSensitiveLog,
-  UpdateFuotaTaskResponse,
-  UpdateFuotaTaskResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateFuotaTaskCommand,
-  serializeAws_restJson1UpdateFuotaTaskCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateFuotaTaskRequest, UpdateFuotaTaskResponse } from "../models/models_1";
+import { de_UpdateFuotaTaskCommand, se_UpdateFuotaTaskCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateFuotaTaskCommand}.
+ */
 export interface UpdateFuotaTaskCommandInput extends UpdateFuotaTaskRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateFuotaTaskCommand}.
+ */
 export interface UpdateFuotaTaskCommandOutput extends UpdateFuotaTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates properties of a FUOTA task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,47 @@ export interface UpdateFuotaTaskCommandOutput extends UpdateFuotaTaskResponse, _
  * import { IoTWirelessClient, UpdateFuotaTaskCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, UpdateFuotaTaskCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // UpdateFuotaTaskRequest
+ *   Id: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   LoRaWAN: { // LoRaWANFuotaTask
+ *     RfRegion: "EU868" || "US915" || "AU915" || "AS923-1" || "AS923-2" || "AS923-3" || "AS923-4" || "EU433" || "CN470" || "CN779" || "RU864" || "KR920" || "IN865",
+ *   },
+ *   FirmwareUpdateImage: "STRING_VALUE",
+ *   FirmwareUpdateRole: "STRING_VALUE",
+ *   RedundancyPercent: Number("int"),
+ *   FragmentSizeBytes: Number("int"),
+ *   FragmentIntervalMS: Number("int"),
+ * };
  * const command = new UpdateFuotaTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFuotaTaskCommandInput - {@link UpdateFuotaTaskCommandInput}
+ * @returns {@link UpdateFuotaTaskCommandOutput}
  * @see {@link UpdateFuotaTaskCommandInput} for command's `input` shape.
  * @see {@link UpdateFuotaTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>User does not have permission to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred while processing a request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because it exceeded the allowed API request rate.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input did not meet the specified constraints.</p>
+ *
  *
  */
 export class UpdateFuotaTaskCommand extends $Command<
@@ -62,6 +99,9 @@ export class UpdateFuotaTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFuotaTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +130,8 @@ export class UpdateFuotaTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFuotaTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFuotaTaskResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +141,18 @@ export class UpdateFuotaTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFuotaTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateFuotaTaskCommand(input, context);
+    return se_UpdateFuotaTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFuotaTaskCommandOutput> {
-    return deserializeAws_restJson1UpdateFuotaTaskCommand(output, context);
+    return de_UpdateFuotaTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

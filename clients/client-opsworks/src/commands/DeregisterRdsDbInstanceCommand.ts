@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeregisterRdsDbInstanceRequest, DeregisterRdsDbInstanceRequestFilterSensitiveLog } from "../models/models_0";
+import { DeregisterRdsDbInstanceRequest } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1DeregisterRdsDbInstanceCommand,
-  serializeAws_json1_1DeregisterRdsDbInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeregisterRdsDbInstanceCommand, se_DeregisterRdsDbInstanceCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeregisterRdsDbInstanceCommand}.
+ */
 export interface DeregisterRdsDbInstanceCommandInput extends DeregisterRdsDbInstanceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeregisterRdsDbInstanceCommand}.
+ */
 export interface DeregisterRdsDbInstanceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deregisters an Amazon RDS instance.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
@@ -36,13 +44,25 @@ export interface DeregisterRdsDbInstanceCommandOutput extends __MetadataBearer {
  * import { OpsWorksClient, DeregisterRdsDbInstanceCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DeregisterRdsDbInstanceCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // DeregisterRdsDbInstanceRequest
+ *   RdsDbInstanceArn: "STRING_VALUE", // required
+ * };
  * const command = new DeregisterRdsDbInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterRdsDbInstanceCommandInput - {@link DeregisterRdsDbInstanceCommandInput}
+ * @returns {@link DeregisterRdsDbInstanceCommandOutput}
  * @see {@link DeregisterRdsDbInstanceCommandInput} for command's `input` shape.
  * @see {@link DeregisterRdsDbInstanceCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Indicates that a resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that a request was not valid.</p>
+ *
  *
  */
 export class DeregisterRdsDbInstanceCommand extends $Command<
@@ -62,6 +82,9 @@ export class DeregisterRdsDbInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterRdsDbInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +113,8 @@ export class DeregisterRdsDbInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterRdsDbInstanceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +124,18 @@ export class DeregisterRdsDbInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterRdsDbInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeregisterRdsDbInstanceCommand(input, context);
+    return se_DeregisterRdsDbInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterRdsDbInstanceCommandOutput> {
-    return deserializeAws_json1_1DeregisterRdsDbInstanceCommand(output, context);
+    return de_DeregisterRdsDbInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

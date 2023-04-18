@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import { StopStreamEncryptionInput, StopStreamEncryptionInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1StopStreamEncryptionCommand,
-  serializeAws_json1_1StopStreamEncryptionCommand,
-} from "../protocols/Aws_json1_1";
+import { StopStreamEncryptionInput } from "../models/models_0";
+import { de_StopStreamEncryptionCommand, se_StopStreamEncryptionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link StopStreamEncryptionCommand}.
+ */
 export interface StopStreamEncryptionCommandInput extends StopStreamEncryptionInput {}
+/**
+ * @public
+ *
+ * The output of {@link StopStreamEncryptionCommand}.
+ */
 export interface StopStreamEncryptionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables server-side encryption for a specified stream. </p>
  *          <note>
  *             <p>When invoking this API, it is recommended you use the <code>StreamARN</code> input
@@ -49,13 +57,42 @@ export interface StopStreamEncryptionCommandOutput extends __MetadataBearer {}
  * import { KinesisClient, StopStreamEncryptionCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, StopStreamEncryptionCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
+ * const input = { // StopStreamEncryptionInput
+ *   StreamName: "STRING_VALUE",
+ *   EncryptionType: "NONE" || "KMS", // required
+ *   KeyId: "STRING_VALUE", // required
+ *   StreamARN: "STRING_VALUE",
+ * };
  * const command = new StopStreamEncryptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopStreamEncryptionCommandInput - {@link StopStreamEncryptionCommandInput}
+ * @returns {@link StopStreamEncryptionCommandOutput}
  * @see {@link StopStreamEncryptionCommandInput} for command's `input` shape.
  * @see {@link StopStreamEncryptionCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Specifies that you do not have the permissions required to perform this
+ *             operation.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>A specified parameter exceeds its restrictions, is not supported, or can't be used.
+ *             For more information, see the returned message.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
+ *             stream requests exceeds the maximum number allowed. </p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The resource is not available for this operation. For successful operation, the
+ *             resource must be in the <code>ACTIVE</code> state.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource could not be found. The stream might not be specified
+ *             correctly.</p>
+ *
  *
  */
 export class StopStreamEncryptionCommand extends $Command<
@@ -77,6 +114,9 @@ export class StopStreamEncryptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopStreamEncryptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +145,8 @@ export class StopStreamEncryptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopStreamEncryptionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +156,18 @@ export class StopStreamEncryptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopStreamEncryptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopStreamEncryptionCommand(input, context);
+    return se_StopStreamEncryptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopStreamEncryptionCommandOutput> {
-    return deserializeAws_json1_1StopStreamEncryptionCommand(output, context);
+    return de_StopStreamEncryptionCommand(output, context);
   }
 
   // Start section: command_body_extra

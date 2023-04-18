@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { HealthLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthLakeClient";
-import {
-  StartFHIRImportJobRequest,
-  StartFHIRImportJobRequestFilterSensitiveLog,
-  StartFHIRImportJobResponse,
-  StartFHIRImportJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0StartFHIRImportJobCommand,
-  serializeAws_json1_0StartFHIRImportJobCommand,
-} from "../protocols/Aws_json1_0";
+import { StartFHIRImportJobRequest, StartFHIRImportJobResponse } from "../models/models_0";
+import { de_StartFHIRImportJobCommand, se_StartFHIRImportJobCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link StartFHIRImportJobCommand}.
+ */
 export interface StartFHIRImportJobCommandInput extends StartFHIRImportJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartFHIRImportJobCommand}.
+ */
 export interface StartFHIRImportJobCommandOutput extends StartFHIRImportJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Begins a FHIR Import job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,46 @@ export interface StartFHIRImportJobCommandOutput extends StartFHIRImportJobRespo
  * import { HealthLakeClient, StartFHIRImportJobCommand } from "@aws-sdk/client-healthlake"; // ES Modules import
  * // const { HealthLakeClient, StartFHIRImportJobCommand } = require("@aws-sdk/client-healthlake"); // CommonJS import
  * const client = new HealthLakeClient(config);
+ * const input = { // StartFHIRImportJobRequest
+ *   JobName: "STRING_VALUE",
+ *   InputDataConfig: { // InputDataConfig Union: only one key present
+ *     S3Uri: "STRING_VALUE",
+ *   },
+ *   JobOutputDataConfig: { // OutputDataConfig Union: only one key present
+ *     S3Configuration: { // S3Configuration
+ *       S3Uri: "STRING_VALUE", // required
+ *       KmsKeyId: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   DatastoreId: "STRING_VALUE", // required
+ *   DataAccessRoleArn: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE", // required
+ * };
  * const command = new StartFHIRImportJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartFHIRImportJobCommandInput - {@link StartFHIRImportJobCommandInput}
+ * @returns {@link StartFHIRImportJobCommandOutput}
  * @see {@link StartFHIRImportJobCommandInput} for command's `input` shape.
  * @see {@link StartFHIRImportJobCommandOutput} for command's `response` shape.
  * @see {@link HealthLakeClientResolvedConfig | config} for HealthLakeClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access is denied. Your account is not authorized to perform this operation.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Unknown error occurs in the service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p> The requested Data Store was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The user has exceeded their maximum number of allowed calls to the given API. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The user input parameter was invalid.</p>
+ *
  *
  */
 export class StartFHIRImportJobCommand extends $Command<
@@ -62,6 +98,9 @@ export class StartFHIRImportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartFHIRImportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +129,8 @@ export class StartFHIRImportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartFHIRImportJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartFHIRImportJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +140,18 @@ export class StartFHIRImportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartFHIRImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0StartFHIRImportJobCommand(input, context);
+    return se_StartFHIRImportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartFHIRImportJobCommandOutput> {
-    return deserializeAws_json1_0StartFHIRImportJobCommand(output, context);
+    return de_StartFHIRImportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -6,12 +6,11 @@ import {
   ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput,
   ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput,
 } from "../commands/ListRequestedServiceQuotaChangeHistoryByQuotaCommand";
-import { ServiceQuotas } from "../ServiceQuotas";
 import { ServiceQuotasClient } from "../ServiceQuotasClient";
 import { ServiceQuotasPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ServiceQuotasClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListRequestedServiceQuotaChangeHistoryByQuotaCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ServiceQuotas,
-  input: ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput,
-  ...args: any
-): Promise<ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput> => {
-  // @ts-ignore
-  return await client.listRequestedServiceQuotaChangeHistoryByQuota(input, ...args);
-};
 export async function* paginateListRequestedServiceQuotaChangeHistoryByQuota(
   config: ServiceQuotasPaginationConfiguration,
   input: ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListRequestedServiceQuotaChangeHistoryByQuota(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof ServiceQuotas) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ServiceQuotasClient) {
+    if (config.client instanceof ServiceQuotasClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ServiceQuotas | ServiceQuotasClient");

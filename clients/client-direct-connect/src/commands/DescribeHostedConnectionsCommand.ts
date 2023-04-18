@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import {
-  Connections,
-  ConnectionsFilterSensitiveLog,
-  DescribeHostedConnectionsRequest,
-  DescribeHostedConnectionsRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeHostedConnectionsCommand,
-  serializeAws_json1_1DescribeHostedConnectionsCommand,
-} from "../protocols/Aws_json1_1";
+import { Connections, DescribeHostedConnectionsRequest } from "../models/models_0";
+import { de_DescribeHostedConnectionsCommand, se_DescribeHostedConnectionsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeHostedConnectionsCommand}.
+ */
 export interface DescribeHostedConnectionsCommandInput extends DescribeHostedConnectionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeHostedConnectionsCommand}.
+ */
 export interface DescribeHostedConnectionsCommandOutput extends Connections, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the hosted connections that have been provisioned on the specified
  *       interconnect or link aggregation group (LAG).</p>
  *          <note>
@@ -40,13 +43,25 @@ export interface DescribeHostedConnectionsCommandOutput extends Connections, __M
  * import { DirectConnectClient, DescribeHostedConnectionsCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DescribeHostedConnectionsCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // DescribeHostedConnectionsRequest
+ *   connectionId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeHostedConnectionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeHostedConnectionsCommandInput - {@link DescribeHostedConnectionsCommandInput}
+ * @returns {@link DescribeHostedConnectionsCommandOutput}
  * @see {@link DescribeHostedConnectionsCommandInput} for command's `input` shape.
  * @see {@link DescribeHostedConnectionsCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
+ *
+ * @throws {@link DirectConnectClientException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link DirectConnectServerException} (server fault)
+ *  <p>A server-side error occurred.</p>
+ *
  *
  */
 export class DescribeHostedConnectionsCommand extends $Command<
@@ -66,6 +81,9 @@ export class DescribeHostedConnectionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeHostedConnectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +112,8 @@ export class DescribeHostedConnectionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeHostedConnectionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ConnectionsFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,15 +123,21 @@ export class DescribeHostedConnectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeHostedConnectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeHostedConnectionsCommand(input, context);
+    return se_DescribeHostedConnectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeHostedConnectionsCommandOutput> {
-    return deserializeAws_json1_1DescribeHostedConnectionsCommand(output, context);
+    return de_DescribeHostedConnectionsCommand(output, context);
   }
 
   // Start section: command_body_extra

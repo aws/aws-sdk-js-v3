@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  ContinueUpdateRollbackInput,
-  ContinueUpdateRollbackInputFilterSensitiveLog,
-  ContinueUpdateRollbackOutput,
-  ContinueUpdateRollbackOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryContinueUpdateRollbackCommand,
-  serializeAws_queryContinueUpdateRollbackCommand,
-} from "../protocols/Aws_query";
+import { ContinueUpdateRollbackInput, ContinueUpdateRollbackOutput } from "../models/models_0";
+import { de_ContinueUpdateRollbackCommand, se_ContinueUpdateRollbackCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link ContinueUpdateRollbackCommand}.
+ */
 export interface ContinueUpdateRollbackCommandInput extends ContinueUpdateRollbackInput {}
+/**
+ * @public
+ *
+ * The output of {@link ContinueUpdateRollbackCommand}.
+ */
 export interface ContinueUpdateRollbackCommandOutput extends ContinueUpdateRollbackOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>For a specified stack that's in the <code>UPDATE_ROLLBACK_FAILED</code> state, continues
  *          rolling it back to the <code>UPDATE_ROLLBACK_COMPLETE</code> state. Depending on the cause
  *          of the failure, you can manually <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed"> fix the error</a> and continue the rollback. By continuing the rollback, you can
@@ -45,13 +48,27 @@ export interface ContinueUpdateRollbackCommandOutput extends ContinueUpdateRollb
  * import { CloudFormationClient, ContinueUpdateRollbackCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, ContinueUpdateRollbackCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // ContinueUpdateRollbackInput
+ *   StackName: "STRING_VALUE", // required
+ *   RoleARN: "STRING_VALUE",
+ *   ResourcesToSkip: [ // ResourcesToSkip
+ *     "STRING_VALUE",
+ *   ],
+ *   ClientRequestToken: "STRING_VALUE",
+ * };
  * const command = new ContinueUpdateRollbackCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ContinueUpdateRollbackCommandInput - {@link ContinueUpdateRollbackCommandInput}
+ * @returns {@link ContinueUpdateRollbackCommandOutput}
  * @see {@link ContinueUpdateRollbackCommandInput} for command's `input` shape.
  * @see {@link ContinueUpdateRollbackCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
+ *
+ * @throws {@link TokenAlreadyExistsException} (client fault)
+ *  <p>A client request token already exists.</p>
+ *
  *
  */
 export class ContinueUpdateRollbackCommand extends $Command<
@@ -71,6 +88,9 @@ export class ContinueUpdateRollbackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ContinueUpdateRollbackCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +119,8 @@ export class ContinueUpdateRollbackCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ContinueUpdateRollbackInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ContinueUpdateRollbackOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +130,18 @@ export class ContinueUpdateRollbackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ContinueUpdateRollbackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryContinueUpdateRollbackCommand(input, context);
+    return se_ContinueUpdateRollbackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ContinueUpdateRollbackCommandOutput> {
-    return deserializeAws_queryContinueUpdateRollbackCommand(output, context);
+    return de_ContinueUpdateRollbackCommand(output, context);
   }
 
   // Start section: command_body_extra

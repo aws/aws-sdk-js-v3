@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
-import {
-  DeleteChannelPolicyRequest,
-  DeleteChannelPolicyRequestFilterSensitiveLog,
-  DeleteChannelPolicyResponse,
-  DeleteChannelPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteChannelPolicyCommand,
-  serializeAws_restJson1DeleteChannelPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteChannelPolicyRequest, DeleteChannelPolicyResponse } from "../models/models_0";
+import { de_DeleteChannelPolicyCommand, se_DeleteChannelPolicyCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteChannelPolicyCommand}.
+ */
 export interface DeleteChannelPolicyCommandInput extends DeleteChannelPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteChannelPolicyCommand}.
+ */
 export interface DeleteChannelPolicyCommandOutput extends DeleteChannelPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The channel policy to delete.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,19 @@ export interface DeleteChannelPolicyCommandOutput extends DeleteChannelPolicyRes
  * import { MediaTailorClient, DeleteChannelPolicyCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, DeleteChannelPolicyCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
+ * const input = { // DeleteChannelPolicyRequest
+ *   ChannelName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteChannelPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteChannelPolicyCommandInput - {@link DeleteChannelPolicyCommandInput}
+ * @returns {@link DeleteChannelPolicyCommandOutput}
  * @see {@link DeleteChannelPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteChannelPolicyCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
+ *
  *
  */
 export class DeleteChannelPolicyCommand extends $Command<
@@ -62,6 +71,9 @@ export class DeleteChannelPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteChannelPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +102,8 @@ export class DeleteChannelPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteChannelPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteChannelPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +113,18 @@ export class DeleteChannelPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteChannelPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteChannelPolicyCommand(input, context);
+    return se_DeleteChannelPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteChannelPolicyCommandOutput> {
-    return deserializeAws_restJson1DeleteChannelPolicyCommand(output, context);
+    return de_DeleteChannelPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

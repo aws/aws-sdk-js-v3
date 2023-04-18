@@ -6,12 +6,11 @@ import {
   GetCoreNetworkChangeEventsCommandInput,
   GetCoreNetworkChangeEventsCommandOutput,
 } from "../commands/GetCoreNetworkChangeEventsCommand";
-import { NetworkManager } from "../NetworkManager";
 import { NetworkManagerClient } from "../NetworkManagerClient";
 import { NetworkManagerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: NetworkManagerClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new GetCoreNetworkChangeEventsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: NetworkManager,
-  input: GetCoreNetworkChangeEventsCommandInput,
-  ...args: any
-): Promise<GetCoreNetworkChangeEventsCommandOutput> => {
-  // @ts-ignore
-  return await client.getCoreNetworkChangeEvents(input, ...args);
-};
 export async function* paginateGetCoreNetworkChangeEvents(
   config: NetworkManagerPaginationConfiguration,
   input: GetCoreNetworkChangeEventsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateGetCoreNetworkChangeEvents(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof NetworkManager) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof NetworkManagerClient) {
+    if (config.client instanceof NetworkManagerClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected NetworkManager | NetworkManagerClient");

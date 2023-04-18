@@ -13,35 +13,57 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ExecuteStatementInput,
-  ExecuteStatementInputFilterSensitiveLog,
-  ExecuteStatementOutput,
-  ExecuteStatementOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ExecuteStatementCommand,
-  serializeAws_json1_1ExecuteStatementCommand,
-} from "../protocols/Aws_json1_1";
+import { ExecuteStatementInput, ExecuteStatementOutput } from "../models/models_0";
+import { de_ExecuteStatementCommand, se_ExecuteStatementCommand } from "../protocols/Aws_json1_1";
 import { RedshiftDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftDataClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ExecuteStatementCommand}.
+ */
 export interface ExecuteStatementCommandInput extends ExecuteStatementInput {}
+/**
+ * @public
+ *
+ * The output of {@link ExecuteStatementCommand}.
+ */
 export interface ExecuteStatementCommandOutput extends ExecuteStatementOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Runs an SQL statement, which can be data manipulation language (DML) or data definition
  *       language (DDL). This statement must be a single SQL statement.
  *       Depending on the authorization
  *       method, use one of the following combinations of request parameters: </p>
  *          <ul>
  *             <li>
- *                <p>Secrets Manager - when connecting to a cluster, specify the Amazon Resource Name (ARN) of the secret, the database name, and the cluster identifier that matches the cluster in the secret.
- * When connecting to a serverless workgroup, specify the Amazon Resource Name (ARN) of the secret and the database name. </p>
+ *                <p>Secrets Manager - when connecting to a cluster, provide the <code>secret-arn</code> of a secret
+ *                                     stored in Secrets Manager which has <code>username</code> and <code>password</code>.
+ *                                     The specified secret contains credentials
+ *                                     to connect to the <code>database</code> you specify.
+ *                                     When you are connecting to a cluster, you also supply the database name,
+ *                                     If you provide a cluster identifier (<code>dbClusterIdentifier</code>), it must match the cluster identifier stored in the secret.
+ *                                     When you are connecting to a serverless workgroup, you also supply the database name.</p>
  *             </li>
  *             <li>
- *                <p>Temporary credentials - when connecting to a cluster, specify the cluster identifier, the database name, and the database user name.
- * Also, permission to call the <code>redshift:GetClusterCredentials</code> operation is required.
- * When connecting to a serverless workgroup, specify the workgroup name and database name. Also, permission to call the <code>redshift-serverless:GetCredentials</code> operation is required. </p>
+ *                <p>Temporary credentials - when connecting to your data warehouse, choose one of the following options:</p>
+ *                <ul>
+ *                   <li>
+ *                      <p>When connecting to a serverless workgroup, specify the workgroup name and database name.
+ *                                         The database user name is derived from the IAM identity. For example, <code>arn:iam::123456789012:user:foo</code> has the database user name <code>IAM:foo</code>.
+ *                                         Also, permission to call the <code>redshift-serverless:GetCredentials</code> operation is required.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>When connecting to a cluster as an IAM identity, specify the cluster identifier and the database name.
+ *                                         The database user name is derived from the IAM identity. For example, <code>arn:iam::123456789012:user:foo</code> has the database user name <code>IAM:foo</code>.
+ *                                         Also, permission to call the <code>redshift:GetClusterCredentialsWithIAM</code> operation is required.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>When connecting to a cluster as a database user, specify the cluster identifier, the database name, and the database user name.
+ *                                         Also, permission to call the <code>redshift:GetClusterCredentials</code> operation is required.</p>
+ *                   </li>
+ *                </ul>
  *             </li>
  *          </ul>
  *          <p>For more information about the Amazon Redshift Data API and CLI usage examples, see
@@ -53,13 +75,42 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementOutput, _
  * import { RedshiftDataClient, ExecuteStatementCommand } from "@aws-sdk/client-redshift-data"; // ES Modules import
  * // const { RedshiftDataClient, ExecuteStatementCommand } = require("@aws-sdk/client-redshift-data"); // CommonJS import
  * const client = new RedshiftDataClient(config);
+ * const input = { // ExecuteStatementInput
+ *   Sql: "STRING_VALUE", // required
+ *   ClusterIdentifier: "STRING_VALUE",
+ *   SecretArn: "STRING_VALUE",
+ *   DbUser: "STRING_VALUE",
+ *   Database: "STRING_VALUE", // required
+ *   WithEvent: true || false,
+ *   StatementName: "STRING_VALUE",
+ *   Parameters: [ // SqlParametersList
+ *     { // SqlParameter
+ *       name: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   WorkgroupName: "STRING_VALUE",
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new ExecuteStatementCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ExecuteStatementCommandInput - {@link ExecuteStatementCommandInput}
+ * @returns {@link ExecuteStatementCommandOutput}
  * @see {@link ExecuteStatementCommandInput} for command's `input` shape.
  * @see {@link ExecuteStatementCommandOutput} for command's `response` shape.
  * @see {@link RedshiftDataClientResolvedConfig | config} for RedshiftDataClient's `config` shape.
+ *
+ * @throws {@link ActiveStatementsExceededException} (client fault)
+ *  <p>The number of active statements exceeds the limit.</p>
+ *
+ * @throws {@link ExecuteStatementException} (server fault)
+ *  <p>The SQL statement encountered an environmental error while running.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
+ *
  *
  */
 export class ExecuteStatementCommand extends $Command<
@@ -79,6 +130,9 @@ export class ExecuteStatementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExecuteStatementCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +161,8 @@ export class ExecuteStatementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExecuteStatementInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ExecuteStatementOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +172,18 @@ export class ExecuteStatementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExecuteStatementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ExecuteStatementCommand(input, context);
+    return se_ExecuteStatementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExecuteStatementCommandOutput> {
-    return deserializeAws_json1_1ExecuteStatementCommand(output, context);
+    return de_ExecuteStatementCommand(output, context);
   }
 
   // Start section: command_body_extra

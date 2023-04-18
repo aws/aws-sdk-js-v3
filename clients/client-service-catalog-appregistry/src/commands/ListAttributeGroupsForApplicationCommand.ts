@@ -15,13 +15,11 @@ import {
 
 import {
   ListAttributeGroupsForApplicationRequest,
-  ListAttributeGroupsForApplicationRequestFilterSensitiveLog,
   ListAttributeGroupsForApplicationResponse,
-  ListAttributeGroupsForApplicationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListAttributeGroupsForApplicationCommand,
-  serializeAws_restJson1ListAttributeGroupsForApplicationCommand,
+  de_ListAttributeGroupsForApplicationCommand,
+  se_ListAttributeGroupsForApplicationCommand,
 } from "../protocols/Aws_restJson1";
 import {
   ServiceCatalogAppRegistryClientResolvedConfig,
@@ -29,12 +27,23 @@ import {
   ServiceOutputTypes,
 } from "../ServiceCatalogAppRegistryClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListAttributeGroupsForApplicationCommand}.
+ */
 export interface ListAttributeGroupsForApplicationCommandInput extends ListAttributeGroupsForApplicationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListAttributeGroupsForApplicationCommand}.
+ */
 export interface ListAttributeGroupsForApplicationCommandOutput
   extends ListAttributeGroupsForApplicationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the details of all attribute groups associated with a specific application. The results display in pages.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,13 +51,30 @@ export interface ListAttributeGroupsForApplicationCommandOutput
  * import { ServiceCatalogAppRegistryClient, ListAttributeGroupsForApplicationCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
  * // const { ServiceCatalogAppRegistryClient, ListAttributeGroupsForApplicationCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
  * const client = new ServiceCatalogAppRegistryClient(config);
+ * const input = { // ListAttributeGroupsForApplicationRequest
+ *   application: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListAttributeGroupsForApplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAttributeGroupsForApplicationCommandInput - {@link ListAttributeGroupsForApplicationCommandInput}
+ * @returns {@link ListAttributeGroupsForApplicationCommandOutput}
  * @see {@link ListAttributeGroupsForApplicationCommandInput} for command's `input` shape.
  * @see {@link ListAttributeGroupsForApplicationCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The service is experiencing internal problems.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request has invalid or missing parameters.</p>
+ *
  *
  */
 export class ListAttributeGroupsForApplicationCommand extends $Command<
@@ -68,6 +94,9 @@ export class ListAttributeGroupsForApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAttributeGroupsForApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +125,8 @@ export class ListAttributeGroupsForApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAttributeGroupsForApplicationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAttributeGroupsForApplicationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,18 +136,24 @@ export class ListAttributeGroupsForApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListAttributeGroupsForApplicationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAttributeGroupsForApplicationCommand(input, context);
+    return se_ListAttributeGroupsForApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAttributeGroupsForApplicationCommandOutput> {
-    return deserializeAws_restJson1ListAttributeGroupsForApplicationCommand(output, context);
+    return de_ListAttributeGroupsForApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

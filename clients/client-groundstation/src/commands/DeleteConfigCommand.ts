@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
-import {
-  ConfigIdResponse,
-  ConfigIdResponseFilterSensitiveLog,
-  DeleteConfigRequest,
-  DeleteConfigRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteConfigCommand,
-  serializeAws_restJson1DeleteConfigCommand,
-} from "../protocols/Aws_restJson1";
+import { ConfigIdResponse, DeleteConfigRequest } from "../models/models_0";
+import { de_DeleteConfigCommand, se_DeleteConfigCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteConfigCommand}.
+ */
 export interface DeleteConfigCommandInput extends DeleteConfigRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteConfigCommand}.
+ */
 export interface DeleteConfigCommandOutput extends ConfigIdResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a <code>Config</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,29 @@ export interface DeleteConfigCommandOutput extends ConfigIdResponse, __MetadataB
  * import { GroundStationClient, DeleteConfigCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, DeleteConfigCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
+ * const input = { // DeleteConfigRequest
+ *   configId: "STRING_VALUE", // required
+ *   configType: "STRING_VALUE", // required
+ * };
  * const command = new DeleteConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteConfigCommandInput - {@link DeleteConfigCommandInput}
+ * @returns {@link DeleteConfigCommandOutput}
  * @see {@link DeleteConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteConfigCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
+ *
+ * @throws {@link DependencyException} (server fault)
+ *  <p>Dependency encountered an error.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource was not found.</p>
+ *
  *
  */
 export class DeleteConfigCommand extends $Command<
@@ -62,6 +81,9 @@ export class DeleteConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +110,8 @@ export class DeleteConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ConfigIdResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +121,18 @@ export class DeleteConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteConfigCommand(input, context);
+    return se_DeleteConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteConfigCommandOutput> {
-    return deserializeAws_restJson1DeleteConfigCommand(output, context);
+    return de_DeleteConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

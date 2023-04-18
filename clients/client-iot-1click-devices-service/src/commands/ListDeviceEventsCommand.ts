@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoT1ClickDevicesServiceClient";
-import {
-  ListDeviceEventsRequest,
-  ListDeviceEventsRequestFilterSensitiveLog,
-  ListDeviceEventsResponse,
-  ListDeviceEventsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDeviceEventsCommand,
-  serializeAws_restJson1ListDeviceEventsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListDeviceEventsRequest, ListDeviceEventsResponse } from "../models/models_0";
+import { de_ListDeviceEventsCommand, se_ListDeviceEventsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListDeviceEventsCommand}.
+ */
 export interface ListDeviceEventsCommandInput extends ListDeviceEventsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDeviceEventsCommand}.
+ */
 export interface ListDeviceEventsCommandOutput extends ListDeviceEventsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Using a device ID, returns a DeviceEventsResponse object containing an
  *  array of events for the device.</p>
  * @example
@@ -41,13 +44,31 @@ export interface ListDeviceEventsCommandOutput extends ListDeviceEventsResponse,
  * import { IoT1ClickDevicesServiceClient, ListDeviceEventsCommand } from "@aws-sdk/client-iot-1click-devices-service"; // ES Modules import
  * // const { IoT1ClickDevicesServiceClient, ListDeviceEventsCommand } = require("@aws-sdk/client-iot-1click-devices-service"); // CommonJS import
  * const client = new IoT1ClickDevicesServiceClient(config);
+ * const input = { // ListDeviceEventsRequest
+ *   DeviceId: "STRING_VALUE", // required
+ *   FromTimeStamp: new Date("TIMESTAMP"), // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   ToTimeStamp: new Date("TIMESTAMP"), // required
+ * };
  * const command = new ListDeviceEventsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDeviceEventsCommandInput - {@link ListDeviceEventsCommandInput}
+ * @returns {@link ListDeviceEventsCommandOutput}
  * @see {@link ListDeviceEventsCommandInput} for command's `input` shape.
  * @see {@link ListDeviceEventsCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for IoT1ClickDevicesServiceClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *
+ * @throws {@link RangeNotSatisfiableException} (client fault)
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *
  *
  */
 export class ListDeviceEventsCommand extends $Command<
@@ -67,6 +88,9 @@ export class ListDeviceEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDeviceEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +119,8 @@ export class ListDeviceEventsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDeviceEventsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDeviceEventsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +130,18 @@ export class ListDeviceEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDeviceEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDeviceEventsCommand(input, context);
+    return se_ListDeviceEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDeviceEventsCommandOutput> {
-    return deserializeAws_restJson1ListDeviceEventsCommand(output, context);
+    return de_ListDeviceEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { GetProvisionedProductOutputsInput, GetProvisionedProductOutputsOutput } from "../models/models_0";
 import {
-  GetProvisionedProductOutputsInput,
-  GetProvisionedProductOutputsInputFilterSensitiveLog,
-  GetProvisionedProductOutputsOutput,
-  GetProvisionedProductOutputsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetProvisionedProductOutputsCommand,
-  serializeAws_json1_1GetProvisionedProductOutputsCommand,
+  de_GetProvisionedProductOutputsCommand,
+  se_GetProvisionedProductOutputsCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetProvisionedProductOutputsCommand}.
+ */
 export interface GetProvisionedProductOutputsCommandInput extends GetProvisionedProductOutputsInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetProvisionedProductOutputsCommand}.
+ */
 export interface GetProvisionedProductOutputsCommandOutput
   extends GetProvisionedProductOutputsOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API takes either a <code>ProvisonedProductId</code> or a <code>ProvisionedProductName</code>, along with a list of one or more output keys, and responds with the key/value pairs of those outputs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,32 @@ export interface GetProvisionedProductOutputsCommandOutput
  * import { ServiceCatalogClient, GetProvisionedProductOutputsCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, GetProvisionedProductOutputsCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // GetProvisionedProductOutputsInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   ProvisionedProductId: "STRING_VALUE",
+ *   ProvisionedProductName: "STRING_VALUE",
+ *   OutputKeys: [ // OutputKeys
+ *     "STRING_VALUE",
+ *   ],
+ *   PageSize: Number("int"),
+ *   PageToken: "STRING_VALUE",
+ * };
  * const command = new GetProvisionedProductOutputsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetProvisionedProductOutputsCommandInput - {@link GetProvisionedProductOutputsCommandInput}
+ * @returns {@link GetProvisionedProductOutputsCommandOutput}
  * @see {@link GetProvisionedProductOutputsCommandInput} for command's `input` shape.
  * @see {@link GetProvisionedProductOutputsCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
+ *
+ * @throws {@link InvalidParametersException} (client fault)
+ *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class GetProvisionedProductOutputsCommand extends $Command<
@@ -64,6 +89,9 @@ export class GetProvisionedProductOutputsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetProvisionedProductOutputsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +120,8 @@ export class GetProvisionedProductOutputsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetProvisionedProductOutputsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetProvisionedProductOutputsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +131,21 @@ export class GetProvisionedProductOutputsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetProvisionedProductOutputsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetProvisionedProductOutputsCommand(input, context);
+    return se_GetProvisionedProductOutputsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetProvisionedProductOutputsCommandOutput> {
-    return deserializeAws_json1_1GetProvisionedProductOutputsCommand(output, context);
+    return de_GetProvisionedProductOutputsCommand(output, context);
   }
 
   // Start section: command_body_extra

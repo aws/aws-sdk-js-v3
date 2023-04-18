@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import {
-  CreateReportGroupInput,
-  CreateReportGroupInputFilterSensitiveLog,
-  CreateReportGroupOutput,
-  CreateReportGroupOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateReportGroupCommand,
-  serializeAws_json1_1CreateReportGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateReportGroupInput, CreateReportGroupOutput } from "../models/models_0";
+import { de_CreateReportGroupCommand, se_CreateReportGroupCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateReportGroupCommand}.
+ */
 export interface CreateReportGroupCommandInput extends CreateReportGroupInput {}
+/**
+ * @public
+ *
+ * The output of {@link CreateReportGroupCommand}.
+ */
 export interface CreateReportGroupCommandOutput extends CreateReportGroupOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Creates a report group. A report group contains a collection of reports.
  *     </p>
@@ -38,13 +41,47 @@ export interface CreateReportGroupCommandOutput extends CreateReportGroupOutput,
  * import { CodeBuildClient, CreateReportGroupCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, CreateReportGroupCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = { // CreateReportGroupInput
+ *   name: "STRING_VALUE", // required
+ *   type: "STRING_VALUE", // required
+ *   exportConfig: { // ReportExportConfig
+ *     exportConfigType: "STRING_VALUE",
+ *     s3Destination: { // S3ReportExportConfig
+ *       bucket: "STRING_VALUE",
+ *       bucketOwner: "STRING_VALUE",
+ *       path: "STRING_VALUE",
+ *       packaging: "STRING_VALUE",
+ *       encryptionKey: "STRING_VALUE",
+ *       encryptionDisabled: true || false,
+ *     },
+ *   },
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateReportGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateReportGroupCommandInput - {@link CreateReportGroupCommandInput}
+ * @returns {@link CreateReportGroupCommandOutput}
  * @see {@link CreateReportGroupCommandInput} for command's `input` shape.
  * @see {@link CreateReportGroupCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
+ *
+ * @throws {@link AccountLimitExceededException} (client fault)
+ *  <p>An Amazon Web Services service limit was exceeded for the calling Amazon Web Services account.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input value that was provided is not valid.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The specified Amazon Web Services resource cannot be created, because an Amazon Web Services resource with the same
+ *             settings already exists.</p>
+ *
  *
  */
 export class CreateReportGroupCommand extends $Command<
@@ -64,6 +101,9 @@ export class CreateReportGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateReportGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +132,8 @@ export class CreateReportGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateReportGroupInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateReportGroupOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +143,18 @@ export class CreateReportGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateReportGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateReportGroupCommand(input, context);
+    return se_CreateReportGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateReportGroupCommandOutput> {
-    return deserializeAws_json1_1CreateReportGroupCommand(output, context);
+    return de_CreateReportGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

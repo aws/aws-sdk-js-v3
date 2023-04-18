@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetGeoMatchSetRequest,
-  GetGeoMatchSetRequestFilterSensitiveLog,
-  GetGeoMatchSetResponse,
-  GetGeoMatchSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetGeoMatchSetCommand,
-  serializeAws_json1_1GetGeoMatchSetCommand,
-} from "../protocols/Aws_json1_1";
+import { GetGeoMatchSetRequest, GetGeoMatchSetResponse } from "../models/models_0";
+import { de_GetGeoMatchSetCommand, se_GetGeoMatchSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetGeoMatchSetCommand}.
+ */
 export interface GetGeoMatchSetCommandInput extends GetGeoMatchSetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetGeoMatchSetCommand}.
+ */
 export interface GetGeoMatchSetCommandOutput extends GetGeoMatchSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -44,13 +47,28 @@ export interface GetGeoMatchSetCommandOutput extends GetGeoMatchSetResponse, __M
  * import { WAFClient, GetGeoMatchSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, GetGeoMatchSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = { // GetGeoMatchSetRequest
+ *   GeoMatchSetId: "STRING_VALUE", // required
+ * };
  * const command = new GetGeoMatchSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetGeoMatchSetCommandInput - {@link GetGeoMatchSetCommandInput}
+ * @returns {@link GetGeoMatchSetCommandOutput}
  * @see {@link GetGeoMatchSetCommandInput} for command's `input` shape.
  * @see {@link GetGeoMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
+ *
+ * @throws {@link WAFInternalErrorException} (server fault)
+ *  <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+ *
+ * @throws {@link WAFInvalidAccountException} (client fault)
+ *  <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+ *
+ * @throws {@link WAFNonexistentItemException} (client fault)
+ *  <p>The operation failed because the referenced object doesn't exist.</p>
+ *
  *
  */
 export class GetGeoMatchSetCommand extends $Command<
@@ -70,6 +88,9 @@ export class GetGeoMatchSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetGeoMatchSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +119,8 @@ export class GetGeoMatchSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetGeoMatchSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetGeoMatchSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +130,18 @@ export class GetGeoMatchSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetGeoMatchSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetGeoMatchSetCommand(input, context);
+    return se_GetGeoMatchSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGeoMatchSetCommandOutput> {
-    return deserializeAws_json1_1GetGeoMatchSetCommand(output, context);
+    return de_GetGeoMatchSetCommand(output, context);
   }
 
   // Start section: command_body_extra

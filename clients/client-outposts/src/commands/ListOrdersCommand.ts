@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListOrdersInput,
-  ListOrdersInputFilterSensitiveLog,
-  ListOrdersOutput,
-  ListOrdersOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ListOrdersInput, ListOrdersOutput } from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import {
-  deserializeAws_restJson1ListOrdersCommand,
-  serializeAws_restJson1ListOrdersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListOrdersCommand, se_ListOrdersCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListOrdersCommand}.
+ */
 export interface ListOrdersCommandInput extends ListOrdersInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListOrdersCommand}.
+ */
 export interface ListOrdersCommandOutput extends ListOrdersOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the Outpost orders for your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,33 @@ export interface ListOrdersCommandOutput extends ListOrdersOutput, __MetadataBea
  * import { OutpostsClient, ListOrdersCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, ListOrdersCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
+ * const input = { // ListOrdersInput
+ *   OutpostIdentifierFilter: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListOrdersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOrdersCommandInput - {@link ListOrdersCommandInput}
+ * @returns {@link ListOrdersCommandOutput}
  * @see {@link ListOrdersCommandInput} for command's `input` shape.
  * @see {@link ListOrdersCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have permission to perform this operation.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error has occurred.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The specified request is not valid.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>A parameter is not valid.</p>
+ *
  *
  */
 export class ListOrdersCommand extends $Command<
@@ -62,6 +85,9 @@ export class ListOrdersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOrdersCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +114,8 @@ export class ListOrdersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListOrdersInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListOrdersOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +125,18 @@ export class ListOrdersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListOrdersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListOrdersCommand(input, context);
+    return se_ListOrdersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOrdersCommandOutput> {
-    return deserializeAws_restJson1ListOrdersCommand(output, context);
+    return de_ListOrdersCommand(output, context);
   }
 
   // Start section: command_body_extra

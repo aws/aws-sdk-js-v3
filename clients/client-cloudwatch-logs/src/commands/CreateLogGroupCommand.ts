@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import { CreateLogGroupRequest, CreateLogGroupRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateLogGroupCommand,
-  serializeAws_json1_1CreateLogGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateLogGroupRequest } from "../models/models_0";
+import { de_CreateLogGroupCommand, se_CreateLogGroupCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateLogGroupCommand}.
+ */
 export interface CreateLogGroupCommandInput extends CreateLogGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateLogGroupCommand}.
+ */
 export interface CreateLogGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a log group with the specified name. You can create up to 20,000 log groups per account.</p>
  *          <p>You must use the following guidelines when naming a log group:</p>
  *          <ul>
@@ -59,13 +67,38 @@ export interface CreateLogGroupCommandOutput extends __MetadataBearer {}
  * import { CloudWatchLogsClient, CreateLogGroupCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, CreateLogGroupCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = { // CreateLogGroupRequest
+ *   logGroupName: "STRING_VALUE", // required
+ *   kmsKeyId: "STRING_VALUE",
+ *   tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateLogGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLogGroupCommandInput - {@link CreateLogGroupCommandInput}
+ * @returns {@link CreateLogGroupCommandOutput}
  * @see {@link CreateLogGroupCommandInput} for command's `input` shape.
  * @see {@link CreateLogGroupCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter is specified incorrectly.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You have reached the maximum number of resources that can be created.</p>
+ *
+ * @throws {@link OperationAbortedException} (client fault)
+ *  <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The specified resource already exists.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service cannot complete the request.</p>
+ *
  *
  */
 export class CreateLogGroupCommand extends $Command<
@@ -85,6 +118,9 @@ export class CreateLogGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLogGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +149,8 @@ export class CreateLogGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLogGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +160,18 @@ export class CreateLogGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLogGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateLogGroupCommand(input, context);
+    return se_CreateLogGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLogGroupCommandOutput> {
-    return deserializeAws_json1_1CreateLogGroupCommand(output, context);
+    return de_CreateLogGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

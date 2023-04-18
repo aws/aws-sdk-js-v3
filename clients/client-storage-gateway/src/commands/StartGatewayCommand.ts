@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartGatewayInput,
-  StartGatewayInputFilterSensitiveLog,
-  StartGatewayOutput,
-  StartGatewayOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartGatewayCommand,
-  serializeAws_json1_1StartGatewayCommand,
-} from "../protocols/Aws_json1_1";
+import { StartGatewayInput, StartGatewayOutput } from "../models/models_0";
+import { de_StartGatewayCommand, se_StartGatewayCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * @public
+ *
+ * The input for {@link StartGatewayCommand}.
+ */
 export interface StartGatewayCommandInput extends StartGatewayInput {}
+/**
+ * @public
+ *
+ * The output of {@link StartGatewayCommand}.
+ */
 export interface StartGatewayCommandOutput extends StartGatewayOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a gateway that you previously shut down (see <a>ShutdownGateway</a>).
  *          After the gateway starts, you can then make other API calls, your applications can read
  *          from or write to the gateway's storage volumes and you will be able to take snapshot
@@ -48,13 +51,43 @@ export interface StartGatewayCommandOutput extends StartGatewayOutput, __Metadat
  * import { StorageGatewayClient, StartGatewayCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, StartGatewayCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // StartGatewayInput
+ *   GatewayARN: "STRING_VALUE", // required
+ * };
  * const command = new StartGatewayCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartGatewayCommandInput - {@link StartGatewayCommandInput}
+ * @returns {@link StartGatewayCommandOutput}
  * @see {@link StartGatewayCommandInput} for command's `input` shape.
  * @see {@link StartGatewayCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error has occurred during the request. For more information, see the
+ *          error and message fields.</p>
+ *
+ * @throws {@link InvalidGatewayRequestException} (client fault)
+ *  <p>An exception occurred because an invalid gateway request was issued to the service. For
+ *          more information, see the error and message fields.</p>
+ *
+ *
+ * @example To start a gateway service
+ * ```javascript
+ * // Starts a gateway service that was previously shut down.
+ * const input = {
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B"
+ * };
+ * const command = new StartGatewayCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B"
+ * }
+ * *\/
+ * // example id: to-start-a-gateway-service-1472150722315
+ * ```
  *
  */
 export class StartGatewayCommand extends $Command<
@@ -74,6 +107,9 @@ export class StartGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +136,8 @@ export class StartGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartGatewayInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StartGatewayOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +147,18 @@ export class StartGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartGatewayCommand(input, context);
+    return se_StartGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartGatewayCommandOutput> {
-    return deserializeAws_json1_1StartGatewayCommand(output, context);
+    return de_StartGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

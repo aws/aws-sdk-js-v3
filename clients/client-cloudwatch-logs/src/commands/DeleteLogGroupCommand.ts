@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import { DeleteLogGroupRequest, DeleteLogGroupRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteLogGroupCommand,
-  serializeAws_json1_1DeleteLogGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteLogGroupRequest } from "../models/models_0";
+import { de_DeleteLogGroupCommand, se_DeleteLogGroupCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteLogGroupCommand}.
+ */
 export interface DeleteLogGroupCommandInput extends DeleteLogGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteLogGroupCommand}.
+ */
 export interface DeleteLogGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified log group and permanently deletes all the archived
  *       log events associated with the log group.</p>
  * @example
@@ -32,13 +40,31 @@ export interface DeleteLogGroupCommandOutput extends __MetadataBearer {}
  * import { CloudWatchLogsClient, DeleteLogGroupCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DeleteLogGroupCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = { // DeleteLogGroupRequest
+ *   logGroupName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteLogGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLogGroupCommandInput - {@link DeleteLogGroupCommandInput}
+ * @returns {@link DeleteLogGroupCommandOutput}
  * @see {@link DeleteLogGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteLogGroupCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter is specified incorrectly.</p>
+ *
+ * @throws {@link OperationAbortedException} (client fault)
+ *  <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service cannot complete the request.</p>
+ *
  *
  */
 export class DeleteLogGroupCommand extends $Command<
@@ -58,6 +84,9 @@ export class DeleteLogGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLogGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -86,8 +115,8 @@ export class DeleteLogGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLogGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -97,12 +126,18 @@ export class DeleteLogGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLogGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteLogGroupCommand(input, context);
+    return se_DeleteLogGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLogGroupCommandOutput> {
-    return deserializeAws_json1_1DeleteLogGroupCommand(output, context);
+    return de_DeleteLogGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

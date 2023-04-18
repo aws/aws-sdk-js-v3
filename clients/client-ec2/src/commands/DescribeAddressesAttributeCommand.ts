@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeAddressesAttributeRequest,
-  DescribeAddressesAttributeRequestFilterSensitiveLog,
-  DescribeAddressesAttributeResult,
-  DescribeAddressesAttributeResultFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeAddressesAttributeCommand,
-  serializeAws_ec2DescribeAddressesAttributeCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeAddressesAttributeRequest, DescribeAddressesAttributeResult } from "../models/models_3";
+import { de_DescribeAddressesAttributeCommand, se_DescribeAddressesAttributeCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeAddressesAttributeCommand}.
+ */
 export interface DescribeAddressesAttributeCommandInput extends DescribeAddressesAttributeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeAddressesAttributeCommand}.
+ */
 export interface DescribeAddressesAttributeCommandOutput extends DescribeAddressesAttributeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the attributes of the specified Elastic IP addresses. For requirements, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS">Using reverse DNS for email applications</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,25 @@ export interface DescribeAddressesAttributeCommandOutput extends DescribeAddress
  * import { EC2Client, DescribeAddressesAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeAddressesAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeAddressesAttributeRequest
+ *   AllocationIds: [ // AllocationIds
+ *     "STRING_VALUE",
+ *   ],
+ *   Attribute: "domain-name",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   DryRun: true || false,
+ * };
  * const command = new DescribeAddressesAttributeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAddressesAttributeCommandInput - {@link DescribeAddressesAttributeCommandInput}
+ * @returns {@link DescribeAddressesAttributeCommandOutput}
  * @see {@link DescribeAddressesAttributeCommandInput} for command's `input` shape.
  * @see {@link DescribeAddressesAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class DescribeAddressesAttributeCommand extends $Command<
@@ -62,6 +77,9 @@ export class DescribeAddressesAttributeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAddressesAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +108,8 @@ export class DescribeAddressesAttributeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAddressesAttributeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAddressesAttributeResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +119,21 @@ export class DescribeAddressesAttributeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAddressesAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeAddressesAttributeCommand(input, context);
+    return se_DescribeAddressesAttributeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAddressesAttributeCommandOutput> {
-    return deserializeAws_ec2DescribeAddressesAttributeCommand(output, context);
+    return de_DescribeAddressesAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

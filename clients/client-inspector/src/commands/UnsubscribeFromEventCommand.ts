@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import { UnsubscribeFromEventRequest, UnsubscribeFromEventRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1UnsubscribeFromEventCommand,
-  serializeAws_json1_1UnsubscribeFromEventCommand,
-} from "../protocols/Aws_json1_1";
+import { UnsubscribeFromEventRequest } from "../models/models_0";
+import { de_UnsubscribeFromEventCommand, se_UnsubscribeFromEventCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UnsubscribeFromEventCommand}.
+ */
 export interface UnsubscribeFromEventCommandInput extends UnsubscribeFromEventRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UnsubscribeFromEventCommand}.
+ */
 export interface UnsubscribeFromEventCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables the process of sending Amazon Simple Notification Service (SNS)
  *          notifications about a specified event to a specified SNS topic.</p>
  * @example
@@ -32,13 +40,51 @@ export interface UnsubscribeFromEventCommandOutput extends __MetadataBearer {}
  * import { InspectorClient, UnsubscribeFromEventCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, UnsubscribeFromEventCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = { // UnsubscribeFromEventRequest
+ *   resourceArn: "STRING_VALUE", // required
+ *   event: "STRING_VALUE", // required
+ *   topicArn: "STRING_VALUE", // required
+ * };
  * const command = new UnsubscribeFromEventCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UnsubscribeFromEventCommandInput - {@link UnsubscribeFromEventCommandInput}
+ * @returns {@link UnsubscribeFromEventCommandOutput}
  * @see {@link UnsubscribeFromEventCommandInput} for command's `input` shape.
  * @see {@link UnsubscribeFromEventCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have required permissions to access the requested resource.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>Internal server error.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
+ *          input parameter.</p>
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced an entity that does not exist. The
+ *          error code describes the entity.</p>
+ *
+ * @throws {@link ServiceTemporarilyUnavailableException} (server fault)
+ *  <p>The serice is temporary unavailable.</p>
+ *
+ *
+ * @example Unsubscribe from event
+ * ```javascript
+ * // Disables the process of sending Amazon Simple Notification Service (SNS) notifications about a specified event to a specified SNS topic.
+ * const input = {
+ *   "event": "ASSESSMENT_RUN_COMPLETED",
+ *   "resourceArn": "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX/template/0-7sbz2Kz0",
+ *   "topicArn": "arn:aws:sns:us-west-2:123456789012:exampletopic"
+ * };
+ * const command = new UnsubscribeFromEventCommand(input);
+ * await client.send(command);
+ * // example id: unsubscribe-from-event-1481067781705
+ * ```
  *
  */
 export class UnsubscribeFromEventCommand extends $Command<
@@ -58,6 +104,9 @@ export class UnsubscribeFromEventCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UnsubscribeFromEventCommandInput) {
     // Start section: command_constructor
     super();
@@ -86,8 +135,8 @@ export class UnsubscribeFromEventCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UnsubscribeFromEventRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -97,12 +146,18 @@ export class UnsubscribeFromEventCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UnsubscribeFromEventCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UnsubscribeFromEventCommand(input, context);
+    return se_UnsubscribeFromEventCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnsubscribeFromEventCommandOutput> {
-    return deserializeAws_json1_1UnsubscribeFromEventCommand(output, context);
+    return de_UnsubscribeFromEventCommand(output, context);
   }
 
   // Start section: command_body_extra

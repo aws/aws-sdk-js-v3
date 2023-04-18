@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  GetModelVersionRequest,
-  GetModelVersionRequestFilterSensitiveLog,
-  GetModelVersionResult,
-  GetModelVersionResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetModelVersionCommand,
-  serializeAws_json1_1GetModelVersionCommand,
-} from "../protocols/Aws_json1_1";
+import { GetModelVersionRequest, GetModelVersionResult } from "../models/models_0";
+import { de_GetModelVersionCommand, se_GetModelVersionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetModelVersionCommand}.
+ */
 export interface GetModelVersionCommandInput extends GetModelVersionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetModelVersionCommand}.
+ */
 export interface GetModelVersionCommandOutput extends GetModelVersionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the details of the specified model version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,36 @@ export interface GetModelVersionCommandOutput extends GetModelVersionResult, __M
  * import { FraudDetectorClient, GetModelVersionCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, GetModelVersionCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = { // GetModelVersionRequest
+ *   modelId: "STRING_VALUE", // required
+ *   modelType: "ONLINE_FRAUD_INSIGHTS" || "TRANSACTION_FRAUD_INSIGHTS" || "ACCOUNT_TAKEOVER_INSIGHTS", // required
+ *   modelVersionNumber: "STRING_VALUE", // required
+ * };
  * const command = new GetModelVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetModelVersionCommandInput - {@link GetModelVersionCommandInput}
+ * @returns {@link GetModelVersionCommandOutput}
  * @see {@link GetModelVersionCommandInput} for command's `input` shape.
  * @see {@link GetModelVersionCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An exception indicating an internal server error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An exception indicating the specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>An exception indicating a throttling error.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An exception indicating a specified value is not allowed.</p>
+ *
  *
  */
 export class GetModelVersionCommand extends $Command<
@@ -62,6 +88,9 @@ export class GetModelVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetModelVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +119,8 @@ export class GetModelVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetModelVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetModelVersionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +130,18 @@ export class GetModelVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetModelVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetModelVersionCommand(input, context);
+    return se_GetModelVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetModelVersionCommandOutput> {
-    return deserializeAws_json1_1GetModelVersionCommand(output, context);
+    return de_GetModelVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import {
-  DescribeLimitsInput,
-  DescribeLimitsInputFilterSensitiveLog,
-  DescribeLimitsOutput,
-  DescribeLimitsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeLimitsCommand,
-  serializeAws_json1_1DescribeLimitsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeLimitsInput, DescribeLimitsOutput } from "../models/models_0";
+import { de_DescribeLimitsCommand, se_DescribeLimitsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeLimitsCommand}.
+ */
 export interface DescribeLimitsCommandInput extends DescribeLimitsInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeLimitsCommand}.
+ */
 export interface DescribeLimitsCommandOutput extends DescribeLimitsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the shard limits and usage for the account.</p>
  *          <p>If you update your account limits, the old limits might be returned for a few
  *             minutes.</p>
@@ -39,13 +42,21 @@ export interface DescribeLimitsCommandOutput extends DescribeLimitsOutput, __Met
  * import { KinesisClient, DescribeLimitsCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, DescribeLimitsCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
+ * const input = {};
  * const command = new DescribeLimitsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLimitsCommandInput - {@link DescribeLimitsCommandInput}
+ * @returns {@link DescribeLimitsCommandOutput}
  * @see {@link DescribeLimitsCommandInput} for command's `input` shape.
  * @see {@link DescribeLimitsCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
+ *             stream requests exceeds the maximum number allowed. </p>
+ *
  *
  */
 export class DescribeLimitsCommand extends $Command<
@@ -65,6 +76,9 @@ export class DescribeLimitsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLimitsCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +107,8 @@ export class DescribeLimitsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLimitsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLimitsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +118,18 @@ export class DescribeLimitsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLimitsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeLimitsCommand(input, context);
+    return se_DescribeLimitsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLimitsCommandOutput> {
-    return deserializeAws_json1_1DescribeLimitsCommand(output, context);
+    return de_DescribeLimitsCommand(output, context);
   }
 
   // Start section: command_body_extra

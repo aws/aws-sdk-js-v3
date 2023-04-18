@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeStandardsControlsRequest,
-  DescribeStandardsControlsRequestFilterSensitiveLog,
-  DescribeStandardsControlsResponse,
-  DescribeStandardsControlsResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1DescribeStandardsControlsCommand,
-  serializeAws_restJson1DescribeStandardsControlsCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeStandardsControlsRequest, DescribeStandardsControlsResponse } from "../models/models_2";
+import { de_DescribeStandardsControlsCommand, se_DescribeStandardsControlsCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeStandardsControlsCommand}.
+ */
 export interface DescribeStandardsControlsCommandInput extends DescribeStandardsControlsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeStandardsControlsCommand}.
+ */
 export interface DescribeStandardsControlsCommandOutput extends DescribeStandardsControlsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of security standards controls.</p>
  *          <p>For each control, the results include information about whether it is currently enabled,
  *          the severity, and a link to remediation information.</p>
@@ -38,13 +41,34 @@ export interface DescribeStandardsControlsCommandOutput extends DescribeStandard
  * import { SecurityHubClient, DescribeStandardsControlsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, DescribeStandardsControlsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = { // DescribeStandardsControlsRequest
+ *   StandardsSubscriptionArn: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeStandardsControlsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStandardsControlsCommandInput - {@link DescribeStandardsControlsCommandInput}
+ * @returns {@link DescribeStandardsControlsCommandOutput}
  * @see {@link DescribeStandardsControlsCommandInput} for command's `input` shape.
  * @see {@link DescribeStandardsControlsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>Internal server error.</p>
+ *
+ * @throws {@link InvalidAccessException} (client fault)
+ *  <p>The account doesn't have permission to perform this action.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because you supplied an invalid or out-of-range value for an
+ *          input parameter.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request was rejected because we can't find the specified resource.</p>
+ *
  *
  */
 export class DescribeStandardsControlsCommand extends $Command<
@@ -64,6 +88,9 @@ export class DescribeStandardsControlsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStandardsControlsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +119,8 @@ export class DescribeStandardsControlsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeStandardsControlsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeStandardsControlsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +130,21 @@ export class DescribeStandardsControlsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeStandardsControlsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeStandardsControlsCommand(input, context);
+    return se_DescribeStandardsControlsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeStandardsControlsCommandOutput> {
-    return deserializeAws_restJson1DescribeStandardsControlsCommand(output, context);
+    return de_DescribeStandardsControlsCommand(output, context);
   }
 
   // Start section: command_body_extra

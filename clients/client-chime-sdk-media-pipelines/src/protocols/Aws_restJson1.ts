@@ -1,15 +1,19 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  map,
+  parseEpochTimestamp as __parseEpochTimestamp,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -27,6 +31,14 @@ import {
   CreateMediaConcatenationPipelineCommandOutput,
 } from "../commands/CreateMediaConcatenationPipelineCommand";
 import {
+  CreateMediaInsightsPipelineCommandInput,
+  CreateMediaInsightsPipelineCommandOutput,
+} from "../commands/CreateMediaInsightsPipelineCommand";
+import {
+  CreateMediaInsightsPipelineConfigurationCommandInput,
+  CreateMediaInsightsPipelineConfigurationCommandOutput,
+} from "../commands/CreateMediaInsightsPipelineConfigurationCommand";
+import {
   CreateMediaLiveConnectorPipelineCommandInput,
   CreateMediaLiveConnectorPipelineCommandOutput,
 } from "../commands/CreateMediaLiveConnectorPipelineCommand";
@@ -35,6 +47,10 @@ import {
   DeleteMediaCapturePipelineCommandOutput,
 } from "../commands/DeleteMediaCapturePipelineCommand";
 import {
+  DeleteMediaInsightsPipelineConfigurationCommandInput,
+  DeleteMediaInsightsPipelineConfigurationCommandOutput,
+} from "../commands/DeleteMediaInsightsPipelineConfigurationCommand";
+import {
   DeleteMediaPipelineCommandInput,
   DeleteMediaPipelineCommandOutput,
 } from "../commands/DeleteMediaPipelineCommand";
@@ -42,11 +58,19 @@ import {
   GetMediaCapturePipelineCommandInput,
   GetMediaCapturePipelineCommandOutput,
 } from "../commands/GetMediaCapturePipelineCommand";
+import {
+  GetMediaInsightsPipelineConfigurationCommandInput,
+  GetMediaInsightsPipelineConfigurationCommandOutput,
+} from "../commands/GetMediaInsightsPipelineConfigurationCommand";
 import { GetMediaPipelineCommandInput, GetMediaPipelineCommandOutput } from "../commands/GetMediaPipelineCommand";
 import {
   ListMediaCapturePipelinesCommandInput,
   ListMediaCapturePipelinesCommandOutput,
 } from "../commands/ListMediaCapturePipelinesCommand";
+import {
+  ListMediaInsightsPipelineConfigurationsCommandInput,
+  ListMediaInsightsPipelineConfigurationsCommandOutput,
+} from "../commands/ListMediaInsightsPipelineConfigurationsCommand";
 import { ListMediaPipelinesCommandInput, ListMediaPipelinesCommandOutput } from "../commands/ListMediaPipelinesCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -54,13 +78,24 @@ import {
 } from "../commands/ListTagsForResourceCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import {
+  UpdateMediaInsightsPipelineConfigurationCommandInput,
+  UpdateMediaInsightsPipelineConfigurationCommandOutput,
+} from "../commands/UpdateMediaInsightsPipelineConfigurationCommand";
+import {
+  UpdateMediaInsightsPipelineStatusCommandInput,
+  UpdateMediaInsightsPipelineStatusCommandOutput,
+} from "../commands/UpdateMediaInsightsPipelineStatusCommand";
 import { ChimeSDKMediaPipelinesServiceException as __BaseException } from "../models/ChimeSDKMediaPipelinesServiceException";
 import {
+  AmazonTranscribeCallAnalyticsProcessorConfiguration,
+  AmazonTranscribeProcessorConfiguration,
   ArtifactsConcatenationConfiguration,
   ArtifactsConfiguration,
   AudioArtifactsConfiguration,
   AudioConcatenationConfiguration,
   BadRequestException,
+  ChannelDefinition,
   ChimeSdkMeetingConcatenationConfiguration,
   ChimeSdkMeetingConfiguration,
   ChimeSdkMeetingLiveConnectorConfiguration,
@@ -68,39 +103,64 @@ import {
   CompositedVideoConcatenationConfiguration,
   ConcatenationSink,
   ConcatenationSource,
+  ConflictException,
   ContentArtifactsConfiguration,
   ContentConcatenationConfiguration,
   DataChannelConcatenationConfiguration,
   ForbiddenException,
+  FragmentSelector,
   GridViewConfiguration,
+  IssueDetectionConfiguration,
+  KeywordMatchConfiguration,
+  KinesisDataStreamSinkConfiguration,
+  KinesisVideoStreamRecordingSourceRuntimeConfiguration,
+  KinesisVideoStreamSourceRuntimeConfiguration,
+  LambdaFunctionSinkConfiguration,
   LiveConnectorRTMPConfiguration,
   LiveConnectorSinkConfiguration,
   LiveConnectorSourceConfiguration,
   MediaCapturePipeline,
   MediaCapturePipelineSourceConfiguration,
-  MediaCapturePipelineSummary,
   MediaConcatenationPipeline,
+  MediaInsightsPipeline,
+  MediaInsightsPipelineConfiguration,
+  MediaInsightsPipelineConfigurationElement,
   MediaLiveConnectorPipeline,
   MediaPipeline,
-  MediaPipelineSummary,
   MeetingEventsConcatenationConfiguration,
   NotFoundException,
+  PostCallAnalyticsSettings,
   PresenterOnlyConfiguration,
+  RealTimeAlertConfiguration,
+  RealTimeAlertRule,
+  RecordingStreamConfiguration,
   ResourceLimitExceededException,
   S3BucketSinkConfiguration,
+  S3RecordingSinkConfiguration,
+  S3RecordingSinkRuntimeConfiguration,
   SelectedVideoStreams,
+  SentimentConfiguration,
   ServiceFailureException,
   ServiceUnavailableException,
+  SnsTopicSinkConfiguration,
   SourceConfiguration,
+  SqsQueueSinkConfiguration,
+  StreamChannelDefinition,
+  StreamConfiguration,
   Tag,
   ThrottledClientException,
+  TimestampRange,
   TranscriptionMessagesConcatenationConfiguration,
   UnauthorizedClientException,
   VideoArtifactsConfiguration,
   VideoConcatenationConfiguration,
+  VoiceAnalyticsProcessorConfiguration,
 } from "../models/models_0";
 
-export const serializeAws_restJson1CreateMediaCapturePipelineCommand = async (
+/**
+ * serializeAws_restJson1CreateMediaCapturePipelineCommand
+ */
+export const se_CreateMediaCapturePipelineCommand = async (
   input: CreateMediaCapturePipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -111,20 +171,17 @@ export const serializeAws_restJson1CreateMediaCapturePipelineCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sdk-media-capture-pipelines";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ChimeSdkMeetingConfiguration != null && {
-      ChimeSdkMeetingConfiguration: serializeAws_restJson1ChimeSdkMeetingConfiguration(
-        input.ChimeSdkMeetingConfiguration,
-        context
-      ),
-    }),
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.SinkArn != null && { SinkArn: input.SinkArn }),
-    ...(input.SinkType != null && { SinkType: input.SinkType }),
-    ...(input.SourceArn != null && { SourceArn: input.SourceArn }),
-    ...(input.SourceType != null && { SourceType: input.SourceType }),
-    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ChimeSdkMeetingConfiguration: (_) => _json(_),
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      SinkArn: [],
+      SinkType: [],
+      SourceArn: [],
+      SourceType: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -136,7 +193,10 @@ export const serializeAws_restJson1CreateMediaCapturePipelineCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateMediaConcatenationPipelineCommand = async (
+/**
+ * serializeAws_restJson1CreateMediaConcatenationPipelineCommand
+ */
+export const se_CreateMediaConcatenationPipelineCommand = async (
   input: CreateMediaConcatenationPipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -147,12 +207,14 @@ export const serializeAws_restJson1CreateMediaConcatenationPipelineCommand = asy
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sdk-media-concatenation-pipelines";
   let body: any;
-  body = JSON.stringify({
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Sinks != null && { Sinks: serializeAws_restJson1ConcatenationSinkList(input.Sinks, context) }),
-    ...(input.Sources != null && { Sources: serializeAws_restJson1ConcatenationSourceList(input.Sources, context) }),
-    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      Sinks: (_) => _json(_),
+      Sources: (_) => _json(_),
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -164,7 +226,82 @@ export const serializeAws_restJson1CreateMediaConcatenationPipelineCommand = asy
   });
 };
 
-export const serializeAws_restJson1CreateMediaLiveConnectorPipelineCommand = async (
+/**
+ * serializeAws_restJson1CreateMediaInsightsPipelineCommand
+ */
+export const se_CreateMediaInsightsPipelineCommand = async (
+  input: CreateMediaInsightsPipelineCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/media-insights-pipelines";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      KinesisVideoStreamRecordingSourceRuntimeConfiguration: (_) =>
+        se_KinesisVideoStreamRecordingSourceRuntimeConfiguration(_, context),
+      KinesisVideoStreamSourceRuntimeConfiguration: (_) => _json(_),
+      MediaInsightsPipelineConfigurationArn: [],
+      MediaInsightsRuntimeMetadata: (_) => _json(_),
+      S3RecordingSinkRuntimeConfiguration: (_) => _json(_),
+      Tags: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1CreateMediaInsightsPipelineConfigurationCommand
+ */
+export const se_CreateMediaInsightsPipelineConfigurationCommand = async (
+  input: CreateMediaInsightsPipelineConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/media-insights-pipeline-configurations";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      Elements: (_) => _json(_),
+      MediaInsightsPipelineConfigurationName: [],
+      RealTimeAlertConfiguration: (_) => _json(_),
+      ResourceAccessRoleArn: [],
+      Tags: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1CreateMediaLiveConnectorPipelineCommand
+ */
+export const se_CreateMediaLiveConnectorPipelineCommand = async (
   input: CreateMediaLiveConnectorPipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -175,12 +312,14 @@ export const serializeAws_restJson1CreateMediaLiveConnectorPipelineCommand = asy
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sdk-media-live-connector-pipelines";
   let body: any;
-  body = JSON.stringify({
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Sinks != null && { Sinks: serializeAws_restJson1LiveConnectorSinkList(input.Sinks, context) }),
-    ...(input.Sources != null && { Sources: serializeAws_restJson1LiveConnectorSourceList(input.Sources, context) }),
-    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      Sinks: (_) => _json(_),
+      Sources: (_) => _json(_),
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -192,7 +331,10 @@ export const serializeAws_restJson1CreateMediaLiveConnectorPipelineCommand = asy
   });
 };
 
-export const serializeAws_restJson1DeleteMediaCapturePipelineCommand = async (
+/**
+ * serializeAws_restJson1DeleteMediaCapturePipelineCommand
+ */
+export const se_DeleteMediaCapturePipelineCommand = async (
   input: DeleteMediaCapturePipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -221,7 +363,35 @@ export const serializeAws_restJson1DeleteMediaCapturePipelineCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteMediaPipelineCommand = async (
+/**
+ * serializeAws_restJson1DeleteMediaInsightsPipelineConfigurationCommand
+ */
+export const se_DeleteMediaInsightsPipelineConfigurationCommand = async (
+  input: DeleteMediaInsightsPipelineConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/media-insights-pipeline-configurations/{Identifier}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DeleteMediaPipelineCommand
+ */
+export const se_DeleteMediaPipelineCommand = async (
   input: DeleteMediaPipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -249,7 +419,10 @@ export const serializeAws_restJson1DeleteMediaPipelineCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetMediaCapturePipelineCommand = async (
+/**
+ * serializeAws_restJson1GetMediaCapturePipelineCommand
+ */
+export const se_GetMediaCapturePipelineCommand = async (
   input: GetMediaCapturePipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -278,7 +451,35 @@ export const serializeAws_restJson1GetMediaCapturePipelineCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetMediaPipelineCommand = async (
+/**
+ * serializeAws_restJson1GetMediaInsightsPipelineConfigurationCommand
+ */
+export const se_GetMediaInsightsPipelineConfigurationCommand = async (
+  input: GetMediaInsightsPipelineConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/media-insights-pipeline-configurations/{Identifier}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1GetMediaPipelineCommand
+ */
+export const se_GetMediaPipelineCommand = async (
   input: GetMediaPipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -306,7 +507,10 @@ export const serializeAws_restJson1GetMediaPipelineCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListMediaCapturePipelinesCommand = async (
+/**
+ * serializeAws_restJson1ListMediaCapturePipelinesCommand
+ */
+export const se_ListMediaCapturePipelinesCommand = async (
   input: ListMediaCapturePipelinesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -331,7 +535,38 @@ export const serializeAws_restJson1ListMediaCapturePipelinesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListMediaPipelinesCommand = async (
+/**
+ * serializeAws_restJson1ListMediaInsightsPipelineConfigurationsCommand
+ */
+export const se_ListMediaInsightsPipelineConfigurationsCommand = async (
+  input: ListMediaInsightsPipelineConfigurationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/media-insights-pipeline-configurations";
+  const query: any = map({
+    "next-token": [, input.NextToken!],
+    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListMediaPipelinesCommand
+ */
+export const se_ListMediaPipelinesCommand = async (
   input: ListMediaPipelinesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -355,7 +590,10 @@ export const serializeAws_restJson1ListMediaPipelinesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -378,7 +616,10 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1TagResourceCommand = async (
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -391,10 +632,12 @@ export const serializeAws_restJson1TagResourceCommand = async (
     operation: [, "tag-resource"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ResourceARN: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -407,7 +650,10 @@ export const serializeAws_restJson1TagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UntagResourceCommand = async (
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -420,10 +666,12 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     operation: [, "untag-resource"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys != null && { TagKeys: serializeAws_restJson1TagKeyList(input.TagKeys, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ResourceARN: [],
+      TagKeys: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -436,24 +684,97 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
-export const deserializeAws_restJson1CreateMediaCapturePipelineCommand = async (
+/**
+ * serializeAws_restJson1UpdateMediaInsightsPipelineConfigurationCommand
+ */
+export const se_UpdateMediaInsightsPipelineConfigurationCommand = async (
+  input: UpdateMediaInsightsPipelineConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/media-insights-pipeline-configurations/{Identifier}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Elements: (_) => _json(_),
+      RealTimeAlertConfiguration: (_) => _json(_),
+      ResourceAccessRoleArn: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1UpdateMediaInsightsPipelineStatusCommand
+ */
+export const se_UpdateMediaInsightsPipelineStatusCommand = async (
+  input: UpdateMediaInsightsPipelineStatusCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/media-insights-pipeline-status/{Identifier}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      UpdateStatus: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * deserializeAws_restJson1CreateMediaCapturePipelineCommand
+ */
+export const de_CreateMediaCapturePipelineCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateMediaCapturePipelineCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateMediaCapturePipelineCommandError(output, context);
+    return de_CreateMediaCapturePipelineCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MediaCapturePipeline != null) {
-    contents.MediaCapturePipeline = deserializeAws_restJson1MediaCapturePipeline(data.MediaCapturePipeline, context);
-  }
+  const doc = take(data, {
+    MediaCapturePipeline: (_) => de_MediaCapturePipeline(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateMediaCapturePipelineCommandError = async (
+/**
+ * deserializeAws_restJson1CreateMediaCapturePipelineCommandError
+ */
+const de_CreateMediaCapturePipelineCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateMediaCapturePipelineCommandOutput> => {
@@ -465,57 +786,60 @@ const deserializeAws_restJson1CreateMediaCapturePipelineCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.chimesdkmediapipelines#ResourceLimitExceededException":
-      throw await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateMediaConcatenationPipelineCommand = async (
+/**
+ * deserializeAws_restJson1CreateMediaConcatenationPipelineCommand
+ */
+export const de_CreateMediaConcatenationPipelineCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateMediaConcatenationPipelineCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateMediaConcatenationPipelineCommandError(output, context);
+    return de_CreateMediaConcatenationPipelineCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MediaConcatenationPipeline != null) {
-    contents.MediaConcatenationPipeline = deserializeAws_restJson1MediaConcatenationPipeline(
-      data.MediaConcatenationPipeline,
-      context
-    );
-  }
+  const doc = take(data, {
+    MediaConcatenationPipeline: (_) => de_MediaConcatenationPipeline(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateMediaConcatenationPipelineCommandError = async (
+/**
+ * deserializeAws_restJson1CreateMediaConcatenationPipelineCommandError
+ */
+const de_CreateMediaConcatenationPipelineCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateMediaConcatenationPipelineCommandOutput> => {
@@ -527,57 +851,196 @@ const deserializeAws_restJson1CreateMediaConcatenationPipelineCommandError = asy
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.chimesdkmediapipelines#ResourceLimitExceededException":
-      throw await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateMediaLiveConnectorPipelineCommand = async (
+/**
+ * deserializeAws_restJson1CreateMediaInsightsPipelineCommand
+ */
+export const de_CreateMediaInsightsPipelineCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateMediaInsightsPipelineCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CreateMediaInsightsPipelineCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    MediaInsightsPipeline: (_) => de_MediaInsightsPipeline(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateMediaInsightsPipelineCommandError
+ */
+const de_CreateMediaInsightsPipelineCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateMediaInsightsPipelineCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ResourceLimitExceededException":
+    case "com.amazonaws.chimesdkmediapipelines#ResourceLimitExceededException":
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CreateMediaInsightsPipelineConfigurationCommand
+ */
+export const de_CreateMediaInsightsPipelineConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateMediaInsightsPipelineConfigurationCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CreateMediaInsightsPipelineConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    MediaInsightsPipelineConfiguration: (_) => de_MediaInsightsPipelineConfiguration(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateMediaInsightsPipelineConfigurationCommandError
+ */
+const de_CreateMediaInsightsPipelineConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateMediaInsightsPipelineConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ResourceLimitExceededException":
+    case "com.amazonaws.chimesdkmediapipelines#ResourceLimitExceededException":
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CreateMediaLiveConnectorPipelineCommand
+ */
+export const de_CreateMediaLiveConnectorPipelineCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateMediaLiveConnectorPipelineCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateMediaLiveConnectorPipelineCommandError(output, context);
+    return de_CreateMediaLiveConnectorPipelineCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MediaLiveConnectorPipeline != null) {
-    contents.MediaLiveConnectorPipeline = deserializeAws_restJson1MediaLiveConnectorPipeline(
-      data.MediaLiveConnectorPipeline,
-      context
-    );
-  }
+  const doc = take(data, {
+    MediaLiveConnectorPipeline: (_) => de_MediaLiveConnectorPipeline(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateMediaLiveConnectorPipelineCommandError = async (
+/**
+ * deserializeAws_restJson1CreateMediaLiveConnectorPipelineCommandError
+ */
+const de_CreateMediaLiveConnectorPipelineCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateMediaLiveConnectorPipelineCommandOutput> => {
@@ -589,42 +1052,44 @@ const deserializeAws_restJson1CreateMediaLiveConnectorPipelineCommandError = asy
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.chimesdkmediapipelines#ResourceLimitExceededException":
-      throw await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteMediaCapturePipelineCommand = async (
+/**
+ * deserializeAws_restJson1DeleteMediaCapturePipelineCommand
+ */
+export const de_DeleteMediaCapturePipelineCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMediaCapturePipelineCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteMediaCapturePipelineCommandError(output, context);
+    return de_DeleteMediaCapturePipelineCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -633,7 +1098,10 @@ export const deserializeAws_restJson1DeleteMediaCapturePipelineCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteMediaCapturePipelineCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteMediaCapturePipelineCommandError
+ */
+const de_DeleteMediaCapturePipelineCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMediaCapturePipelineCommandOutput> => {
@@ -645,42 +1113,108 @@ const deserializeAws_restJson1DeleteMediaCapturePipelineCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteMediaPipelineCommand = async (
+/**
+ * deserializeAws_restJson1DeleteMediaInsightsPipelineConfigurationCommand
+ */
+export const de_DeleteMediaInsightsPipelineConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteMediaInsightsPipelineConfigurationCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_DeleteMediaInsightsPipelineConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteMediaInsightsPipelineConfigurationCommandError
+ */
+const de_DeleteMediaInsightsPipelineConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteMediaInsightsPipelineConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.chimesdkmediapipelines#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteMediaPipelineCommand
+ */
+export const de_DeleteMediaPipelineCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMediaPipelineCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteMediaPipelineCommandError(output, context);
+    return de_DeleteMediaPipelineCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -689,7 +1223,10 @@ export const deserializeAws_restJson1DeleteMediaPipelineCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteMediaPipelineCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteMediaPipelineCommandError
+ */
+const de_DeleteMediaPipelineCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMediaPipelineCommandOutput> => {
@@ -701,54 +1238,60 @@ const deserializeAws_restJson1DeleteMediaPipelineCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetMediaCapturePipelineCommand = async (
+/**
+ * deserializeAws_restJson1GetMediaCapturePipelineCommand
+ */
+export const de_GetMediaCapturePipelineCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMediaCapturePipelineCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetMediaCapturePipelineCommandError(output, context);
+    return de_GetMediaCapturePipelineCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MediaCapturePipeline != null) {
-    contents.MediaCapturePipeline = deserializeAws_restJson1MediaCapturePipeline(data.MediaCapturePipeline, context);
-  }
+  const doc = take(data, {
+    MediaCapturePipeline: (_) => de_MediaCapturePipeline(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetMediaCapturePipelineCommandError = async (
+/**
+ * deserializeAws_restJson1GetMediaCapturePipelineCommandError
+ */
+const de_GetMediaCapturePipelineCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMediaCapturePipelineCommandOutput> => {
@@ -760,54 +1303,125 @@ const deserializeAws_restJson1GetMediaCapturePipelineCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetMediaPipelineCommand = async (
+/**
+ * deserializeAws_restJson1GetMediaInsightsPipelineConfigurationCommand
+ */
+export const de_GetMediaInsightsPipelineConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMediaInsightsPipelineConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetMediaInsightsPipelineConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    MediaInsightsPipelineConfiguration: (_) => de_MediaInsightsPipelineConfiguration(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetMediaInsightsPipelineConfigurationCommandError
+ */
+const de_GetMediaInsightsPipelineConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMediaInsightsPipelineConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetMediaPipelineCommand
+ */
+export const de_GetMediaPipelineCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMediaPipelineCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetMediaPipelineCommandError(output, context);
+    return de_GetMediaPipelineCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MediaPipeline != null) {
-    contents.MediaPipeline = deserializeAws_restJson1MediaPipeline(data.MediaPipeline, context);
-  }
+  const doc = take(data, {
+    MediaPipeline: (_) => de_MediaPipeline(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetMediaPipelineCommandError = async (
+/**
+ * deserializeAws_restJson1GetMediaPipelineCommandError
+ */
+const de_GetMediaPipelineCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMediaPipelineCommandOutput> => {
@@ -819,60 +1433,61 @@ const deserializeAws_restJson1GetMediaPipelineCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListMediaCapturePipelinesCommand = async (
+/**
+ * deserializeAws_restJson1ListMediaCapturePipelinesCommand
+ */
+export const de_ListMediaCapturePipelinesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMediaCapturePipelinesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListMediaCapturePipelinesCommandError(output, context);
+    return de_ListMediaCapturePipelinesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MediaCapturePipelines != null) {
-    contents.MediaCapturePipelines = deserializeAws_restJson1MediaCapturePipelineSummaryList(
-      data.MediaCapturePipelines,
-      context
-    );
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    MediaCapturePipelines: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListMediaCapturePipelinesCommandError = async (
+/**
+ * deserializeAws_restJson1ListMediaCapturePipelinesCommandError
+ */
+const de_ListMediaCapturePipelinesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMediaCapturePipelinesCommandOutput> => {
@@ -884,57 +1499,127 @@ const deserializeAws_restJson1ListMediaCapturePipelinesCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.chimesdkmediapipelines#ResourceLimitExceededException":
-      throw await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListMediaPipelinesCommand = async (
+/**
+ * deserializeAws_restJson1ListMediaInsightsPipelineConfigurationsCommand
+ */
+export const de_ListMediaInsightsPipelineConfigurationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListMediaPipelinesCommandOutput> => {
+): Promise<ListMediaInsightsPipelineConfigurationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListMediaPipelinesCommandError(output, context);
+    return de_ListMediaInsightsPipelineConfigurationsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MediaPipelines != null) {
-    contents.MediaPipelines = deserializeAws_restJson1MediaPipelineList(data.MediaPipelines, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    MediaInsightsPipelineConfigurations: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListMediaPipelinesCommandError = async (
+/**
+ * deserializeAws_restJson1ListMediaInsightsPipelineConfigurationsCommandError
+ */
+const de_ListMediaInsightsPipelineConfigurationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMediaInsightsPipelineConfigurationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "ResourceLimitExceededException":
+    case "com.amazonaws.chimesdkmediapipelines#ResourceLimitExceededException":
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListMediaPipelinesCommand
+ */
+export const de_ListMediaPipelinesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMediaPipelinesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListMediaPipelinesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    MediaPipelines: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListMediaPipelinesCommandError
+ */
+const de_ListMediaPipelinesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMediaPipelinesCommandOutput> => {
@@ -946,54 +1631,60 @@ const deserializeAws_restJson1ListMediaPipelinesCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.chimesdkmediapipelines#ResourceLimitExceededException":
-      throw await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Tags != null) {
-    contents.Tags = deserializeAws_restJson1TagList(data.Tags, context);
-  }
+  const doc = take(data, {
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -1005,42 +1696,44 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1TagResourceCommand = async (
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1049,7 +1742,10 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1TagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -1061,42 +1757,44 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UntagResourceCommand = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1105,7 +1803,10 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UntagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -1117,52 +1818,180 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottledClientException":
     case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
-      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
-      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
-const deserializeAws_restJson1BadRequestExceptionResponse = async (
-  parsedOutput: any,
+/**
+ * deserializeAws_restJson1UpdateMediaInsightsPipelineConfigurationCommand
+ */
+export const de_UpdateMediaInsightsPipelineConfigurationCommand = async (
+  output: __HttpResponse,
   context: __SerdeContext
-): Promise<BadRequestException> => {
+): Promise<UpdateMediaInsightsPipelineConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateMediaInsightsPipelineConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    MediaInsightsPipelineConfiguration: (_) => de_MediaInsightsPipelineConfiguration(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateMediaInsightsPipelineConfigurationCommandError
+ */
+const de_UpdateMediaInsightsPipelineConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMediaInsightsPipelineConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.chimesdkmediapipelines#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UpdateMediaInsightsPipelineStatusCommand
+ */
+export const de_UpdateMediaInsightsPipelineStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMediaInsightsPipelineStatusCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateMediaInsightsPipelineStatusCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateMediaInsightsPipelineStatusCommandError
+ */
+const de_UpdateMediaInsightsPipelineStatusCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMediaInsightsPipelineStatusCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.chimesdkmediapipelines#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+const throwDefaultError = withBaseException(__BaseException);
+/**
+ * deserializeAws_restJson1BadRequestExceptionRes
+ */
+const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestId != null) {
-    contents.RequestId = __expectString(data.RequestId);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1170,21 +1999,37 @@ const deserializeAws_restJson1BadRequestExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ForbiddenExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ForbiddenException> => {
+/**
+ * deserializeAws_restJson1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestId != null) {
-    contents.RequestId = __expectString(data.RequestId);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ConflictException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1ForbiddenExceptionRes
+ */
+const de_ForbiddenExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ForbiddenException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ForbiddenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1192,21 +2037,18 @@ const deserializeAws_restJson1ForbiddenExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1NotFoundExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<NotFoundException> => {
+/**
+ * deserializeAws_restJson1NotFoundExceptionRes
+ */
+const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestId != null) {
-    contents.RequestId = __expectString(data.RequestId);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new NotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1214,21 +2056,21 @@ const deserializeAws_restJson1NotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceLimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceLimitExceededExceptionRes
+ */
+const de_ResourceLimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceLimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestId != null) {
-    contents.RequestId = __expectString(data.RequestId);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1236,21 +2078,21 @@ const deserializeAws_restJson1ResourceLimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ServiceFailureExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ServiceFailureExceptionRes
+ */
+const de_ServiceFailureExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceFailureException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestId != null) {
-    contents.RequestId = __expectString(data.RequestId);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceFailureException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1258,21 +2100,21 @@ const deserializeAws_restJson1ServiceFailureExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ServiceUnavailableExceptionRes
+ */
+const de_ServiceUnavailableExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestId != null) {
-    contents.RequestId = __expectString(data.RequestId);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1280,21 +2122,21 @@ const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ThrottledClientExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ThrottledClientExceptionRes
+ */
+const de_ThrottledClientExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ThrottledClientException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestId != null) {
-    contents.RequestId = __expectString(data.RequestId);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottledClientException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1302,21 +2144,21 @@ const deserializeAws_restJson1ThrottledClientExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1UnauthorizedClientExceptionResponse = async (
+/**
+ * deserializeAws_restJson1UnauthorizedClientExceptionRes
+ */
+const de_UnauthorizedClientExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnauthorizedClientException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestId != null) {
-    contents.RequestId = __expectString(data.RequestId);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new UnauthorizedClientException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1324,944 +2166,438 @@ const deserializeAws_restJson1UnauthorizedClientExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1ArtifactsConcatenationConfiguration = (
-  input: ArtifactsConcatenationConfiguration,
+// se_AmazonTranscribeCallAnalyticsProcessorConfiguration omitted.
+
+// se_AmazonTranscribeProcessorConfiguration omitted.
+
+// se_ArtifactsConcatenationConfiguration omitted.
+
+// se_ArtifactsConfiguration omitted.
+
+// se_AttendeeIdList omitted.
+
+// se_AudioArtifactsConfiguration omitted.
+
+// se_AudioConcatenationConfiguration omitted.
+
+// se_CategoryNameList omitted.
+
+// se_ChannelDefinition omitted.
+
+// se_ChannelDefinitions omitted.
+
+// se_ChimeSdkMeetingConcatenationConfiguration omitted.
+
+// se_ChimeSdkMeetingConfiguration omitted.
+
+// se_ChimeSdkMeetingLiveConnectorConfiguration omitted.
+
+// se_CompositedVideoArtifactsConfiguration omitted.
+
+// se_CompositedVideoConcatenationConfiguration omitted.
+
+// se_ConcatenationSink omitted.
+
+// se_ConcatenationSinkList omitted.
+
+// se_ConcatenationSource omitted.
+
+// se_ConcatenationSourceList omitted.
+
+// se_ContentArtifactsConfiguration omitted.
+
+// se_ContentConcatenationConfiguration omitted.
+
+// se_DataChannelConcatenationConfiguration omitted.
+
+// se_ExternalUserIdList omitted.
+
+/**
+ * serializeAws_restJson1FragmentSelector
+ */
+const se_FragmentSelector = (input: FragmentSelector, context: __SerdeContext): any => {
+  return take(input, {
+    FragmentSelectorType: [],
+    TimestampRange: (_) => se_TimestampRange(_, context),
+  });
+};
+
+// se_GridViewConfiguration omitted.
+
+// se_IssueDetectionConfiguration omitted.
+
+// se_KeywordMatchConfiguration omitted.
+
+// se_KeywordMatchWordList omitted.
+
+// se_KinesisDataStreamSinkConfiguration omitted.
+
+/**
+ * serializeAws_restJson1KinesisVideoStreamRecordingSourceRuntimeConfiguration
+ */
+const se_KinesisVideoStreamRecordingSourceRuntimeConfiguration = (
+  input: KinesisVideoStreamRecordingSourceRuntimeConfiguration,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.Audio != null && { Audio: serializeAws_restJson1AudioConcatenationConfiguration(input.Audio, context) }),
-    ...(input.CompositedVideo != null && {
-      CompositedVideo: serializeAws_restJson1CompositedVideoConcatenationConfiguration(input.CompositedVideo, context),
-    }),
-    ...(input.Content != null && {
-      Content: serializeAws_restJson1ContentConcatenationConfiguration(input.Content, context),
-    }),
-    ...(input.DataChannel != null && {
-      DataChannel: serializeAws_restJson1DataChannelConcatenationConfiguration(input.DataChannel, context),
-    }),
-    ...(input.MeetingEvents != null && {
-      MeetingEvents: serializeAws_restJson1MeetingEventsConcatenationConfiguration(input.MeetingEvents, context),
-    }),
-    ...(input.TranscriptionMessages != null && {
-      TranscriptionMessages: serializeAws_restJson1TranscriptionMessagesConcatenationConfiguration(
-        input.TranscriptionMessages,
-        context
-      ),
-    }),
-    ...(input.Video != null && { Video: serializeAws_restJson1VideoConcatenationConfiguration(input.Video, context) }),
-  };
+  return take(input, {
+    FragmentSelector: (_) => se_FragmentSelector(_, context),
+    Streams: _json,
+  });
 };
 
-const serializeAws_restJson1ArtifactsConfiguration = (input: ArtifactsConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.Audio != null && { Audio: serializeAws_restJson1AudioArtifactsConfiguration(input.Audio, context) }),
-    ...(input.CompositedVideo != null && {
-      CompositedVideo: serializeAws_restJson1CompositedVideoArtifactsConfiguration(input.CompositedVideo, context),
-    }),
-    ...(input.Content != null && {
-      Content: serializeAws_restJson1ContentArtifactsConfiguration(input.Content, context),
-    }),
-    ...(input.Video != null && { Video: serializeAws_restJson1VideoArtifactsConfiguration(input.Video, context) }),
-  };
+// se_KinesisVideoStreamSourceRuntimeConfiguration omitted.
+
+// se_LambdaFunctionSinkConfiguration omitted.
+
+// se_LiveConnectorRTMPConfiguration omitted.
+
+// se_LiveConnectorSinkConfiguration omitted.
+
+// se_LiveConnectorSinkList omitted.
+
+// se_LiveConnectorSourceConfiguration omitted.
+
+// se_LiveConnectorSourceList omitted.
+
+// se_MediaCapturePipelineSourceConfiguration omitted.
+
+// se_MediaInsightsPipelineConfigurationElement omitted.
+
+// se_MediaInsightsPipelineConfigurationElements omitted.
+
+// se_MediaInsightsRuntimeMetadata omitted.
+
+// se_MeetingEventsConcatenationConfiguration omitted.
+
+// se_PostCallAnalyticsSettings omitted.
+
+// se_PresenterOnlyConfiguration omitted.
+
+// se_RealTimeAlertConfiguration omitted.
+
+// se_RealTimeAlertRule omitted.
+
+// se_RealTimeAlertRuleList omitted.
+
+// se_RecordingStreamConfiguration omitted.
+
+// se_RecordingStreamList omitted.
+
+// se_S3BucketSinkConfiguration omitted.
+
+// se_S3RecordingSinkConfiguration omitted.
+
+// se_S3RecordingSinkRuntimeConfiguration omitted.
+
+// se_SelectedVideoStreams omitted.
+
+// se_SentimentConfiguration omitted.
+
+// se_SnsTopicSinkConfiguration omitted.
+
+// se_SourceConfiguration omitted.
+
+// se_SqsQueueSinkConfiguration omitted.
+
+// se_StreamChannelDefinition omitted.
+
+// se_StreamConfiguration omitted.
+
+// se_Streams omitted.
+
+// se_Tag omitted.
+
+// se_TagKeyList omitted.
+
+// se_TagList omitted.
+
+/**
+ * serializeAws_restJson1TimestampRange
+ */
+const se_TimestampRange = (input: TimestampRange, context: __SerdeContext): any => {
+  return take(input, {
+    EndTimestamp: (_) => Math.round(_.getTime() / 1000),
+    StartTimestamp: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-const serializeAws_restJson1AttendeeIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
+// se_TranscriptionMessagesConcatenationConfiguration omitted.
+
+// se_VideoArtifactsConfiguration omitted.
+
+// se_VideoConcatenationConfiguration omitted.
+
+// se_VoiceAnalyticsProcessorConfiguration omitted.
+
+// de_AmazonTranscribeCallAnalyticsProcessorConfiguration omitted.
+
+// de_AmazonTranscribeProcessorConfiguration omitted.
+
+// de_ArtifactsConcatenationConfiguration omitted.
+
+// de_ArtifactsConfiguration omitted.
+
+// de_AttendeeIdList omitted.
+
+// de_AudioArtifactsConfiguration omitted.
+
+// de_AudioConcatenationConfiguration omitted.
+
+// de_CategoryNameList omitted.
+
+// de_ChannelDefinition omitted.
+
+// de_ChannelDefinitions omitted.
+
+// de_ChimeSdkMeetingConcatenationConfiguration omitted.
+
+// de_ChimeSdkMeetingConfiguration omitted.
+
+// de_ChimeSdkMeetingLiveConnectorConfiguration omitted.
+
+// de_CompositedVideoArtifactsConfiguration omitted.
+
+// de_CompositedVideoConcatenationConfiguration omitted.
+
+// de_ConcatenationSink omitted.
+
+// de_ConcatenationSinkList omitted.
+
+// de_ConcatenationSource omitted.
+
+// de_ConcatenationSourceList omitted.
+
+// de_ContentArtifactsConfiguration omitted.
+
+// de_ContentConcatenationConfiguration omitted.
+
+// de_DataChannelConcatenationConfiguration omitted.
+
+// de_ExternalUserIdList omitted.
+
+/**
+ * deserializeAws_restJson1FragmentSelector
+ */
+const de_FragmentSelector = (output: any, context: __SerdeContext): FragmentSelector => {
+  return take(output, {
+    FragmentSelectorType: __expectString,
+    TimestampRange: (_: any) => de_TimestampRange(_, context),
+  }) as any;
 };
 
-const serializeAws_restJson1AudioArtifactsConfiguration = (
-  input: AudioArtifactsConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MuxType != null && { MuxType: input.MuxType }),
-  };
-};
+// de_GridViewConfiguration omitted.
 
-const serializeAws_restJson1AudioConcatenationConfiguration = (
-  input: AudioConcatenationConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.State != null && { State: input.State }),
-  };
-};
+// de_IssueDetectionConfiguration omitted.
 
-const serializeAws_restJson1ChimeSdkMeetingConcatenationConfiguration = (
-  input: ChimeSdkMeetingConcatenationConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ArtifactsConfiguration != null && {
-      ArtifactsConfiguration: serializeAws_restJson1ArtifactsConcatenationConfiguration(
-        input.ArtifactsConfiguration,
-        context
-      ),
-    }),
-  };
-};
+// de_KeywordMatchConfiguration omitted.
 
-const serializeAws_restJson1ChimeSdkMeetingConfiguration = (
-  input: ChimeSdkMeetingConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ArtifactsConfiguration != null && {
-      ArtifactsConfiguration: serializeAws_restJson1ArtifactsConfiguration(input.ArtifactsConfiguration, context),
-    }),
-    ...(input.SourceConfiguration != null && {
-      SourceConfiguration: serializeAws_restJson1SourceConfiguration(input.SourceConfiguration, context),
-    }),
-  };
-};
+// de_KeywordMatchWordList omitted.
 
-const serializeAws_restJson1ChimeSdkMeetingLiveConnectorConfiguration = (
-  input: ChimeSdkMeetingLiveConnectorConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Arn != null && { Arn: input.Arn }),
-    ...(input.CompositedVideo != null && {
-      CompositedVideo: serializeAws_restJson1CompositedVideoArtifactsConfiguration(input.CompositedVideo, context),
-    }),
-    ...(input.MuxType != null && { MuxType: input.MuxType }),
-    ...(input.SourceConfiguration != null && {
-      SourceConfiguration: serializeAws_restJson1SourceConfiguration(input.SourceConfiguration, context),
-    }),
-  };
-};
+// de_KinesisDataStreamSinkConfiguration omitted.
 
-const serializeAws_restJson1CompositedVideoArtifactsConfiguration = (
-  input: CompositedVideoArtifactsConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.GridViewConfiguration != null && {
-      GridViewConfiguration: serializeAws_restJson1GridViewConfiguration(input.GridViewConfiguration, context),
-    }),
-    ...(input.Layout != null && { Layout: input.Layout }),
-    ...(input.Resolution != null && { Resolution: input.Resolution }),
-  };
-};
-
-const serializeAws_restJson1CompositedVideoConcatenationConfiguration = (
-  input: CompositedVideoConcatenationConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.State != null && { State: input.State }),
-  };
-};
-
-const serializeAws_restJson1ConcatenationSink = (input: ConcatenationSink, context: __SerdeContext): any => {
-  return {
-    ...(input.S3BucketSinkConfiguration != null && {
-      S3BucketSinkConfiguration: serializeAws_restJson1S3BucketSinkConfiguration(
-        input.S3BucketSinkConfiguration,
-        context
-      ),
-    }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
-
-const serializeAws_restJson1ConcatenationSinkList = (input: ConcatenationSink[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1ConcatenationSink(entry, context);
-    });
-};
-
-const serializeAws_restJson1ConcatenationSource = (input: ConcatenationSource, context: __SerdeContext): any => {
-  return {
-    ...(input.MediaCapturePipelineSourceConfiguration != null && {
-      MediaCapturePipelineSourceConfiguration: serializeAws_restJson1MediaCapturePipelineSourceConfiguration(
-        input.MediaCapturePipelineSourceConfiguration,
-        context
-      ),
-    }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
-
-const serializeAws_restJson1ConcatenationSourceList = (input: ConcatenationSource[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1ConcatenationSource(entry, context);
-    });
-};
-
-const serializeAws_restJson1ContentArtifactsConfiguration = (
-  input: ContentArtifactsConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MuxType != null && { MuxType: input.MuxType }),
-    ...(input.State != null && { State: input.State }),
-  };
-};
-
-const serializeAws_restJson1ContentConcatenationConfiguration = (
-  input: ContentConcatenationConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.State != null && { State: input.State }),
-  };
-};
-
-const serializeAws_restJson1DataChannelConcatenationConfiguration = (
-  input: DataChannelConcatenationConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.State != null && { State: input.State }),
-  };
-};
-
-const serializeAws_restJson1ExternalUserIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const serializeAws_restJson1GridViewConfiguration = (input: GridViewConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.ContentShareLayout != null && { ContentShareLayout: input.ContentShareLayout }),
-    ...(input.PresenterOnlyConfiguration != null && {
-      PresenterOnlyConfiguration: serializeAws_restJson1PresenterOnlyConfiguration(
-        input.PresenterOnlyConfiguration,
-        context
-      ),
-    }),
-  };
-};
-
-const serializeAws_restJson1LiveConnectorRTMPConfiguration = (
-  input: LiveConnectorRTMPConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AudioChannels != null && { AudioChannels: input.AudioChannels }),
-    ...(input.AudioSampleRate != null && { AudioSampleRate: input.AudioSampleRate }),
-    ...(input.Url != null && { Url: input.Url }),
-  };
-};
-
-const serializeAws_restJson1LiveConnectorSinkConfiguration = (
-  input: LiveConnectorSinkConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.RTMPConfiguration != null && {
-      RTMPConfiguration: serializeAws_restJson1LiveConnectorRTMPConfiguration(input.RTMPConfiguration, context),
-    }),
-    ...(input.SinkType != null && { SinkType: input.SinkType }),
-  };
-};
-
-const serializeAws_restJson1LiveConnectorSinkList = (
-  input: LiveConnectorSinkConfiguration[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1LiveConnectorSinkConfiguration(entry, context);
-    });
-};
-
-const serializeAws_restJson1LiveConnectorSourceConfiguration = (
-  input: LiveConnectorSourceConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ChimeSdkMeetingLiveConnectorConfiguration != null && {
-      ChimeSdkMeetingLiveConnectorConfiguration: serializeAws_restJson1ChimeSdkMeetingLiveConnectorConfiguration(
-        input.ChimeSdkMeetingLiveConnectorConfiguration,
-        context
-      ),
-    }),
-    ...(input.SourceType != null && { SourceType: input.SourceType }),
-  };
-};
-
-const serializeAws_restJson1LiveConnectorSourceList = (
-  input: LiveConnectorSourceConfiguration[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1LiveConnectorSourceConfiguration(entry, context);
-    });
-};
-
-const serializeAws_restJson1MediaCapturePipelineSourceConfiguration = (
-  input: MediaCapturePipelineSourceConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ChimeSdkMeetingConfiguration != null && {
-      ChimeSdkMeetingConfiguration: serializeAws_restJson1ChimeSdkMeetingConcatenationConfiguration(
-        input.ChimeSdkMeetingConfiguration,
-        context
-      ),
-    }),
-    ...(input.MediaPipelineArn != null && { MediaPipelineArn: input.MediaPipelineArn }),
-  };
-};
-
-const serializeAws_restJson1MeetingEventsConcatenationConfiguration = (
-  input: MeetingEventsConcatenationConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.State != null && { State: input.State }),
-  };
-};
-
-const serializeAws_restJson1PresenterOnlyConfiguration = (
-  input: PresenterOnlyConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.PresenterPosition != null && { PresenterPosition: input.PresenterPosition }),
-  };
-};
-
-const serializeAws_restJson1S3BucketSinkConfiguration = (
-  input: S3BucketSinkConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Destination != null && { Destination: input.Destination }),
-  };
-};
-
-const serializeAws_restJson1SelectedVideoStreams = (input: SelectedVideoStreams, context: __SerdeContext): any => {
-  return {
-    ...(input.AttendeeIds != null && { AttendeeIds: serializeAws_restJson1AttendeeIdList(input.AttendeeIds, context) }),
-    ...(input.ExternalUserIds != null && {
-      ExternalUserIds: serializeAws_restJson1ExternalUserIdList(input.ExternalUserIds, context),
-    }),
-  };
-};
-
-const serializeAws_restJson1SourceConfiguration = (input: SourceConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.SelectedVideoStreams != null && {
-      SelectedVideoStreams: serializeAws_restJson1SelectedVideoStreams(input.SelectedVideoStreams, context),
-    }),
-  };
-};
-
-const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
-
-const serializeAws_restJson1TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const serializeAws_restJson1TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1Tag(entry, context);
-    });
-};
-
-const serializeAws_restJson1TranscriptionMessagesConcatenationConfiguration = (
-  input: TranscriptionMessagesConcatenationConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.State != null && { State: input.State }),
-  };
-};
-
-const serializeAws_restJson1VideoArtifactsConfiguration = (
-  input: VideoArtifactsConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MuxType != null && { MuxType: input.MuxType }),
-    ...(input.State != null && { State: input.State }),
-  };
-};
-
-const serializeAws_restJson1VideoConcatenationConfiguration = (
-  input: VideoConcatenationConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.State != null && { State: input.State }),
-  };
-};
-
-const deserializeAws_restJson1ArtifactsConcatenationConfiguration = (
+/**
+ * deserializeAws_restJson1KinesisVideoStreamRecordingSourceRuntimeConfiguration
+ */
+const de_KinesisVideoStreamRecordingSourceRuntimeConfiguration = (
   output: any,
   context: __SerdeContext
-): ArtifactsConcatenationConfiguration => {
-  return {
-    Audio:
-      output.Audio != null ? deserializeAws_restJson1AudioConcatenationConfiguration(output.Audio, context) : undefined,
-    CompositedVideo:
-      output.CompositedVideo != null
-        ? deserializeAws_restJson1CompositedVideoConcatenationConfiguration(output.CompositedVideo, context)
-        : undefined,
-    Content:
-      output.Content != null
-        ? deserializeAws_restJson1ContentConcatenationConfiguration(output.Content, context)
-        : undefined,
-    DataChannel:
-      output.DataChannel != null
-        ? deserializeAws_restJson1DataChannelConcatenationConfiguration(output.DataChannel, context)
-        : undefined,
-    MeetingEvents:
-      output.MeetingEvents != null
-        ? deserializeAws_restJson1MeetingEventsConcatenationConfiguration(output.MeetingEvents, context)
-        : undefined,
-    TranscriptionMessages:
-      output.TranscriptionMessages != null
-        ? deserializeAws_restJson1TranscriptionMessagesConcatenationConfiguration(output.TranscriptionMessages, context)
-        : undefined,
-    Video:
-      output.Video != null ? deserializeAws_restJson1VideoConcatenationConfiguration(output.Video, context) : undefined,
-  } as any;
+): KinesisVideoStreamRecordingSourceRuntimeConfiguration => {
+  return take(output, {
+    FragmentSelector: (_: any) => de_FragmentSelector(_, context),
+    Streams: _json,
+  }) as any;
 };
 
-const deserializeAws_restJson1ArtifactsConfiguration = (
+// de_KinesisVideoStreamSourceRuntimeConfiguration omitted.
+
+// de_LambdaFunctionSinkConfiguration omitted.
+
+// de_LiveConnectorRTMPConfiguration omitted.
+
+// de_LiveConnectorSinkConfiguration omitted.
+
+// de_LiveConnectorSinkList omitted.
+
+// de_LiveConnectorSourceConfiguration omitted.
+
+// de_LiveConnectorSourceList omitted.
+
+/**
+ * deserializeAws_restJson1MediaCapturePipeline
+ */
+const de_MediaCapturePipeline = (output: any, context: __SerdeContext): MediaCapturePipeline => {
+  return take(output, {
+    ChimeSdkMeetingConfiguration: _json,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    MediaPipelineArn: __expectString,
+    MediaPipelineId: __expectString,
+    SinkArn: __expectString,
+    SinkType: __expectString,
+    SourceArn: __expectString,
+    SourceType: __expectString,
+    Status: __expectString,
+    UpdatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
+// de_MediaCapturePipelineSourceConfiguration omitted.
+
+// de_MediaCapturePipelineSummary omitted.
+
+// de_MediaCapturePipelineSummaryList omitted.
+
+/**
+ * deserializeAws_restJson1MediaConcatenationPipeline
+ */
+const de_MediaConcatenationPipeline = (output: any, context: __SerdeContext): MediaConcatenationPipeline => {
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    MediaPipelineArn: __expectString,
+    MediaPipelineId: __expectString,
+    Sinks: _json,
+    Sources: _json,
+    Status: __expectString,
+    UpdatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1MediaInsightsPipeline
+ */
+const de_MediaInsightsPipeline = (output: any, context: __SerdeContext): MediaInsightsPipeline => {
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    KinesisVideoStreamRecordingSourceRuntimeConfiguration: (_: any) =>
+      de_KinesisVideoStreamRecordingSourceRuntimeConfiguration(_, context),
+    KinesisVideoStreamSourceRuntimeConfiguration: _json,
+    MediaInsightsPipelineConfigurationArn: __expectString,
+    MediaInsightsRuntimeMetadata: _json,
+    MediaPipelineArn: __expectString,
+    MediaPipelineId: __expectString,
+    S3RecordingSinkRuntimeConfiguration: _json,
+    Status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1MediaInsightsPipelineConfiguration
+ */
+const de_MediaInsightsPipelineConfiguration = (
   output: any,
   context: __SerdeContext
-): ArtifactsConfiguration => {
-  return {
-    Audio:
-      output.Audio != null ? deserializeAws_restJson1AudioArtifactsConfiguration(output.Audio, context) : undefined,
-    CompositedVideo:
-      output.CompositedVideo != null
-        ? deserializeAws_restJson1CompositedVideoArtifactsConfiguration(output.CompositedVideo, context)
-        : undefined,
-    Content:
-      output.Content != null
-        ? deserializeAws_restJson1ContentArtifactsConfiguration(output.Content, context)
-        : undefined,
-    Video:
-      output.Video != null ? deserializeAws_restJson1VideoArtifactsConfiguration(output.Video, context) : undefined,
-  } as any;
+): MediaInsightsPipelineConfiguration => {
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Elements: _json,
+    MediaInsightsPipelineConfigurationArn: __expectString,
+    MediaInsightsPipelineConfigurationId: __expectString,
+    MediaInsightsPipelineConfigurationName: __expectString,
+    RealTimeAlertConfiguration: _json,
+    ResourceAccessRoleArn: __expectString,
+    UpdatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
-const deserializeAws_restJson1AttendeeIdList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
+// de_MediaInsightsPipelineConfigurationElement omitted.
+
+// de_MediaInsightsPipelineConfigurationElements omitted.
+
+// de_MediaInsightsPipelineConfigurationSummary omitted.
+
+// de_MediaInsightsPipelineConfigurationSummaryList omitted.
+
+// de_MediaInsightsRuntimeMetadata omitted.
+
+/**
+ * deserializeAws_restJson1MediaLiveConnectorPipeline
+ */
+const de_MediaLiveConnectorPipeline = (output: any, context: __SerdeContext): MediaLiveConnectorPipeline => {
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    MediaPipelineArn: __expectString,
+    MediaPipelineId: __expectString,
+    Sinks: _json,
+    Sources: _json,
+    Status: __expectString,
+    UpdatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
-const deserializeAws_restJson1AudioArtifactsConfiguration = (
-  output: any,
-  context: __SerdeContext
-): AudioArtifactsConfiguration => {
-  return {
-    MuxType: __expectString(output.MuxType),
-  } as any;
+/**
+ * deserializeAws_restJson1MediaPipeline
+ */
+const de_MediaPipeline = (output: any, context: __SerdeContext): MediaPipeline => {
+  return take(output, {
+    MediaCapturePipeline: (_: any) => de_MediaCapturePipeline(_, context),
+    MediaConcatenationPipeline: (_: any) => de_MediaConcatenationPipeline(_, context),
+    MediaInsightsPipeline: (_: any) => de_MediaInsightsPipeline(_, context),
+    MediaLiveConnectorPipeline: (_: any) => de_MediaLiveConnectorPipeline(_, context),
+  }) as any;
 };
 
-const deserializeAws_restJson1AudioConcatenationConfiguration = (
-  output: any,
-  context: __SerdeContext
-): AudioConcatenationConfiguration => {
-  return {
-    State: __expectString(output.State),
-  } as any;
+// de_MediaPipelineList omitted.
+
+// de_MediaPipelineSummary omitted.
+
+// de_MeetingEventsConcatenationConfiguration omitted.
+
+// de_PostCallAnalyticsSettings omitted.
+
+// de_PresenterOnlyConfiguration omitted.
+
+// de_RealTimeAlertConfiguration omitted.
+
+// de_RealTimeAlertRule omitted.
+
+// de_RealTimeAlertRuleList omitted.
+
+// de_RecordingStreamConfiguration omitted.
+
+// de_RecordingStreamList omitted.
+
+// de_S3BucketSinkConfiguration omitted.
+
+// de_S3RecordingSinkConfiguration omitted.
+
+// de_S3RecordingSinkRuntimeConfiguration omitted.
+
+// de_SelectedVideoStreams omitted.
+
+// de_SentimentConfiguration omitted.
+
+// de_SnsTopicSinkConfiguration omitted.
+
+// de_SourceConfiguration omitted.
+
+// de_SqsQueueSinkConfiguration omitted.
+
+// de_StreamChannelDefinition omitted.
+
+// de_StreamConfiguration omitted.
+
+// de_Streams omitted.
+
+// de_Tag omitted.
+
+// de_TagList omitted.
+
+/**
+ * deserializeAws_restJson1TimestampRange
+ */
+const de_TimestampRange = (output: any, context: __SerdeContext): TimestampRange => {
+  return take(output, {
+    EndTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StartTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-const deserializeAws_restJson1ChimeSdkMeetingConcatenationConfiguration = (
-  output: any,
-  context: __SerdeContext
-): ChimeSdkMeetingConcatenationConfiguration => {
-  return {
-    ArtifactsConfiguration:
-      output.ArtifactsConfiguration != null
-        ? deserializeAws_restJson1ArtifactsConcatenationConfiguration(output.ArtifactsConfiguration, context)
-        : undefined,
-  } as any;
-};
+// de_TranscriptionMessagesConcatenationConfiguration omitted.
 
-const deserializeAws_restJson1ChimeSdkMeetingConfiguration = (
-  output: any,
-  context: __SerdeContext
-): ChimeSdkMeetingConfiguration => {
-  return {
-    ArtifactsConfiguration:
-      output.ArtifactsConfiguration != null
-        ? deserializeAws_restJson1ArtifactsConfiguration(output.ArtifactsConfiguration, context)
-        : undefined,
-    SourceConfiguration:
-      output.SourceConfiguration != null
-        ? deserializeAws_restJson1SourceConfiguration(output.SourceConfiguration, context)
-        : undefined,
-  } as any;
-};
+// de_VideoArtifactsConfiguration omitted.
 
-const deserializeAws_restJson1ChimeSdkMeetingLiveConnectorConfiguration = (
-  output: any,
-  context: __SerdeContext
-): ChimeSdkMeetingLiveConnectorConfiguration => {
-  return {
-    Arn: __expectString(output.Arn),
-    CompositedVideo:
-      output.CompositedVideo != null
-        ? deserializeAws_restJson1CompositedVideoArtifactsConfiguration(output.CompositedVideo, context)
-        : undefined,
-    MuxType: __expectString(output.MuxType),
-    SourceConfiguration:
-      output.SourceConfiguration != null
-        ? deserializeAws_restJson1SourceConfiguration(output.SourceConfiguration, context)
-        : undefined,
-  } as any;
-};
+// de_VideoConcatenationConfiguration omitted.
 
-const deserializeAws_restJson1CompositedVideoArtifactsConfiguration = (
-  output: any,
-  context: __SerdeContext
-): CompositedVideoArtifactsConfiguration => {
-  return {
-    GridViewConfiguration:
-      output.GridViewConfiguration != null
-        ? deserializeAws_restJson1GridViewConfiguration(output.GridViewConfiguration, context)
-        : undefined,
-    Layout: __expectString(output.Layout),
-    Resolution: __expectString(output.Resolution),
-  } as any;
-};
-
-const deserializeAws_restJson1CompositedVideoConcatenationConfiguration = (
-  output: any,
-  context: __SerdeContext
-): CompositedVideoConcatenationConfiguration => {
-  return {
-    State: __expectString(output.State),
-  } as any;
-};
-
-const deserializeAws_restJson1ConcatenationSink = (output: any, context: __SerdeContext): ConcatenationSink => {
-  return {
-    S3BucketSinkConfiguration:
-      output.S3BucketSinkConfiguration != null
-        ? deserializeAws_restJson1S3BucketSinkConfiguration(output.S3BucketSinkConfiguration, context)
-        : undefined,
-    Type: __expectString(output.Type),
-  } as any;
-};
-
-const deserializeAws_restJson1ConcatenationSinkList = (output: any, context: __SerdeContext): ConcatenationSink[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ConcatenationSink(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1ConcatenationSource = (output: any, context: __SerdeContext): ConcatenationSource => {
-  return {
-    MediaCapturePipelineSourceConfiguration:
-      output.MediaCapturePipelineSourceConfiguration != null
-        ? deserializeAws_restJson1MediaCapturePipelineSourceConfiguration(
-            output.MediaCapturePipelineSourceConfiguration,
-            context
-          )
-        : undefined,
-    Type: __expectString(output.Type),
-  } as any;
-};
-
-const deserializeAws_restJson1ConcatenationSourceList = (
-  output: any,
-  context: __SerdeContext
-): ConcatenationSource[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ConcatenationSource(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1ContentArtifactsConfiguration = (
-  output: any,
-  context: __SerdeContext
-): ContentArtifactsConfiguration => {
-  return {
-    MuxType: __expectString(output.MuxType),
-    State: __expectString(output.State),
-  } as any;
-};
-
-const deserializeAws_restJson1ContentConcatenationConfiguration = (
-  output: any,
-  context: __SerdeContext
-): ContentConcatenationConfiguration => {
-  return {
-    State: __expectString(output.State),
-  } as any;
-};
-
-const deserializeAws_restJson1DataChannelConcatenationConfiguration = (
-  output: any,
-  context: __SerdeContext
-): DataChannelConcatenationConfiguration => {
-  return {
-    State: __expectString(output.State),
-  } as any;
-};
-
-const deserializeAws_restJson1ExternalUserIdList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1GridViewConfiguration = (output: any, context: __SerdeContext): GridViewConfiguration => {
-  return {
-    ContentShareLayout: __expectString(output.ContentShareLayout),
-    PresenterOnlyConfiguration:
-      output.PresenterOnlyConfiguration != null
-        ? deserializeAws_restJson1PresenterOnlyConfiguration(output.PresenterOnlyConfiguration, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1LiveConnectorRTMPConfiguration = (
-  output: any,
-  context: __SerdeContext
-): LiveConnectorRTMPConfiguration => {
-  return {
-    AudioChannels: __expectString(output.AudioChannels),
-    AudioSampleRate: __expectString(output.AudioSampleRate),
-    Url: __expectString(output.Url),
-  } as any;
-};
-
-const deserializeAws_restJson1LiveConnectorSinkConfiguration = (
-  output: any,
-  context: __SerdeContext
-): LiveConnectorSinkConfiguration => {
-  return {
-    RTMPConfiguration:
-      output.RTMPConfiguration != null
-        ? deserializeAws_restJson1LiveConnectorRTMPConfiguration(output.RTMPConfiguration, context)
-        : undefined,
-    SinkType: __expectString(output.SinkType),
-  } as any;
-};
-
-const deserializeAws_restJson1LiveConnectorSinkList = (
-  output: any,
-  context: __SerdeContext
-): LiveConnectorSinkConfiguration[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1LiveConnectorSinkConfiguration(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1LiveConnectorSourceConfiguration = (
-  output: any,
-  context: __SerdeContext
-): LiveConnectorSourceConfiguration => {
-  return {
-    ChimeSdkMeetingLiveConnectorConfiguration:
-      output.ChimeSdkMeetingLiveConnectorConfiguration != null
-        ? deserializeAws_restJson1ChimeSdkMeetingLiveConnectorConfiguration(
-            output.ChimeSdkMeetingLiveConnectorConfiguration,
-            context
-          )
-        : undefined,
-    SourceType: __expectString(output.SourceType),
-  } as any;
-};
-
-const deserializeAws_restJson1LiveConnectorSourceList = (
-  output: any,
-  context: __SerdeContext
-): LiveConnectorSourceConfiguration[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1LiveConnectorSourceConfiguration(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1MediaCapturePipeline = (output: any, context: __SerdeContext): MediaCapturePipeline => {
-  return {
-    ChimeSdkMeetingConfiguration:
-      output.ChimeSdkMeetingConfiguration != null
-        ? deserializeAws_restJson1ChimeSdkMeetingConfiguration(output.ChimeSdkMeetingConfiguration, context)
-        : undefined,
-    CreatedTimestamp:
-      output.CreatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.CreatedTimestamp)) : undefined,
-    MediaPipelineArn: __expectString(output.MediaPipelineArn),
-    MediaPipelineId: __expectString(output.MediaPipelineId),
-    SinkArn: __expectString(output.SinkArn),
-    SinkType: __expectString(output.SinkType),
-    SourceArn: __expectString(output.SourceArn),
-    SourceType: __expectString(output.SourceType),
-    Status: __expectString(output.Status),
-    UpdatedTimestamp:
-      output.UpdatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedTimestamp)) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1MediaCapturePipelineSourceConfiguration = (
-  output: any,
-  context: __SerdeContext
-): MediaCapturePipelineSourceConfiguration => {
-  return {
-    ChimeSdkMeetingConfiguration:
-      output.ChimeSdkMeetingConfiguration != null
-        ? deserializeAws_restJson1ChimeSdkMeetingConcatenationConfiguration(
-            output.ChimeSdkMeetingConfiguration,
-            context
-          )
-        : undefined,
-    MediaPipelineArn: __expectString(output.MediaPipelineArn),
-  } as any;
-};
-
-const deserializeAws_restJson1MediaCapturePipelineSummary = (
-  output: any,
-  context: __SerdeContext
-): MediaCapturePipelineSummary => {
-  return {
-    MediaPipelineArn: __expectString(output.MediaPipelineArn),
-    MediaPipelineId: __expectString(output.MediaPipelineId),
-  } as any;
-};
-
-const deserializeAws_restJson1MediaCapturePipelineSummaryList = (
-  output: any,
-  context: __SerdeContext
-): MediaCapturePipelineSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1MediaCapturePipelineSummary(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1MediaConcatenationPipeline = (
-  output: any,
-  context: __SerdeContext
-): MediaConcatenationPipeline => {
-  return {
-    CreatedTimestamp:
-      output.CreatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.CreatedTimestamp)) : undefined,
-    MediaPipelineArn: __expectString(output.MediaPipelineArn),
-    MediaPipelineId: __expectString(output.MediaPipelineId),
-    Sinks: output.Sinks != null ? deserializeAws_restJson1ConcatenationSinkList(output.Sinks, context) : undefined,
-    Sources:
-      output.Sources != null ? deserializeAws_restJson1ConcatenationSourceList(output.Sources, context) : undefined,
-    Status: __expectString(output.Status),
-    UpdatedTimestamp:
-      output.UpdatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedTimestamp)) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1MediaLiveConnectorPipeline = (
-  output: any,
-  context: __SerdeContext
-): MediaLiveConnectorPipeline => {
-  return {
-    CreatedTimestamp:
-      output.CreatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.CreatedTimestamp)) : undefined,
-    MediaPipelineArn: __expectString(output.MediaPipelineArn),
-    MediaPipelineId: __expectString(output.MediaPipelineId),
-    Sinks: output.Sinks != null ? deserializeAws_restJson1LiveConnectorSinkList(output.Sinks, context) : undefined,
-    Sources:
-      output.Sources != null ? deserializeAws_restJson1LiveConnectorSourceList(output.Sources, context) : undefined,
-    Status: __expectString(output.Status),
-    UpdatedTimestamp:
-      output.UpdatedTimestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedTimestamp)) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1MediaPipeline = (output: any, context: __SerdeContext): MediaPipeline => {
-  return {
-    MediaCapturePipeline:
-      output.MediaCapturePipeline != null
-        ? deserializeAws_restJson1MediaCapturePipeline(output.MediaCapturePipeline, context)
-        : undefined,
-    MediaConcatenationPipeline:
-      output.MediaConcatenationPipeline != null
-        ? deserializeAws_restJson1MediaConcatenationPipeline(output.MediaConcatenationPipeline, context)
-        : undefined,
-    MediaLiveConnectorPipeline:
-      output.MediaLiveConnectorPipeline != null
-        ? deserializeAws_restJson1MediaLiveConnectorPipeline(output.MediaLiveConnectorPipeline, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1MediaPipelineList = (output: any, context: __SerdeContext): MediaPipelineSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1MediaPipelineSummary(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1MediaPipelineSummary = (output: any, context: __SerdeContext): MediaPipelineSummary => {
-  return {
-    MediaPipelineArn: __expectString(output.MediaPipelineArn),
-    MediaPipelineId: __expectString(output.MediaPipelineId),
-  } as any;
-};
-
-const deserializeAws_restJson1MeetingEventsConcatenationConfiguration = (
-  output: any,
-  context: __SerdeContext
-): MeetingEventsConcatenationConfiguration => {
-  return {
-    State: __expectString(output.State),
-  } as any;
-};
-
-const deserializeAws_restJson1PresenterOnlyConfiguration = (
-  output: any,
-  context: __SerdeContext
-): PresenterOnlyConfiguration => {
-  return {
-    PresenterPosition: __expectString(output.PresenterPosition),
-  } as any;
-};
-
-const deserializeAws_restJson1S3BucketSinkConfiguration = (
-  output: any,
-  context: __SerdeContext
-): S3BucketSinkConfiguration => {
-  return {
-    Destination: __expectString(output.Destination),
-  } as any;
-};
-
-const deserializeAws_restJson1SelectedVideoStreams = (output: any, context: __SerdeContext): SelectedVideoStreams => {
-  return {
-    AttendeeIds:
-      output.AttendeeIds != null ? deserializeAws_restJson1AttendeeIdList(output.AttendeeIds, context) : undefined,
-    ExternalUserIds:
-      output.ExternalUserIds != null
-        ? deserializeAws_restJson1ExternalUserIdList(output.ExternalUserIds, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1SourceConfiguration = (output: any, context: __SerdeContext): SourceConfiguration => {
-  return {
-    SelectedVideoStreams:
-      output.SelectedVideoStreams != null
-        ? deserializeAws_restJson1SelectedVideoStreams(output.SelectedVideoStreams, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
-
-const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Tag(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1TranscriptionMessagesConcatenationConfiguration = (
-  output: any,
-  context: __SerdeContext
-): TranscriptionMessagesConcatenationConfiguration => {
-  return {
-    State: __expectString(output.State),
-  } as any;
-};
-
-const deserializeAws_restJson1VideoArtifactsConfiguration = (
-  output: any,
-  context: __SerdeContext
-): VideoArtifactsConfiguration => {
-  return {
-    MuxType: __expectString(output.MuxType),
-    State: __expectString(output.State),
-  } as any;
-};
-
-const deserializeAws_restJson1VideoConcatenationConfiguration = (
-  output: any,
-  context: __SerdeContext
-): VideoConcatenationConfiguration => {
-  return {
-    State: __expectString(output.State),
-  } as any;
-};
+// de_VoiceAnalyticsProcessorConfiguration omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

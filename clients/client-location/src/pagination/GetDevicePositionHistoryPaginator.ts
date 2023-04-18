@@ -6,12 +6,11 @@ import {
   GetDevicePositionHistoryCommandInput,
   GetDevicePositionHistoryCommandOutput,
 } from "../commands/GetDevicePositionHistoryCommand";
-import { Location } from "../Location";
 import { LocationClient } from "../LocationClient";
 import { LocationPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: LocationClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new GetDevicePositionHistoryCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Location,
-  input: GetDevicePositionHistoryCommandInput,
-  ...args: any
-): Promise<GetDevicePositionHistoryCommandOutput> => {
-  // @ts-ignore
-  return await client.getDevicePositionHistory(input, ...args);
-};
 export async function* paginateGetDevicePositionHistory(
   config: LocationPaginationConfiguration,
   input: GetDevicePositionHistoryCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateGetDevicePositionHistory(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Location) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof LocationClient) {
+    if (config.client instanceof LocationClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Location | LocationClient");

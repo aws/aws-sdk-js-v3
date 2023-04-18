@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListTablesCommand, ListTablesCommandInput, ListTablesCommandOutput } from "../commands/ListTablesCommand";
-import { DynamoDB } from "../DynamoDB";
 import { DynamoDBClient } from "../DynamoDBClient";
 import { DynamoDBPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DynamoDBClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListTablesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: DynamoDB,
-  input: ListTablesCommandInput,
-  ...args: any
-): Promise<ListTablesCommandOutput> => {
-  // @ts-ignore
-  return await client.listTables(input, ...args);
-};
 export async function* paginateListTables(
   config: DynamoDBPaginationConfiguration,
   input: ListTablesCommandInput,
@@ -40,9 +31,7 @@ export async function* paginateListTables(
   while (hasNext) {
     input.ExclusiveStartTableName = token;
     input["Limit"] = config.pageSize;
-    if (config.client instanceof DynamoDB) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DynamoDBClient) {
+    if (config.client instanceof DynamoDBClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected DynamoDB | DynamoDBClient");

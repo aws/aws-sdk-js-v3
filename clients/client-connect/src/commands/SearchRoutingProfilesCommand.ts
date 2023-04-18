@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  SearchRoutingProfilesRequest,
-  SearchRoutingProfilesRequestFilterSensitiveLog,
-  SearchRoutingProfilesResponse,
-  SearchRoutingProfilesResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1SearchRoutingProfilesCommand,
-  serializeAws_restJson1SearchRoutingProfilesCommand,
-} from "../protocols/Aws_restJson1";
+import { SearchRoutingProfilesRequest, SearchRoutingProfilesResponse } from "../models/models_1";
+import { de_SearchRoutingProfilesCommand, se_SearchRoutingProfilesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link SearchRoutingProfilesCommand}.
+ */
 export interface SearchRoutingProfilesCommandInput extends SearchRoutingProfilesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SearchRoutingProfilesCommand}.
+ */
 export interface SearchRoutingProfilesCommandOutput extends SearchRoutingProfilesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Searches routing profiles in an Amazon Connect instance, with optional filtering.</p>
  * @example
@@ -37,13 +40,80 @@ export interface SearchRoutingProfilesCommandOutput extends SearchRoutingProfile
  * import { ConnectClient, SearchRoutingProfilesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, SearchRoutingProfilesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // SearchRoutingProfilesRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   SearchFilter: { // RoutingProfileSearchFilter
+ *     TagFilter: { // ControlPlaneTagFilter
+ *       OrConditions: [ // TagOrConditionList
+ *         [ // TagAndConditionList
+ *           { // TagCondition
+ *             TagKey: "STRING_VALUE",
+ *             TagValue: "STRING_VALUE",
+ *           },
+ *         ],
+ *       ],
+ *       AndConditions: [
+ *         {
+ *           TagKey: "STRING_VALUE",
+ *           TagValue: "STRING_VALUE",
+ *         },
+ *       ],
+ *       TagCondition: "<TagCondition>",
+ *     },
+ *   },
+ *   SearchCriteria: { // RoutingProfileSearchCriteria
+ *     OrConditions: [ // RoutingProfileSearchConditionList
+ *       {
+ *         OrConditions: [
+ *           "<RoutingProfileSearchCriteria>",
+ *         ],
+ *         AndConditions: [
+ *           "<RoutingProfileSearchCriteria>",
+ *         ],
+ *         StringCondition: { // StringCondition
+ *           FieldName: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *           ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
+ *         },
+ *       },
+ *     ],
+ *     AndConditions: [
+ *       "<RoutingProfileSearchCriteria>",
+ *     ],
+ *     StringCondition: {
+ *       FieldName: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *       ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
+ *     },
+ *   },
+ * };
  * const command = new SearchRoutingProfilesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchRoutingProfilesCommandInput - {@link SearchRoutingProfilesCommandInput}
+ * @returns {@link SearchRoutingProfilesCommandOutput}
  * @see {@link SearchRoutingProfilesCommandInput} for command's `input` shape.
  * @see {@link SearchRoutingProfilesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
  *
  */
 export class SearchRoutingProfilesCommand extends $Command<
@@ -63,6 +133,9 @@ export class SearchRoutingProfilesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchRoutingProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +164,8 @@ export class SearchRoutingProfilesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchRoutingProfilesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchRoutingProfilesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +175,18 @@ export class SearchRoutingProfilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchRoutingProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchRoutingProfilesCommand(input, context);
+    return se_SearchRoutingProfilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchRoutingProfilesCommandOutput> {
-    return deserializeAws_restJson1SearchRoutingProfilesCommand(output, context);
+    return de_SearchRoutingProfilesCommand(output, context);
   }
 
   // Start section: command_body_extra

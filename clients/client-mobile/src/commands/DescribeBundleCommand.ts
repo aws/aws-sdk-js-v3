@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MobileClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MobileClient";
-import {
-  DescribeBundleRequest,
-  DescribeBundleRequestFilterSensitiveLog,
-  DescribeBundleResult,
-  DescribeBundleResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeBundleCommand,
-  serializeAws_restJson1DescribeBundleCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeBundleRequest, DescribeBundleResult } from "../models/models_0";
+import { de_DescribeBundleCommand, se_DescribeBundleCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeBundleCommand}.
+ */
 export interface DescribeBundleCommandInput extends DescribeBundleRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeBundleCommand}.
+ */
 export interface DescribeBundleCommandOutput extends DescribeBundleResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             Get the bundle details for the requested bundle id.
  *         </p>
@@ -38,13 +41,53 @@ export interface DescribeBundleCommandOutput extends DescribeBundleResult, __Met
  * import { MobileClient, DescribeBundleCommand } from "@aws-sdk/client-mobile"; // ES Modules import
  * // const { MobileClient, DescribeBundleCommand } = require("@aws-sdk/client-mobile"); // CommonJS import
  * const client = new MobileClient(config);
+ * const input = { // DescribeBundleRequest
+ *   bundleId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeBundleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBundleCommandInput - {@link DescribeBundleCommandInput}
+ * @returns {@link DescribeBundleCommandOutput}
  * @see {@link DescribeBundleCommandInput} for command's `input` shape.
  * @see {@link DescribeBundleCommandOutput} for command's `response` shape.
  * @see {@link MobileClientResolvedConfig | config} for MobileClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>
+ *             The request cannot be processed because some parameter is not valid or the project
+ *             state prevents the operation from being performed.
+ *         </p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>
+ *             The service has encountered an unexpected error condition which prevents it from
+ *             servicing the request.
+ *         </p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>
+ *             No entity can be found with the specified identifier.
+ *         </p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>
+ *             The service is temporarily unavailable. The request should be retried after some
+ *             time delay.
+ *         </p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>
+ *             Too many requests have been received for this AWS account in too short a time. The
+ *             request should be retried after some time delay.
+ *         </p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>
+ *             Credentials of the caller are insufficient to authorize the request.
+ *         </p>
+ *
  *
  */
 export class DescribeBundleCommand extends $Command<
@@ -64,6 +107,9 @@ export class DescribeBundleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBundleCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +138,8 @@ export class DescribeBundleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeBundleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeBundleResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +149,18 @@ export class DescribeBundleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeBundleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeBundleCommand(input, context);
+    return se_DescribeBundleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBundleCommandOutput> {
-    return deserializeAws_restJson1DescribeBundleCommand(output, context);
+    return de_DescribeBundleCommand(output, context);
   }
 
   // Start section: command_body_extra

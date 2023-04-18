@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  DeleteTopicRuleDestinationRequest,
-  DeleteTopicRuleDestinationRequestFilterSensitiveLog,
-  DeleteTopicRuleDestinationResponse,
-  DeleteTopicRuleDestinationResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1DeleteTopicRuleDestinationCommand,
-  serializeAws_restJson1DeleteTopicRuleDestinationCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteTopicRuleDestinationRequest, DeleteTopicRuleDestinationResponse } from "../models/models_1";
+import { de_DeleteTopicRuleDestinationCommand, se_DeleteTopicRuleDestinationCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteTopicRuleDestinationCommand}.
+ */
 export interface DeleteTopicRuleDestinationCommandInput extends DeleteTopicRuleDestinationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteTopicRuleDestinationCommand}.
+ */
 export interface DeleteTopicRuleDestinationCommandOutput extends DeleteTopicRuleDestinationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a topic rule destination.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteTopicRuleDestination</a> action.</p>
  * @example
@@ -37,13 +40,35 @@ export interface DeleteTopicRuleDestinationCommandOutput extends DeleteTopicRule
  * import { IoTClient, DeleteTopicRuleDestinationCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeleteTopicRuleDestinationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // DeleteTopicRuleDestinationRequest
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteTopicRuleDestinationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTopicRuleDestinationCommandInput - {@link DeleteTopicRuleDestinationCommandInput}
+ * @returns {@link DeleteTopicRuleDestinationCommandOutput}
  * @see {@link DeleteTopicRuleDestinationCommandInput} for command's `input` shape.
  * @see {@link DeleteTopicRuleDestinationCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link ConflictingResourceUpdateException} (client fault)
+ *  <p>A conflicting resource update exception. This exception is thrown when two pending
+ *          updates cause a conflict.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You are not authorized to perform this operation.</p>
+ *
  *
  */
 export class DeleteTopicRuleDestinationCommand extends $Command<
@@ -63,6 +88,9 @@ export class DeleteTopicRuleDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTopicRuleDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +119,8 @@ export class DeleteTopicRuleDestinationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTopicRuleDestinationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTopicRuleDestinationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,15 +130,21 @@ export class DeleteTopicRuleDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTopicRuleDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteTopicRuleDestinationCommand(input, context);
+    return se_DeleteTopicRuleDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteTopicRuleDestinationCommandOutput> {
-    return deserializeAws_restJson1DeleteTopicRuleDestinationCommand(output, context);
+    return de_DeleteTopicRuleDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateResolverRuleRequest,
-  UpdateResolverRuleRequestFilterSensitiveLog,
-  UpdateResolverRuleResponse,
-  UpdateResolverRuleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateResolverRuleCommand,
-  serializeAws_json1_1UpdateResolverRuleCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateResolverRuleRequest, UpdateResolverRuleResponse } from "../models/models_0";
+import { de_UpdateResolverRuleCommand, se_UpdateResolverRuleCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateResolverRuleCommand}.
+ */
 export interface UpdateResolverRuleCommandInput extends UpdateResolverRuleRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateResolverRuleCommand}.
+ */
 export interface UpdateResolverRuleCommandOutput extends UpdateResolverRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates settings for a specified Resolver rule. <code>ResolverRuleId</code> is required, and all other parameters are optional.
  * 			If you don't specify a parameter, it retains its current value.</p>
  * @example
@@ -37,13 +40,51 @@ export interface UpdateResolverRuleCommandOutput extends UpdateResolverRuleRespo
  * import { Route53ResolverClient, UpdateResolverRuleCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, UpdateResolverRuleCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = { // UpdateResolverRuleRequest
+ *   ResolverRuleId: "STRING_VALUE", // required
+ *   Config: { // ResolverRuleConfig
+ *     Name: "STRING_VALUE",
+ *     TargetIps: [ // TargetList
+ *       { // TargetAddress
+ *         Ip: "STRING_VALUE",
+ *         Port: Number("int"),
+ *         Ipv6: "STRING_VALUE",
+ *       },
+ *     ],
+ *     ResolverEndpointId: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateResolverRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateResolverRuleCommandInput - {@link UpdateResolverRuleCommandInput}
+ * @returns {@link UpdateResolverRuleCommandOutput}
  * @see {@link UpdateResolverRuleCommandInput} for command's `input` shape.
  * @see {@link UpdateResolverRuleCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
+ *
+ * @throws {@link InternalServiceErrorException} (client fault)
+ *  <p>We encountered an unknown error. Try again in a few minutes.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters in this request are not valid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request caused one or more limits to be exceeded.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource doesn't exist.</p>
+ *
+ * @throws {@link ResourceUnavailableException} (client fault)
+ *  <p>The specified resource isn't available.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was throttled. Try again in a few minutes.</p>
+ *
  *
  */
 export class UpdateResolverRuleCommand extends $Command<
@@ -63,6 +104,9 @@ export class UpdateResolverRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateResolverRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +135,8 @@ export class UpdateResolverRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateResolverRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateResolverRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +146,18 @@ export class UpdateResolverRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateResolverRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateResolverRuleCommand(input, context);
+    return se_UpdateResolverRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateResolverRuleCommandOutput> {
-    return deserializeAws_json1_1UpdateResolverRuleCommand(output, context);
+    return de_UpdateResolverRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

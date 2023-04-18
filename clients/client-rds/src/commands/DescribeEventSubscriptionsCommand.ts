@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeEventSubscriptionsMessage,
-  DescribeEventSubscriptionsMessageFilterSensitiveLog,
-  EventSubscriptionsMessage,
-  EventSubscriptionsMessageFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryDescribeEventSubscriptionsCommand,
-  serializeAws_queryDescribeEventSubscriptionsCommand,
-} from "../protocols/Aws_query";
+import { DescribeEventSubscriptionsMessage, EventSubscriptionsMessage } from "../models/models_1";
+import { de_DescribeEventSubscriptionsCommand, se_DescribeEventSubscriptionsCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeEventSubscriptionsCommand}.
+ */
 export interface DescribeEventSubscriptionsCommandInput extends DescribeEventSubscriptionsMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeEventSubscriptionsCommand}.
+ */
 export interface DescribeEventSubscriptionsCommandOutput extends EventSubscriptionsMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the subscription descriptions for a customer account. The description for a subscription includes
  *           <code>SubscriptionName</code>, <code>SNSTopicARN</code>, <code>CustomerID</code>, <code>SourceType</code>, <code>SourceID</code>, <code>CreationTime</code>, and <code>Status</code>.</p>
  *          <p>If you specify a <code>SubscriptionName</code>, lists the description for that subscription.</p>
@@ -38,13 +41,61 @@ export interface DescribeEventSubscriptionsCommandOutput extends EventSubscripti
  * import { RDSClient, DescribeEventSubscriptionsCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeEventSubscriptionsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // DescribeEventSubscriptionsMessage
+ *   SubscriptionName: "STRING_VALUE",
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeEventSubscriptionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEventSubscriptionsCommandInput - {@link DescribeEventSubscriptionsCommandInput}
+ * @returns {@link DescribeEventSubscriptionsCommandOutput}
  * @see {@link DescribeEventSubscriptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeEventSubscriptionsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ * @throws {@link SubscriptionNotFoundFault} (client fault)
+ *  <p>The subscription name does not exist.</p>
+ *
+ *
+ * @example To describe event subscriptions
+ * ```javascript
+ * // This example describes all of the Amazon RDS event subscriptions for the current AWS account.
+ * const input = {};
+ * const command = new DescribeEventSubscriptionsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "EventSubscriptionsList": [
+ *     {
+ *       "CustSubscriptionId": "my-instance-events",
+ *       "CustomerAwsId": "123456789012",
+ *       "Enabled": true,
+ *       "EventCategoriesList": [
+ *         "backup",
+ *         "recovery"
+ *       ],
+ *       "EventSubscriptionArn": "arn:aws:rds:us-east-1:123456789012:es:my-instance-events",
+ *       "SnsTopicArn": "arn:aws:sns:us-east-1:123456789012:interesting-events",
+ *       "SourceType": "db-instance",
+ *       "Status": "creating",
+ *       "SubscriptionCreationTime": "2018-07-31 23:22:01.893"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-event-subscriptions-1680281683538
+ * ```
  *
  */
 export class DescribeEventSubscriptionsCommand extends $Command<
@@ -64,6 +115,9 @@ export class DescribeEventSubscriptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEventSubscriptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +146,8 @@ export class DescribeEventSubscriptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEventSubscriptionsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: EventSubscriptionsMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +157,21 @@ export class DescribeEventSubscriptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEventSubscriptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeEventSubscriptionsCommand(input, context);
+    return se_DescribeEventSubscriptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEventSubscriptionsCommandOutput> {
-    return deserializeAws_queryDescribeEventSubscriptionsCommand(output, context);
+    return de_DescribeEventSubscriptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

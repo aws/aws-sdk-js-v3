@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import {
-  BatchRevokePermissionsRequest,
-  BatchRevokePermissionsRequestFilterSensitiveLog,
-  BatchRevokePermissionsResponse,
-  BatchRevokePermissionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchRevokePermissionsCommand,
-  serializeAws_restJson1BatchRevokePermissionsCommand,
-} from "../protocols/Aws_restJson1";
+import { BatchRevokePermissionsRequest, BatchRevokePermissionsResponse } from "../models/models_0";
+import { de_BatchRevokePermissionsCommand, se_BatchRevokePermissionsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchRevokePermissionsCommand}.
+ */
 export interface BatchRevokePermissionsCommandInput extends BatchRevokePermissionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link BatchRevokePermissionsCommand}.
+ */
 export interface BatchRevokePermissionsCommandOutput extends BatchRevokePermissionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Batch operation to revoke permissions from the principal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,94 @@ export interface BatchRevokePermissionsCommandOutput extends BatchRevokePermissi
  * import { LakeFormationClient, BatchRevokePermissionsCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, BatchRevokePermissionsCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
+ * const input = { // BatchRevokePermissionsRequest
+ *   CatalogId: "STRING_VALUE",
+ *   Entries: [ // BatchPermissionsRequestEntryList // required
+ *     { // BatchPermissionsRequestEntry
+ *       Id: "STRING_VALUE", // required
+ *       Principal: { // DataLakePrincipal
+ *         DataLakePrincipalIdentifier: "STRING_VALUE",
+ *       },
+ *       Resource: { // Resource
+ *         Catalog: {},
+ *         Database: { // DatabaseResource
+ *           CatalogId: "STRING_VALUE",
+ *           Name: "STRING_VALUE", // required
+ *         },
+ *         Table: { // TableResource
+ *           CatalogId: "STRING_VALUE",
+ *           DatabaseName: "STRING_VALUE", // required
+ *           Name: "STRING_VALUE",
+ *           TableWildcard: {},
+ *         },
+ *         TableWithColumns: { // TableWithColumnsResource
+ *           CatalogId: "STRING_VALUE",
+ *           DatabaseName: "STRING_VALUE", // required
+ *           Name: "STRING_VALUE", // required
+ *           ColumnNames: [ // ColumnNames
+ *             "STRING_VALUE",
+ *           ],
+ *           ColumnWildcard: { // ColumnWildcard
+ *             ExcludedColumnNames: [
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         },
+ *         DataLocation: { // DataLocationResource
+ *           CatalogId: "STRING_VALUE",
+ *           ResourceArn: "STRING_VALUE", // required
+ *         },
+ *         DataCellsFilter: { // DataCellsFilterResource
+ *           TableCatalogId: "STRING_VALUE",
+ *           DatabaseName: "STRING_VALUE",
+ *           TableName: "STRING_VALUE",
+ *           Name: "STRING_VALUE",
+ *         },
+ *         LFTag: { // LFTagKeyResource
+ *           CatalogId: "STRING_VALUE",
+ *           TagKey: "STRING_VALUE", // required
+ *           TagValues: [ // TagValueList // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *         LFTagPolicy: { // LFTagPolicyResource
+ *           CatalogId: "STRING_VALUE",
+ *           ResourceType: "DATABASE" || "TABLE", // required
+ *           Expression: [ // Expression // required
+ *             { // LFTag
+ *               TagKey: "STRING_VALUE", // required
+ *               TagValues: [ // required
+ *                 "STRING_VALUE",
+ *               ],
+ *             },
+ *           ],
+ *         },
+ *       },
+ *       Permissions: [ // PermissionList
+ *         "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_TAG" || "ASSOCIATE",
+ *       ],
+ *       PermissionsWithGrantOption: [
+ *         "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_TAG" || "ASSOCIATE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new BatchRevokePermissionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchRevokePermissionsCommandInput - {@link BatchRevokePermissionsCommandInput}
+ * @returns {@link BatchRevokePermissionsCommandOutput}
  * @see {@link BatchRevokePermissionsCommandInput} for command's `input` shape.
  * @see {@link BatchRevokePermissionsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class BatchRevokePermissionsCommand extends $Command<
@@ -62,6 +146,9 @@ export class BatchRevokePermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchRevokePermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +177,8 @@ export class BatchRevokePermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchRevokePermissionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchRevokePermissionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +188,18 @@ export class BatchRevokePermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchRevokePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchRevokePermissionsCommand(input, context);
+    return se_BatchRevokePermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchRevokePermissionsCommandOutput> {
-    return deserializeAws_restJson1BatchRevokePermissionsCommand(output, context);
+    return de_BatchRevokePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

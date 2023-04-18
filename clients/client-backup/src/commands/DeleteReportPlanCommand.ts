@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { DeleteReportPlanInput, DeleteReportPlanInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteReportPlanCommand,
-  serializeAws_restJson1DeleteReportPlanCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteReportPlanInput } from "../models/models_0";
+import { de_DeleteReportPlanCommand, se_DeleteReportPlanCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteReportPlanCommand}.
+ */
 export interface DeleteReportPlanCommandInput extends DeleteReportPlanInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteReportPlanCommand}.
+ */
 export interface DeleteReportPlanCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the report plan specified by a report plan name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +39,36 @@ export interface DeleteReportPlanCommandOutput extends __MetadataBearer {}
  * import { BackupClient, DeleteReportPlanCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, DeleteReportPlanCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // DeleteReportPlanInput
+ *   ReportPlanName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteReportPlanCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteReportPlanCommandInput - {@link DeleteReportPlanCommandInput}
+ * @returns {@link DeleteReportPlanCommandOutput}
  * @see {@link DeleteReportPlanCommandInput} for command's `input` shape.
  * @see {@link DeleteReportPlanCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Backup can't perform the action that you requested until it finishes
+ *          performing a previous action. Try again later.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
+ *          out of range.</p>
+ *
+ * @throws {@link MissingParameterValueException} (client fault)
+ *  <p>Indicates that a required parameter is missing.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource that is required for the action doesn't exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request failed due to a temporary failure of the server.</p>
+ *
  *
  */
 export class DeleteReportPlanCommand extends $Command<
@@ -57,6 +88,9 @@ export class DeleteReportPlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteReportPlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +119,8 @@ export class DeleteReportPlanCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteReportPlanInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +130,18 @@ export class DeleteReportPlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteReportPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteReportPlanCommand(input, context);
+    return se_DeleteReportPlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteReportPlanCommandOutput> {
-    return deserializeAws_restJson1DeleteReportPlanCommand(output, context);
+    return de_DeleteReportPlanCommand(output, context);
   }
 
   // Start section: command_body_extra

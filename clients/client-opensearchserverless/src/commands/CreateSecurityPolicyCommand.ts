@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateSecurityPolicyRequest,
-  CreateSecurityPolicyRequestFilterSensitiveLog,
-  CreateSecurityPolicyResponse,
-  CreateSecurityPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateSecurityPolicyRequest, CreateSecurityPolicyResponse } from "../models/models_0";
 import {
   OpenSearchServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import {
-  deserializeAws_json1_0CreateSecurityPolicyCommand,
-  serializeAws_json1_0CreateSecurityPolicyCommand,
-} from "../protocols/Aws_json1_0";
+import { de_CreateSecurityPolicyCommand, se_CreateSecurityPolicyCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateSecurityPolicyCommand}.
+ */
 export interface CreateSecurityPolicyCommandInput extends CreateSecurityPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateSecurityPolicyCommand}.
+ */
 export interface CreateSecurityPolicyCommandOutput extends CreateSecurityPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a security policy to be used by one or more OpenSearch Serverless collections. Security
  *             policies provide access to a collection and its OpenSearch Dashboards endpoint from
  *             public networks or specific VPC endpoints. They also allow you to secure a collection
@@ -45,13 +48,38 @@ export interface CreateSecurityPolicyCommandOutput extends CreateSecurityPolicyR
  * import { OpenSearchServerlessClient, CreateSecurityPolicyCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, CreateSecurityPolicyCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
+ * const input = { // CreateSecurityPolicyRequest
+ *   type: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   policy: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new CreateSecurityPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSecurityPolicyCommandInput - {@link CreateSecurityPolicyCommandInput}
+ * @returns {@link CreateSecurityPolicyCommandOutput}
  * @see {@link CreateSecurityPolicyCommandInput} for command's `input` shape.
  * @see {@link CreateSecurityPolicyCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>When creating a resource, thrown when a resource with the same name already exists
+ *             or is being created. When deleting a resource, thrown when the resource is not in
+ *             the ACTIVE or FAILED state.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Thrown when an error internal to the service occurs while processing a request.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Thrown when you attempt to create more resources than the service allows based on service quotas.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Thrown when the HTTP request contains invalid input or is missing required
+ *             input.</p>
+ *
  *
  */
 export class CreateSecurityPolicyCommand extends $Command<
@@ -71,6 +99,9 @@ export class CreateSecurityPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSecurityPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +130,8 @@ export class CreateSecurityPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSecurityPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSecurityPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +141,18 @@ export class CreateSecurityPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSecurityPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateSecurityPolicyCommand(input, context);
+    return se_CreateSecurityPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSecurityPolicyCommandOutput> {
-    return deserializeAws_json1_0CreateSecurityPolicyCommand(output, context);
+    return de_CreateSecurityPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

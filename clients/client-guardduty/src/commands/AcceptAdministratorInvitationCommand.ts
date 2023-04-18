@@ -14,37 +14,58 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
+import { AcceptAdministratorInvitationRequest, AcceptAdministratorInvitationResponse } from "../models/models_0";
 import {
-  AcceptAdministratorInvitationRequest,
-  AcceptAdministratorInvitationRequestFilterSensitiveLog,
-  AcceptAdministratorInvitationResponse,
-  AcceptAdministratorInvitationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1AcceptAdministratorInvitationCommand,
-  serializeAws_restJson1AcceptAdministratorInvitationCommand,
+  de_AcceptAdministratorInvitationCommand,
+  se_AcceptAdministratorInvitationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link AcceptAdministratorInvitationCommand}.
+ */
 export interface AcceptAdministratorInvitationCommandInput extends AcceptAdministratorInvitationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AcceptAdministratorInvitationCommand}.
+ */
 export interface AcceptAdministratorInvitationCommandOutput
   extends AcceptAdministratorInvitationResponse,
     __MetadataBearer {}
 
 /**
- * <p>Accepts the invitation to be a member account and get monitored by a GuardDuty administrator account that sent the invitation.</p>
+ * @public
+ * <p>Accepts the invitation to be a member account and get monitored by a GuardDuty
+ *       administrator account that sent the invitation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GuardDutyClient, AcceptAdministratorInvitationCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, AcceptAdministratorInvitationCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = { // AcceptAdministratorInvitationRequest
+ *   DetectorId: "STRING_VALUE", // required
+ *   AdministratorId: "STRING_VALUE", // required
+ *   InvitationId: "STRING_VALUE", // required
+ * };
  * const command = new AcceptAdministratorInvitationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AcceptAdministratorInvitationCommandInput - {@link AcceptAdministratorInvitationCommandInput}
+ * @returns {@link AcceptAdministratorInvitationCommandOutput}
  * @see {@link AcceptAdministratorInvitationCommandInput} for command's `input` shape.
  * @see {@link AcceptAdministratorInvitationCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>A bad request exception object.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>An internal server error exception object.</p>
+ *
  *
  */
 export class AcceptAdministratorInvitationCommand extends $Command<
@@ -64,6 +85,9 @@ export class AcceptAdministratorInvitationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcceptAdministratorInvitationCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +116,8 @@ export class AcceptAdministratorInvitationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AcceptAdministratorInvitationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AcceptAdministratorInvitationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +127,21 @@ export class AcceptAdministratorInvitationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AcceptAdministratorInvitationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AcceptAdministratorInvitationCommand(input, context);
+    return se_AcceptAdministratorInvitationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AcceptAdministratorInvitationCommandOutput> {
-    return deserializeAws_restJson1AcceptAdministratorInvitationCommand(output, context);
+    return de_AcceptAdministratorInvitationCommand(output, context);
   }
 
   // Start section: command_body_extra

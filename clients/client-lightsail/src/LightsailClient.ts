@@ -26,12 +26,14 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
@@ -102,6 +104,10 @@ import { CreateDiskSnapshotCommandInput, CreateDiskSnapshotCommandOutput } from 
 import { CreateDistributionCommandInput, CreateDistributionCommandOutput } from "./commands/CreateDistributionCommand";
 import { CreateDomainCommandInput, CreateDomainCommandOutput } from "./commands/CreateDomainCommand";
 import { CreateDomainEntryCommandInput, CreateDomainEntryCommandOutput } from "./commands/CreateDomainEntryCommand";
+import {
+  CreateGUISessionAccessDetailsCommandInput,
+  CreateGUISessionAccessDetailsCommandOutput,
+} from "./commands/CreateGUISessionAccessDetailsCommand";
 import { CreateInstancesCommandInput, CreateInstancesCommandOutput } from "./commands/CreateInstancesCommand";
 import {
   CreateInstancesFromSnapshotCommandInput,
@@ -237,6 +243,7 @@ import {
   GetContainerServicesCommandInput,
   GetContainerServicesCommandOutput,
 } from "./commands/GetContainerServicesCommand";
+import { GetCostEstimateCommandInput, GetCostEstimateCommandOutput } from "./commands/GetCostEstimateCommand";
 import { GetDiskCommandInput, GetDiskCommandOutput } from "./commands/GetDiskCommand";
 import { GetDisksCommandInput, GetDisksCommandOutput } from "./commands/GetDisksCommand";
 import { GetDiskSnapshotCommandInput, GetDiskSnapshotCommandOutput } from "./commands/GetDiskSnapshotCommand";
@@ -391,11 +398,13 @@ import {
   SetResourceAccessForBucketCommandInput,
   SetResourceAccessForBucketCommandOutput,
 } from "./commands/SetResourceAccessForBucketCommand";
+import { StartGUISessionCommandInput, StartGUISessionCommandOutput } from "./commands/StartGUISessionCommand";
 import { StartInstanceCommandInput, StartInstanceCommandOutput } from "./commands/StartInstanceCommand";
 import {
   StartRelationalDatabaseCommandInput,
   StartRelationalDatabaseCommandOutput,
 } from "./commands/StartRelationalDatabaseCommand";
+import { StopGUISessionCommandInput, StopGUISessionCommandOutput } from "./commands/StopGUISessionCommand";
 import { StopInstanceCommandInput, StopInstanceCommandOutput } from "./commands/StopInstanceCommand";
 import {
   StopRelationalDatabaseCommandInput,
@@ -441,6 +450,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AllocateStaticIpCommandInput
   | AttachCertificateToDistributionCommandInput
@@ -464,6 +476,7 @@ export type ServiceInputTypes =
   | CreateDistributionCommandInput
   | CreateDomainCommandInput
   | CreateDomainEntryCommandInput
+  | CreateGUISessionAccessDetailsCommandInput
   | CreateInstanceSnapshotCommandInput
   | CreateInstancesCommandInput
   | CreateInstancesFromSnapshotCommandInput
@@ -521,6 +534,7 @@ export type ServiceInputTypes =
   | GetContainerServiceMetricDataCommandInput
   | GetContainerServicePowersCommandInput
   | GetContainerServicesCommandInput
+  | GetCostEstimateCommandInput
   | GetDiskCommandInput
   | GetDiskSnapshotCommandInput
   | GetDiskSnapshotsCommandInput
@@ -579,8 +593,10 @@ export type ServiceInputTypes =
   | SendContactMethodVerificationCommandInput
   | SetIpAddressTypeCommandInput
   | SetResourceAccessForBucketCommandInput
+  | StartGUISessionCommandInput
   | StartInstanceCommandInput
   | StartRelationalDatabaseCommandInput
+  | StopGUISessionCommandInput
   | StopInstanceCommandInput
   | StopRelationalDatabaseCommandInput
   | TagResourceCommandInput
@@ -598,6 +614,9 @@ export type ServiceInputTypes =
   | UpdateRelationalDatabaseCommandInput
   | UpdateRelationalDatabaseParametersCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AllocateStaticIpCommandOutput
   | AttachCertificateToDistributionCommandOutput
@@ -621,6 +640,7 @@ export type ServiceOutputTypes =
   | CreateDistributionCommandOutput
   | CreateDomainCommandOutput
   | CreateDomainEntryCommandOutput
+  | CreateGUISessionAccessDetailsCommandOutput
   | CreateInstanceSnapshotCommandOutput
   | CreateInstancesCommandOutput
   | CreateInstancesFromSnapshotCommandOutput
@@ -678,6 +698,7 @@ export type ServiceOutputTypes =
   | GetContainerServiceMetricDataCommandOutput
   | GetContainerServicePowersCommandOutput
   | GetContainerServicesCommandOutput
+  | GetCostEstimateCommandOutput
   | GetDiskCommandOutput
   | GetDiskSnapshotCommandOutput
   | GetDiskSnapshotsCommandOutput
@@ -736,8 +757,10 @@ export type ServiceOutputTypes =
   | SendContactMethodVerificationCommandOutput
   | SetIpAddressTypeCommandOutput
   | SetResourceAccessForBucketCommandOutput
+  | StartGUISessionCommandOutput
   | StartInstanceCommandOutput
   | StartRelationalDatabaseCommandOutput
+  | StopGUISessionCommandOutput
   | StopInstanceCommandOutput
   | StopRelationalDatabaseCommandOutput
   | TagResourceCommandOutput
@@ -755,6 +778,9 @@ export type ServiceOutputTypes =
   | UpdateRelationalDatabaseCommandOutput
   | UpdateRelationalDatabaseParametersCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -762,11 +788,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -823,19 +849,10 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
-   * Value for how many times a request will be made at most in case of retry.
+   * Unique service identifier.
+   * @internal
    */
-  maxAttempts?: number | __Provider<number>;
-
-  /**
-   * Specifies which retry algorithm to use.
-   */
-  retryMode?: string | __Provider<string>;
-
-  /**
-   * Optional logger for logging debug/info/warn/error.
-   */
-  logger?: __Logger;
+  serviceId?: string;
 
   /**
    * Enables IPv6/IPv4 dualstack endpoint.
@@ -846,12 +863,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Enables FIPS compatible endpoints.
    */
   useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
 
   /**
    * The AWS region to which this client will send requests
@@ -871,11 +882,29 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * Value for how many times a request will be made at most in case of retry.
    */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Specifies which retry algorithm to use.
+   */
+  retryMode?: string | __Provider<string>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
+
+  /**
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   */
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type LightsailClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -886,10 +915,15 @@ type LightsailClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOpti
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of LightsailClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of LightsailClient class constructor that set the region, credentials and other options.
  */
 export interface LightsailClientConfig extends LightsailClientConfigType {}
 
+/**
+ * @public
+ */
 type LightsailClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -900,11 +934,14 @@ type LightsailClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHan
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of LightsailClient class. This is resolved and normalized from the {@link LightsailClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of LightsailClient class. This is resolved and normalized from the {@link LightsailClientConfig | constructor configuration interface}.
  */
 export interface LightsailClientResolvedConfig extends LightsailClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Amazon Lightsail is the easiest way to get started with Amazon Web Services (Amazon Web Services) for developers who need to build websites or web applications. It includes
  *       everything you need to launch your project quickly - instances (virtual private servers),
  *       container services, storage buckets, managed databases, SSD-based block storage, static IP

@@ -19,16 +19,24 @@ import {
   CreateEnvironmentOutput,
   CreateEnvironmentOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateEnvironmentCommand,
-  serializeAws_json1_0CreateEnvironmentCommand,
-} from "../protocols/Aws_json1_0";
+import { de_CreateEnvironmentCommand, se_CreateEnvironmentCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateEnvironmentCommand}.
+ */
 export interface CreateEnvironmentCommandInput extends CreateEnvironmentInput {}
+/**
+ * @public
+ *
+ * The output of {@link CreateEnvironmentCommand}.
+ */
 export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deploy a new environment. An Proton environment is created from an environment template that defines infrastructure and resources that can be
  *       shared across services.</p>
  *          <p class="title">
@@ -51,13 +59,61 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput,
  * import { ProtonClient, CreateEnvironmentCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, CreateEnvironmentCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // CreateEnvironmentInput
+ *   name: "STRING_VALUE", // required
+ *   templateName: "STRING_VALUE", // required
+ *   templateMajorVersion: "STRING_VALUE", // required
+ *   templateMinorVersion: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   spec: "STRING_VALUE", // required
+ *   protonServiceRoleArn: "STRING_VALUE",
+ *   environmentAccountConnectionId: "STRING_VALUE",
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   provisioningRepository: { // RepositoryBranchInput
+ *     provider: "STRING_VALUE", // required
+ *     name: "STRING_VALUE", // required
+ *     branch: "STRING_VALUE", // required
+ *   },
+ *   componentRoleArn: "STRING_VALUE",
+ *   codebuildRoleArn: "STRING_VALUE",
+ * };
  * const command = new CreateEnvironmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEnvironmentCommandInput - {@link CreateEnvironmentCommandInput}
+ * @returns {@link CreateEnvironmentCommandOutput}
  * @see {@link CreateEnvironmentCommandInput} for command's `input` shape.
  * @see {@link CreateEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>There <i>isn't</i> sufficient access for performing this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request <i>couldn't</i> be made due to a conflicting operation or resource.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request failed to register with the service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource <i>wasn't</i> found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>A quota was exceeded. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-limits.html">Proton Quotas</a> in
+ *       the <i>Proton User Guide</i>.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+ *
  *
  */
 export class CreateEnvironmentCommand extends $Command<
@@ -77,6 +133,9 @@ export class CreateEnvironmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,12 +175,18 @@ export class CreateEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateEnvironmentCommand(input, context);
+    return se_CreateEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEnvironmentCommandOutput> {
-    return deserializeAws_json1_0CreateEnvironmentCommand(output, context);
+    return de_CreateEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

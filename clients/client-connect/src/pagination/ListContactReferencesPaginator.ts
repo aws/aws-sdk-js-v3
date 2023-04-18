@@ -6,12 +6,11 @@ import {
   ListContactReferencesCommandInput,
   ListContactReferencesCommandOutput,
 } from "../commands/ListContactReferencesCommand";
-import { Connect } from "../Connect";
 import { ConnectClient } from "../ConnectClient";
 import { ConnectPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ConnectClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListContactReferencesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Connect,
-  input: ListContactReferencesCommandInput,
-  ...args: any
-): Promise<ListContactReferencesCommandOutput> => {
-  // @ts-ignore
-  return await client.listContactReferences(input, ...args);
-};
 export async function* paginateListContactReferences(
   config: ConnectPaginationConfiguration,
   input: ListContactReferencesCommandInput,
@@ -43,9 +34,7 @@ export async function* paginateListContactReferences(
   let page: ListContactReferencesCommandOutput;
   while (hasNext) {
     input.NextToken = token;
-    if (config.client instanceof Connect) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ConnectClient) {
+    if (config.client instanceof ConnectClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Connect | ConnectClient");

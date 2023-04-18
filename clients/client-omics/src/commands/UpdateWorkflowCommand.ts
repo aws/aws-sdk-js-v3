@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateWorkflowRequest, UpdateWorkflowRequestFilterSensitiveLog } from "../models/models_0";
+import { UpdateWorkflowRequest } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1UpdateWorkflowCommand,
-  serializeAws_restJson1UpdateWorkflowCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateWorkflowCommand, se_UpdateWorkflowCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateWorkflowCommand}.
+ */
 export interface UpdateWorkflowCommandInput extends UpdateWorkflowRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateWorkflowCommand}.
+ */
 export interface UpdateWorkflowCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +39,45 @@ export interface UpdateWorkflowCommandOutput extends __MetadataBearer {}
  * import { OmicsClient, UpdateWorkflowCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, UpdateWorkflowCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = { // UpdateWorkflowRequest
+ *   id: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ * };
  * const command = new UpdateWorkflowCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateWorkflowCommandInput - {@link UpdateWorkflowCommandInput}
+ * @returns {@link UpdateWorkflowCommandOutput}
  * @see {@link UpdateWorkflowCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkflowCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request cannot be applied to the target resource in its current state.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred. Try the request again.</p>
+ *
+ * @throws {@link RequestTimeoutException} (client fault)
+ *  <p>The request timed out.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The target resource was not found in the current Region.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request exceeds a service quota.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
  *
  */
 export class UpdateWorkflowCommand extends $Command<
@@ -57,6 +97,9 @@ export class UpdateWorkflowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateWorkflowCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +128,8 @@ export class UpdateWorkflowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateWorkflowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +139,18 @@ export class UpdateWorkflowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateWorkflowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateWorkflowCommand(input, context);
+    return se_UpdateWorkflowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWorkflowCommandOutput> {
-    return deserializeAws_restJson1UpdateWorkflowCommand(output, context);
+    return de_UpdateWorkflowCommand(output, context);
   }
 
   // Start section: command_body_extra

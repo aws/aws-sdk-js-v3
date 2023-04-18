@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import {
-  GetMLModelInput,
-  GetMLModelInputFilterSensitiveLog,
-  GetMLModelOutput,
-  GetMLModelOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetMLModelCommand,
-  serializeAws_json1_1GetMLModelCommand,
-} from "../protocols/Aws_json1_1";
+import { GetMLModelInput, GetMLModelOutput } from "../models/models_0";
+import { de_GetMLModelCommand, se_GetMLModelCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetMLModelCommand}.
+ */
 export interface GetMLModelCommandInput extends GetMLModelInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetMLModelCommand}.
+ */
 export interface GetMLModelCommandOutput extends GetMLModelOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an <code>MLModel</code> that includes detailed metadata, data source information, and the current status of the <code>MLModel</code>.</p>
  *         <p>
  *             <code>GetMLModel</code> provides results in normal or verbose format. </p>
@@ -38,13 +41,29 @@ export interface GetMLModelCommandOutput extends GetMLModelOutput, __MetadataBea
  * import { MachineLearningClient, GetMLModelCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, GetMLModelCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
+ * const input = { // GetMLModelInput
+ *   MLModelId: "STRING_VALUE", // required
+ *   Verbose: true || false,
+ * };
  * const command = new GetMLModelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMLModelCommandInput - {@link GetMLModelCommandInput}
+ * @returns {@link GetMLModelCommandOutput}
  * @see {@link GetMLModelCommandInput} for command's `input` shape.
  * @see {@link GetMLModelCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An error on the server occurred when trying to process a request.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A specified resource cannot be located.</p>
+ *
  *
  */
 export class GetMLModelCommand extends $Command<
@@ -64,6 +83,9 @@ export class GetMLModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMLModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +112,8 @@ export class GetMLModelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMLModelInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMLModelOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +123,18 @@ export class GetMLModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMLModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetMLModelCommand(input, context);
+    return se_GetMLModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMLModelCommandOutput> {
-    return deserializeAws_json1_1GetMLModelCommand(output, context);
+    return de_GetMLModelCommand(output, context);
   }
 
   // Start section: command_body_extra

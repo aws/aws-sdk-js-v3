@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateDocumentRequest,
-  CreateDocumentRequestFilterSensitiveLog,
-  CreateDocumentResult,
-  CreateDocumentResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateDocumentCommand,
-  serializeAws_json1_1CreateDocumentCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateDocumentRequest, CreateDocumentResult } from "../models/models_0";
+import { de_CreateDocumentCommand, se_CreateDocumentCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateDocumentCommand}.
+ */
 export interface CreateDocumentCommandInput extends CreateDocumentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateDocumentCommand}.
+ */
 export interface CreateDocumentCommandOutput extends CreateDocumentResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Amazon Web Services Systems Manager (SSM document). An SSM document defines the actions that Systems Manager performs
  *    on your managed nodes. For more information about SSM documents, including information about
  *    supported schemas, features, and syntax, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ssm-docs.html">Amazon Web Services Systems Manager Documents</a> in the
@@ -39,13 +42,66 @@ export interface CreateDocumentCommandOutput extends CreateDocumentResult, __Met
  * import { SSMClient, CreateDocumentCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, CreateDocumentCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // CreateDocumentRequest
+ *   Content: "STRING_VALUE", // required
+ *   Requires: [ // DocumentRequiresList
+ *     { // DocumentRequires
+ *       Name: "STRING_VALUE", // required
+ *       Version: "STRING_VALUE",
+ *       RequireType: "STRING_VALUE",
+ *       VersionName: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Attachments: [ // AttachmentsSourceList
+ *     { // AttachmentsSource
+ *       Key: "SourceUrl" || "S3FileUrl" || "AttachmentReference",
+ *       Values: [ // AttachmentsSourceValues
+ *         "STRING_VALUE",
+ *       ],
+ *       Name: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Name: "STRING_VALUE", // required
+ *   DisplayName: "STRING_VALUE",
+ *   VersionName: "STRING_VALUE",
+ *   DocumentType: "Command" || "Policy" || "Automation" || "Session" || "Package" || "ApplicationConfiguration" || "ApplicationConfigurationSchema" || "DeploymentStrategy" || "ChangeCalendar" || "Automation.ChangeTemplate" || "ProblemAnalysis" || "ProblemAnalysisTemplate" || "CloudFormation" || "ConformancePackTemplate" || "QuickSetup",
+ *   DocumentFormat: "YAML" || "JSON" || "TEXT",
+ *   TargetType: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateDocumentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDocumentCommandInput - {@link CreateDocumentCommandInput}
+ * @returns {@link CreateDocumentCommandOutput}
  * @see {@link CreateDocumentCommandInput} for command's `input` shape.
  * @see {@link CreateDocumentCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link DocumentAlreadyExists} (client fault)
+ *  <p>The specified document already exists.</p>
+ *
+ * @throws {@link DocumentLimitExceeded} (client fault)
+ *  <p>You can have at most 500 active SSM documents.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidDocumentContent} (client fault)
+ *  <p>The content for the document isn't valid.</p>
+ *
+ * @throws {@link InvalidDocumentSchemaVersion} (client fault)
+ *  <p>The version of the document schema isn't supported.</p>
+ *
+ * @throws {@link MaxDocumentSizeExceeded} (client fault)
+ *  <p>The size limit of a document is 64 KB.</p>
+ *
  *
  */
 export class CreateDocumentCommand extends $Command<
@@ -65,6 +121,9 @@ export class CreateDocumentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDocumentCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +152,8 @@ export class CreateDocumentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDocumentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDocumentResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +163,18 @@ export class CreateDocumentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDocumentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDocumentCommand(input, context);
+    return se_CreateDocumentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDocumentCommandOutput> {
-    return deserializeAws_json1_1CreateDocumentCommand(output, context);
+    return de_CreateDocumentCommand(output, context);
   }
 
   // Start section: command_body_extra

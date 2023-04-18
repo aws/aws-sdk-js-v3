@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeInventoryDeletionsRequest,
-  DescribeInventoryDeletionsRequestFilterSensitiveLog,
-  DescribeInventoryDeletionsResult,
-  DescribeInventoryDeletionsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeInventoryDeletionsCommand,
-  serializeAws_json1_1DescribeInventoryDeletionsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeInventoryDeletionsRequest, DescribeInventoryDeletionsResult } from "../models/models_0";
+import { de_DescribeInventoryDeletionsCommand, se_DescribeInventoryDeletionsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeInventoryDeletionsCommand}.
+ */
 export interface DescribeInventoryDeletionsCommandInput extends DescribeInventoryDeletionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeInventoryDeletionsCommand}.
+ */
 export interface DescribeInventoryDeletionsCommandOutput extends DescribeInventoryDeletionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a specific delete inventory operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,31 @@ export interface DescribeInventoryDeletionsCommandOutput extends DescribeInvento
  * import { SSMClient, DescribeInventoryDeletionsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeInventoryDeletionsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // DescribeInventoryDeletionsRequest
+ *   DeletionId: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeInventoryDeletionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInventoryDeletionsCommandInput - {@link DescribeInventoryDeletionsCommandInput}
+ * @returns {@link DescribeInventoryDeletionsCommandOutput}
  * @see {@link DescribeInventoryDeletionsCommandInput} for command's `input` shape.
  * @see {@link DescribeInventoryDeletionsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidDeletionIdException} (client fault)
+ *  <p>The ID specified for the delete operation doesn't exist or isn't valid. Verify the ID and
+ *    try again.</p>
+ *
+ * @throws {@link InvalidNextToken} (client fault)
+ *  <p>The specified token isn't valid.</p>
+ *
  *
  */
 export class DescribeInventoryDeletionsCommand extends $Command<
@@ -62,6 +83,9 @@ export class DescribeInventoryDeletionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInventoryDeletionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +114,8 @@ export class DescribeInventoryDeletionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInventoryDeletionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeInventoryDeletionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +125,21 @@ export class DescribeInventoryDeletionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInventoryDeletionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeInventoryDeletionsCommand(input, context);
+    return se_DescribeInventoryDeletionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeInventoryDeletionsCommandOutput> {
-    return deserializeAws_json1_1DescribeInventoryDeletionsCommand(output, context);
+    return de_DescribeInventoryDeletionsCommand(output, context);
   }
 
   // Start section: command_body_extra

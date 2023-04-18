@@ -16,19 +16,26 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   GetLaunchTemplateDataRequest,
-  GetLaunchTemplateDataRequestFilterSensitiveLog,
   GetLaunchTemplateDataResult,
   GetLaunchTemplateDataResultFilterSensitiveLog,
 } from "../models/models_5";
-import {
-  deserializeAws_ec2GetLaunchTemplateDataCommand,
-  serializeAws_ec2GetLaunchTemplateDataCommand,
-} from "../protocols/Aws_ec2";
+import { de_GetLaunchTemplateDataCommand, se_GetLaunchTemplateDataCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link GetLaunchTemplateDataCommand}.
+ */
 export interface GetLaunchTemplateDataCommandInput extends GetLaunchTemplateDataRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetLaunchTemplateDataCommand}.
+ */
 export interface GetLaunchTemplateDataCommandOutput extends GetLaunchTemplateDataResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the configuration data of the specified instance. You can use this data to
  *             create a launch template. </p>
  *          <p>This action calls on other describe actions to get instance information. Depending on
@@ -43,13 +50,83 @@ export interface GetLaunchTemplateDataCommandOutput extends GetLaunchTemplateDat
  * import { EC2Client, GetLaunchTemplateDataCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetLaunchTemplateDataCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // GetLaunchTemplateDataRequest
+ *   DryRun: true || false,
+ *   InstanceId: "STRING_VALUE", // required
+ * };
  * const command = new GetLaunchTemplateDataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLaunchTemplateDataCommandInput - {@link GetLaunchTemplateDataCommandInput}
+ * @returns {@link GetLaunchTemplateDataCommandOutput}
  * @see {@link GetLaunchTemplateDataCommandInput} for command's `input` shape.
  * @see {@link GetLaunchTemplateDataCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ *
+ * @example To get the launch template data for an instance
+ * ```javascript
+ * // This example gets the launch template data for the specified instance.
+ * const input = {
+ *   "InstanceId": "0123d646e8048babc"
+ * };
+ * const command = new GetLaunchTemplateDataCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "LaunchTemplateData": {
+ *     "BlockDeviceMappings": [
+ *       {
+ *         "DeviceName": "/dev/xvda",
+ *         "Ebs": {
+ *           "DeleteOnTermination": true,
+ *           "Encrypted": false,
+ *           "Iops": 100,
+ *           "SnapshotId": "snap-02594938353ef77d3",
+ *           "VolumeSize": 8,
+ *           "VolumeType": "gp2"
+ *         }
+ *       }
+ *     ],
+ *     "EbsOptimized": false,
+ *     "ImageId": "ami-32cf7b4a",
+ *     "InstanceType": "t2.medium",
+ *     "KeyName": "my-key-pair",
+ *     "Monitoring": {
+ *       "Enabled": false
+ *     },
+ *     "NetworkInterfaces": [
+ *       {
+ *         "AssociatePublicIpAddress": false,
+ *         "DeleteOnTermination": true,
+ *         "Description": "",
+ *         "DeviceIndex": 0,
+ *         "Groups": [
+ *           "sg-d14e1bb4"
+ *         ],
+ *         "Ipv6Addresses": [],
+ *         "NetworkInterfaceId": "eni-4338b5a9",
+ *         "PrivateIpAddress": "10.0.3.233",
+ *         "PrivateIpAddresses": [
+ *           {
+ *             "Primary": true,
+ *             "PrivateIpAddress": "10.0.3.233"
+ *           }
+ *         ],
+ *         "SubnetId": "subnet-5264e837"
+ *       }
+ *     ],
+ *     "Placement": {
+ *       "AvailabilityZone": "us-east-2b",
+ *       "GroupName": "",
+ *       "Tenancy": "default"
+ *     }
+ *   }
+ * }
+ * *\/
+ * // example id: to-get-the-launch-template-data-for-an-instance--1529356515702
+ * ```
  *
  */
 export class GetLaunchTemplateDataCommand extends $Command<
@@ -69,6 +146,9 @@ export class GetLaunchTemplateDataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLaunchTemplateDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,7 +177,7 @@ export class GetLaunchTemplateDataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLaunchTemplateDataRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetLaunchTemplateDataResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -108,12 +188,18 @@ export class GetLaunchTemplateDataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLaunchTemplateDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2GetLaunchTemplateDataCommand(input, context);
+    return se_GetLaunchTemplateDataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLaunchTemplateDataCommandOutput> {
-    return deserializeAws_ec2GetLaunchTemplateDataCommand(output, context);
+    return de_GetLaunchTemplateDataCommand(output, context);
   }
 
   // Start section: command_body_extra

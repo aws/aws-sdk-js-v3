@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import { DeleteIntegrationRequest, DeleteIntegrationRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteIntegrationCommand,
-  serializeAws_restJson1DeleteIntegrationCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteIntegrationRequest } from "../models/models_0";
+import { de_DeleteIntegrationCommand, se_DeleteIntegrationCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteIntegrationCommand}.
+ */
 export interface DeleteIntegrationCommandInput extends DeleteIntegrationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteIntegrationCommand}.
+ */
 export interface DeleteIntegrationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Integration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +39,26 @@ export interface DeleteIntegrationCommandOutput extends __MetadataBearer {}
  * import { ApiGatewayV2Client, DeleteIntegrationCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, DeleteIntegrationCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = { // DeleteIntegrationRequest
+ *   ApiId: "STRING_VALUE", // required
+ *   IntegrationId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteIntegrationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteIntegrationCommandInput - {@link DeleteIntegrationCommandInput}
+ * @returns {@link DeleteIntegrationCommandOutput}
  * @see {@link DeleteIntegrationCommandInput} for command's `input` shape.
  * @see {@link DeleteIntegrationCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource specified in the request was not found. See the message field for more information.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
+ *
  *
  */
 export class DeleteIntegrationCommand extends $Command<
@@ -57,6 +78,9 @@ export class DeleteIntegrationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteIntegrationCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +109,8 @@ export class DeleteIntegrationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteIntegrationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +120,18 @@ export class DeleteIntegrationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteIntegrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteIntegrationCommand(input, context);
+    return se_DeleteIntegrationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIntegrationCommandOutput> {
-    return deserializeAws_restJson1DeleteIntegrationCommand(output, context);
+    return de_DeleteIntegrationCommand(output, context);
   }
 
   // Start section: command_body_extra

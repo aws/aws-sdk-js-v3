@@ -14,18 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetSchemaInput,
-  GetSchemaInputFilterSensitiveLog,
-  GetSchemaResponse,
-  GetSchemaResponseFilterSensitiveLog,
-} from "../models/models_1";
-import { deserializeAws_json1_1GetSchemaCommand, serializeAws_json1_1GetSchemaCommand } from "../protocols/Aws_json1_1";
+import { GetSchemaInput, GetSchemaResponse } from "../models/models_1";
+import { de_GetSchemaCommand, se_GetSchemaCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetSchemaCommand}.
+ */
 export interface GetSchemaCommandInput extends GetSchemaInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetSchemaCommand}.
+ */
 export interface GetSchemaCommandOutput extends GetSchemaResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified schema in detail.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -33,13 +39,35 @@ export interface GetSchemaCommandOutput extends GetSchemaResponse, __MetadataBea
  * import { GlueClient, GetSchemaCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetSchemaCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // GetSchemaInput
+ *   SchemaId: { // SchemaId
+ *     SchemaArn: "STRING_VALUE",
+ *     SchemaName: "STRING_VALUE",
+ *     RegistryName: "STRING_VALUE",
+ *   },
+ * };
  * const command = new GetSchemaCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSchemaCommandInput - {@link GetSchemaCommandInput}
+ * @returns {@link GetSchemaCommandOutput}
  * @see {@link GetSchemaCommandInput} for command's `input` shape.
  * @see {@link GetSchemaCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to a resource was denied.</p>
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
  *
  */
 export class GetSchemaCommand extends $Command<
@@ -59,6 +87,9 @@ export class GetSchemaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSchemaCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +116,8 @@ export class GetSchemaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSchemaInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSchemaResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +127,18 @@ export class GetSchemaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSchemaCommand(input, context);
+    return se_GetSchemaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSchemaCommandOutput> {
-    return deserializeAws_json1_1GetSchemaCommand(output, context);
+    return de_GetSchemaCommand(output, context);
   }
 
   // Start section: command_body_extra

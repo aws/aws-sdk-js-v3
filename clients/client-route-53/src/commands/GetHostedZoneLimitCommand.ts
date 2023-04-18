@@ -14,25 +14,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetHostedZoneLimitRequest,
-  GetHostedZoneLimitRequestFilterSensitiveLog,
-  GetHostedZoneLimitResponse,
-  GetHostedZoneLimitResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlGetHostedZoneLimitCommand,
-  serializeAws_restXmlGetHostedZoneLimitCommand,
-} from "../protocols/Aws_restXml";
+import { GetHostedZoneLimitRequest, GetHostedZoneLimitResponse } from "../models/models_0";
+import { de_GetHostedZoneLimitCommand, se_GetHostedZoneLimitCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * @public
+ *
+ * The input for {@link GetHostedZoneLimitCommand}.
+ */
 export interface GetHostedZoneLimitCommandInput extends GetHostedZoneLimitRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetHostedZoneLimitCommand}.
+ */
 export interface GetHostedZoneLimitCommandOutput extends GetHostedZoneLimitResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the specified limit for a specified hosted zone, for example, the maximum number
  * 			of records that you can create in the hosted zone. </p>
- * 		       <p>For the default limit, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a> in the
+ *          <p>For the default limit, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a> in the
  * 				<i>Amazon Route 53 Developer Guide</i>. To request a higher limit,
  * 				<a href="https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-route53">open a case</a>.</p>
  * @example
@@ -41,13 +44,29 @@ export interface GetHostedZoneLimitCommandOutput extends GetHostedZoneLimitRespo
  * import { Route53Client, GetHostedZoneLimitCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, GetHostedZoneLimitCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = { // GetHostedZoneLimitRequest
+ *   Type: "MAX_RRSETS_BY_ZONE" || "MAX_VPCS_ASSOCIATED_BY_ZONE", // required
+ *   HostedZoneId: "STRING_VALUE", // required
+ * };
  * const command = new GetHostedZoneLimitCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetHostedZoneLimitCommandInput - {@link GetHostedZoneLimitCommandInput}
+ * @returns {@link GetHostedZoneLimitCommandOutput}
  * @see {@link GetHostedZoneLimitCommandInput} for command's `input` shape.
  * @see {@link GetHostedZoneLimitCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
+ *
+ * @throws {@link HostedZoneNotPrivate} (client fault)
+ *  <p>The specified hosted zone is a public hosted zone, not a private hosted zone.</p>
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link NoSuchHostedZone} (client fault)
+ *  <p>No hosted zone exists with the ID that you specified.</p>
+ *
  *
  */
 export class GetHostedZoneLimitCommand extends $Command<
@@ -67,6 +86,9 @@ export class GetHostedZoneLimitCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetHostedZoneLimitCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +118,8 @@ export class GetHostedZoneLimitCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetHostedZoneLimitRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetHostedZoneLimitResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +129,18 @@ export class GetHostedZoneLimitCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetHostedZoneLimitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetHostedZoneLimitCommand(input, context);
+    return se_GetHostedZoneLimitCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetHostedZoneLimitCommandOutput> {
-    return deserializeAws_restXmlGetHostedZoneLimitCommand(output, context);
+    return de_GetHostedZoneLimitCommand(output, context);
   }
 
   // Start section: command_body_extra

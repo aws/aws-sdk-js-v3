@@ -26,12 +26,14 @@ import { UpdatePipeCommand, UpdatePipeCommandInput, UpdatePipeCommandOutput } fr
 import { PipesClient } from "./PipesClient";
 
 /**
+ * @public
  * <p>Amazon EventBridge Pipes connects event sources to targets. Pipes reduces the need for specialized knowledge and integration code when developing
  *       event driven architectures. This helps ensures consistency across your company’s applications. With Pipes, the target can be any available EventBridge target.
  *       To set up a pipe, you select the event source, add optional event filtering, define optional enrichment, and select the target for the event data. </p>
  */
 export class Pipes extends PipesClient {
   /**
+   * @public
    * <p>Create a pipe. Amazon EventBridge Pipes connect event sources to targets and reduces the need for specialized knowledge and integration code.</p>
    */
   public createPipe(args: CreatePipeCommandInput, options?: __HttpHandlerOptions): Promise<CreatePipeCommandOutput>;
@@ -58,6 +60,7 @@ export class Pipes extends PipesClient {
   }
 
   /**
+   * @public
    * <p>Delete an existing pipe. For more information about pipes, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html">Amazon EventBridge Pipes</a> in the Amazon EventBridge User Guide.</p>
    */
   public deletePipe(args: DeletePipeCommandInput, options?: __HttpHandlerOptions): Promise<DeletePipeCommandOutput>;
@@ -84,6 +87,7 @@ export class Pipes extends PipesClient {
   }
 
   /**
+   * @public
    * <p>Get the information about an existing pipe. For more information about pipes, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html">Amazon EventBridge Pipes</a> in the Amazon EventBridge User Guide.</p>
    */
   public describePipe(
@@ -113,6 +117,7 @@ export class Pipes extends PipesClient {
   }
 
   /**
+   * @public
    * <p>Get the pipes associated with this account. For more information about pipes, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html">Amazon EventBridge Pipes</a> in the Amazon EventBridge User Guide.</p>
    */
   public listPipes(args: ListPipesCommandInput, options?: __HttpHandlerOptions): Promise<ListPipesCommandOutput>;
@@ -139,6 +144,7 @@ export class Pipes extends PipesClient {
   }
 
   /**
+   * @public
    * <p>Displays the tags associated with a pipe.</p>
    */
   public listTagsForResource(
@@ -171,6 +177,7 @@ export class Pipes extends PipesClient {
   }
 
   /**
+   * @public
    * <p>Start an existing pipe.</p>
    */
   public startPipe(args: StartPipeCommandInput, options?: __HttpHandlerOptions): Promise<StartPipeCommandOutput>;
@@ -197,6 +204,7 @@ export class Pipes extends PipesClient {
   }
 
   /**
+   * @public
    * <p>Stop an existing pipe.</p>
    */
   public stopPipe(args: StopPipeCommandInput, options?: __HttpHandlerOptions): Promise<StopPipeCommandOutput>;
@@ -223,6 +231,7 @@ export class Pipes extends PipesClient {
   }
 
   /**
+   * @public
    * <p>Assigns one or more tags (key-value pairs) to the specified pipe. Tags can
    *          help you organize and categorize your resources. You can also use them to scope user
    *          permissions by granting a user permission to access or change only resources with certain tag
@@ -259,6 +268,7 @@ export class Pipes extends PipesClient {
   }
 
   /**
+   * @public
    * <p>Removes one or more tags from the specified pipes.</p>
    */
   public untagResource(
@@ -291,11 +301,11 @@ export class Pipes extends PipesClient {
   }
 
   /**
+   * @public
    * <p>Update an existing pipe. When you call <code>UpdatePipe</code>, only the fields that are included in the request are changed, the rest are unchanged.
    *          The exception to this is if you modify any Amazon Web Services-service specific fields in the <code>SourceParameters</code>, <code>EnrichmentParameters</code>, or
    *          <code>TargetParameters</code> objects. The fields in these objects are updated atomically as one and override existing values. This is by design and means that
    *          if you don't specify an optional field in one of these Parameters objects, that field will be set to its system-default value after the update.</p>
-   *
    *          <p>For more information about pipes, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html">
    *          Amazon EventBridge Pipes</a> in the Amazon EventBridge User Guide.</p>
    */

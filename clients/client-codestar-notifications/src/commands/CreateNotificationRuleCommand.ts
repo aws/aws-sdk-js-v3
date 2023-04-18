@@ -22,17 +22,24 @@ import {
   CreateNotificationRuleRequest,
   CreateNotificationRuleRequestFilterSensitiveLog,
   CreateNotificationRuleResult,
-  CreateNotificationRuleResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateNotificationRuleCommand,
-  serializeAws_restJson1CreateNotificationRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateNotificationRuleCommand, se_CreateNotificationRuleCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateNotificationRuleCommand}.
+ */
 export interface CreateNotificationRuleCommandInput extends CreateNotificationRuleRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateNotificationRuleCommand}.
+ */
 export interface CreateNotificationRuleCommandOutput extends CreateNotificationRuleResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a notification rule for a resource. The rule specifies the events you want
  *             notifications about and the targets (such as Chatbot topics or Chatbot clients configured for Slack) where you want to receive
  *             them.</p>
@@ -42,13 +49,58 @@ export interface CreateNotificationRuleCommandOutput extends CreateNotificationR
  * import { CodestarNotificationsClient, CreateNotificationRuleCommand } from "@aws-sdk/client-codestar-notifications"; // ES Modules import
  * // const { CodestarNotificationsClient, CreateNotificationRuleCommand } = require("@aws-sdk/client-codestar-notifications"); // CommonJS import
  * const client = new CodestarNotificationsClient(config);
+ * const input = { // CreateNotificationRuleRequest
+ *   Name: "STRING_VALUE", // required
+ *   EventTypeIds: [ // EventTypeIds // required
+ *     "STRING_VALUE",
+ *   ],
+ *   Resource: "STRING_VALUE", // required
+ *   Targets: [ // Targets // required
+ *     { // Target
+ *       TargetType: "STRING_VALUE",
+ *       TargetAddress: "STRING_VALUE",
+ *     },
+ *   ],
+ *   DetailType: "BASIC" || "FULL", // required
+ *   ClientRequestToken: "STRING_VALUE",
+ *   Tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Status: "ENABLED" || "DISABLED",
+ * };
  * const command = new CreateNotificationRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateNotificationRuleCommandInput - {@link CreateNotificationRuleCommandInput}
+ * @returns {@link CreateNotificationRuleCommandOutput}
  * @see {@link CreateNotificationRuleCommandInput} for command's `input` shape.
  * @see {@link CreateNotificationRuleCommandOutput} for command's `response` shape.
  * @see {@link CodestarNotificationsClientResolvedConfig | config} for CodestarNotificationsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>AWS CodeStar Notifications can't create the notification rule because you do not have sufficient
+ *       permissions.</p>
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>AWS CodeStar Notifications can't complete the request because the resource is being modified by
+ *       another process. Wait a few minutes and try again.</p>
+ *
+ * @throws {@link ConfigurationException} (client fault)
+ *  <p>Some or all of the configuration is incomplete, missing, or not valid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>One of the AWS CodeStar Notifications limits has been exceeded. Limits apply to
+ *             accounts, notification rules, notifications, resources, and targets. For more
+ *             information, see Limits.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>A resource with the same name or ID already exists. Notification rule names must be
+ *             unique in your Amazon Web Services account.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
  *
  */
 export class CreateNotificationRuleCommand extends $Command<
@@ -68,6 +120,9 @@ export class CreateNotificationRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateNotificationRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,7 +152,7 @@ export class CreateNotificationRuleCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateNotificationRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateNotificationRuleResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +162,18 @@ export class CreateNotificationRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateNotificationRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateNotificationRuleCommand(input, context);
+    return se_CreateNotificationRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateNotificationRuleCommandOutput> {
-    return deserializeAws_restJson1CreateNotificationRuleCommand(output, context);
+    return de_CreateNotificationRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AddWorkingStorageInput,
-  AddWorkingStorageInputFilterSensitiveLog,
-  AddWorkingStorageOutput,
-  AddWorkingStorageOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AddWorkingStorageCommand,
-  serializeAws_json1_1AddWorkingStorageCommand,
-} from "../protocols/Aws_json1_1";
+import { AddWorkingStorageInput, AddWorkingStorageOutput } from "../models/models_0";
+import { de_AddWorkingStorageCommand, se_AddWorkingStorageCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * @public
+ *
+ * The input for {@link AddWorkingStorageCommand}.
+ */
 export interface AddWorkingStorageCommandInput extends AddWorkingStorageInput {}
+/**
+ * @public
+ *
+ * The output of {@link AddWorkingStorageCommand}.
+ */
 export interface AddWorkingStorageCommandOutput extends AddWorkingStorageOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Configures one or more gateway local disks as working storage for a gateway. This
  *          operation is only supported in the stored volume gateway type. This operation is deprecated
  *          in cached volume API version 20120630. Use <a>AddUploadBuffer</a>
@@ -48,13 +51,50 @@ export interface AddWorkingStorageCommandOutput extends AddWorkingStorageOutput,
  * import { StorageGatewayClient, AddWorkingStorageCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, AddWorkingStorageCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // AddWorkingStorageInput
+ *   GatewayARN: "STRING_VALUE", // required
+ *   DiskIds: [ // DiskIds // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new AddWorkingStorageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AddWorkingStorageCommandInput - {@link AddWorkingStorageCommandInput}
+ * @returns {@link AddWorkingStorageCommandOutput}
  * @see {@link AddWorkingStorageCommandInput} for command's `input` shape.
  * @see {@link AddWorkingStorageCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error has occurred during the request. For more information, see the
+ *          error and message fields.</p>
+ *
+ * @throws {@link InvalidGatewayRequestException} (client fault)
+ *  <p>An exception occurred because an invalid gateway request was issued to the service. For
+ *          more information, see the error and message fields.</p>
+ *
+ *
+ * @example To add storage on local disk
+ * ```javascript
+ * // Configures one or more gateway local disks as working storage for a gateway. (Working storage is also referred to as upload buffer.)
+ * const input = {
+ *   "DiskIds": [
+ *     "pci-0000:03:00.0-scsi-0:0:0:0",
+ *     "pci-0000:03:00.0-scsi-0:0:1:0"
+ *   ],
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ * };
+ * const command = new AddWorkingStorageCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ * }
+ * *\/
+ * // example id: to-add-storage-on-local-disk-1471294305401
+ * ```
  *
  */
 export class AddWorkingStorageCommand extends $Command<
@@ -74,6 +114,9 @@ export class AddWorkingStorageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddWorkingStorageCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +145,8 @@ export class AddWorkingStorageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddWorkingStorageInputFilterSensitiveLog,
-      outputFilterSensitiveLog: AddWorkingStorageOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +156,18 @@ export class AddWorkingStorageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddWorkingStorageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AddWorkingStorageCommand(input, context);
+    return se_AddWorkingStorageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddWorkingStorageCommandOutput> {
-    return deserializeAws_json1_1AddWorkingStorageCommand(output, context);
+    return de_AddWorkingStorageCommand(output, context);
   }
 
   // Start section: command_body_extra

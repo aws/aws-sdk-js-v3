@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListQueueTagsRequest,
-  ListQueueTagsRequestFilterSensitiveLog,
-  ListQueueTagsResult,
-  ListQueueTagsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryListQueueTagsCommand,
-  serializeAws_queryListQueueTagsCommand,
-} from "../protocols/Aws_query";
+import { ListQueueTagsRequest, ListQueueTagsResult } from "../models/models_0";
+import { de_ListQueueTagsCommand, se_ListQueueTagsCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListQueueTagsCommand}.
+ */
 export interface ListQueueTagsCommandInput extends ListQueueTagsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListQueueTagsCommand}.
+ */
 export interface ListQueueTagsCommandOutput extends ListQueueTagsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List all cost allocation tags added to the specified Amazon SQS queue. For an overview, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html">Tagging
  * Your Amazon SQS Queues</a> in the <i>Amazon SQS Developer Guide</i>.</p>
  *         <note>
@@ -42,13 +45,19 @@ export interface ListQueueTagsCommandOutput extends ListQueueTagsResult, __Metad
  * import { SQSClient, ListQueueTagsCommand } from "@aws-sdk/client-sqs"; // ES Modules import
  * // const { SQSClient, ListQueueTagsCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
  * const client = new SQSClient(config);
+ * const input = { // ListQueueTagsRequest
+ *   QueueUrl: "STRING_VALUE", // required
+ * };
  * const command = new ListQueueTagsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListQueueTagsCommandInput - {@link ListQueueTagsCommandInput}
+ * @returns {@link ListQueueTagsCommandOutput}
  * @see {@link ListQueueTagsCommandInput} for command's `input` shape.
  * @see {@link ListQueueTagsCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
+ *
  *
  */
 export class ListQueueTagsCommand extends $Command<
@@ -68,6 +77,9 @@ export class ListQueueTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListQueueTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +106,8 @@ export class ListQueueTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListQueueTagsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListQueueTagsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +117,18 @@ export class ListQueueTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListQueueTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListQueueTagsCommand(input, context);
+    return se_ListQueueTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListQueueTagsCommandOutput> {
-    return deserializeAws_queryListQueueTagsCommand(output, context);
+    return de_ListQueueTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

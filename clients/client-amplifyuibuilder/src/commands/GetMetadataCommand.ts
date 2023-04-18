@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyUIBuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyUIBuilderClient";
-import {
-  GetMetadataRequest,
-  GetMetadataRequestFilterSensitiveLog,
-  GetMetadataResponse,
-  GetMetadataResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetMetadataCommand,
-  serializeAws_restJson1GetMetadataCommand,
-} from "../protocols/Aws_restJson1";
+import { GetMetadataRequest, GetMetadataResponse } from "../models/models_0";
+import { de_GetMetadataCommand, se_GetMetadataCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetMetadataCommand}.
+ */
 export interface GetMetadataCommandInput extends GetMetadataRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetMetadataCommand}.
+ */
 export interface GetMetadataCommandOutput extends GetMetadataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns existing metadata for an Amplify app.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,26 @@ export interface GetMetadataCommandOutput extends GetMetadataResponse, __Metadat
  * import { AmplifyUIBuilderClient, GetMetadataCommand } from "@aws-sdk/client-amplifyuibuilder"; // ES Modules import
  * // const { AmplifyUIBuilderClient, GetMetadataCommand } = require("@aws-sdk/client-amplifyuibuilder"); // CommonJS import
  * const client = new AmplifyUIBuilderClient(config);
+ * const input = { // GetMetadataRequest
+ *   appId: "STRING_VALUE", // required
+ *   environmentName: "STRING_VALUE", // required
+ * };
  * const command = new GetMetadataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMetadataCommandInput - {@link GetMetadataCommandInput}
+ * @returns {@link GetMetadataCommandOutput}
  * @see {@link GetMetadataCommandInput} for command's `input` shape.
  * @see {@link GetMetadataCommandOutput} for command's `response` shape.
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>An invalid or out-of-range value was supplied for the input parameter.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You don't have permission to perform this operation.</p>
+ *
  *
  */
 export class GetMetadataCommand extends $Command<
@@ -62,6 +78,9 @@ export class GetMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +107,8 @@ export class GetMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMetadataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMetadataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +118,18 @@ export class GetMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMetadataCommand(input, context);
+    return se_GetMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMetadataCommandOutput> {
-    return deserializeAws_restJson1GetMetadataCommand(output, context);
+    return de_GetMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

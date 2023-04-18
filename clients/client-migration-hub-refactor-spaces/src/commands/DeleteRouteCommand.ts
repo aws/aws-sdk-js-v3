@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubRefactorSpacesClient";
-import {
-  DeleteRouteRequest,
-  DeleteRouteRequestFilterSensitiveLog,
-  DeleteRouteResponse,
-  DeleteRouteResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteRouteCommand,
-  serializeAws_restJson1DeleteRouteCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteRouteRequest, DeleteRouteResponse } from "../models/models_0";
+import { de_DeleteRouteCommand, se_DeleteRouteCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteRouteCommand}.
+ */
 export interface DeleteRouteCommandInput extends DeleteRouteRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteRouteCommand}.
+ */
 export interface DeleteRouteCommandOutput extends DeleteRouteResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Amazon Web Services Migration Hub Refactor Spaces route.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,40 @@ export interface DeleteRouteCommandOutput extends DeleteRouteResponse, __Metadat
  * import { MigrationHubRefactorSpacesClient, DeleteRouteCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
  * // const { MigrationHubRefactorSpacesClient, DeleteRouteCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
  * const client = new MigrationHubRefactorSpacesClient(config);
+ * const input = { // DeleteRouteRequest
+ *   EnvironmentIdentifier: "STRING_VALUE", // required
+ *   ApplicationIdentifier: "STRING_VALUE", // required
+ *   RouteIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRouteCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRouteCommandInput - {@link DeleteRouteCommandInput}
+ * @returns {@link DeleteRouteCommandOutput}
  * @see {@link DeleteRouteCommandInput} for command's `input` shape.
  * @see {@link DeleteRouteCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubRefactorSpacesClientResolvedConfig | config} for MigrationHubRefactorSpacesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The user does not have sufficient access to perform this action. </p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred while processing the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a resource that does not exist. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Request was denied because the request was throttled. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input does not satisfy the constraints specified by an Amazon Web Service.
+ *     </p>
+ *
  *
  */
 export class DeleteRouteCommand extends $Command<
@@ -66,6 +96,9 @@ export class DeleteRouteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRouteCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +125,8 @@ export class DeleteRouteCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRouteRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRouteResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +136,18 @@ export class DeleteRouteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteRouteCommand(input, context);
+    return se_DeleteRouteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRouteCommandOutput> {
-    return deserializeAws_restJson1DeleteRouteCommand(output, context);
+    return de_DeleteRouteCommand(output, context);
   }
 
   // Start section: command_body_extra

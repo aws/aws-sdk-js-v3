@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import {
-  ListDatabasesInput,
-  ListDatabasesInputFilterSensitiveLog,
-  ListDatabasesOutput,
-  ListDatabasesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListDatabasesCommand,
-  serializeAws_json1_1ListDatabasesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListDatabasesInput, ListDatabasesOutput } from "../models/models_0";
+import { de_ListDatabasesCommand, se_ListDatabasesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListDatabasesCommand}.
+ */
 export interface ListDatabasesCommandInput extends ListDatabasesInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListDatabasesCommand}.
+ */
 export interface ListDatabasesCommandOutput extends ListDatabasesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the databases in the specified data catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,37 @@ export interface ListDatabasesCommandOutput extends ListDatabasesOutput, __Metad
  * import { AthenaClient, ListDatabasesCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, ListDatabasesCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = { // ListDatabasesInput
+ *   CatalogName: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListDatabasesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDatabasesCommandInput - {@link ListDatabasesCommandInput}
+ * @returns {@link ListDatabasesCommandOutput}
  * @see {@link ListDatabasesCommandInput} for command's `input` shape.
  * @see {@link ListDatabasesCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Indicates a platform issue, which may be due to a transient condition or
+ *             outage.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>Indicates that something is wrong with the input to the request. For example, a
+ *             required parameter may be missing or out of range.</p>
+ *
+ * @throws {@link MetadataException} (client fault)
+ *  <p>An exception that Athena received when it called a custom metastore.
+ *             Occurs if the error is not caused by user input (<code>InvalidRequestException</code>)
+ *             or from the Athena platform (<code>InternalServerException</code>). For
+ *             example, if a user-created Lambda function is missing permissions, the
+ *                 Lambda
+ *             <code>4XX</code> exception is returned in a <code>MetadataException</code>.</p>
+ *
  *
  */
 export class ListDatabasesCommand extends $Command<
@@ -62,6 +89,9 @@ export class ListDatabasesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDatabasesCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +118,8 @@ export class ListDatabasesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDatabasesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDatabasesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +129,18 @@ export class ListDatabasesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDatabasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDatabasesCommand(input, context);
+    return se_ListDatabasesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDatabasesCommandOutput> {
-    return deserializeAws_json1_1ListDatabasesCommand(output, context);
+    return de_ListDatabasesCommand(output, context);
   }
 
   // Start section: command_body_extra

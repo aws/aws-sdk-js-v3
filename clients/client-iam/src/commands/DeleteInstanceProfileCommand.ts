@@ -14,25 +14,33 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { DeleteInstanceProfileRequest, DeleteInstanceProfileRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteInstanceProfileCommand,
-  serializeAws_queryDeleteInstanceProfileCommand,
-} from "../protocols/Aws_query";
+import { DeleteInstanceProfileRequest } from "../models/models_0";
+import { de_DeleteInstanceProfileCommand, se_DeleteInstanceProfileCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteInstanceProfileCommand}.
+ */
 export interface DeleteInstanceProfileCommandInput extends DeleteInstanceProfileRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteInstanceProfileCommand}.
+ */
 export interface DeleteInstanceProfileCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified instance profile. The instance profile must not have an
  *             associated role.</p>
- *         <important>
+ *          <important>
  *             <p>Make sure that you do not have any Amazon EC2 instances running with the instance
  *                 profile you are about to delete. Deleting a role or instance profile that is
  *                 associated with a running instance will break any applications running on the
  *                 instance.</p>
- *         </important>
- *         <p>For more information about instance profiles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About instance
+ *          </important>
+ *          <p>For more information about instance profiles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About instance
  *             profiles</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +48,46 @@ export interface DeleteInstanceProfileCommandOutput extends __MetadataBearer {}
  * import { IAMClient, DeleteInstanceProfileCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, DeleteInstanceProfileCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // DeleteInstanceProfileRequest
+ *   InstanceProfileName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteInstanceProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteInstanceProfileCommandInput - {@link DeleteInstanceProfileCommandInput}
+ * @returns {@link DeleteInstanceProfileCommandOutput}
  * @see {@link DeleteInstanceProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteInstanceProfileCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link DeleteConflictException} (client fault)
+ *  <p>The request was rejected because it attempted to delete a resource that has attached
+ *       subordinate entities. The error message describes these entities.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request was rejected because it attempted to create resources beyond the current
+ *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
+ *
+ * @example To delete an instance profile
+ * ```javascript
+ * // The following command deletes the instance profile named ExampleInstanceProfile
+ * const input = {
+ *   "InstanceProfileName": "ExampleInstanceProfile"
+ * };
+ * const command = new DeleteInstanceProfileCommand(input);
+ * await client.send(command);
+ * // example id: 12d74fb8-3433-49db-8171-a1fc764e354d
+ * ```
  *
  */
 export class DeleteInstanceProfileCommand extends $Command<
@@ -66,6 +107,9 @@ export class DeleteInstanceProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteInstanceProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +138,8 @@ export class DeleteInstanceProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteInstanceProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +149,18 @@ export class DeleteInstanceProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteInstanceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteInstanceProfileCommand(input, context);
+    return se_DeleteInstanceProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInstanceProfileCommandOutput> {
-    return deserializeAws_queryDeleteInstanceProfileCommand(output, context);
+    return de_DeleteInstanceProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

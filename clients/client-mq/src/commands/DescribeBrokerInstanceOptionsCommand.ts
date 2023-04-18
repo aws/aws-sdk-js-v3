@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeBrokerInstanceOptionsRequest,
-  DescribeBrokerInstanceOptionsRequestFilterSensitiveLog,
-  DescribeBrokerInstanceOptionsResponse,
-  DescribeBrokerInstanceOptionsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeBrokerInstanceOptionsRequest, DescribeBrokerInstanceOptionsResponse } from "../models/models_0";
 import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
 import {
-  deserializeAws_restJson1DescribeBrokerInstanceOptionsCommand,
-  serializeAws_restJson1DescribeBrokerInstanceOptionsCommand,
+  de_DescribeBrokerInstanceOptionsCommand,
+  se_DescribeBrokerInstanceOptionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeBrokerInstanceOptionsCommand}.
+ */
 export interface DescribeBrokerInstanceOptionsCommandInput extends DescribeBrokerInstanceOptionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeBrokerInstanceOptionsCommand}.
+ */
 export interface DescribeBrokerInstanceOptionsCommandOutput
   extends DescribeBrokerInstanceOptionsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describe available broker instance options.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,32 @@ export interface DescribeBrokerInstanceOptionsCommandOutput
  * import { MqClient, DescribeBrokerInstanceOptionsCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, DescribeBrokerInstanceOptionsCommand } = require("@aws-sdk/client-mq"); // CommonJS import
  * const client = new MqClient(config);
+ * const input = { // DescribeBrokerInstanceOptionsRequest
+ *   EngineType: "STRING_VALUE",
+ *   HostInstanceType: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   StorageType: "STRING_VALUE",
+ * };
  * const command = new DescribeBrokerInstanceOptionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBrokerInstanceOptionsCommandInput - {@link DescribeBrokerInstanceOptionsCommandInput}
+ * @returns {@link DescribeBrokerInstanceOptionsCommandOutput}
  * @see {@link DescribeBrokerInstanceOptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeBrokerInstanceOptionsCommandOutput} for command's `response` shape.
  * @see {@link MqClientResolvedConfig | config} for MqClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>Returns information about an error.</p>
+ *
  *
  */
 export class DescribeBrokerInstanceOptionsCommand extends $Command<
@@ -64,6 +89,9 @@ export class DescribeBrokerInstanceOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBrokerInstanceOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +120,8 @@ export class DescribeBrokerInstanceOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeBrokerInstanceOptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeBrokerInstanceOptionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +131,21 @@ export class DescribeBrokerInstanceOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeBrokerInstanceOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeBrokerInstanceOptionsCommand(input, context);
+    return se_DescribeBrokerInstanceOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeBrokerInstanceOptionsCommandOutput> {
-    return deserializeAws_restJson1DescribeBrokerInstanceOptionsCommand(output, context);
+    return de_DescribeBrokerInstanceOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

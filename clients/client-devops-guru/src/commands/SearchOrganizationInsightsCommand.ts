@@ -14,27 +14,30 @@ import {
 } from "@aws-sdk/types";
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
-import {
-  SearchOrganizationInsightsRequest,
-  SearchOrganizationInsightsRequestFilterSensitiveLog,
-  SearchOrganizationInsightsResponse,
-  SearchOrganizationInsightsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1SearchOrganizationInsightsCommand,
-  serializeAws_restJson1SearchOrganizationInsightsCommand,
-} from "../protocols/Aws_restJson1";
+import { SearchOrganizationInsightsRequest, SearchOrganizationInsightsResponse } from "../models/models_0";
+import { de_SearchOrganizationInsightsCommand, se_SearchOrganizationInsightsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link SearchOrganizationInsightsCommand}.
+ */
 export interface SearchOrganizationInsightsCommandInput extends SearchOrganizationInsightsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SearchOrganizationInsightsCommand}.
+ */
 export interface SearchOrganizationInsightsCommandOutput extends SearchOrganizationInsightsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a list of insights in your organization. You can specify which insights are
  * 			returned by their start time, one or more statuses (<code>ONGOING</code>,
  * 				<code>CLOSED</code>, and <code>CLOSED</code>), one or more severities
  * 				(<code>LOW</code>, <code>MEDIUM</code>, and <code>HIGH</code>), and type
  * 				(<code>REACTIVE</code> or <code>PROACTIVE</code>). </p>
- * 		       <p> Use the <code>Filters</code> parameter to specify status and severity search
+ *          <p> Use the <code>Filters</code> parameter to specify status and severity search
  * 			parameters. Use the <code>Type</code> parameter to specify <code>REACTIVE</code> or
  * 				<code>PROACTIVE</code> in your search. </p>
  * @example
@@ -43,13 +46,72 @@ export interface SearchOrganizationInsightsCommandOutput extends SearchOrganizat
  * import { DevOpsGuruClient, SearchOrganizationInsightsCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, SearchOrganizationInsightsCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
  * const client = new DevOpsGuruClient(config);
+ * const input = { // SearchOrganizationInsightsRequest
+ *   AccountIds: [ // SearchInsightsAccountIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   StartTimeRange: { // StartTimeRange
+ *     FromTime: new Date("TIMESTAMP"),
+ *     ToTime: new Date("TIMESTAMP"),
+ *   },
+ *   Filters: { // SearchOrganizationInsightsFilters
+ *     Severities: [ // InsightSeverities
+ *       "LOW" || "MEDIUM" || "HIGH",
+ *     ],
+ *     Statuses: [ // InsightStatuses
+ *       "ONGOING" || "CLOSED",
+ *     ],
+ *     ResourceCollection: { // ResourceCollection
+ *       CloudFormation: { // CloudFormationCollection
+ *         StackNames: [ // StackNames
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       Tags: [ // TagCollections
+ *         { // TagCollection
+ *           AppBoundaryKey: "STRING_VALUE", // required
+ *           TagValues: [ // TagValues // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *     ServiceCollection: { // ServiceCollection
+ *       ServiceNames: [ // ServiceNames
+ *         "API_GATEWAY" || "APPLICATION_ELB" || "AUTO_SCALING_GROUP" || "CLOUD_FRONT" || "DYNAMO_DB" || "EC2" || "ECS" || "EKS" || "ELASTIC_BEANSTALK" || "ELASTI_CACHE" || "ELB" || "ES" || "KINESIS" || "LAMBDA" || "NAT_GATEWAY" || "NETWORK_ELB" || "RDS" || "REDSHIFT" || "ROUTE_53" || "S3" || "SAGE_MAKER" || "SNS" || "SQS" || "STEP_FUNCTIONS" || "SWF",
+ *       ],
+ *     },
+ *   },
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Type: "REACTIVE" || "PROACTIVE", // required
+ * };
  * const command = new SearchOrganizationInsightsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchOrganizationInsightsCommandInput - {@link SearchOrganizationInsightsCommandInput}
+ * @returns {@link SearchOrganizationInsightsCommandOutput}
  * @see {@link SearchOrganizationInsightsCommandInput} for command's `input` shape.
  * @see {@link SearchOrganizationInsightsCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p> You don't have permissions to perform the requested operation. The user or role that
+ * 			is making the request must have at least one IAM permissions policy attached that grants
+ * 			the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access Management</a> in the
+ * 				<i>IAM User Guide</i>. </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal failure in an Amazon service occurred.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to a request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p> Contains information about data passed in to a field during a request that is not
+ * 			valid. </p>
+ *
  *
  */
 export class SearchOrganizationInsightsCommand extends $Command<
@@ -69,6 +131,9 @@ export class SearchOrganizationInsightsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchOrganizationInsightsCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +162,8 @@ export class SearchOrganizationInsightsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchOrganizationInsightsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchOrganizationInsightsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,15 +173,21 @@ export class SearchOrganizationInsightsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchOrganizationInsightsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchOrganizationInsightsCommand(input, context);
+    return se_SearchOrganizationInsightsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SearchOrganizationInsightsCommandOutput> {
-    return deserializeAws_restJson1SearchOrganizationInsightsCommand(output, context);
+    return de_SearchOrganizationInsightsCommand(output, context);
   }
 
   // Start section: command_body_extra

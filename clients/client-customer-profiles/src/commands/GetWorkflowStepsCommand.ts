@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
-import {
-  GetWorkflowStepsRequest,
-  GetWorkflowStepsRequestFilterSensitiveLog,
-  GetWorkflowStepsResponse,
-  GetWorkflowStepsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetWorkflowStepsCommand,
-  serializeAws_restJson1GetWorkflowStepsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetWorkflowStepsRequest, GetWorkflowStepsResponse } from "../models/models_0";
+import { de_GetWorkflowStepsCommand, se_GetWorkflowStepsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetWorkflowStepsCommand}.
+ */
 export interface GetWorkflowStepsCommandInput extends GetWorkflowStepsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetWorkflowStepsCommand}.
+ */
 export interface GetWorkflowStepsCommandOutput extends GetWorkflowStepsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get granular list of steps in workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,37 @@ export interface GetWorkflowStepsCommandOutput extends GetWorkflowStepsResponse,
  * import { CustomerProfilesClient, GetWorkflowStepsCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, GetWorkflowStepsCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
+ * const input = { // GetWorkflowStepsRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   WorkflowId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new GetWorkflowStepsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetWorkflowStepsCommandInput - {@link GetWorkflowStepsCommandInput}
+ * @returns {@link GetWorkflowStepsCommandOutput}
  * @see {@link GetWorkflowStepsCommandInput} for command's `input` shape.
  * @see {@link GetWorkflowStepsCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input you provided is invalid.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource does not exist, or access was denied.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>You exceeded the maximum number of requests.</p>
+ *
  *
  */
 export class GetWorkflowStepsCommand extends $Command<
@@ -62,6 +89,9 @@ export class GetWorkflowStepsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetWorkflowStepsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +120,8 @@ export class GetWorkflowStepsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetWorkflowStepsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetWorkflowStepsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +131,18 @@ export class GetWorkflowStepsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetWorkflowStepsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetWorkflowStepsCommand(input, context);
+    return se_GetWorkflowStepsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetWorkflowStepsCommandOutput> {
-    return deserializeAws_restJson1GetWorkflowStepsCommand(output, context);
+    return de_GetWorkflowStepsCommand(output, context);
   }
 
   // Start section: command_body_extra

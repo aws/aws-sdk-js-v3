@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyBackendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyBackendClient";
-import {
-  RemoveAllBackendsRequest,
-  RemoveAllBackendsRequestFilterSensitiveLog,
-  RemoveAllBackendsResponse,
-  RemoveAllBackendsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1RemoveAllBackendsCommand,
-  serializeAws_restJson1RemoveAllBackendsCommand,
-} from "../protocols/Aws_restJson1";
+import { RemoveAllBackendsRequest, RemoveAllBackendsResponse } from "../models/models_0";
+import { de_RemoveAllBackendsCommand, se_RemoveAllBackendsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link RemoveAllBackendsCommand}.
+ */
 export interface RemoveAllBackendsCommandInput extends RemoveAllBackendsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RemoveAllBackendsCommand}.
+ */
 export interface RemoveAllBackendsCommandOutput extends RemoveAllBackendsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes all backend environments from your Amplify project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,32 @@ export interface RemoveAllBackendsCommandOutput extends RemoveAllBackendsRespons
  * import { AmplifyBackendClient, RemoveAllBackendsCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, RemoveAllBackendsCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
  * const client = new AmplifyBackendClient(config);
+ * const input = { // RemoveAllBackendsRequest
+ *   AppId: "STRING_VALUE", // required
+ *   CleanAmplifyApp: true || false,
+ * };
  * const command = new RemoveAllBackendsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveAllBackendsCommandInput - {@link RemoveAllBackendsCommandInput}
+ * @returns {@link RemoveAllBackendsCommandOutput}
  * @see {@link RemoveAllBackendsCommandInput} for command's `input` shape.
  * @see {@link RemoveAllBackendsCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>An error returned if a request is not formed properly.</p>
+ *
+ * @throws {@link GatewayTimeoutException} (server fault)
+ *  <p>An error returned if there's a temporary issue with the service.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>An error returned when a specific resource type is not found.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>An error that is returned when a limit of a specific type has been exceeded.</p>
+ *
  *
  */
 export class RemoveAllBackendsCommand extends $Command<
@@ -62,6 +84,9 @@ export class RemoveAllBackendsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveAllBackendsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +115,8 @@ export class RemoveAllBackendsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveAllBackendsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RemoveAllBackendsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +126,18 @@ export class RemoveAllBackendsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveAllBackendsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RemoveAllBackendsCommand(input, context);
+    return se_RemoveAllBackendsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveAllBackendsCommandOutput> {
-    return deserializeAws_restJson1RemoveAllBackendsCommand(output, context);
+    return de_RemoveAllBackendsCommand(output, context);
   }
 
   // Start section: command_body_extra

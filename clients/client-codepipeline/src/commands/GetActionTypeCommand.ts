@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import {
-  GetActionTypeInput,
-  GetActionTypeInputFilterSensitiveLog,
-  GetActionTypeOutput,
-  GetActionTypeOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetActionTypeCommand,
-  serializeAws_json1_1GetActionTypeCommand,
-} from "../protocols/Aws_json1_1";
+import { GetActionTypeInput, GetActionTypeOutput } from "../models/models_0";
+import { de_GetActionTypeCommand, se_GetActionTypeCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetActionTypeCommand}.
+ */
 export interface GetActionTypeCommandInput extends GetActionTypeInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetActionTypeCommand}.
+ */
 export interface GetActionTypeCommandOutput extends GetActionTypeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about an action type created for an external provider, where the
  *             action is to be used by customers of the external provider. The action can be created
  *             with any supported integration model.</p>
@@ -38,13 +41,28 @@ export interface GetActionTypeCommandOutput extends GetActionTypeOutput, __Metad
  * import { CodePipelineClient, GetActionTypeCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, GetActionTypeCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
+ * const input = { // GetActionTypeInput
+ *   category: "STRING_VALUE", // required
+ *   owner: "STRING_VALUE", // required
+ *   provider: "STRING_VALUE", // required
+ *   version: "STRING_VALUE", // required
+ * };
  * const command = new GetActionTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetActionTypeCommandInput - {@link GetActionTypeCommandInput}
+ * @returns {@link GetActionTypeCommandOutput}
  * @see {@link GetActionTypeCommandInput} for command's `input` shape.
  * @see {@link GetActionTypeCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
+ *
+ * @throws {@link ActionTypeNotFoundException} (client fault)
+ *  <p>The specified action type cannot be found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The validation was specified in an invalid format.</p>
+ *
  *
  */
 export class GetActionTypeCommand extends $Command<
@@ -64,6 +82,9 @@ export class GetActionTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetActionTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +111,8 @@ export class GetActionTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetActionTypeInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetActionTypeOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +122,18 @@ export class GetActionTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetActionTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetActionTypeCommand(input, context);
+    return se_GetActionTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetActionTypeCommandOutput> {
-    return deserializeAws_json1_1GetActionTypeCommand(output, context);
+    return de_GetActionTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

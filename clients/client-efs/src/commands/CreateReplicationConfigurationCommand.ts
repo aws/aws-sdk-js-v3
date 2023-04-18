@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
+import { CreateReplicationConfigurationRequest, ReplicationConfigurationDescription } from "../models/models_0";
 import {
-  CreateReplicationConfigurationRequest,
-  CreateReplicationConfigurationRequestFilterSensitiveLog,
-  ReplicationConfigurationDescription,
-  ReplicationConfigurationDescriptionFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateReplicationConfigurationCommand,
-  serializeAws_restJson1CreateReplicationConfigurationCommand,
+  de_CreateReplicationConfigurationCommand,
+  se_CreateReplicationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateReplicationConfigurationCommand}.
+ */
 export interface CreateReplicationConfigurationCommandInput extends CreateReplicationConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateReplicationConfigurationCommand}.
+ */
 export interface CreateReplicationConfigurationCommandOutput
   extends ReplicationConfigurationDescription,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a replication configuration that replicates an existing EFS file system to a new,
  *       read-only file system. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-replication.html">Amazon EFS replication</a> in the
  *           <i>Amazon EFS User Guide</i>. The replication configuration
@@ -79,7 +85,6 @@ export interface CreateReplicationConfigurationCommandOutput
  *                </ul>
  *             </li>
  *          </ul>
- *
  *          <p>The following properties are set by default:</p>
  *          <ul>
  *             <li>
@@ -91,12 +96,11 @@ export interface CreateReplicationConfigurationCommandOutput
  *             </li>
  *             <li>
  *                <p>
- *                   <b>Throughput mode</b> - The destination file system uses the
- *           Bursting Throughput mode by default. After the file system is created, you can modify the
+ *                   <b>Throughput mode</b> - The destination file system's throughput
+ *         mode matches that of the source file system. After the file system is created, you can modify the
  *           throughput mode.</p>
  *             </li>
  *          </ul>
- *
  *          <p>The following properties are turned off by default:</p>
  *          <ul>
  *             <li>
@@ -113,7 +117,6 @@ export interface CreateReplicationConfigurationCommandOutput
  *           setting.</p>
  *             </li>
  *          </ul>
- *
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-replication.html">Amazon EFS replication</a> in the
  *           <i>Amazon EFS User Guide</i>.</p>
  * @example
@@ -122,13 +125,65 @@ export interface CreateReplicationConfigurationCommandOutput
  * import { EFSClient, CreateReplicationConfigurationCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, CreateReplicationConfigurationCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
+ * const input = { // CreateReplicationConfigurationRequest
+ *   SourceFileSystemId: "STRING_VALUE", // required
+ *   Destinations: [ // DestinationsToCreate // required
+ *     { // DestinationToCreate
+ *       Region: "STRING_VALUE",
+ *       AvailabilityZoneName: "STRING_VALUE",
+ *       KmsKeyId: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateReplicationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateReplicationConfigurationCommandInput - {@link CreateReplicationConfigurationCommandInput}
+ * @returns {@link CreateReplicationConfigurationCommandOutput}
  * @see {@link CreateReplicationConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateReplicationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
+ *
+ * @throws {@link BadRequest} (client fault)
+ *  <p>Returned if the request is malformed or contains an error such as an invalid
+ *             parameter value or a missing required parameter.</p>
+ *
+ * @throws {@link FileSystemLimitExceeded} (client fault)
+ *  <p>Returned if the Amazon Web Services account has already created the maximum number of file systems
+ *             allowed per account.</p>
+ *
+ * @throws {@link FileSystemNotFound} (client fault)
+ *  <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the
+ *             requester's Amazon Web Services account.</p>
+ *
+ * @throws {@link IncorrectFileSystemLifeCycleState} (client fault)
+ *  <p>Returned if the file system's lifecycle state is not "available".</p>
+ *
+ * @throws {@link InsufficientThroughputCapacity} (server fault)
+ *  <p>Returned if there's not enough capacity to provision additional throughput. This value
+ *             might be returned when you try to create a file system in provisioned throughput mode,
+ *             when you attempt to increase the provisioned throughput of an existing file system, or
+ *             when you attempt to change an existing file system from Bursting Throughput to
+ *             Provisioned Throughput mode. Try again later.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Returned if an error occurred on the server side.</p>
+ *
+ * @throws {@link ReplicationNotFound} (client fault)
+ *  <p>Returned if the specified file system does not have a replication
+ *             configuration.</p>
+ *
+ * @throws {@link ThroughputLimitExceeded} (client fault)
+ *  <p>Returned if the throughput mode or amount of provisioned throughput can't be changed
+ *             because the throughput limit of 1024 MiB/s has been reached.</p>
+ *
+ * @throws {@link UnsupportedAvailabilityZone} (client fault)
+ *  <p>Returned if the requested Amazon EFS functionality is not available in the specified Availability Zone.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Returned if the Backup service is not available in the Amazon Web Services Region in which the request was made.</p>
+ *
  *
  */
 export class CreateReplicationConfigurationCommand extends $Command<
@@ -148,6 +203,9 @@ export class CreateReplicationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateReplicationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -176,8 +234,8 @@ export class CreateReplicationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateReplicationConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ReplicationConfigurationDescriptionFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -187,18 +245,24 @@ export class CreateReplicationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateReplicationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateReplicationConfigurationCommand(input, context);
+    return se_CreateReplicationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateReplicationConfigurationCommandOutput> {
-    return deserializeAws_restJson1CreateReplicationConfigurationCommand(output, context);
+    return de_CreateReplicationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

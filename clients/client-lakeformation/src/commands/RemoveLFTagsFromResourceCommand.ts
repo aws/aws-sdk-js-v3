@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import {
-  RemoveLFTagsFromResourceRequest,
-  RemoveLFTagsFromResourceRequestFilterSensitiveLog,
-  RemoveLFTagsFromResourceResponse,
-  RemoveLFTagsFromResourceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1RemoveLFTagsFromResourceCommand,
-  serializeAws_restJson1RemoveLFTagsFromResourceCommand,
-} from "../protocols/Aws_restJson1";
+import { RemoveLFTagsFromResourceRequest, RemoveLFTagsFromResourceResponse } from "../models/models_0";
+import { de_RemoveLFTagsFromResourceCommand, se_RemoveLFTagsFromResourceCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link RemoveLFTagsFromResourceCommand}.
+ */
 export interface RemoveLFTagsFromResourceCommandInput extends RemoveLFTagsFromResourceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RemoveLFTagsFromResourceCommand}.
+ */
 export interface RemoveLFTagsFromResourceCommandOutput extends RemoveLFTagsFromResourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes an LF-tag from the resource. Only database, table, or tableWithColumns resource are allowed. To tag columns, use the column inclusion list in <code>tableWithColumns</code> to specify column input.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,104 @@ export interface RemoveLFTagsFromResourceCommandOutput extends RemoveLFTagsFromR
  * import { LakeFormationClient, RemoveLFTagsFromResourceCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, RemoveLFTagsFromResourceCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
+ * const input = { // RemoveLFTagsFromResourceRequest
+ *   CatalogId: "STRING_VALUE",
+ *   Resource: { // Resource
+ *     Catalog: {},
+ *     Database: { // DatabaseResource
+ *       CatalogId: "STRING_VALUE",
+ *       Name: "STRING_VALUE", // required
+ *     },
+ *     Table: { // TableResource
+ *       CatalogId: "STRING_VALUE",
+ *       DatabaseName: "STRING_VALUE", // required
+ *       Name: "STRING_VALUE",
+ *       TableWildcard: {},
+ *     },
+ *     TableWithColumns: { // TableWithColumnsResource
+ *       CatalogId: "STRING_VALUE",
+ *       DatabaseName: "STRING_VALUE", // required
+ *       Name: "STRING_VALUE", // required
+ *       ColumnNames: [ // ColumnNames
+ *         "STRING_VALUE",
+ *       ],
+ *       ColumnWildcard: { // ColumnWildcard
+ *         ExcludedColumnNames: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *     DataLocation: { // DataLocationResource
+ *       CatalogId: "STRING_VALUE",
+ *       ResourceArn: "STRING_VALUE", // required
+ *     },
+ *     DataCellsFilter: { // DataCellsFilterResource
+ *       TableCatalogId: "STRING_VALUE",
+ *       DatabaseName: "STRING_VALUE",
+ *       TableName: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *     },
+ *     LFTag: { // LFTagKeyResource
+ *       CatalogId: "STRING_VALUE",
+ *       TagKey: "STRING_VALUE", // required
+ *       TagValues: [ // TagValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     LFTagPolicy: { // LFTagPolicyResource
+ *       CatalogId: "STRING_VALUE",
+ *       ResourceType: "DATABASE" || "TABLE", // required
+ *       Expression: [ // Expression // required
+ *         { // LFTag
+ *           TagKey: "STRING_VALUE", // required
+ *           TagValues: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   LFTags: [ // LFTagsList // required
+ *     { // LFTagPair
+ *       CatalogId: "STRING_VALUE",
+ *       TagKey: "STRING_VALUE", // required
+ *       TagValues: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new RemoveLFTagsFromResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveLFTagsFromResourceCommandInput - {@link RemoveLFTagsFromResourceCommandInput}
+ * @returns {@link RemoveLFTagsFromResourceCommandOutput}
  * @see {@link RemoveLFTagsFromResourceCommandInput} for command's `input` shape.
  * @see {@link RemoveLFTagsFromResourceCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to a resource was denied.</p>
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>Two processes are trying to modify a resource simultaneously.</p>
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist.</p>
+ *
+ * @throws {@link GlueEncryptionException} (client fault)
+ *  <p>An encryption operation failed.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class RemoveLFTagsFromResourceCommand extends $Command<
@@ -62,6 +156,9 @@ export class RemoveLFTagsFromResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveLFTagsFromResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +187,8 @@ export class RemoveLFTagsFromResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveLFTagsFromResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RemoveLFTagsFromResourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +198,18 @@ export class RemoveLFTagsFromResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveLFTagsFromResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RemoveLFTagsFromResourceCommand(input, context);
+    return se_RemoveLFTagsFromResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveLFTagsFromResourceCommandOutput> {
-    return deserializeAws_restJson1RemoveLFTagsFromResourceCommand(output, context);
+    return de_RemoveLFTagsFromResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

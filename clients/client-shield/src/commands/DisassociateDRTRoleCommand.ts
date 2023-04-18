@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DisassociateDRTRoleRequest,
-  DisassociateDRTRoleRequestFilterSensitiveLog,
-  DisassociateDRTRoleResponse,
-  DisassociateDRTRoleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DisassociateDRTRoleCommand,
-  serializeAws_json1_1DisassociateDRTRoleCommand,
-} from "../protocols/Aws_json1_1";
+import { DisassociateDRTRoleRequest, DisassociateDRTRoleResponse } from "../models/models_0";
+import { de_DisassociateDRTRoleCommand, se_DisassociateDRTRoleCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DisassociateDRTRoleCommand}.
+ */
 export interface DisassociateDRTRoleCommandInput extends DisassociateDRTRoleRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateDRTRoleCommand}.
+ */
 export interface DisassociateDRTRoleCommandOutput extends DisassociateDRTRoleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the Shield Response Team's (SRT) access to your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,30 @@ export interface DisassociateDRTRoleCommandOutput extends DisassociateDRTRoleRes
  * import { ShieldClient, DisassociateDRTRoleCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, DisassociateDRTRoleCommand } = require("@aws-sdk/client-shield"); // CommonJS import
  * const client = new ShieldClient(config);
+ * const input = {};
  * const command = new DisassociateDRTRoleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateDRTRoleCommandInput - {@link DisassociateDRTRoleCommandInput}
+ * @returns {@link DisassociateDRTRoleCommandOutput}
  * @see {@link DisassociateDRTRoleCommandInput} for command's `input` shape.
  * @see {@link DisassociateDRTRoleCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+ *
+ * @throws {@link InvalidOperationException} (client fault)
+ *  <p>Exception that indicates that the operation would not cause any change to occur.</p>
+ *
+ * @throws {@link OptimisticLockException} (client fault)
+ *  <p>Exception that indicates that the resource state has been modified by another
+ *          client. Retrieve the resource and then retry your request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+ *
  *
  */
 export class DisassociateDRTRoleCommand extends $Command<
@@ -62,6 +82,9 @@ export class DisassociateDRTRoleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateDRTRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +113,8 @@ export class DisassociateDRTRoleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateDRTRoleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateDRTRoleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +124,18 @@ export class DisassociateDRTRoleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateDRTRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateDRTRoleCommand(input, context);
+    return se_DisassociateDRTRoleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateDRTRoleCommandOutput> {
-    return deserializeAws_json1_1DisassociateDRTRoleCommand(output, context);
+    return de_DisassociateDRTRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

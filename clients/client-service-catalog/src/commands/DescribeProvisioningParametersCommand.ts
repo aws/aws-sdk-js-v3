@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DescribeProvisioningParametersInput, DescribeProvisioningParametersOutput } from "../models/models_0";
 import {
-  DescribeProvisioningParametersInput,
-  DescribeProvisioningParametersInputFilterSensitiveLog,
-  DescribeProvisioningParametersOutput,
-  DescribeProvisioningParametersOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeProvisioningParametersCommand,
-  serializeAws_json1_1DescribeProvisioningParametersCommand,
+  de_DescribeProvisioningParametersCommand,
+  se_DescribeProvisioningParametersCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeProvisioningParametersCommand}.
+ */
 export interface DescribeProvisioningParametersCommandInput extends DescribeProvisioningParametersInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeProvisioningParametersCommand}.
+ */
 export interface DescribeProvisioningParametersCommandOutput
   extends DescribeProvisioningParametersOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the configuration required to provision the specified product using
  *          the specified provisioning artifact.</p>
  *          <p>If the output contains a TagOption key with an empty list of values, there is a
@@ -45,13 +51,31 @@ export interface DescribeProvisioningParametersCommandOutput
  * import { ServiceCatalogClient, DescribeProvisioningParametersCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DescribeProvisioningParametersCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // DescribeProvisioningParametersInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   ProductId: "STRING_VALUE",
+ *   ProductName: "STRING_VALUE",
+ *   ProvisioningArtifactId: "STRING_VALUE",
+ *   ProvisioningArtifactName: "STRING_VALUE",
+ *   PathId: "STRING_VALUE",
+ *   PathName: "STRING_VALUE",
+ * };
  * const command = new DescribeProvisioningParametersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeProvisioningParametersCommandInput - {@link DescribeProvisioningParametersCommandInput}
+ * @returns {@link DescribeProvisioningParametersCommandOutput}
  * @see {@link DescribeProvisioningParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeProvisioningParametersCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
+ *
+ * @throws {@link InvalidParametersException} (client fault)
+ *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class DescribeProvisioningParametersCommand extends $Command<
@@ -71,6 +95,9 @@ export class DescribeProvisioningParametersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeProvisioningParametersCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +126,8 @@ export class DescribeProvisioningParametersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeProvisioningParametersInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeProvisioningParametersOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,18 +137,24 @@ export class DescribeProvisioningParametersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeProvisioningParametersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeProvisioningParametersCommand(input, context);
+    return se_DescribeProvisioningParametersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeProvisioningParametersCommandOutput> {
-    return deserializeAws_json1_1DescribeProvisioningParametersCommand(output, context);
+    return de_DescribeProvisioningParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

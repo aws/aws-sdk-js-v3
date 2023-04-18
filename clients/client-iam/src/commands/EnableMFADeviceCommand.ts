@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { EnableMFADeviceRequest, EnableMFADeviceRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryEnableMFADeviceCommand,
-  serializeAws_queryEnableMFADeviceCommand,
-} from "../protocols/Aws_query";
+import { EnableMFADeviceRequest } from "../models/models_0";
+import { de_EnableMFADeviceCommand, se_EnableMFADeviceCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link EnableMFADeviceCommand}.
+ */
 export interface EnableMFADeviceCommandInput extends EnableMFADeviceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link EnableMFADeviceCommand}.
+ */
 export interface EnableMFADeviceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables the specified MFA device and associates it with the specified IAM user. When
  *             enabled, the MFA device is required for every subsequent login by the IAM user
  *             associated with the device.</p>
@@ -33,13 +41,48 @@ export interface EnableMFADeviceCommandOutput extends __MetadataBearer {}
  * import { IAMClient, EnableMFADeviceCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, EnableMFADeviceCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // EnableMFADeviceRequest
+ *   UserName: "STRING_VALUE", // required
+ *   SerialNumber: "STRING_VALUE", // required
+ *   AuthenticationCode1: "STRING_VALUE", // required
+ *   AuthenticationCode2: "STRING_VALUE", // required
+ * };
  * const command = new EnableMFADeviceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableMFADeviceCommandInput - {@link EnableMFADeviceCommandInput}
+ * @returns {@link EnableMFADeviceCommandOutput}
  * @see {@link EnableMFADeviceCommandInput} for command's `input` shape.
  * @see {@link EnableMFADeviceCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link EntityAlreadyExistsException} (client fault)
+ *  <p>The request was rejected because it attempted to create a resource that already
+ *       exists.</p>
+ *
+ * @throws {@link EntityTemporarilyUnmodifiableException} (client fault)
+ *  <p>The request was rejected because it referenced an entity that is temporarily unmodifiable,
+ *       such as a user name that was deleted and then recreated. The error indicates that the request
+ *       is likely to succeed if you try again after waiting several minutes. The error message
+ *       describes the entity.</p>
+ *
+ * @throws {@link InvalidAuthenticationCodeException} (client fault)
+ *  <p>The request was rejected because the authentication code was not recognized. The error
+ *       message describes the specific error.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request was rejected because it attempted to create resources beyond the current
+ *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
  *
  */
 export class EnableMFADeviceCommand extends $Command<
@@ -59,6 +102,9 @@ export class EnableMFADeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableMFADeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -87,8 +133,8 @@ export class EnableMFADeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableMFADeviceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -98,12 +144,18 @@ export class EnableMFADeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableMFADeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryEnableMFADeviceCommand(input, context);
+    return se_EnableMFADeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableMFADeviceCommandOutput> {
-    return deserializeAws_queryEnableMFADeviceCommand(output, context);
+    return de_EnableMFADeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

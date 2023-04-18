@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IdentitystoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IdentitystoreClient";
-import {
-  GetGroupMembershipIdRequest,
-  GetGroupMembershipIdRequestFilterSensitiveLog,
-  GetGroupMembershipIdResponse,
-  GetGroupMembershipIdResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetGroupMembershipIdCommand,
-  serializeAws_json1_1GetGroupMembershipIdCommand,
-} from "../protocols/Aws_json1_1";
+import { GetGroupMembershipIdRequest, GetGroupMembershipIdResponse } from "../models/models_0";
+import { de_GetGroupMembershipIdCommand, se_GetGroupMembershipIdCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetGroupMembershipIdCommand}.
+ */
 export interface GetGroupMembershipIdCommandInput extends GetGroupMembershipIdRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetGroupMembershipIdCommand}.
+ */
 export interface GetGroupMembershipIdCommandOutput extends GetGroupMembershipIdResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the <code>MembershipId</code> in an identity store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,38 @@ export interface GetGroupMembershipIdCommandOutput extends GetGroupMembershipIdR
  * import { IdentitystoreClient, GetGroupMembershipIdCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
  * // const { IdentitystoreClient, GetGroupMembershipIdCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
  * const client = new IdentitystoreClient(config);
+ * const input = { // GetGroupMembershipIdRequest
+ *   IdentityStoreId: "STRING_VALUE", // required
+ *   GroupId: "STRING_VALUE", // required
+ *   MemberId: { // MemberId Union: only one key present
+ *     UserId: "STRING_VALUE",
+ *   },
+ * };
  * const command = new GetGroupMembershipIdCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetGroupMembershipIdCommandInput - {@link GetGroupMembershipIdCommandInput}
+ * @returns {@link GetGroupMembershipIdCommandOutput}
  * @see {@link GetGroupMembershipIdCommandInput} for command's `input` shape.
  * @see {@link GetGroupMembershipIdCommandOutput} for command's `response` shape.
  * @see {@link IdentitystoreClientResolvedConfig | config} for IdentitystoreClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Indicates that a requested resource is not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request failed because it contains a syntax error.</p>
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or failure with an internal server.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+ *
  *
  */
 export class GetGroupMembershipIdCommand extends $Command<
@@ -62,6 +90,9 @@ export class GetGroupMembershipIdCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetGroupMembershipIdCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +121,8 @@ export class GetGroupMembershipIdCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetGroupMembershipIdRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetGroupMembershipIdResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +132,18 @@ export class GetGroupMembershipIdCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetGroupMembershipIdCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetGroupMembershipIdCommand(input, context);
+    return se_GetGroupMembershipIdCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGroupMembershipIdCommandOutput> {
-    return deserializeAws_json1_1GetGroupMembershipIdCommand(output, context);
+    return de_GetGroupMembershipIdCommand(output, context);
   }
 
   // Start section: command_body_extra

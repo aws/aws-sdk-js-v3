@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client";
-import {
-  ListApplicationSnapshotsRequest,
-  ListApplicationSnapshotsRequestFilterSensitiveLog,
-  ListApplicationSnapshotsResponse,
-  ListApplicationSnapshotsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListApplicationSnapshotsCommand,
-  serializeAws_json1_1ListApplicationSnapshotsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListApplicationSnapshotsRequest, ListApplicationSnapshotsResponse } from "../models/models_0";
+import { de_ListApplicationSnapshotsCommand, se_ListApplicationSnapshotsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListApplicationSnapshotsCommand}.
+ */
 export interface ListApplicationSnapshotsCommandInput extends ListApplicationSnapshotsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListApplicationSnapshotsCommand}.
+ */
 export interface ListApplicationSnapshotsCommandOutput extends ListApplicationSnapshotsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists information about the current application snapshots.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,28 @@ export interface ListApplicationSnapshotsCommandOutput extends ListApplicationSn
  * import { KinesisAnalyticsV2Client, ListApplicationSnapshotsCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
  * // const { KinesisAnalyticsV2Client, ListApplicationSnapshotsCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
+ * const input = { // ListApplicationSnapshotsRequest
+ *   ApplicationName: "STRING_VALUE", // required
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListApplicationSnapshotsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListApplicationSnapshotsCommandInput - {@link ListApplicationSnapshotsCommandInput}
+ * @returns {@link ListApplicationSnapshotsCommandOutput}
  * @see {@link ListApplicationSnapshotsCommandInput} for command's `input` shape.
  * @see {@link ListApplicationSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>The specified input parameter value is not valid.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this
+ *       operation. </p>
+ *
  *
  */
 export class ListApplicationSnapshotsCommand extends $Command<
@@ -66,6 +84,9 @@ export class ListApplicationSnapshotsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListApplicationSnapshotsCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +115,8 @@ export class ListApplicationSnapshotsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListApplicationSnapshotsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListApplicationSnapshotsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +126,18 @@ export class ListApplicationSnapshotsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListApplicationSnapshotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListApplicationSnapshotsCommand(input, context);
+    return se_ListApplicationSnapshotsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListApplicationSnapshotsCommandOutput> {
-    return deserializeAws_json1_1ListApplicationSnapshotsCommand(output, context);
+    return de_ListApplicationSnapshotsCommand(output, context);
   }
 
   // Start section: command_body_extra

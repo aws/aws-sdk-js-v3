@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  BatchStopRequest,
-  BatchStopRequestFilterSensitiveLog,
-  BatchStopResponse,
-  BatchStopResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1BatchStopCommand,
-  serializeAws_restJson1BatchStopCommand,
-} from "../protocols/Aws_restJson1";
+import { BatchStopRequest, BatchStopResponse } from "../models/models_1";
+import { de_BatchStopCommand, se_BatchStopCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchStopCommand}.
+ */
 export interface BatchStopCommandInput extends BatchStopRequest {}
+/**
+ * @public
+ *
+ * The output of {@link BatchStopCommand}.
+ */
 export interface BatchStopCommandOutput extends BatchStopResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Stops running resources
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,48 @@ export interface BatchStopCommandOutput extends BatchStopResponse, __MetadataBea
  * import { MediaLiveClient, BatchStopCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, BatchStopCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = { // BatchStopRequest
+ *   ChannelIds: [ // __listOf__string
+ *     "STRING_VALUE",
+ *   ],
+ *   MultiplexIds: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchStopCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchStopCommandInput - {@link BatchStopCommandInput}
+ * @returns {@link BatchStopCommandOutput}
  * @see {@link BatchStopCommandInput} for command's `input` shape.
  * @see {@link BatchStopCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
+ *
+ * @throws {@link BadGatewayException} (server fault)
+ *  Placeholder documentation for BadGatewayException
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  Placeholder documentation for BadRequestException
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  Placeholder documentation for ConflictException
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  Placeholder documentation for ForbiddenException
+ *
+ * @throws {@link GatewayTimeoutException} (server fault)
+ *  Placeholder documentation for GatewayTimeoutException
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  Placeholder documentation for InternalServerErrorException
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  Placeholder documentation for NotFoundException
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  Placeholder documentation for TooManyRequestsException
+ *
  *
  */
 export class BatchStopCommand extends $Command<
@@ -62,6 +100,9 @@ export class BatchStopCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchStopCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +129,8 @@ export class BatchStopCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchStopRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchStopResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +140,18 @@ export class BatchStopCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchStopCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchStopCommand(input, context);
+    return se_BatchStopCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchStopCommandOutput> {
-    return deserializeAws_restJson1BatchStopCommand(output, context);
+    return de_BatchStopCommand(output, context);
   }
 
   // Start section: command_body_extra

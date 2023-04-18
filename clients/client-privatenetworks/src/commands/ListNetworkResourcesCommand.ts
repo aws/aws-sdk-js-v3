@@ -15,24 +15,31 @@ import {
 
 import {
   ListNetworkResourcesRequest,
-  ListNetworkResourcesRequestFilterSensitiveLog,
   ListNetworkResourcesResponse,
   ListNetworkResourcesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { PrivateNetworksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PrivateNetworksClient";
-import {
-  deserializeAws_restJson1ListNetworkResourcesCommand,
-  serializeAws_restJson1ListNetworkResourcesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListNetworkResourcesCommand, se_ListNetworkResourcesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListNetworkResourcesCommand}.
+ */
 export interface ListNetworkResourcesCommandInput extends ListNetworkResourcesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListNetworkResourcesCommand}.
+ */
 export interface ListNetworkResourcesCommandOutput extends ListNetworkResourcesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists network resources.  Add filters to your request to return a more
  *             specific list of results. Use filters to match the Amazon Resource Name (ARN) of an order or
  *             the status of network resources.</p>
- *         <p>If you specify multiple filters, filters are joined with an OR, and the request
+ *          <p>If you specify multiple filters, filters are joined with an OR, and the request
  * returns results that match all of the specified filters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +47,35 @@ export interface ListNetworkResourcesCommandOutput extends ListNetworkResourcesR
  * import { PrivateNetworksClient, ListNetworkResourcesCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
  * // const { PrivateNetworksClient, ListNetworkResourcesCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
  * const client = new PrivateNetworksClient(config);
+ * const input = { // ListNetworkResourcesRequest
+ *   filters: { // NetworkResourceFilters
+ *     "<keys>": [ // NetworkResourceFilterValues
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   networkArn: "STRING_VALUE", // required
+ *   startToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListNetworkResourcesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListNetworkResourcesCommandInput - {@link ListNetworkResourcesCommandInput}
+ * @returns {@link ListNetworkResourcesCommandOutput}
  * @see {@link ListNetworkResourcesCommandInput} for command's `input` shape.
  * @see {@link ListNetworkResourcesCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Information about an internal error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request failed validation.</p>
+ *
  *
  */
 export class ListNetworkResourcesCommand extends $Command<
@@ -66,6 +95,9 @@ export class ListNetworkResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListNetworkResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,7 +126,7 @@ export class ListNetworkResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListNetworkResourcesRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListNetworkResourcesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -105,12 +137,18 @@ export class ListNetworkResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListNetworkResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListNetworkResourcesCommand(input, context);
+    return se_ListNetworkResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNetworkResourcesCommandOutput> {
-    return deserializeAws_restJson1ListNetworkResourcesCommand(output, context);
+    return de_ListNetworkResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

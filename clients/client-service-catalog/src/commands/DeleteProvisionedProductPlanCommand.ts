@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DeleteProvisionedProductPlanInput, DeleteProvisionedProductPlanOutput } from "../models/models_0";
 import {
-  DeleteProvisionedProductPlanInput,
-  DeleteProvisionedProductPlanInputFilterSensitiveLog,
-  DeleteProvisionedProductPlanOutput,
-  DeleteProvisionedProductPlanOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteProvisionedProductPlanCommand,
-  serializeAws_json1_1DeleteProvisionedProductPlanCommand,
+  de_DeleteProvisionedProductPlanCommand,
+  se_DeleteProvisionedProductPlanCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteProvisionedProductPlanCommand}.
+ */
 export interface DeleteProvisionedProductPlanCommandInput extends DeleteProvisionedProductPlanInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteProvisionedProductPlanCommand}.
+ */
 export interface DeleteProvisionedProductPlanCommandOutput
   extends DeleteProvisionedProductPlanOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified plan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,27 @@ export interface DeleteProvisionedProductPlanCommandOutput
  * import { ServiceCatalogClient, DeleteProvisionedProductPlanCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DeleteProvisionedProductPlanCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // DeleteProvisionedProductPlanInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   PlanId: "STRING_VALUE", // required
+ *   IgnoreErrors: true || false,
+ * };
  * const command = new DeleteProvisionedProductPlanCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteProvisionedProductPlanCommandInput - {@link DeleteProvisionedProductPlanCommandInput}
+ * @returns {@link DeleteProvisionedProductPlanCommandOutput}
  * @see {@link DeleteProvisionedProductPlanCommandInput} for command's `input` shape.
  * @see {@link DeleteProvisionedProductPlanCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
+ *
+ * @throws {@link InvalidParametersException} (client fault)
+ *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class DeleteProvisionedProductPlanCommand extends $Command<
@@ -64,6 +84,9 @@ export class DeleteProvisionedProductPlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteProvisionedProductPlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +115,8 @@ export class DeleteProvisionedProductPlanCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteProvisionedProductPlanInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteProvisionedProductPlanOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +126,21 @@ export class DeleteProvisionedProductPlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteProvisionedProductPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteProvisionedProductPlanCommand(input, context);
+    return se_DeleteProvisionedProductPlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteProvisionedProductPlanCommandOutput> {
-    return deserializeAws_json1_1DeleteProvisionedProductPlanCommand(output, context);
+    return de_DeleteProvisionedProductPlanCommand(output, context);
   }
 
   // Start section: command_body_extra

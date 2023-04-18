@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  ListInputDevicesRequest,
-  ListInputDevicesRequestFilterSensitiveLog,
-  ListInputDevicesResponse,
-  ListInputDevicesResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListInputDevicesCommand,
-  serializeAws_restJson1ListInputDevicesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListInputDevicesRequest, ListInputDevicesResponse } from "../models/models_1";
+import { de_ListInputDevicesCommand, se_ListInputDevicesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListInputDevicesCommand}.
+ */
 export interface ListInputDevicesCommandInput extends ListInputDevicesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListInputDevicesCommand}.
+ */
 export interface ListInputDevicesCommandOutput extends ListInputDevicesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * List input devices
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,38 @@ export interface ListInputDevicesCommandOutput extends ListInputDevicesResponse,
  * import { MediaLiveClient, ListInputDevicesCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, ListInputDevicesCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = { // ListInputDevicesRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListInputDevicesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInputDevicesCommandInput - {@link ListInputDevicesCommandInput}
+ * @returns {@link ListInputDevicesCommandOutput}
  * @see {@link ListInputDevicesCommandInput} for command's `input` shape.
  * @see {@link ListInputDevicesCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
+ *
+ * @throws {@link BadGatewayException} (server fault)
+ *  Placeholder documentation for BadGatewayException
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  Placeholder documentation for BadRequestException
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  Placeholder documentation for ForbiddenException
+ *
+ * @throws {@link GatewayTimeoutException} (server fault)
+ *  Placeholder documentation for GatewayTimeoutException
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  Placeholder documentation for InternalServerErrorException
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  Placeholder documentation for TooManyRequestsException
+ *
  *
  */
 export class ListInputDevicesCommand extends $Command<
@@ -62,6 +90,9 @@ export class ListInputDevicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInputDevicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +121,8 @@ export class ListInputDevicesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListInputDevicesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListInputDevicesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +132,18 @@ export class ListInputDevicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListInputDevicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListInputDevicesCommand(input, context);
+    return se_ListInputDevicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInputDevicesCommandOutput> {
-    return deserializeAws_restJson1ListInputDevicesCommand(output, context);
+    return de_ListInputDevicesCommand(output, context);
   }
 
   // Start section: command_body_extra

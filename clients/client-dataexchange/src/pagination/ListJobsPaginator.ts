@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListJobsCommand, ListJobsCommandInput, ListJobsCommandOutput } from "../commands/ListJobsCommand";
-import { DataExchange } from "../DataExchange";
 import { DataExchangeClient } from "../DataExchangeClient";
 import { DataExchangePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DataExchangeClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListJobsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: DataExchange,
-  input: ListJobsCommandInput,
-  ...args: any
-): Promise<ListJobsCommandOutput> => {
-  // @ts-ignore
-  return await client.listJobs(input, ...args);
-};
 export async function* paginateListJobs(
   config: DataExchangePaginationConfiguration,
   input: ListJobsCommandInput,
@@ -40,9 +31,7 @@ export async function* paginateListJobs(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof DataExchange) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DataExchangeClient) {
+    if (config.client instanceof DataExchangeClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected DataExchange | DataExchangeClient");

@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CodeStarConnectionsClient";
-import {
-  GetConnectionInput,
-  GetConnectionInputFilterSensitiveLog,
-  GetConnectionOutput,
-  GetConnectionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0GetConnectionCommand,
-  serializeAws_json1_0GetConnectionCommand,
-} from "../protocols/Aws_json1_0";
+import { GetConnectionInput, GetConnectionOutput } from "../models/models_0";
+import { de_GetConnectionCommand, se_GetConnectionCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link GetConnectionCommand}.
+ */
 export interface GetConnectionCommandInput extends GetConnectionInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetConnectionCommand}.
+ */
 export interface GetConnectionCommandOutput extends GetConnectionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the connection ARN and details such as status, owner, and provider type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,25 @@ export interface GetConnectionCommandOutput extends GetConnectionOutput, __Metad
  * import { CodeStarConnectionsClient, GetConnectionCommand } from "@aws-sdk/client-codestar-connections"; // ES Modules import
  * // const { CodeStarConnectionsClient, GetConnectionCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import
  * const client = new CodeStarConnectionsClient(config);
+ * const input = { // GetConnectionInput
+ *   ConnectionArn: "STRING_VALUE", // required
+ * };
  * const command = new GetConnectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetConnectionCommandInput - {@link GetConnectionCommandInput}
+ * @returns {@link GetConnectionCommandOutput}
  * @see {@link GetConnectionCommandInput} for command's `input` shape.
  * @see {@link GetConnectionCommandOutput} for command's `response` shape.
  * @see {@link CodeStarConnectionsClientResolvedConfig | config} for CodeStarConnectionsClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource not found. Verify the connection resource ARN and try again.</p>
+ *
+ * @throws {@link ResourceUnavailableException} (client fault)
+ *  <p>Resource not found. Verify the ARN for the host resource and try again.</p>
+ *
  *
  */
 export class GetConnectionCommand extends $Command<
@@ -66,6 +81,9 @@ export class GetConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +110,8 @@ export class GetConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetConnectionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetConnectionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +121,18 @@ export class GetConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetConnectionCommand(input, context);
+    return se_GetConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConnectionCommandOutput> {
-    return deserializeAws_json1_0GetConnectionCommand(output, context);
+    return de_GetConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

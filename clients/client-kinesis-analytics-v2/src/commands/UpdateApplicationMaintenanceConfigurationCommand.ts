@@ -20,22 +20,31 @@ import {
 } from "../KinesisAnalyticsV2Client";
 import {
   UpdateApplicationMaintenanceConfigurationRequest,
-  UpdateApplicationMaintenanceConfigurationRequestFilterSensitiveLog,
   UpdateApplicationMaintenanceConfigurationResponse,
-  UpdateApplicationMaintenanceConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1UpdateApplicationMaintenanceConfigurationCommand,
-  serializeAws_json1_1UpdateApplicationMaintenanceConfigurationCommand,
+  de_UpdateApplicationMaintenanceConfigurationCommand,
+  se_UpdateApplicationMaintenanceConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateApplicationMaintenanceConfigurationCommand}.
+ */
 export interface UpdateApplicationMaintenanceConfigurationCommandInput
   extends UpdateApplicationMaintenanceConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateApplicationMaintenanceConfigurationCommand}.
+ */
 export interface UpdateApplicationMaintenanceConfigurationCommandOutput
   extends UpdateApplicationMaintenanceConfigurationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the maintenance configuration of the Kinesis Data Analytics application. </p>
  *          <p>You can invoke this operation on an application that is in one of the two following
  *       states: <code>READY</code> or <code>RUNNING</code>. If you invoke it when the application is
@@ -58,13 +67,40 @@ export interface UpdateApplicationMaintenanceConfigurationCommandOutput
  * import { KinesisAnalyticsV2Client, UpdateApplicationMaintenanceConfigurationCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
  * // const { KinesisAnalyticsV2Client, UpdateApplicationMaintenanceConfigurationCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
+ * const input = { // UpdateApplicationMaintenanceConfigurationRequest
+ *   ApplicationName: "STRING_VALUE", // required
+ *   ApplicationMaintenanceConfigurationUpdate: { // ApplicationMaintenanceConfigurationUpdate
+ *     ApplicationMaintenanceWindowStartTimeUpdate: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new UpdateApplicationMaintenanceConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateApplicationMaintenanceConfigurationCommandInput - {@link UpdateApplicationMaintenanceConfigurationCommandInput}
+ * @returns {@link UpdateApplicationMaintenanceConfigurationCommandOutput}
  * @see {@link UpdateApplicationMaintenanceConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateApplicationMaintenanceConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>Exception thrown as a result of concurrent modifications to an application. This error can
+ *       be the result of attempting to modify an application without using the current application
+ *       ID.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>The specified input parameter value is not valid.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The application is not available for this operation.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Specified application can't be found.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this
+ *       operation. </p>
+ *
  *
  */
 export class UpdateApplicationMaintenanceConfigurationCommand extends $Command<
@@ -84,6 +120,9 @@ export class UpdateApplicationMaintenanceConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateApplicationMaintenanceConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +157,8 @@ export class UpdateApplicationMaintenanceConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateApplicationMaintenanceConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateApplicationMaintenanceConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,18 +168,24 @@ export class UpdateApplicationMaintenanceConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateApplicationMaintenanceConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateApplicationMaintenanceConfigurationCommand(input, context);
+    return se_UpdateApplicationMaintenanceConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateApplicationMaintenanceConfigurationCommandOutput> {
-    return deserializeAws_json1_1UpdateApplicationMaintenanceConfigurationCommand(output, context);
+    return de_UpdateApplicationMaintenanceConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

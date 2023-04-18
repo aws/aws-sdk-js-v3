@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AddAttachmentsToSetRequest,
-  AddAttachmentsToSetRequestFilterSensitiveLog,
-  AddAttachmentsToSetResponse,
-  AddAttachmentsToSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AddAttachmentsToSetCommand,
-  serializeAws_json1_1AddAttachmentsToSetCommand,
-} from "../protocols/Aws_json1_1";
+import { AddAttachmentsToSetRequest, AddAttachmentsToSetResponse } from "../models/models_0";
+import { de_AddAttachmentsToSetCommand, se_AddAttachmentsToSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
+/**
+ * @public
+ *
+ * The input for {@link AddAttachmentsToSetCommand}.
+ */
 export interface AddAttachmentsToSetCommandInput extends AddAttachmentsToSetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AddAttachmentsToSetCommand}.
+ */
 export interface AddAttachmentsToSetCommandOutput extends AddAttachmentsToSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds one or more attachments to an attachment set. </p>
  *          <p>An attachment set is a temporary container for attachments that you add to a case or
  *             case communication. The set is available for 1 hour after it's created. The
@@ -53,13 +56,43 @@ export interface AddAttachmentsToSetCommandOutput extends AddAttachmentsToSetRes
  * import { SupportClient, AddAttachmentsToSetCommand } from "@aws-sdk/client-support"; // ES Modules import
  * // const { SupportClient, AddAttachmentsToSetCommand } = require("@aws-sdk/client-support"); // CommonJS import
  * const client = new SupportClient(config);
+ * const input = { // AddAttachmentsToSetRequest
+ *   attachmentSetId: "STRING_VALUE",
+ *   attachments: [ // Attachments // required
+ *     { // Attachment
+ *       fileName: "STRING_VALUE",
+ *       data: "BLOB_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new AddAttachmentsToSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AddAttachmentsToSetCommandInput - {@link AddAttachmentsToSetCommandInput}
+ * @returns {@link AddAttachmentsToSetCommandOutput}
  * @see {@link AddAttachmentsToSetCommandInput} for command's `input` shape.
  * @see {@link AddAttachmentsToSetCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
+ *
+ * @throws {@link AttachmentLimitExceeded} (client fault)
+ *  <p>The limit for the number of attachment sets created in a short period of time has been
+ *             exceeded.</p>
+ *
+ * @throws {@link AttachmentSetExpired} (client fault)
+ *  <p>The expiration time of the attachment set has passed. The set expires 1 hour after it
+ *             is created.</p>
+ *
+ * @throws {@link AttachmentSetIdNotFound} (client fault)
+ *  <p>An attachment set with the specified ID could not be found.</p>
+ *
+ * @throws {@link AttachmentSetSizeLimitExceeded} (client fault)
+ *  <p>A limit for the size of an attachment set has been exceeded. The limits are three
+ *             attachments and 5 MB per attachment.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error occurred.</p>
+ *
  *
  */
 export class AddAttachmentsToSetCommand extends $Command<
@@ -79,6 +112,9 @@ export class AddAttachmentsToSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddAttachmentsToSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +143,8 @@ export class AddAttachmentsToSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddAttachmentsToSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AddAttachmentsToSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +154,18 @@ export class AddAttachmentsToSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddAttachmentsToSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AddAttachmentsToSetCommand(input, context);
+    return se_AddAttachmentsToSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddAttachmentsToSetCommandOutput> {
-    return deserializeAws_json1_1AddAttachmentsToSetCommand(output, context);
+    return de_AddAttachmentsToSetCommand(output, context);
   }
 
   // Start section: command_body_extra

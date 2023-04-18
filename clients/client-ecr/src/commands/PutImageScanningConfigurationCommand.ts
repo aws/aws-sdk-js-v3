@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
+import { PutImageScanningConfigurationRequest, PutImageScanningConfigurationResponse } from "../models/models_0";
 import {
-  PutImageScanningConfigurationRequest,
-  PutImageScanningConfigurationRequestFilterSensitiveLog,
-  PutImageScanningConfigurationResponse,
-  PutImageScanningConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutImageScanningConfigurationCommand,
-  serializeAws_json1_1PutImageScanningConfigurationCommand,
+  de_PutImageScanningConfigurationCommand,
+  se_PutImageScanningConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutImageScanningConfigurationCommand}.
+ */
 export interface PutImageScanningConfigurationCommandInput extends PutImageScanningConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutImageScanningConfigurationCommand}.
+ */
 export interface PutImageScanningConfigurationCommandOutput
   extends PutImageScanningConfigurationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <important>
  *             <p>The <code>PutImageScanningConfiguration</code> API is being deprecated, in favor
  *                 of specifying the image scanning configuration at the registry level. For more
@@ -43,13 +49,37 @@ export interface PutImageScanningConfigurationCommandOutput
  * import { ECRClient, PutImageScanningConfigurationCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, PutImageScanningConfigurationCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
+ * const input = { // PutImageScanningConfigurationRequest
+ *   registryId: "STRING_VALUE",
+ *   repositoryName: "STRING_VALUE", // required
+ *   imageScanningConfiguration: { // ImageScanningConfiguration
+ *     scanOnPush: true || false,
+ *   },
+ * };
  * const command = new PutImageScanningConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutImageScanningConfigurationCommandInput - {@link PutImageScanningConfigurationCommandInput}
+ * @returns {@link PutImageScanningConfigurationCommandOutput}
  * @see {@link PutImageScanningConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutImageScanningConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *             request.</p>
+ *
+ * @throws {@link RepositoryNotFoundException} (client fault)
+ *  <p>The specified repository could not be found. Check the spelling of the specified
+ *             repository and ensure that you are performing operations on the correct registry.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There was an exception validating this request.</p>
+ *
  *
  */
 export class PutImageScanningConfigurationCommand extends $Command<
@@ -69,6 +99,9 @@ export class PutImageScanningConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutImageScanningConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +130,8 @@ export class PutImageScanningConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutImageScanningConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutImageScanningConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,15 +141,21 @@ export class PutImageScanningConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutImageScanningConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutImageScanningConfigurationCommand(input, context);
+    return se_PutImageScanningConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutImageScanningConfigurationCommandOutput> {
-    return deserializeAws_json1_1PutImageScanningConfigurationCommand(output, context);
+    return de_PutImageScanningConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

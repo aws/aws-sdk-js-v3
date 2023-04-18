@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTDataPlaneClient";
-import { PublishRequest, PublishRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1PublishCommand,
-  serializeAws_restJson1PublishCommand,
-} from "../protocols/Aws_restJson1";
+import { PublishRequest } from "../models/models_0";
+import { de_PublishCommand, se_PublishCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link PublishCommand}.
+ */
 export interface PublishCommandInput extends PublishRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PublishCommand}.
+ */
 export interface PublishCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Publishes an MQTT message.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">Publish</a> action.</p>
  *          <p>For more information about MQTT messages, see
@@ -37,13 +45,43 @@ export interface PublishCommandOutput extends __MetadataBearer {}
  * import { IoTDataPlaneClient, PublishCommand } from "@aws-sdk/client-iot-data-plane"; // ES Modules import
  * // const { IoTDataPlaneClient, PublishCommand } = require("@aws-sdk/client-iot-data-plane"); // CommonJS import
  * const client = new IoTDataPlaneClient(config);
+ * const input = { // PublishRequest
+ *   topic: "STRING_VALUE", // required
+ *   qos: Number("int"),
+ *   retain: true || false,
+ *   payload: "BLOB_VALUE",
+ *   userProperties: "STRING_VALUE",
+ *   payloadFormatIndicator: "UNSPECIFIED_BYTES" || "UTF8_DATA",
+ *   contentType: "STRING_VALUE",
+ *   responseTopic: "STRING_VALUE",
+ *   correlationData: "STRING_VALUE",
+ *   messageExpiry: Number("long"),
+ * };
  * const command = new PublishCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PublishCommandInput - {@link PublishCommandInput}
+ * @returns {@link PublishCommandOutput}
  * @see {@link PublishCommandInput} for command's `input` shape.
  * @see {@link PublishCommandOutput} for command's `response` shape.
  * @see {@link IoTDataPlaneClientResolvedConfig | config} for IoTDataPlaneClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link MethodNotAllowedException} (client fault)
+ *  <p>The specified combination of HTTP verb and URI is not supported.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You are not authorized to perform this operation.</p>
+ *
  *
  */
 export class PublishCommand extends $Command<
@@ -63,6 +101,9 @@ export class PublishCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PublishCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +130,8 @@ export class PublishCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PublishRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +141,18 @@ export class PublishCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PublishCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PublishCommand(input, context);
+    return se_PublishCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PublishCommandOutput> {
-    return deserializeAws_restJson1PublishCommand(output, context);
+    return de_PublishCommand(output, context);
   }
 
   // Start section: command_body_extra

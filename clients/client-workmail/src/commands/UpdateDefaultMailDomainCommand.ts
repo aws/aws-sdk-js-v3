@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateDefaultMailDomainRequest,
-  UpdateDefaultMailDomainRequestFilterSensitiveLog,
-  UpdateDefaultMailDomainResponse,
-  UpdateDefaultMailDomainResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateDefaultMailDomainCommand,
-  serializeAws_json1_1UpdateDefaultMailDomainCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateDefaultMailDomainRequest, UpdateDefaultMailDomainResponse } from "../models/models_0";
+import { de_UpdateDefaultMailDomainCommand, se_UpdateDefaultMailDomainCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateDefaultMailDomainCommand}.
+ */
 export interface UpdateDefaultMailDomainCommandInput extends UpdateDefaultMailDomainRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateDefaultMailDomainCommand}.
+ */
 export interface UpdateDefaultMailDomainCommandOutput extends UpdateDefaultMailDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the default mail domain for an organization. The default mail domain is used by the WorkMail AWS Console to suggest an email address when enabling a mail user. You can only have one default domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,38 @@ export interface UpdateDefaultMailDomainCommandOutput extends UpdateDefaultMailD
  * import { WorkMailClient, UpdateDefaultMailDomainCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, UpdateDefaultMailDomainCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = { // UpdateDefaultMailDomainRequest
+ *   OrganizationId: "STRING_VALUE", // required
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new UpdateDefaultMailDomainCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDefaultMailDomainCommandInput - {@link UpdateDefaultMailDomainCommandInput}
+ * @returns {@link UpdateDefaultMailDomainCommandOutput}
  * @see {@link UpdateDefaultMailDomainCommandInput} for command's `input` shape.
  * @see {@link UpdateDefaultMailDomainCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link MailDomainNotFoundException} (client fault)
+ *  <p>The domain specified is not found in your organization.</p>
+ *
+ * @throws {@link MailDomainStateException} (client fault)
+ *  <p>After a domain has been added to the organization, it must be verified. The domain is
+ *          not yet verified.</p>
+ *
+ * @throws {@link OrganizationNotFoundException} (client fault)
+ *  <p>An operation received a valid organization identifier that either doesn't belong or
+ *          exist in the system.</p>
+ *
+ * @throws {@link OrganizationStateException} (client fault)
+ *  <p>The organization must have a valid state to perform certain
+ *          operations on the organization or its members.</p>
+ *
  *
  */
 export class UpdateDefaultMailDomainCommand extends $Command<
@@ -62,6 +90,9 @@ export class UpdateDefaultMailDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDefaultMailDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +121,8 @@ export class UpdateDefaultMailDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDefaultMailDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDefaultMailDomainResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +132,18 @@ export class UpdateDefaultMailDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDefaultMailDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDefaultMailDomainCommand(input, context);
+    return se_UpdateDefaultMailDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDefaultMailDomainCommandOutput> {
-    return deserializeAws_json1_1UpdateDefaultMailDomainCommand(output, context);
+    return de_UpdateDefaultMailDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribeVerifiedAccessInstancesRequest, DescribeVerifiedAccessInstancesResult } from "../models/models_4";
 import {
-  DescribeVerifiedAccessInstancesRequest,
-  DescribeVerifiedAccessInstancesRequestFilterSensitiveLog,
-  DescribeVerifiedAccessInstancesResult,
-  DescribeVerifiedAccessInstancesResultFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeVerifiedAccessInstancesCommand,
-  serializeAws_ec2DescribeVerifiedAccessInstancesCommand,
+  de_DescribeVerifiedAccessInstancesCommand,
+  se_DescribeVerifiedAccessInstancesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeVerifiedAccessInstancesCommand}.
+ */
 export interface DescribeVerifiedAccessInstancesCommandInput extends DescribeVerifiedAccessInstancesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeVerifiedAccessInstancesCommand}.
+ */
 export interface DescribeVerifiedAccessInstancesCommandOutput
   extends DescribeVerifiedAccessInstancesResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describe Verified Access instances.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,32 @@ export interface DescribeVerifiedAccessInstancesCommandOutput
  * import { EC2Client, DescribeVerifiedAccessInstancesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeVerifiedAccessInstancesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeVerifiedAccessInstancesRequest
+ *   VerifiedAccessInstanceIds: [ // VerifiedAccessInstanceIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   DryRun: true || false,
+ * };
  * const command = new DescribeVerifiedAccessInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVerifiedAccessInstancesCommandInput - {@link DescribeVerifiedAccessInstancesCommandInput}
+ * @returns {@link DescribeVerifiedAccessInstancesCommandOutput}
  * @see {@link DescribeVerifiedAccessInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeVerifiedAccessInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class DescribeVerifiedAccessInstancesCommand extends $Command<
@@ -64,6 +89,9 @@ export class DescribeVerifiedAccessInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVerifiedAccessInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +120,8 @@ export class DescribeVerifiedAccessInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVerifiedAccessInstancesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeVerifiedAccessInstancesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +131,24 @@ export class DescribeVerifiedAccessInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeVerifiedAccessInstancesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeVerifiedAccessInstancesCommand(input, context);
+    return se_DescribeVerifiedAccessInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeVerifiedAccessInstancesCommandOutput> {
-    return deserializeAws_ec2DescribeVerifiedAccessInstancesCommand(output, context);
+    return de_DescribeVerifiedAccessInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
+import { ListContinuousDeploymentPoliciesRequest, ListContinuousDeploymentPoliciesResult } from "../models/models_1";
 import {
-  ListContinuousDeploymentPoliciesRequest,
-  ListContinuousDeploymentPoliciesRequestFilterSensitiveLog,
-  ListContinuousDeploymentPoliciesResult,
-  ListContinuousDeploymentPoliciesResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlListContinuousDeploymentPoliciesCommand,
-  serializeAws_restXmlListContinuousDeploymentPoliciesCommand,
+  de_ListContinuousDeploymentPoliciesCommand,
+  se_ListContinuousDeploymentPoliciesCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * @public
+ *
+ * The input for {@link ListContinuousDeploymentPoliciesCommand}.
+ */
 export interface ListContinuousDeploymentPoliciesCommandInput extends ListContinuousDeploymentPoliciesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListContinuousDeploymentPoliciesCommand}.
+ */
 export interface ListContinuousDeploymentPoliciesCommandOutput
   extends ListContinuousDeploymentPoliciesResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of the continuous deployment policies in your Amazon Web Services account.</p>
  *          <p>You can optionally specify the maximum number of items to receive in the response. If
  * 			the total number of items in the list exceeds the maximum that you specify, or the
@@ -43,13 +49,29 @@ export interface ListContinuousDeploymentPoliciesCommandOutput
  * import { CloudFrontClient, ListContinuousDeploymentPoliciesCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListContinuousDeploymentPoliciesCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // ListContinuousDeploymentPoliciesRequest
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListContinuousDeploymentPoliciesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListContinuousDeploymentPoliciesCommandInput - {@link ListContinuousDeploymentPoliciesCommandInput}
+ * @returns {@link ListContinuousDeploymentPoliciesCommandOutput}
  * @see {@link ListContinuousDeploymentPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListContinuousDeploymentPoliciesCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link NoSuchContinuousDeploymentPolicy} (client fault)
+ *  <p>The continuous deployment policy doesn't exist.</p>
+ *
  *
  */
 export class ListContinuousDeploymentPoliciesCommand extends $Command<
@@ -69,6 +91,9 @@ export class ListContinuousDeploymentPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListContinuousDeploymentPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +122,8 @@ export class ListContinuousDeploymentPoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListContinuousDeploymentPoliciesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListContinuousDeploymentPoliciesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,18 +133,24 @@ export class ListContinuousDeploymentPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListContinuousDeploymentPoliciesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlListContinuousDeploymentPoliciesCommand(input, context);
+    return se_ListContinuousDeploymentPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListContinuousDeploymentPoliciesCommandOutput> {
-    return deserializeAws_restXmlListContinuousDeploymentPoliciesCommand(output, context);
+    return de_ListContinuousDeploymentPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

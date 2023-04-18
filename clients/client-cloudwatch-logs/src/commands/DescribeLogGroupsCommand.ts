@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import {
-  DescribeLogGroupsRequest,
-  DescribeLogGroupsRequestFilterSensitiveLog,
-  DescribeLogGroupsResponse,
-  DescribeLogGroupsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeLogGroupsCommand,
-  serializeAws_json1_1DescribeLogGroupsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeLogGroupsRequest, DescribeLogGroupsResponse } from "../models/models_0";
+import { de_DescribeLogGroupsCommand, se_DescribeLogGroupsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeLogGroupsCommand}.
+ */
 export interface DescribeLogGroupsCommandInput extends DescribeLogGroupsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeLogGroupsCommand}.
+ */
 export interface DescribeLogGroupsCommandOutput extends DescribeLogGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the specified log groups. You can list all your log groups or filter the results by prefix.
  *       The results are ASCII-sorted by log group name.</p>
  *          <p>CloudWatch Logs doesn’t support IAM policies that control access to the <code>DescribeLogGroups</code> action by using the
@@ -47,13 +50,32 @@ export interface DescribeLogGroupsCommandOutput extends DescribeLogGroupsRespons
  * import { CloudWatchLogsClient, DescribeLogGroupsCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DescribeLogGroupsCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = { // DescribeLogGroupsRequest
+ *   accountIdentifiers: [ // AccountIds
+ *     "STRING_VALUE",
+ *   ],
+ *   logGroupNamePrefix: "STRING_VALUE",
+ *   logGroupNamePattern: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   limit: Number("int"),
+ *   includeLinkedAccounts: true || false,
+ * };
  * const command = new DescribeLogGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLogGroupsCommandInput - {@link DescribeLogGroupsCommandInput}
+ * @returns {@link DescribeLogGroupsCommandOutput}
  * @see {@link DescribeLogGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeLogGroupsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter is specified incorrectly.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service cannot complete the request.</p>
+ *
  *
  */
 export class DescribeLogGroupsCommand extends $Command<
@@ -73,6 +95,9 @@ export class DescribeLogGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLogGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +126,8 @@ export class DescribeLogGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLogGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLogGroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +137,18 @@ export class DescribeLogGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLogGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeLogGroupsCommand(input, context);
+    return se_DescribeLogGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLogGroupsCommandOutput> {
-    return deserializeAws_json1_1DescribeLogGroupsCommand(output, context);
+    return de_DescribeLogGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

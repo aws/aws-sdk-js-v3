@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
+import { DeleteUsageReportSubscriptionRequest, DeleteUsageReportSubscriptionResult } from "../models/models_0";
 import {
-  DeleteUsageReportSubscriptionRequest,
-  DeleteUsageReportSubscriptionRequestFilterSensitiveLog,
-  DeleteUsageReportSubscriptionResult,
-  DeleteUsageReportSubscriptionResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteUsageReportSubscriptionCommand,
-  serializeAws_json1_1DeleteUsageReportSubscriptionCommand,
+  de_DeleteUsageReportSubscriptionCommand,
+  se_DeleteUsageReportSubscriptionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteUsageReportSubscriptionCommand}.
+ */
 export interface DeleteUsageReportSubscriptionCommandInput extends DeleteUsageReportSubscriptionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteUsageReportSubscriptionCommand}.
+ */
 export interface DeleteUsageReportSubscriptionCommandOutput
   extends DeleteUsageReportSubscriptionResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables usage report generation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,23 @@ export interface DeleteUsageReportSubscriptionCommandOutput
  * import { AppStreamClient, DeleteUsageReportSubscriptionCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DeleteUsageReportSubscriptionCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = {};
  * const command = new DeleteUsageReportSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteUsageReportSubscriptionCommandInput - {@link DeleteUsageReportSubscriptionCommandInput}
+ * @returns {@link DeleteUsageReportSubscriptionCommandOutput}
  * @see {@link DeleteUsageReportSubscriptionCommandInput} for command's `input` shape.
  * @see {@link DeleteUsageReportSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
+ *
+ * @throws {@link InvalidAccountStatusException} (client fault)
+ *  <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class DeleteUsageReportSubscriptionCommand extends $Command<
@@ -64,6 +80,9 @@ export class DeleteUsageReportSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteUsageReportSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +111,8 @@ export class DeleteUsageReportSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteUsageReportSubscriptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteUsageReportSubscriptionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +122,21 @@ export class DeleteUsageReportSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteUsageReportSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteUsageReportSubscriptionCommand(input, context);
+    return se_DeleteUsageReportSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteUsageReportSubscriptionCommandOutput> {
-    return deserializeAws_json1_1DeleteUsageReportSubscriptionCommand(output, context);
+    return de_DeleteUsageReportSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

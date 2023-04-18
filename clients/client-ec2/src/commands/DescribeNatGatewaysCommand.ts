@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeNatGatewaysRequest,
-  DescribeNatGatewaysRequestFilterSensitiveLog,
-  DescribeNatGatewaysResult,
-  DescribeNatGatewaysResultFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeNatGatewaysCommand,
-  serializeAws_ec2DescribeNatGatewaysCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeNatGatewaysRequest, DescribeNatGatewaysResult } from "../models/models_4";
+import { de_DescribeNatGatewaysCommand, se_DescribeNatGatewaysCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeNatGatewaysCommand}.
+ */
 export interface DescribeNatGatewaysCommandInput extends DescribeNatGatewaysRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeNatGatewaysCommand}.
+ */
 export interface DescribeNatGatewaysCommandOutput extends DescribeNatGatewaysResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more of your NAT gateways.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,71 @@ export interface DescribeNatGatewaysCommandOutput extends DescribeNatGatewaysRes
  * import { EC2Client, DescribeNatGatewaysCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeNatGatewaysCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeNatGatewaysRequest
+ *   DryRun: true || false,
+ *   Filter: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NatGatewayIds: [ // NatGatewayIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeNatGatewaysCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeNatGatewaysCommandInput - {@link DescribeNatGatewaysCommandInput}
+ * @returns {@link DescribeNatGatewaysCommandOutput}
  * @see {@link DescribeNatGatewaysCommandInput} for command's `input` shape.
  * @see {@link DescribeNatGatewaysCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ *
+ * @example To describe a NAT gateway
+ * ```javascript
+ * // This example describes the NAT gateway for the specified VPC.
+ * const input = {
+ *   "Filter": [
+ *     {
+ *       "Name": "vpc-id",
+ *       "Values": [
+ *         "vpc-1a2b3c4d"
+ *       ]
+ *     }
+ *   ]
+ * };
+ * const command = new DescribeNatGatewaysCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "NatGateways": [
+ *     {
+ *       "CreateTime": "2015-12-01T12:26:55.983Z",
+ *       "NatGatewayAddresses": [
+ *         {
+ *           "AllocationId": "eipalloc-89c620ec",
+ *           "NetworkInterfaceId": "eni-9dec76cd",
+ *           "PrivateIp": "10.0.0.149",
+ *           "PublicIp": "198.11.222.333"
+ *         }
+ *       ],
+ *       "NatGatewayId": "nat-05dba92075d71c408",
+ *       "State": "available",
+ *       "SubnetId": "subnet-847e4dc2",
+ *       "VpcId": "vpc-1a2b3c4d"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: ec2-describe-nat-gateways-1
+ * ```
  *
  */
 export class DescribeNatGatewaysCommand extends $Command<
@@ -62,6 +123,9 @@ export class DescribeNatGatewaysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeNatGatewaysCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +154,8 @@ export class DescribeNatGatewaysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeNatGatewaysRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeNatGatewaysResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +165,18 @@ export class DescribeNatGatewaysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeNatGatewaysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeNatGatewaysCommand(input, context);
+    return se_DescribeNatGatewaysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeNatGatewaysCommandOutput> {
-    return deserializeAws_ec2DescribeNatGatewaysCommand(output, context);
+    return de_DescribeNatGatewaysCommand(output, context);
   }
 
   // Start section: command_body_extra

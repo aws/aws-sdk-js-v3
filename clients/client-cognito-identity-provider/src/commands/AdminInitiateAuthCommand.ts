@@ -25,15 +25,23 @@ import {
   AdminInitiateAuthResponse,
   AdminInitiateAuthResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1AdminInitiateAuthCommand,
-  serializeAws_json1_1AdminInitiateAuthCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AdminInitiateAuthCommand, se_AdminInitiateAuthCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link AdminInitiateAuthCommand}.
+ */
 export interface AdminInitiateAuthCommandInput extends AdminInitiateAuthRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AdminInitiateAuthCommand}.
+ */
 export interface AdminInitiateAuthCommandOutput extends AdminInitiateAuthResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Initiates the authentication flow, as an administrator.</p>
  *
  *          <note>
@@ -61,13 +69,97 @@ export interface AdminInitiateAuthCommandOutput extends AdminInitiateAuthRespons
  * import { CognitoIdentityProviderClient, AdminInitiateAuthCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, AdminInitiateAuthCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // AdminInitiateAuthRequest
+ *   UserPoolId: "STRING_VALUE", // required
+ *   ClientId: "STRING_VALUE", // required
+ *   AuthFlow: "USER_SRP_AUTH" || "REFRESH_TOKEN_AUTH" || "REFRESH_TOKEN" || "CUSTOM_AUTH" || "ADMIN_NO_SRP_AUTH" || "USER_PASSWORD_AUTH" || "ADMIN_USER_PASSWORD_AUTH", // required
+ *   AuthParameters: { // AuthParametersType
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   ClientMetadata: { // ClientMetadataType
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   AnalyticsMetadata: { // AnalyticsMetadataType
+ *     AnalyticsEndpointId: "STRING_VALUE",
+ *   },
+ *   ContextData: { // ContextDataType
+ *     IpAddress: "STRING_VALUE", // required
+ *     ServerName: "STRING_VALUE", // required
+ *     ServerPath: "STRING_VALUE", // required
+ *     HttpHeaders: [ // HttpHeaderList // required
+ *       { // HttpHeader
+ *         headerName: "STRING_VALUE",
+ *         headerValue: "STRING_VALUE",
+ *       },
+ *     ],
+ *     EncodedData: "STRING_VALUE",
+ *   },
+ * };
  * const command = new AdminInitiateAuthCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AdminInitiateAuthCommandInput - {@link AdminInitiateAuthCommandInput}
+ * @returns {@link AdminInitiateAuthCommandOutput}
  * @see {@link AdminInitiateAuthCommandInput} for command's `input` shape.
  * @see {@link AdminInitiateAuthCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * @throws {@link InvalidLambdaResponseException} (client fault)
+ *  <p>This exception is thrown when Amazon Cognito encounters an invalid Lambda response.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
+ *             parameter.</p>
+ *
+ * @throws {@link InvalidSmsRoleAccessPolicyException} (client fault)
+ *  <p>This exception is returned when the role provided for SMS configuration doesn't have
+ *             permission to publish using Amazon SNS.</p>
+ *
+ * @throws {@link InvalidSmsRoleTrustRelationshipException} (client fault)
+ *  <p>This exception is thrown when the trust relationship is not valid for the role
+ *             provided for SMS configuration. This can happen if you don't trust
+ *             <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does
+ *             not match what is provided in the SMS configuration for the user pool.</p>
+ *
+ * @throws {@link InvalidUserPoolConfigurationException} (client fault)
+ *  <p>This exception is thrown when the user pool configuration is not valid.</p>
+ *
+ * @throws {@link MFAMethodNotFoundException} (client fault)
+ *  <p>This exception is thrown when Amazon Cognito can't find a multi-factor authentication
+ *             (MFA) method.</p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * @throws {@link PasswordResetRequiredException} (client fault)
+ *  <p>This exception is thrown when a password reset is required.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
+ *             resource.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>This exception is thrown when the user has made too many requests for a given
+ *             operation.</p>
+ *
+ * @throws {@link UnexpectedLambdaException} (client fault)
+ *  <p>This exception is thrown when Amazon Cognito encounters an unexpected exception with
+ *             Lambda.</p>
+ *
+ * @throws {@link UserLambdaValidationException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service encounters a user validation exception
+ *             with the Lambda service.</p>
+ *
+ * @throws {@link UserNotConfirmedException} (client fault)
+ *  <p>This exception is thrown when a user isn't confirmed successfully.</p>
+ *
+ * @throws {@link UserNotFoundException} (client fault)
+ *  <p>This exception is thrown when a user isn't found.</p>
+ *
  *
  */
 export class AdminInitiateAuthCommand extends $Command<
@@ -87,6 +179,9 @@ export class AdminInitiateAuthCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AdminInitiateAuthCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,12 +222,18 @@ export class AdminInitiateAuthCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AdminInitiateAuthCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AdminInitiateAuthCommand(input, context);
+    return se_AdminInitiateAuthCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdminInitiateAuthCommandOutput> {
-    return deserializeAws_json1_1AdminInitiateAuthCommand(output, context);
+    return de_AdminInitiateAuthCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { ConnectCampaignsServiceException as __BaseException } from "./ConnectCampaignsServiceException";
 
 /**
+ * @public
  * You do not have sufficient access to perform this action.
  */
 export class AccessDeniedException extends __BaseException {
@@ -29,6 +30,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * The request could not be processed because of conflict in the current state of the resource.
  */
 export class ConflictException extends __BaseException {
@@ -54,6 +56,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * Predictive Dialer config
  */
 export interface PredictiveDialerConfig {
@@ -64,6 +67,7 @@ export interface PredictiveDialerConfig {
 }
 
 /**
+ * @public
  * Progressive Dialer config
  */
 export interface ProgressiveDialerConfig {
@@ -74,6 +78,7 @@ export interface ProgressiveDialerConfig {
 }
 
 /**
+ * @public
  * The possible types of dialer config parameters
  */
 export type DialerConfig =
@@ -81,6 +86,9 @@ export type DialerConfig =
   | DialerConfig.ProgressiveDialerConfigMember
   | DialerConfig.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace DialerConfig {
   /**
    * Progressive Dialer config
@@ -121,6 +129,7 @@ export namespace DialerConfig {
 }
 
 /**
+ * @public
  * Answering Machine Detection config
  */
 export interface AnswerMachineDetectionConfig {
@@ -131,6 +140,7 @@ export interface AnswerMachineDetectionConfig {
 }
 
 /**
+ * @public
  * The configuration used for outbound calls.
  */
 export interface OutboundCallConfig {
@@ -156,6 +166,7 @@ export interface OutboundCallConfig {
 }
 
 /**
+ * @public
  * The request for Create Campaign API.
  */
 export interface CreateCampaignRequest {
@@ -186,6 +197,7 @@ export interface CreateCampaignRequest {
 }
 
 /**
+ * @public
  * The response for Create Campaign API
  */
 export interface CreateCampaignResponse {
@@ -206,6 +218,7 @@ export interface CreateCampaignResponse {
 }
 
 /**
+ * @public
  * Request processing failed because of an error or failure with the service.
  */
 export class InternalServerException extends __BaseException {
@@ -232,6 +245,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * The specified resource was not found.
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -257,6 +271,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * Request would cause a service quota to be exceeded.
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -282,6 +297,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * The request was denied due to request throttling.
  */
 export class ThrottlingException extends __BaseException {
@@ -308,6 +324,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * The input fails to satisfy the constraints specified by an AWS service.
  */
 export class ValidationException extends __BaseException {
@@ -333,6 +350,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * DeleteCampaignRequest
  */
 export interface DeleteCampaignRequest {
@@ -343,6 +361,7 @@ export interface DeleteCampaignRequest {
 }
 
 /**
+ * @public
  * DeleteCampaignRequest
  */
 export interface DeleteConnectInstanceConfigRequest {
@@ -353,6 +372,7 @@ export interface DeleteConnectInstanceConfigRequest {
 }
 
 /**
+ * @public
  * The request could not be processed because of conflict in the current state.
  */
 export class InvalidStateException extends __BaseException {
@@ -378,6 +398,7 @@ export class InvalidStateException extends __BaseException {
 }
 
 /**
+ * @public
  * The request for DeleteInstanceOnboardingJob API.
  */
 export interface DeleteInstanceOnboardingJobRequest {
@@ -388,6 +409,7 @@ export interface DeleteInstanceOnboardingJobRequest {
 }
 
 /**
+ * @public
  * DescribeCampaignRequests
  */
 export interface DescribeCampaignRequest {
@@ -398,6 +420,7 @@ export interface DescribeCampaignRequest {
 }
 
 /**
+ * @public
  * An Amazon Connect campaign.
  */
 export interface Campaign {
@@ -438,6 +461,7 @@ export interface Campaign {
 }
 
 /**
+ * @public
  * DescribeCampaignResponse
  */
 export interface DescribeCampaignResponse {
@@ -448,6 +472,7 @@ export interface DescribeCampaignResponse {
 }
 
 /**
+ * @public
  * GetCampaignStateRequest
  */
 export interface GetCampaignStateRequest {
@@ -457,30 +482,40 @@ export interface GetCampaignStateRequest {
   id: string | undefined;
 }
 
-export enum CampaignState {
+/**
+ * @public
+ * @enum
+ */
+export const CampaignState = {
   /**
    * Campaign is in failed state
    */
-  FAILED = "Failed",
+  FAILED: "Failed",
   /**
    * Campaign is in initialized state
    */
-  INITIALIZED = "Initialized",
+  INITIALIZED: "Initialized",
   /**
    * Campaign is in paused state
    */
-  PAUSED = "Paused",
+  PAUSED: "Paused",
   /**
    * Campaign is in running state
    */
-  RUNNING = "Running",
+  RUNNING: "Running",
   /**
    * Campaign is in stopped state
    */
-  STOPPED = "Stopped",
-}
+  STOPPED: "Stopped",
+} as const;
 
 /**
+ * @public
+ */
+export type CampaignState = (typeof CampaignState)[keyof typeof CampaignState];
+
+/**
+ * @public
  * GetCampaignStateResponse
  */
 export interface GetCampaignStateResponse {
@@ -491,6 +526,7 @@ export interface GetCampaignStateResponse {
 }
 
 /**
+ * @public
  * GetCampaignStateBatchRequest
  */
 export interface GetCampaignStateBatchRequest {
@@ -500,18 +536,29 @@ export interface GetCampaignStateBatchRequest {
   campaignIds: string[] | undefined;
 }
 
-export enum GetCampaignStateBatchFailureCode {
+/**
+ * @public
+ * @enum
+ */
+export const GetCampaignStateBatchFailureCode = {
   /**
    * The specified resource was not found
    */
-  RESOURCE_NOT_FOUND = "ResourceNotFound",
+  RESOURCE_NOT_FOUND: "ResourceNotFound",
   /**
    * Unexpected error during processing of request
    */
-  UNKNOWN_ERROR = "UnknownError",
-}
+  UNKNOWN_ERROR: "UnknownError",
+} as const;
 
 /**
+ * @public
+ */
+export type GetCampaignStateBatchFailureCode =
+  (typeof GetCampaignStateBatchFailureCode)[keyof typeof GetCampaignStateBatchFailureCode];
+
+/**
+ * @public
  * Failed response of campaign state
  */
 export interface FailedCampaignStateResponse {
@@ -527,6 +574,7 @@ export interface FailedCampaignStateResponse {
 }
 
 /**
+ * @public
  * Successful response of campaign state
  */
 export interface SuccessfulCampaignStateResponse {
@@ -542,6 +590,7 @@ export interface SuccessfulCampaignStateResponse {
 }
 
 /**
+ * @public
  * GetCampaignStateBatchResponse
  */
 export interface GetCampaignStateBatchResponse {
@@ -557,6 +606,7 @@ export interface GetCampaignStateBatchResponse {
 }
 
 /**
+ * @public
  * GetConnectInstanceConfigRequest
  */
 export interface GetConnectInstanceConfigRequest {
@@ -566,11 +616,21 @@ export interface GetConnectInstanceConfigRequest {
   connectInstanceId: string | undefined;
 }
 
-export enum EncryptionType {
-  KMS = "KMS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EncryptionType = {
+  KMS: "KMS",
+} as const;
 
 /**
+ * @public
+ */
+export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
+
+/**
+ * @public
  * Encryption config for Connect Instance. Note that sensitive data will always be encrypted.
  * If disabled, service will perform encryption with its own key.
  * If enabled, a KMS key id needs to be provided and KMS charges will apply.
@@ -594,6 +654,7 @@ export interface EncryptionConfig {
 }
 
 /**
+ * @public
  * Instance config object
  */
 export interface InstanceConfig {
@@ -617,6 +678,7 @@ export interface InstanceConfig {
 }
 
 /**
+ * @public
  * GetConnectInstanceConfigResponse
  */
 export interface GetConnectInstanceConfigResponse {
@@ -627,6 +689,7 @@ export interface GetConnectInstanceConfigResponse {
 }
 
 /**
+ * @public
  * GetInstanceOnboardingJobStatusRequest
  */
 export interface GetInstanceOnboardingJobStatusRequest {
@@ -636,22 +699,43 @@ export interface GetInstanceOnboardingJobStatusRequest {
   connectInstanceId: string | undefined;
 }
 
-export enum InstanceOnboardingJobFailureCode {
-  EVENT_BRIDGE_ACCESS_DENIED = "EVENT_BRIDGE_ACCESS_DENIED",
-  EVENT_BRIDGE_MANAGED_RULE_LIMIT_EXCEEDED = "EVENT_BRIDGE_MANAGED_RULE_LIMIT_EXCEEDED",
-  IAM_ACCESS_DENIED = "IAM_ACCESS_DENIED",
-  INTERNAL_FAILURE = "INTERNAL_FAILURE",
-  KMS_ACCESS_DENIED = "KMS_ACCESS_DENIED",
-  KMS_KEY_NOT_FOUND = "KMS_KEY_NOT_FOUND",
-}
-
-export enum InstanceOnboardingJobStatusCode {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InstanceOnboardingJobFailureCode = {
+  EVENT_BRIDGE_ACCESS_DENIED: "EVENT_BRIDGE_ACCESS_DENIED",
+  EVENT_BRIDGE_MANAGED_RULE_LIMIT_EXCEEDED: "EVENT_BRIDGE_MANAGED_RULE_LIMIT_EXCEEDED",
+  IAM_ACCESS_DENIED: "IAM_ACCESS_DENIED",
+  INTERNAL_FAILURE: "INTERNAL_FAILURE",
+  KMS_ACCESS_DENIED: "KMS_ACCESS_DENIED",
+  KMS_KEY_NOT_FOUND: "KMS_KEY_NOT_FOUND",
+} as const;
 
 /**
+ * @public
+ */
+export type InstanceOnboardingJobFailureCode =
+  (typeof InstanceOnboardingJobFailureCode)[keyof typeof InstanceOnboardingJobFailureCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const InstanceOnboardingJobStatusCode = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceOnboardingJobStatusCode =
+  (typeof InstanceOnboardingJobStatusCode)[keyof typeof InstanceOnboardingJobStatusCode];
+
+/**
+ * @public
  * Instance onboarding job status object
  */
 export interface InstanceOnboardingJobStatus {
@@ -672,6 +756,7 @@ export interface InstanceOnboardingJobStatus {
 }
 
 /**
+ * @public
  * GetInstanceOnboardingJobStatusResponse
  */
 export interface GetInstanceOnboardingJobStatusResponse {
@@ -681,14 +766,24 @@ export interface GetInstanceOnboardingJobStatusResponse {
   connectInstanceOnboardingJobStatus?: InstanceOnboardingJobStatus;
 }
 
-export enum InstanceIdFilterOperator {
+/**
+ * @public
+ * @enum
+ */
+export const InstanceIdFilterOperator = {
   /**
    * Equals operator
    */
-  EQ = "Eq",
-}
+  EQ: "Eq",
+} as const;
 
 /**
+ * @public
+ */
+export type InstanceIdFilterOperator = (typeof InstanceIdFilterOperator)[keyof typeof InstanceIdFilterOperator];
+
+/**
+ * @public
  * Connect instance identifier filter
  */
 export interface InstanceIdFilter {
@@ -704,6 +799,7 @@ export interface InstanceIdFilter {
 }
 
 /**
+ * @public
  * Filter model by type
  */
 export interface CampaignFilters {
@@ -714,6 +810,7 @@ export interface CampaignFilters {
 }
 
 /**
+ * @public
  * ListCampaignsRequest
  */
 export interface ListCampaignsRequest {
@@ -734,6 +831,7 @@ export interface ListCampaignsRequest {
 }
 
 /**
+ * @public
  * An Amazon Connect campaign summary.
  */
 export interface CampaignSummary {
@@ -759,6 +857,7 @@ export interface CampaignSummary {
 }
 
 /**
+ * @public
  * ListCampaignsResponse
  */
 export interface ListCampaignsResponse {
@@ -774,6 +873,7 @@ export interface ListCampaignsResponse {
 }
 
 /**
+ * @public
  * ListTagsForResource
  */
 export interface ListTagsForResourceRequest {
@@ -784,6 +884,7 @@ export interface ListTagsForResourceRequest {
 }
 
 /**
+ * @public
  * ListTagsForResponse
  */
 export interface ListTagsForResourceResponse {
@@ -794,6 +895,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * The request could not be processed because of conflict in the current state of the campaign.
  */
 export class InvalidCampaignStateException extends __BaseException {
@@ -825,6 +927,7 @@ export class InvalidCampaignStateException extends __BaseException {
 }
 
 /**
+ * @public
  * PauseCampaignRequest
  */
 export interface PauseCampaignRequest {
@@ -835,6 +938,7 @@ export interface PauseCampaignRequest {
 }
 
 /**
+ * @public
  * A dial request for a campaign.
  */
 export interface DialRequest {
@@ -860,6 +964,7 @@ export interface DialRequest {
 }
 
 /**
+ * @public
  * PutDialRequestBatchRequest
  */
 export interface PutDialRequestBatchRequest {
@@ -874,22 +979,32 @@ export interface PutDialRequestBatchRequest {
   dialRequests: DialRequest[] | undefined;
 }
 
-export enum FailureCode {
+/**
+ * @public
+ * @enum
+ */
+export const FailureCode = {
   /**
    * The request failed to satisfy the constraints specified by the service
    */
-  INVALID_INPUT = "InvalidInput",
+  INVALID_INPUT: "InvalidInput",
   /**
    * Request throttled due to large number of pending dial requests
    */
-  REQUEST_THROTTLED = "RequestThrottled",
+  REQUEST_THROTTLED: "RequestThrottled",
   /**
    * Unexpected error during processing of request
    */
-  UNKNOWN_ERROR = "UnknownError",
-}
+  UNKNOWN_ERROR: "UnknownError",
+} as const;
 
 /**
+ * @public
+ */
+export type FailureCode = (typeof FailureCode)[keyof typeof FailureCode];
+
+/**
+ * @public
  * A failed request identified by the unique client token.
  */
 export interface FailedRequest {
@@ -910,6 +1025,7 @@ export interface FailedRequest {
 }
 
 /**
+ * @public
  * A successful request identified by the unique client token.
  */
 export interface SuccessfulRequest {
@@ -925,6 +1041,7 @@ export interface SuccessfulRequest {
 }
 
 /**
+ * @public
  * PutDialRequestBatchResponse
  */
 export interface PutDialRequestBatchResponse {
@@ -940,6 +1057,7 @@ export interface PutDialRequestBatchResponse {
 }
 
 /**
+ * @public
  * ResumeCampaignRequest
  */
 export interface ResumeCampaignRequest {
@@ -950,6 +1068,7 @@ export interface ResumeCampaignRequest {
 }
 
 /**
+ * @public
  * StartCampaignRequest
  */
 export interface StartCampaignRequest {
@@ -960,6 +1079,7 @@ export interface StartCampaignRequest {
 }
 
 /**
+ * @public
  * The request for StartInstanceOnboardingJob API.
  */
 export interface StartInstanceOnboardingJobRequest {
@@ -978,6 +1098,7 @@ export interface StartInstanceOnboardingJobRequest {
 }
 
 /**
+ * @public
  * The response for StartInstanceOnboardingJob API.
  */
 export interface StartInstanceOnboardingJobResponse {
@@ -988,6 +1109,7 @@ export interface StartInstanceOnboardingJobResponse {
 }
 
 /**
+ * @public
  * StopCampaignRequest
  */
 export interface StopCampaignRequest {
@@ -998,6 +1120,7 @@ export interface StopCampaignRequest {
 }
 
 /**
+ * @public
  * TagResourceRequest
  */
 export interface TagResourceRequest {
@@ -1013,6 +1136,7 @@ export interface TagResourceRequest {
 }
 
 /**
+ * @public
  * UntagResourceRequest
  */
 export interface UntagResourceRequest {
@@ -1028,6 +1152,7 @@ export interface UntagResourceRequest {
 }
 
 /**
+ * @public
  * UpdateCampaignDialerConfigRequest
  */
 export interface UpdateCampaignDialerConfigRequest {
@@ -1043,6 +1168,7 @@ export interface UpdateCampaignDialerConfigRequest {
 }
 
 /**
+ * @public
  * UpdateCampaignNameRequest
  */
 export interface UpdateCampaignNameRequest {
@@ -1058,6 +1184,7 @@ export interface UpdateCampaignNameRequest {
 }
 
 /**
+ * @public
  * UpdateCampaignOutboundCallConfigRequest
  */
 export interface UpdateCampaignOutboundCallConfigRequest {
@@ -1085,255 +1212,6 @@ export interface UpdateCampaignOutboundCallConfigRequest {
 /**
  * @internal
  */
-export const PredictiveDialerConfigFilterSensitiveLog = (obj: PredictiveDialerConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProgressiveDialerConfigFilterSensitiveLog = (obj: ProgressiveDialerConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DialerConfigFilterSensitiveLog = (obj: DialerConfig): any => {
-  if (obj.progressiveDialerConfig !== undefined)
-    return { progressiveDialerConfig: ProgressiveDialerConfigFilterSensitiveLog(obj.progressiveDialerConfig) };
-  if (obj.predictiveDialerConfig !== undefined)
-    return { predictiveDialerConfig: PredictiveDialerConfigFilterSensitiveLog(obj.predictiveDialerConfig) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const AnswerMachineDetectionConfigFilterSensitiveLog = (obj: AnswerMachineDetectionConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OutboundCallConfigFilterSensitiveLog = (obj: OutboundCallConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCampaignRequestFilterSensitiveLog = (obj: CreateCampaignRequest): any => ({
-  ...obj,
-  ...(obj.dialerConfig && { dialerConfig: DialerConfigFilterSensitiveLog(obj.dialerConfig) }),
-});
-
-/**
- * @internal
- */
-export const CreateCampaignResponseFilterSensitiveLog = (obj: CreateCampaignResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCampaignRequestFilterSensitiveLog = (obj: DeleteCampaignRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteConnectInstanceConfigRequestFilterSensitiveLog = (obj: DeleteConnectInstanceConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteInstanceOnboardingJobRequestFilterSensitiveLog = (obj: DeleteInstanceOnboardingJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeCampaignRequestFilterSensitiveLog = (obj: DescribeCampaignRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CampaignFilterSensitiveLog = (obj: Campaign): any => ({
-  ...obj,
-  ...(obj.dialerConfig && { dialerConfig: DialerConfigFilterSensitiveLog(obj.dialerConfig) }),
-});
-
-/**
- * @internal
- */
-export const DescribeCampaignResponseFilterSensitiveLog = (obj: DescribeCampaignResponse): any => ({
-  ...obj,
-  ...(obj.campaign && { campaign: CampaignFilterSensitiveLog(obj.campaign) }),
-});
-
-/**
- * @internal
- */
-export const GetCampaignStateRequestFilterSensitiveLog = (obj: GetCampaignStateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCampaignStateResponseFilterSensitiveLog = (obj: GetCampaignStateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCampaignStateBatchRequestFilterSensitiveLog = (obj: GetCampaignStateBatchRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FailedCampaignStateResponseFilterSensitiveLog = (obj: FailedCampaignStateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SuccessfulCampaignStateResponseFilterSensitiveLog = (obj: SuccessfulCampaignStateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCampaignStateBatchResponseFilterSensitiveLog = (obj: GetCampaignStateBatchResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetConnectInstanceConfigRequestFilterSensitiveLog = (obj: GetConnectInstanceConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EncryptionConfigFilterSensitiveLog = (obj: EncryptionConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceConfigFilterSensitiveLog = (obj: InstanceConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetConnectInstanceConfigResponseFilterSensitiveLog = (obj: GetConnectInstanceConfigResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInstanceOnboardingJobStatusRequestFilterSensitiveLog = (
-  obj: GetInstanceOnboardingJobStatusRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceOnboardingJobStatusFilterSensitiveLog = (obj: InstanceOnboardingJobStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInstanceOnboardingJobStatusResponseFilterSensitiveLog = (
-  obj: GetInstanceOnboardingJobStatusResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceIdFilterFilterSensitiveLog = (obj: InstanceIdFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CampaignFiltersFilterSensitiveLog = (obj: CampaignFilters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCampaignsRequestFilterSensitiveLog = (obj: ListCampaignsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CampaignSummaryFilterSensitiveLog = (obj: CampaignSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCampaignsResponseFilterSensitiveLog = (obj: ListCampaignsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PauseCampaignRequestFilterSensitiveLog = (obj: PauseCampaignRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DialRequestFilterSensitiveLog = (obj: DialRequest): any => ({
   ...obj,
   ...(obj.phoneNumber && { phoneNumber: SENSITIVE_STRING }),
@@ -1346,98 +1224,4 @@ export const DialRequestFilterSensitiveLog = (obj: DialRequest): any => ({
 export const PutDialRequestBatchRequestFilterSensitiveLog = (obj: PutDialRequestBatchRequest): any => ({
   ...obj,
   ...(obj.dialRequests && { dialRequests: obj.dialRequests.map((item) => DialRequestFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const FailedRequestFilterSensitiveLog = (obj: FailedRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SuccessfulRequestFilterSensitiveLog = (obj: SuccessfulRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutDialRequestBatchResponseFilterSensitiveLog = (obj: PutDialRequestBatchResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResumeCampaignRequestFilterSensitiveLog = (obj: ResumeCampaignRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartCampaignRequestFilterSensitiveLog = (obj: StartCampaignRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartInstanceOnboardingJobRequestFilterSensitiveLog = (obj: StartInstanceOnboardingJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartInstanceOnboardingJobResponseFilterSensitiveLog = (obj: StartInstanceOnboardingJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopCampaignRequestFilterSensitiveLog = (obj: StopCampaignRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCampaignDialerConfigRequestFilterSensitiveLog = (obj: UpdateCampaignDialerConfigRequest): any => ({
-  ...obj,
-  ...(obj.dialerConfig && { dialerConfig: DialerConfigFilterSensitiveLog(obj.dialerConfig) }),
-});
-
-/**
- * @internal
- */
-export const UpdateCampaignNameRequestFilterSensitiveLog = (obj: UpdateCampaignNameRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCampaignOutboundCallConfigRequestFilterSensitiveLog = (
-  obj: UpdateCampaignOutboundCallConfigRequest
-): any => ({
-  ...obj,
 });

@@ -18,27 +18,25 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
-import {
-  DeleteAccessorInput,
-  DeleteAccessorInputFilterSensitiveLog,
-  DeleteAccessorOutput,
-  DeleteAccessorOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAccessorCommand,
-  serializeAws_restJson1DeleteAccessorCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteAccessorInput, DeleteAccessorOutput } from "../models/models_0";
+import { de_DeleteAccessorCommand, se_DeleteAccessorCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteAccessorCommand}.
+ */
 export interface DeleteAccessorCommandInput extends DeleteAccessorInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteAccessorCommand}.
+ */
 export interface DeleteAccessorCommandOutput extends DeleteAccessorOutput, __MetadataBearer {}
 
 /**
- * <important>
- *             <p>The token based access feature is in preview release for Ethereum on Amazon Managed Blockchain and is
- *         subject to change. We recommend that you use this feature only with
- *         test scenarios, and not in production environments.</p>
- *          </important>
- *          <p>Deletes an accessor that your Amazon Web Services account owns. An accessor object is a container that has the
+ * @public
+ * <p>Deletes an accessor that your Amazon Web Services account owns. An accessor object is a container that has the
  *          information required for token based access to your Ethereum nodes including, the
  *          <code>BILLING_TOKEN</code>. After an accessor is deleted, the status of the accessor changes
  *          from <code>AVAILABLE</code> to <code>PENDING_DELETION</code>. An accessor in the
@@ -51,13 +49,37 @@ export interface DeleteAccessorCommandOutput extends DeleteAccessorOutput, __Met
  * import { ManagedBlockchainClient, DeleteAccessorCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, DeleteAccessorCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
+ * const input = { // DeleteAccessorInput
+ *   AccessorId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAccessorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAccessorCommandInput - {@link DeleteAccessorCommandInput}
+ * @returns {@link DeleteAccessorCommandOutput}
  * @see {@link DeleteAccessorCommandInput} for command's `input` shape.
  * @see {@link DeleteAccessorCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A requested resource doesn't exist. It may have been deleted or referenced incorrectly.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request or operation couldn't be performed because a service is
+ *          throttling requests. The most common source of throttling errors is
+ *          creating resources that exceed your service limit for this resource type.
+ *          Request a limit increase or delete unused resources if possible.</p>
+ *
  *
  */
 export class DeleteAccessorCommand extends $Command<
@@ -77,6 +99,9 @@ export class DeleteAccessorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAccessorCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +130,8 @@ export class DeleteAccessorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAccessorInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAccessorOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +141,18 @@ export class DeleteAccessorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAccessorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAccessorCommand(input, context);
+    return se_DeleteAccessorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAccessorCommandOutput> {
-    return deserializeAws_restJson1DeleteAccessorCommand(output, context);
+    return de_DeleteAccessorCommand(output, context);
   }
 
   // Start section: command_body_extra

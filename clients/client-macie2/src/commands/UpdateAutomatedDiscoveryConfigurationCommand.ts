@@ -16,22 +16,31 @@ import {
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import {
   UpdateAutomatedDiscoveryConfigurationRequest,
-  UpdateAutomatedDiscoveryConfigurationRequestFilterSensitiveLog,
   UpdateAutomatedDiscoveryConfigurationResponse,
-  UpdateAutomatedDiscoveryConfigurationResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1UpdateAutomatedDiscoveryConfigurationCommand,
-  serializeAws_restJson1UpdateAutomatedDiscoveryConfigurationCommand,
+  de_UpdateAutomatedDiscoveryConfigurationCommand,
+  se_UpdateAutomatedDiscoveryConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateAutomatedDiscoveryConfigurationCommand}.
+ */
 export interface UpdateAutomatedDiscoveryConfigurationCommandInput
   extends UpdateAutomatedDiscoveryConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateAutomatedDiscoveryConfigurationCommand}.
+ */
 export interface UpdateAutomatedDiscoveryConfigurationCommandOutput
   extends UpdateAutomatedDiscoveryConfigurationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables or disables automated sensitive data discovery for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +48,31 @@ export interface UpdateAutomatedDiscoveryConfigurationCommandOutput
  * import { Macie2Client, UpdateAutomatedDiscoveryConfigurationCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, UpdateAutomatedDiscoveryConfigurationCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = { // UpdateAutomatedDiscoveryConfigurationRequest
+ *   status: "ENABLED" || "DISABLED", // required
+ * };
  * const command = new UpdateAutomatedDiscoveryConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAutomatedDiscoveryConfigurationCommandInput - {@link UpdateAutomatedDiscoveryConfigurationCommandInput}
+ * @returns {@link UpdateAutomatedDiscoveryConfigurationCommandOutput}
  * @see {@link UpdateAutomatedDiscoveryConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateAutomatedDiscoveryConfigurationCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+ *
  *
  */
 export class UpdateAutomatedDiscoveryConfigurationCommand extends $Command<
@@ -65,6 +92,9 @@ export class UpdateAutomatedDiscoveryConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAutomatedDiscoveryConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +123,8 @@ export class UpdateAutomatedDiscoveryConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAutomatedDiscoveryConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAutomatedDiscoveryConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,18 +134,24 @@ export class UpdateAutomatedDiscoveryConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateAutomatedDiscoveryConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateAutomatedDiscoveryConfigurationCommand(input, context);
+    return se_UpdateAutomatedDiscoveryConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateAutomatedDiscoveryConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateAutomatedDiscoveryConfigurationCommand(output, context);
+    return de_UpdateAutomatedDiscoveryConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

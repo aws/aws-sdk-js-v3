@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import {
-  ListBranchesRequest,
-  ListBranchesRequestFilterSensitiveLog,
-  ListBranchesResult,
-  ListBranchesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListBranchesCommand,
-  serializeAws_restJson1ListBranchesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListBranchesRequest, ListBranchesResult, ListBranchesResultFilterSensitiveLog } from "../models/models_0";
+import { de_ListBranchesCommand, se_ListBranchesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListBranchesCommand}.
+ */
 export interface ListBranchesCommandInput extends ListBranchesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListBranchesCommand}.
+ */
 export interface ListBranchesCommandOutput extends ListBranchesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Lists the branches of an Amplify app. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,30 @@ export interface ListBranchesCommandOutput extends ListBranchesResult, __Metadat
  * import { AmplifyClient, ListBranchesCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, ListBranchesCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
+ * const input = { // ListBranchesRequest
+ *   appId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListBranchesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBranchesCommandInput - {@link ListBranchesCommandInput}
+ * @returns {@link ListBranchesCommandOutput}
  * @see {@link ListBranchesCommandInput} for command's `input` shape.
  * @see {@link ListBranchesCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p> A request contains unexpected data. </p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p> The service failed to perform an operation due to an internal issue. </p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p> An operation failed due to a lack of access. </p>
+ *
  *
  */
 export class ListBranchesCommand extends $Command<
@@ -62,6 +82,9 @@ export class ListBranchesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBranchesCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,7 +111,7 @@ export class ListBranchesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBranchesRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListBranchesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -99,12 +122,18 @@ export class ListBranchesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBranchesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListBranchesCommand(input, context);
+    return se_ListBranchesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBranchesCommandOutput> {
-    return deserializeAws_restJson1ListBranchesCommand(output, context);
+    return de_ListBranchesCommand(output, context);
   }
 
   // Start section: command_body_extra

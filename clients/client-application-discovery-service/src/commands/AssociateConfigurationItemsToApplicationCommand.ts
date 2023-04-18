@@ -20,22 +20,31 @@ import {
 } from "../ApplicationDiscoveryServiceClient";
 import {
   AssociateConfigurationItemsToApplicationRequest,
-  AssociateConfigurationItemsToApplicationRequestFilterSensitiveLog,
   AssociateConfigurationItemsToApplicationResponse,
-  AssociateConfigurationItemsToApplicationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1AssociateConfigurationItemsToApplicationCommand,
-  serializeAws_json1_1AssociateConfigurationItemsToApplicationCommand,
+  de_AssociateConfigurationItemsToApplicationCommand,
+  se_AssociateConfigurationItemsToApplicationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link AssociateConfigurationItemsToApplicationCommand}.
+ */
 export interface AssociateConfigurationItemsToApplicationCommandInput
   extends AssociateConfigurationItemsToApplicationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AssociateConfigurationItemsToApplicationCommand}.
+ */
 export interface AssociateConfigurationItemsToApplicationCommandOutput
   extends AssociateConfigurationItemsToApplicationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates one or more configuration items with an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,13 +52,39 @@ export interface AssociateConfigurationItemsToApplicationCommandOutput
  * import { ApplicationDiscoveryServiceClient, AssociateConfigurationItemsToApplicationCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
  * // const { ApplicationDiscoveryServiceClient, AssociateConfigurationItemsToApplicationCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
+ * const input = { // AssociateConfigurationItemsToApplicationRequest
+ *   applicationConfigurationId: "STRING_VALUE", // required
+ *   configurationIds: [ // ConfigurationIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new AssociateConfigurationItemsToApplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateConfigurationItemsToApplicationCommandInput - {@link AssociateConfigurationItemsToApplicationCommandInput}
+ * @returns {@link AssociateConfigurationItemsToApplicationCommandOutput}
  * @see {@link AssociateConfigurationItemsToApplicationCommandInput} for command's `input` shape.
  * @see {@link AssociateConfigurationItemsToApplicationCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
+ *
+ * @throws {@link AuthorizationErrorException} (client fault)
+ *  <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM
+ *       policy associated with this account.</p>
+ *
+ * @throws {@link HomeRegionNotSetException} (client fault)
+ *  <p>The home region is not set. Set the home region to continue.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters are not valid. Verify the parameters and try again.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value of one or more parameters are either invalid or out of range. Verify the
+ *       parameter values and try again.</p>
+ *
+ * @throws {@link ServerInternalErrorException} (server fault)
+ *  <p>The server experienced an internal error. Try again.</p>
+ *
  *
  */
 export class AssociateConfigurationItemsToApplicationCommand extends $Command<
@@ -69,6 +104,9 @@ export class AssociateConfigurationItemsToApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateConfigurationItemsToApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +141,8 @@ export class AssociateConfigurationItemsToApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateConfigurationItemsToApplicationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateConfigurationItemsToApplicationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,18 +152,24 @@ export class AssociateConfigurationItemsToApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateConfigurationItemsToApplicationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateConfigurationItemsToApplicationCommand(input, context);
+    return se_AssociateConfigurationItemsToApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateConfigurationItemsToApplicationCommandOutput> {
-    return deserializeAws_json1_1AssociateConfigurationItemsToApplicationCommand(output, context);
+    return de_AssociateConfigurationItemsToApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

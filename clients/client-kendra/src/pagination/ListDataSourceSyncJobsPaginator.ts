@@ -6,12 +6,11 @@ import {
   ListDataSourceSyncJobsCommandInput,
   ListDataSourceSyncJobsCommandOutput,
 } from "../commands/ListDataSourceSyncJobsCommand";
-import { Kendra } from "../Kendra";
 import { KendraClient } from "../KendraClient";
 import { KendraPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: KendraClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListDataSourceSyncJobsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Kendra,
-  input: ListDataSourceSyncJobsCommandInput,
-  ...args: any
-): Promise<ListDataSourceSyncJobsCommandOutput> => {
-  // @ts-ignore
-  return await client.listDataSourceSyncJobs(input, ...args);
-};
 export async function* paginateListDataSourceSyncJobs(
   config: KendraPaginationConfiguration,
   input: ListDataSourceSyncJobsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListDataSourceSyncJobs(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Kendra) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof KendraClient) {
+    if (config.client instanceof KendraClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Kendra | KendraClient");

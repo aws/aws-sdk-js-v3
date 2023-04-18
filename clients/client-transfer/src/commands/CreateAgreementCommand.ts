@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateAgreementRequest,
-  CreateAgreementRequestFilterSensitiveLog,
-  CreateAgreementResponse,
-  CreateAgreementResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateAgreementCommand,
-  serializeAws_json1_1CreateAgreementCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateAgreementRequest, CreateAgreementResponse } from "../models/models_0";
+import { de_CreateAgreementCommand, se_CreateAgreementCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateAgreementCommand}.
+ */
 export interface CreateAgreementCommandInput extends CreateAgreementRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateAgreementCommand}.
+ */
 export interface CreateAgreementCommandOutput extends CreateAgreementResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an agreement. An agreement is a bilateral trading partner agreement, or partnership,
  *       between an Transfer Family server and an AS2 process. The agreement defines the file and message
  *       transfer relationship between the server and the AS2 process. To define an agreement, Transfer Family
@@ -41,13 +44,50 @@ export interface CreateAgreementCommandOutput extends CreateAgreementResponse, _
  * import { TransferClient, CreateAgreementCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, CreateAgreementCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = { // CreateAgreementRequest
+ *   Description: "STRING_VALUE",
+ *   ServerId: "STRING_VALUE", // required
+ *   LocalProfileId: "STRING_VALUE", // required
+ *   PartnerProfileId: "STRING_VALUE", // required
+ *   BaseDirectory: "STRING_VALUE", // required
+ *   AccessRole: "STRING_VALUE", // required
+ *   Status: "ACTIVE" || "INACTIVE",
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateAgreementCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAgreementCommandInput - {@link CreateAgreementCommandInput}
+ * @returns {@link CreateAgreementCommandOutput}
  * @see {@link CreateAgreementCommandInput} for command's `input` shape.
  * @see {@link CreateAgreementCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
+ *
+ * @throws {@link InternalServiceError} (server fault)
+ *  <p>This exception is thrown when an error occurs in the Amazon Web ServicesTransfer Family service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * @throws {@link ResourceExistsException} (client fault)
+ *  <p>The requested resource does not exist.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
+ *       service.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
  *
  */
 export class CreateAgreementCommand extends $Command<
@@ -67,6 +107,9 @@ export class CreateAgreementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAgreementCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +138,8 @@ export class CreateAgreementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAgreementRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAgreementResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +149,18 @@ export class CreateAgreementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAgreementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateAgreementCommand(input, context);
+    return se_CreateAgreementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAgreementCommandOutput> {
-    return deserializeAws_json1_1CreateAgreementCommand(output, context);
+    return de_CreateAgreementCommand(output, context);
   }
 
   // Start section: command_body_extra

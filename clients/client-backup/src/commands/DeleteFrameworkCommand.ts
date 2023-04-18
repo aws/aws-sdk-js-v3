@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { DeleteFrameworkInput, DeleteFrameworkInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteFrameworkCommand,
-  serializeAws_restJson1DeleteFrameworkCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteFrameworkInput } from "../models/models_0";
+import { de_DeleteFrameworkCommand, se_DeleteFrameworkCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteFrameworkCommand}.
+ */
 export interface DeleteFrameworkCommandInput extends DeleteFrameworkInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteFrameworkCommand}.
+ */
 export interface DeleteFrameworkCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the framework specified by a framework name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +39,36 @@ export interface DeleteFrameworkCommandOutput extends __MetadataBearer {}
  * import { BackupClient, DeleteFrameworkCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, DeleteFrameworkCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // DeleteFrameworkInput
+ *   FrameworkName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteFrameworkCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFrameworkCommandInput - {@link DeleteFrameworkCommandInput}
+ * @returns {@link DeleteFrameworkCommandOutput}
  * @see {@link DeleteFrameworkCommandInput} for command's `input` shape.
  * @see {@link DeleteFrameworkCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Backup can't perform the action that you requested until it finishes
+ *          performing a previous action. Try again later.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
+ *          out of range.</p>
+ *
+ * @throws {@link MissingParameterValueException} (client fault)
+ *  <p>Indicates that a required parameter is missing.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource that is required for the action doesn't exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request failed due to a temporary failure of the server.</p>
+ *
  *
  */
 export class DeleteFrameworkCommand extends $Command<
@@ -57,6 +88,9 @@ export class DeleteFrameworkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFrameworkCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +119,8 @@ export class DeleteFrameworkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFrameworkInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +130,18 @@ export class DeleteFrameworkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFrameworkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteFrameworkCommand(input, context);
+    return se_DeleteFrameworkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFrameworkCommandOutput> {
-    return deserializeAws_restJson1DeleteFrameworkCommand(output, context);
+    return de_DeleteFrameworkCommand(output, context);
   }
 
   // Start section: command_body_extra

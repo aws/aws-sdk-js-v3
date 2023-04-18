@@ -18,17 +18,24 @@ import {
   UpdateContactRequest,
   UpdateContactRequestFilterSensitiveLog,
   UpdateContactResponse,
-  UpdateContactResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateContactCommand,
-  serializeAws_json1_1UpdateContactCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateContactCommand, se_UpdateContactCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateContactCommand}.
+ */
 export interface UpdateContactCommandInput extends UpdateContactRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateContactCommand}.
+ */
 export interface UpdateContactCommandOutput extends UpdateContactResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the contact details by the contact ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +43,41 @@ export interface UpdateContactCommandOutput extends UpdateContactResponse, __Met
  * import { AlexaForBusinessClient, UpdateContactCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, UpdateContactCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // UpdateContactRequest
+ *   ContactArn: "STRING_VALUE", // required
+ *   DisplayName: "STRING_VALUE",
+ *   FirstName: "STRING_VALUE",
+ *   LastName: "STRING_VALUE",
+ *   PhoneNumber: "STRING_VALUE",
+ *   PhoneNumbers: [ // PhoneNumberList
+ *     { // PhoneNumber
+ *       Number: "STRING_VALUE", // required
+ *       Type: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   SipAddresses: [ // SipAddressList
+ *     { // SipAddress
+ *       Uri: "STRING_VALUE", // required
+ *       Type: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new UpdateContactCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateContactCommandInput - {@link UpdateContactCommandInput}
+ * @returns {@link UpdateContactCommandOutput}
  * @see {@link UpdateContactCommandInput} for command's `input` shape.
  * @see {@link UpdateContactCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is a concurrent modification of resources.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
  *
  */
 export class UpdateContactCommand extends $Command<
@@ -62,6 +97,9 @@ export class UpdateContactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateContactCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,7 +127,7 @@ export class UpdateContactCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateContactRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateContactResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +137,18 @@ export class UpdateContactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateContactCommand(input, context);
+    return se_UpdateContactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateContactCommandOutput> {
-    return deserializeAws_json1_1UpdateContactCommand(output, context);
+    return de_UpdateContactCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,37 +13,60 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteResponsePlanInput,
-  DeleteResponsePlanInputFilterSensitiveLog,
-  DeleteResponsePlanOutput,
-  DeleteResponsePlanOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteResponsePlanCommand,
-  serializeAws_restJson1DeleteResponsePlanCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteResponsePlanInput, DeleteResponsePlanOutput } from "../models/models_0";
+import { de_DeleteResponsePlanCommand, se_DeleteResponsePlanCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteResponsePlanCommand}.
+ */
 export interface DeleteResponsePlanCommandInput extends DeleteResponsePlanInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteResponsePlanCommand}.
+ */
 export interface DeleteResponsePlanCommandOutput extends DeleteResponsePlanOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified response plan. Deleting a response plan stops all linked CloudWatch alarms and EventBridge events from creating an incident with this
- *             response plan.</p>
+ * @public
+ * <p>Deletes the specified response plan. Deleting a response plan stops all linked CloudWatch alarms and EventBridge events from creating an incident with this response
+ *       plan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SSMIncidentsClient, DeleteResponsePlanCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, DeleteResponsePlanCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
  * const client = new SSMIncidentsClient(config);
+ * const input = { // DeleteResponsePlanInput
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteResponsePlanCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteResponsePlanCommandInput - {@link DeleteResponsePlanCommandInput}
+ * @returns {@link DeleteResponsePlanCommandOutput}
  * @see {@link DeleteResponsePlanCommandInput} for command's `input` shape.
  * @see {@link DeleteResponsePlanCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient access to perform this operation.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
+ *       service.</p>
+ *
  *
  */
 export class DeleteResponsePlanCommand extends $Command<
@@ -63,6 +86,9 @@ export class DeleteResponsePlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteResponsePlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +117,8 @@ export class DeleteResponsePlanCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteResponsePlanInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteResponsePlanOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +128,18 @@ export class DeleteResponsePlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteResponsePlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteResponsePlanCommand(input, context);
+    return se_DeleteResponsePlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResponsePlanCommandOutput> {
-    return deserializeAws_restJson1DeleteResponsePlanCommand(output, context);
+    return de_DeleteResponsePlanCommand(output, context);
   }
 
   // Start section: command_body_extra

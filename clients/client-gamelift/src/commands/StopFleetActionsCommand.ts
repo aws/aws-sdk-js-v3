@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  StopFleetActionsInput,
-  StopFleetActionsInputFilterSensitiveLog,
-  StopFleetActionsOutput,
-  StopFleetActionsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StopFleetActionsCommand,
-  serializeAws_json1_1StopFleetActionsCommand,
-} from "../protocols/Aws_json1_1";
+import { StopFleetActionsInput, StopFleetActionsOutput } from "../models/models_0";
+import { de_StopFleetActionsCommand, se_StopFleetActionsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link StopFleetActionsCommand}.
+ */
 export interface StopFleetActionsCommandInput extends StopFleetActionsInput {}
+/**
+ * @public
+ *
+ * The output of {@link StopFleetActionsCommand}.
+ */
 export interface StopFleetActionsCommandOutput extends StopFleetActionsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Suspends certain types of activity in a fleet location. Currently, this operation is
  *             used to stop auto-scaling activity. For multi-location fleets, fleet actions are managed
  *             separately for each location. </p>
@@ -62,13 +65,40 @@ export interface StopFleetActionsCommandOutput extends StopFleetActionsOutput, _
  * import { GameLiftClient, StopFleetActionsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, StopFleetActionsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // StopFleetActionsInput
+ *   FleetId: "STRING_VALUE", // required
+ *   Actions: [ // FleetActionList // required
+ *     "AUTO_SCALING",
+ *   ],
+ *   Location: "STRING_VALUE",
+ * };
  * const command = new StopFleetActionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopFleetActionsCommandInput - {@link StopFleetActionsCommandInput}
+ * @returns {@link StopFleetActionsCommandOutput}
  * @see {@link StopFleetActionsCommandInput} for command's `input` shape.
  * @see {@link StopFleetActionsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an unrecoverable internal failure while processing the
+ *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
+ *             values before retrying.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
+ * @throws {@link UnsupportedRegionException} (client fault)
+ *  <p>The requested operation is not supported in the Region specified.</p>
+ *
  *
  */
 export class StopFleetActionsCommand extends $Command<
@@ -88,6 +118,9 @@ export class StopFleetActionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopFleetActionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +149,8 @@ export class StopFleetActionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopFleetActionsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StopFleetActionsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +160,18 @@ export class StopFleetActionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopFleetActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopFleetActionsCommand(input, context);
+    return se_StopFleetActionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopFleetActionsCommandOutput> {
-    return deserializeAws_json1_1StopFleetActionsCommand(output, context);
+    return de_StopFleetActionsCommand(output, context);
   }
 
   // Start section: command_body_extra

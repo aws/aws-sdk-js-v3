@@ -14,40 +14,81 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import {
-  CancelInstanceRefreshAnswer,
-  CancelInstanceRefreshAnswerFilterSensitiveLog,
-  CancelInstanceRefreshType,
-  CancelInstanceRefreshTypeFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCancelInstanceRefreshCommand,
-  serializeAws_queryCancelInstanceRefreshCommand,
-} from "../protocols/Aws_query";
+import { CancelInstanceRefreshAnswer, CancelInstanceRefreshType } from "../models/models_0";
+import { de_CancelInstanceRefreshCommand, se_CancelInstanceRefreshCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link CancelInstanceRefreshCommand}.
+ */
 export interface CancelInstanceRefreshCommandInput extends CancelInstanceRefreshType {}
+/**
+ * @public
+ *
+ * The output of {@link CancelInstanceRefreshCommand}.
+ */
 export interface CancelInstanceRefreshCommandOutput extends CancelInstanceRefreshAnswer, __MetadataBearer {}
 
 /**
- * <p>Cancels an instance refresh operation in progress. Cancellation does not roll back any
- *             replacements that have already been completed, but it prevents new replacements from
- *             being started. </p>
+ * @public
+ * <p>Cancels an instance refresh or rollback that is in progress. If an instance refresh or
+ *             rollback is not in progress, an <code>ActiveInstanceRefreshNotFound</code> error
+ *             occurs.</p>
  *          <p>This operation is part of the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">instance refresh
  *                 feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in your Auto Scaling group
  *             after you make configuration changes.</p>
+ *          <p>When you cancel an instance refresh, this does not roll back any changes that it made.
+ *             Use the <a>RollbackInstanceRefresh</a> API to roll back instead.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AutoScalingClient, CancelInstanceRefreshCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, CancelInstanceRefreshCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = { // CancelInstanceRefreshType
+ *   AutoScalingGroupName: "STRING_VALUE", // required
+ * };
  * const command = new CancelInstanceRefreshCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelInstanceRefreshCommandInput - {@link CancelInstanceRefreshCommandInput}
+ * @returns {@link CancelInstanceRefreshCommandOutput}
  * @see {@link CancelInstanceRefreshCommandInput} for command's `input` shape.
  * @see {@link CancelInstanceRefreshCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
+ *
+ * @throws {@link ActiveInstanceRefreshNotFoundFault} (client fault)
+ *  <p>The request failed because an active instance refresh or rollback for the specified
+ *             Auto Scaling group was not found.</p>
+ *
+ * @throws {@link LimitExceededFault} (client fault)
+ *  <p>You have already reached a limit for your Amazon EC2 Auto Scaling
+ *             resources (for example, Auto Scaling groups, launch configurations, or lifecycle hooks). For
+ *             more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html">DescribeAccountLimits</a> in the <i>Amazon EC2 Auto Scaling API
+ *             Reference</i>.</p>
+ *
+ * @throws {@link ResourceContentionFault} (server fault)
+ *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
+ *             instance, or load balancer).</p>
+ *
+ *
+ * @example To cancel an instance refresh
+ * ```javascript
+ * // This example cancels an instance refresh operation in progress.
+ * const input = {
+ *   "AutoScalingGroupName": "my-auto-scaling-group"
+ * };
+ * const command = new CancelInstanceRefreshCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "InstanceRefreshId": "08b91cf7-8fa6-48af-b6a6-d227f40f1b9b"
+ * }
+ * *\/
+ * // example id: to-cancel-an-instance-refresh-1592960979817
+ * ```
  *
  */
 export class CancelInstanceRefreshCommand extends $Command<
@@ -67,6 +108,9 @@ export class CancelInstanceRefreshCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelInstanceRefreshCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +139,8 @@ export class CancelInstanceRefreshCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelInstanceRefreshTypeFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelInstanceRefreshAnswerFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +150,18 @@ export class CancelInstanceRefreshCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelInstanceRefreshCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCancelInstanceRefreshCommand(input, context);
+    return se_CancelInstanceRefreshCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelInstanceRefreshCommandOutput> {
-    return deserializeAws_queryCancelInstanceRefreshCommand(output, context);
+    return de_CancelInstanceRefreshCommand(output, context);
   }
 
   // Start section: command_body_extra

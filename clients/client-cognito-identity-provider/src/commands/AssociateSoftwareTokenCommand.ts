@@ -25,15 +25,23 @@ import {
   AssociateSoftwareTokenResponse,
   AssociateSoftwareTokenResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateSoftwareTokenCommand,
-  serializeAws_json1_1AssociateSoftwareTokenCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AssociateSoftwareTokenCommand, se_AssociateSoftwareTokenCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link AssociateSoftwareTokenCommand}.
+ */
 export interface AssociateSoftwareTokenCommandInput extends AssociateSoftwareTokenRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AssociateSoftwareTokenCommand}.
+ */
 export interface AssociateSoftwareTokenCommandOutput extends AssociateSoftwareTokenResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Begins setup of time-based one-time password (TOTP) multi-factor authentication (MFA)
  *             for a user, with a unique private key that Amazon Cognito generates and returns in the API
  *             response. You can authorize an <code>AssociateSoftwareToken</code> request with either
@@ -57,13 +65,45 @@ export interface AssociateSoftwareTokenCommandOutput extends AssociateSoftwareTo
  * import { CognitoIdentityProviderClient, AssociateSoftwareTokenCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, AssociateSoftwareTokenCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // AssociateSoftwareTokenRequest
+ *   AccessToken: "STRING_VALUE",
+ *   Session: "STRING_VALUE",
+ * };
  * const command = new AssociateSoftwareTokenCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateSoftwareTokenCommandInput - {@link AssociateSoftwareTokenCommandInput}
+ * @returns {@link AssociateSoftwareTokenCommandOutput}
  * @see {@link AssociateSoftwareTokenCommandInput} for command's `input` shape.
  * @see {@link AssociateSoftwareTokenCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>This exception is thrown if two or more modifications are happening
+ *             concurrently.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.</p>
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
+ *             parameter.</p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
+ *             resource.</p>
+ *
+ * @throws {@link SoftwareTokenMFANotFoundException} (client fault)
+ *  <p>This exception is thrown when the software token time-based one-time password (TOTP)
+ *             multi-factor authentication (MFA) isn't activated for the user pool.</p>
+ *
  *
  */
 export class AssociateSoftwareTokenCommand extends $Command<
@@ -83,6 +123,9 @@ export class AssociateSoftwareTokenCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateSoftwareTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,12 +166,18 @@ export class AssociateSoftwareTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateSoftwareTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateSoftwareTokenCommand(input, context);
+    return se_AssociateSoftwareTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateSoftwareTokenCommandOutput> {
-    return deserializeAws_json1_1AssociateSoftwareTokenCommand(output, context);
+    return de_AssociateSoftwareTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

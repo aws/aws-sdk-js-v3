@@ -13,14 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateAppRequest, UpdateAppRequestFilterSensitiveLog } from "../models/models_0";
+import { UpdateAppRequest } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import { deserializeAws_json1_1UpdateAppCommand, serializeAws_json1_1UpdateAppCommand } from "../protocols/Aws_json1_1";
+import { de_UpdateAppCommand, se_UpdateAppCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateAppCommand}.
+ */
 export interface UpdateAppCommandInput extends UpdateAppRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateAppCommand}.
+ */
 export interface UpdateAppCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a specified app.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Deploy or Manage
@@ -33,13 +44,62 @@ export interface UpdateAppCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, UpdateAppCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, UpdateAppCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // UpdateAppRequest
+ *   AppId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   DataSources: [ // DataSources
+ *     { // DataSource
+ *       Type: "STRING_VALUE",
+ *       Arn: "STRING_VALUE",
+ *       DatabaseName: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Type: "STRING_VALUE",
+ *   AppSource: { // Source
+ *     Type: "STRING_VALUE",
+ *     Url: "STRING_VALUE",
+ *     Username: "STRING_VALUE",
+ *     Password: "STRING_VALUE",
+ *     SshKey: "STRING_VALUE",
+ *     Revision: "STRING_VALUE",
+ *   },
+ *   Domains: [ // Strings
+ *     "STRING_VALUE",
+ *   ],
+ *   EnableSsl: true || false,
+ *   SslConfiguration: { // SslConfiguration
+ *     Certificate: "STRING_VALUE", // required
+ *     PrivateKey: "STRING_VALUE", // required
+ *     Chain: "STRING_VALUE",
+ *   },
+ *   Attributes: { // AppAttributes
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Environment: [ // EnvironmentVariables
+ *     { // EnvironmentVariable
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *       Secure: true || false,
+ *     },
+ *   ],
+ * };
  * const command = new UpdateAppCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAppCommandInput - {@link UpdateAppCommandInput}
+ * @returns {@link UpdateAppCommandOutput}
  * @see {@link UpdateAppCommandInput} for command's `input` shape.
  * @see {@link UpdateAppCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Indicates that a resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that a request was not valid.</p>
+ *
  *
  */
 export class UpdateAppCommand extends $Command<
@@ -59,6 +119,9 @@ export class UpdateAppCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAppCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +148,8 @@ export class UpdateAppCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAppRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +159,18 @@ export class UpdateAppCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAppCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateAppCommand(input, context);
+    return se_UpdateAppCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAppCommandOutput> {
-    return deserializeAws_json1_1UpdateAppCommand(output, context);
+    return de_UpdateAppCommand(output, context);
   }
 
   // Start section: command_body_extra

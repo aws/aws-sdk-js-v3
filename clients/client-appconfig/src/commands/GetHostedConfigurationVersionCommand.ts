@@ -16,19 +16,29 @@ import {
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
 import {
   GetHostedConfigurationVersionRequest,
-  GetHostedConfigurationVersionRequestFilterSensitiveLog,
   HostedConfigurationVersion,
   HostedConfigurationVersionFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetHostedConfigurationVersionCommand,
-  serializeAws_restJson1GetHostedConfigurationVersionCommand,
+  de_GetHostedConfigurationVersionCommand,
+  se_GetHostedConfigurationVersionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetHostedConfigurationVersionCommand}.
+ */
 export interface GetHostedConfigurationVersionCommandInput extends GetHostedConfigurationVersionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetHostedConfigurationVersionCommand}.
+ */
 export interface GetHostedConfigurationVersionCommandOutput extends HostedConfigurationVersion, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about a specific configuration version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +46,51 @@ export interface GetHostedConfigurationVersionCommandOutput extends HostedConfig
  * import { AppConfigClient, GetHostedConfigurationVersionCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, GetHostedConfigurationVersionCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = { // GetHostedConfigurationVersionRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   ConfigurationProfileId: "STRING_VALUE", // required
+ *   VersionNumber: Number("int"), // required
+ * };
  * const command = new GetHostedConfigurationVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetHostedConfigurationVersionCommandInput - {@link GetHostedConfigurationVersionCommandInput}
+ * @returns {@link GetHostedConfigurationVersionCommandOutput}
  * @see {@link GetHostedConfigurationVersionCommandInput} for command's `input` shape.
  * @see {@link GetHostedConfigurationVersionCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There was an internal failure in the AppConfig service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource could not be found.</p>
+ *
+ *
+ * @example To retrieve hosted configuration details
+ * ```javascript
+ * // The following get-hosted-configuration-version example retrieves the configuration details of the AWS AppConfig hosted configuration.
+ * const input = {
+ *   "ApplicationId": "339ohji",
+ *   "ConfigurationProfileId": "ur8hx2f",
+ *   "VersionNumber": 1
+ * };
+ * const command = new GetHostedConfigurationVersionCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ApplicationId": "339ohji",
+ *   "ConfigurationProfileId": "ur8hx2f",
+ *   "ContentType": "application/json",
+ *   "VersionNumber": 1
+ * }
+ * *\/
+ * // example id: to-retrieve-hosted-configuration-details-1632267003527
+ * ```
  *
  */
 export class GetHostedConfigurationVersionCommand extends $Command<
@@ -62,6 +110,9 @@ export class GetHostedConfigurationVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetHostedConfigurationVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +141,7 @@ export class GetHostedConfigurationVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetHostedConfigurationVersionRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: HostedConfigurationVersionFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -101,15 +152,21 @@ export class GetHostedConfigurationVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetHostedConfigurationVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetHostedConfigurationVersionCommand(input, context);
+    return se_GetHostedConfigurationVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetHostedConfigurationVersionCommandOutput> {
-    return deserializeAws_restJson1GetHostedConfigurationVersionCommand(output, context);
+    return de_GetHostedConfigurationVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

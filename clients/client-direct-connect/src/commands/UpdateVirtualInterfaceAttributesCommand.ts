@@ -14,21 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
+import { UpdateVirtualInterfaceAttributesRequest, VirtualInterface } from "../models/models_0";
 import {
-  UpdateVirtualInterfaceAttributesRequest,
-  UpdateVirtualInterfaceAttributesRequestFilterSensitiveLog,
-  VirtualInterface,
-  VirtualInterfaceFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateVirtualInterfaceAttributesCommand,
-  serializeAws_json1_1UpdateVirtualInterfaceAttributesCommand,
+  de_UpdateVirtualInterfaceAttributesCommand,
+  se_UpdateVirtualInterfaceAttributesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateVirtualInterfaceAttributesCommand}.
+ */
 export interface UpdateVirtualInterfaceAttributesCommandInput extends UpdateVirtualInterfaceAttributesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateVirtualInterfaceAttributesCommand}.
+ */
 export interface UpdateVirtualInterfaceAttributesCommandOutput extends VirtualInterface, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified attributes of the specified virtual private interface.</p>
  *          <p>Setting the MTU of a virtual interface to 9001 (jumbo frames) can cause an update to
  *       the underlying physical connection if it wasn't updated to support jumbo frames. Updating
@@ -42,13 +48,28 @@ export interface UpdateVirtualInterfaceAttributesCommandOutput extends VirtualIn
  * import { DirectConnectClient, UpdateVirtualInterfaceAttributesCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, UpdateVirtualInterfaceAttributesCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // UpdateVirtualInterfaceAttributesRequest
+ *   virtualInterfaceId: "STRING_VALUE", // required
+ *   mtu: Number("int"),
+ *   enableSiteLink: true || false,
+ *   virtualInterfaceName: "STRING_VALUE",
+ * };
  * const command = new UpdateVirtualInterfaceAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateVirtualInterfaceAttributesCommandInput - {@link UpdateVirtualInterfaceAttributesCommandInput}
+ * @returns {@link UpdateVirtualInterfaceAttributesCommandOutput}
  * @see {@link UpdateVirtualInterfaceAttributesCommandInput} for command's `input` shape.
  * @see {@link UpdateVirtualInterfaceAttributesCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
+ *
+ * @throws {@link DirectConnectClientException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link DirectConnectServerException} (server fault)
+ *  <p>A server-side error occurred.</p>
+ *
  *
  */
 export class UpdateVirtualInterfaceAttributesCommand extends $Command<
@@ -68,6 +89,9 @@ export class UpdateVirtualInterfaceAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateVirtualInterfaceAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +120,8 @@ export class UpdateVirtualInterfaceAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateVirtualInterfaceAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: VirtualInterfaceFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,18 +131,24 @@ export class UpdateVirtualInterfaceAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateVirtualInterfaceAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateVirtualInterfaceAttributesCommand(input, context);
+    return se_UpdateVirtualInterfaceAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateVirtualInterfaceAttributesCommandOutput> {
-    return deserializeAws_json1_1UpdateVirtualInterfaceAttributesCommand(output, context);
+    return de_UpdateVirtualInterfaceAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -20,15 +20,23 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { DeleteUserPoolClientRequest, DeleteUserPoolClientRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteUserPoolClientCommand,
-  serializeAws_json1_1DeleteUserPoolClientCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteUserPoolClientCommand, se_DeleteUserPoolClientCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteUserPoolClientCommand}.
+ */
 export interface DeleteUserPoolClientCommandInput extends DeleteUserPoolClientRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteUserPoolClientCommand}.
+ */
 export interface DeleteUserPoolClientCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows the developer to delete the user pool client.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +44,42 @@ export interface DeleteUserPoolClientCommandOutput extends __MetadataBearer {}
  * import { CognitoIdentityProviderClient, DeleteUserPoolClientCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, DeleteUserPoolClientCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // DeleteUserPoolClientRequest
+ *   UserPoolId: "STRING_VALUE", // required
+ *   ClientId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteUserPoolClientCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteUserPoolClientCommandInput - {@link DeleteUserPoolClientCommandInput}
+ * @returns {@link DeleteUserPoolClientCommandOutput}
  * @see {@link DeleteUserPoolClientCommandInput} for command's `input` shape.
  * @see {@link DeleteUserPoolClientCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>This exception is thrown if two or more modifications are happening
+ *             concurrently.</p>
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
+ *             parameter.</p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
+ *             resource.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>This exception is thrown when the user has made too many requests for a given
+ *             operation.</p>
+ *
  *
  */
 export class DeleteUserPoolClientCommand extends $Command<
@@ -62,6 +99,9 @@ export class DeleteUserPoolClientCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteUserPoolClientCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,7 +132,7 @@ export class DeleteUserPoolClientCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: DeleteUserPoolClientRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +142,18 @@ export class DeleteUserPoolClientCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteUserPoolClientCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteUserPoolClientCommand(input, context);
+    return se_DeleteUserPoolClientCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteUserPoolClientCommandOutput> {
-    return deserializeAws_json1_1DeleteUserPoolClientCommand(output, context);
+    return de_DeleteUserPoolClientCommand(output, context);
   }
 
   // Start section: command_body_extra

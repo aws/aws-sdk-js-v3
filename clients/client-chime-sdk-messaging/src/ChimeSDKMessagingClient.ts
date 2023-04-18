@@ -26,12 +26,14 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
@@ -85,6 +87,10 @@ import {
   DeleteChannelModeratorCommandInput,
   DeleteChannelModeratorCommandOutput,
 } from "./commands/DeleteChannelModeratorCommand";
+import {
+  DeleteMessagingStreamingConfigurationsCommandInput,
+  DeleteMessagingStreamingConfigurationsCommandOutput,
+} from "./commands/DeleteMessagingStreamingConfigurationsCommand";
 import { DescribeChannelBanCommandInput, DescribeChannelBanCommandOutput } from "./commands/DescribeChannelBanCommand";
 import { DescribeChannelCommandInput, DescribeChannelCommandOutput } from "./commands/DescribeChannelCommand";
 import {
@@ -124,6 +130,10 @@ import {
   GetMessagingSessionEndpointCommandInput,
   GetMessagingSessionEndpointCommandOutput,
 } from "./commands/GetMessagingSessionEndpointCommand";
+import {
+  GetMessagingStreamingConfigurationsCommandInput,
+  GetMessagingStreamingConfigurationsCommandOutput,
+} from "./commands/GetMessagingStreamingConfigurationsCommand";
 import { ListChannelBansCommandInput, ListChannelBansCommandOutput } from "./commands/ListChannelBansCommand";
 import { ListChannelFlowsCommandInput, ListChannelFlowsCommandOutput } from "./commands/ListChannelFlowsCommand";
 import {
@@ -157,9 +167,17 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  PutChannelExpirationSettingsCommandInput,
+  PutChannelExpirationSettingsCommandOutput,
+} from "./commands/PutChannelExpirationSettingsCommand";
+import {
   PutChannelMembershipPreferencesCommandInput,
   PutChannelMembershipPreferencesCommandOutput,
 } from "./commands/PutChannelMembershipPreferencesCommand";
+import {
+  PutMessagingStreamingConfigurationsCommandInput,
+  PutMessagingStreamingConfigurationsCommandOutput,
+} from "./commands/PutMessagingStreamingConfigurationsCommand";
 import {
   RedactChannelMessageCommandInput,
   RedactChannelMessageCommandOutput,
@@ -186,6 +204,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AssociateChannelFlowCommandInput
   | BatchCreateChannelMembershipCommandInput
@@ -201,6 +222,7 @@ export type ServiceInputTypes =
   | DeleteChannelMembershipCommandInput
   | DeleteChannelMessageCommandInput
   | DeleteChannelModeratorCommandInput
+  | DeleteMessagingStreamingConfigurationsCommandInput
   | DescribeChannelBanCommandInput
   | DescribeChannelCommandInput
   | DescribeChannelFlowCommandInput
@@ -213,6 +235,7 @@ export type ServiceInputTypes =
   | GetChannelMessageCommandInput
   | GetChannelMessageStatusCommandInput
   | GetMessagingSessionEndpointCommandInput
+  | GetMessagingStreamingConfigurationsCommandInput
   | ListChannelBansCommandInput
   | ListChannelFlowsCommandInput
   | ListChannelMembershipsCommandInput
@@ -224,7 +247,9 @@ export type ServiceInputTypes =
   | ListChannelsModeratedByAppInstanceUserCommandInput
   | ListSubChannelsCommandInput
   | ListTagsForResourceCommandInput
+  | PutChannelExpirationSettingsCommandInput
   | PutChannelMembershipPreferencesCommandInput
+  | PutMessagingStreamingConfigurationsCommandInput
   | RedactChannelMessageCommandInput
   | SearchChannelsCommandInput
   | SendChannelMessageCommandInput
@@ -235,6 +260,9 @@ export type ServiceInputTypes =
   | UpdateChannelMessageCommandInput
   | UpdateChannelReadMarkerCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AssociateChannelFlowCommandOutput
   | BatchCreateChannelMembershipCommandOutput
@@ -250,6 +278,7 @@ export type ServiceOutputTypes =
   | DeleteChannelMembershipCommandOutput
   | DeleteChannelMessageCommandOutput
   | DeleteChannelModeratorCommandOutput
+  | DeleteMessagingStreamingConfigurationsCommandOutput
   | DescribeChannelBanCommandOutput
   | DescribeChannelCommandOutput
   | DescribeChannelFlowCommandOutput
@@ -262,6 +291,7 @@ export type ServiceOutputTypes =
   | GetChannelMessageCommandOutput
   | GetChannelMessageStatusCommandOutput
   | GetMessagingSessionEndpointCommandOutput
+  | GetMessagingStreamingConfigurationsCommandOutput
   | ListChannelBansCommandOutput
   | ListChannelFlowsCommandOutput
   | ListChannelMembershipsCommandOutput
@@ -273,7 +303,9 @@ export type ServiceOutputTypes =
   | ListChannelsModeratedByAppInstanceUserCommandOutput
   | ListSubChannelsCommandOutput
   | ListTagsForResourceCommandOutput
+  | PutChannelExpirationSettingsCommandOutput
   | PutChannelMembershipPreferencesCommandOutput
+  | PutMessagingStreamingConfigurationsCommandOutput
   | RedactChannelMessageCommandOutput
   | SearchChannelsCommandOutput
   | SendChannelMessageCommandOutput
@@ -284,6 +316,9 @@ export type ServiceOutputTypes =
   | UpdateChannelMessageCommandOutput
   | UpdateChannelReadMarkerCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -291,11 +326,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -352,19 +387,10 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
-   * Value for how many times a request will be made at most in case of retry.
+   * Unique service identifier.
+   * @internal
    */
-  maxAttempts?: number | __Provider<number>;
-
-  /**
-   * Specifies which retry algorithm to use.
-   */
-  retryMode?: string | __Provider<string>;
-
-  /**
-   * Optional logger for logging debug/info/warn/error.
-   */
-  logger?: __Logger;
+  serviceId?: string;
 
   /**
    * Enables IPv6/IPv4 dualstack endpoint.
@@ -375,12 +401,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Enables FIPS compatible endpoints.
    */
   useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
 
   /**
    * The AWS region to which this client will send requests
@@ -400,11 +420,29 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * Value for how many times a request will be made at most in case of retry.
    */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Specifies which retry algorithm to use.
+   */
+  retryMode?: string | __Provider<string>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
+
+  /**
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   */
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type ChimeSDKMessagingClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -415,10 +453,15 @@ type ChimeSDKMessagingClientConfigType = Partial<__SmithyConfiguration<__HttpHan
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of ChimeSDKMessagingClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of ChimeSDKMessagingClient class constructor that set the region, credentials and other options.
  */
 export interface ChimeSDKMessagingClientConfig extends ChimeSDKMessagingClientConfigType {}
 
+/**
+ * @public
+ */
 type ChimeSDKMessagingClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -429,11 +472,14 @@ type ChimeSDKMessagingClientResolvedConfigType = __SmithyResolvedConfiguration<_
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of ChimeSDKMessagingClient class. This is resolved and normalized from the {@link ChimeSDKMessagingClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of ChimeSDKMessagingClient class. This is resolved and normalized from the {@link ChimeSDKMessagingClientConfig | constructor configuration interface}.
  */
 export interface ChimeSDKMessagingClientResolvedConfig extends ChimeSDKMessagingClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>The Amazon Chime SDK Messaging APIs in this section allow software developers to send
  *          and receive messages in custom messaging applications. These APIs depend on the frameworks
  *          provided by the Amazon Chime SDK Identity APIs. For more information about the messaging

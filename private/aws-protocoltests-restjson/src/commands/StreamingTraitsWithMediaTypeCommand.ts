@@ -20,12 +20,17 @@ import {
   StreamingTraitsWithMediaTypeInputOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1StreamingTraitsWithMediaTypeCommand,
-  serializeAws_restJson1StreamingTraitsWithMediaTypeCommand,
+  de_StreamingTraitsWithMediaTypeCommand,
+  se_StreamingTraitsWithMediaTypeCommand,
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
-type StreamingTraitsWithMediaTypeCommandInputType = Omit<StreamingTraitsWithMediaTypeInputOutput, "blob"> & {
+/**
+ * @public
+ *
+ * The input for {@link StreamingTraitsWithMediaTypeCommand}.
+ */
+export type StreamingTraitsWithMediaTypeCommandInputType = Omit<StreamingTraitsWithMediaTypeInputOutput, "blob"> & {
   /**
    * For *`StreamingTraitsWithMediaTypeInputOutput["blob"]`*, see {@link StreamingTraitsWithMediaTypeInputOutput.blob}.
    */
@@ -35,11 +40,17 @@ type StreamingTraitsWithMediaTypeCommandInputType = Omit<StreamingTraitsWithMedi
  * This interface extends from `StreamingTraitsWithMediaTypeInputOutput` interface. There are more parameters than `blob` defined in {@link StreamingTraitsWithMediaTypeInputOutput}
  */
 export interface StreamingTraitsWithMediaTypeCommandInput extends StreamingTraitsWithMediaTypeCommandInputType {}
+/**
+ * @public
+ *
+ * The output of {@link StreamingTraitsWithMediaTypeCommand}.
+ */
 export interface StreamingTraitsWithMediaTypeCommandOutput
   extends __WithSdkStreamMixin<StreamingTraitsWithMediaTypeInputOutput, "blob">,
     __MetadataBearer {}
 
 /**
+ * @public
  * This examples serializes a streaming media-typed blob shape in the request body.
  *
  * This examples uses a `@mediaType` trait on the payload to force a custom
@@ -50,13 +61,20 @@ export interface StreamingTraitsWithMediaTypeCommandOutput
  * import { RestJsonProtocolClient, StreamingTraitsWithMediaTypeCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, StreamingTraitsWithMediaTypeCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
+ * const input = { // StreamingTraitsWithMediaTypeInputOutput
+ *   foo: "STRING_VALUE",
+ *   blob: "STREAMING_BLOB_VALUE",
+ * };
  * const command = new StreamingTraitsWithMediaTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StreamingTraitsWithMediaTypeCommandInput - {@link StreamingTraitsWithMediaTypeCommandInput}
+ * @returns {@link StreamingTraitsWithMediaTypeCommandOutput}
  * @see {@link StreamingTraitsWithMediaTypeCommandInput} for command's `input` shape.
  * @see {@link StreamingTraitsWithMediaTypeCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
+ *
  *
  */
 export class StreamingTraitsWithMediaTypeCommand extends $Command<
@@ -67,6 +85,9 @@ export class StreamingTraitsWithMediaTypeCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: StreamingTraitsWithMediaTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,15 +124,21 @@ export class StreamingTraitsWithMediaTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StreamingTraitsWithMediaTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StreamingTraitsWithMediaTypeCommand(input, context);
+    return se_StreamingTraitsWithMediaTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext
   ): Promise<StreamingTraitsWithMediaTypeCommandOutput> {
-    return deserializeAws_restJson1StreamingTraitsWithMediaTypeCommand(output, context);
+    return de_StreamingTraitsWithMediaTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

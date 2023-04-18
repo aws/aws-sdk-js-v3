@@ -14,35 +14,65 @@ import {
 } from "@aws-sdk/types";
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import {
-  GetImagePipelineRequest,
-  GetImagePipelineRequestFilterSensitiveLog,
-  GetImagePipelineResponse,
-  GetImagePipelineResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetImagePipelineCommand,
-  serializeAws_restJson1GetImagePipelineCommand,
-} from "../protocols/Aws_restJson1";
+import { GetImagePipelineRequest, GetImagePipelineResponse } from "../models/models_0";
+import { de_GetImagePipelineCommand, se_GetImagePipelineCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetImagePipelineCommand}.
+ */
 export interface GetImagePipelineCommandInput extends GetImagePipelineRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetImagePipelineCommand}.
+ */
 export interface GetImagePipelineCommandOutput extends GetImagePipelineResponse, __MetadataBearer {}
 
 /**
- * <p> Gets an image pipeline.</p>
+ * @public
+ * <p>Gets an image pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ImagebuilderClient, GetImagePipelineCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, GetImagePipelineCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
+ * const input = { // GetImagePipelineRequest
+ *   imagePipelineArn: "STRING_VALUE", // required
+ * };
  * const command = new GetImagePipelineCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetImagePipelineCommandInput - {@link GetImagePipelineCommandInput}
+ * @returns {@link GetImagePipelineCommandOutput}
  * @see {@link GetImagePipelineCommandInput} for command's `input` shape.
  * @see {@link GetImagePipelineCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
+ *
+ * @throws {@link CallRateLimitExceededException} (client fault)
+ *  <p>You have exceeded the permitted request rate for the specific operation.</p>
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action, such as using an action or
+ * 			resource on behalf of a user that doesn't have permissions to use the action or
+ * 			resource, or specifying an invalid resource identifier.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>You are not authorized to perform the requested operation.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>You have requested an action that that the service doesn't support.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>This exception is thrown when the service encounters an unrecoverable
+ * 			exception.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is unable to process your request at this time.</p>
+ *
  *
  */
 export class GetImagePipelineCommand extends $Command<
@@ -62,6 +92,9 @@ export class GetImagePipelineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetImagePipelineCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +123,8 @@ export class GetImagePipelineCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetImagePipelineRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetImagePipelineResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +134,18 @@ export class GetImagePipelineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetImagePipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetImagePipelineCommand(input, context);
+    return se_GetImagePipelineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetImagePipelineCommandOutput> {
-    return deserializeAws_restJson1GetImagePipelineCommand(output, context);
+    return de_GetImagePipelineCommand(output, context);
   }
 
   // Start section: command_body_extra

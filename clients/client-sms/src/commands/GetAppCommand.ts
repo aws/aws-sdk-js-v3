@@ -13,19 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetAppRequest,
-  GetAppRequestFilterSensitiveLog,
-  GetAppResponse,
-  GetAppResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1GetAppCommand, serializeAws_json1_1GetAppCommand } from "../protocols/Aws_json1_1";
+import { GetAppRequest, GetAppResponse } from "../models/models_0";
+import { de_GetAppCommand, se_GetAppCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetAppCommand}.
+ */
 export interface GetAppCommandInput extends GetAppRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetAppCommand}.
+ */
 export interface GetAppCommandOutput extends GetAppResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieve information about the specified application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -33,13 +39,35 @@ export interface GetAppCommandOutput extends GetAppResponse, __MetadataBearer {}
  * import { SMSClient, GetAppCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, GetAppCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
+ * const input = { // GetAppRequest
+ *   appId: "STRING_VALUE",
+ * };
  * const command = new GetAppCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAppCommandInput - {@link GetAppCommandInput}
+ * @returns {@link GetAppCommandOutput}
  * @see {@link GetAppCommandInput} for command's `input` shape.
  * @see {@link GetAppCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
+ *
+ * @throws {@link InternalError} (server fault)
+ *  <p>An internal error occurred.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A specified parameter is not valid.</p>
+ *
+ * @throws {@link MissingRequiredParameterException} (client fault)
+ *  <p>A required parameter is missing.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This operation is not allowed.</p>
+ *
+ * @throws {@link UnauthorizedOperationException} (client fault)
+ *  <p>You lack permissions needed to perform this operation. Check your IAM policies,
+ *             and ensure that you are using the correct access keys.</p>
+ *
  *
  */
 export class GetAppCommand extends $Command<GetAppCommandInput, GetAppCommandOutput, SMSClientResolvedConfig> {
@@ -55,6 +83,9 @@ export class GetAppCommand extends $Command<GetAppCommandInput, GetAppCommandOut
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAppCommandInput) {
     // Start section: command_constructor
     super();
@@ -81,8 +112,8 @@ export class GetAppCommand extends $Command<GetAppCommandInput, GetAppCommandOut
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAppRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAppResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -92,12 +123,18 @@ export class GetAppCommand extends $Command<GetAppCommandInput, GetAppCommandOut
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAppCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAppCommand(input, context);
+    return se_GetAppCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAppCommandOutput> {
-    return deserializeAws_json1_1GetAppCommand(output, context);
+    return de_GetAppCommand(output, context);
   }
 
   // Start section: command_body_extra

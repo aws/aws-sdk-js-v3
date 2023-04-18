@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateFeatureMetadataRequest, UpdateFeatureMetadataRequestFilterSensitiveLog } from "../models/models_4";
-import {
-  deserializeAws_json1_1UpdateFeatureMetadataCommand,
-  serializeAws_json1_1UpdateFeatureMetadataCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateFeatureMetadataRequest } from "../models/models_4";
+import { de_UpdateFeatureMetadataCommand, se_UpdateFeatureMetadataCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateFeatureMetadataCommand}.
+ */
 export interface UpdateFeatureMetadataCommandInput extends UpdateFeatureMetadataRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateFeatureMetadataCommand}.
+ */
 export interface UpdateFeatureMetadataCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the description and parameters of the feature group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +39,33 @@ export interface UpdateFeatureMetadataCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, UpdateFeatureMetadataCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateFeatureMetadataCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // UpdateFeatureMetadataRequest
+ *   FeatureGroupName: "STRING_VALUE", // required
+ *   FeatureName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   ParameterAdditions: [ // FeatureParameterAdditions
+ *     { // FeatureParameter
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   ParameterRemovals: [ // FeatureParameterRemovals
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateFeatureMetadataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFeatureMetadataCommandInput - {@link UpdateFeatureMetadataCommandInput}
+ * @returns {@link UpdateFeatureMetadataCommandOutput}
  * @see {@link UpdateFeatureMetadataCommandInput} for command's `input` shape.
  * @see {@link UpdateFeatureMetadataCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class UpdateFeatureMetadataCommand extends $Command<
@@ -57,6 +85,9 @@ export class UpdateFeatureMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFeatureMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +116,8 @@ export class UpdateFeatureMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFeatureMetadataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +127,18 @@ export class UpdateFeatureMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFeatureMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateFeatureMetadataCommand(input, context);
+    return se_UpdateFeatureMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFeatureMetadataCommandOutput> {
-    return deserializeAws_json1_1UpdateFeatureMetadataCommand(output, context);
+    return de_UpdateFeatureMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

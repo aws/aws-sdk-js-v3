@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeSMBSettingsInput,
-  DescribeSMBSettingsInputFilterSensitiveLog,
-  DescribeSMBSettingsOutput,
-  DescribeSMBSettingsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeSMBSettingsCommand,
-  serializeAws_json1_1DescribeSMBSettingsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeSMBSettingsInput, DescribeSMBSettingsOutput } from "../models/models_0";
+import { de_DescribeSMBSettingsCommand, se_DescribeSMBSettingsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeSMBSettingsCommand}.
+ */
 export interface DescribeSMBSettingsCommandInput extends DescribeSMBSettingsInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeSMBSettingsCommand}.
+ */
 export interface DescribeSMBSettingsCommandOutput extends DescribeSMBSettingsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a description of a Server Message Block (SMB) file share settings from a file
  *          gateway. This operation is only supported for file gateways.</p>
  * @example
@@ -37,13 +40,27 @@ export interface DescribeSMBSettingsCommandOutput extends DescribeSMBSettingsOut
  * import { StorageGatewayClient, DescribeSMBSettingsCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DescribeSMBSettingsCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // DescribeSMBSettingsInput
+ *   GatewayARN: "STRING_VALUE", // required
+ * };
  * const command = new DescribeSMBSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSMBSettingsCommandInput - {@link DescribeSMBSettingsCommandInput}
+ * @returns {@link DescribeSMBSettingsCommandOutput}
  * @see {@link DescribeSMBSettingsCommandInput} for command's `input` shape.
  * @see {@link DescribeSMBSettingsCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error has occurred during the request. For more information, see the
+ *          error and message fields.</p>
+ *
+ * @throws {@link InvalidGatewayRequestException} (client fault)
+ *  <p>An exception occurred because an invalid gateway request was issued to the service. For
+ *          more information, see the error and message fields.</p>
+ *
  *
  */
 export class DescribeSMBSettingsCommand extends $Command<
@@ -63,6 +80,9 @@ export class DescribeSMBSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSMBSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +111,8 @@ export class DescribeSMBSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSMBSettingsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSMBSettingsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +122,18 @@ export class DescribeSMBSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSMBSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeSMBSettingsCommand(input, context);
+    return se_DescribeSMBSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSMBSettingsCommandOutput> {
-    return deserializeAws_json1_1DescribeSMBSettingsCommand(output, context);
+    return de_DescribeSMBSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

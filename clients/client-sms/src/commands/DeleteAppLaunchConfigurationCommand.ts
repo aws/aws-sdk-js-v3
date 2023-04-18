@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DeleteAppLaunchConfigurationRequest, DeleteAppLaunchConfigurationResponse } from "../models/models_0";
 import {
-  DeleteAppLaunchConfigurationRequest,
-  DeleteAppLaunchConfigurationRequestFilterSensitiveLog,
-  DeleteAppLaunchConfigurationResponse,
-  DeleteAppLaunchConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteAppLaunchConfigurationCommand,
-  serializeAws_json1_1DeleteAppLaunchConfigurationCommand,
+  de_DeleteAppLaunchConfigurationCommand,
+  se_DeleteAppLaunchConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteAppLaunchConfigurationCommand}.
+ */
 export interface DeleteAppLaunchConfigurationCommandInput extends DeleteAppLaunchConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteAppLaunchConfigurationCommand}.
+ */
 export interface DeleteAppLaunchConfigurationCommandOutput
   extends DeleteAppLaunchConfigurationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the launch configuration for the specified application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,35 @@ export interface DeleteAppLaunchConfigurationCommandOutput
  * import { SMSClient, DeleteAppLaunchConfigurationCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, DeleteAppLaunchConfigurationCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
+ * const input = { // DeleteAppLaunchConfigurationRequest
+ *   appId: "STRING_VALUE",
+ * };
  * const command = new DeleteAppLaunchConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAppLaunchConfigurationCommandInput - {@link DeleteAppLaunchConfigurationCommandInput}
+ * @returns {@link DeleteAppLaunchConfigurationCommandOutput}
  * @see {@link DeleteAppLaunchConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteAppLaunchConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
+ *
+ * @throws {@link InternalError} (server fault)
+ *  <p>An internal error occurred.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A specified parameter is not valid.</p>
+ *
+ * @throws {@link MissingRequiredParameterException} (client fault)
+ *  <p>A required parameter is missing.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This operation is not allowed.</p>
+ *
+ * @throws {@link UnauthorizedOperationException} (client fault)
+ *  <p>You lack permissions needed to perform this operation. Check your IAM policies,
+ *             and ensure that you are using the correct access keys.</p>
+ *
  *
  */
 export class DeleteAppLaunchConfigurationCommand extends $Command<
@@ -64,6 +92,9 @@ export class DeleteAppLaunchConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAppLaunchConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +123,8 @@ export class DeleteAppLaunchConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAppLaunchConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAppLaunchConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +134,21 @@ export class DeleteAppLaunchConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAppLaunchConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteAppLaunchConfigurationCommand(input, context);
+    return se_DeleteAppLaunchConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAppLaunchConfigurationCommandOutput> {
-    return deserializeAws_json1_1DeleteAppLaunchConfigurationCommand(output, context);
+    return de_DeleteAppLaunchConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

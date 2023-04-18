@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  ListDevicePoolsRequest,
-  ListDevicePoolsRequestFilterSensitiveLog,
-  ListDevicePoolsResult,
-  ListDevicePoolsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListDevicePoolsCommand,
-  serializeAws_json1_1ListDevicePoolsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListDevicePoolsRequest, ListDevicePoolsResult } from "../models/models_0";
+import { de_ListDevicePoolsCommand, se_ListDevicePoolsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListDevicePoolsCommand}.
+ */
 export interface ListDevicePoolsCommandInput extends ListDevicePoolsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDevicePoolsCommand}.
+ */
 export interface ListDevicePoolsCommandOutput extends ListDevicePoolsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about device pools.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,75 @@ export interface ListDevicePoolsCommandOutput extends ListDevicePoolsResult, __M
  * import { DeviceFarmClient, ListDevicePoolsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, ListDevicePoolsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // ListDevicePoolsRequest
+ *   arn: "STRING_VALUE", // required
+ *   type: "CURATED" || "PRIVATE",
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListDevicePoolsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDevicePoolsCommandInput - {@link ListDevicePoolsCommandInput}
+ * @returns {@link ListDevicePoolsCommandOutput}
  * @see {@link ListDevicePoolsCommandInput} for command's `input` shape.
  * @see {@link ListDevicePoolsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
+ *
+ * @throws {@link ArgumentException} (client fault)
+ *  <p>An invalid argument was specified.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A limit was exceeded.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The specified entity was not found.</p>
+ *
+ * @throws {@link ServiceAccountException} (client fault)
+ *  <p>There was a problem with the service account.</p>
+ *
+ *
+ * @example To get information about device pools
+ * ```javascript
+ * // The following example returns information about the private device pools in a specific project.
+ * const input = {
+ *   "type": "PRIVATE",
+ *   "arn": "arn:aws:devicefarm:us-west-2:123456789101:project:EXAMPLE-GUID-123-456"
+ * };
+ * const command = new ListDevicePoolsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "devicePools": [
+ *     {
+ *       "name": "Top Devices",
+ *       "arn": "arn:aws:devicefarm:us-west-2::devicepool:082d10e5-d7d7-48a5-ba5c-12345EXAMPLE",
+ *       "description": "Top devices",
+ *       "rules": [
+ *         {
+ *           "value": "[\"arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE\",\"arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE\",\"arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE\",\"arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE\",\"arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE\",\"arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE\",\"arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE\",\"arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE\",\"arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE\",\"arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE\"]",
+ *           "attribute": "ARN",
+ *           "operator": "IN"
+ *         }
+ *       ]
+ *     },
+ *     {
+ *       "name": "My Android Device Pool",
+ *       "arn": "arn:aws:devicefarm:us-west-2:123456789101:devicepool:5e01a8c7-c861-4c0a-b1d5-5ec6e6c6dd23/bf96e75a-28f6-4e61-b6a7-12345EXAMPLE",
+ *       "description": "Samsung Galaxy Android devices",
+ *       "rules": [
+ *         {
+ *           "value": "[\"arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE\",\"arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE\",\"arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE\"]",
+ *           "attribute": "ARN",
+ *           "operator": "IN"
+ *         }
+ *       ]
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-get-information-about-device-pools-1471635745170
+ * ```
  *
  */
 export class ListDevicePoolsCommand extends $Command<
@@ -62,6 +127,9 @@ export class ListDevicePoolsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDevicePoolsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +158,8 @@ export class ListDevicePoolsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDevicePoolsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDevicePoolsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +169,18 @@ export class ListDevicePoolsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDevicePoolsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDevicePoolsCommand(input, context);
+    return se_ListDevicePoolsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDevicePoolsCommandOutput> {
-    return deserializeAws_json1_1ListDevicePoolsCommand(output, context);
+    return de_ListDevicePoolsCommand(output, context);
   }
 
   // Start section: command_body_extra

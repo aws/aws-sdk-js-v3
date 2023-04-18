@@ -6,12 +6,11 @@ import {
   DescribeJobsCommandInput,
   DescribeJobsCommandOutput,
 } from "../commands/DescribeJobsCommand";
-import { Mgn } from "../Mgn";
 import { MgnClient } from "../MgnClient";
 import { MgnPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: MgnClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeJobsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Mgn,
-  input: DescribeJobsCommandInput,
-  ...args: any
-): Promise<DescribeJobsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeJobs(input, ...args);
-};
 export async function* paginateDescribeJobs(
   config: MgnPaginationConfiguration,
   input: DescribeJobsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateDescribeJobs(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Mgn) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof MgnClient) {
+    if (config.client instanceof MgnClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Mgn | MgnClient");

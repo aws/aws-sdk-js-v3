@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdatePermissionSetRequest,
-  UpdatePermissionSetRequestFilterSensitiveLog,
-  UpdatePermissionSetResponse,
-  UpdatePermissionSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdatePermissionSetCommand,
-  serializeAws_json1_1UpdatePermissionSetCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdatePermissionSetRequest, UpdatePermissionSetResponse } from "../models/models_0";
+import { de_UpdatePermissionSetCommand, se_UpdatePermissionSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdatePermissionSetCommand}.
+ */
 export interface UpdatePermissionSetCommandInput extends UpdatePermissionSetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdatePermissionSetCommand}.
+ */
 export interface UpdatePermissionSetCommandOutput extends UpdatePermissionSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing permission set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,46 @@ export interface UpdatePermissionSetCommandOutput extends UpdatePermissionSetRes
  * import { SSOAdminClient, UpdatePermissionSetCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, UpdatePermissionSetCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
+ * const input = { // UpdatePermissionSetRequest
+ *   InstanceArn: "STRING_VALUE", // required
+ *   PermissionSetArn: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   SessionDuration: "STRING_VALUE",
+ *   RelayState: "STRING_VALUE",
+ * };
  * const command = new UpdatePermissionSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePermissionSetCommandInput - {@link UpdatePermissionSetCommandInput}
+ * @returns {@link UpdatePermissionSetCommandOutput}
  * @see {@link UpdatePermissionSetCommandInput} for command's `input` shape.
  * @see {@link UpdatePermissionSetCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Occurs when a conflict with a previous successful write is detected. This generally occurs
+ *       when the previous write did not have time to propagate to the host serving the current
+ *       request. A retry (with appropriate backoff logic) is the recommended response to this
+ *       exception.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception, or failure with
+ *       an internal server.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Indicates that a requested resource is not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Indicates that the principal has crossed the throttling limits of the API
+ *       operations.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request failed because it contains a syntax error.</p>
+ *
  *
  */
 export class UpdatePermissionSetCommand extends $Command<
@@ -62,6 +98,9 @@ export class UpdatePermissionSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePermissionSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +129,8 @@ export class UpdatePermissionSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePermissionSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePermissionSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +140,18 @@ export class UpdatePermissionSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePermissionSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdatePermissionSetCommand(input, context);
+    return se_UpdatePermissionSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePermissionSetCommandOutput> {
-    return deserializeAws_json1_1UpdatePermissionSetCommand(output, context);
+    return de_UpdatePermissionSetCommand(output, context);
   }
 
   // Start section: command_body_extra

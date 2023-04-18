@@ -8,6 +8,7 @@ import {
   Pluggable,
 } from "@aws-sdk/types";
 import { toHex } from "@aws-sdk/util-hex-encoding";
+import { toUint8Array } from "@aws-sdk/util-utf8";
 
 import { PreviouslyResolved } from "./configurations";
 
@@ -40,7 +41,7 @@ export const sendMessageBatchMiddleware =
       if (entries[entry.Id]) {
         const md5 = entries[entry.Id].MD5OfMessageBody;
         const hash = new options.md5();
-        hash.update(entry.MessageBody || "");
+        hash.update(toUint8Array(entry.MessageBody || ""));
         if (md5 !== toHex(await hash.digest())) {
           messageIds.push(entries[entry.Id].MessageId);
         }

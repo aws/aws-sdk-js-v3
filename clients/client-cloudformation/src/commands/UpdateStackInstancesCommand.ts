@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  UpdateStackInstancesInput,
-  UpdateStackInstancesInputFilterSensitiveLog,
-  UpdateStackInstancesOutput,
-  UpdateStackInstancesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryUpdateStackInstancesCommand,
-  serializeAws_queryUpdateStackInstancesCommand,
-} from "../protocols/Aws_query";
+import { UpdateStackInstancesInput, UpdateStackInstancesOutput } from "../models/models_0";
+import { de_UpdateStackInstancesCommand, se_UpdateStackInstancesCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateStackInstancesCommand}.
+ */
 export interface UpdateStackInstancesCommandInput extends UpdateStackInstancesInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateStackInstancesCommand}.
+ */
 export interface UpdateStackInstancesCommandOutput extends UpdateStackInstancesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the parameter values for stack instances for the specified accounts, within the
  *          specified Amazon Web Services Regions. A stack instance refers to a stack in a specific
  *          account and Region.</p>
@@ -49,13 +52,75 @@ export interface UpdateStackInstancesCommandOutput extends UpdateStackInstancesO
  * import { CloudFormationClient, UpdateStackInstancesCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, UpdateStackInstancesCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // UpdateStackInstancesInput
+ *   StackSetName: "STRING_VALUE", // required
+ *   Accounts: [ // AccountList
+ *     "STRING_VALUE",
+ *   ],
+ *   DeploymentTargets: { // DeploymentTargets
+ *     Accounts: [
+ *       "STRING_VALUE",
+ *     ],
+ *     AccountsUrl: "STRING_VALUE",
+ *     OrganizationalUnitIds: [ // OrganizationalUnitIdList
+ *       "STRING_VALUE",
+ *     ],
+ *     AccountFilterType: "NONE" || "INTERSECTION" || "DIFFERENCE" || "UNION",
+ *   },
+ *   Regions: [ // RegionList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   ParameterOverrides: [ // Parameters
+ *     { // Parameter
+ *       ParameterKey: "STRING_VALUE",
+ *       ParameterValue: "STRING_VALUE",
+ *       UsePreviousValue: true || false,
+ *       ResolvedValue: "STRING_VALUE",
+ *     },
+ *   ],
+ *   OperationPreferences: { // StackSetOperationPreferences
+ *     RegionConcurrencyType: "SEQUENTIAL" || "PARALLEL",
+ *     RegionOrder: [
+ *       "STRING_VALUE",
+ *     ],
+ *     FailureToleranceCount: Number("int"),
+ *     FailureTolerancePercentage: Number("int"),
+ *     MaxConcurrentCount: Number("int"),
+ *     MaxConcurrentPercentage: Number("int"),
+ *   },
+ *   OperationId: "STRING_VALUE",
+ *   CallAs: "SELF" || "DELEGATED_ADMIN",
+ * };
  * const command = new UpdateStackInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateStackInstancesCommandInput - {@link UpdateStackInstancesCommandInput}
+ * @returns {@link UpdateStackInstancesCommandOutput}
  * @see {@link UpdateStackInstancesCommandInput} for command's `input` shape.
  * @see {@link UpdateStackInstancesCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
+ *
+ * @throws {@link InvalidOperationException} (client fault)
+ *  <p>The specified operation isn't valid.</p>
+ *
+ * @throws {@link OperationIdAlreadyExistsException} (client fault)
+ *  <p>The specified operation ID already exists.</p>
+ *
+ * @throws {@link OperationInProgressException} (client fault)
+ *  <p>Another operation is currently in progress for this stack set. Only one operation can be
+ *          performed for a stack set at a given time.</p>
+ *
+ * @throws {@link StackInstanceNotFoundException} (client fault)
+ *  <p>The specified stack instance doesn't exist.</p>
+ *
+ * @throws {@link StackSetNotFoundException} (client fault)
+ *  <p>The specified stack set doesn't exist.</p>
+ *
+ * @throws {@link StaleRequestException} (client fault)
+ *  <p>Another operation has been performed on this stack set since the specified operation was
+ *          performed.</p>
+ *
  *
  */
 export class UpdateStackInstancesCommand extends $Command<
@@ -75,6 +140,9 @@ export class UpdateStackInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateStackInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +171,8 @@ export class UpdateStackInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateStackInstancesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateStackInstancesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +182,18 @@ export class UpdateStackInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateStackInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateStackInstancesCommand(input, context);
+    return se_UpdateStackInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateStackInstancesCommandOutput> {
-    return deserializeAws_queryUpdateStackInstancesCommand(output, context);
+    return de_UpdateStackInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import {
-  GetAuthorizersRequest,
-  GetAuthorizersRequestFilterSensitiveLog,
-  GetAuthorizersResponse,
-  GetAuthorizersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAuthorizersCommand,
-  serializeAws_restJson1GetAuthorizersCommand,
-} from "../protocols/Aws_restJson1";
+import { GetAuthorizersRequest, GetAuthorizersResponse } from "../models/models_0";
+import { de_GetAuthorizersCommand, se_GetAuthorizersCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetAuthorizersCommand}.
+ */
 export interface GetAuthorizersCommandInput extends GetAuthorizersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetAuthorizersCommand}.
+ */
 export interface GetAuthorizersCommandOutput extends GetAuthorizersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the Authorizers for an API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,30 @@ export interface GetAuthorizersCommandOutput extends GetAuthorizersResponse, __M
  * import { ApiGatewayV2Client, GetAuthorizersCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, GetAuthorizersCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = { // GetAuthorizersRequest
+ *   ApiId: "STRING_VALUE", // required
+ *   MaxResults: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetAuthorizersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAuthorizersCommandInput - {@link GetAuthorizersCommandInput}
+ * @returns {@link GetAuthorizersCommandOutput}
  * @see {@link GetAuthorizersCommandInput} for command's `input` shape.
  * @see {@link GetAuthorizersCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource specified in the request was not found. See the message field for more information.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
+ *
  *
  */
 export class GetAuthorizersCommand extends $Command<
@@ -62,6 +82,9 @@ export class GetAuthorizersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAuthorizersCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +113,8 @@ export class GetAuthorizersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAuthorizersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAuthorizersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +124,18 @@ export class GetAuthorizersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAuthorizersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAuthorizersCommand(input, context);
+    return se_GetAuthorizersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAuthorizersCommandOutput> {
-    return deserializeAws_restJson1GetAuthorizersCommand(output, context);
+    return de_GetAuthorizersCommand(output, context);
   }
 
   // Start section: command_body_extra

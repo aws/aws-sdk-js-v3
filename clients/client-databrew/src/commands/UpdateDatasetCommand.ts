@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
-import {
-  UpdateDatasetRequest,
-  UpdateDatasetRequestFilterSensitiveLog,
-  UpdateDatasetResponse,
-  UpdateDatasetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateDatasetCommand,
-  serializeAws_restJson1UpdateDatasetCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateDatasetRequest, UpdateDatasetResponse } from "../models/models_0";
+import { de_UpdateDatasetCommand, se_UpdateDatasetCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateDatasetCommand}.
+ */
 export interface UpdateDatasetCommandInput extends UpdateDatasetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateDatasetCommand}.
+ */
 export interface UpdateDatasetCommandOutput extends UpdateDatasetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the definition of an existing DataBrew dataset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,108 @@ export interface UpdateDatasetCommandOutput extends UpdateDatasetResponse, __Met
  * import { DataBrewClient, UpdateDatasetCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, UpdateDatasetCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
+ * const input = { // UpdateDatasetRequest
+ *   Name: "STRING_VALUE", // required
+ *   Format: "CSV" || "JSON" || "PARQUET" || "EXCEL" || "ORC",
+ *   FormatOptions: { // FormatOptions
+ *     Json: { // JsonOptions
+ *       MultiLine: true || false,
+ *     },
+ *     Excel: { // ExcelOptions
+ *       SheetNames: [ // SheetNameList
+ *         "STRING_VALUE",
+ *       ],
+ *       SheetIndexes: [ // SheetIndexList
+ *         Number("int"),
+ *       ],
+ *       HeaderRow: true || false,
+ *     },
+ *     Csv: { // CsvOptions
+ *       Delimiter: "STRING_VALUE",
+ *       HeaderRow: true || false,
+ *     },
+ *   },
+ *   Input: { // Input
+ *     S3InputDefinition: { // S3Location
+ *       Bucket: "STRING_VALUE", // required
+ *       Key: "STRING_VALUE",
+ *       BucketOwner: "STRING_VALUE",
+ *     },
+ *     DataCatalogInputDefinition: { // DataCatalogInputDefinition
+ *       CatalogId: "STRING_VALUE",
+ *       DatabaseName: "STRING_VALUE", // required
+ *       TableName: "STRING_VALUE", // required
+ *       TempDirectory: {
+ *         Bucket: "STRING_VALUE", // required
+ *         Key: "STRING_VALUE",
+ *         BucketOwner: "STRING_VALUE",
+ *       },
+ *     },
+ *     DatabaseInputDefinition: { // DatabaseInputDefinition
+ *       GlueConnectionName: "STRING_VALUE", // required
+ *       DatabaseTableName: "STRING_VALUE",
+ *       TempDirectory: {
+ *         Bucket: "STRING_VALUE", // required
+ *         Key: "STRING_VALUE",
+ *         BucketOwner: "STRING_VALUE",
+ *       },
+ *       QueryString: "STRING_VALUE",
+ *     },
+ *     Metadata: { // Metadata
+ *       SourceArn: "STRING_VALUE",
+ *     },
+ *   },
+ *   PathOptions: { // PathOptions
+ *     LastModifiedDateCondition: { // FilterExpression
+ *       Expression: "STRING_VALUE", // required
+ *       ValuesMap: { // ValuesMap // required
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *     FilesLimit: { // FilesLimit
+ *       MaxFiles: Number("int"), // required
+ *       OrderedBy: "LAST_MODIFIED_DATE",
+ *       Order: "DESCENDING" || "ASCENDING",
+ *     },
+ *     Parameters: { // PathParametersMap
+ *       "<keys>": { // DatasetParameter
+ *         Name: "STRING_VALUE", // required
+ *         Type: "Datetime" || "Number" || "String", // required
+ *         DatetimeOptions: { // DatetimeOptions
+ *           Format: "STRING_VALUE", // required
+ *           TimezoneOffset: "STRING_VALUE",
+ *           LocaleCode: "STRING_VALUE",
+ *         },
+ *         CreateColumn: true || false,
+ *         Filter: {
+ *           Expression: "STRING_VALUE", // required
+ *           ValuesMap: { // required
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *         },
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new UpdateDatasetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDatasetCommandInput - {@link UpdateDatasetCommandInput}
+ * @returns {@link UpdateDatasetCommandOutput}
  * @see {@link UpdateDatasetCommandInput} for command's `input` shape.
  * @see {@link UpdateDatasetCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to the specified resource was denied.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>One or more resources can't be found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input parameters for this request failed validation.</p>
+ *
  *
  */
 export class UpdateDatasetCommand extends $Command<
@@ -62,6 +160,9 @@ export class UpdateDatasetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDatasetCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +189,8 @@ export class UpdateDatasetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDatasetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDatasetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +200,18 @@ export class UpdateDatasetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDatasetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDatasetCommand(input, context);
+    return se_UpdateDatasetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDatasetCommandOutput> {
-    return deserializeAws_restJson1UpdateDatasetCommand(output, context);
+    return de_UpdateDatasetCommand(output, context);
   }
 
   // Start section: command_body_extra

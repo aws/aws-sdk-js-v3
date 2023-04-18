@@ -1,5 +1,5 @@
 import { getTokenPlugin } from "./getTokenPlugin";
-import { tokenMiddleware, TokenMiddlewareOptions } from "./tokenMiddleware";
+import { tokenMiddleware, tokenMiddlewareOptions } from "./tokenMiddleware";
 
 jest.mock("./tokenMiddleware");
 
@@ -24,7 +24,7 @@ describe(getTokenPlugin.name, () => {
 
     // @ts-ignore
     plugin.applyToStack(commandStack);
-    expect(commandStack.addRelativeTo).toHaveBeenCalledWith(middlewareReturn, TokenMiddlewareOptions);
+    expect(commandStack.addRelativeTo).toHaveBeenCalledWith(middlewareReturn, tokenMiddlewareOptions);
     expect(tokenMiddleware).toHaveBeenCalled();
     expect(tokenMiddleware).toHaveBeenCalledWith(pluginConfig);
   });

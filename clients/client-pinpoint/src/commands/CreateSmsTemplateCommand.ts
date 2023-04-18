@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateSmsTemplateRequest,
-  CreateSmsTemplateRequestFilterSensitiveLog,
-  CreateSmsTemplateResponse,
-  CreateSmsTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateSmsTemplateRequest, CreateSmsTemplateResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1CreateSmsTemplateCommand,
-  serializeAws_restJson1CreateSmsTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateSmsTemplateCommand, se_CreateSmsTemplateCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateSmsTemplateCommand}.
+ */
 export interface CreateSmsTemplateCommandInput extends CreateSmsTemplateRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateSmsTemplateCommand}.
+ */
 export interface CreateSmsTemplateCommandOutput extends CreateSmsTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a message template for messages that are sent through the SMS channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,43 @@ export interface CreateSmsTemplateCommandOutput extends CreateSmsTemplateRespons
  * import { PinpointClient, CreateSmsTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, CreateSmsTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // CreateSmsTemplateRequest
+ *   SMSTemplateRequest: { // SMSTemplateRequest
+ *     Body: "STRING_VALUE",
+ *     DefaultSubstitutions: "STRING_VALUE",
+ *     RecommenderId: "STRING_VALUE",
+ *     tags: { // MapOf__string
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     TemplateDescription: "STRING_VALUE",
+ *   },
+ *   TemplateName: "STRING_VALUE", // required
+ * };
  * const command = new CreateSmsTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSmsTemplateCommandInput - {@link CreateSmsTemplateCommandInput}
+ * @returns {@link CreateSmsTemplateCommandOutput}
  * @see {@link CreateSmsTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateSmsTemplateCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link MethodNotAllowedException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
  *
  */
 export class CreateSmsTemplateCommand extends $Command<
@@ -62,6 +95,9 @@ export class CreateSmsTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSmsTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +126,8 @@ export class CreateSmsTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSmsTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSmsTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +137,18 @@ export class CreateSmsTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSmsTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateSmsTemplateCommand(input, context);
+    return se_CreateSmsTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSmsTemplateCommandOutput> {
-    return deserializeAws_restJson1CreateSmsTemplateCommand(output, context);
+    return de_CreateSmsTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

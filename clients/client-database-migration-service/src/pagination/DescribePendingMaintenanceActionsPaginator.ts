@@ -6,12 +6,11 @@ import {
   DescribePendingMaintenanceActionsCommandInput,
   DescribePendingMaintenanceActionsCommandOutput,
 } from "../commands/DescribePendingMaintenanceActionsCommand";
-import { DatabaseMigrationService } from "../DatabaseMigrationService";
 import { DatabaseMigrationServiceClient } from "../DatabaseMigrationServiceClient";
 import { DatabaseMigrationServicePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DatabaseMigrationServiceClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribePendingMaintenanceActionsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: DatabaseMigrationService,
-  input: DescribePendingMaintenanceActionsCommandInput,
-  ...args: any
-): Promise<DescribePendingMaintenanceActionsCommandOutput> => {
-  // @ts-ignore
-  return await client.describePendingMaintenanceActions(input, ...args);
-};
 export async function* paginateDescribePendingMaintenanceActions(
   config: DatabaseMigrationServicePaginationConfiguration,
   input: DescribePendingMaintenanceActionsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateDescribePendingMaintenanceActions(
   while (hasNext) {
     input.Marker = token;
     input["MaxRecords"] = config.pageSize;
-    if (config.client instanceof DatabaseMigrationService) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DatabaseMigrationServiceClient) {
+    if (config.client instanceof DatabaseMigrationServiceClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected DatabaseMigrationService | DatabaseMigrationServiceClient");

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateDomainContactPrivacyRequest,
-  UpdateDomainContactPrivacyRequestFilterSensitiveLog,
-  UpdateDomainContactPrivacyResponse,
-  UpdateDomainContactPrivacyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateDomainContactPrivacyCommand,
-  serializeAws_json1_1UpdateDomainContactPrivacyCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateDomainContactPrivacyRequest, UpdateDomainContactPrivacyResponse } from "../models/models_0";
+import { de_UpdateDomainContactPrivacyCommand, se_UpdateDomainContactPrivacyCommand } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateDomainContactPrivacyCommand}.
+ */
 export interface UpdateDomainContactPrivacyCommandInput extends UpdateDomainContactPrivacyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateDomainContactPrivacyCommand}.
+ */
 export interface UpdateDomainContactPrivacyCommandOutput extends UpdateDomainContactPrivacyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation updates the specified domain contact's privacy setting. When privacy
  * 			protection is enabled, contact information such as email address is replaced either with
  * 			contact information for Amazon Registrar (for .com, .net, and .org domains) or with
@@ -58,13 +61,41 @@ export interface UpdateDomainContactPrivacyCommandOutput extends UpdateDomainCon
  * import { Route53DomainsClient, UpdateDomainContactPrivacyCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, UpdateDomainContactPrivacyCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
+ * const input = { // UpdateDomainContactPrivacyRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   AdminPrivacy: true || false,
+ *   RegistrantPrivacy: true || false,
+ *   TechPrivacy: true || false,
+ * };
  * const command = new UpdateDomainContactPrivacyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDomainContactPrivacyCommandInput - {@link UpdateDomainContactPrivacyCommandInput}
+ * @returns {@link UpdateDomainContactPrivacyCommandOutput}
  * @see {@link UpdateDomainContactPrivacyCommandInput} for command's `input` shape.
  * @see {@link UpdateDomainContactPrivacyCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
+ *
+ * @throws {@link DuplicateRequest} (client fault)
+ *  <p>The request is already in progress for the domain.</p>
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The requested item is not acceptable. For example, for APIs that accept a domain name,
+ * 			the request might specify a domain name that doesn't belong to the account that
+ * 			submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the
+ * 			password might be invalid.</p>
+ *
+ * @throws {@link OperationLimitExceeded} (client fault)
+ *  <p>The number of operations or jobs running exceeded the allowed threshold for the
+ * 			account.</p>
+ *
+ * @throws {@link TLDRulesViolation} (client fault)
+ *  <p>The top-level domain does not support this operation.</p>
+ *
+ * @throws {@link UnsupportedTLD} (client fault)
+ *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+ *
  *
  */
 export class UpdateDomainContactPrivacyCommand extends $Command<
@@ -84,6 +115,9 @@ export class UpdateDomainContactPrivacyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDomainContactPrivacyCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +146,8 @@ export class UpdateDomainContactPrivacyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDomainContactPrivacyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDomainContactPrivacyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,15 +157,21 @@ export class UpdateDomainContactPrivacyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDomainContactPrivacyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDomainContactPrivacyCommand(input, context);
+    return se_UpdateDomainContactPrivacyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDomainContactPrivacyCommandOutput> {
-    return deserializeAws_json1_1UpdateDomainContactPrivacyCommand(output, context);
+    return de_UpdateDomainContactPrivacyCommand(output, context);
   }
 
   // Start section: command_body_extra

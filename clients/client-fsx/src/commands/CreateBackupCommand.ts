@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import {
-  CreateBackupRequest,
-  CreateBackupRequestFilterSensitiveLog,
-  CreateBackupResponse,
-  CreateBackupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateBackupCommand,
-  serializeAws_json1_1CreateBackupCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateBackupRequest, CreateBackupResponse } from "../models/models_0";
+import { de_CreateBackupCommand, se_CreateBackupCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateBackupCommand}.
+ */
 export interface CreateBackupCommandInput extends CreateBackupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateBackupCommand}.
+ */
 export interface CreateBackupCommandOutput extends CreateBackupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a backup of an existing Amazon FSx for Windows File Server file
  *             system, Amazon FSx for Lustre file system, Amazon FSx for NetApp ONTAP
  *             volume, or Amazon FSx for OpenZFS file system. We recommend creating regular
@@ -91,13 +94,101 @@ export interface CreateBackupCommandOutput extends CreateBackupResponse, __Metad
  * import { FSxClient, CreateBackupCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, CreateBackupCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = { // CreateBackupRequest
+ *   FileSystemId: "STRING_VALUE",
+ *   ClientRequestToken: "STRING_VALUE",
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   VolumeId: "STRING_VALUE",
+ * };
  * const command = new CreateBackupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBackupCommandInput - {@link CreateBackupCommandInput}
+ * @returns {@link CreateBackupCommandOutput}
  * @see {@link CreateBackupCommandInput} for command's `input` shape.
  * @see {@link CreateBackupCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
+ *
+ * @throws {@link BackupInProgress} (client fault)
+ *  <p>Another backup is already under way. Wait for completion before initiating
+ *             additional backups of this file system.</p>
+ *
+ * @throws {@link BadRequest} (client fault)
+ *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * @throws {@link FileSystemNotFound} (client fault)
+ *  <p>No Amazon FSx file systems were found based upon supplied parameters.</p>
+ *
+ * @throws {@link IncompatibleParameterError} (client fault)
+ *  <p>The error returned when a second request is received with the same client request
+ *             token but different parameters settings. A client request token should always uniquely
+ *             identify a single request.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>A generic error indicating a server-side failure.</p>
+ *
+ * @throws {@link ServiceLimitExceeded} (client fault)
+ *  <p>An error indicating that a particular service limit was exceeded. You can increase
+ *             some service limits by contacting Amazon Web Services Support.</p>
+ *
+ * @throws {@link UnsupportedOperation} (client fault)
+ *  <p>The requested operation is not supported for this resource or API.</p>
+ *
+ * @throws {@link VolumeNotFound} (client fault)
+ *  <p>No Amazon FSx volumes were found based upon the supplied parameters.</p>
+ *
+ *
+ * @example To create a new backup
+ * ```javascript
+ * // This operation creates a new backup.
+ * const input = {
+ *   "FileSystemId": "fs-0498eed5fe91001ec",
+ *   "Tags": [
+ *     {
+ *       "Key": "Name",
+ *       "Value": "MyBackup"
+ *     }
+ *   ]
+ * };
+ * const command = new CreateBackupCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Backup": {
+ *     "BackupId": "backup-03e3c82e0183b7b6b",
+ *     "CreationTime": "1481841524.0",
+ *     "FileSystem": {
+ *       "FileSystemId": "fs-0498eed5fe91001ec",
+ *       "OwnerId": "012345678912",
+ *       "StorageCapacity": 300,
+ *       "WindowsConfiguration": {
+ *         "ActiveDirectoryId": "d-1234abcd12",
+ *         "AutomaticBackupRetentionDays": 30,
+ *         "DailyAutomaticBackupStartTime": "05:00",
+ *         "WeeklyMaintenanceStartTime": "1:05:00"
+ *       }
+ *     },
+ *     "Lifecycle": "CREATING",
+ *     "ProgressPercent": 0,
+ *     "ResourceARN": "arn:aws:fsx:us-east-1:012345678912:backup/backup-03e3c82e0183b7b6b",
+ *     "Tags": [
+ *       {
+ *         "Key": "Name",
+ *         "Value": "MyBackup"
+ *       }
+ *     ],
+ *     "Type": "USER_INITIATED"
+ *   }
+ * }
+ * *\/
+ * // example id: to-create-a-new-backup-1481840798597
+ * ```
  *
  */
 export class CreateBackupCommand extends $Command<
@@ -117,6 +208,9 @@ export class CreateBackupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBackupCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,8 +237,8 @@ export class CreateBackupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateBackupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateBackupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -154,12 +248,18 @@ export class CreateBackupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBackupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateBackupCommand(input, context);
+    return se_CreateBackupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBackupCommandOutput> {
-    return deserializeAws_json1_1CreateBackupCommand(output, context);
+    return de_CreateBackupCommand(output, context);
   }
 
   // Start section: command_body_extra

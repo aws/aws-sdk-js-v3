@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  DescribeInstancesInput,
-  DescribeInstancesInputFilterSensitiveLog,
-  DescribeInstancesOutput,
-  DescribeInstancesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeInstancesCommand,
-  serializeAws_json1_1DescribeInstancesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeInstancesInput, DescribeInstancesOutput } from "../models/models_0";
+import { de_DescribeInstancesCommand, se_DescribeInstancesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeInstancesCommand}.
+ */
 export interface DescribeInstancesCommandInput extends DescribeInstancesInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeInstancesCommand}.
+ */
 export interface DescribeInstancesCommandOutput extends DescribeInstancesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about a fleet's instances, including instance IDs, connection
  *             data, and status. </p>
  *         <p>This operation can be used in the following ways:</p>
@@ -72,13 +75,40 @@ export interface DescribeInstancesCommandOutput extends DescribeInstancesOutput,
  * import { GameLiftClient, DescribeInstancesCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeInstancesCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // DescribeInstancesInput
+ *   FleetId: "STRING_VALUE", // required
+ *   InstanceId: "STRING_VALUE",
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Location: "STRING_VALUE",
+ * };
  * const command = new DescribeInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInstancesCommandInput - {@link DescribeInstancesCommandInput}
+ * @returns {@link DescribeInstancesCommandOutput}
  * @see {@link DescribeInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeInstancesCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an unrecoverable internal failure while processing the
+ *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
+ *             values before retrying.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
+ * @throws {@link UnsupportedRegionException} (client fault)
+ *  <p>The requested operation is not supported in the Region specified.</p>
+ *
  *
  */
 export class DescribeInstancesCommand extends $Command<
@@ -98,6 +128,9 @@ export class DescribeInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +159,8 @@ export class DescribeInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInstancesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeInstancesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +170,18 @@ export class DescribeInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeInstancesCommand(input, context);
+    return se_DescribeInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeInstancesCommandOutput> {
-    return deserializeAws_json1_1DescribeInstancesCommand(output, context);
+    return de_DescribeInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

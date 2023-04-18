@@ -15,23 +15,32 @@ import {
 
 import {
   DisassociateWebsiteCertificateAuthorityRequest,
-  DisassociateWebsiteCertificateAuthorityRequestFilterSensitiveLog,
   DisassociateWebsiteCertificateAuthorityResponse,
-  DisassociateWebsiteCertificateAuthorityResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DisassociateWebsiteCertificateAuthorityCommand,
-  serializeAws_restJson1DisassociateWebsiteCertificateAuthorityCommand,
+  de_DisassociateWebsiteCertificateAuthorityCommand,
+  se_DisassociateWebsiteCertificateAuthorityCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DisassociateWebsiteCertificateAuthorityCommand}.
+ */
 export interface DisassociateWebsiteCertificateAuthorityCommandInput
   extends DisassociateWebsiteCertificateAuthorityRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateWebsiteCertificateAuthorityCommand}.
+ */
 export interface DisassociateWebsiteCertificateAuthorityCommandOutput
   extends DisassociateWebsiteCertificateAuthorityResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Removes a certificate authority (CA).</p>
@@ -41,13 +50,35 @@ export interface DisassociateWebsiteCertificateAuthorityCommandOutput
  * import { WorkLinkClient, DisassociateWebsiteCertificateAuthorityCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, DisassociateWebsiteCertificateAuthorityCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
+ * const input = { // DisassociateWebsiteCertificateAuthorityRequest
+ *   FleetArn: "STRING_VALUE", // required
+ *   WebsiteCaId: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateWebsiteCertificateAuthorityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateWebsiteCertificateAuthorityCommandInput - {@link DisassociateWebsiteCertificateAuthorityCommandInput}
+ * @returns {@link DisassociateWebsiteCertificateAuthorityCommandOutput}
  * @see {@link DisassociateWebsiteCertificateAuthorityCommandInput} for command's `input` shape.
  * @see {@link DisassociateWebsiteCertificateAuthorityCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource was not found.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The number of requests exceeds the limit.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You are not authorized to perform this action.</p>
+ *
  *
  */
 export class DisassociateWebsiteCertificateAuthorityCommand extends $Command<
@@ -67,6 +98,9 @@ export class DisassociateWebsiteCertificateAuthorityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateWebsiteCertificateAuthorityCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +135,8 @@ export class DisassociateWebsiteCertificateAuthorityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateWebsiteCertificateAuthorityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateWebsiteCertificateAuthorityResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,18 +146,24 @@ export class DisassociateWebsiteCertificateAuthorityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateWebsiteCertificateAuthorityCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateWebsiteCertificateAuthorityCommand(input, context);
+    return se_DisassociateWebsiteCertificateAuthorityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateWebsiteCertificateAuthorityCommandOutput> {
-    return deserializeAws_restJson1DisassociateWebsiteCertificateAuthorityCommand(output, context);
+    return de_DisassociateWebsiteCertificateAuthorityCommand(output, context);
   }
 
   // Start section: command_body_extra

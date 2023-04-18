@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import {
-  ListModelManifestNodesRequest,
-  ListModelManifestNodesRequestFilterSensitiveLog,
-  ListModelManifestNodesResponse,
-  ListModelManifestNodesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListModelManifestNodesCommand,
-  serializeAws_json1_0ListModelManifestNodesCommand,
-} from "../protocols/Aws_json1_0";
+import { ListModelManifestNodesRequest, ListModelManifestNodesResponse } from "../models/models_0";
+import { de_ListModelManifestNodesCommand, se_ListModelManifestNodesCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link ListModelManifestNodesCommand}.
+ */
 export interface ListModelManifestNodesCommandInput extends ListModelManifestNodesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListModelManifestNodesCommand}.
+ */
 export interface ListModelManifestNodesCommandOutput extends ListModelManifestNodesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Lists information about nodes specified in a vehicle model (model manifest). </p>
  *         <note>
  *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p>
@@ -39,13 +42,39 @@ export interface ListModelManifestNodesCommandOutput extends ListModelManifestNo
  * import { IoTFleetWiseClient, ListModelManifestNodesCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, ListModelManifestNodesCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = { // ListModelManifestNodesRequest
+ *   name: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListModelManifestNodesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListModelManifestNodesCommandInput - {@link ListModelManifestNodesCommandInput}
+ * @returns {@link ListModelManifestNodesCommandOutput}
  * @see {@link ListModelManifestNodesCommandInput} for command's `input` shape.
  * @see {@link ListModelManifestNodesCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient permission to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request couldn't be completed because the server temporarily failed.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A service quota was exceeded. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource wasn't found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request couldn't be completed due to throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
  *
  */
 export class ListModelManifestNodesCommand extends $Command<
@@ -65,6 +94,9 @@ export class ListModelManifestNodesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListModelManifestNodesCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +125,8 @@ export class ListModelManifestNodesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListModelManifestNodesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListModelManifestNodesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +136,18 @@ export class ListModelManifestNodesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListModelManifestNodesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListModelManifestNodesCommand(input, context);
+    return se_ListModelManifestNodesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListModelManifestNodesCommandOutput> {
-    return deserializeAws_json1_0ListModelManifestNodesCommand(output, context);
+    return de_ListModelManifestNodesCommand(output, context);
   }
 
   // Start section: command_body_extra

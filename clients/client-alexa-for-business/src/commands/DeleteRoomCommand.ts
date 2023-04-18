@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  DeleteRoomRequest,
-  DeleteRoomRequestFilterSensitiveLog,
-  DeleteRoomResponse,
-  DeleteRoomResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteRoomCommand,
-  serializeAws_json1_1DeleteRoomCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteRoomRequest, DeleteRoomResponse } from "../models/models_0";
+import { de_DeleteRoomCommand, se_DeleteRoomCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteRoomCommand}.
+ */
 export interface DeleteRoomCommandInput extends DeleteRoomRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteRoomCommand}.
+ */
 export interface DeleteRoomCommandOutput extends DeleteRoomResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a room by the room ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,25 @@ export interface DeleteRoomCommandOutput extends DeleteRoomResponse, __MetadataB
  * import { AlexaForBusinessClient, DeleteRoomCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, DeleteRoomCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // DeleteRoomRequest
+ *   RoomArn: "STRING_VALUE",
+ * };
  * const command = new DeleteRoomCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRoomCommandInput - {@link DeleteRoomCommandInput}
+ * @returns {@link DeleteRoomCommandOutput}
  * @see {@link DeleteRoomCommandInput} for command's `input` shape.
  * @see {@link DeleteRoomCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is a concurrent modification of resources.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
  *
  */
 export class DeleteRoomCommand extends $Command<
@@ -62,6 +77,9 @@ export class DeleteRoomCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRoomCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +106,8 @@ export class DeleteRoomCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRoomRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRoomResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +117,18 @@ export class DeleteRoomCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRoomCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteRoomCommand(input, context);
+    return se_DeleteRoomCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRoomCommandOutput> {
-    return deserializeAws_json1_1DeleteRoomCommand(output, context);
+    return de_DeleteRoomCommand(output, context);
   }
 
   // Start section: command_body_extra

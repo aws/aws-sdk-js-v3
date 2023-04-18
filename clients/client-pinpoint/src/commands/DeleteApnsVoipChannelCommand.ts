@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteApnsVoipChannelRequest,
-  DeleteApnsVoipChannelRequestFilterSensitiveLog,
-  DeleteApnsVoipChannelResponse,
-  DeleteApnsVoipChannelResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteApnsVoipChannelRequest, DeleteApnsVoipChannelResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1DeleteApnsVoipChannelCommand,
-  serializeAws_restJson1DeleteApnsVoipChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteApnsVoipChannelCommand, se_DeleteApnsVoipChannelCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteApnsVoipChannelCommand}.
+ */
 export interface DeleteApnsVoipChannelCommandInput extends DeleteApnsVoipChannelRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteApnsVoipChannelCommand}.
+ */
 export interface DeleteApnsVoipChannelCommandOutput extends DeleteApnsVoipChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables the APNs VoIP channel for an application and deletes any existing settings for the channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,40 @@ export interface DeleteApnsVoipChannelCommandOutput extends DeleteApnsVoipChanne
  * import { PinpointClient, DeleteApnsVoipChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, DeleteApnsVoipChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // DeleteApnsVoipChannelRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteApnsVoipChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteApnsVoipChannelCommandInput - {@link DeleteApnsVoipChannelCommandInput}
+ * @returns {@link DeleteApnsVoipChannelCommandOutput}
  * @see {@link DeleteApnsVoipChannelCommandInput} for command's `input` shape.
  * @see {@link DeleteApnsVoipChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link MethodNotAllowedException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link PayloadTooLargeException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
  *
  */
 export class DeleteApnsVoipChannelCommand extends $Command<
@@ -62,6 +92,9 @@ export class DeleteApnsVoipChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteApnsVoipChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +123,8 @@ export class DeleteApnsVoipChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteApnsVoipChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteApnsVoipChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +134,18 @@ export class DeleteApnsVoipChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteApnsVoipChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteApnsVoipChannelCommand(input, context);
+    return se_DeleteApnsVoipChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteApnsVoipChannelCommandOutput> {
-    return deserializeAws_restJson1DeleteApnsVoipChannelCommand(output, context);
+    return de_DeleteApnsVoipChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

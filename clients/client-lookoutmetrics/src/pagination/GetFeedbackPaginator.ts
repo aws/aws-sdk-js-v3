@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { GetFeedbackCommand, GetFeedbackCommandInput, GetFeedbackCommandOutput } from "../commands/GetFeedbackCommand";
-import { LookoutMetrics } from "../LookoutMetrics";
 import { LookoutMetricsClient } from "../LookoutMetricsClient";
 import { LookoutMetricsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: LookoutMetricsClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new GetFeedbackCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: LookoutMetrics,
-  input: GetFeedbackCommandInput,
-  ...args: any
-): Promise<GetFeedbackCommandOutput> => {
-  // @ts-ignore
-  return await client.getFeedback(input, ...args);
-};
 export async function* paginateGetFeedback(
   config: LookoutMetricsPaginationConfiguration,
   input: GetFeedbackCommandInput,
@@ -40,9 +31,7 @@ export async function* paginateGetFeedback(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof LookoutMetrics) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof LookoutMetricsClient) {
+    if (config.client instanceof LookoutMetricsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected LookoutMetrics | LookoutMetricsClient");

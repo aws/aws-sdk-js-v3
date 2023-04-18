@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateInAppTemplateRequest,
-  UpdateInAppTemplateRequestFilterSensitiveLog,
-  UpdateInAppTemplateResponse,
-  UpdateInAppTemplateResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { UpdateInAppTemplateRequest, UpdateInAppTemplateResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1UpdateInAppTemplateCommand,
-  serializeAws_restJson1UpdateInAppTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateInAppTemplateCommand, se_UpdateInAppTemplateCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateInAppTemplateCommand}.
+ */
 export interface UpdateInAppTemplateCommandInput extends UpdateInAppTemplateRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateInAppTemplateCommand}.
+ */
 export interface UpdateInAppTemplateCommandOutput extends UpdateInAppTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing message template for messages sent through the in-app message channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,109 @@ export interface UpdateInAppTemplateCommandOutput extends UpdateInAppTemplateRes
  * import { PinpointClient, UpdateInAppTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, UpdateInAppTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // UpdateInAppTemplateRequest
+ *   CreateNewVersion: true || false,
+ *   InAppTemplateRequest: { // InAppTemplateRequest
+ *     Content: [ // ListOfInAppMessageContent
+ *       { // InAppMessageContent
+ *         BackgroundColor: "STRING_VALUE",
+ *         BodyConfig: { // InAppMessageBodyConfig
+ *           Alignment: "STRING_VALUE", // required
+ *           Body: "STRING_VALUE", // required
+ *           TextColor: "STRING_VALUE", // required
+ *         },
+ *         HeaderConfig: { // InAppMessageHeaderConfig
+ *           Alignment: "STRING_VALUE", // required
+ *           Header: "STRING_VALUE", // required
+ *           TextColor: "STRING_VALUE", // required
+ *         },
+ *         ImageUrl: "STRING_VALUE",
+ *         PrimaryBtn: { // InAppMessageButton
+ *           Android: { // OverrideButtonConfiguration
+ *             ButtonAction: "STRING_VALUE", // required
+ *             Link: "STRING_VALUE",
+ *           },
+ *           DefaultConfig: { // DefaultButtonConfiguration
+ *             BackgroundColor: "STRING_VALUE",
+ *             BorderRadius: Number("int"),
+ *             ButtonAction: "STRING_VALUE", // required
+ *             Link: "STRING_VALUE",
+ *             Text: "STRING_VALUE", // required
+ *             TextColor: "STRING_VALUE",
+ *           },
+ *           IOS: {
+ *             ButtonAction: "STRING_VALUE", // required
+ *             Link: "STRING_VALUE",
+ *           },
+ *           Web: {
+ *             ButtonAction: "STRING_VALUE", // required
+ *             Link: "STRING_VALUE",
+ *           },
+ *         },
+ *         SecondaryBtn: {
+ *           Android: {
+ *             ButtonAction: "STRING_VALUE", // required
+ *             Link: "STRING_VALUE",
+ *           },
+ *           DefaultConfig: {
+ *             BackgroundColor: "STRING_VALUE",
+ *             BorderRadius: Number("int"),
+ *             ButtonAction: "STRING_VALUE", // required
+ *             Link: "STRING_VALUE",
+ *             Text: "STRING_VALUE", // required
+ *             TextColor: "STRING_VALUE",
+ *           },
+ *           IOS: {
+ *             ButtonAction: "STRING_VALUE", // required
+ *             Link: "STRING_VALUE",
+ *           },
+ *           Web: "<OverrideButtonConfiguration>",
+ *         },
+ *       },
+ *     ],
+ *     CustomConfig: { // MapOf__string
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     Layout: "STRING_VALUE",
+ *     tags: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     TemplateDescription: "STRING_VALUE",
+ *   },
+ *   TemplateName: "STRING_VALUE", // required
+ *   Version: "STRING_VALUE",
+ * };
  * const command = new UpdateInAppTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateInAppTemplateCommandInput - {@link UpdateInAppTemplateCommandInput}
+ * @returns {@link UpdateInAppTemplateCommandOutput}
  * @see {@link UpdateInAppTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateInAppTemplateCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link MethodNotAllowedException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link PayloadTooLargeException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
  *
  */
 export class UpdateInAppTemplateCommand extends $Command<
@@ -62,6 +161,9 @@ export class UpdateInAppTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateInAppTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +192,8 @@ export class UpdateInAppTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateInAppTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateInAppTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +203,18 @@ export class UpdateInAppTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateInAppTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateInAppTemplateCommand(input, context);
+    return se_UpdateInAppTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateInAppTemplateCommandOutput> {
-    return deserializeAws_restJson1UpdateInAppTemplateCommand(output, context);
+    return de_UpdateInAppTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

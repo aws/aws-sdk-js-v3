@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListServersCommand, ListServersCommandInput, ListServersCommandOutput } from "../commands/ListServersCommand";
-import { MigrationHubStrategy } from "../MigrationHubStrategy";
 import { MigrationHubStrategyClient } from "../MigrationHubStrategyClient";
 import { MigrationHubStrategyPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: MigrationHubStrategyClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListServersCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: MigrationHubStrategy,
-  input: ListServersCommandInput,
-  ...args: any
-): Promise<ListServersCommandOutput> => {
-  // @ts-ignore
-  return await client.listServers(input, ...args);
-};
 export async function* paginateListServers(
   config: MigrationHubStrategyPaginationConfiguration,
   input: ListServersCommandInput,
@@ -40,9 +31,7 @@ export async function* paginateListServers(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof MigrationHubStrategy) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof MigrationHubStrategyClient) {
+    if (config.client instanceof MigrationHubStrategyClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected MigrationHubStrategy | MigrationHubStrategyClient");

@@ -12,20 +12,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { QueryIdempotencyTokenAutoFillInput } from "../models/models_0";
 import {
-  QueryIdempotencyTokenAutoFillInput,
-  QueryIdempotencyTokenAutoFillInputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryQueryIdempotencyTokenAutoFillCommand,
-  serializeAws_queryQueryIdempotencyTokenAutoFillCommand,
+  de_QueryIdempotencyTokenAutoFillCommand,
+  se_QueryIdempotencyTokenAutoFillCommand,
 } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
+/**
+ * @public
+ *
+ * The input for {@link QueryIdempotencyTokenAutoFillCommand}.
+ */
 export interface QueryIdempotencyTokenAutoFillCommandInput extends QueryIdempotencyTokenAutoFillInput {}
+/**
+ * @public
+ *
+ * The output of {@link QueryIdempotencyTokenAutoFillCommand}.
+ */
 export interface QueryIdempotencyTokenAutoFillCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * Automatically adds idempotency tokens.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -33,13 +41,19 @@ export interface QueryIdempotencyTokenAutoFillCommandOutput extends __MetadataBe
  * import { QueryProtocolClient, QueryIdempotencyTokenAutoFillCommand } from "@aws-sdk/aws-protocoltests-query"; // ES Modules import
  * // const { QueryProtocolClient, QueryIdempotencyTokenAutoFillCommand } = require("@aws-sdk/aws-protocoltests-query"); // CommonJS import
  * const client = new QueryProtocolClient(config);
+ * const input = { // QueryIdempotencyTokenAutoFillInput
+ *   token: "STRING_VALUE",
+ * };
  * const command = new QueryIdempotencyTokenAutoFillCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param QueryIdempotencyTokenAutoFillCommandInput - {@link QueryIdempotencyTokenAutoFillCommandInput}
+ * @returns {@link QueryIdempotencyTokenAutoFillCommandOutput}
  * @see {@link QueryIdempotencyTokenAutoFillCommandInput} for command's `input` shape.
  * @see {@link QueryIdempotencyTokenAutoFillCommandOutput} for command's `response` shape.
  * @see {@link QueryProtocolClientResolvedConfig | config} for QueryProtocolClient's `config` shape.
+ *
  *
  */
 export class QueryIdempotencyTokenAutoFillCommand extends $Command<
@@ -50,6 +64,9 @@ export class QueryIdempotencyTokenAutoFillCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: QueryIdempotencyTokenAutoFillCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,8 +92,8 @@ export class QueryIdempotencyTokenAutoFillCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: QueryIdempotencyTokenAutoFillInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,15 +103,21 @@ export class QueryIdempotencyTokenAutoFillCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: QueryIdempotencyTokenAutoFillCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryQueryIdempotencyTokenAutoFillCommand(input, context);
+    return se_QueryIdempotencyTokenAutoFillCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<QueryIdempotencyTokenAutoFillCommandOutput> {
-    return deserializeAws_queryQueryIdempotencyTokenAutoFillCommand(output, context);
+    return de_QueryIdempotencyTokenAutoFillCommand(output, context);
   }
 
   // Start section: command_body_extra

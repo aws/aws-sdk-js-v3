@@ -22,17 +22,24 @@ import {
   CreateElasticsearchDomainRequest,
   CreateElasticsearchDomainRequestFilterSensitiveLog,
   CreateElasticsearchDomainResponse,
-  CreateElasticsearchDomainResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateElasticsearchDomainCommand,
-  serializeAws_restJson1CreateElasticsearchDomainCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateElasticsearchDomainCommand, se_CreateElasticsearchDomainCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateElasticsearchDomainCommand}.
+ */
 export interface CreateElasticsearchDomainCommandInput extends CreateElasticsearchDomainRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateElasticsearchDomainCommand}.
+ */
 export interface CreateElasticsearchDomainCommandOutput extends CreateElasticsearchDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new Elasticsearch domain. For more information,
  *           see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains" target="_blank">Creating Elasticsearch Domains</a> in the <i>Amazon Elasticsearch Service Developer Guide</i>.</p>
  * @example
@@ -41,13 +48,147 @@ export interface CreateElasticsearchDomainCommandOutput extends CreateElasticsea
  * import { ElasticsearchServiceClient, CreateElasticsearchDomainCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, CreateElasticsearchDomainCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
+ * const input = { // CreateElasticsearchDomainRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   ElasticsearchVersion: "STRING_VALUE",
+ *   ElasticsearchClusterConfig: { // ElasticsearchClusterConfig
+ *     InstanceType: "m3.medium.elasticsearch" || "m3.large.elasticsearch" || "m3.xlarge.elasticsearch" || "m3.2xlarge.elasticsearch" || "m4.large.elasticsearch" || "m4.xlarge.elasticsearch" || "m4.2xlarge.elasticsearch" || "m4.4xlarge.elasticsearch" || "m4.10xlarge.elasticsearch" || "m5.large.elasticsearch" || "m5.xlarge.elasticsearch" || "m5.2xlarge.elasticsearch" || "m5.4xlarge.elasticsearch" || "m5.12xlarge.elasticsearch" || "r5.large.elasticsearch" || "r5.xlarge.elasticsearch" || "r5.2xlarge.elasticsearch" || "r5.4xlarge.elasticsearch" || "r5.12xlarge.elasticsearch" || "c5.large.elasticsearch" || "c5.xlarge.elasticsearch" || "c5.2xlarge.elasticsearch" || "c5.4xlarge.elasticsearch" || "c5.9xlarge.elasticsearch" || "c5.18xlarge.elasticsearch" || "ultrawarm1.medium.elasticsearch" || "ultrawarm1.large.elasticsearch" || "t2.micro.elasticsearch" || "t2.small.elasticsearch" || "t2.medium.elasticsearch" || "r3.large.elasticsearch" || "r3.xlarge.elasticsearch" || "r3.2xlarge.elasticsearch" || "r3.4xlarge.elasticsearch" || "r3.8xlarge.elasticsearch" || "i2.xlarge.elasticsearch" || "i2.2xlarge.elasticsearch" || "d2.xlarge.elasticsearch" || "d2.2xlarge.elasticsearch" || "d2.4xlarge.elasticsearch" || "d2.8xlarge.elasticsearch" || "c4.large.elasticsearch" || "c4.xlarge.elasticsearch" || "c4.2xlarge.elasticsearch" || "c4.4xlarge.elasticsearch" || "c4.8xlarge.elasticsearch" || "r4.large.elasticsearch" || "r4.xlarge.elasticsearch" || "r4.2xlarge.elasticsearch" || "r4.4xlarge.elasticsearch" || "r4.8xlarge.elasticsearch" || "r4.16xlarge.elasticsearch" || "i3.large.elasticsearch" || "i3.xlarge.elasticsearch" || "i3.2xlarge.elasticsearch" || "i3.4xlarge.elasticsearch" || "i3.8xlarge.elasticsearch" || "i3.16xlarge.elasticsearch",
+ *     InstanceCount: Number("int"),
+ *     DedicatedMasterEnabled: true || false,
+ *     ZoneAwarenessEnabled: true || false,
+ *     ZoneAwarenessConfig: { // ZoneAwarenessConfig
+ *       AvailabilityZoneCount: Number("int"),
+ *     },
+ *     DedicatedMasterType: "m3.medium.elasticsearch" || "m3.large.elasticsearch" || "m3.xlarge.elasticsearch" || "m3.2xlarge.elasticsearch" || "m4.large.elasticsearch" || "m4.xlarge.elasticsearch" || "m4.2xlarge.elasticsearch" || "m4.4xlarge.elasticsearch" || "m4.10xlarge.elasticsearch" || "m5.large.elasticsearch" || "m5.xlarge.elasticsearch" || "m5.2xlarge.elasticsearch" || "m5.4xlarge.elasticsearch" || "m5.12xlarge.elasticsearch" || "r5.large.elasticsearch" || "r5.xlarge.elasticsearch" || "r5.2xlarge.elasticsearch" || "r5.4xlarge.elasticsearch" || "r5.12xlarge.elasticsearch" || "c5.large.elasticsearch" || "c5.xlarge.elasticsearch" || "c5.2xlarge.elasticsearch" || "c5.4xlarge.elasticsearch" || "c5.9xlarge.elasticsearch" || "c5.18xlarge.elasticsearch" || "ultrawarm1.medium.elasticsearch" || "ultrawarm1.large.elasticsearch" || "t2.micro.elasticsearch" || "t2.small.elasticsearch" || "t2.medium.elasticsearch" || "r3.large.elasticsearch" || "r3.xlarge.elasticsearch" || "r3.2xlarge.elasticsearch" || "r3.4xlarge.elasticsearch" || "r3.8xlarge.elasticsearch" || "i2.xlarge.elasticsearch" || "i2.2xlarge.elasticsearch" || "d2.xlarge.elasticsearch" || "d2.2xlarge.elasticsearch" || "d2.4xlarge.elasticsearch" || "d2.8xlarge.elasticsearch" || "c4.large.elasticsearch" || "c4.xlarge.elasticsearch" || "c4.2xlarge.elasticsearch" || "c4.4xlarge.elasticsearch" || "c4.8xlarge.elasticsearch" || "r4.large.elasticsearch" || "r4.xlarge.elasticsearch" || "r4.2xlarge.elasticsearch" || "r4.4xlarge.elasticsearch" || "r4.8xlarge.elasticsearch" || "r4.16xlarge.elasticsearch" || "i3.large.elasticsearch" || "i3.xlarge.elasticsearch" || "i3.2xlarge.elasticsearch" || "i3.4xlarge.elasticsearch" || "i3.8xlarge.elasticsearch" || "i3.16xlarge.elasticsearch",
+ *     DedicatedMasterCount: Number("int"),
+ *     WarmEnabled: true || false,
+ *     WarmType: "ultrawarm1.medium.elasticsearch" || "ultrawarm1.large.elasticsearch",
+ *     WarmCount: Number("int"),
+ *     ColdStorageOptions: { // ColdStorageOptions
+ *       Enabled: true || false, // required
+ *     },
+ *   },
+ *   EBSOptions: { // EBSOptions
+ *     EBSEnabled: true || false,
+ *     VolumeType: "standard" || "gp2" || "io1" || "gp3",
+ *     VolumeSize: Number("int"),
+ *     Iops: Number("int"),
+ *     Throughput: Number("int"),
+ *   },
+ *   AccessPolicies: "STRING_VALUE",
+ *   SnapshotOptions: { // SnapshotOptions
+ *     AutomatedSnapshotStartHour: Number("int"),
+ *   },
+ *   VPCOptions: { // VPCOptions
+ *     SubnetIds: [ // StringList
+ *       "STRING_VALUE",
+ *     ],
+ *     SecurityGroupIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   CognitoOptions: { // CognitoOptions
+ *     Enabled: true || false,
+ *     UserPoolId: "STRING_VALUE",
+ *     IdentityPoolId: "STRING_VALUE",
+ *     RoleArn: "STRING_VALUE",
+ *   },
+ *   EncryptionAtRestOptions: { // EncryptionAtRestOptions
+ *     Enabled: true || false,
+ *     KmsKeyId: "STRING_VALUE",
+ *   },
+ *   NodeToNodeEncryptionOptions: { // NodeToNodeEncryptionOptions
+ *     Enabled: true || false,
+ *   },
+ *   AdvancedOptions: { // AdvancedOptions
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   LogPublishingOptions: { // LogPublishingOptions
+ *     "<keys>": { // LogPublishingOption
+ *       CloudWatchLogsLogGroupArn: "STRING_VALUE",
+ *       Enabled: true || false,
+ *     },
+ *   },
+ *   DomainEndpointOptions: { // DomainEndpointOptions
+ *     EnforceHTTPS: true || false,
+ *     TLSSecurityPolicy: "Policy-Min-TLS-1-0-2019-07" || "Policy-Min-TLS-1-2-2019-07",
+ *     CustomEndpointEnabled: true || false,
+ *     CustomEndpoint: "STRING_VALUE",
+ *     CustomEndpointCertificateArn: "STRING_VALUE",
+ *   },
+ *   AdvancedSecurityOptions: { // AdvancedSecurityOptionsInput
+ *     Enabled: true || false,
+ *     InternalUserDatabaseEnabled: true || false,
+ *     MasterUserOptions: { // MasterUserOptions
+ *       MasterUserARN: "STRING_VALUE",
+ *       MasterUserName: "STRING_VALUE",
+ *       MasterUserPassword: "STRING_VALUE",
+ *     },
+ *     SAMLOptions: { // SAMLOptionsInput
+ *       Enabled: true || false,
+ *       Idp: { // SAMLIdp
+ *         MetadataContent: "STRING_VALUE", // required
+ *         EntityId: "STRING_VALUE", // required
+ *       },
+ *       MasterUserName: "STRING_VALUE",
+ *       MasterBackendRole: "STRING_VALUE",
+ *       SubjectKey: "STRING_VALUE",
+ *       RolesKey: "STRING_VALUE",
+ *       SessionTimeoutMinutes: Number("int"),
+ *     },
+ *     AnonymousAuthEnabled: true || false,
+ *   },
+ *   AutoTuneOptions: { // AutoTuneOptionsInput
+ *     DesiredState: "ENABLED" || "DISABLED",
+ *     MaintenanceSchedules: [ // AutoTuneMaintenanceScheduleList
+ *       { // AutoTuneMaintenanceSchedule
+ *         StartAt: new Date("TIMESTAMP"),
+ *         Duration: { // Duration
+ *           Value: Number("long"),
+ *           Unit: "HOURS",
+ *         },
+ *         CronExpressionForRecurrence: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ *   TagList: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateElasticsearchDomainCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateElasticsearchDomainCommandInput - {@link CreateElasticsearchDomainCommandInput}
+ * @returns {@link CreateElasticsearchDomainCommandOutput}
  * @see {@link CreateElasticsearchDomainCommandInput} for command's `input` shape.
  * @see {@link CreateElasticsearchDomainCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
+ *
+ * @throws {@link BaseException} (client fault)
+ *  <p>An error occurred while processing the request.</p>
+ *
+ * @throws {@link DisabledOperationException} (client fault)
+ *  <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+ *
+ * @throws {@link InvalidTypeException} (client fault)
+ *  <p>An exception for trying to create or access sub-resource that is either invalid or not supported. Gives http status code of 409.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>An exception for trying to create more than allowed resources or sub-resources. Gives http status code of 409.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>An exception for creating a resource that already exists. Gives http status code of 400.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+ *
  *
  */
 export class CreateElasticsearchDomainCommand extends $Command<
@@ -67,6 +208,9 @@ export class CreateElasticsearchDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateElasticsearchDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,7 +240,7 @@ export class CreateElasticsearchDomainCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateElasticsearchDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateElasticsearchDomainResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,15 +250,21 @@ export class CreateElasticsearchDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateElasticsearchDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateElasticsearchDomainCommand(input, context);
+    return se_CreateElasticsearchDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateElasticsearchDomainCommandOutput> {
-    return deserializeAws_restJson1CreateElasticsearchDomainCommand(output, context);
+    return de_CreateElasticsearchDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

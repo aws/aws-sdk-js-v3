@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import {
-  GetDomainPermissionsPolicyRequest,
-  GetDomainPermissionsPolicyRequestFilterSensitiveLog,
-  GetDomainPermissionsPolicyResult,
-  GetDomainPermissionsPolicyResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDomainPermissionsPolicyCommand,
-  serializeAws_restJson1GetDomainPermissionsPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { GetDomainPermissionsPolicyRequest, GetDomainPermissionsPolicyResult } from "../models/models_0";
+import { de_GetDomainPermissionsPolicyCommand, se_GetDomainPermissionsPolicyCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetDomainPermissionsPolicyCommand}.
+ */
 export interface GetDomainPermissionsPolicyCommandInput extends GetDomainPermissionsPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetDomainPermissionsPolicyCommand}.
+ */
 export interface GetDomainPermissionsPolicyCommandOutput extends GetDomainPermissionsPolicyResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *         Returns the resource policy attached to the specified domain.
  *       </p>
@@ -45,13 +48,43 @@ export interface GetDomainPermissionsPolicyCommandOutput extends GetDomainPermis
  * import { CodeartifactClient, GetDomainPermissionsPolicyCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, GetDomainPermissionsPolicyCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
+ * const input = { // GetDomainPermissionsPolicyRequest
+ *   domain: "STRING_VALUE", // required
+ *   domainOwner: "STRING_VALUE",
+ * };
  * const command = new GetDomainPermissionsPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDomainPermissionsPolicyCommandInput - {@link GetDomainPermissionsPolicyCommandInput}
+ * @returns {@link GetDomainPermissionsPolicyCommandOutput}
  * @see {@link GetDomainPermissionsPolicyCommandInput} for command's `input` shape.
  * @see {@link GetDomainPermissionsPolicyCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>
+ *         The operation did not succeed because of an unauthorized access attempt.
+ *       </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>
+ *       The operation did not succeed because the resource requested is not found in the service.
+ *     </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>
+ *       The operation did not succeed because too many requests are sent to the service.
+ *     </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>
+ *       The operation did not succeed because a parameter in the request was sent with an invalid value.
+ *     </p>
+ *
  *
  */
 export class GetDomainPermissionsPolicyCommand extends $Command<
@@ -71,6 +104,9 @@ export class GetDomainPermissionsPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDomainPermissionsPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +135,8 @@ export class GetDomainPermissionsPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDomainPermissionsPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDomainPermissionsPolicyResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,15 +146,21 @@ export class GetDomainPermissionsPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDomainPermissionsPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDomainPermissionsPolicyCommand(input, context);
+    return se_GetDomainPermissionsPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDomainPermissionsPolicyCommandOutput> {
-    return deserializeAws_restJson1GetDomainPermissionsPolicyCommand(output, context);
+    return de_GetDomainPermissionsPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeGroupRequest,
-  DescribeGroupRequestFilterSensitiveLog,
-  DescribeGroupResponse,
-  DescribeGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeGroupCommand,
-  serializeAws_json1_1DescribeGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeGroupRequest, DescribeGroupResponse } from "../models/models_0";
+import { de_DescribeGroupCommand, se_DescribeGroupCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeGroupCommand}.
+ */
 export interface DescribeGroupCommandInput extends DescribeGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeGroupCommand}.
+ */
 export interface DescribeGroupCommandOutput extends DescribeGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the data available for the group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,35 @@ export interface DescribeGroupCommandOutput extends DescribeGroupResponse, __Met
  * import { WorkMailClient, DescribeGroupCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, DescribeGroupCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = { // DescribeGroupRequest
+ *   OrganizationId: "STRING_VALUE", // required
+ *   GroupId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeGroupCommandInput - {@link DescribeGroupCommandInput}
+ * @returns {@link DescribeGroupCommandOutput}
  * @see {@link DescribeGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeGroupCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>The identifier supplied for the user, group, or resource does not exist in your
+ *          organization.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link OrganizationNotFoundException} (client fault)
+ *  <p>An operation received a valid organization identifier that either doesn't belong or
+ *          exist in the system.</p>
+ *
+ * @throws {@link OrganizationStateException} (client fault)
+ *  <p>The organization must have a valid state to perform certain
+ *          operations on the organization or its members.</p>
+ *
  *
  */
 export class DescribeGroupCommand extends $Command<
@@ -62,6 +87,9 @@ export class DescribeGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +116,8 @@ export class DescribeGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +127,18 @@ export class DescribeGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeGroupCommand(input, context);
+    return se_DescribeGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeGroupCommandOutput> {
-    return deserializeAws_json1_1DescribeGroupCommand(output, context);
+    return de_DescribeGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

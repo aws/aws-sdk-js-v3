@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameSparksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameSparksClient";
-import {
-  GetSnapshotRequest,
-  GetSnapshotRequestFilterSensitiveLog,
-  GetSnapshotResult,
-  GetSnapshotResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSnapshotCommand,
-  serializeAws_restJson1GetSnapshotCommand,
-} from "../protocols/Aws_restJson1";
+import { GetSnapshotRequest, GetSnapshotResult } from "../models/models_0";
+import { de_GetSnapshotCommand, se_GetSnapshotCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetSnapshotCommand}.
+ */
 export interface GetSnapshotCommandInput extends GetSnapshotRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetSnapshotCommand}.
+ */
 export interface GetSnapshotCommandOutput extends GetSnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a copy of the game configuration in a snapshot.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,38 @@ export interface GetSnapshotCommandOutput extends GetSnapshotResult, __MetadataB
  * import { GameSparksClient, GetSnapshotCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, GetSnapshotCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
+ * const input = { // GetSnapshotRequest
+ *   GameName: "STRING_VALUE", // required
+ *   SnapshotId: "STRING_VALUE", // required
+ *   Sections: [ // SectionList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetSnapshotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSnapshotCommandInput - {@link GetSnapshotCommandInput}
+ * @returns {@link GetSnapshotCommandOutput}
  * @see {@link GetSnapshotCommandInput} for command's `input` shape.
  * @see {@link GetSnapshotCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The service encountered an internal error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request throughput limit was exceeded.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One of the parameters in the request is invalid.</p>
+ *
  *
  */
 export class GetSnapshotCommand extends $Command<
@@ -62,6 +90,9 @@ export class GetSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +119,8 @@ export class GetSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSnapshotRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSnapshotResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +130,18 @@ export class GetSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSnapshotCommand(input, context);
+    return se_GetSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSnapshotCommandOutput> {
-    return deserializeAws_restJson1GetSnapshotCommand(output, context);
+    return de_GetSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

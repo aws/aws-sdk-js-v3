@@ -16,21 +16,30 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeVerifiedAccessTrustProvidersRequest,
-  DescribeVerifiedAccessTrustProvidersRequestFilterSensitiveLog,
   DescribeVerifiedAccessTrustProvidersResult,
-  DescribeVerifiedAccessTrustProvidersResultFilterSensitiveLog,
 } from "../models/models_4";
 import {
-  deserializeAws_ec2DescribeVerifiedAccessTrustProvidersCommand,
-  serializeAws_ec2DescribeVerifiedAccessTrustProvidersCommand,
+  de_DescribeVerifiedAccessTrustProvidersCommand,
+  se_DescribeVerifiedAccessTrustProvidersCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeVerifiedAccessTrustProvidersCommand}.
+ */
 export interface DescribeVerifiedAccessTrustProvidersCommandInput extends DescribeVerifiedAccessTrustProvidersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeVerifiedAccessTrustProvidersCommand}.
+ */
 export interface DescribeVerifiedAccessTrustProvidersCommandOutput
   extends DescribeVerifiedAccessTrustProvidersResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describe details of existing Verified Access trust providers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +47,32 @@ export interface DescribeVerifiedAccessTrustProvidersCommandOutput
  * import { EC2Client, DescribeVerifiedAccessTrustProvidersCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeVerifiedAccessTrustProvidersCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeVerifiedAccessTrustProvidersRequest
+ *   VerifiedAccessTrustProviderIds: [ // VerifiedAccessTrustProviderIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   DryRun: true || false,
+ * };
  * const command = new DescribeVerifiedAccessTrustProvidersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVerifiedAccessTrustProvidersCommandInput - {@link DescribeVerifiedAccessTrustProvidersCommandInput}
+ * @returns {@link DescribeVerifiedAccessTrustProvidersCommandOutput}
  * @see {@link DescribeVerifiedAccessTrustProvidersCommandInput} for command's `input` shape.
  * @see {@link DescribeVerifiedAccessTrustProvidersCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class DescribeVerifiedAccessTrustProvidersCommand extends $Command<
@@ -64,6 +92,9 @@ export class DescribeVerifiedAccessTrustProvidersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVerifiedAccessTrustProvidersCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +123,8 @@ export class DescribeVerifiedAccessTrustProvidersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVerifiedAccessTrustProvidersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeVerifiedAccessTrustProvidersResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +134,24 @@ export class DescribeVerifiedAccessTrustProvidersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeVerifiedAccessTrustProvidersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeVerifiedAccessTrustProvidersCommand(input, context);
+    return se_DescribeVerifiedAccessTrustProvidersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeVerifiedAccessTrustProvidersCommandOutput> {
-    return deserializeAws_ec2DescribeVerifiedAccessTrustProvidersCommand(output, context);
+    return de_DescribeVerifiedAccessTrustProvidersCommand(output, context);
   }
 
   // Start section: command_body_extra

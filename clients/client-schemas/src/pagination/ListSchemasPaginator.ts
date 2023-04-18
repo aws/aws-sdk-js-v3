@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListSchemasCommand, ListSchemasCommandInput, ListSchemasCommandOutput } from "../commands/ListSchemasCommand";
-import { Schemas } from "../Schemas";
 import { SchemasClient } from "../SchemasClient";
 import { SchemasPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SchemasClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListSchemasCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Schemas,
-  input: ListSchemasCommandInput,
-  ...args: any
-): Promise<ListSchemasCommandOutput> => {
-  // @ts-ignore
-  return await client.listSchemas(input, ...args);
-};
 export async function* paginateListSchemas(
   config: SchemasPaginationConfiguration,
   input: ListSchemasCommandInput,
@@ -40,9 +31,7 @@ export async function* paginateListSchemas(
   while (hasNext) {
     input.NextToken = token;
     input["Limit"] = config.pageSize;
-    if (config.client instanceof Schemas) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SchemasClient) {
+    if (config.client instanceof SchemasClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Schemas | SchemasClient");

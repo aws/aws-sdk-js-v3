@@ -26,12 +26,14 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
@@ -104,6 +106,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CancelJobRunCommandInput
   | CreateJobTemplateCommandInput
@@ -125,6 +130,9 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CancelJobRunCommandOutput
   | CreateJobTemplateCommandOutput
@@ -146,6 +154,9 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -153,11 +164,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -214,19 +225,10 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
-   * Value for how many times a request will be made at most in case of retry.
+   * Unique service identifier.
+   * @internal
    */
-  maxAttempts?: number | __Provider<number>;
-
-  /**
-   * Specifies which retry algorithm to use.
-   */
-  retryMode?: string | __Provider<string>;
-
-  /**
-   * Optional logger for logging debug/info/warn/error.
-   */
-  logger?: __Logger;
+  serviceId?: string;
 
   /**
    * Enables IPv6/IPv4 dualstack endpoint.
@@ -237,12 +239,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Enables FIPS compatible endpoints.
    */
   useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
 
   /**
    * The AWS region to which this client will send requests
@@ -262,11 +258,29 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * Value for how many times a request will be made at most in case of retry.
    */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Specifies which retry algorithm to use.
+   */
+  retryMode?: string | __Provider<string>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
+
+  /**
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   */
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type EMRContainersClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -277,10 +291,15 @@ type EMRContainersClientConfigType = Partial<__SmithyConfiguration<__HttpHandler
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of EMRContainersClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of EMRContainersClient class constructor that set the region, credentials and other options.
  */
 export interface EMRContainersClientConfig extends EMRContainersClientConfigType {}
 
+/**
+ * @public
+ */
 type EMRContainersClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -291,34 +310,36 @@ type EMRContainersClientResolvedConfigType = __SmithyResolvedConfiguration<__Htt
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of EMRContainersClient class. This is resolved and normalized from the {@link EMRContainersClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of EMRContainersClient class. This is resolved and normalized from the {@link EMRContainersClientConfig | constructor configuration interface}.
  */
 export interface EMRContainersClientResolvedConfig extends EMRContainersClientResolvedConfigType {}
 
 /**
- * <p>Amazon EMR on EKS provides a deployment option for Amazon EMR that allows you to run
- *          open-source big data frameworks on Amazon Elastic Kubernetes Service (Amazon EKS). With
- *          this deployment option, you can focus on running analytics workloads while Amazon EMR on
- *          EKS builds, configures, and manages containers for open-source applications. For more
- *          information about Amazon EMR on EKS concepts and tasks, see <a href="https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/emr-eks.html">What is Amazon EMR on
- *             EKS</a>.</p>
+ * @public
+ * <p>Amazon EMR on EKS provides a deployment option for Amazon EMR that allows
+ *          you to run open-source big data frameworks on Amazon Elastic Kubernetes Service (Amazon EKS).
+ *          With this deployment option, you can focus on running analytics workloads while Amazon EMR on EKS builds, configures, and manages containers for open-source applications.
+ *          For more information about Amazon EMR on EKS  concepts and tasks, see <a href="https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/emr-eks.html">What is
+ *             shared id="EMR-EKS"/></a>.</p>
  *          <p>
- *             <i>Amazon EMR containers</i> is the API name for Amazon EMR on EKS. The
- *             <code>emr-containers</code> prefix is used in the following scenarios: </p>
+ *             <i>Amazon EMR containers</i> is the API name for Amazon EMR on EKS.
+ *          The <code>emr-containers</code> prefix is used in the following scenarios: </p>
  *          <ul>
  *             <li>
- *                <p>It is the prefix in the CLI commands for Amazon EMR on EKS. For example, <code>aws
- *                   emr-containers start-job-run</code>.</p>
+ *                <p>It is the prefix in the CLI commands for Amazon EMR on EKS. For example,
+ *                   <code>aws emr-containers start-job-run</code>.</p>
  *             </li>
  *             <li>
- *                <p>It is the prefix before IAM policy actions for Amazon EMR on EKS. For example,
- *                   <code>"Action": [ "emr-containers:StartJobRun"]</code>. For more information, see
- *                   <a href="https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-actions">Policy actions for Amazon EMR on EKS</a>.</p>
+ *                <p>It is the prefix before IAM policy actions for Amazon EMR on EKS. For
+ *                example, <code>"Action": [ "emr-containers:StartJobRun"]</code>. For more
+ *                information, see <a href="https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-actions">Policy actions for Amazon EMR on EKS</a>.</p>
  *             </li>
  *             <li>
  *                <p>It is the prefix used in Amazon EMR on EKS service endpoints. For example,
  *                   <code>emr-containers.us-east-2.amazonaws.com</code>. For more information, see
- *                   <a href="https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/service-quotas.html#service-endpoints">Amazon EMR on EKS Service Endpoints</a>.</p>
+ *                   <a href="https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/service-quotas.html#service-endpoints">Amazon EMR on EKSService Endpoints</a>.</p>
  *             </li>
  *          </ul>
  */

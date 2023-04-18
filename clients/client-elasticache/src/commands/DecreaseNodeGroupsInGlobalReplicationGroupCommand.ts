@@ -16,22 +16,31 @@ import {
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import {
   DecreaseNodeGroupsInGlobalReplicationGroupMessage,
-  DecreaseNodeGroupsInGlobalReplicationGroupMessageFilterSensitiveLog,
   DecreaseNodeGroupsInGlobalReplicationGroupResult,
-  DecreaseNodeGroupsInGlobalReplicationGroupResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_queryDecreaseNodeGroupsInGlobalReplicationGroupCommand,
-  serializeAws_queryDecreaseNodeGroupsInGlobalReplicationGroupCommand,
+  de_DecreaseNodeGroupsInGlobalReplicationGroupCommand,
+  se_DecreaseNodeGroupsInGlobalReplicationGroupCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DecreaseNodeGroupsInGlobalReplicationGroupCommand}.
+ */
 export interface DecreaseNodeGroupsInGlobalReplicationGroupCommandInput
   extends DecreaseNodeGroupsInGlobalReplicationGroupMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DecreaseNodeGroupsInGlobalReplicationGroupCommand}.
+ */
 export interface DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput
   extends DecreaseNodeGroupsInGlobalReplicationGroupResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Decreases the number of node groups in a Global datastore</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +48,39 @@ export interface DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput
  * import { ElastiCacheClient, DecreaseNodeGroupsInGlobalReplicationGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DecreaseNodeGroupsInGlobalReplicationGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // DecreaseNodeGroupsInGlobalReplicationGroupMessage
+ *   GlobalReplicationGroupId: "STRING_VALUE", // required
+ *   NodeGroupCount: Number("int"), // required
+ *   GlobalNodeGroupsToRemove: [ // GlobalNodeGroupIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   GlobalNodeGroupsToRetain: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ApplyImmediately: true || false, // required
+ * };
  * const command = new DecreaseNodeGroupsInGlobalReplicationGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DecreaseNodeGroupsInGlobalReplicationGroupCommandInput - {@link DecreaseNodeGroupsInGlobalReplicationGroupCommandInput}
+ * @returns {@link DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput}
  * @see {@link DecreaseNodeGroupsInGlobalReplicationGroupCommandInput} for command's `input` shape.
  * @see {@link DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
+ *
+ * @throws {@link GlobalReplicationGroupNotFoundFault} (client fault)
+ *  <p>The Global datastore does not exist</p>
+ *
+ * @throws {@link InvalidGlobalReplicationGroupStateFault} (client fault)
+ *  <p>The Global datastore is not available or in primary-only state.</p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
  *
  */
 export class DecreaseNodeGroupsInGlobalReplicationGroupCommand extends $Command<
@@ -65,6 +100,9 @@ export class DecreaseNodeGroupsInGlobalReplicationGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DecreaseNodeGroupsInGlobalReplicationGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +137,8 @@ export class DecreaseNodeGroupsInGlobalReplicationGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DecreaseNodeGroupsInGlobalReplicationGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DecreaseNodeGroupsInGlobalReplicationGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,18 +148,24 @@ export class DecreaseNodeGroupsInGlobalReplicationGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DecreaseNodeGroupsInGlobalReplicationGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDecreaseNodeGroupsInGlobalReplicationGroupCommand(input, context);
+    return se_DecreaseNodeGroupsInGlobalReplicationGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput> {
-    return deserializeAws_queryDecreaseNodeGroupsInGlobalReplicationGroupCommand(output, context);
+    return de_DecreaseNodeGroupsInGlobalReplicationGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -54,13 +54,61 @@ import {
   RegistrationConfig,
   SecurityProfileTarget,
   Status,
-  StreamSummary,
   ThingGroupIndexingConfiguration,
   ThingIndexingConfiguration,
   ThingTypeMetadata,
   ViolationEventOccurrenceRange,
 } from "./models_1";
 
+/**
+ * @public
+ */
+export interface ListStreamsRequest {
+  /**
+   * <p>The maximum number of results to return at a time.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>A token used to get the next set of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>Set to true to return the list of streams in ascending order.</p>
+   */
+  ascendingOrder?: boolean;
+}
+
+/**
+ * @public
+ * <p>A summary of a stream.</p>
+ */
+export interface StreamSummary {
+  /**
+   * <p>The stream ID.</p>
+   */
+  streamId?: string;
+
+  /**
+   * <p>The stream ARN.</p>
+   */
+  streamArn?: string;
+
+  /**
+   * <p>The stream version.</p>
+   */
+  streamVersion?: number;
+
+  /**
+   * <p>A description of the stream.</p>
+   */
+  description?: string;
+}
+
+/**
+ * @public
+ */
 export interface ListStreamsResponse {
   /**
    * <p>A list of streams.</p>
@@ -73,6 +121,9 @@ export interface ListStreamsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -87,6 +138,9 @@ export interface ListTagsForResourceRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The list of tags assigned to the resource.</p>
@@ -99,6 +153,9 @@ export interface ListTagsForResourceResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTargetsForPolicyRequest {
   /**
    * <p>The policy name.</p>
@@ -116,6 +173,9 @@ export interface ListTargetsForPolicyRequest {
   pageSize?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListTargetsForPolicyResponse {
   /**
    * <p>The policy targets.</p>
@@ -128,6 +188,9 @@ export interface ListTargetsForPolicyResponse {
   nextMarker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTargetsForSecurityProfileRequest {
   /**
    * <p>The security profile.</p>
@@ -145,6 +208,9 @@ export interface ListTargetsForSecurityProfileRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListTargetsForSecurityProfileResponse {
   /**
    * <p>The thing groups to which the security profile is attached.</p>
@@ -158,6 +224,9 @@ export interface ListTargetsForSecurityProfileResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListThingGroupsRequest {
   /**
    * <p>To retrieve the next set of results, the <code>nextToken</code>
@@ -187,6 +256,9 @@ export interface ListThingGroupsRequest {
   recursive?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ListThingGroupsResponse {
   /**
    * <p>The thing groups.</p>
@@ -199,6 +271,9 @@ export interface ListThingGroupsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListThingGroupsForThingRequest {
   /**
    * <p>The thing name.</p>
@@ -218,6 +293,9 @@ export interface ListThingGroupsForThingRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListThingGroupsForThingResponse {
   /**
    * <p>The thing groups.</p>
@@ -231,6 +309,7 @@ export interface ListThingGroupsForThingResponse {
 }
 
 /**
+ * @public
  * <p>The input for the ListThingPrincipal operation.</p>
  */
 export interface ListThingPrincipalsRequest {
@@ -253,6 +332,7 @@ export interface ListThingPrincipalsRequest {
 }
 
 /**
+ * @public
  * <p>The output from the ListThingPrincipals operation.</p>
  */
 export interface ListThingPrincipalsResponse {
@@ -267,11 +347,23 @@ export interface ListThingPrincipalsResponse {
   nextToken?: string;
 }
 
-export enum ReportType {
-  ERRORS = "ERRORS",
-  RESULTS = "RESULTS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReportType = {
+  ERRORS: "ERRORS",
+  RESULTS: "RESULTS",
+} as const;
 
+/**
+ * @public
+ */
+export type ReportType = (typeof ReportType)[keyof typeof ReportType];
+
+/**
+ * @public
+ */
 export interface ListThingRegistrationTaskReportsRequest {
   /**
    * <p>The id of the task.</p>
@@ -296,6 +388,9 @@ export interface ListThingRegistrationTaskReportsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListThingRegistrationTaskReportsResponse {
   /**
    * <p>Links to the task resources.</p>
@@ -313,6 +408,9 @@ export interface ListThingRegistrationTaskReportsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListThingRegistrationTasksRequest {
   /**
    * <p>To retrieve the next set of results, the <code>nextToken</code>
@@ -332,6 +430,9 @@ export interface ListThingRegistrationTasksRequest {
   status?: Status | string;
 }
 
+/**
+ * @public
+ */
 export interface ListThingRegistrationTasksResponse {
   /**
    * <p>A list of bulk thing provisioning task IDs.</p>
@@ -345,6 +446,7 @@ export interface ListThingRegistrationTasksResponse {
 }
 
 /**
+ * @public
  * <p>The input for the ListThings operation.</p>
  */
 export interface ListThingsRequest {
@@ -378,7 +480,7 @@ export interface ListThingsRequest {
   /**
    * <p>When <code>true</code>, the action returns the thing resources with attribute values
    *                      that start with the <code>attributeValue</code> provided.</p>
-   *             <p>When <code>false</code>, or not present, the action returns only the thing
+   *          <p>When <code>false</code>, or not present, the action returns only the thing
    * 			resources with attribute values that match the entire <code>attributeValue</code>
    * 			provided. </p>
    */
@@ -386,6 +488,7 @@ export interface ListThingsRequest {
 }
 
 /**
+ * @public
  * <p>The properties of the thing, including thing name, thing type name, and a list of thing
  * 			attributes.</p>
  */
@@ -417,6 +520,7 @@ export interface ThingAttribute {
 }
 
 /**
+ * @public
  * <p>The output from the ListThings operation.</p>
  */
 export interface ListThingsResponse {
@@ -431,6 +535,9 @@ export interface ListThingsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListThingsInBillingGroupRequest {
   /**
    * <p>The name of the billing group.</p>
@@ -450,6 +557,9 @@ export interface ListThingsInBillingGroupRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListThingsInBillingGroupResponse {
   /**
    * <p>A list of things in the billing group.</p>
@@ -462,6 +572,9 @@ export interface ListThingsInBillingGroupResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListThingsInThingGroupRequest {
   /**
    * <p>The thing group name.</p>
@@ -487,6 +600,9 @@ export interface ListThingsInThingGroupRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListThingsInThingGroupResponse {
   /**
    * <p>The things in the specified thing group.</p>
@@ -500,6 +616,7 @@ export interface ListThingsInThingGroupResponse {
 }
 
 /**
+ * @public
  * <p>The input for the ListThingTypes operation.</p>
  */
 export interface ListThingTypesRequest {
@@ -522,6 +639,7 @@ export interface ListThingTypesRequest {
 }
 
 /**
+ * @public
  * <p>The definition of the thing type, including thing type name and description.</p>
  */
 export interface ThingTypeDefinition {
@@ -549,6 +667,7 @@ export interface ThingTypeDefinition {
 }
 
 /**
+ * @public
  * <p>The output for the ListThingTypes operation.</p>
  */
 export interface ListThingTypesResponse {
@@ -563,6 +682,9 @@ export interface ListThingTypesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTopicRuleDestinationsRequest {
   /**
    * <p>The maximum number of results to return at one time.</p>
@@ -578,6 +700,7 @@ export interface ListTopicRuleDestinationsRequest {
 }
 
 /**
+ * @public
  * <p>Information about an HTTP URL destination.</p>
  */
 export interface HttpUrlDestinationSummary {
@@ -589,6 +712,7 @@ export interface HttpUrlDestinationSummary {
 }
 
 /**
+ * @public
  * <p>The summary of a virtual private cloud (VPC) destination.</p>
  */
 export interface VpcDestinationSummary {
@@ -614,6 +738,7 @@ export interface VpcDestinationSummary {
 }
 
 /**
+ * @public
  * <p>Information about the topic rule destination.</p>
  */
 export interface TopicRuleDestinationSummary {
@@ -684,6 +809,9 @@ export interface TopicRuleDestinationSummary {
   vpcDestinationSummary?: VpcDestinationSummary;
 }
 
+/**
+ * @public
+ */
 export interface ListTopicRuleDestinationsResponse {
   /**
    * <p>Information about a topic rule destination.</p>
@@ -697,6 +825,7 @@ export interface ListTopicRuleDestinationsResponse {
 }
 
 /**
+ * @public
  * <p>The input for the ListTopicRules operation.</p>
  */
 export interface ListTopicRulesRequest {
@@ -724,6 +853,7 @@ export interface ListTopicRulesRequest {
 }
 
 /**
+ * @public
  * <p>Describes a rule.</p>
  */
 export interface TopicRuleListItem {
@@ -754,6 +884,7 @@ export interface TopicRuleListItem {
 }
 
 /**
+ * @public
  * <p>The output from the ListTopicRules operation.</p>
  */
 export interface ListTopicRulesResponse {
@@ -768,6 +899,9 @@ export interface ListTopicRulesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListV2LoggingLevelsRequest {
   /**
    * <p>The type of resource for which you are configuring logging. Must be
@@ -789,6 +923,7 @@ export interface ListV2LoggingLevelsRequest {
 }
 
 /**
+ * @public
  * <p>A log target.</p>
  */
 export interface LogTarget {
@@ -804,6 +939,7 @@ export interface LogTarget {
 }
 
 /**
+ * @public
  * <p>The target configuration.</p>
  */
 export interface LogTargetConfiguration {
@@ -818,6 +954,9 @@ export interface LogTargetConfiguration {
   logLevel?: LogLevel | string;
 }
 
+/**
+ * @public
+ */
 export interface ListV2LoggingLevelsResponse {
   /**
    * <p>The logging configuration for a target.</p>
@@ -830,6 +969,9 @@ export interface ListV2LoggingLevelsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListViolationEventsRequest {
   /**
    * <p>The start time for the alerts to be listed.</p>
@@ -881,13 +1023,23 @@ export interface ListViolationEventsRequest {
   maxResults?: number;
 }
 
-export enum ViolationEventType {
-  ALARM_CLEARED = "alarm-cleared",
-  ALARM_INVALIDATED = "alarm-invalidated",
-  IN_ALARM = "in-alarm",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ViolationEventType = {
+  ALARM_CLEARED: "alarm-cleared",
+  ALARM_INVALIDATED: "alarm-invalidated",
+  IN_ALARM: "in-alarm",
+} as const;
 
 /**
+ * @public
+ */
+export type ViolationEventType = (typeof ViolationEventType)[keyof typeof ViolationEventType];
+
+/**
+ * @public
  * <p>Information about a Device Defender security profile behavior violation.</p>
  */
 export interface ViolationEvent {
@@ -944,6 +1096,9 @@ export interface ViolationEvent {
   violationEventTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListViolationEventsResponse {
   /**
    * <p>The security profile violation alerts issued for this account during the given time period,
@@ -958,6 +1113,9 @@ export interface ListViolationEventsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutVerificationStateOnViolationRequest {
   /**
    * <p>The violation ID.</p>
@@ -975,9 +1133,13 @@ export interface PutVerificationStateOnViolationRequest {
   verificationStateDescription?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutVerificationStateOnViolationResponse {}
 
 /**
+ * @public
  * <p>The input to the RegisterCACertificate operation.</p>
  */
 export interface RegisterCACertificateRequest {
@@ -1039,6 +1201,7 @@ export interface RegisterCACertificateRequest {
 }
 
 /**
+ * @public
  * <p>The output from the RegisterCACertificateResponse operation.</p>
  */
 export interface RegisterCACertificateResponse {
@@ -1054,6 +1217,7 @@ export interface RegisterCACertificateResponse {
 }
 
 /**
+ * @public
  * <p>The registration code is invalid.</p>
  */
 export class RegistrationCodeValidationException extends __BaseException {
@@ -1073,6 +1237,7 @@ export class RegistrationCodeValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Unable to verify the CA certificate used to sign the device certificate you are
  *          attempting to register. This is happens when you have registered more than one CA
  *          certificate that has the same subject field and public key.</p>
@@ -1094,6 +1259,7 @@ export class CertificateConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input to the RegisterCertificate operation.</p>
  */
 export interface RegisterCertificateRequest {
@@ -1124,6 +1290,7 @@ export interface RegisterCertificateRequest {
 }
 
 /**
+ * @public
  * <p>The output from the RegisterCertificate operation.</p>
  */
 export interface RegisterCertificateResponse {
@@ -1138,6 +1305,9 @@ export interface RegisterCertificateResponse {
   certificateId?: string;
 }
 
+/**
+ * @public
+ */
 export interface RegisterCertificateWithoutCARequest {
   /**
    * <p>The certificate data, in PEM format.</p>
@@ -1150,6 +1320,9 @@ export interface RegisterCertificateWithoutCARequest {
   status?: CertificateStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface RegisterCertificateWithoutCAResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the registered certificate.</p>
@@ -1163,6 +1336,9 @@ export interface RegisterCertificateWithoutCAResponse {
   certificateId?: string;
 }
 
+/**
+ * @public
+ */
 export interface RegisterThingRequest {
   /**
    * <p>The provisioning template. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-w-cert.html">Provisioning Devices That Have Device Certificates</a> for more information.</p>
@@ -1175,6 +1351,9 @@ export interface RegisterThingRequest {
   parameters?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface RegisterThingResponse {
   /**
    * <p>The certificate data, in PEM format.</p>
@@ -1188,6 +1367,7 @@ export interface RegisterThingResponse {
 }
 
 /**
+ * @public
  * <p>The resource registration failed.</p>
  */
 export class ResourceRegistrationFailureException extends __BaseException {
@@ -1207,6 +1387,7 @@ export class ResourceRegistrationFailureException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input for the RejectCertificateTransfer operation.</p>
  */
 export interface RejectCertificateTransferRequest {
@@ -1222,6 +1403,9 @@ export interface RejectCertificateTransferRequest {
   rejectReason?: string;
 }
 
+/**
+ * @public
+ */
 export interface RemoveThingFromBillingGroupRequest {
   /**
    * <p>The name of the billing group.</p>
@@ -1244,8 +1428,14 @@ export interface RemoveThingFromBillingGroupRequest {
   thingArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface RemoveThingFromBillingGroupResponse {}
 
+/**
+ * @public
+ */
 export interface RemoveThingFromThingGroupRequest {
   /**
    * <p>The group name.</p>
@@ -1268,9 +1458,13 @@ export interface RemoveThingFromThingGroupRequest {
   thingArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface RemoveThingFromThingGroupResponse {}
 
 /**
+ * @public
  * <p>The input for the ReplaceTopicRule operation.</p>
  */
 export interface ReplaceTopicRuleRequest {
@@ -1285,6 +1479,9 @@ export interface ReplaceTopicRuleRequest {
   topicRulePayload: TopicRulePayload | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SearchIndexRequest {
   /**
    * <p>The search index name.</p>
@@ -1315,6 +1512,7 @@ export interface SearchIndexRequest {
 }
 
 /**
+ * @public
  * <p>The thing group search index document.</p>
  */
 export interface ThingGroupDocument {
@@ -1345,6 +1543,7 @@ export interface ThingGroupDocument {
 }
 
 /**
+ * @public
  * <p>The connectivity status of the thing.</p>
  */
 export interface ThingConnectivity {
@@ -1367,6 +1566,7 @@ export interface ThingConnectivity {
 }
 
 /**
+ * @public
  * <p>The thing search index document.</p>
  */
 export interface ThingDocument {
@@ -1414,6 +1614,9 @@ export interface ThingDocument {
   connectivity?: ThingConnectivity;
 }
 
+/**
+ * @public
+ */
 export interface SearchIndexResponse {
   /**
    * <p>The token used to get the next set of results, or <code>null</code> if there are no additional
@@ -1432,6 +1635,9 @@ export interface SearchIndexResponse {
   thingGroups?: ThingGroupDocument[];
 }
 
+/**
+ * @public
+ */
 export interface SetDefaultAuthorizerRequest {
   /**
    * <p>The authorizer name.</p>
@@ -1439,6 +1645,9 @@ export interface SetDefaultAuthorizerRequest {
   authorizerName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SetDefaultAuthorizerResponse {
   /**
    * <p>The authorizer name.</p>
@@ -1452,6 +1661,7 @@ export interface SetDefaultAuthorizerResponse {
 }
 
 /**
+ * @public
  * <p>The input for the SetDefaultPolicyVersion operation.</p>
  */
 export interface SetDefaultPolicyVersionRequest {
@@ -1467,6 +1677,7 @@ export interface SetDefaultPolicyVersionRequest {
 }
 
 /**
+ * @public
  * <p>Describes the logging options payload.</p>
  */
 export interface LoggingOptionsPayload {
@@ -1482,6 +1693,7 @@ export interface LoggingOptionsPayload {
 }
 
 /**
+ * @public
  * <p>The input for the SetLoggingOptions operation.</p>
  */
 export interface SetLoggingOptionsRequest {
@@ -1491,6 +1703,9 @@ export interface SetLoggingOptionsRequest {
   loggingOptionsPayload: LoggingOptionsPayload | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SetV2LoggingLevelRequest {
   /**
    * <p>The log target.</p>
@@ -1503,6 +1718,9 @@ export interface SetV2LoggingLevelRequest {
   logLevel: LogLevel | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SetV2LoggingOptionsRequest {
   /**
    * <p>The ARN of the role that allows IoT to write to Cloudwatch logs.</p>
@@ -1520,6 +1738,9 @@ export interface SetV2LoggingOptionsRequest {
   disableAllLogs?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface StartAuditMitigationActionsTaskRequest {
   /**
    * <p>A unique identifier for the task. You can use this identifier to check the status of the task or to cancel it.</p>
@@ -1545,6 +1766,9 @@ export interface StartAuditMitigationActionsTaskRequest {
   clientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartAuditMitigationActionsTaskResponse {
   /**
    * <p>The unique identifier for the audit mitigation task. This matches the <code>taskId</code> that you specified in the request.</p>
@@ -1553,6 +1777,7 @@ export interface StartAuditMitigationActionsTaskResponse {
 }
 
 /**
+ * @public
  * <p>
  *             This exception occurs if you attempt to start a task with the same task-id as an existing task but with a different clientRequestToken.
  *         </p>
@@ -1573,6 +1798,9 @@ export class TaskAlreadyExistsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface StartDetectMitigationActionsTaskRequest {
   /**
    * <p>
@@ -1624,6 +1852,9 @@ export interface StartDetectMitigationActionsTaskRequest {
   clientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartDetectMitigationActionsTaskResponse {
   /**
    * <p>
@@ -1633,6 +1864,9 @@ export interface StartDetectMitigationActionsTaskResponse {
   taskId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartOnDemandAuditTaskRequest {
   /**
    * <p>Which checks are performed during the audit. The checks you specify must be enabled
@@ -1643,6 +1877,9 @@ export interface StartOnDemandAuditTaskRequest {
   targetCheckNames: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartOnDemandAuditTaskResponse {
   /**
    * <p>The ID of the on-demand audit you started.</p>
@@ -1650,6 +1887,9 @@ export interface StartOnDemandAuditTaskResponse {
   taskId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartThingRegistrationTaskRequest {
   /**
    * <p>The provisioning template.</p>
@@ -1674,6 +1914,9 @@ export interface StartThingRegistrationTaskRequest {
   roleArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartThingRegistrationTaskResponse {
   /**
    * <p>The bulk thing provisioning task ID.</p>
@@ -1681,6 +1924,9 @@ export interface StartThingRegistrationTaskResponse {
   taskId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopThingRegistrationTaskRequest {
   /**
    * <p>The bulk thing provisioning task ID.</p>
@@ -1688,8 +1934,14 @@ export interface StopThingRegistrationTaskRequest {
   taskId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopThingRegistrationTaskResponse {}
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -1702,8 +1954,14 @@ export interface TagResourceRequest {
   tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface TestAuthorizationRequest {
   /**
    * <p>The principal. Valid principals are CertificateArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:cert/<i>certificateId</i>), thingGroupArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:thinggroup/<i>groupName</i>) and CognitoId (<i>region</i>:<i>id</i>).</p>
@@ -1739,6 +1997,9 @@ export interface TestAuthorizationRequest {
   policyNamesToSkip?: string[];
 }
 
+/**
+ * @public
+ */
 export interface TestAuthorizationResponse {
   /**
    * <p>The authentication results.</p>
@@ -1747,6 +2008,7 @@ export interface TestAuthorizationResponse {
 }
 
 /**
+ * @public
  * <p>The response is invalid.</p>
  */
 export class InvalidResponseException extends __BaseException {
@@ -1766,6 +2028,7 @@ export class InvalidResponseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Specifies the HTTP context to use for the test authorizer request.</p>
  */
 export interface HttpContext {
@@ -1781,6 +2044,7 @@ export interface HttpContext {
 }
 
 /**
+ * @public
  * <p>Specifies the MQTT context to use for the test authorizer request</p>
  */
 export interface MqttContext {
@@ -1801,6 +2065,7 @@ export interface MqttContext {
 }
 
 /**
+ * @public
  * <p>Specifies the TLS context to use for the test authorizer request.</p>
  */
 export interface TlsContext {
@@ -1810,6 +2075,9 @@ export interface TlsContext {
   serverName?: string;
 }
 
+/**
+ * @public
+ */
 export interface TestInvokeAuthorizerRequest {
   /**
    * <p>The custom authorizer name.</p>
@@ -1843,6 +2111,9 @@ export interface TestInvokeAuthorizerRequest {
   tlsContext?: TlsContext;
 }
 
+/**
+ * @public
+ */
 export interface TestInvokeAuthorizerResponse {
   /**
    * <p>True if the token is authenticated, otherwise false.</p>
@@ -1871,6 +2142,7 @@ export interface TestInvokeAuthorizerResponse {
 }
 
 /**
+ * @public
  * <p>The input for the TransferCertificate operation.</p>
  */
 export interface TransferCertificateRequest {
@@ -1892,6 +2164,7 @@ export interface TransferCertificateRequest {
 }
 
 /**
+ * @public
  * <p>The output from the TransferCertificate operation.</p>
  */
 export interface TransferCertificateResponse {
@@ -1902,6 +2175,7 @@ export interface TransferCertificateResponse {
 }
 
 /**
+ * @public
  * <p>You can't transfer the certificate because authorization policies are still
  *          attached.</p>
  */
@@ -1921,6 +2195,9 @@ export class TransferConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -1933,8 +2210,14 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateAccountAuditConfigurationRequest {
   /**
    * <p>The Amazon
@@ -1957,22 +2240,28 @@ export interface UpdateAccountAuditConfigurationRequest {
    * <p>Specifies which audit checks are enabled and disabled for this account. Use
    *             <code>DescribeAccountAuditConfiguration</code> to see the list of all checks, including those
    *             that are currently enabled.</p>
-   *           <p>Some data collection might start immediately when certain checks are enabled.
+   *          <p>Some data collection might start immediately when certain checks are enabled.
    *             When a check is disabled, any data collected so far in relation to the check is deleted.</p>
-   *           <p>You
+   *          <p>You
    *       cannot
    *       disable a check if
    *       it's
    *       used by any scheduled audit. You must first delete the check from the scheduled audit or
    *       delete the scheduled audit itself.</p>
-   *           <p>On the first call to <code>UpdateAccountAuditConfiguration</code>,
+   *          <p>On the first call to <code>UpdateAccountAuditConfiguration</code>,
    *             this parameter is required and must specify at least one enabled check.</p>
    */
   auditCheckConfigurations?: Record<string, AuditCheckConfiguration>;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAccountAuditConfigurationResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateAuditSuppressionRequest {
   /**
    * <p>An audit check name. Checks must be enabled
@@ -2009,8 +2298,14 @@ export interface UpdateAuditSuppressionRequest {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAuditSuppressionResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateAuthorizerRequest {
   /**
    * <p>The authorizer name.</p>
@@ -2045,6 +2340,9 @@ export interface UpdateAuthorizerRequest {
   enableCachingForHttp?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAuthorizerResponse {
   /**
    * <p>The authorizer name.</p>
@@ -2057,6 +2355,9 @@ export interface UpdateAuthorizerResponse {
   authorizerArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateBillingGroupRequest {
   /**
    * <p>The name of the billing group.</p>
@@ -2077,6 +2378,9 @@ export interface UpdateBillingGroupRequest {
   expectedVersion?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateBillingGroupResponse {
   /**
    * <p>The latest version of the billing group.</p>
@@ -2085,6 +2389,7 @@ export interface UpdateBillingGroupResponse {
 }
 
 /**
+ * @public
  * <p>The input to the UpdateCACertificate operation.</p>
  */
 export interface UpdateCACertificateRequest {
@@ -2119,6 +2424,7 @@ export interface UpdateCACertificateRequest {
 }
 
 /**
+ * @public
  * <p>The input for the UpdateCertificate operation.</p>
  */
 export interface UpdateCertificateRequest {
@@ -2141,6 +2447,9 @@ export interface UpdateCertificateRequest {
   newStatus: CertificateStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCustomMetricRequest {
   /**
    * <p> The name of the custom metric.
@@ -2161,6 +2470,9 @@ export interface UpdateCustomMetricRequest {
   displayName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCustomMetricResponse {
   /**
    * <p>
@@ -2206,6 +2518,9 @@ export interface UpdateCustomMetricResponse {
   lastModifiedDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDimensionRequest {
   /**
    * <p>A unique identifier for the dimension. Choose something that describes the type and value to make it easy to remember what it does.</p>
@@ -2218,6 +2533,9 @@ export interface UpdateDimensionRequest {
   stringValues: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDimensionResponse {
   /**
    * <p>A unique identifier for the dimension.</p>
@@ -2252,6 +2570,9 @@ export interface UpdateDimensionResponse {
   lastModifiedDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDomainConfigurationRequest {
   /**
    * <p>The name of the domain configuration to be updated.</p>
@@ -2274,6 +2595,9 @@ export interface UpdateDomainConfigurationRequest {
   removeAuthorizerConfig?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDomainConfigurationResponse {
   /**
    * <p>The name of the domain configuration that was updated.</p>
@@ -2286,6 +2610,9 @@ export interface UpdateDomainConfigurationResponse {
   domainConfigurationArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDynamicThingGroupRequest {
   /**
    * <p>The name of the dynamic thing group to update.</p>
@@ -2304,9 +2631,9 @@ export interface UpdateDynamicThingGroupRequest {
 
   /**
    * <p>The dynamic thing group index to update.</p>
-   * 		       <note>
-   * 			         <p>Currently one index is supported: <code>AWS_Things</code>.</p>
-   * 		       </note>
+   *          <note>
+   *             <p>Currently one index is supported: <code>AWS_Things</code>.</p>
+   *          </note>
    */
   indexName?: string;
 
@@ -2317,14 +2644,17 @@ export interface UpdateDynamicThingGroupRequest {
 
   /**
    * <p>The dynamic thing group query version to update.</p>
-   * 		       <note>
-   * 			         <p>Currently one query version is supported: "2017-09-30". If not specified, the
+   *          <note>
+   *             <p>Currently one query version is supported: "2017-09-30". If not specified, the
    * 				query version defaults to this value.</p>
-   * 		       </note>
+   *          </note>
    */
   queryVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDynamicThingGroupResponse {
   /**
    * <p>The dynamic thing group version.</p>
@@ -2332,6 +2662,9 @@ export interface UpdateDynamicThingGroupResponse {
   version?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEventConfigurationsRequest {
   /**
    * <p>The new event configuration values.</p>
@@ -2339,8 +2672,14 @@ export interface UpdateEventConfigurationsRequest {
   eventConfigurations?: Record<string, Configuration>;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEventConfigurationsResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateFleetMetricRequest {
   /**
    * <p>The name of the fleet metric to update.</p>
@@ -2394,6 +2733,9 @@ export interface UpdateFleetMetricRequest {
   expectedVersion?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateIndexingConfigurationRequest {
   /**
    * <p>Thing indexing configuration.</p>
@@ -2406,8 +2748,14 @@ export interface UpdateIndexingConfigurationRequest {
   thingGroupIndexingConfiguration?: ThingGroupIndexingConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdateIndexingConfigurationResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateJobRequest {
   /**
    * <p>The ID of the job to be updated.</p>
@@ -2442,12 +2790,12 @@ export interface UpdateJobRequest {
 
   /**
    * <p>The namespace used to indicate that a job is a customer-managed job.</p>
-   *         <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
+   *          <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
    *             contain the value in the following format.</p>
-   *         <p>
+   *          <p>
    *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
    *          </p>
-   *         <note>
+   *          <note>
    *             <p>The <code>namespaceId</code> feature is in public preview.</p>
    *          </note>
    */
@@ -2459,6 +2807,9 @@ export interface UpdateJobRequest {
   jobExecutionsRetryConfig?: JobExecutionsRetryConfig;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMitigationActionRequest {
   /**
    * <p>The friendly name for the mitigation action. You cannot change the name by using
@@ -2479,6 +2830,9 @@ export interface UpdateMitigationActionRequest {
   actionParams?: MitigationActionParams;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMitigationActionResponse {
   /**
    * <p>The ARN for the new mitigation action.</p>
@@ -2491,6 +2845,9 @@ export interface UpdateMitigationActionResponse {
   actionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateProvisioningTemplateRequest {
   /**
    * <p>The name of the provisioning template.</p>
@@ -2531,8 +2888,14 @@ export interface UpdateProvisioningTemplateRequest {
   removePreProvisioningHook?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdateProvisioningTemplateResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateRoleAliasRequest {
   /**
    * <p>The role alias to update.</p>
@@ -2552,6 +2915,9 @@ export interface UpdateRoleAliasRequest {
   credentialDurationSeconds?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRoleAliasResponse {
   /**
    * <p>The role alias.</p>
@@ -2564,6 +2930,9 @@ export interface UpdateRoleAliasResponse {
   roleAliasArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateScheduledAuditRequest {
   /**
    * <p>How often the scheduled audit takes
@@ -2607,6 +2976,9 @@ export interface UpdateScheduledAuditRequest {
   scheduledAuditName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateScheduledAuditResponse {
   /**
    * <p>The ARN of the scheduled audit.</p>
@@ -2614,6 +2986,9 @@ export interface UpdateScheduledAuditResponse {
   scheduledAuditArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSecurityProfileRequest {
   /**
    * <p>The name of the security profile you want to update.</p>
@@ -2683,6 +3058,9 @@ export interface UpdateSecurityProfileRequest {
   expectedVersion?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSecurityProfileResponse {
   /**
    * <p>The name of the security profile that was updated.</p>
@@ -2746,6 +3124,9 @@ export interface UpdateSecurityProfileResponse {
   lastModifiedDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface UpdateStreamRequest {
   /**
    * <p>The stream ID.</p>
@@ -2768,6 +3149,9 @@ export interface UpdateStreamRequest {
   roleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateStreamResponse {
   /**
    * <p>The stream ID.</p>
@@ -2791,12 +3175,13 @@ export interface UpdateStreamResponse {
 }
 
 /**
+ * @public
  * <p>The input for the UpdateThing operation.</p>
  */
 export interface UpdateThingRequest {
   /**
    * <p>The name of the thing to update.</p>
-   * 		       <p>You can't change a thing's name. To change a thing's name, you must create a
+   *          <p>You can't change a thing's name. To change a thing's name, you must create a
    * 			new thing, give it the new name, and then delete the old thing.</p>
    */
   thingName: string | undefined;
@@ -2809,10 +3194,10 @@ export interface UpdateThingRequest {
   /**
    * <p>A list of thing attributes, a JSON string containing name-value pairs. For
    * 			example:</p>
-   * 		       <p>
-   * 			         <code>{\"attributes\":{\"name1\":\"value2\"}}</code>
-   * 		       </p>
-   * 		       <p>This data is used to add new attributes or update existing attributes.</p>
+   *          <p>
+   *             <code>\{\"attributes\":\{\"name1\":\"value2\"\}\}</code>
+   *          </p>
+   *          <p>This data is used to add new attributes or update existing attributes.</p>
    */
   attributePayload?: AttributePayload;
 
@@ -2832,10 +3217,14 @@ export interface UpdateThingRequest {
 }
 
 /**
+ * @public
  * <p>The output from the UpdateThing operation.</p>
  */
 export interface UpdateThingResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateThingGroupRequest {
   /**
    * <p>The thing group to update.</p>
@@ -2854,6 +3243,9 @@ export interface UpdateThingGroupRequest {
   expectedVersion?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateThingGroupResponse {
   /**
    * <p>The version of the updated thing group.</p>
@@ -2861,6 +3253,9 @@ export interface UpdateThingGroupResponse {
   version?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateThingGroupsForThingRequest {
   /**
    * <p>The thing whose group memberships will be updated.</p>
@@ -2886,8 +3281,14 @@ export interface UpdateThingGroupsForThingRequest {
   overrideDynamicGroups?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdateThingGroupsForThingResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateTopicRuleDestinationRequest {
   /**
    * <p>The ARN of the topic rule destination.</p>
@@ -2931,8 +3332,14 @@ export interface UpdateTopicRuleDestinationRequest {
   status: TopicRuleDestinationStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTopicRuleDestinationResponse {}
 
+/**
+ * @public
+ */
 export interface ValidateSecurityProfileBehaviorsRequest {
   /**
    * <p>Specifies the behaviors that, when violated by a device (thing), cause an alert.</p>
@@ -2941,6 +3348,7 @@ export interface ValidateSecurityProfileBehaviorsRequest {
 }
 
 /**
+ * @public
  * <p>Information about an error found in a behavior specification.</p>
  */
 export interface ValidationError {
@@ -2950,6 +3358,9 @@ export interface ValidationError {
   errorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface ValidateSecurityProfileBehaviorsResponse {
   /**
    * <p>True if the behaviors were valid.</p>
@@ -2961,1019 +3372,3 @@ export interface ValidateSecurityProfileBehaviorsResponse {
    */
   validationErrors?: ValidationError[];
 }
-
-/**
- * @internal
- */
-export const ListStreamsResponseFilterSensitiveLog = (obj: ListStreamsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTargetsForPolicyRequestFilterSensitiveLog = (obj: ListTargetsForPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTargetsForPolicyResponseFilterSensitiveLog = (obj: ListTargetsForPolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTargetsForSecurityProfileRequestFilterSensitiveLog = (
-  obj: ListTargetsForSecurityProfileRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTargetsForSecurityProfileResponseFilterSensitiveLog = (
-  obj: ListTargetsForSecurityProfileResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListThingGroupsRequestFilterSensitiveLog = (obj: ListThingGroupsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListThingGroupsResponseFilterSensitiveLog = (obj: ListThingGroupsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListThingGroupsForThingRequestFilterSensitiveLog = (obj: ListThingGroupsForThingRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListThingGroupsForThingResponseFilterSensitiveLog = (obj: ListThingGroupsForThingResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListThingPrincipalsRequestFilterSensitiveLog = (obj: ListThingPrincipalsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListThingPrincipalsResponseFilterSensitiveLog = (obj: ListThingPrincipalsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListThingRegistrationTaskReportsRequestFilterSensitiveLog = (
-  obj: ListThingRegistrationTaskReportsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListThingRegistrationTaskReportsResponseFilterSensitiveLog = (
-  obj: ListThingRegistrationTaskReportsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListThingRegistrationTasksRequestFilterSensitiveLog = (obj: ListThingRegistrationTasksRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListThingRegistrationTasksResponseFilterSensitiveLog = (obj: ListThingRegistrationTasksResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListThingsRequestFilterSensitiveLog = (obj: ListThingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ThingAttributeFilterSensitiveLog = (obj: ThingAttribute): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListThingsResponseFilterSensitiveLog = (obj: ListThingsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListThingsInBillingGroupRequestFilterSensitiveLog = (obj: ListThingsInBillingGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListThingsInBillingGroupResponseFilterSensitiveLog = (obj: ListThingsInBillingGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListThingsInThingGroupRequestFilterSensitiveLog = (obj: ListThingsInThingGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListThingsInThingGroupResponseFilterSensitiveLog = (obj: ListThingsInThingGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListThingTypesRequestFilterSensitiveLog = (obj: ListThingTypesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ThingTypeDefinitionFilterSensitiveLog = (obj: ThingTypeDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListThingTypesResponseFilterSensitiveLog = (obj: ListThingTypesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTopicRuleDestinationsRequestFilterSensitiveLog = (obj: ListTopicRuleDestinationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HttpUrlDestinationSummaryFilterSensitiveLog = (obj: HttpUrlDestinationSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcDestinationSummaryFilterSensitiveLog = (obj: VpcDestinationSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TopicRuleDestinationSummaryFilterSensitiveLog = (obj: TopicRuleDestinationSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTopicRuleDestinationsResponseFilterSensitiveLog = (obj: ListTopicRuleDestinationsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTopicRulesRequestFilterSensitiveLog = (obj: ListTopicRulesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TopicRuleListItemFilterSensitiveLog = (obj: TopicRuleListItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTopicRulesResponseFilterSensitiveLog = (obj: ListTopicRulesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListV2LoggingLevelsRequestFilterSensitiveLog = (obj: ListV2LoggingLevelsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LogTargetFilterSensitiveLog = (obj: LogTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LogTargetConfigurationFilterSensitiveLog = (obj: LogTargetConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListV2LoggingLevelsResponseFilterSensitiveLog = (obj: ListV2LoggingLevelsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListViolationEventsRequestFilterSensitiveLog = (obj: ListViolationEventsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ViolationEventFilterSensitiveLog = (obj: ViolationEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListViolationEventsResponseFilterSensitiveLog = (obj: ListViolationEventsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutVerificationStateOnViolationRequestFilterSensitiveLog = (
-  obj: PutVerificationStateOnViolationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutVerificationStateOnViolationResponseFilterSensitiveLog = (
-  obj: PutVerificationStateOnViolationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterCACertificateRequestFilterSensitiveLog = (obj: RegisterCACertificateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterCACertificateResponseFilterSensitiveLog = (obj: RegisterCACertificateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterCertificateRequestFilterSensitiveLog = (obj: RegisterCertificateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterCertificateResponseFilterSensitiveLog = (obj: RegisterCertificateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterCertificateWithoutCARequestFilterSensitiveLog = (
-  obj: RegisterCertificateWithoutCARequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterCertificateWithoutCAResponseFilterSensitiveLog = (
-  obj: RegisterCertificateWithoutCAResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterThingRequestFilterSensitiveLog = (obj: RegisterThingRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterThingResponseFilterSensitiveLog = (obj: RegisterThingResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RejectCertificateTransferRequestFilterSensitiveLog = (obj: RejectCertificateTransferRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveThingFromBillingGroupRequestFilterSensitiveLog = (obj: RemoveThingFromBillingGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveThingFromBillingGroupResponseFilterSensitiveLog = (
-  obj: RemoveThingFromBillingGroupResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveThingFromThingGroupRequestFilterSensitiveLog = (obj: RemoveThingFromThingGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveThingFromThingGroupResponseFilterSensitiveLog = (obj: RemoveThingFromThingGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReplaceTopicRuleRequestFilterSensitiveLog = (obj: ReplaceTopicRuleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchIndexRequestFilterSensitiveLog = (obj: SearchIndexRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ThingGroupDocumentFilterSensitiveLog = (obj: ThingGroupDocument): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ThingConnectivityFilterSensitiveLog = (obj: ThingConnectivity): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ThingDocumentFilterSensitiveLog = (obj: ThingDocument): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchIndexResponseFilterSensitiveLog = (obj: SearchIndexResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetDefaultAuthorizerRequestFilterSensitiveLog = (obj: SetDefaultAuthorizerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetDefaultAuthorizerResponseFilterSensitiveLog = (obj: SetDefaultAuthorizerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetDefaultPolicyVersionRequestFilterSensitiveLog = (obj: SetDefaultPolicyVersionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LoggingOptionsPayloadFilterSensitiveLog = (obj: LoggingOptionsPayload): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetLoggingOptionsRequestFilterSensitiveLog = (obj: SetLoggingOptionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetV2LoggingLevelRequestFilterSensitiveLog = (obj: SetV2LoggingLevelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetV2LoggingOptionsRequestFilterSensitiveLog = (obj: SetV2LoggingOptionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartAuditMitigationActionsTaskRequestFilterSensitiveLog = (
-  obj: StartAuditMitigationActionsTaskRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartAuditMitigationActionsTaskResponseFilterSensitiveLog = (
-  obj: StartAuditMitigationActionsTaskResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartDetectMitigationActionsTaskRequestFilterSensitiveLog = (
-  obj: StartDetectMitigationActionsTaskRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartDetectMitigationActionsTaskResponseFilterSensitiveLog = (
-  obj: StartDetectMitigationActionsTaskResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartOnDemandAuditTaskRequestFilterSensitiveLog = (obj: StartOnDemandAuditTaskRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartOnDemandAuditTaskResponseFilterSensitiveLog = (obj: StartOnDemandAuditTaskResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartThingRegistrationTaskRequestFilterSensitiveLog = (obj: StartThingRegistrationTaskRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartThingRegistrationTaskResponseFilterSensitiveLog = (obj: StartThingRegistrationTaskResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopThingRegistrationTaskRequestFilterSensitiveLog = (obj: StopThingRegistrationTaskRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopThingRegistrationTaskResponseFilterSensitiveLog = (obj: StopThingRegistrationTaskResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TestAuthorizationRequestFilterSensitiveLog = (obj: TestAuthorizationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TestAuthorizationResponseFilterSensitiveLog = (obj: TestAuthorizationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HttpContextFilterSensitiveLog = (obj: HttpContext): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MqttContextFilterSensitiveLog = (obj: MqttContext): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TlsContextFilterSensitiveLog = (obj: TlsContext): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TestInvokeAuthorizerRequestFilterSensitiveLog = (obj: TestInvokeAuthorizerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TestInvokeAuthorizerResponseFilterSensitiveLog = (obj: TestInvokeAuthorizerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransferCertificateRequestFilterSensitiveLog = (obj: TransferCertificateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransferCertificateResponseFilterSensitiveLog = (obj: TransferCertificateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAccountAuditConfigurationRequestFilterSensitiveLog = (
-  obj: UpdateAccountAuditConfigurationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAccountAuditConfigurationResponseFilterSensitiveLog = (
-  obj: UpdateAccountAuditConfigurationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAuditSuppressionRequestFilterSensitiveLog = (obj: UpdateAuditSuppressionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAuditSuppressionResponseFilterSensitiveLog = (obj: UpdateAuditSuppressionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAuthorizerRequestFilterSensitiveLog = (obj: UpdateAuthorizerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAuthorizerResponseFilterSensitiveLog = (obj: UpdateAuthorizerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBillingGroupRequestFilterSensitiveLog = (obj: UpdateBillingGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBillingGroupResponseFilterSensitiveLog = (obj: UpdateBillingGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCACertificateRequestFilterSensitiveLog = (obj: UpdateCACertificateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCertificateRequestFilterSensitiveLog = (obj: UpdateCertificateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCustomMetricRequestFilterSensitiveLog = (obj: UpdateCustomMetricRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCustomMetricResponseFilterSensitiveLog = (obj: UpdateCustomMetricResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDimensionRequestFilterSensitiveLog = (obj: UpdateDimensionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDimensionResponseFilterSensitiveLog = (obj: UpdateDimensionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDomainConfigurationRequestFilterSensitiveLog = (obj: UpdateDomainConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDomainConfigurationResponseFilterSensitiveLog = (obj: UpdateDomainConfigurationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDynamicThingGroupRequestFilterSensitiveLog = (obj: UpdateDynamicThingGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDynamicThingGroupResponseFilterSensitiveLog = (obj: UpdateDynamicThingGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateEventConfigurationsRequestFilterSensitiveLog = (obj: UpdateEventConfigurationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateEventConfigurationsResponseFilterSensitiveLog = (obj: UpdateEventConfigurationsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFleetMetricRequestFilterSensitiveLog = (obj: UpdateFleetMetricRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateIndexingConfigurationRequestFilterSensitiveLog = (obj: UpdateIndexingConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateIndexingConfigurationResponseFilterSensitiveLog = (
-  obj: UpdateIndexingConfigurationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateJobRequestFilterSensitiveLog = (obj: UpdateJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateMitigationActionRequestFilterSensitiveLog = (obj: UpdateMitigationActionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateMitigationActionResponseFilterSensitiveLog = (obj: UpdateMitigationActionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateProvisioningTemplateRequestFilterSensitiveLog = (obj: UpdateProvisioningTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateProvisioningTemplateResponseFilterSensitiveLog = (obj: UpdateProvisioningTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRoleAliasRequestFilterSensitiveLog = (obj: UpdateRoleAliasRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRoleAliasResponseFilterSensitiveLog = (obj: UpdateRoleAliasResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateScheduledAuditRequestFilterSensitiveLog = (obj: UpdateScheduledAuditRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateScheduledAuditResponseFilterSensitiveLog = (obj: UpdateScheduledAuditResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSecurityProfileRequestFilterSensitiveLog = (obj: UpdateSecurityProfileRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSecurityProfileResponseFilterSensitiveLog = (obj: UpdateSecurityProfileResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateStreamRequestFilterSensitiveLog = (obj: UpdateStreamRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateStreamResponseFilterSensitiveLog = (obj: UpdateStreamResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateThingRequestFilterSensitiveLog = (obj: UpdateThingRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateThingResponseFilterSensitiveLog = (obj: UpdateThingResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateThingGroupRequestFilterSensitiveLog = (obj: UpdateThingGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateThingGroupResponseFilterSensitiveLog = (obj: UpdateThingGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateThingGroupsForThingRequestFilterSensitiveLog = (obj: UpdateThingGroupsForThingRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateThingGroupsForThingResponseFilterSensitiveLog = (obj: UpdateThingGroupsForThingResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTopicRuleDestinationRequestFilterSensitiveLog = (obj: UpdateTopicRuleDestinationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTopicRuleDestinationResponseFilterSensitiveLog = (obj: UpdateTopicRuleDestinationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidateSecurityProfileBehaviorsRequestFilterSensitiveLog = (
-  obj: ValidateSecurityProfileBehaviorsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidationErrorFilterSensitiveLog = (obj: ValidationError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidateSecurityProfileBehaviorsResponseFilterSensitiveLog = (
-  obj: ValidateSecurityProfileBehaviorsResponse
-): any => ({
-  ...obj,
-});

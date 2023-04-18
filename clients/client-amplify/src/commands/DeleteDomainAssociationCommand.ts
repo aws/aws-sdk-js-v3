@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import {
-  DeleteDomainAssociationRequest,
-  DeleteDomainAssociationRequestFilterSensitiveLog,
-  DeleteDomainAssociationResult,
-  DeleteDomainAssociationResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteDomainAssociationCommand,
-  serializeAws_restJson1DeleteDomainAssociationCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteDomainAssociationRequest, DeleteDomainAssociationResult } from "../models/models_0";
+import { de_DeleteDomainAssociationCommand, se_DeleteDomainAssociationCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteDomainAssociationCommand}.
+ */
 export interface DeleteDomainAssociationCommandInput extends DeleteDomainAssociationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteDomainAssociationCommand}.
+ */
 export interface DeleteDomainAssociationCommandOutput extends DeleteDomainAssociationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Deletes a domain association for an Amplify app. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,35 @@ export interface DeleteDomainAssociationCommandOutput extends DeleteDomainAssoci
  * import { AmplifyClient, DeleteDomainAssociationCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, DeleteDomainAssociationCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
+ * const input = { // DeleteDomainAssociationRequest
+ *   appId: "STRING_VALUE", // required
+ *   domainName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDomainAssociationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDomainAssociationCommandInput - {@link DeleteDomainAssociationCommandInput}
+ * @returns {@link DeleteDomainAssociationCommandOutput}
  * @see {@link DeleteDomainAssociationCommandInput} for command's `input` shape.
  * @see {@link DeleteDomainAssociationCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p> A request contains unexpected data. </p>
+ *
+ * @throws {@link DependentServiceFailureException} (server fault)
+ *  <p> An operation failed because a dependent service threw an exception. </p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p> The service failed to perform an operation due to an internal issue. </p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p> An entity was not found during an operation. </p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p> An operation failed due to a lack of access. </p>
+ *
  *
  */
 export class DeleteDomainAssociationCommand extends $Command<
@@ -62,6 +87,9 @@ export class DeleteDomainAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDomainAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +118,8 @@ export class DeleteDomainAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDomainAssociationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDomainAssociationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +129,18 @@ export class DeleteDomainAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDomainAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDomainAssociationCommand(input, context);
+    return se_DeleteDomainAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDomainAssociationCommandOutput> {
-    return deserializeAws_restJson1DeleteDomainAssociationCommand(output, context);
+    return de_DeleteDomainAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

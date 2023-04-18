@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  GetConsoleOutputRequest,
-  GetConsoleOutputRequestFilterSensitiveLog,
-  GetConsoleOutputResult,
-  GetConsoleOutputResultFilterSensitiveLog,
-} from "../models/models_5";
-import {
-  deserializeAws_ec2GetConsoleOutputCommand,
-  serializeAws_ec2GetConsoleOutputCommand,
-} from "../protocols/Aws_ec2";
+import { GetConsoleOutputRequest, GetConsoleOutputResult } from "../models/models_5";
+import { de_GetConsoleOutputCommand, se_GetConsoleOutputCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link GetConsoleOutputCommand}.
+ */
 export interface GetConsoleOutputCommandInput extends GetConsoleOutputRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetConsoleOutputCommand}.
+ */
 export interface GetConsoleOutputCommandOutput extends GetConsoleOutputResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the console output for the specified instance. For Linux instances, the instance
  *             console output displays the exact console output that would normally be displayed on a
  *             physical monitor attached to a computer. For Windows instances, the instance console
@@ -48,13 +51,39 @@ export interface GetConsoleOutputCommandOutput extends GetConsoleOutputResult, _
  * import { EC2Client, GetConsoleOutputCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetConsoleOutputCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // GetConsoleOutputRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ *   Latest: true || false,
+ * };
  * const command = new GetConsoleOutputCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetConsoleOutputCommandInput - {@link GetConsoleOutputCommandInput}
+ * @returns {@link GetConsoleOutputCommandOutput}
  * @see {@link GetConsoleOutputCommandInput} for command's `input` shape.
  * @see {@link GetConsoleOutputCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ *
+ * @example To get the console output
+ * ```javascript
+ * // This example gets the console output for the specified instance.
+ * const input = {
+ *   "InstanceId": "i-1234567890abcdef0"
+ * };
+ * const command = new GetConsoleOutputCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "InstanceId": "i-1234567890abcdef0",
+ *   "Output": "...",
+ *   "Timestamp": "2018-05-25T21:23:53.000Z"
+ * }
+ * *\/
+ * // example id: to-get-the-console-output-1529355683194
+ * ```
  *
  */
 export class GetConsoleOutputCommand extends $Command<
@@ -74,6 +103,9 @@ export class GetConsoleOutputCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetConsoleOutputCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +134,8 @@ export class GetConsoleOutputCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetConsoleOutputRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetConsoleOutputResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +145,18 @@ export class GetConsoleOutputCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetConsoleOutputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2GetConsoleOutputCommand(input, context);
+    return se_GetConsoleOutputCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConsoleOutputCommandOutput> {
-    return deserializeAws_ec2GetConsoleOutputCommand(output, context);
+    return de_GetConsoleOutputCommand(output, context);
   }
 
   // Start section: command_body_extra

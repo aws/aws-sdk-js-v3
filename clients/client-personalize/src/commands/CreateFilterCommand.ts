@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateFilterRequest,
-  CreateFilterRequestFilterSensitiveLog,
-  CreateFilterResponse,
-  CreateFilterResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateFilterRequest, CreateFilterRequestFilterSensitiveLog, CreateFilterResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1CreateFilterCommand,
-  serializeAws_json1_1CreateFilterCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateFilterCommand, se_CreateFilterCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateFilterCommand}.
+ */
 export interface CreateFilterCommandInput extends CreateFilterRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateFilterCommand}.
+ */
 export interface CreateFilterCommandOutput extends CreateFilterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a recommendation filter. For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter.html">Filtering recommendations and user segments</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,42 @@ export interface CreateFilterCommandOutput extends CreateFilterResponse, __Metad
  * import { PersonalizeClient, CreateFilterCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, CreateFilterCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // CreateFilterRequest
+ *   name: "STRING_VALUE", // required
+ *   datasetGroupArn: "STRING_VALUE", // required
+ *   filterExpression: "STRING_VALUE", // required
+ *   tags: [ // Tags
+ *     { // Tag
+ *       tagKey: "STRING_VALUE", // required
+ *       tagValue: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateFilterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFilterCommandInput - {@link CreateFilterCommandInput}
+ * @returns {@link CreateFilterCommandOutput}
  * @see {@link CreateFilterCommandInput} for command's `input` shape.
  * @see {@link CreateFilterCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The limit on the number of requests per second has been exceeded.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The specified resource already exists.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Could not find the specified resource.</p>
+ *
+ * @throws {@link TooManyTagsException} (client fault)
+ *  <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
+ *
  *
  */
 export class CreateFilterCommand extends $Command<
@@ -62,6 +94,9 @@ export class CreateFilterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,7 +124,7 @@ export class CreateFilterCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateFilterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateFilterResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +134,18 @@ export class CreateFilterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateFilterCommand(input, context);
+    return se_CreateFilterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFilterCommandOutput> {
-    return deserializeAws_json1_1CreateFilterCommand(output, context);
+    return de_CreateFilterCommand(output, context);
   }
 
   // Start section: command_body_extra

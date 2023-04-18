@@ -26,12 +26,14 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
@@ -87,6 +89,7 @@ import {
   DescribeTransactionCommandOutput,
 } from "./commands/DescribeTransactionCommand";
 import { ExtendTransactionCommandInput, ExtendTransactionCommandOutput } from "./commands/ExtendTransactionCommand";
+import { GetDataCellsFilterCommandInput, GetDataCellsFilterCommandOutput } from "./commands/GetDataCellsFilterCommand";
 import {
   GetDataLakeSettingsCommandInput,
   GetDataLakeSettingsCommandOutput,
@@ -143,6 +146,10 @@ import {
 } from "./commands/SearchTablesByLFTagsCommand";
 import { StartQueryPlanningCommandInput, StartQueryPlanningCommandOutput } from "./commands/StartQueryPlanningCommand";
 import { StartTransactionCommandInput, StartTransactionCommandOutput } from "./commands/StartTransactionCommand";
+import {
+  UpdateDataCellsFilterCommandInput,
+  UpdateDataCellsFilterCommandOutput,
+} from "./commands/UpdateDataCellsFilterCommand";
 import { UpdateLFTagCommandInput, UpdateLFTagCommandOutput } from "./commands/UpdateLFTagCommand";
 import { UpdateResourceCommandInput, UpdateResourceCommandOutput } from "./commands/UpdateResourceCommand";
 import { UpdateTableObjectsCommandInput, UpdateTableObjectsCommandOutput } from "./commands/UpdateTableObjectsCommand";
@@ -158,6 +165,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AddLFTagsToResourceCommandInput
   | AssumeDecoratedRoleWithSAMLCommandInput
@@ -174,6 +184,7 @@ export type ServiceInputTypes =
   | DescribeResourceCommandInput
   | DescribeTransactionCommandInput
   | ExtendTransactionCommandInput
+  | GetDataCellsFilterCommandInput
   | GetDataLakeSettingsCommandInput
   | GetEffectivePermissionsForPathCommandInput
   | GetLFTagCommandInput
@@ -200,11 +211,15 @@ export type ServiceInputTypes =
   | SearchTablesByLFTagsCommandInput
   | StartQueryPlanningCommandInput
   | StartTransactionCommandInput
+  | UpdateDataCellsFilterCommandInput
   | UpdateLFTagCommandInput
   | UpdateResourceCommandInput
   | UpdateTableObjectsCommandInput
   | UpdateTableStorageOptimizerCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AddLFTagsToResourceCommandOutput
   | AssumeDecoratedRoleWithSAMLCommandOutput
@@ -221,6 +236,7 @@ export type ServiceOutputTypes =
   | DescribeResourceCommandOutput
   | DescribeTransactionCommandOutput
   | ExtendTransactionCommandOutput
+  | GetDataCellsFilterCommandOutput
   | GetDataLakeSettingsCommandOutput
   | GetEffectivePermissionsForPathCommandOutput
   | GetLFTagCommandOutput
@@ -247,11 +263,15 @@ export type ServiceOutputTypes =
   | SearchTablesByLFTagsCommandOutput
   | StartQueryPlanningCommandOutput
   | StartTransactionCommandOutput
+  | UpdateDataCellsFilterCommandOutput
   | UpdateLFTagCommandOutput
   | UpdateResourceCommandOutput
   | UpdateTableObjectsCommandOutput
   | UpdateTableStorageOptimizerCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -259,11 +279,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -320,19 +340,10 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
-   * Value for how many times a request will be made at most in case of retry.
+   * Unique service identifier.
+   * @internal
    */
-  maxAttempts?: number | __Provider<number>;
-
-  /**
-   * Specifies which retry algorithm to use.
-   */
-  retryMode?: string | __Provider<string>;
-
-  /**
-   * Optional logger for logging debug/info/warn/error.
-   */
-  logger?: __Logger;
+  serviceId?: string;
 
   /**
    * Enables IPv6/IPv4 dualstack endpoint.
@@ -343,12 +354,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Enables FIPS compatible endpoints.
    */
   useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
 
   /**
    * The AWS region to which this client will send requests
@@ -368,9 +373,24 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * Value for how many times a request will be made at most in case of retry.
    */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Specifies which retry algorithm to use.
+   */
+  retryMode?: string | __Provider<string>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
+
+  /**
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   */
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 
   /**
    * The internal function that inject utilities to runtime-specific stream to help users consume the data
@@ -379,6 +399,9 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   sdkStreamMixin?: __SdkStreamMixinInjector;
 }
 
+/**
+ * @public
+ */
 type LakeFormationClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -389,10 +412,15 @@ type LakeFormationClientConfigType = Partial<__SmithyConfiguration<__HttpHandler
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of LakeFormationClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of LakeFormationClient class constructor that set the region, credentials and other options.
  */
 export interface LakeFormationClientConfig extends LakeFormationClientConfigType {}
 
+/**
+ * @public
+ */
 type LakeFormationClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -403,11 +431,14 @@ type LakeFormationClientResolvedConfigType = __SmithyResolvedConfiguration<__Htt
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of LakeFormationClient class. This is resolved and normalized from the {@link LakeFormationClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of LakeFormationClient class. This is resolved and normalized from the {@link LakeFormationClientConfig | constructor configuration interface}.
  */
 export interface LakeFormationClientResolvedConfig extends LakeFormationClientResolvedConfigType {}
 
 /**
+ * @public
  * <fullname>Lake Formation</fullname>
  *          <p>Defines the public endpoint for the Lake Formation service.</p>
  */

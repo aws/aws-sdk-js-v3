@@ -13,36 +13,71 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DisassociateLensesInput, DisassociateLensesInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateLensesCommand,
-  serializeAws_restJson1DisassociateLensesCommand,
-} from "../protocols/Aws_restJson1";
+import { DisassociateLensesInput } from "../models/models_0";
+import { de_DisassociateLensesCommand, se_DisassociateLensesCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DisassociateLensesCommand}.
+ */
 export interface DisassociateLensesCommandInput extends DisassociateLensesInput {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateLensesCommand}.
+ */
 export interface DisassociateLensesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociate a lens from a workload.</p>
- *         <p>Up to 10 lenses can be disassociated from a workload in a single API operation.</p>
- *         <note>
+ *          <p>Up to 10 lenses can be disassociated from a workload in a single API operation.</p>
+ *          <note>
  *             <p>The Amazon Web Services Well-Architected Framework lens (<code>wellarchitected</code>) cannot be
  *                 removed from a workload.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WellArchitectedClient, DisassociateLensesCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, DisassociateLensesCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
+ * const input = { // DisassociateLensesInput
+ *   WorkloadId: "STRING_VALUE", // required
+ *   LensAliases: [ // LensAliases // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DisassociateLensesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateLensesCommandInput - {@link DisassociateLensesCommandInput}
+ * @returns {@link DisassociateLensesCommandOutput}
  * @see {@link DisassociateLensesCommandInput} for command's `input` shape.
  * @see {@link DisassociateLensesCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>User does not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The resource has already been processed, was deleted, or is too large.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There is a problem with the Well-Architected Tool API service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The user input is not valid.</p>
+ *
  *
  */
 export class DisassociateLensesCommand extends $Command<
@@ -62,6 +97,9 @@ export class DisassociateLensesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateLensesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +128,8 @@ export class DisassociateLensesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateLensesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +139,18 @@ export class DisassociateLensesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateLensesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateLensesCommand(input, context);
+    return se_DisassociateLensesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateLensesCommandOutput> {
-    return deserializeAws_restJson1DisassociateLensesCommand(output, context);
+    return de_DisassociateLensesCommand(output, context);
   }
 
   // Start section: command_body_extra

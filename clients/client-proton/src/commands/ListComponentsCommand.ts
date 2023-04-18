@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListComponentsInput,
-  ListComponentsInputFilterSensitiveLog,
-  ListComponentsOutput,
-  ListComponentsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListComponentsCommand,
-  serializeAws_json1_0ListComponentsCommand,
-} from "../protocols/Aws_json1_0";
+import { ListComponentsInput, ListComponentsOutput, ListComponentsOutputFilterSensitiveLog } from "../models/models_0";
+import { de_ListComponentsCommand, se_ListComponentsCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListComponentsCommand}.
+ */
 export interface ListComponentsCommandInput extends ListComponentsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListComponentsCommand}.
+ */
 export interface ListComponentsCommandOutput extends ListComponentsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List components with summary data. You can filter the result list by environment, service, or a single service instance.</p>
  *          <p>For more information about components, see
  *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
@@ -39,13 +42,35 @@ export interface ListComponentsCommandOutput extends ListComponentsOutput, __Met
  * import { ProtonClient, ListComponentsCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, ListComponentsCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // ListComponentsInput
+ *   nextToken: "STRING_VALUE",
+ *   environmentName: "STRING_VALUE",
+ *   serviceName: "STRING_VALUE",
+ *   serviceInstanceName: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListComponentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListComponentsCommandInput - {@link ListComponentsCommandInput}
+ * @returns {@link ListComponentsCommandOutput}
  * @see {@link ListComponentsCommandInput} for command's `input` shape.
  * @see {@link ListComponentsCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>There <i>isn't</i> sufficient access for performing this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request failed to register with the service.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+ *
  *
  */
 export class ListComponentsCommand extends $Command<
@@ -65,6 +90,9 @@ export class ListComponentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListComponentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,7 +121,7 @@ export class ListComponentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListComponentsInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListComponentsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -104,12 +132,18 @@ export class ListComponentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListComponentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListComponentsCommand(input, context);
+    return se_ListComponentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListComponentsCommandOutput> {
-    return deserializeAws_json1_0ListComponentsCommand(output, context);
+    return de_ListComponentsCommand(output, context);
   }
 
   // Start section: command_body_extra

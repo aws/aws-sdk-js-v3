@@ -100,6 +100,7 @@ import {
 import { KinesisAnalyticsClient } from "./KinesisAnalyticsClient";
 
 /**
+ * @public
  * <fullname>Amazon Kinesis Analytics</fullname>
  *         <p>
  *             <b>Overview</b>
@@ -113,6 +114,7 @@ import { KinesisAnalyticsClient } from "./KinesisAnalyticsClient";
  */
 export class KinesisAnalytics extends KinesisAnalyticsClient {
   /**
+   * @public
    * <note>
    *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
    *          </note>
@@ -153,6 +155,7 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
    *          </note>
@@ -201,6 +204,7 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
    *          </note>
@@ -240,6 +244,7 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
    *          </note>
@@ -291,6 +296,7 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
    *          </note>
@@ -336,6 +342,7 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
    *          </note>
@@ -394,6 +401,7 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
    *          </note>
@@ -431,6 +439,7 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
    *          </note>
@@ -470,6 +479,7 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
    *          </note>
@@ -507,6 +517,7 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
    *          </note>
@@ -544,6 +555,7 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
    *          </note>
@@ -584,6 +596,7 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
    *          </note>
@@ -625,6 +638,7 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
    *          </note>
@@ -671,6 +685,7 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
    *          </note>
@@ -719,6 +734,7 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the list of key-value tags assigned to the application. For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-tagging.html">Using Tagging</a>.</p>
    */
   public listTagsForResource(
@@ -751,6 +767,7 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
    *          </note>
@@ -794,6 +811,7 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
    *          </note>
@@ -836,6 +854,7 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   }
 
   /**
+   * @public
    * <p>Adds one or more key-value tags to a Kinesis Analytics application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
    *       For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-tagging.html">Using Tagging</a>.</p>
    */
@@ -863,6 +882,7 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   }
 
   /**
+   * @public
    * <p>Removes one or more tags from a Kinesis Analytics application. For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-tagging.html">Using Tagging</a>.</p>
    */
   public untagResource(
@@ -895,6 +915,7 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
    *          </note>

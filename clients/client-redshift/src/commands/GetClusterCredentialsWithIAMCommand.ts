@@ -14,26 +14,31 @@ import {
 } from "@aws-sdk/types";
 
 import { ClusterExtendedCredentials, ClusterExtendedCredentialsFilterSensitiveLog } from "../models/models_0";
-import {
-  GetClusterCredentialsWithIAMMessage,
-  GetClusterCredentialsWithIAMMessageFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryGetClusterCredentialsWithIAMCommand,
-  serializeAws_queryGetClusterCredentialsWithIAMCommand,
-} from "../protocols/Aws_query";
+import { GetClusterCredentialsWithIAMMessage } from "../models/models_1";
+import { de_GetClusterCredentialsWithIAMCommand, se_GetClusterCredentialsWithIAMCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetClusterCredentialsWithIAMCommand}.
+ */
 export interface GetClusterCredentialsWithIAMCommandInput extends GetClusterCredentialsWithIAMMessage {}
+/**
+ * @public
+ *
+ * The output of {@link GetClusterCredentialsWithIAMCommand}.
+ */
 export interface GetClusterCredentialsWithIAMCommandOutput extends ClusterExtendedCredentials, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a database user name and temporary password with temporary authorization to
  *             log in to an Amazon Redshift database.
  *             The database user is mapped 1:1 to the source Identity and Access Management (IAM) identity.
  *             For more information about IAM identities, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id.html">IAM Identities (users, user groups, and roles)</a> in the
  *             Amazon Web Services Identity and Access Management User Guide.</p>
- *         <p>The Identity and Access Management (IAM) identity that runs
+ *          <p>The Identity and Access Management (IAM) identity that runs
  *             this operation must have an IAM policy attached that allows access to all
  *             necessary actions and resources.
  *                 For more information about permissions, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html">Using identity-based policies (IAM policies)</a> in the
@@ -44,13 +49,28 @@ export interface GetClusterCredentialsWithIAMCommandOutput extends ClusterExtend
  * import { RedshiftClient, GetClusterCredentialsWithIAMCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, GetClusterCredentialsWithIAMCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // GetClusterCredentialsWithIAMMessage
+ *   DbName: "STRING_VALUE",
+ *   ClusterIdentifier: "STRING_VALUE", // required
+ *   DurationSeconds: Number("int"),
+ * };
  * const command = new GetClusterCredentialsWithIAMCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetClusterCredentialsWithIAMCommandInput - {@link GetClusterCredentialsWithIAMCommandInput}
+ * @returns {@link GetClusterCredentialsWithIAMCommandOutput}
  * @see {@link GetClusterCredentialsWithIAMCommandInput} for command's `input` shape.
  * @see {@link GetClusterCredentialsWithIAMCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
+ *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+ *         </p>
+ *
+ * @throws {@link UnsupportedOperationFault} (client fault)
+ *  <p>The requested operation isn't supported.</p>
+ *
  *
  */
 export class GetClusterCredentialsWithIAMCommand extends $Command<
@@ -70,6 +90,9 @@ export class GetClusterCredentialsWithIAMCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetClusterCredentialsWithIAMCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,7 +121,7 @@ export class GetClusterCredentialsWithIAMCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetClusterCredentialsWithIAMMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ClusterExtendedCredentialsFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -109,15 +132,21 @@ export class GetClusterCredentialsWithIAMCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetClusterCredentialsWithIAMCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetClusterCredentialsWithIAMCommand(input, context);
+    return se_GetClusterCredentialsWithIAMCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetClusterCredentialsWithIAMCommandOutput> {
-    return deserializeAws_queryGetClusterCredentialsWithIAMCommand(output, context);
+    return de_GetClusterCredentialsWithIAMCommand(output, context);
   }
 
   // Start section: command_body_extra

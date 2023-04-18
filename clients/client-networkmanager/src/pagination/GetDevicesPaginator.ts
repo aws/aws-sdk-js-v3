@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { GetDevicesCommand, GetDevicesCommandInput, GetDevicesCommandOutput } from "../commands/GetDevicesCommand";
-import { NetworkManager } from "../NetworkManager";
 import { NetworkManagerClient } from "../NetworkManagerClient";
 import { NetworkManagerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: NetworkManagerClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new GetDevicesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: NetworkManager,
-  input: GetDevicesCommandInput,
-  ...args: any
-): Promise<GetDevicesCommandOutput> => {
-  // @ts-ignore
-  return await client.getDevices(input, ...args);
-};
 export async function* paginateGetDevices(
   config: NetworkManagerPaginationConfiguration,
   input: GetDevicesCommandInput,
@@ -40,9 +31,7 @@ export async function* paginateGetDevices(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof NetworkManager) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof NetworkManagerClient) {
+    if (config.client instanceof NetworkManagerClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected NetworkManager | NetworkManagerClient");

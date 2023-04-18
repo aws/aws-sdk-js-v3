@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteResourcePermissionInput,
-  DeleteResourcePermissionInputFilterSensitiveLog,
-  DeleteResourcePermissionOutput,
-  DeleteResourcePermissionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteResourcePermissionCommand,
-  serializeAws_restJson1DeleteResourcePermissionCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteResourcePermissionInput, DeleteResourcePermissionOutput } from "../models/models_0";
+import { de_DeleteResourcePermissionCommand, se_DeleteResourcePermissionCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteResourcePermissionCommand}.
+ */
 export interface DeleteResourcePermissionCommandInput extends DeleteResourcePermissionInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteResourcePermissionCommand}.
+ */
 export interface DeleteResourcePermissionCommandOutput extends DeleteResourcePermissionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes permissions associated with the target database.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,30 @@ export interface DeleteResourcePermissionCommandOutput extends DeleteResourcePer
  * import { SsmSapClient, DeleteResourcePermissionCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
  * // const { SsmSapClient, DeleteResourcePermissionCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
  * const client = new SsmSapClient(config);
+ * const input = { // DeleteResourcePermissionInput
+ *   ActionType: "STRING_VALUE",
+ *   SourceResourceArn: "STRING_VALUE",
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteResourcePermissionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteResourcePermissionCommandInput - {@link DeleteResourcePermissionCommandInput}
+ * @returns {@link DeleteResourcePermissionCommandOutput}
  * @see {@link DeleteResourcePermissionCommandInput} for command's `input` shape.
  * @see {@link DeleteResourcePermissionCommandOutput} for command's `response` shape.
  * @see {@link SsmSapClientResolvedConfig | config} for SsmSapClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error has occurred.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource is not available.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an AWS service. </p>
+ *
  *
  */
 export class DeleteResourcePermissionCommand extends $Command<
@@ -62,6 +82,9 @@ export class DeleteResourcePermissionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteResourcePermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +113,8 @@ export class DeleteResourcePermissionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteResourcePermissionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteResourcePermissionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +124,18 @@ export class DeleteResourcePermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteResourcePermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteResourcePermissionCommand(input, context);
+    return se_DeleteResourcePermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResourcePermissionCommandOutput> {
-    return deserializeAws_restJson1DeleteResourcePermissionCommand(output, context);
+    return de_DeleteResourcePermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

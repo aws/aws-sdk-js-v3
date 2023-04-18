@@ -14,19 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetDNSSECRequest,
-  GetDNSSECRequestFilterSensitiveLog,
-  GetDNSSECResponse,
-  GetDNSSECResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_restXmlGetDNSSECCommand, serializeAws_restXmlGetDNSSECCommand } from "../protocols/Aws_restXml";
+import { GetDNSSECRequest, GetDNSSECResponse } from "../models/models_0";
+import { de_GetDNSSECCommand, se_GetDNSSECCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * @public
+ *
+ * The input for {@link GetDNSSECCommand}.
+ */
 export interface GetDNSSECCommandInput extends GetDNSSECRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetDNSSECCommand}.
+ */
 export interface GetDNSSECCommandOutput extends GetDNSSECResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about DNSSEC for a specific hosted zone, including the key-signing
  * 			keys (KSKs) in the hosted zone.</p>
  * @example
@@ -35,13 +41,28 @@ export interface GetDNSSECCommandOutput extends GetDNSSECResponse, __MetadataBea
  * import { Route53Client, GetDNSSECCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, GetDNSSECCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = { // GetDNSSECRequest
+ *   HostedZoneId: "STRING_VALUE", // required
+ * };
  * const command = new GetDNSSECCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDNSSECCommandInput - {@link GetDNSSECCommandInput}
+ * @returns {@link GetDNSSECCommandOutput}
  * @see {@link GetDNSSECCommandInput} for command's `input` shape.
  * @see {@link GetDNSSECCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>Parameter name is not valid.</p>
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link NoSuchHostedZone} (client fault)
+ *  <p>No hosted zone exists with the ID that you specified.</p>
+ *
  *
  */
 export class GetDNSSECCommand extends $Command<
@@ -61,6 +82,9 @@ export class GetDNSSECCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDNSSECCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +112,8 @@ export class GetDNSSECCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDNSSECRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDNSSECResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +123,18 @@ export class GetDNSSECCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDNSSECCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetDNSSECCommand(input, context);
+    return se_GetDNSSECCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDNSSECCommandOutput> {
-    return deserializeAws_restXmlGetDNSSECCommand(output, context);
+    return de_GetDNSSECCommand(output, context);
   }
 
   // Start section: command_body_extra

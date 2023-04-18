@@ -6,12 +6,11 @@ import {
   ListInstancesCommandInput,
   ListInstancesCommandOutput,
 } from "../commands/ListInstancesCommand";
-import { SSOAdmin } from "../SSOAdmin";
 import { SSOAdminClient } from "../SSOAdminClient";
 import { SSOAdminPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SSOAdminClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListInstancesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: SSOAdmin,
-  input: ListInstancesCommandInput,
-  ...args: any
-): Promise<ListInstancesCommandOutput> => {
-  // @ts-ignore
-  return await client.listInstances(input, ...args);
-};
 export async function* paginateListInstances(
   config: SSOAdminPaginationConfiguration,
   input: ListInstancesCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListInstances(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof SSOAdmin) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SSOAdminClient) {
+    if (config.client instanceof SSOAdminClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SSOAdmin | SSOAdminClient");

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupStorageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupStorageClient";
-import {
-  StartObjectInput,
-  StartObjectInputFilterSensitiveLog,
-  StartObjectOutput,
-  StartObjectOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StartObjectCommand,
-  serializeAws_restJson1StartObjectCommand,
-} from "../protocols/Aws_restJson1";
+import { StartObjectInput, StartObjectOutput } from "../models/models_0";
+import { de_StartObjectCommand, se_StartObjectCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link StartObjectCommand}.
+ */
 export interface StartObjectCommandInput extends StartObjectInput {}
+/**
+ * @public
+ *
+ * The output of {@link StartObjectCommand}.
+ */
 export interface StartObjectCommandOutput extends StartObjectOutput, __MetadataBearer {}
 
 /**
+ * @public
  * Start upload containing one or many chunks.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,46 @@ export interface StartObjectCommandOutput extends StartObjectOutput, __MetadataB
  * import { BackupStorageClient, StartObjectCommand } from "@aws-sdk/client-backupstorage"; // ES Modules import
  * // const { BackupStorageClient, StartObjectCommand } = require("@aws-sdk/client-backupstorage"); // CommonJS import
  * const client = new BackupStorageClient(config);
+ * const input = { // StartObjectInput
+ *   BackupJobId: "STRING_VALUE", // required
+ *   ObjectName: "STRING_VALUE", // required
+ *   ThrowOnDuplicate: true || false,
+ * };
  * const command = new StartObjectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartObjectCommandInput - {@link StartObjectCommandInput}
+ * @returns {@link StartObjectCommandOutput}
  * @see {@link StartObjectCommandInput} for command's `input` shape.
  * @see {@link StartObjectCommandOutput} for command's `response` shape.
  * @see {@link BackupStorageClientResolvedConfig | config} for BackupStorageClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *
+ * @throws {@link DataAlreadyExistsException} (client fault)
+ *  Non-retryable exception. Attempted to create already existing object or chunk.
+ *     This message contains a checksum of already presented data.
+ *
+ * @throws {@link IllegalArgumentException} (client fault)
+ *  Non-retryable exception, indicates client error (wrong argument passed to API).
+ *     See exception message for details.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  Non-retryable exception. Attempted to make an operation on non-existing or expired resource.
+ *
+ * @throws {@link RetryableException} (server fault)
+ *  Retryable exception. In general indicates internal failure that can be fixed by retry.
+ *
+ * @throws {@link ServiceInternalException} (server fault)
+ *  Deprecated. To be removed from the model.
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  Retryable exception, indicates internal server error.
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  Increased rate over throttling limits. Can be retried with exponential backoff.
+ *
  *
  */
 export class StartObjectCommand extends $Command<
@@ -62,6 +98,9 @@ export class StartObjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartObjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +127,8 @@ export class StartObjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartObjectInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StartObjectOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +138,18 @@ export class StartObjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartObjectCommand(input, context);
+    return se_StartObjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartObjectCommandOutput> {
-    return deserializeAws_restJson1StartObjectCommand(output, context);
+    return de_StartObjectCommand(output, context);
   }
 
   // Start section: command_body_extra

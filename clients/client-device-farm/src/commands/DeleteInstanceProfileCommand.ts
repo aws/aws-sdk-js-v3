@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  DeleteInstanceProfileRequest,
-  DeleteInstanceProfileRequestFilterSensitiveLog,
-  DeleteInstanceProfileResult,
-  DeleteInstanceProfileResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteInstanceProfileCommand,
-  serializeAws_json1_1DeleteInstanceProfileCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteInstanceProfileRequest, DeleteInstanceProfileResult } from "../models/models_0";
+import { de_DeleteInstanceProfileCommand, se_DeleteInstanceProfileCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteInstanceProfileCommand}.
+ */
 export interface DeleteInstanceProfileCommandInput extends DeleteInstanceProfileRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteInstanceProfileCommand}.
+ */
 export interface DeleteInstanceProfileCommandOutput extends DeleteInstanceProfileResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a profile that can be applied to one or more private device instances.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,31 @@ export interface DeleteInstanceProfileCommandOutput extends DeleteInstanceProfil
  * import { DeviceFarmClient, DeleteInstanceProfileCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, DeleteInstanceProfileCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // DeleteInstanceProfileRequest
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteInstanceProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteInstanceProfileCommandInput - {@link DeleteInstanceProfileCommandInput}
+ * @returns {@link DeleteInstanceProfileCommandOutput}
  * @see {@link DeleteInstanceProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteInstanceProfileCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
+ *
+ * @throws {@link ArgumentException} (client fault)
+ *  <p>An invalid argument was specified.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A limit was exceeded.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The specified entity was not found.</p>
+ *
+ * @throws {@link ServiceAccountException} (client fault)
+ *  <p>There was a problem with the service account.</p>
+ *
  *
  */
 export class DeleteInstanceProfileCommand extends $Command<
@@ -62,6 +83,9 @@ export class DeleteInstanceProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteInstanceProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +114,8 @@ export class DeleteInstanceProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteInstanceProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteInstanceProfileResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +125,18 @@ export class DeleteInstanceProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteInstanceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteInstanceProfileCommand(input, context);
+    return se_DeleteInstanceProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInstanceProfileCommandOutput> {
-    return deserializeAws_json1_1DeleteInstanceProfileCommand(output, context);
+    return de_DeleteInstanceProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

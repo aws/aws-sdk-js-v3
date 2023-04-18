@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  PutResourceLogLevelRequest,
-  PutResourceLogLevelRequestFilterSensitiveLog,
-  PutResourceLogLevelResponse,
-  PutResourceLogLevelResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutResourceLogLevelCommand,
-  serializeAws_restJson1PutResourceLogLevelCommand,
-} from "../protocols/Aws_restJson1";
+import { PutResourceLogLevelRequest, PutResourceLogLevelResponse } from "../models/models_1";
+import { de_PutResourceLogLevelCommand, se_PutResourceLogLevelCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutResourceLogLevelCommand}.
+ */
 export interface PutResourceLogLevelCommandInput extends PutResourceLogLevelRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutResourceLogLevelCommand}.
+ */
 export interface PutResourceLogLevelCommandOutput extends PutResourceLogLevelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the log-level override for a resource-ID and resource-type. This option can be specified for a wireless gateway
  *             or a wireless device. A limit of 200 log level override can be set per account.</p>
  * @example
@@ -37,13 +40,36 @@ export interface PutResourceLogLevelCommandOutput extends PutResourceLogLevelRes
  * import { IoTWirelessClient, PutResourceLogLevelCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, PutResourceLogLevelCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // PutResourceLogLevelRequest
+ *   ResourceIdentifier: "STRING_VALUE", // required
+ *   ResourceType: "STRING_VALUE", // required
+ *   LogLevel: "INFO" || "ERROR" || "DISABLED", // required
+ * };
  * const command = new PutResourceLogLevelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutResourceLogLevelCommandInput - {@link PutResourceLogLevelCommandInput}
+ * @returns {@link PutResourceLogLevelCommandOutput}
  * @see {@link PutResourceLogLevelCommandInput} for command's `input` shape.
  * @see {@link PutResourceLogLevelCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>User does not have permission to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred while processing a request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because it exceeded the allowed API request rate.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input did not meet the specified constraints.</p>
+ *
  *
  */
 export class PutResourceLogLevelCommand extends $Command<
@@ -63,6 +89,9 @@ export class PutResourceLogLevelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutResourceLogLevelCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +120,8 @@ export class PutResourceLogLevelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutResourceLogLevelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutResourceLogLevelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +131,18 @@ export class PutResourceLogLevelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutResourceLogLevelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutResourceLogLevelCommand(input, context);
+    return se_PutResourceLogLevelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutResourceLogLevelCommandOutput> {
-    return deserializeAws_restJson1PutResourceLogLevelCommand(output, context);
+    return de_PutResourceLogLevelCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,36 +14,63 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  CancelJobRequest,
-  CancelJobRequestFilterSensitiveLog,
-  CancelJobResponse,
-  CancelJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CancelJobCommand,
-  serializeAws_restJson1CancelJobCommand,
-} from "../protocols/Aws_restJson1";
+import { CancelJobRequest, CancelJobResponse } from "../models/models_0";
+import { de_CancelJobCommand, se_CancelJobCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CancelJobCommand}.
+ */
 export interface CancelJobCommandInput extends CancelJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CancelJobCommand}.
+ */
 export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels a job.</p>
- *         <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CancelJob</a> action.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CancelJob</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, CancelJobCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CancelJobCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // CancelJobRequest
+ *   jobId: "STRING_VALUE", // required
+ *   reasonCode: "STRING_VALUE",
+ *   comment: "STRING_VALUE",
+ *   force: true || false,
+ * };
  * const command = new CancelJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelJobCommandInput - {@link CancelJobCommandInput}
+ * @returns {@link CancelJobCommandOutput}
  * @see {@link CancelJobCommandInput} for command's `input` shape.
  * @see {@link CancelJobCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A limit has been exceeded.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
  *
  */
 export class CancelJobCommand extends $Command<CancelJobCommandInput, CancelJobCommandOutput, IoTClientResolvedConfig> {
@@ -59,6 +86,9 @@ export class CancelJobCommand extends $Command<CancelJobCommandInput, CancelJobC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +115,8 @@ export class CancelJobCommand extends $Command<CancelJobCommandInput, CancelJobC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +126,18 @@ export class CancelJobCommand extends $Command<CancelJobCommandInput, CancelJobC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelJobCommand(input, context);
+    return se_CancelJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelJobCommandOutput> {
-    return deserializeAws_restJson1CancelJobCommand(output, context);
+    return de_CancelJobCommand(output, context);
   }
 
   // Start section: command_body_extra

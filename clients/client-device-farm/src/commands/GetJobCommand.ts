@@ -14,18 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  GetJobRequest,
-  GetJobRequestFilterSensitiveLog,
-  GetJobResult,
-  GetJobResultFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1GetJobCommand, serializeAws_json1_1GetJobCommand } from "../protocols/Aws_json1_1";
+import { GetJobRequest, GetJobResult } from "../models/models_0";
+import { de_GetJobCommand, se_GetJobCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetJobCommand}.
+ */
 export interface GetJobCommandInput extends GetJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetJobCommand}.
+ */
 export interface GetJobCommandOutput extends GetJobResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -33,13 +39,47 @@ export interface GetJobCommandOutput extends GetJobResult, __MetadataBearer {}
  * import { DeviceFarmClient, GetJobCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, GetJobCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // GetJobRequest
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new GetJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetJobCommandInput - {@link GetJobCommandInput}
+ * @returns {@link GetJobCommandOutput}
  * @see {@link GetJobCommandInput} for command's `input` shape.
  * @see {@link GetJobCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
+ *
+ * @throws {@link ArgumentException} (client fault)
+ *  <p>An invalid argument was specified.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A limit was exceeded.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The specified entity was not found.</p>
+ *
+ * @throws {@link ServiceAccountException} (client fault)
+ *  <p>There was a problem with the service account.</p>
+ *
+ *
+ * @example To get information about a job
+ * ```javascript
+ * // The following example returns information about a specific job.
+ * const input = {
+ *   "arn": "arn:aws:devicefarm:us-west-2::job:123-456-EXAMPLE-GUID"
+ * };
+ * const command = new GetJobCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "job": {}
+ * }
+ * *\/
+ * // example id: getjob-example-1470928294268
+ * ```
  *
  */
 export class GetJobCommand extends $Command<GetJobCommandInput, GetJobCommandOutput, DeviceFarmClientResolvedConfig> {
@@ -55,6 +95,9 @@ export class GetJobCommand extends $Command<GetJobCommandInput, GetJobCommandOut
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -81,8 +124,8 @@ export class GetJobCommand extends $Command<GetJobCommandInput, GetJobCommandOut
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetJobResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -92,12 +135,18 @@ export class GetJobCommand extends $Command<GetJobCommandInput, GetJobCommandOut
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetJobCommand(input, context);
+    return se_GetJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetJobCommandOutput> {
-    return deserializeAws_json1_1GetJobCommand(output, context);
+    return de_GetJobCommand(output, context);
   }
 
   // Start section: command_body_extra

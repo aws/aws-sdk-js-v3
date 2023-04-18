@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeEdgePackagingJobRequest,
-  DescribeEdgePackagingJobRequestFilterSensitiveLog,
-  DescribeEdgePackagingJobResponse,
-  DescribeEdgePackagingJobResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeEdgePackagingJobCommand,
-  serializeAws_json1_1DescribeEdgePackagingJobCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeEdgePackagingJobRequest, DescribeEdgePackagingJobResponse } from "../models/models_2";
+import { de_DescribeEdgePackagingJobCommand, se_DescribeEdgePackagingJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeEdgePackagingJobCommand}.
+ */
 export interface DescribeEdgePackagingJobCommandInput extends DescribeEdgePackagingJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeEdgePackagingJobCommand}.
+ */
 export interface DescribeEdgePackagingJobCommandOutput extends DescribeEdgePackagingJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>A description of edge packaging jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,22 @@ export interface DescribeEdgePackagingJobCommandOutput extends DescribeEdgePacka
  * import { SageMakerClient, DescribeEdgePackagingJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeEdgePackagingJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DescribeEdgePackagingJobRequest
+ *   EdgePackagingJobName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeEdgePackagingJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEdgePackagingJobCommandInput - {@link DescribeEdgePackagingJobCommandInput}
+ * @returns {@link DescribeEdgePackagingJobCommandOutput}
  * @see {@link DescribeEdgePackagingJobCommandInput} for command's `input` shape.
  * @see {@link DescribeEdgePackagingJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class DescribeEdgePackagingJobCommand extends $Command<
@@ -62,6 +74,9 @@ export class DescribeEdgePackagingJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEdgePackagingJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +105,8 @@ export class DescribeEdgePackagingJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEdgePackagingJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEdgePackagingJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +116,18 @@ export class DescribeEdgePackagingJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEdgePackagingJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEdgePackagingJobCommand(input, context);
+    return se_DescribeEdgePackagingJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEdgePackagingJobCommandOutput> {
-    return deserializeAws_json1_1DescribeEdgePackagingJobCommand(output, context);
+    return de_DescribeEdgePackagingJobCommand(output, context);
   }
 
   // Start section: command_body_extra

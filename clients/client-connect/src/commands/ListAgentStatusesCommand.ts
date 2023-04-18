@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  ListAgentStatusRequest,
-  ListAgentStatusRequestFilterSensitiveLog,
-  ListAgentStatusResponse,
-  ListAgentStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAgentStatusesCommand,
-  serializeAws_restJson1ListAgentStatusesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListAgentStatusRequest, ListAgentStatusResponse } from "../models/models_0";
+import { de_ListAgentStatusesCommand, se_ListAgentStatusesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListAgentStatusesCommand}.
+ */
 export interface ListAgentStatusesCommandInput extends ListAgentStatusRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListAgentStatusesCommand}.
+ */
 export interface ListAgentStatusesCommandOutput extends ListAgentStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Lists agent statuses.</p>
  * @example
@@ -37,13 +40,39 @@ export interface ListAgentStatusesCommandOutput extends ListAgentStatusResponse,
  * import { ConnectClient, ListAgentStatusesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListAgentStatusesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // ListAgentStatusRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   AgentStatusTypes: [ // AgentStatusTypes
+ *     "ROUTABLE" || "CUSTOM" || "OFFLINE",
+ *   ],
+ * };
  * const command = new ListAgentStatusesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAgentStatusesCommandInput - {@link ListAgentStatusesCommandInput}
+ * @returns {@link ListAgentStatusesCommandOutput}
  * @see {@link ListAgentStatusesCommandInput} for command's `input` shape.
  * @see {@link ListAgentStatusesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
  *
  */
 export class ListAgentStatusesCommand extends $Command<
@@ -63,6 +92,9 @@ export class ListAgentStatusesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAgentStatusesCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +123,8 @@ export class ListAgentStatusesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAgentStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAgentStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +134,18 @@ export class ListAgentStatusesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAgentStatusesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAgentStatusesCommand(input, context);
+    return se_ListAgentStatusesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAgentStatusesCommandOutput> {
-    return deserializeAws_restJson1ListAgentStatusesCommand(output, context);
+    return de_ListAgentStatusesCommand(output, context);
   }
 
   // Start section: command_body_extra

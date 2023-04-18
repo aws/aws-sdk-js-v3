@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import {
-  ListTargetsByRuleRequest,
-  ListTargetsByRuleRequestFilterSensitiveLog,
-  ListTargetsByRuleResponse,
-  ListTargetsByRuleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListTargetsByRuleCommand,
-  serializeAws_json1_1ListTargetsByRuleCommand,
-} from "../protocols/Aws_json1_1";
+import { ListTargetsByRuleRequest, ListTargetsByRuleResponse } from "../models/models_0";
+import { de_ListTargetsByRuleCommand, se_ListTargetsByRuleCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListTargetsByRuleCommand}.
+ */
 export interface ListTargetsByRuleCommandInput extends ListTargetsByRuleRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListTargetsByRuleCommand}.
+ */
 export interface ListTargetsByRuleCommandOutput extends ListTargetsByRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the targets assigned to the specified rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,28 @@ export interface ListTargetsByRuleCommandOutput extends ListTargetsByRuleRespons
  * import { CloudWatchEventsClient, ListTargetsByRuleCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, ListTargetsByRuleCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
+ * const input = { // ListTargetsByRuleRequest
+ *   Rule: "STRING_VALUE", // required
+ *   EventBusName: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListTargetsByRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTargetsByRuleCommandInput - {@link ListTargetsByRuleCommandInput}
+ * @returns {@link ListTargetsByRuleCommandOutput}
  * @see {@link ListTargetsByRuleCommandInput} for command's `input` shape.
  * @see {@link ListTargetsByRuleCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An entity that you specified does not exist.</p>
+ *
  *
  */
 export class ListTargetsByRuleCommand extends $Command<
@@ -62,6 +80,9 @@ export class ListTargetsByRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTargetsByRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +111,8 @@ export class ListTargetsByRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTargetsByRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTargetsByRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +122,18 @@ export class ListTargetsByRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTargetsByRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTargetsByRuleCommand(input, context);
+    return se_ListTargetsByRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTargetsByRuleCommandOutput> {
-    return deserializeAws_json1_1ListTargetsByRuleCommand(output, context);
+    return de_ListTargetsByRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

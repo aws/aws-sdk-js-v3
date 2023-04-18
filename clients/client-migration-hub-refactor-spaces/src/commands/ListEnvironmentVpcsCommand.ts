@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubRefactorSpacesClient";
-import {
-  ListEnvironmentVpcsRequest,
-  ListEnvironmentVpcsRequestFilterSensitiveLog,
-  ListEnvironmentVpcsResponse,
-  ListEnvironmentVpcsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListEnvironmentVpcsCommand,
-  serializeAws_restJson1ListEnvironmentVpcsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListEnvironmentVpcsRequest, ListEnvironmentVpcsResponse } from "../models/models_0";
+import { de_ListEnvironmentVpcsCommand, se_ListEnvironmentVpcsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListEnvironmentVpcsCommand}.
+ */
 export interface ListEnvironmentVpcsCommandInput extends ListEnvironmentVpcsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListEnvironmentVpcsCommand}.
+ */
 export interface ListEnvironmentVpcsCommandOutput extends ListEnvironmentVpcsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all Amazon Web Services Migration Hub Refactor Spaces service virtual private clouds (VPCs) that are part of the
  *       environment. </p>
  * @example
@@ -41,13 +44,37 @@ export interface ListEnvironmentVpcsCommandOutput extends ListEnvironmentVpcsRes
  * import { MigrationHubRefactorSpacesClient, ListEnvironmentVpcsCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
  * // const { MigrationHubRefactorSpacesClient, ListEnvironmentVpcsCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
  * const client = new MigrationHubRefactorSpacesClient(config);
+ * const input = { // ListEnvironmentVpcsRequest
+ *   EnvironmentIdentifier: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListEnvironmentVpcsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEnvironmentVpcsCommandInput - {@link ListEnvironmentVpcsCommandInput}
+ * @returns {@link ListEnvironmentVpcsCommandOutput}
  * @see {@link ListEnvironmentVpcsCommandInput} for command's `input` shape.
  * @see {@link ListEnvironmentVpcsCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubRefactorSpacesClientResolvedConfig | config} for MigrationHubRefactorSpacesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The user does not have sufficient access to perform this action. </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred while processing the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a resource that does not exist. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Request was denied because the request was throttled. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input does not satisfy the constraints specified by an Amazon Web Service.
+ *     </p>
+ *
  *
  */
 export class ListEnvironmentVpcsCommand extends $Command<
@@ -67,6 +94,9 @@ export class ListEnvironmentVpcsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEnvironmentVpcsCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +125,8 @@ export class ListEnvironmentVpcsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEnvironmentVpcsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEnvironmentVpcsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +136,18 @@ export class ListEnvironmentVpcsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEnvironmentVpcsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListEnvironmentVpcsCommand(input, context);
+    return se_ListEnvironmentVpcsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEnvironmentVpcsCommandOutput> {
-    return deserializeAws_restJson1ListEnvironmentVpcsCommand(output, context);
+    return de_ListEnvironmentVpcsCommand(output, context);
   }
 
   // Start section: command_body_extra

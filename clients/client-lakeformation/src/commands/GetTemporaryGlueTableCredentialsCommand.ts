@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
+import { GetTemporaryGlueTableCredentialsRequest, GetTemporaryGlueTableCredentialsResponse } from "../models/models_0";
 import {
-  GetTemporaryGlueTableCredentialsRequest,
-  GetTemporaryGlueTableCredentialsRequestFilterSensitiveLog,
-  GetTemporaryGlueTableCredentialsResponse,
-  GetTemporaryGlueTableCredentialsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetTemporaryGlueTableCredentialsCommand,
-  serializeAws_restJson1GetTemporaryGlueTableCredentialsCommand,
+  de_GetTemporaryGlueTableCredentialsCommand,
+  se_GetTemporaryGlueTableCredentialsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetTemporaryGlueTableCredentialsCommand}.
+ */
 export interface GetTemporaryGlueTableCredentialsCommandInput extends GetTemporaryGlueTableCredentialsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetTemporaryGlueTableCredentialsCommand}.
+ */
 export interface GetTemporaryGlueTableCredentialsCommandOutput
   extends GetTemporaryGlueTableCredentialsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows a caller in a secure environment to assume a role with permission to access Amazon S3. In order to vend such credentials, Lake Formation assumes the role associated with a registered location, for example an Amazon S3 bucket, with a scope down policy which restricts the access to a single prefix.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,47 @@ export interface GetTemporaryGlueTableCredentialsCommandOutput
  * import { LakeFormationClient, GetTemporaryGlueTableCredentialsCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, GetTemporaryGlueTableCredentialsCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
+ * const input = { // GetTemporaryGlueTableCredentialsRequest
+ *   TableArn: "STRING_VALUE", // required
+ *   Permissions: [ // PermissionList
+ *     "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_TAG" || "ASSOCIATE",
+ *   ],
+ *   DurationSeconds: Number("int"),
+ *   AuditContext: { // AuditContext
+ *     AdditionalAuditContext: "STRING_VALUE",
+ *   },
+ *   SupportedPermissionTypes: [ // PermissionTypeList // required
+ *     "COLUMN_PERMISSION" || "CELL_FILTER_PERMISSION",
+ *   ],
+ * };
  * const command = new GetTemporaryGlueTableCredentialsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTemporaryGlueTableCredentialsCommandInput - {@link GetTemporaryGlueTableCredentialsCommandInput}
+ * @returns {@link GetTemporaryGlueTableCredentialsCommandOutput}
  * @see {@link GetTemporaryGlueTableCredentialsCommandInput} for command's `input` shape.
  * @see {@link GetTemporaryGlueTableCredentialsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to a resource was denied.</p>
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ * @throws {@link PermissionTypeMismatchException} (client fault)
+ *  <p>The engine does not support filtering data based on the enforced permissions. For example, if you call the <code>GetTemporaryGlueTableCredentials</code> operation with <code>SupportedPermissionType</code> equal to <code>ColumnPermission</code>, but cell-level permissions exist on the table, this exception is thrown.</p>
+ *
  *
  */
 export class GetTemporaryGlueTableCredentialsCommand extends $Command<
@@ -64,6 +104,9 @@ export class GetTemporaryGlueTableCredentialsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTemporaryGlueTableCredentialsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +135,8 @@ export class GetTemporaryGlueTableCredentialsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTemporaryGlueTableCredentialsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTemporaryGlueTableCredentialsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +146,24 @@ export class GetTemporaryGlueTableCredentialsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetTemporaryGlueTableCredentialsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTemporaryGlueTableCredentialsCommand(input, context);
+    return se_GetTemporaryGlueTableCredentialsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetTemporaryGlueTableCredentialsCommandOutput> {
-    return deserializeAws_restJson1GetTemporaryGlueTableCredentialsCommand(output, context);
+    return de_GetTemporaryGlueTableCredentialsCommand(output, context);
   }
 
   // Start section: command_body_extra

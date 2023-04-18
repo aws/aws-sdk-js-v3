@@ -13,19 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AddCacheInput,
-  AddCacheInputFilterSensitiveLog,
-  AddCacheOutput,
-  AddCacheOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1AddCacheCommand, serializeAws_json1_1AddCacheCommand } from "../protocols/Aws_json1_1";
+import { AddCacheInput, AddCacheOutput } from "../models/models_0";
+import { de_AddCacheCommand, se_AddCacheCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * @public
+ *
+ * The input for {@link AddCacheCommand}.
+ */
 export interface AddCacheCommandInput extends AddCacheInput {}
+/**
+ * @public
+ *
+ * The output of {@link AddCacheCommand}.
+ */
 export interface AddCacheCommandOutput extends AddCacheOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Configures one or more gateway local disks as cache for a gateway. This operation is
  *          only supported in the cached volume, tape, and file gateway type (see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/StorageGatewayConcepts.html">How Storage Gateway works (architecture)</a>.</p>
  *
@@ -37,13 +43,50 @@ export interface AddCacheCommandOutput extends AddCacheOutput, __MetadataBearer 
  * import { StorageGatewayClient, AddCacheCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, AddCacheCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // AddCacheInput
+ *   GatewayARN: "STRING_VALUE", // required
+ *   DiskIds: [ // DiskIds // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new AddCacheCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AddCacheCommandInput - {@link AddCacheCommandInput}
+ * @returns {@link AddCacheCommandOutput}
  * @see {@link AddCacheCommandInput} for command's `input` shape.
  * @see {@link AddCacheCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error has occurred during the request. For more information, see the
+ *          error and message fields.</p>
+ *
+ * @throws {@link InvalidGatewayRequestException} (client fault)
+ *  <p>An exception occurred because an invalid gateway request was issued to the service. For
+ *          more information, see the error and message fields.</p>
+ *
+ *
+ * @example To add a cache
+ * ```javascript
+ * // The following example shows a request that activates a gateway-stored volume.
+ * const input = {
+ *   "DiskIds": [
+ *     "pci-0000:03:00.0-scsi-0:0:0:0",
+ *     "pci-0000:03:00.0-scsi-0:0:1:0"
+ *   ],
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ * };
+ * const command = new AddCacheCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ * }
+ * *\/
+ * // example id: to-add-a-cache-1471043606854
+ * ```
  *
  */
 export class AddCacheCommand extends $Command<
@@ -63,6 +106,9 @@ export class AddCacheCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddCacheCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +135,8 @@ export class AddCacheCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddCacheInputFilterSensitiveLog,
-      outputFilterSensitiveLog: AddCacheOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +146,18 @@ export class AddCacheCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddCacheCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AddCacheCommand(input, context);
+    return se_AddCacheCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddCacheCommandOutput> {
-    return deserializeAws_json1_1AddCacheCommand(output, context);
+    return de_AddCacheCommand(output, context);
   }
 
   // Start section: command_body_extra

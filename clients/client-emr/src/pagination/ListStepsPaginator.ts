@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListStepsCommand, ListStepsCommandInput, ListStepsCommandOutput } from "../commands/ListStepsCommand";
-import { EMR } from "../EMR";
 import { EMRClient } from "../EMRClient";
 import { EMRPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: EMRClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListStepsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: EMR,
-  input: ListStepsCommandInput,
-  ...args: any
-): Promise<ListStepsCommandOutput> => {
-  // @ts-ignore
-  return await client.listSteps(input, ...args);
-};
 export async function* paginateListSteps(
   config: EMRPaginationConfiguration,
   input: ListStepsCommandInput,
@@ -39,9 +30,7 @@ export async function* paginateListSteps(
   let page: ListStepsCommandOutput;
   while (hasNext) {
     input.Marker = token;
-    if (config.client instanceof EMR) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof EMRClient) {
+    if (config.client instanceof EMRClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected EMR | EMRClient");

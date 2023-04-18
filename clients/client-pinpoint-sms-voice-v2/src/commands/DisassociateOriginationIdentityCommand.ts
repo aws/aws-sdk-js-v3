@@ -13,28 +13,34 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DisassociateOriginationIdentityRequest,
-  DisassociateOriginationIdentityRequestFilterSensitiveLog,
-  DisassociateOriginationIdentityResult,
-  DisassociateOriginationIdentityResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DisassociateOriginationIdentityRequest, DisassociateOriginationIdentityResult } from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
 import {
-  deserializeAws_json1_0DisassociateOriginationIdentityCommand,
-  serializeAws_json1_0DisassociateOriginationIdentityCommand,
+  de_DisassociateOriginationIdentityCommand,
+  se_DisassociateOriginationIdentityCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link DisassociateOriginationIdentityCommand}.
+ */
 export interface DisassociateOriginationIdentityCommandInput extends DisassociateOriginationIdentityRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateOriginationIdentityCommand}.
+ */
 export interface DisassociateOriginationIdentityCommandOutput
   extends DisassociateOriginationIdentityResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified origination identity from an existing pool.</p>
  *         <p>If the origination identity isn't associated with the specified pool, an Error is
  *             returned.</p>
@@ -44,13 +50,46 @@ export interface DisassociateOriginationIdentityCommandOutput
  * import { PinpointSMSVoiceV2Client, DisassociateOriginationIdentityCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, DisassociateOriginationIdentityCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
+ * const input = { // DisassociateOriginationIdentityRequest
+ *   PoolId: "STRING_VALUE", // required
+ *   OriginationIdentity: "STRING_VALUE", // required
+ *   IsoCountryCode: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new DisassociateOriginationIdentityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateOriginationIdentityCommandInput - {@link DisassociateOriginationIdentityCommandInput}
+ * @returns {@link DisassociateOriginationIdentityCommandOutput}
  * @see {@link DisassociateOriginationIdentityCommandInput} for command's `input` shape.
  * @see {@link DisassociateOriginationIdentityCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The request was denied because you don't have sufficient permissions to access the
+ *             resource.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Your request has conflicting operations. This can occur if you're trying to perform
+ *             more than one operation on the same resource at the same time or it could be that the
+ *             requested action isn't valid for the current state or configuration of the
+ *             resource.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The API encountered an unexpected error and couldn't complete the request. You might
+ *             be able to successfully issue the request again in the future.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A requested resource couldn't be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>An error that occurred because too many requests were sent during a certain amount of
+ *             time.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>A validation exception for a field.</p>
+ *
  *
  */
 export class DisassociateOriginationIdentityCommand extends $Command<
@@ -70,6 +109,9 @@ export class DisassociateOriginationIdentityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateOriginationIdentityCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +140,8 @@ export class DisassociateOriginationIdentityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateOriginationIdentityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateOriginationIdentityResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,18 +151,24 @@ export class DisassociateOriginationIdentityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateOriginationIdentityCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0DisassociateOriginationIdentityCommand(input, context);
+    return se_DisassociateOriginationIdentityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateOriginationIdentityCommandOutput> {
-    return deserializeAws_json1_0DisassociateOriginationIdentityCommand(output, context);
+    return de_DisassociateOriginationIdentityCommand(output, context);
   }
 
   // Start section: command_body_extra

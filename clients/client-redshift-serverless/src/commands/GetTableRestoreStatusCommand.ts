@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetTableRestoreStatusRequest,
-  GetTableRestoreStatusRequestFilterSensitiveLog,
-  GetTableRestoreStatusResponse,
-  GetTableRestoreStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetTableRestoreStatusCommand,
-  serializeAws_json1_1GetTableRestoreStatusCommand,
-} from "../protocols/Aws_json1_1";
+import { GetTableRestoreStatusRequest, GetTableRestoreStatusResponse } from "../models/models_0";
+import { de_GetTableRestoreStatusCommand, se_GetTableRestoreStatusCommand } from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetTableRestoreStatusCommand}.
+ */
 export interface GetTableRestoreStatusCommandInput extends GetTableRestoreStatusRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetTableRestoreStatusCommand}.
+ */
 export interface GetTableRestoreStatusCommandOutput extends GetTableRestoreStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a <code>TableRestoreStatus</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,25 @@ export interface GetTableRestoreStatusCommandOutput extends GetTableRestoreStatu
  * import { RedshiftServerlessClient, GetTableRestoreStatusCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, GetTableRestoreStatusCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
+ * const input = { // GetTableRestoreStatusRequest
+ *   tableRestoreRequestId: "STRING_VALUE", // required
+ * };
  * const command = new GetTableRestoreStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTableRestoreStatusCommandInput - {@link GetTableRestoreStatusCommandInput}
+ * @returns {@link GetTableRestoreStatusCommandOutput}
  * @see {@link GetTableRestoreStatusCommandInput} for command's `input` shape.
  * @see {@link GetTableRestoreStatusCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
+ *
  *
  */
 export class GetTableRestoreStatusCommand extends $Command<
@@ -66,6 +81,9 @@ export class GetTableRestoreStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTableRestoreStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +112,8 @@ export class GetTableRestoreStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTableRestoreStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTableRestoreStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +123,18 @@ export class GetTableRestoreStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTableRestoreStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetTableRestoreStatusCommand(input, context);
+    return se_GetTableRestoreStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTableRestoreStatusCommandOutput> {
-    return deserializeAws_json1_1GetTableRestoreStatusCommand(output, context);
+    return de_GetTableRestoreStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import { DeleteProtocolsListRequest, DeleteProtocolsListRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteProtocolsListCommand,
-  serializeAws_json1_1DeleteProtocolsListCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteProtocolsListRequest } from "../models/models_0";
+import { de_DeleteProtocolsListCommand, se_DeleteProtocolsListCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteProtocolsListCommand}.
+ */
 export interface DeleteProtocolsListCommandInput extends DeleteProtocolsListRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteProtocolsListCommand}.
+ */
 export interface DeleteProtocolsListCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Permanently deletes an Firewall Manager protocols list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +39,33 @@ export interface DeleteProtocolsListCommandOutput extends __MetadataBearer {}
  * import { FMSClient, DeleteProtocolsListCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, DeleteProtocolsListCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
+ * const input = { // DeleteProtocolsListRequest
+ *   ListId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteProtocolsListCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteProtocolsListCommandInput - {@link DeleteProtocolsListCommandInput}
+ * @returns {@link DeleteProtocolsListCommandOutput}
  * @see {@link DeleteProtocolsListCommandInput} for command's `input` shape.
  * @see {@link DeleteProtocolsListCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (client fault)
+ *  <p>The operation failed because of a system problem, even though the request was valid. Retry
+ *       your request.</p>
+ *
+ * @throws {@link InvalidOperationException} (client fault)
+ *  <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have
+ *         submitted an <code>AssociateAdminAccount</code> request for an account ID that
+ *             was already set as the Firewall Manager administrator. Or you might have tried to access a Region
+ *   that's disabled by default, and that you need to enable for the Firewall Manager
+ *   administrator account and for Organizations before you can access it.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class DeleteProtocolsListCommand extends $Command<
@@ -57,6 +85,9 @@ export class DeleteProtocolsListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteProtocolsListCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +116,8 @@ export class DeleteProtocolsListCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteProtocolsListRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +127,18 @@ export class DeleteProtocolsListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteProtocolsListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteProtocolsListCommand(input, context);
+    return se_DeleteProtocolsListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteProtocolsListCommandOutput> {
-    return deserializeAws_json1_1DeleteProtocolsListCommand(output, context);
+    return de_DeleteProtocolsListCommand(output, context);
   }
 
   // Start section: command_body_extra

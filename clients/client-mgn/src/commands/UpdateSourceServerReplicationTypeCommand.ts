@@ -18,17 +18,27 @@ import {
   SourceServer,
   SourceServerFilterSensitiveLog,
   UpdateSourceServerReplicationTypeRequest,
-  UpdateSourceServerReplicationTypeRequestFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateSourceServerReplicationTypeCommand,
-  serializeAws_restJson1UpdateSourceServerReplicationTypeCommand,
+  de_UpdateSourceServerReplicationTypeCommand,
+  se_UpdateSourceServerReplicationTypeCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateSourceServerReplicationTypeCommand}.
+ */
 export interface UpdateSourceServerReplicationTypeCommandInput extends UpdateSourceServerReplicationTypeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateSourceServerReplicationTypeCommand}.
+ */
 export interface UpdateSourceServerReplicationTypeCommandOutput extends SourceServer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows you to change between the AGENT_BASED replication type and the SNAPSHOT_SHIPPING replication type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +46,32 @@ export interface UpdateSourceServerReplicationTypeCommandOutput extends SourceSe
  * import { MgnClient, UpdateSourceServerReplicationTypeCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, UpdateSourceServerReplicationTypeCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = { // UpdateSourceServerReplicationTypeRequest
+ *   sourceServerID: "STRING_VALUE", // required
+ *   replicationType: "STRING_VALUE", // required
+ * };
  * const command = new UpdateSourceServerReplicationTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSourceServerReplicationTypeCommandInput - {@link UpdateSourceServerReplicationTypeCommandInput}
+ * @returns {@link UpdateSourceServerReplicationTypeCommandOutput}
  * @see {@link UpdateSourceServerReplicationTypeCommandInput} for command's `input` shape.
  * @see {@link UpdateSourceServerReplicationTypeCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource not found exception.</p>
+ *
+ * @throws {@link UninitializedAccountException} (client fault)
+ *  <p>Uninitialized account exception.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Validate exception.</p>
+ *
  *
  */
 export class UpdateSourceServerReplicationTypeCommand extends $Command<
@@ -62,6 +91,9 @@ export class UpdateSourceServerReplicationTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSourceServerReplicationTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +122,7 @@ export class UpdateSourceServerReplicationTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSourceServerReplicationTypeRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: SourceServerFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -101,18 +133,24 @@ export class UpdateSourceServerReplicationTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateSourceServerReplicationTypeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateSourceServerReplicationTypeCommand(input, context);
+    return se_UpdateSourceServerReplicationTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateSourceServerReplicationTypeCommandOutput> {
-    return deserializeAws_restJson1UpdateSourceServerReplicationTypeCommand(output, context);
+    return de_UpdateSourceServerReplicationTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

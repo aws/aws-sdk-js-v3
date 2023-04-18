@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
-import {
-  GetPortfolioPreferencesRequest,
-  GetPortfolioPreferencesRequestFilterSensitiveLog,
-  GetPortfolioPreferencesResponse,
-  GetPortfolioPreferencesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetPortfolioPreferencesCommand,
-  serializeAws_restJson1GetPortfolioPreferencesCommand,
-} from "../protocols/Aws_restJson1";
+import { GetPortfolioPreferencesRequest, GetPortfolioPreferencesResponse } from "../models/models_0";
+import { de_GetPortfolioPreferencesCommand, se_GetPortfolioPreferencesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetPortfolioPreferencesCommand}.
+ */
 export interface GetPortfolioPreferencesCommandInput extends GetPortfolioPreferencesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetPortfolioPreferencesCommand}.
+ */
 export interface GetPortfolioPreferencesCommandOutput extends GetPortfolioPreferencesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Retrieves your migration and modernization preferences. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,30 @@ export interface GetPortfolioPreferencesCommandOutput extends GetPortfolioPrefer
  * import { MigrationHubStrategyClient, GetPortfolioPreferencesCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, GetPortfolioPreferencesCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
+ * const input = {};
  * const command = new GetPortfolioPreferencesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPortfolioPreferencesCommandInput - {@link GetPortfolioPreferencesCommandInput}
+ * @returns {@link GetPortfolioPreferencesCommandOutput}
  * @see {@link GetPortfolioPreferencesCommandInput} for command's `input` shape.
  * @see {@link GetPortfolioPreferencesCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p> The user does not have permission to perform the action. Check the
+ *       AWS Identity and Access Management (IAM) policy associated with this user.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> The server experienced an internal error. Try again. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p> The specified ID in the request is not found. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p> The request was denied due to request throttling. </p>
+ *
  *
  */
 export class GetPortfolioPreferencesCommand extends $Command<
@@ -66,6 +86,9 @@ export class GetPortfolioPreferencesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPortfolioPreferencesCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +117,8 @@ export class GetPortfolioPreferencesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPortfolioPreferencesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPortfolioPreferencesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +128,18 @@ export class GetPortfolioPreferencesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPortfolioPreferencesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetPortfolioPreferencesCommand(input, context);
+    return se_GetPortfolioPreferencesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPortfolioPreferencesCommandOutput> {
-    return deserializeAws_restJson1GetPortfolioPreferencesCommand(output, context);
+    return de_GetPortfolioPreferencesCommand(output, context);
   }
 
   // Start section: command_body_extra

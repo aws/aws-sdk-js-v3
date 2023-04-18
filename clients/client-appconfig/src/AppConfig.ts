@@ -215,6 +215,7 @@ import {
 } from "./commands/ValidateConfigurationCommand";
 
 /**
+ * @public
  * <p>Use AppConfig, a capability of Amazon Web Services Systems Manager, to create, manage, and quickly
  *          deploy application configurations. AppConfig supports controlled deployments to
  *          applications of any size and includes built-in validation checks and monitoring. You can
@@ -264,6 +265,7 @@ import {
  */
 export class AppConfig extends AppConfigClient {
   /**
+   * @public
    * <p>Creates an application. In AppConfig, an application is simply an
    *          organizational construct like a folder. This organizational construct has a relationship
    *          with some unit of executable code. For example, you could create an application called
@@ -300,12 +302,32 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
+   * @public
    * <p>Creates a configuration profile, which is information that enables AppConfig
-   *          to access the configuration source. Valid configuration sources include the AppConfig hosted configuration store, Amazon Web Services Systems Manager (SSM) documents, SSM Parameter Store
-   *          parameters, Amazon S3 objects, or any <a href="http://docs.aws.amazon.com/codepipeline/latest/userguide/integrations-action-type.html#integrations-source">integration source
-   *             action</a> supported by CodePipeline. A configuration profile includes the following
-   *          information:</p>
-   *
+   *          to access the configuration source. Valid configuration sources include the
+   *          following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Configuration data in YAML, JSON, and other formats stored in the AppConfig hosted configuration store</p>
+   *             </li>
+   *             <li>
+   *                <p>Configuration data stored as objects in an Amazon Simple Storage Service (Amazon S3)
+   *                bucket</p>
+   *             </li>
+   *             <li>
+   *                <p>Pipelines stored in CodePipeline</p>
+   *             </li>
+   *             <li>
+   *                <p>Secrets stored in Secrets Manager</p>
+   *             </li>
+   *             <li>
+   *                <p>Standard and secure string parameters stored in Amazon Web Services Systems Manager Parameter Store</p>
+   *             </li>
+   *             <li>
+   *                <p>Configuration data in SSM documents stored in the Systems Manager document store</p>
+   *             </li>
+   *          </ul>
+   *          <p>A configuration profile includes the following information:</p>
    *          <ul>
    *             <li>
    *                <p>The URI location of the configuration data.</p>
@@ -352,6 +374,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
+   * @public
    * <p>Creates a deployment strategy that defines important criteria for rolling out your
    *          configuration to the designated targets. A deployment strategy includes the overall
    *          duration required, a percentage of targets to receive the deployment during each interval,
@@ -387,6 +410,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
+   * @public
    * <p>Creates an environment. For each application, you define one or more environments. An
    *          environment is a deployment group of AppConfig targets, such as applications in a
    *             <code>Beta</code> or <code>Production</code> environment. You can also define
@@ -426,11 +450,12 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
+   * @public
    * <p>Creates an AppConfig extension. An extension augments your ability to inject
    *          logic or behavior at different points during the AppConfig workflow of creating
    *          or deploying a configuration.</p>
-   *          <p>You can create your own extensions or use the Amazon Web Services-authored extensions provided by
-   *             AppConfig. For most use-cases, to create your own extension, you must create
+   *          <p>You can create your own extensions or use the Amazon Web Services authored extensions provided by
+   *             AppConfig. For most use cases, to create your own extension, you must create
    *          an Lambda function to perform any computation and processing defined in the
    *          extension. For more information about extensions, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Working with
    *                AppConfig extensions</a> in the
@@ -466,11 +491,12 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
-   * <p>When you create an extension or configure an Amazon Web Services-authored extension, you
+   * @public
+   * <p>When you create an extension or configure an Amazon Web Services authored extension, you
    *          associate the extension with an AppConfig application, environment, or
    *          configuration profile. For example, you can choose to run the <code>AppConfig
    *             deployment events to Amazon SNS</code>
-   *          Amazon Web Services-authored extension and receive notifications on an Amazon SNS
+   *          Amazon Web Services authored extension and receive notifications on an Amazon SNS
    *          topic anytime a configuration deployment is started for a specific application. Defining
    *          which extension to associate with an AppConfig resource is called an
    *             <i>extension association</i>. An extension association is a specified
@@ -510,6 +536,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
+   * @public
    * <p>Creates a new configuration in the AppConfig hosted configuration
    *          store.</p>
    */
@@ -543,6 +570,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
+   * @public
    * <p>Deletes an application. Deleting an application does not delete a configuration from a
    *          host.</p>
    */
@@ -576,6 +604,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
+   * @public
    * <p>Deletes a configuration profile. Deleting a configuration profile does not delete a
    *          configuration from a host.</p>
    */
@@ -609,6 +638,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
+   * @public
    * <p>Deletes a deployment strategy. Deleting a deployment strategy does not delete a
    *          configuration from a host.</p>
    */
@@ -642,6 +672,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
+   * @public
    * <p>Deletes an environment. Deleting an environment does not delete a configuration from a
    *          host.</p>
    */
@@ -675,6 +706,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
+   * @public
    * <p>Deletes an AppConfig extension. You must delete all associations to an
    *          extension before you delete the extension.</p>
    */
@@ -708,6 +740,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
+   * @public
    * <p>Deletes an extension association. This action doesn't delete extensions defined in the
    *          association.</p>
    */
@@ -741,6 +774,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
+   * @public
    * <p>Deletes a version of a configuration from the AppConfig hosted configuration
    *          store.</p>
    */
@@ -774,6 +808,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about an application.</p>
    */
   public getApplication(
@@ -806,38 +841,21 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
-   * <p>Retrieves the latest deployed configuration.</p>
-   *
+   * <p>(Deprecated) Retrieves the latest deployed configuration.</p>
    *          <important>
    *             <p>Note the following important information.</p>
    *             <ul>
    *                <li>
-   *                   <p>This API action has been deprecated. Calls to receive configuration data should
-   *                   use the <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.html">StartConfigurationSession</a> and <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html">GetLatestConfiguration</a> APIs instead. </p>
+   *                   <p>This API action is deprecated. Calls to receive configuration data should use
+   *                   the <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.html">StartConfigurationSession</a> and <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html">GetLatestConfiguration</a> APIs instead. </p>
    *                </li>
    *                <li>
    *                   <p>
    *                      <code>GetConfiguration</code> is a priced call. For more information, see
    *                      <a href="https://aws.amazon.com/systems-manager/pricing/">Pricing</a>.</p>
-   *                </li>
-   *                <li>
-   *                   <p>AppConfig uses the value of the
-   *                      <code>ClientConfigurationVersion</code> parameter to identify the configuration
-   *                   version on your clients. If you don’t send <code>ClientConfigurationVersion</code>
-   *                   with each call to <code>GetConfiguration</code>, your clients receive the current
-   *                   configuration. You are charged each time your clients receive a
-   *                   configuration.</p>
-   *                   <p>To avoid excess charges, we recommend you use the <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/StartConfigurationSession.html">StartConfigurationSession</a> and <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/GetLatestConfiguration.html">GetLatestConfiguration</a> APIs, which track the client configuration
-   *                   version on your behalf. If you choose to continue using
-   *                      <code>GetConfiguration</code>, we recommend that you include the
-   *                      <code>ClientConfigurationVersion</code> value with every call to
-   *                      <code>GetConfiguration</code>. The value to use for
-   *                      <code>ClientConfigurationVersion</code> comes from the
-   *                      <code>ConfigurationVersion</code> attribute returned by
-   *                      <code>GetConfiguration</code> when there is new or updated data, and should be
-   *                   saved for subsequent calls to <code>GetConfiguration</code>.</p>
    *                </li>
    *             </ul>
    *          </important>
@@ -872,6 +890,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about a configuration profile.</p>
    */
   public getConfigurationProfile(
@@ -904,6 +923,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about a configuration deployment.</p>
    */
   public getDeployment(
@@ -936,6 +956,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about a deployment strategy. A deployment strategy defines
    *          important criteria for rolling out your configuration to the designated targets. A
    *          deployment strategy includes the overall duration required, a percentage of targets to
@@ -972,6 +993,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about an environment. An environment is a deployment group of
    *             AppConfig applications, such as applications in a <code>Production</code>
    *          environment or in an <code>EU_Region</code> environment. Each configuration deployment
@@ -1009,6 +1031,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
+   * @public
    * <p>Returns information about an AppConfig extension.</p>
    */
   public getExtension(
@@ -1038,6 +1061,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
+   * @public
    * <p>Returns information about an AppConfig extension association. For more
    *          information about extensions and associations, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Working with
    *                AppConfig extensions</a> in the
@@ -1073,6 +1097,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about a specific configuration version.</p>
    */
   public getHostedConfigurationVersion(
@@ -1105,6 +1130,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
+   * @public
    * <p>Lists all applications in your Amazon Web Services account.</p>
    */
   public listApplications(
@@ -1137,6 +1163,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
+   * @public
    * <p>Lists the configuration profiles for an application.</p>
    */
   public listConfigurationProfiles(
@@ -1169,6 +1196,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
+   * @public
    * <p>Lists the deployments for an environment in descending deployment number order.</p>
    */
   public listDeployments(
@@ -1201,6 +1229,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
+   * @public
    * <p>Lists deployment strategies.</p>
    */
   public listDeploymentStrategies(
@@ -1233,6 +1262,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
+   * @public
    * <p>Lists the environments for an application.</p>
    */
   public listEnvironments(
@@ -1265,6 +1295,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
+   * @public
    * <p>Lists all AppConfig extension associations in the account. For more
    *          information about extensions and associations, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Working with
    *                AppConfig extensions</a> in the
@@ -1300,7 +1331,8 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
-   * <p>Lists all custom and Amazon Web Services-authored AppConfig extensions in the
+   * @public
+   * <p>Lists all custom and Amazon Web Services authored AppConfig extensions in the
    *          account. For more information about extensions, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Working with
    *                AppConfig extensions</a> in the
    *          <i>AppConfig User Guide</i>.</p>
@@ -1335,6 +1367,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
+   * @public
    * <p>Lists configurations stored in the AppConfig hosted configuration store by
    *          version.</p>
    */
@@ -1368,6 +1401,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the list of key-value tags assigned to the resource.</p>
    */
   public listTagsForResource(
@@ -1400,6 +1434,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
+   * @public
    * <p>Starts a deployment.</p>
    */
   public startDeployment(
@@ -1432,6 +1467,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
+   * @public
    * <p>Stops a deployment. This API action works only on deployments that have a status of
    *             <code>DEPLOYING</code>. This action moves the deployment to a status of
    *             <code>ROLLED_BACK</code>.</p>
@@ -1466,6 +1502,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
+   * @public
    * <p>Assigns metadata to an AppConfig resource. Tags help organize and categorize
    *          your AppConfig resources. Each tag consists of a key and an optional value, both
    *          of which you define. You can specify a maximum of 50 tags for a resource.</p>
@@ -1494,6 +1531,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
+   * @public
    * <p>Deletes a tag key and value from an AppConfig resource.</p>
    */
   public untagResource(
@@ -1526,6 +1564,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
+   * @public
    * <p>Updates an application.</p>
    */
   public updateApplication(
@@ -1558,6 +1597,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
+   * @public
    * <p>Updates a configuration profile.</p>
    */
   public updateConfigurationProfile(
@@ -1590,6 +1630,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
+   * @public
    * <p>Updates a deployment strategy.</p>
    */
   public updateDeploymentStrategy(
@@ -1622,6 +1663,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
+   * @public
    * <p>Updates an environment.</p>
    */
   public updateEnvironment(
@@ -1654,6 +1696,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
+   * @public
    * <p>Updates an AppConfig extension. For more information about extensions, see
    *             <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Working with
    *                AppConfig extensions</a> in the
@@ -1689,6 +1732,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
+   * @public
    * <p>Updates an association. For more information about extensions and associations, see
    *             <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Working with
    *                AppConfig extensions</a> in the
@@ -1724,6 +1768,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
+   * @public
    * <p>Uses the validators in a configuration profile to validate a configuration.</p>
    */
   public validateConfiguration(

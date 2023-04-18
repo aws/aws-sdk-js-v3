@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { PutFunctionCodeSigningConfigRequest, PutFunctionCodeSigningConfigResponse } from "../models/models_0";
 import {
-  PutFunctionCodeSigningConfigRequest,
-  PutFunctionCodeSigningConfigRequestFilterSensitiveLog,
-  PutFunctionCodeSigningConfigResponse,
-  PutFunctionCodeSigningConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutFunctionCodeSigningConfigCommand,
-  serializeAws_restJson1PutFunctionCodeSigningConfigCommand,
+  de_PutFunctionCodeSigningConfigCommand,
+  se_PutFunctionCodeSigningConfigCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutFunctionCodeSigningConfigCommand}.
+ */
 export interface PutFunctionCodeSigningConfigCommandInput extends PutFunctionCodeSigningConfigRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutFunctionCodeSigningConfigCommand}.
+ */
 export interface PutFunctionCodeSigningConfigCommandOutput
   extends PutFunctionCodeSigningConfigResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update the code signing configuration for the function. Changes to the code signing configuration take effect the
  *       next time a user tries to deploy a code package to the function. </p>
  * @example
@@ -39,13 +45,38 @@ export interface PutFunctionCodeSigningConfigCommandOutput
  * import { LambdaClient, PutFunctionCodeSigningConfigCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, PutFunctionCodeSigningConfigCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = { // PutFunctionCodeSigningConfigRequest
+ *   CodeSigningConfigArn: "STRING_VALUE", // required
+ *   FunctionName: "STRING_VALUE", // required
+ * };
  * const command = new PutFunctionCodeSigningConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutFunctionCodeSigningConfigCommandInput - {@link PutFunctionCodeSigningConfigCommandInput}
+ * @returns {@link PutFunctionCodeSigningConfigCommandOutput}
  * @see {@link PutFunctionCodeSigningConfigCommandInput} for command's `input` shape.
  * @see {@link PutFunctionCodeSigningConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
+ *
+ * @throws {@link CodeSigningConfigNotFoundException} (client fault)
+ *  <p>The specified code signing configuration does not exist.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One of the parameters in the request is not valid.</p>
+ *
+ * @throws {@link ResourceConflictException} (client fault)
+ *  <p>The resource already exists, or another operation is in progress.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request does not exist.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>The Lambda service encountered an internal error.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
+ *
  *
  */
 export class PutFunctionCodeSigningConfigCommand extends $Command<
@@ -65,6 +96,9 @@ export class PutFunctionCodeSigningConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutFunctionCodeSigningConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +127,8 @@ export class PutFunctionCodeSigningConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutFunctionCodeSigningConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutFunctionCodeSigningConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,15 +138,21 @@ export class PutFunctionCodeSigningConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutFunctionCodeSigningConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutFunctionCodeSigningConfigCommand(input, context);
+    return se_PutFunctionCodeSigningConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutFunctionCodeSigningConfigCommandOutput> {
-    return deserializeAws_restJson1PutFunctionCodeSigningConfigCommand(output, context);
+    return de_PutFunctionCodeSigningConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

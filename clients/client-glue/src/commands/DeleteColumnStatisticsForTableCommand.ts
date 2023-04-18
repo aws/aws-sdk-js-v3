@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { DeleteColumnStatisticsForTableRequest, DeleteColumnStatisticsForTableResponse } from "../models/models_1";
 import {
-  DeleteColumnStatisticsForTableRequest,
-  DeleteColumnStatisticsForTableRequestFilterSensitiveLog,
-  DeleteColumnStatisticsForTableResponse,
-  DeleteColumnStatisticsForTableResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteColumnStatisticsForTableCommand,
-  serializeAws_json1_1DeleteColumnStatisticsForTableCommand,
+  de_DeleteColumnStatisticsForTableCommand,
+  se_DeleteColumnStatisticsForTableCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteColumnStatisticsForTableCommand}.
+ */
 export interface DeleteColumnStatisticsForTableCommandInput extends DeleteColumnStatisticsForTableRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteColumnStatisticsForTableCommand}.
+ */
 export interface DeleteColumnStatisticsForTableCommandOutput
   extends DeleteColumnStatisticsForTableResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves table statistics of columns.</p>
  *          <p>The Identity and Access Management (IAM) permission required for this operation is <code>DeleteTable</code>.</p>
  * @example
@@ -39,13 +45,37 @@ export interface DeleteColumnStatisticsForTableCommandOutput
  * import { GlueClient, DeleteColumnStatisticsForTableCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DeleteColumnStatisticsForTableCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // DeleteColumnStatisticsForTableRequest
+ *   CatalogId: "STRING_VALUE",
+ *   DatabaseName: "STRING_VALUE", // required
+ *   TableName: "STRING_VALUE", // required
+ *   ColumnName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteColumnStatisticsForTableCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteColumnStatisticsForTableCommandInput - {@link DeleteColumnStatisticsForTableCommandInput}
+ * @returns {@link DeleteColumnStatisticsForTableCommandOutput}
  * @see {@link DeleteColumnStatisticsForTableCommandInput} for command's `input` shape.
  * @see {@link DeleteColumnStatisticsForTableCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link GlueEncryptionException} (client fault)
+ *  <p>An encryption operation failed.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class DeleteColumnStatisticsForTableCommand extends $Command<
@@ -65,6 +95,9 @@ export class DeleteColumnStatisticsForTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteColumnStatisticsForTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +126,8 @@ export class DeleteColumnStatisticsForTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteColumnStatisticsForTableRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteColumnStatisticsForTableResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,18 +137,24 @@ export class DeleteColumnStatisticsForTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteColumnStatisticsForTableCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteColumnStatisticsForTableCommand(input, context);
+    return se_DeleteColumnStatisticsForTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteColumnStatisticsForTableCommandOutput> {
-    return deserializeAws_json1_1DeleteColumnStatisticsForTableCommand(output, context);
+    return de_DeleteColumnStatisticsForTableCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import {
-  GetAppsListRequest,
-  GetAppsListRequestFilterSensitiveLog,
-  GetAppsListResponse,
-  GetAppsListResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetAppsListCommand,
-  serializeAws_json1_1GetAppsListCommand,
-} from "../protocols/Aws_json1_1";
+import { GetAppsListRequest, GetAppsListResponse } from "../models/models_0";
+import { de_GetAppsListCommand, se_GetAppsListCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetAppsListCommand}.
+ */
 export interface GetAppsListCommandInput extends GetAppsListRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetAppsListCommand}.
+ */
 export interface GetAppsListCommandOutput extends GetAppsListResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the specified Firewall Manager applications list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,34 @@ export interface GetAppsListCommandOutput extends GetAppsListResponse, __Metadat
  * import { FMSClient, GetAppsListCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, GetAppsListCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
+ * const input = { // GetAppsListRequest
+ *   ListId: "STRING_VALUE", // required
+ *   DefaultList: true || false,
+ * };
  * const command = new GetAppsListCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAppsListCommandInput - {@link GetAppsListCommandInput}
+ * @returns {@link GetAppsListCommandOutput}
  * @see {@link GetAppsListCommandInput} for command's `input` shape.
  * @see {@link GetAppsListCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (client fault)
+ *  <p>The operation failed because of a system problem, even though the request was valid. Retry
+ *       your request.</p>
+ *
+ * @throws {@link InvalidOperationException} (client fault)
+ *  <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have
+ *         submitted an <code>AssociateAdminAccount</code> request for an account ID that
+ *             was already set as the Firewall Manager administrator. Or you might have tried to access a Region
+ *   that's disabled by default, and that you need to enable for the Firewall Manager
+ *   administrator account and for Organizations before you can access it.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class GetAppsListCommand extends $Command<
@@ -62,6 +86,9 @@ export class GetAppsListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAppsListCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +115,8 @@ export class GetAppsListCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAppsListRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAppsListResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +126,18 @@ export class GetAppsListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAppsListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAppsListCommand(input, context);
+    return se_GetAppsListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAppsListCommandOutput> {
-    return deserializeAws_json1_1GetAppsListCommand(output, context);
+    return de_GetAppsListCommand(output, context);
   }
 
   // Start section: command_body_extra

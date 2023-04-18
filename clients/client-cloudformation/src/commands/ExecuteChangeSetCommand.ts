@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  ExecuteChangeSetInput,
-  ExecuteChangeSetInputFilterSensitiveLog,
-  ExecuteChangeSetOutput,
-  ExecuteChangeSetOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryExecuteChangeSetCommand,
-  serializeAws_queryExecuteChangeSetCommand,
-} from "../protocols/Aws_query";
+import { ExecuteChangeSetInput, ExecuteChangeSetOutput } from "../models/models_0";
+import { de_ExecuteChangeSetCommand, se_ExecuteChangeSetCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link ExecuteChangeSetCommand}.
+ */
 export interface ExecuteChangeSetCommandInput extends ExecuteChangeSetInput {}
+/**
+ * @public
+ *
+ * The output of {@link ExecuteChangeSetCommand}.
+ */
 export interface ExecuteChangeSetCommandOutput extends ExecuteChangeSetOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a stack using the input information that was provided when the specified change
  *          set was created. After the call successfully completes, CloudFormation starts updating
  *          the stack. Use the <a>DescribeStacks</a> action to view the status of the
@@ -46,13 +49,38 @@ export interface ExecuteChangeSetCommandOutput extends ExecuteChangeSetOutput, _
  * import { CloudFormationClient, ExecuteChangeSetCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, ExecuteChangeSetCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // ExecuteChangeSetInput
+ *   ChangeSetName: "STRING_VALUE", // required
+ *   StackName: "STRING_VALUE",
+ *   ClientRequestToken: "STRING_VALUE",
+ *   DisableRollback: true || false,
+ * };
  * const command = new ExecuteChangeSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ExecuteChangeSetCommandInput - {@link ExecuteChangeSetCommandInput}
+ * @returns {@link ExecuteChangeSetCommandOutput}
  * @see {@link ExecuteChangeSetCommandInput} for command's `input` shape.
  * @see {@link ExecuteChangeSetCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
+ *
+ * @throws {@link ChangeSetNotFoundException} (client fault)
+ *  <p>The specified change set name or ID doesn't exit. To view valid change sets for a stack,
+ *          use the <code>ListChangeSets</code> operation.</p>
+ *
+ * @throws {@link InsufficientCapabilitiesException} (client fault)
+ *  <p>The template contains resources with capabilities that weren't specified in the
+ *          Capabilities parameter.</p>
+ *
+ * @throws {@link InvalidChangeSetStatusException} (client fault)
+ *  <p>The specified change set can't be used to update the stack. For example, the change set
+ *          status might be <code>CREATE_IN_PROGRESS</code>, or the stack status might be
+ *             <code>UPDATE_IN_PROGRESS</code>.</p>
+ *
+ * @throws {@link TokenAlreadyExistsException} (client fault)
+ *  <p>A client request token already exists.</p>
+ *
  *
  */
 export class ExecuteChangeSetCommand extends $Command<
@@ -72,6 +100,9 @@ export class ExecuteChangeSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExecuteChangeSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +131,8 @@ export class ExecuteChangeSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExecuteChangeSetInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ExecuteChangeSetOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +142,18 @@ export class ExecuteChangeSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExecuteChangeSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryExecuteChangeSetCommand(input, context);
+    return se_ExecuteChangeSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExecuteChangeSetCommandOutput> {
-    return deserializeAws_queryExecuteChangeSetCommand(output, context);
+    return de_ExecuteChangeSetCommand(output, context);
   }
 
   // Start section: command_body_extra

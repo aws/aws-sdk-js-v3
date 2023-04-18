@@ -14,19 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
+import { DeleteAlertManagerDefinitionRequest } from "../models/models_0";
 import {
-  DeleteAlertManagerDefinitionRequest,
-  DeleteAlertManagerDefinitionRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAlertManagerDefinitionCommand,
-  serializeAws_restJson1DeleteAlertManagerDefinitionCommand,
+  de_DeleteAlertManagerDefinitionCommand,
+  se_DeleteAlertManagerDefinitionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteAlertManagerDefinitionCommand}.
+ */
 export interface DeleteAlertManagerDefinitionCommandInput extends DeleteAlertManagerDefinitionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteAlertManagerDefinitionCommand}.
+ */
 export interface DeleteAlertManagerDefinitionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * Deletes an alert manager definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -34,13 +42,38 @@ export interface DeleteAlertManagerDefinitionCommandOutput extends __MetadataBea
  * import { AmpClient, DeleteAlertManagerDefinitionCommand } from "@aws-sdk/client-amp"; // ES Modules import
  * // const { AmpClient, DeleteAlertManagerDefinitionCommand } = require("@aws-sdk/client-amp"); // CommonJS import
  * const client = new AmpClient(config);
+ * const input = { // DeleteAlertManagerDefinitionRequest
+ *   workspaceId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new DeleteAlertManagerDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAlertManagerDefinitionCommandInput - {@link DeleteAlertManagerDefinitionCommandInput}
+ * @returns {@link DeleteAlertManagerDefinitionCommandOutput}
  * @see {@link DeleteAlertManagerDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteAlertManagerDefinitionCommandOutput} for command's `response` shape.
  * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  User does not have sufficient access to perform this action.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  Updating or deleting a resource can cause an inconsistent state.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  Unexpected error during processing of request.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  Request references a resource which does not exist.
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  Request was denied due to request throttling.
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  The input fails to satisfy the constraints specified by an AWS service.
+ *
  *
  */
 export class DeleteAlertManagerDefinitionCommand extends $Command<
@@ -60,6 +93,9 @@ export class DeleteAlertManagerDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAlertManagerDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +124,8 @@ export class DeleteAlertManagerDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAlertManagerDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,15 +135,21 @@ export class DeleteAlertManagerDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAlertManagerDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAlertManagerDefinitionCommand(input, context);
+    return se_DeleteAlertManagerDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAlertManagerDefinitionCommandOutput> {
-    return deserializeAws_restJson1DeleteAlertManagerDefinitionCommand(output, context);
+    return de_DeleteAlertManagerDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

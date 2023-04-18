@@ -23,17 +23,25 @@ import {
   GetWorkUnitResultsResponse,
   GetWorkUnitResultsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetWorkUnitResultsCommand,
-  serializeAws_restJson1GetWorkUnitResultsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetWorkUnitResultsCommand, se_GetWorkUnitResultsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetWorkUnitResultsCommand}.
+ */
 export interface GetWorkUnitResultsCommandInput extends GetWorkUnitResultsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetWorkUnitResultsCommand}.
+ */
 export interface GetWorkUnitResultsCommandOutput
   extends __WithSdkStreamMixin<GetWorkUnitResultsResponse, "ResultStream">,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the work units resulting from the query. Work units can be executed in any order and in parallel. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,13 +49,36 @@ export interface GetWorkUnitResultsCommandOutput
  * import { LakeFormationClient, GetWorkUnitResultsCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, GetWorkUnitResultsCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
+ * const input = { // GetWorkUnitResultsRequest
+ *   QueryId: "STRING_VALUE", // required
+ *   WorkUnitId: Number("long"), // required
+ *   WorkUnitToken: "STRING_VALUE", // required
+ * };
  * const command = new GetWorkUnitResultsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetWorkUnitResultsCommandInput - {@link GetWorkUnitResultsCommandInput}
+ * @returns {@link GetWorkUnitResultsCommandOutput}
  * @see {@link GetWorkUnitResultsCommandInput} for command's `input` shape.
  * @see {@link GetWorkUnitResultsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to a resource was denied.</p>
+ *
+ * @throws {@link ExpiredException} (client fault)
+ *  <p>Contains details about an error where the query request expired.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link ThrottledException} (client fault)
+ *  <p>Contains details about an error where the query request was throttled.</p>
+ *
  *
  */
 export class GetWorkUnitResultsCommand extends $Command<
@@ -67,6 +98,9 @@ export class GetWorkUnitResultsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetWorkUnitResultsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,15 +140,21 @@ export class GetWorkUnitResultsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetWorkUnitResultsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetWorkUnitResultsCommand(input, context);
+    return se_GetWorkUnitResultsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext
   ): Promise<GetWorkUnitResultsCommandOutput> {
-    return deserializeAws_restJson1GetWorkUnitResultsCommand(output, context);
+    return de_GetWorkUnitResultsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
-import { PutLoggingOptionsRequest, PutLoggingOptionsRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutLoggingOptionsCommand,
-  serializeAws_restJson1PutLoggingOptionsCommand,
-} from "../protocols/Aws_restJson1";
+import { PutLoggingOptionsRequest } from "../models/models_0";
+import { de_PutLoggingOptionsCommand, se_PutLoggingOptionsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutLoggingOptionsCommand}.
+ */
 export interface PutLoggingOptionsCommandInput extends PutLoggingOptionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutLoggingOptionsCommand}.
+ */
 export interface PutLoggingOptionsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets or updates the IoT Analytics logging options.</p>
  *          <p>If you update the value of any <code>loggingOptions</code> field, it takes up to one
  *       minute for the change to take effect. Also, if you change the policy attached to the role you
@@ -35,13 +43,35 @@ export interface PutLoggingOptionsCommandOutput extends __MetadataBearer {}
  * import { IoTAnalyticsClient, PutLoggingOptionsCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, PutLoggingOptionsCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
+ * const input = { // PutLoggingOptionsRequest
+ *   loggingOptions: { // LoggingOptions
+ *     roleArn: "STRING_VALUE", // required
+ *     level: "STRING_VALUE", // required
+ *     enabled: true || false, // required
+ *   },
+ * };
  * const command = new PutLoggingOptionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutLoggingOptionsCommandInput - {@link PutLoggingOptionsCommandInput}
+ * @returns {@link PutLoggingOptionsCommandOutput}
  * @see {@link PutLoggingOptionsCommandInput} for command's `input` shape.
  * @see {@link PutLoggingOptionsCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>There was an internal failure.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request was not valid.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
  *
  */
 export class PutLoggingOptionsCommand extends $Command<
@@ -61,6 +91,9 @@ export class PutLoggingOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutLoggingOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +122,8 @@ export class PutLoggingOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutLoggingOptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +133,18 @@ export class PutLoggingOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutLoggingOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutLoggingOptionsCommand(input, context);
+    return se_PutLoggingOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutLoggingOptionsCommandOutput> {
-    return deserializeAws_restJson1PutLoggingOptionsCommand(output, context);
+    return de_PutLoggingOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

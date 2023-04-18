@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  ListSamplesRequest,
-  ListSamplesRequestFilterSensitiveLog,
-  ListSamplesResult,
-  ListSamplesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListSamplesCommand,
-  serializeAws_json1_1ListSamplesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListSamplesRequest, ListSamplesResult } from "../models/models_0";
+import { de_ListSamplesCommand, se_ListSamplesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListSamplesCommand}.
+ */
 export interface ListSamplesCommandInput extends ListSamplesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListSamplesCommand}.
+ */
 export interface ListSamplesCommandOutput extends ListSamplesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about samples, given an AWS Device Farm job ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,49 @@ export interface ListSamplesCommandOutput extends ListSamplesResult, __MetadataB
  * import { DeviceFarmClient, ListSamplesCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, ListSamplesCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // ListSamplesRequest
+ *   arn: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListSamplesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSamplesCommandInput - {@link ListSamplesCommandInput}
+ * @returns {@link ListSamplesCommandOutput}
  * @see {@link ListSamplesCommandInput} for command's `input` shape.
  * @see {@link ListSamplesCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
+ *
+ * @throws {@link ArgumentException} (client fault)
+ *  <p>An invalid argument was specified.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A limit was exceeded.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The specified entity was not found.</p>
+ *
+ * @throws {@link ServiceAccountException} (client fault)
+ *  <p>There was a problem with the service account.</p>
+ *
+ *
+ * @example To get information about samples
+ * ```javascript
+ * // The following example returns information about samples, given a specific Device Farm project.
+ * const input = {
+ *   "arn": "arn:aws:devicefarm:us-west-2:123456789101:project:EXAMPLE-GUID-123-456",
+ *   "nextToken": "RW5DdDJkMWYwZjM2MzM2VHVpOHJIUXlDUXlhc2QzRGViYnc9SEXAMPLE"
+ * };
+ * const command = new ListSamplesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "samples": []
+ * }
+ * *\/
+ * // example id: to-get-information-about-samples-1472582847534
+ * ```
  *
  */
 export class ListSamplesCommand extends $Command<
@@ -62,6 +101,9 @@ export class ListSamplesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSamplesCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +130,8 @@ export class ListSamplesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSamplesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSamplesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +141,18 @@ export class ListSamplesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSamplesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListSamplesCommand(input, context);
+    return se_ListSamplesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSamplesCommandOutput> {
-    return deserializeAws_json1_1ListSamplesCommand(output, context);
+    return de_ListSamplesCommand(output, context);
   }
 
   // Start section: command_body_extra

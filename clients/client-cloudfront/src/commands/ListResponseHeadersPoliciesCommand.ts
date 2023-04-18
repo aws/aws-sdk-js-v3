@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  ListResponseHeadersPoliciesRequest,
-  ListResponseHeadersPoliciesRequestFilterSensitiveLog,
-  ListResponseHeadersPoliciesResult,
-  ListResponseHeadersPoliciesResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlListResponseHeadersPoliciesCommand,
-  serializeAws_restXmlListResponseHeadersPoliciesCommand,
-} from "../protocols/Aws_restXml";
+import { ListResponseHeadersPoliciesRequest, ListResponseHeadersPoliciesResult } from "../models/models_1";
+import { de_ListResponseHeadersPoliciesCommand, se_ListResponseHeadersPoliciesCommand } from "../protocols/Aws_restXml";
 
+/**
+ * @public
+ *
+ * The input for {@link ListResponseHeadersPoliciesCommand}.
+ */
 export interface ListResponseHeadersPoliciesCommandInput extends ListResponseHeadersPoliciesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListResponseHeadersPoliciesCommand}.
+ */
 export interface ListResponseHeadersPoliciesCommandOutput extends ListResponseHeadersPoliciesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of response headers policies.</p>
  *          <p>You can optionally apply a filter to get only the managed policies created by Amazon Web Services,
  * 			or only the custom policies created in your Amazon Web Services account.</p>
@@ -43,13 +46,30 @@ export interface ListResponseHeadersPoliciesCommandOutput extends ListResponseHe
  * import { CloudFrontClient, ListResponseHeadersPoliciesCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListResponseHeadersPoliciesCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // ListResponseHeadersPoliciesRequest
+ *   Type: "managed" || "custom",
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListResponseHeadersPoliciesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResponseHeadersPoliciesCommandInput - {@link ListResponseHeadersPoliciesCommandInput}
+ * @returns {@link ListResponseHeadersPoliciesCommandOutput}
  * @see {@link ListResponseHeadersPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListResponseHeadersPoliciesCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link NoSuchResponseHeadersPolicy} (client fault)
+ *  <p>The response headers policy does not exist.</p>
+ *
  *
  */
 export class ListResponseHeadersPoliciesCommand extends $Command<
@@ -69,6 +89,9 @@ export class ListResponseHeadersPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResponseHeadersPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +120,8 @@ export class ListResponseHeadersPoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListResponseHeadersPoliciesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListResponseHeadersPoliciesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,15 +131,21 @@ export class ListResponseHeadersPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResponseHeadersPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListResponseHeadersPoliciesCommand(input, context);
+    return se_ListResponseHeadersPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListResponseHeadersPoliciesCommandOutput> {
-    return deserializeAws_restXmlListResponseHeadersPoliciesCommand(output, context);
+    return de_ListResponseHeadersPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

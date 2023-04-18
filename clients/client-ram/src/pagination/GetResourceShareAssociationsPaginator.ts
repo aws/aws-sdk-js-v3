@@ -6,12 +6,11 @@ import {
   GetResourceShareAssociationsCommandInput,
   GetResourceShareAssociationsCommandOutput,
 } from "../commands/GetResourceShareAssociationsCommand";
-import { RAM } from "../RAM";
 import { RAMClient } from "../RAMClient";
 import { RAMPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: RAMClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new GetResourceShareAssociationsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: RAM,
-  input: GetResourceShareAssociationsCommandInput,
-  ...args: any
-): Promise<GetResourceShareAssociationsCommandOutput> => {
-  // @ts-ignore
-  return await client.getResourceShareAssociations(input, ...args);
-};
 export async function* paginateGetResourceShareAssociations(
   config: RAMPaginationConfiguration,
   input: GetResourceShareAssociationsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateGetResourceShareAssociations(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof RAM) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof RAMClient) {
+    if (config.client instanceof RAMClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected RAM | RAMClient");

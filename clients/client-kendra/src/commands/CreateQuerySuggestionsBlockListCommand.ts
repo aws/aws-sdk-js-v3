@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
+import { CreateQuerySuggestionsBlockListRequest, CreateQuerySuggestionsBlockListResponse } from "../models/models_0";
 import {
-  CreateQuerySuggestionsBlockListRequest,
-  CreateQuerySuggestionsBlockListRequestFilterSensitiveLog,
-  CreateQuerySuggestionsBlockListResponse,
-  CreateQuerySuggestionsBlockListResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateQuerySuggestionsBlockListCommand,
-  serializeAws_json1_1CreateQuerySuggestionsBlockListCommand,
+  de_CreateQuerySuggestionsBlockListCommand,
+  se_CreateQuerySuggestionsBlockListCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateQuerySuggestionsBlockListCommand}.
+ */
 export interface CreateQuerySuggestionsBlockListCommandInput extends CreateQuerySuggestionsBlockListRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateQuerySuggestionsBlockListCommand}.
+ */
 export interface CreateQuerySuggestionsBlockListCommandOutput
   extends CreateQuerySuggestionsBlockListResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a block list to exlcude certain queries from suggestions.</p>
  *          <p>Any query that contains words or phrases specified in the block
  *             list is blocked or filtered out from being shown as a suggestion.</p>
@@ -52,13 +58,63 @@ export interface CreateQuerySuggestionsBlockListCommandOutput
  * import { KendraClient, CreateQuerySuggestionsBlockListCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, CreateQuerySuggestionsBlockListCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
+ * const input = { // CreateQuerySuggestionsBlockListRequest
+ *   IndexId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   SourceS3Path: { // S3Path
+ *     Bucket: "STRING_VALUE", // required
+ *     Key: "STRING_VALUE", // required
+ *   },
+ *   ClientToken: "STRING_VALUE",
+ *   RoleArn: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateQuerySuggestionsBlockListCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateQuerySuggestionsBlockListCommandInput - {@link CreateQuerySuggestionsBlockListCommandInput}
+ * @returns {@link CreateQuerySuggestionsBlockListCommandOutput}
  * @see {@link CreateQuerySuggestionsBlockListCommandInput} for command's `input` shape.
  * @see {@link CreateQuerySuggestionsBlockListCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient access to perform this action. Please ensure you have the
+ *             required permission policies and user accounts and try again.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>A conflict occurred with the request. Please fix any inconsistences with your
+ *             resources and try again.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
+ *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource you want to use doesn’t exist. Please check you have provided the correct
+ *             resource and try again.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>You have exceeded the set limits for your Amazon Kendra service. Please see
+ *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas</a> for
+ *             more information, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> to inquire about
+ *             an increase of limits.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling. Please reduce the number of requests
+ *             and try again.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
+ *             Please provide the correct input and try again.</p>
+ *
  *
  */
 export class CreateQuerySuggestionsBlockListCommand extends $Command<
@@ -78,6 +134,9 @@ export class CreateQuerySuggestionsBlockListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateQuerySuggestionsBlockListCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +165,8 @@ export class CreateQuerySuggestionsBlockListCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateQuerySuggestionsBlockListRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateQuerySuggestionsBlockListResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,18 +176,24 @@ export class CreateQuerySuggestionsBlockListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateQuerySuggestionsBlockListCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateQuerySuggestionsBlockListCommand(input, context);
+    return se_CreateQuerySuggestionsBlockListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateQuerySuggestionsBlockListCommandOutput> {
-    return deserializeAws_json1_1CreateQuerySuggestionsBlockListCommand(output, context);
+    return de_CreateQuerySuggestionsBlockListCommand(output, context);
   }
 
   // Start section: command_body_extra

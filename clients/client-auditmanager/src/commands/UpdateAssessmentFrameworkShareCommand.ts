@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
+import { UpdateAssessmentFrameworkShareRequest, UpdateAssessmentFrameworkShareResponse } from "../models/models_0";
 import {
-  UpdateAssessmentFrameworkShareRequest,
-  UpdateAssessmentFrameworkShareRequestFilterSensitiveLog,
-  UpdateAssessmentFrameworkShareResponse,
-  UpdateAssessmentFrameworkShareResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateAssessmentFrameworkShareCommand,
-  serializeAws_restJson1UpdateAssessmentFrameworkShareCommand,
+  de_UpdateAssessmentFrameworkShareCommand,
+  se_UpdateAssessmentFrameworkShareCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateAssessmentFrameworkShareCommand}.
+ */
 export interface UpdateAssessmentFrameworkShareCommandInput extends UpdateAssessmentFrameworkShareRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateAssessmentFrameworkShareCommand}.
+ */
 export interface UpdateAssessmentFrameworkShareCommandOutput
   extends UpdateAssessmentFrameworkShareResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Updates a share request for a custom framework in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,41 @@ export interface UpdateAssessmentFrameworkShareCommandOutput
  * import { AuditManagerClient, UpdateAssessmentFrameworkShareCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, UpdateAssessmentFrameworkShareCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = { // UpdateAssessmentFrameworkShareRequest
+ *   requestId: "STRING_VALUE", // required
+ *   requestType: "SENT" || "RECEIVED", // required
+ *   action: "ACCEPT" || "DECLINE" || "REVOKE", // required
+ * };
  * const command = new UpdateAssessmentFrameworkShareCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAssessmentFrameworkShareCommandInput - {@link UpdateAssessmentFrameworkShareCommandInput}
+ * @returns {@link UpdateAssessmentFrameworkShareCommandOutput}
  * @see {@link UpdateAssessmentFrameworkShareCommandInput} for command's `input` shape.
  * @see {@link UpdateAssessmentFrameworkShareCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p> Your account isn't registered with Audit Manager. Check the delegated
+ *          administrator setup on the Audit Manager settings page, and try again. </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> An internal service error occurred during the processing of your request. Try again
+ *          later. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p> The resource that's specified in the request can't be found. </p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>You've reached your account quota for this resource type. To perform the requested
+ *          action, delete some existing resources or <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">request a quota increase</a> from
+ *          the Service Quotas console. For a list of Audit Manager service quotas, see <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html">Quotas and
+ *             restrictions for Audit Manager</a>.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p> The request has invalid or missing parameters. </p>
+ *
  *
  */
 export class UpdateAssessmentFrameworkShareCommand extends $Command<
@@ -64,6 +98,9 @@ export class UpdateAssessmentFrameworkShareCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAssessmentFrameworkShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +129,8 @@ export class UpdateAssessmentFrameworkShareCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAssessmentFrameworkShareRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAssessmentFrameworkShareResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +140,24 @@ export class UpdateAssessmentFrameworkShareCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateAssessmentFrameworkShareCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateAssessmentFrameworkShareCommand(input, context);
+    return se_UpdateAssessmentFrameworkShareCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateAssessmentFrameworkShareCommandOutput> {
-    return deserializeAws_restJson1UpdateAssessmentFrameworkShareCommand(output, context);
+    return de_UpdateAssessmentFrameworkShareCommand(output, context);
   }
 
   // Start section: command_body_extra

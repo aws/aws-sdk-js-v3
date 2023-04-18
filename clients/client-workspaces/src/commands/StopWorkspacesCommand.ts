@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StopWorkspacesRequest,
-  StopWorkspacesRequestFilterSensitiveLog,
-  StopWorkspacesResult,
-  StopWorkspacesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StopWorkspacesCommand,
-  serializeAws_json1_1StopWorkspacesCommand,
-} from "../protocols/Aws_json1_1";
+import { StopWorkspacesRequest, StopWorkspacesResult } from "../models/models_0";
+import { de_StopWorkspacesCommand, se_StopWorkspacesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * @public
+ *
+ * The input for {@link StopWorkspacesCommand}.
+ */
 export interface StopWorkspacesCommandInput extends StopWorkspacesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StopWorkspacesCommand}.
+ */
 export interface StopWorkspacesCommandOutput extends StopWorkspacesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Stops the specified WorkSpaces.</p>
  *          <p>You cannot stop a WorkSpace unless it has a running mode of <code>AutoStop</code> and a
  *          state of <code>AVAILABLE</code>, <code>IMPAIRED</code>, <code>UNHEALTHY</code>, or
@@ -39,13 +42,23 @@ export interface StopWorkspacesCommandOutput extends StopWorkspacesResult, __Met
  * import { WorkSpacesClient, StopWorkspacesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, StopWorkspacesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // StopWorkspacesRequest
+ *   StopWorkspaceRequests: [ // StopWorkspaceRequests // required
+ *     { // StopRequest
+ *       WorkspaceId: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new StopWorkspacesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopWorkspacesCommandInput - {@link StopWorkspacesCommandInput}
+ * @returns {@link StopWorkspacesCommandOutput}
  * @see {@link StopWorkspacesCommandInput} for command's `input` shape.
  * @see {@link StopWorkspacesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
+ *
  *
  */
 export class StopWorkspacesCommand extends $Command<
@@ -65,6 +78,9 @@ export class StopWorkspacesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopWorkspacesCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +109,8 @@ export class StopWorkspacesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopWorkspacesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopWorkspacesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +120,18 @@ export class StopWorkspacesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopWorkspacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopWorkspacesCommand(input, context);
+    return se_StopWorkspacesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopWorkspacesCommandOutput> {
-    return deserializeAws_json1_1StopWorkspacesCommand(output, context);
+    return de_StopWorkspacesCommand(output, context);
   }
 
   // Start section: command_body_extra

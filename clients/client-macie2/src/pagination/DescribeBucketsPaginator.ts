@@ -6,12 +6,11 @@ import {
   DescribeBucketsCommandInput,
   DescribeBucketsCommandOutput,
 } from "../commands/DescribeBucketsCommand";
-import { Macie2 } from "../Macie2";
 import { Macie2Client } from "../Macie2Client";
 import { Macie2PaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: Macie2Client,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeBucketsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Macie2,
-  input: DescribeBucketsCommandInput,
-  ...args: any
-): Promise<DescribeBucketsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeBuckets(input, ...args);
-};
 export async function* paginateDescribeBuckets(
   config: Macie2PaginationConfiguration,
   input: DescribeBucketsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateDescribeBuckets(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Macie2) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof Macie2Client) {
+    if (config.client instanceof Macie2Client) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Macie2 | Macie2Client");

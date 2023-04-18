@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
-import {
-  ListStreamsInput,
-  ListStreamsInputFilterSensitiveLog,
-  ListStreamsOutput,
-  ListStreamsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListStreamsCommand,
-  serializeAws_restJson1ListStreamsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListStreamsInput, ListStreamsOutput } from "../models/models_0";
+import { de_ListStreamsCommand, se_ListStreamsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListStreamsCommand}.
+ */
 export interface ListStreamsCommandInput extends ListStreamsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListStreamsCommand}.
+ */
 export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an array of <code>StreamInfo</code> objects. Each object describes a
  *             stream. To retrieve only streams that satisfy a specific condition, you can specify a
  *                 <code>StreamNameCondition</code>. </p>
@@ -38,13 +41,31 @@ export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataB
  * import { KinesisVideoClient, ListStreamsCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, ListStreamsCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
+ * const input = { // ListStreamsInput
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   StreamNameCondition: { // StreamNameCondition
+ *     ComparisonOperator: "BEGINS_WITH",
+ *     ComparisonValue: "STRING_VALUE",
+ *   },
+ * };
  * const command = new ListStreamsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStreamsCommandInput - {@link ListStreamsCommandInput}
+ * @returns {@link ListStreamsCommandOutput}
  * @see {@link ListStreamsCommandInput} for command's `input` shape.
  * @see {@link ListStreamsCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
+ *
+ * @throws {@link ClientLimitExceededException} (client fault)
+ *  <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
+ *             allowed client calls. Try making the call later.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>The value for this input parameter is invalid.</p>
+ *
  *
  */
 export class ListStreamsCommand extends $Command<
@@ -64,6 +85,9 @@ export class ListStreamsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStreamsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +114,8 @@ export class ListStreamsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListStreamsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListStreamsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +125,18 @@ export class ListStreamsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStreamsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListStreamsCommand(input, context);
+    return se_ListStreamsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStreamsCommandOutput> {
-    return deserializeAws_restJson1ListStreamsCommand(output, context);
+    return de_ListStreamsCommand(output, context);
   }
 
   // Start section: command_body_extra

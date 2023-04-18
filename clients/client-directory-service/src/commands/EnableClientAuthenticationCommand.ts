@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  EnableClientAuthenticationRequest,
-  EnableClientAuthenticationRequestFilterSensitiveLog,
-  EnableClientAuthenticationResult,
-  EnableClientAuthenticationResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1EnableClientAuthenticationCommand,
-  serializeAws_json1_1EnableClientAuthenticationCommand,
-} from "../protocols/Aws_json1_1";
+import { EnableClientAuthenticationRequest, EnableClientAuthenticationResult } from "../models/models_0";
+import { de_EnableClientAuthenticationCommand, se_EnableClientAuthenticationCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link EnableClientAuthenticationCommand}.
+ */
 export interface EnableClientAuthenticationCommandInput extends EnableClientAuthenticationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link EnableClientAuthenticationCommand}.
+ */
 export interface EnableClientAuthenticationCommandOutput extends EnableClientAuthenticationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables alternative client authentication methods for the specified directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,42 @@ export interface EnableClientAuthenticationCommandOutput extends EnableClientAut
  * import { DirectoryServiceClient, EnableClientAuthenticationCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, EnableClientAuthenticationCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // EnableClientAuthenticationRequest
+ *   DirectoryId: "STRING_VALUE", // required
+ *   Type: "SmartCard" || "SmartCardOrPassword", // required
+ * };
  * const command = new EnableClientAuthenticationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableClientAuthenticationCommandInput - {@link EnableClientAuthenticationCommandInput}
+ * @returns {@link EnableClientAuthenticationCommandOutput}
  * @see {@link EnableClientAuthenticationCommandInput} for command's `input` shape.
  * @see {@link EnableClientAuthenticationCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Client authentication is not available in this region at this time.</p>
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>A client exception has occurred.</p>
+ *
+ * @throws {@link DirectoryDoesNotExistException} (client fault)
+ *  <p>The specified directory does not exist in the system.</p>
+ *
+ * @throws {@link InvalidClientAuthStatusException} (client fault)
+ *  <p>Client authentication is already enabled.</p>
+ *
+ * @throws {@link NoAvailableCertificateException} (client fault)
+ *  <p>Client authentication setup could not be completed because at least one valid certificate must be
+ *       registered in the system.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>An exception has occurred in Directory Service.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>The operation is not supported.</p>
+ *
  *
  */
 export class EnableClientAuthenticationCommand extends $Command<
@@ -62,6 +94,9 @@ export class EnableClientAuthenticationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableClientAuthenticationCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +125,8 @@ export class EnableClientAuthenticationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableClientAuthenticationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: EnableClientAuthenticationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +136,21 @@ export class EnableClientAuthenticationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableClientAuthenticationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1EnableClientAuthenticationCommand(input, context);
+    return se_EnableClientAuthenticationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EnableClientAuthenticationCommandOutput> {
-    return deserializeAws_json1_1EnableClientAuthenticationCommand(output, context);
+    return de_EnableClientAuthenticationCommand(output, context);
   }
 
   // Start section: command_body_extra

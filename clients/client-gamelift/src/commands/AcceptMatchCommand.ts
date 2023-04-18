@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  AcceptMatchInput,
-  AcceptMatchInputFilterSensitiveLog,
-  AcceptMatchOutput,
-  AcceptMatchOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AcceptMatchCommand,
-  serializeAws_json1_1AcceptMatchCommand,
-} from "../protocols/Aws_json1_1";
+import { AcceptMatchInput, AcceptMatchOutput } from "../models/models_0";
+import { de_AcceptMatchCommand, se_AcceptMatchCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link AcceptMatchCommand}.
+ */
 export interface AcceptMatchCommandInput extends AcceptMatchInput {}
+/**
+ * @public
+ *
+ * The output of {@link AcceptMatchCommand}.
+ */
 export interface AcceptMatchCommandOutput extends AcceptMatchOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers a player's acceptance or rejection of a proposed FlexMatch match. A
  *             matchmaking configuration may require player acceptance; if so, then matches built with
  *             that configuration cannot be completed unless all players accept the proposed match
@@ -64,13 +67,37 @@ export interface AcceptMatchCommandOutput extends AcceptMatchOutput, __MetadataB
  * import { GameLiftClient, AcceptMatchCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, AcceptMatchCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // AcceptMatchInput
+ *   TicketId: "STRING_VALUE", // required
+ *   PlayerIds: [ // StringList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   AcceptanceType: "ACCEPT" || "REJECT", // required
+ * };
  * const command = new AcceptMatchCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AcceptMatchCommandInput - {@link AcceptMatchCommandInput}
+ * @returns {@link AcceptMatchCommandOutput}
  * @see {@link AcceptMatchCommandInput} for command's `input` shape.
  * @see {@link AcceptMatchCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an unrecoverable internal failure while processing the
+ *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
+ *             values before retrying.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *
+ * @throws {@link UnsupportedRegionException} (client fault)
+ *  <p>The requested operation is not supported in the Region specified.</p>
+ *
  *
  */
 export class AcceptMatchCommand extends $Command<
@@ -90,6 +117,9 @@ export class AcceptMatchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcceptMatchCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +146,8 @@ export class AcceptMatchCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AcceptMatchInputFilterSensitiveLog,
-      outputFilterSensitiveLog: AcceptMatchOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +157,18 @@ export class AcceptMatchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AcceptMatchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AcceptMatchCommand(input, context);
+    return se_AcceptMatchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AcceptMatchCommandOutput> {
-    return deserializeAws_json1_1AcceptMatchCommand(output, context);
+    return de_AcceptMatchCommand(output, context);
   }
 
   // Start section: command_body_extra

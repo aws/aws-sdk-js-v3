@@ -14,35 +14,65 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import {
-  GetEventDataStoreRequest,
-  GetEventDataStoreRequestFilterSensitiveLog,
-  GetEventDataStoreResponse,
-  GetEventDataStoreResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetEventDataStoreCommand,
-  serializeAws_json1_1GetEventDataStoreCommand,
-} from "../protocols/Aws_json1_1";
+import { GetEventDataStoreRequest, GetEventDataStoreResponse } from "../models/models_0";
+import { de_GetEventDataStoreCommand, se_GetEventDataStoreCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetEventDataStoreCommand}.
+ */
 export interface GetEventDataStoreCommandInput extends GetEventDataStoreRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetEventDataStoreCommand}.
+ */
 export interface GetEventDataStoreCommandOutput extends GetEventDataStoreResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about an event data store specified as either an ARN or the ID portion of the ARN.</p>
+ * @public
+ * <p>Returns information about an event data store specified as either an ARN or the ID
+ *          portion of the ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudTrailClient, GetEventDataStoreCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, GetEventDataStoreCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = { // GetEventDataStoreRequest
+ *   EventDataStore: "STRING_VALUE", // required
+ * };
  * const command = new GetEventDataStoreCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEventDataStoreCommandInput - {@link GetEventDataStoreCommandInput}
+ * @returns {@link GetEventDataStoreCommandOutput}
  * @see {@link GetEventDataStoreCommandInput} for command's `input` shape.
  * @see {@link GetEventDataStoreCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
+ *
+ * @throws {@link EventDataStoreARNInvalidException} (client fault)
+ *  <p>The specified event data store ARN is not valid or does not map to an event data store
+ *          in your account.</p>
+ *
+ * @throws {@link EventDataStoreNotFoundException} (client fault)
+ *  <p>The specified event data store was not found.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The request includes a parameter that is not valid.</p>
+ *
+ * @throws {@link NoManagementAccountSLRExistsException} (client fault)
+ *  <p> This exception is thrown when the management account does not have a service-linked
+ *          role. </p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not permitted.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not supported.</p>
+ *
  *
  */
 export class GetEventDataStoreCommand extends $Command<
@@ -62,6 +92,9 @@ export class GetEventDataStoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEventDataStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +123,8 @@ export class GetEventDataStoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEventDataStoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetEventDataStoreResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +134,18 @@ export class GetEventDataStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEventDataStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetEventDataStoreCommand(input, context);
+    return se_GetEventDataStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEventDataStoreCommandOutput> {
-    return deserializeAws_json1_1GetEventDataStoreCommand(output, context);
+    return de_GetEventDataStoreCommand(output, context);
   }
 
   // Start section: command_body_extra

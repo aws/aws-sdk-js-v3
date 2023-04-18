@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { AutoScaling } from "../AutoScaling";
 import { AutoScalingClient } from "../AutoScalingClient";
 import {
   DescribeScheduledActionsCommand,
@@ -11,7 +10,7 @@ import {
 import { AutoScalingPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: AutoScalingClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeScheduledActionsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: AutoScaling,
-  input: DescribeScheduledActionsCommandInput,
-  ...args: any
-): Promise<DescribeScheduledActionsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeScheduledActions(input, ...args);
-};
 export async function* paginateDescribeScheduledActions(
   config: AutoScalingPaginationConfiguration,
   input: DescribeScheduledActionsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateDescribeScheduledActions(
   while (hasNext) {
     input.NextToken = token;
     input["MaxRecords"] = config.pageSize;
-    if (config.client instanceof AutoScaling) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof AutoScalingClient) {
+    if (config.client instanceof AutoScalingClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected AutoScaling | AutoScalingClient");

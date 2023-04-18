@@ -40,6 +40,7 @@ import {
 import { STSClient } from "./STSClient";
 
 /**
+ * @public
  * <fullname>Security Token Service</fullname>
  *          <p>Security Token Service (STS) enables you to request temporary, limited-privilege
  *       credentials for Identity and Access Management (IAM) users or for users that you
@@ -48,12 +49,12 @@ import { STSClient } from "./STSClient";
  */
 export class STS extends STSClient {
   /**
+   * @public
    * <p>Returns a set of temporary security credentials that you can use to access Amazon Web Services
-   *          resources that you might not normally have access to. These temporary credentials consist
-   *          of an access key ID, a secret access key, and a security token. Typically, you use
-   *             <code>AssumeRole</code> within your account or for cross-account access. For a
-   *          comparison of <code>AssumeRole</code> with other API operations that produce temporary
-   *          credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting Temporary Security
+   *          resources. These temporary credentials consist of an access key ID, a secret access key,
+   *          and a security token. Typically, you use <code>AssumeRole</code> within your account or for
+   *          cross-account access. For a comparison of <code>AssumeRole</code> with other API operations
+   *          that produce temporary credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting Temporary Security
    *             Credentials</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison">Comparing the
    *             Amazon Web Services STS API operations</a> in the <i>IAM User Guide</i>.</p>
    *          <p>
@@ -103,7 +104,6 @@ export class STS extends STSClient {
    *          additional identity-based policy is required. For more information about trust policies and
    *          resource-based policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html">IAM Policies</a> in the
    *             <i>IAM User Guide</i>.</p>
-   *
    *          <p>
    *             <b>Tags</b>
    *          </p>
@@ -129,7 +129,7 @@ export class STS extends STSClient {
    *          assume the role is denied. The condition in a trust policy that tests for MFA
    *          authentication might look like the following example.</p>
    *          <p>
-   *             <code>"Condition": {"Bool": {"aws:MultiFactorAuthPresent": true}}</code>
+   *             <code>"Condition": \{"Bool": \{"aws:MultiFactorAuthPresent": true\}\}</code>
    *          </p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/MFAProtectedAPI.html">Configuring MFA-Protected API Access</a>
    *          in the <i>IAM User Guide</i> guide.</p>
@@ -163,6 +163,7 @@ export class STS extends STSClient {
   }
 
   /**
+   * @public
    * <p>Returns a set of temporary security credentials for users who have been authenticated
    *          via a SAML authentication response. This operation provides a mechanism for tying an
    *          enterprise identity store or directory to role-based Amazon Web Services access without user-specific
@@ -242,7 +243,6 @@ export class STS extends STSClient {
    *          characters and the values can’t exceed 256 characters. For these and additional limits, see
    *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length">IAM
    *             and STS Character Limits</a> in the <i>IAM User Guide</i>.</p>
-   *
    *          <note>
    *             <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
    *             and session tags into a packed binary format that has a separate limit. Your request can
@@ -250,7 +250,6 @@ export class STS extends STSClient {
    *                <code>PackedPolicySize</code> response element indicates by percentage how close the
    *             policies and tags for your request are to the upper size limit.</p>
    *          </note>
-   *
    *          <p>You can pass a session tag with the same key as a tag that is attached to the role. When
    *          you do, session tags override the role's tags with the same key.</p>
    *          <p>An administrator must grant you the permissions necessary to pass session tags. The
@@ -325,6 +324,7 @@ export class STS extends STSClient {
   }
 
   /**
+   * @public
    * <p>Returns a set of temporary security credentials for users who have been authenticated in
    *          a mobile or web application with a web identity provider. Example providers include the
    *          OAuth 2.0 providers Login with Amazon and Facebook, or any OpenID Connect-compatible
@@ -396,7 +396,6 @@ export class STS extends STSClient {
    *          characters and the values can’t exceed 256 characters. For these and additional limits, see
    *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length">IAM
    *             and STS Character Limits</a> in the <i>IAM User Guide</i>.</p>
-   *
    *          <note>
    *             <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
    *             and session tags into a packed binary format that has a separate limit. Your request can
@@ -404,7 +403,6 @@ export class STS extends STSClient {
    *                <code>PackedPolicySize</code> response element indicates by percentage how close the
    *             policies and tags for your request are to the upper size limit.</p>
    *          </note>
-   *
    *          <p>You can pass a session tag with the same key as a tag that is attached to the role. When
    *          you do, the session tag overrides the role tag with the same key.</p>
    *          <p>An administrator must grant you the permissions necessary to pass session tags. The
@@ -491,6 +489,7 @@ export class STS extends STSClient {
   }
 
   /**
+   * @public
    * <p>Decodes additional information about the authorization status of a request from an
    *          encoded message returned in response to an Amazon Web Services request.</p>
    *          <p>For example, if a user is not authorized to perform an operation that he or she has
@@ -558,6 +557,7 @@ export class STS extends STSClient {
   }
 
   /**
+   * @public
    * <p>Returns the account identifier for the specified access key ID.</p>
    *          <p>Access keys consist of two parts: an access key ID (for example,
    *             <code>AKIAIOSFODNN7EXAMPLE</code>) and a secret access key (for example,
@@ -607,6 +607,7 @@ export class STS extends STSClient {
   }
 
   /**
+   * @public
    * <p>Returns details about the IAM user or role whose credentials are used to call the
    *          operation.</p>
    *          <note>
@@ -648,6 +649,7 @@ export class STS extends STSClient {
   }
 
   /**
+   * @public
    * <p>Returns a set of temporary security credentials (consisting of an access key ID, a
    *          secret access key, and a security token) for a federated user. A typical use is in a proxy
    *          application that gets temporary security credentials on behalf of distributed applications
@@ -682,15 +684,16 @@ export class STS extends STSClient {
    *             <b>Permissions</b>
    *          </p>
    *          <p>You can use the temporary credentials created by <code>GetFederationToken</code> in any
-   *          Amazon Web Services service except the following:</p>
+   *          Amazon Web Services service with the following exceptions:</p>
    *          <ul>
    *             <li>
-   *                <p>You cannot call any IAM operations using the CLI or the Amazon Web Services API. </p>
+   *                <p>You cannot call any IAM operations using the CLI or the Amazon Web Services API. This limitation does not apply to console sessions.</p>
    *             </li>
    *             <li>
    *                <p>You cannot call any STS operations except <code>GetCallerIdentity</code>.</p>
    *             </li>
    *          </ul>
+   *          <p>You can use temporary credentials for single sign-on (SSO) to the console.</p>
    *          <p>You must pass an inline or managed <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">session policy</a> to
    *          this operation. You can pass a single JSON policy document to use as an inline session
    *          policy. You can also specify up to 10 managed policy Amazon Resource Names (ARNs) to use as
@@ -765,6 +768,7 @@ export class STS extends STSClient {
   }
 
   /**
+   * @public
    * <p>Returns a set of temporary credentials for an Amazon Web Services account or IAM user. The
    *          credentials consist of an access key ID, a secret access key, and a security token.
    *          Typically, you use <code>GetSessionToken</code> if you want to use MFA to protect

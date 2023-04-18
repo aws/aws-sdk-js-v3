@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
+import { DescribeDirectConnectGatewaysRequest, DescribeDirectConnectGatewaysResult } from "../models/models_0";
 import {
-  DescribeDirectConnectGatewaysRequest,
-  DescribeDirectConnectGatewaysRequestFilterSensitiveLog,
-  DescribeDirectConnectGatewaysResult,
-  DescribeDirectConnectGatewaysResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeDirectConnectGatewaysCommand,
-  serializeAws_json1_1DescribeDirectConnectGatewaysCommand,
+  de_DescribeDirectConnectGatewaysCommand,
+  se_DescribeDirectConnectGatewaysCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeDirectConnectGatewaysCommand}.
+ */
 export interface DescribeDirectConnectGatewaysCommandInput extends DescribeDirectConnectGatewaysRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeDirectConnectGatewaysCommand}.
+ */
 export interface DescribeDirectConnectGatewaysCommandOutput
   extends DescribeDirectConnectGatewaysResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all your Direct Connect gateways or only the specified Direct Connect gateway. Deleted Direct Connect gateways are not returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,27 @@ export interface DescribeDirectConnectGatewaysCommandOutput
  * import { DirectConnectClient, DescribeDirectConnectGatewaysCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DescribeDirectConnectGatewaysCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // DescribeDirectConnectGatewaysRequest
+ *   directConnectGatewayId: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeDirectConnectGatewaysCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDirectConnectGatewaysCommandInput - {@link DescribeDirectConnectGatewaysCommandInput}
+ * @returns {@link DescribeDirectConnectGatewaysCommandOutput}
  * @see {@link DescribeDirectConnectGatewaysCommandInput} for command's `input` shape.
  * @see {@link DescribeDirectConnectGatewaysCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
+ *
+ * @throws {@link DirectConnectClientException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link DirectConnectServerException} (server fault)
+ *  <p>A server-side error occurred.</p>
+ *
  *
  */
 export class DescribeDirectConnectGatewaysCommand extends $Command<
@@ -64,6 +84,9 @@ export class DescribeDirectConnectGatewaysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDirectConnectGatewaysCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +115,8 @@ export class DescribeDirectConnectGatewaysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDirectConnectGatewaysRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDirectConnectGatewaysResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +126,21 @@ export class DescribeDirectConnectGatewaysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDirectConnectGatewaysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDirectConnectGatewaysCommand(input, context);
+    return se_DescribeDirectConnectGatewaysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDirectConnectGatewaysCommandOutput> {
-    return deserializeAws_json1_1DescribeDirectConnectGatewaysCommand(output, context);
+    return de_DescribeDirectConnectGatewaysCommand(output, context);
   }
 
   // Start section: command_body_extra

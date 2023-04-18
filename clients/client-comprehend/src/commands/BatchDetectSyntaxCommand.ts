@@ -20,15 +20,23 @@ import {
   BatchDetectSyntaxResponse,
   BatchDetectSyntaxResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchDetectSyntaxCommand,
-  serializeAws_json1_1BatchDetectSyntaxCommand,
-} from "../protocols/Aws_json1_1";
+import { de_BatchDetectSyntaxCommand, se_BatchDetectSyntaxCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchDetectSyntaxCommand}.
+ */
 export interface BatchDetectSyntaxCommandInput extends BatchDetectSyntaxRequest {}
+/**
+ * @public
+ *
+ * The output of {@link BatchDetectSyntaxCommand}.
+ */
 export interface BatchDetectSyntaxCommandOutput extends BatchDetectSyntaxResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Inspects the text of a batch of documents for the syntax and part of speech of the words
  *       in the document and returns information about them. For more information, see
  *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html">Syntax</a> in the Comprehend Developer Guide.
@@ -39,13 +47,42 @@ export interface BatchDetectSyntaxCommandOutput extends BatchDetectSyntaxRespons
  * import { ComprehendClient, BatchDetectSyntaxCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, BatchDetectSyntaxCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // BatchDetectSyntaxRequest
+ *   TextList: [ // CustomerInputStringList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   LanguageCode: "en" || "es" || "fr" || "de" || "it" || "pt", // required
+ * };
  * const command = new BatchDetectSyntaxCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDetectSyntaxCommandInput - {@link BatchDetectSyntaxCommandInput}
+ * @returns {@link BatchDetectSyntaxCommandOutput}
  * @see {@link BatchDetectSyntaxCommandInput} for command's `input` shape.
  * @see {@link BatchDetectSyntaxCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
+ *
+ * @throws {@link BatchSizeLimitExceededException} (client fault)
+ *  <p>The number of documents in the request exceeds the limit of 25. Try your request again
+ *       with fewer documents.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid.</p>
+ *
+ * @throws {@link TextSizeLimitExceededException} (client fault)
+ *  <p>The size of the input text exceeds the limit. Use a smaller document.</p>
+ *
+ * @throws {@link UnsupportedLanguageException} (client fault)
+ *  <p>Amazon Comprehend can't process the language of the input text. For custom entity
+ *       recognition APIs, only English, Spanish, French, Italian, German, or Portuguese are accepted.
+ *       For a list of supported languages,
+ *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html">Supported languages</a> in the Comprehend Developer Guide.
+ *     </p>
+ *
  *
  */
 export class BatchDetectSyntaxCommand extends $Command<
@@ -65,6 +102,9 @@ export class BatchDetectSyntaxCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDetectSyntaxCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,12 +144,18 @@ export class BatchDetectSyntaxCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDetectSyntaxCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchDetectSyntaxCommand(input, context);
+    return se_BatchDetectSyntaxCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDetectSyntaxCommandOutput> {
-    return deserializeAws_json1_1BatchDetectSyntaxCommand(output, context);
+    return de_BatchDetectSyntaxCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -6,12 +6,11 @@ import {
   ListTaskDefinitionsCommandInput,
   ListTaskDefinitionsCommandOutput,
 } from "../commands/ListTaskDefinitionsCommand";
-import { ECS } from "../ECS";
 import { ECSClient } from "../ECSClient";
 import { ECSPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ECSClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListTaskDefinitionsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ECS,
-  input: ListTaskDefinitionsCommandInput,
-  ...args: any
-): Promise<ListTaskDefinitionsCommandOutput> => {
-  // @ts-ignore
-  return await client.listTaskDefinitions(input, ...args);
-};
 export async function* paginateListTaskDefinitions(
   config: ECSPaginationConfiguration,
   input: ListTaskDefinitionsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListTaskDefinitions(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof ECS) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ECSClient) {
+    if (config.client instanceof ECSClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ECS | ECSClient");

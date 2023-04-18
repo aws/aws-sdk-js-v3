@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListJobRunsCommand, ListJobRunsCommandInput, ListJobRunsCommandOutput } from "../commands/ListJobRunsCommand";
-import { EMRServerless } from "../EMRServerless";
 import { EMRServerlessClient } from "../EMRServerlessClient";
 import { EMRServerlessPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: EMRServerlessClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListJobRunsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: EMRServerless,
-  input: ListJobRunsCommandInput,
-  ...args: any
-): Promise<ListJobRunsCommandOutput> => {
-  // @ts-ignore
-  return await client.listJobRuns(input, ...args);
-};
 export async function* paginateListJobRuns(
   config: EMRServerlessPaginationConfiguration,
   input: ListJobRunsCommandInput,
@@ -40,9 +31,7 @@ export async function* paginateListJobRuns(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof EMRServerless) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof EMRServerlessClient) {
+    if (config.client instanceof EMRServerlessClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected EMRServerless | EMRServerlessClient");

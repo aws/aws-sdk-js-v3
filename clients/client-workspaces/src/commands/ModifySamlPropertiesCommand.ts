@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ModifySamlPropertiesRequest,
-  ModifySamlPropertiesRequestFilterSensitiveLog,
-  ModifySamlPropertiesResult,
-  ModifySamlPropertiesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ModifySamlPropertiesCommand,
-  serializeAws_json1_1ModifySamlPropertiesCommand,
-} from "../protocols/Aws_json1_1";
+import { ModifySamlPropertiesRequest, ModifySamlPropertiesResult } from "../models/models_0";
+import { de_ModifySamlPropertiesCommand, se_ModifySamlPropertiesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ModifySamlPropertiesCommand}.
+ */
 export interface ModifySamlPropertiesCommandInput extends ModifySamlPropertiesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ModifySamlPropertiesCommand}.
+ */
 export interface ModifySamlPropertiesCommandOutput extends ModifySamlPropertiesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies multiple properties related to SAML 2.0 authentication, including the enablement status,
  *          user access URL, and relay state parameter name that are used for configuring federation with an
  *          SAML 2.0 identity provider.</p>
@@ -38,13 +41,39 @@ export interface ModifySamlPropertiesCommandOutput extends ModifySamlPropertiesR
  * import { WorkSpacesClient, ModifySamlPropertiesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, ModifySamlPropertiesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // ModifySamlPropertiesRequest
+ *   ResourceId: "STRING_VALUE", // required
+ *   SamlProperties: { // SamlProperties
+ *     Status: "DISABLED" || "ENABLED" || "ENABLED_WITH_DIRECTORY_LOGIN_FALLBACK",
+ *     UserAccessUrl: "STRING_VALUE",
+ *     RelayStateParameterName: "STRING_VALUE",
+ *   },
+ *   PropertiesToDelete: [ // DeletableSamlPropertiesList
+ *     "SAML_PROPERTIES_USER_ACCESS_URL" || "SAML_PROPERTIES_RELAY_STATE_PARAMETER_NAME",
+ *   ],
+ * };
  * const command = new ModifySamlPropertiesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifySamlPropertiesCommandInput - {@link ModifySamlPropertiesCommandInput}
+ * @returns {@link ModifySamlPropertiesCommandOutput}
  * @see {@link ModifySamlPropertiesCommandInput} for command's `input` shape.
  * @see {@link ModifySamlPropertiesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The user is not authorized to access a resource.</p>
+ *
+ * @throws {@link InvalidParameterValuesException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ * @throws {@link OperationNotSupportedException} (client fault)
+ *  <p>This operation is not supported.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
  *
  */
 export class ModifySamlPropertiesCommand extends $Command<
@@ -64,6 +93,9 @@ export class ModifySamlPropertiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifySamlPropertiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +124,8 @@ export class ModifySamlPropertiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifySamlPropertiesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifySamlPropertiesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +135,18 @@ export class ModifySamlPropertiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifySamlPropertiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ModifySamlPropertiesCommand(input, context);
+    return se_ModifySamlPropertiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifySamlPropertiesCommandOutput> {
-    return deserializeAws_json1_1ModifySamlPropertiesCommand(output, context);
+    return de_ModifySamlPropertiesCommand(output, context);
   }
 
   // Start section: command_body_extra

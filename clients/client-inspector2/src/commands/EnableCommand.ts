@@ -14,18 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
-import {
-  EnableRequest,
-  EnableRequestFilterSensitiveLog,
-  EnableResponse,
-  EnableResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_restJson1EnableCommand, serializeAws_restJson1EnableCommand } from "../protocols/Aws_restJson1";
+import { EnableRequest, EnableResponse } from "../models/models_0";
+import { de_EnableCommand, se_EnableCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link EnableCommand}.
+ */
 export interface EnableCommandInput extends EnableRequest {}
+/**
+ * @public
+ *
+ * The output of {@link EnableCommand}.
+ */
 export interface EnableCommandOutput extends EnableResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables Amazon Inspector scans for one or more Amazon Web Services accounts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -33,13 +39,41 @@ export interface EnableCommandOutput extends EnableResponse, __MetadataBearer {}
  * import { Inspector2Client, EnableCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
  * // const { Inspector2Client, EnableCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
  * const client = new Inspector2Client(config);
+ * const input = { // EnableRequest
+ *   accountIds: [ // AccountIdSet
+ *     "STRING_VALUE",
+ *   ],
+ *   resourceTypes: [ // EnableResourceTypeList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new EnableCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableCommandInput - {@link EnableCommandInput}
+ * @returns {@link EnableCommandOutput}
  * @see {@link EnableCommandInput} for command's `input` shape.
  * @see {@link EnableCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The limit on the number of requests per second was exceeded.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request has failed validation due to missing required fields or having invalid
+ *          inputs.</p>
+ *
  *
  */
 export class EnableCommand extends $Command<EnableCommandInput, EnableCommandOutput, Inspector2ClientResolvedConfig> {
@@ -55,6 +89,9 @@ export class EnableCommand extends $Command<EnableCommandInput, EnableCommandOut
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableCommandInput) {
     // Start section: command_constructor
     super();
@@ -81,8 +118,8 @@ export class EnableCommand extends $Command<EnableCommandInput, EnableCommandOut
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: EnableResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -92,12 +129,18 @@ export class EnableCommand extends $Command<EnableCommandInput, EnableCommandOut
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1EnableCommand(input, context);
+    return se_EnableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableCommandOutput> {
-    return deserializeAws_restJson1EnableCommand(output, context);
+    return de_EnableCommand(output, context);
   }
 
   // Start section: command_body_extra

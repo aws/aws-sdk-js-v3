@@ -19,21 +19,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import {
-  ListUserImportJobsRequest,
-  ListUserImportJobsRequestFilterSensitiveLog,
-  ListUserImportJobsResponse,
-  ListUserImportJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListUserImportJobsCommand,
-  serializeAws_json1_1ListUserImportJobsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListUserImportJobsRequest, ListUserImportJobsResponse } from "../models/models_0";
+import { de_ListUserImportJobsCommand, se_ListUserImportJobsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListUserImportJobsCommand}.
+ */
 export interface ListUserImportJobsCommandInput extends ListUserImportJobsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListUserImportJobsCommand}.
+ */
 export interface ListUserImportJobsCommandOutput extends ListUserImportJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the user import jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,13 +44,39 @@ export interface ListUserImportJobsCommandOutput extends ListUserImportJobsRespo
  * import { CognitoIdentityProviderClient, ListUserImportJobsCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, ListUserImportJobsCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // ListUserImportJobsRequest
+ *   UserPoolId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"), // required
+ *   PaginationToken: "STRING_VALUE",
+ * };
  * const command = new ListUserImportJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListUserImportJobsCommandInput - {@link ListUserImportJobsCommandInput}
+ * @returns {@link ListUserImportJobsCommandOutput}
  * @see {@link ListUserImportJobsCommandInput} for command's `input` shape.
  * @see {@link ListUserImportJobsCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
+ *             parameter.</p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
+ *             resource.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>This exception is thrown when the user has made too many requests for a given
+ *             operation.</p>
+ *
  *
  */
 export class ListUserImportJobsCommand extends $Command<
@@ -67,6 +96,9 @@ export class ListUserImportJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListUserImportJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +128,8 @@ export class ListUserImportJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListUserImportJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListUserImportJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +139,18 @@ export class ListUserImportJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListUserImportJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListUserImportJobsCommand(input, context);
+    return se_ListUserImportJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUserImportJobsCommandOutput> {
-    return deserializeAws_json1_1ListUserImportJobsCommand(output, context);
+    return de_ListUserImportJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

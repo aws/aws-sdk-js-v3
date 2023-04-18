@@ -6,12 +6,11 @@ import {
   ListCheckDetailsCommandInput,
   ListCheckDetailsCommandOutput,
 } from "../commands/ListCheckDetailsCommand";
-import { WellArchitected } from "../WellArchitected";
 import { WellArchitectedClient } from "../WellArchitectedClient";
 import { WellArchitectedPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: WellArchitectedClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListCheckDetailsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: WellArchitected,
-  input: ListCheckDetailsCommandInput,
-  ...args: any
-): Promise<ListCheckDetailsCommandOutput> => {
-  // @ts-ignore
-  return await client.listCheckDetails(input, ...args);
-};
 export async function* paginateListCheckDetails(
   config: WellArchitectedPaginationConfiguration,
   input: ListCheckDetailsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListCheckDetails(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof WellArchitected) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof WellArchitectedClient) {
+    if (config.client instanceof WellArchitectedClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected WellArchitected | WellArchitectedClient");

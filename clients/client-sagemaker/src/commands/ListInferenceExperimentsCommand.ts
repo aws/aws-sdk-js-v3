@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListInferenceExperimentsRequest,
-  ListInferenceExperimentsRequestFilterSensitiveLog,
-  ListInferenceExperimentsResponse,
-  ListInferenceExperimentsResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1ListInferenceExperimentsCommand,
-  serializeAws_json1_1ListInferenceExperimentsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListInferenceExperimentsRequest, ListInferenceExperimentsResponse } from "../models/models_3";
+import { de_ListInferenceExperimentsCommand, se_ListInferenceExperimentsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListInferenceExperimentsCommand}.
+ */
 export interface ListInferenceExperimentsCommandInput extends ListInferenceExperimentsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListInferenceExperimentsCommand}.
+ */
 export interface ListInferenceExperimentsCommandOutput extends ListInferenceExperimentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the list of all inference experiments.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,29 @@ export interface ListInferenceExperimentsCommandOutput extends ListInferenceExpe
  * import { SageMakerClient, ListInferenceExperimentsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListInferenceExperimentsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListInferenceExperimentsRequest
+ *   NameContains: "STRING_VALUE",
+ *   Type: "ShadowMode",
+ *   StatusEquals: "Creating" || "Created" || "Updating" || "Running" || "Starting" || "Stopping" || "Completed" || "Cancelled",
+ *   CreationTimeAfter: new Date("TIMESTAMP"),
+ *   CreationTimeBefore: new Date("TIMESTAMP"),
+ *   LastModifiedTimeAfter: new Date("TIMESTAMP"),
+ *   LastModifiedTimeBefore: new Date("TIMESTAMP"),
+ *   SortBy: "Name" || "CreationTime" || "Status",
+ *   SortOrder: "Ascending" || "Descending",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListInferenceExperimentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInferenceExperimentsCommandInput - {@link ListInferenceExperimentsCommandInput}
+ * @returns {@link ListInferenceExperimentsCommandOutput}
  * @see {@link ListInferenceExperimentsCommandInput} for command's `input` shape.
  * @see {@link ListInferenceExperimentsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
  *
  */
 export class ListInferenceExperimentsCommand extends $Command<
@@ -62,6 +81,9 @@ export class ListInferenceExperimentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInferenceExperimentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +112,8 @@ export class ListInferenceExperimentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListInferenceExperimentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListInferenceExperimentsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +123,18 @@ export class ListInferenceExperimentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListInferenceExperimentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListInferenceExperimentsCommand(input, context);
+    return se_ListInferenceExperimentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInferenceExperimentsCommandOutput> {
-    return deserializeAws_json1_1ListInferenceExperimentsCommand(output, context);
+    return de_ListInferenceExperimentsCommand(output, context);
   }
 
   // Start section: command_body_extra

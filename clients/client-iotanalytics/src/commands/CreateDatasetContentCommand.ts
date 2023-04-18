@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
-import {
-  CreateDatasetContentRequest,
-  CreateDatasetContentRequestFilterSensitiveLog,
-  CreateDatasetContentResponse,
-  CreateDatasetContentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDatasetContentCommand,
-  serializeAws_restJson1CreateDatasetContentCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateDatasetContentRequest, CreateDatasetContentResponse } from "../models/models_0";
+import { de_CreateDatasetContentCommand, se_CreateDatasetContentCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateDatasetContentCommand}.
+ */
 export interface CreateDatasetContentCommandInput extends CreateDatasetContentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateDatasetContentCommand}.
+ */
 export interface CreateDatasetContentCommandOutput extends CreateDatasetContentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates the content of a dataset by applying a <code>queryAction</code> (a SQL query) or a
  *         <code>containerAction</code> (executing a containerized application).</p>
  * @example
@@ -37,13 +40,35 @@ export interface CreateDatasetContentCommandOutput extends CreateDatasetContentR
  * import { IoTAnalyticsClient, CreateDatasetContentCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, CreateDatasetContentCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
+ * const input = { // CreateDatasetContentRequest
+ *   datasetName: "STRING_VALUE", // required
+ *   versionId: "STRING_VALUE",
+ * };
  * const command = new CreateDatasetContentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDatasetContentCommandInput - {@link CreateDatasetContentCommandInput}
+ * @returns {@link CreateDatasetContentCommandOutput}
  * @see {@link CreateDatasetContentCommandInput} for command's `input` shape.
  * @see {@link CreateDatasetContentCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>There was an internal failure.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request was not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource with the specified name could not be found.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
  *
  */
 export class CreateDatasetContentCommand extends $Command<
@@ -63,6 +88,9 @@ export class CreateDatasetContentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDatasetContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +119,8 @@ export class CreateDatasetContentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDatasetContentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDatasetContentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +130,18 @@ export class CreateDatasetContentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDatasetContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDatasetContentCommand(input, context);
+    return se_CreateDatasetContentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDatasetContentCommandOutput> {
-    return deserializeAws_restJson1CreateDatasetContentCommand(output, context);
+    return de_CreateDatasetContentCommand(output, context);
   }
 
   // Start section: command_body_extra

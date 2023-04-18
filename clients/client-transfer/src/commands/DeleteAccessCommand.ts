@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteAccessRequest, DeleteAccessRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteAccessCommand,
-  serializeAws_json1_1DeleteAccessCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteAccessRequest } from "../models/models_0";
+import { de_DeleteAccessCommand, se_DeleteAccessCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteAccessCommand}.
+ */
 export interface DeleteAccessCommandInput extends DeleteAccessRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteAccessCommand}.
+ */
 export interface DeleteAccessCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows you to delete the access specified in the <code>ServerID</code> and
  *       <code>ExternalID</code> parameters.</p>
  * @example
@@ -32,13 +40,33 @@ export interface DeleteAccessCommandOutput extends __MetadataBearer {}
  * import { TransferClient, DeleteAccessCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, DeleteAccessCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = { // DeleteAccessRequest
+ *   ServerId: "STRING_VALUE", // required
+ *   ExternalId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAccessCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAccessCommandInput - {@link DeleteAccessCommandInput}
+ * @returns {@link DeleteAccessCommandOutput}
  * @see {@link DeleteAccessCommandInput} for command's `input` shape.
  * @see {@link DeleteAccessCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
+ *
+ * @throws {@link InternalServiceError} (server fault)
+ *  <p>This exception is thrown when an error occurs in the Amazon Web ServicesTransfer Family service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
+ *       service.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+ *
  *
  */
 export class DeleteAccessCommand extends $Command<
@@ -58,6 +86,9 @@ export class DeleteAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -84,8 +115,8 @@ export class DeleteAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAccessRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -95,12 +126,18 @@ export class DeleteAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteAccessCommand(input, context);
+    return se_DeleteAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAccessCommandOutput> {
-    return deserializeAws_json1_1DeleteAccessCommand(output, context);
+    return de_DeleteAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

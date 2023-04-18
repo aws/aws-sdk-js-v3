@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  CreateRestApiRequest,
-  CreateRestApiRequestFilterSensitiveLog,
-  RestApi,
-  RestApiFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateRestApiCommand,
-  serializeAws_restJson1CreateRestApiCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateRestApiRequest, RestApi } from "../models/models_0";
+import { de_CreateRestApiCommand, se_CreateRestApiCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateRestApiCommand}.
+ */
 export interface CreateRestApiCommandInput extends CreateRestApiRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateRestApiCommand}.
+ */
 export interface CreateRestApiCommandOutput extends RestApi, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new RestApi resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,55 @@ export interface CreateRestApiCommandOutput extends RestApi, __MetadataBearer {}
  * import { APIGatewayClient, CreateRestApiCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, CreateRestApiCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // CreateRestApiRequest
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   version: "STRING_VALUE",
+ *   cloneFrom: "STRING_VALUE",
+ *   binaryMediaTypes: [ // ListOfString
+ *     "STRING_VALUE",
+ *   ],
+ *   minimumCompressionSize: Number("int"),
+ *   apiKeySource: "HEADER" || "AUTHORIZER",
+ *   endpointConfiguration: { // EndpointConfiguration
+ *     types: [ // ListOfEndpointType
+ *       "REGIONAL" || "EDGE" || "PRIVATE",
+ *     ],
+ *     vpcEndpointIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   policy: "STRING_VALUE",
+ *   tags: { // MapOfStringToString
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   disableExecuteApiEndpoint: true || false,
+ * };
  * const command = new CreateRestApiCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRestApiCommandInput - {@link CreateRestApiCommandInput}
+ * @returns {@link CreateRestApiCommandOutput}
  * @see {@link CreateRestApiCommandInput} for command's `input` shape.
  * @see {@link CreateRestApiCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The request is denied because the caller has insufficient permissions.</p>
+ *
  *
  */
 export class CreateRestApiCommand extends $Command<
@@ -62,6 +107,9 @@ export class CreateRestApiCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRestApiCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +136,8 @@ export class CreateRestApiCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRestApiRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RestApiFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +147,18 @@ export class CreateRestApiCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRestApiCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateRestApiCommand(input, context);
+    return se_CreateRestApiCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRestApiCommandOutput> {
-    return deserializeAws_restJson1CreateRestApiCommand(output, context);
+    return de_CreateRestApiCommand(output, context);
   }
 
   // Start section: command_body_extra

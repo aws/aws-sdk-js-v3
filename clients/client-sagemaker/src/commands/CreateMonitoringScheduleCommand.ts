@@ -13,37 +13,164 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateMonitoringScheduleRequest,
-  CreateMonitoringScheduleRequestFilterSensitiveLog,
-  CreateMonitoringScheduleResponse,
-  CreateMonitoringScheduleResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1CreateMonitoringScheduleCommand,
-  serializeAws_json1_1CreateMonitoringScheduleCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateMonitoringScheduleRequest, CreateMonitoringScheduleResponse } from "../models/models_1";
+import { de_CreateMonitoringScheduleCommand, se_CreateMonitoringScheduleCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateMonitoringScheduleCommand}.
+ */
 export interface CreateMonitoringScheduleCommandInput extends CreateMonitoringScheduleRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateMonitoringScheduleCommand}.
+ */
 export interface CreateMonitoringScheduleCommandOutput extends CreateMonitoringScheduleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a schedule that regularly starts Amazon SageMaker Processing Jobs to monitor the data
- *          captured for an Amazon SageMaker Endoint.</p>
+ *          captured for an Amazon SageMaker Endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, CreateMonitoringScheduleCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateMonitoringScheduleCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // CreateMonitoringScheduleRequest
+ *   MonitoringScheduleName: "STRING_VALUE", // required
+ *   MonitoringScheduleConfig: { // MonitoringScheduleConfig
+ *     ScheduleConfig: { // ScheduleConfig
+ *       ScheduleExpression: "STRING_VALUE", // required
+ *     },
+ *     MonitoringJobDefinition: { // MonitoringJobDefinition
+ *       BaselineConfig: { // MonitoringBaselineConfig
+ *         BaseliningJobName: "STRING_VALUE",
+ *         ConstraintsResource: { // MonitoringConstraintsResource
+ *           S3Uri: "STRING_VALUE",
+ *         },
+ *         StatisticsResource: { // MonitoringStatisticsResource
+ *           S3Uri: "STRING_VALUE",
+ *         },
+ *       },
+ *       MonitoringInputs: [ // MonitoringInputs // required
+ *         { // MonitoringInput
+ *           EndpointInput: { // EndpointInput
+ *             EndpointName: "STRING_VALUE", // required
+ *             LocalPath: "STRING_VALUE", // required
+ *             S3InputMode: "Pipe" || "File",
+ *             S3DataDistributionType: "FullyReplicated" || "ShardedByS3Key",
+ *             FeaturesAttribute: "STRING_VALUE",
+ *             InferenceAttribute: "STRING_VALUE",
+ *             ProbabilityAttribute: "STRING_VALUE",
+ *             ProbabilityThresholdAttribute: Number("double"),
+ *             StartTimeOffset: "STRING_VALUE",
+ *             EndTimeOffset: "STRING_VALUE",
+ *           },
+ *           BatchTransformInput: { // BatchTransformInput
+ *             DataCapturedDestinationS3Uri: "STRING_VALUE", // required
+ *             DatasetFormat: { // MonitoringDatasetFormat
+ *               Csv: { // MonitoringCsvDatasetFormat
+ *                 Header: true || false,
+ *               },
+ *               Json: { // MonitoringJsonDatasetFormat
+ *                 Line: true || false,
+ *               },
+ *               Parquet: {},
+ *             },
+ *             LocalPath: "STRING_VALUE", // required
+ *             S3InputMode: "Pipe" || "File",
+ *             S3DataDistributionType: "FullyReplicated" || "ShardedByS3Key",
+ *             FeaturesAttribute: "STRING_VALUE",
+ *             InferenceAttribute: "STRING_VALUE",
+ *             ProbabilityAttribute: "STRING_VALUE",
+ *             ProbabilityThresholdAttribute: Number("double"),
+ *             StartTimeOffset: "STRING_VALUE",
+ *             EndTimeOffset: "STRING_VALUE",
+ *           },
+ *         },
+ *       ],
+ *       MonitoringOutputConfig: { // MonitoringOutputConfig
+ *         MonitoringOutputs: [ // MonitoringOutputs // required
+ *           { // MonitoringOutput
+ *             S3Output: { // MonitoringS3Output
+ *               S3Uri: "STRING_VALUE", // required
+ *               LocalPath: "STRING_VALUE", // required
+ *               S3UploadMode: "Continuous" || "EndOfJob",
+ *             },
+ *           },
+ *         ],
+ *         KmsKeyId: "STRING_VALUE",
+ *       },
+ *       MonitoringResources: { // MonitoringResources
+ *         ClusterConfig: { // MonitoringClusterConfig
+ *           InstanceCount: Number("int"), // required
+ *           InstanceType: "ml.t3.medium" || "ml.t3.large" || "ml.t3.xlarge" || "ml.t3.2xlarge" || "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.r5.large" || "ml.r5.xlarge" || "ml.r5.2xlarge" || "ml.r5.4xlarge" || "ml.r5.8xlarge" || "ml.r5.12xlarge" || "ml.r5.16xlarge" || "ml.r5.24xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge", // required
+ *           VolumeSizeInGB: Number("int"), // required
+ *           VolumeKmsKeyId: "STRING_VALUE",
+ *         },
+ *       },
+ *       MonitoringAppSpecification: { // MonitoringAppSpecification
+ *         ImageUri: "STRING_VALUE", // required
+ *         ContainerEntrypoint: [ // ContainerEntrypoint
+ *           "STRING_VALUE",
+ *         ],
+ *         ContainerArguments: [ // MonitoringContainerArguments
+ *           "STRING_VALUE",
+ *         ],
+ *         RecordPreprocessorSourceUri: "STRING_VALUE",
+ *         PostAnalyticsProcessorSourceUri: "STRING_VALUE",
+ *       },
+ *       StoppingCondition: { // MonitoringStoppingCondition
+ *         MaxRuntimeInSeconds: Number("int"), // required
+ *       },
+ *       Environment: { // MonitoringEnvironmentMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       NetworkConfig: { // NetworkConfig
+ *         EnableInterContainerTrafficEncryption: true || false,
+ *         EnableNetworkIsolation: true || false,
+ *         VpcConfig: { // VpcConfig
+ *           SecurityGroupIds: [ // VpcSecurityGroupIds // required
+ *             "STRING_VALUE",
+ *           ],
+ *           Subnets: [ // Subnets // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *       RoleArn: "STRING_VALUE", // required
+ *     },
+ *     MonitoringJobDefinitionName: "STRING_VALUE",
+ *     MonitoringType: "DataQuality" || "ModelQuality" || "ModelBias" || "ModelExplainability",
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateMonitoringScheduleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMonitoringScheduleCommandInput - {@link CreateMonitoringScheduleCommandInput}
+ * @returns {@link CreateMonitoringScheduleCommandOutput}
  * @see {@link CreateMonitoringScheduleCommandInput} for command's `input` shape.
  * @see {@link CreateMonitoringScheduleCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceInUse} (client fault)
+ *  <p>Resource being accessed is in use.</p>
+ *
+ * @throws {@link ResourceLimitExceeded} (client fault)
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
+ *             training jobs created. </p>
+ *
  *
  */
 export class CreateMonitoringScheduleCommand extends $Command<
@@ -63,6 +190,9 @@ export class CreateMonitoringScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMonitoringScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +221,8 @@ export class CreateMonitoringScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateMonitoringScheduleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateMonitoringScheduleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +232,18 @@ export class CreateMonitoringScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMonitoringScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateMonitoringScheduleCommand(input, context);
+    return se_CreateMonitoringScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMonitoringScheduleCommandOutput> {
-    return deserializeAws_json1_1CreateMonitoringScheduleCommand(output, context);
+    return de_CreateMonitoringScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

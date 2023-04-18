@@ -16,25 +16,34 @@ import {
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import {
   DescribeAggregateComplianceByConformancePacksRequest,
-  DescribeAggregateComplianceByConformancePacksRequestFilterSensitiveLog,
   DescribeAggregateComplianceByConformancePacksResponse,
-  DescribeAggregateComplianceByConformancePacksResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeAggregateComplianceByConformancePacksCommand,
-  serializeAws_json1_1DescribeAggregateComplianceByConformancePacksCommand,
+  de_DescribeAggregateComplianceByConformancePacksCommand,
+  se_DescribeAggregateComplianceByConformancePacksCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeAggregateComplianceByConformancePacksCommand}.
+ */
 export interface DescribeAggregateComplianceByConformancePacksCommandInput
   extends DescribeAggregateComplianceByConformancePacksRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeAggregateComplianceByConformancePacksCommand}.
+ */
 export interface DescribeAggregateComplianceByConformancePacksCommandOutput
   extends DescribeAggregateComplianceByConformancePacksResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the conformance packs and their associated compliance status with the count of compliant and noncompliant Config rules within each
  * 			conformance pack. Also returns the total rule count which includes compliant rules, noncompliant rules, and rules that cannot be evaluated due to insufficient data.</p>
- * 		       <note>
+ *          <note>
  *             <p>The results can return an empty result page, but if you have a <code>nextToken</code>, the results are displayed on the next page.</p>
  *          </note>
  * @example
@@ -43,13 +52,43 @@ export interface DescribeAggregateComplianceByConformancePacksCommandOutput
  * import { ConfigServiceClient, DescribeAggregateComplianceByConformancePacksCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DescribeAggregateComplianceByConformancePacksCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // DescribeAggregateComplianceByConformancePacksRequest
+ *   ConfigurationAggregatorName: "STRING_VALUE", // required
+ *   Filters: { // AggregateConformancePackComplianceFilters
+ *     ConformancePackName: "STRING_VALUE",
+ *     ComplianceType: "COMPLIANT" || "NON_COMPLIANT" || "INSUFFICIENT_DATA",
+ *     AccountId: "STRING_VALUE",
+ *     AwsRegion: "STRING_VALUE",
+ *   },
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeAggregateComplianceByConformancePacksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAggregateComplianceByConformancePacksCommandInput - {@link DescribeAggregateComplianceByConformancePacksCommandInput}
+ * @returns {@link DescribeAggregateComplianceByConformancePacksCommandOutput}
  * @see {@link DescribeAggregateComplianceByConformancePacksCommandInput} for command's `input` shape.
  * @see {@link DescribeAggregateComplianceByConformancePacksCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
+ *
+ * @throws {@link InvalidLimitException} (client fault)
+ *  <p>The specified limit is outside the allowable range.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The specified next token is not valid. Specify the
+ * 				<code>nextToken</code> string that was returned in the previous
+ * 			response to get the next page of results.</p>
+ *
+ * @throws {@link NoSuchConfigurationAggregatorException} (client fault)
+ *  <p>You have specified a configuration aggregator that does not exist.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The requested action is not valid.</p>
+ *          <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
+ *          <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
+ *
  *
  */
 export class DescribeAggregateComplianceByConformancePacksCommand extends $Command<
@@ -69,6 +108,9 @@ export class DescribeAggregateComplianceByConformancePacksCommand extends $Comma
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAggregateComplianceByConformancePacksCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +145,8 @@ export class DescribeAggregateComplianceByConformancePacksCommand extends $Comma
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAggregateComplianceByConformancePacksRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAggregateComplianceByConformancePacksResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,18 +156,24 @@ export class DescribeAggregateComplianceByConformancePacksCommand extends $Comma
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeAggregateComplianceByConformancePacksCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAggregateComplianceByConformancePacksCommand(input, context);
+    return se_DescribeAggregateComplianceByConformancePacksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAggregateComplianceByConformancePacksCommandOutput> {
-    return deserializeAws_json1_1DescribeAggregateComplianceByConformancePacksCommand(output, context);
+    return de_DescribeAggregateComplianceByConformancePacksCommand(output, context);
   }
 
   // Start section: command_body_extra

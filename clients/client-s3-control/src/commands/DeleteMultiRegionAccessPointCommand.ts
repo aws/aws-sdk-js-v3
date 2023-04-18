@@ -15,24 +15,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DeleteMultiRegionAccessPointRequest, DeleteMultiRegionAccessPointResult } from "../models/models_0";
 import {
-  DeleteMultiRegionAccessPointRequest,
-  DeleteMultiRegionAccessPointRequestFilterSensitiveLog,
-  DeleteMultiRegionAccessPointResult,
-  DeleteMultiRegionAccessPointResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlDeleteMultiRegionAccessPointCommand,
-  serializeAws_restXmlDeleteMultiRegionAccessPointCommand,
+  de_DeleteMultiRegionAccessPointCommand,
+  se_DeleteMultiRegionAccessPointCommand,
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteMultiRegionAccessPointCommand}.
+ */
 export interface DeleteMultiRegionAccessPointCommandInput extends DeleteMultiRegionAccessPointRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteMultiRegionAccessPointCommand}.
+ */
 export interface DeleteMultiRegionAccessPointCommandOutput
   extends DeleteMultiRegionAccessPointResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Multi-Region Access Point. This action does not delete the buckets associated with the Multi-Region Access Point,
  *          only the Multi-Region Access Point itself.</p>
  *          <p>This action will always be routed to the US West (Oregon) Region. For more information
@@ -71,13 +77,23 @@ export interface DeleteMultiRegionAccessPointCommandOutput
  * import { S3ControlClient, DeleteMultiRegionAccessPointCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, DeleteMultiRegionAccessPointCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = { // DeleteMultiRegionAccessPointRequest
+ *   AccountId: "STRING_VALUE",
+ *   ClientToken: "STRING_VALUE", // required
+ *   Details: { // DeleteMultiRegionAccessPointInput
+ *     Name: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new DeleteMultiRegionAccessPointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMultiRegionAccessPointCommandInput - {@link DeleteMultiRegionAccessPointCommandInput}
+ * @returns {@link DeleteMultiRegionAccessPointCommandOutput}
  * @see {@link DeleteMultiRegionAccessPointCommandInput} for command's `input` shape.
  * @see {@link DeleteMultiRegionAccessPointCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
+ *
  *
  */
 export class DeleteMultiRegionAccessPointCommand extends $Command<
@@ -100,6 +116,9 @@ export class DeleteMultiRegionAccessPointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMultiRegionAccessPointCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +149,8 @@ export class DeleteMultiRegionAccessPointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMultiRegionAccessPointRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteMultiRegionAccessPointResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,15 +160,21 @@ export class DeleteMultiRegionAccessPointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMultiRegionAccessPointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteMultiRegionAccessPointCommand(input, context);
+    return se_DeleteMultiRegionAccessPointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteMultiRegionAccessPointCommandOutput> {
-    return deserializeAws_restXmlDeleteMultiRegionAccessPointCommand(output, context);
+    return de_DeleteMultiRegionAccessPointCommand(output, context);
   }
 
   // Start section: command_body_extra

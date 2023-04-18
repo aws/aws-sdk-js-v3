@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  GetTaskProtectionRequest,
-  GetTaskProtectionRequestFilterSensitiveLog,
-  GetTaskProtectionResponse,
-  GetTaskProtectionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetTaskProtectionCommand,
-  serializeAws_json1_1GetTaskProtectionCommand,
-} from "../protocols/Aws_json1_1";
+import { GetTaskProtectionRequest, GetTaskProtectionResponse } from "../models/models_0";
+import { de_GetTaskProtectionCommand, se_GetTaskProtectionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetTaskProtectionCommand}.
+ */
 export interface GetTaskProtectionCommandInput extends GetTaskProtectionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetTaskProtectionCommand}.
+ */
 export interface GetTaskProtectionCommandOutput extends GetTaskProtectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the protection status of tasks in an Amazon ECS service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,72 @@ export interface GetTaskProtectionCommandOutput extends GetTaskProtectionRespons
  * import { ECSClient, GetTaskProtectionCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, GetTaskProtectionCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // GetTaskProtectionRequest
+ *   cluster: "STRING_VALUE", // required
+ *   tasks: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetTaskProtectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTaskProtectionCommandInput - {@link GetTaskProtectionCommandInput}
+ * @returns {@link GetTaskProtectionCommandOutput}
  * @see {@link GetTaskProtectionCommandInput} for command's `input` shape.
  * @see {@link GetTaskProtectionCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have authorization to perform the requested action.</p>
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action. This client action might be using
+ * 			an action or resource on behalf of a user that doesn't have permissions to use the
+ * 			action or resource,. Or, it might be specifying an identifier that isn't valid.</p>
+ *
+ * @throws {@link ClusterNotFoundException} (client fault)
+ *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter isn't valid. Review the available parameters for the API
+ * 			request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource wasn't found.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server issue.</p>
+ *
+ * @throws {@link UnsupportedFeatureException} (client fault)
+ *  <p>The specified task isn't supported in this Region.</p>
+ *
+ *
+ * @example To get the protection status of a task
+ * ```javascript
+ * // In this example, we get the protection status for a single task.
+ * const input = {
+ *   "cluster": "test-task-protection",
+ *   "tasks": [
+ *     "b8b1cf532d0e46ba8d44a40d1de16772"
+ *   ]
+ * };
+ * const command = new GetTaskProtectionCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "failures": [],
+ *   "protectedTasks": [
+ *     {
+ *       "expirationDate": "2022-11-02T06:56:32.553Z",
+ *       "protectionEnabled": true,
+ *       "taskArn": "arn:aws:ecs:us-west-2:012345678910:task/b8b1cf532d0e46ba8d44a40d1de16772"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: get-the-protection-status-for-a-single-task-2022-11-02T06:56:32.553Z
+ * ```
  *
  */
 export class GetTaskProtectionCommand extends $Command<
@@ -62,6 +124,9 @@ export class GetTaskProtectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTaskProtectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +155,8 @@ export class GetTaskProtectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTaskProtectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTaskProtectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +166,18 @@ export class GetTaskProtectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTaskProtectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetTaskProtectionCommand(input, context);
+    return se_GetTaskProtectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTaskProtectionCommandOutput> {
-    return deserializeAws_json1_1GetTaskProtectionCommand(output, context);
+    return de_GetTaskProtectionCommand(output, context);
   }
 
   // Start section: command_body_extra

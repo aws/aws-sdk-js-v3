@@ -18,23 +18,29 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
+import { CreateCustomRoutingAcceleratorRequest, CreateCustomRoutingAcceleratorResponse } from "../models/models_0";
 import {
-  CreateCustomRoutingAcceleratorRequest,
-  CreateCustomRoutingAcceleratorRequestFilterSensitiveLog,
-  CreateCustomRoutingAcceleratorResponse,
-  CreateCustomRoutingAcceleratorResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateCustomRoutingAcceleratorCommand,
-  serializeAws_json1_1CreateCustomRoutingAcceleratorCommand,
+  de_CreateCustomRoutingAcceleratorCommand,
+  se_CreateCustomRoutingAcceleratorCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateCustomRoutingAcceleratorCommand}.
+ */
 export interface CreateCustomRoutingAcceleratorCommandInput extends CreateCustomRoutingAcceleratorRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateCustomRoutingAcceleratorCommand}.
+ */
 export interface CreateCustomRoutingAcceleratorCommandOutput
   extends CreateCustomRoutingAcceleratorResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a custom routing accelerator. A custom routing accelerator directs traffic to one of possibly thousands
  * 	    of Amazon EC2 instance destinations running in a single or multiple virtual private clouds (VPC) subnet endpoints.</p>
  * 	        <p>Be aware that, by default, all destination EC2 instances in a VPC subnet endpoint cannot receive
@@ -52,13 +58,43 @@ export interface CreateCustomRoutingAcceleratorCommandOutput
  * import { GlobalAcceleratorClient, CreateCustomRoutingAcceleratorCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, CreateCustomRoutingAcceleratorCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
+ * const input = { // CreateCustomRoutingAcceleratorRequest
+ *   Name: "STRING_VALUE", // required
+ *   IpAddressType: "IPV4" || "DUAL_STACK",
+ *   IpAddresses: [ // IpAddresses
+ *     "STRING_VALUE",
+ *   ],
+ *   Enabled: true || false,
+ *   IdempotencyToken: "STRING_VALUE", // required
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateCustomRoutingAcceleratorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCustomRoutingAcceleratorCommandInput - {@link CreateCustomRoutingAcceleratorCommandInput}
+ * @returns {@link CreateCustomRoutingAcceleratorCommandOutput}
  * @see {@link CreateCustomRoutingAcceleratorCommandInput} for command's `input` shape.
  * @see {@link CreateCustomRoutingAcceleratorCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have access permission.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>There was an internal error for Global Accelerator.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>An argument that you specified is invalid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>Processing your request would cause you to exceed an Global Accelerator limit.</p>
+ *
  *
  */
 export class CreateCustomRoutingAcceleratorCommand extends $Command<
@@ -78,6 +114,9 @@ export class CreateCustomRoutingAcceleratorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCustomRoutingAcceleratorCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +145,8 @@ export class CreateCustomRoutingAcceleratorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCustomRoutingAcceleratorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCustomRoutingAcceleratorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,18 +156,24 @@ export class CreateCustomRoutingAcceleratorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateCustomRoutingAcceleratorCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateCustomRoutingAcceleratorCommand(input, context);
+    return se_CreateCustomRoutingAcceleratorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateCustomRoutingAcceleratorCommandOutput> {
-    return deserializeAws_json1_1CreateCustomRoutingAcceleratorCommand(output, context);
+    return de_CreateCustomRoutingAcceleratorCommand(output, context);
   }
 
   // Start section: command_body_extra

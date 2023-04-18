@@ -14,35 +14,82 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import {
-  UpdateDetectorRequest,
-  UpdateDetectorRequestFilterSensitiveLog,
-  UpdateDetectorResponse,
-  UpdateDetectorResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateDetectorCommand,
-  serializeAws_restJson1UpdateDetectorCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateDetectorRequest, UpdateDetectorResponse } from "../models/models_1";
+import { de_UpdateDetectorCommand, se_UpdateDetectorCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateDetectorCommand}.
+ */
 export interface UpdateDetectorCommandInput extends UpdateDetectorRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateDetectorCommand}.
+ */
 export interface UpdateDetectorCommandOutput extends UpdateDetectorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the Amazon GuardDuty detector specified by the detectorId.</p>
+ *          <p>There might be regional differences because some data sources might not be
+ *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
+ *       information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GuardDutyClient, UpdateDetectorCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, UpdateDetectorCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = { // UpdateDetectorRequest
+ *   DetectorId: "STRING_VALUE", // required
+ *   Enable: true || false,
+ *   FindingPublishingFrequency: "FIFTEEN_MINUTES" || "ONE_HOUR" || "SIX_HOURS",
+ *   DataSources: { // DataSourceConfigurations
+ *     S3Logs: { // S3LogsConfiguration
+ *       Enable: true || false, // required
+ *     },
+ *     Kubernetes: { // KubernetesConfiguration
+ *       AuditLogs: { // KubernetesAuditLogsConfiguration
+ *         Enable: true || false, // required
+ *       },
+ *     },
+ *     MalwareProtection: { // MalwareProtectionConfiguration
+ *       ScanEc2InstanceWithFindings: { // ScanEc2InstanceWithFindings
+ *         EbsVolumes: true || false,
+ *       },
+ *     },
+ *   },
+ *   Features: [ // DetectorFeatureConfigurations
+ *     { // DetectorFeatureConfiguration
+ *       Name: "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "EKS_RUNTIME_MONITORING",
+ *       Status: "ENABLED" || "DISABLED",
+ *       AdditionalConfiguration: [ // DetectorAdditionalConfigurations
+ *         { // DetectorAdditionalConfiguration
+ *           Name: "EKS_ADDON_MANAGEMENT",
+ *           Status: "ENABLED" || "DISABLED",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new UpdateDetectorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDetectorCommandInput - {@link UpdateDetectorCommandInput}
+ * @returns {@link UpdateDetectorCommandOutput}
  * @see {@link UpdateDetectorCommandInput} for command's `input` shape.
  * @see {@link UpdateDetectorCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>A bad request exception object.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>An internal server error exception object.</p>
+ *
  *
  */
 export class UpdateDetectorCommand extends $Command<
@@ -62,6 +109,9 @@ export class UpdateDetectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDetectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +140,8 @@ export class UpdateDetectorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDetectorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDetectorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +151,18 @@ export class UpdateDetectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDetectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDetectorCommand(input, context);
+    return se_UpdateDetectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDetectorCommandOutput> {
-    return deserializeAws_restJson1UpdateDetectorCommand(output, context);
+    return de_UpdateDetectorCommand(output, context);
   }
 
   // Start section: command_body_extra

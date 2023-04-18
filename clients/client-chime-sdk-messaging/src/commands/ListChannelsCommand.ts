@@ -24,18 +24,25 @@ import {
   ListChannelsResponse,
   ListChannelsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListChannelsCommand,
-  serializeAws_restJson1ListChannelsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListChannelsCommand, se_ListChannelsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListChannelsCommand}.
+ */
 export interface ListChannelsCommandInput extends ListChannelsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListChannelsCommand}.
+ */
 export interface ListChannelsCommandOutput extends ListChannelsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all Channels created under a single Chime App as a paginated list. You can specify
  *          filters to narrow results.</p>
- *
  *          <p class="title">
  *             <b>Functionality & restrictions</b>
  *          </p>
@@ -49,10 +56,9 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  *                list the private channels in an account.</p>
  *             </li>
  *          </ul>
- *
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
- *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+ *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
  *             the header.</p>
  *          </note>
  * @example
@@ -61,13 +67,41 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * import { ChimeSDKMessagingClient, ListChannelsCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, ListChannelsCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
+ * const input = { // ListChannelsRequest
+ *   AppInstanceArn: "STRING_VALUE", // required
+ *   Privacy: "PUBLIC" || "PRIVATE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   ChimeBearer: "STRING_VALUE", // required
+ * };
  * const command = new ListChannelsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListChannelsCommandInput - {@link ListChannelsCommandInput}
+ * @returns {@link ListChannelsCommandOutput}
  * @see {@link ListChannelsCommandInput} for command's `input` shape.
  * @see {@link ListChannelsCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The client exceeded its request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client is not currently authorized to make the request.</p>
+ *
  *
  */
 export class ListChannelsCommand extends $Command<
@@ -87,6 +121,9 @@ export class ListChannelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListChannelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,12 +161,18 @@ export class ListChannelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListChannelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListChannelsCommand(input, context);
+    return se_ListChannelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListChannelsCommandOutput> {
-    return deserializeAws_restJson1ListChannelsCommand(output, context);
+    return de_ListChannelsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,24 +13,27 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DisassociateConnectorRequest,
-  DisassociateConnectorRequestFilterSensitiveLog,
-  DisassociateConnectorResponse,
-  DisassociateConnectorResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DisassociateConnectorCommand,
-  serializeAws_json1_1DisassociateConnectorCommand,
-} from "../protocols/Aws_json1_1";
+import { DisassociateConnectorRequest, DisassociateConnectorResponse } from "../models/models_0";
+import { de_DisassociateConnectorCommand, se_DisassociateConnectorCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DisassociateConnectorCommand}.
+ */
 export interface DisassociateConnectorCommandInput extends DisassociateConnectorRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateConnectorCommand}.
+ */
 export interface DisassociateConnectorCommandOutput extends DisassociateConnectorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates the specified connector from Server Migration Service.</p>
- *         <p>After you disassociate a connector, it is no longer available to support
+ *          <p>After you disassociate a connector, it is no longer available to support
  *             replication jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +41,32 @@ export interface DisassociateConnectorCommandOutput extends DisassociateConnecto
  * import { SMSClient, DisassociateConnectorCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, DisassociateConnectorCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
+ * const input = { // DisassociateConnectorRequest
+ *   connectorId: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateConnectorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateConnectorCommandInput - {@link DisassociateConnectorCommandInput}
+ * @returns {@link DisassociateConnectorCommandOutput}
  * @see {@link DisassociateConnectorCommandInput} for command's `input` shape.
  * @see {@link DisassociateConnectorCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A specified parameter is not valid.</p>
+ *
+ * @throws {@link MissingRequiredParameterException} (client fault)
+ *  <p>A required parameter is missing.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This operation is not allowed.</p>
+ *
+ * @throws {@link UnauthorizedOperationException} (client fault)
+ *  <p>You lack permissions needed to perform this operation. Check your IAM policies,
+ *             and ensure that you are using the correct access keys.</p>
+ *
  *
  */
 export class DisassociateConnectorCommand extends $Command<
@@ -64,6 +86,9 @@ export class DisassociateConnectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateConnectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +117,8 @@ export class DisassociateConnectorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateConnectorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateConnectorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +128,18 @@ export class DisassociateConnectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateConnectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateConnectorCommand(input, context);
+    return se_DisassociateConnectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateConnectorCommandOutput> {
-    return deserializeAws_json1_1DisassociateConnectorCommand(output, context);
+    return de_DisassociateConnectorCommand(output, context);
   }
 
   // Start section: command_body_extra

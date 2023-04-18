@@ -6,12 +6,11 @@ import {
   ListDatasetEntriesCommandInput,
   ListDatasetEntriesCommandOutput,
 } from "../commands/ListDatasetEntriesCommand";
-import { Rekognition } from "../Rekognition";
 import { RekognitionClient } from "../RekognitionClient";
 import { RekognitionPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: RekognitionClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListDatasetEntriesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Rekognition,
-  input: ListDatasetEntriesCommandInput,
-  ...args: any
-): Promise<ListDatasetEntriesCommandOutput> => {
-  // @ts-ignore
-  return await client.listDatasetEntries(input, ...args);
-};
 export async function* paginateListDatasetEntries(
   config: RekognitionPaginationConfiguration,
   input: ListDatasetEntriesCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListDatasetEntries(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Rekognition) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof RekognitionClient) {
+    if (config.client instanceof RekognitionClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Rekognition | RekognitionClient");

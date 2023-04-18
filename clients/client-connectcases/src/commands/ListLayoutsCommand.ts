@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
-import {
-  ListLayoutsRequest,
-  ListLayoutsRequestFilterSensitiveLog,
-  ListLayoutsResponse,
-  ListLayoutsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListLayoutsCommand,
-  serializeAws_restJson1ListLayoutsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListLayoutsRequest, ListLayoutsResponse } from "../models/models_0";
+import { de_ListLayoutsCommand, se_ListLayoutsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListLayoutsCommand}.
+ */
 export interface ListLayoutsCommandInput extends ListLayoutsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListLayoutsCommand}.
+ */
 export interface ListLayoutsCommandOutput extends ListLayoutsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all layouts in the given cases domain. Each list item is a condensed summary object
  *       of the layout.</p>
  * @example
@@ -37,13 +40,38 @@ export interface ListLayoutsCommandOutput extends ListLayoutsResponse, __Metadat
  * import { ConnectCasesClient, ListLayoutsCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, ListLayoutsCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
  * const client = new ConnectCasesClient(config);
+ * const input = { // ListLayoutsRequest
+ *   domainId: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListLayoutsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLayoutsCommandInput - {@link ListLayoutsCommandInput}
+ * @returns {@link ListLayoutsCommandOutput}
  * @see {@link ListLayoutsCommandInput} for command's `input` shape.
  * @see {@link ListLayoutsCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>We couldn't process your request because of an issue with the server. Try again
+ *       later.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>We couldn't find the requested resource. Check that your resources exists and were created
+ *       in the same Amazon Web Services Region as your request, and try your request again.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate has been exceeded for this API. Please try again after a few minutes.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request isn't valid. Check the syntax and try again.</p>
+ *
  *
  */
 export class ListLayoutsCommand extends $Command<
@@ -63,6 +91,9 @@ export class ListLayoutsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLayoutsCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +120,8 @@ export class ListLayoutsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLayoutsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListLayoutsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +131,18 @@ export class ListLayoutsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLayoutsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListLayoutsCommand(input, context);
+    return se_ListLayoutsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLayoutsCommandOutput> {
-    return deserializeAws_restJson1ListLayoutsCommand(output, context);
+    return de_ListLayoutsCommand(output, context);
   }
 
   // Start section: command_body_extra

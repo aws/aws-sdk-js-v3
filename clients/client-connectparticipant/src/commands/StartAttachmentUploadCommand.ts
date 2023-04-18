@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ConnectParticipantClient";
-import {
-  StartAttachmentUploadRequest,
-  StartAttachmentUploadRequestFilterSensitiveLog,
-  StartAttachmentUploadResponse,
-  StartAttachmentUploadResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StartAttachmentUploadCommand,
-  serializeAws_restJson1StartAttachmentUploadCommand,
-} from "../protocols/Aws_restJson1";
+import { StartAttachmentUploadRequest, StartAttachmentUploadResponse } from "../models/models_0";
+import { de_StartAttachmentUploadCommand, se_StartAttachmentUploadCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link StartAttachmentUploadCommand}.
+ */
 export interface StartAttachmentUploadCommandInput extends StartAttachmentUploadRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartAttachmentUploadCommand}.
+ */
 export interface StartAttachmentUploadCommandOutput extends StartAttachmentUploadResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a pre-signed Amazon S3 URL in response for uploading the file directly to
  *             S3.</p>
  *          <note>
@@ -48,13 +51,38 @@ export interface StartAttachmentUploadCommandOutput extends StartAttachmentUploa
  * import { ConnectParticipantClient, StartAttachmentUploadCommand } from "@aws-sdk/client-connectparticipant"; // ES Modules import
  * // const { ConnectParticipantClient, StartAttachmentUploadCommand } = require("@aws-sdk/client-connectparticipant"); // CommonJS import
  * const client = new ConnectParticipantClient(config);
+ * const input = { // StartAttachmentUploadRequest
+ *   ContentType: "STRING_VALUE", // required
+ *   AttachmentSizeInBytes: Number("long"), // required
+ *   AttachmentName: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE", // required
+ *   ConnectionToken: "STRING_VALUE", // required
+ * };
  * const command = new StartAttachmentUploadCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartAttachmentUploadCommandInput - {@link StartAttachmentUploadCommandInput}
+ * @returns {@link StartAttachmentUploadCommandOutput}
  * @see {@link StartAttachmentUploadCommandInput} for command's `input` shape.
  * @see {@link StartAttachmentUploadCommandOutput} for command's `response` shape.
  * @see {@link ConnectParticipantClientResolvedConfig | config} for ConnectParticipantClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>This exception occurs when there is an internal failure in the Amazon Connect service.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The number of attachments per contact exceeds the quota.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by Amazon Connect.</p>
+ *
  *
  */
 export class StartAttachmentUploadCommand extends $Command<
@@ -74,6 +102,9 @@ export class StartAttachmentUploadCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartAttachmentUploadCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +133,8 @@ export class StartAttachmentUploadCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartAttachmentUploadRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartAttachmentUploadResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +144,18 @@ export class StartAttachmentUploadCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartAttachmentUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartAttachmentUploadCommand(input, context);
+    return se_StartAttachmentUploadCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartAttachmentUploadCommandOutput> {
-    return deserializeAws_restJson1StartAttachmentUploadCommand(output, context);
+    return de_StartAttachmentUploadCommand(output, context);
   }
 
   // Start section: command_body_extra

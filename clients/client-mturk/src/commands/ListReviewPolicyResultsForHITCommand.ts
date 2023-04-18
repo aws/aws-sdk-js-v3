@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListReviewPolicyResultsForHITRequest,
-  ListReviewPolicyResultsForHITRequestFilterSensitiveLog,
-  ListReviewPolicyResultsForHITResponse,
-  ListReviewPolicyResultsForHITResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListReviewPolicyResultsForHITRequest, ListReviewPolicyResultsForHITResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import {
-  deserializeAws_json1_1ListReviewPolicyResultsForHITCommand,
-  serializeAws_json1_1ListReviewPolicyResultsForHITCommand,
+  de_ListReviewPolicyResultsForHITCommand,
+  se_ListReviewPolicyResultsForHITCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListReviewPolicyResultsForHITCommand}.
+ */
 export interface ListReviewPolicyResultsForHITCommandInput extends ListReviewPolicyResultsForHITRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListReviewPolicyResultsForHITCommand}.
+ */
 export interface ListReviewPolicyResultsForHITCommandOutput
   extends ListReviewPolicyResultsForHITResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The <code>ListReviewPolicyResultsForHIT</code> operation retrieves the computed results
  *             and the actions taken in the course of executing your Review Policies for a given HIT.
@@ -44,13 +50,32 @@ export interface ListReviewPolicyResultsForHITCommandOutput
  * import { MTurkClient, ListReviewPolicyResultsForHITCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, ListReviewPolicyResultsForHITCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = { // ListReviewPolicyResultsForHITRequest
+ *   HITId: "STRING_VALUE", // required
+ *   PolicyLevels: [ // ReviewPolicyLevelList
+ *     "STRING_VALUE",
+ *   ],
+ *   RetrieveActions: true || false,
+ *   RetrieveResults: true || false,
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListReviewPolicyResultsForHITCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListReviewPolicyResultsForHITCommandInput - {@link ListReviewPolicyResultsForHITCommandInput}
+ * @returns {@link ListReviewPolicyResultsForHITCommandOutput}
  * @see {@link ListReviewPolicyResultsForHITCommandInput} for command's `input` shape.
  * @see {@link ListReviewPolicyResultsForHITCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
+ *
+ * @throws {@link RequestError} (client fault)
+ *  <p>Your request is invalid.</p>
+ *
+ * @throws {@link ServiceFault} (server fault)
+ *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
  *
  */
 export class ListReviewPolicyResultsForHITCommand extends $Command<
@@ -70,6 +95,9 @@ export class ListReviewPolicyResultsForHITCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListReviewPolicyResultsForHITCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +126,8 @@ export class ListReviewPolicyResultsForHITCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListReviewPolicyResultsForHITRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListReviewPolicyResultsForHITResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,15 +137,21 @@ export class ListReviewPolicyResultsForHITCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListReviewPolicyResultsForHITCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListReviewPolicyResultsForHITCommand(input, context);
+    return se_ListReviewPolicyResultsForHITCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListReviewPolicyResultsForHITCommandOutput> {
-    return deserializeAws_json1_1ListReviewPolicyResultsForHITCommand(output, context);
+    return de_ListReviewPolicyResultsForHITCommand(output, context);
   }
 
   // Start section: command_body_extra

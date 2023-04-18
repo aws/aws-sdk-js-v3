@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import {
-  BatchGetRepositoriesInput,
-  BatchGetRepositoriesInputFilterSensitiveLog,
-  BatchGetRepositoriesOutput,
-  BatchGetRepositoriesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchGetRepositoriesCommand,
-  serializeAws_json1_1BatchGetRepositoriesCommand,
-} from "../protocols/Aws_json1_1";
+import { BatchGetRepositoriesInput, BatchGetRepositoriesOutput } from "../models/models_0";
+import { de_BatchGetRepositoriesCommand, se_BatchGetRepositoriesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchGetRepositoriesCommand}.
+ */
 export interface BatchGetRepositoriesCommandInput extends BatchGetRepositoriesInput {}
+/**
+ * @public
+ *
+ * The output of {@link BatchGetRepositoriesCommand}.
+ */
 export interface BatchGetRepositoriesCommandOutput extends BatchGetRepositoriesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about one or more repositories.</p>
  *         <note>
  *             <p>The description field for a repository accepts all HTML characters and all valid
@@ -43,13 +46,51 @@ export interface BatchGetRepositoriesCommandOutput extends BatchGetRepositoriesO
  * import { CodeCommitClient, BatchGetRepositoriesCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, BatchGetRepositoriesCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // BatchGetRepositoriesInput
+ *   repositoryNames: [ // RepositoryNameList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchGetRepositoriesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetRepositoriesCommandInput - {@link BatchGetRepositoriesCommandInput}
+ * @returns {@link BatchGetRepositoriesCommandOutput}
  * @see {@link BatchGetRepositoriesCommandInput} for command's `input` shape.
  * @see {@link BatchGetRepositoriesCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
+ *
+ * @throws {@link EncryptionIntegrityChecksFailedException} (server fault)
+ *  <p>An encryption integrity check failed.</p>
+ *
+ * @throws {@link EncryptionKeyAccessDeniedException} (client fault)
+ *  <p>An encryption key could not be accessed.</p>
+ *
+ * @throws {@link EncryptionKeyDisabledException} (client fault)
+ *  <p>The encryption key is disabled.</p>
+ *
+ * @throws {@link EncryptionKeyNotFoundException} (client fault)
+ *  <p>No encryption key was found.</p>
+ *
+ * @throws {@link EncryptionKeyUnavailableException} (client fault)
+ *  <p>The encryption key is not available.</p>
+ *
+ * @throws {@link InvalidRepositoryNameException} (client fault)
+ *  <p>A specified repository name is not valid.</p>
+ *
+ *         <note>
+ *             <p>This exception occurs only when a specified repository name is not valid. Other
+ *                 exceptions occur when a required repository parameter is missing, or when a
+ *                 specified repository does not exist.</p>
+ *          </note>
+ *
+ * @throws {@link MaximumRepositoryNamesExceededException} (client fault)
+ *  <p>The maximum number of allowed repository names was exceeded. Currently, this number is 100.</p>
+ *
+ * @throws {@link RepositoryNamesRequiredException} (client fault)
+ *  <p>At least one repository name object is required, but was not specified.</p>
+ *
  *
  */
 export class BatchGetRepositoriesCommand extends $Command<
@@ -69,6 +110,9 @@ export class BatchGetRepositoriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetRepositoriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +141,8 @@ export class BatchGetRepositoriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetRepositoriesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetRepositoriesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +152,18 @@ export class BatchGetRepositoriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetRepositoriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchGetRepositoriesCommand(input, context);
+    return se_BatchGetRepositoriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetRepositoriesCommandOutput> {
-    return deserializeAws_json1_1BatchGetRepositoriesCommand(output, context);
+    return de_BatchGetRepositoriesCommand(output, context);
   }
 
   // Start section: command_body_extra

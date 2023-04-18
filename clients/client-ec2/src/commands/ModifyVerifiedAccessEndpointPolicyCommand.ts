@@ -16,21 +16,30 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   ModifyVerifiedAccessEndpointPolicyRequest,
-  ModifyVerifiedAccessEndpointPolicyRequestFilterSensitiveLog,
   ModifyVerifiedAccessEndpointPolicyResult,
-  ModifyVerifiedAccessEndpointPolicyResultFilterSensitiveLog,
 } from "../models/models_6";
 import {
-  deserializeAws_ec2ModifyVerifiedAccessEndpointPolicyCommand,
-  serializeAws_ec2ModifyVerifiedAccessEndpointPolicyCommand,
+  de_ModifyVerifiedAccessEndpointPolicyCommand,
+  se_ModifyVerifiedAccessEndpointPolicyCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link ModifyVerifiedAccessEndpointPolicyCommand}.
+ */
 export interface ModifyVerifiedAccessEndpointPolicyCommandInput extends ModifyVerifiedAccessEndpointPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ModifyVerifiedAccessEndpointPolicyCommand}.
+ */
 export interface ModifyVerifiedAccessEndpointPolicyCommandOutput
   extends ModifyVerifiedAccessEndpointPolicyResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the specified Verified Access endpoint policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +47,23 @@ export interface ModifyVerifiedAccessEndpointPolicyCommandOutput
  * import { EC2Client, ModifyVerifiedAccessEndpointPolicyCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyVerifiedAccessEndpointPolicyCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ModifyVerifiedAccessEndpointPolicyRequest
+ *   VerifiedAccessEndpointId: "STRING_VALUE", // required
+ *   PolicyEnabled: true || false, // required
+ *   PolicyDocument: "STRING_VALUE",
+ *   ClientToken: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new ModifyVerifiedAccessEndpointPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyVerifiedAccessEndpointPolicyCommandInput - {@link ModifyVerifiedAccessEndpointPolicyCommandInput}
+ * @returns {@link ModifyVerifiedAccessEndpointPolicyCommandOutput}
  * @see {@link ModifyVerifiedAccessEndpointPolicyCommandInput} for command's `input` shape.
  * @see {@link ModifyVerifiedAccessEndpointPolicyCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class ModifyVerifiedAccessEndpointPolicyCommand extends $Command<
@@ -64,6 +83,9 @@ export class ModifyVerifiedAccessEndpointPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyVerifiedAccessEndpointPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +114,8 @@ export class ModifyVerifiedAccessEndpointPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyVerifiedAccessEndpointPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyVerifiedAccessEndpointPolicyResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +125,24 @@ export class ModifyVerifiedAccessEndpointPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifyVerifiedAccessEndpointPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyVerifiedAccessEndpointPolicyCommand(input, context);
+    return se_ModifyVerifiedAccessEndpointPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyVerifiedAccessEndpointPolicyCommandOutput> {
-    return deserializeAws_ec2ModifyVerifiedAccessEndpointPolicyCommand(output, context);
+    return de_ModifyVerifiedAccessEndpointPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

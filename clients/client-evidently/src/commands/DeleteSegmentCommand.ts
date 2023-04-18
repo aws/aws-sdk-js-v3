@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
-import {
-  DeleteSegmentRequest,
-  DeleteSegmentRequestFilterSensitiveLog,
-  DeleteSegmentResponse,
-  DeleteSegmentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteSegmentCommand,
-  serializeAws_restJson1DeleteSegmentCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteSegmentRequest, DeleteSegmentResponse } from "../models/models_0";
+import { de_DeleteSegmentCommand, se_DeleteSegmentCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteSegmentCommand}.
+ */
 export interface DeleteSegmentCommandInput extends DeleteSegmentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteSegmentCommand}.
+ */
 export interface DeleteSegmentCommandOutput extends DeleteSegmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a segment. You can't delete a segment that is being used in a launch or experiment, even if that
  *     launch or experiment is not currently running.</p>
  * @example
@@ -37,13 +40,34 @@ export interface DeleteSegmentCommandOutput extends DeleteSegmentResponse, __Met
  * import { EvidentlyClient, DeleteSegmentCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, DeleteSegmentCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
+ * const input = { // DeleteSegmentRequest
+ *   segment: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSegmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSegmentCommandInput - {@link DeleteSegmentCommandInput}
+ * @returns {@link DeleteSegmentCommandOutput}
  * @see {@link DeleteSegmentCommandInput} for command's `input` shape.
  * @see {@link DeleteSegmentCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action. </p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>A resource was in an inconsistent state during an update or a deletion.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a resource that does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because of request throttling. Retry the request.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The value of a parameter in the request caused an error.</p>
+ *
  *
  */
 export class DeleteSegmentCommand extends $Command<
@@ -63,6 +87,9 @@ export class DeleteSegmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSegmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +116,8 @@ export class DeleteSegmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSegmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSegmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +127,18 @@ export class DeleteSegmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSegmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSegmentCommand(input, context);
+    return se_DeleteSegmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSegmentCommandOutput> {
-    return deserializeAws_restJson1DeleteSegmentCommand(output, context);
+    return de_DeleteSegmentCommand(output, context);
   }
 
   // Start section: command_body_extra

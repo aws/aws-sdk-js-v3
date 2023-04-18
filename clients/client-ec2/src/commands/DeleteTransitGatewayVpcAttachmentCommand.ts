@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DeleteTransitGatewayVpcAttachmentRequest, DeleteTransitGatewayVpcAttachmentResult } from "../models/models_3";
 import {
-  DeleteTransitGatewayVpcAttachmentRequest,
-  DeleteTransitGatewayVpcAttachmentRequestFilterSensitiveLog,
-  DeleteTransitGatewayVpcAttachmentResult,
-  DeleteTransitGatewayVpcAttachmentResultFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_ec2DeleteTransitGatewayVpcAttachmentCommand,
-  serializeAws_ec2DeleteTransitGatewayVpcAttachmentCommand,
+  de_DeleteTransitGatewayVpcAttachmentCommand,
+  se_DeleteTransitGatewayVpcAttachmentCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteTransitGatewayVpcAttachmentCommand}.
+ */
 export interface DeleteTransitGatewayVpcAttachmentCommandInput extends DeleteTransitGatewayVpcAttachmentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteTransitGatewayVpcAttachmentCommand}.
+ */
 export interface DeleteTransitGatewayVpcAttachmentCommandOutput
   extends DeleteTransitGatewayVpcAttachmentResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified VPC attachment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,20 @@ export interface DeleteTransitGatewayVpcAttachmentCommandOutput
  * import { EC2Client, DeleteTransitGatewayVpcAttachmentCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteTransitGatewayVpcAttachmentCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteTransitGatewayVpcAttachmentRequest
+ *   TransitGatewayAttachmentId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DeleteTransitGatewayVpcAttachmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTransitGatewayVpcAttachmentCommandInput - {@link DeleteTransitGatewayVpcAttachmentCommandInput}
+ * @returns {@link DeleteTransitGatewayVpcAttachmentCommandOutput}
  * @see {@link DeleteTransitGatewayVpcAttachmentCommandInput} for command's `input` shape.
  * @see {@link DeleteTransitGatewayVpcAttachmentCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class DeleteTransitGatewayVpcAttachmentCommand extends $Command<
@@ -64,6 +77,9 @@ export class DeleteTransitGatewayVpcAttachmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTransitGatewayVpcAttachmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +108,8 @@ export class DeleteTransitGatewayVpcAttachmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTransitGatewayVpcAttachmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTransitGatewayVpcAttachmentResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +119,24 @@ export class DeleteTransitGatewayVpcAttachmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteTransitGatewayVpcAttachmentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteTransitGatewayVpcAttachmentCommand(input, context);
+    return se_DeleteTransitGatewayVpcAttachmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteTransitGatewayVpcAttachmentCommandOutput> {
-    return deserializeAws_ec2DeleteTransitGatewayVpcAttachmentCommand(output, context);
+    return de_DeleteTransitGatewayVpcAttachmentCommand(output, context);
   }
 
   // Start section: command_body_extra

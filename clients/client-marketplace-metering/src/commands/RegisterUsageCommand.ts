@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MarketplaceMeteringClient";
-import {
-  RegisterUsageRequest,
-  RegisterUsageRequestFilterSensitiveLog,
-  RegisterUsageResult,
-  RegisterUsageResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RegisterUsageCommand,
-  serializeAws_json1_1RegisterUsageCommand,
-} from "../protocols/Aws_json1_1";
+import { RegisterUsageRequest, RegisterUsageResult } from "../models/models_0";
+import { de_RegisterUsageCommand, se_RegisterUsageCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link RegisterUsageCommand}.
+ */
 export interface RegisterUsageCommandInput extends RegisterUsageRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RegisterUsageCommand}.
+ */
 export interface RegisterUsageCommandOutput extends RegisterUsageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Paid container software products sold through AWS Marketplace must integrate with the
  *             AWS Marketplace Metering Service and call the <code>RegisterUsage</code> operation for
  *             software entitlement and metering. Free and BYOL products for Amazon ECS or Amazon EKS
@@ -79,13 +82,52 @@ export interface RegisterUsageCommandOutput extends RegisterUsageResult, __Metad
  * import { MarketplaceMeteringClient, RegisterUsageCommand } from "@aws-sdk/client-marketplace-metering"; // ES Modules import
  * // const { MarketplaceMeteringClient, RegisterUsageCommand } = require("@aws-sdk/client-marketplace-metering"); // CommonJS import
  * const client = new MarketplaceMeteringClient(config);
+ * const input = { // RegisterUsageRequest
+ *   ProductCode: "STRING_VALUE", // required
+ *   PublicKeyVersion: Number("int"), // required
+ *   Nonce: "STRING_VALUE",
+ * };
  * const command = new RegisterUsageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterUsageCommandInput - {@link RegisterUsageCommandInput}
+ * @returns {@link RegisterUsageCommandOutput}
  * @see {@link RegisterUsageCommandInput} for command's `input` shape.
  * @see {@link RegisterUsageCommandOutput} for command's `response` shape.
  * @see {@link MarketplaceMeteringClientResolvedConfig | config} for MarketplaceMeteringClient's `config` shape.
+ *
+ * @throws {@link CustomerNotEntitledException} (client fault)
+ *  <p>Exception thrown when the customer does not have a valid subscription for the
+ *             product.</p>
+ *
+ * @throws {@link DisabledApiException} (client fault)
+ *  <p>The API is disabled in the Region.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>An internal error has occurred. Retry your request. If the problem persists, post a
+ *             message with details on the AWS forums.</p>
+ *
+ * @throws {@link InvalidProductCodeException} (client fault)
+ *  <p>The product code passed does not match the product code used for publishing the
+ *             product.</p>
+ *
+ * @throws {@link InvalidPublicKeyVersionException} (client fault)
+ *  <p>Public Key version is invalid.</p>
+ *
+ * @throws {@link InvalidRegionException} (client fault)
+ *  <p>
+ *             <code>RegisterUsage</code> must be called in the same AWS Region the ECS task was
+ *             launched in. This prevents a container from hardcoding a Region (e.g.
+ *             withRegion(“us-east-1”) when calling <code>RegisterUsage</code>.</p>
+ *
+ * @throws {@link PlatformNotSupportedException} (client fault)
+ *  <p>AWS Marketplace does not support metering usage from the underlying platform.
+ *             Currently, Amazon ECS, Amazon EKS, and AWS Fargate are supported.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The calls to the API are throttled.</p>
+ *
  *
  */
 export class RegisterUsageCommand extends $Command<
@@ -105,6 +147,9 @@ export class RegisterUsageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterUsageCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,8 +176,8 @@ export class RegisterUsageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterUsageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterUsageResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,12 +187,18 @@ export class RegisterUsageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterUsageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterUsageCommand(input, context);
+    return se_RegisterUsageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterUsageCommandOutput> {
-    return deserializeAws_json1_1RegisterUsageCommand(output, context);
+    return de_RegisterUsageCommand(output, context);
   }
 
   // Start section: command_body_extra

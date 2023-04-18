@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AcceptAttachmentRequest,
-  AcceptAttachmentRequestFilterSensitiveLog,
-  AcceptAttachmentResponse,
-  AcceptAttachmentResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AcceptAttachmentRequest, AcceptAttachmentResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1AcceptAttachmentCommand,
-  serializeAws_restJson1AcceptAttachmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AcceptAttachmentCommand, se_AcceptAttachmentCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link AcceptAttachmentCommand}.
+ */
 export interface AcceptAttachmentCommandInput extends AcceptAttachmentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AcceptAttachmentCommand}.
+ */
 export interface AcceptAttachmentCommandOutput extends AcceptAttachmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Accepts a core network attachment request. </p>
  *          <p>Once the attachment request is accepted by a core network owner, the attachment is
  *          created and connected to a core network.</p>
@@ -38,13 +41,38 @@ export interface AcceptAttachmentCommandOutput extends AcceptAttachmentResponse,
  * import { NetworkManagerClient, AcceptAttachmentCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, AcceptAttachmentCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // AcceptAttachmentRequest
+ *   AttachmentId: "STRING_VALUE", // required
+ * };
  * const command = new AcceptAttachmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AcceptAttachmentCommandInput - {@link AcceptAttachmentCommandInput}
+ * @returns {@link AcceptAttachmentCommandOutput}
  * @see {@link AcceptAttachmentCommandInput} for command's `input` shape.
  * @see {@link AcceptAttachmentCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There was a conflict processing the request. Updating or deleting the resource can
+ *             cause an inconsistent state.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request has failed due to an internal error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints.</p>
+ *
  *
  */
 export class AcceptAttachmentCommand extends $Command<
@@ -64,6 +92,9 @@ export class AcceptAttachmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcceptAttachmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +123,8 @@ export class AcceptAttachmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AcceptAttachmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AcceptAttachmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +134,18 @@ export class AcceptAttachmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AcceptAttachmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AcceptAttachmentCommand(input, context);
+    return se_AcceptAttachmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AcceptAttachmentCommandOutput> {
-    return deserializeAws_restJson1AcceptAttachmentCommand(output, context);
+    return de_AcceptAttachmentCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -6,12 +6,11 @@ import {
   ListDelegatedServicesForAccountCommandInput,
   ListDelegatedServicesForAccountCommandOutput,
 } from "../commands/ListDelegatedServicesForAccountCommand";
-import { Organizations } from "../Organizations";
 import { OrganizationsClient } from "../OrganizationsClient";
 import { OrganizationsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: OrganizationsClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListDelegatedServicesForAccountCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Organizations,
-  input: ListDelegatedServicesForAccountCommandInput,
-  ...args: any
-): Promise<ListDelegatedServicesForAccountCommandOutput> => {
-  // @ts-ignore
-  return await client.listDelegatedServicesForAccount(input, ...args);
-};
 export async function* paginateListDelegatedServicesForAccount(
   config: OrganizationsPaginationConfiguration,
   input: ListDelegatedServicesForAccountCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListDelegatedServicesForAccount(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Organizations) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof OrganizationsClient) {
+    if (config.client instanceof OrganizationsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Organizations | OrganizationsClient");

@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { PurchaseReservedInstancesOfferingRequest, PurchaseReservedInstancesOfferingResult } from "../models/models_6";
 import {
-  PurchaseReservedInstancesOfferingRequest,
-  PurchaseReservedInstancesOfferingRequestFilterSensitiveLog,
-  PurchaseReservedInstancesOfferingResult,
-  PurchaseReservedInstancesOfferingResultFilterSensitiveLog,
-} from "../models/models_6";
-import {
-  deserializeAws_ec2PurchaseReservedInstancesOfferingCommand,
-  serializeAws_ec2PurchaseReservedInstancesOfferingCommand,
+  de_PurchaseReservedInstancesOfferingCommand,
+  se_PurchaseReservedInstancesOfferingCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link PurchaseReservedInstancesOfferingCommand}.
+ */
 export interface PurchaseReservedInstancesOfferingCommandInput extends PurchaseReservedInstancesOfferingRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PurchaseReservedInstancesOfferingCommand}.
+ */
 export interface PurchaseReservedInstancesOfferingCommandOutput
   extends PurchaseReservedInstancesOfferingResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Purchases a Reserved Instance for use with your account. With Reserved Instances, you pay a lower
  *        hourly rate compared to On-Demand instance pricing.</p>
  *          <p>Use <a>DescribeReservedInstancesOfferings</a> to get a list of Reserved Instance offerings
@@ -50,13 +56,26 @@ export interface PurchaseReservedInstancesOfferingCommandOutput
  * import { EC2Client, PurchaseReservedInstancesOfferingCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, PurchaseReservedInstancesOfferingCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // PurchaseReservedInstancesOfferingRequest
+ *   InstanceCount: Number("int"), // required
+ *   ReservedInstancesOfferingId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ *   LimitPrice: { // ReservedInstanceLimitPrice
+ *     Amount: Number("double"),
+ *     CurrencyCode: "USD",
+ *   },
+ *   PurchaseTime: new Date("TIMESTAMP"),
+ * };
  * const command = new PurchaseReservedInstancesOfferingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PurchaseReservedInstancesOfferingCommandInput - {@link PurchaseReservedInstancesOfferingCommandInput}
+ * @returns {@link PurchaseReservedInstancesOfferingCommandOutput}
  * @see {@link PurchaseReservedInstancesOfferingCommandInput} for command's `input` shape.
  * @see {@link PurchaseReservedInstancesOfferingCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class PurchaseReservedInstancesOfferingCommand extends $Command<
@@ -76,6 +95,9 @@ export class PurchaseReservedInstancesOfferingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PurchaseReservedInstancesOfferingCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +126,8 @@ export class PurchaseReservedInstancesOfferingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PurchaseReservedInstancesOfferingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PurchaseReservedInstancesOfferingResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,18 +137,24 @@ export class PurchaseReservedInstancesOfferingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PurchaseReservedInstancesOfferingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2PurchaseReservedInstancesOfferingCommand(input, context);
+    return se_PurchaseReservedInstancesOfferingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PurchaseReservedInstancesOfferingCommandOutput> {
-    return deserializeAws_ec2PurchaseReservedInstancesOfferingCommand(output, context);
+    return de_PurchaseReservedInstancesOfferingCommand(output, context);
   }
 
   // Start section: command_body_extra

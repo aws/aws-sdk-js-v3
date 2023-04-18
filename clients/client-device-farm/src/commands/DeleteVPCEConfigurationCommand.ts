@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  DeleteVPCEConfigurationRequest,
-  DeleteVPCEConfigurationRequestFilterSensitiveLog,
-  DeleteVPCEConfigurationResult,
-  DeleteVPCEConfigurationResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteVPCEConfigurationCommand,
-  serializeAws_json1_1DeleteVPCEConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteVPCEConfigurationRequest, DeleteVPCEConfigurationResult } from "../models/models_0";
+import { de_DeleteVPCEConfigurationCommand, se_DeleteVPCEConfigurationCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteVPCEConfigurationCommand}.
+ */
 export interface DeleteVPCEConfigurationCommandInput extends DeleteVPCEConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteVPCEConfigurationCommand}.
+ */
 export interface DeleteVPCEConfigurationCommandOutput extends DeleteVPCEConfigurationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a configuration for your Amazon Virtual Private Cloud (VPC) endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,32 @@ export interface DeleteVPCEConfigurationCommandOutput extends DeleteVPCEConfigur
  * import { DeviceFarmClient, DeleteVPCEConfigurationCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, DeleteVPCEConfigurationCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // DeleteVPCEConfigurationRequest
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteVPCEConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVPCEConfigurationCommandInput - {@link DeleteVPCEConfigurationCommandInput}
+ * @returns {@link DeleteVPCEConfigurationCommandOutput}
  * @see {@link DeleteVPCEConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteVPCEConfigurationCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
+ *
+ * @throws {@link ArgumentException} (client fault)
+ *  <p>An invalid argument was specified.</p>
+ *
+ * @throws {@link InvalidOperationException} (client fault)
+ *  <p>There was an error with the update request, or you do not have sufficient permissions
+ *             to update this VPC endpoint configuration.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The specified entity was not found.</p>
+ *
+ * @throws {@link ServiceAccountException} (client fault)
+ *  <p>There was a problem with the service account.</p>
+ *
  *
  */
 export class DeleteVPCEConfigurationCommand extends $Command<
@@ -62,6 +84,9 @@ export class DeleteVPCEConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVPCEConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +115,8 @@ export class DeleteVPCEConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVPCEConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteVPCEConfigurationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +126,18 @@ export class DeleteVPCEConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVPCEConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteVPCEConfigurationCommand(input, context);
+    return se_DeleteVPCEConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVPCEConfigurationCommandOutput> {
-    return deserializeAws_json1_1DeleteVPCEConfigurationCommand(output, context);
+    return de_DeleteVPCEConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

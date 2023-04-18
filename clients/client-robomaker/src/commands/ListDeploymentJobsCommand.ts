@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListDeploymentJobsRequest,
-  ListDeploymentJobsRequestFilterSensitiveLog,
-  ListDeploymentJobsResponse,
-  ListDeploymentJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDeploymentJobsCommand,
-  serializeAws_restJson1ListDeploymentJobsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListDeploymentJobsRequest, ListDeploymentJobsResponse } from "../models/models_0";
+import { de_ListDeploymentJobsCommand, se_ListDeploymentJobsCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListDeploymentJobsCommand}.
+ */
 export interface ListDeploymentJobsCommandInput extends ListDeploymentJobsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDeploymentJobsCommand}.
+ */
 export interface ListDeploymentJobsCommandOutput extends ListDeploymentJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Returns a list of deployment jobs for a fleet. You can optionally provide filters to retrieve specific deployment jobs.</p>
@@ -41,13 +44,41 @@ export interface ListDeploymentJobsCommandOutput extends ListDeploymentJobsRespo
  * import { RoboMakerClient, ListDeploymentJobsCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, ListDeploymentJobsCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = { // ListDeploymentJobsRequest
+ *   filters: [ // Filters
+ *     { // Filter
+ *       name: "STRING_VALUE",
+ *       values: [ // FilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListDeploymentJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDeploymentJobsCommandInput - {@link ListDeploymentJobsCommandInput}
+ * @returns {@link ListDeploymentJobsCommandOutput}
  * @see {@link ListDeploymentJobsCommandInput} for command's `input` shape.
  * @see {@link ListDeploymentJobsCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>AWS RoboMaker experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter specified in a request is not valid, is unsupported, or cannot be used. The
+ *          returned message provides an explanation of the error value.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
+ *
  *
  */
 export class ListDeploymentJobsCommand extends $Command<
@@ -67,6 +98,9 @@ export class ListDeploymentJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDeploymentJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +129,8 @@ export class ListDeploymentJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDeploymentJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDeploymentJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +140,18 @@ export class ListDeploymentJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDeploymentJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDeploymentJobsCommand(input, context);
+    return se_ListDeploymentJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDeploymentJobsCommandOutput> {
-    return deserializeAws_restJson1ListDeploymentJobsCommand(output, context);
+    return de_ListDeploymentJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

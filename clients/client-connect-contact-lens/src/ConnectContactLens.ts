@@ -9,6 +9,7 @@ import {
 import { ConnectContactLensClient } from "./ConnectContactLensClient";
 
 /**
+ * @public
  * <p>Contact Lens for Amazon Connect enables you to analyze conversations between customer and agents,
  *       by using speech transcription, natural language processing, and intelligent search
  *       capabilities. It performs sentiment analysis, detects issues, and enables you to automatically
@@ -19,6 +20,7 @@ import { ConnectContactLensClient } from "./ConnectContactLensClient";
  */
 export class ConnectContactLens extends ConnectContactLensClient {
   /**
+   * @public
    * <p>Provides a list of analysis segments for a real-time analysis session.</p>
    */
   public listRealtimeContactAnalysisSegments(

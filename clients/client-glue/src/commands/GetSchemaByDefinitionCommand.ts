@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetSchemaByDefinitionInput,
-  GetSchemaByDefinitionInputFilterSensitiveLog,
-  GetSchemaByDefinitionResponse,
-  GetSchemaByDefinitionResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetSchemaByDefinitionCommand,
-  serializeAws_json1_1GetSchemaByDefinitionCommand,
-} from "../protocols/Aws_json1_1";
+import { GetSchemaByDefinitionInput, GetSchemaByDefinitionResponse } from "../models/models_1";
+import { de_GetSchemaByDefinitionCommand, se_GetSchemaByDefinitionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetSchemaByDefinitionCommand}.
+ */
 export interface GetSchemaByDefinitionCommandInput extends GetSchemaByDefinitionInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetSchemaByDefinitionCommand}.
+ */
 export interface GetSchemaByDefinitionCommandOutput extends GetSchemaByDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a schema by the <code>SchemaDefinition</code>. The schema definition is sent to the Schema Registry, canonicalized, and hashed. If the hash is matched within the scope of the <code>SchemaName</code> or ARN (or the default registry, if none is supplied), that schema’s metadata is returned. Otherwise, a 404 or NotFound error is returned. Schema versions in <code>Deleted</code> statuses will not be included in the results.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,36 @@ export interface GetSchemaByDefinitionCommandOutput extends GetSchemaByDefinitio
  * import { GlueClient, GetSchemaByDefinitionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetSchemaByDefinitionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // GetSchemaByDefinitionInput
+ *   SchemaId: { // SchemaId
+ *     SchemaArn: "STRING_VALUE",
+ *     SchemaName: "STRING_VALUE",
+ *     RegistryName: "STRING_VALUE",
+ *   },
+ *   SchemaDefinition: "STRING_VALUE", // required
+ * };
  * const command = new GetSchemaByDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSchemaByDefinitionCommandInput - {@link GetSchemaByDefinitionCommandInput}
+ * @returns {@link GetSchemaByDefinitionCommandOutput}
  * @see {@link GetSchemaByDefinitionCommandInput} for command's `input` shape.
  * @see {@link GetSchemaByDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to a resource was denied.</p>
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
  *
  */
 export class GetSchemaByDefinitionCommand extends $Command<
@@ -62,6 +88,9 @@ export class GetSchemaByDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSchemaByDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +119,8 @@ export class GetSchemaByDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSchemaByDefinitionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSchemaByDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +130,18 @@ export class GetSchemaByDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSchemaByDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSchemaByDefinitionCommand(input, context);
+    return se_GetSchemaByDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSchemaByDefinitionCommandOutput> {
-    return deserializeAws_json1_1GetSchemaByDefinitionCommand(output, context);
+    return de_GetSchemaByDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

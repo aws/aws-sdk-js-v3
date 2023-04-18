@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import {
-  GetApiMappingsRequest,
-  GetApiMappingsRequestFilterSensitiveLog,
-  GetApiMappingsResponse,
-  GetApiMappingsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetApiMappingsCommand,
-  serializeAws_restJson1GetApiMappingsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetApiMappingsRequest, GetApiMappingsResponse } from "../models/models_0";
+import { de_GetApiMappingsCommand, se_GetApiMappingsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetApiMappingsCommand}.
+ */
 export interface GetApiMappingsCommandInput extends GetApiMappingsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetApiMappingsCommand}.
+ */
 export interface GetApiMappingsCommandOutput extends GetApiMappingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets API mappings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,30 @@ export interface GetApiMappingsCommandOutput extends GetApiMappingsResponse, __M
  * import { ApiGatewayV2Client, GetApiMappingsCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, GetApiMappingsCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = { // GetApiMappingsRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   MaxResults: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetApiMappingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetApiMappingsCommandInput - {@link GetApiMappingsCommandInput}
+ * @returns {@link GetApiMappingsCommandOutput}
  * @see {@link GetApiMappingsCommandInput} for command's `input` shape.
  * @see {@link GetApiMappingsCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource specified in the request was not found. See the message field for more information.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
+ *
  *
  */
 export class GetApiMappingsCommand extends $Command<
@@ -62,6 +82,9 @@ export class GetApiMappingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetApiMappingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +113,8 @@ export class GetApiMappingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetApiMappingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetApiMappingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +124,18 @@ export class GetApiMappingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetApiMappingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetApiMappingsCommand(input, context);
+    return se_GetApiMappingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetApiMappingsCommandOutput> {
-    return deserializeAws_restJson1GetApiMappingsCommand(output, context);
+    return de_GetApiMappingsCommand(output, context);
   }
 
   // Start section: command_body_extra

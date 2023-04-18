@@ -14,18 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import {
-  GetFileInput,
-  GetFileInputFilterSensitiveLog,
-  GetFileOutput,
-  GetFileOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1GetFileCommand, serializeAws_json1_1GetFileCommand } from "../protocols/Aws_json1_1";
+import { GetFileInput, GetFileOutput } from "../models/models_0";
+import { de_GetFileCommand, se_GetFileCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetFileCommand}.
+ */
 export interface GetFileCommandInput extends GetFileInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetFileCommand}.
+ */
 export interface GetFileCommandOutput extends GetFileOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the base-64 encoded contents of a specified file and its metadata.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -33,13 +39,71 @@ export interface GetFileCommandOutput extends GetFileOutput, __MetadataBearer {}
  * import { CodeCommitClient, GetFileCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, GetFileCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // GetFileInput
+ *   repositoryName: "STRING_VALUE", // required
+ *   commitSpecifier: "STRING_VALUE",
+ *   filePath: "STRING_VALUE", // required
+ * };
  * const command = new GetFileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFileCommandInput - {@link GetFileCommandInput}
+ * @returns {@link GetFileCommandOutput}
  * @see {@link GetFileCommandInput} for command's `input` shape.
  * @see {@link GetFileCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
+ *
+ * @throws {@link CommitDoesNotExistException} (client fault)
+ *  <p>The specified commit does not exist or no commit was specified, and the specified repository has no default branch.</p>
+ *
+ * @throws {@link EncryptionIntegrityChecksFailedException} (server fault)
+ *  <p>An encryption integrity check failed.</p>
+ *
+ * @throws {@link EncryptionKeyAccessDeniedException} (client fault)
+ *  <p>An encryption key could not be accessed.</p>
+ *
+ * @throws {@link EncryptionKeyDisabledException} (client fault)
+ *  <p>The encryption key is disabled.</p>
+ *
+ * @throws {@link EncryptionKeyNotFoundException} (client fault)
+ *  <p>No encryption key was found.</p>
+ *
+ * @throws {@link EncryptionKeyUnavailableException} (client fault)
+ *  <p>The encryption key is not available.</p>
+ *
+ * @throws {@link FileDoesNotExistException} (client fault)
+ *  <p>The specified file does not exist. Verify that you have used the correct file name,
+ *             full path, and extension.</p>
+ *
+ * @throws {@link FileTooLargeException} (client fault)
+ *  <p>The specified file exceeds the file size limit for AWS CodeCommit. For more information about limits in AWS CodeCommit, see
+ *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">AWS CodeCommit User Guide</a>.</p>
+ *
+ * @throws {@link InvalidCommitException} (client fault)
+ *  <p>The specified commit is not valid.</p>
+ *
+ * @throws {@link InvalidPathException} (client fault)
+ *  <p>The specified path is not valid.</p>
+ *
+ * @throws {@link InvalidRepositoryNameException} (client fault)
+ *  <p>A specified repository name is not valid.</p>
+ *
+ *         <note>
+ *             <p>This exception occurs only when a specified repository name is not valid. Other
+ *                 exceptions occur when a required repository parameter is missing, or when a
+ *                 specified repository does not exist.</p>
+ *          </note>
+ *
+ * @throws {@link PathRequiredException} (client fault)
+ *  <p>The folderPath for a location cannot be null.</p>
+ *
+ * @throws {@link RepositoryDoesNotExistException} (client fault)
+ *  <p>The specified repository does not exist.</p>
+ *
+ * @throws {@link RepositoryNameRequiredException} (client fault)
+ *  <p>A repository name is required, but was not specified.</p>
+ *
  *
  */
 export class GetFileCommand extends $Command<
@@ -59,6 +123,9 @@ export class GetFileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFileCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +152,8 @@ export class GetFileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFileInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetFileOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +163,18 @@ export class GetFileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetFileCommand(input, context);
+    return se_GetFileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFileCommandOutput> {
-    return deserializeAws_json1_1GetFileCommand(output, context);
+    return de_GetFileCommand(output, context);
   }
 
   // Start section: command_body_extra

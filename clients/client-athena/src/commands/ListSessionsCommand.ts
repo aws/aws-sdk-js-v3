@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import {
-  ListSessionsRequest,
-  ListSessionsRequestFilterSensitiveLog,
-  ListSessionsResponse,
-  ListSessionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListSessionsCommand,
-  serializeAws_json1_1ListSessionsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListSessionsRequest, ListSessionsResponse } from "../models/models_0";
+import { de_ListSessionsCommand, se_ListSessionsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListSessionsCommand}.
+ */
 export interface ListSessionsCommandInput extends ListSessionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListSessionsCommand}.
+ */
 export interface ListSessionsCommandOutput extends ListSessionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the sessions in a workgroup that are in an active state like
  *                 <code>CREATING</code>, <code>CREATED</code>, <code>IDLE</code>, or
  *             <code>BUSY</code>. Newer sessions are listed first; older sessions are listed
@@ -39,13 +42,33 @@ export interface ListSessionsCommandOutput extends ListSessionsResponse, __Metad
  * import { AthenaClient, ListSessionsCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, ListSessionsCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = { // ListSessionsRequest
+ *   WorkGroup: "STRING_VALUE", // required
+ *   StateFilter: "CREATING" || "CREATED" || "IDLE" || "BUSY" || "TERMINATING" || "TERMINATED" || "DEGRADED" || "FAILED",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListSessionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSessionsCommandInput - {@link ListSessionsCommandInput}
+ * @returns {@link ListSessionsCommandOutput}
  * @see {@link ListSessionsCommandInput} for command's `input` shape.
  * @see {@link ListSessionsCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Indicates a platform issue, which may be due to a transient condition or
+ *             outage.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>Indicates that something is wrong with the input to the request. For example, a
+ *             required parameter may be missing or out of range.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource, such as a workgroup, was not found.</p>
+ *
  *
  */
 export class ListSessionsCommand extends $Command<
@@ -65,6 +88,9 @@ export class ListSessionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSessionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +117,8 @@ export class ListSessionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSessionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSessionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +128,18 @@ export class ListSessionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSessionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListSessionsCommand(input, context);
+    return se_ListSessionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSessionsCommandOutput> {
-    return deserializeAws_json1_1ListSessionsCommand(output, context);
+    return de_ListSessionsCommand(output, context);
   }
 
   // Start section: command_body_extra

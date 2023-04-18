@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  CreateScriptRequest,
-  CreateScriptRequestFilterSensitiveLog,
-  CreateScriptResponse,
-  CreateScriptResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateScriptCommand,
-  serializeAws_json1_1CreateScriptCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateScriptRequest, CreateScriptResponse } from "../models/models_1";
+import { de_CreateScriptCommand, se_CreateScriptCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateScriptCommand}.
+ */
 export interface CreateScriptCommandInput extends CreateScriptRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateScriptCommand}.
+ */
 export interface CreateScriptCommandOutput extends CreateScriptResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Transforms a directed acyclic graph (DAG) into code.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,49 @@ export interface CreateScriptCommandOutput extends CreateScriptResponse, __Metad
  * import { GlueClient, CreateScriptCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateScriptCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // CreateScriptRequest
+ *   DagNodes: [ // DagNodes
+ *     { // CodeGenNode
+ *       Id: "STRING_VALUE", // required
+ *       NodeType: "STRING_VALUE", // required
+ *       Args: [ // CodeGenNodeArgs // required
+ *         { // CodeGenNodeArg
+ *           Name: "STRING_VALUE", // required
+ *           Value: "STRING_VALUE", // required
+ *           Param: true || false,
+ *         },
+ *       ],
+ *       LineNumber: Number("int"),
+ *     },
+ *   ],
+ *   DagEdges: [ // DagEdges
+ *     { // CodeGenEdge
+ *       Source: "STRING_VALUE", // required
+ *       Target: "STRING_VALUE", // required
+ *       TargetParameter: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Language: "PYTHON" || "SCALA",
+ * };
  * const command = new CreateScriptCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateScriptCommandInput - {@link CreateScriptCommandInput}
+ * @returns {@link CreateScriptCommandOutput}
  * @see {@link CreateScriptCommandInput} for command's `input` shape.
  * @see {@link CreateScriptCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class CreateScriptCommand extends $Command<
@@ -62,6 +101,9 @@ export class CreateScriptCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateScriptCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +130,8 @@ export class CreateScriptCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateScriptRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateScriptResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +141,18 @@ export class CreateScriptCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateScriptCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateScriptCommand(input, context);
+    return se_CreateScriptCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateScriptCommandOutput> {
-    return deserializeAws_json1_1CreateScriptCommand(output, context);
+    return de_CreateScriptCommand(output, context);
   }
 
   // Start section: command_body_extra

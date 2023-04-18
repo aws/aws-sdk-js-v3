@@ -6,12 +6,11 @@ import {
   ListCampaignsCommandInput,
   ListCampaignsCommandOutput,
 } from "../commands/ListCampaignsCommand";
-import { ConnectCampaigns } from "../ConnectCampaigns";
 import { ConnectCampaignsClient } from "../ConnectCampaignsClient";
 import { ConnectCampaignsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ConnectCampaignsClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListCampaignsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ConnectCampaigns,
-  input: ListCampaignsCommandInput,
-  ...args: any
-): Promise<ListCampaignsCommandOutput> => {
-  // @ts-ignore
-  return await client.listCampaigns(input, ...args);
-};
 export async function* paginateListCampaigns(
   config: ConnectCampaignsPaginationConfiguration,
   input: ListCampaignsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListCampaigns(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof ConnectCampaigns) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ConnectCampaignsClient) {
+    if (config.client instanceof ConnectCampaignsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ConnectCampaigns | ConnectCampaignsClient");

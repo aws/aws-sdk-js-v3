@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { DeleteIntentRequest, DeleteIntentRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteIntentCommand,
-  serializeAws_restJson1DeleteIntentCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteIntentRequest } from "../models/models_0";
+import { de_DeleteIntentCommand, se_DeleteIntentCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteIntentCommand}.
+ */
 export interface DeleteIntentCommandInput extends DeleteIntentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteIntentCommand}.
+ */
 export interface DeleteIntentCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified intent.</p>
  *          <p>Deleting an intent also deletes the slots associated with the
  *          intent.</p>
@@ -33,13 +41,47 @@ export interface DeleteIntentCommandOutput extends __MetadataBearer {}
  * import { LexModelsV2Client, DeleteIntentCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, DeleteIntentCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = { // DeleteIntentRequest
+ *   intentId: "STRING_VALUE", // required
+ *   botId: "STRING_VALUE", // required
+ *   botVersion: "STRING_VALUE", // required
+ *   localeId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteIntentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteIntentCommandInput - {@link DeleteIntentCommandInput}
+ * @returns {@link DeleteIntentCommandOutput}
  * @see {@link DeleteIntentCommandInput} for command's `input` shape.
  * @see {@link DeleteIntentCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The action that you tried to perform couldn't be completed because
+ *          the resource is in a conflicting state. For example, deleting a bot
+ *          that is in the CREATING state. Try your request again. </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The service encountered an unexpected condition. Try your request
+ *          again.</p>
+ *
+ * @throws {@link PreconditionFailedException} (client fault)
+ *  <p>Your request couldn't be completed because one or more request
+ *          fields aren't valid. Check the fields in your request and try
+ *          again.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>You have reached a quota for your bot. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Your request rate is too high. Reduce the frequency of
+ *          requests.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One of the input parameters in your request isn't valid. Check the
+ *          parameters and try your request again.</p>
+ *
  *
  */
 export class DeleteIntentCommand extends $Command<
@@ -59,6 +101,9 @@ export class DeleteIntentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteIntentCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +130,8 @@ export class DeleteIntentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteIntentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +141,18 @@ export class DeleteIntentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteIntentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteIntentCommand(input, context);
+    return se_DeleteIntentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIntentCommandOutput> {
-    return deserializeAws_restJson1DeleteIntentCommand(output, context);
+    return de_DeleteIntentCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListGraphsCommand, ListGraphsCommandInput, ListGraphsCommandOutput } from "../commands/ListGraphsCommand";
-import { Detective } from "../Detective";
 import { DetectiveClient } from "../DetectiveClient";
 import { DetectivePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DetectiveClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListGraphsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Detective,
-  input: ListGraphsCommandInput,
-  ...args: any
-): Promise<ListGraphsCommandOutput> => {
-  // @ts-ignore
-  return await client.listGraphs(input, ...args);
-};
 export async function* paginateListGraphs(
   config: DetectivePaginationConfiguration,
   input: ListGraphsCommandInput,
@@ -40,9 +31,7 @@ export async function* paginateListGraphs(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Detective) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DetectiveClient) {
+    if (config.client instanceof DetectiveClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Detective | DetectiveClient");

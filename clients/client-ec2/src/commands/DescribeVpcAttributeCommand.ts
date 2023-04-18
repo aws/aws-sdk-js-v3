@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeVpcAttributeRequest,
-  DescribeVpcAttributeRequestFilterSensitiveLog,
-  DescribeVpcAttributeResult,
-  DescribeVpcAttributeResultFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeVpcAttributeCommand,
-  serializeAws_ec2DescribeVpcAttributeCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeVpcAttributeRequest, DescribeVpcAttributeResult } from "../models/models_5";
+import { de_DescribeVpcAttributeCommand, se_DescribeVpcAttributeCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeVpcAttributeCommand}.
+ */
 export interface DescribeVpcAttributeCommandInput extends DescribeVpcAttributeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeVpcAttributeCommand}.
+ */
 export interface DescribeVpcAttributeCommandOutput extends DescribeVpcAttributeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified attribute of the specified VPC. You can specify only one attribute at a time.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,61 @@ export interface DescribeVpcAttributeCommandOutput extends DescribeVpcAttributeR
  * import { EC2Client, DescribeVpcAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeVpcAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeVpcAttributeRequest
+ *   Attribute: "enableDnsSupport" || "enableDnsHostnames" || "enableNetworkAddressUsageMetrics", // required
+ *   VpcId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DescribeVpcAttributeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVpcAttributeCommandInput - {@link DescribeVpcAttributeCommandInput}
+ * @returns {@link DescribeVpcAttributeCommandOutput}
  * @see {@link DescribeVpcAttributeCommandInput} for command's `input` shape.
  * @see {@link DescribeVpcAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ *
+ * @example To describe the enableDnsSupport attribute
+ * ```javascript
+ * // This example describes the enableDnsSupport attribute. This attribute indicates whether DNS resolution is enabled for the VPC. If this attribute is true, the Amazon DNS server resolves DNS hostnames for your instances to their corresponding IP addresses; otherwise, it does not.
+ * const input = {
+ *   "Attribute": "enableDnsSupport",
+ *   "VpcId": "vpc-a01106c2"
+ * };
+ * const command = new DescribeVpcAttributeCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "EnableDnsSupport": {
+ *     "Value": true
+ *   },
+ *   "VpcId": "vpc-a01106c2"
+ * }
+ * *\/
+ * // example id: ec2-describe-vpc-attribute-1
+ * ```
+ *
+ * @example To describe the enableDnsHostnames attribute
+ * ```javascript
+ * // This example describes the enableDnsHostnames attribute. This attribute indicates whether the instances launched in the VPC get DNS hostnames. If this attribute is true, instances in the VPC get DNS hostnames; otherwise, they do not.
+ * const input = {
+ *   "Attribute": "enableDnsHostnames",
+ *   "VpcId": "vpc-a01106c2"
+ * };
+ * const command = new DescribeVpcAttributeCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "EnableDnsHostnames": {
+ *     "Value": true
+ *   },
+ *   "VpcId": "vpc-a01106c2"
+ * }
+ * *\/
+ * // example id: ec2-describe-vpc-attribute-2
+ * ```
  *
  */
 export class DescribeVpcAttributeCommand extends $Command<
@@ -62,6 +113,9 @@ export class DescribeVpcAttributeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVpcAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +144,8 @@ export class DescribeVpcAttributeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVpcAttributeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeVpcAttributeResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +155,18 @@ export class DescribeVpcAttributeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVpcAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeVpcAttributeCommand(input, context);
+    return se_DescribeVpcAttributeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVpcAttributeCommandOutput> {
-    return deserializeAws_ec2DescribeVpcAttributeCommand(output, context);
+    return de_DescribeVpcAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,34 +13,37 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateGroupInput,
-  CreateGroupInputFilterSensitiveLog,
-  CreateGroupOutput,
-  CreateGroupOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateGroupCommand,
-  serializeAws_restJson1CreateGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateGroupInput, CreateGroupOutput } from "../models/models_0";
+import { de_CreateGroupCommand, se_CreateGroupCommand } from "../protocols/Aws_restJson1";
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateGroupCommand}.
+ */
 export interface CreateGroupCommandInput extends CreateGroupInput {}
+/**
+ * @public
+ *
+ * The output of {@link CreateGroupCommand}.
+ */
 export interface CreateGroupCommandOutput extends CreateGroupOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a resource group with the specified name and description. You can optionally
- *             include a resource query, or a service configuration. For more information about
- *             constructing a resource query, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag">Create a tag-based group in Resource Groups</a>. For more
- *             information about service configurations, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service configurations for resource
- *                 groups</a>.</p>
- *         <p>
+ *             include either a resource query or a service configuration. For more information about
+ *             constructing a resource query, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/getting_started-query.html">Build queries and groups in
+ *                 Resource Groups</a> in the <i>Resource Groups User Guide</i>. For more information
+ *             about service-linked groups and service configurations, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service configurations for Resource Groups</a>.</p>
+ *          <p>
  *             <b>Minimum permissions</b>
  *          </p>
  *          <p>To run this command, you must have the following permissions:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>resource-groups:CreateGroup</code>
  *                </p>
  *             </li>
@@ -51,13 +54,56 @@ export interface CreateGroupCommandOutput extends CreateGroupOutput, __MetadataB
  * import { ResourceGroupsClient, CreateGroupCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
  * // const { ResourceGroupsClient, CreateGroupCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
  * const client = new ResourceGroupsClient(config);
+ * const input = { // CreateGroupInput
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   ResourceQuery: { // ResourceQuery
+ *     Type: "TAG_FILTERS_1_0" || "CLOUDFORMATION_STACK_1_0", // required
+ *     Query: "STRING_VALUE", // required
+ *   },
+ *   Tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Configuration: [ // GroupConfigurationList
+ *     { // GroupConfigurationItem
+ *       Type: "STRING_VALUE", // required
+ *       Parameters: [ // GroupParameterList
+ *         { // GroupConfigurationParameter
+ *           Name: "STRING_VALUE", // required
+ *           Values: [ // GroupConfigurationParameterValueList
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new CreateGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGroupCommandInput - {@link CreateGroupCommandInput}
+ * @returns {@link CreateGroupCommandOutput}
  * @see {@link CreateGroupCommandInput} for command's `input` shape.
  * @see {@link CreateGroupCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request includes one or more parameters that violate validation rules.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The caller isn't authorized to make the request. Check permissions.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>An internal error occurred while processing the request. Try again later.</p>
+ *
+ * @throws {@link MethodNotAllowedException} (client fault)
+ *  <p>The request uses an HTTP method that isn't allowed for the specified resource.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>You've exceeded throttling limits by making too many requests in a period of
+ *             time.</p>
+ *
  *
  */
 export class CreateGroupCommand extends $Command<
@@ -77,6 +123,9 @@ export class CreateGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +152,8 @@ export class CreateGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateGroupInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateGroupOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +163,18 @@ export class CreateGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateGroupCommand(input, context);
+    return se_CreateGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGroupCommandOutput> {
-    return deserializeAws_restJson1CreateGroupCommand(output, context);
+    return de_CreateGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

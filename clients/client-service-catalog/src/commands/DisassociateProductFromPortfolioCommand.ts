@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DisassociateProductFromPortfolioInput, DisassociateProductFromPortfolioOutput } from "../models/models_0";
 import {
-  DisassociateProductFromPortfolioInput,
-  DisassociateProductFromPortfolioInputFilterSensitiveLog,
-  DisassociateProductFromPortfolioOutput,
-  DisassociateProductFromPortfolioOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DisassociateProductFromPortfolioCommand,
-  serializeAws_json1_1DisassociateProductFromPortfolioCommand,
+  de_DisassociateProductFromPortfolioCommand,
+  se_DisassociateProductFromPortfolioCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DisassociateProductFromPortfolioCommand}.
+ */
 export interface DisassociateProductFromPortfolioCommandInput extends DisassociateProductFromPortfolioInput {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateProductFromPortfolioCommand}.
+ */
 export interface DisassociateProductFromPortfolioCommandOutput
   extends DisassociateProductFromPortfolioOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates the specified product from the specified portfolio. </p>
  *          <p>A delegated admin is authorized to invoke this command.</p>
  * @example
@@ -39,13 +45,30 @@ export interface DisassociateProductFromPortfolioCommandOutput
  * import { ServiceCatalogClient, DisassociateProductFromPortfolioCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DisassociateProductFromPortfolioCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // DisassociateProductFromPortfolioInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   ProductId: "STRING_VALUE", // required
+ *   PortfolioId: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateProductFromPortfolioCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateProductFromPortfolioCommandInput - {@link DisassociateProductFromPortfolioCommandInput}
+ * @returns {@link DisassociateProductFromPortfolioCommandOutput}
  * @see {@link DisassociateProductFromPortfolioCommandInput} for command's `input` shape.
  * @see {@link DisassociateProductFromPortfolioCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
+ *
+ * @throws {@link InvalidParametersException} (client fault)
+ *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>A resource that is currently in use. Ensure that the resource is not in use and retry the operation.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class DisassociateProductFromPortfolioCommand extends $Command<
@@ -65,6 +88,9 @@ export class DisassociateProductFromPortfolioCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateProductFromPortfolioCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +119,8 @@ export class DisassociateProductFromPortfolioCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateProductFromPortfolioInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateProductFromPortfolioOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,18 +130,24 @@ export class DisassociateProductFromPortfolioCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateProductFromPortfolioCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateProductFromPortfolioCommand(input, context);
+    return se_DisassociateProductFromPortfolioCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateProductFromPortfolioCommandOutput> {
-    return deserializeAws_json1_1DisassociateProductFromPortfolioCommand(output, context);
+    return de_DisassociateProductFromPortfolioCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,36 +13,69 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateResolverEndpointRequest,
-  UpdateResolverEndpointRequestFilterSensitiveLog,
-  UpdateResolverEndpointResponse,
-  UpdateResolverEndpointResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateResolverEndpointCommand,
-  serializeAws_json1_1UpdateResolverEndpointCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateResolverEndpointRequest, UpdateResolverEndpointResponse } from "../models/models_0";
+import { de_UpdateResolverEndpointCommand, se_UpdateResolverEndpointCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateResolverEndpointCommand}.
+ */
 export interface UpdateResolverEndpointCommandInput extends UpdateResolverEndpointRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateResolverEndpointCommand}.
+ */
 export interface UpdateResolverEndpointCommandOutput extends UpdateResolverEndpointResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the name of an inbound or an outbound Resolver endpoint.  </p>
+ * @public
+ * <p>Updates the name, or enpoint type for an inbound or an outbound Resolver endpoint.
+ * 			You can only update between IPV4 and DUALSTACK, IPV6 endpoint type can't be updated to other type. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { Route53ResolverClient, UpdateResolverEndpointCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, UpdateResolverEndpointCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = { // UpdateResolverEndpointRequest
+ *   ResolverEndpointId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   ResolverEndpointType: "IPV6" || "IPV4" || "DUALSTACK",
+ *   UpdateIpAddresses: [ // UpdateIpAddresses
+ *     { // UpdateIpAddress
+ *       IpId: "STRING_VALUE", // required
+ *       Ipv6: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new UpdateResolverEndpointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateResolverEndpointCommandInput - {@link UpdateResolverEndpointCommandInput}
+ * @returns {@link UpdateResolverEndpointCommandOutput}
  * @see {@link UpdateResolverEndpointCommandInput} for command's `input` shape.
  * @see {@link UpdateResolverEndpointCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
+ *
+ * @throws {@link InternalServiceErrorException} (client fault)
+ *  <p>We encountered an unknown error. Try again in a few minutes.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters in this request are not valid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource doesn't exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was throttled. Try again in a few minutes.</p>
+ *
  *
  */
 export class UpdateResolverEndpointCommand extends $Command<
@@ -62,6 +95,9 @@ export class UpdateResolverEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateResolverEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +126,8 @@ export class UpdateResolverEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateResolverEndpointRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateResolverEndpointResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +137,18 @@ export class UpdateResolverEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateResolverEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateResolverEndpointCommand(input, context);
+    return se_UpdateResolverEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateResolverEndpointCommandOutput> {
-    return deserializeAws_json1_1UpdateResolverEndpointCommand(output, context);
+    return de_UpdateResolverEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

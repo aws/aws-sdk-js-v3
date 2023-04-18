@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DisassociateResourceRequest,
-  DisassociateResourceRequestFilterSensitiveLog,
-  DisassociateResourceResponse,
-  DisassociateResourceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateResourceCommand,
-  serializeAws_restJson1DisassociateResourceCommand,
-} from "../protocols/Aws_restJson1";
+import { DisassociateResourceRequest, DisassociateResourceResponse } from "../models/models_0";
+import { de_DisassociateResourceCommand, se_DisassociateResourceCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DisassociateResourceCommand}.
+ */
 export interface DisassociateResourceCommandInput extends DisassociateResourceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateResourceCommand}.
+ */
 export interface DisassociateResourceCommandOutput extends DisassociateResourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a canary from a group. You must run this operation in the Region where the canary exists.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,32 @@ export interface DisassociateResourceCommandOutput extends DisassociateResourceR
  * import { SyntheticsClient, DisassociateResourceCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
  * // const { SyntheticsClient, DisassociateResourceCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
  * const client = new SyntheticsClient(config);
+ * const input = { // DisassociateResourceRequest
+ *   GroupIdentifier: "STRING_VALUE", // required
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateResourceCommandInput - {@link DisassociateResourceCommandInput}
+ * @returns {@link DisassociateResourceCommandOutput}
  * @see {@link DisassociateResourceCommandInput} for command's `input` shape.
  * @see {@link DisassociateResourceCommandOutput} for command's `response` shape.
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>A conflicting operation is already in progress.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unknown internal error occurred.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>One of the specified resources was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>A parameter could not be validated.</p>
+ *
  *
  */
 export class DisassociateResourceCommand extends $Command<
@@ -62,6 +84,9 @@ export class DisassociateResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +115,8 @@ export class DisassociateResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateResourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +126,18 @@ export class DisassociateResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateResourceCommand(input, context);
+    return se_DisassociateResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateResourceCommandOutput> {
-    return deserializeAws_restJson1DisassociateResourceCommand(output, context);
+    return de_DisassociateResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetSiteToSiteVpnAttachmentRequest,
-  GetSiteToSiteVpnAttachmentRequestFilterSensitiveLog,
-  GetSiteToSiteVpnAttachmentResponse,
-  GetSiteToSiteVpnAttachmentResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetSiteToSiteVpnAttachmentRequest, GetSiteToSiteVpnAttachmentResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1GetSiteToSiteVpnAttachmentCommand,
-  serializeAws_restJson1GetSiteToSiteVpnAttachmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetSiteToSiteVpnAttachmentCommand, se_GetSiteToSiteVpnAttachmentCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetSiteToSiteVpnAttachmentCommand}.
+ */
 export interface GetSiteToSiteVpnAttachmentCommandInput extends GetSiteToSiteVpnAttachmentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetSiteToSiteVpnAttachmentCommand}.
+ */
 export interface GetSiteToSiteVpnAttachmentCommandOutput extends GetSiteToSiteVpnAttachmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a site-to-site VPN attachment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,34 @@ export interface GetSiteToSiteVpnAttachmentCommandOutput extends GetSiteToSiteVp
  * import { NetworkManagerClient, GetSiteToSiteVpnAttachmentCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetSiteToSiteVpnAttachmentCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // GetSiteToSiteVpnAttachmentRequest
+ *   AttachmentId: "STRING_VALUE", // required
+ * };
  * const command = new GetSiteToSiteVpnAttachmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSiteToSiteVpnAttachmentCommandInput - {@link GetSiteToSiteVpnAttachmentCommandInput}
+ * @returns {@link GetSiteToSiteVpnAttachmentCommandOutput}
  * @see {@link GetSiteToSiteVpnAttachmentCommandInput} for command's `input` shape.
  * @see {@link GetSiteToSiteVpnAttachmentCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request has failed due to an internal error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints.</p>
+ *
  *
  */
 export class GetSiteToSiteVpnAttachmentCommand extends $Command<
@@ -62,6 +86,9 @@ export class GetSiteToSiteVpnAttachmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSiteToSiteVpnAttachmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +117,8 @@ export class GetSiteToSiteVpnAttachmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSiteToSiteVpnAttachmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSiteToSiteVpnAttachmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +128,21 @@ export class GetSiteToSiteVpnAttachmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSiteToSiteVpnAttachmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSiteToSiteVpnAttachmentCommand(input, context);
+    return se_GetSiteToSiteVpnAttachmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSiteToSiteVpnAttachmentCommandOutput> {
-    return deserializeAws_restJson1GetSiteToSiteVpnAttachmentCommand(output, context);
+    return de_GetSiteToSiteVpnAttachmentCommand(output, context);
   }
 
   // Start section: command_body_extra

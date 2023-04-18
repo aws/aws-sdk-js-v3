@@ -14,6 +14,8 @@ const IMDS_PATH = "/latest/meta-data/iam/security-credentials/";
 const IMDS_TOKEN_PATH = "/latest/api/token";
 
 /**
+ * @internal
+ * 
  * Creates a credential provider that will source credentials from the EC2
  * Instance Metadata Service
  */

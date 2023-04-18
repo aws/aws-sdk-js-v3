@@ -16,21 +16,30 @@ import {
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import {
   DisassociateEntitiesFromExperienceRequest,
-  DisassociateEntitiesFromExperienceRequestFilterSensitiveLog,
   DisassociateEntitiesFromExperienceResponse,
-  DisassociateEntitiesFromExperienceResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DisassociateEntitiesFromExperienceCommand,
-  serializeAws_json1_1DisassociateEntitiesFromExperienceCommand,
+  de_DisassociateEntitiesFromExperienceCommand,
+  se_DisassociateEntitiesFromExperienceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DisassociateEntitiesFromExperienceCommand}.
+ */
 export interface DisassociateEntitiesFromExperienceCommandInput extends DisassociateEntitiesFromExperienceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateEntitiesFromExperienceCommand}.
+ */
 export interface DisassociateEntitiesFromExperienceCommandOutput
   extends DisassociateEntitiesFromExperienceResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Prevents users or groups in your IAM Identity Center identity source
  *             from accessing your Amazon Kendra experience. You can create an Amazon Kendra experience
  *             such as a search application. For more information on creating a search
@@ -42,13 +51,46 @@ export interface DisassociateEntitiesFromExperienceCommandOutput
  * import { KendraClient, DisassociateEntitiesFromExperienceCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, DisassociateEntitiesFromExperienceCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
+ * const input = { // DisassociateEntitiesFromExperienceRequest
+ *   Id: "STRING_VALUE", // required
+ *   IndexId: "STRING_VALUE", // required
+ *   EntityList: [ // DisassociateEntityList // required
+ *     { // EntityConfiguration
+ *       EntityId: "STRING_VALUE", // required
+ *       EntityType: "USER" || "GROUP", // required
+ *     },
+ *   ],
+ * };
  * const command = new DisassociateEntitiesFromExperienceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateEntitiesFromExperienceCommandInput - {@link DisassociateEntitiesFromExperienceCommandInput}
+ * @returns {@link DisassociateEntitiesFromExperienceCommandOutput}
  * @see {@link DisassociateEntitiesFromExperienceCommandInput} for command's `input` shape.
  * @see {@link DisassociateEntitiesFromExperienceCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient access to perform this action. Please ensure you have the
+ *             required permission policies and user accounts and try again.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
+ *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource you want to use doesn’t exist. Please check you have provided the correct
+ *             resource and try again.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling. Please reduce the number of requests
+ *             and try again.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
+ *             Please provide the correct input and try again.</p>
+ *
  *
  */
 export class DisassociateEntitiesFromExperienceCommand extends $Command<
@@ -68,6 +110,9 @@ export class DisassociateEntitiesFromExperienceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateEntitiesFromExperienceCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +141,8 @@ export class DisassociateEntitiesFromExperienceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateEntitiesFromExperienceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateEntitiesFromExperienceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,18 +152,24 @@ export class DisassociateEntitiesFromExperienceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateEntitiesFromExperienceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateEntitiesFromExperienceCommand(input, context);
+    return se_DisassociateEntitiesFromExperienceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateEntitiesFromExperienceCommandOutput> {
-    return deserializeAws_json1_1DisassociateEntitiesFromExperienceCommand(output, context);
+    return de_DisassociateEntitiesFromExperienceCommand(output, context);
   }
 
   // Start section: command_body_extra

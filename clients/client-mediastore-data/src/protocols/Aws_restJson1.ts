@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
@@ -8,12 +9,13 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   parseRfc7231DateTime as __parseRfc7231DateTime,
   resolvedPath as __resolvedPath,
   strictParseLong as __strictParseLong,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -36,7 +38,10 @@ import {
   RequestedRangeNotSatisfiableException,
 } from "../models/models_0";
 
-export const serializeAws_restJson1DeleteObjectCommand = async (
+/**
+ * serializeAws_restJson1DeleteObjectCommand
+ */
+export const se_DeleteObjectCommand = async (
   input: DeleteObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -56,7 +61,10 @@ export const serializeAws_restJson1DeleteObjectCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeObjectCommand = async (
+/**
+ * serializeAws_restJson1DescribeObjectCommand
+ */
+export const se_DescribeObjectCommand = async (
   input: DescribeObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -76,7 +84,10 @@ export const serializeAws_restJson1DescribeObjectCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetObjectCommand = async (
+/**
+ * serializeAws_restJson1GetObjectCommand
+ */
+export const se_GetObjectCommand = async (
   input: GetObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -98,7 +109,10 @@ export const serializeAws_restJson1GetObjectCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListItemsCommand = async (
+/**
+ * serializeAws_restJson1ListItemsCommand
+ */
+export const se_ListItemsCommand = async (
   input: ListItemsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -123,7 +137,10 @@ export const serializeAws_restJson1ListItemsCommand = async (
   });
 };
 
-export const serializeAws_restJson1PutObjectCommand = async (
+/**
+ * serializeAws_restJson1PutObjectCommand
+ */
+export const se_PutObjectCommand = async (
   input: PutObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -152,12 +169,15 @@ export const serializeAws_restJson1PutObjectCommand = async (
   });
 };
 
-export const deserializeAws_restJson1DeleteObjectCommand = async (
+/**
+ * deserializeAws_restJson1DeleteObjectCommand
+ */
+export const de_DeleteObjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteObjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteObjectCommandError(output, context);
+    return de_DeleteObjectCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -166,7 +186,10 @@ export const deserializeAws_restJson1DeleteObjectCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteObjectCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteObjectCommandError
+ */
+const de_DeleteObjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteObjectCommandOutput> => {
@@ -178,30 +201,32 @@ const deserializeAws_restJson1DeleteObjectCommandError = async (
   switch (errorCode) {
     case "ContainerNotFoundException":
     case "com.amazonaws.mediastoredata#ContainerNotFoundException":
-      throw await deserializeAws_restJson1ContainerNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ContainerNotFoundExceptionRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.mediastoredata#InternalServerError":
-      throw await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "ObjectNotFoundException":
     case "com.amazonaws.mediastoredata#ObjectNotFoundException":
-      throw await deserializeAws_restJson1ObjectNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ObjectNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeObjectCommand = async (
+/**
+ * deserializeAws_restJson1DescribeObjectCommand
+ */
+export const de_DescribeObjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeObjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeObjectCommandError(output, context);
+    return de_DescribeObjectCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -221,7 +246,10 @@ export const deserializeAws_restJson1DescribeObjectCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DescribeObjectCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeObjectCommandError
+ */
+const de_DescribeObjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeObjectCommandOutput> => {
@@ -233,30 +261,32 @@ const deserializeAws_restJson1DescribeObjectCommandError = async (
   switch (errorCode) {
     case "ContainerNotFoundException":
     case "com.amazonaws.mediastoredata#ContainerNotFoundException":
-      throw await deserializeAws_restJson1ContainerNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ContainerNotFoundExceptionRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.mediastoredata#InternalServerError":
-      throw await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "ObjectNotFoundException":
     case "com.amazonaws.mediastoredata#ObjectNotFoundException":
-      throw await deserializeAws_restJson1ObjectNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ObjectNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetObjectCommand = async (
+/**
+ * deserializeAws_restJson1GetObjectCommand
+ */
+export const de_GetObjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<GetObjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetObjectCommandError(output, context);
+    return de_GetObjectCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -282,7 +312,10 @@ export const deserializeAws_restJson1GetObjectCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetObjectCommandError = async (
+/**
+ * deserializeAws_restJson1GetObjectCommandError
+ */
+const de_GetObjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetObjectCommandOutput> => {
@@ -294,48 +327,52 @@ const deserializeAws_restJson1GetObjectCommandError = async (
   switch (errorCode) {
     case "ContainerNotFoundException":
     case "com.amazonaws.mediastoredata#ContainerNotFoundException":
-      throw await deserializeAws_restJson1ContainerNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ContainerNotFoundExceptionRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.mediastoredata#InternalServerError":
-      throw await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "ObjectNotFoundException":
     case "com.amazonaws.mediastoredata#ObjectNotFoundException":
-      throw await deserializeAws_restJson1ObjectNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ObjectNotFoundExceptionRes(parsedOutput, context);
     case "RequestedRangeNotSatisfiableException":
     case "com.amazonaws.mediastoredata#RequestedRangeNotSatisfiableException":
-      throw await deserializeAws_restJson1RequestedRangeNotSatisfiableExceptionResponse(parsedOutput, context);
+      throw await de_RequestedRangeNotSatisfiableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListItemsCommand = async (
+/**
+ * deserializeAws_restJson1ListItemsCommand
+ */
+export const de_ListItemsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListItemsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListItemsCommandError(output, context);
+    return de_ListItemsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Items != null) {
-    contents.Items = deserializeAws_restJson1ItemList(data.Items, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Items: (_) => de_ItemList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListItemsCommandError = async (
+/**
+ * deserializeAws_restJson1ListItemsCommandError
+ */
+const de_ListItemsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListItemsCommandOutput> => {
@@ -347,45 +384,47 @@ const deserializeAws_restJson1ListItemsCommandError = async (
   switch (errorCode) {
     case "ContainerNotFoundException":
     case "com.amazonaws.mediastoredata#ContainerNotFoundException":
-      throw await deserializeAws_restJson1ContainerNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ContainerNotFoundExceptionRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.mediastoredata#InternalServerError":
-      throw await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1PutObjectCommand = async (
+/**
+ * deserializeAws_restJson1PutObjectCommand
+ */
+export const de_PutObjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutObjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutObjectCommandError(output, context);
+    return de_PutObjectCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ContentSHA256 != null) {
-    contents.ContentSHA256 = __expectString(data.ContentSHA256);
-  }
-  if (data.ETag != null) {
-    contents.ETag = __expectString(data.ETag);
-  }
-  if (data.StorageClass != null) {
-    contents.StorageClass = __expectString(data.StorageClass);
-  }
+  const doc = take(data, {
+    ContentSHA256: __expectString,
+    ETag: __expectString,
+    StorageClass: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1PutObjectCommandError = async (
+/**
+ * deserializeAws_restJson1PutObjectCommandError
+ */
+const de_PutObjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutObjectCommandOutput> => {
@@ -397,31 +436,34 @@ const deserializeAws_restJson1PutObjectCommandError = async (
   switch (errorCode) {
     case "ContainerNotFoundException":
     case "com.amazonaws.mediastoredata#ContainerNotFoundException":
-      throw await deserializeAws_restJson1ContainerNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ContainerNotFoundExceptionRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.mediastoredata#InternalServerError":
-      throw await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
-const deserializeAws_restJson1ContainerNotFoundExceptionResponse = async (
+const throwDefaultError = withBaseException(__BaseException);
+/**
+ * deserializeAws_restJson1ContainerNotFoundExceptionRes
+ */
+const de_ContainerNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ContainerNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ContainerNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -429,15 +471,16 @@ const deserializeAws_restJson1ContainerNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InternalServerErrorResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InternalServerError> => {
+/**
+ * deserializeAws_restJson1InternalServerErrorRes
+ */
+const de_InternalServerErrorRes = async (parsedOutput: any, context: __SerdeContext): Promise<InternalServerError> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerError({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -445,15 +488,19 @@ const deserializeAws_restJson1InternalServerErrorResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ObjectNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ObjectNotFoundExceptionRes
+ */
+const de_ObjectNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ObjectNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ObjectNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -461,15 +508,19 @@ const deserializeAws_restJson1ObjectNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1RequestedRangeNotSatisfiableExceptionResponse = async (
+/**
+ * deserializeAws_restJson1RequestedRangeNotSatisfiableExceptionRes
+ */
+const de_RequestedRangeNotSatisfiableExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<RequestedRangeNotSatisfiableException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new RequestedRangeNotSatisfiableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -477,28 +528,28 @@ const deserializeAws_restJson1RequestedRangeNotSatisfiableExceptionResponse = as
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1Item = (output: any, context: __SerdeContext): Item => {
-  return {
-    ContentLength: __expectLong(output.ContentLength),
-    ContentType: __expectString(output.ContentType),
-    ETag: __expectString(output.ETag),
-    LastModified:
-      output.LastModified != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModified)))
-        : undefined,
-    Name: __expectString(output.Name),
-    Type: __expectString(output.Type),
-  } as any;
+/**
+ * deserializeAws_restJson1Item
+ */
+const de_Item = (output: any, context: __SerdeContext): Item => {
+  return take(output, {
+    ContentLength: __expectLong,
+    ContentType: __expectString,
+    ETag: __expectString,
+    LastModified: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    Type: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1ItemList = (output: any, context: __SerdeContext): Item[] => {
+/**
+ * deserializeAws_restJson1ItemList
+ */
+const de_ItemList = (output: any, context: __SerdeContext): Item[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Item(entry, context);
+      return de_Item(entry, context);
     });
   return retVal;
 };

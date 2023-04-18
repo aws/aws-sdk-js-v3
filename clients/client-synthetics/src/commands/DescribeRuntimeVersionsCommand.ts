@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeRuntimeVersionsRequest,
-  DescribeRuntimeVersionsRequestFilterSensitiveLog,
-  DescribeRuntimeVersionsResponse,
-  DescribeRuntimeVersionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeRuntimeVersionsCommand,
-  serializeAws_restJson1DescribeRuntimeVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeRuntimeVersionsRequest, DescribeRuntimeVersionsResponse } from "../models/models_0";
+import { de_DescribeRuntimeVersionsCommand, se_DescribeRuntimeVersionsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeRuntimeVersionsCommand}.
+ */
 export interface DescribeRuntimeVersionsCommandInput extends DescribeRuntimeVersionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeRuntimeVersionsCommand}.
+ */
 export interface DescribeRuntimeVersionsCommandOutput extends DescribeRuntimeVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of Synthetics canary runtime versions. For more information,
  *          see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html">
  *             Canary Runtime Versions</a>.</p>
@@ -38,13 +41,26 @@ export interface DescribeRuntimeVersionsCommandOutput extends DescribeRuntimeVer
  * import { SyntheticsClient, DescribeRuntimeVersionsCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
  * // const { SyntheticsClient, DescribeRuntimeVersionsCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
  * const client = new SyntheticsClient(config);
+ * const input = { // DescribeRuntimeVersionsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeRuntimeVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRuntimeVersionsCommandInput - {@link DescribeRuntimeVersionsCommandInput}
+ * @returns {@link DescribeRuntimeVersionsCommandOutput}
  * @see {@link DescribeRuntimeVersionsCommandInput} for command's `input` shape.
  * @see {@link DescribeRuntimeVersionsCommandOutput} for command's `response` shape.
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unknown internal error occurred.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>A parameter could not be validated.</p>
+ *
  *
  */
 export class DescribeRuntimeVersionsCommand extends $Command<
@@ -64,6 +80,9 @@ export class DescribeRuntimeVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRuntimeVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +111,8 @@ export class DescribeRuntimeVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRuntimeVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRuntimeVersionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +122,18 @@ export class DescribeRuntimeVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRuntimeVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeRuntimeVersionsCommand(input, context);
+    return se_DescribeRuntimeVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRuntimeVersionsCommandOutput> {
-    return deserializeAws_restJson1DescribeRuntimeVersionsCommand(output, context);
+    return de_DescribeRuntimeVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

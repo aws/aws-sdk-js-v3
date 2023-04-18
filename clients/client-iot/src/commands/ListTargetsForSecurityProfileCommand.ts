@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { ListTargetsForSecurityProfileRequest, ListTargetsForSecurityProfileResponse } from "../models/models_2";
 import {
-  ListTargetsForSecurityProfileRequest,
-  ListTargetsForSecurityProfileRequestFilterSensitiveLog,
-  ListTargetsForSecurityProfileResponse,
-  ListTargetsForSecurityProfileResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1ListTargetsForSecurityProfileCommand,
-  serializeAws_restJson1ListTargetsForSecurityProfileCommand,
+  de_ListTargetsForSecurityProfileCommand,
+  se_ListTargetsForSecurityProfileCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListTargetsForSecurityProfileCommand}.
+ */
 export interface ListTargetsForSecurityProfileCommandInput extends ListTargetsForSecurityProfileRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListTargetsForSecurityProfileCommand}.
+ */
 export interface ListTargetsForSecurityProfileCommandOutput
   extends ListTargetsForSecurityProfileResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the targets (thing groups) associated with a given Device Defender security profile.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListTargetsForSecurityProfile</a> action.</p>
  * @example
@@ -39,13 +45,33 @@ export interface ListTargetsForSecurityProfileCommandOutput
  * import { IoTClient, ListTargetsForSecurityProfileCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListTargetsForSecurityProfileCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // ListTargetsForSecurityProfileRequest
+ *   securityProfileName: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListTargetsForSecurityProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTargetsForSecurityProfileCommandInput - {@link ListTargetsForSecurityProfileCommandInput}
+ * @returns {@link ListTargetsForSecurityProfileCommandOutput}
  * @see {@link ListTargetsForSecurityProfileCommandInput} for command's `input` shape.
  * @see {@link ListTargetsForSecurityProfileCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
  *
  */
 export class ListTargetsForSecurityProfileCommand extends $Command<
@@ -65,6 +91,9 @@ export class ListTargetsForSecurityProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTargetsForSecurityProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +122,8 @@ export class ListTargetsForSecurityProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTargetsForSecurityProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTargetsForSecurityProfileResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,15 +133,21 @@ export class ListTargetsForSecurityProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTargetsForSecurityProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListTargetsForSecurityProfileCommand(input, context);
+    return se_ListTargetsForSecurityProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListTargetsForSecurityProfileCommandOutput> {
-    return deserializeAws_restJson1ListTargetsForSecurityProfileCommand(output, context);
+    return de_ListTargetsForSecurityProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

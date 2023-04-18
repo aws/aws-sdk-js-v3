@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
-import {
-  ListSensorStatisticsRequest,
-  ListSensorStatisticsRequestFilterSensitiveLog,
-  ListSensorStatisticsResponse,
-  ListSensorStatisticsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListSensorStatisticsCommand,
-  serializeAws_json1_0ListSensorStatisticsCommand,
-} from "../protocols/Aws_json1_0";
+import { ListSensorStatisticsRequest, ListSensorStatisticsResponse } from "../models/models_0";
+import { de_ListSensorStatisticsCommand, se_ListSensorStatisticsCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link ListSensorStatisticsCommand}.
+ */
 export interface ListSensorStatisticsCommandInput extends ListSensorStatisticsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListSensorStatisticsCommand}.
+ */
 export interface ListSensorStatisticsCommandOutput extends ListSensorStatisticsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Lists statistics about the data collected for each of the sensors that have been
  *          successfully ingested in the particular dataset. Can also be used to retreive Sensor
  *          Statistics for a previous ingestion job. </p>
@@ -38,13 +41,41 @@ export interface ListSensorStatisticsCommandOutput extends ListSensorStatisticsR
  * import { LookoutEquipmentClient, ListSensorStatisticsCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, ListSensorStatisticsCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
+ * const input = { // ListSensorStatisticsRequest
+ *   DatasetName: "STRING_VALUE", // required
+ *   IngestionJobId: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListSensorStatisticsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSensorStatisticsCommandInput - {@link ListSensorStatisticsCommandInput}
+ * @returns {@link ListSensorStatisticsCommandOutput}
  * @see {@link ListSensorStatisticsCommandInput} for command's `input` shape.
  * @see {@link ListSensorStatisticsCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The request could not be completed because you do not have access to the resource.
+ *       </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> Processing of the request has failed because of an unknown error, exception or failure.
+ *       </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p> The resource requested could not be found. Verify the resource ID and retry your
+ *          request. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a
+ *          related AWS service that's being utilized. </p>
+ *
  *
  */
 export class ListSensorStatisticsCommand extends $Command<
@@ -64,6 +95,9 @@ export class ListSensorStatisticsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSensorStatisticsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +126,8 @@ export class ListSensorStatisticsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSensorStatisticsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSensorStatisticsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +137,18 @@ export class ListSensorStatisticsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSensorStatisticsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListSensorStatisticsCommand(input, context);
+    return se_ListSensorStatisticsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSensorStatisticsCommandOutput> {
-    return deserializeAws_json1_0ListSensorStatisticsCommand(output, context);
+    return de_ListSensorStatisticsCommand(output, context);
   }
 
   // Start section: command_body_extra

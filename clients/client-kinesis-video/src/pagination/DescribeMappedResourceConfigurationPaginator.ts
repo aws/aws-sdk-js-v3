@@ -6,12 +6,11 @@ import {
   DescribeMappedResourceConfigurationCommandInput,
   DescribeMappedResourceConfigurationCommandOutput,
 } from "../commands/DescribeMappedResourceConfigurationCommand";
-import { KinesisVideo } from "../KinesisVideo";
 import { KinesisVideoClient } from "../KinesisVideoClient";
 import { KinesisVideoPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: KinesisVideoClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeMappedResourceConfigurationCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: KinesisVideo,
-  input: DescribeMappedResourceConfigurationCommandInput,
-  ...args: any
-): Promise<DescribeMappedResourceConfigurationCommandOutput> => {
-  // @ts-ignore
-  return await client.describeMappedResourceConfiguration(input, ...args);
-};
 export async function* paginateDescribeMappedResourceConfiguration(
   config: KinesisVideoPaginationConfiguration,
   input: DescribeMappedResourceConfigurationCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateDescribeMappedResourceConfiguration(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof KinesisVideo) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof KinesisVideoClient) {
+    if (config.client instanceof KinesisVideoClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected KinesisVideo | KinesisVideoClient");

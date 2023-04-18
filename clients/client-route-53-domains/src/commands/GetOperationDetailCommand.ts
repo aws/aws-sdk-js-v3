@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetOperationDetailRequest,
-  GetOperationDetailRequestFilterSensitiveLog,
-  GetOperationDetailResponse,
-  GetOperationDetailResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetOperationDetailCommand,
-  serializeAws_json1_1GetOperationDetailCommand,
-} from "../protocols/Aws_json1_1";
+import { GetOperationDetailRequest, GetOperationDetailResponse } from "../models/models_0";
+import { de_GetOperationDetailCommand, se_GetOperationDetailCommand } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetOperationDetailCommand}.
+ */
 export interface GetOperationDetailCommandInput extends GetOperationDetailRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetOperationDetailCommand}.
+ */
 export interface GetOperationDetailCommandOutput extends GetOperationDetailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation returns the current status of an operation that is not
  * 			completed.</p>
  * @example
@@ -37,13 +40,25 @@ export interface GetOperationDetailCommandOutput extends GetOperationDetailRespo
  * import { Route53DomainsClient, GetOperationDetailCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, GetOperationDetailCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
+ * const input = { // GetOperationDetailRequest
+ *   OperationId: "STRING_VALUE", // required
+ * };
  * const command = new GetOperationDetailCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetOperationDetailCommandInput - {@link GetOperationDetailCommandInput}
+ * @returns {@link GetOperationDetailCommandOutput}
  * @see {@link GetOperationDetailCommandInput} for command's `input` shape.
  * @see {@link GetOperationDetailCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The requested item is not acceptable. For example, for APIs that accept a domain name,
+ * 			the request might specify a domain name that doesn't belong to the account that
+ * 			submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the
+ * 			password might be invalid.</p>
+ *
  *
  */
 export class GetOperationDetailCommand extends $Command<
@@ -63,6 +78,9 @@ export class GetOperationDetailCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetOperationDetailCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +109,8 @@ export class GetOperationDetailCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetOperationDetailRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetOperationDetailResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +120,18 @@ export class GetOperationDetailCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetOperationDetailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetOperationDetailCommand(input, context);
+    return se_GetOperationDetailCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetOperationDetailCommandOutput> {
-    return deserializeAws_json1_1GetOperationDetailCommand(output, context);
+    return de_GetOperationDetailCommand(output, context);
   }
 
   // Start section: command_body_extra

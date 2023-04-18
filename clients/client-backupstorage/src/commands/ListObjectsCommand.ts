@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupStorageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupStorageClient";
-import {
-  ListObjectsInput,
-  ListObjectsInputFilterSensitiveLog,
-  ListObjectsOutput,
-  ListObjectsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListObjectsCommand,
-  serializeAws_restJson1ListObjectsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListObjectsInput, ListObjectsOutput } from "../models/models_0";
+import { de_ListObjectsCommand, se_ListObjectsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListObjectsCommand}.
+ */
 export interface ListObjectsCommandInput extends ListObjectsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListObjectsCommand}.
+ */
 export interface ListObjectsCommandOutput extends ListObjectsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * List all Objects in a given Backup.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,49 @@ export interface ListObjectsCommandOutput extends ListObjectsOutput, __MetadataB
  * import { BackupStorageClient, ListObjectsCommand } from "@aws-sdk/client-backupstorage"; // ES Modules import
  * // const { BackupStorageClient, ListObjectsCommand } = require("@aws-sdk/client-backupstorage"); // CommonJS import
  * const client = new BackupStorageClient(config);
+ * const input = { // ListObjectsInput
+ *   StorageJobId: "STRING_VALUE", // required
+ *   StartingObjectName: "STRING_VALUE",
+ *   StartingObjectPrefix: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   CreatedBefore: new Date("TIMESTAMP"),
+ *   CreatedAfter: new Date("TIMESTAMP"),
+ * };
  * const command = new ListObjectsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListObjectsCommandInput - {@link ListObjectsCommandInput}
+ * @returns {@link ListObjectsCommandOutput}
  * @see {@link ListObjectsCommandInput} for command's `input` shape.
  * @see {@link ListObjectsCommandOutput} for command's `response` shape.
  * @see {@link BackupStorageClientResolvedConfig | config} for BackupStorageClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *
+ * @throws {@link IllegalArgumentException} (client fault)
+ *  Non-retryable exception, indicates client error (wrong argument passed to API).
+ *     See exception message for details.
+ *
+ * @throws {@link KMSInvalidKeyUsageException} (client fault)
+ *  Non-retryable exception. Indicates the KMS key usage is incorrect. See exception message for details.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  Non-retryable exception. Attempted to make an operation on non-existing or expired resource.
+ *
+ * @throws {@link RetryableException} (server fault)
+ *  Retryable exception. In general indicates internal failure that can be fixed by retry.
+ *
+ * @throws {@link ServiceInternalException} (server fault)
+ *  Deprecated. To be removed from the model.
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  Retryable exception, indicates internal server error.
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  Increased rate over throttling limits. Can be retried with exponential backoff.
+ *
  *
  */
 export class ListObjectsCommand extends $Command<
@@ -62,6 +101,9 @@ export class ListObjectsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListObjectsCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +130,8 @@ export class ListObjectsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListObjectsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListObjectsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +141,18 @@ export class ListObjectsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListObjectsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListObjectsCommand(input, context);
+    return se_ListObjectsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListObjectsCommandOutput> {
-    return deserializeAws_restJson1ListObjectsCommand(output, context);
+    return de_ListObjectsCommand(output, context);
   }
 
   // Start section: command_body_extra

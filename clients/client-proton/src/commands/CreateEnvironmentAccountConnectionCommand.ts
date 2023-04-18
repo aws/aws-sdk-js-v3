@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { CreateEnvironmentAccountConnectionInput, CreateEnvironmentAccountConnectionOutput } from "../models/models_0";
 import {
-  CreateEnvironmentAccountConnectionInput,
-  CreateEnvironmentAccountConnectionInputFilterSensitiveLog,
-  CreateEnvironmentAccountConnectionOutput,
-  CreateEnvironmentAccountConnectionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateEnvironmentAccountConnectionCommand,
-  serializeAws_json1_0CreateEnvironmentAccountConnectionCommand,
+  de_CreateEnvironmentAccountConnectionCommand,
+  se_CreateEnvironmentAccountConnectionCommand,
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateEnvironmentAccountConnectionCommand}.
+ */
 export interface CreateEnvironmentAccountConnectionCommandInput extends CreateEnvironmentAccountConnectionInput {}
+/**
+ * @public
+ *
+ * The output of {@link CreateEnvironmentAccountConnectionCommand}.
+ */
 export interface CreateEnvironmentAccountConnectionCommandOutput
   extends CreateEnvironmentAccountConnectionOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create an environment account connection in an environment account so that environment infrastructure resources can be provisioned in the environment
  *       account from a management account.</p>
  *          <p>An environment account connection is a secure bi-directional connection between a <i>management account</i> and an <i>environment
@@ -42,13 +48,49 @@ export interface CreateEnvironmentAccountConnectionCommandOutput
  * import { ProtonClient, CreateEnvironmentAccountConnectionCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, CreateEnvironmentAccountConnectionCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // CreateEnvironmentAccountConnectionInput
+ *   clientToken: "STRING_VALUE",
+ *   managementAccountId: "STRING_VALUE", // required
+ *   roleArn: "STRING_VALUE",
+ *   environmentName: "STRING_VALUE", // required
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   componentRoleArn: "STRING_VALUE",
+ *   codebuildRoleArn: "STRING_VALUE",
+ * };
  * const command = new CreateEnvironmentAccountConnectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEnvironmentAccountConnectionCommandInput - {@link CreateEnvironmentAccountConnectionCommandInput}
+ * @returns {@link CreateEnvironmentAccountConnectionCommandOutput}
  * @see {@link CreateEnvironmentAccountConnectionCommandInput} for command's `input` shape.
  * @see {@link CreateEnvironmentAccountConnectionCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>There <i>isn't</i> sufficient access for performing this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request <i>couldn't</i> be made due to a conflicting operation or resource.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request failed to register with the service.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>A quota was exceeded. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-limits.html">Proton Quotas</a> in
+ *       the <i>Proton User Guide</i>.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+ *
  *
  */
 export class CreateEnvironmentAccountConnectionCommand extends $Command<
@@ -68,6 +110,9 @@ export class CreateEnvironmentAccountConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEnvironmentAccountConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +141,8 @@ export class CreateEnvironmentAccountConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateEnvironmentAccountConnectionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateEnvironmentAccountConnectionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,18 +152,24 @@ export class CreateEnvironmentAccountConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateEnvironmentAccountConnectionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateEnvironmentAccountConnectionCommand(input, context);
+    return se_CreateEnvironmentAccountConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateEnvironmentAccountConnectionCommandOutput> {
-    return deserializeAws_json1_0CreateEnvironmentAccountConnectionCommand(output, context);
+    return de_CreateEnvironmentAccountConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

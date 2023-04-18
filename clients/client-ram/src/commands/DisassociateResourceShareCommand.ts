@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DisassociateResourceShareRequest,
-  DisassociateResourceShareRequestFilterSensitiveLog,
-  DisassociateResourceShareResponse,
-  DisassociateResourceShareResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateResourceShareCommand,
-  serializeAws_restJson1DisassociateResourceShareCommand,
-} from "../protocols/Aws_restJson1";
+import { DisassociateResourceShareRequest, DisassociateResourceShareResponse } from "../models/models_0";
+import { de_DisassociateResourceShareCommand, se_DisassociateResourceShareCommand } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DisassociateResourceShareCommand}.
+ */
 export interface DisassociateResourceShareCommandInput extends DisassociateResourceShareRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateResourceShareCommand}.
+ */
 export interface DisassociateResourceShareCommandOutput extends DisassociateResourceShareResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates the specified principals or resources from the specified resource share.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,58 @@ export interface DisassociateResourceShareCommandOutput extends DisassociateReso
  * import { RAMClient, DisassociateResourceShareCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, DisassociateResourceShareCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
+ * const input = { // DisassociateResourceShareRequest
+ *   resourceShareArn: "STRING_VALUE", // required
+ *   resourceArns: [ // ResourceArnList
+ *     "STRING_VALUE",
+ *   ],
+ *   principals: [ // PrincipalArnOrIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new DisassociateResourceShareCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateResourceShareCommandInput - {@link DisassociateResourceShareCommandInput}
+ * @returns {@link DisassociateResourceShareCommandOutput}
  * @see {@link DisassociateResourceShareCommandInput} for command's `input` shape.
  * @see {@link DisassociateResourceShareCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
+ *
+ * @throws {@link IdempotentParameterMismatchException} (client fault)
+ *  <p>The client token input parameter was matched one used with a previous call to the
+ *             operation, but at least one of the other input parameters is different from the previous
+ *             call.</p>
+ *
+ * @throws {@link InvalidClientTokenException} (client fault)
+ *  <p>The client token is not valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter is not valid.</p>
+ *
+ * @throws {@link InvalidStateTransitionException} (client fault)
+ *  <p>The requested state transition is not valid.</p>
+ *
+ * @throws {@link MalformedArnException} (client fault)
+ *  <p>The format of an Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>The requested operation is not permitted.</p>
+ *
+ * @throws {@link ResourceShareLimitExceededException} (client fault)
+ *  <p>This request would exceed the limit for resource shares for your account.</p>
+ *
+ * @throws {@link ServerInternalException} (server fault)
+ *  <p>The service could not respond to the request due to an internal problem.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is not available.</p>
+ *
+ * @throws {@link UnknownResourceException} (client fault)
+ *  <p>A specified resource was not found.</p>
+ *
  *
  */
 export class DisassociateResourceShareCommand extends $Command<
@@ -62,6 +110,9 @@ export class DisassociateResourceShareCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateResourceShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +141,8 @@ export class DisassociateResourceShareCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateResourceShareRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateResourceShareResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +152,21 @@ export class DisassociateResourceShareCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateResourceShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateResourceShareCommand(input, context);
+    return se_DisassociateResourceShareCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateResourceShareCommandOutput> {
-    return deserializeAws_restJson1DisassociateResourceShareCommand(output, context);
+    return de_DisassociateResourceShareCommand(output, context);
   }
 
   // Start section: command_body_extra

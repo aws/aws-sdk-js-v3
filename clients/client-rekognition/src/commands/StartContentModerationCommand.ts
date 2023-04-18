@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartContentModerationRequest,
-  StartContentModerationRequestFilterSensitiveLog,
-  StartContentModerationResponse,
-  StartContentModerationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartContentModerationCommand,
-  serializeAws_json1_1StartContentModerationCommand,
-} from "../protocols/Aws_json1_1";
+import { StartContentModerationRequest, StartContentModerationResponse } from "../models/models_0";
+import { de_StartContentModerationCommand, se_StartContentModerationCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
+/**
+ * @public
+ *
+ * The input for {@link StartContentModerationCommand}.
+ */
 export interface StartContentModerationCommandInput extends StartContentModerationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartContentModerationCommand}.
+ */
 export interface StartContentModerationCommandOutput extends StartContentModerationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Starts asynchronous detection of inappropriate, unwanted, or offensive content in a stored video. For a list of moderation labels in Amazon Rekognition, see
  *       <a href="https://docs.aws.amazon.com/rekognition/latest/dg/moderation.html#moderation-api">Using the image and video moderation APIs</a>.</p>
  *          <p>Amazon Rekognition Video can moderate content in a video stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket name
@@ -46,13 +49,65 @@ export interface StartContentModerationCommandOutput extends StartContentModerat
  * import { RekognitionClient, StartContentModerationCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, StartContentModerationCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // StartContentModerationRequest
+ *   Video: { // Video
+ *     S3Object: { // S3Object
+ *       Bucket: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   },
+ *   MinConfidence: Number("float"),
+ *   ClientRequestToken: "STRING_VALUE",
+ *   NotificationChannel: { // NotificationChannel
+ *     SNSTopicArn: "STRING_VALUE", // required
+ *     RoleArn: "STRING_VALUE", // required
+ *   },
+ *   JobTag: "STRING_VALUE",
+ * };
  * const command = new StartContentModerationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartContentModerationCommandInput - {@link StartContentModerationCommandInput}
+ * @returns {@link StartContentModerationCommandOutput}
  * @see {@link StartContentModerationCommandInput} for command's `input` shape.
  * @see {@link StartContentModerationCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to perform the action.</p>
+ *
+ * @throws {@link IdempotentParameterMismatchException} (client fault)
+ *  <p>A <code>ClientRequestToken</code> input parameter was reused with an operation, but at least one of the other input
+ *         parameters is different from the previous call to the operation.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
+ *       operation again.</p>
+ *
+ * @throws {@link InvalidS3ObjectException} (client fault)
+ *  <p>Amazon Rekognition is unable to access the S3 object specified in the request.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many Amazon Rekognition Video jobs concurrently, calls to start operations
+ *             (<code>StartLabelDetection</code>, for example) will raise a <code>LimitExceededException</code> exception (HTTP status code: 400) until
+ *             the number of concurrently running jobs is below the Amazon Rekognition service limit.  </p>
+ *
+ * @throws {@link ProvisionedThroughputExceededException} (client fault)
+ *  <p>The number of requests exceeded your throughput limit. If you want to increase this
+ *       limit, contact Amazon Rekognition.</p>
+ *
+ * @throws {@link ThrottlingException} (server fault)
+ *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
+ * @throws {@link VideoTooLargeException} (client fault)
+ *  <p>The file size or duration of the supplied media is too large. The maximum file size is 10GB.
+ *         The maximum duration is 6 hours. </p>
+ *
  *
  */
 export class StartContentModerationCommand extends $Command<
@@ -72,6 +127,9 @@ export class StartContentModerationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartContentModerationCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +158,8 @@ export class StartContentModerationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartContentModerationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartContentModerationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +169,18 @@ export class StartContentModerationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartContentModerationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartContentModerationCommand(input, context);
+    return se_StartContentModerationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartContentModerationCommandOutput> {
-    return deserializeAws_json1_1StartContentModerationCommand(output, context);
+    return de_StartContentModerationCommand(output, context);
   }
 
   // Start section: command_body_extra

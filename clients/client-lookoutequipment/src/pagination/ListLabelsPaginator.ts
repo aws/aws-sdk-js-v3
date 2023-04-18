@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListLabelsCommand, ListLabelsCommandInput, ListLabelsCommandOutput } from "../commands/ListLabelsCommand";
-import { LookoutEquipment } from "../LookoutEquipment";
 import { LookoutEquipmentClient } from "../LookoutEquipmentClient";
 import { LookoutEquipmentPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: LookoutEquipmentClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListLabelsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: LookoutEquipment,
-  input: ListLabelsCommandInput,
-  ...args: any
-): Promise<ListLabelsCommandOutput> => {
-  // @ts-ignore
-  return await client.listLabels(input, ...args);
-};
 export async function* paginateListLabels(
   config: LookoutEquipmentPaginationConfiguration,
   input: ListLabelsCommandInput,
@@ -40,9 +31,7 @@ export async function* paginateListLabels(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof LookoutEquipment) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof LookoutEquipmentClient) {
+    if (config.client instanceof LookoutEquipmentClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected LookoutEquipment | LookoutEquipmentClient");

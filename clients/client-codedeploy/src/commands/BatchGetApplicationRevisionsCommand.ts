@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
+import { BatchGetApplicationRevisionsInput, BatchGetApplicationRevisionsOutput } from "../models/models_0";
 import {
-  BatchGetApplicationRevisionsInput,
-  BatchGetApplicationRevisionsInputFilterSensitiveLog,
-  BatchGetApplicationRevisionsOutput,
-  BatchGetApplicationRevisionsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchGetApplicationRevisionsCommand,
-  serializeAws_json1_1BatchGetApplicationRevisionsCommand,
+  de_BatchGetApplicationRevisionsCommand,
+  se_BatchGetApplicationRevisionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchGetApplicationRevisionsCommand}.
+ */
 export interface BatchGetApplicationRevisionsCommandInput extends BatchGetApplicationRevisionsInput {}
+/**
+ * @public
+ *
+ * The output of {@link BatchGetApplicationRevisionsCommand}.
+ */
 export interface BatchGetApplicationRevisionsCommandOutput
   extends BatchGetApplicationRevisionsOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about one or more application revisions. The maximum number of
  *             application revisions that can be returned is 25.</p>
  * @example
@@ -39,13 +45,61 @@ export interface BatchGetApplicationRevisionsCommandOutput
  * import { CodeDeployClient, BatchGetApplicationRevisionsCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, BatchGetApplicationRevisionsCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
+ * const input = { // BatchGetApplicationRevisionsInput
+ *   applicationName: "STRING_VALUE", // required
+ *   revisions: [ // RevisionLocationList // required
+ *     { // RevisionLocation
+ *       revisionType: "S3" || "GitHub" || "String" || "AppSpecContent",
+ *       s3Location: { // S3Location
+ *         bucket: "STRING_VALUE",
+ *         key: "STRING_VALUE",
+ *         bundleType: "tar" || "tgz" || "zip" || "YAML" || "JSON",
+ *         version: "STRING_VALUE",
+ *         eTag: "STRING_VALUE",
+ *       },
+ *       gitHubLocation: { // GitHubLocation
+ *         repository: "STRING_VALUE",
+ *         commitId: "STRING_VALUE",
+ *       },
+ *       string: { // RawString
+ *         content: "STRING_VALUE",
+ *         sha256: "STRING_VALUE",
+ *       },
+ *       appSpecContent: { // AppSpecContent
+ *         content: "STRING_VALUE",
+ *         sha256: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new BatchGetApplicationRevisionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetApplicationRevisionsCommandInput - {@link BatchGetApplicationRevisionsCommandInput}
+ * @returns {@link BatchGetApplicationRevisionsCommandOutput}
  * @see {@link BatchGetApplicationRevisionsCommandInput} for command's `input` shape.
  * @see {@link BatchGetApplicationRevisionsCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
+ *
+ * @throws {@link ApplicationDoesNotExistException} (client fault)
+ *  <p>The application does not exist with the IAM user or Amazon Web Services account.</p>
+ *
+ * @throws {@link ApplicationNameRequiredException} (client fault)
+ *  <p>The minimum number of required application names was not specified.</p>
+ *
+ * @throws {@link BatchLimitExceededException} (client fault)
+ *  <p>The maximum number of names or IDs allowed for this request (100) was exceeded.</p>
+ *
+ * @throws {@link InvalidApplicationNameException} (client fault)
+ *  <p>The application name was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidRevisionException} (client fault)
+ *  <p>The revision was specified in an invalid format.</p>
+ *
+ * @throws {@link RevisionRequiredException} (client fault)
+ *  <p>The revision ID was not specified.</p>
+ *
  *
  */
 export class BatchGetApplicationRevisionsCommand extends $Command<
@@ -65,6 +119,9 @@ export class BatchGetApplicationRevisionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetApplicationRevisionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +150,8 @@ export class BatchGetApplicationRevisionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetApplicationRevisionsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetApplicationRevisionsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,15 +161,21 @@ export class BatchGetApplicationRevisionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetApplicationRevisionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchGetApplicationRevisionsCommand(input, context);
+    return se_BatchGetApplicationRevisionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchGetApplicationRevisionsCommandOutput> {
-    return deserializeAws_json1_1BatchGetApplicationRevisionsCommand(output, context);
+    return de_BatchGetApplicationRevisionsCommand(output, context);
   }
 
   // Start section: command_body_extra

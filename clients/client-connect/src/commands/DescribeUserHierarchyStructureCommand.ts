@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import { DescribeUserHierarchyStructureRequest, DescribeUserHierarchyStructureResponse } from "../models/models_0";
 import {
-  DescribeUserHierarchyStructureRequest,
-  DescribeUserHierarchyStructureRequestFilterSensitiveLog,
-  DescribeUserHierarchyStructureResponse,
-  DescribeUserHierarchyStructureResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeUserHierarchyStructureCommand,
-  serializeAws_restJson1DescribeUserHierarchyStructureCommand,
+  de_DescribeUserHierarchyStructureCommand,
+  se_DescribeUserHierarchyStructureCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeUserHierarchyStructureCommand}.
+ */
 export interface DescribeUserHierarchyStructureCommandInput extends DescribeUserHierarchyStructureRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeUserHierarchyStructureCommand}.
+ */
 export interface DescribeUserHierarchyStructureCommandOutput
   extends DescribeUserHierarchyStructureResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the hierarchy structure of the specified Amazon Connect instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,34 @@ export interface DescribeUserHierarchyStructureCommandOutput
  * import { ConnectClient, DescribeUserHierarchyStructureCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DescribeUserHierarchyStructureCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // DescribeUserHierarchyStructureRequest
+ *   InstanceId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeUserHierarchyStructureCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeUserHierarchyStructureCommandInput - {@link DescribeUserHierarchyStructureCommandInput}
+ * @returns {@link DescribeUserHierarchyStructureCommandOutput}
  * @see {@link DescribeUserHierarchyStructureCommandInput} for command's `input` shape.
  * @see {@link DescribeUserHierarchyStructureCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
  *
  */
 export class DescribeUserHierarchyStructureCommand extends $Command<
@@ -64,6 +91,9 @@ export class DescribeUserHierarchyStructureCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeUserHierarchyStructureCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +122,8 @@ export class DescribeUserHierarchyStructureCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeUserHierarchyStructureRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeUserHierarchyStructureResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +133,24 @@ export class DescribeUserHierarchyStructureCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeUserHierarchyStructureCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeUserHierarchyStructureCommand(input, context);
+    return se_DescribeUserHierarchyStructureCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeUserHierarchyStructureCommandOutput> {
-    return deserializeAws_restJson1DescribeUserHierarchyStructureCommand(output, context);
+    return de_DescribeUserHierarchyStructureCommand(output, context);
   }
 
   // Start section: command_body_extra

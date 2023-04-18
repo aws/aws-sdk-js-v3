@@ -14,35 +14,72 @@ import {
 } from "@aws-sdk/types";
 
 import { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
-import {
-  UpdatePermissionsRequest,
-  UpdatePermissionsRequestFilterSensitiveLog,
-  UpdatePermissionsResponse,
-  UpdatePermissionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdatePermissionsCommand,
-  serializeAws_restJson1UpdatePermissionsCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdatePermissionsRequest, UpdatePermissionsResponse } from "../models/models_0";
+import { de_UpdatePermissionsCommand, se_UpdatePermissionsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdatePermissionsCommand}.
+ */
 export interface UpdatePermissionsCommandInput extends UpdatePermissionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdatePermissionsCommand}.
+ */
 export interface UpdatePermissionsCommandOutput extends UpdatePermissionsResponse, __MetadataBearer {}
 
 /**
- * <p>Updates which users in a workspace have the Grafana <code>Admin</code> or <code>Editor</code> roles.</p>
+ * @public
+ * <p>Updates which users in a workspace have the Grafana <code>Admin</code> or
+ *                 <code>Editor</code> roles.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GrafanaClient, UpdatePermissionsCommand } from "@aws-sdk/client-grafana"; // ES Modules import
  * // const { GrafanaClient, UpdatePermissionsCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
  * const client = new GrafanaClient(config);
+ * const input = { // UpdatePermissionsRequest
+ *   updateInstructionBatch: [ // UpdateInstructionBatch // required
+ *     { // UpdateInstruction
+ *       action: "STRING_VALUE", // required
+ *       role: "STRING_VALUE", // required
+ *       users: [ // UserList // required
+ *         { // User
+ *           id: "STRING_VALUE", // required
+ *           type: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   workspaceId: "STRING_VALUE", // required
+ * };
  * const command = new UpdatePermissionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePermissionsCommandInput - {@link UpdatePermissionsCommandInput}
+ * @returns {@link UpdatePermissionsCommandOutput}
  * @see {@link UpdatePermissionsCommandInput} for command's `input` shape.
  * @see {@link UpdatePermissionsCommandOutput} for command's `response` shape.
  * @see {@link GrafanaClientResolvedConfig | config} for GrafanaClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action. </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Unexpected error while processing the request. Retry the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a resource that does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because of request throttling. Retry the request.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The value of a parameter in the request caused an error.</p>
+ *
  *
  */
 export class UpdatePermissionsCommand extends $Command<
@@ -62,6 +99,9 @@ export class UpdatePermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +130,8 @@ export class UpdatePermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePermissionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePermissionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +141,18 @@ export class UpdatePermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdatePermissionsCommand(input, context);
+    return se_UpdatePermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePermissionsCommandOutput> {
-    return deserializeAws_restJson1UpdatePermissionsCommand(output, context);
+    return de_UpdatePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

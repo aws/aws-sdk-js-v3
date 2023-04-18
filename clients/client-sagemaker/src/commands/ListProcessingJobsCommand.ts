@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListProcessingJobsRequest,
-  ListProcessingJobsRequestFilterSensitiveLog,
-  ListProcessingJobsResponse,
-  ListProcessingJobsResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1ListProcessingJobsCommand,
-  serializeAws_json1_1ListProcessingJobsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListProcessingJobsRequest, ListProcessingJobsResponse } from "../models/models_3";
+import { de_ListProcessingJobsCommand, se_ListProcessingJobsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListProcessingJobsCommand}.
+ */
 export interface ListProcessingJobsCommandInput extends ListProcessingJobsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListProcessingJobsCommand}.
+ */
 export interface ListProcessingJobsCommandOutput extends ListProcessingJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists processing jobs that satisfy various filters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,28 @@ export interface ListProcessingJobsCommandOutput extends ListProcessingJobsRespo
  * import { SageMakerClient, ListProcessingJobsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListProcessingJobsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListProcessingJobsRequest
+ *   CreationTimeAfter: new Date("TIMESTAMP"),
+ *   CreationTimeBefore: new Date("TIMESTAMP"),
+ *   LastModifiedTimeAfter: new Date("TIMESTAMP"),
+ *   LastModifiedTimeBefore: new Date("TIMESTAMP"),
+ *   NameContains: "STRING_VALUE",
+ *   StatusEquals: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped",
+ *   SortBy: "Name" || "CreationTime" || "Status",
+ *   SortOrder: "Ascending" || "Descending",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListProcessingJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProcessingJobsCommandInput - {@link ListProcessingJobsCommandInput}
+ * @returns {@link ListProcessingJobsCommandOutput}
  * @see {@link ListProcessingJobsCommandInput} for command's `input` shape.
  * @see {@link ListProcessingJobsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
  *
  */
 export class ListProcessingJobsCommand extends $Command<
@@ -62,6 +80,9 @@ export class ListProcessingJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProcessingJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +111,8 @@ export class ListProcessingJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListProcessingJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListProcessingJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +122,18 @@ export class ListProcessingJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListProcessingJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListProcessingJobsCommand(input, context);
+    return se_ListProcessingJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProcessingJobsCommandOutput> {
-    return deserializeAws_json1_1ListProcessingJobsCommand(output, context);
+    return de_ListProcessingJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

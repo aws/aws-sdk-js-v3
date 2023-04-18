@@ -32,12 +32,14 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
@@ -85,6 +87,10 @@ import {
   DeleteBucketLifecycleConfigurationCommandOutput,
 } from "./commands/DeleteBucketLifecycleConfigurationCommand";
 import { DeleteBucketPolicyCommandInput, DeleteBucketPolicyCommandOutput } from "./commands/DeleteBucketPolicyCommand";
+import {
+  DeleteBucketReplicationCommandInput,
+  DeleteBucketReplicationCommandOutput,
+} from "./commands/DeleteBucketReplicationCommand";
 import {
   DeleteBucketTaggingCommandInput,
   DeleteBucketTaggingCommandOutput,
@@ -142,6 +148,10 @@ import {
   GetBucketLifecycleConfigurationCommandOutput,
 } from "./commands/GetBucketLifecycleConfigurationCommand";
 import { GetBucketPolicyCommandInput, GetBucketPolicyCommandOutput } from "./commands/GetBucketPolicyCommand";
+import {
+  GetBucketReplicationCommandInput,
+  GetBucketReplicationCommandOutput,
+} from "./commands/GetBucketReplicationCommand";
 import { GetBucketTaggingCommandInput, GetBucketTaggingCommandOutput } from "./commands/GetBucketTaggingCommand";
 import {
   GetBucketVersioningCommandInput,
@@ -211,6 +221,10 @@ import {
   PutBucketLifecycleConfigurationCommandOutput,
 } from "./commands/PutBucketLifecycleConfigurationCommand";
 import { PutBucketPolicyCommandInput, PutBucketPolicyCommandOutput } from "./commands/PutBucketPolicyCommand";
+import {
+  PutBucketReplicationCommandInput,
+  PutBucketReplicationCommandOutput,
+} from "./commands/PutBucketReplicationCommand";
 import { PutBucketTaggingCommandInput, PutBucketTaggingCommandOutput } from "./commands/PutBucketTaggingCommand";
 import {
   PutBucketVersioningCommandInput,
@@ -247,6 +261,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CreateAccessPointCommandInput
   | CreateAccessPointForObjectLambdaCommandInput
@@ -260,6 +277,7 @@ export type ServiceInputTypes =
   | DeleteBucketCommandInput
   | DeleteBucketLifecycleConfigurationCommandInput
   | DeleteBucketPolicyCommandInput
+  | DeleteBucketReplicationCommandInput
   | DeleteBucketTaggingCommandInput
   | DeleteJobTaggingCommandInput
   | DeleteMultiRegionAccessPointCommandInput
@@ -278,6 +296,7 @@ export type ServiceInputTypes =
   | GetBucketCommandInput
   | GetBucketLifecycleConfigurationCommandInput
   | GetBucketPolicyCommandInput
+  | GetBucketReplicationCommandInput
   | GetBucketTaggingCommandInput
   | GetBucketVersioningCommandInput
   | GetJobTaggingCommandInput
@@ -299,6 +318,7 @@ export type ServiceInputTypes =
   | PutAccessPointPolicyForObjectLambdaCommandInput
   | PutBucketLifecycleConfigurationCommandInput
   | PutBucketPolicyCommandInput
+  | PutBucketReplicationCommandInput
   | PutBucketTaggingCommandInput
   | PutBucketVersioningCommandInput
   | PutJobTaggingCommandInput
@@ -310,6 +330,9 @@ export type ServiceInputTypes =
   | UpdateJobPriorityCommandInput
   | UpdateJobStatusCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CreateAccessPointCommandOutput
   | CreateAccessPointForObjectLambdaCommandOutput
@@ -323,6 +346,7 @@ export type ServiceOutputTypes =
   | DeleteBucketCommandOutput
   | DeleteBucketLifecycleConfigurationCommandOutput
   | DeleteBucketPolicyCommandOutput
+  | DeleteBucketReplicationCommandOutput
   | DeleteBucketTaggingCommandOutput
   | DeleteJobTaggingCommandOutput
   | DeleteMultiRegionAccessPointCommandOutput
@@ -341,6 +365,7 @@ export type ServiceOutputTypes =
   | GetBucketCommandOutput
   | GetBucketLifecycleConfigurationCommandOutput
   | GetBucketPolicyCommandOutput
+  | GetBucketReplicationCommandOutput
   | GetBucketTaggingCommandOutput
   | GetBucketVersioningCommandOutput
   | GetJobTaggingCommandOutput
@@ -362,6 +387,7 @@ export type ServiceOutputTypes =
   | PutAccessPointPolicyForObjectLambdaCommandOutput
   | PutBucketLifecycleConfigurationCommandOutput
   | PutBucketPolicyCommandOutput
+  | PutBucketReplicationCommandOutput
   | PutBucketTaggingCommandOutput
   | PutBucketVersioningCommandOutput
   | PutJobTaggingCommandOutput
@@ -373,6 +399,9 @@ export type ServiceOutputTypes =
   | UpdateJobPriorityCommandOutput
   | UpdateJobStatusCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -380,11 +409,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -441,19 +470,10 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
-   * Value for how many times a request will be made at most in case of retry.
+   * Unique service identifier.
+   * @internal
    */
-  maxAttempts?: number | __Provider<number>;
-
-  /**
-   * Specifies which retry algorithm to use.
-   */
-  retryMode?: string | __Provider<string>;
-
-  /**
-   * Optional logger for logging debug/info/warn/error.
-   */
-  logger?: __Logger;
+  serviceId?: string;
 
   /**
    * Enables IPv6/IPv4 dualstack endpoint.
@@ -464,12 +484,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Enables FIPS compatible endpoints.
    */
   useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
 
   /**
    * The AWS region to which this client will send requests
@@ -489,6 +503,21 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
+   * Value for how many times a request will be made at most in case of retry.
+   */
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Specifies which retry algorithm to use.
+   */
+  retryMode?: string | __Provider<string>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
+
+  /**
    * A function that, given a hash constructor and a stream, calculates the
    * hash of the streamed value.
    * @internal
@@ -496,18 +525,21 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   streamHasher?: __StreamHasher<Readable> | __StreamHasher<Blob>;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link __checksum} interface
    * that computes MD5 hashes.
    * @internal
    */
-  md5?: __HashConstructor;
+  md5?: __ChecksumConstructor | __HashConstructor;
 
   /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type S3ControlClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -519,10 +551,15 @@ type S3ControlClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOpti
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of S3ControlClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of S3ControlClient class constructor that set the region, credentials and other options.
  */
 export interface S3ControlClientConfig extends S3ControlClientConfigType {}
 
+/**
+ * @public
+ */
 type S3ControlClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -534,11 +571,14 @@ type S3ControlClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHan
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of S3ControlClient class. This is resolved and normalized from the {@link S3ControlClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of S3ControlClient class. This is resolved and normalized from the {@link S3ControlClientConfig | constructor configuration interface}.
  */
 export interface S3ControlClientResolvedConfig extends S3ControlClientResolvedConfigType {}
 
 /**
+ * @public
  * <p> Amazon Web Services S3 Control provides access to Amazon S3 control plane actions. </p>
  */
 export class S3ControlClient extends __Client<

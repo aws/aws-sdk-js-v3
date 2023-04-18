@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import {
-  ListFunctionsRequest,
-  ListFunctionsRequestFilterSensitiveLog,
-  ListFunctionsResponse,
-  ListFunctionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListFunctionsCommand,
-  serializeAws_restJson1ListFunctionsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListFunctionsRequest, ListFunctionsResponse } from "../models/models_0";
+import { de_ListFunctionsCommand, se_ListFunctionsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListFunctionsCommand}.
+ */
 export interface ListFunctionsCommandInput extends ListFunctionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListFunctionsCommand}.
+ */
 export interface ListFunctionsCommandOutput extends ListFunctionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List multiple functions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,34 @@ export interface ListFunctionsCommandOutput extends ListFunctionsResponse, __Met
  * import { AppSyncClient, ListFunctionsCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, ListFunctionsCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
+ * const input = { // ListFunctionsRequest
+ *   apiId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListFunctionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFunctionsCommandInput - {@link ListFunctionsCommandInput}
+ * @returns {@link ListFunctionsCommandOutput}
  * @see {@link ListFunctionsCommandInput} for command's `input` shape.
  * @see {@link ListFunctionsCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the
+ *          field values, and then try again.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal AppSync error occurred. Try your request again.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource specified in the request was not found. Check the resource, and then try again.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You aren't authorized to perform this operation.</p>
+ *
  *
  */
 export class ListFunctionsCommand extends $Command<
@@ -62,6 +86,9 @@ export class ListFunctionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFunctionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +115,8 @@ export class ListFunctionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFunctionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListFunctionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +126,18 @@ export class ListFunctionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFunctionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListFunctionsCommand(input, context);
+    return se_ListFunctionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFunctionsCommandOutput> {
-    return deserializeAws_restJson1ListFunctionsCommand(output, context);
+    return de_ListFunctionsCommand(output, context);
   }
 
   // Start section: command_body_extra

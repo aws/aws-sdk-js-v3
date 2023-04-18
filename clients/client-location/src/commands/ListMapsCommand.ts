@@ -14,35 +14,58 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  ListMapsRequest,
-  ListMapsRequestFilterSensitiveLog,
-  ListMapsResponse,
-  ListMapsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListMapsCommand,
-  serializeAws_restJson1ListMapsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListMapsRequest, ListMapsResponse } from "../models/models_0";
+import { de_ListMapsCommand, se_ListMapsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListMapsCommand}.
+ */
 export interface ListMapsCommandInput extends ListMapsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListMapsCommand}.
+ */
 export interface ListMapsCommandOutput extends ListMapsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists map resources in your AWS account.</p>
+ * @public
+ * <p>Lists map resources in your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LocationClient, ListMapsCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, ListMapsCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = { // ListMapsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListMapsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMapsCommandInput - {@link ListMapsCommandInput}
+ * @returns {@link ListMapsCommandOutput}
  * @see {@link ListMapsCommandInput} for command's `input` shape.
  * @see {@link ListMapsCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The request was denied because of insufficient access or permissions. Check with an
+ *       administrator to verify your permissions.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because of request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input failed to meet the constraints specified by the AWS service. </p>
+ *
  *
  */
 export class ListMapsCommand extends $Command<
@@ -62,6 +85,9 @@ export class ListMapsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMapsCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +114,8 @@ export class ListMapsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMapsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMapsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +125,18 @@ export class ListMapsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMapsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListMapsCommand(input, context);
+    return se_ListMapsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMapsCommandOutput> {
-    return deserializeAws_restJson1ListMapsCommand(output, context);
+    return de_ListMapsCommand(output, context);
   }
 
   // Start section: command_body_extra

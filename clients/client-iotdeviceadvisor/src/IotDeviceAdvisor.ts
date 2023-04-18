@@ -62,6 +62,7 @@ import {
 import { IotDeviceAdvisorClient } from "./IotDeviceAdvisorClient";
 
 /**
+ * @public
  * <p>Amazon Web Services IoT Core Device Advisor is a cloud-based, fully managed test capability for validating IoT
  *             devices during device software development. Device Advisor provides pre-built tests that you
  *             can use to validate IoT devices for reliable and secure connectivity with Amazon Web Services IoT Core
@@ -74,6 +75,7 @@ import { IotDeviceAdvisorClient } from "./IotDeviceAdvisorClient";
  */
 export class IotDeviceAdvisor extends IotDeviceAdvisorClient {
   /**
+   * @public
    * <p>Creates a Device Advisor test suite.</p>
    *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateSuiteDefinition</a> action.</p>
    */
@@ -107,6 +109,7 @@ export class IotDeviceAdvisor extends IotDeviceAdvisorClient {
   }
 
   /**
+   * @public
    * <p>Deletes a Device Advisor test suite.</p>
    *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteSuiteDefinition</a> action.</p>
    */
@@ -140,6 +143,7 @@ export class IotDeviceAdvisor extends IotDeviceAdvisorClient {
   }
 
   /**
+   * @public
    * <p>Gets information about an Device Advisor endpoint.</p>
    */
   public getEndpoint(args: GetEndpointCommandInput, options?: __HttpHandlerOptions): Promise<GetEndpointCommandOutput>;
@@ -166,6 +170,7 @@ export class IotDeviceAdvisor extends IotDeviceAdvisorClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a Device Advisor test suite.</p>
    *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetSuiteDefinition</a> action.</p>
    */
@@ -199,6 +204,7 @@ export class IotDeviceAdvisor extends IotDeviceAdvisorClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a Device Advisor test suite run.</p>
    *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetSuiteRun</a> action.</p>
    */
@@ -226,6 +232,7 @@ export class IotDeviceAdvisor extends IotDeviceAdvisorClient {
   }
 
   /**
+   * @public
    * <p>Gets a report download link for a successful Device Advisor qualifying test suite run.</p>
    *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetSuiteRunReport</a> action.</p>
    */
@@ -259,6 +266,7 @@ export class IotDeviceAdvisor extends IotDeviceAdvisorClient {
   }
 
   /**
+   * @public
    * <p>Lists the Device Advisor test suites you have created.</p>
    *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListSuiteDefinitions</a> action.</p>
    */
@@ -292,6 +300,7 @@ export class IotDeviceAdvisor extends IotDeviceAdvisorClient {
   }
 
   /**
+   * @public
    * <p>Lists runs of the specified Device Advisor test suite. You can list all runs of the test
    *             suite, or the runs of a specific version of the test suite.</p>
    *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListSuiteRuns</a> action.</p>
@@ -326,6 +335,7 @@ export class IotDeviceAdvisor extends IotDeviceAdvisorClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags attached to an IoT Device Advisor resource.</p>
    *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListTagsForResource</a> action.</p>
    */
@@ -359,6 +369,7 @@ export class IotDeviceAdvisor extends IotDeviceAdvisorClient {
   }
 
   /**
+   * @public
    * <p>Starts a Device Advisor test suite run.</p>
    *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">StartSuiteRun</a> action.</p>
    */
@@ -392,6 +403,7 @@ export class IotDeviceAdvisor extends IotDeviceAdvisorClient {
   }
 
   /**
+   * @public
    * <p>Stops a Device Advisor test suite run that is currently running.</p>
    *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">StopSuiteRun</a> action.</p>
    */
@@ -422,6 +434,7 @@ export class IotDeviceAdvisor extends IotDeviceAdvisorClient {
   }
 
   /**
+   * @public
    * <p>Adds to and modifies existing tags of an IoT Device Advisor resource.</p>
    *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">TagResource</a> action.</p>
    */
@@ -449,6 +462,7 @@ export class IotDeviceAdvisor extends IotDeviceAdvisorClient {
   }
 
   /**
+   * @public
    * <p>Removes tags from an IoT Device Advisor resource.</p>
    *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UntagResource</a> action.</p>
    */
@@ -482,6 +496,7 @@ export class IotDeviceAdvisor extends IotDeviceAdvisorClient {
   }
 
   /**
+   * @public
    * <p>Updates a Device Advisor test suite.</p>
    *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateSuiteDefinition</a> action.</p>
    */

@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DeleteTransitGatewayRouteTableRequest, DeleteTransitGatewayRouteTableResult } from "../models/models_3";
 import {
-  DeleteTransitGatewayRouteTableRequest,
-  DeleteTransitGatewayRouteTableRequestFilterSensitiveLog,
-  DeleteTransitGatewayRouteTableResult,
-  DeleteTransitGatewayRouteTableResultFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_ec2DeleteTransitGatewayRouteTableCommand,
-  serializeAws_ec2DeleteTransitGatewayRouteTableCommand,
+  de_DeleteTransitGatewayRouteTableCommand,
+  se_DeleteTransitGatewayRouteTableCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteTransitGatewayRouteTableCommand}.
+ */
 export interface DeleteTransitGatewayRouteTableCommandInput extends DeleteTransitGatewayRouteTableRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteTransitGatewayRouteTableCommand}.
+ */
 export interface DeleteTransitGatewayRouteTableCommandOutput
   extends DeleteTransitGatewayRouteTableResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified transit gateway route table. You must disassociate the route table from any
  *           transit gateway route tables before you can delete it.</p>
  * @example
@@ -39,13 +45,20 @@ export interface DeleteTransitGatewayRouteTableCommandOutput
  * import { EC2Client, DeleteTransitGatewayRouteTableCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteTransitGatewayRouteTableCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteTransitGatewayRouteTableRequest
+ *   TransitGatewayRouteTableId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DeleteTransitGatewayRouteTableCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTransitGatewayRouteTableCommandInput - {@link DeleteTransitGatewayRouteTableCommandInput}
+ * @returns {@link DeleteTransitGatewayRouteTableCommandOutput}
  * @see {@link DeleteTransitGatewayRouteTableCommandInput} for command's `input` shape.
  * @see {@link DeleteTransitGatewayRouteTableCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class DeleteTransitGatewayRouteTableCommand extends $Command<
@@ -65,6 +78,9 @@ export class DeleteTransitGatewayRouteTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTransitGatewayRouteTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +109,8 @@ export class DeleteTransitGatewayRouteTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTransitGatewayRouteTableRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTransitGatewayRouteTableResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,18 +120,24 @@ export class DeleteTransitGatewayRouteTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteTransitGatewayRouteTableCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteTransitGatewayRouteTableCommand(input, context);
+    return se_DeleteTransitGatewayRouteTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteTransitGatewayRouteTableCommandOutput> {
-    return deserializeAws_ec2DeleteTransitGatewayRouteTableCommand(output, context);
+    return de_DeleteTransitGatewayRouteTableCommand(output, context);
   }
 
   // Start section: command_body_extra

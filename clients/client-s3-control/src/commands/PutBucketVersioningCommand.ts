@@ -15,25 +15,38 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutBucketVersioningRequest, PutBucketVersioningRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restXmlPutBucketVersioningCommand,
-  serializeAws_restXmlPutBucketVersioningCommand,
-} from "../protocols/Aws_restXml";
+import { PutBucketVersioningRequest } from "../models/models_0";
+import { de_PutBucketVersioningCommand, se_PutBucketVersioningCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
+/**
+ * @public
+ *
+ * The input for {@link PutBucketVersioningCommand}.
+ */
 export interface PutBucketVersioningCommandInput extends PutBucketVersioningRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutBucketVersioningCommand}.
+ */
 export interface PutBucketVersioningCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <note>
- *             <p>This operation sets the versioning state only for S3 on Outposts buckets. To set the
- *             versioning state for an S3 bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketVersioning.html">PutBucketVersioning</a> in
- *             the <i>Amazon S3 API Reference</i>. </p>
+ *             <p>This operation sets the versioning state
+ *             for
+ *             S3 on Outposts
+ *             buckets
+ *             only. To set the versioning state for an S3 bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketVersioning.html">PutBucketVersioning</a> in the <i>Amazon S3 API Reference</i>. </p>
  *          </note>
- *          <p>Sets the versioning state for an S3 on Outposts bucket. With versioning, you can save
- *          multiple distinct copies of your data and recover from unintended user actions and
- *          application failures.</p>
+ *          <p>Sets the versioning state for an S3 on Outposts bucket. With
+ *          S3
+ *          Versioning,
+ *          you can save multiple distinct copies of your
+ *          objects
+ *          and recover from unintended user actions and application failures.</p>
  *          <p>You can set the versioning state to one of the following:</p>
  *          <ul>
  *             <li>
@@ -57,9 +70,9 @@ export interface PutBucketVersioningCommandOutput extends __MetadataBearer {}
  *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsLifecycleManaging.html"> Creating and managing
  *             a lifecycle configuration for your S3 on Outposts bucket</a> in the <i>Amazon S3
  *             User Guide</i>.</p>
- *          <p>If you have an object expiration lifecycle policy in your non-versioned bucket and you
+ *          <p>If you have an object expiration lifecycle configuration in your non-versioned bucket and you
  *          want to maintain the same permanent delete behavior when you enable versioning, you must
- *          add a noncurrent expiration policy. The noncurrent expiration lifecycle policy will manage
+ *          add a noncurrent expiration policy. The noncurrent expiration lifecycle configuration will manage
  *          the deletes of the noncurrent object versions in the version-enabled bucket. For more
  *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html">Versioning</a> in the <i>Amazon S3
  *             User Guide</i>.</p>
@@ -89,13 +102,25 @@ export interface PutBucketVersioningCommandOutput extends __MetadataBearer {}
  * import { S3ControlClient, PutBucketVersioningCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, PutBucketVersioningCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = { // PutBucketVersioningRequest
+ *   AccountId: "STRING_VALUE",
+ *   Bucket: "STRING_VALUE", // required
+ *   MFA: "STRING_VALUE",
+ *   VersioningConfiguration: { // VersioningConfiguration
+ *     MFADelete: "Enabled" || "Disabled",
+ *     Status: "Enabled" || "Suspended",
+ *   },
+ * };
  * const command = new PutBucketVersioningCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBucketVersioningCommandInput - {@link PutBucketVersioningCommandInput}
+ * @returns {@link PutBucketVersioningCommandOutput}
  * @see {@link PutBucketVersioningCommandInput} for command's `input` shape.
  * @see {@link PutBucketVersioningCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
+ *
  *
  */
 export class PutBucketVersioningCommand extends $Command<
@@ -108,6 +133,9 @@ export class PutBucketVersioningCommand extends $Command<
 
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
+      RequiresAccountId: { type: "staticContextParams", value: true },
+      AccountId: { type: "contextParams", name: "AccountId" },
+      Bucket: { type: "contextParams", name: "Bucket" },
       UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },
@@ -116,6 +144,9 @@ export class PutBucketVersioningCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBucketVersioningCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,8 +177,8 @@ export class PutBucketVersioningCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutBucketVersioningRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -157,12 +188,18 @@ export class PutBucketVersioningCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutBucketVersioningCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutBucketVersioningCommand(input, context);
+    return se_PutBucketVersioningCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBucketVersioningCommandOutput> {
-    return deserializeAws_restXmlPutBucketVersioningCommand(output, context);
+    return de_PutBucketVersioningCommand(output, context);
   }
 
   // Start section: command_body_extra

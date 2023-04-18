@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeAccountLimitsRequest,
-  DescribeAccountLimitsRequestFilterSensitiveLog,
-  DescribeAccountLimitsResult,
-  DescribeAccountLimitsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeAccountLimitsRequest, DescribeAccountLimitsResult } from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import {
-  deserializeAws_json1_0DescribeAccountLimitsCommand,
-  serializeAws_json1_0DescribeAccountLimitsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DescribeAccountLimitsCommand, se_DescribeAccountLimitsCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeAccountLimitsCommand}.
+ */
 export interface DescribeAccountLimitsCommandInput extends DescribeAccountLimitsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeAccountLimitsCommand}.
+ */
 export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimitsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the current Amazon Pinpoint SMS Voice V2 resource quotas for your
  *             account. The description for a quota includes the quota name, current usage toward that
  *             quota, and the quota's maximum value.</p>
@@ -47,13 +50,35 @@ export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimit
  * import { PinpointSMSVoiceV2Client, DescribeAccountLimitsCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, DescribeAccountLimitsCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
+ * const input = { // DescribeAccountLimitsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeAccountLimitsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAccountLimitsCommandInput - {@link DescribeAccountLimitsCommandInput}
+ * @returns {@link DescribeAccountLimitsCommandOutput}
  * @see {@link DescribeAccountLimitsCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountLimitsCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The request was denied because you don't have sufficient permissions to access the
+ *             resource.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The API encountered an unexpected error and couldn't complete the request. You might
+ *             be able to successfully issue the request again in the future.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>An error that occurred because too many requests were sent during a certain amount of
+ *             time.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>A validation exception for a field.</p>
+ *
  *
  */
 export class DescribeAccountLimitsCommand extends $Command<
@@ -73,6 +98,9 @@ export class DescribeAccountLimitsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAccountLimitsCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +129,8 @@ export class DescribeAccountLimitsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAccountLimitsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAccountLimitsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +140,18 @@ export class DescribeAccountLimitsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAccountLimitsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeAccountLimitsCommand(input, context);
+    return se_DescribeAccountLimitsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAccountLimitsCommandOutput> {
-    return deserializeAws_json1_0DescribeAccountLimitsCommand(output, context);
+    return de_DescribeAccountLimitsCommand(output, context);
   }
 
   // Start section: command_body_extra

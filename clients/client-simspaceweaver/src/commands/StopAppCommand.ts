@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StopAppInput,
-  StopAppInputFilterSensitiveLog,
-  StopAppOutput,
-  StopAppOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StopAppCommand,
-  serializeAws_restJson1StopAppCommand,
-} from "../protocols/Aws_restJson1";
+import { StopAppInput, StopAppOutput } from "../models/models_0";
+import { de_StopAppCommand, se_StopAppCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SimSpaceWeaverClientResolvedConfig } from "../SimSpaceWeaverClient";
 
+/**
+ * @public
+ *
+ * The input for {@link StopAppCommand}.
+ */
 export interface StopAppCommandInput extends StopAppInput {}
+/**
+ * @public
+ *
+ * The output of {@link StopAppCommand}.
+ */
 export interface StopAppCommandOutput extends StopAppOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops the given custom app and shuts down all of its allocated compute resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,36 @@ export interface StopAppCommandOutput extends StopAppOutput, __MetadataBearer {}
  * import { SimSpaceWeaverClient, StopAppCommand } from "@aws-sdk/client-simspaceweaver"; // ES Modules import
  * // const { SimSpaceWeaverClient, StopAppCommand } = require("@aws-sdk/client-simspaceweaver"); // CommonJS import
  * const client = new SimSpaceWeaverClient(config);
+ * const input = { // StopAppInput
+ *   Simulation: "STRING_VALUE", // required
+ *   Domain: "STRING_VALUE", // required
+ *   App: "STRING_VALUE", // required
+ * };
  * const command = new StopAppCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopAppCommandInput - {@link StopAppCommandInput}
+ * @returns {@link StopAppCommandOutput}
  * @see {@link StopAppCommandInput} for command's `input` shape.
  * @see {@link StopAppCommandOutput} for command's `response` shape.
  * @see {@link SimSpaceWeaverClientResolvedConfig | config} for SimSpaceWeaverClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p/>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p/>
+ *
  *
  */
 export class StopAppCommand extends $Command<
@@ -62,6 +88,9 @@ export class StopAppCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopAppCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +117,8 @@ export class StopAppCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopAppInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StopAppOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +128,18 @@ export class StopAppCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopAppCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopAppCommand(input, context);
+    return se_StopAppCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopAppCommandOutput> {
-    return deserializeAws_restJson1StopAppCommand(output, context);
+    return de_StopAppCommand(output, context);
   }
 
   // Start section: command_body_extra

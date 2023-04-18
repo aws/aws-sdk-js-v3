@@ -204,3 +204,214 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+DescribeEntitiesDetectionV2Job
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/classes/describeentitiesdetectionv2jobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/describeentitiesdetectionv2jobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/describeentitiesdetectionv2jobcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeICD10CMInferenceJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/classes/describeicd10cminferencejobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/describeicd10cminferencejobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/describeicd10cminferencejobcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribePHIDetectionJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/classes/describephidetectionjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/describephidetectionjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/describephidetectionjobcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeRxNormInferenceJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/classes/describerxnorminferencejobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/describerxnorminferencejobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/describerxnorminferencejobcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeSNOMEDCTInferenceJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/classes/describesnomedctinferencejobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/describesnomedctinferencejobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/describesnomedctinferencejobcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DetectEntities
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/classes/detectentitiescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/detectentitiescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/detectentitiescommandoutput.html)
+
+</details>
+<details>
+<summary>
+DetectEntitiesV2
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/classes/detectentitiesv2command.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/detectentitiesv2commandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/detectentitiesv2commandoutput.html)
+
+</details>
+<details>
+<summary>
+DetectPHI
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/classes/detectphicommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/detectphicommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/detectphicommandoutput.html)
+
+</details>
+<details>
+<summary>
+InferICD10CM
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/classes/infericd10cmcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/infericd10cmcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/infericd10cmcommandoutput.html)
+
+</details>
+<details>
+<summary>
+InferRxNorm
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/classes/inferrxnormcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/inferrxnormcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/inferrxnormcommandoutput.html)
+
+</details>
+<details>
+<summary>
+InferSNOMEDCT
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/classes/infersnomedctcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/infersnomedctcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/infersnomedctcommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListEntitiesDetectionV2Jobs
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/classes/listentitiesdetectionv2jobscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/listentitiesdetectionv2jobscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/listentitiesdetectionv2jobscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListICD10CMInferenceJobs
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/classes/listicd10cminferencejobscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/listicd10cminferencejobscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/listicd10cminferencejobscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListPHIDetectionJobs
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/classes/listphidetectionjobscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/listphidetectionjobscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/listphidetectionjobscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListRxNormInferenceJobs
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/classes/listrxnorminferencejobscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/listrxnorminferencejobscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/listrxnorminferencejobscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListSNOMEDCTInferenceJobs
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/classes/listsnomedctinferencejobscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/listsnomedctinferencejobscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/listsnomedctinferencejobscommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartEntitiesDetectionV2Job
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/classes/startentitiesdetectionv2jobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/startentitiesdetectionv2jobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/startentitiesdetectionv2jobcommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartICD10CMInferenceJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/classes/starticd10cminferencejobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/starticd10cminferencejobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/starticd10cminferencejobcommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartPHIDetectionJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/classes/startphidetectionjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/startphidetectionjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/startphidetectionjobcommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartRxNormInferenceJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/classes/startrxnorminferencejobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/startrxnorminferencejobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/startrxnorminferencejobcommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartSNOMEDCTInferenceJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/classes/startsnomedctinferencejobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/startsnomedctinferencejobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/startsnomedctinferencejobcommandoutput.html)
+
+</details>
+<details>
+<summary>
+StopEntitiesDetectionV2Job
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/classes/stopentitiesdetectionv2jobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/stopentitiesdetectionv2jobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/stopentitiesdetectionv2jobcommandoutput.html)
+
+</details>
+<details>
+<summary>
+StopICD10CMInferenceJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/classes/stopicd10cminferencejobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/stopicd10cminferencejobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/stopicd10cminferencejobcommandoutput.html)
+
+</details>
+<details>
+<summary>
+StopPHIDetectionJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/classes/stopphidetectionjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/stopphidetectionjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/stopphidetectionjobcommandoutput.html)
+
+</details>
+<details>
+<summary>
+StopRxNormInferenceJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/classes/stoprxnorminferencejobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/stoprxnorminferencejobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/stoprxnorminferencejobcommandoutput.html)
+
+</details>
+<details>
+<summary>
+StopSNOMEDCTInferenceJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/classes/stopsnomedctinferencejobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/stopsnomedctinferencejobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-comprehendmedical/interfaces/stopsnomedctinferencejobcommandoutput.html)
+
+</details>

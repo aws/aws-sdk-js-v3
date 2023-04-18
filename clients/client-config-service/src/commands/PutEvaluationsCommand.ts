@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import {
-  PutEvaluationsRequest,
-  PutEvaluationsRequestFilterSensitiveLog,
-  PutEvaluationsResponse,
-  PutEvaluationsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1PutEvaluationsCommand,
-  serializeAws_json1_1PutEvaluationsCommand,
-} from "../protocols/Aws_json1_1";
+import { PutEvaluationsRequest, PutEvaluationsResponse } from "../models/models_1";
+import { de_PutEvaluationsCommand, se_PutEvaluationsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutEvaluationsCommand}.
+ */
 export interface PutEvaluationsCommandInput extends PutEvaluationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutEvaluationsCommand}.
+ */
 export interface PutEvaluationsCommandOutput extends PutEvaluationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used by an Lambda function to deliver evaluation results to
  * 			Config. This action is required in every Lambda function
  * 			that is invoked by an Config rule.</p>
@@ -38,13 +41,39 @@ export interface PutEvaluationsCommandOutput extends PutEvaluationsResponse, __M
  * import { ConfigServiceClient, PutEvaluationsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, PutEvaluationsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // PutEvaluationsRequest
+ *   Evaluations: [ // Evaluations
+ *     { // Evaluation
+ *       ComplianceResourceType: "STRING_VALUE", // required
+ *       ComplianceResourceId: "STRING_VALUE", // required
+ *       ComplianceType: "COMPLIANT" || "NON_COMPLIANT" || "NOT_APPLICABLE" || "INSUFFICIENT_DATA", // required
+ *       Annotation: "STRING_VALUE",
+ *       OrderingTimestamp: new Date("TIMESTAMP"), // required
+ *     },
+ *   ],
+ *   ResultToken: "STRING_VALUE", // required
+ *   TestMode: true || false,
+ * };
  * const command = new PutEvaluationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutEvaluationsCommandInput - {@link PutEvaluationsCommandInput}
+ * @returns {@link PutEvaluationsCommandOutput}
  * @see {@link PutEvaluationsCommandInput} for command's `input` shape.
  * @see {@link PutEvaluationsCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One or more of the specified parameters are not valid. Verify
+ * 			that your parameters are valid and try again.</p>
+ *
+ * @throws {@link InvalidResultTokenException} (client fault)
+ *  <p>The specified <code>ResultToken</code> is not valid.</p>
+ *
+ * @throws {@link NoSuchConfigRuleException} (client fault)
+ *  <p>The Config rule in the request is not valid. Verify that the rule is an Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
+ *
  *
  */
 export class PutEvaluationsCommand extends $Command<
@@ -64,6 +93,9 @@ export class PutEvaluationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutEvaluationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +124,8 @@ export class PutEvaluationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutEvaluationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutEvaluationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +135,18 @@ export class PutEvaluationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutEvaluationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutEvaluationsCommand(input, context);
+    return se_PutEvaluationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutEvaluationsCommandOutput> {
-    return deserializeAws_json1_1PutEvaluationsCommand(output, context);
+    return de_PutEvaluationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -12,22 +12,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { HttpPayloadTraitsWithMediaTypeInputOutput } from "../models/models_0";
 import {
-  HttpPayloadTraitsWithMediaTypeInputOutput,
-  HttpPayloadTraitsWithMediaTypeInputOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1HttpPayloadTraitsWithMediaTypeCommand,
-  serializeAws_restJson1HttpPayloadTraitsWithMediaTypeCommand,
+  de_HttpPayloadTraitsWithMediaTypeCommand,
+  se_HttpPayloadTraitsWithMediaTypeCommand,
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * @public
+ *
+ * The input for {@link HttpPayloadTraitsWithMediaTypeCommand}.
+ */
 export interface HttpPayloadTraitsWithMediaTypeCommandInput extends HttpPayloadTraitsWithMediaTypeInputOutput {}
+/**
+ * @public
+ *
+ * The output of {@link HttpPayloadTraitsWithMediaTypeCommand}.
+ */
 export interface HttpPayloadTraitsWithMediaTypeCommandOutput
   extends HttpPayloadTraitsWithMediaTypeInputOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * This examples uses a `@mediaType` trait on the payload to force a custom
  * content-type to be serialized.
  * @example
@@ -36,13 +44,20 @@ export interface HttpPayloadTraitsWithMediaTypeCommandOutput
  * import { RestJsonProtocolClient, HttpPayloadTraitsWithMediaTypeCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, HttpPayloadTraitsWithMediaTypeCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
+ * const input = { // HttpPayloadTraitsWithMediaTypeInputOutput
+ *   foo: "STRING_VALUE",
+ *   blob: "BLOB_VALUE",
+ * };
  * const command = new HttpPayloadTraitsWithMediaTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param HttpPayloadTraitsWithMediaTypeCommandInput - {@link HttpPayloadTraitsWithMediaTypeCommandInput}
+ * @returns {@link HttpPayloadTraitsWithMediaTypeCommandOutput}
  * @see {@link HttpPayloadTraitsWithMediaTypeCommandInput} for command's `input` shape.
  * @see {@link HttpPayloadTraitsWithMediaTypeCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
+ *
  *
  */
 export class HttpPayloadTraitsWithMediaTypeCommand extends $Command<
@@ -53,6 +68,9 @@ export class HttpPayloadTraitsWithMediaTypeCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: HttpPayloadTraitsWithMediaTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -78,8 +96,8 @@ export class HttpPayloadTraitsWithMediaTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: HttpPayloadTraitsWithMediaTypeInputOutputFilterSensitiveLog,
-      outputFilterSensitiveLog: HttpPayloadTraitsWithMediaTypeInputOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -89,18 +107,24 @@ export class HttpPayloadTraitsWithMediaTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: HttpPayloadTraitsWithMediaTypeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1HttpPayloadTraitsWithMediaTypeCommand(input, context);
+    return se_HttpPayloadTraitsWithMediaTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<HttpPayloadTraitsWithMediaTypeCommandOutput> {
-    return deserializeAws_restJson1HttpPayloadTraitsWithMediaTypeCommand(output, context);
+    return de_HttpPayloadTraitsWithMediaTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

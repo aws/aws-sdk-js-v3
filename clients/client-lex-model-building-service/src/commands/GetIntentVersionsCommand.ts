@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import {
-  GetIntentVersionsRequest,
-  GetIntentVersionsRequestFilterSensitiveLog,
-  GetIntentVersionsResponse,
-  GetIntentVersionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetIntentVersionsCommand,
-  serializeAws_restJson1GetIntentVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetIntentVersionsRequest, GetIntentVersionsResponse } from "../models/models_0";
+import { de_GetIntentVersionsCommand, se_GetIntentVersionsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetIntentVersionsCommand}.
+ */
 export interface GetIntentVersionsCommandInput extends GetIntentVersionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetIntentVersionsCommand}.
+ */
 export interface GetIntentVersionsCommandOutput extends GetIntentVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about all of the versions of an intent.</p>
  *          <p>The <code>GetIntentVersions</code> operation returns an
  *         <code>IntentMetadata</code> object for each version of an intent. For
@@ -50,13 +53,36 @@ export interface GetIntentVersionsCommandOutput extends GetIntentVersionsRespons
  * import { LexModelBuildingServiceClient, GetIntentVersionsCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, GetIntentVersionsCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
+ * const input = { // GetIntentVersionsRequest
+ *   name: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new GetIntentVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetIntentVersionsCommandInput - {@link GetIntentVersionsCommandInput}
+ * @returns {@link GetIntentVersionsCommandOutput}
  * @see {@link GetIntentVersionsCommandInput} for command's `input` shape.
  * @see {@link GetIntentVersionsCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is not well formed. For example, a value is invalid or
+ *       a required field is missing. Check the field values, and try
+ *       again.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal Amazon Lex error occurred. Try your request again.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request exceeded a limit. Try your request again.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource specified in the request was not found. Check the
+ *       resource and try again.</p>
+ *
  *
  */
 export class GetIntentVersionsCommand extends $Command<
@@ -76,6 +102,9 @@ export class GetIntentVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetIntentVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +133,8 @@ export class GetIntentVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetIntentVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetIntentVersionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +144,18 @@ export class GetIntentVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetIntentVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetIntentVersionsCommand(input, context);
+    return se_GetIntentVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIntentVersionsCommandOutput> {
-    return deserializeAws_restJson1GetIntentVersionsCommand(output, context);
+    return de_GetIntentVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteAccessControlRuleRequest,
-  DeleteAccessControlRuleRequestFilterSensitiveLog,
-  DeleteAccessControlRuleResponse,
-  DeleteAccessControlRuleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteAccessControlRuleCommand,
-  serializeAws_json1_1DeleteAccessControlRuleCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteAccessControlRuleRequest, DeleteAccessControlRuleResponse } from "../models/models_0";
+import { de_DeleteAccessControlRuleCommand, se_DeleteAccessControlRuleCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteAccessControlRuleCommand}.
+ */
 export interface DeleteAccessControlRuleCommandInput extends DeleteAccessControlRuleRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteAccessControlRuleCommand}.
+ */
 export interface DeleteAccessControlRuleCommandOutput extends DeleteAccessControlRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an access control rule for the specified WorkMail organization.</p>
  *          <note>
  *             <p>Deleting already deleted and non-existing rules does not produce an error. In those cases, the service sends back an HTTP 200 response with an empty HTTP body.</p>
@@ -39,13 +42,28 @@ export interface DeleteAccessControlRuleCommandOutput extends DeleteAccessContro
  * import { WorkMailClient, DeleteAccessControlRuleCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, DeleteAccessControlRuleCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = { // DeleteAccessControlRuleRequest
+ *   OrganizationId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAccessControlRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAccessControlRuleCommandInput - {@link DeleteAccessControlRuleCommandInput}
+ * @returns {@link DeleteAccessControlRuleCommandOutput}
  * @see {@link DeleteAccessControlRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteAccessControlRuleCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
+ *
+ * @throws {@link OrganizationNotFoundException} (client fault)
+ *  <p>An operation received a valid organization identifier that either doesn't belong or
+ *          exist in the system.</p>
+ *
+ * @throws {@link OrganizationStateException} (client fault)
+ *  <p>The organization must have a valid state to perform certain
+ *          operations on the organization or its members.</p>
+ *
  *
  */
 export class DeleteAccessControlRuleCommand extends $Command<
@@ -65,6 +83,9 @@ export class DeleteAccessControlRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAccessControlRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +114,8 @@ export class DeleteAccessControlRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAccessControlRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAccessControlRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +125,18 @@ export class DeleteAccessControlRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAccessControlRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteAccessControlRuleCommand(input, context);
+    return se_DeleteAccessControlRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAccessControlRuleCommandOutput> {
-    return deserializeAws_json1_1DeleteAccessControlRuleCommand(output, context);
+    return de_DeleteAccessControlRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

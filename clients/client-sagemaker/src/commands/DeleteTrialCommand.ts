@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteTrialRequest,
-  DeleteTrialRequestFilterSensitiveLog,
-  DeleteTrialResponse,
-  DeleteTrialResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteTrialCommand,
-  serializeAws_json1_1DeleteTrialCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteTrialRequest, DeleteTrialResponse } from "../models/models_2";
+import { de_DeleteTrialCommand, se_DeleteTrialCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteTrialCommand}.
+ */
 export interface DeleteTrialCommandInput extends DeleteTrialRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteTrialCommand}.
+ */
 export interface DeleteTrialCommandOutput extends DeleteTrialResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified trial. All trial components that make up the trial must be deleted
  *       first. Use the <a>DescribeTrialComponent</a> API to get the list of trial
  *       components.</p>
@@ -38,13 +41,22 @@ export interface DeleteTrialCommandOutput extends DeleteTrialResponse, __Metadat
  * import { SageMakerClient, DeleteTrialCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteTrialCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DeleteTrialRequest
+ *   TrialName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteTrialCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTrialCommandInput - {@link DeleteTrialCommandInput}
+ * @returns {@link DeleteTrialCommandOutput}
  * @see {@link DeleteTrialCommandInput} for command's `input` shape.
  * @see {@link DeleteTrialCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class DeleteTrialCommand extends $Command<
@@ -64,6 +76,9 @@ export class DeleteTrialCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTrialCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +105,8 @@ export class DeleteTrialCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTrialRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTrialResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +116,18 @@ export class DeleteTrialCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTrialCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteTrialCommand(input, context);
+    return se_DeleteTrialCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTrialCommandOutput> {
-    return deserializeAws_json1_1DeleteTrialCommand(output, context);
+    return de_DeleteTrialCommand(output, context);
   }
 
   // Start section: command_body_extra

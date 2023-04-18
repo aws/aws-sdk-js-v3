@@ -13,24 +13,27 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeInferenceExperimentRequest,
-  DescribeInferenceExperimentRequestFilterSensitiveLog,
-  DescribeInferenceExperimentResponse,
-  DescribeInferenceExperimentResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeInferenceExperimentCommand,
-  serializeAws_json1_1DescribeInferenceExperimentCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeInferenceExperimentRequest, DescribeInferenceExperimentResponse } from "../models/models_2";
+import { de_DescribeInferenceExperimentCommand, se_DescribeInferenceExperimentCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeInferenceExperimentCommand}.
+ */
 export interface DescribeInferenceExperimentCommandInput extends DescribeInferenceExperimentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeInferenceExperimentCommand}.
+ */
 export interface DescribeInferenceExperimentCommandOutput
   extends DescribeInferenceExperimentResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns details about an inference experiment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +41,22 @@ export interface DescribeInferenceExperimentCommandOutput
  * import { SageMakerClient, DescribeInferenceExperimentCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeInferenceExperimentCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DescribeInferenceExperimentRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DescribeInferenceExperimentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInferenceExperimentCommandInput - {@link DescribeInferenceExperimentCommandInput}
+ * @returns {@link DescribeInferenceExperimentCommandOutput}
  * @see {@link DescribeInferenceExperimentCommandInput} for command's `input` shape.
  * @see {@link DescribeInferenceExperimentCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class DescribeInferenceExperimentCommand extends $Command<
@@ -64,6 +76,9 @@ export class DescribeInferenceExperimentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInferenceExperimentCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +107,8 @@ export class DescribeInferenceExperimentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInferenceExperimentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeInferenceExperimentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +118,21 @@ export class DescribeInferenceExperimentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInferenceExperimentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeInferenceExperimentCommand(input, context);
+    return se_DescribeInferenceExperimentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeInferenceExperimentCommandOutput> {
-    return deserializeAws_json1_1DescribeInferenceExperimentCommand(output, context);
+    return de_DescribeInferenceExperimentCommand(output, context);
   }
 
   // Start section: command_body_extra

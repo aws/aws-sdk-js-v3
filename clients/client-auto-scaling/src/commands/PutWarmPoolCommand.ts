@@ -14,18 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import {
-  PutWarmPoolAnswer,
-  PutWarmPoolAnswerFilterSensitiveLog,
-  PutWarmPoolType,
-  PutWarmPoolTypeFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_queryPutWarmPoolCommand, serializeAws_queryPutWarmPoolCommand } from "../protocols/Aws_query";
+import { PutWarmPoolAnswer, PutWarmPoolType } from "../models/models_0";
+import { de_PutWarmPoolCommand, se_PutWarmPoolCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link PutWarmPoolCommand}.
+ */
 export interface PutWarmPoolCommandInput extends PutWarmPoolType {}
+/**
+ * @public
+ *
+ * The output of {@link PutWarmPoolCommand}.
+ */
 export interface PutWarmPoolCommandOutput extends PutWarmPoolAnswer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates a warm pool for the specified Auto Scaling group. A warm pool is a pool of
  *             pre-initialized EC2 instances that sits alongside the Auto Scaling group. Whenever your
  *             application needs to scale out, the Auto Scaling group can draw on the warm pool to meet its new
@@ -42,13 +48,51 @@ export interface PutWarmPoolCommandOutput extends PutWarmPoolAnswer, __MetadataB
  * import { AutoScalingClient, PutWarmPoolCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, PutWarmPoolCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = { // PutWarmPoolType
+ *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   MaxGroupPreparedCapacity: Number("int"),
+ *   MinSize: Number("int"),
+ *   PoolState: "Stopped" || "Running" || "Hibernated",
+ *   InstanceReusePolicy: { // InstanceReusePolicy
+ *     ReuseOnScaleIn: true || false,
+ *   },
+ * };
  * const command = new PutWarmPoolCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutWarmPoolCommandInput - {@link PutWarmPoolCommandInput}
+ * @returns {@link PutWarmPoolCommandOutput}
  * @see {@link PutWarmPoolCommandInput} for command's `input` shape.
  * @see {@link PutWarmPoolCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
+ *
+ * @throws {@link LimitExceededFault} (client fault)
+ *  <p>You have already reached a limit for your Amazon EC2 Auto Scaling
+ *             resources (for example, Auto Scaling groups, launch configurations, or lifecycle hooks). For
+ *             more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html">DescribeAccountLimits</a> in the <i>Amazon EC2 Auto Scaling API
+ *             Reference</i>.</p>
+ *
+ * @throws {@link ResourceContentionFault} (server fault)
+ *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
+ *             instance, or load balancer).</p>
+ *
+ *
+ * @example To create a warm pool for an Auto Scaling group
+ * ```javascript
+ * // This example creates a warm pool for the specified Auto Scaling group.
+ * const input = {
+ *   "AutoScalingGroupName": "my-auto-scaling-group",
+ *   "InstanceReusePolicy": {
+ *     "ReuseOnScaleIn": true
+ *   },
+ *   "MinSize": 30,
+ *   "PoolState": "Hibernated"
+ * };
+ * const command = new PutWarmPoolCommand(input);
+ * await client.send(command);
+ * // example id: to-add-a-warm-pool-to-an-auto-scaling-group-1617818810383
+ * ```
  *
  */
 export class PutWarmPoolCommand extends $Command<
@@ -68,6 +112,9 @@ export class PutWarmPoolCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutWarmPoolCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +141,8 @@ export class PutWarmPoolCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutWarmPoolTypeFilterSensitiveLog,
-      outputFilterSensitiveLog: PutWarmPoolAnswerFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +152,18 @@ export class PutWarmPoolCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutWarmPoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryPutWarmPoolCommand(input, context);
+    return se_PutWarmPoolCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutWarmPoolCommandOutput> {
-    return deserializeAws_queryPutWarmPoolCommand(output, context);
+    return de_PutWarmPoolCommand(output, context);
   }
 
   // Start section: command_body_extra

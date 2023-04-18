@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  StopWorkflowRunRequest,
-  StopWorkflowRunRequestFilterSensitiveLog,
-  StopWorkflowRunResponse,
-  StopWorkflowRunResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1StopWorkflowRunCommand,
-  serializeAws_json1_1StopWorkflowRunCommand,
-} from "../protocols/Aws_json1_1";
+import { StopWorkflowRunRequest, StopWorkflowRunResponse } from "../models/models_2";
+import { de_StopWorkflowRunCommand, se_StopWorkflowRunCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link StopWorkflowRunCommand}.
+ */
 export interface StopWorkflowRunCommandInput extends StopWorkflowRunRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StopWorkflowRunCommand}.
+ */
 export interface StopWorkflowRunCommandOutput extends StopWorkflowRunResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops the execution of the specified workflow run.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,35 @@ export interface StopWorkflowRunCommandOutput extends StopWorkflowRunResponse, _
  * import { GlueClient, StopWorkflowRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, StopWorkflowRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // StopWorkflowRunRequest
+ *   Name: "STRING_VALUE", // required
+ *   RunId: "STRING_VALUE", // required
+ * };
  * const command = new StopWorkflowRunCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopWorkflowRunCommandInput - {@link StopWorkflowRunCommandInput}
+ * @returns {@link StopWorkflowRunCommandOutput}
  * @see {@link StopWorkflowRunCommandInput} for command's `input` shape.
  * @see {@link StopWorkflowRunCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link IllegalWorkflowStateException} (client fault)
+ *  <p>The workflow is in an invalid state to perform a requested operation.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class StopWorkflowRunCommand extends $Command<
@@ -62,6 +87,9 @@ export class StopWorkflowRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopWorkflowRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +118,8 @@ export class StopWorkflowRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopWorkflowRunRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopWorkflowRunResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +129,18 @@ export class StopWorkflowRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopWorkflowRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopWorkflowRunCommand(input, context);
+    return se_StopWorkflowRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopWorkflowRunCommandOutput> {
-    return deserializeAws_json1_1StopWorkflowRunCommand(output, context);
+    return de_StopWorkflowRunCommand(output, context);
   }
 
   // Start section: command_body_extra

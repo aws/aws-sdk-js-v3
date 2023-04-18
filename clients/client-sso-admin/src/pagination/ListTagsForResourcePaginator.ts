@@ -6,12 +6,11 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
-import { SSOAdmin } from "../SSOAdmin";
 import { SSOAdminClient } from "../SSOAdminClient";
 import { SSOAdminPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SSOAdminClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListTagsForResourceCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: SSOAdmin,
-  input: ListTagsForResourceCommandInput,
-  ...args: any
-): Promise<ListTagsForResourceCommandOutput> => {
-  // @ts-ignore
-  return await client.listTagsForResource(input, ...args);
-};
 export async function* paginateListTagsForResource(
   config: SSOAdminPaginationConfiguration,
   input: ListTagsForResourceCommandInput,
@@ -43,9 +34,7 @@ export async function* paginateListTagsForResource(
   let page: ListTagsForResourceCommandOutput;
   while (hasNext) {
     input.NextToken = token;
-    if (config.client instanceof SSOAdmin) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SSOAdminClient) {
+    if (config.client instanceof SSOAdminClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SSOAdmin | SSOAdminClient");

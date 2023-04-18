@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
-import {
-  CreateLaunchRequest,
-  CreateLaunchRequestFilterSensitiveLog,
-  CreateLaunchResponse,
-  CreateLaunchResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateLaunchCommand,
-  serializeAws_restJson1CreateLaunchCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateLaunchRequest, CreateLaunchResponse } from "../models/models_0";
+import { de_CreateLaunchCommand, se_CreateLaunchCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateLaunchCommand}.
+ */
 export interface CreateLaunchCommandInput extends CreateLaunchRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateLaunchCommand}.
+ */
 export interface CreateLaunchCommandOutput extends CreateLaunchResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a <i>launch</i> of a given feature. Before you create a launch, you
  *       must create the feature to use for the launch.</p>
  *          <p>You can use a launch to safely validate new features by serving them to a specified
@@ -43,13 +46,78 @@ export interface CreateLaunchCommandOutput extends CreateLaunchResponse, __Metad
  * import { EvidentlyClient, CreateLaunchCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, CreateLaunchCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
+ * const input = { // CreateLaunchRequest
+ *   project: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   scheduledSplitsConfig: { // ScheduledSplitsLaunchConfig
+ *     steps: [ // ScheduledSplitConfigList // required
+ *       { // ScheduledSplitConfig
+ *         startTime: new Date("TIMESTAMP"), // required
+ *         groupWeights: { // GroupToWeightMap // required
+ *           "<keys>": Number("long"),
+ *         },
+ *         segmentOverrides: [ // SegmentOverridesList
+ *           { // SegmentOverride
+ *             segment: "STRING_VALUE", // required
+ *             evaluationOrder: Number("long"), // required
+ *             weights: { // required
+ *               "<keys>": Number("long"),
+ *             },
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *   },
+ *   metricMonitors: [ // MetricMonitorConfigList
+ *     { // MetricMonitorConfig
+ *       metricDefinition: { // MetricDefinitionConfig
+ *         name: "STRING_VALUE", // required
+ *         entityIdKey: "STRING_VALUE", // required
+ *         valueKey: "STRING_VALUE", // required
+ *         eventPattern: "STRING_VALUE",
+ *         unitLabel: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   groups: [ // LaunchGroupConfigList // required
+ *     { // LaunchGroupConfig
+ *       name: "STRING_VALUE", // required
+ *       description: "STRING_VALUE",
+ *       feature: "STRING_VALUE", // required
+ *       variation: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   randomizationSalt: "STRING_VALUE",
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateLaunchCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLaunchCommandInput - {@link CreateLaunchCommandInput}
+ * @returns {@link CreateLaunchCommandOutput}
  * @see {@link CreateLaunchCommandInput} for command's `input` shape.
  * @see {@link CreateLaunchCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action. </p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>A resource was in an inconsistent state during an update or a deletion.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a resource that does not exist.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request would cause a service quota to be exceeded.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The value of a parameter in the request caused an error.</p>
+ *
  *
  */
 export class CreateLaunchCommand extends $Command<
@@ -69,6 +137,9 @@ export class CreateLaunchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLaunchCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +166,8 @@ export class CreateLaunchCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLaunchRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLaunchResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +177,18 @@ export class CreateLaunchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLaunchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateLaunchCommand(input, context);
+    return se_CreateLaunchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLaunchCommandOutput> {
-    return deserializeAws_restJson1CreateLaunchCommand(output, context);
+    return de_CreateLaunchCommand(output, context);
   }
 
   // Start section: command_body_extra

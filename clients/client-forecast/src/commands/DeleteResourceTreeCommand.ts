@@ -14,61 +14,85 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import { DeleteResourceTreeRequest, DeleteResourceTreeRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteResourceTreeCommand,
-  serializeAws_json1_1DeleteResourceTreeCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteResourceTreeRequest } from "../models/models_0";
+import { de_DeleteResourceTreeCommand, se_DeleteResourceTreeCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteResourceTreeCommand}.
+ */
 export interface DeleteResourceTreeCommandInput extends DeleteResourceTreeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteResourceTreeCommand}.
+ */
 export interface DeleteResourceTreeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an entire resource tree. This operation will delete the parent resource and
  *             its child resources.</p>
- *         <p>Child resources are resources that were created from another resource. For example,
+ *          <p>Child resources are resources that were created from another resource. For example,
  *             when a forecast is generated from a predictor, the forecast is the child resource and
  *             the predictor is the parent resource.</p>
- *         <p>Amazon Forecast resources possess the following parent-child resource hierarchies:</p>
- *
- *         <ul>
+ *          <p>Amazon Forecast resources possess the following parent-child resource hierarchies:</p>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <b>Dataset</b>: dataset import jobs</p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <b>Dataset Group</b>: predictors, predictor backtest
  *                     export jobs, forecasts, forecast export jobs</p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <b>Predictor</b>: predictor backtest export jobs,
  *                     forecasts, forecast export jobs</p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <b>Forecast</b>: forecast export jobs</p>
  *             </li>
  *          </ul>
- *         <note>
+ *          <note>
  *             <p>
  *                <code>DeleteResourceTree</code> will only delete Amazon Forecast resources, and will not
  *                 delete datasets or exported files stored in Amazon S3. </p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ForecastClient, DeleteResourceTreeCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, DeleteResourceTreeCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = { // DeleteResourceTreeRequest
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteResourceTreeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteResourceTreeCommandInput - {@link DeleteResourceTreeCommandInput}
+ * @returns {@link DeleteResourceTreeCommandOutput}
  * @see {@link DeleteResourceTreeCommandInput} for command's `input` shape.
  * @see {@link DeleteResourceTreeCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>We can't process the request because it includes an invalid value or a value that exceeds
+ *       the valid range.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is in use.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
+ *       again.</p>
+ *
  *
  */
 export class DeleteResourceTreeCommand extends $Command<
@@ -88,6 +112,9 @@ export class DeleteResourceTreeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteResourceTreeCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +143,8 @@ export class DeleteResourceTreeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteResourceTreeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +154,18 @@ export class DeleteResourceTreeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteResourceTreeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteResourceTreeCommand(input, context);
+    return se_DeleteResourceTreeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResourceTreeCommandOutput> {
-    return deserializeAws_json1_1DeleteResourceTreeCommand(output, context);
+    return de_DeleteResourceTreeCommand(output, context);
   }
 
   // Start section: command_body_extra

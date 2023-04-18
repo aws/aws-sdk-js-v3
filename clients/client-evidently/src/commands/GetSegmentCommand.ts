@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
-import {
-  GetSegmentRequest,
-  GetSegmentRequestFilterSensitiveLog,
-  GetSegmentResponse,
-  GetSegmentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSegmentCommand,
-  serializeAws_restJson1GetSegmentCommand,
-} from "../protocols/Aws_restJson1";
+import { GetSegmentRequest, GetSegmentResponse } from "../models/models_0";
+import { de_GetSegmentCommand, se_GetSegmentCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetSegmentCommand}.
+ */
 export interface GetSegmentCommandInput extends GetSegmentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetSegmentCommand}.
+ */
 export interface GetSegmentCommandOutput extends GetSegmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the specified segment. Specify the segment you want to view
  *     by specifying its ARN.</p>
  * @example
@@ -37,13 +40,31 @@ export interface GetSegmentCommandOutput extends GetSegmentResponse, __MetadataB
  * import { EvidentlyClient, GetSegmentCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, GetSegmentCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
+ * const input = { // GetSegmentRequest
+ *   segment: "STRING_VALUE", // required
+ * };
  * const command = new GetSegmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSegmentCommandInput - {@link GetSegmentCommandInput}
+ * @returns {@link GetSegmentCommandOutput}
  * @see {@link GetSegmentCommandInput} for command's `input` shape.
  * @see {@link GetSegmentCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a resource that does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because of request throttling. Retry the request.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The value of a parameter in the request caused an error.</p>
+ *
  *
  */
 export class GetSegmentCommand extends $Command<
@@ -63,6 +84,9 @@ export class GetSegmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSegmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +113,8 @@ export class GetSegmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSegmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSegmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +124,18 @@ export class GetSegmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSegmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSegmentCommand(input, context);
+    return se_GetSegmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSegmentCommandOutput> {
-    return deserializeAws_restJson1GetSegmentCommand(output, context);
+    return de_GetSegmentCommand(output, context);
   }
 
   // Start section: command_body_extra

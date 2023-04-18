@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import {
-  GetRepositoryTriggersInput,
-  GetRepositoryTriggersInputFilterSensitiveLog,
-  GetRepositoryTriggersOutput,
-  GetRepositoryTriggersOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetRepositoryTriggersCommand,
-  serializeAws_json1_1GetRepositoryTriggersCommand,
-} from "../protocols/Aws_json1_1";
+import { GetRepositoryTriggersInput, GetRepositoryTriggersOutput } from "../models/models_0";
+import { de_GetRepositoryTriggersCommand, se_GetRepositoryTriggersCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetRepositoryTriggersCommand}.
+ */
 export interface GetRepositoryTriggersCommandInput extends GetRepositoryTriggersInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetRepositoryTriggersCommand}.
+ */
 export interface GetRepositoryTriggersCommandOutput extends GetRepositoryTriggersOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about triggers configured for a repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,49 @@ export interface GetRepositoryTriggersCommandOutput extends GetRepositoryTrigger
  * import { CodeCommitClient, GetRepositoryTriggersCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, GetRepositoryTriggersCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // GetRepositoryTriggersInput
+ *   repositoryName: "STRING_VALUE", // required
+ * };
  * const command = new GetRepositoryTriggersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRepositoryTriggersCommandInput - {@link GetRepositoryTriggersCommandInput}
+ * @returns {@link GetRepositoryTriggersCommandOutput}
  * @see {@link GetRepositoryTriggersCommandInput} for command's `input` shape.
  * @see {@link GetRepositoryTriggersCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
+ *
+ * @throws {@link EncryptionIntegrityChecksFailedException} (server fault)
+ *  <p>An encryption integrity check failed.</p>
+ *
+ * @throws {@link EncryptionKeyAccessDeniedException} (client fault)
+ *  <p>An encryption key could not be accessed.</p>
+ *
+ * @throws {@link EncryptionKeyDisabledException} (client fault)
+ *  <p>The encryption key is disabled.</p>
+ *
+ * @throws {@link EncryptionKeyNotFoundException} (client fault)
+ *  <p>No encryption key was found.</p>
+ *
+ * @throws {@link EncryptionKeyUnavailableException} (client fault)
+ *  <p>The encryption key is not available.</p>
+ *
+ * @throws {@link InvalidRepositoryNameException} (client fault)
+ *  <p>A specified repository name is not valid.</p>
+ *
+ *         <note>
+ *             <p>This exception occurs only when a specified repository name is not valid. Other
+ *                 exceptions occur when a required repository parameter is missing, or when a
+ *                 specified repository does not exist.</p>
+ *          </note>
+ *
+ * @throws {@link RepositoryDoesNotExistException} (client fault)
+ *  <p>The specified repository does not exist.</p>
+ *
+ * @throws {@link RepositoryNameRequiredException} (client fault)
+ *  <p>A repository name is required, but was not specified.</p>
+ *
  *
  */
 export class GetRepositoryTriggersCommand extends $Command<
@@ -62,6 +101,9 @@ export class GetRepositoryTriggersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRepositoryTriggersCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +132,8 @@ export class GetRepositoryTriggersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRepositoryTriggersInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRepositoryTriggersOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +143,18 @@ export class GetRepositoryTriggersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRepositoryTriggersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRepositoryTriggersCommand(input, context);
+    return se_GetRepositoryTriggersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRepositoryTriggersCommandOutput> {
-    return deserializeAws_json1_1GetRepositoryTriggersCommand(output, context);
+    return de_GetRepositoryTriggersCommand(output, context);
   }
 
   // Start section: command_body_extra

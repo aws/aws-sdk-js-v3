@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListDomainsRequest,
-  ListDomainsRequestFilterSensitiveLog,
-  ListDomainsResponse,
-  ListDomainsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListDomainsCommand,
-  serializeAws_json1_1ListDomainsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListDomainsRequest, ListDomainsResponse } from "../models/models_0";
+import { de_ListDomainsCommand, se_ListDomainsCommand } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListDomainsCommand}.
+ */
 export interface ListDomainsCommandInput extends ListDomainsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDomainsCommand}.
+ */
 export interface ListDomainsCommandOutput extends ListDomainsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation returns all the domain names registered with Amazon Route 53 for the
  * 			current Amazon Web Services account if no filtering conditions are used.</p>
  * @example
@@ -37,13 +40,39 @@ export interface ListDomainsCommandOutput extends ListDomainsResponse, __Metadat
  * import { Route53DomainsClient, ListDomainsCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, ListDomainsCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
+ * const input = { // ListDomainsRequest
+ *   FilterConditions: [ // FilterConditions
+ *     { // FilterCondition
+ *       Name: "DomainName" || "Expiry", // required
+ *       Operator: "LE" || "GE" || "BEGINS_WITH", // required
+ *       Values: [ // Values // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   SortCondition: { // SortCondition
+ *     Name: "DomainName" || "Expiry", // required
+ *     SortOrder: "ASC" || "DESC", // required
+ *   },
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListDomainsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDomainsCommandInput - {@link ListDomainsCommandInput}
+ * @returns {@link ListDomainsCommandOutput}
  * @see {@link ListDomainsCommandInput} for command's `input` shape.
  * @see {@link ListDomainsCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The requested item is not acceptable. For example, for APIs that accept a domain name,
+ * 			the request might specify a domain name that doesn't belong to the account that
+ * 			submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the
+ * 			password might be invalid.</p>
+ *
  *
  */
 export class ListDomainsCommand extends $Command<
@@ -63,6 +92,9 @@ export class ListDomainsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDomainsCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +121,8 @@ export class ListDomainsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDomainsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDomainsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +132,18 @@ export class ListDomainsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDomainsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDomainsCommand(input, context);
+    return se_ListDomainsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDomainsCommandOutput> {
-    return deserializeAws_json1_1ListDomainsCommand(output, context);
+    return de_ListDomainsCommand(output, context);
   }
 
   // Start section: command_body_extra

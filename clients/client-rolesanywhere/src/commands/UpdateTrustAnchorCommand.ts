@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  TrustAnchorDetailResponse,
-  TrustAnchorDetailResponseFilterSensitiveLog,
-  UpdateTrustAnchorRequest,
-  UpdateTrustAnchorRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateTrustAnchorCommand,
-  serializeAws_restJson1UpdateTrustAnchorCommand,
-} from "../protocols/Aws_restJson1";
+import { TrustAnchorDetailResponse, UpdateTrustAnchorRequest } from "../models/models_0";
+import { de_UpdateTrustAnchorCommand, se_UpdateTrustAnchorCommand } from "../protocols/Aws_restJson1";
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateTrustAnchorCommand}.
+ */
 export interface UpdateTrustAnchorCommandInput extends UpdateTrustAnchorRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateTrustAnchorCommand}.
+ */
 export interface UpdateTrustAnchorCommandOutput extends TrustAnchorDetailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the trust anchor.You establish trust between IAM Roles Anywhere and your certificate authority (CA) by configuring a trust anchor. A Trust Anchor is defined either as a reference to a AWS Certificate Manager Private Certificate Authority (ACM PCA), or by uploading a Certificate Authority (CA) certificate. Your AWS workloads can authenticate with the trust anchor using certificates issued by the trusted Certificate Authority (CA) in exchange for temporary AWS credentials.</p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -40,13 +43,36 @@ export interface UpdateTrustAnchorCommandOutput extends TrustAnchorDetailRespons
  * import { RolesAnywhereClient, UpdateTrustAnchorCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
  * // const { RolesAnywhereClient, UpdateTrustAnchorCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
  * const client = new RolesAnywhereClient(config);
+ * const input = { // UpdateTrustAnchorRequest
+ *   trustAnchorId: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   source: { // Source
+ *     sourceType: "STRING_VALUE",
+ *     sourceData: { // SourceData Union: only one key present
+ *       x509CertificateData: "STRING_VALUE",
+ *       acmPcaArn: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new UpdateTrustAnchorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTrustAnchorCommandInput - {@link UpdateTrustAnchorCommandInput}
+ * @returns {@link UpdateTrustAnchorCommandOutput}
  * @see {@link UpdateTrustAnchorCommandInput} for command's `input` shape.
  * @see {@link UpdateTrustAnchorCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Validation exception error.</p>
+ *
  *
  */
 export class UpdateTrustAnchorCommand extends $Command<
@@ -66,6 +92,9 @@ export class UpdateTrustAnchorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTrustAnchorCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +123,8 @@ export class UpdateTrustAnchorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTrustAnchorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: TrustAnchorDetailResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +134,18 @@ export class UpdateTrustAnchorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTrustAnchorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateTrustAnchorCommand(input, context);
+    return se_UpdateTrustAnchorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTrustAnchorCommandOutput> {
-    return deserializeAws_restJson1UpdateTrustAnchorCommand(output, context);
+    return de_UpdateTrustAnchorCommand(output, context);
   }
 
   // Start section: command_body_extra

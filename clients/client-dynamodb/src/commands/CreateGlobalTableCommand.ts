@@ -14,70 +14,79 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  CreateGlobalTableInput,
-  CreateGlobalTableInputFilterSensitiveLog,
-  CreateGlobalTableOutput,
-  CreateGlobalTableOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateGlobalTableCommand,
-  serializeAws_json1_0CreateGlobalTableCommand,
-} from "../protocols/Aws_json1_0";
+import { CreateGlobalTableInput, CreateGlobalTableOutput } from "../models/models_0";
+import { de_CreateGlobalTableCommand, se_CreateGlobalTableCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateGlobalTableCommand}.
+ */
 export interface CreateGlobalTableCommandInput extends CreateGlobalTableInput {}
+/**
+ * @public
+ *
+ * The output of {@link CreateGlobalTableCommand}.
+ */
 export interface CreateGlobalTableCommandOutput extends CreateGlobalTableOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a global table from an existing table. A global table creates a replication
  *             relationship between two or more DynamoDB tables with the same table name in the
  *             provided Regions. </p>
- *         <note>
+ *          <important>
  *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
- *                     2017.11.29</a> of global tables.</p>
- *         </note>
- *
- *         <p>If you want to add a new replica table to a global table, each of the following
+ *                 2017.11.29 (Legacy)</a> of global tables. We recommend using
+ *                 <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21 (Current)</a>
+ *                 when creating new global tables, as it provides greater flexibility, higher efficiency and consumes less write capacity than
+ *                 2017.11.29 (Legacy). To determine which version you are using, see
+ *                 <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.DetermineVersion.html">Determining the version</a>.
+ *                 To update existing global tables from version 2017.11.29 (Legacy) to version
+ *                 2019.11.21 (Current), see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/V2globaltables_upgrade.html">
+ *                     Updating global tables</a>.
+ *             </p>
+ *          </important>
+ *          <p>If you want to add a new replica table to a global table, each of the following
  *             conditions must be true:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>The table must have the same primary key as all of the other replicas.</p>
+ *                <p>The table must have the same primary key as all of the other replicas.</p>
  *             </li>
  *             <li>
- *                 <p>The table must have the same name as all of the other replicas.</p>
+ *                <p>The table must have the same name as all of the other replicas.</p>
  *             </li>
  *             <li>
- *                 <p>The table must have DynamoDB Streams enabled, with the stream containing both
+ *                <p>The table must have DynamoDB Streams enabled, with the stream containing both
  *                     the new and the old images of the item.</p>
  *             </li>
  *             <li>
- *                 <p>None of the replica tables in the global table can contain any data.</p>
+ *                <p>None of the replica tables in the global table can contain any data.</p>
  *             </li>
  *          </ul>
- *         <p> If global secondary indexes are specified, then the following conditions must also be
+ *          <p> If global secondary indexes are specified, then the following conditions must also be
  *             met: </p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p> The global secondary indexes must have the same name. </p>
+ *                <p> The global secondary indexes must have the same name. </p>
  *             </li>
  *             <li>
- *                 <p> The global secondary indexes must have the same hash key and sort key (if
+ *                <p> The global secondary indexes must have the same hash key and sort key (if
  *                     present). </p>
  *             </li>
  *          </ul>
- *         <p> If local secondary indexes are specified, then the following conditions must also be
+ *          <p> If local secondary indexes are specified, then the following conditions must also be
  *             met: </p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p> The local secondary indexes must have the same name. </p>
+ *                <p> The local secondary indexes must have the same name. </p>
  *             </li>
  *             <li>
- *                 <p> The local secondary indexes must have the same hash key and sort key (if
+ *                <p> The local secondary indexes must have the same hash key and sort key (if
  *                     present). </p>
  *             </li>
  *          </ul>
- *
- *         <important>
+ *          <important>
  *             <p> Write capacity settings should be set consistently across your replica tables and
  *                 secondary indexes. DynamoDB strongly recommends enabling auto scaling to manage the
  *                 write capacity settings for all of your global tables replicas and indexes. </p>
@@ -85,20 +94,56 @@ export interface CreateGlobalTableCommandOutput extends CreateGlobalTableOutput,
  *                 equal replicated write capacity units to your replica tables. You should also
  *                 provision equal replicated write capacity units to matching secondary indexes across
  *                 your global table. </p>
- *         </important>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DynamoDBClient, CreateGlobalTableCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, CreateGlobalTableCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = { // CreateGlobalTableInput
+ *   GlobalTableName: "STRING_VALUE", // required
+ *   ReplicationGroup: [ // ReplicaList // required
+ *     { // Replica
+ *       RegionName: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateGlobalTableCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGlobalTableCommandInput - {@link CreateGlobalTableCommandInput}
+ * @returns {@link CreateGlobalTableCommandOutput}
  * @see {@link CreateGlobalTableCommandInput} for command's `input` shape.
  * @see {@link CreateGlobalTableCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
+ *
+ * @throws {@link GlobalTableAlreadyExistsException} (client fault)
+ *  <p>The specified global table already exists.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidEndpointException} (client fault)
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>There is no limit to the number of daily on-demand backups that can be taken. </p>
+ *          <p>For most purposes, up to 500 simultaneous table operations are allowed per account. These operations
+ *             include <code>CreateTable</code>, <code>UpdateTable</code>,
+ *                 <code>DeleteTable</code>,<code>UpdateTimeToLive</code>,
+ *                 <code>RestoreTableFromBackup</code>, and <code>RestoreTableToPointInTime</code>. </p>
+ *          <p>When you are creating a table with one or more secondary
+ *             indexes, you can have up to 250 such requests running at a time. However, if the table or
+ *             index specifications are complex, then DynamoDB might temporarily reduce the number
+ *             of concurrent operations.</p>
+ *          <p>When importing into DynamoDB, up to 50 simultaneous import table operations are allowed per account.</p>
+ *          <p>There is a soft account quota of 2,500 tables.</p>
+ *
+ * @throws {@link TableNotFoundException} (client fault)
+ *  <p>A source table with the name <code>TableName</code> does not currently exist within
+ *             the subscriber's account or the subscriber is operating in the wrong Amazon Web Services Region.</p>
+ *
  *
  */
 export class CreateGlobalTableCommand extends $Command<
@@ -118,6 +163,9 @@ export class CreateGlobalTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGlobalTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,8 +194,8 @@ export class CreateGlobalTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateGlobalTableInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateGlobalTableOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -157,12 +205,18 @@ export class CreateGlobalTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateGlobalTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateGlobalTableCommand(input, context);
+    return se_CreateGlobalTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGlobalTableCommandOutput> {
-    return deserializeAws_json1_0CreateGlobalTableCommand(output, context);
+    return de_CreateGlobalTableCommand(output, context);
   }
 
   // Start section: command_body_extra

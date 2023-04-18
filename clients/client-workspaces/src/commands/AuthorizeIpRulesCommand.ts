@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AuthorizeIpRulesRequest,
-  AuthorizeIpRulesRequestFilterSensitiveLog,
-  AuthorizeIpRulesResult,
-  AuthorizeIpRulesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AuthorizeIpRulesCommand,
-  serializeAws_json1_1AuthorizeIpRulesCommand,
-} from "../protocols/Aws_json1_1";
+import { AuthorizeIpRulesRequest, AuthorizeIpRulesResult } from "../models/models_0";
+import { de_AuthorizeIpRulesCommand, se_AuthorizeIpRulesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * @public
+ *
+ * The input for {@link AuthorizeIpRulesCommand}.
+ */
 export interface AuthorizeIpRulesCommandInput extends AuthorizeIpRulesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AuthorizeIpRulesCommand}.
+ */
 export interface AuthorizeIpRulesCommandOutput extends AuthorizeIpRulesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds one or more rules to the specified IP access control group.</p>
  *          <p>This action gives users permission to access their WorkSpaces from the CIDR address
  *          ranges specified in the rules.</p>
@@ -38,13 +41,40 @@ export interface AuthorizeIpRulesCommandOutput extends AuthorizeIpRulesResult, _
  * import { WorkSpacesClient, AuthorizeIpRulesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, AuthorizeIpRulesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // AuthorizeIpRulesRequest
+ *   GroupId: "STRING_VALUE", // required
+ *   UserRules: [ // IpRuleList // required
+ *     { // IpRuleItem
+ *       ipRule: "STRING_VALUE",
+ *       ruleDesc: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new AuthorizeIpRulesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AuthorizeIpRulesCommandInput - {@link AuthorizeIpRulesCommandInput}
+ * @returns {@link AuthorizeIpRulesCommandOutput}
  * @see {@link AuthorizeIpRulesCommandInput} for command's `input` shape.
  * @see {@link AuthorizeIpRulesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The user is not authorized to access a resource.</p>
+ *
+ * @throws {@link InvalidParameterValuesException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ * @throws {@link InvalidResourceStateException} (client fault)
+ *  <p>The state of the resource is not valid for this operation.</p>
+ *
+ * @throws {@link ResourceLimitExceededException} (client fault)
+ *  <p>Your resource limits have been exceeded.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
  *
  */
 export class AuthorizeIpRulesCommand extends $Command<
@@ -64,6 +94,9 @@ export class AuthorizeIpRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AuthorizeIpRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +125,8 @@ export class AuthorizeIpRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AuthorizeIpRulesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AuthorizeIpRulesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +136,18 @@ export class AuthorizeIpRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AuthorizeIpRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AuthorizeIpRulesCommand(input, context);
+    return se_AuthorizeIpRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AuthorizeIpRulesCommandOutput> {
-    return deserializeAws_json1_1AuthorizeIpRulesCommand(output, context);
+    return de_AuthorizeIpRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

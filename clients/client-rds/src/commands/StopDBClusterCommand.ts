@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StopDBClusterMessage,
-  StopDBClusterMessageFilterSensitiveLog,
-  StopDBClusterResult,
-  StopDBClusterResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryStopDBClusterCommand,
-  serializeAws_queryStopDBClusterCommand,
-} from "../protocols/Aws_query";
+import { StopDBClusterMessage, StopDBClusterResult } from "../models/models_1";
+import { de_StopDBClusterCommand, se_StopDBClusterCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link StopDBClusterCommand}.
+ */
 export interface StopDBClusterCommandInput extends StopDBClusterMessage {}
+/**
+ * @public
+ *
+ * The output of {@link StopDBClusterCommand}.
+ */
 export interface StopDBClusterCommandOutput extends StopDBClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops an Amazon Aurora DB cluster. When you stop a DB cluster, Aurora retains the DB cluster's
  *        metadata, including its endpoints and DB parameter groups. Aurora also
  *        retains the transaction logs so you can do a point-in-time restore if necessary.</p>
@@ -44,13 +47,55 @@ export interface StopDBClusterCommandOutput extends StopDBClusterResult, __Metad
  * import { RDSClient, StopDBClusterCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, StopDBClusterCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // StopDBClusterMessage
+ *   DBClusterIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new StopDBClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopDBClusterCommandInput - {@link StopDBClusterCommandInput}
+ * @returns {@link StopDBClusterCommandOutput}
  * @see {@link StopDBClusterCommandInput} for command's `input` shape.
  * @see {@link StopDBClusterCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ * @throws {@link DBClusterNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+ *
+ * @throws {@link InvalidDBClusterStateFault} (client fault)
+ *  <p>The requested operation can't be performed while the cluster is in this state.</p>
+ *
+ * @throws {@link InvalidDBInstanceStateFault} (client fault)
+ *  <p>The DB instance isn't in a valid state.</p>
+ *
+ *
+ * @example To stop a DB cluster
+ * ```javascript
+ * // The following example stops a DB cluster and its DB instances.
+ * const input = {
+ *   "DBClusterIdentifier": "mydbcluster"
+ * };
+ * const command = new StopDBClusterCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBCluster": {
+ *     "AllocatedStorage": 1,
+ *     "AvailabilityZones": [
+ *       "us-east-1a",
+ *       "us-east-1e",
+ *       "us-east-1b"
+ *     ],
+ *     "BackupRetentionPeriod": 1,
+ *     "DBClusterIdentifier": "mydbcluster",
+ *     "DatabaseName": "mydb"
+ *   }
+ * }
+ * *\/
+ * // example id: to-stop-a-db-cluster-1679701988603
+ * ```
  *
  */
 export class StopDBClusterCommand extends $Command<
@@ -70,6 +115,9 @@ export class StopDBClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopDBClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +144,8 @@ export class StopDBClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopDBClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: StopDBClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +155,18 @@ export class StopDBClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryStopDBClusterCommand(input, context);
+    return se_StopDBClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopDBClusterCommandOutput> {
-    return deserializeAws_queryStopDBClusterCommand(output, context);
+    return de_StopDBClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

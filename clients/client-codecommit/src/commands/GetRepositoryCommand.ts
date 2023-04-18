@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import {
-  GetRepositoryInput,
-  GetRepositoryInputFilterSensitiveLog,
-  GetRepositoryOutput,
-  GetRepositoryOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetRepositoryCommand,
-  serializeAws_json1_1GetRepositoryCommand,
-} from "../protocols/Aws_json1_1";
+import { GetRepositoryInput, GetRepositoryOutput } from "../models/models_0";
+import { de_GetRepositoryCommand, se_GetRepositoryCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetRepositoryCommand}.
+ */
 export interface GetRepositoryCommandInput extends GetRepositoryInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetRepositoryCommand}.
+ */
 export interface GetRepositoryCommandOutput extends GetRepositoryOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a repository.</p>
  *
  *         <note>
@@ -44,13 +47,49 @@ export interface GetRepositoryCommandOutput extends GetRepositoryOutput, __Metad
  * import { CodeCommitClient, GetRepositoryCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, GetRepositoryCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // GetRepositoryInput
+ *   repositoryName: "STRING_VALUE", // required
+ * };
  * const command = new GetRepositoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRepositoryCommandInput - {@link GetRepositoryCommandInput}
+ * @returns {@link GetRepositoryCommandOutput}
  * @see {@link GetRepositoryCommandInput} for command's `input` shape.
  * @see {@link GetRepositoryCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
+ *
+ * @throws {@link EncryptionIntegrityChecksFailedException} (server fault)
+ *  <p>An encryption integrity check failed.</p>
+ *
+ * @throws {@link EncryptionKeyAccessDeniedException} (client fault)
+ *  <p>An encryption key could not be accessed.</p>
+ *
+ * @throws {@link EncryptionKeyDisabledException} (client fault)
+ *  <p>The encryption key is disabled.</p>
+ *
+ * @throws {@link EncryptionKeyNotFoundException} (client fault)
+ *  <p>No encryption key was found.</p>
+ *
+ * @throws {@link EncryptionKeyUnavailableException} (client fault)
+ *  <p>The encryption key is not available.</p>
+ *
+ * @throws {@link InvalidRepositoryNameException} (client fault)
+ *  <p>A specified repository name is not valid.</p>
+ *
+ *         <note>
+ *             <p>This exception occurs only when a specified repository name is not valid. Other
+ *                 exceptions occur when a required repository parameter is missing, or when a
+ *                 specified repository does not exist.</p>
+ *          </note>
+ *
+ * @throws {@link RepositoryDoesNotExistException} (client fault)
+ *  <p>The specified repository does not exist.</p>
+ *
+ * @throws {@link RepositoryNameRequiredException} (client fault)
+ *  <p>A repository name is required, but was not specified.</p>
+ *
  *
  */
 export class GetRepositoryCommand extends $Command<
@@ -70,6 +109,9 @@ export class GetRepositoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRepositoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +138,8 @@ export class GetRepositoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRepositoryInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRepositoryOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +149,18 @@ export class GetRepositoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRepositoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRepositoryCommand(input, context);
+    return se_GetRepositoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRepositoryCommandOutput> {
-    return deserializeAws_json1_1GetRepositoryCommand(output, context);
+    return de_GetRepositoryCommand(output, context);
   }
 
   // Start section: command_body_extra

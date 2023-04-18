@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateDatalakeAutoEnableRequest,
-  CreateDatalakeAutoEnableRequestFilterSensitiveLog,
-  CreateDatalakeAutoEnableResponse,
-  CreateDatalakeAutoEnableResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDatalakeAutoEnableCommand,
-  serializeAws_restJson1CreateDatalakeAutoEnableCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateDatalakeAutoEnableRequest, CreateDatalakeAutoEnableResponse } from "../models/models_0";
+import { de_CreateDatalakeAutoEnableCommand, se_CreateDatalakeAutoEnableCommand } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateDatalakeAutoEnableCommand}.
+ */
 export interface CreateDatalakeAutoEnableCommandInput extends CreateDatalakeAutoEnableRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateDatalakeAutoEnableCommand}.
+ */
 export interface CreateDatalakeAutoEnableCommandOutput extends CreateDatalakeAutoEnableResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Automatically enables Amazon Security Lake for new member accounts in your organization.
  *          Security Lake is not automatically enabled for any existing member accounts in your
  *          organization.</p>
@@ -38,13 +41,44 @@ export interface CreateDatalakeAutoEnableCommandOutput extends CreateDatalakeAut
  * import { SecurityLakeClient, CreateDatalakeAutoEnableCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, CreateDatalakeAutoEnableCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
+ * const input = { // CreateDatalakeAutoEnableRequest
+ *   configurationForNewAccounts: [ // AutoEnableNewRegionConfigurationList // required
+ *     { // AutoEnableNewRegionConfiguration
+ *       region: "STRING_VALUE", // required
+ *       sources: [ // AwsSourceTypeList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new CreateDatalakeAutoEnableCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDatalakeAutoEnableCommandInput - {@link CreateDatalakeAutoEnableCommandInput}
+ * @returns {@link CreateDatalakeAutoEnableCommandOutput}
  * @see {@link CreateDatalakeAutoEnableCommandInput} for command's `input` shape.
  * @see {@link CreateDatalakeAutoEnableCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action. Access denied errors appear when Amazon Security Lake explicitly or implicitly denies an authorization
+ *          request. An explicit denial occurs when a policy contains a Deny statement for the specific
+ *          Amazon Web Services action. An implicit denial occurs when there is no applicable Deny statement and also
+ *          no applicable Allow statement.</p>
+ *
+ * @throws {@link AccountNotFoundException} (client fault)
+ *  <p>Amazon Security Lake cannot find an Amazon Web Services account with the accountID that you
+ *          specified, or the account whose credentials you used to make this request isn't a member of
+ *          an organization.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Internal service exceptions are sometimes caused by transient issues. Before you start
+ *          troubleshooting, perform the operation again. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Your signing certificate could not be validated. </p>
+ *
  *
  */
 export class CreateDatalakeAutoEnableCommand extends $Command<
@@ -64,6 +98,9 @@ export class CreateDatalakeAutoEnableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDatalakeAutoEnableCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +129,8 @@ export class CreateDatalakeAutoEnableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDatalakeAutoEnableRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDatalakeAutoEnableResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +140,18 @@ export class CreateDatalakeAutoEnableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDatalakeAutoEnableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDatalakeAutoEnableCommand(input, context);
+    return se_CreateDatalakeAutoEnableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDatalakeAutoEnableCommandOutput> {
-    return deserializeAws_restJson1CreateDatalakeAutoEnableCommand(output, context);
+    return de_CreateDatalakeAutoEnableCommand(output, context);
   }
 
   // Start section: command_body_extra

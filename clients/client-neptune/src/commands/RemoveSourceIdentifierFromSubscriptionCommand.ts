@@ -15,23 +15,32 @@ import {
 
 import {
   RemoveSourceIdentifierFromSubscriptionMessage,
-  RemoveSourceIdentifierFromSubscriptionMessageFilterSensitiveLog,
   RemoveSourceIdentifierFromSubscriptionResult,
-  RemoveSourceIdentifierFromSubscriptionResultFilterSensitiveLog,
 } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import {
-  deserializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand,
-  serializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand,
+  de_RemoveSourceIdentifierFromSubscriptionCommand,
+  se_RemoveSourceIdentifierFromSubscriptionCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link RemoveSourceIdentifierFromSubscriptionCommand}.
+ */
 export interface RemoveSourceIdentifierFromSubscriptionCommandInput
   extends RemoveSourceIdentifierFromSubscriptionMessage {}
+/**
+ * @public
+ *
+ * The output of {@link RemoveSourceIdentifierFromSubscriptionCommand}.
+ */
 export interface RemoveSourceIdentifierFromSubscriptionCommandOutput
   extends RemoveSourceIdentifierFromSubscriptionResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a source identifier from an existing event notification subscription.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +48,26 @@ export interface RemoveSourceIdentifierFromSubscriptionCommandOutput
  * import { NeptuneClient, RemoveSourceIdentifierFromSubscriptionCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, RemoveSourceIdentifierFromSubscriptionCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = { // RemoveSourceIdentifierFromSubscriptionMessage
+ *   SubscriptionName: "STRING_VALUE", // required
+ *   SourceIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new RemoveSourceIdentifierFromSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveSourceIdentifierFromSubscriptionCommandInput - {@link RemoveSourceIdentifierFromSubscriptionCommandInput}
+ * @returns {@link RemoveSourceIdentifierFromSubscriptionCommandOutput}
  * @see {@link RemoveSourceIdentifierFromSubscriptionCommandInput} for command's `input` shape.
  * @see {@link RemoveSourceIdentifierFromSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
+ *
+ * @throws {@link SourceNotFoundFault} (client fault)
+ *  <p>The source could not be found.</p>
+ *
+ * @throws {@link SubscriptionNotFoundFault} (client fault)
+ *  <p>The designated subscription could not be found.</p>
+ *
  *
  */
 export class RemoveSourceIdentifierFromSubscriptionCommand extends $Command<
@@ -65,6 +87,9 @@ export class RemoveSourceIdentifierFromSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveSourceIdentifierFromSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +118,8 @@ export class RemoveSourceIdentifierFromSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveSourceIdentifierFromSubscriptionMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: RemoveSourceIdentifierFromSubscriptionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,18 +129,24 @@ export class RemoveSourceIdentifierFromSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RemoveSourceIdentifierFromSubscriptionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand(input, context);
+    return se_RemoveSourceIdentifierFromSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveSourceIdentifierFromSubscriptionCommandOutput> {
-    return deserializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand(output, context);
+    return de_RemoveSourceIdentifierFromSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

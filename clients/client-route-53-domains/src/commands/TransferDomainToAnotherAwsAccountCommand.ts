@@ -15,22 +15,31 @@ import {
 
 import {
   TransferDomainToAnotherAwsAccountRequest,
-  TransferDomainToAnotherAwsAccountRequestFilterSensitiveLog,
   TransferDomainToAnotherAwsAccountResponse,
-  TransferDomainToAnotherAwsAccountResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1TransferDomainToAnotherAwsAccountCommand,
-  serializeAws_json1_1TransferDomainToAnotherAwsAccountCommand,
+  de_TransferDomainToAnotherAwsAccountCommand,
+  se_TransferDomainToAnotherAwsAccountCommand,
 } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
+/**
+ * @public
+ *
+ * The input for {@link TransferDomainToAnotherAwsAccountCommand}.
+ */
 export interface TransferDomainToAnotherAwsAccountCommandInput extends TransferDomainToAnotherAwsAccountRequest {}
+/**
+ * @public
+ *
+ * The output of {@link TransferDomainToAnotherAwsAccountCommand}.
+ */
 export interface TransferDomainToAnotherAwsAccountCommandOutput
   extends TransferDomainToAnotherAwsAccountResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Transfers a domain from the current Amazon Web Services account to another Amazon Web Services account. Note the following:</p>
  *          <ul>
  *             <li>
@@ -62,13 +71,36 @@ export interface TransferDomainToAnotherAwsAccountCommandOutput
  * import { Route53DomainsClient, TransferDomainToAnotherAwsAccountCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, TransferDomainToAnotherAwsAccountCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
+ * const input = { // TransferDomainToAnotherAwsAccountRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   AccountId: "STRING_VALUE", // required
+ * };
  * const command = new TransferDomainToAnotherAwsAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TransferDomainToAnotherAwsAccountCommandInput - {@link TransferDomainToAnotherAwsAccountCommandInput}
+ * @returns {@link TransferDomainToAnotherAwsAccountCommandOutput}
  * @see {@link TransferDomainToAnotherAwsAccountCommandInput} for command's `input` shape.
  * @see {@link TransferDomainToAnotherAwsAccountCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
+ *
+ * @throws {@link DuplicateRequest} (client fault)
+ *  <p>The request is already in progress for the domain.</p>
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The requested item is not acceptable. For example, for APIs that accept a domain name,
+ * 			the request might specify a domain name that doesn't belong to the account that
+ * 			submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the
+ * 			password might be invalid.</p>
+ *
+ * @throws {@link OperationLimitExceeded} (client fault)
+ *  <p>The number of operations or jobs running exceeded the allowed threshold for the
+ * 			account.</p>
+ *
+ * @throws {@link UnsupportedTLD} (client fault)
+ *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+ *
  *
  */
 export class TransferDomainToAnotherAwsAccountCommand extends $Command<
@@ -88,6 +120,9 @@ export class TransferDomainToAnotherAwsAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TransferDomainToAnotherAwsAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +151,8 @@ export class TransferDomainToAnotherAwsAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TransferDomainToAnotherAwsAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: TransferDomainToAnotherAwsAccountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,18 +162,24 @@ export class TransferDomainToAnotherAwsAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: TransferDomainToAnotherAwsAccountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1TransferDomainToAnotherAwsAccountCommand(input, context);
+    return se_TransferDomainToAnotherAwsAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<TransferDomainToAnotherAwsAccountCommandOutput> {
-    return deserializeAws_json1_1TransferDomainToAnotherAwsAccountCommand(output, context);
+    return de_TransferDomainToAnotherAwsAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

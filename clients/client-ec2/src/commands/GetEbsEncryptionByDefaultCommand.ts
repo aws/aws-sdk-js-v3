@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  GetEbsEncryptionByDefaultRequest,
-  GetEbsEncryptionByDefaultRequestFilterSensitiveLog,
-  GetEbsEncryptionByDefaultResult,
-  GetEbsEncryptionByDefaultResultFilterSensitiveLog,
-} from "../models/models_5";
-import {
-  deserializeAws_ec2GetEbsEncryptionByDefaultCommand,
-  serializeAws_ec2GetEbsEncryptionByDefaultCommand,
-} from "../protocols/Aws_ec2";
+import { GetEbsEncryptionByDefaultRequest, GetEbsEncryptionByDefaultResult } from "../models/models_5";
+import { de_GetEbsEncryptionByDefaultCommand, se_GetEbsEncryptionByDefaultCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link GetEbsEncryptionByDefaultCommand}.
+ */
 export interface GetEbsEncryptionByDefaultCommandInput extends GetEbsEncryptionByDefaultRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetEbsEncryptionByDefaultCommand}.
+ */
 export interface GetEbsEncryptionByDefaultCommandOutput extends GetEbsEncryptionByDefaultResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes whether EBS encryption by default is enabled for your account in the current
  *       Region.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a>
@@ -39,13 +42,19 @@ export interface GetEbsEncryptionByDefaultCommandOutput extends GetEbsEncryption
  * import { EC2Client, GetEbsEncryptionByDefaultCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetEbsEncryptionByDefaultCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // GetEbsEncryptionByDefaultRequest
+ *   DryRun: true || false,
+ * };
  * const command = new GetEbsEncryptionByDefaultCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEbsEncryptionByDefaultCommandInput - {@link GetEbsEncryptionByDefaultCommandInput}
+ * @returns {@link GetEbsEncryptionByDefaultCommandOutput}
  * @see {@link GetEbsEncryptionByDefaultCommandInput} for command's `input` shape.
  * @see {@link GetEbsEncryptionByDefaultCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class GetEbsEncryptionByDefaultCommand extends $Command<
@@ -65,6 +74,9 @@ export class GetEbsEncryptionByDefaultCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEbsEncryptionByDefaultCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +105,8 @@ export class GetEbsEncryptionByDefaultCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEbsEncryptionByDefaultRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetEbsEncryptionByDefaultResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,15 +116,21 @@ export class GetEbsEncryptionByDefaultCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEbsEncryptionByDefaultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2GetEbsEncryptionByDefaultCommand(input, context);
+    return se_GetEbsEncryptionByDefaultCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetEbsEncryptionByDefaultCommandOutput> {
-    return deserializeAws_ec2GetEbsEncryptionByDefaultCommand(output, context);
+    return de_GetEbsEncryptionByDefaultCommand(output, context);
   }
 
   // Start section: command_body_extra

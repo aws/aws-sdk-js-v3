@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
-import {
-  GetCertificateAuthorityCsrRequest,
-  GetCertificateAuthorityCsrRequestFilterSensitiveLog,
-  GetCertificateAuthorityCsrResponse,
-  GetCertificateAuthorityCsrResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetCertificateAuthorityCsrCommand,
-  serializeAws_json1_1GetCertificateAuthorityCsrCommand,
-} from "../protocols/Aws_json1_1";
+import { GetCertificateAuthorityCsrRequest, GetCertificateAuthorityCsrResponse } from "../models/models_0";
+import { de_GetCertificateAuthorityCsrCommand, se_GetCertificateAuthorityCsrCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetCertificateAuthorityCsrCommand}.
+ */
 export interface GetCertificateAuthorityCsrCommandInput extends GetCertificateAuthorityCsrRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetCertificateAuthorityCsrCommand}.
+ */
 export interface GetCertificateAuthorityCsrCommandOutput extends GetCertificateAuthorityCsrResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the certificate signing request (CSR) for your private certificate authority
  * 			(CA). The CSR is created when you call the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a> action. Sign the CSR with your Amazon Web Services Private CA-hosted
  * 			or on-premises root or subordinate CA. Then import the signed certificate back into
@@ -40,13 +43,36 @@ export interface GetCertificateAuthorityCsrCommandOutput extends GetCertificateA
  * import { ACMPCAClient, GetCertificateAuthorityCsrCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
  * // const { ACMPCAClient, GetCertificateAuthorityCsrCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
  * const client = new ACMPCAClient(config);
+ * const input = { // GetCertificateAuthorityCsrRequest
+ *   CertificateAuthorityArn: "STRING_VALUE", // required
+ * };
  * const command = new GetCertificateAuthorityCsrCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCertificateAuthorityCsrCommandInput - {@link GetCertificateAuthorityCsrCommandInput}
+ * @returns {@link GetCertificateAuthorityCsrCommandOutput}
  * @see {@link GetCertificateAuthorityCsrCommandInput} for command's `input` shape.
  * @see {@link GetCertificateAuthorityCsrCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
+ *
+ * @throws {@link InvalidArnException} (client fault)
+ *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing
+ * 			resource.</p>
+ *
+ * @throws {@link InvalidStateException} (client fault)
+ *  <p>The state of the private CA does not allow this action to occur.</p>
+ *
+ * @throws {@link RequestFailedException} (client fault)
+ *  <p>The request has failed for an unspecified reason.</p>
+ *
+ * @throws {@link RequestInProgressException} (client fault)
+ *  <p>Your request is already in progress.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy
+ * 			cannot be found.</p>
+ *
  *
  */
 export class GetCertificateAuthorityCsrCommand extends $Command<
@@ -66,6 +92,9 @@ export class GetCertificateAuthorityCsrCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCertificateAuthorityCsrCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +123,8 @@ export class GetCertificateAuthorityCsrCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCertificateAuthorityCsrRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCertificateAuthorityCsrResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,15 +134,21 @@ export class GetCertificateAuthorityCsrCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCertificateAuthorityCsrCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetCertificateAuthorityCsrCommand(input, context);
+    return se_GetCertificateAuthorityCsrCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCertificateAuthorityCsrCommandOutput> {
-    return deserializeAws_json1_1GetCertificateAuthorityCsrCommand(output, context);
+    return de_GetCertificateAuthorityCsrCommand(output, context);
   }
 
   // Start section: command_body_extra

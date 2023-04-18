@@ -14,18 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KeyspacesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KeyspacesClient";
-import {
-  GetTableRequest,
-  GetTableRequestFilterSensitiveLog,
-  GetTableResponse,
-  GetTableResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_0GetTableCommand, serializeAws_json1_0GetTableCommand } from "../protocols/Aws_json1_0";
+import { GetTableRequest, GetTableResponse } from "../models/models_0";
+import { de_GetTableCommand, se_GetTableCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link GetTableCommand}.
+ */
 export interface GetTableCommandInput extends GetTableRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetTableCommand}.
+ */
 export interface GetTableCommandOutput extends GetTableResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the table, including the table's name and current status, the keyspace name,
  *          configuration settings, and metadata.</p>
  *          <p>To read table metadata using <code>GetTable</code>, <code>Select</code> action
@@ -36,13 +42,36 @@ export interface GetTableCommandOutput extends GetTableResponse, __MetadataBeare
  * import { KeyspacesClient, GetTableCommand } from "@aws-sdk/client-keyspaces"; // ES Modules import
  * // const { KeyspacesClient, GetTableCommand } = require("@aws-sdk/client-keyspaces"); // CommonJS import
  * const client = new KeyspacesClient(config);
+ * const input = { // GetTableRequest
+ *   keyspaceName: "STRING_VALUE", // required
+ *   tableName: "STRING_VALUE", // required
+ * };
  * const command = new GetTableCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTableCommandInput - {@link GetTableCommandInput}
+ * @returns {@link GetTableCommandOutput}
  * @see {@link GetTableCommandInput} for command's `input` shape.
  * @see {@link GetTableCommandOutput} for command's `response` shape.
  * @see {@link KeyspacesClientResolvedConfig | config} for KeyspacesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action. </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Amazon Keyspaces was unable to fully process this request because of an internal server error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The operation tried to access a keyspace or table that doesn't exist. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The operation exceeded the service quota for this resource.  For more information on service quotas, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/quotas.html">Quotas</a> in the <i>Amazon Keyspaces Developer
+ *             Guide</i>.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The operation failed due to an invalid or malformed request.</p>
+ *
  *
  */
 export class GetTableCommand extends $Command<
@@ -62,6 +91,9 @@ export class GetTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +120,8 @@ export class GetTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTableRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTableResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +131,18 @@ export class GetTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetTableCommand(input, context);
+    return se_GetTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTableCommandOutput> {
-    return deserializeAws_json1_0GetTableCommand(output, context);
+    return de_GetTableCommand(output, context);
   }
 
   // Start section: command_body_extra

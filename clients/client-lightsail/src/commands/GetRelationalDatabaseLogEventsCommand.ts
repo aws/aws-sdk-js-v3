@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { GetRelationalDatabaseLogEventsRequest, GetRelationalDatabaseLogEventsResult } from "../models/models_1";
 import {
-  GetRelationalDatabaseLogEventsRequest,
-  GetRelationalDatabaseLogEventsRequestFilterSensitiveLog,
-  GetRelationalDatabaseLogEventsResult,
-  GetRelationalDatabaseLogEventsResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetRelationalDatabaseLogEventsCommand,
-  serializeAws_json1_1GetRelationalDatabaseLogEventsCommand,
+  de_GetRelationalDatabaseLogEventsCommand,
+  se_GetRelationalDatabaseLogEventsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetRelationalDatabaseLogEventsCommand}.
+ */
 export interface GetRelationalDatabaseLogEventsCommandInput extends GetRelationalDatabaseLogEventsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetRelationalDatabaseLogEventsCommand}.
+ */
 export interface GetRelationalDatabaseLogEventsCommandOutput
   extends GetRelationalDatabaseLogEventsResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of log events for a database in Amazon Lightsail.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,54 @@ export interface GetRelationalDatabaseLogEventsCommandOutput
  * import { LightsailClient, GetRelationalDatabaseLogEventsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetRelationalDatabaseLogEventsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // GetRelationalDatabaseLogEventsRequest
+ *   relationalDatabaseName: "STRING_VALUE", // required
+ *   logStreamName: "STRING_VALUE", // required
+ *   startTime: new Date("TIMESTAMP"),
+ *   endTime: new Date("TIMESTAMP"),
+ *   startFromHead: true || false,
+ *   pageToken: "STRING_VALUE",
+ * };
  * const command = new GetRelationalDatabaseLogEventsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRelationalDatabaseLogEventsCommandInput - {@link GetRelationalDatabaseLogEventsCommandInput}
+ * @returns {@link GetRelationalDatabaseLogEventsCommandOutput}
  * @see {@link GetRelationalDatabaseLogEventsCommandInput} for command's `input` shape.
  * @see {@link GetRelationalDatabaseLogEventsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
+ *       credentials to access a resource.</p>
+ *
+ * @throws {@link AccountSetupInProgressException} (client fault)
+ *  <p>Lightsail throws this exception when an account is still in the setup in progress
+ *       state.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Lightsail throws this exception when user input does not conform to the validation rules
+ *       of an input field.</p>
+ *          <note>
+ *             <p>Domain and distribution APIs are only available in the N. Virginia
+ *           (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services
+ *         Region configuration to <code>us-east-1</code> to create, view, or edit these
+ *         resources.</p>
+ *          </note>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Lightsail throws this exception when it cannot find a resource.</p>
+ *
+ * @throws {@link OperationFailureException} (client fault)
+ *  <p>Lightsail throws this exception when an operation fails to execute.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>A general service exception.</p>
+ *
+ * @throws {@link UnauthenticatedException} (client fault)
+ *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
+ *
  *
  */
 export class GetRelationalDatabaseLogEventsCommand extends $Command<
@@ -64,6 +111,9 @@ export class GetRelationalDatabaseLogEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRelationalDatabaseLogEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +142,8 @@ export class GetRelationalDatabaseLogEventsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRelationalDatabaseLogEventsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRelationalDatabaseLogEventsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +153,24 @@ export class GetRelationalDatabaseLogEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetRelationalDatabaseLogEventsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRelationalDatabaseLogEventsCommand(input, context);
+    return se_GetRelationalDatabaseLogEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRelationalDatabaseLogEventsCommandOutput> {
-    return deserializeAws_json1_1GetRelationalDatabaseLogEventsCommand(output, context);
+    return de_GetRelationalDatabaseLogEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

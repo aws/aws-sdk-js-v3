@@ -3,18 +3,28 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { InspectorServiceException as __BaseException } from "./InspectorServiceException";
 
-export enum AccessDeniedErrorCode {
-  ACCESS_DENIED_TO_ASSESSMENT_RUN = "ACCESS_DENIED_TO_ASSESSMENT_RUN",
-  ACCESS_DENIED_TO_ASSESSMENT_TARGET = "ACCESS_DENIED_TO_ASSESSMENT_TARGET",
-  ACCESS_DENIED_TO_ASSESSMENT_TEMPLATE = "ACCESS_DENIED_TO_ASSESSMENT_TEMPLATE",
-  ACCESS_DENIED_TO_FINDING = "ACCESS_DENIED_TO_FINDING",
-  ACCESS_DENIED_TO_IAM_ROLE = "ACCESS_DENIED_TO_IAM_ROLE",
-  ACCESS_DENIED_TO_RESOURCE_GROUP = "ACCESS_DENIED_TO_RESOURCE_GROUP",
-  ACCESS_DENIED_TO_RULES_PACKAGE = "ACCESS_DENIED_TO_RULES_PACKAGE",
-  ACCESS_DENIED_TO_SNS_TOPIC = "ACCESS_DENIED_TO_SNS_TOPIC",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AccessDeniedErrorCode = {
+  ACCESS_DENIED_TO_ASSESSMENT_RUN: "ACCESS_DENIED_TO_ASSESSMENT_RUN",
+  ACCESS_DENIED_TO_ASSESSMENT_TARGET: "ACCESS_DENIED_TO_ASSESSMENT_TARGET",
+  ACCESS_DENIED_TO_ASSESSMENT_TEMPLATE: "ACCESS_DENIED_TO_ASSESSMENT_TEMPLATE",
+  ACCESS_DENIED_TO_FINDING: "ACCESS_DENIED_TO_FINDING",
+  ACCESS_DENIED_TO_IAM_ROLE: "ACCESS_DENIED_TO_IAM_ROLE",
+  ACCESS_DENIED_TO_RESOURCE_GROUP: "ACCESS_DENIED_TO_RESOURCE_GROUP",
+  ACCESS_DENIED_TO_RULES_PACKAGE: "ACCESS_DENIED_TO_RULES_PACKAGE",
+  ACCESS_DENIED_TO_SNS_TOPIC: "ACCESS_DENIED_TO_SNS_TOPIC",
+} as const;
 
 /**
+ * @public
+ */
+export type AccessDeniedErrorCode = (typeof AccessDeniedErrorCode)[keyof typeof AccessDeniedErrorCode];
+
+/**
+ * @public
  * <p>You do not have required permissions to access the requested resource.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -46,6 +56,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This data type is used as a request parameter in the <a>AddAttributesToFindings</a> and <a>CreateAssessmentTemplate</a>
  *          actions.</p>
  */
@@ -61,6 +72,9 @@ export interface Attribute {
   value?: string;
 }
 
+/**
+ * @public
+ */
 export interface AddAttributesToFindingsRequest {
   /**
    * <p>The ARNs that specify the findings that you want to assign attributes to.</p>
@@ -73,16 +87,26 @@ export interface AddAttributesToFindingsRequest {
   attributes: Attribute[] | undefined;
 }
 
-export enum FailedItemErrorCode {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  DUPLICATE_ARN = "DUPLICATE_ARN",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  INVALID_ARN = "INVALID_ARN",
-  ITEM_DOES_NOT_EXIST = "ITEM_DOES_NOT_EXIST",
-  LIMIT_EXCEEDED = "LIMIT_EXCEEDED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FailedItemErrorCode = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  DUPLICATE_ARN: "DUPLICATE_ARN",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  INVALID_ARN: "INVALID_ARN",
+  ITEM_DOES_NOT_EXIST: "ITEM_DOES_NOT_EXIST",
+  LIMIT_EXCEEDED: "LIMIT_EXCEEDED",
+} as const;
 
 /**
+ * @public
+ */
+export type FailedItemErrorCode = (typeof FailedItemErrorCode)[keyof typeof FailedItemErrorCode];
+
+/**
+ * @public
  * <p>Includes details about the failed items.</p>
  */
 export interface FailedItemDetails {
@@ -98,6 +122,9 @@ export interface FailedItemDetails {
   retryable: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AddAttributesToFindingsResponse {
   /**
    * <p>Attribute details that cannot be described. An error code is provided for each failed
@@ -107,6 +134,7 @@ export interface AddAttributesToFindingsResponse {
 }
 
 /**
+ * @public
  * <p>Internal server error.</p>
  */
 export class InternalException extends __BaseException {
@@ -131,64 +159,74 @@ export class InternalException extends __BaseException {
   }
 }
 
-export enum InvalidInputErrorCode {
-  ASSESSMENT_TARGET_NAME_ALREADY_TAKEN = "ASSESSMENT_TARGET_NAME_ALREADY_TAKEN",
-  ASSESSMENT_TEMPLATE_NAME_ALREADY_TAKEN = "ASSESSMENT_TEMPLATE_NAME_ALREADY_TAKEN",
-  INVALID_AGENT_ID = "INVALID_AGENT_ID",
-  INVALID_ASSESSMENT_RUN_ARN = "INVALID_ASSESSMENT_RUN_ARN",
-  INVALID_ASSESSMENT_RUN_COMPLETION_TIME_RANGE = "INVALID_ASSESSMENT_RUN_COMPLETION_TIME_RANGE",
-  INVALID_ASSESSMENT_RUN_DURATION_RANGE = "INVALID_ASSESSMENT_RUN_DURATION_RANGE",
-  INVALID_ASSESSMENT_RUN_START_TIME_RANGE = "INVALID_ASSESSMENT_RUN_START_TIME_RANGE",
-  INVALID_ASSESSMENT_RUN_STATE = "INVALID_ASSESSMENT_RUN_STATE",
-  INVALID_ASSESSMENT_RUN_STATE_CHANGE_TIME_RANGE = "INVALID_ASSESSMENT_RUN_STATE_CHANGE_TIME_RANGE",
-  INVALID_ASSESSMENT_TARGET_ARN = "INVALID_ASSESSMENT_TARGET_ARN",
-  INVALID_ASSESSMENT_TARGET_NAME = "INVALID_ASSESSMENT_TARGET_NAME",
-  INVALID_ASSESSMENT_TARGET_NAME_PATTERN = "INVALID_ASSESSMENT_TARGET_NAME_PATTERN",
-  INVALID_ASSESSMENT_TEMPLATE_ARN = "INVALID_ASSESSMENT_TEMPLATE_ARN",
-  INVALID_ASSESSMENT_TEMPLATE_DURATION = "INVALID_ASSESSMENT_TEMPLATE_DURATION",
-  INVALID_ASSESSMENT_TEMPLATE_DURATION_RANGE = "INVALID_ASSESSMENT_TEMPLATE_DURATION_RANGE",
-  INVALID_ASSESSMENT_TEMPLATE_NAME = "INVALID_ASSESSMENT_TEMPLATE_NAME",
-  INVALID_ASSESSMENT_TEMPLATE_NAME_PATTERN = "INVALID_ASSESSMENT_TEMPLATE_NAME_PATTERN",
-  INVALID_ATTRIBUTE = "INVALID_ATTRIBUTE",
-  INVALID_AUTO_SCALING_GROUP = "INVALID_AUTO_SCALING_GROUP",
-  INVALID_EVENT = "INVALID_EVENT",
-  INVALID_FINDING_ARN = "INVALID_FINDING_ARN",
-  INVALID_IAM_ROLE_ARN = "INVALID_IAM_ROLE_ARN",
-  INVALID_LOCALE = "INVALID_LOCALE",
-  INVALID_MAX_RESULTS = "INVALID_MAX_RESULTS",
-  INVALID_NUMBER_OF_AGENT_IDS = "INVALID_NUMBER_OF_AGENT_IDS",
-  INVALID_NUMBER_OF_ASSESSMENT_RUN_ARNS = "INVALID_NUMBER_OF_ASSESSMENT_RUN_ARNS",
-  INVALID_NUMBER_OF_ASSESSMENT_RUN_STATES = "INVALID_NUMBER_OF_ASSESSMENT_RUN_STATES",
-  INVALID_NUMBER_OF_ASSESSMENT_TARGET_ARNS = "INVALID_NUMBER_OF_ASSESSMENT_TARGET_ARNS",
-  INVALID_NUMBER_OF_ASSESSMENT_TEMPLATE_ARNS = "INVALID_NUMBER_OF_ASSESSMENT_TEMPLATE_ARNS",
-  INVALID_NUMBER_OF_ATTRIBUTES = "INVALID_NUMBER_OF_ATTRIBUTES",
-  INVALID_NUMBER_OF_AUTO_SCALING_GROUPS = "INVALID_NUMBER_OF_AUTO_SCALING_GROUPS",
-  INVALID_NUMBER_OF_FINDING_ARNS = "INVALID_NUMBER_OF_FINDING_ARNS",
-  INVALID_NUMBER_OF_RESOURCE_GROUP_ARNS = "INVALID_NUMBER_OF_RESOURCE_GROUP_ARNS",
-  INVALID_NUMBER_OF_RESOURCE_GROUP_TAGS = "INVALID_NUMBER_OF_RESOURCE_GROUP_TAGS",
-  INVALID_NUMBER_OF_RULES_PACKAGE_ARNS = "INVALID_NUMBER_OF_RULES_PACKAGE_ARNS",
-  INVALID_NUMBER_OF_RULE_NAMES = "INVALID_NUMBER_OF_RULE_NAMES",
-  INVALID_NUMBER_OF_SEVERITIES = "INVALID_NUMBER_OF_SEVERITIES",
-  INVALID_NUMBER_OF_TAGS = "INVALID_NUMBER_OF_TAGS",
-  INVALID_NUMBER_OF_USER_ATTRIBUTES = "INVALID_NUMBER_OF_USER_ATTRIBUTES",
-  INVALID_PAGINATION_TOKEN = "INVALID_PAGINATION_TOKEN",
-  INVALID_RESOURCE_ARN = "INVALID_RESOURCE_ARN",
-  INVALID_RESOURCE_GROUP_ARN = "INVALID_RESOURCE_GROUP_ARN",
-  INVALID_RESOURCE_GROUP_TAG_KEY = "INVALID_RESOURCE_GROUP_TAG_KEY",
-  INVALID_RESOURCE_GROUP_TAG_VALUE = "INVALID_RESOURCE_GROUP_TAG_VALUE",
-  INVALID_RULES_PACKAGE_ARN = "INVALID_RULES_PACKAGE_ARN",
-  INVALID_RULE_NAME = "INVALID_RULE_NAME",
-  INVALID_SEVERITY = "INVALID_SEVERITY",
-  INVALID_SNS_TOPIC_ARN = "INVALID_SNS_TOPIC_ARN",
-  INVALID_TAG = "INVALID_TAG",
-  INVALID_TAG_KEY = "INVALID_TAG_KEY",
-  INVALID_TAG_VALUE = "INVALID_TAG_VALUE",
-  INVALID_USER_ATTRIBUTE = "INVALID_USER_ATTRIBUTE",
-  INVALID_USER_ATTRIBUTE_KEY = "INVALID_USER_ATTRIBUTE_KEY",
-  INVALID_USER_ATTRIBUTE_VALUE = "INVALID_USER_ATTRIBUTE_VALUE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InvalidInputErrorCode = {
+  ASSESSMENT_TARGET_NAME_ALREADY_TAKEN: "ASSESSMENT_TARGET_NAME_ALREADY_TAKEN",
+  ASSESSMENT_TEMPLATE_NAME_ALREADY_TAKEN: "ASSESSMENT_TEMPLATE_NAME_ALREADY_TAKEN",
+  INVALID_AGENT_ID: "INVALID_AGENT_ID",
+  INVALID_ASSESSMENT_RUN_ARN: "INVALID_ASSESSMENT_RUN_ARN",
+  INVALID_ASSESSMENT_RUN_COMPLETION_TIME_RANGE: "INVALID_ASSESSMENT_RUN_COMPLETION_TIME_RANGE",
+  INVALID_ASSESSMENT_RUN_DURATION_RANGE: "INVALID_ASSESSMENT_RUN_DURATION_RANGE",
+  INVALID_ASSESSMENT_RUN_START_TIME_RANGE: "INVALID_ASSESSMENT_RUN_START_TIME_RANGE",
+  INVALID_ASSESSMENT_RUN_STATE: "INVALID_ASSESSMENT_RUN_STATE",
+  INVALID_ASSESSMENT_RUN_STATE_CHANGE_TIME_RANGE: "INVALID_ASSESSMENT_RUN_STATE_CHANGE_TIME_RANGE",
+  INVALID_ASSESSMENT_TARGET_ARN: "INVALID_ASSESSMENT_TARGET_ARN",
+  INVALID_ASSESSMENT_TARGET_NAME: "INVALID_ASSESSMENT_TARGET_NAME",
+  INVALID_ASSESSMENT_TARGET_NAME_PATTERN: "INVALID_ASSESSMENT_TARGET_NAME_PATTERN",
+  INVALID_ASSESSMENT_TEMPLATE_ARN: "INVALID_ASSESSMENT_TEMPLATE_ARN",
+  INVALID_ASSESSMENT_TEMPLATE_DURATION: "INVALID_ASSESSMENT_TEMPLATE_DURATION",
+  INVALID_ASSESSMENT_TEMPLATE_DURATION_RANGE: "INVALID_ASSESSMENT_TEMPLATE_DURATION_RANGE",
+  INVALID_ASSESSMENT_TEMPLATE_NAME: "INVALID_ASSESSMENT_TEMPLATE_NAME",
+  INVALID_ASSESSMENT_TEMPLATE_NAME_PATTERN: "INVALID_ASSESSMENT_TEMPLATE_NAME_PATTERN",
+  INVALID_ATTRIBUTE: "INVALID_ATTRIBUTE",
+  INVALID_AUTO_SCALING_GROUP: "INVALID_AUTO_SCALING_GROUP",
+  INVALID_EVENT: "INVALID_EVENT",
+  INVALID_FINDING_ARN: "INVALID_FINDING_ARN",
+  INVALID_IAM_ROLE_ARN: "INVALID_IAM_ROLE_ARN",
+  INVALID_LOCALE: "INVALID_LOCALE",
+  INVALID_MAX_RESULTS: "INVALID_MAX_RESULTS",
+  INVALID_NUMBER_OF_AGENT_IDS: "INVALID_NUMBER_OF_AGENT_IDS",
+  INVALID_NUMBER_OF_ASSESSMENT_RUN_ARNS: "INVALID_NUMBER_OF_ASSESSMENT_RUN_ARNS",
+  INVALID_NUMBER_OF_ASSESSMENT_RUN_STATES: "INVALID_NUMBER_OF_ASSESSMENT_RUN_STATES",
+  INVALID_NUMBER_OF_ASSESSMENT_TARGET_ARNS: "INVALID_NUMBER_OF_ASSESSMENT_TARGET_ARNS",
+  INVALID_NUMBER_OF_ASSESSMENT_TEMPLATE_ARNS: "INVALID_NUMBER_OF_ASSESSMENT_TEMPLATE_ARNS",
+  INVALID_NUMBER_OF_ATTRIBUTES: "INVALID_NUMBER_OF_ATTRIBUTES",
+  INVALID_NUMBER_OF_AUTO_SCALING_GROUPS: "INVALID_NUMBER_OF_AUTO_SCALING_GROUPS",
+  INVALID_NUMBER_OF_FINDING_ARNS: "INVALID_NUMBER_OF_FINDING_ARNS",
+  INVALID_NUMBER_OF_RESOURCE_GROUP_ARNS: "INVALID_NUMBER_OF_RESOURCE_GROUP_ARNS",
+  INVALID_NUMBER_OF_RESOURCE_GROUP_TAGS: "INVALID_NUMBER_OF_RESOURCE_GROUP_TAGS",
+  INVALID_NUMBER_OF_RULES_PACKAGE_ARNS: "INVALID_NUMBER_OF_RULES_PACKAGE_ARNS",
+  INVALID_NUMBER_OF_RULE_NAMES: "INVALID_NUMBER_OF_RULE_NAMES",
+  INVALID_NUMBER_OF_SEVERITIES: "INVALID_NUMBER_OF_SEVERITIES",
+  INVALID_NUMBER_OF_TAGS: "INVALID_NUMBER_OF_TAGS",
+  INVALID_NUMBER_OF_USER_ATTRIBUTES: "INVALID_NUMBER_OF_USER_ATTRIBUTES",
+  INVALID_PAGINATION_TOKEN: "INVALID_PAGINATION_TOKEN",
+  INVALID_RESOURCE_ARN: "INVALID_RESOURCE_ARN",
+  INVALID_RESOURCE_GROUP_ARN: "INVALID_RESOURCE_GROUP_ARN",
+  INVALID_RESOURCE_GROUP_TAG_KEY: "INVALID_RESOURCE_GROUP_TAG_KEY",
+  INVALID_RESOURCE_GROUP_TAG_VALUE: "INVALID_RESOURCE_GROUP_TAG_VALUE",
+  INVALID_RULES_PACKAGE_ARN: "INVALID_RULES_PACKAGE_ARN",
+  INVALID_RULE_NAME: "INVALID_RULE_NAME",
+  INVALID_SEVERITY: "INVALID_SEVERITY",
+  INVALID_SNS_TOPIC_ARN: "INVALID_SNS_TOPIC_ARN",
+  INVALID_TAG: "INVALID_TAG",
+  INVALID_TAG_KEY: "INVALID_TAG_KEY",
+  INVALID_TAG_VALUE: "INVALID_TAG_VALUE",
+  INVALID_USER_ATTRIBUTE: "INVALID_USER_ATTRIBUTE",
+  INVALID_USER_ATTRIBUTE_KEY: "INVALID_USER_ATTRIBUTE_KEY",
+  INVALID_USER_ATTRIBUTE_VALUE: "INVALID_USER_ATTRIBUTE_VALUE",
+} as const;
 
 /**
+ * @public
+ */
+export type InvalidInputErrorCode = (typeof InvalidInputErrorCode)[keyof typeof InvalidInputErrorCode];
+
+/**
+ * @public
  * <p>The request was rejected because an invalid or out-of-range value was supplied for an
  *          input parameter.</p>
  */
@@ -220,18 +258,28 @@ export class InvalidInputException extends __BaseException {
   }
 }
 
-export enum NoSuchEntityErrorCode {
-  ASSESSMENT_RUN_DOES_NOT_EXIST = "ASSESSMENT_RUN_DOES_NOT_EXIST",
-  ASSESSMENT_TARGET_DOES_NOT_EXIST = "ASSESSMENT_TARGET_DOES_NOT_EXIST",
-  ASSESSMENT_TEMPLATE_DOES_NOT_EXIST = "ASSESSMENT_TEMPLATE_DOES_NOT_EXIST",
-  FINDING_DOES_NOT_EXIST = "FINDING_DOES_NOT_EXIST",
-  IAM_ROLE_DOES_NOT_EXIST = "IAM_ROLE_DOES_NOT_EXIST",
-  RESOURCE_GROUP_DOES_NOT_EXIST = "RESOURCE_GROUP_DOES_NOT_EXIST",
-  RULES_PACKAGE_DOES_NOT_EXIST = "RULES_PACKAGE_DOES_NOT_EXIST",
-  SNS_TOPIC_DOES_NOT_EXIST = "SNS_TOPIC_DOES_NOT_EXIST",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NoSuchEntityErrorCode = {
+  ASSESSMENT_RUN_DOES_NOT_EXIST: "ASSESSMENT_RUN_DOES_NOT_EXIST",
+  ASSESSMENT_TARGET_DOES_NOT_EXIST: "ASSESSMENT_TARGET_DOES_NOT_EXIST",
+  ASSESSMENT_TEMPLATE_DOES_NOT_EXIST: "ASSESSMENT_TEMPLATE_DOES_NOT_EXIST",
+  FINDING_DOES_NOT_EXIST: "FINDING_DOES_NOT_EXIST",
+  IAM_ROLE_DOES_NOT_EXIST: "IAM_ROLE_DOES_NOT_EXIST",
+  RESOURCE_GROUP_DOES_NOT_EXIST: "RESOURCE_GROUP_DOES_NOT_EXIST",
+  RULES_PACKAGE_DOES_NOT_EXIST: "RULES_PACKAGE_DOES_NOT_EXIST",
+  SNS_TOPIC_DOES_NOT_EXIST: "SNS_TOPIC_DOES_NOT_EXIST",
+} as const;
 
 /**
+ * @public
+ */
+export type NoSuchEntityErrorCode = (typeof NoSuchEntityErrorCode)[keyof typeof NoSuchEntityErrorCode];
+
+/**
+ * @public
  * <p>The request was rejected because it referenced an entity that does not exist. The
  *          error code describes the entity.</p>
  */
@@ -264,6 +312,7 @@ export class NoSuchEntityException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The serice is temporary unavailable.</p>
  */
 export class ServiceTemporarilyUnavailableException extends __BaseException {
@@ -289,6 +338,7 @@ export class ServiceTemporarilyUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Used in the exception error that is thrown if you start an assessment run for an
  *          assessment target that includes an EC2 instance that is already participating in another
  *          started assessment run.</p>
@@ -306,22 +356,41 @@ export interface AgentAlreadyRunningAssessment {
   assessmentRunArn: string | undefined;
 }
 
-export enum AgentHealthCode {
-  IDLE = "IDLE",
-  RUNNING = "RUNNING",
-  SHUTDOWN = "SHUTDOWN",
-  THROTTLED = "THROTTLED",
-  UNHEALTHY = "UNHEALTHY",
-  UNKNOWN = "UNKNOWN",
-}
-
-export enum AgentHealth {
-  HEALTHY = "HEALTHY",
-  UNHEALTHY = "UNHEALTHY",
-  UNKNOWN = "UNKNOWN",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AgentHealthCode = {
+  IDLE: "IDLE",
+  RUNNING: "RUNNING",
+  SHUTDOWN: "SHUTDOWN",
+  THROTTLED: "THROTTLED",
+  UNHEALTHY: "UNHEALTHY",
+  UNKNOWN: "UNKNOWN",
+} as const;
 
 /**
+ * @public
+ */
+export type AgentHealthCode = (typeof AgentHealthCode)[keyof typeof AgentHealthCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const AgentHealth = {
+  HEALTHY: "HEALTHY",
+  UNHEALTHY: "UNHEALTHY",
+  UNKNOWN: "UNKNOWN",
+} as const;
+
+/**
+ * @public
+ */
+export type AgentHealth = (typeof AgentHealth)[keyof typeof AgentHealth];
+
+/**
+ * @public
  * <p>Contains information about an Amazon Inspector agent. This data type is used as a
  *          request parameter in the <a>ListAssessmentRunAgents</a> action.</p>
  */
@@ -338,6 +407,7 @@ export interface AgentFilter {
 }
 
 /**
+ * @public
  * <p>Used as a response element in the <a>PreviewAgents</a> action.</p>
  */
 export interface AgentPreview {
@@ -387,6 +457,7 @@ export interface AgentPreview {
 }
 
 /**
+ * @public
  * <p>You started an assessment run, but one of the instances is already participating in
  *          another assessment run.</p>
  */
@@ -424,30 +495,59 @@ export class AgentsAlreadyRunningAssessmentException extends __BaseException {
   }
 }
 
-export enum Severity {
-  HIGH = "High",
-  INFORMATIONAL = "Informational",
-  LOW = "Low",
-  MEDIUM = "Medium",
-  UNDEFINED = "Undefined",
-}
-
-export enum InspectorEvent {
-  ASSESSMENT_RUN_COMPLETED = "ASSESSMENT_RUN_COMPLETED",
-  ASSESSMENT_RUN_STARTED = "ASSESSMENT_RUN_STARTED",
-  ASSESSMENT_RUN_STATE_CHANGED = "ASSESSMENT_RUN_STATE_CHANGED",
-  FINDING_REPORTED = "FINDING_REPORTED",
-  OTHER = "OTHER",
-}
-
-export enum AssessmentRunNotificationSnsStatusCode {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  SUCCESS = "SUCCESS",
-  TOPIC_DOES_NOT_EXIST = "TOPIC_DOES_NOT_EXIST",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Severity = {
+  HIGH: "High",
+  INFORMATIONAL: "Informational",
+  LOW: "Low",
+  MEDIUM: "Medium",
+  UNDEFINED: "Undefined",
+} as const;
 
 /**
+ * @public
+ */
+export type Severity = (typeof Severity)[keyof typeof Severity];
+
+/**
+ * @public
+ * @enum
+ */
+export const InspectorEvent = {
+  ASSESSMENT_RUN_COMPLETED: "ASSESSMENT_RUN_COMPLETED",
+  ASSESSMENT_RUN_STARTED: "ASSESSMENT_RUN_STARTED",
+  ASSESSMENT_RUN_STATE_CHANGED: "ASSESSMENT_RUN_STATE_CHANGED",
+  FINDING_REPORTED: "FINDING_REPORTED",
+  OTHER: "OTHER",
+} as const;
+
+/**
+ * @public
+ */
+export type InspectorEvent = (typeof InspectorEvent)[keyof typeof InspectorEvent];
+
+/**
+ * @public
+ * @enum
+ */
+export const AssessmentRunNotificationSnsStatusCode = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  SUCCESS: "SUCCESS",
+  TOPIC_DOES_NOT_EXIST: "TOPIC_DOES_NOT_EXIST",
+} as const;
+
+/**
+ * @public
+ */
+export type AssessmentRunNotificationSnsStatusCode =
+  (typeof AssessmentRunNotificationSnsStatusCode)[keyof typeof AssessmentRunNotificationSnsStatusCode];
+
+/**
+ * @public
  * <p>Used as one of the elements of the <a>AssessmentRun</a> data
  *          type.</p>
  */
@@ -484,23 +584,33 @@ export interface AssessmentRunNotification {
   snsPublishStatusCode?: AssessmentRunNotificationSnsStatusCode | string;
 }
 
-export enum AssessmentRunState {
-  CANCELED = "CANCELED",
-  COLLECTING_DATA = "COLLECTING_DATA",
-  COMPLETED = "COMPLETED",
-  COMPLETED_WITH_ERRORS = "COMPLETED_WITH_ERRORS",
-  CREATED = "CREATED",
-  DATA_COLLECTED = "DATA_COLLECTED",
-  ERROR = "ERROR",
-  EVALUATING_RULES = "EVALUATING_RULES",
-  FAILED = "FAILED",
-  START_DATA_COLLECTION_IN_PROGRESS = "START_DATA_COLLECTION_IN_PROGRESS",
-  START_DATA_COLLECTION_PENDING = "START_DATA_COLLECTION_PENDING",
-  START_EVALUATING_RULES_PENDING = "START_EVALUATING_RULES_PENDING",
-  STOP_DATA_COLLECTION_PENDING = "STOP_DATA_COLLECTION_PENDING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AssessmentRunState = {
+  CANCELED: "CANCELED",
+  COLLECTING_DATA: "COLLECTING_DATA",
+  COMPLETED: "COMPLETED",
+  COMPLETED_WITH_ERRORS: "COMPLETED_WITH_ERRORS",
+  CREATED: "CREATED",
+  DATA_COLLECTED: "DATA_COLLECTED",
+  ERROR: "ERROR",
+  EVALUATING_RULES: "EVALUATING_RULES",
+  FAILED: "FAILED",
+  START_DATA_COLLECTION_IN_PROGRESS: "START_DATA_COLLECTION_IN_PROGRESS",
+  START_DATA_COLLECTION_PENDING: "START_DATA_COLLECTION_PENDING",
+  START_EVALUATING_RULES_PENDING: "START_EVALUATING_RULES_PENDING",
+  STOP_DATA_COLLECTION_PENDING: "STOP_DATA_COLLECTION_PENDING",
+} as const;
 
 /**
+ * @public
+ */
+export type AssessmentRunState = (typeof AssessmentRunState)[keyof typeof AssessmentRunState];
+
+/**
+ * @public
  * <p>Used as one of the elements of the <a>AssessmentRun</a> data
  *          type.</p>
  */
@@ -517,6 +627,7 @@ export interface AssessmentRunStateChange {
 }
 
 /**
+ * @public
  * <p>A snapshot of an Amazon Inspector assessment run that contains the findings of the
  *          assessment run .</p>
  *          <p>Used as the response element in the <a>DescribeAssessmentRuns</a>
@@ -604,6 +715,7 @@ export interface AssessmentRun {
 }
 
 /**
+ * @public
  * <p>The metadata about the Amazon Inspector application data metrics collected by the
  *          agent. This data type is used as the response element in the <a>GetTelemetryMetadata</a> action.</p>
  */
@@ -626,6 +738,7 @@ export interface TelemetryMetadata {
 }
 
 /**
+ * @public
  * <p>Contains information about an Amazon Inspector agent. This data type is used as a
  *          response element in the <a>ListAssessmentRunAgents</a> action.</p>
  */
@@ -669,6 +782,7 @@ export interface AssessmentRunAgent {
 }
 
 /**
+ * @public
  * <p>This data type is used in the <a>AssessmentRunFilter</a> data
  *          type.</p>
  */
@@ -685,6 +799,7 @@ export interface TimestampRange {
 }
 
 /**
+ * @public
  * <p>This data type is used in the <a>AssessmentTemplateFilter</a> data
  *          type.</p>
  */
@@ -702,6 +817,7 @@ export interface DurationRange {
 }
 
 /**
+ * @public
  * <p>Used as the request parameter in the <a>ListAssessmentRuns</a>
  *          action.</p>
  */
@@ -757,6 +873,7 @@ export interface AssessmentRunFilter {
 }
 
 /**
+ * @public
  * <p>You cannot perform a specified action if an assessment run is currently in
  *          progress.</p>
  */
@@ -796,6 +913,7 @@ export class AssessmentRunInProgressException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains information about an Amazon Inspector application. This data type is used as
  *          the response element in the <a>DescribeAssessmentTargets</a> action.</p>
  */
@@ -828,6 +946,7 @@ export interface AssessmentTarget {
 }
 
 /**
+ * @public
  * <p>Used as the request parameter in the <a>ListAssessmentTargets</a>
  *          action.</p>
  */
@@ -841,6 +960,7 @@ export interface AssessmentTargetFilter {
 }
 
 /**
+ * @public
  * <p>Contains information about an Amazon Inspector assessment template. This data type is
  *          used as the response element in the <a>DescribeAssessmentTemplates</a>
  *          action.</p>
@@ -899,6 +1019,7 @@ export interface AssessmentTemplate {
 }
 
 /**
+ * @public
  * <p>Used as the request parameter in the <a>ListAssessmentTemplates</a>
  *          action.</p>
  */
@@ -926,6 +1047,7 @@ export interface AssessmentTemplateFilter {
 }
 
 /**
+ * @public
  * <p>Contains information about a private IP address associated with a network interface. This
  *          data type is used as a response element in the <a>DescribeFindings</a>
  *          action.</p>
@@ -943,6 +1065,7 @@ export interface PrivateIp {
 }
 
 /**
+ * @public
  * <p>Contains information about a security group associated with a network interface. This
  *          data type is used as one of the elements of the <a>NetworkInterface</a> data
  *          type.</p>
@@ -960,6 +1083,7 @@ export interface SecurityGroup {
 }
 
 /**
+ * @public
  * <p>Contains information about the network interfaces interacting with an EC2 instance.
  *          This data type is used as one of the elements of the <a>AssetAttributes</a> data
  *          type.</p>
@@ -1019,6 +1143,7 @@ export interface NetworkInterface {
 }
 
 /**
+ * @public
  * <p>A key and value pair. This data type is used as a request parameter in the <a>SetTagsForResource</a> action and a response element in the <a>ListTagsForResource</a> action.</p>
  */
 export interface Tag {
@@ -1034,6 +1159,7 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>A collection of attributes of the host from which the finding is generated.</p>
  */
 export interface AssetAttributes {
@@ -1082,10 +1208,22 @@ export interface AssetAttributes {
   networkInterfaces?: NetworkInterface[];
 }
 
-export enum AssetType {
-  EC2_INSTANCE = "ec2-instance",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AssetType = {
+  EC2_INSTANCE: "ec2-instance",
+} as const;
 
+/**
+ * @public
+ */
+export type AssetType = (typeof AssetType)[keyof typeof AssetType];
+
+/**
+ * @public
+ */
 export interface CreateAssessmentTargetRequest {
   /**
    * <p>The user-defined name that identifies the assessment target that you want to create.
@@ -1101,6 +1239,9 @@ export interface CreateAssessmentTargetRequest {
   resourceGroupArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateAssessmentTargetResponse {
   /**
    * <p>The ARN that specifies the assessment target that is created.</p>
@@ -1108,12 +1249,23 @@ export interface CreateAssessmentTargetResponse {
   assessmentTargetArn: string | undefined;
 }
 
-export enum InvalidCrossAccountRoleErrorCode {
-  ROLE_DOES_NOT_EXIST_OR_INVALID_TRUST_RELATIONSHIP = "ROLE_DOES_NOT_EXIST_OR_INVALID_TRUST_RELATIONSHIP",
-  ROLE_DOES_NOT_HAVE_CORRECT_POLICY = "ROLE_DOES_NOT_HAVE_CORRECT_POLICY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InvalidCrossAccountRoleErrorCode = {
+  ROLE_DOES_NOT_EXIST_OR_INVALID_TRUST_RELATIONSHIP: "ROLE_DOES_NOT_EXIST_OR_INVALID_TRUST_RELATIONSHIP",
+  ROLE_DOES_NOT_HAVE_CORRECT_POLICY: "ROLE_DOES_NOT_HAVE_CORRECT_POLICY",
+} as const;
 
 /**
+ * @public
+ */
+export type InvalidCrossAccountRoleErrorCode =
+  (typeof InvalidCrossAccountRoleErrorCode)[keyof typeof InvalidCrossAccountRoleErrorCode];
+
+/**
+ * @public
  * <p>Amazon Inspector cannot assume the cross-account role that it needs to list your EC2
  *          instances during the assessment run.</p>
  */
@@ -1145,15 +1297,25 @@ export class InvalidCrossAccountRoleException extends __BaseException {
   }
 }
 
-export enum LimitExceededErrorCode {
-  ASSESSMENT_RUN_LIMIT_EXCEEDED = "ASSESSMENT_RUN_LIMIT_EXCEEDED",
-  ASSESSMENT_TARGET_LIMIT_EXCEEDED = "ASSESSMENT_TARGET_LIMIT_EXCEEDED",
-  ASSESSMENT_TEMPLATE_LIMIT_EXCEEDED = "ASSESSMENT_TEMPLATE_LIMIT_EXCEEDED",
-  EVENT_SUBSCRIPTION_LIMIT_EXCEEDED = "EVENT_SUBSCRIPTION_LIMIT_EXCEEDED",
-  RESOURCE_GROUP_LIMIT_EXCEEDED = "RESOURCE_GROUP_LIMIT_EXCEEDED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LimitExceededErrorCode = {
+  ASSESSMENT_RUN_LIMIT_EXCEEDED: "ASSESSMENT_RUN_LIMIT_EXCEEDED",
+  ASSESSMENT_TARGET_LIMIT_EXCEEDED: "ASSESSMENT_TARGET_LIMIT_EXCEEDED",
+  ASSESSMENT_TEMPLATE_LIMIT_EXCEEDED: "ASSESSMENT_TEMPLATE_LIMIT_EXCEEDED",
+  EVENT_SUBSCRIPTION_LIMIT_EXCEEDED: "EVENT_SUBSCRIPTION_LIMIT_EXCEEDED",
+  RESOURCE_GROUP_LIMIT_EXCEEDED: "RESOURCE_GROUP_LIMIT_EXCEEDED",
+} as const;
 
 /**
+ * @public
+ */
+export type LimitExceededErrorCode = (typeof LimitExceededErrorCode)[keyof typeof LimitExceededErrorCode];
+
+/**
+ * @public
  * <p>The request was rejected because it attempted to create resources beyond the current
  *          AWS account limits. The error code describes the limit exceeded.</p>
  */
@@ -1185,6 +1347,9 @@ export class LimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateAssessmentTemplateRequest {
   /**
    * <p>The ARN that specifies the assessment target for which you want to create the
@@ -1220,6 +1385,9 @@ export interface CreateAssessmentTemplateRequest {
   userAttributesForFindings?: Attribute[];
 }
 
+/**
+ * @public
+ */
 export interface CreateAssessmentTemplateResponse {
   /**
    * <p>The ARN that specifies the assessment template that is created.</p>
@@ -1227,6 +1395,9 @@ export interface CreateAssessmentTemplateResponse {
   assessmentTemplateArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateExclusionsPreviewRequest {
   /**
    * <p>The ARN that specifies the assessment template for which you want to create an
@@ -1235,6 +1406,9 @@ export interface CreateExclusionsPreviewRequest {
   assessmentTemplateArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateExclusionsPreviewResponse {
   /**
    * <p>Specifies the unique identifier of the requested exclusions preview. You can use the
@@ -1245,6 +1419,7 @@ export interface CreateExclusionsPreviewResponse {
 }
 
 /**
+ * @public
  * <p>The request is rejected. The specified assessment template is currently generating an
  *          exclusions preview.</p>
  */
@@ -1265,6 +1440,7 @@ export class PreviewGenerationInProgressException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This data type is used as one of the elements of the <a>ResourceGroup</a>
  *          data type.</p>
  */
@@ -1280,15 +1456,21 @@ export interface ResourceGroupTag {
   value?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateResourceGroupRequest {
   /**
    * <p>A collection of keys and an array of possible values,
-   *          '[{"key":"key1","values":["Value1","Value2"]},{"key":"Key2","values":["Value3"]}]'.</p>
-   *          <p>For example,'[{"key":"Name","values":["TestEC2Instance"]}]'.</p>
+   *          '[\{"key":"key1","values":["Value1","Value2"]\},\{"key":"Key2","values":["Value3"]\}]'.</p>
+   *          <p>For example,'[\{"key":"Name","values":["TestEC2Instance"]\}]'.</p>
    */
   resourceGroupTags: ResourceGroupTag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateResourceGroupResponse {
   /**
    * <p>The ARN that specifies the resource group that is created.</p>
@@ -1296,6 +1478,9 @@ export interface CreateResourceGroupResponse {
   resourceGroupArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAssessmentRunRequest {
   /**
    * <p>The ARN that specifies the assessment run that you want to delete.</p>
@@ -1303,6 +1488,9 @@ export interface DeleteAssessmentRunRequest {
   assessmentRunArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAssessmentTargetRequest {
   /**
    * <p>The ARN that specifies the assessment target that you want to delete.</p>
@@ -1310,6 +1498,9 @@ export interface DeleteAssessmentTargetRequest {
   assessmentTargetArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAssessmentTemplateRequest {
   /**
    * <p>The ARN that specifies the assessment template that you want to delete.</p>
@@ -1317,6 +1508,9 @@ export interface DeleteAssessmentTemplateRequest {
   assessmentTemplateArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAssessmentRunsRequest {
   /**
    * <p>The ARN that specifies the assessment run that you want to describe.</p>
@@ -1324,6 +1518,9 @@ export interface DescribeAssessmentRunsRequest {
   assessmentRunArns: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAssessmentRunsResponse {
   /**
    * <p>Information about the assessment run.</p>
@@ -1337,6 +1534,9 @@ export interface DescribeAssessmentRunsResponse {
   failedItems: Record<string, FailedItemDetails> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAssessmentTargetsRequest {
   /**
    * <p>The ARNs that specifies the assessment targets that you want to describe.</p>
@@ -1344,6 +1544,9 @@ export interface DescribeAssessmentTargetsRequest {
   assessmentTargetArns: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAssessmentTargetsResponse {
   /**
    * <p>Information about the assessment targets.</p>
@@ -1357,10 +1560,16 @@ export interface DescribeAssessmentTargetsResponse {
   failedItems: Record<string, FailedItemDetails> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAssessmentTemplatesRequest {
   assessmentTemplateArns: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAssessmentTemplatesResponse {
   /**
    * <p>Information about the assessment templates.</p>
@@ -1374,6 +1583,9 @@ export interface DescribeAssessmentTemplatesResponse {
   failedItems: Record<string, FailedItemDetails> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCrossAccountAccessRoleResponse {
   /**
    * <p>The ARN that specifies the IAM role that Amazon Inspector uses to access your AWS
@@ -1393,10 +1605,22 @@ export interface DescribeCrossAccountAccessRoleResponse {
   registeredAt: Date | undefined;
 }
 
-export enum Locale {
-  EN_US = "EN_US",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Locale = {
+  EN_US: "EN_US",
+} as const;
 
+/**
+ * @public
+ */
+export type Locale = (typeof Locale)[keyof typeof Locale];
+
+/**
+ * @public
+ */
 export interface DescribeExclusionsRequest {
   /**
    * <p>The list of ARNs that specify the exclusions that you want to describe.</p>
@@ -1410,12 +1634,22 @@ export interface DescribeExclusionsRequest {
   locale?: Locale | string;
 }
 
-export enum ScopeType {
-  INSTANCE_ID = "INSTANCE_ID",
-  RULES_PACKAGE_ARN = "RULES_PACKAGE_ARN",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ScopeType = {
+  INSTANCE_ID: "INSTANCE_ID",
+  RULES_PACKAGE_ARN: "RULES_PACKAGE_ARN",
+} as const;
 
 /**
+ * @public
+ */
+export type ScopeType = (typeof ScopeType)[keyof typeof ScopeType];
+
+/**
+ * @public
  * <p>This data type contains key-value pairs that identify various Amazon
  *          resources.</p>
  */
@@ -1432,6 +1666,7 @@ export interface Scope {
 }
 
 /**
+ * @public
  * <p>Contains information about what was excluded from an assessment run.</p>
  */
 export interface Exclusion {
@@ -1466,6 +1701,9 @@ export interface Exclusion {
   attributes?: Attribute[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeExclusionsResponse {
   /**
    * <p>Information about the exclusions.</p>
@@ -1479,6 +1717,9 @@ export interface DescribeExclusionsResponse {
   failedItems: Record<string, FailedItemDetails> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFindingsRequest {
   /**
    * <p>The ARN that specifies the finding that you want to describe.</p>
@@ -1493,6 +1734,7 @@ export interface DescribeFindingsRequest {
 }
 
 /**
+ * @public
  * <p>This data type is used in the <a>Finding</a> data type.</p>
  */
 export interface InspectorServiceAttributes {
@@ -1513,6 +1755,7 @@ export interface InspectorServiceAttributes {
 }
 
 /**
+ * @public
  * <p>Contains information about an Amazon Inspector finding. This data type is used as the
  *          response element in the <a>DescribeFindings</a> action.</p>
  */
@@ -1609,6 +1852,9 @@ export interface Finding {
   updatedAt: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFindingsResponse {
   /**
    * <p>Information about the finding.</p>
@@ -1622,6 +1868,9 @@ export interface DescribeFindingsResponse {
   failedItems: Record<string, FailedItemDetails> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeResourceGroupsRequest {
   /**
    * <p>The ARN that specifies the resource group that you want to describe.</p>
@@ -1630,6 +1879,7 @@ export interface DescribeResourceGroupsRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about a resource group. The resource group defines a set of tags
  *          that, when queried, identify the AWS resources that make up the assessment target. This
  *          data type is used as the response element in the <a>DescribeResourceGroups</a>
@@ -1653,6 +1903,9 @@ export interface ResourceGroup {
   createdAt: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeResourceGroupsResponse {
   /**
    * <p>Information about a resource group.</p>
@@ -1666,6 +1919,9 @@ export interface DescribeResourceGroupsResponse {
   failedItems: Record<string, FailedItemDetails> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRulesPackagesRequest {
   /**
    * <p>The ARN that specifies the rules package that you want to describe.</p>
@@ -1679,6 +1935,7 @@ export interface DescribeRulesPackagesRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about an Amazon Inspector rules package. This data type is used
  *          as the response element in the <a>DescribeRulesPackages</a> action.</p>
  */
@@ -1709,6 +1966,9 @@ export interface RulesPackage {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRulesPackagesResponse {
   /**
    * <p>Information about the rules package.</p>
@@ -1723,6 +1983,7 @@ export interface DescribeRulesPackagesResponse {
 }
 
 /**
+ * @public
  * <p>This data type is used in the <a>Subscription</a> data type.</p>
  */
 export interface EventSubscription {
@@ -1739,6 +2000,7 @@ export interface EventSubscription {
 }
 
 /**
+ * @public
  * <p>Contains information about what is excluded from an assessment run given the current
  *          state of the assessment template.</p>
  */
@@ -1770,6 +2032,7 @@ export interface ExclusionPreview {
 }
 
 /**
+ * @public
  * <p>This data type is used as a request parameter in the <a>ListFindings</a>
  *          action.</p>
  */
@@ -1825,16 +2088,37 @@ export interface FindingFilter {
   creationTimeRange?: TimestampRange;
 }
 
-export enum ReportFileFormat {
-  HTML = "HTML",
-  PDF = "PDF",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReportFileFormat = {
+  HTML: "HTML",
+  PDF: "PDF",
+} as const;
 
-export enum ReportType {
-  FINDING = "FINDING",
-  FULL = "FULL",
-}
+/**
+ * @public
+ */
+export type ReportFileFormat = (typeof ReportFileFormat)[keyof typeof ReportFileFormat];
 
+/**
+ * @public
+ * @enum
+ */
+export const ReportType = {
+  FINDING: "FINDING",
+  FULL: "FULL",
+} as const;
+
+/**
+ * @public
+ */
+export type ReportType = (typeof ReportType)[keyof typeof ReportType];
+
+/**
+ * @public
+ */
 export interface GetAssessmentReportRequest {
   /**
    * <p>The ARN that specifies the assessment run for which you want to generate a
@@ -1856,12 +2140,24 @@ export interface GetAssessmentReportRequest {
   reportType: ReportType | string | undefined;
 }
 
-export enum ReportStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  WORK_IN_PROGRESS = "WORK_IN_PROGRESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReportStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  WORK_IN_PROGRESS: "WORK_IN_PROGRESS",
+} as const;
 
+/**
+ * @public
+ */
+export type ReportStatus = (typeof ReportStatus)[keyof typeof ReportStatus];
+
+/**
+ * @public
+ */
 export interface GetAssessmentReportResponse {
   /**
    * <p>Specifies the status of the request to generate an assessment report. </p>
@@ -1876,6 +2172,7 @@ export interface GetAssessmentReportResponse {
 }
 
 /**
+ * @public
  * <p>Used by the <a>GetAssessmentReport</a> API. The request was rejected
  *          because you tried to generate a report for an assessment run that existed before reporting
  *          was supported in Amazon Inspector. You can only generate reports for assessment runs that
@@ -1900,6 +2197,9 @@ export class UnsupportedFeatureException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetExclusionsPreviewRequest {
   /**
    * <p>The ARN that specifies the assessment template for which the exclusions preview was
@@ -1933,11 +2233,23 @@ export interface GetExclusionsPreviewRequest {
   locale?: Locale | string;
 }
 
-export enum PreviewStatus {
-  COMPLETED = "COMPLETED",
-  WORK_IN_PROGRESS = "WORK_IN_PROGRESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PreviewStatus = {
+  COMPLETED: "COMPLETED",
+  WORK_IN_PROGRESS: "WORK_IN_PROGRESS",
+} as const;
 
+/**
+ * @public
+ */
+export type PreviewStatus = (typeof PreviewStatus)[keyof typeof PreviewStatus];
+
+/**
+ * @public
+ */
 export interface GetExclusionsPreviewResponse {
   /**
    * <p>Specifies the status of the request to generate an exclusions preview.</p>
@@ -1958,6 +2270,9 @@ export interface GetExclusionsPreviewResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetTelemetryMetadataRequest {
   /**
    * <p>The ARN that specifies the assessment run that has the telemetry data that you want
@@ -1966,6 +2281,9 @@ export interface GetTelemetryMetadataRequest {
   assessmentRunArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetTelemetryMetadataResponse {
   /**
    * <p>Telemetry details.</p>
@@ -1973,6 +2291,9 @@ export interface GetTelemetryMetadataResponse {
   telemetryMetadata: TelemetryMetadata[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListAssessmentRunAgentsRequest {
   /**
    * <p>The ARN that specifies the assessment run whose agents you want to list.</p>
@@ -2004,6 +2325,9 @@ export interface ListAssessmentRunAgentsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListAssessmentRunAgentsResponse {
   /**
    * <p>A list of ARNs that specifies the agents returned by the action.</p>
@@ -2018,6 +2342,9 @@ export interface ListAssessmentRunAgentsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAssessmentRunsRequest {
   /**
    * <p>The ARNs that specify the assessment templates whose assessment runs you want to
@@ -2050,6 +2377,9 @@ export interface ListAssessmentRunsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListAssessmentRunsResponse {
   /**
    * <p>A list of ARNs that specifies the assessment runs that are returned by the
@@ -2065,6 +2395,9 @@ export interface ListAssessmentRunsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAssessmentTargetsRequest {
   /**
    * <p>You can use this parameter to specify a subset of data to be included in the action's
@@ -2091,6 +2424,9 @@ export interface ListAssessmentTargetsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListAssessmentTargetsResponse {
   /**
    * <p>A list of ARNs that specifies the assessment targets that are returned by the
@@ -2106,6 +2442,9 @@ export interface ListAssessmentTargetsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAssessmentTemplatesRequest {
   /**
    * <p>A list of ARNs that specifies the assessment targets whose assessment templates you
@@ -2138,6 +2477,9 @@ export interface ListAssessmentTemplatesRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListAssessmentTemplatesResponse {
   /**
    * <p>A list of ARNs that specifies the assessment templates returned by the
@@ -2153,6 +2495,9 @@ export interface ListAssessmentTemplatesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListEventSubscriptionsRequest {
   /**
    * <p>The ARN of the assessment template for which you want to list the existing event
@@ -2177,6 +2522,7 @@ export interface ListEventSubscriptionsRequest {
 }
 
 /**
+ * @public
  * <p>This data type is used as a response element in the <a>ListEventSubscriptions</a> action.</p>
  */
 export interface Subscription {
@@ -2198,6 +2544,9 @@ export interface Subscription {
   eventSubscriptions: EventSubscription[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListEventSubscriptionsResponse {
   /**
    * <p>Details of the returned event subscriptions.</p>
@@ -2212,6 +2561,9 @@ export interface ListEventSubscriptionsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListExclusionsRequest {
   /**
    * <p>The ARN of the assessment run that generated the exclusions that you want to
@@ -2234,6 +2586,9 @@ export interface ListExclusionsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListExclusionsResponse {
   /**
    * <p>A list of exclusions' ARNs returned by the action.</p>
@@ -2249,6 +2604,9 @@ export interface ListExclusionsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFindingsRequest {
   /**
    * <p>The ARNs of the assessment runs that generate the findings that you want to
@@ -2281,6 +2639,9 @@ export interface ListFindingsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListFindingsResponse {
   /**
    * <p>A list of ARNs that specifies the findings returned by the action.</p>
@@ -2295,6 +2656,9 @@ export interface ListFindingsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRulesPackagesRequest {
   /**
    * <p>You can use this parameter when paginating results. Set the value of this parameter
@@ -2312,6 +2676,9 @@ export interface ListRulesPackagesRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListRulesPackagesResponse {
   /**
    * <p>The list of ARNs that specifies the rules packages returned by the action.</p>
@@ -2326,6 +2693,9 @@ export interface ListRulesPackagesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN that specifies the assessment template whose tags you want to list.</p>
@@ -2333,6 +2703,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>A collection of key and value pairs.</p>
@@ -2340,6 +2713,9 @@ export interface ListTagsForResourceResponse {
   tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PreviewAgentsRequest {
   /**
    * <p>The ARN of the assessment target whose agents you want to preview.</p>
@@ -2362,6 +2738,9 @@ export interface PreviewAgentsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface PreviewAgentsResponse {
   /**
    * <p>The resulting list of agents.</p>
@@ -2376,6 +2755,9 @@ export interface PreviewAgentsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface RegisterCrossAccountAccessRoleRequest {
   /**
    * <p>The ARN of the IAM role that grants Amazon Inspector access to AWS Services needed to
@@ -2384,6 +2766,9 @@ export interface RegisterCrossAccountAccessRoleRequest {
   roleArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RemoveAttributesFromFindingsRequest {
   /**
    * <p>The ARNs that specify the findings that you want to remove attributes from.</p>
@@ -2397,6 +2782,9 @@ export interface RemoveAttributesFromFindingsRequest {
   attributeKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RemoveAttributesFromFindingsResponse {
   /**
    * <p>Attributes details that cannot be described. An error code is provided for each
@@ -2405,6 +2793,9 @@ export interface RemoveAttributesFromFindingsResponse {
   failedItems: Record<string, FailedItemDetails> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SetTagsForResourceRequest {
   /**
    * <p>The ARN of the assessment template that you want to set tags to.</p>
@@ -2418,6 +2809,9 @@ export interface SetTagsForResourceRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface StartAssessmentRunRequest {
   /**
    * <p>The ARN of the assessment template of the assessment run that you want to
@@ -2432,6 +2826,9 @@ export interface StartAssessmentRunRequest {
   assessmentRunName?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartAssessmentRunResponse {
   /**
    * <p>The ARN of the assessment run that has been started.</p>
@@ -2439,11 +2836,23 @@ export interface StartAssessmentRunResponse {
   assessmentRunArn: string | undefined;
 }
 
-export enum StopAction {
-  SKIP_EVALUATION = "SKIP_EVALUATION",
-  START_EVALUATION = "START_EVALUATION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StopAction = {
+  SKIP_EVALUATION: "SKIP_EVALUATION",
+  START_EVALUATION: "START_EVALUATION",
+} as const;
 
+/**
+ * @public
+ */
+export type StopAction = (typeof StopAction)[keyof typeof StopAction];
+
+/**
+ * @public
+ */
 export interface StopAssessmentRunRequest {
   /**
    * <p>The ARN of the assessment run that you want to stop.</p>
@@ -2459,6 +2868,9 @@ export interface StopAssessmentRunRequest {
   stopAction?: StopAction | string;
 }
 
+/**
+ * @public
+ */
 export interface SubscribeToEventRequest {
   /**
    * <p>The ARN of the assessment template that is used during the event for which you want
@@ -2477,6 +2889,9 @@ export interface SubscribeToEventRequest {
   topicArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UnsubscribeFromEventRequest {
   /**
    * <p>The ARN of the assessment template that is used during the event for which you want
@@ -2495,6 +2910,9 @@ export interface UnsubscribeFromEventRequest {
   topicArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAssessmentTargetRequest {
   /**
    * <p>The ARN of the assessment target that you want to update.</p>
@@ -2512,692 +2930,3 @@ export interface UpdateAssessmentTargetRequest {
    */
   resourceGroupArn?: string;
 }
-
-/**
- * @internal
- */
-export const AttributeFilterSensitiveLog = (obj: Attribute): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddAttributesToFindingsRequestFilterSensitiveLog = (obj: AddAttributesToFindingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FailedItemDetailsFilterSensitiveLog = (obj: FailedItemDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddAttributesToFindingsResponseFilterSensitiveLog = (obj: AddAttributesToFindingsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AgentAlreadyRunningAssessmentFilterSensitiveLog = (obj: AgentAlreadyRunningAssessment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AgentFilterFilterSensitiveLog = (obj: AgentFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AgentPreviewFilterSensitiveLog = (obj: AgentPreview): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssessmentRunNotificationFilterSensitiveLog = (obj: AssessmentRunNotification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssessmentRunStateChangeFilterSensitiveLog = (obj: AssessmentRunStateChange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssessmentRunFilterSensitiveLog = (obj: AssessmentRun): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TelemetryMetadataFilterSensitiveLog = (obj: TelemetryMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssessmentRunAgentFilterSensitiveLog = (obj: AssessmentRunAgent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TimestampRangeFilterSensitiveLog = (obj: TimestampRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DurationRangeFilterSensitiveLog = (obj: DurationRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssessmentRunFilterFilterSensitiveLog = (obj: AssessmentRunFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssessmentTargetFilterSensitiveLog = (obj: AssessmentTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssessmentTargetFilterFilterSensitiveLog = (obj: AssessmentTargetFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssessmentTemplateFilterSensitiveLog = (obj: AssessmentTemplate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssessmentTemplateFilterFilterSensitiveLog = (obj: AssessmentTemplateFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PrivateIpFilterSensitiveLog = (obj: PrivateIp): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SecurityGroupFilterSensitiveLog = (obj: SecurityGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkInterfaceFilterSensitiveLog = (obj: NetworkInterface): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssetAttributesFilterSensitiveLog = (obj: AssetAttributes): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAssessmentTargetRequestFilterSensitiveLog = (obj: CreateAssessmentTargetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAssessmentTargetResponseFilterSensitiveLog = (obj: CreateAssessmentTargetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAssessmentTemplateRequestFilterSensitiveLog = (obj: CreateAssessmentTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAssessmentTemplateResponseFilterSensitiveLog = (obj: CreateAssessmentTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateExclusionsPreviewRequestFilterSensitiveLog = (obj: CreateExclusionsPreviewRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateExclusionsPreviewResponseFilterSensitiveLog = (obj: CreateExclusionsPreviewResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceGroupTagFilterSensitiveLog = (obj: ResourceGroupTag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateResourceGroupRequestFilterSensitiveLog = (obj: CreateResourceGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateResourceGroupResponseFilterSensitiveLog = (obj: CreateResourceGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAssessmentRunRequestFilterSensitiveLog = (obj: DeleteAssessmentRunRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAssessmentTargetRequestFilterSensitiveLog = (obj: DeleteAssessmentTargetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAssessmentTemplateRequestFilterSensitiveLog = (obj: DeleteAssessmentTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAssessmentRunsRequestFilterSensitiveLog = (obj: DescribeAssessmentRunsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAssessmentRunsResponseFilterSensitiveLog = (obj: DescribeAssessmentRunsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAssessmentTargetsRequestFilterSensitiveLog = (obj: DescribeAssessmentTargetsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAssessmentTargetsResponseFilterSensitiveLog = (obj: DescribeAssessmentTargetsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAssessmentTemplatesRequestFilterSensitiveLog = (obj: DescribeAssessmentTemplatesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAssessmentTemplatesResponseFilterSensitiveLog = (
-  obj: DescribeAssessmentTemplatesResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeCrossAccountAccessRoleResponseFilterSensitiveLog = (
-  obj: DescribeCrossAccountAccessRoleResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeExclusionsRequestFilterSensitiveLog = (obj: DescribeExclusionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScopeFilterSensitiveLog = (obj: Scope): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExclusionFilterSensitiveLog = (obj: Exclusion): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeExclusionsResponseFilterSensitiveLog = (obj: DescribeExclusionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFindingsRequestFilterSensitiveLog = (obj: DescribeFindingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InspectorServiceAttributesFilterSensitiveLog = (obj: InspectorServiceAttributes): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FindingFilterSensitiveLog = (obj: Finding): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFindingsResponseFilterSensitiveLog = (obj: DescribeFindingsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeResourceGroupsRequestFilterSensitiveLog = (obj: DescribeResourceGroupsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceGroupFilterSensitiveLog = (obj: ResourceGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeResourceGroupsResponseFilterSensitiveLog = (obj: DescribeResourceGroupsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRulesPackagesRequestFilterSensitiveLog = (obj: DescribeRulesPackagesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RulesPackageFilterSensitiveLog = (obj: RulesPackage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRulesPackagesResponseFilterSensitiveLog = (obj: DescribeRulesPackagesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventSubscriptionFilterSensitiveLog = (obj: EventSubscription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExclusionPreviewFilterSensitiveLog = (obj: ExclusionPreview): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FindingFilterFilterSensitiveLog = (obj: FindingFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAssessmentReportRequestFilterSensitiveLog = (obj: GetAssessmentReportRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAssessmentReportResponseFilterSensitiveLog = (obj: GetAssessmentReportResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetExclusionsPreviewRequestFilterSensitiveLog = (obj: GetExclusionsPreviewRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetExclusionsPreviewResponseFilterSensitiveLog = (obj: GetExclusionsPreviewResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTelemetryMetadataRequestFilterSensitiveLog = (obj: GetTelemetryMetadataRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTelemetryMetadataResponseFilterSensitiveLog = (obj: GetTelemetryMetadataResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAssessmentRunAgentsRequestFilterSensitiveLog = (obj: ListAssessmentRunAgentsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAssessmentRunAgentsResponseFilterSensitiveLog = (obj: ListAssessmentRunAgentsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAssessmentRunsRequestFilterSensitiveLog = (obj: ListAssessmentRunsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAssessmentRunsResponseFilterSensitiveLog = (obj: ListAssessmentRunsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAssessmentTargetsRequestFilterSensitiveLog = (obj: ListAssessmentTargetsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAssessmentTargetsResponseFilterSensitiveLog = (obj: ListAssessmentTargetsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAssessmentTemplatesRequestFilterSensitiveLog = (obj: ListAssessmentTemplatesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAssessmentTemplatesResponseFilterSensitiveLog = (obj: ListAssessmentTemplatesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEventSubscriptionsRequestFilterSensitiveLog = (obj: ListEventSubscriptionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SubscriptionFilterSensitiveLog = (obj: Subscription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEventSubscriptionsResponseFilterSensitiveLog = (obj: ListEventSubscriptionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListExclusionsRequestFilterSensitiveLog = (obj: ListExclusionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListExclusionsResponseFilterSensitiveLog = (obj: ListExclusionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFindingsRequestFilterSensitiveLog = (obj: ListFindingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFindingsResponseFilterSensitiveLog = (obj: ListFindingsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRulesPackagesRequestFilterSensitiveLog = (obj: ListRulesPackagesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRulesPackagesResponseFilterSensitiveLog = (obj: ListRulesPackagesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PreviewAgentsRequestFilterSensitiveLog = (obj: PreviewAgentsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PreviewAgentsResponseFilterSensitiveLog = (obj: PreviewAgentsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterCrossAccountAccessRoleRequestFilterSensitiveLog = (
-  obj: RegisterCrossAccountAccessRoleRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveAttributesFromFindingsRequestFilterSensitiveLog = (
-  obj: RemoveAttributesFromFindingsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveAttributesFromFindingsResponseFilterSensitiveLog = (
-  obj: RemoveAttributesFromFindingsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetTagsForResourceRequestFilterSensitiveLog = (obj: SetTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartAssessmentRunRequestFilterSensitiveLog = (obj: StartAssessmentRunRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartAssessmentRunResponseFilterSensitiveLog = (obj: StartAssessmentRunResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopAssessmentRunRequestFilterSensitiveLog = (obj: StopAssessmentRunRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SubscribeToEventRequestFilterSensitiveLog = (obj: SubscribeToEventRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UnsubscribeFromEventRequestFilterSensitiveLog = (obj: UnsubscribeFromEventRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAssessmentTargetRequestFilterSensitiveLog = (obj: UpdateAssessmentTargetRequest): any => ({
-  ...obj,
-});

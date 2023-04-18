@@ -13,37 +13,69 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListResolverConfigsRequest,
-  ListResolverConfigsRequestFilterSensitiveLog,
-  ListResolverConfigsResponse,
-  ListResolverConfigsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListResolverConfigsCommand,
-  serializeAws_json1_1ListResolverConfigsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListResolverConfigsRequest, ListResolverConfigsResponse } from "../models/models_0";
+import { de_ListResolverConfigsCommand, se_ListResolverConfigsCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListResolverConfigsCommand}.
+ */
 export interface ListResolverConfigsCommandInput extends ListResolverConfigsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListResolverConfigsCommand}.
+ */
 export interface ListResolverConfigsCommandOutput extends ListResolverConfigsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the Resolver configurations that you have defined.
- * 			Route 53 Resolver uses the configurations to manage DNS resolution behavior for your VPCs.</p>
+ * 			Route 53 Resolver uses the configurations to manage DNS resolution behavior for your VPCs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { Route53ResolverClient, ListResolverConfigsCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, ListResolverConfigsCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = { // ListResolverConfigsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListResolverConfigsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResolverConfigsCommandInput - {@link ListResolverConfigsCommandInput}
+ * @returns {@link ListResolverConfigsCommandOutput}
  * @see {@link ListResolverConfigsCommandInput} for command's `input` shape.
  * @see {@link ListResolverConfigsCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (client fault)
+ *  <p>We encountered an unknown error. Try again in a few minutes.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The value that you specified for <code>NextToken</code> in a <code>List</code> request isn't valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters in this request are not valid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was throttled. Try again in a few minutes.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>You have provided an invalid command. Supported values are <code>ADD</code>,
+ * 			<code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
+ *
  *
  */
 export class ListResolverConfigsCommand extends $Command<
@@ -63,6 +95,9 @@ export class ListResolverConfigsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResolverConfigsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +126,8 @@ export class ListResolverConfigsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListResolverConfigsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListResolverConfigsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +137,18 @@ export class ListResolverConfigsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResolverConfigsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListResolverConfigsCommand(input, context);
+    return se_ListResolverConfigsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResolverConfigsCommandOutput> {
-    return deserializeAws_json1_1ListResolverConfigsCommand(output, context);
+    return de_ListResolverConfigsCommand(output, context);
   }
 
   // Start section: command_body_extra

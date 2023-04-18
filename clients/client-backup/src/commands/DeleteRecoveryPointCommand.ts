@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { DeleteRecoveryPointInput, DeleteRecoveryPointInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteRecoveryPointCommand,
-  serializeAws_restJson1DeleteRecoveryPointCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteRecoveryPointInput } from "../models/models_0";
+import { de_DeleteRecoveryPointCommand, se_DeleteRecoveryPointCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteRecoveryPointCommand}.
+ */
 export interface DeleteRecoveryPointCommandInput extends DeleteRecoveryPointInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteRecoveryPointCommand}.
+ */
 export interface DeleteRecoveryPointCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the recovery point specified by a recovery point ID.</p>
  *          <p>If the recovery point ID belongs to a continuous backup, calling this endpoint deletes
  *          the existing continuous backup and stops future continuous backup.</p>
@@ -43,13 +51,41 @@ export interface DeleteRecoveryPointCommandOutput extends __MetadataBearer {}
  * import { BackupClient, DeleteRecoveryPointCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, DeleteRecoveryPointCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // DeleteRecoveryPointInput
+ *   BackupVaultName: "STRING_VALUE", // required
+ *   RecoveryPointArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRecoveryPointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRecoveryPointCommandInput - {@link DeleteRecoveryPointCommandInput}
+ * @returns {@link DeleteRecoveryPointCommandOutput}
  * @see {@link DeleteRecoveryPointCommandInput} for command's `input` shape.
  * @see {@link DeleteRecoveryPointCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
+ *          out of range.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>Indicates that something is wrong with the input to the request. For example, a
+ *          parameter is of the wrong type.</p>
+ *
+ * @throws {@link InvalidResourceStateException} (client fault)
+ *  <p>Backup is already performing an action on this recovery point. It can't
+ *          perform the action you requested until the first action finishes. Try again later.</p>
+ *
+ * @throws {@link MissingParameterValueException} (client fault)
+ *  <p>Indicates that a required parameter is missing.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource that is required for the action doesn't exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request failed due to a temporary failure of the server.</p>
+ *
  *
  */
 export class DeleteRecoveryPointCommand extends $Command<
@@ -69,6 +105,9 @@ export class DeleteRecoveryPointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRecoveryPointCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +136,8 @@ export class DeleteRecoveryPointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRecoveryPointInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +147,18 @@ export class DeleteRecoveryPointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRecoveryPointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteRecoveryPointCommand(input, context);
+    return se_DeleteRecoveryPointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRecoveryPointCommandOutput> {
-    return deserializeAws_restJson1DeleteRecoveryPointCommand(output, context);
+    return de_DeleteRecoveryPointCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateAppMonitorRequest,
-  CreateAppMonitorRequestFilterSensitiveLog,
-  CreateAppMonitorResponse,
-  CreateAppMonitorResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateAppMonitorCommand,
-  serializeAws_restJson1CreateAppMonitorCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateAppMonitorRequest, CreateAppMonitorResponse } from "../models/models_0";
+import { de_CreateAppMonitorCommand, se_CreateAppMonitorCommand } from "../protocols/Aws_restJson1";
 import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateAppMonitorCommand}.
+ */
 export interface CreateAppMonitorCommandInput extends CreateAppMonitorRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateAppMonitorCommand}.
+ */
 export interface CreateAppMonitorCommandOutput extends CreateAppMonitorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Amazon CloudWatch RUM app monitor, which collects telemetry data from your application and sends that
  *       data to RUM. The data includes performance and reliability information such as page load time, client-side errors,
  *       and user behavior.</p>
@@ -44,13 +47,67 @@ export interface CreateAppMonitorCommandOutput extends CreateAppMonitorResponse,
  * import { RUMClient, CreateAppMonitorCommand } from "@aws-sdk/client-rum"; // ES Modules import
  * // const { RUMClient, CreateAppMonitorCommand } = require("@aws-sdk/client-rum"); // CommonJS import
  * const client = new RUMClient(config);
+ * const input = { // CreateAppMonitorRequest
+ *   Name: "STRING_VALUE", // required
+ *   Domain: "STRING_VALUE", // required
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   AppMonitorConfiguration: { // AppMonitorConfiguration
+ *     IdentityPoolId: "STRING_VALUE",
+ *     ExcludedPages: [ // Pages
+ *       "STRING_VALUE",
+ *     ],
+ *     IncludedPages: [
+ *       "STRING_VALUE",
+ *     ],
+ *     FavoritePages: [ // FavoritePages
+ *       "STRING_VALUE",
+ *     ],
+ *     SessionSampleRate: Number("double"),
+ *     GuestRoleArn: "STRING_VALUE",
+ *     AllowCookies: true || false,
+ *     Telemetries: [ // Telemetries
+ *       "STRING_VALUE",
+ *     ],
+ *     EnableXRay: true || false,
+ *   },
+ *   CwLogEnabled: true || false,
+ *   CustomEvents: { // CustomEvents
+ *     Status: "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateAppMonitorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAppMonitorCommandInput - {@link CreateAppMonitorCommandInput}
+ * @returns {@link CreateAppMonitorCommandOutput}
  * @see {@link CreateAppMonitorCommandInput} for command's `input` shape.
  * @see {@link CreateAppMonitorCommandOutput} for command's `response` shape.
  * @see {@link RUMClientResolvedConfig | config} for RUMClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient permissions to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>This operation attempted to create a resource that already exists.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Internal service exception.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource not found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>This request exceeds a service quota.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was throttled because of quota limits.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One of the arguments for the request is not valid.</p>
+ *
  *
  */
 export class CreateAppMonitorCommand extends $Command<
@@ -70,6 +127,9 @@ export class CreateAppMonitorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAppMonitorCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +158,8 @@ export class CreateAppMonitorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAppMonitorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAppMonitorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +169,18 @@ export class CreateAppMonitorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAppMonitorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAppMonitorCommand(input, context);
+    return se_CreateAppMonitorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAppMonitorCommandOutput> {
-    return deserializeAws_restJson1CreateAppMonitorCommand(output, context);
+    return de_CreateAppMonitorCommand(output, context);
   }
 
   // Start section: command_body_extra

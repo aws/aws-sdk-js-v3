@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListPipelineExecutionsRequest,
-  ListPipelineExecutionsRequestFilterSensitiveLog,
-  ListPipelineExecutionsResponse,
-  ListPipelineExecutionsResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1ListPipelineExecutionsCommand,
-  serializeAws_json1_1ListPipelineExecutionsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListPipelineExecutionsRequest, ListPipelineExecutionsResponse } from "../models/models_3";
+import { de_ListPipelineExecutionsCommand, se_ListPipelineExecutionsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListPipelineExecutionsCommand}.
+ */
 export interface ListPipelineExecutionsCommandInput extends ListPipelineExecutionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListPipelineExecutionsCommand}.
+ */
 export interface ListPipelineExecutionsCommandOutput extends ListPipelineExecutionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of the pipeline executions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,28 @@ export interface ListPipelineExecutionsCommandOutput extends ListPipelineExecuti
  * import { SageMakerClient, ListPipelineExecutionsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListPipelineExecutionsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListPipelineExecutionsRequest
+ *   PipelineName: "STRING_VALUE", // required
+ *   CreatedAfter: new Date("TIMESTAMP"),
+ *   CreatedBefore: new Date("TIMESTAMP"),
+ *   SortBy: "CreationTime" || "PipelineExecutionArn",
+ *   SortOrder: "Ascending" || "Descending",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListPipelineExecutionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPipelineExecutionsCommandInput - {@link ListPipelineExecutionsCommandInput}
+ * @returns {@link ListPipelineExecutionsCommandOutput}
  * @see {@link ListPipelineExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListPipelineExecutionsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class ListPipelineExecutionsCommand extends $Command<
@@ -62,6 +80,9 @@ export class ListPipelineExecutionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPipelineExecutionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +111,8 @@ export class ListPipelineExecutionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPipelineExecutionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPipelineExecutionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +122,18 @@ export class ListPipelineExecutionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPipelineExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListPipelineExecutionsCommand(input, context);
+    return se_ListPipelineExecutionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPipelineExecutionsCommandOutput> {
-    return deserializeAws_json1_1ListPipelineExecutionsCommand(output, context);
+    return de_ListPipelineExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

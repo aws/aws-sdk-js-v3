@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetAccountBalanceRequest,
-  GetAccountBalanceRequestFilterSensitiveLog,
-  GetAccountBalanceResponse,
-  GetAccountBalanceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetAccountBalanceRequest, GetAccountBalanceResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import {
-  deserializeAws_json1_1GetAccountBalanceCommand,
-  serializeAws_json1_1GetAccountBalanceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetAccountBalanceCommand, se_GetAccountBalanceCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetAccountBalanceCommand}.
+ */
 export interface GetAccountBalanceCommandInput extends GetAccountBalanceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetAccountBalanceCommand}.
+ */
 export interface GetAccountBalanceCommandOutput extends GetAccountBalanceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The <code>GetAccountBalance</code> operation retrieves the Prepaid HITs balance in your Amazon Mechanical Turk account if you are a Prepaid Requester.
  *             Alternatively, this operation will retrieve the remaining available AWS Billing usage if you have enabled AWS Billing.
  *             Note: If you have enabled AWS Billing and still have a remaining Prepaid HITs balance, this balance can be viewed on the My Account page in the Requester console.</p>
@@ -38,13 +41,23 @@ export interface GetAccountBalanceCommandOutput extends GetAccountBalanceRespons
  * import { MTurkClient, GetAccountBalanceCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, GetAccountBalanceCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = {};
  * const command = new GetAccountBalanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccountBalanceCommandInput - {@link GetAccountBalanceCommandInput}
+ * @returns {@link GetAccountBalanceCommandOutput}
  * @see {@link GetAccountBalanceCommandInput} for command's `input` shape.
  * @see {@link GetAccountBalanceCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
+ *
+ * @throws {@link RequestError} (client fault)
+ *  <p>Your request is invalid.</p>
+ *
+ * @throws {@link ServiceFault} (server fault)
+ *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
  *
  */
 export class GetAccountBalanceCommand extends $Command<
@@ -64,6 +77,9 @@ export class GetAccountBalanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccountBalanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +108,8 @@ export class GetAccountBalanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAccountBalanceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAccountBalanceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +119,18 @@ export class GetAccountBalanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAccountBalanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAccountBalanceCommand(input, context);
+    return se_GetAccountBalanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccountBalanceCommandOutput> {
-    return deserializeAws_json1_1GetAccountBalanceCommand(output, context);
+    return de_GetAccountBalanceCommand(output, context);
   }
 
   // Start section: command_body_extra

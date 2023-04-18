@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import {
-  DescribeDataSourceRequest,
-  DescribeDataSourceRequestFilterSensitiveLog,
-  DescribeDataSourceResponse,
-  DescribeDataSourceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeDataSourceCommand,
-  serializeAws_json1_1DescribeDataSourceCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeDataSourceRequest, DescribeDataSourceResponse } from "../models/models_0";
+import { de_DescribeDataSourceCommand, se_DescribeDataSourceCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeDataSourceCommand}.
+ */
 export interface DescribeDataSourceCommandInput extends DescribeDataSourceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeDataSourceCommand}.
+ */
 export interface DescribeDataSourceCommandOutput extends DescribeDataSourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about an Amazon Kendra data source connector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,40 @@ export interface DescribeDataSourceCommandOutput extends DescribeDataSourceRespo
  * import { KendraClient, DescribeDataSourceCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, DescribeDataSourceCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
+ * const input = { // DescribeDataSourceRequest
+ *   Id: "STRING_VALUE", // required
+ *   IndexId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeDataSourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDataSourceCommandInput - {@link DescribeDataSourceCommandInput}
+ * @returns {@link DescribeDataSourceCommandOutput}
  * @see {@link DescribeDataSourceCommandInput} for command's `input` shape.
  * @see {@link DescribeDataSourceCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient access to perform this action. Please ensure you have the
+ *             required permission policies and user accounts and try again.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
+ *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource you want to use doesn’t exist. Please check you have provided the correct
+ *             resource and try again.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling. Please reduce the number of requests
+ *             and try again.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
+ *             Please provide the correct input and try again.</p>
+ *
  *
  */
 export class DescribeDataSourceCommand extends $Command<
@@ -62,6 +92,9 @@ export class DescribeDataSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDataSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +123,8 @@ export class DescribeDataSourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDataSourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDataSourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +134,18 @@ export class DescribeDataSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDataSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDataSourceCommand(input, context);
+    return se_DescribeDataSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDataSourceCommandOutput> {
-    return deserializeAws_json1_1DescribeDataSourceCommand(output, context);
+    return de_DescribeDataSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

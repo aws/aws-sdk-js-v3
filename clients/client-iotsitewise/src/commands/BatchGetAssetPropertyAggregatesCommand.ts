@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
+import { BatchGetAssetPropertyAggregatesRequest, BatchGetAssetPropertyAggregatesResponse } from "../models/models_0";
 import {
-  BatchGetAssetPropertyAggregatesRequest,
-  BatchGetAssetPropertyAggregatesRequestFilterSensitiveLog,
-  BatchGetAssetPropertyAggregatesResponse,
-  BatchGetAssetPropertyAggregatesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchGetAssetPropertyAggregatesCommand,
-  serializeAws_restJson1BatchGetAssetPropertyAggregatesCommand,
+  de_BatchGetAssetPropertyAggregatesCommand,
+  se_BatchGetAssetPropertyAggregatesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchGetAssetPropertyAggregatesCommand}.
+ */
 export interface BatchGetAssetPropertyAggregatesCommandInput extends BatchGetAssetPropertyAggregatesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link BatchGetAssetPropertyAggregatesCommand}.
+ */
 export interface BatchGetAssetPropertyAggregatesCommandOutput
   extends BatchGetAssetPropertyAggregatesResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets aggregated values (for example, average, minimum, and maximum) for one or more asset
  *       properties. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#aggregates">Querying aggregates</a> in the
  *         <i>IoT SiteWise User Guide</i>.</p>
@@ -40,13 +46,54 @@ export interface BatchGetAssetPropertyAggregatesCommandOutput
  * import { IoTSiteWiseClient, BatchGetAssetPropertyAggregatesCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, BatchGetAssetPropertyAggregatesCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = { // BatchGetAssetPropertyAggregatesRequest
+ *   entries: [ // BatchGetAssetPropertyAggregatesEntries // required
+ *     { // BatchGetAssetPropertyAggregatesEntry
+ *       entryId: "STRING_VALUE", // required
+ *       assetId: "STRING_VALUE",
+ *       propertyId: "STRING_VALUE",
+ *       propertyAlias: "STRING_VALUE",
+ *       aggregateTypes: [ // AggregateTypes // required
+ *         "AVERAGE" || "COUNT" || "MAXIMUM" || "MINIMUM" || "SUM" || "STANDARD_DEVIATION",
+ *       ],
+ *       resolution: "STRING_VALUE", // required
+ *       startDate: new Date("TIMESTAMP"), // required
+ *       endDate: new Date("TIMESTAMP"), // required
+ *       qualities: [ // Qualities
+ *         "GOOD" || "BAD" || "UNCERTAIN",
+ *       ],
+ *       timeOrdering: "ASCENDING" || "DESCENDING",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new BatchGetAssetPropertyAggregatesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetAssetPropertyAggregatesCommandInput - {@link BatchGetAssetPropertyAggregatesCommandInput}
+ * @returns {@link BatchGetAssetPropertyAggregatesCommandOutput}
  * @see {@link BatchGetAssetPropertyAggregatesCommandInput} for command's `input` shape.
  * @see {@link BatchGetAssetPropertyAggregatesCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>IoT SiteWise can't process your request right now. Try again later.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
+ *       unsupported characters. Check your request and try again.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The requested service is unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Your request exceeded a rate limit. For example, you might have exceeded the number of
+ *       IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so
+ *       on.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ *
  *
  */
 export class BatchGetAssetPropertyAggregatesCommand extends $Command<
@@ -66,6 +113,9 @@ export class BatchGetAssetPropertyAggregatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetAssetPropertyAggregatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +144,8 @@ export class BatchGetAssetPropertyAggregatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetAssetPropertyAggregatesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetAssetPropertyAggregatesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,18 +155,24 @@ export class BatchGetAssetPropertyAggregatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchGetAssetPropertyAggregatesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchGetAssetPropertyAggregatesCommand(input, context);
+    return se_BatchGetAssetPropertyAggregatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchGetAssetPropertyAggregatesCommandOutput> {
-    return deserializeAws_restJson1BatchGetAssetPropertyAggregatesCommand(output, context);
+    return de_BatchGetAssetPropertyAggregatesCommand(output, context);
   }
 
   // Start section: command_body_extra

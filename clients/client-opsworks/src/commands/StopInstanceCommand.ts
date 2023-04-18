@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StopInstanceRequest, StopInstanceRequestFilterSensitiveLog } from "../models/models_0";
+import { StopInstanceRequest } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1StopInstanceCommand,
-  serializeAws_json1_1StopInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StopInstanceCommand, se_StopInstanceCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link StopInstanceCommand}.
+ */
 export interface StopInstanceCommandInput extends StopInstanceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StopInstanceCommand}.
+ */
 export interface StopInstanceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a specified instance. When you stop a standard instance, the data disappears and must
  *       be reinstalled when you restart the instance. You can stop an Amazon EBS-backed instance without
  *       losing data. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-starting.html">Starting,
@@ -39,13 +47,26 @@ export interface StopInstanceCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, StopInstanceCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, StopInstanceCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // StopInstanceRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   Force: true || false,
+ * };
  * const command = new StopInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopInstanceCommandInput - {@link StopInstanceCommandInput}
+ * @returns {@link StopInstanceCommandOutput}
  * @see {@link StopInstanceCommandInput} for command's `input` shape.
  * @see {@link StopInstanceCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Indicates that a resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that a request was not valid.</p>
+ *
  *
  */
 export class StopInstanceCommand extends $Command<
@@ -65,6 +86,9 @@ export class StopInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +115,8 @@ export class StopInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopInstanceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +126,18 @@ export class StopInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopInstanceCommand(input, context);
+    return se_StopInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopInstanceCommandOutput> {
-    return deserializeAws_json1_1StopInstanceCommand(output, context);
+    return de_StopInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

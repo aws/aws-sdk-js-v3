@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import {
-  CreateDBSubnetGroupMessage,
-  CreateDBSubnetGroupMessageFilterSensitiveLog,
-  CreateDBSubnetGroupResult,
-  CreateDBSubnetGroupResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCreateDBSubnetGroupCommand,
-  serializeAws_queryCreateDBSubnetGroupCommand,
-} from "../protocols/Aws_query";
+import { CreateDBSubnetGroupMessage, CreateDBSubnetGroupResult } from "../models/models_0";
+import { de_CreateDBSubnetGroupCommand, se_CreateDBSubnetGroupCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateDBSubnetGroupCommand}.
+ */
 export interface CreateDBSubnetGroupCommandInput extends CreateDBSubnetGroupMessage {}
+/**
+ * @public
+ *
+ * The output of {@link CreateDBSubnetGroupCommand}.
+ */
 export interface CreateDBSubnetGroupCommandOutput extends CreateDBSubnetGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new subnet group. subnet groups must contain at least one subnet in at
  *             least two Availability Zones in the Amazon Web Services Region.</p>
  * @example
@@ -37,13 +40,46 @@ export interface CreateDBSubnetGroupCommandOutput extends CreateDBSubnetGroupRes
  * import { DocDBClient, CreateDBSubnetGroupCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, CreateDBSubnetGroupCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = { // CreateDBSubnetGroupMessage
+ *   DBSubnetGroupName: "STRING_VALUE", // required
+ *   DBSubnetGroupDescription: "STRING_VALUE", // required
+ *   SubnetIds: [ // SubnetIdentifierList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateDBSubnetGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDBSubnetGroupCommandInput - {@link CreateDBSubnetGroupCommandInput}
+ * @returns {@link CreateDBSubnetGroupCommandOutput}
  * @see {@link CreateDBSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link CreateDBSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
+ *
+ * @throws {@link DBSubnetGroupAlreadyExistsFault} (client fault)
+ *  <p>
+ *             <code>DBSubnetGroupName</code> is already being used by an existing subnet group. </p>
+ *
+ * @throws {@link DBSubnetGroupDoesNotCoverEnoughAZs} (client fault)
+ *  <p>Subnets in the subnet group should cover at least two Availability Zones unless there is only one Availability Zone.</p>
+ *
+ * @throws {@link DBSubnetGroupQuotaExceededFault} (client fault)
+ *  <p>The request would cause you to exceed the allowed number of subnet groups.</p>
+ *
+ * @throws {@link DBSubnetQuotaExceededFault} (client fault)
+ *  <p>The request would cause you to exceed the allowed number of subnets in a subnet group.</p>
+ *
+ * @throws {@link InvalidSubnet} (client fault)
+ *  <p>The requested subnet is not valid, or multiple subnets were requested that are not all
+ *             in a common virtual private cloud (VPC).</p>
+ *
  *
  */
 export class CreateDBSubnetGroupCommand extends $Command<
@@ -63,6 +99,9 @@ export class CreateDBSubnetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDBSubnetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +130,8 @@ export class CreateDBSubnetGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDBSubnetGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDBSubnetGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +141,18 @@ export class CreateDBSubnetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDBSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateDBSubnetGroupCommand(input, context);
+    return se_CreateDBSubnetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDBSubnetGroupCommandOutput> {
-    return deserializeAws_queryCreateDBSubnetGroupCommand(output, context);
+    return de_CreateDBSubnetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

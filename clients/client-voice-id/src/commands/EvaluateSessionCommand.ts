@@ -15,20 +15,27 @@ import {
 
 import {
   EvaluateSessionRequest,
-  EvaluateSessionRequestFilterSensitiveLog,
   EvaluateSessionResponse,
   EvaluateSessionResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0EvaluateSessionCommand,
-  serializeAws_json1_0EvaluateSessionCommand,
-} from "../protocols/Aws_json1_0";
+import { de_EvaluateSessionCommand, se_EvaluateSessionCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
+/**
+ * @public
+ *
+ * The input for {@link EvaluateSessionCommand}.
+ */
 export interface EvaluateSessionCommandInput extends EvaluateSessionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link EvaluateSessionCommand}.
+ */
 export interface EvaluateSessionCommandOutput extends EvaluateSessionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Evaluates a specified session based on audio data accumulated during a streaming
  *             Amazon Connect Voice ID call.</p>
  * @example
@@ -37,13 +44,45 @@ export interface EvaluateSessionCommandOutput extends EvaluateSessionResponse, _
  * import { VoiceIDClient, EvaluateSessionCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
  * // const { VoiceIDClient, EvaluateSessionCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
  * const client = new VoiceIDClient(config);
+ * const input = { // EvaluateSessionRequest
+ *   DomainId: "STRING_VALUE", // required
+ *   SessionNameOrId: "STRING_VALUE", // required
+ * };
  * const command = new EvaluateSessionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EvaluateSessionCommandInput - {@link EvaluateSessionCommandInput}
+ * @returns {@link EvaluateSessionCommandOutput}
  * @see {@link EvaluateSessionCommandInput} for command's `input` shape.
  * @see {@link EvaluateSessionCommandOutput} for command's `response` shape.
  * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action. Check the error message
+ *             and try again.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request failed due to a conflict. Check the <code>ConflictType</code> and error
+ *             message for more details.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request failed due to an unknown error on the server side.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource cannot be found. Check the <code>ResourceType</code> and error
+ *             message for more details.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling. Please slow down your request rate.
+ *             Refer to <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html##voiceid-api-quotas">
+ *                 Amazon Connect Voice ID Service API throttling quotas </a> and try your
+ *             request again.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request failed one or more validations; check the error message for more
+ *             details.</p>
+ *
  *
  */
 export class EvaluateSessionCommand extends $Command<
@@ -63,6 +102,9 @@ export class EvaluateSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EvaluateSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,7 +133,7 @@ export class EvaluateSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EvaluateSessionRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: EvaluateSessionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -102,12 +144,18 @@ export class EvaluateSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EvaluateSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0EvaluateSessionCommand(input, context);
+    return se_EvaluateSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EvaluateSessionCommandOutput> {
-    return deserializeAws_json1_0EvaluateSessionCommand(output, context);
+    return de_EvaluateSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

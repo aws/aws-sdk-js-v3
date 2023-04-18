@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import {
-  GetMetricWidgetImageInput,
-  GetMetricWidgetImageInputFilterSensitiveLog,
-  GetMetricWidgetImageOutput,
-  GetMetricWidgetImageOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryGetMetricWidgetImageCommand,
-  serializeAws_queryGetMetricWidgetImageCommand,
-} from "../protocols/Aws_query";
+import { GetMetricWidgetImageInput, GetMetricWidgetImageOutput } from "../models/models_0";
+import { de_GetMetricWidgetImageCommand, se_GetMetricWidgetImageCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link GetMetricWidgetImageCommand}.
+ */
 export interface GetMetricWidgetImageCommandInput extends GetMetricWidgetImageInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetMetricWidgetImageCommand}.
+ */
 export interface GetMetricWidgetImageCommandOutput extends GetMetricWidgetImageOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>You can use the <code>GetMetricWidgetImage</code> API to retrieve a snapshot graph of
  * 			one or more Amazon CloudWatch metrics as a bitmap image. You can then embed this
  * 			image into your services and products, such as wiki pages, reports, and documents.
@@ -51,13 +54,20 @@ export interface GetMetricWidgetImageCommandOutput extends GetMetricWidgetImageO
  * import { CloudWatchClient, GetMetricWidgetImageCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, GetMetricWidgetImageCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
+ * const input = { // GetMetricWidgetImageInput
+ *   MetricWidget: "STRING_VALUE", // required
+ *   OutputFormat: "STRING_VALUE",
+ * };
  * const command = new GetMetricWidgetImageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMetricWidgetImageCommandInput - {@link GetMetricWidgetImageCommandInput}
+ * @returns {@link GetMetricWidgetImageCommandOutput}
  * @see {@link GetMetricWidgetImageCommandInput} for command's `input` shape.
  * @see {@link GetMetricWidgetImageCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
+ *
  *
  */
 export class GetMetricWidgetImageCommand extends $Command<
@@ -77,6 +87,9 @@ export class GetMetricWidgetImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMetricWidgetImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +118,8 @@ export class GetMetricWidgetImageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMetricWidgetImageInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMetricWidgetImageOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +129,18 @@ export class GetMetricWidgetImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMetricWidgetImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetMetricWidgetImageCommand(input, context);
+    return se_GetMetricWidgetImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMetricWidgetImageCommandOutput> {
-    return deserializeAws_queryGetMetricWidgetImageCommand(output, context);
+    return de_GetMetricWidgetImageCommand(output, context);
   }
 
   // Start section: command_body_extra

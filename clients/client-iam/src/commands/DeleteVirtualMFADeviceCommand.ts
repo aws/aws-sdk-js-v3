@@ -14,34 +14,75 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { DeleteVirtualMFADeviceRequest, DeleteVirtualMFADeviceRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteVirtualMFADeviceCommand,
-  serializeAws_queryDeleteVirtualMFADeviceCommand,
-} from "../protocols/Aws_query";
+import { DeleteVirtualMFADeviceRequest } from "../models/models_0";
+import { de_DeleteVirtualMFADeviceCommand, se_DeleteVirtualMFADeviceCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteVirtualMFADeviceCommand}.
+ */
 export interface DeleteVirtualMFADeviceCommandInput extends DeleteVirtualMFADeviceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteVirtualMFADeviceCommand}.
+ */
 export interface DeleteVirtualMFADeviceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a virtual MFA device.</p>
- *         <note>
+ *          <note>
  *             <p> You must deactivate a user's virtual MFA device before you can delete it. For
  *                 information about deactivating MFA devices, see <a>DeactivateMFADevice</a>. </p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IAMClient, DeleteVirtualMFADeviceCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, DeleteVirtualMFADeviceCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // DeleteVirtualMFADeviceRequest
+ *   SerialNumber: "STRING_VALUE", // required
+ * };
  * const command = new DeleteVirtualMFADeviceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVirtualMFADeviceCommandInput - {@link DeleteVirtualMFADeviceCommandInput}
+ * @returns {@link DeleteVirtualMFADeviceCommandOutput}
  * @see {@link DeleteVirtualMFADeviceCommandInput} for command's `input` shape.
  * @see {@link DeleteVirtualMFADeviceCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link DeleteConflictException} (client fault)
+ *  <p>The request was rejected because it attempted to delete a resource that has attached
+ *       subordinate entities. The error message describes these entities.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request was rejected because it attempted to create resources beyond the current
+ *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
+ *
+ * @example To remove a virtual MFA device
+ * ```javascript
+ * // The following delete-virtual-mfa-device command removes the specified MFA device from the current AWS account.
+ * const input = {
+ *   "SerialNumber": "arn:aws:iam::123456789012:mfa/ExampleName"
+ * };
+ * const command = new DeleteVirtualMFADeviceCommand(input);
+ * await client.send(command);
+ * // example id: 2933b08b-dbe7-4b89-b8c1-fdf75feea1ee
+ * ```
  *
  */
 export class DeleteVirtualMFADeviceCommand extends $Command<
@@ -61,6 +102,9 @@ export class DeleteVirtualMFADeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVirtualMFADeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +133,8 @@ export class DeleteVirtualMFADeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVirtualMFADeviceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +144,18 @@ export class DeleteVirtualMFADeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVirtualMFADeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteVirtualMFADeviceCommand(input, context);
+    return se_DeleteVirtualMFADeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVirtualMFADeviceCommandOutput> {
-    return deserializeAws_queryDeleteVirtualMFADeviceCommand(output, context);
+    return de_DeleteVirtualMFADeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

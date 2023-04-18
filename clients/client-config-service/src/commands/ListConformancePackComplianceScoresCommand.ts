@@ -16,26 +16,35 @@ import {
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import {
   ListConformancePackComplianceScoresRequest,
-  ListConformancePackComplianceScoresRequestFilterSensitiveLog,
   ListConformancePackComplianceScoresResponse,
-  ListConformancePackComplianceScoresResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListConformancePackComplianceScoresCommand,
-  serializeAws_json1_1ListConformancePackComplianceScoresCommand,
+  de_ListConformancePackComplianceScoresCommand,
+  se_ListConformancePackComplianceScoresCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListConformancePackComplianceScoresCommand}.
+ */
 export interface ListConformancePackComplianceScoresCommandInput extends ListConformancePackComplianceScoresRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListConformancePackComplianceScoresCommand}.
+ */
 export interface ListConformancePackComplianceScoresCommandOutput
   extends ListConformancePackComplianceScoresResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of conformance pack compliance scores.
  * 			A compliance score is the percentage of the number of compliant rule-resource combinations in a conformance pack compared to the number of total possible rule-resource combinations in the conformance pack.
  * 			This metric provides you with a high-level view of the compliance state of your conformance packs. You can use it to identify, investigate, and understand
  * 			the level of compliance in your conformance packs.</p>
- * 		       <note>
+ *          <note>
  *             <p>Conformance packs with no evaluation results will have a compliance score of <code>INSUFFICIENT_DATA</code>.</p>
  *          </note>
  * @example
@@ -44,13 +53,39 @@ export interface ListConformancePackComplianceScoresCommandOutput
  * import { ConfigServiceClient, ListConformancePackComplianceScoresCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, ListConformancePackComplianceScoresCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // ListConformancePackComplianceScoresRequest
+ *   Filters: { // ConformancePackComplianceScoresFilters
+ *     ConformancePackNames: [ // ConformancePackNameFilter // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   SortOrder: "ASCENDING" || "DESCENDING",
+ *   SortBy: "SCORE",
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListConformancePackComplianceScoresCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListConformancePackComplianceScoresCommandInput - {@link ListConformancePackComplianceScoresCommandInput}
+ * @returns {@link ListConformancePackComplianceScoresCommandOutput}
  * @see {@link ListConformancePackComplianceScoresCommandInput} for command's `input` shape.
  * @see {@link ListConformancePackComplianceScoresCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
+ *
+ * @throws {@link InvalidLimitException} (client fault)
+ *  <p>The specified limit is outside the allowable range.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The specified next token is not valid. Specify the
+ * 				<code>nextToken</code> string that was returned in the previous
+ * 			response to get the next page of results.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One or more of the specified parameters are not valid. Verify
+ * 			that your parameters are valid and try again.</p>
+ *
  *
  */
 export class ListConformancePackComplianceScoresCommand extends $Command<
@@ -70,6 +105,9 @@ export class ListConformancePackComplianceScoresCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListConformancePackComplianceScoresCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +136,8 @@ export class ListConformancePackComplianceScoresCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListConformancePackComplianceScoresRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListConformancePackComplianceScoresResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,18 +147,24 @@ export class ListConformancePackComplianceScoresCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListConformancePackComplianceScoresCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListConformancePackComplianceScoresCommand(input, context);
+    return se_ListConformancePackComplianceScoresCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListConformancePackComplianceScoresCommandOutput> {
-    return deserializeAws_json1_1ListConformancePackComplianceScoresCommand(output, context);
+    return de_ListConformancePackComplianceScoresCommand(output, context);
   }
 
   // Start section: command_body_extra

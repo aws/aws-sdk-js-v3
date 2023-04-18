@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DisassociateAddressRequest, DisassociateAddressRequestFilterSensitiveLog } from "../models/models_5";
-import {
-  deserializeAws_ec2DisassociateAddressCommand,
-  serializeAws_ec2DisassociateAddressCommand,
-} from "../protocols/Aws_ec2";
+import { DisassociateAddressRequest } from "../models/models_5";
+import { de_DisassociateAddressCommand, se_DisassociateAddressCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DisassociateAddressCommand}.
+ */
 export interface DisassociateAddressCommandInput extends DisassociateAddressRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateAddressCommand}.
+ */
 export interface DisassociateAddressCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates an Elastic IP address from the instance or network interface it's associated with.</p>
  *          <p>An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For more
  * 			information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP
@@ -38,13 +46,43 @@ export interface DisassociateAddressCommandOutput extends __MetadataBearer {}
  * import { EC2Client, DisassociateAddressCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DisassociateAddressCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DisassociateAddressRequest
+ *   AssociationId: "STRING_VALUE",
+ *   PublicIp: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new DisassociateAddressCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateAddressCommandInput - {@link DisassociateAddressCommandInput}
+ * @returns {@link DisassociateAddressCommandOutput}
  * @see {@link DisassociateAddressCommandInput} for command's `input` shape.
  * @see {@link DisassociateAddressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ *
+ * @example To disassociate an Elastic IP address in EC2-VPC
+ * ```javascript
+ * // This example disassociates an Elastic IP address from an instance in a VPC.
+ * const input = {
+ *   "AssociationId": "eipassoc-2bebb745"
+ * };
+ * const command = new DisassociateAddressCommand(input);
+ * await client.send(command);
+ * // example id: ec2-disassociate-address-1
+ * ```
+ *
+ * @example To disassociate an Elastic IP addresses in EC2-Classic
+ * ```javascript
+ * // This example disassociates an Elastic IP address from an instance in EC2-Classic.
+ * const input = {
+ *   "PublicIp": "198.51.100.0"
+ * };
+ * const command = new DisassociateAddressCommand(input);
+ * await client.send(command);
+ * // example id: ec2-disassociate-address-2
+ * ```
  *
  */
 export class DisassociateAddressCommand extends $Command<
@@ -64,6 +102,9 @@ export class DisassociateAddressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateAddressCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +133,8 @@ export class DisassociateAddressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateAddressRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +144,18 @@ export class DisassociateAddressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateAddressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DisassociateAddressCommand(input, context);
+    return se_DisassociateAddressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateAddressCommandOutput> {
-    return deserializeAws_ec2DisassociateAddressCommand(output, context);
+    return de_DisassociateAddressCommand(output, context);
   }
 
   // Start section: command_body_extra

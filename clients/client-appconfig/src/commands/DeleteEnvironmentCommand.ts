@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import { DeleteEnvironmentRequest, DeleteEnvironmentRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteEnvironmentCommand,
-  serializeAws_restJson1DeleteEnvironmentCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteEnvironmentRequest } from "../models/models_0";
+import { de_DeleteEnvironmentCommand, se_DeleteEnvironmentCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteEnvironmentCommand}.
+ */
 export interface DeleteEnvironmentCommandInput extends DeleteEnvironmentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteEnvironmentCommand}.
+ */
 export interface DeleteEnvironmentCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an environment. Deleting an environment does not delete a configuration from a
  *          host.</p>
  * @example
@@ -32,13 +40,45 @@ export interface DeleteEnvironmentCommandOutput extends __MetadataBearer {}
  * import { AppConfigClient, DeleteEnvironmentCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, DeleteEnvironmentCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = { // DeleteEnvironmentRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   EnvironmentId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEnvironmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEnvironmentCommandInput - {@link DeleteEnvironmentCommandInput}
+ * @returns {@link DeleteEnvironmentCommandOutput}
  * @see {@link DeleteEnvironmentCommandInput} for command's `input` shape.
  * @see {@link DeleteEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be processed because of conflict in the current state of the
+ *          resource.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There was an internal failure in the AppConfig service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource could not be found.</p>
+ *
+ *
+ * @example To delete an environment
+ * ```javascript
+ * // The following delete-environment example deletes the specified application environment.
+ * const input = {
+ *   "ApplicationId": "339ohji",
+ *   "EnvironmentId": "54j1r29"
+ * };
+ * const command = new DeleteEnvironmentCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-an-environment-1632265641044
+ * ```
  *
  */
 export class DeleteEnvironmentCommand extends $Command<
@@ -58,6 +98,9 @@ export class DeleteEnvironmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -86,8 +129,8 @@ export class DeleteEnvironmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEnvironmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -97,12 +140,18 @@ export class DeleteEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteEnvironmentCommand(input, context);
+    return se_DeleteEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEnvironmentCommandOutput> {
-    return deserializeAws_restJson1DeleteEnvironmentCommand(output, context);
+    return de_DeleteEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

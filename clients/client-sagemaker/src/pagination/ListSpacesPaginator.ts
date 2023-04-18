@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListSpacesCommand, ListSpacesCommandInput, ListSpacesCommandOutput } from "../commands/ListSpacesCommand";
-import { SageMaker } from "../SageMaker";
 import { SageMakerClient } from "../SageMakerClient";
 import { SageMakerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SageMakerClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListSpacesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: SageMaker,
-  input: ListSpacesCommandInput,
-  ...args: any
-): Promise<ListSpacesCommandOutput> => {
-  // @ts-ignore
-  return await client.listSpaces(input, ...args);
-};
 export async function* paginateListSpaces(
   config: SageMakerPaginationConfiguration,
   input: ListSpacesCommandInput,
@@ -40,9 +31,7 @@ export async function* paginateListSpaces(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof SageMaker) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SageMakerClient) {
+    if (config.client instanceof SageMakerClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SageMaker | SageMakerClient");

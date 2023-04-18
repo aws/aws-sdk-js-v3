@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { TagInstanceProfileRequest, TagInstanceProfileRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryTagInstanceProfileCommand,
-  serializeAws_queryTagInstanceProfileCommand,
-} from "../protocols/Aws_query";
+import { TagInstanceProfileRequest } from "../models/models_0";
+import { de_TagInstanceProfileCommand, se_TagInstanceProfileCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link TagInstanceProfileCommand}.
+ */
 export interface TagInstanceProfileCommandInput extends TagInstanceProfileRequest {}
+/**
+ * @public
+ *
+ * The output of {@link TagInstanceProfileCommand}.
+ */
 export interface TagInstanceProfileCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds one or more tags to an IAM instance profile. If a tag with the same key name
  *       already exists, then that tag is overwritten with the new value.</p>
  *          <p>Each tag consists of a key name and an associated value. By assigning tags to your resources, you can do the
@@ -66,13 +74,45 @@ export interface TagInstanceProfileCommandOutput extends __MetadataBearer {}
  * import { IAMClient, TagInstanceProfileCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, TagInstanceProfileCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // TagInstanceProfileRequest
+ *   InstanceProfileName: "STRING_VALUE", // required
+ *   Tags: [ // tagListType // required
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new TagInstanceProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TagInstanceProfileCommandInput - {@link TagInstanceProfileCommandInput}
+ * @returns {@link TagInstanceProfileCommandOutput}
  * @see {@link TagInstanceProfileCommandInput} for command's `input` shape.
  * @see {@link TagInstanceProfileCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>The request was rejected because multiple requests to change this object were submitted
+ *       simultaneously. Wait a few minutes and submit your request again.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
+ *       input parameter.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request was rejected because it attempted to create resources beyond the current
+ *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
  *
  */
 export class TagInstanceProfileCommand extends $Command<
@@ -92,6 +132,9 @@ export class TagInstanceProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TagInstanceProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +163,8 @@ export class TagInstanceProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagInstanceProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +174,18 @@ export class TagInstanceProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TagInstanceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryTagInstanceProfileCommand(input, context);
+    return se_TagInstanceProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagInstanceProfileCommandOutput> {
-    return deserializeAws_queryTagInstanceProfileCommand(output, context);
+    return de_TagInstanceProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { CreateOrUpdateTagsType, CreateOrUpdateTagsTypeFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryCreateOrUpdateTagsCommand,
-  serializeAws_queryCreateOrUpdateTagsCommand,
-} from "../protocols/Aws_query";
+import { CreateOrUpdateTagsType } from "../models/models_0";
+import { de_CreateOrUpdateTagsCommand, se_CreateOrUpdateTagsCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateOrUpdateTagsCommand}.
+ */
 export interface CreateOrUpdateTagsCommandInput extends CreateOrUpdateTagsType {}
+/**
+ * @public
+ *
+ * The output of {@link CreateOrUpdateTagsCommand}.
+ */
 export interface CreateOrUpdateTagsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates tags for the specified Auto Scaling group.</p>
  *          <p>When you specify a tag with a key that already exists, the operation overwrites the
  *             previous tag definition, and you do not get an error message.</p>
@@ -35,13 +43,69 @@ export interface CreateOrUpdateTagsCommandOutput extends __MetadataBearer {}
  * import { AutoScalingClient, CreateOrUpdateTagsCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, CreateOrUpdateTagsCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = { // CreateOrUpdateTagsType
+ *   Tags: [ // Tags // required
+ *     { // Tag
+ *       ResourceId: "STRING_VALUE",
+ *       ResourceType: "STRING_VALUE",
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *       PropagateAtLaunch: true || false,
+ *     },
+ *   ],
+ * };
  * const command = new CreateOrUpdateTagsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateOrUpdateTagsCommandInput - {@link CreateOrUpdateTagsCommandInput}
+ * @returns {@link CreateOrUpdateTagsCommandOutput}
  * @see {@link CreateOrUpdateTagsCommandInput} for command's `input` shape.
  * @see {@link CreateOrUpdateTagsCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
+ *
+ * @throws {@link AlreadyExistsFault} (client fault)
+ *  <p>You already have an Auto Scaling group or launch configuration with this name.</p>
+ *
+ * @throws {@link LimitExceededFault} (client fault)
+ *  <p>You have already reached a limit for your Amazon EC2 Auto Scaling
+ *             resources (for example, Auto Scaling groups, launch configurations, or lifecycle hooks). For
+ *             more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html">DescribeAccountLimits</a> in the <i>Amazon EC2 Auto Scaling API
+ *             Reference</i>.</p>
+ *
+ * @throws {@link ResourceContentionFault} (server fault)
+ *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
+ *             instance, or load balancer).</p>
+ *
+ * @throws {@link ResourceInUseFault} (client fault)
+ *  <p>The operation can't be performed because the resource is in use.</p>
+ *
+ *
+ * @example To create or update tags for an Auto Scaling group
+ * ```javascript
+ * // This example adds two tags to the specified Auto Scaling group.
+ * const input = {
+ *   "Tags": [
+ *     {
+ *       "Key": "Role",
+ *       "PropagateAtLaunch": true,
+ *       "ResourceId": "my-auto-scaling-group",
+ *       "ResourceType": "auto-scaling-group",
+ *       "Value": "WebServer"
+ *     },
+ *     {
+ *       "Key": "Dept",
+ *       "PropagateAtLaunch": true,
+ *       "ResourceId": "my-auto-scaling-group",
+ *       "ResourceType": "auto-scaling-group",
+ *       "Value": "Research"
+ *     }
+ *   ]
+ * };
+ * const command = new CreateOrUpdateTagsCommand(input);
+ * await client.send(command);
+ * // example id: autoscaling-create-or-update-tags-1
+ * ```
  *
  */
 export class CreateOrUpdateTagsCommand extends $Command<
@@ -61,6 +125,9 @@ export class CreateOrUpdateTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateOrUpdateTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +156,8 @@ export class CreateOrUpdateTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateOrUpdateTagsTypeFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +167,18 @@ export class CreateOrUpdateTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateOrUpdateTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateOrUpdateTagsCommand(input, context);
+    return se_CreateOrUpdateTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateOrUpdateTagsCommandOutput> {
-    return deserializeAws_queryCreateOrUpdateTagsCommand(output, context);
+    return de_CreateOrUpdateTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

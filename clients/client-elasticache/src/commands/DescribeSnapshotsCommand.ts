@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  DescribeSnapshotsListMessage,
-  DescribeSnapshotsListMessageFilterSensitiveLog,
-  DescribeSnapshotsMessage,
-  DescribeSnapshotsMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeSnapshotsCommand,
-  serializeAws_queryDescribeSnapshotsCommand,
-} from "../protocols/Aws_query";
+import { DescribeSnapshotsListMessage, DescribeSnapshotsMessage } from "../models/models_0";
+import { de_DescribeSnapshotsCommand, se_DescribeSnapshotsCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeSnapshotsCommand}.
+ */
 export interface DescribeSnapshotsCommandInput extends DescribeSnapshotsMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeSnapshotsCommand}.
+ */
 export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsListMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about cluster or replication group snapshots.
  *             By default, <code>DescribeSnapshots</code> lists all of your snapshots; it can optionally
  *             describe a single snapshot, or just the snapshots associated with a particular cache
@@ -42,13 +45,83 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsListMes
  * import { ElastiCacheClient, DescribeSnapshotsCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DescribeSnapshotsCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // DescribeSnapshotsMessage
+ *   ReplicationGroupId: "STRING_VALUE",
+ *   CacheClusterId: "STRING_VALUE",
+ *   SnapshotName: "STRING_VALUE",
+ *   SnapshotSource: "STRING_VALUE",
+ *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   ShowNodeGroupConfig: true || false,
+ * };
  * const command = new DescribeSnapshotsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSnapshotsCommandInput - {@link DescribeSnapshotsCommandInput}
+ * @returns {@link DescribeSnapshotsCommandOutput}
  * @see {@link DescribeSnapshotsCommandInput} for command's `input` shape.
  * @see {@link DescribeSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
+ *
+ * @throws {@link CacheClusterNotFoundFault} (client fault)
+ *  <p>The requested cluster ID does not refer to an existing cluster.</p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
+ * @throws {@link SnapshotNotFoundFault} (client fault)
+ *  <p>The requested snapshot name does not refer to an existing snapshot.</p>
+ *
+ *
+ * @example DescribeSnapshots
+ * ```javascript
+ * // Returns information about the snapshot mysnapshot. By default.
+ * const input = {
+ *   "SnapshotName": "snapshot-20161212"
+ * };
+ * const command = new DescribeSnapshotsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Marker": "",
+ *   "Snapshots": [
+ *     {
+ *       "AutoMinorVersionUpgrade": true,
+ *       "CacheClusterCreateTime": "2016-12-21T22:27:12.543Z",
+ *       "CacheClusterId": "my-redis5",
+ *       "CacheNodeType": "cache.m3.large",
+ *       "CacheParameterGroupName": "default.redis3.2",
+ *       "CacheSubnetGroupName": "default",
+ *       "Engine": "redis",
+ *       "EngineVersion": "3.2.4",
+ *       "NodeSnapshots": [
+ *         {
+ *           "CacheNodeCreateTime": "2016-12-21T22:27:12.543Z",
+ *           "CacheNodeId": "0001",
+ *           "CacheSize": "3 MB",
+ *           "SnapshotCreateTime": "2016-12-21T22:30:26Z"
+ *         }
+ *       ],
+ *       "NumCacheNodes": 1,
+ *       "Port": 6379,
+ *       "PreferredAvailabilityZone": "us-east-1c",
+ *       "PreferredMaintenanceWindow": "fri:05:30-fri:06:30",
+ *       "SnapshotName": "snapshot-20161212",
+ *       "SnapshotRetentionLimit": 7,
+ *       "SnapshotSource": "manual",
+ *       "SnapshotStatus": "available",
+ *       "SnapshotWindow": "10:00-11:00",
+ *       "VpcId": "vpc-91280df6"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: describesnapshots-1481743399584
+ * ```
  *
  */
 export class DescribeSnapshotsCommand extends $Command<
@@ -68,6 +141,9 @@ export class DescribeSnapshotsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSnapshotsCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +172,8 @@ export class DescribeSnapshotsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSnapshotsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSnapshotsListMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +183,18 @@ export class DescribeSnapshotsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSnapshotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeSnapshotsCommand(input, context);
+    return se_DescribeSnapshotsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSnapshotsCommandOutput> {
-    return deserializeAws_queryDescribeSnapshotsCommand(output, context);
+    return de_DescribeSnapshotsCommand(output, context);
   }
 
   // Start section: command_body_extra

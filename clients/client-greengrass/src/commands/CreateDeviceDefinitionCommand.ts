@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import {
-  CreateDeviceDefinitionRequest,
-  CreateDeviceDefinitionRequestFilterSensitiveLog,
-  CreateDeviceDefinitionResponse,
-  CreateDeviceDefinitionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDeviceDefinitionCommand,
-  serializeAws_restJson1CreateDeviceDefinitionCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateDeviceDefinitionRequest, CreateDeviceDefinitionResponse } from "../models/models_0";
+import { de_CreateDeviceDefinitionCommand, se_CreateDeviceDefinitionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateDeviceDefinitionCommand}.
+ */
 export interface CreateDeviceDefinitionCommandInput extends CreateDeviceDefinitionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateDeviceDefinitionCommand}.
+ */
 export interface CreateDeviceDefinitionCommandOutput extends CreateDeviceDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Creates a device definition. You may provide the initial version of the device definition now or use ''CreateDeviceDefinitionVersion'' at a later time.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,36 @@ export interface CreateDeviceDefinitionCommandOutput extends CreateDeviceDefinit
  * import { GreengrassClient, CreateDeviceDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, CreateDeviceDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // CreateDeviceDefinitionRequest
+ *   AmznClientToken: "STRING_VALUE",
+ *   InitialVersion: { // DeviceDefinitionVersion
+ *     Devices: [ // __listOfDevice
+ *       { // Device
+ *         CertificateArn: "STRING_VALUE", // required
+ *         Id: "STRING_VALUE", // required
+ *         SyncShadow: true || false,
+ *         ThingArn: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ *   Name: "STRING_VALUE",
+ *   tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateDeviceDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDeviceDefinitionCommandInput - {@link CreateDeviceDefinitionCommandInput}
+ * @returns {@link CreateDeviceDefinitionCommandOutput}
  * @see {@link CreateDeviceDefinitionCommandInput} for command's `input` shape.
  * @see {@link CreateDeviceDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  General error information.
+ *
  *
  */
 export class CreateDeviceDefinitionCommand extends $Command<
@@ -62,6 +88,9 @@ export class CreateDeviceDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDeviceDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +119,8 @@ export class CreateDeviceDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDeviceDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDeviceDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +130,18 @@ export class CreateDeviceDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDeviceDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDeviceDefinitionCommand(input, context);
+    return se_CreateDeviceDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDeviceDefinitionCommandOutput> {
-    return deserializeAws_restJson1CreateDeviceDefinitionCommand(output, context);
+    return de_CreateDeviceDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

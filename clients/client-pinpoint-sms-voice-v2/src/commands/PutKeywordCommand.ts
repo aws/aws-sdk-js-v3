@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutKeywordRequest,
-  PutKeywordRequestFilterSensitiveLog,
-  PutKeywordResult,
-  PutKeywordResultFilterSensitiveLog,
-} from "../models/models_0";
+import { PutKeywordRequest, PutKeywordResult } from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import {
-  deserializeAws_json1_0PutKeywordCommand,
-  serializeAws_json1_0PutKeywordCommand,
-} from "../protocols/Aws_json1_0";
+import { de_PutKeywordCommand, se_PutKeywordCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link PutKeywordCommand}.
+ */
 export interface PutKeywordCommandInput extends PutKeywordRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutKeywordCommand}.
+ */
 export interface PutKeywordCommandOutput extends PutKeywordResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates a keyword configuration on an origination phone number or
  *             pool.</p>
  *         <p> A keyword is a word that you can search for on a particular phone number or pool. It
@@ -47,13 +50,49 @@ export interface PutKeywordCommandOutput extends PutKeywordResult, __MetadataBea
  * import { PinpointSMSVoiceV2Client, PutKeywordCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, PutKeywordCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
+ * const input = { // PutKeywordRequest
+ *   OriginationIdentity: "STRING_VALUE", // required
+ *   Keyword: "STRING_VALUE", // required
+ *   KeywordMessage: "STRING_VALUE", // required
+ *   KeywordAction: "STRING_VALUE",
+ * };
  * const command = new PutKeywordCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutKeywordCommandInput - {@link PutKeywordCommandInput}
+ * @returns {@link PutKeywordCommandOutput}
  * @see {@link PutKeywordCommandInput} for command's `input` shape.
  * @see {@link PutKeywordCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The request was denied because you don't have sufficient permissions to access the
+ *             resource.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Your request has conflicting operations. This can occur if you're trying to perform
+ *             more than one operation on the same resource at the same time or it could be that the
+ *             requested action isn't valid for the current state or configuration of the
+ *             resource.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The API encountered an unexpected error and couldn't complete the request. You might
+ *             be able to successfully issue the request again in the future.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A requested resource couldn't be found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request would cause a service quota to be exceeded.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>An error that occurred because too many requests were sent during a certain amount of
+ *             time.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>A validation exception for a field.</p>
+ *
  *
  */
 export class PutKeywordCommand extends $Command<
@@ -73,6 +112,9 @@ export class PutKeywordCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutKeywordCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +141,8 @@ export class PutKeywordCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutKeywordRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutKeywordResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +152,18 @@ export class PutKeywordCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutKeywordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0PutKeywordCommand(input, context);
+    return se_PutKeywordCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutKeywordCommandOutput> {
-    return deserializeAws_json1_0PutKeywordCommand(output, context);
+    return de_PutKeywordCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { PutEmailMonitoringConfigurationRequest, PutEmailMonitoringConfigurationResponse } from "../models/models_0";
 import {
-  PutEmailMonitoringConfigurationRequest,
-  PutEmailMonitoringConfigurationRequestFilterSensitiveLog,
-  PutEmailMonitoringConfigurationResponse,
-  PutEmailMonitoringConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutEmailMonitoringConfigurationCommand,
-  serializeAws_json1_1PutEmailMonitoringConfigurationCommand,
+  de_PutEmailMonitoringConfigurationCommand,
+  se_PutEmailMonitoringConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * @public
+ *
+ * The input for {@link PutEmailMonitoringConfigurationCommand}.
+ */
 export interface PutEmailMonitoringConfigurationCommandInput extends PutEmailMonitoringConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutEmailMonitoringConfigurationCommand}.
+ */
 export interface PutEmailMonitoringConfigurationCommandOutput
   extends PutEmailMonitoringConfigurationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates the email monitoring configuration for a specified organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,35 @@ export interface PutEmailMonitoringConfigurationCommandOutput
  * import { WorkMailClient, PutEmailMonitoringConfigurationCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, PutEmailMonitoringConfigurationCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = { // PutEmailMonitoringConfigurationRequest
+ *   OrganizationId: "STRING_VALUE", // required
+ *   RoleArn: "STRING_VALUE", // required
+ *   LogGroupArn: "STRING_VALUE", // required
+ * };
  * const command = new PutEmailMonitoringConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutEmailMonitoringConfigurationCommandInput - {@link PutEmailMonitoringConfigurationCommandInput}
+ * @returns {@link PutEmailMonitoringConfigurationCommandOutput}
  * @see {@link PutEmailMonitoringConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutEmailMonitoringConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link OrganizationNotFoundException} (client fault)
+ *  <p>An operation received a valid organization identifier that either doesn't belong or
+ *          exist in the system.</p>
+ *
+ * @throws {@link OrganizationStateException} (client fault)
+ *  <p>The organization must have a valid state to perform certain
+ *          operations on the organization or its members.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource cannot be found.</p>
+ *
  *
  */
 export class PutEmailMonitoringConfigurationCommand extends $Command<
@@ -64,6 +92,9 @@ export class PutEmailMonitoringConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutEmailMonitoringConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +123,8 @@ export class PutEmailMonitoringConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutEmailMonitoringConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutEmailMonitoringConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +134,24 @@ export class PutEmailMonitoringConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutEmailMonitoringConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutEmailMonitoringConfigurationCommand(input, context);
+    return se_PutEmailMonitoringConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutEmailMonitoringConfigurationCommandOutput> {
-    return deserializeAws_json1_1PutEmailMonitoringConfigurationCommand(output, context);
+    return de_PutEmailMonitoringConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

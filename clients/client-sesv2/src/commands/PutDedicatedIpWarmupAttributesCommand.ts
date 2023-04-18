@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { PutDedicatedIpWarmupAttributesRequest, PutDedicatedIpWarmupAttributesResponse } from "../models/models_0";
 import {
-  PutDedicatedIpWarmupAttributesRequest,
-  PutDedicatedIpWarmupAttributesRequestFilterSensitiveLog,
-  PutDedicatedIpWarmupAttributesResponse,
-  PutDedicatedIpWarmupAttributesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutDedicatedIpWarmupAttributesCommand,
-  serializeAws_restJson1PutDedicatedIpWarmupAttributesCommand,
+  de_PutDedicatedIpWarmupAttributesCommand,
+  se_PutDedicatedIpWarmupAttributesCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
+/**
+ * @public
+ *
+ * The input for {@link PutDedicatedIpWarmupAttributesCommand}.
+ */
 export interface PutDedicatedIpWarmupAttributesCommandInput extends PutDedicatedIpWarmupAttributesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutDedicatedIpWarmupAttributesCommand}.
+ */
 export interface PutDedicatedIpWarmupAttributesCommandOutput
   extends PutDedicatedIpWarmupAttributesResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p></p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,29 @@ export interface PutDedicatedIpWarmupAttributesCommandOutput
  * import { SESv2Client, PutDedicatedIpWarmupAttributesCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, PutDedicatedIpWarmupAttributesCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = { // PutDedicatedIpWarmupAttributesRequest
+ *   Ip: "STRING_VALUE", // required
+ *   WarmupPercentage: Number("int"), // required
+ * };
  * const command = new PutDedicatedIpWarmupAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutDedicatedIpWarmupAttributesCommandInput - {@link PutDedicatedIpWarmupAttributesCommandInput}
+ * @returns {@link PutDedicatedIpWarmupAttributesCommandOutput}
  * @see {@link PutDedicatedIpWarmupAttributesCommandInput} for command's `input` shape.
  * @see {@link PutDedicatedIpWarmupAttributesCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input you provided is invalid.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource you attempted to access doesn't exist.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Too many requests have been made to the operation.</p>
+ *
  *
  */
 export class PutDedicatedIpWarmupAttributesCommand extends $Command<
@@ -64,6 +86,9 @@ export class PutDedicatedIpWarmupAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutDedicatedIpWarmupAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +117,8 @@ export class PutDedicatedIpWarmupAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutDedicatedIpWarmupAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutDedicatedIpWarmupAttributesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +128,24 @@ export class PutDedicatedIpWarmupAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutDedicatedIpWarmupAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutDedicatedIpWarmupAttributesCommand(input, context);
+    return se_PutDedicatedIpWarmupAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutDedicatedIpWarmupAttributesCommandOutput> {
-    return deserializeAws_restJson1PutDedicatedIpWarmupAttributesCommand(output, context);
+    return de_PutDedicatedIpWarmupAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

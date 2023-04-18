@@ -15,20 +15,27 @@ import {
 
 import {
   ListLaunchProfilesRequest,
-  ListLaunchProfilesRequestFilterSensitiveLog,
   ListLaunchProfilesResponse,
   ListLaunchProfilesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1ListLaunchProfilesCommand,
-  serializeAws_restJson1ListLaunchProfilesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListLaunchProfilesCommand, se_ListLaunchProfilesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListLaunchProfilesCommand}.
+ */
 export interface ListLaunchProfilesCommandInput extends ListLaunchProfilesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListLaunchProfilesCommand}.
+ */
 export interface ListLaunchProfilesCommandOutput extends ListLaunchProfilesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List all the launch profiles a studio.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +43,49 @@ export interface ListLaunchProfilesCommandOutput extends ListLaunchProfilesRespo
  * import { NimbleClient, ListLaunchProfilesCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, ListLaunchProfilesCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = { // ListLaunchProfilesRequest
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   principalId: "STRING_VALUE",
+ *   states: [ // LaunchProfileStateList
+ *     "CREATE_IN_PROGRESS" || "READY" || "UPDATE_IN_PROGRESS" || "DELETE_IN_PROGRESS" || "DELETED" || "DELETE_FAILED" || "CREATE_FAILED" || "UPDATE_FAILED",
+ *   ],
+ *   studioId: "STRING_VALUE", // required
+ * };
  * const command = new ListLaunchProfilesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLaunchProfilesCommandInput - {@link ListLaunchProfilesCommandInput}
+ * @returns {@link ListLaunchProfilesCommandOutput}
  * @see {@link ListLaunchProfilesCommandInput} for command's `input` shape.
  * @see {@link ListLaunchProfilesCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to perform this operation. Check your IAM
+ *             policies, and ensure that you are using the correct access keys.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Another operation is in progress. </p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>An internal error has occurred. Please retry your request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Your current quota does not allow you to perform the request action. You can request
+ *             increases for some quotas, and other quotas cannot be increased.</p>
+ *         <p>Please use Amazon Web Services Service Quotas to request an increase. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request throughput limit was exceeded.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One of the parameters in the request is invalid.</p>
+ *
  *
  */
 export class ListLaunchProfilesCommand extends $Command<
@@ -62,6 +105,9 @@ export class ListLaunchProfilesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLaunchProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +136,7 @@ export class ListLaunchProfilesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLaunchProfilesRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListLaunchProfilesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -101,12 +147,18 @@ export class ListLaunchProfilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLaunchProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListLaunchProfilesCommand(input, context);
+    return se_ListLaunchProfilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLaunchProfilesCommandOutput> {
-    return deserializeAws_restJson1ListLaunchProfilesCommand(output, context);
+    return de_ListLaunchProfilesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetChangeTokenStatusRequest,
-  GetChangeTokenStatusRequestFilterSensitiveLog,
-  GetChangeTokenStatusResponse,
-  GetChangeTokenStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetChangeTokenStatusCommand,
-  serializeAws_json1_1GetChangeTokenStatusCommand,
-} from "../protocols/Aws_json1_1";
+import { GetChangeTokenStatusRequest, GetChangeTokenStatusResponse } from "../models/models_0";
+import { de_GetChangeTokenStatusCommand, se_GetChangeTokenStatusCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetChangeTokenStatusCommand}.
+ */
 export interface GetChangeTokenStatusCommandInput extends GetChangeTokenStatusRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetChangeTokenStatusCommand}.
+ */
 export interface GetChangeTokenStatusCommandOutput extends GetChangeTokenStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -60,13 +63,41 @@ export interface GetChangeTokenStatusCommandOutput extends GetChangeTokenStatusR
  * import { WAFRegionalClient, GetChangeTokenStatusCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, GetChangeTokenStatusCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
+ * const input = { // GetChangeTokenStatusRequest
+ *   ChangeToken: "STRING_VALUE", // required
+ * };
  * const command = new GetChangeTokenStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetChangeTokenStatusCommandInput - {@link GetChangeTokenStatusCommandInput}
+ * @returns {@link GetChangeTokenStatusCommandOutput}
  * @see {@link GetChangeTokenStatusCommandInput} for command's `input` shape.
  * @see {@link GetChangeTokenStatusCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
+ *
+ * @throws {@link WAFInternalErrorException} (server fault)
+ *  <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+ *
+ * @throws {@link WAFNonexistentItemException} (client fault)
+ *  <p>The operation failed because the referenced object doesn't exist.</p>
+ *
+ *
+ * @example To get the change token status
+ * ```javascript
+ * // The following example returns the status of a change token with the ID abcd12f2-46da-4fdb-b8d5-fbd4c466928f.
+ * const input = {
+ *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
+ * };
+ * const command = new GetChangeTokenStatusCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ChangeTokenStatus": "PENDING"
+ * }
+ * *\/
+ * // example id: getchangetokenstatus-1474658417107
+ * ```
  *
  */
 export class GetChangeTokenStatusCommand extends $Command<
@@ -86,6 +117,9 @@ export class GetChangeTokenStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetChangeTokenStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +148,8 @@ export class GetChangeTokenStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetChangeTokenStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetChangeTokenStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +159,18 @@ export class GetChangeTokenStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetChangeTokenStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetChangeTokenStatusCommand(input, context);
+    return se_GetChangeTokenStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetChangeTokenStatusCommandOutput> {
-    return deserializeAws_json1_1GetChangeTokenStatusCommand(output, context);
+    return de_GetChangeTokenStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

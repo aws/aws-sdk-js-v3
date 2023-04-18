@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import {
-  GetDeploymentConfigInput,
-  GetDeploymentConfigInputFilterSensitiveLog,
-  GetDeploymentConfigOutput,
-  GetDeploymentConfigOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetDeploymentConfigCommand,
-  serializeAws_json1_1GetDeploymentConfigCommand,
-} from "../protocols/Aws_json1_1";
+import { GetDeploymentConfigInput, GetDeploymentConfigOutput } from "../models/models_0";
+import { de_GetDeploymentConfigCommand, se_GetDeploymentConfigCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetDeploymentConfigCommand}.
+ */
 export interface GetDeploymentConfigCommandInput extends GetDeploymentConfigInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetDeploymentConfigCommand}.
+ */
 export interface GetDeploymentConfigCommandOutput extends GetDeploymentConfigOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a deployment configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,32 @@ export interface GetDeploymentConfigCommandOutput extends GetDeploymentConfigOut
  * import { CodeDeployClient, GetDeploymentConfigCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, GetDeploymentConfigCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
+ * const input = { // GetDeploymentConfigInput
+ *   deploymentConfigName: "STRING_VALUE", // required
+ * };
  * const command = new GetDeploymentConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDeploymentConfigCommandInput - {@link GetDeploymentConfigCommandInput}
+ * @returns {@link GetDeploymentConfigCommandOutput}
  * @see {@link GetDeploymentConfigCommandInput} for command's `input` shape.
  * @see {@link GetDeploymentConfigCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
+ *
+ * @throws {@link DeploymentConfigDoesNotExistException} (client fault)
+ *  <p>The deployment configuration does not exist with the IAM user or
+ *                 Amazon Web Services account.</p>
+ *
+ * @throws {@link DeploymentConfigNameRequiredException} (client fault)
+ *  <p>The deployment configuration name was not specified.</p>
+ *
+ * @throws {@link InvalidComputePlatformException} (client fault)
+ *  <p>The computePlatform is invalid. The computePlatform should be <code>Lambda</code>, <code>Server</code>, or <code>ECS</code>.</p>
+ *
+ * @throws {@link InvalidDeploymentConfigNameException} (client fault)
+ *  <p>The deployment configuration name was specified in an invalid format.</p>
+ *
  *
  */
 export class GetDeploymentConfigCommand extends $Command<
@@ -62,6 +84,9 @@ export class GetDeploymentConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDeploymentConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +115,8 @@ export class GetDeploymentConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDeploymentConfigInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDeploymentConfigOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +126,18 @@ export class GetDeploymentConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDeploymentConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDeploymentConfigCommand(input, context);
+    return se_GetDeploymentConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDeploymentConfigCommandOutput> {
-    return deserializeAws_json1_1GetDeploymentConfigCommand(output, context);
+    return de_GetDeploymentConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

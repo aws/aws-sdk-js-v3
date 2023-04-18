@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import {
-  ListClustersRequest,
-  ListClustersRequestFilterSensitiveLog,
-  ListClustersResponse,
-  ListClustersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListClustersCommand,
-  serializeAws_restJson1ListClustersCommand,
-} from "../protocols/Aws_restJson1";
+import { ListClustersRequest, ListClustersResponse } from "../models/models_0";
+import { de_ListClustersCommand, se_ListClustersCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListClustersCommand}.
+ */
 export interface ListClustersCommandInput extends ListClustersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListClustersCommand}.
+ */
 export interface ListClustersCommandOutput extends ListClustersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the Amazon EKS clusters in your Amazon Web Services account in the
  *             specified Region.</p>
  * @example
@@ -37,13 +40,55 @@ export interface ListClustersCommandOutput extends ListClustersResponse, __Metad
  * import { EKSClient, ListClustersCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, ListClustersCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
+ * const input = { // ListClustersRequest
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   include: [ // IncludeClustersList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ListClustersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListClustersCommandInput - {@link ListClustersCommandInput}
+ * @returns {@link ListClustersCommandOutput}
  * @see {@link ListClustersCommandInput} for command's `input` shape.
  * @see {@link ListClustersCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action. Actions can include using an
+ *             action or resource on behalf of a user that doesn't have permissions to use the action
+ *             or resource or specifying an identifier that is not valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *             request.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is unavailable. Back off and retry the operation.</p>
+ *
+ *
+ * @example To list your available clusters
+ * ```javascript
+ * // This example command lists all of your available clusters in your default region.
+ * const input = {};
+ * const command = new ListClustersCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "clusters": [
+ *     "devel",
+ *     "prod"
+ *   ]
+ * }
+ * *\/
+ * // example id: to-list-your-available-clusters-1527868801040
+ * ```
  *
  */
 export class ListClustersCommand extends $Command<
@@ -63,6 +108,9 @@ export class ListClustersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListClustersCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +137,8 @@ export class ListClustersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListClustersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListClustersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +148,18 @@ export class ListClustersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListClustersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListClustersCommand(input, context);
+    return se_ListClustersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListClustersCommandOutput> {
-    return deserializeAws_restJson1ListClustersCommand(output, context);
+    return de_ListClustersCommand(output, context);
   }
 
   // Start section: command_body_extra

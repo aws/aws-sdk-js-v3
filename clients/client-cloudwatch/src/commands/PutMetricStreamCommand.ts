@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import {
-  PutMetricStreamInput,
-  PutMetricStreamInputFilterSensitiveLog,
-  PutMetricStreamOutput,
-  PutMetricStreamOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryPutMetricStreamCommand,
-  serializeAws_queryPutMetricStreamCommand,
-} from "../protocols/Aws_query";
+import { PutMetricStreamInput, PutMetricStreamOutput } from "../models/models_0";
+import { de_PutMetricStreamCommand, se_PutMetricStreamCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link PutMetricStreamCommand}.
+ */
 export interface PutMetricStreamCommandInput extends PutMetricStreamInput {}
+/**
+ * @public
+ *
+ * The output of {@link PutMetricStreamCommand}.
+ */
 export interface PutMetricStreamCommandOutput extends PutMetricStreamOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates a metric stream. Metric streams can automatically stream CloudWatch
  * 			metrics to Amazon Web Services destinations, including Amazon S3, and to many third-party
  * 			solutions.</p>
@@ -60,19 +63,76 @@ export interface PutMetricStreamCommandOutput extends PutMetricStreamOutput, __M
  *          <p>When you use <code>PutMetricStream</code> to create a new metric stream, the stream
  * 		is created in the <code>running</code> state. If you use it to update an existing stream,
  * 		the state of the stream is not changed.</p>
+ *          <p>If you are using CloudWatch cross-account observability and you create a metric stream in a monitoring account,
+ * 			you can choose whether to include metrics from source accounts in the stream. For more information, see
+ * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch cross-account observability</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudWatchClient, PutMetricStreamCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, PutMetricStreamCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
+ * const input = { // PutMetricStreamInput
+ *   Name: "STRING_VALUE", // required
+ *   IncludeFilters: [ // MetricStreamFilters
+ *     { // MetricStreamFilter
+ *       Namespace: "STRING_VALUE",
+ *     },
+ *   ],
+ *   ExcludeFilters: [
+ *     {
+ *       Namespace: "STRING_VALUE",
+ *     },
+ *   ],
+ *   FirehoseArn: "STRING_VALUE", // required
+ *   RoleArn: "STRING_VALUE", // required
+ *   OutputFormat: "json" || "opentelemetry0.7", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   StatisticsConfigurations: [ // MetricStreamStatisticsConfigurations
+ *     { // MetricStreamStatisticsConfiguration
+ *       IncludeMetrics: [ // MetricStreamStatisticsIncludeMetrics // required
+ *         { // MetricStreamStatisticsMetric
+ *           Namespace: "STRING_VALUE", // required
+ *           MetricName: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       AdditionalStatistics: [ // MetricStreamStatisticsAdditionalStatistics // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   IncludeLinkedAccountsMetrics: true || false,
+ * };
  * const command = new PutMetricStreamCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutMetricStreamCommandInput - {@link PutMetricStreamCommandInput}
+ * @returns {@link PutMetricStreamCommandOutput}
  * @see {@link PutMetricStreamCommandInput} for command's `input` shape.
  * @see {@link PutMetricStreamCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>More than one process tried to modify a resource at the same time.</p>
+ *
+ * @throws {@link InternalServiceFault} (server fault)
+ *  <p>Request processing has failed due to some unknown error, exception, or failure.</p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Parameters were used together that cannot be used together.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value of an input parameter is bad or out-of-range.</p>
+ *
+ * @throws {@link MissingRequiredParameterException} (client fault)
+ *  <p>An input parameter that is required is missing.</p>
+ *
  *
  */
 export class PutMetricStreamCommand extends $Command<
@@ -92,6 +152,9 @@ export class PutMetricStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutMetricStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +183,8 @@ export class PutMetricStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutMetricStreamInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutMetricStreamOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +194,18 @@ export class PutMetricStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutMetricStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryPutMetricStreamCommand(input, context);
+    return se_PutMetricStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutMetricStreamCommandOutput> {
-    return deserializeAws_queryPutMetricStreamCommand(output, context);
+    return de_PutMetricStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

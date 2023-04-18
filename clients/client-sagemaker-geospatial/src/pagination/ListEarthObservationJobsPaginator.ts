@@ -6,12 +6,11 @@ import {
   ListEarthObservationJobsCommandInput,
   ListEarthObservationJobsCommandOutput,
 } from "../commands/ListEarthObservationJobsCommand";
-import { SageMakerGeospatial } from "../SageMakerGeospatial";
 import { SageMakerGeospatialClient } from "../SageMakerGeospatialClient";
 import { SageMakerGeospatialPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SageMakerGeospatialClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListEarthObservationJobsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: SageMakerGeospatial,
-  input: ListEarthObservationJobsCommandInput,
-  ...args: any
-): Promise<ListEarthObservationJobsCommandOutput> => {
-  // @ts-ignore
-  return await client.listEarthObservationJobs(input, ...args);
-};
 export async function* paginateListEarthObservationJobs(
   config: SageMakerGeospatialPaginationConfiguration,
   input: ListEarthObservationJobsCommandInput,
@@ -43,9 +34,7 @@ export async function* paginateListEarthObservationJobs(
   let page: ListEarthObservationJobsCommandOutput;
   while (hasNext) {
     input.NextToken = token;
-    if (config.client instanceof SageMakerGeospatial) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SageMakerGeospatialClient) {
+    if (config.client instanceof SageMakerGeospatialClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SageMakerGeospatial | SageMakerGeospatialClient");

@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient";
-import {
-  DescribeApplicationRequest,
-  DescribeApplicationRequestFilterSensitiveLog,
-  DescribeApplicationResponse,
-  DescribeApplicationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeApplicationCommand,
-  serializeAws_json1_1DescribeApplicationCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeApplicationRequest, DescribeApplicationResponse } from "../models/models_0";
+import { de_DescribeApplicationCommand, se_DescribeApplicationCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeApplicationCommand}.
+ */
 export interface DescribeApplicationCommandInput extends DescribeApplicationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeApplicationCommand}.
+ */
 export interface DescribeApplicationCommandOutput extends DescribeApplicationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,28 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  * import { ApplicationInsightsClient, DescribeApplicationCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
  * // const { ApplicationInsightsClient, DescribeApplicationCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
+ * const input = { // DescribeApplicationRequest
+ *   ResourceGroupName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeApplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeApplicationCommandInput - {@link DescribeApplicationCommandInput}
+ * @returns {@link DescribeApplicationCommandOutput}
  * @see {@link DescribeApplicationCommandInput} for command's `input` shape.
  * @see {@link DescribeApplicationCommandOutput} for command's `response` shape.
  * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The server encountered an internal error and is unable to complete the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource does not exist in the customer account.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The parameter is not valid.</p>
+ *
  *
  */
 export class DescribeApplicationCommand extends $Command<
@@ -66,6 +84,9 @@ export class DescribeApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +115,8 @@ export class DescribeApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeApplicationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeApplicationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +126,18 @@ export class DescribeApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeApplicationCommand(input, context);
+    return se_DescribeApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeApplicationCommandOutput> {
-    return deserializeAws_json1_1DescribeApplicationCommand(output, context);
+    return de_DescribeApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

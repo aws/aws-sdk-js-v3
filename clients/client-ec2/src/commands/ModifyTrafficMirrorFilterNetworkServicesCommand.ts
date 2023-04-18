@@ -16,22 +16,31 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   ModifyTrafficMirrorFilterNetworkServicesRequest,
-  ModifyTrafficMirrorFilterNetworkServicesRequestFilterSensitiveLog,
   ModifyTrafficMirrorFilterNetworkServicesResult,
-  ModifyTrafficMirrorFilterNetworkServicesResultFilterSensitiveLog,
 } from "../models/models_6";
 import {
-  deserializeAws_ec2ModifyTrafficMirrorFilterNetworkServicesCommand,
-  serializeAws_ec2ModifyTrafficMirrorFilterNetworkServicesCommand,
+  de_ModifyTrafficMirrorFilterNetworkServicesCommand,
+  se_ModifyTrafficMirrorFilterNetworkServicesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link ModifyTrafficMirrorFilterNetworkServicesCommand}.
+ */
 export interface ModifyTrafficMirrorFilterNetworkServicesCommandInput
   extends ModifyTrafficMirrorFilterNetworkServicesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ModifyTrafficMirrorFilterNetworkServicesCommand}.
+ */
 export interface ModifyTrafficMirrorFilterNetworkServicesCommandOutput
   extends ModifyTrafficMirrorFilterNetworkServicesResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows or restricts mirroring network services.</p>
  *          <p> By default, Amazon DNS network services are not eligible for Traffic Mirror. Use <code>AddNetworkServices</code> to add network services to a Traffic Mirror filter. When a network service is added to the Traffic Mirror filter, all traffic related to that network service will be mirrored.
  *          When you no longer want to mirror network services, use <code>RemoveNetworkServices</code> to remove the network services from the Traffic Mirror filter.
@@ -42,13 +51,26 @@ export interface ModifyTrafficMirrorFilterNetworkServicesCommandOutput
  * import { EC2Client, ModifyTrafficMirrorFilterNetworkServicesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyTrafficMirrorFilterNetworkServicesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ModifyTrafficMirrorFilterNetworkServicesRequest
+ *   TrafficMirrorFilterId: "STRING_VALUE", // required
+ *   AddNetworkServices: [ // TrafficMirrorNetworkServiceList
+ *     "amazon-dns",
+ *   ],
+ *   RemoveNetworkServices: [
+ *     "amazon-dns",
+ *   ],
+ *   DryRun: true || false,
+ * };
  * const command = new ModifyTrafficMirrorFilterNetworkServicesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyTrafficMirrorFilterNetworkServicesCommandInput - {@link ModifyTrafficMirrorFilterNetworkServicesCommandInput}
+ * @returns {@link ModifyTrafficMirrorFilterNetworkServicesCommandOutput}
  * @see {@link ModifyTrafficMirrorFilterNetworkServicesCommandInput} for command's `input` shape.
  * @see {@link ModifyTrafficMirrorFilterNetworkServicesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class ModifyTrafficMirrorFilterNetworkServicesCommand extends $Command<
@@ -68,6 +90,9 @@ export class ModifyTrafficMirrorFilterNetworkServicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyTrafficMirrorFilterNetworkServicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +127,8 @@ export class ModifyTrafficMirrorFilterNetworkServicesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyTrafficMirrorFilterNetworkServicesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyTrafficMirrorFilterNetworkServicesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,18 +138,24 @@ export class ModifyTrafficMirrorFilterNetworkServicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifyTrafficMirrorFilterNetworkServicesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyTrafficMirrorFilterNetworkServicesCommand(input, context);
+    return se_ModifyTrafficMirrorFilterNetworkServicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyTrafficMirrorFilterNetworkServicesCommandOutput> {
-    return deserializeAws_ec2ModifyTrafficMirrorFilterNetworkServicesCommand(output, context);
+    return de_ModifyTrafficMirrorFilterNetworkServicesCommand(output, context);
   }
 
   // Start section: command_body_extra

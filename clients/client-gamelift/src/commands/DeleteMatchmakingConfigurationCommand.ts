@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
+import { DeleteMatchmakingConfigurationInput, DeleteMatchmakingConfigurationOutput } from "../models/models_0";
 import {
-  DeleteMatchmakingConfigurationInput,
-  DeleteMatchmakingConfigurationInputFilterSensitiveLog,
-  DeleteMatchmakingConfigurationOutput,
-  DeleteMatchmakingConfigurationOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteMatchmakingConfigurationCommand,
-  serializeAws_json1_1DeleteMatchmakingConfigurationCommand,
+  de_DeleteMatchmakingConfigurationCommand,
+  se_DeleteMatchmakingConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteMatchmakingConfigurationCommand}.
+ */
 export interface DeleteMatchmakingConfigurationCommandInput extends DeleteMatchmakingConfigurationInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteMatchmakingConfigurationCommand}.
+ */
 export interface DeleteMatchmakingConfigurationCommandOutput
   extends DeleteMatchmakingConfigurationOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Permanently removes a FlexMatch matchmaking configuration. To delete, specify the
  *             configuration name. A matchmaking configuration cannot be deleted if it is being used in
  *             any active matchmaking tickets.</p>
@@ -40,13 +46,38 @@ export interface DeleteMatchmakingConfigurationCommandOutput
  * import { GameLiftClient, DeleteMatchmakingConfigurationCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DeleteMatchmakingConfigurationCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // DeleteMatchmakingConfigurationInput
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteMatchmakingConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMatchmakingConfigurationCommandInput - {@link DeleteMatchmakingConfigurationCommandInput}
+ * @returns {@link DeleteMatchmakingConfigurationCommandOutput}
  * @see {@link DeleteMatchmakingConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteMatchmakingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an unrecoverable internal failure while processing the
+ *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
+ *             values before retrying.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *
+ * @throws {@link TaggingFailedException} (client fault)
+ *  <p>The requested tagging operation did not succeed. This may be due to invalid tag format
+ *             or the maximum tag limit may have been exceeded. Resolve the issue before
+ *             retrying.</p>
+ *
+ * @throws {@link UnsupportedRegionException} (client fault)
+ *  <p>The requested operation is not supported in the Region specified.</p>
+ *
  *
  */
 export class DeleteMatchmakingConfigurationCommand extends $Command<
@@ -66,6 +97,9 @@ export class DeleteMatchmakingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMatchmakingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +128,8 @@ export class DeleteMatchmakingConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMatchmakingConfigurationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteMatchmakingConfigurationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,18 +139,24 @@ export class DeleteMatchmakingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteMatchmakingConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteMatchmakingConfigurationCommand(input, context);
+    return se_DeleteMatchmakingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteMatchmakingConfigurationCommandOutput> {
-    return deserializeAws_json1_1DeleteMatchmakingConfigurationCommand(output, context);
+    return de_DeleteMatchmakingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

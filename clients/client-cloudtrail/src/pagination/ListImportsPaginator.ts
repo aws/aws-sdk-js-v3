@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { CloudTrail } from "../CloudTrail";
 import { CloudTrailClient } from "../CloudTrailClient";
 import { ListImportsCommand, ListImportsCommandInput, ListImportsCommandOutput } from "../commands/ListImportsCommand";
 import { CloudTrailPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CloudTrailClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListImportsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: CloudTrail,
-  input: ListImportsCommandInput,
-  ...args: any
-): Promise<ListImportsCommandOutput> => {
-  // @ts-ignore
-  return await client.listImports(input, ...args);
-};
 export async function* paginateListImports(
   config: CloudTrailPaginationConfiguration,
   input: ListImportsCommandInput,
@@ -40,9 +31,7 @@ export async function* paginateListImports(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof CloudTrail) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof CloudTrailClient) {
+    if (config.client instanceof CloudTrailClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected CloudTrail | CloudTrailClient");

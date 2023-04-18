@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  UpdateDistributionBundleRequest,
-  UpdateDistributionBundleRequestFilterSensitiveLog,
-  UpdateDistributionBundleResult,
-  UpdateDistributionBundleResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1UpdateDistributionBundleCommand,
-  serializeAws_json1_1UpdateDistributionBundleCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateDistributionBundleRequest, UpdateDistributionBundleResult } from "../models/models_1";
+import { de_UpdateDistributionBundleCommand, se_UpdateDistributionBundleCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateDistributionBundleCommand}.
+ */
 export interface UpdateDistributionBundleCommandInput extends UpdateDistributionBundleRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateDistributionBundleCommand}.
+ */
 export interface UpdateDistributionBundleCommandOutput extends UpdateDistributionBundleResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the bundle of your Amazon Lightsail content delivery network (CDN)
  *       distribution.</p>
  *          <p>A distribution bundle specifies the monthly network transfer quota and monthly cost of
@@ -44,13 +47,46 @@ export interface UpdateDistributionBundleCommandOutput extends UpdateDistributio
  * import { LightsailClient, UpdateDistributionBundleCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, UpdateDistributionBundleCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // UpdateDistributionBundleRequest
+ *   distributionName: "STRING_VALUE",
+ *   bundleId: "STRING_VALUE",
+ * };
  * const command = new UpdateDistributionBundleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDistributionBundleCommandInput - {@link UpdateDistributionBundleCommandInput}
+ * @returns {@link UpdateDistributionBundleCommandOutput}
  * @see {@link UpdateDistributionBundleCommandInput} for command's `input` shape.
  * @see {@link UpdateDistributionBundleCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
+ *       credentials to access a resource.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Lightsail throws this exception when user input does not conform to the validation rules
+ *       of an input field.</p>
+ *          <note>
+ *             <p>Domain and distribution APIs are only available in the N. Virginia
+ *           (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services
+ *         Region configuration to <code>us-east-1</code> to create, view, or edit these
+ *         resources.</p>
+ *          </note>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Lightsail throws this exception when it cannot find a resource.</p>
+ *
+ * @throws {@link OperationFailureException} (client fault)
+ *  <p>Lightsail throws this exception when an operation fails to execute.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>A general service exception.</p>
+ *
+ * @throws {@link UnauthenticatedException} (client fault)
+ *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
+ *
  *
  */
 export class UpdateDistributionBundleCommand extends $Command<
@@ -70,6 +106,9 @@ export class UpdateDistributionBundleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDistributionBundleCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +137,8 @@ export class UpdateDistributionBundleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDistributionBundleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDistributionBundleResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +148,18 @@ export class UpdateDistributionBundleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDistributionBundleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDistributionBundleCommand(input, context);
+    return se_UpdateDistributionBundleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDistributionBundleCommandOutput> {
-    return deserializeAws_json1_1UpdateDistributionBundleCommand(output, context);
+    return de_UpdateDistributionBundleCommand(output, context);
   }
 
   // Start section: command_body_extra

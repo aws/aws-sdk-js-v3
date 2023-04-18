@@ -15,22 +15,32 @@ import {
 
 import {
   CreateStreamingSessionStreamRequest,
-  CreateStreamingSessionStreamRequestFilterSensitiveLog,
   CreateStreamingSessionStreamResponse,
   CreateStreamingSessionStreamResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
 import {
-  deserializeAws_restJson1CreateStreamingSessionStreamCommand,
-  serializeAws_restJson1CreateStreamingSessionStreamCommand,
+  de_CreateStreamingSessionStreamCommand,
+  se_CreateStreamingSessionStreamCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateStreamingSessionStreamCommand}.
+ */
 export interface CreateStreamingSessionStreamCommandInput extends CreateStreamingSessionStreamRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateStreamingSessionStreamCommand}.
+ */
 export interface CreateStreamingSessionStreamCommandOutput
   extends CreateStreamingSessionStreamResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a streaming session stream for a streaming session.</p>
  *         <p>After invoking this API, invoke GetStreamingSessionStream with the returned streamId
  *             to poll the resource until it is in the <code>READY</code> state.</p>
@@ -40,13 +50,46 @@ export interface CreateStreamingSessionStreamCommandOutput
  * import { NimbleClient, CreateStreamingSessionStreamCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, CreateStreamingSessionStreamCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = { // CreateStreamingSessionStreamRequest
+ *   clientToken: "STRING_VALUE",
+ *   expirationInSeconds: Number("int"),
+ *   sessionId: "STRING_VALUE", // required
+ *   studioId: "STRING_VALUE", // required
+ * };
  * const command = new CreateStreamingSessionStreamCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateStreamingSessionStreamCommandInput - {@link CreateStreamingSessionStreamCommandInput}
+ * @returns {@link CreateStreamingSessionStreamCommandOutput}
  * @see {@link CreateStreamingSessionStreamCommandInput} for command's `input` shape.
  * @see {@link CreateStreamingSessionStreamCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to perform this operation. Check your IAM
+ *             policies, and ensure that you are using the correct access keys.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Another operation is in progress. </p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>An internal error has occurred. Please retry your request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Your current quota does not allow you to perform the request action. You can request
+ *             increases for some quotas, and other quotas cannot be increased.</p>
+ *         <p>Please use Amazon Web Services Service Quotas to request an increase. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request throughput limit was exceeded.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One of the parameters in the request is invalid.</p>
+ *
  *
  */
 export class CreateStreamingSessionStreamCommand extends $Command<
@@ -66,6 +109,9 @@ export class CreateStreamingSessionStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateStreamingSessionStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,7 +140,7 @@ export class CreateStreamingSessionStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateStreamingSessionStreamRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CreateStreamingSessionStreamResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -105,15 +151,21 @@ export class CreateStreamingSessionStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateStreamingSessionStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateStreamingSessionStreamCommand(input, context);
+    return se_CreateStreamingSessionStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateStreamingSessionStreamCommandOutput> {
-    return deserializeAws_restJson1CreateStreamingSessionStreamCommand(output, context);
+    return de_CreateStreamingSessionStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

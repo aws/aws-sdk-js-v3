@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  OpenInstancePublicPortsRequest,
-  OpenInstancePublicPortsRequestFilterSensitiveLog,
-  OpenInstancePublicPortsResult,
-  OpenInstancePublicPortsResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1OpenInstancePublicPortsCommand,
-  serializeAws_json1_1OpenInstancePublicPortsCommand,
-} from "../protocols/Aws_json1_1";
+import { OpenInstancePublicPortsRequest, OpenInstancePublicPortsResult } from "../models/models_1";
+import { de_OpenInstancePublicPortsCommand, se_OpenInstancePublicPortsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link OpenInstancePublicPortsCommand}.
+ */
 export interface OpenInstancePublicPortsCommandInput extends OpenInstancePublicPortsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link OpenInstancePublicPortsCommand}.
+ */
 export interface OpenInstancePublicPortsCommandOutput extends OpenInstancePublicPortsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Opens ports for a specific Amazon Lightsail instance, and specifies the IP addresses
  *       allowed to connect to the instance through the ports, and the protocol.</p>
  *          <p>The <code>OpenInstancePublicPorts</code> action supports tag-based access control via
@@ -40,13 +43,63 @@ export interface OpenInstancePublicPortsCommandOutput extends OpenInstancePublic
  * import { LightsailClient, OpenInstancePublicPortsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, OpenInstancePublicPortsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // OpenInstancePublicPortsRequest
+ *   portInfo: { // PortInfo
+ *     fromPort: Number("int"),
+ *     toPort: Number("int"),
+ *     protocol: "tcp" || "all" || "udp" || "icmp",
+ *     cidrs: [ // StringList
+ *       "STRING_VALUE",
+ *     ],
+ *     ipv6Cidrs: [
+ *       "STRING_VALUE",
+ *     ],
+ *     cidrListAliases: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   instanceName: "STRING_VALUE", // required
+ * };
  * const command = new OpenInstancePublicPortsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param OpenInstancePublicPortsCommandInput - {@link OpenInstancePublicPortsCommandInput}
+ * @returns {@link OpenInstancePublicPortsCommandOutput}
  * @see {@link OpenInstancePublicPortsCommandInput} for command's `input` shape.
  * @see {@link OpenInstancePublicPortsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
+ *       credentials to access a resource.</p>
+ *
+ * @throws {@link AccountSetupInProgressException} (client fault)
+ *  <p>Lightsail throws this exception when an account is still in the setup in progress
+ *       state.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Lightsail throws this exception when user input does not conform to the validation rules
+ *       of an input field.</p>
+ *          <note>
+ *             <p>Domain and distribution APIs are only available in the N. Virginia
+ *           (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services
+ *         Region configuration to <code>us-east-1</code> to create, view, or edit these
+ *         resources.</p>
+ *          </note>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Lightsail throws this exception when it cannot find a resource.</p>
+ *
+ * @throws {@link OperationFailureException} (client fault)
+ *  <p>Lightsail throws this exception when an operation fails to execute.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>A general service exception.</p>
+ *
+ * @throws {@link UnauthenticatedException} (client fault)
+ *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
+ *
  *
  */
 export class OpenInstancePublicPortsCommand extends $Command<
@@ -66,6 +119,9 @@ export class OpenInstancePublicPortsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: OpenInstancePublicPortsCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +150,8 @@ export class OpenInstancePublicPortsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: OpenInstancePublicPortsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: OpenInstancePublicPortsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +161,18 @@ export class OpenInstancePublicPortsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: OpenInstancePublicPortsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1OpenInstancePublicPortsCommand(input, context);
+    return se_OpenInstancePublicPortsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<OpenInstancePublicPortsCommandOutput> {
-    return deserializeAws_json1_1OpenInstancePublicPortsCommand(output, context);
+    return de_OpenInstancePublicPortsCommand(output, context);
   }
 
   // Start section: command_body_extra

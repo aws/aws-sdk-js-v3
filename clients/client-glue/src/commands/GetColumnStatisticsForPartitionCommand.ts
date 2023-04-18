@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { GetColumnStatisticsForPartitionRequest, GetColumnStatisticsForPartitionResponse } from "../models/models_1";
 import {
-  GetColumnStatisticsForPartitionRequest,
-  GetColumnStatisticsForPartitionRequestFilterSensitiveLog,
-  GetColumnStatisticsForPartitionResponse,
-  GetColumnStatisticsForPartitionResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetColumnStatisticsForPartitionCommand,
-  serializeAws_json1_1GetColumnStatisticsForPartitionCommand,
+  de_GetColumnStatisticsForPartitionCommand,
+  se_GetColumnStatisticsForPartitionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetColumnStatisticsForPartitionCommand}.
+ */
 export interface GetColumnStatisticsForPartitionCommandInput extends GetColumnStatisticsForPartitionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetColumnStatisticsForPartitionCommand}.
+ */
 export interface GetColumnStatisticsForPartitionCommandOutput
   extends GetColumnStatisticsForPartitionResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves partition statistics of columns.</p>
  *          <p>The Identity and Access Management (IAM) permission required for this operation is <code>GetPartition</code>.</p>
  * @example
@@ -39,13 +45,42 @@ export interface GetColumnStatisticsForPartitionCommandOutput
  * import { GlueClient, GetColumnStatisticsForPartitionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetColumnStatisticsForPartitionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // GetColumnStatisticsForPartitionRequest
+ *   CatalogId: "STRING_VALUE",
+ *   DatabaseName: "STRING_VALUE", // required
+ *   TableName: "STRING_VALUE", // required
+ *   PartitionValues: [ // ValueStringList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   ColumnNames: [ // GetColumnNamesList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetColumnStatisticsForPartitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetColumnStatisticsForPartitionCommandInput - {@link GetColumnStatisticsForPartitionCommandInput}
+ * @returns {@link GetColumnStatisticsForPartitionCommandOutput}
  * @see {@link GetColumnStatisticsForPartitionCommandInput} for command's `input` shape.
  * @see {@link GetColumnStatisticsForPartitionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link GlueEncryptionException} (client fault)
+ *  <p>An encryption operation failed.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class GetColumnStatisticsForPartitionCommand extends $Command<
@@ -65,6 +100,9 @@ export class GetColumnStatisticsForPartitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetColumnStatisticsForPartitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +131,8 @@ export class GetColumnStatisticsForPartitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetColumnStatisticsForPartitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetColumnStatisticsForPartitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,18 +142,24 @@ export class GetColumnStatisticsForPartitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetColumnStatisticsForPartitionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetColumnStatisticsForPartitionCommand(input, context);
+    return se_GetColumnStatisticsForPartitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetColumnStatisticsForPartitionCommandOutput> {
-    return deserializeAws_json1_1GetColumnStatisticsForPartitionCommand(output, context);
+    return de_GetColumnStatisticsForPartitionCommand(output, context);
   }
 
   // Start section: command_body_extra

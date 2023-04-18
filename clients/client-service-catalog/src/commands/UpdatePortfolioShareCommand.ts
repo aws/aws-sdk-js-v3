@@ -13,33 +13,31 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdatePortfolioShareInput,
-  UpdatePortfolioShareInputFilterSensitiveLog,
-  UpdatePortfolioShareOutput,
-  UpdatePortfolioShareOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdatePortfolioShareCommand,
-  serializeAws_json1_1UpdatePortfolioShareCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdatePortfolioShareInput, UpdatePortfolioShareOutput } from "../models/models_0";
+import { de_UpdatePortfolioShareCommand, se_UpdatePortfolioShareCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdatePortfolioShareCommand}.
+ */
 export interface UpdatePortfolioShareCommandInput extends UpdatePortfolioShareInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdatePortfolioShareCommand}.
+ */
 export interface UpdatePortfolioShareCommandOutput extends UpdatePortfolioShareOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified portfolio share. You can use this API to enable or disable <code>TagOptions</code> sharing
  *          or Principal sharing for an existing portfolio share. </p>
- *
  *          <p>The portfolio share cannot be updated if the <code>CreatePortfolioShare</code> operation is <code>IN_PROGRESS</code>, as the share is not available to recipient entities. In this case, you must wait for the portfolio share to be COMPLETED.</p>
- *
  *          <p>You must provide the <code>accountId</code> or organization node in the input, but not both.</p>
- *
  *          <p>If the portfolio is shared to both an external account and an organization node, and both shares need to be updated, you must invoke <code>UpdatePortfolioShare</code> separately for each share type. </p>
- *
  *          <p>This API cannot be used for removing the portfolio share. You must use <code>DeletePortfolioShare</code> API for that action. </p>
- *
  *          <note>
  *             <p>When you associate a principal with portfolio, a potential privilege escalation path may occur when that portfolio is
  *          then shared with other accounts. For a user in a recipient account who is <i>not</i> an Service Catalog Admin,
@@ -55,13 +53,40 @@ export interface UpdatePortfolioShareCommandOutput extends UpdatePortfolioShareO
  * import { ServiceCatalogClient, UpdatePortfolioShareCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, UpdatePortfolioShareCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // UpdatePortfolioShareInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   PortfolioId: "STRING_VALUE", // required
+ *   AccountId: "STRING_VALUE",
+ *   OrganizationNode: { // OrganizationNode
+ *     Type: "ORGANIZATION" || "ORGANIZATIONAL_UNIT" || "ACCOUNT",
+ *     Value: "STRING_VALUE",
+ *   },
+ *   ShareTagOptions: true || false,
+ *   SharePrincipals: true || false,
+ * };
  * const command = new UpdatePortfolioShareCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePortfolioShareCommandInput - {@link UpdatePortfolioShareCommandInput}
+ * @returns {@link UpdatePortfolioShareCommandOutput}
  * @see {@link UpdatePortfolioShareCommandInput} for command's `input` shape.
  * @see {@link UpdatePortfolioShareCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
+ *
+ * @throws {@link InvalidParametersException} (client fault)
+ *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * @throws {@link InvalidStateException} (client fault)
+ *  <p>An attempt was made to modify a resource that is in a state that is not valid.
+ *          Check your resources to ensure that they are in valid states before retrying the operation.</p>
+ *
+ * @throws {@link OperationNotSupportedException} (client fault)
+ *  <p>The operation is not supported.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class UpdatePortfolioShareCommand extends $Command<
@@ -81,6 +106,9 @@ export class UpdatePortfolioShareCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePortfolioShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +137,8 @@ export class UpdatePortfolioShareCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePortfolioShareInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePortfolioShareOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +148,18 @@ export class UpdatePortfolioShareCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePortfolioShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdatePortfolioShareCommand(input, context);
+    return se_UpdatePortfolioShareCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePortfolioShareCommandOutput> {
-    return deserializeAws_json1_1UpdatePortfolioShareCommand(output, context);
+    return de_UpdatePortfolioShareCommand(output, context);
   }
 
   // Start section: command_body_extra

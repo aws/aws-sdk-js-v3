@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetUpgradeStatusRequest,
-  GetUpgradeStatusRequestFilterSensitiveLog,
-  GetUpgradeStatusResponse,
-  GetUpgradeStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetUpgradeStatusRequest, GetUpgradeStatusResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  deserializeAws_restJson1GetUpgradeStatusCommand,
-  serializeAws_restJson1GetUpgradeStatusCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetUpgradeStatusCommand, se_GetUpgradeStatusCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetUpgradeStatusCommand}.
+ */
 export interface GetUpgradeStatusCommandInput extends GetUpgradeStatusRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetUpgradeStatusCommand}.
+ */
 export interface GetUpgradeStatusCommandOutput extends GetUpgradeStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the most recent status of the last upgrade or upgrade eligibility check performed on
  *    an Amazon OpenSearch Service domain.</p>
  * @example
@@ -37,13 +40,34 @@ export interface GetUpgradeStatusCommandOutput extends GetUpgradeStatusResponse,
  * import { OpenSearchClient, GetUpgradeStatusCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, GetUpgradeStatusCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = { // GetUpgradeStatusRequest
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new GetUpgradeStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetUpgradeStatusCommandInput - {@link GetUpgradeStatusCommandInput}
+ * @returns {@link GetUpgradeStatusCommandOutput}
  * @see {@link GetUpgradeStatusCommandInput} for command's `input` shape.
  * @see {@link GetUpgradeStatusCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
+ *
+ * @throws {@link BaseException} (client fault)
+ *  <p>An error occurred while processing the request.</p>
+ *
+ * @throws {@link DisabledOperationException} (client fault)
+ *  <p>An error occured because the client wanted to access a not supported operation.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An exception for accessing or deleting a resource that does not exist..</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+ *
  *
  */
 export class GetUpgradeStatusCommand extends $Command<
@@ -63,6 +87,9 @@ export class GetUpgradeStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetUpgradeStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +118,8 @@ export class GetUpgradeStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetUpgradeStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetUpgradeStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +129,18 @@ export class GetUpgradeStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetUpgradeStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetUpgradeStatusCommand(input, context);
+    return se_GetUpgradeStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUpgradeStatusCommandOutput> {
-    return deserializeAws_restJson1GetUpgradeStatusCommand(output, context);
+    return de_GetUpgradeStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

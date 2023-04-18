@@ -65,6 +65,7 @@ import {
 } from "./commands/UpdateEnvironmentMembershipCommand";
 
 /**
+ * @public
  * <fullname>Cloud9</fullname>
  *          <p>Cloud9 is a collection of tools that you can use to code, build, run, test, debug, and
  *       release software in the cloud.</p>
@@ -135,6 +136,7 @@ import {
  */
 export class Cloud9 extends Cloud9Client {
   /**
+   * @public
    * <p>Creates an Cloud9 development environment, launches an Amazon Elastic Compute Cloud (Amazon EC2) instance, and
    *       then connects from the instance to the environment.</p>
    */
@@ -168,6 +170,7 @@ export class Cloud9 extends Cloud9Client {
   }
 
   /**
+   * @public
    * <p>Adds an environment member to an Cloud9 development environment.</p>
    */
   public createEnvironmentMembership(
@@ -200,6 +203,7 @@ export class Cloud9 extends Cloud9Client {
   }
 
   /**
+   * @public
    * <p>Deletes an Cloud9 development environment. If an Amazon EC2 instance is connected to the
    *       environment, also terminates the instance.</p>
    */
@@ -233,6 +237,7 @@ export class Cloud9 extends Cloud9Client {
   }
 
   /**
+   * @public
    * <p>Deletes an environment member from a development environment.</p>
    */
   public deleteEnvironmentMembership(
@@ -265,6 +270,7 @@ export class Cloud9 extends Cloud9Client {
   }
 
   /**
+   * @public
    * <p>Gets information about environment members for an Cloud9 development environment.</p>
    */
   public describeEnvironmentMemberships(
@@ -297,6 +303,7 @@ export class Cloud9 extends Cloud9Client {
   }
 
   /**
+   * @public
    * <p>Gets information about Cloud9 development environments.</p>
    */
   public describeEnvironments(
@@ -329,6 +336,7 @@ export class Cloud9 extends Cloud9Client {
   }
 
   /**
+   * @public
    * <p>Gets status information for an Cloud9 development environment.</p>
    */
   public describeEnvironmentStatus(
@@ -361,6 +369,7 @@ export class Cloud9 extends Cloud9Client {
   }
 
   /**
+   * @public
    * <p>Gets a list of Cloud9 development environment identifiers.</p>
    */
   public listEnvironments(
@@ -393,6 +402,7 @@ export class Cloud9 extends Cloud9Client {
   }
 
   /**
+   * @public
    * <p>Gets a list of the tags associated with an Cloud9 development environment.</p>
    */
   public listTagsForResource(
@@ -425,6 +435,7 @@ export class Cloud9 extends Cloud9Client {
   }
 
   /**
+   * @public
    * <p>Adds tags to an Cloud9 development environment.</p>
    *          <important>
    *             <p>Tags that you add to an Cloud9 environment by using this method will NOT be
@@ -455,6 +466,7 @@ export class Cloud9 extends Cloud9Client {
   }
 
   /**
+   * @public
    * <p>Removes tags from an Cloud9 development environment.</p>
    */
   public untagResource(
@@ -487,6 +499,7 @@ export class Cloud9 extends Cloud9Client {
   }
 
   /**
+   * @public
    * <p>Changes the settings of an existing Cloud9 development environment.</p>
    */
   public updateEnvironment(
@@ -519,6 +532,7 @@ export class Cloud9 extends Cloud9Client {
   }
 
   /**
+   * @public
    * <p>Changes the settings of an existing environment member for an Cloud9 development
    *       environment.</p>
    */

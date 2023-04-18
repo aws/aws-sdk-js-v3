@@ -20,15 +20,23 @@ import {
   CreateBranchResult,
   CreateBranchResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateBranchCommand,
-  serializeAws_restJson1CreateBranchCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateBranchCommand, se_CreateBranchCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateBranchCommand}.
+ */
 export interface CreateBranchCommandInput extends CreateBranchRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateBranchCommand}.
+ */
 export interface CreateBranchCommandOutput extends CreateBranchResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Creates a new branch for an Amplify app. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +44,58 @@ export interface CreateBranchCommandOutput extends CreateBranchResult, __Metadat
  * import { AmplifyClient, CreateBranchCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, CreateBranchCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
+ * const input = { // CreateBranchRequest
+ *   appId: "STRING_VALUE", // required
+ *   branchName: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   stage: "PRODUCTION" || "BETA" || "DEVELOPMENT" || "EXPERIMENTAL" || "PULL_REQUEST",
+ *   framework: "STRING_VALUE",
+ *   enableNotification: true || false,
+ *   enableAutoBuild: true || false,
+ *   environmentVariables: { // EnvironmentVariables
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   basicAuthCredentials: "STRING_VALUE",
+ *   enableBasicAuth: true || false,
+ *   enablePerformanceMode: true || false,
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   buildSpec: "STRING_VALUE",
+ *   ttl: "STRING_VALUE",
+ *   displayName: "STRING_VALUE",
+ *   enablePullRequestPreview: true || false,
+ *   pullRequestEnvironmentName: "STRING_VALUE",
+ *   backendEnvironmentArn: "STRING_VALUE",
+ * };
  * const command = new CreateBranchCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBranchCommandInput - {@link CreateBranchCommandInput}
+ * @returns {@link CreateBranchCommandOutput}
  * @see {@link CreateBranchCommandInput} for command's `input` shape.
  * @see {@link CreateBranchCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p> A request contains unexpected data. </p>
+ *
+ * @throws {@link DependentServiceFailureException} (server fault)
+ *  <p> An operation failed because a dependent service threw an exception. </p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p> The service failed to perform an operation due to an internal issue. </p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p> A resource could not be created because service quotas were exceeded. </p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p> An entity was not found during an operation. </p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p> An operation failed due to a lack of access. </p>
+ *
  *
  */
 export class CreateBranchCommand extends $Command<
@@ -62,6 +115,9 @@ export class CreateBranchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBranchCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,12 +155,18 @@ export class CreateBranchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBranchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateBranchCommand(input, context);
+    return se_CreateBranchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBranchCommandOutput> {
-    return deserializeAws_restJson1CreateBranchCommand(output, context);
+    return de_CreateBranchCommand(output, context);
   }
 
   // Start section: command_body_extra

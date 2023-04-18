@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { AttachPolicyRequest, AttachPolicyRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1AttachPolicyCommand,
-  serializeAws_restJson1AttachPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { AttachPolicyRequest } from "../models/models_0";
+import { de_AttachPolicyCommand, se_AttachPolicyCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link AttachPolicyCommand}.
+ */
 export interface AttachPolicyCommandInput extends AttachPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AttachPolicyCommand}.
+ */
 export interface AttachPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches the specified policy to the specified principal (certificate or other
  *          credential).</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AttachPolicy</a> action.</p>
@@ -33,13 +41,41 @@ export interface AttachPolicyCommandOutput extends __MetadataBearer {}
  * import { IoTClient, AttachPolicyCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, AttachPolicyCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // AttachPolicyRequest
+ *   policyName: "STRING_VALUE", // required
+ *   target: "STRING_VALUE", // required
+ * };
  * const command = new AttachPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AttachPolicyCommandInput - {@link AttachPolicyCommandInput}
+ * @returns {@link AttachPolicyCommandOutput}
  * @see {@link AttachPolicyCommandInput} for command's `input` shape.
  * @see {@link AttachPolicyCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A limit has been exceeded.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You are not authorized to perform this operation.</p>
+ *
  *
  */
 export class AttachPolicyCommand extends $Command<
@@ -59,6 +95,9 @@ export class AttachPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AttachPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +124,8 @@ export class AttachPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AttachPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +135,18 @@ export class AttachPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AttachPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AttachPolicyCommand(input, context);
+    return se_AttachPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachPolicyCommandOutput> {
-    return deserializeAws_restJson1AttachPolicyCommand(output, context);
+    return de_AttachPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

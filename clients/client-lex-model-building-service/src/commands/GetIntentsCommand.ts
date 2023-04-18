@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import {
-  GetIntentsRequest,
-  GetIntentsRequestFilterSensitiveLog,
-  GetIntentsResponse,
-  GetIntentsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetIntentsCommand,
-  serializeAws_restJson1GetIntentsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetIntentsRequest, GetIntentsResponse } from "../models/models_0";
+import { de_GetIntentsCommand, se_GetIntentsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetIntentsCommand}.
+ */
 export interface GetIntentsCommandInput extends GetIntentsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetIntentsCommand}.
+ */
 export interface GetIntentsCommandOutput extends GetIntentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns intent information as follows: </p>
  *          <ul>
  *             <li>
@@ -54,13 +57,61 @@ export interface GetIntentsCommandOutput extends GetIntentsResponse, __MetadataB
  * import { LexModelBuildingServiceClient, GetIntentsCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, GetIntentsCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
+ * const input = { // GetIntentsRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nameContains: "STRING_VALUE",
+ * };
  * const command = new GetIntentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetIntentsCommandInput - {@link GetIntentsCommandInput}
+ * @returns {@link GetIntentsCommandOutput}
  * @see {@link GetIntentsCommandInput} for command's `input` shape.
  * @see {@link GetIntentsCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is not well formed. For example, a value is invalid or
+ *       a required field is missing. Check the field values, and try
+ *       again.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal Amazon Lex error occurred. Try your request again.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request exceeded a limit. Try your request again.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource specified in the request was not found. Check the
+ *       resource and try again.</p>
+ *
+ *
+ * @example To get a list of intents
+ * ```javascript
+ * // This example shows how to get a list of all of the intents in your account.
+ * const input = {
+ *   "maxResults": 10,
+ *   "nextToken": ""
+ * };
+ * const command = new GetIntentsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "intents": [
+ *     {
+ *       "version": "$LATEST",
+ *       "name": "DocOrderPizza",
+ *       "createdDate": 1494359783.453,
+ *       "description": "Order a pizza from a local pizzeria.",
+ *       "lastUpdatedDate": 1494359783.453
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-get-a-list-of-intents-1494432416363
+ * ```
  *
  */
 export class GetIntentsCommand extends $Command<
@@ -80,6 +131,9 @@ export class GetIntentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetIntentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +160,8 @@ export class GetIntentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetIntentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetIntentsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +171,18 @@ export class GetIntentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetIntentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetIntentsCommand(input, context);
+    return se_GetIntentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIntentsCommandOutput> {
-    return deserializeAws_restJson1GetIntentsCommand(output, context);
+    return de_GetIntentsCommand(output, context);
   }
 
   // Start section: command_body_extra

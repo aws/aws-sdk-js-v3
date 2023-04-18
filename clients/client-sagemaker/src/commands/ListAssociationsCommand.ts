@@ -13,18 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListAssociationsRequest, ListAssociationsRequestFilterSensitiveLog } from "../models/models_2";
-import { ListAssociationsResponse, ListAssociationsResponseFilterSensitiveLog } from "../models/models_3";
-import {
-  deserializeAws_json1_1ListAssociationsCommand,
-  serializeAws_json1_1ListAssociationsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListAssociationsRequest, ListAssociationsResponse } from "../models/models_3";
+import { de_ListAssociationsCommand, se_ListAssociationsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListAssociationsCommand}.
+ */
 export interface ListAssociationsCommandInput extends ListAssociationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListAssociationsCommand}.
+ */
 export interface ListAssociationsCommandOutput extends ListAssociationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the associations in your account and their properties.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -32,13 +39,32 @@ export interface ListAssociationsCommandOutput extends ListAssociationsResponse,
  * import { SageMakerClient, ListAssociationsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListAssociationsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListAssociationsRequest
+ *   SourceArn: "STRING_VALUE",
+ *   DestinationArn: "STRING_VALUE",
+ *   SourceType: "STRING_VALUE",
+ *   DestinationType: "STRING_VALUE",
+ *   AssociationType: "ContributedTo" || "AssociatedWith" || "DerivedFrom" || "Produced",
+ *   CreatedAfter: new Date("TIMESTAMP"),
+ *   CreatedBefore: new Date("TIMESTAMP"),
+ *   SortBy: "SourceArn" || "DestinationArn" || "SourceType" || "DestinationType" || "CreationTime",
+ *   SortOrder: "Ascending" || "Descending",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListAssociationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAssociationsCommandInput - {@link ListAssociationsCommandInput}
+ * @returns {@link ListAssociationsCommandOutput}
  * @see {@link ListAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListAssociationsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class ListAssociationsCommand extends $Command<
@@ -58,6 +84,9 @@ export class ListAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -86,8 +115,8 @@ export class ListAssociationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAssociationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAssociationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -97,12 +126,18 @@ export class ListAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAssociationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAssociationsCommand(input, context);
+    return se_ListAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssociationsCommandOutput> {
-    return deserializeAws_json1_1ListAssociationsCommand(output, context);
+    return de_ListAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

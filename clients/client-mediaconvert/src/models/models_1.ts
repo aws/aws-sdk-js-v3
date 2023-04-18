@@ -41,19 +41,29 @@ import {
   Rectangle,
 } from "./models_0";
 
-export enum OutputSdt {
-  SDT_FOLLOW = "SDT_FOLLOW",
-  SDT_FOLLOW_IF_PRESENT = "SDT_FOLLOW_IF_PRESENT",
-  SDT_MANUAL = "SDT_MANUAL",
-  SDT_NONE = "SDT_NONE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OutputSdt = {
+  SDT_FOLLOW: "SDT_FOLLOW",
+  SDT_FOLLOW_IF_PRESENT: "SDT_FOLLOW_IF_PRESENT",
+  SDT_MANUAL: "SDT_MANUAL",
+  SDT_NONE: "SDT_NONE",
+} as const;
 
 /**
+ * @public
+ */
+export type OutputSdt = (typeof OutputSdt)[keyof typeof OutputSdt];
+
+/**
+ * @public
  * Use these settings to insert a DVB Service Description Table (SDT) in the transport stream of this output. When you work directly in your JSON job specification, include this object only when your job has a transport stream output and the container settings contain the object M2tsSettings.
  */
 export interface DvbSdtSettings {
   /**
-   * Selects method of inserting SDT information into output stream.  "Follow input SDT" copies SDT information from input stream to  output stream. "Follow input SDT if present" copies SDT information from  input stream to output stream if SDT information is present in the input, otherwise it will fall back on the user-defined values. Enter "SDT  Manually" means user will enter the SDT information. "No SDT" means output  stream will not contain SDT information.
+   * Selects method of inserting SDT information into output stream. "Follow input SDT" copies SDT information from input stream to output stream. "Follow input SDT if present" copies SDT information from input stream to output stream if SDT information is present in the input, otherwise it will fall back on the user-defined values. Enter "SDT Manually" means user will enter the SDT information. "No SDT" means output stream will not contain SDT information.
    */
   OutputSdt?: OutputSdt | string;
 
@@ -74,6 +84,7 @@ export interface DvbSdtSettings {
 }
 
 /**
+ * @public
  * Use these settings to insert a DVB Time and Date Table (TDT) in the transport stream of this output. When you work directly in your JSON job specification, include this object only when your job has a transport stream output and the container settings contain the object M2tsSettings.
  */
 export interface DvbTdtSettings {
@@ -83,47 +94,120 @@ export interface DvbTdtSettings {
   TdtInterval?: number;
 }
 
-export enum M2tsEbpAudioInterval {
-  VIDEO_AND_FIXED_INTERVALS = "VIDEO_AND_FIXED_INTERVALS",
-  VIDEO_INTERVAL = "VIDEO_INTERVAL",
-}
-
-export enum M2tsEbpPlacement {
-  VIDEO_AND_AUDIO_PIDS = "VIDEO_AND_AUDIO_PIDS",
-  VIDEO_PID = "VIDEO_PID",
-}
-
-export enum M2tsEsRateInPes {
-  EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE",
-}
-
-export enum M2tsForceTsVideoEbpOrder {
-  DEFAULT = "DEFAULT",
-  FORCE = "FORCE",
-}
-
-export enum M2tsKlvMetadata {
-  NONE = "NONE",
-  PASSTHROUGH = "PASSTHROUGH",
-}
-
-export enum M2tsNielsenId3 {
-  INSERT = "INSERT",
-  NONE = "NONE",
-}
-
-export enum M2tsPcrControl {
-  CONFIGURED_PCR_PERIOD = "CONFIGURED_PCR_PERIOD",
-  PCR_EVERY_PES_PACKET = "PCR_EVERY_PES_PACKET",
-}
-
-export enum M2tsRateMode {
-  CBR = "CBR",
-  VBR = "VBR",
-}
+/**
+ * @public
+ * @enum
+ */
+export const M2tsEbpAudioInterval = {
+  VIDEO_AND_FIXED_INTERVALS: "VIDEO_AND_FIXED_INTERVALS",
+  VIDEO_INTERVAL: "VIDEO_INTERVAL",
+} as const;
 
 /**
+ * @public
+ */
+export type M2tsEbpAudioInterval = (typeof M2tsEbpAudioInterval)[keyof typeof M2tsEbpAudioInterval];
+
+/**
+ * @public
+ * @enum
+ */
+export const M2tsEbpPlacement = {
+  VIDEO_AND_AUDIO_PIDS: "VIDEO_AND_AUDIO_PIDS",
+  VIDEO_PID: "VIDEO_PID",
+} as const;
+
+/**
+ * @public
+ */
+export type M2tsEbpPlacement = (typeof M2tsEbpPlacement)[keyof typeof M2tsEbpPlacement];
+
+/**
+ * @public
+ * @enum
+ */
+export const M2tsEsRateInPes = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+} as const;
+
+/**
+ * @public
+ */
+export type M2tsEsRateInPes = (typeof M2tsEsRateInPes)[keyof typeof M2tsEsRateInPes];
+
+/**
+ * @public
+ * @enum
+ */
+export const M2tsForceTsVideoEbpOrder = {
+  DEFAULT: "DEFAULT",
+  FORCE: "FORCE",
+} as const;
+
+/**
+ * @public
+ */
+export type M2tsForceTsVideoEbpOrder = (typeof M2tsForceTsVideoEbpOrder)[keyof typeof M2tsForceTsVideoEbpOrder];
+
+/**
+ * @public
+ * @enum
+ */
+export const M2tsKlvMetadata = {
+  NONE: "NONE",
+  PASSTHROUGH: "PASSTHROUGH",
+} as const;
+
+/**
+ * @public
+ */
+export type M2tsKlvMetadata = (typeof M2tsKlvMetadata)[keyof typeof M2tsKlvMetadata];
+
+/**
+ * @public
+ * @enum
+ */
+export const M2tsNielsenId3 = {
+  INSERT: "INSERT",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type M2tsNielsenId3 = (typeof M2tsNielsenId3)[keyof typeof M2tsNielsenId3];
+
+/**
+ * @public
+ * @enum
+ */
+export const M2tsPcrControl = {
+  CONFIGURED_PCR_PERIOD: "CONFIGURED_PCR_PERIOD",
+  PCR_EVERY_PES_PACKET: "PCR_EVERY_PES_PACKET",
+} as const;
+
+/**
+ * @public
+ */
+export type M2tsPcrControl = (typeof M2tsPcrControl)[keyof typeof M2tsPcrControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const M2tsRateMode = {
+  CBR: "CBR",
+  VBR: "VBR",
+} as const;
+
+/**
+ * @public
+ */
+export type M2tsRateMode = (typeof M2tsRateMode)[keyof typeof M2tsRateMode];
+
+/**
+ * @public
  * Settings for SCTE-35 signals from ESAM. Include this in your job settings to put SCTE-35 markers in your HLS and transport stream outputs at the insertion points that you specify in an ESAM XML document. Provide the document in the setting SCC XML (sccXml).
  */
 export interface M2tsScte35Esam {
@@ -133,26 +217,54 @@ export interface M2tsScte35Esam {
   Scte35EsamPid?: number;
 }
 
-export enum M2tsScte35Source {
-  NONE = "NONE",
-  PASSTHROUGH = "PASSTHROUGH",
-}
-
-export enum M2tsSegmentationMarkers {
-  EBP = "EBP",
-  EBP_LEGACY = "EBP_LEGACY",
-  NONE = "NONE",
-  PSI_SEGSTART = "PSI_SEGSTART",
-  RAI_ADAPT = "RAI_ADAPT",
-  RAI_SEGSTART = "RAI_SEGSTART",
-}
-
-export enum M2tsSegmentationStyle {
-  MAINTAIN_CADENCE = "MAINTAIN_CADENCE",
-  RESET_CADENCE = "RESET_CADENCE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const M2tsScte35Source = {
+  NONE: "NONE",
+  PASSTHROUGH: "PASSTHROUGH",
+} as const;
 
 /**
+ * @public
+ */
+export type M2tsScte35Source = (typeof M2tsScte35Source)[keyof typeof M2tsScte35Source];
+
+/**
+ * @public
+ * @enum
+ */
+export const M2tsSegmentationMarkers = {
+  EBP: "EBP",
+  EBP_LEGACY: "EBP_LEGACY",
+  NONE: "NONE",
+  PSI_SEGSTART: "PSI_SEGSTART",
+  RAI_ADAPT: "RAI_ADAPT",
+  RAI_SEGSTART: "RAI_SEGSTART",
+} as const;
+
+/**
+ * @public
+ */
+export type M2tsSegmentationMarkers = (typeof M2tsSegmentationMarkers)[keyof typeof M2tsSegmentationMarkers];
+
+/**
+ * @public
+ * @enum
+ */
+export const M2tsSegmentationStyle = {
+  MAINTAIN_CADENCE: "MAINTAIN_CADENCE",
+  RESET_CADENCE: "RESET_CADENCE",
+} as const;
+
+/**
+ * @public
+ */
+export type M2tsSegmentationStyle = (typeof M2tsSegmentationStyle)[keyof typeof M2tsSegmentationStyle];
+
+/**
+ * @public
  * MPEG-2 TS container settings. These apply to outputs in a File output group when the output's container (ContainerType) is MPEG-2 Transport Stream (M2TS). In these assets, data is organized by the program map table (PMT). Each transport stream program contains subsets of data, including audio, video, and metadata. Each of these subsets of data has a numerical label called a packet identifier (PID). Each transport stream program corresponds to one MediaConvert output. The PMT lists the types of data in a program along with their PID. Downstream systems and players use the program map table to look up the PID for each type of data it accesses and then uses the PIDs to locate specific data within the asset.
  */
 export interface M2tsSettings {
@@ -182,7 +294,7 @@ export interface M2tsSettings {
   Bitrate?: number;
 
   /**
-   * Controls what buffer model to use for accurate interleaving. If set to MULTIPLEX, use multiplex  buffer model. If set to NONE, this can lead to lower latency, but low-memory devices may not be able to play back the stream without interruptions.
+   * Controls what buffer model to use for accurate interleaving. If set to MULTIPLEX, use multiplex buffer model. If set to NONE, this can lead to lower latency, but low-memory devices may not be able to play back the stream without interruptions.
    */
   BufferModel?: M2tsBufferModel | string;
 
@@ -352,37 +464,92 @@ export interface M2tsSettings {
   VideoPid?: number;
 }
 
-export enum M3u8AudioDuration {
-  DEFAULT_CODEC_DURATION = "DEFAULT_CODEC_DURATION",
-  MATCH_VIDEO_DURATION = "MATCH_VIDEO_DURATION",
-}
-
-export enum M3u8DataPtsControl {
-  ALIGN_TO_VIDEO = "ALIGN_TO_VIDEO",
-  AUTO = "AUTO",
-}
-
-export enum M3u8NielsenId3 {
-  INSERT = "INSERT",
-  NONE = "NONE",
-}
-
-export enum M3u8PcrControl {
-  CONFIGURED_PCR_PERIOD = "CONFIGURED_PCR_PERIOD",
-  PCR_EVERY_PES_PACKET = "PCR_EVERY_PES_PACKET",
-}
-
-export enum M3u8Scte35Source {
-  NONE = "NONE",
-  PASSTHROUGH = "PASSTHROUGH",
-}
-
-export enum TimedMetadata {
-  NONE = "NONE",
-  PASSTHROUGH = "PASSTHROUGH",
-}
+/**
+ * @public
+ * @enum
+ */
+export const M3u8AudioDuration = {
+  DEFAULT_CODEC_DURATION: "DEFAULT_CODEC_DURATION",
+  MATCH_VIDEO_DURATION: "MATCH_VIDEO_DURATION",
+} as const;
 
 /**
+ * @public
+ */
+export type M3u8AudioDuration = (typeof M3u8AudioDuration)[keyof typeof M3u8AudioDuration];
+
+/**
+ * @public
+ * @enum
+ */
+export const M3u8DataPtsControl = {
+  ALIGN_TO_VIDEO: "ALIGN_TO_VIDEO",
+  AUTO: "AUTO",
+} as const;
+
+/**
+ * @public
+ */
+export type M3u8DataPtsControl = (typeof M3u8DataPtsControl)[keyof typeof M3u8DataPtsControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const M3u8NielsenId3 = {
+  INSERT: "INSERT",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type M3u8NielsenId3 = (typeof M3u8NielsenId3)[keyof typeof M3u8NielsenId3];
+
+/**
+ * @public
+ * @enum
+ */
+export const M3u8PcrControl = {
+  CONFIGURED_PCR_PERIOD: "CONFIGURED_PCR_PERIOD",
+  PCR_EVERY_PES_PACKET: "PCR_EVERY_PES_PACKET",
+} as const;
+
+/**
+ * @public
+ */
+export type M3u8PcrControl = (typeof M3u8PcrControl)[keyof typeof M3u8PcrControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const M3u8Scte35Source = {
+  NONE: "NONE",
+  PASSTHROUGH: "PASSTHROUGH",
+} as const;
+
+/**
+ * @public
+ */
+export type M3u8Scte35Source = (typeof M3u8Scte35Source)[keyof typeof M3u8Scte35Source];
+
+/**
+ * @public
+ * @enum
+ */
+export const TimedMetadata = {
+  NONE: "NONE",
+  PASSTHROUGH: "PASSTHROUGH",
+} as const;
+
+/**
+ * @public
+ */
+export type TimedMetadata = (typeof TimedMetadata)[keyof typeof TimedMetadata];
+
+/**
+ * @public
  * These settings relate to the MPEG-2 transport stream (MPEG2-TS) container for the MPEG2-TS segments in your HLS outputs.
  */
 export interface M3u8Settings {
@@ -482,32 +649,78 @@ export interface M3u8Settings {
   VideoPid?: number;
 }
 
-export enum MovClapAtom {
-  EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE",
-}
-
-export enum MovCslgAtom {
-  EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE",
-}
-
-export enum MovMpeg2FourCCControl {
-  MPEG = "MPEG",
-  XDCAM = "XDCAM",
-}
-
-export enum MovPaddingControl {
-  NONE = "NONE",
-  OMNEON = "OMNEON",
-}
-
-export enum MovReference {
-  EXTERNAL = "EXTERNAL",
-  SELF_CONTAINED = "SELF_CONTAINED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MovClapAtom = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+} as const;
 
 /**
+ * @public
+ */
+export type MovClapAtom = (typeof MovClapAtom)[keyof typeof MovClapAtom];
+
+/**
+ * @public
+ * @enum
+ */
+export const MovCslgAtom = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+} as const;
+
+/**
+ * @public
+ */
+export type MovCslgAtom = (typeof MovCslgAtom)[keyof typeof MovCslgAtom];
+
+/**
+ * @public
+ * @enum
+ */
+export const MovMpeg2FourCCControl = {
+  MPEG: "MPEG",
+  XDCAM: "XDCAM",
+} as const;
+
+/**
+ * @public
+ */
+export type MovMpeg2FourCCControl = (typeof MovMpeg2FourCCControl)[keyof typeof MovMpeg2FourCCControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const MovPaddingControl = {
+  NONE: "NONE",
+  OMNEON: "OMNEON",
+} as const;
+
+/**
+ * @public
+ */
+export type MovPaddingControl = (typeof MovPaddingControl)[keyof typeof MovPaddingControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const MovReference = {
+  EXTERNAL: "EXTERNAL",
+  SELF_CONTAINED: "SELF_CONTAINED",
+} as const;
+
+/**
+ * @public
+ */
+export type MovReference = (typeof MovReference)[keyof typeof MovReference];
+
+/**
+ * @public
  * These settings relate to your QuickTime MOV output container.
  */
 export interface MovSettings {
@@ -527,7 +740,7 @@ export interface MovSettings {
   Mpeg2FourCCControl?: MovMpeg2FourCCControl | string;
 
   /**
-   * To make this output compatible with Omenon, keep the default value, OMNEON. Unless you need Omneon compatibility, set this value to NONE. When you keep the default value, OMNEON, MediaConvert increases the length of the edit list atom. This might cause file rejections when a recipient of the output file doesn't expct this extra padding.
+   * Unless you need Omneon compatibility: Keep the default value, None. To make this output compatible with Omneon: Choose Omneon. When you do, MediaConvert increases the length of the 'elst' edit list atom. Note that this might cause file rejections when a recipient of the output file doesn't expect this extra padding.
    */
   PaddingControl?: MovPaddingControl | string;
 
@@ -537,22 +750,50 @@ export interface MovSettings {
   Reference?: MovReference | string;
 }
 
-export enum Mp4CslgAtom {
-  EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE",
-}
-
-export enum Mp4FreeSpaceBox {
-  EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE",
-}
-
-export enum Mp4MoovPlacement {
-  NORMAL = "NORMAL",
-  PROGRESSIVE_DOWNLOAD = "PROGRESSIVE_DOWNLOAD",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Mp4CslgAtom = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+} as const;
 
 /**
+ * @public
+ */
+export type Mp4CslgAtom = (typeof Mp4CslgAtom)[keyof typeof Mp4CslgAtom];
+
+/**
+ * @public
+ * @enum
+ */
+export const Mp4FreeSpaceBox = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+} as const;
+
+/**
+ * @public
+ */
+export type Mp4FreeSpaceBox = (typeof Mp4FreeSpaceBox)[keyof typeof Mp4FreeSpaceBox];
+
+/**
+ * @public
+ * @enum
+ */
+export const Mp4MoovPlacement = {
+  NORMAL: "NORMAL",
+  PROGRESSIVE_DOWNLOAD: "PROGRESSIVE_DOWNLOAD",
+} as const;
+
+/**
+ * @public
+ */
+export type Mp4MoovPlacement = (typeof Mp4MoovPlacement)[keyof typeof Mp4MoovPlacement];
+
+/**
+ * @public
  * These settings relate to your MP4 output container. You can create audio only outputs with this container. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/supported-codecs-containers-audio-only.html#output-codecs-and-containers-supported-for-audio-only.
  */
 export interface Mp4Settings {
@@ -587,52 +828,136 @@ export interface Mp4Settings {
   Mp4MajorBrand?: string;
 }
 
-export enum MpdAccessibilityCaptionHints {
-  EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE",
-}
-
-export enum MpdAudioDuration {
-  DEFAULT_CODEC_DURATION = "DEFAULT_CODEC_DURATION",
-  MATCH_VIDEO_DURATION = "MATCH_VIDEO_DURATION",
-}
-
-export enum MpdCaptionContainerType {
-  FRAGMENTED_MP4 = "FRAGMENTED_MP4",
-  RAW = "RAW",
-}
-
-export enum MpdKlvMetadata {
-  NONE = "NONE",
-  PASSTHROUGH = "PASSTHROUGH",
-}
-
-export enum MpdManifestMetadataSignaling {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum MpdScte35Esam {
-  INSERT = "INSERT",
-  NONE = "NONE",
-}
-
-export enum MpdScte35Source {
-  NONE = "NONE",
-  PASSTHROUGH = "PASSTHROUGH",
-}
-
-export enum MpdTimedMetadata {
-  NONE = "NONE",
-  PASSTHROUGH = "PASSTHROUGH",
-}
-
-export enum MpdTimedMetadataBoxVersion {
-  VERSION_0 = "VERSION_0",
-  VERSION_1 = "VERSION_1",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MpdAccessibilityCaptionHints = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+} as const;
 
 /**
+ * @public
+ */
+export type MpdAccessibilityCaptionHints =
+  (typeof MpdAccessibilityCaptionHints)[keyof typeof MpdAccessibilityCaptionHints];
+
+/**
+ * @public
+ * @enum
+ */
+export const MpdAudioDuration = {
+  DEFAULT_CODEC_DURATION: "DEFAULT_CODEC_DURATION",
+  MATCH_VIDEO_DURATION: "MATCH_VIDEO_DURATION",
+} as const;
+
+/**
+ * @public
+ */
+export type MpdAudioDuration = (typeof MpdAudioDuration)[keyof typeof MpdAudioDuration];
+
+/**
+ * @public
+ * @enum
+ */
+export const MpdCaptionContainerType = {
+  FRAGMENTED_MP4: "FRAGMENTED_MP4",
+  RAW: "RAW",
+} as const;
+
+/**
+ * @public
+ */
+export type MpdCaptionContainerType = (typeof MpdCaptionContainerType)[keyof typeof MpdCaptionContainerType];
+
+/**
+ * @public
+ * @enum
+ */
+export const MpdKlvMetadata = {
+  NONE: "NONE",
+  PASSTHROUGH: "PASSTHROUGH",
+} as const;
+
+/**
+ * @public
+ */
+export type MpdKlvMetadata = (typeof MpdKlvMetadata)[keyof typeof MpdKlvMetadata];
+
+/**
+ * @public
+ * @enum
+ */
+export const MpdManifestMetadataSignaling = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type MpdManifestMetadataSignaling =
+  (typeof MpdManifestMetadataSignaling)[keyof typeof MpdManifestMetadataSignaling];
+
+/**
+ * @public
+ * @enum
+ */
+export const MpdScte35Esam = {
+  INSERT: "INSERT",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type MpdScte35Esam = (typeof MpdScte35Esam)[keyof typeof MpdScte35Esam];
+
+/**
+ * @public
+ * @enum
+ */
+export const MpdScte35Source = {
+  NONE: "NONE",
+  PASSTHROUGH: "PASSTHROUGH",
+} as const;
+
+/**
+ * @public
+ */
+export type MpdScte35Source = (typeof MpdScte35Source)[keyof typeof MpdScte35Source];
+
+/**
+ * @public
+ * @enum
+ */
+export const MpdTimedMetadata = {
+  NONE: "NONE",
+  PASSTHROUGH: "PASSTHROUGH",
+} as const;
+
+/**
+ * @public
+ */
+export type MpdTimedMetadata = (typeof MpdTimedMetadata)[keyof typeof MpdTimedMetadata];
+
+/**
+ * @public
+ * @enum
+ */
+export const MpdTimedMetadataBoxVersion = {
+  VERSION_0: "VERSION_0",
+  VERSION_1: "VERSION_1",
+} as const;
+
+/**
+ * @public
+ */
+export type MpdTimedMetadataBoxVersion = (typeof MpdTimedMetadataBoxVersion)[keyof typeof MpdTimedMetadataBoxVersion];
+
+/**
+ * @public
  * These settings relate to the fragmented MP4 container for the segments in your DASH outputs.
  */
 export interface MpdSettings {
@@ -647,7 +972,7 @@ export interface MpdSettings {
   AudioDuration?: MpdAudioDuration | string;
 
   /**
-   * Use this setting only in DASH output groups that include sidecar TTML or IMSC captions.  You specify sidecar captions in a separate output from your audio and video. Choose Raw (RAW) for captions in a single XML file in a raw container. Choose Fragmented MPEG-4 (FRAGMENTED_MP4) for captions in XML format contained within fragmented MP4 files. This set of fragmented MP4 files is separate from your video and audio fragmented MP4 files.
+   * Use this setting only in DASH output groups that include sidecar TTML or IMSC captions. You specify sidecar captions in a separate output from your audio and video. Choose Raw (RAW) for captions in a single XML file in a raw container. Choose Fragmented MPEG-4 (FRAGMENTED_MP4) for captions in XML format contained within fragmented MP4 files. This set of fragmented MP4 files is separate from your video and audio fragmented MP4 files.
    */
   CaptionContainerType?: MpdCaptionContainerType | string;
 
@@ -685,34 +1010,62 @@ export interface MpdSettings {
   TimedMetadataBoxVersion?: MpdTimedMetadataBoxVersion | string;
 
   /**
-   * Specify the event message box (eMSG) scheme ID URI (scheme_id_uri) for ID3 timed metadata in your output. For more informaiton, see ISO/IEC 23009-1:2022 section 5.10.3.3.4 Semantics. Leave blank to use the default value: https://aomedia.org/emsg/ID3 When you specify a value for ID3 metadata scheme ID URI, you must also set ID3 metadata (timedMetadata) to Passthrough.
+   * Specify the event message box (eMSG) scheme ID URI (scheme_id_uri) for ID3 timed metadata in your output. For more information, see ISO/IEC 23009-1:2022 section 5.10.3.3.4 Semantics. Leave blank to use the default value: https://aomedia.org/emsg/ID3 When you specify a value for ID3 metadata scheme ID URI, you must also set ID3 metadata (timedMetadata) to Passthrough.
    */
   TimedMetadataSchemeIdUri?: string;
 
   /**
-   * Specify the event message box (eMSG) value for ID3 timed metadata in your output. For more informaiton, see ISO/IEC 23009-1:2022 section 5.10.3.3.4 Semantics. When you specify a value for ID3 Metadata Value, you must also set ID3 metadata (timedMetadata) to Passthrough.
+   * Specify the event message box (eMSG) value for ID3 timed metadata in your output. For more information, see ISO/IEC 23009-1:2022 section 5.10.3.3.4 Semantics. When you specify a value for ID3 Metadata Value, you must also set ID3 metadata (timedMetadata) to Passthrough.
    */
   TimedMetadataValue?: string;
 }
 
-export enum MxfAfdSignaling {
-  COPY_FROM_VIDEO = "COPY_FROM_VIDEO",
-  NO_COPY = "NO_COPY",
-}
-
-export enum MxfProfile {
-  D_10 = "D_10",
-  OP1A = "OP1A",
-  XAVC = "XAVC",
-  XDCAM = "XDCAM",
-}
-
-export enum MxfXavcDurationMode {
-  ALLOW_ANY_DURATION = "ALLOW_ANY_DURATION",
-  DROP_FRAMES_FOR_COMPLIANCE = "DROP_FRAMES_FOR_COMPLIANCE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MxfAfdSignaling = {
+  COPY_FROM_VIDEO: "COPY_FROM_VIDEO",
+  NO_COPY: "NO_COPY",
+} as const;
 
 /**
+ * @public
+ */
+export type MxfAfdSignaling = (typeof MxfAfdSignaling)[keyof typeof MxfAfdSignaling];
+
+/**
+ * @public
+ * @enum
+ */
+export const MxfProfile = {
+  D_10: "D_10",
+  OP1A: "OP1A",
+  XAVC: "XAVC",
+  XDCAM: "XDCAM",
+} as const;
+
+/**
+ * @public
+ */
+export type MxfProfile = (typeof MxfProfile)[keyof typeof MxfProfile];
+
+/**
+ * @public
+ * @enum
+ */
+export const MxfXavcDurationMode = {
+  ALLOW_ANY_DURATION: "ALLOW_ANY_DURATION",
+  DROP_FRAMES_FOR_COMPLIANCE: "DROP_FRAMES_FOR_COMPLIANCE",
+} as const;
+
+/**
+ * @public
+ */
+export type MxfXavcDurationMode = (typeof MxfXavcDurationMode)[keyof typeof MxfXavcDurationMode];
+
+/**
+ * @public
  * Specify the XAVC profile settings for MXF outputs when you set your MXF profile to XAVC.
  */
 export interface MxfXavcProfileSettings {
@@ -728,6 +1081,7 @@ export interface MxfXavcProfileSettings {
 }
 
 /**
+ * @public
  * These settings relate to your MXF output container.
  */
 export interface MxfSettings {
@@ -748,6 +1102,7 @@ export interface MxfSettings {
 }
 
 /**
+ * @public
  * Container specific settings.
  */
 export interface ContainerSettings {
@@ -797,29 +1152,67 @@ export interface ContainerSettings {
   MxfSettings?: MxfSettings;
 }
 
-export enum HlsAudioOnlyContainer {
-  AUTOMATIC = "AUTOMATIC",
-  M2TS = "M2TS",
-}
-
-export enum HlsAudioTrackType {
-  ALTERNATE_AUDIO_AUTO_SELECT = "ALTERNATE_AUDIO_AUTO_SELECT",
-  ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT = "ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT",
-  ALTERNATE_AUDIO_NOT_AUTO_SELECT = "ALTERNATE_AUDIO_NOT_AUTO_SELECT",
-  AUDIO_ONLY_VARIANT_STREAM = "AUDIO_ONLY_VARIANT_STREAM",
-}
-
-export enum HlsDescriptiveVideoServiceFlag {
-  DONT_FLAG = "DONT_FLAG",
-  FLAG = "FLAG",
-}
-
-export enum HlsIFrameOnlyManifest {
-  EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const HlsAudioOnlyContainer = {
+  AUTOMATIC: "AUTOMATIC",
+  M2TS: "M2TS",
+} as const;
 
 /**
+ * @public
+ */
+export type HlsAudioOnlyContainer = (typeof HlsAudioOnlyContainer)[keyof typeof HlsAudioOnlyContainer];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsAudioTrackType = {
+  ALTERNATE_AUDIO_AUTO_SELECT: "ALTERNATE_AUDIO_AUTO_SELECT",
+  ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT: "ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT",
+  ALTERNATE_AUDIO_NOT_AUTO_SELECT: "ALTERNATE_AUDIO_NOT_AUTO_SELECT",
+  AUDIO_ONLY_VARIANT_STREAM: "AUDIO_ONLY_VARIANT_STREAM",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsAudioTrackType = (typeof HlsAudioTrackType)[keyof typeof HlsAudioTrackType];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsDescriptiveVideoServiceFlag = {
+  DONT_FLAG: "DONT_FLAG",
+  FLAG: "FLAG",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsDescriptiveVideoServiceFlag =
+  (typeof HlsDescriptiveVideoServiceFlag)[keyof typeof HlsDescriptiveVideoServiceFlag];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsIFrameOnlyManifest = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsIFrameOnlyManifest = (typeof HlsIFrameOnlyManifest)[keyof typeof HlsIFrameOnlyManifest];
+
+/**
+ * @public
  * Settings for HLS output groups
  */
 export interface HlsSettings {
@@ -860,6 +1253,7 @@ export interface HlsSettings {
 }
 
 /**
+ * @public
  * Specific settings for this type of output.
  */
 export interface OutputSettings {
@@ -869,43 +1263,99 @@ export interface OutputSettings {
   HlsSettings?: HlsSettings;
 }
 
-export enum AfdSignaling {
-  AUTO = "AUTO",
-  FIXED = "FIXED",
-  NONE = "NONE",
-}
-
-export enum AntiAlias {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum Av1AdaptiveQuantization {
-  HIGH = "HIGH",
-  HIGHER = "HIGHER",
-  LOW = "LOW",
-  MAX = "MAX",
-  MEDIUM = "MEDIUM",
-  OFF = "OFF",
-}
-
-export enum Av1BitDepth {
-  BIT_10 = "BIT_10",
-  BIT_8 = "BIT_8",
-}
-
-export enum Av1FramerateControl {
-  INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
-  SPECIFIED = "SPECIFIED",
-}
-
-export enum Av1FramerateConversionAlgorithm {
-  DUPLICATE_DROP = "DUPLICATE_DROP",
-  FRAMEFORMER = "FRAMEFORMER",
-  INTERPOLATE = "INTERPOLATE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AfdSignaling = {
+  AUTO: "AUTO",
+  FIXED: "FIXED",
+  NONE: "NONE",
+} as const;
 
 /**
+ * @public
+ */
+export type AfdSignaling = (typeof AfdSignaling)[keyof typeof AfdSignaling];
+
+/**
+ * @public
+ * @enum
+ */
+export const AntiAlias = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type AntiAlias = (typeof AntiAlias)[keyof typeof AntiAlias];
+
+/**
+ * @public
+ * @enum
+ */
+export const Av1AdaptiveQuantization = {
+  HIGH: "HIGH",
+  HIGHER: "HIGHER",
+  LOW: "LOW",
+  MAX: "MAX",
+  MEDIUM: "MEDIUM",
+  OFF: "OFF",
+} as const;
+
+/**
+ * @public
+ */
+export type Av1AdaptiveQuantization = (typeof Av1AdaptiveQuantization)[keyof typeof Av1AdaptiveQuantization];
+
+/**
+ * @public
+ * @enum
+ */
+export const Av1BitDepth = {
+  BIT_10: "BIT_10",
+  BIT_8: "BIT_8",
+} as const;
+
+/**
+ * @public
+ */
+export type Av1BitDepth = (typeof Av1BitDepth)[keyof typeof Av1BitDepth];
+
+/**
+ * @public
+ * @enum
+ */
+export const Av1FramerateControl = {
+  INITIALIZE_FROM_SOURCE: "INITIALIZE_FROM_SOURCE",
+  SPECIFIED: "SPECIFIED",
+} as const;
+
+/**
+ * @public
+ */
+export type Av1FramerateControl = (typeof Av1FramerateControl)[keyof typeof Av1FramerateControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const Av1FramerateConversionAlgorithm = {
+  DUPLICATE_DROP: "DUPLICATE_DROP",
+  FRAMEFORMER: "FRAMEFORMER",
+  INTERPOLATE: "INTERPOLATE",
+} as const;
+
+/**
+ * @public
+ */
+export type Av1FramerateConversionAlgorithm =
+  (typeof Av1FramerateConversionAlgorithm)[keyof typeof Av1FramerateConversionAlgorithm];
+
+/**
+ * @public
  * Settings for quality-defined variable bitrate encoding with the AV1 codec. Use these settings only when you set QVBR for Rate control mode (RateControlMode).
  */
 export interface Av1QvbrSettings {
@@ -920,16 +1370,36 @@ export interface Av1QvbrSettings {
   QvbrQualityLevelFineTune?: number;
 }
 
-export enum Av1RateControlMode {
-  QVBR = "QVBR",
-}
-
-export enum Av1SpatialAdaptiveQuantization {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Av1RateControlMode = {
+  QVBR: "QVBR",
+} as const;
 
 /**
+ * @public
+ */
+export type Av1RateControlMode = (typeof Av1RateControlMode)[keyof typeof Av1RateControlMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const Av1SpatialAdaptiveQuantization = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type Av1SpatialAdaptiveQuantization =
+  (typeof Av1SpatialAdaptiveQuantization)[keyof typeof Av1SpatialAdaptiveQuantization];
+
+/**
+ * @public
  * Required when you set Codec, under VideoDescription>CodecSettings to the value AV1.
  */
 export interface Av1Settings {
@@ -954,12 +1424,12 @@ export interface Av1Settings {
   FramerateConversionAlgorithm?: Av1FramerateConversionAlgorithm | string;
 
   /**
-   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
    */
   FramerateDenominator?: number;
 
   /**
-   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
    */
   FramerateNumerator?: number;
 
@@ -999,19 +1469,39 @@ export interface Av1Settings {
   SpatialAdaptiveQuantization?: Av1SpatialAdaptiveQuantization | string;
 }
 
-export enum AvcIntraClass {
-  CLASS_100 = "CLASS_100",
-  CLASS_200 = "CLASS_200",
-  CLASS_4K_2K = "CLASS_4K_2K",
-  CLASS_50 = "CLASS_50",
-}
-
-export enum AvcIntraUhdQualityTuningLevel {
-  MULTI_PASS = "MULTI_PASS",
-  SINGLE_PASS = "SINGLE_PASS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AvcIntraClass = {
+  CLASS_100: "CLASS_100",
+  CLASS_200: "CLASS_200",
+  CLASS_4K_2K: "CLASS_4K_2K",
+  CLASS_50: "CLASS_50",
+} as const;
 
 /**
+ * @public
+ */
+export type AvcIntraClass = (typeof AvcIntraClass)[keyof typeof AvcIntraClass];
+
+/**
+ * @public
+ * @enum
+ */
+export const AvcIntraUhdQualityTuningLevel = {
+  MULTI_PASS: "MULTI_PASS",
+  SINGLE_PASS: "SINGLE_PASS",
+} as const;
+
+/**
+ * @public
+ */
+export type AvcIntraUhdQualityTuningLevel =
+  (typeof AvcIntraUhdQualityTuningLevel)[keyof typeof AvcIntraUhdQualityTuningLevel];
+
+/**
+ * @public
  * Optional when you set AVC-Intra class (avcIntraClass) to Class 4K/2K (CLASS_4K_2K). When you set AVC-Intra class to a different value, this object isn't allowed.
  */
 export interface AvcIntraUhdSettings {
@@ -1021,41 +1511,98 @@ export interface AvcIntraUhdSettings {
   QualityTuningLevel?: AvcIntraUhdQualityTuningLevel | string;
 }
 
-export enum AvcIntraFramerateControl {
-  INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
-  SPECIFIED = "SPECIFIED",
-}
-
-export enum AvcIntraFramerateConversionAlgorithm {
-  DUPLICATE_DROP = "DUPLICATE_DROP",
-  FRAMEFORMER = "FRAMEFORMER",
-  INTERPOLATE = "INTERPOLATE",
-}
-
-export enum AvcIntraInterlaceMode {
-  BOTTOM_FIELD = "BOTTOM_FIELD",
-  FOLLOW_BOTTOM_FIELD = "FOLLOW_BOTTOM_FIELD",
-  FOLLOW_TOP_FIELD = "FOLLOW_TOP_FIELD",
-  PROGRESSIVE = "PROGRESSIVE",
-  TOP_FIELD = "TOP_FIELD",
-}
-
-export enum AvcIntraScanTypeConversionMode {
-  INTERLACED = "INTERLACED",
-  INTERLACED_OPTIMIZE = "INTERLACED_OPTIMIZE",
-}
-
-export enum AvcIntraSlowPal {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum AvcIntraTelecine {
-  HARD = "HARD",
-  NONE = "NONE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AvcIntraFramerateControl = {
+  INITIALIZE_FROM_SOURCE: "INITIALIZE_FROM_SOURCE",
+  SPECIFIED: "SPECIFIED",
+} as const;
 
 /**
+ * @public
+ */
+export type AvcIntraFramerateControl = (typeof AvcIntraFramerateControl)[keyof typeof AvcIntraFramerateControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const AvcIntraFramerateConversionAlgorithm = {
+  DUPLICATE_DROP: "DUPLICATE_DROP",
+  FRAMEFORMER: "FRAMEFORMER",
+  INTERPOLATE: "INTERPOLATE",
+} as const;
+
+/**
+ * @public
+ */
+export type AvcIntraFramerateConversionAlgorithm =
+  (typeof AvcIntraFramerateConversionAlgorithm)[keyof typeof AvcIntraFramerateConversionAlgorithm];
+
+/**
+ * @public
+ * @enum
+ */
+export const AvcIntraInterlaceMode = {
+  BOTTOM_FIELD: "BOTTOM_FIELD",
+  FOLLOW_BOTTOM_FIELD: "FOLLOW_BOTTOM_FIELD",
+  FOLLOW_TOP_FIELD: "FOLLOW_TOP_FIELD",
+  PROGRESSIVE: "PROGRESSIVE",
+  TOP_FIELD: "TOP_FIELD",
+} as const;
+
+/**
+ * @public
+ */
+export type AvcIntraInterlaceMode = (typeof AvcIntraInterlaceMode)[keyof typeof AvcIntraInterlaceMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const AvcIntraScanTypeConversionMode = {
+  INTERLACED: "INTERLACED",
+  INTERLACED_OPTIMIZE: "INTERLACED_OPTIMIZE",
+} as const;
+
+/**
+ * @public
+ */
+export type AvcIntraScanTypeConversionMode =
+  (typeof AvcIntraScanTypeConversionMode)[keyof typeof AvcIntraScanTypeConversionMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const AvcIntraSlowPal = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type AvcIntraSlowPal = (typeof AvcIntraSlowPal)[keyof typeof AvcIntraSlowPal];
+
+/**
+ * @public
+ * @enum
+ */
+export const AvcIntraTelecine = {
+  HARD: "HARD",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type AvcIntraTelecine = (typeof AvcIntraTelecine)[keyof typeof AvcIntraTelecine];
+
+/**
+ * @public
  * Required when you choose AVC-Intra for your output video codec. For more information about the AVC-Intra settings, see the relevant specification. For detailed information about SD and HD in AVC-Intra, see https://ieeexplore.ieee.org/document/7290936. For information about 4K/2K in AVC-Intra, see https://pro-av.panasonic.net/en/avc-ultra/AVC-ULTRAoverview.pdf.
  */
 export interface AvcIntraSettings {
@@ -1080,12 +1627,12 @@ export interface AvcIntraSettings {
   FramerateConversionAlgorithm?: AvcIntraFramerateConversionAlgorithm | string;
 
   /**
-   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
    */
   FramerateDenominator?: number;
 
   /**
-   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
    */
   FramerateNumerator?: number;
 
@@ -1110,21 +1657,31 @@ export interface AvcIntraSettings {
   Telecine?: AvcIntraTelecine | string;
 }
 
-export enum VideoCodec {
-  AV1 = "AV1",
-  AVC_INTRA = "AVC_INTRA",
-  FRAME_CAPTURE = "FRAME_CAPTURE",
-  H_264 = "H_264",
-  H_265 = "H_265",
-  MPEG2 = "MPEG2",
-  PRORES = "PRORES",
-  VC3 = "VC3",
-  VP8 = "VP8",
-  VP9 = "VP9",
-  XAVC = "XAVC",
-}
+/**
+ * @public
+ * @enum
+ */
+export const VideoCodec = {
+  AV1: "AV1",
+  AVC_INTRA: "AVC_INTRA",
+  FRAME_CAPTURE: "FRAME_CAPTURE",
+  H_264: "H_264",
+  H_265: "H_265",
+  MPEG2: "MPEG2",
+  PRORES: "PRORES",
+  VC3: "VC3",
+  VP8: "VP8",
+  VP9: "VP9",
+  XAVC: "XAVC",
+} as const;
 
 /**
+ * @public
+ */
+export type VideoCodec = (typeof VideoCodec)[keyof typeof VideoCodec];
+
+/**
+ * @public
  * Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value FRAME_CAPTURE.
  */
 export interface FrameCaptureSettings {
@@ -1149,108 +1706,288 @@ export interface FrameCaptureSettings {
   Quality?: number;
 }
 
-export enum H264AdaptiveQuantization {
-  AUTO = "AUTO",
-  HIGH = "HIGH",
-  HIGHER = "HIGHER",
-  LOW = "LOW",
-  MAX = "MAX",
-  MEDIUM = "MEDIUM",
-  OFF = "OFF",
-}
+/**
+ * @public
+ * @enum
+ */
+export const H264AdaptiveQuantization = {
+  AUTO: "AUTO",
+  HIGH: "HIGH",
+  HIGHER: "HIGHER",
+  LOW: "LOW",
+  MAX: "MAX",
+  MEDIUM: "MEDIUM",
+  OFF: "OFF",
+} as const;
 
-export enum H264CodecLevel {
-  AUTO = "AUTO",
-  LEVEL_1 = "LEVEL_1",
-  LEVEL_1_1 = "LEVEL_1_1",
-  LEVEL_1_2 = "LEVEL_1_2",
-  LEVEL_1_3 = "LEVEL_1_3",
-  LEVEL_2 = "LEVEL_2",
-  LEVEL_2_1 = "LEVEL_2_1",
-  LEVEL_2_2 = "LEVEL_2_2",
-  LEVEL_3 = "LEVEL_3",
-  LEVEL_3_1 = "LEVEL_3_1",
-  LEVEL_3_2 = "LEVEL_3_2",
-  LEVEL_4 = "LEVEL_4",
-  LEVEL_4_1 = "LEVEL_4_1",
-  LEVEL_4_2 = "LEVEL_4_2",
-  LEVEL_5 = "LEVEL_5",
-  LEVEL_5_1 = "LEVEL_5_1",
-  LEVEL_5_2 = "LEVEL_5_2",
-}
+/**
+ * @public
+ */
+export type H264AdaptiveQuantization = (typeof H264AdaptiveQuantization)[keyof typeof H264AdaptiveQuantization];
 
-export enum H264CodecProfile {
-  BASELINE = "BASELINE",
-  HIGH = "HIGH",
-  HIGH_10BIT = "HIGH_10BIT",
-  HIGH_422 = "HIGH_422",
-  HIGH_422_10BIT = "HIGH_422_10BIT",
-  MAIN = "MAIN",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BandwidthReductionFilterSharpening = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+  OFF: "OFF",
+} as const;
 
-export enum H264DynamicSubGop {
-  ADAPTIVE = "ADAPTIVE",
-  STATIC = "STATIC",
-}
+/**
+ * @public
+ */
+export type BandwidthReductionFilterSharpening =
+  (typeof BandwidthReductionFilterSharpening)[keyof typeof BandwidthReductionFilterSharpening];
 
-export enum H264EntropyEncoding {
-  CABAC = "CABAC",
-  CAVLC = "CAVLC",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BandwidthReductionFilterStrength = {
+  AUTO: "AUTO",
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+  OFF: "OFF",
+} as const;
 
-export enum H264FieldEncoding {
-  FORCE_FIELD = "FORCE_FIELD",
-  MBAFF = "MBAFF",
-  PAFF = "PAFF",
-}
+/**
+ * @public
+ */
+export type BandwidthReductionFilterStrength =
+  (typeof BandwidthReductionFilterStrength)[keyof typeof BandwidthReductionFilterStrength];
 
-export enum H264FlickerAdaptiveQuantization {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * The Bandwidth reduction filter increases the video quality of your output relative to its bitrate. Use to lower the bitrate of your constant quality QVBR output, with little or no perceptual decrease in quality. Or, use to increase the video quality of outputs with other rate control modes relative to the bitrate that you specify. Bandwidth reduction increases further when your input is low quality or noisy. Outputs that use this feature incur pro-tier pricing. When you include Bandwidth reduction filter, you cannot include the Noise reducer preprocessor.
+ */
+export interface BandwidthReductionFilter {
+  /**
+   * Optionally specify the level of sharpening to apply when you use the Bandwidth reduction filter.  Sharpening adds contrast to the edges of your video content and can reduce softness. Keep the default value Off to apply no sharpening. Set Sharpening strength to Low to apply a minimal amount of sharpening, or High to apply a maximum amount of sharpening.
+   */
+  Sharpening?: BandwidthReductionFilterSharpening | string;
 
-export enum H264FramerateControl {
-  INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
-  SPECIFIED = "SPECIFIED",
-}
-
-export enum H264FramerateConversionAlgorithm {
-  DUPLICATE_DROP = "DUPLICATE_DROP",
-  FRAMEFORMER = "FRAMEFORMER",
-  INTERPOLATE = "INTERPOLATE",
-}
-
-export enum H264GopBReference {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum H264GopSizeUnits {
-  AUTO = "AUTO",
-  FRAMES = "FRAMES",
-  SECONDS = "SECONDS",
-}
-
-export enum H264InterlaceMode {
-  BOTTOM_FIELD = "BOTTOM_FIELD",
-  FOLLOW_BOTTOM_FIELD = "FOLLOW_BOTTOM_FIELD",
-  FOLLOW_TOP_FIELD = "FOLLOW_TOP_FIELD",
-  PROGRESSIVE = "PROGRESSIVE",
-  TOP_FIELD = "TOP_FIELD",
-}
-
-export enum H264ParControl {
-  INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
-  SPECIFIED = "SPECIFIED",
-}
-
-export enum H264QualityTuningLevel {
-  MULTI_PASS_HQ = "MULTI_PASS_HQ",
-  SINGLE_PASS = "SINGLE_PASS",
-  SINGLE_PASS_HQ = "SINGLE_PASS_HQ",
+  /**
+   * Specify the strength of the Bandwidth reduction filter. For most workflows, we recommend that you choose Auto to reduce the bandwidth of your output with little to no perceptual decrease in video quality. For high quality and high bitrate outputs, choose Low. For the most bandwidth reduction, choose High. We recommend that you choose High for low bitrate outputs. Note that High may incur a slight increase in the softness of your output.
+   */
+  Strength?: BandwidthReductionFilterStrength | string;
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const H264CodecLevel = {
+  AUTO: "AUTO",
+  LEVEL_1: "LEVEL_1",
+  LEVEL_1_1: "LEVEL_1_1",
+  LEVEL_1_2: "LEVEL_1_2",
+  LEVEL_1_3: "LEVEL_1_3",
+  LEVEL_2: "LEVEL_2",
+  LEVEL_2_1: "LEVEL_2_1",
+  LEVEL_2_2: "LEVEL_2_2",
+  LEVEL_3: "LEVEL_3",
+  LEVEL_3_1: "LEVEL_3_1",
+  LEVEL_3_2: "LEVEL_3_2",
+  LEVEL_4: "LEVEL_4",
+  LEVEL_4_1: "LEVEL_4_1",
+  LEVEL_4_2: "LEVEL_4_2",
+  LEVEL_5: "LEVEL_5",
+  LEVEL_5_1: "LEVEL_5_1",
+  LEVEL_5_2: "LEVEL_5_2",
+} as const;
+
+/**
+ * @public
+ */
+export type H264CodecLevel = (typeof H264CodecLevel)[keyof typeof H264CodecLevel];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264CodecProfile = {
+  BASELINE: "BASELINE",
+  HIGH: "HIGH",
+  HIGH_10BIT: "HIGH_10BIT",
+  HIGH_422: "HIGH_422",
+  HIGH_422_10BIT: "HIGH_422_10BIT",
+  MAIN: "MAIN",
+} as const;
+
+/**
+ * @public
+ */
+export type H264CodecProfile = (typeof H264CodecProfile)[keyof typeof H264CodecProfile];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264DynamicSubGop = {
+  ADAPTIVE: "ADAPTIVE",
+  STATIC: "STATIC",
+} as const;
+
+/**
+ * @public
+ */
+export type H264DynamicSubGop = (typeof H264DynamicSubGop)[keyof typeof H264DynamicSubGop];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264EntropyEncoding = {
+  CABAC: "CABAC",
+  CAVLC: "CAVLC",
+} as const;
+
+/**
+ * @public
+ */
+export type H264EntropyEncoding = (typeof H264EntropyEncoding)[keyof typeof H264EntropyEncoding];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264FieldEncoding = {
+  FORCE_FIELD: "FORCE_FIELD",
+  MBAFF: "MBAFF",
+  PAFF: "PAFF",
+} as const;
+
+/**
+ * @public
+ */
+export type H264FieldEncoding = (typeof H264FieldEncoding)[keyof typeof H264FieldEncoding];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264FlickerAdaptiveQuantization = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type H264FlickerAdaptiveQuantization =
+  (typeof H264FlickerAdaptiveQuantization)[keyof typeof H264FlickerAdaptiveQuantization];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264FramerateControl = {
+  INITIALIZE_FROM_SOURCE: "INITIALIZE_FROM_SOURCE",
+  SPECIFIED: "SPECIFIED",
+} as const;
+
+/**
+ * @public
+ */
+export type H264FramerateControl = (typeof H264FramerateControl)[keyof typeof H264FramerateControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264FramerateConversionAlgorithm = {
+  DUPLICATE_DROP: "DUPLICATE_DROP",
+  FRAMEFORMER: "FRAMEFORMER",
+  INTERPOLATE: "INTERPOLATE",
+} as const;
+
+/**
+ * @public
+ */
+export type H264FramerateConversionAlgorithm =
+  (typeof H264FramerateConversionAlgorithm)[keyof typeof H264FramerateConversionAlgorithm];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264GopBReference = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type H264GopBReference = (typeof H264GopBReference)[keyof typeof H264GopBReference];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264GopSizeUnits = {
+  AUTO: "AUTO",
+  FRAMES: "FRAMES",
+  SECONDS: "SECONDS",
+} as const;
+
+/**
+ * @public
+ */
+export type H264GopSizeUnits = (typeof H264GopSizeUnits)[keyof typeof H264GopSizeUnits];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264InterlaceMode = {
+  BOTTOM_FIELD: "BOTTOM_FIELD",
+  FOLLOW_BOTTOM_FIELD: "FOLLOW_BOTTOM_FIELD",
+  FOLLOW_TOP_FIELD: "FOLLOW_TOP_FIELD",
+  PROGRESSIVE: "PROGRESSIVE",
+  TOP_FIELD: "TOP_FIELD",
+} as const;
+
+/**
+ * @public
+ */
+export type H264InterlaceMode = (typeof H264InterlaceMode)[keyof typeof H264InterlaceMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264ParControl = {
+  INITIALIZE_FROM_SOURCE: "INITIALIZE_FROM_SOURCE",
+  SPECIFIED: "SPECIFIED",
+} as const;
+
+/**
+ * @public
+ */
+export type H264ParControl = (typeof H264ParControl)[keyof typeof H264ParControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264QualityTuningLevel = {
+  MULTI_PASS_HQ: "MULTI_PASS_HQ",
+  SINGLE_PASS: "SINGLE_PASS",
+  SINGLE_PASS_HQ: "SINGLE_PASS_HQ",
+} as const;
+
+/**
+ * @public
+ */
+export type H264QualityTuningLevel = (typeof H264QualityTuningLevel)[keyof typeof H264QualityTuningLevel];
+
+/**
+ * @public
  * Settings for quality-defined variable bitrate encoding with the H.264 codec. Use these settings only when you set QVBR for Rate control mode (RateControlMode).
  */
 export interface H264QvbrSettings {
@@ -1270,60 +2007,154 @@ export interface H264QvbrSettings {
   QvbrQualityLevelFineTune?: number;
 }
 
-export enum H264RateControlMode {
-  CBR = "CBR",
-  QVBR = "QVBR",
-  VBR = "VBR",
-}
-
-export enum H264RepeatPps {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum H264ScanTypeConversionMode {
-  INTERLACED = "INTERLACED",
-  INTERLACED_OPTIMIZE = "INTERLACED_OPTIMIZE",
-}
-
-export enum H264SceneChangeDetect {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  TRANSITION_DETECTION = "TRANSITION_DETECTION",
-}
-
-export enum H264SlowPal {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum H264SpatialAdaptiveQuantization {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum H264Syntax {
-  DEFAULT = "DEFAULT",
-  RP2027 = "RP2027",
-}
-
-export enum H264Telecine {
-  HARD = "HARD",
-  NONE = "NONE",
-  SOFT = "SOFT",
-}
-
-export enum H264TemporalAdaptiveQuantization {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum H264UnregisteredSeiTimecode {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const H264RateControlMode = {
+  CBR: "CBR",
+  QVBR: "QVBR",
+  VBR: "VBR",
+} as const;
 
 /**
+ * @public
+ */
+export type H264RateControlMode = (typeof H264RateControlMode)[keyof typeof H264RateControlMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264RepeatPps = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type H264RepeatPps = (typeof H264RepeatPps)[keyof typeof H264RepeatPps];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264ScanTypeConversionMode = {
+  INTERLACED: "INTERLACED",
+  INTERLACED_OPTIMIZE: "INTERLACED_OPTIMIZE",
+} as const;
+
+/**
+ * @public
+ */
+export type H264ScanTypeConversionMode = (typeof H264ScanTypeConversionMode)[keyof typeof H264ScanTypeConversionMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264SceneChangeDetect = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  TRANSITION_DETECTION: "TRANSITION_DETECTION",
+} as const;
+
+/**
+ * @public
+ */
+export type H264SceneChangeDetect = (typeof H264SceneChangeDetect)[keyof typeof H264SceneChangeDetect];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264SlowPal = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type H264SlowPal = (typeof H264SlowPal)[keyof typeof H264SlowPal];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264SpatialAdaptiveQuantization = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type H264SpatialAdaptiveQuantization =
+  (typeof H264SpatialAdaptiveQuantization)[keyof typeof H264SpatialAdaptiveQuantization];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264Syntax = {
+  DEFAULT: "DEFAULT",
+  RP2027: "RP2027",
+} as const;
+
+/**
+ * @public
+ */
+export type H264Syntax = (typeof H264Syntax)[keyof typeof H264Syntax];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264Telecine = {
+  HARD: "HARD",
+  NONE: "NONE",
+  SOFT: "SOFT",
+} as const;
+
+/**
+ * @public
+ */
+export type H264Telecine = (typeof H264Telecine)[keyof typeof H264Telecine];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264TemporalAdaptiveQuantization = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type H264TemporalAdaptiveQuantization =
+  (typeof H264TemporalAdaptiveQuantization)[keyof typeof H264TemporalAdaptiveQuantization];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264UnregisteredSeiTimecode = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type H264UnregisteredSeiTimecode =
+  (typeof H264UnregisteredSeiTimecode)[keyof typeof H264UnregisteredSeiTimecode];
+
+/**
+ * @public
  * Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value H_264.
  */
 export interface H264Settings {
@@ -1331,6 +2162,11 @@ export interface H264Settings {
    * Keep the default value, Auto (AUTO), for this setting to have MediaConvert automatically apply the best types of quantization for your video content. When you want to apply your quantization settings manually, you must set H264AdaptiveQuantization to a value other than Auto (AUTO). Use this setting to specify the strength of any adaptive quantization filters that you enable. If you don't want MediaConvert to do any adaptive quantization in this transcode, set Adaptive quantization (H264AdaptiveQuantization) to Off (OFF). Related settings: The value that you choose here applies to the following settings: H264FlickerAdaptiveQuantization, H264SpatialAdaptiveQuantization, and H264TemporalAdaptiveQuantization.
    */
   AdaptiveQuantization?: H264AdaptiveQuantization | string;
+
+  /**
+   * The Bandwidth reduction filter increases the video quality of your output relative to its bitrate. Use to lower the bitrate of your constant quality QVBR output, with little or no perceptual decrease in quality. Or, use to increase the video quality of outputs with other rate control modes relative to the bitrate that you specify. Bandwidth reduction increases further when your input is low quality or noisy. Outputs that use this feature incur pro-tier pricing. When you include Bandwidth reduction filter, you cannot include the Noise reducer preprocessor.
+   */
+  BandwidthReductionFilter?: BandwidthReductionFilter;
 
   /**
    * Specify the average bitrate in bits per second. Required for VBR and CBR. For MS Smooth outputs, bitrates must be unique when rounded down to the nearest multiple of 1000.
@@ -1378,12 +2214,12 @@ export interface H264Settings {
   FramerateConversionAlgorithm?: H264FramerateConversionAlgorithm | string;
 
   /**
-   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
    */
   FramerateDenominator?: number;
 
   /**
-   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
    */
   FramerateNumerator?: number;
 
@@ -1533,101 +2369,222 @@ export interface H264Settings {
   UnregisteredSeiTimecode?: H264UnregisteredSeiTimecode | string;
 }
 
-export enum H265AdaptiveQuantization {
-  AUTO = "AUTO",
-  HIGH = "HIGH",
-  HIGHER = "HIGHER",
-  LOW = "LOW",
-  MAX = "MAX",
-  MEDIUM = "MEDIUM",
-  OFF = "OFF",
-}
-
-export enum H265AlternateTransferFunctionSei {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum H265CodecLevel {
-  AUTO = "AUTO",
-  LEVEL_1 = "LEVEL_1",
-  LEVEL_2 = "LEVEL_2",
-  LEVEL_2_1 = "LEVEL_2_1",
-  LEVEL_3 = "LEVEL_3",
-  LEVEL_3_1 = "LEVEL_3_1",
-  LEVEL_4 = "LEVEL_4",
-  LEVEL_4_1 = "LEVEL_4_1",
-  LEVEL_5 = "LEVEL_5",
-  LEVEL_5_1 = "LEVEL_5_1",
-  LEVEL_5_2 = "LEVEL_5_2",
-  LEVEL_6 = "LEVEL_6",
-  LEVEL_6_1 = "LEVEL_6_1",
-  LEVEL_6_2 = "LEVEL_6_2",
-}
-
-export enum H265CodecProfile {
-  MAIN10_HIGH = "MAIN10_HIGH",
-  MAIN10_MAIN = "MAIN10_MAIN",
-  MAIN_422_10BIT_HIGH = "MAIN_422_10BIT_HIGH",
-  MAIN_422_10BIT_MAIN = "MAIN_422_10BIT_MAIN",
-  MAIN_422_8BIT_HIGH = "MAIN_422_8BIT_HIGH",
-  MAIN_422_8BIT_MAIN = "MAIN_422_8BIT_MAIN",
-  MAIN_HIGH = "MAIN_HIGH",
-  MAIN_MAIN = "MAIN_MAIN",
-}
-
-export enum H265DynamicSubGop {
-  ADAPTIVE = "ADAPTIVE",
-  STATIC = "STATIC",
-}
-
-export enum H265FlickerAdaptiveQuantization {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum H265FramerateControl {
-  INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
-  SPECIFIED = "SPECIFIED",
-}
-
-export enum H265FramerateConversionAlgorithm {
-  DUPLICATE_DROP = "DUPLICATE_DROP",
-  FRAMEFORMER = "FRAMEFORMER",
-  INTERPOLATE = "INTERPOLATE",
-}
-
-export enum H265GopBReference {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum H265GopSizeUnits {
-  AUTO = "AUTO",
-  FRAMES = "FRAMES",
-  SECONDS = "SECONDS",
-}
-
-export enum H265InterlaceMode {
-  BOTTOM_FIELD = "BOTTOM_FIELD",
-  FOLLOW_BOTTOM_FIELD = "FOLLOW_BOTTOM_FIELD",
-  FOLLOW_TOP_FIELD = "FOLLOW_TOP_FIELD",
-  PROGRESSIVE = "PROGRESSIVE",
-  TOP_FIELD = "TOP_FIELD",
-}
-
-export enum H265ParControl {
-  INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
-  SPECIFIED = "SPECIFIED",
-}
-
-export enum H265QualityTuningLevel {
-  MULTI_PASS_HQ = "MULTI_PASS_HQ",
-  SINGLE_PASS = "SINGLE_PASS",
-  SINGLE_PASS_HQ = "SINGLE_PASS_HQ",
-}
+/**
+ * @public
+ * @enum
+ */
+export const H265AdaptiveQuantization = {
+  AUTO: "AUTO",
+  HIGH: "HIGH",
+  HIGHER: "HIGHER",
+  LOW: "LOW",
+  MAX: "MAX",
+  MEDIUM: "MEDIUM",
+  OFF: "OFF",
+} as const;
 
 /**
+ * @public
+ */
+export type H265AdaptiveQuantization = (typeof H265AdaptiveQuantization)[keyof typeof H265AdaptiveQuantization];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265AlternateTransferFunctionSei = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type H265AlternateTransferFunctionSei =
+  (typeof H265AlternateTransferFunctionSei)[keyof typeof H265AlternateTransferFunctionSei];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265CodecLevel = {
+  AUTO: "AUTO",
+  LEVEL_1: "LEVEL_1",
+  LEVEL_2: "LEVEL_2",
+  LEVEL_2_1: "LEVEL_2_1",
+  LEVEL_3: "LEVEL_3",
+  LEVEL_3_1: "LEVEL_3_1",
+  LEVEL_4: "LEVEL_4",
+  LEVEL_4_1: "LEVEL_4_1",
+  LEVEL_5: "LEVEL_5",
+  LEVEL_5_1: "LEVEL_5_1",
+  LEVEL_5_2: "LEVEL_5_2",
+  LEVEL_6: "LEVEL_6",
+  LEVEL_6_1: "LEVEL_6_1",
+  LEVEL_6_2: "LEVEL_6_2",
+} as const;
+
+/**
+ * @public
+ */
+export type H265CodecLevel = (typeof H265CodecLevel)[keyof typeof H265CodecLevel];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265CodecProfile = {
+  MAIN10_HIGH: "MAIN10_HIGH",
+  MAIN10_MAIN: "MAIN10_MAIN",
+  MAIN_422_10BIT_HIGH: "MAIN_422_10BIT_HIGH",
+  MAIN_422_10BIT_MAIN: "MAIN_422_10BIT_MAIN",
+  MAIN_422_8BIT_HIGH: "MAIN_422_8BIT_HIGH",
+  MAIN_422_8BIT_MAIN: "MAIN_422_8BIT_MAIN",
+  MAIN_HIGH: "MAIN_HIGH",
+  MAIN_MAIN: "MAIN_MAIN",
+} as const;
+
+/**
+ * @public
+ */
+export type H265CodecProfile = (typeof H265CodecProfile)[keyof typeof H265CodecProfile];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265DynamicSubGop = {
+  ADAPTIVE: "ADAPTIVE",
+  STATIC: "STATIC",
+} as const;
+
+/**
+ * @public
+ */
+export type H265DynamicSubGop = (typeof H265DynamicSubGop)[keyof typeof H265DynamicSubGop];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265FlickerAdaptiveQuantization = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type H265FlickerAdaptiveQuantization =
+  (typeof H265FlickerAdaptiveQuantization)[keyof typeof H265FlickerAdaptiveQuantization];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265FramerateControl = {
+  INITIALIZE_FROM_SOURCE: "INITIALIZE_FROM_SOURCE",
+  SPECIFIED: "SPECIFIED",
+} as const;
+
+/**
+ * @public
+ */
+export type H265FramerateControl = (typeof H265FramerateControl)[keyof typeof H265FramerateControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265FramerateConversionAlgorithm = {
+  DUPLICATE_DROP: "DUPLICATE_DROP",
+  FRAMEFORMER: "FRAMEFORMER",
+  INTERPOLATE: "INTERPOLATE",
+} as const;
+
+/**
+ * @public
+ */
+export type H265FramerateConversionAlgorithm =
+  (typeof H265FramerateConversionAlgorithm)[keyof typeof H265FramerateConversionAlgorithm];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265GopBReference = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type H265GopBReference = (typeof H265GopBReference)[keyof typeof H265GopBReference];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265GopSizeUnits = {
+  AUTO: "AUTO",
+  FRAMES: "FRAMES",
+  SECONDS: "SECONDS",
+} as const;
+
+/**
+ * @public
+ */
+export type H265GopSizeUnits = (typeof H265GopSizeUnits)[keyof typeof H265GopSizeUnits];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265InterlaceMode = {
+  BOTTOM_FIELD: "BOTTOM_FIELD",
+  FOLLOW_BOTTOM_FIELD: "FOLLOW_BOTTOM_FIELD",
+  FOLLOW_TOP_FIELD: "FOLLOW_TOP_FIELD",
+  PROGRESSIVE: "PROGRESSIVE",
+  TOP_FIELD: "TOP_FIELD",
+} as const;
+
+/**
+ * @public
+ */
+export type H265InterlaceMode = (typeof H265InterlaceMode)[keyof typeof H265InterlaceMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265ParControl = {
+  INITIALIZE_FROM_SOURCE: "INITIALIZE_FROM_SOURCE",
+  SPECIFIED: "SPECIFIED",
+} as const;
+
+/**
+ * @public
+ */
+export type H265ParControl = (typeof H265ParControl)[keyof typeof H265ParControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265QualityTuningLevel = {
+  MULTI_PASS_HQ: "MULTI_PASS_HQ",
+  SINGLE_PASS: "SINGLE_PASS",
+  SINGLE_PASS_HQ: "SINGLE_PASS_HQ",
+} as const;
+
+/**
+ * @public
+ */
+export type H265QualityTuningLevel = (typeof H265QualityTuningLevel)[keyof typeof H265QualityTuningLevel];
+
+/**
+ * @public
  * Settings for quality-defined variable bitrate encoding with the H.265 codec. Use these settings only when you set QVBR for Rate control mode (RateControlMode).
  */
 export interface H265QvbrSettings {
@@ -1647,71 +2604,184 @@ export interface H265QvbrSettings {
   QvbrQualityLevelFineTune?: number;
 }
 
-export enum H265RateControlMode {
-  CBR = "CBR",
-  QVBR = "QVBR",
-  VBR = "VBR",
-}
-
-export enum H265SampleAdaptiveOffsetFilterMode {
-  ADAPTIVE = "ADAPTIVE",
-  DEFAULT = "DEFAULT",
-  OFF = "OFF",
-}
-
-export enum H265ScanTypeConversionMode {
-  INTERLACED = "INTERLACED",
-  INTERLACED_OPTIMIZE = "INTERLACED_OPTIMIZE",
-}
-
-export enum H265SceneChangeDetect {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  TRANSITION_DETECTION = "TRANSITION_DETECTION",
-}
-
-export enum H265SlowPal {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum H265SpatialAdaptiveQuantization {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum H265Telecine {
-  HARD = "HARD",
-  NONE = "NONE",
-  SOFT = "SOFT",
-}
-
-export enum H265TemporalAdaptiveQuantization {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum H265TemporalIds {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum H265Tiles {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum H265UnregisteredSeiTimecode {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum H265WriteMp4PackagingType {
-  HEV1 = "HEV1",
-  HVC1 = "HVC1",
-}
+/**
+ * @public
+ * @enum
+ */
+export const H265RateControlMode = {
+  CBR: "CBR",
+  QVBR: "QVBR",
+  VBR: "VBR",
+} as const;
 
 /**
+ * @public
+ */
+export type H265RateControlMode = (typeof H265RateControlMode)[keyof typeof H265RateControlMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265SampleAdaptiveOffsetFilterMode = {
+  ADAPTIVE: "ADAPTIVE",
+  DEFAULT: "DEFAULT",
+  OFF: "OFF",
+} as const;
+
+/**
+ * @public
+ */
+export type H265SampleAdaptiveOffsetFilterMode =
+  (typeof H265SampleAdaptiveOffsetFilterMode)[keyof typeof H265SampleAdaptiveOffsetFilterMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265ScanTypeConversionMode = {
+  INTERLACED: "INTERLACED",
+  INTERLACED_OPTIMIZE: "INTERLACED_OPTIMIZE",
+} as const;
+
+/**
+ * @public
+ */
+export type H265ScanTypeConversionMode = (typeof H265ScanTypeConversionMode)[keyof typeof H265ScanTypeConversionMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265SceneChangeDetect = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  TRANSITION_DETECTION: "TRANSITION_DETECTION",
+} as const;
+
+/**
+ * @public
+ */
+export type H265SceneChangeDetect = (typeof H265SceneChangeDetect)[keyof typeof H265SceneChangeDetect];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265SlowPal = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type H265SlowPal = (typeof H265SlowPal)[keyof typeof H265SlowPal];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265SpatialAdaptiveQuantization = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type H265SpatialAdaptiveQuantization =
+  (typeof H265SpatialAdaptiveQuantization)[keyof typeof H265SpatialAdaptiveQuantization];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265Telecine = {
+  HARD: "HARD",
+  NONE: "NONE",
+  SOFT: "SOFT",
+} as const;
+
+/**
+ * @public
+ */
+export type H265Telecine = (typeof H265Telecine)[keyof typeof H265Telecine];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265TemporalAdaptiveQuantization = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type H265TemporalAdaptiveQuantization =
+  (typeof H265TemporalAdaptiveQuantization)[keyof typeof H265TemporalAdaptiveQuantization];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265TemporalIds = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type H265TemporalIds = (typeof H265TemporalIds)[keyof typeof H265TemporalIds];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265Tiles = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type H265Tiles = (typeof H265Tiles)[keyof typeof H265Tiles];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265UnregisteredSeiTimecode = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type H265UnregisteredSeiTimecode =
+  (typeof H265UnregisteredSeiTimecode)[keyof typeof H265UnregisteredSeiTimecode];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265WriteMp4PackagingType = {
+  HEV1: "HEV1",
+  HVC1: "HVC1",
+} as const;
+
+/**
+ * @public
+ */
+export type H265WriteMp4PackagingType = (typeof H265WriteMp4PackagingType)[keyof typeof H265WriteMp4PackagingType];
+
+/**
+ * @public
  * Settings for H265 codec
  */
 export interface H265Settings {
@@ -1761,12 +2831,12 @@ export interface H265Settings {
   FramerateConversionAlgorithm?: H265FramerateConversionAlgorithm | string;
 
   /**
-   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
    */
   FramerateDenominator?: number;
 
   /**
-   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
    */
   FramerateNumerator?: number;
 
@@ -1861,7 +2931,7 @@ export interface H265Settings {
   RateControlMode?: H265RateControlMode | string;
 
   /**
-   * Specify Sample Adaptive Offset (SAO) filter strength.  Adaptive mode dynamically selects best strength based on content
+   * Specify Sample Adaptive Offset (SAO) filter strength. Adaptive mode dynamically selects best strength based on content
    */
   SampleAdaptiveOffsetFilterMode?: H265SampleAdaptiveOffsetFilterMode | string;
 
@@ -1891,7 +2961,7 @@ export interface H265Settings {
   SpatialAdaptiveQuantization?: H265SpatialAdaptiveQuantization | string;
 
   /**
-   * This field applies only if the Streams > Advanced > Framerate (framerate) field  is set to 29.970. This field works with the Streams > Advanced > Preprocessors > Deinterlacer  field (deinterlace_mode) and the Streams > Advanced > Interlaced Mode field (interlace_mode)  to identify the scan type for the output: Progressive, Interlaced, Hard Telecine or Soft Telecine. - Hard: produces 29.97i output from 23.976 input. - Soft: produces 23.976; the player converts this output to 29.97i.
+   * This field applies only if the Streams > Advanced > Framerate (framerate) field is set to 29.970. This field works with the Streams > Advanced > Preprocessors > Deinterlacer field (deinterlace_mode) and the Streams > Advanced > Interlaced Mode field (interlace_mode) to identify the scan type for the output: Progressive, Interlaced, Hard Telecine or Soft Telecine. - Hard: produces 29.97i output from 23.976 input. - Soft: produces 23.976; the player converts this output to 29.97i.
    */
   Telecine?: H265Telecine | string;
 
@@ -1921,115 +2991,291 @@ export interface H265Settings {
   WriteMp4PackagingType?: H265WriteMp4PackagingType | string;
 }
 
-export enum Mpeg2AdaptiveQuantization {
-  HIGH = "HIGH",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-  OFF = "OFF",
-}
-
-export enum Mpeg2CodecLevel {
-  AUTO = "AUTO",
-  HIGH = "HIGH",
-  HIGH1440 = "HIGH1440",
-  LOW = "LOW",
-  MAIN = "MAIN",
-}
-
-export enum Mpeg2CodecProfile {
-  MAIN = "MAIN",
-  PROFILE_422 = "PROFILE_422",
-}
-
-export enum Mpeg2DynamicSubGop {
-  ADAPTIVE = "ADAPTIVE",
-  STATIC = "STATIC",
-}
-
-export enum Mpeg2FramerateControl {
-  INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
-  SPECIFIED = "SPECIFIED",
-}
-
-export enum Mpeg2FramerateConversionAlgorithm {
-  DUPLICATE_DROP = "DUPLICATE_DROP",
-  FRAMEFORMER = "FRAMEFORMER",
-  INTERPOLATE = "INTERPOLATE",
-}
-
-export enum Mpeg2GopSizeUnits {
-  FRAMES = "FRAMES",
-  SECONDS = "SECONDS",
-}
-
-export enum Mpeg2InterlaceMode {
-  BOTTOM_FIELD = "BOTTOM_FIELD",
-  FOLLOW_BOTTOM_FIELD = "FOLLOW_BOTTOM_FIELD",
-  FOLLOW_TOP_FIELD = "FOLLOW_TOP_FIELD",
-  PROGRESSIVE = "PROGRESSIVE",
-  TOP_FIELD = "TOP_FIELD",
-}
-
-export enum Mpeg2IntraDcPrecision {
-  AUTO = "AUTO",
-  INTRA_DC_PRECISION_10 = "INTRA_DC_PRECISION_10",
-  INTRA_DC_PRECISION_11 = "INTRA_DC_PRECISION_11",
-  INTRA_DC_PRECISION_8 = "INTRA_DC_PRECISION_8",
-  INTRA_DC_PRECISION_9 = "INTRA_DC_PRECISION_9",
-}
-
-export enum Mpeg2ParControl {
-  INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
-  SPECIFIED = "SPECIFIED",
-}
-
-export enum Mpeg2QualityTuningLevel {
-  MULTI_PASS = "MULTI_PASS",
-  SINGLE_PASS = "SINGLE_PASS",
-}
-
-export enum Mpeg2RateControlMode {
-  CBR = "CBR",
-  VBR = "VBR",
-}
-
-export enum Mpeg2ScanTypeConversionMode {
-  INTERLACED = "INTERLACED",
-  INTERLACED_OPTIMIZE = "INTERLACED_OPTIMIZE",
-}
-
-export enum Mpeg2SceneChangeDetect {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum Mpeg2SlowPal {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum Mpeg2SpatialAdaptiveQuantization {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum Mpeg2Syntax {
-  DEFAULT = "DEFAULT",
-  D_10 = "D_10",
-}
-
-export enum Mpeg2Telecine {
-  HARD = "HARD",
-  NONE = "NONE",
-  SOFT = "SOFT",
-}
-
-export enum Mpeg2TemporalAdaptiveQuantization {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Mpeg2AdaptiveQuantization = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+  OFF: "OFF",
+} as const;
 
 /**
+ * @public
+ */
+export type Mpeg2AdaptiveQuantization = (typeof Mpeg2AdaptiveQuantization)[keyof typeof Mpeg2AdaptiveQuantization];
+
+/**
+ * @public
+ * @enum
+ */
+export const Mpeg2CodecLevel = {
+  AUTO: "AUTO",
+  HIGH: "HIGH",
+  HIGH1440: "HIGH1440",
+  LOW: "LOW",
+  MAIN: "MAIN",
+} as const;
+
+/**
+ * @public
+ */
+export type Mpeg2CodecLevel = (typeof Mpeg2CodecLevel)[keyof typeof Mpeg2CodecLevel];
+
+/**
+ * @public
+ * @enum
+ */
+export const Mpeg2CodecProfile = {
+  MAIN: "MAIN",
+  PROFILE_422: "PROFILE_422",
+} as const;
+
+/**
+ * @public
+ */
+export type Mpeg2CodecProfile = (typeof Mpeg2CodecProfile)[keyof typeof Mpeg2CodecProfile];
+
+/**
+ * @public
+ * @enum
+ */
+export const Mpeg2DynamicSubGop = {
+  ADAPTIVE: "ADAPTIVE",
+  STATIC: "STATIC",
+} as const;
+
+/**
+ * @public
+ */
+export type Mpeg2DynamicSubGop = (typeof Mpeg2DynamicSubGop)[keyof typeof Mpeg2DynamicSubGop];
+
+/**
+ * @public
+ * @enum
+ */
+export const Mpeg2FramerateControl = {
+  INITIALIZE_FROM_SOURCE: "INITIALIZE_FROM_SOURCE",
+  SPECIFIED: "SPECIFIED",
+} as const;
+
+/**
+ * @public
+ */
+export type Mpeg2FramerateControl = (typeof Mpeg2FramerateControl)[keyof typeof Mpeg2FramerateControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const Mpeg2FramerateConversionAlgorithm = {
+  DUPLICATE_DROP: "DUPLICATE_DROP",
+  FRAMEFORMER: "FRAMEFORMER",
+  INTERPOLATE: "INTERPOLATE",
+} as const;
+
+/**
+ * @public
+ */
+export type Mpeg2FramerateConversionAlgorithm =
+  (typeof Mpeg2FramerateConversionAlgorithm)[keyof typeof Mpeg2FramerateConversionAlgorithm];
+
+/**
+ * @public
+ * @enum
+ */
+export const Mpeg2GopSizeUnits = {
+  FRAMES: "FRAMES",
+  SECONDS: "SECONDS",
+} as const;
+
+/**
+ * @public
+ */
+export type Mpeg2GopSizeUnits = (typeof Mpeg2GopSizeUnits)[keyof typeof Mpeg2GopSizeUnits];
+
+/**
+ * @public
+ * @enum
+ */
+export const Mpeg2InterlaceMode = {
+  BOTTOM_FIELD: "BOTTOM_FIELD",
+  FOLLOW_BOTTOM_FIELD: "FOLLOW_BOTTOM_FIELD",
+  FOLLOW_TOP_FIELD: "FOLLOW_TOP_FIELD",
+  PROGRESSIVE: "PROGRESSIVE",
+  TOP_FIELD: "TOP_FIELD",
+} as const;
+
+/**
+ * @public
+ */
+export type Mpeg2InterlaceMode = (typeof Mpeg2InterlaceMode)[keyof typeof Mpeg2InterlaceMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const Mpeg2IntraDcPrecision = {
+  AUTO: "AUTO",
+  INTRA_DC_PRECISION_10: "INTRA_DC_PRECISION_10",
+  INTRA_DC_PRECISION_11: "INTRA_DC_PRECISION_11",
+  INTRA_DC_PRECISION_8: "INTRA_DC_PRECISION_8",
+  INTRA_DC_PRECISION_9: "INTRA_DC_PRECISION_9",
+} as const;
+
+/**
+ * @public
+ */
+export type Mpeg2IntraDcPrecision = (typeof Mpeg2IntraDcPrecision)[keyof typeof Mpeg2IntraDcPrecision];
+
+/**
+ * @public
+ * @enum
+ */
+export const Mpeg2ParControl = {
+  INITIALIZE_FROM_SOURCE: "INITIALIZE_FROM_SOURCE",
+  SPECIFIED: "SPECIFIED",
+} as const;
+
+/**
+ * @public
+ */
+export type Mpeg2ParControl = (typeof Mpeg2ParControl)[keyof typeof Mpeg2ParControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const Mpeg2QualityTuningLevel = {
+  MULTI_PASS: "MULTI_PASS",
+  SINGLE_PASS: "SINGLE_PASS",
+} as const;
+
+/**
+ * @public
+ */
+export type Mpeg2QualityTuningLevel = (typeof Mpeg2QualityTuningLevel)[keyof typeof Mpeg2QualityTuningLevel];
+
+/**
+ * @public
+ * @enum
+ */
+export const Mpeg2RateControlMode = {
+  CBR: "CBR",
+  VBR: "VBR",
+} as const;
+
+/**
+ * @public
+ */
+export type Mpeg2RateControlMode = (typeof Mpeg2RateControlMode)[keyof typeof Mpeg2RateControlMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const Mpeg2ScanTypeConversionMode = {
+  INTERLACED: "INTERLACED",
+  INTERLACED_OPTIMIZE: "INTERLACED_OPTIMIZE",
+} as const;
+
+/**
+ * @public
+ */
+export type Mpeg2ScanTypeConversionMode =
+  (typeof Mpeg2ScanTypeConversionMode)[keyof typeof Mpeg2ScanTypeConversionMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const Mpeg2SceneChangeDetect = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type Mpeg2SceneChangeDetect = (typeof Mpeg2SceneChangeDetect)[keyof typeof Mpeg2SceneChangeDetect];
+
+/**
+ * @public
+ * @enum
+ */
+export const Mpeg2SlowPal = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type Mpeg2SlowPal = (typeof Mpeg2SlowPal)[keyof typeof Mpeg2SlowPal];
+
+/**
+ * @public
+ * @enum
+ */
+export const Mpeg2SpatialAdaptiveQuantization = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type Mpeg2SpatialAdaptiveQuantization =
+  (typeof Mpeg2SpatialAdaptiveQuantization)[keyof typeof Mpeg2SpatialAdaptiveQuantization];
+
+/**
+ * @public
+ * @enum
+ */
+export const Mpeg2Syntax = {
+  DEFAULT: "DEFAULT",
+  D_10: "D_10",
+} as const;
+
+/**
+ * @public
+ */
+export type Mpeg2Syntax = (typeof Mpeg2Syntax)[keyof typeof Mpeg2Syntax];
+
+/**
+ * @public
+ * @enum
+ */
+export const Mpeg2Telecine = {
+  HARD: "HARD",
+  NONE: "NONE",
+  SOFT: "SOFT",
+} as const;
+
+/**
+ * @public
+ */
+export type Mpeg2Telecine = (typeof Mpeg2Telecine)[keyof typeof Mpeg2Telecine];
+
+/**
+ * @public
+ * @enum
+ */
+export const Mpeg2TemporalAdaptiveQuantization = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type Mpeg2TemporalAdaptiveQuantization =
+  (typeof Mpeg2TemporalAdaptiveQuantization)[keyof typeof Mpeg2TemporalAdaptiveQuantization];
+
+/**
+ * @public
  * Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value MPEG2.
  */
 export interface Mpeg2Settings {
@@ -2069,12 +3315,12 @@ export interface Mpeg2Settings {
   FramerateConversionAlgorithm?: Mpeg2FramerateConversionAlgorithm | string;
 
   /**
-   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
    */
   FramerateDenominator?: number;
 
   /**
-   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
    */
   FramerateNumerator?: number;
 
@@ -2184,7 +3430,7 @@ export interface Mpeg2Settings {
   SpatialAdaptiveQuantization?: Mpeg2SpatialAdaptiveQuantization | string;
 
   /**
-   * Specify whether this output's video uses the D10 syntax. Keep the default value to  not use the syntax. Related settings: When you choose D10 (D_10) for your MXF  profile (profile), you must also set this value to D10 (D_10).
+   * Specify whether this output's video uses the D10 syntax. Keep the default value to not use the syntax. Related settings: When you choose D10 (D_10) for your MXF profile (profile), you must also set this value to D10 (D_10).
    */
   Syntax?: Mpeg2Syntax | string;
 
@@ -2199,60 +3445,144 @@ export interface Mpeg2Settings {
   TemporalAdaptiveQuantization?: Mpeg2TemporalAdaptiveQuantization | string;
 }
 
-export enum ProresChromaSampling {
-  PRESERVE_444_SAMPLING = "PRESERVE_444_SAMPLING",
-  SUBSAMPLE_TO_422 = "SUBSAMPLE_TO_422",
-}
-
-export enum ProresCodecProfile {
-  APPLE_PRORES_422 = "APPLE_PRORES_422",
-  APPLE_PRORES_422_HQ = "APPLE_PRORES_422_HQ",
-  APPLE_PRORES_422_LT = "APPLE_PRORES_422_LT",
-  APPLE_PRORES_422_PROXY = "APPLE_PRORES_422_PROXY",
-  APPLE_PRORES_4444 = "APPLE_PRORES_4444",
-  APPLE_PRORES_4444_XQ = "APPLE_PRORES_4444_XQ",
-}
-
-export enum ProresFramerateControl {
-  INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
-  SPECIFIED = "SPECIFIED",
-}
-
-export enum ProresFramerateConversionAlgorithm {
-  DUPLICATE_DROP = "DUPLICATE_DROP",
-  FRAMEFORMER = "FRAMEFORMER",
-  INTERPOLATE = "INTERPOLATE",
-}
-
-export enum ProresInterlaceMode {
-  BOTTOM_FIELD = "BOTTOM_FIELD",
-  FOLLOW_BOTTOM_FIELD = "FOLLOW_BOTTOM_FIELD",
-  FOLLOW_TOP_FIELD = "FOLLOW_TOP_FIELD",
-  PROGRESSIVE = "PROGRESSIVE",
-  TOP_FIELD = "TOP_FIELD",
-}
-
-export enum ProresParControl {
-  INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
-  SPECIFIED = "SPECIFIED",
-}
-
-export enum ProresScanTypeConversionMode {
-  INTERLACED = "INTERLACED",
-  INTERLACED_OPTIMIZE = "INTERLACED_OPTIMIZE",
-}
-
-export enum ProresSlowPal {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum ProresTelecine {
-  HARD = "HARD",
-  NONE = "NONE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ProresChromaSampling = {
+  PRESERVE_444_SAMPLING: "PRESERVE_444_SAMPLING",
+  SUBSAMPLE_TO_422: "SUBSAMPLE_TO_422",
+} as const;
 
 /**
+ * @public
+ */
+export type ProresChromaSampling = (typeof ProresChromaSampling)[keyof typeof ProresChromaSampling];
+
+/**
+ * @public
+ * @enum
+ */
+export const ProresCodecProfile = {
+  APPLE_PRORES_422: "APPLE_PRORES_422",
+  APPLE_PRORES_422_HQ: "APPLE_PRORES_422_HQ",
+  APPLE_PRORES_422_LT: "APPLE_PRORES_422_LT",
+  APPLE_PRORES_422_PROXY: "APPLE_PRORES_422_PROXY",
+  APPLE_PRORES_4444: "APPLE_PRORES_4444",
+  APPLE_PRORES_4444_XQ: "APPLE_PRORES_4444_XQ",
+} as const;
+
+/**
+ * @public
+ */
+export type ProresCodecProfile = (typeof ProresCodecProfile)[keyof typeof ProresCodecProfile];
+
+/**
+ * @public
+ * @enum
+ */
+export const ProresFramerateControl = {
+  INITIALIZE_FROM_SOURCE: "INITIALIZE_FROM_SOURCE",
+  SPECIFIED: "SPECIFIED",
+} as const;
+
+/**
+ * @public
+ */
+export type ProresFramerateControl = (typeof ProresFramerateControl)[keyof typeof ProresFramerateControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const ProresFramerateConversionAlgorithm = {
+  DUPLICATE_DROP: "DUPLICATE_DROP",
+  FRAMEFORMER: "FRAMEFORMER",
+  INTERPOLATE: "INTERPOLATE",
+} as const;
+
+/**
+ * @public
+ */
+export type ProresFramerateConversionAlgorithm =
+  (typeof ProresFramerateConversionAlgorithm)[keyof typeof ProresFramerateConversionAlgorithm];
+
+/**
+ * @public
+ * @enum
+ */
+export const ProresInterlaceMode = {
+  BOTTOM_FIELD: "BOTTOM_FIELD",
+  FOLLOW_BOTTOM_FIELD: "FOLLOW_BOTTOM_FIELD",
+  FOLLOW_TOP_FIELD: "FOLLOW_TOP_FIELD",
+  PROGRESSIVE: "PROGRESSIVE",
+  TOP_FIELD: "TOP_FIELD",
+} as const;
+
+/**
+ * @public
+ */
+export type ProresInterlaceMode = (typeof ProresInterlaceMode)[keyof typeof ProresInterlaceMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const ProresParControl = {
+  INITIALIZE_FROM_SOURCE: "INITIALIZE_FROM_SOURCE",
+  SPECIFIED: "SPECIFIED",
+} as const;
+
+/**
+ * @public
+ */
+export type ProresParControl = (typeof ProresParControl)[keyof typeof ProresParControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const ProresScanTypeConversionMode = {
+  INTERLACED: "INTERLACED",
+  INTERLACED_OPTIMIZE: "INTERLACED_OPTIMIZE",
+} as const;
+
+/**
+ * @public
+ */
+export type ProresScanTypeConversionMode =
+  (typeof ProresScanTypeConversionMode)[keyof typeof ProresScanTypeConversionMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const ProresSlowPal = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type ProresSlowPal = (typeof ProresSlowPal)[keyof typeof ProresSlowPal];
+
+/**
+ * @public
+ * @enum
+ */
+export const ProresTelecine = {
+  HARD: "HARD",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type ProresTelecine = (typeof ProresTelecine)[keyof typeof ProresTelecine];
+
+/**
+ * @public
  * Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value PRORES.
  */
 export interface ProresSettings {
@@ -2277,12 +3607,12 @@ export interface ProresSettings {
   FramerateConversionAlgorithm?: ProresFramerateConversionAlgorithm | string;
 
   /**
-   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
    */
   FramerateDenominator?: number;
 
   /**
-   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
    */
   FramerateNumerator?: number;
 
@@ -2322,44 +3652,109 @@ export interface ProresSettings {
   Telecine?: ProresTelecine | string;
 }
 
-export enum Vc3FramerateControl {
-  INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
-  SPECIFIED = "SPECIFIED",
-}
-
-export enum Vc3FramerateConversionAlgorithm {
-  DUPLICATE_DROP = "DUPLICATE_DROP",
-  FRAMEFORMER = "FRAMEFORMER",
-  INTERPOLATE = "INTERPOLATE",
-}
-
-export enum Vc3InterlaceMode {
-  INTERLACED = "INTERLACED",
-  PROGRESSIVE = "PROGRESSIVE",
-}
-
-export enum Vc3ScanTypeConversionMode {
-  INTERLACED = "INTERLACED",
-  INTERLACED_OPTIMIZE = "INTERLACED_OPTIMIZE",
-}
-
-export enum Vc3SlowPal {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum Vc3Telecine {
-  HARD = "HARD",
-  NONE = "NONE",
-}
-
-export enum Vc3Class {
-  CLASS_145_8BIT = "CLASS_145_8BIT",
-  CLASS_220_10BIT = "CLASS_220_10BIT",
-  CLASS_220_8BIT = "CLASS_220_8BIT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Vc3FramerateControl = {
+  INITIALIZE_FROM_SOURCE: "INITIALIZE_FROM_SOURCE",
+  SPECIFIED: "SPECIFIED",
+} as const;
 
 /**
+ * @public
+ */
+export type Vc3FramerateControl = (typeof Vc3FramerateControl)[keyof typeof Vc3FramerateControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const Vc3FramerateConversionAlgorithm = {
+  DUPLICATE_DROP: "DUPLICATE_DROP",
+  FRAMEFORMER: "FRAMEFORMER",
+  INTERPOLATE: "INTERPOLATE",
+} as const;
+
+/**
+ * @public
+ */
+export type Vc3FramerateConversionAlgorithm =
+  (typeof Vc3FramerateConversionAlgorithm)[keyof typeof Vc3FramerateConversionAlgorithm];
+
+/**
+ * @public
+ * @enum
+ */
+export const Vc3InterlaceMode = {
+  INTERLACED: "INTERLACED",
+  PROGRESSIVE: "PROGRESSIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type Vc3InterlaceMode = (typeof Vc3InterlaceMode)[keyof typeof Vc3InterlaceMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const Vc3ScanTypeConversionMode = {
+  INTERLACED: "INTERLACED",
+  INTERLACED_OPTIMIZE: "INTERLACED_OPTIMIZE",
+} as const;
+
+/**
+ * @public
+ */
+export type Vc3ScanTypeConversionMode = (typeof Vc3ScanTypeConversionMode)[keyof typeof Vc3ScanTypeConversionMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const Vc3SlowPal = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type Vc3SlowPal = (typeof Vc3SlowPal)[keyof typeof Vc3SlowPal];
+
+/**
+ * @public
+ * @enum
+ */
+export const Vc3Telecine = {
+  HARD: "HARD",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type Vc3Telecine = (typeof Vc3Telecine)[keyof typeof Vc3Telecine];
+
+/**
+ * @public
+ * @enum
+ */
+export const Vc3Class = {
+  CLASS_145_8BIT: "CLASS_145_8BIT",
+  CLASS_220_10BIT: "CLASS_220_10BIT",
+  CLASS_220_8BIT: "CLASS_220_8BIT",
+} as const;
+
+/**
+ * @public
+ */
+export type Vc3Class = (typeof Vc3Class)[keyof typeof Vc3Class];
+
+/**
+ * @public
  * Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value VC3
  */
 export interface Vc3Settings {
@@ -2374,12 +3769,12 @@ export interface Vc3Settings {
   FramerateConversionAlgorithm?: Vc3FramerateConversionAlgorithm | string;
 
   /**
-   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
    */
   FramerateDenominator?: number;
 
   /**
-   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
    */
   FramerateNumerator?: number;
 
@@ -2409,32 +3804,79 @@ export interface Vc3Settings {
   Vc3Class?: Vc3Class | string;
 }
 
-export enum Vp8FramerateControl {
-  INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
-  SPECIFIED = "SPECIFIED",
-}
-
-export enum Vp8FramerateConversionAlgorithm {
-  DUPLICATE_DROP = "DUPLICATE_DROP",
-  FRAMEFORMER = "FRAMEFORMER",
-  INTERPOLATE = "INTERPOLATE",
-}
-
-export enum Vp8ParControl {
-  INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
-  SPECIFIED = "SPECIFIED",
-}
-
-export enum Vp8QualityTuningLevel {
-  MULTI_PASS = "MULTI_PASS",
-  MULTI_PASS_HQ = "MULTI_PASS_HQ",
-}
-
-export enum Vp8RateControlMode {
-  VBR = "VBR",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Vp8FramerateControl = {
+  INITIALIZE_FROM_SOURCE: "INITIALIZE_FROM_SOURCE",
+  SPECIFIED: "SPECIFIED",
+} as const;
 
 /**
+ * @public
+ */
+export type Vp8FramerateControl = (typeof Vp8FramerateControl)[keyof typeof Vp8FramerateControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const Vp8FramerateConversionAlgorithm = {
+  DUPLICATE_DROP: "DUPLICATE_DROP",
+  FRAMEFORMER: "FRAMEFORMER",
+  INTERPOLATE: "INTERPOLATE",
+} as const;
+
+/**
+ * @public
+ */
+export type Vp8FramerateConversionAlgorithm =
+  (typeof Vp8FramerateConversionAlgorithm)[keyof typeof Vp8FramerateConversionAlgorithm];
+
+/**
+ * @public
+ * @enum
+ */
+export const Vp8ParControl = {
+  INITIALIZE_FROM_SOURCE: "INITIALIZE_FROM_SOURCE",
+  SPECIFIED: "SPECIFIED",
+} as const;
+
+/**
+ * @public
+ */
+export type Vp8ParControl = (typeof Vp8ParControl)[keyof typeof Vp8ParControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const Vp8QualityTuningLevel = {
+  MULTI_PASS: "MULTI_PASS",
+  MULTI_PASS_HQ: "MULTI_PASS_HQ",
+} as const;
+
+/**
+ * @public
+ */
+export type Vp8QualityTuningLevel = (typeof Vp8QualityTuningLevel)[keyof typeof Vp8QualityTuningLevel];
+
+/**
+ * @public
+ * @enum
+ */
+export const Vp8RateControlMode = {
+  VBR: "VBR",
+} as const;
+
+/**
+ * @public
+ */
+export type Vp8RateControlMode = (typeof Vp8RateControlMode)[keyof typeof Vp8RateControlMode];
+
+/**
+ * @public
  * Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value VP8.
  */
 export interface Vp8Settings {
@@ -2454,12 +3896,12 @@ export interface Vp8Settings {
   FramerateConversionAlgorithm?: Vp8FramerateConversionAlgorithm | string;
 
   /**
-   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
    */
   FramerateDenominator?: number;
 
   /**
-   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
    */
   FramerateNumerator?: number;
 
@@ -2504,32 +3946,79 @@ export interface Vp8Settings {
   RateControlMode?: Vp8RateControlMode | string;
 }
 
-export enum Vp9FramerateControl {
-  INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
-  SPECIFIED = "SPECIFIED",
-}
-
-export enum Vp9FramerateConversionAlgorithm {
-  DUPLICATE_DROP = "DUPLICATE_DROP",
-  FRAMEFORMER = "FRAMEFORMER",
-  INTERPOLATE = "INTERPOLATE",
-}
-
-export enum Vp9ParControl {
-  INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
-  SPECIFIED = "SPECIFIED",
-}
-
-export enum Vp9QualityTuningLevel {
-  MULTI_PASS = "MULTI_PASS",
-  MULTI_PASS_HQ = "MULTI_PASS_HQ",
-}
-
-export enum Vp9RateControlMode {
-  VBR = "VBR",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Vp9FramerateControl = {
+  INITIALIZE_FROM_SOURCE: "INITIALIZE_FROM_SOURCE",
+  SPECIFIED: "SPECIFIED",
+} as const;
 
 /**
+ * @public
+ */
+export type Vp9FramerateControl = (typeof Vp9FramerateControl)[keyof typeof Vp9FramerateControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const Vp9FramerateConversionAlgorithm = {
+  DUPLICATE_DROP: "DUPLICATE_DROP",
+  FRAMEFORMER: "FRAMEFORMER",
+  INTERPOLATE: "INTERPOLATE",
+} as const;
+
+/**
+ * @public
+ */
+export type Vp9FramerateConversionAlgorithm =
+  (typeof Vp9FramerateConversionAlgorithm)[keyof typeof Vp9FramerateConversionAlgorithm];
+
+/**
+ * @public
+ * @enum
+ */
+export const Vp9ParControl = {
+  INITIALIZE_FROM_SOURCE: "INITIALIZE_FROM_SOURCE",
+  SPECIFIED: "SPECIFIED",
+} as const;
+
+/**
+ * @public
+ */
+export type Vp9ParControl = (typeof Vp9ParControl)[keyof typeof Vp9ParControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const Vp9QualityTuningLevel = {
+  MULTI_PASS: "MULTI_PASS",
+  MULTI_PASS_HQ: "MULTI_PASS_HQ",
+} as const;
+
+/**
+ * @public
+ */
+export type Vp9QualityTuningLevel = (typeof Vp9QualityTuningLevel)[keyof typeof Vp9QualityTuningLevel];
+
+/**
+ * @public
+ * @enum
+ */
+export const Vp9RateControlMode = {
+  VBR: "VBR",
+} as const;
+
+/**
+ * @public
+ */
+export type Vp9RateControlMode = (typeof Vp9RateControlMode)[keyof typeof Vp9RateControlMode];
+
+/**
+ * @public
  * Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value VP9.
  */
 export interface Vp9Settings {
@@ -2549,12 +4038,12 @@ export interface Vp9Settings {
   FramerateConversionAlgorithm?: Vp9FramerateConversionAlgorithm | string;
 
   /**
-   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
    */
   FramerateDenominator?: number;
 
   /**
-   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
    */
   FramerateNumerator?: number;
 
@@ -2599,63 +4088,148 @@ export interface Vp9Settings {
   RateControlMode?: Vp9RateControlMode | string;
 }
 
-export enum XavcAdaptiveQuantization {
-  AUTO = "AUTO",
-  HIGH = "HIGH",
-  HIGHER = "HIGHER",
-  LOW = "LOW",
-  MAX = "MAX",
-  MEDIUM = "MEDIUM",
-  OFF = "OFF",
-}
-
-export enum XavcEntropyEncoding {
-  AUTO = "AUTO",
-  CABAC = "CABAC",
-  CAVLC = "CAVLC",
-}
-
-export enum XavcFramerateControl {
-  INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
-  SPECIFIED = "SPECIFIED",
-}
-
-export enum XavcFramerateConversionAlgorithm {
-  DUPLICATE_DROP = "DUPLICATE_DROP",
-  FRAMEFORMER = "FRAMEFORMER",
-  INTERPOLATE = "INTERPOLATE",
-}
-
-export enum XavcProfile {
-  XAVC_4K = "XAVC_4K",
-  XAVC_4K_INTRA_CBG = "XAVC_4K_INTRA_CBG",
-  XAVC_4K_INTRA_VBR = "XAVC_4K_INTRA_VBR",
-  XAVC_HD = "XAVC_HD",
-  XAVC_HD_INTRA_CBG = "XAVC_HD_INTRA_CBG",
-}
-
-export enum XavcSlowPal {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum XavcSpatialAdaptiveQuantization {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum XavcTemporalAdaptiveQuantization {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum Xavc4kIntraCbgProfileClass {
-  CLASS_100 = "CLASS_100",
-  CLASS_300 = "CLASS_300",
-  CLASS_480 = "CLASS_480",
-}
+/**
+ * @public
+ * @enum
+ */
+export const XavcAdaptiveQuantization = {
+  AUTO: "AUTO",
+  HIGH: "HIGH",
+  HIGHER: "HIGHER",
+  LOW: "LOW",
+  MAX: "MAX",
+  MEDIUM: "MEDIUM",
+  OFF: "OFF",
+} as const;
 
 /**
+ * @public
+ */
+export type XavcAdaptiveQuantization = (typeof XavcAdaptiveQuantization)[keyof typeof XavcAdaptiveQuantization];
+
+/**
+ * @public
+ * @enum
+ */
+export const XavcEntropyEncoding = {
+  AUTO: "AUTO",
+  CABAC: "CABAC",
+  CAVLC: "CAVLC",
+} as const;
+
+/**
+ * @public
+ */
+export type XavcEntropyEncoding = (typeof XavcEntropyEncoding)[keyof typeof XavcEntropyEncoding];
+
+/**
+ * @public
+ * @enum
+ */
+export const XavcFramerateControl = {
+  INITIALIZE_FROM_SOURCE: "INITIALIZE_FROM_SOURCE",
+  SPECIFIED: "SPECIFIED",
+} as const;
+
+/**
+ * @public
+ */
+export type XavcFramerateControl = (typeof XavcFramerateControl)[keyof typeof XavcFramerateControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const XavcFramerateConversionAlgorithm = {
+  DUPLICATE_DROP: "DUPLICATE_DROP",
+  FRAMEFORMER: "FRAMEFORMER",
+  INTERPOLATE: "INTERPOLATE",
+} as const;
+
+/**
+ * @public
+ */
+export type XavcFramerateConversionAlgorithm =
+  (typeof XavcFramerateConversionAlgorithm)[keyof typeof XavcFramerateConversionAlgorithm];
+
+/**
+ * @public
+ * @enum
+ */
+export const XavcProfile = {
+  XAVC_4K: "XAVC_4K",
+  XAVC_4K_INTRA_CBG: "XAVC_4K_INTRA_CBG",
+  XAVC_4K_INTRA_VBR: "XAVC_4K_INTRA_VBR",
+  XAVC_HD: "XAVC_HD",
+  XAVC_HD_INTRA_CBG: "XAVC_HD_INTRA_CBG",
+} as const;
+
+/**
+ * @public
+ */
+export type XavcProfile = (typeof XavcProfile)[keyof typeof XavcProfile];
+
+/**
+ * @public
+ * @enum
+ */
+export const XavcSlowPal = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type XavcSlowPal = (typeof XavcSlowPal)[keyof typeof XavcSlowPal];
+
+/**
+ * @public
+ * @enum
+ */
+export const XavcSpatialAdaptiveQuantization = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type XavcSpatialAdaptiveQuantization =
+  (typeof XavcSpatialAdaptiveQuantization)[keyof typeof XavcSpatialAdaptiveQuantization];
+
+/**
+ * @public
+ * @enum
+ */
+export const XavcTemporalAdaptiveQuantization = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type XavcTemporalAdaptiveQuantization =
+  (typeof XavcTemporalAdaptiveQuantization)[keyof typeof XavcTemporalAdaptiveQuantization];
+
+/**
+ * @public
+ * @enum
+ */
+export const Xavc4kIntraCbgProfileClass = {
+  CLASS_100: "CLASS_100",
+  CLASS_300: "CLASS_300",
+  CLASS_480: "CLASS_480",
+} as const;
+
+/**
+ * @public
+ */
+export type Xavc4kIntraCbgProfileClass = (typeof Xavc4kIntraCbgProfileClass)[keyof typeof Xavc4kIntraCbgProfileClass];
+
+/**
+ * @public
  * Required when you set (Profile) under (VideoDescription)>(CodecSettings)>(XavcSettings) to the value XAVC_4K_INTRA_CBG.
  */
 export interface Xavc4kIntraCbgProfileSettings {
@@ -2665,13 +4239,23 @@ export interface Xavc4kIntraCbgProfileSettings {
   XavcClass?: Xavc4kIntraCbgProfileClass | string;
 }
 
-export enum Xavc4kIntraVbrProfileClass {
-  CLASS_100 = "CLASS_100",
-  CLASS_300 = "CLASS_300",
-  CLASS_480 = "CLASS_480",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Xavc4kIntraVbrProfileClass = {
+  CLASS_100: "CLASS_100",
+  CLASS_300: "CLASS_300",
+  CLASS_480: "CLASS_480",
+} as const;
 
 /**
+ * @public
+ */
+export type Xavc4kIntraVbrProfileClass = (typeof Xavc4kIntraVbrProfileClass)[keyof typeof Xavc4kIntraVbrProfileClass];
+
+/**
+ * @public
  * Required when you set (Profile) under (VideoDescription)>(CodecSettings)>(XavcSettings) to the value XAVC_4K_INTRA_VBR.
  */
 export interface Xavc4kIntraVbrProfileSettings {
@@ -2681,34 +4265,82 @@ export interface Xavc4kIntraVbrProfileSettings {
   XavcClass?: Xavc4kIntraVbrProfileClass | string;
 }
 
-export enum Xavc4kProfileBitrateClass {
-  BITRATE_CLASS_100 = "BITRATE_CLASS_100",
-  BITRATE_CLASS_140 = "BITRATE_CLASS_140",
-  BITRATE_CLASS_200 = "BITRATE_CLASS_200",
-}
-
-export enum Xavc4kProfileCodecProfile {
-  HIGH = "HIGH",
-  HIGH_422 = "HIGH_422",
-}
-
-export enum XavcFlickerAdaptiveQuantization {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum XavcGopBReference {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum Xavc4kProfileQualityTuningLevel {
-  MULTI_PASS_HQ = "MULTI_PASS_HQ",
-  SINGLE_PASS = "SINGLE_PASS",
-  SINGLE_PASS_HQ = "SINGLE_PASS_HQ",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Xavc4kProfileBitrateClass = {
+  BITRATE_CLASS_100: "BITRATE_CLASS_100",
+  BITRATE_CLASS_140: "BITRATE_CLASS_140",
+  BITRATE_CLASS_200: "BITRATE_CLASS_200",
+} as const;
 
 /**
+ * @public
+ */
+export type Xavc4kProfileBitrateClass = (typeof Xavc4kProfileBitrateClass)[keyof typeof Xavc4kProfileBitrateClass];
+
+/**
+ * @public
+ * @enum
+ */
+export const Xavc4kProfileCodecProfile = {
+  HIGH: "HIGH",
+  HIGH_422: "HIGH_422",
+} as const;
+
+/**
+ * @public
+ */
+export type Xavc4kProfileCodecProfile = (typeof Xavc4kProfileCodecProfile)[keyof typeof Xavc4kProfileCodecProfile];
+
+/**
+ * @public
+ * @enum
+ */
+export const XavcFlickerAdaptiveQuantization = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type XavcFlickerAdaptiveQuantization =
+  (typeof XavcFlickerAdaptiveQuantization)[keyof typeof XavcFlickerAdaptiveQuantization];
+
+/**
+ * @public
+ * @enum
+ */
+export const XavcGopBReference = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type XavcGopBReference = (typeof XavcGopBReference)[keyof typeof XavcGopBReference];
+
+/**
+ * @public
+ * @enum
+ */
+export const Xavc4kProfileQualityTuningLevel = {
+  MULTI_PASS_HQ: "MULTI_PASS_HQ",
+  SINGLE_PASS: "SINGLE_PASS",
+  SINGLE_PASS_HQ: "SINGLE_PASS_HQ",
+} as const;
+
+/**
+ * @public
+ */
+export type Xavc4kProfileQualityTuningLevel =
+  (typeof Xavc4kProfileQualityTuningLevel)[keyof typeof Xavc4kProfileQualityTuningLevel];
+
+/**
+ * @public
  * Required when you set (Profile) under (VideoDescription)>(CodecSettings)>(XavcSettings) to the value XAVC_4K.
  */
 export interface Xavc4kProfileSettings {
@@ -2753,13 +4385,23 @@ export interface Xavc4kProfileSettings {
   Slices?: number;
 }
 
-export enum XavcHdIntraCbgProfileClass {
-  CLASS_100 = "CLASS_100",
-  CLASS_200 = "CLASS_200",
-  CLASS_50 = "CLASS_50",
-}
+/**
+ * @public
+ * @enum
+ */
+export const XavcHdIntraCbgProfileClass = {
+  CLASS_100: "CLASS_100",
+  CLASS_200: "CLASS_200",
+  CLASS_50: "CLASS_50",
+} as const;
 
 /**
+ * @public
+ */
+export type XavcHdIntraCbgProfileClass = (typeof XavcHdIntraCbgProfileClass)[keyof typeof XavcHdIntraCbgProfileClass];
+
+/**
+ * @public
  * Required when you set (Profile) under (VideoDescription)>(CodecSettings)>(XavcSettings) to the value XAVC_HD_INTRA_CBG.
  */
 export interface XavcHdIntraCbgProfileSettings {
@@ -2769,32 +4411,70 @@ export interface XavcHdIntraCbgProfileSettings {
   XavcClass?: XavcHdIntraCbgProfileClass | string;
 }
 
-export enum XavcHdProfileBitrateClass {
-  BITRATE_CLASS_25 = "BITRATE_CLASS_25",
-  BITRATE_CLASS_35 = "BITRATE_CLASS_35",
-  BITRATE_CLASS_50 = "BITRATE_CLASS_50",
-}
-
-export enum XavcInterlaceMode {
-  BOTTOM_FIELD = "BOTTOM_FIELD",
-  FOLLOW_BOTTOM_FIELD = "FOLLOW_BOTTOM_FIELD",
-  FOLLOW_TOP_FIELD = "FOLLOW_TOP_FIELD",
-  PROGRESSIVE = "PROGRESSIVE",
-  TOP_FIELD = "TOP_FIELD",
-}
-
-export enum XavcHdProfileQualityTuningLevel {
-  MULTI_PASS_HQ = "MULTI_PASS_HQ",
-  SINGLE_PASS = "SINGLE_PASS",
-  SINGLE_PASS_HQ = "SINGLE_PASS_HQ",
-}
-
-export enum XavcHdProfileTelecine {
-  HARD = "HARD",
-  NONE = "NONE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const XavcHdProfileBitrateClass = {
+  BITRATE_CLASS_25: "BITRATE_CLASS_25",
+  BITRATE_CLASS_35: "BITRATE_CLASS_35",
+  BITRATE_CLASS_50: "BITRATE_CLASS_50",
+} as const;
 
 /**
+ * @public
+ */
+export type XavcHdProfileBitrateClass = (typeof XavcHdProfileBitrateClass)[keyof typeof XavcHdProfileBitrateClass];
+
+/**
+ * @public
+ * @enum
+ */
+export const XavcInterlaceMode = {
+  BOTTOM_FIELD: "BOTTOM_FIELD",
+  FOLLOW_BOTTOM_FIELD: "FOLLOW_BOTTOM_FIELD",
+  FOLLOW_TOP_FIELD: "FOLLOW_TOP_FIELD",
+  PROGRESSIVE: "PROGRESSIVE",
+  TOP_FIELD: "TOP_FIELD",
+} as const;
+
+/**
+ * @public
+ */
+export type XavcInterlaceMode = (typeof XavcInterlaceMode)[keyof typeof XavcInterlaceMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const XavcHdProfileQualityTuningLevel = {
+  MULTI_PASS_HQ: "MULTI_PASS_HQ",
+  SINGLE_PASS: "SINGLE_PASS",
+  SINGLE_PASS_HQ: "SINGLE_PASS_HQ",
+} as const;
+
+/**
+ * @public
+ */
+export type XavcHdProfileQualityTuningLevel =
+  (typeof XavcHdProfileQualityTuningLevel)[keyof typeof XavcHdProfileQualityTuningLevel];
+
+/**
+ * @public
+ * @enum
+ */
+export const XavcHdProfileTelecine = {
+  HARD: "HARD",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type XavcHdProfileTelecine = (typeof XavcHdProfileTelecine)[keyof typeof XavcHdProfileTelecine];
+
+/**
+ * @public
  * Required when you set (Profile) under (VideoDescription)>(CodecSettings)>(XavcSettings) to the value XAVC_HD.
  */
 export interface XavcHdProfileSettings {
@@ -2845,6 +4525,7 @@ export interface XavcHdProfileSettings {
 }
 
 /**
+ * @public
  * Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value XAVC.
  */
 export interface XavcSettings {
@@ -2930,6 +4611,7 @@ export interface XavcSettings {
 }
 
 /**
+ * @public
  * Video codec settings, (CodecSettings) under (VideoDescription), contains the group of settings related to video encoding. The settings in this group vary depending on the value that you choose for Video codec (Codec). For each codec enum that you choose, define the corresponding settings object. The following lists the codec enum, settings object pairs. * AV1, Av1Settings * AVC_INTRA, AvcIntraSettings * FRAME_CAPTURE, FrameCaptureSettings * H_264, H264Settings * H_265, H265Settings * MPEG2, Mpeg2Settings * PRORES, ProresSettings * VC3, Vc3Settings * VP8, Vp8Settings * VP9, Vp9Settings * XAVC, XavcSettings
  */
 export interface VideoCodecSettings {
@@ -2944,7 +4626,7 @@ export interface VideoCodecSettings {
   AvcIntraSettings?: AvcIntraSettings;
 
   /**
-   * Specifies the video codec. This must be equal to one of the enum values defined by the object  VideoCodec.
+   * Specifies the video codec. This must be equal to one of the enum values defined by the object VideoCodec.
    */
   Codec?: VideoCodec | string;
 
@@ -2994,33 +4676,79 @@ export interface VideoCodecSettings {
   XavcSettings?: XavcSettings;
 }
 
-export enum ColorMetadata {
-  IGNORE = "IGNORE",
-  INSERT = "INSERT",
-}
-
-export enum DropFrameTimecode {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum RespondToAfd {
-  NONE = "NONE",
-  PASSTHROUGH = "PASSTHROUGH",
-  RESPOND = "RESPOND",
-}
-
-export enum ScalingBehavior {
-  DEFAULT = "DEFAULT",
-  STRETCH_TO_OUTPUT = "STRETCH_TO_OUTPUT",
-}
-
-export enum VideoTimecodeInsertion {
-  DISABLED = "DISABLED",
-  PIC_TIMING_SEI = "PIC_TIMING_SEI",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ColorMetadata = {
+  IGNORE: "IGNORE",
+  INSERT: "INSERT",
+} as const;
 
 /**
+ * @public
+ */
+export type ColorMetadata = (typeof ColorMetadata)[keyof typeof ColorMetadata];
+
+/**
+ * @public
+ * @enum
+ */
+export const DropFrameTimecode = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type DropFrameTimecode = (typeof DropFrameTimecode)[keyof typeof DropFrameTimecode];
+
+/**
+ * @public
+ * @enum
+ */
+export const RespondToAfd = {
+  NONE: "NONE",
+  PASSTHROUGH: "PASSTHROUGH",
+  RESPOND: "RESPOND",
+} as const;
+
+/**
+ * @public
+ */
+export type RespondToAfd = (typeof RespondToAfd)[keyof typeof RespondToAfd];
+
+/**
+ * @public
+ * @enum
+ */
+export const ScalingBehavior = {
+  DEFAULT: "DEFAULT",
+  STRETCH_TO_OUTPUT: "STRETCH_TO_OUTPUT",
+} as const;
+
+/**
+ * @public
+ */
+export type ScalingBehavior = (typeof ScalingBehavior)[keyof typeof ScalingBehavior];
+
+/**
+ * @public
+ * @enum
+ */
+export const VideoTimecodeInsertion = {
+  DISABLED: "DISABLED",
+  PIC_TIMING_SEI: "PIC_TIMING_SEI",
+} as const;
+
+/**
+ * @public
+ */
+export type VideoTimecodeInsertion = (typeof VideoTimecodeInsertion)[keyof typeof VideoTimecodeInsertion];
+
+/**
+ * @public
  * Specify YUV limits and RGB tolerances when you set Sample range conversion to Limited range clip.
  */
 export interface ClipLimits {
@@ -3045,23 +4773,57 @@ export interface ClipLimits {
   MinimumYUV?: number;
 }
 
-export enum ColorSpaceConversion {
-  FORCE_601 = "FORCE_601",
-  FORCE_709 = "FORCE_709",
-  FORCE_HDR10 = "FORCE_HDR10",
-  FORCE_HLG_2020 = "FORCE_HLG_2020",
-  FORCE_P3D65_SDR = "FORCE_P3D65_SDR",
-  FORCE_P3DCI = "FORCE_P3DCI",
-  NONE = "NONE",
-}
-
-export enum SampleRangeConversion {
-  LIMITED_RANGE_CLIP = "LIMITED_RANGE_CLIP",
-  LIMITED_RANGE_SQUEEZE = "LIMITED_RANGE_SQUEEZE",
-  NONE = "NONE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ColorSpaceConversion = {
+  FORCE_601: "FORCE_601",
+  FORCE_709: "FORCE_709",
+  FORCE_HDR10: "FORCE_HDR10",
+  FORCE_HLG_2020: "FORCE_HLG_2020",
+  FORCE_P3D65_HDR: "FORCE_P3D65_HDR",
+  FORCE_P3D65_SDR: "FORCE_P3D65_SDR",
+  FORCE_P3DCI: "FORCE_P3DCI",
+  NONE: "NONE",
+} as const;
 
 /**
+ * @public
+ */
+export type ColorSpaceConversion = (typeof ColorSpaceConversion)[keyof typeof ColorSpaceConversion];
+
+/**
+ * @public
+ * @enum
+ */
+export const HDRToSDRToneMapper = {
+  PRESERVE_DETAILS: "PRESERVE_DETAILS",
+  VIBRANT: "VIBRANT",
+} as const;
+
+/**
+ * @public
+ */
+export type HDRToSDRToneMapper = (typeof HDRToSDRToneMapper)[keyof typeof HDRToSDRToneMapper];
+
+/**
+ * @public
+ * @enum
+ */
+export const SampleRangeConversion = {
+  LIMITED_RANGE_CLIP: "LIMITED_RANGE_CLIP",
+  LIMITED_RANGE_SQUEEZE: "LIMITED_RANGE_SQUEEZE",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type SampleRangeConversion = (typeof SampleRangeConversion)[keyof typeof SampleRangeConversion];
+
+/**
+ * @public
  * Settings for color correction.
  */
 export interface ColorCorrector {
@@ -3076,7 +4838,12 @@ export interface ColorCorrector {
   ClipLimits?: ClipLimits;
 
   /**
-   * Specify the color space you want for this output. The service supports conversion between HDR formats, between SDR formats, from SDR to HDR, and from HDR to SDR. SDR to HDR conversion doesn't upgrade the dynamic range. The converted video has an HDR format, but visually appears the same as an unconverted output. HDR to SDR conversion uses Elemental tone mapping technology to approximate the outcome of manually regrading from HDR to SDR. Select Force P3D65 (SDR) to set the output color space metadata to the following: * Color primaries: Display P3 * Transfer characteristics: SMPTE 428M * Matrix coefficients: BT.709
+   * Specify the color space you want for this output. The service supports conversion between HDR formats, between SDR formats, from SDR to HDR, and from HDR to SDR. SDR to HDR conversion doesn't upgrade the dynamic range. The converted video has an HDR format, but visually appears the same as an unconverted output. HDR to SDR conversion uses tone mapping to approximate the outcome of manually regrading from HDR to SDR. When you specify an output color space, MediaConvert uses the following color space metadata, which includes color primaries, transfer characteristics, and matrix coefficients:
+   *   * HDR 10: BT.2020, PQ, BT.2020 non-constant
+   *   * HLG 2020: BT.2020, HLG, BT.2020 non-constant
+   *   * P3DCI (Theater): DCIP3, SMPTE 428M, BT.709
+   *   * P3D65 (SDR): Display P3, sRGB, BT.709
+   *   * P3D65 (HDR): Display P3, PQ, BT.709
    */
   ColorSpaceConversion?: ColorSpaceConversion | string;
 
@@ -3089,6 +4856,11 @@ export interface ColorCorrector {
    * Use these settings when you convert to the HDR 10 color space. Specify the SMPTE ST 2086 Mastering Display Color Volume static metadata that you want signaled in the output. These values don't affect the pixel values that are encoded in the video stream. They are intended to help the downstream video player display content in a way that reflects the intentions of the the content creator. When you set Color space conversion (ColorSpaceConversion) to HDR 10 (FORCE_HDR10), these settings are required. You must set values for Max frame average light level (maxFrameAverageLightLevel) and Max content light level (maxContentLightLevel); these settings don't have a default value. The default values for the other HDR 10 metadata settings are defined by the P3D65 color space. For more information about MediaConvert HDR jobs, see https://docs.aws.amazon.com/console/mediaconvert/hdr.
    */
   Hdr10Metadata?: Hdr10Metadata;
+
+  /**
+   * Specify how MediaConvert maps brightness and colors from your HDR input to your SDR output. The mode that you select represents a creative choice, with different tradeoffs in the details and tones of your output. To maintain details in bright or saturated areas of your output: Choose Preserve details. For some sources, your SDR output may look less bright and less saturated when compared to your HDR source. MediaConvert automatically applies this mode for HLG sources, regardless of your choice. For a bright and saturated output: Choose Vibrant. We recommend that you choose this mode when any of your source content is HDR10, and for the best results when it is mastered for 1000 nits. You may notice loss of details in bright or saturated areas of your output. HDR to SDR tone mapping has no effect when your input is SDR.
+   */
+  HdrToSdrToneMapper?: HDRToSDRToneMapper | string;
 
   /**
    * Hue in degrees.
@@ -3111,25 +4883,53 @@ export interface ColorCorrector {
   SdrReferenceWhiteLevel?: number;
 }
 
-export enum DeinterlaceAlgorithm {
-  BLEND = "BLEND",
-  BLEND_TICKER = "BLEND_TICKER",
-  INTERPOLATE = "INTERPOLATE",
-  INTERPOLATE_TICKER = "INTERPOLATE_TICKER",
-}
-
-export enum DeinterlacerControl {
-  FORCE_ALL_FRAMES = "FORCE_ALL_FRAMES",
-  NORMAL = "NORMAL",
-}
-
-export enum DeinterlacerMode {
-  ADAPTIVE = "ADAPTIVE",
-  DEINTERLACE = "DEINTERLACE",
-  INVERSE_TELECINE = "INVERSE_TELECINE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeinterlaceAlgorithm = {
+  BLEND: "BLEND",
+  BLEND_TICKER: "BLEND_TICKER",
+  INTERPOLATE: "INTERPOLATE",
+  INTERPOLATE_TICKER: "INTERPOLATE_TICKER",
+} as const;
 
 /**
+ * @public
+ */
+export type DeinterlaceAlgorithm = (typeof DeinterlaceAlgorithm)[keyof typeof DeinterlaceAlgorithm];
+
+/**
+ * @public
+ * @enum
+ */
+export const DeinterlacerControl = {
+  FORCE_ALL_FRAMES: "FORCE_ALL_FRAMES",
+  NORMAL: "NORMAL",
+} as const;
+
+/**
+ * @public
+ */
+export type DeinterlacerControl = (typeof DeinterlacerControl)[keyof typeof DeinterlacerControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const DeinterlacerMode = {
+  ADAPTIVE: "ADAPTIVE",
+  DEINTERLACE: "DEINTERLACE",
+  INVERSE_TELECINE: "INVERSE_TELECINE",
+} as const;
+
+/**
+ * @public
+ */
+export type DeinterlacerMode = (typeof DeinterlacerMode)[keyof typeof DeinterlacerMode];
+
+/**
+ * @public
  * Settings for deinterlacer
  */
 export interface Deinterlacer {
@@ -3139,7 +4939,7 @@ export interface Deinterlacer {
   Algorithm?: DeinterlaceAlgorithm | string;
 
   /**
-   * - When set to NORMAL (default), the deinterlacer does not convert frames that are tagged  in metadata as progressive. It will only convert those that are tagged as some other type. - When set to FORCE_ALL_FRAMES, the deinterlacer converts every frame to progressive - even those that are already tagged as progressive. Turn Force mode on only if there is  a good chance that the metadata has tagged frames as progressive when they are not  progressive. Do not turn on otherwise; processing frames that are already progressive  into progressive will probably result in lower quality video.
+   * - When set to NORMAL (default), the deinterlacer does not convert frames that are tagged in metadata as progressive. It will only convert those that are tagged as some other type. - When set to FORCE_ALL_FRAMES, the deinterlacer converts every frame to progressive - even those that are already tagged as progressive. Turn Force mode on only if there is a good chance that the metadata has tagged frames as progressive when they are not progressive. Do not turn on otherwise; processing frames that are already progressive into progressive will probably result in lower quality video.
    */
   Control?: DeinterlacerControl | string;
 
@@ -3150,6 +4950,7 @@ export interface Deinterlacer {
 }
 
 /**
+ * @public
  * Use these settings when you set DolbyVisionLevel6Mode to SPECIFY to override the MaxCLL and MaxFALL values in your input with new values.
  */
 export interface DolbyVisionLevel6Metadata {
@@ -3164,24 +4965,52 @@ export interface DolbyVisionLevel6Metadata {
   MaxFall?: number;
 }
 
-export enum DolbyVisionLevel6Mode {
-  PASSTHROUGH = "PASSTHROUGH",
-  RECALCULATE = "RECALCULATE",
-  SPECIFY = "SPECIFY",
-}
-
-export enum DolbyVisionMapping {
-  HDR10_1000 = "HDR10_1000",
-  HDR10_NOMAP = "HDR10_NOMAP",
-}
-
-export enum DolbyVisionProfile {
-  PROFILE_5 = "PROFILE_5",
-  PROFILE_8_1 = "PROFILE_8_1",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DolbyVisionLevel6Mode = {
+  PASSTHROUGH: "PASSTHROUGH",
+  RECALCULATE: "RECALCULATE",
+  SPECIFY: "SPECIFY",
+} as const;
 
 /**
- * Create Dolby Vision Profile 5 or Profile 8.1  compatible video output.
+ * @public
+ */
+export type DolbyVisionLevel6Mode = (typeof DolbyVisionLevel6Mode)[keyof typeof DolbyVisionLevel6Mode];
+
+/**
+ * @public
+ * @enum
+ */
+export const DolbyVisionMapping = {
+  HDR10_1000: "HDR10_1000",
+  HDR10_NOMAP: "HDR10_NOMAP",
+} as const;
+
+/**
+ * @public
+ */
+export type DolbyVisionMapping = (typeof DolbyVisionMapping)[keyof typeof DolbyVisionMapping];
+
+/**
+ * @public
+ * @enum
+ */
+export const DolbyVisionProfile = {
+  PROFILE_5: "PROFILE_5",
+  PROFILE_8_1: "PROFILE_8_1",
+} as const;
+
+/**
+ * @public
+ */
+export type DolbyVisionProfile = (typeof DolbyVisionProfile)[keyof typeof DolbyVisionProfile];
+
+/**
+ * @public
+ * Create Dolby Vision Profile 5 or Profile 8.1 compatible video output.
  */
 export interface DolbyVision {
   /**
@@ -3206,6 +5035,7 @@ export interface DolbyVision {
 }
 
 /**
+ * @public
  * Setting for HDR10+ metadata insertion
  */
 export interface Hdr10Plus {
@@ -3220,18 +5050,28 @@ export interface Hdr10Plus {
   TargetMonitorNits?: number;
 }
 
-export enum NoiseReducerFilter {
-  BILATERAL = "BILATERAL",
-  CONSERVE = "CONSERVE",
-  GAUSSIAN = "GAUSSIAN",
-  LANCZOS = "LANCZOS",
-  MEAN = "MEAN",
-  SHARPEN = "SHARPEN",
-  SPATIAL = "SPATIAL",
-  TEMPORAL = "TEMPORAL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NoiseReducerFilter = {
+  BILATERAL: "BILATERAL",
+  CONSERVE: "CONSERVE",
+  GAUSSIAN: "GAUSSIAN",
+  LANCZOS: "LANCZOS",
+  MEAN: "MEAN",
+  SHARPEN: "SHARPEN",
+  SPATIAL: "SPATIAL",
+  TEMPORAL: "TEMPORAL",
+} as const;
 
 /**
+ * @public
+ */
+export type NoiseReducerFilter = (typeof NoiseReducerFilter)[keyof typeof NoiseReducerFilter];
+
+/**
+ * @public
  * Settings for a noise reducer filter
  */
 export interface NoiseReducerFilterSettings {
@@ -3242,6 +5082,7 @@ export interface NoiseReducerFilterSettings {
 }
 
 /**
+ * @public
  * Noise reducer filter settings for spatial filter.
  */
 export interface NoiseReducerSpatialFilterSettings {
@@ -3261,19 +5102,40 @@ export interface NoiseReducerSpatialFilterSettings {
   Strength?: number;
 }
 
-export enum NoiseFilterPostTemporalSharpening {
-  AUTO = "AUTO",
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum NoiseFilterPostTemporalSharpeningStrength {
-  HIGH = "HIGH",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NoiseFilterPostTemporalSharpening = {
+  AUTO: "AUTO",
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type NoiseFilterPostTemporalSharpening =
+  (typeof NoiseFilterPostTemporalSharpening)[keyof typeof NoiseFilterPostTemporalSharpening];
+
+/**
+ * @public
+ * @enum
+ */
+export const NoiseFilterPostTemporalSharpeningStrength = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+} as const;
+
+/**
+ * @public
+ */
+export type NoiseFilterPostTemporalSharpeningStrength =
+  (typeof NoiseFilterPostTemporalSharpeningStrength)[keyof typeof NoiseFilterPostTemporalSharpeningStrength];
+
+/**
+ * @public
  * Noise reducer filter settings for temporal filter.
  */
 export interface NoiseReducerTemporalFilterSettings {
@@ -3304,7 +5166,8 @@ export interface NoiseReducerTemporalFilterSettings {
 }
 
 /**
- * Enable the Noise reducer (NoiseReducer) feature to remove noise from your video output if necessary. Enable or disable this feature for each output individually. This setting is disabled by default. When you enable Noise reducer (NoiseReducer), you must also select a value for Noise reducer filter (NoiseReducerFilter).
+ * @public
+ * Enable the Noise reducer feature to remove noise from your video output if necessary. Enable or disable this feature for each output individually. This setting is disabled by default. When you enable Noise reducer, you must also select a value for Noise reducer filter. For AVC outputs, when you include Noise reducer, you cannot include the Bandwidth reduction filter.
  */
 export interface NoiseReducer {
   /**
@@ -3328,15 +5191,25 @@ export interface NoiseReducer {
   TemporalFilterSettings?: NoiseReducerTemporalFilterSettings;
 }
 
-export enum WatermarkingStrength {
-  DEFAULT = "DEFAULT",
-  LIGHTER = "LIGHTER",
-  LIGHTEST = "LIGHTEST",
-  STRONGER = "STRONGER",
-  STRONGEST = "STRONGEST",
-}
+/**
+ * @public
+ * @enum
+ */
+export const WatermarkingStrength = {
+  DEFAULT: "DEFAULT",
+  LIGHTER: "LIGHTER",
+  LIGHTEST: "LIGHTEST",
+  STRONGER: "STRONGER",
+  STRONGEST: "STRONGEST",
+} as const;
 
 /**
+ * @public
+ */
+export type WatermarkingStrength = (typeof WatermarkingStrength)[keyof typeof WatermarkingStrength];
+
+/**
+ * @public
  * For forensic video watermarking, MediaConvert supports Nagra NexGuard File Marker watermarking. MediaConvert supports both PreRelease Content (NGPR/G2) and OTT Streaming workflows.
  */
 export interface NexGuardFileMarkerSettings {
@@ -3362,6 +5235,7 @@ export interface NexGuardFileMarkerSettings {
 }
 
 /**
+ * @public
  * If you work with a third party video watermarking partner, use the group of settings that correspond with your watermarking partner to include watermarks in your output.
  */
 export interface PartnerWatermarking {
@@ -3371,19 +5245,29 @@ export interface PartnerWatermarking {
   NexguardFileMarkerSettings?: NexGuardFileMarkerSettings;
 }
 
-export enum TimecodeBurninPosition {
-  BOTTOM_CENTER = "BOTTOM_CENTER",
-  BOTTOM_LEFT = "BOTTOM_LEFT",
-  BOTTOM_RIGHT = "BOTTOM_RIGHT",
-  MIDDLE_CENTER = "MIDDLE_CENTER",
-  MIDDLE_LEFT = "MIDDLE_LEFT",
-  MIDDLE_RIGHT = "MIDDLE_RIGHT",
-  TOP_CENTER = "TOP_CENTER",
-  TOP_LEFT = "TOP_LEFT",
-  TOP_RIGHT = "TOP_RIGHT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TimecodeBurninPosition = {
+  BOTTOM_CENTER: "BOTTOM_CENTER",
+  BOTTOM_LEFT: "BOTTOM_LEFT",
+  BOTTOM_RIGHT: "BOTTOM_RIGHT",
+  MIDDLE_CENTER: "MIDDLE_CENTER",
+  MIDDLE_LEFT: "MIDDLE_LEFT",
+  MIDDLE_RIGHT: "MIDDLE_RIGHT",
+  TOP_CENTER: "TOP_CENTER",
+  TOP_LEFT: "TOP_LEFT",
+  TOP_RIGHT: "TOP_RIGHT",
+} as const;
 
 /**
+ * @public
+ */
+export type TimecodeBurninPosition = (typeof TimecodeBurninPosition)[keyof typeof TimecodeBurninPosition];
+
+/**
+ * @public
  * Settings for burning the output timecode and specified prefix into the output.
  */
 export interface TimecodeBurnin {
@@ -3404,6 +5288,7 @@ export interface TimecodeBurnin {
 }
 
 /**
+ * @public
  * Find additional transcoding features under Preprocessors (VideoPreprocessors). Enable the features at each output individually. These features are disabled by default.
  */
 export interface VideoPreprocessor {
@@ -3433,7 +5318,7 @@ export interface VideoPreprocessor {
   ImageInserter?: ImageInserter;
 
   /**
-   * Enable the Noise reducer (NoiseReducer) feature to remove noise from your video output if necessary. Enable or disable this feature for each output individually. This setting is disabled by default.
+   * Enable the Noise reducer feature to remove noise from your video output if necessary. Enable or disable this feature for each output individually. This setting is disabled by default. When you enable Noise reducer, you must also select a value for Noise reducer filter. For AVC outputs, when you include Noise reducer, you cannot include the Bandwidth reduction filter.
    */
   NoiseReducer?: NoiseReducer;
 
@@ -3449,6 +5334,7 @@ export interface VideoPreprocessor {
 }
 
 /**
+ * @public
  * Settings related to video encoding of your output. The specific video settings depend on the video codec that you choose. When you work directly in your JSON job specification, include one instance of Video description (VideoDescription) per output.
  */
 export interface VideoDescription {
@@ -3483,7 +5369,7 @@ export interface VideoDescription {
   DropFrameTimecode?: DropFrameTimecode | string;
 
   /**
-   * Applies only if you set AFD Signaling(AfdSignaling) to Fixed (FIXED). Use Fixed (FixedAfd) to specify a four-bit AFD value which the service will write on all  frames of this video output.
+   * Applies only if you set AFD Signaling(AfdSignaling) to Fixed (FIXED). Use Fixed (FixedAfd) to specify a four-bit AFD value which the service will write on all frames of this video output.
    */
   FixedAfd?: number;
 
@@ -3529,6 +5415,7 @@ export interface VideoDescription {
 }
 
 /**
+ * @public
  * Each output in your job is a collection of settings that describes how you want MediaConvert to encode a single output file or stream. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/create-outputs.html.
  */
 export interface Output {
@@ -3574,6 +5461,7 @@ export interface Output {
 }
 
 /**
+ * @public
  * Group of outputs
  */
 export interface OutputGroup {
@@ -3603,18 +5491,28 @@ export interface OutputGroup {
   Outputs?: Output[];
 }
 
-export enum TimecodeSource {
-  EMBEDDED = "EMBEDDED",
-  SPECIFIEDSTART = "SPECIFIEDSTART",
-  ZEROBASED = "ZEROBASED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TimecodeSource = {
+  EMBEDDED: "EMBEDDED",
+  SPECIFIEDSTART: "SPECIFIEDSTART",
+  ZEROBASED: "ZEROBASED",
+} as const;
 
 /**
+ * @public
+ */
+export type TimecodeSource = (typeof TimecodeSource)[keyof typeof TimecodeSource];
+
+/**
+ * @public
  * These settings control how the service handles timecodes throughout the job. These settings don't affect input clipping.
  */
 export interface TimecodeConfig {
   /**
-   * If you use an editing platform that relies on an anchor timecode, use Anchor Timecode (Anchor) to specify a timecode that will match the input video frame to the output video frame. Use 24-hour format with frame number, (HH:MM:SS:FF) or (HH:MM:SS;FF). This setting ignores frame rate conversion. System behavior for Anchor Timecode varies depending on your setting for Source (TimecodeSource). * If Source (TimecodeSource) is set to Specified Start (SPECIFIEDSTART), the first input frame is the specified value in Start Timecode (Start). Anchor Timecode (Anchor) and Start Timecode (Start) are used calculate output timecode. * If Source (TimecodeSource) is set to Start at 0 (ZEROBASED)  the  first frame is 00:00:00:00. * If Source (TimecodeSource) is set to Embedded (EMBEDDED), the  first frame is the timecode value on the first input frame of the input.
+   * If you use an editing platform that relies on an anchor timecode, use Anchor Timecode (Anchor) to specify a timecode that will match the input video frame to the output video frame. Use 24-hour format with frame number, (HH:MM:SS:FF) or (HH:MM:SS;FF). This setting ignores frame rate conversion. System behavior for Anchor Timecode varies depending on your setting for Source (TimecodeSource). * If Source (TimecodeSource) is set to Specified Start (SPECIFIEDSTART), the first input frame is the specified value in Start Timecode (Start). Anchor Timecode (Anchor) and Start Timecode (Start) are used calculate output timecode. * If Source (TimecodeSource) is set to Start at 0 (ZEROBASED) the first frame is 00:00:00:00. * If Source (TimecodeSource) is set to Embedded (EMBEDDED), the first frame is the timecode value on the first input frame of the input.
    */
   Anchor?: string;
 
@@ -3629,12 +5527,13 @@ export interface TimecodeConfig {
   Start?: string;
 
   /**
-   * Only applies to outputs that support program-date-time stamp. Use Timestamp offset (TimestampOffset) to overwrite the timecode date without affecting the time and frame number. Provide the new date as a string in the format "yyyy-mm-dd".  To use Time stamp offset, you must also enable Insert program-date-time (InsertProgramDateTime) in the output settings. For example, if the date part of your timecodes is 2002-1-25 and you want to change it to one year later, set Timestamp offset (TimestampOffset) to 2003-1-25.
+   * Only applies to outputs that support program-date-time stamp. Use Timestamp offset (TimestampOffset) to overwrite the timecode date without affecting the time and frame number. Provide the new date as a string in the format "yyyy-mm-dd". To use Time stamp offset, you must also enable Insert program-date-time (InsertProgramDateTime) in the output settings. For example, if the date part of your timecodes is 2002-1-25 and you want to change it to one year later, set Timestamp offset (TimestampOffset) to 2003-1-25.
    */
   TimestampOffset?: string;
 }
 
 /**
+ * @public
  * Insert user-defined custom ID3 metadata (id3) at timecodes (timecode) that you specify. In each output that you want to include this metadata, you must set ID3 metadata (timedMetadata) to Passthrough (PASSTHROUGH).
  */
 export interface TimedMetadataInsertion {
@@ -3645,6 +5544,7 @@ export interface TimedMetadataInsertion {
 }
 
 /**
+ * @public
  * JobSettings contains all the transcode settings for a job.
  */
 export interface JobSettings {
@@ -3654,7 +5554,7 @@ export interface JobSettings {
   AdAvailOffset?: number;
 
   /**
-   * Settings for ad avail blanking.  Video can be blanked or overlaid with an image, and audio muted during SCTE-35 triggered ad avails.
+   * Settings for ad avail blanking. Video can be blanked or overlaid with an image, and audio muted during SCTE-35 triggered ad avails.
    */
   AvailBlanking?: AvailBlanking;
 
@@ -3689,7 +5589,7 @@ export interface JobSettings {
   NielsenConfiguration?: NielsenConfiguration;
 
   /**
-   * Ignore these settings unless you are using Nielsen non-linear watermarking. Specify the values that  MediaConvert uses to generate and place Nielsen watermarks in your output audio. In addition to  specifying these values, you also need to set up your cloud TIC server. These settings apply to  every output in your job. The MediaConvert implementation is currently with the following Nielsen versions: Nielsen Watermark SDK Version 5.2.1 Nielsen NLM Watermark Engine Version 1.2.7 Nielsen Watermark Authenticator [SID_TIC] Version [5.0.0]
+   * Ignore these settings unless you are using Nielsen non-linear watermarking. Specify the values that MediaConvert uses to generate and place Nielsen watermarks in your output audio. In addition to specifying these values, you also need to set up your cloud TIC server. These settings apply to every output in your job. The MediaConvert implementation is currently with the following Nielsen versions: Nielsen Watermark SDK Version 5.2.1 Nielsen NLM Watermark Engine Version 1.2.7 Nielsen Watermark Authenticator [SID_TIC] Version [5.0.0]
    */
   NielsenNonLinearWatermark?: NielsenNonLinearWatermarkSettings;
 
@@ -3709,38 +5609,66 @@ export interface JobSettings {
   TimedMetadataInsertion?: TimedMetadataInsertion;
 }
 
-export enum SimulateReservedQueue {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum JobStatus {
-  CANCELED = "CANCELED",
-  COMPLETE = "COMPLETE",
-  ERROR = "ERROR",
-  PROGRESSING = "PROGRESSING",
-  SUBMITTED = "SUBMITTED",
-}
-
-export enum StatusUpdateInterval {
-  SECONDS_10 = "SECONDS_10",
-  SECONDS_12 = "SECONDS_12",
-  SECONDS_120 = "SECONDS_120",
-  SECONDS_15 = "SECONDS_15",
-  SECONDS_180 = "SECONDS_180",
-  SECONDS_20 = "SECONDS_20",
-  SECONDS_240 = "SECONDS_240",
-  SECONDS_30 = "SECONDS_30",
-  SECONDS_300 = "SECONDS_300",
-  SECONDS_360 = "SECONDS_360",
-  SECONDS_420 = "SECONDS_420",
-  SECONDS_480 = "SECONDS_480",
-  SECONDS_540 = "SECONDS_540",
-  SECONDS_60 = "SECONDS_60",
-  SECONDS_600 = "SECONDS_600",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SimulateReservedQueue = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type SimulateReservedQueue = (typeof SimulateReservedQueue)[keyof typeof SimulateReservedQueue];
+
+/**
+ * @public
+ * @enum
+ */
+export const JobStatus = {
+  CANCELED: "CANCELED",
+  COMPLETE: "COMPLETE",
+  ERROR: "ERROR",
+  PROGRESSING: "PROGRESSING",
+  SUBMITTED: "SUBMITTED",
+} as const;
+
+/**
+ * @public
+ */
+export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const StatusUpdateInterval = {
+  SECONDS_10: "SECONDS_10",
+  SECONDS_12: "SECONDS_12",
+  SECONDS_120: "SECONDS_120",
+  SECONDS_15: "SECONDS_15",
+  SECONDS_180: "SECONDS_180",
+  SECONDS_20: "SECONDS_20",
+  SECONDS_240: "SECONDS_240",
+  SECONDS_30: "SECONDS_30",
+  SECONDS_300: "SECONDS_300",
+  SECONDS_360: "SECONDS_360",
+  SECONDS_420: "SECONDS_420",
+  SECONDS_480: "SECONDS_480",
+  SECONDS_540: "SECONDS_540",
+  SECONDS_60: "SECONDS_60",
+  SECONDS_600: "SECONDS_600",
+} as const;
+
+/**
+ * @public
+ */
+export type StatusUpdateInterval = (typeof StatusUpdateInterval)[keyof typeof StatusUpdateInterval];
+
+/**
+ * @public
  * Information about when jobs are submitted, started, and finished is specified in Unix epoch format in seconds.
  */
 export interface Timing {
@@ -3761,6 +5689,23 @@ export interface Timing {
 }
 
 /**
+ * @public
+ * Contains any warning codes and their count for the job.
+ */
+export interface WarningGroup {
+  /**
+   * Warning code that identifies a specific warning in the job. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/warning_codes.html
+   */
+  Code: number | undefined;
+
+  /**
+   * The number of times this warning occurred in the job.
+   */
+  Count: number | undefined;
+}
+
+/**
+ * @public
  * Each job converts an input file into an output file or files. For more information, see the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
  */
 export interface Job {
@@ -3783,6 +5728,11 @@ export interface Job {
    * The tag type that AWS Billing and Cost Management will use to sort your AWS Elemental MediaConvert costs on any billing report that you set up.
    */
   BillingTagsSource?: BillingTagsSource | string;
+
+  /**
+   * Prevent duplicate jobs from being created and ensure idempotency for your requests. A client request token can be any string that includes up to 64 ASCII characters. If you reuse a client request token within one minute of a successful request, the API returns the job details of the original request instead. For more information see https://docs.aws.amazon.com/mediaconvert/latest/apireference/idempotency.html.
+   */
+  ClientRequestToken?: string;
 
   /**
    * The time, in Unix epoch format in seconds, when the job got created.
@@ -3888,9 +5838,15 @@ export interface Job {
    * User-defined metadata that you want to associate with an MediaConvert job. You specify metadata in key/value pairs.
    */
   UserMetadata?: Record<string, string>;
+
+  /**
+   * Contains any warning messages for the job. Use to help identify potential issues with your input, output, or job. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/warning_codes.html
+   */
+  Warnings?: WarningGroup[];
 }
 
 /**
+ * @public
  * JobTemplateSettings contains all the transcode settings saved in the template that will be applied to jobs created from it.
  */
 export interface JobTemplateSettings {
@@ -3900,7 +5856,7 @@ export interface JobTemplateSettings {
   AdAvailOffset?: number;
 
   /**
-   * Settings for ad avail blanking.  Video can be blanked or overlaid with an image, and audio muted during SCTE-35 triggered ad avails.
+   * Settings for ad avail blanking. Video can be blanked or overlaid with an image, and audio muted during SCTE-35 triggered ad avails.
    */
   AvailBlanking?: AvailBlanking;
 
@@ -3915,7 +5871,7 @@ export interface JobTemplateSettings {
   ExtendedDataServices?: ExtendedDataServices;
 
   /**
-   * Use Inputs (inputs) to define the source file used in the transcode job. There can only be one input in a job template.  Using the API, you can include multiple inputs when referencing a job template.
+   * Use Inputs (inputs) to define the source file used in the transcode job. There can only be one input in a job template. Using the API, you can include multiple inputs when referencing a job template.
    */
   Inputs?: InputTemplate[];
 
@@ -3935,7 +5891,7 @@ export interface JobTemplateSettings {
   NielsenConfiguration?: NielsenConfiguration;
 
   /**
-   * Ignore these settings unless you are using Nielsen non-linear watermarking. Specify the values that  MediaConvert uses to generate and place Nielsen watermarks in your output audio. In addition to  specifying these values, you also need to set up your cloud TIC server. These settings apply to  every output in your job. The MediaConvert implementation is currently with the following Nielsen versions: Nielsen Watermark SDK Version 5.2.1 Nielsen NLM Watermark Engine Version 1.2.7 Nielsen Watermark Authenticator [SID_TIC] Version [5.0.0]
+   * Ignore these settings unless you are using Nielsen non-linear watermarking. Specify the values that MediaConvert uses to generate and place Nielsen watermarks in your output audio. In addition to specifying these values, you also need to set up your cloud TIC server. These settings apply to every output in your job. The MediaConvert implementation is currently with the following Nielsen versions: Nielsen Watermark SDK Version 5.2.1 Nielsen NLM Watermark Engine Version 1.2.7 Nielsen Watermark Authenticator [SID_TIC] Version [5.0.0]
    */
   NielsenNonLinearWatermark?: NielsenNonLinearWatermarkSettings;
 
@@ -3955,12 +5911,22 @@ export interface JobTemplateSettings {
   TimedMetadataInsertion?: TimedMetadataInsertion;
 }
 
-export enum Type {
-  CUSTOM = "CUSTOM",
-  SYSTEM = "SYSTEM",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Type = {
+  CUSTOM: "CUSTOM",
+  SYSTEM: "SYSTEM",
+} as const;
 
 /**
+ * @public
+ */
+export type Type = (typeof Type)[keyof typeof Type];
+
+/**
+ * @public
  * A job template is a pre-made set of encoding instructions that you can use to quickly create a job.
  */
 export interface JobTemplate {
@@ -4031,6 +5997,7 @@ export interface JobTemplate {
 }
 
 /**
+ * @public
  * Settings for preset
  */
 export interface PresetSettings {
@@ -4056,6 +6023,7 @@ export interface PresetSettings {
 }
 
 /**
+ * @public
  * A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
  */
 export interface Preset {
@@ -4100,26 +6068,63 @@ export interface Preset {
   Type?: Type | string;
 }
 
-export enum PricingPlan {
-  ON_DEMAND = "ON_DEMAND",
-  RESERVED = "RESERVED",
-}
-
-export enum Commitment {
-  ONE_YEAR = "ONE_YEAR",
-}
-
-export enum RenewalType {
-  AUTO_RENEW = "AUTO_RENEW",
-  EXPIRE = "EXPIRE",
-}
-
-export enum ReservationPlanStatus {
-  ACTIVE = "ACTIVE",
-  EXPIRED = "EXPIRED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PricingPlan = {
+  ON_DEMAND: "ON_DEMAND",
+  RESERVED: "RESERVED",
+} as const;
 
 /**
+ * @public
+ */
+export type PricingPlan = (typeof PricingPlan)[keyof typeof PricingPlan];
+
+/**
+ * @public
+ * @enum
+ */
+export const Commitment = {
+  ONE_YEAR: "ONE_YEAR",
+} as const;
+
+/**
+ * @public
+ */
+export type Commitment = (typeof Commitment)[keyof typeof Commitment];
+
+/**
+ * @public
+ * @enum
+ */
+export const RenewalType = {
+  AUTO_RENEW: "AUTO_RENEW",
+  EXPIRE: "EXPIRE",
+} as const;
+
+/**
+ * @public
+ */
+export type RenewalType = (typeof RenewalType)[keyof typeof RenewalType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReservationPlanStatus = {
+  ACTIVE: "ACTIVE",
+  EXPIRED: "EXPIRED",
+} as const;
+
+/**
+ * @public
+ */
+export type ReservationPlanStatus = (typeof ReservationPlanStatus)[keyof typeof ReservationPlanStatus];
+
+/**
+ * @public
  * Details about the pricing plan for your reserved queue. Required for reserved queues and not applicable to on-demand queues.
  */
 export interface ReservationPlan {
@@ -4154,12 +6159,22 @@ export interface ReservationPlan {
   Status?: ReservationPlanStatus | string;
 }
 
-export enum QueueStatus {
-  ACTIVE = "ACTIVE",
-  PAUSED = "PAUSED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const QueueStatus = {
+  ACTIVE: "ACTIVE",
+  PAUSED: "PAUSED",
+} as const;
 
 /**
+ * @public
+ */
+export type QueueStatus = (typeof QueueStatus)[keyof typeof QueueStatus];
+
+/**
+ * @public
  * You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don't specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html.
  */
 export interface Queue {
@@ -4219,6 +6234,9 @@ export interface Queue {
   Type?: Type | string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateCertificateRequest {
   /**
    * The ARN of the ACM certificate that you want to associate with your MediaConvert resource.
@@ -4226,9 +6244,13 @@ export interface AssociateCertificateRequest {
   Arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateCertificateResponse {}
 
 /**
+ * @public
  * The service can't process your request because of a problem in the request. Please check your request form and syntax.
  */
 export class BadRequestException extends __BaseException {
@@ -4250,6 +6272,7 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * The service couldn't complete your request because there is a conflict with the current state of the resource.
  */
 export class ConflictException extends __BaseException {
@@ -4271,6 +6294,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * You don't have permissions for this action with the credentials you sent.
  */
 export class ForbiddenException extends __BaseException {
@@ -4292,6 +6316,7 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
+ * @public
  * The service encountered an unexpected condition and can't fulfill your request.
  */
 export class InternalServerErrorException extends __BaseException {
@@ -4313,6 +6338,7 @@ export class InternalServerErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * The resource you requested doesn't exist.
  */
 export class NotFoundException extends __BaseException {
@@ -4334,6 +6360,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
  */
 export class TooManyRequestsException extends __BaseException {
@@ -4354,6 +6381,9 @@ export class TooManyRequestsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CancelJobRequest {
   /**
    * The Job ID of the job to be cancelled.
@@ -4361,8 +6391,14 @@ export interface CancelJobRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelJobResponse {}
 
+/**
+ * @public
+ */
 export interface CreateJobRequest {
   /**
    * Optional. Accelerated transcoding can significantly speed up jobs with long, visually complex content. Outputs that use this feature incur pro-tier pricing. For information about feature limitations, see the AWS Elemental MediaConvert User Guide.
@@ -4430,6 +6466,9 @@ export interface CreateJobRequest {
   UserMetadata?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateJobResponse {
   /**
    * Each job converts an input file into an output file or files. For more information, see the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
@@ -4437,6 +6476,9 @@ export interface CreateJobResponse {
   Job?: Job;
 }
 
+/**
+ * @public
+ */
 export interface CreateJobTemplateRequest {
   /**
    * Accelerated transcoding can significantly speed up jobs with long, visually complex content. Outputs that use this feature incur pro-tier pricing. For information about feature limitations, see the AWS Elemental MediaConvert User Guide.
@@ -4489,6 +6531,9 @@ export interface CreateJobTemplateRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateJobTemplateResponse {
   /**
    * A job template is a pre-made set of encoding instructions that you can use to quickly create a job.
@@ -4496,6 +6541,9 @@ export interface CreateJobTemplateResponse {
   JobTemplate?: JobTemplate;
 }
 
+/**
+ * @public
+ */
 export interface CreatePresetRequest {
   /**
    * Optional. A category for the preset you are creating.
@@ -4523,6 +6571,9 @@ export interface CreatePresetRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreatePresetResponse {
   /**
    * A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
@@ -4531,6 +6582,7 @@ export interface CreatePresetResponse {
 }
 
 /**
+ * @public
  * Details about the pricing plan for your reserved queue. Required for reserved queues and not applicable to on-demand queues.
  */
 export interface ReservationPlanSettings {
@@ -4550,6 +6602,9 @@ export interface ReservationPlanSettings {
   ReservedSlots: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateQueueRequest {
   /**
    * Optional. A description of the queue that you are creating.
@@ -4582,6 +6637,9 @@ export interface CreateQueueRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateQueueResponse {
   /**
    * You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don't specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html.
@@ -4589,6 +6647,9 @@ export interface CreateQueueResponse {
   Queue?: Queue;
 }
 
+/**
+ * @public
+ */
 export interface DeleteJobTemplateRequest {
   /**
    * The name of the job template to be deleted.
@@ -4596,12 +6657,24 @@ export interface DeleteJobTemplateRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteJobTemplateResponse {}
 
+/**
+ * @public
+ */
 export interface DeletePolicyRequest {}
 
+/**
+ * @public
+ */
 export interface DeletePolicyResponse {}
 
+/**
+ * @public
+ */
 export interface DeletePresetRequest {
   /**
    * The name of the preset to be deleted.
@@ -4609,8 +6682,14 @@ export interface DeletePresetRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePresetResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteQueueRequest {
   /**
    * The name of the queue that you want to delete.
@@ -4618,14 +6697,27 @@ export interface DeleteQueueRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteQueueResponse {}
 
-export enum DescribeEndpointsMode {
-  DEFAULT = "DEFAULT",
-  GET_ONLY = "GET_ONLY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DescribeEndpointsMode = {
+  DEFAULT: "DEFAULT",
+  GET_ONLY: "GET_ONLY",
+} as const;
 
 /**
+ * @public
+ */
+export type DescribeEndpointsMode = (typeof DescribeEndpointsMode)[keyof typeof DescribeEndpointsMode];
+
+/**
+ * @public
  * DescribeEndpointsRequest
  */
 export interface DescribeEndpointsRequest {
@@ -4645,6 +6737,9 @@ export interface DescribeEndpointsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEndpointsResponse {
   /**
    * List of endpoints
@@ -4657,6 +6752,9 @@ export interface DescribeEndpointsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateCertificateRequest {
   /**
    * The ARN of the ACM certificate that you want to disassociate from your MediaConvert resource.
@@ -4664,678 +6762,7 @@ export interface DisassociateCertificateRequest {
   Arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateCertificateResponse {}
-
-export interface GetJobRequest {
-  /**
-   * the job ID of the job.
-   */
-  Id: string | undefined;
-}
-
-export interface GetJobResponse {
-  /**
-   * Each job converts an input file into an output file or files. For more information, see the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
-   */
-  Job?: Job;
-}
-
-export interface GetJobTemplateRequest {
-  /**
-   * The name of the job template.
-   */
-  Name: string | undefined;
-}
-
-export interface GetJobTemplateResponse {
-  /**
-   * A job template is a pre-made set of encoding instructions that you can use to quickly create a job.
-   */
-  JobTemplate?: JobTemplate;
-}
-
-export interface GetPolicyRequest {}
-
-/**
- * @internal
- */
-export const DvbSdtSettingsFilterSensitiveLog = (obj: DvbSdtSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DvbTdtSettingsFilterSensitiveLog = (obj: DvbTdtSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const M2tsScte35EsamFilterSensitiveLog = (obj: M2tsScte35Esam): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const M2tsSettingsFilterSensitiveLog = (obj: M2tsSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const M3u8SettingsFilterSensitiveLog = (obj: M3u8Settings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MovSettingsFilterSensitiveLog = (obj: MovSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Mp4SettingsFilterSensitiveLog = (obj: Mp4Settings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MpdSettingsFilterSensitiveLog = (obj: MpdSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MxfXavcProfileSettingsFilterSensitiveLog = (obj: MxfXavcProfileSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MxfSettingsFilterSensitiveLog = (obj: MxfSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ContainerSettingsFilterSensitiveLog = (obj: ContainerSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HlsSettingsFilterSensitiveLog = (obj: HlsSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OutputSettingsFilterSensitiveLog = (obj: OutputSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Av1QvbrSettingsFilterSensitiveLog = (obj: Av1QvbrSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Av1SettingsFilterSensitiveLog = (obj: Av1Settings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AvcIntraUhdSettingsFilterSensitiveLog = (obj: AvcIntraUhdSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AvcIntraSettingsFilterSensitiveLog = (obj: AvcIntraSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FrameCaptureSettingsFilterSensitiveLog = (obj: FrameCaptureSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const H264QvbrSettingsFilterSensitiveLog = (obj: H264QvbrSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const H264SettingsFilterSensitiveLog = (obj: H264Settings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const H265QvbrSettingsFilterSensitiveLog = (obj: H265QvbrSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const H265SettingsFilterSensitiveLog = (obj: H265Settings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Mpeg2SettingsFilterSensitiveLog = (obj: Mpeg2Settings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProresSettingsFilterSensitiveLog = (obj: ProresSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Vc3SettingsFilterSensitiveLog = (obj: Vc3Settings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Vp8SettingsFilterSensitiveLog = (obj: Vp8Settings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Vp9SettingsFilterSensitiveLog = (obj: Vp9Settings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Xavc4kIntraCbgProfileSettingsFilterSensitiveLog = (obj: Xavc4kIntraCbgProfileSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Xavc4kIntraVbrProfileSettingsFilterSensitiveLog = (obj: Xavc4kIntraVbrProfileSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Xavc4kProfileSettingsFilterSensitiveLog = (obj: Xavc4kProfileSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const XavcHdIntraCbgProfileSettingsFilterSensitiveLog = (obj: XavcHdIntraCbgProfileSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const XavcHdProfileSettingsFilterSensitiveLog = (obj: XavcHdProfileSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const XavcSettingsFilterSensitiveLog = (obj: XavcSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VideoCodecSettingsFilterSensitiveLog = (obj: VideoCodecSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClipLimitsFilterSensitiveLog = (obj: ClipLimits): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ColorCorrectorFilterSensitiveLog = (obj: ColorCorrector): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeinterlacerFilterSensitiveLog = (obj: Deinterlacer): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DolbyVisionLevel6MetadataFilterSensitiveLog = (obj: DolbyVisionLevel6Metadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DolbyVisionFilterSensitiveLog = (obj: DolbyVision): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Hdr10PlusFilterSensitiveLog = (obj: Hdr10Plus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NoiseReducerFilterSettingsFilterSensitiveLog = (obj: NoiseReducerFilterSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NoiseReducerSpatialFilterSettingsFilterSensitiveLog = (obj: NoiseReducerSpatialFilterSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NoiseReducerTemporalFilterSettingsFilterSensitiveLog = (obj: NoiseReducerTemporalFilterSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NoiseReducerFilterSensitiveLog = (obj: NoiseReducer): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NexGuardFileMarkerSettingsFilterSensitiveLog = (obj: NexGuardFileMarkerSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PartnerWatermarkingFilterSensitiveLog = (obj: PartnerWatermarking): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TimecodeBurninFilterSensitiveLog = (obj: TimecodeBurnin): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VideoPreprocessorFilterSensitiveLog = (obj: VideoPreprocessor): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VideoDescriptionFilterSensitiveLog = (obj: VideoDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OutputFilterSensitiveLog = (obj: Output): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OutputGroupFilterSensitiveLog = (obj: OutputGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TimecodeConfigFilterSensitiveLog = (obj: TimecodeConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TimedMetadataInsertionFilterSensitiveLog = (obj: TimedMetadataInsertion): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobSettingsFilterSensitiveLog = (obj: JobSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TimingFilterSensitiveLog = (obj: Timing): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobFilterSensitiveLog = (obj: Job): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobTemplateSettingsFilterSensitiveLog = (obj: JobTemplateSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobTemplateFilterSensitiveLog = (obj: JobTemplate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PresetSettingsFilterSensitiveLog = (obj: PresetSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PresetFilterSensitiveLog = (obj: Preset): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReservationPlanFilterSensitiveLog = (obj: ReservationPlan): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const QueueFilterSensitiveLog = (obj: Queue): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateCertificateRequestFilterSensitiveLog = (obj: AssociateCertificateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateCertificateResponseFilterSensitiveLog = (obj: AssociateCertificateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelJobRequestFilterSensitiveLog = (obj: CancelJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelJobResponseFilterSensitiveLog = (obj: CancelJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateJobRequestFilterSensitiveLog = (obj: CreateJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateJobResponseFilterSensitiveLog = (obj: CreateJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateJobTemplateRequestFilterSensitiveLog = (obj: CreateJobTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateJobTemplateResponseFilterSensitiveLog = (obj: CreateJobTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePresetRequestFilterSensitiveLog = (obj: CreatePresetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePresetResponseFilterSensitiveLog = (obj: CreatePresetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReservationPlanSettingsFilterSensitiveLog = (obj: ReservationPlanSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateQueueRequestFilterSensitiveLog = (obj: CreateQueueRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateQueueResponseFilterSensitiveLog = (obj: CreateQueueResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteJobTemplateRequestFilterSensitiveLog = (obj: DeleteJobTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteJobTemplateResponseFilterSensitiveLog = (obj: DeleteJobTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePolicyRequestFilterSensitiveLog = (obj: DeletePolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePolicyResponseFilterSensitiveLog = (obj: DeletePolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePresetRequestFilterSensitiveLog = (obj: DeletePresetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePresetResponseFilterSensitiveLog = (obj: DeletePresetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteQueueRequestFilterSensitiveLog = (obj: DeleteQueueRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteQueueResponseFilterSensitiveLog = (obj: DeleteQueueResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEndpointsRequestFilterSensitiveLog = (obj: DescribeEndpointsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEndpointsResponseFilterSensitiveLog = (obj: DescribeEndpointsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateCertificateRequestFilterSensitiveLog = (obj: DisassociateCertificateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateCertificateResponseFilterSensitiveLog = (obj: DisassociateCertificateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetJobRequestFilterSensitiveLog = (obj: GetJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetJobResponseFilterSensitiveLog = (obj: GetJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetJobTemplateRequestFilterSensitiveLog = (obj: GetJobTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetJobTemplateResponseFilterSensitiveLog = (obj: GetJobTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPolicyRequestFilterSensitiveLog = (obj: GetPolicyRequest): any => ({
-  ...obj,
-});

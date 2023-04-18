@@ -26,12 +26,14 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
@@ -107,6 +109,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | BatchGetChannelCommandInput
   | BatchGetStreamKeyCommandInput
@@ -137,6 +142,9 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateChannelCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | BatchGetChannelCommandOutput
   | BatchGetStreamKeyCommandOutput
@@ -167,6 +175,9 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateChannelCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -174,11 +185,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -235,19 +246,10 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
-   * Value for how many times a request will be made at most in case of retry.
+   * Unique service identifier.
+   * @internal
    */
-  maxAttempts?: number | __Provider<number>;
-
-  /**
-   * Specifies which retry algorithm to use.
-   */
-  retryMode?: string | __Provider<string>;
-
-  /**
-   * Optional logger for logging debug/info/warn/error.
-   */
-  logger?: __Logger;
+  serviceId?: string;
 
   /**
    * Enables IPv6/IPv4 dualstack endpoint.
@@ -258,12 +260,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Enables FIPS compatible endpoints.
    */
   useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
 
   /**
    * The AWS region to which this client will send requests
@@ -283,11 +279,29 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * Value for how many times a request will be made at most in case of retry.
    */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Specifies which retry algorithm to use.
+   */
+  retryMode?: string | __Provider<string>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
+
+  /**
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   */
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type IvsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -298,10 +312,15 @@ type IvsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> 
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of IvsClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of IvsClient class constructor that set the region, credentials and other options.
  */
 export interface IvsClientConfig extends IvsClientConfigType {}
 
+/**
+ * @public
+ */
 type IvsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -312,11 +331,14 @@ type IvsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOp
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of IvsClient class. This is resolved and normalized from the {@link IvsClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of IvsClient class. This is resolved and normalized from the {@link IvsClientConfig | constructor configuration interface}.
  */
 export interface IvsClientResolvedConfig extends IvsClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>
  *             <b>Introduction</b>
  *          </p>
@@ -364,12 +386,14 @@ export interface IvsClientResolvedConfig extends IvsClientResolvedConfigType {}
  *         Amazon IVS</a>):</p>
  *          <ul>
  *             <li>
- *                <p>Channel — Stores configuration data related to your live stream. You first create a
+ *                <p>
+ *                   <b>Channel</b> — Stores configuration data related to your live stream. You first create a
  *           channel and then use the channel’s stream key to start your live stream. See the Channel
  *           endpoints for more information. </p>
  *             </li>
  *             <li>
- *                <p>Stream key — An identifier assigned by Amazon IVS when you create a channel, which is
+ *                <p>
+ *                   <b>Stream key</b> — An identifier assigned by Amazon IVS when you create a channel, which is
  *           then used to authorize streaming. See the StreamKey endpoints for more information.
  *               <i>
  *                      <b>Treat the stream key like a secret, since it allows
@@ -378,13 +402,15 @@ export interface IvsClientResolvedConfig extends IvsClientResolvedConfigType {}
  *                </p>
  *             </li>
  *             <li>
- *                <p>Playback key pair — Video playback may be restricted using playback-authorization
+ *                <p>
+ *                   <b>Playback key pair</b> — Video playback may be restricted using playback-authorization
  *           tokens, which use public-key encryption. A playback key pair is the public-private pair of
  *           keys used to sign and validate the playback-authorization token. See the PlaybackKeyPair
  *           endpoints for more information.</p>
  *             </li>
  *             <li>
- *                <p>Recording configuration — Stores configuration related to recording a live stream and
+ *                <p>
+ *                   <b>Recording configuration</b> — Stores configuration related to recording a live stream and
  *           where to store the recorded content. Multiple channels can reference the same recording
  *           configuration. See the Recording Configuration endpoints for more information.</p>
  *             </li>
@@ -434,7 +460,7 @@ export interface IvsClientResolvedConfig extends IvsClientResolvedConfigType {}
  *       responsibility to sign the requests.</p>
  *          <p>You generate a signature using valid Amazon Web Services credentials that have permission
  *       to perform the requested action. For example, you must sign PutMetadata requests with a
- *       signature generated from an IAM user account that has the <code>ivs:PutMetadata</code>
+ *       signature generated from a user account that has the <code>ivs:PutMetadata</code>
  *       permission.</p>
  *          <p>For more information:</p>
  *          <ul>

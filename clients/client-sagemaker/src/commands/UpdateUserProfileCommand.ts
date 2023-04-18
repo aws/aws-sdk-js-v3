@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateUserProfileRequest,
-  UpdateUserProfileRequestFilterSensitiveLog,
-  UpdateUserProfileResponse,
-  UpdateUserProfileResponseFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_json1_1UpdateUserProfileCommand,
-  serializeAws_json1_1UpdateUserProfileCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateUserProfileRequest, UpdateUserProfileResponse } from "../models/models_4";
+import { de_UpdateUserProfileCommand, se_UpdateUserProfileCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateUserProfileCommand}.
+ */
 export interface UpdateUserProfileCommandInput extends UpdateUserProfileRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateUserProfileCommand}.
+ */
 export interface UpdateUserProfileCommandOutput extends UpdateUserProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a user profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,108 @@ export interface UpdateUserProfileCommandOutput extends UpdateUserProfileRespons
  * import { SageMakerClient, UpdateUserProfileCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateUserProfileCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // UpdateUserProfileRequest
+ *   DomainId: "STRING_VALUE", // required
+ *   UserProfileName: "STRING_VALUE", // required
+ *   UserSettings: { // UserSettings
+ *     ExecutionRole: "STRING_VALUE",
+ *     SecurityGroups: [ // SecurityGroupIds
+ *       "STRING_VALUE",
+ *     ],
+ *     SharingSettings: { // SharingSettings
+ *       NotebookOutputOption: "Allowed" || "Disabled",
+ *       S3OutputPath: "STRING_VALUE",
+ *       S3KmsKeyId: "STRING_VALUE",
+ *     },
+ *     JupyterServerAppSettings: { // JupyterServerAppSettings
+ *       DefaultResourceSpec: { // ResourceSpec
+ *         SageMakerImageArn: "STRING_VALUE",
+ *         SageMakerImageVersionArn: "STRING_VALUE",
+ *         InstanceType: "system" || "ml.t3.micro" || "ml.t3.small" || "ml.t3.medium" || "ml.t3.large" || "ml.t3.xlarge" || "ml.t3.2xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.8xlarge" || "ml.m5.12xlarge" || "ml.m5.16xlarge" || "ml.m5.24xlarge" || "ml.m5d.large" || "ml.m5d.xlarge" || "ml.m5d.2xlarge" || "ml.m5d.4xlarge" || "ml.m5d.8xlarge" || "ml.m5d.12xlarge" || "ml.m5d.16xlarge" || "ml.m5d.24xlarge" || "ml.c5.large" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.12xlarge" || "ml.c5.18xlarge" || "ml.c5.24xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.r5.large" || "ml.r5.xlarge" || "ml.r5.2xlarge" || "ml.r5.4xlarge" || "ml.r5.8xlarge" || "ml.r5.12xlarge" || "ml.r5.16xlarge" || "ml.r5.24xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.geospatial.interactive",
+ *         LifecycleConfigArn: "STRING_VALUE",
+ *       },
+ *       LifecycleConfigArns: [ // LifecycleConfigArns
+ *         "STRING_VALUE",
+ *       ],
+ *       CodeRepositories: [ // CodeRepositories
+ *         { // CodeRepository
+ *           RepositoryUrl: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *     KernelGatewayAppSettings: { // KernelGatewayAppSettings
+ *       DefaultResourceSpec: {
+ *         SageMakerImageArn: "STRING_VALUE",
+ *         SageMakerImageVersionArn: "STRING_VALUE",
+ *         InstanceType: "system" || "ml.t3.micro" || "ml.t3.small" || "ml.t3.medium" || "ml.t3.large" || "ml.t3.xlarge" || "ml.t3.2xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.8xlarge" || "ml.m5.12xlarge" || "ml.m5.16xlarge" || "ml.m5.24xlarge" || "ml.m5d.large" || "ml.m5d.xlarge" || "ml.m5d.2xlarge" || "ml.m5d.4xlarge" || "ml.m5d.8xlarge" || "ml.m5d.12xlarge" || "ml.m5d.16xlarge" || "ml.m5d.24xlarge" || "ml.c5.large" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.12xlarge" || "ml.c5.18xlarge" || "ml.c5.24xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.r5.large" || "ml.r5.xlarge" || "ml.r5.2xlarge" || "ml.r5.4xlarge" || "ml.r5.8xlarge" || "ml.r5.12xlarge" || "ml.r5.16xlarge" || "ml.r5.24xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.geospatial.interactive",
+ *         LifecycleConfigArn: "STRING_VALUE",
+ *       },
+ *       CustomImages: [ // CustomImages
+ *         { // CustomImage
+ *           ImageName: "STRING_VALUE", // required
+ *           ImageVersionNumber: Number("int"),
+ *           AppImageConfigName: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       LifecycleConfigArns: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     TensorBoardAppSettings: { // TensorBoardAppSettings
+ *       DefaultResourceSpec: {
+ *         SageMakerImageArn: "STRING_VALUE",
+ *         SageMakerImageVersionArn: "STRING_VALUE",
+ *         InstanceType: "system" || "ml.t3.micro" || "ml.t3.small" || "ml.t3.medium" || "ml.t3.large" || "ml.t3.xlarge" || "ml.t3.2xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.8xlarge" || "ml.m5.12xlarge" || "ml.m5.16xlarge" || "ml.m5.24xlarge" || "ml.m5d.large" || "ml.m5d.xlarge" || "ml.m5d.2xlarge" || "ml.m5d.4xlarge" || "ml.m5d.8xlarge" || "ml.m5d.12xlarge" || "ml.m5d.16xlarge" || "ml.m5d.24xlarge" || "ml.c5.large" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.12xlarge" || "ml.c5.18xlarge" || "ml.c5.24xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.r5.large" || "ml.r5.xlarge" || "ml.r5.2xlarge" || "ml.r5.4xlarge" || "ml.r5.8xlarge" || "ml.r5.12xlarge" || "ml.r5.16xlarge" || "ml.r5.24xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.geospatial.interactive",
+ *         LifecycleConfigArn: "STRING_VALUE",
+ *       },
+ *     },
+ *     RStudioServerProAppSettings: { // RStudioServerProAppSettings
+ *       AccessStatus: "ENABLED" || "DISABLED",
+ *       UserGroup: "R_STUDIO_ADMIN" || "R_STUDIO_USER",
+ *     },
+ *     RSessionAppSettings: { // RSessionAppSettings
+ *       DefaultResourceSpec: {
+ *         SageMakerImageArn: "STRING_VALUE",
+ *         SageMakerImageVersionArn: "STRING_VALUE",
+ *         InstanceType: "system" || "ml.t3.micro" || "ml.t3.small" || "ml.t3.medium" || "ml.t3.large" || "ml.t3.xlarge" || "ml.t3.2xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.8xlarge" || "ml.m5.12xlarge" || "ml.m5.16xlarge" || "ml.m5.24xlarge" || "ml.m5d.large" || "ml.m5d.xlarge" || "ml.m5d.2xlarge" || "ml.m5d.4xlarge" || "ml.m5d.8xlarge" || "ml.m5d.12xlarge" || "ml.m5d.16xlarge" || "ml.m5d.24xlarge" || "ml.c5.large" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.12xlarge" || "ml.c5.18xlarge" || "ml.c5.24xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.r5.large" || "ml.r5.xlarge" || "ml.r5.2xlarge" || "ml.r5.4xlarge" || "ml.r5.8xlarge" || "ml.r5.12xlarge" || "ml.r5.16xlarge" || "ml.r5.24xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.geospatial.interactive",
+ *         LifecycleConfigArn: "STRING_VALUE",
+ *       },
+ *       CustomImages: [
+ *         {
+ *           ImageName: "STRING_VALUE", // required
+ *           ImageVersionNumber: Number("int"),
+ *           AppImageConfigName: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *     CanvasAppSettings: { // CanvasAppSettings
+ *       TimeSeriesForecastingSettings: { // TimeSeriesForecastingSettings
+ *         Status: "ENABLED" || "DISABLED",
+ *         AmazonForecastRoleArn: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new UpdateUserProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateUserProfileCommandInput - {@link UpdateUserProfileCommandInput}
+ * @returns {@link UpdateUserProfileCommandOutput}
  * @see {@link UpdateUserProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateUserProfileCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceInUse} (client fault)
+ *  <p>Resource being accessed is in use.</p>
+ *
+ * @throws {@link ResourceLimitExceeded} (client fault)
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
+ *             training jobs created. </p>
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class UpdateUserProfileCommand extends $Command<
@@ -62,6 +160,9 @@ export class UpdateUserProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateUserProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +191,8 @@ export class UpdateUserProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateUserProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateUserProfileResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +202,18 @@ export class UpdateUserProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateUserProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateUserProfileCommand(input, context);
+    return se_UpdateUserProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateUserProfileCommandOutput> {
-    return deserializeAws_json1_1UpdateUserProfileCommand(output, context);
+    return de_UpdateUserProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

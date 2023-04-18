@@ -13,14 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PingResponse, PingResponseFilterSensitiveLog } from "../models/models_0";
+import { PingResponse } from "../models/models_0";
 import { PrivateNetworksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PrivateNetworksClient";
-import { deserializeAws_restJson1PingCommand, serializeAws_restJson1PingCommand } from "../protocols/Aws_restJson1";
+import { de_PingCommand, se_PingCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link PingCommand}.
+ */
 export interface PingCommandInput {}
+/**
+ * @public
+ *
+ * The output of {@link PingCommand}.
+ */
 export interface PingCommandOutput extends PingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Checks the health of the service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -28,13 +39,20 @@ export interface PingCommandOutput extends PingResponse, __MetadataBearer {}
  * import { PrivateNetworksClient, PingCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
  * // const { PrivateNetworksClient, PingCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
  * const client = new PrivateNetworksClient(config);
+ * const input = {};
  * const command = new PingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PingCommandInput - {@link PingCommandInput}
+ * @returns {@link PingCommandOutput}
  * @see {@link PingCommandInput} for command's `input` shape.
  * @see {@link PingCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Information about an internal error.</p>
+ *
  *
  */
 export class PingCommand extends $Command<PingCommandInput, PingCommandOutput, PrivateNetworksClientResolvedConfig> {
@@ -50,6 +68,9 @@ export class PingCommand extends $Command<PingCommandInput, PingCommandOutput, P
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PingCommandInput) {
     // Start section: command_constructor
     super();
@@ -76,8 +97,8 @@ export class PingCommand extends $Command<PingCommandInput, PingCommandOutput, P
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: PingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,12 +108,18 @@ export class PingCommand extends $Command<PingCommandInput, PingCommandOutput, P
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PingCommand(input, context);
+    return se_PingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PingCommandOutput> {
-    return deserializeAws_restJson1PingCommand(output, context);
+    return de_PingCommand(output, context);
   }
 
   // Start section: command_body_extra

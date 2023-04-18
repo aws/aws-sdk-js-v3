@@ -5,14 +5,15 @@ import {
   isValidHostname as __isValidHostname,
 } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectInt32 as __expectInt32,
-  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -77,31 +78,21 @@ import {
 import { UpdateServiceCommandInput, UpdateServiceCommandOutput } from "../commands/UpdateServiceCommand";
 import {
   CreateHttpNamespaceRequest,
-  CreateHttpNamespaceResponse,
   CreatePrivateDnsNamespaceRequest,
-  CreatePrivateDnsNamespaceResponse,
   CreatePublicDnsNamespaceRequest,
-  CreatePublicDnsNamespaceResponse,
   CreateServiceRequest,
   CreateServiceResponse,
   CustomHealthNotFound,
   DeleteNamespaceRequest,
-  DeleteNamespaceResponse,
   DeleteServiceRequest,
-  DeleteServiceResponse,
   DeregisterInstanceRequest,
-  DeregisterInstanceResponse,
   DiscoverInstancesRequest,
-  DiscoverInstancesResponse,
   DnsConfig,
   DnsConfigChange,
-  DnsProperties,
   DnsRecord,
   DuplicateRequest,
   GetInstanceRequest,
-  GetInstanceResponse,
   GetInstancesHealthStatusRequest,
-  GetInstancesHealthStatusResponse,
   GetNamespaceRequest,
   GetNamespaceResponse,
   GetOperationRequest,
@@ -110,35 +101,24 @@ import {
   GetServiceResponse,
   HealthCheckConfig,
   HealthCheckCustomConfig,
-  HealthStatus,
-  HttpInstanceSummary,
   HttpNamespaceChange,
-  HttpProperties,
-  Instance,
   InstanceNotFound,
-  InstanceSummary,
   InvalidInput,
   ListInstancesRequest,
-  ListInstancesResponse,
   ListNamespacesRequest,
   ListNamespacesResponse,
   ListOperationsRequest,
-  ListOperationsResponse,
   ListServicesRequest,
   ListServicesResponse,
   ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
   Namespace,
   NamespaceAlreadyExists,
   NamespaceFilter,
   NamespaceNotFound,
-  NamespaceProperties,
   NamespaceSummary,
   Operation,
   OperationFilter,
   OperationNotFound,
-  OperationSummary,
-  OperationTargetType,
   PrivateDnsNamespaceChange,
   PrivateDnsNamespaceProperties,
   PrivateDnsNamespacePropertiesChange,
@@ -150,7 +130,6 @@ import {
   PublicDnsPropertiesMutable,
   PublicDnsPropertiesMutableChange,
   RegisterInstanceRequest,
-  RegisterInstanceResponse,
   RequestLimitExceeded,
   ResourceInUse,
   ResourceLimitExceeded,
@@ -165,123 +144,117 @@ import {
   SOAChange,
   Tag,
   TagResourceRequest,
-  TagResourceResponse,
   TooManyTagsException,
   UntagResourceRequest,
-  UntagResourceResponse,
   UpdateHttpNamespaceRequest,
-  UpdateHttpNamespaceResponse,
   UpdateInstanceCustomHealthStatusRequest,
   UpdatePrivateDnsNamespaceRequest,
-  UpdatePrivateDnsNamespaceResponse,
   UpdatePublicDnsNamespaceRequest,
-  UpdatePublicDnsNamespaceResponse,
   UpdateServiceRequest,
-  UpdateServiceResponse,
 } from "../models/models_0";
 import { ServiceDiscoveryServiceException as __BaseException } from "../models/ServiceDiscoveryServiceException";
 
-export const serializeAws_json1_1CreateHttpNamespaceCommand = async (
+/**
+ * serializeAws_json1_1CreateHttpNamespaceCommand
+ */
+export const se_CreateHttpNamespaceCommand = async (
   input: CreateHttpNamespaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.CreateHttpNamespace",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateHttpNamespace");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateHttpNamespaceRequest(input, context));
+  body = JSON.stringify(se_CreateHttpNamespaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreatePrivateDnsNamespaceCommand = async (
+/**
+ * serializeAws_json1_1CreatePrivateDnsNamespaceCommand
+ */
+export const se_CreatePrivateDnsNamespaceCommand = async (
   input: CreatePrivateDnsNamespaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.CreatePrivateDnsNamespace",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreatePrivateDnsNamespace");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreatePrivateDnsNamespaceRequest(input, context));
+  body = JSON.stringify(se_CreatePrivateDnsNamespaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreatePublicDnsNamespaceCommand = async (
+/**
+ * serializeAws_json1_1CreatePublicDnsNamespaceCommand
+ */
+export const se_CreatePublicDnsNamespaceCommand = async (
   input: CreatePublicDnsNamespaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.CreatePublicDnsNamespace",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreatePublicDnsNamespace");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreatePublicDnsNamespaceRequest(input, context));
+  body = JSON.stringify(se_CreatePublicDnsNamespaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateServiceCommand = async (
+/**
+ * serializeAws_json1_1CreateServiceCommand
+ */
+export const se_CreateServiceCommand = async (
   input: CreateServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.CreateService",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateService");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateServiceRequest(input, context));
+  body = JSON.stringify(se_CreateServiceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteNamespaceCommand = async (
+/**
+ * serializeAws_json1_1DeleteNamespaceCommand
+ */
+export const se_DeleteNamespaceCommand = async (
   input: DeleteNamespaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.DeleteNamespace",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteNamespace");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteNamespaceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteServiceCommand = async (
+/**
+ * serializeAws_json1_1DeleteServiceCommand
+ */
+export const se_DeleteServiceCommand = async (
   input: DeleteServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.DeleteService",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteService");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteServiceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeregisterInstanceCommand = async (
+/**
+ * serializeAws_json1_1DeregisterInstanceCommand
+ */
+export const se_DeregisterInstanceCommand = async (
   input: DeregisterInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.DeregisterInstance",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeregisterInstance");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeregisterInstanceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DiscoverInstancesCommand = async (
+/**
+ * serializeAws_json1_1DiscoverInstancesCommand
+ */
+export const se_DiscoverInstancesCommand = async (
   input: DiscoverInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.DiscoverInstances",
-  };
+  const headers: __HeaderBag = sharedHeaders("DiscoverInstances");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DiscoverInstancesRequest(input, context));
+  body = JSON.stringify(_json(input));
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "data-" + resolvedHostname;
@@ -292,258 +265,264 @@ export const serializeAws_json1_1DiscoverInstancesCommand = async (
   return buildHttpRpcRequest(context, headers, "/", resolvedHostname, body);
 };
 
-export const serializeAws_json1_1GetInstanceCommand = async (
+/**
+ * serializeAws_json1_1GetInstanceCommand
+ */
+export const se_GetInstanceCommand = async (
   input: GetInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.GetInstance",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetInstance");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetInstanceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetInstancesHealthStatusCommand = async (
+/**
+ * serializeAws_json1_1GetInstancesHealthStatusCommand
+ */
+export const se_GetInstancesHealthStatusCommand = async (
   input: GetInstancesHealthStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.GetInstancesHealthStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetInstancesHealthStatus");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetInstancesHealthStatusRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetNamespaceCommand = async (
+/**
+ * serializeAws_json1_1GetNamespaceCommand
+ */
+export const se_GetNamespaceCommand = async (
   input: GetNamespaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.GetNamespace",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetNamespace");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetNamespaceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetOperationCommand = async (
+/**
+ * serializeAws_json1_1GetOperationCommand
+ */
+export const se_GetOperationCommand = async (
   input: GetOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.GetOperation",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetOperation");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetOperationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetServiceCommand = async (
+/**
+ * serializeAws_json1_1GetServiceCommand
+ */
+export const se_GetServiceCommand = async (
   input: GetServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.GetService",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetService");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetServiceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListInstancesCommand = async (
+/**
+ * serializeAws_json1_1ListInstancesCommand
+ */
+export const se_ListInstancesCommand = async (
   input: ListInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.ListInstances",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListInstances");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListInstancesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListNamespacesCommand = async (
+/**
+ * serializeAws_json1_1ListNamespacesCommand
+ */
+export const se_ListNamespacesCommand = async (
   input: ListNamespacesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.ListNamespaces",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListNamespaces");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListNamespacesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListOperationsCommand = async (
+/**
+ * serializeAws_json1_1ListOperationsCommand
+ */
+export const se_ListOperationsCommand = async (
   input: ListOperationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.ListOperations",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListOperations");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListOperationsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListServicesCommand = async (
+/**
+ * serializeAws_json1_1ListServicesCommand
+ */
+export const se_ListServicesCommand = async (
   input: ListServicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.ListServices",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListServices");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListServicesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_json1_1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1RegisterInstanceCommand = async (
+/**
+ * serializeAws_json1_1RegisterInstanceCommand
+ */
+export const se_RegisterInstanceCommand = async (
   input: RegisterInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.RegisterInstance",
-  };
+  const headers: __HeaderBag = sharedHeaders("RegisterInstance");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1RegisterInstanceRequest(input, context));
+  body = JSON.stringify(se_RegisterInstanceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1TagResourceCommand = async (
+/**
+ * serializeAws_json1_1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UntagResourceCommand = async (
+/**
+ * serializeAws_json1_1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateHttpNamespaceCommand = async (
+/**
+ * serializeAws_json1_1UpdateHttpNamespaceCommand
+ */
+export const se_UpdateHttpNamespaceCommand = async (
   input: UpdateHttpNamespaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.UpdateHttpNamespace",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateHttpNamespace");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateHttpNamespaceRequest(input, context));
+  body = JSON.stringify(se_UpdateHttpNamespaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateInstanceCustomHealthStatusCommand = async (
+/**
+ * serializeAws_json1_1UpdateInstanceCustomHealthStatusCommand
+ */
+export const se_UpdateInstanceCustomHealthStatusCommand = async (
   input: UpdateInstanceCustomHealthStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.UpdateInstanceCustomHealthStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateInstanceCustomHealthStatus");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateInstanceCustomHealthStatusRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdatePrivateDnsNamespaceCommand = async (
+/**
+ * serializeAws_json1_1UpdatePrivateDnsNamespaceCommand
+ */
+export const se_UpdatePrivateDnsNamespaceCommand = async (
   input: UpdatePrivateDnsNamespaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.UpdatePrivateDnsNamespace",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdatePrivateDnsNamespace");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdatePrivateDnsNamespaceRequest(input, context));
+  body = JSON.stringify(se_UpdatePrivateDnsNamespaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdatePublicDnsNamespaceCommand = async (
+/**
+ * serializeAws_json1_1UpdatePublicDnsNamespaceCommand
+ */
+export const se_UpdatePublicDnsNamespaceCommand = async (
   input: UpdatePublicDnsNamespaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.UpdatePublicDnsNamespace",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdatePublicDnsNamespace");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdatePublicDnsNamespaceRequest(input, context));
+  body = JSON.stringify(se_UpdatePublicDnsNamespaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateServiceCommand = async (
+/**
+ * serializeAws_json1_1UpdateServiceCommand
+ */
+export const se_UpdateServiceCommand = async (
   input: UpdateServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.UpdateService",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateService");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateServiceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_1CreateHttpNamespaceCommand = async (
+/**
+ * deserializeAws_json1_1CreateHttpNamespaceCommand
+ */
+export const de_CreateHttpNamespaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateHttpNamespaceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateHttpNamespaceCommandError(output, context);
+    return de_CreateHttpNamespaceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateHttpNamespaceResponse(data, context);
+  contents = _json(data);
   const response: CreateHttpNamespaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateHttpNamespaceCommandError = async (
+/**
+ * deserializeAws_json1_1CreateHttpNamespaceCommandError
+ */
+const de_CreateHttpNamespaceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateHttpNamespaceCommandOutput> => {
@@ -555,48 +534,53 @@ const deserializeAws_json1_1CreateHttpNamespaceCommandError = async (
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.servicediscovery#DuplicateRequest":
-      throw await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context);
+      throw await de_DuplicateRequestRes(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+      throw await de_InvalidInputRes(parsedOutput, context);
     case "NamespaceAlreadyExists":
     case "com.amazonaws.servicediscovery#NamespaceAlreadyExists":
-      throw await deserializeAws_json1_1NamespaceAlreadyExistsResponse(parsedOutput, context);
+      throw await de_NamespaceAlreadyExistsRes(parsedOutput, context);
     case "ResourceLimitExceeded":
     case "com.amazonaws.servicediscovery#ResourceLimitExceeded":
-      throw await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededRes(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.servicediscovery#TooManyTagsException":
-      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1CreatePrivateDnsNamespaceCommand = async (
+/**
+ * deserializeAws_json1_1CreatePrivateDnsNamespaceCommand
+ */
+export const de_CreatePrivateDnsNamespaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePrivateDnsNamespaceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreatePrivateDnsNamespaceCommandError(output, context);
+    return de_CreatePrivateDnsNamespaceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreatePrivateDnsNamespaceResponse(data, context);
+  contents = _json(data);
   const response: CreatePrivateDnsNamespaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreatePrivateDnsNamespaceCommandError = async (
+/**
+ * deserializeAws_json1_1CreatePrivateDnsNamespaceCommandError
+ */
+const de_CreatePrivateDnsNamespaceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePrivateDnsNamespaceCommandOutput> => {
@@ -608,48 +592,53 @@ const deserializeAws_json1_1CreatePrivateDnsNamespaceCommandError = async (
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.servicediscovery#DuplicateRequest":
-      throw await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context);
+      throw await de_DuplicateRequestRes(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+      throw await de_InvalidInputRes(parsedOutput, context);
     case "NamespaceAlreadyExists":
     case "com.amazonaws.servicediscovery#NamespaceAlreadyExists":
-      throw await deserializeAws_json1_1NamespaceAlreadyExistsResponse(parsedOutput, context);
+      throw await de_NamespaceAlreadyExistsRes(parsedOutput, context);
     case "ResourceLimitExceeded":
     case "com.amazonaws.servicediscovery#ResourceLimitExceeded":
-      throw await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededRes(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.servicediscovery#TooManyTagsException":
-      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1CreatePublicDnsNamespaceCommand = async (
+/**
+ * deserializeAws_json1_1CreatePublicDnsNamespaceCommand
+ */
+export const de_CreatePublicDnsNamespaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePublicDnsNamespaceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreatePublicDnsNamespaceCommandError(output, context);
+    return de_CreatePublicDnsNamespaceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreatePublicDnsNamespaceResponse(data, context);
+  contents = _json(data);
   const response: CreatePublicDnsNamespaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreatePublicDnsNamespaceCommandError = async (
+/**
+ * deserializeAws_json1_1CreatePublicDnsNamespaceCommandError
+ */
+const de_CreatePublicDnsNamespaceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePublicDnsNamespaceCommandOutput> => {
@@ -661,48 +650,53 @@ const deserializeAws_json1_1CreatePublicDnsNamespaceCommandError = async (
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.servicediscovery#DuplicateRequest":
-      throw await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context);
+      throw await de_DuplicateRequestRes(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+      throw await de_InvalidInputRes(parsedOutput, context);
     case "NamespaceAlreadyExists":
     case "com.amazonaws.servicediscovery#NamespaceAlreadyExists":
-      throw await deserializeAws_json1_1NamespaceAlreadyExistsResponse(parsedOutput, context);
+      throw await de_NamespaceAlreadyExistsRes(parsedOutput, context);
     case "ResourceLimitExceeded":
     case "com.amazonaws.servicediscovery#ResourceLimitExceeded":
-      throw await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededRes(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.servicediscovery#TooManyTagsException":
-      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1CreateServiceCommand = async (
+/**
+ * deserializeAws_json1_1CreateServiceCommand
+ */
+export const de_CreateServiceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateServiceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateServiceCommandError(output, context);
+    return de_CreateServiceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateServiceResponse(data, context);
+  contents = de_CreateServiceResponse(data, context);
   const response: CreateServiceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateServiceCommandError = async (
+/**
+ * deserializeAws_json1_1CreateServiceCommandError
+ */
+const de_CreateServiceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateServiceCommandOutput> => {
@@ -714,48 +708,53 @@ const deserializeAws_json1_1CreateServiceCommandError = async (
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+      throw await de_InvalidInputRes(parsedOutput, context);
     case "NamespaceNotFound":
     case "com.amazonaws.servicediscovery#NamespaceNotFound":
-      throw await deserializeAws_json1_1NamespaceNotFoundResponse(parsedOutput, context);
+      throw await de_NamespaceNotFoundRes(parsedOutput, context);
     case "ResourceLimitExceeded":
     case "com.amazonaws.servicediscovery#ResourceLimitExceeded":
-      throw await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededRes(parsedOutput, context);
     case "ServiceAlreadyExists":
     case "com.amazonaws.servicediscovery#ServiceAlreadyExists":
-      throw await deserializeAws_json1_1ServiceAlreadyExistsResponse(parsedOutput, context);
+      throw await de_ServiceAlreadyExistsRes(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.servicediscovery#TooManyTagsException":
-      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteNamespaceCommand = async (
+/**
+ * deserializeAws_json1_1DeleteNamespaceCommand
+ */
+export const de_DeleteNamespaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteNamespaceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteNamespaceCommandError(output, context);
+    return de_DeleteNamespaceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteNamespaceResponse(data, context);
+  contents = _json(data);
   const response: DeleteNamespaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteNamespaceCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteNamespaceCommandError
+ */
+const de_DeleteNamespaceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteNamespaceCommandOutput> => {
@@ -767,45 +766,50 @@ const deserializeAws_json1_1DeleteNamespaceCommandError = async (
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.servicediscovery#DuplicateRequest":
-      throw await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context);
+      throw await de_DuplicateRequestRes(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+      throw await de_InvalidInputRes(parsedOutput, context);
     case "NamespaceNotFound":
     case "com.amazonaws.servicediscovery#NamespaceNotFound":
-      throw await deserializeAws_json1_1NamespaceNotFoundResponse(parsedOutput, context);
+      throw await de_NamespaceNotFoundRes(parsedOutput, context);
     case "ResourceInUse":
     case "com.amazonaws.servicediscovery#ResourceInUse":
-      throw await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
+      throw await de_ResourceInUseRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteServiceCommand = async (
+/**
+ * deserializeAws_json1_1DeleteServiceCommand
+ */
+export const de_DeleteServiceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteServiceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteServiceCommandError(output, context);
+    return de_DeleteServiceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteServiceResponse(data, context);
+  contents = _json(data);
   const response: DeleteServiceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteServiceCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteServiceCommandError
+ */
+const de_DeleteServiceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteServiceCommandOutput> => {
@@ -817,42 +821,47 @@ const deserializeAws_json1_1DeleteServiceCommandError = async (
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+      throw await de_InvalidInputRes(parsedOutput, context);
     case "ResourceInUse":
     case "com.amazonaws.servicediscovery#ResourceInUse":
-      throw await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
+      throw await de_ResourceInUseRes(parsedOutput, context);
     case "ServiceNotFound":
     case "com.amazonaws.servicediscovery#ServiceNotFound":
-      throw await deserializeAws_json1_1ServiceNotFoundResponse(parsedOutput, context);
+      throw await de_ServiceNotFoundRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeregisterInstanceCommand = async (
+/**
+ * deserializeAws_json1_1DeregisterInstanceCommand
+ */
+export const de_DeregisterInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeregisterInstanceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeregisterInstanceCommandError(output, context);
+    return de_DeregisterInstanceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeregisterInstanceResponse(data, context);
+  contents = _json(data);
   const response: DeregisterInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeregisterInstanceCommandError = async (
+/**
+ * deserializeAws_json1_1DeregisterInstanceCommandError
+ */
+const de_DeregisterInstanceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeregisterInstanceCommandOutput> => {
@@ -864,48 +873,53 @@ const deserializeAws_json1_1DeregisterInstanceCommandError = async (
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.servicediscovery#DuplicateRequest":
-      throw await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context);
+      throw await de_DuplicateRequestRes(parsedOutput, context);
     case "InstanceNotFound":
     case "com.amazonaws.servicediscovery#InstanceNotFound":
-      throw await deserializeAws_json1_1InstanceNotFoundResponse(parsedOutput, context);
+      throw await de_InstanceNotFoundRes(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+      throw await de_InvalidInputRes(parsedOutput, context);
     case "ResourceInUse":
     case "com.amazonaws.servicediscovery#ResourceInUse":
-      throw await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
+      throw await de_ResourceInUseRes(parsedOutput, context);
     case "ServiceNotFound":
     case "com.amazonaws.servicediscovery#ServiceNotFound":
-      throw await deserializeAws_json1_1ServiceNotFoundResponse(parsedOutput, context);
+      throw await de_ServiceNotFoundRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DiscoverInstancesCommand = async (
+/**
+ * deserializeAws_json1_1DiscoverInstancesCommand
+ */
+export const de_DiscoverInstancesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DiscoverInstancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DiscoverInstancesCommandError(output, context);
+    return de_DiscoverInstancesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DiscoverInstancesResponse(data, context);
+  contents = _json(data);
   const response: DiscoverInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DiscoverInstancesCommandError = async (
+/**
+ * deserializeAws_json1_1DiscoverInstancesCommandError
+ */
+const de_DiscoverInstancesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DiscoverInstancesCommandOutput> => {
@@ -917,45 +931,50 @@ const deserializeAws_json1_1DiscoverInstancesCommandError = async (
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+      throw await de_InvalidInputRes(parsedOutput, context);
     case "NamespaceNotFound":
     case "com.amazonaws.servicediscovery#NamespaceNotFound":
-      throw await deserializeAws_json1_1NamespaceNotFoundResponse(parsedOutput, context);
+      throw await de_NamespaceNotFoundRes(parsedOutput, context);
     case "RequestLimitExceeded":
     case "com.amazonaws.servicediscovery#RequestLimitExceeded":
-      throw await deserializeAws_json1_1RequestLimitExceededResponse(parsedOutput, context);
+      throw await de_RequestLimitExceededRes(parsedOutput, context);
     case "ServiceNotFound":
     case "com.amazonaws.servicediscovery#ServiceNotFound":
-      throw await deserializeAws_json1_1ServiceNotFoundResponse(parsedOutput, context);
+      throw await de_ServiceNotFoundRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1GetInstanceCommand = async (
+/**
+ * deserializeAws_json1_1GetInstanceCommand
+ */
+export const de_GetInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetInstanceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetInstanceCommandError(output, context);
+    return de_GetInstanceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetInstanceResponse(data, context);
+  contents = _json(data);
   const response: GetInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetInstanceCommandError = async (
+/**
+ * deserializeAws_json1_1GetInstanceCommandError
+ */
+const de_GetInstanceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetInstanceCommandOutput> => {
@@ -967,42 +986,47 @@ const deserializeAws_json1_1GetInstanceCommandError = async (
   switch (errorCode) {
     case "InstanceNotFound":
     case "com.amazonaws.servicediscovery#InstanceNotFound":
-      throw await deserializeAws_json1_1InstanceNotFoundResponse(parsedOutput, context);
+      throw await de_InstanceNotFoundRes(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+      throw await de_InvalidInputRes(parsedOutput, context);
     case "ServiceNotFound":
     case "com.amazonaws.servicediscovery#ServiceNotFound":
-      throw await deserializeAws_json1_1ServiceNotFoundResponse(parsedOutput, context);
+      throw await de_ServiceNotFoundRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1GetInstancesHealthStatusCommand = async (
+/**
+ * deserializeAws_json1_1GetInstancesHealthStatusCommand
+ */
+export const de_GetInstancesHealthStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetInstancesHealthStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetInstancesHealthStatusCommandError(output, context);
+    return de_GetInstancesHealthStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetInstancesHealthStatusResponse(data, context);
+  contents = _json(data);
   const response: GetInstancesHealthStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetInstancesHealthStatusCommandError = async (
+/**
+ * deserializeAws_json1_1GetInstancesHealthStatusCommandError
+ */
+const de_GetInstancesHealthStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetInstancesHealthStatusCommandOutput> => {
@@ -1014,42 +1038,47 @@ const deserializeAws_json1_1GetInstancesHealthStatusCommandError = async (
   switch (errorCode) {
     case "InstanceNotFound":
     case "com.amazonaws.servicediscovery#InstanceNotFound":
-      throw await deserializeAws_json1_1InstanceNotFoundResponse(parsedOutput, context);
+      throw await de_InstanceNotFoundRes(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+      throw await de_InvalidInputRes(parsedOutput, context);
     case "ServiceNotFound":
     case "com.amazonaws.servicediscovery#ServiceNotFound":
-      throw await deserializeAws_json1_1ServiceNotFoundResponse(parsedOutput, context);
+      throw await de_ServiceNotFoundRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1GetNamespaceCommand = async (
+/**
+ * deserializeAws_json1_1GetNamespaceCommand
+ */
+export const de_GetNamespaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetNamespaceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetNamespaceCommandError(output, context);
+    return de_GetNamespaceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetNamespaceResponse(data, context);
+  contents = de_GetNamespaceResponse(data, context);
   const response: GetNamespaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetNamespaceCommandError = async (
+/**
+ * deserializeAws_json1_1GetNamespaceCommandError
+ */
+const de_GetNamespaceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetNamespaceCommandOutput> => {
@@ -1061,39 +1090,44 @@ const deserializeAws_json1_1GetNamespaceCommandError = async (
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+      throw await de_InvalidInputRes(parsedOutput, context);
     case "NamespaceNotFound":
     case "com.amazonaws.servicediscovery#NamespaceNotFound":
-      throw await deserializeAws_json1_1NamespaceNotFoundResponse(parsedOutput, context);
+      throw await de_NamespaceNotFoundRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1GetOperationCommand = async (
+/**
+ * deserializeAws_json1_1GetOperationCommand
+ */
+export const de_GetOperationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetOperationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetOperationCommandError(output, context);
+    return de_GetOperationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetOperationResponse(data, context);
+  contents = de_GetOperationResponse(data, context);
   const response: GetOperationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetOperationCommandError = async (
+/**
+ * deserializeAws_json1_1GetOperationCommandError
+ */
+const de_GetOperationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetOperationCommandOutput> => {
@@ -1105,39 +1139,44 @@ const deserializeAws_json1_1GetOperationCommandError = async (
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+      throw await de_InvalidInputRes(parsedOutput, context);
     case "OperationNotFound":
     case "com.amazonaws.servicediscovery#OperationNotFound":
-      throw await deserializeAws_json1_1OperationNotFoundResponse(parsedOutput, context);
+      throw await de_OperationNotFoundRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1GetServiceCommand = async (
+/**
+ * deserializeAws_json1_1GetServiceCommand
+ */
+export const de_GetServiceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetServiceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetServiceCommandError(output, context);
+    return de_GetServiceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetServiceResponse(data, context);
+  contents = de_GetServiceResponse(data, context);
   const response: GetServiceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetServiceCommandError = async (
+/**
+ * deserializeAws_json1_1GetServiceCommandError
+ */
+const de_GetServiceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetServiceCommandOutput> => {
@@ -1149,39 +1188,44 @@ const deserializeAws_json1_1GetServiceCommandError = async (
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+      throw await de_InvalidInputRes(parsedOutput, context);
     case "ServiceNotFound":
     case "com.amazonaws.servicediscovery#ServiceNotFound":
-      throw await deserializeAws_json1_1ServiceNotFoundResponse(parsedOutput, context);
+      throw await de_ServiceNotFoundRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListInstancesCommand = async (
+/**
+ * deserializeAws_json1_1ListInstancesCommand
+ */
+export const de_ListInstancesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListInstancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListInstancesCommandError(output, context);
+    return de_ListInstancesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListInstancesResponse(data, context);
+  contents = _json(data);
   const response: ListInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListInstancesCommandError = async (
+/**
+ * deserializeAws_json1_1ListInstancesCommandError
+ */
+const de_ListInstancesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListInstancesCommandOutput> => {
@@ -1193,39 +1237,44 @@ const deserializeAws_json1_1ListInstancesCommandError = async (
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+      throw await de_InvalidInputRes(parsedOutput, context);
     case "ServiceNotFound":
     case "com.amazonaws.servicediscovery#ServiceNotFound":
-      throw await deserializeAws_json1_1ServiceNotFoundResponse(parsedOutput, context);
+      throw await de_ServiceNotFoundRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListNamespacesCommand = async (
+/**
+ * deserializeAws_json1_1ListNamespacesCommand
+ */
+export const de_ListNamespacesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListNamespacesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListNamespacesCommandError(output, context);
+    return de_ListNamespacesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListNamespacesResponse(data, context);
+  contents = de_ListNamespacesResponse(data, context);
   const response: ListNamespacesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListNamespacesCommandError = async (
+/**
+ * deserializeAws_json1_1ListNamespacesCommandError
+ */
+const de_ListNamespacesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListNamespacesCommandOutput> => {
@@ -1237,36 +1286,41 @@ const deserializeAws_json1_1ListNamespacesCommandError = async (
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+      throw await de_InvalidInputRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListOperationsCommand = async (
+/**
+ * deserializeAws_json1_1ListOperationsCommand
+ */
+export const de_ListOperationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListOperationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListOperationsCommandError(output, context);
+    return de_ListOperationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListOperationsResponse(data, context);
+  contents = _json(data);
   const response: ListOperationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListOperationsCommandError = async (
+/**
+ * deserializeAws_json1_1ListOperationsCommandError
+ */
+const de_ListOperationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListOperationsCommandOutput> => {
@@ -1278,36 +1332,41 @@ const deserializeAws_json1_1ListOperationsCommandError = async (
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+      throw await de_InvalidInputRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListServicesCommand = async (
+/**
+ * deserializeAws_json1_1ListServicesCommand
+ */
+export const de_ListServicesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListServicesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListServicesCommandError(output, context);
+    return de_ListServicesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListServicesResponse(data, context);
+  contents = de_ListServicesResponse(data, context);
   const response: ListServicesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListServicesCommandError = async (
+/**
+ * deserializeAws_json1_1ListServicesCommandError
+ */
+const de_ListServicesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListServicesCommandOutput> => {
@@ -1319,36 +1378,41 @@ const deserializeAws_json1_1ListServicesCommandError = async (
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+      throw await de_InvalidInputRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -1360,39 +1424,44 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+      throw await de_InvalidInputRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicediscovery#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1RegisterInstanceCommand = async (
+/**
+ * deserializeAws_json1_1RegisterInstanceCommand
+ */
+export const de_RegisterInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterInstanceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1RegisterInstanceCommandError(output, context);
+    return de_RegisterInstanceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RegisterInstanceResponse(data, context);
+  contents = _json(data);
   const response: RegisterInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1RegisterInstanceCommandError = async (
+/**
+ * deserializeAws_json1_1RegisterInstanceCommandError
+ */
+const de_RegisterInstanceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterInstanceCommandOutput> => {
@@ -1404,48 +1473,53 @@ const deserializeAws_json1_1RegisterInstanceCommandError = async (
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.servicediscovery#DuplicateRequest":
-      throw await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context);
+      throw await de_DuplicateRequestRes(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+      throw await de_InvalidInputRes(parsedOutput, context);
     case "ResourceInUse":
     case "com.amazonaws.servicediscovery#ResourceInUse":
-      throw await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
+      throw await de_ResourceInUseRes(parsedOutput, context);
     case "ResourceLimitExceeded":
     case "com.amazonaws.servicediscovery#ResourceLimitExceeded":
-      throw await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededRes(parsedOutput, context);
     case "ServiceNotFound":
     case "com.amazonaws.servicediscovery#ServiceNotFound":
-      throw await deserializeAws_json1_1ServiceNotFoundResponse(parsedOutput, context);
+      throw await de_ServiceNotFoundRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1TagResourceCommand = async (
+/**
+ * deserializeAws_json1_1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceResponse(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1TagResourceCommandError = async (
+/**
+ * deserializeAws_json1_1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -1457,42 +1531,47 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+      throw await de_InvalidInputRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicediscovery#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.servicediscovery#TooManyTagsException":
-      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UntagResourceCommand = async (
+/**
+ * deserializeAws_json1_1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UntagResourceCommandError = async (
+/**
+ * deserializeAws_json1_1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -1504,39 +1583,44 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+      throw await de_InvalidInputRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicediscovery#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UpdateHttpNamespaceCommand = async (
+/**
+ * deserializeAws_json1_1UpdateHttpNamespaceCommand
+ */
+export const de_UpdateHttpNamespaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateHttpNamespaceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateHttpNamespaceCommandError(output, context);
+    return de_UpdateHttpNamespaceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateHttpNamespaceResponse(data, context);
+  contents = _json(data);
   const response: UpdateHttpNamespaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdateHttpNamespaceCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateHttpNamespaceCommandError
+ */
+const de_UpdateHttpNamespaceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateHttpNamespaceCommandOutput> => {
@@ -1548,42 +1632,47 @@ const deserializeAws_json1_1UpdateHttpNamespaceCommandError = async (
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.servicediscovery#DuplicateRequest":
-      throw await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context);
+      throw await de_DuplicateRequestRes(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+      throw await de_InvalidInputRes(parsedOutput, context);
     case "NamespaceNotFound":
     case "com.amazonaws.servicediscovery#NamespaceNotFound":
-      throw await deserializeAws_json1_1NamespaceNotFoundResponse(parsedOutput, context);
+      throw await de_NamespaceNotFoundRes(parsedOutput, context);
     case "ResourceInUse":
     case "com.amazonaws.servicediscovery#ResourceInUse":
-      throw await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
+      throw await de_ResourceInUseRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UpdateInstanceCustomHealthStatusCommand = async (
+/**
+ * deserializeAws_json1_1UpdateInstanceCustomHealthStatusCommand
+ */
+export const de_UpdateInstanceCustomHealthStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateInstanceCustomHealthStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateInstanceCustomHealthStatusCommandError(output, context);
+    return de_UpdateInstanceCustomHealthStatusCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateInstanceCustomHealthStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdateInstanceCustomHealthStatusCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateInstanceCustomHealthStatusCommandError
+ */
+const de_UpdateInstanceCustomHealthStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateInstanceCustomHealthStatusCommandOutput> => {
@@ -1595,45 +1684,50 @@ const deserializeAws_json1_1UpdateInstanceCustomHealthStatusCommandError = async
   switch (errorCode) {
     case "CustomHealthNotFound":
     case "com.amazonaws.servicediscovery#CustomHealthNotFound":
-      throw await deserializeAws_json1_1CustomHealthNotFoundResponse(parsedOutput, context);
+      throw await de_CustomHealthNotFoundRes(parsedOutput, context);
     case "InstanceNotFound":
     case "com.amazonaws.servicediscovery#InstanceNotFound":
-      throw await deserializeAws_json1_1InstanceNotFoundResponse(parsedOutput, context);
+      throw await de_InstanceNotFoundRes(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+      throw await de_InvalidInputRes(parsedOutput, context);
     case "ServiceNotFound":
     case "com.amazonaws.servicediscovery#ServiceNotFound":
-      throw await deserializeAws_json1_1ServiceNotFoundResponse(parsedOutput, context);
+      throw await de_ServiceNotFoundRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UpdatePrivateDnsNamespaceCommand = async (
+/**
+ * deserializeAws_json1_1UpdatePrivateDnsNamespaceCommand
+ */
+export const de_UpdatePrivateDnsNamespaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePrivateDnsNamespaceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdatePrivateDnsNamespaceCommandError(output, context);
+    return de_UpdatePrivateDnsNamespaceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdatePrivateDnsNamespaceResponse(data, context);
+  contents = _json(data);
   const response: UpdatePrivateDnsNamespaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdatePrivateDnsNamespaceCommandError = async (
+/**
+ * deserializeAws_json1_1UpdatePrivateDnsNamespaceCommandError
+ */
+const de_UpdatePrivateDnsNamespaceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePrivateDnsNamespaceCommandOutput> => {
@@ -1645,45 +1739,50 @@ const deserializeAws_json1_1UpdatePrivateDnsNamespaceCommandError = async (
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.servicediscovery#DuplicateRequest":
-      throw await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context);
+      throw await de_DuplicateRequestRes(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+      throw await de_InvalidInputRes(parsedOutput, context);
     case "NamespaceNotFound":
     case "com.amazonaws.servicediscovery#NamespaceNotFound":
-      throw await deserializeAws_json1_1NamespaceNotFoundResponse(parsedOutput, context);
+      throw await de_NamespaceNotFoundRes(parsedOutput, context);
     case "ResourceInUse":
     case "com.amazonaws.servicediscovery#ResourceInUse":
-      throw await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
+      throw await de_ResourceInUseRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UpdatePublicDnsNamespaceCommand = async (
+/**
+ * deserializeAws_json1_1UpdatePublicDnsNamespaceCommand
+ */
+export const de_UpdatePublicDnsNamespaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePublicDnsNamespaceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdatePublicDnsNamespaceCommandError(output, context);
+    return de_UpdatePublicDnsNamespaceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdatePublicDnsNamespaceResponse(data, context);
+  contents = _json(data);
   const response: UpdatePublicDnsNamespaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdatePublicDnsNamespaceCommandError = async (
+/**
+ * deserializeAws_json1_1UpdatePublicDnsNamespaceCommandError
+ */
+const de_UpdatePublicDnsNamespaceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePublicDnsNamespaceCommandOutput> => {
@@ -1695,45 +1794,50 @@ const deserializeAws_json1_1UpdatePublicDnsNamespaceCommandError = async (
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.servicediscovery#DuplicateRequest":
-      throw await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context);
+      throw await de_DuplicateRequestRes(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+      throw await de_InvalidInputRes(parsedOutput, context);
     case "NamespaceNotFound":
     case "com.amazonaws.servicediscovery#NamespaceNotFound":
-      throw await deserializeAws_json1_1NamespaceNotFoundResponse(parsedOutput, context);
+      throw await de_NamespaceNotFoundRes(parsedOutput, context);
     case "ResourceInUse":
     case "com.amazonaws.servicediscovery#ResourceInUse":
-      throw await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
+      throw await de_ResourceInUseRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UpdateServiceCommand = async (
+/**
+ * deserializeAws_json1_1UpdateServiceCommand
+ */
+export const de_UpdateServiceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateServiceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateServiceCommandError(output, context);
+    return de_UpdateServiceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateServiceResponse(data, context);
+  contents = _json(data);
   const response: UpdateServiceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdateServiceCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateServiceCommandError
+ */
+const de_UpdateServiceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateServiceCommandOutput> => {
@@ -1745,30 +1849,32 @@ const deserializeAws_json1_1UpdateServiceCommandError = async (
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.servicediscovery#DuplicateRequest":
-      throw await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context);
+      throw await de_DuplicateRequestRes(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+      throw await de_InvalidInputRes(parsedOutput, context);
     case "ServiceNotFound":
     case "com.amazonaws.servicediscovery#ServiceNotFound":
-      throw await deserializeAws_json1_1ServiceNotFoundResponse(parsedOutput, context);
+      throw await de_ServiceNotFoundRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const deserializeAws_json1_1CustomHealthNotFoundResponse = async (
+/**
+ * deserializeAws_json1_1CustomHealthNotFoundRes
+ */
+const de_CustomHealthNotFoundRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CustomHealthNotFound> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1CustomHealthNotFound(body, context);
+  const deserialized: any = _json(body);
   const exception = new CustomHealthNotFound({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1776,12 +1882,12 @@ const deserializeAws_json1_1CustomHealthNotFoundResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1DuplicateRequestResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<DuplicateRequest> => {
+/**
+ * deserializeAws_json1_1DuplicateRequestRes
+ */
+const de_DuplicateRequestRes = async (parsedOutput: any, context: __SerdeContext): Promise<DuplicateRequest> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DuplicateRequest(body, context);
+  const deserialized: any = _json(body);
   const exception = new DuplicateRequest({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1789,12 +1895,12 @@ const deserializeAws_json1_1DuplicateRequestResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InstanceNotFoundResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InstanceNotFound> => {
+/**
+ * deserializeAws_json1_1InstanceNotFoundRes
+ */
+const de_InstanceNotFoundRes = async (parsedOutput: any, context: __SerdeContext): Promise<InstanceNotFound> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InstanceNotFound(body, context);
+  const deserialized: any = _json(body);
   const exception = new InstanceNotFound({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1802,12 +1908,12 @@ const deserializeAws_json1_1InstanceNotFoundResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidInputResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InvalidInput> => {
+/**
+ * deserializeAws_json1_1InvalidInputRes
+ */
+const de_InvalidInputRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidInput> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidInput(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidInput({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1815,12 +1921,15 @@ const deserializeAws_json1_1InvalidInputResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1NamespaceAlreadyExistsResponse = async (
+/**
+ * deserializeAws_json1_1NamespaceAlreadyExistsRes
+ */
+const de_NamespaceAlreadyExistsRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NamespaceAlreadyExists> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1NamespaceAlreadyExists(body, context);
+  const deserialized: any = _json(body);
   const exception = new NamespaceAlreadyExists({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1828,12 +1937,12 @@ const deserializeAws_json1_1NamespaceAlreadyExistsResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1NamespaceNotFoundResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<NamespaceNotFound> => {
+/**
+ * deserializeAws_json1_1NamespaceNotFoundRes
+ */
+const de_NamespaceNotFoundRes = async (parsedOutput: any, context: __SerdeContext): Promise<NamespaceNotFound> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1NamespaceNotFound(body, context);
+  const deserialized: any = _json(body);
   const exception = new NamespaceNotFound({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1841,12 +1950,12 @@ const deserializeAws_json1_1NamespaceNotFoundResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1OperationNotFoundResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<OperationNotFound> => {
+/**
+ * deserializeAws_json1_1OperationNotFoundRes
+ */
+const de_OperationNotFoundRes = async (parsedOutput: any, context: __SerdeContext): Promise<OperationNotFound> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1OperationNotFound(body, context);
+  const deserialized: any = _json(body);
   const exception = new OperationNotFound({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1854,12 +1963,15 @@ const deserializeAws_json1_1OperationNotFoundResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1RequestLimitExceededResponse = async (
+/**
+ * deserializeAws_json1_1RequestLimitExceededRes
+ */
+const de_RequestLimitExceededRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<RequestLimitExceeded> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1RequestLimitExceeded(body, context);
+  const deserialized: any = _json(body);
   const exception = new RequestLimitExceeded({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1867,12 +1979,12 @@ const deserializeAws_json1_1RequestLimitExceededResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourceInUseResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ResourceInUse> => {
+/**
+ * deserializeAws_json1_1ResourceInUseRes
+ */
+const de_ResourceInUseRes = async (parsedOutput: any, context: __SerdeContext): Promise<ResourceInUse> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceInUse(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceInUse({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1880,12 +1992,15 @@ const deserializeAws_json1_1ResourceInUseResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourceLimitExceededResponse = async (
+/**
+ * deserializeAws_json1_1ResourceLimitExceededRes
+ */
+const de_ResourceLimitExceededRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceLimitExceeded> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceLimitExceeded(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceLimitExceeded({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1893,12 +2008,15 @@ const deserializeAws_json1_1ResourceLimitExceededResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1906,12 +2024,15 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ServiceAlreadyExistsResponse = async (
+/**
+ * deserializeAws_json1_1ServiceAlreadyExistsRes
+ */
+const de_ServiceAlreadyExistsRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceAlreadyExists> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ServiceAlreadyExists(body, context);
+  const deserialized: any = _json(body);
   const exception = new ServiceAlreadyExists({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1919,12 +2040,12 @@ const deserializeAws_json1_1ServiceAlreadyExistsResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ServiceNotFoundResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ServiceNotFound> => {
+/**
+ * deserializeAws_json1_1ServiceNotFoundRes
+ */
+const de_ServiceNotFoundRes = async (parsedOutput: any, context: __SerdeContext): Promise<ServiceNotFound> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ServiceNotFound(body, context);
+  const deserialized: any = _json(body);
   const exception = new ServiceNotFound({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1932,12 +2053,15 @@ const deserializeAws_json1_1ServiceNotFoundResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1TooManyTagsExceptionRes
+ */
+const de_TooManyTagsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyTagsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TooManyTagsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TooManyTagsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1945,1128 +2069,481 @@ const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1Attributes = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_Attributes omitted.
 
-const serializeAws_json1_1CreateHttpNamespaceRequest = (
-  input: CreateHttpNamespaceRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    CreatorRequestId: input.CreatorRequestId ?? generateIdempotencyToken(),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
-  };
+/**
+ * serializeAws_json1_1CreateHttpNamespaceRequest
+ */
+const se_CreateHttpNamespaceRequest = (input: CreateHttpNamespaceRequest, context: __SerdeContext): any => {
+  return take(input, {
+    CreatorRequestId: (_) => _ ?? generateIdempotencyToken(),
+    Description: [],
+    Name: [],
+    Tags: _json,
+  });
 };
 
-const serializeAws_json1_1CreatePrivateDnsNamespaceRequest = (
-  input: CreatePrivateDnsNamespaceRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    CreatorRequestId: input.CreatorRequestId ?? generateIdempotencyToken(),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Properties != null && {
-      Properties: serializeAws_json1_1PrivateDnsNamespaceProperties(input.Properties, context),
-    }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
-    ...(input.Vpc != null && { Vpc: input.Vpc }),
-  };
+/**
+ * serializeAws_json1_1CreatePrivateDnsNamespaceRequest
+ */
+const se_CreatePrivateDnsNamespaceRequest = (input: CreatePrivateDnsNamespaceRequest, context: __SerdeContext): any => {
+  return take(input, {
+    CreatorRequestId: (_) => _ ?? generateIdempotencyToken(),
+    Description: [],
+    Name: [],
+    Properties: _json,
+    Tags: _json,
+    Vpc: [],
+  });
 };
 
-const serializeAws_json1_1CreatePublicDnsNamespaceRequest = (
-  input: CreatePublicDnsNamespaceRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    CreatorRequestId: input.CreatorRequestId ?? generateIdempotencyToken(),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Properties != null && {
-      Properties: serializeAws_json1_1PublicDnsNamespaceProperties(input.Properties, context),
-    }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
-  };
+/**
+ * serializeAws_json1_1CreatePublicDnsNamespaceRequest
+ */
+const se_CreatePublicDnsNamespaceRequest = (input: CreatePublicDnsNamespaceRequest, context: __SerdeContext): any => {
+  return take(input, {
+    CreatorRequestId: (_) => _ ?? generateIdempotencyToken(),
+    Description: [],
+    Name: [],
+    Properties: _json,
+    Tags: _json,
+  });
 };
 
-const serializeAws_json1_1CreateServiceRequest = (input: CreateServiceRequest, context: __SerdeContext): any => {
-  return {
-    CreatorRequestId: input.CreatorRequestId ?? generateIdempotencyToken(),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.DnsConfig != null && { DnsConfig: serializeAws_json1_1DnsConfig(input.DnsConfig, context) }),
-    ...(input.HealthCheckConfig != null && {
-      HealthCheckConfig: serializeAws_json1_1HealthCheckConfig(input.HealthCheckConfig, context),
-    }),
-    ...(input.HealthCheckCustomConfig != null && {
-      HealthCheckCustomConfig: serializeAws_json1_1HealthCheckCustomConfig(input.HealthCheckCustomConfig, context),
-    }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.NamespaceId != null && { NamespaceId: input.NamespaceId }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
+/**
+ * serializeAws_json1_1CreateServiceRequest
+ */
+const se_CreateServiceRequest = (input: CreateServiceRequest, context: __SerdeContext): any => {
+  return take(input, {
+    CreatorRequestId: (_) => _ ?? generateIdempotencyToken(),
+    Description: [],
+    DnsConfig: _json,
+    HealthCheckConfig: _json,
+    HealthCheckCustomConfig: _json,
+    Name: [],
+    NamespaceId: [],
+    Tags: _json,
+    Type: [],
+  });
 };
 
-const serializeAws_json1_1DeleteNamespaceRequest = (input: DeleteNamespaceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Id != null && { Id: input.Id }),
-  };
-};
+// se_DeleteNamespaceRequest omitted.
 
-const serializeAws_json1_1DeleteServiceRequest = (input: DeleteServiceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Id != null && { Id: input.Id }),
-  };
-};
+// se_DeleteServiceRequest omitted.
 
-const serializeAws_json1_1DeregisterInstanceRequest = (
-  input: DeregisterInstanceRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.InstanceId != null && { InstanceId: input.InstanceId }),
-    ...(input.ServiceId != null && { ServiceId: input.ServiceId }),
-  };
-};
+// se_DeregisterInstanceRequest omitted.
 
-const serializeAws_json1_1DiscoverInstancesRequest = (
-  input: DiscoverInstancesRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.HealthStatus != null && { HealthStatus: input.HealthStatus }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NamespaceName != null && { NamespaceName: input.NamespaceName }),
-    ...(input.OptionalParameters != null && {
-      OptionalParameters: serializeAws_json1_1Attributes(input.OptionalParameters, context),
-    }),
-    ...(input.QueryParameters != null && {
-      QueryParameters: serializeAws_json1_1Attributes(input.QueryParameters, context),
-    }),
-    ...(input.ServiceName != null && { ServiceName: input.ServiceName }),
-  };
-};
+// se_DiscoverInstancesRequest omitted.
 
-const serializeAws_json1_1DnsConfig = (input: DnsConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.DnsRecords != null && { DnsRecords: serializeAws_json1_1DnsRecordList(input.DnsRecords, context) }),
-    ...(input.NamespaceId != null && { NamespaceId: input.NamespaceId }),
-    ...(input.RoutingPolicy != null && { RoutingPolicy: input.RoutingPolicy }),
-  };
-};
+// se_DnsConfig omitted.
 
-const serializeAws_json1_1DnsConfigChange = (input: DnsConfigChange, context: __SerdeContext): any => {
-  return {
-    ...(input.DnsRecords != null && { DnsRecords: serializeAws_json1_1DnsRecordList(input.DnsRecords, context) }),
-  };
-};
+// se_DnsConfigChange omitted.
 
-const serializeAws_json1_1DnsRecord = (input: DnsRecord, context: __SerdeContext): any => {
-  return {
-    ...(input.TTL != null && { TTL: input.TTL }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_DnsRecord omitted.
 
-const serializeAws_json1_1DnsRecordList = (input: DnsRecord[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_1DnsRecord(entry, context);
-    });
-};
+// se_DnsRecordList omitted.
 
-const serializeAws_json1_1FilterValues = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_FilterValues omitted.
 
-const serializeAws_json1_1GetInstanceRequest = (input: GetInstanceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.InstanceId != null && { InstanceId: input.InstanceId }),
-    ...(input.ServiceId != null && { ServiceId: input.ServiceId }),
-  };
-};
+// se_GetInstanceRequest omitted.
 
-const serializeAws_json1_1GetInstancesHealthStatusRequest = (
-  input: GetInstancesHealthStatusRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Instances != null && { Instances: serializeAws_json1_1InstanceIdList(input.Instances, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ServiceId != null && { ServiceId: input.ServiceId }),
-  };
-};
+// se_GetInstancesHealthStatusRequest omitted.
 
-const serializeAws_json1_1GetNamespaceRequest = (input: GetNamespaceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Id != null && { Id: input.Id }),
-  };
-};
+// se_GetNamespaceRequest omitted.
 
-const serializeAws_json1_1GetOperationRequest = (input: GetOperationRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.OperationId != null && { OperationId: input.OperationId }),
-  };
-};
+// se_GetOperationRequest omitted.
 
-const serializeAws_json1_1GetServiceRequest = (input: GetServiceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Id != null && { Id: input.Id }),
-  };
-};
+// se_GetServiceRequest omitted.
 
-const serializeAws_json1_1HealthCheckConfig = (input: HealthCheckConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.FailureThreshold != null && { FailureThreshold: input.FailureThreshold }),
-    ...(input.ResourcePath != null && { ResourcePath: input.ResourcePath }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_HealthCheckConfig omitted.
 
-const serializeAws_json1_1HealthCheckCustomConfig = (input: HealthCheckCustomConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.FailureThreshold != null && { FailureThreshold: input.FailureThreshold }),
-  };
-};
+// se_HealthCheckCustomConfig omitted.
 
-const serializeAws_json1_1HttpNamespaceChange = (input: HttpNamespaceChange, context: __SerdeContext): any => {
-  return {
-    ...(input.Description != null && { Description: input.Description }),
-  };
-};
+// se_HttpNamespaceChange omitted.
 
-const serializeAws_json1_1InstanceIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_InstanceIdList omitted.
 
-const serializeAws_json1_1ListInstancesRequest = (input: ListInstancesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ServiceId != null && { ServiceId: input.ServiceId }),
-  };
-};
+// se_ListInstancesRequest omitted.
 
-const serializeAws_json1_1ListNamespacesRequest = (input: ListNamespacesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filters != null && { Filters: serializeAws_json1_1NamespaceFilters(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListNamespacesRequest omitted.
 
-const serializeAws_json1_1ListOperationsRequest = (input: ListOperationsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filters != null && { Filters: serializeAws_json1_1OperationFilters(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListOperationsRequest omitted.
 
-const serializeAws_json1_1ListServicesRequest = (input: ListServicesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filters != null && { Filters: serializeAws_json1_1ServiceFilters(input.Filters, context) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_ListServicesRequest omitted.
 
-const serializeAws_json1_1ListTagsForResourceRequest = (
-  input: ListTagsForResourceRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-  };
-};
+// se_ListTagsForResourceRequest omitted.
 
-const serializeAws_json1_1NamespaceFilter = (input: NamespaceFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.Condition != null && { Condition: input.Condition }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Values != null && { Values: serializeAws_json1_1FilterValues(input.Values, context) }),
-  };
-};
+// se_NamespaceFilter omitted.
 
-const serializeAws_json1_1NamespaceFilters = (input: NamespaceFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_1NamespaceFilter(entry, context);
-    });
-};
+// se_NamespaceFilters omitted.
 
-const serializeAws_json1_1OperationFilter = (input: OperationFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.Condition != null && { Condition: input.Condition }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Values != null && { Values: serializeAws_json1_1FilterValues(input.Values, context) }),
-  };
-};
+// se_OperationFilter omitted.
 
-const serializeAws_json1_1OperationFilters = (input: OperationFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_1OperationFilter(entry, context);
-    });
-};
+// se_OperationFilters omitted.
 
-const serializeAws_json1_1PrivateDnsNamespaceChange = (
-  input: PrivateDnsNamespaceChange,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Properties != null && {
-      Properties: serializeAws_json1_1PrivateDnsNamespacePropertiesChange(input.Properties, context),
-    }),
-  };
-};
+// se_PrivateDnsNamespaceChange omitted.
 
-const serializeAws_json1_1PrivateDnsNamespaceProperties = (
-  input: PrivateDnsNamespaceProperties,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DnsProperties != null && {
-      DnsProperties: serializeAws_json1_1PrivateDnsPropertiesMutable(input.DnsProperties, context),
-    }),
-  };
-};
+// se_PrivateDnsNamespaceProperties omitted.
 
-const serializeAws_json1_1PrivateDnsNamespacePropertiesChange = (
-  input: PrivateDnsNamespacePropertiesChange,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DnsProperties != null && {
-      DnsProperties: serializeAws_json1_1PrivateDnsPropertiesMutableChange(input.DnsProperties, context),
-    }),
-  };
-};
+// se_PrivateDnsNamespacePropertiesChange omitted.
 
-const serializeAws_json1_1PrivateDnsPropertiesMutable = (
-  input: PrivateDnsPropertiesMutable,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.SOA != null && { SOA: serializeAws_json1_1SOA(input.SOA, context) }),
-  };
-};
+// se_PrivateDnsPropertiesMutable omitted.
 
-const serializeAws_json1_1PrivateDnsPropertiesMutableChange = (
-  input: PrivateDnsPropertiesMutableChange,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.SOA != null && { SOA: serializeAws_json1_1SOAChange(input.SOA, context) }),
-  };
-};
+// se_PrivateDnsPropertiesMutableChange omitted.
 
-const serializeAws_json1_1PublicDnsNamespaceChange = (
-  input: PublicDnsNamespaceChange,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Properties != null && {
-      Properties: serializeAws_json1_1PublicDnsNamespacePropertiesChange(input.Properties, context),
-    }),
-  };
-};
+// se_PublicDnsNamespaceChange omitted.
 
-const serializeAws_json1_1PublicDnsNamespaceProperties = (
-  input: PublicDnsNamespaceProperties,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DnsProperties != null && {
-      DnsProperties: serializeAws_json1_1PublicDnsPropertiesMutable(input.DnsProperties, context),
-    }),
-  };
-};
+// se_PublicDnsNamespaceProperties omitted.
 
-const serializeAws_json1_1PublicDnsNamespacePropertiesChange = (
-  input: PublicDnsNamespacePropertiesChange,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DnsProperties != null && {
-      DnsProperties: serializeAws_json1_1PublicDnsPropertiesMutableChange(input.DnsProperties, context),
-    }),
-  };
-};
+// se_PublicDnsNamespacePropertiesChange omitted.
 
-const serializeAws_json1_1PublicDnsPropertiesMutable = (
-  input: PublicDnsPropertiesMutable,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.SOA != null && { SOA: serializeAws_json1_1SOA(input.SOA, context) }),
-  };
-};
+// se_PublicDnsPropertiesMutable omitted.
 
-const serializeAws_json1_1PublicDnsPropertiesMutableChange = (
-  input: PublicDnsPropertiesMutableChange,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.SOA != null && { SOA: serializeAws_json1_1SOAChange(input.SOA, context) }),
-  };
-};
+// se_PublicDnsPropertiesMutableChange omitted.
 
-const serializeAws_json1_1RegisterInstanceRequest = (input: RegisterInstanceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Attributes != null && { Attributes: serializeAws_json1_1Attributes(input.Attributes, context) }),
-    CreatorRequestId: input.CreatorRequestId ?? generateIdempotencyToken(),
-    ...(input.InstanceId != null && { InstanceId: input.InstanceId }),
-    ...(input.ServiceId != null && { ServiceId: input.ServiceId }),
-  };
+/**
+ * serializeAws_json1_1RegisterInstanceRequest
+ */
+const se_RegisterInstanceRequest = (input: RegisterInstanceRequest, context: __SerdeContext): any => {
+  return take(input, {
+    Attributes: _json,
+    CreatorRequestId: (_) => _ ?? generateIdempotencyToken(),
+    InstanceId: [],
+    ServiceId: [],
+  });
 };
 
-const serializeAws_json1_1ServiceChange = (input: ServiceChange, context: __SerdeContext): any => {
-  return {
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.DnsConfig != null && { DnsConfig: serializeAws_json1_1DnsConfigChange(input.DnsConfig, context) }),
-    ...(input.HealthCheckConfig != null && {
-      HealthCheckConfig: serializeAws_json1_1HealthCheckConfig(input.HealthCheckConfig, context),
-    }),
-  };
-};
+// se_ServiceChange omitted.
 
-const serializeAws_json1_1ServiceFilter = (input: ServiceFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.Condition != null && { Condition: input.Condition }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Values != null && { Values: serializeAws_json1_1FilterValues(input.Values, context) }),
-  };
-};
+// se_ServiceFilter omitted.
 
-const serializeAws_json1_1ServiceFilters = (input: ServiceFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_1ServiceFilter(entry, context);
-    });
-};
+// se_ServiceFilters omitted.
 
-const serializeAws_json1_1SOA = (input: SOA, context: __SerdeContext): any => {
-  return {
-    ...(input.TTL != null && { TTL: input.TTL }),
-  };
-};
+// se_SOA omitted.
 
-const serializeAws_json1_1SOAChange = (input: SOAChange, context: __SerdeContext): any => {
-  return {
-    ...(input.TTL != null && { TTL: input.TTL }),
-  };
-};
+// se_SOAChange omitted.
 
-const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyList omitted.
 
-const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_1Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
-const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
-  };
-};
+// se_TagResourceRequest omitted.
 
-const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
-  };
-};
+// se_UntagResourceRequest omitted.
 
-const serializeAws_json1_1UpdateHttpNamespaceRequest = (
-  input: UpdateHttpNamespaceRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Id != null && { Id: input.Id }),
-    ...(input.Namespace != null && { Namespace: serializeAws_json1_1HttpNamespaceChange(input.Namespace, context) }),
-    UpdaterRequestId: input.UpdaterRequestId ?? generateIdempotencyToken(),
-  };
+/**
+ * serializeAws_json1_1UpdateHttpNamespaceRequest
+ */
+const se_UpdateHttpNamespaceRequest = (input: UpdateHttpNamespaceRequest, context: __SerdeContext): any => {
+  return take(input, {
+    Id: [],
+    Namespace: _json,
+    UpdaterRequestId: (_) => _ ?? generateIdempotencyToken(),
+  });
 };
 
-const serializeAws_json1_1UpdateInstanceCustomHealthStatusRequest = (
-  input: UpdateInstanceCustomHealthStatusRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.InstanceId != null && { InstanceId: input.InstanceId }),
-    ...(input.ServiceId != null && { ServiceId: input.ServiceId }),
-    ...(input.Status != null && { Status: input.Status }),
-  };
-};
+// se_UpdateInstanceCustomHealthStatusRequest omitted.
 
-const serializeAws_json1_1UpdatePrivateDnsNamespaceRequest = (
-  input: UpdatePrivateDnsNamespaceRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Id != null && { Id: input.Id }),
-    ...(input.Namespace != null && {
-      Namespace: serializeAws_json1_1PrivateDnsNamespaceChange(input.Namespace, context),
-    }),
-    UpdaterRequestId: input.UpdaterRequestId ?? generateIdempotencyToken(),
-  };
+/**
+ * serializeAws_json1_1UpdatePrivateDnsNamespaceRequest
+ */
+const se_UpdatePrivateDnsNamespaceRequest = (input: UpdatePrivateDnsNamespaceRequest, context: __SerdeContext): any => {
+  return take(input, {
+    Id: [],
+    Namespace: _json,
+    UpdaterRequestId: (_) => _ ?? generateIdempotencyToken(),
+  });
 };
 
-const serializeAws_json1_1UpdatePublicDnsNamespaceRequest = (
-  input: UpdatePublicDnsNamespaceRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Id != null && { Id: input.Id }),
-    ...(input.Namespace != null && {
-      Namespace: serializeAws_json1_1PublicDnsNamespaceChange(input.Namespace, context),
-    }),
-    UpdaterRequestId: input.UpdaterRequestId ?? generateIdempotencyToken(),
-  };
+/**
+ * serializeAws_json1_1UpdatePublicDnsNamespaceRequest
+ */
+const se_UpdatePublicDnsNamespaceRequest = (input: UpdatePublicDnsNamespaceRequest, context: __SerdeContext): any => {
+  return take(input, {
+    Id: [],
+    Namespace: _json,
+    UpdaterRequestId: (_) => _ ?? generateIdempotencyToken(),
+  });
 };
 
-const serializeAws_json1_1UpdateServiceRequest = (input: UpdateServiceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Id != null && { Id: input.Id }),
-    ...(input.Service != null && { Service: serializeAws_json1_1ServiceChange(input.Service, context) }),
-  };
-};
+// se_UpdateServiceRequest omitted.
 
-const deserializeAws_json1_1Attributes = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_Attributes omitted.
 
-const deserializeAws_json1_1CreateHttpNamespaceResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateHttpNamespaceResponse => {
-  return {
-    OperationId: __expectString(output.OperationId),
-  } as any;
-};
+// de_CreateHttpNamespaceResponse omitted.
 
-const deserializeAws_json1_1CreatePrivateDnsNamespaceResponse = (
-  output: any,
-  context: __SerdeContext
-): CreatePrivateDnsNamespaceResponse => {
-  return {
-    OperationId: __expectString(output.OperationId),
-  } as any;
-};
+// de_CreatePrivateDnsNamespaceResponse omitted.
 
-const deserializeAws_json1_1CreatePublicDnsNamespaceResponse = (
-  output: any,
-  context: __SerdeContext
-): CreatePublicDnsNamespaceResponse => {
-  return {
-    OperationId: __expectString(output.OperationId),
-  } as any;
-};
+// de_CreatePublicDnsNamespaceResponse omitted.
 
-const deserializeAws_json1_1CreateServiceResponse = (output: any, context: __SerdeContext): CreateServiceResponse => {
-  return {
-    Service: output.Service != null ? deserializeAws_json1_1Service(output.Service, context) : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1CreateServiceResponse
+ */
+const de_CreateServiceResponse = (output: any, context: __SerdeContext): CreateServiceResponse => {
+  return take(output, {
+    Service: (_: any) => de_Service(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1CustomHealthNotFound = (output: any, context: __SerdeContext): CustomHealthNotFound => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_CustomHealthNotFound omitted.
 
-const deserializeAws_json1_1DeleteNamespaceResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteNamespaceResponse => {
-  return {
-    OperationId: __expectString(output.OperationId),
-  } as any;
-};
+// de_DeleteNamespaceResponse omitted.
+
+// de_DeleteServiceResponse omitted.
+
+// de_DeregisterInstanceResponse omitted.
+
+// de_DiscoverInstancesResponse omitted.
+
+// de_DnsConfig omitted.
+
+// de_DnsProperties omitted.
+
+// de_DnsRecord omitted.
 
-const deserializeAws_json1_1DeleteServiceResponse = (output: any, context: __SerdeContext): DeleteServiceResponse => {
-  return {} as any;
+// de_DnsRecordList omitted.
+
+// de_DuplicateRequest omitted.
+
+// de_GetInstanceResponse omitted.
+
+// de_GetInstancesHealthStatusResponse omitted.
+
+/**
+ * deserializeAws_json1_1GetNamespaceResponse
+ */
+const de_GetNamespaceResponse = (output: any, context: __SerdeContext): GetNamespaceResponse => {
+  return take(output, {
+    Namespace: (_: any) => de_Namespace(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1DeregisterInstanceResponse = (
-  output: any,
-  context: __SerdeContext
-): DeregisterInstanceResponse => {
-  return {
-    OperationId: __expectString(output.OperationId),
-  } as any;
+/**
+ * deserializeAws_json1_1GetOperationResponse
+ */
+const de_GetOperationResponse = (output: any, context: __SerdeContext): GetOperationResponse => {
+  return take(output, {
+    Operation: (_: any) => de_Operation(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1DiscoverInstancesResponse = (
-  output: any,
-  context: __SerdeContext
-): DiscoverInstancesResponse => {
-  return {
-    Instances:
-      output.Instances != null ? deserializeAws_json1_1HttpInstanceSummaryList(output.Instances, context) : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1GetServiceResponse
+ */
+const de_GetServiceResponse = (output: any, context: __SerdeContext): GetServiceResponse => {
+  return take(output, {
+    Service: (_: any) => de_Service(_, context),
+  }) as any;
 };
+
+// de_HealthCheckConfig omitted.
+
+// de_HealthCheckCustomConfig omitted.
+
+// de_HttpInstanceSummary omitted.
+
+// de_HttpInstanceSummaryList omitted.
+
+// de_HttpProperties omitted.
+
+// de_Instance omitted.
 
-const deserializeAws_json1_1DnsConfig = (output: any, context: __SerdeContext): DnsConfig => {
-  return {
-    DnsRecords: output.DnsRecords != null ? deserializeAws_json1_1DnsRecordList(output.DnsRecords, context) : undefined,
-    NamespaceId: __expectString(output.NamespaceId),
-    RoutingPolicy: __expectString(output.RoutingPolicy),
-  } as any;
+// de_InstanceHealthStatusMap omitted.
+
+// de_InstanceNotFound omitted.
+
+// de_InstanceSummary omitted.
+
+// de_InstanceSummaryList omitted.
+
+// de_InvalidInput omitted.
+
+// de_ListInstancesResponse omitted.
+
+/**
+ * deserializeAws_json1_1ListNamespacesResponse
+ */
+const de_ListNamespacesResponse = (output: any, context: __SerdeContext): ListNamespacesResponse => {
+  return take(output, {
+    Namespaces: (_: any) => de_NamespaceSummariesList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1DnsProperties = (output: any, context: __SerdeContext): DnsProperties => {
-  return {
-    HostedZoneId: __expectString(output.HostedZoneId),
-    SOA: output.SOA != null ? deserializeAws_json1_1SOA(output.SOA, context) : undefined,
-  } as any;
+// de_ListOperationsResponse omitted.
+
+/**
+ * deserializeAws_json1_1ListServicesResponse
+ */
+const de_ListServicesResponse = (output: any, context: __SerdeContext): ListServicesResponse => {
+  return take(output, {
+    NextToken: __expectString,
+    Services: (_: any) => de_ServiceSummariesList(_, context),
+  }) as any;
 };
+
+// de_ListTagsForResourceResponse omitted.
 
-const deserializeAws_json1_1DnsRecord = (output: any, context: __SerdeContext): DnsRecord => {
-  return {
-    TTL: __expectLong(output.TTL),
-    Type: __expectString(output.Type),
-  } as any;
+/**
+ * deserializeAws_json1_1Namespace
+ */
+const de_Namespace = (output: any, context: __SerdeContext): Namespace => {
+  return take(output, {
+    Arn: __expectString,
+    CreateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatorRequestId: __expectString,
+    Description: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+    Properties: _json,
+    ServiceCount: __expectInt32,
+    Type: __expectString,
+  }) as any;
 };
+
+// de_NamespaceAlreadyExists omitted.
+
+// de_NamespaceNotFound omitted.
+
+// de_NamespaceProperties omitted.
 
-const deserializeAws_json1_1DnsRecordList = (output: any, context: __SerdeContext): DnsRecord[] => {
+/**
+ * deserializeAws_json1_1NamespaceSummariesList
+ */
+const de_NamespaceSummariesList = (output: any, context: __SerdeContext): NamespaceSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1DnsRecord(entry, context);
+      return de_NamespaceSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1DuplicateRequest = (output: any, context: __SerdeContext): DuplicateRequest => {
-  return {
-    DuplicateOperationId: __expectString(output.DuplicateOperationId),
-    Message: __expectString(output.Message),
-  } as any;
+/**
+ * deserializeAws_json1_1NamespaceSummary
+ */
+const de_NamespaceSummary = (output: any, context: __SerdeContext): NamespaceSummary => {
+  return take(output, {
+    Arn: __expectString,
+    CreateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+    Properties: _json,
+    ServiceCount: __expectInt32,
+    Type: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1GetInstanceResponse = (output: any, context: __SerdeContext): GetInstanceResponse => {
-  return {
-    Instance: output.Instance != null ? deserializeAws_json1_1Instance(output.Instance, context) : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1Operation
+ */
+const de_Operation = (output: any, context: __SerdeContext): Operation => {
+  return take(output, {
+    CreateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ErrorCode: __expectString,
+    ErrorMessage: __expectString,
+    Id: __expectString,
+    Status: __expectString,
+    Targets: _json,
+    Type: __expectString,
+    UpdateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-const deserializeAws_json1_1GetInstancesHealthStatusResponse = (
-  output: any,
-  context: __SerdeContext
-): GetInstancesHealthStatusResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Status: output.Status != null ? deserializeAws_json1_1InstanceHealthStatusMap(output.Status, context) : undefined,
-  } as any;
+// de_OperationNotFound omitted.
+
+// de_OperationSummary omitted.
+
+// de_OperationSummaryList omitted.
+
+// de_OperationTargetsMap omitted.
+
+// de_RegisterInstanceResponse omitted.
+
+// de_RequestLimitExceeded omitted.
+
+// de_ResourceInUse omitted.
+
+// de_ResourceLimitExceeded omitted.
+
+// de_ResourceNotFoundException omitted.
+
+/**
+ * deserializeAws_json1_1Service
+ */
+const de_Service = (output: any, context: __SerdeContext): Service => {
+  return take(output, {
+    Arn: __expectString,
+    CreateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatorRequestId: __expectString,
+    Description: __expectString,
+    DnsConfig: _json,
+    HealthCheckConfig: _json,
+    HealthCheckCustomConfig: _json,
+    Id: __expectString,
+    InstanceCount: __expectInt32,
+    Name: __expectString,
+    NamespaceId: __expectString,
+    Type: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1GetNamespaceResponse = (output: any, context: __SerdeContext): GetNamespaceResponse => {
-  return {
-    Namespace: output.Namespace != null ? deserializeAws_json1_1Namespace(output.Namespace, context) : undefined,
-  } as any;
-};
+// de_ServiceAlreadyExists omitted.
 
-const deserializeAws_json1_1GetOperationResponse = (output: any, context: __SerdeContext): GetOperationResponse => {
-  return {
-    Operation: output.Operation != null ? deserializeAws_json1_1Operation(output.Operation, context) : undefined,
-  } as any;
-};
+// de_ServiceNotFound omitted.
 
-const deserializeAws_json1_1GetServiceResponse = (output: any, context: __SerdeContext): GetServiceResponse => {
-  return {
-    Service: output.Service != null ? deserializeAws_json1_1Service(output.Service, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1HealthCheckConfig = (output: any, context: __SerdeContext): HealthCheckConfig => {
-  return {
-    FailureThreshold: __expectInt32(output.FailureThreshold),
-    ResourcePath: __expectString(output.ResourcePath),
-    Type: __expectString(output.Type),
-  } as any;
-};
-
-const deserializeAws_json1_1HealthCheckCustomConfig = (
-  output: any,
-  context: __SerdeContext
-): HealthCheckCustomConfig => {
-  return {
-    FailureThreshold: __expectInt32(output.FailureThreshold),
-  } as any;
-};
-
-const deserializeAws_json1_1HttpInstanceSummary = (output: any, context: __SerdeContext): HttpInstanceSummary => {
-  return {
-    Attributes: output.Attributes != null ? deserializeAws_json1_1Attributes(output.Attributes, context) : undefined,
-    HealthStatus: __expectString(output.HealthStatus),
-    InstanceId: __expectString(output.InstanceId),
-    NamespaceName: __expectString(output.NamespaceName),
-    ServiceName: __expectString(output.ServiceName),
-  } as any;
-};
-
-const deserializeAws_json1_1HttpInstanceSummaryList = (output: any, context: __SerdeContext): HttpInstanceSummary[] => {
+/**
+ * deserializeAws_json1_1ServiceSummariesList
+ */
+const de_ServiceSummariesList = (output: any, context: __SerdeContext): ServiceSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1HttpInstanceSummary(entry, context);
+      return de_ServiceSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1HttpProperties = (output: any, context: __SerdeContext): HttpProperties => {
-  return {
-    HttpName: __expectString(output.HttpName),
-  } as any;
+/**
+ * deserializeAws_json1_1ServiceSummary
+ */
+const de_ServiceSummary = (output: any, context: __SerdeContext): ServiceSummary => {
+  return take(output, {
+    Arn: __expectString,
+    CreateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    DnsConfig: _json,
+    HealthCheckConfig: _json,
+    HealthCheckCustomConfig: _json,
+    Id: __expectString,
+    InstanceCount: __expectInt32,
+    Name: __expectString,
+    Type: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1Instance = (output: any, context: __SerdeContext): Instance => {
-  return {
-    Attributes: output.Attributes != null ? deserializeAws_json1_1Attributes(output.Attributes, context) : undefined,
-    CreatorRequestId: __expectString(output.CreatorRequestId),
-    Id: __expectString(output.Id),
-  } as any;
-};
+// de_SOA omitted.
 
-const deserializeAws_json1_1InstanceHealthStatusMap = (
-  output: any,
-  context: __SerdeContext
-): Record<string, HealthStatus | string> => {
-  return Object.entries(output).reduce((acc: Record<string, HealthStatus | string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_Tag omitted.
 
-const deserializeAws_json1_1InstanceNotFound = (output: any, context: __SerdeContext): InstanceNotFound => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_TagList omitted.
 
-const deserializeAws_json1_1InstanceSummary = (output: any, context: __SerdeContext): InstanceSummary => {
-  return {
-    Attributes: output.Attributes != null ? deserializeAws_json1_1Attributes(output.Attributes, context) : undefined,
-    Id: __expectString(output.Id),
-  } as any;
-};
+// de_TagResourceResponse omitted.
 
-const deserializeAws_json1_1InstanceSummaryList = (output: any, context: __SerdeContext): InstanceSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1InstanceSummary(entry, context);
-    });
-  return retVal;
-};
+// de_TooManyTagsException omitted.
 
-const deserializeAws_json1_1InvalidInput = (output: any, context: __SerdeContext): InvalidInput => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_UntagResourceResponse omitted.
 
-const deserializeAws_json1_1ListInstancesResponse = (output: any, context: __SerdeContext): ListInstancesResponse => {
-  return {
-    Instances:
-      output.Instances != null ? deserializeAws_json1_1InstanceSummaryList(output.Instances, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_UpdateHttpNamespaceResponse omitted.
 
-const deserializeAws_json1_1ListNamespacesResponse = (output: any, context: __SerdeContext): ListNamespacesResponse => {
-  return {
-    Namespaces:
-      output.Namespaces != null ? deserializeAws_json1_1NamespaceSummariesList(output.Namespaces, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
+// de_UpdatePrivateDnsNamespaceResponse omitted.
 
-const deserializeAws_json1_1ListOperationsResponse = (output: any, context: __SerdeContext): ListOperationsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Operations:
-      output.Operations != null ? deserializeAws_json1_1OperationSummaryList(output.Operations, context) : undefined,
-  } as any;
-};
+// de_UpdatePublicDnsNamespaceResponse omitted.
 
-const deserializeAws_json1_1ListServicesResponse = (output: any, context: __SerdeContext): ListServicesResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Services:
-      output.Services != null ? deserializeAws_json1_1ServiceSummariesList(output.Services, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1ListTagsForResourceResponse = (
-  output: any,
-  context: __SerdeContext
-): ListTagsForResourceResponse => {
-  return {
-    Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1Namespace = (output: any, context: __SerdeContext): Namespace => {
-  return {
-    Arn: __expectString(output.Arn),
-    CreateDate:
-      output.CreateDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateDate))) : undefined,
-    CreatorRequestId: __expectString(output.CreatorRequestId),
-    Description: __expectString(output.Description),
-    Id: __expectString(output.Id),
-    Name: __expectString(output.Name),
-    Properties:
-      output.Properties != null ? deserializeAws_json1_1NamespaceProperties(output.Properties, context) : undefined,
-    ServiceCount: __expectInt32(output.ServiceCount),
-    Type: __expectString(output.Type),
-  } as any;
-};
-
-const deserializeAws_json1_1NamespaceAlreadyExists = (output: any, context: __SerdeContext): NamespaceAlreadyExists => {
-  return {
-    CreatorRequestId: __expectString(output.CreatorRequestId),
-    Message: __expectString(output.Message),
-    NamespaceId: __expectString(output.NamespaceId),
-  } as any;
-};
-
-const deserializeAws_json1_1NamespaceNotFound = (output: any, context: __SerdeContext): NamespaceNotFound => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_1NamespaceProperties = (output: any, context: __SerdeContext): NamespaceProperties => {
-  return {
-    DnsProperties:
-      output.DnsProperties != null ? deserializeAws_json1_1DnsProperties(output.DnsProperties, context) : undefined,
-    HttpProperties:
-      output.HttpProperties != null ? deserializeAws_json1_1HttpProperties(output.HttpProperties, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1NamespaceSummariesList = (output: any, context: __SerdeContext): NamespaceSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1NamespaceSummary(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1NamespaceSummary = (output: any, context: __SerdeContext): NamespaceSummary => {
-  return {
-    Arn: __expectString(output.Arn),
-    CreateDate:
-      output.CreateDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateDate))) : undefined,
-    Description: __expectString(output.Description),
-    Id: __expectString(output.Id),
-    Name: __expectString(output.Name),
-    Properties:
-      output.Properties != null ? deserializeAws_json1_1NamespaceProperties(output.Properties, context) : undefined,
-    ServiceCount: __expectInt32(output.ServiceCount),
-    Type: __expectString(output.Type),
-  } as any;
-};
-
-const deserializeAws_json1_1Operation = (output: any, context: __SerdeContext): Operation => {
-  return {
-    CreateDate:
-      output.CreateDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateDate))) : undefined,
-    ErrorCode: __expectString(output.ErrorCode),
-    ErrorMessage: __expectString(output.ErrorMessage),
-    Id: __expectString(output.Id),
-    Status: __expectString(output.Status),
-    Targets: output.Targets != null ? deserializeAws_json1_1OperationTargetsMap(output.Targets, context) : undefined,
-    Type: __expectString(output.Type),
-    UpdateDate:
-      output.UpdateDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdateDate))) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1OperationNotFound = (output: any, context: __SerdeContext): OperationNotFound => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_1OperationSummary = (output: any, context: __SerdeContext): OperationSummary => {
-  return {
-    Id: __expectString(output.Id),
-    Status: __expectString(output.Status),
-  } as any;
-};
-
-const deserializeAws_json1_1OperationSummaryList = (output: any, context: __SerdeContext): OperationSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1OperationSummary(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1OperationTargetsMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce(
-    (acc: Record<string, string>, [key, value]: [OperationTargetType | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = __expectString(value) as any;
-      return acc;
-    },
-    {}
-  );
-};
-
-const deserializeAws_json1_1RegisterInstanceResponse = (
-  output: any,
-  context: __SerdeContext
-): RegisterInstanceResponse => {
-  return {
-    OperationId: __expectString(output.OperationId),
-  } as any;
-};
-
-const deserializeAws_json1_1RequestLimitExceeded = (output: any, context: __SerdeContext): RequestLimitExceeded => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_1ResourceInUse = (output: any, context: __SerdeContext): ResourceInUse => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_1ResourceLimitExceeded = (output: any, context: __SerdeContext): ResourceLimitExceeded => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_1ResourceNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_1Service = (output: any, context: __SerdeContext): Service => {
-  return {
-    Arn: __expectString(output.Arn),
-    CreateDate:
-      output.CreateDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateDate))) : undefined,
-    CreatorRequestId: __expectString(output.CreatorRequestId),
-    Description: __expectString(output.Description),
-    DnsConfig: output.DnsConfig != null ? deserializeAws_json1_1DnsConfig(output.DnsConfig, context) : undefined,
-    HealthCheckConfig:
-      output.HealthCheckConfig != null
-        ? deserializeAws_json1_1HealthCheckConfig(output.HealthCheckConfig, context)
-        : undefined,
-    HealthCheckCustomConfig:
-      output.HealthCheckCustomConfig != null
-        ? deserializeAws_json1_1HealthCheckCustomConfig(output.HealthCheckCustomConfig, context)
-        : undefined,
-    Id: __expectString(output.Id),
-    InstanceCount: __expectInt32(output.InstanceCount),
-    Name: __expectString(output.Name),
-    NamespaceId: __expectString(output.NamespaceId),
-    Type: __expectString(output.Type),
-  } as any;
-};
-
-const deserializeAws_json1_1ServiceAlreadyExists = (output: any, context: __SerdeContext): ServiceAlreadyExists => {
-  return {
-    CreatorRequestId: __expectString(output.CreatorRequestId),
-    Message: __expectString(output.Message),
-    ServiceId: __expectString(output.ServiceId),
-  } as any;
-};
-
-const deserializeAws_json1_1ServiceNotFound = (output: any, context: __SerdeContext): ServiceNotFound => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_1ServiceSummariesList = (output: any, context: __SerdeContext): ServiceSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1ServiceSummary(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1ServiceSummary = (output: any, context: __SerdeContext): ServiceSummary => {
-  return {
-    Arn: __expectString(output.Arn),
-    CreateDate:
-      output.CreateDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateDate))) : undefined,
-    Description: __expectString(output.Description),
-    DnsConfig: output.DnsConfig != null ? deserializeAws_json1_1DnsConfig(output.DnsConfig, context) : undefined,
-    HealthCheckConfig:
-      output.HealthCheckConfig != null
-        ? deserializeAws_json1_1HealthCheckConfig(output.HealthCheckConfig, context)
-        : undefined,
-    HealthCheckCustomConfig:
-      output.HealthCheckCustomConfig != null
-        ? deserializeAws_json1_1HealthCheckCustomConfig(output.HealthCheckCustomConfig, context)
-        : undefined,
-    Id: __expectString(output.Id),
-    InstanceCount: __expectInt32(output.InstanceCount),
-    Name: __expectString(output.Name),
-    Type: __expectString(output.Type),
-  } as any;
-};
-
-const deserializeAws_json1_1SOA = (output: any, context: __SerdeContext): SOA => {
-  return {
-    TTL: __expectLong(output.TTL),
-  } as any;
-};
-
-const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
-
-const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Tag(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
-  return {
-    Message: __expectString(output.Message),
-    ResourceName: __expectString(output.ResourceName),
-  } as any;
-};
-
-const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1UpdateHttpNamespaceResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateHttpNamespaceResponse => {
-  return {
-    OperationId: __expectString(output.OperationId),
-  } as any;
-};
-
-const deserializeAws_json1_1UpdatePrivateDnsNamespaceResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdatePrivateDnsNamespaceResponse => {
-  return {
-    OperationId: __expectString(output.OperationId),
-  } as any;
-};
-
-const deserializeAws_json1_1UpdatePublicDnsNamespaceResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdatePublicDnsNamespaceResponse => {
-  return {
-    OperationId: __expectString(output.OperationId),
-  } as any;
-};
-
-const deserializeAws_json1_1UpdateServiceResponse = (output: any, context: __SerdeContext): UpdateServiceResponse => {
-  return {
-    OperationId: __expectString(output.OperationId),
-  } as any;
-};
+// de_UpdateServiceResponse omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -3088,6 +2565,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,
@@ -3112,6 +2590,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `Route53AutoNaming_v20170314.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

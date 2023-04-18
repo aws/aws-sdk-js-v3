@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListVariantStoresRequest,
-  ListVariantStoresRequestFilterSensitiveLog,
-  ListVariantStoresResponse,
-  ListVariantStoresResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListVariantStoresRequest, ListVariantStoresResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1ListVariantStoresCommand,
-  serializeAws_restJson1ListVariantStoresCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListVariantStoresCommand, se_ListVariantStoresCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListVariantStoresCommand}.
+ */
 export interface ListVariantStoresCommandInput extends ListVariantStoresRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListVariantStoresCommand}.
+ */
 export interface ListVariantStoresCommandOutput extends ListVariantStoresResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of variant stores.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,41 @@ export interface ListVariantStoresCommandOutput extends ListVariantStoresRespons
  * import { OmicsClient, ListVariantStoresCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, ListVariantStoresCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = { // ListVariantStoresRequest
+ *   maxResults: Number("int"),
+ *   ids: [ // IdList
+ *     "STRING_VALUE",
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   filter: { // ListVariantStoresFilter
+ *     status: "STRING_VALUE",
+ *   },
+ * };
  * const command = new ListVariantStoresCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListVariantStoresCommandInput - {@link ListVariantStoresCommandInput}
+ * @returns {@link ListVariantStoresCommandOutput}
  * @see {@link ListVariantStoresCommandInput} for command's `input` shape.
  * @see {@link ListVariantStoresCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred. Try the request again.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The target resource was not found in the current Region.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
  *
  */
 export class ListVariantStoresCommand extends $Command<
@@ -62,6 +93,9 @@ export class ListVariantStoresCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListVariantStoresCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +124,8 @@ export class ListVariantStoresCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListVariantStoresRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListVariantStoresResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +135,18 @@ export class ListVariantStoresCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListVariantStoresCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListVariantStoresCommand(input, context);
+    return se_ListVariantStoresCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVariantStoresCommandOutput> {
-    return deserializeAws_restJson1ListVariantStoresCommand(output, context);
+    return de_ListVariantStoresCommand(output, context);
   }
 
   // Start section: command_body_extra

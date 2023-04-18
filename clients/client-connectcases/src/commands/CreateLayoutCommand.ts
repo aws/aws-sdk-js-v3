@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
-import {
-  CreateLayoutRequest,
-  CreateLayoutRequestFilterSensitiveLog,
-  CreateLayoutResponse,
-  CreateLayoutResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateLayoutCommand,
-  serializeAws_restJson1CreateLayoutCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateLayoutRequest, CreateLayoutResponse } from "../models/models_0";
+import { de_CreateLayoutCommand, se_CreateLayoutCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateLayoutCommand}.
+ */
 export interface CreateLayoutCommandInput extends CreateLayoutRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateLayoutCommand}.
+ */
 export interface CreateLayoutCommandOutput extends CreateLayoutResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a layout in the Cases domain. Layouts define the following configuration in
  *       the top section and More Info tab of the Cases user interface:</p>
  *          <ul>
@@ -49,13 +52,78 @@ export interface CreateLayoutCommandOutput extends CreateLayoutResponse, __Metad
  * import { ConnectCasesClient, CreateLayoutCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, CreateLayoutCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
  * const client = new ConnectCasesClient(config);
+ * const input = { // CreateLayoutRequest
+ *   domainId: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ *   content: { // LayoutContent Union: only one key present
+ *     basic: { // BasicLayout
+ *       topPanel: { // LayoutSections
+ *         sections: [ // SectionsList
+ *           { // Section Union: only one key present
+ *             fieldGroup: { // FieldGroup
+ *               name: "STRING_VALUE",
+ *               fields: [ // FieldList // required
+ *                 { // FieldItem
+ *                   id: "STRING_VALUE", // required
+ *                 },
+ *               ],
+ *             },
+ *           },
+ *         ],
+ *       },
+ *       moreInfo: {
+ *         sections: [
+ *           {//  Union: only one key present
+ *             fieldGroup: {
+ *               name: "STRING_VALUE",
+ *               fields: [ // required
+ *                 {
+ *                   id: "STRING_VALUE", // required
+ *                 },
+ *               ],
+ *             },
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new CreateLayoutCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLayoutCommandInput - {@link CreateLayoutCommandInput}
+ * @returns {@link CreateLayoutCommandOutput}
  * @see {@link CreateLayoutCommandInput} for command's `input` shape.
  * @see {@link CreateLayoutCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The requested operation would cause a conflict with the current state of a service
+ *       resource associated with the request. Resolve the conflict before retrying this request. See
+ *       the accompanying error message for details.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>We couldn't process your request because of an issue with the server. Try again
+ *       later.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>We couldn't find the requested resource. Check that your resources exists and were created
+ *       in the same Amazon Web Services Region as your request, and try your request again.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The service quota has been exceeded. For a list of service quotas, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the <i>Amazon Connect
+ *         Administrator Guide</i>.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate has been exceeded for this API. Please try again after a few minutes.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request isn't valid. Check the syntax and try again.</p>
+ *
  *
  */
 export class CreateLayoutCommand extends $Command<
@@ -75,6 +143,9 @@ export class CreateLayoutCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLayoutCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +172,8 @@ export class CreateLayoutCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLayoutRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLayoutResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +183,18 @@ export class CreateLayoutCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLayoutCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateLayoutCommand(input, context);
+    return se_CreateLayoutCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLayoutCommandOutput> {
-    return deserializeAws_restJson1CreateLayoutCommand(output, context);
+    return de_CreateLayoutCommand(output, context);
   }
 
   // Start section: command_body_extra

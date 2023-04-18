@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  StartInstanceRequest,
-  StartInstanceRequestFilterSensitiveLog,
-  StartInstanceResult,
-  StartInstanceResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1StartInstanceCommand,
-  serializeAws_json1_1StartInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { StartInstanceRequest, StartInstanceResult } from "../models/models_1";
+import { de_StartInstanceCommand, se_StartInstanceCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link StartInstanceCommand}.
+ */
 export interface StartInstanceCommandInput extends StartInstanceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartInstanceCommand}.
+ */
 export interface StartInstanceCommandOutput extends StartInstanceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a specific Amazon Lightsail instance from a stopped state. To restart an instance,
  *       use the <code>reboot instance</code> operation.</p>
  *          <note>
@@ -45,13 +48,49 @@ export interface StartInstanceCommandOutput extends StartInstanceResult, __Metad
  * import { LightsailClient, StartInstanceCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, StartInstanceCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // StartInstanceRequest
+ *   instanceName: "STRING_VALUE", // required
+ * };
  * const command = new StartInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartInstanceCommandInput - {@link StartInstanceCommandInput}
+ * @returns {@link StartInstanceCommandOutput}
  * @see {@link StartInstanceCommandInput} for command's `input` shape.
  * @see {@link StartInstanceCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
+ *       credentials to access a resource.</p>
+ *
+ * @throws {@link AccountSetupInProgressException} (client fault)
+ *  <p>Lightsail throws this exception when an account is still in the setup in progress
+ *       state.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Lightsail throws this exception when user input does not conform to the validation rules
+ *       of an input field.</p>
+ *          <note>
+ *             <p>Domain and distribution APIs are only available in the N. Virginia
+ *           (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services
+ *         Region configuration to <code>us-east-1</code> to create, view, or edit these
+ *         resources.</p>
+ *          </note>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Lightsail throws this exception when it cannot find a resource.</p>
+ *
+ * @throws {@link OperationFailureException} (client fault)
+ *  <p>Lightsail throws this exception when an operation fails to execute.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>A general service exception.</p>
+ *
+ * @throws {@link UnauthenticatedException} (client fault)
+ *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
+ *
  *
  */
 export class StartInstanceCommand extends $Command<
@@ -71,6 +110,9 @@ export class StartInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +139,8 @@ export class StartInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartInstanceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartInstanceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +150,18 @@ export class StartInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartInstanceCommand(input, context);
+    return se_StartInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartInstanceCommandOutput> {
-    return deserializeAws_json1_1StartInstanceCommand(output, context);
+    return de_StartInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

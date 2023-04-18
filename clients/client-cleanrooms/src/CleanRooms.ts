@@ -126,10 +126,21 @@ import {
 } from "./commands/ListProtectedQueriesCommand";
 import { ListSchemasCommand, ListSchemasCommandInput, ListSchemasCommandOutput } from "./commands/ListSchemasCommand";
 import {
+  ListTagsForResourceCommand,
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   StartProtectedQueryCommand,
   StartProtectedQueryCommandInput,
   StartProtectedQueryCommandOutput,
 } from "./commands/StartProtectedQueryCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommand,
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput,
+} from "./commands/UntagResourceCommand";
 import {
   UpdateCollaborationCommand,
   UpdateCollaborationCommandInput,
@@ -162,13 +173,11 @@ import {
 } from "./commands/UpdateProtectedQueryCommand";
 
 /**
- * <note>
- *             <p>AWS Clean Rooms is in preview release and is subject to change.</p>
- *          </note>
- *          <p>Welcome to the <i>AWS Clean Rooms API Reference</i>.</p>
+ * @public
+ * <p>Welcome to the <i>AWS Clean Rooms API Reference</i>.</p>
  *          <p>AWS Clean Rooms is an AWS service that helps multiple parties to join their data
  *          together in a secure collaboration workspace. In the collaboration, members who can query
- *          and receive results can get insights into the combined data without either party getting
+ *          and receive results can get insights into the collective datasets without either party getting
  *          access to the other party's raw data.</p>
  *          <p>To learn more about AWS Clean Rooms concepts, procedures, and best practices, see the
  *             <a href="https://docs.aws.amazon.com/clean-rooms/latest/userguide/what-is.html">AWS Clean
@@ -176,6 +185,7 @@ import {
  */
 export class CleanRooms extends CleanRoomsClient {
   /**
+   * @public
    * <p>Retrieves multiple schemas by their identifiers.</p>
    */
   public batchGetSchema(
@@ -208,6 +218,7 @@ export class CleanRooms extends CleanRoomsClient {
   }
 
   /**
+   * @public
    * <p>Creates a new collaboration.</p>
    */
   public createCollaboration(
@@ -240,6 +251,7 @@ export class CleanRooms extends CleanRoomsClient {
   }
 
   /**
+   * @public
    * <p>Creates a new configured table resource.</p>
    */
   public createConfiguredTable(
@@ -272,6 +284,7 @@ export class CleanRooms extends CleanRoomsClient {
   }
 
   /**
+   * @public
    * <p>Creates a new analysis rule for a configured table. Currently, only one analysis rule
    *          can be created for a given configured table.</p>
    */
@@ -305,6 +318,7 @@ export class CleanRooms extends CleanRoomsClient {
   }
 
   /**
+   * @public
    * <p>Creates a configured table association. A configured table association links a
    *          configured table with a collaboration.</p>
    */
@@ -338,6 +352,7 @@ export class CleanRooms extends CleanRoomsClient {
   }
 
   /**
+   * @public
    * <p>Creates a membership for a specific collaboration identifier and joins the
    *          collaboration.</p>
    */
@@ -371,6 +386,7 @@ export class CleanRooms extends CleanRoomsClient {
   }
 
   /**
+   * @public
    * <p>Deletes a collaboration. It can only be called by the collaboration owner.</p>
    */
   public deleteCollaboration(
@@ -403,6 +419,7 @@ export class CleanRooms extends CleanRoomsClient {
   }
 
   /**
+   * @public
    * <p>Deletes a configured table.</p>
    */
   public deleteConfiguredTable(
@@ -435,6 +452,7 @@ export class CleanRooms extends CleanRoomsClient {
   }
 
   /**
+   * @public
    * <p>Deletes a configured table analysis rule.</p>
    */
   public deleteConfiguredTableAnalysisRule(
@@ -467,6 +485,7 @@ export class CleanRooms extends CleanRoomsClient {
   }
 
   /**
+   * @public
    * <p>Deletes a configured table association.</p>
    */
   public deleteConfiguredTableAssociation(
@@ -499,6 +518,7 @@ export class CleanRooms extends CleanRoomsClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified member from a collaboration. The removed member is placed in the
    *          Removed status and can't interact with the collaboration. The removed member's data is
    *          inaccessible to active members of the collaboration.</p>
@@ -530,6 +550,7 @@ export class CleanRooms extends CleanRoomsClient {
   }
 
   /**
+   * @public
    * <p>Deletes a specified membership. All resources under a membership must be deleted.</p>
    */
   public deleteMembership(
@@ -562,6 +583,7 @@ export class CleanRooms extends CleanRoomsClient {
   }
 
   /**
+   * @public
    * <p>Returns metadata about a collaboration.</p>
    */
   public getCollaboration(
@@ -594,6 +616,7 @@ export class CleanRooms extends CleanRoomsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a configured table.</p>
    */
   public getConfiguredTable(
@@ -626,6 +649,7 @@ export class CleanRooms extends CleanRoomsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a configured table analysis rule.</p>
    */
   public getConfiguredTableAnalysisRule(
@@ -658,6 +682,7 @@ export class CleanRooms extends CleanRoomsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a configured table association.</p>
    */
   public getConfiguredTableAssociation(
@@ -690,6 +715,7 @@ export class CleanRooms extends CleanRoomsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a specified membership for an identifier.</p>
    */
   public getMembership(
@@ -722,6 +748,7 @@ export class CleanRooms extends CleanRoomsClient {
   }
 
   /**
+   * @public
    * <p>Returns query processing metadata.</p>
    */
   public getProtectedQuery(
@@ -754,6 +781,7 @@ export class CleanRooms extends CleanRoomsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the schema for a relation within a collaboration.</p>
    */
   public getSchema(args: GetSchemaCommandInput, options?: __HttpHandlerOptions): Promise<GetSchemaCommandOutput>;
@@ -780,6 +808,7 @@ export class CleanRooms extends CleanRoomsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a schema analysis rule.</p>
    */
   public getSchemaAnalysisRule(
@@ -812,6 +841,7 @@ export class CleanRooms extends CleanRoomsClient {
   }
 
   /**
+   * @public
    * <p>Lists collaborations the caller owns, is active in, or has been invited to.</p>
    */
   public listCollaborations(
@@ -844,6 +874,7 @@ export class CleanRooms extends CleanRoomsClient {
   }
 
   /**
+   * @public
    * <p>Lists configured table associations for a membership.</p>
    */
   public listConfiguredTableAssociations(
@@ -876,6 +907,7 @@ export class CleanRooms extends CleanRoomsClient {
   }
 
   /**
+   * @public
    * <p>Lists configured tables.</p>
    */
   public listConfiguredTables(
@@ -908,6 +940,7 @@ export class CleanRooms extends CleanRoomsClient {
   }
 
   /**
+   * @public
    * <p>Lists all members within a collaboration.</p>
    */
   public listMembers(args: ListMembersCommandInput, options?: __HttpHandlerOptions): Promise<ListMembersCommandOutput>;
@@ -934,6 +967,7 @@ export class CleanRooms extends CleanRoomsClient {
   }
 
   /**
+   * @public
    * <p>Lists all memberships resources within the caller's account.</p>
    */
   public listMemberships(
@@ -966,6 +1000,7 @@ export class CleanRooms extends CleanRoomsClient {
   }
 
   /**
+   * @public
    * <p>Lists protected queries, sorted by the most recent query.</p>
    */
   public listProtectedQueries(
@@ -998,6 +1033,7 @@ export class CleanRooms extends CleanRoomsClient {
   }
 
   /**
+   * @public
    * <p>Lists the schemas for relations within a collaboration.</p>
    */
   public listSchemas(args: ListSchemasCommandInput, options?: __HttpHandlerOptions): Promise<ListSchemasCommandOutput>;
@@ -1024,6 +1060,40 @@ export class CleanRooms extends CleanRoomsClient {
   }
 
   /**
+   * @public
+   * <p>Lists all of the tags that have been added to a resource.</p>
+   */
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): Promise<ListTagsForResourceCommandOutput> | void {
+    const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Creates a protected query that is started by AWS Clean Rooms.</p>
    */
   public startProtectedQuery(
@@ -1056,6 +1126,67 @@ export class CleanRooms extends CleanRoomsClient {
   }
 
   /**
+   * @public
+   * <p>Tags a resource.</p>
+   */
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
+    cb?: (err: any, data?: TagResourceCommandOutput) => void
+  ): Promise<TagResourceCommandOutput> | void {
+    const command = new TagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Removes a tag or list of tags from a resource.</p>
+   */
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
+    cb?: (err: any, data?: UntagResourceCommandOutput) => void
+  ): Promise<UntagResourceCommandOutput> | void {
+    const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Updates collaboration metadata and can only be called by the collaboration owner.</p>
    */
   public updateCollaboration(
@@ -1088,6 +1219,7 @@ export class CleanRooms extends CleanRoomsClient {
   }
 
   /**
+   * @public
    * <p>Updates a configured table.</p>
    */
   public updateConfiguredTable(
@@ -1120,6 +1252,7 @@ export class CleanRooms extends CleanRoomsClient {
   }
 
   /**
+   * @public
    * <p>Updates a configured table analysis rule.</p>
    */
   public updateConfiguredTableAnalysisRule(
@@ -1152,6 +1285,7 @@ export class CleanRooms extends CleanRoomsClient {
   }
 
   /**
+   * @public
    * <p>Updates a configured table association.</p>
    */
   public updateConfiguredTableAssociation(
@@ -1184,6 +1318,7 @@ export class CleanRooms extends CleanRoomsClient {
   }
 
   /**
+   * @public
    * <p>Updates a membership.</p>
    */
   public updateMembership(
@@ -1216,6 +1351,7 @@ export class CleanRooms extends CleanRoomsClient {
   }
 
   /**
+   * @public
    * <p>Updates the processing of a currently running query.</p>
    */
   public updateProtectedQuery(

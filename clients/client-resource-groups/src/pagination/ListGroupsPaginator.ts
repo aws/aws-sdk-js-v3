@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListGroupsCommand, ListGroupsCommandInput, ListGroupsCommandOutput } from "../commands/ListGroupsCommand";
-import { ResourceGroups } from "../ResourceGroups";
 import { ResourceGroupsClient } from "../ResourceGroupsClient";
 import { ResourceGroupsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ResourceGroupsClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListGroupsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ResourceGroups,
-  input: ListGroupsCommandInput,
-  ...args: any
-): Promise<ListGroupsCommandOutput> => {
-  // @ts-ignore
-  return await client.listGroups(input, ...args);
-};
 export async function* paginateListGroups(
   config: ResourceGroupsPaginationConfiguration,
   input: ListGroupsCommandInput,
@@ -40,9 +31,7 @@ export async function* paginateListGroups(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof ResourceGroups) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ResourceGroupsClient) {
+    if (config.client instanceof ResourceGroupsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ResourceGroups | ResourceGroupsClient");

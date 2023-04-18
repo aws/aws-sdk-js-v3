@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import {
-  ListPublishingDestinationsRequest,
-  ListPublishingDestinationsRequestFilterSensitiveLog,
-  ListPublishingDestinationsResponse,
-  ListPublishingDestinationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListPublishingDestinationsCommand,
-  serializeAws_restJson1ListPublishingDestinationsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListPublishingDestinationsRequest, ListPublishingDestinationsResponse } from "../models/models_0";
+import { de_ListPublishingDestinationsCommand, se_ListPublishingDestinationsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListPublishingDestinationsCommand}.
+ */
 export interface ListPublishingDestinationsCommandInput extends ListPublishingDestinationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListPublishingDestinationsCommand}.
+ */
 export interface ListPublishingDestinationsCommandOutput extends ListPublishingDestinationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of publishing destinations associated with the specified
  *         <code>detectorId</code>.</p>
  * @example
@@ -37,13 +40,27 @@ export interface ListPublishingDestinationsCommandOutput extends ListPublishingD
  * import { GuardDutyClient, ListPublishingDestinationsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, ListPublishingDestinationsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = { // ListPublishingDestinationsRequest
+ *   DetectorId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListPublishingDestinationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPublishingDestinationsCommandInput - {@link ListPublishingDestinationsCommandInput}
+ * @returns {@link ListPublishingDestinationsCommandOutput}
  * @see {@link ListPublishingDestinationsCommandInput} for command's `input` shape.
  * @see {@link ListPublishingDestinationsCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>A bad request exception object.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>An internal server error exception object.</p>
+ *
  *
  */
 export class ListPublishingDestinationsCommand extends $Command<
@@ -63,6 +80,9 @@ export class ListPublishingDestinationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPublishingDestinationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +111,8 @@ export class ListPublishingDestinationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPublishingDestinationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPublishingDestinationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,15 +122,21 @@ export class ListPublishingDestinationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPublishingDestinationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPublishingDestinationsCommand(input, context);
+    return se_ListPublishingDestinationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListPublishingDestinationsCommandOutput> {
-    return deserializeAws_restJson1ListPublishingDestinationsCommand(output, context);
+    return de_ListPublishingDestinationsCommand(output, context);
   }
 
   // Start section: command_body_extra

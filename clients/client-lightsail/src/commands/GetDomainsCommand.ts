@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  GetDomainsRequest,
-  GetDomainsRequestFilterSensitiveLog,
-  GetDomainsResult,
-  GetDomainsResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetDomainsCommand,
-  serializeAws_json1_1GetDomainsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetDomainsRequest, GetDomainsResult } from "../models/models_1";
+import { de_GetDomainsCommand, se_GetDomainsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetDomainsCommand}.
+ */
 export interface GetDomainsCommandInput extends GetDomainsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetDomainsCommand}.
+ */
 export interface GetDomainsCommandOutput extends GetDomainsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all domains in the user's account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,49 @@ export interface GetDomainsCommandOutput extends GetDomainsResult, __MetadataBea
  * import { LightsailClient, GetDomainsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetDomainsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // GetDomainsRequest
+ *   pageToken: "STRING_VALUE",
+ * };
  * const command = new GetDomainsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDomainsCommandInput - {@link GetDomainsCommandInput}
+ * @returns {@link GetDomainsCommandOutput}
  * @see {@link GetDomainsCommandInput} for command's `input` shape.
  * @see {@link GetDomainsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
+ *       credentials to access a resource.</p>
+ *
+ * @throws {@link AccountSetupInProgressException} (client fault)
+ *  <p>Lightsail throws this exception when an account is still in the setup in progress
+ *       state.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Lightsail throws this exception when user input does not conform to the validation rules
+ *       of an input field.</p>
+ *          <note>
+ *             <p>Domain and distribution APIs are only available in the N. Virginia
+ *           (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services
+ *         Region configuration to <code>us-east-1</code> to create, view, or edit these
+ *         resources.</p>
+ *          </note>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Lightsail throws this exception when it cannot find a resource.</p>
+ *
+ * @throws {@link OperationFailureException} (client fault)
+ *  <p>Lightsail throws this exception when an operation fails to execute.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>A general service exception.</p>
+ *
+ * @throws {@link UnauthenticatedException} (client fault)
+ *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
+ *
  *
  */
 export class GetDomainsCommand extends $Command<
@@ -62,6 +101,9 @@ export class GetDomainsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDomainsCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +130,8 @@ export class GetDomainsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDomainsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDomainsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +141,18 @@ export class GetDomainsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDomainsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDomainsCommand(input, context);
+    return se_GetDomainsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDomainsCommandOutput> {
-    return deserializeAws_json1_1GetDomainsCommand(output, context);
+    return de_GetDomainsCommand(output, context);
   }
 
   // Start section: command_body_extra

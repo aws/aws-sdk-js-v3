@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { DeleteFunctionRequest, DeleteFunctionRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_restXmlDeleteFunctionCommand,
-  serializeAws_restXmlDeleteFunctionCommand,
-} from "../protocols/Aws_restXml";
+import { DeleteFunctionRequest } from "../models/models_1";
+import { de_DeleteFunctionCommand, se_DeleteFunctionCommand } from "../protocols/Aws_restXml";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteFunctionCommand}.
+ */
 export interface DeleteFunctionCommandInput extends DeleteFunctionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteFunctionCommand}.
+ */
 export interface DeleteFunctionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a CloudFront function.</p>
  *          <p>You cannot delete a function if it's associated with a cache behavior. First, update
  * 			your distributions to remove the function association from all cache behaviors, then
@@ -37,13 +45,37 @@ export interface DeleteFunctionCommandOutput extends __MetadataBearer {}
  * import { CloudFrontClient, DeleteFunctionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, DeleteFunctionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // DeleteFunctionRequest
+ *   Name: "STRING_VALUE", // required
+ *   IfMatch: "STRING_VALUE", // required
+ * };
  * const command = new DeleteFunctionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFunctionCommandInput - {@link DeleteFunctionCommandInput}
+ * @returns {@link DeleteFunctionCommandOutput}
  * @see {@link DeleteFunctionCommandInput} for command's `input` shape.
  * @see {@link DeleteFunctionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link FunctionInUse} (client fault)
+ *  <p>Cannot delete the function because it's attached to one or more cache
+ * 			behaviors.</p>
+ *
+ * @throws {@link InvalidIfMatchVersion} (client fault)
+ *  <p>The <code>If-Match</code> version is missing or not valid.</p>
+ *
+ * @throws {@link NoSuchFunctionExists} (client fault)
+ *  <p>The function does not exist.</p>
+ *
+ * @throws {@link PreconditionFailed} (client fault)
+ *  <p>The precondition in one or more of the request fields evaluated to
+ * 			<code>false</code>.</p>
+ *
+ * @throws {@link UnsupportedOperation} (client fault)
+ *  <p>This operation is not supported in this region.</p>
+ *
  *
  */
 export class DeleteFunctionCommand extends $Command<
@@ -63,6 +95,9 @@ export class DeleteFunctionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFunctionCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +126,8 @@ export class DeleteFunctionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFunctionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +137,18 @@ export class DeleteFunctionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteFunctionCommand(input, context);
+    return se_DeleteFunctionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFunctionCommandOutput> {
-    return deserializeAws_restXmlDeleteFunctionCommand(output, context);
+    return de_DeleteFunctionCommand(output, context);
   }
 
   // Start section: command_body_extra

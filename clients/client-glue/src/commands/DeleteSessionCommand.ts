@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  DeleteSessionRequest,
-  DeleteSessionRequestFilterSensitiveLog,
-  DeleteSessionResponse,
-  DeleteSessionResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteSessionCommand,
-  serializeAws_json1_1DeleteSessionCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteSessionRequest, DeleteSessionResponse } from "../models/models_1";
+import { de_DeleteSessionCommand, se_DeleteSessionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteSessionCommand}.
+ */
 export interface DeleteSessionCommandInput extends DeleteSessionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteSessionCommand}.
+ */
 export interface DeleteSessionCommandOutput extends DeleteSessionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,38 @@ export interface DeleteSessionCommandOutput extends DeleteSessionResponse, __Met
  * import { GlueClient, DeleteSessionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DeleteSessionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // DeleteSessionRequest
+ *   Id: "STRING_VALUE", // required
+ *   RequestOrigin: "STRING_VALUE",
+ * };
  * const command = new DeleteSessionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSessionCommandInput - {@link DeleteSessionCommandInput}
+ * @returns {@link DeleteSessionCommandOutput}
  * @see {@link DeleteSessionCommandInput} for command's `input` shape.
  * @see {@link DeleteSessionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to a resource was denied.</p>
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>Two processes are trying to modify a resource simultaneously.</p>
+ *
+ * @throws {@link IllegalSessionStateException} (client fault)
+ *  <p>The session is in an invalid state to perform a requested operation.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class DeleteSessionCommand extends $Command<
@@ -62,6 +90,9 @@ export class DeleteSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +119,8 @@ export class DeleteSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSessionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSessionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +130,18 @@ export class DeleteSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteSessionCommand(input, context);
+    return se_DeleteSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSessionCommandOutput> {
-    return deserializeAws_json1_1DeleteSessionCommand(output, context);
+    return de_DeleteSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

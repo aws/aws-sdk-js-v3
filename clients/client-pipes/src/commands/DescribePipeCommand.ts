@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribePipeRequest,
-  DescribePipeRequestFilterSensitiveLog,
-  DescribePipeResponse,
-  DescribePipeResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribePipeRequest, DescribePipeResponse, DescribePipeResponseFilterSensitiveLog } from "../models/models_0";
 import { PipesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PipesClient";
-import {
-  deserializeAws_restJson1DescribePipeCommand,
-  serializeAws_restJson1DescribePipeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribePipeCommand, se_DescribePipeCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribePipeCommand}.
+ */
 export interface DescribePipeCommandInput extends DescribePipeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribePipeCommand}.
+ */
 export interface DescribePipeCommandOutput extends DescribePipeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get the information about an existing pipe. For more information about pipes, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html">Amazon EventBridge Pipes</a> in the Amazon EventBridge User Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,31 @@ export interface DescribePipeCommandOutput extends DescribePipeResponse, __Metad
  * import { PipesClient, DescribePipeCommand } from "@aws-sdk/client-pipes"; // ES Modules import
  * // const { PipesClient, DescribePipeCommand } = require("@aws-sdk/client-pipes"); // CommonJS import
  * const client = new PipesClient(config);
+ * const input = { // DescribePipeRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DescribePipeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePipeCommandInput - {@link DescribePipeCommandInput}
+ * @returns {@link DescribePipeCommandOutput}
  * @see {@link DescribePipeCommandInput} for command's `input` shape.
  * @see {@link DescribePipeCommandOutput} for command's `response` shape.
  * @see {@link PipesClientResolvedConfig | config} for PipesClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>An entity that you specified does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>An action was throttled.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that an error has occurred while performing a validate operation.</p>
+ *
  *
  */
 export class DescribePipeCommand extends $Command<
@@ -62,6 +83,9 @@ export class DescribePipeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePipeCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,7 +112,7 @@ export class DescribePipeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePipeRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribePipeResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -99,12 +123,18 @@ export class DescribePipeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePipeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribePipeCommand(input, context);
+    return se_DescribePipeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePipeCommandOutput> {
-    return deserializeAws_restJson1DescribePipeCommand(output, context);
+    return de_DescribePipeCommand(output, context);
   }
 
   // Start section: command_body_extra

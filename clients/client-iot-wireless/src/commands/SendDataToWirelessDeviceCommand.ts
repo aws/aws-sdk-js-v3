@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  SendDataToWirelessDeviceRequest,
-  SendDataToWirelessDeviceRequestFilterSensitiveLog,
-  SendDataToWirelessDeviceResponse,
-  SendDataToWirelessDeviceResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1SendDataToWirelessDeviceCommand,
-  serializeAws_restJson1SendDataToWirelessDeviceCommand,
-} from "../protocols/Aws_restJson1";
+import { SendDataToWirelessDeviceRequest, SendDataToWirelessDeviceResponse } from "../models/models_1";
+import { de_SendDataToWirelessDeviceCommand, se_SendDataToWirelessDeviceCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link SendDataToWirelessDeviceCommand}.
+ */
 export interface SendDataToWirelessDeviceCommandInput extends SendDataToWirelessDeviceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SendDataToWirelessDeviceCommand}.
+ */
 export interface SendDataToWirelessDeviceCommandOutput extends SendDataToWirelessDeviceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends a decrypted application data frame to a device.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,53 @@ export interface SendDataToWirelessDeviceCommandOutput extends SendDataToWireles
  * import { IoTWirelessClient, SendDataToWirelessDeviceCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, SendDataToWirelessDeviceCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // SendDataToWirelessDeviceRequest
+ *   Id: "STRING_VALUE", // required
+ *   TransmitMode: Number("int"), // required
+ *   PayloadData: "STRING_VALUE", // required
+ *   WirelessMetadata: { // WirelessMetadata
+ *     LoRaWAN: { // LoRaWANSendDataToDevice
+ *       FPort: Number("int"),
+ *       ParticipatingGateways: { // ParticipatingGateways
+ *         DownlinkMode: "SEQUENTIAL" || "CONCURRENT" || "USING_UPLINK_GATEWAY", // required
+ *         GatewayList: [ // GatewayList // required
+ *           { // GatewayListItem
+ *             GatewayId: "STRING_VALUE", // required
+ *             DownlinkFrequency: Number("int"), // required
+ *           },
+ *         ],
+ *         TransmissionInterval: Number("int"), // required
+ *       },
+ *     },
+ *     Sidewalk: { // SidewalkSendDataToDevice
+ *       Seq: Number("int"),
+ *       MessageType: "CUSTOM_COMMAND_ID_NOTIFY" || "CUSTOM_COMMAND_ID_GET" || "CUSTOM_COMMAND_ID_SET" || "CUSTOM_COMMAND_ID_RESP",
+ *       AckModeRetryDurationSecs: Number("int"),
+ *     },
+ *   },
+ * };
  * const command = new SendDataToWirelessDeviceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SendDataToWirelessDeviceCommandInput - {@link SendDataToWirelessDeviceCommandInput}
+ * @returns {@link SendDataToWirelessDeviceCommandOutput}
  * @see {@link SendDataToWirelessDeviceCommandInput} for command's `input` shape.
  * @see {@link SendDataToWirelessDeviceCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred while processing a request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because it exceeded the allowed API request rate.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input did not meet the specified constraints.</p>
+ *
  *
  */
 export class SendDataToWirelessDeviceCommand extends $Command<
@@ -62,6 +105,9 @@ export class SendDataToWirelessDeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendDataToWirelessDeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +136,8 @@ export class SendDataToWirelessDeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendDataToWirelessDeviceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SendDataToWirelessDeviceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +147,18 @@ export class SendDataToWirelessDeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendDataToWirelessDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SendDataToWirelessDeviceCommand(input, context);
+    return se_SendDataToWirelessDeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendDataToWirelessDeviceCommandOutput> {
-    return deserializeAws_restJson1SendDataToWirelessDeviceCommand(output, context);
+    return de_SendDataToWirelessDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

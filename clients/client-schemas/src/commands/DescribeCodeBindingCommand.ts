@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeCodeBindingRequest,
-  DescribeCodeBindingRequestFilterSensitiveLog,
-  DescribeCodeBindingResponse,
-  DescribeCodeBindingResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeCodeBindingCommand,
-  serializeAws_restJson1DescribeCodeBindingCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeCodeBindingRequest, DescribeCodeBindingResponse } from "../models/models_0";
+import { de_DescribeCodeBindingCommand, se_DescribeCodeBindingCommand } from "../protocols/Aws_restJson1";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeCodeBindingCommand}.
+ */
 export interface DescribeCodeBindingCommandInput extends DescribeCodeBindingRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeCodeBindingCommand}.
+ */
 export interface DescribeCodeBindingCommandOutput extends DescribeCodeBindingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describe the code binding URI.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,34 @@ export interface DescribeCodeBindingCommandOutput extends DescribeCodeBindingRes
  * import { SchemasClient, DescribeCodeBindingCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, DescribeCodeBindingCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
  * const client = new SchemasClient(config);
+ * const input = { // DescribeCodeBindingRequest
+ *   Language: "STRING_VALUE", // required
+ *   RegistryName: "STRING_VALUE", // required
+ *   SchemaName: "STRING_VALUE", // required
+ *   SchemaVersion: "STRING_VALUE",
+ * };
  * const command = new DescribeCodeBindingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCodeBindingCommandInput - {@link DescribeCodeBindingCommandInput}
+ * @returns {@link DescribeCodeBindingCommandOutput}
  * @see {@link DescribeCodeBindingCommandInput} for command's `input` shape.
  * @see {@link DescribeCodeBindingCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *
  *
  */
 export class DescribeCodeBindingCommand extends $Command<
@@ -62,6 +86,9 @@ export class DescribeCodeBindingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCodeBindingCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +117,8 @@ export class DescribeCodeBindingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCodeBindingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeCodeBindingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +128,18 @@ export class DescribeCodeBindingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCodeBindingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeCodeBindingCommand(input, context);
+    return se_DescribeCodeBindingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCodeBindingCommandOutput> {
-    return deserializeAws_restJson1DescribeCodeBindingCommand(output, context);
+    return de_DescribeCodeBindingCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import {
-  DeletePullThroughCacheRuleRequest,
-  DeletePullThroughCacheRuleRequestFilterSensitiveLog,
-  DeletePullThroughCacheRuleResponse,
-  DeletePullThroughCacheRuleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeletePullThroughCacheRuleCommand,
-  serializeAws_json1_1DeletePullThroughCacheRuleCommand,
-} from "../protocols/Aws_json1_1";
+import { DeletePullThroughCacheRuleRequest, DeletePullThroughCacheRuleResponse } from "../models/models_0";
+import { de_DeletePullThroughCacheRuleCommand, se_DeletePullThroughCacheRuleCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeletePullThroughCacheRuleCommand}.
+ */
 export interface DeletePullThroughCacheRuleCommandInput extends DeletePullThroughCacheRuleRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeletePullThroughCacheRuleCommand}.
+ */
 export interface DeletePullThroughCacheRuleCommandOutput extends DeletePullThroughCacheRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a pull through cache rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,34 @@ export interface DeletePullThroughCacheRuleCommandOutput extends DeletePullThrou
  * import { ECRClient, DeletePullThroughCacheRuleCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, DeletePullThroughCacheRuleCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
+ * const input = { // DeletePullThroughCacheRuleRequest
+ *   ecrRepositoryPrefix: "STRING_VALUE", // required
+ *   registryId: "STRING_VALUE",
+ * };
  * const command = new DeletePullThroughCacheRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePullThroughCacheRuleCommandInput - {@link DeletePullThroughCacheRuleCommandInput}
+ * @returns {@link DeletePullThroughCacheRuleCommandOutput}
  * @see {@link DeletePullThroughCacheRuleCommandInput} for command's `input` shape.
  * @see {@link DeletePullThroughCacheRuleCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *             request.</p>
+ *
+ * @throws {@link PullThroughCacheRuleNotFoundException} (client fault)
+ *  <p>The pull through cache rule was not found. Specify a valid pull through cache rule and
+ *             try again.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There was an exception validating this request.</p>
+ *
  *
  */
 export class DeletePullThroughCacheRuleCommand extends $Command<
@@ -62,6 +86,9 @@ export class DeletePullThroughCacheRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePullThroughCacheRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +117,8 @@ export class DeletePullThroughCacheRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePullThroughCacheRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeletePullThroughCacheRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +128,21 @@ export class DeletePullThroughCacheRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePullThroughCacheRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeletePullThroughCacheRuleCommand(input, context);
+    return se_DeletePullThroughCacheRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeletePullThroughCacheRuleCommandOutput> {
-    return deserializeAws_json1_1DeletePullThroughCacheRuleCommand(output, context);
+    return de_DeletePullThroughCacheRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

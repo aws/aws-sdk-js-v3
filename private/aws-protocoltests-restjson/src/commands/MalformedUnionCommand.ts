@@ -12,14 +12,21 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { MalformedUnionInput, MalformedUnionInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1MalformedUnionCommand,
-  serializeAws_restJson1MalformedUnionCommand,
-} from "../protocols/Aws_restJson1";
+import { MalformedUnionInput } from "../models/models_0";
+import { de_MalformedUnionCommand, se_MalformedUnionCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * @public
+ *
+ * The input for {@link MalformedUnionCommand}.
+ */
 export interface MalformedUnionCommandInput extends MalformedUnionInput {}
+/**
+ * @public
+ *
+ * The output of {@link MalformedUnionCommand}.
+ */
 export interface MalformedUnionCommandOutput extends __MetadataBearer {}
 
 export class MalformedUnionCommand extends $Command<
@@ -30,6 +37,9 @@ export class MalformedUnionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: MalformedUnionCommandInput) {
     // Start section: command_constructor
     super();
@@ -55,8 +65,8 @@ export class MalformedUnionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MalformedUnionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -66,12 +76,18 @@ export class MalformedUnionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: MalformedUnionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1MalformedUnionCommand(input, context);
+    return se_MalformedUnionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MalformedUnionCommandOutput> {
-    return deserializeAws_restJson1MalformedUnionCommand(output, context);
+    return de_MalformedUnionCommand(output, context);
   }
 
   // Start section: command_body_extra

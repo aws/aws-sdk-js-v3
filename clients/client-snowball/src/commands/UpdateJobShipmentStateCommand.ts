@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateJobShipmentStateRequest,
-  UpdateJobShipmentStateRequestFilterSensitiveLog,
-  UpdateJobShipmentStateResult,
-  UpdateJobShipmentStateResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateJobShipmentStateCommand,
-  serializeAws_json1_1UpdateJobShipmentStateCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateJobShipmentStateRequest, UpdateJobShipmentStateResult } from "../models/models_0";
+import { de_UpdateJobShipmentStateCommand, se_UpdateJobShipmentStateCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateJobShipmentStateCommand}.
+ */
 export interface UpdateJobShipmentStateCommandInput extends UpdateJobShipmentStateRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateJobShipmentStateCommand}.
+ */
 export interface UpdateJobShipmentStateCommandOutput extends UpdateJobShipmentStateResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the state when a shipment state changes to a different state.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,28 @@ export interface UpdateJobShipmentStateCommandOutput extends UpdateJobShipmentSt
  * import { SnowballClient, UpdateJobShipmentStateCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, UpdateJobShipmentStateCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
  * const client = new SnowballClient(config);
+ * const input = { // UpdateJobShipmentStateRequest
+ *   JobId: "STRING_VALUE", // required
+ *   ShipmentState: "RECEIVED" || "RETURNED", // required
+ * };
  * const command = new UpdateJobShipmentStateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateJobShipmentStateCommandInput - {@link UpdateJobShipmentStateCommandInput}
+ * @returns {@link UpdateJobShipmentStateCommandOutput}
  * @see {@link UpdateJobShipmentStateCommandInput} for command's `input` shape.
  * @see {@link UpdateJobShipmentStateCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
+ *
+ * @throws {@link InvalidJobStateException} (client fault)
+ *  <p>The action can't be performed because the job's current state doesn't allow that action
+ *       to be performed.</p>
+ *
+ * @throws {@link InvalidResourceException} (client fault)
+ *  <p>The specified resource can't be found. Check the information you provided in your last
+ *       request, and try again.</p>
+ *
  *
  */
 export class UpdateJobShipmentStateCommand extends $Command<
@@ -62,6 +80,9 @@ export class UpdateJobShipmentStateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateJobShipmentStateCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +111,8 @@ export class UpdateJobShipmentStateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateJobShipmentStateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateJobShipmentStateResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +122,18 @@ export class UpdateJobShipmentStateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateJobShipmentStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateJobShipmentStateCommand(input, context);
+    return se_UpdateJobShipmentStateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateJobShipmentStateCommandOutput> {
-    return deserializeAws_json1_1UpdateJobShipmentStateCommand(output, context);
+    return de_UpdateJobShipmentStateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -6,12 +6,11 @@ import {
   SearchFlowExecutionsCommandInput,
   SearchFlowExecutionsCommandOutput,
 } from "../commands/SearchFlowExecutionsCommand";
-import { IoTThingsGraph } from "../IoTThingsGraph";
 import { IoTThingsGraphClient } from "../IoTThingsGraphClient";
 import { IoTThingsGraphPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: IoTThingsGraphClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new SearchFlowExecutionsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: IoTThingsGraph,
-  input: SearchFlowExecutionsCommandInput,
-  ...args: any
-): Promise<SearchFlowExecutionsCommandOutput> => {
-  // @ts-ignore
-  return await client.searchFlowExecutions(input, ...args);
-};
 export async function* paginateSearchFlowExecutions(
   config: IoTThingsGraphPaginationConfiguration,
   input: SearchFlowExecutionsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateSearchFlowExecutions(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof IoTThingsGraph) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IoTThingsGraphClient) {
+    if (config.client instanceof IoTThingsGraphClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected IoTThingsGraph | IoTThingsGraphClient");

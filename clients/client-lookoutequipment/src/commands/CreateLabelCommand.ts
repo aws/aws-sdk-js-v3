@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
-import {
-  CreateLabelRequest,
-  CreateLabelRequestFilterSensitiveLog,
-  CreateLabelResponse,
-  CreateLabelResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateLabelCommand,
-  serializeAws_json1_0CreateLabelCommand,
-} from "../protocols/Aws_json1_0";
+import { CreateLabelRequest, CreateLabelResponse } from "../models/models_0";
+import { de_CreateLabelCommand, se_CreateLabelCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateLabelCommand}.
+ */
 export interface CreateLabelCommandInput extends CreateLabelRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateLabelCommand}.
+ */
 export interface CreateLabelCommandOutput extends CreateLabelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  * Creates a label for an event.
  * </p>
@@ -38,13 +41,52 @@ export interface CreateLabelCommandOutput extends CreateLabelResponse, __Metadat
  * import { LookoutEquipmentClient, CreateLabelCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, CreateLabelCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
+ * const input = { // CreateLabelRequest
+ *   LabelGroupName: "STRING_VALUE", // required
+ *   StartTime: new Date("TIMESTAMP"), // required
+ *   EndTime: new Date("TIMESTAMP"), // required
+ *   Rating: "ANOMALY" || "NO_ANOMALY" || "NEUTRAL", // required
+ *   FaultCode: "STRING_VALUE",
+ *   Notes: "STRING_VALUE",
+ *   Equipment: "STRING_VALUE",
+ *   ClientToken: "STRING_VALUE", // required
+ * };
  * const command = new CreateLabelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLabelCommandInput - {@link CreateLabelCommandInput}
+ * @returns {@link CreateLabelCommandOutput}
  * @see {@link CreateLabelCommandInput} for command's `input` shape.
  * @see {@link CreateLabelCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The request could not be completed because you do not have access to the resource.
+ *       </p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p> The request could not be completed due to a conflict with the current state of the
+ *          target resource. </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> Processing of the request has failed because of an unknown error, exception or failure.
+ *       </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p> The resource requested could not be found. Verify the resource ID and retry your
+ *          request. </p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p> Resource limitations have been exceeded. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a
+ *          related AWS service that's being utilized. </p>
+ *
  *
  */
 export class CreateLabelCommand extends $Command<
@@ -64,6 +106,9 @@ export class CreateLabelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLabelCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +135,8 @@ export class CreateLabelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLabelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLabelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +146,18 @@ export class CreateLabelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLabelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateLabelCommand(input, context);
+    return se_CreateLabelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLabelCommandOutput> {
-    return deserializeAws_json1_0CreateLabelCommand(output, context);
+    return de_CreateLabelCommand(output, context);
   }
 
   // Start section: command_body_extra

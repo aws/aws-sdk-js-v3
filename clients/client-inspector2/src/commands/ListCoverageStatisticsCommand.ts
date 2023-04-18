@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
-import {
-  ListCoverageStatisticsRequest,
-  ListCoverageStatisticsRequestFilterSensitiveLog,
-  ListCoverageStatisticsResponse,
-  ListCoverageStatisticsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListCoverageStatisticsCommand,
-  serializeAws_restJson1ListCoverageStatisticsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListCoverageStatisticsRequest, ListCoverageStatisticsResponse } from "../models/models_0";
+import { de_ListCoverageStatisticsCommand, se_ListCoverageStatisticsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListCoverageStatisticsCommand}.
+ */
 export interface ListCoverageStatisticsCommandInput extends ListCoverageStatisticsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListCoverageStatisticsCommand}.
+ */
 export interface ListCoverageStatisticsCommandOutput extends ListCoverageStatisticsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists Amazon Inspector coverage statistics for your environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,81 @@ export interface ListCoverageStatisticsCommandOutput extends ListCoverageStatist
  * import { Inspector2Client, ListCoverageStatisticsCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
  * // const { Inspector2Client, ListCoverageStatisticsCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
  * const client = new Inspector2Client(config);
+ * const input = { // ListCoverageStatisticsRequest
+ *   filterCriteria: { // CoverageFilterCriteria
+ *     scanStatusCode: [ // CoverageStringFilterList
+ *       { // CoverageStringFilter
+ *         comparison: "STRING_VALUE", // required
+ *         value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     scanStatusReason: [
+ *       {
+ *         comparison: "STRING_VALUE", // required
+ *         value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     accountId: [
+ *       {
+ *         comparison: "STRING_VALUE", // required
+ *         value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     resourceId: [
+ *       {
+ *         comparison: "STRING_VALUE", // required
+ *         value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     resourceType: [
+ *       {
+ *         comparison: "STRING_VALUE", // required
+ *         value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     scanType: "<CoverageStringFilterList>",
+ *     ecrRepositoryName: "<CoverageStringFilterList>",
+ *     ecrImageTags: "<CoverageStringFilterList>",
+ *     ec2InstanceTags: [ // CoverageMapFilterList
+ *       { // CoverageMapFilter
+ *         comparison: "STRING_VALUE", // required
+ *         key: "STRING_VALUE", // required
+ *         value: "STRING_VALUE",
+ *       },
+ *     ],
+ *     lambdaFunctionName: "<CoverageStringFilterList>",
+ *     lambdaFunctionTags: [
+ *       {
+ *         comparison: "STRING_VALUE", // required
+ *         key: "STRING_VALUE", // required
+ *         value: "STRING_VALUE",
+ *       },
+ *     ],
+ *     lambdaFunctionRuntime: "<CoverageStringFilterList>",
+ *   },
+ *   groupBy: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListCoverageStatisticsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCoverageStatisticsCommandInput - {@link ListCoverageStatisticsCommandInput}
+ * @returns {@link ListCoverageStatisticsCommandOutput}
  * @see {@link ListCoverageStatisticsCommandInput} for command's `input` shape.
  * @see {@link ListCoverageStatisticsCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The limit on the number of requests per second was exceeded.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request has failed validation due to missing required fields or having invalid
+ *          inputs.</p>
+ *
  *
  */
 export class ListCoverageStatisticsCommand extends $Command<
@@ -62,6 +133,9 @@ export class ListCoverageStatisticsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCoverageStatisticsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +164,8 @@ export class ListCoverageStatisticsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCoverageStatisticsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCoverageStatisticsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +175,18 @@ export class ListCoverageStatisticsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCoverageStatisticsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListCoverageStatisticsCommand(input, context);
+    return se_ListCoverageStatisticsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCoverageStatisticsCommandOutput> {
-    return deserializeAws_restJson1ListCoverageStatisticsCommand(output, context);
+    return de_ListCoverageStatisticsCommand(output, context);
   }
 
   // Start section: command_body_extra

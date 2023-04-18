@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import {
-  GetVpcLinksRequest,
-  GetVpcLinksRequestFilterSensitiveLog,
-  GetVpcLinksResponse,
-  GetVpcLinksResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetVpcLinksCommand,
-  serializeAws_restJson1GetVpcLinksCommand,
-} from "../protocols/Aws_restJson1";
+import { GetVpcLinksRequest, GetVpcLinksResponse } from "../models/models_0";
+import { de_GetVpcLinksCommand, se_GetVpcLinksCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetVpcLinksCommand}.
+ */
 export interface GetVpcLinksCommandInput extends GetVpcLinksRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetVpcLinksCommand}.
+ */
 export interface GetVpcLinksCommandOutput extends GetVpcLinksResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a collection of VPC links.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,26 @@ export interface GetVpcLinksCommandOutput extends GetVpcLinksResponse, __Metadat
  * import { ApiGatewayV2Client, GetVpcLinksCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, GetVpcLinksCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = { // GetVpcLinksRequest
+ *   MaxResults: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetVpcLinksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetVpcLinksCommandInput - {@link GetVpcLinksCommandInput}
+ * @returns {@link GetVpcLinksCommandOutput}
  * @see {@link GetVpcLinksCommandInput} for command's `input` shape.
  * @see {@link GetVpcLinksCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
+ *
  *
  */
 export class GetVpcLinksCommand extends $Command<
@@ -62,6 +78,9 @@ export class GetVpcLinksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetVpcLinksCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +107,8 @@ export class GetVpcLinksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetVpcLinksRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetVpcLinksResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +118,18 @@ export class GetVpcLinksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetVpcLinksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetVpcLinksCommand(input, context);
+    return se_GetVpcLinksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVpcLinksCommandOutput> {
-    return deserializeAws_restJson1GetVpcLinksCommand(output, context);
+    return de_GetVpcLinksCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  GetConferencePreferenceRequest,
-  GetConferencePreferenceRequestFilterSensitiveLog,
-  GetConferencePreferenceResponse,
-  GetConferencePreferenceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetConferencePreferenceCommand,
-  serializeAws_json1_1GetConferencePreferenceCommand,
-} from "../protocols/Aws_json1_1";
+import { GetConferencePreferenceRequest, GetConferencePreferenceResponse } from "../models/models_0";
+import { de_GetConferencePreferenceCommand, se_GetConferencePreferenceCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetConferencePreferenceCommand}.
+ */
 export interface GetConferencePreferenceCommandInput extends GetConferencePreferenceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetConferencePreferenceCommand}.
+ */
 export interface GetConferencePreferenceCommandOutput extends GetConferencePreferenceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the existing conference preferences.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,20 @@ export interface GetConferencePreferenceCommandOutput extends GetConferencePrefe
  * import { AlexaForBusinessClient, GetConferencePreferenceCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, GetConferencePreferenceCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = {};
  * const command = new GetConferencePreferenceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetConferencePreferenceCommandInput - {@link GetConferencePreferenceCommandInput}
+ * @returns {@link GetConferencePreferenceCommandOutput}
  * @see {@link GetConferencePreferenceCommandInput} for command's `input` shape.
  * @see {@link GetConferencePreferenceCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
  *
  */
 export class GetConferencePreferenceCommand extends $Command<
@@ -62,6 +72,9 @@ export class GetConferencePreferenceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetConferencePreferenceCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +103,8 @@ export class GetConferencePreferenceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetConferencePreferenceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetConferencePreferenceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +114,18 @@ export class GetConferencePreferenceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetConferencePreferenceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetConferencePreferenceCommand(input, context);
+    return se_GetConferencePreferenceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConferencePreferenceCommandOutput> {
-    return deserializeAws_json1_1GetConferencePreferenceCommand(output, context);
+    return de_GetConferencePreferenceCommand(output, context);
   }
 
   // Start section: command_body_extra

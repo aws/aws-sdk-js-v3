@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  ListAccountSettingsRequest,
-  ListAccountSettingsRequestFilterSensitiveLog,
-  ListAccountSettingsResponse,
-  ListAccountSettingsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListAccountSettingsCommand,
-  serializeAws_json1_1ListAccountSettingsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListAccountSettingsRequest, ListAccountSettingsResponse } from "../models/models_0";
+import { de_ListAccountSettingsCommand, se_ListAccountSettingsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListAccountSettingsCommand}.
+ */
 export interface ListAccountSettingsCommandInput extends ListAccountSettingsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListAccountSettingsCommand}.
+ */
 export interface ListAccountSettingsCommandOutput extends ListAccountSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the account settings for a specified principal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,101 @@ export interface ListAccountSettingsCommandOutput extends ListAccountSettingsRes
  * import { ECSClient, ListAccountSettingsCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, ListAccountSettingsCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // ListAccountSettingsRequest
+ *   name: "serviceLongArnFormat" || "taskLongArnFormat" || "containerInstanceLongArnFormat" || "awsvpcTrunking" || "containerInsights" || "fargateFIPSMode",
+ *   value: "STRING_VALUE",
+ *   principalArn: "STRING_VALUE",
+ *   effectiveSettings: true || false,
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListAccountSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAccountSettingsCommandInput - {@link ListAccountSettingsCommandInput}
+ * @returns {@link ListAccountSettingsCommandOutput}
  * @see {@link ListAccountSettingsCommandInput} for command's `input` shape.
  * @see {@link ListAccountSettingsCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action. This client action might be using
+ * 			an action or resource on behalf of a user that doesn't have permissions to use the
+ * 			action or resource,. Or, it might be specifying an identifier that isn't valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter isn't valid. Review the available parameters for the API
+ * 			request.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server issue.</p>
+ *
+ *
+ * @example To view your effective account settings
+ * ```javascript
+ * // This example displays the effective account settings for your account.
+ * const input = {
+ *   "effectiveSettings": true
+ * };
+ * const command = new ListAccountSettingsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "settings": [
+ *     {
+ *       "name": "containerInstanceLongArnFormat",
+ *       "value": "disabled",
+ *       "principalArn": "arn:aws:iam::<aws_account_id>:user/principalName"
+ *     },
+ *     {
+ *       "name": "serviceLongArnFormat",
+ *       "value": "enabled",
+ *       "principalArn": "arn:aws:iam::<aws_account_id>:user/principalName"
+ *     },
+ *     {
+ *       "name": "taskLongArnFormat",
+ *       "value": "disabled",
+ *       "principalArn": "arn:aws:iam::<aws_account_id>:user/principalName"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-view-your-account-settings-1549524118170
+ * ```
+ *
+ * @example To view the effective account settings for a specific IAM user or IAM role
+ * ```javascript
+ * // This example displays the effective account settings for the specified user or role.
+ * const input = {
+ *   "effectiveSettings": true,
+ *   "principalArn": "arn:aws:iam::<aws_account_id>:user/principalName"
+ * };
+ * const command = new ListAccountSettingsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "settings": [
+ *     {
+ *       "name": "containerInstanceLongArnFormat",
+ *       "value": "disabled",
+ *       "principalArn": "arn:aws:iam::<aws_account_id>:user/principalName"
+ *     },
+ *     {
+ *       "name": "serviceLongArnFormat",
+ *       "value": "enabled",
+ *       "principalArn": "arn:aws:iam::<aws_account_id>:user/principalName"
+ *     },
+ *     {
+ *       "name": "taskLongArnFormat",
+ *       "value": "disabled",
+ *       "principalArn": "arn:aws:iam::<aws_account_id>:user/principalName"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-view-the-account-settings-for-a-specific-iam-user-or-iam-role-1549524237932
+ * ```
  *
  */
 export class ListAccountSettingsCommand extends $Command<
@@ -62,6 +153,9 @@ export class ListAccountSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAccountSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +184,8 @@ export class ListAccountSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAccountSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAccountSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +195,18 @@ export class ListAccountSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAccountSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAccountSettingsCommand(input, context);
+    return se_ListAccountSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccountSettingsCommandOutput> {
-    return deserializeAws_json1_1ListAccountSettingsCommand(output, context);
+    return de_ListAccountSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetComponentInput,
-  GetComponentInputFilterSensitiveLog,
-  GetComponentOutput,
-  GetComponentOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0GetComponentCommand,
-  serializeAws_json1_0GetComponentCommand,
-} from "../protocols/Aws_json1_0";
+import { GetComponentInput, GetComponentOutput, GetComponentOutputFilterSensitiveLog } from "../models/models_0";
+import { de_GetComponentCommand, se_GetComponentCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetComponentCommand}.
+ */
 export interface GetComponentCommandInput extends GetComponentInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetComponentCommand}.
+ */
 export interface GetComponentCommandOutput extends GetComponentOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get detailed data for a component.</p>
  *          <p>For more information about components, see
  *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
@@ -39,13 +42,34 @@ export interface GetComponentCommandOutput extends GetComponentOutput, __Metadat
  * import { ProtonClient, GetComponentCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, GetComponentCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // GetComponentInput
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new GetComponentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetComponentCommandInput - {@link GetComponentCommandInput}
+ * @returns {@link GetComponentCommandOutput}
  * @see {@link GetComponentCommandInput} for command's `input` shape.
  * @see {@link GetComponentCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>There <i>isn't</i> sufficient access for performing this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request failed to register with the service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource <i>wasn't</i> found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+ *
  *
  */
 export class GetComponentCommand extends $Command<
@@ -65,6 +89,9 @@ export class GetComponentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetComponentCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,7 +118,7 @@ export class GetComponentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetComponentInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetComponentOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -102,12 +129,18 @@ export class GetComponentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetComponentCommand(input, context);
+    return se_GetComponentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetComponentCommandOutput> {
-    return deserializeAws_json1_0GetComponentCommand(output, context);
+    return de_GetComponentCommand(output, context);
   }
 
   // Start section: command_body_extra

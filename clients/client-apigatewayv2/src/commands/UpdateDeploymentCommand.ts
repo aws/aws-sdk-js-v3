@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import {
-  UpdateDeploymentRequest,
-  UpdateDeploymentRequestFilterSensitiveLog,
-  UpdateDeploymentResponse,
-  UpdateDeploymentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateDeploymentCommand,
-  serializeAws_restJson1UpdateDeploymentCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateDeploymentRequest, UpdateDeploymentResponse } from "../models/models_0";
+import { de_UpdateDeploymentCommand, se_UpdateDeploymentCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateDeploymentCommand}.
+ */
 export interface UpdateDeploymentCommandInput extends UpdateDeploymentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateDeploymentCommand}.
+ */
 export interface UpdateDeploymentCommandOutput extends UpdateDeploymentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a Deployment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,33 @@ export interface UpdateDeploymentCommandOutput extends UpdateDeploymentResponse,
  * import { ApiGatewayV2Client, UpdateDeploymentCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, UpdateDeploymentCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = { // UpdateDeploymentRequest
+ *   ApiId: "STRING_VALUE", // required
+ *   DeploymentId: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ * };
  * const command = new UpdateDeploymentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDeploymentCommandInput - {@link UpdateDeploymentCommandInput}
+ * @returns {@link UpdateDeploymentCommandOutput}
  * @see {@link UpdateDeploymentCommandInput} for command's `input` shape.
  * @see {@link UpdateDeploymentCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource specified in the request was not found. See the message field for more information.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
+ *
  *
  */
 export class UpdateDeploymentCommand extends $Command<
@@ -62,6 +85,9 @@ export class UpdateDeploymentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDeploymentCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +116,8 @@ export class UpdateDeploymentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDeploymentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDeploymentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +127,18 @@ export class UpdateDeploymentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDeploymentCommand(input, context);
+    return se_UpdateDeploymentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDeploymentCommandOutput> {
-    return deserializeAws_restJson1UpdateDeploymentCommand(output, context);
+    return de_UpdateDeploymentCommand(output, context);
   }
 
   // Start section: command_body_extra

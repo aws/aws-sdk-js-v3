@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateUserProfileRequest,
-  CreateUserProfileRequestFilterSensitiveLog,
-  CreateUserProfileResult,
-  CreateUserProfileResultFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateUserProfileRequest, CreateUserProfileResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1CreateUserProfileCommand,
-  serializeAws_json1_1CreateUserProfileCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateUserProfileCommand, se_CreateUserProfileCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateUserProfileCommand}.
+ */
 export interface CreateUserProfileCommandInput extends CreateUserProfileRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateUserProfileCommand}.
+ */
 export interface CreateUserProfileCommandOutput extends CreateUserProfileResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new user profile.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have an attached policy
@@ -40,13 +43,25 @@ export interface CreateUserProfileCommandOutput extends CreateUserProfileResult,
  * import { OpsWorksClient, CreateUserProfileCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, CreateUserProfileCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // CreateUserProfileRequest
+ *   IamUserArn: "STRING_VALUE", // required
+ *   SshUsername: "STRING_VALUE",
+ *   SshPublicKey: "STRING_VALUE",
+ *   AllowSelfManagement: true || false,
+ * };
  * const command = new CreateUserProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateUserProfileCommandInput - {@link CreateUserProfileCommandInput}
+ * @returns {@link CreateUserProfileCommandOutput}
  * @see {@link CreateUserProfileCommandInput} for command's `input` shape.
  * @see {@link CreateUserProfileCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that a request was not valid.</p>
+ *
  *
  */
 export class CreateUserProfileCommand extends $Command<
@@ -66,6 +81,9 @@ export class CreateUserProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateUserProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +112,8 @@ export class CreateUserProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateUserProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateUserProfileResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +123,18 @@ export class CreateUserProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateUserProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateUserProfileCommand(input, context);
+    return se_CreateUserProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateUserProfileCommandOutput> {
-    return deserializeAws_json1_1CreateUserProfileCommand(output, context);
+    return de_CreateUserProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { QueryCommand, QueryCommandInput, QueryCommandOutput } from "../commands/QueryCommand";
-import { TimestreamQuery } from "../TimestreamQuery";
 import { TimestreamQueryClient } from "../TimestreamQueryClient";
 import { TimestreamQueryPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: TimestreamQueryClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new QueryCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: TimestreamQuery,
-  input: QueryCommandInput,
-  ...args: any
-): Promise<QueryCommandOutput> => {
-  // @ts-ignore
-  return await client.query(input, ...args);
-};
 export async function* paginateQuery(
   config: TimestreamQueryPaginationConfiguration,
   input: QueryCommandInput,
@@ -40,9 +31,7 @@ export async function* paginateQuery(
   while (hasNext) {
     input.NextToken = token;
     input["MaxRows"] = config.pageSize;
-    if (config.client instanceof TimestreamQuery) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof TimestreamQueryClient) {
+    if (config.client instanceof TimestreamQueryClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected TimestreamQuery | TimestreamQueryClient");

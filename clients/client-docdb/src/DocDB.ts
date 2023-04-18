@@ -269,10 +269,12 @@ import {
 import { DocDBClient } from "./DocDBClient";
 
 /**
+ * @public
  * <p>Amazon DocumentDB API documentation</p>
  */
 export class DocDB extends DocDBClient {
   /**
+   * @public
    * <p>Adds a source identifier to an existing event notification
    *             subscription.</p>
    */
@@ -306,6 +308,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Adds metadata tags to an Amazon DocumentDB resource. You can use these tags
    *             with cost allocation reporting to track costs that are associated
    *             with Amazon DocumentDB resources or in a <code>Condition</code> statement in
@@ -341,6 +344,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Applies a pending maintenance action to a resource (for example,
    *             to an Amazon DocumentDB instance).</p>
    */
@@ -374,6 +378,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Copies the specified cluster parameter group.</p>
    */
   public copyDBClusterParameterGroup(
@@ -406,15 +411,14 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Copies a snapshot of a cluster.</p>
-   *
-   *         <p>To copy a cluster snapshot from a shared manual cluster snapshot,
+   *          <p>To copy a cluster snapshot from a shared manual cluster snapshot,
    *             <code>SourceDBClusterSnapshotIdentifier</code> must be the Amazon
    *             Resource Name (ARN) of the shared cluster snapshot. You can only
    *             copy a shared DB cluster snapshot, whether encrypted or not, in the
    *             same Amazon Web Services Region.</p>
-   *
-   *         <p>To cancel the copy operation after it is in progress, delete the
+   *          <p>To cancel the copy operation after it is in progress, delete the
    *             target cluster snapshot identified by
    *             <code>TargetDBClusterSnapshotIdentifier</code> while that cluster
    *             snapshot is in the <i>copying</i> status.</p>
@@ -449,6 +453,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Creates a new Amazon DocumentDB cluster.</p>
    */
   public createDBCluster(
@@ -481,10 +486,11 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Creates a new cluster parameter group.</p>
-   *         <p>Parameters in a cluster parameter group apply to all of the
+   *          <p>Parameters in a cluster parameter group apply to all of the
    *             instances in a cluster.</p>
-   *         <p>A cluster parameter group is initially created with the default
+   *          <p>A cluster parameter group is initially created with the default
    *             parameters for the database engine used by instances in the cluster.
    *             In Amazon DocumentDB, you cannot make modifications directly to the
    *             <code>default.docdb3.6</code> cluster parameter group. If your
@@ -531,6 +537,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Creates a snapshot of a cluster. </p>
    */
   public createDBClusterSnapshot(
@@ -563,6 +570,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Creates a new instance.</p>
    */
   public createDBInstance(
@@ -595,6 +603,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Creates a new subnet group. subnet groups must contain at least one subnet in at
    *             least two Availability Zones in the Amazon Web Services Region.</p>
    */
@@ -628,9 +637,10 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Creates an Amazon DocumentDB event notification subscription. This action requires a topic Amazon Resource Name (ARN) created by using the Amazon DocumentDB console, the Amazon SNS console, or the Amazon SNS API. To obtain an ARN with Amazon SNS, you must create a topic in Amazon SNS and subscribe to the topic. The ARN is displayed in the Amazon SNS console.</p>
-   *         <p>You can specify the type of source (<code>SourceType</code>) that you want to be notified of. You can also provide a list of Amazon DocumentDB sources (<code>SourceIds</code>) that trigger the events, and you can provide a list of event categories (<code>EventCategories</code>) for events that you want to be notified of. For example, you can specify <code>SourceType = db-instance</code>, <code>SourceIds = mydbinstance1, mydbinstance2</code> and <code>EventCategories = Availability, Backup</code>.</p>
-   *         <p>If you specify both the <code>SourceType</code> and <code>SourceIds</code> (such as <code>SourceType = db-instance</code> and <code>SourceIdentifier = myDBInstance1</code>), you are notified of all the <code>db-instance</code> events for the specified source. If you specify a <code>SourceType</code> but do not specify a <code>SourceIdentifier</code>, you receive notice of the events for that source type for all your Amazon DocumentDB sources. If you do not specify either the <code>SourceType</code> or the <code>SourceIdentifier</code>, you are notified of events generated from all Amazon DocumentDB sources belonging to your customer account.</p>
+   *          <p>You can specify the type of source (<code>SourceType</code>) that you want to be notified of. You can also provide a list of Amazon DocumentDB sources (<code>SourceIds</code>) that trigger the events, and you can provide a list of event categories (<code>EventCategories</code>) for events that you want to be notified of. For example, you can specify <code>SourceType = db-instance</code>, <code>SourceIds = mydbinstance1, mydbinstance2</code> and <code>EventCategories = Availability, Backup</code>.</p>
+   *          <p>If you specify both the <code>SourceType</code> and <code>SourceIds</code> (such as <code>SourceType = db-instance</code> and <code>SourceIdentifier = myDBInstance1</code>), you are notified of all the <code>db-instance</code> events for the specified source. If you specify a <code>SourceType</code> but do not specify a <code>SourceIdentifier</code>, you receive notice of the events for that source type for all your Amazon DocumentDB sources. If you do not specify either the <code>SourceType</code> or the <code>SourceIdentifier</code>, you are notified of events generated from all Amazon DocumentDB sources belonging to your customer account.</p>
    */
   public createEventSubscription(
     args: CreateEventSubscriptionCommandInput,
@@ -662,12 +672,13 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Creates an Amazon DocumentDB global cluster that can span multiple multiple Amazon Web Services Regions. The global cluster contains one primary cluster with read-write capability, and up-to give read-only secondary clusters. Global clusters uses storage-based fast replication across regions with latencies less than one second, using dedicated infrastructure with no impact to your workload’s performance.</p>
-   *         <p></p>
-   *         <p>You can create a global cluster that is initially empty, and then add a primary and a secondary to it. Or you can specify an existing cluster during the create operation, and this cluster becomes the primary of the global cluster. </p>
-   *         <note>
+   *          <p></p>
+   *          <p>You can create a global cluster that is initially empty, and then add a primary and a secondary to it. Or you can specify an existing cluster during the create operation, and this cluster becomes the primary of the global cluster. </p>
+   *          <note>
    *             <p>This action only applies to Amazon DocumentDB clusters.</p>
-   *         </note>
+   *          </note>
    */
   public createGlobalCluster(
     args: CreateGlobalClusterCommandInput,
@@ -699,8 +710,9 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Deletes a previously provisioned cluster. When you delete a cluster, all automated backups for that cluster are deleted and can't be recovered. Manual DB cluster snapshots of the specified cluster are not deleted.</p>
-   *         <p></p>
+   *          <p></p>
    */
   public deleteDBCluster(
     args: DeleteDBClusterCommandInput,
@@ -732,6 +744,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Deletes a specified cluster parameter group. The cluster parameter group to be deleted can't be associated with any clusters.</p>
    */
   public deleteDBClusterParameterGroup(
@@ -764,10 +777,11 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Deletes a cluster snapshot. If the snapshot is being copied, the copy operation is terminated.</p>
-   *         <note>
+   *          <note>
    *             <p>The cluster snapshot must be in the <code>available</code> state to be deleted.</p>
-   *         </note>
+   *          </note>
    */
   public deleteDBClusterSnapshot(
     args: DeleteDBClusterSnapshotCommandInput,
@@ -799,6 +813,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Deletes a previously provisioned instance.</p>
    */
   public deleteDBInstance(
@@ -831,11 +846,12 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Deletes a subnet group.</p>
-   *         <note>
+   *          <note>
    *             <p>The specified database subnet group must not be associated with any DB
    *                 instances.</p>
-   *         </note>
+   *          </note>
    */
   public deleteDBSubnetGroup(
     args: DeleteDBSubnetGroupCommandInput,
@@ -867,6 +883,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Deletes an Amazon DocumentDB event notification subscription.</p>
    */
   public deleteEventSubscription(
@@ -899,10 +916,11 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Deletes a global cluster. The primary and secondary clusters must already be detached or deleted before attempting to delete a global cluster.</p>
-   *         <note>
+   *          <note>
    *             <p>This action only applies to Amazon DocumentDB clusters.</p>
-   *         </note>
+   *          </note>
    */
   public deleteGlobalCluster(
     args: DeleteGlobalClusterCommandInput,
@@ -934,6 +952,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of certificate authority (CA) certificates provided by Amazon DocumentDB for this Amazon Web Services account.</p>
    */
   public describeCertificates(
@@ -966,6 +985,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of <code>DBClusterParameterGroup</code> descriptions. If a <code>DBClusterParameterGroupName</code> parameter is specified, the list contains only the description of the specified cluster parameter group. </p>
    */
   public describeDBClusterParameterGroups(
@@ -998,6 +1018,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Returns the detailed parameter list for a particular cluster parameter
    *             group.</p>
    */
@@ -1031,6 +1052,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Returns information about provisioned Amazon DocumentDB clusters. This API
    *             operation supports pagination. For certain management features
    *             such as cluster and instance lifecycle management, Amazon DocumentDB leverages
@@ -1068,9 +1090,10 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of cluster snapshot attribute names and values for a manual DB
    *             cluster snapshot.</p>
-   *         <p>When you share snapshots with other Amazon Web Services accounts,
+   *          <p>When you share snapshots with other Amazon Web Services accounts,
    *                 <code>DescribeDBClusterSnapshotAttributes</code> returns the <code>restore</code> attribute and a list of IDs for the Amazon Web Services accounts that are authorized to copy or restore the manual cluster snapshot. If <code>all</code> is included in the list of values for the <code>restore</code> attribute, then the manual cluster snapshot is public and can be copied or restored by all Amazon Web Services accounts.</p>
    */
   public describeDBClusterSnapshotAttributes(
@@ -1103,6 +1126,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Returns information about cluster snapshots. This API operation supports pagination.</p>
    */
   public describeDBClusterSnapshots(
@@ -1135,6 +1159,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of the available engines.</p>
    */
   public describeDBEngineVersions(
@@ -1167,6 +1192,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Returns information about provisioned Amazon DocumentDB instances. This API supports pagination.</p>
    */
   public describeDBInstances(
@@ -1199,6 +1225,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of <code>DBSubnetGroup</code> descriptions. If a
    *                 <code>DBSubnetGroupName</code> is specified, the list will contain only the descriptions of the specified <code>DBSubnetGroup</code>.</p>
    */
@@ -1232,6 +1259,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Returns the default engine and system parameter information for the cluster database
    *             engine.</p>
    */
@@ -1267,6 +1295,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Displays a list of categories for all event source types, or, if specified, for a
    *             specified source type. </p>
    */
@@ -1300,6 +1329,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Returns events related to instances, security groups, snapshots, and DB parameter groups for the past 14 days. You can obtain events specific to a particular DB instance, security group, snapshot, or parameter group by providing the name as a parameter. By default, the events of the past hour are returned.</p>
    */
   public describeEvents(
@@ -1332,8 +1362,9 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Lists all the subscription descriptions for a customer account. The description for a subscription includes <code>SubscriptionName</code>, <code>SNSTopicARN</code>, <code>CustomerID</code>, <code>SourceType</code>, <code>SourceID</code>, <code>CreationTime</code>, and <code>Status</code>.</p>
-   *         <p>If you specify a <code>SubscriptionName</code>, lists the description for that subscription.</p>
+   *          <p>If you specify a <code>SubscriptionName</code>, lists the description for that subscription.</p>
    */
   public describeEventSubscriptions(
     args: DescribeEventSubscriptionsCommandInput,
@@ -1365,10 +1396,11 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Returns information about Amazon DocumentDB global  clusters. This API supports pagination.</p>
-   *         <note>
+   *          <note>
    *             <p>This action only applies to Amazon DocumentDB clusters.</p>
-   *         </note>
+   *          </note>
    */
   public describeGlobalClusters(
     args: DescribeGlobalClustersCommandInput,
@@ -1400,6 +1432,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of orderable instance options for the specified engine.</p>
    */
   public describeOrderableDBInstanceOptions(
@@ -1432,6 +1465,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of resources (for example, instances) that have at least one pending
    *             maintenance action.</p>
    */
@@ -1465,9 +1499,10 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Forces a failover for a cluster.</p>
-   *         <p>A failover for a cluster promotes one of the Amazon DocumentDB replicas (read-only instances) in the cluster to be the primary instance (the cluster writer).</p>
-   *         <p>If the primary instance fails, Amazon DocumentDB automatically fails over to an Amazon DocumentDB replica, if one exists. You can force a failover when you want to simulate a failure of a primary instance for testing.</p>
+   *          <p>A failover for a cluster promotes one of the Amazon DocumentDB replicas (read-only instances) in the cluster to be the primary instance (the cluster writer).</p>
+   *          <p>If the primary instance fails, Amazon DocumentDB automatically fails over to an Amazon DocumentDB replica, if one exists. You can force a failover when you want to simulate a failure of a primary instance for testing.</p>
    */
   public failoverDBCluster(
     args: FailoverDBClusterCommandInput,
@@ -1499,6 +1534,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Lists all tags on an Amazon DocumentDB resource.</p>
    */
   public listTagsForResource(
@@ -1531,6 +1567,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Modifies a setting for an Amazon DocumentDB cluster. You can change one or more database
    *             configuration parameters by specifying these parameters and the new values in the
    *             request. </p>
@@ -1565,17 +1602,18 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p> Modifies the parameters of a cluster parameter group. To modify more than one
    *             parameter, submit a list of the following: <code>ParameterName</code>,
    *                 <code>ParameterValue</code>, and <code>ApplyMethod</code>. A maximum of 20
    *             parameters can be modified in a single request. </p>
-   *         <note>
+   *          <note>
    *             <p>Changes to dynamic parameters are applied immediately. Changes to static
    *                 parameters require a reboot or maintenance window
    *
    *                 before the change can take effect.</p>
-   *         </note>
-   *         <important>
+   *          </note>
+   *          <important>
    *             <p>After you create a cluster parameter group, you should wait at least 5 minutes
    *                 before creating your first cluster that uses that cluster parameter group as
    *                 the default parameter group. This allows Amazon DocumentDB to fully complete the create action
@@ -1583,7 +1621,7 @@ export class DocDB extends DocDBClient {
    *                 especially important for parameters that are critical when creating the default
    *                 database for a cluster, such as the character set for the default database
    *                 defined by the <code>character_set_database</code> parameter.</p>
-   *         </important>
+   *          </important>
    */
   public modifyDBClusterParameterGroup(
     args: ModifyDBClusterParameterGroupCommandInput,
@@ -1615,8 +1653,9 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Adds an attribute and values to, or removes an attribute and values from, a manual cluster snapshot.</p>
-   *         <p>To share a manual cluster snapshot with other Amazon Web Services accounts, specify <code>restore</code> as the <code>AttributeName</code>, and use the <code>ValuesToAdd</code> parameter to add a list of IDs of the Amazon Web Services accounts that are authorized to restore the manual cluster snapshot. Use the value <code>all</code> to make the manual cluster snapshot public, which means that it can be copied or restored by all Amazon Web Services accounts. Do not add the <code>all</code> value for any manual cluster snapshots that contain private information that you don't want available to all Amazon Web Services accounts. If a manual cluster snapshot is encrypted, it can be shared, but only by specifying a list of authorized Amazon Web Services account IDs for the <code>ValuesToAdd</code> parameter. You can't use <code>all</code> as a value for that parameter in this case.</p>
+   *          <p>To share a manual cluster snapshot with other Amazon Web Services accounts, specify <code>restore</code> as the <code>AttributeName</code>, and use the <code>ValuesToAdd</code> parameter to add a list of IDs of the Amazon Web Services accounts that are authorized to restore the manual cluster snapshot. Use the value <code>all</code> to make the manual cluster snapshot public, which means that it can be copied or restored by all Amazon Web Services accounts. Do not add the <code>all</code> value for any manual cluster snapshots that contain private information that you don't want available to all Amazon Web Services accounts. If a manual cluster snapshot is encrypted, it can be shared, but only by specifying a list of authorized Amazon Web Services account IDs for the <code>ValuesToAdd</code> parameter. You can't use <code>all</code> as a value for that parameter in this case.</p>
    */
   public modifyDBClusterSnapshotAttribute(
     args: ModifyDBClusterSnapshotAttributeCommandInput,
@@ -1648,6 +1687,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Modifies settings for an instance. You can change one or more database configuration parameters by specifying these parameters and the new values in the request.</p>
    */
   public modifyDBInstance(
@@ -1680,6 +1720,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Modifies an existing subnet group. subnet groups must contain at least one subnet in at least two Availability Zones in the Amazon Web Services Region.</p>
    */
   public modifyDBSubnetGroup(
@@ -1712,6 +1753,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Modifies an existing Amazon DocumentDB event notification subscription.</p>
    */
   public modifyEventSubscription(
@@ -1744,10 +1786,11 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Modify a setting for an Amazon DocumentDB global cluster. You can change one or more configuration parameters (for example: deletion protection), or the global cluster identifier by specifying these parameters and the new values in the request.</p>
-   *         <note>
+   *          <note>
    *             <p>This action only applies to Amazon DocumentDB clusters.</p>
-   *         </note>
+   *          </note>
    */
   public modifyGlobalCluster(
     args: ModifyGlobalClusterCommandInput,
@@ -1779,11 +1822,12 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>You might need to reboot your instance, usually for maintenance reasons. For
    *             example, if you make certain changes, or if you change the cluster parameter group
    *             that is associated with the instance, you must reboot the instance for the changes to
    *             take effect. </p>
-   *         <p>Rebooting an instance restarts the database engine service. Rebooting an instance
+   *          <p>Rebooting an instance restarts the database engine service. Rebooting an instance
    *             results in a momentary outage, during which the instance status is set to
    *                 <i>rebooting</i>. </p>
    */
@@ -1817,10 +1861,11 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Detaches an Amazon DocumentDB secondary cluster from a global cluster. The cluster becomes a standalone cluster with read-write capability instead of being read-only and receiving data from a primary in a different region. </p>
-   *         <note>
+   *          <note>
    *             <p>This action only applies to Amazon DocumentDB clusters.</p>
-   *         </note>
+   *          </note>
    */
   public removeFromGlobalCluster(
     args: RemoveFromGlobalClusterCommandInput,
@@ -1852,6 +1897,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Removes a source identifier from an existing Amazon DocumentDB event notification
    *             subscription.</p>
    */
@@ -1887,6 +1933,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Removes metadata tags from an Amazon DocumentDB resource.</p>
    */
   public removeTagsFromResource(
@@ -1919,12 +1966,13 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p> Modifies the parameters of a cluster parameter group to the default value. To
    *             reset specific parameters, submit a list of the following: <code>ParameterName</code>
    *             and <code>ApplyMethod</code>. To reset the entire cluster parameter group, specify
    *             the <code>DBClusterParameterGroupName</code> and <code>ResetAllParameters</code>
    *             parameters. </p>
-   *         <p> When you reset the entire group, dynamic parameters are updated immediately and
+   *          <p> When you reset the entire group, dynamic parameters are updated immediately and
    *             static parameters are set to <code>pending-reboot</code> to take effect on the next DB
    *             instance reboot.</p>
    */
@@ -1958,9 +2006,10 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Creates a new cluster from a snapshot or cluster snapshot.</p>
-   *         <p>If a snapshot is specified, the target cluster is created from the source DB snapshot with a default configuration and default security group.</p>
-   *         <p>If a cluster snapshot is specified, the target cluster is created from the source cluster restore point with the same configuration as the original source DB cluster, except that the new cluster is created with the default security group.</p>
+   *          <p>If a snapshot is specified, the target cluster is created from the source DB snapshot with a default configuration and default security group.</p>
+   *          <p>If a cluster snapshot is specified, the target cluster is created from the source cluster restore point with the same configuration as the original source DB cluster, except that the new cluster is created with the default security group.</p>
    */
   public restoreDBClusterFromSnapshot(
     args: RestoreDBClusterFromSnapshotCommandInput,
@@ -1992,6 +2041,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Restores a cluster to an arbitrary point in time. Users can restore to any point in
    *             time before <code>LatestRestorableTime</code> for up to
    *                 <code>BackupRetentionPeriod</code> days. The target cluster is created from the
@@ -2028,6 +2078,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Restarts the stopped cluster that is specified by <code>DBClusterIdentifier</code>.
    *             For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-stop-start.html">Stopping and
    *                 Starting an Amazon DocumentDB Cluster</a>.</p>
@@ -2062,6 +2113,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * @public
    * <p>Stops the running cluster that is specified by <code>DBClusterIdentifier</code>. The
    *             cluster must be in the <i>available</i> state. For more information, see
    *                 <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-stop-start.html">Stopping and

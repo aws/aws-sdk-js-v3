@@ -18,23 +18,29 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
+import { ListCustomRoutingPortMappingsRequest, ListCustomRoutingPortMappingsResponse } from "../models/models_0";
 import {
-  ListCustomRoutingPortMappingsRequest,
-  ListCustomRoutingPortMappingsRequestFilterSensitiveLog,
-  ListCustomRoutingPortMappingsResponse,
-  ListCustomRoutingPortMappingsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListCustomRoutingPortMappingsCommand,
-  serializeAws_json1_1ListCustomRoutingPortMappingsCommand,
+  de_ListCustomRoutingPortMappingsCommand,
+  se_ListCustomRoutingPortMappingsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListCustomRoutingPortMappingsCommand}.
+ */
 export interface ListCustomRoutingPortMappingsCommandInput extends ListCustomRoutingPortMappingsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListCustomRoutingPortMappingsCommand}.
+ */
 export interface ListCustomRoutingPortMappingsCommandOutput
   extends ListCustomRoutingPortMappingsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a complete mapping from the public accelerator IP address and port to destination EC2 instance
  * 		IP addresses and ports in the virtual public cloud (VPC) subnet endpoint for a custom routing accelerator.
  * 		For each subnet endpoint that you add, Global Accelerator creates a new static port mapping for the accelerator. The port
@@ -50,13 +56,37 @@ export interface ListCustomRoutingPortMappingsCommandOutput
  * import { GlobalAcceleratorClient, ListCustomRoutingPortMappingsCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, ListCustomRoutingPortMappingsCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
+ * const input = { // ListCustomRoutingPortMappingsRequest
+ *   AcceleratorArn: "STRING_VALUE", // required
+ *   EndpointGroupArn: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListCustomRoutingPortMappingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCustomRoutingPortMappingsCommandInput - {@link ListCustomRoutingPortMappingsCommandInput}
+ * @returns {@link ListCustomRoutingPortMappingsCommandOutput}
  * @see {@link ListCustomRoutingPortMappingsCommandInput} for command's `input` shape.
  * @see {@link ListCustomRoutingPortMappingsCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
+ *
+ * @throws {@link AcceleratorNotFoundException} (client fault)
+ *  <p>The accelerator that you specified doesn't exist.</p>
+ *
+ * @throws {@link EndpointGroupNotFoundException} (client fault)
+ *  <p>The endpoint group that you specified doesn't exist.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>There was an internal error for Global Accelerator.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>An argument that you specified is invalid.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>There isn't another item to return.</p>
+ *
  *
  */
 export class ListCustomRoutingPortMappingsCommand extends $Command<
@@ -76,6 +106,9 @@ export class ListCustomRoutingPortMappingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCustomRoutingPortMappingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +137,8 @@ export class ListCustomRoutingPortMappingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCustomRoutingPortMappingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCustomRoutingPortMappingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,15 +148,21 @@ export class ListCustomRoutingPortMappingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCustomRoutingPortMappingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCustomRoutingPortMappingsCommand(input, context);
+    return se_ListCustomRoutingPortMappingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListCustomRoutingPortMappingsCommandOutput> {
-    return deserializeAws_json1_1ListCustomRoutingPortMappingsCommand(output, context);
+    return de_ListCustomRoutingPortMappingsCommand(output, context);
   }
 
   // Start section: command_body_extra

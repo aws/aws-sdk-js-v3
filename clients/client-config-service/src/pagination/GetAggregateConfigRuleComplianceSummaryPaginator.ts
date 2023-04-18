@@ -6,12 +6,11 @@ import {
   GetAggregateConfigRuleComplianceSummaryCommandInput,
   GetAggregateConfigRuleComplianceSummaryCommandOutput,
 } from "../commands/GetAggregateConfigRuleComplianceSummaryCommand";
-import { ConfigService } from "../ConfigService";
 import { ConfigServiceClient } from "../ConfigServiceClient";
 import { ConfigServicePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ConfigServiceClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new GetAggregateConfigRuleComplianceSummaryCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ConfigService,
-  input: GetAggregateConfigRuleComplianceSummaryCommandInput,
-  ...args: any
-): Promise<GetAggregateConfigRuleComplianceSummaryCommandOutput> => {
-  // @ts-ignore
-  return await client.getAggregateConfigRuleComplianceSummary(input, ...args);
-};
 export async function* paginateGetAggregateConfigRuleComplianceSummary(
   config: ConfigServicePaginationConfiguration,
   input: GetAggregateConfigRuleComplianceSummaryCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateGetAggregateConfigRuleComplianceSummary(
   while (hasNext) {
     input.NextToken = token;
     input["Limit"] = config.pageSize;
-    if (config.client instanceof ConfigService) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ConfigServiceClient) {
+    if (config.client instanceof ConfigServiceClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ConfigService | ConfigServiceClient");

@@ -14,36 +14,73 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import {
-  DescribeQueryRequest,
-  DescribeQueryRequestFilterSensitiveLog,
-  DescribeQueryResponse,
-  DescribeQueryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeQueryCommand,
-  serializeAws_json1_1DescribeQueryCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeQueryRequest, DescribeQueryResponse } from "../models/models_0";
+import { de_DescribeQueryCommand, se_DescribeQueryCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeQueryCommand}.
+ */
 export interface DescribeQueryCommandInput extends DescribeQueryRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeQueryCommand}.
+ */
 export interface DescribeQueryCommandOutput extends DescribeQueryResponse, __MetadataBearer {}
 
 /**
- * <p>Returns metadata about a query, including query run time in milliseconds, number of events scanned and matched, and query
- *          status. You must specify an ARN for <code>EventDataStore</code>, and a value for <code>QueryID</code>.</p>
+ * @public
+ * <p>Returns metadata about a query, including query run time in milliseconds, number of
+ *          events scanned and matched, and query status. You must specify an ARN for
+ *             <code>EventDataStore</code>, and a value for <code>QueryID</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudTrailClient, DescribeQueryCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, DescribeQueryCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = { // DescribeQueryRequest
+ *   EventDataStore: "STRING_VALUE",
+ *   QueryId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeQueryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeQueryCommandInput - {@link DescribeQueryCommandInput}
+ * @returns {@link DescribeQueryCommandOutput}
  * @see {@link DescribeQueryCommandInput} for command's `input` shape.
  * @see {@link DescribeQueryCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
+ *
+ * @throws {@link EventDataStoreARNInvalidException} (client fault)
+ *  <p>The specified event data store ARN is not valid or does not map to an event data store
+ *          in your account.</p>
+ *
+ * @throws {@link EventDataStoreNotFoundException} (client fault)
+ *  <p>The specified event data store was not found.</p>
+ *
+ * @throws {@link InactiveEventDataStoreException} (client fault)
+ *  <p>The event data store is inactive.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The request includes a parameter that is not valid.</p>
+ *
+ * @throws {@link NoManagementAccountSLRExistsException} (client fault)
+ *  <p> This exception is thrown when the management account does not have a service-linked
+ *          role. </p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not permitted.</p>
+ *
+ * @throws {@link QueryIdNotFoundException} (client fault)
+ *  <p>The query ID does not exist or does not map to a query.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not supported.</p>
+ *
  *
  */
 export class DescribeQueryCommand extends $Command<
@@ -63,6 +100,9 @@ export class DescribeQueryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeQueryCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +129,8 @@ export class DescribeQueryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeQueryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeQueryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +140,18 @@ export class DescribeQueryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeQueryCommand(input, context);
+    return se_DescribeQueryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeQueryCommandOutput> {
-    return deserializeAws_json1_1DescribeQueryCommand(output, context);
+    return de_DescribeQueryCommand(output, context);
   }
 
   // Start section: command_body_extra

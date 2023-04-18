@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  ResetJobBookmarkRequest,
-  ResetJobBookmarkRequestFilterSensitiveLog,
-  ResetJobBookmarkResponse,
-  ResetJobBookmarkResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1ResetJobBookmarkCommand,
-  serializeAws_json1_1ResetJobBookmarkCommand,
-} from "../protocols/Aws_json1_1";
+import { ResetJobBookmarkRequest, ResetJobBookmarkResponse } from "../models/models_2";
+import { de_ResetJobBookmarkCommand, se_ResetJobBookmarkCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ResetJobBookmarkCommand}.
+ */
 export interface ResetJobBookmarkCommandInput extends ResetJobBookmarkRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ResetJobBookmarkCommand}.
+ */
 export interface ResetJobBookmarkCommandOutput extends ResetJobBookmarkResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Resets a bookmark entry.</p>
  *          <p>For more information about enabling and using job bookmarks, see:</p>
  *          <ul>
@@ -54,13 +57,32 @@ export interface ResetJobBookmarkCommandOutput extends ResetJobBookmarkResponse,
  * import { GlueClient, ResetJobBookmarkCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, ResetJobBookmarkCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // ResetJobBookmarkRequest
+ *   JobName: "STRING_VALUE", // required
+ *   RunId: "STRING_VALUE",
+ * };
  * const command = new ResetJobBookmarkCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ResetJobBookmarkCommandInput - {@link ResetJobBookmarkCommandInput}
+ * @returns {@link ResetJobBookmarkCommandOutput}
  * @see {@link ResetJobBookmarkCommandInput} for command's `input` shape.
  * @see {@link ResetJobBookmarkCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class ResetJobBookmarkCommand extends $Command<
@@ -80,6 +102,9 @@ export class ResetJobBookmarkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResetJobBookmarkCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +133,8 @@ export class ResetJobBookmarkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResetJobBookmarkRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ResetJobBookmarkResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +144,18 @@ export class ResetJobBookmarkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResetJobBookmarkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ResetJobBookmarkCommand(input, context);
+    return se_ResetJobBookmarkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetJobBookmarkCommandOutput> {
-    return deserializeAws_json1_1ResetJobBookmarkCommand(output, context);
+    return de_ResetJobBookmarkCommand(output, context);
   }
 
   // Start section: command_body_extra

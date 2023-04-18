@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
-import {
-  ListSyncResourcesRequest,
-  ListSyncResourcesRequestFilterSensitiveLog,
-  ListSyncResourcesResponse,
-  ListSyncResourcesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSyncResourcesCommand,
-  serializeAws_restJson1ListSyncResourcesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListSyncResourcesRequest, ListSyncResourcesResponse } from "../models/models_0";
+import { de_ListSyncResourcesCommand, se_ListSyncResourcesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListSyncResourcesCommand}.
+ */
 export interface ListSyncResourcesCommandInput extends ListSyncResourcesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListSyncResourcesCommand}.
+ */
 export interface ListSyncResourcesCommandOutput extends ListSyncResourcesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the sync resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,45 @@ export interface ListSyncResourcesCommandOutput extends ListSyncResourcesRespons
  * import { IoTTwinMakerClient, ListSyncResourcesCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, ListSyncResourcesCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
+ * const input = { // ListSyncResourcesRequest
+ *   workspaceId: "STRING_VALUE", // required
+ *   syncSource: "STRING_VALUE", // required
+ *   filters: [ // SyncResourceFilters
+ *     { // SyncResourceFilter Union: only one key present
+ *       state: "STRING_VALUE",
+ *       resourceType: "STRING_VALUE",
+ *       resourceId: "STRING_VALUE",
+ *       externalId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListSyncResourcesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSyncResourcesCommandInput - {@link ListSyncResourcesCommandInput}
+ * @returns {@link ListSyncResourcesCommandOutput}
  * @see {@link ListSyncResourcesCommandInput} for command's `input` shape.
  * @see {@link ListSyncResourcesCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access is denied.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The service quota was exceeded.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Failed</p>
+ *
  *
  */
 export class ListSyncResourcesCommand extends $Command<
@@ -62,6 +97,9 @@ export class ListSyncResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSyncResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +128,8 @@ export class ListSyncResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSyncResourcesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSyncResourcesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +139,18 @@ export class ListSyncResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSyncResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSyncResourcesCommand(input, context);
+    return se_ListSyncResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSyncResourcesCommandOutput> {
-    return deserializeAws_restJson1ListSyncResourcesCommand(output, context);
+    return de_ListSyncResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

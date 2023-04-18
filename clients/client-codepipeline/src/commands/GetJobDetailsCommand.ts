@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import {
-  GetJobDetailsInput,
-  GetJobDetailsInputFilterSensitiveLog,
-  GetJobDetailsOutput,
-  GetJobDetailsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetJobDetailsCommand,
-  serializeAws_json1_1GetJobDetailsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetJobDetailsInput, GetJobDetailsOutput, GetJobDetailsOutputFilterSensitiveLog } from "../models/models_0";
+import { de_GetJobDetailsCommand, se_GetJobDetailsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetJobDetailsCommand}.
+ */
 export interface GetJobDetailsCommandInput extends GetJobDetailsInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetJobDetailsCommand}.
+ */
 export interface GetJobDetailsCommandOutput extends GetJobDetailsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a job. Used for custom actions only.</p>
  *         <important>
  *             <p>When this API is called, AWS CodePipeline returns temporary credentials for the
@@ -42,13 +45,25 @@ export interface GetJobDetailsCommandOutput extends GetJobDetailsOutput, __Metad
  * import { CodePipelineClient, GetJobDetailsCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, GetJobDetailsCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
+ * const input = { // GetJobDetailsInput
+ *   jobId: "STRING_VALUE", // required
+ * };
  * const command = new GetJobDetailsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetJobDetailsCommandInput - {@link GetJobDetailsCommandInput}
+ * @returns {@link GetJobDetailsCommandOutput}
  * @see {@link GetJobDetailsCommandInput} for command's `input` shape.
  * @see {@link GetJobDetailsCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
+ *
+ * @throws {@link JobNotFoundException} (client fault)
+ *  <p>The job was specified in an invalid format or cannot be found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The validation was specified in an invalid format.</p>
+ *
  *
  */
 export class GetJobDetailsCommand extends $Command<
@@ -68,6 +83,9 @@ export class GetJobDetailsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetJobDetailsCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,7 +112,7 @@ export class GetJobDetailsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetJobDetailsInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetJobDetailsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -105,12 +123,18 @@ export class GetJobDetailsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetJobDetailsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetJobDetailsCommand(input, context);
+    return se_GetJobDetailsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetJobDetailsCommandOutput> {
-    return deserializeAws_json1_1GetJobDetailsCommand(output, context);
+    return de_GetJobDetailsCommand(output, context);
   }
 
   // Start section: command_body_extra

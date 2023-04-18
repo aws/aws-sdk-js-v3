@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeFpgaImageAttributeRequest,
-  DescribeFpgaImageAttributeRequestFilterSensitiveLog,
-  DescribeFpgaImageAttributeResult,
-  DescribeFpgaImageAttributeResultFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeFpgaImageAttributeCommand,
-  serializeAws_ec2DescribeFpgaImageAttributeCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeFpgaImageAttributeRequest, DescribeFpgaImageAttributeResult } from "../models/models_3";
+import { de_DescribeFpgaImageAttributeCommand, se_DescribeFpgaImageAttributeCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeFpgaImageAttributeCommand}.
+ */
 export interface DescribeFpgaImageAttributeCommandInput extends DescribeFpgaImageAttributeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeFpgaImageAttributeCommand}.
+ */
 export interface DescribeFpgaImageAttributeCommandOutput extends DescribeFpgaImageAttributeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified attribute of the specified Amazon FPGA Image (AFI).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,21 @@ export interface DescribeFpgaImageAttributeCommandOutput extends DescribeFpgaIma
  * import { EC2Client, DescribeFpgaImageAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeFpgaImageAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeFpgaImageAttributeRequest
+ *   DryRun: true || false,
+ *   FpgaImageId: "STRING_VALUE", // required
+ *   Attribute: "description" || "name" || "loadPermission" || "productCodes", // required
+ * };
  * const command = new DescribeFpgaImageAttributeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFpgaImageAttributeCommandInput - {@link DescribeFpgaImageAttributeCommandInput}
+ * @returns {@link DescribeFpgaImageAttributeCommandOutput}
  * @see {@link DescribeFpgaImageAttributeCommandInput} for command's `input` shape.
  * @see {@link DescribeFpgaImageAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class DescribeFpgaImageAttributeCommand extends $Command<
@@ -62,6 +73,9 @@ export class DescribeFpgaImageAttributeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFpgaImageAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +104,8 @@ export class DescribeFpgaImageAttributeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFpgaImageAttributeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFpgaImageAttributeResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +115,21 @@ export class DescribeFpgaImageAttributeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFpgaImageAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeFpgaImageAttributeCommand(input, context);
+    return se_DescribeFpgaImageAttributeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeFpgaImageAttributeCommandOutput> {
-    return deserializeAws_ec2DescribeFpgaImageAttributeCommand(output, context);
+    return de_DescribeFpgaImageAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

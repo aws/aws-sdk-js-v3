@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  MonitorInstancesRequest,
-  MonitorInstancesRequestFilterSensitiveLog,
-  MonitorInstancesResult,
-  MonitorInstancesResultFilterSensitiveLog,
-} from "../models/models_6";
-import {
-  deserializeAws_ec2MonitorInstancesCommand,
-  serializeAws_ec2MonitorInstancesCommand,
-} from "../protocols/Aws_ec2";
+import { MonitorInstancesRequest, MonitorInstancesResult } from "../models/models_6";
+import { de_MonitorInstancesCommand, se_MonitorInstancesCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link MonitorInstancesCommand}.
+ */
 export interface MonitorInstancesCommandInput extends MonitorInstancesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link MonitorInstancesCommand}.
+ */
 export interface MonitorInstancesCommandOutput extends MonitorInstancesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables detailed monitoring for a running instance. Otherwise, basic monitoring is
  *             enabled. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html">Monitor your instances using
  *                 CloudWatch</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -39,13 +42,22 @@ export interface MonitorInstancesCommandOutput extends MonitorInstancesResult, _
  * import { EC2Client, MonitorInstancesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, MonitorInstancesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // MonitorInstancesRequest
+ *   InstanceIds: [ // InstanceIdStringList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   DryRun: true || false,
+ * };
  * const command = new MonitorInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param MonitorInstancesCommandInput - {@link MonitorInstancesCommandInput}
+ * @returns {@link MonitorInstancesCommandOutput}
  * @see {@link MonitorInstancesCommandInput} for command's `input` shape.
  * @see {@link MonitorInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class MonitorInstancesCommand extends $Command<
@@ -65,6 +77,9 @@ export class MonitorInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: MonitorInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +108,8 @@ export class MonitorInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MonitorInstancesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: MonitorInstancesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +119,18 @@ export class MonitorInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: MonitorInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2MonitorInstancesCommand(input, context);
+    return se_MonitorInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MonitorInstancesCommandOutput> {
-    return deserializeAws_ec2MonitorInstancesCommand(output, context);
+    return de_MonitorInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

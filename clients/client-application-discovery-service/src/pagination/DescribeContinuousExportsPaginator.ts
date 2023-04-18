@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { ApplicationDiscoveryService } from "../ApplicationDiscoveryService";
 import { ApplicationDiscoveryServiceClient } from "../ApplicationDiscoveryServiceClient";
 import {
   DescribeContinuousExportsCommand,
@@ -11,7 +10,7 @@ import {
 import { ApplicationDiscoveryServicePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ApplicationDiscoveryServiceClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeContinuousExportsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ApplicationDiscoveryService,
-  input: DescribeContinuousExportsCommandInput,
-  ...args: any
-): Promise<DescribeContinuousExportsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeContinuousExports(input, ...args);
-};
 export async function* paginateDescribeContinuousExports(
   config: ApplicationDiscoveryServicePaginationConfiguration,
   input: DescribeContinuousExportsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateDescribeContinuousExports(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof ApplicationDiscoveryService) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ApplicationDiscoveryServiceClient) {
+    if (config.client instanceof ApplicationDiscoveryServiceClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ApplicationDiscoveryService | ApplicationDiscoveryServiceClient");

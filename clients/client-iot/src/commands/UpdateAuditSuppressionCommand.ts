@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  UpdateAuditSuppressionRequest,
-  UpdateAuditSuppressionRequestFilterSensitiveLog,
-  UpdateAuditSuppressionResponse,
-  UpdateAuditSuppressionResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1UpdateAuditSuppressionCommand,
-  serializeAws_restJson1UpdateAuditSuppressionCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateAuditSuppressionRequest, UpdateAuditSuppressionResponse } from "../models/models_2";
+import { de_UpdateAuditSuppressionCommand, se_UpdateAuditSuppressionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateAuditSuppressionCommand}.
+ */
 export interface UpdateAuditSuppressionCommandInput extends UpdateAuditSuppressionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateAuditSuppressionCommand}.
+ */
 export interface UpdateAuditSuppressionCommandOutput extends UpdateAuditSuppressionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Updates a Device Defender audit suppression.
  *     </p>
@@ -38,13 +41,53 @@ export interface UpdateAuditSuppressionCommandOutput extends UpdateAuditSuppress
  * import { IoTClient, UpdateAuditSuppressionCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, UpdateAuditSuppressionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // UpdateAuditSuppressionRequest
+ *   checkName: "STRING_VALUE", // required
+ *   resourceIdentifier: { // ResourceIdentifier
+ *     deviceCertificateId: "STRING_VALUE",
+ *     caCertificateId: "STRING_VALUE",
+ *     cognitoIdentityPoolId: "STRING_VALUE",
+ *     clientId: "STRING_VALUE",
+ *     policyVersionIdentifier: { // PolicyVersionIdentifier
+ *       policyName: "STRING_VALUE",
+ *       policyVersionId: "STRING_VALUE",
+ *     },
+ *     account: "STRING_VALUE",
+ *     iamRoleArn: "STRING_VALUE",
+ *     roleAliasArn: "STRING_VALUE",
+ *     issuerCertificateIdentifier: { // IssuerCertificateIdentifier
+ *       issuerCertificateSubject: "STRING_VALUE",
+ *       issuerId: "STRING_VALUE",
+ *       issuerCertificateSerialNumber: "STRING_VALUE",
+ *     },
+ *     deviceCertificateArn: "STRING_VALUE",
+ *   },
+ *   expirationDate: new Date("TIMESTAMP"),
+ *   suppressIndefinitely: true || false,
+ *   description: "STRING_VALUE",
+ * };
  * const command = new UpdateAuditSuppressionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAuditSuppressionCommandInput - {@link UpdateAuditSuppressionCommandInput}
+ * @returns {@link UpdateAuditSuppressionCommandOutput}
  * @see {@link UpdateAuditSuppressionCommandInput} for command's `input` shape.
  * @see {@link UpdateAuditSuppressionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
  *
  */
 export class UpdateAuditSuppressionCommand extends $Command<
@@ -64,6 +107,9 @@ export class UpdateAuditSuppressionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAuditSuppressionCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +138,8 @@ export class UpdateAuditSuppressionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAuditSuppressionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAuditSuppressionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +149,18 @@ export class UpdateAuditSuppressionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAuditSuppressionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateAuditSuppressionCommand(input, context);
+    return se_UpdateAuditSuppressionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAuditSuppressionCommandOutput> {
-    return deserializeAws_restJson1UpdateAuditSuppressionCommand(output, context);
+    return de_UpdateAuditSuppressionCommand(output, context);
   }
 
   // Start section: command_body_extra

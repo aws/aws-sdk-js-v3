@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  RecordHandlerProgressInput,
-  RecordHandlerProgressInputFilterSensitiveLog,
-  RecordHandlerProgressOutput,
-  RecordHandlerProgressOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryRecordHandlerProgressCommand,
-  serializeAws_queryRecordHandlerProgressCommand,
-} from "../protocols/Aws_query";
+import { RecordHandlerProgressInput, RecordHandlerProgressOutput } from "../models/models_0";
+import { de_RecordHandlerProgressCommand, se_RecordHandlerProgressCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link RecordHandlerProgressCommand}.
+ */
 export interface RecordHandlerProgressCommandInput extends RecordHandlerProgressInput {}
+/**
+ * @public
+ *
+ * The output of {@link RecordHandlerProgressCommand}.
+ */
 export interface RecordHandlerProgressCommandOutput extends RecordHandlerProgressOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Reports progress of a resource handler to CloudFormation.</p>
  *          <p>Reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation CLI</a>. Don't use this API in your code.</p>
  * @example
@@ -37,13 +40,33 @@ export interface RecordHandlerProgressCommandOutput extends RecordHandlerProgres
  * import { CloudFormationClient, RecordHandlerProgressCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, RecordHandlerProgressCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // RecordHandlerProgressInput
+ *   BearerToken: "STRING_VALUE", // required
+ *   OperationStatus: "PENDING" || "IN_PROGRESS" || "SUCCESS" || "FAILED", // required
+ *   CurrentOperationStatus: "PENDING" || "IN_PROGRESS" || "SUCCESS" || "FAILED",
+ *   StatusMessage: "STRING_VALUE",
+ *   ErrorCode: "NotUpdatable" || "InvalidRequest" || "AccessDenied" || "InvalidCredentials" || "AlreadyExists" || "NotFound" || "ResourceConflict" || "Throttling" || "ServiceLimitExceeded" || "NotStabilized" || "GeneralServiceException" || "ServiceInternalError" || "NetworkFailure" || "InternalFailure" || "InvalidTypeConfiguration" || "HandlerInternalFailure" || "NonCompliant" || "Unknown" || "UnsupportedTarget",
+ *   ResourceModel: "STRING_VALUE",
+ *   ClientRequestToken: "STRING_VALUE",
+ * };
  * const command = new RecordHandlerProgressCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RecordHandlerProgressCommandInput - {@link RecordHandlerProgressCommandInput}
+ * @returns {@link RecordHandlerProgressCommandOutput}
  * @see {@link RecordHandlerProgressCommandInput} for command's `input` shape.
  * @see {@link RecordHandlerProgressCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
+ *
+ * @throws {@link InvalidStateTransitionException} (client fault)
+ *  <p>Error reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation CLI</a>. CloudFormation doesn't return this error to
+ *          users.</p>
+ *
+ * @throws {@link OperationStatusCheckFailedException} (client fault)
+ *  <p>Error reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation CLI</a>. CloudFormation doesn't return this error to
+ *          users.</p>
+ *
  *
  */
 export class RecordHandlerProgressCommand extends $Command<
@@ -63,6 +86,9 @@ export class RecordHandlerProgressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RecordHandlerProgressCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +117,8 @@ export class RecordHandlerProgressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RecordHandlerProgressInputFilterSensitiveLog,
-      outputFilterSensitiveLog: RecordHandlerProgressOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +128,18 @@ export class RecordHandlerProgressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RecordHandlerProgressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRecordHandlerProgressCommand(input, context);
+    return se_RecordHandlerProgressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RecordHandlerProgressCommandOutput> {
-    return deserializeAws_queryRecordHandlerProgressCommand(output, context);
+    return de_RecordHandlerProgressCommand(output, context);
   }
 
   // Start section: command_body_extra

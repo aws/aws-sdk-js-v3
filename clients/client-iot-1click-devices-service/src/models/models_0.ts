@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { IoT1ClickDevicesServiceServiceException as __BaseException } from "./IoT1ClickDevicesServiceServiceException";
 
+/**
+ * @public
+ */
 export interface DeviceDescription {
   /**
    * <p>The ARN of the device.</p>
@@ -42,8 +45,14 @@ export interface DeviceDescription {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface Attributes {}
 
+/**
+ * @public
+ */
 export interface Device {
   /**
    * <p>The user specified attributes associated with the device for an event.</p>
@@ -61,6 +70,9 @@ export interface Device {
   Type?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeviceEvent {
   /**
    * <p>An object representing the device associated with the event.</p>
@@ -73,6 +85,9 @@ export interface DeviceEvent {
   StdEvent?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeviceMethod {
   /**
    * <p>The type of the device, such as "button".</p>
@@ -85,6 +100,9 @@ export interface DeviceMethod {
   MethodName?: string;
 }
 
+/**
+ * @public
+ */
 export interface ClaimDevicesByClaimCodeRequest {
   /**
    * <p>The claim code, starting with "C-", as provided by the device manufacturer.</p>
@@ -92,6 +110,9 @@ export interface ClaimDevicesByClaimCodeRequest {
   ClaimCode: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ClaimDevicesByClaimCodeResponse {
   /**
    * <p>The claim code provided by the device manufacturer.</p>
@@ -105,6 +126,9 @@ export interface ClaimDevicesByClaimCodeResponse {
   Total?: number;
 }
 
+/**
+ * @public
+ */
 export class ForbiddenException extends __BaseException {
   readonly name: "ForbiddenException" = "ForbiddenException";
   readonly $fault: "client" = "client";
@@ -132,6 +156,9 @@ export class ForbiddenException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export class InternalFailureException extends __BaseException {
   readonly name: "InternalFailureException" = "InternalFailureException";
   readonly $fault: "server" = "server";
@@ -159,6 +186,9 @@ export class InternalFailureException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export class InvalidRequestException extends __BaseException {
   readonly name: "InvalidRequestException" = "InvalidRequestException";
   readonly $fault: "client" = "client";
@@ -186,6 +216,9 @@ export class InvalidRequestException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeDeviceRequest {
   /**
    * <p>The unique identifier of the device.</p>
@@ -193,6 +226,9 @@ export interface DescribeDeviceRequest {
   DeviceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDeviceResponse {
   /**
    * <p>Device details.</p>
@@ -200,6 +236,9 @@ export interface DescribeDeviceResponse {
   DeviceDescription?: DeviceDescription;
 }
 
+/**
+ * @public
+ */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
@@ -227,6 +266,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface FinalizeDeviceClaimRequest {
   /**
    * <p>The unique identifier of the device.</p>
@@ -234,8 +276,8 @@ export interface FinalizeDeviceClaimRequest {
   DeviceId: string | undefined;
 
   /**
-   * <p>A collection of key/value pairs defining the resource tags. For example, {
-   *  "tags": {"key1": "value1", "key2": "value2"} }. For more information, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS
+   * <p>A collection of key/value pairs defining the resource tags. For example, \{
+   *  "tags": \{"key1": "value1", "key2": "value2"\} \}. For more information, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS
    *  Tagging Strategies</a>.</p><p>
    *
    *  </p>
@@ -243,6 +285,9 @@ export interface FinalizeDeviceClaimRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface FinalizeDeviceClaimResponse {
   /**
    * <p>The device's final claim state.</p>
@@ -250,6 +295,9 @@ export interface FinalizeDeviceClaimResponse {
   State?: string;
 }
 
+/**
+ * @public
+ */
 export class PreconditionFailedException extends __BaseException {
   readonly name: "PreconditionFailedException" = "PreconditionFailedException";
   readonly $fault: "client" = "client";
@@ -277,6 +325,9 @@ export class PreconditionFailedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export class ResourceConflictException extends __BaseException {
   readonly name: "ResourceConflictException" = "ResourceConflictException";
   readonly $fault: "client" = "client";
@@ -304,6 +355,9 @@ export class ResourceConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetDeviceMethodsRequest {
   /**
    * <p>The unique identifier of the device.</p>
@@ -311,6 +365,9 @@ export interface GetDeviceMethodsRequest {
   DeviceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDeviceMethodsResponse {
   /**
    * <p>List of available device APIs.</p>
@@ -318,6 +375,9 @@ export interface GetDeviceMethodsResponse {
   DeviceMethods?: DeviceMethod[];
 }
 
+/**
+ * @public
+ */
 export interface InitiateDeviceClaimRequest {
   /**
    * <p>The unique identifier of the device.</p>
@@ -325,6 +385,9 @@ export interface InitiateDeviceClaimRequest {
   DeviceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface InitiateDeviceClaimResponse {
   /**
    * <p>The device's final claim state.</p>
@@ -332,6 +395,9 @@ export interface InitiateDeviceClaimResponse {
   State?: string;
 }
 
+/**
+ * @public
+ */
 export interface InvokeDeviceMethodRequest {
   /**
    * <p>The unique identifier of the device.</p>
@@ -349,6 +415,9 @@ export interface InvokeDeviceMethodRequest {
   DeviceMethodParameters?: string;
 }
 
+/**
+ * @public
+ */
 export interface InvokeDeviceMethodResponse {
   /**
    * <p>A JSON encoded string containing the device method response.</p>
@@ -356,6 +425,9 @@ export interface InvokeDeviceMethodResponse {
   DeviceMethodResponse?: string;
 }
 
+/**
+ * @public
+ */
 export class RangeNotSatisfiableException extends __BaseException {
   readonly name: "RangeNotSatisfiableException" = "RangeNotSatisfiableException";
   readonly $fault: "client" = "client";
@@ -384,6 +456,9 @@ export class RangeNotSatisfiableException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListDeviceEventsRequest {
   /**
    * <p>The unique identifier of the device.</p>
@@ -416,6 +491,9 @@ export interface ListDeviceEventsRequest {
   ToTimeStamp: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListDeviceEventsResponse {
   /**
    * <p>An array of zero or more elements describing the event(s) associated with the
@@ -429,6 +507,9 @@ export interface ListDeviceEventsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDevicesRequest {
   /**
    * <p>The type of the device, such as "button".</p>
@@ -447,6 +528,9 @@ export interface ListDevicesRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDevicesResponse {
   /**
    * <p>A list of devices.</p>
@@ -459,6 +543,9 @@ export interface ListDevicesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -466,10 +553,13 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>A collection of key/value pairs defining the resource tags. For example, {
-   *  "tags": {"key1": "value1", "key2": "value2"} }. For more information, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS
+   * <p>A collection of key/value pairs defining the resource tags. For example, \{
+   *  "tags": \{"key1": "value1", "key2": "value2"\} \}. For more information, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS
    *  Tagging Strategies</a>.</p><p>
    *
    *  </p>
@@ -477,6 +567,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -484,8 +577,8 @@ export interface TagResourceRequest {
   ResourceArn: string | undefined;
 
   /**
-   * <p>A collection of key/value pairs defining the resource tags. For example, {
-   *  "tags": {"key1": "value1", "key2": "value2"} }. For more information, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS
+   * <p>A collection of key/value pairs defining the resource tags. For example, \{
+   *  "tags": \{"key1": "value1", "key2": "value2"\} \}. For more information, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS
    *  Tagging Strategies</a>.</p><p>
    *
    *  </p>
@@ -493,6 +586,9 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UnclaimDeviceRequest {
   /**
    * <p>The unique identifier of the device.</p>
@@ -500,6 +596,9 @@ export interface UnclaimDeviceRequest {
   DeviceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UnclaimDeviceResponse {
   /**
    * <p>The device's final claim state.</p>
@@ -507,6 +606,9 @@ export interface UnclaimDeviceResponse {
   State?: string;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -514,11 +616,14 @@ export interface UntagResourceRequest {
   ResourceArn: string | undefined;
 
   /**
-   * <p>A collections of tag keys. For example, {"key1","key2"}</p>
+   * <p>A collections of tag keys. For example, \{"key1","key2"\}</p>
    */
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDeviceStateRequest {
   /**
    * <p>The unique identifier of the device.</p>
@@ -532,207 +637,7 @@ export interface UpdateDeviceStateRequest {
   Enabled?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDeviceStateResponse {}
-
-/**
- * @internal
- */
-export const DeviceDescriptionFilterSensitiveLog = (obj: DeviceDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttributesFilterSensitiveLog = (obj: Attributes): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeviceFilterSensitiveLog = (obj: Device): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeviceEventFilterSensitiveLog = (obj: DeviceEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeviceMethodFilterSensitiveLog = (obj: DeviceMethod): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClaimDevicesByClaimCodeRequestFilterSensitiveLog = (obj: ClaimDevicesByClaimCodeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClaimDevicesByClaimCodeResponseFilterSensitiveLog = (obj: ClaimDevicesByClaimCodeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDeviceRequestFilterSensitiveLog = (obj: DescribeDeviceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDeviceResponseFilterSensitiveLog = (obj: DescribeDeviceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FinalizeDeviceClaimRequestFilterSensitiveLog = (obj: FinalizeDeviceClaimRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FinalizeDeviceClaimResponseFilterSensitiveLog = (obj: FinalizeDeviceClaimResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDeviceMethodsRequestFilterSensitiveLog = (obj: GetDeviceMethodsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDeviceMethodsResponseFilterSensitiveLog = (obj: GetDeviceMethodsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InitiateDeviceClaimRequestFilterSensitiveLog = (obj: InitiateDeviceClaimRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InitiateDeviceClaimResponseFilterSensitiveLog = (obj: InitiateDeviceClaimResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InvokeDeviceMethodRequestFilterSensitiveLog = (obj: InvokeDeviceMethodRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InvokeDeviceMethodResponseFilterSensitiveLog = (obj: InvokeDeviceMethodResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDeviceEventsRequestFilterSensitiveLog = (obj: ListDeviceEventsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDeviceEventsResponseFilterSensitiveLog = (obj: ListDeviceEventsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDevicesRequestFilterSensitiveLog = (obj: ListDevicesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDevicesResponseFilterSensitiveLog = (obj: ListDevicesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UnclaimDeviceRequestFilterSensitiveLog = (obj: UnclaimDeviceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UnclaimDeviceResponseFilterSensitiveLog = (obj: UnclaimDeviceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDeviceStateRequestFilterSensitiveLog = (obj: UpdateDeviceStateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDeviceStateResponseFilterSensitiveLog = (obj: UpdateDeviceStateResponse): any => ({
-  ...obj,
-});

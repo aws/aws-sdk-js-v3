@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DecisionTask,
-  DecisionTaskFilterSensitiveLog,
-  PollForDecisionTaskInput,
-  PollForDecisionTaskInputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0PollForDecisionTaskCommand,
-  serializeAws_json1_0PollForDecisionTaskCommand,
-} from "../protocols/Aws_json1_0";
+import { DecisionTask, PollForDecisionTaskInput } from "../models/models_0";
+import { de_PollForDecisionTaskCommand, se_PollForDecisionTaskCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
+/**
+ * @public
+ *
+ * The input for {@link PollForDecisionTaskCommand}.
+ */
 export interface PollForDecisionTaskCommandInput extends PollForDecisionTaskInput {}
+/**
+ * @public
+ *
+ * The output of {@link PollForDecisionTaskCommand}.
+ */
 export interface PollForDecisionTaskCommandOutput extends DecisionTask, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used by deciders to get a <a>DecisionTask</a> from the specified decision
  *         <code>taskList</code>. A decision task may be returned for any open workflow execution that
  *       is using the specified task list. The task includes a paginated view of the history of the
@@ -83,13 +86,35 @@ export interface PollForDecisionTaskCommandOutput extends DecisionTask, __Metada
  * import { SWFClient, PollForDecisionTaskCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, PollForDecisionTaskCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = { // PollForDecisionTaskInput
+ *   domain: "STRING_VALUE", // required
+ *   taskList: { // TaskList
+ *     name: "STRING_VALUE", // required
+ *   },
+ *   identity: "STRING_VALUE",
+ *   nextPageToken: "STRING_VALUE",
+ *   maximumPageSize: Number("int"),
+ *   reverseOrder: true || false,
+ * };
  * const command = new PollForDecisionTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PollForDecisionTaskCommandInput - {@link PollForDecisionTaskCommandInput}
+ * @returns {@link PollForDecisionTaskCommandOutput}
  * @see {@link PollForDecisionTaskCommandInput} for command's `input` shape.
  * @see {@link PollForDecisionTaskCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
+ *
+ * @throws {@link LimitExceededFault} (client fault)
+ *  <p>Returned by any operation if a system imposed limitation has been reached. To address this fault you should either clean up unused resources or increase the limit by contacting AWS.</p>
+ *
+ * @throws {@link OperationNotPermittedFault} (client fault)
+ *  <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+ *
+ * @throws {@link UnknownResourceFault} (client fault)
+ *  <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+ *
  *
  */
 export class PollForDecisionTaskCommand extends $Command<
@@ -109,6 +134,9 @@ export class PollForDecisionTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PollForDecisionTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,8 +165,8 @@ export class PollForDecisionTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PollForDecisionTaskInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DecisionTaskFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -148,12 +176,18 @@ export class PollForDecisionTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PollForDecisionTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0PollForDecisionTaskCommand(input, context);
+    return se_PollForDecisionTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PollForDecisionTaskCommandOutput> {
-    return deserializeAws_json1_0PollForDecisionTaskCommand(output, context);
+    return de_PollForDecisionTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

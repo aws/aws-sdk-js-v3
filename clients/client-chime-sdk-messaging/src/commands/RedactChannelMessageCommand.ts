@@ -18,27 +18,29 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ChimeSDKMessagingClient";
-import {
-  RedactChannelMessageRequest,
-  RedactChannelMessageRequestFilterSensitiveLog,
-  RedactChannelMessageResponse,
-  RedactChannelMessageResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1RedactChannelMessageCommand,
-  serializeAws_restJson1RedactChannelMessageCommand,
-} from "../protocols/Aws_restJson1";
+import { RedactChannelMessageRequest, RedactChannelMessageResponse } from "../models/models_0";
+import { de_RedactChannelMessageCommand, se_RedactChannelMessageCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link RedactChannelMessageCommand}.
+ */
 export interface RedactChannelMessageCommandInput extends RedactChannelMessageRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RedactChannelMessageCommand}.
+ */
 export interface RedactChannelMessageCommandOutput extends RedactChannelMessageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Redacts message content, but not metadata. The message exists in the back end, but the
  *          action returns null content, and the state shows as redacted.</p>
- *
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
- *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+ *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
  *             the header.</p>
  *          </note>
  * @example
@@ -47,13 +49,44 @@ export interface RedactChannelMessageCommandOutput extends RedactChannelMessageR
  * import { ChimeSDKMessagingClient, RedactChannelMessageCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, RedactChannelMessageCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
+ * const input = { // RedactChannelMessageRequest
+ *   ChannelArn: "STRING_VALUE", // required
+ *   MessageId: "STRING_VALUE", // required
+ *   ChimeBearer: "STRING_VALUE", // required
+ *   SubChannelId: "STRING_VALUE",
+ * };
  * const command = new RedactChannelMessageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RedactChannelMessageCommandInput - {@link RedactChannelMessageCommandInput}
+ * @returns {@link RedactChannelMessageCommandOutput}
  * @see {@link RedactChannelMessageCommandInput} for command's `input` shape.
  * @see {@link RedactChannelMessageCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be processed because of conflict in the current state of the
+ *          resource.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The client exceeded its request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client is not currently authorized to make the request.</p>
+ *
  *
  */
 export class RedactChannelMessageCommand extends $Command<
@@ -73,6 +106,9 @@ export class RedactChannelMessageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RedactChannelMessageCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +137,8 @@ export class RedactChannelMessageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RedactChannelMessageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RedactChannelMessageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +148,18 @@ export class RedactChannelMessageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RedactChannelMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RedactChannelMessageCommand(input, context);
+    return se_RedactChannelMessageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RedactChannelMessageCommandOutput> {
-    return deserializeAws_restJson1RedactChannelMessageCommand(output, context);
+    return de_RedactChannelMessageCommand(output, context);
   }
 
   // Start section: command_body_extra

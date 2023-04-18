@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AssociateConnectPeerRequest,
-  AssociateConnectPeerRequestFilterSensitiveLog,
-  AssociateConnectPeerResponse,
-  AssociateConnectPeerResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AssociateConnectPeerRequest, AssociateConnectPeerResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1AssociateConnectPeerCommand,
-  serializeAws_restJson1AssociateConnectPeerCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AssociateConnectPeerCommand, se_AssociateConnectPeerCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link AssociateConnectPeerCommand}.
+ */
 export interface AssociateConnectPeerCommandInput extends AssociateConnectPeerRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AssociateConnectPeerCommand}.
+ */
 export interface AssociateConnectPeerCommandOutput extends AssociateConnectPeerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a core network Connect peer with a device and optionally, with a link. </p>
  *          <p>If you specify a link, it must be associated with the specified device. You can only
  *          associate core network Connect peers that have been created on a core network Connect
@@ -39,13 +42,44 @@ export interface AssociateConnectPeerCommandOutput extends AssociateConnectPeerR
  * import { NetworkManagerClient, AssociateConnectPeerCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, AssociateConnectPeerCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // AssociateConnectPeerRequest
+ *   GlobalNetworkId: "STRING_VALUE", // required
+ *   ConnectPeerId: "STRING_VALUE", // required
+ *   DeviceId: "STRING_VALUE", // required
+ *   LinkId: "STRING_VALUE",
+ * };
  * const command = new AssociateConnectPeerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateConnectPeerCommandInput - {@link AssociateConnectPeerCommandInput}
+ * @returns {@link AssociateConnectPeerCommandOutput}
  * @see {@link AssociateConnectPeerCommandInput} for command's `input` shape.
  * @see {@link AssociateConnectPeerCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There was a conflict processing the request. Updating or deleting the resource can
+ *             cause an inconsistent state.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request has failed due to an internal error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>A service limit was exceeded.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints.</p>
+ *
  *
  */
 export class AssociateConnectPeerCommand extends $Command<
@@ -65,6 +99,9 @@ export class AssociateConnectPeerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateConnectPeerCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +130,8 @@ export class AssociateConnectPeerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateConnectPeerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateConnectPeerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +141,18 @@ export class AssociateConnectPeerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateConnectPeerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateConnectPeerCommand(input, context);
+    return se_AssociateConnectPeerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateConnectPeerCommandOutput> {
-    return deserializeAws_restJson1AssociateConnectPeerCommand(output, context);
+    return de_AssociateConnectPeerCommand(output, context);
   }
 
   // Start section: command_body_extra

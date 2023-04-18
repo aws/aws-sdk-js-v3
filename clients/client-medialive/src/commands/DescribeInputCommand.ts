@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  DescribeInputRequest,
-  DescribeInputRequestFilterSensitiveLog,
-  DescribeInputResponse,
-  DescribeInputResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1DescribeInputCommand,
-  serializeAws_restJson1DescribeInputCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeInputRequest, DescribeInputResponse } from "../models/models_1";
+import { de_DescribeInputCommand, se_DescribeInputCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeInputCommand}.
+ */
 export interface DescribeInputCommandInput extends DescribeInputRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeInputCommand}.
+ */
 export interface DescribeInputCommandOutput extends DescribeInputResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Produces details about an input
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,40 @@ export interface DescribeInputCommandOutput extends DescribeInputResponse, __Met
  * import { MediaLiveClient, DescribeInputCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, DescribeInputCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = { // DescribeInputRequest
+ *   InputId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeInputCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInputCommandInput - {@link DescribeInputCommandInput}
+ * @returns {@link DescribeInputCommandOutput}
  * @see {@link DescribeInputCommandInput} for command's `input` shape.
  * @see {@link DescribeInputCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
+ *
+ * @throws {@link BadGatewayException} (server fault)
+ *  Placeholder documentation for BadGatewayException
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  Placeholder documentation for BadRequestException
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  Placeholder documentation for ForbiddenException
+ *
+ * @throws {@link GatewayTimeoutException} (server fault)
+ *  Placeholder documentation for GatewayTimeoutException
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  Placeholder documentation for InternalServerErrorException
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  Placeholder documentation for NotFoundException
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  Placeholder documentation for TooManyRequestsException
+ *
  *
  */
 export class DescribeInputCommand extends $Command<
@@ -62,6 +92,9 @@ export class DescribeInputCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInputCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +121,8 @@ export class DescribeInputCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInputRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeInputResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +132,18 @@ export class DescribeInputCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeInputCommand(input, context);
+    return se_DescribeInputCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeInputCommandOutput> {
-    return deserializeAws_restJson1DescribeInputCommand(output, context);
+    return de_DescribeInputCommand(output, context);
   }
 
   // Start section: command_body_extra

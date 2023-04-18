@@ -43,6 +43,7 @@ visit our [code samples repo](https://github.com/aws-samples/aws-sdk-js-tests).
 1. [Install from Source](#install-from-source)
 1. [Giving feedback and contributing](#giving-feedback-and-contributing)
 1. [Release Cadence](#release-cadence)
+1. [Node.js versions](#nodejs-versions)
 1. [Stability of Modular Packages](#stability-of-modular-packages)
 1. [Known Issues](#known-issues)
    1. [Functionality requiring AWS Common Runtime (CRT)](#functionality-requiring-aws-common-runtime-crt)
@@ -330,13 +331,13 @@ Many AWS operations return paginated results when the response object is too lar
 
 In AWS SDK for JavaScript v3 we’ve improved pagination using async generator functions, which are similar to generator functions, with the following differences:
 
-- When called, async generator functions return an object, an async generator whose methods (`next`, `throw`, and `return`) return promises for { `value`, `done` }, instead of directly returning { `value`, `done` }. This automatically makes the returned async generator objects async iterators.
+- When called, async generator functions return an object, an async generator whose methods (`next`, `throw`, and `return`) return promises for `{ `value`, `done` }`, instead of directly returning `{ `value`, `done` }`. This automatically makes the returned async generator objects async iterators.
 - await expressions and `for await (x of y)` statements are allowed.
 - The behavior of `yield*` is modified to support delegation to async iterables.
 
 The Async Iterators were added in the ES2018 iteration of JavaScript. They are supported by Node.js 10.x+ and by all modern browsers, including Chrome 63+, Firefox 57+, Safari 11.1+, and Edge 79+. If you’re using TypeScript v2.3+, you can compile Async Iterators to older versions of JavaScript.
 
-An async iterator is much like an iterator, except that its `next()` method returns a promise for a { `value`, `done` } pair. As an implicit aspect of the Async Iteration protocol, the next promise is not requested until the previous one resolves. This is a simple, yet a very powerful pattern.
+An async iterator is much like an iterator, except that its `next()` method returns a promise for a `{ `value`, `done` }` pair. As an implicit aspect of the Async Iteration protocol, the next promise is not requested until the previous one resolves. This is a simple, yet a very powerful pattern.
 
 #### Example Pagination Usage
 
@@ -511,27 +512,36 @@ For a full middleware stack deep dive please check out our [blog post](https://a
 
 ## Release Cadence
 
-Our releases usually happen once per weekday. Each release increments the 
+Our releases usually happen once per weekday. Each release increments the
 minor version, e.g. 3.200.0 -> 3.201.0.
+
+## <a id="nodejs-versions"></a> Node.js versions
+
+v3.201.0 and higher requires Node.js >= 14.
+
+v3.46.0 to v3.200.0 requires Node.js >= 12.
+
+Earlier versions require Node.js >= 10.
 
 ## Stability of Modular Packages
 
-|Package name|containing folder|API controlled by|stability|
-|---|---|---|---|
-|@aws-sdk/client-* Commands|clients|AWS service teams|public/stable|
-|@aws-sdk/client-* Clients|clients|AWS SDK JS team|public/stable|
-|@aws-sdk/lib-*|lib|AWS SDK JS team|public/stable|
-|@aws-sdk/*-signer|packages|AWS SDK JS team|public/stable|
-|@aws-sdk/middleware-stack|packages|AWS SDK JS team|public/stable|
-|remaining @aws-sdk/*|packages|AWS SDK JS team|internal|
+| Package name                | containing folder | API controlled by | stability     |
+| --------------------------- | ----------------- | ----------------- | ------------- |
+| @aws-sdk/client-\* Commands | clients           | AWS service teams | public/stable |
+| @aws-sdk/client-\* Clients  | clients           | AWS SDK JS team   | public/stable |
+| @aws-sdk/lib-\*             | lib               | AWS SDK JS team   | public/stable |
+| @aws-sdk/\*-signer          | packages          | AWS SDK JS team   | public/stable |
+| @aws-sdk/middleware-stack   | packages          | AWS SDK JS team   | public/stable |
+| remaining @aws-sdk/\*       | packages          | AWS SDK JS team   | internal      |
 
 Additional notes:
+
 - internal does not mean a package or interface is constantly changing
-or being actively worked on. It means it is subject to change without any
-notice period. The changes are included in the release notes.
+  or being actively worked on. It means it is subject to change without any
+  notice period. The changes are included in the release notes.
 - public interfaces such as client configuration are also subject to change
- in exceptional cases. We will try to undergo a deprecation period with 
- an advance notice.
+  in exceptional cases. We will try to undergo a deprecation period with
+  an advance notice.
 
 ## Known Issues
 

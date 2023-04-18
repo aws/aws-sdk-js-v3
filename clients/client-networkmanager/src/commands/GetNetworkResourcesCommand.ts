@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetNetworkResourcesRequest,
-  GetNetworkResourcesRequestFilterSensitiveLog,
-  GetNetworkResourcesResponse,
-  GetNetworkResourcesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetNetworkResourcesRequest, GetNetworkResourcesResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1GetNetworkResourcesCommand,
-  serializeAws_restJson1GetNetworkResourcesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetNetworkResourcesCommand, se_GetNetworkResourcesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetNetworkResourcesCommand}.
+ */
 export interface GetNetworkResourcesCommandInput extends GetNetworkResourcesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetNetworkResourcesCommand}.
+ */
 export interface GetNetworkResourcesCommandOutput extends GetNetworkResourcesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the network resources for the specified global network.</p>
  *          <p>The results include information from the corresponding Describe call for the resource, minus any sensitive information such as pre-shared keys.</p>
  * @example
@@ -37,13 +40,42 @@ export interface GetNetworkResourcesCommandOutput extends GetNetworkResourcesRes
  * import { NetworkManagerClient, GetNetworkResourcesCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetNetworkResourcesCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // GetNetworkResourcesRequest
+ *   GlobalNetworkId: "STRING_VALUE", // required
+ *   CoreNetworkId: "STRING_VALUE",
+ *   RegisteredGatewayArn: "STRING_VALUE",
+ *   AwsRegion: "STRING_VALUE",
+ *   AccountId: "STRING_VALUE",
+ *   ResourceType: "STRING_VALUE",
+ *   ResourceArn: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetNetworkResourcesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetNetworkResourcesCommandInput - {@link GetNetworkResourcesCommandInput}
+ * @returns {@link GetNetworkResourcesCommandOutput}
  * @see {@link GetNetworkResourcesCommandInput} for command's `input` shape.
  * @see {@link GetNetworkResourcesCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request has failed due to an internal error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints.</p>
+ *
  *
  */
 export class GetNetworkResourcesCommand extends $Command<
@@ -63,6 +95,9 @@ export class GetNetworkResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetNetworkResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +126,8 @@ export class GetNetworkResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetNetworkResourcesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetNetworkResourcesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +137,18 @@ export class GetNetworkResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetNetworkResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetNetworkResourcesCommand(input, context);
+    return se_GetNetworkResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetNetworkResourcesCommandOutput> {
-    return deserializeAws_restJson1GetNetworkResourcesCommand(output, context);
+    return de_GetNetworkResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

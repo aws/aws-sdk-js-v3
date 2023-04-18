@@ -3,11 +3,21 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { MediaPackageVodServiceException as __BaseException } from "./MediaPackageVodServiceException";
 
-export enum __PeriodTriggersElement {
-  ADS = "ADS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const __PeriodTriggersElement = {
+  ADS: "ADS",
+} as const;
 
 /**
+ * @public
+ */
+export type __PeriodTriggersElement = (typeof __PeriodTriggersElement)[keyof typeof __PeriodTriggersElement];
+
+/**
+ * @public
  * A MediaPackage VOD Asset resource.
  */
 export interface AssetShallow {
@@ -52,28 +62,65 @@ export interface AssetShallow {
   Tags?: Record<string, string>;
 }
 
-export enum ManifestLayout {
-  COMPACT = "COMPACT",
-  FULL = "FULL",
-}
-
-export enum Profile {
-  HBBTV_1_5 = "HBBTV_1_5",
-  NONE = "NONE",
-}
-
-export enum ScteMarkersSource {
-  MANIFEST = "MANIFEST",
-  SEGMENTS = "SEGMENTS",
-}
-
-export enum StreamOrder {
-  ORIGINAL = "ORIGINAL",
-  VIDEO_BITRATE_ASCENDING = "VIDEO_BITRATE_ASCENDING",
-  VIDEO_BITRATE_DESCENDING = "VIDEO_BITRATE_DESCENDING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ManifestLayout = {
+  COMPACT: "COMPACT",
+  FULL: "FULL",
+} as const;
 
 /**
+ * @public
+ */
+export type ManifestLayout = (typeof ManifestLayout)[keyof typeof ManifestLayout];
+
+/**
+ * @public
+ * @enum
+ */
+export const Profile = {
+  HBBTV_1_5: "HBBTV_1_5",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type Profile = (typeof Profile)[keyof typeof Profile];
+
+/**
+ * @public
+ * @enum
+ */
+export const ScteMarkersSource = {
+  MANIFEST: "MANIFEST",
+  SEGMENTS: "SEGMENTS",
+} as const;
+
+/**
+ * @public
+ */
+export type ScteMarkersSource = (typeof ScteMarkersSource)[keyof typeof ScteMarkersSource];
+
+/**
+ * @public
+ * @enum
+ */
+export const StreamOrder = {
+  ORIGINAL: "ORIGINAL",
+  VIDEO_BITRATE_ASCENDING: "VIDEO_BITRATE_ASCENDING",
+  VIDEO_BITRATE_DESCENDING: "VIDEO_BITRATE_DESCENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type StreamOrder = (typeof StreamOrder)[keyof typeof StreamOrder];
+
+/**
+ * @public
  * A StreamSelection configuration.
  */
 export interface StreamSelection {
@@ -94,6 +141,7 @@ export interface StreamSelection {
 }
 
 /**
+ * @public
  * A DASH manifest configuration.
  */
 export interface DashManifest {
@@ -118,7 +166,7 @@ export interface DashManifest {
   Profile?: Profile | string;
 
   /**
-   * The source of scte markers used. When set to SEGMENTS, the scte markers are sourced from the segments of the ingested content. When set to MANIFEST, the scte markers are sourced from the manifest of the ingested content. The MANIFEST value is compatible with source HLS playlists using the SCTE-35 Enhanced syntax (#EXT-OATCLS-SCTE35 tags). SCTE-35 Elemental and SCTE-35 Daterange syntaxes are not supported with this option.
+   * The source of scte markers used. When set to SEGMENTS, the scte markers are sourced from the segments of the ingested content. When set to MANIFEST, the scte markers are sourced from the manifest of the ingested content.
    */
   ScteMarkersSource?: ScteMarkersSource | string;
 
@@ -129,6 +177,7 @@ export interface DashManifest {
 }
 
 /**
+ * @public
  * The endpoint URL used to access an Asset using one PackagingConfiguration.
  */
 export interface EgressEndpoint {
@@ -148,13 +197,23 @@ export interface EgressEndpoint {
   Url?: string;
 }
 
-export enum AdMarkers {
-  NONE = "NONE",
-  PASSTHROUGH = "PASSTHROUGH",
-  SCTE35_ENHANCED = "SCTE35_ENHANCED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AdMarkers = {
+  NONE: "NONE",
+  PASSTHROUGH: "PASSTHROUGH",
+  SCTE35_ENHANCED: "SCTE35_ENHANCED",
+} as const;
 
 /**
+ * @public
+ */
+export type AdMarkers = (typeof AdMarkers)[keyof typeof AdMarkers];
+
+/**
+ * @public
  * An HTTP Live Streaming (HLS) manifest configuration.
  */
 export interface HlsManifest {
@@ -203,6 +262,7 @@ export interface HlsManifest {
 }
 
 /**
+ * @public
  * A Microsoft Smooth Streaming (MSS) manifest configuration.
  */
 export interface MssManifest {
@@ -217,28 +277,47 @@ export interface MssManifest {
   StreamSelection?: StreamSelection;
 }
 
-export enum PresetSpeke20Audio {
-  PRESET_AUDIO_1 = "PRESET-AUDIO-1",
-  PRESET_AUDIO_2 = "PRESET-AUDIO-2",
-  PRESET_AUDIO_3 = "PRESET-AUDIO-3",
-  SHARED = "SHARED",
-  UNENCRYPTED = "UNENCRYPTED",
-}
-
-export enum PresetSpeke20Video {
-  PRESET_VIDEO_1 = "PRESET-VIDEO-1",
-  PRESET_VIDEO_2 = "PRESET-VIDEO-2",
-  PRESET_VIDEO_3 = "PRESET-VIDEO-3",
-  PRESET_VIDEO_4 = "PRESET-VIDEO-4",
-  PRESET_VIDEO_5 = "PRESET-VIDEO-5",
-  PRESET_VIDEO_6 = "PRESET-VIDEO-6",
-  PRESET_VIDEO_7 = "PRESET-VIDEO-7",
-  PRESET_VIDEO_8 = "PRESET-VIDEO-8",
-  SHARED = "SHARED",
-  UNENCRYPTED = "UNENCRYPTED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PresetSpeke20Audio = {
+  PRESET_AUDIO_1: "PRESET-AUDIO-1",
+  PRESET_AUDIO_2: "PRESET-AUDIO-2",
+  PRESET_AUDIO_3: "PRESET-AUDIO-3",
+  SHARED: "SHARED",
+  UNENCRYPTED: "UNENCRYPTED",
+} as const;
 
 /**
+ * @public
+ */
+export type PresetSpeke20Audio = (typeof PresetSpeke20Audio)[keyof typeof PresetSpeke20Audio];
+
+/**
+ * @public
+ * @enum
+ */
+export const PresetSpeke20Video = {
+  PRESET_VIDEO_1: "PRESET-VIDEO-1",
+  PRESET_VIDEO_2: "PRESET-VIDEO-2",
+  PRESET_VIDEO_3: "PRESET-VIDEO-3",
+  PRESET_VIDEO_4: "PRESET-VIDEO-4",
+  PRESET_VIDEO_5: "PRESET-VIDEO-5",
+  PRESET_VIDEO_6: "PRESET-VIDEO-6",
+  PRESET_VIDEO_7: "PRESET-VIDEO-7",
+  PRESET_VIDEO_8: "PRESET-VIDEO-8",
+  SHARED: "SHARED",
+  UNENCRYPTED: "UNENCRYPTED",
+} as const;
+
+/**
+ * @public
+ */
+export type PresetSpeke20Video = (typeof PresetSpeke20Video)[keyof typeof PresetSpeke20Video];
+
+/**
+ * @public
  * Use encryptionContractConfiguration to configure one or more content encryption keys for your endpoints that use SPEKE 2.0.
  * The encryption contract defines which content keys are used to encrypt the audio and video tracks in your stream.
  * To configure the encryption contract, specify which audio and video encryption presets to use.
@@ -259,6 +338,7 @@ export interface EncryptionContractConfiguration {
 }
 
 /**
+ * @public
  * A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
  */
 export interface SpekeKeyProvider {
@@ -290,6 +370,7 @@ export interface SpekeKeyProvider {
 }
 
 /**
+ * @public
  * A CMAF encryption configuration.
  */
 export interface CmafEncryption {
@@ -305,6 +386,7 @@ export interface CmafEncryption {
 }
 
 /**
+ * @public
  * A CMAF packaging configuration.
  */
 export interface CmafPackage {
@@ -331,6 +413,7 @@ export interface CmafPackage {
 }
 
 /**
+ * @public
  * A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
  */
 export interface DashEncryption {
@@ -340,13 +423,23 @@ export interface DashEncryption {
   SpekeKeyProvider: SpekeKeyProvider | undefined;
 }
 
-export enum SegmentTemplateFormat {
-  NUMBER_WITH_DURATION = "NUMBER_WITH_DURATION",
-  NUMBER_WITH_TIMELINE = "NUMBER_WITH_TIMELINE",
-  TIME_WITH_TIMELINE = "TIME_WITH_TIMELINE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SegmentTemplateFormat = {
+  NUMBER_WITH_DURATION: "NUMBER_WITH_DURATION",
+  NUMBER_WITH_TIMELINE: "NUMBER_WITH_TIMELINE",
+  TIME_WITH_TIMELINE: "TIME_WITH_TIMELINE",
+} as const;
 
 /**
+ * @public
+ */
+export type SegmentTemplateFormat = (typeof SegmentTemplateFormat)[keyof typeof SegmentTemplateFormat];
+
+/**
+ * @public
  * A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
  */
 export interface DashPackage {
@@ -390,12 +483,22 @@ export interface DashPackage {
   SegmentTemplateFormat?: SegmentTemplateFormat | string;
 }
 
-export enum EncryptionMethod {
-  AES_128 = "AES_128",
-  SAMPLE_AES = "SAMPLE_AES",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EncryptionMethod = {
+  AES_128: "AES_128",
+  SAMPLE_AES: "SAMPLE_AES",
+} as const;
 
 /**
+ * @public
+ */
+export type EncryptionMethod = (typeof EncryptionMethod)[keyof typeof EncryptionMethod];
+
+/**
+ * @public
  * An HTTP Live Streaming (HLS) encryption configuration.
  */
 export interface HlsEncryption {
@@ -417,6 +520,7 @@ export interface HlsEncryption {
 }
 
 /**
+ * @public
  * An HTTP Live Streaming (HLS) packaging configuration.
  */
 export interface HlsPackage {
@@ -448,6 +552,7 @@ export interface HlsPackage {
 }
 
 /**
+ * @public
  * A Microsoft Smooth Streaming (MSS) encryption configuration.
  */
 export interface MssEncryption {
@@ -458,6 +563,7 @@ export interface MssEncryption {
 }
 
 /**
+ * @public
  * A Microsoft Smooth Streaming (MSS) PackagingConfiguration.
  */
 export interface MssPackage {
@@ -478,6 +584,7 @@ export interface MssPackage {
 }
 
 /**
+ * @public
  * A MediaPackage VOD PackagingConfiguration resource.
  */
 export interface PackagingConfiguration {
@@ -490,6 +597,11 @@ export interface PackagingConfiguration {
    * A CMAF packaging configuration.
    */
   CmafPackage?: CmafPackage;
+
+  /**
+   * The time the PackagingConfiguration was created.
+   */
+  CreatedAt?: string;
 
   /**
    * A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
@@ -523,6 +635,7 @@ export interface PackagingConfiguration {
 }
 
 /**
+ * @public
  * CDN Authorization credentials
  */
 export interface Authorization {
@@ -538,6 +651,7 @@ export interface Authorization {
 }
 
 /**
+ * @public
  * Configure egress access logging.
  */
 export interface EgressAccessLogs {
@@ -548,6 +662,7 @@ export interface EgressAccessLogs {
 }
 
 /**
+ * @public
  * A MediaPackage VOD PackagingGroup resource.
  */
 export interface PackagingGroup {
@@ -567,6 +682,11 @@ export interface PackagingGroup {
   Authorization?: Authorization;
 
   /**
+   * The time the PackagingGroup was created.
+   */
+  CreatedAt?: string;
+
+  /**
    * The fully qualified domain name for Assets in the PackagingGroup.
    */
   DomainName?: string;
@@ -588,6 +708,7 @@ export interface PackagingGroup {
 }
 
 /**
+ * @public
  * The option to configure log subscription.
  */
 export interface ConfigureLogsRequest {
@@ -602,6 +723,9 @@ export interface ConfigureLogsRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ConfigureLogsResponse {
   /**
    * The ARN of the PackagingGroup.
@@ -612,6 +736,11 @@ export interface ConfigureLogsResponse {
    * CDN Authorization credentials
    */
   Authorization?: Authorization;
+
+  /**
+   * The time the PackagingGroup was created.
+   */
+  CreatedAt?: string;
 
   /**
    * The fully qualified domain name for Assets in the PackagingGroup.
@@ -635,6 +764,7 @@ export interface ConfigureLogsResponse {
 }
 
 /**
+ * @public
  * The client is not authorized to access the requested resource.
  */
 export class ForbiddenException extends __BaseException {
@@ -656,6 +786,7 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
+ * @public
  * An unexpected error occurred.
  */
 export class InternalServerErrorException extends __BaseException {
@@ -677,6 +808,7 @@ export class InternalServerErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * The requested resource does not exist.
  */
 export class NotFoundException extends __BaseException {
@@ -698,6 +830,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * An unexpected error occurred.
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -719,6 +852,7 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * The client has exceeded their resource or throttling limits.
  */
 export class TooManyRequestsException extends __BaseException {
@@ -740,6 +874,7 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
+ * @public
  * The parameters sent in the request are not valid.
  */
 export class UnprocessableEntityException extends __BaseException {
@@ -761,6 +896,7 @@ export class UnprocessableEntityException extends __BaseException {
 }
 
 /**
+ * @public
  * A new MediaPackage VOD Asset configuration.
  */
 export interface CreateAssetRequest {
@@ -795,6 +931,9 @@ export interface CreateAssetRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateAssetResponse {
   /**
    * The ARN of the Asset.
@@ -843,6 +982,7 @@ export interface CreateAssetResponse {
 }
 
 /**
+ * @public
  * A new MediaPackage VOD PackagingConfiguration resource configuration.
  */
 export interface CreatePackagingConfigurationRequest {
@@ -882,6 +1022,9 @@ export interface CreatePackagingConfigurationRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreatePackagingConfigurationResponse {
   /**
    * The ARN of the PackagingConfiguration.
@@ -892,6 +1035,11 @@ export interface CreatePackagingConfigurationResponse {
    * A CMAF packaging configuration.
    */
   CmafPackage?: CmafPackage;
+
+  /**
+   * The time the PackagingConfiguration was created.
+   */
+  CreatedAt?: string;
 
   /**
    * A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
@@ -925,6 +1073,7 @@ export interface CreatePackagingConfigurationResponse {
 }
 
 /**
+ * @public
  * A new MediaPackage VOD PackagingGroup resource configuration.
  */
 export interface CreatePackagingGroupRequest {
@@ -949,6 +1098,9 @@ export interface CreatePackagingGroupRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreatePackagingGroupResponse {
   /**
    * The ARN of the PackagingGroup.
@@ -959,6 +1111,11 @@ export interface CreatePackagingGroupResponse {
    * CDN Authorization credentials
    */
   Authorization?: Authorization;
+
+  /**
+   * The time the PackagingGroup was created.
+   */
+  CreatedAt?: string;
 
   /**
    * The fully qualified domain name for Assets in the PackagingGroup.
@@ -981,6 +1138,9 @@ export interface CreatePackagingGroupResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAssetRequest {
   /**
    * The ID of the MediaPackage VOD Asset resource to delete.
@@ -988,8 +1148,14 @@ export interface DeleteAssetRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAssetResponse {}
 
+/**
+ * @public
+ */
 export interface DeletePackagingConfigurationRequest {
   /**
    * The ID of the MediaPackage VOD PackagingConfiguration resource to delete.
@@ -997,8 +1163,14 @@ export interface DeletePackagingConfigurationRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePackagingConfigurationResponse {}
 
+/**
+ * @public
+ */
 export interface DeletePackagingGroupRequest {
   /**
    * The ID of the MediaPackage VOD PackagingGroup resource to delete.
@@ -1006,8 +1178,14 @@ export interface DeletePackagingGroupRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePackagingGroupResponse {}
 
+/**
+ * @public
+ */
 export interface DescribeAssetRequest {
   /**
    * The ID of an MediaPackage VOD Asset resource.
@@ -1015,6 +1193,9 @@ export interface DescribeAssetRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAssetResponse {
   /**
    * The ARN of the Asset.
@@ -1062,6 +1243,9 @@ export interface DescribeAssetResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribePackagingConfigurationRequest {
   /**
    * The ID of a MediaPackage VOD PackagingConfiguration resource.
@@ -1069,6 +1253,9 @@ export interface DescribePackagingConfigurationRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribePackagingConfigurationResponse {
   /**
    * The ARN of the PackagingConfiguration.
@@ -1079,6 +1266,11 @@ export interface DescribePackagingConfigurationResponse {
    * A CMAF packaging configuration.
    */
   CmafPackage?: CmafPackage;
+
+  /**
+   * The time the PackagingConfiguration was created.
+   */
+  CreatedAt?: string;
 
   /**
    * A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
@@ -1111,6 +1303,9 @@ export interface DescribePackagingConfigurationResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribePackagingGroupRequest {
   /**
    * The ID of a MediaPackage VOD PackagingGroup resource.
@@ -1118,6 +1313,9 @@ export interface DescribePackagingGroupRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribePackagingGroupResponse {
   /**
    * The approximate asset count of the PackagingGroup.
@@ -1135,6 +1333,11 @@ export interface DescribePackagingGroupResponse {
   Authorization?: Authorization;
 
   /**
+   * The time the PackagingGroup was created.
+   */
+  CreatedAt?: string;
+
+  /**
    * The fully qualified domain name for Assets in the PackagingGroup.
    */
   DomainName?: string;
@@ -1155,6 +1358,9 @@ export interface DescribePackagingGroupResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListAssetsRequest {
   /**
    * Upper bound on number of records to return.
@@ -1172,6 +1378,9 @@ export interface ListAssetsRequest {
   PackagingGroupId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAssetsResponse {
   /**
    * A list of MediaPackage VOD Asset resources.
@@ -1184,6 +1393,9 @@ export interface ListAssetsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPackagingConfigurationsRequest {
   /**
    * Upper bound on number of records to return.
@@ -1201,6 +1413,9 @@ export interface ListPackagingConfigurationsRequest {
   PackagingGroupId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPackagingConfigurationsResponse {
   /**
    * A token that can be used to resume pagination from the end of the collection.
@@ -1213,6 +1428,9 @@ export interface ListPackagingConfigurationsResponse {
   PackagingConfigurations?: PackagingConfiguration[];
 }
 
+/**
+ * @public
+ */
 export interface ListPackagingGroupsRequest {
   /**
    * Upper bound on number of records to return.
@@ -1225,6 +1443,9 @@ export interface ListPackagingGroupsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPackagingGroupsResponse {
   /**
    * A token that can be used to resume pagination from the end of the collection.
@@ -1237,6 +1458,9 @@ export interface ListPackagingGroupsResponse {
   PackagingGroups?: PackagingGroup[];
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * The Amazon Resource Name (ARN) for the resource. You can get this from the response to any request to the resource.
@@ -1244,6 +1468,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * A collection of tags associated with a resource
@@ -1251,6 +1478,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * The Amazon Resource Name (ARN) for the resource. You can get this from the response to any request to the resource.
@@ -1263,6 +1493,9 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * The Amazon Resource Name (ARN) for the resource. You can get this from the response to any request to the resource.
@@ -1276,6 +1509,7 @@ export interface UntagResourceRequest {
 }
 
 /**
+ * @public
  * A MediaPackage VOD PackagingGroup resource configuration.
  */
 export interface UpdatePackagingGroupRequest {
@@ -1290,6 +1524,9 @@ export interface UpdatePackagingGroupRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePackagingGroupResponse {
   /**
    * The approximate asset count of the PackagingGroup.
@@ -1305,6 +1542,11 @@ export interface UpdatePackagingGroupResponse {
    * CDN Authorization credentials
    */
   Authorization?: Authorization;
+
+  /**
+   * The time the PackagingGroup was created.
+   */
+  CreatedAt?: string;
 
   /**
    * The fully qualified domain name for Assets in the PackagingGroup.
@@ -1326,381 +1568,3 @@ export interface UpdatePackagingGroupResponse {
    */
   Tags?: Record<string, string>;
 }
-
-/**
- * @internal
- */
-export const AssetShallowFilterSensitiveLog = (obj: AssetShallow): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StreamSelectionFilterSensitiveLog = (obj: StreamSelection): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DashManifestFilterSensitiveLog = (obj: DashManifest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EgressEndpointFilterSensitiveLog = (obj: EgressEndpoint): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HlsManifestFilterSensitiveLog = (obj: HlsManifest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MssManifestFilterSensitiveLog = (obj: MssManifest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EncryptionContractConfigurationFilterSensitiveLog = (obj: EncryptionContractConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SpekeKeyProviderFilterSensitiveLog = (obj: SpekeKeyProvider): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CmafEncryptionFilterSensitiveLog = (obj: CmafEncryption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CmafPackageFilterSensitiveLog = (obj: CmafPackage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DashEncryptionFilterSensitiveLog = (obj: DashEncryption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DashPackageFilterSensitiveLog = (obj: DashPackage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HlsEncryptionFilterSensitiveLog = (obj: HlsEncryption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HlsPackageFilterSensitiveLog = (obj: HlsPackage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MssEncryptionFilterSensitiveLog = (obj: MssEncryption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MssPackageFilterSensitiveLog = (obj: MssPackage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PackagingConfigurationFilterSensitiveLog = (obj: PackagingConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuthorizationFilterSensitiveLog = (obj: Authorization): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EgressAccessLogsFilterSensitiveLog = (obj: EgressAccessLogs): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PackagingGroupFilterSensitiveLog = (obj: PackagingGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConfigureLogsRequestFilterSensitiveLog = (obj: ConfigureLogsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConfigureLogsResponseFilterSensitiveLog = (obj: ConfigureLogsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAssetRequestFilterSensitiveLog = (obj: CreateAssetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAssetResponseFilterSensitiveLog = (obj: CreateAssetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePackagingConfigurationRequestFilterSensitiveLog = (
-  obj: CreatePackagingConfigurationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePackagingConfigurationResponseFilterSensitiveLog = (
-  obj: CreatePackagingConfigurationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePackagingGroupRequestFilterSensitiveLog = (obj: CreatePackagingGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePackagingGroupResponseFilterSensitiveLog = (obj: CreatePackagingGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAssetRequestFilterSensitiveLog = (obj: DeleteAssetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAssetResponseFilterSensitiveLog = (obj: DeleteAssetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePackagingConfigurationRequestFilterSensitiveLog = (
-  obj: DeletePackagingConfigurationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePackagingConfigurationResponseFilterSensitiveLog = (
-  obj: DeletePackagingConfigurationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePackagingGroupRequestFilterSensitiveLog = (obj: DeletePackagingGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePackagingGroupResponseFilterSensitiveLog = (obj: DeletePackagingGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAssetRequestFilterSensitiveLog = (obj: DescribeAssetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAssetResponseFilterSensitiveLog = (obj: DescribeAssetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePackagingConfigurationRequestFilterSensitiveLog = (
-  obj: DescribePackagingConfigurationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePackagingConfigurationResponseFilterSensitiveLog = (
-  obj: DescribePackagingConfigurationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePackagingGroupRequestFilterSensitiveLog = (obj: DescribePackagingGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePackagingGroupResponseFilterSensitiveLog = (obj: DescribePackagingGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAssetsRequestFilterSensitiveLog = (obj: ListAssetsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAssetsResponseFilterSensitiveLog = (obj: ListAssetsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPackagingConfigurationsRequestFilterSensitiveLog = (obj: ListPackagingConfigurationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPackagingConfigurationsResponseFilterSensitiveLog = (
-  obj: ListPackagingConfigurationsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPackagingGroupsRequestFilterSensitiveLog = (obj: ListPackagingGroupsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPackagingGroupsResponseFilterSensitiveLog = (obj: ListPackagingGroupsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePackagingGroupRequestFilterSensitiveLog = (obj: UpdatePackagingGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePackagingGroupResponseFilterSensitiveLog = (obj: UpdatePackagingGroupResponse): any => ({
-  ...obj,
-});

@@ -14,20 +14,28 @@ import {
 } from "@aws-sdk/types";
 
 import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
+import { ImportCertificateAuthorityCertificateRequest } from "../models/models_0";
 import {
-  ImportCertificateAuthorityCertificateRequest,
-  ImportCertificateAuthorityCertificateRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ImportCertificateAuthorityCertificateCommand,
-  serializeAws_json1_1ImportCertificateAuthorityCertificateCommand,
+  de_ImportCertificateAuthorityCertificateCommand,
+  se_ImportCertificateAuthorityCertificateCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ImportCertificateAuthorityCertificateCommand}.
+ */
 export interface ImportCertificateAuthorityCertificateCommandInput
   extends ImportCertificateAuthorityCertificateRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ImportCertificateAuthorityCertificateCommand}.
+ */
 export interface ImportCertificateAuthorityCertificateCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Imports a signed private CA certificate into Amazon Web Services Private CA. This action is used when you
  * 			are using a chain of trust whose root is located outside Amazon Web Services Private CA. Before you can call
  * 			this action, the following preparations must in place:</p>
@@ -162,13 +170,51 @@ export interface ImportCertificateAuthorityCertificateCommandOutput extends __Me
  * import { ACMPCAClient, ImportCertificateAuthorityCertificateCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
  * // const { ACMPCAClient, ImportCertificateAuthorityCertificateCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
  * const client = new ACMPCAClient(config);
+ * const input = { // ImportCertificateAuthorityCertificateRequest
+ *   CertificateAuthorityArn: "STRING_VALUE", // required
+ *   Certificate: "BLOB_VALUE", // required
+ *   CertificateChain: "BLOB_VALUE",
+ * };
  * const command = new ImportCertificateAuthorityCertificateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportCertificateAuthorityCertificateCommandInput - {@link ImportCertificateAuthorityCertificateCommandInput}
+ * @returns {@link ImportCertificateAuthorityCertificateCommandOutput}
  * @see {@link ImportCertificateAuthorityCertificateCommandInput} for command's `input` shape.
  * @see {@link ImportCertificateAuthorityCertificateCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
+ *
+ * @throws {@link CertificateMismatchException} (client fault)
+ *  <p>The certificate authority certificate you are importing does not comply with
+ * 			conditions specified in the certificate that signed it.</p>
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>A previous update to your private CA is still ongoing.</p>
+ *
+ * @throws {@link InvalidArnException} (client fault)
+ *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing
+ * 			resource.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request action cannot be performed or is prohibited.</p>
+ *
+ * @throws {@link InvalidStateException} (client fault)
+ *  <p>The state of the private CA does not allow this action to occur.</p>
+ *
+ * @throws {@link MalformedCertificateException} (client fault)
+ *  <p>One or more fields in the certificate are invalid.</p>
+ *
+ * @throws {@link RequestFailedException} (client fault)
+ *  <p>The request has failed for an unspecified reason.</p>
+ *
+ * @throws {@link RequestInProgressException} (client fault)
+ *  <p>Your request is already in progress.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy
+ * 			cannot be found.</p>
+ *
  *
  */
 export class ImportCertificateAuthorityCertificateCommand extends $Command<
@@ -188,6 +234,9 @@ export class ImportCertificateAuthorityCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportCertificateAuthorityCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -216,8 +265,8 @@ export class ImportCertificateAuthorityCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ImportCertificateAuthorityCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -227,18 +276,24 @@ export class ImportCertificateAuthorityCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ImportCertificateAuthorityCertificateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ImportCertificateAuthorityCertificateCommand(input, context);
+    return se_ImportCertificateAuthorityCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ImportCertificateAuthorityCertificateCommandOutput> {
-    return deserializeAws_json1_1ImportCertificateAuthorityCertificateCommand(output, context);
+    return de_ImportCertificateAuthorityCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

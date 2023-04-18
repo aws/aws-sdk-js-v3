@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { UpdateProvisionedProductPropertiesInput, UpdateProvisionedProductPropertiesOutput } from "../models/models_0";
 import {
-  UpdateProvisionedProductPropertiesInput,
-  UpdateProvisionedProductPropertiesInputFilterSensitiveLog,
-  UpdateProvisionedProductPropertiesOutput,
-  UpdateProvisionedProductPropertiesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateProvisionedProductPropertiesCommand,
-  serializeAws_json1_1UpdateProvisionedProductPropertiesCommand,
+  de_UpdateProvisionedProductPropertiesCommand,
+  se_UpdateProvisionedProductPropertiesCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateProvisionedProductPropertiesCommand}.
+ */
 export interface UpdateProvisionedProductPropertiesCommandInput extends UpdateProvisionedProductPropertiesInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateProvisionedProductPropertiesCommand}.
+ */
 export interface UpdateProvisionedProductPropertiesCommandOutput
   extends UpdateProvisionedProductPropertiesOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Requests updates to the properties of the specified provisioned product.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,34 @@ export interface UpdateProvisionedProductPropertiesCommandOutput
  * import { ServiceCatalogClient, UpdateProvisionedProductPropertiesCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, UpdateProvisionedProductPropertiesCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // UpdateProvisionedProductPropertiesInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   ProvisionedProductId: "STRING_VALUE", // required
+ *   ProvisionedProductProperties: { // ProvisionedProductProperties // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   IdempotencyToken: "STRING_VALUE", // required
+ * };
  * const command = new UpdateProvisionedProductPropertiesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateProvisionedProductPropertiesCommandInput - {@link UpdateProvisionedProductPropertiesCommandInput}
+ * @returns {@link UpdateProvisionedProductPropertiesCommandOutput}
  * @see {@link UpdateProvisionedProductPropertiesCommandInput} for command's `input` shape.
  * @see {@link UpdateProvisionedProductPropertiesCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
+ *
+ * @throws {@link InvalidParametersException} (client fault)
+ *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * @throws {@link InvalidStateException} (client fault)
+ *  <p>An attempt was made to modify a resource that is in a state that is not valid.
+ *          Check your resources to ensure that they are in valid states before retrying the operation.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class UpdateProvisionedProductPropertiesCommand extends $Command<
@@ -64,6 +91,9 @@ export class UpdateProvisionedProductPropertiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateProvisionedProductPropertiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +122,8 @@ export class UpdateProvisionedProductPropertiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateProvisionedProductPropertiesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateProvisionedProductPropertiesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +133,24 @@ export class UpdateProvisionedProductPropertiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateProvisionedProductPropertiesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateProvisionedProductPropertiesCommand(input, context);
+    return se_UpdateProvisionedProductPropertiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateProvisionedProductPropertiesCommandOutput> {
-    return deserializeAws_json1_1UpdateProvisionedProductPropertiesCommand(output, context);
+    return de_UpdateProvisionedProductPropertiesCommand(output, context);
   }
 
   // Start section: command_body_extra

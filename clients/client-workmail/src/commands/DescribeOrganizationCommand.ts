@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeOrganizationRequest,
-  DescribeOrganizationRequestFilterSensitiveLog,
-  DescribeOrganizationResponse,
-  DescribeOrganizationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeOrganizationCommand,
-  serializeAws_json1_1DescribeOrganizationCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeOrganizationRequest, DescribeOrganizationResponse } from "../models/models_0";
+import { de_DescribeOrganizationCommand, se_DescribeOrganizationCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeOrganizationCommand}.
+ */
 export interface DescribeOrganizationCommandInput extends DescribeOrganizationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeOrganizationCommand}.
+ */
 export interface DescribeOrganizationCommandOutput extends DescribeOrganizationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides more information regarding a given organization based on its
  *          identifier.</p>
  * @example
@@ -37,13 +40,26 @@ export interface DescribeOrganizationCommandOutput extends DescribeOrganizationR
  * import { WorkMailClient, DescribeOrganizationCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, DescribeOrganizationCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = { // DescribeOrganizationRequest
+ *   OrganizationId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeOrganizationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeOrganizationCommandInput - {@link DescribeOrganizationCommandInput}
+ * @returns {@link DescribeOrganizationCommandOutput}
  * @see {@link DescribeOrganizationCommandInput} for command's `input` shape.
  * @see {@link DescribeOrganizationCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link OrganizationNotFoundException} (client fault)
+ *  <p>An operation received a valid organization identifier that either doesn't belong or
+ *          exist in the system.</p>
+ *
  *
  */
 export class DescribeOrganizationCommand extends $Command<
@@ -63,6 +79,9 @@ export class DescribeOrganizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeOrganizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +110,8 @@ export class DescribeOrganizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeOrganizationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeOrganizationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +121,18 @@ export class DescribeOrganizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeOrganizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeOrganizationCommand(input, context);
+    return se_DescribeOrganizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeOrganizationCommandOutput> {
-    return deserializeAws_json1_1DescribeOrganizationCommand(output, context);
+    return de_DescribeOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

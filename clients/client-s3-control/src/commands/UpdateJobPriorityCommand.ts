@@ -14,22 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateJobPriorityRequest,
-  UpdateJobPriorityRequestFilterSensitiveLog,
-  UpdateJobPriorityResult,
-  UpdateJobPriorityResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlUpdateJobPriorityCommand,
-  serializeAws_restXmlUpdateJobPriorityCommand,
-} from "../protocols/Aws_restXml";
+import { UpdateJobPriorityRequest, UpdateJobPriorityResult } from "../models/models_0";
+import { de_UpdateJobPriorityCommand, se_UpdateJobPriorityCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateJobPriorityCommand}.
+ */
 export interface UpdateJobPriorityCommandInput extends UpdateJobPriorityRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateJobPriorityCommand}.
+ */
 export interface UpdateJobPriorityCommandOutput extends UpdateJobPriorityResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing S3 Batch Operations job's priority. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops.html">S3 Batch Operations</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <p></p>
  *          <p>Related actions include:</p>
@@ -61,13 +64,33 @@ export interface UpdateJobPriorityCommandOutput extends UpdateJobPriorityResult,
  * import { S3ControlClient, UpdateJobPriorityCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, UpdateJobPriorityCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = { // UpdateJobPriorityRequest
+ *   AccountId: "STRING_VALUE",
+ *   JobId: "STRING_VALUE", // required
+ *   Priority: Number("int"), // required
+ * };
  * const command = new UpdateJobPriorityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateJobPriorityCommandInput - {@link UpdateJobPriorityCommandInput}
+ * @returns {@link UpdateJobPriorityCommandOutput}
  * @see {@link UpdateJobPriorityCommandInput} for command's `input` shape.
  * @see {@link UpdateJobPriorityCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p></p>
+ *
  *
  */
 export class UpdateJobPriorityCommand extends $Command<
@@ -90,6 +113,9 @@ export class UpdateJobPriorityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateJobPriorityCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +145,8 @@ export class UpdateJobPriorityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateJobPriorityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateJobPriorityResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +156,18 @@ export class UpdateJobPriorityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateJobPriorityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlUpdateJobPriorityCommand(input, context);
+    return se_UpdateJobPriorityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateJobPriorityCommandOutput> {
-    return deserializeAws_restXmlUpdateJobPriorityCommand(output, context);
+    return de_UpdateJobPriorityCommand(output, context);
   }
 
   // Start section: command_body_extra

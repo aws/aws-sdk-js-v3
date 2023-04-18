@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  ListFleetsInput,
-  ListFleetsInputFilterSensitiveLog,
-  ListFleetsOutput,
-  ListFleetsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListFleetsCommand,
-  serializeAws_json1_1ListFleetsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListFleetsInput, ListFleetsOutput } from "../models/models_0";
+import { de_ListFleetsCommand, se_ListFleetsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListFleetsCommand}.
+ */
 export interface ListFleetsCommandInput extends ListFleetsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListFleetsCommand}.
+ */
 export interface ListFleetsCommandOutput extends ListFleetsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a collection of fleet resources in an Amazon Web Services Region. You can call this
  *             operation to get fleets in a previously selected default Region (see <a href="https://docs.aws.amazon.com/credref/latest/refdocs/setting-global-region.html">https://docs.aws.amazon.com/credref/latest/refdocs/setting-global-region.html</a>or
  *             specify a Region in your request. You can filter the result set to find only those
@@ -68,13 +71,36 @@ export interface ListFleetsCommandOutput extends ListFleetsOutput, __MetadataBea
  * import { GameLiftClient, ListFleetsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, ListFleetsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // ListFleetsInput
+ *   BuildId: "STRING_VALUE",
+ *   ScriptId: "STRING_VALUE",
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListFleetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFleetsCommandInput - {@link ListFleetsCommandInput}
+ * @returns {@link ListFleetsCommandOutput}
  * @see {@link ListFleetsCommandInput} for command's `input` shape.
  * @see {@link ListFleetsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an unrecoverable internal failure while processing the
+ *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
+ *             values before retrying.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
  *
  */
 export class ListFleetsCommand extends $Command<
@@ -94,6 +120,9 @@ export class ListFleetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFleetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +149,8 @@ export class ListFleetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFleetsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListFleetsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +160,18 @@ export class ListFleetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFleetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListFleetsCommand(input, context);
+    return se_ListFleetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFleetsCommandOutput> {
-    return deserializeAws_json1_1ListFleetsCommand(output, context);
+    return de_ListFleetsCommand(output, context);
   }
 
   // Start section: command_body_extra

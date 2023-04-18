@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBElasticClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBElasticClient";
-import {
-  UpdateClusterInput,
-  UpdateClusterInputFilterSensitiveLog,
-  UpdateClusterOutput,
-  UpdateClusterOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateClusterCommand,
-  serializeAws_restJson1UpdateClusterCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateClusterInput, UpdateClusterInputFilterSensitiveLog, UpdateClusterOutput } from "../models/models_0";
+import { de_UpdateClusterCommand, se_UpdateClusterCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateClusterCommand}.
+ */
 export interface UpdateClusterCommandInput extends UpdateClusterInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateClusterCommand}.
+ */
 export interface UpdateClusterCommandOutput extends UpdateClusterOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies a Elastic DocumentDB cluster. This includes updating admin-username/password,
  *     upgrading API version setting up a backup window and maintenance window</p>
  * @example
@@ -37,13 +40,49 @@ export interface UpdateClusterCommandOutput extends UpdateClusterOutput, __Metad
  * import { DocDBElasticClient, UpdateClusterCommand } from "@aws-sdk/client-docdb-elastic"; // ES Modules import
  * // const { DocDBElasticClient, UpdateClusterCommand } = require("@aws-sdk/client-docdb-elastic"); // CommonJS import
  * const client = new DocDBElasticClient(config);
+ * const input = { // UpdateClusterInput
+ *   clusterArn: "STRING_VALUE", // required
+ *   authType: "STRING_VALUE",
+ *   shardCapacity: Number("int"),
+ *   shardCount: Number("int"),
+ *   vpcSecurityGroupIds: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ *   subnetIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   adminUserPassword: "STRING_VALUE",
+ *   clientToken: "STRING_VALUE",
+ *   preferredMaintenanceWindow: "STRING_VALUE",
+ * };
  * const command = new UpdateClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateClusterCommandInput - {@link UpdateClusterCommandInput}
+ * @returns {@link UpdateClusterCommandOutput}
  * @see {@link UpdateClusterCommandInput} for command's `input` shape.
  * @see {@link UpdateClusterCommandOutput} for command's `response` shape.
  * @see {@link DocDBElasticClientResolvedConfig | config} for DocDBElasticClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>An exception that occurs when there are not sufficient permissions to perform an action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There was an access conflict.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There was an internal server error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be located.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>ThrottlingException will be thrown when request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>A structure defining a validation exception.</p>
+ *
  *
  */
 export class UpdateClusterCommand extends $Command<
@@ -63,6 +102,9 @@ export class UpdateClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +132,7 @@ export class UpdateClusterCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateClusterInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateClusterOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +142,18 @@ export class UpdateClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateClusterCommand(input, context);
+    return se_UpdateClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateClusterCommandOutput> {
-    return deserializeAws_restJson1UpdateClusterCommand(output, context);
+    return de_UpdateClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

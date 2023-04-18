@@ -1,25 +1,24 @@
 import { Endpoint } from "./http";
-import {
-  FinalizeHandler,
-  FinalizeHandlerArguments,
-  FinalizeHandlerOutput,
-  HandlerExecutionContext,
-} from "./middleware";
+import { FinalizeHandler, FinalizeHandlerArguments, FinalizeHandlerOutput } from "./middleware";
 import { MetadataBearer } from "./response";
 
 /**
+ * @public
+ *
  * A function that, given a TypedArray of bytes, can produce a string
  * representation thereof.
  *
  * @example An encoder function that converts bytes to hexadecimal
- * representation would return `'deadbeef'` when given `new
- * Uint8Array([0xde, 0xad, 0xbe, 0xef])`.
+ * representation would return `'deadbeef'` when given
+ * `new Uint8Array([0xde, 0xad, 0xbe, 0xef])`.
  */
 export interface Encoder {
   (input: Uint8Array): string;
 }
 
 /**
+ * @public
+ *
  * A function that, given a string, can derive the bytes represented by that
  * string.
  *
@@ -32,6 +31,8 @@ export interface Decoder {
 }
 
 /**
+ * @public
+ *
  * A function that, when invoked, returns a promise that will be fulfilled with
  * a value of type T.
  *
@@ -43,6 +44,8 @@ export interface Provider<T> {
 }
 
 /**
+ * @public
+ *
  * A function that, when invoked, returns a promise that will be fulfilled with
  * a value of type T. It memoizes the result from the previous invocation
  * instead of calling the underlying resources every time.
@@ -61,6 +64,8 @@ export interface MemoizedProvider<T> {
 }
 
 /**
+ * @public
+ *
  * A function that, given a request body, determines the
  * length of the body. This is used to determine the Content-Length
  * that should be sent with a request.
@@ -73,6 +78,8 @@ export interface BodyLengthCalculator {
 }
 
 /**
+ * @public
+ *
  * Interface that specifies the retry behavior
  */
 export interface RetryStrategy {
@@ -92,6 +99,8 @@ export interface RetryStrategy {
 }
 
 /**
+ * @public
+ *
  * Parses a URL in string form into an Endpoint object.
  */
 export interface UrlParser {
@@ -99,6 +108,8 @@ export interface UrlParser {
 }
 
 /**
+ * @public
+ *
  * Object containing regionalization information of
  * AWS services.
  */
@@ -111,22 +122,26 @@ export interface RegionInfo {
 }
 
 /**
+ * @public
+ *
  * Options to pass when calling {@link RegionInfoProvider}
  */
 export interface RegionInfoProviderOptions {
   /**
    * Enables IPv6/IPv4 dualstack endpoint.
-   * @default false
+   * @defaultValue false
    */
   useDualstackEndpoint: boolean;
   /**
    * Enables FIPS compatible endpoints.
-   * @default false
+   * @defaultValue false
    */
   useFipsEndpoint: boolean;
 }
 
 /**
+ * @public
+ *
  * Function returns designated service's regionalization
  * information from given region. Each service client
  * comes with its regionalization provider. it serves
@@ -137,12 +152,16 @@ export interface RegionInfoProvider {
 }
 
 /**
+ * @public
+ *
  * A tuple that represents an API name and optional version
  * of a library built using the AWS SDK.
  */
 export type UserAgentPair = [name: string, version?: string];
 
 /**
+ * @public
+ *
  * User agent data that to be put into the request's user
  * agent.
  */

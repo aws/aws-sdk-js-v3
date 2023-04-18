@@ -14,37 +14,40 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteTrafficPolicyRequest,
-  DeleteTrafficPolicyRequestFilterSensitiveLog,
-  DeleteTrafficPolicyResponse,
-  DeleteTrafficPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlDeleteTrafficPolicyCommand,
-  serializeAws_restXmlDeleteTrafficPolicyCommand,
-} from "../protocols/Aws_restXml";
+import { DeleteTrafficPolicyRequest, DeleteTrafficPolicyResponse } from "../models/models_0";
+import { de_DeleteTrafficPolicyCommand, se_DeleteTrafficPolicyCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteTrafficPolicyCommand}.
+ */
 export interface DeleteTrafficPolicyCommandInput extends DeleteTrafficPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteTrafficPolicyCommand}.
+ */
 export interface DeleteTrafficPolicyCommandOutput extends DeleteTrafficPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a traffic policy.</p>
- * 		       <p>When you delete a traffic policy, Route 53 sets a flag on the policy to indicate that
+ *          <p>When you delete a traffic policy, Route 53 sets a flag on the policy to indicate that
  * 			it has been deleted. However, Route 53 never fully deletes the traffic policy. Note the
  * 			following:</p>
- * 		       <ul>
+ *          <ul>
  *             <li>
- * 				           <p>Deleted traffic policies aren't listed if you run <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListTrafficPolicies.html">ListTrafficPolicies</a>.</p>
- * 			         </li>
+ *                <p>Deleted traffic policies aren't listed if you run <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListTrafficPolicies.html">ListTrafficPolicies</a>.</p>
+ *             </li>
  *             <li>
- * 				           <p> There's no way to get a list of deleted policies.</p>
- * 			         </li>
+ *                <p> There's no way to get a list of deleted policies.</p>
+ *             </li>
  *             <li>
- * 				           <p>If you retain the ID of the policy, you can get information about the policy,
+ *                <p>If you retain the ID of the policy, you can get information about the policy,
  * 					including the traffic policy document, by running <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetTrafficPolicy.html">GetTrafficPolicy</a>.</p>
- * 			         </li>
+ *             </li>
  *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,13 +55,34 @@ export interface DeleteTrafficPolicyCommandOutput extends DeleteTrafficPolicyRes
  * import { Route53Client, DeleteTrafficPolicyCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, DeleteTrafficPolicyCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = { // DeleteTrafficPolicyRequest
+ *   Id: "STRING_VALUE", // required
+ *   Version: Number("int"), // required
+ * };
  * const command = new DeleteTrafficPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTrafficPolicyCommandInput - {@link DeleteTrafficPolicyCommandInput}
+ * @returns {@link DeleteTrafficPolicyCommandOutput}
  * @see {@link DeleteTrafficPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteTrafficPolicyCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
+ *
+ * @throws {@link ConcurrentModification} (client fault)
+ *  <p>Another user submitted a request to create, update, or delete the object at the same
+ * 			time that you did. Retry the request. </p>
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link NoSuchTrafficPolicy} (client fault)
+ *  <p>No traffic policy exists with the specified ID.</p>
+ *
+ * @throws {@link TrafficPolicyInUse} (client fault)
+ *  <p>One or more traffic policy instances were created by using the specified traffic
+ * 			policy.</p>
+ *
  *
  */
 export class DeleteTrafficPolicyCommand extends $Command<
@@ -78,6 +102,9 @@ export class DeleteTrafficPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTrafficPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +134,8 @@ export class DeleteTrafficPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTrafficPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTrafficPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +145,18 @@ export class DeleteTrafficPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTrafficPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteTrafficPolicyCommand(input, context);
+    return se_DeleteTrafficPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTrafficPolicyCommandOutput> {
-    return deserializeAws_restXmlDeleteTrafficPolicyCommand(output, context);
+    return de_DeleteTrafficPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

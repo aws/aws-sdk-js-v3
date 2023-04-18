@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import {
-  CreateApiKeyRequest,
-  CreateApiKeyRequestFilterSensitiveLog,
-  CreateApiKeyResponse,
-  CreateApiKeyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateApiKeyCommand,
-  serializeAws_restJson1CreateApiKeyCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateApiKeyRequest, CreateApiKeyResponse } from "../models/models_0";
+import { de_CreateApiKeyCommand, se_CreateApiKeyCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateApiKeyCommand}.
+ */
 export interface CreateApiKeyCommandInput extends CreateApiKeyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateApiKeyCommand}.
+ */
 export interface CreateApiKeyCommandOutput extends CreateApiKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a unique key that you can distribute to clients who invoke your API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,44 @@ export interface CreateApiKeyCommandOutput extends CreateApiKeyResponse, __Metad
  * import { AppSyncClient, CreateApiKeyCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, CreateApiKeyCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
+ * const input = { // CreateApiKeyRequest
+ *   apiId: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   expires: Number("long"),
+ * };
  * const command = new CreateApiKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateApiKeyCommandInput - {@link CreateApiKeyCommandInput}
+ * @returns {@link CreateApiKeyCommandOutput}
  * @see {@link CreateApiKeyCommandInput} for command's `input` shape.
  * @see {@link CreateApiKeyCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
+ *
+ * @throws {@link ApiKeyLimitExceededException} (client fault)
+ *  <p>The API key exceeded a limit. Try your request again.</p>
+ *
+ * @throws {@link ApiKeyValidityOutOfBoundsException} (client fault)
+ *  <p>The API key expiration must be set to a value between 1 and 365 days from creation (for
+ *             <code>CreateApiKey</code>) or from update (for <code>UpdateApiKey</code>).</p>
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the
+ *          field values, and then try again.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal AppSync error occurred. Try your request again.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request exceeded a limit. Try your request again.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource specified in the request was not found. Check the resource, and then try again.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You aren't authorized to perform this operation.</p>
+ *
  *
  */
 export class CreateApiKeyCommand extends $Command<
@@ -62,6 +96,9 @@ export class CreateApiKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateApiKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +125,8 @@ export class CreateApiKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateApiKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateApiKeyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +136,18 @@ export class CreateApiKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateApiKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateApiKeyCommand(input, context);
+    return se_CreateApiKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateApiKeyCommandOutput> {
-    return deserializeAws_restJson1CreateApiKeyCommand(output, context);
+    return de_CreateApiKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

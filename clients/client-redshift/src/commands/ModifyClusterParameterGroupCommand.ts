@@ -13,26 +13,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ClusterParameterGroupNameMessage,
-  ClusterParameterGroupNameMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  ModifyClusterParameterGroupMessage,
-  ModifyClusterParameterGroupMessageFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryModifyClusterParameterGroupCommand,
-  serializeAws_queryModifyClusterParameterGroupCommand,
-} from "../protocols/Aws_query";
+import { ClusterParameterGroupNameMessage } from "../models/models_0";
+import { ModifyClusterParameterGroupMessage } from "../models/models_1";
+import { de_ModifyClusterParameterGroupCommand, se_ModifyClusterParameterGroupCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ModifyClusterParameterGroupCommand}.
+ */
 export interface ModifyClusterParameterGroupCommandInput extends ModifyClusterParameterGroupMessage {}
+/**
+ * @public
+ *
+ * The output of {@link ModifyClusterParameterGroupCommand}.
+ */
 export interface ModifyClusterParameterGroupCommandOutput extends ClusterParameterGroupNameMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the parameters of a parameter group. For the parameters parameter, it can't contain ASCII characters.</p>
- *         <p>
+ *          <p>
  * For more information about parameters and parameter groups, go to
  * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift Parameter Groups</a>
  * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
@@ -42,13 +44,40 @@ export interface ModifyClusterParameterGroupCommandOutput extends ClusterParamet
  * import { RedshiftClient, ModifyClusterParameterGroupCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, ModifyClusterParameterGroupCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // ModifyClusterParameterGroupMessage
+ *   ParameterGroupName: "STRING_VALUE", // required
+ *   Parameters: [ // ParametersList // required
+ *     { // Parameter
+ *       ParameterName: "STRING_VALUE",
+ *       ParameterValue: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       Source: "STRING_VALUE",
+ *       DataType: "STRING_VALUE",
+ *       AllowedValues: "STRING_VALUE",
+ *       ApplyType: "static" || "dynamic",
+ *       IsModifiable: true || false,
+ *       MinimumEngineVersion: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new ModifyClusterParameterGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyClusterParameterGroupCommandInput - {@link ModifyClusterParameterGroupCommandInput}
+ * @returns {@link ModifyClusterParameterGroupCommandOutput}
  * @see {@link ModifyClusterParameterGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyClusterParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
+ *
+ * @throws {@link ClusterParameterGroupNotFoundFault} (client fault)
+ *  <p>The parameter group name does not refer to an existing parameter group.</p>
+ *
+ * @throws {@link InvalidClusterParameterGroupStateFault} (client fault)
+ *  <p>The cluster parameter group action can not be completed because another task is in
+ *             progress that involves the parameter group. Wait a few moments and try the operation
+ *             again.</p>
+ *
  *
  */
 export class ModifyClusterParameterGroupCommand extends $Command<
@@ -68,6 +97,9 @@ export class ModifyClusterParameterGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyClusterParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +128,8 @@ export class ModifyClusterParameterGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyClusterParameterGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ClusterParameterGroupNameMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,15 +139,21 @@ export class ModifyClusterParameterGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyClusterParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyClusterParameterGroupCommand(input, context);
+    return se_ModifyClusterParameterGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyClusterParameterGroupCommandOutput> {
-    return deserializeAws_queryModifyClusterParameterGroupCommand(output, context);
+    return de_ModifyClusterParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

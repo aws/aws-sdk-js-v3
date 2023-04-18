@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  GetServiceProfileRequest,
-  GetServiceProfileRequestFilterSensitiveLog,
-  GetServiceProfileResponse,
-  GetServiceProfileResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetServiceProfileCommand,
-  serializeAws_restJson1GetServiceProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { GetServiceProfileRequest, GetServiceProfileResponse } from "../models/models_0";
+import { de_GetServiceProfileCommand, se_GetServiceProfileCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetServiceProfileCommand}.
+ */
 export interface GetServiceProfileCommandInput extends GetServiceProfileRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetServiceProfileCommand}.
+ */
 export interface GetServiceProfileCommandOutput extends GetServiceProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a service profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,34 @@ export interface GetServiceProfileCommandOutput extends GetServiceProfileRespons
  * import { IoTWirelessClient, GetServiceProfileCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, GetServiceProfileCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // GetServiceProfileRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetServiceProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetServiceProfileCommandInput - {@link GetServiceProfileCommandInput}
+ * @returns {@link GetServiceProfileCommandOutput}
  * @see {@link GetServiceProfileCommandInput} for command's `input` shape.
  * @see {@link GetServiceProfileCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>User does not have permission to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred while processing a request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because it exceeded the allowed API request rate.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input did not meet the specified constraints.</p>
+ *
  *
  */
 export class GetServiceProfileCommand extends $Command<
@@ -62,6 +86,9 @@ export class GetServiceProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetServiceProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +117,8 @@ export class GetServiceProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetServiceProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetServiceProfileResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +128,18 @@ export class GetServiceProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetServiceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetServiceProfileCommand(input, context);
+    return se_GetServiceProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetServiceProfileCommandOutput> {
-    return deserializeAws_restJson1GetServiceProfileCommand(output, context);
+    return de_GetServiceProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

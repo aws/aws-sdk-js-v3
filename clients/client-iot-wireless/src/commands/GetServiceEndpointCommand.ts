@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  GetServiceEndpointRequest,
-  GetServiceEndpointRequestFilterSensitiveLog,
-  GetServiceEndpointResponse,
-  GetServiceEndpointResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetServiceEndpointCommand,
-  serializeAws_restJson1GetServiceEndpointCommand,
-} from "../protocols/Aws_restJson1";
+import { GetServiceEndpointRequest, GetServiceEndpointResponse } from "../models/models_0";
+import { de_GetServiceEndpointCommand, se_GetServiceEndpointCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetServiceEndpointCommand}.
+ */
 export interface GetServiceEndpointCommandInput extends GetServiceEndpointRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetServiceEndpointCommand}.
+ */
 export interface GetServiceEndpointCommandOutput extends GetServiceEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the account-specific endpoint for Configuration and Update Server (CUPS) protocol or LoRaWAN Network Server (LNS) connections.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,31 @@ export interface GetServiceEndpointCommandOutput extends GetServiceEndpointRespo
  * import { IoTWirelessClient, GetServiceEndpointCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, GetServiceEndpointCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // GetServiceEndpointRequest
+ *   ServiceType: "CUPS" || "LNS",
+ * };
  * const command = new GetServiceEndpointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetServiceEndpointCommandInput - {@link GetServiceEndpointCommandInput}
+ * @returns {@link GetServiceEndpointCommandOutput}
  * @see {@link GetServiceEndpointCommandInput} for command's `input` shape.
  * @see {@link GetServiceEndpointCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>User does not have permission to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred while processing a request.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because it exceeded the allowed API request rate.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input did not meet the specified constraints.</p>
+ *
  *
  */
 export class GetServiceEndpointCommand extends $Command<
@@ -62,6 +83,9 @@ export class GetServiceEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetServiceEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +114,8 @@ export class GetServiceEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetServiceEndpointRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetServiceEndpointResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +125,18 @@ export class GetServiceEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetServiceEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetServiceEndpointCommand(input, context);
+    return se_GetServiceEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetServiceEndpointCommandOutput> {
-    return deserializeAws_restJson1GetServiceEndpointCommand(output, context);
+    return de_GetServiceEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

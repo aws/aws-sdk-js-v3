@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteReceiptRuleSetRequest,
-  DeleteReceiptRuleSetRequestFilterSensitiveLog,
-  DeleteReceiptRuleSetResponse,
-  DeleteReceiptRuleSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteReceiptRuleSetCommand,
-  serializeAws_queryDeleteReceiptRuleSetCommand,
-} from "../protocols/Aws_query";
+import { DeleteReceiptRuleSetRequest, DeleteReceiptRuleSetResponse } from "../models/models_0";
+import { de_DeleteReceiptRuleSetCommand, se_DeleteReceiptRuleSetCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteReceiptRuleSetCommand}.
+ */
 export interface DeleteReceiptRuleSetCommandInput extends DeleteReceiptRuleSetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteReceiptRuleSetCommand}.
+ */
 export interface DeleteReceiptRuleSetCommandOutput extends DeleteReceiptRuleSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified receipt rule set and all of the receipt rules it
  *             contains.</p>
  *         <note>
@@ -42,13 +45,33 @@ export interface DeleteReceiptRuleSetCommandOutput extends DeleteReceiptRuleSetR
  * import { SESClient, DeleteReceiptRuleSetCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, DeleteReceiptRuleSetCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // DeleteReceiptRuleSetRequest
+ *   RuleSetName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteReceiptRuleSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteReceiptRuleSetCommandInput - {@link DeleteReceiptRuleSetCommandInput}
+ * @returns {@link DeleteReceiptRuleSetCommandOutput}
  * @see {@link DeleteReceiptRuleSetCommandInput} for command's `input` shape.
  * @see {@link DeleteReceiptRuleSetCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
+ *
+ * @throws {@link CannotDeleteException} (client fault)
+ *  <p>Indicates that the delete operation could not be completed.</p>
+ *
+ *
+ * @example DeleteReceiptRuleSet
+ * ```javascript
+ * // The following example deletes a receipt rule set:
+ * const input = {
+ *   "RuleSetName": "MyRuleSet"
+ * };
+ * const command = new DeleteReceiptRuleSetCommand(input);
+ * await client.send(command);
+ * // example id: deletereceiptruleset-1469055713690
+ * ```
  *
  */
 export class DeleteReceiptRuleSetCommand extends $Command<
@@ -68,6 +91,9 @@ export class DeleteReceiptRuleSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteReceiptRuleSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +122,8 @@ export class DeleteReceiptRuleSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteReceiptRuleSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteReceiptRuleSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +133,18 @@ export class DeleteReceiptRuleSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteReceiptRuleSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteReceiptRuleSetCommand(input, context);
+    return se_DeleteReceiptRuleSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteReceiptRuleSetCommandOutput> {
-    return deserializeAws_queryDeleteReceiptRuleSetCommand(output, context);
+    return de_DeleteReceiptRuleSetCommand(output, context);
   }
 
   // Start section: command_body_extra

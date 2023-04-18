@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import { DeleteApplicationVersionMessage, DeleteApplicationVersionMessageFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteApplicationVersionCommand,
-  serializeAws_queryDeleteApplicationVersionCommand,
-} from "../protocols/Aws_query";
+import { DeleteApplicationVersionMessage } from "../models/models_0";
+import { de_DeleteApplicationVersionCommand, se_DeleteApplicationVersionCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteApplicationVersionCommand}.
+ */
 export interface DeleteApplicationVersionCommandInput extends DeleteApplicationVersionMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteApplicationVersionCommand}.
+ */
 export interface DeleteApplicationVersionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified version from the specified application.</p>
  *          <note>
  *             <p>You cannot delete an application version that is associated with a running
@@ -35,13 +43,61 @@ export interface DeleteApplicationVersionCommandOutput extends __MetadataBearer 
  * import { ElasticBeanstalkClient, DeleteApplicationVersionCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, DeleteApplicationVersionCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = { // DeleteApplicationVersionMessage
+ *   ApplicationName: "STRING_VALUE", // required
+ *   VersionLabel: "STRING_VALUE", // required
+ *   DeleteSourceBundle: true || false,
+ * };
  * const command = new DeleteApplicationVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteApplicationVersionCommandInput - {@link DeleteApplicationVersionCommandInput}
+ * @returns {@link DeleteApplicationVersionCommandOutput}
  * @see {@link DeleteApplicationVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteApplicationVersionCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
+ *
+ * @throws {@link InsufficientPrivilegesException} (client fault)
+ *  <p>The specified account does not have sufficient privileges for one or more AWS
+ *       services.</p>
+ *
+ * @throws {@link OperationInProgressException} (client fault)
+ *  <p>Unable to perform the specified operation because another operation that effects an
+ *       element in this activity is already in progress.</p>
+ *
+ * @throws {@link S3LocationNotInServiceRegionException} (client fault)
+ *  <p>The specified S3 bucket does not belong to the S3 region in which the service is
+ *       running. The following regions are supported:</p>
+ *          <ul>
+ *             <li>
+ *                <p>IAD/us-east-1</p>
+ *             </li>
+ *             <li>
+ *                <p>PDX/us-west-2</p>
+ *             </li>
+ *             <li>
+ *                <p>DUB/eu-west-1</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link SourceBundleDeletionException} (client fault)
+ *  <p>Unable to delete the Amazon S3 source bundle associated with the application version.
+ *       The application version was deleted successfully.</p>
+ *
+ *
+ * @example To delete an application version
+ * ```javascript
+ * // The following operation deletes an application version named 22a0-stage-150819_182129 for an application named my-app:
+ * const input = {
+ *   "ApplicationName": "my-app",
+ *   "DeleteSourceBundle": true,
+ *   "VersionLabel": "22a0-stage-150819_182129"
+ * };
+ * const command = new DeleteApplicationVersionCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-an-application-version-1456269792956
+ * ```
  *
  */
 export class DeleteApplicationVersionCommand extends $Command<
@@ -61,6 +117,9 @@ export class DeleteApplicationVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteApplicationVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +148,8 @@ export class DeleteApplicationVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteApplicationVersionMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +159,18 @@ export class DeleteApplicationVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteApplicationVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteApplicationVersionCommand(input, context);
+    return se_DeleteApplicationVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteApplicationVersionCommandOutput> {
-    return deserializeAws_queryDeleteApplicationVersionCommand(output, context);
+    return de_DeleteApplicationVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

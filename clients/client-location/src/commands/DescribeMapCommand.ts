@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  DescribeMapRequest,
-  DescribeMapRequestFilterSensitiveLog,
-  DescribeMapResponse,
-  DescribeMapResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeMapCommand,
-  serializeAws_restJson1DescribeMapCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeMapRequest, DescribeMapResponse } from "../models/models_0";
+import { de_DescribeMapCommand, se_DescribeMapCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeMapCommand}.
+ */
 export interface DescribeMapCommandInput extends DescribeMapRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeMapCommand}.
+ */
 export interface DescribeMapCommandOutput extends DescribeMapResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the map resource details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,35 @@ export interface DescribeMapCommandOutput extends DescribeMapResponse, __Metadat
  * import { LocationClient, DescribeMapCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, DescribeMapCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = { // DescribeMapRequest
+ *   MapName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeMapCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMapCommandInput - {@link DescribeMapCommandInput}
+ * @returns {@link DescribeMapCommandOutput}
  * @see {@link DescribeMapCommandInput} for command's `input` shape.
  * @see {@link DescribeMapCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The request was denied because of insufficient access or permissions. Check with an
+ *       administrator to verify your permissions.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource that you've entered was not found in your AWS account.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because of request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input failed to meet the constraints specified by the AWS service. </p>
+ *
  *
  */
 export class DescribeMapCommand extends $Command<
@@ -62,6 +87,9 @@ export class DescribeMapCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMapCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +116,8 @@ export class DescribeMapCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeMapRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeMapResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +127,18 @@ export class DescribeMapCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeMapCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeMapCommand(input, context);
+    return se_DescribeMapCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeMapCommandOutput> {
-    return deserializeAws_restJson1DescribeMapCommand(output, context);
+    return de_DescribeMapCommand(output, context);
   }
 
   // Start section: command_body_extra

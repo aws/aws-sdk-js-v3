@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  ListOfferingTransactionsRequest,
-  ListOfferingTransactionsRequestFilterSensitiveLog,
-  ListOfferingTransactionsResult,
-  ListOfferingTransactionsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListOfferingTransactionsCommand,
-  serializeAws_json1_1ListOfferingTransactionsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListOfferingTransactionsRequest, ListOfferingTransactionsResult } from "../models/models_0";
+import { de_ListOfferingTransactionsCommand, se_ListOfferingTransactionsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListOfferingTransactionsCommand}.
+ */
 export interface ListOfferingTransactionsCommandInput extends ListOfferingTransactionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListOfferingTransactionsCommand}.
+ */
 export interface ListOfferingTransactionsCommandOutput extends ListOfferingTransactionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all historical purchases, renewals, and system renewal transactions for an AWS
  *             account. The list is paginated and ordered by a descending timestamp (most recent transactions are first).
  *             The API returns a <code>NotEligible</code> error if the user is not permitted to invoke the operation. If
@@ -39,13 +42,128 @@ export interface ListOfferingTransactionsCommandOutput extends ListOfferingTrans
  * import { DeviceFarmClient, ListOfferingTransactionsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, ListOfferingTransactionsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // ListOfferingTransactionsRequest
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListOfferingTransactionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOfferingTransactionsCommandInput - {@link ListOfferingTransactionsCommandInput}
+ * @returns {@link ListOfferingTransactionsCommandOutput}
  * @see {@link ListOfferingTransactionsCommandInput} for command's `input` shape.
  * @see {@link ListOfferingTransactionsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
+ *
+ * @throws {@link ArgumentException} (client fault)
+ *  <p>An invalid argument was specified.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A limit was exceeded.</p>
+ *
+ * @throws {@link NotEligibleException} (client fault)
+ *  <p>Exception gets thrown when a user is not eligible to perform the specified
+ *             transaction.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The specified entity was not found.</p>
+ *
+ * @throws {@link ServiceAccountException} (client fault)
+ *  <p>There was a problem with the service account.</p>
+ *
+ *
+ * @example To get information about device offering transactions
+ * ```javascript
+ * // The following example returns information about Device Farm offering transactions.
+ * const input = {
+ *   "nextToken": "RW5DdDJkMWYwZjM2MzM2VHVpOHJIUXlDUXlhc2QzRGViYnc9SEXAMPLE="
+ * };
+ * const command = new ListOfferingTransactionsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "offeringTransactions": [
+ *     {
+ *       "cost": {
+ *         "amount": 0,
+ *         "currencyCode": "USD"
+ *       },
+ *       "createdOn": "1470021420",
+ *       "offeringStatus": {
+ *         "type": "RENEW",
+ *         "effectiveOn": "1472688000",
+ *         "offering": {
+ *           "type": "RECURRING",
+ *           "description": "Android Remote Access Unmetered Device Slot",
+ *           "id": "D68B3C05-1BA6-4360-BC69-12345EXAMPLE",
+ *           "platform": "ANDROID"
+ *         },
+ *         "quantity": 0
+ *       },
+ *       "transactionId": "03728003-d1ea-4851-abd6-12345EXAMPLE"
+ *     },
+ *     {
+ *       "cost": {
+ *         "amount": 250,
+ *         "currencyCode": "USD"
+ *       },
+ *       "createdOn": "1470021420",
+ *       "offeringStatus": {
+ *         "type": "PURCHASE",
+ *         "effectiveOn": "1470021420",
+ *         "offering": {
+ *           "type": "RECURRING",
+ *           "description": "Android Remote Access Unmetered Device Slot",
+ *           "id": "D68B3C05-1BA6-4360-BC69-12345EXAMPLE",
+ *           "platform": "ANDROID"
+ *         },
+ *         "quantity": 1
+ *       },
+ *       "transactionId": "56820b6e-06bd-473a-8ff8-12345EXAMPLE"
+ *     },
+ *     {
+ *       "cost": {
+ *         "amount": 175,
+ *         "currencyCode": "USD"
+ *       },
+ *       "createdOn": "1465538520",
+ *       "offeringStatus": {
+ *         "type": "PURCHASE",
+ *         "effectiveOn": "1465538520",
+ *         "offering": {
+ *           "type": "RECURRING",
+ *           "description": "Android Unmetered Device Slot",
+ *           "id": "8980F81C-00D7-469D-8EC6-12345EXAMPLE",
+ *           "platform": "ANDROID"
+ *         },
+ *         "quantity": 1
+ *       },
+ *       "transactionId": "953ae2c6-d760-4a04-9597-12345EXAMPLE"
+ *     },
+ *     {
+ *       "cost": {
+ *         "amount": 8.07,
+ *         "currencyCode": "USD"
+ *       },
+ *       "createdOn": "1459344300",
+ *       "offeringStatus": {
+ *         "type": "PURCHASE",
+ *         "effectiveOn": "1459344300",
+ *         "offering": {
+ *           "type": "RECURRING",
+ *           "description": "iOS Unmetered Device Slot",
+ *           "id": "A53D4D73-A6F6-4B82-A0B0-12345EXAMPLE",
+ *           "platform": "IOS"
+ *         },
+ *         "quantity": 1
+ *       },
+ *       "transactionId": "2baf9021-ae3e-47f5-ab52-12345EXAMPLE"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-get-information-about-device-offering-transactions-1472561712315
+ * ```
  *
  */
 export class ListOfferingTransactionsCommand extends $Command<
@@ -65,6 +183,9 @@ export class ListOfferingTransactionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOfferingTransactionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +214,8 @@ export class ListOfferingTransactionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListOfferingTransactionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListOfferingTransactionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +225,18 @@ export class ListOfferingTransactionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListOfferingTransactionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListOfferingTransactionsCommand(input, context);
+    return se_ListOfferingTransactionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOfferingTransactionsCommandOutput> {
-    return deserializeAws_json1_1ListOfferingTransactionsCommand(output, context);
+    return de_ListOfferingTransactionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,22 +16,31 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DeleteTransitGatewayPeeringAttachmentRequest,
-  DeleteTransitGatewayPeeringAttachmentRequestFilterSensitiveLog,
   DeleteTransitGatewayPeeringAttachmentResult,
-  DeleteTransitGatewayPeeringAttachmentResultFilterSensitiveLog,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
-  deserializeAws_ec2DeleteTransitGatewayPeeringAttachmentCommand,
-  serializeAws_ec2DeleteTransitGatewayPeeringAttachmentCommand,
+  de_DeleteTransitGatewayPeeringAttachmentCommand,
+  se_DeleteTransitGatewayPeeringAttachmentCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteTransitGatewayPeeringAttachmentCommand}.
+ */
 export interface DeleteTransitGatewayPeeringAttachmentCommandInput
   extends DeleteTransitGatewayPeeringAttachmentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteTransitGatewayPeeringAttachmentCommand}.
+ */
 export interface DeleteTransitGatewayPeeringAttachmentCommandOutput
   extends DeleteTransitGatewayPeeringAttachmentResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a transit gateway peering attachment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +48,20 @@ export interface DeleteTransitGatewayPeeringAttachmentCommandOutput
  * import { EC2Client, DeleteTransitGatewayPeeringAttachmentCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteTransitGatewayPeeringAttachmentCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteTransitGatewayPeeringAttachmentRequest
+ *   TransitGatewayAttachmentId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DeleteTransitGatewayPeeringAttachmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTransitGatewayPeeringAttachmentCommandInput - {@link DeleteTransitGatewayPeeringAttachmentCommandInput}
+ * @returns {@link DeleteTransitGatewayPeeringAttachmentCommandOutput}
  * @see {@link DeleteTransitGatewayPeeringAttachmentCommandInput} for command's `input` shape.
  * @see {@link DeleteTransitGatewayPeeringAttachmentCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class DeleteTransitGatewayPeeringAttachmentCommand extends $Command<
@@ -65,6 +81,9 @@ export class DeleteTransitGatewayPeeringAttachmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTransitGatewayPeeringAttachmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +112,8 @@ export class DeleteTransitGatewayPeeringAttachmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTransitGatewayPeeringAttachmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTransitGatewayPeeringAttachmentResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,18 +123,24 @@ export class DeleteTransitGatewayPeeringAttachmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteTransitGatewayPeeringAttachmentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteTransitGatewayPeeringAttachmentCommand(input, context);
+    return se_DeleteTransitGatewayPeeringAttachmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteTransitGatewayPeeringAttachmentCommandOutput> {
-    return deserializeAws_ec2DeleteTransitGatewayPeeringAttachmentCommand(output, context);
+    return de_DeleteTransitGatewayPeeringAttachmentCommand(output, context);
   }
 
   // Start section: command_body_extra

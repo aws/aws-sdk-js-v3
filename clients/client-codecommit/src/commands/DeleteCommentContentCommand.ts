@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import {
-  DeleteCommentContentInput,
-  DeleteCommentContentInputFilterSensitiveLog,
-  DeleteCommentContentOutput,
-  DeleteCommentContentOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteCommentContentCommand,
-  serializeAws_json1_1DeleteCommentContentCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteCommentContentInput, DeleteCommentContentOutput } from "../models/models_0";
+import { de_DeleteCommentContentCommand, se_DeleteCommentContentCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteCommentContentCommand}.
+ */
 export interface DeleteCommentContentCommandInput extends DeleteCommentContentInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteCommentContentCommand}.
+ */
 export interface DeleteCommentContentCommandOutput extends DeleteCommentContentOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the content of a comment made on a change, file, or commit in a repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,32 @@ export interface DeleteCommentContentCommandOutput extends DeleteCommentContentO
  * import { CodeCommitClient, DeleteCommentContentCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, DeleteCommentContentCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // DeleteCommentContentInput
+ *   commentId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteCommentContentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCommentContentCommandInput - {@link DeleteCommentContentCommandInput}
+ * @returns {@link DeleteCommentContentCommandOutput}
  * @see {@link DeleteCommentContentCommandInput} for command's `input` shape.
  * @see {@link DeleteCommentContentCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
+ *
+ * @throws {@link CommentDeletedException} (client fault)
+ *  <p>This comment has already been deleted. You cannot edit or delete a deleted comment.</p>
+ *
+ * @throws {@link CommentDoesNotExistException} (client fault)
+ *  <p>No comment exists with the provided ID. Verify that you have used the correct ID, and
+ *             then try again.</p>
+ *
+ * @throws {@link CommentIdRequiredException} (client fault)
+ *  <p>The comment ID is missing or null. A comment ID is required.</p>
+ *
+ * @throws {@link InvalidCommentIdException} (client fault)
+ *  <p>The comment ID is not in a valid format. Make sure that you have provided the full comment ID.</p>
+ *
  *
  */
 export class DeleteCommentContentCommand extends $Command<
@@ -62,6 +84,9 @@ export class DeleteCommentContentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCommentContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +115,8 @@ export class DeleteCommentContentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCommentContentInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCommentContentOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +126,18 @@ export class DeleteCommentContentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCommentContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteCommentContentCommand(input, context);
+    return se_DeleteCommentContentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCommentContentCommandOutput> {
-    return deserializeAws_json1_1DeleteCommentContentCommand(output, context);
+    return de_DeleteCommentContentCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetUsageLimitRequest,
-  GetUsageLimitRequestFilterSensitiveLog,
-  GetUsageLimitResponse,
-  GetUsageLimitResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetUsageLimitCommand,
-  serializeAws_json1_1GetUsageLimitCommand,
-} from "../protocols/Aws_json1_1";
+import { GetUsageLimitRequest, GetUsageLimitResponse } from "../models/models_0";
+import { de_GetUsageLimitCommand, se_GetUsageLimitCommand } from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetUsageLimitCommand}.
+ */
 export interface GetUsageLimitCommandInput extends GetUsageLimitRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetUsageLimitCommand}.
+ */
 export interface GetUsageLimitCommandOutput extends GetUsageLimitResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a usage limit.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,31 @@ export interface GetUsageLimitCommandOutput extends GetUsageLimitResponse, __Met
  * import { RedshiftServerlessClient, GetUsageLimitCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, GetUsageLimitCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
+ * const input = { // GetUsageLimitRequest
+ *   usageLimitId: "STRING_VALUE", // required
+ * };
  * const command = new GetUsageLimitCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetUsageLimitCommandInput - {@link GetUsageLimitCommandInput}
+ * @returns {@link GetUsageLimitCommandOutput}
  * @see {@link GetUsageLimitCommandInput} for command's `input` shape.
  * @see {@link GetUsageLimitCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The submitted action has conflicts.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
+ *
  *
  */
 export class GetUsageLimitCommand extends $Command<
@@ -66,6 +87,9 @@ export class GetUsageLimitCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetUsageLimitCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +116,8 @@ export class GetUsageLimitCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetUsageLimitRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetUsageLimitResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +127,18 @@ export class GetUsageLimitCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetUsageLimitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetUsageLimitCommand(input, context);
+    return se_GetUsageLimitCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUsageLimitCommandOutput> {
-    return deserializeAws_json1_1GetUsageLimitCommand(output, context);
+    return de_GetUsageLimitCommand(output, context);
   }
 
   // Start section: command_body_extra

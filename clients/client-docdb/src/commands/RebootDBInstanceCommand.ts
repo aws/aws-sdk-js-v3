@@ -14,26 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import {
-  RebootDBInstanceMessage,
-  RebootDBInstanceMessageFilterSensitiveLog,
-  RebootDBInstanceResult,
-  RebootDBInstanceResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryRebootDBInstanceCommand,
-  serializeAws_queryRebootDBInstanceCommand,
-} from "../protocols/Aws_query";
+import { RebootDBInstanceMessage, RebootDBInstanceResult } from "../models/models_0";
+import { de_RebootDBInstanceCommand, se_RebootDBInstanceCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link RebootDBInstanceCommand}.
+ */
 export interface RebootDBInstanceCommandInput extends RebootDBInstanceMessage {}
+/**
+ * @public
+ *
+ * The output of {@link RebootDBInstanceCommand}.
+ */
 export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>You might need to reboot your instance, usually for maintenance reasons. For
  *             example, if you make certain changes, or if you change the cluster parameter group
  *             that is associated with the instance, you must reboot the instance for the changes to
  *             take effect. </p>
- *         <p>Rebooting an instance restarts the database engine service. Rebooting an instance
+ *          <p>Rebooting an instance restarts the database engine service. Rebooting an instance
  *             results in a momentary outage, during which the instance status is set to
  *                 <i>rebooting</i>. </p>
  * @example
@@ -42,13 +45,28 @@ export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, _
  * import { DocDBClient, RebootDBInstanceCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, RebootDBInstanceCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = { // RebootDBInstanceMessage
+ *   DBInstanceIdentifier: "STRING_VALUE", // required
+ *   ForceFailover: true || false,
+ * };
  * const command = new RebootDBInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RebootDBInstanceCommandInput - {@link RebootDBInstanceCommandInput}
+ * @returns {@link RebootDBInstanceCommandOutput}
  * @see {@link RebootDBInstanceCommandInput} for command's `input` shape.
  * @see {@link RebootDBInstanceCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
+ *
+ * @throws {@link DBInstanceNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBInstanceIdentifier</code> doesn't refer to an existing instance. </p>
+ *
+ * @throws {@link InvalidDBInstanceStateFault} (client fault)
+ *  <p> The specified instance isn't in the <i>available</i> state.
+ *         </p>
+ *
  *
  */
 export class RebootDBInstanceCommand extends $Command<
@@ -68,6 +86,9 @@ export class RebootDBInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RebootDBInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +117,8 @@ export class RebootDBInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RebootDBInstanceMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: RebootDBInstanceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +128,18 @@ export class RebootDBInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RebootDBInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRebootDBInstanceCommand(input, context);
+    return se_RebootDBInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RebootDBInstanceCommandOutput> {
-    return deserializeAws_queryRebootDBInstanceCommand(output, context);
+    return de_RebootDBInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

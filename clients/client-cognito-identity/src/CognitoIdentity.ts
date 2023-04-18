@@ -111,6 +111,7 @@ import {
 } from "./commands/UpdateIdentityPoolCommand";
 
 /**
+ * @public
  * <fullname>Amazon Cognito Federated Identities</fullname>
  *          <p>Amazon Cognito Federated Identities is a web service that delivers scoped temporary
  *          credentials to mobile devices and other untrusted environments. It uniquely identifies a
@@ -128,6 +129,7 @@ import {
  */
 export class CognitoIdentity extends CognitoIdentityClient {
   /**
+   * @public
    * <p>Creates a new identity pool. The identity pool is a store of user identity
    *          information that is specific to your AWS account. The keys for <code>SupportedLoginProviders</code> are as follows:</p>
    *
@@ -186,6 +188,7 @@ export class CognitoIdentity extends CognitoIdentityClient {
   }
 
   /**
+   * @public
    * <p>Deletes identities from an identity pool. You can specify a list of 1-60 identities
    *          that you want to delete.</p>
    *          <p>You must use AWS Developer credentials to call this API.</p>
@@ -220,6 +223,7 @@ export class CognitoIdentity extends CognitoIdentityClient {
   }
 
   /**
+   * @public
    * <p>Deletes an identity pool. Once a pool is deleted, users will not be able to
    *          authenticate with the pool.</p>
    *          <p>You must use AWS Developer credentials to call this API.</p>
@@ -254,6 +258,7 @@ export class CognitoIdentity extends CognitoIdentityClient {
   }
 
   /**
+   * @public
    * <p>Returns metadata related to the given identity, including when the identity was
    *          created and any associated linked logins.</p>
    *          <p>You must use AWS Developer credentials to call this API.</p>
@@ -288,6 +293,7 @@ export class CognitoIdentity extends CognitoIdentityClient {
   }
 
   /**
+   * @public
    * <p>Gets details about a particular identity pool, including the pool name, ID
    *          description, creation date, and current number of users.</p>
    *          <p>You must use AWS Developer credentials to call this API.</p>
@@ -322,6 +328,7 @@ export class CognitoIdentity extends CognitoIdentityClient {
   }
 
   /**
+   * @public
    * <p>Returns credentials for the provided identity ID. Any provided logins will be
    *          validated against supported login providers. If the token is for
    *          cognito-identity.amazonaws.com, it will be passed through to AWS Security Token Service
@@ -358,6 +365,7 @@ export class CognitoIdentity extends CognitoIdentityClient {
   }
 
   /**
+   * @public
    * <p>Generates (or retrieves) a Cognito ID. Supplying multiple logins will create an
    *          implicit linked account.</p>
    *          <p>This is a public API. You do not need any credentials to call this API.</p>
@@ -386,6 +394,7 @@ export class CognitoIdentity extends CognitoIdentityClient {
   }
 
   /**
+   * @public
    * <p>Gets the roles for an identity pool.</p>
    *          <p>You must use AWS Developer credentials to call this API.</p>
    */
@@ -419,6 +428,7 @@ export class CognitoIdentity extends CognitoIdentityClient {
   }
 
   /**
+   * @public
    * <p>Gets an OpenID token, using a known Cognito ID. This known Cognito ID is returned by
    *             <a>GetId</a>. You can optionally add additional logins for the identity.
    *          Supplying multiple logins creates an implicit link.</p>
@@ -455,6 +465,7 @@ export class CognitoIdentity extends CognitoIdentityClient {
   }
 
   /**
+   * @public
    * <p>Registers (or retrieves) a Cognito <code>IdentityId</code> and an OpenID Connect
    *          token for a user authenticated by your backend authentication process. Supplying multiple
    *          logins will create an implicit linked account. You can only specify one developer provider
@@ -499,6 +510,7 @@ export class CognitoIdentity extends CognitoIdentityClient {
   }
 
   /**
+   * @public
    * <p>Use <code>GetPrincipalTagAttributeMap</code> to list all mappings between <code>PrincipalTags</code> and user attributes.</p>
    */
   public getPrincipalTagAttributeMap(
@@ -531,6 +543,7 @@ export class CognitoIdentity extends CognitoIdentityClient {
   }
 
   /**
+   * @public
    * <p>Lists the identities in an identity pool.</p>
    *          <p>You must use AWS Developer credentials to call this API.</p>
    */
@@ -564,6 +577,7 @@ export class CognitoIdentity extends CognitoIdentityClient {
   }
 
   /**
+   * @public
    * <p>Lists all of the Cognito identity pools registered for your account.</p>
    *          <p>You must use AWS Developer credentials to call this API.</p>
    */
@@ -597,6 +611,7 @@ export class CognitoIdentity extends CognitoIdentityClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags that are assigned to an Amazon Cognito identity pool.</p>
    *          <p>A tag is a label that you can apply to identity pools to categorize and manage them in
    *          different ways, such as by purpose, owner, environment, or other criteria.</p>
@@ -632,6 +647,7 @@ export class CognitoIdentity extends CognitoIdentityClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the <code>IdentityID</code> associated with a
    *             <code>DeveloperUserIdentifier</code> or the list of <code>DeveloperUserIdentifier</code>
    *          values associated with an <code>IdentityId</code> for an existing identity. Either
@@ -680,6 +696,7 @@ export class CognitoIdentity extends CognitoIdentityClient {
   }
 
   /**
+   * @public
    * <p>Merges two users having different <code>IdentityId</code>s, existing in the same
    *          identity pool, and identified by the same developer provider. You can use this action to
    *          request that discrete users be merged and identified as a single user in the Cognito
@@ -724,6 +741,7 @@ export class CognitoIdentity extends CognitoIdentityClient {
   }
 
   /**
+   * @public
    * <p>Sets the roles for an identity pool. These roles are used when making calls to <a>GetCredentialsForIdentity</a> action.</p>
    *          <p>You must use AWS Developer credentials to call this API.</p>
    */
@@ -757,6 +775,7 @@ export class CognitoIdentity extends CognitoIdentityClient {
   }
 
   /**
+   * @public
    * <p>You can use this operation to use default (username and clientID) attribute or custom attribute mappings.</p>
    */
   public setPrincipalTagAttributeMap(
@@ -789,6 +808,7 @@ export class CognitoIdentity extends CognitoIdentityClient {
   }
 
   /**
+   * @public
    * <p>Assigns a set of tags to the specified Amazon Cognito identity pool. A tag is a label
    *          that you can use to categorize and manage identity pools in different ways, such as by
    *          purpose, owner, environment, or other criteria.</p>
@@ -829,6 +849,7 @@ export class CognitoIdentity extends CognitoIdentityClient {
   }
 
   /**
+   * @public
    * <p>Unlinks a <code>DeveloperUserIdentifier</code> from an existing identity. Unlinked
    *          developer users will be considered new identities next time they are seen. If, for a given
    *          Cognito identity, you remove all federated identities as well as the developer user
@@ -865,6 +886,7 @@ export class CognitoIdentity extends CognitoIdentityClient {
   }
 
   /**
+   * @public
    * <p>Unlinks a federated identity from an existing account. Unlinked logins will be
    *          considered new identities next time they are seen. Removing the last linked login will make
    *          this identity inaccessible.</p>
@@ -900,6 +922,7 @@ export class CognitoIdentity extends CognitoIdentityClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified tags from the specified Amazon Cognito identity pool. You can use
    *          this action up to 5 times per second, per account</p>
    */
@@ -933,6 +956,7 @@ export class CognitoIdentity extends CognitoIdentityClient {
   }
 
   /**
+   * @public
    * <p>Updates an identity pool.</p>
    *          <p>You must use AWS Developer credentials to call this API.</p>
    */

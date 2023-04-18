@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  UpdateDevEndpointRequest,
-  UpdateDevEndpointRequestFilterSensitiveLog,
-  UpdateDevEndpointResponse,
-  UpdateDevEndpointResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1UpdateDevEndpointCommand,
-  serializeAws_json1_1UpdateDevEndpointCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateDevEndpointRequest, UpdateDevEndpointResponse } from "../models/models_2";
+import { de_UpdateDevEndpointCommand, se_UpdateDevEndpointCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateDevEndpointCommand}.
+ */
 export interface UpdateDevEndpointCommandInput extends UpdateDevEndpointRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateDevEndpointCommand}.
+ */
 export interface UpdateDevEndpointCommandOutput extends UpdateDevEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a specified development endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,52 @@ export interface UpdateDevEndpointCommandOutput extends UpdateDevEndpointRespons
  * import { GlueClient, UpdateDevEndpointCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, UpdateDevEndpointCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // UpdateDevEndpointRequest
+ *   EndpointName: "STRING_VALUE", // required
+ *   PublicKey: "STRING_VALUE",
+ *   AddPublicKeys: [ // PublicKeysList
+ *     "STRING_VALUE",
+ *   ],
+ *   DeletePublicKeys: [
+ *     "STRING_VALUE",
+ *   ],
+ *   CustomLibraries: { // DevEndpointCustomLibraries
+ *     ExtraPythonLibsS3Path: "STRING_VALUE",
+ *     ExtraJarsS3Path: "STRING_VALUE",
+ *   },
+ *   UpdateEtlLibraries: true || false,
+ *   DeleteArguments: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ *   AddArguments: { // MapValue
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateDevEndpointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDevEndpointCommandInput - {@link UpdateDevEndpointCommandInput}
+ * @returns {@link UpdateDevEndpointCommandOutput}
  * @see {@link UpdateDevEndpointCommandInput} for command's `input` shape.
  * @see {@link UpdateDevEndpointCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>A value could not be validated.</p>
+ *
  *
  */
 export class UpdateDevEndpointCommand extends $Command<
@@ -62,6 +104,9 @@ export class UpdateDevEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDevEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +135,8 @@ export class UpdateDevEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDevEndpointRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDevEndpointResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +146,18 @@ export class UpdateDevEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDevEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDevEndpointCommand(input, context);
+    return se_UpdateDevEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDevEndpointCommandOutput> {
-    return deserializeAws_json1_1UpdateDevEndpointCommand(output, context);
+    return de_UpdateDevEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import {
-  CreateAgentRequest,
-  CreateAgentRequestFilterSensitiveLog,
-  CreateAgentResponse,
-  CreateAgentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateAgentCommand,
-  serializeAws_json1_1CreateAgentCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateAgentRequest, CreateAgentResponse } from "../models/models_0";
+import { de_CreateAgentCommand, se_CreateAgentCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateAgentCommand}.
+ */
 export interface CreateAgentCommandInput extends CreateAgentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateAgentCommand}.
+ */
 export interface CreateAgentCommandOutput extends CreateAgentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Activates an DataSync agent that you have deployed in your storage
  *       environment. The activation process associates your agent with your account. In the activation
  *       process, you specify information such as the Amazon Web Services Region that you want to
@@ -47,13 +50,39 @@ export interface CreateAgentCommandOutput extends CreateAgentResponse, __Metadat
  * import { DataSyncClient, CreateAgentCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, CreateAgentCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = { // CreateAgentRequest
+ *   ActivationKey: "STRING_VALUE", // required
+ *   AgentName: "STRING_VALUE",
+ *   Tags: [ // InputTagList
+ *     { // TagListEntry
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   VpcEndpointId: "STRING_VALUE",
+ *   SubnetArns: [ // PLSubnetArnList
+ *     "STRING_VALUE",
+ *   ],
+ *   SecurityGroupArns: [ // PLSecurityGroupArnList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new CreateAgentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAgentCommandInput - {@link CreateAgentCommandInput}
+ * @returns {@link CreateAgentCommandOutput}
  * @see {@link CreateAgentCommandInput} for command's `input` shape.
  * @see {@link CreateAgentCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception is thrown when an error occurs in the DataSync service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
  *
  */
 export class CreateAgentCommand extends $Command<
@@ -73,6 +102,9 @@ export class CreateAgentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAgentCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +131,8 @@ export class CreateAgentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAgentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAgentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +142,18 @@ export class CreateAgentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAgentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateAgentCommand(input, context);
+    return se_CreateAgentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAgentCommandOutput> {
-    return deserializeAws_json1_1CreateAgentCommand(output, context);
+    return de_CreateAgentCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DescribeDataQualityJobDefinitionRequest, DescribeDataQualityJobDefinitionResponse } from "../models/models_2";
 import {
-  DescribeDataQualityJobDefinitionRequest,
-  DescribeDataQualityJobDefinitionRequestFilterSensitiveLog,
-  DescribeDataQualityJobDefinitionResponse,
-  DescribeDataQualityJobDefinitionResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeDataQualityJobDefinitionCommand,
-  serializeAws_json1_1DescribeDataQualityJobDefinitionCommand,
+  de_DescribeDataQualityJobDefinitionCommand,
+  se_DescribeDataQualityJobDefinitionCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeDataQualityJobDefinitionCommand}.
+ */
 export interface DescribeDataQualityJobDefinitionCommandInput extends DescribeDataQualityJobDefinitionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeDataQualityJobDefinitionCommand}.
+ */
 export interface DescribeDataQualityJobDefinitionCommandOutput
   extends DescribeDataQualityJobDefinitionResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the details of a data quality monitoring job definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,22 @@ export interface DescribeDataQualityJobDefinitionCommandOutput
  * import { SageMakerClient, DescribeDataQualityJobDefinitionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeDataQualityJobDefinitionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DescribeDataQualityJobDefinitionRequest
+ *   JobDefinitionName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeDataQualityJobDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDataQualityJobDefinitionCommandInput - {@link DescribeDataQualityJobDefinitionCommandInput}
+ * @returns {@link DescribeDataQualityJobDefinitionCommandOutput}
  * @see {@link DescribeDataQualityJobDefinitionCommandInput} for command's `input` shape.
  * @see {@link DescribeDataQualityJobDefinitionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class DescribeDataQualityJobDefinitionCommand extends $Command<
@@ -64,6 +79,9 @@ export class DescribeDataQualityJobDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDataQualityJobDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +110,8 @@ export class DescribeDataQualityJobDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDataQualityJobDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDataQualityJobDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +121,24 @@ export class DescribeDataQualityJobDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeDataQualityJobDefinitionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDataQualityJobDefinitionCommand(input, context);
+    return se_DescribeDataQualityJobDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDataQualityJobDefinitionCommandOutput> {
-    return deserializeAws_json1_1DescribeDataQualityJobDefinitionCommand(output, context);
+    return de_DescribeDataQualityJobDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

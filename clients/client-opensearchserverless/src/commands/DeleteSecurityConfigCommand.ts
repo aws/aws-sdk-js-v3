@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteSecurityConfigRequest,
-  DeleteSecurityConfigRequestFilterSensitiveLog,
-  DeleteSecurityConfigResponse,
-  DeleteSecurityConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteSecurityConfigRequest, DeleteSecurityConfigResponse } from "../models/models_0";
 import {
   OpenSearchServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import {
-  deserializeAws_json1_0DeleteSecurityConfigCommand,
-  serializeAws_json1_0DeleteSecurityConfigCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteSecurityConfigCommand, se_DeleteSecurityConfigCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteSecurityConfigCommand}.
+ */
 export interface DeleteSecurityConfigCommandInput extends DeleteSecurityConfigRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteSecurityConfigCommand}.
+ */
 export interface DeleteSecurityConfigCommandOutput extends DeleteSecurityConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a security configuration for OpenSearch Serverless. For more information, see
  *             <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html">SAML
  *                 authentication for Amazon OpenSearch Serverless</a>.</p>
@@ -42,13 +45,35 @@ export interface DeleteSecurityConfigCommandOutput extends DeleteSecurityConfigR
  * import { OpenSearchServerlessClient, DeleteSecurityConfigCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, DeleteSecurityConfigCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
+ * const input = { // DeleteSecurityConfigRequest
+ *   id: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new DeleteSecurityConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSecurityConfigCommandInput - {@link DeleteSecurityConfigCommandInput}
+ * @returns {@link DeleteSecurityConfigCommandOutput}
  * @see {@link DeleteSecurityConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteSecurityConfigCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>When creating a resource, thrown when a resource with the same name already exists
+ *             or is being created. When deleting a resource, thrown when the resource is not in
+ *             the ACTIVE or FAILED state.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Thrown when an error internal to the service occurs while processing a request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Thrown when accessing or deleting a resource that does not exist.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Thrown when the HTTP request contains invalid input or is missing required
+ *             input.</p>
+ *
  *
  */
 export class DeleteSecurityConfigCommand extends $Command<
@@ -68,6 +93,9 @@ export class DeleteSecurityConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSecurityConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +124,8 @@ export class DeleteSecurityConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSecurityConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSecurityConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +135,18 @@ export class DeleteSecurityConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSecurityConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteSecurityConfigCommand(input, context);
+    return se_DeleteSecurityConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSecurityConfigCommandOutput> {
-    return deserializeAws_json1_0DeleteSecurityConfigCommand(output, context);
+    return de_DeleteSecurityConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

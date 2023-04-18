@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import {
-  GetQueryStatisticsRequest,
-  GetQueryStatisticsRequestFilterSensitiveLog,
-  GetQueryStatisticsResponse,
-  GetQueryStatisticsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetQueryStatisticsCommand,
-  serializeAws_restJson1GetQueryStatisticsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetQueryStatisticsRequest, GetQueryStatisticsResponse } from "../models/models_0";
+import { de_GetQueryStatisticsCommand, se_GetQueryStatisticsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetQueryStatisticsCommand}.
+ */
 export interface GetQueryStatisticsCommandInput extends GetQueryStatisticsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetQueryStatisticsCommand}.
+ */
 export interface GetQueryStatisticsCommandOutput extends GetQueryStatisticsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves statistics on the planning and execution of a query.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,37 @@ export interface GetQueryStatisticsCommandOutput extends GetQueryStatisticsRespo
  * import { LakeFormationClient, GetQueryStatisticsCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, GetQueryStatisticsCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
+ * const input = { // GetQueryStatisticsRequest
+ *   QueryId: "STRING_VALUE", // required
+ * };
  * const command = new GetQueryStatisticsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetQueryStatisticsCommandInput - {@link GetQueryStatisticsCommandInput}
+ * @returns {@link GetQueryStatisticsCommandOutput}
  * @see {@link GetQueryStatisticsCommandInput} for command's `input` shape.
  * @see {@link GetQueryStatisticsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to a resource was denied.</p>
+ *
+ * @throws {@link ExpiredException} (client fault)
+ *  <p>Contains details about an error where the query request expired.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link StatisticsNotReadyYetException} (client fault)
+ *  <p>Contains details about an error related to statistics not being ready.</p>
+ *
+ * @throws {@link ThrottledException} (client fault)
+ *  <p>Contains details about an error where the query request was throttled.</p>
+ *
  *
  */
 export class GetQueryStatisticsCommand extends $Command<
@@ -62,6 +89,9 @@ export class GetQueryStatisticsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetQueryStatisticsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +120,8 @@ export class GetQueryStatisticsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetQueryStatisticsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetQueryStatisticsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +131,18 @@ export class GetQueryStatisticsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetQueryStatisticsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetQueryStatisticsCommand(input, context);
+    return se_GetQueryStatisticsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetQueryStatisticsCommandOutput> {
-    return deserializeAws_restJson1GetQueryStatisticsCommand(output, context);
+    return de_GetQueryStatisticsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { RevokeClusterSecurityGroupIngressMessage, RevokeClusterSecurityGroupIngressResult } from "../models/models_1";
 import {
-  RevokeClusterSecurityGroupIngressMessage,
-  RevokeClusterSecurityGroupIngressMessageFilterSensitiveLog,
-  RevokeClusterSecurityGroupIngressResult,
-  RevokeClusterSecurityGroupIngressResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryRevokeClusterSecurityGroupIngressCommand,
-  serializeAws_queryRevokeClusterSecurityGroupIngressCommand,
+  de_RevokeClusterSecurityGroupIngressCommand,
+  se_RevokeClusterSecurityGroupIngressCommand,
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * @public
+ *
+ * The input for {@link RevokeClusterSecurityGroupIngressCommand}.
+ */
 export interface RevokeClusterSecurityGroupIngressCommandInput extends RevokeClusterSecurityGroupIngressMessage {}
+/**
+ * @public
+ *
+ * The output of {@link RevokeClusterSecurityGroupIngressCommand}.
+ */
 export interface RevokeClusterSecurityGroupIngressCommandOutput
   extends RevokeClusterSecurityGroupIngressResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Revokes an ingress rule in an Amazon Redshift security group for a previously authorized
  *             IP range or Amazon EC2 security group. To add an ingress rule, see <a>AuthorizeClusterSecurityGroupIngress</a>.
  * For information about managing security groups, go to
@@ -42,13 +48,33 @@ export interface RevokeClusterSecurityGroupIngressCommandOutput
  * import { RedshiftClient, RevokeClusterSecurityGroupIngressCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, RevokeClusterSecurityGroupIngressCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // RevokeClusterSecurityGroupIngressMessage
+ *   ClusterSecurityGroupName: "STRING_VALUE", // required
+ *   CIDRIP: "STRING_VALUE",
+ *   EC2SecurityGroupName: "STRING_VALUE",
+ *   EC2SecurityGroupOwnerId: "STRING_VALUE",
+ * };
  * const command = new RevokeClusterSecurityGroupIngressCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RevokeClusterSecurityGroupIngressCommandInput - {@link RevokeClusterSecurityGroupIngressCommandInput}
+ * @returns {@link RevokeClusterSecurityGroupIngressCommandOutput}
  * @see {@link RevokeClusterSecurityGroupIngressCommandInput} for command's `input` shape.
  * @see {@link RevokeClusterSecurityGroupIngressCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
+ *
+ * @throws {@link AuthorizationNotFoundFault} (client fault)
+ *  <p>The specified CIDR IP range or EC2 security group is not authorized for the
+ *             specified cluster security group.</p>
+ *
+ * @throws {@link ClusterSecurityGroupNotFoundFault} (client fault)
+ *  <p>The cluster security group name does not refer to an existing cluster security
+ *             group.</p>
+ *
+ * @throws {@link InvalidClusterSecurityGroupStateFault} (client fault)
+ *  <p>The state of the cluster security group is not <code>available</code>. </p>
+ *
  *
  */
 export class RevokeClusterSecurityGroupIngressCommand extends $Command<
@@ -68,6 +94,9 @@ export class RevokeClusterSecurityGroupIngressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RevokeClusterSecurityGroupIngressCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +125,8 @@ export class RevokeClusterSecurityGroupIngressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RevokeClusterSecurityGroupIngressMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: RevokeClusterSecurityGroupIngressResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,18 +136,24 @@ export class RevokeClusterSecurityGroupIngressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RevokeClusterSecurityGroupIngressCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryRevokeClusterSecurityGroupIngressCommand(input, context);
+    return se_RevokeClusterSecurityGroupIngressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RevokeClusterSecurityGroupIngressCommandOutput> {
-    return deserializeAws_queryRevokeClusterSecurityGroupIngressCommand(output, context);
+    return de_RevokeClusterSecurityGroupIngressCommand(output, context);
   }
 
   // Start section: command_body_extra

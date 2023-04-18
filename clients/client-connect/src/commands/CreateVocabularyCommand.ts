@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  CreateVocabularyRequest,
-  CreateVocabularyRequestFilterSensitiveLog,
-  CreateVocabularyResponse,
-  CreateVocabularyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateVocabularyCommand,
-  serializeAws_restJson1CreateVocabularyCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateVocabularyRequest, CreateVocabularyResponse } from "../models/models_0";
+import { de_CreateVocabularyCommand, se_CreateVocabularyCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateVocabularyCommand}.
+ */
 export interface CreateVocabularyCommandInput extends CreateVocabularyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateVocabularyCommand}.
+ */
 export interface CreateVocabularyCommandOutput extends CreateVocabularyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a custom vocabulary associated with your Amazon Connect instance. You can set a
  *    custom vocabulary to be your default vocabulary for a given language. Contact Lens for Amazon Connect uses the default
  *    vocabulary in post-call and real-time contact analysis sessions for that language.</p>
@@ -38,13 +41,47 @@ export interface CreateVocabularyCommandOutput extends CreateVocabularyResponse,
  * import { ConnectClient, CreateVocabularyCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, CreateVocabularyCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // CreateVocabularyRequest
+ *   ClientToken: "STRING_VALUE",
+ *   InstanceId: "STRING_VALUE", // required
+ *   VocabularyName: "STRING_VALUE", // required
+ *   LanguageCode: "ar-AE" || "de-CH" || "de-DE" || "en-AB" || "en-AU" || "en-GB" || "en-IE" || "en-IN" || "en-US" || "en-WL" || "es-ES" || "es-US" || "fr-CA" || "fr-FR" || "hi-IN" || "it-IT" || "ja-JP" || "ko-KR" || "pt-BR" || "pt-PT" || "zh-CN" || "en-NZ" || "en-ZA", // required
+ *   Content: "STRING_VALUE", // required
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateVocabularyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVocabularyCommandInput - {@link CreateVocabularyCommandInput}
+ * @returns {@link CreateVocabularyCommandOutput}
  * @see {@link CreateVocabularyCommandInput} for command's `input` shape.
  * @see {@link CreateVocabularyCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceConflictException} (client fault)
+ *  <p>A resource already has that name.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The service quota has been exceeded.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
  *
  */
 export class CreateVocabularyCommand extends $Command<
@@ -64,6 +101,9 @@ export class CreateVocabularyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVocabularyCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +132,8 @@ export class CreateVocabularyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateVocabularyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateVocabularyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +143,18 @@ export class CreateVocabularyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVocabularyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateVocabularyCommand(input, context);
+    return se_CreateVocabularyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVocabularyCommandOutput> {
-    return deserializeAws_restJson1CreateVocabularyCommand(output, context);
+    return de_CreateVocabularyCommand(output, context);
   }
 
   // Start section: command_body_extra

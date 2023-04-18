@@ -6,12 +6,11 @@ import {
   ListTerminologiesCommandInput,
   ListTerminologiesCommandOutput,
 } from "../commands/ListTerminologiesCommand";
-import { Translate } from "../Translate";
 import { TranslateClient } from "../TranslateClient";
 import { TranslatePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: TranslateClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListTerminologiesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Translate,
-  input: ListTerminologiesCommandInput,
-  ...args: any
-): Promise<ListTerminologiesCommandOutput> => {
-  // @ts-ignore
-  return await client.listTerminologies(input, ...args);
-};
 export async function* paginateListTerminologies(
   config: TranslatePaginationConfiguration,
   input: ListTerminologiesCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListTerminologies(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Translate) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof TranslateClient) {
+    if (config.client instanceof TranslateClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Translate | TranslateClient");

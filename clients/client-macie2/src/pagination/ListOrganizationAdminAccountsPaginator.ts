@@ -6,12 +6,11 @@ import {
   ListOrganizationAdminAccountsCommandInput,
   ListOrganizationAdminAccountsCommandOutput,
 } from "../commands/ListOrganizationAdminAccountsCommand";
-import { Macie2 } from "../Macie2";
 import { Macie2Client } from "../Macie2Client";
 import { Macie2PaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: Macie2Client,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListOrganizationAdminAccountsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Macie2,
-  input: ListOrganizationAdminAccountsCommandInput,
-  ...args: any
-): Promise<ListOrganizationAdminAccountsCommandOutput> => {
-  // @ts-ignore
-  return await client.listOrganizationAdminAccounts(input, ...args);
-};
 export async function* paginateListOrganizationAdminAccounts(
   config: Macie2PaginationConfiguration,
   input: ListOrganizationAdminAccountsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListOrganizationAdminAccounts(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Macie2) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof Macie2Client) {
+    if (config.client instanceof Macie2Client) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Macie2 | Macie2Client");

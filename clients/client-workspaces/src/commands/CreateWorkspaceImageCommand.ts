@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateWorkspaceImageRequest,
-  CreateWorkspaceImageRequestFilterSensitiveLog,
-  CreateWorkspaceImageResult,
-  CreateWorkspaceImageResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateWorkspaceImageCommand,
-  serializeAws_json1_1CreateWorkspaceImageCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateWorkspaceImageRequest, CreateWorkspaceImageResult } from "../models/models_0";
+import { de_CreateWorkspaceImageCommand, se_CreateWorkspaceImageCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateWorkspaceImageCommand}.
+ */
 export interface CreateWorkspaceImageCommandInput extends CreateWorkspaceImageRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateWorkspaceImageCommand}.
+ */
 export interface CreateWorkspaceImageCommandOutput extends CreateWorkspaceImageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new WorkSpace image from an existing WorkSpace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,48 @@ export interface CreateWorkspaceImageCommandOutput extends CreateWorkspaceImageR
  * import { WorkSpacesClient, CreateWorkspaceImageCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, CreateWorkspaceImageCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // CreateWorkspaceImageRequest
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE", // required
+ *   WorkspaceId: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateWorkspaceImageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWorkspaceImageCommandInput - {@link CreateWorkspaceImageCommandInput}
+ * @returns {@link CreateWorkspaceImageCommandOutput}
  * @see {@link CreateWorkspaceImageCommandInput} for command's `input` shape.
  * @see {@link CreateWorkspaceImageCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The user is not authorized to access a resource.</p>
+ *
+ * @throws {@link InvalidParameterValuesException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ * @throws {@link InvalidResourceStateException} (client fault)
+ *  <p>The state of the resource is not valid for this operation.</p>
+ *
+ * @throws {@link OperationNotSupportedException} (client fault)
+ *  <p>This operation is not supported.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The specified resource already exists.</p>
+ *
+ * @throws {@link ResourceLimitExceededException} (client fault)
+ *  <p>Your resource limits have been exceeded.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
  *
  */
 export class CreateWorkspaceImageCommand extends $Command<
@@ -62,6 +100,9 @@ export class CreateWorkspaceImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWorkspaceImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +131,8 @@ export class CreateWorkspaceImageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateWorkspaceImageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateWorkspaceImageResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +142,18 @@ export class CreateWorkspaceImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWorkspaceImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateWorkspaceImageCommand(input, context);
+    return se_CreateWorkspaceImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWorkspaceImageCommandOutput> {
-    return deserializeAws_json1_1CreateWorkspaceImageCommand(output, context);
+    return de_CreateWorkspaceImageCommand(output, context);
   }
 
   // Start section: command_body_extra

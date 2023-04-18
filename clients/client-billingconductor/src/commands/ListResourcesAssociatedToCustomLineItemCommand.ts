@@ -16,22 +16,31 @@ import {
 import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
 import {
   ListResourcesAssociatedToCustomLineItemInput,
-  ListResourcesAssociatedToCustomLineItemInputFilterSensitiveLog,
   ListResourcesAssociatedToCustomLineItemOutput,
-  ListResourcesAssociatedToCustomLineItemOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListResourcesAssociatedToCustomLineItemCommand,
-  serializeAws_restJson1ListResourcesAssociatedToCustomLineItemCommand,
+  de_ListResourcesAssociatedToCustomLineItemCommand,
+  se_ListResourcesAssociatedToCustomLineItemCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListResourcesAssociatedToCustomLineItemCommand}.
+ */
 export interface ListResourcesAssociatedToCustomLineItemCommandInput
   extends ListResourcesAssociatedToCustomLineItemInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListResourcesAssociatedToCustomLineItemCommand}.
+ */
 export interface ListResourcesAssociatedToCustomLineItemCommandOutput
   extends ListResourcesAssociatedToCustomLineItemOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       List the resources that are associated to a custom line item.
  *     </p>
@@ -41,13 +50,44 @@ export interface ListResourcesAssociatedToCustomLineItemCommandOutput
  * import { BillingconductorClient, ListResourcesAssociatedToCustomLineItemCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, ListResourcesAssociatedToCustomLineItemCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
  * const client = new BillingconductorClient(config);
+ * const input = { // ListResourcesAssociatedToCustomLineItemInput
+ *   BillingPeriod: "STRING_VALUE",
+ *   Arn: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Filters: { // ListResourcesAssociatedToCustomLineItemFilter
+ *     Relationship: "STRING_VALUE",
+ *   },
+ * };
  * const command = new ListResourcesAssociatedToCustomLineItemCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResourcesAssociatedToCustomLineItemCommandInput - {@link ListResourcesAssociatedToCustomLineItemCommandInput}
+ * @returns {@link ListResourcesAssociatedToCustomLineItemCommandOutput}
  * @see {@link ListResourcesAssociatedToCustomLineItemCommandInput} for command's `input` shape.
  * @see {@link ListResourcesAssociatedToCustomLineItemCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.
+ *     </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred while processing a request.
+ *     </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a resource that doesn't exist.
+ *     </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.
+ *     </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+ *
  *
  */
 export class ListResourcesAssociatedToCustomLineItemCommand extends $Command<
@@ -67,6 +107,9 @@ export class ListResourcesAssociatedToCustomLineItemCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResourcesAssociatedToCustomLineItemCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +144,8 @@ export class ListResourcesAssociatedToCustomLineItemCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListResourcesAssociatedToCustomLineItemInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListResourcesAssociatedToCustomLineItemOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,18 +155,24 @@ export class ListResourcesAssociatedToCustomLineItemCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListResourcesAssociatedToCustomLineItemCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListResourcesAssociatedToCustomLineItemCommand(input, context);
+    return se_ListResourcesAssociatedToCustomLineItemCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListResourcesAssociatedToCustomLineItemCommandOutput> {
-    return deserializeAws_restJson1ListResourcesAssociatedToCustomLineItemCommand(output, context);
+    return de_ListResourcesAssociatedToCustomLineItemCommand(output, context);
   }
 
   // Start section: command_body_extra

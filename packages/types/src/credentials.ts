@@ -2,13 +2,17 @@ import { AwsCredentialIdentity } from "./identity";
 import { Provider } from "./util";
 
 /**
+ * @public
+ *
  * An object representing temporary or permanent AWS credentials.
  *
- * @deprecated Use {@AwsCredentialIdentity}
+ * @deprecated Use {@link AwsCredentialIdentity}
  */
 export interface Credentials extends AwsCredentialIdentity {}
 
 /**
- * @deprecated Use {@AwsCredentialIdentityProvider}
+ * @public
+ *
+ * @deprecated Use {@link AwsCredentialIdentityProvider}
  */
 export type CredentialProvider = Provider<Credentials>;

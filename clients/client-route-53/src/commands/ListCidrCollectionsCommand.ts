@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListCidrCollectionsRequest,
-  ListCidrCollectionsRequestFilterSensitiveLog,
-  ListCidrCollectionsResponse,
-  ListCidrCollectionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlListCidrCollectionsCommand,
-  serializeAws_restXmlListCidrCollectionsCommand,
-} from "../protocols/Aws_restXml";
+import { ListCidrCollectionsRequest, ListCidrCollectionsResponse } from "../models/models_0";
+import { de_ListCidrCollectionsCommand, se_ListCidrCollectionsCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * @public
+ *
+ * The input for {@link ListCidrCollectionsCommand}.
+ */
 export interface ListCidrCollectionsCommandInput extends ListCidrCollectionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListCidrCollectionsCommand}.
+ */
 export interface ListCidrCollectionsCommandOutput extends ListCidrCollectionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a paginated list of CIDR collections in the Amazon Web Services account
  * 			(metadata only).</p>
  * @example
@@ -37,13 +40,23 @@ export interface ListCidrCollectionsCommandOutput extends ListCidrCollectionsRes
  * import { Route53Client, ListCidrCollectionsCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, ListCidrCollectionsCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = { // ListCidrCollectionsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListCidrCollectionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCidrCollectionsCommandInput - {@link ListCidrCollectionsCommandInput}
+ * @returns {@link ListCidrCollectionsCommandOutput}
  * @see {@link ListCidrCollectionsCommandInput} for command's `input` shape.
  * @see {@link ListCidrCollectionsCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
  *
  */
 export class ListCidrCollectionsCommand extends $Command<
@@ -63,6 +76,9 @@ export class ListCidrCollectionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCidrCollectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +107,8 @@ export class ListCidrCollectionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCidrCollectionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCidrCollectionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +118,18 @@ export class ListCidrCollectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCidrCollectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListCidrCollectionsCommand(input, context);
+    return se_ListCidrCollectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCidrCollectionsCommandOutput> {
-    return deserializeAws_restXmlListCidrCollectionsCommand(output, context);
+    return de_ListCidrCollectionsCommand(output, context);
   }
 
   // Start section: command_body_extra

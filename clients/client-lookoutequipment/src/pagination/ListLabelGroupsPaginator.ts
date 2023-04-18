@@ -6,12 +6,11 @@ import {
   ListLabelGroupsCommandInput,
   ListLabelGroupsCommandOutput,
 } from "../commands/ListLabelGroupsCommand";
-import { LookoutEquipment } from "../LookoutEquipment";
 import { LookoutEquipmentClient } from "../LookoutEquipmentClient";
 import { LookoutEquipmentPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: LookoutEquipmentClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListLabelGroupsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: LookoutEquipment,
-  input: ListLabelGroupsCommandInput,
-  ...args: any
-): Promise<ListLabelGroupsCommandOutput> => {
-  // @ts-ignore
-  return await client.listLabelGroups(input, ...args);
-};
 export async function* paginateListLabelGroups(
   config: LookoutEquipmentPaginationConfiguration,
   input: ListLabelGroupsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListLabelGroups(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof LookoutEquipment) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof LookoutEquipmentClient) {
+    if (config.client instanceof LookoutEquipmentClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected LookoutEquipment | LookoutEquipmentClient");

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeWorkspaceImagesRequest,
-  DescribeWorkspaceImagesRequestFilterSensitiveLog,
-  DescribeWorkspaceImagesResult,
-  DescribeWorkspaceImagesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeWorkspaceImagesCommand,
-  serializeAws_json1_1DescribeWorkspaceImagesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeWorkspaceImagesRequest, DescribeWorkspaceImagesResult } from "../models/models_0";
+import { de_DescribeWorkspaceImagesCommand, se_DescribeWorkspaceImagesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeWorkspaceImagesCommand}.
+ */
 export interface DescribeWorkspaceImagesCommandInput extends DescribeWorkspaceImagesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeWorkspaceImagesCommand}.
+ */
 export interface DescribeWorkspaceImagesCommandOutput extends DescribeWorkspaceImagesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list that describes one or more specified images, if the image identifiers
  *          are provided. Otherwise, all images in the account are described. </p>
  * @example
@@ -37,13 +40,27 @@ export interface DescribeWorkspaceImagesCommandOutput extends DescribeWorkspaceI
  * import { WorkSpacesClient, DescribeWorkspaceImagesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DescribeWorkspaceImagesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // DescribeWorkspaceImagesRequest
+ *   ImageIds: [ // WorkspaceImageIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   ImageType: "OWNED" || "SHARED",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeWorkspaceImagesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeWorkspaceImagesCommandInput - {@link DescribeWorkspaceImagesCommandInput}
+ * @returns {@link DescribeWorkspaceImagesCommandOutput}
  * @see {@link DescribeWorkspaceImagesCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkspaceImagesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The user is not authorized to access a resource.</p>
+ *
  *
  */
 export class DescribeWorkspaceImagesCommand extends $Command<
@@ -63,6 +80,9 @@ export class DescribeWorkspaceImagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeWorkspaceImagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +111,8 @@ export class DescribeWorkspaceImagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeWorkspaceImagesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeWorkspaceImagesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +122,18 @@ export class DescribeWorkspaceImagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeWorkspaceImagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeWorkspaceImagesCommand(input, context);
+    return se_DescribeWorkspaceImagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeWorkspaceImagesCommandOutput> {
-    return deserializeAws_json1_1DescribeWorkspaceImagesCommand(output, context);
+    return de_DescribeWorkspaceImagesCommand(output, context);
   }
 
   // Start section: command_body_extra

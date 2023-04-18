@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ProfileDetailResponse,
-  ProfileDetailResponseFilterSensitiveLog,
-  ScalarProfileRequest,
-  ScalarProfileRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1EnableProfileCommand,
-  serializeAws_restJson1EnableProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { ProfileDetailResponse, ScalarProfileRequest } from "../models/models_0";
+import { de_EnableProfileCommand, se_EnableProfileCommand } from "../protocols/Aws_restJson1";
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
+/**
+ * @public
+ *
+ * The input for {@link EnableProfileCommand}.
+ */
 export interface EnableProfileCommandInput extends ScalarProfileRequest {}
+/**
+ * @public
+ *
+ * The output of {@link EnableProfileCommand}.
+ */
 export interface EnableProfileCommandOutput extends ProfileDetailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables the roles in a profile to receive session credentials in <a href="https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html">CreateSession</a>. </p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -40,13 +43,25 @@ export interface EnableProfileCommandOutput extends ProfileDetailResponse, __Met
  * import { RolesAnywhereClient, EnableProfileCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
  * // const { RolesAnywhereClient, EnableProfileCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
  * const client = new RolesAnywhereClient(config);
+ * const input = { // ScalarProfileRequest
+ *   profileId: "STRING_VALUE", // required
+ * };
  * const command = new EnableProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableProfileCommandInput - {@link EnableProfileCommandInput}
+ * @returns {@link EnableProfileCommandOutput}
  * @see {@link EnableProfileCommandInput} for command's `input` shape.
  * @see {@link EnableProfileCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
  *
  */
 export class EnableProfileCommand extends $Command<
@@ -66,6 +81,9 @@ export class EnableProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +110,8 @@ export class EnableProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ScalarProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ProfileDetailResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +121,18 @@ export class EnableProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1EnableProfileCommand(input, context);
+    return se_EnableProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableProfileCommandOutput> {
-    return deserializeAws_restJson1EnableProfileCommand(output, context);
+    return de_EnableProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

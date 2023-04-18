@@ -6,12 +6,11 @@ import {
   ListComponentsCommandInput,
   ListComponentsCommandOutput,
 } from "../commands/ListComponentsCommand";
-import { Proton } from "../Proton";
 import { ProtonClient } from "../ProtonClient";
 import { ProtonPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ProtonClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListComponentsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Proton,
-  input: ListComponentsCommandInput,
-  ...args: any
-): Promise<ListComponentsCommandOutput> => {
-  // @ts-ignore
-  return await client.listComponents(input, ...args);
-};
 export async function* paginateListComponents(
   config: ProtonPaginationConfiguration,
   input: ListComponentsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListComponents(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Proton) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ProtonClient) {
+    if (config.client instanceof ProtonClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Proton | ProtonClient");

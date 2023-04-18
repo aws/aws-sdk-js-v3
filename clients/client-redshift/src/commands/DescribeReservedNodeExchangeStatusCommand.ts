@@ -15,23 +15,32 @@ import {
 
 import {
   DescribeReservedNodeExchangeStatusInputMessage,
-  DescribeReservedNodeExchangeStatusInputMessageFilterSensitiveLog,
   DescribeReservedNodeExchangeStatusOutputMessage,
-  DescribeReservedNodeExchangeStatusOutputMessageFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_queryDescribeReservedNodeExchangeStatusCommand,
-  serializeAws_queryDescribeReservedNodeExchangeStatusCommand,
+  de_DescribeReservedNodeExchangeStatusCommand,
+  se_DescribeReservedNodeExchangeStatusCommand,
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeReservedNodeExchangeStatusCommand}.
+ */
 export interface DescribeReservedNodeExchangeStatusCommandInput
   extends DescribeReservedNodeExchangeStatusInputMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeReservedNodeExchangeStatusCommand}.
+ */
 export interface DescribeReservedNodeExchangeStatusCommandOutput
   extends DescribeReservedNodeExchangeStatusOutputMessage,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns exchange status details and associated metadata for a reserved-node
  *             exchange. Statuses include such values as in progress and requested.</p>
  * @example
@@ -40,13 +49,31 @@ export interface DescribeReservedNodeExchangeStatusCommandOutput
  * import { RedshiftClient, DescribeReservedNodeExchangeStatusCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeReservedNodeExchangeStatusCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DescribeReservedNodeExchangeStatusInputMessage
+ *   ReservedNodeId: "STRING_VALUE",
+ *   ReservedNodeExchangeRequestId: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeReservedNodeExchangeStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReservedNodeExchangeStatusCommandInput - {@link DescribeReservedNodeExchangeStatusCommandInput}
+ * @returns {@link DescribeReservedNodeExchangeStatusCommandOutput}
  * @see {@link DescribeReservedNodeExchangeStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeReservedNodeExchangeStatusCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
+ *
+ * @throws {@link ReservedNodeExchangeNotFoundFault} (client fault)
+ *  <p>The reserved-node exchange status wasn't found.</p>
+ *
+ * @throws {@link ReservedNodeNotFoundFault} (client fault)
+ *  <p>The specified reserved compute node not found.</p>
+ *
+ * @throws {@link UnsupportedOperationFault} (client fault)
+ *  <p>The requested operation isn't supported.</p>
+ *
  *
  */
 export class DescribeReservedNodeExchangeStatusCommand extends $Command<
@@ -66,6 +93,9 @@ export class DescribeReservedNodeExchangeStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReservedNodeExchangeStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +124,8 @@ export class DescribeReservedNodeExchangeStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeReservedNodeExchangeStatusInputMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeReservedNodeExchangeStatusOutputMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,18 +135,24 @@ export class DescribeReservedNodeExchangeStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeReservedNodeExchangeStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeReservedNodeExchangeStatusCommand(input, context);
+    return se_DescribeReservedNodeExchangeStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReservedNodeExchangeStatusCommandOutput> {
-    return deserializeAws_queryDescribeReservedNodeExchangeStatusCommand(output, context);
+    return de_DescribeReservedNodeExchangeStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

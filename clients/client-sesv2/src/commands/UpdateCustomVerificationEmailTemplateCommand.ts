@@ -15,41 +15,70 @@ import {
 
 import {
   UpdateCustomVerificationEmailTemplateRequest,
-  UpdateCustomVerificationEmailTemplateRequestFilterSensitiveLog,
   UpdateCustomVerificationEmailTemplateResponse,
-  UpdateCustomVerificationEmailTemplateResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateCustomVerificationEmailTemplateCommand,
-  serializeAws_restJson1UpdateCustomVerificationEmailTemplateCommand,
+  de_UpdateCustomVerificationEmailTemplateCommand,
+  se_UpdateCustomVerificationEmailTemplateCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateCustomVerificationEmailTemplateCommand}.
+ */
 export interface UpdateCustomVerificationEmailTemplateCommandInput
   extends UpdateCustomVerificationEmailTemplateRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateCustomVerificationEmailTemplateCommand}.
+ */
 export interface UpdateCustomVerificationEmailTemplateCommandOutput
   extends UpdateCustomVerificationEmailTemplateResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing custom verification email template.</p>
- *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom">Using
+ *          <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom">Using
  *                 custom verification email templates</a> in the <i>Amazon SES Developer
  *                 Guide</i>.</p>
- *         <p>You can execute this operation no more than once per second.</p>
+ *          <p>You can execute this operation no more than once per second.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SESv2Client, UpdateCustomVerificationEmailTemplateCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, UpdateCustomVerificationEmailTemplateCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = { // UpdateCustomVerificationEmailTemplateRequest
+ *   TemplateName: "STRING_VALUE", // required
+ *   FromEmailAddress: "STRING_VALUE", // required
+ *   TemplateSubject: "STRING_VALUE", // required
+ *   TemplateContent: "STRING_VALUE", // required
+ *   SuccessRedirectionURL: "STRING_VALUE", // required
+ *   FailureRedirectionURL: "STRING_VALUE", // required
+ * };
  * const command = new UpdateCustomVerificationEmailTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCustomVerificationEmailTemplateCommandInput - {@link UpdateCustomVerificationEmailTemplateCommandInput}
+ * @returns {@link UpdateCustomVerificationEmailTemplateCommandOutput}
  * @see {@link UpdateCustomVerificationEmailTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateCustomVerificationEmailTemplateCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input you provided is invalid.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource you attempted to access doesn't exist.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Too many requests have been made to the operation.</p>
+ *
  *
  */
 export class UpdateCustomVerificationEmailTemplateCommand extends $Command<
@@ -69,6 +98,9 @@ export class UpdateCustomVerificationEmailTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCustomVerificationEmailTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +129,8 @@ export class UpdateCustomVerificationEmailTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateCustomVerificationEmailTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateCustomVerificationEmailTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,18 +140,24 @@ export class UpdateCustomVerificationEmailTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateCustomVerificationEmailTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateCustomVerificationEmailTemplateCommand(input, context);
+    return se_UpdateCustomVerificationEmailTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateCustomVerificationEmailTemplateCommandOutput> {
-    return deserializeAws_restJson1UpdateCustomVerificationEmailTemplateCommand(output, context);
+    return de_UpdateCustomVerificationEmailTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

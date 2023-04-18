@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import {
-  DescribeBucketsRequest,
-  DescribeBucketsRequestFilterSensitiveLog,
-  DescribeBucketsResponse,
-  DescribeBucketsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeBucketsCommand,
-  serializeAws_restJson1DescribeBucketsCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeBucketsRequest, DescribeBucketsResponse } from "../models/models_0";
+import { de_DescribeBucketsCommand, se_DescribeBucketsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeBucketsCommand}.
+ */
 export interface DescribeBucketsCommandInput extends DescribeBucketsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeBucketsCommand}.
+ */
 export interface DescribeBucketsCommandOutput extends DescribeBucketsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves (queries) statistical data and other information about one or more S3 buckets that Amazon Macie monitors and analyzes for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,60 @@ export interface DescribeBucketsCommandOutput extends DescribeBucketsResponse, _
  * import { Macie2Client, DescribeBucketsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, DescribeBucketsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = { // DescribeBucketsRequest
+ *   criteria: { // BucketCriteria
+ *     "<keys>": { // BucketCriteriaAdditionalProperties
+ *       eq: [ // __listOf__string
+ *         "STRING_VALUE",
+ *       ],
+ *       gt: Number("long"),
+ *       gte: Number("long"),
+ *       lt: Number("long"),
+ *       lte: Number("long"),
+ *       neq: [
+ *         "STRING_VALUE",
+ *       ],
+ *       prefix: "STRING_VALUE",
+ *     },
+ *   },
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   sortCriteria: { // BucketSortCriteria
+ *     attributeName: "STRING_VALUE",
+ *     orderBy: "ASC" || "DESC",
+ *   },
+ * };
  * const command = new DescribeBucketsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBucketsCommandInput - {@link DescribeBucketsCommandInput}
+ * @returns {@link DescribeBucketsCommandOutput}
  * @see {@link DescribeBucketsCommandInput} for command's `input` shape.
  * @see {@link DescribeBucketsCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+ *
  *
  */
 export class DescribeBucketsCommand extends $Command<
@@ -62,6 +112,9 @@ export class DescribeBucketsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBucketsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +143,8 @@ export class DescribeBucketsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeBucketsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeBucketsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +154,18 @@ export class DescribeBucketsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeBucketsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeBucketsCommand(input, context);
+    return se_DescribeBucketsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBucketsCommandOutput> {
-    return deserializeAws_restJson1DescribeBucketsCommand(output, context);
+    return de_DescribeBucketsCommand(output, context);
   }
 
   // Start section: command_body_extra

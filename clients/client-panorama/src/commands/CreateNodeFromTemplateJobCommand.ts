@@ -17,18 +17,25 @@ import {
   CreateNodeFromTemplateJobRequest,
   CreateNodeFromTemplateJobRequestFilterSensitiveLog,
   CreateNodeFromTemplateJobResponse,
-  CreateNodeFromTemplateJobResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
-import {
-  deserializeAws_restJson1CreateNodeFromTemplateJobCommand,
-  serializeAws_restJson1CreateNodeFromTemplateJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateNodeFromTemplateJobCommand, se_CreateNodeFromTemplateJobCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateNodeFromTemplateJobCommand}.
+ */
 export interface CreateNodeFromTemplateJobCommandInput extends CreateNodeFromTemplateJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateNodeFromTemplateJobCommand}.
+ */
 export interface CreateNodeFromTemplateJobCommandOutput extends CreateNodeFromTemplateJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a camera stream node.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +43,46 @@ export interface CreateNodeFromTemplateJobCommandOutput extends CreateNodeFromTe
  * import { PanoramaClient, CreateNodeFromTemplateJobCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, CreateNodeFromTemplateJobCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
  * const client = new PanoramaClient(config);
+ * const input = { // CreateNodeFromTemplateJobRequest
+ *   TemplateType: "STRING_VALUE", // required
+ *   OutputPackageName: "STRING_VALUE", // required
+ *   OutputPackageVersion: "STRING_VALUE", // required
+ *   NodeName: "STRING_VALUE", // required
+ *   NodeDescription: "STRING_VALUE",
+ *   TemplateParameters: { // TemplateParametersMap // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   JobTags: [ // JobTagsList
+ *     { // JobResourceTags
+ *       ResourceType: "STRING_VALUE", // required
+ *       Tags: { // TagMap // required
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new CreateNodeFromTemplateJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateNodeFromTemplateJobCommandInput - {@link CreateNodeFromTemplateJobCommandInput}
+ * @returns {@link CreateNodeFromTemplateJobCommandOutput}
  * @see {@link CreateNodeFromTemplateJobCommandInput} for command's `input` shape.
  * @see {@link CreateNodeFromTemplateJobCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The requestor does not have permission to access the target action or resource.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The target resource is in use.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error occurred.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request contains an invalid parameter value.</p>
+ *
  *
  */
 export class CreateNodeFromTemplateJobCommand extends $Command<
@@ -62,6 +102,9 @@ export class CreateNodeFromTemplateJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateNodeFromTemplateJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,7 +134,7 @@ export class CreateNodeFromTemplateJobCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateNodeFromTemplateJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateNodeFromTemplateJobResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +144,21 @@ export class CreateNodeFromTemplateJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateNodeFromTemplateJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateNodeFromTemplateJobCommand(input, context);
+    return se_CreateNodeFromTemplateJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateNodeFromTemplateJobCommandOutput> {
-    return deserializeAws_restJson1CreateNodeFromTemplateJobCommand(output, context);
+    return de_CreateNodeFromTemplateJobCommand(output, context);
   }
 
   // Start section: command_body_extra

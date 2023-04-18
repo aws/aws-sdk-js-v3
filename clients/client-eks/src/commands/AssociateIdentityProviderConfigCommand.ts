@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
+import { AssociateIdentityProviderConfigRequest, AssociateIdentityProviderConfigResponse } from "../models/models_0";
 import {
-  AssociateIdentityProviderConfigRequest,
-  AssociateIdentityProviderConfigRequestFilterSensitiveLog,
-  AssociateIdentityProviderConfigResponse,
-  AssociateIdentityProviderConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateIdentityProviderConfigCommand,
-  serializeAws_restJson1AssociateIdentityProviderConfigCommand,
+  de_AssociateIdentityProviderConfigCommand,
+  se_AssociateIdentityProviderConfigCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link AssociateIdentityProviderConfigCommand}.
+ */
 export interface AssociateIdentityProviderConfigCommandInput extends AssociateIdentityProviderConfigRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AssociateIdentityProviderConfigCommand}.
+ */
 export interface AssociateIdentityProviderConfigCommandOutput
   extends AssociateIdentityProviderConfigResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associate an identity provider configuration to a cluster.</p>
  *          <p>If you want to authenticate identities using an identity provider, you can create an
  *             identity provider configuration and associate it to your cluster. After configuring
@@ -45,13 +51,60 @@ export interface AssociateIdentityProviderConfigCommandOutput
  * import { EKSClient, AssociateIdentityProviderConfigCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, AssociateIdentityProviderConfigCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
+ * const input = { // AssociateIdentityProviderConfigRequest
+ *   clusterName: "STRING_VALUE", // required
+ *   oidc: { // OidcIdentityProviderConfigRequest
+ *     identityProviderConfigName: "STRING_VALUE", // required
+ *     issuerUrl: "STRING_VALUE", // required
+ *     clientId: "STRING_VALUE", // required
+ *     usernameClaim: "STRING_VALUE",
+ *     usernamePrefix: "STRING_VALUE",
+ *     groupsClaim: "STRING_VALUE",
+ *     groupsPrefix: "STRING_VALUE",
+ *     requiredClaims: { // requiredClaimsMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   clientRequestToken: "STRING_VALUE",
+ * };
  * const command = new AssociateIdentityProviderConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateIdentityProviderConfigCommandInput - {@link AssociateIdentityProviderConfigCommandInput}
+ * @returns {@link AssociateIdentityProviderConfigCommandOutput}
  * @see {@link AssociateIdentityProviderConfigCommandInput} for command's `input` shape.
  * @see {@link AssociateIdentityProviderConfigCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action. Actions can include using an
+ *             action or resource on behalf of a user that doesn't have permissions to use the action
+ *             or resource or specifying an identifier that is not valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *             request.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid given the state of the cluster. Check the state of the cluster
+ *             and the associated operations.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is in use.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found. You can view your available clusters with
+ *                 <a>ListClusters</a>. You can view your available managed node groups with
+ *                 <a>ListNodegroups</a>. Amazon EKS clusters and node groups are
+ *             Region-specific.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
  *
  */
 export class AssociateIdentityProviderConfigCommand extends $Command<
@@ -71,6 +124,9 @@ export class AssociateIdentityProviderConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateIdentityProviderConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +155,8 @@ export class AssociateIdentityProviderConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateIdentityProviderConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateIdentityProviderConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,18 +166,24 @@ export class AssociateIdentityProviderConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateIdentityProviderConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateIdentityProviderConfigCommand(input, context);
+    return se_AssociateIdentityProviderConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateIdentityProviderConfigCommandOutput> {
-    return deserializeAws_restJson1AssociateIdentityProviderConfigCommand(output, context);
+    return de_AssociateIdentityProviderConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

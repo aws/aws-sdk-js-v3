@@ -16,22 +16,31 @@ import {
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import {
   ListDetectMitigationActionsExecutionsRequest,
-  ListDetectMitigationActionsExecutionsRequestFilterSensitiveLog,
   ListDetectMitigationActionsExecutionsResponse,
-  ListDetectMitigationActionsExecutionsResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1ListDetectMitigationActionsExecutionsCommand,
-  serializeAws_restJson1ListDetectMitigationActionsExecutionsCommand,
+  de_ListDetectMitigationActionsExecutionsCommand,
+  se_ListDetectMitigationActionsExecutionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListDetectMitigationActionsExecutionsCommand}.
+ */
 export interface ListDetectMitigationActionsExecutionsCommandInput
   extends ListDetectMitigationActionsExecutionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDetectMitigationActionsExecutionsCommand}.
+ */
 export interface ListDetectMitigationActionsExecutionsCommandOutput
   extends ListDetectMitigationActionsExecutionsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Lists mitigation actions executions for a Device Defender ML Detect Security Profile.
  *     </p>
@@ -42,13 +51,34 @@ export interface ListDetectMitigationActionsExecutionsCommandOutput
  * import { IoTClient, ListDetectMitigationActionsExecutionsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListDetectMitigationActionsExecutionsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // ListDetectMitigationActionsExecutionsRequest
+ *   taskId: "STRING_VALUE",
+ *   violationId: "STRING_VALUE",
+ *   thingName: "STRING_VALUE",
+ *   startTime: new Date("TIMESTAMP"),
+ *   endTime: new Date("TIMESTAMP"),
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListDetectMitigationActionsExecutionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDetectMitigationActionsExecutionsCommandInput - {@link ListDetectMitigationActionsExecutionsCommandInput}
+ * @returns {@link ListDetectMitigationActionsExecutionsCommandOutput}
  * @see {@link ListDetectMitigationActionsExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListDetectMitigationActionsExecutionsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
  *
  */
 export class ListDetectMitigationActionsExecutionsCommand extends $Command<
@@ -68,6 +98,9 @@ export class ListDetectMitigationActionsExecutionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDetectMitigationActionsExecutionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +129,8 @@ export class ListDetectMitigationActionsExecutionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDetectMitigationActionsExecutionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDetectMitigationActionsExecutionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,18 +140,24 @@ export class ListDetectMitigationActionsExecutionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListDetectMitigationActionsExecutionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDetectMitigationActionsExecutionsCommand(input, context);
+    return se_ListDetectMitigationActionsExecutionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDetectMitigationActionsExecutionsCommandOutput> {
-    return deserializeAws_restJson1ListDetectMitigationActionsExecutionsCommand(output, context);
+    return de_ListDetectMitigationActionsExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

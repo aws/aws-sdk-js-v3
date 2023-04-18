@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StopPipeRequest,
-  StopPipeRequestFilterSensitiveLog,
-  StopPipeResponse,
-  StopPipeResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StopPipeRequest, StopPipeResponse } from "../models/models_0";
 import { PipesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PipesClient";
-import {
-  deserializeAws_restJson1StopPipeCommand,
-  serializeAws_restJson1StopPipeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StopPipeCommand, se_StopPipeCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link StopPipeCommand}.
+ */
 export interface StopPipeCommandInput extends StopPipeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StopPipeCommand}.
+ */
 export interface StopPipeCommandOutput extends StopPipeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stop an existing pipe.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,34 @@ export interface StopPipeCommandOutput extends StopPipeResponse, __MetadataBeare
  * import { PipesClient, StopPipeCommand } from "@aws-sdk/client-pipes"; // ES Modules import
  * // const { PipesClient, StopPipeCommand } = require("@aws-sdk/client-pipes"); // CommonJS import
  * const client = new PipesClient(config);
+ * const input = { // StopPipeRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new StopPipeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopPipeCommandInput - {@link StopPipeCommandInput}
+ * @returns {@link StopPipeCommandOutput}
  * @see {@link StopPipeCommandInput} for command's `input` shape.
  * @see {@link StopPipeCommandOutput} for command's `response` shape.
  * @see {@link PipesClientResolvedConfig | config} for PipesClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>An action you attempted resulted in an exception.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>An entity that you specified does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>An action was throttled.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that an error has occurred while performing a validate operation.</p>
+ *
  *
  */
 export class StopPipeCommand extends $Command<StopPipeCommandInput, StopPipeCommandOutput, PipesClientResolvedConfig> {
@@ -58,6 +82,9 @@ export class StopPipeCommand extends $Command<StopPipeCommandInput, StopPipeComm
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopPipeCommandInput) {
     // Start section: command_constructor
     super();
@@ -84,8 +111,8 @@ export class StopPipeCommand extends $Command<StopPipeCommandInput, StopPipeComm
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopPipeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopPipeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -95,12 +122,18 @@ export class StopPipeCommand extends $Command<StopPipeCommandInput, StopPipeComm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopPipeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopPipeCommand(input, context);
+    return se_StopPipeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopPipeCommandOutput> {
-    return deserializeAws_restJson1StopPipeCommand(output, context);
+    return de_StopPipeCommand(output, context);
   }
 
   // Start section: command_body_extra

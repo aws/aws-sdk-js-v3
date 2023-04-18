@@ -14,23 +14,26 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  CreateGlobalReplicationGroupMessage,
-  CreateGlobalReplicationGroupMessageFilterSensitiveLog,
-  CreateGlobalReplicationGroupResult,
-  CreateGlobalReplicationGroupResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCreateGlobalReplicationGroupCommand,
-  serializeAws_queryCreateGlobalReplicationGroupCommand,
-} from "../protocols/Aws_query";
+import { CreateGlobalReplicationGroupMessage, CreateGlobalReplicationGroupResult } from "../models/models_0";
+import { de_CreateGlobalReplicationGroupCommand, se_CreateGlobalReplicationGroupCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateGlobalReplicationGroupCommand}.
+ */
 export interface CreateGlobalReplicationGroupCommandInput extends CreateGlobalReplicationGroupMessage {}
+/**
+ * @public
+ *
+ * The output of {@link CreateGlobalReplicationGroupCommand}.
+ */
 export interface CreateGlobalReplicationGroupCommandOutput
   extends CreateGlobalReplicationGroupResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Global Datastore for Redis offers fully managed, fast,
  *             reliable and secure cross-region replication.
  *             Using Global Datastore for Redis, you can create cross-region
@@ -52,13 +55,36 @@ export interface CreateGlobalReplicationGroupCommandOutput
  * import { ElastiCacheClient, CreateGlobalReplicationGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, CreateGlobalReplicationGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // CreateGlobalReplicationGroupMessage
+ *   GlobalReplicationGroupIdSuffix: "STRING_VALUE", // required
+ *   GlobalReplicationGroupDescription: "STRING_VALUE",
+ *   PrimaryReplicationGroupId: "STRING_VALUE", // required
+ * };
  * const command = new CreateGlobalReplicationGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGlobalReplicationGroupCommandInput - {@link CreateGlobalReplicationGroupCommandInput}
+ * @returns {@link CreateGlobalReplicationGroupCommandOutput}
  * @see {@link CreateGlobalReplicationGroupCommandInput} for command's `input` shape.
  * @see {@link CreateGlobalReplicationGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
+ *
+ * @throws {@link GlobalReplicationGroupAlreadyExistsFault} (client fault)
+ *  <p>The Global datastore name already exists.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
+ * @throws {@link InvalidReplicationGroupStateFault} (client fault)
+ *  <p>The requested replication group is not in the <code>available</code> state.</p>
+ *
+ * @throws {@link ReplicationGroupNotFoundFault} (client fault)
+ *  <p>The specified replication group does not exist.</p>
+ *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p>The specified service linked role (SLR) was not found.</p>
+ *
  *
  */
 export class CreateGlobalReplicationGroupCommand extends $Command<
@@ -78,6 +104,9 @@ export class CreateGlobalReplicationGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGlobalReplicationGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +135,8 @@ export class CreateGlobalReplicationGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateGlobalReplicationGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateGlobalReplicationGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,15 +146,21 @@ export class CreateGlobalReplicationGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateGlobalReplicationGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateGlobalReplicationGroupCommand(input, context);
+    return se_CreateGlobalReplicationGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateGlobalReplicationGroupCommandOutput> {
-    return deserializeAws_queryCreateGlobalReplicationGroupCommand(output, context);
+    return de_CreateGlobalReplicationGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

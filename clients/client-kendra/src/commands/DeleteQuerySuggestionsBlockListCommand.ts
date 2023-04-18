@@ -14,19 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
+import { DeleteQuerySuggestionsBlockListRequest } from "../models/models_0";
 import {
-  DeleteQuerySuggestionsBlockListRequest,
-  DeleteQuerySuggestionsBlockListRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteQuerySuggestionsBlockListCommand,
-  serializeAws_json1_1DeleteQuerySuggestionsBlockListCommand,
+  de_DeleteQuerySuggestionsBlockListCommand,
+  se_DeleteQuerySuggestionsBlockListCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteQuerySuggestionsBlockListCommand}.
+ */
 export interface DeleteQuerySuggestionsBlockListCommandInput extends DeleteQuerySuggestionsBlockListRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteQuerySuggestionsBlockListCommand}.
+ */
 export interface DeleteQuerySuggestionsBlockListCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a block list used for query suggestions for an index.</p>
  *          <p>A deleted block list might not take effect right away. Amazon Kendra
  *             needs to refresh the entire suggestions list to add back the
@@ -40,13 +48,44 @@ export interface DeleteQuerySuggestionsBlockListCommandOutput extends __Metadata
  * import { KendraClient, DeleteQuerySuggestionsBlockListCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, DeleteQuerySuggestionsBlockListCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
+ * const input = { // DeleteQuerySuggestionsBlockListRequest
+ *   IndexId: "STRING_VALUE", // required
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteQuerySuggestionsBlockListCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteQuerySuggestionsBlockListCommandInput - {@link DeleteQuerySuggestionsBlockListCommandInput}
+ * @returns {@link DeleteQuerySuggestionsBlockListCommandOutput}
  * @see {@link DeleteQuerySuggestionsBlockListCommandInput} for command's `input` shape.
  * @see {@link DeleteQuerySuggestionsBlockListCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient access to perform this action. Please ensure you have the
+ *             required permission policies and user accounts and try again.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>A conflict occurred with the request. Please fix any inconsistences with your
+ *             resources and try again.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
+ *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource you want to use doesn’t exist. Please check you have provided the correct
+ *             resource and try again.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling. Please reduce the number of requests
+ *             and try again.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
+ *             Please provide the correct input and try again.</p>
+ *
  *
  */
 export class DeleteQuerySuggestionsBlockListCommand extends $Command<
@@ -66,6 +105,9 @@ export class DeleteQuerySuggestionsBlockListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteQuerySuggestionsBlockListCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +136,8 @@ export class DeleteQuerySuggestionsBlockListCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteQuerySuggestionsBlockListRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,18 +147,24 @@ export class DeleteQuerySuggestionsBlockListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteQuerySuggestionsBlockListCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteQuerySuggestionsBlockListCommand(input, context);
+    return se_DeleteQuerySuggestionsBlockListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteQuerySuggestionsBlockListCommandOutput> {
-    return deserializeAws_json1_1DeleteQuerySuggestionsBlockListCommand(output, context);
+    return de_DeleteQuerySuggestionsBlockListCommand(output, context);
   }
 
   // Start section: command_body_extra

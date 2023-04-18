@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateMetricAttributionRequest,
-  CreateMetricAttributionRequestFilterSensitiveLog,
-  CreateMetricAttributionResponse,
-  CreateMetricAttributionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateMetricAttributionRequest, CreateMetricAttributionResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1CreateMetricAttributionCommand,
-  serializeAws_json1_1CreateMetricAttributionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateMetricAttributionCommand, se_CreateMetricAttributionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateMetricAttributionCommand}.
+ */
 export interface CreateMetricAttributionCommandInput extends CreateMetricAttributionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateMetricAttributionCommand}.
+ */
 export interface CreateMetricAttributionCommandOutput extends CreateMetricAttributionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a metric attribution.
  *       A metric attribution creates reports on the data that you import into Amazon Personalize. Depending on how you imported the data, you can view reports in Amazon CloudWatch or Amazon S3.
  *       For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/measuring-recommendation-impact.html">Measuring impact of recommendations</a>.</p>
@@ -38,13 +41,49 @@ export interface CreateMetricAttributionCommandOutput extends CreateMetricAttrib
  * import { PersonalizeClient, CreateMetricAttributionCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, CreateMetricAttributionCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // CreateMetricAttributionRequest
+ *   name: "STRING_VALUE", // required
+ *   datasetGroupArn: "STRING_VALUE", // required
+ *   metrics: [ // MetricAttributes // required
+ *     { // MetricAttribute
+ *       eventType: "STRING_VALUE", // required
+ *       metricName: "STRING_VALUE", // required
+ *       expression: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   metricsOutputConfig: { // MetricAttributionOutput
+ *     s3DataDestination: { // S3DataConfig
+ *       path: "STRING_VALUE", // required
+ *       kmsKeyArn: "STRING_VALUE",
+ *     },
+ *     roleArn: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new CreateMetricAttributionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMetricAttributionCommandInput - {@link CreateMetricAttributionCommandInput}
+ * @returns {@link CreateMetricAttributionCommandOutput}
  * @see {@link CreateMetricAttributionCommandInput} for command's `input` shape.
  * @see {@link CreateMetricAttributionCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The limit on the number of requests per second has been exceeded.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The specified resource already exists.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is in use.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Could not find the specified resource.</p>
+ *
  *
  */
 export class CreateMetricAttributionCommand extends $Command<
@@ -64,6 +103,9 @@ export class CreateMetricAttributionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMetricAttributionCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +134,8 @@ export class CreateMetricAttributionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateMetricAttributionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateMetricAttributionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +145,18 @@ export class CreateMetricAttributionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMetricAttributionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateMetricAttributionCommand(input, context);
+    return se_CreateMetricAttributionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMetricAttributionCommandOutput> {
-    return deserializeAws_json1_1CreateMetricAttributionCommand(output, context);
+    return de_CreateMetricAttributionCommand(output, context);
   }
 
   // Start section: command_body_extra

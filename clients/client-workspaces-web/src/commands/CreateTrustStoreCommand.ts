@@ -17,18 +17,25 @@ import {
   CreateTrustStoreRequest,
   CreateTrustStoreRequestFilterSensitiveLog,
   CreateTrustStoreResponse,
-  CreateTrustStoreResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateTrustStoreCommand,
-  serializeAws_restJson1CreateTrustStoreCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateTrustStoreCommand, se_CreateTrustStoreCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateTrustStoreCommand}.
+ */
 export interface CreateTrustStoreCommandInput extends CreateTrustStoreRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateTrustStoreCommand}.
+ */
 export interface CreateTrustStoreCommandOutput extends CreateTrustStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a trust store that can be associated with a web portal. A trust store contains
  *          certificate authority (CA) certificates. Once associated with a web portal, the browser in
  *          a streaming session will recognize certificates that have been issued using any of the CAs
@@ -40,13 +47,46 @@ export interface CreateTrustStoreCommandOutput extends CreateTrustStoreResponse,
  * import { WorkSpacesWebClient, CreateTrustStoreCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, CreateTrustStoreCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = { // CreateTrustStoreRequest
+ *   certificateList: [ // CertificateList // required
+ *     "BLOB_VALUE",
+ *   ],
+ *   tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new CreateTrustStoreCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTrustStoreCommandInput - {@link CreateTrustStoreCommandInput}
+ * @returns {@link CreateTrustStoreCommandOutput}
  * @see {@link CreateTrustStoreCommandInput} for command's `input` shape.
  * @see {@link CreateTrustStoreCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access is denied.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There is a conflict.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There is an internal server error.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The service quota has been exceeded.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>There is a throttling error.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There is a validation error.</p>
+ *
  *
  */
 export class CreateTrustStoreCommand extends $Command<
@@ -66,6 +106,9 @@ export class CreateTrustStoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTrustStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,7 +138,7 @@ export class CreateTrustStoreCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateTrustStoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateTrustStoreResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +148,18 @@ export class CreateTrustStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTrustStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateTrustStoreCommand(input, context);
+    return se_CreateTrustStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTrustStoreCommandOutput> {
-    return deserializeAws_restJson1CreateTrustStoreCommand(output, context);
+    return de_CreateTrustStoreCommand(output, context);
   }
 
   // Start section: command_body_extra

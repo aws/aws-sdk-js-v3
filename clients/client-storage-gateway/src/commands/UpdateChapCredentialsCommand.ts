@@ -17,18 +17,25 @@ import {
   UpdateChapCredentialsInput,
   UpdateChapCredentialsInputFilterSensitiveLog,
   UpdateChapCredentialsOutput,
-  UpdateChapCredentialsOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateChapCredentialsCommand,
-  serializeAws_json1_1UpdateChapCredentialsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateChapCredentialsCommand, se_UpdateChapCredentialsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateChapCredentialsCommand}.
+ */
 export interface UpdateChapCredentialsCommandInput extends UpdateChapCredentialsInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateChapCredentialsCommand}.
+ */
 export interface UpdateChapCredentialsCommandOutput extends UpdateChapCredentialsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the Challenge-Handshake Authentication Protocol (CHAP) credentials for a
  *          specified iSCSI target. By default, a gateway does not have CHAP enabled; however, for
  *          added security, you might use it. This operation is supported in the volume and tape
@@ -44,13 +51,50 @@ export interface UpdateChapCredentialsCommandOutput extends UpdateChapCredential
  * import { StorageGatewayClient, UpdateChapCredentialsCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, UpdateChapCredentialsCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // UpdateChapCredentialsInput
+ *   TargetARN: "STRING_VALUE", // required
+ *   SecretToAuthenticateInitiator: "STRING_VALUE", // required
+ *   InitiatorName: "STRING_VALUE", // required
+ *   SecretToAuthenticateTarget: "STRING_VALUE",
+ * };
  * const command = new UpdateChapCredentialsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateChapCredentialsCommandInput - {@link UpdateChapCredentialsCommandInput}
+ * @returns {@link UpdateChapCredentialsCommandOutput}
  * @see {@link UpdateChapCredentialsCommandInput} for command's `input` shape.
  * @see {@link UpdateChapCredentialsCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error has occurred during the request. For more information, see the
+ *          error and message fields.</p>
+ *
+ * @throws {@link InvalidGatewayRequestException} (client fault)
+ *  <p>An exception occurred because an invalid gateway request was issued to the service. For
+ *          more information, see the error and message fields.</p>
+ *
+ *
+ * @example To update CHAP credentials for an iSCSI target
+ * ```javascript
+ * // Updates the Challenge-Handshake Authentication Protocol (CHAP) credentials for a specified iSCSI target.
+ * const input = {
+ *   "InitiatorName": "iqn.1991-05.com.microsoft:computername.domain.example.com",
+ *   "SecretToAuthenticateInitiator": "111111111111",
+ *   "SecretToAuthenticateTarget": "222222222222",
+ *   "TargetARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume"
+ * };
+ * const command = new UpdateChapCredentialsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "InitiatorName": "iqn.1991-05.com.microsoft:computername.domain.example.com",
+ *   "TargetARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume"
+ * }
+ * *\/
+ * // example id: to-update-chap-credentials-for-an-iscsi-target-1472151325795
+ * ```
  *
  */
 export class UpdateChapCredentialsCommand extends $Command<
@@ -70,6 +114,9 @@ export class UpdateChapCredentialsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateChapCredentialsCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,7 +146,7 @@ export class UpdateChapCredentialsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateChapCredentialsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateChapCredentialsOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +156,18 @@ export class UpdateChapCredentialsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateChapCredentialsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateChapCredentialsCommand(input, context);
+    return se_UpdateChapCredentialsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateChapCredentialsCommandOutput> {
-    return deserializeAws_json1_1UpdateChapCredentialsCommand(output, context);
+    return de_UpdateChapCredentialsCommand(output, context);
   }
 
   // Start section: command_body_extra

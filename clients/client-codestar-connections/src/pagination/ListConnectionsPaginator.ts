@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { CodeStarConnections } from "../CodeStarConnections";
 import { CodeStarConnectionsClient } from "../CodeStarConnectionsClient";
 import {
   ListConnectionsCommand,
@@ -11,7 +10,7 @@ import {
 import { CodeStarConnectionsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CodeStarConnectionsClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListConnectionsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: CodeStarConnections,
-  input: ListConnectionsCommandInput,
-  ...args: any
-): Promise<ListConnectionsCommandOutput> => {
-  // @ts-ignore
-  return await client.listConnections(input, ...args);
-};
 export async function* paginateListConnections(
   config: CodeStarConnectionsPaginationConfiguration,
   input: ListConnectionsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListConnections(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof CodeStarConnections) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof CodeStarConnectionsClient) {
+    if (config.client instanceof CodeStarConnectionsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected CodeStarConnections | CodeStarConnectionsClient");

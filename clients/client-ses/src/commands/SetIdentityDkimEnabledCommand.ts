@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SetIdentityDkimEnabledRequest,
-  SetIdentityDkimEnabledRequestFilterSensitiveLog,
-  SetIdentityDkimEnabledResponse,
-  SetIdentityDkimEnabledResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_querySetIdentityDkimEnabledCommand,
-  serializeAws_querySetIdentityDkimEnabledCommand,
-} from "../protocols/Aws_query";
+import { SetIdentityDkimEnabledRequest, SetIdentityDkimEnabledResponse } from "../models/models_0";
+import { de_SetIdentityDkimEnabledCommand, se_SetIdentityDkimEnabledCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * @public
+ *
+ * The input for {@link SetIdentityDkimEnabledCommand}.
+ */
 export interface SetIdentityDkimEnabledCommandInput extends SetIdentityDkimEnabledRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SetIdentityDkimEnabledCommand}.
+ */
 export interface SetIdentityDkimEnabledCommandOutput extends SetIdentityDkimEnabledResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables or disables Easy DKIM signing of email sent from an identity. If Easy DKIM
  *             signing is enabled for a domain, then Amazon SES uses DKIM to sign all email that it sends
  *             from addresses on that domain. If Easy DKIM signing is enabled for an email address,
@@ -48,13 +51,32 @@ export interface SetIdentityDkimEnabledCommandOutput extends SetIdentityDkimEnab
  * import { SESClient, SetIdentityDkimEnabledCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, SetIdentityDkimEnabledCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // SetIdentityDkimEnabledRequest
+ *   Identity: "STRING_VALUE", // required
+ *   DkimEnabled: true || false, // required
+ * };
  * const command = new SetIdentityDkimEnabledCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SetIdentityDkimEnabledCommandInput - {@link SetIdentityDkimEnabledCommandInput}
+ * @returns {@link SetIdentityDkimEnabledCommandOutput}
  * @see {@link SetIdentityDkimEnabledCommandInput} for command's `input` shape.
  * @see {@link SetIdentityDkimEnabledCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
+ *
+ *
+ * @example SetIdentityDkimEnabled
+ * ```javascript
+ * // The following example configures Amazon SES to Easy DKIM-sign the email sent from an identity:
+ * const input = {
+ *   "DkimEnabled": true,
+ *   "Identity": "user@example.com"
+ * };
+ * const command = new SetIdentityDkimEnabledCommand(input);
+ * await client.send(command);
+ * // example id: setidentitydkimenabled-1469057485202
+ * ```
  *
  */
 export class SetIdentityDkimEnabledCommand extends $Command<
@@ -74,6 +96,9 @@ export class SetIdentityDkimEnabledCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetIdentityDkimEnabledCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +127,8 @@ export class SetIdentityDkimEnabledCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetIdentityDkimEnabledRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SetIdentityDkimEnabledResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +138,18 @@ export class SetIdentityDkimEnabledCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetIdentityDkimEnabledCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySetIdentityDkimEnabledCommand(input, context);
+    return se_SetIdentityDkimEnabledCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetIdentityDkimEnabledCommandOutput> {
-    return deserializeAws_querySetIdentityDkimEnabledCommand(output, context);
+    return de_SetIdentityDkimEnabledCommand(output, context);
   }
 
   // Start section: command_body_extra

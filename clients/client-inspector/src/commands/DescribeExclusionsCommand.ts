@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import {
-  DescribeExclusionsRequest,
-  DescribeExclusionsRequestFilterSensitiveLog,
-  DescribeExclusionsResponse,
-  DescribeExclusionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeExclusionsCommand,
-  serializeAws_json1_1DescribeExclusionsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeExclusionsRequest, DescribeExclusionsResponse } from "../models/models_0";
+import { de_DescribeExclusionsCommand, se_DescribeExclusionsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeExclusionsCommand}.
+ */
 export interface DescribeExclusionsCommandInput extends DescribeExclusionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeExclusionsCommand}.
+ */
 export interface DescribeExclusionsCommandOutput extends DescribeExclusionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the exclusions that are specified by the exclusions' ARNs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,29 @@ export interface DescribeExclusionsCommandOutput extends DescribeExclusionsRespo
  * import { InspectorClient, DescribeExclusionsCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, DescribeExclusionsCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = { // DescribeExclusionsRequest
+ *   exclusionArns: [ // BatchDescribeExclusionsArnList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   locale: "STRING_VALUE",
+ * };
  * const command = new DescribeExclusionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeExclusionsCommandInput - {@link DescribeExclusionsCommandInput}
+ * @returns {@link DescribeExclusionsCommandOutput}
  * @see {@link DescribeExclusionsCommandInput} for command's `input` shape.
  * @see {@link DescribeExclusionsCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>Internal server error.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
+ *          input parameter.</p>
+ *
  *
  */
 export class DescribeExclusionsCommand extends $Command<
@@ -62,6 +81,9 @@ export class DescribeExclusionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeExclusionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +112,8 @@ export class DescribeExclusionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeExclusionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeExclusionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +123,18 @@ export class DescribeExclusionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeExclusionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeExclusionsCommand(input, context);
+    return se_DescribeExclusionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeExclusionsCommandOutput> {
-    return deserializeAws_json1_1DescribeExclusionsCommand(output, context);
+    return de_DescribeExclusionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  TagResourcesInput,
-  TagResourcesInputFilterSensitiveLog,
-  TagResourcesOutput,
-  TagResourcesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1TagResourcesCommand,
-  serializeAws_json1_1TagResourcesCommand,
-} from "../protocols/Aws_json1_1";
+import { TagResourcesInput, TagResourcesOutput } from "../models/models_0";
+import { de_TagResourcesCommand, se_TagResourcesCommand } from "../protocols/Aws_json1_1";
 import {
   ResourceGroupsTaggingAPIClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceGroupsTaggingAPIClient";
 
+/**
+ * @public
+ *
+ * The input for {@link TagResourcesCommand}.
+ */
 export interface TagResourcesCommandInput extends TagResourcesInput {}
+/**
+ * @public
+ *
+ * The output of {@link TagResourcesCommand}.
+ */
 export interface TagResourcesCommandOutput extends TagResourcesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Applies one or more tags to the specified resources. Note the following:</p>
  *         <ul>
  *             <li>
@@ -89,13 +92,54 @@ export interface TagResourcesCommandOutput extends TagResourcesOutput, __Metadat
  * import { ResourceGroupsTaggingAPIClient, TagResourcesCommand } from "@aws-sdk/client-resource-groups-tagging-api"; // ES Modules import
  * // const { ResourceGroupsTaggingAPIClient, TagResourcesCommand } = require("@aws-sdk/client-resource-groups-tagging-api"); // CommonJS import
  * const client = new ResourceGroupsTaggingAPIClient(config);
+ * const input = { // TagResourcesInput
+ *   ResourceARNList: [ // ResourceARNListForTagUntag // required
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: { // TagMap // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new TagResourcesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TagResourcesCommandInput - {@link TagResourcesCommandInput}
+ * @returns {@link TagResourcesCommandOutput}
  * @see {@link TagResourcesCommandInput} for command's `input` shape.
  * @see {@link TagResourcesCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsTaggingAPIClientResolvedConfig | config} for ResourceGroupsTaggingAPIClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The request processing failed because of an unknown error, exception, or failure. You
+ *             can retry the request.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>This error indicates one of the following:</p>
+ *         <ul>
+ *             <li>
+ *                 <p>A parameter is missing.</p>
+ *             </li>
+ *             <li>
+ *                 <p>A malformed string was supplied for the request parameter.</p>
+ *             </li>
+ *             <li>
+ *                 <p>An out-of-range value was supplied for the request parameter.</p>
+ *             </li>
+ *             <li>
+ *                 <p>The target ID is invalid, unsupported, or doesn't exist.</p>
+ *             </li>
+ *             <li>
+ *                 <p>You can't access the Amazon S3 bucket for report storage. For more information, see
+ *                         <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies-prereqs.html#bucket-policies-org-report">Additional Requirements for Organization-wide Tag Compliance
+ *                         Reports</a> in the <i>Organizations User Guide.</i>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link ThrottledException} (client fault)
+ *  <p>The request was denied to limit the frequency of submitted requests.</p>
+ *
  *
  */
 export class TagResourcesCommand extends $Command<
@@ -115,6 +159,9 @@ export class TagResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TagResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,8 +188,8 @@ export class TagResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagResourcesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: TagResourcesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -152,12 +199,18 @@ export class TagResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TagResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1TagResourcesCommand(input, context);
+    return se_TagResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagResourcesCommandOutput> {
-    return deserializeAws_json1_1TagResourcesCommand(output, context);
+    return de_TagResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

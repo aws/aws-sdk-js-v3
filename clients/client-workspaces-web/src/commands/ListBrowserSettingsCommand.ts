@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListBrowserSettingsRequest,
-  ListBrowserSettingsRequestFilterSensitiveLog,
-  ListBrowserSettingsResponse,
-  ListBrowserSettingsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListBrowserSettingsCommand,
-  serializeAws_restJson1ListBrowserSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListBrowserSettingsRequest, ListBrowserSettingsResponse } from "../models/models_0";
+import { de_ListBrowserSettingsCommand, se_ListBrowserSettingsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListBrowserSettingsCommand}.
+ */
 export interface ListBrowserSettingsCommandInput extends ListBrowserSettingsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListBrowserSettingsCommand}.
+ */
 export interface ListBrowserSettingsCommandOutput extends ListBrowserSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of browser settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,32 @@ export interface ListBrowserSettingsCommandOutput extends ListBrowserSettingsRes
  * import { WorkSpacesWebClient, ListBrowserSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, ListBrowserSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = { // ListBrowserSettingsRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListBrowserSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBrowserSettingsCommandInput - {@link ListBrowserSettingsCommandInput}
+ * @returns {@link ListBrowserSettingsCommandOutput}
  * @see {@link ListBrowserSettingsCommandInput} for command's `input` shape.
  * @see {@link ListBrowserSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access is denied.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There is an internal server error.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>There is a throttling error.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There is a validation error.</p>
+ *
  *
  */
 export class ListBrowserSettingsCommand extends $Command<
@@ -62,6 +84,9 @@ export class ListBrowserSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBrowserSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +115,8 @@ export class ListBrowserSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBrowserSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListBrowserSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +126,18 @@ export class ListBrowserSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBrowserSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListBrowserSettingsCommand(input, context);
+    return se_ListBrowserSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBrowserSettingsCommandOutput> {
-    return deserializeAws_restJson1ListBrowserSettingsCommand(output, context);
+    return de_ListBrowserSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

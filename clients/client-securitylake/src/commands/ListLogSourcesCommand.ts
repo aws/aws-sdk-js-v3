@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListLogSourcesRequest,
-  ListLogSourcesRequestFilterSensitiveLog,
-  ListLogSourcesResponse,
-  ListLogSourcesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListLogSourcesCommand,
-  serializeAws_restJson1ListLogSourcesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListLogSourcesRequest, ListLogSourcesResponse } from "../models/models_0";
+import { de_ListLogSourcesCommand, se_ListLogSourcesCommand } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListLogSourcesCommand}.
+ */
 export interface ListLogSourcesCommandInput extends ListLogSourcesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListLogSourcesCommand}.
+ */
 export interface ListLogSourcesCommandOutput extends ListLogSourcesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the log sources in the current Amazon Web Services Region. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,59 @@ export interface ListLogSourcesCommandOutput extends ListLogSourcesResponse, __M
  * import { SecurityLakeClient, ListLogSourcesCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, ListLogSourcesCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
+ * const input = { // ListLogSourcesRequest
+ *   inputOrder: [ // DimensionSet
+ *     "STRING_VALUE",
+ *   ],
+ *   listAllDimensions: { // AllDimensionsMap
+ *     "<keys>": { // TwoDimensionsMap
+ *       "<keys>": [ // ValueSet
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ *   listTwoDimensions: {
+ *     "<keys>": [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   listSingleDimension: [ // InputSet
+ *     "STRING_VALUE",
+ *   ],
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListLogSourcesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLogSourcesCommandInput - {@link ListLogSourcesCommandInput}
+ * @returns {@link ListLogSourcesCommandOutput}
  * @see {@link ListLogSourcesCommandInput} for command's `input` shape.
  * @see {@link ListLogSourcesCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action. Access denied errors appear when Amazon Security Lake explicitly or implicitly denies an authorization
+ *          request. An explicit denial occurs when a policy contains a Deny statement for the specific
+ *          Amazon Web Services action. An implicit denial occurs when there is no applicable Deny statement and also
+ *          no applicable Allow statement.</p>
+ *
+ * @throws {@link AccountNotFoundException} (client fault)
+ *  <p>Amazon Security Lake cannot find an Amazon Web Services account with the accountID that you
+ *          specified, or the account whose credentials you used to make this request isn't a member of
+ *          an organization.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Internal service exceptions are sometimes caused by transient issues. Before you start
+ *          troubleshooting, perform the operation again. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Your signing certificate could not be validated. </p>
+ *
  *
  */
 export class ListLogSourcesCommand extends $Command<
@@ -62,6 +111,9 @@ export class ListLogSourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLogSourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +142,8 @@ export class ListLogSourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLogSourcesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListLogSourcesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +153,18 @@ export class ListLogSourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLogSourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListLogSourcesCommand(input, context);
+    return se_ListLogSourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLogSourcesCommandOutput> {
-    return deserializeAws_restJson1ListLogSourcesCommand(output, context);
+    return de_ListLogSourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import {
-  DeleteAddonRequest,
-  DeleteAddonRequestFilterSensitiveLog,
-  DeleteAddonResponse,
-  DeleteAddonResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAddonCommand,
-  serializeAws_restJson1DeleteAddonCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteAddonRequest, DeleteAddonResponse } from "../models/models_0";
+import { de_DeleteAddonCommand, se_DeleteAddonCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteAddonCommand}.
+ */
 export interface DeleteAddonCommandInput extends DeleteAddonRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteAddonCommand}.
+ */
 export interface DeleteAddonCommandOutput extends DeleteAddonResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete an Amazon EKS add-on.</p>
  *          <p>When you remove the add-on, it will also be deleted from the cluster. You can always
  *             manually start an add-on on the cluster using the Kubernetes API.</p>
@@ -38,13 +41,43 @@ export interface DeleteAddonCommandOutput extends DeleteAddonResponse, __Metadat
  * import { EKSClient, DeleteAddonCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, DeleteAddonCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
+ * const input = { // DeleteAddonRequest
+ *   clusterName: "STRING_VALUE", // required
+ *   addonName: "STRING_VALUE", // required
+ *   preserve: true || false,
+ * };
  * const command = new DeleteAddonCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAddonCommandInput - {@link DeleteAddonCommandInput}
+ * @returns {@link DeleteAddonCommandOutput}
  * @see {@link DeleteAddonCommandInput} for command's `input` shape.
  * @see {@link DeleteAddonCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action. Actions can include using an
+ *             action or resource on behalf of a user that doesn't have permissions to use the action
+ *             or resource or specifying an identifier that is not valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *             request.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid given the state of the cluster. Check the state of the cluster
+ *             and the associated operations.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found. You can view your available clusters with
+ *                 <a>ListClusters</a>. You can view your available managed node groups with
+ *                 <a>ListNodegroups</a>. Amazon EKS clusters and node groups are
+ *             Region-specific.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
  *
  */
 export class DeleteAddonCommand extends $Command<
@@ -64,6 +97,9 @@ export class DeleteAddonCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAddonCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +126,8 @@ export class DeleteAddonCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAddonRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAddonResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +137,18 @@ export class DeleteAddonCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAddonCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAddonCommand(input, context);
+    return se_DeleteAddonCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAddonCommandOutput> {
-    return deserializeAws_restJson1DeleteAddonCommand(output, context);
+    return de_DeleteAddonCommand(output, context);
   }
 
   // Start section: command_body_extra

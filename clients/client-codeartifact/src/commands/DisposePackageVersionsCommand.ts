@@ -14,32 +14,33 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import {
-  DisposePackageVersionsRequest,
-  DisposePackageVersionsRequestFilterSensitiveLog,
-  DisposePackageVersionsResult,
-  DisposePackageVersionsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DisposePackageVersionsCommand,
-  serializeAws_restJson1DisposePackageVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { DisposePackageVersionsRequest, DisposePackageVersionsResult } from "../models/models_0";
+import { de_DisposePackageVersionsCommand, se_DisposePackageVersionsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DisposePackageVersionsCommand}.
+ */
 export interface DisposePackageVersionsCommandInput extends DisposePackageVersionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisposePackageVersionsCommand}.
+ */
 export interface DisposePackageVersionsCommandOutput extends DisposePackageVersionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Deletes the assets in package versions and sets the package versions' status to <code>Disposed</code>.
  *       A disposed package version cannot be restored in your repository because its assets are deleted.
  *     </p>
- *
  *          <p>
  *       To view all disposed package versions in a repository, use <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html">ListPackageVersions</a> and set the
  *       <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html#API_ListPackageVersions_RequestSyntax">status</a> parameter
  *       to <code>Disposed</code>.
  *     </p>
- *
  *          <p>
  *       To view information about a disposed package version, use <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DescribePackageVersion.html">DescribePackageVersion</a>.
  *     </p>
@@ -49,13 +50,59 @@ export interface DisposePackageVersionsCommandOutput extends DisposePackageVersi
  * import { CodeartifactClient, DisposePackageVersionsCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, DisposePackageVersionsCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
+ * const input = { // DisposePackageVersionsRequest
+ *   domain: "STRING_VALUE", // required
+ *   domainOwner: "STRING_VALUE",
+ *   repository: "STRING_VALUE", // required
+ *   format: "npm" || "pypi" || "maven" || "nuget" || "generic", // required
+ *   namespace: "STRING_VALUE",
+ *   package: "STRING_VALUE", // required
+ *   versions: [ // PackageVersionList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   versionRevisions: { // PackageVersionRevisionMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   expectedStatus: "Published" || "Unfinished" || "Unlisted" || "Archived" || "Disposed" || "Deleted",
+ * };
  * const command = new DisposePackageVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisposePackageVersionsCommandInput - {@link DisposePackageVersionsCommandInput}
+ * @returns {@link DisposePackageVersionsCommandOutput}
  * @see {@link DisposePackageVersionsCommandInput} for command's `input` shape.
  * @see {@link DisposePackageVersionsCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>
+ *         The operation did not succeed because of an unauthorized access attempt.
+ *       </p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>
+ *         The operation did not succeed because prerequisites are not met.
+ *       </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>
+ *       The operation did not succeed because the resource requested is not found in the service.
+ *     </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>
+ *       The operation did not succeed because too many requests are sent to the service.
+ *     </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>
+ *       The operation did not succeed because a parameter in the request was sent with an invalid value.
+ *     </p>
+ *
  *
  */
 export class DisposePackageVersionsCommand extends $Command<
@@ -75,6 +122,9 @@ export class DisposePackageVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisposePackageVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +153,8 @@ export class DisposePackageVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisposePackageVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisposePackageVersionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +164,18 @@ export class DisposePackageVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisposePackageVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisposePackageVersionsCommand(input, context);
+    return se_DisposePackageVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisposePackageVersionsCommandOutput> {
-    return deserializeAws_restJson1DisposePackageVersionsCommand(output, context);
+    return de_DisposePackageVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,35 +14,63 @@ import {
 } from "@aws-sdk/types";
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import {
-  GetImagePolicyRequest,
-  GetImagePolicyRequestFilterSensitiveLog,
-  GetImagePolicyResponse,
-  GetImagePolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetImagePolicyCommand,
-  serializeAws_restJson1GetImagePolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { GetImagePolicyRequest, GetImagePolicyResponse } from "../models/models_0";
+import { de_GetImagePolicyCommand, se_GetImagePolicyCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetImagePolicyCommand}.
+ */
 export interface GetImagePolicyCommandInput extends GetImagePolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetImagePolicyCommand}.
+ */
 export interface GetImagePolicyCommandOutput extends GetImagePolicyResponse, __MetadataBearer {}
 
 /**
- * <p> Gets an image policy.</p>
+ * @public
+ * <p>Gets an image policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ImagebuilderClient, GetImagePolicyCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, GetImagePolicyCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
+ * const input = { // GetImagePolicyRequest
+ *   imageArn: "STRING_VALUE", // required
+ * };
  * const command = new GetImagePolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetImagePolicyCommandInput - {@link GetImagePolicyCommandInput}
+ * @returns {@link GetImagePolicyCommandOutput}
  * @see {@link GetImagePolicyCommandInput} for command's `input` shape.
  * @see {@link GetImagePolicyCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
+ *
+ * @throws {@link CallRateLimitExceededException} (client fault)
+ *  <p>You have exceeded the permitted request rate for the specific operation.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>You are not authorized to perform the requested operation.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>You have requested an action that that the service doesn't support.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>At least one of the resources referenced by your request does not exist.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>This exception is thrown when the service encounters an unrecoverable
+ * 			exception.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is unable to process your request at this time.</p>
+ *
  *
  */
 export class GetImagePolicyCommand extends $Command<
@@ -62,6 +90,9 @@ export class GetImagePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetImagePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +121,8 @@ export class GetImagePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetImagePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetImagePolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +132,18 @@ export class GetImagePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetImagePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetImagePolicyCommand(input, context);
+    return se_GetImagePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetImagePolicyCommandOutput> {
-    return deserializeAws_restJson1GetImagePolicyCommand(output, context);
+    return de_GetImagePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

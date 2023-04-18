@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  DeleteCrawlerRequest,
-  DeleteCrawlerRequestFilterSensitiveLog,
-  DeleteCrawlerResponse,
-  DeleteCrawlerResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteCrawlerCommand,
-  serializeAws_json1_1DeleteCrawlerCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteCrawlerRequest, DeleteCrawlerResponse } from "../models/models_1";
+import { de_DeleteCrawlerCommand, se_DeleteCrawlerCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteCrawlerCommand}.
+ */
 export interface DeleteCrawlerCommandInput extends DeleteCrawlerRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteCrawlerCommand}.
+ */
 export interface DeleteCrawlerCommandOutput extends DeleteCrawlerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a specified crawler from the Glue Data Catalog, unless the crawler state is
  *         <code>RUNNING</code>.</p>
  * @example
@@ -37,13 +40,31 @@ export interface DeleteCrawlerCommandOutput extends DeleteCrawlerResponse, __Met
  * import { GlueClient, DeleteCrawlerCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DeleteCrawlerCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // DeleteCrawlerRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteCrawlerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCrawlerCommandInput - {@link DeleteCrawlerCommandInput}
+ * @returns {@link DeleteCrawlerCommandOutput}
  * @see {@link DeleteCrawlerCommandInput} for command's `input` shape.
  * @see {@link DeleteCrawlerCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link CrawlerRunningException} (client fault)
+ *  <p>The operation cannot be performed because the crawler is already running.</p>
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ * @throws {@link SchedulerTransitioningException} (client fault)
+ *  <p>The specified scheduler is transitioning.</p>
+ *
  *
  */
 export class DeleteCrawlerCommand extends $Command<
@@ -63,6 +84,9 @@ export class DeleteCrawlerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCrawlerCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +113,8 @@ export class DeleteCrawlerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCrawlerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCrawlerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +124,18 @@ export class DeleteCrawlerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCrawlerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteCrawlerCommand(input, context);
+    return se_DeleteCrawlerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCrawlerCommandOutput> {
-    return deserializeAws_json1_1DeleteCrawlerCommand(output, context);
+    return de_DeleteCrawlerCommand(output, context);
   }
 
   // Start section: command_body_extra

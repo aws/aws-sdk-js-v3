@@ -7,6 +7,29 @@ import {
 import { PricingServiceException as __BaseException } from "./PricingServiceException";
 
 /**
+ * @public
+ * <p>General authentication failure. The request wasn't signed correctly.</p>
+ */
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
  * <p>The values of a given attribute, such as <code>Throughput Optimized HDD</code> or <code>Provisioned
  *           IOPS</code> for the <code>Amazon EC2</code>
  *             <code>volumeType</code> attribute.</p>
@@ -18,6 +41,9 @@ export interface AttributeValue {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeServicesRequest {
   /**
    * <p>The code for the service whose information you want to retrieve, such as <code>AmazonEC2</code>.
@@ -46,6 +72,7 @@ export interface DescribeServicesRequest {
 }
 
 /**
+ * @public
  * <p>The metadata for a service, such as the service code and available attribute names.</p>
  */
 export interface Service {
@@ -60,6 +87,9 @@ export interface Service {
   AttributeNames?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeServicesResponse {
   /**
    * <p>The service metadata for the service or services in the response.</p>
@@ -78,6 +108,7 @@ export interface DescribeServicesResponse {
 }
 
 /**
+ * @public
  * <p>The pagination token expired. Try again without a pagination token.</p>
  */
 export class ExpiredNextTokenException extends __BaseException {
@@ -99,6 +130,7 @@ export class ExpiredNextTokenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An error on the server occurred during the processing of your request. Try again later.</p>
  */
 export class InternalErrorException extends __BaseException {
@@ -120,6 +152,7 @@ export class InternalErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The pagination token is invalid. Try again without a pagination token.</p>
  */
 export class InvalidNextTokenException extends __BaseException {
@@ -141,6 +174,7 @@ export class InvalidNextTokenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One or more parameters had an invalid value.</p>
  */
 export class InvalidParameterException extends __BaseException {
@@ -162,6 +196,7 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested resource can't be found.</p>
  */
 export class NotFoundException extends __BaseException {
@@ -182,6 +217,9 @@ export class NotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetAttributeValuesRequest {
   /**
    * <p>The service code for the service whose attributes you want to retrieve. For example, if you want
@@ -205,6 +243,9 @@ export interface GetAttributeValuesRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetAttributeValuesResponse {
   /**
    * <p>The list of values for an attribute. For example, <code>Throughput Optimized HDD</code> and
@@ -219,11 +260,52 @@ export interface GetAttributeValuesResponse {
   NextToken?: string;
 }
 
-export enum FilterType {
-  TERM_MATCH = "TERM_MATCH",
+/**
+ * @public
+ */
+export interface GetPriceListFileUrlRequest {
+  /**
+   * <p>The unique identifier that maps to where your Price List files are located.
+   *             <code>PriceListArn</code> can be obtained from the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_ListPriceLists.html">
+   *                <code>ListPriceLists</code>
+   *             </a> response. </p>
+   */
+  PriceListArn: string | undefined;
+
+  /**
+   * <p>The format that you want to retrieve your Price List files in. The
+   *             <code>FileFormat</code> can be obtained from the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_ListPriceLists.html">
+   *                <code>ListPriceLists</code>
+   *             </a> response. </p>
+   */
+  FileFormat: string | undefined;
 }
 
 /**
+ * @public
+ */
+export interface GetPriceListFileUrlResponse {
+  /**
+   * <p>The URL to download your Price List file from. </p>
+   */
+  Url?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FilterType = {
+  TERM_MATCH: "TERM_MATCH",
+} as const;
+
+/**
+ * @public
+ */
+export type FilterType = (typeof FilterType)[keyof typeof FilterType];
+
+/**
+ * @public
  * <p>The constraints that you want all returned products to match.</p>
  */
 export interface Filter {
@@ -240,21 +322,23 @@ export interface Filter {
    *          by just the attribute name to see a specific attribute for multiple services, or use both a service code
    *          and an attribute name to retrieve only products that match both fields.</p>
    *          <p>Valid values include: <code>ServiceCode</code>, and all attribute names</p>
-   *
    *          <p>For example, you can filter by the <code>AmazonEC2</code> service code and the
    *          <code>volumeType</code> attribute name to get the prices for only Amazon EC2 volumes.</p>
    */
   Field: string | undefined;
 
   /**
-   * <p>The service code or attribute value that you want to filter by. If you are filtering by
-   *          service code this is the actual service code, such as <code>AmazonEC2</code>. If you are
-   *          filtering by attribute name, this is the attribute value that you want the returned products
-   *          to match, such as a <code>Provisioned IOPS</code> volume.</p>
+   * <p>The service code or attribute value that you want to filter by. If you're filtering
+   *          by service code this is the actual service code, such as <code>AmazonEC2</code>. If you're
+   *          filtering by attribute name, this is the attribute value that you want the returned
+   *          products to match, such as a <code>Provisioned IOPS</code> volume.</p>
    */
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetProductsRequest {
   /**
    * <p>The code for the service whose products you want to retrieve. </p>
@@ -285,6 +369,9 @@ export interface GetProductsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetProductsResponse {
   /**
    * <p>The format version of the response. For example, aws_v1.</p>
@@ -304,64 +391,108 @@ export interface GetProductsResponse {
 }
 
 /**
- * @internal
+ * @public
  */
-export const AttributeValueFilterSensitiveLog = (obj: AttributeValue): any => ({
-  ...obj,
-});
+export interface ListPriceListsRequest {
+  /**
+   * <p>The service code or the Savings Plan service code for the attributes that
+   *          you want to retrieve. For example, to get the list of applicable Amazon EC2 price lists, use
+   *             <code>AmazonEC2</code>. For a full list of service codes containing On-Demand and
+   *          Reserved Instance (RI) pricing, use the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_DescribeServices.html#awscostmanagement-pricing_DescribeServices-request-FormatVersion">
+   *                <code>DescribeServices</code>
+   *             </a> API.</p>
+   *          <p>To retrieve the Compute Savings Plan price lists, use <code>ComputeSavingsPlans</code>. To retrieve Machine Learning Savings Plans price lists, use <code>MachineLearningSavingsPlans</code>.
+   *       </p>
+   */
+  ServiceCode: string | undefined;
+
+  /**
+   * <p>The date that the Price List file prices are effective from. </p>
+   */
+  EffectiveDate: Date | undefined;
+
+  /**
+   * <p>This is used to filter the Price List by Amazon Web Services Region. For example, to get
+   *          the price list only for the <code>US East (N. Virginia)</code> Region, use
+   *             <code>us-east-1</code>. If nothing is specified, you retrieve price lists for all
+   *          applicable Regions. The available <code>RegionCode</code> list can be retrieved from <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_GetAttributeValues.html">
+   *                <code>GetAttributeValues</code>
+   *             </a> API.</p>
+   */
+  RegionCode?: string;
+
+  /**
+   * <p>The three alphabetical character ISO-4217 currency code that the Price List files are
+   *          denominated in. </p>
+   */
+  CurrencyCode: string | undefined;
+
+  /**
+   * <p>The pagination token that indicates the next set of results that you want to retrieve. </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in the response.
+   *       </p>
+   */
+  MaxResults?: number;
+}
 
 /**
- * @internal
+ * @public
+ * <p>
+ *             <i>
+ *                <b>This feature is in preview release and is subject to change. Your use of Amazon Web Services Price List API is subject to the Beta Service Participation terms of the <a href="https://aws.amazon.com/service-terms/">Amazon Web Services Service Terms</a> (Section 1.10).</b>
+ *             </i>
+ *          </p>
+ *          <p>This is the type of price list references that match your request. </p>
  */
-export const DescribeServicesRequestFilterSensitiveLog = (obj: DescribeServicesRequest): any => ({
-  ...obj,
-});
+export interface PriceList {
+  /**
+   * <p>The unique identifier that maps to where your Price List files are located.
+   *             <code>PriceListArn</code> can be obtained from the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_ListPriceLists.html">
+   *                <code>ListPriceList</code>
+   *             </a> response. </p>
+   */
+  PriceListArn?: string;
+
+  /**
+   * <p>This is used to filter the Price List by Amazon Web Services Region. For example, to get
+   *          the price list only for the <code>US East (N. Virginia)</code> Region, use
+   *             <code>us-east-1</code>. If nothing is specified, you retrieve price lists for all
+   *          applicable Regions. The available <code>RegionCode</code> list can be retrieved from <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_GetAttributeValues.html">
+   *                <code>GetAttributeValues</code>
+   *             </a> API. </p>
+   */
+  RegionCode?: string;
+
+  /**
+   * <p>The three alphabetical character ISO-4217 currency code the Price List files are
+   *          denominated in. </p>
+   */
+  CurrencyCode?: string;
+
+  /**
+   * <p>The format you want to retrieve your Price List files. The <code>FileFormat</code> can
+   *          be obtained from the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_ListPriceLists.html">
+   *                <code>ListPriceList</code>
+   *             </a> response. </p>
+   */
+  FileFormats?: string[];
+}
 
 /**
- * @internal
+ * @public
  */
-export const ServiceFilterSensitiveLog = (obj: Service): any => ({
-  ...obj,
-});
+export interface ListPriceListsResponse {
+  /**
+   * <p>The type of price list references that match your request. </p>
+   */
+  PriceLists?: PriceList[];
 
-/**
- * @internal
- */
-export const DescribeServicesResponseFilterSensitiveLog = (obj: DescribeServicesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAttributeValuesRequestFilterSensitiveLog = (obj: GetAttributeValuesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAttributeValuesResponseFilterSensitiveLog = (obj: GetAttributeValuesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterFilterSensitiveLog = (obj: Filter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetProductsRequestFilterSensitiveLog = (obj: GetProductsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetProductsResponseFilterSensitiveLog = (obj: GetProductsResponse): any => ({
-  ...obj,
-});
+  /**
+   * <p>The pagination token that indicates the next set of results to retrieve. </p>
+   */
+  NextToken?: string;
+}

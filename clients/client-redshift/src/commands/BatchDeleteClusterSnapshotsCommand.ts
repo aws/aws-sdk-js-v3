@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  BatchDeleteClusterSnapshotsRequest,
-  BatchDeleteClusterSnapshotsRequestFilterSensitiveLog,
-  BatchDeleteClusterSnapshotsResult,
-  BatchDeleteClusterSnapshotsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryBatchDeleteClusterSnapshotsCommand,
-  serializeAws_queryBatchDeleteClusterSnapshotsCommand,
-} from "../protocols/Aws_query";
+import { BatchDeleteClusterSnapshotsRequest, BatchDeleteClusterSnapshotsResult } from "../models/models_0";
+import { de_BatchDeleteClusterSnapshotsCommand, se_BatchDeleteClusterSnapshotsCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchDeleteClusterSnapshotsCommand}.
+ */
 export interface BatchDeleteClusterSnapshotsCommandInput extends BatchDeleteClusterSnapshotsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link BatchDeleteClusterSnapshotsCommand}.
+ */
 export interface BatchDeleteClusterSnapshotsCommandOutput extends BatchDeleteClusterSnapshotsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a set of cluster snapshots.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,28 @@ export interface BatchDeleteClusterSnapshotsCommandOutput extends BatchDeleteClu
  * import { RedshiftClient, BatchDeleteClusterSnapshotsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, BatchDeleteClusterSnapshotsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // BatchDeleteClusterSnapshotsRequest
+ *   Identifiers: [ // DeleteClusterSnapshotMessageList // required
+ *     { // DeleteClusterSnapshotMessage
+ *       SnapshotIdentifier: "STRING_VALUE", // required
+ *       SnapshotClusterIdentifier: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new BatchDeleteClusterSnapshotsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDeleteClusterSnapshotsCommandInput - {@link BatchDeleteClusterSnapshotsCommandInput}
+ * @returns {@link BatchDeleteClusterSnapshotsCommandOutput}
  * @see {@link BatchDeleteClusterSnapshotsCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteClusterSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
+ *
+ * @throws {@link BatchDeleteRequestSizeExceededFault} (client fault)
+ *  <p>The maximum number for a batch delete of snapshots has been reached. The limit is
+ *             100. </p>
+ *
  *
  */
 export class BatchDeleteClusterSnapshotsCommand extends $Command<
@@ -62,6 +80,9 @@ export class BatchDeleteClusterSnapshotsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDeleteClusterSnapshotsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +111,8 @@ export class BatchDeleteClusterSnapshotsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDeleteClusterSnapshotsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchDeleteClusterSnapshotsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +122,21 @@ export class BatchDeleteClusterSnapshotsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDeleteClusterSnapshotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryBatchDeleteClusterSnapshotsCommand(input, context);
+    return se_BatchDeleteClusterSnapshotsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchDeleteClusterSnapshotsCommandOutput> {
-    return deserializeAws_queryBatchDeleteClusterSnapshotsCommand(output, context);
+    return de_BatchDeleteClusterSnapshotsCommand(output, context);
   }
 
   // Start section: command_body_extra

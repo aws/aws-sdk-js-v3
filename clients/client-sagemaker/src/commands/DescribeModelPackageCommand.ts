@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeModelPackageInput,
-  DescribeModelPackageInputFilterSensitiveLog,
-  DescribeModelPackageOutput,
-  DescribeModelPackageOutputFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeModelPackageCommand,
-  serializeAws_json1_1DescribeModelPackageCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeModelPackageInput, DescribeModelPackageOutput } from "../models/models_2";
+import { de_DescribeModelPackageCommand, se_DescribeModelPackageCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeModelPackageCommand}.
+ */
 export interface DescribeModelPackageCommandInput extends DescribeModelPackageInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeModelPackageCommand}.
+ */
 export interface DescribeModelPackageCommandOutput extends DescribeModelPackageOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a description of the specified model package, which is used to create SageMaker
  *             models or list them on Amazon Web Services Marketplace.</p>
  *          <p>To create models in SageMaker, buyers can subscribe to model packages listed on Amazon Web Services
@@ -39,13 +42,19 @@ export interface DescribeModelPackageCommandOutput extends DescribeModelPackageO
  * import { SageMakerClient, DescribeModelPackageCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeModelPackageCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DescribeModelPackageInput
+ *   ModelPackageName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeModelPackageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeModelPackageCommandInput - {@link DescribeModelPackageCommandInput}
+ * @returns {@link DescribeModelPackageCommandOutput}
  * @see {@link DescribeModelPackageCommandInput} for command's `input` shape.
  * @see {@link DescribeModelPackageCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
  *
  */
 export class DescribeModelPackageCommand extends $Command<
@@ -65,6 +74,9 @@ export class DescribeModelPackageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeModelPackageCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +105,8 @@ export class DescribeModelPackageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeModelPackageInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeModelPackageOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +116,18 @@ export class DescribeModelPackageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeModelPackageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeModelPackageCommand(input, context);
+    return se_DescribeModelPackageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeModelPackageCommandOutput> {
-    return deserializeAws_json1_1DescribeModelPackageCommand(output, context);
+    return de_DescribeModelPackageCommand(output, context);
   }
 
   // Start section: command_body_extra

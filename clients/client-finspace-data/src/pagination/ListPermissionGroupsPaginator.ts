@@ -6,12 +6,11 @@ import {
   ListPermissionGroupsCommandInput,
   ListPermissionGroupsCommandOutput,
 } from "../commands/ListPermissionGroupsCommand";
-import { FinspaceData } from "../FinspaceData";
 import { FinspaceDataClient } from "../FinspaceDataClient";
 import { FinspaceDataPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: FinspaceDataClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListPermissionGroupsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: FinspaceData,
-  input: ListPermissionGroupsCommandInput,
-  ...args: any
-): Promise<ListPermissionGroupsCommandOutput> => {
-  // @ts-ignore
-  return await client.listPermissionGroups(input, ...args);
-};
 export async function* paginateListPermissionGroups(
   config: FinspaceDataPaginationConfiguration,
   input: ListPermissionGroupsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListPermissionGroups(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof FinspaceData) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof FinspaceDataClient) {
+    if (config.client instanceof FinspaceDataClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected FinspaceData | FinspaceDataClient");

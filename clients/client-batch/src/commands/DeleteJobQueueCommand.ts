@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
-import {
-  DeleteJobQueueRequest,
-  DeleteJobQueueRequestFilterSensitiveLog,
-  DeleteJobQueueResponse,
-  DeleteJobQueueResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteJobQueueCommand,
-  serializeAws_restJson1DeleteJobQueueCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteJobQueueRequest, DeleteJobQueueResponse } from "../models/models_0";
+import { de_DeleteJobQueueCommand, se_DeleteJobQueueCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteJobQueueCommand}.
+ */
 export interface DeleteJobQueueCommandInput extends DeleteJobQueueRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteJobQueueCommand}.
+ */
 export interface DeleteJobQueueCommandOutput extends DeleteJobQueueResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified job queue. You must first disable submissions for a queue with the <a>UpdateJobQueue</a> operation. All jobs in the queue are eventually terminated when you delete a job queue.
  *    The jobs are terminated at a rate of about 16 jobs each second.</p>
  *          <p>It's not necessary to disassociate compute environments from a queue before submitting a
@@ -39,13 +42,38 @@ export interface DeleteJobQueueCommandOutput extends DeleteJobQueueResponse, __M
  * import { BatchClient, DeleteJobQueueCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, DeleteJobQueueCommand } = require("@aws-sdk/client-batch"); // CommonJS import
  * const client = new BatchClient(config);
+ * const input = { // DeleteJobQueueRequest
+ *   jobQueue: "STRING_VALUE", // required
+ * };
  * const command = new DeleteJobQueueCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteJobQueueCommandInput - {@link DeleteJobQueueCommandInput}
+ * @returns {@link DeleteJobQueueCommandOutput}
  * @see {@link DeleteJobQueueCommandInput} for command's `input` shape.
  * @see {@link DeleteJobQueueCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf
+ *    of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier
+ *    that's not valid.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server issue.</p>
+ *
+ *
+ * @example To delete a job queue
+ * ```javascript
+ * // This example deletes the GPGPU job queue.
+ * const input = {
+ *   "jobQueue": "GPGPU"
+ * };
+ * const command = new DeleteJobQueueCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-a-job-queue-1481153508134
+ * ```
  *
  */
 export class DeleteJobQueueCommand extends $Command<
@@ -65,6 +93,9 @@ export class DeleteJobQueueCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteJobQueueCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +124,8 @@ export class DeleteJobQueueCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteJobQueueRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteJobQueueResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +135,18 @@ export class DeleteJobQueueCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteJobQueueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteJobQueueCommand(input, context);
+    return se_DeleteJobQueueCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteJobQueueCommandOutput> {
-    return deserializeAws_restJson1DeleteJobQueueCommand(output, context);
+    return de_DeleteJobQueueCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  CreatePlayerSessionInput,
-  CreatePlayerSessionInputFilterSensitiveLog,
-  CreatePlayerSessionOutput,
-  CreatePlayerSessionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreatePlayerSessionCommand,
-  serializeAws_json1_1CreatePlayerSessionCommand,
-} from "../protocols/Aws_json1_1";
+import { CreatePlayerSessionInput, CreatePlayerSessionOutput } from "../models/models_0";
+import { de_CreatePlayerSessionCommand, se_CreatePlayerSessionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreatePlayerSessionCommand}.
+ */
 export interface CreatePlayerSessionCommandInput extends CreatePlayerSessionInput {}
+/**
+ * @public
+ *
+ * The output of {@link CreatePlayerSessionCommand}.
+ */
 export interface CreatePlayerSessionCommandOutput extends CreatePlayerSessionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Reserves an open player slot in a game session for a player. New player sessions can
  *             be created in any game session with an open slot that is in <code>ACTIVE</code> status
  *             and has a player creation policy of <code>ACCEPT_ALL</code>. You can add a group of
@@ -53,13 +56,50 @@ export interface CreatePlayerSessionCommandOutput extends CreatePlayerSessionOut
  * import { GameLiftClient, CreatePlayerSessionCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, CreatePlayerSessionCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // CreatePlayerSessionInput
+ *   GameSessionId: "STRING_VALUE", // required
+ *   PlayerId: "STRING_VALUE", // required
+ *   PlayerData: "STRING_VALUE",
+ * };
  * const command = new CreatePlayerSessionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePlayerSessionCommandInput - {@link CreatePlayerSessionCommandInput}
+ * @returns {@link CreatePlayerSessionCommandOutput}
  * @see {@link CreatePlayerSessionCommandInput} for command's `input` shape.
  * @see {@link CreatePlayerSessionCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
+ *
+ * @throws {@link GameSessionFullException} (client fault)
+ *  <p>The game instance is currently full and cannot allow the requested player(s) to join.
+ *             Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an unrecoverable internal failure while processing the
+ *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * @throws {@link InvalidGameSessionStatusException} (client fault)
+ *  <p>The requested operation would cause a conflict with the current state of a resource
+ *             associated with the request and/or the game instance. Resolve the conflict before
+ *             retrying.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
+ *             values before retrying.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *
+ * @throws {@link TerminalRoutingStrategyException} (client fault)
+ *  <p>The service is unable to resolve the routing for a particular alias because it has a
+ *             terminal <code>RoutingStrategy</code> associated with it. The message returned in this
+ *             exception is the message defined in the routing strategy itself. Such requests should
+ *             only be retried if the routing strategy for the specified alias is modified. </p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
  *
  */
 export class CreatePlayerSessionCommand extends $Command<
@@ -79,6 +119,9 @@ export class CreatePlayerSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePlayerSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +150,8 @@ export class CreatePlayerSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePlayerSessionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreatePlayerSessionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +161,18 @@ export class CreatePlayerSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePlayerSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreatePlayerSessionCommand(input, context);
+    return se_CreatePlayerSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePlayerSessionCommandOutput> {
-    return deserializeAws_json1_1CreatePlayerSessionCommand(output, context);
+    return de_CreatePlayerSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

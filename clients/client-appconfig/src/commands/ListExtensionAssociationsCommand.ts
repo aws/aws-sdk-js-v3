@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import {
-  ExtensionAssociations,
-  ExtensionAssociationsFilterSensitiveLog,
-  ListExtensionAssociationsRequest,
-  ListExtensionAssociationsRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListExtensionAssociationsCommand,
-  serializeAws_restJson1ListExtensionAssociationsCommand,
-} from "../protocols/Aws_restJson1";
+import { ExtensionAssociations, ListExtensionAssociationsRequest } from "../models/models_0";
+import { de_ListExtensionAssociationsCommand, se_ListExtensionAssociationsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListExtensionAssociationsCommand}.
+ */
 export interface ListExtensionAssociationsCommandInput extends ListExtensionAssociationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListExtensionAssociationsCommand}.
+ */
 export interface ListExtensionAssociationsCommandOutput extends ExtensionAssociations, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all AppConfig extension associations in the account. For more
  *          information about extensions and associations, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Working with
  *                AppConfig extensions</a> in the
@@ -39,13 +42,29 @@ export interface ListExtensionAssociationsCommandOutput extends ExtensionAssocia
  * import { AppConfigClient, ListExtensionAssociationsCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, ListExtensionAssociationsCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = { // ListExtensionAssociationsRequest
+ *   ResourceIdentifier: "STRING_VALUE",
+ *   ExtensionIdentifier: "STRING_VALUE",
+ *   ExtensionVersionNumber: Number("int"),
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListExtensionAssociationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListExtensionAssociationsCommandInput - {@link ListExtensionAssociationsCommandInput}
+ * @returns {@link ListExtensionAssociationsCommandOutput}
  * @see {@link ListExtensionAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListExtensionAssociationsCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There was an internal failure in the AppConfig service.</p>
+ *
  *
  */
 export class ListExtensionAssociationsCommand extends $Command<
@@ -65,6 +84,9 @@ export class ListExtensionAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListExtensionAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +115,8 @@ export class ListExtensionAssociationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListExtensionAssociationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ExtensionAssociationsFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,15 +126,21 @@ export class ListExtensionAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListExtensionAssociationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListExtensionAssociationsCommand(input, context);
+    return se_ListExtensionAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListExtensionAssociationsCommandOutput> {
-    return deserializeAws_restJson1ListExtensionAssociationsCommand(output, context);
+    return de_ListExtensionAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

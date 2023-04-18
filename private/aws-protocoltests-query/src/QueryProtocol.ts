@@ -2,6 +2,11 @@
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
+  DatetimeOffsetsCommand,
+  DatetimeOffsetsCommandInput,
+  DatetimeOffsetsCommandOutput,
+} from "./commands/DatetimeOffsetsCommand";
+import {
   EmptyInputAndEmptyOutputCommand,
   EmptyInputAndEmptyOutputCommandInput,
   EmptyInputAndEmptyOutputCommandOutput,
@@ -31,6 +36,11 @@ import {
   FlattenedXmlMapWithXmlNamespaceCommandInput,
   FlattenedXmlMapWithXmlNamespaceCommandOutput,
 } from "./commands/FlattenedXmlMapWithXmlNamespaceCommand";
+import {
+  FractionalSecondsCommand,
+  FractionalSecondsCommandInput,
+  FractionalSecondsCommandOutput,
+} from "./commands/FractionalSecondsCommand";
 import {
   GreetingWithErrorsCommand,
   GreetingWithErrorsCommandInput,
@@ -105,6 +115,7 @@ import {
   XmlEmptyMapsCommandOutput,
 } from "./commands/XmlEmptyMapsCommand";
 import { XmlEnumsCommand, XmlEnumsCommandInput, XmlEnumsCommandOutput } from "./commands/XmlEnumsCommand";
+import { XmlIntEnumsCommand, XmlIntEnumsCommandInput, XmlIntEnumsCommandOutput } from "./commands/XmlIntEnumsCommand";
 import { XmlListsCommand, XmlListsCommandInput, XmlListsCommandOutput } from "./commands/XmlListsCommand";
 import { XmlMapsCommand, XmlMapsCommandInput, XmlMapsCommandOutput } from "./commands/XmlMapsCommand";
 import {
@@ -125,10 +136,44 @@ import {
 import { QueryProtocolClient } from "./QueryProtocolClient";
 
 /**
+ * @public
  * A query service that sends query requests and XML responses.
  */
 export class QueryProtocol extends QueryProtocolClient {
   /**
+   * @public
+   */
+  public datetimeOffsets(
+    args: DatetimeOffsetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DatetimeOffsetsCommandOutput>;
+  public datetimeOffsets(
+    args: DatetimeOffsetsCommandInput,
+    cb: (err: any, data?: DatetimeOffsetsCommandOutput) => void
+  ): void;
+  public datetimeOffsets(
+    args: DatetimeOffsetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DatetimeOffsetsCommandOutput) => void
+  ): void;
+  public datetimeOffsets(
+    args: DatetimeOffsetsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DatetimeOffsetsCommandOutput) => void),
+    cb?: (err: any, data?: DatetimeOffsetsCommandOutput) => void
+  ): Promise<DatetimeOffsetsCommandOutput> | void {
+    const command = new DatetimeOffsetsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * The example tests how requests and responses are serialized when there's
    * no request or response members.
    *
@@ -163,6 +208,9 @@ export class QueryProtocol extends QueryProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public endpointOperation(
     args: EndpointOperationCommandInput,
     options?: __HttpHandlerOptions
@@ -192,6 +240,9 @@ export class QueryProtocol extends QueryProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public endpointWithHostLabelOperation(
     args: EndpointWithHostLabelOperationCommandInput,
     options?: __HttpHandlerOptions
@@ -222,6 +273,7 @@ export class QueryProtocol extends QueryProtocolClient {
   }
 
   /**
+   * @public
    * Flattened maps
    */
   public flattenedXmlMap(
@@ -254,6 +306,7 @@ export class QueryProtocol extends QueryProtocolClient {
   }
 
   /**
+   * @public
    * Flattened maps with @xmlName
    */
   public flattenedXmlMapWithXmlName(
@@ -286,6 +339,7 @@ export class QueryProtocol extends QueryProtocolClient {
   }
 
   /**
+   * @public
    * Flattened maps with @xmlNamespace and @xmlName
    */
   public flattenedXmlMapWithXmlNamespace(
@@ -318,6 +372,39 @@ export class QueryProtocol extends QueryProtocolClient {
   }
 
   /**
+   * @public
+   */
+  public fractionalSeconds(
+    args: FractionalSecondsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<FractionalSecondsCommandOutput>;
+  public fractionalSeconds(
+    args: FractionalSecondsCommandInput,
+    cb: (err: any, data?: FractionalSecondsCommandOutput) => void
+  ): void;
+  public fractionalSeconds(
+    args: FractionalSecondsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: FractionalSecondsCommandOutput) => void
+  ): void;
+  public fractionalSeconds(
+    args: FractionalSecondsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: FractionalSecondsCommandOutput) => void),
+    cb?: (err: any, data?: FractionalSecondsCommandOutput) => void
+  ): Promise<FractionalSecondsCommandOutput> | void {
+    const command = new FractionalSecondsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * This operation has three possible return values:
    *
    * 1. A successful response in the form of GreetingWithErrorsOutput
@@ -353,6 +440,9 @@ export class QueryProtocol extends QueryProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public hostWithPathOperation(
     args: HostWithPathOperationCommandInput,
     options?: __HttpHandlerOptions
@@ -383,6 +473,7 @@ export class QueryProtocol extends QueryProtocolClient {
   }
 
   /**
+   * @public
    * The xmlName trait on the output structure is ignored in AWS Query.
    *
    * The wrapping element is always operation name + "Response", and
@@ -418,6 +509,7 @@ export class QueryProtocol extends QueryProtocolClient {
   }
 
   /**
+   * @public
    * This test serializes nested and recursive structure members.
    */
   public nestedStructures(
@@ -450,6 +542,7 @@ export class QueryProtocol extends QueryProtocolClient {
   }
 
   /**
+   * @public
    * The example tests how requests and responses are serialized when there's
    * no request or response payload because the operation has no input or output.
    *
@@ -485,6 +578,7 @@ export class QueryProtocol extends QueryProtocolClient {
   }
 
   /**
+   * @public
    * The example tests how requests and responses are serialized when there's
    * no request payload or response members.
    *
@@ -520,6 +614,7 @@ export class QueryProtocol extends QueryProtocolClient {
   }
 
   /**
+   * @public
    * Automatically adds idempotency tokens.
    */
   public queryIdempotencyTokenAutoFill(
@@ -552,6 +647,7 @@ export class QueryProtocol extends QueryProtocolClient {
   }
 
   /**
+   * @public
    * This test serializes simple and complex lists.
    */
   public queryLists(args: QueryListsCommandInput, options?: __HttpHandlerOptions): Promise<QueryListsCommandOutput>;
@@ -578,6 +674,7 @@ export class QueryProtocol extends QueryProtocolClient {
   }
 
   /**
+   * @public
    * This test serializes simple and complex maps.
    */
   public queryMaps(args: QueryMapsCommandInput, options?: __HttpHandlerOptions): Promise<QueryMapsCommandOutput>;
@@ -604,6 +701,7 @@ export class QueryProtocol extends QueryProtocolClient {
   }
 
   /**
+   * @public
    * This test serializes timestamps.
    *
    * 1. Timestamps are serialized as RFC 3339 date-time values by default.
@@ -640,6 +738,7 @@ export class QueryProtocol extends QueryProtocolClient {
   }
 
   /**
+   * @public
    * Recursive shapes
    */
   public recursiveXmlShapes(
@@ -672,6 +771,7 @@ export class QueryProtocol extends QueryProtocolClient {
   }
 
   /**
+   * @public
    * This test serializes strings, numbers, and boolean values.
    */
   public simpleInputParams(
@@ -703,6 +803,9 @@ export class QueryProtocol extends QueryProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public simpleScalarXmlProperties(
     args: SimpleScalarXmlPropertiesCommandInput,
     options?: __HttpHandlerOptions
@@ -733,6 +836,7 @@ export class QueryProtocol extends QueryProtocolClient {
   }
 
   /**
+   * @public
    * Blobs are base64 encoded
    */
   public xmlBlobs(args: XmlBlobsCommandInput, options?: __HttpHandlerOptions): Promise<XmlBlobsCommandOutput>;
@@ -758,6 +862,9 @@ export class QueryProtocol extends QueryProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public xmlEmptyBlobs(
     args: XmlEmptyBlobsCommandInput,
     options?: __HttpHandlerOptions
@@ -787,6 +894,9 @@ export class QueryProtocol extends QueryProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public xmlEmptyLists(
     args: XmlEmptyListsCommandInput,
     options?: __HttpHandlerOptions
@@ -816,6 +926,9 @@ export class QueryProtocol extends QueryProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public xmlEmptyMaps(
     args: XmlEmptyMapsCommandInput,
     options?: __HttpHandlerOptions
@@ -843,6 +956,7 @@ export class QueryProtocol extends QueryProtocolClient {
   }
 
   /**
+   * @public
    * This example serializes enums as top level properties, in lists, sets, and maps.
    */
   public xmlEnums(args: XmlEnumsCommandInput, options?: __HttpHandlerOptions): Promise<XmlEnumsCommandOutput>;
@@ -869,6 +983,34 @@ export class QueryProtocol extends QueryProtocolClient {
   }
 
   /**
+   * @public
+   * This example serializes enums as top level properties, in lists, sets, and maps.
+   */
+  public xmlIntEnums(args: XmlIntEnumsCommandInput, options?: __HttpHandlerOptions): Promise<XmlIntEnumsCommandOutput>;
+  public xmlIntEnums(args: XmlIntEnumsCommandInput, cb: (err: any, data?: XmlIntEnumsCommandOutput) => void): void;
+  public xmlIntEnums(
+    args: XmlIntEnumsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: XmlIntEnumsCommandOutput) => void
+  ): void;
+  public xmlIntEnums(
+    args: XmlIntEnumsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: XmlIntEnumsCommandOutput) => void),
+    cb?: (err: any, data?: XmlIntEnumsCommandOutput) => void
+  ): Promise<XmlIntEnumsCommandOutput> | void {
+    const command = new XmlIntEnumsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * This test case serializes XML lists for the following cases for both
    * input and output:
    *
@@ -904,6 +1046,7 @@ export class QueryProtocol extends QueryProtocolClient {
   }
 
   /**
+   * @public
    * The example tests basic map serialization.
    */
   public xmlMaps(args: XmlMapsCommandInput, options?: __HttpHandlerOptions): Promise<XmlMapsCommandOutput>;
@@ -929,6 +1072,9 @@ export class QueryProtocol extends QueryProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public xmlMapsXmlName(
     args: XmlMapsXmlNameCommandInput,
     options?: __HttpHandlerOptions
@@ -958,6 +1104,9 @@ export class QueryProtocol extends QueryProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public xmlNamespaces(
     args: XmlNamespacesCommandInput,
     options?: __HttpHandlerOptions
@@ -988,6 +1137,7 @@ export class QueryProtocol extends QueryProtocolClient {
   }
 
   /**
+   * @public
    * This tests how timestamps are serialized, including using the
    * default format of date-time and various @timestampFormat trait
    * values.

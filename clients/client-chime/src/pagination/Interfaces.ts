@@ -1,9 +1,11 @@
 // smithy-typescript generated code
 import { PaginationConfiguration } from "@aws-sdk/types";
 
-import { Chime } from "../Chime";
 import { ChimeClient } from "../ChimeClient";
 
+/**
+ * @public
+ */
 export interface ChimePaginationConfiguration extends PaginationConfiguration {
-  client: Chime | ChimeClient;
+  client: ChimeClient;
 }

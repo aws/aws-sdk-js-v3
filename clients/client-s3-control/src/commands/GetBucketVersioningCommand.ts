@@ -14,30 +14,38 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetBucketVersioningRequest,
-  GetBucketVersioningRequestFilterSensitiveLog,
-  GetBucketVersioningResult,
-  GetBucketVersioningResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlGetBucketVersioningCommand,
-  serializeAws_restXmlGetBucketVersioningCommand,
-} from "../protocols/Aws_restXml";
+import { GetBucketVersioningRequest, GetBucketVersioningResult } from "../models/models_0";
+import { de_GetBucketVersioningCommand, se_GetBucketVersioningCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetBucketVersioningCommand}.
+ */
 export interface GetBucketVersioningCommandInput extends GetBucketVersioningRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetBucketVersioningCommand}.
+ */
 export interface GetBucketVersioningCommandOutput extends GetBucketVersioningResult, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
- *             <p>This operation returns the versioning state only for S3 on Outposts buckets. To return
- *             the versioning state for an S3 bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketVersioning.html">GetBucketVersioning</a> in
- *             the <i>Amazon S3 API Reference</i>. </p>
+ *             <p>This operation returns the versioning state
+ *             for
+ *             S3 on Outposts
+ *             buckets
+ *             only. To return the versioning state for an S3 bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketVersioning.html">GetBucketVersioning</a> in the <i>Amazon S3 API Reference</i>. </p>
  *          </note>
- *          <p>Returns the versioning state for an S3 on Outposts bucket. With versioning, you can save
- *          multiple distinct copies of your data and recover from unintended user actions and
- *          application failures.</p>
+ *          <p>Returns the versioning state for an S3 on Outposts bucket. With
+ *          S3
+ *          Versioning,
+ *          you can save multiple distinct copies of your
+ *          objects
+ *          and recover from unintended user actions and application failures.</p>
  *          <p>If you've never set versioning on your bucket, it has no versioning state. In that case,
  *          the <code>GetBucketVersioning</code> request does not return a versioning state
  *          value.</p>
@@ -69,13 +77,20 @@ export interface GetBucketVersioningCommandOutput extends GetBucketVersioningRes
  * import { S3ControlClient, GetBucketVersioningCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, GetBucketVersioningCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = { // GetBucketVersioningRequest
+ *   AccountId: "STRING_VALUE",
+ *   Bucket: "STRING_VALUE", // required
+ * };
  * const command = new GetBucketVersioningCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketVersioningCommandInput - {@link GetBucketVersioningCommandInput}
+ * @returns {@link GetBucketVersioningCommandOutput}
  * @see {@link GetBucketVersioningCommandInput} for command's `input` shape.
  * @see {@link GetBucketVersioningCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
+ *
  *
  */
 export class GetBucketVersioningCommand extends $Command<
@@ -88,6 +103,9 @@ export class GetBucketVersioningCommand extends $Command<
 
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
+      RequiresAccountId: { type: "staticContextParams", value: true },
+      AccountId: { type: "contextParams", name: "AccountId" },
+      Bucket: { type: "contextParams", name: "Bucket" },
       UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },
@@ -96,6 +114,9 @@ export class GetBucketVersioningCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketVersioningCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +146,8 @@ export class GetBucketVersioningCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketVersioningRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBucketVersioningResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +157,18 @@ export class GetBucketVersioningCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBucketVersioningCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetBucketVersioningCommand(input, context);
+    return se_GetBucketVersioningCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketVersioningCommandOutput> {
-    return deserializeAws_restXmlGetBucketVersioningCommand(output, context);
+    return de_GetBucketVersioningCommand(output, context);
   }
 
   // Start section: command_body_extra

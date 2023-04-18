@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
+import { ListDocumentClassificationJobsRequest, ListDocumentClassificationJobsResponse } from "../models/models_0";
 import {
-  ListDocumentClassificationJobsRequest,
-  ListDocumentClassificationJobsRequestFilterSensitiveLog,
-  ListDocumentClassificationJobsResponse,
-  ListDocumentClassificationJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListDocumentClassificationJobsCommand,
-  serializeAws_json1_1ListDocumentClassificationJobsCommand,
+  de_ListDocumentClassificationJobsCommand,
+  se_ListDocumentClassificationJobsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListDocumentClassificationJobsCommand}.
+ */
 export interface ListDocumentClassificationJobsCommandInput extends ListDocumentClassificationJobsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDocumentClassificationJobsCommand}.
+ */
 export interface ListDocumentClassificationJobsCommandOutput
   extends ListDocumentClassificationJobsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of the documentation classification jobs that you have submitted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,39 @@ export interface ListDocumentClassificationJobsCommandOutput
  * import { ComprehendClient, ListDocumentClassificationJobsCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, ListDocumentClassificationJobsCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // ListDocumentClassificationJobsRequest
+ *   Filter: { // DocumentClassificationJobFilter
+ *     JobName: "STRING_VALUE",
+ *     JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
+ *     SubmitTimeBefore: new Date("TIMESTAMP"),
+ *     SubmitTimeAfter: new Date("TIMESTAMP"),
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListDocumentClassificationJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDocumentClassificationJobsCommandInput - {@link ListDocumentClassificationJobsCommandInput}
+ * @returns {@link ListDocumentClassificationJobsCommandOutput}
  * @see {@link ListDocumentClassificationJobsCommandInput} for command's `input` shape.
  * @see {@link ListDocumentClassificationJobsCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * @throws {@link InvalidFilterException} (client fault)
+ *  <p>The filter specified for the operation is invalid. Specify a different
+ *       filter.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ *
  *
  */
 export class ListDocumentClassificationJobsCommand extends $Command<
@@ -64,6 +96,9 @@ export class ListDocumentClassificationJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDocumentClassificationJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +127,8 @@ export class ListDocumentClassificationJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDocumentClassificationJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDocumentClassificationJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +138,24 @@ export class ListDocumentClassificationJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListDocumentClassificationJobsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDocumentClassificationJobsCommand(input, context);
+    return se_ListDocumentClassificationJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDocumentClassificationJobsCommandOutput> {
-    return deserializeAws_json1_1ListDocumentClassificationJobsCommand(output, context);
+    return de_ListDocumentClassificationJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

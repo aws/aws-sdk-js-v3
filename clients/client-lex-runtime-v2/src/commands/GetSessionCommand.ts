@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LexRuntimeV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexRuntimeV2Client";
-import {
-  GetSessionRequest,
-  GetSessionRequestFilterSensitiveLog,
-  GetSessionResponse,
-  GetSessionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSessionCommand,
-  serializeAws_restJson1GetSessionCommand,
-} from "../protocols/Aws_restJson1";
+import { GetSessionRequest, GetSessionResponse, GetSessionResponseFilterSensitiveLog } from "../models/models_0";
+import { de_GetSessionCommand, se_GetSessionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetSessionCommand}.
+ */
 export interface GetSessionCommandInput extends GetSessionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetSessionCommand}.
+ */
 export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns session information for a specified bot, alias, and
  *          user.</p>
  *          <p>For example, you can use this operation to retrieve session
@@ -44,13 +47,37 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  * import { LexRuntimeV2Client, GetSessionCommand } from "@aws-sdk/client-lex-runtime-v2"; // ES Modules import
  * // const { LexRuntimeV2Client, GetSessionCommand } = require("@aws-sdk/client-lex-runtime-v2"); // CommonJS import
  * const client = new LexRuntimeV2Client(config);
+ * const input = { // GetSessionRequest
+ *   botId: "STRING_VALUE", // required
+ *   botAliasId: "STRING_VALUE", // required
+ *   localeId: "STRING_VALUE", // required
+ *   sessionId: "STRING_VALUE", // required
+ * };
  * const command = new GetSessionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSessionCommandInput - {@link GetSessionCommandInput}
+ * @returns {@link GetSessionCommandOutput}
  * @see {@link GetSessionCommandInput} for command's `input` shape.
  * @see {@link GetSessionCommandOutput} for command's `response` shape.
  * @see {@link LexRuntimeV2ClientResolvedConfig | config} for LexRuntimeV2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p></p>
+ *
  *
  */
 export class GetSessionCommand extends $Command<
@@ -70,6 +97,9 @@ export class GetSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,7 +126,7 @@ export class GetSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSessionRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetSessionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -107,12 +137,18 @@ export class GetSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSessionCommand(input, context);
+    return se_GetSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSessionCommandOutput> {
-    return deserializeAws_restJson1GetSessionCommand(output, context);
+    return de_GetSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

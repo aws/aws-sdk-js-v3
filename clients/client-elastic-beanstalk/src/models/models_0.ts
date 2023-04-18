@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { ElasticBeanstalkServiceException as __BaseException } from "./ElasticBeanstalkServiceException";
 
 /**
+ * @public
  * <p></p>
  */
 export interface AbortEnvironmentUpdateMessage {
@@ -21,6 +22,7 @@ export interface AbortEnvironmentUpdateMessage {
 }
 
 /**
+ * @public
  * <p>The specified account does not have sufficient privileges for one or more AWS
  *       services.</p>
  */
@@ -40,13 +42,54 @@ export class InsufficientPrivilegesException extends __BaseException {
   }
 }
 
-export type ActionHistoryStatus = "Completed" | "Failed" | "Unknown";
-
-export type ActionStatus = "Pending" | "Running" | "Scheduled" | "Unknown";
-
-export type ActionType = "InstanceRefresh" | "PlatformUpdate" | "Unknown";
+/**
+ * @public
+ * @enum
+ */
+export const ActionHistoryStatus = {
+  Completed: "Completed",
+  Failed: "Failed",
+  Unknown: "Unknown",
+} as const;
 
 /**
+ * @public
+ */
+export type ActionHistoryStatus = (typeof ActionHistoryStatus)[keyof typeof ActionHistoryStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ActionStatus = {
+  Pending: "Pending",
+  Running: "Running",
+  Scheduled: "Scheduled",
+  Unknown: "Unknown",
+} as const;
+
+/**
+ * @public
+ */
+export type ActionStatus = (typeof ActionStatus)[keyof typeof ActionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ActionType = {
+  InstanceRefresh: "InstanceRefresh",
+  PlatformUpdate: "PlatformUpdate",
+  Unknown: "Unknown",
+} as const;
+
+/**
+ * @public
+ */
+export type ActionType = (typeof ActionType)[keyof typeof ActionType];
+
+/**
+ * @public
  * <p>A lifecycle rule that deletes application versions after the specified number of
  *       days.</p>
  */
@@ -70,6 +113,7 @@ export interface MaxAgeRule {
 }
 
 /**
+ * @public
  * <p>A lifecycle rule that deletes the oldest application version when the maximum count is
  *       exceeded.</p>
  */
@@ -93,6 +137,7 @@ export interface MaxCountRule {
 }
 
 /**
+ * @public
  * <p>The application version lifecycle settings for an application. Defines the rules that
  *       Elastic Beanstalk applies to an application's versions in order to avoid hitting the
  *       per-region limit for application versions.</p>
@@ -115,6 +160,7 @@ export interface ApplicationVersionLifecycleConfig {
 }
 
 /**
+ * @public
  * <p>The resource lifecycle configuration for an application. Defines lifecycle settings for
  *       resources that belong to the application, and the service role that AWS Elastic Beanstalk assumes
  *       in order to apply lifecycle settings. The version lifecycle configuration defines lifecycle
@@ -141,6 +187,7 @@ export interface ApplicationResourceLifecycleConfig {
 }
 
 /**
+ * @public
  * <p>Describes the properties of an application.</p>
  */
 export interface ApplicationDescription {
@@ -186,6 +233,7 @@ export interface ApplicationDescription {
 }
 
 /**
+ * @public
  * <p>Result message containing a single description of an application.</p>
  */
 export interface ApplicationDescriptionMessage {
@@ -196,6 +244,7 @@ export interface ApplicationDescriptionMessage {
 }
 
 /**
+ * @public
  * <p>Result message containing a list of application descriptions.</p>
  */
 export interface ApplicationDescriptionsMessage {
@@ -206,6 +255,7 @@ export interface ApplicationDescriptionsMessage {
 }
 
 /**
+ * @public
  * <p>Represents the average latency for the slowest X percent of requests over the last 10
  *       seconds.</p>
  */
@@ -260,6 +310,7 @@ export interface Latency {
 }
 
 /**
+ * @public
  * <p>Represents the percentage of requests over the last 10 seconds that resulted in each
  *       type of status code response. For more information, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">Status Code
  *       Definitions</a>.</p>
@@ -291,6 +342,7 @@ export interface StatusCodes {
 }
 
 /**
+ * @public
  * <p>Application request metrics for an AWS Elastic Beanstalk environment.</p>
  */
 export interface ApplicationMetrics {
@@ -320,6 +372,9 @@ export interface ApplicationMetrics {
   Latency?: Latency;
 }
 
+/**
+ * @public
+ */
 export interface ApplicationResourceLifecycleDescriptionMessage {
   /**
    * <p>The name of the application.</p>
@@ -332,11 +387,36 @@ export interface ApplicationResourceLifecycleDescriptionMessage {
   ResourceLifecycleConfig?: ApplicationResourceLifecycleConfig;
 }
 
-export type SourceRepository = "CodeCommit" | "S3";
-
-export type SourceType = "Git" | "Zip";
+/**
+ * @public
+ * @enum
+ */
+export const SourceRepository = {
+  CodeCommit: "CodeCommit",
+  S3: "S3",
+} as const;
 
 /**
+ * @public
+ */
+export type SourceRepository = (typeof SourceRepository)[keyof typeof SourceRepository];
+
+/**
+ * @public
+ * @enum
+ */
+export const SourceType = {
+  Git: "Git",
+  Zip: "Zip",
+} as const;
+
+/**
+ * @public
+ */
+export type SourceType = (typeof SourceType)[keyof typeof SourceType];
+
+/**
+ * @public
  * <p>Location of the source code for an application version.</p>
  */
 export interface SourceBuildInformation {
@@ -344,12 +424,12 @@ export interface SourceBuildInformation {
    * <p>The type of repository.</p>
    *          <ul>
    *             <li>
-   * 	              <p>
+   *                <p>
    *                   <code>Git</code>
    *                </p>
    *             </li>
    *             <li>
-   * 	              <p>
+   *                <p>
    *                   <code>Zip</code>
    *                </p>
    *             </li>
@@ -361,12 +441,12 @@ export interface SourceBuildInformation {
    * <p>Location where the repository is stored.</p>
    *          <ul>
    *             <li>
-   * 	              <p>
+   *                <p>
    *                   <code>CodeCommit</code>
    *                </p>
    *             </li>
    *             <li>
-   * 	              <p>
+   *                <p>
    *                   <code>S3</code>
    *                </p>
    *             </li>
@@ -377,15 +457,15 @@ export interface SourceBuildInformation {
   /**
    * <p>The location of the source code, as a formatted string, depending on the value of <code>SourceRepository</code>
    *          </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   * 	              <p>For <code>CodeCommit</code>,
+   *                <p>For <code>CodeCommit</code>,
    * 	the format is the repository name and commit ID, separated by a forward slash.
    * 	For example,
    * 	<code>my-git-repo/265cfa0cf6af46153527f55d6503ec030551f57a</code>.</p>
    *             </li>
    *             <li>
-   * 	              <p>For <code>S3</code>,
+   *                <p>For <code>S3</code>,
    * 	the format is the S3 bucket name and object key, separated by a forward slash.
    * 	For example,
    * 	<code>my-s3-bucket/Folders/my-source-file</code>.</p>
@@ -396,6 +476,7 @@ export interface SourceBuildInformation {
 }
 
 /**
+ * @public
  * <p>The bucket and key of an item stored in Amazon S3.</p>
  */
 export interface S3Location {
@@ -410,9 +491,25 @@ export interface S3Location {
   S3Key?: string;
 }
 
-export type ApplicationVersionStatus = "Building" | "Failed" | "Processed" | "Processing" | "Unprocessed";
+/**
+ * @public
+ * @enum
+ */
+export const ApplicationVersionStatus = {
+  Building: "Building",
+  Failed: "Failed",
+  Processed: "Processed",
+  Processing: "Processing",
+  Unprocessed: "Unprocessed",
+} as const;
 
 /**
+ * @public
+ */
+export type ApplicationVersionStatus = (typeof ApplicationVersionStatus)[keyof typeof ApplicationVersionStatus];
+
+/**
+ * @public
  * <p>Describes the properties of an application version.</p>
  */
 export interface ApplicationVersionDescription {
@@ -498,6 +595,7 @@ export interface ApplicationVersionDescription {
 }
 
 /**
+ * @public
  * <p>Result message wrapping a single description of an application version.</p>
  */
 export interface ApplicationVersionDescriptionMessage {
@@ -509,6 +607,7 @@ export interface ApplicationVersionDescriptionMessage {
 }
 
 /**
+ * @public
  * <p>Result message wrapping a list of application version descriptions.</p>
  */
 export interface ApplicationVersionDescriptionsMessage {
@@ -526,6 +625,7 @@ export interface ApplicationVersionDescriptionsMessage {
 }
 
 /**
+ * @public
  * <p>Request to execute a scheduled managed action immediately.</p>
  */
 export interface ApplyEnvironmentManagedActionRequest {
@@ -546,6 +646,7 @@ export interface ApplyEnvironmentManagedActionRequest {
 }
 
 /**
+ * @public
  * <p>The result message containing information about the managed action.</p>
  */
 export interface ApplyEnvironmentManagedActionResult {
@@ -571,6 +672,7 @@ export interface ApplyEnvironmentManagedActionResult {
 }
 
 /**
+ * @public
  * <p>A generic service exception has occurred.</p>
  */
 export class ElasticBeanstalkServiceException extends __BaseException {
@@ -590,6 +692,7 @@ export class ElasticBeanstalkServiceException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Cannot modify the managed action in its current state.</p>
  */
 export class ManagedActionInvalidStateException extends __BaseException {
@@ -609,6 +712,7 @@ export class ManagedActionInvalidStateException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Request to add or change the operations role used by an environment.</p>
  */
 export interface AssociateEnvironmentOperationsRoleMessage {
@@ -625,6 +729,7 @@ export interface AssociateEnvironmentOperationsRoleMessage {
 }
 
 /**
+ * @public
  * <p>Describes an Auto Scaling launch configuration.</p>
  */
 export interface AutoScalingGroup {
@@ -635,6 +740,7 @@ export interface AutoScalingGroup {
 }
 
 /**
+ * @public
  * <p>Describes the solution stack.</p>
  */
 export interface SolutionStackDescription {
@@ -650,6 +756,7 @@ export interface SolutionStackDescription {
 }
 
 /**
+ * @public
  * <p>Results message indicating whether a CNAME is available.</p>
  */
 export interface CheckDNSAvailabilityMessage {
@@ -660,6 +767,7 @@ export interface CheckDNSAvailabilityMessage {
 }
 
 /**
+ * @public
  * <p>Indicates if the specified CNAME is available.</p>
  */
 export interface CheckDNSAvailabilityResultMessage {
@@ -686,6 +794,7 @@ export interface CheckDNSAvailabilityResultMessage {
 }
 
 /**
+ * @public
  * <p>Request to create or update a group of environments.</p>
  */
 export interface ComposeEnvironmentsMessage {
@@ -712,6 +821,7 @@ export interface ComposeEnvironmentsMessage {
 }
 
 /**
+ * @public
  * <p>A link to another environment, defined in the environment's manifest. Links provide
  *       connection information in system properties that can be used to connect to another environment
  *       in the same group. See <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html">Environment Manifest
@@ -729,20 +839,45 @@ export interface EnvironmentLink {
   EnvironmentName?: string;
 }
 
-export type EnvironmentHealth = "Green" | "Grey" | "Red" | "Yellow";
-
-export type EnvironmentHealthStatus =
-  | "Degraded"
-  | "Info"
-  | "NoData"
-  | "Ok"
-  | "Pending"
-  | "Severe"
-  | "Suspended"
-  | "Unknown"
-  | "Warning";
+/**
+ * @public
+ * @enum
+ */
+export const EnvironmentHealth = {
+  Green: "Green",
+  Grey: "Grey",
+  Red: "Red",
+  Yellow: "Yellow",
+} as const;
 
 /**
+ * @public
+ */
+export type EnvironmentHealth = (typeof EnvironmentHealth)[keyof typeof EnvironmentHealth];
+
+/**
+ * @public
+ * @enum
+ */
+export const EnvironmentHealthStatus = {
+  Degraded: "Degraded",
+  Info: "Info",
+  NoData: "NoData",
+  Ok: "Ok",
+  Pending: "Pending",
+  Severe: "Severe",
+  Suspended: "Suspended",
+  Unknown: "Unknown",
+  Warning: "Warning",
+} as const;
+
+/**
+ * @public
+ */
+export type EnvironmentHealthStatus = (typeof EnvironmentHealthStatus)[keyof typeof EnvironmentHealthStatus];
+
+/**
+ * @public
  * <p>Describes the properties of a Listener for the LoadBalancer.</p>
  */
 export interface Listener {
@@ -758,6 +893,7 @@ export interface Listener {
 }
 
 /**
+ * @public
  * <p>Describes the details of a LoadBalancer.</p>
  */
 export interface LoadBalancerDescription {
@@ -778,6 +914,7 @@ export interface LoadBalancerDescription {
 }
 
 /**
+ * @public
  * <p>Describes the AWS resources in use by this environment. This data is not live
  *       data.</p>
  */
@@ -788,17 +925,28 @@ export interface EnvironmentResourcesDescription {
   LoadBalancer?: LoadBalancerDescription;
 }
 
-export type EnvironmentStatus =
-  | "Aborting"
-  | "Launching"
-  | "LinkingFrom"
-  | "LinkingTo"
-  | "Ready"
-  | "Terminated"
-  | "Terminating"
-  | "Updating";
+/**
+ * @public
+ * @enum
+ */
+export const EnvironmentStatus = {
+  Aborting: "Aborting",
+  Launching: "Launching",
+  LinkingFrom: "LinkingFrom",
+  LinkingTo: "LinkingTo",
+  Ready: "Ready",
+  Terminated: "Terminated",
+  Terminating: "Terminating",
+  Updating: "Updating",
+} as const;
 
 /**
+ * @public
+ */
+export type EnvironmentStatus = (typeof EnvironmentStatus)[keyof typeof EnvironmentStatus];
+
+/**
+ * @public
  * <p>Describes the properties of an environment tier</p>
  */
 export interface EnvironmentTier {
@@ -846,6 +994,7 @@ export interface EnvironmentTier {
 }
 
 /**
+ * @public
  * <p>Describes the properties of an environment.</p>
  */
 export interface EnvironmentDescription {
@@ -913,7 +1062,6 @@ export interface EnvironmentDescription {
 
   /**
    * <p>The current operational status of the environment:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -1016,6 +1164,7 @@ export interface EnvironmentDescription {
 }
 
 /**
+ * @public
  * <p>Result message containing a list of environment descriptions.</p>
  */
 export interface EnvironmentDescriptionsMessage {
@@ -1032,6 +1181,7 @@ export interface EnvironmentDescriptionsMessage {
 }
 
 /**
+ * @public
  * <p>The specified account has reached its limit of environments.</p>
  */
 export class TooManyEnvironmentsException extends __BaseException {
@@ -1051,6 +1201,7 @@ export class TooManyEnvironmentsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Describes a tag applied to a resource in an environment.</p>
  */
 export interface Tag {
@@ -1066,6 +1217,7 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>Request to create an application.</p>
  */
 export interface CreateApplicationMessage {
@@ -1094,6 +1246,7 @@ export interface CreateApplicationMessage {
 }
 
 /**
+ * @public
  * <p>The specified account has reached its limit of applications.</p>
  */
 export class TooManyApplicationsException extends __BaseException {
@@ -1113,6 +1266,7 @@ export class TooManyApplicationsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>AWS CodeBuild is not available in the specified region.</p>
  */
 export class CodeBuildNotInServiceRegionException extends __BaseException {
@@ -1131,13 +1285,23 @@ export class CodeBuildNotInServiceRegionException extends __BaseException {
   }
 }
 
-export enum ComputeType {
-  BUILD_GENERAL1_LARGE = "BUILD_GENERAL1_LARGE",
-  BUILD_GENERAL1_MEDIUM = "BUILD_GENERAL1_MEDIUM",
-  BUILD_GENERAL1_SMALL = "BUILD_GENERAL1_SMALL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ComputeType = {
+  BUILD_GENERAL1_LARGE: "BUILD_GENERAL1_LARGE",
+  BUILD_GENERAL1_MEDIUM: "BUILD_GENERAL1_MEDIUM",
+  BUILD_GENERAL1_SMALL: "BUILD_GENERAL1_SMALL",
+} as const;
 
 /**
+ * @public
+ */
+export type ComputeType = (typeof ComputeType)[keyof typeof ComputeType];
+
+/**
+ * @public
  * <p>Settings for an AWS CodeBuild build.</p>
  */
 export interface BuildConfiguration {
@@ -1165,12 +1329,12 @@ export interface BuildConfiguration {
    *                </p>
    *             </li>
    *             <li>
-   * 	              <p>
+   *                <p>
    *                   <code>BUILD_GENERAL1_MEDIUM: Use up to 7 GB memory and 4 vCPUs for builds</code>
    *                </p>
    *             </li>
    *             <li>
-   * 	              <p>
+   *                <p>
    *                   <code>BUILD_GENERAL1_LARGE: Use up to 15 GB memory and 8 vCPUs for builds</code>
    *                </p>
    *             </li>
@@ -1190,6 +1354,7 @@ export interface BuildConfiguration {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface CreateApplicationVersionMessage {
@@ -1269,18 +1434,19 @@ export interface CreateApplicationVersionMessage {
 }
 
 /**
+ * @public
  * <p>The specified S3 bucket does not belong to the S3 region in which the service is
  *       running. The following regions are supported:</p>
  *          <ul>
  *             <li>
- * 	              <p>IAD/us-east-1</p>
- * 	           </li>
+ *                <p>IAD/us-east-1</p>
+ *             </li>
  *             <li>
- * 	              <p>PDX/us-west-2</p>
- * 	           </li>
+ *                <p>PDX/us-west-2</p>
+ *             </li>
  *             <li>
- * 	              <p>DUB/eu-west-1</p>
- * 	           </li>
+ *                <p>DUB/eu-west-1</p>
+ *             </li>
  *          </ul>
  */
 export class S3LocationNotInServiceRegionException extends __BaseException {
@@ -1300,6 +1466,7 @@ export class S3LocationNotInServiceRegionException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified account has reached its limit of application versions.</p>
  */
 export class TooManyApplicationVersionsException extends __BaseException {
@@ -1318,9 +1485,24 @@ export class TooManyApplicationVersionsException extends __BaseException {
   }
 }
 
-export type ConfigurationDeploymentStatus = "deployed" | "failed" | "pending";
+/**
+ * @public
+ * @enum
+ */
+export const ConfigurationDeploymentStatus = {
+  deployed: "deployed",
+  failed: "failed",
+  pending: "pending",
+} as const;
 
 /**
+ * @public
+ */
+export type ConfigurationDeploymentStatus =
+  (typeof ConfigurationDeploymentStatus)[keyof typeof ConfigurationDeploymentStatus];
+
+/**
+ * @public
  * <p>A specification identifying an individual configuration option along with its current
  *       value. For a list of possible namespaces and option values, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html">Option Values</a> in the
  *       <i>AWS Elastic Beanstalk Developer Guide</i>. </p>
@@ -1348,6 +1530,7 @@ export interface ConfigurationOptionSetting {
 }
 
 /**
+ * @public
  * <p>Describes the settings for a configuration set.</p>
  */
 export interface ConfigurationSettingsDescription {
@@ -1430,6 +1613,7 @@ export interface ConfigurationSettingsDescription {
 }
 
 /**
+ * @public
  * <p>A specification for an environment configuration.</p>
  */
 export interface SourceConfiguration {
@@ -1445,6 +1629,7 @@ export interface SourceConfiguration {
 }
 
 /**
+ * @public
  * <p>Request to create a configuration template.</p>
  */
 export interface CreateConfigurationTemplateMessage {
@@ -1481,7 +1666,6 @@ export interface CreateConfigurationTemplateMessage {
    * <p>The Amazon Resource Name (ARN) of the custom platform. For more information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/custom-platforms.html"> Custom
    *         Platforms</a> in the <i>AWS Elastic Beanstalk Developer Guide</i>.</p>
    *          <note>
-   *
    *             <p>If you specify <code>PlatformArn</code>, then don't specify
    *           <code>SolutionStackName</code>.</p>
    *          </note>
@@ -1530,6 +1714,7 @@ export interface CreateConfigurationTemplateMessage {
 }
 
 /**
+ * @public
  * <p>The specified account has reached its limit of Amazon S3 buckets.</p>
  */
 export class TooManyBucketsException extends __BaseException {
@@ -1549,6 +1734,7 @@ export class TooManyBucketsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified account has reached its limit of configuration templates.</p>
  */
 export class TooManyConfigurationTemplatesException extends __BaseException {
@@ -1568,6 +1754,7 @@ export class TooManyConfigurationTemplatesException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A specification identifying an individual configuration option.</p>
  */
 export interface OptionSpecification {
@@ -1588,6 +1775,7 @@ export interface OptionSpecification {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface CreateEnvironmentMessage {
@@ -1671,7 +1859,6 @@ export interface CreateEnvironmentMessage {
    *       more information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/custom-platforms.html">Custom Platforms</a> in the
    *         <i>AWS Elastic Beanstalk Developer Guide</i>.</p>
    *          <note>
-   *
    *             <p>If you specify <code>PlatformArn</code>, don't specify
    *         <code>SolutionStackName</code>.</p>
    *          </note>
@@ -1703,6 +1890,7 @@ export interface CreateEnvironmentMessage {
 }
 
 /**
+ * @public
  * <p>Request to create a new platform version.</p>
  */
 export interface CreatePlatformVersionRequest {
@@ -1740,6 +1928,7 @@ export interface CreatePlatformVersionRequest {
 }
 
 /**
+ * @public
  * <p>The builder used to build the custom platform.</p>
  */
 export interface Builder {
@@ -1749,9 +1938,25 @@ export interface Builder {
   ARN?: string;
 }
 
-export type PlatformStatus = "Creating" | "Deleted" | "Deleting" | "Failed" | "Ready";
+/**
+ * @public
+ * @enum
+ */
+export const PlatformStatus = {
+  Creating: "Creating",
+  Deleted: "Deleted",
+  Deleting: "Deleting",
+  Failed: "Failed",
+  Ready: "Ready",
+} as const;
 
 /**
+ * @public
+ */
+export type PlatformStatus = (typeof PlatformStatus)[keyof typeof PlatformStatus];
+
+/**
+ * @public
  * <p>Summary information about a platform version.</p>
  */
 export interface PlatformSummary {
@@ -1823,6 +2028,9 @@ export interface PlatformSummary {
   PlatformBranchLifecycleState?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreatePlatformVersionResult {
   /**
    * <p>Detailed information about the new version of the custom platform.</p>
@@ -1836,6 +2044,7 @@ export interface CreatePlatformVersionResult {
 }
 
 /**
+ * @public
  * <p>You have exceeded the maximum number of allowed platforms associated with the account.</p>
  */
 export class TooManyPlatformsException extends __BaseException {
@@ -1855,6 +2064,7 @@ export class TooManyPlatformsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Results of a <a>CreateStorageLocationResult</a> call.</p>
  */
 export interface CreateStorageLocationResultMessage {
@@ -1865,6 +2075,7 @@ export interface CreateStorageLocationResultMessage {
 }
 
 /**
+ * @public
  * <p>The specified account does not have a subscription to Amazon S3.</p>
  */
 export class S3SubscriptionRequiredException extends __BaseException {
@@ -1884,6 +2095,7 @@ export class S3SubscriptionRequiredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Request to delete an application.</p>
  */
 export interface DeleteApplicationMessage {
@@ -1900,6 +2112,7 @@ export interface DeleteApplicationMessage {
 }
 
 /**
+ * @public
  * <p>Unable to perform the specified operation because another operation that effects an
  *       element in this activity is already in progress.</p>
  */
@@ -1920,6 +2133,7 @@ export class OperationInProgressException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Request to delete an application version.</p>
  */
 export interface DeleteApplicationVersionMessage {
@@ -1942,6 +2156,7 @@ export interface DeleteApplicationVersionMessage {
 }
 
 /**
+ * @public
  * <p>Unable to delete the Amazon S3 source bundle associated with the application version.
  *       The application version was deleted successfully.</p>
  */
@@ -1962,6 +2177,7 @@ export class SourceBundleDeletionException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Request to delete a configuration template.</p>
  */
 export interface DeleteConfigurationTemplateMessage {
@@ -1977,6 +2193,7 @@ export interface DeleteConfigurationTemplateMessage {
 }
 
 /**
+ * @public
  * <p>Request to delete a draft environment configuration.</p>
  */
 export interface DeleteEnvironmentConfigurationMessage {
@@ -1991,6 +2208,9 @@ export interface DeleteEnvironmentConfigurationMessage {
   EnvironmentName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePlatformVersionRequest {
   /**
    * <p>The ARN of the version of the custom platform.</p>
@@ -1998,6 +2218,9 @@ export interface DeletePlatformVersionRequest {
   PlatformArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeletePlatformVersionResult {
   /**
    * <p>Detailed information about the version of the custom platform.</p>
@@ -2006,6 +2229,7 @@ export interface DeletePlatformVersionResult {
 }
 
 /**
+ * @public
  * <p>You cannot delete the platform version because there are still environments running on it.</p>
  */
 export class PlatformVersionStillReferencedException extends __BaseException {
@@ -2025,6 +2249,7 @@ export class PlatformVersionStillReferencedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The AWS Elastic Beanstalk quota information for a single resource type in an AWS account. It
  *       reflects the resource's limits for this account.</p>
  */
@@ -2037,6 +2262,7 @@ export interface ResourceQuota {
 }
 
 /**
+ * @public
  * <p>A set of per-resource AWS Elastic Beanstalk quotas associated with an AWS account. They reflect
  *       Elastic Beanstalk resource limits for this account.</p>
  */
@@ -2067,6 +2293,9 @@ export interface ResourceQuotas {
   CustomPlatformQuota?: ResourceQuota;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAccountAttributesResult {
   /**
    * <p>The Elastic Beanstalk resource quotas associated with the calling AWS account.</p>
@@ -2075,6 +2304,7 @@ export interface DescribeAccountAttributesResult {
 }
 
 /**
+ * @public
  * <p>Request to describe one or more applications.</p>
  */
 export interface DescribeApplicationsMessage {
@@ -2086,6 +2316,7 @@ export interface DescribeApplicationsMessage {
 }
 
 /**
+ * @public
  * <p>Request to describe application versions.</p>
  */
 export interface DescribeApplicationVersionsMessage {
@@ -2117,6 +2348,7 @@ export interface DescribeApplicationVersionsMessage {
 }
 
 /**
+ * @public
  * <p>A regular expression representing a restriction on a string configuration option
  *       value.</p>
  */
@@ -2133,9 +2365,23 @@ export interface OptionRestrictionRegex {
   Label?: string;
 }
 
-export type ConfigurationOptionValueType = "List" | "Scalar";
+/**
+ * @public
+ * @enum
+ */
+export const ConfigurationOptionValueType = {
+  List: "List",
+  Scalar: "Scalar",
+} as const;
 
 /**
+ * @public
+ */
+export type ConfigurationOptionValueType =
+  (typeof ConfigurationOptionValueType)[keyof typeof ConfigurationOptionValueType];
+
+/**
+ * @public
  * <p>Describes the possible values for a configuration option.</p>
  */
 export interface ConfigurationOptionDescription {
@@ -2260,6 +2506,7 @@ export interface ConfigurationOptionDescription {
 }
 
 /**
+ * @public
  * <p>Describes the settings for a specified configuration set.</p>
  */
 export interface ConfigurationOptionsDescription {
@@ -2280,6 +2527,7 @@ export interface ConfigurationOptionsDescription {
 }
 
 /**
+ * @public
  * <p>Result message containing a list of application version descriptions.</p>
  */
 export interface DescribeConfigurationOptionsMessage {
@@ -2319,6 +2567,7 @@ export interface DescribeConfigurationOptionsMessage {
 }
 
 /**
+ * @public
  * <p>The results from a request to change the configuration settings of an
  *       environment.</p>
  */
@@ -2330,6 +2579,7 @@ export interface ConfigurationSettingsDescriptions {
 }
 
 /**
+ * @public
  * <p>Result message containing all of the configuration settings for a specified solution
  *       stack or configuration template.</p>
  */
@@ -2358,18 +2608,28 @@ export interface DescribeConfigurationSettingsMessage {
   EnvironmentName?: string;
 }
 
-export enum EnvironmentHealthAttribute {
-  All = "All",
-  ApplicationMetrics = "ApplicationMetrics",
-  Causes = "Causes",
-  Color = "Color",
-  HealthStatus = "HealthStatus",
-  InstancesHealth = "InstancesHealth",
-  RefreshedAt = "RefreshedAt",
-  Status = "Status",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EnvironmentHealthAttribute = {
+  All: "All",
+  ApplicationMetrics: "ApplicationMetrics",
+  Causes: "Causes",
+  Color: "Color",
+  HealthStatus: "HealthStatus",
+  InstancesHealth: "InstancesHealth",
+  RefreshedAt: "RefreshedAt",
+  Status: "Status",
+} as const;
 
 /**
+ * @public
+ */
+export type EnvironmentHealthAttribute = (typeof EnvironmentHealthAttribute)[keyof typeof EnvironmentHealthAttribute];
+
+/**
+ * @public
  * <p>See the example below to learn how to create a request body.</p>
  */
 export interface DescribeEnvironmentHealthRequest {
@@ -2394,6 +2654,7 @@ export interface DescribeEnvironmentHealthRequest {
 }
 
 /**
+ * @public
  * <p>Represents summary information about the health of an instance. For more information,
  *       see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html">Health Colors and Statuses</a>.</p>
  */
@@ -2455,6 +2716,7 @@ export interface InstanceHealthSummary {
 }
 
 /**
+ * @public
  * <p>Health details for an AWS Elastic Beanstalk environment.</p>
  */
 export interface DescribeEnvironmentHealthResult {
@@ -2504,6 +2766,7 @@ export interface DescribeEnvironmentHealthResult {
 }
 
 /**
+ * @public
  * <p>One or more input parameters is not valid. Please correct the input parameters and try
  *       the operation again.</p>
  */
@@ -2524,6 +2787,7 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Request to list completed and failed managed actions.</p>
  */
 export interface DescribeEnvironmentManagedActionHistoryRequest {
@@ -2548,16 +2812,27 @@ export interface DescribeEnvironmentManagedActionHistoryRequest {
   MaxItems?: number;
 }
 
-export type FailureType =
-  | "CancellationFailed"
-  | "InternalFailure"
-  | "InvalidEnvironmentState"
-  | "PermissionsError"
-  | "RollbackFailed"
-  | "RollbackSuccessful"
-  | "UpdateCancelled";
+/**
+ * @public
+ * @enum
+ */
+export const FailureType = {
+  CancellationFailed: "CancellationFailed",
+  InternalFailure: "InternalFailure",
+  InvalidEnvironmentState: "InvalidEnvironmentState",
+  PermissionsError: "PermissionsError",
+  RollbackFailed: "RollbackFailed",
+  RollbackSuccessful: "RollbackSuccessful",
+  UpdateCancelled: "UpdateCancelled",
+} as const;
 
 /**
+ * @public
+ */
+export type FailureType = (typeof FailureType)[keyof typeof FailureType];
+
+/**
+ * @public
  * <p>The record of a completed or failed managed action.</p>
  */
 export interface ManagedActionHistoryItem {
@@ -2603,6 +2878,7 @@ export interface ManagedActionHistoryItem {
 }
 
 /**
+ * @public
  * <p>A result message containing a list of completed and failed managed actions.</p>
  */
 export interface DescribeEnvironmentManagedActionHistoryResult {
@@ -2619,6 +2895,7 @@ export interface DescribeEnvironmentManagedActionHistoryResult {
 }
 
 /**
+ * @public
  * <p>Request to list an environment's upcoming and in-progress managed actions.</p>
  */
 export interface DescribeEnvironmentManagedActionsRequest {
@@ -2639,6 +2916,7 @@ export interface DescribeEnvironmentManagedActionsRequest {
 }
 
 /**
+ * @public
  * <p>The record of an upcoming or in-progress managed action.</p>
  */
 export interface ManagedAction {
@@ -2671,6 +2949,7 @@ export interface ManagedAction {
 }
 
 /**
+ * @public
  * <p>The result message containing a list of managed actions.</p>
  */
 export interface DescribeEnvironmentManagedActionsResult {
@@ -2681,6 +2960,7 @@ export interface DescribeEnvironmentManagedActionsResult {
 }
 
 /**
+ * @public
  * <p>Request to describe the resources in an environment.</p>
  */
 export interface DescribeEnvironmentResourcesMessage {
@@ -2702,6 +2982,7 @@ export interface DescribeEnvironmentResourcesMessage {
 }
 
 /**
+ * @public
  * <p>The description of an Amazon EC2 instance.</p>
  */
 export interface Instance {
@@ -2712,6 +2993,7 @@ export interface Instance {
 }
 
 /**
+ * @public
  * <p>Describes an Auto Scaling launch configuration.</p>
  */
 export interface LaunchConfiguration {
@@ -2722,6 +3004,7 @@ export interface LaunchConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes an Amazon EC2 launch template.</p>
  */
 export interface LaunchTemplate {
@@ -2732,6 +3015,7 @@ export interface LaunchTemplate {
 }
 
 /**
+ * @public
  * <p>Describes a LoadBalancer.</p>
  */
 export interface LoadBalancer {
@@ -2742,6 +3026,7 @@ export interface LoadBalancer {
 }
 
 /**
+ * @public
  * <p>Describes a queue.</p>
  */
 export interface Queue {
@@ -2757,6 +3042,7 @@ export interface Queue {
 }
 
 /**
+ * @public
  * <p>Describes a trigger.</p>
  */
 export interface Trigger {
@@ -2767,6 +3053,7 @@ export interface Trigger {
 }
 
 /**
+ * @public
  * <p>Describes the AWS resources in use by this environment. This data is live.</p>
  */
 export interface EnvironmentResourceDescription {
@@ -2812,6 +3099,7 @@ export interface EnvironmentResourceDescription {
 }
 
 /**
+ * @public
  * <p>Result message containing a list of environment resource descriptions.</p>
  */
 export interface EnvironmentResourceDescriptionsMessage {
@@ -2822,6 +3110,7 @@ export interface EnvironmentResourceDescriptionsMessage {
 }
 
 /**
+ * @public
  * <p>Request to describe one or more environments.</p>
  */
 export interface DescribeEnvironmentsMessage {
@@ -2881,9 +3170,26 @@ export interface DescribeEnvironmentsMessage {
   NextToken?: string;
 }
 
-export type EventSeverity = "DEBUG" | "ERROR" | "FATAL" | "INFO" | "TRACE" | "WARN";
+/**
+ * @public
+ * @enum
+ */
+export const EventSeverity = {
+  DEBUG: "DEBUG",
+  ERROR: "ERROR",
+  FATAL: "FATAL",
+  INFO: "INFO",
+  TRACE: "TRACE",
+  WARN: "WARN",
+} as const;
 
 /**
+ * @public
+ */
+export type EventSeverity = (typeof EventSeverity)[keyof typeof EventSeverity];
+
+/**
+ * @public
  * <p>Request to retrieve a list of events for an environment.</p>
  */
 export interface DescribeEventsMessage {
@@ -2960,6 +3266,7 @@ export interface DescribeEventsMessage {
 }
 
 /**
+ * @public
  * <p>Describes an event.</p>
  */
 export interface EventDescription {
@@ -3010,6 +3317,7 @@ export interface EventDescription {
 }
 
 /**
+ * @public
  * <p>Result message wrapping a list of event descriptions.</p>
  */
 export interface EventDescriptionsMessage {
@@ -3025,21 +3333,31 @@ export interface EventDescriptionsMessage {
   NextToken?: string;
 }
 
-export enum InstancesHealthAttribute {
-  All = "All",
-  ApplicationMetrics = "ApplicationMetrics",
-  AvailabilityZone = "AvailabilityZone",
-  Causes = "Causes",
-  Color = "Color",
-  Deployment = "Deployment",
-  HealthStatus = "HealthStatus",
-  InstanceType = "InstanceType",
-  LaunchedAt = "LaunchedAt",
-  RefreshedAt = "RefreshedAt",
-  System = "System",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InstancesHealthAttribute = {
+  All: "All",
+  ApplicationMetrics: "ApplicationMetrics",
+  AvailabilityZone: "AvailabilityZone",
+  Causes: "Causes",
+  Color: "Color",
+  Deployment: "Deployment",
+  HealthStatus: "HealthStatus",
+  InstanceType: "InstanceType",
+  LaunchedAt: "LaunchedAt",
+  RefreshedAt: "RefreshedAt",
+  System: "System",
+} as const;
 
 /**
+ * @public
+ */
+export type InstancesHealthAttribute = (typeof InstancesHealthAttribute)[keyof typeof InstancesHealthAttribute];
+
+/**
+ * @public
  * <p>Parameters for a call to <code>DescribeInstancesHealth</code>.</p>
  */
 export interface DescribeInstancesHealthRequest {
@@ -3067,6 +3385,7 @@ export interface DescribeInstancesHealthRequest {
 }
 
 /**
+ * @public
  * <p>Information about an application version deployment.</p>
  */
 export interface Deployment {
@@ -3108,6 +3427,7 @@ export interface Deployment {
 }
 
 /**
+ * @public
  * <p>CPU utilization metrics for an instance.</p>
  */
 export interface CPUUtilization {
@@ -3167,6 +3487,7 @@ export interface CPUUtilization {
 }
 
 /**
+ * @public
  * <p>CPU utilization and load average metrics for an Amazon EC2 instance.</p>
  */
 export interface SystemStatus {
@@ -3184,6 +3505,7 @@ export interface SystemStatus {
 }
 
 /**
+ * @public
  * <p>Detailed health information about an Amazon EC2 instance in your Elastic Beanstalk
  *       environment.</p>
  */
@@ -3244,6 +3566,7 @@ export interface SingleInstanceHealth {
 }
 
 /**
+ * @public
  * <p>Detailed health information about the Amazon EC2 instances in an AWS Elastic Beanstalk
  *       environment.</p>
  */
@@ -3266,6 +3589,9 @@ export interface DescribeInstancesHealthResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribePlatformVersionRequest {
   /**
    * <p>The ARN of the platform version.</p>
@@ -3274,6 +3600,7 @@ export interface DescribePlatformVersionRequest {
 }
 
 /**
+ * @public
  * <p>A custom AMI available to platforms.</p>
  */
 export interface CustomAmi {
@@ -3289,6 +3616,7 @@ export interface CustomAmi {
 }
 
 /**
+ * @public
  * <p>A framework supported by the platform.</p>
  */
 export interface PlatformFramework {
@@ -3304,6 +3632,7 @@ export interface PlatformFramework {
 }
 
 /**
+ * @public
  * <p>A programming language supported by the platform.</p>
  */
 export interface PlatformProgrammingLanguage {
@@ -3319,6 +3648,7 @@ export interface PlatformProgrammingLanguage {
 }
 
 /**
+ * @public
  * <p>Detailed information about a platform version.</p>
  */
 export interface PlatformDescription {
@@ -3436,6 +3766,9 @@ export interface PlatformDescription {
   PlatformBranchLifecycleState?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribePlatformVersionResult {
   /**
    * <p>Detailed information about the platform version.</p>
@@ -3444,6 +3777,7 @@ export interface DescribePlatformVersionResult {
 }
 
 /**
+ * @public
  * <p>Request to disassociate the operations role from an environment.</p>
  */
 export interface DisassociateEnvironmentOperationsRoleMessage {
@@ -3454,6 +3788,7 @@ export interface DisassociateEnvironmentOperationsRoleMessage {
 }
 
 /**
+ * @public
  * <p>A list of available AWS Elastic Beanstalk solution stacks.</p>
  */
 export interface ListAvailableSolutionStacksResultMessage {
@@ -3469,6 +3804,7 @@ export interface ListAvailableSolutionStacksResultMessage {
 }
 
 /**
+ * @public
  * <p>Describes criteria to restrict a list of results.</p>
  *          <p>For operators that apply a single value to the attribute, the filter is evaluated as
  *       follows: <code>Attribute Operator Values[1]</code>
@@ -3502,6 +3838,9 @@ export interface SearchFilter {
   Values?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListPlatformBranchesRequest {
   /**
    * <p>Criteria for restricting the resulting list of platform branches. The filter is evaluated
@@ -3592,6 +3931,7 @@ export interface ListPlatformBranchesRequest {
 }
 
 /**
+ * @public
  * <p>Summary information about a platform branch.</p>
  */
 export interface PlatformBranchSummary {
@@ -3631,6 +3971,9 @@ export interface PlatformBranchSummary {
   SupportedTierList?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListPlatformBranchesResult {
   /**
    * <p>Summary information about the platform branches.</p>
@@ -3645,6 +3988,7 @@ export interface ListPlatformBranchesResult {
 }
 
 /**
+ * @public
  * <p>Describes criteria to restrict the results when listing platform versions.</p>
  *          <p>The filter is evaluated as follows: <code>Type Operator Values[1]</code>
  *          </p>
@@ -3705,6 +4049,9 @@ export interface PlatformFilter {
   Values?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListPlatformVersionsRequest {
   /**
    * <p>Criteria for restricting the resulting list of platform versions. The filter is
@@ -3727,6 +4074,9 @@ export interface ListPlatformVersionsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPlatformVersionsResult {
   /**
    * <p>Summary information about the platform versions.</p>
@@ -3740,6 +4090,9 @@ export interface ListPlatformVersionsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceMessage {
   /**
    * <p>The Amazon Resource Name (ARN) of the resouce for which a tag list is requested.</p>
@@ -3749,6 +4102,7 @@ export interface ListTagsForResourceMessage {
 }
 
 /**
+ * @public
  * <p>A resource doesn't exist for the specified Amazon Resource Name (ARN).</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -3767,6 +4121,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ResourceTagsDescriptionMessage {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource for which a tag list was requested.</p>
@@ -3780,6 +4137,7 @@ export interface ResourceTagsDescriptionMessage {
 }
 
 /**
+ * @public
  * <p>The type of the specified Amazon Resource Name (ARN) isn't supported for this operation.</p>
  */
 export class ResourceTypeNotSupportedException extends __BaseException {
@@ -3799,6 +4157,7 @@ export class ResourceTypeNotSupportedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface RebuildEnvironmentMessage {
@@ -3819,9 +4178,22 @@ export interface RebuildEnvironmentMessage {
   EnvironmentName?: string;
 }
 
-export type EnvironmentInfoType = "bundle" | "tail";
+/**
+ * @public
+ * @enum
+ */
+export const EnvironmentInfoType = {
+  bundle: "bundle",
+  tail: "tail",
+} as const;
 
 /**
+ * @public
+ */
+export type EnvironmentInfoType = (typeof EnvironmentInfoType)[keyof typeof EnvironmentInfoType];
+
+/**
+ * @public
  * <p>Request to retrieve logs from an environment and store them in your Elastic Beanstalk
  *       storage bucket.</p>
  */
@@ -3853,6 +4225,7 @@ export interface RequestEnvironmentInfoMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface RestartAppServerMessage {
@@ -3874,6 +4247,7 @@ export interface RestartAppServerMessage {
 }
 
 /**
+ * @public
  * <p>Request to download logs retrieved with <a>RequestEnvironmentInfo</a>.</p>
  */
 export interface RetrieveEnvironmentInfoMessage {
@@ -3903,6 +4277,7 @@ export interface RetrieveEnvironmentInfoMessage {
 }
 
 /**
+ * @public
  * <p>The information retrieved from the Amazon EC2 instances.</p>
  */
 export interface EnvironmentInfoDescription {
@@ -3931,6 +4306,7 @@ export interface EnvironmentInfoDescription {
 }
 
 /**
+ * @public
  * <p>Result message containing a description of the requested environment info.</p>
  */
 export interface RetrieveEnvironmentInfoResultMessage {
@@ -3941,6 +4317,7 @@ export interface RetrieveEnvironmentInfoResultMessage {
 }
 
 /**
+ * @public
  * <p>Swaps the CNAMEs of two environments.</p>
  */
 export interface SwapEnvironmentCNAMEsMessage {
@@ -3981,6 +4358,7 @@ export interface SwapEnvironmentCNAMEsMessage {
 }
 
 /**
+ * @public
  * <p>Request to terminate an environment.</p>
  */
 export interface TerminateEnvironmentMessage {
@@ -4032,6 +4410,7 @@ export interface TerminateEnvironmentMessage {
 }
 
 /**
+ * @public
  * <p>Request to update an application.</p>
  */
 export interface UpdateApplicationMessage {
@@ -4050,6 +4429,9 @@ export interface UpdateApplicationMessage {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateApplicationResourceLifecycleMessage {
   /**
    * <p>The name of the application.</p>
@@ -4063,6 +4445,7 @@ export interface UpdateApplicationResourceLifecycleMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface UpdateApplicationVersionMessage {
@@ -4087,6 +4470,7 @@ export interface UpdateApplicationVersionMessage {
 }
 
 /**
+ * @public
  * <p>The result message containing the options for the specified solution stack.</p>
  */
 export interface UpdateConfigurationTemplateMessage {
@@ -4126,6 +4510,7 @@ export interface UpdateConfigurationTemplateMessage {
 }
 
 /**
+ * @public
  * <p>Request to update an environment.</p>
  */
 export interface UpdateEnvironmentMessage {
@@ -4214,6 +4599,7 @@ export interface UpdateEnvironmentMessage {
 }
 
 /**
+ * @public
  * <p>The number of tags in the resource would exceed the number of tags that each resource
  *       can have.</p>
  *          <p>To calculate this, the operation considers both the number of tags the resource already has
@@ -4235,6 +4621,9 @@ export class TooManyTagsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UpdateTagsForResourceMessage {
   /**
    * <p>The Amazon Resource Name (ARN) of the resouce to be updated.</p>
@@ -4258,9 +4647,22 @@ export interface UpdateTagsForResourceMessage {
   TagsToRemove?: string[];
 }
 
-export type ValidationSeverity = "error" | "warning";
+/**
+ * @public
+ * @enum
+ */
+export const ValidationSeverity = {
+  error: "error",
+  warning: "warning",
+} as const;
 
 /**
+ * @public
+ */
+export type ValidationSeverity = (typeof ValidationSeverity)[keyof typeof ValidationSeverity];
+
+/**
+ * @public
  * <p>An error or warning for a desired configuration option value.</p>
  */
 export interface ValidationMessage {
@@ -4298,6 +4700,7 @@ export interface ValidationMessage {
 }
 
 /**
+ * @public
  * <p>Provides a list of validation messages.</p>
  */
 export interface ConfigurationSettingsValidationMessages {
@@ -4308,6 +4711,7 @@ export interface ConfigurationSettingsValidationMessages {
 }
 
 /**
+ * @public
  * <p>A list of validation messages for a specified configuration template.</p>
  */
 export interface ValidateConfigurationSettingsMessage {
@@ -4334,927 +4738,3 @@ export interface ValidateConfigurationSettingsMessage {
    */
   OptionSettings: ConfigurationOptionSetting[] | undefined;
 }
-
-/**
- * @internal
- */
-export const AbortEnvironmentUpdateMessageFilterSensitiveLog = (obj: AbortEnvironmentUpdateMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MaxAgeRuleFilterSensitiveLog = (obj: MaxAgeRule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MaxCountRuleFilterSensitiveLog = (obj: MaxCountRule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApplicationVersionLifecycleConfigFilterSensitiveLog = (obj: ApplicationVersionLifecycleConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApplicationResourceLifecycleConfigFilterSensitiveLog = (obj: ApplicationResourceLifecycleConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApplicationDescriptionFilterSensitiveLog = (obj: ApplicationDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApplicationDescriptionMessageFilterSensitiveLog = (obj: ApplicationDescriptionMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApplicationDescriptionsMessageFilterSensitiveLog = (obj: ApplicationDescriptionsMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LatencyFilterSensitiveLog = (obj: Latency): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StatusCodesFilterSensitiveLog = (obj: StatusCodes): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApplicationMetricsFilterSensitiveLog = (obj: ApplicationMetrics): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApplicationResourceLifecycleDescriptionMessageFilterSensitiveLog = (
-  obj: ApplicationResourceLifecycleDescriptionMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SourceBuildInformationFilterSensitiveLog = (obj: SourceBuildInformation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3LocationFilterSensitiveLog = (obj: S3Location): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApplicationVersionDescriptionFilterSensitiveLog = (obj: ApplicationVersionDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApplicationVersionDescriptionMessageFilterSensitiveLog = (
-  obj: ApplicationVersionDescriptionMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApplicationVersionDescriptionsMessageFilterSensitiveLog = (
-  obj: ApplicationVersionDescriptionsMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApplyEnvironmentManagedActionRequestFilterSensitiveLog = (
-  obj: ApplyEnvironmentManagedActionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApplyEnvironmentManagedActionResultFilterSensitiveLog = (
-  obj: ApplyEnvironmentManagedActionResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateEnvironmentOperationsRoleMessageFilterSensitiveLog = (
-  obj: AssociateEnvironmentOperationsRoleMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoScalingGroupFilterSensitiveLog = (obj: AutoScalingGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SolutionStackDescriptionFilterSensitiveLog = (obj: SolutionStackDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CheckDNSAvailabilityMessageFilterSensitiveLog = (obj: CheckDNSAvailabilityMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CheckDNSAvailabilityResultMessageFilterSensitiveLog = (obj: CheckDNSAvailabilityResultMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ComposeEnvironmentsMessageFilterSensitiveLog = (obj: ComposeEnvironmentsMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnvironmentLinkFilterSensitiveLog = (obj: EnvironmentLink): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListenerFilterSensitiveLog = (obj: Listener): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LoadBalancerDescriptionFilterSensitiveLog = (obj: LoadBalancerDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnvironmentResourcesDescriptionFilterSensitiveLog = (obj: EnvironmentResourcesDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnvironmentTierFilterSensitiveLog = (obj: EnvironmentTier): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnvironmentDescriptionFilterSensitiveLog = (obj: EnvironmentDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnvironmentDescriptionsMessageFilterSensitiveLog = (obj: EnvironmentDescriptionsMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateApplicationMessageFilterSensitiveLog = (obj: CreateApplicationMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BuildConfigurationFilterSensitiveLog = (obj: BuildConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateApplicationVersionMessageFilterSensitiveLog = (obj: CreateApplicationVersionMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConfigurationOptionSettingFilterSensitiveLog = (obj: ConfigurationOptionSetting): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConfigurationSettingsDescriptionFilterSensitiveLog = (obj: ConfigurationSettingsDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SourceConfigurationFilterSensitiveLog = (obj: SourceConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateConfigurationTemplateMessageFilterSensitiveLog = (obj: CreateConfigurationTemplateMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OptionSpecificationFilterSensitiveLog = (obj: OptionSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateEnvironmentMessageFilterSensitiveLog = (obj: CreateEnvironmentMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePlatformVersionRequestFilterSensitiveLog = (obj: CreatePlatformVersionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BuilderFilterSensitiveLog = (obj: Builder): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PlatformSummaryFilterSensitiveLog = (obj: PlatformSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePlatformVersionResultFilterSensitiveLog = (obj: CreatePlatformVersionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateStorageLocationResultMessageFilterSensitiveLog = (obj: CreateStorageLocationResultMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteApplicationMessageFilterSensitiveLog = (obj: DeleteApplicationMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteApplicationVersionMessageFilterSensitiveLog = (obj: DeleteApplicationVersionMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteConfigurationTemplateMessageFilterSensitiveLog = (obj: DeleteConfigurationTemplateMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteEnvironmentConfigurationMessageFilterSensitiveLog = (
-  obj: DeleteEnvironmentConfigurationMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePlatformVersionRequestFilterSensitiveLog = (obj: DeletePlatformVersionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePlatformVersionResultFilterSensitiveLog = (obj: DeletePlatformVersionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceQuotaFilterSensitiveLog = (obj: ResourceQuota): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceQuotasFilterSensitiveLog = (obj: ResourceQuotas): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAccountAttributesResultFilterSensitiveLog = (obj: DescribeAccountAttributesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeApplicationsMessageFilterSensitiveLog = (obj: DescribeApplicationsMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeApplicationVersionsMessageFilterSensitiveLog = (obj: DescribeApplicationVersionsMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OptionRestrictionRegexFilterSensitiveLog = (obj: OptionRestrictionRegex): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConfigurationOptionDescriptionFilterSensitiveLog = (obj: ConfigurationOptionDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConfigurationOptionsDescriptionFilterSensitiveLog = (obj: ConfigurationOptionsDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeConfigurationOptionsMessageFilterSensitiveLog = (
-  obj: DescribeConfigurationOptionsMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConfigurationSettingsDescriptionsFilterSensitiveLog = (obj: ConfigurationSettingsDescriptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeConfigurationSettingsMessageFilterSensitiveLog = (
-  obj: DescribeConfigurationSettingsMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEnvironmentHealthRequestFilterSensitiveLog = (obj: DescribeEnvironmentHealthRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceHealthSummaryFilterSensitiveLog = (obj: InstanceHealthSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEnvironmentHealthResultFilterSensitiveLog = (obj: DescribeEnvironmentHealthResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEnvironmentManagedActionHistoryRequestFilterSensitiveLog = (
-  obj: DescribeEnvironmentManagedActionHistoryRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ManagedActionHistoryItemFilterSensitiveLog = (obj: ManagedActionHistoryItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEnvironmentManagedActionHistoryResultFilterSensitiveLog = (
-  obj: DescribeEnvironmentManagedActionHistoryResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEnvironmentManagedActionsRequestFilterSensitiveLog = (
-  obj: DescribeEnvironmentManagedActionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ManagedActionFilterSensitiveLog = (obj: ManagedAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEnvironmentManagedActionsResultFilterSensitiveLog = (
-  obj: DescribeEnvironmentManagedActionsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEnvironmentResourcesMessageFilterSensitiveLog = (
-  obj: DescribeEnvironmentResourcesMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceFilterSensitiveLog = (obj: Instance): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchConfigurationFilterSensitiveLog = (obj: LaunchConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchTemplateFilterSensitiveLog = (obj: LaunchTemplate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LoadBalancerFilterSensitiveLog = (obj: LoadBalancer): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const QueueFilterSensitiveLog = (obj: Queue): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TriggerFilterSensitiveLog = (obj: Trigger): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnvironmentResourceDescriptionFilterSensitiveLog = (obj: EnvironmentResourceDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnvironmentResourceDescriptionsMessageFilterSensitiveLog = (
-  obj: EnvironmentResourceDescriptionsMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEnvironmentsMessageFilterSensitiveLog = (obj: DescribeEnvironmentsMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEventsMessageFilterSensitiveLog = (obj: DescribeEventsMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventDescriptionFilterSensitiveLog = (obj: EventDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventDescriptionsMessageFilterSensitiveLog = (obj: EventDescriptionsMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInstancesHealthRequestFilterSensitiveLog = (obj: DescribeInstancesHealthRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeploymentFilterSensitiveLog = (obj: Deployment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CPUUtilizationFilterSensitiveLog = (obj: CPUUtilization): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SystemStatusFilterSensitiveLog = (obj: SystemStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SingleInstanceHealthFilterSensitiveLog = (obj: SingleInstanceHealth): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInstancesHealthResultFilterSensitiveLog = (obj: DescribeInstancesHealthResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePlatformVersionRequestFilterSensitiveLog = (obj: DescribePlatformVersionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CustomAmiFilterSensitiveLog = (obj: CustomAmi): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PlatformFrameworkFilterSensitiveLog = (obj: PlatformFramework): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PlatformProgrammingLanguageFilterSensitiveLog = (obj: PlatformProgrammingLanguage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PlatformDescriptionFilterSensitiveLog = (obj: PlatformDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePlatformVersionResultFilterSensitiveLog = (obj: DescribePlatformVersionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateEnvironmentOperationsRoleMessageFilterSensitiveLog = (
-  obj: DisassociateEnvironmentOperationsRoleMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAvailableSolutionStacksResultMessageFilterSensitiveLog = (
-  obj: ListAvailableSolutionStacksResultMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchFilterFilterSensitiveLog = (obj: SearchFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPlatformBranchesRequestFilterSensitiveLog = (obj: ListPlatformBranchesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PlatformBranchSummaryFilterSensitiveLog = (obj: PlatformBranchSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPlatformBranchesResultFilterSensitiveLog = (obj: ListPlatformBranchesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PlatformFilterFilterSensitiveLog = (obj: PlatformFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPlatformVersionsRequestFilterSensitiveLog = (obj: ListPlatformVersionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPlatformVersionsResultFilterSensitiveLog = (obj: ListPlatformVersionsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceMessageFilterSensitiveLog = (obj: ListTagsForResourceMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceTagsDescriptionMessageFilterSensitiveLog = (obj: ResourceTagsDescriptionMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RebuildEnvironmentMessageFilterSensitiveLog = (obj: RebuildEnvironmentMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RequestEnvironmentInfoMessageFilterSensitiveLog = (obj: RequestEnvironmentInfoMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RestartAppServerMessageFilterSensitiveLog = (obj: RestartAppServerMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RetrieveEnvironmentInfoMessageFilterSensitiveLog = (obj: RetrieveEnvironmentInfoMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnvironmentInfoDescriptionFilterSensitiveLog = (obj: EnvironmentInfoDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RetrieveEnvironmentInfoResultMessageFilterSensitiveLog = (
-  obj: RetrieveEnvironmentInfoResultMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SwapEnvironmentCNAMEsMessageFilterSensitiveLog = (obj: SwapEnvironmentCNAMEsMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TerminateEnvironmentMessageFilterSensitiveLog = (obj: TerminateEnvironmentMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateApplicationMessageFilterSensitiveLog = (obj: UpdateApplicationMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateApplicationResourceLifecycleMessageFilterSensitiveLog = (
-  obj: UpdateApplicationResourceLifecycleMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateApplicationVersionMessageFilterSensitiveLog = (obj: UpdateApplicationVersionMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateConfigurationTemplateMessageFilterSensitiveLog = (obj: UpdateConfigurationTemplateMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateEnvironmentMessageFilterSensitiveLog = (obj: UpdateEnvironmentMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTagsForResourceMessageFilterSensitiveLog = (obj: UpdateTagsForResourceMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidationMessageFilterSensitiveLog = (obj: ValidationMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConfigurationSettingsValidationMessagesFilterSensitiveLog = (
-  obj: ConfigurationSettingsValidationMessages
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidateConfigurationSettingsMessageFilterSensitiveLog = (
-  obj: ValidateConfigurationSettingsMessage
-): any => ({
-  ...obj,
-});

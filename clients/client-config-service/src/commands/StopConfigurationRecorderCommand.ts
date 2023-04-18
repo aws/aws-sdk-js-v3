@@ -14,19 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import {
-  StopConfigurationRecorderRequest,
-  StopConfigurationRecorderRequestFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1StopConfigurationRecorderCommand,
-  serializeAws_json1_1StopConfigurationRecorderCommand,
-} from "../protocols/Aws_json1_1";
+import { StopConfigurationRecorderRequest } from "../models/models_1";
+import { de_StopConfigurationRecorderCommand, se_StopConfigurationRecorderCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link StopConfigurationRecorderCommand}.
+ */
 export interface StopConfigurationRecorderCommandInput extends StopConfigurationRecorderRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StopConfigurationRecorderCommand}.
+ */
 export interface StopConfigurationRecorderCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops recording configurations of the Amazon Web Services resources you have selected to record in your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -34,13 +39,23 @@ export interface StopConfigurationRecorderCommandOutput extends __MetadataBearer
  * import { ConfigServiceClient, StopConfigurationRecorderCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, StopConfigurationRecorderCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // StopConfigurationRecorderRequest
+ *   ConfigurationRecorderName: "STRING_VALUE", // required
+ * };
  * const command = new StopConfigurationRecorderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopConfigurationRecorderCommandInput - {@link StopConfigurationRecorderCommandInput}
+ * @returns {@link StopConfigurationRecorderCommandOutput}
  * @see {@link StopConfigurationRecorderCommandInput} for command's `input` shape.
  * @see {@link StopConfigurationRecorderCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
+ *
+ * @throws {@link NoSuchConfigurationRecorderException} (client fault)
+ *  <p>You have specified a configuration recorder that does not
+ * 			exist.</p>
+ *
  *
  */
 export class StopConfigurationRecorderCommand extends $Command<
@@ -60,6 +75,9 @@ export class StopConfigurationRecorderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopConfigurationRecorderCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +106,8 @@ export class StopConfigurationRecorderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopConfigurationRecorderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,15 +117,21 @@ export class StopConfigurationRecorderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopConfigurationRecorderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopConfigurationRecorderCommand(input, context);
+    return se_StopConfigurationRecorderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopConfigurationRecorderCommandOutput> {
-    return deserializeAws_json1_1StopConfigurationRecorderCommand(output, context);
+    return de_StopConfigurationRecorderCommand(output, context);
   }
 
   // Start section: command_body_extra

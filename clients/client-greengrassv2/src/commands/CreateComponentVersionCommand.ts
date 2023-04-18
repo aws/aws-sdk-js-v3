@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassV2Client";
-import {
-  CreateComponentVersionRequest,
-  CreateComponentVersionRequestFilterSensitiveLog,
-  CreateComponentVersionResponse,
-  CreateComponentVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateComponentVersionCommand,
-  serializeAws_restJson1CreateComponentVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateComponentVersionRequest, CreateComponentVersionResponse } from "../models/models_0";
+import { de_CreateComponentVersionCommand, se_CreateComponentVersionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateComponentVersionCommand}.
+ */
 export interface CreateComponentVersionCommandInput extends CreateComponentVersionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateComponentVersionCommand}.
+ */
 export interface CreateComponentVersionCommandOutput extends CreateComponentVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a component. Components are software that run on Greengrass core devices. After you
  *       develop and test a component on your core device, you can use this operation to upload your
  *       component to IoT Greengrass. Then, you can deploy the component to other core devices.</p>
@@ -91,8 +94,8 @@ export interface CreateComponentVersionCommandOutput extends CreateComponentVers
  *                      </p>
  *                   </li>
  *                </ul>
- *                <p>To create a component from a Lambda function, specify <code>lambdaFunction</code>
- *           when you call this operation.</p>
+ *                <p>To create a component from a Lambda function, specify <code>lambdaFunction</code> when
+ *           you call this operation.</p>
  *                <note>
  *                   <p>IoT Greengrass currently supports Lambda functions on only Linux core devices.</p>
  *                </note>
@@ -104,13 +107,112 @@ export interface CreateComponentVersionCommandOutput extends CreateComponentVers
  * import { GreengrassV2Client, CreateComponentVersionCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
  * // const { GreengrassV2Client, CreateComponentVersionCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
  * const client = new GreengrassV2Client(config);
+ * const input = { // CreateComponentVersionRequest
+ *   inlineRecipe: "BLOB_VALUE",
+ *   lambdaFunction: { // LambdaFunctionRecipeSource
+ *     lambdaArn: "STRING_VALUE", // required
+ *     componentName: "STRING_VALUE",
+ *     componentVersion: "STRING_VALUE",
+ *     componentPlatforms: [ // ComponentPlatformList
+ *       { // ComponentPlatform
+ *         name: "STRING_VALUE",
+ *         attributes: { // PlatformAttributesMap
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *     componentDependencies: { // ComponentDependencyMap
+ *       "<keys>": { // ComponentDependencyRequirement
+ *         versionRequirement: "STRING_VALUE",
+ *         dependencyType: "HARD" || "SOFT",
+ *       },
+ *     },
+ *     componentLambdaParameters: { // LambdaExecutionParameters
+ *       eventSources: [ // LambdaEventSourceList
+ *         { // LambdaEventSource
+ *           topic: "STRING_VALUE", // required
+ *           type: "PUB_SUB" || "IOT_CORE", // required
+ *         },
+ *       ],
+ *       maxQueueSize: Number("int"),
+ *       maxInstancesCount: Number("int"),
+ *       maxIdleTimeInSeconds: Number("int"),
+ *       timeoutInSeconds: Number("int"),
+ *       statusTimeoutInSeconds: Number("int"),
+ *       pinned: true || false,
+ *       inputPayloadEncodingType: "json" || "binary",
+ *       execArgs: [ // LambdaExecArgsList
+ *         "STRING_VALUE",
+ *       ],
+ *       environmentVariables: { // LambdaEnvironmentVariables
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       linuxProcessParams: { // LambdaLinuxProcessParams
+ *         isolationMode: "GreengrassContainer" || "NoContainer",
+ *         containerParams: { // LambdaContainerParams
+ *           memorySizeInKB: Number("int"),
+ *           mountROSysfs: true || false,
+ *           volumes: [ // LambdaVolumeList
+ *             { // LambdaVolumeMount
+ *               sourcePath: "STRING_VALUE", // required
+ *               destinationPath: "STRING_VALUE", // required
+ *               permission: "ro" || "rw",
+ *               addGroupOwner: true || false,
+ *             },
+ *           ],
+ *           devices: [ // LambdaDeviceList
+ *             { // LambdaDeviceMount
+ *               path: "STRING_VALUE", // required
+ *               permission: "ro" || "rw",
+ *               addGroupOwner: true || false,
+ *             },
+ *           ],
+ *         },
+ *       },
+ *     },
+ *   },
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new CreateComponentVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateComponentVersionCommandInput - {@link CreateComponentVersionCommandInput}
+ * @returns {@link CreateComponentVersionCommandOutput}
  * @see {@link CreateComponentVersionCommandInput} for command's `input` shape.
  * @see {@link CreateComponentVersionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have permission to perform the action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Your request has conflicting operations. This can occur if you're trying to perform more
+ *       than one operation on the same resource at the same time.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>IoT Greengrass can't process your request right now. Try again later.</p>
+ *
+ * @throws {@link RequestAlreadyInProgressException} (client fault)
+ *  <p>The request is already in progress. This exception occurs when you use a client token for
+ *       multiple requests while IoT Greengrass is still processing an earlier request that uses the same client
+ *       token.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Your request exceeds a service quota. For example, you might have the maximum number of
+ *       components that you can create.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Your request exceeded a request rate quota. For example, you might have exceeded the
+ *       amount of times that you can retrieve device or deployment status per second.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
+ *       unsupported characters.</p>
+ *
  *
  */
 export class CreateComponentVersionCommand extends $Command<
@@ -130,6 +232,9 @@ export class CreateComponentVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateComponentVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -158,8 +263,8 @@ export class CreateComponentVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateComponentVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateComponentVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -169,12 +274,18 @@ export class CreateComponentVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateComponentVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateComponentVersionCommand(input, context);
+    return se_CreateComponentVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateComponentVersionCommandOutput> {
-    return deserializeAws_restJson1CreateComponentVersionCommand(output, context);
+    return de_CreateComponentVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

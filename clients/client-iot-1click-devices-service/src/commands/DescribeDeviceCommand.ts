@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoT1ClickDevicesServiceClient";
-import {
-  DescribeDeviceRequest,
-  DescribeDeviceRequestFilterSensitiveLog,
-  DescribeDeviceResponse,
-  DescribeDeviceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeDeviceCommand,
-  serializeAws_restJson1DescribeDeviceCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeDeviceRequest, DescribeDeviceResponse } from "../models/models_0";
+import { de_DescribeDeviceCommand, se_DescribeDeviceCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeDeviceCommand}.
+ */
 export interface DescribeDeviceCommandInput extends DescribeDeviceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeDeviceCommand}.
+ */
 export interface DescribeDeviceCommandOutput extends DescribeDeviceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Given a device ID, returns a DescribeDeviceResponse object describing the
  *  details of the device.</p>
  * @example
@@ -41,13 +44,25 @@ export interface DescribeDeviceCommandOutput extends DescribeDeviceResponse, __M
  * import { IoT1ClickDevicesServiceClient, DescribeDeviceCommand } from "@aws-sdk/client-iot-1click-devices-service"; // ES Modules import
  * // const { IoT1ClickDevicesServiceClient, DescribeDeviceCommand } = require("@aws-sdk/client-iot-1click-devices-service"); // CommonJS import
  * const client = new IoT1ClickDevicesServiceClient(config);
+ * const input = { // DescribeDeviceRequest
+ *   DeviceId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeDeviceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDeviceCommandInput - {@link DescribeDeviceCommandInput}
+ * @returns {@link DescribeDeviceCommandOutput}
  * @see {@link DescribeDeviceCommandInput} for command's `input` shape.
  * @see {@link DescribeDeviceCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for IoT1ClickDevicesServiceClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *
  *
  */
 export class DescribeDeviceCommand extends $Command<
@@ -67,6 +82,9 @@ export class DescribeDeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +113,8 @@ export class DescribeDeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDeviceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDeviceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +124,18 @@ export class DescribeDeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeDeviceCommand(input, context);
+    return se_DescribeDeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDeviceCommandOutput> {
-    return deserializeAws_restJson1DescribeDeviceCommand(output, context);
+    return de_DescribeDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

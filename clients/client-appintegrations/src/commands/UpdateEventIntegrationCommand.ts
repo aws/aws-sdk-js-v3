@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppIntegrationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppIntegrationsClient";
-import {
-  UpdateEventIntegrationRequest,
-  UpdateEventIntegrationRequestFilterSensitiveLog,
-  UpdateEventIntegrationResponse,
-  UpdateEventIntegrationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateEventIntegrationCommand,
-  serializeAws_restJson1UpdateEventIntegrationCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateEventIntegrationRequest, UpdateEventIntegrationResponse } from "../models/models_0";
+import { de_UpdateEventIntegrationCommand, se_UpdateEventIntegrationCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateEventIntegrationCommand}.
+ */
 export interface UpdateEventIntegrationCommandInput extends UpdateEventIntegrationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateEventIntegrationCommand}.
+ */
 export interface UpdateEventIntegrationCommandOutput extends UpdateEventIntegrationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the description of an event integration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,35 @@ export interface UpdateEventIntegrationCommandOutput extends UpdateEventIntegrat
  * import { AppIntegrationsClient, UpdateEventIntegrationCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
  * // const { AppIntegrationsClient, UpdateEventIntegrationCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import
  * const client = new AppIntegrationsClient(config);
+ * const input = { // UpdateEventIntegrationRequest
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ * };
  * const command = new UpdateEventIntegrationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEventIntegrationCommandInput - {@link UpdateEventIntegrationCommandInput}
+ * @returns {@link UpdateEventIntegrationCommandOutput}
  * @see {@link UpdateEventIntegrationCommandInput} for command's `input` shape.
  * @see {@link UpdateEventIntegrationCommandOutput} for command's `response` shape.
  * @see {@link AppIntegrationsClientResolvedConfig | config} for AppIntegrationsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServiceError} (server fault)
+ *  <p>Request processing failed due to an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
  *
  */
 export class UpdateEventIntegrationCommand extends $Command<
@@ -62,6 +87,9 @@ export class UpdateEventIntegrationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEventIntegrationCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +118,8 @@ export class UpdateEventIntegrationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateEventIntegrationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateEventIntegrationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +129,18 @@ export class UpdateEventIntegrationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateEventIntegrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateEventIntegrationCommand(input, context);
+    return se_UpdateEventIntegrationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEventIntegrationCommandOutput> {
-    return deserializeAws_restJson1UpdateEventIntegrationCommand(output, context);
+    return de_UpdateEventIntegrationCommand(output, context);
   }
 
   // Start section: command_body_extra

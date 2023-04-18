@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetContentRequest,
-  GetContentRequestFilterSensitiveLog,
-  GetContentResponse,
-  GetContentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetContentCommand,
-  serializeAws_restJson1GetContentCommand,
-} from "../protocols/Aws_restJson1";
+import { GetContentRequest, GetContentResponse, GetContentResponseFilterSensitiveLog } from "../models/models_0";
+import { de_GetContentCommand, se_GetContentCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetContentCommand}.
+ */
 export interface GetContentCommandInput extends GetContentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetContentCommand}.
+ */
 export interface GetContentCommandOutput extends GetContentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves content, including a pre-signed URL to download the content.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,29 @@ export interface GetContentCommandOutput extends GetContentResponse, __MetadataB
  * import { WisdomClient, GetContentCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, GetContentCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
+ * const input = { // GetContentRequest
+ *   contentId: "STRING_VALUE", // required
+ *   knowledgeBaseId: "STRING_VALUE", // required
+ * };
  * const command = new GetContentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetContentCommandInput - {@link GetContentCommandInput}
+ * @returns {@link GetContentCommandOutput}
  * @see {@link GetContentCommandInput} for command's `input` shape.
  * @see {@link GetContentCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by a service.</p>
+ *
  *
  */
 export class GetContentCommand extends $Command<
@@ -62,6 +81,9 @@ export class GetContentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,7 +110,7 @@ export class GetContentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetContentRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetContentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -99,12 +121,18 @@ export class GetContentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetContentCommand(input, context);
+    return se_GetContentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetContentCommandOutput> {
-    return deserializeAws_restJson1GetContentCommand(output, context);
+    return de_GetContentCommand(output, context);
   }
 
   // Start section: command_body_extra

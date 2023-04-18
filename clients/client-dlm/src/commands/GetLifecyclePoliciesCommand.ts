@@ -14,36 +14,70 @@ import {
 } from "@aws-sdk/types";
 
 import { DLMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DLMClient";
-import {
-  GetLifecyclePoliciesRequest,
-  GetLifecyclePoliciesRequestFilterSensitiveLog,
-  GetLifecyclePoliciesResponse,
-  GetLifecyclePoliciesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetLifecyclePoliciesCommand,
-  serializeAws_restJson1GetLifecyclePoliciesCommand,
-} from "../protocols/Aws_restJson1";
+import { GetLifecyclePoliciesRequest, GetLifecyclePoliciesResponse } from "../models/models_0";
+import { de_GetLifecyclePoliciesCommand, se_GetLifecyclePoliciesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetLifecyclePoliciesCommand}.
+ */
 export interface GetLifecyclePoliciesCommandInput extends GetLifecyclePoliciesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetLifecyclePoliciesCommand}.
+ */
 export interface GetLifecyclePoliciesCommandOutput extends GetLifecyclePoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets summary information about all or the specified data lifecycle policies.</p>
- * 		       <p>To get complete information about a policy, use <a>GetLifecyclePolicy</a>.</p>
+ *          <p>To get complete information about a policy, use <a>GetLifecyclePolicy</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DLMClient, GetLifecyclePoliciesCommand } from "@aws-sdk/client-dlm"; // ES Modules import
  * // const { DLMClient, GetLifecyclePoliciesCommand } = require("@aws-sdk/client-dlm"); // CommonJS import
  * const client = new DLMClient(config);
+ * const input = { // GetLifecyclePoliciesRequest
+ *   PolicyIds: [ // PolicyIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   State: "ENABLED" || "DISABLED" || "ERROR",
+ *   ResourceTypes: [ // ResourceTypeValuesList
+ *     "VOLUME" || "INSTANCE",
+ *   ],
+ *   TargetTags: [ // TargetTagsFilterList
+ *     "STRING_VALUE",
+ *   ],
+ *   TagsToAdd: [ // TagsToAddFilterList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetLifecyclePoliciesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLifecyclePoliciesCommandInput - {@link GetLifecyclePoliciesCommandInput}
+ * @returns {@link GetLifecyclePoliciesCommandOutput}
  * @see {@link GetLifecyclePoliciesCommandInput} for command's `input` shape.
  * @see {@link GetLifecyclePoliciesCommandOutput} for command's `response` shape.
  * @see {@link DLMClientResolvedConfig | config} for DLMClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The service failed in an unexpected way.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>Bad request. The request is missing required parameters or has invalid
+ * 			parameters.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request failed because a limit was exceeded.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A requested resource was not found.</p>
+ *
  *
  */
 export class GetLifecyclePoliciesCommand extends $Command<
@@ -63,6 +97,9 @@ export class GetLifecyclePoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLifecyclePoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +128,8 @@ export class GetLifecyclePoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLifecyclePoliciesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetLifecyclePoliciesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +139,18 @@ export class GetLifecyclePoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLifecyclePoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetLifecyclePoliciesCommand(input, context);
+    return se_GetLifecyclePoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLifecyclePoliciesCommandOutput> {
-    return deserializeAws_restJson1GetLifecyclePoliciesCommand(output, context);
+    return de_GetLifecyclePoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

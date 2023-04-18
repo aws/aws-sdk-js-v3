@@ -13,36 +13,59 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListWorkloadsInput,
-  ListWorkloadsInputFilterSensitiveLog,
-  ListWorkloadsOutput,
-  ListWorkloadsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListWorkloadsCommand,
-  serializeAws_restJson1ListWorkloadsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListWorkloadsInput, ListWorkloadsOutput } from "../models/models_0";
+import { de_ListWorkloadsCommand, se_ListWorkloadsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListWorkloadsCommand}.
+ */
 export interface ListWorkloadsCommandInput extends ListWorkloadsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListWorkloadsCommand}.
+ */
 export interface ListWorkloadsCommandOutput extends ListWorkloadsOutput, __MetadataBearer {}
 
 /**
- * <p>List workloads. Paginated.</p>
+ * @public
+ * <p>Paginated list of workloads.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WellArchitectedClient, ListWorkloadsCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, ListWorkloadsCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
+ * const input = { // ListWorkloadsInput
+ *   WorkloadNamePrefix: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListWorkloadsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWorkloadsCommandInput - {@link ListWorkloadsCommandInput}
+ * @returns {@link ListWorkloadsCommandOutput}
  * @see {@link ListWorkloadsCommandInput} for command's `input` shape.
  * @see {@link ListWorkloadsCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>User does not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There is a problem with the Well-Architected Tool API service.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The user input is not valid.</p>
+ *
  *
  */
 export class ListWorkloadsCommand extends $Command<
@@ -62,6 +85,9 @@ export class ListWorkloadsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWorkloadsCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +114,8 @@ export class ListWorkloadsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListWorkloadsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListWorkloadsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +125,18 @@ export class ListWorkloadsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListWorkloadsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListWorkloadsCommand(input, context);
+    return se_ListWorkloadsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWorkloadsCommandOutput> {
-    return deserializeAws_restJson1ListWorkloadsCommand(output, context);
+    return de_ListWorkloadsCommand(output, context);
   }
 
   // Start section: command_body_extra

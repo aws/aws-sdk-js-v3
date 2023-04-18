@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BraketClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BraketClient";
-import {
-  CancelQuantumTaskRequest,
-  CancelQuantumTaskRequestFilterSensitiveLog,
-  CancelQuantumTaskResponse,
-  CancelQuantumTaskResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CancelQuantumTaskCommand,
-  serializeAws_restJson1CancelQuantumTaskCommand,
-} from "../protocols/Aws_restJson1";
+import { CancelQuantumTaskRequest, CancelQuantumTaskResponse } from "../models/models_0";
+import { de_CancelQuantumTaskCommand, se_CancelQuantumTaskCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CancelQuantumTaskCommand}.
+ */
 export interface CancelQuantumTaskCommandInput extends CancelQuantumTaskRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CancelQuantumTaskCommand}.
+ */
 export interface CancelQuantumTaskCommandOutput extends CancelQuantumTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels the specified task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,39 @@ export interface CancelQuantumTaskCommandOutput extends CancelQuantumTaskRespons
  * import { BraketClient, CancelQuantumTaskCommand } from "@aws-sdk/client-braket"; // ES Modules import
  * // const { BraketClient, CancelQuantumTaskCommand } = require("@aws-sdk/client-braket"); // CommonJS import
  * const client = new BraketClient(config);
+ * const input = { // CancelQuantumTaskRequest
+ *   quantumTaskArn: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE", // required
+ * };
  * const command = new CancelQuantumTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelQuantumTaskCommandInput - {@link CancelQuantumTaskCommandInput}
+ * @returns {@link CancelQuantumTaskCommandOutput}
  * @see {@link CancelQuantumTaskCommandInput} for command's `input` shape.
  * @see {@link CancelQuantumTaskCommandOutput} for command's `response` shape.
  * @see {@link BraketClientResolvedConfig | config} for BraketClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>An error occurred due to a conflict.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception, or
+ *          failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling rate limit is met.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
  *
  */
 export class CancelQuantumTaskCommand extends $Command<
@@ -62,6 +91,9 @@ export class CancelQuantumTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelQuantumTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +122,8 @@ export class CancelQuantumTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelQuantumTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelQuantumTaskResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +133,18 @@ export class CancelQuantumTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelQuantumTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelQuantumTaskCommand(input, context);
+    return se_CancelQuantumTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelQuantumTaskCommandOutput> {
-    return deserializeAws_restJson1CancelQuantumTaskCommand(output, context);
+    return de_CancelQuantumTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

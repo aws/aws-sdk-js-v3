@@ -1,6 +1,7 @@
 // @ts-check
 const { join } = require("path");
 const { copySync, removeSync } = require("fs-extra");
+const prettier = require("prettier");
 const { readdirSync, lstatSync, readFileSync, existsSync, writeFileSync } = require("fs");
 
 const getOverwritableDirectories = (subDirectories, packageName) => {
@@ -47,8 +48,8 @@ const mergeManifest = (fromContent = {}, toContent = {}) => {
           concurrently: "7.0.0",
           "downlevel-dts": "0.10.1",
           rimraf: "3.0.2",
-          typedoc: "0.19.2",
-          typescript: "~4.6.2",
+          typedoc: "0.23.23",
+          typescript: "~4.9.5",
         };
         fromContent[name] = Object.keys(fromContent[name])
           .filter((dep) => Object.keys(devDepToVersionHash).includes(dep))
@@ -83,7 +84,7 @@ const mergeManifest = (fromContent = {}, toContent = {}) => {
   return merged;
 };
 
-const copyToClients = async (sourceDir, destinationDir) => {
+const copyToClients = async (sourceDir, destinationDir, solo) => {
   for (const modelName of readdirSync(sourceDir)) {
     if (modelName === "source") continue;
 
@@ -97,6 +98,10 @@ const copyToClients = async (sourceDir, destinationDir) => {
     const packageManifest = JSON.parse(readFileSync(packageManifestPath).toString());
     const packageName = packageManifest.name;
     const clientName = packageName.replace("@aws-sdk/", "");
+
+    if (solo && clientName !== `client-${solo}`) {
+      continue;
+    }
 
     console.log(`copying ${packageName} from ${artifactPath} to ${destinationDir}`);
     const destPath = join(destinationDir, clientName);
@@ -135,21 +140,31 @@ const copyToClients = async (sourceDir, destinationDir) => {
         // no need for the default prepack script
         delete mergedManifest.scripts.prepack;
 
+        if (mergedManifest.private) {
+          // don't generate documentation for private packages
+          delete mergedManifest.scripts["build:docs"];
+        } else {
+          mergedManifest.scripts["extract:docs"] = "api-extractor run --local";
+        }
+
         const serviceName = clientName.replace("client-", "");
         const modelFile = join(__dirname, "..", "..", "codegen", "sdk-codegen", "aws-models", serviceName + ".json");
 
         if (existsSync(modelFile)) {
           mergedManifest.scripts[
             "generate:client"
-          ] = `(cd ../../ && yarn generate-clients -g ./codegen/sdk-codegen/aws-models/${serviceName}.json --keepFiles)`;
+          ] = `node ../../scripts/generate-clients/single-service --solo ${serviceName}`;
         }
 
-        writeFileSync(destSubPath, JSON.stringify(mergedManifest, null, 2).concat(`\n`));
+        writeFileSync(destSubPath, prettier.format(JSON.stringify(mergedManifest), { parser: "json-stringify" }));
       } else if (packageSub === "typedoc.json") {
         const typedocJson = {
-          extends: "../../typedoc.client.json",
+          extends: ["../../typedoc.client.json"],
+          entryPoints: ["src/index.ts"],
+          out: "docs",
+          readme: "README.md",
         };
-        writeFileSync(destSubPath, JSON.stringify(typedocJson, null, 2).concat(`\n`));
+        writeFileSync(destSubPath, prettier.format(JSON.stringify(typedocJson), { parser: "json" }));
       } else if (overWritableSubs.includes(packageSub) || !existsSync(destSubPath)) {
         if (lstatSync(packageSubPath).isDirectory()) removeSync(destSubPath);
         copySync(packageSubPath, destSubPath, {
@@ -199,7 +214,11 @@ const copyServerTests = async (sourceDir, destinationDir) => {
         if (!mergedManifest.scripts.test) {
           mergedManifest.scripts.test = "jest --coverage --passWithNoTests";
         }
-        writeFileSync(destSubPath, JSON.stringify(mergedManifest, null, 2).concat(`\n`));
+        if (mergedManifest.private) {
+          // don't generate documentation for private packages
+          delete mergedManifest.scripts["build:docs"];
+        }
+        writeFileSync(destSubPath, prettier.format(JSON.stringify(mergedManifest), { parser: "json-stringify" }));
       } else if (overWritableSubs.includes(packageSub) || !existsSync(destSubPath)) {
         if (lstatSync(packageSubPath).isDirectory()) removeSync(destSubPath);
         copySync(packageSubPath, destSubPath, {

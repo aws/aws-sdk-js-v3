@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
-import {
-  DescribeVodSourceRequest,
-  DescribeVodSourceRequestFilterSensitiveLog,
-  DescribeVodSourceResponse,
-  DescribeVodSourceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeVodSourceCommand,
-  serializeAws_restJson1DescribeVodSourceCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeVodSourceRequest, DescribeVodSourceResponse } from "../models/models_0";
+import { de_DescribeVodSourceCommand, se_DescribeVodSourceCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeVodSourceCommand}.
+ */
 export interface DescribeVodSourceCommandInput extends DescribeVodSourceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeVodSourceCommand}.
+ */
 export interface DescribeVodSourceCommandOutput extends DescribeVodSourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides details about a specific video on demand (VOD) source in a specific source location.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,20 @@ export interface DescribeVodSourceCommandOutput extends DescribeVodSourceRespons
  * import { MediaTailorClient, DescribeVodSourceCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, DescribeVodSourceCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
+ * const input = { // DescribeVodSourceRequest
+ *   SourceLocationName: "STRING_VALUE", // required
+ *   VodSourceName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeVodSourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVodSourceCommandInput - {@link DescribeVodSourceCommandInput}
+ * @returns {@link DescribeVodSourceCommandOutput}
  * @see {@link DescribeVodSourceCommandInput} for command's `input` shape.
  * @see {@link DescribeVodSourceCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
+ *
  *
  */
 export class DescribeVodSourceCommand extends $Command<
@@ -62,6 +72,9 @@ export class DescribeVodSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVodSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +103,8 @@ export class DescribeVodSourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVodSourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeVodSourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +114,18 @@ export class DescribeVodSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVodSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeVodSourceCommand(input, context);
+    return se_DescribeVodSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVodSourceCommandOutput> {
-    return deserializeAws_restJson1DescribeVodSourceCommand(output, context);
+    return de_DescribeVodSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

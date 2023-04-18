@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubOrchestratorClient";
-import {
-  UpdateWorkflowStepGroupRequest,
-  UpdateWorkflowStepGroupRequestFilterSensitiveLog,
-  UpdateWorkflowStepGroupResponse,
-  UpdateWorkflowStepGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateWorkflowStepGroupCommand,
-  serializeAws_restJson1UpdateWorkflowStepGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateWorkflowStepGroupRequest, UpdateWorkflowStepGroupResponse } from "../models/models_0";
+import { de_UpdateWorkflowStepGroupCommand, se_UpdateWorkflowStepGroupCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateWorkflowStepGroupCommand}.
+ */
 export interface UpdateWorkflowStepGroupCommandInput extends UpdateWorkflowStepGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateWorkflowStepGroupCommand}.
+ */
 export interface UpdateWorkflowStepGroupCommandOutput extends UpdateWorkflowStepGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update the step group in a migration workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,43 @@ export interface UpdateWorkflowStepGroupCommandOutput extends UpdateWorkflowStep
  * import { MigrationHubOrchestratorClient, UpdateWorkflowStepGroupCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
  * // const { MigrationHubOrchestratorClient, UpdateWorkflowStepGroupCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
  * const client = new MigrationHubOrchestratorClient(config);
+ * const input = { // UpdateWorkflowStepGroupRequest
+ *   workflowId: "STRING_VALUE", // required
+ *   id: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   next: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ *   previous: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateWorkflowStepGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateWorkflowStepGroupCommandInput - {@link UpdateWorkflowStepGroupCommandInput}
+ * @returns {@link UpdateWorkflowStepGroupCommandOutput}
  * @see {@link UpdateWorkflowStepGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkflowStepGroupCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error has occurred.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource is not available.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
  *
  */
 export class UpdateWorkflowStepGroupCommand extends $Command<
@@ -66,6 +99,9 @@ export class UpdateWorkflowStepGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateWorkflowStepGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +130,8 @@ export class UpdateWorkflowStepGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateWorkflowStepGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateWorkflowStepGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +141,18 @@ export class UpdateWorkflowStepGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateWorkflowStepGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateWorkflowStepGroupCommand(input, context);
+    return se_UpdateWorkflowStepGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWorkflowStepGroupCommandOutput> {
-    return deserializeAws_restJson1UpdateWorkflowStepGroupCommand(output, context);
+    return de_UpdateWorkflowStepGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

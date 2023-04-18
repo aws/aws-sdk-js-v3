@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  CreateMatchmakingRuleSetInput,
-  CreateMatchmakingRuleSetInputFilterSensitiveLog,
-  CreateMatchmakingRuleSetOutput,
-  CreateMatchmakingRuleSetOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateMatchmakingRuleSetCommand,
-  serializeAws_json1_1CreateMatchmakingRuleSetCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateMatchmakingRuleSetInput, CreateMatchmakingRuleSetOutput } from "../models/models_0";
+import { de_CreateMatchmakingRuleSetCommand, se_CreateMatchmakingRuleSetCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateMatchmakingRuleSetCommand}.
+ */
 export interface CreateMatchmakingRuleSetCommandInput extends CreateMatchmakingRuleSetInput {}
+/**
+ * @public
+ *
+ * The output of {@link CreateMatchmakingRuleSetCommand}.
+ */
 export interface CreateMatchmakingRuleSetCommandOutput extends CreateMatchmakingRuleSetOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new rule set for FlexMatch matchmaking. A rule set describes the type of match
  *             to create, such as the number and size of teams. It also sets the parameters for
  *             acceptable player matches, such as minimum skill level or character type.</p>
@@ -66,13 +69,46 @@ export interface CreateMatchmakingRuleSetCommandOutput extends CreateMatchmaking
  * import { GameLiftClient, CreateMatchmakingRuleSetCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, CreateMatchmakingRuleSetCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // CreateMatchmakingRuleSetInput
+ *   Name: "STRING_VALUE", // required
+ *   RuleSetBody: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateMatchmakingRuleSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMatchmakingRuleSetCommandInput - {@link CreateMatchmakingRuleSetCommandInput}
+ * @returns {@link CreateMatchmakingRuleSetCommandOutput}
  * @see {@link CreateMatchmakingRuleSetCommandInput} for command's `input` shape.
  * @see {@link CreateMatchmakingRuleSetCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an unrecoverable internal failure while processing the
+ *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
+ *             values before retrying.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The requested operation would cause the resource to exceed the allowed service limit.
+ *             Resolve the issue before retrying.</p>
+ *
+ * @throws {@link TaggingFailedException} (client fault)
+ *  <p>The requested tagging operation did not succeed. This may be due to invalid tag format
+ *             or the maximum tag limit may have been exceeded. Resolve the issue before
+ *             retrying.</p>
+ *
+ * @throws {@link UnsupportedRegionException} (client fault)
+ *  <p>The requested operation is not supported in the Region specified.</p>
+ *
  *
  */
 export class CreateMatchmakingRuleSetCommand extends $Command<
@@ -92,6 +128,9 @@ export class CreateMatchmakingRuleSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMatchmakingRuleSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +159,8 @@ export class CreateMatchmakingRuleSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateMatchmakingRuleSetInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateMatchmakingRuleSetOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +170,18 @@ export class CreateMatchmakingRuleSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMatchmakingRuleSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateMatchmakingRuleSetCommand(input, context);
+    return se_CreateMatchmakingRuleSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMatchmakingRuleSetCommandOutput> {
-    return deserializeAws_json1_1CreateMatchmakingRuleSetCommand(output, context);
+    return de_CreateMatchmakingRuleSetCommand(output, context);
   }
 
   // Start section: command_body_extra

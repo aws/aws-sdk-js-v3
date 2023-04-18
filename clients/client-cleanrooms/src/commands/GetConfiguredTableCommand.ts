@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import {
-  GetConfiguredTableInput,
-  GetConfiguredTableInputFilterSensitiveLog,
-  GetConfiguredTableOutput,
-  GetConfiguredTableOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetConfiguredTableCommand,
-  serializeAws_restJson1GetConfiguredTableCommand,
-} from "../protocols/Aws_restJson1";
+import { GetConfiguredTableInput, GetConfiguredTableOutput } from "../models/models_0";
+import { de_GetConfiguredTableCommand, se_GetConfiguredTableCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetConfiguredTableCommand}.
+ */
 export interface GetConfiguredTableCommandInput extends GetConfiguredTableInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetConfiguredTableCommand}.
+ */
 export interface GetConfiguredTableCommandOutput extends GetConfiguredTableOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a configured table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,34 @@ export interface GetConfiguredTableCommandOutput extends GetConfiguredTableOutpu
  * import { CleanRoomsClient, GetConfiguredTableCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, GetConfiguredTableCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
+ * const input = { // GetConfiguredTableInput
+ *   configuredTableIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new GetConfiguredTableCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetConfiguredTableCommandInput - {@link GetConfiguredTableCommandInput}
+ * @returns {@link GetConfiguredTableCommandOutput}
  * @see {@link GetConfiguredTableCommandInput} for command's `input` shape.
  * @see {@link GetConfiguredTableCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Caller does not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Unexpected error during processing of request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Request references a resource which does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the specified constraints.</p>
+ *
  *
  */
 export class GetConfiguredTableCommand extends $Command<
@@ -62,6 +86,9 @@ export class GetConfiguredTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetConfiguredTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +117,8 @@ export class GetConfiguredTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetConfiguredTableInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetConfiguredTableOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +128,18 @@ export class GetConfiguredTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetConfiguredTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetConfiguredTableCommand(input, context);
+    return se_GetConfiguredTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConfiguredTableCommandOutput> {
-    return deserializeAws_restJson1GetConfiguredTableCommand(output, context);
+    return de_GetConfiguredTableCommand(output, context);
   }
 
   // Start section: command_body_extra

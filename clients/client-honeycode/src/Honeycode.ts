@@ -71,6 +71,7 @@ import {
 import { HoneycodeClient } from "./HoneycodeClient";
 
 /**
+ * @public
  * <p>
  *       Amazon Honeycode is a fully managed service that allows you to quickly build mobile and web apps for teams—without
  *       programming. Build Honeycode apps for managing almost anything, like projects, customers, operations, approvals,
@@ -79,6 +80,7 @@ import { HoneycodeClient } from "./HoneycodeClient";
  */
 export class Honeycode extends HoneycodeClient {
   /**
+   * @public
    * <p>
    *             The BatchCreateTableRows API allows you to create one or more rows at the end of a table in a workbook.
    *             The API allows you to specify the values to set in some or all of the columns in the new rows.
@@ -120,6 +122,7 @@ export class Honeycode extends HoneycodeClient {
   }
 
   /**
+   * @public
    * <p>
    *             The BatchDeleteTableRows API allows you to delete one or more rows from a table in a workbook.
    *             You need to specify the ids of the rows that you want to delete from the table.
@@ -155,6 +158,7 @@ export class Honeycode extends HoneycodeClient {
   }
 
   /**
+   * @public
    * <p>
    *             The BatchUpdateTableRows API allows you to update one or more rows in a table in a workbook.
    *         </p>
@@ -196,6 +200,7 @@ export class Honeycode extends HoneycodeClient {
   }
 
   /**
+   * @public
    * <p>
    *             The BatchUpsertTableRows API allows you to upsert one or more rows in a table. The upsert
    *             operation takes a filter expression as input and evaluates it to find matching rows on the destination
@@ -240,6 +245,7 @@ export class Honeycode extends HoneycodeClient {
   }
 
   /**
+   * @public
    * <p>
    *             The DescribeTableDataImportJob API allows you to retrieve the status and details of a table data import job.
    *         </p>
@@ -274,6 +280,7 @@ export class Honeycode extends HoneycodeClient {
   }
 
   /**
+   * @public
    * <p>
    *             The GetScreenData API allows retrieval of data from a screen in a Honeycode app.
    *             The API allows setting local variables in the screen to filter, sort or otherwise affect what will be
@@ -310,6 +317,7 @@ export class Honeycode extends HoneycodeClient {
   }
 
   /**
+   * @public
    * <p>
    *             The InvokeScreenAutomation API allows invoking an action defined in a screen in a Honeycode app.
    *             The API allows setting local variables, which can then be used in the automation being invoked.
@@ -346,6 +354,7 @@ export class Honeycode extends HoneycodeClient {
   }
 
   /**
+   * @public
    * <p>
    *             The ListTableColumns API allows you to retrieve a list of all the columns in a table in a workbook.
    *         </p>
@@ -380,6 +389,7 @@ export class Honeycode extends HoneycodeClient {
   }
 
   /**
+   * @public
    * <p>
    *             The ListTableRows API allows you to retrieve a list of all the rows in a table in a workbook.
    *         </p>
@@ -414,6 +424,7 @@ export class Honeycode extends HoneycodeClient {
   }
 
   /**
+   * @public
    * <p>
    *             The ListTables API allows you to retrieve a list of all the tables in a workbook.
    *         </p>
@@ -442,6 +453,7 @@ export class Honeycode extends HoneycodeClient {
   }
 
   /**
+   * @public
    * <p>
    *             The ListTagsForResource API allows you to return a resource's tags.
    *         </p>
@@ -476,6 +488,7 @@ export class Honeycode extends HoneycodeClient {
   }
 
   /**
+   * @public
    * <p>
    *             The QueryTableRows API allows you to use a filter formula to query for specific rows in a table.
    *         </p>
@@ -510,6 +523,7 @@ export class Honeycode extends HoneycodeClient {
   }
 
   /**
+   * @public
    * <p>
    *             The StartTableDataImportJob API allows you to start an import job on a table. This API will only return
    *             the id of the job that was started. To find out the status of the import request, you need to call the
@@ -546,6 +560,7 @@ export class Honeycode extends HoneycodeClient {
   }
 
   /**
+   * @public
    * <p>
    *             The TagResource API allows you to add tags to an ARN-able resource. Resource includes workbook, table,
    *             screen and screen-automation.
@@ -575,6 +590,7 @@ export class Honeycode extends HoneycodeClient {
   }
 
   /**
+   * @public
    * <p>
    *             The UntagResource API allows you to removes tags from an ARN-able resource. Resource includes workbook, table,
    *             screen and screen-automation.

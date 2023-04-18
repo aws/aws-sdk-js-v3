@@ -18,17 +18,24 @@ import {
   GetMapSpritesRequest,
   GetMapSpritesRequestFilterSensitiveLog,
   GetMapSpritesResponse,
-  GetMapSpritesResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetMapSpritesCommand,
-  serializeAws_restJson1GetMapSpritesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetMapSpritesCommand, se_GetMapSpritesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetMapSpritesCommand}.
+ */
 export interface GetMapSpritesCommandInput extends GetMapSpritesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetMapSpritesCommand}.
+ */
 export interface GetMapSpritesCommandOutput extends GetMapSpritesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the sprite sheet corresponding to a map resource. The sprite sheet is a PNG
  *             image paired with a JSON document describing the offsets of individual icons that will
  *             be displayed on a rendered map.</p>
@@ -38,13 +45,37 @@ export interface GetMapSpritesCommandOutput extends GetMapSpritesResponse, __Met
  * import { LocationClient, GetMapSpritesCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, GetMapSpritesCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = { // GetMapSpritesRequest
+ *   MapName: "STRING_VALUE", // required
+ *   FileName: "STRING_VALUE", // required
+ *   Key: "STRING_VALUE",
+ * };
  * const command = new GetMapSpritesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMapSpritesCommandInput - {@link GetMapSpritesCommandInput}
+ * @returns {@link GetMapSpritesCommandOutput}
  * @see {@link GetMapSpritesCommandInput} for command's `input` shape.
  * @see {@link GetMapSpritesCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The request was denied because of insufficient access or permissions. Check with an
+ *       administrator to verify your permissions.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource that you've entered was not found in your AWS account.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because of request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input failed to meet the constraints specified by the AWS service. </p>
+ *
  *
  */
 export class GetMapSpritesCommand extends $Command<
@@ -64,6 +95,9 @@ export class GetMapSpritesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMapSpritesCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,7 +125,7 @@ export class GetMapSpritesCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: GetMapSpritesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMapSpritesResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +135,18 @@ export class GetMapSpritesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMapSpritesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMapSpritesCommand(input, context);
+    return se_GetMapSpritesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMapSpritesCommandOutput> {
-    return deserializeAws_restJson1GetMapSpritesCommand(output, context);
+    return de_GetMapSpritesCommand(output, context);
   }
 
   // Start section: command_body_extra

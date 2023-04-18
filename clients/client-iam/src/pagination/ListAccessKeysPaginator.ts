@@ -6,12 +6,11 @@ import {
   ListAccessKeysCommandInput,
   ListAccessKeysCommandOutput,
 } from "../commands/ListAccessKeysCommand";
-import { IAM } from "../IAM";
 import { IAMClient } from "../IAMClient";
 import { IAMPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: IAMClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListAccessKeysCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: IAM,
-  input: ListAccessKeysCommandInput,
-  ...args: any
-): Promise<ListAccessKeysCommandOutput> => {
-  // @ts-ignore
-  return await client.listAccessKeys(input, ...args);
-};
 export async function* paginateListAccessKeys(
   config: IAMPaginationConfiguration,
   input: ListAccessKeysCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListAccessKeys(
   while (hasNext) {
     input.Marker = token;
     input["MaxItems"] = config.pageSize;
-    if (config.client instanceof IAM) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IAMClient) {
+    if (config.client instanceof IAMClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected IAM | IAMClient");

@@ -6,12 +6,11 @@ import {
   ListAccessControlConfigurationsCommandInput,
   ListAccessControlConfigurationsCommandOutput,
 } from "../commands/ListAccessControlConfigurationsCommand";
-import { Kendra } from "../Kendra";
 import { KendraClient } from "../KendraClient";
 import { KendraPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: KendraClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListAccessControlConfigurationsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Kendra,
-  input: ListAccessControlConfigurationsCommandInput,
-  ...args: any
-): Promise<ListAccessControlConfigurationsCommandOutput> => {
-  // @ts-ignore
-  return await client.listAccessControlConfigurations(input, ...args);
-};
 export async function* paginateListAccessControlConfigurations(
   config: KendraPaginationConfiguration,
   input: ListAccessControlConfigurationsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListAccessControlConfigurations(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Kendra) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof KendraClient) {
+    if (config.client instanceof KendraClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Kendra | KendraClient");

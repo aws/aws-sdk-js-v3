@@ -65,7 +65,7 @@ function denormalizeBase64(str: string): string {
 
 describe("getSignedUrl", () => {
   it("should maintain query params after signing a URL", () => {
-    const url = "https://example.com/private.jpeg?foo=bar";
+    const url = `https://example.com/private.jpeg?foo=${encodeURIComponent("bar &=; baz")}`;
     const result = parseUrl(
       getSignedUrl({
         url,
@@ -78,7 +78,7 @@ describe("getSignedUrl", () => {
     if (!result.query) {
       throw new Error("query parameter is undefined");
     }
-    expect(result.query["foo"]).toBe("bar");
+    expect(result.query["foo"]).toBe("bar &=; baz");
   });
   it("should include url path in policy of signed URL", () => {
     const url = "https://example.com/private.jpeg?foo=bar";

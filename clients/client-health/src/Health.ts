@@ -69,6 +69,7 @@ import {
 import { HealthClient } from "./HealthClient";
 
 /**
+ * @public
  * <fullname>Health</fullname>
  *
  *          <p>The Health API provides programmatic access to the Health information that
@@ -121,6 +122,7 @@ import { HealthClient } from "./HealthClient";
  */
 export class Health extends HealthClient {
   /**
+   * @public
    * <p>Returns a list of accounts in the organization from Organizations that are affected by the
    *          provided event. For more information about the different types of Health events, see
    *             <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html">Event</a>. </p>
@@ -163,6 +165,7 @@ export class Health extends HealthClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of entities that have been affected by the specified events, based on the
    *          specified filter criteria. Entities can refer to individual customer resources, groups of
    *          customer resources, or any other construct, depending on the Amazon Web Services service. Events that
@@ -212,6 +215,7 @@ export class Health extends HealthClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of entities that have been affected by one or more events for one or more
    *          accounts in your organization in Organizations, based on the filter criteria. Entities can refer
    *          to individual customer resources, groups of customer resources, or any other construct,
@@ -265,6 +269,7 @@ export class Health extends HealthClient {
   }
 
   /**
+   * @public
    * <p>Returns the number of entities that are affected by each of the specified events.</p>
    */
   public describeEntityAggregates(
@@ -297,6 +302,7 @@ export class Health extends HealthClient {
   }
 
   /**
+   * @public
    * <p>Returns the number of events of each event type (issue, scheduled change, and account
    *          notification). If no filter is specified, the counts of all events in each category are
    *          returned.</p>
@@ -334,6 +340,7 @@ export class Health extends HealthClient {
   }
 
   /**
+   * @public
    * <p>Returns detailed information about one or more specified events. Information includes
    *          standard event data (Amazon Web Services Region, service, and so on, as returned by <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEvents.html">DescribeEvents</a>), a detailed event description, and possible additional metadata
    *          that depends upon the nature of the event. Affected entities are not included. To retrieve
@@ -375,6 +382,7 @@ export class Health extends HealthClient {
   }
 
   /**
+   * @public
    * <p>Returns detailed information about one or more specified events for one or more
    *          Amazon Web Services accounts in your organization. This information includes standard event data (such as
    *          the Amazon Web Services Region and service), an event description, and (depending on the event) possible
@@ -439,6 +447,7 @@ export class Health extends HealthClient {
   }
 
   /**
+   * @public
    * <p> Returns information about events that meet the specified filter criteria. Events are
    *          returned in a summary form and do not include the detailed description, any additional
    *          metadata that depends on the event type, or any affected resources. To retrieve that
@@ -493,6 +502,7 @@ export class Health extends HealthClient {
   }
 
   /**
+   * @public
    * <p>Returns information about events across your organization in Organizations. You can use
    *             the<code>filters</code> parameter to specify the events that you want to return. Events
    *          are returned in a summary form and don't include the affected accounts, detailed
@@ -556,6 +566,7 @@ export class Health extends HealthClient {
   }
 
   /**
+   * @public
    * <p>Returns the event types that meet the specified filter criteria. You can use this API
    *          operation to find information about the Health event, such as the category, Amazon Web Services
    *          service, and event code. The metadata for each event appears in the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EventType.html">EventType</a> object. </p>
@@ -595,6 +606,7 @@ export class Health extends HealthClient {
   }
 
   /**
+   * @public
    * <p>This operation provides status information on enabling or disabling Health to work
    *          with your organization. To call this operation, you must sign in as an IAM user, assume
    *          an IAM role, or sign in as the root user (not recommended) in the organization's
@@ -632,6 +644,7 @@ export class Health extends HealthClient {
   }
 
   /**
+   * @public
    * <p>Disables Health from working with Organizations. To call this operation, you must sign
    *          in as an Identity and Access Management (IAM) user, assume an IAM role, or sign in as the root user (not
    *          recommended) in the organization's management account. For more information, see <a href="https://docs.aws.amazon.com/health/latest/ug/aggregate-events.html">Aggregating
@@ -680,6 +693,7 @@ export class Health extends HealthClient {
   }
 
   /**
+   * @public
    * <p>Enables Health to work with Organizations. You can use the organizational view feature
    *          to aggregate events from all Amazon Web Services accounts in your organization in a centralized location. </p>
    *          <p>This operation also creates a service-linked role for the management account in the

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ScalarSubjectRequest,
-  ScalarSubjectRequestFilterSensitiveLog,
-  SubjectDetailResponse,
-  SubjectDetailResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSubjectCommand,
-  serializeAws_restJson1GetSubjectCommand,
-} from "../protocols/Aws_restJson1";
+import { ScalarSubjectRequest, SubjectDetailResponse } from "../models/models_0";
+import { de_GetSubjectCommand, se_GetSubjectCommand } from "../protocols/Aws_restJson1";
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetSubjectCommand}.
+ */
 export interface GetSubjectCommandInput extends ScalarSubjectRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetSubjectCommand}.
+ */
 export interface GetSubjectCommandOutput extends SubjectDetailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a Subject. A Subject associates a certificate identity with authentication attempts by CreateSession. The Subject resources stores audit information such as status of the last authentication attempt, the certificate data used in the attempt, and the last time the associated identity attempted authentication. </p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -40,13 +43,25 @@ export interface GetSubjectCommandOutput extends SubjectDetailResponse, __Metada
  * import { RolesAnywhereClient, GetSubjectCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
  * // const { RolesAnywhereClient, GetSubjectCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
  * const client = new RolesAnywhereClient(config);
+ * const input = { // ScalarSubjectRequest
+ *   subjectId: "STRING_VALUE", // required
+ * };
  * const command = new GetSubjectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSubjectCommandInput - {@link GetSubjectCommandInput}
+ * @returns {@link GetSubjectCommandOutput}
  * @see {@link GetSubjectCommandInput} for command's `input` shape.
  * @see {@link GetSubjectCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
  *
  */
 export class GetSubjectCommand extends $Command<
@@ -66,6 +81,9 @@ export class GetSubjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSubjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +110,8 @@ export class GetSubjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ScalarSubjectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SubjectDetailResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +121,18 @@ export class GetSubjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSubjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSubjectCommand(input, context);
+    return se_GetSubjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSubjectCommandOutput> {
-    return deserializeAws_restJson1GetSubjectCommand(output, context);
+    return de_GetSubjectCommand(output, context);
   }
 
   // Start section: command_body_extra

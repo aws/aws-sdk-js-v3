@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import {
-  DescribeStreamConsumerInput,
-  DescribeStreamConsumerInputFilterSensitiveLog,
-  DescribeStreamConsumerOutput,
-  DescribeStreamConsumerOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeStreamConsumerCommand,
-  serializeAws_json1_1DescribeStreamConsumerCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeStreamConsumerInput, DescribeStreamConsumerOutput } from "../models/models_0";
+import { de_DescribeStreamConsumerCommand, se_DescribeStreamConsumerCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeStreamConsumerCommand}.
+ */
 export interface DescribeStreamConsumerCommandInput extends DescribeStreamConsumerInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeStreamConsumerCommand}.
+ */
 export interface DescribeStreamConsumerCommandOutput extends DescribeStreamConsumerOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>To get the description of a registered consumer, provide the ARN of the consumer.
  *             Alternatively, you can provide the ARN of the data stream and the name you gave the
  *             consumer when you registered it. You may also provide all three parameters, as long as
@@ -43,13 +46,33 @@ export interface DescribeStreamConsumerCommandOutput extends DescribeStreamConsu
  * import { KinesisClient, DescribeStreamConsumerCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, DescribeStreamConsumerCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
+ * const input = { // DescribeStreamConsumerInput
+ *   StreamARN: "STRING_VALUE",
+ *   ConsumerName: "STRING_VALUE",
+ *   ConsumerARN: "STRING_VALUE",
+ * };
  * const command = new DescribeStreamConsumerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStreamConsumerCommandInput - {@link DescribeStreamConsumerCommandInput}
+ * @returns {@link DescribeStreamConsumerCommandOutput}
  * @see {@link DescribeStreamConsumerCommandInput} for command's `input` shape.
  * @see {@link DescribeStreamConsumerCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>A specified parameter exceeds its restrictions, is not supported, or can't be used.
+ *             For more information, see the returned message.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
+ *             stream requests exceeds the maximum number allowed. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource could not be found. The stream might not be specified
+ *             correctly.</p>
+ *
  *
  */
 export class DescribeStreamConsumerCommand extends $Command<
@@ -72,6 +95,9 @@ export class DescribeStreamConsumerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStreamConsumerCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +126,8 @@ export class DescribeStreamConsumerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeStreamConsumerInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeStreamConsumerOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +137,18 @@ export class DescribeStreamConsumerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeStreamConsumerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeStreamConsumerCommand(input, context);
+    return se_DescribeStreamConsumerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeStreamConsumerCommandOutput> {
-    return deserializeAws_json1_1DescribeStreamConsumerCommand(output, context);
+    return de_DescribeStreamConsumerCommand(output, context);
   }
 
   // Start section: command_body_extra

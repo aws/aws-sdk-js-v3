@@ -13,38 +13,70 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ListAppComponentCompliancesRequest, ListAppComponentCompliancesResponse } from "../models/models_0";
 import {
-  ListAppComponentCompliancesRequest,
-  ListAppComponentCompliancesRequestFilterSensitiveLog,
-  ListAppComponentCompliancesResponse,
-  ListAppComponentCompliancesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAppComponentCompliancesCommand,
-  serializeAws_restJson1ListAppComponentCompliancesCommand,
+  de_ListAppComponentCompliancesCommand,
+  se_ListAppComponentCompliancesCommand,
 } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListAppComponentCompliancesCommand}.
+ */
 export interface ListAppComponentCompliancesCommandInput extends ListAppComponentCompliancesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListAppComponentCompliancesCommand}.
+ */
 export interface ListAppComponentCompliancesCommandOutput
   extends ListAppComponentCompliancesResponse,
     __MetadataBearer {}
 
 /**
- * <p>Lists the compliances for an AWS Resilience Hub component.</p>
+ * @public
+ * <p>Lists the compliances for an Resilience Hub Application Component.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ResiliencehubClient, ListAppComponentCompliancesCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, ListAppComponentCompliancesCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = { // ListAppComponentCompliancesRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   assessmentArn: "STRING_VALUE", // required
+ * };
  * const command = new ListAppComponentCompliancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAppComponentCompliancesCommandInput - {@link ListAppComponentCompliancesCommandInput}
+ * @returns {@link ListAppComponentCompliancesCommandOutput}
  * @see {@link ListAppComponentCompliancesCommandInput} for command's `input` shape.
  * @see {@link ListAppComponentCompliancesCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have permissions to perform the requested operation. The user or role that is
+ *       making the request must have at least one IAM permissions policy attached that grants the
+ *       required permissions.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
+ *       service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception occurs when the specified resource could not be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>This exception occurs when a request is not valid.</p>
+ *
  *
  */
 export class ListAppComponentCompliancesCommand extends $Command<
@@ -64,6 +96,9 @@ export class ListAppComponentCompliancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAppComponentCompliancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +127,8 @@ export class ListAppComponentCompliancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAppComponentCompliancesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAppComponentCompliancesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +138,21 @@ export class ListAppComponentCompliancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAppComponentCompliancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAppComponentCompliancesCommand(input, context);
+    return se_ListAppComponentCompliancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAppComponentCompliancesCommandOutput> {
-    return deserializeAws_restJson1ListAppComponentCompliancesCommand(output, context);
+    return de_ListAppComponentCompliancesCommand(output, context);
   }
 
   // Start section: command_body_extra

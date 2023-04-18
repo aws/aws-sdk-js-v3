@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { KinesisVideoServiceException as __BaseException } from "./KinesisVideoServiceException";
 
 /**
+ * @public
  * <p>You do not have required permissions to perform this operation.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,6 +26,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You have reached the maximum limit of active signaling channels for this Amazon Web Services account
  *             in this region.</p>
  */
@@ -47,6 +49,7 @@ export class AccountChannelLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The number of streams created for the account is too high.</p>
  */
 export class AccountStreamLimitExceededException extends __BaseException {
@@ -67,30 +70,58 @@ export class AccountStreamLimitExceededException extends __BaseException {
   }
 }
 
-export enum APIName {
-  GET_CLIP = "GET_CLIP",
-  GET_DASH_STREAMING_SESSION_URL = "GET_DASH_STREAMING_SESSION_URL",
-  GET_HLS_STREAMING_SESSION_URL = "GET_HLS_STREAMING_SESSION_URL",
-  GET_IMAGES = "GET_IMAGES",
-  GET_MEDIA = "GET_MEDIA",
-  GET_MEDIA_FOR_FRAGMENT_LIST = "GET_MEDIA_FOR_FRAGMENT_LIST",
-  LIST_FRAGMENTS = "LIST_FRAGMENTS",
-  PUT_MEDIA = "PUT_MEDIA",
-}
-
-export enum Status {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  UPDATING = "UPDATING",
-}
-
-export enum ChannelType {
-  FULL_MESH = "FULL_MESH",
-  SINGLE_MASTER = "SINGLE_MASTER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const APIName = {
+  GET_CLIP: "GET_CLIP",
+  GET_DASH_STREAMING_SESSION_URL: "GET_DASH_STREAMING_SESSION_URL",
+  GET_HLS_STREAMING_SESSION_URL: "GET_HLS_STREAMING_SESSION_URL",
+  GET_IMAGES: "GET_IMAGES",
+  GET_MEDIA: "GET_MEDIA",
+  GET_MEDIA_FOR_FRAGMENT_LIST: "GET_MEDIA_FOR_FRAGMENT_LIST",
+  LIST_FRAGMENTS: "LIST_FRAGMENTS",
+  PUT_MEDIA: "PUT_MEDIA",
+} as const;
 
 /**
+ * @public
+ */
+export type APIName = (typeof APIName)[keyof typeof APIName];
+
+/**
+ * @public
+ * @enum
+ */
+export const Status = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type Status = (typeof Status)[keyof typeof Status];
+
+/**
+ * @public
+ * @enum
+ */
+export const ChannelType = {
+  FULL_MESH: "FULL_MESH",
+  SINGLE_MASTER: "SINGLE_MASTER",
+} as const;
+
+/**
+ * @public
+ */
+export type ChannelType = (typeof ChannelType)[keyof typeof ChannelType];
+
+/**
+ * @public
  * <p>A structure that contains the configuration for the <code>SINGLE_MASTER</code> channel
  *             type.</p>
  */
@@ -103,6 +134,7 @@ export interface SingleMasterConfiguration {
 }
 
 /**
+ * @public
  * <p>A structure that encapsulates a signaling channel's metadata and properties.</p>
  */
 export interface ChannelInfo {
@@ -143,11 +175,21 @@ export interface ChannelInfo {
   Version?: string;
 }
 
-export enum ComparisonOperator {
-  BEGINS_WITH = "BEGINS_WITH",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ComparisonOperator = {
+  BEGINS_WITH: "BEGINS_WITH",
+} as const;
 
 /**
+ * @public
+ */
+export type ComparisonOperator = (typeof ComparisonOperator)[keyof typeof ComparisonOperator];
+
+/**
+ * @public
  * <p>An optional input parameter for the <code>ListSignalingChannels</code> API. When this
  *             parameter is specified while invoking <code>ListSignalingChannels</code>, the API
  *             returns only the channels that satisfy a condition specified in
@@ -166,18 +208,37 @@ export interface ChannelNameCondition {
   ComparisonValue?: string;
 }
 
-export enum ChannelProtocol {
-  HTTPS = "HTTPS",
-  WEBRTC = "WEBRTC",
-  WSS = "WSS",
-}
-
-export enum ChannelRole {
-  MASTER = "MASTER",
-  VIEWER = "VIEWER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ChannelProtocol = {
+  HTTPS: "HTTPS",
+  WEBRTC: "WEBRTC",
+  WSS: "WSS",
+} as const;
 
 /**
+ * @public
+ */
+export type ChannelProtocol = (typeof ChannelProtocol)[keyof typeof ChannelProtocol];
+
+/**
+ * @public
+ * @enum
+ */
+export const ChannelRole = {
+  MASTER: "MASTER",
+  VIEWER: "VIEWER",
+} as const;
+
+/**
+ * @public
+ */
+export type ChannelRole = (typeof ChannelRole)[keyof typeof ChannelRole];
+
+/**
+ * @public
  * <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
  *             allowed client calls. Try making the call later.</p>
  */
@@ -199,12 +260,22 @@ export class ClientLimitExceededException extends __BaseException {
   }
 }
 
-export enum ConfigurationStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ConfigurationStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type ConfigurationStatus = (typeof ConfigurationStatus)[keyof typeof ConfigurationStatus];
+
+/**
+ * @public
  * <p>A key and value pair that is associated with the specified signaling channel.</p>
  */
 export interface Tag {
@@ -219,6 +290,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateSignalingChannelInput {
   /**
    * <p>A name for the signaling channel that you are creating. It must be unique for each Amazon Web Services account and Amazon Web Services Region.</p>
@@ -243,6 +317,9 @@ export interface CreateSignalingChannelInput {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateSignalingChannelOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the created channel.</p>
@@ -251,6 +328,7 @@ export interface CreateSignalingChannelOutput {
 }
 
 /**
+ * @public
  * <p>The value for this input parameter is invalid.</p>
  */
 export class InvalidArgumentException extends __BaseException {
@@ -272,6 +350,7 @@ export class InvalidArgumentException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>When the input <code>StreamARN</code> or <code>ChannelARN</code>
  *             in <code>CLOUD_STORAGE_MODE</code> is already mapped to a different
  *             Kinesis Video Stream resource, or if the provided input <code>StreamARN</code>
@@ -310,6 +389,7 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You have exceeded the limit of tags that you can associate with the resource.
  *             A Kinesis video stream can support up to 50 tags. </p>
  */
@@ -331,6 +411,9 @@ export class TagsPerResourceExceededLimitException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateStreamInput {
   /**
    * <p>The name of the device that is writing to the stream. </p>
@@ -385,6 +468,9 @@ export interface CreateStreamInput {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateStreamOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the stream.</p>
@@ -393,6 +479,7 @@ export interface CreateStreamOutput {
 }
 
 /**
+ * @public
  * <p>Not implemented.
  *             </p>
  */
@@ -415,6 +502,7 @@ export class DeviceStreamLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Not implemented.</p>
  */
 export class InvalidDeviceException extends __BaseException {
@@ -435,6 +523,9 @@ export class InvalidDeviceException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteSignalingChannelInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the signaling channel that you want to
@@ -450,9 +541,13 @@ export interface DeleteSignalingChannelInput {
   CurrentVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSignalingChannelOutput {}
 
 /**
+ * @public
  * <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -474,6 +569,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The stream version that you specified is not the latest version. To get the latest
  *             version, use the <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_DescribeStream.html">DescribeStream</a>
  *             API.</p>
@@ -496,6 +592,9 @@ export class VersionMismatchException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteStreamInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the stream that you want to delete. </p>
@@ -512,9 +611,13 @@ export interface DeleteStreamInput {
   CurrentVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteStreamOutput {}
 
 /**
+ * @public
  * <p>The caller is not authorized to perform this operation.</p>
  */
 export class NotAuthorizedException extends __BaseException {
@@ -535,12 +638,22 @@ export class NotAuthorizedException extends __BaseException {
   }
 }
 
-export enum StrategyOnFullSize {
-  DELETE_OLDEST_MEDIA = "DELETE_OLDEST_MEDIA",
-  DENY_NEW_MEDIA = "DENY_NEW_MEDIA",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StrategyOnFullSize = {
+  DELETE_OLDEST_MEDIA: "DELETE_OLDEST_MEDIA",
+  DENY_NEW_MEDIA: "DENY_NEW_MEDIA",
+} as const;
 
 /**
+ * @public
+ */
+export type StrategyOnFullSize = (typeof StrategyOnFullSize)[keyof typeof StrategyOnFullSize];
+
+/**
+ * @public
  * <p>The configuration details that include the maximum size of the media
  *             (<code>MaxLocalMediaSizeInMB</code>) that you want to
  *             store for a stream on the Edge Agent, as well as the strategy that should be used (<code>StrategyOnFullSize</code>) when a stream's
@@ -559,6 +672,7 @@ export interface LocalSizeConfig {
 }
 
 /**
+ * @public
  * <p>The configuration details required to delete the connection of the stream from the Edge Agent.</p>
  */
 export interface DeletionConfig {
@@ -585,6 +699,9 @@ export interface DeletionConfig {
   DeleteAfterUpload?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEdgeConfigurationInput {
   /**
    * <p>The name of the stream whose edge configuration you want to update. Specify either the <code>StreamName</code> or
@@ -599,12 +716,22 @@ export interface DescribeEdgeConfigurationInput {
   StreamARN?: string;
 }
 
-export enum MediaUriType {
-  FILE_URI = "FILE_URI",
-  RTSP_URI = "RTSP_URI",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MediaUriType = {
+  FILE_URI: "FILE_URI",
+  RTSP_URI: "RTSP_URI",
+} as const;
 
 /**
+ * @public
+ */
+export type MediaUriType = (typeof MediaUriType)[keyof typeof MediaUriType];
+
+/**
+ * @public
  * <p>The configuration details that consist of the credentials required
  *             (<code>MediaUriSecretArn</code> and <code>MediaUriType</code>) to access the media files that are
  *             streamed to the camera.</p>
@@ -626,6 +753,7 @@ export interface MediaSourceConfig {
 }
 
 /**
+ * @public
  * <p>This API enables you to specify the duration that the camera,
  *             or local media file, should record onto the Edge Agent. The <code>ScheduleConfig</code> consists of the <code>ScheduleExpression</code> and the
  *             <code>DurationInMinutes</code> attributes. </p>
@@ -652,6 +780,7 @@ export interface ScheduleConfig {
 }
 
 /**
+ * @public
  * <p>The recorder configuration consists of the local <code>MediaSourceConfig</code> details that are used as
  *             credentials to accesss the local media files streamed on the camera. </p>
  */
@@ -674,6 +803,7 @@ export interface RecorderConfig {
 }
 
 /**
+ * @public
  * <p>The configuration that consists of the <code>ScheduleExpression</code>
  *             and the <code>DurationInMinutesdetails</code>, that specify the scheduling to record from a camera,
  *             or local media file, onto the Edge Agent. If the <code>ScheduleExpression</code>
@@ -691,6 +821,7 @@ export interface UploaderConfig {
 }
 
 /**
+ * @public
  * <p>A description of the stream's edge configuration that will be used to sync
  *             with the Edge Agent IoT Greengrass component. The Edge Agent component will run
  *             on an IoT Hub Device setup at your premise.</p>
@@ -720,15 +851,27 @@ export interface EdgeConfig {
   DeletionConfig?: DeletionConfig;
 }
 
-export enum SyncStatus {
-  ACKNOWLEDGED = "ACKNOWLEDGED",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETING = "DELETING",
-  IN_SYNC = "IN_SYNC",
-  SYNCING = "SYNCING",
-  SYNC_FAILED = "SYNC_FAILED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SyncStatus = {
+  ACKNOWLEDGED: "ACKNOWLEDGED",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+  IN_SYNC: "IN_SYNC",
+  SYNCING: "SYNCING",
+  SYNC_FAILED: "SYNC_FAILED",
+} as const;
 
+/**
+ * @public
+ */
+export type SyncStatus = (typeof SyncStatus)[keyof typeof SyncStatus];
+
+/**
+ * @public
+ */
 export interface DescribeEdgeConfigurationOutput {
   /**
    * <p>The name of the stream from which the edge configuration was updated.</p>
@@ -769,6 +912,7 @@ export interface DescribeEdgeConfigurationOutput {
 }
 
 /**
+ * @public
  * <p>The Exception rendered when the Amazon Kinesis Video Stream can't find a stream's edge configuration
  *          that you specified. </p>
  */
@@ -790,6 +934,9 @@ export class StreamEdgeConfigurationNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeImageGenerationConfigurationInput {
   /**
    * <p>The name of the stream from which to retrieve the image generation configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.  </p>
@@ -803,6 +950,7 @@ export interface DescribeImageGenerationConfigurationInput {
 }
 
 /**
+ * @public
  * <p>The structure that contains the information required to deliver images to a customer.</p>
  */
 export interface ImageGenerationDestinationConfig {
@@ -817,21 +965,49 @@ export interface ImageGenerationDestinationConfig {
   DestinationRegion: string | undefined;
 }
 
-export enum Format {
-  JPEG = "JPEG",
-  PNG = "PNG",
-}
-
-export enum FormatConfigKey {
-  JPEGQuality = "JPEGQuality",
-}
-
-export enum ImageSelectorType {
-  PRODUCER_TIMESTAMP = "PRODUCER_TIMESTAMP",
-  SERVER_TIMESTAMP = "SERVER_TIMESTAMP",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Format = {
+  JPEG: "JPEG",
+  PNG: "PNG",
+} as const;
 
 /**
+ * @public
+ */
+export type Format = (typeof Format)[keyof typeof Format];
+
+/**
+ * @public
+ * @enum
+ */
+export const FormatConfigKey = {
+  JPEGQuality: "JPEGQuality",
+} as const;
+
+/**
+ * @public
+ */
+export type FormatConfigKey = (typeof FormatConfigKey)[keyof typeof FormatConfigKey];
+
+/**
+ * @public
+ * @enum
+ */
+export const ImageSelectorType = {
+  PRODUCER_TIMESTAMP: "PRODUCER_TIMESTAMP",
+  SERVER_TIMESTAMP: "SERVER_TIMESTAMP",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageSelectorType = (typeof ImageSelectorType)[keyof typeof ImageSelectorType];
+
+/**
+ * @public
  * <p>The structure that contains the information required for the KVS images delivery. If null, the configuration will be deleted from the stream.</p>
  */
 export interface ImageGenerationConfiguration {
@@ -887,6 +1063,9 @@ export interface ImageGenerationConfiguration {
   HeightPixels?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeImageGenerationConfigurationOutput {
   /**
    * <p>The structure that contains the information required for the Kinesis video stream (KVS) images delivery. If this structure is null, the configuration will be deleted from the stream.</p>
@@ -894,6 +1073,9 @@ export interface DescribeImageGenerationConfigurationOutput {
   ImageGenerationConfiguration?: ImageGenerationConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMappedResourceConfigurationInput {
   /**
    * <p>The name of the stream.</p>
@@ -917,6 +1099,7 @@ export interface DescribeMappedResourceConfigurationInput {
 }
 
 /**
+ * @public
  * <p>A structure that encapsulates, or contains, the media storage configuration properties.</p>
  */
 export interface MappedResourceConfigurationListItem {
@@ -931,6 +1114,9 @@ export interface MappedResourceConfigurationListItem {
   ARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMappedResourceConfigurationOutput {
   /**
    * <p>A structure that encapsulates, or contains, the media storage configuration properties.</p>
@@ -943,6 +1129,9 @@ export interface DescribeMappedResourceConfigurationOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMediaStorageConfigurationInput {
   /**
    * <p>The name of the channel.</p>
@@ -955,12 +1144,23 @@ export interface DescribeMediaStorageConfigurationInput {
   ChannelARN?: string;
 }
 
-export enum MediaStorageConfigurationStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MediaStorageConfigurationStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type MediaStorageConfigurationStatus =
+  (typeof MediaStorageConfigurationStatus)[keyof typeof MediaStorageConfigurationStatus];
+
+/**
+ * @public
  * <p>A structure that encapsulates, or contains, the media storage configuration properties.</p>
  */
 export interface MediaStorageConfiguration {
@@ -975,6 +1175,9 @@ export interface MediaStorageConfiguration {
   Status: MediaStorageConfigurationStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMediaStorageConfigurationOutput {
   /**
    * <p>A structure that encapsulates, or contains, the media storage configuration properties.</p>
@@ -982,6 +1185,9 @@ export interface DescribeMediaStorageConfigurationOutput {
   MediaStorageConfiguration?: MediaStorageConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface DescribeNotificationConfigurationInput {
   /**
    * <p>The name of the stream from which to retrieve the notification configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
@@ -995,6 +1201,7 @@ export interface DescribeNotificationConfigurationInput {
 }
 
 /**
+ * @public
  * <p>The structure that contains the information required to deliver a notification to a customer.</p>
  */
 export interface NotificationDestinationConfig {
@@ -1005,6 +1212,7 @@ export interface NotificationDestinationConfig {
 }
 
 /**
+ * @public
  * <p>The structure that contains the notification information for the KVS images delivery. If this parameter is null, the configuration will be deleted from the stream.</p>
  */
 export interface NotificationConfiguration {
@@ -1019,6 +1227,9 @@ export interface NotificationConfiguration {
   DestinationConfig: NotificationDestinationConfig | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeNotificationConfigurationOutput {
   /**
    * <p>The structure that contains the information required for notifications. If the structure is null, the configuration will be deleted from the stream.</p>
@@ -1026,6 +1237,9 @@ export interface DescribeNotificationConfigurationOutput {
   NotificationConfiguration?: NotificationConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSignalingChannelInput {
   /**
    * <p>The name of the signaling channel that you want to describe.</p>
@@ -1038,6 +1252,9 @@ export interface DescribeSignalingChannelInput {
   ChannelARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSignalingChannelOutput {
   /**
    * <p>A structure that encapsulates the specified signaling channel's metadata and
@@ -1046,6 +1263,9 @@ export interface DescribeSignalingChannelOutput {
   ChannelInfo?: ChannelInfo;
 }
 
+/**
+ * @public
+ */
 export interface DescribeStreamInput {
   /**
    * <p>The name of the stream.</p>
@@ -1059,6 +1279,7 @@ export interface DescribeStreamInput {
 }
 
 /**
+ * @public
  * <p>An object describing a Kinesis video stream.</p>
  */
 export interface StreamInfo {
@@ -1109,6 +1330,9 @@ export interface StreamInfo {
   DataRetentionInHours?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeStreamOutput {
   /**
    * <p>An object that describes the stream.</p>
@@ -1116,6 +1340,9 @@ export interface DescribeStreamOutput {
   StreamInfo?: StreamInfo;
 }
 
+/**
+ * @public
+ */
 export interface GetDataEndpointInput {
   /**
    * <p>The name of the stream that you want to get the endpoint for. You must specify
@@ -1136,6 +1363,9 @@ export interface GetDataEndpointInput {
   APIName: APIName | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDataEndpointOutput {
   /**
    * <p>The endpoint value. To read data from the stream or to write data to it, specify
@@ -1145,6 +1375,7 @@ export interface GetDataEndpointOutput {
 }
 
 /**
+ * @public
  * <p>An object that contains the endpoint configuration for the <code>SINGLE_MASTER</code>
  *             channel type. </p>
  */
@@ -1168,6 +1399,9 @@ export interface SingleMasterChannelEndpointConfiguration {
   Role?: ChannelRole | string;
 }
 
+/**
+ * @public
+ */
 export interface GetSignalingChannelEndpointInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the signalling channel for which you want to get an
@@ -1183,6 +1417,7 @@ export interface GetSignalingChannelEndpointInput {
 }
 
 /**
+ * @public
  * <p>An object that describes the endpoint of the signaling channel returned by the
  *                 <code>GetSignalingChannelEndpoint</code> API.</p>
  */
@@ -1200,6 +1435,9 @@ export interface ResourceEndpointListItem {
   ResourceEndpoint?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSignalingChannelEndpointOutput {
   /**
    * <p>A list of endpoints for the specified signaling channel.</p>
@@ -1208,6 +1446,7 @@ export interface GetSignalingChannelEndpointOutput {
 }
 
 /**
+ * @public
  * <p>The format of the <code>StreamARN</code> is invalid.</p>
  */
 export class InvalidResourceFormatException extends __BaseException {
@@ -1228,6 +1467,9 @@ export class InvalidResourceFormatException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListSignalingChannelsInput {
   /**
    * <p>The maximum number of channels to return in the response. The default is 500.</p>
@@ -1247,6 +1489,9 @@ export interface ListSignalingChannelsInput {
   ChannelNameCondition?: ChannelNameCondition;
 }
 
+/**
+ * @public
+ */
 export interface ListSignalingChannelsOutput {
   /**
    * <p>An array of <code>ChannelInfo</code> objects.</p>
@@ -1261,6 +1506,7 @@ export interface ListSignalingChannelsOutput {
 }
 
 /**
+ * @public
  * <p>Specifies the condition that streams must satisfy to be returned when you list
  *             streams (see the <code>ListStreams</code> API). A condition has a comparison operation
  *             and a value. Currently, you can specify only the <code>BEGINS_WITH</code> operator,
@@ -1279,6 +1525,9 @@ export interface StreamNameCondition {
   ComparisonValue?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListStreamsInput {
   /**
    * <p>The maximum number of streams to return in the response. The default is
@@ -1300,6 +1549,9 @@ export interface ListStreamsInput {
   StreamNameCondition?: StreamNameCondition;
 }
 
+/**
+ * @public
+ */
 export interface ListStreamsOutput {
   /**
    * <p>An array of <code>StreamInfo</code> objects.</p>
@@ -1313,6 +1565,9 @@ export interface ListStreamsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceInput {
   /**
    * <p>If you specify this parameter and the result of a <code>ListTagsForResource</code>
@@ -1328,6 +1583,9 @@ export interface ListTagsForResourceInput {
   ResourceARN: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceOutput {
   /**
    * <p>If you specify this parameter and the result of a <code>ListTagsForResource</code>
@@ -1342,6 +1600,9 @@ export interface ListTagsForResourceOutput {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForStreamInput {
   /**
    * <p>If you specify this parameter and the result of a <code>ListTagsForStream</code>
@@ -1362,6 +1623,9 @@ export interface ListTagsForStreamInput {
   StreamName?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForStreamOutput {
   /**
    * <p>If you specify this parameter and the result of a <code>ListTags</code> call is
@@ -1377,6 +1641,7 @@ export interface ListTagsForStreamOutput {
 }
 
 /**
+ * @public
  * <p>The Stream data retention in hours is equal to zero.</p>
  */
 export class NoDataRetentionException extends __BaseException {
@@ -1397,6 +1662,9 @@ export class NoDataRetentionException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface StartEdgeConfigurationUpdateInput {
   /**
    * <p>The name of the stream whose edge configuration you want to update. Specify either the <code>StreamName</code>
@@ -1416,6 +1684,9 @@ export interface StartEdgeConfigurationUpdateInput {
   EdgeConfig: EdgeConfig | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartEdgeConfigurationUpdateOutput {
   /**
    * <p>The name of the stream from which the edge configuration was updated.</p>
@@ -1457,6 +1728,9 @@ export interface StartEdgeConfigurationUpdateOutput {
   EdgeConfig?: EdgeConfig;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the signaling channel to which you want to add
@@ -1471,8 +1745,14 @@ export interface TagResourceInput {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceOutput {}
 
+/**
+ * @public
+ */
 export interface TagStreamInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want to add the tag or tags
@@ -1492,8 +1772,14 @@ export interface TagStreamInput {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagStreamOutput {}
 
+/**
+ * @public
+ */
 export interface UntagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the signaling channel from which you want to remove
@@ -1507,8 +1793,14 @@ export interface UntagResourceInput {
   TagKeyList: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceOutput {}
 
+/**
+ * @public
+ */
 export interface UntagStreamInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the stream that you want to remove tags
@@ -1527,13 +1819,29 @@ export interface UntagStreamInput {
   TagKeyList: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagStreamOutput {}
 
-export enum UpdateDataRetentionOperation {
-  DECREASE_DATA_RETENTION = "DECREASE_DATA_RETENTION",
-  INCREASE_DATA_RETENTION = "INCREASE_DATA_RETENTION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const UpdateDataRetentionOperation = {
+  DECREASE_DATA_RETENTION: "DECREASE_DATA_RETENTION",
+  INCREASE_DATA_RETENTION: "INCREASE_DATA_RETENTION",
+} as const;
 
+/**
+ * @public
+ */
+export type UpdateDataRetentionOperation =
+  (typeof UpdateDataRetentionOperation)[keyof typeof UpdateDataRetentionOperation];
+
+/**
+ * @public
+ */
 export interface UpdateDataRetentionInput {
   /**
    * <p>The name of the stream whose retention period you want to change.</p>
@@ -1565,8 +1873,14 @@ export interface UpdateDataRetentionInput {
   DataRetentionChangeInHours: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDataRetentionOutput {}
 
+/**
+ * @public
+ */
 export interface UpdateImageGenerationConfigurationInput {
   /**
    * <p>The name of the stream from which to update the image generation configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
@@ -1585,8 +1899,14 @@ export interface UpdateImageGenerationConfigurationInput {
   ImageGenerationConfiguration?: ImageGenerationConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdateImageGenerationConfigurationOutput {}
 
+/**
+ * @public
+ */
 export interface UpdateMediaStorageConfigurationInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the channel.</p>
@@ -1599,8 +1919,14 @@ export interface UpdateMediaStorageConfigurationInput {
   MediaStorageConfiguration: MediaStorageConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMediaStorageConfigurationOutput {}
 
+/**
+ * @public
+ */
 export interface UpdateNotificationConfigurationInput {
   /**
    * <p>The name of the stream from which to update the notification configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
@@ -1618,8 +1944,14 @@ export interface UpdateNotificationConfigurationInput {
   NotificationConfiguration?: NotificationConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdateNotificationConfigurationOutput {}
 
+/**
+ * @public
+ */
 export interface UpdateSignalingChannelInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the signaling channel that you want to
@@ -1639,8 +1971,14 @@ export interface UpdateSignalingChannelInput {
   SingleMasterConfiguration?: SingleMasterConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSignalingChannelOutput {}
 
+/**
+ * @public
+ */
 export interface UpdateStreamInput {
   /**
    * <p>The name of the stream whose metadata you want to update.</p>
@@ -1681,112 +2019,10 @@ export interface UpdateStreamInput {
   MediaType?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateStreamOutput {}
-
-/**
- * @internal
- */
-export const SingleMasterConfigurationFilterSensitiveLog = (obj: SingleMasterConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChannelInfoFilterSensitiveLog = (obj: ChannelInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChannelNameConditionFilterSensitiveLog = (obj: ChannelNameCondition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSignalingChannelInputFilterSensitiveLog = (obj: CreateSignalingChannelInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSignalingChannelOutputFilterSensitiveLog = (obj: CreateSignalingChannelOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateStreamInputFilterSensitiveLog = (obj: CreateStreamInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateStreamOutputFilterSensitiveLog = (obj: CreateStreamOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSignalingChannelInputFilterSensitiveLog = (obj: DeleteSignalingChannelInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSignalingChannelOutputFilterSensitiveLog = (obj: DeleteSignalingChannelOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteStreamInputFilterSensitiveLog = (obj: DeleteStreamInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteStreamOutputFilterSensitiveLog = (obj: DeleteStreamOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LocalSizeConfigFilterSensitiveLog = (obj: LocalSizeConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletionConfigFilterSensitiveLog = (obj: DeletionConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEdgeConfigurationInputFilterSensitiveLog = (obj: DescribeEdgeConfigurationInput): any => ({
-  ...obj,
-});
 
 /**
  * @internal
@@ -1799,23 +2035,9 @@ export const MediaSourceConfigFilterSensitiveLog = (obj: MediaSourceConfig): any
 /**
  * @internal
  */
-export const ScheduleConfigFilterSensitiveLog = (obj: ScheduleConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const RecorderConfigFilterSensitiveLog = (obj: RecorderConfig): any => ({
   ...obj,
   ...(obj.MediaSourceConfig && { MediaSourceConfig: MediaSourceConfigFilterSensitiveLog(obj.MediaSourceConfig) }),
-});
-
-/**
- * @internal
- */
-export const UploaderConfigFilterSensitiveLog = (obj: UploaderConfig): any => ({
-  ...obj,
 });
 
 /**
@@ -1837,264 +2059,6 @@ export const DescribeEdgeConfigurationOutputFilterSensitiveLog = (obj: DescribeE
 /**
  * @internal
  */
-export const DescribeImageGenerationConfigurationInputFilterSensitiveLog = (
-  obj: DescribeImageGenerationConfigurationInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImageGenerationDestinationConfigFilterSensitiveLog = (obj: ImageGenerationDestinationConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImageGenerationConfigurationFilterSensitiveLog = (obj: ImageGenerationConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeImageGenerationConfigurationOutputFilterSensitiveLog = (
-  obj: DescribeImageGenerationConfigurationOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeMappedResourceConfigurationInputFilterSensitiveLog = (
-  obj: DescribeMappedResourceConfigurationInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MappedResourceConfigurationListItemFilterSensitiveLog = (
-  obj: MappedResourceConfigurationListItem
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeMappedResourceConfigurationOutputFilterSensitiveLog = (
-  obj: DescribeMappedResourceConfigurationOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeMediaStorageConfigurationInputFilterSensitiveLog = (
-  obj: DescribeMediaStorageConfigurationInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MediaStorageConfigurationFilterSensitiveLog = (obj: MediaStorageConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeMediaStorageConfigurationOutputFilterSensitiveLog = (
-  obj: DescribeMediaStorageConfigurationOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeNotificationConfigurationInputFilterSensitiveLog = (
-  obj: DescribeNotificationConfigurationInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NotificationDestinationConfigFilterSensitiveLog = (obj: NotificationDestinationConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NotificationConfigurationFilterSensitiveLog = (obj: NotificationConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeNotificationConfigurationOutputFilterSensitiveLog = (
-  obj: DescribeNotificationConfigurationOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSignalingChannelInputFilterSensitiveLog = (obj: DescribeSignalingChannelInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSignalingChannelOutputFilterSensitiveLog = (obj: DescribeSignalingChannelOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeStreamInputFilterSensitiveLog = (obj: DescribeStreamInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StreamInfoFilterSensitiveLog = (obj: StreamInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeStreamOutputFilterSensitiveLog = (obj: DescribeStreamOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDataEndpointInputFilterSensitiveLog = (obj: GetDataEndpointInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDataEndpointOutputFilterSensitiveLog = (obj: GetDataEndpointOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SingleMasterChannelEndpointConfigurationFilterSensitiveLog = (
-  obj: SingleMasterChannelEndpointConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSignalingChannelEndpointInputFilterSensitiveLog = (obj: GetSignalingChannelEndpointInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceEndpointListItemFilterSensitiveLog = (obj: ResourceEndpointListItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSignalingChannelEndpointOutputFilterSensitiveLog = (obj: GetSignalingChannelEndpointOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSignalingChannelsInputFilterSensitiveLog = (obj: ListSignalingChannelsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSignalingChannelsOutputFilterSensitiveLog = (obj: ListSignalingChannelsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StreamNameConditionFilterSensitiveLog = (obj: StreamNameCondition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStreamsInputFilterSensitiveLog = (obj: ListStreamsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStreamsOutputFilterSensitiveLog = (obj: ListStreamsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceInputFilterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceOutputFilterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForStreamInputFilterSensitiveLog = (obj: ListTagsForStreamInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForStreamOutputFilterSensitiveLog = (obj: ListTagsForStreamOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const StartEdgeConfigurationUpdateInputFilterSensitiveLog = (obj: StartEdgeConfigurationUpdateInput): any => ({
   ...obj,
   ...(obj.EdgeConfig && { EdgeConfig: EdgeConfigFilterSensitiveLog(obj.EdgeConfig) }),
@@ -2106,156 +2070,4 @@ export const StartEdgeConfigurationUpdateInputFilterSensitiveLog = (obj: StartEd
 export const StartEdgeConfigurationUpdateOutputFilterSensitiveLog = (obj: StartEdgeConfigurationUpdateOutput): any => ({
   ...obj,
   ...(obj.EdgeConfig && { EdgeConfig: EdgeConfigFilterSensitiveLog(obj.EdgeConfig) }),
-});
-
-/**
- * @internal
- */
-export const TagResourceInputFilterSensitiveLog = (obj: TagResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceOutputFilterSensitiveLog = (obj: TagResourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagStreamInputFilterSensitiveLog = (obj: TagStreamInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagStreamOutputFilterSensitiveLog = (obj: TagStreamOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceInputFilterSensitiveLog = (obj: UntagResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceOutputFilterSensitiveLog = (obj: UntagResourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagStreamInputFilterSensitiveLog = (obj: UntagStreamInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagStreamOutputFilterSensitiveLog = (obj: UntagStreamOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDataRetentionInputFilterSensitiveLog = (obj: UpdateDataRetentionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDataRetentionOutputFilterSensitiveLog = (obj: UpdateDataRetentionOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateImageGenerationConfigurationInputFilterSensitiveLog = (
-  obj: UpdateImageGenerationConfigurationInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateImageGenerationConfigurationOutputFilterSensitiveLog = (
-  obj: UpdateImageGenerationConfigurationOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateMediaStorageConfigurationInputFilterSensitiveLog = (
-  obj: UpdateMediaStorageConfigurationInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateMediaStorageConfigurationOutputFilterSensitiveLog = (
-  obj: UpdateMediaStorageConfigurationOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateNotificationConfigurationInputFilterSensitiveLog = (
-  obj: UpdateNotificationConfigurationInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateNotificationConfigurationOutputFilterSensitiveLog = (
-  obj: UpdateNotificationConfigurationOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSignalingChannelInputFilterSensitiveLog = (obj: UpdateSignalingChannelInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSignalingChannelOutputFilterSensitiveLog = (obj: UpdateSignalingChannelOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateStreamInputFilterSensitiveLog = (obj: UpdateStreamInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateStreamOutputFilterSensitiveLog = (obj: UpdateStreamOutput): any => ({
-  ...obj,
 });

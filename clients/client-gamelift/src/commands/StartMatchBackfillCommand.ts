@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  StartMatchBackfillInput,
-  StartMatchBackfillInputFilterSensitiveLog,
-  StartMatchBackfillOutput,
-  StartMatchBackfillOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartMatchBackfillCommand,
-  serializeAws_json1_1StartMatchBackfillCommand,
-} from "../protocols/Aws_json1_1";
+import { StartMatchBackfillInput, StartMatchBackfillOutput } from "../models/models_0";
+import { de_StartMatchBackfillCommand, se_StartMatchBackfillCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link StartMatchBackfillCommand}.
+ */
 export interface StartMatchBackfillCommandInput extends StartMatchBackfillInput {}
+/**
+ * @public
+ *
+ * The output of {@link StartMatchBackfillCommand}.
+ */
 export interface StartMatchBackfillCommandOutput extends StartMatchBackfillOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Finds new players to fill open slots in currently running game sessions. The backfill
  *             match process is essentially identical to the process of forming new matches. Backfill
  *             requests use the same matchmaker that was used to make the original match, and they
@@ -73,13 +76,56 @@ export interface StartMatchBackfillCommandOutput extends StartMatchBackfillOutpu
  * import { GameLiftClient, StartMatchBackfillCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, StartMatchBackfillCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // StartMatchBackfillInput
+ *   TicketId: "STRING_VALUE",
+ *   ConfigurationName: "STRING_VALUE", // required
+ *   GameSessionArn: "STRING_VALUE",
+ *   Players: [ // PlayerList // required
+ *     { // Player
+ *       PlayerId: "STRING_VALUE",
+ *       PlayerAttributes: { // PlayerAttributeMap
+ *         "<keys>": { // AttributeValue
+ *           S: "STRING_VALUE",
+ *           N: Number("double"),
+ *           SL: [ // PlayerAttributeStringList
+ *             "STRING_VALUE",
+ *           ],
+ *           SDM: { // PlayerAttributeStringDoubleMap
+ *             "<keys>": Number("double"),
+ *           },
+ *         },
+ *       },
+ *       Team: "STRING_VALUE",
+ *       LatencyInMs: { // LatencyMap
+ *         "<keys>": Number("int"),
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new StartMatchBackfillCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartMatchBackfillCommandInput - {@link StartMatchBackfillCommandInput}
+ * @returns {@link StartMatchBackfillCommandOutput}
  * @see {@link StartMatchBackfillCommandInput} for command's `input` shape.
  * @see {@link StartMatchBackfillCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an unrecoverable internal failure while processing the
+ *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
+ *             values before retrying.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *
+ * @throws {@link UnsupportedRegionException} (client fault)
+ *  <p>The requested operation is not supported in the Region specified.</p>
+ *
  *
  */
 export class StartMatchBackfillCommand extends $Command<
@@ -99,6 +145,9 @@ export class StartMatchBackfillCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartMatchBackfillCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +176,8 @@ export class StartMatchBackfillCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartMatchBackfillInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StartMatchBackfillOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,12 +187,18 @@ export class StartMatchBackfillCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartMatchBackfillCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartMatchBackfillCommand(input, context);
+    return se_StartMatchBackfillCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartMatchBackfillCommandOutput> {
-    return deserializeAws_json1_1StartMatchBackfillCommand(output, context);
+    return de_StartMatchBackfillCommand(output, context);
   }
 
   // Start section: command_body_extra

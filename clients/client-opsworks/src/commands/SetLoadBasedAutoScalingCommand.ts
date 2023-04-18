@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { SetLoadBasedAutoScalingRequest, SetLoadBasedAutoScalingRequestFilterSensitiveLog } from "../models/models_0";
+import { SetLoadBasedAutoScalingRequest } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1SetLoadBasedAutoScalingCommand,
-  serializeAws_json1_1SetLoadBasedAutoScalingCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SetLoadBasedAutoScalingCommand, se_SetLoadBasedAutoScalingCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link SetLoadBasedAutoScalingCommand}.
+ */
 export interface SetLoadBasedAutoScalingCommandInput extends SetLoadBasedAutoScalingRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SetLoadBasedAutoScalingCommand}.
+ */
 export interface SetLoadBasedAutoScalingCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Specify the load-based auto scaling configuration for a specified layer. For more
  *       information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-autoscaling.html">Managing
  *         Load with Time-based and Load-based Instances</a>.</p>
@@ -41,13 +49,48 @@ export interface SetLoadBasedAutoScalingCommandOutput extends __MetadataBearer {
  * import { OpsWorksClient, SetLoadBasedAutoScalingCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, SetLoadBasedAutoScalingCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // SetLoadBasedAutoScalingRequest
+ *   LayerId: "STRING_VALUE", // required
+ *   Enable: true || false,
+ *   UpScaling: { // AutoScalingThresholds
+ *     InstanceCount: Number("int"),
+ *     ThresholdsWaitTime: Number("int"),
+ *     IgnoreMetricsTime: Number("int"),
+ *     CpuThreshold: Number("double"),
+ *     MemoryThreshold: Number("double"),
+ *     LoadThreshold: Number("double"),
+ *     Alarms: [ // Strings
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   DownScaling: {
+ *     InstanceCount: Number("int"),
+ *     ThresholdsWaitTime: Number("int"),
+ *     IgnoreMetricsTime: Number("int"),
+ *     CpuThreshold: Number("double"),
+ *     MemoryThreshold: Number("double"),
+ *     LoadThreshold: Number("double"),
+ *     Alarms: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new SetLoadBasedAutoScalingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SetLoadBasedAutoScalingCommandInput - {@link SetLoadBasedAutoScalingCommandInput}
+ * @returns {@link SetLoadBasedAutoScalingCommandOutput}
  * @see {@link SetLoadBasedAutoScalingCommandInput} for command's `input` shape.
  * @see {@link SetLoadBasedAutoScalingCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Indicates that a resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that a request was not valid.</p>
+ *
  *
  */
 export class SetLoadBasedAutoScalingCommand extends $Command<
@@ -67,6 +110,9 @@ export class SetLoadBasedAutoScalingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetLoadBasedAutoScalingCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +141,8 @@ export class SetLoadBasedAutoScalingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetLoadBasedAutoScalingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +152,18 @@ export class SetLoadBasedAutoScalingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetLoadBasedAutoScalingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SetLoadBasedAutoScalingCommand(input, context);
+    return se_SetLoadBasedAutoScalingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetLoadBasedAutoScalingCommandOutput> {
-    return deserializeAws_json1_1SetLoadBasedAutoScalingCommand(output, context);
+    return de_SetLoadBasedAutoScalingCommand(output, context);
   }
 
   // Start section: command_body_extra

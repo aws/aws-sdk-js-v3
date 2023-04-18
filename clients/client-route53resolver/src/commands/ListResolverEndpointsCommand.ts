@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListResolverEndpointsRequest,
-  ListResolverEndpointsRequestFilterSensitiveLog,
-  ListResolverEndpointsResponse,
-  ListResolverEndpointsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListResolverEndpointsCommand,
-  serializeAws_json1_1ListResolverEndpointsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListResolverEndpointsRequest, ListResolverEndpointsResponse } from "../models/models_0";
+import { de_ListResolverEndpointsCommand, se_ListResolverEndpointsCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListResolverEndpointsCommand}.
+ */
 export interface ListResolverEndpointsCommandInput extends ListResolverEndpointsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListResolverEndpointsCommand}.
+ */
 export interface ListResolverEndpointsCommandOutput extends ListResolverEndpointsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the Resolver endpoints that were created using the current Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,43 @@ export interface ListResolverEndpointsCommandOutput extends ListResolverEndpoint
  * import { Route53ResolverClient, ListResolverEndpointsCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, ListResolverEndpointsCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = { // ListResolverEndpointsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Filters: [ // Filters
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // FilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new ListResolverEndpointsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResolverEndpointsCommandInput - {@link ListResolverEndpointsCommandInput}
+ * @returns {@link ListResolverEndpointsCommandOutput}
  * @see {@link ListResolverEndpointsCommandInput} for command's `input` shape.
  * @see {@link ListResolverEndpointsCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
+ *
+ * @throws {@link InternalServiceErrorException} (client fault)
+ *  <p>We encountered an unknown error. Try again in a few minutes.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The value that you specified for <code>NextToken</code> in a <code>List</code> request isn't valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters in this request are not valid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was throttled. Try again in a few minutes.</p>
+ *
  *
  */
 export class ListResolverEndpointsCommand extends $Command<
@@ -62,6 +95,9 @@ export class ListResolverEndpointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResolverEndpointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +126,8 @@ export class ListResolverEndpointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListResolverEndpointsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListResolverEndpointsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +137,18 @@ export class ListResolverEndpointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResolverEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListResolverEndpointsCommand(input, context);
+    return se_ListResolverEndpointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResolverEndpointsCommandOutput> {
-    return deserializeAws_json1_1ListResolverEndpointsCommand(output, context);
+    return de_ListResolverEndpointsCommand(output, context);
   }
 
   // Start section: command_body_extra

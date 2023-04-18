@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  DeleteUserDefinedFunctionRequest,
-  DeleteUserDefinedFunctionRequestFilterSensitiveLog,
-  DeleteUserDefinedFunctionResponse,
-  DeleteUserDefinedFunctionResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteUserDefinedFunctionCommand,
-  serializeAws_json1_1DeleteUserDefinedFunctionCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteUserDefinedFunctionRequest, DeleteUserDefinedFunctionResponse } from "../models/models_1";
+import { de_DeleteUserDefinedFunctionCommand, se_DeleteUserDefinedFunctionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteUserDefinedFunctionCommand}.
+ */
 export interface DeleteUserDefinedFunctionCommandInput extends DeleteUserDefinedFunctionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteUserDefinedFunctionCommand}.
+ */
 export interface DeleteUserDefinedFunctionCommandOutput extends DeleteUserDefinedFunctionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing function definition from the Data Catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,33 @@ export interface DeleteUserDefinedFunctionCommandOutput extends DeleteUserDefine
  * import { GlueClient, DeleteUserDefinedFunctionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DeleteUserDefinedFunctionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // DeleteUserDefinedFunctionRequest
+ *   CatalogId: "STRING_VALUE",
+ *   DatabaseName: "STRING_VALUE", // required
+ *   FunctionName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteUserDefinedFunctionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteUserDefinedFunctionCommandInput - {@link DeleteUserDefinedFunctionCommandInput}
+ * @returns {@link DeleteUserDefinedFunctionCommandOutput}
  * @see {@link DeleteUserDefinedFunctionCommandInput} for command's `input` shape.
  * @see {@link DeleteUserDefinedFunctionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class DeleteUserDefinedFunctionCommand extends $Command<
@@ -62,6 +85,9 @@ export class DeleteUserDefinedFunctionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteUserDefinedFunctionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +116,8 @@ export class DeleteUserDefinedFunctionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteUserDefinedFunctionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteUserDefinedFunctionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +127,21 @@ export class DeleteUserDefinedFunctionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteUserDefinedFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteUserDefinedFunctionCommand(input, context);
+    return se_DeleteUserDefinedFunctionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteUserDefinedFunctionCommandOutput> {
-    return deserializeAws_json1_1DeleteUserDefinedFunctionCommand(output, context);
+    return de_DeleteUserDefinedFunctionCommand(output, context);
   }
 
   // Start section: command_body_extra

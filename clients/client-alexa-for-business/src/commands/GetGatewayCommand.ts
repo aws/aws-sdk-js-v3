@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  GetGatewayRequest,
-  GetGatewayRequestFilterSensitiveLog,
-  GetGatewayResponse,
-  GetGatewayResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetGatewayCommand,
-  serializeAws_json1_1GetGatewayCommand,
-} from "../protocols/Aws_json1_1";
+import { GetGatewayRequest, GetGatewayResponse } from "../models/models_0";
+import { de_GetGatewayCommand, se_GetGatewayCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetGatewayCommand}.
+ */
 export interface GetGatewayCommandInput extends GetGatewayRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetGatewayCommand}.
+ */
 export interface GetGatewayCommandOutput extends GetGatewayResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the details of a gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,22 @@ export interface GetGatewayCommandOutput extends GetGatewayResponse, __MetadataB
  * import { AlexaForBusinessClient, GetGatewayCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, GetGatewayCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // GetGatewayRequest
+ *   GatewayArn: "STRING_VALUE", // required
+ * };
  * const command = new GetGatewayCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetGatewayCommandInput - {@link GetGatewayCommandInput}
+ * @returns {@link GetGatewayCommandOutput}
  * @see {@link GetGatewayCommandInput} for command's `input` shape.
  * @see {@link GetGatewayCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
  *
  */
 export class GetGatewayCommand extends $Command<
@@ -62,6 +74,9 @@ export class GetGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +103,8 @@ export class GetGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetGatewayRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetGatewayResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +114,18 @@ export class GetGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetGatewayCommand(input, context);
+    return se_GetGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGatewayCommandOutput> {
-    return deserializeAws_json1_1GetGatewayCommand(output, context);
+    return de_GetGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

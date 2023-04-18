@@ -6,12 +6,11 @@ import {
   ListAssociatedGroupsCommandInput,
   ListAssociatedGroupsCommandOutput,
 } from "../commands/ListAssociatedGroupsCommand";
-import { Synthetics } from "../Synthetics";
 import { SyntheticsClient } from "../SyntheticsClient";
 import { SyntheticsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SyntheticsClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListAssociatedGroupsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Synthetics,
-  input: ListAssociatedGroupsCommandInput,
-  ...args: any
-): Promise<ListAssociatedGroupsCommandOutput> => {
-  // @ts-ignore
-  return await client.listAssociatedGroups(input, ...args);
-};
 export async function* paginateListAssociatedGroups(
   config: SyntheticsPaginationConfiguration,
   input: ListAssociatedGroupsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListAssociatedGroups(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Synthetics) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SyntheticsClient) {
+    if (config.client instanceof SyntheticsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Synthetics | SyntheticsClient");

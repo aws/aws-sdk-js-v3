@@ -6,12 +6,11 @@ import {
   DescribeStandardsCommandInput,
   DescribeStandardsCommandOutput,
 } from "../commands/DescribeStandardsCommand";
-import { SecurityHub } from "../SecurityHub";
 import { SecurityHubClient } from "../SecurityHubClient";
 import { SecurityHubPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SecurityHubClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeStandardsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: SecurityHub,
-  input: DescribeStandardsCommandInput,
-  ...args: any
-): Promise<DescribeStandardsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeStandards(input, ...args);
-};
 export async function* paginateDescribeStandards(
   config: SecurityHubPaginationConfiguration,
   input: DescribeStandardsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateDescribeStandards(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof SecurityHub) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SecurityHubClient) {
+    if (config.client instanceof SecurityHubClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SecurityHub | SecurityHubClient");

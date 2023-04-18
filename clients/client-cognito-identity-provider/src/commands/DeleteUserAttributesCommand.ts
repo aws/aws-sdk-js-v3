@@ -22,17 +22,24 @@ import {
   DeleteUserAttributesRequest,
   DeleteUserAttributesRequestFilterSensitiveLog,
   DeleteUserAttributesResponse,
-  DeleteUserAttributesResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteUserAttributesCommand,
-  serializeAws_json1_1DeleteUserAttributesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteUserAttributesCommand, se_DeleteUserAttributesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteUserAttributesCommand}.
+ */
 export interface DeleteUserAttributesCommandInput extends DeleteUserAttributesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteUserAttributesCommand}.
+ */
 export interface DeleteUserAttributesCommandOutput extends DeleteUserAttributesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the attributes for a user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +47,52 @@ export interface DeleteUserAttributesCommandOutput extends DeleteUserAttributesR
  * import { CognitoIdentityProviderClient, DeleteUserAttributesCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, DeleteUserAttributesCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // DeleteUserAttributesRequest
+ *   UserAttributeNames: [ // AttributeNameListType // required
+ *     "STRING_VALUE",
+ *   ],
+ *   AccessToken: "STRING_VALUE", // required
+ * };
  * const command = new DeleteUserAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteUserAttributesCommandInput - {@link DeleteUserAttributesCommandInput}
+ * @returns {@link DeleteUserAttributesCommandOutput}
  * @see {@link DeleteUserAttributesCommandInput} for command's `input` shape.
  * @see {@link DeleteUserAttributesCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.</p>
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
+ *             parameter.</p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * @throws {@link PasswordResetRequiredException} (client fault)
+ *  <p>This exception is thrown when a password reset is required.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
+ *             resource.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>This exception is thrown when the user has made too many requests for a given
+ *             operation.</p>
+ *
+ * @throws {@link UserNotConfirmedException} (client fault)
+ *  <p>This exception is thrown when a user isn't confirmed successfully.</p>
+ *
+ * @throws {@link UserNotFoundException} (client fault)
+ *  <p>This exception is thrown when a user isn't found.</p>
+ *
  *
  */
 export class DeleteUserAttributesCommand extends $Command<
@@ -66,6 +112,9 @@ export class DeleteUserAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteUserAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,7 +144,7 @@ export class DeleteUserAttributesCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: DeleteUserAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteUserAttributesResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +154,18 @@ export class DeleteUserAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteUserAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteUserAttributesCommand(input, context);
+    return se_DeleteUserAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteUserAttributesCommandOutput> {
-    return deserializeAws_json1_1DeleteUserAttributesCommand(output, context);
+    return de_DeleteUserAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

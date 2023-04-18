@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameSparksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameSparksClient";
-import {
-  GetExtensionVersionRequest,
-  GetExtensionVersionRequestFilterSensitiveLog,
-  GetExtensionVersionResult,
-  GetExtensionVersionResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetExtensionVersionCommand,
-  serializeAws_restJson1GetExtensionVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { GetExtensionVersionRequest, GetExtensionVersionResult } from "../models/models_0";
+import { de_GetExtensionVersionCommand, se_GetExtensionVersionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetExtensionVersionCommand}.
+ */
 export interface GetExtensionVersionCommandInput extends GetExtensionVersionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetExtensionVersionCommand}.
+ */
 export interface GetExtensionVersionCommandOutput extends GetExtensionVersionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets details about a specified extension version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,36 @@ export interface GetExtensionVersionCommandOutput extends GetExtensionVersionRes
  * import { GameSparksClient, GetExtensionVersionCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, GetExtensionVersionCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
+ * const input = { // GetExtensionVersionRequest
+ *   Namespace: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   ExtensionVersion: "STRING_VALUE", // required
+ * };
  * const command = new GetExtensionVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetExtensionVersionCommandInput - {@link GetExtensionVersionCommandInput}
+ * @returns {@link GetExtensionVersionCommandOutput}
  * @see {@link GetExtensionVersionCommandInput} for command's `input` shape.
  * @see {@link GetExtensionVersionCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The service encountered an internal error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request throughput limit was exceeded.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One of the parameters in the request is invalid.</p>
+ *
  *
  */
 export class GetExtensionVersionCommand extends $Command<
@@ -62,6 +88,9 @@ export class GetExtensionVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetExtensionVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +119,8 @@ export class GetExtensionVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetExtensionVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetExtensionVersionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +130,18 @@ export class GetExtensionVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetExtensionVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetExtensionVersionCommand(input, context);
+    return se_GetExtensionVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetExtensionVersionCommandOutput> {
-    return deserializeAws_restJson1GetExtensionVersionCommand(output, context);
+    return de_GetExtensionVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

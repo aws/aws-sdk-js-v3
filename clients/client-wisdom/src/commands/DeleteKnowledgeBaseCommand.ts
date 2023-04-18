@@ -13,28 +13,32 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteKnowledgeBaseRequest,
-  DeleteKnowledgeBaseRequestFilterSensitiveLog,
-  DeleteKnowledgeBaseResponse,
-  DeleteKnowledgeBaseResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteKnowledgeBaseCommand,
-  serializeAws_restJson1DeleteKnowledgeBaseCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteKnowledgeBaseRequest, DeleteKnowledgeBaseResponse } from "../models/models_0";
+import { de_DeleteKnowledgeBaseCommand, se_DeleteKnowledgeBaseCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteKnowledgeBaseCommand}.
+ */
 export interface DeleteKnowledgeBaseCommandInput extends DeleteKnowledgeBaseRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteKnowledgeBaseCommand}.
+ */
 export interface DeleteKnowledgeBaseCommandOutput extends DeleteKnowledgeBaseResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the knowledge base.</p>
  *          <note>
  *             <p>When you use this API to delete an external knowledge base such as Salesforce or
- *         ServiceNow, you must also delete the <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/Welcome.html">Amazon AppIntegrations</a> DataIntegration.
- *         This is because you can't reuse the DataIntegration after it's been associated with an
- *         external knowledge base. However, you can delete and recreate it. See <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_DeleteDataIntegration.html">DeleteDataIntegration</a> and <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegration.html">CreateDataIntegration</a> in the <i>Amazon AppIntegrations API
+ *         ServiceNow, you must also delete the <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/Welcome.html">Amazon AppIntegrations</a>
+ *         DataIntegration. This is because you can't reuse the DataIntegration after it's been
+ *         associated with an external knowledge base. However, you can delete and recreate it. See
+ *           <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_DeleteDataIntegration.html">DeleteDataIntegration</a> and <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegration.html">CreateDataIntegration</a> in the <i>Amazon AppIntegrations API
  *         Reference</i>.</p>
  *          </note>
  * @example
@@ -43,13 +47,34 @@ export interface DeleteKnowledgeBaseCommandOutput extends DeleteKnowledgeBaseRes
  * import { WisdomClient, DeleteKnowledgeBaseCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, DeleteKnowledgeBaseCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
+ * const input = { // DeleteKnowledgeBaseRequest
+ *   knowledgeBaseId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteKnowledgeBaseCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteKnowledgeBaseCommandInput - {@link DeleteKnowledgeBaseCommandInput}
+ * @returns {@link DeleteKnowledgeBaseCommandOutput}
  * @see {@link DeleteKnowledgeBaseCommandInput} for command's `input` shape.
  * @see {@link DeleteKnowledgeBaseCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be processed because of conflict in the current state of the
+ *       resource. For example, if you're using a <code>Create</code> API (such as
+ *         <code>CreateAssistant</code>) that accepts name, a conflicting resource (usually with the
+ *       same name) is being created or mutated.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by a service.</p>
+ *
  *
  */
 export class DeleteKnowledgeBaseCommand extends $Command<
@@ -69,6 +94,9 @@ export class DeleteKnowledgeBaseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteKnowledgeBaseCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +125,8 @@ export class DeleteKnowledgeBaseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteKnowledgeBaseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteKnowledgeBaseResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +136,18 @@ export class DeleteKnowledgeBaseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteKnowledgeBaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteKnowledgeBaseCommand(input, context);
+    return se_DeleteKnowledgeBaseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteKnowledgeBaseCommandOutput> {
-    return deserializeAws_restJson1DeleteKnowledgeBaseCommand(output, context);
+    return de_DeleteKnowledgeBaseCommand(output, context);
   }
 
   // Start section: command_body_extra

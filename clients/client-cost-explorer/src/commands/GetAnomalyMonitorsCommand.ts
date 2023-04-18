@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
-import {
-  GetAnomalyMonitorsRequest,
-  GetAnomalyMonitorsRequestFilterSensitiveLog,
-  GetAnomalyMonitorsResponse,
-  GetAnomalyMonitorsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetAnomalyMonitorsCommand,
-  serializeAws_json1_1GetAnomalyMonitorsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetAnomalyMonitorsRequest, GetAnomalyMonitorsResponse } from "../models/models_0";
+import { de_GetAnomalyMonitorsCommand, se_GetAnomalyMonitorsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetAnomalyMonitorsCommand}.
+ */
 export interface GetAnomalyMonitorsCommandInput extends GetAnomalyMonitorsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetAnomalyMonitorsCommand}.
+ */
 export interface GetAnomalyMonitorsCommandOutput extends GetAnomalyMonitorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the cost anomaly monitor definitions for your account. You can filter using a
  *       list of cost anomaly monitor Amazon Resource Names (ARNs). </p>
  * @example
@@ -37,13 +40,32 @@ export interface GetAnomalyMonitorsCommandOutput extends GetAnomalyMonitorsRespo
  * import { CostExplorerClient, GetAnomalyMonitorsCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, GetAnomalyMonitorsCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
  * const client = new CostExplorerClient(config);
+ * const input = { // GetAnomalyMonitorsRequest
+ *   MonitorArnList: [ // Values
+ *     "STRING_VALUE",
+ *   ],
+ *   NextPageToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new GetAnomalyMonitorsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAnomalyMonitorsCommandInput - {@link GetAnomalyMonitorsCommandInput}
+ * @returns {@link GetAnomalyMonitorsCommandOutput}
  * @see {@link GetAnomalyMonitorsCommandInput} for command's `input` shape.
  * @see {@link GetAnomalyMonitorsCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The pagination token is invalid. Try again without a pagination token.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You made too many calls in a short period of time. Try again later.</p>
+ *
+ * @throws {@link UnknownMonitorException} (client fault)
+ *  <p>The cost anomaly monitor does not exist for the account. </p>
+ *
  *
  */
 export class GetAnomalyMonitorsCommand extends $Command<
@@ -63,6 +85,9 @@ export class GetAnomalyMonitorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAnomalyMonitorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +116,8 @@ export class GetAnomalyMonitorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAnomalyMonitorsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAnomalyMonitorsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +127,18 @@ export class GetAnomalyMonitorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAnomalyMonitorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAnomalyMonitorsCommand(input, context);
+    return se_GetAnomalyMonitorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAnomalyMonitorsCommandOutput> {
-    return deserializeAws_json1_1GetAnomalyMonitorsCommand(output, context);
+    return de_GetAnomalyMonitorsCommand(output, context);
   }
 
   // Start section: command_body_extra

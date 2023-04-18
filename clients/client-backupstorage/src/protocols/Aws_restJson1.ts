@@ -1,16 +1,17 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   resolvedPath as __resolvedPath,
   strictParseLong as __strictParseLong,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -34,8 +35,6 @@ import { StartObjectCommandInput, StartObjectCommandOutput } from "../commands/S
 import { BackupStorageServiceException as __BaseException } from "../models/BackupStorageServiceException";
 import {
   AccessDeniedException,
-  BackupObject,
-  Chunk,
   DataAlreadyExistsException,
   IllegalArgumentException,
   KMSInvalidKeyUsageException,
@@ -47,7 +46,10 @@ import {
   ThrottlingException,
 } from "../models/models_0";
 
-export const serializeAws_restJson1DeleteObjectCommand = async (
+/**
+ * serializeAws_restJson1DeleteObjectCommand
+ */
+export const se_DeleteObjectCommand = async (
   input: DeleteObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -70,7 +72,10 @@ export const serializeAws_restJson1DeleteObjectCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetChunkCommand = async (
+/**
+ * serializeAws_restJson1GetChunkCommand
+ */
+export const se_GetChunkCommand = async (
   input: GetChunkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -100,7 +105,10 @@ export const serializeAws_restJson1GetChunkCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetObjectMetadataCommand = async (
+/**
+ * serializeAws_restJson1GetObjectMetadataCommand
+ */
+export const se_GetObjectMetadataCommand = async (
   input: GetObjectMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -130,7 +138,10 @@ export const serializeAws_restJson1GetObjectMetadataCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListChunksCommand = async (
+/**
+ * serializeAws_restJson1ListChunksCommand
+ */
+export const se_ListChunksCommand = async (
   input: ListChunksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -165,7 +176,10 @@ export const serializeAws_restJson1ListChunksCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListObjectsCommand = async (
+/**
+ * serializeAws_restJson1ListObjectsCommand
+ */
+export const se_ListObjectsCommand = async (
   input: ListObjectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -208,7 +222,10 @@ export const serializeAws_restJson1ListObjectsCommand = async (
   });
 };
 
-export const serializeAws_restJson1NotifyObjectCompleteCommand = async (
+/**
+ * serializeAws_restJson1NotifyObjectCompleteCommand
+ */
+export const se_NotifyObjectCompleteCommand = async (
   input: NotifyObjectCompleteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -246,7 +263,10 @@ export const serializeAws_restJson1NotifyObjectCompleteCommand = async (
   });
 };
 
-export const serializeAws_restJson1PutChunkCommand = async (
+/**
+ * serializeAws_restJson1PutChunkCommand
+ */
+export const se_PutChunkCommand = async (
   input: PutChunkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -289,7 +309,10 @@ export const serializeAws_restJson1PutChunkCommand = async (
   });
 };
 
-export const serializeAws_restJson1PutObjectCommand = async (
+/**
+ * serializeAws_restJson1PutObjectCommand
+ */
+export const se_PutObjectCommand = async (
   input: PutObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -328,7 +351,10 @@ export const serializeAws_restJson1PutObjectCommand = async (
   });
 };
 
-export const serializeAws_restJson1StartObjectCommand = async (
+/**
+ * serializeAws_restJson1StartObjectCommand
+ */
+export const se_StartObjectCommand = async (
   input: StartObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -342,9 +368,11 @@ export const serializeAws_restJson1StartObjectCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "BackupJobId", () => input.BackupJobId!, "{BackupJobId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "ObjectName", () => input.ObjectName!, "{ObjectName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.ThrowOnDuplicate != null && { ThrowOnDuplicate: input.ThrowOnDuplicate }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ThrowOnDuplicate: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -356,12 +384,15 @@ export const serializeAws_restJson1StartObjectCommand = async (
   });
 };
 
-export const deserializeAws_restJson1DeleteObjectCommand = async (
+/**
+ * deserializeAws_restJson1DeleteObjectCommand
+ */
+export const de_DeleteObjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteObjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteObjectCommandError(output, context);
+    return de_DeleteObjectCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -370,7 +401,10 @@ export const deserializeAws_restJson1DeleteObjectCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteObjectCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteObjectCommandError
+ */
+const de_DeleteObjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteObjectCommandOutput> => {
@@ -382,42 +416,44 @@ const deserializeAws_restJson1DeleteObjectCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.backupstorage#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "IllegalArgumentException":
     case "com.amazonaws.backupstorage#IllegalArgumentException":
-      throw await deserializeAws_restJson1IllegalArgumentExceptionResponse(parsedOutput, context);
+      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backupstorage#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableException":
     case "com.amazonaws.backupstorage#RetryableException":
-      throw await deserializeAws_restJson1RetryableExceptionResponse(parsedOutput, context);
+      throw await de_RetryableExceptionRes(parsedOutput, context);
     case "ServiceInternalException":
     case "com.amazonaws.backupstorage#ServiceInternalException":
-      throw await deserializeAws_restJson1ServiceInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServiceInternalExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backupstorage#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.backupstorage#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetChunkCommand = async (
+/**
+ * deserializeAws_restJson1GetChunkCommand
+ */
+export const de_GetChunkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<GetChunkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetChunkCommandError(output, context);
+    return de_GetChunkCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -434,7 +470,10 @@ export const deserializeAws_restJson1GetChunkCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetChunkCommandError = async (
+/**
+ * deserializeAws_restJson1GetChunkCommandError
+ */
+const de_GetChunkCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetChunkCommandOutput> => {
@@ -446,42 +485,44 @@ const deserializeAws_restJson1GetChunkCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.backupstorage#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "IllegalArgumentException":
     case "com.amazonaws.backupstorage#IllegalArgumentException":
-      throw await deserializeAws_restJson1IllegalArgumentExceptionResponse(parsedOutput, context);
+      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
     case "KMSInvalidKeyUsageException":
     case "com.amazonaws.backupstorage#KMSInvalidKeyUsageException":
-      throw await deserializeAws_restJson1KMSInvalidKeyUsageExceptionResponse(parsedOutput, context);
+      throw await de_KMSInvalidKeyUsageExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backupstorage#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableException":
     case "com.amazonaws.backupstorage#RetryableException":
-      throw await deserializeAws_restJson1RetryableExceptionResponse(parsedOutput, context);
+      throw await de_RetryableExceptionRes(parsedOutput, context);
     case "ServiceInternalException":
     case "com.amazonaws.backupstorage#ServiceInternalException":
-      throw await deserializeAws_restJson1ServiceInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServiceInternalExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.backupstorage#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetObjectMetadataCommand = async (
+/**
+ * deserializeAws_restJson1GetObjectMetadataCommand
+ */
+export const de_GetObjectMetadataCommand = async (
   output: __HttpResponse,
   context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<GetObjectMetadataCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetObjectMetadataCommandError(output, context);
+    return de_GetObjectMetadataCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -499,7 +540,10 @@ export const deserializeAws_restJson1GetObjectMetadataCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetObjectMetadataCommandError = async (
+/**
+ * deserializeAws_restJson1GetObjectMetadataCommandError
+ */
+const de_GetObjectMetadataCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetObjectMetadataCommandOutput> => {
@@ -511,60 +555,64 @@ const deserializeAws_restJson1GetObjectMetadataCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.backupstorage#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "IllegalArgumentException":
     case "com.amazonaws.backupstorage#IllegalArgumentException":
-      throw await deserializeAws_restJson1IllegalArgumentExceptionResponse(parsedOutput, context);
+      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
     case "KMSInvalidKeyUsageException":
     case "com.amazonaws.backupstorage#KMSInvalidKeyUsageException":
-      throw await deserializeAws_restJson1KMSInvalidKeyUsageExceptionResponse(parsedOutput, context);
+      throw await de_KMSInvalidKeyUsageExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backupstorage#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableException":
     case "com.amazonaws.backupstorage#RetryableException":
-      throw await deserializeAws_restJson1RetryableExceptionResponse(parsedOutput, context);
+      throw await de_RetryableExceptionRes(parsedOutput, context);
     case "ServiceInternalException":
     case "com.amazonaws.backupstorage#ServiceInternalException":
-      throw await deserializeAws_restJson1ServiceInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServiceInternalExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backupstorage#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.backupstorage#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListChunksCommand = async (
+/**
+ * deserializeAws_restJson1ListChunksCommand
+ */
+export const de_ListChunksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListChunksCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListChunksCommandError(output, context);
+    return de_ListChunksCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChunkList != null) {
-    contents.ChunkList = deserializeAws_restJson1ChunkList(data.ChunkList, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    ChunkList: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListChunksCommandError = async (
+/**
+ * deserializeAws_restJson1ListChunksCommandError
+ */
+const de_ListChunksCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListChunksCommandOutput> => {
@@ -576,54 +624,58 @@ const deserializeAws_restJson1ListChunksCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.backupstorage#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "IllegalArgumentException":
     case "com.amazonaws.backupstorage#IllegalArgumentException":
-      throw await deserializeAws_restJson1IllegalArgumentExceptionResponse(parsedOutput, context);
+      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backupstorage#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableException":
     case "com.amazonaws.backupstorage#RetryableException":
-      throw await deserializeAws_restJson1RetryableExceptionResponse(parsedOutput, context);
+      throw await de_RetryableExceptionRes(parsedOutput, context);
     case "ServiceInternalException":
     case "com.amazonaws.backupstorage#ServiceInternalException":
-      throw await deserializeAws_restJson1ServiceInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServiceInternalExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backupstorage#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListObjectsCommand = async (
+/**
+ * deserializeAws_restJson1ListObjectsCommand
+ */
+export const de_ListObjectsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListObjectsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListObjectsCommandError(output, context);
+    return de_ListObjectsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.ObjectList != null) {
-    contents.ObjectList = deserializeAws_restJson1ObjectList(data.ObjectList, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    ObjectList: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListObjectsCommandError = async (
+/**
+ * deserializeAws_restJson1ListObjectsCommandError
+ */
+const de_ListObjectsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListObjectsCommandOutput> => {
@@ -635,60 +687,64 @@ const deserializeAws_restJson1ListObjectsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.backupstorage#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "IllegalArgumentException":
     case "com.amazonaws.backupstorage#IllegalArgumentException":
-      throw await deserializeAws_restJson1IllegalArgumentExceptionResponse(parsedOutput, context);
+      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
     case "KMSInvalidKeyUsageException":
     case "com.amazonaws.backupstorage#KMSInvalidKeyUsageException":
-      throw await deserializeAws_restJson1KMSInvalidKeyUsageExceptionResponse(parsedOutput, context);
+      throw await de_KMSInvalidKeyUsageExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backupstorage#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableException":
     case "com.amazonaws.backupstorage#RetryableException":
-      throw await deserializeAws_restJson1RetryableExceptionResponse(parsedOutput, context);
+      throw await de_RetryableExceptionRes(parsedOutput, context);
     case "ServiceInternalException":
     case "com.amazonaws.backupstorage#ServiceInternalException":
-      throw await deserializeAws_restJson1ServiceInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServiceInternalExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backupstorage#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.backupstorage#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1NotifyObjectCompleteCommand = async (
+/**
+ * deserializeAws_restJson1NotifyObjectCompleteCommand
+ */
+export const de_NotifyObjectCompleteCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<NotifyObjectCompleteCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1NotifyObjectCompleteCommandError(output, context);
+    return de_NotifyObjectCompleteCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ObjectChecksum != null) {
-    contents.ObjectChecksum = __expectString(data.ObjectChecksum);
-  }
-  if (data.ObjectChecksumAlgorithm != null) {
-    contents.ObjectChecksumAlgorithm = __expectString(data.ObjectChecksumAlgorithm);
-  }
+  const doc = take(data, {
+    ObjectChecksum: __expectString,
+    ObjectChecksumAlgorithm: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1NotifyObjectCompleteCommandError = async (
+/**
+ * deserializeAws_restJson1NotifyObjectCompleteCommandError
+ */
+const de_NotifyObjectCompleteCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<NotifyObjectCompleteCommandOutput> => {
@@ -700,60 +756,64 @@ const deserializeAws_restJson1NotifyObjectCompleteCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.backupstorage#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "IllegalArgumentException":
     case "com.amazonaws.backupstorage#IllegalArgumentException":
-      throw await deserializeAws_restJson1IllegalArgumentExceptionResponse(parsedOutput, context);
+      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
     case "KMSInvalidKeyUsageException":
     case "com.amazonaws.backupstorage#KMSInvalidKeyUsageException":
-      throw await deserializeAws_restJson1KMSInvalidKeyUsageExceptionResponse(parsedOutput, context);
+      throw await de_KMSInvalidKeyUsageExceptionRes(parsedOutput, context);
     case "NotReadableInputStreamException":
     case "com.amazonaws.backupstorage#NotReadableInputStreamException":
-      throw await deserializeAws_restJson1NotReadableInputStreamExceptionResponse(parsedOutput, context);
+      throw await de_NotReadableInputStreamExceptionRes(parsedOutput, context);
     case "RetryableException":
     case "com.amazonaws.backupstorage#RetryableException":
-      throw await deserializeAws_restJson1RetryableExceptionResponse(parsedOutput, context);
+      throw await de_RetryableExceptionRes(parsedOutput, context);
     case "ServiceInternalException":
     case "com.amazonaws.backupstorage#ServiceInternalException":
-      throw await deserializeAws_restJson1ServiceInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServiceInternalExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backupstorage#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.backupstorage#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1PutChunkCommand = async (
+/**
+ * deserializeAws_restJson1PutChunkCommand
+ */
+export const de_PutChunkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutChunkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutChunkCommandError(output, context);
+    return de_PutChunkCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ChunkChecksum != null) {
-    contents.ChunkChecksum = __expectString(data.ChunkChecksum);
-  }
-  if (data.ChunkChecksumAlgorithm != null) {
-    contents.ChunkChecksumAlgorithm = __expectString(data.ChunkChecksumAlgorithm);
-  }
+  const doc = take(data, {
+    ChunkChecksum: __expectString,
+    ChunkChecksumAlgorithm: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1PutChunkCommandError = async (
+/**
+ * deserializeAws_restJson1PutChunkCommandError
+ */
+const de_PutChunkCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutChunkCommandOutput> => {
@@ -765,66 +825,66 @@ const deserializeAws_restJson1PutChunkCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.backupstorage#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "IllegalArgumentException":
     case "com.amazonaws.backupstorage#IllegalArgumentException":
-      throw await deserializeAws_restJson1IllegalArgumentExceptionResponse(parsedOutput, context);
+      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
     case "KMSInvalidKeyUsageException":
     case "com.amazonaws.backupstorage#KMSInvalidKeyUsageException":
-      throw await deserializeAws_restJson1KMSInvalidKeyUsageExceptionResponse(parsedOutput, context);
+      throw await de_KMSInvalidKeyUsageExceptionRes(parsedOutput, context);
     case "NotReadableInputStreamException":
     case "com.amazonaws.backupstorage#NotReadableInputStreamException":
-      throw await deserializeAws_restJson1NotReadableInputStreamExceptionResponse(parsedOutput, context);
+      throw await de_NotReadableInputStreamExceptionRes(parsedOutput, context);
     case "RetryableException":
     case "com.amazonaws.backupstorage#RetryableException":
-      throw await deserializeAws_restJson1RetryableExceptionResponse(parsedOutput, context);
+      throw await de_RetryableExceptionRes(parsedOutput, context);
     case "ServiceInternalException":
     case "com.amazonaws.backupstorage#ServiceInternalException":
-      throw await deserializeAws_restJson1ServiceInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServiceInternalExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backupstorage#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.backupstorage#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1PutObjectCommand = async (
+/**
+ * deserializeAws_restJson1PutObjectCommand
+ */
+export const de_PutObjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutObjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutObjectCommandError(output, context);
+    return de_PutObjectCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.InlineChunkChecksum != null) {
-    contents.InlineChunkChecksum = __expectString(data.InlineChunkChecksum);
-  }
-  if (data.InlineChunkChecksumAlgorithm != null) {
-    contents.InlineChunkChecksumAlgorithm = __expectString(data.InlineChunkChecksumAlgorithm);
-  }
-  if (data.ObjectChecksum != null) {
-    contents.ObjectChecksum = __expectString(data.ObjectChecksum);
-  }
-  if (data.ObjectChecksumAlgorithm != null) {
-    contents.ObjectChecksumAlgorithm = __expectString(data.ObjectChecksumAlgorithm);
-  }
+  const doc = take(data, {
+    InlineChunkChecksum: __expectString,
+    InlineChunkChecksumAlgorithm: __expectString,
+    ObjectChecksum: __expectString,
+    ObjectChecksumAlgorithm: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1PutObjectCommandError = async (
+/**
+ * deserializeAws_restJson1PutObjectCommandError
+ */
+const de_PutObjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutObjectCommandOutput> => {
@@ -836,57 +896,63 @@ const deserializeAws_restJson1PutObjectCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.backupstorage#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "IllegalArgumentException":
     case "com.amazonaws.backupstorage#IllegalArgumentException":
-      throw await deserializeAws_restJson1IllegalArgumentExceptionResponse(parsedOutput, context);
+      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
     case "KMSInvalidKeyUsageException":
     case "com.amazonaws.backupstorage#KMSInvalidKeyUsageException":
-      throw await deserializeAws_restJson1KMSInvalidKeyUsageExceptionResponse(parsedOutput, context);
+      throw await de_KMSInvalidKeyUsageExceptionRes(parsedOutput, context);
     case "NotReadableInputStreamException":
     case "com.amazonaws.backupstorage#NotReadableInputStreamException":
-      throw await deserializeAws_restJson1NotReadableInputStreamExceptionResponse(parsedOutput, context);
+      throw await de_NotReadableInputStreamExceptionRes(parsedOutput, context);
     case "RetryableException":
     case "com.amazonaws.backupstorage#RetryableException":
-      throw await deserializeAws_restJson1RetryableExceptionResponse(parsedOutput, context);
+      throw await de_RetryableExceptionRes(parsedOutput, context);
     case "ServiceInternalException":
     case "com.amazonaws.backupstorage#ServiceInternalException":
-      throw await deserializeAws_restJson1ServiceInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServiceInternalExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backupstorage#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.backupstorage#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1StartObjectCommand = async (
+/**
+ * deserializeAws_restJson1StartObjectCommand
+ */
+export const de_StartObjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartObjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StartObjectCommandError(output, context);
+    return de_StartObjectCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.UploadId != null) {
-    contents.UploadId = __expectString(data.UploadId);
-  }
+  const doc = take(data, {
+    UploadId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1StartObjectCommandError = async (
+/**
+ * deserializeAws_restJson1StartObjectCommandError
+ */
+const de_StartObjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartObjectCommandOutput> => {
@@ -898,49 +964,52 @@ const deserializeAws_restJson1StartObjectCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.backupstorage#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "DataAlreadyExistsException":
     case "com.amazonaws.backupstorage#DataAlreadyExistsException":
-      throw await deserializeAws_restJson1DataAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_DataAlreadyExistsExceptionRes(parsedOutput, context);
     case "IllegalArgumentException":
     case "com.amazonaws.backupstorage#IllegalArgumentException":
-      throw await deserializeAws_restJson1IllegalArgumentExceptionResponse(parsedOutput, context);
+      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backupstorage#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RetryableException":
     case "com.amazonaws.backupstorage#RetryableException":
-      throw await deserializeAws_restJson1RetryableExceptionResponse(parsedOutput, context);
+      throw await de_RetryableExceptionRes(parsedOutput, context);
     case "ServiceInternalException":
     case "com.amazonaws.backupstorage#ServiceInternalException":
-      throw await deserializeAws_restJson1ServiceInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServiceInternalExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backupstorage#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.backupstorage#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
-const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
+const throwDefaultError = withBaseException(__BaseException);
+/**
+ * deserializeAws_restJson1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -948,21 +1017,21 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1DataAlreadyExistsExceptionResponse = async (
+/**
+ * deserializeAws_restJson1DataAlreadyExistsExceptionRes
+ */
+const de_DataAlreadyExistsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DataAlreadyExistsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Checksum != null) {
-    contents.Checksum = __expectString(data.Checksum);
-  }
-  if (data.ChecksumAlgorithm != null) {
-    contents.ChecksumAlgorithm = __expectString(data.ChecksumAlgorithm);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Checksum: __expectString,
+    ChecksumAlgorithm: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new DataAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -970,15 +1039,19 @@ const deserializeAws_restJson1DataAlreadyExistsExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1IllegalArgumentExceptionResponse = async (
+/**
+ * deserializeAws_restJson1IllegalArgumentExceptionRes
+ */
+const de_IllegalArgumentExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<IllegalArgumentException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new IllegalArgumentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -986,15 +1059,19 @@ const deserializeAws_restJson1IllegalArgumentExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1KMSInvalidKeyUsageExceptionResponse = async (
+/**
+ * deserializeAws_restJson1KMSInvalidKeyUsageExceptionRes
+ */
+const de_KMSInvalidKeyUsageExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<KMSInvalidKeyUsageException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new KMSInvalidKeyUsageException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1002,15 +1079,19 @@ const deserializeAws_restJson1KMSInvalidKeyUsageExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1NotReadableInputStreamExceptionResponse = async (
+/**
+ * deserializeAws_restJson1NotReadableInputStreamExceptionRes
+ */
+const de_NotReadableInputStreamExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NotReadableInputStreamException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new NotReadableInputStreamException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1018,15 +1099,19 @@ const deserializeAws_restJson1NotReadableInputStreamExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1034,15 +1119,16 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1RetryableExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<RetryableException> => {
+/**
+ * deserializeAws_restJson1RetryableExceptionRes
+ */
+const de_RetryableExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<RetryableException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new RetryableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1050,15 +1136,19 @@ const deserializeAws_restJson1RetryableExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ServiceInternalExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ServiceInternalExceptionRes
+ */
+const de_ServiceInternalExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceInternalException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceInternalException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1066,15 +1156,19 @@ const deserializeAws_restJson1ServiceInternalExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ServiceUnavailableExceptionRes
+ */
+const de_ServiceUnavailableExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1082,15 +1176,16 @@ const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
+/**
+ * deserializeAws_restJson1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1098,50 +1193,13 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1BackupObject = (output: any, context: __SerdeContext): BackupObject => {
-  return {
-    ChunksCount: __expectLong(output.ChunksCount),
-    MetadataString: __expectString(output.MetadataString),
-    Name: __expectString(output.Name),
-    ObjectChecksum: __expectString(output.ObjectChecksum),
-    ObjectChecksumAlgorithm: __expectString(output.ObjectChecksumAlgorithm),
-    ObjectToken: __expectString(output.ObjectToken),
-  } as any;
-};
+// de_BackupObject omitted.
 
-const deserializeAws_restJson1Chunk = (output: any, context: __SerdeContext): Chunk => {
-  return {
-    Checksum: __expectString(output.Checksum),
-    ChecksumAlgorithm: __expectString(output.ChecksumAlgorithm),
-    ChunkToken: __expectString(output.ChunkToken),
-    Index: __expectLong(output.Index),
-    Length: __expectLong(output.Length),
-  } as any;
-};
+// de_Chunk omitted.
 
-const deserializeAws_restJson1ChunkList = (output: any, context: __SerdeContext): Chunk[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Chunk(entry, context);
-    });
-  return retVal;
-};
+// de_ChunkList omitted.
 
-const deserializeAws_restJson1ObjectList = (output: any, context: __SerdeContext): BackupObject[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1BackupObject(entry, context);
-    });
-  return retVal;
-};
+// de_ObjectList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

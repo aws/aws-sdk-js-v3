@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaStoreDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreDataClient";
-import {
-  DeleteObjectRequest,
-  DeleteObjectRequestFilterSensitiveLog,
-  DeleteObjectResponse,
-  DeleteObjectResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteObjectCommand,
-  serializeAws_restJson1DeleteObjectCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteObjectRequest, DeleteObjectResponse } from "../models/models_0";
+import { de_DeleteObjectCommand, se_DeleteObjectCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteObjectCommand}.
+ */
 export interface DeleteObjectCommandInput extends DeleteObjectRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteObjectCommand}.
+ */
 export interface DeleteObjectCommandOutput extends DeleteObjectResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an object at the specified path.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,28 @@ export interface DeleteObjectCommandOutput extends DeleteObjectResponse, __Metad
  * import { MediaStoreDataClient, DeleteObjectCommand } from "@aws-sdk/client-mediastore-data"; // ES Modules import
  * // const { MediaStoreDataClient, DeleteObjectCommand } = require("@aws-sdk/client-mediastore-data"); // CommonJS import
  * const client = new MediaStoreDataClient(config);
+ * const input = { // DeleteObjectRequest
+ *   Path: "STRING_VALUE", // required
+ * };
  * const command = new DeleteObjectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteObjectCommandInput - {@link DeleteObjectCommandInput}
+ * @returns {@link DeleteObjectCommandOutput}
  * @see {@link DeleteObjectCommandInput} for command's `input` shape.
  * @see {@link DeleteObjectCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreDataClientResolvedConfig | config} for MediaStoreDataClient's `config` shape.
+ *
+ * @throws {@link ContainerNotFoundException} (client fault)
+ *  <p>The specified container was not found for the specified account.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link ObjectNotFoundException} (client fault)
+ *  <p>Could not perform an operation on an object that does not exist.</p>
+ *
  *
  */
 export class DeleteObjectCommand extends $Command<
@@ -62,6 +80,9 @@ export class DeleteObjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteObjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +109,8 @@ export class DeleteObjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteObjectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteObjectResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +120,18 @@ export class DeleteObjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteObjectCommand(input, context);
+    return se_DeleteObjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteObjectCommandOutput> {
-    return deserializeAws_restJson1DeleteObjectCommand(output, context);
+    return de_DeleteObjectCommand(output, context);
   }
 
   // Start section: command_body_extra

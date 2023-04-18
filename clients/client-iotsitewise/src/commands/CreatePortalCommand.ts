@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import {
-  CreatePortalRequest,
-  CreatePortalRequestFilterSensitiveLog,
-  CreatePortalResponse,
-  CreatePortalResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreatePortalCommand,
-  serializeAws_restJson1CreatePortalCommand,
-} from "../protocols/Aws_restJson1";
+import { CreatePortalRequest, CreatePortalResponse } from "../models/models_0";
+import { de_CreatePortalCommand, se_CreatePortalCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreatePortalCommand}.
+ */
 export interface CreatePortalCommandInput extends CreatePortalRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreatePortalCommand}.
+ */
 export interface CreatePortalCommandOutput extends CreatePortalResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a portal, which can contain projects and dashboards. IoT SiteWise Monitor uses IAM Identity Center or IAM
  *       to authenticate portal users and manage user permissions.</p>
  *          <note>
@@ -42,13 +45,58 @@ export interface CreatePortalCommandOutput extends CreatePortalResponse, __Metad
  * import { IoTSiteWiseClient, CreatePortalCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, CreatePortalCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = { // CreatePortalRequest
+ *   portalName: "STRING_VALUE", // required
+ *   portalDescription: "STRING_VALUE",
+ *   portalContactEmail: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ *   portalLogoImageFile: { // ImageFile
+ *     data: "BLOB_VALUE", // required
+ *     type: "PNG", // required
+ *   },
+ *   roleArn: "STRING_VALUE", // required
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   portalAuthMode: "IAM" || "SSO",
+ *   notificationSenderEmail: "STRING_VALUE",
+ *   alarms: { // Alarms
+ *     alarmRoleArn: "STRING_VALUE", // required
+ *     notificationLambdaArn: "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreatePortalCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePortalCommandInput - {@link CreatePortalCommandInput}
+ * @returns {@link CreatePortalCommandOutput}
  * @see {@link CreatePortalCommandInput} for command's `input` shape.
  * @see {@link CreatePortalCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>IoT SiteWise can't process your request right now. Try again later.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
+ *       unsupported characters. Check your request and try again.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You've reached the limit for a resource. For example, this can occur if you're trying to
+ *       associate more than the allowed number of child assets or attempting to create more than the
+ *       allowed number of properties for an asset model.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource can't be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Your request exceeded a rate limit. For example, you might have exceeded the number of
+ *       IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so
+ *       on.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ *
  *
  */
 export class CreatePortalCommand extends $Command<
@@ -68,6 +116,9 @@ export class CreatePortalCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePortalCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +145,8 @@ export class CreatePortalCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePortalRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreatePortalResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +156,18 @@ export class CreatePortalCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePortalCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreatePortalCommand(input, context);
+    return se_CreatePortalCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePortalCommandOutput> {
-    return deserializeAws_restJson1CreatePortalCommand(output, context);
+    return de_CreatePortalCommand(output, context);
   }
 
   // Start section: command_body_extra

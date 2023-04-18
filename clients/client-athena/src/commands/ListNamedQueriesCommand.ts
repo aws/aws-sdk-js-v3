@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import {
-  ListNamedQueriesInput,
-  ListNamedQueriesInputFilterSensitiveLog,
-  ListNamedQueriesOutput,
-  ListNamedQueriesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListNamedQueriesCommand,
-  serializeAws_json1_1ListNamedQueriesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListNamedQueriesInput, ListNamedQueriesOutput } from "../models/models_0";
+import { de_ListNamedQueriesCommand, se_ListNamedQueriesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListNamedQueriesCommand}.
+ */
 export interface ListNamedQueriesCommandInput extends ListNamedQueriesInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListNamedQueriesCommand}.
+ */
 export interface ListNamedQueriesCommandOutput extends ListNamedQueriesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a list of available query IDs only for queries saved in the specified
  *             workgroup. Requires that you have access to the specified workgroup. If a workgroup is
  *             not specified, lists the saved queries for the primary workgroup.</p>
@@ -41,13 +44,29 @@ export interface ListNamedQueriesCommandOutput extends ListNamedQueriesOutput, _
  * import { AthenaClient, ListNamedQueriesCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, ListNamedQueriesCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = { // ListNamedQueriesInput
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   WorkGroup: "STRING_VALUE",
+ * };
  * const command = new ListNamedQueriesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListNamedQueriesCommandInput - {@link ListNamedQueriesCommandInput}
+ * @returns {@link ListNamedQueriesCommandOutput}
  * @see {@link ListNamedQueriesCommandInput} for command's `input` shape.
  * @see {@link ListNamedQueriesCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Indicates a platform issue, which may be due to a transient condition or
+ *             outage.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>Indicates that something is wrong with the input to the request. For example, a
+ *             required parameter may be missing or out of range.</p>
+ *
  *
  */
 export class ListNamedQueriesCommand extends $Command<
@@ -67,6 +86,9 @@ export class ListNamedQueriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListNamedQueriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +117,8 @@ export class ListNamedQueriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListNamedQueriesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListNamedQueriesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +128,18 @@ export class ListNamedQueriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListNamedQueriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListNamedQueriesCommand(input, context);
+    return se_ListNamedQueriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNamedQueriesCommandOutput> {
-    return deserializeAws_json1_1ListNamedQueriesCommand(output, context);
+    return de_ListNamedQueriesCommand(output, context);
   }
 
   // Start section: command_body_extra

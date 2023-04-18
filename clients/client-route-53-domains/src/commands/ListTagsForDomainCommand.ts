@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListTagsForDomainRequest,
-  ListTagsForDomainRequestFilterSensitiveLog,
-  ListTagsForDomainResponse,
-  ListTagsForDomainResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListTagsForDomainCommand,
-  serializeAws_json1_1ListTagsForDomainCommand,
-} from "../protocols/Aws_json1_1";
+import { ListTagsForDomainRequest, ListTagsForDomainResponse } from "../models/models_0";
+import { de_ListTagsForDomainCommand, se_ListTagsForDomainCommand } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListTagsForDomainCommand}.
+ */
 export interface ListTagsForDomainCommandInput extends ListTagsForDomainRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListTagsForDomainCommand}.
+ */
 export interface ListTagsForDomainCommandOutput extends ListTagsForDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation returns all of the tags that are associated with the specified
  * 			domain.</p>
  *          <p>All tag operations are eventually consistent; subsequent operations might not
@@ -39,13 +42,32 @@ export interface ListTagsForDomainCommandOutput extends ListTagsForDomainRespons
  * import { Route53DomainsClient, ListTagsForDomainCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, ListTagsForDomainCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
+ * const input = { // ListTagsForDomainRequest
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new ListTagsForDomainCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTagsForDomainCommandInput - {@link ListTagsForDomainCommandInput}
+ * @returns {@link ListTagsForDomainCommandOutput}
  * @see {@link ListTagsForDomainCommandInput} for command's `input` shape.
  * @see {@link ListTagsForDomainCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The requested item is not acceptable. For example, for APIs that accept a domain name,
+ * 			the request might specify a domain name that doesn't belong to the account that
+ * 			submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the
+ * 			password might be invalid.</p>
+ *
+ * @throws {@link OperationLimitExceeded} (client fault)
+ *  <p>The number of operations or jobs running exceeded the allowed threshold for the
+ * 			account.</p>
+ *
+ * @throws {@link UnsupportedTLD} (client fault)
+ *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+ *
  *
  */
 export class ListTagsForDomainCommand extends $Command<
@@ -65,6 +87,9 @@ export class ListTagsForDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTagsForDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +118,8 @@ export class ListTagsForDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTagsForDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTagsForDomainResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +129,18 @@ export class ListTagsForDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTagsForDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTagsForDomainCommand(input, context);
+    return se_ListTagsForDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsForDomainCommandOutput> {
-    return deserializeAws_json1_1ListTagsForDomainCommand(output, context);
+    return de_ListTagsForDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

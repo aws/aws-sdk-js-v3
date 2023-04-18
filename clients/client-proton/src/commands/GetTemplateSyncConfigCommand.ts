@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetTemplateSyncConfigInput,
-  GetTemplateSyncConfigInputFilterSensitiveLog,
-  GetTemplateSyncConfigOutput,
-  GetTemplateSyncConfigOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0GetTemplateSyncConfigCommand,
-  serializeAws_json1_0GetTemplateSyncConfigCommand,
-} from "../protocols/Aws_json1_0";
+import { GetTemplateSyncConfigInput, GetTemplateSyncConfigOutput } from "../models/models_0";
+import { de_GetTemplateSyncConfigCommand, se_GetTemplateSyncConfigCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetTemplateSyncConfigCommand}.
+ */
 export interface GetTemplateSyncConfigCommandInput extends GetTemplateSyncConfigInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetTemplateSyncConfigCommand}.
+ */
 export interface GetTemplateSyncConfigCommandOutput extends GetTemplateSyncConfigOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get detail data for a template sync configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,35 @@ export interface GetTemplateSyncConfigCommandOutput extends GetTemplateSyncConfi
  * import { ProtonClient, GetTemplateSyncConfigCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, GetTemplateSyncConfigCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // GetTemplateSyncConfigInput
+ *   templateName: "STRING_VALUE", // required
+ *   templateType: "STRING_VALUE", // required
+ * };
  * const command = new GetTemplateSyncConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTemplateSyncConfigCommandInput - {@link GetTemplateSyncConfigCommandInput}
+ * @returns {@link GetTemplateSyncConfigCommandOutput}
  * @see {@link GetTemplateSyncConfigCommandInput} for command's `input` shape.
  * @see {@link GetTemplateSyncConfigCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>There <i>isn't</i> sufficient access for performing this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request failed to register with the service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource <i>wasn't</i> found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+ *
  *
  */
 export class GetTemplateSyncConfigCommand extends $Command<
@@ -62,6 +87,9 @@ export class GetTemplateSyncConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTemplateSyncConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +118,8 @@ export class GetTemplateSyncConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTemplateSyncConfigInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTemplateSyncConfigOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +129,18 @@ export class GetTemplateSyncConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTemplateSyncConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetTemplateSyncConfigCommand(input, context);
+    return se_GetTemplateSyncConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTemplateSyncConfigCommandOutput> {
-    return deserializeAws_json1_0GetTemplateSyncConfigCommand(output, context);
+    return de_GetTemplateSyncConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

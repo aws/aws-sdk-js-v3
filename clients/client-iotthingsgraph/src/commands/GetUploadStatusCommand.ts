@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import {
-  GetUploadStatusRequest,
-  GetUploadStatusRequestFilterSensitiveLog,
-  GetUploadStatusResponse,
-  GetUploadStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetUploadStatusCommand,
-  serializeAws_json1_1GetUploadStatusCommand,
-} from "../protocols/Aws_json1_1";
+import { GetUploadStatusRequest, GetUploadStatusResponse } from "../models/models_0";
+import { de_GetUploadStatusCommand, se_GetUploadStatusCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetUploadStatusCommand}.
+ */
 export interface GetUploadStatusCommandInput extends GetUploadStatusRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetUploadStatusCommand}.
+ */
 export interface GetUploadStatusCommandOutput extends GetUploadStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Gets the status of the specified upload.</p>
@@ -38,13 +41,31 @@ export interface GetUploadStatusCommandOutput extends GetUploadStatusResponse, _
  * import { IoTThingsGraphClient, GetUploadStatusCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, GetUploadStatusCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
+ * const input = { // GetUploadStatusRequest
+ *   uploadId: "STRING_VALUE", // required
+ * };
  * const command = new GetUploadStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetUploadStatusCommandInput - {@link GetUploadStatusCommandInput}
+ * @returns {@link GetUploadStatusCommandOutput}
  * @see {@link GetUploadStatusCommandInput} for command's `input` shape.
  * @see {@link GetUploadStatusCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p></p>
+ *
  *
  */
 export class GetUploadStatusCommand extends $Command<
@@ -64,6 +85,9 @@ export class GetUploadStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetUploadStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +116,8 @@ export class GetUploadStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetUploadStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetUploadStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +127,18 @@ export class GetUploadStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetUploadStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetUploadStatusCommand(input, context);
+    return se_GetUploadStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUploadStatusCommandOutput> {
-    return deserializeAws_json1_1GetUploadStatusCommand(output, context);
+    return de_GetUploadStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

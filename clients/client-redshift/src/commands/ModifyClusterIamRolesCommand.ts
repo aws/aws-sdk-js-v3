@@ -13,25 +13,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ModifyClusterIamRolesMessage,
-  ModifyClusterIamRolesMessageFilterSensitiveLog,
-  ModifyClusterIamRolesResult,
-  ModifyClusterIamRolesResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryModifyClusterIamRolesCommand,
-  serializeAws_queryModifyClusterIamRolesCommand,
-} from "../protocols/Aws_query";
+import { ModifyClusterIamRolesMessage, ModifyClusterIamRolesResult } from "../models/models_1";
+import { de_ModifyClusterIamRolesCommand, se_ModifyClusterIamRolesCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ModifyClusterIamRolesCommand}.
+ */
 export interface ModifyClusterIamRolesCommandInput extends ModifyClusterIamRolesMessage {}
+/**
+ * @public
+ *
+ * The output of {@link ModifyClusterIamRolesCommand}.
+ */
 export interface ModifyClusterIamRolesCommandOutput extends ModifyClusterIamRolesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the list of Identity and Access Management (IAM) roles that can be
  *             used by the cluster to access other Amazon Web Services services.</p>
- *         <p>The maximum number of IAM roles that you can associate is subject to a quota.
+ *          <p>The maximum number of IAM roles that you can associate is subject to a quota.
  *             For more information, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Quotas and limits</a>
  *             in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
  * @example
@@ -40,13 +43,33 @@ export interface ModifyClusterIamRolesCommandOutput extends ModifyClusterIamRole
  * import { RedshiftClient, ModifyClusterIamRolesCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, ModifyClusterIamRolesCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // ModifyClusterIamRolesMessage
+ *   ClusterIdentifier: "STRING_VALUE", // required
+ *   AddIamRoles: [ // IamRoleArnList
+ *     "STRING_VALUE",
+ *   ],
+ *   RemoveIamRoles: [
+ *     "STRING_VALUE",
+ *   ],
+ *   DefaultIamRoleArn: "STRING_VALUE",
+ * };
  * const command = new ModifyClusterIamRolesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyClusterIamRolesCommandInput - {@link ModifyClusterIamRolesCommandInput}
+ * @returns {@link ModifyClusterIamRolesCommandOutput}
  * @see {@link ModifyClusterIamRolesCommandInput} for command's `input` shape.
  * @see {@link ModifyClusterIamRolesCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
+ *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+ *         </p>
+ *
+ * @throws {@link InvalidClusterStateFault} (client fault)
+ *  <p>The specified cluster is not in the <code>available</code> state. </p>
+ *
  *
  */
 export class ModifyClusterIamRolesCommand extends $Command<
@@ -66,6 +89,9 @@ export class ModifyClusterIamRolesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyClusterIamRolesCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +120,8 @@ export class ModifyClusterIamRolesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyClusterIamRolesMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyClusterIamRolesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +131,18 @@ export class ModifyClusterIamRolesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyClusterIamRolesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyClusterIamRolesCommand(input, context);
+    return se_ModifyClusterIamRolesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyClusterIamRolesCommandOutput> {
-    return deserializeAws_queryModifyClusterIamRolesCommand(output, context);
+    return de_ModifyClusterIamRolesCommand(output, context);
   }
 
   // Start section: command_body_extra

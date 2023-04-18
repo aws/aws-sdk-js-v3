@@ -19,21 +19,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import {
-  ListIdentityProvidersRequest,
-  ListIdentityProvidersRequestFilterSensitiveLog,
-  ListIdentityProvidersResponse,
-  ListIdentityProvidersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListIdentityProvidersCommand,
-  serializeAws_json1_1ListIdentityProvidersCommand,
-} from "../protocols/Aws_json1_1";
+import { ListIdentityProvidersRequest, ListIdentityProvidersResponse } from "../models/models_0";
+import { de_ListIdentityProvidersCommand, se_ListIdentityProvidersCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListIdentityProvidersCommand}.
+ */
 export interface ListIdentityProvidersCommandInput extends ListIdentityProvidersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListIdentityProvidersCommand}.
+ */
 export interface ListIdentityProvidersCommandOutput extends ListIdentityProvidersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists information about all IdPs for a user pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,13 +44,39 @@ export interface ListIdentityProvidersCommandOutput extends ListIdentityProvider
  * import { CognitoIdentityProviderClient, ListIdentityProvidersCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, ListIdentityProvidersCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // ListIdentityProvidersRequest
+ *   UserPoolId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListIdentityProvidersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListIdentityProvidersCommandInput - {@link ListIdentityProvidersCommandInput}
+ * @returns {@link ListIdentityProvidersCommandOutput}
  * @see {@link ListIdentityProvidersCommandInput} for command's `input` shape.
  * @see {@link ListIdentityProvidersCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
+ *             parameter.</p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
+ *             resource.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>This exception is thrown when the user has made too many requests for a given
+ *             operation.</p>
+ *
  *
  */
 export class ListIdentityProvidersCommand extends $Command<
@@ -67,6 +96,9 @@ export class ListIdentityProvidersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListIdentityProvidersCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +128,8 @@ export class ListIdentityProvidersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListIdentityProvidersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListIdentityProvidersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +139,18 @@ export class ListIdentityProvidersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListIdentityProvidersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListIdentityProvidersCommand(input, context);
+    return se_ListIdentityProvidersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListIdentityProvidersCommandOutput> {
-    return deserializeAws_json1_1ListIdentityProvidersCommand(output, context);
+    return de_ListIdentityProvidersCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
+import { ListLoggerDefinitionVersionsRequest, ListLoggerDefinitionVersionsResponse } from "../models/models_0";
 import {
-  ListLoggerDefinitionVersionsRequest,
-  ListLoggerDefinitionVersionsRequestFilterSensitiveLog,
-  ListLoggerDefinitionVersionsResponse,
-  ListLoggerDefinitionVersionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListLoggerDefinitionVersionsCommand,
-  serializeAws_restJson1ListLoggerDefinitionVersionsCommand,
+  de_ListLoggerDefinitionVersionsCommand,
+  se_ListLoggerDefinitionVersionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListLoggerDefinitionVersionsCommand}.
+ */
 export interface ListLoggerDefinitionVersionsCommandInput extends ListLoggerDefinitionVersionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListLoggerDefinitionVersionsCommand}.
+ */
 export interface ListLoggerDefinitionVersionsCommandOutput
   extends ListLoggerDefinitionVersionsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * Lists the versions of a logger definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,24 @@ export interface ListLoggerDefinitionVersionsCommandOutput
  * import { GreengrassClient, ListLoggerDefinitionVersionsCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, ListLoggerDefinitionVersionsCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // ListLoggerDefinitionVersionsRequest
+ *   LoggerDefinitionId: "STRING_VALUE", // required
+ *   MaxResults: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListLoggerDefinitionVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLoggerDefinitionVersionsCommandInput - {@link ListLoggerDefinitionVersionsCommandInput}
+ * @returns {@link ListLoggerDefinitionVersionsCommandOutput}
  * @see {@link ListLoggerDefinitionVersionsCommandInput} for command's `input` shape.
  * @see {@link ListLoggerDefinitionVersionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  General error information.
+ *
  *
  */
 export class ListLoggerDefinitionVersionsCommand extends $Command<
@@ -64,6 +81,9 @@ export class ListLoggerDefinitionVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLoggerDefinitionVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +112,8 @@ export class ListLoggerDefinitionVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLoggerDefinitionVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListLoggerDefinitionVersionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +123,21 @@ export class ListLoggerDefinitionVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLoggerDefinitionVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListLoggerDefinitionVersionsCommand(input, context);
+    return se_ListLoggerDefinitionVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListLoggerDefinitionVersionsCommandOutput> {
-    return deserializeAws_restJson1ListLoggerDefinitionVersionsCommand(output, context);
+    return de_ListLoggerDefinitionVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

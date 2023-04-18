@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteSolutionRequest, DeleteSolutionRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteSolutionRequest } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1DeleteSolutionCommand,
-  serializeAws_json1_1DeleteSolutionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteSolutionCommand, se_DeleteSolutionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteSolutionCommand}.
+ */
 export interface DeleteSolutionCommandInput extends DeleteSolutionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteSolutionCommand}.
+ */
 export interface DeleteSolutionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes all versions of a solution and the <code>Solution</code> object itself.
  *       Before deleting a solution, you must delete all campaigns based on
  *       the solution. To determine what campaigns are using the solution, call
@@ -37,13 +45,28 @@ export interface DeleteSolutionCommandOutput extends __MetadataBearer {}
  * import { PersonalizeClient, DeleteSolutionCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DeleteSolutionCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // DeleteSolutionRequest
+ *   solutionArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSolutionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSolutionCommandInput - {@link DeleteSolutionCommandInput}
+ * @returns {@link DeleteSolutionCommandOutput}
  * @see {@link DeleteSolutionCommandInput} for command's `input` shape.
  * @see {@link DeleteSolutionCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is in use.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Could not find the specified resource.</p>
+ *
  *
  */
 export class DeleteSolutionCommand extends $Command<
@@ -63,6 +86,9 @@ export class DeleteSolutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSolutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +117,8 @@ export class DeleteSolutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSolutionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +128,18 @@ export class DeleteSolutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSolutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteSolutionCommand(input, context);
+    return se_DeleteSolutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSolutionCommandOutput> {
-    return deserializeAws_json1_1DeleteSolutionCommand(output, context);
+    return de_DeleteSolutionCommand(output, context);
   }
 
   // Start section: command_body_extra

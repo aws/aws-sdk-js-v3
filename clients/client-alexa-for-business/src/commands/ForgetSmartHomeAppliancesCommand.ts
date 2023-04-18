@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  ForgetSmartHomeAppliancesRequest,
-  ForgetSmartHomeAppliancesRequestFilterSensitiveLog,
-  ForgetSmartHomeAppliancesResponse,
-  ForgetSmartHomeAppliancesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ForgetSmartHomeAppliancesCommand,
-  serializeAws_json1_1ForgetSmartHomeAppliancesCommand,
-} from "../protocols/Aws_json1_1";
+import { ForgetSmartHomeAppliancesRequest, ForgetSmartHomeAppliancesResponse } from "../models/models_0";
+import { de_ForgetSmartHomeAppliancesCommand, se_ForgetSmartHomeAppliancesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ForgetSmartHomeAppliancesCommand}.
+ */
 export interface ForgetSmartHomeAppliancesCommandInput extends ForgetSmartHomeAppliancesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ForgetSmartHomeAppliancesCommand}.
+ */
 export interface ForgetSmartHomeAppliancesCommandOutput extends ForgetSmartHomeAppliancesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Forgets smart home appliances associated to a room.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,22 @@ export interface ForgetSmartHomeAppliancesCommandOutput extends ForgetSmartHomeA
  * import { AlexaForBusinessClient, ForgetSmartHomeAppliancesCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, ForgetSmartHomeAppliancesCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // ForgetSmartHomeAppliancesRequest
+ *   RoomArn: "STRING_VALUE", // required
+ * };
  * const command = new ForgetSmartHomeAppliancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ForgetSmartHomeAppliancesCommandInput - {@link ForgetSmartHomeAppliancesCommandInput}
+ * @returns {@link ForgetSmartHomeAppliancesCommandOutput}
  * @see {@link ForgetSmartHomeAppliancesCommandInput} for command's `input` shape.
  * @see {@link ForgetSmartHomeAppliancesCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
  *
  */
 export class ForgetSmartHomeAppliancesCommand extends $Command<
@@ -62,6 +74,9 @@ export class ForgetSmartHomeAppliancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ForgetSmartHomeAppliancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +105,8 @@ export class ForgetSmartHomeAppliancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ForgetSmartHomeAppliancesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ForgetSmartHomeAppliancesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +116,21 @@ export class ForgetSmartHomeAppliancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ForgetSmartHomeAppliancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ForgetSmartHomeAppliancesCommand(input, context);
+    return se_ForgetSmartHomeAppliancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ForgetSmartHomeAppliancesCommandOutput> {
-    return deserializeAws_json1_1ForgetSmartHomeAppliancesCommand(output, context);
+    return de_ForgetSmartHomeAppliancesCommand(output, context);
   }
 
   // Start section: command_body_extra

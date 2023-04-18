@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { ScalingProcessQuery, ScalingProcessQueryFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_querySuspendProcessesCommand,
-  serializeAws_querySuspendProcessesCommand,
-} from "../protocols/Aws_query";
+import { ScalingProcessQuery } from "../models/models_0";
+import { de_SuspendProcessesCommand, se_SuspendProcessesCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link SuspendProcessesCommand}.
+ */
 export interface SuspendProcessesCommandInput extends ScalingProcessQuery {}
+/**
+ * @public
+ *
+ * The output of {@link SuspendProcessesCommand}.
+ */
 export interface SuspendProcessesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Suspends the specified auto scaling processes, or all processes, for the specified
  *             Auto Scaling group.</p>
  *          <p>If you suspend either the <code>Launch</code> or <code>Terminate</code> process types,
@@ -37,13 +45,43 @@ export interface SuspendProcessesCommandOutput extends __MetadataBearer {}
  * import { AutoScalingClient, SuspendProcessesCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, SuspendProcessesCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = { // ScalingProcessQuery
+ *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   ScalingProcesses: [ // ProcessNames
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new SuspendProcessesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SuspendProcessesCommandInput - {@link SuspendProcessesCommandInput}
+ * @returns {@link SuspendProcessesCommandOutput}
  * @see {@link SuspendProcessesCommandInput} for command's `input` shape.
  * @see {@link SuspendProcessesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
+ *
+ * @throws {@link ResourceContentionFault} (server fault)
+ *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
+ *             instance, or load balancer).</p>
+ *
+ * @throws {@link ResourceInUseFault} (client fault)
+ *  <p>The operation can't be performed because the resource is in use.</p>
+ *
+ *
+ * @example To suspend Auto Scaling processes
+ * ```javascript
+ * // This example suspends the specified scaling process for the specified Auto Scaling group.
+ * const input = {
+ *   "AutoScalingGroupName": "my-auto-scaling-group",
+ *   "ScalingProcesses": [
+ *     "AlarmNotification"
+ *   ]
+ * };
+ * const command = new SuspendProcessesCommand(input);
+ * await client.send(command);
+ * // example id: autoscaling-suspend-processes-1
+ * ```
  *
  */
 export class SuspendProcessesCommand extends $Command<
@@ -63,6 +101,9 @@ export class SuspendProcessesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SuspendProcessesCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +132,8 @@ export class SuspendProcessesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ScalingProcessQueryFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +143,18 @@ export class SuspendProcessesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SuspendProcessesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySuspendProcessesCommand(input, context);
+    return se_SuspendProcessesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SuspendProcessesCommandOutput> {
-    return deserializeAws_querySuspendProcessesCommand(output, context);
+    return de_SuspendProcessesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,19 +16,26 @@ import {
 import { KafkaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaConnectClient";
 import {
   DescribeConnectorRequest,
-  DescribeConnectorRequestFilterSensitiveLog,
   DescribeConnectorResponse,
   DescribeConnectorResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeConnectorCommand,
-  serializeAws_restJson1DescribeConnectorCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeConnectorCommand, se_DescribeConnectorCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeConnectorCommand}.
+ */
 export interface DescribeConnectorCommandInput extends DescribeConnectorRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeConnectorCommand}.
+ */
 export interface DescribeConnectorCommandOutput extends DescribeConnectorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns summary information about the connector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +43,46 @@ export interface DescribeConnectorCommandOutput extends DescribeConnectorRespons
  * import { KafkaConnectClient, DescribeConnectorCommand } from "@aws-sdk/client-kafkaconnect"; // ES Modules import
  * // const { KafkaConnectClient, DescribeConnectorCommand } = require("@aws-sdk/client-kafkaconnect"); // CommonJS import
  * const client = new KafkaConnectClient(config);
+ * const input = { // DescribeConnectorRequest
+ *   connectorArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeConnectorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConnectorCommandInput - {@link DescribeConnectorCommandInput}
+ * @returns {@link DescribeConnectorCommandOutput}
  * @see {@link DescribeConnectorCommandInput} for command's `input` shape.
  * @see {@link DescribeConnectorCommandOutput} for command's `response` shape.
  * @see {@link KafkaConnectClientResolvedConfig | config} for KafkaConnectClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>HTTP Status Code 400: Bad request due to incorrect input. Correct your request and then
+ *          retry it.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>HTTP Status Code 403: Access forbidden. Correct your credentials and then retry your
+ *          request.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>HTTP Status Code 500: Unexpected internal server error. Retrying your request might
+ *          resolve the issue.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>HTTP Status Code 404: Resource not found due to incorrect input. Correct your request
+ *          and then retry it.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>HTTP Status Code 503: Service Unavailable. Retrying your request in some time might
+ *          resolve the issue.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>HTTP Status Code 429: Limit exceeded. Resource limit reached.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>HTTP Status Code 401: Unauthorized request. The provided credentials couldn't be
+ *          validated.</p>
+ *
  *
  */
 export class DescribeConnectorCommand extends $Command<
@@ -62,6 +102,9 @@ export class DescribeConnectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConnectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +133,7 @@ export class DescribeConnectorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeConnectorRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeConnectorResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -101,12 +144,18 @@ export class DescribeConnectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeConnectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeConnectorCommand(input, context);
+    return se_DescribeConnectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeConnectorCommandOutput> {
-    return deserializeAws_restJson1DescribeConnectorCommand(output, context);
+    return de_DescribeConnectorCommand(output, context);
   }
 
   // Start section: command_body_extra

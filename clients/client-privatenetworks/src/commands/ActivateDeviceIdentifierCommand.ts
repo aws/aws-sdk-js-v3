@@ -15,20 +15,27 @@ import {
 
 import {
   ActivateDeviceIdentifierRequest,
-  ActivateDeviceIdentifierRequestFilterSensitiveLog,
   ActivateDeviceIdentifierResponse,
   ActivateDeviceIdentifierResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { PrivateNetworksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PrivateNetworksClient";
-import {
-  deserializeAws_restJson1ActivateDeviceIdentifierCommand,
-  serializeAws_restJson1ActivateDeviceIdentifierCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ActivateDeviceIdentifierCommand, se_ActivateDeviceIdentifierCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ActivateDeviceIdentifierCommand}.
+ */
 export interface ActivateDeviceIdentifierCommandInput extends ActivateDeviceIdentifierRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ActivateDeviceIdentifierCommand}.
+ */
 export interface ActivateDeviceIdentifierCommandOutput extends ActivateDeviceIdentifierResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Activates the specified device identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +43,29 @@ export interface ActivateDeviceIdentifierCommandOutput extends ActivateDeviceIde
  * import { PrivateNetworksClient, ActivateDeviceIdentifierCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
  * // const { PrivateNetworksClient, ActivateDeviceIdentifierCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
  * const client = new PrivateNetworksClient(config);
+ * const input = { // ActivateDeviceIdentifierRequest
+ *   deviceIdentifierArn: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new ActivateDeviceIdentifierCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ActivateDeviceIdentifierCommandInput - {@link ActivateDeviceIdentifierCommandInput}
+ * @returns {@link ActivateDeviceIdentifierCommandOutput}
  * @see {@link ActivateDeviceIdentifierCommandInput} for command's `input` shape.
  * @see {@link ActivateDeviceIdentifierCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Information about an internal error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request failed validation.</p>
+ *
  *
  */
 export class ActivateDeviceIdentifierCommand extends $Command<
@@ -62,6 +85,9 @@ export class ActivateDeviceIdentifierCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ActivateDeviceIdentifierCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +116,7 @@ export class ActivateDeviceIdentifierCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ActivateDeviceIdentifierRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ActivateDeviceIdentifierResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -101,12 +127,18 @@ export class ActivateDeviceIdentifierCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ActivateDeviceIdentifierCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ActivateDeviceIdentifierCommand(input, context);
+    return se_ActivateDeviceIdentifierCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ActivateDeviceIdentifierCommandOutput> {
-    return deserializeAws_restJson1ActivateDeviceIdentifierCommand(output, context);
+    return de_ActivateDeviceIdentifierCommand(output, context);
   }
 
   // Start section: command_body_extra

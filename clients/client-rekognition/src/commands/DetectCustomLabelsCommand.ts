@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DetectCustomLabelsRequest,
-  DetectCustomLabelsRequestFilterSensitiveLog,
-  DetectCustomLabelsResponse,
-  DetectCustomLabelsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DetectCustomLabelsCommand,
-  serializeAws_json1_1DetectCustomLabelsCommand,
-} from "../protocols/Aws_json1_1";
+import { DetectCustomLabelsRequest, DetectCustomLabelsResponse } from "../models/models_0";
+import { de_DetectCustomLabelsCommand, se_DetectCustomLabelsCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DetectCustomLabelsCommand}.
+ */
 export interface DetectCustomLabelsCommandInput extends DetectCustomLabelsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DetectCustomLabelsCommand}.
+ */
 export interface DetectCustomLabelsCommandOutput extends DetectCustomLabelsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detects custom labels in a supplied image by using an Amazon Rekognition Custom Labels model. </p>
  *          <p>You specify which version of a model version to use by using the <code>ProjectVersionArn</code> input
  *       parameter. </p>
@@ -67,13 +70,71 @@ export interface DetectCustomLabelsCommandOutput extends DetectCustomLabelsRespo
  * import { RekognitionClient, DetectCustomLabelsCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DetectCustomLabelsCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // DetectCustomLabelsRequest
+ *   ProjectVersionArn: "STRING_VALUE", // required
+ *   Image: { // Image
+ *     Bytes: "BLOB_VALUE",
+ *     S3Object: { // S3Object
+ *       Bucket: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   },
+ *   MaxResults: Number("int"),
+ *   MinConfidence: Number("float"),
+ * };
  * const command = new DetectCustomLabelsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DetectCustomLabelsCommandInput - {@link DetectCustomLabelsCommandInput}
+ * @returns {@link DetectCustomLabelsCommandOutput}
  * @see {@link DetectCustomLabelsCommandInput} for command's `input` shape.
  * @see {@link DetectCustomLabelsCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to perform the action.</p>
+ *
+ * @throws {@link ImageTooLargeException} (client fault)
+ *  <p>The input image size exceeds the allowed limit. If you are calling
+ *       DetectProtectiveEquipment, the image size or resolution exceeds the allowed limit. For more
+ *       information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide.
+ *     </p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidImageFormatException} (client fault)
+ *  <p>The provided image format is not supported. </p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
+ *       operation again.</p>
+ *
+ * @throws {@link InvalidS3ObjectException} (client fault)
+ *  <p>Amazon Rekognition is unable to access the S3 object specified in the request.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many Amazon Rekognition Video jobs concurrently, calls to start operations
+ *             (<code>StartLabelDetection</code>, for example) will raise a <code>LimitExceededException</code> exception (HTTP status code: 400) until
+ *             the number of concurrently running jobs is below the Amazon Rekognition service limit.  </p>
+ *
+ * @throws {@link ProvisionedThroughputExceededException} (client fault)
+ *  <p>The number of requests exceeded your throughput limit. If you want to increase this
+ *       limit, contact Amazon Rekognition.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request cannot be found.</p>
+ *
+ * @throws {@link ResourceNotReadyException} (client fault)
+ *  <p>The requested resource isn't ready. For example,
+ *          this exception occurs when you call <code>DetectCustomLabels</code> with a
+ *          model version that isn't deployed. </p>
+ *
+ * @throws {@link ThrottlingException} (server fault)
+ *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
  *
  */
 export class DetectCustomLabelsCommand extends $Command<
@@ -93,6 +154,9 @@ export class DetectCustomLabelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetectCustomLabelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +185,8 @@ export class DetectCustomLabelsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetectCustomLabelsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DetectCustomLabelsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +196,18 @@ export class DetectCustomLabelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetectCustomLabelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DetectCustomLabelsCommand(input, context);
+    return se_DetectCustomLabelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectCustomLabelsCommandOutput> {
-    return deserializeAws_json1_1DetectCustomLabelsCommand(output, context);
+    return de_DetectCustomLabelsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,26 +18,31 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
+import { DescribeLoadBalancerAttributesInput, DescribeLoadBalancerAttributesOutput } from "../models/models_0";
 import {
-  DescribeLoadBalancerAttributesInput,
-  DescribeLoadBalancerAttributesInputFilterSensitiveLog,
-  DescribeLoadBalancerAttributesOutput,
-  DescribeLoadBalancerAttributesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeLoadBalancerAttributesCommand,
-  serializeAws_queryDescribeLoadBalancerAttributesCommand,
+  de_DescribeLoadBalancerAttributesCommand,
+  se_DescribeLoadBalancerAttributesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeLoadBalancerAttributesCommand}.
+ */
 export interface DescribeLoadBalancerAttributesCommandInput extends DescribeLoadBalancerAttributesInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeLoadBalancerAttributesCommand}.
+ */
 export interface DescribeLoadBalancerAttributesCommandOutput
   extends DescribeLoadBalancerAttributesOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the attributes for the specified Application Load Balancer, Network Load
  *       Balancer, or Gateway Load Balancer.</p>
- *
  *          <p>For more information, see the following:</p>
  *          <ul>
  *             <li>
@@ -65,13 +70,59 @@ export interface DescribeLoadBalancerAttributesCommandOutput
  * import { ElasticLoadBalancingV2Client, DescribeLoadBalancerAttributesCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, DescribeLoadBalancerAttributesCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
+ * const input = { // DescribeLoadBalancerAttributesInput
+ *   LoadBalancerArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeLoadBalancerAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLoadBalancerAttributesCommandInput - {@link DescribeLoadBalancerAttributesCommandInput}
+ * @returns {@link DescribeLoadBalancerAttributesCommandOutput}
  * @see {@link DescribeLoadBalancerAttributesCommandInput} for command's `input` shape.
  * @see {@link DescribeLoadBalancerAttributesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
+ *
+ * @throws {@link LoadBalancerNotFoundException} (client fault)
+ *  <p>The specified load balancer does not exist.</p>
+ *
+ *
+ * @example To describe load balancer attributes
+ * ```javascript
+ * // This example describes the attributes of the specified load balancer.
+ * const input = {
+ *   "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188"
+ * };
+ * const command = new DescribeLoadBalancerAttributesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Attributes": [
+ *     {
+ *       "Key": "access_logs.s3.enabled",
+ *       "Value": "false"
+ *     },
+ *     {
+ *       "Key": "idle_timeout.timeout_seconds",
+ *       "Value": "60"
+ *     },
+ *     {
+ *       "Key": "access_logs.s3.prefix",
+ *       "Value": ""
+ *     },
+ *     {
+ *       "Key": "deletion_protection.enabled",
+ *       "Value": "false"
+ *     },
+ *     {
+ *       "Key": "access_logs.s3.bucket",
+ *       "Value": ""
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: elbv2-describe-load-balancer-attributes-1
+ * ```
  *
  */
 export class DescribeLoadBalancerAttributesCommand extends $Command<
@@ -91,6 +142,9 @@ export class DescribeLoadBalancerAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLoadBalancerAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +173,8 @@ export class DescribeLoadBalancerAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLoadBalancerAttributesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLoadBalancerAttributesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,18 +184,24 @@ export class DescribeLoadBalancerAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeLoadBalancerAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeLoadBalancerAttributesCommand(input, context);
+    return se_DescribeLoadBalancerAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeLoadBalancerAttributesCommandOutput> {
-    return deserializeAws_queryDescribeLoadBalancerAttributesCommand(output, context);
+    return de_DescribeLoadBalancerAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

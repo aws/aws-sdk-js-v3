@@ -15,20 +15,27 @@ import {
 
 import {
   GetExecutionHistoryInput,
-  GetExecutionHistoryInputFilterSensitiveLog,
   GetExecutionHistoryOutput,
   GetExecutionHistoryOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0GetExecutionHistoryCommand,
-  serializeAws_json1_0GetExecutionHistoryCommand,
-} from "../protocols/Aws_json1_0";
+import { de_GetExecutionHistoryCommand, se_GetExecutionHistoryCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetExecutionHistoryCommand}.
+ */
 export interface GetExecutionHistoryCommandInput extends GetExecutionHistoryInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetExecutionHistoryCommand}.
+ */
 export interface GetExecutionHistoryCommandOutput extends GetExecutionHistoryOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the history of the specified execution as a list of events. By default, the
  *       results are returned in ascending order of the <code>timeStamp</code> of the events. Use the
  *         <code>reverseOrder</code> parameter to get the latest events first.</p>
@@ -41,13 +48,32 @@ export interface GetExecutionHistoryCommandOutput extends GetExecutionHistoryOut
  * import { SFNClient, GetExecutionHistoryCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, GetExecutionHistoryCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
+ * const input = { // GetExecutionHistoryInput
+ *   executionArn: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   reverseOrder: true || false,
+ *   nextToken: "STRING_VALUE",
+ *   includeExecutionData: true || false,
+ * };
  * const command = new GetExecutionHistoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetExecutionHistoryCommandInput - {@link GetExecutionHistoryCommandInput}
+ * @returns {@link GetExecutionHistoryCommandOutput}
  * @see {@link GetExecutionHistoryCommandInput} for command's `input` shape.
  * @see {@link GetExecutionHistoryCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
+ *
+ * @throws {@link ExecutionDoesNotExist} (client fault)
+ *  <p>The specified execution does not exist.</p>
+ *
+ * @throws {@link InvalidArn} (client fault)
+ *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * @throws {@link InvalidToken} (client fault)
+ *  <p>The provided token is not valid.</p>
+ *
  *
  */
 export class GetExecutionHistoryCommand extends $Command<
@@ -67,6 +93,9 @@ export class GetExecutionHistoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetExecutionHistoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,7 +124,7 @@ export class GetExecutionHistoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetExecutionHistoryInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetExecutionHistoryOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -106,12 +135,18 @@ export class GetExecutionHistoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetExecutionHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetExecutionHistoryCommand(input, context);
+    return se_GetExecutionHistoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetExecutionHistoryCommandOutput> {
-    return deserializeAws_json1_0GetExecutionHistoryCommand(output, context);
+    return de_GetExecutionHistoryCommand(output, context);
   }
 
   // Start section: command_body_extra

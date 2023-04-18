@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import { SplitShardInput, SplitShardInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1SplitShardCommand,
-  serializeAws_json1_1SplitShardCommand,
-} from "../protocols/Aws_json1_1";
+import { SplitShardInput } from "../models/models_0";
+import { de_SplitShardCommand, se_SplitShardCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link SplitShardCommand}.
+ */
 export interface SplitShardCommandInput extends SplitShardInput {}
+/**
+ * @public
+ *
+ * The output of {@link SplitShardCommand}.
+ */
 export interface SplitShardCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Splits a shard into two new shards in the Kinesis data stream, to increase the
  *             stream's capacity to ingest and transport data. <code>SplitShard</code> is called when
  *             there is a need to increase the overall capacity of a stream because of an expected
@@ -75,13 +83,47 @@ export interface SplitShardCommandOutput extends __MetadataBearer {}
  * import { KinesisClient, SplitShardCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, SplitShardCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
+ * const input = { // SplitShardInput
+ *   StreamName: "STRING_VALUE",
+ *   ShardToSplit: "STRING_VALUE", // required
+ *   NewStartingHashKey: "STRING_VALUE", // required
+ *   StreamARN: "STRING_VALUE",
+ * };
  * const command = new SplitShardCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SplitShardCommandInput - {@link SplitShardCommandInput}
+ * @returns {@link SplitShardCommandOutput}
  * @see {@link SplitShardCommandInput} for command's `input` shape.
  * @see {@link SplitShardCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Specifies that you do not have the permissions required to perform this
+ *             operation.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>A specified parameter exceeds its restrictions, is not supported, or can't be used.
+ *             For more information, see the returned message.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
+ *             stream requests exceeds the maximum number allowed. </p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The resource is not available for this operation. For successful operation, the
+ *             resource must be in the <code>ACTIVE</code> state.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource could not be found. The stream might not be specified
+ *             correctly.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Specifies that you tried to invoke this API for a data stream with the on-demand
+ *             capacity mode. This API is only supported for data streams with the provisioned capacity
+ *             mode. </p>
+ *
  *
  */
 export class SplitShardCommand extends $Command<
@@ -103,6 +145,9 @@ export class SplitShardCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SplitShardCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +174,8 @@ export class SplitShardCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SplitShardInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,12 +185,18 @@ export class SplitShardCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SplitShardCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SplitShardCommand(input, context);
+    return se_SplitShardCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SplitShardCommandOutput> {
-    return deserializeAws_json1_1SplitShardCommand(output, context);
+    return de_SplitShardCommand(output, context);
   }
 
   // Start section: command_body_extra

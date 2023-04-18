@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { ElasticTranscoderServiceException as __BaseException } from "./ElasticTranscoderServiceException";
 
 /**
+ * @public
  * <p>General authentication failure. The request was not signed correctly.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -23,6 +24,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The encryption settings, if any, that are used for decrypting your input files or
  *             encrypting your output files. If your input file is encrypted, you must specify the mode
  *             that Elastic Transcoder uses to decrypt your file, otherwise you must specify the mode you want
@@ -117,6 +119,7 @@ export interface Encryption {
 }
 
 /**
+ * @public
  * <p>The file to be used as album art. There can be multiple artworks associated with an
  *             audio file, to a maximum of 20.</p>
  *         <p>To remove artwork or leave the artwork empty, you can either set <code>Artwork</code>
@@ -218,6 +221,7 @@ export interface Artwork {
 }
 
 /**
+ * @public
  * <p>Options associated with your audio codec.</p>
  */
 export interface AudioCodecOptions {
@@ -283,6 +287,7 @@ export interface AudioCodecOptions {
 }
 
 /**
+ * @public
  * <p>Parameters required for transcoding audio.</p>
  */
 export interface AudioParameters {
@@ -545,6 +550,7 @@ export interface AudioParameters {
 }
 
 /**
+ * @public
  * <p>The <code>CancelJobRequest</code> structure.</p>
  */
 export interface CancelJobRequest {
@@ -557,11 +563,15 @@ export interface CancelJobRequest {
 }
 
 /**
+ * @public
  * <p>The response body contains a JSON object. If the job is successfully canceled, the value
  *             of <code>Success</code> is <code>true</code>.</p>
  */
 export interface CancelJobResponse {}
 
+/**
+ * @public
+ */
 export class IncompatibleVersionException extends __BaseException {
   readonly name: "IncompatibleVersionException" = "IncompatibleVersionException";
   readonly $fault: "client" = "client";
@@ -579,6 +589,7 @@ export class IncompatibleVersionException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Elastic Transcoder encountered an unexpected exception while trying to fulfill the request.</p>
  */
 export class InternalServiceException extends __BaseException {
@@ -598,6 +609,7 @@ export class InternalServiceException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource you are attempting to change is in use. For example, you are attempting
  *             to delete a pipeline that is currently in use.</p>
  */
@@ -618,6 +630,7 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested resource does not exist or is not available. For example, the pipeline
  *             to which you're trying to add a job doesn't exist or is still being created.</p>
  */
@@ -638,6 +651,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One or more required parameter values were not provided in the request.</p>
  */
 export class ValidationException extends __BaseException {
@@ -657,6 +671,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The file format of the output captions. If you leave this value blank, Elastic Transcoder returns an error.</p>
  */
 export interface CaptionFormat {
@@ -719,7 +734,7 @@ export interface CaptionFormat {
   Format?: string;
 
   /**
-   * <p>The prefix for caption filenames, in the form <i>description</i>-<code>{language}</code>, where:</p>
+   * <p>The prefix for caption filenames, in the form <i>description</i>-<code>\{language\}</code>, where:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -727,14 +742,14 @@ export interface CaptionFormat {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>{language}</code> is a literal value that Elastic Transcoder replaces with the two- or three-letter
+   *                   <code>\{language\}</code> is a literal value that Elastic Transcoder replaces with the two- or three-letter
    *             code for the language of the caption in the output file names.</p>
    *             </li>
    *          </ul>
-   *          <p>If you don't include <code>{language}</code> in the file name pattern, Elastic Transcoder automatically
-   *          appends "<code>{language}</code>" to the value that you specify for the description.  In addition,
+   *          <p>If you don't include <code>\{language\}</code> in the file name pattern, Elastic Transcoder automatically
+   *          appends "<code>\{language\}</code>" to the value that you specify for the description.  In addition,
    *          Elastic Transcoder automatically appends the count to the end of the segment files.</p>
-   *          <p>For example, suppose you're transcoding into srt format. When you enter "Sydney-{language}-sunrise",
+   *          <p>For example, suppose you're transcoding into srt format. When you enter "Sydney-\{language\}-sunrise",
    *           and the language of the captions is English (en), the name of the first caption file is be
    *           Sydney-en-sunrise00000.srt.</p>
    */
@@ -747,6 +762,7 @@ export interface CaptionFormat {
 }
 
 /**
+ * @public
  * <p>A source file for the input sidecar captions used during the transcoding process.</p>
  */
 export interface CaptionSource {
@@ -792,6 +808,7 @@ export interface CaptionSource {
 }
 
 /**
+ * @public
  * <p>The captions to be created, if any.</p>
  */
 export interface Captions {
@@ -841,6 +858,7 @@ export interface Captions {
 }
 
 /**
+ * @public
  * <p>Settings that determine when a clip begins and how long it lasts.</p>
  */
 export interface TimeSpan {
@@ -863,6 +881,7 @@ export interface TimeSpan {
 }
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Settings for one clip in a composition. All jobs in a playlist must have the same clip settings.</p>
@@ -875,6 +894,7 @@ export interface Clip {
 }
 
 /**
+ * @public
  * <p>The detected properties of the input file. Elastic Transcoder identifies these values from the input file.</p>
  */
 export interface DetectedProperties {
@@ -905,6 +925,7 @@ export interface DetectedProperties {
 }
 
 /**
+ * @public
  * <p>The captions to be created, if any.</p>
  */
 export interface InputCaptions {
@@ -945,6 +966,7 @@ export interface InputCaptions {
 }
 
 /**
+ * @public
  * <p>Information about the file that you're transcoding.</p>
  */
 export interface JobInput {
@@ -1075,6 +1097,7 @@ export interface JobInput {
 }
 
 /**
+ * @public
  * <p>The .jpg or .png file associated with an audio file.</p>
  */
 export interface JobAlbumArt {
@@ -1114,6 +1137,7 @@ export interface JobAlbumArt {
 }
 
 /**
+ * @public
  * <p>Watermarks can be in .png or .jpg format. If you want to display a watermark that is not
  *     rectangular, use the .png format, which supports transparency.</p>
  */
@@ -1143,6 +1167,7 @@ export interface JobWatermark {
 }
 
 /**
+ * @public
  * <p>The <code>CreateJobOutput</code> structure.</p>
  */
 export interface CreateJobOutput {
@@ -1163,15 +1188,15 @@ export interface CreateJobOutput {
    *             <li>
    *                <p>
    *                   <b>
-   *                      <code>{count}</code> (Required)</b>: If you want to create thumbnails, you
-   *             must include <code>{count}</code> in the <code>ThumbnailPattern</code> object.
-   *             Wherever you specify <code>{count}</code>, Elastic Transcoder adds a five-digit sequence
+   *                      <code>\{count\}</code> (Required)</b>: If you want to create thumbnails, you
+   *             must include <code>\{count\}</code> in the <code>ThumbnailPattern</code> object.
+   *             Wherever you specify <code>\{count\}</code>, Elastic Transcoder adds a five-digit sequence
    *             number (beginning with <b>00001</b>) to thumbnail file names. The number
    *             indicates where a given thumbnail appears in the sequence of thumbnails for a
    *             transcoded file. </p>
    *                <important>
-   *                   <p>If you specify a literal value and/or <code>{resolution}</code> but you
-   *             omit <code>{count}</code>, Elastic Transcoder returns a validation error and does not create
+   *                   <p>If you specify a literal value and/or <code>\{resolution\}</code> but you
+   *             omit <code>\{count\}</code>, Elastic Transcoder returns a validation error and does not create
    *             the job.</p>
    *                </important>
    *             </li>
@@ -1179,14 +1204,14 @@ export interface CreateJobOutput {
    *                <p>
    *                   <b>Literal values (Optional)</b>: You can specify literal values anywhere in the
    *                 <code>ThumbnailPattern</code> object. For example, you can include them as a
-   *             file name prefix or as a delimiter between <code>{resolution}</code> and
-   *                 <code>{count}</code>. </p>
+   *             file name prefix or as a delimiter between <code>\{resolution\}</code> and
+   *                 <code>\{count\}</code>. </p>
    *             </li>
    *             <li>
    *                <p>
    *                   <b>
-   *                      <code>{resolution}</code> (Optional)</b>: If you want Elastic Transcoder to include the
-   *             resolution in the file name, include <code>{resolution}</code> in the
+   *                      <code>\{resolution\}</code> (Optional)</b>: If you want Elastic Transcoder to include the
+   *             resolution in the file name, include <code>\{resolution\}</code> in the
    *                 <code>ThumbnailPattern</code> object. </p>
    *             </li>
    *          </ul>
@@ -1316,6 +1341,7 @@ export interface CreateJobOutput {
 }
 
 /**
+ * @public
  * <p>The HLS content protection settings, if any, that you want Elastic Transcoder to apply to your output files.</p>
  */
 export interface HlsContentProtection {
@@ -1367,6 +1393,7 @@ export interface HlsContentProtection {
 }
 
 /**
+ * @public
  * <p>The PlayReady DRM settings, if any, that you want Elastic Transcoder to apply to the output files associated with this playlist.</p>
  *          <p>PlayReady DRM encrypts your media files
  * using <code>aes-ctr</code> encryption.</p>
@@ -1422,6 +1449,7 @@ export interface PlayReadyDrm {
 }
 
 /**
+ * @public
  * <p>Information about the master playlist.</p>
  */
 export interface CreateJobPlaylist {
@@ -1503,6 +1531,7 @@ export interface CreateJobPlaylist {
 }
 
 /**
+ * @public
  * <p>The <code>CreateJobRequest</code> structure.</p>
  */
 export interface CreateJobRequest {
@@ -1564,6 +1593,7 @@ export interface CreateJobRequest {
 }
 
 /**
+ * @public
  * <important>
  *             <p>Outputs recommended instead.</p>
  *          </important>
@@ -1597,15 +1627,15 @@ export interface JobOutput {
    *             <li>
    *                 <p>
    *                     <b>
-   *                      <code>{count}</code> (Required)</b>: If you want to create thumbnails, you
-   *                     must include <code>{count}</code> in the <code>ThumbnailPattern</code> object.
-   *                     Wherever you specify <code>{count}</code>, Elastic Transcoder adds a five-digit sequence
+   *                      <code>\{count\}</code> (Required)</b>: If you want to create thumbnails, you
+   *                     must include <code>\{count\}</code> in the <code>ThumbnailPattern</code> object.
+   *                     Wherever you specify <code>\{count\}</code>, Elastic Transcoder adds a five-digit sequence
    *                     number (beginning with <b>00001</b>) to thumbnail file names. The number
    *                     indicates where a given thumbnail appears in the sequence of thumbnails for a
    *                     transcoded file. </p>
    *                 <important>
-   *                   <p>If you specify a literal value and/or <code>{resolution}</code> but you
-   *                     omit <code>{count}</code>, Elastic Transcoder returns a validation error and does not create
+   *                   <p>If you specify a literal value and/or <code>\{resolution\}</code> but you
+   *                     omit <code>\{count\}</code>, Elastic Transcoder returns a validation error and does not create
    *                     the job.</p>
    *                </important>
    *             </li>
@@ -1613,14 +1643,14 @@ export interface JobOutput {
    *                 <p>
    *                     <b>Literal values (Optional)</b>: You can specify literal values anywhere in the
    *                         <code>ThumbnailPattern</code> object. For example, you can include them as a
-   *                     file name prefix or as a delimiter between <code>{resolution}</code> and
-   *                         <code>{count}</code>. </p>
+   *                     file name prefix or as a delimiter between <code>\{resolution\}</code> and
+   *                         <code>\{count\}</code>. </p>
    *             </li>
    *             <li>
    *                 <p>
    *                     <b>
-   *                      <code>{resolution}</code> (Optional)</b>: If you want Elastic Transcoder to include the
-   *                     resolution in the file name, include <code>{resolution}</code> in the
+   *                      <code>\{resolution\}</code> (Optional)</b>: If you want Elastic Transcoder to include the
+   *                     resolution in the file name, include <code>\{resolution\}</code> in the
    *                         <code>ThumbnailPattern</code> object. </p>
    *             </li>
    *          </ul>
@@ -1837,6 +1867,7 @@ export interface JobOutput {
 }
 
 /**
+ * @public
  * <p> Use Only for Fragmented MP4 or MPEG-TS Outputs. If you specify a preset for which the value of Container
  *             is <code>fmp4</code> (Fragmented MP4) or <code>ts</code> (MPEG-TS), Playlists
  *             contains information about the master playlists
@@ -1928,6 +1959,7 @@ export interface Playlist {
 }
 
 /**
+ * @public
  * <p>Details about the timing of a job.</p>
  */
 export interface Timing {
@@ -1948,6 +1980,7 @@ export interface Timing {
 }
 
 /**
+ * @public
  * <p>A section of the response body that provides information about the job that is created.</p>
  */
 export interface Job {
@@ -2063,6 +2096,7 @@ export interface Job {
 }
 
 /**
+ * @public
  * <p>The CreateJobResponse structure.</p>
  */
 export interface CreateJobResponse {
@@ -2073,6 +2107,7 @@ export interface CreateJobResponse {
 }
 
 /**
+ * @public
  * <p>Too many operations for a given AWS account. For example, the number of pipelines
  *             exceeds the maximum allowed.</p>
  */
@@ -2093,6 +2128,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The <code>Permission</code> structure.</p>
  */
 export interface Permission {
@@ -2161,6 +2197,7 @@ export interface Permission {
 }
 
 /**
+ * @public
  * <p>The <code>PipelineOutputConfig</code> structure.</p>
  */
 export interface PipelineOutputConfig {
@@ -2215,6 +2252,7 @@ export interface PipelineOutputConfig {
 }
 
 /**
+ * @public
  * <p>The Amazon Simple Notification Service (Amazon SNS) topic or topics to notify in order to report job status.</p>
  *         <important>
  *             <p>To receive notifications, you must also subscribe to the new topic in the Amazon SNS console.</p>
@@ -2243,6 +2281,7 @@ export interface Notifications {
 }
 
 /**
+ * @public
  * <p>The <code>CreatePipelineRequest</code> structure.</p>
  */
 export interface CreatePipelineRequest {
@@ -2547,6 +2586,7 @@ export interface CreatePipelineRequest {
 }
 
 /**
+ * @public
  * <p>The pipeline (queue) that is used to manage jobs.</p>
  */
 export interface Pipeline {
@@ -2818,6 +2858,7 @@ export interface Pipeline {
 }
 
 /**
+ * @public
  * <p>Elastic Transcoder returns a warning if the resources used by your pipeline are not in the same region
  *             as the pipeline.</p>
  *         <p>Using resources in the same region, such as your Amazon S3 buckets, Amazon SNS notification topics,
@@ -2839,6 +2880,7 @@ export interface Warning {
 }
 
 /**
+ * @public
  * <p>When you create a pipeline, Elastic Transcoder returns the values that you specified in the request.</p>
  */
 export interface CreatePipelineResponse {
@@ -2857,6 +2899,7 @@ export interface CreatePipelineResponse {
 }
 
 /**
+ * @public
  * <p>Thumbnails for videos.</p>
  */
 export interface Thumbnails {
@@ -2983,6 +3026,7 @@ export interface Thumbnails {
 }
 
 /**
+ * @public
  * <p>Settings for the size, location, and opacity of graphics that you want Elastic Transcoder to
  *             overlay over videos that are transcoded using this preset. You can specify settings
  *             for up to four watermarks. Watermarks appear in the specified size and location, and
@@ -3210,6 +3254,7 @@ export interface PresetWatermark {
 }
 
 /**
+ * @public
  * <p>The <code>VideoParameters</code> structure.</p>
  */
 export interface VideoParameters {
@@ -3784,6 +3829,7 @@ export interface VideoParameters {
 }
 
 /**
+ * @public
  * <p>The <code>CreatePresetRequest</code> structure.</p>
  */
 export interface CreatePresetRequest {
@@ -3823,6 +3869,7 @@ export interface CreatePresetRequest {
 }
 
 /**
+ * @public
  * <p>Presets are templates that contain most of the settings for transcoding media files
  *             from one format to another. Elastic Transcoder includes some default presets for common formats, for
  *             example, several iPod and iPhone versions. You can also create your own presets for formats
@@ -3881,6 +3928,7 @@ export interface Preset {
 }
 
 /**
+ * @public
  * <p>The <code>CreatePresetResponse</code> structure.</p>
  */
 export interface CreatePresetResponse {
@@ -3899,6 +3947,7 @@ export interface CreatePresetResponse {
 }
 
 /**
+ * @public
  * <p>The <code>DeletePipelineRequest</code> structure.</p>
  */
 export interface DeletePipelineRequest {
@@ -3909,11 +3958,13 @@ export interface DeletePipelineRequest {
 }
 
 /**
+ * @public
  * <p>The <code>DeletePipelineResponse</code> structure.</p>
  */
 export interface DeletePipelineResponse {}
 
 /**
+ * @public
  * <p>The <code>DeletePresetRequest</code> structure.</p>
  */
 export interface DeletePresetRequest {
@@ -3924,11 +3975,13 @@ export interface DeletePresetRequest {
 }
 
 /**
+ * @public
  * <p>The <code>DeletePresetResponse</code> structure.</p>
  */
 export interface DeletePresetResponse {}
 
 /**
+ * @public
  * <p>The <code>ListJobsByPipelineRequest</code> structure.</p>
  */
 export interface ListJobsByPipelineRequest {
@@ -3952,6 +4005,7 @@ export interface ListJobsByPipelineRequest {
 }
 
 /**
+ * @public
  * <p>The <code>ListJobsByPipelineResponse</code> structure.</p>
  */
 export interface ListJobsByPipelineResponse {
@@ -3969,6 +4023,7 @@ export interface ListJobsByPipelineResponse {
 }
 
 /**
+ * @public
  * <p>The <code>ListJobsByStatusRequest</code> structure.</p>
  */
 export interface ListJobsByStatusRequest {
@@ -3995,6 +4050,7 @@ export interface ListJobsByStatusRequest {
 }
 
 /**
+ * @public
  * <p>
  *             The <code>ListJobsByStatusResponse</code> structure.
  *         </p>
@@ -4014,6 +4070,7 @@ export interface ListJobsByStatusResponse {
 }
 
 /**
+ * @public
  * <p>The <code>ListPipelineRequest</code> structure.</p>
  */
 export interface ListPipelinesRequest {
@@ -4032,6 +4089,7 @@ export interface ListPipelinesRequest {
 }
 
 /**
+ * @public
  * <p>A list of the pipelines associated with the current AWS account.</p>
  */
 export interface ListPipelinesResponse {
@@ -4049,6 +4107,7 @@ export interface ListPipelinesResponse {
 }
 
 /**
+ * @public
  * <p>The <code>ListPresetsRequest</code> structure.</p>
  */
 export interface ListPresetsRequest {
@@ -4067,6 +4126,7 @@ export interface ListPresetsRequest {
 }
 
 /**
+ * @public
  * <p>The <code>ListPresetsResponse</code> structure.</p>
  */
 export interface ListPresetsResponse {
@@ -4084,6 +4144,7 @@ export interface ListPresetsResponse {
 }
 
 /**
+ * @public
  * <p>The <code>ReadJobRequest</code> structure.</p>
  */
 export interface ReadJobRequest {
@@ -4094,6 +4155,7 @@ export interface ReadJobRequest {
 }
 
 /**
+ * @public
  * <p>The <code>ReadJobResponse</code> structure.</p>
  */
 export interface ReadJobResponse {
@@ -4104,6 +4166,7 @@ export interface ReadJobResponse {
 }
 
 /**
+ * @public
  * <p>The <code>ReadPipelineRequest</code> structure.</p>
  */
 export interface ReadPipelineRequest {
@@ -4114,6 +4177,7 @@ export interface ReadPipelineRequest {
 }
 
 /**
+ * @public
  * <p>The <code>ReadPipelineResponse</code> structure.</p>
  */
 export interface ReadPipelineResponse {
@@ -4132,6 +4196,7 @@ export interface ReadPipelineResponse {
 }
 
 /**
+ * @public
  * <p>The <code>ReadPresetRequest</code> structure.</p>
  */
 export interface ReadPresetRequest {
@@ -4142,6 +4207,7 @@ export interface ReadPresetRequest {
 }
 
 /**
+ * @public
  * <p>The <code>ReadPresetResponse</code> structure.</p>
  */
 export interface ReadPresetResponse {
@@ -4152,6 +4218,7 @@ export interface ReadPresetResponse {
 }
 
 /**
+ * @public
  * @deprecated
  *
  * <p> The <code>TestRoleRequest</code> structure. </p>
@@ -4179,6 +4246,7 @@ export interface TestRoleRequest {
 }
 
 /**
+ * @public
  * @deprecated
  *
  * <p>The <code>TestRoleResponse</code> structure.</p>
@@ -4198,6 +4266,7 @@ export interface TestRoleResponse {
 }
 
 /**
+ * @public
  * <p>The <code>UpdatePipelineRequest</code> structure.</p>
  */
 export interface UpdatePipelineRequest {
@@ -4469,6 +4538,7 @@ export interface UpdatePipelineRequest {
 }
 
 /**
+ * @public
  * <p>When you update a pipeline, Elastic Transcoder returns the values that you specified in the request.</p>
  */
 export interface UpdatePipelineResponse {
@@ -4487,6 +4557,7 @@ export interface UpdatePipelineResponse {
 }
 
 /**
+ * @public
  * <p>The <code>UpdatePipelineNotificationsRequest</code> structure.</p>
  */
 export interface UpdatePipelineNotificationsRequest {
@@ -4531,6 +4602,7 @@ export interface UpdatePipelineNotificationsRequest {
 }
 
 /**
+ * @public
  * <p>The <code>UpdatePipelineNotificationsResponse</code> structure.</p>
  */
 export interface UpdatePipelineNotificationsResponse {
@@ -4542,6 +4614,7 @@ export interface UpdatePipelineNotificationsResponse {
 }
 
 /**
+ * @public
  * <p>The <code>UpdatePipelineStatusRequest</code> structure.</p>
  */
 export interface UpdatePipelineStatusRequest {
@@ -4567,6 +4640,7 @@ export interface UpdatePipelineStatusRequest {
 }
 
 /**
+ * @public
  * <p>When you update status for a pipeline,
  *             Elastic Transcoder returns the values that you specified in the request.</p>
  */
@@ -4576,460 +4650,3 @@ export interface UpdatePipelineStatusResponse {
    */
   Pipeline?: Pipeline;
 }
-
-/**
- * @internal
- */
-export const EncryptionFilterSensitiveLog = (obj: Encryption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ArtworkFilterSensitiveLog = (obj: Artwork): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AudioCodecOptionsFilterSensitiveLog = (obj: AudioCodecOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AudioParametersFilterSensitiveLog = (obj: AudioParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelJobRequestFilterSensitiveLog = (obj: CancelJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelJobResponseFilterSensitiveLog = (obj: CancelJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CaptionFormatFilterSensitiveLog = (obj: CaptionFormat): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CaptionSourceFilterSensitiveLog = (obj: CaptionSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CaptionsFilterSensitiveLog = (obj: Captions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TimeSpanFilterSensitiveLog = (obj: TimeSpan): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClipFilterSensitiveLog = (obj: Clip): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DetectedPropertiesFilterSensitiveLog = (obj: DetectedProperties): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InputCaptionsFilterSensitiveLog = (obj: InputCaptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobInputFilterSensitiveLog = (obj: JobInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobAlbumArtFilterSensitiveLog = (obj: JobAlbumArt): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobWatermarkFilterSensitiveLog = (obj: JobWatermark): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateJobOutputFilterSensitiveLog = (obj: CreateJobOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HlsContentProtectionFilterSensitiveLog = (obj: HlsContentProtection): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PlayReadyDrmFilterSensitiveLog = (obj: PlayReadyDrm): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateJobPlaylistFilterSensitiveLog = (obj: CreateJobPlaylist): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateJobRequestFilterSensitiveLog = (obj: CreateJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobOutputFilterSensitiveLog = (obj: JobOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PlaylistFilterSensitiveLog = (obj: Playlist): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TimingFilterSensitiveLog = (obj: Timing): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobFilterSensitiveLog = (obj: Job): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateJobResponseFilterSensitiveLog = (obj: CreateJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PermissionFilterSensitiveLog = (obj: Permission): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PipelineOutputConfigFilterSensitiveLog = (obj: PipelineOutputConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NotificationsFilterSensitiveLog = (obj: Notifications): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePipelineRequestFilterSensitiveLog = (obj: CreatePipelineRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PipelineFilterSensitiveLog = (obj: Pipeline): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WarningFilterSensitiveLog = (obj: Warning): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePipelineResponseFilterSensitiveLog = (obj: CreatePipelineResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ThumbnailsFilterSensitiveLog = (obj: Thumbnails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PresetWatermarkFilterSensitiveLog = (obj: PresetWatermark): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VideoParametersFilterSensitiveLog = (obj: VideoParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePresetRequestFilterSensitiveLog = (obj: CreatePresetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PresetFilterSensitiveLog = (obj: Preset): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePresetResponseFilterSensitiveLog = (obj: CreatePresetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePipelineRequestFilterSensitiveLog = (obj: DeletePipelineRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePipelineResponseFilterSensitiveLog = (obj: DeletePipelineResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePresetRequestFilterSensitiveLog = (obj: DeletePresetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePresetResponseFilterSensitiveLog = (obj: DeletePresetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListJobsByPipelineRequestFilterSensitiveLog = (obj: ListJobsByPipelineRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListJobsByPipelineResponseFilterSensitiveLog = (obj: ListJobsByPipelineResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListJobsByStatusRequestFilterSensitiveLog = (obj: ListJobsByStatusRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListJobsByStatusResponseFilterSensitiveLog = (obj: ListJobsByStatusResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPipelinesRequestFilterSensitiveLog = (obj: ListPipelinesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPipelinesResponseFilterSensitiveLog = (obj: ListPipelinesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPresetsRequestFilterSensitiveLog = (obj: ListPresetsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPresetsResponseFilterSensitiveLog = (obj: ListPresetsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReadJobRequestFilterSensitiveLog = (obj: ReadJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReadJobResponseFilterSensitiveLog = (obj: ReadJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReadPipelineRequestFilterSensitiveLog = (obj: ReadPipelineRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReadPipelineResponseFilterSensitiveLog = (obj: ReadPipelineResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReadPresetRequestFilterSensitiveLog = (obj: ReadPresetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReadPresetResponseFilterSensitiveLog = (obj: ReadPresetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TestRoleRequestFilterSensitiveLog = (obj: TestRoleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TestRoleResponseFilterSensitiveLog = (obj: TestRoleResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePipelineRequestFilterSensitiveLog = (obj: UpdatePipelineRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePipelineResponseFilterSensitiveLog = (obj: UpdatePipelineResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePipelineNotificationsRequestFilterSensitiveLog = (obj: UpdatePipelineNotificationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePipelineNotificationsResponseFilterSensitiveLog = (
-  obj: UpdatePipelineNotificationsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePipelineStatusRequestFilterSensitiveLog = (obj: UpdatePipelineStatusRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePipelineStatusResponseFilterSensitiveLog = (obj: UpdatePipelineStatusResponse): any => ({
-  ...obj,
-});

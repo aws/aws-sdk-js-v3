@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import {
-  UpdateConfiguredTableInput,
-  UpdateConfiguredTableInputFilterSensitiveLog,
-  UpdateConfiguredTableOutput,
-  UpdateConfiguredTableOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateConfiguredTableCommand,
-  serializeAws_restJson1UpdateConfiguredTableCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateConfiguredTableInput, UpdateConfiguredTableOutput } from "../models/models_0";
+import { de_UpdateConfiguredTableCommand, se_UpdateConfiguredTableCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateConfiguredTableCommand}.
+ */
 export interface UpdateConfiguredTableCommandInput extends UpdateConfiguredTableInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateConfiguredTableCommand}.
+ */
 export interface UpdateConfiguredTableCommandOutput extends UpdateConfiguredTableOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a configured table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,39 @@ export interface UpdateConfiguredTableCommandOutput extends UpdateConfiguredTabl
  * import { CleanRoomsClient, UpdateConfiguredTableCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, UpdateConfiguredTableCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
+ * const input = { // UpdateConfiguredTableInput
+ *   configuredTableIdentifier: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ * };
  * const command = new UpdateConfiguredTableCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateConfiguredTableCommandInput - {@link UpdateConfiguredTableCommandInput}
+ * @returns {@link UpdateConfiguredTableCommandOutput}
  * @see {@link UpdateConfiguredTableCommandInput} for command's `input` shape.
  * @see {@link UpdateConfiguredTableCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Caller does not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Unexpected error during processing of request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Request references a resource which does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the specified constraints.</p>
+ *
  *
  */
 export class UpdateConfiguredTableCommand extends $Command<
@@ -62,6 +91,9 @@ export class UpdateConfiguredTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateConfiguredTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +122,8 @@ export class UpdateConfiguredTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateConfiguredTableInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateConfiguredTableOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +133,18 @@ export class UpdateConfiguredTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateConfiguredTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateConfiguredTableCommand(input, context);
+    return se_UpdateConfiguredTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateConfiguredTableCommandOutput> {
-    return deserializeAws_restJson1UpdateConfiguredTableCommand(output, context);
+    return de_UpdateConfiguredTableCommand(output, context);
   }
 
   // Start section: command_body_extra

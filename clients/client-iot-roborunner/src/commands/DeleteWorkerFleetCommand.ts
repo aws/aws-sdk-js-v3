@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTRoboRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTRoboRunnerClient";
-import {
-  DeleteWorkerFleetRequest,
-  DeleteWorkerFleetRequestFilterSensitiveLog,
-  DeleteWorkerFleetResponse,
-  DeleteWorkerFleetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteWorkerFleetCommand,
-  serializeAws_restJson1DeleteWorkerFleetCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteWorkerFleetRequest, DeleteWorkerFleetResponse } from "../models/models_0";
+import { de_DeleteWorkerFleetCommand, se_DeleteWorkerFleetCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteWorkerFleetCommand}.
+ */
 export interface DeleteWorkerFleetCommandInput extends DeleteWorkerFleetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteWorkerFleetCommand}.
+ */
 export interface DeleteWorkerFleetCommandOutput extends DeleteWorkerFleetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Grants permission to delete a worker fleet
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,37 @@ export interface DeleteWorkerFleetCommandOutput extends DeleteWorkerFleetRespons
  * import { IoTRoboRunnerClient, DeleteWorkerFleetCommand } from "@aws-sdk/client-iot-roborunner"; // ES Modules import
  * // const { IoTRoboRunnerClient, DeleteWorkerFleetCommand } = require("@aws-sdk/client-iot-roborunner"); // CommonJS import
  * const client = new IoTRoboRunnerClient(config);
+ * const input = { // DeleteWorkerFleetRequest
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteWorkerFleetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteWorkerFleetCommandInput - {@link DeleteWorkerFleetCommandInput}
+ * @returns {@link DeleteWorkerFleetCommandOutput}
  * @see {@link DeleteWorkerFleetCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkerFleetCommandOutput} for command's `response` shape.
  * @see {@link IoTRoboRunnerClientResolvedConfig | config} for IoTRoboRunnerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *   User does not have sufficient access to perform this action.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  Exception thrown if a resource in a create request already exists.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  Exception thrown if something goes wrong within the service.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  Exception thrown if a resource referenced in the request doesn't exist.
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  Exception thrown if the api has been called too quickly be the client.
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  Exception thrown if an invalid parameter is provided to an API.
+ *
  *
  */
 export class DeleteWorkerFleetCommand extends $Command<
@@ -62,6 +89,9 @@ export class DeleteWorkerFleetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteWorkerFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +120,8 @@ export class DeleteWorkerFleetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteWorkerFleetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteWorkerFleetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +131,18 @@ export class DeleteWorkerFleetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteWorkerFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteWorkerFleetCommand(input, context);
+    return se_DeleteWorkerFleetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWorkerFleetCommandOutput> {
-    return deserializeAws_restJson1DeleteWorkerFleetCommand(output, context);
+    return de_DeleteWorkerFleetCommand(output, context);
   }
 
   // Start section: command_body_extra

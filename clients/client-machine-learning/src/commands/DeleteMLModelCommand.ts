@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import {
-  DeleteMLModelInput,
-  DeleteMLModelInputFilterSensitiveLog,
-  DeleteMLModelOutput,
-  DeleteMLModelOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteMLModelCommand,
-  serializeAws_json1_1DeleteMLModelCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteMLModelInput, DeleteMLModelOutput } from "../models/models_0";
+import { de_DeleteMLModelCommand, se_DeleteMLModelCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteMLModelCommand}.
+ */
 export interface DeleteMLModelCommandInput extends DeleteMLModelInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteMLModelCommand}.
+ */
 export interface DeleteMLModelCommandOutput extends DeleteMLModelOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Assigns the <code>DELETED</code> status to an <code>MLModel</code>, rendering it unusable.</p>
  *         <p>After using the <code>DeleteMLModel</code> operation, you can use the
  *           <code>GetMLModel</code> operation to verify that the status of the <code>MLModel</code> changed to DELETED.</p>
@@ -41,13 +44,28 @@ export interface DeleteMLModelCommandOutput extends DeleteMLModelOutput, __Metad
  * import { MachineLearningClient, DeleteMLModelCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, DeleteMLModelCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
+ * const input = { // DeleteMLModelInput
+ *   MLModelId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteMLModelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMLModelCommandInput - {@link DeleteMLModelCommandInput}
+ * @returns {@link DeleteMLModelCommandOutput}
  * @see {@link DeleteMLModelCommandInput} for command's `input` shape.
  * @see {@link DeleteMLModelCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An error on the server occurred when trying to process a request.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A specified resource cannot be located.</p>
+ *
  *
  */
 export class DeleteMLModelCommand extends $Command<
@@ -67,6 +85,9 @@ export class DeleteMLModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMLModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +114,8 @@ export class DeleteMLModelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMLModelInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteMLModelOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +125,18 @@ export class DeleteMLModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMLModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteMLModelCommand(input, context);
+    return se_DeleteMLModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMLModelCommandOutput> {
-    return deserializeAws_json1_1DeleteMLModelCommand(output, context);
+    return de_DeleteMLModelCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  ListLambdaFunctionsRequest,
-  ListLambdaFunctionsRequestFilterSensitiveLog,
-  ListLambdaFunctionsResponse,
-  ListLambdaFunctionsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListLambdaFunctionsCommand,
-  serializeAws_restJson1ListLambdaFunctionsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListLambdaFunctionsRequest, ListLambdaFunctionsResponse } from "../models/models_1";
+import { de_ListLambdaFunctionsCommand, se_ListLambdaFunctionsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListLambdaFunctionsCommand}.
+ */
 export interface ListLambdaFunctionsCommandInput extends ListLambdaFunctionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListLambdaFunctionsCommand}.
+ */
 export interface ListLambdaFunctionsCommandOutput extends ListLambdaFunctionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Returns a paginated list of all Lambda functions that display in the dropdown options in the
  *    relevant flow blocks.</p>
@@ -38,13 +41,36 @@ export interface ListLambdaFunctionsCommandOutput extends ListLambdaFunctionsRes
  * import { ConnectClient, ListLambdaFunctionsCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListLambdaFunctionsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // ListLambdaFunctionsRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListLambdaFunctionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLambdaFunctionsCommandInput - {@link ListLambdaFunctionsCommandInput}
+ * @returns {@link ListLambdaFunctionsCommandOutput}
  * @see {@link ListLambdaFunctionsCommandInput} for command's `input` shape.
  * @see {@link ListLambdaFunctionsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
  *
  */
 export class ListLambdaFunctionsCommand extends $Command<
@@ -64,6 +90,9 @@ export class ListLambdaFunctionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLambdaFunctionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +121,8 @@ export class ListLambdaFunctionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLambdaFunctionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListLambdaFunctionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +132,18 @@ export class ListLambdaFunctionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLambdaFunctionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListLambdaFunctionsCommand(input, context);
+    return se_ListLambdaFunctionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLambdaFunctionsCommandOutput> {
-    return deserializeAws_restJson1ListLambdaFunctionsCommand(output, context);
+    return de_ListLambdaFunctionsCommand(output, context);
   }
 
   // Start section: command_body_extra

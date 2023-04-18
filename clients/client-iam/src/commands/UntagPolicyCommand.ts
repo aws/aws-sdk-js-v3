@@ -14,13 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UntagPolicyRequest, UntagPolicyRequestFilterSensitiveLog } from "../models/models_1";
-import { deserializeAws_queryUntagPolicyCommand, serializeAws_queryUntagPolicyCommand } from "../protocols/Aws_query";
+import { UntagPolicyRequest } from "../models/models_1";
+import { de_UntagPolicyCommand, se_UntagPolicyCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link UntagPolicyCommand}.
+ */
 export interface UntagPolicyCommandInput extends UntagPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UntagPolicyCommand}.
+ */
 export interface UntagPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified tags from the customer managed policy. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
  *       <i>IAM User Guide</i>.</p>
  * @example
@@ -29,13 +40,38 @@ export interface UntagPolicyCommandOutput extends __MetadataBearer {}
  * import { IAMClient, UntagPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, UntagPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // UntagPolicyRequest
+ *   PolicyArn: "STRING_VALUE", // required
+ *   TagKeys: [ // tagKeyListType // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UntagPolicyCommandInput - {@link UntagPolicyCommandInput}
+ * @returns {@link UntagPolicyCommandOutput}
  * @see {@link UntagPolicyCommandInput} for command's `input` shape.
  * @see {@link UntagPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>The request was rejected because multiple requests to change this object were submitted
+ *       simultaneously. Wait a few minutes and submit your request again.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
+ *       input parameter.</p>
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
  *
  */
 export class UntagPolicyCommand extends $Command<
@@ -55,6 +91,9 @@ export class UntagPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UntagPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -81,8 +120,8 @@ export class UntagPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UntagPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -92,12 +131,18 @@ export class UntagPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UntagPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUntagPolicyCommand(input, context);
+    return se_UntagPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagPolicyCommandOutput> {
-    return deserializeAws_queryUntagPolicyCommand(output, context);
+    return de_UntagPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

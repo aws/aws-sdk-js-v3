@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeNFSFileSharesInput,
-  DescribeNFSFileSharesInputFilterSensitiveLog,
-  DescribeNFSFileSharesOutput,
-  DescribeNFSFileSharesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeNFSFileSharesCommand,
-  serializeAws_json1_1DescribeNFSFileSharesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeNFSFileSharesInput, DescribeNFSFileSharesOutput } from "../models/models_0";
+import { de_DescribeNFSFileSharesCommand, se_DescribeNFSFileSharesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeNFSFileSharesCommand}.
+ */
 export interface DescribeNFSFileSharesCommandInput extends DescribeNFSFileSharesInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeNFSFileSharesCommand}.
+ */
 export interface DescribeNFSFileSharesCommandOutput extends DescribeNFSFileSharesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a description for one or more Network File System (NFS) file shares from an S3 File
  *          Gateway. This operation is only supported for S3 File Gateways.</p>
  * @example
@@ -37,13 +40,29 @@ export interface DescribeNFSFileSharesCommandOutput extends DescribeNFSFileShare
  * import { StorageGatewayClient, DescribeNFSFileSharesCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DescribeNFSFileSharesCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // DescribeNFSFileSharesInput
+ *   FileShareARNList: [ // FileShareARNList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeNFSFileSharesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeNFSFileSharesCommandInput - {@link DescribeNFSFileSharesCommandInput}
+ * @returns {@link DescribeNFSFileSharesCommandOutput}
  * @see {@link DescribeNFSFileSharesCommandInput} for command's `input` shape.
  * @see {@link DescribeNFSFileSharesCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error has occurred during the request. For more information, see the
+ *          error and message fields.</p>
+ *
+ * @throws {@link InvalidGatewayRequestException} (client fault)
+ *  <p>An exception occurred because an invalid gateway request was issued to the service. For
+ *          more information, see the error and message fields.</p>
+ *
  *
  */
 export class DescribeNFSFileSharesCommand extends $Command<
@@ -63,6 +82,9 @@ export class DescribeNFSFileSharesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeNFSFileSharesCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +113,8 @@ export class DescribeNFSFileSharesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeNFSFileSharesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeNFSFileSharesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +124,18 @@ export class DescribeNFSFileSharesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeNFSFileSharesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeNFSFileSharesCommand(input, context);
+    return se_DescribeNFSFileSharesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeNFSFileSharesCommandOutput> {
-    return deserializeAws_json1_1DescribeNFSFileSharesCommand(output, context);
+    return de_DescribeNFSFileSharesCommand(output, context);
   }
 
   // Start section: command_body_extra

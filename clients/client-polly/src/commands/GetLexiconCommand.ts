@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetLexiconInput,
-  GetLexiconInputFilterSensitiveLog,
-  GetLexiconOutput,
-  GetLexiconOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GetLexiconInput, GetLexiconOutput, GetLexiconOutputFilterSensitiveLog } from "../models/models_0";
 import { PollyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PollyClient";
-import {
-  deserializeAws_restJson1GetLexiconCommand,
-  serializeAws_restJson1GetLexiconCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetLexiconCommand, se_GetLexiconCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetLexiconCommand}.
+ */
 export interface GetLexiconCommandInput extends GetLexiconInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetLexiconCommand}.
+ */
 export interface GetLexiconCommandOutput extends GetLexiconOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the content of the specified pronunciation lexicon stored
  *       in an Amazon Web Services Region. For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
  * @example
@@ -37,13 +40,56 @@ export interface GetLexiconCommandOutput extends GetLexiconOutput, __MetadataBea
  * import { PollyClient, GetLexiconCommand } from "@aws-sdk/client-polly"; // ES Modules import
  * // const { PollyClient, GetLexiconCommand } = require("@aws-sdk/client-polly"); // CommonJS import
  * const client = new PollyClient(config);
+ * const input = { // GetLexiconInput
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new GetLexiconCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLexiconCommandInput - {@link GetLexiconCommandInput}
+ * @returns {@link GetLexiconCommandOutput}
  * @see {@link GetLexiconCommandInput} for command's `input` shape.
  * @see {@link GetLexiconCommandOutput} for command's `response` shape.
  * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.
+ *
+ * @throws {@link LexiconNotFoundException} (client fault)
+ *  <p>Amazon Polly can't find the specified lexicon. This could be caused by a
+ *       lexicon that is missing, its name is misspelled or specifying a lexicon
+ *       that is in a different region.</p>
+ *          <p>Verify that the lexicon exists, is in the region (see <a>ListLexicons</a>) and that you spelled its name is spelled
+ *       correctly. Then try again.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>An unknown condition has caused a service failure.</p>
+ *
+ *
+ * @example To retrieve a lexicon
+ * ```javascript
+ * // Returns the content of the specified pronunciation lexicon stored in an AWS Region.
+ * const input = {
+ *   "Name": ""
+ * };
+ * const command = new GetLexiconCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Lexicon": {
+ *     "Content": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<lexicon version=\"1.0\" \r\n      xmlns=\"http://www.w3.org/2005/01/pronunciation-lexicon\"\r\n      xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" \r\n      xsi:schemaLocation=\"http://www.w3.org/2005/01/pronunciation-lexicon \r\n        http://www.w3.org/TR/2007/CR-pronunciation-lexicon-20071212/pls.xsd\"\r\n      alphabet=\"ipa\" \r\n      xml:lang=\"en-US\">\r\n  <lexeme>\r\n    <grapheme>W3C</grapheme>\r\n    <alias>World Wide Web Consortium</alias>\r\n  </lexeme>\r\n</lexicon>",
+ *     "Name": "example"
+ *   },
+ *   "LexiconAttributes": {
+ *     "Alphabet": "ipa",
+ *     "LanguageCode": "en-US",
+ *     "LastModified": 1478542980.117,
+ *     "LexemesCount": 1,
+ *     "LexiconArn": "arn:aws:polly:us-east-1:123456789012:lexicon/example",
+ *     "Size": 503
+ *   }
+ * }
+ * *\/
+ * // example id: to-retrieve-a-lexicon-1481912870836
+ * ```
  *
  */
 export class GetLexiconCommand extends $Command<
@@ -63,6 +109,9 @@ export class GetLexiconCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLexiconCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,7 +138,7 @@ export class GetLexiconCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLexiconInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetLexiconOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -100,12 +149,18 @@ export class GetLexiconCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLexiconCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetLexiconCommand(input, context);
+    return se_GetLexiconCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLexiconCommandOutput> {
-    return deserializeAws_restJson1GetLexiconCommand(output, context);
+    return de_GetLexiconCommand(output, context);
   }
 
   // Start section: command_body_extra

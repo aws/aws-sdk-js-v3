@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import {
-  ListContainerRecipesRequest,
-  ListContainerRecipesRequestFilterSensitiveLog,
-  ListContainerRecipesResponse,
-  ListContainerRecipesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListContainerRecipesCommand,
-  serializeAws_restJson1ListContainerRecipesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListContainerRecipesRequest, ListContainerRecipesResponse } from "../models/models_0";
+import { de_ListContainerRecipesCommand, se_ListContainerRecipesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListContainerRecipesCommand}.
+ */
 export interface ListContainerRecipesCommandInput extends ListContainerRecipesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListContainerRecipesCommand}.
+ */
 export interface ListContainerRecipesCommandOutput extends ListContainerRecipesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of container recipes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,53 @@ export interface ListContainerRecipesCommandOutput extends ListContainerRecipesR
  * import { ImagebuilderClient, ListContainerRecipesCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, ListContainerRecipesCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
+ * const input = { // ListContainerRecipesRequest
+ *   owner: "Self" || "Shared" || "Amazon" || "ThirdParty",
+ *   filters: [ // FilterList
+ *     { // Filter
+ *       name: "STRING_VALUE",
+ *       values: [ // FilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListContainerRecipesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListContainerRecipesCommandInput - {@link ListContainerRecipesCommandInput}
+ * @returns {@link ListContainerRecipesCommandOutput}
  * @see {@link ListContainerRecipesCommandInput} for command's `input` shape.
  * @see {@link ListContainerRecipesCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
+ *
+ * @throws {@link CallRateLimitExceededException} (client fault)
+ *  <p>You have exceeded the permitted request rate for the specific operation.</p>
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action, such as using an action or
+ * 			resource on behalf of a user that doesn't have permissions to use the action or
+ * 			resource, or specifying an invalid resource identifier.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>You are not authorized to perform the requested operation.</p>
+ *
+ * @throws {@link InvalidPaginationTokenException} (client fault)
+ *  <p>You have provided an invalid pagination token in your request.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>You have requested an action that that the service doesn't support.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>This exception is thrown when the service encounters an unrecoverable
+ * 			exception.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is unable to process your request at this time.</p>
+ *
  *
  */
 export class ListContainerRecipesCommand extends $Command<
@@ -62,6 +105,9 @@ export class ListContainerRecipesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListContainerRecipesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +136,8 @@ export class ListContainerRecipesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListContainerRecipesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListContainerRecipesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +147,18 @@ export class ListContainerRecipesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListContainerRecipesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListContainerRecipesCommand(input, context);
+    return se_ListContainerRecipesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListContainerRecipesCommandOutput> {
-    return deserializeAws_restJson1ListContainerRecipesCommand(output, context);
+    return de_ListContainerRecipesCommand(output, context);
   }
 
   // Start section: command_body_extra

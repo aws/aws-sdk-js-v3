@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SendBulkEmailRequest,
-  SendBulkEmailRequestFilterSensitiveLog,
-  SendBulkEmailResponse,
-  SendBulkEmailResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1SendBulkEmailCommand,
-  serializeAws_restJson1SendBulkEmailCommand,
-} from "../protocols/Aws_restJson1";
+import { SendBulkEmailRequest, SendBulkEmailResponse } from "../models/models_0";
+import { de_SendBulkEmailCommand, se_SendBulkEmailCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
+/**
+ * @public
+ *
+ * The input for {@link SendBulkEmailCommand}.
+ */
 export interface SendBulkEmailCommandInput extends SendBulkEmailRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SendBulkEmailCommand}.
+ */
 export interface SendBulkEmailCommandOutput extends SendBulkEmailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Composes an email message to multiple destinations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,91 @@ export interface SendBulkEmailCommandOutput extends SendBulkEmailResponse, __Met
  * import { SESv2Client, SendBulkEmailCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, SendBulkEmailCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = { // SendBulkEmailRequest
+ *   FromEmailAddress: "STRING_VALUE",
+ *   FromEmailAddressIdentityArn: "STRING_VALUE",
+ *   ReplyToAddresses: [ // EmailAddressList
+ *     "STRING_VALUE",
+ *   ],
+ *   FeedbackForwardingEmailAddress: "STRING_VALUE",
+ *   FeedbackForwardingEmailAddressIdentityArn: "STRING_VALUE",
+ *   DefaultEmailTags: [ // MessageTagList
+ *     { // MessageTag
+ *       Name: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   DefaultContent: { // BulkEmailContent
+ *     Template: { // Template
+ *       TemplateName: "STRING_VALUE",
+ *       TemplateArn: "STRING_VALUE",
+ *       TemplateData: "STRING_VALUE",
+ *     },
+ *   },
+ *   BulkEmailEntries: [ // BulkEmailEntryList // required
+ *     { // BulkEmailEntry
+ *       Destination: { // Destination
+ *         ToAddresses: [
+ *           "STRING_VALUE",
+ *         ],
+ *         CcAddresses: [
+ *           "STRING_VALUE",
+ *         ],
+ *         BccAddresses: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       ReplacementTags: [
+ *         {
+ *           Name: "STRING_VALUE", // required
+ *           Value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       ReplacementEmailContent: { // ReplacementEmailContent
+ *         ReplacementTemplate: { // ReplacementTemplate
+ *           ReplacementTemplateData: "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   ConfigurationSetName: "STRING_VALUE",
+ * };
  * const command = new SendBulkEmailCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SendBulkEmailCommandInput - {@link SendBulkEmailCommandInput}
+ * @returns {@link SendBulkEmailCommandOutput}
  * @see {@link SendBulkEmailCommandInput} for command's `input` shape.
  * @see {@link SendBulkEmailCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
+ *
+ * @throws {@link AccountSuspendedException} (client fault)
+ *  <p>The message can't be sent because the account's ability to send email has been
+ *             permanently restricted.</p>
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input you provided is invalid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>There are too many instances of the specified resource type.</p>
+ *
+ * @throws {@link MailFromDomainNotVerifiedException} (client fault)
+ *  <p>The message can't be sent because the sending domain isn't verified.</p>
+ *
+ * @throws {@link MessageRejected} (client fault)
+ *  <p>The message can't be sent because it contains invalid content.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource you attempted to access doesn't exist.</p>
+ *
+ * @throws {@link SendingPausedException} (client fault)
+ *  <p>The message can't be sent because the account's ability to send email is currently
+ *             paused.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Too many requests have been made to the operation.</p>
+ *
  *
  */
 export class SendBulkEmailCommand extends $Command<
@@ -62,6 +143,9 @@ export class SendBulkEmailCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendBulkEmailCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +172,8 @@ export class SendBulkEmailCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendBulkEmailRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SendBulkEmailResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +183,18 @@ export class SendBulkEmailCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendBulkEmailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SendBulkEmailCommand(input, context);
+    return se_SendBulkEmailCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendBulkEmailCommandOutput> {
-    return deserializeAws_restJson1SendBulkEmailCommand(output, context);
+    return de_SendBulkEmailCommand(output, context);
   }
 
   // Start section: command_body_extra

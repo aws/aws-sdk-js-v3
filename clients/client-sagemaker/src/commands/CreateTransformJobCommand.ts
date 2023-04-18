@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateTransformJobRequest,
-  CreateTransformJobRequestFilterSensitiveLog,
-  CreateTransformJobResponse,
-  CreateTransformJobResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1CreateTransformJobCommand,
-  serializeAws_json1_1CreateTransformJobCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateTransformJobRequest, CreateTransformJobResponse } from "../models/models_1";
+import { de_CreateTransformJobCommand, se_CreateTransformJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateTransformJobCommand}.
+ */
 export interface CreateTransformJobCommandInput extends CreateTransformJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateTransformJobCommand}.
+ */
 export interface CreateTransformJobCommandOutput extends CreateTransformJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a transform job. A transform job uses a trained model to get inferences on a
  *             dataset and saves these results to an Amazon S3 location that you specify.</p>
  *          <p>To perform batch transformations, you create a transform job and use the data that you
@@ -70,13 +73,84 @@ export interface CreateTransformJobCommandOutput extends CreateTransformJobRespo
  * import { SageMakerClient, CreateTransformJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateTransformJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // CreateTransformJobRequest
+ *   TransformJobName: "STRING_VALUE", // required
+ *   ModelName: "STRING_VALUE", // required
+ *   MaxConcurrentTransforms: Number("int"),
+ *   ModelClientConfig: { // ModelClientConfig
+ *     InvocationsTimeoutInSeconds: Number("int"),
+ *     InvocationsMaxRetries: Number("int"),
+ *   },
+ *   MaxPayloadInMB: Number("int"),
+ *   BatchStrategy: "MultiRecord" || "SingleRecord",
+ *   Environment: { // TransformEnvironmentMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   TransformInput: { // TransformInput
+ *     DataSource: { // TransformDataSource
+ *       S3DataSource: { // TransformS3DataSource
+ *         S3DataType: "ManifestFile" || "S3Prefix" || "AugmentedManifestFile", // required
+ *         S3Uri: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     ContentType: "STRING_VALUE",
+ *     CompressionType: "None" || "Gzip",
+ *     SplitType: "None" || "Line" || "RecordIO" || "TFRecord",
+ *   },
+ *   TransformOutput: { // TransformOutput
+ *     S3OutputPath: "STRING_VALUE", // required
+ *     Accept: "STRING_VALUE",
+ *     AssembleWith: "None" || "Line",
+ *     KmsKeyId: "STRING_VALUE",
+ *   },
+ *   DataCaptureConfig: { // BatchDataCaptureConfig
+ *     DestinationS3Uri: "STRING_VALUE", // required
+ *     KmsKeyId: "STRING_VALUE",
+ *     GenerateInferenceId: true || false,
+ *   },
+ *   TransformResources: { // TransformResources
+ *     InstanceType: "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge", // required
+ *     InstanceCount: Number("int"), // required
+ *     VolumeKmsKeyId: "STRING_VALUE",
+ *   },
+ *   DataProcessing: { // DataProcessing
+ *     InputFilter: "STRING_VALUE",
+ *     OutputFilter: "STRING_VALUE",
+ *     JoinSource: "Input" || "None",
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ExperimentConfig: { // ExperimentConfig
+ *     ExperimentName: "STRING_VALUE",
+ *     TrialName: "STRING_VALUE",
+ *     TrialComponentDisplayName: "STRING_VALUE",
+ *     RunName: "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateTransformJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTransformJobCommandInput - {@link CreateTransformJobCommandInput}
+ * @returns {@link CreateTransformJobCommandOutput}
  * @see {@link CreateTransformJobCommandInput} for command's `input` shape.
  * @see {@link CreateTransformJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceInUse} (client fault)
+ *  <p>Resource being accessed is in use.</p>
+ *
+ * @throws {@link ResourceLimitExceeded} (client fault)
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
+ *             training jobs created. </p>
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class CreateTransformJobCommand extends $Command<
@@ -96,6 +170,9 @@ export class CreateTransformJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTransformJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +201,8 @@ export class CreateTransformJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTransformJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateTransformJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +212,18 @@ export class CreateTransformJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTransformJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateTransformJobCommand(input, context);
+    return se_CreateTransformJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTransformJobCommandOutput> {
-    return deserializeAws_json1_1CreateTransformJobCommand(output, context);
+    return de_CreateTransformJobCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { SagemakerEdgeServiceException as __BaseException } from "./SagemakerEdgeServiceException";
 
+/**
+ * @public
+ */
 export interface GetDeploymentsRequest {
   /**
    * <p>The unique name of the device you want to get the configuration of active deployments from.</p>
@@ -15,11 +18,21 @@ export interface GetDeploymentsRequest {
   DeviceFleetName: string | undefined;
 }
 
-export enum ChecksumType {
-  Sha1 = "SHA1",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ChecksumType = {
+  Sha1: "SHA1",
+} as const;
 
 /**
+ * @public
+ */
+export type ChecksumType = (typeof ChecksumType)[keyof typeof ChecksumType];
+
+/**
+ * @public
  * <p>Information about the checksum of a model deployed on a device.</p>
  */
 export interface Checksum {
@@ -34,12 +47,22 @@ export interface Checksum {
   Sum?: string;
 }
 
-export enum ModelState {
-  Deploy = "DEPLOY",
-  Undeploy = "UNDEPLOY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ModelState = {
+  Deploy: "DEPLOY",
+  Undeploy: "UNDEPLOY",
+} as const;
 
 /**
+ * @public
+ */
+export type ModelState = (typeof ModelState)[keyof typeof ModelState];
+
+/**
+ * @public
  * <p></p>
  */
 export interface Definition {
@@ -64,16 +87,35 @@ export interface Definition {
   State?: ModelState | string;
 }
 
-export enum FailureHandlingPolicy {
-  DoNothing = "DO_NOTHING",
-  RollbackOnFailure = "ROLLBACK_ON_FAILURE",
-}
-
-export enum DeploymentType {
-  Model = "Model",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FailureHandlingPolicy = {
+  DoNothing: "DO_NOTHING",
+  RollbackOnFailure: "ROLLBACK_ON_FAILURE",
+} as const;
 
 /**
+ * @public
+ */
+export type FailureHandlingPolicy = (typeof FailureHandlingPolicy)[keyof typeof FailureHandlingPolicy];
+
+/**
+ * @public
+ * @enum
+ */
+export const DeploymentType = {
+  Model: "Model",
+} as const;
+
+/**
+ * @public
+ */
+export type DeploymentType = (typeof DeploymentType)[keyof typeof DeploymentType];
+
+/**
+ * @public
  * <p>Information about a deployment on an edge device that is registered with SageMaker Edge Manager.</p>
  */
 export interface EdgeDeployment {
@@ -98,6 +140,9 @@ export interface EdgeDeployment {
   Definitions?: Definition[];
 }
 
+/**
+ * @public
+ */
 export interface GetDeploymentsResult {
   /**
    * <p>Returns a list of the configurations of the active deployments on the device.</p>
@@ -106,6 +151,7 @@ export interface GetDeploymentsResult {
 }
 
 /**
+ * @public
  * <p>An internal failure occurred. Try your request again. If the problem
  *       persists, contact Amazon Web Services customer support.</p>
  */
@@ -127,6 +173,9 @@ export class InternalServiceException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetDeviceRegistrationRequest {
   /**
    * <p>The unique name of the device you want to get the registration status from.</p>
@@ -139,6 +188,9 @@ export interface GetDeviceRegistrationRequest {
   DeviceFleetName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDeviceRegistrationResult {
   /**
    * <p>Describes if the device is currently registered with SageMaker Edge Manager.</p>
@@ -152,6 +204,7 @@ export interface GetDeviceRegistrationResult {
 }
 
 /**
+ * @public
  * <p>Information required for edge device metrics.</p>
  */
 export interface EdgeMetric {
@@ -176,12 +229,22 @@ export interface EdgeMetric {
   Timestamp?: Date;
 }
 
-export enum DeploymentStatus {
-  Fail = "FAIL",
-  Success = "SUCCESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeploymentStatus = {
+  Fail: "FAIL",
+  Success: "SUCCESS",
+} as const;
 
 /**
+ * @public
+ */
+export type DeploymentStatus = (typeof DeploymentStatus)[keyof typeof DeploymentStatus];
+
+/**
+ * @public
  * <p></p>
  */
 export interface DeploymentModel {
@@ -227,6 +290,7 @@ export interface DeploymentModel {
 }
 
 /**
+ * @public
  * <p>Information about the result of a deployment on an edge device that is registered with SageMaker Edge Manager.</p>
  */
 export interface DeploymentResult {
@@ -262,6 +326,7 @@ export interface DeploymentResult {
 }
 
 /**
+ * @public
  * <p>Information about a model deployed on an edge device that is registered with SageMaker Edge Manager.</p>
  */
 export interface Model {
@@ -291,6 +356,9 @@ export interface Model {
   ModelMetrics?: EdgeMetric[];
 }
 
+/**
+ * @public
+ */
 export interface SendHeartbeatRequest {
   /**
    * <p>For internal use. Returns a list of SageMaker Edge Manager agent operating metrics.</p>
@@ -322,87 +390,3 @@ export interface SendHeartbeatRequest {
    */
   DeploymentResult?: DeploymentResult;
 }
-
-/**
- * @internal
- */
-export const GetDeploymentsRequestFilterSensitiveLog = (obj: GetDeploymentsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChecksumFilterSensitiveLog = (obj: Checksum): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DefinitionFilterSensitiveLog = (obj: Definition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EdgeDeploymentFilterSensitiveLog = (obj: EdgeDeployment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDeploymentsResultFilterSensitiveLog = (obj: GetDeploymentsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDeviceRegistrationRequestFilterSensitiveLog = (obj: GetDeviceRegistrationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDeviceRegistrationResultFilterSensitiveLog = (obj: GetDeviceRegistrationResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EdgeMetricFilterSensitiveLog = (obj: EdgeMetric): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeploymentModelFilterSensitiveLog = (obj: DeploymentModel): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeploymentResultFilterSensitiveLog = (obj: DeploymentResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModelFilterSensitiveLog = (obj: Model): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendHeartbeatRequestFilterSensitiveLog = (obj: SendHeartbeatRequest): any => ({
-  ...obj,
-});

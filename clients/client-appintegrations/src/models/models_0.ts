@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { AppIntegrationsServiceException as __BaseException } from "./AppIntegrationsServiceException";
 
 /**
+ * @public
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,11 +26,29 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
+ * <p>The configuration for what files should be pulled from the source.</p>
+ */
+export interface FileConfiguration {
+  /**
+   * <p>Identifiers for the source folders to pull all files from recursively.</p>
+   */
+  Folders: string[] | undefined;
+
+  /**
+   * <p>Restrictions for what files should be pulled from the source.</p>
+   */
+  Filters?: Record<string, string[]>;
+}
+
+/**
+ * @public
  * <p>The name of the data and how often it should be pulled from the source.</p>
  */
 export interface ScheduleConfiguration {
   /**
-   * <p>The start date for objects to import in the first flow run.</p>
+   * <p>The start date for objects to import in the first flow run as an Unix/epoch timestamp in
+   *       milliseconds or in ISO-8601 format.</p>
    */
   FirstExecutionFrom?: string;
 
@@ -41,9 +60,12 @@ export interface ScheduleConfiguration {
   /**
    * <p>How often the data should be pulled from data source.</p>
    */
-  ScheduleExpression?: string;
+  ScheduleExpression: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateDataIntegrationRequest {
   /**
    * <p>The name of the DataIntegration.</p>
@@ -58,30 +80,45 @@ export interface CreateDataIntegrationRequest {
   /**
    * <p>The KMS key for the DataIntegration.</p>
    */
-  KmsKey?: string;
+  KmsKey: string | undefined;
 
   /**
    * <p>The URI of the data source.</p>
    */
-  SourceURI?: string;
+  SourceURI: string | undefined;
 
   /**
    * <p>The name of the data and how often it should be pulled from the source.</p>
    */
-  ScheduleConfig?: ScheduleConfiguration;
+  ScheduleConfig: ScheduleConfiguration | undefined;
 
   /**
-   * <p>One or more tags.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request.</p>
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    */
   ClientToken?: string;
+
+  /**
+   * <p>The configuration for what files should be pulled from the source.</p>
+   */
+  FileConfiguration?: FileConfiguration;
+
+  /**
+   * <p>The configuration for what data should be pulled from the source.</p>
+   */
+  ObjectConfiguration?: Record<string, Record<string, string[]>>;
 }
 
+/**
+ * @public
+ */
 export interface CreateDataIntegrationResponse {
   /**
    * <p>The Amazon Resource Name (ARN)</p>
@@ -119,18 +156,31 @@ export interface CreateDataIntegrationResponse {
   ScheduleConfiguration?: ScheduleConfiguration;
 
   /**
-   * <p>One or more tags.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request.</p>
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    */
   ClientToken?: string;
+
+  /**
+   * <p>The configuration for what files should be pulled from the source.</p>
+   */
+  FileConfiguration?: FileConfiguration;
+
+  /**
+   * <p>The configuration for what data should be pulled from the source.</p>
+   */
+  ObjectConfiguration?: Record<string, Record<string, string[]>>;
 }
 
 /**
+ * @public
  * <p>A resource with the specified name already exists.</p>
  */
 export class DuplicateResourceException extends __BaseException {
@@ -152,6 +202,7 @@ export class DuplicateResourceException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Request processing failed due to an error or failure with the service.</p>
  */
 export class InternalServiceError extends __BaseException {
@@ -173,6 +224,7 @@ export class InternalServiceError extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request is not valid. </p>
  */
 export class InvalidRequestException extends __BaseException {
@@ -194,6 +246,7 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The allowed quota for the resource has been exceeded.</p>
  */
 export class ResourceQuotaExceededException extends __BaseException {
@@ -215,6 +268,7 @@ export class ResourceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The throttling limit has been exceeded.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -236,6 +290,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The event filter.</p>
  */
 export interface EventFilter {
@@ -245,6 +300,9 @@ export interface EventFilter {
   Source: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateEventIntegrationRequest {
   /**
    * <p>The name of the event integration.</p>
@@ -268,16 +326,21 @@ export interface CreateEventIntegrationRequest {
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *       request.</p>
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    */
   ClientToken?: string;
 
   /**
-   * <p>One or more tags.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateEventIntegrationResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the event integration. </p>
@@ -285,6 +348,9 @@ export interface CreateEventIntegrationResponse {
   EventIntegrationArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDataIntegrationRequest {
   /**
    * <p>A unique identifier for the DataIntegration.</p>
@@ -292,9 +358,13 @@ export interface DeleteDataIntegrationRequest {
   DataIntegrationIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDataIntegrationResponse {}
 
 /**
+ * @public
  * <p>The specified resource was not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -315,6 +385,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteEventIntegrationRequest {
   /**
    * <p>The name of the event integration.</p>
@@ -322,8 +395,14 @@ export interface DeleteEventIntegrationRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEventIntegrationResponse {}
 
+/**
+ * @public
+ */
 export interface GetDataIntegrationRequest {
   /**
    * <p>A unique identifier.</p>
@@ -331,6 +410,9 @@ export interface GetDataIntegrationRequest {
   Identifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDataIntegrationResponse {
   /**
    * <p>The Amazon Resource Name (ARN) for the DataIntegration.</p>
@@ -368,11 +450,24 @@ export interface GetDataIntegrationResponse {
   ScheduleConfiguration?: ScheduleConfiguration;
 
   /**
-   * <p>One or more tags.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
+
+  /**
+   * <p>The configuration for what files should be pulled from the source.</p>
+   */
+  FileConfiguration?: FileConfiguration;
+
+  /**
+   * <p>The configuration for what data should be pulled from the source.</p>
+   */
+  ObjectConfiguration?: Record<string, Record<string, string[]>>;
 }
 
+/**
+ * @public
+ */
 export interface GetEventIntegrationRequest {
   /**
    * <p>The name of the event integration. </p>
@@ -380,6 +475,9 @@ export interface GetEventIntegrationRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetEventIntegrationResponse {
   /**
    * <p>The name of the event integration. </p>
@@ -407,11 +505,14 @@ export interface GetEventIntegrationResponse {
   EventFilter?: EventFilter;
 
   /**
-   * <p>One or more tags.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListDataIntegrationAssociationsRequest {
   /**
    * <p>A unique identifier for the DataIntegration.</p>
@@ -431,6 +532,7 @@ export interface ListDataIntegrationAssociationsRequest {
 }
 
 /**
+ * @public
  * <p>Summary information about the DataIntegration association.</p>
  */
 export interface DataIntegrationAssociationSummary {
@@ -440,17 +542,20 @@ export interface DataIntegrationAssociationSummary {
   DataIntegrationAssociationArn?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN)of the DataIntegration.</p>
+   * <p>The Amazon Resource Name (ARN) of the DataIntegration.</p>
    */
   DataIntegrationArn?: string;
 
   /**
-   * <p>The identifier for teh client that is associated with the DataIntegration
+   * <p>The identifier for the client that is associated with the DataIntegration
    *       association.</p>
    */
   ClientId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDataIntegrationAssociationsResponse {
   /**
    * <p>The Amazon Resource Name (ARN) and unique ID of the DataIntegration association.</p>
@@ -463,6 +568,9 @@ export interface ListDataIntegrationAssociationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDataIntegrationsRequest {
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
@@ -477,6 +585,7 @@ export interface ListDataIntegrationsRequest {
 }
 
 /**
+ * @public
  * <p>Summary information about the DataIntegration.</p>
  */
 export interface DataIntegrationSummary {
@@ -496,6 +605,9 @@ export interface DataIntegrationSummary {
   SourceURI?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDataIntegrationsResponse {
   /**
    * <p>The DataIntegrations associated with this account.</p>
@@ -508,6 +620,9 @@ export interface ListDataIntegrationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListEventIntegrationAssociationsRequest {
   /**
    * <p>The name of the event integration. </p>
@@ -527,6 +642,7 @@ export interface ListEventIntegrationAssociationsRequest {
 }
 
 /**
+ * @public
  * <p>The event integration association.</p>
  */
 export interface EventIntegrationAssociation {
@@ -561,6 +677,9 @@ export interface EventIntegrationAssociation {
   ClientAssociationMetadata?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListEventIntegrationAssociationsResponse {
   /**
    * <p>The event integration associations.</p>
@@ -573,6 +692,9 @@ export interface ListEventIntegrationAssociationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListEventIntegrationsRequest {
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
@@ -587,6 +709,7 @@ export interface ListEventIntegrationsRequest {
 }
 
 /**
+ * @public
  * <p>The event integration.</p>
  */
 export interface EventIntegration {
@@ -616,11 +739,14 @@ export interface EventIntegration {
   EventBridgeBus?: string;
 
   /**
-   * <p>The tags.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListEventIntegrationsResponse {
   /**
    * <p>The event integrations.</p>
@@ -633,6 +759,9 @@ export interface ListEventIntegrationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource. </p>
@@ -640,6 +769,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>Information about the tags.</p>
@@ -647,6 +779,9 @@ export interface ListTagsForResourceResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -654,13 +789,19 @@ export interface TagResourceRequest {
   resourceArn: string | undefined;
 
   /**
-   * <p>One or more tags. </p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -673,8 +814,14 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateDataIntegrationRequest {
   /**
    * <p>A unique identifier for the DataIntegration.</p>
@@ -692,8 +839,14 @@ export interface UpdateDataIntegrationRequest {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDataIntegrationResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateEventIntegrationRequest {
   /**
    * <p>The name of the event integration.</p>
@@ -706,264 +859,7 @@ export interface UpdateEventIntegrationRequest {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEventIntegrationResponse {}
-
-/**
- * @internal
- */
-export const ScheduleConfigurationFilterSensitiveLog = (obj: ScheduleConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDataIntegrationRequestFilterSensitiveLog = (obj: CreateDataIntegrationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDataIntegrationResponseFilterSensitiveLog = (obj: CreateDataIntegrationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventFilterFilterSensitiveLog = (obj: EventFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateEventIntegrationRequestFilterSensitiveLog = (obj: CreateEventIntegrationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateEventIntegrationResponseFilterSensitiveLog = (obj: CreateEventIntegrationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDataIntegrationRequestFilterSensitiveLog = (obj: DeleteDataIntegrationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDataIntegrationResponseFilterSensitiveLog = (obj: DeleteDataIntegrationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteEventIntegrationRequestFilterSensitiveLog = (obj: DeleteEventIntegrationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteEventIntegrationResponseFilterSensitiveLog = (obj: DeleteEventIntegrationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDataIntegrationRequestFilterSensitiveLog = (obj: GetDataIntegrationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDataIntegrationResponseFilterSensitiveLog = (obj: GetDataIntegrationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEventIntegrationRequestFilterSensitiveLog = (obj: GetEventIntegrationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEventIntegrationResponseFilterSensitiveLog = (obj: GetEventIntegrationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDataIntegrationAssociationsRequestFilterSensitiveLog = (
-  obj: ListDataIntegrationAssociationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataIntegrationAssociationSummaryFilterSensitiveLog = (obj: DataIntegrationAssociationSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDataIntegrationAssociationsResponseFilterSensitiveLog = (
-  obj: ListDataIntegrationAssociationsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDataIntegrationsRequestFilterSensitiveLog = (obj: ListDataIntegrationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataIntegrationSummaryFilterSensitiveLog = (obj: DataIntegrationSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDataIntegrationsResponseFilterSensitiveLog = (obj: ListDataIntegrationsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEventIntegrationAssociationsRequestFilterSensitiveLog = (
-  obj: ListEventIntegrationAssociationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventIntegrationAssociationFilterSensitiveLog = (obj: EventIntegrationAssociation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEventIntegrationAssociationsResponseFilterSensitiveLog = (
-  obj: ListEventIntegrationAssociationsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEventIntegrationsRequestFilterSensitiveLog = (obj: ListEventIntegrationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventIntegrationFilterSensitiveLog = (obj: EventIntegration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEventIntegrationsResponseFilterSensitiveLog = (obj: ListEventIntegrationsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDataIntegrationRequestFilterSensitiveLog = (obj: UpdateDataIntegrationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDataIntegrationResponseFilterSensitiveLog = (obj: UpdateDataIntegrationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateEventIntegrationRequestFilterSensitiveLog = (obj: UpdateEventIntegrationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateEventIntegrationResponseFilterSensitiveLog = (obj: UpdateEventIntegrationResponse): any => ({
-  ...obj,
-});

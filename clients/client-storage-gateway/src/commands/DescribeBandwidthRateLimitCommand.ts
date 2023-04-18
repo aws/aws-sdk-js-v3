@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeBandwidthRateLimitInput,
-  DescribeBandwidthRateLimitInputFilterSensitiveLog,
-  DescribeBandwidthRateLimitOutput,
-  DescribeBandwidthRateLimitOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeBandwidthRateLimitCommand,
-  serializeAws_json1_1DescribeBandwidthRateLimitCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeBandwidthRateLimitInput, DescribeBandwidthRateLimitOutput } from "../models/models_0";
+import { de_DescribeBandwidthRateLimitCommand, se_DescribeBandwidthRateLimitCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeBandwidthRateLimitCommand}.
+ */
 export interface DescribeBandwidthRateLimitCommandInput extends DescribeBandwidthRateLimitInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeBandwidthRateLimitCommand}.
+ */
 export interface DescribeBandwidthRateLimitCommandOutput extends DescribeBandwidthRateLimitOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the bandwidth rate limits of a gateway. By default, these limits are not set,
  *          which means no bandwidth rate limiting is in effect. This operation is supported only for
  *          the stored volume, cached volume, and tape gateway types. To describe bandwidth rate limits
@@ -44,13 +47,45 @@ export interface DescribeBandwidthRateLimitCommandOutput extends DescribeBandwid
  * import { StorageGatewayClient, DescribeBandwidthRateLimitCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DescribeBandwidthRateLimitCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // DescribeBandwidthRateLimitInput
+ *   GatewayARN: "STRING_VALUE", // required
+ * };
  * const command = new DescribeBandwidthRateLimitCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBandwidthRateLimitCommandInput - {@link DescribeBandwidthRateLimitCommandInput}
+ * @returns {@link DescribeBandwidthRateLimitCommandOutput}
  * @see {@link DescribeBandwidthRateLimitCommandInput} for command's `input` shape.
  * @see {@link DescribeBandwidthRateLimitCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error has occurred during the request. For more information, see the
+ *          error and message fields.</p>
+ *
+ * @throws {@link InvalidGatewayRequestException} (client fault)
+ *  <p>An exception occurred because an invalid gateway request was issued to the service. For
+ *          more information, see the error and message fields.</p>
+ *
+ *
+ * @example To describe the bandwidth rate limits of a gateway
+ * ```javascript
+ * // Returns a value for a bandwidth rate limit if set. If not set, then only the gateway ARN is returned.
+ * const input = {
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ * };
+ * const command = new DescribeBandwidthRateLimitCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AverageDownloadRateLimitInBitsPerSec": 204800,
+ *   "AverageUploadRateLimitInBitsPerSec": 102400,
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ * }
+ * *\/
+ * // example id: to-describe-the-bandwidth-rate-limits-of-a-gateway-1471384826404
+ * ```
  *
  */
 export class DescribeBandwidthRateLimitCommand extends $Command<
@@ -70,6 +105,9 @@ export class DescribeBandwidthRateLimitCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBandwidthRateLimitCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +136,8 @@ export class DescribeBandwidthRateLimitCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeBandwidthRateLimitInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeBandwidthRateLimitOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,15 +147,21 @@ export class DescribeBandwidthRateLimitCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeBandwidthRateLimitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeBandwidthRateLimitCommand(input, context);
+    return se_DescribeBandwidthRateLimitCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeBandwidthRateLimitCommandOutput> {
-    return deserializeAws_json1_1DescribeBandwidthRateLimitCommand(output, context);
+    return de_DescribeBandwidthRateLimitCommand(output, context);
   }
 
   // Start section: command_body_extra

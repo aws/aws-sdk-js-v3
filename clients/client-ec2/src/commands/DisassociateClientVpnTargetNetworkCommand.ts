@@ -16,21 +16,30 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DisassociateClientVpnTargetNetworkRequest,
-  DisassociateClientVpnTargetNetworkRequestFilterSensitiveLog,
   DisassociateClientVpnTargetNetworkResult,
-  DisassociateClientVpnTargetNetworkResultFilterSensitiveLog,
 } from "../models/models_5";
 import {
-  deserializeAws_ec2DisassociateClientVpnTargetNetworkCommand,
-  serializeAws_ec2DisassociateClientVpnTargetNetworkCommand,
+  de_DisassociateClientVpnTargetNetworkCommand,
+  se_DisassociateClientVpnTargetNetworkCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DisassociateClientVpnTargetNetworkCommand}.
+ */
 export interface DisassociateClientVpnTargetNetworkCommandInput extends DisassociateClientVpnTargetNetworkRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateClientVpnTargetNetworkCommand}.
+ */
 export interface DisassociateClientVpnTargetNetworkCommandOutput
   extends DisassociateClientVpnTargetNetworkResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a target network from the specified Client VPN endpoint. When you disassociate the
  * 			last target network from a Client VPN, the following happens:</p>
  *          <ul>
@@ -54,13 +63,21 @@ export interface DisassociateClientVpnTargetNetworkCommandOutput
  * import { EC2Client, DisassociateClientVpnTargetNetworkCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DisassociateClientVpnTargetNetworkCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DisassociateClientVpnTargetNetworkRequest
+ *   ClientVpnEndpointId: "STRING_VALUE", // required
+ *   AssociationId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DisassociateClientVpnTargetNetworkCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateClientVpnTargetNetworkCommandInput - {@link DisassociateClientVpnTargetNetworkCommandInput}
+ * @returns {@link DisassociateClientVpnTargetNetworkCommandOutput}
  * @see {@link DisassociateClientVpnTargetNetworkCommandInput} for command's `input` shape.
  * @see {@link DisassociateClientVpnTargetNetworkCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class DisassociateClientVpnTargetNetworkCommand extends $Command<
@@ -80,6 +97,9 @@ export class DisassociateClientVpnTargetNetworkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateClientVpnTargetNetworkCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +128,8 @@ export class DisassociateClientVpnTargetNetworkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateClientVpnTargetNetworkRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateClientVpnTargetNetworkResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,18 +139,24 @@ export class DisassociateClientVpnTargetNetworkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateClientVpnTargetNetworkCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DisassociateClientVpnTargetNetworkCommand(input, context);
+    return se_DisassociateClientVpnTargetNetworkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateClientVpnTargetNetworkCommandOutput> {
-    return deserializeAws_ec2DisassociateClientVpnTargetNetworkCommand(output, context);
+    return de_DisassociateClientVpnTargetNetworkCommand(output, context);
   }
 
   // Start section: command_body_extra

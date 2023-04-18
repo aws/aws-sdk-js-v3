@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  StartOnDemandAuditTaskRequest,
-  StartOnDemandAuditTaskRequestFilterSensitiveLog,
-  StartOnDemandAuditTaskResponse,
-  StartOnDemandAuditTaskResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1StartOnDemandAuditTaskCommand,
-  serializeAws_restJson1StartOnDemandAuditTaskCommand,
-} from "../protocols/Aws_restJson1";
+import { StartOnDemandAuditTaskRequest, StartOnDemandAuditTaskResponse } from "../models/models_2";
+import { de_StartOnDemandAuditTaskCommand, se_StartOnDemandAuditTaskCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link StartOnDemandAuditTaskCommand}.
+ */
 export interface StartOnDemandAuditTaskCommandInput extends StartOnDemandAuditTaskRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartOnDemandAuditTaskCommand}.
+ */
 export interface StartOnDemandAuditTaskCommandOutput extends StartOnDemandAuditTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an on-demand Device Defender audit.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">StartOnDemandAuditTask</a> action.</p>
  * @example
@@ -37,13 +40,33 @@ export interface StartOnDemandAuditTaskCommandOutput extends StartOnDemandAuditT
  * import { IoTClient, StartOnDemandAuditTaskCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, StartOnDemandAuditTaskCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // StartOnDemandAuditTaskRequest
+ *   targetCheckNames: [ // TargetAuditCheckNames // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new StartOnDemandAuditTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartOnDemandAuditTaskCommandInput - {@link StartOnDemandAuditTaskCommandInput}
+ * @returns {@link StartOnDemandAuditTaskCommandOutput}
  * @see {@link StartOnDemandAuditTaskCommandInput} for command's `input` shape.
  * @see {@link StartOnDemandAuditTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A limit has been exceeded.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
  *
  */
 export class StartOnDemandAuditTaskCommand extends $Command<
@@ -63,6 +86,9 @@ export class StartOnDemandAuditTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartOnDemandAuditTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +117,8 @@ export class StartOnDemandAuditTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartOnDemandAuditTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartOnDemandAuditTaskResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +128,18 @@ export class StartOnDemandAuditTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartOnDemandAuditTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartOnDemandAuditTaskCommand(input, context);
+    return se_StartOnDemandAuditTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartOnDemandAuditTaskCommandOutput> {
-    return deserializeAws_restJson1StartOnDemandAuditTaskCommand(output, context);
+    return de_StartOnDemandAuditTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

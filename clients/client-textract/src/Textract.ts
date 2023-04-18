@@ -65,12 +65,14 @@ import {
 import { TextractClient } from "./TextractClient";
 
 /**
+ * @public
  * <p>Amazon Textract detects and analyzes text in documents and converts it
  *          into machine-readable text. This is the API reference documentation for
  *          Amazon Textract.</p>
  */
 export class Textract extends TextractClient {
   /**
+   * @public
    * <p>Analyzes an input document for relationships between detected items. </p>
    *          <p>The types of information returned are as follows: </p>
    *          <ul>
@@ -107,11 +109,9 @@ export class Textract extends TextractClient {
    *                score.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>Selection elements such as check boxes and option buttons (radio buttons) can be
    *          detected in form data and in tables. A SELECTION_ELEMENT <code>Block</code> object contains
    *          information about a selection element, including the selection status.</p>
-   *
    *          <p>You can choose which type of analysis to perform by specifying the
    *             <code>FeatureTypes</code> list. </p>
    *          <p>The output is returned in a list of <code>Block</code> objects.</p>
@@ -151,6 +151,7 @@ export class Textract extends TextractClient {
   }
 
   /**
+   * @public
    * <p>
    *             <code>AnalyzeExpense</code> synchronously analyzes an input document for financially
    *          related relationships between text.</p>
@@ -200,9 +201,10 @@ export class Textract extends TextractClient {
   }
 
   /**
+   * @public
    * <p>Analyzes identity documents for relevant information. This information is extracted and
    *          returned as <code>IdentityDocumentFields</code>, which records both the normalized field
-   *          and value of the extracted text.Unlike other Amazon Textract operations,
+   *          and value of the extracted text. Unlike other Amazon Textract operations,
    *             <code>AnalyzeID</code> doesn't return any Geometry data.</p>
    */
   public analyzeID(args: AnalyzeIDCommandInput, options?: __HttpHandlerOptions): Promise<AnalyzeIDCommandOutput>;
@@ -229,6 +231,7 @@ export class Textract extends TextractClient {
   }
 
   /**
+   * @public
    * <p>Detects text in the input document. Amazon Textract can detect lines of text and the
    *          words that make up a line of text. The input document must be in one of the following image
    *          formats:  JPEG, PNG, PDF, or TIFF. <code>DetectDocumentText</code> returns the detected
@@ -236,7 +239,6 @@ export class Textract extends TextractClient {
    *          <p>Each document page has as an associated <code>Block</code> of type PAGE. Each PAGE <code>Block</code> object
    *          is the parent of LINE <code>Block</code> objects that represent the lines of detected text on a page. A LINE <code>Block</code> object is
    *          a parent for each word that makes up the line. Words are represented by <code>Block</code> objects of type WORD.</p>
-   *
    *          <p>
    *             <code>DetectDocumentText</code> is a synchronous operation. To analyze documents
    *          asynchronously, use <a>StartDocumentTextDetection</a>.</p>
@@ -272,6 +274,7 @@ export class Textract extends TextractClient {
   }
 
   /**
+   * @public
    * <p>Gets the results for an Amazon Textract asynchronous operation that analyzes text in a
    *          document.</p>
    *          <p>You start asynchronous text analysis by calling <a>StartDocumentAnalysis</a>,
@@ -315,19 +318,15 @@ export class Textract extends TextractClient {
    *                score.</p>
    *             </li>
    *          </ul>
-   *
    *          <note>
    *             <p>While processing a document with queries, look out for
    *                <code>INVALID_REQUEST_PARAMETERS</code> output. This indicates that either the per
    *             page query limit has been exceeded or that the operation is trying to query a page in
    *             the document which doesn’t exist. </p>
    *          </note>
-   *
    *          <p>Selection elements such as check boxes and option buttons (radio buttons) can be
    *          detected in form data and in tables. A SELECTION_ELEMENT <code>Block</code> object contains
    *          information about a selection element, including the selection status.</p>
-   *
-   *
    *          <p>Use the <code>MaxResults</code> parameter to limit the number of blocks that are
    *          returned. If there are more results than specified in <code>MaxResults</code>, the value of
    *             <code>NextToken</code> in the operation response contains a pagination token for getting
@@ -368,6 +367,7 @@ export class Textract extends TextractClient {
   }
 
   /**
+   * @public
    * <p>Gets the results for an Amazon Textract asynchronous operation that detects text in a document.
    *      Amazon Textract can detect lines of text and the words that make up a line of text.</p>
    *          <p>You start asynchronous text detection by calling <a>StartDocumentTextDetection</a>, which returns a job identifier
@@ -384,7 +384,6 @@ export class Textract extends TextractClient {
    *          <p>Each document page has as an associated <code>Block</code> of type PAGE. Each PAGE <code>Block</code> object
    *         is the parent of LINE <code>Block</code> objects that represent the lines of detected text on a page. A LINE <code>Block</code> object is
    *         a parent for each word that makes up the line. Words are represented by <code>Block</code> objects of type WORD.</p>
-   *
    *          <p>Use the MaxResults parameter to limit the number of blocks that are returned. If there
    *          are more results than specified in <code>MaxResults</code>, the value of
    *             <code>NextToken</code> in the operation response contains a pagination token for getting
@@ -424,6 +423,7 @@ export class Textract extends TextractClient {
   }
 
   /**
+   * @public
    * <p>Gets the results for an Amazon Textract asynchronous operation that analyzes invoices and
    *    receipts. Amazon Textract finds contact information, items purchased, and vendor name, from input
    *    invoices and receipts.</p>
@@ -472,14 +472,15 @@ export class Textract extends TextractClient {
   }
 
   /**
+   * @public
    * <p>Gets the results for an Amazon Textract asynchronous operation that analyzes text in a
    *             lending document. </p>
-   *         <p>You start asynchronous text analysis by calling <code>StartLendingAnalysis</code>,
+   *          <p>You start asynchronous text analysis by calling <code>StartLendingAnalysis</code>,
    *             which returns a job identifier (<code>JobId</code>). When the text analysis operation
    *             finishes, Amazon Textract publishes a completion status to the Amazon Simple
    *             Notification Service (Amazon SNS) topic that's registered in the initial call to
    *                 <code>StartLendingAnalysis</code>. </p>
-   *         <p>To get the results of the text analysis operation, first check that the status value
+   *          <p>To get the results of the text analysis operation, first check that the status value
    *             published to the Amazon SNS topic is SUCCEEDED. If so, call GetLendingAnalysis, and pass
    *             the job identifier (<code>JobId</code>) from the initial call to
    *                 <code>StartLendingAnalysis</code>.</p>
@@ -514,6 +515,7 @@ export class Textract extends TextractClient {
   }
 
   /**
+   * @public
    * <p>Gets summarized results for the <code>StartLendingAnalysis</code> operation, which analyzes
    *    text in a lending document. The returned summary consists of information about documents grouped
    *    together by a common document type. Information like detected signatures, page numbers, and split
@@ -557,9 +559,9 @@ export class Textract extends TextractClient {
   }
 
   /**
+   * @public
    * <p>Starts the asynchronous analysis of an input document for relationships between detected
    *          items such as key-value pairs, tables, and selection elements.</p>
-   *
    *          <p>
    *             <code>StartDocumentAnalysis</code> can analyze text in documents that are in JPEG, PNG, TIFF, and PDF format. The
    *          documents are stored in an Amazon S3 bucket. Use <a>DocumentLocation</a> to specify the bucket name and file name
@@ -606,6 +608,7 @@ export class Textract extends TextractClient {
   }
 
   /**
+   * @public
    * <p>Starts the asynchronous detection of text in a document. Amazon Textract can detect lines of
    *          text and the words that make up a line of text.</p>
    *          <p>
@@ -654,9 +657,9 @@ export class Textract extends TextractClient {
   }
 
   /**
+   * @public
    * <p>Starts the asynchronous analysis of invoices or receipts for data like contact information,
    *    items purchased, and vendor names.</p>
-   *
    *          <p>
    *             <code>StartExpenseAnalysis</code> can analyze text in documents that are in JPEG, PNG, and
    *    PDF format. The documents must be stored in an Amazon S3 bucket. Use the <a>DocumentLocation</a> parameter to specify the name of your S3 bucket and the name of the
@@ -701,6 +704,7 @@ export class Textract extends TextractClient {
   }
 
   /**
+   * @public
    * <p>Starts the classification and analysis of an input document.
    *     <code>StartLendingAnalysis</code> initiates the classification and analysis of a packet of
    *    lending documents. <code>StartLendingAnalysis</code> operates on a document file located in an

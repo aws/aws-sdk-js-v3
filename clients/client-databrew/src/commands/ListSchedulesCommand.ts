@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
-import {
-  ListSchedulesRequest,
-  ListSchedulesRequestFilterSensitiveLog,
-  ListSchedulesResponse,
-  ListSchedulesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSchedulesCommand,
-  serializeAws_restJson1ListSchedulesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListSchedulesRequest, ListSchedulesResponse } from "../models/models_0";
+import { de_ListSchedulesCommand, se_ListSchedulesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListSchedulesCommand}.
+ */
 export interface ListSchedulesCommandInput extends ListSchedulesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListSchedulesCommand}.
+ */
 export interface ListSchedulesCommandOutput extends ListSchedulesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the DataBrew schedules that are defined.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,24 @@ export interface ListSchedulesCommandOutput extends ListSchedulesResponse, __Met
  * import { DataBrewClient, ListSchedulesCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, ListSchedulesCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
+ * const input = { // ListSchedulesRequest
+ *   JobName: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListSchedulesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSchedulesCommandInput - {@link ListSchedulesCommandInput}
+ * @returns {@link ListSchedulesCommandOutput}
  * @see {@link ListSchedulesCommandInput} for command's `input` shape.
  * @see {@link ListSchedulesCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input parameters for this request failed validation.</p>
+ *
  *
  */
 export class ListSchedulesCommand extends $Command<
@@ -62,6 +76,9 @@ export class ListSchedulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSchedulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +105,8 @@ export class ListSchedulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSchedulesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSchedulesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +116,18 @@ export class ListSchedulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSchedulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSchedulesCommand(input, context);
+    return se_ListSchedulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSchedulesCommandOutput> {
-    return deserializeAws_restJson1ListSchedulesCommand(output, context);
+    return de_ListSchedulesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetEulaRequest,
-  GetEulaRequestFilterSensitiveLog,
-  GetEulaResponse,
-  GetEulaResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetEulaRequest, GetEulaResponse } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1GetEulaCommand,
-  serializeAws_restJson1GetEulaCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetEulaCommand, se_GetEulaCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetEulaCommand}.
+ */
 export interface GetEulaCommandInput extends GetEulaRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetEulaCommand}.
+ */
 export interface GetEulaCommandOutput extends GetEulaResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get EULA.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,43 @@ export interface GetEulaCommandOutput extends GetEulaResponse, __MetadataBearer 
  * import { NimbleClient, GetEulaCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, GetEulaCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = { // GetEulaRequest
+ *   eulaId: "STRING_VALUE", // required
+ * };
  * const command = new GetEulaCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEulaCommandInput - {@link GetEulaCommandInput}
+ * @returns {@link GetEulaCommandOutput}
  * @see {@link GetEulaCommandInput} for command's `input` shape.
  * @see {@link GetEulaCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to perform this operation. Check your IAM
+ *             policies, and ensure that you are using the correct access keys.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Another operation is in progress. </p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>An internal error has occurred. Please retry your request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Your current quota does not allow you to perform the request action. You can request
+ *             increases for some quotas, and other quotas cannot be increased.</p>
+ *         <p>Please use Amazon Web Services Service Quotas to request an increase. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request throughput limit was exceeded.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One of the parameters in the request is invalid.</p>
+ *
  *
  */
 export class GetEulaCommand extends $Command<GetEulaCommandInput, GetEulaCommandOutput, NimbleClientResolvedConfig> {
@@ -58,6 +91,9 @@ export class GetEulaCommand extends $Command<GetEulaCommandInput, GetEulaCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEulaCommandInput) {
     // Start section: command_constructor
     super();
@@ -84,8 +120,8 @@ export class GetEulaCommand extends $Command<GetEulaCommandInput, GetEulaCommand
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEulaRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetEulaResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -95,12 +131,18 @@ export class GetEulaCommand extends $Command<GetEulaCommandInput, GetEulaCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEulaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetEulaCommand(input, context);
+    return se_GetEulaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEulaCommandOutput> {
-    return deserializeAws_restJson1GetEulaCommand(output, context);
+    return de_GetEulaCommand(output, context);
   }
 
   // Start section: command_body_extra

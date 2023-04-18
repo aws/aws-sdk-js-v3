@@ -18,23 +18,29 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LicenseManagerLinuxSubscriptionsClient";
+import { ListLinuxSubscriptionInstancesRequest, ListLinuxSubscriptionInstancesResponse } from "../models/models_0";
 import {
-  ListLinuxSubscriptionInstancesRequest,
-  ListLinuxSubscriptionInstancesRequestFilterSensitiveLog,
-  ListLinuxSubscriptionInstancesResponse,
-  ListLinuxSubscriptionInstancesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListLinuxSubscriptionInstancesCommand,
-  serializeAws_restJson1ListLinuxSubscriptionInstancesCommand,
+  de_ListLinuxSubscriptionInstancesCommand,
+  se_ListLinuxSubscriptionInstancesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListLinuxSubscriptionInstancesCommand}.
+ */
 export interface ListLinuxSubscriptionInstancesCommandInput extends ListLinuxSubscriptionInstancesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListLinuxSubscriptionInstancesCommand}.
+ */
 export interface ListLinuxSubscriptionInstancesCommandOutput
   extends ListLinuxSubscriptionInstancesResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the running Amazon EC2 instances that were discovered with commercial Linux
  *       subscriptions.</p>
  * @example
@@ -43,13 +49,38 @@ export interface ListLinuxSubscriptionInstancesCommandOutput
  * import { LicenseManagerLinuxSubscriptionsClient, ListLinuxSubscriptionInstancesCommand } from "@aws-sdk/client-license-manager-linux-subscriptions"; // ES Modules import
  * // const { LicenseManagerLinuxSubscriptionsClient, ListLinuxSubscriptionInstancesCommand } = require("@aws-sdk/client-license-manager-linux-subscriptions"); // CommonJS import
  * const client = new LicenseManagerLinuxSubscriptionsClient(config);
+ * const input = { // ListLinuxSubscriptionInstancesRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // StringList
+ *         "STRING_VALUE",
+ *       ],
+ *       Operator: "STRING_VALUE",
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListLinuxSubscriptionInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLinuxSubscriptionInstancesCommandInput - {@link ListLinuxSubscriptionInstancesCommandInput}
+ * @returns {@link ListLinuxSubscriptionInstancesCommandOutput}
  * @see {@link ListLinuxSubscriptionInstancesCommandInput} for command's `input` shape.
  * @see {@link ListLinuxSubscriptionInstancesCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerLinuxSubscriptionsClientResolvedConfig | config} for LicenseManagerLinuxSubscriptionsClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An exception occurred with the service.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The provided input is not valid. Try your request again.</p>
+ *
  *
  */
 export class ListLinuxSubscriptionInstancesCommand extends $Command<
@@ -69,6 +100,9 @@ export class ListLinuxSubscriptionInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLinuxSubscriptionInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +131,8 @@ export class ListLinuxSubscriptionInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLinuxSubscriptionInstancesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListLinuxSubscriptionInstancesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,18 +142,24 @@ export class ListLinuxSubscriptionInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListLinuxSubscriptionInstancesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListLinuxSubscriptionInstancesCommand(input, context);
+    return se_ListLinuxSubscriptionInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListLinuxSubscriptionInstancesCommandOutput> {
-    return deserializeAws_restJson1ListLinuxSubscriptionInstancesCommand(output, context);
+    return de_ListLinuxSubscriptionInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

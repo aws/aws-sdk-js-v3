@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DescribeMaintenanceStartTimeInput, DescribeMaintenanceStartTimeOutput } from "../models/models_0";
 import {
-  DescribeMaintenanceStartTimeInput,
-  DescribeMaintenanceStartTimeInputFilterSensitiveLog,
-  DescribeMaintenanceStartTimeOutput,
-  DescribeMaintenanceStartTimeOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeMaintenanceStartTimeCommand,
-  serializeAws_json1_1DescribeMaintenanceStartTimeCommand,
+  de_DescribeMaintenanceStartTimeCommand,
+  se_DescribeMaintenanceStartTimeCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeMaintenanceStartTimeCommand}.
+ */
 export interface DescribeMaintenanceStartTimeCommandInput extends DescribeMaintenanceStartTimeInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeMaintenanceStartTimeCommand}.
+ */
 export interface DescribeMaintenanceStartTimeCommandOutput
   extends DescribeMaintenanceStartTimeOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns your gateway's weekly maintenance start time including the day and time of
  *          the week. Note that values are in terms of the gateway's time zone.</p>
  * @example
@@ -39,13 +45,47 @@ export interface DescribeMaintenanceStartTimeCommandOutput
  * import { StorageGatewayClient, DescribeMaintenanceStartTimeCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DescribeMaintenanceStartTimeCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // DescribeMaintenanceStartTimeInput
+ *   GatewayARN: "STRING_VALUE", // required
+ * };
  * const command = new DescribeMaintenanceStartTimeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMaintenanceStartTimeCommandInput - {@link DescribeMaintenanceStartTimeCommandInput}
+ * @returns {@link DescribeMaintenanceStartTimeCommandOutput}
  * @see {@link DescribeMaintenanceStartTimeCommandInput} for command's `input` shape.
  * @see {@link DescribeMaintenanceStartTimeCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error has occurred during the request. For more information, see the
+ *          error and message fields.</p>
+ *
+ * @throws {@link InvalidGatewayRequestException} (client fault)
+ *  <p>An exception occurred because an invalid gateway request was issued to the service. For
+ *          more information, see the error and message fields.</p>
+ *
+ *
+ * @example To describe gateway's maintenance start time
+ * ```javascript
+ * // Returns your gateway's weekly maintenance start time including the day and time of the week.
+ * const input = {
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ * };
+ * const command = new DescribeMaintenanceStartTimeCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DayOfWeek": 2,
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
+ *   "HourOfDay": 15,
+ *   "MinuteOfHour": 35,
+ *   "Timezone": "GMT+7:00"
+ * }
+ * *\/
+ * // example id: to-describe-gateways-maintenance-start-time-1471470727387
+ * ```
  *
  */
 export class DescribeMaintenanceStartTimeCommand extends $Command<
@@ -65,6 +105,9 @@ export class DescribeMaintenanceStartTimeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMaintenanceStartTimeCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +136,8 @@ export class DescribeMaintenanceStartTimeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeMaintenanceStartTimeInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeMaintenanceStartTimeOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,15 +147,21 @@ export class DescribeMaintenanceStartTimeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeMaintenanceStartTimeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeMaintenanceStartTimeCommand(input, context);
+    return se_DescribeMaintenanceStartTimeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeMaintenanceStartTimeCommandOutput> {
-    return deserializeAws_json1_1DescribeMaintenanceStartTimeCommand(output, context);
+    return de_DescribeMaintenanceStartTimeCommand(output, context);
   }
 
   // Start section: command_body_extra

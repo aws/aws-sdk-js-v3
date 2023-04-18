@@ -11,6 +11,132 @@
         "smithy.api#pattern": "^[\\w-]+$"
       }
     },
+    "com.amazonaws.groundstation#Agent": {
+      "type": "resource",
+      "identifiers": {
+        "agentId": {
+          "target": "com.amazonaws.groundstation#Uuid"
+        }
+      },
+      "create": {
+        "target": "com.amazonaws.groundstation#RegisterAgent"
+      },
+      "read": {
+        "target": "com.amazonaws.groundstation#GetAgentConfiguration"
+      },
+      "update": {
+        "target": "com.amazonaws.groundstation#UpdateAgentStatus"
+      },
+      "traits": {
+        "aws.api#arn": {
+          "template": "agent/{agentId}"
+        }
+      }
+    },
+    "com.amazonaws.groundstation#AgentCpuCoresList": {
+      "type": "list",
+      "member": {
+        "target": "smithy.api#Integer"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 256
+        }
+      }
+    },
+    "com.amazonaws.groundstation#AgentDetails": {
+      "type": "structure",
+      "members": {
+        "agentVersion": {
+          "target": "com.amazonaws.groundstation#VersionString",
+          "traits": {
+            "smithy.api#documentation": "<p>Current agent version.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "instanceId": {
+          "target": "com.amazonaws.groundstation#InstanceId",
+          "traits": {
+            "smithy.api#documentation": "<p>ID of EC2 instance agent is running on.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "instanceType": {
+          "target": "com.amazonaws.groundstation#InstanceType",
+          "traits": {
+            "smithy.api#documentation": "<p>Type of EC2 instance agent is running on.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "reservedCpuCores": {
+          "target": "com.amazonaws.groundstation#AgentCpuCoresList",
+          "traits": {
+            "smithy.api#documentation": "<note>\n            <p>This field should not be used. Use agentCpuCores instead.</p>\n         </note>\n         <p>List of CPU cores reserved for processes other than the agent running on the EC2 instance.</p>"
+          }
+        },
+        "agentCpuCores": {
+          "target": "com.amazonaws.groundstation#AgentCpuCoresList",
+          "traits": {
+            "smithy.api#documentation": "<p>List of CPU cores reserved for the agent.</p>"
+          }
+        },
+        "componentVersions": {
+          "target": "com.amazonaws.groundstation#ComponentVersionList",
+          "traits": {
+            "smithy.api#documentation": "<p>List of versions being used by agent components.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Detailed information about the agent.</p>"
+      }
+    },
+    "com.amazonaws.groundstation#AgentStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "SUCCESS",
+            "name": "SUCCESS"
+          },
+          {
+            "value": "FAILED",
+            "name": "FAILED"
+          },
+          {
+            "value": "ACTIVE",
+            "name": "ACTIVE"
+          },
+          {
+            "value": "INACTIVE",
+            "name": "INACTIVE"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.groundstation#AggregateStatus": {
+      "type": "structure",
+      "members": {
+        "status": {
+          "target": "com.amazonaws.groundstation#AgentStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>Aggregate status.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "signatureMap": {
+          "target": "com.amazonaws.groundstation#SignatureMap",
+          "traits": {
+            "smithy.api#documentation": "<p>Sparse map of failure signatures.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Aggregate status of Agent components.</p>"
+      }
+    },
     "com.amazonaws.groundstation#AngleUnits": {
       "type": "string",
       "traits": {
@@ -122,6 +248,62 @@
         "smithy.api#pattern": "^(arn:aws:)[\\s\\S]{0,1024}$"
       }
     },
+    "com.amazonaws.groundstation#AuditResults": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "HEALTHY",
+            "name": "HEALTHY"
+          },
+          {
+            "value": "UNHEALTHY",
+            "name": "UNHEALTHY"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.groundstation#AwsGroundStationAgentEndpoint": {
+      "type": "structure",
+      "members": {
+        "name": {
+          "target": "com.amazonaws.groundstation#SafeName",
+          "traits": {
+            "smithy.api#documentation": "<p>Name string associated with AgentEndpoint. Used as a human-readable identifier for AgentEndpoint.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "egressAddress": {
+          "target": "com.amazonaws.groundstation#ConnectionDetails",
+          "traits": {
+            "smithy.api#documentation": "<p>The egress address of AgentEndpoint.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ingressAddress": {
+          "target": "com.amazonaws.groundstation#RangedConnectionDetails",
+          "traits": {
+            "smithy.api#documentation": "<p>The ingress address of AgentEndpoint.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "agentStatus": {
+          "target": "com.amazonaws.groundstation#AgentStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of AgentEndpoint.</p>"
+          }
+        },
+        "auditResults": {
+          "target": "com.amazonaws.groundstation#AuditResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The results of the audit.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information about AwsGroundStationAgentEndpoint.</p>"
+      }
+    },
     "com.amazonaws.groundstation#BandwidthUnits": {
       "type": "string",
       "traits": {
@@ -191,6 +373,199 @@
       },
       "traits": {
         "smithy.api#documentation": "<p/>"
+      }
+    },
+    "com.amazonaws.groundstation#CapabilityArn": {
+      "type": "string",
+      "traits": {
+        "aws.api#arnReference": {
+          "type": "AWS::GroundStationProvider::Capability",
+          "service": "com.amazon.awsgsaascontrolplanelambda.provider.r20190311#GroundStationProvider",
+          "resource": "com.amazon.awsgsaascontrolplanelambda.provider.r20190311#Capability"
+        }
+      }
+    },
+    "com.amazonaws.groundstation#CapabilityArnList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.groundstation#CapabilityArn"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 20
+        }
+      }
+    },
+    "com.amazonaws.groundstation#CapabilityHealth": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "UNHEALTHY",
+            "name": "UNHEALTHY"
+          },
+          {
+            "value": "HEALTHY",
+            "name": "HEALTHY"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.groundstation#CapabilityHealthReason": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "NO_REGISTERED_AGENT",
+            "name": "NO_REGISTERED_AGENT"
+          },
+          {
+            "value": "INVALID_IP_OWNERSHIP",
+            "name": "INVALID_IP_OWNERSHIP"
+          },
+          {
+            "value": "NOT_AUTHORIZED_TO_CREATE_SLR",
+            "name": "NOT_AUTHORIZED_TO_CREATE_SLR"
+          },
+          {
+            "value": "UNVERIFIED_IP_OWNERSHIP",
+            "name": "UNVERIFIED_IP_OWNERSHIP"
+          },
+          {
+            "value": "INITIALIZING_DATAPLANE",
+            "name": "INITIALIZING_DATAPLANE"
+          },
+          {
+            "value": "DATAPLANE_FAILURE",
+            "name": "DATAPLANE_FAILURE"
+          },
+          {
+            "value": "HEALTHY",
+            "name": "HEALTHY"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.groundstation#CapabilityHealthReasonList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.groundstation#CapabilityHealthReason"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 500
+        }
+      }
+    },
+    "com.amazonaws.groundstation#ComponentStatusData": {
+      "type": "structure",
+      "members": {
+        "componentType": {
+          "target": "com.amazonaws.groundstation#ComponentTypeString",
+          "traits": {
+            "smithy.api#documentation": "<p>The Component type.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "capabilityArn": {
+          "target": "com.amazonaws.groundstation#CapabilityArn",
+          "traits": {
+            "smithy.api#documentation": "<p>Capability ARN of the component.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.groundstation#AgentStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>Component status.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "bytesSent": {
+          "target": "smithy.api#Long",
+          "traits": {
+            "smithy.api#default": null,
+            "smithy.api#documentation": "<p>Bytes sent by the component.</p>"
+          }
+        },
+        "bytesReceived": {
+          "target": "smithy.api#Long",
+          "traits": {
+            "smithy.api#default": null,
+            "smithy.api#documentation": "<p>Bytes received by the component.</p>"
+          }
+        },
+        "packetsDropped": {
+          "target": "smithy.api#Long",
+          "traits": {
+            "smithy.api#default": null,
+            "smithy.api#documentation": "<p>Packets dropped by component.</p>"
+          }
+        },
+        "dataflowId": {
+          "target": "com.amazonaws.groundstation#Uuid",
+          "traits": {
+            "smithy.api#documentation": "<p>Dataflow UUID associated with the component.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Data on the status of agent components.</p>"
+      }
+    },
+    "com.amazonaws.groundstation#ComponentStatusList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.groundstation#ComponentStatusData"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 20
+        }
+      }
+    },
+    "com.amazonaws.groundstation#ComponentTypeString": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^[a-zA-Z0-9_]{1,64}$"
+      }
+    },
+    "com.amazonaws.groundstation#ComponentVersion": {
+      "type": "structure",
+      "members": {
+        "componentType": {
+          "target": "com.amazonaws.groundstation#ComponentTypeString",
+          "traits": {
+            "smithy.api#documentation": "<p>Component type.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "versions": {
+          "target": "com.amazonaws.groundstation#VersionStringList",
+          "traits": {
+            "smithy.api#documentation": "<p>List of versions.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Version information for agent components.</p>"
+      }
+    },
+    "com.amazonaws.groundstation#ComponentVersionList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.groundstation#ComponentVersion"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 20
+        }
       }
     },
     "com.amazonaws.groundstation#Config": {
@@ -404,6 +779,27 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Object containing the parameters of a <code>Config</code>.</p>\n         <p>See the subtype definitions for what each type of <code>Config</code> contains.</p>"
+      }
+    },
+    "com.amazonaws.groundstation#ConnectionDetails": {
+      "type": "structure",
+      "members": {
+        "socketAddress": {
+          "target": "com.amazonaws.groundstation#SocketAddress",
+          "traits": {
+            "smithy.api#documentation": "<p>A socket address.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "mtu": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Egress address of AgentEndpoint with an optional mtu.</p>"
       }
     },
     "com.amazonaws.groundstation#Contact": {
@@ -679,7 +1075,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a <code>DataflowEndpoint</code> group containing the specified list of <code>DataflowEndpoint</code> objects.</p>\n         <p>The <code>name</code> field in each endpoint is used in your mission profile <code>DataflowEndpointConfig</code> \n         to specify which endpoints to use during a contact.</p> \n         <p>When a contact uses multiple <code>DataflowEndpointConfig</code> objects, each <code>Config</code> \n         must match a <code>DataflowEndpoint</code> in the same group.</p>",
+        "smithy.api#documentation": "<p>Creates a <code>DataflowEndpoint</code> group containing the specified list of <code>DataflowEndpoint</code> objects.</p>\n         <p>The <code>name</code> field in each endpoint is used in your mission profile <code>DataflowEndpointConfig</code> \n         to specify which endpoints to use during a contact.</p>\n         <p>When a contact uses multiple <code>DataflowEndpointConfig</code> objects, each <code>Config</code> \n         must match a <code>DataflowEndpoint</code> in the same group.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/dataflowEndpointGroup"
@@ -700,6 +1096,18 @@
           "target": "com.amazonaws.groundstation#TagsMap",
           "traits": {
             "smithy.api#documentation": "<p>Tags of a dataflow endpoint group.</p>"
+          }
+        },
+        "contactPrePassDurationSeconds": {
+          "target": "com.amazonaws.groundstation#DataflowEndpointGroupDurationInSeconds",
+          "traits": {
+            "smithy.api#documentation": "<p>Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a <code>PREPASS</code> state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the <code>PREPASS</code> state.</p>"
+          }
+        },
+        "contactPostPassDurationSeconds": {
+          "target": "com.amazonaws.groundstation#DataflowEndpointGroupDurationInSeconds",
+          "traits": {
+            "smithy.api#documentation": "<p>Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a <code>POSTPASS</code> state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the <code>POSTPASS</code> state.</p>"
           }
         }
       },
@@ -748,13 +1156,13 @@
           "target": "smithy.api#Boolean",
           "traits": {
             "smithy.api#default": null,
-            "smithy.api#documentation": "<p>Whether to set the ephemeris status to <code>ENABLED</code> after validation.</p>\n        <p>Setting this to false will set the ephemeris status to <code>DISABLED</code> after validation.</p>"
+            "smithy.api#documentation": "<p>Whether to set the ephemeris status to <code>ENABLED</code> after validation.</p>\n         <p>Setting this to false will set the ephemeris status to <code>DISABLED</code> after validation.</p>"
           }
         },
         "priority": {
           "target": "com.amazonaws.groundstation#CustomerEphemerisPriority",
           "traits": {
-            "smithy.api#documentation": "<p>Customer-provided priority score to establish the order in which overlapping ephemerides should be used.</p>\n        <p>The default for customer-provided ephemeris priority is 1, and higher numbers take precedence.</p>\n        <p>Priority must be 1 or greater</p>"
+            "smithy.api#documentation": "<p>Customer-provided priority score to establish the order in which overlapping ephemerides should be used.</p>\n         <p>The default for customer-provided ephemeris priority is 1, and higher numbers take precedence.</p>\n         <p>Priority must be 1 or greater</p>"
           }
         },
         "expirationTime": {
@@ -849,7 +1257,7 @@
         "dataflowEdges": {
           "target": "com.amazonaws.groundstation#DataflowEdgeList",
           "traits": {
-            "smithy.api#documentation": "<p>A list of lists of ARNs. Each list of ARNs is an edge, with a <i>from</i> \n            <code>Config</code> and a <i>to</i>\n            <code>Config</code>.</p>",
+            "smithy.api#documentation": "<p>A list of lists of ARNs. Each list of ARNs is an edge, with a <i>from</i>\n            <code>Config</code> and a <i>to</i>\n            <code>Config</code>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -864,6 +1272,18 @@
           "target": "com.amazonaws.groundstation#TagsMap",
           "traits": {
             "smithy.api#documentation": "<p>Tags assigned to a mission profile.</p>"
+          }
+        },
+        "streamsKmsKey": {
+          "target": "com.amazonaws.groundstation#KmsKey",
+          "traits": {
+            "smithy.api#documentation": "<p>KMS key to use for encrypting streams.</p>"
+          }
+        },
+        "streamsKmsRole": {
+          "target": "com.amazonaws.groundstation#RoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>Role to use for encrypting streams with KMS key.</p>"
           }
         }
       },
@@ -1032,6 +1452,15 @@
           "type": "AWS::GroundStation::DataflowEndpointGroup",
           "service": "GroundStation",
           "resource": "DataflowEndpointGroup"
+        }
+      }
+    },
+    "com.amazonaws.groundstation#DataflowEndpointGroupDurationInSeconds": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 120,
+          "max": 480
         }
       }
     },
@@ -1336,7 +1765,36 @@
           "method": "GET",
           "uri": "/contact/{contactId}"
         },
-        "smithy.api#readonly": {}
+        "smithy.api#readonly": {},
+        "smithy.waiters#waitable": {
+          "ContactScheduled": {
+            "documentation": "Waits until a contact has been scheduled",
+            "minDelay": 5,
+            "maxDelay": 900,
+            "acceptors": [
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "contactStatus",
+                    "comparator": "stringEquals",
+                    "expected": "FAILED_TO_SCHEDULE"
+                  }
+                }
+              },
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "contactStatus",
+                    "comparator": "stringEquals",
+                    "expected": "SCHEDULED"
+                  }
+                }
+              }
+            ]
+          }
+        }
       }
     },
     "com.amazonaws.groundstation#DescribeContactRequest": {
@@ -1517,7 +1975,7 @@
         "priority": {
           "target": "com.amazonaws.groundstation#EphemerisPriority",
           "traits": {
-            "smithy.api#documentation": "<p>Customer-provided priority score to establish the order in which overlapping ephemerides should be used.</p>\n        <p>The default for customer-provided ephemeris priority is 1, and higher numbers take precedence.</p>\n        <p>Priority must be 1 or greater</p>"
+            "smithy.api#documentation": "<p>Customer-provided priority score to establish the order in which overlapping ephemerides should be used.</p>\n         <p>The default for customer-provided ephemeris priority is 1, and higher numbers take precedence.</p>\n         <p>Priority must be 1 or greater</p>"
           }
         },
         "creationTime": {
@@ -1598,6 +2056,35 @@
         "smithy.api#documentation": "<p>Dataflow details for the destination side.</p>"
       }
     },
+    "com.amazonaws.groundstation#DiscoveryData": {
+      "type": "structure",
+      "members": {
+        "publicIpAddresses": {
+          "target": "com.amazonaws.groundstation#IpAddressList",
+          "traits": {
+            "smithy.api#documentation": "<p>List of public IP addresses to associate with agent.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "privateIpAddresses": {
+          "target": "com.amazonaws.groundstation#IpAddressList",
+          "traits": {
+            "smithy.api#documentation": "<p>List of private IP addresses to associate with agent.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "capabilityArns": {
+          "target": "com.amazonaws.groundstation#CapabilityArnList",
+          "traits": {
+            "smithy.api#documentation": "<p>List of capabilities to associate with agent.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Data for agent discovery.</p>"
+      }
+    },
     "com.amazonaws.groundstation#DurationInSeconds": {
       "type": "integer",
       "traits": {
@@ -1675,6 +2162,24 @@
           "target": "com.amazonaws.groundstation#DataflowEndpoint",
           "traits": {
             "smithy.api#documentation": "<p>A dataflow endpoint.</p>"
+          }
+        },
+        "awsGroundStationAgentEndpoint": {
+          "target": "com.amazonaws.groundstation#AwsGroundStationAgentEndpoint",
+          "traits": {
+            "smithy.api#documentation": "<p>An agent endpoint.</p>"
+          }
+        },
+        "healthStatus": {
+          "target": "com.amazonaws.groundstation#CapabilityHealth",
+          "traits": {
+            "smithy.api#documentation": "<p>A dataflow endpoint health status. This field is ignored when calling <code>CreateDataflowEndpointGroup</code>.</p>"
+          }
+        },
+        "healthReasons": {
+          "target": "com.amazonaws.groundstation#CapabilityHealthReasonList",
+          "traits": {
+            "smithy.api#documentation": "<p>Health reasons for a dataflow endpoint. This field is ignored when calling <code>CreateDataflowEndpointGroup</code>.</p>"
           }
         }
       },
@@ -1856,7 +2361,7 @@
         "priority": {
           "target": "com.amazonaws.groundstation#EphemerisPriority",
           "traits": {
-            "smithy.api#documentation": "<p>Customer-provided priority score to establish the order in which overlapping ephemerides should be used.</p>\n        <p>The default for customer-provided ephemeris priority is 1, and higher numbers take precedence.</p>\n        <p>Priority must be 1 or greater</p>"
+            "smithy.api#documentation": "<p>Customer-provided priority score to establish the order in which overlapping ephemerides should be used.</p>\n         <p>The default for customer-provided ephemeris priority is 1, and higher numbers take precedence.</p>\n         <p>Priority must be 1 or greater</p>"
           }
         },
         "enabled": {
@@ -1902,19 +2407,19 @@
         "ephemerisId": {
           "target": "com.amazonaws.groundstation#Uuid",
           "traits": {
-            "smithy.api#documentation": "<p>UUID of a customer-provided ephemeris.</p>\n        <p>This field is not populated for default ephemerides from Space Track.</p>"
+            "smithy.api#documentation": "<p>UUID of a customer-provided ephemeris.</p>\n         <p>This field is not populated for default ephemerides from Space Track.</p>"
           }
         },
         "epoch": {
           "target": "smithy.api#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The epoch of a default, ephemeris from Space Track in UTC.</p>\n        <p>This field is not populated for customer-provided ephemerides.</p>"
+            "smithy.api#documentation": "<p>The epoch of a default, ephemeris from Space Track in UTC.</p>\n         <p>This field is not populated for customer-provided ephemerides.</p>"
           }
         },
         "name": {
           "target": "com.amazonaws.groundstation#SafeName",
           "traits": {
-            "smithy.api#documentation": "<p>A name string associated with the ephemeris. Used as a human-readable identifier for the ephemeris.</p>\n        <p>A name is only returned for customer-provider ephemerides that have a name associated.</p>"
+            "smithy.api#documentation": "<p>A name string associated with the ephemeris. Used as a human-readable identifier for the ephemeris.</p>\n         <p>A name is only returned for customer-provider ephemerides that have a name associated.</p>"
           }
         }
       },
@@ -2031,7 +2536,7 @@
         "value": {
           "target": "smithy.api#Double",
           "traits": {
-            "smithy.api#documentation": "<p>Frequency bandwidth value. AWS Ground Station currently has the following bandwidth limitations:</p>\n            <ul>\n            <li> \n               <p>For <code>AntennaDownlinkDemodDecodeconfig</code>, valid values are between 125 kHz to 650 MHz.</p>\n            </li>\n            <li> \n               <p>For <code>AntennaDownlinkconfig</code>, valid values are between 10 kHz to 54 MHz.</p>\n            </li>\n            <li> \n               <p>For <code>AntennaUplinkConfig</code>, valid values are between 10 kHz to 54 MHz.</p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>Frequency bandwidth value. AWS Ground Station currently has the following bandwidth limitations:</p>\n         <ul>\n            <li>\n               <p>For <code>AntennaDownlinkDemodDecodeconfig</code>, valid values are between 125 kHz to 650 MHz.</p>\n            </li>\n            <li>\n               <p>For <code>AntennaDownlinkconfig</code>, valid values are between 10 kHz to 54 MHz.</p>\n            </li>\n            <li>\n               <p>For <code>AntennaUplinkConfig</code>, valid values are between 10 kHz to 54 MHz.</p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
         },
@@ -2064,6 +2569,64 @@
             "name": "KHZ"
           }
         ]
+      }
+    },
+    "com.amazonaws.groundstation#GetAgentConfiguration": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.groundstation#GetAgentConfigurationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.groundstation#GetAgentConfigurationResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.groundstation#DependencyException"
+        },
+        {
+          "target": "com.amazonaws.groundstation#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.groundstation#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<note>\n            <p> For use by AWS Ground Station Agent and shouldn't be called directly.</p>\n         </note>\n         <p>Gets the latest configuration information for a registered agent.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/agent/{agentId}/configuration"
+        },
+        "smithy.api#readonly": {}
+      }
+    },
+    "com.amazonaws.groundstation#GetAgentConfigurationRequest": {
+      "type": "structure",
+      "members": {
+        "agentId": {
+          "target": "com.amazonaws.groundstation#Uuid",
+          "traits": {
+            "smithy.api#documentation": "<p>UUID of agent to get configuration information for.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.groundstation#GetAgentConfigurationResponse": {
+      "type": "structure",
+      "members": {
+        "agentId": {
+          "target": "com.amazonaws.groundstation#Uuid",
+          "traits": {
+            "smithy.api#documentation": "<p>UUID of agent.</p>"
+          }
+        },
+        "taskingDocument": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Tasking document for agent.</p>"
+          }
+        }
       }
     },
     "com.amazonaws.groundstation#GetConfig": {
@@ -2235,6 +2798,18 @@
           "target": "com.amazonaws.groundstation#TagsMap",
           "traits": {
             "smithy.api#documentation": "<p>Tags assigned to a dataflow endpoint group.</p>"
+          }
+        },
+        "contactPrePassDurationSeconds": {
+          "target": "com.amazonaws.groundstation#DataflowEndpointGroupDurationInSeconds",
+          "traits": {
+            "smithy.api#documentation": "<p>Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a <code>PREPASS</code> state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the <code>PREPASS</code> state.</p>"
+          }
+        },
+        "contactPostPassDurationSeconds": {
+          "target": "com.amazonaws.groundstation#DataflowEndpointGroupDurationInSeconds",
+          "traits": {
+            "smithy.api#documentation": "<p>Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a <code>POSTPASS</code> state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the <code>POSTPASS</code> state.</p>"
           }
         }
       },
@@ -2422,7 +2997,7 @@
         "dataflowEdges": {
           "target": "com.amazonaws.groundstation#DataflowEdgeList",
           "traits": {
-            "smithy.api#documentation": "<p>A list of lists of ARNs. Each list of ARNs is an edge, with a <i>from</i> \n            <code>Config</code> and a <i>to</i> \n            <code>Config</code>.</p>"
+            "smithy.api#documentation": "<p>A list of lists of ARNs. Each list of ARNs is an edge, with a <i>from</i>\n            <code>Config</code> and a <i>to</i>\n            <code>Config</code>.</p>"
           }
         },
         "trackingConfigArn": {
@@ -2435,6 +3010,18 @@
           "target": "com.amazonaws.groundstation#TagsMap",
           "traits": {
             "smithy.api#documentation": "<p>Tags assigned to a mission profile.</p>"
+          }
+        },
+        "streamsKmsKey": {
+          "target": "com.amazonaws.groundstation#KmsKey",
+          "traits": {
+            "smithy.api#documentation": "<p>KMS key to use for encrypting streams.</p>"
+          }
+        },
+        "streamsKmsRole": {
+          "target": "com.amazonaws.groundstation#RoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>Role to use for encrypting streams with KMS key.</p>"
           }
         }
       },
@@ -2554,6 +3141,9 @@
       ],
       "resources": [
         {
+          "target": "com.amazonaws.groundstation#Agent"
+        },
+        {
           "target": "com.amazonaws.groundstation#Config"
         },
         {
@@ -2622,13 +3212,12 @@
             {
               "conditions": [
                 {
-                  "fn": "aws.partition",
+                  "fn": "isSet",
                   "argv": [
                     {
-                      "ref": "Region"
+                      "ref": "Endpoint"
                     }
-                  ],
-                  "assign": "PartitionResult"
+                  ]
                 }
               ],
               "type": "tree",
@@ -2636,23 +3225,20 @@
                 {
                   "conditions": [
                     {
-                      "fn": "isSet",
+                      "fn": "booleanEquals",
                       "argv": [
                         {
-                          "ref": "Endpoint"
-                        }
+                          "ref": "UseFIPS"
+                        },
+                        true
                       ]
-                    },
-                    {
-                      "fn": "parseURL",
-                      "argv": [
-                        {
-                          "ref": "Endpoint"
-                        }
-                      ],
-                      "assign": "url"
                     }
                   ],
+                  "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [],
                   "type": "tree",
                   "rules": [
                     {
@@ -2661,19 +3247,201 @@
                           "fn": "booleanEquals",
                           "argv": [
                             {
-                              "ref": "UseFIPS"
+                              "ref": "UseDualStack"
                             },
                             true
                           ]
                         }
                       ],
-                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                      "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
                       "type": "error"
                     },
                     {
                       "conditions": [],
+                      "endpoint": {
+                        "url": {
+                          "ref": "Endpoint"
+                        },
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "conditions": [],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Region"
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "aws.partition",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            }
+                          ],
+                          "assign": "PartitionResult"
+                        }
+                      ],
                       "type": "tree",
                       "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://groundstation-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://groundstation-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS is enabled but this partition does not support FIPS",
+                              "type": "error"
+                            }
+                          ]
+                        },
                         {
                           "conditions": [
                             {
@@ -2686,134 +3454,52 @@
                               ]
                             }
                           ],
-                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
-                          "type": "error"
-                        },
-                        {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": {
-                              "ref": "Endpoint"
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://groundstation.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
                             },
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseFIPS"
-                        },
-                        true
-                      ]
-                    },
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseDualStack"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
                             {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsFIPS"
-                              ]
+                              "conditions": [],
+                              "error": "DualStack is enabled but this partition does not support DualStack",
+                              "type": "error"
                             }
                           ]
                         },
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsDualStack"
-                              ]
-                            }
-                          ]
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
-                        {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": "https://groundstation-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
-                      "type": "error"
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseFIPS"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsFIPS"
-                              ]
-                            }
-                          ]
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
                         {
                           "conditions": [],
                           "type": "tree",
@@ -2821,7 +3507,7 @@
                             {
                               "conditions": [],
                               "endpoint": {
-                                "url": "https://groundstation-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "url": "https://groundstation.{Region}.{PartitionResult#dnsSuffix}",
                                 "properties": {},
                                 "headers": {}
                               },
@@ -2830,74 +3516,13 @@
                           ]
                         }
                       ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "FIPS is enabled but this partition does not support FIPS",
-                      "type": "error"
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseDualStack"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsDualStack"
-                              ]
-                            }
-                          ]
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
-                        {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": "https://groundstation.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "DualStack is enabled but this partition does not support DualStack",
-                      "type": "error"
                     }
                   ]
                 },
                 {
                   "conditions": [],
-                  "endpoint": {
-                    "url": "https://groundstation.{Region}.{PartitionResult#dnsSuffix}",
-                    "properties": {},
-                    "headers": {}
-                  },
-                  "type": "endpoint"
+                  "error": "Invalid Configuration: Missing Region",
+                  "type": "error"
                 }
               ]
             }
@@ -2906,201 +3531,6 @@
         "smithy.rules#endpointTests": {
           "testCases": [
             {
-              "documentation": "For region ca-central-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation-fips.ca-central-1.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": true,
-                "Region": "ca-central-1"
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation-fips.ca-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": true,
-                "Region": "ca-central-1"
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation.ca-central-1.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": false,
-                "Region": "ca-central-1"
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation.ca-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "ca-central-1"
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation-fips.eu-central-1.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": true,
-                "Region": "eu-central-1"
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation-fips.eu-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": true,
-                "Region": "eu-central-1"
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation.eu-central-1.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": false,
-                "Region": "eu-central-1"
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation.eu-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "eu-central-1"
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation-fips.us-west-2.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": true,
-                "Region": "us-west-2"
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation-fips.us-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": true,
-                "Region": "us-west-2"
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation.us-west-2.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": false,
-                "Region": "us-west-2"
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation.us-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "us-west-2"
-              }
-            },
-            {
-              "documentation": "For region af-south-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation-fips.af-south-1.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": true,
-                "Region": "af-south-1"
-              }
-            },
-            {
-              "documentation": "For region af-south-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation-fips.af-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": true,
-                "Region": "af-south-1"
-              }
-            },
-            {
-              "documentation": "For region af-south-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation.af-south-1.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": false,
-                "Region": "af-south-1"
-              }
-            },
-            {
               "documentation": "For region af-south-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
@@ -3108,152 +3538,9 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
                 "UseFIPS": false,
+                "UseDualStack": false,
                 "Region": "af-south-1"
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation-fips.eu-north-1.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": true,
-                "Region": "eu-north-1"
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation-fips.eu-north-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": true,
-                "Region": "eu-north-1"
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation.eu-north-1.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": false,
-                "Region": "eu-north-1"
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation.eu-north-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "eu-north-1"
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation-fips.eu-west-1.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": true,
-                "Region": "eu-west-1"
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation-fips.eu-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": true,
-                "Region": "eu-west-1"
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation.eu-west-1.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": false,
-                "Region": "eu-west-1"
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation.eu-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "eu-west-1"
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation-fips.ap-northeast-2.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": true,
-                "Region": "ap-northeast-2"
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation-fips.ap-northeast-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": true,
-                "Region": "ap-northeast-2"
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation.ap-northeast-2.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": false,
-                "Region": "ap-northeast-2"
               }
             },
             {
@@ -3264,204 +3551,9 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
                 "UseFIPS": false,
+                "UseDualStack": false,
                 "Region": "ap-northeast-2"
-              }
-            },
-            {
-              "documentation": "For region me-south-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation-fips.me-south-1.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": true,
-                "Region": "me-south-1"
-              }
-            },
-            {
-              "documentation": "For region me-south-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation-fips.me-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": true,
-                "Region": "me-south-1"
-              }
-            },
-            {
-              "documentation": "For region me-south-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation.me-south-1.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": false,
-                "Region": "me-south-1"
-              }
-            },
-            {
-              "documentation": "For region me-south-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation.me-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "me-south-1"
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation-fips.sa-east-1.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": true,
-                "Region": "sa-east-1"
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation-fips.sa-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": true,
-                "Region": "sa-east-1"
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation.sa-east-1.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": false,
-                "Region": "sa-east-1"
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation.sa-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "sa-east-1"
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation-fips.ap-southeast-1.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": true,
-                "Region": "ap-southeast-1"
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation-fips.ap-southeast-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": true,
-                "Region": "ap-southeast-1"
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation.ap-southeast-1.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": false,
-                "Region": "ap-southeast-1"
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation.ap-southeast-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "ap-southeast-1"
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation-fips.ap-southeast-2.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": true,
-                "Region": "ap-southeast-2"
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation-fips.ap-southeast-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": true,
-                "Region": "ap-southeast-2"
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation.ap-southeast-2.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": false,
-                "Region": "ap-southeast-2"
               }
             },
             {
@@ -3472,21 +3564,86 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
                 "UseFIPS": false,
+                "UseDualStack": false,
                 "Region": "ap-southeast-2"
               }
             },
             {
-              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://groundstation-fips.us-east-1.api.aws"
+                  "url": "https://groundstation.eu-central-1.amazonaws.com"
                 }
               },
               "params": {
-                "UseDualStack": true,
-                "UseFIPS": true,
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "eu-central-1"
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://groundstation.eu-north-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "eu-north-1"
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://groundstation.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "eu-west-1"
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://groundstation.me-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "me-south-1"
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://groundstation.sa-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "sa-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://groundstation.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
                 "Region": "us-east-1"
               }
             },
@@ -3498,47 +3655,21 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
                 "UseFIPS": true,
-                "Region": "us-east-1"
-              }
-            },
-            {
-              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation.us-east-1.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": false,
-                "Region": "us-east-1"
-              }
-            },
-            {
-              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation.us-east-1.amazonaws.com"
-                }
-              },
-              "params": {
                 "UseDualStack": false,
-                "UseFIPS": false,
                 "Region": "us-east-1"
               }
             },
             {
-              "documentation": "For region us-east-2 with FIPS enabled and DualStack enabled",
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://groundstation-fips.us-east-2.api.aws"
+                  "url": "https://groundstation.us-east-2.amazonaws.com"
                 }
               },
               "params": {
-                "UseDualStack": true,
-                "UseFIPS": true,
+                "UseFIPS": false,
+                "UseDualStack": false,
                 "Region": "us-east-2"
               }
             },
@@ -3550,48 +3681,287 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
                 "UseFIPS": true,
-                "Region": "us-east-2"
-              }
-            },
-            {
-              "documentation": "For region us-east-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation.us-east-2.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": false,
-                "Region": "us-east-2"
-              }
-            },
-            {
-              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation.us-east-2.amazonaws.com"
-                }
-              },
-              "params": {
                 "UseDualStack": false,
-                "UseFIPS": false,
                 "Region": "us-east-2"
               }
             },
             {
-              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://groundstation.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "us-west-2"
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://groundstation-fips.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "UseDualStack": false,
+                "Region": "us-west-2"
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://groundstation-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "UseDualStack": true,
+                "Region": "us-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://groundstation.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": true,
+                "Region": "us-east-1"
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://groundstation-fips.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "UseDualStack": true,
+                "Region": "cn-north-1"
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://groundstation-fips.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "UseDualStack": false,
+                "Region": "cn-north-1"
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://groundstation.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": true,
+                "Region": "cn-north-1"
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://groundstation.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "cn-north-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://groundstation-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "UseDualStack": true,
+                "Region": "us-gov-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://groundstation-fips.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "UseDualStack": false,
+                "Region": "us-gov-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://groundstation.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": true,
+                "Region": "us-gov-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://groundstation.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "us-gov-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "UseFIPS": true,
+                "UseDualStack": true,
+                "Region": "us-iso-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://groundstation-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "UseDualStack": false,
+                "Region": "us-iso-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": true,
+                "Region": "us-iso-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://groundstation.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "us-iso-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "UseFIPS": true,
+                "UseDualStack": true,
+                "Region": "us-isob-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://groundstation-fips.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "UseDualStack": false,
+                "Region": "us-isob-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": true,
+                "Region": "us-isob-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://groundstation.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "us-isob-east-1"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region set and fips disabled and dualstack disabled",
               "expect": {
                 "endpoint": {
                   "url": "https://example.com"
                 }
               },
               "params": {
-                "UseDualStack": false,
                 "UseFIPS": false,
+                "UseDualStack": false,
                 "Region": "us-east-1",
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region not set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -3601,8 +3971,8 @@
                 "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
               },
               "params": {
-                "UseDualStack": false,
                 "UseFIPS": true,
+                "UseDualStack": false,
                 "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
@@ -3613,10 +3983,16 @@
                 "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
               },
               "params": {
-                "UseDualStack": true,
                 "UseFIPS": false,
+                "UseDualStack": true,
                 "Region": "us-east-1",
                 "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "Missing region",
+              "expect": {
+                "error": "Invalid Configuration: Missing Region"
               }
             }
           ],
@@ -3694,6 +4070,48 @@
         }
       }
     },
+    "com.amazonaws.groundstation#InstanceId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 10,
+          "max": 64
+        },
+        "smithy.api#pattern": "^[a-z0-9-]{10,64}$"
+      }
+    },
+    "com.amazonaws.groundstation#InstanceType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 64
+        },
+        "smithy.api#pattern": "^[a-z0-9.-]{1,64}$"
+      }
+    },
+    "com.amazonaws.groundstation#IntegerRange": {
+      "type": "structure",
+      "members": {
+        "minimum": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>A minimum value.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "maximum": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>A maximum value.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An integer range that has a minimum and maximum value.</p>"
+      }
+    },
     "com.amazonaws.groundstation#InvalidParameterException": {
       "type": "structure",
       "members": {
@@ -3713,6 +4131,28 @@
         "smithy.api#httpError": 431
       }
     },
+    "com.amazonaws.groundstation#IpAddressList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.groundstation#IpV4Address"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 20
+        }
+      }
+    },
+    "com.amazonaws.groundstation#IpV4Address": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 7,
+          "max": 16
+        },
+        "smithy.api#pattern": "^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}$"
+      }
+    },
     "com.amazonaws.groundstation#JsonString": {
       "type": "string",
       "traits": {
@@ -3723,12 +4163,42 @@
         "smithy.api#pattern": "^[{}\\[\\]:.,\"0-9A-z\\-_\\s]{2,8192}$"
       }
     },
+    "com.amazonaws.groundstation#KeyAliasArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 512
+        },
+        "smithy.api#pattern": "^arn:aws[a-zA-Z-]{0,16}:kms:[a-z]{2}(-[a-z]{1,16}){1,3}-\\d{1}:\\d{12}:((alias/[a-zA-Z0-9:/_-]{1,256}))$"
+      }
+    },
     "com.amazonaws.groundstation#KeyArn": {
       "type": "string",
       "traits": {
         "aws.api#arnReference": {
           "type": "AWS::KMS::Key"
         }
+      }
+    },
+    "com.amazonaws.groundstation#KmsKey": {
+      "type": "union",
+      "members": {
+        "kmsKeyArn": {
+          "target": "com.amazonaws.groundstation#KeyArn",
+          "traits": {
+            "smithy.api#documentation": "<p>KMS Key Arn.</p>"
+          }
+        },
+        "kmsAliasArn": {
+          "target": "com.amazonaws.groundstation#KeyAliasArn",
+          "traits": {
+            "smithy.api#documentation": "<p>KMS Alias Arn.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>AWS Key Management Service (KMS) Key.</p>"
       }
     },
     "com.amazonaws.groundstation#ListConfigs": {
@@ -4552,6 +5022,110 @@
         }
       }
     },
+    "com.amazonaws.groundstation#RangedConnectionDetails": {
+      "type": "structure",
+      "members": {
+        "socketAddress": {
+          "target": "com.amazonaws.groundstation#RangedSocketAddress",
+          "traits": {
+            "smithy.api#documentation": "<p>A ranged socket address.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "mtu": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.</p>",
+            "smithy.api#range": {
+              "min": 1400,
+              "max": 1500
+            }
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Ingress address of AgentEndpoint with a port range and an optional mtu.</p>"
+      }
+    },
+    "com.amazonaws.groundstation#RangedSocketAddress": {
+      "type": "structure",
+      "members": {
+        "name": {
+          "target": "com.amazonaws.groundstation#IpV4Address",
+          "traits": {
+            "smithy.api#documentation": "<p>IPv4 socket address.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "portRange": {
+          "target": "com.amazonaws.groundstation#IntegerRange",
+          "traits": {
+            "smithy.api#documentation": "<p>Port range of a socket address.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A socket address with a port range.</p>"
+      }
+    },
+    "com.amazonaws.groundstation#RegisterAgent": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.groundstation#RegisterAgentRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.groundstation#RegisterAgentResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.groundstation#DependencyException"
+        },
+        {
+          "target": "com.amazonaws.groundstation#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.groundstation#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<note>\n            <p> For use by AWS Ground Station Agent and shouldn't be called directly.</p>\n         </note>\n         <p> Registers a new agent with AWS Ground Station. </p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/agent"
+        }
+      }
+    },
+    "com.amazonaws.groundstation#RegisterAgentRequest": {
+      "type": "structure",
+      "members": {
+        "discoveryData": {
+          "target": "com.amazonaws.groundstation#DiscoveryData",
+          "traits": {
+            "smithy.api#documentation": "<p>Data for associating an agent with the capabilities it is managing.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "agentDetails": {
+          "target": "com.amazonaws.groundstation#AgentDetails",
+          "traits": {
+            "smithy.api#documentation": "<p>Detailed information about the agent being registered.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.groundstation#RegisterAgentResponse": {
+      "type": "structure",
+      "members": {
+        "agentId": {
+          "target": "com.amazonaws.groundstation#Uuid",
+          "traits": {
+            "smithy.api#documentation": "<p>UUID of registered agent.</p>"
+          }
+        }
+      }
+    },
     "com.amazonaws.groundstation#ReserveContact": {
       "type": "operation",
       "input": {
@@ -4886,6 +5460,15 @@
         "target": "smithy.api#String"
       }
     },
+    "com.amazonaws.groundstation#SignatureMap": {
+      "type": "map",
+      "key": {
+        "target": "smithy.api#String"
+      },
+      "value": {
+        "target": "smithy.api#Boolean"
+      }
+    },
     "com.amazonaws.groundstation#SocketAddress": {
       "type": "structure",
       "members": {
@@ -4926,7 +5509,7 @@
         "configDetails": {
           "target": "com.amazonaws.groundstation#ConfigDetails",
           "traits": {
-            "smithy.api#documentation": "<p>Additional details for a <code>Config</code>, if type is <code>dataflow-endpoint</code> or <code>antenna-downlink-demod-decode</code> \n         </p>"
+            "smithy.api#documentation": "<p>Additional details for a <code>Config</code>, if type is <code>dataflow-endpoint</code> or <code>antenna-downlink-demod-decode</code>\n         </p>"
           }
         },
         "dataflowSourceRegion": {
@@ -4953,7 +5536,7 @@
         "bandwidth": {
           "target": "com.amazonaws.groundstation#FrequencyBandwidth",
           "traits": {
-            "smithy.api#documentation": "<p>Bandwidth of a spectral <code>Config</code>. AWS Ground Station currently has the following bandwidth limitations:</p>\n            <ul>\n            <li> \n               <p>For <code>AntennaDownlinkDemodDecodeconfig</code>, valid values are between 125 kHz to 650 MHz.</p>\n            </li>\n            <li> \n               <p>For <code>AntennaDownlinkconfig</code> valid values are between 10 kHz to 54 MHz.</p>\n            </li>\n            <li> \n               <p>For <code>AntennaUplinkConfig</code>, valid values are between 10 kHz to 54 MHz.</p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>Bandwidth of a spectral <code>Config</code>. AWS Ground Station currently has the following bandwidth limitations:</p>\n         <ul>\n            <li>\n               <p>For <code>AntennaDownlinkDemodDecodeconfig</code>, valid values are between 125 kHz to 650 MHz.</p>\n            </li>\n            <li>\n               <p>For <code>AntennaDownlinkconfig</code> valid values are between 10 kHz to 54 MHz.</p>\n            </li>\n            <li>\n               <p>For <code>AntennaUplinkConfig</code>, valid values are between 10 kHz to 54 MHz.</p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
         },
@@ -5250,6 +5833,80 @@
         "smithy.api#documentation": "<p/>"
       }
     },
+    "com.amazonaws.groundstation#UpdateAgentStatus": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.groundstation#UpdateAgentStatusRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.groundstation#UpdateAgentStatusResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.groundstation#DependencyException"
+        },
+        {
+          "target": "com.amazonaws.groundstation#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.groundstation#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<note>\n            <p> For use by AWS Ground Station Agent and shouldn't be called directly.</p>\n         </note>\n         <p>Update the status of the agent.</p>",
+        "smithy.api#http": {
+          "method": "PUT",
+          "uri": "/agent/{agentId}"
+        },
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.groundstation#UpdateAgentStatusRequest": {
+      "type": "structure",
+      "members": {
+        "agentId": {
+          "target": "com.amazonaws.groundstation#Uuid",
+          "traits": {
+            "smithy.api#documentation": "<p>UUID of agent to update.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "taskId": {
+          "target": "com.amazonaws.groundstation#Uuid",
+          "traits": {
+            "smithy.api#documentation": "<p>GUID of agent task.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "aggregateStatus": {
+          "target": "com.amazonaws.groundstation#AggregateStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>Aggregate status for agent.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "componentStatuses": {
+          "target": "com.amazonaws.groundstation#ComponentStatusList",
+          "traits": {
+            "smithy.api#documentation": "<p>List of component statuses for agent.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.groundstation#UpdateAgentStatusResponse": {
+      "type": "structure",
+      "members": {
+        "agentId": {
+          "target": "com.amazonaws.groundstation#Uuid",
+          "traits": {
+            "smithy.api#documentation": "<p>UUID of updated agent.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
     "com.amazonaws.groundstation#UpdateConfig": {
       "type": "operation",
       "input": {
@@ -5371,7 +6028,7 @@
         "priority": {
           "target": "com.amazonaws.groundstation#EphemerisPriority",
           "traits": {
-            "smithy.api#documentation": "<p>Customer-provided priority score to establish the order in which overlapping ephemerides should be used.</p>\n        <p>The default for customer-provided ephemeris priority is 1, and higher numbers take precedence.</p>\n        <p>Priority must be 1 or greater</p>"
+            "smithy.api#documentation": "<p>Customer-provided priority score to establish the order in which overlapping ephemerides should be used.</p>\n         <p>The default for customer-provided ephemeris priority is 1, and higher numbers take precedence.</p>\n         <p>Priority must be 1 or greater</p>"
           }
         }
       }
@@ -5442,13 +6099,25 @@
         "dataflowEdges": {
           "target": "com.amazonaws.groundstation#DataflowEdgeList",
           "traits": {
-            "smithy.api#documentation": "<p>A list of lists of ARNs. Each list of ARNs is an edge, with a <i>from</i> \n            <code>Config</code> and a <i>to</i> \n            <code>Config</code>.</p>"
+            "smithy.api#documentation": "<p>A list of lists of ARNs. Each list of ARNs is an edge, with a <i>from</i>\n            <code>Config</code> and a <i>to</i>\n            <code>Config</code>.</p>"
           }
         },
         "trackingConfigArn": {
           "target": "com.amazonaws.groundstation#ConfigArn",
           "traits": {
             "smithy.api#documentation": "<p>ARN of a tracking <code>Config</code>.</p>"
+          }
+        },
+        "streamsKmsKey": {
+          "target": "com.amazonaws.groundstation#KmsKey",
+          "traits": {
+            "smithy.api#documentation": "<p>KMS key to use for encrypting streams.</p>"
+          }
+        },
+        "streamsKmsRole": {
+          "target": "com.amazonaws.groundstation#RoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>Role to use for encrypting streams with KMS key.</p>"
           }
         }
       },
@@ -5507,6 +6176,28 @@
           "max": 128
         },
         "smithy.api#pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$"
+      }
+    },
+    "com.amazonaws.groundstation#VersionString": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 64
+        },
+        "smithy.api#pattern": "^(0|[1-9]\\d*)(\\.(0|[1-9]\\d*))*$"
+      }
+    },
+    "com.amazonaws.groundstation#VersionStringList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.groundstation#VersionString"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 20
+        }
       }
     },
     "com.amazonaws.groundstation#Year": {

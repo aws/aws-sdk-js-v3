@@ -6,12 +6,11 @@ import {
   DescribeCacheParameterGroupsCommandInput,
   DescribeCacheParameterGroupsCommandOutput,
 } from "../commands/DescribeCacheParameterGroupsCommand";
-import { ElastiCache } from "../ElastiCache";
 import { ElastiCacheClient } from "../ElastiCacheClient";
 import { ElastiCachePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ElastiCacheClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeCacheParameterGroupsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ElastiCache,
-  input: DescribeCacheParameterGroupsCommandInput,
-  ...args: any
-): Promise<DescribeCacheParameterGroupsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeCacheParameterGroups(input, ...args);
-};
 export async function* paginateDescribeCacheParameterGroups(
   config: ElastiCachePaginationConfiguration,
   input: DescribeCacheParameterGroupsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateDescribeCacheParameterGroups(
   while (hasNext) {
     input.Marker = token;
     input["MaxRecords"] = config.pageSize;
-    if (config.client instanceof ElastiCache) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ElastiCacheClient) {
+    if (config.client instanceof ElastiCacheClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ElastiCache | ElastiCacheClient");

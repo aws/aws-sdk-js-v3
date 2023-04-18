@@ -3,18 +3,37 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { IoTServiceException as __BaseException } from "./IoTServiceException";
 
-export enum AbortAction {
-  CANCEL = "CANCEL",
-}
-
-export enum JobExecutionFailureType {
-  ALL = "ALL",
-  FAILED = "FAILED",
-  REJECTED = "REJECTED",
-  TIMED_OUT = "TIMED_OUT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AbortAction = {
+  CANCEL: "CANCEL",
+} as const;
 
 /**
+ * @public
+ */
+export type AbortAction = (typeof AbortAction)[keyof typeof AbortAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const JobExecutionFailureType = {
+  ALL: "ALL",
+  FAILED: "FAILED",
+  REJECTED: "REJECTED",
+  TIMED_OUT: "TIMED_OUT",
+} as const;
+
+/**
+ * @public
+ */
+export type JobExecutionFailureType = (typeof JobExecutionFailureType)[keyof typeof JobExecutionFailureType];
+
+/**
+ * @public
  * <p>The criteria that determine when and how a job abort takes place.</p>
  */
 export interface AbortCriteria {
@@ -30,7 +49,7 @@ export interface AbortCriteria {
 
   /**
    * <p>The minimum percentage of job execution failures that must occur to initiate the job abort.</p>
-   *         <p>Amazon Web Services IoT Core supports up to two digits after the decimal (for example, 10.9 and 10.99, but not 10.999).</p>
+   *          <p>Amazon Web Services IoT Core supports up to two digits after the decimal (for example, 10.9 and 10.99, but not 10.999).</p>
    */
   thresholdPercentage: number | undefined;
 
@@ -42,6 +61,7 @@ export interface AbortCriteria {
 }
 
 /**
+ * @public
  * <p>The criteria that determine when and how a job abort takes place.</p>
  */
 export interface AbortConfig {
@@ -52,6 +72,7 @@ export interface AbortConfig {
 }
 
 /**
+ * @public
  * <p>The input for the AcceptCertificateTransfer operation.</p>
  */
 export interface AcceptCertificateTransferRequest {
@@ -68,6 +89,7 @@ export interface AcceptCertificateTransferRequest {
 }
 
 /**
+ * @public
  * <p>An unexpected error has occurred.</p>
  */
 export class InternalFailureException extends __BaseException {
@@ -87,6 +109,7 @@ export class InternalFailureException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request is not valid.</p>
  */
 export class InvalidRequestException extends __BaseException {
@@ -106,6 +129,7 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource does not exist.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -125,6 +149,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The service is temporarily unavailable.</p>
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -144,6 +169,7 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The rate exceeds the limit.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -163,6 +189,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You can't revert the certificate transfer because the transfer is already
  *          complete.</p>
  */
@@ -183,6 +210,7 @@ export class TransferAlreadyCompletedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You are not authorized to perform this operation.</p>
  */
 export class UnauthorizedException extends __BaseException {
@@ -202,6 +230,7 @@ export class UnauthorizedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Describes an action that updates a CloudWatch alarm.</p>
  */
 export interface CloudwatchAlarmAction {
@@ -228,6 +257,7 @@ export interface CloudwatchAlarmAction {
 }
 
 /**
+ * @public
  * <p>Describes an action that sends data to CloudWatch Logs.</p>
  */
 export interface CloudwatchLogsAction {
@@ -240,9 +270,16 @@ export interface CloudwatchLogsAction {
    * <p>The CloudWatch log group to which the action sends data.</p>
    */
   logGroupName: string | undefined;
+
+  /**
+   * <p>Indicates whether batches of log records will be extracted and uploaded into CloudWatch. Values include <code>true</code> or <code>false</code>
+   *             <i>(default)</i>.</p>
+   */
+  batchMode?: boolean;
 }
 
 /**
+ * @public
  * <p>Describes an action that captures a CloudWatch metric.</p>
  */
 export interface CloudwatchMetricAction {
@@ -278,27 +315,37 @@ export interface CloudwatchMetricAction {
   metricTimestamp?: string;
 }
 
-export enum DynamoKeyType {
-  NUMBER = "NUMBER",
-  STRING = "STRING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DynamoKeyType = {
+  NUMBER: "NUMBER",
+  STRING: "STRING",
+} as const;
 
 /**
+ * @public
+ */
+export type DynamoKeyType = (typeof DynamoKeyType)[keyof typeof DynamoKeyType];
+
+/**
+ * @public
  * <p>Describes an action to write to a DynamoDB table.</p>
  *          <p>The <code>tableName</code>, <code>hashKeyField</code>, and <code>rangeKeyField</code>
  *          values must match the values used when you created the table.</p>
  *          <p>The <code>hashKeyValue</code> and <code>rangeKeyvalue</code> fields use a
  *          substitution template syntax. These templates provide data at runtime. The syntax is as
- *          follows: ${<i>sql-expression</i>}.</p>
+ *          follows: $\{<i>sql-expression</i>\}.</p>
  *          <p>You can specify any valid expression in a WHERE or SELECT clause, including JSON
  *          properties, comparisons, calculations, and functions. For example, the following field uses
  *          the third level of the topic:</p>
  *          <p>
- *             <code>"hashKeyValue": "${topic(3)}"</code>
+ *             <code>"hashKeyValue": "$\{topic(3)\}"</code>
  *          </p>
  *          <p>The following field uses the timestamp:</p>
  *          <p>
- *             <code>"rangeKeyValue": "${timestamp()}"</code>
+ *             <code>"rangeKeyValue": "$\{timestamp()\}"</code>
  *          </p>
  */
 export interface DynamoDBAction {
@@ -314,7 +361,7 @@ export interface DynamoDBAction {
 
   /**
    * <p>The type of operation to be performed. This follows the substitution template, so it
-   *          can be <code>${operation}</code>, but the substitution must result in one of the following:
+   *          can be <code>$\{operation\}</code>, but the substitution must result in one of the following:
    *             <code>INSERT</code>, <code>UPDATE</code>, or <code>DELETE</code>.</p>
    */
   operation?: string;
@@ -356,6 +403,7 @@ export interface DynamoDBAction {
 }
 
 /**
+ * @public
  * <p>The input for the DynamoActionVS action that specifies the DynamoDB table to which
  *          the message data will be written.</p>
  */
@@ -367,6 +415,7 @@ export interface PutItemInput {
 }
 
 /**
+ * @public
  * <p>Describes an action to write to a DynamoDB table.</p>
  *          <p>This DynamoDB action writes each attribute in the message payload into it's own
  *          column in the DynamoDB table.</p>
@@ -381,8 +430,8 @@ export interface DynamoDBv2Action {
    * <p>Specifies the DynamoDB table to which the message data will be written. For
    *          example:</p>
    *          <p>
-   *             <code>{ "dynamoDBv2": { "roleArn": "aws:iam:12341251:my-role" "putItem": { "tableName":
-   *             "my-table" } } }</code>
+   *             <code>\{ "dynamoDBv2": \{ "roleArn": "aws:iam:12341251:my-role" "putItem": \{ "tableName":
+   *             "my-table" \} \} \}</code>
    *          </p>
    *          <p>Each attribute in the message payload will be written to a separate column in the
    *          DynamoDB database.</p>
@@ -391,6 +440,7 @@ export interface DynamoDBv2Action {
 }
 
 /**
+ * @public
  * <p>Describes an action that writes data to an Amazon OpenSearch Service
  *          domain.</p>
  *          <note>
@@ -427,6 +477,7 @@ export interface ElasticsearchAction {
 }
 
 /**
+ * @public
  * <p>Describes an action that writes data to an Amazon Kinesis Firehose stream.</p>
  */
 export interface FirehoseAction {
@@ -462,6 +513,7 @@ export interface FirehoseAction {
 }
 
 /**
+ * @public
  * <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 signing process</a>.</p>
  */
 export interface SigV4Authorization {
@@ -482,6 +534,7 @@ export interface SigV4Authorization {
 }
 
 /**
+ * @public
  * <p>The authorization method used to send messages.</p>
  */
 export interface HttpAuthorization {
@@ -493,6 +546,7 @@ export interface HttpAuthorization {
 }
 
 /**
+ * @public
  * <p>The HTTP action header.</p>
  */
 export interface HttpActionHeader {
@@ -508,6 +562,7 @@ export interface HttpActionHeader {
 }
 
 /**
+ * @public
  * <p>Send data to an HTTPS endpoint.</p>
  */
 export interface HttpAction {
@@ -540,6 +595,7 @@ export interface HttpAction {
 }
 
 /**
+ * @public
  * <p>Sends message data to an IoT Analytics channel.</p>
  */
 export interface IotAnalyticsAction {
@@ -573,6 +629,7 @@ export interface IotAnalyticsAction {
 }
 
 /**
+ * @public
  * <p>Sends an input to an IoT Events detector.</p>
  */
 export interface IotEventsAction {
@@ -612,6 +669,7 @@ export interface IotEventsAction {
 }
 
 /**
+ * @public
  * <p>An asset property timestamp entry containing the following information.</p>
  */
 export interface AssetPropertyTimestamp {
@@ -629,6 +687,7 @@ export interface AssetPropertyTimestamp {
 }
 
 /**
+ * @public
  * <p>Contains an asset property value (of a single type).</p>
  */
 export type AssetPropertyVariant =
@@ -638,6 +697,9 @@ export type AssetPropertyVariant =
   | AssetPropertyVariant.StringValueMember
   | AssetPropertyVariant.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace AssetPropertyVariant {
   /**
    * <p>Optional. The string value of the value entry. Accepts substitution templates.</p>
@@ -712,6 +774,7 @@ export namespace AssetPropertyVariant {
 }
 
 /**
+ * @public
  * <p>An asset property value entry containing the following information.</p>
  */
 export interface AssetPropertyValue {
@@ -733,6 +796,7 @@ export interface AssetPropertyValue {
 }
 
 /**
+ * @public
  * <p>An asset property value entry containing the following information.</p>
  */
 export interface PutAssetPropertyValueEntry {
@@ -772,6 +836,7 @@ export interface PutAssetPropertyValueEntry {
 }
 
 /**
+ * @public
  * <p>Describes an action to send data from an MQTT message that triggered the rule to IoT
  *       SiteWise asset properties.</p>
  */
@@ -789,6 +854,7 @@ export interface IotSiteWiseAction {
 }
 
 /**
+ * @public
  * <p>Send messages to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) or self-managed Apache Kafka cluster.</p>
  */
 export interface KafkaAction {
@@ -819,6 +885,7 @@ export interface KafkaAction {
 }
 
 /**
+ * @public
  * <p>Describes an action to write data to an Amazon Kinesis stream.</p>
  */
 export interface KinesisAction {
@@ -839,6 +906,7 @@ export interface KinesisAction {
 }
 
 /**
+ * @public
  * <p>Describes an action to invoke a Lambda function.</p>
  */
 export interface LambdaAction {
@@ -849,6 +917,7 @@ export interface LambdaAction {
 }
 
 /**
+ * @public
  * <p>Describes how to interpret an application-defined timestamp value from an MQTT message
  *          payload and the precision of that value.</p>
  */
@@ -869,6 +938,7 @@ export interface LocationTimestamp {
 }
 
 /**
+ * @public
  * <p>The Amazon Location rule action sends device location updates from
  *          an MQTT message to an Amazon Location tracker resource.</p>
  */
@@ -908,6 +978,7 @@ export interface LocationAction {
 }
 
 /**
+ * @public
  * <p>Describes an action that writes data to an Amazon OpenSearch Service
  *          domain.</p>
  */
@@ -939,6 +1010,7 @@ export interface OpenSearchAction {
 }
 
 /**
+ * @public
  * <p>A key-value pair that you define in the header. Both the key and the value are either
  *          literal strings or valid <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html">substitution
  *             templates</a>.</p>
@@ -956,6 +1028,7 @@ export interface UserProperty {
 }
 
 /**
+ * @public
  * <p>Specifies MQTT Version 5.0 headers information. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/mqtt.html"> MQTT</a> from
  *          Amazon Web Services IoT Core Developer Guide.</p>
  */
@@ -1024,6 +1097,7 @@ export interface MqttHeaders {
 }
 
 /**
+ * @public
  * <p>Describes an action to republish to another topic.</p>
  */
 export interface RepublishAction {
@@ -1050,18 +1124,28 @@ export interface RepublishAction {
   headers?: MqttHeaders;
 }
 
-export enum CannedAccessControlList {
-  AuthenticatedRead = "authenticated-read",
-  AwsExecRead = "aws-exec-read",
-  BucketOwnerFullControl = "bucket-owner-full-control",
-  BucketOwnerRead = "bucket-owner-read",
-  LogDeliveryWrite = "log-delivery-write",
-  Private = "private",
-  PublicRead = "public-read",
-  PublicReadWrite = "public-read-write",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CannedAccessControlList = {
+  AuthenticatedRead: "authenticated-read",
+  AwsExecRead: "aws-exec-read",
+  BucketOwnerFullControl: "bucket-owner-full-control",
+  BucketOwnerRead: "bucket-owner-read",
+  LogDeliveryWrite: "log-delivery-write",
+  Private: "private",
+  PublicRead: "public-read",
+  PublicReadWrite: "public-read-write",
+} as const;
 
 /**
+ * @public
+ */
+export type CannedAccessControlList = (typeof CannedAccessControlList)[keyof typeof CannedAccessControlList];
+
+/**
+ * @public
  * <p>Describes an action to write data to an Amazon S3 bucket.</p>
  */
 export interface S3Action {
@@ -1088,6 +1172,7 @@ export interface S3Action {
 }
 
 /**
+ * @public
  * <p>Describes an action to write a message to a Salesforce IoT Cloud Input
  *          Stream.</p>
  */
@@ -1106,12 +1191,22 @@ export interface SalesforceAction {
   url: string | undefined;
 }
 
-export enum MessageFormat {
-  JSON = "JSON",
-  RAW = "RAW",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MessageFormat = {
+  JSON: "JSON",
+  RAW: "RAW",
+} as const;
 
 /**
+ * @public
+ */
+export type MessageFormat = (typeof MessageFormat)[keyof typeof MessageFormat];
+
+/**
+ * @public
  * <p>Describes an action to publish to an Amazon SNS topic.</p>
  */
 export interface SnsAction {
@@ -1135,6 +1230,7 @@ export interface SnsAction {
 }
 
 /**
+ * @public
  * <p>Describes an action to publish data to an Amazon SQS queue.</p>
  */
 export interface SqsAction {
@@ -1155,6 +1251,7 @@ export interface SqsAction {
 }
 
 /**
+ * @public
  * <p>Starts execution of a Step Functions state machine.</p>
  */
 export interface StepFunctionsAction {
@@ -1178,6 +1275,7 @@ export interface StepFunctionsAction {
 }
 
 /**
+ * @public
  * <p>Metadata attributes of the time series that are written in each measure record.</p>
  */
 export interface TimestreamDimension {
@@ -1200,6 +1298,7 @@ export interface TimestreamDimension {
 }
 
 /**
+ * @public
  * <p>Describes how to interpret an application-defined timestamp value from an MQTT message
  *          payload and the precision of that value.</p>
  */
@@ -1220,6 +1319,7 @@ export interface TimestreamTimestamp {
 }
 
 /**
+ * @public
  * <p>The Timestream rule action writes attributes (measures) from an MQTT message
  *          into an Amazon Timestream table. For more information, see the <a href="https://docs.aws.amazon.com/iot/latest/developerguide/timestream-rule-action.html">Timestream</a>
  *          topic rule action documentation.</p>
@@ -1259,6 +1359,7 @@ export interface TimestreamAction {
 }
 
 /**
+ * @public
  * <p>Describes the actions associated with a rule.</p>
  */
 export interface Action {
@@ -1390,33 +1491,61 @@ export interface Action {
   location?: LocationAction;
 }
 
-export enum ActionType {
-  CONNECT = "CONNECT",
-  PUBLISH = "PUBLISH",
-  RECEIVE = "RECEIVE",
-  SUBSCRIBE = "SUBSCRIBE",
-}
-
-export enum ComparisonOperator {
-  GREATER_THAN = "greater-than",
-  GREATER_THAN_EQUALS = "greater-than-equals",
-  IN_CIDR_SET = "in-cidr-set",
-  IN_PORT_SET = "in-port-set",
-  IN_SET = "in-set",
-  LESS_THAN = "less-than",
-  LESS_THAN_EQUALS = "less-than-equals",
-  NOT_IN_CIDR_SET = "not-in-cidr-set",
-  NOT_IN_PORT_SET = "not-in-port-set",
-  NOT_IN_SET = "not-in-set",
-}
-
-export enum ConfidenceLevel {
-  HIGH = "HIGH",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ActionType = {
+  CONNECT: "CONNECT",
+  PUBLISH: "PUBLISH",
+  RECEIVE: "RECEIVE",
+  SUBSCRIBE: "SUBSCRIBE",
+} as const;
 
 /**
+ * @public
+ */
+export type ActionType = (typeof ActionType)[keyof typeof ActionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ComparisonOperator = {
+  GREATER_THAN: "greater-than",
+  GREATER_THAN_EQUALS: "greater-than-equals",
+  IN_CIDR_SET: "in-cidr-set",
+  IN_PORT_SET: "in-port-set",
+  IN_SET: "in-set",
+  LESS_THAN: "less-than",
+  LESS_THAN_EQUALS: "less-than-equals",
+  NOT_IN_CIDR_SET: "not-in-cidr-set",
+  NOT_IN_PORT_SET: "not-in-port-set",
+  NOT_IN_SET: "not-in-set",
+} as const;
+
+/**
+ * @public
+ */
+export type ComparisonOperator = (typeof ComparisonOperator)[keyof typeof ComparisonOperator];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConfidenceLevel = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+} as const;
+
+/**
+ * @public
+ */
+export type ConfidenceLevel = (typeof ConfidenceLevel)[keyof typeof ConfidenceLevel];
+
+/**
+ * @public
  * <p>
  *             The configuration of an ML Detect Security Profile.
  *         </p>
@@ -1431,6 +1560,7 @@ export interface MachineLearningDetectionConfig {
 }
 
 /**
+ * @public
  * <p>A statistical ranking (percentile) that
  *       indicates a threshold value by which a behavior is determined to be in compliance or in
  *       violation of the behavior.</p>
@@ -1450,6 +1580,7 @@ export interface StatisticalThreshold {
 }
 
 /**
+ * @public
  * <p>The value to be compared with the <code>metric</code>.</p>
  */
 export interface MetricValue {
@@ -1494,6 +1625,7 @@ export interface MetricValue {
 }
 
 /**
+ * @public
  * <p>The criteria by which the behavior is determined to be normal.</p>
  */
 export interface BehaviorCriteria {
@@ -1568,12 +1700,22 @@ export interface BehaviorCriteria {
   mlDetectionConfig?: MachineLearningDetectionConfig;
 }
 
-export enum DimensionValueOperator {
-  IN = "IN",
-  NOT_IN = "NOT_IN",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DimensionValueOperator = {
+  IN: "IN",
+  NOT_IN: "NOT_IN",
+} as const;
 
 /**
+ * @public
+ */
+export type DimensionValueOperator = (typeof DimensionValueOperator)[keyof typeof DimensionValueOperator];
+
+/**
+ * @public
  * <p>The dimension of a metric.</p>
  */
 export interface MetricDimension {
@@ -1589,6 +1731,7 @@ export interface MetricDimension {
 }
 
 /**
+ * @public
  * <p>A Device Defender security profile behavior.</p>
  */
 export interface Behavior {
@@ -1623,14 +1766,24 @@ export interface Behavior {
   suppressAlerts?: boolean;
 }
 
-export enum VerificationState {
-  BENIGN_POSITIVE = "BENIGN_POSITIVE",
-  FALSE_POSITIVE = "FALSE_POSITIVE",
-  TRUE_POSITIVE = "TRUE_POSITIVE",
-  UNKNOWN = "UNKNOWN",
-}
+/**
+ * @public
+ * @enum
+ */
+export const VerificationState = {
+  BENIGN_POSITIVE: "BENIGN_POSITIVE",
+  FALSE_POSITIVE: "FALSE_POSITIVE",
+  TRUE_POSITIVE: "TRUE_POSITIVE",
+  UNKNOWN: "UNKNOWN",
+} as const;
 
 /**
+ * @public
+ */
+export type VerificationState = (typeof VerificationState)[keyof typeof VerificationState];
+
+/**
+ * @public
  * <p>
  *             The details of a violation event.
  *         </p>
@@ -1645,6 +1798,7 @@ export interface ViolationEventAdditionalInfo {
 }
 
 /**
+ * @public
  * <p>Information about an active Device Defender security profile behavior violation.</p>
  */
 export interface ActiveViolation {
@@ -1702,6 +1856,7 @@ export interface ActiveViolation {
 }
 
 /**
+ * @public
  * <p>The metric you want to retain. Dimensions are optional.</p>
  */
 export interface MetricToRetain {
@@ -1717,6 +1872,7 @@ export interface MetricToRetain {
 }
 
 /**
+ * @public
  * <p>Parameters used when defining a mitigation action that move a set of things to a thing group.</p>
  */
 export interface AddThingsToThingGroupParams {
@@ -1731,10 +1887,13 @@ export interface AddThingsToThingGroupParams {
   overrideDynamicGroups?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface AddThingToBillingGroupRequest {
   /**
    * <p>The name of the billing group.</p>
-   * 		       <note>
+   *          <note>
    *             <p>This call is asynchronous. It might take several seconds for the detachment to propagate.</p>
    *          </note>
    */
@@ -1756,8 +1915,14 @@ export interface AddThingToBillingGroupRequest {
   thingArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface AddThingToBillingGroupResponse {}
 
+/**
+ * @public
+ */
 export interface AddThingToThingGroupRequest {
   /**
    * <p>The name of the group to which you are adding a thing.</p>
@@ -1788,15 +1953,28 @@ export interface AddThingToThingGroupRequest {
   overrideDynamicGroups?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface AddThingToThingGroupResponse {}
 
-export enum AggregationTypeName {
-  CARDINALITY = "Cardinality",
-  PERCENTILES = "Percentiles",
-  STATISTICS = "Statistics",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AggregationTypeName = {
+  CARDINALITY: "Cardinality",
+  PERCENTILES: "Percentiles",
+  STATISTICS: "Statistics",
+} as const;
 
 /**
+ * @public
+ */
+export type AggregationTypeName = (typeof AggregationTypeName)[keyof typeof AggregationTypeName];
+
+/**
+ * @public
  * <p>The type of aggregation queries.</p>
  */
 export interface AggregationType {
@@ -1812,6 +1990,7 @@ export interface AggregationType {
 }
 
 /**
+ * @public
  * <p>A structure containing the alert target ARN and the role ARN.</p>
  */
 export interface AlertTarget {
@@ -1827,11 +2006,21 @@ export interface AlertTarget {
   roleArn: string | undefined;
 }
 
-export enum AlertTargetType {
-  SNS = "SNS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AlertTargetType = {
+  SNS: "SNS",
+} as const;
 
 /**
+ * @public
+ */
+export type AlertTargetType = (typeof AlertTargetType)[keyof typeof AlertTargetType];
+
+/**
+ * @public
  * <p>Describes an IoT policy.</p>
  */
 export interface Policy {
@@ -1847,6 +2036,7 @@ export interface Policy {
 }
 
 /**
+ * @public
  * <p>Contains information that allowed the authorization.</p>
  */
 export interface Allowed {
@@ -1856,6 +2046,9 @@ export interface Allowed {
   policies?: Policy[];
 }
 
+/**
+ * @public
+ */
 export interface AssociateTargetsWithJobRequest {
   /**
    * <p>A list of thing group ARNs that define the targets of the job.</p>
@@ -1874,18 +2067,21 @@ export interface AssociateTargetsWithJobRequest {
 
   /**
    * <p>The namespace used to indicate that a job is a customer-managed job.</p>
-   *         <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
+   *          <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
    *             contain the value in the following format.</p>
-   *         <p>
+   *          <p>
    *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
    *          </p>
-   *         <note>
+   *          <note>
    *             <p>The <code>namespaceId</code> feature is in public preview.</p>
    *          </note>
    */
   namespaceId?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateTargetsWithJobResponse {
   /**
    * <p>An ARN identifying the job.</p>
@@ -1904,6 +2100,7 @@ export interface AssociateTargetsWithJobResponse {
 }
 
 /**
+ * @public
  * <p>A limit has been exceeded.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -1922,6 +2119,9 @@ export class LimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AttachPolicyRequest {
   /**
    * <p>The name of the policy to attach.</p>
@@ -1935,6 +2135,7 @@ export interface AttachPolicyRequest {
 }
 
 /**
+ * @public
  * <p>The input for the AttachPrincipalPolicy operation.</p>
  */
 export interface AttachPrincipalPolicyRequest {
@@ -1950,6 +2151,9 @@ export interface AttachPrincipalPolicyRequest {
   principal: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AttachSecurityProfileRequest {
   /**
    * <p>The security profile that is attached.</p>
@@ -1962,9 +2166,13 @@ export interface AttachSecurityProfileRequest {
   securityProfileTargetArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AttachSecurityProfileResponse {}
 
 /**
+ * @public
  * <p>An exception thrown when the version of an entity specified with the
  *             <code>expectedVersion</code> parameter does not match the latest version in the
  *          system.</p>
@@ -1986,6 +2194,7 @@ export class VersionConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input for the AttachThingPrincipal operation.</p>
  */
 export interface AttachThingPrincipalRequest {
@@ -2002,34 +2211,37 @@ export interface AttachThingPrincipalRequest {
 }
 
 /**
+ * @public
  * <p>The output from the AttachThingPrincipal operation.</p>
  */
 export interface AttachThingPrincipalResponse {}
 
 /**
+ * @public
  * <p>The attribute payload.</p>
  */
 export interface AttributePayload {
   /**
    * <p>A JSON string containing up to three key-value pair in JSON format. For example:</p>
-   * 		       <p>
-   * 			         <code>{\"attributes\":{\"string1\":\"string2\"}}</code>
-   * 		       </p>
+   *          <p>
+   *             <code>\{\"attributes\":\{\"string1\":\"string2\"\}\}</code>
+   *          </p>
    */
   attributes?: Record<string, string>;
 
   /**
    * <p>Specifies whether the list of attributes provided in the <code>AttributePayload</code> is merged with
    * 			the attributes stored in the registry, instead of overwriting them.</p>
-   * 		       <p>To remove an attribute, call <code>UpdateThing</code> with an empty attribute value.</p>
-   * 		       <note>
-   * 			         <p>The <code>merge</code> attribute is only valid when calling <code>UpdateThing</code> or <code>UpdateThingGroup</code>.</p>
-   * 		       </note>
+   *          <p>To remove an attribute, call <code>UpdateThing</code> with an empty attribute value.</p>
+   *          <note>
+   *             <p>The <code>merge</code> attribute is only valid when calling <code>UpdateThing</code> or <code>UpdateThingGroup</code>.</p>
+   *          </note>
    */
   merge?: boolean;
 }
 
 /**
+ * @public
  * <p>Which audit checks are enabled and disabled for this account.</p>
  */
 export interface AuditCheckConfiguration {
@@ -2039,16 +2251,26 @@ export interface AuditCheckConfiguration {
   enabled?: boolean;
 }
 
-export enum AuditCheckRunStatus {
-  CANCELED = "CANCELED",
-  COMPLETED_COMPLIANT = "COMPLETED_COMPLIANT",
-  COMPLETED_NON_COMPLIANT = "COMPLETED_NON_COMPLIANT",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  WAITING_FOR_DATA_COLLECTION = "WAITING_FOR_DATA_COLLECTION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AuditCheckRunStatus = {
+  CANCELED: "CANCELED",
+  COMPLETED_COMPLIANT: "COMPLETED_COMPLIANT",
+  COMPLETED_NON_COMPLIANT: "COMPLETED_NON_COMPLIANT",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  WAITING_FOR_DATA_COLLECTION: "WAITING_FOR_DATA_COLLECTION",
+} as const;
 
 /**
+ * @public
+ */
+export type AuditCheckRunStatus = (typeof AuditCheckRunStatus)[keyof typeof AuditCheckRunStatus];
+
+/**
+ * @public
  * <p>Information about the audit check.</p>
  */
 export interface AuditCheckDetails {
@@ -2093,6 +2315,7 @@ export interface AuditCheckDetails {
 }
 
 /**
+ * @public
  * <p>The certificate issuer indentifier.</p>
  */
 export interface IssuerCertificateIdentifier {
@@ -2113,6 +2336,7 @@ export interface IssuerCertificateIdentifier {
 }
 
 /**
+ * @public
  * <p>Information about the version of the policy associated with the resource.</p>
  */
 export interface PolicyVersionIdentifier {
@@ -2128,6 +2352,7 @@ export interface PolicyVersionIdentifier {
 }
 
 /**
+ * @public
  * <p>Information that identifies the noncompliant resource.</p>
  */
 export interface ResourceIdentifier {
@@ -2182,19 +2407,29 @@ export interface ResourceIdentifier {
   deviceCertificateArn?: string;
 }
 
-export enum ResourceType {
-  ACCOUNT_SETTINGS = "ACCOUNT_SETTINGS",
-  CA_CERTIFICATE = "CA_CERTIFICATE",
-  CLIENT_ID = "CLIENT_ID",
-  COGNITO_IDENTITY_POOL = "COGNITO_IDENTITY_POOL",
-  DEVICE_CERTIFICATE = "DEVICE_CERTIFICATE",
-  IAM_ROLE = "IAM_ROLE",
-  IOT_POLICY = "IOT_POLICY",
-  ISSUER_CERTIFICATE = "ISSUER_CERTIFICATE",
-  ROLE_ALIAS = "ROLE_ALIAS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResourceType = {
+  ACCOUNT_SETTINGS: "ACCOUNT_SETTINGS",
+  CA_CERTIFICATE: "CA_CERTIFICATE",
+  CLIENT_ID: "CLIENT_ID",
+  COGNITO_IDENTITY_POOL: "COGNITO_IDENTITY_POOL",
+  DEVICE_CERTIFICATE: "DEVICE_CERTIFICATE",
+  IAM_ROLE: "IAM_ROLE",
+  IOT_POLICY: "IOT_POLICY",
+  ISSUER_CERTIFICATE: "ISSUER_CERTIFICATE",
+  ROLE_ALIAS: "ROLE_ALIAS",
+} as const;
 
 /**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+
+/**
+ * @public
  * <p>Information about the resource that was noncompliant with the audit check.</p>
  */
 export interface NonCompliantResource {
@@ -2215,6 +2450,7 @@ export interface NonCompliantResource {
 }
 
 /**
+ * @public
  * <p>Information about a related resource.</p>
  */
 export interface RelatedResource {
@@ -2234,14 +2470,24 @@ export interface RelatedResource {
   additionalInfo?: Record<string, string>;
 }
 
-export enum AuditFindingSeverity {
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AuditFindingSeverity = {
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+} as const;
 
 /**
+ * @public
+ */
+export type AuditFindingSeverity = (typeof AuditFindingSeverity)[keyof typeof AuditFindingSeverity];
+
+/**
+ * @public
  * <p>The findings (results) of the audit.</p>
  */
 export interface AuditFinding {
@@ -2305,23 +2551,43 @@ export interface AuditFinding {
   isSuppressed?: boolean;
 }
 
-export enum AuditFrequency {
-  BIWEEKLY = "BIWEEKLY",
-  DAILY = "DAILY",
-  MONTHLY = "MONTHLY",
-  WEEKLY = "WEEKLY",
-}
-
-export enum AuditMitigationActionsExecutionStatus {
-  CANCELED = "CANCELED",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PENDING = "PENDING",
-  SKIPPED = "SKIPPED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AuditFrequency = {
+  BIWEEKLY: "BIWEEKLY",
+  DAILY: "DAILY",
+  MONTHLY: "MONTHLY",
+  WEEKLY: "WEEKLY",
+} as const;
 
 /**
+ * @public
+ */
+export type AuditFrequency = (typeof AuditFrequency)[keyof typeof AuditFrequency];
+
+/**
+ * @public
+ * @enum
+ */
+export const AuditMitigationActionsExecutionStatus = {
+  CANCELED: "CANCELED",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+  SKIPPED: "SKIPPED",
+} as const;
+
+/**
+ * @public
+ */
+export type AuditMitigationActionsExecutionStatus =
+  (typeof AuditMitigationActionsExecutionStatus)[keyof typeof AuditMitigationActionsExecutionStatus];
+
+/**
+ * @public
  * <p>Returned by ListAuditMitigationActionsTask, this object contains information that describes a mitigation action that has been started.</p>
  */
 export interface AuditMitigationActionExecutionMetadata {
@@ -2371,14 +2637,25 @@ export interface AuditMitigationActionExecutionMetadata {
   message?: string;
 }
 
-export enum AuditMitigationActionsTaskStatus {
-  CANCELED = "CANCELED",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AuditMitigationActionsTaskStatus = {
+  CANCELED: "CANCELED",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
 
 /**
+ * @public
+ */
+export type AuditMitigationActionsTaskStatus =
+  (typeof AuditMitigationActionsTaskStatus)[keyof typeof AuditMitigationActionsTaskStatus];
+
+/**
+ * @public
  * <p>Information about an audit mitigation actions task that is returned by <code>ListAuditMitigationActionsTasks</code>.</p>
  */
 export interface AuditMitigationActionsTaskMetadata {
@@ -2399,6 +2676,7 @@ export interface AuditMitigationActionsTaskMetadata {
 }
 
 /**
+ * @public
  * <p>Provides summary counts of how many tasks for findings are in a particular state. This information is included in the response from DescribeAuditMitigationActionsTask.</p>
  */
 export interface TaskStatisticsForAuditCheck {
@@ -2429,6 +2707,7 @@ export interface TaskStatisticsForAuditCheck {
 }
 
 /**
+ * @public
  * <p>Used in MitigationActionParams, this information identifies the target findings to which the mitigation actions are applied. Only one entry appears.</p>
  */
 export interface AuditMitigationActionsTaskTarget {
@@ -2449,6 +2728,7 @@ export interface AuditMitigationActionsTaskTarget {
 }
 
 /**
+ * @public
  * <p>Information about the targets to which audit notifications are sent.</p>
  */
 export interface AuditNotificationTarget {
@@ -2468,11 +2748,21 @@ export interface AuditNotificationTarget {
   enabled?: boolean;
 }
 
-export enum AuditNotificationType {
-  SNS = "SNS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AuditNotificationType = {
+  SNS: "SNS",
+} as const;
 
 /**
+ * @public
+ */
+export type AuditNotificationType = (typeof AuditNotificationType)[keyof typeof AuditNotificationType];
+
+/**
+ * @public
  * <p> Filters out specific findings of a Device Defender audit. </p>
  */
 export interface AuditSuppression {
@@ -2511,19 +2801,38 @@ export interface AuditSuppression {
   description?: string;
 }
 
-export enum AuditTaskStatus {
-  CANCELED = "CANCELED",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-}
-
-export enum AuditTaskType {
-  ON_DEMAND_AUDIT_TASK = "ON_DEMAND_AUDIT_TASK",
-  SCHEDULED_AUDIT_TASK = "SCHEDULED_AUDIT_TASK",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AuditTaskStatus = {
+  CANCELED: "CANCELED",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
 
 /**
+ * @public
+ */
+export type AuditTaskStatus = (typeof AuditTaskStatus)[keyof typeof AuditTaskStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const AuditTaskType = {
+  ON_DEMAND_AUDIT_TASK: "ON_DEMAND_AUDIT_TASK",
+  SCHEDULED_AUDIT_TASK: "SCHEDULED_AUDIT_TASK",
+} as const;
+
+/**
+ * @public
+ */
+export type AuditTaskType = (typeof AuditTaskType)[keyof typeof AuditTaskType];
+
+/**
+ * @public
  * <p>The audits that were performed.</p>
  */
 export interface AuditTaskMetadata {
@@ -2544,13 +2853,23 @@ export interface AuditTaskMetadata {
   taskType?: AuditTaskType | string;
 }
 
-export enum AuthDecision {
-  ALLOWED = "ALLOWED",
-  EXPLICIT_DENY = "EXPLICIT_DENY",
-  IMPLICIT_DENY = "IMPLICIT_DENY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AuthDecision = {
+  ALLOWED: "ALLOWED",
+  EXPLICIT_DENY: "EXPLICIT_DENY",
+  IMPLICIT_DENY: "IMPLICIT_DENY",
+} as const;
 
 /**
+ * @public
+ */
+export type AuthDecision = (typeof AuthDecision)[keyof typeof AuthDecision];
+
+/**
+ * @public
  * <p>A collection of authorization information.</p>
  */
 export interface AuthInfo {
@@ -2567,6 +2886,7 @@ export interface AuthInfo {
 }
 
 /**
+ * @public
  * <p>An object that specifies the authorization service for a domain.</p>
  */
 export interface AuthorizerConfig {
@@ -2581,12 +2901,22 @@ export interface AuthorizerConfig {
   allowAuthorizerOverride?: boolean;
 }
 
-export enum AuthorizerStatus {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AuthorizerStatus = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+} as const;
 
 /**
+ * @public
+ */
+export type AuthorizerStatus = (typeof AuthorizerStatus)[keyof typeof AuthorizerStatus];
+
+/**
+ * @public
  * <p>The authorizer description.</p>
  */
 export interface AuthorizerDescription {
@@ -2645,6 +2975,7 @@ export interface AuthorizerDescription {
 }
 
 /**
+ * @public
  * <p>The authorizer summary.</p>
  */
 export interface AuthorizerSummary {
@@ -2660,6 +2991,7 @@ export interface AuthorizerSummary {
 }
 
 /**
+ * @public
  * <p>Information that explicitly denies authorization.</p>
  */
 export interface ExplicitDeny {
@@ -2670,6 +3002,7 @@ export interface ExplicitDeny {
 }
 
 /**
+ * @public
  * <p>Information that implicitly denies authorization. When policy doesn't explicitly deny
  *          or allow an action on a resource it is considered an implicit deny.</p>
  */
@@ -2682,6 +3015,7 @@ export interface ImplicitDeny {
 }
 
 /**
+ * @public
  * <p>Contains information that denied the authorization.</p>
  */
 export interface Denied {
@@ -2699,6 +3033,7 @@ export interface Denied {
 }
 
 /**
+ * @public
  * <p>The authorizer result.</p>
  */
 export interface AuthResult {
@@ -2730,11 +3065,23 @@ export interface AuthResult {
   missingContextValues?: string[];
 }
 
-export enum AutoRegistrationStatus {
-  DISABLE = "DISABLE",
-  ENABLE = "ENABLE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AutoRegistrationStatus = {
+  DISABLE: "DISABLE",
+  ENABLE: "ENABLE",
+} as const;
 
+/**
+ * @public
+ */
+export type AutoRegistrationStatus = (typeof AutoRegistrationStatus)[keyof typeof AutoRegistrationStatus];
+
+/**
+ * @public
+ */
 export interface CancelAuditMitigationActionsTaskRequest {
   /**
    * <p>The unique identifier for the task that you want to cancel. </p>
@@ -2742,8 +3089,14 @@ export interface CancelAuditMitigationActionsTaskRequest {
   taskId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelAuditMitigationActionsTaskResponse {}
 
+/**
+ * @public
+ */
 export interface CancelAuditTaskRequest {
   /**
    * <p>The ID of the audit you want to cancel. You can only cancel an
@@ -2752,9 +3105,13 @@ export interface CancelAuditTaskRequest {
   taskId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelAuditTaskResponse {}
 
 /**
+ * @public
  * <p>The input for the CancelCertificateTransfer operation.</p>
  */
 export interface CancelCertificateTransferRequest {
@@ -2765,6 +3122,9 @@ export interface CancelCertificateTransferRequest {
   certificateId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelDetectMitigationActionsTaskRequest {
   /**
    * <p>
@@ -2774,8 +3134,14 @@ export interface CancelDetectMitigationActionsTaskRequest {
   taskId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelDetectMitigationActionsTaskResponse {}
 
+/**
+ * @public
+ */
 export interface CancelJobRequest {
   /**
    * <p>The unique identifier you assigned to this job when it was created.</p>
@@ -2796,13 +3162,16 @@ export interface CancelJobRequest {
    * <p>(Optional) If <code>true</code> job executions with status "IN_PROGRESS" and "QUEUED"
    *           are canceled, otherwise only job executions with status "QUEUED" are canceled. The default
    *           is <code>false</code>.</p>
-   *         <p>Canceling a job which is "IN_PROGRESS", will cause a device which is executing
+   *          <p>Canceling a job which is "IN_PROGRESS", will cause a device which is executing
    *           the job to be unable to update the job execution status.  Use caution and ensure that each
    *           device executing a job which is canceled is able to recover to a valid state.</p>
    */
   force?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CancelJobResponse {
   /**
    * <p>The job ARN.</p>
@@ -2820,6 +3189,9 @@ export interface CancelJobResponse {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export interface CancelJobExecutionRequest {
   /**
    * <p>The ID of the job to be canceled.</p>
@@ -2837,7 +3209,7 @@ export interface CancelJobExecutionRequest {
    *           QUEUED. If you attempt to cancel a job execution that is IN_PROGRESS, and you do not set
    *           <code>force</code> to <code>true</code>, then an <code>InvalidStateTransitionException</code>
    *           will be thrown. The default is <code>false</code>.</p>
-   *         <p>Canceling a job execution which is "IN_PROGRESS", will cause the device to be unable
+   *          <p>Canceling a job execution which is "IN_PROGRESS", will cause the device to be unable
    *           to update the job execution status.  Use caution and ensure that the device is able to
    *           recover to a valid state.</p>
    */
@@ -2861,6 +3233,7 @@ export interface CancelJobExecutionRequest {
 }
 
 /**
+ * @public
  * <p>An attempt was made to change to an invalid state, for example by deleting a job or a
  *          job execution which is "IN_PROGRESS" without setting the <code>force</code>
  *          parameter.</p>
@@ -2881,10 +3254,19 @@ export class InvalidStateTransitionException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ClearDefaultAuthorizerRequest {}
 
+/**
+ * @public
+ */
 export interface ClearDefaultAuthorizerResponse {}
 
+/**
+ * @public
+ */
 export interface ConfirmTopicRuleDestinationRequest {
   /**
    * <p>The token used to confirm ownership or access to the topic rule confirmation URL.</p>
@@ -2892,9 +3274,13 @@ export interface ConfirmTopicRuleDestinationRequest {
   confirmationToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ConfirmTopicRuleDestinationResponse {}
 
 /**
+ * @public
  * <p>A conflicting resource update exception. This exception is thrown when two pending
  *          updates cause a conflict.</p>
  */
@@ -2915,6 +3301,7 @@ export class ConflictingResourceUpdateException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An unexpected error has occurred.</p>
  */
 export class InternalException extends __BaseException {
@@ -2933,6 +3320,9 @@ export class InternalException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateAuditSuppressionRequest {
   /**
    * <p>An audit check name. Checks must be enabled
@@ -2977,9 +3367,13 @@ export interface CreateAuditSuppressionRequest {
   clientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateAuditSuppressionResponse {}
 
 /**
+ * @public
  * <p>The resource already exists.</p>
  */
 export class ResourceAlreadyExistsException extends __BaseException {
@@ -3011,6 +3405,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A set of key/value pairs that are used to manage the resource.</p>
  */
 export interface Tag {
@@ -3025,6 +3420,9 @@ export interface Tag {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateAuthorizerRequest {
   /**
    * <p>The authorizer name.</p>
@@ -3079,6 +3477,9 @@ export interface CreateAuthorizerRequest {
   enableCachingForHttp?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateAuthorizerResponse {
   /**
    * <p>The authorizer's name.</p>
@@ -3092,6 +3493,7 @@ export interface CreateAuthorizerResponse {
 }
 
 /**
+ * @public
  * <p>The properties of a billing group.</p>
  */
 export interface BillingGroupProperties {
@@ -3101,6 +3503,9 @@ export interface BillingGroupProperties {
   billingGroupDescription?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateBillingGroupRequest {
   /**
    * <p>The name you wish to give to the billing group.</p>
@@ -3118,6 +3523,9 @@ export interface CreateBillingGroupRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateBillingGroupResponse {
   /**
    * <p>The name you gave to the billing group.</p>
@@ -3136,6 +3544,7 @@ export interface CreateBillingGroupResponse {
 }
 
 /**
+ * @public
  * <p>The input for the CreateCertificateFromCsr operation.</p>
  */
 export interface CreateCertificateFromCsrRequest {
@@ -3151,6 +3560,7 @@ export interface CreateCertificateFromCsrRequest {
 }
 
 /**
+ * @public
  * <p>The output from the CreateCertificateFromCsr operation.</p>
  */
 export interface CreateCertificateFromCsrResponse {
@@ -3172,13 +3582,25 @@ export interface CreateCertificateFromCsrResponse {
   certificatePem?: string;
 }
 
-export enum CustomMetricType {
-  IP_ADDRESS_LIST = "ip-address-list",
-  NUMBER = "number",
-  NUMBER_LIST = "number-list",
-  STRING_LIST = "string-list",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CustomMetricType = {
+  IP_ADDRESS_LIST: "ip-address-list",
+  NUMBER: "number",
+  NUMBER_LIST: "number-list",
+  STRING_LIST: "string-list",
+} as const;
 
+/**
+ * @public
+ */
+export type CustomMetricType = (typeof CustomMetricType)[keyof typeof CustomMetricType];
+
+/**
+ * @public
+ */
 export interface CreateCustomMetricRequest {
   /**
    * <p> The name of the custom metric. This will be used in the metric report submitted from the
@@ -3221,6 +3643,9 @@ export interface CreateCustomMetricRequest {
   clientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateCustomMetricResponse {
   /**
    * <p>
@@ -3238,10 +3663,22 @@ export interface CreateCustomMetricResponse {
   metricArn?: string;
 }
 
-export enum DimensionType {
-  TOPIC_FILTER = "TOPIC_FILTER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DimensionType = {
+  TOPIC_FILTER: "TOPIC_FILTER",
+} as const;
 
+/**
+ * @public
+ */
+export type DimensionType = (typeof DimensionType)[keyof typeof DimensionType];
+
+/**
+ * @public
+ */
 export interface CreateDimensionRequest {
   /**
    * <p>A unique identifier for the dimension. Choose something that describes the type and value to make it easy to remember what it does.</p>
@@ -3271,6 +3708,9 @@ export interface CreateDimensionRequest {
   clientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateDimensionResponse {
   /**
    * <p>A unique identifier for the dimension.</p>
@@ -3287,6 +3727,7 @@ export interface CreateDimensionResponse {
 }
 
 /**
+ * @public
  * <p>The certificate is invalid.</p>
  */
 export class CertificateValidationException extends __BaseException {
@@ -3305,12 +3746,24 @@ export class CertificateValidationException extends __BaseException {
   }
 }
 
-export enum ServiceType {
-  CREDENTIAL_PROVIDER = "CREDENTIAL_PROVIDER",
-  DATA = "DATA",
-  JOBS = "JOBS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ServiceType = {
+  CREDENTIAL_PROVIDER: "CREDENTIAL_PROVIDER",
+  DATA: "DATA",
+  JOBS: "JOBS",
+} as const;
 
+/**
+ * @public
+ */
+export type ServiceType = (typeof ServiceType)[keyof typeof ServiceType];
+
+/**
+ * @public
+ */
 export interface CreateDomainConfigurationRequest {
   /**
    * <p>The name of the domain configuration. This value must be unique to a region.</p>
@@ -3360,6 +3813,9 @@ export interface CreateDomainConfigurationRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateDomainConfigurationResponse {
   /**
    * <p>The name of the domain configuration.</p>
@@ -3373,6 +3829,7 @@ export interface CreateDomainConfigurationResponse {
 }
 
 /**
+ * @public
  * <p>Thing group properties.</p>
  */
 export interface ThingGroupProperties {
@@ -3387,6 +3844,9 @@ export interface ThingGroupProperties {
   attributePayload?: AttributePayload;
 }
 
+/**
+ * @public
+ */
 export interface CreateDynamicThingGroupRequest {
   /**
    * <p>The dynamic thing group name to create.</p>
@@ -3400,24 +3860,24 @@ export interface CreateDynamicThingGroupRequest {
 
   /**
    * <p>The dynamic thing group index name.</p>
-   * 		       <note>
-   * 			         <p>Currently one index is supported: <code>AWS_Things</code>.</p>
-   * 		       </note>
+   *          <note>
+   *             <p>Currently one index is supported: <code>AWS_Things</code>.</p>
+   *          </note>
    */
   indexName?: string;
 
   /**
    * <p>The dynamic thing group search query string.</p>
-   * 		       <p>See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/query-syntax.html">Query Syntax</a> for information about query string syntax.</p>
+   *          <p>See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/query-syntax.html">Query Syntax</a> for information about query string syntax.</p>
    */
   queryString: string | undefined;
 
   /**
    * <p>The dynamic thing group query version.</p>
-   * 		       <note>
-   * 			         <p>Currently one query version is supported: "2017-09-30". If not specified, the
+   *          <note>
+   *             <p>Currently one query version is supported: "2017-09-30". If not specified, the
    * 				query version defaults to this value.</p>
-   * 		       </note>
+   *          </note>
    */
   queryVersion?: string;
 
@@ -3427,6 +3887,9 @@ export interface CreateDynamicThingGroupRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateDynamicThingGroupResponse {
   /**
    * <p>The dynamic thing group name.</p>
@@ -3460,6 +3923,7 @@ export interface CreateDynamicThingGroupResponse {
 }
 
 /**
+ * @public
  * <p>The query is invalid.</p>
  */
 export class InvalidQueryException extends __BaseException {
@@ -3478,36 +3942,48 @@ export class InvalidQueryException extends __BaseException {
   }
 }
 
-export enum FleetMetricUnit {
-  Bits = "Bits",
-  BitsSecond = "Bits/Second",
-  Bytes = "Bytes",
-  BytesSecond = "Bytes/Second",
-  Count = "Count",
-  CountSecond = "Count/Second",
-  Gigabits = "Gigabits",
-  GigabitsSecond = "Gigabits/Second",
-  Gigabytes = "Gigabytes",
-  GigabytesSecond = "Gigabytes/Second",
-  Kilobits = "Kilobits",
-  KilobitsSecond = "Kilobits/Second",
-  Kilobytes = "Kilobytes",
-  KilobytesSecond = "Kilobytes/Second",
-  Megabits = "Megabits",
-  MegabitsSecond = "Megabits/Second",
-  Megabytes = "Megabytes",
-  MegabytesSecond = "Megabytes/Second",
-  Microseconds = "Microseconds",
-  Milliseconds = "Milliseconds",
-  None = "None",
-  Percent = "Percent",
-  Seconds = "Seconds",
-  Terabits = "Terabits",
-  TerabitsSecond = "Terabits/Second",
-  Terabytes = "Terabytes",
-  TerabytesSecond = "Terabytes/Second",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FleetMetricUnit = {
+  Bits: "Bits",
+  BitsSecond: "Bits/Second",
+  Bytes: "Bytes",
+  BytesSecond: "Bytes/Second",
+  Count: "Count",
+  CountSecond: "Count/Second",
+  Gigabits: "Gigabits",
+  GigabitsSecond: "Gigabits/Second",
+  Gigabytes: "Gigabytes",
+  GigabytesSecond: "Gigabytes/Second",
+  Kilobits: "Kilobits",
+  KilobitsSecond: "Kilobits/Second",
+  Kilobytes: "Kilobytes",
+  KilobytesSecond: "Kilobytes/Second",
+  Megabits: "Megabits",
+  MegabitsSecond: "Megabits/Second",
+  Megabytes: "Megabytes",
+  MegabytesSecond: "Megabytes/Second",
+  Microseconds: "Microseconds",
+  Milliseconds: "Milliseconds",
+  None: "None",
+  Percent: "Percent",
+  Seconds: "Seconds",
+  Terabits: "Terabits",
+  TerabitsSecond: "Terabits/Second",
+  Terabytes: "Terabytes",
+  TerabytesSecond: "Terabytes/Second",
+} as const;
 
+/**
+ * @public
+ */
+export type FleetMetricUnit = (typeof FleetMetricUnit)[keyof typeof FleetMetricUnit];
+
+/**
+ * @public
+ */
 export interface CreateFleetMetricRequest {
   /**
    * <p>The name of the fleet metric to create.</p>
@@ -3551,7 +4027,7 @@ export interface CreateFleetMetricRequest {
 
   /**
    * <p>Used to support unit transformation such as milliseconds to seconds. The unit must be
-   *       supported by <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html">CW metric</a>. Default to null.</p>
+   *       supported by <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html">CW metric</a>. Default to null.</p>
    */
   unit?: FleetMetricUnit | string;
 
@@ -3561,6 +4037,9 @@ export interface CreateFleetMetricRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateFleetMetricResponse {
   /**
    * <p>The name of the fleet metric to create.</p>
@@ -3574,6 +4053,7 @@ export interface CreateFleetMetricResponse {
 }
 
 /**
+ * @public
  * <p>The index is not ready.</p>
  */
 export class IndexNotReadyException extends __BaseException {
@@ -3593,6 +4073,7 @@ export class IndexNotReadyException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The aggregation is invalid.</p>
  */
 export class InvalidAggregationException extends __BaseException {
@@ -3611,13 +4092,23 @@ export class InvalidAggregationException extends __BaseException {
   }
 }
 
-export enum RetryableFailureType {
-  ALL = "ALL",
-  FAILED = "FAILED",
-  TIMED_OUT = "TIMED_OUT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RetryableFailureType = {
+  ALL: "ALL",
+  FAILED: "FAILED",
+  TIMED_OUT: "TIMED_OUT",
+} as const;
 
 /**
+ * @public
+ */
+export type RetryableFailureType = (typeof RetryableFailureType)[keyof typeof RetryableFailureType];
+
+/**
+ * @public
  * <p>The criteria that determines how many retries are allowed for each failure
  *             type for a job.</p>
  */
@@ -3634,6 +4125,7 @@ export interface RetryCriteria {
 }
 
 /**
+ * @public
  * <p>The configuration that determines how many retries are allowed for each failure
  *             type for a job.</p>
  */
@@ -3646,6 +4138,7 @@ export interface JobExecutionsRetryConfig {
 }
 
 /**
+ * @public
  * <p>Allows you to define a criteria to initiate the increase in rate of rollout for a job.</p>
  */
 export interface RateIncreaseCriteria {
@@ -3661,6 +4154,7 @@ export interface RateIncreaseCriteria {
 }
 
 /**
+ * @public
  * <p>Allows you to create an exponential rate of rollout for a job.</p>
  */
 export interface ExponentialRolloutRate {
@@ -3672,7 +4166,7 @@ export interface ExponentialRolloutRate {
 
   /**
    * <p>The exponential factor to increase the rate of rollout for a job.</p>
-   *         <p>Amazon Web Services IoT Core supports up to one digit after the decimal (for example, 1.5, but not 1.55).</p>
+   *          <p>Amazon Web Services IoT Core supports up to one digit after the decimal (for example, 1.5, but not 1.55).</p>
    */
   incrementFactor: number | undefined;
 
@@ -3683,6 +4177,7 @@ export interface ExponentialRolloutRate {
 }
 
 /**
+ * @public
  * <p>Allows you to create a staged rollout of a job.</p>
  */
 export interface JobExecutionsRolloutConfig {
@@ -3700,16 +4195,17 @@ export interface JobExecutionsRolloutConfig {
 }
 
 /**
+ * @public
  * <p>Configuration for pre-signed S3 URLs.</p>
  */
 export interface PresignedUrlConfig {
   /**
    * <p>The ARN of an IAM role that grants grants permission to download files from the S3 bucket where the job
    *             data/updates are stored. The role must also grant permission for IoT to download the files.</p>
-   *         <important>
+   *          <important>
    *             <p>For information about addressing the confused deputy problem, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/cross-service-confused-deputy-prevention.html">cross-service
    *                 confused deputy prevention</a> in the <i>Amazon Web Services IoT Core developer guide</i>.</p>
-   *         </important>
+   *          </important>
    */
   roleArn?: string;
 
@@ -3720,20 +4216,48 @@ export interface PresignedUrlConfig {
   expiresInSec?: number;
 }
 
-export enum JobEndBehavior {
-  CANCEL = "CANCEL",
-  FORCE_CANCEL = "FORCE_CANCEL",
-  STOP_ROLLOUT = "STOP_ROLLOUT",
+/**
+ * @public
+ * @enum
+ */
+export const JobEndBehavior = {
+  CANCEL: "CANCEL",
+  FORCE_CANCEL: "FORCE_CANCEL",
+  STOP_ROLLOUT: "STOP_ROLLOUT",
+} as const;
+
+/**
+ * @public
+ */
+export type JobEndBehavior = (typeof JobEndBehavior)[keyof typeof JobEndBehavior];
+
+/**
+ * @public
+ * <p>An optional configuration within the <code>SchedulingConfig</code> to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.</p>
+ */
+export interface MaintenanceWindow {
+  /**
+   * <p>Displays the start time of the next maintenance window.</p>
+   */
+  startTime: string | undefined;
+
+  /**
+   * <p>Displays the duration of the next maintenance window.</p>
+   */
+  durationInMinutes: number | undefined;
 }
 
 /**
+ * @public
  * <p>Specifies the date and time that a job will begin the rollout of the job document to all devices in the target group. Additionally, you can specify the end behavior for each job execution when it reaches the scheduled end time.</p>
  */
 export interface SchedulingConfig {
   /**
    * <p>The time a job will begin rollout of the job document to all devices in the target
    *             group for a job. The <code>startTime</code> can be scheduled up to a year in advance and
-   *             must be scheduled a minimum of thirty minutes from the current time.</p>
+   *             must be scheduled a minimum of thirty minutes from the current time. The date and time
+   *             format for the <code>startTime</code> is YYYY-MM-DD for the date and HH:MM for the
+   *             time.</p>
    */
   startTime?: string;
 
@@ -3743,7 +4267,8 @@ export interface SchedulingConfig {
    *             the current time and be scheduled a minimum of thirty minutes from the current time. The
    *             minimum duration between <code>startTime</code> and <code>endTime</code> is thirty
    *             minutes. The maximum duration between <code>startTime</code> and <code>endTime</code> is
-   *             two years. </p>
+   *             two years. The date and time format for the <code>endTime</code> is YYYY-MM-DD for the
+   *             date and HH:MM for the time.</p>
    */
   endTime?: string;
 
@@ -3753,14 +4278,29 @@ export interface SchedulingConfig {
    *             then <code>endBehavior</code> does not apply.</p>
    */
   endBehavior?: JobEndBehavior | string;
-}
 
-export enum TargetSelection {
-  CONTINUOUS = "CONTINUOUS",
-  SNAPSHOT = "SNAPSHOT",
+  /**
+   * <p>An optional configuration within the <code>SchedulingConfig</code> to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.</p>
+   */
+  maintenanceWindows?: MaintenanceWindow[];
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const TargetSelection = {
+  CONTINUOUS: "CONTINUOUS",
+  SNAPSHOT: "SNAPSHOT",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetSelection = (typeof TargetSelection)[keyof typeof TargetSelection];
+
+/**
+ * @public
  * <p>Specifies the amount of time each device has to finish its execution of the job.  A timer
  *            is started when the job execution status is set to <code>IN_PROGRESS</code>. If the job
  *            execution status is not set to another terminal state before the timer expires, it will
@@ -3777,6 +4317,9 @@ export interface TimeoutConfig {
   inProgressTimeoutInMinutes?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateJobRequest {
   /**
    * <p>A job identifier which must be unique for your Amazon Web Services account. We recommend using a UUID. Alpha-numeric
@@ -3791,14 +4334,14 @@ export interface CreateJobRequest {
 
   /**
    * <p>An S3 link to the job document. Required if you don't specify a value for <code>document</code>.</p>
-   *         <note>
+   *          <note>
    *             <p>If the job document resides in an S3 bucket, you must use a placeholder link when specifying the document.</p>
    *             <p>The placeholder link is of the following form:</p>
    *             <p>
-   *                <code>${aws:iot:s3-presigned-url:https://s3.amazonaws.com/<i>bucket</i>/<i>key</i>}</code>
+   *                <code>$\{aws:iot:s3-presigned-url:https://s3.amazonaws.com/<i>bucket</i>/<i>key</i>\}</code>
    *             </p>
    *             <p>where <i>bucket</i> is your bucket name and <i>key</i> is the object in the bucket to which you are linking.</p>
-   *         </note>
+   *          </note>
    */
   documentSource?: string;
 
@@ -3822,11 +4365,11 @@ export interface CreateJobRequest {
    *             specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing
    *             when a change is detected in a target. For example, a job will run on a thing when the thing is added to a
    *             target group, even after the job was completed by all things originally in the group.</p>
-   *         <note>
+   *          <note>
    *             <p>We recommend that you use continuous jobs instead of snapshot jobs for dynamic thing group targets.
    *                 By using continuous jobs, devices that join the group receive the job execution even after the job has
    *                 been created.</p>
-   *         </note>
+   *          </note>
    */
   targetSelection?: TargetSelection | string;
 
@@ -3855,12 +4398,12 @@ export interface CreateJobRequest {
 
   /**
    * <p>The namespace used to indicate that a job is a customer-managed job.</p>
-   *         <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
+   *          <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
    *             contain the value in the following format.</p>
-   *         <p>
+   *          <p>
    *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
    *          </p>
-   *         <note>
+   *          <note>
    *             <p>The <code>namespaceId</code> feature is in public preview.</p>
    *          </note>
    */
@@ -3878,12 +4421,12 @@ export interface CreateJobRequest {
 
   /**
    * <p>Parameters of an Amazon Web Services managed template that you can specify to create the job document.</p>
-   *         <note>
+   *          <note>
    *             <p>
    *                <code>documentParameters</code> can only be used when creating jobs from Amazon Web Services
    *                 managed templates. This parameter can't be used with custom job templates or to
    *                 create jobs from them.</p>
-   *         </note>
+   *          </note>
    */
   documentParameters?: Record<string, string>;
 
@@ -3894,6 +4437,9 @@ export interface CreateJobRequest {
   schedulingConfig?: SchedulingConfig;
 }
 
+/**
+ * @public
+ */
 export interface CreateJobResponse {
   /**
    * <p>The job ARN.</p>
@@ -3912,6 +4458,7 @@ export interface CreateJobResponse {
 }
 
 /**
+ * @public
  * <p>A resource with the same name already exists.</p>
  */
 export class ConflictException extends __BaseException {
@@ -3930,6 +4477,9 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateJobTemplateRequest {
   /**
    * <p>A unique identifier for the job template. We recommend using a UUID. Alpha-numeric
@@ -3944,14 +4494,14 @@ export interface CreateJobTemplateRequest {
 
   /**
    * <p>An S3 link to the job document to use in the template. Required if you don't specify a value for <code>document</code>.</p>
-   *         <note>
+   *          <note>
    *             <p>If the job document resides in an S3 bucket, you must use a placeholder link when specifying the document.</p>
    *             <p>The placeholder link is of the following form:</p>
    *             <p>
-   *                <code>${aws:iot:s3-presigned-url:https://s3.amazonaws.com/<i>bucket</i>/<i>key</i>}</code>
+   *                <code>$\{aws:iot:s3-presigned-url:https://s3.amazonaws.com/<i>bucket</i>/<i>key</i>\}</code>
    *             </p>
    *             <p>where <i>bucket</i> is your bucket name and <i>key</i> is the object in the bucket to which you are linking.</p>
-   *         </note>
+   *          </note>
    */
   documentSource?: string;
 
@@ -3997,8 +4547,16 @@ export interface CreateJobTemplateRequest {
    * <p>Allows you to create the criteria to retry a job.</p>
    */
   jobExecutionsRetryConfig?: JobExecutionsRetryConfig;
+
+  /**
+   * <p>Allows you to configure an optional maintenance window for the rollout of a job document to all devices in the target group for a job.</p>
+   */
+  maintenanceWindows?: MaintenanceWindow[];
 }
 
+/**
+ * @public
+ */
 export interface CreateJobTemplateResponse {
   /**
    * <p>The ARN of the job template.</p>
@@ -4012,6 +4570,7 @@ export interface CreateJobTemplateResponse {
 }
 
 /**
+ * @public
  * <p>The input for the CreateKeysAndCertificate operation.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateKeysAndCertificateRequest</a> action.</p>
  */
@@ -4023,6 +4582,7 @@ export interface CreateKeysAndCertificateRequest {
 }
 
 /**
+ * @public
  * <p>Describes a key pair.</p>
  */
 export interface KeyPair {
@@ -4038,6 +4598,7 @@ export interface KeyPair {
 }
 
 /**
+ * @public
  * <p>The output of the CreateKeysAndCertificate operation.</p>
  */
 export interface CreateKeysAndCertificateResponse {
@@ -4063,15 +4624,25 @@ export interface CreateKeysAndCertificateResponse {
   keyPair?: KeyPair;
 }
 
-export enum LogLevel {
-  DEBUG = "DEBUG",
-  DISABLED = "DISABLED",
-  ERROR = "ERROR",
-  INFO = "INFO",
-  WARN = "WARN",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LogLevel = {
+  DEBUG: "DEBUG",
+  DISABLED: "DISABLED",
+  ERROR: "ERROR",
+  INFO: "INFO",
+  WARN: "WARN",
+} as const;
 
 /**
+ * @public
+ */
+export type LogLevel = (typeof LogLevel)[keyof typeof LogLevel];
+
+/**
+ * @public
  * <p>Parameters used when defining a mitigation action that enable Amazon Web Services IoT Core logging.</p>
  */
 export interface EnableIoTLoggingParams {
@@ -4087,6 +4658,7 @@ export interface EnableIoTLoggingParams {
 }
 
 /**
+ * @public
  * <p>Parameters to define a mitigation action that publishes findings to Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.</p>
  */
 export interface PublishFindingToSnsParams {
@@ -4096,11 +4668,21 @@ export interface PublishFindingToSnsParams {
   topicArn: string | undefined;
 }
 
-export enum PolicyTemplateName {
-  BLANK_POLICY = "BLANK_POLICY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PolicyTemplateName = {
+  BLANK_POLICY: "BLANK_POLICY",
+} as const;
 
 /**
+ * @public
+ */
+export type PolicyTemplateName = (typeof PolicyTemplateName)[keyof typeof PolicyTemplateName];
+
+/**
+ * @public
  * <p>Parameters to define a mitigation action that adds a blank policy to restrict permissions.</p>
  */
 export interface ReplaceDefaultPolicyVersionParams {
@@ -4110,11 +4692,21 @@ export interface ReplaceDefaultPolicyVersionParams {
   templateName: PolicyTemplateName | string | undefined;
 }
 
-export enum CACertificateUpdateAction {
-  DEACTIVATE = "DEACTIVATE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CACertificateUpdateAction = {
+  DEACTIVATE: "DEACTIVATE",
+} as const;
 
 /**
+ * @public
+ */
+export type CACertificateUpdateAction = (typeof CACertificateUpdateAction)[keyof typeof CACertificateUpdateAction];
+
+/**
+ * @public
  * <p>Parameters to define a mitigation action that changes the state of the CA certificate to inactive.</p>
  */
 export interface UpdateCACertificateParams {
@@ -4124,11 +4716,22 @@ export interface UpdateCACertificateParams {
   action: CACertificateUpdateAction | string | undefined;
 }
 
-export enum DeviceCertificateUpdateAction {
-  DEACTIVATE = "DEACTIVATE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeviceCertificateUpdateAction = {
+  DEACTIVATE: "DEACTIVATE",
+} as const;
 
 /**
+ * @public
+ */
+export type DeviceCertificateUpdateAction =
+  (typeof DeviceCertificateUpdateAction)[keyof typeof DeviceCertificateUpdateAction];
+
+/**
+ * @public
  * <p>Parameters to define a mitigation action that changes the state of the device certificate to inactive.</p>
  */
 export interface UpdateDeviceCertificateParams {
@@ -4139,6 +4742,7 @@ export interface UpdateDeviceCertificateParams {
 }
 
 /**
+ * @public
  * <p>The set of parameters for this mitigation action. You can specify only one type of parameter (in other words, you can apply only one action for each defined mitigation action).</p>
  */
 export interface MitigationActionParams {
@@ -4173,6 +4777,9 @@ export interface MitigationActionParams {
   publishFindingToSnsParams?: PublishFindingToSnsParams;
 }
 
+/**
+ * @public
+ */
 export interface CreateMitigationActionRequest {
   /**
    * <p>A friendly name for the action. Choose a friendly name that accurately describes the action (for example, <code>EnableLoggingAction</code>).</p>
@@ -4195,6 +4802,9 @@ export interface CreateMitigationActionRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateMitigationActionResponse {
   /**
    * <p>The ARN for the new mitigation action.</p>
@@ -4207,18 +4817,39 @@ export interface CreateMitigationActionResponse {
   actionId?: string;
 }
 
-export enum AwsJobAbortCriteriaAbortAction {
-  CANCEL = "CANCEL",
-}
-
-export enum AwsJobAbortCriteriaFailureType {
-  ALL = "ALL",
-  FAILED = "FAILED",
-  REJECTED = "REJECTED",
-  TIMED_OUT = "TIMED_OUT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AwsJobAbortCriteriaAbortAction = {
+  CANCEL: "CANCEL",
+} as const;
 
 /**
+ * @public
+ */
+export type AwsJobAbortCriteriaAbortAction =
+  (typeof AwsJobAbortCriteriaAbortAction)[keyof typeof AwsJobAbortCriteriaAbortAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const AwsJobAbortCriteriaFailureType = {
+  ALL: "ALL",
+  FAILED: "FAILED",
+  REJECTED: "REJECTED",
+  TIMED_OUT: "TIMED_OUT",
+} as const;
+
+/**
+ * @public
+ */
+export type AwsJobAbortCriteriaFailureType =
+  (typeof AwsJobAbortCriteriaFailureType)[keyof typeof AwsJobAbortCriteriaFailureType];
+
+/**
+ * @public
  * <p>The criteria that determine when and how a job abort takes place.</p>
  */
 export interface AwsJobAbortCriteria {
@@ -4246,6 +4877,7 @@ export interface AwsJobAbortCriteria {
 }
 
 /**
+ * @public
  * <p>The criteria that determine when and how a job abort takes place.</p>
  */
 export interface AwsJobAbortConfig {
@@ -4256,6 +4888,7 @@ export interface AwsJobAbortConfig {
 }
 
 /**
+ * @public
  * <p>The criteria to initiate the increase in rate of rollout for a job.</p>
  */
 export interface AwsJobRateIncreaseCriteria {
@@ -4273,6 +4906,7 @@ export interface AwsJobRateIncreaseCriteria {
 }
 
 /**
+ * @public
  * <p>The rate of increase for a job rollout. This parameter allows you to define an exponential rate
  *             increase for a job rollout.</p>
  */
@@ -4291,12 +4925,13 @@ export interface AwsJobExponentialRolloutRate {
 
   /**
    * <p>The criteria to initiate the increase in rate of rollout for a job.</p>
-   *         <p>Amazon Web Services IoT Core supports up to one digit after the decimal (for example, 1.5, but not 1.55).</p>
+   *          <p>Amazon Web Services IoT Core supports up to one digit after the decimal (for example, 1.5, but not 1.55).</p>
    */
   rateIncreaseCriteria: AwsJobRateIncreaseCriteria | undefined;
 }
 
 /**
+ * @public
  * <p>Configuration for the rollout of OTA updates.</p>
  */
 export interface AwsJobExecutionsRolloutConfig {
@@ -4313,6 +4948,7 @@ export interface AwsJobExecutionsRolloutConfig {
 }
 
 /**
+ * @public
  * <p>Configuration information for pre-signed URLs. Valid when <code>protocols</code>
  *            contains HTTP.</p>
  */
@@ -4325,6 +4961,7 @@ export interface AwsJobPresignedUrlConfig {
 }
 
 /**
+ * @public
  * <p>Specifies the amount of time each device has to finish its execution of the job.  A timer is
  *             started when the job execution status is set to <code>IN_PROGRESS</code>. If the job execution
  *             status is not set to another terminal state before the timer expires, it will be automatically
@@ -4342,6 +4979,7 @@ export interface AwsJobTimeoutConfig {
 }
 
 /**
+ * @public
  * <p>Describes the certificate chain being used when code signing a file.</p>
  */
 export interface CodeSigningCertificateChain {
@@ -4357,6 +4995,7 @@ export interface CodeSigningCertificateChain {
 }
 
 /**
+ * @public
  * <p>Describes the signature for a file.</p>
  */
 export interface CodeSigningSignature {
@@ -4367,6 +5006,7 @@ export interface CodeSigningSignature {
 }
 
 /**
+ * @public
  * <p>Describes a custom method used to code sign a file.</p>
  */
 export interface CustomCodeSigning {
@@ -4392,6 +5032,7 @@ export interface CustomCodeSigning {
 }
 
 /**
+ * @public
  * <p>Describes the location of updated firmware in S3.</p>
  */
 export interface S3Destination {
@@ -4407,6 +5048,7 @@ export interface S3Destination {
 }
 
 /**
+ * @public
  * <p>Describes the location of the updated firmware.</p>
  */
 export interface Destination {
@@ -4417,6 +5059,7 @@ export interface Destination {
 }
 
 /**
+ * @public
  * <p>Describes the code-signing profile.</p>
  */
 export interface SigningProfileParameter {
@@ -4437,6 +5080,7 @@ export interface SigningProfileParameter {
 }
 
 /**
+ * @public
  * <p>Information required to start a signing job.</p>
  */
 export interface StartSigningJobParameter {
@@ -4457,6 +5101,7 @@ export interface StartSigningJobParameter {
 }
 
 /**
+ * @public
  * <p>Describes the method to use when code signing a file.</p>
  */
 export interface CodeSigning {
@@ -4477,6 +5122,7 @@ export interface CodeSigning {
 }
 
 /**
+ * @public
  * <p>The S3 location.</p>
  */
 export interface S3Location {
@@ -4497,6 +5143,7 @@ export interface S3Location {
 }
 
 /**
+ * @public
  * <p>Describes a group of files that can be streamed.</p>
  */
 export interface _Stream {
@@ -4512,6 +5159,7 @@ export interface _Stream {
 }
 
 /**
+ * @public
  * <p>The location of the OTA update.</p>
  */
 export interface FileLocation {
@@ -4527,6 +5175,7 @@ export interface FileLocation {
 }
 
 /**
+ * @public
  * <p>Describes a file to be associated with an OTA update.</p>
  */
 export interface OTAUpdateFile {
@@ -4562,11 +5211,23 @@ export interface OTAUpdateFile {
   attributes?: Record<string, string>;
 }
 
-export enum Protocol {
-  HTTP = "HTTP",
-  MQTT = "MQTT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Protocol = {
+  HTTP: "HTTP",
+  MQTT: "MQTT",
+} as const;
 
+/**
+ * @public
+ */
+export type Protocol = (typeof Protocol)[keyof typeof Protocol];
+
+/**
+ * @public
+ */
 export interface CreateOTAUpdateRequest {
   /**
    * <p>The ID of the OTA update to be created.</p>
@@ -4643,13 +5304,25 @@ export interface CreateOTAUpdateRequest {
   tags?: Tag[];
 }
 
-export enum OTAUpdateStatus {
-  CREATE_COMPLETE = "CREATE_COMPLETE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  CREATE_PENDING = "CREATE_PENDING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OTAUpdateStatus = {
+  CREATE_COMPLETE: "CREATE_COMPLETE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  CREATE_PENDING: "CREATE_PENDING",
+} as const;
 
+/**
+ * @public
+ */
+export type OTAUpdateStatus = (typeof OTAUpdateStatus)[keyof typeof OTAUpdateStatus];
+
+/**
+ * @public
+ */
 export interface CreateOTAUpdateResponse {
   /**
    * <p>The OTA update ID.</p>
@@ -4678,6 +5351,7 @@ export interface CreateOTAUpdateResponse {
 }
 
 /**
+ * @public
  * <p>The input for the CreatePolicy operation.</p>
  */
 export interface CreatePolicyRequest {
@@ -4706,6 +5380,7 @@ export interface CreatePolicyRequest {
 }
 
 /**
+ * @public
  * <p>The output from the CreatePolicy operation.</p>
  */
 export interface CreatePolicyResponse {
@@ -4731,6 +5406,7 @@ export interface CreatePolicyResponse {
 }
 
 /**
+ * @public
  * <p>The policy documentation is not valid.</p>
  */
 export class MalformedPolicyException extends __BaseException {
@@ -4750,6 +5426,7 @@ export class MalformedPolicyException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input for the CreatePolicyVersion operation.</p>
  */
 export interface CreatePolicyVersionRequest {
@@ -4773,6 +5450,7 @@ export interface CreatePolicyVersionRequest {
 }
 
 /**
+ * @public
  * <p>The output of the CreatePolicyVersion operation.</p>
  */
 export interface CreatePolicyVersionResponse {
@@ -4798,6 +5476,7 @@ export interface CreatePolicyVersionResponse {
 }
 
 /**
+ * @public
  * <p>The number of policy versions exceeds the limit.</p>
  */
 export class VersionsLimitExceededException extends __BaseException {
@@ -4816,6 +5495,9 @@ export class VersionsLimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateProvisioningClaimRequest {
   /**
    * <p>The name of the provisioning template to use.</p>
@@ -4823,6 +5505,9 @@ export interface CreateProvisioningClaimRequest {
   templateName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateProvisioningClaimResponse {
   /**
    * <p>The ID of the certificate.</p>
@@ -4846,6 +5531,7 @@ export interface CreateProvisioningClaimResponse {
 }
 
 /**
+ * @public
  * <p>Structure that contains <code>payloadVersion</code> and
  *          <code>targetArn</code>.</p>
  */
@@ -4865,11 +5551,23 @@ export interface ProvisioningHook {
   targetArn: string | undefined;
 }
 
-export enum TemplateType {
-  FLEET_PROVISIONING = "FLEET_PROVISIONING",
-  JITP = "JITP",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TemplateType = {
+  FLEET_PROVISIONING: "FLEET_PROVISIONING",
+  JITP: "JITP",
+} as const;
 
+/**
+ * @public
+ */
+export type TemplateType = (typeof TemplateType)[keyof typeof TemplateType];
+
+/**
+ * @public
+ */
 export interface CreateProvisioningTemplateRequest {
   /**
    * <p>The name of the provisioning template.</p>
@@ -4925,6 +5623,9 @@ export interface CreateProvisioningTemplateRequest {
   type?: TemplateType | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateProvisioningTemplateResponse {
   /**
    * <p>The ARN that identifies the provisioning template.</p>
@@ -4942,6 +5643,9 @@ export interface CreateProvisioningTemplateResponse {
   defaultVersionId?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateProvisioningTemplateVersionRequest {
   /**
    * <p>The name of the provisioning template.</p>
@@ -4959,6 +5663,9 @@ export interface CreateProvisioningTemplateVersionRequest {
   setAsDefault?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateProvisioningTemplateVersionResponse {
   /**
    * <p>The ARN that identifies the provisioning template.</p>
@@ -4982,6 +5689,9 @@ export interface CreateProvisioningTemplateVersionResponse {
   isDefaultVersion?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateRoleAliasRequest {
   /**
    * <p>The role alias that points to a role ARN. This allows you to change the role without
@@ -5014,6 +5724,9 @@ export interface CreateRoleAliasRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateRoleAliasResponse {
   /**
    * <p>The role alias.</p>
@@ -5026,16 +5739,28 @@ export interface CreateRoleAliasResponse {
   roleAliasArn?: string;
 }
 
-export enum DayOfWeek {
-  FRI = "FRI",
-  MON = "MON",
-  SAT = "SAT",
-  SUN = "SUN",
-  THU = "THU",
-  TUE = "TUE",
-  WED = "WED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DayOfWeek = {
+  FRI: "FRI",
+  MON: "MON",
+  SAT: "SAT",
+  SUN: "SUN",
+  THU: "THU",
+  TUE: "TUE",
+  WED: "WED",
+} as const;
 
+/**
+ * @public
+ */
+export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
+
+/**
+ * @public
+ */
 export interface CreateScheduledAuditRequest {
   /**
    * <p>How often the scheduled audit takes
@@ -5087,6 +5812,9 @@ export interface CreateScheduledAuditRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateScheduledAuditResponse {
   /**
    * <p>The ARN of the scheduled audit.</p>
@@ -5094,6 +5822,9 @@ export interface CreateScheduledAuditResponse {
   scheduledAuditArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateSecurityProfileRequest {
   /**
    * <p>The name you are giving to the security profile.</p>
@@ -5139,6 +5870,9 @@ export interface CreateSecurityProfileRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateSecurityProfileResponse {
   /**
    * <p>The name you gave to the security profile.</p>
@@ -5152,6 +5886,7 @@ export interface CreateSecurityProfileResponse {
 }
 
 /**
+ * @public
  * <p>Represents a file to stream.</p>
  */
 export interface StreamFile {
@@ -5166,6 +5901,9 @@ export interface StreamFile {
   s3Location?: S3Location;
 }
 
+/**
+ * @public
+ */
 export interface CreateStreamRequest {
   /**
    * <p>The stream ID.</p>
@@ -5193,6 +5931,9 @@ export interface CreateStreamRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateStreamResponse {
   /**
    * <p>The stream ID.</p>
@@ -5216,12 +5957,13 @@ export interface CreateStreamResponse {
 }
 
 /**
+ * @public
  * <p>The input for the CreateThing operation.</p>
  */
 export interface CreateThingRequest {
   /**
    * <p>The name of the thing to create.</p>
-   * 		       <p>You can't change a thing's name after you create it. To change a thing's name, you must create a
+   *          <p>You can't change a thing's name after you create it. To change a thing's name, you must create a
    * 			new thing, give it the new name, and then delete the old thing.</p>
    */
   thingName: string | undefined;
@@ -5234,9 +5976,9 @@ export interface CreateThingRequest {
   /**
    * <p>The attribute payload, which consists of up to three name/value pairs in a JSON
    * 			document. For example:</p>
-   * 		       <p>
-   * 			         <code>{\"attributes\":{\"string1\":\"string2\"}}</code>
-   * 		       </p>
+   *          <p>
+   *             <code>\{\"attributes\":\{\"string1\":\"string2\"\}\}</code>
+   *          </p>
    */
   attributePayload?: AttributePayload;
 
@@ -5247,6 +5989,7 @@ export interface CreateThingRequest {
 }
 
 /**
+ * @public
  * <p>The output of the CreateThing operation.</p>
  */
 export interface CreateThingResponse {
@@ -5266,6 +6009,9 @@ export interface CreateThingResponse {
   thingId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateThingGroupRequest {
   /**
    * <p>The thing group name to create.</p>
@@ -5288,6 +6034,9 @@ export interface CreateThingGroupRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateThingGroupResponse {
   /**
    * <p>The thing group name.</p>
@@ -5306,6 +6055,7 @@ export interface CreateThingGroupResponse {
 }
 
 /**
+ * @public
  * <p>The ThingTypeProperties contains information about the thing type including: a thing type description,
  * 			and a list of searchable thing attribute names.</p>
  */
@@ -5322,6 +6072,7 @@ export interface ThingTypeProperties {
 }
 
 /**
+ * @public
  * <p>The input for the CreateThingType operation.</p>
  */
 export interface CreateThingTypeRequest {
@@ -5344,6 +6095,7 @@ export interface CreateThingTypeRequest {
 }
 
 /**
+ * @public
  * <p>The output of the CreateThingType operation.</p>
  */
 export interface CreateThingTypeResponse {
@@ -5364,6 +6116,7 @@ export interface CreateThingTypeResponse {
 }
 
 /**
+ * @public
  * <p>Describes a rule.</p>
  */
 export interface TopicRulePayload {
@@ -5400,6 +6153,7 @@ export interface TopicRulePayload {
 }
 
 /**
+ * @public
  * <p>The input for the CreateTopicRule operation.</p>
  */
 export interface CreateTopicRuleRequest {
@@ -5427,6 +6181,7 @@ export interface CreateTopicRuleRequest {
 }
 
 /**
+ * @public
  * <p>The Rule-SQL expression can't be parsed correctly.</p>
  */
 export class SqlParseException extends __BaseException {
@@ -5446,6 +6201,7 @@ export class SqlParseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>HTTP URL destination configuration used by the topic rule's HTTP action.</p>
  */
 export interface HttpUrlDestinationConfiguration {
@@ -5457,6 +6213,7 @@ export interface HttpUrlDestinationConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration information for a virtual private cloud (VPC) destination.</p>
  */
 export interface VpcDestinationConfiguration {
@@ -5482,6 +6239,7 @@ export interface VpcDestinationConfiguration {
 }
 
 /**
+ * @public
  * <p>Configuration of the topic rule destination.</p>
  */
 export interface TopicRuleDestinationConfiguration {
@@ -5496,6 +6254,9 @@ export interface TopicRuleDestinationConfiguration {
   vpcConfiguration?: VpcDestinationConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface CreateTopicRuleDestinationRequest {
   /**
    * <p>The topic rule destination configuration.</p>
@@ -5504,6 +6265,7 @@ export interface CreateTopicRuleDestinationRequest {
 }
 
 /**
+ * @public
  * <p>HTTP URL destination properties.</p>
  */
 export interface HttpUrlDestinationProperties {
@@ -5513,15 +6275,25 @@ export interface HttpUrlDestinationProperties {
   confirmationUrl?: string;
 }
 
-export enum TopicRuleDestinationStatus {
-  DELETING = "DELETING",
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  ERROR = "ERROR",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TopicRuleDestinationStatus = {
+  DELETING: "DELETING",
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  ERROR: "ERROR",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
 
 /**
+ * @public
+ */
+export type TopicRuleDestinationStatus = (typeof TopicRuleDestinationStatus)[keyof typeof TopicRuleDestinationStatus];
+
+/**
+ * @public
  * <p>The properties of a virtual private cloud (VPC) destination.</p>
  */
 export interface VpcDestinationProperties {
@@ -5547,6 +6319,7 @@ export interface VpcDestinationProperties {
 }
 
 /**
+ * @public
  * <p>A topic rule destination.</p>
  */
 export interface TopicRuleDestination {
@@ -5618,6 +6391,9 @@ export interface TopicRuleDestination {
   vpcProperties?: VpcDestinationProperties;
 }
 
+/**
+ * @public
+ */
 export interface CreateTopicRuleDestinationResponse {
   /**
    * <p>The topic rule destination.</p>
@@ -5625,6 +6401,9 @@ export interface CreateTopicRuleDestinationResponse {
   topicRuleDestination?: TopicRuleDestination;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAccountAuditConfigurationRequest {
   /**
    * <p>If true, all scheduled audits are deleted.</p>
@@ -5632,8 +6411,14 @@ export interface DeleteAccountAuditConfigurationRequest {
   deleteScheduledAudits?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAccountAuditConfigurationResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteAuditSuppressionRequest {
   /**
    * <p>An audit check name. Checks must be enabled
@@ -5649,8 +6434,14 @@ export interface DeleteAuditSuppressionRequest {
   resourceIdentifier: ResourceIdentifier | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAuditSuppressionResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteAuthorizerRequest {
   /**
    * <p>The name of the authorizer to delete.</p>
@@ -5658,9 +6449,13 @@ export interface DeleteAuthorizerRequest {
   authorizerName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAuthorizerResponse {}
 
 /**
+ * @public
  * <p>You can't delete the resource because it is attached to one or more
  *          resources.</p>
  */
@@ -5680,6 +6475,9 @@ export class DeleteConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteBillingGroupRequest {
   /**
    * <p>The name of the billing group.</p>
@@ -5695,9 +6493,13 @@ export interface DeleteBillingGroupRequest {
   expectedVersion?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBillingGroupResponse {}
 
 /**
+ * @public
  * <p>The certificate operation is not allowed.</p>
  */
 export class CertificateStateException extends __BaseException {
@@ -5717,6 +6519,7 @@ export class CertificateStateException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Input for the DeleteCACertificate operation.</p>
  */
 export interface DeleteCACertificateRequest {
@@ -5728,11 +6531,13 @@ export interface DeleteCACertificateRequest {
 }
 
 /**
+ * @public
  * <p>The output for the DeleteCACertificate operation.</p>
  */
 export interface DeleteCACertificateResponse {}
 
 /**
+ * @public
  * <p>The input for the DeleteCertificate operation.</p>
  */
 export interface DeleteCertificateRequest {
@@ -5749,6 +6554,9 @@ export interface DeleteCertificateRequest {
   forceDelete?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCustomMetricRequest {
   /**
    * <p>
@@ -5758,8 +6566,14 @@ export interface DeleteCustomMetricRequest {
   metricName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCustomMetricResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteDimensionRequest {
   /**
    * <p>The unique identifier for the dimension that you want to delete.</p>
@@ -5767,8 +6581,14 @@ export interface DeleteDimensionRequest {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDimensionResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteDomainConfigurationRequest {
   /**
    * <p>The name of the domain configuration to be deleted.</p>
@@ -5776,8 +6596,14 @@ export interface DeleteDomainConfigurationRequest {
   domainConfigurationName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDomainConfigurationResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteDynamicThingGroupRequest {
   /**
    * <p>The name of the dynamic thing group to delete.</p>
@@ -5790,8 +6616,14 @@ export interface DeleteDynamicThingGroupRequest {
   expectedVersion?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDynamicThingGroupResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteFleetMetricRequest {
   /**
    * <p>The name of the fleet metric to delete.</p>
@@ -5804,6 +6636,9 @@ export interface DeleteFleetMetricRequest {
   expectedVersion?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeleteJobRequest {
   /**
    * <p>The ID of the job to be deleted.</p>
@@ -5828,18 +6663,21 @@ export interface DeleteJobRequest {
 
   /**
    * <p>The namespace used to indicate that a job is a customer-managed job.</p>
-   *         <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
+   *          <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
    *             contain the value in the following format.</p>
-   *         <p>
+   *          <p>
    *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
    *          </p>
-   *         <note>
+   *          <note>
    *             <p>The <code>namespaceId</code> feature is in public preview.</p>
    *          </note>
    */
   namespaceId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteJobExecutionRequest {
   /**
    * <p>The ID of the job whose execution on a particular device will be deleted.</p>
@@ -5873,18 +6711,21 @@ export interface DeleteJobExecutionRequest {
 
   /**
    * <p>The namespace used to indicate that a job is a customer-managed job.</p>
-   *         <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
+   *          <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
    *             contain the value in the following format.</p>
-   *         <p>
+   *          <p>
    *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
    *          </p>
-   *         <note>
+   *          <note>
    *             <p>The <code>namespaceId</code> feature is in public preview.</p>
    *          </note>
    */
   namespaceId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteJobTemplateRequest {
   /**
    * <p>The unique identifier of the job template to delete.</p>
@@ -5892,6 +6733,9 @@ export interface DeleteJobTemplateRequest {
   jobTemplateId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMitigationActionRequest {
   /**
    * <p>The name of the mitigation action that you want to delete.</p>
@@ -5899,8 +6743,14 @@ export interface DeleteMitigationActionRequest {
   actionName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMitigationActionResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteOTAUpdateRequest {
   /**
    * <p>The ID of the OTA update to delete.</p>
@@ -5920,9 +6770,13 @@ export interface DeleteOTAUpdateRequest {
   forceDeleteAWSJob?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteOTAUpdateResponse {}
 
 /**
+ * @public
  * <p>The input for the DeletePolicy operation.</p>
  */
 export interface DeletePolicyRequest {
@@ -5931,1007 +6785,6 @@ export interface DeletePolicyRequest {
    */
   policyName: string | undefined;
 }
-
-/**
- * <p>The input for the DeletePolicyVersion operation.</p>
- */
-export interface DeletePolicyVersionRequest {
-  /**
-   * <p>The name of the policy.</p>
-   */
-  policyName: string | undefined;
-
-  /**
-   * <p>The policy version ID.</p>
-   */
-  policyVersionId: string | undefined;
-}
-
-/**
- * @internal
- */
-export const AbortCriteriaFilterSensitiveLog = (obj: AbortCriteria): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AbortConfigFilterSensitiveLog = (obj: AbortConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AcceptCertificateTransferRequestFilterSensitiveLog = (obj: AcceptCertificateTransferRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CloudwatchAlarmActionFilterSensitiveLog = (obj: CloudwatchAlarmAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CloudwatchLogsActionFilterSensitiveLog = (obj: CloudwatchLogsAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CloudwatchMetricActionFilterSensitiveLog = (obj: CloudwatchMetricAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DynamoDBActionFilterSensitiveLog = (obj: DynamoDBAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutItemInputFilterSensitiveLog = (obj: PutItemInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DynamoDBv2ActionFilterSensitiveLog = (obj: DynamoDBv2Action): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ElasticsearchActionFilterSensitiveLog = (obj: ElasticsearchAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FirehoseActionFilterSensitiveLog = (obj: FirehoseAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SigV4AuthorizationFilterSensitiveLog = (obj: SigV4Authorization): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HttpAuthorizationFilterSensitiveLog = (obj: HttpAuthorization): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HttpActionHeaderFilterSensitiveLog = (obj: HttpActionHeader): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HttpActionFilterSensitiveLog = (obj: HttpAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IotAnalyticsActionFilterSensitiveLog = (obj: IotAnalyticsAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IotEventsActionFilterSensitiveLog = (obj: IotEventsAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssetPropertyTimestampFilterSensitiveLog = (obj: AssetPropertyTimestamp): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssetPropertyVariantFilterSensitiveLog = (obj: AssetPropertyVariant): any => {
-  if (obj.stringValue !== undefined) return { stringValue: obj.stringValue };
-  if (obj.integerValue !== undefined) return { integerValue: obj.integerValue };
-  if (obj.doubleValue !== undefined) return { doubleValue: obj.doubleValue };
-  if (obj.booleanValue !== undefined) return { booleanValue: obj.booleanValue };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const AssetPropertyValueFilterSensitiveLog = (obj: AssetPropertyValue): any => ({
-  ...obj,
-  ...(obj.value && { value: AssetPropertyVariantFilterSensitiveLog(obj.value) }),
-});
-
-/**
- * @internal
- */
-export const PutAssetPropertyValueEntryFilterSensitiveLog = (obj: PutAssetPropertyValueEntry): any => ({
-  ...obj,
-  ...(obj.propertyValues && {
-    propertyValues: obj.propertyValues.map((item) => AssetPropertyValueFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const IotSiteWiseActionFilterSensitiveLog = (obj: IotSiteWiseAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KafkaActionFilterSensitiveLog = (obj: KafkaAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KinesisActionFilterSensitiveLog = (obj: KinesisAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LambdaActionFilterSensitiveLog = (obj: LambdaAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LocationTimestampFilterSensitiveLog = (obj: LocationTimestamp): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LocationActionFilterSensitiveLog = (obj: LocationAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OpenSearchActionFilterSensitiveLog = (obj: OpenSearchAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UserPropertyFilterSensitiveLog = (obj: UserProperty): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MqttHeadersFilterSensitiveLog = (obj: MqttHeaders): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RepublishActionFilterSensitiveLog = (obj: RepublishAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3ActionFilterSensitiveLog = (obj: S3Action): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SalesforceActionFilterSensitiveLog = (obj: SalesforceAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SnsActionFilterSensitiveLog = (obj: SnsAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SqsActionFilterSensitiveLog = (obj: SqsAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StepFunctionsActionFilterSensitiveLog = (obj: StepFunctionsAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TimestreamDimensionFilterSensitiveLog = (obj: TimestreamDimension): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TimestreamTimestampFilterSensitiveLog = (obj: TimestreamTimestamp): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TimestreamActionFilterSensitiveLog = (obj: TimestreamAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ActionFilterSensitiveLog = (obj: Action): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MachineLearningDetectionConfigFilterSensitiveLog = (obj: MachineLearningDetectionConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StatisticalThresholdFilterSensitiveLog = (obj: StatisticalThreshold): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetricValueFilterSensitiveLog = (obj: MetricValue): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BehaviorCriteriaFilterSensitiveLog = (obj: BehaviorCriteria): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetricDimensionFilterSensitiveLog = (obj: MetricDimension): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BehaviorFilterSensitiveLog = (obj: Behavior): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ViolationEventAdditionalInfoFilterSensitiveLog = (obj: ViolationEventAdditionalInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ActiveViolationFilterSensitiveLog = (obj: ActiveViolation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetricToRetainFilterSensitiveLog = (obj: MetricToRetain): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddThingsToThingGroupParamsFilterSensitiveLog = (obj: AddThingsToThingGroupParams): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddThingToBillingGroupRequestFilterSensitiveLog = (obj: AddThingToBillingGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddThingToBillingGroupResponseFilterSensitiveLog = (obj: AddThingToBillingGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddThingToThingGroupRequestFilterSensitiveLog = (obj: AddThingToThingGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddThingToThingGroupResponseFilterSensitiveLog = (obj: AddThingToThingGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AggregationTypeFilterSensitiveLog = (obj: AggregationType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AlertTargetFilterSensitiveLog = (obj: AlertTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PolicyFilterSensitiveLog = (obj: Policy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AllowedFilterSensitiveLog = (obj: Allowed): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateTargetsWithJobRequestFilterSensitiveLog = (obj: AssociateTargetsWithJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateTargetsWithJobResponseFilterSensitiveLog = (obj: AssociateTargetsWithJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttachPolicyRequestFilterSensitiveLog = (obj: AttachPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttachPrincipalPolicyRequestFilterSensitiveLog = (obj: AttachPrincipalPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttachSecurityProfileRequestFilterSensitiveLog = (obj: AttachSecurityProfileRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttachSecurityProfileResponseFilterSensitiveLog = (obj: AttachSecurityProfileResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttachThingPrincipalRequestFilterSensitiveLog = (obj: AttachThingPrincipalRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttachThingPrincipalResponseFilterSensitiveLog = (obj: AttachThingPrincipalResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttributePayloadFilterSensitiveLog = (obj: AttributePayload): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuditCheckConfigurationFilterSensitiveLog = (obj: AuditCheckConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuditCheckDetailsFilterSensitiveLog = (obj: AuditCheckDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IssuerCertificateIdentifierFilterSensitiveLog = (obj: IssuerCertificateIdentifier): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PolicyVersionIdentifierFilterSensitiveLog = (obj: PolicyVersionIdentifier): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceIdentifierFilterSensitiveLog = (obj: ResourceIdentifier): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NonCompliantResourceFilterSensitiveLog = (obj: NonCompliantResource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RelatedResourceFilterSensitiveLog = (obj: RelatedResource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuditFindingFilterSensitiveLog = (obj: AuditFinding): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuditMitigationActionExecutionMetadataFilterSensitiveLog = (
-  obj: AuditMitigationActionExecutionMetadata
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuditMitigationActionsTaskMetadataFilterSensitiveLog = (obj: AuditMitigationActionsTaskMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TaskStatisticsForAuditCheckFilterSensitiveLog = (obj: TaskStatisticsForAuditCheck): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuditMitigationActionsTaskTargetFilterSensitiveLog = (obj: AuditMitigationActionsTaskTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuditNotificationTargetFilterSensitiveLog = (obj: AuditNotificationTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuditSuppressionFilterSensitiveLog = (obj: AuditSuppression): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuditTaskMetadataFilterSensitiveLog = (obj: AuditTaskMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuthInfoFilterSensitiveLog = (obj: AuthInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuthorizerConfigFilterSensitiveLog = (obj: AuthorizerConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuthorizerDescriptionFilterSensitiveLog = (obj: AuthorizerDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuthorizerSummaryFilterSensitiveLog = (obj: AuthorizerSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExplicitDenyFilterSensitiveLog = (obj: ExplicitDeny): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImplicitDenyFilterSensitiveLog = (obj: ImplicitDeny): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeniedFilterSensitiveLog = (obj: Denied): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuthResultFilterSensitiveLog = (obj: AuthResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelAuditMitigationActionsTaskRequestFilterSensitiveLog = (
-  obj: CancelAuditMitigationActionsTaskRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelAuditMitigationActionsTaskResponseFilterSensitiveLog = (
-  obj: CancelAuditMitigationActionsTaskResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelAuditTaskRequestFilterSensitiveLog = (obj: CancelAuditTaskRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelAuditTaskResponseFilterSensitiveLog = (obj: CancelAuditTaskResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelCertificateTransferRequestFilterSensitiveLog = (obj: CancelCertificateTransferRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelDetectMitigationActionsTaskRequestFilterSensitiveLog = (
-  obj: CancelDetectMitigationActionsTaskRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelDetectMitigationActionsTaskResponseFilterSensitiveLog = (
-  obj: CancelDetectMitigationActionsTaskResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelJobRequestFilterSensitiveLog = (obj: CancelJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelJobResponseFilterSensitiveLog = (obj: CancelJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelJobExecutionRequestFilterSensitiveLog = (obj: CancelJobExecutionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClearDefaultAuthorizerRequestFilterSensitiveLog = (obj: ClearDefaultAuthorizerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClearDefaultAuthorizerResponseFilterSensitiveLog = (obj: ClearDefaultAuthorizerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConfirmTopicRuleDestinationRequestFilterSensitiveLog = (obj: ConfirmTopicRuleDestinationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConfirmTopicRuleDestinationResponseFilterSensitiveLog = (
-  obj: ConfirmTopicRuleDestinationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAuditSuppressionRequestFilterSensitiveLog = (obj: CreateAuditSuppressionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAuditSuppressionResponseFilterSensitiveLog = (obj: CreateAuditSuppressionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAuthorizerRequestFilterSensitiveLog = (obj: CreateAuthorizerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAuthorizerResponseFilterSensitiveLog = (obj: CreateAuthorizerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BillingGroupPropertiesFilterSensitiveLog = (obj: BillingGroupProperties): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateBillingGroupRequestFilterSensitiveLog = (obj: CreateBillingGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateBillingGroupResponseFilterSensitiveLog = (obj: CreateBillingGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCertificateFromCsrRequestFilterSensitiveLog = (obj: CreateCertificateFromCsrRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCertificateFromCsrResponseFilterSensitiveLog = (obj: CreateCertificateFromCsrResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCustomMetricRequestFilterSensitiveLog = (obj: CreateCustomMetricRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCustomMetricResponseFilterSensitiveLog = (obj: CreateCustomMetricResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDimensionRequestFilterSensitiveLog = (obj: CreateDimensionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDimensionResponseFilterSensitiveLog = (obj: CreateDimensionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDomainConfigurationRequestFilterSensitiveLog = (obj: CreateDomainConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDomainConfigurationResponseFilterSensitiveLog = (obj: CreateDomainConfigurationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ThingGroupPropertiesFilterSensitiveLog = (obj: ThingGroupProperties): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDynamicThingGroupRequestFilterSensitiveLog = (obj: CreateDynamicThingGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDynamicThingGroupResponseFilterSensitiveLog = (obj: CreateDynamicThingGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFleetMetricRequestFilterSensitiveLog = (obj: CreateFleetMetricRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFleetMetricResponseFilterSensitiveLog = (obj: CreateFleetMetricResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RetryCriteriaFilterSensitiveLog = (obj: RetryCriteria): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobExecutionsRetryConfigFilterSensitiveLog = (obj: JobExecutionsRetryConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RateIncreaseCriteriaFilterSensitiveLog = (obj: RateIncreaseCriteria): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExponentialRolloutRateFilterSensitiveLog = (obj: ExponentialRolloutRate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobExecutionsRolloutConfigFilterSensitiveLog = (obj: JobExecutionsRolloutConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PresignedUrlConfigFilterSensitiveLog = (obj: PresignedUrlConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SchedulingConfigFilterSensitiveLog = (obj: SchedulingConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TimeoutConfigFilterSensitiveLog = (obj: TimeoutConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateJobRequestFilterSensitiveLog = (obj: CreateJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateJobResponseFilterSensitiveLog = (obj: CreateJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateJobTemplateRequestFilterSensitiveLog = (obj: CreateJobTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateJobTemplateResponseFilterSensitiveLog = (obj: CreateJobTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateKeysAndCertificateRequestFilterSensitiveLog = (obj: CreateKeysAndCertificateRequest): any => ({
-  ...obj,
-});
 
 /**
  * @internal
@@ -6952,673 +6805,7 @@ export const CreateKeysAndCertificateResponseFilterSensitiveLog = (obj: CreateKe
 /**
  * @internal
  */
-export const EnableIoTLoggingParamsFilterSensitiveLog = (obj: EnableIoTLoggingParams): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PublishFindingToSnsParamsFilterSensitiveLog = (obj: PublishFindingToSnsParams): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReplaceDefaultPolicyVersionParamsFilterSensitiveLog = (obj: ReplaceDefaultPolicyVersionParams): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCACertificateParamsFilterSensitiveLog = (obj: UpdateCACertificateParams): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDeviceCertificateParamsFilterSensitiveLog = (obj: UpdateDeviceCertificateParams): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MitigationActionParamsFilterSensitiveLog = (obj: MitigationActionParams): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateMitigationActionRequestFilterSensitiveLog = (obj: CreateMitigationActionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateMitigationActionResponseFilterSensitiveLog = (obj: CreateMitigationActionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsJobAbortCriteriaFilterSensitiveLog = (obj: AwsJobAbortCriteria): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsJobAbortConfigFilterSensitiveLog = (obj: AwsJobAbortConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsJobRateIncreaseCriteriaFilterSensitiveLog = (obj: AwsJobRateIncreaseCriteria): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsJobExponentialRolloutRateFilterSensitiveLog = (obj: AwsJobExponentialRolloutRate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsJobExecutionsRolloutConfigFilterSensitiveLog = (obj: AwsJobExecutionsRolloutConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsJobPresignedUrlConfigFilterSensitiveLog = (obj: AwsJobPresignedUrlConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsJobTimeoutConfigFilterSensitiveLog = (obj: AwsJobTimeoutConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CodeSigningCertificateChainFilterSensitiveLog = (obj: CodeSigningCertificateChain): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CodeSigningSignatureFilterSensitiveLog = (obj: CodeSigningSignature): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CustomCodeSigningFilterSensitiveLog = (obj: CustomCodeSigning): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3DestinationFilterSensitiveLog = (obj: S3Destination): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DestinationFilterSensitiveLog = (obj: Destination): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SigningProfileParameterFilterSensitiveLog = (obj: SigningProfileParameter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartSigningJobParameterFilterSensitiveLog = (obj: StartSigningJobParameter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CodeSigningFilterSensitiveLog = (obj: CodeSigning): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3LocationFilterSensitiveLog = (obj: S3Location): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const _StreamFilterSensitiveLog = (obj: _Stream): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FileLocationFilterSensitiveLog = (obj: FileLocation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OTAUpdateFileFilterSensitiveLog = (obj: OTAUpdateFile): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateOTAUpdateRequestFilterSensitiveLog = (obj: CreateOTAUpdateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateOTAUpdateResponseFilterSensitiveLog = (obj: CreateOTAUpdateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePolicyRequestFilterSensitiveLog = (obj: CreatePolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePolicyResponseFilterSensitiveLog = (obj: CreatePolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePolicyVersionRequestFilterSensitiveLog = (obj: CreatePolicyVersionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePolicyVersionResponseFilterSensitiveLog = (obj: CreatePolicyVersionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateProvisioningClaimRequestFilterSensitiveLog = (obj: CreateProvisioningClaimRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateProvisioningClaimResponseFilterSensitiveLog = (obj: CreateProvisioningClaimResponse): any => ({
   ...obj,
   ...(obj.keyPair && { keyPair: KeyPairFilterSensitiveLog(obj.keyPair) }),
-});
-
-/**
- * @internal
- */
-export const ProvisioningHookFilterSensitiveLog = (obj: ProvisioningHook): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateProvisioningTemplateRequestFilterSensitiveLog = (obj: CreateProvisioningTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateProvisioningTemplateResponseFilterSensitiveLog = (obj: CreateProvisioningTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateProvisioningTemplateVersionRequestFilterSensitiveLog = (
-  obj: CreateProvisioningTemplateVersionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateProvisioningTemplateVersionResponseFilterSensitiveLog = (
-  obj: CreateProvisioningTemplateVersionResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRoleAliasRequestFilterSensitiveLog = (obj: CreateRoleAliasRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRoleAliasResponseFilterSensitiveLog = (obj: CreateRoleAliasResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateScheduledAuditRequestFilterSensitiveLog = (obj: CreateScheduledAuditRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateScheduledAuditResponseFilterSensitiveLog = (obj: CreateScheduledAuditResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSecurityProfileRequestFilterSensitiveLog = (obj: CreateSecurityProfileRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSecurityProfileResponseFilterSensitiveLog = (obj: CreateSecurityProfileResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StreamFileFilterSensitiveLog = (obj: StreamFile): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateStreamRequestFilterSensitiveLog = (obj: CreateStreamRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateStreamResponseFilterSensitiveLog = (obj: CreateStreamResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateThingRequestFilterSensitiveLog = (obj: CreateThingRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateThingResponseFilterSensitiveLog = (obj: CreateThingResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateThingGroupRequestFilterSensitiveLog = (obj: CreateThingGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateThingGroupResponseFilterSensitiveLog = (obj: CreateThingGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ThingTypePropertiesFilterSensitiveLog = (obj: ThingTypeProperties): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateThingTypeRequestFilterSensitiveLog = (obj: CreateThingTypeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateThingTypeResponseFilterSensitiveLog = (obj: CreateThingTypeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TopicRulePayloadFilterSensitiveLog = (obj: TopicRulePayload): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTopicRuleRequestFilterSensitiveLog = (obj: CreateTopicRuleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HttpUrlDestinationConfigurationFilterSensitiveLog = (obj: HttpUrlDestinationConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcDestinationConfigurationFilterSensitiveLog = (obj: VpcDestinationConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TopicRuleDestinationConfigurationFilterSensitiveLog = (obj: TopicRuleDestinationConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTopicRuleDestinationRequestFilterSensitiveLog = (obj: CreateTopicRuleDestinationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HttpUrlDestinationPropertiesFilterSensitiveLog = (obj: HttpUrlDestinationProperties): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcDestinationPropertiesFilterSensitiveLog = (obj: VpcDestinationProperties): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TopicRuleDestinationFilterSensitiveLog = (obj: TopicRuleDestination): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTopicRuleDestinationResponseFilterSensitiveLog = (obj: CreateTopicRuleDestinationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAccountAuditConfigurationRequestFilterSensitiveLog = (
-  obj: DeleteAccountAuditConfigurationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAccountAuditConfigurationResponseFilterSensitiveLog = (
-  obj: DeleteAccountAuditConfigurationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAuditSuppressionRequestFilterSensitiveLog = (obj: DeleteAuditSuppressionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAuditSuppressionResponseFilterSensitiveLog = (obj: DeleteAuditSuppressionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAuthorizerRequestFilterSensitiveLog = (obj: DeleteAuthorizerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAuthorizerResponseFilterSensitiveLog = (obj: DeleteAuthorizerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteBillingGroupRequestFilterSensitiveLog = (obj: DeleteBillingGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteBillingGroupResponseFilterSensitiveLog = (obj: DeleteBillingGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCACertificateRequestFilterSensitiveLog = (obj: DeleteCACertificateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCACertificateResponseFilterSensitiveLog = (obj: DeleteCACertificateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCertificateRequestFilterSensitiveLog = (obj: DeleteCertificateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCustomMetricRequestFilterSensitiveLog = (obj: DeleteCustomMetricRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCustomMetricResponseFilterSensitiveLog = (obj: DeleteCustomMetricResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDimensionRequestFilterSensitiveLog = (obj: DeleteDimensionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDimensionResponseFilterSensitiveLog = (obj: DeleteDimensionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDomainConfigurationRequestFilterSensitiveLog = (obj: DeleteDomainConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDomainConfigurationResponseFilterSensitiveLog = (obj: DeleteDomainConfigurationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDynamicThingGroupRequestFilterSensitiveLog = (obj: DeleteDynamicThingGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDynamicThingGroupResponseFilterSensitiveLog = (obj: DeleteDynamicThingGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteFleetMetricRequestFilterSensitiveLog = (obj: DeleteFleetMetricRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteJobRequestFilterSensitiveLog = (obj: DeleteJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteJobExecutionRequestFilterSensitiveLog = (obj: DeleteJobExecutionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteJobTemplateRequestFilterSensitiveLog = (obj: DeleteJobTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMitigationActionRequestFilterSensitiveLog = (obj: DeleteMitigationActionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMitigationActionResponseFilterSensitiveLog = (obj: DeleteMitigationActionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteOTAUpdateRequestFilterSensitiveLog = (obj: DeleteOTAUpdateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteOTAUpdateResponseFilterSensitiveLog = (obj: DeleteOTAUpdateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePolicyRequestFilterSensitiveLog = (obj: DeletePolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePolicyVersionRequestFilterSensitiveLog = (obj: DeletePolicyVersionRequest): any => ({
-  ...obj,
 });

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  ListDevEndpointsRequest,
-  ListDevEndpointsRequestFilterSensitiveLog,
-  ListDevEndpointsResponse,
-  ListDevEndpointsResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1ListDevEndpointsCommand,
-  serializeAws_json1_1ListDevEndpointsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListDevEndpointsRequest, ListDevEndpointsResponse } from "../models/models_2";
+import { de_ListDevEndpointsCommand, se_ListDevEndpointsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListDevEndpointsCommand}.
+ */
 export interface ListDevEndpointsCommandInput extends ListDevEndpointsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDevEndpointsCommand}.
+ */
 export interface ListDevEndpointsCommandOutput extends ListDevEndpointsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the names of all <code>DevEndpoint</code> resources in this Amazon Web Services account, or the
  *       resources with the specified tag. This operation allows you to see which resources are
  *       available in your account, and their names.</p>
@@ -41,13 +44,35 @@ export interface ListDevEndpointsCommandOutput extends ListDevEndpointsResponse,
  * import { GlueClient, ListDevEndpointsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, ListDevEndpointsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // ListDevEndpointsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new ListDevEndpointsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDevEndpointsCommandInput - {@link ListDevEndpointsCommandInput}
+ * @returns {@link ListDevEndpointsCommandOutput}
  * @see {@link ListDevEndpointsCommandInput} for command's `input` shape.
  * @see {@link ListDevEndpointsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class ListDevEndpointsCommand extends $Command<
@@ -67,6 +92,9 @@ export class ListDevEndpointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDevEndpointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +123,8 @@ export class ListDevEndpointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDevEndpointsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDevEndpointsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +134,18 @@ export class ListDevEndpointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDevEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDevEndpointsCommand(input, context);
+    return se_ListDevEndpointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDevEndpointsCommandOutput> {
-    return deserializeAws_json1_1ListDevEndpointsCommand(output, context);
+    return de_ListDevEndpointsCommand(output, context);
   }
 
   // Start section: command_body_extra

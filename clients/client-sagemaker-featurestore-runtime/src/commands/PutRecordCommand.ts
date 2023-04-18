@@ -13,21 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutRecordRequest, PutRecordRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutRecordCommand,
-  serializeAws_restJson1PutRecordCommand,
-} from "../protocols/Aws_restJson1";
+import { PutRecordRequest } from "../models/models_0";
+import { de_PutRecordCommand, se_PutRecordCommand } from "../protocols/Aws_restJson1";
 import {
   SageMakerFeatureStoreRuntimeClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../SageMakerFeatureStoreRuntimeClient";
 
+/**
+ * @public
+ *
+ * The input for {@link PutRecordCommand}.
+ */
 export interface PutRecordCommandInput extends PutRecordRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutRecordCommand}.
+ */
 export interface PutRecordCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used for data ingestion into the <code>FeatureStore</code>. The <code>PutRecord</code>
  *          API writes to both the <code>OnlineStore</code> and <code>OfflineStore</code>. If the
  *          record is the latest record for the <code>recordIdentifier</code>, the record is written to
@@ -39,13 +47,41 @@ export interface PutRecordCommandOutput extends __MetadataBearer {}
  * import { SageMakerFeatureStoreRuntimeClient, PutRecordCommand } from "@aws-sdk/client-sagemaker-featurestore-runtime"; // ES Modules import
  * // const { SageMakerFeatureStoreRuntimeClient, PutRecordCommand } = require("@aws-sdk/client-sagemaker-featurestore-runtime"); // CommonJS import
  * const client = new SageMakerFeatureStoreRuntimeClient(config);
+ * const input = { // PutRecordRequest
+ *   FeatureGroupName: "STRING_VALUE", // required
+ *   Record: [ // Record // required
+ *     { // FeatureValue
+ *       FeatureName: "STRING_VALUE", // required
+ *       ValueAsString: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   TargetStores: [ // TargetStores
+ *     "OnlineStore" || "OfflineStore",
+ *   ],
+ * };
  * const command = new PutRecordCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutRecordCommandInput - {@link PutRecordCommandInput}
+ * @returns {@link PutRecordCommandOutput}
  * @see {@link PutRecordCommandInput} for command's `input` shape.
  * @see {@link PutRecordCommandOutput} for command's `response` shape.
  * @see {@link SageMakerFeatureStoreRuntimeClientResolvedConfig | config} for SageMakerFeatureStoreRuntimeClient's `config` shape.
+ *
+ * @throws {@link AccessForbidden} (client fault)
+ *  <p>You do not have permission to perform an action.</p>
+ *
+ * @throws {@link InternalFailure} (server fault)
+ *  <p>An internal failure occurred. Try your request again. If the problem persists, contact
+ *             Amazon Web Services customer support.</p>
+ *
+ * @throws {@link ServiceUnavailable} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ValidationError} (client fault)
+ *  <p>There was an error validating your request.</p>
+ *
  *
  */
 export class PutRecordCommand extends $Command<
@@ -65,6 +101,9 @@ export class PutRecordCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutRecordCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +130,8 @@ export class PutRecordCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutRecordRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +141,18 @@ export class PutRecordCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutRecordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutRecordCommand(input, context);
+    return se_PutRecordCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRecordCommandOutput> {
-    return deserializeAws_restJson1PutRecordCommand(output, context);
+    return de_PutRecordCommand(output, context);
   }
 
   // Start section: command_body_extra

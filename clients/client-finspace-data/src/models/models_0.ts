@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { FinspaceDataServiceException as __BaseException } from "./FinspaceDataServiceException";
 
 /**
+ * @public
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -22,21 +23,42 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
-export enum ApiAccess {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ApiAccess = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
-export enum ApplicationPermission {
-  AccessNotebooks = "AccessNotebooks",
-  CreateDataset = "CreateDataset",
-  GetTemporaryCredentials = "GetTemporaryCredentials",
-  ManageAttributeSets = "ManageAttributeSets",
-  ManageClusters = "ManageClusters",
-  ManageUsersAndGroups = "ManageUsersAndGroups",
-  ViewAuditData = "ViewAuditData",
-}
+/**
+ * @public
+ */
+export type ApiAccess = (typeof ApiAccess)[keyof typeof ApiAccess];
 
+/**
+ * @public
+ * @enum
+ */
+export const ApplicationPermission = {
+  AccessNotebooks: "AccessNotebooks",
+  CreateDataset: "CreateDataset",
+  GetTemporaryCredentials: "GetTemporaryCredentials",
+  ManageAttributeSets: "ManageAttributeSets",
+  ManageClusters: "ManageClusters",
+  ManageUsersAndGroups: "ManageUsersAndGroups",
+  ViewAuditData: "ViewAuditData",
+} as const;
+
+/**
+ * @public
+ */
+export type ApplicationPermission = (typeof ApplicationPermission)[keyof typeof ApplicationPermission];
+
+/**
+ * @public
+ */
 export interface AssociateUserToPermissionGroupRequest {
   /**
    * <p>The unique identifier for the permission group.</p>
@@ -54,6 +76,9 @@ export interface AssociateUserToPermissionGroupRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateUserToPermissionGroupResponse {
   /**
    * <p>The returned status code of the response.</p>
@@ -62,6 +87,7 @@ export interface AssociateUserToPermissionGroupResponse {
 }
 
 /**
+ * @public
  * <p>The request conflicts with an existing resource.</p>
  */
 export class ConflictException extends __BaseException {
@@ -83,6 +109,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  */
@@ -103,6 +130,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One or more resources can't be found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -124,6 +152,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -143,6 +172,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  */
 export class ValidationException extends __BaseException {
@@ -164,6 +194,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> The credentials required to access the external Dataview from the S3 location.</p>
  */
 export interface AwsCredentials {
@@ -188,13 +219,23 @@ export interface AwsCredentials {
   expiration?: number;
 }
 
-export enum ChangeType {
-  APPEND = "APPEND",
-  MODIFY = "MODIFY",
-  REPLACE = "REPLACE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ChangeType = {
+  APPEND: "APPEND",
+  MODIFY: "MODIFY",
+  REPLACE: "REPLACE",
+} as const;
 
 /**
+ * @public
+ */
+export type ChangeType = (typeof ChangeType)[keyof typeof ChangeType];
+
+/**
+ * @public
  * The request for a CreateChangeset operation.
  */
 export interface CreateChangesetRequest {
@@ -237,10 +278,10 @@ export interface CreateChangesetRequest {
    *          <p>
    *             <code>
    *         "sourceParams":
-   *         {
+   *         \{
    *         "s3SourcePath": "s3://finspace-landing-us-east-2-bk7gcfvitndqa6ebnvys4d/scratch/wr5hh8pwkpqqkxa4sxrmcw/ingestion/equity.csv",
    *         "sourceType": "S3"
-   *         }
+   *         \}
    *       </code>
    *          </p>
    *          <p>The S3 path that you specify must allow the FinSpace role access. To do that, you first need to configure the IAM policy on S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/finspace/latest/data-api/fs-using-the-finspace-api.html#access-s3-buckets">Loading data from an Amazon S3 Bucket using the FinSpace API</a> section.</p>
@@ -276,21 +317,21 @@ export interface CreateChangesetRequest {
    *          <p>
    *             <code>
    *           "formatParams":
-   *         {
+   *         \{
    *          "formatType": "CSV",
    *          "withHeader": "true",
    *          "separator": ",",
    *          "compression":"None"
-   *          }
+   *          \}
    *       </code>
    *          </p>
    *          <p>Note that if you only provide <code>formatType</code> as <code>CSV</code>, the rest of the attributes will automatically default to CSV values as following:</p>
    *          <p>
    *             <code>
-   *           {
+   *           \{
    *           "withHeader": "true",
    *           "separator": ","
-   *            }
+   *            \}
    *         </code>
    *          </p>
    *          <p> For more information about supported file formats, see <a href="https://docs.aws.amazon.com/finspace/latest/userguide/supported-data-types.html">Supported Data Types and File Formats</a> in the FinSpace User Guide.</p>
@@ -299,6 +340,7 @@ export interface CreateChangesetRequest {
 }
 
 /**
+ * @public
  * The response from a CreateChangeset operation.
  */
 export interface CreateChangesetResponse {
@@ -314,6 +356,7 @@ export interface CreateChangesetResponse {
 }
 
 /**
+ * @public
  * <p>A limit has exceeded.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -332,12 +375,22 @@ export class LimitExceededException extends __BaseException {
   }
 }
 
-export enum DatasetKind {
-  NON_TABULAR = "NON_TABULAR",
-  TABULAR = "TABULAR",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DatasetKind = {
+  NON_TABULAR: "NON_TABULAR",
+  TABULAR: "TABULAR",
+} as const;
 
 /**
+ * @public
+ */
+export type DatasetKind = (typeof DatasetKind)[keyof typeof DatasetKind];
+
+/**
+ * @public
  * <p>A structure for Dataset owner info.</p>
  */
 export interface DatasetOwnerInfo {
@@ -358,6 +411,7 @@ export interface DatasetOwnerInfo {
 }
 
 /**
+ * @public
  * <p>Resource permission for a dataset. When you create a dataset, all the other members of the same user group inherit access to the dataset. You can only create a dataset if your user group has application permission for Create Datasets.</p>
  *          <p>The following is a list of valid dataset permissions that you can apply:
  *
@@ -404,19 +458,20 @@ export interface ResourcePermission {
 }
 
 /**
+ * @public
  * <p>Permission group parameters for Dataset permissions.</p>
  *          <p>Here is an example of how you could specify the <code>PermissionGroupParams</code>:</p>
  *          <p>
  *             <code>
- *         {
+ *         \{
  *         "permissionGroupId": "0r6fCRtSTUk4XPfXQe3M0g",
  *         "datasetPermissions": [
- *         {"permission": "ViewDatasetDetails"},
- *         {"permission": "AddDatasetData"},
- *         {"permission": "EditDatasetMetadata"},
- *         {"permission": "DeleteDataset"}
+ *         \{"permission": "ViewDatasetDetails"\},
+ *         \{"permission": "AddDatasetData"\},
+ *         \{"permission": "EditDatasetMetadata"\},
+ *         \{"permission": "DeleteDataset"\}
  *         ]
- *         }
+ *         \}
  *       </code>
  *          </p>
  */
@@ -432,22 +487,32 @@ export interface PermissionGroupParams {
   datasetPermissions?: ResourcePermission[];
 }
 
-export enum ColumnDataType {
-  BIGINT = "BIGINT",
-  BINARY = "BINARY",
-  BOOLEAN = "BOOLEAN",
-  CHAR = "CHAR",
-  DATE = "DATE",
-  DATETIME = "DATETIME",
-  DOUBLE = "DOUBLE",
-  FLOAT = "FLOAT",
-  INTEGER = "INTEGER",
-  SMALLINT = "SMALLINT",
-  STRING = "STRING",
-  TINYINT = "TINYINT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ColumnDataType = {
+  BIGINT: "BIGINT",
+  BINARY: "BINARY",
+  BOOLEAN: "BOOLEAN",
+  CHAR: "CHAR",
+  DATE: "DATE",
+  DATETIME: "DATETIME",
+  DOUBLE: "DOUBLE",
+  FLOAT: "FLOAT",
+  INTEGER: "INTEGER",
+  SMALLINT: "SMALLINT",
+  STRING: "STRING",
+  TINYINT: "TINYINT",
+} as const;
 
 /**
+ * @public
+ */
+export type ColumnDataType = (typeof ColumnDataType)[keyof typeof ColumnDataType];
+
+/**
+ * @public
  * <p>The definition of a column in a tabular Dataset.</p>
  */
 export interface ColumnDefinition {
@@ -496,6 +561,7 @@ export interface ColumnDefinition {
 }
 
 /**
+ * @public
  * <p>Definition for a schema on a tabular Dataset.</p>
  */
 export interface SchemaDefinition {
@@ -511,6 +577,7 @@ export interface SchemaDefinition {
 }
 
 /**
+ * @public
  * <p>A union of schema types.</p>
  */
 export interface SchemaUnion {
@@ -521,6 +588,7 @@ export interface SchemaUnion {
 }
 
 /**
+ * @public
  * The request for a CreateDataset operation
  */
 export interface CreateDatasetRequest {
@@ -576,6 +644,7 @@ export interface CreateDatasetRequest {
 }
 
 /**
+ * @public
  * The response from a CreateDataset operation
  */
 export interface CreateDatasetResponse {
@@ -585,12 +654,22 @@ export interface CreateDatasetResponse {
   datasetId?: string;
 }
 
-export enum ExportFileFormat {
-  DELIMITED_TEXT = "DELIMITED_TEXT",
-  PARQUET = "PARQUET",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ExportFileFormat = {
+  DELIMITED_TEXT: "DELIMITED_TEXT",
+  PARQUET: "PARQUET",
+} as const;
 
 /**
+ * @public
+ */
+export type ExportFileFormat = (typeof ExportFileFormat)[keyof typeof ExportFileFormat];
+
+/**
+ * @public
  * <p>Structure for the Dataview destination type parameters.</p>
  */
 export interface DataViewDestinationTypeParams {
@@ -630,17 +709,18 @@ export interface DataViewDestinationTypeParams {
    *          </p>
    *          <p>
    *             <code>
-   *         {
+   *         \{
    *         "header": "true",
    *         "delimiter": ",",
    *         "compression": "gzip"
-   *         }</code>
+   *         \}</code>
    *          </p>
    */
   s3DestinationExportFileFormatOptions?: Record<string, string>;
 }
 
 /**
+ * @public
  * Request for creating a data view.
  */
 export interface CreateDataViewRequest {
@@ -681,6 +761,7 @@ export interface CreateDataViewRequest {
 }
 
 /**
+ * @public
  * Response for creating a data view.
  */
 export interface CreateDataViewResponse {
@@ -695,6 +776,9 @@ export interface CreateDataViewResponse {
   dataViewId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreatePermissionGroupRequest {
   /**
    * <p>The name of the permission group.</p>
@@ -750,6 +834,9 @@ export interface CreatePermissionGroupRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreatePermissionGroupResponse {
   /**
    * <p>The unique identifier for the permission group.</p>
@@ -757,11 +844,23 @@ export interface CreatePermissionGroupResponse {
   permissionGroupId?: string;
 }
 
-export enum UserType {
-  APP_USER = "APP_USER",
-  SUPER_USER = "SUPER_USER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const UserType = {
+  APP_USER: "APP_USER",
+  SUPER_USER: "SUPER_USER",
+} as const;
 
+/**
+ * @public
+ */
+export type UserType = (typeof UserType)[keyof typeof UserType];
+
+/**
+ * @public
+ */
 export interface CreateUserRequest {
   /**
    * <p>The email address of the user that you want to register. The email address serves as a uniquer identifier for each user and cannot be changed after it's created.</p>
@@ -819,6 +918,9 @@ export interface CreateUserRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateUserResponse {
   /**
    * <p>The unique identifier for the user.</p>
@@ -827,6 +929,7 @@ export interface CreateUserResponse {
 }
 
 /**
+ * @public
  * The request for a DeleteDataset operation.
  */
 export interface DeleteDatasetRequest {
@@ -842,6 +945,7 @@ export interface DeleteDatasetRequest {
 }
 
 /**
+ * @public
  * The response from an DeleteDataset operation
  */
 export interface DeleteDatasetResponse {
@@ -851,6 +955,9 @@ export interface DeleteDatasetResponse {
   datasetId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeletePermissionGroupRequest {
   /**
    * <p>The unique identifier for the permission group that you want to delete.</p>
@@ -863,6 +970,9 @@ export interface DeletePermissionGroupRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeletePermissionGroupResponse {
   /**
    * <p>The unique identifier for the deleted permission group.</p>
@@ -870,6 +980,9 @@ export interface DeletePermissionGroupResponse {
   permissionGroupId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DisableUserRequest {
   /**
    * <p>The unique identifier for the user account that you want to disable.</p>
@@ -882,6 +995,9 @@ export interface DisableUserRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DisableUserResponse {
   /**
    * <p>The unique identifier for the disabled user account.</p>
@@ -889,6 +1005,9 @@ export interface DisableUserResponse {
   userId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateUserFromPermissionGroupRequest {
   /**
    * <p>The unique identifier for the permission group.</p>
@@ -906,6 +1025,9 @@ export interface DisassociateUserFromPermissionGroupRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateUserFromPermissionGroupResponse {
   /**
    * <p>The returned status code of the response.</p>
@@ -913,6 +1035,9 @@ export interface DisassociateUserFromPermissionGroupResponse {
   statusCode?: number;
 }
 
+/**
+ * @public
+ */
 export interface EnableUserRequest {
   /**
    * <p>The unique identifier for the user account that you want to enable.</p>
@@ -925,6 +1050,9 @@ export interface EnableUserRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface EnableUserResponse {
   /**
    * <p>The unique identifier for the enabled user account.</p>
@@ -933,6 +1061,7 @@ export interface EnableUserResponse {
 }
 
 /**
+ * @public
  * Request to describe a changeset.
  */
 export interface GetChangesetRequest {
@@ -947,18 +1076,28 @@ export interface GetChangesetRequest {
   changesetId: string | undefined;
 }
 
-export enum ErrorCategory {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  CANCELLED = "CANCELLED",
-  INTERNAL_SERVICE_EXCEPTION = "INTERNAL_SERVICE_EXCEPTION",
-  RESOURCE_NOT_FOUND = "RESOURCE_NOT_FOUND",
-  SERVICE_QUOTA_EXCEEDED = "SERVICE_QUOTA_EXCEEDED",
-  THROTTLING = "THROTTLING",
-  USER_RECOVERABLE = "USER_RECOVERABLE",
-  VALIDATION = "VALIDATION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ErrorCategory = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  CANCELLED: "CANCELLED",
+  INTERNAL_SERVICE_EXCEPTION: "INTERNAL_SERVICE_EXCEPTION",
+  RESOURCE_NOT_FOUND: "RESOURCE_NOT_FOUND",
+  SERVICE_QUOTA_EXCEEDED: "SERVICE_QUOTA_EXCEEDED",
+  THROTTLING: "THROTTLING",
+  USER_RECOVERABLE: "USER_RECOVERABLE",
+  VALIDATION: "VALIDATION",
+} as const;
 
 /**
+ * @public
+ */
+export type ErrorCategory = (typeof ErrorCategory)[keyof typeof ErrorCategory];
+
+/**
+ * @public
  * <p>The structure with error messages.</p>
  */
 export interface ChangesetErrorInfo {
@@ -1012,15 +1151,25 @@ export interface ChangesetErrorInfo {
   errorCategory?: ErrorCategory | string;
 }
 
-export enum IngestionStatus {
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  STOP_REQUESTED = "STOP_REQUESTED",
-  SUCCESS = "SUCCESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const IngestionStatus = {
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  STOP_REQUESTED: "STOP_REQUESTED",
+  SUCCESS: "SUCCESS",
+} as const;
 
 /**
+ * @public
+ */
+export type IngestionStatus = (typeof IngestionStatus)[keyof typeof IngestionStatus];
+
+/**
+ * @public
  * The response from a describe changeset operation
  */
 export interface GetChangesetResponse {
@@ -1105,6 +1254,7 @@ export interface GetChangesetResponse {
 }
 
 /**
+ * @public
  * Request for the GetDataset operation.
  */
 export interface GetDatasetRequest {
@@ -1114,14 +1264,24 @@ export interface GetDatasetRequest {
   datasetId: string | undefined;
 }
 
-export enum DatasetStatus {
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  SUCCESS = "SUCCESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DatasetStatus = {
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  SUCCESS: "SUCCESS",
+} as const;
 
 /**
+ * @public
+ */
+export type DatasetStatus = (typeof DatasetStatus)[keyof typeof DatasetStatus];
+
+/**
+ * @public
  * Response for the GetDataset operation
  */
 export interface GetDatasetResponse {
@@ -1205,6 +1365,7 @@ export interface GetDatasetResponse {
 }
 
 /**
+ * @public
  * Request for retrieving a data view detail. Grouped / accessible within a dataset by its dataset id.
  */
 export interface GetDataViewRequest {
@@ -1220,6 +1381,7 @@ export interface GetDataViewRequest {
 }
 
 /**
+ * @public
  * <p>The structure with error messages.</p>
  */
 export interface DataViewErrorInfo {
@@ -1273,18 +1435,28 @@ export interface DataViewErrorInfo {
   errorCategory?: ErrorCategory | string;
 }
 
-export enum DataViewStatus {
-  CANCELLED = "CANCELLED",
-  FAILED = "FAILED",
-  FAILED_CLEANUP_FAILED = "FAILED_CLEANUP_FAILED",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  SUCCESS = "SUCCESS",
-  TIMEOUT = "TIMEOUT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DataViewStatus = {
+  CANCELLED: "CANCELLED",
+  FAILED: "FAILED",
+  FAILED_CLEANUP_FAILED: "FAILED_CLEANUP_FAILED",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  SUCCESS: "SUCCESS",
+  TIMEOUT: "TIMEOUT",
+} as const;
 
 /**
+ * @public
+ */
+export type DataViewStatus = (typeof DataViewStatus)[keyof typeof DataViewStatus];
+
+/**
+ * @public
  * Response from retrieving a dataview, which includes details on the target database and table name
  */
 export interface GetDataViewResponse {
@@ -1383,6 +1555,9 @@ export interface GetDataViewResponse {
   status?: DataViewStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface GetExternalDataViewAccessDetailsRequest {
   /**
    * <p>The unique identifier for the Dataview that you want to access.</p>
@@ -1396,6 +1571,7 @@ export interface GetExternalDataViewAccessDetailsRequest {
 }
 
 /**
+ * @public
  * <p>The location of an external Dataview in an S3 bucket.</p>
  */
 export interface S3Location {
@@ -1410,6 +1586,9 @@ export interface S3Location {
   key: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetExternalDataViewAccessDetailsResponse {
   /**
    * <p>The credentials required to access the external Dataview from the S3 location.</p>
@@ -1422,6 +1601,9 @@ export interface GetExternalDataViewAccessDetailsResponse {
   s3Location?: S3Location;
 }
 
+/**
+ * @public
+ */
 export interface GetPermissionGroupRequest {
   /**
    * <p>The unique identifier for the permission group.</p>
@@ -1429,13 +1611,24 @@ export interface GetPermissionGroupRequest {
   permissionGroupId: string | undefined;
 }
 
-export enum PermissionGroupMembershipStatus {
-  ADDITION_IN_PROGRESS = "ADDITION_IN_PROGRESS",
-  ADDITION_SUCCESS = "ADDITION_SUCCESS",
-  REMOVAL_IN_PROGRESS = "REMOVAL_IN_PROGRESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PermissionGroupMembershipStatus = {
+  ADDITION_IN_PROGRESS: "ADDITION_IN_PROGRESS",
+  ADDITION_SUCCESS: "ADDITION_SUCCESS",
+  REMOVAL_IN_PROGRESS: "REMOVAL_IN_PROGRESS",
+} as const;
 
 /**
+ * @public
+ */
+export type PermissionGroupMembershipStatus =
+  (typeof PermissionGroupMembershipStatus)[keyof typeof PermissionGroupMembershipStatus];
+
+/**
+ * @public
  * <p>The structure for a permission group.</p>
  */
 export interface PermissionGroup {
@@ -1524,6 +1717,9 @@ export interface PermissionGroup {
   membershipStatus?: PermissionGroupMembershipStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface GetPermissionGroupResponse {
   /**
    * <p>The structure for a permission group.</p>
@@ -1532,6 +1728,7 @@ export interface GetPermissionGroupResponse {
 }
 
 /**
+ * @public
  * Request for GetProgrammaticAccessCredentials operation
  */
 export interface GetProgrammaticAccessCredentialsRequest {
@@ -1547,6 +1744,7 @@ export interface GetProgrammaticAccessCredentialsRequest {
 }
 
 /**
+ * @public
  * <p>Short term API credentials.</p>
  */
 export interface Credentials {
@@ -1567,6 +1765,7 @@ export interface Credentials {
 }
 
 /**
+ * @public
  * Response for GetProgrammaticAccessCredentials operation
  */
 export interface GetProgrammaticAccessCredentialsResponse {
@@ -1581,6 +1780,9 @@ export interface GetProgrammaticAccessCredentialsResponse {
   durationInMinutes?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetUserRequest {
   /**
    * <p>The unique identifier of the user to get data for.</p>
@@ -1588,12 +1790,24 @@ export interface GetUserRequest {
   userId: string | undefined;
 }
 
-export enum UserStatus {
-  CREATING = "CREATING",
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const UserStatus = {
+  CREATING: "CREATING",
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
+/**
+ * @public
+ */
+export type UserStatus = (typeof UserStatus)[keyof typeof UserStatus];
+
+/**
+ * @public
+ */
 export interface GetUserResponse {
   /**
    * <p>The unique identifier for the user account that is retrieved.</p>
@@ -1697,11 +1911,23 @@ export interface GetUserResponse {
   lastLoginTime?: number;
 }
 
-export enum LocationType {
-  INGESTION = "INGESTION",
-  SAGEMAKER = "SAGEMAKER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LocationType = {
+  INGESTION: "INGESTION",
+  SAGEMAKER: "SAGEMAKER",
+} as const;
 
+/**
+ * @public
+ */
+export type LocationType = (typeof LocationType)[keyof typeof LocationType];
+
+/**
+ * @public
+ */
 export interface GetWorkingLocationRequest {
   /**
    * <p>Specify the type of the working location.</p>
@@ -1721,6 +1947,9 @@ export interface GetWorkingLocationRequest {
   locationType?: LocationType | string;
 }
 
+/**
+ * @public
+ */
 export interface GetWorkingLocationResponse {
   /**
    * <p>Returns the Amazon S3 URI for the working location.</p>
@@ -1739,6 +1968,7 @@ export interface GetWorkingLocationResponse {
 }
 
 /**
+ * @public
  * Request to ListChangesetsRequest. It exposes minimal query filters.
  */
 export interface ListChangesetsRequest {
@@ -1759,6 +1989,7 @@ export interface ListChangesetsRequest {
 }
 
 /**
+ * @public
  * <p>A Changeset is unit of data in a Dataset.</p>
  */
 export interface ChangesetSummary {
@@ -1868,6 +2099,7 @@ export interface ChangesetSummary {
 }
 
 /**
+ * @public
  * Response to ListChangesetsResponse. This returns a list of dataset changesets that match the query criteria.
  */
 export interface ListChangesetsResponse {
@@ -1883,6 +2115,7 @@ export interface ListChangesetsResponse {
 }
 
 /**
+ * @public
  * Request for the ListDatasets operation.
  */
 export interface ListDatasetsRequest {
@@ -1898,6 +2131,7 @@ export interface ListDatasetsRequest {
 }
 
 /**
+ * @public
  * <p>The structure for a Dataset.</p>
  */
 export interface Dataset {
@@ -1963,6 +2197,7 @@ export interface Dataset {
 }
 
 /**
+ * @public
  * Response for the ListDatasets operation
  */
 export interface ListDatasetsResponse {
@@ -1978,6 +2213,7 @@ export interface ListDatasetsResponse {
 }
 
 /**
+ * @public
  * Request for a list data views.
  */
 export interface ListDataViewsRequest {
@@ -1998,6 +2234,7 @@ export interface ListDataViewsRequest {
 }
 
 /**
+ * @public
  * <p>Structure for the summary of a Dataview.</p>
  */
 export interface DataViewSummary {
@@ -2096,6 +2333,9 @@ export interface DataViewSummary {
   lastModifiedTime?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListDataViewsResponse {
   /**
    * <p>A token that indicates where a results page should begin.</p>
@@ -2108,6 +2348,9 @@ export interface ListDataViewsResponse {
   dataViews?: DataViewSummary[];
 }
 
+/**
+ * @public
+ */
 export interface ListPermissionGroupsRequest {
   /**
    * <p>A token that indicates where a results page should begin.</p>
@@ -2120,6 +2363,9 @@ export interface ListPermissionGroupsRequest {
   maxResults: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListPermissionGroupsResponse {
   /**
    * <p>A list of all the permission groups.</p>
@@ -2132,6 +2378,9 @@ export interface ListPermissionGroupsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPermissionGroupsByUserRequest {
   /**
    * <p>The unique identifier for the user.</p>
@@ -2150,6 +2399,7 @@ export interface ListPermissionGroupsByUserRequest {
 }
 
 /**
+ * @public
  * <p>The structure of a permission group associated with a user account.</p>
  */
 export interface PermissionGroupByUser {
@@ -2183,6 +2433,9 @@ export interface PermissionGroupByUser {
   membershipStatus?: PermissionGroupMembershipStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListPermissionGroupsByUserResponse {
   /**
    * <p>A list of returned permission groups.</p>
@@ -2195,6 +2448,9 @@ export interface ListPermissionGroupsByUserResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListUsersRequest {
   /**
    * <p>A token that indicates where a results page should begin.</p>
@@ -2208,6 +2464,7 @@ export interface ListUsersRequest {
 }
 
 /**
+ * @public
  * <p>The details of the user account.</p>
  */
 export interface User {
@@ -2314,6 +2571,9 @@ export interface User {
   lastLoginTime?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListUsersResponse {
   /**
    * <p>A list of all the user accounts.</p>
@@ -2326,6 +2586,9 @@ export interface ListUsersResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListUsersByPermissionGroupRequest {
   /**
    * <p>The unique identifier for the permission group.</p>
@@ -2344,6 +2607,7 @@ export interface ListUsersByPermissionGroupRequest {
 }
 
 /**
+ * @public
  * <p>The structure of a user account associated with a permission group.</p>
  */
 export interface UserByPermissionGroup {
@@ -2441,6 +2705,9 @@ export interface UserByPermissionGroup {
   membershipStatus?: PermissionGroupMembershipStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListUsersByPermissionGroupResponse {
   /**
    * <p>Lists details of all users in a specific permission group.</p>
@@ -2453,6 +2720,9 @@ export interface ListUsersByPermissionGroupResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ResetUserPasswordRequest {
   /**
    * <p>The unique identifier of the user that a temporary password is requested for.</p>
@@ -2465,6 +2735,9 @@ export interface ResetUserPasswordRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ResetUserPasswordResponse {
   /**
    * <p>The unique identifier of the user that a new password is generated for.</p>
@@ -2478,6 +2751,7 @@ export interface ResetUserPasswordResponse {
 }
 
 /**
+ * @public
  * Request to update an existing changeset.
  */
 export interface UpdateChangesetRequest {
@@ -2503,10 +2777,10 @@ export interface UpdateChangesetRequest {
    *          <p>
    *             <code>
    *         "sourceParams":
-   *         {
+   *         \{
    *         "s3SourcePath": "s3://finspace-landing-us-east-2-bk7gcfvitndqa6ebnvys4d/scratch/wr5hh8pwkpqqkxa4sxrmcw/ingestion/equity.csv",
    *         "sourceType": "S3"
-   *         }
+   *         \}
    *       </code>
    *          </p>
    *          <p>The S3 path that you specify must allow the FinSpace role access. To do that, you first need to configure the IAM policy on S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/finspace/latest/data-api/fs-using-the-finspace-api.html#access-s3-buckets">Loading data from an Amazon S3 Bucket using the FinSpace API</a>section.</p>
@@ -2542,21 +2816,21 @@ export interface UpdateChangesetRequest {
    *          <p>
    *             <code>
    *         "formatParams":
-   *         {
+   *         \{
    *         "formatType": "CSV",
    *         "withHeader": "true",
    *         "separator": ",",
    *         "compression":"None"
-   *         }
+   *         \}
    *       </code>
    *          </p>
    *          <p>Note that if you only provide <code>formatType</code> as <code>CSV</code>, the rest of the attributes will automatically default to CSV values as following:</p>
    *          <p>
    *             <code>
-   *         {
+   *         \{
    *         "withHeader": "true",
    *         "separator": ","
-   *         }
+   *         \}
    *         </code>
    *          </p>
    *          <p> For more information about supported file formats, see <a href="https://docs.aws.amazon.com/finspace/latest/userguide/supported-data-types.html">Supported Data Types and File Formats</a> in the FinSpace User Guide.</p>
@@ -2565,6 +2839,7 @@ export interface UpdateChangesetRequest {
 }
 
 /**
+ * @public
  * The response from a update changeset operation.
  */
 export interface UpdateChangesetResponse {
@@ -2580,6 +2855,7 @@ export interface UpdateChangesetResponse {
 }
 
 /**
+ * @public
  * The request for an UpdateDataset operation
  */
 export interface UpdateDatasetRequest {
@@ -2630,6 +2906,7 @@ export interface UpdateDatasetRequest {
 }
 
 /**
+ * @public
  * The response from an UpdateDataset operation
  */
 export interface UpdateDatasetResponse {
@@ -2639,6 +2916,9 @@ export interface UpdateDatasetResponse {
   datasetId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePermissionGroupRequest {
   /**
    * <p>The unique identifier for the permission group to update.</p>
@@ -2699,6 +2979,9 @@ export interface UpdatePermissionGroupRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePermissionGroupResponse {
   /**
    * <p>The unique identifier for the updated permission group.</p>
@@ -2706,6 +2989,9 @@ export interface UpdatePermissionGroupResponse {
   permissionGroupId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateUserRequest {
   /**
    * <p>The unique identifier for the user account to update.</p>
@@ -2763,30 +3049,15 @@ export interface UpdateUserRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateUserResponse {
   /**
    * <p>The unique identifier of the updated user account.</p>
    */
   userId?: string;
 }
-
-/**
- * @internal
- */
-export const AssociateUserToPermissionGroupRequestFilterSensitiveLog = (
-  obj: AssociateUserToPermissionGroupRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateUserToPermissionGroupResponseFilterSensitiveLog = (
-  obj: AssociateUserToPermissionGroupResponse
-): any => ({
-  ...obj,
-});
 
 /**
  * @internal
@@ -2800,58 +3071,9 @@ export const AwsCredentialsFilterSensitiveLog = (obj: AwsCredentials): any => ({
 /**
  * @internal
  */
-export const CreateChangesetRequestFilterSensitiveLog = (obj: CreateChangesetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateChangesetResponseFilterSensitiveLog = (obj: CreateChangesetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DatasetOwnerInfoFilterSensitiveLog = (obj: DatasetOwnerInfo): any => ({
   ...obj,
   ...(obj.email && { email: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ResourcePermissionFilterSensitiveLog = (obj: ResourcePermission): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PermissionGroupParamsFilterSensitiveLog = (obj: PermissionGroupParams): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ColumnDefinitionFilterSensitiveLog = (obj: ColumnDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SchemaDefinitionFilterSensitiveLog = (obj: SchemaDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SchemaUnionFilterSensitiveLog = (obj: SchemaUnion): any => ({
-  ...obj,
 });
 
 /**
@@ -2865,45 +3087,10 @@ export const CreateDatasetRequestFilterSensitiveLog = (obj: CreateDatasetRequest
 /**
  * @internal
  */
-export const CreateDatasetResponseFilterSensitiveLog = (obj: CreateDatasetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataViewDestinationTypeParamsFilterSensitiveLog = (obj: DataViewDestinationTypeParams): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDataViewRequestFilterSensitiveLog = (obj: CreateDataViewRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDataViewResponseFilterSensitiveLog = (obj: CreateDataViewResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreatePermissionGroupRequestFilterSensitiveLog = (obj: CreatePermissionGroupRequest): any => ({
   ...obj,
   ...(obj.name && { name: SENSITIVE_STRING }),
   ...(obj.description && { description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreatePermissionGroupResponseFilterSensitiveLog = (obj: CreatePermissionGroupResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -2919,171 +3106,11 @@ export const CreateUserRequestFilterSensitiveLog = (obj: CreateUserRequest): any
 /**
  * @internal
  */
-export const CreateUserResponseFilterSensitiveLog = (obj: CreateUserResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDatasetRequestFilterSensitiveLog = (obj: DeleteDatasetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDatasetResponseFilterSensitiveLog = (obj: DeleteDatasetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePermissionGroupRequestFilterSensitiveLog = (obj: DeletePermissionGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePermissionGroupResponseFilterSensitiveLog = (obj: DeletePermissionGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableUserRequestFilterSensitiveLog = (obj: DisableUserRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableUserResponseFilterSensitiveLog = (obj: DisableUserResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateUserFromPermissionGroupRequestFilterSensitiveLog = (
-  obj: DisassociateUserFromPermissionGroupRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateUserFromPermissionGroupResponseFilterSensitiveLog = (
-  obj: DisassociateUserFromPermissionGroupResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableUserRequestFilterSensitiveLog = (obj: EnableUserRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableUserResponseFilterSensitiveLog = (obj: EnableUserResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetChangesetRequestFilterSensitiveLog = (obj: GetChangesetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChangesetErrorInfoFilterSensitiveLog = (obj: ChangesetErrorInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetChangesetResponseFilterSensitiveLog = (obj: GetChangesetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDatasetRequestFilterSensitiveLog = (obj: GetDatasetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDatasetResponseFilterSensitiveLog = (obj: GetDatasetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDataViewRequestFilterSensitiveLog = (obj: GetDataViewRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataViewErrorInfoFilterSensitiveLog = (obj: DataViewErrorInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDataViewResponseFilterSensitiveLog = (obj: GetDataViewResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetExternalDataViewAccessDetailsRequestFilterSensitiveLog = (
-  obj: GetExternalDataViewAccessDetailsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3LocationFilterSensitiveLog = (obj: S3Location): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetExternalDataViewAccessDetailsResponseFilterSensitiveLog = (
   obj: GetExternalDataViewAccessDetailsResponse
 ): any => ({
   ...obj,
   ...(obj.credentials && { credentials: AwsCredentialsFilterSensitiveLog(obj.credentials) }),
-});
-
-/**
- * @internal
- */
-export const GetPermissionGroupRequestFilterSensitiveLog = (obj: GetPermissionGroupRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -3106,85 +3133,11 @@ export const GetPermissionGroupResponseFilterSensitiveLog = (obj: GetPermissionG
 /**
  * @internal
  */
-export const GetProgrammaticAccessCredentialsRequestFilterSensitiveLog = (
-  obj: GetProgrammaticAccessCredentialsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CredentialsFilterSensitiveLog = (obj: Credentials): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetProgrammaticAccessCredentialsResponseFilterSensitiveLog = (
-  obj: GetProgrammaticAccessCredentialsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetUserRequestFilterSensitiveLog = (obj: GetUserRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetUserResponseFilterSensitiveLog = (obj: GetUserResponse): any => ({
   ...obj,
   ...(obj.firstName && { firstName: SENSITIVE_STRING }),
   ...(obj.lastName && { lastName: SENSITIVE_STRING }),
   ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetWorkingLocationRequestFilterSensitiveLog = (obj: GetWorkingLocationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetWorkingLocationResponseFilterSensitiveLog = (obj: GetWorkingLocationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListChangesetsRequestFilterSensitiveLog = (obj: ListChangesetsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChangesetSummaryFilterSensitiveLog = (obj: ChangesetSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListChangesetsResponseFilterSensitiveLog = (obj: ListChangesetsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDatasetsRequestFilterSensitiveLog = (obj: ListDatasetsRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -3206,46 +3159,11 @@ export const ListDatasetsResponseFilterSensitiveLog = (obj: ListDatasetsResponse
 /**
  * @internal
  */
-export const ListDataViewsRequestFilterSensitiveLog = (obj: ListDataViewsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataViewSummaryFilterSensitiveLog = (obj: DataViewSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDataViewsResponseFilterSensitiveLog = (obj: ListDataViewsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPermissionGroupsRequestFilterSensitiveLog = (obj: ListPermissionGroupsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListPermissionGroupsResponseFilterSensitiveLog = (obj: ListPermissionGroupsResponse): any => ({
   ...obj,
   ...(obj.permissionGroups && {
     permissionGroups: obj.permissionGroups.map((item) => PermissionGroupFilterSensitiveLog(item)),
   }),
-});
-
-/**
- * @internal
- */
-export const ListPermissionGroupsByUserRequestFilterSensitiveLog = (obj: ListPermissionGroupsByUserRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -3269,13 +3187,6 @@ export const ListPermissionGroupsByUserResponseFilterSensitiveLog = (obj: ListPe
 /**
  * @internal
  */
-export const ListUsersRequestFilterSensitiveLog = (obj: ListUsersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UserFilterSensitiveLog = (obj: User): any => ({
   ...obj,
   ...(obj.firstName && { firstName: SENSITIVE_STRING }),
@@ -3289,13 +3200,6 @@ export const UserFilterSensitiveLog = (obj: User): any => ({
 export const ListUsersResponseFilterSensitiveLog = (obj: ListUsersResponse): any => ({
   ...obj,
   ...(obj.users && { users: obj.users.map((item) => UserFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ListUsersByPermissionGroupRequestFilterSensitiveLog = (obj: ListUsersByPermissionGroupRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -3319,44 +3223,9 @@ export const ListUsersByPermissionGroupResponseFilterSensitiveLog = (obj: ListUs
 /**
  * @internal
  */
-export const ResetUserPasswordRequestFilterSensitiveLog = (obj: ResetUserPasswordRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ResetUserPasswordResponseFilterSensitiveLog = (obj: ResetUserPasswordResponse): any => ({
   ...obj,
   ...(obj.temporaryPassword && { temporaryPassword: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateChangesetRequestFilterSensitiveLog = (obj: UpdateChangesetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateChangesetResponseFilterSensitiveLog = (obj: UpdateChangesetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDatasetRequestFilterSensitiveLog = (obj: UpdateDatasetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDatasetResponseFilterSensitiveLog = (obj: UpdateDatasetResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -3371,22 +3240,8 @@ export const UpdatePermissionGroupRequestFilterSensitiveLog = (obj: UpdatePermis
 /**
  * @internal
  */
-export const UpdatePermissionGroupResponseFilterSensitiveLog = (obj: UpdatePermissionGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateUserRequestFilterSensitiveLog = (obj: UpdateUserRequest): any => ({
   ...obj,
   ...(obj.firstName && { firstName: SENSITIVE_STRING }),
   ...(obj.lastName && { lastName: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateUserResponseFilterSensitiveLog = (obj: UpdateUserResponse): any => ({
-  ...obj,
 });

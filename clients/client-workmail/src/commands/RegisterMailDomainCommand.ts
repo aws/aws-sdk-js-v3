@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RegisterMailDomainRequest,
-  RegisterMailDomainRequestFilterSensitiveLog,
-  RegisterMailDomainResponse,
-  RegisterMailDomainResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RegisterMailDomainCommand,
-  serializeAws_json1_1RegisterMailDomainCommand,
-} from "../protocols/Aws_json1_1";
+import { RegisterMailDomainRequest, RegisterMailDomainResponse } from "../models/models_0";
+import { de_RegisterMailDomainCommand, se_RegisterMailDomainCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * @public
+ *
+ * The input for {@link RegisterMailDomainCommand}.
+ */
 export interface RegisterMailDomainCommandInput extends RegisterMailDomainRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RegisterMailDomainCommand}.
+ */
 export interface RegisterMailDomainCommandOutput extends RegisterMailDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers a new domain in WorkMail and SES, and configures it for use by WorkMail. Emails received by SES for this domain are routed to the specified WorkMail organization, and WorkMail has
  *          permanent permission to use the specified domain for sending your users' emails.</p>
  * @example
@@ -37,13 +40,38 @@ export interface RegisterMailDomainCommandOutput extends RegisterMailDomainRespo
  * import { WorkMailClient, RegisterMailDomainCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, RegisterMailDomainCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = { // RegisterMailDomainRequest
+ *   ClientToken: "STRING_VALUE",
+ *   OrganizationId: "STRING_VALUE", // required
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new RegisterMailDomainCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterMailDomainCommandInput - {@link RegisterMailDomainCommandInput}
+ * @returns {@link RegisterMailDomainCommandOutput}
  * @see {@link RegisterMailDomainCommandInput} for command's `input` shape.
  * @see {@link RegisterMailDomainCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request exceeds the limit of the resource.</p>
+ *
+ * @throws {@link MailDomainInUseException} (client fault)
+ *  <p>The domain you're trying to change is in use by another user or organization in your account. See the error message for details.</p>
+ *
+ * @throws {@link OrganizationNotFoundException} (client fault)
+ *  <p>An operation received a valid organization identifier that either doesn't belong or
+ *          exist in the system.</p>
+ *
+ * @throws {@link OrganizationStateException} (client fault)
+ *  <p>The organization must have a valid state to perform certain
+ *          operations on the organization or its members.</p>
+ *
  *
  */
 export class RegisterMailDomainCommand extends $Command<
@@ -63,6 +91,9 @@ export class RegisterMailDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterMailDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +122,8 @@ export class RegisterMailDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterMailDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterMailDomainResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +133,18 @@ export class RegisterMailDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterMailDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterMailDomainCommand(input, context);
+    return se_RegisterMailDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterMailDomainCommandOutput> {
-    return deserializeAws_json1_1RegisterMailDomainCommand(output, context);
+    return de_RegisterMailDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

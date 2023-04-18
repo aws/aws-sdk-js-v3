@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameSparksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameSparksClient";
-import {
-  ListStageDeploymentsRequest,
-  ListStageDeploymentsRequestFilterSensitiveLog,
-  ListStageDeploymentsResult,
-  ListStageDeploymentsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListStageDeploymentsCommand,
-  serializeAws_restJson1ListStageDeploymentsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListStageDeploymentsRequest, ListStageDeploymentsResult } from "../models/models_0";
+import { de_ListStageDeploymentsCommand, se_ListStageDeploymentsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListStageDeploymentsCommand}.
+ */
 export interface ListStageDeploymentsCommandInput extends ListStageDeploymentsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListStageDeploymentsCommand}.
+ */
 export interface ListStageDeploymentsCommandOutput extends ListStageDeploymentsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a paginated list of stage deployment summaries from the game.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,37 @@ export interface ListStageDeploymentsCommandOutput extends ListStageDeploymentsR
  * import { GameSparksClient, ListStageDeploymentsCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, ListStageDeploymentsCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
+ * const input = { // ListStageDeploymentsRequest
+ *   GameName: "STRING_VALUE", // required
+ *   StageName: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListStageDeploymentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStageDeploymentsCommandInput - {@link ListStageDeploymentsCommandInput}
+ * @returns {@link ListStageDeploymentsCommandOutput}
  * @see {@link ListStageDeploymentsCommandInput} for command's `input` shape.
  * @see {@link ListStageDeploymentsCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The service encountered an internal error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request throughput limit was exceeded.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One of the parameters in the request is invalid.</p>
+ *
  *
  */
 export class ListStageDeploymentsCommand extends $Command<
@@ -62,6 +89,9 @@ export class ListStageDeploymentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStageDeploymentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +120,8 @@ export class ListStageDeploymentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListStageDeploymentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListStageDeploymentsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +131,18 @@ export class ListStageDeploymentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStageDeploymentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListStageDeploymentsCommand(input, context);
+    return se_ListStageDeploymentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStageDeploymentsCommandOutput> {
-    return deserializeAws_restJson1ListStageDeploymentsCommand(output, context);
+    return de_ListStageDeploymentsCommand(output, context);
   }
 
   // Start section: command_body_extra

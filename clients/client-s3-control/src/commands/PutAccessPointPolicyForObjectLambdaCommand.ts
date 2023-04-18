@@ -14,20 +14,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { PutAccessPointPolicyForObjectLambdaRequest } from "../models/models_0";
 import {
-  PutAccessPointPolicyForObjectLambdaRequest,
-  PutAccessPointPolicyForObjectLambdaRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlPutAccessPointPolicyForObjectLambdaCommand,
-  serializeAws_restXmlPutAccessPointPolicyForObjectLambdaCommand,
+  de_PutAccessPointPolicyForObjectLambdaCommand,
+  se_PutAccessPointPolicyForObjectLambdaCommand,
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
+/**
+ * @public
+ *
+ * The input for {@link PutAccessPointPolicyForObjectLambdaCommand}.
+ */
 export interface PutAccessPointPolicyForObjectLambdaCommandInput extends PutAccessPointPolicyForObjectLambdaRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutAccessPointPolicyForObjectLambdaCommand}.
+ */
 export interface PutAccessPointPolicyForObjectLambdaCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or replaces resource policy for an Object Lambda Access Point. For an example policy, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/olap-create.html#olap-create-cli">Creating Object Lambda Access Points</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <p>The following actions are related to
  *          <code>PutAccessPointPolicyForObjectLambda</code>:</p>
@@ -49,13 +57,21 @@ export interface PutAccessPointPolicyForObjectLambdaCommandOutput extends __Meta
  * import { S3ControlClient, PutAccessPointPolicyForObjectLambdaCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, PutAccessPointPolicyForObjectLambdaCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = { // PutAccessPointPolicyForObjectLambdaRequest
+ *   AccountId: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ *   Policy: "STRING_VALUE", // required
+ * };
  * const command = new PutAccessPointPolicyForObjectLambdaCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAccessPointPolicyForObjectLambdaCommandInput - {@link PutAccessPointPolicyForObjectLambdaCommandInput}
+ * @returns {@link PutAccessPointPolicyForObjectLambdaCommandOutput}
  * @see {@link PutAccessPointPolicyForObjectLambdaCommandInput} for command's `input` shape.
  * @see {@link PutAccessPointPolicyForObjectLambdaCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
+ *
  *
  */
 export class PutAccessPointPolicyForObjectLambdaCommand extends $Command<
@@ -78,6 +94,9 @@ export class PutAccessPointPolicyForObjectLambdaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAccessPointPolicyForObjectLambdaCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +126,8 @@ export class PutAccessPointPolicyForObjectLambdaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutAccessPointPolicyForObjectLambdaRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,18 +137,24 @@ export class PutAccessPointPolicyForObjectLambdaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutAccessPointPolicyForObjectLambdaCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutAccessPointPolicyForObjectLambdaCommand(input, context);
+    return se_PutAccessPointPolicyForObjectLambdaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutAccessPointPolicyForObjectLambdaCommandOutput> {
-    return deserializeAws_restXmlPutAccessPointPolicyForObjectLambdaCommand(output, context);
+    return de_PutAccessPointPolicyForObjectLambdaCommand(output, context);
   }
 
   // Start section: command_body_extra

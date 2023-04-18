@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
-import {
-  GetUserRequest,
-  GetUserRequestFilterSensitiveLog,
-  GetUserResponse,
-  GetUserResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetUserCommand,
-  serializeAws_restJson1GetUserCommand,
-} from "../protocols/Aws_restJson1";
+import { GetUserRequest, GetUserResponse, GetUserResponseFilterSensitiveLog } from "../models/models_0";
+import { de_GetUserCommand, se_GetUserCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetUserCommand}.
+ */
 export interface GetUserCommandInput extends GetUserRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetUserCommand}.
+ */
 export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves details for a specific user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,35 @@ export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer 
  * import { FinspaceDataClient, GetUserCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, GetUserCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
  * const client = new FinspaceDataClient(config);
+ * const input = { // GetUserRequest
+ *   userId: "STRING_VALUE", // required
+ * };
  * const command = new GetUserCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetUserCommandInput - {@link GetUserCommandInput}
+ * @returns {@link GetUserCommandOutput}
  * @see {@link GetUserCommandInput} for command's `input` shape.
  * @see {@link GetUserCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>One or more resources can't be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
  *
  */
 export class GetUserCommand extends $Command<
@@ -62,6 +87,9 @@ export class GetUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,7 +116,7 @@ export class GetUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetUserRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetUserResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -99,12 +127,18 @@ export class GetUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetUserCommand(input, context);
+    return se_GetUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUserCommandOutput> {
-    return deserializeAws_restJson1GetUserCommand(output, context);
+    return de_GetUserCommand(output, context);
   }
 
   // Start section: command_body_extra

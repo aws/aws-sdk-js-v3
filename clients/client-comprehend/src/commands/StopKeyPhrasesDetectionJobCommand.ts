@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import {
-  StopKeyPhrasesDetectionJobRequest,
-  StopKeyPhrasesDetectionJobRequestFilterSensitiveLog,
-  StopKeyPhrasesDetectionJobResponse,
-  StopKeyPhrasesDetectionJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StopKeyPhrasesDetectionJobCommand,
-  serializeAws_json1_1StopKeyPhrasesDetectionJobCommand,
-} from "../protocols/Aws_json1_1";
+import { StopKeyPhrasesDetectionJobRequest, StopKeyPhrasesDetectionJobResponse } from "../models/models_0";
+import { de_StopKeyPhrasesDetectionJobCommand, se_StopKeyPhrasesDetectionJobCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link StopKeyPhrasesDetectionJobCommand}.
+ */
 export interface StopKeyPhrasesDetectionJobCommandInput extends StopKeyPhrasesDetectionJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StopKeyPhrasesDetectionJobCommand}.
+ */
 export interface StopKeyPhrasesDetectionJobCommandOutput extends StopKeyPhrasesDetectionJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a key phrases detection job in progress.</p>
  *          <p>If the job state is <code>IN_PROGRESS</code> the job is marked for termination and put
  *       into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it
@@ -45,13 +48,28 @@ export interface StopKeyPhrasesDetectionJobCommandOutput extends StopKeyPhrasesD
  * import { ComprehendClient, StopKeyPhrasesDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, StopKeyPhrasesDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // StopKeyPhrasesDetectionJobRequest
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new StopKeyPhrasesDetectionJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopKeyPhrasesDetectionJobCommandInput - {@link StopKeyPhrasesDetectionJobCommandInput}
+ * @returns {@link StopKeyPhrasesDetectionJobCommandOutput}
  * @see {@link StopKeyPhrasesDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StopKeyPhrasesDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid.</p>
+ *
+ * @throws {@link JobNotFoundException} (client fault)
+ *  <p>The specified job was not found. Check the job ID and try again.</p>
+ *
  *
  */
 export class StopKeyPhrasesDetectionJobCommand extends $Command<
@@ -71,6 +89,9 @@ export class StopKeyPhrasesDetectionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopKeyPhrasesDetectionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +120,8 @@ export class StopKeyPhrasesDetectionJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopKeyPhrasesDetectionJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopKeyPhrasesDetectionJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,15 +131,21 @@ export class StopKeyPhrasesDetectionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopKeyPhrasesDetectionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopKeyPhrasesDetectionJobCommand(input, context);
+    return se_StopKeyPhrasesDetectionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopKeyPhrasesDetectionJobCommandOutput> {
-    return deserializeAws_json1_1StopKeyPhrasesDetectionJobCommand(output, context);
+    return de_StopKeyPhrasesDetectionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

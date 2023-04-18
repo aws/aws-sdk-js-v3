@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeRobotApplicationRequest,
-  DescribeRobotApplicationRequestFilterSensitiveLog,
-  DescribeRobotApplicationResponse,
-  DescribeRobotApplicationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeRobotApplicationCommand,
-  serializeAws_restJson1DescribeRobotApplicationCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeRobotApplicationRequest, DescribeRobotApplicationResponse } from "../models/models_0";
+import { de_DescribeRobotApplicationCommand, se_DescribeRobotApplicationCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeRobotApplicationCommand}.
+ */
 export interface DescribeRobotApplicationCommandInput extends DescribeRobotApplicationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeRobotApplicationCommand}.
+ */
 export interface DescribeRobotApplicationCommandOutput extends DescribeRobotApplicationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a robot application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,33 @@ export interface DescribeRobotApplicationCommandOutput extends DescribeRobotAppl
  * import { RoboMakerClient, DescribeRobotApplicationCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, DescribeRobotApplicationCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = { // DescribeRobotApplicationRequest
+ *   application: "STRING_VALUE", // required
+ *   applicationVersion: "STRING_VALUE",
+ * };
  * const command = new DescribeRobotApplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRobotApplicationCommandInput - {@link DescribeRobotApplicationCommandInput}
+ * @returns {@link DescribeRobotApplicationCommandOutput}
  * @see {@link DescribeRobotApplicationCommandInput} for command's `input` shape.
  * @see {@link DescribeRobotApplicationCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>AWS RoboMaker experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter specified in a request is not valid, is unsupported, or cannot be used. The
+ *          returned message provides an explanation of the error value.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
+ *
  *
  */
 export class DescribeRobotApplicationCommand extends $Command<
@@ -62,6 +85,9 @@ export class DescribeRobotApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRobotApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +116,8 @@ export class DescribeRobotApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRobotApplicationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRobotApplicationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +127,18 @@ export class DescribeRobotApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRobotApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeRobotApplicationCommand(input, context);
+    return se_DescribeRobotApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRobotApplicationCommandOutput> {
-    return deserializeAws_restJson1DescribeRobotApplicationCommand(output, context);
+    return de_DescribeRobotApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

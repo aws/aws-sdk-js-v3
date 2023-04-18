@@ -6,12 +6,11 @@ import {
   ListDatalakeExceptionsCommandInput,
   ListDatalakeExceptionsCommandOutput,
 } from "../commands/ListDatalakeExceptionsCommand";
-import { SecurityLake } from "../SecurityLake";
 import { SecurityLakeClient } from "../SecurityLakeClient";
 import { SecurityLakePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SecurityLakeClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListDatalakeExceptionsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: SecurityLake,
-  input: ListDatalakeExceptionsCommandInput,
-  ...args: any
-): Promise<ListDatalakeExceptionsCommandOutput> => {
-  // @ts-ignore
-  return await client.listDatalakeExceptions(input, ...args);
-};
 export async function* paginateListDatalakeExceptions(
   config: SecurityLakePaginationConfiguration,
   input: ListDatalakeExceptionsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListDatalakeExceptions(
   while (hasNext) {
     input.nextToken = token;
     input["maxFailures"] = config.pageSize;
-    if (config.client instanceof SecurityLake) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SecurityLakeClient) {
+    if (config.client instanceof SecurityLakeClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SecurityLake | SecurityLakeClient");

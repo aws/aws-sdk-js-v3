@@ -16,22 +16,31 @@ import {
 import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
 import {
   BatchAssociateResourcesToCustomLineItemInput,
-  BatchAssociateResourcesToCustomLineItemInputFilterSensitiveLog,
   BatchAssociateResourcesToCustomLineItemOutput,
-  BatchAssociateResourcesToCustomLineItemOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1BatchAssociateResourcesToCustomLineItemCommand,
-  serializeAws_restJson1BatchAssociateResourcesToCustomLineItemCommand,
+  de_BatchAssociateResourcesToCustomLineItemCommand,
+  se_BatchAssociateResourcesToCustomLineItemCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchAssociateResourcesToCustomLineItemCommand}.
+ */
 export interface BatchAssociateResourcesToCustomLineItemCommandInput
   extends BatchAssociateResourcesToCustomLineItemInput {}
+/**
+ * @public
+ *
+ * The output of {@link BatchAssociateResourcesToCustomLineItemCommand}.
+ */
 export interface BatchAssociateResourcesToCustomLineItemCommandOutput
   extends BatchAssociateResourcesToCustomLineItemOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Associates a batch of resources to a percentage custom line item.
  *     </p>
@@ -41,13 +50,53 @@ export interface BatchAssociateResourcesToCustomLineItemCommandOutput
  * import { BillingconductorClient, BatchAssociateResourcesToCustomLineItemCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, BatchAssociateResourcesToCustomLineItemCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
  * const client = new BillingconductorClient(config);
+ * const input = { // BatchAssociateResourcesToCustomLineItemInput
+ *   TargetArn: "STRING_VALUE", // required
+ *   ResourceArns: [ // CustomLineItemBatchAssociationsList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   BillingPeriodRange: { // CustomLineItemBillingPeriodRange
+ *     InclusiveStartBillingPeriod: "STRING_VALUE", // required
+ *     ExclusiveEndBillingPeriod: "STRING_VALUE",
+ *   },
+ * };
  * const command = new BatchAssociateResourcesToCustomLineItemCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchAssociateResourcesToCustomLineItemCommandInput - {@link BatchAssociateResourcesToCustomLineItemCommandInput}
+ * @returns {@link BatchAssociateResourcesToCustomLineItemCommandOutput}
  * @see {@link BatchAssociateResourcesToCustomLineItemCommandInput} for command's `input` shape.
  * @see {@link BatchAssociateResourcesToCustomLineItemCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.
+ *     </p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>You can cause an inconsistent state by updating or deleting a resource.
+ *     </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred while processing a request.
+ *     </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a resource that doesn't exist.
+ *     </p>
+ *
+ * @throws {@link ServiceLimitExceededException} (client fault)
+ *  <p>The request would cause a service limit to exceed.
+ *     </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.
+ *     </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+ *
  *
  */
 export class BatchAssociateResourcesToCustomLineItemCommand extends $Command<
@@ -67,6 +116,9 @@ export class BatchAssociateResourcesToCustomLineItemCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchAssociateResourcesToCustomLineItemCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +153,8 @@ export class BatchAssociateResourcesToCustomLineItemCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchAssociateResourcesToCustomLineItemInputFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchAssociateResourcesToCustomLineItemOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,18 +164,24 @@ export class BatchAssociateResourcesToCustomLineItemCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchAssociateResourcesToCustomLineItemCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchAssociateResourcesToCustomLineItemCommand(input, context);
+    return se_BatchAssociateResourcesToCustomLineItemCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchAssociateResourcesToCustomLineItemCommandOutput> {
-    return deserializeAws_restJson1BatchAssociateResourcesToCustomLineItemCommand(output, context);
+    return de_BatchAssociateResourcesToCustomLineItemCommand(output, context);
   }
 
   // Start section: command_body_extra

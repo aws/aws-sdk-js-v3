@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { CancelAuditMitigationActionsTaskRequest, CancelAuditMitigationActionsTaskResponse } from "../models/models_0";
 import {
-  CancelAuditMitigationActionsTaskRequest,
-  CancelAuditMitigationActionsTaskRequestFilterSensitiveLog,
-  CancelAuditMitigationActionsTaskResponse,
-  CancelAuditMitigationActionsTaskResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CancelAuditMitigationActionsTaskCommand,
-  serializeAws_restJson1CancelAuditMitigationActionsTaskCommand,
+  de_CancelAuditMitigationActionsTaskCommand,
+  se_CancelAuditMitigationActionsTaskCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CancelAuditMitigationActionsTaskCommand}.
+ */
 export interface CancelAuditMitigationActionsTaskCommandInput extends CancelAuditMitigationActionsTaskRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CancelAuditMitigationActionsTaskCommand}.
+ */
 export interface CancelAuditMitigationActionsTaskCommandOutput
   extends CancelAuditMitigationActionsTaskResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels a mitigation action task that is in progress. If the task
  *       is not
  *       in progress, an InvalidRequestException occurs.</p>
@@ -41,13 +47,31 @@ export interface CancelAuditMitigationActionsTaskCommandOutput
  * import { IoTClient, CancelAuditMitigationActionsTaskCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CancelAuditMitigationActionsTaskCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // CancelAuditMitigationActionsTaskRequest
+ *   taskId: "STRING_VALUE", // required
+ * };
  * const command = new CancelAuditMitigationActionsTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelAuditMitigationActionsTaskCommandInput - {@link CancelAuditMitigationActionsTaskCommandInput}
+ * @returns {@link CancelAuditMitigationActionsTaskCommandOutput}
  * @see {@link CancelAuditMitigationActionsTaskCommandInput} for command's `input` shape.
  * @see {@link CancelAuditMitigationActionsTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
  *
  */
 export class CancelAuditMitigationActionsTaskCommand extends $Command<
@@ -67,6 +91,9 @@ export class CancelAuditMitigationActionsTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelAuditMitigationActionsTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +122,8 @@ export class CancelAuditMitigationActionsTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelAuditMitigationActionsTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelAuditMitigationActionsTaskResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,18 +133,24 @@ export class CancelAuditMitigationActionsTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CancelAuditMitigationActionsTaskCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelAuditMitigationActionsTaskCommand(input, context);
+    return se_CancelAuditMitigationActionsTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelAuditMitigationActionsTaskCommandOutput> {
-    return deserializeAws_restJson1CancelAuditMitigationActionsTaskCommand(output, context);
+    return de_CancelAuditMitigationActionsTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

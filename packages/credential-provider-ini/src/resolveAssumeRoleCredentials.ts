@@ -7,6 +7,8 @@ import { resolveCredentialSource } from "./resolveCredentialSource";
 import { resolveProfileData } from "./resolveProfileData";
 
 /**
+ * @internal
+ * 
  * @see http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/STS.html#assumeRole-property
  * TODO update the above to link to V3 docs
  */
@@ -49,6 +51,9 @@ interface AssumeRoleWithProviderProfile extends Profile {
   credential_source: string;
 }
 
+/**
+ * @internal
+ */
 export const isAssumeRoleProfile = (arg: any) =>
   Boolean(arg) &&
   typeof arg === "object" &&
@@ -64,6 +69,9 @@ const isAssumeRoleWithSourceProfile = (arg: any): arg is AssumeRoleWithSourcePro
 const isAssumeRoleWithProviderProfile = (arg: any): arg is AssumeRoleWithProviderProfile =>
   typeof arg.credential_source === "string" && typeof arg.source_profile === "undefined";
 
+/**
+ * @internal
+ */
 export const resolveAssumeRoleCredentials = async (
   profileName: string,
   profiles: ParsedIniData,

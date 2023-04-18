@@ -16,19 +16,26 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   DescribeChannelRequest,
-  DescribeChannelRequestFilterSensitiveLog,
   DescribeChannelResponse,
   DescribeChannelResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeChannelCommand,
-  serializeAws_restJson1DescribeChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeChannelCommand, se_DescribeChannelCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeChannelCommand}.
+ */
 export interface DescribeChannelCommandInput extends DescribeChannelRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeChannelCommand}.
+ */
 export interface DescribeChannelCommandOutput extends DescribeChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the full details of a channel in an Amazon Chime
  *          <code>AppInstance</code>.</p>
  *
@@ -44,13 +51,38 @@ export interface DescribeChannelCommandOutput extends DescribeChannelResponse, _
  * import { ChimeClient, DescribeChannelCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, DescribeChannelCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // DescribeChannelRequest
+ *   ChannelArn: "STRING_VALUE", // required
+ *   ChimeBearer: "STRING_VALUE",
+ * };
  * const command = new DescribeChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeChannelCommandInput - {@link DescribeChannelCommandInput}
+ * @returns {@link DescribeChannelCommandOutput}
  * @see {@link DescribeChannelCommandInput} for command's `input` shape.
  * @see {@link DescribeChannelCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The client exceeded its request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client is not currently authorized to make the request.</p>
+ *
  *
  */
 export class DescribeChannelCommand extends $Command<
@@ -70,6 +102,9 @@ export class DescribeChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,7 +133,7 @@ export class DescribeChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeChannelRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeChannelResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -109,12 +144,18 @@ export class DescribeChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeChannelCommand(input, context);
+    return se_DescribeChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeChannelCommandOutput> {
-    return deserializeAws_restJson1DescribeChannelCommand(output, context);
+    return de_DescribeChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

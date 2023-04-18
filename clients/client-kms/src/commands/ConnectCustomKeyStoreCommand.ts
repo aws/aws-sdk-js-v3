@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import {
-  ConnectCustomKeyStoreRequest,
-  ConnectCustomKeyStoreRequestFilterSensitiveLog,
-  ConnectCustomKeyStoreResponse,
-  ConnectCustomKeyStoreResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ConnectCustomKeyStoreCommand,
-  serializeAws_json1_1ConnectCustomKeyStoreCommand,
-} from "../protocols/Aws_json1_1";
+import { ConnectCustomKeyStoreRequest, ConnectCustomKeyStoreResponse } from "../models/models_0";
+import { de_ConnectCustomKeyStoreCommand, se_ConnectCustomKeyStoreCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ConnectCustomKeyStoreCommand}.
+ */
 export interface ConnectCustomKeyStoreCommandInput extends ConnectCustomKeyStoreRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ConnectCustomKeyStoreCommand}.
+ */
 export interface ConnectCustomKeyStoreCommandOutput extends ConnectCustomKeyStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Connects or reconnects a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> to its backing key store. For an CloudHSM key
  *       store, <code>ConnectCustomKeyStore</code> connects the key store to its associated CloudHSM
  *       cluster. For an external key store, <code>ConnectCustomKeyStore</code> connects the key store
@@ -84,7 +87,6 @@ export interface ConnectCustomKeyStoreCommandOutput extends ConnectCustomKeyStor
  *         key store</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
  *             <b>Cross-account use</b>: No. You cannot perform this operation on a custom key store in a different Amazon Web Services account.</p>
- *
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ConnectCustomKeyStore</a> (IAM policy)</p>
  *          <p>
@@ -123,13 +125,114 @@ export interface ConnectCustomKeyStoreCommandOutput extends ConnectCustomKeyStor
  * import { KMSClient, ConnectCustomKeyStoreCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, ConnectCustomKeyStoreCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // ConnectCustomKeyStoreRequest
+ *   CustomKeyStoreId: "STRING_VALUE", // required
+ * };
  * const command = new ConnectCustomKeyStoreCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ConnectCustomKeyStoreCommandInput - {@link ConnectCustomKeyStoreCommandInput}
+ * @returns {@link ConnectCustomKeyStoreCommandOutput}
  * @see {@link ConnectCustomKeyStoreCommandInput} for command's `input` shape.
  * @see {@link ConnectCustomKeyStoreCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
+ *
+ * @throws {@link CloudHsmClusterInvalidConfigurationException} (client fault)
+ *  <p>The request was rejected because the associated CloudHSM cluster did not meet the
+ *       configuration requirements for an CloudHSM key store.</p>
+ *          <ul>
+ *             <li>
+ *                <p>The CloudHSM cluster must be configured with private subnets in at least two different
+ *           Availability Zones in the Region.</p>
+ *             </li>
+ *             <li>
+ *                <p>The <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html">security group for
+ *             the cluster</a> (cloudhsm-cluster-<i><cluster-id></i>-sg) must
+ *           include inbound rules and outbound rules that allow TCP traffic on ports 2223-2225. The
+ *             <b>Source</b> in the inbound rules and the <b>Destination</b> in the outbound rules must match the security group
+ *           ID. These rules are set by default when you create the CloudHSM cluster. Do not delete or
+ *           change them. To get information about a particular security group, use the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html">DescribeSecurityGroups</a> operation.</p>
+ *             </li>
+ *             <li>
+ *                <p>The CloudHSM cluster must contain at least as many HSMs as the operation requires. To add
+ *           HSMs, use the CloudHSM <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_CreateHsm.html">CreateHsm</a> operation.</p>
+ *                <p>For the <a>CreateCustomKeyStore</a>, <a>UpdateCustomKeyStore</a>, and <a>CreateKey</a> operations, the CloudHSM cluster must have at least two
+ *           active HSMs, each in a different Availability Zone. For the <a>ConnectCustomKeyStore</a> operation, the CloudHSM must contain at least one active
+ *           HSM.</p>
+ *             </li>
+ *          </ul>
+ *          <p>For information about the requirements for an CloudHSM cluster that is associated with an
+ *       CloudHSM key store, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore">Assemble the Prerequisites</a>
+ *       in the <i>Key Management Service Developer Guide</i>. For information about creating a private subnet for an CloudHSM cluster,
+ *       see <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/create-subnets.html">Create a Private
+ *         Subnet</a> in the <i>CloudHSM User Guide</i>. For information about cluster security groups, see
+ *         <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html">Configure a Default Security
+ *         Group</a> in the <i>
+ *                <i>CloudHSM User Guide</i>
+ *             </i>. </p>
+ *
+ * @throws {@link CloudHsmClusterNotActiveException} (client fault)
+ *  <p>The request was rejected because the CloudHSM cluster associated with the CloudHSM key store is
+ *       not active. Initialize and activate the cluster and try the command again. For detailed
+ *       instructions, see <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/getting-started.html">Getting
+ *         Started</a> in the <i>CloudHSM User Guide</i>.</p>
+ *
+ * @throws {@link CustomKeyStoreInvalidStateException} (client fault)
+ *  <p>The request was rejected because of the <code>ConnectionState</code> of the custom key
+ *       store. To get the <code>ConnectionState</code> of a custom key store, use the <a>DescribeCustomKeyStores</a> operation.</p>
+ *          <p>This exception is thrown under the following conditions:</p>
+ *          <ul>
+ *             <li>
+ *                <p>You requested the <a>ConnectCustomKeyStore</a> operation on a custom key
+ *           store with a <code>ConnectionState</code> of <code>DISCONNECTING</code> or
+ *             <code>FAILED</code>. This operation is valid for all other <code>ConnectionState</code>
+ *           values. To reconnect a custom key store in a <code>FAILED</code> state, disconnect it
+ *             (<a>DisconnectCustomKeyStore</a>), then connect it
+ *             (<code>ConnectCustomKeyStore</code>).</p>
+ *             </li>
+ *             <li>
+ *                <p>You requested the <a>CreateKey</a> operation in a custom key store that is
+ *           not connected. This operations is valid only when the custom key store
+ *             <code>ConnectionState</code> is <code>CONNECTED</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>You requested the <a>DisconnectCustomKeyStore</a> operation on a custom key
+ *           store with a <code>ConnectionState</code> of <code>DISCONNECTING</code> or
+ *             <code>DISCONNECTED</code>. This operation is valid for all other
+ *             <code>ConnectionState</code> values.</p>
+ *             </li>
+ *             <li>
+ *                <p>You requested the <a>UpdateCustomKeyStore</a> or <a>DeleteCustomKeyStore</a> operation on a custom key store that is not
+ *           disconnected. This operation is valid only when the custom key store
+ *             <code>ConnectionState</code> is <code>DISCONNECTED</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>You requested the <a>GenerateRandom</a> operation in an CloudHSM key store
+ *           that is not connected. This operation is valid only when the CloudHSM key store
+ *             <code>ConnectionState</code> is <code>CONNECTED</code>. </p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link CustomKeyStoreNotFoundException} (client fault)
+ *  <p>The request was rejected because KMS cannot find a custom key store with the specified
+ *       key store name or ID.</p>
+ *
+ * @throws {@link KMSInternalException} (server fault)
+ *  <p>The request was rejected because an internal exception occurred. The request can be
+ *       retried.</p>
+ *
+ *
+ * @example To connect a custom key store
+ * ```javascript
+ * // This example connects an AWS KMS custom key store to its backing key store. For an AWS CloudHSM key store, it connects the key store to its AWS CloudHSM cluster. For an external key store, it connects the key store to the external key store proxy that communicates with your external key manager. This operation does not return any data. To verify that the custom key store is connected, use the <code>DescribeCustomKeyStores</code> operation.
+ * const input = {
+ *   "CustomKeyStoreId": "cks-1234567890abcdef0"
+ * };
+ * const command = new ConnectCustomKeyStoreCommand(input);
+ * await client.send(command);
+ * // example id: to-connect-a-custom-key-store-1628626947750
+ * ```
  *
  */
 export class ConnectCustomKeyStoreCommand extends $Command<
@@ -149,6 +252,9 @@ export class ConnectCustomKeyStoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ConnectCustomKeyStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -177,8 +283,8 @@ export class ConnectCustomKeyStoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ConnectCustomKeyStoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ConnectCustomKeyStoreResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -188,12 +294,18 @@ export class ConnectCustomKeyStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ConnectCustomKeyStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ConnectCustomKeyStoreCommand(input, context);
+    return se_ConnectCustomKeyStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ConnectCustomKeyStoreCommandOutput> {
-    return deserializeAws_json1_1ConnectCustomKeyStoreCommand(output, context);
+    return de_ConnectCustomKeyStoreCommand(output, context);
   }
 
   // Start section: command_body_extra

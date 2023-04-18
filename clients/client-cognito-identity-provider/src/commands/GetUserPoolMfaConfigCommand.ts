@@ -19,21 +19,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import {
-  GetUserPoolMfaConfigRequest,
-  GetUserPoolMfaConfigRequestFilterSensitiveLog,
-  GetUserPoolMfaConfigResponse,
-  GetUserPoolMfaConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetUserPoolMfaConfigCommand,
-  serializeAws_json1_1GetUserPoolMfaConfigCommand,
-} from "../protocols/Aws_json1_1";
+import { GetUserPoolMfaConfigRequest, GetUserPoolMfaConfigResponse } from "../models/models_0";
+import { de_GetUserPoolMfaConfigCommand, se_GetUserPoolMfaConfigCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetUserPoolMfaConfigCommand}.
+ */
 export interface GetUserPoolMfaConfigCommandInput extends GetUserPoolMfaConfigRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetUserPoolMfaConfigCommand}.
+ */
 export interface GetUserPoolMfaConfigCommandOutput extends GetUserPoolMfaConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the user pool multi-factor authentication (MFA) configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,13 +44,37 @@ export interface GetUserPoolMfaConfigCommandOutput extends GetUserPoolMfaConfigR
  * import { CognitoIdentityProviderClient, GetUserPoolMfaConfigCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, GetUserPoolMfaConfigCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // GetUserPoolMfaConfigRequest
+ *   UserPoolId: "STRING_VALUE", // required
+ * };
  * const command = new GetUserPoolMfaConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetUserPoolMfaConfigCommandInput - {@link GetUserPoolMfaConfigCommandInput}
+ * @returns {@link GetUserPoolMfaConfigCommandOutput}
  * @see {@link GetUserPoolMfaConfigCommandInput} for command's `input` shape.
  * @see {@link GetUserPoolMfaConfigCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
+ *             parameter.</p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
+ *             resource.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>This exception is thrown when the user has made too many requests for a given
+ *             operation.</p>
+ *
  *
  */
 export class GetUserPoolMfaConfigCommand extends $Command<
@@ -67,6 +94,9 @@ export class GetUserPoolMfaConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetUserPoolMfaConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +126,8 @@ export class GetUserPoolMfaConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetUserPoolMfaConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetUserPoolMfaConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +137,18 @@ export class GetUserPoolMfaConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetUserPoolMfaConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetUserPoolMfaConfigCommand(input, context);
+    return se_GetUserPoolMfaConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUserPoolMfaConfigCommandOutput> {
-    return deserializeAws_json1_1GetUserPoolMfaConfigCommand(output, context);
+    return de_GetUserPoolMfaConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

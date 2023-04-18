@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RegisterRobotRequest,
-  RegisterRobotRequestFilterSensitiveLog,
-  RegisterRobotResponse,
-  RegisterRobotResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1RegisterRobotCommand,
-  serializeAws_restJson1RegisterRobotCommand,
-} from "../protocols/Aws_restJson1";
+import { RegisterRobotRequest, RegisterRobotResponse } from "../models/models_0";
+import { de_RegisterRobotCommand, se_RegisterRobotCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link RegisterRobotCommand}.
+ */
 export interface RegisterRobotCommandInput extends RegisterRobotRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RegisterRobotCommand}.
+ */
 export interface RegisterRobotCommandOutput extends RegisterRobotResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Registers a robot with a fleet.</p>
@@ -41,13 +44,37 @@ export interface RegisterRobotCommandOutput extends RegisterRobotResponse, __Met
  * import { RoboMakerClient, RegisterRobotCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, RegisterRobotCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = { // RegisterRobotRequest
+ *   fleet: "STRING_VALUE", // required
+ *   robot: "STRING_VALUE", // required
+ * };
  * const command = new RegisterRobotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterRobotCommandInput - {@link RegisterRobotCommandInput}
+ * @returns {@link RegisterRobotCommandOutput}
  * @see {@link RegisterRobotCommandInput} for command's `input` shape.
  * @see {@link RegisterRobotCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>AWS RoboMaker experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter specified in a request is not valid, is unsupported, or cannot be used. The
+ *          returned message provides an explanation of the error value.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
+ *          stream requests exceeds the maximum number allowed. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
+ *
  *
  */
 export class RegisterRobotCommand extends $Command<
@@ -67,6 +94,9 @@ export class RegisterRobotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterRobotCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +123,8 @@ export class RegisterRobotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterRobotRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterRobotResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +134,18 @@ export class RegisterRobotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterRobotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RegisterRobotCommand(input, context);
+    return se_RegisterRobotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterRobotCommandOutput> {
-    return deserializeAws_restJson1RegisterRobotCommand(output, context);
+    return de_RegisterRobotCommand(output, context);
   }
 
   // Start section: command_body_extra

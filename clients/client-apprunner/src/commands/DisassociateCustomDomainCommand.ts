@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
-import {
-  DisassociateCustomDomainRequest,
-  DisassociateCustomDomainRequestFilterSensitiveLog,
-  DisassociateCustomDomainResponse,
-  DisassociateCustomDomainResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DisassociateCustomDomainCommand,
-  serializeAws_json1_0DisassociateCustomDomainCommand,
-} from "../protocols/Aws_json1_0";
+import { DisassociateCustomDomainRequest, DisassociateCustomDomainResponse } from "../models/models_0";
+import { de_DisassociateCustomDomainCommand, se_DisassociateCustomDomainCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link DisassociateCustomDomainCommand}.
+ */
 export interface DisassociateCustomDomainCommandInput extends DisassociateCustomDomainRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateCustomDomainCommand}.
+ */
 export interface DisassociateCustomDomainCommandOutput extends DisassociateCustomDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociate a custom domain name from an App Runner service.</p>
  *          <p>Certificates tracking domain validity are associated with a custom domain and are stored in <a href="https://docs.aws.amazon.com/acm/latest/userguide">AWS
  *         Certificate Manager (ACM)</a>. These certificates aren't deleted as part of this action. App Runner delays certificate deletion for
@@ -39,13 +42,32 @@ export interface DisassociateCustomDomainCommandOutput extends DisassociateCusto
  * import { AppRunnerClient, DisassociateCustomDomainCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, DisassociateCustomDomainCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
+ * const input = { // DisassociateCustomDomainRequest
+ *   ServiceArn: "STRING_VALUE", // required
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateCustomDomainCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateCustomDomainCommandInput - {@link DisassociateCustomDomainCommandInput}
+ * @returns {@link DisassociateCustomDomainCommandOutput}
  * @see {@link DisassociateCustomDomainCommandInput} for command's `input` shape.
  * @see {@link DisassociateCustomDomainCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>An unexpected service exception occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+ *
+ * @throws {@link InvalidStateException} (client fault)
+ *  <p>You can't perform this action when the resource is in its current state.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
+ *
  *
  */
 export class DisassociateCustomDomainCommand extends $Command<
@@ -65,6 +87,9 @@ export class DisassociateCustomDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateCustomDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +118,8 @@ export class DisassociateCustomDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateCustomDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateCustomDomainResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +129,18 @@ export class DisassociateCustomDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateCustomDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DisassociateCustomDomainCommand(input, context);
+    return se_DisassociateCustomDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateCustomDomainCommandOutput> {
-    return deserializeAws_json1_0DisassociateCustomDomainCommand(output, context);
+    return de_DisassociateCustomDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

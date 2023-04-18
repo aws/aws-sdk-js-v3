@@ -19,16 +19,24 @@ import {
   CreateComponentOutput,
   CreateComponentOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateComponentCommand,
-  serializeAws_json1_0CreateComponentCommand,
-} from "../protocols/Aws_json1_0";
+import { de_CreateComponentCommand, se_CreateComponentCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateComponentCommand}.
+ */
 export interface CreateComponentCommandInput extends CreateComponentInput {}
+/**
+ * @public
+ *
+ * The output of {@link CreateComponentCommand}.
+ */
 export interface CreateComponentCommandOutput extends CreateComponentOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create an Proton component. A component is an infrastructure extension for a service instance.</p>
  *          <p>For more information about components, see
  *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
@@ -39,13 +47,55 @@ export interface CreateComponentCommandOutput extends CreateComponentOutput, __M
  * import { ProtonClient, CreateComponentCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, CreateComponentCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // CreateComponentInput
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   serviceName: "STRING_VALUE",
+ *   serviceInstanceName: "STRING_VALUE",
+ *   environmentName: "STRING_VALUE",
+ *   templateFile: "STRING_VALUE", // required
+ *   manifest: "STRING_VALUE", // required
+ *   serviceSpec: "STRING_VALUE",
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new CreateComponentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateComponentCommandInput - {@link CreateComponentCommandInput}
+ * @returns {@link CreateComponentCommandOutput}
  * @see {@link CreateComponentCommandInput} for command's `input` shape.
  * @see {@link CreateComponentCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>There <i>isn't</i> sufficient access for performing this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request <i>couldn't</i> be made due to a conflicting operation or resource.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request failed to register with the service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource <i>wasn't</i> found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>A quota was exceeded. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-limits.html">Proton Quotas</a> in
+ *       the <i>Proton User Guide</i>.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+ *
  *
  */
 export class CreateComponentCommand extends $Command<
@@ -65,6 +115,9 @@ export class CreateComponentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateComponentCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,12 +157,18 @@ export class CreateComponentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateComponentCommand(input, context);
+    return se_CreateComponentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateComponentCommandOutput> {
-    return deserializeAws_json1_0CreateComponentCommand(output, context);
+    return de_CreateComponentCommand(output, context);
   }
 
   // Start section: command_body_extra

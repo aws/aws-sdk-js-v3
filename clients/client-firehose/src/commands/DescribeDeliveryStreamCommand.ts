@@ -16,19 +16,26 @@ import {
 import { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
 import {
   DescribeDeliveryStreamInput,
-  DescribeDeliveryStreamInputFilterSensitiveLog,
   DescribeDeliveryStreamOutput,
   DescribeDeliveryStreamOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeDeliveryStreamCommand,
-  serializeAws_json1_1DescribeDeliveryStreamCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeDeliveryStreamCommand, se_DescribeDeliveryStreamCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeDeliveryStreamCommand}.
+ */
 export interface DescribeDeliveryStreamCommandInput extends DescribeDeliveryStreamInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeDeliveryStreamCommand}.
+ */
 export interface DescribeDeliveryStreamCommandOutput extends DescribeDeliveryStreamOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified delivery stream and its status. For example, after your
  *          delivery stream is created, call <code>DescribeDeliveryStream</code> to see whether the
  *          delivery stream is <code>ACTIVE</code> and therefore ready for data to be sent to it. </p>
@@ -42,13 +49,24 @@ export interface DescribeDeliveryStreamCommandOutput extends DescribeDeliveryStr
  * import { FirehoseClient, DescribeDeliveryStreamCommand } from "@aws-sdk/client-firehose"; // ES Modules import
  * // const { FirehoseClient, DescribeDeliveryStreamCommand } = require("@aws-sdk/client-firehose"); // CommonJS import
  * const client = new FirehoseClient(config);
+ * const input = { // DescribeDeliveryStreamInput
+ *   DeliveryStreamName: "STRING_VALUE", // required
+ *   Limit: Number("int"),
+ *   ExclusiveStartDestinationId: "STRING_VALUE",
+ * };
  * const command = new DescribeDeliveryStreamCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDeliveryStreamCommandInput - {@link DescribeDeliveryStreamCommandInput}
+ * @returns {@link DescribeDeliveryStreamCommandOutput}
  * @see {@link DescribeDeliveryStreamCommandInput} for command's `input` shape.
  * @see {@link DescribeDeliveryStreamCommandOutput} for command's `response` shape.
  * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found.</p>
+ *
  *
  */
 export class DescribeDeliveryStreamCommand extends $Command<
@@ -68,6 +86,9 @@ export class DescribeDeliveryStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDeliveryStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,7 +117,7 @@ export class DescribeDeliveryStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDeliveryStreamInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeDeliveryStreamOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -107,12 +128,18 @@ export class DescribeDeliveryStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDeliveryStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDeliveryStreamCommand(input, context);
+    return se_DescribeDeliveryStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDeliveryStreamCommandOutput> {
-    return deserializeAws_json1_1DescribeDeliveryStreamCommand(output, context);
+    return de_DescribeDeliveryStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

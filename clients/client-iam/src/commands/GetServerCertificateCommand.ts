@@ -14,23 +14,26 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  GetServerCertificateRequest,
-  GetServerCertificateRequestFilterSensitiveLog,
-  GetServerCertificateResponse,
-  GetServerCertificateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryGetServerCertificateCommand,
-  serializeAws_queryGetServerCertificateCommand,
-} from "../protocols/Aws_query";
+import { GetServerCertificateRequest, GetServerCertificateResponse } from "../models/models_0";
+import { de_GetServerCertificateCommand, se_GetServerCertificateCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link GetServerCertificateCommand}.
+ */
 export interface GetServerCertificateCommandInput extends GetServerCertificateRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetServerCertificateCommand}.
+ */
 export interface GetServerCertificateCommandOutput extends GetServerCertificateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the specified server certificate stored in IAM.</p>
- *         <p>For more information about working with server certificates, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working
+ *          <p>For more information about working with server certificates, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working
  *                 with server certificates</a> in the <i>IAM User Guide</i>. This
  *             topic includes a list of Amazon Web Services services that can use the server certificates that you
  *             manage with IAM.</p>
@@ -40,13 +43,27 @@ export interface GetServerCertificateCommandOutput extends GetServerCertificateR
  * import { IAMClient, GetServerCertificateCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GetServerCertificateCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // GetServerCertificateRequest
+ *   ServerCertificateName: "STRING_VALUE", // required
+ * };
  * const command = new GetServerCertificateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetServerCertificateCommandInput - {@link GetServerCertificateCommandInput}
+ * @returns {@link GetServerCertificateCommandOutput}
  * @see {@link GetServerCertificateCommandInput} for command's `input` shape.
  * @see {@link GetServerCertificateCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
  *
  */
 export class GetServerCertificateCommand extends $Command<
@@ -66,6 +83,9 @@ export class GetServerCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetServerCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +114,8 @@ export class GetServerCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetServerCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetServerCertificateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +125,18 @@ export class GetServerCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetServerCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetServerCertificateCommand(input, context);
+    return se_GetServerCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetServerCertificateCommandOutput> {
-    return deserializeAws_queryGetServerCertificateCommand(output, context);
+    return de_GetServerCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

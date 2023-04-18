@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListIndexesInput,
-  ListIndexesInputFilterSensitiveLog,
-  ListIndexesOutput,
-  ListIndexesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListIndexesCommand,
-  serializeAws_restJson1ListIndexesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListIndexesInput, ListIndexesOutput } from "../models/models_0";
+import { de_ListIndexesCommand, se_ListIndexesCommand } from "../protocols/Aws_restJson1";
 import {
   ResourceExplorer2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceExplorer2Client";
 
+/**
+ * @public
+ *
+ * The input for {@link ListIndexesCommand}.
+ */
 export interface ListIndexesCommandInput extends ListIndexesInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListIndexesCommand}.
+ */
 export interface ListIndexesCommandOutput extends ListIndexesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of all of the indexes in Amazon Web Services Regions that are currently collecting
  *             resource information for Amazon Web Services Resource Explorer.</p>
  * @example
@@ -41,13 +44,41 @@ export interface ListIndexesCommandOutput extends ListIndexesOutput, __MetadataB
  * import { ResourceExplorer2Client, ListIndexesCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
  * // const { ResourceExplorer2Client, ListIndexesCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
  * const client = new ResourceExplorer2Client(config);
+ * const input = { // ListIndexesInput
+ *   Type: "STRING_VALUE",
+ *   Regions: [ // RegionList
+ *     "STRING_VALUE",
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListIndexesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListIndexesCommandInput - {@link ListIndexesCommandInput}
+ * @returns {@link ListIndexesCommandOutput}
  * @see {@link ListIndexesCommandInput} for command's `input` shape.
  * @see {@link ListIndexesCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The credentials that you used to call this operation don't have the minimum required
+ *             permissions.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request failed because of internal service error. Try your request again
+ *             later.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request failed because you exceeded a rate limit for this operation. For more
+ *             information, see <a href="https://docs.aws.amazon.com/arexug/mainline/quotas.html">Quotas
+ *                 for Resource Explorer</a>.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax
+ *             for the operation, and try again.</p>
+ *
  *
  */
 export class ListIndexesCommand extends $Command<
@@ -66,6 +97,9 @@ export class ListIndexesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListIndexesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +126,8 @@ export class ListIndexesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListIndexesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListIndexesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +137,18 @@ export class ListIndexesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListIndexesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListIndexesCommand(input, context);
+    return se_ListIndexesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListIndexesCommandOutput> {
-    return deserializeAws_restJson1ListIndexesCommand(output, context);
+    return de_ListIndexesCommand(output, context);
   }
 
   // Start section: command_body_extra

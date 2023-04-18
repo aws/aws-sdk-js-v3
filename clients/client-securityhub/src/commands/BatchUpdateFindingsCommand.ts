@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  BatchUpdateFindingsRequest,
-  BatchUpdateFindingsRequestFilterSensitiveLog,
-  BatchUpdateFindingsResponse,
-  BatchUpdateFindingsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1BatchUpdateFindingsCommand,
-  serializeAws_restJson1BatchUpdateFindingsCommand,
-} from "../protocols/Aws_restJson1";
+import { BatchUpdateFindingsRequest, BatchUpdateFindingsResponse } from "../models/models_1";
+import { de_BatchUpdateFindingsCommand, se_BatchUpdateFindingsCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchUpdateFindingsCommand}.
+ */
 export interface BatchUpdateFindingsCommandInput extends BatchUpdateFindingsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link BatchUpdateFindingsCommand}.
+ */
 export interface BatchUpdateFindingsCommandOutput extends BatchUpdateFindingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used by Security Hub customers to update information about their investigation into a finding.
  *          Requested by administrator accounts or member accounts. Administrator accounts can update findings for
  *          their account and their member accounts. Member accounts can update findings for their
@@ -94,13 +97,65 @@ export interface BatchUpdateFindingsCommandOutput extends BatchUpdateFindingsRes
  * import { SecurityHubClient, BatchUpdateFindingsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, BatchUpdateFindingsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = { // BatchUpdateFindingsRequest
+ *   FindingIdentifiers: [ // AwsSecurityFindingIdentifierList // required
+ *     { // AwsSecurityFindingIdentifier
+ *       Id: "STRING_VALUE", // required
+ *       ProductArn: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Note: { // NoteUpdate
+ *     Text: "STRING_VALUE", // required
+ *     UpdatedBy: "STRING_VALUE", // required
+ *   },
+ *   Severity: { // SeverityUpdate
+ *     Normalized: Number("int"),
+ *     Product: Number("double"),
+ *     Label: "INFORMATIONAL" || "LOW" || "MEDIUM" || "HIGH" || "CRITICAL",
+ *   },
+ *   VerificationState: "UNKNOWN" || "TRUE_POSITIVE" || "FALSE_POSITIVE" || "BENIGN_POSITIVE",
+ *   Confidence: Number("int"),
+ *   Criticality: Number("int"),
+ *   Types: [ // TypeList
+ *     "STRING_VALUE",
+ *   ],
+ *   UserDefinedFields: { // FieldMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Workflow: { // WorkflowUpdate
+ *     Status: "NEW" || "NOTIFIED" || "RESOLVED" || "SUPPRESSED",
+ *   },
+ *   RelatedFindings: [ // RelatedFindingList
+ *     { // RelatedFinding
+ *       ProductArn: "STRING_VALUE", // required
+ *       Id: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new BatchUpdateFindingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchUpdateFindingsCommandInput - {@link BatchUpdateFindingsCommandInput}
+ * @returns {@link BatchUpdateFindingsCommandOutput}
  * @see {@link BatchUpdateFindingsCommandInput} for command's `input` shape.
  * @see {@link BatchUpdateFindingsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>Internal server error.</p>
+ *
+ * @throws {@link InvalidAccessException} (client fault)
+ *  <p>The account doesn't have permission to perform this action.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because you supplied an invalid or out-of-range value for an
+ *          input parameter.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
+ *          account or throttling limits. The error code describes the limit exceeded.</p>
+ *
  *
  */
 export class BatchUpdateFindingsCommand extends $Command<
@@ -120,6 +175,9 @@ export class BatchUpdateFindingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchUpdateFindingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,8 +206,8 @@ export class BatchUpdateFindingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchUpdateFindingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchUpdateFindingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -159,12 +217,18 @@ export class BatchUpdateFindingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchUpdateFindingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchUpdateFindingsCommand(input, context);
+    return se_BatchUpdateFindingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchUpdateFindingsCommandOutput> {
-    return deserializeAws_restJson1BatchUpdateFindingsCommand(output, context);
+    return de_BatchUpdateFindingsCommand(output, context);
   }
 
   // Start section: command_body_extra

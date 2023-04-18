@@ -15,24 +15,31 @@ import {
 
 import {
   DeleteNamespaceRequest,
-  DeleteNamespaceRequestFilterSensitiveLog,
   DeleteNamespaceResponse,
   DeleteNamespaceResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteNamespaceCommand,
-  serializeAws_json1_1DeleteNamespaceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteNamespaceCommand, se_DeleteNamespaceCommand } from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteNamespaceCommand}.
+ */
 export interface DeleteNamespaceCommandInput extends DeleteNamespaceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteNamespaceCommand}.
+ */
 export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a namespace from Amazon Redshift Serverless.
  *          Before you delete the namespace, you can create a final snapshot that has all of the data within the namespace.</p>
  * @example
@@ -41,13 +48,33 @@ export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, _
  * import { RedshiftServerlessClient, DeleteNamespaceCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, DeleteNamespaceCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
+ * const input = { // DeleteNamespaceRequest
+ *   namespaceName: "STRING_VALUE", // required
+ *   finalSnapshotName: "STRING_VALUE",
+ *   finalSnapshotRetentionPeriod: Number("int"),
+ * };
  * const command = new DeleteNamespaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNamespaceCommandInput - {@link DeleteNamespaceCommandInput}
+ * @returns {@link DeleteNamespaceCommandOutput}
  * @see {@link DeleteNamespaceCommandInput} for command's `input` shape.
  * @see {@link DeleteNamespaceCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The submitted action has conflicts.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
+ *
  *
  */
 export class DeleteNamespaceCommand extends $Command<
@@ -67,6 +94,9 @@ export class DeleteNamespaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNamespaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,7 +125,7 @@ export class DeleteNamespaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteNamespaceRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DeleteNamespaceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -106,12 +136,18 @@ export class DeleteNamespaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteNamespaceCommand(input, context);
+    return se_DeleteNamespaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteNamespaceCommandOutput> {
-    return deserializeAws_json1_1DeleteNamespaceCommand(output, context);
+    return de_DeleteNamespaceCommand(output, context);
   }
 
   // Start section: command_body_extra

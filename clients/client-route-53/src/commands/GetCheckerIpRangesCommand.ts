@@ -13,45 +13,52 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetCheckerIpRangesRequest,
-  GetCheckerIpRangesRequestFilterSensitiveLog,
-  GetCheckerIpRangesResponse,
-  GetCheckerIpRangesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlGetCheckerIpRangesCommand,
-  serializeAws_restXmlGetCheckerIpRangesCommand,
-} from "../protocols/Aws_restXml";
+import { GetCheckerIpRangesRequest, GetCheckerIpRangesResponse } from "../models/models_0";
+import { de_GetCheckerIpRangesCommand, se_GetCheckerIpRangesCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * @public
+ *
+ * The input for {@link GetCheckerIpRangesCommand}.
+ */
 export interface GetCheckerIpRangesCommandInput extends GetCheckerIpRangesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetCheckerIpRangesCommand}.
+ */
 export interface GetCheckerIpRangesCommandOutput extends GetCheckerIpRangesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Route 53 does not perform authorization for this API because it retrieves information
  * 			that is already available to the public.</p>
- * 		       <important>
- * 			         <p>
+ *          <important>
+ *             <p>
  *                <code>GetCheckerIpRanges</code> still works, but we recommend that you download
  * 				ip-ranges.json, which includes IP address ranges for all Amazon Web Services
  * 				services. For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/route-53-ip-addresses.html">IP Address Ranges
  * 					of Amazon Route 53 Servers</a> in the <i>Amazon Route 53 Developer
  * 					Guide</i>.</p>
- * 		       </important>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { Route53Client, GetCheckerIpRangesCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, GetCheckerIpRangesCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = {};
  * const command = new GetCheckerIpRangesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCheckerIpRangesCommandInput - {@link GetCheckerIpRangesCommandInput}
+ * @returns {@link GetCheckerIpRangesCommandOutput}
  * @see {@link GetCheckerIpRangesCommandInput} for command's `input` shape.
  * @see {@link GetCheckerIpRangesCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
+ *
  *
  */
 export class GetCheckerIpRangesCommand extends $Command<
@@ -71,6 +78,9 @@ export class GetCheckerIpRangesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCheckerIpRangesCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +109,8 @@ export class GetCheckerIpRangesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCheckerIpRangesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCheckerIpRangesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +120,18 @@ export class GetCheckerIpRangesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCheckerIpRangesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetCheckerIpRangesCommand(input, context);
+    return se_GetCheckerIpRangesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCheckerIpRangesCommandOutput> {
-    return deserializeAws_restXmlGetCheckerIpRangesCommand(output, context);
+    return de_GetCheckerIpRangesCommand(output, context);
   }
 
   // Start section: command_body_extra

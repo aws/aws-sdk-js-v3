@@ -14,18 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import {
-  DescribeTagsType,
-  DescribeTagsTypeFilterSensitiveLog,
-  TagsType,
-  TagsTypeFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_queryDescribeTagsCommand, serializeAws_queryDescribeTagsCommand } from "../protocols/Aws_query";
+import { DescribeTagsType, TagsType } from "../models/models_0";
+import { de_DescribeTagsCommand, se_DescribeTagsCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeTagsCommand}.
+ */
 export interface DescribeTagsCommandInput extends DescribeTagsType {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeTagsCommand}.
+ */
 export interface DescribeTagsCommandOutput extends TagsType, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified tags.</p>
  *          <p>You can use filters to limit the results. For example, you can query for the tags for
  *             a specific Auto Scaling group. You can specify multiple values for a filter. A tag must match at
@@ -41,13 +47,73 @@ export interface DescribeTagsCommandOutput extends TagsType, __MetadataBearer {}
  * import { AutoScalingClient, DescribeTagsCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DescribeTagsCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = { // DescribeTagsType
+ *   Filters: [ // Filters
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // Values
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ * };
  * const command = new DescribeTagsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTagsCommandInput - {@link DescribeTagsCommandInput}
+ * @returns {@link DescribeTagsCommandOutput}
  * @see {@link DescribeTagsCommandInput} for command's `input` shape.
  * @see {@link DescribeTagsCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
+ *
+ * @throws {@link InvalidNextToken} (client fault)
+ *  <p>The <code>NextToken</code> value is not valid.</p>
+ *
+ * @throws {@link ResourceContentionFault} (server fault)
+ *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
+ *             instance, or load balancer).</p>
+ *
+ *
+ * @example To describe tags
+ * ```javascript
+ * // This example describes the tags for the specified Auto Scaling group.
+ * const input = {
+ *   "Filters": [
+ *     {
+ *       "Name": "auto-scaling-group",
+ *       "Values": [
+ *         "my-auto-scaling-group"
+ *       ]
+ *     }
+ *   ]
+ * };
+ * const command = new DescribeTagsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Tags": [
+ *     {
+ *       "Key": "Dept",
+ *       "PropagateAtLaunch": true,
+ *       "ResourceId": "my-auto-scaling-group",
+ *       "ResourceType": "auto-scaling-group",
+ *       "Value": "Research"
+ *     },
+ *     {
+ *       "Key": "Role",
+ *       "PropagateAtLaunch": true,
+ *       "ResourceId": "my-auto-scaling-group",
+ *       "ResourceType": "auto-scaling-group",
+ *       "Value": "WebServer"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: autoscaling-describe-tags-1
+ * ```
  *
  */
 export class DescribeTagsCommand extends $Command<
@@ -67,6 +133,9 @@ export class DescribeTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +162,8 @@ export class DescribeTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTagsTypeFilterSensitiveLog,
-      outputFilterSensitiveLog: TagsTypeFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +173,18 @@ export class DescribeTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeTagsCommand(input, context);
+    return se_DescribeTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTagsCommandOutput> {
-    return deserializeAws_queryDescribeTagsCommand(output, context);
+    return de_DescribeTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

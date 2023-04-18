@@ -13,20 +13,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DeleteDataQualityJobDefinitionRequest } from "../models/models_1";
 import {
-  DeleteDataQualityJobDefinitionRequest,
-  DeleteDataQualityJobDefinitionRequestFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteDataQualityJobDefinitionCommand,
-  serializeAws_json1_1DeleteDataQualityJobDefinitionCommand,
+  de_DeleteDataQualityJobDefinitionCommand,
+  se_DeleteDataQualityJobDefinitionCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteDataQualityJobDefinitionCommand}.
+ */
 export interface DeleteDataQualityJobDefinitionCommandInput extends DeleteDataQualityJobDefinitionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteDataQualityJobDefinitionCommand}.
+ */
 export interface DeleteDataQualityJobDefinitionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a data quality monitoring job definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -34,13 +42,22 @@ export interface DeleteDataQualityJobDefinitionCommandOutput extends __MetadataB
  * import { SageMakerClient, DeleteDataQualityJobDefinitionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteDataQualityJobDefinitionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DeleteDataQualityJobDefinitionRequest
+ *   JobDefinitionName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDataQualityJobDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDataQualityJobDefinitionCommandInput - {@link DeleteDataQualityJobDefinitionCommandInput}
+ * @returns {@link DeleteDataQualityJobDefinitionCommandOutput}
  * @see {@link DeleteDataQualityJobDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteDataQualityJobDefinitionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class DeleteDataQualityJobDefinitionCommand extends $Command<
@@ -60,6 +77,9 @@ export class DeleteDataQualityJobDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDataQualityJobDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +108,8 @@ export class DeleteDataQualityJobDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDataQualityJobDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,18 +119,24 @@ export class DeleteDataQualityJobDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteDataQualityJobDefinitionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDataQualityJobDefinitionCommand(input, context);
+    return se_DeleteDataQualityJobDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDataQualityJobDefinitionCommandOutput> {
-    return deserializeAws_json1_1DeleteDataQualityJobDefinitionCommand(output, context);
+    return de_DeleteDataQualityJobDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

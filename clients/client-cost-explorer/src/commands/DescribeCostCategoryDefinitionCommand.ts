@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
+import { DescribeCostCategoryDefinitionRequest, DescribeCostCategoryDefinitionResponse } from "../models/models_0";
 import {
-  DescribeCostCategoryDefinitionRequest,
-  DescribeCostCategoryDefinitionRequestFilterSensitiveLog,
-  DescribeCostCategoryDefinitionResponse,
-  DescribeCostCategoryDefinitionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeCostCategoryDefinitionCommand,
-  serializeAws_json1_1DescribeCostCategoryDefinitionCommand,
+  de_DescribeCostCategoryDefinitionCommand,
+  se_DescribeCostCategoryDefinitionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeCostCategoryDefinitionCommand}.
+ */
 export interface DescribeCostCategoryDefinitionCommandInput extends DescribeCostCategoryDefinitionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeCostCategoryDefinitionCommand}.
+ */
 export interface DescribeCostCategoryDefinitionCommandOutput
   extends DescribeCostCategoryDefinitionResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the name, Amazon Resource Name (ARN), rules, definition, and effective dates of a
  *       Cost Category that's defined in the account.</p>
  *          <p>You have the option to use <code>EffectiveOn</code> to return a Cost Category that's
@@ -43,13 +49,26 @@ export interface DescribeCostCategoryDefinitionCommandOutput
  * import { CostExplorerClient, DescribeCostCategoryDefinitionCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, DescribeCostCategoryDefinitionCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
  * const client = new CostExplorerClient(config);
+ * const input = { // DescribeCostCategoryDefinitionRequest
+ *   CostCategoryArn: "STRING_VALUE", // required
+ *   EffectiveOn: "STRING_VALUE",
+ * };
  * const command = new DescribeCostCategoryDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCostCategoryDefinitionCommandInput - {@link DescribeCostCategoryDefinitionCommandInput}
+ * @returns {@link DescribeCostCategoryDefinitionCommandOutput}
  * @see {@link DescribeCostCategoryDefinitionCommandInput} for command's `input` shape.
  * @see {@link DescribeCostCategoryDefinitionCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You made too many calls in a short period of time. Try again later.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p> The specified ARN in the request doesn't exist. </p>
+ *
  *
  */
 export class DescribeCostCategoryDefinitionCommand extends $Command<
@@ -69,6 +88,9 @@ export class DescribeCostCategoryDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCostCategoryDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +119,8 @@ export class DescribeCostCategoryDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCostCategoryDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeCostCategoryDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,18 +130,24 @@ export class DescribeCostCategoryDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeCostCategoryDefinitionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeCostCategoryDefinitionCommand(input, context);
+    return se_DescribeCostCategoryDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeCostCategoryDefinitionCommandOutput> {
-    return deserializeAws_json1_1DescribeCostCategoryDefinitionCommand(output, context);
+    return de_DescribeCostCategoryDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

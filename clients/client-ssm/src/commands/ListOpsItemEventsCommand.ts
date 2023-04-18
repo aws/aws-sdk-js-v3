@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListOpsItemEventsRequest,
-  ListOpsItemEventsRequestFilterSensitiveLog,
-  ListOpsItemEventsResponse,
-  ListOpsItemEventsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1ListOpsItemEventsCommand,
-  serializeAws_json1_1ListOpsItemEventsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListOpsItemEventsRequest, ListOpsItemEventsResponse } from "../models/models_1";
+import { de_ListOpsItemEventsCommand, se_ListOpsItemEventsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListOpsItemEventsCommand}.
+ */
 export interface ListOpsItemEventsCommandInput extends ListOpsItemEventsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListOpsItemEventsCommand}.
+ */
 export interface ListOpsItemEventsCommandOutput extends ListOpsItemEventsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all OpsItem events in the current Amazon Web Services Region and Amazon Web Services account. You can
  *    limit the results to events associated with specific OpsItems by specifying a filter.</p>
  * @example
@@ -37,13 +40,43 @@ export interface ListOpsItemEventsCommandOutput extends ListOpsItemEventsRespons
  * import { SSMClient, ListOpsItemEventsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ListOpsItemEventsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // ListOpsItemEventsRequest
+ *   Filters: [ // OpsItemEventFilters
+ *     { // OpsItemEventFilter
+ *       Key: "OpsItemId", // required
+ *       Values: [ // OpsItemEventFilterValues // required
+ *         "STRING_VALUE",
+ *       ],
+ *       Operator: "Equal", // required
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListOpsItemEventsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOpsItemEventsCommandInput - {@link ListOpsItemEventsCommandInput}
+ * @returns {@link ListOpsItemEventsCommandOutput}
  * @see {@link ListOpsItemEventsCommandInput} for command's `input` shape.
  * @see {@link ListOpsItemEventsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link OpsItemInvalidParameterException} (client fault)
+ *  <p>A specified parameter argument isn't valid. Verify the available arguments and try
+ *    again.</p>
+ *
+ * @throws {@link OpsItemLimitExceededException} (client fault)
+ *  <p>The request caused OpsItems to exceed one or more quotas. For information about OpsItem
+ *    quotas, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-learn-more.html#OpsCenter-learn-more-limits">What are the resource limits for OpsCenter?</a>.</p>
+ *
+ * @throws {@link OpsItemNotFoundException} (client fault)
+ *  <p>The specified OpsItem ID doesn't exist. Verify the ID and try again.</p>
+ *
  *
  */
 export class ListOpsItemEventsCommand extends $Command<
@@ -63,6 +96,9 @@ export class ListOpsItemEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOpsItemEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +127,8 @@ export class ListOpsItemEventsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListOpsItemEventsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListOpsItemEventsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +138,18 @@ export class ListOpsItemEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListOpsItemEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListOpsItemEventsCommand(input, context);
+    return se_ListOpsItemEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOpsItemEventsCommandOutput> {
-    return deserializeAws_json1_1ListOpsItemEventsCommand(output, context);
+    return de_ListOpsItemEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import {
-  CreateAssetRequest,
-  CreateAssetRequestFilterSensitiveLog,
-  CreateAssetResponse,
-  CreateAssetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateAssetCommand,
-  serializeAws_restJson1CreateAssetCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateAssetRequest, CreateAssetResponse } from "../models/models_0";
+import { de_CreateAssetCommand, se_CreateAssetCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateAssetCommand}.
+ */
 export interface CreateAssetCommandInput extends CreateAssetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateAssetCommand}.
+ */
 export interface CreateAssetCommandOutput extends CreateAssetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an asset from an existing asset model. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-assets.html">Creating assets</a> in the
  *         <i>IoT SiteWise User Guide</i>.</p>
  * @example
@@ -37,13 +40,54 @@ export interface CreateAssetCommandOutput extends CreateAssetResponse, __Metadat
  * import { IoTSiteWiseClient, CreateAssetCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, CreateAssetCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = { // CreateAssetRequest
+ *   assetName: "STRING_VALUE", // required
+ *   assetModelId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   assetDescription: "STRING_VALUE",
+ * };
  * const command = new CreateAssetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAssetCommandInput - {@link CreateAssetCommandInput}
+ * @returns {@link CreateAssetCommandOutput}
  * @see {@link CreateAssetCommandInput} for command's `input` shape.
  * @see {@link CreateAssetCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
+ *
+ * @throws {@link ConflictingOperationException} (client fault)
+ *  <p>Your request has conflicting operations. This can occur if you're trying to perform more
+ *       than one operation on the same resource at the same time.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>IoT SiteWise can't process your request right now. Try again later.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
+ *       unsupported characters. Check your request and try again.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You've reached the limit for a resource. For example, this can occur if you're trying to
+ *       associate more than the allowed number of child assets or attempting to create more than the
+ *       allowed number of properties for an asset model.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The resource already exists.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource can't be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Your request exceeded a rate limit. For example, you might have exceeded the number of
+ *       IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so
+ *       on.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ *
  *
  */
 export class CreateAssetCommand extends $Command<
@@ -63,6 +107,9 @@ export class CreateAssetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAssetCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +136,8 @@ export class CreateAssetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAssetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAssetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +147,18 @@ export class CreateAssetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAssetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAssetCommand(input, context);
+    return se_CreateAssetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAssetCommandOutput> {
-    return deserializeAws_restJson1CreateAssetCommand(output, context);
+    return de_CreateAssetCommand(output, context);
   }
 
   // Start section: command_body_extra

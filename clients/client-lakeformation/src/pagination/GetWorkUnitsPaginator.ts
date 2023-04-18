@@ -6,12 +6,11 @@ import {
   GetWorkUnitsCommandInput,
   GetWorkUnitsCommandOutput,
 } from "../commands/GetWorkUnitsCommand";
-import { LakeFormation } from "../LakeFormation";
 import { LakeFormationClient } from "../LakeFormationClient";
 import { LakeFormationPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: LakeFormationClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new GetWorkUnitsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: LakeFormation,
-  input: GetWorkUnitsCommandInput,
-  ...args: any
-): Promise<GetWorkUnitsCommandOutput> => {
-  // @ts-ignore
-  return await client.getWorkUnits(input, ...args);
-};
 export async function* paginateGetWorkUnits(
   config: LakeFormationPaginationConfiguration,
   input: GetWorkUnitsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateGetWorkUnits(
   while (hasNext) {
     input.NextToken = token;
     input["PageSize"] = config.pageSize;
-    if (config.client instanceof LakeFormation) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof LakeFormationClient) {
+    if (config.client instanceof LakeFormationClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected LakeFormation | LakeFormationClient");

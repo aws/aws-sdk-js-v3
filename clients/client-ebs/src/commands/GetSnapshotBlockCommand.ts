@@ -19,21 +19,28 @@ import {
 import { EBSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EBSClient";
 import {
   GetSnapshotBlockRequest,
-  GetSnapshotBlockRequestFilterSensitiveLog,
   GetSnapshotBlockResponse,
   GetSnapshotBlockResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSnapshotBlockCommand,
-  serializeAws_restJson1GetSnapshotBlockCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetSnapshotBlockCommand, se_GetSnapshotBlockCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetSnapshotBlockCommand}.
+ */
 export interface GetSnapshotBlockCommandInput extends GetSnapshotBlockRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetSnapshotBlockCommand}.
+ */
 export interface GetSnapshotBlockCommandOutput
   extends __WithSdkStreamMixin<GetSnapshotBlockResponse, "BlockData">,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the data in a block in an Amazon Elastic Block Store snapshot.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,13 +48,40 @@ export interface GetSnapshotBlockCommandOutput
  * import { EBSClient, GetSnapshotBlockCommand } from "@aws-sdk/client-ebs"; // ES Modules import
  * // const { EBSClient, GetSnapshotBlockCommand } = require("@aws-sdk/client-ebs"); // CommonJS import
  * const client = new EBSClient(config);
+ * const input = { // GetSnapshotBlockRequest
+ *   SnapshotId: "STRING_VALUE", // required
+ *   BlockIndex: Number("int"), // required
+ *   BlockToken: "STRING_VALUE", // required
+ * };
  * const command = new GetSnapshotBlockCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSnapshotBlockCommandInput - {@link GetSnapshotBlockCommandInput}
+ * @returns {@link GetSnapshotBlockCommandOutput}
  * @see {@link GetSnapshotBlockCommandInput} for command's `input` shape.
  * @see {@link GetSnapshotBlockCommandOutput} for command's `response` shape.
  * @see {@link EBSClientResolvedConfig | config} for EBSClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error has occurred.</p>
+ *
+ * @throws {@link RequestThrottledException} (client fault)
+ *  <p>The number of API requests has exceed the maximum allowed API request throttling
+ *             limit.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Your current service quotas do not allow you to perform this action.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints of the EBS direct APIs.</p>
+ *
  *
  */
 export class GetSnapshotBlockCommand extends $Command<
@@ -67,6 +101,9 @@ export class GetSnapshotBlockCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSnapshotBlockCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,7 +132,7 @@ export class GetSnapshotBlockCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSnapshotBlockRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetSnapshotBlockResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -106,15 +143,21 @@ export class GetSnapshotBlockCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSnapshotBlockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSnapshotBlockCommand(input, context);
+    return se_GetSnapshotBlockCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext
   ): Promise<GetSnapshotBlockCommandOutput> {
-    return deserializeAws_restJson1GetSnapshotBlockCommand(output, context);
+    return de_GetSnapshotBlockCommand(output, context);
   }
 
   // Start section: command_body_extra

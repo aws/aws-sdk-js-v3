@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { AssociatePrincipalWithPortfolioInput, AssociatePrincipalWithPortfolioOutput } from "../models/models_0";
 import {
-  AssociatePrincipalWithPortfolioInput,
-  AssociatePrincipalWithPortfolioInputFilterSensitiveLog,
-  AssociatePrincipalWithPortfolioOutput,
-  AssociatePrincipalWithPortfolioOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociatePrincipalWithPortfolioCommand,
-  serializeAws_json1_1AssociatePrincipalWithPortfolioCommand,
+  de_AssociatePrincipalWithPortfolioCommand,
+  se_AssociatePrincipalWithPortfolioCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * @public
+ *
+ * The input for {@link AssociatePrincipalWithPortfolioCommand}.
+ */
 export interface AssociatePrincipalWithPortfolioCommandInput extends AssociatePrincipalWithPortfolioInput {}
+/**
+ * @public
+ *
+ * The output of {@link AssociatePrincipalWithPortfolioCommand}.
+ */
 export interface AssociatePrincipalWithPortfolioCommandOutput
   extends AssociatePrincipalWithPortfolioOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates the specified principal ARN with the specified portfolio.</p>
  *          <p>If you share the portfolio with principal name sharing enabled, the <code>PrincipalARN</code> association is
  *          included in the share. </p>
@@ -38,7 +44,6 @@ export interface AssociatePrincipalWithPortfolioCommandOutput
  *       required. </p>
  *          <p>You can associate a maximum of 10 Principals with a portfolio using <code>PrincipalType</code> as <code>IAM_PATTERN</code>
  *          </p>
- *
  *          <note>
  *             <p>When you associate a principal with portfolio, a potential privilege escalation path may occur when that portfolio is
  *          then shared with other accounts. For a user in a recipient account who is <i>not</i> an Service Catalog Admin,
@@ -54,13 +59,32 @@ export interface AssociatePrincipalWithPortfolioCommandOutput
  * import { ServiceCatalogClient, AssociatePrincipalWithPortfolioCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, AssociatePrincipalWithPortfolioCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // AssociatePrincipalWithPortfolioInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   PortfolioId: "STRING_VALUE", // required
+ *   PrincipalARN: "STRING_VALUE", // required
+ *   PrincipalType: "IAM" || "IAM_PATTERN", // required
+ * };
  * const command = new AssociatePrincipalWithPortfolioCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociatePrincipalWithPortfolioCommandInput - {@link AssociatePrincipalWithPortfolioCommandInput}
+ * @returns {@link AssociatePrincipalWithPortfolioCommandOutput}
  * @see {@link AssociatePrincipalWithPortfolioCommandInput} for command's `input` shape.
  * @see {@link AssociatePrincipalWithPortfolioCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
+ *
+ * @throws {@link InvalidParametersException} (client fault)
+ *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The current limits of the service would have been exceeded by this operation. Decrease your
+ *          resource use or increase your service limits and retry the operation.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class AssociatePrincipalWithPortfolioCommand extends $Command<
@@ -80,6 +104,9 @@ export class AssociatePrincipalWithPortfolioCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociatePrincipalWithPortfolioCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +135,8 @@ export class AssociatePrincipalWithPortfolioCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociatePrincipalWithPortfolioInputFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociatePrincipalWithPortfolioOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,18 +146,24 @@ export class AssociatePrincipalWithPortfolioCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociatePrincipalWithPortfolioCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociatePrincipalWithPortfolioCommand(input, context);
+    return se_AssociatePrincipalWithPortfolioCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociatePrincipalWithPortfolioCommandOutput> {
-    return deserializeAws_json1_1AssociatePrincipalWithPortfolioCommand(output, context);
+    return de_AssociatePrincipalWithPortfolioCommand(output, context);
   }
 
   // Start section: command_body_extra

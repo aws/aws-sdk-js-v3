@@ -6,12 +6,11 @@ import {
   ListOriginEndpointsCommandInput,
   ListOriginEndpointsCommandOutput,
 } from "../commands/ListOriginEndpointsCommand";
-import { MediaPackage } from "../MediaPackage";
 import { MediaPackageClient } from "../MediaPackageClient";
 import { MediaPackagePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: MediaPackageClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListOriginEndpointsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: MediaPackage,
-  input: ListOriginEndpointsCommandInput,
-  ...args: any
-): Promise<ListOriginEndpointsCommandOutput> => {
-  // @ts-ignore
-  return await client.listOriginEndpoints(input, ...args);
-};
 export async function* paginateListOriginEndpoints(
   config: MediaPackagePaginationConfiguration,
   input: ListOriginEndpointsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListOriginEndpoints(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof MediaPackage) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof MediaPackageClient) {
+    if (config.client instanceof MediaPackageClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected MediaPackage | MediaPackageClient");

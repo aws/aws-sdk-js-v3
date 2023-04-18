@@ -15,22 +15,31 @@ import {
 
 import {
   ListDomainDeliverabilityCampaignsRequest,
-  ListDomainDeliverabilityCampaignsRequestFilterSensitiveLog,
   ListDomainDeliverabilityCampaignsResponse,
-  ListDomainDeliverabilityCampaignsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListDomainDeliverabilityCampaignsCommand,
-  serializeAws_restJson1ListDomainDeliverabilityCampaignsCommand,
+  de_ListDomainDeliverabilityCampaignsCommand,
+  se_ListDomainDeliverabilityCampaignsCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
+/**
+ * @public
+ *
+ * The input for {@link ListDomainDeliverabilityCampaignsCommand}.
+ */
 export interface ListDomainDeliverabilityCampaignsCommandInput extends ListDomainDeliverabilityCampaignsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDomainDeliverabilityCampaignsCommand}.
+ */
 export interface ListDomainDeliverabilityCampaignsCommandOutput
   extends ListDomainDeliverabilityCampaignsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieve deliverability data for all the campaigns that used a specific domain to send
  *             email during a specified time range. This data is available for a domain only if you
  *             enabled the Deliverability dashboard for the domain.</p>
@@ -40,13 +49,32 @@ export interface ListDomainDeliverabilityCampaignsCommandOutput
  * import { SESv2Client, ListDomainDeliverabilityCampaignsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, ListDomainDeliverabilityCampaignsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = { // ListDomainDeliverabilityCampaignsRequest
+ *   StartDate: new Date("TIMESTAMP"), // required
+ *   EndDate: new Date("TIMESTAMP"), // required
+ *   SubscribedDomain: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   PageSize: Number("int"),
+ * };
  * const command = new ListDomainDeliverabilityCampaignsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDomainDeliverabilityCampaignsCommandInput - {@link ListDomainDeliverabilityCampaignsCommandInput}
+ * @returns {@link ListDomainDeliverabilityCampaignsCommandOutput}
  * @see {@link ListDomainDeliverabilityCampaignsCommandInput} for command's `input` shape.
  * @see {@link ListDomainDeliverabilityCampaignsCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input you provided is invalid.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource you attempted to access doesn't exist.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Too many requests have been made to the operation.</p>
+ *
  *
  */
 export class ListDomainDeliverabilityCampaignsCommand extends $Command<
@@ -66,6 +94,9 @@ export class ListDomainDeliverabilityCampaignsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDomainDeliverabilityCampaignsCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +125,8 @@ export class ListDomainDeliverabilityCampaignsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDomainDeliverabilityCampaignsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDomainDeliverabilityCampaignsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,18 +136,24 @@ export class ListDomainDeliverabilityCampaignsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListDomainDeliverabilityCampaignsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDomainDeliverabilityCampaignsCommand(input, context);
+    return se_ListDomainDeliverabilityCampaignsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDomainDeliverabilityCampaignsCommandOutput> {
-    return deserializeAws_restJson1ListDomainDeliverabilityCampaignsCommand(output, context);
+    return de_ListDomainDeliverabilityCampaignsCommand(output, context);
   }
 
   // Start section: command_body_extra

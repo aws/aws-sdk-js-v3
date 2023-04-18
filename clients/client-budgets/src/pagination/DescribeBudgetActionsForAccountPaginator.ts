@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { Budgets } from "../Budgets";
 import { BudgetsClient } from "../BudgetsClient";
 import {
   DescribeBudgetActionsForAccountCommand,
@@ -11,7 +10,7 @@ import {
 import { BudgetsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: BudgetsClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeBudgetActionsForAccountCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Budgets,
-  input: DescribeBudgetActionsForAccountCommandInput,
-  ...args: any
-): Promise<DescribeBudgetActionsForAccountCommandOutput> => {
-  // @ts-ignore
-  return await client.describeBudgetActionsForAccount(input, ...args);
-};
 export async function* paginateDescribeBudgetActionsForAccount(
   config: BudgetsPaginationConfiguration,
   input: DescribeBudgetActionsForAccountCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateDescribeBudgetActionsForAccount(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Budgets) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof BudgetsClient) {
+    if (config.client instanceof BudgetsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Budgets | BudgetsClient");

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import {
-  DisconnectCustomKeyStoreRequest,
-  DisconnectCustomKeyStoreRequestFilterSensitiveLog,
-  DisconnectCustomKeyStoreResponse,
-  DisconnectCustomKeyStoreResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DisconnectCustomKeyStoreCommand,
-  serializeAws_json1_1DisconnectCustomKeyStoreCommand,
-} from "../protocols/Aws_json1_1";
+import { DisconnectCustomKeyStoreRequest, DisconnectCustomKeyStoreResponse } from "../models/models_0";
+import { de_DisconnectCustomKeyStoreCommand, se_DisconnectCustomKeyStoreCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DisconnectCustomKeyStoreCommand}.
+ */
 export interface DisconnectCustomKeyStoreCommandInput extends DisconnectCustomKeyStoreRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisconnectCustomKeyStoreCommand}.
+ */
 export interface DisconnectCustomKeyStoreCommandOutput extends DisconnectCustomKeyStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disconnects the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> from its backing key store. This operation disconnects an
  *       CloudHSM key store from its associated CloudHSM cluster or disconnects an external key store from
  *       the external key store proxy that communicates with your external key manager.</p>
@@ -49,7 +52,6 @@ export interface DisconnectCustomKeyStoreCommandOutput extends DisconnectCustomK
  * properties.</p>
  *          <p>
  *             <b>Cross-account use</b>: No. You cannot perform this operation on a custom key store in a different Amazon Web Services account.</p>
- *
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:DisconnectCustomKeyStore</a> (IAM policy)</p>
  *          <p>
@@ -88,13 +90,74 @@ export interface DisconnectCustomKeyStoreCommandOutput extends DisconnectCustomK
  * import { KMSClient, DisconnectCustomKeyStoreCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, DisconnectCustomKeyStoreCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // DisconnectCustomKeyStoreRequest
+ *   CustomKeyStoreId: "STRING_VALUE", // required
+ * };
  * const command = new DisconnectCustomKeyStoreCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisconnectCustomKeyStoreCommandInput - {@link DisconnectCustomKeyStoreCommandInput}
+ * @returns {@link DisconnectCustomKeyStoreCommandOutput}
  * @see {@link DisconnectCustomKeyStoreCommandInput} for command's `input` shape.
  * @see {@link DisconnectCustomKeyStoreCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
+ *
+ * @throws {@link CustomKeyStoreInvalidStateException} (client fault)
+ *  <p>The request was rejected because of the <code>ConnectionState</code> of the custom key
+ *       store. To get the <code>ConnectionState</code> of a custom key store, use the <a>DescribeCustomKeyStores</a> operation.</p>
+ *          <p>This exception is thrown under the following conditions:</p>
+ *          <ul>
+ *             <li>
+ *                <p>You requested the <a>ConnectCustomKeyStore</a> operation on a custom key
+ *           store with a <code>ConnectionState</code> of <code>DISCONNECTING</code> or
+ *             <code>FAILED</code>. This operation is valid for all other <code>ConnectionState</code>
+ *           values. To reconnect a custom key store in a <code>FAILED</code> state, disconnect it
+ *             (<a>DisconnectCustomKeyStore</a>), then connect it
+ *             (<code>ConnectCustomKeyStore</code>).</p>
+ *             </li>
+ *             <li>
+ *                <p>You requested the <a>CreateKey</a> operation in a custom key store that is
+ *           not connected. This operations is valid only when the custom key store
+ *             <code>ConnectionState</code> is <code>CONNECTED</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>You requested the <a>DisconnectCustomKeyStore</a> operation on a custom key
+ *           store with a <code>ConnectionState</code> of <code>DISCONNECTING</code> or
+ *             <code>DISCONNECTED</code>. This operation is valid for all other
+ *             <code>ConnectionState</code> values.</p>
+ *             </li>
+ *             <li>
+ *                <p>You requested the <a>UpdateCustomKeyStore</a> or <a>DeleteCustomKeyStore</a> operation on a custom key store that is not
+ *           disconnected. This operation is valid only when the custom key store
+ *             <code>ConnectionState</code> is <code>DISCONNECTED</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>You requested the <a>GenerateRandom</a> operation in an CloudHSM key store
+ *           that is not connected. This operation is valid only when the CloudHSM key store
+ *             <code>ConnectionState</code> is <code>CONNECTED</code>. </p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link CustomKeyStoreNotFoundException} (client fault)
+ *  <p>The request was rejected because KMS cannot find a custom key store with the specified
+ *       key store name or ID.</p>
+ *
+ * @throws {@link KMSInternalException} (server fault)
+ *  <p>The request was rejected because an internal exception occurred. The request can be
+ *       retried.</p>
+ *
+ *
+ * @example To disconnect a custom key store from its CloudHSM cluster
+ * ```javascript
+ * // This example disconnects an AWS KMS custom key store from its backing key store. For an AWS CloudHSM key store, it disconnects the key store from its AWS CloudHSM cluster. For an external key store, it disconnects the key store from the external key store proxy that communicates with your external key manager. This operation doesn't return any data. To verify that the custom key store is disconnected, use the <code>DescribeCustomKeyStores</code> operation.
+ * const input = {
+ *   "CustomKeyStoreId": "cks-1234567890abcdef0"
+ * };
+ * const command = new DisconnectCustomKeyStoreCommand(input);
+ * await client.send(command);
+ * // example id: to-disconnect-a-custom-key-store-from-its-cloudhsm-cluster-1628627955156
+ * ```
  *
  */
 export class DisconnectCustomKeyStoreCommand extends $Command<
@@ -114,6 +177,9 @@ export class DisconnectCustomKeyStoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisconnectCustomKeyStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,8 +208,8 @@ export class DisconnectCustomKeyStoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisconnectCustomKeyStoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisconnectCustomKeyStoreResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -153,12 +219,18 @@ export class DisconnectCustomKeyStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisconnectCustomKeyStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisconnectCustomKeyStoreCommand(input, context);
+    return se_DisconnectCustomKeyStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisconnectCustomKeyStoreCommandOutput> {
-    return deserializeAws_json1_1DisconnectCustomKeyStoreCommand(output, context);
+    return de_DisconnectCustomKeyStoreCommand(output, context);
   }
 
   // Start section: command_body_extra

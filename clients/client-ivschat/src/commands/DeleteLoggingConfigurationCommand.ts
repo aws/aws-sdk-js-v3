@@ -14,19 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IvschatClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvschatClient";
-import {
-  DeleteLoggingConfigurationRequest,
-  DeleteLoggingConfigurationRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteLoggingConfigurationCommand,
-  serializeAws_restJson1DeleteLoggingConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteLoggingConfigurationRequest } from "../models/models_0";
+import { de_DeleteLoggingConfigurationCommand, se_DeleteLoggingConfigurationCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteLoggingConfigurationCommand}.
+ */
 export interface DeleteLoggingConfigurationCommandInput extends DeleteLoggingConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteLoggingConfigurationCommand}.
+ */
 export interface DeleteLoggingConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified logging configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -34,13 +39,34 @@ export interface DeleteLoggingConfigurationCommandOutput extends __MetadataBeare
  * import { IvschatClient, DeleteLoggingConfigurationCommand } from "@aws-sdk/client-ivschat"; // ES Modules import
  * // const { IvschatClient, DeleteLoggingConfigurationCommand } = require("@aws-sdk/client-ivschat"); // CommonJS import
  * const client = new IvschatClient(config);
+ * const input = { // DeleteLoggingConfigurationRequest
+ *   identifier: "STRING_VALUE", // required
+ * };
  * const command = new DeleteLoggingConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLoggingConfigurationCommandInput - {@link DeleteLoggingConfigurationCommandInput}
+ * @returns {@link DeleteLoggingConfigurationCommandOutput}
  * @see {@link DeleteLoggingConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteLoggingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IvschatClientResolvedConfig | config} for IvschatClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link PendingVerification} (client fault)
+ *  <p/>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p/>
+ *
  *
  */
 export class DeleteLoggingConfigurationCommand extends $Command<
@@ -60,6 +86,9 @@ export class DeleteLoggingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLoggingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +117,8 @@ export class DeleteLoggingConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLoggingConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,15 +128,21 @@ export class DeleteLoggingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLoggingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteLoggingConfigurationCommand(input, context);
+    return se_DeleteLoggingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteLoggingConfigurationCommandOutput> {
-    return deserializeAws_restJson1DeleteLoggingConfigurationCommand(output, context);
+    return de_DeleteLoggingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

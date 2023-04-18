@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { ReleasePhoneNumberRequest, ReleasePhoneNumberRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_restJson1ReleasePhoneNumberCommand,
-  serializeAws_restJson1ReleasePhoneNumberCommand,
-} from "../protocols/Aws_restJson1";
+import { ReleasePhoneNumberRequest } from "../models/models_1";
+import { de_ReleasePhoneNumberCommand, se_ReleasePhoneNumberCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ReleasePhoneNumberCommand}.
+ */
 export interface ReleasePhoneNumberCommandInput extends ReleasePhoneNumberRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ReleasePhoneNumberCommand}.
+ */
 export interface ReleasePhoneNumberCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Releases a phone number previously claimed to an Amazon Connect instance or traffic distribution group. You
  *    can call this API only in the Amazon Web Services Region where the number was claimed.</p>
  *          <important>
@@ -39,13 +47,41 @@ export interface ReleasePhoneNumberCommandOutput extends __MetadataBearer {}
  * import { ConnectClient, ReleasePhoneNumberCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ReleasePhoneNumberCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // ReleasePhoneNumberRequest
+ *   PhoneNumberId: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new ReleasePhoneNumberCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ReleasePhoneNumberCommandInput - {@link ReleasePhoneNumberCommandInput}
+ * @returns {@link ReleasePhoneNumberCommandOutput}
  * @see {@link ReleasePhoneNumberCommandInput} for command's `input` shape.
  * @see {@link ReleasePhoneNumberCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * @throws {@link IdempotencyException} (client fault)
+ *  <p>An entity with the same name already exists.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>That resource is already in use. Please try another.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
  *
  */
 export class ReleasePhoneNumberCommand extends $Command<
@@ -65,6 +101,9 @@ export class ReleasePhoneNumberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReleasePhoneNumberCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +132,8 @@ export class ReleasePhoneNumberCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReleasePhoneNumberRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +143,18 @@ export class ReleasePhoneNumberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReleasePhoneNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ReleasePhoneNumberCommand(input, context);
+    return se_ReleasePhoneNumberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReleasePhoneNumberCommandOutput> {
-    return deserializeAws_restJson1ReleasePhoneNumberCommand(output, context);
+    return de_ReleasePhoneNumberCommand(output, context);
   }
 
   // Start section: command_body_extra

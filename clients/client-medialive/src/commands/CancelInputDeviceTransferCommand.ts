@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  CancelInputDeviceTransferRequest,
-  CancelInputDeviceTransferRequestFilterSensitiveLog,
-  CancelInputDeviceTransferResponse,
-  CancelInputDeviceTransferResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1CancelInputDeviceTransferCommand,
-  serializeAws_restJson1CancelInputDeviceTransferCommand,
-} from "../protocols/Aws_restJson1";
+import { CancelInputDeviceTransferRequest, CancelInputDeviceTransferResponse } from "../models/models_1";
+import { de_CancelInputDeviceTransferCommand, se_CancelInputDeviceTransferCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CancelInputDeviceTransferCommand}.
+ */
 export interface CancelInputDeviceTransferCommandInput extends CancelInputDeviceTransferRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CancelInputDeviceTransferCommand}.
+ */
 export interface CancelInputDeviceTransferCommandOutput extends CancelInputDeviceTransferResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Cancel an input device transfer that you have requested.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,46 @@ export interface CancelInputDeviceTransferCommandOutput extends CancelInputDevic
  * import { MediaLiveClient, CancelInputDeviceTransferCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, CancelInputDeviceTransferCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = { // CancelInputDeviceTransferRequest
+ *   InputDeviceId: "STRING_VALUE", // required
+ * };
  * const command = new CancelInputDeviceTransferCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelInputDeviceTransferCommandInput - {@link CancelInputDeviceTransferCommandInput}
+ * @returns {@link CancelInputDeviceTransferCommandOutput}
  * @see {@link CancelInputDeviceTransferCommandInput} for command's `input` shape.
  * @see {@link CancelInputDeviceTransferCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
+ *
+ * @throws {@link BadGatewayException} (server fault)
+ *  Placeholder documentation for BadGatewayException
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  Placeholder documentation for BadRequestException
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  Placeholder documentation for ConflictException
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  Placeholder documentation for ForbiddenException
+ *
+ * @throws {@link GatewayTimeoutException} (server fault)
+ *  Placeholder documentation for GatewayTimeoutException
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  Placeholder documentation for InternalServerErrorException
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  Placeholder documentation for NotFoundException
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  Placeholder documentation for TooManyRequestsException
+ *
+ * @throws {@link UnprocessableEntityException} (client fault)
+ *  Placeholder documentation for UnprocessableEntityException
+ *
  *
  */
 export class CancelInputDeviceTransferCommand extends $Command<
@@ -62,6 +98,9 @@ export class CancelInputDeviceTransferCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelInputDeviceTransferCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +129,8 @@ export class CancelInputDeviceTransferCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelInputDeviceTransferRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelInputDeviceTransferResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +140,21 @@ export class CancelInputDeviceTransferCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelInputDeviceTransferCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelInputDeviceTransferCommand(input, context);
+    return se_CancelInputDeviceTransferCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelInputDeviceTransferCommandOutput> {
-    return deserializeAws_restJson1CancelInputDeviceTransferCommand(output, context);
+    return de_CancelInputDeviceTransferCommand(output, context);
   }
 
   // Start section: command_body_extra

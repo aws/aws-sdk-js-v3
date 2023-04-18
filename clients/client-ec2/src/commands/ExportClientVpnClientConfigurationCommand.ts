@@ -16,21 +16,30 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   ExportClientVpnClientConfigurationRequest,
-  ExportClientVpnClientConfigurationRequestFilterSensitiveLog,
   ExportClientVpnClientConfigurationResult,
-  ExportClientVpnClientConfigurationResultFilterSensitiveLog,
 } from "../models/models_5";
 import {
-  deserializeAws_ec2ExportClientVpnClientConfigurationCommand,
-  serializeAws_ec2ExportClientVpnClientConfigurationCommand,
+  de_ExportClientVpnClientConfigurationCommand,
+  se_ExportClientVpnClientConfigurationCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link ExportClientVpnClientConfigurationCommand}.
+ */
 export interface ExportClientVpnClientConfigurationCommandInput extends ExportClientVpnClientConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ExportClientVpnClientConfigurationCommand}.
+ */
 export interface ExportClientVpnClientConfigurationCommandOutput
   extends ExportClientVpnClientConfigurationResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Downloads the contents of the Client VPN endpoint configuration file for the specified Client VPN endpoint. The Client VPN endpoint configuration
  * 			file includes the Client VPN endpoint and certificate information clients need to establish a connection
  * 			with the Client VPN endpoint.</p>
@@ -40,13 +49,20 @@ export interface ExportClientVpnClientConfigurationCommandOutput
  * import { EC2Client, ExportClientVpnClientConfigurationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ExportClientVpnClientConfigurationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ExportClientVpnClientConfigurationRequest
+ *   ClientVpnEndpointId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new ExportClientVpnClientConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ExportClientVpnClientConfigurationCommandInput - {@link ExportClientVpnClientConfigurationCommandInput}
+ * @returns {@link ExportClientVpnClientConfigurationCommandOutput}
  * @see {@link ExportClientVpnClientConfigurationCommandInput} for command's `input` shape.
  * @see {@link ExportClientVpnClientConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class ExportClientVpnClientConfigurationCommand extends $Command<
@@ -66,6 +82,9 @@ export class ExportClientVpnClientConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExportClientVpnClientConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +113,8 @@ export class ExportClientVpnClientConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExportClientVpnClientConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ExportClientVpnClientConfigurationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,18 +124,24 @@ export class ExportClientVpnClientConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ExportClientVpnClientConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ExportClientVpnClientConfigurationCommand(input, context);
+    return se_ExportClientVpnClientConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ExportClientVpnClientConfigurationCommandOutput> {
-    return deserializeAws_ec2ExportClientVpnClientConfigurationCommand(output, context);
+    return de_ExportClientVpnClientConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

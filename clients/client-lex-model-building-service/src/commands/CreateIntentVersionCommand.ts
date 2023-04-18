@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import {
-  CreateIntentVersionRequest,
-  CreateIntentVersionRequestFilterSensitiveLog,
-  CreateIntentVersionResponse,
-  CreateIntentVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateIntentVersionCommand,
-  serializeAws_restJson1CreateIntentVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateIntentVersionRequest, CreateIntentVersionResponse } from "../models/models_0";
+import { de_CreateIntentVersionCommand, se_CreateIntentVersionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateIntentVersionCommand}.
+ */
 export interface CreateIntentVersionCommandInput extends CreateIntentVersionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateIntentVersionCommand}.
+ */
 export interface CreateIntentVersionCommandOutput extends CreateIntentVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new version of an intent based on the
  *         <code>$LATEST</code> version of the intent. If the <code>$LATEST</code>
  *       version of this intent hasn't changed since you last updated it, Amazon Lex
@@ -53,13 +56,44 @@ export interface CreateIntentVersionCommandOutput extends CreateIntentVersionRes
  * import { LexModelBuildingServiceClient, CreateIntentVersionCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, CreateIntentVersionCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
+ * const input = { // CreateIntentVersionRequest
+ *   name: "STRING_VALUE", // required
+ *   checksum: "STRING_VALUE",
+ * };
  * const command = new CreateIntentVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateIntentVersionCommandInput - {@link CreateIntentVersionCommandInput}
+ * @returns {@link CreateIntentVersionCommandOutput}
  * @see {@link CreateIntentVersionCommandInput} for command's `input` shape.
  * @see {@link CreateIntentVersionCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is not well formed. For example, a value is invalid or
+ *       a required field is missing. Check the field values, and try
+ *       again.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p> There was a conflict processing the request. Try your request
+ *       again. </p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal Amazon Lex error occurred. Try your request again.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request exceeded a limit. Try your request again.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource specified in the request was not found. Check the
+ *       resource and try again.</p>
+ *
+ * @throws {@link PreconditionFailedException} (client fault)
+ *  <p> The checksum of the resource that you are trying to change does
+ *       not match the checksum in the request. Check the resource's checksum and
+ *       try again.</p>
+ *
  *
  */
 export class CreateIntentVersionCommand extends $Command<
@@ -79,6 +113,9 @@ export class CreateIntentVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateIntentVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +144,8 @@ export class CreateIntentVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateIntentVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateIntentVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +155,18 @@ export class CreateIntentVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateIntentVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateIntentVersionCommand(input, context);
+    return se_CreateIntentVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateIntentVersionCommandOutput> {
-    return deserializeAws_restJson1CreateIntentVersionCommand(output, context);
+    return de_CreateIntentVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

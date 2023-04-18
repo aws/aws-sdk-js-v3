@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DeleteNatGatewayRequest,
-  DeleteNatGatewayRequestFilterSensitiveLog,
-  DeleteNatGatewayResult,
-  DeleteNatGatewayResultFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_ec2DeleteNatGatewayCommand,
-  serializeAws_ec2DeleteNatGatewayCommand,
-} from "../protocols/Aws_ec2";
+import { DeleteNatGatewayRequest, DeleteNatGatewayResult } from "../models/models_2";
+import { de_DeleteNatGatewayCommand, se_DeleteNatGatewayCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteNatGatewayCommand}.
+ */
 export interface DeleteNatGatewayCommandInput extends DeleteNatGatewayRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteNatGatewayCommand}.
+ */
 export interface DeleteNatGatewayCommandOutput extends DeleteNatGatewayResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified NAT gateway. Deleting a public NAT gateway disassociates its Elastic IP address,
  *           but does not release the address from your account. Deleting a NAT gateway does not delete any NAT gateway
  *           routes in your route tables.</p>
@@ -38,13 +41,36 @@ export interface DeleteNatGatewayCommandOutput extends DeleteNatGatewayResult, _
  * import { EC2Client, DeleteNatGatewayCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteNatGatewayCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteNatGatewayRequest
+ *   DryRun: true || false,
+ *   NatGatewayId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteNatGatewayCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNatGatewayCommandInput - {@link DeleteNatGatewayCommandInput}
+ * @returns {@link DeleteNatGatewayCommandOutput}
  * @see {@link DeleteNatGatewayCommandInput} for command's `input` shape.
  * @see {@link DeleteNatGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ *
+ * @example To delete a NAT gateway
+ * ```javascript
+ * // This example deletes the specified NAT gateway.
+ * const input = {
+ *   "NatGatewayId": "nat-04ae55e711cec5680"
+ * };
+ * const command = new DeleteNatGatewayCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "NatGatewayId": "nat-04ae55e711cec5680"
+ * }
+ * *\/
+ * // example id: ec2-delete-nat-gateway-1
+ * ```
  *
  */
 export class DeleteNatGatewayCommand extends $Command<
@@ -64,6 +90,9 @@ export class DeleteNatGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNatGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +121,8 @@ export class DeleteNatGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteNatGatewayRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteNatGatewayResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +132,18 @@ export class DeleteNatGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteNatGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteNatGatewayCommand(input, context);
+    return se_DeleteNatGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteNatGatewayCommandOutput> {
-    return deserializeAws_ec2DeleteNatGatewayCommand(output, context);
+    return de_DeleteNatGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

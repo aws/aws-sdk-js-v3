@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
-import {
-  CreateContainerInput,
-  CreateContainerInputFilterSensitiveLog,
-  CreateContainerOutput,
-  CreateContainerOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateContainerCommand,
-  serializeAws_json1_1CreateContainerCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateContainerInput, CreateContainerOutput } from "../models/models_0";
+import { de_CreateContainerCommand, se_CreateContainerCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateContainerCommand}.
+ */
 export interface CreateContainerCommandInput extends CreateContainerInput {}
+/**
+ * @public
+ *
+ * The output of {@link CreateContainerCommand}.
+ */
 export interface CreateContainerCommandOutput extends CreateContainerOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a storage container to hold objects. A container is similar to a bucket in
  *          the Amazon S3 service.</p>
  * @example
@@ -37,13 +40,35 @@ export interface CreateContainerCommandOutput extends CreateContainerOutput, __M
  * import { MediaStoreClient, CreateContainerCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
  * // const { MediaStoreClient, CreateContainerCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
  * const client = new MediaStoreClient(config);
+ * const input = { // CreateContainerInput
+ *   ContainerName: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateContainerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateContainerCommandInput - {@link CreateContainerCommandInput}
+ * @returns {@link CreateContainerCommandOutput}
  * @see {@link CreateContainerCommandInput} for command's `input` shape.
  * @see {@link CreateContainerCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
+ *
+ * @throws {@link ContainerInUseException} (client fault)
+ *  <p>The container that you specified in the request already exists or is being
+ *          updated.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A service limit has been exceeded.</p>
+ *
  *
  */
 export class CreateContainerCommand extends $Command<
@@ -63,6 +88,9 @@ export class CreateContainerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateContainerCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +119,8 @@ export class CreateContainerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateContainerInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateContainerOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +130,18 @@ export class CreateContainerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateContainerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateContainerCommand(input, context);
+    return se_CreateContainerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateContainerCommandOutput> {
-    return deserializeAws_json1_1CreateContainerCommand(output, context);
+    return de_CreateContainerCommand(output, context);
   }
 
   // Start section: command_body_extra

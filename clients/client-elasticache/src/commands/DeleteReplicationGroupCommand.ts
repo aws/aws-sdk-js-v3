@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  DeleteReplicationGroupMessage,
-  DeleteReplicationGroupMessageFilterSensitiveLog,
-  DeleteReplicationGroupResult,
-  DeleteReplicationGroupResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteReplicationGroupCommand,
-  serializeAws_queryDeleteReplicationGroupCommand,
-} from "../protocols/Aws_query";
+import { DeleteReplicationGroupMessage, DeleteReplicationGroupResult } from "../models/models_0";
+import { de_DeleteReplicationGroupCommand, se_DeleteReplicationGroupCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteReplicationGroupCommand}.
+ */
 export interface DeleteReplicationGroupCommandInput extends DeleteReplicationGroupMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteReplicationGroupCommand}.
+ */
 export interface DeleteReplicationGroupCommandOutput extends DeleteReplicationGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing replication group.
  *             By default, this operation deletes the entire replication group, including the primary/primaries and all of the read replicas.
  *             If the replication group has only one primary,
@@ -44,13 +47,75 @@ export interface DeleteReplicationGroupCommandOutput extends DeleteReplicationGr
  * import { ElastiCacheClient, DeleteReplicationGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DeleteReplicationGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // DeleteReplicationGroupMessage
+ *   ReplicationGroupId: "STRING_VALUE", // required
+ *   RetainPrimaryCluster: true || false,
+ *   FinalSnapshotIdentifier: "STRING_VALUE",
+ * };
  * const command = new DeleteReplicationGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteReplicationGroupCommandInput - {@link DeleteReplicationGroupCommandInput}
+ * @returns {@link DeleteReplicationGroupCommandOutput}
  * @see {@link DeleteReplicationGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteReplicationGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
+ * @throws {@link InvalidReplicationGroupStateFault} (client fault)
+ *  <p>The requested replication group is not in the <code>available</code> state.</p>
+ *
+ * @throws {@link ReplicationGroupNotFoundFault} (client fault)
+ *  <p>The specified replication group does not exist.</p>
+ *
+ * @throws {@link SnapshotAlreadyExistsFault} (client fault)
+ *  <p>You already have a snapshot with the given name.</p>
+ *
+ * @throws {@link SnapshotFeatureNotSupportedFault} (client fault)
+ *  <p>You attempted one of the following operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Creating a snapshot of a Redis cluster running on a <code>cache.t1.micro</code> cache
+ *                     node.</p>
+ *             </li>
+ *             <li>
+ *                <p>Creating a snapshot of a cluster that is running Memcached rather than Redis.</p>
+ *             </li>
+ *          </ul>
+ *          <p>Neither of these are supported by ElastiCache.</p>
+ *
+ * @throws {@link SnapshotQuotaExceededFault} (client fault)
+ *  <p>The request cannot be processed because it would exceed the maximum number of snapshots.</p>
+ *
+ *
+ * @example DeleteReplicationGroup
+ * ```javascript
+ * // Deletes the Amazon ElastiCache replication group my-redis-rg.
+ * const input = {
+ *   "ReplicationGroupId": "my-redis-rg",
+ *   "RetainPrimaryCluster": false
+ * };
+ * const command = new DeleteReplicationGroupCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ReplicationGroup": {
+ *     "AutomaticFailover": "disabled",
+ *     "Description": "simple redis cluster",
+ *     "PendingModifiedValues": {},
+ *     "ReplicationGroupId": "my-redis-rg",
+ *     "Status": "deleting"
+ *   }
+ * }
+ * *\/
+ * // example id: deletereplicationgroup-1475011641804
+ * ```
  *
  */
 export class DeleteReplicationGroupCommand extends $Command<
@@ -70,6 +135,9 @@ export class DeleteReplicationGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteReplicationGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +166,8 @@ export class DeleteReplicationGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteReplicationGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteReplicationGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +177,18 @@ export class DeleteReplicationGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteReplicationGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteReplicationGroupCommand(input, context);
+    return se_DeleteReplicationGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteReplicationGroupCommandOutput> {
-    return deserializeAws_queryDeleteReplicationGroupCommand(output, context);
+    return de_DeleteReplicationGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

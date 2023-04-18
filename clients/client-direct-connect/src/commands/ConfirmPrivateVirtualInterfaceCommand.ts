@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
+import { ConfirmPrivateVirtualInterfaceRequest, ConfirmPrivateVirtualInterfaceResponse } from "../models/models_0";
 import {
-  ConfirmPrivateVirtualInterfaceRequest,
-  ConfirmPrivateVirtualInterfaceRequestFilterSensitiveLog,
-  ConfirmPrivateVirtualInterfaceResponse,
-  ConfirmPrivateVirtualInterfaceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ConfirmPrivateVirtualInterfaceCommand,
-  serializeAws_json1_1ConfirmPrivateVirtualInterfaceCommand,
+  de_ConfirmPrivateVirtualInterfaceCommand,
+  se_ConfirmPrivateVirtualInterfaceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ConfirmPrivateVirtualInterfaceCommand}.
+ */
 export interface ConfirmPrivateVirtualInterfaceCommandInput extends ConfirmPrivateVirtualInterfaceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ConfirmPrivateVirtualInterfaceCommand}.
+ */
 export interface ConfirmPrivateVirtualInterfaceCommandOutput
   extends ConfirmPrivateVirtualInterfaceResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Accepts ownership of a private virtual interface created by another Amazon Web Services account.</p>
  *          <p>After the virtual interface owner makes this call, the virtual interface is
  *       created and attached to the specified virtual private gateway or Direct Connect gateway, and is
@@ -41,13 +47,27 @@ export interface ConfirmPrivateVirtualInterfaceCommandOutput
  * import { DirectConnectClient, ConfirmPrivateVirtualInterfaceCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, ConfirmPrivateVirtualInterfaceCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // ConfirmPrivateVirtualInterfaceRequest
+ *   virtualInterfaceId: "STRING_VALUE", // required
+ *   virtualGatewayId: "STRING_VALUE",
+ *   directConnectGatewayId: "STRING_VALUE",
+ * };
  * const command = new ConfirmPrivateVirtualInterfaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ConfirmPrivateVirtualInterfaceCommandInput - {@link ConfirmPrivateVirtualInterfaceCommandInput}
+ * @returns {@link ConfirmPrivateVirtualInterfaceCommandOutput}
  * @see {@link ConfirmPrivateVirtualInterfaceCommandInput} for command's `input` shape.
  * @see {@link ConfirmPrivateVirtualInterfaceCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
+ *
+ * @throws {@link DirectConnectClientException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link DirectConnectServerException} (server fault)
+ *  <p>A server-side error occurred.</p>
+ *
  *
  */
 export class ConfirmPrivateVirtualInterfaceCommand extends $Command<
@@ -67,6 +87,9 @@ export class ConfirmPrivateVirtualInterfaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ConfirmPrivateVirtualInterfaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +118,8 @@ export class ConfirmPrivateVirtualInterfaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ConfirmPrivateVirtualInterfaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ConfirmPrivateVirtualInterfaceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,18 +129,24 @@ export class ConfirmPrivateVirtualInterfaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ConfirmPrivateVirtualInterfaceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ConfirmPrivateVirtualInterfaceCommand(input, context);
+    return se_ConfirmPrivateVirtualInterfaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ConfirmPrivateVirtualInterfaceCommandOutput> {
-    return deserializeAws_json1_1ConfirmPrivateVirtualInterfaceCommand(output, context);
+    return de_ConfirmPrivateVirtualInterfaceCommand(output, context);
   }
 
   // Start section: command_body_extra

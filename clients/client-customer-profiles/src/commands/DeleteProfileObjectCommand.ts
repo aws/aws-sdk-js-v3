@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
-import {
-  DeleteProfileObjectRequest,
-  DeleteProfileObjectRequestFilterSensitiveLog,
-  DeleteProfileObjectResponse,
-  DeleteProfileObjectResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteProfileObjectCommand,
-  serializeAws_restJson1DeleteProfileObjectCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteProfileObjectRequest, DeleteProfileObjectResponse } from "../models/models_0";
+import { de_DeleteProfileObjectCommand, se_DeleteProfileObjectCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteProfileObjectCommand}.
+ */
 export interface DeleteProfileObjectCommandInput extends DeleteProfileObjectRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteProfileObjectCommand}.
+ */
 export interface DeleteProfileObjectCommandOutput extends DeleteProfileObjectResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes an object associated with a profile of a given ProfileObjectType.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,37 @@ export interface DeleteProfileObjectCommandOutput extends DeleteProfileObjectRes
  * import { CustomerProfilesClient, DeleteProfileObjectCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, DeleteProfileObjectCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
+ * const input = { // DeleteProfileObjectRequest
+ *   ProfileId: "STRING_VALUE", // required
+ *   ProfileObjectUniqueKey: "STRING_VALUE", // required
+ *   ObjectTypeName: "STRING_VALUE", // required
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteProfileObjectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteProfileObjectCommandInput - {@link DeleteProfileObjectCommandInput}
+ * @returns {@link DeleteProfileObjectCommandOutput}
  * @see {@link DeleteProfileObjectCommandInput} for command's `input` shape.
  * @see {@link DeleteProfileObjectCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input you provided is invalid.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource does not exist, or access was denied.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>You exceeded the maximum number of requests.</p>
+ *
  *
  */
 export class DeleteProfileObjectCommand extends $Command<
@@ -62,6 +89,9 @@ export class DeleteProfileObjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteProfileObjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +120,8 @@ export class DeleteProfileObjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteProfileObjectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteProfileObjectResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +131,18 @@ export class DeleteProfileObjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteProfileObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteProfileObjectCommand(input, context);
+    return se_DeleteProfileObjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteProfileObjectCommandOutput> {
-    return deserializeAws_restJson1DeleteProfileObjectCommand(output, context);
+    return de_DeleteProfileObjectCommand(output, context);
   }
 
   // Start section: command_body_extra

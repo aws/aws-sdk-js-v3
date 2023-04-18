@@ -14,22 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListRegionalBucketsRequest,
-  ListRegionalBucketsRequestFilterSensitiveLog,
-  ListRegionalBucketsResult,
-  ListRegionalBucketsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlListRegionalBucketsCommand,
-  serializeAws_restXmlListRegionalBucketsCommand,
-} from "../protocols/Aws_restXml";
+import { ListRegionalBucketsRequest, ListRegionalBucketsResult } from "../models/models_0";
+import { de_ListRegionalBucketsCommand, se_ListRegionalBucketsCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListRegionalBucketsCommand}.
+ */
 export interface ListRegionalBucketsCommandInput extends ListRegionalBucketsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListRegionalBucketsCommand}.
+ */
 export interface ListRegionalBucketsCommandOutput extends ListRegionalBucketsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all Outposts buckets in an Outpost that are owned by the authenticated
  *          sender of the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the
  *             <i>Amazon S3 User Guide</i>.</p>
@@ -41,13 +44,22 @@ export interface ListRegionalBucketsCommandOutput extends ListRegionalBucketsRes
  * import { S3ControlClient, ListRegionalBucketsCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, ListRegionalBucketsCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = { // ListRegionalBucketsRequest
+ *   AccountId: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   OutpostId: "STRING_VALUE",
+ * };
  * const command = new ListRegionalBucketsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRegionalBucketsCommandInput - {@link ListRegionalBucketsCommandInput}
+ * @returns {@link ListRegionalBucketsCommandOutput}
  * @see {@link ListRegionalBucketsCommandInput} for command's `input` shape.
  * @see {@link ListRegionalBucketsCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
+ *
  *
  */
 export class ListRegionalBucketsCommand extends $Command<
@@ -71,6 +83,9 @@ export class ListRegionalBucketsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRegionalBucketsCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +115,8 @@ export class ListRegionalBucketsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRegionalBucketsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRegionalBucketsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +126,18 @@ export class ListRegionalBucketsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRegionalBucketsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListRegionalBucketsCommand(input, context);
+    return se_ListRegionalBucketsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRegionalBucketsCommandOutput> {
-    return deserializeAws_restXmlListRegionalBucketsCommand(output, context);
+    return de_ListRegionalBucketsCommand(output, context);
   }
 
   // Start section: command_body_extra

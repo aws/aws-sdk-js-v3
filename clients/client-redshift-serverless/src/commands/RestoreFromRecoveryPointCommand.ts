@@ -15,24 +15,31 @@ import {
 
 import {
   RestoreFromRecoveryPointRequest,
-  RestoreFromRecoveryPointRequestFilterSensitiveLog,
   RestoreFromRecoveryPointResponse,
   RestoreFromRecoveryPointResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1RestoreFromRecoveryPointCommand,
-  serializeAws_json1_1RestoreFromRecoveryPointCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RestoreFromRecoveryPointCommand, se_RestoreFromRecoveryPointCommand } from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
 
+/**
+ * @public
+ *
+ * The input for {@link RestoreFromRecoveryPointCommand}.
+ */
 export interface RestoreFromRecoveryPointCommandInput extends RestoreFromRecoveryPointRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RestoreFromRecoveryPointCommand}.
+ */
 export interface RestoreFromRecoveryPointCommandOutput extends RestoreFromRecoveryPointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Restore the data from a recovery point.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +47,33 @@ export interface RestoreFromRecoveryPointCommandOutput extends RestoreFromRecove
  * import { RedshiftServerlessClient, RestoreFromRecoveryPointCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, RestoreFromRecoveryPointCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
+ * const input = { // RestoreFromRecoveryPointRequest
+ *   recoveryPointId: "STRING_VALUE", // required
+ *   namespaceName: "STRING_VALUE", // required
+ *   workgroupName: "STRING_VALUE", // required
+ * };
  * const command = new RestoreFromRecoveryPointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreFromRecoveryPointCommandInput - {@link RestoreFromRecoveryPointCommandInput}
+ * @returns {@link RestoreFromRecoveryPointCommandOutput}
  * @see {@link RestoreFromRecoveryPointCommandInput} for command's `input` shape.
  * @see {@link RestoreFromRecoveryPointCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The submitted action has conflicts.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
+ *
  *
  */
 export class RestoreFromRecoveryPointCommand extends $Command<
@@ -66,6 +93,9 @@ export class RestoreFromRecoveryPointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreFromRecoveryPointCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,7 +124,7 @@ export class RestoreFromRecoveryPointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RestoreFromRecoveryPointRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: RestoreFromRecoveryPointResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -105,12 +135,18 @@ export class RestoreFromRecoveryPointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestoreFromRecoveryPointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RestoreFromRecoveryPointCommand(input, context);
+    return se_RestoreFromRecoveryPointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreFromRecoveryPointCommandOutput> {
-    return deserializeAws_json1_1RestoreFromRecoveryPointCommand(output, context);
+    return de_RestoreFromRecoveryPointCommand(output, context);
   }
 
   // Start section: command_body_extra

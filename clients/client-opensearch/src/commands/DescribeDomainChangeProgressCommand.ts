@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeDomainChangeProgressRequest,
-  DescribeDomainChangeProgressRequestFilterSensitiveLog,
-  DescribeDomainChangeProgressResponse,
-  DescribeDomainChangeProgressResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeDomainChangeProgressRequest, DescribeDomainChangeProgressResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import {
-  deserializeAws_restJson1DescribeDomainChangeProgressCommand,
-  serializeAws_restJson1DescribeDomainChangeProgressCommand,
+  de_DescribeDomainChangeProgressCommand,
+  se_DescribeDomainChangeProgressCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeDomainChangeProgressCommand}.
+ */
 export interface DescribeDomainChangeProgressCommandInput extends DescribeDomainChangeProgressRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeDomainChangeProgressCommand}.
+ */
 export interface DescribeDomainChangeProgressCommandOutput
   extends DescribeDomainChangeProgressResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the current blue/green deployment happening on an Amazon
  *    OpenSearch Service domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes.html">Making configuration changes in Amazon OpenSearch Service</a>.</p>
  * @example
@@ -39,13 +45,32 @@ export interface DescribeDomainChangeProgressCommandOutput
  * import { OpenSearchClient, DescribeDomainChangeProgressCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, DescribeDomainChangeProgressCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = { // DescribeDomainChangeProgressRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   ChangeId: "STRING_VALUE",
+ * };
  * const command = new DescribeDomainChangeProgressCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDomainChangeProgressCommandInput - {@link DescribeDomainChangeProgressCommandInput}
+ * @returns {@link DescribeDomainChangeProgressCommandOutput}
  * @see {@link DescribeDomainChangeProgressCommandInput} for command's `input` shape.
  * @see {@link DescribeDomainChangeProgressCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
+ *
+ * @throws {@link BaseException} (client fault)
+ *  <p>An error occurred while processing the request.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An exception for accessing or deleting a resource that does not exist..</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+ *
  *
  */
 export class DescribeDomainChangeProgressCommand extends $Command<
@@ -65,6 +90,9 @@ export class DescribeDomainChangeProgressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDomainChangeProgressCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +121,8 @@ export class DescribeDomainChangeProgressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDomainChangeProgressRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDomainChangeProgressResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,15 +132,21 @@ export class DescribeDomainChangeProgressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDomainChangeProgressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeDomainChangeProgressCommand(input, context);
+    return se_DescribeDomainChangeProgressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDomainChangeProgressCommandOutput> {
-    return deserializeAws_restJson1DescribeDomainChangeProgressCommand(output, context);
+    return de_DescribeDomainChangeProgressCommand(output, context);
   }
 
   // Start section: command_body_extra

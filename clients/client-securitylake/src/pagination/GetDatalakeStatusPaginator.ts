@@ -6,12 +6,11 @@ import {
   GetDatalakeStatusCommandInput,
   GetDatalakeStatusCommandOutput,
 } from "../commands/GetDatalakeStatusCommand";
-import { SecurityLake } from "../SecurityLake";
 import { SecurityLakeClient } from "../SecurityLakeClient";
 import { SecurityLakePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SecurityLakeClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new GetDatalakeStatusCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: SecurityLake,
-  input: GetDatalakeStatusCommandInput,
-  ...args: any
-): Promise<GetDatalakeStatusCommandOutput> => {
-  // @ts-ignore
-  return await client.getDatalakeStatus(input, ...args);
-};
 export async function* paginateGetDatalakeStatus(
   config: SecurityLakePaginationConfiguration,
   input: GetDatalakeStatusCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateGetDatalakeStatus(
   while (hasNext) {
     input.nextToken = token;
     input["maxAccountResults"] = config.pageSize;
-    if (config.client instanceof SecurityLake) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SecurityLakeClient) {
+    if (config.client instanceof SecurityLakeClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SecurityLake | SecurityLakeClient");

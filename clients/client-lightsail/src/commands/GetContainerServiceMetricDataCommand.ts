@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { GetContainerServiceMetricDataRequest, GetContainerServiceMetricDataResult } from "../models/models_0";
 import {
-  GetContainerServiceMetricDataRequest,
-  GetContainerServiceMetricDataRequestFilterSensitiveLog,
-  GetContainerServiceMetricDataResult,
-  GetContainerServiceMetricDataResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetContainerServiceMetricDataCommand,
-  serializeAws_json1_1GetContainerServiceMetricDataCommand,
+  de_GetContainerServiceMetricDataCommand,
+  se_GetContainerServiceMetricDataCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetContainerServiceMetricDataCommand}.
+ */
 export interface GetContainerServiceMetricDataCommandInput extends GetContainerServiceMetricDataRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetContainerServiceMetricDataCommand}.
+ */
 export interface GetContainerServiceMetricDataCommandOutput
   extends GetContainerServiceMetricDataResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the data points of a specific metric of your Amazon Lightsail container
  *       service.</p>
  *          <p>Metrics report the utilization of your resources. Monitor and collect metric data
@@ -41,13 +47,49 @@ export interface GetContainerServiceMetricDataCommandOutput
  * import { LightsailClient, GetContainerServiceMetricDataCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetContainerServiceMetricDataCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // GetContainerServiceMetricDataRequest
+ *   serviceName: "STRING_VALUE", // required
+ *   metricName: "CPUUtilization" || "MemoryUtilization", // required
+ *   startTime: new Date("TIMESTAMP"), // required
+ *   endTime: new Date("TIMESTAMP"), // required
+ *   period: Number("int"), // required
+ *   statistics: [ // MetricStatisticList // required
+ *     "Minimum" || "Maximum" || "Sum" || "Average" || "SampleCount",
+ *   ],
+ * };
  * const command = new GetContainerServiceMetricDataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetContainerServiceMetricDataCommandInput - {@link GetContainerServiceMetricDataCommandInput}
+ * @returns {@link GetContainerServiceMetricDataCommandOutput}
  * @see {@link GetContainerServiceMetricDataCommandInput} for command's `input` shape.
  * @see {@link GetContainerServiceMetricDataCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
+ *       credentials to access a resource.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Lightsail throws this exception when user input does not conform to the validation rules
+ *       of an input field.</p>
+ *          <note>
+ *             <p>Domain and distribution APIs are only available in the N. Virginia
+ *           (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services
+ *         Region configuration to <code>us-east-1</code> to create, view, or edit these
+ *         resources.</p>
+ *          </note>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Lightsail throws this exception when it cannot find a resource.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>A general service exception.</p>
+ *
+ * @throws {@link UnauthenticatedException} (client fault)
+ *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
+ *
  *
  */
 export class GetContainerServiceMetricDataCommand extends $Command<
@@ -67,6 +109,9 @@ export class GetContainerServiceMetricDataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetContainerServiceMetricDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +140,8 @@ export class GetContainerServiceMetricDataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetContainerServiceMetricDataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetContainerServiceMetricDataResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,15 +151,21 @@ export class GetContainerServiceMetricDataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetContainerServiceMetricDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetContainerServiceMetricDataCommand(input, context);
+    return se_GetContainerServiceMetricDataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetContainerServiceMetricDataCommandOutput> {
-    return deserializeAws_json1_1GetContainerServiceMetricDataCommand(output, context);
+    return de_GetContainerServiceMetricDataCommand(output, context);
   }
 
   // Start section: command_body_extra

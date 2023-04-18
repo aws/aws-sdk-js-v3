@@ -26,12 +26,14 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
@@ -77,6 +79,10 @@ import {
 import { CreateIngestionCommandInput, CreateIngestionCommandOutput } from "./commands/CreateIngestionCommand";
 import { CreateNamespaceCommandInput, CreateNamespaceCommandOutput } from "./commands/CreateNamespaceCommand";
 import {
+  CreateRefreshScheduleCommandInput,
+  CreateRefreshScheduleCommandOutput,
+} from "./commands/CreateRefreshScheduleCommand";
+import {
   CreateTemplateAliasCommandInput,
   CreateTemplateAliasCommandOutput,
 } from "./commands/CreateTemplateAliasCommand";
@@ -94,6 +100,10 @@ import {
 import { DeleteAnalysisCommandInput, DeleteAnalysisCommandOutput } from "./commands/DeleteAnalysisCommand";
 import { DeleteDashboardCommandInput, DeleteDashboardCommandOutput } from "./commands/DeleteDashboardCommand";
 import { DeleteDataSetCommandInput, DeleteDataSetCommandOutput } from "./commands/DeleteDataSetCommand";
+import {
+  DeleteDataSetRefreshPropertiesCommandInput,
+  DeleteDataSetRefreshPropertiesCommandOutput,
+} from "./commands/DeleteDataSetRefreshPropertiesCommand";
 import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./commands/DeleteDataSourceCommand";
 import { DeleteFolderCommandInput, DeleteFolderCommandOutput } from "./commands/DeleteFolderCommand";
 import {
@@ -110,6 +120,10 @@ import {
   DeleteIAMPolicyAssignmentCommandOutput,
 } from "./commands/DeleteIAMPolicyAssignmentCommand";
 import { DeleteNamespaceCommandInput, DeleteNamespaceCommandOutput } from "./commands/DeleteNamespaceCommand";
+import {
+  DeleteRefreshScheduleCommandInput,
+  DeleteRefreshScheduleCommandOutput,
+} from "./commands/DeleteRefreshScheduleCommand";
 import {
   DeleteTemplateAliasCommandInput,
   DeleteTemplateAliasCommandOutput,
@@ -157,6 +171,10 @@ import {
   DescribeDataSetPermissionsCommandInput,
   DescribeDataSetPermissionsCommandOutput,
 } from "./commands/DescribeDataSetPermissionsCommand";
+import {
+  DescribeDataSetRefreshPropertiesCommandInput,
+  DescribeDataSetRefreshPropertiesCommandOutput,
+} from "./commands/DescribeDataSetRefreshPropertiesCommand";
 import { DescribeDataSourceCommandInput, DescribeDataSourceCommandOutput } from "./commands/DescribeDataSourceCommand";
 import {
   DescribeDataSourcePermissionsCommandInput,
@@ -186,6 +204,10 @@ import {
   DescribeIpRestrictionCommandOutput,
 } from "./commands/DescribeIpRestrictionCommand";
 import { DescribeNamespaceCommandInput, DescribeNamespaceCommandOutput } from "./commands/DescribeNamespaceCommand";
+import {
+  DescribeRefreshScheduleCommandInput,
+  DescribeRefreshScheduleCommandOutput,
+} from "./commands/DescribeRefreshScheduleCommand";
 import {
   DescribeTemplateAliasCommandInput,
   DescribeTemplateAliasCommandOutput,
@@ -245,6 +267,10 @@ import {
 import { ListIngestionsCommandInput, ListIngestionsCommandOutput } from "./commands/ListIngestionsCommand";
 import { ListNamespacesCommandInput, ListNamespacesCommandOutput } from "./commands/ListNamespacesCommand";
 import {
+  ListRefreshSchedulesCommandInput,
+  ListRefreshSchedulesCommandOutput,
+} from "./commands/ListRefreshSchedulesCommand";
+import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
@@ -262,6 +288,10 @@ import { ListThemesCommandInput, ListThemesCommandOutput } from "./commands/List
 import { ListThemeVersionsCommandInput, ListThemeVersionsCommandOutput } from "./commands/ListThemeVersionsCommand";
 import { ListUserGroupsCommandInput, ListUserGroupsCommandOutput } from "./commands/ListUserGroupsCommand";
 import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
+import {
+  PutDataSetRefreshPropertiesCommandInput,
+  PutDataSetRefreshPropertiesCommandOutput,
+} from "./commands/PutDataSetRefreshPropertiesCommand";
 import { RegisterUserCommandInput, RegisterUserCommandOutput } from "./commands/RegisterUserCommand";
 import { RestoreAnalysisCommandInput, RestoreAnalysisCommandOutput } from "./commands/RestoreAnalysisCommand";
 import { SearchAnalysesCommandInput, SearchAnalysesCommandOutput } from "./commands/SearchAnalysesCommand";
@@ -323,6 +353,10 @@ import {
   UpdatePublicSharingSettingsCommandOutput,
 } from "./commands/UpdatePublicSharingSettingsCommand";
 import {
+  UpdateRefreshScheduleCommandInput,
+  UpdateRefreshScheduleCommandOutput,
+} from "./commands/UpdateRefreshScheduleCommand";
+import {
   UpdateTemplateAliasCommandInput,
   UpdateTemplateAliasCommandOutput,
 } from "./commands/UpdateTemplateAliasCommand";
@@ -346,6 +380,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CancelIngestionCommandInput
   | CreateAccountCustomizationCommandInput
@@ -361,6 +398,7 @@ export type ServiceInputTypes =
   | CreateIAMPolicyAssignmentCommandInput
   | CreateIngestionCommandInput
   | CreateNamespaceCommandInput
+  | CreateRefreshScheduleCommandInput
   | CreateTemplateAliasCommandInput
   | CreateTemplateCommandInput
   | CreateThemeAliasCommandInput
@@ -370,6 +408,7 @@ export type ServiceInputTypes =
   | DeleteAnalysisCommandInput
   | DeleteDashboardCommandInput
   | DeleteDataSetCommandInput
+  | DeleteDataSetRefreshPropertiesCommandInput
   | DeleteDataSourceCommandInput
   | DeleteFolderCommandInput
   | DeleteFolderMembershipCommandInput
@@ -377,6 +416,7 @@ export type ServiceInputTypes =
   | DeleteGroupMembershipCommandInput
   | DeleteIAMPolicyAssignmentCommandInput
   | DeleteNamespaceCommandInput
+  | DeleteRefreshScheduleCommandInput
   | DeleteTemplateAliasCommandInput
   | DeleteTemplateCommandInput
   | DeleteThemeAliasCommandInput
@@ -394,6 +434,7 @@ export type ServiceInputTypes =
   | DescribeDashboardPermissionsCommandInput
   | DescribeDataSetCommandInput
   | DescribeDataSetPermissionsCommandInput
+  | DescribeDataSetRefreshPropertiesCommandInput
   | DescribeDataSourceCommandInput
   | DescribeDataSourcePermissionsCommandInput
   | DescribeFolderCommandInput
@@ -405,6 +446,7 @@ export type ServiceInputTypes =
   | DescribeIngestionCommandInput
   | DescribeIpRestrictionCommandInput
   | DescribeNamespaceCommandInput
+  | DescribeRefreshScheduleCommandInput
   | DescribeTemplateAliasCommandInput
   | DescribeTemplateCommandInput
   | DescribeTemplateDefinitionCommandInput
@@ -430,6 +472,7 @@ export type ServiceInputTypes =
   | ListIAMPolicyAssignmentsForUserCommandInput
   | ListIngestionsCommandInput
   | ListNamespacesCommandInput
+  | ListRefreshSchedulesCommandInput
   | ListTagsForResourceCommandInput
   | ListTemplateAliasesCommandInput
   | ListTemplateVersionsCommandInput
@@ -439,6 +482,7 @@ export type ServiceInputTypes =
   | ListThemesCommandInput
   | ListUserGroupsCommandInput
   | ListUsersCommandInput
+  | PutDataSetRefreshPropertiesCommandInput
   | RegisterUserCommandInput
   | RestoreAnalysisCommandInput
   | SearchAnalysesCommandInput
@@ -466,6 +510,7 @@ export type ServiceInputTypes =
   | UpdateIAMPolicyAssignmentCommandInput
   | UpdateIpRestrictionCommandInput
   | UpdatePublicSharingSettingsCommandInput
+  | UpdateRefreshScheduleCommandInput
   | UpdateTemplateAliasCommandInput
   | UpdateTemplateCommandInput
   | UpdateTemplatePermissionsCommandInput
@@ -474,6 +519,9 @@ export type ServiceInputTypes =
   | UpdateThemePermissionsCommandInput
   | UpdateUserCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CancelIngestionCommandOutput
   | CreateAccountCustomizationCommandOutput
@@ -489,6 +537,7 @@ export type ServiceOutputTypes =
   | CreateIAMPolicyAssignmentCommandOutput
   | CreateIngestionCommandOutput
   | CreateNamespaceCommandOutput
+  | CreateRefreshScheduleCommandOutput
   | CreateTemplateAliasCommandOutput
   | CreateTemplateCommandOutput
   | CreateThemeAliasCommandOutput
@@ -498,6 +547,7 @@ export type ServiceOutputTypes =
   | DeleteAnalysisCommandOutput
   | DeleteDashboardCommandOutput
   | DeleteDataSetCommandOutput
+  | DeleteDataSetRefreshPropertiesCommandOutput
   | DeleteDataSourceCommandOutput
   | DeleteFolderCommandOutput
   | DeleteFolderMembershipCommandOutput
@@ -505,6 +555,7 @@ export type ServiceOutputTypes =
   | DeleteGroupMembershipCommandOutput
   | DeleteIAMPolicyAssignmentCommandOutput
   | DeleteNamespaceCommandOutput
+  | DeleteRefreshScheduleCommandOutput
   | DeleteTemplateAliasCommandOutput
   | DeleteTemplateCommandOutput
   | DeleteThemeAliasCommandOutput
@@ -522,6 +573,7 @@ export type ServiceOutputTypes =
   | DescribeDashboardPermissionsCommandOutput
   | DescribeDataSetCommandOutput
   | DescribeDataSetPermissionsCommandOutput
+  | DescribeDataSetRefreshPropertiesCommandOutput
   | DescribeDataSourceCommandOutput
   | DescribeDataSourcePermissionsCommandOutput
   | DescribeFolderCommandOutput
@@ -533,6 +585,7 @@ export type ServiceOutputTypes =
   | DescribeIngestionCommandOutput
   | DescribeIpRestrictionCommandOutput
   | DescribeNamespaceCommandOutput
+  | DescribeRefreshScheduleCommandOutput
   | DescribeTemplateAliasCommandOutput
   | DescribeTemplateCommandOutput
   | DescribeTemplateDefinitionCommandOutput
@@ -558,6 +611,7 @@ export type ServiceOutputTypes =
   | ListIAMPolicyAssignmentsForUserCommandOutput
   | ListIngestionsCommandOutput
   | ListNamespacesCommandOutput
+  | ListRefreshSchedulesCommandOutput
   | ListTagsForResourceCommandOutput
   | ListTemplateAliasesCommandOutput
   | ListTemplateVersionsCommandOutput
@@ -567,6 +621,7 @@ export type ServiceOutputTypes =
   | ListThemesCommandOutput
   | ListUserGroupsCommandOutput
   | ListUsersCommandOutput
+  | PutDataSetRefreshPropertiesCommandOutput
   | RegisterUserCommandOutput
   | RestoreAnalysisCommandOutput
   | SearchAnalysesCommandOutput
@@ -594,6 +649,7 @@ export type ServiceOutputTypes =
   | UpdateIAMPolicyAssignmentCommandOutput
   | UpdateIpRestrictionCommandOutput
   | UpdatePublicSharingSettingsCommandOutput
+  | UpdateRefreshScheduleCommandOutput
   | UpdateTemplateAliasCommandOutput
   | UpdateTemplateCommandOutput
   | UpdateTemplatePermissionsCommandOutput
@@ -602,6 +658,9 @@ export type ServiceOutputTypes =
   | UpdateThemePermissionsCommandOutput
   | UpdateUserCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -609,11 +668,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -670,19 +729,10 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
-   * Value for how many times a request will be made at most in case of retry.
+   * Unique service identifier.
+   * @internal
    */
-  maxAttempts?: number | __Provider<number>;
-
-  /**
-   * Specifies which retry algorithm to use.
-   */
-  retryMode?: string | __Provider<string>;
-
-  /**
-   * Optional logger for logging debug/info/warn/error.
-   */
-  logger?: __Logger;
+  serviceId?: string;
 
   /**
    * Enables IPv6/IPv4 dualstack endpoint.
@@ -693,12 +743,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Enables FIPS compatible endpoints.
    */
   useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
 
   /**
    * The AWS region to which this client will send requests
@@ -718,11 +762,29 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * Value for how many times a request will be made at most in case of retry.
    */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Specifies which retry algorithm to use.
+   */
+  retryMode?: string | __Provider<string>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
+
+  /**
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   */
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type QuickSightClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -733,10 +795,15 @@ type QuickSightClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOpt
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of QuickSightClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of QuickSightClient class constructor that set the region, credentials and other options.
  */
 export interface QuickSightClientConfig extends QuickSightClientConfigType {}
 
+/**
+ * @public
+ */
 type QuickSightClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -747,11 +814,14 @@ type QuickSightClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHa
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of QuickSightClient class. This is resolved and normalized from the {@link QuickSightClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of QuickSightClient class. This is resolved and normalized from the {@link QuickSightClientConfig | constructor configuration interface}.
  */
 export interface QuickSightClientResolvedConfig extends QuickSightClientResolvedConfigType {}
 
 /**
+ * @public
  * <fullname>Amazon QuickSight API Reference</fullname>
  *          <p>Amazon QuickSight is a fully managed, serverless business intelligence service for the
  *             Amazon Web Services Cloud that makes it easy to extend data and insights to every user in your

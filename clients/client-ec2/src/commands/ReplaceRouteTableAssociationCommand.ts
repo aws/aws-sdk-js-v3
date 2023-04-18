@@ -14,23 +14,26 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ReplaceRouteTableAssociationRequest,
-  ReplaceRouteTableAssociationRequestFilterSensitiveLog,
-  ReplaceRouteTableAssociationResult,
-  ReplaceRouteTableAssociationResultFilterSensitiveLog,
-} from "../models/models_6";
-import {
-  deserializeAws_ec2ReplaceRouteTableAssociationCommand,
-  serializeAws_ec2ReplaceRouteTableAssociationCommand,
-} from "../protocols/Aws_ec2";
+import { ReplaceRouteTableAssociationRequest, ReplaceRouteTableAssociationResult } from "../models/models_6";
+import { de_ReplaceRouteTableAssociationCommand, se_ReplaceRouteTableAssociationCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link ReplaceRouteTableAssociationCommand}.
+ */
 export interface ReplaceRouteTableAssociationCommandInput extends ReplaceRouteTableAssociationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ReplaceRouteTableAssociationCommand}.
+ */
 export interface ReplaceRouteTableAssociationCommandOutput
   extends ReplaceRouteTableAssociationResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the route table associated with a given subnet, internet gateway, or virtual private gateway in a VPC. After the operation
  *         completes, the subnet or gateway uses the routes in the new route table. For more
  *         information about route tables, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route
@@ -42,13 +45,38 @@ export interface ReplaceRouteTableAssociationCommandOutput
  * import { EC2Client, ReplaceRouteTableAssociationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ReplaceRouteTableAssociationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ReplaceRouteTableAssociationRequest
+ *   AssociationId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ *   RouteTableId: "STRING_VALUE", // required
+ * };
  * const command = new ReplaceRouteTableAssociationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ReplaceRouteTableAssociationCommandInput - {@link ReplaceRouteTableAssociationCommandInput}
+ * @returns {@link ReplaceRouteTableAssociationCommandOutput}
  * @see {@link ReplaceRouteTableAssociationCommandInput} for command's `input` shape.
  * @see {@link ReplaceRouteTableAssociationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ *
+ * @example To replace the route table associated with a subnet
+ * ```javascript
+ * // This example associates the specified route table with the subnet for the specified route table association.
+ * const input = {
+ *   "AssociationId": "rtbassoc-781d0d1a",
+ *   "RouteTableId": "rtb-22574640"
+ * };
+ * const command = new ReplaceRouteTableAssociationCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "NewAssociationId": "rtbassoc-3a1f0f58"
+ * }
+ * *\/
+ * // example id: ec2-replace-route-table-association-1
+ * ```
  *
  */
 export class ReplaceRouteTableAssociationCommand extends $Command<
@@ -68,6 +96,9 @@ export class ReplaceRouteTableAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReplaceRouteTableAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +127,8 @@ export class ReplaceRouteTableAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReplaceRouteTableAssociationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ReplaceRouteTableAssociationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,15 +138,21 @@ export class ReplaceRouteTableAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReplaceRouteTableAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ReplaceRouteTableAssociationCommand(input, context);
+    return se_ReplaceRouteTableAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ReplaceRouteTableAssociationCommandOutput> {
-    return deserializeAws_ec2ReplaceRouteTableAssociationCommand(output, context);
+    return de_ReplaceRouteTableAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,17 +18,24 @@ import {
   ImportCertificateRequest,
   ImportCertificateRequestFilterSensitiveLog,
   ImportCertificateResponse,
-  ImportCertificateResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1ImportCertificateCommand,
-  serializeAws_json1_1ImportCertificateCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ImportCertificateCommand, se_ImportCertificateCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ImportCertificateCommand}.
+ */
 export interface ImportCertificateCommandInput extends ImportCertificateRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ImportCertificateCommand}.
+ */
 export interface ImportCertificateCommandOutput extends ImportCertificateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Imports a certificate into Certificate Manager (ACM) to use with services that are integrated with
  *       ACM. Note that <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-services.html">integrated
  *         services</a> allow only certificate types and keys they support to be associated with
@@ -103,13 +110,51 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  * import { ACMClient, ImportCertificateCommand } from "@aws-sdk/client-acm"; // ES Modules import
  * // const { ACMClient, ImportCertificateCommand } = require("@aws-sdk/client-acm"); // CommonJS import
  * const client = new ACMClient(config);
+ * const input = { // ImportCertificateRequest
+ *   CertificateArn: "STRING_VALUE",
+ *   Certificate: "BLOB_VALUE", // required
+ *   PrivateKey: "BLOB_VALUE", // required
+ *   CertificateChain: "BLOB_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new ImportCertificateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportCertificateCommandInput - {@link ImportCertificateCommandInput}
+ * @returns {@link ImportCertificateCommandOutput}
  * @see {@link ImportCertificateCommandInput} for command's `input` shape.
  * @see {@link ImportCertificateCommandOutput} for command's `response` shape.
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
+ *
+ * @throws {@link InvalidArnException} (client fault)
+ *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>An input parameter was invalid.</p>
+ *
+ * @throws {@link InvalidTagException} (client fault)
+ *  <p>One or both of the values that make up the key-value pair is not valid. For example, you
+ *       cannot specify a tag value that begins with <code>aws:</code>.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>An ACM quota has been exceeded.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified certificate cannot be found in the caller's account or the caller's account
+ *       cannot be found.</p>
+ *
+ * @throws {@link TagPolicyException} (client fault)
+ *  <p>A specified tag did not comply with an existing tag policy and was rejected.</p>
+ *
+ * @throws {@link TooManyTagsException} (client fault)
+ *  <p>The request contains too many tags. Try the request again with fewer tags.</p>
+ *
  *
  */
 export class ImportCertificateCommand extends $Command<
@@ -129,6 +174,9 @@ export class ImportCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -158,7 +206,7 @@ export class ImportCertificateCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: ImportCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ImportCertificateResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -168,12 +216,18 @@ export class ImportCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ImportCertificateCommand(input, context);
+    return se_ImportCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportCertificateCommandOutput> {
-    return deserializeAws_json1_1ImportCertificateCommand(output, context);
+    return de_ImportCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

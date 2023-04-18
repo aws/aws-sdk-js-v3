@@ -6,12 +6,11 @@ import {
   ListByoipCidrsCommandInput,
   ListByoipCidrsCommandOutput,
 } from "../commands/ListByoipCidrsCommand";
-import { GlobalAccelerator } from "../GlobalAccelerator";
 import { GlobalAcceleratorClient } from "../GlobalAcceleratorClient";
 import { GlobalAcceleratorPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: GlobalAcceleratorClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListByoipCidrsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: GlobalAccelerator,
-  input: ListByoipCidrsCommandInput,
-  ...args: any
-): Promise<ListByoipCidrsCommandOutput> => {
-  // @ts-ignore
-  return await client.listByoipCidrs(input, ...args);
-};
 export async function* paginateListByoipCidrs(
   config: GlobalAcceleratorPaginationConfiguration,
   input: ListByoipCidrsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListByoipCidrs(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof GlobalAccelerator) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof GlobalAcceleratorClient) {
+    if (config.client instanceof GlobalAcceleratorClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected GlobalAccelerator | GlobalAcceleratorClient");

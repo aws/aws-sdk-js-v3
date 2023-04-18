@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  DeletePartitionRequest,
-  DeletePartitionRequestFilterSensitiveLog,
-  DeletePartitionResponse,
-  DeletePartitionResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1DeletePartitionCommand,
-  serializeAws_json1_1DeletePartitionCommand,
-} from "../protocols/Aws_json1_1";
+import { DeletePartitionRequest, DeletePartitionResponse } from "../models/models_1";
+import { de_DeletePartitionCommand, se_DeletePartitionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeletePartitionCommand}.
+ */
 export interface DeletePartitionCommandInput extends DeletePartitionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeletePartitionCommand}.
+ */
 export interface DeletePartitionCommandOutput extends DeletePartitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specified partition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,36 @@ export interface DeletePartitionCommandOutput extends DeletePartitionResponse, _
  * import { GlueClient, DeletePartitionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DeletePartitionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // DeletePartitionRequest
+ *   CatalogId: "STRING_VALUE",
+ *   DatabaseName: "STRING_VALUE", // required
+ *   TableName: "STRING_VALUE", // required
+ *   PartitionValues: [ // ValueStringList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DeletePartitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePartitionCommandInput - {@link DeletePartitionCommandInput}
+ * @returns {@link DeletePartitionCommandOutput}
  * @see {@link DeletePartitionCommandInput} for command's `input` shape.
  * @see {@link DeletePartitionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class DeletePartitionCommand extends $Command<
@@ -62,6 +88,9 @@ export class DeletePartitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePartitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +119,8 @@ export class DeletePartitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePartitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeletePartitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +130,18 @@ export class DeletePartitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePartitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeletePartitionCommand(input, context);
+    return se_DeletePartitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePartitionCommandOutput> {
-    return deserializeAws_json1_1DeletePartitionCommand(output, context);
+    return de_DeletePartitionCommand(output, context);
   }
 
   // Start section: command_body_extra

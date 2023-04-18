@@ -34,6 +34,7 @@ import {
 } from "./commands/UpdateZonalShiftCommand";
 
 /**
+ * @public
  * <p>This is the API Reference Guide for the zonal shift feature of Amazon Route 53 Application Recovery Controller. This guide is for developers who need detailed information about
  * 			zonal shift API actions, data types, and errors.</p>
  * 		       <p>Zonal shift is in preview release for Amazon Route 53 Application Recovery Controller and is subject to change.</p>
@@ -52,6 +53,7 @@ import {
  */
 export class ARCZonalShift extends ARCZonalShiftClient {
   /**
+   * @public
    * <p>Cancel a zonal shift in Amazon Route 53 Application Recovery Controller that you've started for a resource in your AWS account in an AWS Region. </p>
    */
   public cancelZonalShift(
@@ -84,6 +86,7 @@ export class ARCZonalShift extends ARCZonalShiftClient {
   }
 
   /**
+   * @public
    * <p>Get information about a resource that's been registered for zonal shifts with Amazon Route 53 Application Recovery Controller in this AWS Region. Resources that are registered for
    *    		zonal shifts are managed resources in Route 53 ARC.</p>
    *    	     <p>At this time, you can only start a zonal shift for Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off.</p>
@@ -118,6 +121,7 @@ export class ARCZonalShift extends ARCZonalShiftClient {
   }
 
   /**
+   * @public
    * <p>Lists all the resources in your AWS account in this AWS Region that are managed for zonal shifts in Amazon Route 53 Application Recovery Controller, and information
    *    		about them. The information includes their Amazon Resource Names (ARNs), the Availability Zones the resources are deployed in, and
    *    		the resource name.</p>
@@ -152,6 +156,7 @@ export class ARCZonalShift extends ARCZonalShiftClient {
   }
 
   /**
+   * @public
    * <p>Lists all the active zonal shifts in Amazon Route 53 Application Recovery Controller in your AWS account in this AWS Region.</p>
    */
   public listZonalShifts(
@@ -184,6 +189,7 @@ export class ARCZonalShift extends ARCZonalShiftClient {
   }
 
   /**
+   * @public
    * <p>You start a zonal shift to temporarily move load balancer traffic away from an Availability Zone in a AWS Region,
    *    		to help your application recover immediately, for example, from a developer's bad code deployment or from an AWS
    *    		infrastructure failure in a single Availability Zone. You can start a zonal shift in Route 53 ARC only for managed
@@ -225,6 +231,7 @@ export class ARCZonalShift extends ARCZonalShiftClient {
   }
 
   /**
+   * @public
    * <p>Update an active zonal shift in Amazon Route 53 Application Recovery Controller in your AWS account. You can update a zonal shift to set a new expiration, or
    *    	edit or replace the comment for the zonal shift. </p>
    */

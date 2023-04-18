@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  PurchaseOfferingRequest,
-  PurchaseOfferingRequestFilterSensitiveLog,
-  PurchaseOfferingResult,
-  PurchaseOfferingResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PurchaseOfferingCommand,
-  serializeAws_json1_1PurchaseOfferingCommand,
-} from "../protocols/Aws_json1_1";
+import { PurchaseOfferingRequest, PurchaseOfferingResult } from "../models/models_0";
+import { de_PurchaseOfferingCommand, se_PurchaseOfferingCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link PurchaseOfferingCommand}.
+ */
 export interface PurchaseOfferingCommandInput extends PurchaseOfferingRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PurchaseOfferingCommand}.
+ */
 export interface PurchaseOfferingCommandOutput extends PurchaseOfferingResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Immediately purchases offerings for an AWS account. Offerings renew with the latest total purchased
  *             quantity for an offering, unless the renewal was overridden. The API returns a <code>NotEligible</code>
  *             error if the user is not permitted to invoke the operation. If you must be able to invoke this operation,
@@ -39,13 +42,72 @@ export interface PurchaseOfferingCommandOutput extends PurchaseOfferingResult, _
  * import { DeviceFarmClient, PurchaseOfferingCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, PurchaseOfferingCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // PurchaseOfferingRequest
+ *   offeringId: "STRING_VALUE", // required
+ *   quantity: Number("int"), // required
+ *   offeringPromotionId: "STRING_VALUE",
+ * };
  * const command = new PurchaseOfferingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PurchaseOfferingCommandInput - {@link PurchaseOfferingCommandInput}
+ * @returns {@link PurchaseOfferingCommandOutput}
  * @see {@link PurchaseOfferingCommandInput} for command's `input` shape.
  * @see {@link PurchaseOfferingCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
+ *
+ * @throws {@link ArgumentException} (client fault)
+ *  <p>An invalid argument was specified.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A limit was exceeded.</p>
+ *
+ * @throws {@link NotEligibleException} (client fault)
+ *  <p>Exception gets thrown when a user is not eligible to perform the specified
+ *             transaction.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The specified entity was not found.</p>
+ *
+ * @throws {@link ServiceAccountException} (client fault)
+ *  <p>There was a problem with the service account.</p>
+ *
+ *
+ * @example To purchase a device slot offering
+ * ```javascript
+ * // The following example purchases a specific device slot offering.
+ * const input = {
+ *   "offeringId": "D68B3C05-1BA6-4360-BC69-12345EXAMPLE",
+ *   "quantity": 1
+ * };
+ * const command = new PurchaseOfferingCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "offeringTransaction": {
+ *     "cost": {
+ *       "amount": 8.07,
+ *       "currencyCode": "USD"
+ *     },
+ *     "createdOn": "1472648340",
+ *     "offeringStatus": {
+ *       "type": "PURCHASE",
+ *       "effectiveOn": "1472648340",
+ *       "offering": {
+ *         "type": "RECURRING",
+ *         "description": "Android Remote Access Unmetered Device Slot",
+ *         "id": "D68B3C05-1BA6-4360-BC69-12345EXAMPLE",
+ *         "platform": "ANDROID"
+ *       },
+ *       "quantity": 1
+ *     },
+ *     "transactionId": "d30614ed-1b03-404c-9893-12345EXAMPLE"
+ *   }
+ * }
+ * *\/
+ * // example id: to-purchase-a-device-slot-offering-1472648146343
+ * ```
  *
  */
 export class PurchaseOfferingCommand extends $Command<
@@ -65,6 +127,9 @@ export class PurchaseOfferingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PurchaseOfferingCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +158,8 @@ export class PurchaseOfferingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PurchaseOfferingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PurchaseOfferingResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +169,18 @@ export class PurchaseOfferingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PurchaseOfferingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PurchaseOfferingCommand(input, context);
+    return se_PurchaseOfferingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PurchaseOfferingCommandOutput> {
-    return deserializeAws_json1_1PurchaseOfferingCommand(output, context);
+    return de_PurchaseOfferingCommand(output, context);
   }
 
   // Start section: command_body_extra

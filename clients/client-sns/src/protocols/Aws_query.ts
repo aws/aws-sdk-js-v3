@@ -8,8 +8,8 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
-  throwDefaultError,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -254,693 +254,741 @@ import {
 } from "../models/models_0";
 import { SNSServiceException as __BaseException } from "../models/SNSServiceException";
 
-export const serializeAws_queryAddPermissionCommand = async (
+/**
+ * serializeAws_queryAddPermissionCommand
+ */
+export const se_AddPermissionCommand = async (
   input: AddPermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryAddPermissionInput(input, context),
+    ...se_AddPermissionInput(input, context),
     Action: "AddPermission",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryCheckIfPhoneNumberIsOptedOutCommand = async (
+/**
+ * serializeAws_queryCheckIfPhoneNumberIsOptedOutCommand
+ */
+export const se_CheckIfPhoneNumberIsOptedOutCommand = async (
   input: CheckIfPhoneNumberIsOptedOutCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryCheckIfPhoneNumberIsOptedOutInput(input, context),
+    ...se_CheckIfPhoneNumberIsOptedOutInput(input, context),
     Action: "CheckIfPhoneNumberIsOptedOut",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryConfirmSubscriptionCommand = async (
+/**
+ * serializeAws_queryConfirmSubscriptionCommand
+ */
+export const se_ConfirmSubscriptionCommand = async (
   input: ConfirmSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryConfirmSubscriptionInput(input, context),
+    ...se_ConfirmSubscriptionInput(input, context),
     Action: "ConfirmSubscription",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryCreatePlatformApplicationCommand = async (
+/**
+ * serializeAws_queryCreatePlatformApplicationCommand
+ */
+export const se_CreatePlatformApplicationCommand = async (
   input: CreatePlatformApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryCreatePlatformApplicationInput(input, context),
+    ...se_CreatePlatformApplicationInput(input, context),
     Action: "CreatePlatformApplication",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryCreatePlatformEndpointCommand = async (
+/**
+ * serializeAws_queryCreatePlatformEndpointCommand
+ */
+export const se_CreatePlatformEndpointCommand = async (
   input: CreatePlatformEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryCreatePlatformEndpointInput(input, context),
+    ...se_CreatePlatformEndpointInput(input, context),
     Action: "CreatePlatformEndpoint",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryCreateSMSSandboxPhoneNumberCommand = async (
+/**
+ * serializeAws_queryCreateSMSSandboxPhoneNumberCommand
+ */
+export const se_CreateSMSSandboxPhoneNumberCommand = async (
   input: CreateSMSSandboxPhoneNumberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryCreateSMSSandboxPhoneNumberInput(input, context),
+    ...se_CreateSMSSandboxPhoneNumberInput(input, context),
     Action: "CreateSMSSandboxPhoneNumber",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryCreateTopicCommand = async (
+/**
+ * serializeAws_queryCreateTopicCommand
+ */
+export const se_CreateTopicCommand = async (
   input: CreateTopicCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryCreateTopicInput(input, context),
+    ...se_CreateTopicInput(input, context),
     Action: "CreateTopic",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeleteEndpointCommand = async (
+/**
+ * serializeAws_queryDeleteEndpointCommand
+ */
+export const se_DeleteEndpointCommand = async (
   input: DeleteEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDeleteEndpointInput(input, context),
+    ...se_DeleteEndpointInput(input, context),
     Action: "DeleteEndpoint",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeletePlatformApplicationCommand = async (
+/**
+ * serializeAws_queryDeletePlatformApplicationCommand
+ */
+export const se_DeletePlatformApplicationCommand = async (
   input: DeletePlatformApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDeletePlatformApplicationInput(input, context),
+    ...se_DeletePlatformApplicationInput(input, context),
     Action: "DeletePlatformApplication",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeleteSMSSandboxPhoneNumberCommand = async (
+/**
+ * serializeAws_queryDeleteSMSSandboxPhoneNumberCommand
+ */
+export const se_DeleteSMSSandboxPhoneNumberCommand = async (
   input: DeleteSMSSandboxPhoneNumberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDeleteSMSSandboxPhoneNumberInput(input, context),
+    ...se_DeleteSMSSandboxPhoneNumberInput(input, context),
     Action: "DeleteSMSSandboxPhoneNumber",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeleteTopicCommand = async (
+/**
+ * serializeAws_queryDeleteTopicCommand
+ */
+export const se_DeleteTopicCommand = async (
   input: DeleteTopicCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDeleteTopicInput(input, context),
+    ...se_DeleteTopicInput(input, context),
     Action: "DeleteTopic",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryGetDataProtectionPolicyCommand = async (
+/**
+ * serializeAws_queryGetDataProtectionPolicyCommand
+ */
+export const se_GetDataProtectionPolicyCommand = async (
   input: GetDataProtectionPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryGetDataProtectionPolicyInput(input, context),
+    ...se_GetDataProtectionPolicyInput(input, context),
     Action: "GetDataProtectionPolicy",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryGetEndpointAttributesCommand = async (
+/**
+ * serializeAws_queryGetEndpointAttributesCommand
+ */
+export const se_GetEndpointAttributesCommand = async (
   input: GetEndpointAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryGetEndpointAttributesInput(input, context),
+    ...se_GetEndpointAttributesInput(input, context),
     Action: "GetEndpointAttributes",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryGetPlatformApplicationAttributesCommand = async (
+/**
+ * serializeAws_queryGetPlatformApplicationAttributesCommand
+ */
+export const se_GetPlatformApplicationAttributesCommand = async (
   input: GetPlatformApplicationAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryGetPlatformApplicationAttributesInput(input, context),
+    ...se_GetPlatformApplicationAttributesInput(input, context),
     Action: "GetPlatformApplicationAttributes",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryGetSMSAttributesCommand = async (
+/**
+ * serializeAws_queryGetSMSAttributesCommand
+ */
+export const se_GetSMSAttributesCommand = async (
   input: GetSMSAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryGetSMSAttributesInput(input, context),
+    ...se_GetSMSAttributesInput(input, context),
     Action: "GetSMSAttributes",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryGetSMSSandboxAccountStatusCommand = async (
+/**
+ * serializeAws_queryGetSMSSandboxAccountStatusCommand
+ */
+export const se_GetSMSSandboxAccountStatusCommand = async (
   input: GetSMSSandboxAccountStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryGetSMSSandboxAccountStatusInput(input, context),
+    ...se_GetSMSSandboxAccountStatusInput(input, context),
     Action: "GetSMSSandboxAccountStatus",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryGetSubscriptionAttributesCommand = async (
+/**
+ * serializeAws_queryGetSubscriptionAttributesCommand
+ */
+export const se_GetSubscriptionAttributesCommand = async (
   input: GetSubscriptionAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryGetSubscriptionAttributesInput(input, context),
+    ...se_GetSubscriptionAttributesInput(input, context),
     Action: "GetSubscriptionAttributes",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryGetTopicAttributesCommand = async (
+/**
+ * serializeAws_queryGetTopicAttributesCommand
+ */
+export const se_GetTopicAttributesCommand = async (
   input: GetTopicAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryGetTopicAttributesInput(input, context),
+    ...se_GetTopicAttributesInput(input, context),
     Action: "GetTopicAttributes",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryListEndpointsByPlatformApplicationCommand = async (
+/**
+ * serializeAws_queryListEndpointsByPlatformApplicationCommand
+ */
+export const se_ListEndpointsByPlatformApplicationCommand = async (
   input: ListEndpointsByPlatformApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryListEndpointsByPlatformApplicationInput(input, context),
+    ...se_ListEndpointsByPlatformApplicationInput(input, context),
     Action: "ListEndpointsByPlatformApplication",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryListOriginationNumbersCommand = async (
+/**
+ * serializeAws_queryListOriginationNumbersCommand
+ */
+export const se_ListOriginationNumbersCommand = async (
   input: ListOriginationNumbersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryListOriginationNumbersRequest(input, context),
+    ...se_ListOriginationNumbersRequest(input, context),
     Action: "ListOriginationNumbers",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryListPhoneNumbersOptedOutCommand = async (
+/**
+ * serializeAws_queryListPhoneNumbersOptedOutCommand
+ */
+export const se_ListPhoneNumbersOptedOutCommand = async (
   input: ListPhoneNumbersOptedOutCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryListPhoneNumbersOptedOutInput(input, context),
+    ...se_ListPhoneNumbersOptedOutInput(input, context),
     Action: "ListPhoneNumbersOptedOut",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryListPlatformApplicationsCommand = async (
+/**
+ * serializeAws_queryListPlatformApplicationsCommand
+ */
+export const se_ListPlatformApplicationsCommand = async (
   input: ListPlatformApplicationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryListPlatformApplicationsInput(input, context),
+    ...se_ListPlatformApplicationsInput(input, context),
     Action: "ListPlatformApplications",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryListSMSSandboxPhoneNumbersCommand = async (
+/**
+ * serializeAws_queryListSMSSandboxPhoneNumbersCommand
+ */
+export const se_ListSMSSandboxPhoneNumbersCommand = async (
   input: ListSMSSandboxPhoneNumbersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryListSMSSandboxPhoneNumbersInput(input, context),
+    ...se_ListSMSSandboxPhoneNumbersInput(input, context),
     Action: "ListSMSSandboxPhoneNumbers",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryListSubscriptionsCommand = async (
+/**
+ * serializeAws_queryListSubscriptionsCommand
+ */
+export const se_ListSubscriptionsCommand = async (
   input: ListSubscriptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryListSubscriptionsInput(input, context),
+    ...se_ListSubscriptionsInput(input, context),
     Action: "ListSubscriptions",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryListSubscriptionsByTopicCommand = async (
+/**
+ * serializeAws_queryListSubscriptionsByTopicCommand
+ */
+export const se_ListSubscriptionsByTopicCommand = async (
   input: ListSubscriptionsByTopicCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryListSubscriptionsByTopicInput(input, context),
+    ...se_ListSubscriptionsByTopicInput(input, context),
     Action: "ListSubscriptionsByTopic",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryListTagsForResourceCommand = async (
+/**
+ * serializeAws_queryListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryListTagsForResourceRequest(input, context),
+    ...se_ListTagsForResourceRequest(input, context),
     Action: "ListTagsForResource",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryListTopicsCommand = async (
+/**
+ * serializeAws_queryListTopicsCommand
+ */
+export const se_ListTopicsCommand = async (
   input: ListTopicsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryListTopicsInput(input, context),
+    ...se_ListTopicsInput(input, context),
     Action: "ListTopics",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryOptInPhoneNumberCommand = async (
+/**
+ * serializeAws_queryOptInPhoneNumberCommand
+ */
+export const se_OptInPhoneNumberCommand = async (
   input: OptInPhoneNumberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryOptInPhoneNumberInput(input, context),
+    ...se_OptInPhoneNumberInput(input, context),
     Action: "OptInPhoneNumber",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryPublishCommand = async (
+/**
+ * serializeAws_queryPublishCommand
+ */
+export const se_PublishCommand = async (
   input: PublishCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryPublishInput(input, context),
+    ...se_PublishInput(input, context),
     Action: "Publish",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryPublishBatchCommand = async (
+/**
+ * serializeAws_queryPublishBatchCommand
+ */
+export const se_PublishBatchCommand = async (
   input: PublishBatchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryPublishBatchInput(input, context),
+    ...se_PublishBatchInput(input, context),
     Action: "PublishBatch",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryPutDataProtectionPolicyCommand = async (
+/**
+ * serializeAws_queryPutDataProtectionPolicyCommand
+ */
+export const se_PutDataProtectionPolicyCommand = async (
   input: PutDataProtectionPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryPutDataProtectionPolicyInput(input, context),
+    ...se_PutDataProtectionPolicyInput(input, context),
     Action: "PutDataProtectionPolicy",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryRemovePermissionCommand = async (
+/**
+ * serializeAws_queryRemovePermissionCommand
+ */
+export const se_RemovePermissionCommand = async (
   input: RemovePermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryRemovePermissionInput(input, context),
+    ...se_RemovePermissionInput(input, context),
     Action: "RemovePermission",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_querySetEndpointAttributesCommand = async (
+/**
+ * serializeAws_querySetEndpointAttributesCommand
+ */
+export const se_SetEndpointAttributesCommand = async (
   input: SetEndpointAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_querySetEndpointAttributesInput(input, context),
+    ...se_SetEndpointAttributesInput(input, context),
     Action: "SetEndpointAttributes",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_querySetPlatformApplicationAttributesCommand = async (
+/**
+ * serializeAws_querySetPlatformApplicationAttributesCommand
+ */
+export const se_SetPlatformApplicationAttributesCommand = async (
   input: SetPlatformApplicationAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_querySetPlatformApplicationAttributesInput(input, context),
+    ...se_SetPlatformApplicationAttributesInput(input, context),
     Action: "SetPlatformApplicationAttributes",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_querySetSMSAttributesCommand = async (
+/**
+ * serializeAws_querySetSMSAttributesCommand
+ */
+export const se_SetSMSAttributesCommand = async (
   input: SetSMSAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_querySetSMSAttributesInput(input, context),
+    ...se_SetSMSAttributesInput(input, context),
     Action: "SetSMSAttributes",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_querySetSubscriptionAttributesCommand = async (
+/**
+ * serializeAws_querySetSubscriptionAttributesCommand
+ */
+export const se_SetSubscriptionAttributesCommand = async (
   input: SetSubscriptionAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_querySetSubscriptionAttributesInput(input, context),
+    ...se_SetSubscriptionAttributesInput(input, context),
     Action: "SetSubscriptionAttributes",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_querySetTopicAttributesCommand = async (
+/**
+ * serializeAws_querySetTopicAttributesCommand
+ */
+export const se_SetTopicAttributesCommand = async (
   input: SetTopicAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_querySetTopicAttributesInput(input, context),
+    ...se_SetTopicAttributesInput(input, context),
     Action: "SetTopicAttributes",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_querySubscribeCommand = async (
+/**
+ * serializeAws_querySubscribeCommand
+ */
+export const se_SubscribeCommand = async (
   input: SubscribeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_querySubscribeInput(input, context),
+    ...se_SubscribeInput(input, context),
     Action: "Subscribe",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryTagResourceCommand = async (
+/**
+ * serializeAws_queryTagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryTagResourceRequest(input, context),
+    ...se_TagResourceRequest(input, context),
     Action: "TagResource",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryUnsubscribeCommand = async (
+/**
+ * serializeAws_queryUnsubscribeCommand
+ */
+export const se_UnsubscribeCommand = async (
   input: UnsubscribeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryUnsubscribeInput(input, context),
+    ...se_UnsubscribeInput(input, context),
     Action: "Unsubscribe",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryUntagResourceCommand = async (
+/**
+ * serializeAws_queryUntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryUntagResourceRequest(input, context),
+    ...se_UntagResourceRequest(input, context),
     Action: "UntagResource",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryVerifySMSSandboxPhoneNumberCommand = async (
+/**
+ * serializeAws_queryVerifySMSSandboxPhoneNumberCommand
+ */
+export const se_VerifySMSSandboxPhoneNumberCommand = async (
   input: VerifySMSSandboxPhoneNumberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryVerifySMSSandboxPhoneNumberInput(input, context),
+    ...se_VerifySMSSandboxPhoneNumberInput(input, context),
     Action: "VerifySMSSandboxPhoneNumber",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_queryAddPermissionCommand = async (
+/**
+ * deserializeAws_queryAddPermissionCommand
+ */
+export const de_AddPermissionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddPermissionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryAddPermissionCommandError(output, context);
+    return de_AddPermissionCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: AddPermissionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryAddPermissionCommandError = async (
+/**
+ * deserializeAws_queryAddPermissionCommandError
+ */
+const de_AddPermissionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddPermissionCommandOutput> => {
@@ -952,45 +1000,50 @@ const deserializeAws_queryAddPermissionCommandError = async (
   switch (errorCode) {
     case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
     case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
-      throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
-      throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
-      throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryCheckIfPhoneNumberIsOptedOutCommand = async (
+/**
+ * deserializeAws_queryCheckIfPhoneNumberIsOptedOutCommand
+ */
+export const de_CheckIfPhoneNumberIsOptedOutCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CheckIfPhoneNumberIsOptedOutCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryCheckIfPhoneNumberIsOptedOutCommandError(output, context);
+    return de_CheckIfPhoneNumberIsOptedOutCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCheckIfPhoneNumberIsOptedOutResponse(data.CheckIfPhoneNumberIsOptedOutResult, context);
+  contents = de_CheckIfPhoneNumberIsOptedOutResponse(data.CheckIfPhoneNumberIsOptedOutResult, context);
   const response: CheckIfPhoneNumberIsOptedOutCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryCheckIfPhoneNumberIsOptedOutCommandError = async (
+/**
+ * deserializeAws_queryCheckIfPhoneNumberIsOptedOutCommandError
+ */
+const de_CheckIfPhoneNumberIsOptedOutCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CheckIfPhoneNumberIsOptedOutCommandOutput> => {
@@ -1002,45 +1055,50 @@ const deserializeAws_queryCheckIfPhoneNumberIsOptedOutCommandError = async (
   switch (errorCode) {
     case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
     case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
-      throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
-      throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "Throttled":
     case "com.amazonaws.sns#ThrottledException":
-      throw await deserializeAws_queryThrottledExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryConfirmSubscriptionCommand = async (
+/**
+ * deserializeAws_queryConfirmSubscriptionCommand
+ */
+export const de_ConfirmSubscriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ConfirmSubscriptionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryConfirmSubscriptionCommandError(output, context);
+    return de_ConfirmSubscriptionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryConfirmSubscriptionResponse(data.ConfirmSubscriptionResult, context);
+  contents = de_ConfirmSubscriptionResponse(data.ConfirmSubscriptionResult, context);
   const response: ConfirmSubscriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryConfirmSubscriptionCommandError = async (
+/**
+ * deserializeAws_queryConfirmSubscriptionCommandError
+ */
+const de_ConfirmSubscriptionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ConfirmSubscriptionCommandOutput> => {
@@ -1052,51 +1110,56 @@ const deserializeAws_queryConfirmSubscriptionCommandError = async (
   switch (errorCode) {
     case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
     case "FilterPolicyLimitExceeded":
     case "com.amazonaws.sns#FilterPolicyLimitExceededException":
-      throw await deserializeAws_queryFilterPolicyLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_FilterPolicyLimitExceededExceptionRes(parsedOutput, context);
     case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
-      throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
-      throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
-      throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "SubscriptionLimitExceeded":
     case "com.amazonaws.sns#SubscriptionLimitExceededException":
-      throw await deserializeAws_querySubscriptionLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_SubscriptionLimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryCreatePlatformApplicationCommand = async (
+/**
+ * deserializeAws_queryCreatePlatformApplicationCommand
+ */
+export const de_CreatePlatformApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePlatformApplicationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryCreatePlatformApplicationCommandError(output, context);
+    return de_CreatePlatformApplicationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCreatePlatformApplicationResponse(data.CreatePlatformApplicationResult, context);
+  contents = de_CreatePlatformApplicationResponse(data.CreatePlatformApplicationResult, context);
   const response: CreatePlatformApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryCreatePlatformApplicationCommandError = async (
+/**
+ * deserializeAws_queryCreatePlatformApplicationCommandError
+ */
+const de_CreatePlatformApplicationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePlatformApplicationCommandOutput> => {
@@ -1108,42 +1171,47 @@ const deserializeAws_queryCreatePlatformApplicationCommandError = async (
   switch (errorCode) {
     case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
     case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
-      throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
-      throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryCreatePlatformEndpointCommand = async (
+/**
+ * deserializeAws_queryCreatePlatformEndpointCommand
+ */
+export const de_CreatePlatformEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePlatformEndpointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryCreatePlatformEndpointCommandError(output, context);
+    return de_CreatePlatformEndpointCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCreateEndpointResponse(data.CreatePlatformEndpointResult, context);
+  contents = de_CreateEndpointResponse(data.CreatePlatformEndpointResult, context);
   const response: CreatePlatformEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryCreatePlatformEndpointCommandError = async (
+/**
+ * deserializeAws_queryCreatePlatformEndpointCommandError
+ */
+const de_CreatePlatformEndpointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePlatformEndpointCommandOutput> => {
@@ -1155,45 +1223,50 @@ const deserializeAws_queryCreatePlatformEndpointCommandError = async (
   switch (errorCode) {
     case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
     case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
-      throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
-      throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
-      throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryCreateSMSSandboxPhoneNumberCommand = async (
+/**
+ * deserializeAws_queryCreateSMSSandboxPhoneNumberCommand
+ */
+export const de_CreateSMSSandboxPhoneNumberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSMSSandboxPhoneNumberCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryCreateSMSSandboxPhoneNumberCommandError(output, context);
+    return de_CreateSMSSandboxPhoneNumberCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCreateSMSSandboxPhoneNumberResult(data.CreateSMSSandboxPhoneNumberResult, context);
+  contents = de_CreateSMSSandboxPhoneNumberResult(data.CreateSMSSandboxPhoneNumberResult, context);
   const response: CreateSMSSandboxPhoneNumberCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryCreateSMSSandboxPhoneNumberCommandError = async (
+/**
+ * deserializeAws_queryCreateSMSSandboxPhoneNumberCommandError
+ */
+const de_CreateSMSSandboxPhoneNumberCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSMSSandboxPhoneNumberCommandOutput> => {
@@ -1205,51 +1278,56 @@ const deserializeAws_queryCreateSMSSandboxPhoneNumberCommandError = async (
   switch (errorCode) {
     case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
     case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
-      throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
-      throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OptedOut":
     case "com.amazonaws.sns#OptedOutException":
-      throw await deserializeAws_queryOptedOutExceptionResponse(parsedOutput, context);
+      throw await de_OptedOutExceptionRes(parsedOutput, context);
     case "Throttled":
     case "com.amazonaws.sns#ThrottledException":
-      throw await deserializeAws_queryThrottledExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledExceptionRes(parsedOutput, context);
     case "UserError":
     case "com.amazonaws.sns#UserErrorException":
-      throw await deserializeAws_queryUserErrorExceptionResponse(parsedOutput, context);
+      throw await de_UserErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryCreateTopicCommand = async (
+/**
+ * deserializeAws_queryCreateTopicCommand
+ */
+export const de_CreateTopicCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTopicCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryCreateTopicCommandError(output, context);
+    return de_CreateTopicCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCreateTopicResponse(data.CreateTopicResult, context);
+  contents = de_CreateTopicResponse(data.CreateTopicResult, context);
   const response: CreateTopicCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryCreateTopicCommandError = async (
+/**
+ * deserializeAws_queryCreateTopicCommandError
+ */
+const de_CreateTopicCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTopicCommandOutput> => {
@@ -1261,57 +1339,62 @@ const deserializeAws_queryCreateTopicCommandError = async (
   switch (errorCode) {
     case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
     case "ConcurrentAccess":
     case "com.amazonaws.sns#ConcurrentAccessException":
-      throw await deserializeAws_queryConcurrentAccessExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentAccessExceptionRes(parsedOutput, context);
     case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
-      throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
-      throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidSecurity":
     case "com.amazonaws.sns#InvalidSecurityException":
-      throw await deserializeAws_queryInvalidSecurityExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSecurityExceptionRes(parsedOutput, context);
     case "StaleTag":
     case "com.amazonaws.sns#StaleTagException":
-      throw await deserializeAws_queryStaleTagExceptionResponse(parsedOutput, context);
+      throw await de_StaleTagExceptionRes(parsedOutput, context);
     case "TagLimitExceeded":
     case "com.amazonaws.sns#TagLimitExceededException":
-      throw await deserializeAws_queryTagLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_TagLimitExceededExceptionRes(parsedOutput, context);
     case "TagPolicy":
     case "com.amazonaws.sns#TagPolicyException":
-      throw await deserializeAws_queryTagPolicyExceptionResponse(parsedOutput, context);
+      throw await de_TagPolicyExceptionRes(parsedOutput, context);
     case "TopicLimitExceeded":
     case "com.amazonaws.sns#TopicLimitExceededException":
-      throw await deserializeAws_queryTopicLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_TopicLimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDeleteEndpointCommand = async (
+/**
+ * deserializeAws_queryDeleteEndpointCommand
+ */
+export const de_DeleteEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEndpointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDeleteEndpointCommandError(output, context);
+    return de_DeleteEndpointCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDeleteEndpointCommandError = async (
+/**
+ * deserializeAws_queryDeleteEndpointCommandError
+ */
+const de_DeleteEndpointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEndpointCommandOutput> => {
@@ -1323,39 +1406,44 @@ const deserializeAws_queryDeleteEndpointCommandError = async (
   switch (errorCode) {
     case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
     case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
-      throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
-      throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDeletePlatformApplicationCommand = async (
+/**
+ * deserializeAws_queryDeletePlatformApplicationCommand
+ */
+export const de_DeletePlatformApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePlatformApplicationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDeletePlatformApplicationCommandError(output, context);
+    return de_DeletePlatformApplicationCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeletePlatformApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDeletePlatformApplicationCommandError = async (
+/**
+ * deserializeAws_queryDeletePlatformApplicationCommandError
+ */
+const de_DeletePlatformApplicationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePlatformApplicationCommandOutput> => {
@@ -1367,42 +1455,47 @@ const deserializeAws_queryDeletePlatformApplicationCommandError = async (
   switch (errorCode) {
     case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
     case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
-      throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
-      throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDeleteSMSSandboxPhoneNumberCommand = async (
+/**
+ * deserializeAws_queryDeleteSMSSandboxPhoneNumberCommand
+ */
+export const de_DeleteSMSSandboxPhoneNumberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSMSSandboxPhoneNumberCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDeleteSMSSandboxPhoneNumberCommandError(output, context);
+    return de_DeleteSMSSandboxPhoneNumberCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDeleteSMSSandboxPhoneNumberResult(data.DeleteSMSSandboxPhoneNumberResult, context);
+  contents = de_DeleteSMSSandboxPhoneNumberResult(data.DeleteSMSSandboxPhoneNumberResult, context);
   const response: DeleteSMSSandboxPhoneNumberCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDeleteSMSSandboxPhoneNumberCommandError = async (
+/**
+ * deserializeAws_queryDeleteSMSSandboxPhoneNumberCommandError
+ */
+const de_DeleteSMSSandboxPhoneNumberCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSMSSandboxPhoneNumberCommandOutput> => {
@@ -1414,48 +1507,53 @@ const deserializeAws_queryDeleteSMSSandboxPhoneNumberCommandError = async (
   switch (errorCode) {
     case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
     case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
-      throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
-      throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.sns#ResourceNotFoundException":
-      throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "Throttled":
     case "com.amazonaws.sns#ThrottledException":
-      throw await deserializeAws_queryThrottledExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledExceptionRes(parsedOutput, context);
     case "UserError":
     case "com.amazonaws.sns#UserErrorException":
-      throw await deserializeAws_queryUserErrorExceptionResponse(parsedOutput, context);
+      throw await de_UserErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDeleteTopicCommand = async (
+/**
+ * deserializeAws_queryDeleteTopicCommand
+ */
+export const de_DeleteTopicCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTopicCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDeleteTopicCommandError(output, context);
+    return de_DeleteTopicCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteTopicCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDeleteTopicCommandError = async (
+/**
+ * deserializeAws_queryDeleteTopicCommandError
+ */
+const de_DeleteTopicCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTopicCommandOutput> => {
@@ -1467,54 +1565,59 @@ const deserializeAws_queryDeleteTopicCommandError = async (
   switch (errorCode) {
     case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
     case "ConcurrentAccess":
     case "com.amazonaws.sns#ConcurrentAccessException":
-      throw await deserializeAws_queryConcurrentAccessExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentAccessExceptionRes(parsedOutput, context);
     case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
-      throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
-      throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
-      throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "StaleTag":
     case "com.amazonaws.sns#StaleTagException":
-      throw await deserializeAws_queryStaleTagExceptionResponse(parsedOutput, context);
+      throw await de_StaleTagExceptionRes(parsedOutput, context);
     case "TagPolicy":
     case "com.amazonaws.sns#TagPolicyException":
-      throw await deserializeAws_queryTagPolicyExceptionResponse(parsedOutput, context);
+      throw await de_TagPolicyExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryGetDataProtectionPolicyCommand = async (
+/**
+ * deserializeAws_queryGetDataProtectionPolicyCommand
+ */
+export const de_GetDataProtectionPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDataProtectionPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryGetDataProtectionPolicyCommandError(output, context);
+    return de_GetDataProtectionPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryGetDataProtectionPolicyResponse(data.GetDataProtectionPolicyResult, context);
+  contents = de_GetDataProtectionPolicyResponse(data.GetDataProtectionPolicyResult, context);
   const response: GetDataProtectionPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryGetDataProtectionPolicyCommandError = async (
+/**
+ * deserializeAws_queryGetDataProtectionPolicyCommandError
+ */
+const de_GetDataProtectionPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDataProtectionPolicyCommandOutput> => {
@@ -1526,48 +1629,53 @@ const deserializeAws_queryGetDataProtectionPolicyCommandError = async (
   switch (errorCode) {
     case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
     case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
-      throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
-      throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidSecurity":
     case "com.amazonaws.sns#InvalidSecurityException":
-      throw await deserializeAws_queryInvalidSecurityExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSecurityExceptionRes(parsedOutput, context);
     case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
-      throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryGetEndpointAttributesCommand = async (
+/**
+ * deserializeAws_queryGetEndpointAttributesCommand
+ */
+export const de_GetEndpointAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEndpointAttributesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryGetEndpointAttributesCommandError(output, context);
+    return de_GetEndpointAttributesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryGetEndpointAttributesResponse(data.GetEndpointAttributesResult, context);
+  contents = de_GetEndpointAttributesResponse(data.GetEndpointAttributesResult, context);
   const response: GetEndpointAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryGetEndpointAttributesCommandError = async (
+/**
+ * deserializeAws_queryGetEndpointAttributesCommandError
+ */
+const de_GetEndpointAttributesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEndpointAttributesCommandOutput> => {
@@ -1579,48 +1687,50 @@ const deserializeAws_queryGetEndpointAttributesCommandError = async (
   switch (errorCode) {
     case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
     case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
-      throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
-      throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
-      throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryGetPlatformApplicationAttributesCommand = async (
+/**
+ * deserializeAws_queryGetPlatformApplicationAttributesCommand
+ */
+export const de_GetPlatformApplicationAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPlatformApplicationAttributesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryGetPlatformApplicationAttributesCommandError(output, context);
+    return de_GetPlatformApplicationAttributesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryGetPlatformApplicationAttributesResponse(
-    data.GetPlatformApplicationAttributesResult,
-    context
-  );
+  contents = de_GetPlatformApplicationAttributesResponse(data.GetPlatformApplicationAttributesResult, context);
   const response: GetPlatformApplicationAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryGetPlatformApplicationAttributesCommandError = async (
+/**
+ * deserializeAws_queryGetPlatformApplicationAttributesCommandError
+ */
+const de_GetPlatformApplicationAttributesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPlatformApplicationAttributesCommandOutput> => {
@@ -1632,45 +1742,50 @@ const deserializeAws_queryGetPlatformApplicationAttributesCommandError = async (
   switch (errorCode) {
     case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
     case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
-      throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
-      throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
-      throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryGetSMSAttributesCommand = async (
+/**
+ * deserializeAws_queryGetSMSAttributesCommand
+ */
+export const de_GetSMSAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSMSAttributesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryGetSMSAttributesCommandError(output, context);
+    return de_GetSMSAttributesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryGetSMSAttributesResponse(data.GetSMSAttributesResult, context);
+  contents = de_GetSMSAttributesResponse(data.GetSMSAttributesResult, context);
   const response: GetSMSAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryGetSMSAttributesCommandError = async (
+/**
+ * deserializeAws_queryGetSMSAttributesCommandError
+ */
+const de_GetSMSAttributesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSMSAttributesCommandOutput> => {
@@ -1682,45 +1797,50 @@ const deserializeAws_queryGetSMSAttributesCommandError = async (
   switch (errorCode) {
     case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
     case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
-      throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
-      throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "Throttled":
     case "com.amazonaws.sns#ThrottledException":
-      throw await deserializeAws_queryThrottledExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryGetSMSSandboxAccountStatusCommand = async (
+/**
+ * deserializeAws_queryGetSMSSandboxAccountStatusCommand
+ */
+export const de_GetSMSSandboxAccountStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSMSSandboxAccountStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryGetSMSSandboxAccountStatusCommandError(output, context);
+    return de_GetSMSSandboxAccountStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryGetSMSSandboxAccountStatusResult(data.GetSMSSandboxAccountStatusResult, context);
+  contents = de_GetSMSSandboxAccountStatusResult(data.GetSMSSandboxAccountStatusResult, context);
   const response: GetSMSSandboxAccountStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryGetSMSSandboxAccountStatusCommandError = async (
+/**
+ * deserializeAws_queryGetSMSSandboxAccountStatusCommandError
+ */
+const de_GetSMSSandboxAccountStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSMSSandboxAccountStatusCommandOutput> => {
@@ -1732,42 +1852,47 @@ const deserializeAws_queryGetSMSSandboxAccountStatusCommandError = async (
   switch (errorCode) {
     case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
     case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
-      throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "Throttled":
     case "com.amazonaws.sns#ThrottledException":
-      throw await deserializeAws_queryThrottledExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryGetSubscriptionAttributesCommand = async (
+/**
+ * deserializeAws_queryGetSubscriptionAttributesCommand
+ */
+export const de_GetSubscriptionAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSubscriptionAttributesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryGetSubscriptionAttributesCommandError(output, context);
+    return de_GetSubscriptionAttributesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryGetSubscriptionAttributesResponse(data.GetSubscriptionAttributesResult, context);
+  contents = de_GetSubscriptionAttributesResponse(data.GetSubscriptionAttributesResult, context);
   const response: GetSubscriptionAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryGetSubscriptionAttributesCommandError = async (
+/**
+ * deserializeAws_queryGetSubscriptionAttributesCommandError
+ */
+const de_GetSubscriptionAttributesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSubscriptionAttributesCommandOutput> => {
@@ -1779,45 +1904,50 @@ const deserializeAws_queryGetSubscriptionAttributesCommandError = async (
   switch (errorCode) {
     case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
     case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
-      throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
-      throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
-      throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryGetTopicAttributesCommand = async (
+/**
+ * deserializeAws_queryGetTopicAttributesCommand
+ */
+export const de_GetTopicAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTopicAttributesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryGetTopicAttributesCommandError(output, context);
+    return de_GetTopicAttributesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryGetTopicAttributesResponse(data.GetTopicAttributesResult, context);
+  contents = de_GetTopicAttributesResponse(data.GetTopicAttributesResult, context);
   const response: GetTopicAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryGetTopicAttributesCommandError = async (
+/**
+ * deserializeAws_queryGetTopicAttributesCommandError
+ */
+const de_GetTopicAttributesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTopicAttributesCommandOutput> => {
@@ -1829,51 +1959,53 @@ const deserializeAws_queryGetTopicAttributesCommandError = async (
   switch (errorCode) {
     case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
     case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
-      throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
-      throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidSecurity":
     case "com.amazonaws.sns#InvalidSecurityException":
-      throw await deserializeAws_queryInvalidSecurityExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSecurityExceptionRes(parsedOutput, context);
     case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
-      throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryListEndpointsByPlatformApplicationCommand = async (
+/**
+ * deserializeAws_queryListEndpointsByPlatformApplicationCommand
+ */
+export const de_ListEndpointsByPlatformApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEndpointsByPlatformApplicationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryListEndpointsByPlatformApplicationCommandError(output, context);
+    return de_ListEndpointsByPlatformApplicationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListEndpointsByPlatformApplicationResponse(
-    data.ListEndpointsByPlatformApplicationResult,
-    context
-  );
+  contents = de_ListEndpointsByPlatformApplicationResponse(data.ListEndpointsByPlatformApplicationResult, context);
   const response: ListEndpointsByPlatformApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryListEndpointsByPlatformApplicationCommandError = async (
+/**
+ * deserializeAws_queryListEndpointsByPlatformApplicationCommandError
+ */
+const de_ListEndpointsByPlatformApplicationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEndpointsByPlatformApplicationCommandOutput> => {
@@ -1885,45 +2017,50 @@ const deserializeAws_queryListEndpointsByPlatformApplicationCommandError = async
   switch (errorCode) {
     case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
     case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
-      throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
-      throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
-      throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryListOriginationNumbersCommand = async (
+/**
+ * deserializeAws_queryListOriginationNumbersCommand
+ */
+export const de_ListOriginationNumbersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListOriginationNumbersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryListOriginationNumbersCommandError(output, context);
+    return de_ListOriginationNumbersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListOriginationNumbersResult(data.ListOriginationNumbersResult, context);
+  contents = de_ListOriginationNumbersResult(data.ListOriginationNumbersResult, context);
   const response: ListOriginationNumbersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryListOriginationNumbersCommandError = async (
+/**
+ * deserializeAws_queryListOriginationNumbersCommandError
+ */
+const de_ListOriginationNumbersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListOriginationNumbersCommandOutput> => {
@@ -1935,48 +2072,53 @@ const deserializeAws_queryListOriginationNumbersCommandError = async (
   switch (errorCode) {
     case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
     case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
-      throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
-      throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "Throttled":
     case "com.amazonaws.sns#ThrottledException":
-      throw await deserializeAws_queryThrottledExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.sns#ValidationException":
-      throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryListPhoneNumbersOptedOutCommand = async (
+/**
+ * deserializeAws_queryListPhoneNumbersOptedOutCommand
+ */
+export const de_ListPhoneNumbersOptedOutCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPhoneNumbersOptedOutCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryListPhoneNumbersOptedOutCommandError(output, context);
+    return de_ListPhoneNumbersOptedOutCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListPhoneNumbersOptedOutResponse(data.ListPhoneNumbersOptedOutResult, context);
+  contents = de_ListPhoneNumbersOptedOutResponse(data.ListPhoneNumbersOptedOutResult, context);
   const response: ListPhoneNumbersOptedOutCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryListPhoneNumbersOptedOutCommandError = async (
+/**
+ * deserializeAws_queryListPhoneNumbersOptedOutCommandError
+ */
+const de_ListPhoneNumbersOptedOutCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPhoneNumbersOptedOutCommandOutput> => {
@@ -1988,45 +2130,50 @@ const deserializeAws_queryListPhoneNumbersOptedOutCommandError = async (
   switch (errorCode) {
     case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
     case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
-      throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
-      throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "Throttled":
     case "com.amazonaws.sns#ThrottledException":
-      throw await deserializeAws_queryThrottledExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryListPlatformApplicationsCommand = async (
+/**
+ * deserializeAws_queryListPlatformApplicationsCommand
+ */
+export const de_ListPlatformApplicationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPlatformApplicationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryListPlatformApplicationsCommandError(output, context);
+    return de_ListPlatformApplicationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListPlatformApplicationsResponse(data.ListPlatformApplicationsResult, context);
+  contents = de_ListPlatformApplicationsResponse(data.ListPlatformApplicationsResult, context);
   const response: ListPlatformApplicationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryListPlatformApplicationsCommandError = async (
+/**
+ * deserializeAws_queryListPlatformApplicationsCommandError
+ */
+const de_ListPlatformApplicationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPlatformApplicationsCommandOutput> => {
@@ -2038,42 +2185,47 @@ const deserializeAws_queryListPlatformApplicationsCommandError = async (
   switch (errorCode) {
     case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
     case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
-      throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
-      throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryListSMSSandboxPhoneNumbersCommand = async (
+/**
+ * deserializeAws_queryListSMSSandboxPhoneNumbersCommand
+ */
+export const de_ListSMSSandboxPhoneNumbersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSMSSandboxPhoneNumbersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryListSMSSandboxPhoneNumbersCommandError(output, context);
+    return de_ListSMSSandboxPhoneNumbersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListSMSSandboxPhoneNumbersResult(data.ListSMSSandboxPhoneNumbersResult, context);
+  contents = de_ListSMSSandboxPhoneNumbersResult(data.ListSMSSandboxPhoneNumbersResult, context);
   const response: ListSMSSandboxPhoneNumbersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryListSMSSandboxPhoneNumbersCommandError = async (
+/**
+ * deserializeAws_queryListSMSSandboxPhoneNumbersCommandError
+ */
+const de_ListSMSSandboxPhoneNumbersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSMSSandboxPhoneNumbersCommandOutput> => {
@@ -2085,48 +2237,53 @@ const deserializeAws_queryListSMSSandboxPhoneNumbersCommandError = async (
   switch (errorCode) {
     case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
     case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
-      throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
-      throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.sns#ResourceNotFoundException":
-      throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "Throttled":
     case "com.amazonaws.sns#ThrottledException":
-      throw await deserializeAws_queryThrottledExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryListSubscriptionsCommand = async (
+/**
+ * deserializeAws_queryListSubscriptionsCommand
+ */
+export const de_ListSubscriptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSubscriptionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryListSubscriptionsCommandError(output, context);
+    return de_ListSubscriptionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListSubscriptionsResponse(data.ListSubscriptionsResult, context);
+  contents = de_ListSubscriptionsResponse(data.ListSubscriptionsResult, context);
   const response: ListSubscriptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryListSubscriptionsCommandError = async (
+/**
+ * deserializeAws_queryListSubscriptionsCommandError
+ */
+const de_ListSubscriptionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSubscriptionsCommandOutput> => {
@@ -2138,42 +2295,47 @@ const deserializeAws_queryListSubscriptionsCommandError = async (
   switch (errorCode) {
     case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
     case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
-      throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
-      throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryListSubscriptionsByTopicCommand = async (
+/**
+ * deserializeAws_queryListSubscriptionsByTopicCommand
+ */
+export const de_ListSubscriptionsByTopicCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSubscriptionsByTopicCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryListSubscriptionsByTopicCommandError(output, context);
+    return de_ListSubscriptionsByTopicCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListSubscriptionsByTopicResponse(data.ListSubscriptionsByTopicResult, context);
+  contents = de_ListSubscriptionsByTopicResponse(data.ListSubscriptionsByTopicResult, context);
   const response: ListSubscriptionsByTopicCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryListSubscriptionsByTopicCommandError = async (
+/**
+ * deserializeAws_queryListSubscriptionsByTopicCommandError
+ */
+const de_ListSubscriptionsByTopicCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSubscriptionsByTopicCommandOutput> => {
@@ -2185,45 +2347,50 @@ const deserializeAws_queryListSubscriptionsByTopicCommandError = async (
   switch (errorCode) {
     case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
     case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
-      throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
-      throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
-      throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryListTagsForResourceCommand = async (
+/**
+ * deserializeAws_queryListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListTagsForResourceResponse(data.ListTagsForResourceResult, context);
+  contents = de_ListTagsForResourceResponse(data.ListTagsForResourceResult, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_queryListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -2235,48 +2402,53 @@ const deserializeAws_queryListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
     case "ConcurrentAccess":
     case "com.amazonaws.sns#ConcurrentAccessException":
-      throw await deserializeAws_queryConcurrentAccessExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentAccessExceptionRes(parsedOutput, context);
     case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
-      throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.sns#ResourceNotFoundException":
-      throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TagPolicy":
     case "com.amazonaws.sns#TagPolicyException":
-      throw await deserializeAws_queryTagPolicyExceptionResponse(parsedOutput, context);
+      throw await de_TagPolicyExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryListTopicsCommand = async (
+/**
+ * deserializeAws_queryListTopicsCommand
+ */
+export const de_ListTopicsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTopicsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryListTopicsCommandError(output, context);
+    return de_ListTopicsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListTopicsResponse(data.ListTopicsResult, context);
+  contents = de_ListTopicsResponse(data.ListTopicsResult, context);
   const response: ListTopicsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryListTopicsCommandError = async (
+/**
+ * deserializeAws_queryListTopicsCommandError
+ */
+const de_ListTopicsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTopicsCommandOutput> => {
@@ -2288,42 +2460,47 @@ const deserializeAws_queryListTopicsCommandError = async (
   switch (errorCode) {
     case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
     case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
-      throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
-      throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryOptInPhoneNumberCommand = async (
+/**
+ * deserializeAws_queryOptInPhoneNumberCommand
+ */
+export const de_OptInPhoneNumberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<OptInPhoneNumberCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryOptInPhoneNumberCommandError(output, context);
+    return de_OptInPhoneNumberCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryOptInPhoneNumberResponse(data.OptInPhoneNumberResult, context);
+  contents = de_OptInPhoneNumberResponse(data.OptInPhoneNumberResult, context);
   const response: OptInPhoneNumberCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryOptInPhoneNumberCommandError = async (
+/**
+ * deserializeAws_queryOptInPhoneNumberCommandError
+ */
+const de_OptInPhoneNumberCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<OptInPhoneNumberCommandOutput> => {
@@ -2335,45 +2512,50 @@ const deserializeAws_queryOptInPhoneNumberCommandError = async (
   switch (errorCode) {
     case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
     case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
-      throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
-      throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "Throttled":
     case "com.amazonaws.sns#ThrottledException":
-      throw await deserializeAws_queryThrottledExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryPublishCommand = async (
+/**
+ * deserializeAws_queryPublishCommand
+ */
+export const de_PublishCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PublishCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryPublishCommandError(output, context);
+    return de_PublishCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryPublishResponse(data.PublishResult, context);
+  contents = de_PublishResponse(data.PublishResult, context);
   const response: PublishCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryPublishCommandError = async (
+/**
+ * deserializeAws_queryPublishCommandError
+ */
+const de_PublishCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PublishCommandOutput> => {
@@ -2385,78 +2567,83 @@ const deserializeAws_queryPublishCommandError = async (
   switch (errorCode) {
     case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
     case "EndpointDisabled":
     case "com.amazonaws.sns#EndpointDisabledException":
-      throw await deserializeAws_queryEndpointDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EndpointDisabledExceptionRes(parsedOutput, context);
     case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
-      throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
-      throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidSecurity":
     case "com.amazonaws.sns#InvalidSecurityException":
-      throw await deserializeAws_queryInvalidSecurityExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSecurityExceptionRes(parsedOutput, context);
     case "KMSAccessDenied":
     case "com.amazonaws.sns#KMSAccessDeniedException":
-      throw await deserializeAws_queryKMSAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_KMSAccessDeniedExceptionRes(parsedOutput, context);
     case "KMSDisabled":
     case "com.amazonaws.sns#KMSDisabledException":
-      throw await deserializeAws_queryKMSDisabledExceptionResponse(parsedOutput, context);
+      throw await de_KMSDisabledExceptionRes(parsedOutput, context);
     case "KMSInvalidState":
     case "com.amazonaws.sns#KMSInvalidStateException":
-      throw await deserializeAws_queryKMSInvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_KMSInvalidStateExceptionRes(parsedOutput, context);
     case "KMSNotFound":
     case "com.amazonaws.sns#KMSNotFoundException":
-      throw await deserializeAws_queryKMSNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_KMSNotFoundExceptionRes(parsedOutput, context);
     case "KMSOptInRequired":
     case "com.amazonaws.sns#KMSOptInRequired":
-      throw await deserializeAws_queryKMSOptInRequiredResponse(parsedOutput, context);
+      throw await de_KMSOptInRequiredRes(parsedOutput, context);
     case "KMSThrottling":
     case "com.amazonaws.sns#KMSThrottlingException":
-      throw await deserializeAws_queryKMSThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_KMSThrottlingExceptionRes(parsedOutput, context);
     case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
-      throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ParameterValueInvalid":
     case "com.amazonaws.sns#InvalidParameterValueException":
-      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "PlatformApplicationDisabled":
     case "com.amazonaws.sns#PlatformApplicationDisabledException":
-      throw await deserializeAws_queryPlatformApplicationDisabledExceptionResponse(parsedOutput, context);
+      throw await de_PlatformApplicationDisabledExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.sns#ValidationException":
-      throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryPublishBatchCommand = async (
+/**
+ * deserializeAws_queryPublishBatchCommand
+ */
+export const de_PublishBatchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PublishBatchCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryPublishBatchCommandError(output, context);
+    return de_PublishBatchCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryPublishBatchResponse(data.PublishBatchResult, context);
+  contents = de_PublishBatchResponse(data.PublishBatchResult, context);
   const response: PublishBatchCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryPublishBatchCommandError = async (
+/**
+ * deserializeAws_queryPublishBatchCommandError
+ */
+const de_PublishBatchCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PublishBatchCommandOutput> => {
@@ -2468,90 +2655,95 @@ const deserializeAws_queryPublishBatchCommandError = async (
   switch (errorCode) {
     case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
     case "BatchEntryIdsNotDistinct":
     case "com.amazonaws.sns#BatchEntryIdsNotDistinctException":
-      throw await deserializeAws_queryBatchEntryIdsNotDistinctExceptionResponse(parsedOutput, context);
+      throw await de_BatchEntryIdsNotDistinctExceptionRes(parsedOutput, context);
     case "BatchRequestTooLong":
     case "com.amazonaws.sns#BatchRequestTooLongException":
-      throw await deserializeAws_queryBatchRequestTooLongExceptionResponse(parsedOutput, context);
+      throw await de_BatchRequestTooLongExceptionRes(parsedOutput, context);
     case "EmptyBatchRequest":
     case "com.amazonaws.sns#EmptyBatchRequestException":
-      throw await deserializeAws_queryEmptyBatchRequestExceptionResponse(parsedOutput, context);
+      throw await de_EmptyBatchRequestExceptionRes(parsedOutput, context);
     case "EndpointDisabled":
     case "com.amazonaws.sns#EndpointDisabledException":
-      throw await deserializeAws_queryEndpointDisabledExceptionResponse(parsedOutput, context);
+      throw await de_EndpointDisabledExceptionRes(parsedOutput, context);
     case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
-      throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidBatchEntryId":
     case "com.amazonaws.sns#InvalidBatchEntryIdException":
-      throw await deserializeAws_queryInvalidBatchEntryIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidBatchEntryIdExceptionRes(parsedOutput, context);
     case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
-      throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidSecurity":
     case "com.amazonaws.sns#InvalidSecurityException":
-      throw await deserializeAws_queryInvalidSecurityExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSecurityExceptionRes(parsedOutput, context);
     case "KMSAccessDenied":
     case "com.amazonaws.sns#KMSAccessDeniedException":
-      throw await deserializeAws_queryKMSAccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_KMSAccessDeniedExceptionRes(parsedOutput, context);
     case "KMSDisabled":
     case "com.amazonaws.sns#KMSDisabledException":
-      throw await deserializeAws_queryKMSDisabledExceptionResponse(parsedOutput, context);
+      throw await de_KMSDisabledExceptionRes(parsedOutput, context);
     case "KMSInvalidState":
     case "com.amazonaws.sns#KMSInvalidStateException":
-      throw await deserializeAws_queryKMSInvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_KMSInvalidStateExceptionRes(parsedOutput, context);
     case "KMSNotFound":
     case "com.amazonaws.sns#KMSNotFoundException":
-      throw await deserializeAws_queryKMSNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_KMSNotFoundExceptionRes(parsedOutput, context);
     case "KMSOptInRequired":
     case "com.amazonaws.sns#KMSOptInRequired":
-      throw await deserializeAws_queryKMSOptInRequiredResponse(parsedOutput, context);
+      throw await de_KMSOptInRequiredRes(parsedOutput, context);
     case "KMSThrottling":
     case "com.amazonaws.sns#KMSThrottlingException":
-      throw await deserializeAws_queryKMSThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_KMSThrottlingExceptionRes(parsedOutput, context);
     case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
-      throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ParameterValueInvalid":
     case "com.amazonaws.sns#InvalidParameterValueException":
-      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "PlatformApplicationDisabled":
     case "com.amazonaws.sns#PlatformApplicationDisabledException":
-      throw await deserializeAws_queryPlatformApplicationDisabledExceptionResponse(parsedOutput, context);
+      throw await de_PlatformApplicationDisabledExceptionRes(parsedOutput, context);
     case "TooManyEntriesInBatchRequest":
     case "com.amazonaws.sns#TooManyEntriesInBatchRequestException":
-      throw await deserializeAws_queryTooManyEntriesInBatchRequestExceptionResponse(parsedOutput, context);
+      throw await de_TooManyEntriesInBatchRequestExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.sns#ValidationException":
-      throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryPutDataProtectionPolicyCommand = async (
+/**
+ * deserializeAws_queryPutDataProtectionPolicyCommand
+ */
+export const de_PutDataProtectionPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutDataProtectionPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryPutDataProtectionPolicyCommandError(output, context);
+    return de_PutDataProtectionPolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: PutDataProtectionPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryPutDataProtectionPolicyCommandError = async (
+/**
+ * deserializeAws_queryPutDataProtectionPolicyCommandError
+ */
+const de_PutDataProtectionPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutDataProtectionPolicyCommandOutput> => {
@@ -2563,45 +2755,50 @@ const deserializeAws_queryPutDataProtectionPolicyCommandError = async (
   switch (errorCode) {
     case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
     case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
-      throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
-      throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidSecurity":
     case "com.amazonaws.sns#InvalidSecurityException":
-      throw await deserializeAws_queryInvalidSecurityExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSecurityExceptionRes(parsedOutput, context);
     case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
-      throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryRemovePermissionCommand = async (
+/**
+ * deserializeAws_queryRemovePermissionCommand
+ */
+export const de_RemovePermissionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemovePermissionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryRemovePermissionCommandError(output, context);
+    return de_RemovePermissionCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: RemovePermissionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryRemovePermissionCommandError = async (
+/**
+ * deserializeAws_queryRemovePermissionCommandError
+ */
+const de_RemovePermissionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemovePermissionCommandOutput> => {
@@ -2613,42 +2810,47 @@ const deserializeAws_queryRemovePermissionCommandError = async (
   switch (errorCode) {
     case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
     case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
-      throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
-      throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
-      throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_querySetEndpointAttributesCommand = async (
+/**
+ * deserializeAws_querySetEndpointAttributesCommand
+ */
+export const de_SetEndpointAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetEndpointAttributesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_querySetEndpointAttributesCommandError(output, context);
+    return de_SetEndpointAttributesCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: SetEndpointAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_querySetEndpointAttributesCommandError = async (
+/**
+ * deserializeAws_querySetEndpointAttributesCommandError
+ */
+const de_SetEndpointAttributesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetEndpointAttributesCommandOutput> => {
@@ -2660,42 +2862,47 @@ const deserializeAws_querySetEndpointAttributesCommandError = async (
   switch (errorCode) {
     case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
     case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
-      throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
-      throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
-      throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_querySetPlatformApplicationAttributesCommand = async (
+/**
+ * deserializeAws_querySetPlatformApplicationAttributesCommand
+ */
+export const de_SetPlatformApplicationAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetPlatformApplicationAttributesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_querySetPlatformApplicationAttributesCommandError(output, context);
+    return de_SetPlatformApplicationAttributesCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: SetPlatformApplicationAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_querySetPlatformApplicationAttributesCommandError = async (
+/**
+ * deserializeAws_querySetPlatformApplicationAttributesCommandError
+ */
+const de_SetPlatformApplicationAttributesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetPlatformApplicationAttributesCommandOutput> => {
@@ -2707,45 +2914,50 @@ const deserializeAws_querySetPlatformApplicationAttributesCommandError = async (
   switch (errorCode) {
     case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
     case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
-      throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
-      throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
-      throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_querySetSMSAttributesCommand = async (
+/**
+ * deserializeAws_querySetSMSAttributesCommand
+ */
+export const de_SetSMSAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetSMSAttributesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_querySetSMSAttributesCommandError(output, context);
+    return de_SetSMSAttributesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_querySetSMSAttributesResponse(data.SetSMSAttributesResult, context);
+  contents = de_SetSMSAttributesResponse(data.SetSMSAttributesResult, context);
   const response: SetSMSAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_querySetSMSAttributesCommandError = async (
+/**
+ * deserializeAws_querySetSMSAttributesCommandError
+ */
+const de_SetSMSAttributesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetSMSAttributesCommandOutput> => {
@@ -2757,42 +2969,47 @@ const deserializeAws_querySetSMSAttributesCommandError = async (
   switch (errorCode) {
     case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
     case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
-      throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
-      throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "Throttled":
     case "com.amazonaws.sns#ThrottledException":
-      throw await deserializeAws_queryThrottledExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_querySetSubscriptionAttributesCommand = async (
+/**
+ * deserializeAws_querySetSubscriptionAttributesCommand
+ */
+export const de_SetSubscriptionAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetSubscriptionAttributesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_querySetSubscriptionAttributesCommandError(output, context);
+    return de_SetSubscriptionAttributesCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: SetSubscriptionAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_querySetSubscriptionAttributesCommandError = async (
+/**
+ * deserializeAws_querySetSubscriptionAttributesCommandError
+ */
+const de_SetSubscriptionAttributesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetSubscriptionAttributesCommandOutput> => {
@@ -2804,45 +3021,50 @@ const deserializeAws_querySetSubscriptionAttributesCommandError = async (
   switch (errorCode) {
     case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
     case "FilterPolicyLimitExceeded":
     case "com.amazonaws.sns#FilterPolicyLimitExceededException":
-      throw await deserializeAws_queryFilterPolicyLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_FilterPolicyLimitExceededExceptionRes(parsedOutput, context);
     case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
-      throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
-      throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
-      throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_querySetTopicAttributesCommand = async (
+/**
+ * deserializeAws_querySetTopicAttributesCommand
+ */
+export const de_SetTopicAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetTopicAttributesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_querySetTopicAttributesCommandError(output, context);
+    return de_SetTopicAttributesCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: SetTopicAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_querySetTopicAttributesCommandError = async (
+/**
+ * deserializeAws_querySetTopicAttributesCommandError
+ */
+const de_SetTopicAttributesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetTopicAttributesCommandOutput> => {
@@ -2854,48 +3076,53 @@ const deserializeAws_querySetTopicAttributesCommandError = async (
   switch (errorCode) {
     case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
     case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
-      throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
-      throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidSecurity":
     case "com.amazonaws.sns#InvalidSecurityException":
-      throw await deserializeAws_queryInvalidSecurityExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSecurityExceptionRes(parsedOutput, context);
     case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
-      throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_querySubscribeCommand = async (
+/**
+ * deserializeAws_querySubscribeCommand
+ */
+export const de_SubscribeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SubscribeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_querySubscribeCommandError(output, context);
+    return de_SubscribeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_querySubscribeResponse(data.SubscribeResult, context);
+  contents = de_SubscribeResponse(data.SubscribeResult, context);
   const response: SubscribeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_querySubscribeCommandError = async (
+/**
+ * deserializeAws_querySubscribeCommandError
+ */
+const de_SubscribeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SubscribeCommandOutput> => {
@@ -2907,54 +3134,59 @@ const deserializeAws_querySubscribeCommandError = async (
   switch (errorCode) {
     case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
     case "FilterPolicyLimitExceeded":
     case "com.amazonaws.sns#FilterPolicyLimitExceededException":
-      throw await deserializeAws_queryFilterPolicyLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_FilterPolicyLimitExceededExceptionRes(parsedOutput, context);
     case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
-      throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
-      throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidSecurity":
     case "com.amazonaws.sns#InvalidSecurityException":
-      throw await deserializeAws_queryInvalidSecurityExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSecurityExceptionRes(parsedOutput, context);
     case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
-      throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "SubscriptionLimitExceeded":
     case "com.amazonaws.sns#SubscriptionLimitExceededException":
-      throw await deserializeAws_querySubscriptionLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_SubscriptionLimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryTagResourceCommand = async (
+/**
+ * deserializeAws_queryTagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryTagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryTagResourceResponse(data.TagResourceResult, context);
+  contents = de_TagResourceResponse(data.TagResourceResult, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryTagResourceCommandError = async (
+/**
+ * deserializeAws_queryTagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -2966,51 +3198,56 @@ const deserializeAws_queryTagResourceCommandError = async (
   switch (errorCode) {
     case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
     case "ConcurrentAccess":
     case "com.amazonaws.sns#ConcurrentAccessException":
-      throw await deserializeAws_queryConcurrentAccessExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentAccessExceptionRes(parsedOutput, context);
     case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
-      throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.sns#ResourceNotFoundException":
-      throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "StaleTag":
     case "com.amazonaws.sns#StaleTagException":
-      throw await deserializeAws_queryStaleTagExceptionResponse(parsedOutput, context);
+      throw await de_StaleTagExceptionRes(parsedOutput, context);
     case "TagLimitExceeded":
     case "com.amazonaws.sns#TagLimitExceededException":
-      throw await deserializeAws_queryTagLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_TagLimitExceededExceptionRes(parsedOutput, context);
     case "TagPolicy":
     case "com.amazonaws.sns#TagPolicyException":
-      throw await deserializeAws_queryTagPolicyExceptionResponse(parsedOutput, context);
+      throw await de_TagPolicyExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryUnsubscribeCommand = async (
+/**
+ * deserializeAws_queryUnsubscribeCommand
+ */
+export const de_UnsubscribeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UnsubscribeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryUnsubscribeCommandError(output, context);
+    return de_UnsubscribeCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UnsubscribeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryUnsubscribeCommandError = async (
+/**
+ * deserializeAws_queryUnsubscribeCommandError
+ */
+const de_UnsubscribeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UnsubscribeCommandOutput> => {
@@ -3022,48 +3259,53 @@ const deserializeAws_queryUnsubscribeCommandError = async (
   switch (errorCode) {
     case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
     case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
-      throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
-      throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidSecurity":
     case "com.amazonaws.sns#InvalidSecurityException":
-      throw await deserializeAws_queryInvalidSecurityExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSecurityExceptionRes(parsedOutput, context);
     case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
-      throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryUntagResourceCommand = async (
+/**
+ * deserializeAws_queryUntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryUntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryUntagResourceResponse(data.UntagResourceResult, context);
+  contents = de_UntagResourceResponse(data.UntagResourceResult, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryUntagResourceCommandError = async (
+/**
+ * deserializeAws_queryUntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -3075,54 +3317,59 @@ const deserializeAws_queryUntagResourceCommandError = async (
   switch (errorCode) {
     case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
     case "ConcurrentAccess":
     case "com.amazonaws.sns#ConcurrentAccessException":
-      throw await deserializeAws_queryConcurrentAccessExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentAccessExceptionRes(parsedOutput, context);
     case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
-      throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.sns#ResourceNotFoundException":
-      throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "StaleTag":
     case "com.amazonaws.sns#StaleTagException":
-      throw await deserializeAws_queryStaleTagExceptionResponse(parsedOutput, context);
+      throw await de_StaleTagExceptionRes(parsedOutput, context);
     case "TagLimitExceeded":
     case "com.amazonaws.sns#TagLimitExceededException":
-      throw await deserializeAws_queryTagLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_TagLimitExceededExceptionRes(parsedOutput, context);
     case "TagPolicy":
     case "com.amazonaws.sns#TagPolicyException":
-      throw await deserializeAws_queryTagPolicyExceptionResponse(parsedOutput, context);
+      throw await de_TagPolicyExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryVerifySMSSandboxPhoneNumberCommand = async (
+/**
+ * deserializeAws_queryVerifySMSSandboxPhoneNumberCommand
+ */
+export const de_VerifySMSSandboxPhoneNumberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<VerifySMSSandboxPhoneNumberCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryVerifySMSSandboxPhoneNumberCommandError(output, context);
+    return de_VerifySMSSandboxPhoneNumberCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryVerifySMSSandboxPhoneNumberResult(data.VerifySMSSandboxPhoneNumberResult, context);
+  contents = de_VerifySMSSandboxPhoneNumberResult(data.VerifySMSSandboxPhoneNumberResult, context);
   const response: VerifySMSSandboxPhoneNumberCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryVerifySMSSandboxPhoneNumberCommandError = async (
+/**
+ * deserializeAws_queryVerifySMSSandboxPhoneNumberCommandError
+ */
+const de_VerifySMSSandboxPhoneNumberCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<VerifySMSSandboxPhoneNumberCommandOutput> => {
@@ -3134,39 +3381,41 @@ const deserializeAws_queryVerifySMSSandboxPhoneNumberCommandError = async (
   switch (errorCode) {
     case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
     case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
-      throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
-      throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.sns#ResourceNotFoundException":
-      throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "Throttled":
     case "com.amazonaws.sns#ThrottledException":
-      throw await deserializeAws_queryThrottledExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledExceptionRes(parsedOutput, context);
     case "VerificationException":
     case "com.amazonaws.sns#VerificationException":
-      throw await deserializeAws_queryVerificationExceptionResponse(parsedOutput, context);
+      throw await de_VerificationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const deserializeAws_queryAuthorizationErrorExceptionResponse = async (
+/**
+ * deserializeAws_queryAuthorizationErrorExceptionRes
+ */
+const de_AuthorizationErrorExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AuthorizationErrorException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryAuthorizationErrorException(body.Error, context);
+  const deserialized: any = de_AuthorizationErrorException(body.Error, context);
   const exception = new AuthorizationErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3174,12 +3423,15 @@ const deserializeAws_queryAuthorizationErrorExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryBatchEntryIdsNotDistinctExceptionResponse = async (
+/**
+ * deserializeAws_queryBatchEntryIdsNotDistinctExceptionRes
+ */
+const de_BatchEntryIdsNotDistinctExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<BatchEntryIdsNotDistinctException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryBatchEntryIdsNotDistinctException(body.Error, context);
+  const deserialized: any = de_BatchEntryIdsNotDistinctException(body.Error, context);
   const exception = new BatchEntryIdsNotDistinctException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3187,12 +3439,15 @@ const deserializeAws_queryBatchEntryIdsNotDistinctExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryBatchRequestTooLongExceptionResponse = async (
+/**
+ * deserializeAws_queryBatchRequestTooLongExceptionRes
+ */
+const de_BatchRequestTooLongExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<BatchRequestTooLongException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryBatchRequestTooLongException(body.Error, context);
+  const deserialized: any = de_BatchRequestTooLongException(body.Error, context);
   const exception = new BatchRequestTooLongException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3200,12 +3455,15 @@ const deserializeAws_queryBatchRequestTooLongExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryConcurrentAccessExceptionResponse = async (
+/**
+ * deserializeAws_queryConcurrentAccessExceptionRes
+ */
+const de_ConcurrentAccessExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ConcurrentAccessException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryConcurrentAccessException(body.Error, context);
+  const deserialized: any = de_ConcurrentAccessException(body.Error, context);
   const exception = new ConcurrentAccessException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3213,12 +3471,15 @@ const deserializeAws_queryConcurrentAccessExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryEmptyBatchRequestExceptionResponse = async (
+/**
+ * deserializeAws_queryEmptyBatchRequestExceptionRes
+ */
+const de_EmptyBatchRequestExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<EmptyBatchRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryEmptyBatchRequestException(body.Error, context);
+  const deserialized: any = de_EmptyBatchRequestException(body.Error, context);
   const exception = new EmptyBatchRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3226,12 +3487,15 @@ const deserializeAws_queryEmptyBatchRequestExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryEndpointDisabledExceptionResponse = async (
+/**
+ * deserializeAws_queryEndpointDisabledExceptionRes
+ */
+const de_EndpointDisabledExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<EndpointDisabledException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryEndpointDisabledException(body.Error, context);
+  const deserialized: any = de_EndpointDisabledException(body.Error, context);
   const exception = new EndpointDisabledException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3239,12 +3503,15 @@ const deserializeAws_queryEndpointDisabledExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryFilterPolicyLimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_queryFilterPolicyLimitExceededExceptionRes
+ */
+const de_FilterPolicyLimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<FilterPolicyLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryFilterPolicyLimitExceededException(body.Error, context);
+  const deserialized: any = de_FilterPolicyLimitExceededException(body.Error, context);
   const exception = new FilterPolicyLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3252,12 +3519,15 @@ const deserializeAws_queryFilterPolicyLimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryInternalErrorExceptionResponse = async (
+/**
+ * deserializeAws_queryInternalErrorExceptionRes
+ */
+const de_InternalErrorExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalErrorException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInternalErrorException(body.Error, context);
+  const deserialized: any = de_InternalErrorException(body.Error, context);
   const exception = new InternalErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3265,12 +3535,15 @@ const deserializeAws_queryInternalErrorExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryInvalidBatchEntryIdExceptionResponse = async (
+/**
+ * deserializeAws_queryInvalidBatchEntryIdExceptionRes
+ */
+const de_InvalidBatchEntryIdExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidBatchEntryIdException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInvalidBatchEntryIdException(body.Error, context);
+  const deserialized: any = de_InvalidBatchEntryIdException(body.Error, context);
   const exception = new InvalidBatchEntryIdException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3278,12 +3551,15 @@ const deserializeAws_queryInvalidBatchEntryIdExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryInvalidParameterExceptionResponse = async (
+/**
+ * deserializeAws_queryInvalidParameterExceptionRes
+ */
+const de_InvalidParameterExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidParameterException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInvalidParameterException(body.Error, context);
+  const deserialized: any = de_InvalidParameterException(body.Error, context);
   const exception = new InvalidParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3291,12 +3567,15 @@ const deserializeAws_queryInvalidParameterExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryInvalidParameterValueExceptionResponse = async (
+/**
+ * deserializeAws_queryInvalidParameterValueExceptionRes
+ */
+const de_InvalidParameterValueExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidParameterValueException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInvalidParameterValueException(body.Error, context);
+  const deserialized: any = de_InvalidParameterValueException(body.Error, context);
   const exception = new InvalidParameterValueException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3304,12 +3583,15 @@ const deserializeAws_queryInvalidParameterValueExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryInvalidSecurityExceptionResponse = async (
+/**
+ * deserializeAws_queryInvalidSecurityExceptionRes
+ */
+const de_InvalidSecurityExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidSecurityException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInvalidSecurityException(body.Error, context);
+  const deserialized: any = de_InvalidSecurityException(body.Error, context);
   const exception = new InvalidSecurityException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3317,12 +3599,15 @@ const deserializeAws_queryInvalidSecurityExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryKMSAccessDeniedExceptionResponse = async (
+/**
+ * deserializeAws_queryKMSAccessDeniedExceptionRes
+ */
+const de_KMSAccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<KMSAccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryKMSAccessDeniedException(body.Error, context);
+  const deserialized: any = de_KMSAccessDeniedException(body.Error, context);
   const exception = new KMSAccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3330,12 +3615,15 @@ const deserializeAws_queryKMSAccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryKMSDisabledExceptionResponse = async (
+/**
+ * deserializeAws_queryKMSDisabledExceptionRes
+ */
+const de_KMSDisabledExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<KMSDisabledException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryKMSDisabledException(body.Error, context);
+  const deserialized: any = de_KMSDisabledException(body.Error, context);
   const exception = new KMSDisabledException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3343,12 +3631,15 @@ const deserializeAws_queryKMSDisabledExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryKMSInvalidStateExceptionResponse = async (
+/**
+ * deserializeAws_queryKMSInvalidStateExceptionRes
+ */
+const de_KMSInvalidStateExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<KMSInvalidStateException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryKMSInvalidStateException(body.Error, context);
+  const deserialized: any = de_KMSInvalidStateException(body.Error, context);
   const exception = new KMSInvalidStateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3356,12 +3647,15 @@ const deserializeAws_queryKMSInvalidStateExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryKMSNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_queryKMSNotFoundExceptionRes
+ */
+const de_KMSNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<KMSNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryKMSNotFoundException(body.Error, context);
+  const deserialized: any = de_KMSNotFoundException(body.Error, context);
   const exception = new KMSNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3369,12 +3663,12 @@ const deserializeAws_queryKMSNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryKMSOptInRequiredResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<KMSOptInRequired> => {
+/**
+ * deserializeAws_queryKMSOptInRequiredRes
+ */
+const de_KMSOptInRequiredRes = async (parsedOutput: any, context: __SerdeContext): Promise<KMSOptInRequired> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryKMSOptInRequired(body.Error, context);
+  const deserialized: any = de_KMSOptInRequired(body.Error, context);
   const exception = new KMSOptInRequired({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3382,12 +3676,15 @@ const deserializeAws_queryKMSOptInRequiredResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryKMSThrottlingExceptionResponse = async (
+/**
+ * deserializeAws_queryKMSThrottlingExceptionRes
+ */
+const de_KMSThrottlingExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<KMSThrottlingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryKMSThrottlingException(body.Error, context);
+  const deserialized: any = de_KMSThrottlingException(body.Error, context);
   const exception = new KMSThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3395,12 +3692,12 @@ const deserializeAws_queryKMSThrottlingExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryNotFoundExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<NotFoundException> => {
+/**
+ * deserializeAws_queryNotFoundExceptionRes
+ */
+const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryNotFoundException(body.Error, context);
+  const deserialized: any = de_NotFoundException(body.Error, context);
   const exception = new NotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3408,12 +3705,12 @@ const deserializeAws_queryNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryOptedOutExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<OptedOutException> => {
+/**
+ * deserializeAws_queryOptedOutExceptionRes
+ */
+const de_OptedOutExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<OptedOutException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryOptedOutException(body.Error, context);
+  const deserialized: any = de_OptedOutException(body.Error, context);
   const exception = new OptedOutException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3421,12 +3718,15 @@ const deserializeAws_queryOptedOutExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryPlatformApplicationDisabledExceptionResponse = async (
+/**
+ * deserializeAws_queryPlatformApplicationDisabledExceptionRes
+ */
+const de_PlatformApplicationDisabledExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PlatformApplicationDisabledException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryPlatformApplicationDisabledException(body.Error, context);
+  const deserialized: any = de_PlatformApplicationDisabledException(body.Error, context);
   const exception = new PlatformApplicationDisabledException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3434,12 +3734,15 @@ const deserializeAws_queryPlatformApplicationDisabledExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_queryResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryResourceNotFoundException(body.Error, context);
+  const deserialized: any = de_ResourceNotFoundException(body.Error, context);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3447,12 +3750,12 @@ const deserializeAws_queryResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryStaleTagExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<StaleTagException> => {
+/**
+ * deserializeAws_queryStaleTagExceptionRes
+ */
+const de_StaleTagExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<StaleTagException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryStaleTagException(body.Error, context);
+  const deserialized: any = de_StaleTagException(body.Error, context);
   const exception = new StaleTagException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3460,12 +3763,15 @@ const deserializeAws_queryStaleTagExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_querySubscriptionLimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_querySubscriptionLimitExceededExceptionRes
+ */
+const de_SubscriptionLimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<SubscriptionLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_querySubscriptionLimitExceededException(body.Error, context);
+  const deserialized: any = de_SubscriptionLimitExceededException(body.Error, context);
   const exception = new SubscriptionLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3473,12 +3779,15 @@ const deserializeAws_querySubscriptionLimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryTagLimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_queryTagLimitExceededExceptionRes
+ */
+const de_TagLimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TagLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryTagLimitExceededException(body.Error, context);
+  const deserialized: any = de_TagLimitExceededException(body.Error, context);
   const exception = new TagLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3486,12 +3795,12 @@ const deserializeAws_queryTagLimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryTagPolicyExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<TagPolicyException> => {
+/**
+ * deserializeAws_queryTagPolicyExceptionRes
+ */
+const de_TagPolicyExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<TagPolicyException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryTagPolicyException(body.Error, context);
+  const deserialized: any = de_TagPolicyException(body.Error, context);
   const exception = new TagPolicyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3499,12 +3808,12 @@ const deserializeAws_queryTagPolicyExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryThrottledExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottledException> => {
+/**
+ * deserializeAws_queryThrottledExceptionRes
+ */
+const de_ThrottledExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottledException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryThrottledException(body.Error, context);
+  const deserialized: any = de_ThrottledException(body.Error, context);
   const exception = new ThrottledException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3512,12 +3821,15 @@ const deserializeAws_queryThrottledExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryTooManyEntriesInBatchRequestExceptionResponse = async (
+/**
+ * deserializeAws_queryTooManyEntriesInBatchRequestExceptionRes
+ */
+const de_TooManyEntriesInBatchRequestExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyEntriesInBatchRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryTooManyEntriesInBatchRequestException(body.Error, context);
+  const deserialized: any = de_TooManyEntriesInBatchRequestException(body.Error, context);
   const exception = new TooManyEntriesInBatchRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3525,12 +3837,15 @@ const deserializeAws_queryTooManyEntriesInBatchRequestExceptionResponse = async 
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryTopicLimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_queryTopicLimitExceededExceptionRes
+ */
+const de_TopicLimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TopicLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryTopicLimitExceededException(body.Error, context);
+  const deserialized: any = de_TopicLimitExceededException(body.Error, context);
   const exception = new TopicLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3538,12 +3853,12 @@ const deserializeAws_queryTopicLimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryUserErrorExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<UserErrorException> => {
+/**
+ * deserializeAws_queryUserErrorExceptionRes
+ */
+const de_UserErrorExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<UserErrorException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryUserErrorException(body.Error, context);
+  const deserialized: any = de_UserErrorException(body.Error, context);
   const exception = new UserErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3551,12 +3866,12 @@ const deserializeAws_queryUserErrorExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_queryValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryValidationException(body.Error, context);
+  const deserialized: any = de_ValidationException(body.Error, context);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3564,12 +3879,15 @@ const deserializeAws_queryValidationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryVerificationExceptionResponse = async (
+/**
+ * deserializeAws_queryVerificationExceptionRes
+ */
+const de_VerificationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<VerificationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryVerificationException(body.Error, context);
+  const deserialized: any = de_VerificationException(body.Error, context);
   const exception = new VerificationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3577,7 +3895,10 @@ const deserializeAws_queryVerificationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_queryActionsList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryActionsList
+ */
+const se_ActionsList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -3590,7 +3911,10 @@ const serializeAws_queryActionsList = (input: string[], context: __SerdeContext)
   return entries;
 };
 
-const serializeAws_queryAddPermissionInput = (input: AddPermissionInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryAddPermissionInput
+ */
+const se_AddPermissionInput = (input: AddPermissionInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.TopicArn != null) {
     entries["TopicArn"] = input.TopicArn;
@@ -3599,7 +3923,7 @@ const serializeAws_queryAddPermissionInput = (input: AddPermissionInput, context
     entries["Label"] = input.Label;
   }
   if (input.AWSAccountId != null) {
-    const memberEntries = serializeAws_queryDelegatesList(input.AWSAccountId, context);
+    const memberEntries = se_DelegatesList(input.AWSAccountId, context);
     if (input.AWSAccountId?.length === 0) {
       entries.AWSAccountId = [];
     }
@@ -3609,7 +3933,7 @@ const serializeAws_queryAddPermissionInput = (input: AddPermissionInput, context
     });
   }
   if (input.ActionName != null) {
-    const memberEntries = serializeAws_queryActionsList(input.ActionName, context);
+    const memberEntries = se_ActionsList(input.ActionName, context);
     if (input.ActionName?.length === 0) {
       entries.ActionName = [];
     }
@@ -3621,7 +3945,10 @@ const serializeAws_queryAddPermissionInput = (input: AddPermissionInput, context
   return entries;
 };
 
-const serializeAws_queryCheckIfPhoneNumberIsOptedOutInput = (
+/**
+ * serializeAws_queryCheckIfPhoneNumberIsOptedOutInput
+ */
+const se_CheckIfPhoneNumberIsOptedOutInput = (
   input: CheckIfPhoneNumberIsOptedOutInput,
   context: __SerdeContext
 ): any => {
@@ -3632,7 +3959,10 @@ const serializeAws_queryCheckIfPhoneNumberIsOptedOutInput = (
   return entries;
 };
 
-const serializeAws_queryConfirmSubscriptionInput = (input: ConfirmSubscriptionInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryConfirmSubscriptionInput
+ */
+const se_ConfirmSubscriptionInput = (input: ConfirmSubscriptionInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.TopicArn != null) {
     entries["TopicArn"] = input.TopicArn;
@@ -3646,10 +3976,10 @@ const serializeAws_queryConfirmSubscriptionInput = (input: ConfirmSubscriptionIn
   return entries;
 };
 
-const serializeAws_queryCreatePlatformApplicationInput = (
-  input: CreatePlatformApplicationInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryCreatePlatformApplicationInput
+ */
+const se_CreatePlatformApplicationInput = (input: CreatePlatformApplicationInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.Name != null) {
     entries["Name"] = input.Name;
@@ -3658,7 +3988,7 @@ const serializeAws_queryCreatePlatformApplicationInput = (
     entries["Platform"] = input.Platform;
   }
   if (input.Attributes != null) {
-    const memberEntries = serializeAws_queryMapStringToString(input.Attributes, context);
+    const memberEntries = se_MapStringToString(input.Attributes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Attributes.${key}`;
       entries[loc] = value;
@@ -3667,10 +3997,10 @@ const serializeAws_queryCreatePlatformApplicationInput = (
   return entries;
 };
 
-const serializeAws_queryCreatePlatformEndpointInput = (
-  input: CreatePlatformEndpointInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryCreatePlatformEndpointInput
+ */
+const se_CreatePlatformEndpointInput = (input: CreatePlatformEndpointInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.PlatformApplicationArn != null) {
     entries["PlatformApplicationArn"] = input.PlatformApplicationArn;
@@ -3682,7 +4012,7 @@ const serializeAws_queryCreatePlatformEndpointInput = (
     entries["CustomUserData"] = input.CustomUserData;
   }
   if (input.Attributes != null) {
-    const memberEntries = serializeAws_queryMapStringToString(input.Attributes, context);
+    const memberEntries = se_MapStringToString(input.Attributes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Attributes.${key}`;
       entries[loc] = value;
@@ -3691,10 +4021,10 @@ const serializeAws_queryCreatePlatformEndpointInput = (
   return entries;
 };
 
-const serializeAws_queryCreateSMSSandboxPhoneNumberInput = (
-  input: CreateSMSSandboxPhoneNumberInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryCreateSMSSandboxPhoneNumberInput
+ */
+const se_CreateSMSSandboxPhoneNumberInput = (input: CreateSMSSandboxPhoneNumberInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.PhoneNumber != null) {
     entries["PhoneNumber"] = input.PhoneNumber;
@@ -3705,20 +4035,23 @@ const serializeAws_queryCreateSMSSandboxPhoneNumberInput = (
   return entries;
 };
 
-const serializeAws_queryCreateTopicInput = (input: CreateTopicInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryCreateTopicInput
+ */
+const se_CreateTopicInput = (input: CreateTopicInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.Name != null) {
     entries["Name"] = input.Name;
   }
   if (input.Attributes != null) {
-    const memberEntries = serializeAws_queryTopicAttributesMap(input.Attributes, context);
+    const memberEntries = se_TopicAttributesMap(input.Attributes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Attributes.${key}`;
       entries[loc] = value;
     });
   }
   if (input.Tags != null) {
-    const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    const memberEntries = se_TagList(input.Tags, context);
     if (input.Tags?.length === 0) {
       entries.Tags = [];
     }
@@ -3733,7 +4066,10 @@ const serializeAws_queryCreateTopicInput = (input: CreateTopicInput, context: __
   return entries;
 };
 
-const serializeAws_queryDelegatesList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryDelegatesList
+ */
+const se_DelegatesList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -3746,7 +4082,10 @@ const serializeAws_queryDelegatesList = (input: string[], context: __SerdeContex
   return entries;
 };
 
-const serializeAws_queryDeleteEndpointInput = (input: DeleteEndpointInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryDeleteEndpointInput
+ */
+const se_DeleteEndpointInput = (input: DeleteEndpointInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.EndpointArn != null) {
     entries["EndpointArn"] = input.EndpointArn;
@@ -3754,10 +4093,10 @@ const serializeAws_queryDeleteEndpointInput = (input: DeleteEndpointInput, conte
   return entries;
 };
 
-const serializeAws_queryDeletePlatformApplicationInput = (
-  input: DeletePlatformApplicationInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryDeletePlatformApplicationInput
+ */
+const se_DeletePlatformApplicationInput = (input: DeletePlatformApplicationInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.PlatformApplicationArn != null) {
     entries["PlatformApplicationArn"] = input.PlatformApplicationArn;
@@ -3765,10 +4104,10 @@ const serializeAws_queryDeletePlatformApplicationInput = (
   return entries;
 };
 
-const serializeAws_queryDeleteSMSSandboxPhoneNumberInput = (
-  input: DeleteSMSSandboxPhoneNumberInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryDeleteSMSSandboxPhoneNumberInput
+ */
+const se_DeleteSMSSandboxPhoneNumberInput = (input: DeleteSMSSandboxPhoneNumberInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.PhoneNumber != null) {
     entries["PhoneNumber"] = input.PhoneNumber;
@@ -3776,7 +4115,10 @@ const serializeAws_queryDeleteSMSSandboxPhoneNumberInput = (
   return entries;
 };
 
-const serializeAws_queryDeleteTopicInput = (input: DeleteTopicInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryDeleteTopicInput
+ */
+const se_DeleteTopicInput = (input: DeleteTopicInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.TopicArn != null) {
     entries["TopicArn"] = input.TopicArn;
@@ -3784,10 +4126,10 @@ const serializeAws_queryDeleteTopicInput = (input: DeleteTopicInput, context: __
   return entries;
 };
 
-const serializeAws_queryGetDataProtectionPolicyInput = (
-  input: GetDataProtectionPolicyInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryGetDataProtectionPolicyInput
+ */
+const se_GetDataProtectionPolicyInput = (input: GetDataProtectionPolicyInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.ResourceArn != null) {
     entries["ResourceArn"] = input.ResourceArn;
@@ -3795,10 +4137,10 @@ const serializeAws_queryGetDataProtectionPolicyInput = (
   return entries;
 };
 
-const serializeAws_queryGetEndpointAttributesInput = (
-  input: GetEndpointAttributesInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryGetEndpointAttributesInput
+ */
+const se_GetEndpointAttributesInput = (input: GetEndpointAttributesInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.EndpointArn != null) {
     entries["EndpointArn"] = input.EndpointArn;
@@ -3806,7 +4148,10 @@ const serializeAws_queryGetEndpointAttributesInput = (
   return entries;
 };
 
-const serializeAws_queryGetPlatformApplicationAttributesInput = (
+/**
+ * serializeAws_queryGetPlatformApplicationAttributesInput
+ */
+const se_GetPlatformApplicationAttributesInput = (
   input: GetPlatformApplicationAttributesInput,
   context: __SerdeContext
 ): any => {
@@ -3817,10 +4162,13 @@ const serializeAws_queryGetPlatformApplicationAttributesInput = (
   return entries;
 };
 
-const serializeAws_queryGetSMSAttributesInput = (input: GetSMSAttributesInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryGetSMSAttributesInput
+ */
+const se_GetSMSAttributesInput = (input: GetSMSAttributesInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.attributes != null) {
-    const memberEntries = serializeAws_queryListString(input.attributes, context);
+    const memberEntries = se_ListString(input.attributes, context);
     if (input.attributes?.length === 0) {
       entries.attributes = [];
     }
@@ -3832,18 +4180,18 @@ const serializeAws_queryGetSMSAttributesInput = (input: GetSMSAttributesInput, c
   return entries;
 };
 
-const serializeAws_queryGetSMSSandboxAccountStatusInput = (
-  input: GetSMSSandboxAccountStatusInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryGetSMSSandboxAccountStatusInput
+ */
+const se_GetSMSSandboxAccountStatusInput = (input: GetSMSSandboxAccountStatusInput, context: __SerdeContext): any => {
   const entries: any = {};
   return entries;
 };
 
-const serializeAws_queryGetSubscriptionAttributesInput = (
-  input: GetSubscriptionAttributesInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryGetSubscriptionAttributesInput
+ */
+const se_GetSubscriptionAttributesInput = (input: GetSubscriptionAttributesInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.SubscriptionArn != null) {
     entries["SubscriptionArn"] = input.SubscriptionArn;
@@ -3851,7 +4199,10 @@ const serializeAws_queryGetSubscriptionAttributesInput = (
   return entries;
 };
 
-const serializeAws_queryGetTopicAttributesInput = (input: GetTopicAttributesInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryGetTopicAttributesInput
+ */
+const se_GetTopicAttributesInput = (input: GetTopicAttributesInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.TopicArn != null) {
     entries["TopicArn"] = input.TopicArn;
@@ -3859,7 +4210,10 @@ const serializeAws_queryGetTopicAttributesInput = (input: GetTopicAttributesInpu
   return entries;
 };
 
-const serializeAws_queryListEndpointsByPlatformApplicationInput = (
+/**
+ * serializeAws_queryListEndpointsByPlatformApplicationInput
+ */
+const se_ListEndpointsByPlatformApplicationInput = (
   input: ListEndpointsByPlatformApplicationInput,
   context: __SerdeContext
 ): any => {
@@ -3873,10 +4227,10 @@ const serializeAws_queryListEndpointsByPlatformApplicationInput = (
   return entries;
 };
 
-const serializeAws_queryListOriginationNumbersRequest = (
-  input: ListOriginationNumbersRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryListOriginationNumbersRequest
+ */
+const se_ListOriginationNumbersRequest = (input: ListOriginationNumbersRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.NextToken != null) {
     entries["NextToken"] = input.NextToken;
@@ -3887,10 +4241,10 @@ const serializeAws_queryListOriginationNumbersRequest = (
   return entries;
 };
 
-const serializeAws_queryListPhoneNumbersOptedOutInput = (
-  input: ListPhoneNumbersOptedOutInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryListPhoneNumbersOptedOutInput
+ */
+const se_ListPhoneNumbersOptedOutInput = (input: ListPhoneNumbersOptedOutInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.nextToken != null) {
     entries["nextToken"] = input.nextToken;
@@ -3898,10 +4252,10 @@ const serializeAws_queryListPhoneNumbersOptedOutInput = (
   return entries;
 };
 
-const serializeAws_queryListPlatformApplicationsInput = (
-  input: ListPlatformApplicationsInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryListPlatformApplicationsInput
+ */
+const se_ListPlatformApplicationsInput = (input: ListPlatformApplicationsInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.NextToken != null) {
     entries["NextToken"] = input.NextToken;
@@ -3909,10 +4263,10 @@ const serializeAws_queryListPlatformApplicationsInput = (
   return entries;
 };
 
-const serializeAws_queryListSMSSandboxPhoneNumbersInput = (
-  input: ListSMSSandboxPhoneNumbersInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryListSMSSandboxPhoneNumbersInput
+ */
+const se_ListSMSSandboxPhoneNumbersInput = (input: ListSMSSandboxPhoneNumbersInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.NextToken != null) {
     entries["NextToken"] = input.NextToken;
@@ -3923,7 +4277,10 @@ const serializeAws_queryListSMSSandboxPhoneNumbersInput = (
   return entries;
 };
 
-const serializeAws_queryListString = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryListString
+ */
+const se_ListString = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -3936,10 +4293,10 @@ const serializeAws_queryListString = (input: string[], context: __SerdeContext):
   return entries;
 };
 
-const serializeAws_queryListSubscriptionsByTopicInput = (
-  input: ListSubscriptionsByTopicInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryListSubscriptionsByTopicInput
+ */
+const se_ListSubscriptionsByTopicInput = (input: ListSubscriptionsByTopicInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.TopicArn != null) {
     entries["TopicArn"] = input.TopicArn;
@@ -3950,7 +4307,10 @@ const serializeAws_queryListSubscriptionsByTopicInput = (
   return entries;
 };
 
-const serializeAws_queryListSubscriptionsInput = (input: ListSubscriptionsInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryListSubscriptionsInput
+ */
+const se_ListSubscriptionsInput = (input: ListSubscriptionsInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.NextToken != null) {
     entries["NextToken"] = input.NextToken;
@@ -3958,10 +4318,10 @@ const serializeAws_queryListSubscriptionsInput = (input: ListSubscriptionsInput,
   return entries;
 };
 
-const serializeAws_queryListTagsForResourceRequest = (
-  input: ListTagsForResourceRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryListTagsForResourceRequest
+ */
+const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.ResourceArn != null) {
     entries["ResourceArn"] = input.ResourceArn;
@@ -3969,7 +4329,10 @@ const serializeAws_queryListTagsForResourceRequest = (
   return entries;
 };
 
-const serializeAws_queryListTopicsInput = (input: ListTopicsInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryListTopicsInput
+ */
+const se_ListTopicsInput = (input: ListTopicsInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.NextToken != null) {
     entries["NextToken"] = input.NextToken;
@@ -3977,7 +4340,10 @@ const serializeAws_queryListTopicsInput = (input: ListTopicsInput, context: __Se
   return entries;
 };
 
-const serializeAws_queryMapStringToString = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryMapStringToString
+ */
+const se_MapStringToString = (input: Record<string, string>, context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   Object.keys(input)
@@ -3990,17 +4356,17 @@ const serializeAws_queryMapStringToString = (input: Record<string, string>, cont
   return entries;
 };
 
-const serializeAws_queryMessageAttributeMap = (
-  input: Record<string, MessageAttributeValue>,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryMessageAttributeMap
+ */
+const se_MessageAttributeMap = (input: Record<string, MessageAttributeValue>, context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   Object.keys(input)
     .filter((key) => input[key] != null)
     .forEach((key) => {
       entries[`entry.${counter}.Name`] = key;
-      const memberEntries = serializeAws_queryMessageAttributeValue(input[key], context);
+      const memberEntries = se_MessageAttributeValue(input[key], context);
       Object.entries(memberEntries).forEach(([key, value]) => {
         entries[`entry.${counter}.Value.${key}`] = value;
       });
@@ -4009,7 +4375,10 @@ const serializeAws_queryMessageAttributeMap = (
   return entries;
 };
 
-const serializeAws_queryMessageAttributeValue = (input: MessageAttributeValue, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryMessageAttributeValue
+ */
+const se_MessageAttributeValue = (input: MessageAttributeValue, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DataType != null) {
     entries["DataType"] = input.DataType;
@@ -4023,7 +4392,10 @@ const serializeAws_queryMessageAttributeValue = (input: MessageAttributeValue, c
   return entries;
 };
 
-const serializeAws_queryOptInPhoneNumberInput = (input: OptInPhoneNumberInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryOptInPhoneNumberInput
+ */
+const se_OptInPhoneNumberInput = (input: OptInPhoneNumberInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.phoneNumber != null) {
     entries["phoneNumber"] = input.phoneNumber;
@@ -4031,13 +4403,16 @@ const serializeAws_queryOptInPhoneNumberInput = (input: OptInPhoneNumberInput, c
   return entries;
 };
 
-const serializeAws_queryPublishBatchInput = (input: PublishBatchInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryPublishBatchInput
+ */
+const se_PublishBatchInput = (input: PublishBatchInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.TopicArn != null) {
     entries["TopicArn"] = input.TopicArn;
   }
   if (input.PublishBatchRequestEntries != null) {
-    const memberEntries = serializeAws_queryPublishBatchRequestEntryList(input.PublishBatchRequestEntries, context);
+    const memberEntries = se_PublishBatchRequestEntryList(input.PublishBatchRequestEntries, context);
     if (input.PublishBatchRequestEntries?.length === 0) {
       entries.PublishBatchRequestEntries = [];
     }
@@ -4049,7 +4424,10 @@ const serializeAws_queryPublishBatchInput = (input: PublishBatchInput, context: 
   return entries;
 };
 
-const serializeAws_queryPublishBatchRequestEntry = (input: PublishBatchRequestEntry, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryPublishBatchRequestEntry
+ */
+const se_PublishBatchRequestEntry = (input: PublishBatchRequestEntry, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.Id != null) {
     entries["Id"] = input.Id;
@@ -4064,7 +4442,7 @@ const serializeAws_queryPublishBatchRequestEntry = (input: PublishBatchRequestEn
     entries["MessageStructure"] = input.MessageStructure;
   }
   if (input.MessageAttributes != null) {
-    const memberEntries = serializeAws_queryMessageAttributeMap(input.MessageAttributes, context);
+    const memberEntries = se_MessageAttributeMap(input.MessageAttributes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MessageAttributes.${key}`;
       entries[loc] = value;
@@ -4079,17 +4457,17 @@ const serializeAws_queryPublishBatchRequestEntry = (input: PublishBatchRequestEn
   return entries;
 };
 
-const serializeAws_queryPublishBatchRequestEntryList = (
-  input: PublishBatchRequestEntry[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryPublishBatchRequestEntryList
+ */
+const se_PublishBatchRequestEntryList = (input: PublishBatchRequestEntry[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
     if (entry === null) {
       continue;
     }
-    const memberEntries = serializeAws_queryPublishBatchRequestEntry(entry, context);
+    const memberEntries = se_PublishBatchRequestEntry(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
     });
@@ -4098,7 +4476,10 @@ const serializeAws_queryPublishBatchRequestEntryList = (
   return entries;
 };
 
-const serializeAws_queryPublishInput = (input: PublishInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryPublishInput
+ */
+const se_PublishInput = (input: PublishInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.TopicArn != null) {
     entries["TopicArn"] = input.TopicArn;
@@ -4119,7 +4500,7 @@ const serializeAws_queryPublishInput = (input: PublishInput, context: __SerdeCon
     entries["MessageStructure"] = input.MessageStructure;
   }
   if (input.MessageAttributes != null) {
-    const memberEntries = serializeAws_queryMessageAttributeMap(input.MessageAttributes, context);
+    const memberEntries = se_MessageAttributeMap(input.MessageAttributes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MessageAttributes.${key}`;
       entries[loc] = value;
@@ -4134,10 +4515,10 @@ const serializeAws_queryPublishInput = (input: PublishInput, context: __SerdeCon
   return entries;
 };
 
-const serializeAws_queryPutDataProtectionPolicyInput = (
-  input: PutDataProtectionPolicyInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryPutDataProtectionPolicyInput
+ */
+const se_PutDataProtectionPolicyInput = (input: PutDataProtectionPolicyInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.ResourceArn != null) {
     entries["ResourceArn"] = input.ResourceArn;
@@ -4148,7 +4529,10 @@ const serializeAws_queryPutDataProtectionPolicyInput = (
   return entries;
 };
 
-const serializeAws_queryRemovePermissionInput = (input: RemovePermissionInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryRemovePermissionInput
+ */
+const se_RemovePermissionInput = (input: RemovePermissionInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.TopicArn != null) {
     entries["TopicArn"] = input.TopicArn;
@@ -4159,16 +4543,16 @@ const serializeAws_queryRemovePermissionInput = (input: RemovePermissionInput, c
   return entries;
 };
 
-const serializeAws_querySetEndpointAttributesInput = (
-  input: SetEndpointAttributesInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_querySetEndpointAttributesInput
+ */
+const se_SetEndpointAttributesInput = (input: SetEndpointAttributesInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.EndpointArn != null) {
     entries["EndpointArn"] = input.EndpointArn;
   }
   if (input.Attributes != null) {
-    const memberEntries = serializeAws_queryMapStringToString(input.Attributes, context);
+    const memberEntries = se_MapStringToString(input.Attributes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Attributes.${key}`;
       entries[loc] = value;
@@ -4177,7 +4561,10 @@ const serializeAws_querySetEndpointAttributesInput = (
   return entries;
 };
 
-const serializeAws_querySetPlatformApplicationAttributesInput = (
+/**
+ * serializeAws_querySetPlatformApplicationAttributesInput
+ */
+const se_SetPlatformApplicationAttributesInput = (
   input: SetPlatformApplicationAttributesInput,
   context: __SerdeContext
 ): any => {
@@ -4186,7 +4573,7 @@ const serializeAws_querySetPlatformApplicationAttributesInput = (
     entries["PlatformApplicationArn"] = input.PlatformApplicationArn;
   }
   if (input.Attributes != null) {
-    const memberEntries = serializeAws_queryMapStringToString(input.Attributes, context);
+    const memberEntries = se_MapStringToString(input.Attributes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Attributes.${key}`;
       entries[loc] = value;
@@ -4195,10 +4582,13 @@ const serializeAws_querySetPlatformApplicationAttributesInput = (
   return entries;
 };
 
-const serializeAws_querySetSMSAttributesInput = (input: SetSMSAttributesInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_querySetSMSAttributesInput
+ */
+const se_SetSMSAttributesInput = (input: SetSMSAttributesInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.attributes != null) {
-    const memberEntries = serializeAws_queryMapStringToString(input.attributes, context);
+    const memberEntries = se_MapStringToString(input.attributes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `attributes.${key}`;
       entries[loc] = value;
@@ -4207,10 +4597,10 @@ const serializeAws_querySetSMSAttributesInput = (input: SetSMSAttributesInput, c
   return entries;
 };
 
-const serializeAws_querySetSubscriptionAttributesInput = (
-  input: SetSubscriptionAttributesInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_querySetSubscriptionAttributesInput
+ */
+const se_SetSubscriptionAttributesInput = (input: SetSubscriptionAttributesInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.SubscriptionArn != null) {
     entries["SubscriptionArn"] = input.SubscriptionArn;
@@ -4224,7 +4614,10 @@ const serializeAws_querySetSubscriptionAttributesInput = (
   return entries;
 };
 
-const serializeAws_querySetTopicAttributesInput = (input: SetTopicAttributesInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_querySetTopicAttributesInput
+ */
+const se_SetTopicAttributesInput = (input: SetTopicAttributesInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.TopicArn != null) {
     entries["TopicArn"] = input.TopicArn;
@@ -4238,7 +4631,10 @@ const serializeAws_querySetTopicAttributesInput = (input: SetTopicAttributesInpu
   return entries;
 };
 
-const serializeAws_querySubscribeInput = (input: SubscribeInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_querySubscribeInput
+ */
+const se_SubscribeInput = (input: SubscribeInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.TopicArn != null) {
     entries["TopicArn"] = input.TopicArn;
@@ -4250,7 +4646,7 @@ const serializeAws_querySubscribeInput = (input: SubscribeInput, context: __Serd
     entries["Endpoint"] = input.Endpoint;
   }
   if (input.Attributes != null) {
-    const memberEntries = serializeAws_querySubscriptionAttributesMap(input.Attributes, context);
+    const memberEntries = se_SubscriptionAttributesMap(input.Attributes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Attributes.${key}`;
       entries[loc] = value;
@@ -4262,7 +4658,10 @@ const serializeAws_querySubscribeInput = (input: SubscribeInput, context: __Serd
   return entries;
 };
 
-const serializeAws_querySubscriptionAttributesMap = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_querySubscriptionAttributesMap
+ */
+const se_SubscriptionAttributesMap = (input: Record<string, string>, context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   Object.keys(input)
@@ -4275,7 +4674,10 @@ const serializeAws_querySubscriptionAttributesMap = (input: Record<string, strin
   return entries;
 };
 
-const serializeAws_queryTag = (input: Tag, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryTag
+ */
+const se_Tag = (input: Tag, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.Key != null) {
     entries["Key"] = input.Key;
@@ -4286,7 +4688,10 @@ const serializeAws_queryTag = (input: Tag, context: __SerdeContext): any => {
   return entries;
 };
 
-const serializeAws_queryTagKeyList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryTagKeyList
+ */
+const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -4299,14 +4704,17 @@ const serializeAws_queryTagKeyList = (input: string[], context: __SerdeContext):
   return entries;
 };
 
-const serializeAws_queryTagList = (input: Tag[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryTagList
+ */
+const se_TagList = (input: Tag[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
     if (entry === null) {
       continue;
     }
-    const memberEntries = serializeAws_queryTag(entry, context);
+    const memberEntries = se_Tag(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
     });
@@ -4315,13 +4723,16 @@ const serializeAws_queryTagList = (input: Tag[], context: __SerdeContext): any =
   return entries;
 };
 
-const serializeAws_queryTagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryTagResourceRequest
+ */
+const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.ResourceArn != null) {
     entries["ResourceArn"] = input.ResourceArn;
   }
   if (input.Tags != null) {
-    const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    const memberEntries = se_TagList(input.Tags, context);
     if (input.Tags?.length === 0) {
       entries.Tags = [];
     }
@@ -4333,7 +4744,10 @@ const serializeAws_queryTagResourceRequest = (input: TagResourceRequest, context
   return entries;
 };
 
-const serializeAws_queryTopicAttributesMap = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryTopicAttributesMap
+ */
+const se_TopicAttributesMap = (input: Record<string, string>, context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   Object.keys(input)
@@ -4346,7 +4760,10 @@ const serializeAws_queryTopicAttributesMap = (input: Record<string, string>, con
   return entries;
 };
 
-const serializeAws_queryUnsubscribeInput = (input: UnsubscribeInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryUnsubscribeInput
+ */
+const se_UnsubscribeInput = (input: UnsubscribeInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.SubscriptionArn != null) {
     entries["SubscriptionArn"] = input.SubscriptionArn;
@@ -4354,13 +4771,16 @@ const serializeAws_queryUnsubscribeInput = (input: UnsubscribeInput, context: __
   return entries;
 };
 
-const serializeAws_queryUntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryUntagResourceRequest
+ */
+const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.ResourceArn != null) {
     entries["ResourceArn"] = input.ResourceArn;
   }
   if (input.TagKeys != null) {
-    const memberEntries = serializeAws_queryTagKeyList(input.TagKeys, context);
+    const memberEntries = se_TagKeyList(input.TagKeys, context);
     if (input.TagKeys?.length === 0) {
       entries.TagKeys = [];
     }
@@ -4372,10 +4792,10 @@ const serializeAws_queryUntagResourceRequest = (input: UntagResourceRequest, con
   return entries;
 };
 
-const serializeAws_queryVerifySMSSandboxPhoneNumberInput = (
-  input: VerifySMSSandboxPhoneNumberInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryVerifySMSSandboxPhoneNumberInput
+ */
+const se_VerifySMSSandboxPhoneNumberInput = (input: VerifySMSSandboxPhoneNumberInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.PhoneNumber != null) {
     entries["PhoneNumber"] = input.PhoneNumber;
@@ -4386,52 +4806,47 @@ const serializeAws_queryVerifySMSSandboxPhoneNumberInput = (
   return entries;
 };
 
-const deserializeAws_queryAuthorizationErrorException = (
-  output: any,
-  context: __SerdeContext
-): AuthorizationErrorException => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryAuthorizationErrorException
+ */
+const de_AuthorizationErrorException = (output: any, context: __SerdeContext): AuthorizationErrorException => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryBatchEntryIdsNotDistinctException = (
+/**
+ * deserializeAws_queryBatchEntryIdsNotDistinctException
+ */
+const de_BatchEntryIdsNotDistinctException = (
   output: any,
   context: __SerdeContext
 ): BatchEntryIdsNotDistinctException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryBatchRequestTooLongException = (
-  output: any,
-  context: __SerdeContext
-): BatchRequestTooLongException => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryBatchRequestTooLongException
+ */
+const de_BatchRequestTooLongException = (output: any, context: __SerdeContext): BatchRequestTooLongException => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryBatchResultErrorEntry = (output: any, context: __SerdeContext): BatchResultErrorEntry => {
-  const contents: any = {
-    Id: undefined,
-    Code: undefined,
-    Message: undefined,
-    SenderFault: undefined,
-  };
+/**
+ * deserializeAws_queryBatchResultErrorEntry
+ */
+const de_BatchResultErrorEntry = (output: any, context: __SerdeContext): BatchResultErrorEntry => {
+  const contents: any = {};
   if (output["Id"] !== undefined) {
     contents.Id = __expectString(output["Id"]);
   }
@@ -4447,80 +4862,82 @@ const deserializeAws_queryBatchResultErrorEntry = (output: any, context: __Serde
   return contents;
 };
 
-const deserializeAws_queryBatchResultErrorEntryList = (
-  output: any,
-  context: __SerdeContext
-): BatchResultErrorEntry[] => {
+/**
+ * deserializeAws_queryBatchResultErrorEntryList
+ */
+const de_BatchResultErrorEntryList = (output: any, context: __SerdeContext): BatchResultErrorEntry[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_queryBatchResultErrorEntry(entry, context);
+      return de_BatchResultErrorEntry(entry, context);
     });
 };
 
-const deserializeAws_queryCheckIfPhoneNumberIsOptedOutResponse = (
+/**
+ * deserializeAws_queryCheckIfPhoneNumberIsOptedOutResponse
+ */
+const de_CheckIfPhoneNumberIsOptedOutResponse = (
   output: any,
   context: __SerdeContext
 ): CheckIfPhoneNumberIsOptedOutResponse => {
-  const contents: any = {
-    isOptedOut: undefined,
-  };
+  const contents: any = {};
   if (output["isOptedOut"] !== undefined) {
     contents.isOptedOut = __parseBoolean(output["isOptedOut"]);
   }
   return contents;
 };
 
-const deserializeAws_queryConcurrentAccessException = (
-  output: any,
-  context: __SerdeContext
-): ConcurrentAccessException => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryConcurrentAccessException
+ */
+const de_ConcurrentAccessException = (output: any, context: __SerdeContext): ConcurrentAccessException => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryConfirmSubscriptionResponse = (
-  output: any,
-  context: __SerdeContext
-): ConfirmSubscriptionResponse => {
-  const contents: any = {
-    SubscriptionArn: undefined,
-  };
+/**
+ * deserializeAws_queryConfirmSubscriptionResponse
+ */
+const de_ConfirmSubscriptionResponse = (output: any, context: __SerdeContext): ConfirmSubscriptionResponse => {
+  const contents: any = {};
   if (output["SubscriptionArn"] !== undefined) {
     contents.SubscriptionArn = __expectString(output["SubscriptionArn"]);
   }
   return contents;
 };
 
-const deserializeAws_queryCreateEndpointResponse = (output: any, context: __SerdeContext): CreateEndpointResponse => {
-  const contents: any = {
-    EndpointArn: undefined,
-  };
+/**
+ * deserializeAws_queryCreateEndpointResponse
+ */
+const de_CreateEndpointResponse = (output: any, context: __SerdeContext): CreateEndpointResponse => {
+  const contents: any = {};
   if (output["EndpointArn"] !== undefined) {
     contents.EndpointArn = __expectString(output["EndpointArn"]);
   }
   return contents;
 };
 
-const deserializeAws_queryCreatePlatformApplicationResponse = (
+/**
+ * deserializeAws_queryCreatePlatformApplicationResponse
+ */
+const de_CreatePlatformApplicationResponse = (
   output: any,
   context: __SerdeContext
 ): CreatePlatformApplicationResponse => {
-  const contents: any = {
-    PlatformApplicationArn: undefined,
-  };
+  const contents: any = {};
   if (output["PlatformApplicationArn"] !== undefined) {
     contents.PlatformApplicationArn = __expectString(output["PlatformApplicationArn"]);
   }
   return contents;
 };
 
-const deserializeAws_queryCreateSMSSandboxPhoneNumberResult = (
+/**
+ * deserializeAws_queryCreateSMSSandboxPhoneNumberResult
+ */
+const de_CreateSMSSandboxPhoneNumberResult = (
   output: any,
   context: __SerdeContext
 ): CreateSMSSandboxPhoneNumberResult => {
@@ -4528,17 +4945,21 @@ const deserializeAws_queryCreateSMSSandboxPhoneNumberResult = (
   return contents;
 };
 
-const deserializeAws_queryCreateTopicResponse = (output: any, context: __SerdeContext): CreateTopicResponse => {
-  const contents: any = {
-    TopicArn: undefined,
-  };
+/**
+ * deserializeAws_queryCreateTopicResponse
+ */
+const de_CreateTopicResponse = (output: any, context: __SerdeContext): CreateTopicResponse => {
+  const contents: any = {};
   if (output["TopicArn"] !== undefined) {
     contents.TopicArn = __expectString(output["TopicArn"]);
   }
   return contents;
 };
 
-const deserializeAws_queryDeleteSMSSandboxPhoneNumberResult = (
+/**
+ * deserializeAws_queryDeleteSMSSandboxPhoneNumberResult
+ */
+const de_DeleteSMSSandboxPhoneNumberResult = (
   output: any,
   context: __SerdeContext
 ): DeleteSMSSandboxPhoneNumberResult => {
@@ -4546,323 +4967,287 @@ const deserializeAws_queryDeleteSMSSandboxPhoneNumberResult = (
   return contents;
 };
 
-const deserializeAws_queryEmptyBatchRequestException = (
-  output: any,
-  context: __SerdeContext
-): EmptyBatchRequestException => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryEmptyBatchRequestException
+ */
+const de_EmptyBatchRequestException = (output: any, context: __SerdeContext): EmptyBatchRequestException => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryEndpoint = (output: any, context: __SerdeContext): Endpoint => {
-  const contents: any = {
-    EndpointArn: undefined,
-    Attributes: undefined,
-  };
+/**
+ * deserializeAws_queryEndpoint
+ */
+const de_Endpoint = (output: any, context: __SerdeContext): Endpoint => {
+  const contents: any = {};
   if (output["EndpointArn"] !== undefined) {
     contents.EndpointArn = __expectString(output["EndpointArn"]);
   }
   if (output.Attributes === "") {
     contents.Attributes = {};
   } else if (output["Attributes"] !== undefined && output["Attributes"]["entry"] !== undefined) {
-    contents.Attributes = deserializeAws_queryMapStringToString(
-      __getArrayIfSingleItem(output["Attributes"]["entry"]),
-      context
-    );
+    contents.Attributes = de_MapStringToString(__getArrayIfSingleItem(output["Attributes"]["entry"]), context);
   }
   return contents;
 };
 
-const deserializeAws_queryEndpointDisabledException = (
-  output: any,
-  context: __SerdeContext
-): EndpointDisabledException => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryEndpointDisabledException
+ */
+const de_EndpointDisabledException = (output: any, context: __SerdeContext): EndpointDisabledException => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryFilterPolicyLimitExceededException = (
+/**
+ * deserializeAws_queryFilterPolicyLimitExceededException
+ */
+const de_FilterPolicyLimitExceededException = (
   output: any,
   context: __SerdeContext
 ): FilterPolicyLimitExceededException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryGetDataProtectionPolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): GetDataProtectionPolicyResponse => {
-  const contents: any = {
-    DataProtectionPolicy: undefined,
-  };
+/**
+ * deserializeAws_queryGetDataProtectionPolicyResponse
+ */
+const de_GetDataProtectionPolicyResponse = (output: any, context: __SerdeContext): GetDataProtectionPolicyResponse => {
+  const contents: any = {};
   if (output["DataProtectionPolicy"] !== undefined) {
     contents.DataProtectionPolicy = __expectString(output["DataProtectionPolicy"]);
   }
   return contents;
 };
 
-const deserializeAws_queryGetEndpointAttributesResponse = (
-  output: any,
-  context: __SerdeContext
-): GetEndpointAttributesResponse => {
-  const contents: any = {
-    Attributes: undefined,
-  };
+/**
+ * deserializeAws_queryGetEndpointAttributesResponse
+ */
+const de_GetEndpointAttributesResponse = (output: any, context: __SerdeContext): GetEndpointAttributesResponse => {
+  const contents: any = {};
   if (output.Attributes === "") {
     contents.Attributes = {};
   } else if (output["Attributes"] !== undefined && output["Attributes"]["entry"] !== undefined) {
-    contents.Attributes = deserializeAws_queryMapStringToString(
-      __getArrayIfSingleItem(output["Attributes"]["entry"]),
-      context
-    );
+    contents.Attributes = de_MapStringToString(__getArrayIfSingleItem(output["Attributes"]["entry"]), context);
   }
   return contents;
 };
 
-const deserializeAws_queryGetPlatformApplicationAttributesResponse = (
+/**
+ * deserializeAws_queryGetPlatformApplicationAttributesResponse
+ */
+const de_GetPlatformApplicationAttributesResponse = (
   output: any,
   context: __SerdeContext
 ): GetPlatformApplicationAttributesResponse => {
-  const contents: any = {
-    Attributes: undefined,
-  };
+  const contents: any = {};
   if (output.Attributes === "") {
     contents.Attributes = {};
   } else if (output["Attributes"] !== undefined && output["Attributes"]["entry"] !== undefined) {
-    contents.Attributes = deserializeAws_queryMapStringToString(
-      __getArrayIfSingleItem(output["Attributes"]["entry"]),
-      context
-    );
+    contents.Attributes = de_MapStringToString(__getArrayIfSingleItem(output["Attributes"]["entry"]), context);
   }
   return contents;
 };
 
-const deserializeAws_queryGetSMSAttributesResponse = (
-  output: any,
-  context: __SerdeContext
-): GetSMSAttributesResponse => {
-  const contents: any = {
-    attributes: undefined,
-  };
+/**
+ * deserializeAws_queryGetSMSAttributesResponse
+ */
+const de_GetSMSAttributesResponse = (output: any, context: __SerdeContext): GetSMSAttributesResponse => {
+  const contents: any = {};
   if (output.attributes === "") {
     contents.attributes = {};
   } else if (output["attributes"] !== undefined && output["attributes"]["entry"] !== undefined) {
-    contents.attributes = deserializeAws_queryMapStringToString(
-      __getArrayIfSingleItem(output["attributes"]["entry"]),
-      context
-    );
+    contents.attributes = de_MapStringToString(__getArrayIfSingleItem(output["attributes"]["entry"]), context);
   }
   return contents;
 };
 
-const deserializeAws_queryGetSMSSandboxAccountStatusResult = (
+/**
+ * deserializeAws_queryGetSMSSandboxAccountStatusResult
+ */
+const de_GetSMSSandboxAccountStatusResult = (
   output: any,
   context: __SerdeContext
 ): GetSMSSandboxAccountStatusResult => {
-  const contents: any = {
-    IsInSandbox: undefined,
-  };
+  const contents: any = {};
   if (output["IsInSandbox"] !== undefined) {
     contents.IsInSandbox = __parseBoolean(output["IsInSandbox"]);
   }
   return contents;
 };
 
-const deserializeAws_queryGetSubscriptionAttributesResponse = (
+/**
+ * deserializeAws_queryGetSubscriptionAttributesResponse
+ */
+const de_GetSubscriptionAttributesResponse = (
   output: any,
   context: __SerdeContext
 ): GetSubscriptionAttributesResponse => {
-  const contents: any = {
-    Attributes: undefined,
-  };
+  const contents: any = {};
   if (output.Attributes === "") {
     contents.Attributes = {};
   } else if (output["Attributes"] !== undefined && output["Attributes"]["entry"] !== undefined) {
-    contents.Attributes = deserializeAws_querySubscriptionAttributesMap(
-      __getArrayIfSingleItem(output["Attributes"]["entry"]),
-      context
-    );
+    contents.Attributes = de_SubscriptionAttributesMap(__getArrayIfSingleItem(output["Attributes"]["entry"]), context);
   }
   return contents;
 };
 
-const deserializeAws_queryGetTopicAttributesResponse = (
-  output: any,
-  context: __SerdeContext
-): GetTopicAttributesResponse => {
-  const contents: any = {
-    Attributes: undefined,
-  };
+/**
+ * deserializeAws_queryGetTopicAttributesResponse
+ */
+const de_GetTopicAttributesResponse = (output: any, context: __SerdeContext): GetTopicAttributesResponse => {
+  const contents: any = {};
   if (output.Attributes === "") {
     contents.Attributes = {};
   } else if (output["Attributes"] !== undefined && output["Attributes"]["entry"] !== undefined) {
-    contents.Attributes = deserializeAws_queryTopicAttributesMap(
-      __getArrayIfSingleItem(output["Attributes"]["entry"]),
-      context
-    );
+    contents.Attributes = de_TopicAttributesMap(__getArrayIfSingleItem(output["Attributes"]["entry"]), context);
   }
   return contents;
 };
 
-const deserializeAws_queryInternalErrorException = (output: any, context: __SerdeContext): InternalErrorException => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryInternalErrorException
+ */
+const de_InternalErrorException = (output: any, context: __SerdeContext): InternalErrorException => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryInvalidBatchEntryIdException = (
-  output: any,
-  context: __SerdeContext
-): InvalidBatchEntryIdException => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryInvalidBatchEntryIdException
+ */
+const de_InvalidBatchEntryIdException = (output: any, context: __SerdeContext): InvalidBatchEntryIdException => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryInvalidParameterException = (
-  output: any,
-  context: __SerdeContext
-): InvalidParameterException => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryInvalidParameterException
+ */
+const de_InvalidParameterException = (output: any, context: __SerdeContext): InvalidParameterException => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryInvalidParameterValueException = (
-  output: any,
-  context: __SerdeContext
-): InvalidParameterValueException => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryInvalidParameterValueException
+ */
+const de_InvalidParameterValueException = (output: any, context: __SerdeContext): InvalidParameterValueException => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryInvalidSecurityException = (
-  output: any,
-  context: __SerdeContext
-): InvalidSecurityException => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryInvalidSecurityException
+ */
+const de_InvalidSecurityException = (output: any, context: __SerdeContext): InvalidSecurityException => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryKMSAccessDeniedException = (
-  output: any,
-  context: __SerdeContext
-): KMSAccessDeniedException => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryKMSAccessDeniedException
+ */
+const de_KMSAccessDeniedException = (output: any, context: __SerdeContext): KMSAccessDeniedException => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryKMSDisabledException = (output: any, context: __SerdeContext): KMSDisabledException => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryKMSDisabledException
+ */
+const de_KMSDisabledException = (output: any, context: __SerdeContext): KMSDisabledException => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryKMSInvalidStateException = (
-  output: any,
-  context: __SerdeContext
-): KMSInvalidStateException => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryKMSInvalidStateException
+ */
+const de_KMSInvalidStateException = (output: any, context: __SerdeContext): KMSInvalidStateException => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryKMSNotFoundException = (output: any, context: __SerdeContext): KMSNotFoundException => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryKMSNotFoundException
+ */
+const de_KMSNotFoundException = (output: any, context: __SerdeContext): KMSNotFoundException => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryKMSOptInRequired = (output: any, context: __SerdeContext): KMSOptInRequired => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryKMSOptInRequired
+ */
+const de_KMSOptInRequired = (output: any, context: __SerdeContext): KMSOptInRequired => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryKMSThrottlingException = (output: any, context: __SerdeContext): KMSThrottlingException => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryKMSThrottlingException
+ */
+const de_KMSThrottlingException = (output: any, context: __SerdeContext): KMSThrottlingException => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryListEndpointsByPlatformApplicationResponse = (
+/**
+ * deserializeAws_queryListEndpointsByPlatformApplicationResponse
+ */
+const de_ListEndpointsByPlatformApplicationResponse = (
   output: any,
   context: __SerdeContext
 ): ListEndpointsByPlatformApplicationResponse => {
-  const contents: any = {
-    Endpoints: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.Endpoints === "") {
     contents.Endpoints = [];
   } else if (output["Endpoints"] !== undefined && output["Endpoints"]["member"] !== undefined) {
-    contents.Endpoints = deserializeAws_queryListOfEndpoints(
-      __getArrayIfSingleItem(output["Endpoints"]["member"]),
-      context
-    );
+    contents.Endpoints = de_ListOfEndpoints(__getArrayIfSingleItem(output["Endpoints"]["member"]), context);
   }
   if (output["NextToken"] !== undefined) {
     contents.NextToken = __expectString(output["NextToken"]);
@@ -4870,40 +5255,40 @@ const deserializeAws_queryListEndpointsByPlatformApplicationResponse = (
   return contents;
 };
 
-const deserializeAws_queryListOfEndpoints = (output: any, context: __SerdeContext): Endpoint[] => {
+/**
+ * deserializeAws_queryListOfEndpoints
+ */
+const de_ListOfEndpoints = (output: any, context: __SerdeContext): Endpoint[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_queryEndpoint(entry, context);
+      return de_Endpoint(entry, context);
     });
 };
 
-const deserializeAws_queryListOfPlatformApplications = (
-  output: any,
-  context: __SerdeContext
-): PlatformApplication[] => {
+/**
+ * deserializeAws_queryListOfPlatformApplications
+ */
+const de_ListOfPlatformApplications = (output: any, context: __SerdeContext): PlatformApplication[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_queryPlatformApplication(entry, context);
+      return de_PlatformApplication(entry, context);
     });
 };
 
-const deserializeAws_queryListOriginationNumbersResult = (
-  output: any,
-  context: __SerdeContext
-): ListOriginationNumbersResult => {
-  const contents: any = {
-    NextToken: undefined,
-    PhoneNumbers: undefined,
-  };
+/**
+ * deserializeAws_queryListOriginationNumbersResult
+ */
+const de_ListOriginationNumbersResult = (output: any, context: __SerdeContext): ListOriginationNumbersResult => {
+  const contents: any = {};
   if (output["NextToken"] !== undefined) {
     contents.NextToken = __expectString(output["NextToken"]);
   }
   if (output.PhoneNumbers === "") {
     contents.PhoneNumbers = [];
   } else if (output["PhoneNumbers"] !== undefined && output["PhoneNumbers"]["member"] !== undefined) {
-    contents.PhoneNumbers = deserializeAws_queryPhoneNumberInformationList(
+    contents.PhoneNumbers = de_PhoneNumberInformationList(
       __getArrayIfSingleItem(output["PhoneNumbers"]["member"]),
       context
     );
@@ -4911,21 +5296,18 @@ const deserializeAws_queryListOriginationNumbersResult = (
   return contents;
 };
 
-const deserializeAws_queryListPhoneNumbersOptedOutResponse = (
+/**
+ * deserializeAws_queryListPhoneNumbersOptedOutResponse
+ */
+const de_ListPhoneNumbersOptedOutResponse = (
   output: any,
   context: __SerdeContext
 ): ListPhoneNumbersOptedOutResponse => {
-  const contents: any = {
-    phoneNumbers: undefined,
-    nextToken: undefined,
-  };
+  const contents: any = {};
   if (output.phoneNumbers === "") {
     contents.phoneNumbers = [];
   } else if (output["phoneNumbers"] !== undefined && output["phoneNumbers"]["member"] !== undefined) {
-    contents.phoneNumbers = deserializeAws_queryPhoneNumberList(
-      __getArrayIfSingleItem(output["phoneNumbers"]["member"]),
-      context
-    );
+    contents.phoneNumbers = de_PhoneNumberList(__getArrayIfSingleItem(output["phoneNumbers"]["member"]), context);
   }
   if (output["nextToken"] !== undefined) {
     contents.nextToken = __expectString(output["nextToken"]);
@@ -4933,18 +5315,18 @@ const deserializeAws_queryListPhoneNumbersOptedOutResponse = (
   return contents;
 };
 
-const deserializeAws_queryListPlatformApplicationsResponse = (
+/**
+ * deserializeAws_queryListPlatformApplicationsResponse
+ */
+const de_ListPlatformApplicationsResponse = (
   output: any,
   context: __SerdeContext
 ): ListPlatformApplicationsResponse => {
-  const contents: any = {
-    PlatformApplications: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.PlatformApplications === "") {
     contents.PlatformApplications = [];
   } else if (output["PlatformApplications"] !== undefined && output["PlatformApplications"]["member"] !== undefined) {
-    contents.PlatformApplications = deserializeAws_queryListOfPlatformApplications(
+    contents.PlatformApplications = de_ListOfPlatformApplications(
       __getArrayIfSingleItem(output["PlatformApplications"]["member"]),
       context
     );
@@ -4955,18 +5337,18 @@ const deserializeAws_queryListPlatformApplicationsResponse = (
   return contents;
 };
 
-const deserializeAws_queryListSMSSandboxPhoneNumbersResult = (
+/**
+ * deserializeAws_queryListSMSSandboxPhoneNumbersResult
+ */
+const de_ListSMSSandboxPhoneNumbersResult = (
   output: any,
   context: __SerdeContext
 ): ListSMSSandboxPhoneNumbersResult => {
-  const contents: any = {
-    PhoneNumbers: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.PhoneNumbers === "") {
     contents.PhoneNumbers = [];
   } else if (output["PhoneNumbers"] !== undefined && output["PhoneNumbers"]["member"] !== undefined) {
-    contents.PhoneNumbers = deserializeAws_querySMSSandboxPhoneNumberList(
+    contents.PhoneNumbers = de_SMSSandboxPhoneNumberList(
       __getArrayIfSingleItem(output["PhoneNumbers"]["member"]),
       context
     );
@@ -4977,21 +5359,18 @@ const deserializeAws_queryListSMSSandboxPhoneNumbersResult = (
   return contents;
 };
 
-const deserializeAws_queryListSubscriptionsByTopicResponse = (
+/**
+ * deserializeAws_queryListSubscriptionsByTopicResponse
+ */
+const de_ListSubscriptionsByTopicResponse = (
   output: any,
   context: __SerdeContext
 ): ListSubscriptionsByTopicResponse => {
-  const contents: any = {
-    Subscriptions: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.Subscriptions === "") {
     contents.Subscriptions = [];
   } else if (output["Subscriptions"] !== undefined && output["Subscriptions"]["member"] !== undefined) {
-    contents.Subscriptions = deserializeAws_querySubscriptionsList(
-      __getArrayIfSingleItem(output["Subscriptions"]["member"]),
-      context
-    );
+    contents.Subscriptions = de_SubscriptionsList(__getArrayIfSingleItem(output["Subscriptions"]["member"]), context);
   }
   if (output["NextToken"] !== undefined) {
     contents.NextToken = __expectString(output["NextToken"]);
@@ -4999,21 +5378,15 @@ const deserializeAws_queryListSubscriptionsByTopicResponse = (
   return contents;
 };
 
-const deserializeAws_queryListSubscriptionsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListSubscriptionsResponse => {
-  const contents: any = {
-    Subscriptions: undefined,
-    NextToken: undefined,
-  };
+/**
+ * deserializeAws_queryListSubscriptionsResponse
+ */
+const de_ListSubscriptionsResponse = (output: any, context: __SerdeContext): ListSubscriptionsResponse => {
+  const contents: any = {};
   if (output.Subscriptions === "") {
     contents.Subscriptions = [];
   } else if (output["Subscriptions"] !== undefined && output["Subscriptions"]["member"] !== undefined) {
-    contents.Subscriptions = deserializeAws_querySubscriptionsList(
-      __getArrayIfSingleItem(output["Subscriptions"]["member"]),
-      context
-    );
+    contents.Subscriptions = de_SubscriptionsList(__getArrayIfSingleItem(output["Subscriptions"]["member"]), context);
   }
   if (output["NextToken"] !== undefined) {
     contents.NextToken = __expectString(output["NextToken"]);
@@ -5021,30 +5394,28 @@ const deserializeAws_queryListSubscriptionsResponse = (
   return contents;
 };
 
-const deserializeAws_queryListTagsForResourceResponse = (
-  output: any,
-  context: __SerdeContext
-): ListTagsForResourceResponse => {
-  const contents: any = {
-    Tags: undefined,
-  };
+/**
+ * deserializeAws_queryListTagsForResourceResponse
+ */
+const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
+  const contents: any = {};
   if (output.Tags === "") {
     contents.Tags = [];
   } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = deserializeAws_queryTagList(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents.Tags = de_TagList(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   return contents;
 };
 
-const deserializeAws_queryListTopicsResponse = (output: any, context: __SerdeContext): ListTopicsResponse => {
-  const contents: any = {
-    Topics: undefined,
-    NextToken: undefined,
-  };
+/**
+ * deserializeAws_queryListTopicsResponse
+ */
+const de_ListTopicsResponse = (output: any, context: __SerdeContext): ListTopicsResponse => {
+  const contents: any = {};
   if (output.Topics === "") {
     contents.Topics = [];
   } else if (output["Topics"] !== undefined && output["Topics"]["member"] !== undefined) {
-    contents.Topics = deserializeAws_queryTopicsList(__getArrayIfSingleItem(output["Topics"]["member"]), context);
+    contents.Topics = de_TopicsList(__getArrayIfSingleItem(output["Topics"]["member"]), context);
   }
   if (output["NextToken"] !== undefined) {
     contents.NextToken = __expectString(output["NextToken"]);
@@ -5052,7 +5423,10 @@ const deserializeAws_queryListTopicsResponse = (output: any, context: __SerdeCon
   return contents;
 };
 
-const deserializeAws_queryMapStringToString = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_queryMapStringToString
+ */
+const de_MapStringToString = (output: any, context: __SerdeContext): Record<string, string> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["value"] === null) {
       return acc;
@@ -5062,20 +5436,21 @@ const deserializeAws_queryMapStringToString = (output: any, context: __SerdeCont
   }, {});
 };
 
-const deserializeAws_queryNotFoundException = (output: any, context: __SerdeContext): NotFoundException => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryNotFoundException
+ */
+const de_NotFoundException = (output: any, context: __SerdeContext): NotFoundException => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryNumberCapabilityList = (
-  output: any,
-  context: __SerdeContext
-): (NumberCapability | string)[] => {
+/**
+ * deserializeAws_queryNumberCapabilityList
+ */
+const de_NumberCapabilityList = (output: any, context: __SerdeContext): (NumberCapability | string)[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -5083,35 +5458,32 @@ const deserializeAws_queryNumberCapabilityList = (
     });
 };
 
-const deserializeAws_queryOptedOutException = (output: any, context: __SerdeContext): OptedOutException => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryOptedOutException
+ */
+const de_OptedOutException = (output: any, context: __SerdeContext): OptedOutException => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryOptInPhoneNumberResponse = (
-  output: any,
-  context: __SerdeContext
-): OptInPhoneNumberResponse => {
+/**
+ * deserializeAws_queryOptInPhoneNumberResponse
+ */
+const de_OptInPhoneNumberResponse = (output: any, context: __SerdeContext): OptInPhoneNumberResponse => {
   const contents: any = {};
   return contents;
 };
 
-const deserializeAws_queryPhoneNumberInformation = (output: any, context: __SerdeContext): PhoneNumberInformation => {
-  const contents: any = {
-    CreatedAt: undefined,
-    PhoneNumber: undefined,
-    Status: undefined,
-    Iso2CountryCode: undefined,
-    RouteType: undefined,
-    NumberCapabilities: undefined,
-  };
+/**
+ * deserializeAws_queryPhoneNumberInformation
+ */
+const de_PhoneNumberInformation = (output: any, context: __SerdeContext): PhoneNumberInformation => {
+  const contents: any = {};
   if (output["CreatedAt"] !== undefined) {
-    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTime(output["CreatedAt"]));
+    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreatedAt"]));
   }
   if (output["PhoneNumber"] !== undefined) {
     contents.PhoneNumber = __expectString(output["PhoneNumber"]);
@@ -5128,7 +5500,7 @@ const deserializeAws_queryPhoneNumberInformation = (output: any, context: __Serd
   if (output.NumberCapabilities === "") {
     contents.NumberCapabilities = [];
   } else if (output["NumberCapabilities"] !== undefined && output["NumberCapabilities"]["member"] !== undefined) {
-    contents.NumberCapabilities = deserializeAws_queryNumberCapabilityList(
+    contents.NumberCapabilities = de_NumberCapabilityList(
       __getArrayIfSingleItem(output["NumberCapabilities"]["member"]),
       context
     );
@@ -5136,18 +5508,21 @@ const deserializeAws_queryPhoneNumberInformation = (output: any, context: __Serd
   return contents;
 };
 
-const deserializeAws_queryPhoneNumberInformationList = (
-  output: any,
-  context: __SerdeContext
-): PhoneNumberInformation[] => {
+/**
+ * deserializeAws_queryPhoneNumberInformationList
+ */
+const de_PhoneNumberInformationList = (output: any, context: __SerdeContext): PhoneNumberInformation[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_queryPhoneNumberInformation(entry, context);
+      return de_PhoneNumberInformation(entry, context);
     });
 };
 
-const deserializeAws_queryPhoneNumberList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_queryPhoneNumberList
+ */
+const de_PhoneNumberList = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -5155,47 +5530,45 @@ const deserializeAws_queryPhoneNumberList = (output: any, context: __SerdeContex
     });
 };
 
-const deserializeAws_queryPlatformApplication = (output: any, context: __SerdeContext): PlatformApplication => {
-  const contents: any = {
-    PlatformApplicationArn: undefined,
-    Attributes: undefined,
-  };
+/**
+ * deserializeAws_queryPlatformApplication
+ */
+const de_PlatformApplication = (output: any, context: __SerdeContext): PlatformApplication => {
+  const contents: any = {};
   if (output["PlatformApplicationArn"] !== undefined) {
     contents.PlatformApplicationArn = __expectString(output["PlatformApplicationArn"]);
   }
   if (output.Attributes === "") {
     contents.Attributes = {};
   } else if (output["Attributes"] !== undefined && output["Attributes"]["entry"] !== undefined) {
-    contents.Attributes = deserializeAws_queryMapStringToString(
-      __getArrayIfSingleItem(output["Attributes"]["entry"]),
-      context
-    );
+    contents.Attributes = de_MapStringToString(__getArrayIfSingleItem(output["Attributes"]["entry"]), context);
   }
   return contents;
 };
 
-const deserializeAws_queryPlatformApplicationDisabledException = (
+/**
+ * deserializeAws_queryPlatformApplicationDisabledException
+ */
+const de_PlatformApplicationDisabledException = (
   output: any,
   context: __SerdeContext
 ): PlatformApplicationDisabledException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryPublishBatchResponse = (output: any, context: __SerdeContext): PublishBatchResponse => {
-  const contents: any = {
-    Successful: undefined,
-    Failed: undefined,
-  };
+/**
+ * deserializeAws_queryPublishBatchResponse
+ */
+const de_PublishBatchResponse = (output: any, context: __SerdeContext): PublishBatchResponse => {
+  const contents: any = {};
   if (output.Successful === "") {
     contents.Successful = [];
   } else if (output["Successful"] !== undefined && output["Successful"]["member"] !== undefined) {
-    contents.Successful = deserializeAws_queryPublishBatchResultEntryList(
+    contents.Successful = de_PublishBatchResultEntryList(
       __getArrayIfSingleItem(output["Successful"]["member"]),
       context
     );
@@ -5203,20 +5576,16 @@ const deserializeAws_queryPublishBatchResponse = (output: any, context: __SerdeC
   if (output.Failed === "") {
     contents.Failed = [];
   } else if (output["Failed"] !== undefined && output["Failed"]["member"] !== undefined) {
-    contents.Failed = deserializeAws_queryBatchResultErrorEntryList(
-      __getArrayIfSingleItem(output["Failed"]["member"]),
-      context
-    );
+    contents.Failed = de_BatchResultErrorEntryList(__getArrayIfSingleItem(output["Failed"]["member"]), context);
   }
   return contents;
 };
 
-const deserializeAws_queryPublishBatchResultEntry = (output: any, context: __SerdeContext): PublishBatchResultEntry => {
-  const contents: any = {
-    Id: undefined,
-    MessageId: undefined,
-    SequenceNumber: undefined,
-  };
+/**
+ * deserializeAws_queryPublishBatchResultEntry
+ */
+const de_PublishBatchResultEntry = (output: any, context: __SerdeContext): PublishBatchResultEntry => {
+  const contents: any = {};
   if (output["Id"] !== undefined) {
     contents.Id = __expectString(output["Id"]);
   }
@@ -5229,22 +5598,22 @@ const deserializeAws_queryPublishBatchResultEntry = (output: any, context: __Ser
   return contents;
 };
 
-const deserializeAws_queryPublishBatchResultEntryList = (
-  output: any,
-  context: __SerdeContext
-): PublishBatchResultEntry[] => {
+/**
+ * deserializeAws_queryPublishBatchResultEntryList
+ */
+const de_PublishBatchResultEntryList = (output: any, context: __SerdeContext): PublishBatchResultEntry[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_queryPublishBatchResultEntry(entry, context);
+      return de_PublishBatchResultEntry(entry, context);
     });
 };
 
-const deserializeAws_queryPublishResponse = (output: any, context: __SerdeContext): PublishResponse => {
-  const contents: any = {
-    MessageId: undefined,
-    SequenceNumber: undefined,
-  };
+/**
+ * deserializeAws_queryPublishResponse
+ */
+const de_PublishResponse = (output: any, context: __SerdeContext): PublishResponse => {
+  const contents: any = {};
   if (output["MessageId"] !== undefined) {
     contents.MessageId = __expectString(output["MessageId"]);
   }
@@ -5254,32 +5623,30 @@ const deserializeAws_queryPublishResponse = (output: any, context: __SerdeContex
   return contents;
 };
 
-const deserializeAws_queryResourceNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundException => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryResourceNotFoundException
+ */
+const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_querySetSMSAttributesResponse = (
-  output: any,
-  context: __SerdeContext
-): SetSMSAttributesResponse => {
+/**
+ * deserializeAws_querySetSMSAttributesResponse
+ */
+const de_SetSMSAttributesResponse = (output: any, context: __SerdeContext): SetSMSAttributesResponse => {
   const contents: any = {};
   return contents;
 };
 
-const deserializeAws_querySMSSandboxPhoneNumber = (output: any, context: __SerdeContext): SMSSandboxPhoneNumber => {
-  const contents: any = {
-    PhoneNumber: undefined,
-    Status: undefined,
-  };
+/**
+ * deserializeAws_querySMSSandboxPhoneNumber
+ */
+const de_SMSSandboxPhoneNumber = (output: any, context: __SerdeContext): SMSSandboxPhoneNumber => {
+  const contents: any = {};
   if (output["PhoneNumber"] !== undefined) {
     contents.PhoneNumber = __expectString(output["PhoneNumber"]);
   }
@@ -5289,45 +5656,44 @@ const deserializeAws_querySMSSandboxPhoneNumber = (output: any, context: __Serde
   return contents;
 };
 
-const deserializeAws_querySMSSandboxPhoneNumberList = (
-  output: any,
-  context: __SerdeContext
-): SMSSandboxPhoneNumber[] => {
+/**
+ * deserializeAws_querySMSSandboxPhoneNumberList
+ */
+const de_SMSSandboxPhoneNumberList = (output: any, context: __SerdeContext): SMSSandboxPhoneNumber[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_querySMSSandboxPhoneNumber(entry, context);
+      return de_SMSSandboxPhoneNumber(entry, context);
     });
 };
 
-const deserializeAws_queryStaleTagException = (output: any, context: __SerdeContext): StaleTagException => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryStaleTagException
+ */
+const de_StaleTagException = (output: any, context: __SerdeContext): StaleTagException => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_querySubscribeResponse = (output: any, context: __SerdeContext): SubscribeResponse => {
-  const contents: any = {
-    SubscriptionArn: undefined,
-  };
+/**
+ * deserializeAws_querySubscribeResponse
+ */
+const de_SubscribeResponse = (output: any, context: __SerdeContext): SubscribeResponse => {
+  const contents: any = {};
   if (output["SubscriptionArn"] !== undefined) {
     contents.SubscriptionArn = __expectString(output["SubscriptionArn"]);
   }
   return contents;
 };
 
-const deserializeAws_querySubscription = (output: any, context: __SerdeContext): Subscription => {
-  const contents: any = {
-    SubscriptionArn: undefined,
-    Owner: undefined,
-    Protocol: undefined,
-    Endpoint: undefined,
-    TopicArn: undefined,
-  };
+/**
+ * deserializeAws_querySubscription
+ */
+const de_Subscription = (output: any, context: __SerdeContext): Subscription => {
+  const contents: any = {};
   if (output["SubscriptionArn"] !== undefined) {
     contents.SubscriptionArn = __expectString(output["SubscriptionArn"]);
   }
@@ -5346,10 +5712,10 @@ const deserializeAws_querySubscription = (output: any, context: __SerdeContext):
   return contents;
 };
 
-const deserializeAws_querySubscriptionAttributesMap = (
-  output: any,
-  context: __SerdeContext
-): Record<string, string> => {
+/**
+ * deserializeAws_querySubscriptionAttributesMap
+ */
+const de_SubscriptionAttributesMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["value"] === null) {
       return acc;
@@ -5359,32 +5725,36 @@ const deserializeAws_querySubscriptionAttributesMap = (
   }, {});
 };
 
-const deserializeAws_querySubscriptionLimitExceededException = (
+/**
+ * deserializeAws_querySubscriptionLimitExceededException
+ */
+const de_SubscriptionLimitExceededException = (
   output: any,
   context: __SerdeContext
 ): SubscriptionLimitExceededException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_querySubscriptionsList = (output: any, context: __SerdeContext): Subscription[] => {
+/**
+ * deserializeAws_querySubscriptionsList
+ */
+const de_SubscriptionsList = (output: any, context: __SerdeContext): Subscription[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_querySubscription(entry, context);
+      return de_Subscription(entry, context);
     });
 };
 
-const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
-  const contents: any = {
-    Key: undefined,
-    Value: undefined,
-  };
+/**
+ * deserializeAws_queryTag
+ */
+const de_Tag = (output: any, context: __SerdeContext): Tag => {
+  const contents: any = {};
   if (output["Key"] !== undefined) {
     contents.Key = __expectString(output["Key"]);
   }
@@ -5394,76 +5764,87 @@ const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
   return contents;
 };
 
-const deserializeAws_queryTagLimitExceededException = (
-  output: any,
-  context: __SerdeContext
-): TagLimitExceededException => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryTagLimitExceededException
+ */
+const de_TagLimitExceededException = (output: any, context: __SerdeContext): TagLimitExceededException => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryTagList = (output: any, context: __SerdeContext): Tag[] => {
+/**
+ * deserializeAws_queryTagList
+ */
+const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_queryTag(entry, context);
+      return de_Tag(entry, context);
     });
 };
 
-const deserializeAws_queryTagPolicyException = (output: any, context: __SerdeContext): TagPolicyException => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryTagPolicyException
+ */
+const de_TagPolicyException = (output: any, context: __SerdeContext): TagPolicyException => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryTagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
+/**
+ * deserializeAws_queryTagResourceResponse
+ */
+const de_TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
   const contents: any = {};
   return contents;
 };
 
-const deserializeAws_queryThrottledException = (output: any, context: __SerdeContext): ThrottledException => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryThrottledException
+ */
+const de_ThrottledException = (output: any, context: __SerdeContext): ThrottledException => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryTooManyEntriesInBatchRequestException = (
+/**
+ * deserializeAws_queryTooManyEntriesInBatchRequestException
+ */
+const de_TooManyEntriesInBatchRequestException = (
   output: any,
   context: __SerdeContext
 ): TooManyEntriesInBatchRequestException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryTopic = (output: any, context: __SerdeContext): Topic => {
-  const contents: any = {
-    TopicArn: undefined,
-  };
+/**
+ * deserializeAws_queryTopic
+ */
+const de_Topic = (output: any, context: __SerdeContext): Topic => {
+  const contents: any = {};
   if (output["TopicArn"] !== undefined) {
     contents.TopicArn = __expectString(output["TopicArn"]);
   }
   return contents;
 };
 
-const deserializeAws_queryTopicAttributesMap = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_queryTopicAttributesMap
+ */
+const de_TopicAttributesMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["value"] === null) {
       return acc;
@@ -5473,57 +5854,63 @@ const deserializeAws_queryTopicAttributesMap = (output: any, context: __SerdeCon
   }, {});
 };
 
-const deserializeAws_queryTopicLimitExceededException = (
-  output: any,
-  context: __SerdeContext
-): TopicLimitExceededException => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryTopicLimitExceededException
+ */
+const de_TopicLimitExceededException = (output: any, context: __SerdeContext): TopicLimitExceededException => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryTopicsList = (output: any, context: __SerdeContext): Topic[] => {
+/**
+ * deserializeAws_queryTopicsList
+ */
+const de_TopicsList = (output: any, context: __SerdeContext): Topic[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_queryTopic(entry, context);
+      return de_Topic(entry, context);
     });
 };
 
-const deserializeAws_queryUntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
+/**
+ * deserializeAws_queryUntagResourceResponse
+ */
+const de_UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
   const contents: any = {};
   return contents;
 };
 
-const deserializeAws_queryUserErrorException = (output: any, context: __SerdeContext): UserErrorException => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryUserErrorException
+ */
+const de_UserErrorException = (output: any, context: __SerdeContext): UserErrorException => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryValidationException = (output: any, context: __SerdeContext): ValidationException => {
-  const contents: any = {
-    Message: undefined,
-  };
+/**
+ * deserializeAws_queryValidationException
+ */
+const de_ValidationException = (output: any, context: __SerdeContext): ValidationException => {
+  const contents: any = {};
   if (output["Message"] !== undefined) {
     contents.Message = __expectString(output["Message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryVerificationException = (output: any, context: __SerdeContext): VerificationException => {
-  const contents: any = {
-    Message: undefined,
-    Status: undefined,
-  };
+/**
+ * deserializeAws_queryVerificationException
+ */
+const de_VerificationException = (output: any, context: __SerdeContext): VerificationException => {
+  const contents: any = {};
   if (output["Message"] !== undefined) {
     contents.Message = __expectString(output["Message"]);
   }
@@ -5533,7 +5920,10 @@ const deserializeAws_queryVerificationException = (output: any, context: __Serde
   return contents;
 };
 
-const deserializeAws_queryVerifySMSSandboxPhoneNumberResult = (
+/**
+ * deserializeAws_queryVerifySMSSandboxPhoneNumberResult
+ */
+const de_VerifySMSSandboxPhoneNumberResult = (
   output: any,
   context: __SerdeContext
 ): VerifySMSSandboxPhoneNumberResult => {
@@ -5561,6 +5951,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,
@@ -5584,6 +5975,9 @@ const buildHttpRpcRequest = async (
     contents.body = body;
   }
   return new __HttpRequest(contents);
+};
+const SHARED_HEADERS: __HeaderBag = {
+  "content-type": "application/x-www-form-urlencoded",
 };
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
@@ -5627,7 +6021,7 @@ const buildFormUrlencodedString = (formEntries: Record<string, string>): string 
     .join("&");
 
 const loadQueryErrorCode = (output: __HttpResponse, data: any): string | undefined => {
-  if (data.Error.Code !== undefined) {
+  if (data.Error?.Code !== undefined) {
     return data.Error.Code;
   }
   if (output.statusCode == 404) {

@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import { DescribeTrafficDistributionGroupRequest, DescribeTrafficDistributionGroupResponse } from "../models/models_0";
 import {
-  DescribeTrafficDistributionGroupRequest,
-  DescribeTrafficDistributionGroupRequestFilterSensitiveLog,
-  DescribeTrafficDistributionGroupResponse,
-  DescribeTrafficDistributionGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeTrafficDistributionGroupCommand,
-  serializeAws_restJson1DescribeTrafficDistributionGroupCommand,
+  de_DescribeTrafficDistributionGroupCommand,
+  se_DescribeTrafficDistributionGroupCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeTrafficDistributionGroupCommand}.
+ */
 export interface DescribeTrafficDistributionGroupCommandInput extends DescribeTrafficDistributionGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeTrafficDistributionGroupCommand}.
+ */
 export interface DescribeTrafficDistributionGroupCommandOutput
   extends DescribeTrafficDistributionGroupResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets details and status of a traffic distribution group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,34 @@ export interface DescribeTrafficDistributionGroupCommandOutput
  * import { ConnectClient, DescribeTrafficDistributionGroupCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DescribeTrafficDistributionGroupCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // DescribeTrafficDistributionGroupRequest
+ *   TrafficDistributionGroupId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeTrafficDistributionGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTrafficDistributionGroupCommandInput - {@link DescribeTrafficDistributionGroupCommandInput}
+ * @returns {@link DescribeTrafficDistributionGroupCommandOutput}
  * @see {@link DescribeTrafficDistributionGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeTrafficDistributionGroupCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
  *
  */
 export class DescribeTrafficDistributionGroupCommand extends $Command<
@@ -64,6 +91,9 @@ export class DescribeTrafficDistributionGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTrafficDistributionGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +122,8 @@ export class DescribeTrafficDistributionGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTrafficDistributionGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTrafficDistributionGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +133,24 @@ export class DescribeTrafficDistributionGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeTrafficDistributionGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeTrafficDistributionGroupCommand(input, context);
+    return se_DescribeTrafficDistributionGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTrafficDistributionGroupCommandOutput> {
-    return deserializeAws_restJson1DescribeTrafficDistributionGroupCommand(output, context);
+    return de_DescribeTrafficDistributionGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,19 +16,26 @@ import {
 import { ChimeSDKMeetingsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKMeetingsClient";
 import {
   ListAttendeesRequest,
-  ListAttendeesRequestFilterSensitiveLog,
   ListAttendeesResponse,
   ListAttendeesResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAttendeesCommand,
-  serializeAws_restJson1ListAttendeesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListAttendeesCommand, se_ListAttendeesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListAttendeesCommand}.
+ */
 export interface ListAttendeesCommandInput extends ListAttendeesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListAttendeesCommand}.
+ */
 export interface ListAttendeesCommandOutput extends ListAttendeesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             Lists the attendees for the specified Amazon Chime SDK meeting. For more information about the Amazon Chime SDK, see
  *             <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
@@ -40,13 +47,42 @@ export interface ListAttendeesCommandOutput extends ListAttendeesResponse, __Met
  * import { ChimeSDKMeetingsClient, ListAttendeesCommand } from "@aws-sdk/client-chime-sdk-meetings"; // ES Modules import
  * // const { ChimeSDKMeetingsClient, ListAttendeesCommand } = require("@aws-sdk/client-chime-sdk-meetings"); // CommonJS import
  * const client = new ChimeSDKMeetingsClient(config);
+ * const input = { // ListAttendeesRequest
+ *   MeetingId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListAttendeesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAttendeesCommandInput - {@link ListAttendeesCommandInput}
+ * @returns {@link ListAttendeesCommandOutput}
  * @see {@link ListAttendeesCommandInput} for command's `input` shape.
  * @see {@link ListAttendeesCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMeetingsClientResolvedConfig | config} for ChimeSDKMeetingsClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>One or more of the resources in the request does not exist in the system.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The number of customer requests exceeds the request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The user isn't authorized to request a resource.</p>
+ *
  *
  */
 export class ListAttendeesCommand extends $Command<
@@ -66,6 +102,9 @@ export class ListAttendeesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAttendeesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,7 +131,7 @@ export class ListAttendeesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAttendeesRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListAttendeesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -103,12 +142,18 @@ export class ListAttendeesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAttendeesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAttendeesCommand(input, context);
+    return se_ListAttendeesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAttendeesCommandOutput> {
-    return deserializeAws_restJson1ListAttendeesCommand(output, context);
+    return de_ListAttendeesCommand(output, context);
   }
 
   // Start section: command_body_extra

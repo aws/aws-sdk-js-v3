@@ -18,17 +18,24 @@ import {
   UpdateEnvironmentRequest,
   UpdateEnvironmentRequestFilterSensitiveLog,
   UpdateEnvironmentResult,
-  UpdateEnvironmentResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateEnvironmentCommand,
-  serializeAws_json1_1UpdateEnvironmentCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateEnvironmentCommand, se_UpdateEnvironmentCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateEnvironmentCommand}.
+ */
 export interface UpdateEnvironmentCommandInput extends UpdateEnvironmentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateEnvironmentCommand}.
+ */
 export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the settings of an existing Cloud9 development environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +43,56 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentResult,
  * import { Cloud9Client, UpdateEnvironmentCommand } from "@aws-sdk/client-cloud9"; // ES Modules import
  * // const { Cloud9Client, UpdateEnvironmentCommand } = require("@aws-sdk/client-cloud9"); // CommonJS import
  * const client = new Cloud9Client(config);
+ * const input = { // UpdateEnvironmentRequest
+ *   environmentId: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   managedCredentialsAction: "ENABLE" || "DISABLE",
+ * };
  * const command = new UpdateEnvironmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEnvironmentCommandInput - {@link UpdateEnvironmentCommandInput}
+ * @returns {@link UpdateEnvironmentCommandOutput}
  * @see {@link UpdateEnvironmentCommandInput} for command's `input` shape.
  * @see {@link UpdateEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link Cloud9ClientResolvedConfig | config} for Cloud9Client's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The target request is invalid.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>A conflict occurred.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>An access permissions issue occurred.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>An internal server error occurred.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A service limit was exceeded.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The target resource cannot be found.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Too many service requests were made over the given time period.</p>
+ *
+ *
+ * @example UpdateEnvironment
+ * ```javascript
+ * //
+ * const input = {
+ *   "name": "my-changed-demo-environment",
+ *   "description": "This is my changed demonstration environment.",
+ *   "environmentId": "8d9967e2f0624182b74e7690ad69ebEX"
+ * };
+ * const command = new UpdateEnvironmentCommand(input);
+ * await client.send(command);
+ * // example id: updateenvironment-1516823781910
+ * ```
  *
  */
 export class UpdateEnvironmentCommand extends $Command<
@@ -62,6 +112,9 @@ export class UpdateEnvironmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,7 +144,7 @@ export class UpdateEnvironmentCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateEnvironmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateEnvironmentResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +154,18 @@ export class UpdateEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateEnvironmentCommand(input, context);
+    return se_UpdateEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEnvironmentCommandOutput> {
-    return deserializeAws_json1_1UpdateEnvironmentCommand(output, context);
+    return de_UpdateEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

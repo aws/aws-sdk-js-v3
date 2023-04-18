@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeregisterEcsClusterRequest, DeregisterEcsClusterRequestFilterSensitiveLog } from "../models/models_0";
+import { DeregisterEcsClusterRequest } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1DeregisterEcsClusterCommand,
-  serializeAws_json1_1DeregisterEcsClusterCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeregisterEcsClusterCommand, se_DeregisterEcsClusterCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeregisterEcsClusterCommand}.
+ */
 export interface DeregisterEcsClusterCommandInput extends DeregisterEcsClusterRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeregisterEcsClusterCommand}.
+ */
 export interface DeregisterEcsClusterCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deregisters a specified Amazon ECS cluster from a stack.
  *       For more information, see
  *       <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-ecscluster.html#workinglayers-ecscluster-delete">
@@ -39,13 +47,25 @@ export interface DeregisterEcsClusterCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, DeregisterEcsClusterCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DeregisterEcsClusterCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // DeregisterEcsClusterRequest
+ *   EcsClusterArn: "STRING_VALUE", // required
+ * };
  * const command = new DeregisterEcsClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterEcsClusterCommandInput - {@link DeregisterEcsClusterCommandInput}
+ * @returns {@link DeregisterEcsClusterCommandOutput}
  * @see {@link DeregisterEcsClusterCommandInput} for command's `input` shape.
  * @see {@link DeregisterEcsClusterCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Indicates that a resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that a request was not valid.</p>
+ *
  *
  */
 export class DeregisterEcsClusterCommand extends $Command<
@@ -65,6 +85,9 @@ export class DeregisterEcsClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterEcsClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +116,8 @@ export class DeregisterEcsClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterEcsClusterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +127,18 @@ export class DeregisterEcsClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterEcsClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeregisterEcsClusterCommand(input, context);
+    return se_DeregisterEcsClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterEcsClusterCommandOutput> {
-    return deserializeAws_json1_1DeregisterEcsClusterCommand(output, context);
+    return de_DeregisterEcsClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

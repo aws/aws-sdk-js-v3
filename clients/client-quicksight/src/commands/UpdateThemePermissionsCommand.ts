@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateThemePermissionsRequest,
-  UpdateThemePermissionsRequestFilterSensitiveLog,
-  UpdateThemePermissionsResponse,
-  UpdateThemePermissionsResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_restJson1UpdateThemePermissionsCommand,
-  serializeAws_restJson1UpdateThemePermissionsCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateThemePermissionsRequest, UpdateThemePermissionsResponse } from "../models/models_3";
+import { de_UpdateThemePermissionsCommand, se_UpdateThemePermissionsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateThemePermissionsCommand}.
+ */
 export interface UpdateThemePermissionsCommandInput extends UpdateThemePermissionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateThemePermissionsCommand}.
+ */
 export interface UpdateThemePermissionsCommandOutput extends UpdateThemePermissionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the resource permissions for a theme. Permissions apply to the action to grant or
  * 			revoke permissions on, for example <code>"quicksight:DescribeTheme"</code>.</p>
  *          <p>Theme permissions apply in groupings. Valid groupings include the following for the three
@@ -129,13 +132,63 @@ export interface UpdateThemePermissionsCommandOutput extends UpdateThemePermissi
  * import { QuickSightClient, UpdateThemePermissionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdateThemePermissionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // UpdateThemePermissionsRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   ThemeId: "STRING_VALUE", // required
+ *   GrantPermissions: [ // UpdateResourcePermissionList
+ *     { // ResourcePermission
+ *       Principal: "STRING_VALUE", // required
+ *       Actions: [ // ActionList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   RevokePermissions: [
+ *     {
+ *       Principal: "STRING_VALUE", // required
+ *       Actions: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new UpdateThemePermissionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateThemePermissionsCommandInput - {@link UpdateThemePermissionsCommandInput}
+ * @returns {@link UpdateThemePermissionsCommandOutput}
  * @see {@link UpdateThemePermissionsCommandInput} for command's `input` shape.
  * @see {@link UpdateThemePermissionsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have access to this item. The provided credentials couldn't be
+ * 			validated. You might not be authorized to carry out the request. Make sure that your
+ * 			account is authorized to use the Amazon QuickSight service, that your policies have the
+ * 			correct permissions, and that you are using the correct credentials.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal failure occurred.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One or more parameters has a value that isn't valid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A limit is exceeded.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>One or more resources can't be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Access is throttled.</p>
+ *
+ * @throws {@link UnsupportedUserEditionException} (client fault)
+ *  <p>This error indicates that you are calling an operation on an Amazon QuickSight
+ * 			subscription where the edition doesn't include support for that operation. Amazon
+ * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
+ * 			capability is available in every edition.</p>
+ *
  *
  */
 export class UpdateThemePermissionsCommand extends $Command<
@@ -155,6 +208,9 @@ export class UpdateThemePermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateThemePermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -183,8 +239,8 @@ export class UpdateThemePermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateThemePermissionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateThemePermissionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -194,12 +250,18 @@ export class UpdateThemePermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateThemePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateThemePermissionsCommand(input, context);
+    return se_UpdateThemePermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateThemePermissionsCommandOutput> {
-    return deserializeAws_restJson1UpdateThemePermissionsCommand(output, context);
+    return de_UpdateThemePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

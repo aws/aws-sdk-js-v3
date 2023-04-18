@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaPackageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageClient";
+import { RotateIngestEndpointCredentialsRequest, RotateIngestEndpointCredentialsResponse } from "../models/models_0";
 import {
-  RotateIngestEndpointCredentialsRequest,
-  RotateIngestEndpointCredentialsRequestFilterSensitiveLog,
-  RotateIngestEndpointCredentialsResponse,
-  RotateIngestEndpointCredentialsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1RotateIngestEndpointCredentialsCommand,
-  serializeAws_restJson1RotateIngestEndpointCredentialsCommand,
+  de_RotateIngestEndpointCredentialsCommand,
+  se_RotateIngestEndpointCredentialsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link RotateIngestEndpointCredentialsCommand}.
+ */
 export interface RotateIngestEndpointCredentialsCommandInput extends RotateIngestEndpointCredentialsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RotateIngestEndpointCredentialsCommand}.
+ */
 export interface RotateIngestEndpointCredentialsCommandOutput
   extends RotateIngestEndpointCredentialsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * Rotate the IngestEndpoint's username and password, as specified by the IngestEndpoint's id.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,38 @@ export interface RotateIngestEndpointCredentialsCommandOutput
  * import { MediaPackageClient, RotateIngestEndpointCredentialsCommand } from "@aws-sdk/client-mediapackage"; // ES Modules import
  * // const { MediaPackageClient, RotateIngestEndpointCredentialsCommand } = require("@aws-sdk/client-mediapackage"); // CommonJS import
  * const client = new MediaPackageClient(config);
+ * const input = { // RotateIngestEndpointCredentialsRequest
+ *   Id: "STRING_VALUE", // required
+ *   IngestEndpointId: "STRING_VALUE", // required
+ * };
  * const command = new RotateIngestEndpointCredentialsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RotateIngestEndpointCredentialsCommandInput - {@link RotateIngestEndpointCredentialsCommandInput}
+ * @returns {@link RotateIngestEndpointCredentialsCommandOutput}
  * @see {@link RotateIngestEndpointCredentialsCommandInput} for command's `input` shape.
  * @see {@link RotateIngestEndpointCredentialsCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageClientResolvedConfig | config} for MediaPackageClient's `config` shape.
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  The client is not authorized to access the requested resource.
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  An unexpected error occurred.
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  The requested resource does not exist.
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  An unexpected error occurred.
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  The client has exceeded their resource or throttling limits.
+ *
+ * @throws {@link UnprocessableEntityException} (client fault)
+ *  The parameters sent in the request are not valid.
+ *
  *
  */
 export class RotateIngestEndpointCredentialsCommand extends $Command<
@@ -64,6 +95,9 @@ export class RotateIngestEndpointCredentialsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RotateIngestEndpointCredentialsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +126,8 @@ export class RotateIngestEndpointCredentialsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RotateIngestEndpointCredentialsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RotateIngestEndpointCredentialsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +137,24 @@ export class RotateIngestEndpointCredentialsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RotateIngestEndpointCredentialsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1RotateIngestEndpointCredentialsCommand(input, context);
+    return se_RotateIngestEndpointCredentialsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RotateIngestEndpointCredentialsCommandOutput> {
-    return deserializeAws_restJson1RotateIngestEndpointCredentialsCommand(output, context);
+    return de_RotateIngestEndpointCredentialsCommand(output, context);
   }
 
   // Start section: command_body_extra

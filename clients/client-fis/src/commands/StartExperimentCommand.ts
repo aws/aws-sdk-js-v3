@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FisClient";
-import {
-  StartExperimentRequest,
-  StartExperimentRequestFilterSensitiveLog,
-  StartExperimentResponse,
-  StartExperimentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StartExperimentCommand,
-  serializeAws_restJson1StartExperimentCommand,
-} from "../protocols/Aws_restJson1";
+import { StartExperimentRequest, StartExperimentResponse } from "../models/models_0";
+import { de_StartExperimentCommand, se_StartExperimentCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link StartExperimentCommand}.
+ */
 export interface StartExperimentCommandInput extends StartExperimentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartExperimentCommand}.
+ */
 export interface StartExperimentCommandOutput extends StartExperimentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts running an experiment from the specified experiment template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,35 @@ export interface StartExperimentCommandOutput extends StartExperimentResponse, _
  * import { FisClient, StartExperimentCommand } from "@aws-sdk/client-fis"; // ES Modules import
  * // const { FisClient, StartExperimentCommand } = require("@aws-sdk/client-fis"); // CommonJS import
  * const client = new FisClient(config);
+ * const input = { // StartExperimentRequest
+ *   clientToken: "STRING_VALUE", // required
+ *   experimentTemplateId: "STRING_VALUE", // required
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new StartExperimentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartExperimentCommandInput - {@link StartExperimentCommandInput}
+ * @returns {@link StartExperimentCommandOutput}
  * @see {@link StartExperimentCommandInput} for command's `input` shape.
  * @see {@link StartExperimentCommandOutput} for command's `response` shape.
  * @see {@link FisClientResolvedConfig | config} for FisClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be processed because of a conflict.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource cannot be found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>You have exceeded your service quota.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
+ *
  *
  */
 export class StartExperimentCommand extends $Command<
@@ -62,6 +87,9 @@ export class StartExperimentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartExperimentCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +118,8 @@ export class StartExperimentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartExperimentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartExperimentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +129,18 @@ export class StartExperimentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartExperimentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartExperimentCommand(input, context);
+    return se_StartExperimentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartExperimentCommandOutput> {
-    return deserializeAws_restJson1StartExperimentCommand(output, context);
+    return de_StartExperimentCommand(output, context);
   }
 
   // Start section: command_body_extra

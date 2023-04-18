@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/lib-dynamodb",
-  "version": "3.245.0",
+  "version": "3.315.0",
   "description": "The document client simplifies working with items in Amazon DynamoDB by abstracting away the notion of attribute values.",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -25,7 +25,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/util-dynamodb": "*",
-    "tslib": "^2.3.1"
+    "tslib": "^2.5.0"
   },
   "peerDependencies": {
     "@aws-sdk/client-dynamodb": "^3.0.0",
@@ -41,8 +41,8 @@
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
-    "typedoc": "0.19.2",
-    "typescript": "~4.6.2"
+    "typedoc": "0.23.23",
+    "typescript": "~4.9.5"
   },
   "typesVersions": {
     "<4.0": {
@@ -52,12 +52,15 @@
     }
   },
   "files": [
-    "dist-*"
+    "dist-*/**"
   ],
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/lib/lib-dynamodb",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
     "directory": "lib/lib-dynamodb"
+  },
+  "typedoc": {
+    "entryPoint": "src/index.ts"
   }
 }

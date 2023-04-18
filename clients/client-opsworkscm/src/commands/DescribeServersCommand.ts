@@ -15,20 +15,27 @@ import {
 
 import {
   DescribeServersRequest,
-  DescribeServersRequestFilterSensitiveLog,
   DescribeServersResponse,
   DescribeServersResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
-import {
-  deserializeAws_json1_1DescribeServersCommand,
-  serializeAws_json1_1DescribeServersCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeServersCommand, se_DescribeServersCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeServersCommand}.
+ */
 export interface DescribeServersCommandInput extends DescribeServersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeServersCommand}.
+ */
 export interface DescribeServersCommandOutput extends DescribeServersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Lists all configuration management servers that are identified with your account.
  *       Only the stored results from Amazon DynamoDB
@@ -47,13 +54,33 @@ export interface DescribeServersCommandOutput extends DescribeServersResponse, _
  * import { OpsWorksCMClient, DescribeServersCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
  * // const { OpsWorksCMClient, DescribeServersCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
  * const client = new OpsWorksCMClient(config);
+ * const input = { // DescribeServersRequest
+ *   ServerName: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeServersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeServersCommandInput - {@link DescribeServersCommandInput}
+ * @returns {@link DescribeServersCommandOutput}
  * @see {@link DescribeServersCommandInput} for command's `input` shape.
  * @see {@link DescribeServersCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksCMClientResolvedConfig | config} for OpsWorksCMClient's `config` shape.
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>This occurs when the provided nextToken is not valid.
+ *     </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource does not exist, or access was denied.
+ *     </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One or more of the provided request parameters are not valid.
+ *     </p>
+ *
  *
  */
 export class DescribeServersCommand extends $Command<
@@ -73,6 +100,9 @@ export class DescribeServersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeServersCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,7 +131,7 @@ export class DescribeServersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeServersRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeServersResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -112,12 +142,18 @@ export class DescribeServersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeServersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeServersCommand(input, context);
+    return se_DescribeServersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeServersCommandOutput> {
-    return deserializeAws_json1_1DescribeServersCommand(output, context);
+    return de_DescribeServersCommand(output, context);
   }
 
   // Start section: command_body_extra

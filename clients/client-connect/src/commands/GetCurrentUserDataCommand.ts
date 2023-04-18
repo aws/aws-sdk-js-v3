@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  GetCurrentUserDataRequest,
-  GetCurrentUserDataRequestFilterSensitiveLog,
-  GetCurrentUserDataResponse,
-  GetCurrentUserDataResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetCurrentUserDataCommand,
-  serializeAws_restJson1GetCurrentUserDataCommand,
-} from "../protocols/Aws_restJson1";
+import { GetCurrentUserDataRequest, GetCurrentUserDataResponse } from "../models/models_0";
+import { de_GetCurrentUserDataCommand, se_GetCurrentUserDataCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetCurrentUserDataCommand}.
+ */
 export interface GetCurrentUserDataCommandInput extends GetCurrentUserDataRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetCurrentUserDataCommand}.
+ */
 export interface GetCurrentUserDataCommandOutput extends GetCurrentUserDataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the real-time active user data from the specified Amazon Connect instance. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,55 @@ export interface GetCurrentUserDataCommandOutput extends GetCurrentUserDataRespo
  * import { ConnectClient, GetCurrentUserDataCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, GetCurrentUserDataCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // GetCurrentUserDataRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   Filters: { // UserDataFilters
+ *     Queues: [ // Queues
+ *       "STRING_VALUE",
+ *     ],
+ *     ContactFilter: { // ContactFilter
+ *       ContactStates: [ // ContactStates
+ *         "INCOMING" || "PENDING" || "CONNECTING" || "CONNECTED" || "CONNECTED_ONHOLD" || "MISSED" || "ERROR" || "ENDED" || "REJECTED",
+ *       ],
+ *     },
+ *     RoutingProfiles: [ // RoutingProfiles
+ *       "STRING_VALUE",
+ *     ],
+ *     Agents: [ // AgentsMinOneMaxHundred
+ *       "STRING_VALUE",
+ *     ],
+ *     UserHierarchyGroups: [ // UserDataHierarchyGroups
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new GetCurrentUserDataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCurrentUserDataCommandInput - {@link GetCurrentUserDataCommandInput}
+ * @returns {@link GetCurrentUserDataCommandOutput}
  * @see {@link GetCurrentUserDataCommandInput} for command's `input` shape.
  * @see {@link GetCurrentUserDataCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
  *
  */
 export class GetCurrentUserDataCommand extends $Command<
@@ -62,6 +107,9 @@ export class GetCurrentUserDataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCurrentUserDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +138,8 @@ export class GetCurrentUserDataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCurrentUserDataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCurrentUserDataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +149,18 @@ export class GetCurrentUserDataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCurrentUserDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetCurrentUserDataCommand(input, context);
+    return se_GetCurrentUserDataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCurrentUserDataCommandOutput> {
-    return deserializeAws_restJson1GetCurrentUserDataCommand(output, context);
+    return de_GetCurrentUserDataCommand(output, context);
   }
 
   // Start section: command_body_extra

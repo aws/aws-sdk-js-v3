@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
+import { GetThingRuntimeConfigurationRequest, GetThingRuntimeConfigurationResponse } from "../models/models_0";
 import {
-  GetThingRuntimeConfigurationRequest,
-  GetThingRuntimeConfigurationRequestFilterSensitiveLog,
-  GetThingRuntimeConfigurationResponse,
-  GetThingRuntimeConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetThingRuntimeConfigurationCommand,
-  serializeAws_restJson1GetThingRuntimeConfigurationCommand,
+  de_GetThingRuntimeConfigurationCommand,
+  se_GetThingRuntimeConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetThingRuntimeConfigurationCommand}.
+ */
 export interface GetThingRuntimeConfigurationCommandInput extends GetThingRuntimeConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetThingRuntimeConfigurationCommand}.
+ */
 export interface GetThingRuntimeConfigurationCommandOutput
   extends GetThingRuntimeConfigurationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * Get the runtime configuration of a thing.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,25 @@ export interface GetThingRuntimeConfigurationCommandOutput
  * import { GreengrassClient, GetThingRuntimeConfigurationCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, GetThingRuntimeConfigurationCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // GetThingRuntimeConfigurationRequest
+ *   ThingName: "STRING_VALUE", // required
+ * };
  * const command = new GetThingRuntimeConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetThingRuntimeConfigurationCommandInput - {@link GetThingRuntimeConfigurationCommandInput}
+ * @returns {@link GetThingRuntimeConfigurationCommandOutput}
  * @see {@link GetThingRuntimeConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetThingRuntimeConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  General error information.
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  General error information.
+ *
  *
  */
 export class GetThingRuntimeConfigurationCommand extends $Command<
@@ -64,6 +82,9 @@ export class GetThingRuntimeConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetThingRuntimeConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +113,8 @@ export class GetThingRuntimeConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetThingRuntimeConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetThingRuntimeConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +124,21 @@ export class GetThingRuntimeConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetThingRuntimeConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetThingRuntimeConfigurationCommand(input, context);
+    return se_GetThingRuntimeConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetThingRuntimeConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetThingRuntimeConfigurationCommand(output, context);
+    return de_GetThingRuntimeConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

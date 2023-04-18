@@ -1,14 +1,14 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectBoolean as __expectBoolean,
-  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -28,6 +28,11 @@ import {
   CreateContactChannelCommandOutput,
 } from "../commands/CreateContactChannelCommand";
 import { CreateContactCommandInput, CreateContactCommandOutput } from "../commands/CreateContactCommand";
+import { CreateRotationCommandInput, CreateRotationCommandOutput } from "../commands/CreateRotationCommand";
+import {
+  CreateRotationOverrideCommandInput,
+  CreateRotationOverrideCommandOutput,
+} from "../commands/CreateRotationOverrideCommand";
 import {
   DeactivateContactChannelCommandInput,
   DeactivateContactChannelCommandOutput,
@@ -37,11 +42,21 @@ import {
   DeleteContactChannelCommandOutput,
 } from "../commands/DeleteContactChannelCommand";
 import { DeleteContactCommandInput, DeleteContactCommandOutput } from "../commands/DeleteContactCommand";
+import { DeleteRotationCommandInput, DeleteRotationCommandOutput } from "../commands/DeleteRotationCommand";
+import {
+  DeleteRotationOverrideCommandInput,
+  DeleteRotationOverrideCommandOutput,
+} from "../commands/DeleteRotationOverrideCommand";
 import { DescribeEngagementCommandInput, DescribeEngagementCommandOutput } from "../commands/DescribeEngagementCommand";
 import { DescribePageCommandInput, DescribePageCommandOutput } from "../commands/DescribePageCommand";
 import { GetContactChannelCommandInput, GetContactChannelCommandOutput } from "../commands/GetContactChannelCommand";
 import { GetContactCommandInput, GetContactCommandOutput } from "../commands/GetContactCommand";
 import { GetContactPolicyCommandInput, GetContactPolicyCommandOutput } from "../commands/GetContactPolicyCommand";
+import { GetRotationCommandInput, GetRotationCommandOutput } from "../commands/GetRotationCommand";
+import {
+  GetRotationOverrideCommandInput,
+  GetRotationOverrideCommandOutput,
+} from "../commands/GetRotationOverrideCommand";
 import {
   ListContactChannelsCommandInput,
   ListContactChannelsCommandOutput,
@@ -49,11 +64,25 @@ import {
 import { ListContactsCommandInput, ListContactsCommandOutput } from "../commands/ListContactsCommand";
 import { ListEngagementsCommandInput, ListEngagementsCommandOutput } from "../commands/ListEngagementsCommand";
 import { ListPageReceiptsCommandInput, ListPageReceiptsCommandOutput } from "../commands/ListPageReceiptsCommand";
+import {
+  ListPageResolutionsCommandInput,
+  ListPageResolutionsCommandOutput,
+} from "../commands/ListPageResolutionsCommand";
 import { ListPagesByContactCommandInput, ListPagesByContactCommandOutput } from "../commands/ListPagesByContactCommand";
 import {
   ListPagesByEngagementCommandInput,
   ListPagesByEngagementCommandOutput,
 } from "../commands/ListPagesByEngagementCommand";
+import {
+  ListPreviewRotationShiftsCommandInput,
+  ListPreviewRotationShiftsCommandOutput,
+} from "../commands/ListPreviewRotationShiftsCommand";
+import {
+  ListRotationOverridesCommandInput,
+  ListRotationOverridesCommandOutput,
+} from "../commands/ListRotationOverridesCommand";
+import { ListRotationsCommandInput, ListRotationsCommandOutput } from "../commands/ListRotationsCommand";
+import { ListRotationShiftsCommandInput, ListRotationShiftsCommandOutput } from "../commands/ListRotationShiftsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -69,455 +98,621 @@ import {
   UpdateContactChannelCommandOutput,
 } from "../commands/UpdateContactChannelCommand";
 import { UpdateContactCommandInput, UpdateContactCommandOutput } from "../commands/UpdateContactCommand";
+import { UpdateRotationCommandInput, UpdateRotationCommandOutput } from "../commands/UpdateRotationCommand";
 import {
   AcceptPageRequest,
-  AcceptPageResult,
   AccessDeniedException,
   ActivateContactChannelRequest,
-  ActivateContactChannelResult,
   ChannelTargetInfo,
   ConflictException,
-  Contact,
-  ContactChannel,
   ContactChannelAddress,
   ContactTargetInfo,
+  CoverageTime,
   CreateContactChannelRequest,
-  CreateContactChannelResult,
   CreateContactRequest,
-  CreateContactResult,
+  CreateRotationOverrideRequest,
+  CreateRotationRequest,
   DataEncryptionException,
   DeactivateContactChannelRequest,
-  DeactivateContactChannelResult,
   DeleteContactChannelRequest,
-  DeleteContactChannelResult,
   DeleteContactRequest,
-  DeleteContactResult,
+  DeleteRotationOverrideRequest,
+  DeleteRotationRequest,
   DescribeEngagementRequest,
   DescribeEngagementResult,
   DescribePageRequest,
   DescribePageResult,
   Engagement,
   GetContactChannelRequest,
-  GetContactChannelResult,
   GetContactPolicyRequest,
-  GetContactPolicyResult,
   GetContactRequest,
-  GetContactResult,
+  GetRotationOverrideRequest,
+  GetRotationOverrideResult,
+  GetRotationRequest,
+  GetRotationResult,
+  HandOffTime,
   InternalServerException,
   ListContactChannelsRequest,
-  ListContactChannelsResult,
   ListContactsRequest,
-  ListContactsResult,
   ListEngagementsRequest,
   ListEngagementsResult,
   ListPageReceiptsRequest,
   ListPageReceiptsResult,
+  ListPageResolutionsRequest,
   ListPagesByContactRequest,
   ListPagesByContactResult,
   ListPagesByEngagementRequest,
   ListPagesByEngagementResult,
+  ListPreviewRotationShiftsRequest,
+  ListPreviewRotationShiftsResult,
+  ListRotationOverridesRequest,
+  ListRotationOverridesResult,
+  ListRotationShiftsRequest,
+  ListRotationShiftsResult,
+  ListRotationsRequest,
+  ListRotationsResult,
   ListTagsForResourceRequest,
-  ListTagsForResourceResult,
+  MonthlySetting,
   Page,
   Plan,
+  PreviewOverride,
   PutContactPolicyRequest,
-  PutContactPolicyResult,
   Receipt,
+  RecurrenceSettings,
   ResourceNotFoundException,
+  Rotation,
+  RotationOverride,
+  RotationShift,
   SendActivationCodeRequest,
-  SendActivationCodeResult,
   ServiceQuotaExceededException,
   Stage,
   StartEngagementRequest,
-  StartEngagementResult,
   StopEngagementRequest,
-  StopEngagementResult,
   Tag,
   TagResourceRequest,
-  TagResourceResult,
   Target,
   ThrottlingException,
   TimeRange,
   UntagResourceRequest,
-  UntagResourceResult,
   UpdateContactChannelRequest,
-  UpdateContactChannelResult,
   UpdateContactRequest,
-  UpdateContactResult,
+  UpdateRotationRequest,
   ValidationException,
-  ValidationExceptionField,
+  WeeklySetting,
 } from "../models/models_0";
 import { SSMContactsServiceException as __BaseException } from "../models/SSMContactsServiceException";
 
-export const serializeAws_json1_1AcceptPageCommand = async (
+/**
+ * serializeAws_json1_1AcceptPageCommand
+ */
+export const se_AcceptPageCommand = async (
   input: AcceptPageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.AcceptPage",
-  };
+  const headers: __HeaderBag = sharedHeaders("AcceptPage");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AcceptPageRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ActivateContactChannelCommand = async (
+/**
+ * serializeAws_json1_1ActivateContactChannelCommand
+ */
+export const se_ActivateContactChannelCommand = async (
   input: ActivateContactChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.ActivateContactChannel",
-  };
+  const headers: __HeaderBag = sharedHeaders("ActivateContactChannel");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ActivateContactChannelRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateContactCommand = async (
+/**
+ * serializeAws_json1_1CreateContactCommand
+ */
+export const se_CreateContactCommand = async (
   input: CreateContactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.CreateContact",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateContact");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateContactRequest(input, context));
+  body = JSON.stringify(se_CreateContactRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateContactChannelCommand = async (
+/**
+ * serializeAws_json1_1CreateContactChannelCommand
+ */
+export const se_CreateContactChannelCommand = async (
   input: CreateContactChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.CreateContactChannel",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateContactChannel");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateContactChannelRequest(input, context));
+  body = JSON.stringify(se_CreateContactChannelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeactivateContactChannelCommand = async (
+/**
+ * serializeAws_json1_1CreateRotationCommand
+ */
+export const se_CreateRotationCommand = async (
+  input: CreateRotationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateRotation");
+  let body: any;
+  body = JSON.stringify(se_CreateRotationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1CreateRotationOverrideCommand
+ */
+export const se_CreateRotationOverrideCommand = async (
+  input: CreateRotationOverrideCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateRotationOverride");
+  let body: any;
+  body = JSON.stringify(se_CreateRotationOverrideRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeactivateContactChannelCommand
+ */
+export const se_DeactivateContactChannelCommand = async (
   input: DeactivateContactChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.DeactivateContactChannel",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeactivateContactChannel");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeactivateContactChannelRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteContactCommand = async (
+/**
+ * serializeAws_json1_1DeleteContactCommand
+ */
+export const se_DeleteContactCommand = async (
   input: DeleteContactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.DeleteContact",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteContact");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteContactRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteContactChannelCommand = async (
+/**
+ * serializeAws_json1_1DeleteContactChannelCommand
+ */
+export const se_DeleteContactChannelCommand = async (
   input: DeleteContactChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.DeleteContactChannel",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteContactChannel");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteContactChannelRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeEngagementCommand = async (
+/**
+ * serializeAws_json1_1DeleteRotationCommand
+ */
+export const se_DeleteRotationCommand = async (
+  input: DeleteRotationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteRotation");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteRotationOverrideCommand
+ */
+export const se_DeleteRotationOverrideCommand = async (
+  input: DeleteRotationOverrideCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteRotationOverride");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeEngagementCommand
+ */
+export const se_DescribeEngagementCommand = async (
   input: DescribeEngagementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.DescribeEngagement",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEngagement");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeEngagementRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribePageCommand = async (
+/**
+ * serializeAws_json1_1DescribePageCommand
+ */
+export const se_DescribePageCommand = async (
   input: DescribePageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.DescribePage",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribePage");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribePageRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetContactCommand = async (
+/**
+ * serializeAws_json1_1GetContactCommand
+ */
+export const se_GetContactCommand = async (
   input: GetContactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.GetContact",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetContact");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetContactRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetContactChannelCommand = async (
+/**
+ * serializeAws_json1_1GetContactChannelCommand
+ */
+export const se_GetContactChannelCommand = async (
   input: GetContactChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.GetContactChannel",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetContactChannel");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetContactChannelRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetContactPolicyCommand = async (
+/**
+ * serializeAws_json1_1GetContactPolicyCommand
+ */
+export const se_GetContactPolicyCommand = async (
   input: GetContactPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.GetContactPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetContactPolicy");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetContactPolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListContactChannelsCommand = async (
+/**
+ * serializeAws_json1_1GetRotationCommand
+ */
+export const se_GetRotationCommand = async (
+  input: GetRotationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetRotation");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1GetRotationOverrideCommand
+ */
+export const se_GetRotationOverrideCommand = async (
+  input: GetRotationOverrideCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetRotationOverride");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListContactChannelsCommand
+ */
+export const se_ListContactChannelsCommand = async (
   input: ListContactChannelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.ListContactChannels",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListContactChannels");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListContactChannelsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListContactsCommand = async (
+/**
+ * serializeAws_json1_1ListContactsCommand
+ */
+export const se_ListContactsCommand = async (
   input: ListContactsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.ListContacts",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListContacts");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListContactsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListEngagementsCommand = async (
+/**
+ * serializeAws_json1_1ListEngagementsCommand
+ */
+export const se_ListEngagementsCommand = async (
   input: ListEngagementsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.ListEngagements",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListEngagements");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListEngagementsRequest(input, context));
+  body = JSON.stringify(se_ListEngagementsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListPageReceiptsCommand = async (
+/**
+ * serializeAws_json1_1ListPageReceiptsCommand
+ */
+export const se_ListPageReceiptsCommand = async (
   input: ListPageReceiptsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.ListPageReceipts",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListPageReceipts");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListPageReceiptsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListPagesByContactCommand = async (
+/**
+ * serializeAws_json1_1ListPageResolutionsCommand
+ */
+export const se_ListPageResolutionsCommand = async (
+  input: ListPageResolutionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListPageResolutions");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListPagesByContactCommand
+ */
+export const se_ListPagesByContactCommand = async (
   input: ListPagesByContactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.ListPagesByContact",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListPagesByContact");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListPagesByContactRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListPagesByEngagementCommand = async (
+/**
+ * serializeAws_json1_1ListPagesByEngagementCommand
+ */
+export const se_ListPagesByEngagementCommand = async (
   input: ListPagesByEngagementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.ListPagesByEngagement",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListPagesByEngagement");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListPagesByEngagementRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_json1_1ListPreviewRotationShiftsCommand
+ */
+export const se_ListPreviewRotationShiftsCommand = async (
+  input: ListPreviewRotationShiftsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListPreviewRotationShifts");
+  let body: any;
+  body = JSON.stringify(se_ListPreviewRotationShiftsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListRotationOverridesCommand
+ */
+export const se_ListRotationOverridesCommand = async (
+  input: ListRotationOverridesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListRotationOverrides");
+  let body: any;
+  body = JSON.stringify(se_ListRotationOverridesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListRotationsCommand
+ */
+export const se_ListRotationsCommand = async (
+  input: ListRotationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListRotations");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListRotationShiftsCommand
+ */
+export const se_ListRotationShiftsCommand = async (
+  input: ListRotationShiftsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListRotationShifts");
+  let body: any;
+  body = JSON.stringify(se_ListRotationShiftsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1PutContactPolicyCommand = async (
+/**
+ * serializeAws_json1_1PutContactPolicyCommand
+ */
+export const se_PutContactPolicyCommand = async (
   input: PutContactPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.PutContactPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutContactPolicy");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1PutContactPolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1SendActivationCodeCommand = async (
+/**
+ * serializeAws_json1_1SendActivationCodeCommand
+ */
+export const se_SendActivationCodeCommand = async (
   input: SendActivationCodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.SendActivationCode",
-  };
+  const headers: __HeaderBag = sharedHeaders("SendActivationCode");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1SendActivationCodeRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1StartEngagementCommand = async (
+/**
+ * serializeAws_json1_1StartEngagementCommand
+ */
+export const se_StartEngagementCommand = async (
   input: StartEngagementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.StartEngagement",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartEngagement");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1StartEngagementRequest(input, context));
+  body = JSON.stringify(se_StartEngagementRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1StopEngagementCommand = async (
+/**
+ * serializeAws_json1_1StopEngagementCommand
+ */
+export const se_StopEngagementCommand = async (
   input: StopEngagementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.StopEngagement",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopEngagement");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1StopEngagementRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1TagResourceCommand = async (
+/**
+ * serializeAws_json1_1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UntagResourceCommand = async (
+/**
+ * serializeAws_json1_1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateContactCommand = async (
+/**
+ * serializeAws_json1_1UpdateContactCommand
+ */
+export const se_UpdateContactCommand = async (
   input: UpdateContactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.UpdateContact",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateContact");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateContactRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateContactChannelCommand = async (
+/**
+ * serializeAws_json1_1UpdateContactChannelCommand
+ */
+export const se_UpdateContactChannelCommand = async (
   input: UpdateContactChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.UpdateContactChannel",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateContactChannel");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateContactChannelRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_1AcceptPageCommand = async (
+/**
+ * serializeAws_json1_1UpdateRotationCommand
+ */
+export const se_UpdateRotationCommand = async (
+  input: UpdateRotationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateRotation");
+  let body: any;
+  body = JSON.stringify(se_UpdateRotationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * deserializeAws_json1_1AcceptPageCommand
+ */
+export const de_AcceptPageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AcceptPageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AcceptPageCommandError(output, context);
+    return de_AcceptPageCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AcceptPageResult(data, context);
+  contents = _json(data);
   const response: AcceptPageCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1AcceptPageCommandError = async (
+/**
+ * deserializeAws_json1_1AcceptPageCommandError
+ */
+const de_AcceptPageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AcceptPageCommandOutput> => {
@@ -529,48 +724,53 @@ const deserializeAws_json1_1AcceptPageCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ActivateContactChannelCommand = async (
+/**
+ * deserializeAws_json1_1ActivateContactChannelCommand
+ */
+export const de_ActivateContactChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ActivateContactChannelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ActivateContactChannelCommandError(output, context);
+    return de_ActivateContactChannelCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ActivateContactChannelResult(data, context);
+  contents = _json(data);
   const response: ActivateContactChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ActivateContactChannelCommandError = async (
+/**
+ * deserializeAws_json1_1ActivateContactChannelCommandError
+ */
+const de_ActivateContactChannelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ActivateContactChannelCommandOutput> => {
@@ -582,48 +782,53 @@ const deserializeAws_json1_1ActivateContactChannelCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1CreateContactCommand = async (
+/**
+ * deserializeAws_json1_1CreateContactCommand
+ */
+export const de_CreateContactCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateContactCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateContactCommandError(output, context);
+    return de_CreateContactCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateContactResult(data, context);
+  contents = _json(data);
   const response: CreateContactCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateContactCommandError = async (
+/**
+ * deserializeAws_json1_1CreateContactCommandError
+ */
+const de_CreateContactCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateContactCommandOutput> => {
@@ -635,54 +840,59 @@ const deserializeAws_json1_1CreateContactCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.ssmcontacts#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "DataEncryptionException":
     case "com.amazonaws.ssmcontacts#DataEncryptionException":
-      throw await deserializeAws_json1_1DataEncryptionExceptionResponse(parsedOutput, context);
+      throw await de_DataEncryptionExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.ssmcontacts#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1CreateContactChannelCommand = async (
+/**
+ * deserializeAws_json1_1CreateContactChannelCommand
+ */
+export const de_CreateContactChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateContactChannelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateContactChannelCommandError(output, context);
+    return de_CreateContactChannelCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateContactChannelResult(data, context);
+  contents = _json(data);
   const response: CreateContactChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateContactChannelCommandError = async (
+/**
+ * deserializeAws_json1_1CreateContactChannelCommandError
+ */
+const de_CreateContactChannelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateContactChannelCommandOutput> => {
@@ -694,51 +904,178 @@ const deserializeAws_json1_1CreateContactChannelCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.ssmcontacts#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "DataEncryptionException":
     case "com.amazonaws.ssmcontacts#DataEncryptionException":
-      throw await deserializeAws_json1_1DataEncryptionExceptionResponse(parsedOutput, context);
+      throw await de_DataEncryptionExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeactivateContactChannelCommand = async (
+/**
+ * deserializeAws_json1_1CreateRotationCommand
+ */
+export const de_CreateRotationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRotationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateRotationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateRotationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateRotationCommandError
+ */
+const de_CreateRotationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRotationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssmcontacts#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssmcontacts#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.ssmcontacts#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssmcontacts#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssmcontacts#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1CreateRotationOverrideCommand
+ */
+export const de_CreateRotationOverrideCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRotationOverrideCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateRotationOverrideCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateRotationOverrideCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateRotationOverrideCommandError
+ */
+const de_CreateRotationOverrideCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRotationOverrideCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssmcontacts#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssmcontacts#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.ssmcontacts#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssmcontacts#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssmcontacts#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DeactivateContactChannelCommand
+ */
+export const de_DeactivateContactChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeactivateContactChannelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeactivateContactChannelCommandError(output, context);
+    return de_DeactivateContactChannelCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeactivateContactChannelResult(data, context);
+  contents = _json(data);
   const response: DeactivateContactChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeactivateContactChannelCommandError = async (
+/**
+ * deserializeAws_json1_1DeactivateContactChannelCommandError
+ */
+const de_DeactivateContactChannelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeactivateContactChannelCommandOutput> => {
@@ -750,48 +1087,53 @@ const deserializeAws_json1_1DeactivateContactChannelCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteContactCommand = async (
+/**
+ * deserializeAws_json1_1DeleteContactCommand
+ */
+export const de_DeleteContactCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteContactCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteContactCommandError(output, context);
+    return de_DeleteContactCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteContactResult(data, context);
+  contents = _json(data);
   const response: DeleteContactCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteContactCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteContactCommandError
+ */
+const de_DeleteContactCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteContactCommandOutput> => {
@@ -803,48 +1145,56 @@ const deserializeAws_json1_1DeleteContactCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.ssmcontacts#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteContactChannelCommand = async (
+/**
+ * deserializeAws_json1_1DeleteContactChannelCommand
+ */
+export const de_DeleteContactChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteContactChannelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteContactChannelCommandError(output, context);
+    return de_DeleteContactChannelCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteContactChannelResult(data, context);
+  contents = _json(data);
   const response: DeleteContactChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteContactChannelCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteContactChannelCommandError
+ */
+const de_DeleteContactChannelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteContactChannelCommandOutput> => {
@@ -856,48 +1206,172 @@ const deserializeAws_json1_1DeleteContactChannelCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeEngagementCommand = async (
+/**
+ * deserializeAws_json1_1DeleteRotationCommand
+ */
+export const de_DeleteRotationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRotationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteRotationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteRotationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteRotationCommandError
+ */
+const de_DeleteRotationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRotationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssmcontacts#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.ssmcontacts#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssmcontacts#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssmcontacts#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssmcontacts#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DeleteRotationOverrideCommand
+ */
+export const de_DeleteRotationOverrideCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRotationOverrideCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteRotationOverrideCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteRotationOverrideCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteRotationOverrideCommandError
+ */
+const de_DeleteRotationOverrideCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRotationOverrideCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssmcontacts#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssmcontacts#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssmcontacts#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssmcontacts#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DescribeEngagementCommand
+ */
+export const de_DescribeEngagementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEngagementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeEngagementCommandError(output, context);
+    return de_DescribeEngagementCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeEngagementResult(data, context);
+  contents = de_DescribeEngagementResult(data, context);
   const response: DescribeEngagementCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeEngagementCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeEngagementCommandError
+ */
+const de_DescribeEngagementCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEngagementCommandOutput> => {
@@ -909,51 +1383,56 @@ const deserializeAws_json1_1DescribeEngagementCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "DataEncryptionException":
     case "com.amazonaws.ssmcontacts#DataEncryptionException":
-      throw await deserializeAws_json1_1DataEncryptionExceptionResponse(parsedOutput, context);
+      throw await de_DataEncryptionExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribePageCommand = async (
+/**
+ * deserializeAws_json1_1DescribePageCommand
+ */
+export const de_DescribePageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribePageCommandError(output, context);
+    return de_DescribePageCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribePageResult(data, context);
+  contents = de_DescribePageResult(data, context);
   const response: DescribePageCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribePageCommandError = async (
+/**
+ * deserializeAws_json1_1DescribePageCommandError
+ */
+const de_DescribePageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePageCommandOutput> => {
@@ -965,51 +1444,56 @@ const deserializeAws_json1_1DescribePageCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "DataEncryptionException":
     case "com.amazonaws.ssmcontacts#DataEncryptionException":
-      throw await deserializeAws_json1_1DataEncryptionExceptionResponse(parsedOutput, context);
+      throw await de_DataEncryptionExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1GetContactCommand = async (
+/**
+ * deserializeAws_json1_1GetContactCommand
+ */
+export const de_GetContactCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetContactCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetContactCommandError(output, context);
+    return de_GetContactCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetContactResult(data, context);
+  contents = _json(data);
   const response: GetContactCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetContactCommandError = async (
+/**
+ * deserializeAws_json1_1GetContactCommandError
+ */
+const de_GetContactCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetContactCommandOutput> => {
@@ -1021,51 +1505,56 @@ const deserializeAws_json1_1GetContactCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "DataEncryptionException":
     case "com.amazonaws.ssmcontacts#DataEncryptionException":
-      throw await deserializeAws_json1_1DataEncryptionExceptionResponse(parsedOutput, context);
+      throw await de_DataEncryptionExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1GetContactChannelCommand = async (
+/**
+ * deserializeAws_json1_1GetContactChannelCommand
+ */
+export const de_GetContactChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetContactChannelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetContactChannelCommandError(output, context);
+    return de_GetContactChannelCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetContactChannelResult(data, context);
+  contents = _json(data);
   const response: GetContactChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetContactChannelCommandError = async (
+/**
+ * deserializeAws_json1_1GetContactChannelCommandError
+ */
+const de_GetContactChannelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetContactChannelCommandOutput> => {
@@ -1077,51 +1566,56 @@ const deserializeAws_json1_1GetContactChannelCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "DataEncryptionException":
     case "com.amazonaws.ssmcontacts#DataEncryptionException":
-      throw await deserializeAws_json1_1DataEncryptionExceptionResponse(parsedOutput, context);
+      throw await de_DataEncryptionExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1GetContactPolicyCommand = async (
+/**
+ * deserializeAws_json1_1GetContactPolicyCommand
+ */
+export const de_GetContactPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetContactPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetContactPolicyCommandError(output, context);
+    return de_GetContactPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetContactPolicyResult(data, context);
+  contents = _json(data);
   const response: GetContactPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetContactPolicyCommandError = async (
+/**
+ * deserializeAws_json1_1GetContactPolicyCommandError
+ */
+const de_GetContactPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetContactPolicyCommandOutput> => {
@@ -1133,48 +1627,169 @@ const deserializeAws_json1_1GetContactPolicyCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListContactChannelsCommand = async (
+/**
+ * deserializeAws_json1_1GetRotationCommand
+ */
+export const de_GetRotationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRotationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_GetRotationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetRotationResult(data, context);
+  const response: GetRotationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetRotationCommandError
+ */
+const de_GetRotationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRotationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssmcontacts#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssmcontacts#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssmcontacts#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssmcontacts#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1GetRotationOverrideCommand
+ */
+export const de_GetRotationOverrideCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRotationOverrideCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_GetRotationOverrideCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetRotationOverrideResult(data, context);
+  const response: GetRotationOverrideCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetRotationOverrideCommandError
+ */
+const de_GetRotationOverrideCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRotationOverrideCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssmcontacts#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssmcontacts#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssmcontacts#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssmcontacts#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ListContactChannelsCommand
+ */
+export const de_ListContactChannelsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListContactChannelsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListContactChannelsCommandError(output, context);
+    return de_ListContactChannelsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListContactChannelsResult(data, context);
+  contents = _json(data);
   const response: ListContactChannelsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListContactChannelsCommandError = async (
+/**
+ * deserializeAws_json1_1ListContactChannelsCommandError
+ */
+const de_ListContactChannelsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListContactChannelsCommandOutput> => {
@@ -1186,51 +1801,56 @@ const deserializeAws_json1_1ListContactChannelsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "DataEncryptionException":
     case "com.amazonaws.ssmcontacts#DataEncryptionException":
-      throw await deserializeAws_json1_1DataEncryptionExceptionResponse(parsedOutput, context);
+      throw await de_DataEncryptionExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListContactsCommand = async (
+/**
+ * deserializeAws_json1_1ListContactsCommand
+ */
+export const de_ListContactsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListContactsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListContactsCommandError(output, context);
+    return de_ListContactsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListContactsResult(data, context);
+  contents = _json(data);
   const response: ListContactsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListContactsCommandError = async (
+/**
+ * deserializeAws_json1_1ListContactsCommandError
+ */
+const de_ListContactsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListContactsCommandOutput> => {
@@ -1242,45 +1862,50 @@ const deserializeAws_json1_1ListContactsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListEngagementsCommand = async (
+/**
+ * deserializeAws_json1_1ListEngagementsCommand
+ */
+export const de_ListEngagementsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEngagementsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListEngagementsCommandError(output, context);
+    return de_ListEngagementsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListEngagementsResult(data, context);
+  contents = de_ListEngagementsResult(data, context);
   const response: ListEngagementsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListEngagementsCommandError = async (
+/**
+ * deserializeAws_json1_1ListEngagementsCommandError
+ */
+const de_ListEngagementsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEngagementsCommandOutput> => {
@@ -1292,45 +1917,50 @@ const deserializeAws_json1_1ListEngagementsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListPageReceiptsCommand = async (
+/**
+ * deserializeAws_json1_1ListPageReceiptsCommand
+ */
+export const de_ListPageReceiptsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPageReceiptsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListPageReceiptsCommandError(output, context);
+    return de_ListPageReceiptsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListPageReceiptsResult(data, context);
+  contents = de_ListPageReceiptsResult(data, context);
   const response: ListPageReceiptsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListPageReceiptsCommandError = async (
+/**
+ * deserializeAws_json1_1ListPageReceiptsCommandError
+ */
+const de_ListPageReceiptsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPageReceiptsCommandOutput> => {
@@ -1342,48 +1972,111 @@ const deserializeAws_json1_1ListPageReceiptsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListPagesByContactCommand = async (
+/**
+ * deserializeAws_json1_1ListPageResolutionsCommand
+ */
+export const de_ListPageResolutionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPageResolutionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListPageResolutionsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListPageResolutionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListPageResolutionsCommandError
+ */
+const de_ListPageResolutionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPageResolutionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssmcontacts#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssmcontacts#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssmcontacts#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssmcontacts#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ListPagesByContactCommand
+ */
+export const de_ListPagesByContactCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPagesByContactCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListPagesByContactCommandError(output, context);
+    return de_ListPagesByContactCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListPagesByContactResult(data, context);
+  contents = de_ListPagesByContactResult(data, context);
   const response: ListPagesByContactCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListPagesByContactCommandError = async (
+/**
+ * deserializeAws_json1_1ListPagesByContactCommandError
+ */
+const de_ListPagesByContactCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPagesByContactCommandOutput> => {
@@ -1395,48 +2088,53 @@ const deserializeAws_json1_1ListPagesByContactCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListPagesByEngagementCommand = async (
+/**
+ * deserializeAws_json1_1ListPagesByEngagementCommand
+ */
+export const de_ListPagesByEngagementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPagesByEngagementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListPagesByEngagementCommandError(output, context);
+    return de_ListPagesByEngagementCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListPagesByEngagementResult(data, context);
+  contents = de_ListPagesByEngagementResult(data, context);
   const response: ListPagesByEngagementCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListPagesByEngagementCommandError = async (
+/**
+ * deserializeAws_json1_1ListPagesByEngagementCommandError
+ */
+const de_ListPagesByEngagementCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPagesByEngagementCommandOutput> => {
@@ -1448,48 +2146,285 @@ const deserializeAws_json1_1ListPagesByEngagementCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_json1_1ListPreviewRotationShiftsCommand
+ */
+export const de_ListPreviewRotationShiftsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPreviewRotationShiftsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListPreviewRotationShiftsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListPreviewRotationShiftsResult(data, context);
+  const response: ListPreviewRotationShiftsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListPreviewRotationShiftsCommandError
+ */
+const de_ListPreviewRotationShiftsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPreviewRotationShiftsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssmcontacts#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssmcontacts#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssmcontacts#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssmcontacts#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ListRotationOverridesCommand
+ */
+export const de_ListRotationOverridesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRotationOverridesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListRotationOverridesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListRotationOverridesResult(data, context);
+  const response: ListRotationOverridesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListRotationOverridesCommandError
+ */
+const de_ListRotationOverridesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRotationOverridesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssmcontacts#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssmcontacts#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssmcontacts#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssmcontacts#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ListRotationsCommand
+ */
+export const de_ListRotationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRotationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListRotationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListRotationsResult(data, context);
+  const response: ListRotationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListRotationsCommandError
+ */
+const de_ListRotationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRotationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssmcontacts#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssmcontacts#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssmcontacts#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssmcontacts#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ListRotationShiftsCommand
+ */
+export const de_ListRotationShiftsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRotationShiftsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListRotationShiftsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListRotationShiftsResult(data, context);
+  const response: ListRotationShiftsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListRotationShiftsCommandError
+ */
+const de_ListRotationShiftsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRotationShiftsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssmcontacts#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.ssmcontacts#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssmcontacts#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssmcontacts#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssmcontacts#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceResult(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -1501,48 +2436,53 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1PutContactPolicyCommand = async (
+/**
+ * deserializeAws_json1_1PutContactPolicyCommand
+ */
+export const de_PutContactPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutContactPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PutContactPolicyCommandError(output, context);
+    return de_PutContactPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutContactPolicyResult(data, context);
+  contents = _json(data);
   const response: PutContactPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1PutContactPolicyCommandError = async (
+/**
+ * deserializeAws_json1_1PutContactPolicyCommandError
+ */
+const de_PutContactPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutContactPolicyCommandOutput> => {
@@ -1554,51 +2494,56 @@ const deserializeAws_json1_1PutContactPolicyCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.ssmcontacts#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1SendActivationCodeCommand = async (
+/**
+ * deserializeAws_json1_1SendActivationCodeCommand
+ */
+export const de_SendActivationCodeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendActivationCodeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1SendActivationCodeCommandError(output, context);
+    return de_SendActivationCodeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SendActivationCodeResult(data, context);
+  contents = _json(data);
   const response: SendActivationCodeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1SendActivationCodeCommandError = async (
+/**
+ * deserializeAws_json1_1SendActivationCodeCommandError
+ */
+const de_SendActivationCodeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendActivationCodeCommandOutput> => {
@@ -1610,54 +2555,59 @@ const deserializeAws_json1_1SendActivationCodeCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "DataEncryptionException":
     case "com.amazonaws.ssmcontacts#DataEncryptionException":
-      throw await deserializeAws_json1_1DataEncryptionExceptionResponse(parsedOutput, context);
+      throw await de_DataEncryptionExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.ssmcontacts#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1StartEngagementCommand = async (
+/**
+ * deserializeAws_json1_1StartEngagementCommand
+ */
+export const de_StartEngagementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartEngagementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1StartEngagementCommandError(output, context);
+    return de_StartEngagementCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartEngagementResult(data, context);
+  contents = _json(data);
   const response: StartEngagementCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1StartEngagementCommandError = async (
+/**
+ * deserializeAws_json1_1StartEngagementCommandError
+ */
+const de_StartEngagementCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartEngagementCommandOutput> => {
@@ -1669,51 +2619,56 @@ const deserializeAws_json1_1StartEngagementCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "DataEncryptionException":
     case "com.amazonaws.ssmcontacts#DataEncryptionException":
-      throw await deserializeAws_json1_1DataEncryptionExceptionResponse(parsedOutput, context);
+      throw await de_DataEncryptionExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1StopEngagementCommand = async (
+/**
+ * deserializeAws_json1_1StopEngagementCommand
+ */
+export const de_StopEngagementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopEngagementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1StopEngagementCommandError(output, context);
+    return de_StopEngagementCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StopEngagementResult(data, context);
+  contents = _json(data);
   const response: StopEngagementCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1StopEngagementCommandError = async (
+/**
+ * deserializeAws_json1_1StopEngagementCommandError
+ */
+const de_StopEngagementCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopEngagementCommandOutput> => {
@@ -1725,48 +2680,53 @@ const deserializeAws_json1_1StopEngagementCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1TagResourceCommand = async (
+/**
+ * deserializeAws_json1_1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceResult(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1TagResourceCommandError = async (
+/**
+ * deserializeAws_json1_1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -1778,51 +2738,56 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.ssmcontacts#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UntagResourceCommand = async (
+/**
+ * deserializeAws_json1_1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceResult(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UntagResourceCommandError = async (
+/**
+ * deserializeAws_json1_1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -1834,48 +2799,53 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UpdateContactCommand = async (
+/**
+ * deserializeAws_json1_1UpdateContactCommand
+ */
+export const de_UpdateContactCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateContactCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateContactCommandError(output, context);
+    return de_UpdateContactCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateContactResult(data, context);
+  contents = _json(data);
   const response: UpdateContactCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdateContactCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateContactCommandError
+ */
+const de_UpdateContactCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateContactCommandOutput> => {
@@ -1887,54 +2857,59 @@ const deserializeAws_json1_1UpdateContactCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "DataEncryptionException":
     case "com.amazonaws.ssmcontacts#DataEncryptionException":
-      throw await deserializeAws_json1_1DataEncryptionExceptionResponse(parsedOutput, context);
+      throw await de_DataEncryptionExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.ssmcontacts#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UpdateContactChannelCommand = async (
+/**
+ * deserializeAws_json1_1UpdateContactChannelCommand
+ */
+export const de_UpdateContactChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateContactChannelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateContactChannelCommandError(output, context);
+    return de_UpdateContactChannelCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateContactChannelResult(data, context);
+  contents = _json(data);
   const response: UpdateContactChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdateContactChannelCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateContactChannelCommandError
+ */
+const de_UpdateContactChannelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateContactChannelCommandOutput> => {
@@ -1946,42 +2921,105 @@ const deserializeAws_json1_1UpdateContactChannelCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.ssmcontacts#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "DataEncryptionException":
     case "com.amazonaws.ssmcontacts#DataEncryptionException":
-      throw await deserializeAws_json1_1DataEncryptionExceptionResponse(parsedOutput, context);
+      throw await de_DataEncryptionExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
+/**
+ * deserializeAws_json1_1UpdateRotationCommand
+ */
+export const de_UpdateRotationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRotationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UpdateRotationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateRotationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateRotationCommandError
+ */
+const de_UpdateRotationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRotationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssmcontacts#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.ssmcontacts#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssmcontacts#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssmcontacts#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssmcontacts#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1AccessDeniedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1989,12 +3027,12 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
+/**
+ * deserializeAws_json1_1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ConflictException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2002,12 +3040,15 @@ const deserializeAws_json1_1ConflictExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1DataEncryptionExceptionResponse = async (
+/**
+ * deserializeAws_json1_1DataEncryptionExceptionRes
+ */
+const de_DataEncryptionExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DataEncryptionException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DataEncryptionException(body, context);
+  const deserialized: any = _json(body);
   const exception = new DataEncryptionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2015,12 +3056,15 @@ const deserializeAws_json1_1DataEncryptionExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InternalServerExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InternalServerExceptionRes
+ */
+const de_InternalServerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InternalServerException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2028,12 +3072,15 @@ const deserializeAws_json1_1InternalServerExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2041,12 +3088,15 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ServiceQuotaExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ServiceQuotaExceededExceptionRes
+ */
+const de_ServiceQuotaExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ServiceQuotaExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2054,12 +3104,12 @@ const deserializeAws_json1_1ServiceQuotaExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
+/**
+ * deserializeAws_json1_1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ThrottlingException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2067,12 +3117,12 @@ const deserializeAws_json1_1ThrottlingExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_json1_1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ValidationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2080,883 +3130,723 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1AcceptPageRequest = (input: AcceptPageRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AcceptCode != null && { AcceptCode: input.AcceptCode }),
-    ...(input.AcceptCodeValidation != null && { AcceptCodeValidation: input.AcceptCodeValidation }),
-    ...(input.AcceptType != null && { AcceptType: input.AcceptType }),
-    ...(input.ContactChannelId != null && { ContactChannelId: input.ContactChannelId }),
-    ...(input.Note != null && { Note: input.Note }),
-    ...(input.PageId != null && { PageId: input.PageId }),
-  };
+// se_AcceptPageRequest omitted.
+
+// se_ActivateContactChannelRequest omitted.
+
+// se_ChannelTargetInfo omitted.
+
+// se_ContactChannelAddress omitted.
+
+// se_ContactTargetInfo omitted.
+
+// se_CoverageTime omitted.
+
+// se_CoverageTimes omitted.
+
+/**
+ * serializeAws_json1_1CreateContactChannelRequest
+ */
+const se_CreateContactChannelRequest = (input: CreateContactChannelRequest, context: __SerdeContext): any => {
+  return take(input, {
+    ContactId: [],
+    DeferActivation: [],
+    DeliveryAddress: _json,
+    IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    Name: [],
+    Type: [],
+  });
 };
 
-const serializeAws_json1_1ActivateContactChannelRequest = (
-  input: ActivateContactChannelRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ActivationCode != null && { ActivationCode: input.ActivationCode }),
-    ...(input.ContactChannelId != null && { ContactChannelId: input.ContactChannelId }),
-  };
+/**
+ * serializeAws_json1_1CreateContactRequest
+ */
+const se_CreateContactRequest = (input: CreateContactRequest, context: __SerdeContext): any => {
+  return take(input, {
+    Alias: [],
+    DisplayName: [],
+    IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    Plan: _json,
+    Tags: _json,
+    Type: [],
+  });
 };
 
-const serializeAws_json1_1ChannelTargetInfo = (input: ChannelTargetInfo, context: __SerdeContext): any => {
-  return {
-    ...(input.ContactChannelId != null && { ContactChannelId: input.ContactChannelId }),
-    ...(input.RetryIntervalInMinutes != null && { RetryIntervalInMinutes: input.RetryIntervalInMinutes }),
-  };
+/**
+ * serializeAws_json1_1CreateRotationOverrideRequest
+ */
+const se_CreateRotationOverrideRequest = (input: CreateRotationOverrideRequest, context: __SerdeContext): any => {
+  return take(input, {
+    EndTime: (_) => Math.round(_.getTime() / 1000),
+    IdempotencyToken: [],
+    NewContactIds: _json,
+    RotationId: [],
+    StartTime: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-const serializeAws_json1_1ContactChannelAddress = (input: ContactChannelAddress, context: __SerdeContext): any => {
-  return {
-    ...(input.SimpleAddress != null && { SimpleAddress: input.SimpleAddress }),
-  };
+/**
+ * serializeAws_json1_1CreateRotationRequest
+ */
+const se_CreateRotationRequest = (input: CreateRotationRequest, context: __SerdeContext): any => {
+  return take(input, {
+    ContactIds: _json,
+    IdempotencyToken: [],
+    Name: [],
+    Recurrence: _json,
+    StartTime: (_) => Math.round(_.getTime() / 1000),
+    Tags: _json,
+    TimeZoneId: [],
+  });
 };
 
-const serializeAws_json1_1ContactTargetInfo = (input: ContactTargetInfo, context: __SerdeContext): any => {
-  return {
-    ...(input.ContactId != null && { ContactId: input.ContactId }),
-    ...(input.IsEssential != null && { IsEssential: input.IsEssential }),
-  };
+// se_DailySettings omitted.
+
+// se_DeactivateContactChannelRequest omitted.
+
+// se_DeleteContactChannelRequest omitted.
+
+// se_DeleteContactRequest omitted.
+
+// se_DeleteRotationOverrideRequest omitted.
+
+// se_DeleteRotationRequest omitted.
+
+// se_DescribeEngagementRequest omitted.
+
+// se_DescribePageRequest omitted.
+
+// se_GetContactChannelRequest omitted.
+
+// se_GetContactPolicyRequest omitted.
+
+// se_GetContactRequest omitted.
+
+// se_GetRotationOverrideRequest omitted.
+
+// se_GetRotationRequest omitted.
+
+// se_HandOffTime omitted.
+
+// se_ListContactChannelsRequest omitted.
+
+// se_ListContactsRequest omitted.
+
+/**
+ * serializeAws_json1_1ListEngagementsRequest
+ */
+const se_ListEngagementsRequest = (input: ListEngagementsRequest, context: __SerdeContext): any => {
+  return take(input, {
+    IncidentId: [],
+    MaxResults: [],
+    NextToken: [],
+    TimeRangeValue: (_) => se_TimeRange(_, context),
+  });
 };
 
-const serializeAws_json1_1CreateContactChannelRequest = (
-  input: CreateContactChannelRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ContactId != null && { ContactId: input.ContactId }),
-    ...(input.DeferActivation != null && { DeferActivation: input.DeferActivation }),
-    ...(input.DeliveryAddress != null && {
-      DeliveryAddress: serializeAws_json1_1ContactChannelAddress(input.DeliveryAddress, context),
-    }),
-    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
+// se_ListPageReceiptsRequest omitted.
+
+// se_ListPageResolutionsRequest omitted.
+
+// se_ListPagesByContactRequest omitted.
+
+// se_ListPagesByEngagementRequest omitted.
+
+/**
+ * serializeAws_json1_1ListPreviewRotationShiftsRequest
+ */
+const se_ListPreviewRotationShiftsRequest = (input: ListPreviewRotationShiftsRequest, context: __SerdeContext): any => {
+  return take(input, {
+    EndTime: (_) => Math.round(_.getTime() / 1000),
+    MaxResults: [],
+    Members: _json,
+    NextToken: [],
+    Overrides: (_) => se_OverrideList(_, context),
+    Recurrence: _json,
+    RotationStartTime: (_) => Math.round(_.getTime() / 1000),
+    StartTime: (_) => Math.round(_.getTime() / 1000),
+    TimeZoneId: [],
+  });
 };
 
-const serializeAws_json1_1CreateContactRequest = (input: CreateContactRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Alias != null && { Alias: input.Alias }),
-    ...(input.DisplayName != null && { DisplayName: input.DisplayName }),
-    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.Plan != null && { Plan: serializeAws_json1_1Plan(input.Plan, context) }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagsList(input.Tags, context) }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
+/**
+ * serializeAws_json1_1ListRotationOverridesRequest
+ */
+const se_ListRotationOverridesRequest = (input: ListRotationOverridesRequest, context: __SerdeContext): any => {
+  return take(input, {
+    EndTime: (_) => Math.round(_.getTime() / 1000),
+    MaxResults: [],
+    NextToken: [],
+    RotationId: [],
+    StartTime: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-const serializeAws_json1_1DeactivateContactChannelRequest = (
-  input: DeactivateContactChannelRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ContactChannelId != null && { ContactChannelId: input.ContactChannelId }),
-  };
+/**
+ * serializeAws_json1_1ListRotationShiftsRequest
+ */
+const se_ListRotationShiftsRequest = (input: ListRotationShiftsRequest, context: __SerdeContext): any => {
+  return take(input, {
+    EndTime: (_) => Math.round(_.getTime() / 1000),
+    MaxResults: [],
+    NextToken: [],
+    RotationId: [],
+    StartTime: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-const serializeAws_json1_1DeleteContactChannelRequest = (
-  input: DeleteContactChannelRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ContactChannelId != null && { ContactChannelId: input.ContactChannelId }),
-  };
-};
+// se_ListRotationsRequest omitted.
 
-const serializeAws_json1_1DeleteContactRequest = (input: DeleteContactRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ContactId != null && { ContactId: input.ContactId }),
-  };
-};
+// se_ListTagsForResourceRequest omitted.
 
-const serializeAws_json1_1DescribeEngagementRequest = (
-  input: DescribeEngagementRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.EngagementId != null && { EngagementId: input.EngagementId }),
-  };
-};
+// se_MonthlySetting omitted.
 
-const serializeAws_json1_1DescribePageRequest = (input: DescribePageRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.PageId != null && { PageId: input.PageId }),
-  };
-};
+// se_MonthlySettings omitted.
 
-const serializeAws_json1_1GetContactChannelRequest = (
-  input: GetContactChannelRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ContactChannelId != null && { ContactChannelId: input.ContactChannelId }),
-  };
-};
-
-const serializeAws_json1_1GetContactPolicyRequest = (input: GetContactPolicyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ContactArn != null && { ContactArn: input.ContactArn }),
-  };
-};
-
-const serializeAws_json1_1GetContactRequest = (input: GetContactRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ContactId != null && { ContactId: input.ContactId }),
-  };
-};
-
-const serializeAws_json1_1ListContactChannelsRequest = (
-  input: ListContactChannelsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ContactId != null && { ContactId: input.ContactId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
-
-const serializeAws_json1_1ListContactsRequest = (input: ListContactsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AliasPrefix != null && { AliasPrefix: input.AliasPrefix }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
-
-const serializeAws_json1_1ListEngagementsRequest = (input: ListEngagementsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.IncidentId != null && { IncidentId: input.IncidentId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.TimeRangeValue != null && {
-      TimeRangeValue: serializeAws_json1_1TimeRange(input.TimeRangeValue, context),
-    }),
-  };
-};
-
-const serializeAws_json1_1ListPageReceiptsRequest = (input: ListPageReceiptsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.PageId != null && { PageId: input.PageId }),
-  };
-};
-
-const serializeAws_json1_1ListPagesByContactRequest = (
-  input: ListPagesByContactRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ContactId != null && { ContactId: input.ContactId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
-
-const serializeAws_json1_1ListPagesByEngagementRequest = (
-  input: ListPagesByEngagementRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.EngagementId != null && { EngagementId: input.EngagementId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
-
-const serializeAws_json1_1ListTagsForResourceRequest = (
-  input: ListTagsForResourceRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-  };
-};
-
-const serializeAws_json1_1Plan = (input: Plan, context: __SerdeContext): any => {
-  return {
-    ...(input.Stages != null && { Stages: serializeAws_json1_1StagesList(input.Stages, context) }),
-  };
-};
-
-const serializeAws_json1_1PutContactPolicyRequest = (input: PutContactPolicyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ContactArn != null && { ContactArn: input.ContactArn }),
-    ...(input.Policy != null && { Policy: input.Policy }),
-  };
-};
-
-const serializeAws_json1_1SendActivationCodeRequest = (
-  input: SendActivationCodeRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ContactChannelId != null && { ContactChannelId: input.ContactChannelId }),
-  };
-};
-
-const serializeAws_json1_1Stage = (input: Stage, context: __SerdeContext): any => {
-  return {
-    ...(input.DurationInMinutes != null && { DurationInMinutes: input.DurationInMinutes }),
-    ...(input.Targets != null && { Targets: serializeAws_json1_1TargetsList(input.Targets, context) }),
-  };
-};
-
-const serializeAws_json1_1StagesList = (input: Stage[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1OverrideList
+ */
+const se_OverrideList = (input: PreviewOverride[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1Stage(entry, context);
+      return se_PreviewOverride(entry, context);
     });
 };
 
-const serializeAws_json1_1StartEngagementRequest = (input: StartEngagementRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ContactId != null && { ContactId: input.ContactId }),
-    ...(input.Content != null && { Content: input.Content }),
-    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.IncidentId != null && { IncidentId: input.IncidentId }),
-    ...(input.PublicContent != null && { PublicContent: input.PublicContent }),
-    ...(input.PublicSubject != null && { PublicSubject: input.PublicSubject }),
-    ...(input.Sender != null && { Sender: input.Sender }),
-    ...(input.Subject != null && { Subject: input.Subject }),
-  };
+// se_Plan omitted.
+
+/**
+ * serializeAws_json1_1PreviewOverride
+ */
+const se_PreviewOverride = (input: PreviewOverride, context: __SerdeContext): any => {
+  return take(input, {
+    EndTime: (_) => Math.round(_.getTime() / 1000),
+    NewMembers: _json,
+    StartTime: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-const serializeAws_json1_1StopEngagementRequest = (input: StopEngagementRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.EngagementId != null && { EngagementId: input.EngagementId }),
-    ...(input.Reason != null && { Reason: input.Reason }),
-  };
+// se_PutContactPolicyRequest omitted.
+
+// se_RecurrenceSettings omitted.
+
+// se_RotationContactsArnList omitted.
+
+// se_RotationOverrideContactsArnList omitted.
+
+// se_RotationOverridePreviewMemberList omitted.
+
+// se_RotationPreviewMemberList omitted.
+
+// se_SendActivationCodeRequest omitted.
+
+// se_ShiftCoveragesMap omitted.
+
+// se_SsmContactsArnList omitted.
+
+// se_Stage omitted.
+
+// se_StagesList omitted.
+
+/**
+ * serializeAws_json1_1StartEngagementRequest
+ */
+const se_StartEngagementRequest = (input: StartEngagementRequest, context: __SerdeContext): any => {
+  return take(input, {
+    ContactId: [],
+    Content: [],
+    IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    IncidentId: [],
+    PublicContent: [],
+    PublicSubject: [],
+    Sender: [],
+    Subject: [],
+  });
 };
 
-const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
+// se_StopEngagementRequest omitted.
+
+// se_Tag omitted.
+
+// se_TagKeyList omitted.
+
+// se_TagResourceRequest omitted.
+
+// se_TagsList omitted.
+
+// se_Target omitted.
+
+// se_TargetsList omitted.
+
+/**
+ * serializeAws_json1_1TimeRange
+ */
+const se_TimeRange = (input: TimeRange, context: __SerdeContext): any => {
+  return take(input, {
+    EndTime: (_) => Math.round(_.getTime() / 1000),
+    StartTime: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
+// se_UntagResourceRequest omitted.
+
+// se_UpdateContactChannelRequest omitted.
+
+// se_UpdateContactRequest omitted.
+
+/**
+ * serializeAws_json1_1UpdateRotationRequest
+ */
+const se_UpdateRotationRequest = (input: UpdateRotationRequest, context: __SerdeContext): any => {
+  return take(input, {
+    ContactIds: _json,
+    Recurrence: _json,
+    RotationId: [],
+    StartTime: (_) => Math.round(_.getTime() / 1000),
+    TimeZoneId: [],
+  });
 };
 
-const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagsList(input.Tags, context) }),
-  };
+// se_WeeklySetting omitted.
+
+// se_WeeklySettings omitted.
+
+// de_AcceptPageResult omitted.
+
+// de_AccessDeniedException omitted.
+
+// de_ActivateContactChannelResult omitted.
+
+// de_ChannelTargetInfo omitted.
+
+// de_ConflictException omitted.
+
+// de_Contact omitted.
+
+// de_ContactChannel omitted.
+
+// de_ContactChannelAddress omitted.
+
+// de_ContactChannelList omitted.
+
+// de_ContactsList omitted.
+
+// de_ContactTargetInfo omitted.
+
+// de_CoverageTime omitted.
+
+// de_CoverageTimes omitted.
+
+// de_CreateContactChannelResult omitted.
+
+// de_CreateContactResult omitted.
+
+// de_CreateRotationOverrideResult omitted.
+
+// de_CreateRotationResult omitted.
+
+// de_DailySettings omitted.
+
+// de_DataEncryptionException omitted.
+
+// de_DeactivateContactChannelResult omitted.
+
+// de_DeleteContactChannelResult omitted.
+
+// de_DeleteContactResult omitted.
+
+// de_DeleteRotationOverrideResult omitted.
+
+// de_DeleteRotationResult omitted.
+
+// de_DependentEntity omitted.
+
+// de_DependentEntityList omitted.
+
+/**
+ * deserializeAws_json1_1DescribeEngagementResult
+ */
+const de_DescribeEngagementResult = (output: any, context: __SerdeContext): DescribeEngagementResult => {
+  return take(output, {
+    ContactArn: __expectString,
+    Content: __expectString,
+    EngagementArn: __expectString,
+    IncidentId: __expectString,
+    PublicContent: __expectString,
+    PublicSubject: __expectString,
+    Sender: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StopTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Subject: __expectString,
+  }) as any;
 };
 
-const serializeAws_json1_1TagsList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_1Tag(entry, context);
-    });
+/**
+ * deserializeAws_json1_1DescribePageResult
+ */
+const de_DescribePageResult = (output: any, context: __SerdeContext): DescribePageResult => {
+  return take(output, {
+    ContactArn: __expectString,
+    Content: __expectString,
+    DeliveryTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EngagementArn: __expectString,
+    IncidentId: __expectString,
+    PageArn: __expectString,
+    PublicContent: __expectString,
+    PublicSubject: __expectString,
+    ReadTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Sender: __expectString,
+    SentTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Subject: __expectString,
+  }) as any;
 };
 
-const serializeAws_json1_1Target = (input: Target, context: __SerdeContext): any => {
-  return {
-    ...(input.ChannelTargetInfo != null && {
-      ChannelTargetInfo: serializeAws_json1_1ChannelTargetInfo(input.ChannelTargetInfo, context),
-    }),
-    ...(input.ContactTargetInfo != null && {
-      ContactTargetInfo: serializeAws_json1_1ContactTargetInfo(input.ContactTargetInfo, context),
-    }),
-  };
+/**
+ * deserializeAws_json1_1Engagement
+ */
+const de_Engagement = (output: any, context: __SerdeContext): Engagement => {
+  return take(output, {
+    ContactArn: __expectString,
+    EngagementArn: __expectString,
+    IncidentId: __expectString,
+    Sender: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StopTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-const serializeAws_json1_1TargetsList = (input: Target[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_1Target(entry, context);
-    });
-};
-
-const serializeAws_json1_1TimeRange = (input: TimeRange, context: __SerdeContext): any => {
-  return {
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
-  };
-};
-
-const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
-  };
-};
-
-const serializeAws_json1_1UpdateContactChannelRequest = (
-  input: UpdateContactChannelRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ContactChannelId != null && { ContactChannelId: input.ContactChannelId }),
-    ...(input.DeliveryAddress != null && {
-      DeliveryAddress: serializeAws_json1_1ContactChannelAddress(input.DeliveryAddress, context),
-    }),
-    ...(input.Name != null && { Name: input.Name }),
-  };
-};
-
-const serializeAws_json1_1UpdateContactRequest = (input: UpdateContactRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ContactId != null && { ContactId: input.ContactId }),
-    ...(input.DisplayName != null && { DisplayName: input.DisplayName }),
-    ...(input.Plan != null && { Plan: serializeAws_json1_1Plan(input.Plan, context) }),
-  };
-};
-
-const deserializeAws_json1_1AcceptPageResult = (output: any, context: __SerdeContext): AcceptPageResult => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_1ActivateContactChannelResult = (
-  output: any,
-  context: __SerdeContext
-): ActivateContactChannelResult => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1ChannelTargetInfo = (output: any, context: __SerdeContext): ChannelTargetInfo => {
-  return {
-    ContactChannelId: __expectString(output.ContactChannelId),
-    RetryIntervalInMinutes: __expectInt32(output.RetryIntervalInMinutes),
-  } as any;
-};
-
-const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
-  return {
-    Message: __expectString(output.Message),
-    ResourceId: __expectString(output.ResourceId),
-    ResourceType: __expectString(output.ResourceType),
-  } as any;
-};
-
-const deserializeAws_json1_1Contact = (output: any, context: __SerdeContext): Contact => {
-  return {
-    Alias: __expectString(output.Alias),
-    ContactArn: __expectString(output.ContactArn),
-    DisplayName: __expectString(output.DisplayName),
-    Type: __expectString(output.Type),
-  } as any;
-};
-
-const deserializeAws_json1_1ContactChannel = (output: any, context: __SerdeContext): ContactChannel => {
-  return {
-    ActivationStatus: __expectString(output.ActivationStatus),
-    ContactArn: __expectString(output.ContactArn),
-    ContactChannelArn: __expectString(output.ContactChannelArn),
-    DeliveryAddress:
-      output.DeliveryAddress != null
-        ? deserializeAws_json1_1ContactChannelAddress(output.DeliveryAddress, context)
-        : undefined,
-    Name: __expectString(output.Name),
-    Type: __expectString(output.Type),
-  } as any;
-};
-
-const deserializeAws_json1_1ContactChannelAddress = (output: any, context: __SerdeContext): ContactChannelAddress => {
-  return {
-    SimpleAddress: __expectString(output.SimpleAddress),
-  } as any;
-};
-
-const deserializeAws_json1_1ContactChannelList = (output: any, context: __SerdeContext): ContactChannel[] => {
+/**
+ * deserializeAws_json1_1EngagementsList
+ */
+const de_EngagementsList = (output: any, context: __SerdeContext): Engagement[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1ContactChannel(entry, context);
+      return de_Engagement(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ContactsList = (output: any, context: __SerdeContext): Contact[] => {
+// de_GetContactChannelResult omitted.
+
+// de_GetContactPolicyResult omitted.
+
+// de_GetContactResult omitted.
+
+/**
+ * deserializeAws_json1_1GetRotationOverrideResult
+ */
+const de_GetRotationOverrideResult = (output: any, context: __SerdeContext): GetRotationOverrideResult => {
+  return take(output, {
+    CreateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    NewContactIds: _json,
+    RotationArn: __expectString,
+    RotationOverrideId: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1GetRotationResult
+ */
+const de_GetRotationResult = (output: any, context: __SerdeContext): GetRotationResult => {
+  return take(output, {
+    ContactIds: _json,
+    Name: __expectString,
+    Recurrence: _json,
+    RotationArn: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    TimeZoneId: __expectString,
+  }) as any;
+};
+
+// de_HandOffTime omitted.
+
+// de_InternalServerException omitted.
+
+// de_ListContactChannelsResult omitted.
+
+// de_ListContactsResult omitted.
+
+/**
+ * deserializeAws_json1_1ListEngagementsResult
+ */
+const de_ListEngagementsResult = (output: any, context: __SerdeContext): ListEngagementsResult => {
+  return take(output, {
+    Engagements: (_: any) => de_EngagementsList(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ListPageReceiptsResult
+ */
+const de_ListPageReceiptsResult = (output: any, context: __SerdeContext): ListPageReceiptsResult => {
+  return take(output, {
+    NextToken: __expectString,
+    Receipts: (_: any) => de_ReceiptsList(_, context),
+  }) as any;
+};
+
+// de_ListPageResolutionsResult omitted.
+
+/**
+ * deserializeAws_json1_1ListPagesByContactResult
+ */
+const de_ListPagesByContactResult = (output: any, context: __SerdeContext): ListPagesByContactResult => {
+  return take(output, {
+    NextToken: __expectString,
+    Pages: (_: any) => de_PagesList(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ListPagesByEngagementResult
+ */
+const de_ListPagesByEngagementResult = (output: any, context: __SerdeContext): ListPagesByEngagementResult => {
+  return take(output, {
+    NextToken: __expectString,
+    Pages: (_: any) => de_PagesList(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ListPreviewRotationShiftsResult
+ */
+const de_ListPreviewRotationShiftsResult = (output: any, context: __SerdeContext): ListPreviewRotationShiftsResult => {
+  return take(output, {
+    NextToken: __expectString,
+    RotationShifts: (_: any) => de_RotationShifts(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ListRotationOverridesResult
+ */
+const de_ListRotationOverridesResult = (output: any, context: __SerdeContext): ListRotationOverridesResult => {
+  return take(output, {
+    NextToken: __expectString,
+    RotationOverrides: (_: any) => de_RotationOverrides(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ListRotationShiftsResult
+ */
+const de_ListRotationShiftsResult = (output: any, context: __SerdeContext): ListRotationShiftsResult => {
+  return take(output, {
+    NextToken: __expectString,
+    RotationShifts: (_: any) => de_RotationShifts(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ListRotationsResult
+ */
+const de_ListRotationsResult = (output: any, context: __SerdeContext): ListRotationsResult => {
+  return take(output, {
+    NextToken: __expectString,
+    Rotations: (_: any) => de_Rotations(_, context),
+  }) as any;
+};
+
+// de_ListTagsForResourceResult omitted.
+
+// de_MonthlySetting omitted.
+
+// de_MonthlySettings omitted.
+
+/**
+ * deserializeAws_json1_1Page
+ */
+const de_Page = (output: any, context: __SerdeContext): Page => {
+  return take(output, {
+    ContactArn: __expectString,
+    DeliveryTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EngagementArn: __expectString,
+    IncidentId: __expectString,
+    PageArn: __expectString,
+    ReadTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Sender: __expectString,
+    SentTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1PagesList
+ */
+const de_PagesList = (output: any, context: __SerdeContext): Page[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Contact(entry, context);
+      return de_Page(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ContactTargetInfo = (output: any, context: __SerdeContext): ContactTargetInfo => {
-  return {
-    ContactId: __expectString(output.ContactId),
-    IsEssential: __expectBoolean(output.IsEssential),
-  } as any;
+// de_Plan omitted.
+
+// de_PutContactPolicyResult omitted.
+
+/**
+ * deserializeAws_json1_1Receipt
+ */
+const de_Receipt = (output: any, context: __SerdeContext): Receipt => {
+  return take(output, {
+    ContactChannelArn: __expectString,
+    ReceiptInfo: __expectString,
+    ReceiptTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ReceiptType: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1CreateContactChannelResult = (
-  output: any,
-  context: __SerdeContext
-): CreateContactChannelResult => {
-  return {
-    ContactChannelArn: __expectString(output.ContactChannelArn),
-  } as any;
-};
-
-const deserializeAws_json1_1CreateContactResult = (output: any, context: __SerdeContext): CreateContactResult => {
-  return {
-    ContactArn: __expectString(output.ContactArn),
-  } as any;
-};
-
-const deserializeAws_json1_1DataEncryptionException = (
-  output: any,
-  context: __SerdeContext
-): DataEncryptionException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_1DeactivateContactChannelResult = (
-  output: any,
-  context: __SerdeContext
-): DeactivateContactChannelResult => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1DeleteContactChannelResult = (
-  output: any,
-  context: __SerdeContext
-): DeleteContactChannelResult => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1DeleteContactResult = (output: any, context: __SerdeContext): DeleteContactResult => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1DescribeEngagementResult = (
-  output: any,
-  context: __SerdeContext
-): DescribeEngagementResult => {
-  return {
-    ContactArn: __expectString(output.ContactArn),
-    Content: __expectString(output.Content),
-    EngagementArn: __expectString(output.EngagementArn),
-    IncidentId: __expectString(output.IncidentId),
-    PublicContent: __expectString(output.PublicContent),
-    PublicSubject: __expectString(output.PublicSubject),
-    Sender: __expectString(output.Sender),
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-    StopTime:
-      output.StopTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StopTime))) : undefined,
-    Subject: __expectString(output.Subject),
-  } as any;
-};
-
-const deserializeAws_json1_1DescribePageResult = (output: any, context: __SerdeContext): DescribePageResult => {
-  return {
-    ContactArn: __expectString(output.ContactArn),
-    Content: __expectString(output.Content),
-    DeliveryTime:
-      output.DeliveryTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeliveryTime)))
-        : undefined,
-    EngagementArn: __expectString(output.EngagementArn),
-    IncidentId: __expectString(output.IncidentId),
-    PageArn: __expectString(output.PageArn),
-    PublicContent: __expectString(output.PublicContent),
-    PublicSubject: __expectString(output.PublicSubject),
-    ReadTime:
-      output.ReadTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ReadTime))) : undefined,
-    Sender: __expectString(output.Sender),
-    SentTime:
-      output.SentTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SentTime))) : undefined,
-    Subject: __expectString(output.Subject),
-  } as any;
-};
-
-const deserializeAws_json1_1Engagement = (output: any, context: __SerdeContext): Engagement => {
-  return {
-    ContactArn: __expectString(output.ContactArn),
-    EngagementArn: __expectString(output.EngagementArn),
-    IncidentId: __expectString(output.IncidentId),
-    Sender: __expectString(output.Sender),
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-    StopTime:
-      output.StopTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StopTime))) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1EngagementsList = (output: any, context: __SerdeContext): Engagement[] => {
+/**
+ * deserializeAws_json1_1ReceiptsList
+ */
+const de_ReceiptsList = (output: any, context: __SerdeContext): Receipt[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Engagement(entry, context);
+      return de_Receipt(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1GetContactChannelResult = (
-  output: any,
-  context: __SerdeContext
-): GetContactChannelResult => {
-  return {
-    ActivationStatus: __expectString(output.ActivationStatus),
-    ContactArn: __expectString(output.ContactArn),
-    ContactChannelArn: __expectString(output.ContactChannelArn),
-    DeliveryAddress:
-      output.DeliveryAddress != null
-        ? deserializeAws_json1_1ContactChannelAddress(output.DeliveryAddress, context)
-        : undefined,
-    Name: __expectString(output.Name),
-    Type: __expectString(output.Type),
-  } as any;
+// de_RecurrenceSettings omitted.
+
+// de_ResolutionContact omitted.
+
+// de_ResolutionList omitted.
+
+// de_ResourceNotFoundException omitted.
+
+/**
+ * deserializeAws_json1_1Rotation
+ */
+const de_Rotation = (output: any, context: __SerdeContext): Rotation => {
+  return take(output, {
+    ContactIds: _json,
+    Name: __expectString,
+    Recurrence: _json,
+    RotationArn: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    TimeZoneId: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1GetContactPolicyResult = (output: any, context: __SerdeContext): GetContactPolicyResult => {
-  return {
-    ContactArn: __expectString(output.ContactArn),
-    Policy: __expectString(output.Policy),
-  } as any;
+// de_RotationContactsArnList omitted.
+
+/**
+ * deserializeAws_json1_1RotationOverride
+ */
+const de_RotationOverride = (output: any, context: __SerdeContext): RotationOverride => {
+  return take(output, {
+    CreateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    NewContactIds: _json,
+    RotationOverrideId: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-const deserializeAws_json1_1GetContactResult = (output: any, context: __SerdeContext): GetContactResult => {
-  return {
-    Alias: __expectString(output.Alias),
-    ContactArn: __expectString(output.ContactArn),
-    DisplayName: __expectString(output.DisplayName),
-    Plan: output.Plan != null ? deserializeAws_json1_1Plan(output.Plan, context) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
-};
-
-const deserializeAws_json1_1InternalServerException = (
-  output: any,
-  context: __SerdeContext
-): InternalServerException => {
-  return {
-    Message: __expectString(output.Message),
-    RetryAfterSeconds: __expectInt32(output.RetryAfterSeconds),
-  } as any;
-};
-
-const deserializeAws_json1_1ListContactChannelsResult = (
-  output: any,
-  context: __SerdeContext
-): ListContactChannelsResult => {
-  return {
-    ContactChannels:
-      output.ContactChannels != null
-        ? deserializeAws_json1_1ContactChannelList(output.ContactChannels, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
-
-const deserializeAws_json1_1ListContactsResult = (output: any, context: __SerdeContext): ListContactsResult => {
-  return {
-    Contacts: output.Contacts != null ? deserializeAws_json1_1ContactsList(output.Contacts, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
-
-const deserializeAws_json1_1ListEngagementsResult = (output: any, context: __SerdeContext): ListEngagementsResult => {
-  return {
-    Engagements:
-      output.Engagements != null ? deserializeAws_json1_1EngagementsList(output.Engagements, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
-
-const deserializeAws_json1_1ListPageReceiptsResult = (output: any, context: __SerdeContext): ListPageReceiptsResult => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Receipts: output.Receipts != null ? deserializeAws_json1_1ReceiptsList(output.Receipts, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1ListPagesByContactResult = (
-  output: any,
-  context: __SerdeContext
-): ListPagesByContactResult => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Pages: output.Pages != null ? deserializeAws_json1_1PagesList(output.Pages, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1ListPagesByEngagementResult = (
-  output: any,
-  context: __SerdeContext
-): ListPagesByEngagementResult => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Pages: output.Pages != null ? deserializeAws_json1_1PagesList(output.Pages, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1ListTagsForResourceResult = (
-  output: any,
-  context: __SerdeContext
-): ListTagsForResourceResult => {
-  return {
-    Tags: output.Tags != null ? deserializeAws_json1_1TagsList(output.Tags, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1Page = (output: any, context: __SerdeContext): Page => {
-  return {
-    ContactArn: __expectString(output.ContactArn),
-    DeliveryTime:
-      output.DeliveryTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeliveryTime)))
-        : undefined,
-    EngagementArn: __expectString(output.EngagementArn),
-    IncidentId: __expectString(output.IncidentId),
-    PageArn: __expectString(output.PageArn),
-    ReadTime:
-      output.ReadTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ReadTime))) : undefined,
-    Sender: __expectString(output.Sender),
-    SentTime:
-      output.SentTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SentTime))) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1PagesList = (output: any, context: __SerdeContext): Page[] => {
+/**
+ * deserializeAws_json1_1RotationOverrides
+ */
+const de_RotationOverrides = (output: any, context: __SerdeContext): RotationOverride[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Page(entry, context);
+      return de_RotationOverride(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1Plan = (output: any, context: __SerdeContext): Plan => {
-  return {
-    Stages: output.Stages != null ? deserializeAws_json1_1StagesList(output.Stages, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1PutContactPolicyResult = (output: any, context: __SerdeContext): PutContactPolicyResult => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1Receipt = (output: any, context: __SerdeContext): Receipt => {
-  return {
-    ContactChannelArn: __expectString(output.ContactChannelArn),
-    ReceiptInfo: __expectString(output.ReceiptInfo),
-    ReceiptTime:
-      output.ReceiptTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ReceiptTime)))
-        : undefined,
-    ReceiptType: __expectString(output.ReceiptType),
-  } as any;
-};
-
-const deserializeAws_json1_1ReceiptsList = (output: any, context: __SerdeContext): Receipt[] => {
+/**
+ * deserializeAws_json1_1Rotations
+ */
+const de_Rotations = (output: any, context: __SerdeContext): Rotation[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Receipt(entry, context);
+      return de_Rotation(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ResourceNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-    ResourceId: __expectString(output.ResourceId),
-    ResourceType: __expectString(output.ResourceType),
-  } as any;
+/**
+ * deserializeAws_json1_1RotationShift
+ */
+const de_RotationShift = (output: any, context: __SerdeContext): RotationShift => {
+  return take(output, {
+    ContactIds: _json,
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ShiftDetails: _json,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Type: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1SendActivationCodeResult = (
-  output: any,
-  context: __SerdeContext
-): SendActivationCodeResult => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1ServiceQuotaExceededException = (
-  output: any,
-  context: __SerdeContext
-): ServiceQuotaExceededException => {
-  return {
-    Message: __expectString(output.Message),
-    QuotaCode: __expectString(output.QuotaCode),
-    ResourceId: __expectString(output.ResourceId),
-    ResourceType: __expectString(output.ResourceType),
-    ServiceCode: __expectString(output.ServiceCode),
-  } as any;
-};
-
-const deserializeAws_json1_1Stage = (output: any, context: __SerdeContext): Stage => {
-  return {
-    DurationInMinutes: __expectInt32(output.DurationInMinutes),
-    Targets: output.Targets != null ? deserializeAws_json1_1TargetsList(output.Targets, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1StagesList = (output: any, context: __SerdeContext): Stage[] => {
+/**
+ * deserializeAws_json1_1RotationShifts
+ */
+const de_RotationShifts = (output: any, context: __SerdeContext): RotationShift[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Stage(entry, context);
+      return de_RotationShift(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1StartEngagementResult = (output: any, context: __SerdeContext): StartEngagementResult => {
-  return {
-    EngagementArn: __expectString(output.EngagementArn),
-  } as any;
-};
+// de_SendActivationCodeResult omitted.
 
-const deserializeAws_json1_1StopEngagementResult = (output: any, context: __SerdeContext): StopEngagementResult => {
-  return {} as any;
-};
+// de_ServiceQuotaExceededException omitted.
 
-const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_ShiftCoveragesMap omitted.
 
-const deserializeAws_json1_1TagResourceResult = (output: any, context: __SerdeContext): TagResourceResult => {
-  return {} as any;
-};
+// de_ShiftDetails omitted.
 
-const deserializeAws_json1_1TagsList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Tag(entry, context);
-    });
-  return retVal;
-};
+// de_SsmContactsArnList omitted.
 
-const deserializeAws_json1_1Target = (output: any, context: __SerdeContext): Target => {
-  return {
-    ChannelTargetInfo:
-      output.ChannelTargetInfo != null
-        ? deserializeAws_json1_1ChannelTargetInfo(output.ChannelTargetInfo, context)
-        : undefined,
-    ContactTargetInfo:
-      output.ContactTargetInfo != null
-        ? deserializeAws_json1_1ContactTargetInfo(output.ContactTargetInfo, context)
-        : undefined,
-  } as any;
-};
+// de_Stage omitted.
 
-const deserializeAws_json1_1TargetsList = (output: any, context: __SerdeContext): Target[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Target(entry, context);
-    });
-  return retVal;
-};
+// de_StagesList omitted.
 
-const deserializeAws_json1_1ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
-  return {
-    Message: __expectString(output.Message),
-    QuotaCode: __expectString(output.QuotaCode),
-    RetryAfterSeconds: __expectInt32(output.RetryAfterSeconds),
-    ServiceCode: __expectString(output.ServiceCode),
-  } as any;
-};
+// de_StartEngagementResult omitted.
 
-const deserializeAws_json1_1UntagResourceResult = (output: any, context: __SerdeContext): UntagResourceResult => {
-  return {} as any;
-};
+// de_StopEngagementResult omitted.
 
-const deserializeAws_json1_1UpdateContactChannelResult = (
-  output: any,
-  context: __SerdeContext
-): UpdateContactChannelResult => {
-  return {} as any;
-};
+// de_Tag omitted.
 
-const deserializeAws_json1_1UpdateContactResult = (output: any, context: __SerdeContext): UpdateContactResult => {
-  return {} as any;
-};
+// de_TagResourceResult omitted.
 
-const deserializeAws_json1_1ValidationException = (output: any, context: __SerdeContext): ValidationException => {
-  return {
-    Fields:
-      output.Fields != null ? deserializeAws_json1_1ValidationExceptionFieldList(output.Fields, context) : undefined,
-    Message: __expectString(output.Message),
-    Reason: __expectString(output.Reason),
-  } as any;
-};
+// de_TagsList omitted.
 
-const deserializeAws_json1_1ValidationExceptionField = (
-  output: any,
-  context: __SerdeContext
-): ValidationExceptionField => {
-  return {
-    Message: __expectString(output.Message),
-    Name: __expectString(output.Name),
-  } as any;
-};
+// de_Target omitted.
 
-const deserializeAws_json1_1ValidationExceptionFieldList = (
-  output: any,
-  context: __SerdeContext
-): ValidationExceptionField[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1ValidationExceptionField(entry, context);
-    });
-  return retVal;
-};
+// de_TargetsList omitted.
+
+// de_ThrottlingException omitted.
+
+// de_UntagResourceResult omitted.
+
+// de_UpdateContactChannelResult omitted.
+
+// de_UpdateContactResult omitted.
+
+// de_UpdateRotationResult omitted.
+
+// de_ValidationException omitted.
+
+// de_ValidationExceptionField omitted.
+
+// de_ValidationExceptionFieldList omitted.
+
+// de_WeeklySetting omitted.
+
+// de_WeeklySettings omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -2978,6 +3868,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,
@@ -3002,6 +3893,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `SSMContacts.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

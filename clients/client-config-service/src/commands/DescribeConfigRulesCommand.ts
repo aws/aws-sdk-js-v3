@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import {
-  DescribeConfigRulesRequest,
-  DescribeConfigRulesRequestFilterSensitiveLog,
-  DescribeConfigRulesResponse,
-  DescribeConfigRulesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeConfigRulesCommand,
-  serializeAws_json1_1DescribeConfigRulesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeConfigRulesRequest, DescribeConfigRulesResponse } from "../models/models_0";
+import { de_DescribeConfigRulesCommand, se_DescribeConfigRulesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeConfigRulesCommand}.
+ */
 export interface DescribeConfigRulesCommandInput extends DescribeConfigRulesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeConfigRulesCommand}.
+ */
 export interface DescribeConfigRulesCommandOutput extends DescribeConfigRulesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns details about your Config rules.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,37 @@ export interface DescribeConfigRulesCommandOutput extends DescribeConfigRulesRes
  * import { ConfigServiceClient, DescribeConfigRulesCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DescribeConfigRulesCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // DescribeConfigRulesRequest
+ *   ConfigRuleNames: [ // ConfigRuleNames
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   Filters: { // DescribeConfigRulesFilters
+ *     EvaluationMode: "DETECTIVE" || "PROACTIVE",
+ *   },
+ * };
  * const command = new DescribeConfigRulesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConfigRulesCommandInput - {@link DescribeConfigRulesCommandInput}
+ * @returns {@link DescribeConfigRulesCommandOutput}
  * @see {@link DescribeConfigRulesCommandInput} for command's `input` shape.
  * @see {@link DescribeConfigRulesCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The specified next token is not valid. Specify the
+ * 				<code>nextToken</code> string that was returned in the previous
+ * 			response to get the next page of results.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One or more of the specified parameters are not valid. Verify
+ * 			that your parameters are valid and try again.</p>
+ *
+ * @throws {@link NoSuchConfigRuleException} (client fault)
+ *  <p>The Config rule in the request is not valid. Verify that the rule is an Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
+ *
  *
  */
 export class DescribeConfigRulesCommand extends $Command<
@@ -62,6 +89,9 @@ export class DescribeConfigRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConfigRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +120,8 @@ export class DescribeConfigRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeConfigRulesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeConfigRulesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +131,18 @@ export class DescribeConfigRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeConfigRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeConfigRulesCommand(input, context);
+    return se_DescribeConfigRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeConfigRulesCommandOutput> {
-    return deserializeAws_json1_1DescribeConfigRulesCommand(output, context);
+    return de_DescribeConfigRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

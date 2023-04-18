@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IvschatClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvschatClient";
-import {
-  GetRoomRequest,
-  GetRoomRequestFilterSensitiveLog,
-  GetRoomResponse,
-  GetRoomResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetRoomCommand,
-  serializeAws_restJson1GetRoomCommand,
-} from "../protocols/Aws_restJson1";
+import { GetRoomRequest, GetRoomResponse } from "../models/models_0";
+import { de_GetRoomCommand, se_GetRoomCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetRoomCommand}.
+ */
 export interface GetRoomCommandInput extends GetRoomRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetRoomCommand}.
+ */
 export interface GetRoomCommandOutput extends GetRoomResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the specified room.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,28 @@ export interface GetRoomCommandOutput extends GetRoomResponse, __MetadataBearer 
  * import { IvschatClient, GetRoomCommand } from "@aws-sdk/client-ivschat"; // ES Modules import
  * // const { IvschatClient, GetRoomCommand } = require("@aws-sdk/client-ivschat"); // CommonJS import
  * const client = new IvschatClient(config);
+ * const input = { // GetRoomRequest
+ *   identifier: "STRING_VALUE", // required
+ * };
  * const command = new GetRoomCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRoomCommandInput - {@link GetRoomCommandInput}
+ * @returns {@link GetRoomCommandOutput}
  * @see {@link GetRoomCommandInput} for command's `input` shape.
  * @see {@link GetRoomCommandOutput} for command's `response` shape.
  * @see {@link IvschatClientResolvedConfig | config} for IvschatClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p/>
+ *
  *
  */
 export class GetRoomCommand extends $Command<GetRoomCommandInput, GetRoomCommandOutput, IvschatClientResolvedConfig> {
@@ -58,6 +76,9 @@ export class GetRoomCommand extends $Command<GetRoomCommandInput, GetRoomCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRoomCommandInput) {
     // Start section: command_constructor
     super();
@@ -84,8 +105,8 @@ export class GetRoomCommand extends $Command<GetRoomCommandInput, GetRoomCommand
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRoomRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRoomResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -95,12 +116,18 @@ export class GetRoomCommand extends $Command<GetRoomCommandInput, GetRoomCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRoomCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRoomCommand(input, context);
+    return se_GetRoomCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRoomCommandOutput> {
-    return deserializeAws_restJson1GetRoomCommand(output, context);
+    return de_GetRoomCommand(output, context);
   }
 
   // Start section: command_body_extra

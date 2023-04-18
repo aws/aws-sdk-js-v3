@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
+import { DescribeStackDriftDetectionStatusInput, DescribeStackDriftDetectionStatusOutput } from "../models/models_0";
 import {
-  DescribeStackDriftDetectionStatusInput,
-  DescribeStackDriftDetectionStatusInputFilterSensitiveLog,
-  DescribeStackDriftDetectionStatusOutput,
-  DescribeStackDriftDetectionStatusOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeStackDriftDetectionStatusCommand,
-  serializeAws_queryDescribeStackDriftDetectionStatusCommand,
+  de_DescribeStackDriftDetectionStatusCommand,
+  se_DescribeStackDriftDetectionStatusCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeStackDriftDetectionStatusCommand}.
+ */
 export interface DescribeStackDriftDetectionStatusCommandInput extends DescribeStackDriftDetectionStatusInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeStackDriftDetectionStatusCommand}.
+ */
 export interface DescribeStackDriftDetectionStatusCommandOutput
   extends DescribeStackDriftDetectionStatusOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a stack drift detection operation. A stack drift detection
  *          operation detects whether a stack's actual configuration differs, or has
  *             <i>drifted</i>, from it's expected configuration, as defined in the stack
@@ -50,13 +56,19 @@ export interface DescribeStackDriftDetectionStatusCommandOutput
  * import { CloudFormationClient, DescribeStackDriftDetectionStatusCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DescribeStackDriftDetectionStatusCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // DescribeStackDriftDetectionStatusInput
+ *   StackDriftDetectionId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeStackDriftDetectionStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStackDriftDetectionStatusCommandInput - {@link DescribeStackDriftDetectionStatusCommandInput}
+ * @returns {@link DescribeStackDriftDetectionStatusCommandOutput}
  * @see {@link DescribeStackDriftDetectionStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeStackDriftDetectionStatusCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
+ *
  *
  */
 export class DescribeStackDriftDetectionStatusCommand extends $Command<
@@ -76,6 +88,9 @@ export class DescribeStackDriftDetectionStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStackDriftDetectionStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +119,8 @@ export class DescribeStackDriftDetectionStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeStackDriftDetectionStatusInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeStackDriftDetectionStatusOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,18 +130,24 @@ export class DescribeStackDriftDetectionStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeStackDriftDetectionStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeStackDriftDetectionStatusCommand(input, context);
+    return se_DescribeStackDriftDetectionStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeStackDriftDetectionStatusCommandOutput> {
-    return deserializeAws_queryDescribeStackDriftDetectionStatusCommand(output, context);
+    return de_DescribeStackDriftDetectionStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

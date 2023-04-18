@@ -13,37 +13,59 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListTopicsInput,
-  ListTopicsInputFilterSensitiveLog,
-  ListTopicsResponse,
-  ListTopicsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_queryListTopicsCommand, serializeAws_queryListTopicsCommand } from "../protocols/Aws_query";
+import { ListTopicsInput, ListTopicsResponse } from "../models/models_0";
+import { de_ListTopicsCommand, se_ListTopicsCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListTopicsCommand}.
+ */
 export interface ListTopicsCommandInput extends ListTopicsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListTopicsCommand}.
+ */
 export interface ListTopicsCommandOutput extends ListTopicsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the requester's topics. Each call returns a limited list of topics,
  *             up to 100. If there are more topics, a <code>NextToken</code> is also returned. Use the
  *                 <code>NextToken</code> parameter in a new <code>ListTopics</code> call to get
  *             further results.</p>
- *         <p>This action is throttled at 30 transactions per second (TPS).</p>
+ *          <p>This action is throttled at 30 transactions per second (TPS).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SNSClient, ListTopicsCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, ListTopicsCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
+ * const input = { // ListTopicsInput
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListTopicsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTopicsCommandInput - {@link ListTopicsCommandInput}
+ * @returns {@link ListTopicsCommandOutput}
  * @see {@link ListTopicsCommandInput} for command's `input` shape.
  * @see {@link ListTopicsCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
+ *
+ * @throws {@link AuthorizationErrorException} (client fault)
+ *  <p>Indicates that the user has been denied access to the requested resource.</p>
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>Indicates an internal service error.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>Indicates that a request parameter does not comply with the associated
+ *             constraints.</p>
+ *
  *
  */
 export class ListTopicsCommand extends $Command<
@@ -63,6 +85,9 @@ export class ListTopicsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTopicsCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +114,8 @@ export class ListTopicsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTopicsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTopicsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +125,18 @@ export class ListTopicsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTopicsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListTopicsCommand(input, context);
+    return se_ListTopicsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTopicsCommandOutput> {
-    return deserializeAws_queryListTopicsCommand(output, context);
+    return de_ListTopicsCommand(output, context);
   }
 
   // Start section: command_body_extra

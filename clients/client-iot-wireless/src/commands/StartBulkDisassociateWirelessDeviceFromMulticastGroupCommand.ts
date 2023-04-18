@@ -16,22 +16,31 @@ import {
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import {
   StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest,
-  StartBulkDisassociateWirelessDeviceFromMulticastGroupRequestFilterSensitiveLog,
   StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse,
-  StartBulkDisassociateWirelessDeviceFromMulticastGroupResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand,
-  serializeAws_restJson1StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand,
+  de_StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand,
+  se_StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand}.
+ */
 export interface StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandInput
   extends StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand}.
+ */
 export interface StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOutput
   extends StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a bulk disassociatin of all qualifying wireless devices from a multicast group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +48,41 @@ export interface StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOut
  * import { IoTWirelessClient, StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest
+ *   Id: "STRING_VALUE", // required
+ *   QueryString: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandInput - {@link StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandInput}
+ * @returns {@link StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOutput}
  * @see {@link StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandInput} for command's `input` shape.
  * @see {@link StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>User does not have permission to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred while processing a request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because it exceeded the allowed API request rate.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input did not meet the specified constraints.</p>
+ *
  *
  */
 export class StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand extends $Command<
@@ -65,6 +102,9 @@ export class StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand extend
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +139,8 @@ export class StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand extend
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartBulkDisassociateWirelessDeviceFromMulticastGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartBulkDisassociateWirelessDeviceFromMulticastGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,18 +150,24 @@ export class StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand extend
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand(input, context);
+    return se_StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOutput> {
-    return deserializeAws_restJson1StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand(output, context);
+    return de_StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

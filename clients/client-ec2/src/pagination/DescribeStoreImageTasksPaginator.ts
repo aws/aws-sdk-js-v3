@@ -6,12 +6,11 @@ import {
   DescribeStoreImageTasksCommandInput,
   DescribeStoreImageTasksCommandOutput,
 } from "../commands/DescribeStoreImageTasksCommand";
-import { EC2 } from "../EC2";
 import { EC2Client } from "../EC2Client";
 import { EC2PaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: EC2Client,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeStoreImageTasksCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: EC2,
-  input: DescribeStoreImageTasksCommandInput,
-  ...args: any
-): Promise<DescribeStoreImageTasksCommandOutput> => {
-  // @ts-ignore
-  return await client.describeStoreImageTasks(input, ...args);
-};
 export async function* paginateDescribeStoreImageTasks(
   config: EC2PaginationConfiguration,
   input: DescribeStoreImageTasksCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateDescribeStoreImageTasks(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof EC2) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof EC2Client) {
+    if (config.client instanceof EC2Client) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected EC2 | EC2Client");

@@ -16,22 +16,31 @@ import {
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import {
   BatchGetRepositoryScanningConfigurationRequest,
-  BatchGetRepositoryScanningConfigurationRequestFilterSensitiveLog,
   BatchGetRepositoryScanningConfigurationResponse,
-  BatchGetRepositoryScanningConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1BatchGetRepositoryScanningConfigurationCommand,
-  serializeAws_json1_1BatchGetRepositoryScanningConfigurationCommand,
+  de_BatchGetRepositoryScanningConfigurationCommand,
+  se_BatchGetRepositoryScanningConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchGetRepositoryScanningConfigurationCommand}.
+ */
 export interface BatchGetRepositoryScanningConfigurationCommandInput
   extends BatchGetRepositoryScanningConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link BatchGetRepositoryScanningConfigurationCommand}.
+ */
 export interface BatchGetRepositoryScanningConfigurationCommandOutput
   extends BatchGetRepositoryScanningConfigurationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the scanning configuration for one or more repositories.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +48,35 @@ export interface BatchGetRepositoryScanningConfigurationCommandOutput
  * import { ECRClient, BatchGetRepositoryScanningConfigurationCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, BatchGetRepositoryScanningConfigurationCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
+ * const input = { // BatchGetRepositoryScanningConfigurationRequest
+ *   repositoryNames: [ // ScanningConfigurationRepositoryNameList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchGetRepositoryScanningConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetRepositoryScanningConfigurationCommandInput - {@link BatchGetRepositoryScanningConfigurationCommandInput}
+ * @returns {@link BatchGetRepositoryScanningConfigurationCommandOutput}
  * @see {@link BatchGetRepositoryScanningConfigurationCommandInput} for command's `input` shape.
  * @see {@link BatchGetRepositoryScanningConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *             request.</p>
+ *
+ * @throws {@link RepositoryNotFoundException} (client fault)
+ *  <p>The specified repository could not be found. Check the spelling of the specified
+ *             repository and ensure that you are performing operations on the correct registry.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There was an exception validating this request.</p>
+ *
  *
  */
 export class BatchGetRepositoryScanningConfigurationCommand extends $Command<
@@ -65,6 +96,9 @@ export class BatchGetRepositoryScanningConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetRepositoryScanningConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +133,8 @@ export class BatchGetRepositoryScanningConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetRepositoryScanningConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetRepositoryScanningConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,18 +144,24 @@ export class BatchGetRepositoryScanningConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchGetRepositoryScanningConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchGetRepositoryScanningConfigurationCommand(input, context);
+    return se_BatchGetRepositoryScanningConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchGetRepositoryScanningConfigurationCommandOutput> {
-    return deserializeAws_json1_1BatchGetRepositoryScanningConfigurationCommand(output, context);
+    return de_BatchGetRepositoryScanningConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

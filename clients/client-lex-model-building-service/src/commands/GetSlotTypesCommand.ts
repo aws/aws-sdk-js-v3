@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import {
-  GetSlotTypesRequest,
-  GetSlotTypesRequestFilterSensitiveLog,
-  GetSlotTypesResponse,
-  GetSlotTypesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSlotTypesCommand,
-  serializeAws_restJson1GetSlotTypesCommand,
-} from "../protocols/Aws_restJson1";
+import { GetSlotTypesRequest, GetSlotTypesResponse } from "../models/models_0";
+import { de_GetSlotTypesCommand, se_GetSlotTypesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetSlotTypesCommand}.
+ */
 export interface GetSlotTypesCommandInput extends GetSlotTypesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetSlotTypesCommand}.
+ */
 export interface GetSlotTypesCommandOutput extends GetSlotTypesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns slot type information as follows: </p>
  *          <ul>
  *             <li>
@@ -54,13 +57,75 @@ export interface GetSlotTypesCommandOutput extends GetSlotTypesResponse, __Metad
  * import { LexModelBuildingServiceClient, GetSlotTypesCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, GetSlotTypesCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
+ * const input = { // GetSlotTypesRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nameContains: "STRING_VALUE",
+ * };
  * const command = new GetSlotTypesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSlotTypesCommandInput - {@link GetSlotTypesCommandInput}
+ * @returns {@link GetSlotTypesCommandOutput}
  * @see {@link GetSlotTypesCommandInput} for command's `input` shape.
  * @see {@link GetSlotTypesCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is not well formed. For example, a value is invalid or
+ *       a required field is missing. Check the field values, and try
+ *       again.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal Amazon Lex error occurred. Try your request again.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request exceeded a limit. Try your request again.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource specified in the request was not found. Check the
+ *       resource and try again.</p>
+ *
+ *
+ * @example To get a list of slot types
+ * ```javascript
+ * // This example shows how to get a list of all of the slot types in your account.
+ * const input = {
+ *   "maxResults": 10,
+ *   "nextToken": ""
+ * };
+ * const command = new GetSlotTypesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "slotTypes": [
+ *     {
+ *       "version": "$LATEST",
+ *       "name": "DocPizzaCrustType",
+ *       "createdDate": 1494359274.403,
+ *       "description": "Available crust types",
+ *       "lastUpdatedDate": 1494359274.403
+ *     },
+ *     {
+ *       "version": "$LATEST",
+ *       "name": "DocPizzaSauceType",
+ *       "createdDate": 1494356442.23,
+ *       "description": "Available pizza sauces",
+ *       "lastUpdatedDate": 1494356442.23
+ *     },
+ *     {
+ *       "version": "$LATEST",
+ *       "name": "DocPizzaType",
+ *       "createdDate": 1494359198.656,
+ *       "description": "Available pizzas",
+ *       "lastUpdatedDate": 1494359198.656
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-get-a-list-of-slot-types-1494432757458
+ * ```
  *
  */
 export class GetSlotTypesCommand extends $Command<
@@ -80,6 +145,9 @@ export class GetSlotTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSlotTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +174,8 @@ export class GetSlotTypesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSlotTypesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSlotTypesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +185,18 @@ export class GetSlotTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSlotTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSlotTypesCommand(input, context);
+    return se_GetSlotTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSlotTypesCommandOutput> {
-    return deserializeAws_restJson1GetSlotTypesCommand(output, context);
+    return de_GetSlotTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

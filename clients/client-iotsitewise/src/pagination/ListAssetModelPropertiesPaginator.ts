@@ -6,12 +6,11 @@ import {
   ListAssetModelPropertiesCommandInput,
   ListAssetModelPropertiesCommandOutput,
 } from "../commands/ListAssetModelPropertiesCommand";
-import { IoTSiteWise } from "../IoTSiteWise";
 import { IoTSiteWiseClient } from "../IoTSiteWiseClient";
 import { IoTSiteWisePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: IoTSiteWiseClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListAssetModelPropertiesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: IoTSiteWise,
-  input: ListAssetModelPropertiesCommandInput,
-  ...args: any
-): Promise<ListAssetModelPropertiesCommandOutput> => {
-  // @ts-ignore
-  return await client.listAssetModelProperties(input, ...args);
-};
 export async function* paginateListAssetModelProperties(
   config: IoTSiteWisePaginationConfiguration,
   input: ListAssetModelPropertiesCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListAssetModelProperties(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof IoTSiteWise) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IoTSiteWiseClient) {
+    if (config.client instanceof IoTSiteWiseClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected IoTSiteWise | IoTSiteWiseClient");

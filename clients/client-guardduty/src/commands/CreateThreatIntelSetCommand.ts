@@ -14,37 +14,60 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import {
-  CreateThreatIntelSetRequest,
-  CreateThreatIntelSetRequestFilterSensitiveLog,
-  CreateThreatIntelSetResponse,
-  CreateThreatIntelSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateThreatIntelSetCommand,
-  serializeAws_restJson1CreateThreatIntelSetCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateThreatIntelSetRequest, CreateThreatIntelSetResponse } from "../models/models_0";
+import { de_CreateThreatIntelSetCommand, se_CreateThreatIntelSetCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateThreatIntelSetCommand}.
+ */
 export interface CreateThreatIntelSetCommandInput extends CreateThreatIntelSetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateThreatIntelSetCommand}.
+ */
 export interface CreateThreatIntelSetCommandOutput extends CreateThreatIntelSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new ThreatIntelSet. ThreatIntelSets consist of known malicious IP addresses.
- *       GuardDuty generates findings based on ThreatIntelSets. Only users of the administrator account can
- *       use this operation.</p>
+ *       GuardDuty generates findings based on ThreatIntelSets. Only users of the administrator
+ *       account can use this operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GuardDutyClient, CreateThreatIntelSetCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, CreateThreatIntelSetCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = { // CreateThreatIntelSetRequest
+ *   DetectorId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Format: "TXT" || "STIX" || "OTX_CSV" || "ALIEN_VAULT" || "PROOF_POINT" || "FIRE_EYE", // required
+ *   Location: "STRING_VALUE", // required
+ *   Activate: true || false, // required
+ *   ClientToken: "STRING_VALUE",
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateThreatIntelSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateThreatIntelSetCommandInput - {@link CreateThreatIntelSetCommandInput}
+ * @returns {@link CreateThreatIntelSetCommandOutput}
  * @see {@link CreateThreatIntelSetCommandInput} for command's `input` shape.
  * @see {@link CreateThreatIntelSetCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>A bad request exception object.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>An internal server error exception object.</p>
+ *
  *
  */
 export class CreateThreatIntelSetCommand extends $Command<
@@ -64,6 +87,9 @@ export class CreateThreatIntelSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateThreatIntelSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +118,8 @@ export class CreateThreatIntelSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateThreatIntelSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateThreatIntelSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +129,18 @@ export class CreateThreatIntelSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateThreatIntelSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateThreatIntelSetCommand(input, context);
+    return se_CreateThreatIntelSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateThreatIntelSetCommandOutput> {
-    return deserializeAws_restJson1CreateThreatIntelSetCommand(output, context);
+    return de_CreateThreatIntelSetCommand(output, context);
   }
 
   // Start section: command_body_extra

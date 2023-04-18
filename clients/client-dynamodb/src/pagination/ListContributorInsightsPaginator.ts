@@ -6,12 +6,11 @@ import {
   ListContributorInsightsCommandInput,
   ListContributorInsightsCommandOutput,
 } from "../commands/ListContributorInsightsCommand";
-import { DynamoDB } from "../DynamoDB";
 import { DynamoDBClient } from "../DynamoDBClient";
 import { DynamoDBPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DynamoDBClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListContributorInsightsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: DynamoDB,
-  input: ListContributorInsightsCommandInput,
-  ...args: any
-): Promise<ListContributorInsightsCommandOutput> => {
-  // @ts-ignore
-  return await client.listContributorInsights(input, ...args);
-};
 export async function* paginateListContributorInsights(
   config: DynamoDBPaginationConfiguration,
   input: ListContributorInsightsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListContributorInsights(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof DynamoDB) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DynamoDBClient) {
+    if (config.client instanceof DynamoDBClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected DynamoDB | DynamoDBClient");

@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -11,11 +12,12 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
   serializeFloat as __serializeFloat,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -108,7 +110,6 @@ import { UpdateFileSystemCommandInput, UpdateFileSystemCommandOutput } from "../
 import { EFSServiceException as __BaseException } from "../models/EFSServiceException";
 import {
   AccessPointAlreadyExists,
-  AccessPointDescription,
   AccessPointLimitExceeded,
   AccessPointNotFound,
   AvailabilityZonesMismatch,
@@ -132,7 +133,6 @@ import {
   IpAddressInUse,
   LifecyclePolicy,
   MountTargetConflict,
-  MountTargetDescription,
   MountTargetNotFound,
   NetworkInterfaceLimitExceeded,
   NoFreeAddressesInSubnet,
@@ -140,8 +140,6 @@ import {
   PosixUser,
   ReplicationConfigurationDescription,
   ReplicationNotFound,
-  Resource,
-  ResourceIdPreference,
   RootDirectory,
   SecurityGroupLimitExceeded,
   SecurityGroupNotFound,
@@ -154,7 +152,10 @@ import {
   ValidationException,
 } from "../models/models_0";
 
-export const serializeAws_restJson1CreateAccessPointCommand = async (
+/**
+ * serializeAws_restJson1CreateAccessPointCommand
+ */
+export const se_CreateAccessPointCommand = async (
   input: CreateAccessPointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -165,15 +166,15 @@ export const serializeAws_restJson1CreateAccessPointCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/access-points";
   let body: any;
-  body = JSON.stringify({
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.FileSystemId != null && { FileSystemId: input.FileSystemId }),
-    ...(input.PosixUser != null && { PosixUser: serializeAws_restJson1PosixUser(input.PosixUser, context) }),
-    ...(input.RootDirectory != null && {
-      RootDirectory: serializeAws_restJson1RootDirectory(input.RootDirectory, context),
-    }),
-    ...(input.Tags != null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      FileSystemId: [],
+      PosixUser: (_) => _json(_),
+      RootDirectory: (_) => _json(_),
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -185,7 +186,10 @@ export const serializeAws_restJson1CreateAccessPointCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateFileSystemCommand = async (
+/**
+ * serializeAws_restJson1CreateFileSystemCommand
+ */
+export const se_CreateFileSystemCommand = async (
   input: CreateFileSystemCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -196,19 +200,19 @@ export const serializeAws_restJson1CreateFileSystemCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/file-systems";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AvailabilityZoneName != null && { AvailabilityZoneName: input.AvailabilityZoneName }),
-    ...(input.Backup != null && { Backup: input.Backup }),
-    CreationToken: input.CreationToken ?? generateIdempotencyToken(),
-    ...(input.Encrypted != null && { Encrypted: input.Encrypted }),
-    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
-    ...(input.PerformanceMode != null && { PerformanceMode: input.PerformanceMode }),
-    ...(input.ProvisionedThroughputInMibps != null && {
-      ProvisionedThroughputInMibps: __serializeFloat(input.ProvisionedThroughputInMibps),
-    }),
-    ...(input.Tags != null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
-    ...(input.ThroughputMode != null && { ThroughputMode: input.ThroughputMode }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AvailabilityZoneName: [],
+      Backup: [],
+      CreationToken: (_) => _ ?? generateIdempotencyToken(),
+      Encrypted: [],
+      KmsKeyId: [],
+      PerformanceMode: [],
+      ProvisionedThroughputInMibps: (_) => __serializeFloat(_),
+      Tags: (_) => _json(_),
+      ThroughputMode: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -220,7 +224,10 @@ export const serializeAws_restJson1CreateFileSystemCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateMountTargetCommand = async (
+/**
+ * serializeAws_restJson1CreateMountTargetCommand
+ */
+export const se_CreateMountTargetCommand = async (
   input: CreateMountTargetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -231,14 +238,14 @@ export const serializeAws_restJson1CreateMountTargetCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/mount-targets";
   let body: any;
-  body = JSON.stringify({
-    ...(input.FileSystemId != null && { FileSystemId: input.FileSystemId }),
-    ...(input.IpAddress != null && { IpAddress: input.IpAddress }),
-    ...(input.SecurityGroups != null && {
-      SecurityGroups: serializeAws_restJson1SecurityGroups(input.SecurityGroups, context),
-    }),
-    ...(input.SubnetId != null && { SubnetId: input.SubnetId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      FileSystemId: [],
+      IpAddress: [],
+      SecurityGroups: (_) => _json(_),
+      SubnetId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -250,7 +257,10 @@ export const serializeAws_restJson1CreateMountTargetCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateReplicationConfigurationCommand = async (
+/**
+ * serializeAws_restJson1CreateReplicationConfigurationCommand
+ */
+export const se_CreateReplicationConfigurationCommand = async (
   input: CreateReplicationConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -270,11 +280,11 @@ export const serializeAws_restJson1CreateReplicationConfigurationCommand = async
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Destinations != null && {
-      Destinations: serializeAws_restJson1DestinationsToCreate(input.Destinations, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Destinations: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -286,7 +296,10 @@ export const serializeAws_restJson1CreateReplicationConfigurationCommand = async
   });
 };
 
-export const serializeAws_restJson1CreateTagsCommand = async (
+/**
+ * serializeAws_restJson1CreateTagsCommand
+ */
+export const se_CreateTagsCommand = async (
   input: CreateTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -305,9 +318,11 @@ export const serializeAws_restJson1CreateTagsCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Tags != null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -319,7 +334,10 @@ export const serializeAws_restJson1CreateTagsCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteAccessPointCommand = async (
+/**
+ * serializeAws_restJson1DeleteAccessPointCommand
+ */
+export const se_DeleteAccessPointCommand = async (
   input: DeleteAccessPointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -347,7 +365,10 @@ export const serializeAws_restJson1DeleteAccessPointCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteFileSystemCommand = async (
+/**
+ * serializeAws_restJson1DeleteFileSystemCommand
+ */
+export const se_DeleteFileSystemCommand = async (
   input: DeleteFileSystemCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -375,7 +396,10 @@ export const serializeAws_restJson1DeleteFileSystemCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteFileSystemPolicyCommand = async (
+/**
+ * serializeAws_restJson1DeleteFileSystemPolicyCommand
+ */
+export const se_DeleteFileSystemPolicyCommand = async (
   input: DeleteFileSystemPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -404,7 +428,10 @@ export const serializeAws_restJson1DeleteFileSystemPolicyCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteMountTargetCommand = async (
+/**
+ * serializeAws_restJson1DeleteMountTargetCommand
+ */
+export const se_DeleteMountTargetCommand = async (
   input: DeleteMountTargetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -432,7 +459,10 @@ export const serializeAws_restJson1DeleteMountTargetCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteReplicationConfigurationCommand = async (
+/**
+ * serializeAws_restJson1DeleteReplicationConfigurationCommand
+ */
+export const se_DeleteReplicationConfigurationCommand = async (
   input: DeleteReplicationConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -461,7 +491,10 @@ export const serializeAws_restJson1DeleteReplicationConfigurationCommand = async
   });
 };
 
-export const serializeAws_restJson1DeleteTagsCommand = async (
+/**
+ * serializeAws_restJson1DeleteTagsCommand
+ */
+export const se_DeleteTagsCommand = async (
   input: DeleteTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -480,9 +513,11 @@ export const serializeAws_restJson1DeleteTagsCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.TagKeys != null && { TagKeys: serializeAws_restJson1TagKeys(input.TagKeys, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      TagKeys: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -494,7 +529,10 @@ export const serializeAws_restJson1DeleteTagsCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeAccessPointsCommand = async (
+/**
+ * serializeAws_restJson1DescribeAccessPointsCommand
+ */
+export const se_DescribeAccessPointsCommand = async (
   input: DescribeAccessPointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -521,7 +559,10 @@ export const serializeAws_restJson1DescribeAccessPointsCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeAccountPreferencesCommand = async (
+/**
+ * serializeAws_restJson1DescribeAccountPreferencesCommand
+ */
+export const se_DescribeAccountPreferencesCommand = async (
   input: DescribeAccountPreferencesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -532,10 +573,12 @@ export const serializeAws_restJson1DescribeAccountPreferencesCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/account-preferences";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -547,7 +590,10 @@ export const serializeAws_restJson1DescribeAccountPreferencesCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeBackupPolicyCommand = async (
+/**
+ * serializeAws_restJson1DescribeBackupPolicyCommand
+ */
+export const se_DescribeBackupPolicyCommand = async (
   input: DescribeBackupPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -576,7 +622,10 @@ export const serializeAws_restJson1DescribeBackupPolicyCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeFileSystemPolicyCommand = async (
+/**
+ * serializeAws_restJson1DescribeFileSystemPolicyCommand
+ */
+export const se_DescribeFileSystemPolicyCommand = async (
   input: DescribeFileSystemPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -605,7 +654,10 @@ export const serializeAws_restJson1DescribeFileSystemPolicyCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeFileSystemsCommand = async (
+/**
+ * serializeAws_restJson1DescribeFileSystemsCommand
+ */
+export const se_DescribeFileSystemsCommand = async (
   input: DescribeFileSystemsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -632,7 +684,10 @@ export const serializeAws_restJson1DescribeFileSystemsCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeLifecycleConfigurationCommand = async (
+/**
+ * serializeAws_restJson1DescribeLifecycleConfigurationCommand
+ */
+export const se_DescribeLifecycleConfigurationCommand = async (
   input: DescribeLifecycleConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -661,7 +716,10 @@ export const serializeAws_restJson1DescribeLifecycleConfigurationCommand = async
   });
 };
 
-export const serializeAws_restJson1DescribeMountTargetsCommand = async (
+/**
+ * serializeAws_restJson1DescribeMountTargetsCommand
+ */
+export const se_DescribeMountTargetsCommand = async (
   input: DescribeMountTargetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -689,7 +747,10 @@ export const serializeAws_restJson1DescribeMountTargetsCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeMountTargetSecurityGroupsCommand = async (
+/**
+ * serializeAws_restJson1DescribeMountTargetSecurityGroupsCommand
+ */
+export const se_DescribeMountTargetSecurityGroupsCommand = async (
   input: DescribeMountTargetSecurityGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -718,7 +779,10 @@ export const serializeAws_restJson1DescribeMountTargetSecurityGroupsCommand = as
   });
 };
 
-export const serializeAws_restJson1DescribeReplicationConfigurationsCommand = async (
+/**
+ * serializeAws_restJson1DescribeReplicationConfigurationsCommand
+ */
+export const se_DescribeReplicationConfigurationsCommand = async (
   input: DescribeReplicationConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -745,7 +809,10 @@ export const serializeAws_restJson1DescribeReplicationConfigurationsCommand = as
   });
 };
 
-export const serializeAws_restJson1DescribeTagsCommand = async (
+/**
+ * serializeAws_restJson1DescribeTagsCommand
+ */
+export const se_DescribeTagsCommand = async (
   input: DescribeTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -778,7 +845,10 @@ export const serializeAws_restJson1DescribeTagsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -804,7 +874,10 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1ModifyMountTargetSecurityGroupsCommand = async (
+/**
+ * serializeAws_restJson1ModifyMountTargetSecurityGroupsCommand
+ */
+export const se_ModifyMountTargetSecurityGroupsCommand = async (
   input: ModifyMountTargetSecurityGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -824,11 +897,11 @@ export const serializeAws_restJson1ModifyMountTargetSecurityGroupsCommand = asyn
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.SecurityGroups != null && {
-      SecurityGroups: serializeAws_restJson1SecurityGroups(input.SecurityGroups, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      SecurityGroups: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -840,7 +913,10 @@ export const serializeAws_restJson1ModifyMountTargetSecurityGroupsCommand = asyn
   });
 };
 
-export const serializeAws_restJson1PutAccountPreferencesCommand = async (
+/**
+ * serializeAws_restJson1PutAccountPreferencesCommand
+ */
+export const se_PutAccountPreferencesCommand = async (
   input: PutAccountPreferencesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -851,9 +927,11 @@ export const serializeAws_restJson1PutAccountPreferencesCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/account-preferences";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceIdType != null && { ResourceIdType: input.ResourceIdType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ResourceIdType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -865,7 +943,10 @@ export const serializeAws_restJson1PutAccountPreferencesCommand = async (
   });
 };
 
-export const serializeAws_restJson1PutBackupPolicyCommand = async (
+/**
+ * serializeAws_restJson1PutBackupPolicyCommand
+ */
+export const se_PutBackupPolicyCommand = async (
   input: PutBackupPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -885,11 +966,11 @@ export const serializeAws_restJson1PutBackupPolicyCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.BackupPolicy != null && {
-      BackupPolicy: serializeAws_restJson1BackupPolicy(input.BackupPolicy, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      BackupPolicy: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -901,7 +982,10 @@ export const serializeAws_restJson1PutBackupPolicyCommand = async (
   });
 };
 
-export const serializeAws_restJson1PutFileSystemPolicyCommand = async (
+/**
+ * serializeAws_restJson1PutFileSystemPolicyCommand
+ */
+export const se_PutFileSystemPolicyCommand = async (
   input: PutFileSystemPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -921,12 +1005,12 @@ export const serializeAws_restJson1PutFileSystemPolicyCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.BypassPolicyLockoutSafetyCheck != null && {
-      BypassPolicyLockoutSafetyCheck: input.BypassPolicyLockoutSafetyCheck,
-    }),
-    ...(input.Policy != null && { Policy: input.Policy }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      BypassPolicyLockoutSafetyCheck: [],
+      Policy: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -938,7 +1022,10 @@ export const serializeAws_restJson1PutFileSystemPolicyCommand = async (
   });
 };
 
-export const serializeAws_restJson1PutLifecycleConfigurationCommand = async (
+/**
+ * serializeAws_restJson1PutLifecycleConfigurationCommand
+ */
+export const se_PutLifecycleConfigurationCommand = async (
   input: PutLifecycleConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -958,11 +1045,11 @@ export const serializeAws_restJson1PutLifecycleConfigurationCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.LifecyclePolicies != null && {
-      LifecyclePolicies: serializeAws_restJson1LifecyclePolicies(input.LifecyclePolicies, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      LifecyclePolicies: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -974,7 +1061,10 @@ export const serializeAws_restJson1PutLifecycleConfigurationCommand = async (
   });
 };
 
-export const serializeAws_restJson1TagResourceCommand = async (
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -986,9 +1076,11 @@ export const serializeAws_restJson1TagResourceCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/resource-tags/{ResourceId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceId", () => input.ResourceId!, "{ResourceId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Tags != null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1000,7 +1092,10 @@ export const serializeAws_restJson1TagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UntagResourceCommand = async (
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1028,7 +1123,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateFileSystemCommand = async (
+/**
+ * serializeAws_restJson1UpdateFileSystemCommand
+ */
+export const se_UpdateFileSystemCommand = async (
   input: UpdateFileSystemCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1047,12 +1145,12 @@ export const serializeAws_restJson1UpdateFileSystemCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.ProvisionedThroughputInMibps != null && {
-      ProvisionedThroughputInMibps: __serializeFloat(input.ProvisionedThroughputInMibps),
-    }),
-    ...(input.ThroughputMode != null && { ThroughputMode: input.ThroughputMode }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ProvisionedThroughputInMibps: (_) => __serializeFloat(_),
+      ThroughputMode: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1064,51 +1162,40 @@ export const serializeAws_restJson1UpdateFileSystemCommand = async (
   });
 };
 
-export const deserializeAws_restJson1CreateAccessPointCommand = async (
+/**
+ * deserializeAws_restJson1CreateAccessPointCommand
+ */
+export const de_CreateAccessPointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAccessPointCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateAccessPointCommandError(output, context);
+    return de_CreateAccessPointCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AccessPointArn != null) {
-    contents.AccessPointArn = __expectString(data.AccessPointArn);
-  }
-  if (data.AccessPointId != null) {
-    contents.AccessPointId = __expectString(data.AccessPointId);
-  }
-  if (data.ClientToken != null) {
-    contents.ClientToken = __expectString(data.ClientToken);
-  }
-  if (data.FileSystemId != null) {
-    contents.FileSystemId = __expectString(data.FileSystemId);
-  }
-  if (data.LifeCycleState != null) {
-    contents.LifeCycleState = __expectString(data.LifeCycleState);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.OwnerId != null) {
-    contents.OwnerId = __expectString(data.OwnerId);
-  }
-  if (data.PosixUser != null) {
-    contents.PosixUser = deserializeAws_restJson1PosixUser(data.PosixUser, context);
-  }
-  if (data.RootDirectory != null) {
-    contents.RootDirectory = deserializeAws_restJson1RootDirectory(data.RootDirectory, context);
-  }
-  if (data.Tags != null) {
-    contents.Tags = deserializeAws_restJson1Tags(data.Tags, context);
-  }
+  const doc = take(data, {
+    AccessPointArn: __expectString,
+    AccessPointId: __expectString,
+    ClientToken: __expectString,
+    FileSystemId: __expectString,
+    LifeCycleState: __expectString,
+    Name: __expectString,
+    OwnerId: __expectString,
+    PosixUser: _json,
+    RootDirectory: _json,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateAccessPointCommandError = async (
+/**
+ * deserializeAws_restJson1CreateAccessPointCommandError
+ */
+const de_CreateAccessPointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAccessPointCommandOutput> => {
@@ -1120,102 +1207,76 @@ const deserializeAws_restJson1CreateAccessPointCommandError = async (
   switch (errorCode) {
     case "AccessPointAlreadyExists":
     case "com.amazonaws.efs#AccessPointAlreadyExists":
-      throw await deserializeAws_restJson1AccessPointAlreadyExistsResponse(parsedOutput, context);
+      throw await de_AccessPointAlreadyExistsRes(parsedOutput, context);
     case "AccessPointLimitExceeded":
     case "com.amazonaws.efs#AccessPointLimitExceeded":
-      throw await deserializeAws_restJson1AccessPointLimitExceededResponse(parsedOutput, context);
+      throw await de_AccessPointLimitExceededRes(parsedOutput, context);
     case "BadRequest":
     case "com.amazonaws.efs#BadRequest":
-      throw await deserializeAws_restJson1BadRequestResponse(parsedOutput, context);
+      throw await de_BadRequestRes(parsedOutput, context);
     case "FileSystemNotFound":
     case "com.amazonaws.efs#FileSystemNotFound":
-      throw await deserializeAws_restJson1FileSystemNotFoundResponse(parsedOutput, context);
+      throw await de_FileSystemNotFoundRes(parsedOutput, context);
     case "IncorrectFileSystemLifeCycleState":
     case "com.amazonaws.efs#IncorrectFileSystemLifeCycleState":
-      throw await deserializeAws_restJson1IncorrectFileSystemLifeCycleStateResponse(parsedOutput, context);
+      throw await de_IncorrectFileSystemLifeCycleStateRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.efs#InternalServerError":
-      throw await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.efs#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateFileSystemCommand = async (
+/**
+ * deserializeAws_restJson1CreateFileSystemCommand
+ */
+export const de_CreateFileSystemCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFileSystemCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateFileSystemCommandError(output, context);
+    return de_CreateFileSystemCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AvailabilityZoneId != null) {
-    contents.AvailabilityZoneId = __expectString(data.AvailabilityZoneId);
-  }
-  if (data.AvailabilityZoneName != null) {
-    contents.AvailabilityZoneName = __expectString(data.AvailabilityZoneName);
-  }
-  if (data.CreationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.CreationToken != null) {
-    contents.CreationToken = __expectString(data.CreationToken);
-  }
-  if (data.Encrypted != null) {
-    contents.Encrypted = __expectBoolean(data.Encrypted);
-  }
-  if (data.FileSystemArn != null) {
-    contents.FileSystemArn = __expectString(data.FileSystemArn);
-  }
-  if (data.FileSystemId != null) {
-    contents.FileSystemId = __expectString(data.FileSystemId);
-  }
-  if (data.KmsKeyId != null) {
-    contents.KmsKeyId = __expectString(data.KmsKeyId);
-  }
-  if (data.LifeCycleState != null) {
-    contents.LifeCycleState = __expectString(data.LifeCycleState);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.NumberOfMountTargets != null) {
-    contents.NumberOfMountTargets = __expectInt32(data.NumberOfMountTargets);
-  }
-  if (data.OwnerId != null) {
-    contents.OwnerId = __expectString(data.OwnerId);
-  }
-  if (data.PerformanceMode != null) {
-    contents.PerformanceMode = __expectString(data.PerformanceMode);
-  }
-  if (data.ProvisionedThroughputInMibps != null) {
-    contents.ProvisionedThroughputInMibps = __limitedParseDouble(data.ProvisionedThroughputInMibps);
-  }
-  if (data.SizeInBytes != null) {
-    contents.SizeInBytes = deserializeAws_restJson1FileSystemSize(data.SizeInBytes, context);
-  }
-  if (data.Tags != null) {
-    contents.Tags = deserializeAws_restJson1Tags(data.Tags, context);
-  }
-  if (data.ThroughputMode != null) {
-    contents.ThroughputMode = __expectString(data.ThroughputMode);
-  }
+  const doc = take(data, {
+    AvailabilityZoneId: __expectString,
+    AvailabilityZoneName: __expectString,
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreationToken: __expectString,
+    Encrypted: __expectBoolean,
+    FileSystemArn: __expectString,
+    FileSystemId: __expectString,
+    KmsKeyId: __expectString,
+    LifeCycleState: __expectString,
+    Name: __expectString,
+    NumberOfMountTargets: __expectInt32,
+    OwnerId: __expectString,
+    PerformanceMode: __expectString,
+    ProvisionedThroughputInMibps: __limitedParseDouble,
+    SizeInBytes: (_) => de_FileSystemSize(_, context),
+    Tags: _json,
+    ThroughputMode: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateFileSystemCommandError = async (
+/**
+ * deserializeAws_restJson1CreateFileSystemCommandError
+ */
+const de_CreateFileSystemCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFileSystemCommandOutput> => {
@@ -1227,81 +1288,69 @@ const deserializeAws_restJson1CreateFileSystemCommandError = async (
   switch (errorCode) {
     case "BadRequest":
     case "com.amazonaws.efs#BadRequest":
-      throw await deserializeAws_restJson1BadRequestResponse(parsedOutput, context);
+      throw await de_BadRequestRes(parsedOutput, context);
     case "FileSystemAlreadyExists":
     case "com.amazonaws.efs#FileSystemAlreadyExists":
-      throw await deserializeAws_restJson1FileSystemAlreadyExistsResponse(parsedOutput, context);
+      throw await de_FileSystemAlreadyExistsRes(parsedOutput, context);
     case "FileSystemLimitExceeded":
     case "com.amazonaws.efs#FileSystemLimitExceeded":
-      throw await deserializeAws_restJson1FileSystemLimitExceededResponse(parsedOutput, context);
+      throw await de_FileSystemLimitExceededRes(parsedOutput, context);
     case "InsufficientThroughputCapacity":
     case "com.amazonaws.efs#InsufficientThroughputCapacity":
-      throw await deserializeAws_restJson1InsufficientThroughputCapacityResponse(parsedOutput, context);
+      throw await de_InsufficientThroughputCapacityRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.efs#InternalServerError":
-      throw await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "ThroughputLimitExceeded":
     case "com.amazonaws.efs#ThroughputLimitExceeded":
-      throw await deserializeAws_restJson1ThroughputLimitExceededResponse(parsedOutput, context);
+      throw await de_ThroughputLimitExceededRes(parsedOutput, context);
     case "UnsupportedAvailabilityZone":
     case "com.amazonaws.efs#UnsupportedAvailabilityZone":
-      throw await deserializeAws_restJson1UnsupportedAvailabilityZoneResponse(parsedOutput, context);
+      throw await de_UnsupportedAvailabilityZoneRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateMountTargetCommand = async (
+/**
+ * deserializeAws_restJson1CreateMountTargetCommand
+ */
+export const de_CreateMountTargetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateMountTargetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateMountTargetCommandError(output, context);
+    return de_CreateMountTargetCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AvailabilityZoneId != null) {
-    contents.AvailabilityZoneId = __expectString(data.AvailabilityZoneId);
-  }
-  if (data.AvailabilityZoneName != null) {
-    contents.AvailabilityZoneName = __expectString(data.AvailabilityZoneName);
-  }
-  if (data.FileSystemId != null) {
-    contents.FileSystemId = __expectString(data.FileSystemId);
-  }
-  if (data.IpAddress != null) {
-    contents.IpAddress = __expectString(data.IpAddress);
-  }
-  if (data.LifeCycleState != null) {
-    contents.LifeCycleState = __expectString(data.LifeCycleState);
-  }
-  if (data.MountTargetId != null) {
-    contents.MountTargetId = __expectString(data.MountTargetId);
-  }
-  if (data.NetworkInterfaceId != null) {
-    contents.NetworkInterfaceId = __expectString(data.NetworkInterfaceId);
-  }
-  if (data.OwnerId != null) {
-    contents.OwnerId = __expectString(data.OwnerId);
-  }
-  if (data.SubnetId != null) {
-    contents.SubnetId = __expectString(data.SubnetId);
-  }
-  if (data.VpcId != null) {
-    contents.VpcId = __expectString(data.VpcId);
-  }
+  const doc = take(data, {
+    AvailabilityZoneId: __expectString,
+    AvailabilityZoneName: __expectString,
+    FileSystemId: __expectString,
+    IpAddress: __expectString,
+    LifeCycleState: __expectString,
+    MountTargetId: __expectString,
+    NetworkInterfaceId: __expectString,
+    OwnerId: __expectString,
+    SubnetId: __expectString,
+    VpcId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateMountTargetCommandError = async (
+/**
+ * deserializeAws_restJson1CreateMountTargetCommandError
+ */
+const de_CreateMountTargetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateMountTargetCommandOutput> => {
@@ -1313,87 +1362,83 @@ const deserializeAws_restJson1CreateMountTargetCommandError = async (
   switch (errorCode) {
     case "AvailabilityZonesMismatch":
     case "com.amazonaws.efs#AvailabilityZonesMismatch":
-      throw await deserializeAws_restJson1AvailabilityZonesMismatchResponse(parsedOutput, context);
+      throw await de_AvailabilityZonesMismatchRes(parsedOutput, context);
     case "BadRequest":
     case "com.amazonaws.efs#BadRequest":
-      throw await deserializeAws_restJson1BadRequestResponse(parsedOutput, context);
+      throw await de_BadRequestRes(parsedOutput, context);
     case "FileSystemNotFound":
     case "com.amazonaws.efs#FileSystemNotFound":
-      throw await deserializeAws_restJson1FileSystemNotFoundResponse(parsedOutput, context);
+      throw await de_FileSystemNotFoundRes(parsedOutput, context);
     case "IncorrectFileSystemLifeCycleState":
     case "com.amazonaws.efs#IncorrectFileSystemLifeCycleState":
-      throw await deserializeAws_restJson1IncorrectFileSystemLifeCycleStateResponse(parsedOutput, context);
+      throw await de_IncorrectFileSystemLifeCycleStateRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.efs#InternalServerError":
-      throw await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "IpAddressInUse":
     case "com.amazonaws.efs#IpAddressInUse":
-      throw await deserializeAws_restJson1IpAddressInUseResponse(parsedOutput, context);
+      throw await de_IpAddressInUseRes(parsedOutput, context);
     case "MountTargetConflict":
     case "com.amazonaws.efs#MountTargetConflict":
-      throw await deserializeAws_restJson1MountTargetConflictResponse(parsedOutput, context);
+      throw await de_MountTargetConflictRes(parsedOutput, context);
     case "NetworkInterfaceLimitExceeded":
     case "com.amazonaws.efs#NetworkInterfaceLimitExceeded":
-      throw await deserializeAws_restJson1NetworkInterfaceLimitExceededResponse(parsedOutput, context);
+      throw await de_NetworkInterfaceLimitExceededRes(parsedOutput, context);
     case "NoFreeAddressesInSubnet":
     case "com.amazonaws.efs#NoFreeAddressesInSubnet":
-      throw await deserializeAws_restJson1NoFreeAddressesInSubnetResponse(parsedOutput, context);
+      throw await de_NoFreeAddressesInSubnetRes(parsedOutput, context);
     case "SecurityGroupLimitExceeded":
     case "com.amazonaws.efs#SecurityGroupLimitExceeded":
-      throw await deserializeAws_restJson1SecurityGroupLimitExceededResponse(parsedOutput, context);
+      throw await de_SecurityGroupLimitExceededRes(parsedOutput, context);
     case "SecurityGroupNotFound":
     case "com.amazonaws.efs#SecurityGroupNotFound":
-      throw await deserializeAws_restJson1SecurityGroupNotFoundResponse(parsedOutput, context);
+      throw await de_SecurityGroupNotFoundRes(parsedOutput, context);
     case "SubnetNotFound":
     case "com.amazonaws.efs#SubnetNotFound":
-      throw await deserializeAws_restJson1SubnetNotFoundResponse(parsedOutput, context);
+      throw await de_SubnetNotFoundRes(parsedOutput, context);
     case "UnsupportedAvailabilityZone":
     case "com.amazonaws.efs#UnsupportedAvailabilityZone":
-      throw await deserializeAws_restJson1UnsupportedAvailabilityZoneResponse(parsedOutput, context);
+      throw await de_UnsupportedAvailabilityZoneRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateReplicationConfigurationCommand = async (
+/**
+ * deserializeAws_restJson1CreateReplicationConfigurationCommand
+ */
+export const de_CreateReplicationConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateReplicationConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateReplicationConfigurationCommandError(output, context);
+    return de_CreateReplicationConfigurationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CreationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.Destinations != null) {
-    contents.Destinations = deserializeAws_restJson1Destinations(data.Destinations, context);
-  }
-  if (data.OriginalSourceFileSystemArn != null) {
-    contents.OriginalSourceFileSystemArn = __expectString(data.OriginalSourceFileSystemArn);
-  }
-  if (data.SourceFileSystemArn != null) {
-    contents.SourceFileSystemArn = __expectString(data.SourceFileSystemArn);
-  }
-  if (data.SourceFileSystemId != null) {
-    contents.SourceFileSystemId = __expectString(data.SourceFileSystemId);
-  }
-  if (data.SourceFileSystemRegion != null) {
-    contents.SourceFileSystemRegion = __expectString(data.SourceFileSystemRegion);
-  }
+  const doc = take(data, {
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Destinations: (_) => de_Destinations(_, context),
+    OriginalSourceFileSystemArn: __expectString,
+    SourceFileSystemArn: __expectString,
+    SourceFileSystemId: __expectString,
+    SourceFileSystemRegion: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateReplicationConfigurationCommandError = async (
+/**
+ * deserializeAws_restJson1CreateReplicationConfigurationCommandError
+ */
+const de_CreateReplicationConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateReplicationConfigurationCommandOutput> => {
@@ -1405,51 +1450,53 @@ const deserializeAws_restJson1CreateReplicationConfigurationCommandError = async
   switch (errorCode) {
     case "BadRequest":
     case "com.amazonaws.efs#BadRequest":
-      throw await deserializeAws_restJson1BadRequestResponse(parsedOutput, context);
+      throw await de_BadRequestRes(parsedOutput, context);
     case "FileSystemLimitExceeded":
     case "com.amazonaws.efs#FileSystemLimitExceeded":
-      throw await deserializeAws_restJson1FileSystemLimitExceededResponse(parsedOutput, context);
+      throw await de_FileSystemLimitExceededRes(parsedOutput, context);
     case "FileSystemNotFound":
     case "com.amazonaws.efs#FileSystemNotFound":
-      throw await deserializeAws_restJson1FileSystemNotFoundResponse(parsedOutput, context);
+      throw await de_FileSystemNotFoundRes(parsedOutput, context);
     case "IncorrectFileSystemLifeCycleState":
     case "com.amazonaws.efs#IncorrectFileSystemLifeCycleState":
-      throw await deserializeAws_restJson1IncorrectFileSystemLifeCycleStateResponse(parsedOutput, context);
+      throw await de_IncorrectFileSystemLifeCycleStateRes(parsedOutput, context);
     case "InsufficientThroughputCapacity":
     case "com.amazonaws.efs#InsufficientThroughputCapacity":
-      throw await deserializeAws_restJson1InsufficientThroughputCapacityResponse(parsedOutput, context);
+      throw await de_InsufficientThroughputCapacityRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.efs#InternalServerError":
-      throw await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "ReplicationNotFound":
     case "com.amazonaws.efs#ReplicationNotFound":
-      throw await deserializeAws_restJson1ReplicationNotFoundResponse(parsedOutput, context);
+      throw await de_ReplicationNotFoundRes(parsedOutput, context);
     case "ThroughputLimitExceeded":
     case "com.amazonaws.efs#ThroughputLimitExceeded":
-      throw await deserializeAws_restJson1ThroughputLimitExceededResponse(parsedOutput, context);
+      throw await de_ThroughputLimitExceededRes(parsedOutput, context);
     case "UnsupportedAvailabilityZone":
     case "com.amazonaws.efs#UnsupportedAvailabilityZone":
-      throw await deserializeAws_restJson1UnsupportedAvailabilityZoneResponse(parsedOutput, context);
+      throw await de_UnsupportedAvailabilityZoneRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.efs#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateTagsCommand = async (
+/**
+ * deserializeAws_restJson1CreateTagsCommand
+ */
+export const de_CreateTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTagsCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateTagsCommandError(output, context);
+    return de_CreateTagsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1458,7 +1505,10 @@ export const deserializeAws_restJson1CreateTagsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CreateTagsCommandError = async (
+/**
+ * deserializeAws_restJson1CreateTagsCommandError
+ */
+const de_CreateTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTagsCommandOutput> => {
@@ -1470,30 +1520,32 @@ const deserializeAws_restJson1CreateTagsCommandError = async (
   switch (errorCode) {
     case "BadRequest":
     case "com.amazonaws.efs#BadRequest":
-      throw await deserializeAws_restJson1BadRequestResponse(parsedOutput, context);
+      throw await de_BadRequestRes(parsedOutput, context);
     case "FileSystemNotFound":
     case "com.amazonaws.efs#FileSystemNotFound":
-      throw await deserializeAws_restJson1FileSystemNotFoundResponse(parsedOutput, context);
+      throw await de_FileSystemNotFoundRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.efs#InternalServerError":
-      throw await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteAccessPointCommand = async (
+/**
+ * deserializeAws_restJson1DeleteAccessPointCommand
+ */
+export const de_DeleteAccessPointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAccessPointCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteAccessPointCommandError(output, context);
+    return de_DeleteAccessPointCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1502,7 +1554,10 @@ export const deserializeAws_restJson1DeleteAccessPointCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteAccessPointCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteAccessPointCommandError
+ */
+const de_DeleteAccessPointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAccessPointCommandOutput> => {
@@ -1514,30 +1569,32 @@ const deserializeAws_restJson1DeleteAccessPointCommandError = async (
   switch (errorCode) {
     case "AccessPointNotFound":
     case "com.amazonaws.efs#AccessPointNotFound":
-      throw await deserializeAws_restJson1AccessPointNotFoundResponse(parsedOutput, context);
+      throw await de_AccessPointNotFoundRes(parsedOutput, context);
     case "BadRequest":
     case "com.amazonaws.efs#BadRequest":
-      throw await deserializeAws_restJson1BadRequestResponse(parsedOutput, context);
+      throw await de_BadRequestRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.efs#InternalServerError":
-      throw await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteFileSystemCommand = async (
+/**
+ * deserializeAws_restJson1DeleteFileSystemCommand
+ */
+export const de_DeleteFileSystemCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFileSystemCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteFileSystemCommandError(output, context);
+    return de_DeleteFileSystemCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1546,7 +1603,10 @@ export const deserializeAws_restJson1DeleteFileSystemCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteFileSystemCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteFileSystemCommandError
+ */
+const de_DeleteFileSystemCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFileSystemCommandOutput> => {
@@ -1558,33 +1618,35 @@ const deserializeAws_restJson1DeleteFileSystemCommandError = async (
   switch (errorCode) {
     case "BadRequest":
     case "com.amazonaws.efs#BadRequest":
-      throw await deserializeAws_restJson1BadRequestResponse(parsedOutput, context);
+      throw await de_BadRequestRes(parsedOutput, context);
     case "FileSystemInUse":
     case "com.amazonaws.efs#FileSystemInUse":
-      throw await deserializeAws_restJson1FileSystemInUseResponse(parsedOutput, context);
+      throw await de_FileSystemInUseRes(parsedOutput, context);
     case "FileSystemNotFound":
     case "com.amazonaws.efs#FileSystemNotFound":
-      throw await deserializeAws_restJson1FileSystemNotFoundResponse(parsedOutput, context);
+      throw await de_FileSystemNotFoundRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.efs#InternalServerError":
-      throw await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteFileSystemPolicyCommand = async (
+/**
+ * deserializeAws_restJson1DeleteFileSystemPolicyCommand
+ */
+export const de_DeleteFileSystemPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFileSystemPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteFileSystemPolicyCommandError(output, context);
+    return de_DeleteFileSystemPolicyCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1593,7 +1655,10 @@ export const deserializeAws_restJson1DeleteFileSystemPolicyCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteFileSystemPolicyCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteFileSystemPolicyCommandError
+ */
+const de_DeleteFileSystemPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFileSystemPolicyCommandOutput> => {
@@ -1605,33 +1670,35 @@ const deserializeAws_restJson1DeleteFileSystemPolicyCommandError = async (
   switch (errorCode) {
     case "BadRequest":
     case "com.amazonaws.efs#BadRequest":
-      throw await deserializeAws_restJson1BadRequestResponse(parsedOutput, context);
+      throw await de_BadRequestRes(parsedOutput, context);
     case "FileSystemNotFound":
     case "com.amazonaws.efs#FileSystemNotFound":
-      throw await deserializeAws_restJson1FileSystemNotFoundResponse(parsedOutput, context);
+      throw await de_FileSystemNotFoundRes(parsedOutput, context);
     case "IncorrectFileSystemLifeCycleState":
     case "com.amazonaws.efs#IncorrectFileSystemLifeCycleState":
-      throw await deserializeAws_restJson1IncorrectFileSystemLifeCycleStateResponse(parsedOutput, context);
+      throw await de_IncorrectFileSystemLifeCycleStateRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.efs#InternalServerError":
-      throw await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteMountTargetCommand = async (
+/**
+ * deserializeAws_restJson1DeleteMountTargetCommand
+ */
+export const de_DeleteMountTargetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMountTargetCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteMountTargetCommandError(output, context);
+    return de_DeleteMountTargetCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1640,7 +1707,10 @@ export const deserializeAws_restJson1DeleteMountTargetCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteMountTargetCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteMountTargetCommandError
+ */
+const de_DeleteMountTargetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMountTargetCommandOutput> => {
@@ -1652,33 +1722,35 @@ const deserializeAws_restJson1DeleteMountTargetCommandError = async (
   switch (errorCode) {
     case "BadRequest":
     case "com.amazonaws.efs#BadRequest":
-      throw await deserializeAws_restJson1BadRequestResponse(parsedOutput, context);
+      throw await de_BadRequestRes(parsedOutput, context);
     case "DependencyTimeout":
     case "com.amazonaws.efs#DependencyTimeout":
-      throw await deserializeAws_restJson1DependencyTimeoutResponse(parsedOutput, context);
+      throw await de_DependencyTimeoutRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.efs#InternalServerError":
-      throw await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "MountTargetNotFound":
     case "com.amazonaws.efs#MountTargetNotFound":
-      throw await deserializeAws_restJson1MountTargetNotFoundResponse(parsedOutput, context);
+      throw await de_MountTargetNotFoundRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteReplicationConfigurationCommand = async (
+/**
+ * deserializeAws_restJson1DeleteReplicationConfigurationCommand
+ */
+export const de_DeleteReplicationConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteReplicationConfigurationCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteReplicationConfigurationCommandError(output, context);
+    return de_DeleteReplicationConfigurationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1687,7 +1759,10 @@ export const deserializeAws_restJson1DeleteReplicationConfigurationCommand = asy
   return contents;
 };
 
-const deserializeAws_restJson1DeleteReplicationConfigurationCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteReplicationConfigurationCommandError
+ */
+const de_DeleteReplicationConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteReplicationConfigurationCommandOutput> => {
@@ -1699,33 +1774,35 @@ const deserializeAws_restJson1DeleteReplicationConfigurationCommandError = async
   switch (errorCode) {
     case "BadRequest":
     case "com.amazonaws.efs#BadRequest":
-      throw await deserializeAws_restJson1BadRequestResponse(parsedOutput, context);
+      throw await de_BadRequestRes(parsedOutput, context);
     case "FileSystemNotFound":
     case "com.amazonaws.efs#FileSystemNotFound":
-      throw await deserializeAws_restJson1FileSystemNotFoundResponse(parsedOutput, context);
+      throw await de_FileSystemNotFoundRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.efs#InternalServerError":
-      throw await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "ReplicationNotFound":
     case "com.amazonaws.efs#ReplicationNotFound":
-      throw await deserializeAws_restJson1ReplicationNotFoundResponse(parsedOutput, context);
+      throw await de_ReplicationNotFoundRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteTagsCommand = async (
+/**
+ * deserializeAws_restJson1DeleteTagsCommand
+ */
+export const de_DeleteTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTagsCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteTagsCommandError(output, context);
+    return de_DeleteTagsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1734,7 +1811,10 @@ export const deserializeAws_restJson1DeleteTagsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteTagsCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteTagsCommandError
+ */
+const de_DeleteTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTagsCommandOutput> => {
@@ -1746,45 +1826,49 @@ const deserializeAws_restJson1DeleteTagsCommandError = async (
   switch (errorCode) {
     case "BadRequest":
     case "com.amazonaws.efs#BadRequest":
-      throw await deserializeAws_restJson1BadRequestResponse(parsedOutput, context);
+      throw await de_BadRequestRes(parsedOutput, context);
     case "FileSystemNotFound":
     case "com.amazonaws.efs#FileSystemNotFound":
-      throw await deserializeAws_restJson1FileSystemNotFoundResponse(parsedOutput, context);
+      throw await de_FileSystemNotFoundRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.efs#InternalServerError":
-      throw await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeAccessPointsCommand = async (
+/**
+ * deserializeAws_restJson1DescribeAccessPointsCommand
+ */
+export const de_DescribeAccessPointsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAccessPointsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeAccessPointsCommandError(output, context);
+    return de_DescribeAccessPointsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AccessPoints != null) {
-    contents.AccessPoints = deserializeAws_restJson1AccessPointDescriptions(data.AccessPoints, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    AccessPoints: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeAccessPointsCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeAccessPointsCommandError
+ */
+const de_DescribeAccessPointsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAccessPointsCommandOutput> => {
@@ -1796,48 +1880,52 @@ const deserializeAws_restJson1DescribeAccessPointsCommandError = async (
   switch (errorCode) {
     case "AccessPointNotFound":
     case "com.amazonaws.efs#AccessPointNotFound":
-      throw await deserializeAws_restJson1AccessPointNotFoundResponse(parsedOutput, context);
+      throw await de_AccessPointNotFoundRes(parsedOutput, context);
     case "BadRequest":
     case "com.amazonaws.efs#BadRequest":
-      throw await deserializeAws_restJson1BadRequestResponse(parsedOutput, context);
+      throw await de_BadRequestRes(parsedOutput, context);
     case "FileSystemNotFound":
     case "com.amazonaws.efs#FileSystemNotFound":
-      throw await deserializeAws_restJson1FileSystemNotFoundResponse(parsedOutput, context);
+      throw await de_FileSystemNotFoundRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.efs#InternalServerError":
-      throw await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeAccountPreferencesCommand = async (
+/**
+ * deserializeAws_restJson1DescribeAccountPreferencesCommand
+ */
+export const de_DescribeAccountPreferencesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAccountPreferencesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeAccountPreferencesCommandError(output, context);
+    return de_DescribeAccountPreferencesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.ResourceIdPreference != null) {
-    contents.ResourceIdPreference = deserializeAws_restJson1ResourceIdPreference(data.ResourceIdPreference, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    ResourceIdPreference: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeAccountPreferencesCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeAccountPreferencesCommandError
+ */
+const de_DescribeAccountPreferencesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAccountPreferencesCommandOutput> => {
@@ -1849,36 +1937,42 @@ const deserializeAws_restJson1DescribeAccountPreferencesCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.efs#InternalServerError":
-      throw await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeBackupPolicyCommand = async (
+/**
+ * deserializeAws_restJson1DescribeBackupPolicyCommand
+ */
+export const de_DescribeBackupPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBackupPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeBackupPolicyCommandError(output, context);
+    return de_DescribeBackupPolicyCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BackupPolicy != null) {
-    contents.BackupPolicy = deserializeAws_restJson1BackupPolicy(data.BackupPolicy, context);
-  }
+  const doc = take(data, {
+    BackupPolicy: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeBackupPolicyCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeBackupPolicyCommandError
+ */
+const de_DescribeBackupPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBackupPolicyCommandOutput> => {
@@ -1890,51 +1984,55 @@ const deserializeAws_restJson1DescribeBackupPolicyCommandError = async (
   switch (errorCode) {
     case "BadRequest":
     case "com.amazonaws.efs#BadRequest":
-      throw await deserializeAws_restJson1BadRequestResponse(parsedOutput, context);
+      throw await de_BadRequestRes(parsedOutput, context);
     case "FileSystemNotFound":
     case "com.amazonaws.efs#FileSystemNotFound":
-      throw await deserializeAws_restJson1FileSystemNotFoundResponse(parsedOutput, context);
+      throw await de_FileSystemNotFoundRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.efs#InternalServerError":
-      throw await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "PolicyNotFound":
     case "com.amazonaws.efs#PolicyNotFound":
-      throw await deserializeAws_restJson1PolicyNotFoundResponse(parsedOutput, context);
+      throw await de_PolicyNotFoundRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.efs#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeFileSystemPolicyCommand = async (
+/**
+ * deserializeAws_restJson1DescribeFileSystemPolicyCommand
+ */
+export const de_DescribeFileSystemPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFileSystemPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeFileSystemPolicyCommandError(output, context);
+    return de_DescribeFileSystemPolicyCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.FileSystemId != null) {
-    contents.FileSystemId = __expectString(data.FileSystemId);
-  }
-  if (data.Policy != null) {
-    contents.Policy = __expectString(data.Policy);
-  }
+  const doc = take(data, {
+    FileSystemId: __expectString,
+    Policy: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeFileSystemPolicyCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeFileSystemPolicyCommandError
+ */
+const de_DescribeFileSystemPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFileSystemPolicyCommandOutput> => {
@@ -1946,51 +2044,53 @@ const deserializeAws_restJson1DescribeFileSystemPolicyCommandError = async (
   switch (errorCode) {
     case "BadRequest":
     case "com.amazonaws.efs#BadRequest":
-      throw await deserializeAws_restJson1BadRequestResponse(parsedOutput, context);
+      throw await de_BadRequestRes(parsedOutput, context);
     case "FileSystemNotFound":
     case "com.amazonaws.efs#FileSystemNotFound":
-      throw await deserializeAws_restJson1FileSystemNotFoundResponse(parsedOutput, context);
+      throw await de_FileSystemNotFoundRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.efs#InternalServerError":
-      throw await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "PolicyNotFound":
     case "com.amazonaws.efs#PolicyNotFound":
-      throw await deserializeAws_restJson1PolicyNotFoundResponse(parsedOutput, context);
+      throw await de_PolicyNotFoundRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeFileSystemsCommand = async (
+/**
+ * deserializeAws_restJson1DescribeFileSystemsCommand
+ */
+export const de_DescribeFileSystemsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFileSystemsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeFileSystemsCommandError(output, context);
+    return de_DescribeFileSystemsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.FileSystems != null) {
-    contents.FileSystems = deserializeAws_restJson1FileSystemDescriptions(data.FileSystems, context);
-  }
-  if (data.Marker != null) {
-    contents.Marker = __expectString(data.Marker);
-  }
-  if (data.NextMarker != null) {
-    contents.NextMarker = __expectString(data.NextMarker);
-  }
+  const doc = take(data, {
+    FileSystems: (_) => de_FileSystemDescriptions(_, context),
+    Marker: __expectString,
+    NextMarker: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeFileSystemsCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeFileSystemsCommandError
+ */
+const de_DescribeFileSystemsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFileSystemsCommandOutput> => {
@@ -2002,42 +2102,48 @@ const deserializeAws_restJson1DescribeFileSystemsCommandError = async (
   switch (errorCode) {
     case "BadRequest":
     case "com.amazonaws.efs#BadRequest":
-      throw await deserializeAws_restJson1BadRequestResponse(parsedOutput, context);
+      throw await de_BadRequestRes(parsedOutput, context);
     case "FileSystemNotFound":
     case "com.amazonaws.efs#FileSystemNotFound":
-      throw await deserializeAws_restJson1FileSystemNotFoundResponse(parsedOutput, context);
+      throw await de_FileSystemNotFoundRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.efs#InternalServerError":
-      throw await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeLifecycleConfigurationCommand = async (
+/**
+ * deserializeAws_restJson1DescribeLifecycleConfigurationCommand
+ */
+export const de_DescribeLifecycleConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeLifecycleConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeLifecycleConfigurationCommandError(output, context);
+    return de_DescribeLifecycleConfigurationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.LifecyclePolicies != null) {
-    contents.LifecyclePolicies = deserializeAws_restJson1LifecyclePolicies(data.LifecyclePolicies, context);
-  }
+  const doc = take(data, {
+    LifecyclePolicies: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeLifecycleConfigurationCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeLifecycleConfigurationCommandError
+ */
+const de_DescribeLifecycleConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeLifecycleConfigurationCommandOutput> => {
@@ -2049,48 +2155,50 @@ const deserializeAws_restJson1DescribeLifecycleConfigurationCommandError = async
   switch (errorCode) {
     case "BadRequest":
     case "com.amazonaws.efs#BadRequest":
-      throw await deserializeAws_restJson1BadRequestResponse(parsedOutput, context);
+      throw await de_BadRequestRes(parsedOutput, context);
     case "FileSystemNotFound":
     case "com.amazonaws.efs#FileSystemNotFound":
-      throw await deserializeAws_restJson1FileSystemNotFoundResponse(parsedOutput, context);
+      throw await de_FileSystemNotFoundRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.efs#InternalServerError":
-      throw await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeMountTargetsCommand = async (
+/**
+ * deserializeAws_restJson1DescribeMountTargetsCommand
+ */
+export const de_DescribeMountTargetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeMountTargetsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeMountTargetsCommandError(output, context);
+    return de_DescribeMountTargetsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Marker != null) {
-    contents.Marker = __expectString(data.Marker);
-  }
-  if (data.MountTargets != null) {
-    contents.MountTargets = deserializeAws_restJson1MountTargetDescriptions(data.MountTargets, context);
-  }
-  if (data.NextMarker != null) {
-    contents.NextMarker = __expectString(data.NextMarker);
-  }
+  const doc = take(data, {
+    Marker: __expectString,
+    MountTargets: _json,
+    NextMarker: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeMountTargetsCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeMountTargetsCommandError
+ */
+const de_DescribeMountTargetsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeMountTargetsCommandOutput> => {
@@ -2102,48 +2210,54 @@ const deserializeAws_restJson1DescribeMountTargetsCommandError = async (
   switch (errorCode) {
     case "AccessPointNotFound":
     case "com.amazonaws.efs#AccessPointNotFound":
-      throw await deserializeAws_restJson1AccessPointNotFoundResponse(parsedOutput, context);
+      throw await de_AccessPointNotFoundRes(parsedOutput, context);
     case "BadRequest":
     case "com.amazonaws.efs#BadRequest":
-      throw await deserializeAws_restJson1BadRequestResponse(parsedOutput, context);
+      throw await de_BadRequestRes(parsedOutput, context);
     case "FileSystemNotFound":
     case "com.amazonaws.efs#FileSystemNotFound":
-      throw await deserializeAws_restJson1FileSystemNotFoundResponse(parsedOutput, context);
+      throw await de_FileSystemNotFoundRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.efs#InternalServerError":
-      throw await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "MountTargetNotFound":
     case "com.amazonaws.efs#MountTargetNotFound":
-      throw await deserializeAws_restJson1MountTargetNotFoundResponse(parsedOutput, context);
+      throw await de_MountTargetNotFoundRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeMountTargetSecurityGroupsCommand = async (
+/**
+ * deserializeAws_restJson1DescribeMountTargetSecurityGroupsCommand
+ */
+export const de_DescribeMountTargetSecurityGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeMountTargetSecurityGroupsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeMountTargetSecurityGroupsCommandError(output, context);
+    return de_DescribeMountTargetSecurityGroupsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.SecurityGroups != null) {
-    contents.SecurityGroups = deserializeAws_restJson1SecurityGroups(data.SecurityGroups, context);
-  }
+  const doc = take(data, {
+    SecurityGroups: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeMountTargetSecurityGroupsCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeMountTargetSecurityGroupsCommandError
+ */
+const de_DescribeMountTargetSecurityGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeMountTargetSecurityGroupsCommandOutput> => {
@@ -2155,48 +2269,52 @@ const deserializeAws_restJson1DescribeMountTargetSecurityGroupsCommandError = as
   switch (errorCode) {
     case "BadRequest":
     case "com.amazonaws.efs#BadRequest":
-      throw await deserializeAws_restJson1BadRequestResponse(parsedOutput, context);
+      throw await de_BadRequestRes(parsedOutput, context);
     case "IncorrectMountTargetState":
     case "com.amazonaws.efs#IncorrectMountTargetState":
-      throw await deserializeAws_restJson1IncorrectMountTargetStateResponse(parsedOutput, context);
+      throw await de_IncorrectMountTargetStateRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.efs#InternalServerError":
-      throw await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "MountTargetNotFound":
     case "com.amazonaws.efs#MountTargetNotFound":
-      throw await deserializeAws_restJson1MountTargetNotFoundResponse(parsedOutput, context);
+      throw await de_MountTargetNotFoundRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeReplicationConfigurationsCommand = async (
+/**
+ * deserializeAws_restJson1DescribeReplicationConfigurationsCommand
+ */
+export const de_DescribeReplicationConfigurationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeReplicationConfigurationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeReplicationConfigurationsCommandError(output, context);
+    return de_DescribeReplicationConfigurationsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Replications != null) {
-    contents.Replications = deserializeAws_restJson1ReplicationConfigurationDescriptions(data.Replications, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Replications: (_) => de_ReplicationConfigurationDescriptions(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeReplicationConfigurationsCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeReplicationConfigurationsCommandError
+ */
+const de_DescribeReplicationConfigurationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeReplicationConfigurationsCommandOutput> => {
@@ -2208,54 +2326,56 @@ const deserializeAws_restJson1DescribeReplicationConfigurationsCommandError = as
   switch (errorCode) {
     case "BadRequest":
     case "com.amazonaws.efs#BadRequest":
-      throw await deserializeAws_restJson1BadRequestResponse(parsedOutput, context);
+      throw await de_BadRequestRes(parsedOutput, context);
     case "FileSystemNotFound":
     case "com.amazonaws.efs#FileSystemNotFound":
-      throw await deserializeAws_restJson1FileSystemNotFoundResponse(parsedOutput, context);
+      throw await de_FileSystemNotFoundRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.efs#InternalServerError":
-      throw await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "ReplicationNotFound":
     case "com.amazonaws.efs#ReplicationNotFound":
-      throw await deserializeAws_restJson1ReplicationNotFoundResponse(parsedOutput, context);
+      throw await de_ReplicationNotFoundRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.efs#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeTagsCommand = async (
+/**
+ * deserializeAws_restJson1DescribeTagsCommand
+ */
+export const de_DescribeTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTagsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeTagsCommandError(output, context);
+    return de_DescribeTagsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Marker != null) {
-    contents.Marker = __expectString(data.Marker);
-  }
-  if (data.NextMarker != null) {
-    contents.NextMarker = __expectString(data.NextMarker);
-  }
-  if (data.Tags != null) {
-    contents.Tags = deserializeAws_restJson1Tags(data.Tags, context);
-  }
+  const doc = take(data, {
+    Marker: __expectString,
+    NextMarker: __expectString,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeTagsCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeTagsCommandError
+ */
+const de_DescribeTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTagsCommandOutput> => {
@@ -2267,45 +2387,49 @@ const deserializeAws_restJson1DescribeTagsCommandError = async (
   switch (errorCode) {
     case "BadRequest":
     case "com.amazonaws.efs#BadRequest":
-      throw await deserializeAws_restJson1BadRequestResponse(parsedOutput, context);
+      throw await de_BadRequestRes(parsedOutput, context);
     case "FileSystemNotFound":
     case "com.amazonaws.efs#FileSystemNotFound":
-      throw await deserializeAws_restJson1FileSystemNotFoundResponse(parsedOutput, context);
+      throw await de_FileSystemNotFoundRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.efs#InternalServerError":
-      throw await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Tags != null) {
-    contents.Tags = deserializeAws_restJson1Tags(data.Tags, context);
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -2317,33 +2441,35 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "AccessPointNotFound":
     case "com.amazonaws.efs#AccessPointNotFound":
-      throw await deserializeAws_restJson1AccessPointNotFoundResponse(parsedOutput, context);
+      throw await de_AccessPointNotFoundRes(parsedOutput, context);
     case "BadRequest":
     case "com.amazonaws.efs#BadRequest":
-      throw await deserializeAws_restJson1BadRequestResponse(parsedOutput, context);
+      throw await de_BadRequestRes(parsedOutput, context);
     case "FileSystemNotFound":
     case "com.amazonaws.efs#FileSystemNotFound":
-      throw await deserializeAws_restJson1FileSystemNotFoundResponse(parsedOutput, context);
+      throw await de_FileSystemNotFoundRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.efs#InternalServerError":
-      throw await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ModifyMountTargetSecurityGroupsCommand = async (
+/**
+ * deserializeAws_restJson1ModifyMountTargetSecurityGroupsCommand
+ */
+export const de_ModifyMountTargetSecurityGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyMountTargetSecurityGroupsCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ModifyMountTargetSecurityGroupsCommandError(output, context);
+    return de_ModifyMountTargetSecurityGroupsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2352,7 +2478,10 @@ export const deserializeAws_restJson1ModifyMountTargetSecurityGroupsCommand = as
   return contents;
 };
 
-const deserializeAws_restJson1ModifyMountTargetSecurityGroupsCommandError = async (
+/**
+ * deserializeAws_restJson1ModifyMountTargetSecurityGroupsCommandError
+ */
+const de_ModifyMountTargetSecurityGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyMountTargetSecurityGroupsCommandOutput> => {
@@ -2364,51 +2493,57 @@ const deserializeAws_restJson1ModifyMountTargetSecurityGroupsCommandError = asyn
   switch (errorCode) {
     case "BadRequest":
     case "com.amazonaws.efs#BadRequest":
-      throw await deserializeAws_restJson1BadRequestResponse(parsedOutput, context);
+      throw await de_BadRequestRes(parsedOutput, context);
     case "IncorrectMountTargetState":
     case "com.amazonaws.efs#IncorrectMountTargetState":
-      throw await deserializeAws_restJson1IncorrectMountTargetStateResponse(parsedOutput, context);
+      throw await de_IncorrectMountTargetStateRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.efs#InternalServerError":
-      throw await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "MountTargetNotFound":
     case "com.amazonaws.efs#MountTargetNotFound":
-      throw await deserializeAws_restJson1MountTargetNotFoundResponse(parsedOutput, context);
+      throw await de_MountTargetNotFoundRes(parsedOutput, context);
     case "SecurityGroupLimitExceeded":
     case "com.amazonaws.efs#SecurityGroupLimitExceeded":
-      throw await deserializeAws_restJson1SecurityGroupLimitExceededResponse(parsedOutput, context);
+      throw await de_SecurityGroupLimitExceededRes(parsedOutput, context);
     case "SecurityGroupNotFound":
     case "com.amazonaws.efs#SecurityGroupNotFound":
-      throw await deserializeAws_restJson1SecurityGroupNotFoundResponse(parsedOutput, context);
+      throw await de_SecurityGroupNotFoundRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1PutAccountPreferencesCommand = async (
+/**
+ * deserializeAws_restJson1PutAccountPreferencesCommand
+ */
+export const de_PutAccountPreferencesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutAccountPreferencesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutAccountPreferencesCommandError(output, context);
+    return de_PutAccountPreferencesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ResourceIdPreference != null) {
-    contents.ResourceIdPreference = deserializeAws_restJson1ResourceIdPreference(data.ResourceIdPreference, context);
-  }
+  const doc = take(data, {
+    ResourceIdPreference: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1PutAccountPreferencesCommandError = async (
+/**
+ * deserializeAws_restJson1PutAccountPreferencesCommandError
+ */
+const de_PutAccountPreferencesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutAccountPreferencesCommandOutput> => {
@@ -2420,39 +2555,45 @@ const deserializeAws_restJson1PutAccountPreferencesCommandError = async (
   switch (errorCode) {
     case "BadRequest":
     case "com.amazonaws.efs#BadRequest":
-      throw await deserializeAws_restJson1BadRequestResponse(parsedOutput, context);
+      throw await de_BadRequestRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.efs#InternalServerError":
-      throw await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1PutBackupPolicyCommand = async (
+/**
+ * deserializeAws_restJson1PutBackupPolicyCommand
+ */
+export const de_PutBackupPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutBackupPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutBackupPolicyCommandError(output, context);
+    return de_PutBackupPolicyCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BackupPolicy != null) {
-    contents.BackupPolicy = deserializeAws_restJson1BackupPolicy(data.BackupPolicy, context);
-  }
+  const doc = take(data, {
+    BackupPolicy: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1PutBackupPolicyCommandError = async (
+/**
+ * deserializeAws_restJson1PutBackupPolicyCommandError
+ */
+const de_PutBackupPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutBackupPolicyCommandOutput> => {
@@ -2464,51 +2605,55 @@ const deserializeAws_restJson1PutBackupPolicyCommandError = async (
   switch (errorCode) {
     case "BadRequest":
     case "com.amazonaws.efs#BadRequest":
-      throw await deserializeAws_restJson1BadRequestResponse(parsedOutput, context);
+      throw await de_BadRequestRes(parsedOutput, context);
     case "FileSystemNotFound":
     case "com.amazonaws.efs#FileSystemNotFound":
-      throw await deserializeAws_restJson1FileSystemNotFoundResponse(parsedOutput, context);
+      throw await de_FileSystemNotFoundRes(parsedOutput, context);
     case "IncorrectFileSystemLifeCycleState":
     case "com.amazonaws.efs#IncorrectFileSystemLifeCycleState":
-      throw await deserializeAws_restJson1IncorrectFileSystemLifeCycleStateResponse(parsedOutput, context);
+      throw await de_IncorrectFileSystemLifeCycleStateRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.efs#InternalServerError":
-      throw await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.efs#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1PutFileSystemPolicyCommand = async (
+/**
+ * deserializeAws_restJson1PutFileSystemPolicyCommand
+ */
+export const de_PutFileSystemPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutFileSystemPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutFileSystemPolicyCommandError(output, context);
+    return de_PutFileSystemPolicyCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.FileSystemId != null) {
-    contents.FileSystemId = __expectString(data.FileSystemId);
-  }
-  if (data.Policy != null) {
-    contents.Policy = __expectString(data.Policy);
-  }
+  const doc = take(data, {
+    FileSystemId: __expectString,
+    Policy: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1PutFileSystemPolicyCommandError = async (
+/**
+ * deserializeAws_restJson1PutFileSystemPolicyCommandError
+ */
+const de_PutFileSystemPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutFileSystemPolicyCommandOutput> => {
@@ -2520,48 +2665,54 @@ const deserializeAws_restJson1PutFileSystemPolicyCommandError = async (
   switch (errorCode) {
     case "BadRequest":
     case "com.amazonaws.efs#BadRequest":
-      throw await deserializeAws_restJson1BadRequestResponse(parsedOutput, context);
+      throw await de_BadRequestRes(parsedOutput, context);
     case "FileSystemNotFound":
     case "com.amazonaws.efs#FileSystemNotFound":
-      throw await deserializeAws_restJson1FileSystemNotFoundResponse(parsedOutput, context);
+      throw await de_FileSystemNotFoundRes(parsedOutput, context);
     case "IncorrectFileSystemLifeCycleState":
     case "com.amazonaws.efs#IncorrectFileSystemLifeCycleState":
-      throw await deserializeAws_restJson1IncorrectFileSystemLifeCycleStateResponse(parsedOutput, context);
+      throw await de_IncorrectFileSystemLifeCycleStateRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.efs#InternalServerError":
-      throw await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidPolicyException":
     case "com.amazonaws.efs#InvalidPolicyException":
-      throw await deserializeAws_restJson1InvalidPolicyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPolicyExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1PutLifecycleConfigurationCommand = async (
+/**
+ * deserializeAws_restJson1PutLifecycleConfigurationCommand
+ */
+export const de_PutLifecycleConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutLifecycleConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutLifecycleConfigurationCommandError(output, context);
+    return de_PutLifecycleConfigurationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.LifecyclePolicies != null) {
-    contents.LifecyclePolicies = deserializeAws_restJson1LifecyclePolicies(data.LifecyclePolicies, context);
-  }
+  const doc = take(data, {
+    LifecyclePolicies: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1PutLifecycleConfigurationCommandError = async (
+/**
+ * deserializeAws_restJson1PutLifecycleConfigurationCommandError
+ */
+const de_PutLifecycleConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutLifecycleConfigurationCommandOutput> => {
@@ -2573,33 +2724,35 @@ const deserializeAws_restJson1PutLifecycleConfigurationCommandError = async (
   switch (errorCode) {
     case "BadRequest":
     case "com.amazonaws.efs#BadRequest":
-      throw await deserializeAws_restJson1BadRequestResponse(parsedOutput, context);
+      throw await de_BadRequestRes(parsedOutput, context);
     case "FileSystemNotFound":
     case "com.amazonaws.efs#FileSystemNotFound":
-      throw await deserializeAws_restJson1FileSystemNotFoundResponse(parsedOutput, context);
+      throw await de_FileSystemNotFoundRes(parsedOutput, context);
     case "IncorrectFileSystemLifeCycleState":
     case "com.amazonaws.efs#IncorrectFileSystemLifeCycleState":
-      throw await deserializeAws_restJson1IncorrectFileSystemLifeCycleStateResponse(parsedOutput, context);
+      throw await de_IncorrectFileSystemLifeCycleStateRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.efs#InternalServerError":
-      throw await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1TagResourceCommand = async (
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2608,7 +2761,10 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1TagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -2620,33 +2776,35 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   switch (errorCode) {
     case "AccessPointNotFound":
     case "com.amazonaws.efs#AccessPointNotFound":
-      throw await deserializeAws_restJson1AccessPointNotFoundResponse(parsedOutput, context);
+      throw await de_AccessPointNotFoundRes(parsedOutput, context);
     case "BadRequest":
     case "com.amazonaws.efs#BadRequest":
-      throw await deserializeAws_restJson1BadRequestResponse(parsedOutput, context);
+      throw await de_BadRequestRes(parsedOutput, context);
     case "FileSystemNotFound":
     case "com.amazonaws.efs#FileSystemNotFound":
-      throw await deserializeAws_restJson1FileSystemNotFoundResponse(parsedOutput, context);
+      throw await de_FileSystemNotFoundRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.efs#InternalServerError":
-      throw await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UntagResourceCommand = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2655,7 +2813,10 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UntagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -2667,93 +2828,67 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   switch (errorCode) {
     case "AccessPointNotFound":
     case "com.amazonaws.efs#AccessPointNotFound":
-      throw await deserializeAws_restJson1AccessPointNotFoundResponse(parsedOutput, context);
+      throw await de_AccessPointNotFoundRes(parsedOutput, context);
     case "BadRequest":
     case "com.amazonaws.efs#BadRequest":
-      throw await deserializeAws_restJson1BadRequestResponse(parsedOutput, context);
+      throw await de_BadRequestRes(parsedOutput, context);
     case "FileSystemNotFound":
     case "com.amazonaws.efs#FileSystemNotFound":
-      throw await deserializeAws_restJson1FileSystemNotFoundResponse(parsedOutput, context);
+      throw await de_FileSystemNotFoundRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.efs#InternalServerError":
-      throw await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateFileSystemCommand = async (
+/**
+ * deserializeAws_restJson1UpdateFileSystemCommand
+ */
+export const de_UpdateFileSystemCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFileSystemCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateFileSystemCommandError(output, context);
+    return de_UpdateFileSystemCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AvailabilityZoneId != null) {
-    contents.AvailabilityZoneId = __expectString(data.AvailabilityZoneId);
-  }
-  if (data.AvailabilityZoneName != null) {
-    contents.AvailabilityZoneName = __expectString(data.AvailabilityZoneName);
-  }
-  if (data.CreationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.CreationToken != null) {
-    contents.CreationToken = __expectString(data.CreationToken);
-  }
-  if (data.Encrypted != null) {
-    contents.Encrypted = __expectBoolean(data.Encrypted);
-  }
-  if (data.FileSystemArn != null) {
-    contents.FileSystemArn = __expectString(data.FileSystemArn);
-  }
-  if (data.FileSystemId != null) {
-    contents.FileSystemId = __expectString(data.FileSystemId);
-  }
-  if (data.KmsKeyId != null) {
-    contents.KmsKeyId = __expectString(data.KmsKeyId);
-  }
-  if (data.LifeCycleState != null) {
-    contents.LifeCycleState = __expectString(data.LifeCycleState);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.NumberOfMountTargets != null) {
-    contents.NumberOfMountTargets = __expectInt32(data.NumberOfMountTargets);
-  }
-  if (data.OwnerId != null) {
-    contents.OwnerId = __expectString(data.OwnerId);
-  }
-  if (data.PerformanceMode != null) {
-    contents.PerformanceMode = __expectString(data.PerformanceMode);
-  }
-  if (data.ProvisionedThroughputInMibps != null) {
-    contents.ProvisionedThroughputInMibps = __limitedParseDouble(data.ProvisionedThroughputInMibps);
-  }
-  if (data.SizeInBytes != null) {
-    contents.SizeInBytes = deserializeAws_restJson1FileSystemSize(data.SizeInBytes, context);
-  }
-  if (data.Tags != null) {
-    contents.Tags = deserializeAws_restJson1Tags(data.Tags, context);
-  }
-  if (data.ThroughputMode != null) {
-    contents.ThroughputMode = __expectString(data.ThroughputMode);
-  }
+  const doc = take(data, {
+    AvailabilityZoneId: __expectString,
+    AvailabilityZoneName: __expectString,
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreationToken: __expectString,
+    Encrypted: __expectBoolean,
+    FileSystemArn: __expectString,
+    FileSystemId: __expectString,
+    KmsKeyId: __expectString,
+    LifeCycleState: __expectString,
+    Name: __expectString,
+    NumberOfMountTargets: __expectInt32,
+    OwnerId: __expectString,
+    PerformanceMode: __expectString,
+    ProvisionedThroughputInMibps: __limitedParseDouble,
+    SizeInBytes: (_) => de_FileSystemSize(_, context),
+    Tags: _json,
+    ThroughputMode: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateFileSystemCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateFileSystemCommandError
+ */
+const de_UpdateFileSystemCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFileSystemCommandOutput> => {
@@ -2765,52 +2900,51 @@ const deserializeAws_restJson1UpdateFileSystemCommandError = async (
   switch (errorCode) {
     case "BadRequest":
     case "com.amazonaws.efs#BadRequest":
-      throw await deserializeAws_restJson1BadRequestResponse(parsedOutput, context);
+      throw await de_BadRequestRes(parsedOutput, context);
     case "FileSystemNotFound":
     case "com.amazonaws.efs#FileSystemNotFound":
-      throw await deserializeAws_restJson1FileSystemNotFoundResponse(parsedOutput, context);
+      throw await de_FileSystemNotFoundRes(parsedOutput, context);
     case "IncorrectFileSystemLifeCycleState":
     case "com.amazonaws.efs#IncorrectFileSystemLifeCycleState":
-      throw await deserializeAws_restJson1IncorrectFileSystemLifeCycleStateResponse(parsedOutput, context);
+      throw await de_IncorrectFileSystemLifeCycleStateRes(parsedOutput, context);
     case "InsufficientThroughputCapacity":
     case "com.amazonaws.efs#InsufficientThroughputCapacity":
-      throw await deserializeAws_restJson1InsufficientThroughputCapacityResponse(parsedOutput, context);
+      throw await de_InsufficientThroughputCapacityRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.efs#InternalServerError":
-      throw await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "ThroughputLimitExceeded":
     case "com.amazonaws.efs#ThroughputLimitExceeded":
-      throw await deserializeAws_restJson1ThroughputLimitExceededResponse(parsedOutput, context);
+      throw await de_ThroughputLimitExceededRes(parsedOutput, context);
     case "TooManyRequests":
     case "com.amazonaws.efs#TooManyRequests":
-      throw await deserializeAws_restJson1TooManyRequestsResponse(parsedOutput, context);
+      throw await de_TooManyRequestsRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
-const deserializeAws_restJson1AccessPointAlreadyExistsResponse = async (
+const throwDefaultError = withBaseException(__BaseException);
+/**
+ * deserializeAws_restJson1AccessPointAlreadyExistsRes
+ */
+const de_AccessPointAlreadyExistsRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessPointAlreadyExists> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.AccessPointId != null) {
-    contents.AccessPointId = __expectString(data.AccessPointId);
-  }
-  if (data.ErrorCode != null) {
-    contents.ErrorCode = __expectString(data.ErrorCode);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    AccessPointId: __expectString,
+    ErrorCode: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessPointAlreadyExists({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2818,18 +2952,20 @@ const deserializeAws_restJson1AccessPointAlreadyExistsResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1AccessPointLimitExceededResponse = async (
+/**
+ * deserializeAws_restJson1AccessPointLimitExceededRes
+ */
+const de_AccessPointLimitExceededRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessPointLimitExceeded> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.ErrorCode != null) {
-    contents.ErrorCode = __expectString(data.ErrorCode);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    ErrorCode: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessPointLimitExceeded({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2837,18 +2973,17 @@ const deserializeAws_restJson1AccessPointLimitExceededResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1AccessPointNotFoundResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<AccessPointNotFound> => {
+/**
+ * deserializeAws_restJson1AccessPointNotFoundRes
+ */
+const de_AccessPointNotFoundRes = async (parsedOutput: any, context: __SerdeContext): Promise<AccessPointNotFound> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.ErrorCode != null) {
-    contents.ErrorCode = __expectString(data.ErrorCode);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    ErrorCode: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessPointNotFound({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2856,18 +2991,20 @@ const deserializeAws_restJson1AccessPointNotFoundResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1AvailabilityZonesMismatchResponse = async (
+/**
+ * deserializeAws_restJson1AvailabilityZonesMismatchRes
+ */
+const de_AvailabilityZonesMismatchRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AvailabilityZonesMismatch> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.ErrorCode != null) {
-    contents.ErrorCode = __expectString(data.ErrorCode);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    ErrorCode: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AvailabilityZonesMismatch({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2875,18 +3012,17 @@ const deserializeAws_restJson1AvailabilityZonesMismatchResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1BadRequestResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<BadRequest> => {
+/**
+ * deserializeAws_restJson1BadRequestRes
+ */
+const de_BadRequestRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequest> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.ErrorCode != null) {
-    contents.ErrorCode = __expectString(data.ErrorCode);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    ErrorCode: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new BadRequest({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2894,18 +3030,17 @@ const deserializeAws_restJson1BadRequestResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1DependencyTimeoutResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<DependencyTimeout> => {
+/**
+ * deserializeAws_restJson1DependencyTimeoutRes
+ */
+const de_DependencyTimeoutRes = async (parsedOutput: any, context: __SerdeContext): Promise<DependencyTimeout> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.ErrorCode != null) {
-    contents.ErrorCode = __expectString(data.ErrorCode);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    ErrorCode: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new DependencyTimeout({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2913,21 +3048,21 @@ const deserializeAws_restJson1DependencyTimeoutResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1FileSystemAlreadyExistsResponse = async (
+/**
+ * deserializeAws_restJson1FileSystemAlreadyExistsRes
+ */
+const de_FileSystemAlreadyExistsRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<FileSystemAlreadyExists> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.ErrorCode != null) {
-    contents.ErrorCode = __expectString(data.ErrorCode);
-  }
-  if (data.FileSystemId != null) {
-    contents.FileSystemId = __expectString(data.FileSystemId);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    ErrorCode: __expectString,
+    FileSystemId: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new FileSystemAlreadyExists({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2935,18 +3070,17 @@ const deserializeAws_restJson1FileSystemAlreadyExistsResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1FileSystemInUseResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<FileSystemInUse> => {
+/**
+ * deserializeAws_restJson1FileSystemInUseRes
+ */
+const de_FileSystemInUseRes = async (parsedOutput: any, context: __SerdeContext): Promise<FileSystemInUse> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.ErrorCode != null) {
-    contents.ErrorCode = __expectString(data.ErrorCode);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    ErrorCode: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new FileSystemInUse({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2954,18 +3088,20 @@ const deserializeAws_restJson1FileSystemInUseResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1FileSystemLimitExceededResponse = async (
+/**
+ * deserializeAws_restJson1FileSystemLimitExceededRes
+ */
+const de_FileSystemLimitExceededRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<FileSystemLimitExceeded> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.ErrorCode != null) {
-    contents.ErrorCode = __expectString(data.ErrorCode);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    ErrorCode: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new FileSystemLimitExceeded({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2973,18 +3109,17 @@ const deserializeAws_restJson1FileSystemLimitExceededResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1FileSystemNotFoundResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<FileSystemNotFound> => {
+/**
+ * deserializeAws_restJson1FileSystemNotFoundRes
+ */
+const de_FileSystemNotFoundRes = async (parsedOutput: any, context: __SerdeContext): Promise<FileSystemNotFound> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.ErrorCode != null) {
-    contents.ErrorCode = __expectString(data.ErrorCode);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    ErrorCode: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new FileSystemNotFound({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2992,18 +3127,20 @@ const deserializeAws_restJson1FileSystemNotFoundResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1IncorrectFileSystemLifeCycleStateResponse = async (
+/**
+ * deserializeAws_restJson1IncorrectFileSystemLifeCycleStateRes
+ */
+const de_IncorrectFileSystemLifeCycleStateRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<IncorrectFileSystemLifeCycleState> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.ErrorCode != null) {
-    contents.ErrorCode = __expectString(data.ErrorCode);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    ErrorCode: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new IncorrectFileSystemLifeCycleState({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3011,18 +3148,20 @@ const deserializeAws_restJson1IncorrectFileSystemLifeCycleStateResponse = async 
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1IncorrectMountTargetStateResponse = async (
+/**
+ * deserializeAws_restJson1IncorrectMountTargetStateRes
+ */
+const de_IncorrectMountTargetStateRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<IncorrectMountTargetState> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.ErrorCode != null) {
-    contents.ErrorCode = __expectString(data.ErrorCode);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    ErrorCode: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new IncorrectMountTargetState({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3030,18 +3169,20 @@ const deserializeAws_restJson1IncorrectMountTargetStateResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InsufficientThroughputCapacityResponse = async (
+/**
+ * deserializeAws_restJson1InsufficientThroughputCapacityRes
+ */
+const de_InsufficientThroughputCapacityRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InsufficientThroughputCapacity> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.ErrorCode != null) {
-    contents.ErrorCode = __expectString(data.ErrorCode);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    ErrorCode: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InsufficientThroughputCapacity({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3049,18 +3190,17 @@ const deserializeAws_restJson1InsufficientThroughputCapacityResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InternalServerErrorResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InternalServerError> => {
+/**
+ * deserializeAws_restJson1InternalServerErrorRes
+ */
+const de_InternalServerErrorRes = async (parsedOutput: any, context: __SerdeContext): Promise<InternalServerError> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.ErrorCode != null) {
-    contents.ErrorCode = __expectString(data.ErrorCode);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    ErrorCode: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerError({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3068,18 +3208,20 @@ const deserializeAws_restJson1InternalServerErrorResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InvalidPolicyExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InvalidPolicyExceptionRes
+ */
+const de_InvalidPolicyExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidPolicyException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.ErrorCode != null) {
-    contents.ErrorCode = __expectString(data.ErrorCode);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    ErrorCode: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidPolicyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3087,18 +3229,17 @@ const deserializeAws_restJson1InvalidPolicyExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1IpAddressInUseResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<IpAddressInUse> => {
+/**
+ * deserializeAws_restJson1IpAddressInUseRes
+ */
+const de_IpAddressInUseRes = async (parsedOutput: any, context: __SerdeContext): Promise<IpAddressInUse> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.ErrorCode != null) {
-    contents.ErrorCode = __expectString(data.ErrorCode);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    ErrorCode: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new IpAddressInUse({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3106,18 +3247,17 @@ const deserializeAws_restJson1IpAddressInUseResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1MountTargetConflictResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<MountTargetConflict> => {
+/**
+ * deserializeAws_restJson1MountTargetConflictRes
+ */
+const de_MountTargetConflictRes = async (parsedOutput: any, context: __SerdeContext): Promise<MountTargetConflict> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.ErrorCode != null) {
-    contents.ErrorCode = __expectString(data.ErrorCode);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    ErrorCode: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new MountTargetConflict({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3125,18 +3265,17 @@ const deserializeAws_restJson1MountTargetConflictResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1MountTargetNotFoundResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<MountTargetNotFound> => {
+/**
+ * deserializeAws_restJson1MountTargetNotFoundRes
+ */
+const de_MountTargetNotFoundRes = async (parsedOutput: any, context: __SerdeContext): Promise<MountTargetNotFound> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.ErrorCode != null) {
-    contents.ErrorCode = __expectString(data.ErrorCode);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    ErrorCode: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new MountTargetNotFound({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3144,18 +3283,20 @@ const deserializeAws_restJson1MountTargetNotFoundResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1NetworkInterfaceLimitExceededResponse = async (
+/**
+ * deserializeAws_restJson1NetworkInterfaceLimitExceededRes
+ */
+const de_NetworkInterfaceLimitExceededRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NetworkInterfaceLimitExceeded> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.ErrorCode != null) {
-    contents.ErrorCode = __expectString(data.ErrorCode);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    ErrorCode: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new NetworkInterfaceLimitExceeded({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3163,18 +3304,20 @@ const deserializeAws_restJson1NetworkInterfaceLimitExceededResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1NoFreeAddressesInSubnetResponse = async (
+/**
+ * deserializeAws_restJson1NoFreeAddressesInSubnetRes
+ */
+const de_NoFreeAddressesInSubnetRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NoFreeAddressesInSubnet> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.ErrorCode != null) {
-    contents.ErrorCode = __expectString(data.ErrorCode);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    ErrorCode: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new NoFreeAddressesInSubnet({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3182,18 +3325,17 @@ const deserializeAws_restJson1NoFreeAddressesInSubnetResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1PolicyNotFoundResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<PolicyNotFound> => {
+/**
+ * deserializeAws_restJson1PolicyNotFoundRes
+ */
+const de_PolicyNotFoundRes = async (parsedOutput: any, context: __SerdeContext): Promise<PolicyNotFound> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.ErrorCode != null) {
-    contents.ErrorCode = __expectString(data.ErrorCode);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    ErrorCode: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new PolicyNotFound({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3201,18 +3343,17 @@ const deserializeAws_restJson1PolicyNotFoundResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ReplicationNotFoundResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ReplicationNotFound> => {
+/**
+ * deserializeAws_restJson1ReplicationNotFoundRes
+ */
+const de_ReplicationNotFoundRes = async (parsedOutput: any, context: __SerdeContext): Promise<ReplicationNotFound> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.ErrorCode != null) {
-    contents.ErrorCode = __expectString(data.ErrorCode);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    ErrorCode: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ReplicationNotFound({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3220,18 +3361,20 @@ const deserializeAws_restJson1ReplicationNotFoundResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1SecurityGroupLimitExceededResponse = async (
+/**
+ * deserializeAws_restJson1SecurityGroupLimitExceededRes
+ */
+const de_SecurityGroupLimitExceededRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<SecurityGroupLimitExceeded> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.ErrorCode != null) {
-    contents.ErrorCode = __expectString(data.ErrorCode);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    ErrorCode: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new SecurityGroupLimitExceeded({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3239,18 +3382,20 @@ const deserializeAws_restJson1SecurityGroupLimitExceededResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1SecurityGroupNotFoundResponse = async (
+/**
+ * deserializeAws_restJson1SecurityGroupNotFoundRes
+ */
+const de_SecurityGroupNotFoundRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<SecurityGroupNotFound> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.ErrorCode != null) {
-    contents.ErrorCode = __expectString(data.ErrorCode);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    ErrorCode: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new SecurityGroupNotFound({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3258,18 +3403,17 @@ const deserializeAws_restJson1SecurityGroupNotFoundResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1SubnetNotFoundResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<SubnetNotFound> => {
+/**
+ * deserializeAws_restJson1SubnetNotFoundRes
+ */
+const de_SubnetNotFoundRes = async (parsedOutput: any, context: __SerdeContext): Promise<SubnetNotFound> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.ErrorCode != null) {
-    contents.ErrorCode = __expectString(data.ErrorCode);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    ErrorCode: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new SubnetNotFound({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3277,18 +3421,17 @@ const deserializeAws_restJson1SubnetNotFoundResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
+/**
+ * deserializeAws_restJson1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.ErrorCode != null) {
-    contents.ErrorCode = __expectString(data.ErrorCode);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    ErrorCode: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3296,18 +3439,20 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ThroughputLimitExceededResponse = async (
+/**
+ * deserializeAws_restJson1ThroughputLimitExceededRes
+ */
+const de_ThroughputLimitExceededRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ThroughputLimitExceeded> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.ErrorCode != null) {
-    contents.ErrorCode = __expectString(data.ErrorCode);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    ErrorCode: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThroughputLimitExceeded({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3315,18 +3460,17 @@ const deserializeAws_restJson1ThroughputLimitExceededResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1TooManyRequestsResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<TooManyRequests> => {
+/**
+ * deserializeAws_restJson1TooManyRequestsRes
+ */
+const de_TooManyRequestsRes = async (parsedOutput: any, context: __SerdeContext): Promise<TooManyRequests> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.ErrorCode != null) {
-    contents.ErrorCode = __expectString(data.ErrorCode);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    ErrorCode: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TooManyRequests({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3334,18 +3478,20 @@ const deserializeAws_restJson1TooManyRequestsResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1UnsupportedAvailabilityZoneResponse = async (
+/**
+ * deserializeAws_restJson1UnsupportedAvailabilityZoneRes
+ */
+const de_UnsupportedAvailabilityZoneRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnsupportedAvailabilityZone> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.ErrorCode != null) {
-    contents.ErrorCode = __expectString(data.ErrorCode);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    ErrorCode: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new UnsupportedAvailabilityZone({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3353,18 +3499,17 @@ const deserializeAws_restJson1UnsupportedAvailabilityZoneResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_restJson1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.ErrorCode != null) {
-    contents.ErrorCode = __expectString(data.ErrorCode);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    ErrorCode: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3372,397 +3517,168 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1BackupPolicy = (input: BackupPolicy, context: __SerdeContext): any => {
-  return {
-    ...(input.Status != null && { Status: input.Status }),
-  };
+// se_BackupPolicy omitted.
+
+// se_CreationInfo omitted.
+
+// se_DestinationsToCreate omitted.
+
+// se_DestinationToCreate omitted.
+
+// se_LifecyclePolicies omitted.
+
+// se_LifecyclePolicy omitted.
+
+// se_PosixUser omitted.
+
+// se_RootDirectory omitted.
+
+// se_SecondaryGids omitted.
+
+// se_SecurityGroups omitted.
+
+// se_Tag omitted.
+
+// se_TagKeys omitted.
+
+// se_Tags omitted.
+
+// de_AccessPointDescription omitted.
+
+// de_AccessPointDescriptions omitted.
+
+// de_BackupPolicy omitted.
+
+// de_CreationInfo omitted.
+
+/**
+ * deserializeAws_restJson1Destination
+ */
+const de_Destination = (output: any, context: __SerdeContext): Destination => {
+  return take(output, {
+    FileSystemId: __expectString,
+    LastReplicatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Region: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
-const serializeAws_restJson1CreationInfo = (input: CreationInfo, context: __SerdeContext): any => {
-  return {
-    ...(input.OwnerGid != null && { OwnerGid: input.OwnerGid }),
-    ...(input.OwnerUid != null && { OwnerUid: input.OwnerUid }),
-    ...(input.Permissions != null && { Permissions: input.Permissions }),
-  };
-};
-
-const serializeAws_restJson1DestinationsToCreate = (input: DestinationToCreate[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1DestinationToCreate(entry, context);
-    });
-};
-
-const serializeAws_restJson1DestinationToCreate = (input: DestinationToCreate, context: __SerdeContext): any => {
-  return {
-    ...(input.AvailabilityZoneName != null && { AvailabilityZoneName: input.AvailabilityZoneName }),
-    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
-    ...(input.Region != null && { Region: input.Region }),
-  };
-};
-
-const serializeAws_restJson1LifecyclePolicies = (input: LifecyclePolicy[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1LifecyclePolicy(entry, context);
-    });
-};
-
-const serializeAws_restJson1LifecyclePolicy = (input: LifecyclePolicy, context: __SerdeContext): any => {
-  return {
-    ...(input.TransitionToIA != null && { TransitionToIA: input.TransitionToIA }),
-    ...(input.TransitionToPrimaryStorageClass != null && {
-      TransitionToPrimaryStorageClass: input.TransitionToPrimaryStorageClass,
-    }),
-  };
-};
-
-const serializeAws_restJson1PosixUser = (input: PosixUser, context: __SerdeContext): any => {
-  return {
-    ...(input.Gid != null && { Gid: input.Gid }),
-    ...(input.SecondaryGids != null && {
-      SecondaryGids: serializeAws_restJson1SecondaryGids(input.SecondaryGids, context),
-    }),
-    ...(input.Uid != null && { Uid: input.Uid }),
-  };
-};
-
-const serializeAws_restJson1RootDirectory = (input: RootDirectory, context: __SerdeContext): any => {
-  return {
-    ...(input.CreationInfo != null && {
-      CreationInfo: serializeAws_restJson1CreationInfo(input.CreationInfo, context),
-    }),
-    ...(input.Path != null && { Path: input.Path }),
-  };
-};
-
-const serializeAws_restJson1SecondaryGids = (input: number[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const serializeAws_restJson1SecurityGroups = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
-
-const serializeAws_restJson1TagKeys = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const serializeAws_restJson1Tags = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1Tag(entry, context);
-    });
-};
-
-const deserializeAws_restJson1AccessPointDescription = (
-  output: any,
-  context: __SerdeContext
-): AccessPointDescription => {
-  return {
-    AccessPointArn: __expectString(output.AccessPointArn),
-    AccessPointId: __expectString(output.AccessPointId),
-    ClientToken: __expectString(output.ClientToken),
-    FileSystemId: __expectString(output.FileSystemId),
-    LifeCycleState: __expectString(output.LifeCycleState),
-    Name: __expectString(output.Name),
-    OwnerId: __expectString(output.OwnerId),
-    PosixUser: output.PosixUser != null ? deserializeAws_restJson1PosixUser(output.PosixUser, context) : undefined,
-    RootDirectory:
-      output.RootDirectory != null ? deserializeAws_restJson1RootDirectory(output.RootDirectory, context) : undefined,
-    Tags: output.Tags != null ? deserializeAws_restJson1Tags(output.Tags, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1AccessPointDescriptions = (
-  output: any,
-  context: __SerdeContext
-): AccessPointDescription[] => {
+/**
+ * deserializeAws_restJson1Destinations
+ */
+const de_Destinations = (output: any, context: __SerdeContext): Destination[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1AccessPointDescription(entry, context);
+      return de_Destination(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1BackupPolicy = (output: any, context: __SerdeContext): BackupPolicy => {
-  return {
-    Status: __expectString(output.Status),
-  } as any;
+/**
+ * deserializeAws_restJson1FileSystemDescription
+ */
+const de_FileSystemDescription = (output: any, context: __SerdeContext): FileSystemDescription => {
+  return take(output, {
+    AvailabilityZoneId: __expectString,
+    AvailabilityZoneName: __expectString,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreationToken: __expectString,
+    Encrypted: __expectBoolean,
+    FileSystemArn: __expectString,
+    FileSystemId: __expectString,
+    KmsKeyId: __expectString,
+    LifeCycleState: __expectString,
+    Name: __expectString,
+    NumberOfMountTargets: __expectInt32,
+    OwnerId: __expectString,
+    PerformanceMode: __expectString,
+    ProvisionedThroughputInMibps: __limitedParseDouble,
+    SizeInBytes: (_: any) => de_FileSystemSize(_, context),
+    Tags: _json,
+    ThroughputMode: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1CreationInfo = (output: any, context: __SerdeContext): CreationInfo => {
-  return {
-    OwnerGid: __expectLong(output.OwnerGid),
-    OwnerUid: __expectLong(output.OwnerUid),
-    Permissions: __expectString(output.Permissions),
-  } as any;
-};
-
-const deserializeAws_restJson1Destination = (output: any, context: __SerdeContext): Destination => {
-  return {
-    FileSystemId: __expectString(output.FileSystemId),
-    LastReplicatedTimestamp:
-      output.LastReplicatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastReplicatedTimestamp)))
-        : undefined,
-    Region: __expectString(output.Region),
-    Status: __expectString(output.Status),
-  } as any;
-};
-
-const deserializeAws_restJson1Destinations = (output: any, context: __SerdeContext): Destination[] => {
+/**
+ * deserializeAws_restJson1FileSystemDescriptions
+ */
+const de_FileSystemDescriptions = (output: any, context: __SerdeContext): FileSystemDescription[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Destination(entry, context);
+      return de_FileSystemDescription(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1FileSystemDescription = (output: any, context: __SerdeContext): FileSystemDescription => {
-  return {
-    AvailabilityZoneId: __expectString(output.AvailabilityZoneId),
-    AvailabilityZoneName: __expectString(output.AvailabilityZoneName),
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    CreationToken: __expectString(output.CreationToken),
-    Encrypted: __expectBoolean(output.Encrypted),
-    FileSystemArn: __expectString(output.FileSystemArn),
-    FileSystemId: __expectString(output.FileSystemId),
-    KmsKeyId: __expectString(output.KmsKeyId),
-    LifeCycleState: __expectString(output.LifeCycleState),
-    Name: __expectString(output.Name),
-    NumberOfMountTargets: __expectInt32(output.NumberOfMountTargets),
-    OwnerId: __expectString(output.OwnerId),
-    PerformanceMode: __expectString(output.PerformanceMode),
-    ProvisionedThroughputInMibps: __limitedParseDouble(output.ProvisionedThroughputInMibps),
-    SizeInBytes:
-      output.SizeInBytes != null ? deserializeAws_restJson1FileSystemSize(output.SizeInBytes, context) : undefined,
-    Tags: output.Tags != null ? deserializeAws_restJson1Tags(output.Tags, context) : undefined,
-    ThroughputMode: __expectString(output.ThroughputMode),
-  } as any;
+/**
+ * deserializeAws_restJson1FileSystemSize
+ */
+const de_FileSystemSize = (output: any, context: __SerdeContext): FileSystemSize => {
+  return take(output, {
+    Timestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Value: __expectLong,
+    ValueInIA: __expectLong,
+    ValueInStandard: __expectLong,
+  }) as any;
 };
 
-const deserializeAws_restJson1FileSystemDescriptions = (
-  output: any,
-  context: __SerdeContext
-): FileSystemDescription[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1FileSystemDescription(entry, context);
-    });
-  return retVal;
-};
+// de_LifecyclePolicies omitted.
 
-const deserializeAws_restJson1FileSystemSize = (output: any, context: __SerdeContext): FileSystemSize => {
-  return {
-    Timestamp:
-      output.Timestamp != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Timestamp))) : undefined,
-    Value: __expectLong(output.Value),
-    ValueInIA: __expectLong(output.ValueInIA),
-    ValueInStandard: __expectLong(output.ValueInStandard),
-  } as any;
-};
+// de_LifecyclePolicy omitted.
 
-const deserializeAws_restJson1LifecyclePolicies = (output: any, context: __SerdeContext): LifecyclePolicy[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1LifecyclePolicy(entry, context);
-    });
-  return retVal;
-};
+// de_MountTargetDescription omitted.
 
-const deserializeAws_restJson1LifecyclePolicy = (output: any, context: __SerdeContext): LifecyclePolicy => {
-  return {
-    TransitionToIA: __expectString(output.TransitionToIA),
-    TransitionToPrimaryStorageClass: __expectString(output.TransitionToPrimaryStorageClass),
-  } as any;
-};
+// de_MountTargetDescriptions omitted.
 
-const deserializeAws_restJson1MountTargetDescription = (
-  output: any,
-  context: __SerdeContext
-): MountTargetDescription => {
-  return {
-    AvailabilityZoneId: __expectString(output.AvailabilityZoneId),
-    AvailabilityZoneName: __expectString(output.AvailabilityZoneName),
-    FileSystemId: __expectString(output.FileSystemId),
-    IpAddress: __expectString(output.IpAddress),
-    LifeCycleState: __expectString(output.LifeCycleState),
-    MountTargetId: __expectString(output.MountTargetId),
-    NetworkInterfaceId: __expectString(output.NetworkInterfaceId),
-    OwnerId: __expectString(output.OwnerId),
-    SubnetId: __expectString(output.SubnetId),
-    VpcId: __expectString(output.VpcId),
-  } as any;
-};
+// de_PosixUser omitted.
 
-const deserializeAws_restJson1MountTargetDescriptions = (
-  output: any,
-  context: __SerdeContext
-): MountTargetDescription[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1MountTargetDescription(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1PosixUser = (output: any, context: __SerdeContext): PosixUser => {
-  return {
-    Gid: __expectLong(output.Gid),
-    SecondaryGids:
-      output.SecondaryGids != null ? deserializeAws_restJson1SecondaryGids(output.SecondaryGids, context) : undefined,
-    Uid: __expectLong(output.Uid),
-  } as any;
-};
-
-const deserializeAws_restJson1ReplicationConfigurationDescription = (
+/**
+ * deserializeAws_restJson1ReplicationConfigurationDescription
+ */
+const de_ReplicationConfigurationDescription = (
   output: any,
   context: __SerdeContext
 ): ReplicationConfigurationDescription => {
-  return {
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    Destinations:
-      output.Destinations != null ? deserializeAws_restJson1Destinations(output.Destinations, context) : undefined,
-    OriginalSourceFileSystemArn: __expectString(output.OriginalSourceFileSystemArn),
-    SourceFileSystemArn: __expectString(output.SourceFileSystemArn),
-    SourceFileSystemId: __expectString(output.SourceFileSystemId),
-    SourceFileSystemRegion: __expectString(output.SourceFileSystemRegion),
-  } as any;
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Destinations: (_: any) => de_Destinations(_, context),
+    OriginalSourceFileSystemArn: __expectString,
+    SourceFileSystemArn: __expectString,
+    SourceFileSystemId: __expectString,
+    SourceFileSystemRegion: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1ReplicationConfigurationDescriptions = (
+/**
+ * deserializeAws_restJson1ReplicationConfigurationDescriptions
+ */
+const de_ReplicationConfigurationDescriptions = (
   output: any,
   context: __SerdeContext
 ): ReplicationConfigurationDescription[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ReplicationConfigurationDescription(entry, context);
+      return de_ReplicationConfigurationDescription(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ResourceIdPreference = (output: any, context: __SerdeContext): ResourceIdPreference => {
-  return {
-    ResourceIdType: __expectString(output.ResourceIdType),
-    Resources: output.Resources != null ? deserializeAws_restJson1Resources(output.Resources, context) : undefined,
-  } as any;
-};
+// de_ResourceIdPreference omitted.
 
-const deserializeAws_restJson1Resources = (output: any, context: __SerdeContext): (Resource | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_Resources omitted.
 
-const deserializeAws_restJson1RootDirectory = (output: any, context: __SerdeContext): RootDirectory => {
-  return {
-    CreationInfo:
-      output.CreationInfo != null ? deserializeAws_restJson1CreationInfo(output.CreationInfo, context) : undefined,
-    Path: __expectString(output.Path),
-  } as any;
-};
+// de_RootDirectory omitted.
 
-const deserializeAws_restJson1SecondaryGids = (output: any, context: __SerdeContext): number[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectLong(entry) as any;
-    });
-  return retVal;
-};
+// de_SecondaryGids omitted.
 
-const deserializeAws_restJson1SecurityGroups = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_SecurityGroups omitted.
 
-const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Tag(entry, context);
-    });
-  return retVal;
-};
+// de_Tags omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

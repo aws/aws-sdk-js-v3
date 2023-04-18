@@ -15,14 +15,25 @@ import {
 
 import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient";
 import {
-  deserializeAws_json1_1EnableHealthServiceAccessForOrganizationCommand,
-  serializeAws_json1_1EnableHealthServiceAccessForOrganizationCommand,
+  de_EnableHealthServiceAccessForOrganizationCommand,
+  se_EnableHealthServiceAccessForOrganizationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link EnableHealthServiceAccessForOrganizationCommand}.
+ */
 export interface EnableHealthServiceAccessForOrganizationCommandInput {}
+/**
+ * @public
+ *
+ * The output of {@link EnableHealthServiceAccessForOrganizationCommand}.
+ */
 export interface EnableHealthServiceAccessForOrganizationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables Health to work with Organizations. You can use the organizational view feature
  *          to aggregate events from all Amazon Web Services accounts in your organization in a centralized location. </p>
  *          <p>This operation also creates a service-linked role for the management account in the
@@ -52,13 +63,22 @@ export interface EnableHealthServiceAccessForOrganizationCommandOutput extends _
  * import { HealthClient, EnableHealthServiceAccessForOrganizationCommand } from "@aws-sdk/client-health"; // ES Modules import
  * // const { HealthClient, EnableHealthServiceAccessForOrganizationCommand } = require("@aws-sdk/client-health"); // CommonJS import
  * const client = new HealthClient(config);
+ * const input = {};
  * const command = new EnableHealthServiceAccessForOrganizationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableHealthServiceAccessForOrganizationCommandInput - {@link EnableHealthServiceAccessForOrganizationCommandInput}
+ * @returns {@link EnableHealthServiceAccessForOrganizationCommandOutput}
  * @see {@link EnableHealthServiceAccessForOrganizationCommandInput} for command's `input` shape.
  * @see {@link EnableHealthServiceAccessForOrganizationCommandOutput} for command's `response` shape.
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>
+ *             <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html">EnableHealthServiceAccessForOrganization</a> is already in progress. Wait for the
+ *          action to complete before trying again. To get the current status, use the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeHealthServiceStatusForOrganization.html">DescribeHealthServiceStatusForOrganization</a> operation.</p>
+ *
  *
  */
 export class EnableHealthServiceAccessForOrganizationCommand extends $Command<
@@ -78,6 +98,9 @@ export class EnableHealthServiceAccessForOrganizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableHealthServiceAccessForOrganizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +135,8 @@ export class EnableHealthServiceAccessForOrganizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,18 +146,24 @@ export class EnableHealthServiceAccessForOrganizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: EnableHealthServiceAccessForOrganizationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1EnableHealthServiceAccessForOrganizationCommand(input, context);
+    return se_EnableHealthServiceAccessForOrganizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EnableHealthServiceAccessForOrganizationCommandOutput> {
-    return deserializeAws_json1_1EnableHealthServiceAccessForOrganizationCommand(output, context);
+    return de_EnableHealthServiceAccessForOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import {
-  DeleteWebhookInput,
-  DeleteWebhookInputFilterSensitiveLog,
-  DeleteWebhookOutput,
-  DeleteWebhookOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteWebhookCommand,
-  serializeAws_json1_1DeleteWebhookCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteWebhookInput, DeleteWebhookOutput } from "../models/models_0";
+import { de_DeleteWebhookCommand, se_DeleteWebhookCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteWebhookCommand}.
+ */
 export interface DeleteWebhookCommandInput extends DeleteWebhookInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteWebhookCommand}.
+ */
 export interface DeleteWebhookCommandOutput extends DeleteWebhookOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>For an existing CodeBuild build project that has its source code stored in a GitHub or
  *             Bitbucket repository, stops CodeBuild from rebuilding the source code every time a code
  *             change is pushed to the repository.</p>
@@ -38,13 +41,28 @@ export interface DeleteWebhookCommandOutput extends DeleteWebhookOutput, __Metad
  * import { CodeBuildClient, DeleteWebhookCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, DeleteWebhookCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = { // DeleteWebhookInput
+ *   projectName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteWebhookCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteWebhookCommandInput - {@link DeleteWebhookCommandInput}
+ * @returns {@link DeleteWebhookCommandOutput}
  * @see {@link DeleteWebhookCommandInput} for command's `input` shape.
  * @see {@link DeleteWebhookCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input value that was provided is not valid.</p>
+ *
+ * @throws {@link OAuthProviderException} (client fault)
+ *  <p>There was a problem with the underlying OAuth provider.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified Amazon Web Services resource cannot be found.</p>
+ *
  *
  */
 export class DeleteWebhookCommand extends $Command<
@@ -64,6 +82,9 @@ export class DeleteWebhookCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteWebhookCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +111,8 @@ export class DeleteWebhookCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteWebhookInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteWebhookOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +122,18 @@ export class DeleteWebhookCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteWebhookCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteWebhookCommand(input, context);
+    return se_DeleteWebhookCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWebhookCommandOutput> {
-    return deserializeAws_json1_1DeleteWebhookCommand(output, context);
+    return de_DeleteWebhookCommand(output, context);
   }
 
   // Start section: command_body_extra

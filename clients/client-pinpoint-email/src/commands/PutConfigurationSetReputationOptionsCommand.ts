@@ -15,22 +15,31 @@ import {
 
 import {
   PutConfigurationSetReputationOptionsRequest,
-  PutConfigurationSetReputationOptionsRequestFilterSensitiveLog,
   PutConfigurationSetReputationOptionsResponse,
-  PutConfigurationSetReputationOptionsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
 import {
-  deserializeAws_restJson1PutConfigurationSetReputationOptionsCommand,
-  serializeAws_restJson1PutConfigurationSetReputationOptionsCommand,
+  de_PutConfigurationSetReputationOptionsCommand,
+  se_PutConfigurationSetReputationOptionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutConfigurationSetReputationOptionsCommand}.
+ */
 export interface PutConfigurationSetReputationOptionsCommandInput extends PutConfigurationSetReputationOptionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutConfigurationSetReputationOptionsCommand}.
+ */
 export interface PutConfigurationSetReputationOptionsCommandOutput
   extends PutConfigurationSetReputationOptionsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enable or disable collection of reputation metrics for emails that you send using a
  *             particular configuration set in a specific AWS Region.</p>
  * @example
@@ -39,13 +48,29 @@ export interface PutConfigurationSetReputationOptionsCommandOutput
  * import { PinpointEmailClient, PutConfigurationSetReputationOptionsCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, PutConfigurationSetReputationOptionsCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
+ * const input = { // PutConfigurationSetReputationOptionsRequest
+ *   ConfigurationSetName: "STRING_VALUE", // required
+ *   ReputationMetricsEnabled: true || false,
+ * };
  * const command = new PutConfigurationSetReputationOptionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutConfigurationSetReputationOptionsCommandInput - {@link PutConfigurationSetReputationOptionsCommandInput}
+ * @returns {@link PutConfigurationSetReputationOptionsCommandOutput}
  * @see {@link PutConfigurationSetReputationOptionsCommandInput} for command's `input` shape.
  * @see {@link PutConfigurationSetReputationOptionsCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input you provided is invalid.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource you attempted to access doesn't exist.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Too many requests have been made to the operation.</p>
+ *
  *
  */
 export class PutConfigurationSetReputationOptionsCommand extends $Command<
@@ -65,6 +90,9 @@ export class PutConfigurationSetReputationOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutConfigurationSetReputationOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +121,8 @@ export class PutConfigurationSetReputationOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutConfigurationSetReputationOptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutConfigurationSetReputationOptionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,18 +132,24 @@ export class PutConfigurationSetReputationOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutConfigurationSetReputationOptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutConfigurationSetReputationOptionsCommand(input, context);
+    return se_PutConfigurationSetReputationOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutConfigurationSetReputationOptionsCommandOutput> {
-    return deserializeAws_restJson1PutConfigurationSetReputationOptionsCommand(output, context);
+    return de_PutConfigurationSetReputationOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

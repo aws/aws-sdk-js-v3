@@ -21,16 +21,24 @@ import {
   SelectObjectContentRequest,
   SelectObjectContentRequestFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restXmlSelectObjectContentCommand,
-  serializeAws_restXmlSelectObjectContentCommand,
-} from "../protocols/Aws_restXml";
+import { de_SelectObjectContentCommand, se_SelectObjectContentCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * @public
+ *
+ * The input for {@link SelectObjectContentCommand}.
+ */
 export interface SelectObjectContentCommandInput extends SelectObjectContentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SelectObjectContentCommand}.
+ */
 export interface SelectObjectContentCommandOutput extends SelectObjectContentOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This action filters the contents of an Amazon S3 object based on a simple structured query
  *          language (SQL) statement. In the request, along with the SQL expression, you must also
  *          specify a data serialization format (JSON, CSV, or Apache Parquet) of the object. Amazon S3 uses
@@ -38,19 +46,16 @@ export interface SelectObjectContentCommandOutput extends SelectObjectContentOut
  *          specified SQL expression. You must also specify the data serialization format for the
  *          response.</p>
  *          <p>This action is not supported by Amazon S3 on Outposts.</p>
- *          <p>For more information about Amazon S3 Select,
- *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/selecting-content-from-objects.html">Selecting Content from
- *              Objects</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-glacier-select-sql-reference-select.html">SELECT
- *               Command</a> in the <i>Amazon S3 User Guide</i>.</p>
- *          <p>For more information about using SQL with Amazon S3 Select, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference.html"> SQL Reference for Amazon S3 Select
- *             and S3 Glacier Select</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *          <p>For more information about Amazon S3 Select, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/selecting-content-from-objects.html">Selecting Content from
+ *             Objects</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-glacier-select-sql-reference-select.html">SELECT
+ *             Command</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <p></p>
  *          <p>
  *             <b>Permissions</b>
  *          </p>
  *          <p>You must have <code>s3:GetObject</code> permission for this operation. Amazon S3 Select does
- *          not support anonymous access. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying Permissions in a Policy</a>
- *          in the <i>Amazon S3 User Guide</i>.</p>
+ *          not support anonymous access. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying
+ *             Permissions in a Policy</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <p></p>
  *          <p>
  *             <i>Object Data Formats</i>
@@ -81,18 +86,16 @@ export interface SelectObjectContentCommandOutput extends SelectObjectContentOut
  *                   <i>Server-side encryption</i> - Amazon S3 Select supports querying
  *                objects that are protected with server-side encryption.</p>
  *                <p>For objects that are encrypted with customer-provided encryption keys (SSE-C), you
- *                must use HTTPS, and you must use the headers that are documented in the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a>. For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side Encryption
- *                   (Using Customer-Provided Encryption Keys)</a> in the
+ *                must use HTTPS, and you must use the headers that are documented in the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a>. For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side
+ *                   Encryption (Using Customer-Provided Encryption Keys)</a> in the
  *                   <i>Amazon S3 User Guide</i>.</p>
- *                <p>For objects that are encrypted with Amazon S3 managed encryption keys (SSE-S3) and
- *                Amazon Web Services KMS keys (SSE-KMS),
- *                server-side encryption is handled transparently, so you don't need to specify
- *                anything. For more information about server-side encryption, including SSE-S3 and
- *                SSE-KMS, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html">Protecting Data Using
+ *                <p>For objects that are encrypted with Amazon S3 managed keys (SSE-S3) and Amazon Web Services KMS keys
+ *                (SSE-KMS), server-side encryption is handled transparently, so you don't need to
+ *                specify anything. For more information about server-side encryption, including SSE-S3
+ *                and SSE-KMS, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html">Protecting Data Using
  *                   Server-Side Encryption</a> in the <i>Amazon S3 User Guide</i>.</p>
  *             </li>
  *          </ul>
- *
  *          <p>
  *             <b>Working with the Response Body</b>
  *          </p>
@@ -100,7 +103,6 @@ export interface SelectObjectContentCommandOutput extends SelectObjectContentOut
  *          messages and includes a <code>Transfer-Encoding</code> header with <code>chunked</code> as
  *          its value in the response. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTSelectObjectAppendix.html">Appendix: SelectObjectContent
  *             Response</a>.</p>
- *
  *          <p></p>
  *          <p>
  *             <b>GetObject Support</b>
@@ -117,15 +119,14 @@ export interface SelectObjectContentCommandOutput extends SelectObjectContentOut
  *             <li>
  *                <p>GLACIER, DEEP_ARCHIVE and REDUCED_REDUNDANCY storage classes: You cannot specify
  *                the GLACIER, DEEP_ARCHIVE, or <code>REDUCED_REDUNDANCY</code> storage classes. For
- *                more information, about storage classes see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#storage-class-intro">Storage Classes</a>
- *                in the <i>Amazon S3 User Guide</i>.</p>
+ *                more information, about storage classes see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#storage-class-intro">Storage
+ *                   Classes</a> in the <i>Amazon S3 User Guide</i>.</p>
  *             </li>
  *          </ul>
  *          <p></p>
  *          <p>
  *             <b>Special Errors</b>
  *          </p>
- *
  *          <p>For a list of special errors for this operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#SelectObjectContentErrorCodeList">List of
  *             SELECT Object Content Error Codes</a>
  *          </p>
@@ -155,13 +156,61 @@ export interface SelectObjectContentCommandOutput extends SelectObjectContentOut
  * import { S3Client, SelectObjectContentCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, SelectObjectContentCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // SelectObjectContentRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   Key: "STRING_VALUE", // required
+ *   SSECustomerAlgorithm: "STRING_VALUE",
+ *   SSECustomerKey: "STRING_VALUE",
+ *   SSECustomerKeyMD5: "STRING_VALUE",
+ *   Expression: "STRING_VALUE", // required
+ *   ExpressionType: "SQL", // required
+ *   RequestProgress: { // RequestProgress
+ *     Enabled: true || false,
+ *   },
+ *   InputSerialization: { // InputSerialization
+ *     CSV: { // CSVInput
+ *       FileHeaderInfo: "USE" || "IGNORE" || "NONE",
+ *       Comments: "STRING_VALUE",
+ *       QuoteEscapeCharacter: "STRING_VALUE",
+ *       RecordDelimiter: "STRING_VALUE",
+ *       FieldDelimiter: "STRING_VALUE",
+ *       QuoteCharacter: "STRING_VALUE",
+ *       AllowQuotedRecordDelimiter: true || false,
+ *     },
+ *     CompressionType: "NONE" || "GZIP" || "BZIP2",
+ *     JSON: { // JSONInput
+ *       Type: "DOCUMENT" || "LINES",
+ *     },
+ *     Parquet: {},
+ *   },
+ *   OutputSerialization: { // OutputSerialization
+ *     CSV: { // CSVOutput
+ *       QuoteFields: "ALWAYS" || "ASNEEDED",
+ *       QuoteEscapeCharacter: "STRING_VALUE",
+ *       RecordDelimiter: "STRING_VALUE",
+ *       FieldDelimiter: "STRING_VALUE",
+ *       QuoteCharacter: "STRING_VALUE",
+ *     },
+ *     JSON: { // JSONOutput
+ *       RecordDelimiter: "STRING_VALUE",
+ *     },
+ *   },
+ *   ScanRange: { // ScanRange
+ *     Start: Number("long"),
+ *     End: Number("long"),
+ *   },
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new SelectObjectContentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SelectObjectContentCommandInput - {@link SelectObjectContentCommandInput}
+ * @returns {@link SelectObjectContentCommandOutput}
  * @see {@link SelectObjectContentCommandInput} for command's `input` shape.
  * @see {@link SelectObjectContentCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
+ *
  *
  */
 export class SelectObjectContentCommand extends $Command<
@@ -187,6 +236,9 @@ export class SelectObjectContentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SelectObjectContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -227,15 +279,21 @@ export class SelectObjectContentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SelectObjectContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlSelectObjectContentCommand(input, context);
+    return se_SelectObjectContentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __EventStreamSerdeContext
   ): Promise<SelectObjectContentCommandOutput> {
-    return deserializeAws_restXmlSelectObjectContentCommand(output, context);
+    return de_SelectObjectContentCommand(output, context);
   }
 
   // Start section: command_body_extra

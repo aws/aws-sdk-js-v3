@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoT1ClickDevicesServiceClient";
-import {
-  UnclaimDeviceRequest,
-  UnclaimDeviceRequestFilterSensitiveLog,
-  UnclaimDeviceResponse,
-  UnclaimDeviceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UnclaimDeviceCommand,
-  serializeAws_restJson1UnclaimDeviceCommand,
-} from "../protocols/Aws_restJson1";
+import { UnclaimDeviceRequest, UnclaimDeviceResponse } from "../models/models_0";
+import { de_UnclaimDeviceCommand, se_UnclaimDeviceCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UnclaimDeviceCommand}.
+ */
 export interface UnclaimDeviceCommandInput extends UnclaimDeviceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UnclaimDeviceCommand}.
+ */
 export interface UnclaimDeviceCommandOutput extends UnclaimDeviceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a device from your AWS account using its device ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,25 @@ export interface UnclaimDeviceCommandOutput extends UnclaimDeviceResponse, __Met
  * import { IoT1ClickDevicesServiceClient, UnclaimDeviceCommand } from "@aws-sdk/client-iot-1click-devices-service"; // ES Modules import
  * // const { IoT1ClickDevicesServiceClient, UnclaimDeviceCommand } = require("@aws-sdk/client-iot-1click-devices-service"); // CommonJS import
  * const client = new IoT1ClickDevicesServiceClient(config);
+ * const input = { // UnclaimDeviceRequest
+ *   DeviceId: "STRING_VALUE", // required
+ * };
  * const command = new UnclaimDeviceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UnclaimDeviceCommandInput - {@link UnclaimDeviceCommandInput}
+ * @returns {@link UnclaimDeviceCommandOutput}
  * @see {@link UnclaimDeviceCommandInput} for command's `input` shape.
  * @see {@link UnclaimDeviceCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for IoT1ClickDevicesServiceClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *
  *
  */
 export class UnclaimDeviceCommand extends $Command<
@@ -66,6 +81,9 @@ export class UnclaimDeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UnclaimDeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +110,8 @@ export class UnclaimDeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UnclaimDeviceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UnclaimDeviceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +121,18 @@ export class UnclaimDeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UnclaimDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UnclaimDeviceCommand(input, context);
+    return se_UnclaimDeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnclaimDeviceCommandOutput> {
-    return deserializeAws_restJson1UnclaimDeviceCommand(output, context);
+    return de_UnclaimDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

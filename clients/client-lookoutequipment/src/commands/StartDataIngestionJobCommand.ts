@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
-import {
-  StartDataIngestionJobRequest,
-  StartDataIngestionJobRequestFilterSensitiveLog,
-  StartDataIngestionJobResponse,
-  StartDataIngestionJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0StartDataIngestionJobCommand,
-  serializeAws_json1_0StartDataIngestionJobCommand,
-} from "../protocols/Aws_json1_0";
+import { StartDataIngestionJobRequest, StartDataIngestionJobResponse } from "../models/models_0";
+import { de_StartDataIngestionJobCommand, se_StartDataIngestionJobCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link StartDataIngestionJobCommand}.
+ */
 export interface StartDataIngestionJobCommandInput extends StartDataIngestionJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartDataIngestionJobCommand}.
+ */
 export interface StartDataIngestionJobCommandOutput extends StartDataIngestionJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a data ingestion job. Amazon Lookout for Equipment returns the job status.
  *       </p>
  * @example
@@ -37,13 +40,54 @@ export interface StartDataIngestionJobCommandOutput extends StartDataIngestionJo
  * import { LookoutEquipmentClient, StartDataIngestionJobCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, StartDataIngestionJobCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
+ * const input = { // StartDataIngestionJobRequest
+ *   DatasetName: "STRING_VALUE", // required
+ *   IngestionInputConfiguration: { // IngestionInputConfiguration
+ *     S3InputConfiguration: { // IngestionS3InputConfiguration
+ *       Bucket: "STRING_VALUE", // required
+ *       Prefix: "STRING_VALUE",
+ *       KeyPattern: "STRING_VALUE",
+ *     },
+ *   },
+ *   RoleArn: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE", // required
+ * };
  * const command = new StartDataIngestionJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartDataIngestionJobCommandInput - {@link StartDataIngestionJobCommandInput}
+ * @returns {@link StartDataIngestionJobCommandOutput}
  * @see {@link StartDataIngestionJobCommandInput} for command's `input` shape.
  * @see {@link StartDataIngestionJobCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The request could not be completed because you do not have access to the resource.
+ *       </p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p> The request could not be completed due to a conflict with the current state of the
+ *          target resource. </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> Processing of the request has failed because of an unknown error, exception or failure.
+ *       </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p> The resource requested could not be found. Verify the resource ID and retry your
+ *          request. </p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p> Resource limitations have been exceeded. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a
+ *          related AWS service that's being utilized. </p>
+ *
  *
  */
 export class StartDataIngestionJobCommand extends $Command<
@@ -63,6 +107,9 @@ export class StartDataIngestionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartDataIngestionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +138,8 @@ export class StartDataIngestionJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartDataIngestionJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartDataIngestionJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +149,18 @@ export class StartDataIngestionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartDataIngestionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0StartDataIngestionJobCommand(input, context);
+    return se_StartDataIngestionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartDataIngestionJobCommandOutput> {
-    return deserializeAws_json1_0StartDataIngestionJobCommand(output, context);
+    return de_StartDataIngestionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

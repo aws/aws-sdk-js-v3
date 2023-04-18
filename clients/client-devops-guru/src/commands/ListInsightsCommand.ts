@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
-import {
-  ListInsightsRequest,
-  ListInsightsRequestFilterSensitiveLog,
-  ListInsightsResponse,
-  ListInsightsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListInsightsCommand,
-  serializeAws_restJson1ListInsightsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListInsightsRequest, ListInsightsResponse } from "../models/models_0";
+import { de_ListInsightsCommand, se_ListInsightsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListInsightsCommand}.
+ */
 export interface ListInsightsCommandInput extends ListInsightsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListInsightsCommand}.
+ */
 export interface ListInsightsCommandOutput extends ListInsightsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a list of insights in your Amazon Web Services account. You can specify which insights are
  * 			returned by their start time and status (<code>ONGOING</code>, <code>CLOSED</code>, or
  * 				<code>ANY</code>). </p>
@@ -38,13 +41,55 @@ export interface ListInsightsCommandOutput extends ListInsightsResponse, __Metad
  * import { DevOpsGuruClient, ListInsightsCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, ListInsightsCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
  * const client = new DevOpsGuruClient(config);
+ * const input = { // ListInsightsRequest
+ *   StatusFilter: { // ListInsightsStatusFilter
+ *     Ongoing: { // ListInsightsOngoingStatusFilter
+ *       Type: "REACTIVE" || "PROACTIVE", // required
+ *     },
+ *     Closed: { // ListInsightsClosedStatusFilter
+ *       Type: "REACTIVE" || "PROACTIVE", // required
+ *       EndTimeRange: { // EndTimeRange
+ *         FromTime: new Date("TIMESTAMP"),
+ *         ToTime: new Date("TIMESTAMP"),
+ *       },
+ *     },
+ *     Any: { // ListInsightsAnyStatusFilter
+ *       Type: "REACTIVE" || "PROACTIVE", // required
+ *       StartTimeRange: { // StartTimeRange
+ *         FromTime: new Date("TIMESTAMP"),
+ *         ToTime: new Date("TIMESTAMP"),
+ *       },
+ *     },
+ *   },
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListInsightsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInsightsCommandInput - {@link ListInsightsCommandInput}
+ * @returns {@link ListInsightsCommandOutput}
  * @see {@link ListInsightsCommandInput} for command's `input` shape.
  * @see {@link ListInsightsCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p> You don't have permissions to perform the requested operation. The user or role that
+ * 			is making the request must have at least one IAM permissions policy attached that grants
+ * 			the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access Management</a> in the
+ * 				<i>IAM User Guide</i>. </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal failure in an Amazon service occurred.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to a request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p> Contains information about data passed in to a field during a request that is not
+ * 			valid. </p>
+ *
  *
  */
 export class ListInsightsCommand extends $Command<
@@ -64,6 +109,9 @@ export class ListInsightsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInsightsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +138,8 @@ export class ListInsightsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListInsightsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListInsightsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +149,18 @@ export class ListInsightsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListInsightsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListInsightsCommand(input, context);
+    return se_ListInsightsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInsightsCommandOutput> {
-    return deserializeAws_restJson1ListInsightsCommand(output, context);
+    return de_ListInsightsCommand(output, context);
   }
 
   // Start section: command_body_extra

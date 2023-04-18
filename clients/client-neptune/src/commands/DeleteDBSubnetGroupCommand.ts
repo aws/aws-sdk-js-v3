@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteDBSubnetGroupMessage, DeleteDBSubnetGroupMessageFilterSensitiveLog } from "../models/models_0";
+import { DeleteDBSubnetGroupMessage } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryDeleteDBSubnetGroupCommand,
-  serializeAws_queryDeleteDBSubnetGroupCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteDBSubnetGroupCommand, se_DeleteDBSubnetGroupCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteDBSubnetGroupCommand}.
+ */
 export interface DeleteDBSubnetGroupCommandInput extends DeleteDBSubnetGroupMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteDBSubnetGroupCommand}.
+ */
 export interface DeleteDBSubnetGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a DB subnet group.</p>
  *          <note>
  *             <p>The specified database subnet group must not be associated with any DB instances.</p>
@@ -34,13 +42,30 @@ export interface DeleteDBSubnetGroupCommandOutput extends __MetadataBearer {}
  * import { NeptuneClient, DeleteDBSubnetGroupCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DeleteDBSubnetGroupCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = { // DeleteDBSubnetGroupMessage
+ *   DBSubnetGroupName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDBSubnetGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDBSubnetGroupCommandInput - {@link DeleteDBSubnetGroupCommandInput}
+ * @returns {@link DeleteDBSubnetGroupCommandOutput}
  * @see {@link DeleteDBSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteDBSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
+ *
+ * @throws {@link DBSubnetGroupNotFoundFault} (client fault)
+ *  <p>
+ *             <i>DBSubnetGroupName</i> does not refer to an
+ *       existing DB subnet group.</p>
+ *
+ * @throws {@link InvalidDBSubnetGroupStateFault} (client fault)
+ *  <p>The DB subnet group cannot be deleted because it is in use.</p>
+ *
+ * @throws {@link InvalidDBSubnetStateFault} (client fault)
+ *  <p>The DB subnet is not in the <i>available</i> state.</p>
+ *
  *
  */
 export class DeleteDBSubnetGroupCommand extends $Command<
@@ -60,6 +85,9 @@ export class DeleteDBSubnetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDBSubnetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +116,8 @@ export class DeleteDBSubnetGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDBSubnetGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +127,18 @@ export class DeleteDBSubnetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDBSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteDBSubnetGroupCommand(input, context);
+    return se_DeleteDBSubnetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDBSubnetGroupCommandOutput> {
-    return deserializeAws_queryDeleteDBSubnetGroupCommand(output, context);
+    return de_DeleteDBSubnetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

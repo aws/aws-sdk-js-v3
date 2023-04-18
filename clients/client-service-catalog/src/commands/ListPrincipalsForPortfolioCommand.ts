@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListPrincipalsForPortfolioInput,
-  ListPrincipalsForPortfolioInputFilterSensitiveLog,
-  ListPrincipalsForPortfolioOutput,
-  ListPrincipalsForPortfolioOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListPrincipalsForPortfolioCommand,
-  serializeAws_json1_1ListPrincipalsForPortfolioCommand,
-} from "../protocols/Aws_json1_1";
+import { ListPrincipalsForPortfolioInput, ListPrincipalsForPortfolioOutput } from "../models/models_0";
+import { de_ListPrincipalsForPortfolioCommand, se_ListPrincipalsForPortfolioCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListPrincipalsForPortfolioCommand}.
+ */
 export interface ListPrincipalsForPortfolioCommandInput extends ListPrincipalsForPortfolioInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListPrincipalsForPortfolioCommand}.
+ */
 export interface ListPrincipalsForPortfolioCommandOutput extends ListPrincipalsForPortfolioOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all <code>PrincipalARN</code>s and corresponding <code>PrincipalType</code>s associated with the specified portfolio.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,28 @@ export interface ListPrincipalsForPortfolioCommandOutput extends ListPrincipalsF
  * import { ServiceCatalogClient, ListPrincipalsForPortfolioCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, ListPrincipalsForPortfolioCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // ListPrincipalsForPortfolioInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   PortfolioId: "STRING_VALUE", // required
+ *   PageSize: Number("int"),
+ *   PageToken: "STRING_VALUE",
+ * };
  * const command = new ListPrincipalsForPortfolioCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPrincipalsForPortfolioCommandInput - {@link ListPrincipalsForPortfolioCommandInput}
+ * @returns {@link ListPrincipalsForPortfolioCommandOutput}
  * @see {@link ListPrincipalsForPortfolioCommandInput} for command's `input` shape.
  * @see {@link ListPrincipalsForPortfolioCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
+ *
+ * @throws {@link InvalidParametersException} (client fault)
+ *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class ListPrincipalsForPortfolioCommand extends $Command<
@@ -62,6 +80,9 @@ export class ListPrincipalsForPortfolioCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPrincipalsForPortfolioCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +111,8 @@ export class ListPrincipalsForPortfolioCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPrincipalsForPortfolioInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPrincipalsForPortfolioOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +122,21 @@ export class ListPrincipalsForPortfolioCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPrincipalsForPortfolioCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListPrincipalsForPortfolioCommand(input, context);
+    return se_ListPrincipalsForPortfolioCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListPrincipalsForPortfolioCommandOutput> {
-    return deserializeAws_json1_1ListPrincipalsForPortfolioCommand(output, context);
+    return de_ListPrincipalsForPortfolioCommand(output, context);
   }
 
   // Start section: command_body_extra

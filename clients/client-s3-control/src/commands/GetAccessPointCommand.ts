@@ -14,25 +14,27 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetAccessPointRequest,
-  GetAccessPointRequestFilterSensitiveLog,
-  GetAccessPointResult,
-  GetAccessPointResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlGetAccessPointCommand,
-  serializeAws_restXmlGetAccessPointCommand,
-} from "../protocols/Aws_restXml";
+import { GetAccessPointRequest, GetAccessPointResult } from "../models/models_0";
+import { de_GetAccessPointCommand, se_GetAccessPointCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetAccessPointCommand}.
+ */
 export interface GetAccessPointCommandInput extends GetAccessPointRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetAccessPointCommand}.
+ */
 export interface GetAccessPointCommandOutput extends GetAccessPointResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns configuration information about the specified access point.</p>
  *          <p></p>
- *
  *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPoint.html#API_control_GetAccessPoint_Examples">Examples</a> section.</p>
  *          <p>The following actions are related to <code>GetAccessPoint</code>:</p>
  *          <ul>
@@ -58,13 +60,20 @@ export interface GetAccessPointCommandOutput extends GetAccessPointResult, __Met
  * import { S3ControlClient, GetAccessPointCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, GetAccessPointCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = { // GetAccessPointRequest
+ *   AccountId: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new GetAccessPointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccessPointCommandInput - {@link GetAccessPointCommandInput}
+ * @returns {@link GetAccessPointCommandOutput}
  * @see {@link GetAccessPointCommandInput} for command's `input` shape.
  * @see {@link GetAccessPointCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
+ *
  *
  */
 export class GetAccessPointCommand extends $Command<
@@ -88,6 +97,9 @@ export class GetAccessPointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccessPointCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +129,8 @@ export class GetAccessPointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAccessPointRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAccessPointResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +140,18 @@ export class GetAccessPointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAccessPointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetAccessPointCommand(input, context);
+    return se_GetAccessPointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccessPointCommandOutput> {
-    return deserializeAws_restXmlGetAccessPointCommand(output, context);
+    return de_GetAccessPointCommand(output, context);
   }
 
   // Start section: command_body_extra

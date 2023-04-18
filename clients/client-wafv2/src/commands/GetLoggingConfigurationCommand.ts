@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetLoggingConfigurationRequest,
-  GetLoggingConfigurationRequestFilterSensitiveLog,
-  GetLoggingConfigurationResponse,
-  GetLoggingConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetLoggingConfigurationCommand,
-  serializeAws_json1_1GetLoggingConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { GetLoggingConfigurationRequest, GetLoggingConfigurationResponse } from "../models/models_0";
+import { de_GetLoggingConfigurationCommand, se_GetLoggingConfigurationCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
+/**
+ * @public
+ *
+ * The input for {@link GetLoggingConfigurationCommand}.
+ */
 export interface GetLoggingConfigurationCommandInput extends GetLoggingConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetLoggingConfigurationCommand}.
+ */
 export interface GetLoggingConfigurationCommandOutput extends GetLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the <a>LoggingConfiguration</a> for the specified web ACL.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,53 @@ export interface GetLoggingConfigurationCommandOutput extends GetLoggingConfigur
  * import { WAFV2Client, GetLoggingConfigurationCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, GetLoggingConfigurationCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
+ * const input = { // GetLoggingConfigurationRequest
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new GetLoggingConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLoggingConfigurationCommandInput - {@link GetLoggingConfigurationCommandInput}
+ * @returns {@link GetLoggingConfigurationCommandOutput}
  * @see {@link GetLoggingConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetLoggingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
+ *
+ * @throws {@link WAFInternalErrorException} (server fault)
+ *  <p>Your request is valid, but WAF couldn’t perform the operation because of a system
+ *          problem. Retry your request. </p>
+ *
+ * @throws {@link WAFInvalidOperationException} (client fault)
+ *  <p>The operation isn't valid. </p>
+ *
+ * @throws {@link WAFInvalidParameterException} (client fault)
+ *  <p>The operation failed because WAF didn't recognize a parameter in the request. For
+ *          example: </p>
+ *          <ul>
+ *             <li>
+ *                <p>You specified a parameter name or value that isn't valid.</p>
+ *             </li>
+ *             <li>
+ *                <p>Your nested statement isn't valid. You might have tried to nest a statement that
+ *                can’t be nested. </p>
+ *             </li>
+ *             <li>
+ *                <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that
+ *                isn't among the types available at <a>DefaultAction</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>Your request references an ARN that is malformed, or corresponds to a resource
+ *                with which a web ACL can't be associated.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link WAFNonexistentItemException} (client fault)
+ *  <p>WAF couldn’t perform the operation because your resource doesn't exist.
+ *        If you've just created a resource that you're using in this operation, you might
+ *        just need to wait a few minutes. It can take from a few seconds to a number of minutes
+ *        for changes to propagate. </p>
+ *
  *
  */
 export class GetLoggingConfigurationCommand extends $Command<
@@ -62,6 +105,9 @@ export class GetLoggingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLoggingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +136,8 @@ export class GetLoggingConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLoggingConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetLoggingConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +147,18 @@ export class GetLoggingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLoggingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetLoggingConfigurationCommand(input, context);
+    return se_GetLoggingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLoggingConfigurationCommandOutput> {
-    return deserializeAws_json1_1GetLoggingConfigurationCommand(output, context);
+    return de_GetLoggingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

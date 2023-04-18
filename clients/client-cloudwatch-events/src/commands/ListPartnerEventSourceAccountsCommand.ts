@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
+import { ListPartnerEventSourceAccountsRequest, ListPartnerEventSourceAccountsResponse } from "../models/models_0";
 import {
-  ListPartnerEventSourceAccountsRequest,
-  ListPartnerEventSourceAccountsRequestFilterSensitiveLog,
-  ListPartnerEventSourceAccountsResponse,
-  ListPartnerEventSourceAccountsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListPartnerEventSourceAccountsCommand,
-  serializeAws_json1_1ListPartnerEventSourceAccountsCommand,
+  de_ListPartnerEventSourceAccountsCommand,
+  se_ListPartnerEventSourceAccountsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListPartnerEventSourceAccountsCommand}.
+ */
 export interface ListPartnerEventSourceAccountsCommandInput extends ListPartnerEventSourceAccountsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListPartnerEventSourceAccountsCommand}.
+ */
 export interface ListPartnerEventSourceAccountsCommandOutput
   extends ListPartnerEventSourceAccountsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>An SaaS partner can use this operation to display the Amazon Web Services account ID that a particular
  *       partner event source name is associated with. This operation is not used by Amazon Web Services
  *       customers.</p>
@@ -40,13 +46,30 @@ export interface ListPartnerEventSourceAccountsCommandOutput
  * import { CloudWatchEventsClient, ListPartnerEventSourceAccountsCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, ListPartnerEventSourceAccountsCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
+ * const input = { // ListPartnerEventSourceAccountsRequest
+ *   EventSourceName: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListPartnerEventSourceAccountsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPartnerEventSourceAccountsCommandInput - {@link ListPartnerEventSourceAccountsCommandInput}
+ * @returns {@link ListPartnerEventSourceAccountsCommandOutput}
  * @see {@link ListPartnerEventSourceAccountsCommandInput} for command's `input` shape.
  * @see {@link ListPartnerEventSourceAccountsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * @throws {@link OperationDisabledException} (client fault)
+ *  <p>The operation you are attempting is not available in this region.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An entity that you specified does not exist.</p>
+ *
  *
  */
 export class ListPartnerEventSourceAccountsCommand extends $Command<
@@ -66,6 +89,9 @@ export class ListPartnerEventSourceAccountsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPartnerEventSourceAccountsCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +120,8 @@ export class ListPartnerEventSourceAccountsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPartnerEventSourceAccountsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPartnerEventSourceAccountsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,18 +131,24 @@ export class ListPartnerEventSourceAccountsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListPartnerEventSourceAccountsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListPartnerEventSourceAccountsCommand(input, context);
+    return se_ListPartnerEventSourceAccountsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListPartnerEventSourceAccountsCommandOutput> {
-    return deserializeAws_json1_1ListPartnerEventSourceAccountsCommand(output, context);
+    return de_ListPartnerEventSourceAccountsCommand(output, context);
   }
 
   // Start section: command_body_extra

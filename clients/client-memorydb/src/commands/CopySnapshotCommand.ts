@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
-import {
-  CopySnapshotRequest,
-  CopySnapshotRequestFilterSensitiveLog,
-  CopySnapshotResponse,
-  CopySnapshotResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CopySnapshotCommand,
-  serializeAws_json1_1CopySnapshotCommand,
-} from "../protocols/Aws_json1_1";
+import { CopySnapshotRequest, CopySnapshotResponse } from "../models/models_0";
+import { de_CopySnapshotCommand, se_CopySnapshotCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CopySnapshotCommand}.
+ */
 export interface CopySnapshotCommandInput extends CopySnapshotRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CopySnapshotCommand}.
+ */
 export interface CopySnapshotCommandOutput extends CopySnapshotResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Makes a copy of an existing snapshot.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,52 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResponse, __Metad
  * import { MemoryDBClient, CopySnapshotCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, CopySnapshotCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
  * const client = new MemoryDBClient(config);
+ * const input = { // CopySnapshotRequest
+ *   SourceSnapshotName: "STRING_VALUE", // required
+ *   TargetSnapshotName: "STRING_VALUE", // required
+ *   TargetBucket: "STRING_VALUE",
+ *   KmsKeyId: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CopySnapshotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CopySnapshotCommandInput - {@link CopySnapshotCommandInput}
+ * @returns {@link CopySnapshotCommandOutput}
  * @see {@link CopySnapshotCommandInput} for command's `input` shape.
  * @see {@link CopySnapshotCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidSnapshotStateFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link SnapshotAlreadyExistsFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link SnapshotNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link SnapshotQuotaExceededFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link TagQuotaPerResourceExceeded} (client fault)
+ *  <p></p>
+ *
  *
  */
 export class CopySnapshotCommand extends $Command<
@@ -62,6 +104,9 @@ export class CopySnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CopySnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +133,8 @@ export class CopySnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CopySnapshotRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CopySnapshotResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +144,18 @@ export class CopySnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CopySnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CopySnapshotCommand(input, context);
+    return se_CopySnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopySnapshotCommandOutput> {
-    return deserializeAws_json1_1CopySnapshotCommand(output, context);
+    return de_CopySnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

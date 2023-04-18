@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import { UpdateParticipantRoleConfigRequest, UpdateParticipantRoleConfigResponse } from "../models/models_1";
 import {
-  UpdateParticipantRoleConfigRequest,
-  UpdateParticipantRoleConfigRequestFilterSensitiveLog,
-  UpdateParticipantRoleConfigResponse,
-  UpdateParticipantRoleConfigResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateParticipantRoleConfigCommand,
-  serializeAws_restJson1UpdateParticipantRoleConfigCommand,
+  de_UpdateParticipantRoleConfigCommand,
+  se_UpdateParticipantRoleConfigCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateParticipantRoleConfigCommand}.
+ */
 export interface UpdateParticipantRoleConfigCommandInput extends UpdateParticipantRoleConfigRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateParticipantRoleConfigCommand}.
+ */
 export interface UpdateParticipantRoleConfigCommandOutput
   extends UpdateParticipantRoleConfigResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates timeouts for when human chat participants are to be considered idle, and when agents
  *    are automatically disconnected from a chat due to idleness. You can set four timers:</p>
  *          <ul>
@@ -55,13 +61,52 @@ export interface UpdateParticipantRoleConfigCommandOutput
  * import { ConnectClient, UpdateParticipantRoleConfigCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateParticipantRoleConfigCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // UpdateParticipantRoleConfigRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   ContactId: "STRING_VALUE", // required
+ *   ChannelConfiguration: { // UpdateParticipantRoleConfigChannelInfo Union: only one key present
+ *     Chat: { // ChatParticipantRoleConfig
+ *       ParticipantTimerConfigList: [ // ParticipantTimerConfigList // required
+ *         { // ParticipantTimerConfiguration
+ *           ParticipantRole: "CUSTOMER" || "AGENT", // required
+ *           TimerType: "IDLE" || "DISCONNECT_NONCUSTOMER", // required
+ *           TimerValue: { // ParticipantTimerValue Union: only one key present
+ *             ParticipantTimerAction: "Unset",
+ *             ParticipantTimerDurationInMinutes: Number("int"),
+ *           },
+ *         },
+ *       ],
+ *     },
+ *   },
+ * };
  * const command = new UpdateParticipantRoleConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateParticipantRoleConfigCommandInput - {@link UpdateParticipantRoleConfigCommandInput}
+ * @returns {@link UpdateParticipantRoleConfigCommandOutput}
  * @see {@link UpdateParticipantRoleConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateParticipantRoleConfigCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
  *
  */
 export class UpdateParticipantRoleConfigCommand extends $Command<
@@ -81,6 +126,9 @@ export class UpdateParticipantRoleConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateParticipantRoleConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +157,8 @@ export class UpdateParticipantRoleConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateParticipantRoleConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateParticipantRoleConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,15 +168,21 @@ export class UpdateParticipantRoleConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateParticipantRoleConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateParticipantRoleConfigCommand(input, context);
+    return se_UpdateParticipantRoleConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateParticipantRoleConfigCommandOutput> {
-    return deserializeAws_restJson1UpdateParticipantRoleConfigCommand(output, context);
+    return de_UpdateParticipantRoleConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

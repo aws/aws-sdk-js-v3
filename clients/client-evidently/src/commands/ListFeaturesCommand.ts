@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
-import {
-  ListFeaturesRequest,
-  ListFeaturesRequestFilterSensitiveLog,
-  ListFeaturesResponse,
-  ListFeaturesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListFeaturesCommand,
-  serializeAws_restJson1ListFeaturesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListFeaturesRequest, ListFeaturesResponse } from "../models/models_0";
+import { de_ListFeaturesCommand, se_ListFeaturesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListFeaturesCommand}.
+ */
 export interface ListFeaturesCommandInput extends ListFeaturesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListFeaturesCommand}.
+ */
 export interface ListFeaturesCommandOutput extends ListFeaturesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns configuration details about all the features in the specified project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,33 @@ export interface ListFeaturesCommandOutput extends ListFeaturesResponse, __Metad
  * import { EvidentlyClient, ListFeaturesCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, ListFeaturesCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
+ * const input = { // ListFeaturesRequest
+ *   project: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListFeaturesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFeaturesCommandInput - {@link ListFeaturesCommandInput}
+ * @returns {@link ListFeaturesCommandOutput}
  * @see {@link ListFeaturesCommandInput} for command's `input` shape.
  * @see {@link ListFeaturesCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a resource that does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because of request throttling. Retry the request.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The value of a parameter in the request caused an error.</p>
+ *
  *
  */
 export class ListFeaturesCommand extends $Command<
@@ -62,6 +85,9 @@ export class ListFeaturesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFeaturesCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +114,8 @@ export class ListFeaturesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFeaturesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListFeaturesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +125,18 @@ export class ListFeaturesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFeaturesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListFeaturesCommand(input, context);
+    return se_ListFeaturesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFeaturesCommandOutput> {
-    return deserializeAws_restJson1ListFeaturesCommand(output, context);
+    return de_ListFeaturesCommand(output, context);
   }
 
   // Start section: command_body_extra

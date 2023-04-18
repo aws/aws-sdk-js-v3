@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeStarClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeStarClient";
-import {
-  DisassociateTeamMemberRequest,
-  DisassociateTeamMemberRequestFilterSensitiveLog,
-  DisassociateTeamMemberResult,
-  DisassociateTeamMemberResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DisassociateTeamMemberCommand,
-  serializeAws_json1_1DisassociateTeamMemberCommand,
-} from "../protocols/Aws_json1_1";
+import { DisassociateTeamMemberRequest, DisassociateTeamMemberResult } from "../models/models_0";
+import { de_DisassociateTeamMemberCommand, se_DisassociateTeamMemberCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DisassociateTeamMemberCommand}.
+ */
 export interface DisassociateTeamMemberCommandInput extends DisassociateTeamMemberRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateTeamMemberCommand}.
+ */
 export interface DisassociateTeamMemberCommandOutput extends DisassociateTeamMemberResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a user from a project. Removing a user from a project also removes the IAM
  *       policies from that user that allowed access to the project and its resources. Disassociating a
  *       team member does not remove that user's profile from AWS CodeStar. It does not remove the user from
@@ -39,13 +42,33 @@ export interface DisassociateTeamMemberCommandOutput extends DisassociateTeamMem
  * import { CodeStarClient, DisassociateTeamMemberCommand } from "@aws-sdk/client-codestar"; // ES Modules import
  * // const { CodeStarClient, DisassociateTeamMemberCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
  * const client = new CodeStarClient(config);
+ * const input = { // DisassociateTeamMemberRequest
+ *   projectId: "STRING_VALUE", // required
+ *   userArn: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateTeamMemberCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateTeamMemberCommandInput - {@link DisassociateTeamMemberCommandInput}
+ * @returns {@link DisassociateTeamMemberCommandOutput}
  * @see {@link DisassociateTeamMemberCommandInput} for command's `input` shape.
  * @see {@link DisassociateTeamMemberCommandOutput} for command's `response` shape.
  * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (server fault)
+ *  <p>Another modification is being made. That modification must complete before you can make
+ *       your change.</p>
+ *
+ * @throws {@link InvalidServiceRoleException} (client fault)
+ *  <p>The service role is not valid.</p>
+ *
+ * @throws {@link ProjectNotFoundException} (client fault)
+ *  <p>The specified AWS CodeStar project was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The specified input is either not valid, or it could not be validated.</p>
+ *
  *
  */
 export class DisassociateTeamMemberCommand extends $Command<
@@ -65,6 +88,9 @@ export class DisassociateTeamMemberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateTeamMemberCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +119,8 @@ export class DisassociateTeamMemberCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateTeamMemberRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateTeamMemberResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +130,18 @@ export class DisassociateTeamMemberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateTeamMemberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateTeamMemberCommand(input, context);
+    return se_DisassociateTeamMemberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateTeamMemberCommandOutput> {
-    return deserializeAws_json1_1DisassociateTeamMemberCommand(output, context);
+    return de_DisassociateTeamMemberCommand(output, context);
   }
 
   // Start section: command_body_extra

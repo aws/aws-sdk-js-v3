@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import {
-  GetIntegrationRequest,
-  GetIntegrationRequestFilterSensitiveLog,
-  GetIntegrationResult,
-  GetIntegrationResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetIntegrationCommand,
-  serializeAws_restJson1GetIntegrationCommand,
-} from "../protocols/Aws_restJson1";
+import { GetIntegrationRequest, GetIntegrationResult } from "../models/models_0";
+import { de_GetIntegrationCommand, se_GetIntegrationCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetIntegrationCommand}.
+ */
 export interface GetIntegrationCommandInput extends GetIntegrationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetIntegrationCommand}.
+ */
 export interface GetIntegrationCommandOutput extends GetIntegrationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets an Integration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,26 @@ export interface GetIntegrationCommandOutput extends GetIntegrationResult, __Met
  * import { ApiGatewayV2Client, GetIntegrationCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, GetIntegrationCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = { // GetIntegrationRequest
+ *   ApiId: "STRING_VALUE", // required
+ *   IntegrationId: "STRING_VALUE", // required
+ * };
  * const command = new GetIntegrationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetIntegrationCommandInput - {@link GetIntegrationCommandInput}
+ * @returns {@link GetIntegrationCommandOutput}
  * @see {@link GetIntegrationCommandInput} for command's `input` shape.
  * @see {@link GetIntegrationCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource specified in the request was not found. See the message field for more information.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
+ *
  *
  */
 export class GetIntegrationCommand extends $Command<
@@ -62,6 +78,9 @@ export class GetIntegrationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetIntegrationCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +109,8 @@ export class GetIntegrationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetIntegrationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetIntegrationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +120,18 @@ export class GetIntegrationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetIntegrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetIntegrationCommand(input, context);
+    return se_GetIntegrationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIntegrationCommandOutput> {
-    return deserializeAws_restJson1GetIntegrationCommand(output, context);
+    return de_GetIntegrationCommand(output, context);
   }
 
   // Start section: command_body_extra

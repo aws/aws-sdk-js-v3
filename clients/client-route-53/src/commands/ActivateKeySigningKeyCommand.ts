@@ -14,22 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ActivateKeySigningKeyRequest,
-  ActivateKeySigningKeyRequestFilterSensitiveLog,
-  ActivateKeySigningKeyResponse,
-  ActivateKeySigningKeyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlActivateKeySigningKeyCommand,
-  serializeAws_restXmlActivateKeySigningKeyCommand,
-} from "../protocols/Aws_restXml";
+import { ActivateKeySigningKeyRequest, ActivateKeySigningKeyResponse } from "../models/models_0";
+import { de_ActivateKeySigningKeyCommand, se_ActivateKeySigningKeyCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * @public
+ *
+ * The input for {@link ActivateKeySigningKeyCommand}.
+ */
 export interface ActivateKeySigningKeyCommandInput extends ActivateKeySigningKeyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ActivateKeySigningKeyCommand}.
+ */
 export interface ActivateKeySigningKeyCommandOutput extends ActivateKeySigningKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Activates a key-signing key (KSK) so that it can be used for signing by DNSSEC. This
  * 			operation changes the KSK status to <code>ACTIVE</code>.</p>
  * @example
@@ -38,13 +41,42 @@ export interface ActivateKeySigningKeyCommandOutput extends ActivateKeySigningKe
  * import { Route53Client, ActivateKeySigningKeyCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, ActivateKeySigningKeyCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = { // ActivateKeySigningKeyRequest
+ *   HostedZoneId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new ActivateKeySigningKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ActivateKeySigningKeyCommandInput - {@link ActivateKeySigningKeyCommandInput}
+ * @returns {@link ActivateKeySigningKeyCommandOutput}
  * @see {@link ActivateKeySigningKeyCommandInput} for command's `input` shape.
  * @see {@link ActivateKeySigningKeyCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
+ *
+ * @throws {@link ConcurrentModification} (client fault)
+ *  <p>Another user submitted a request to create, update, or delete the object at the same
+ * 			time that you did. Retry the request. </p>
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link InvalidKeySigningKeyStatus} (client fault)
+ *  <p>The key-signing key (KSK) status isn't valid or another KSK has the status
+ * 				<code>INTERNAL_FAILURE</code>.</p>
+ *
+ * @throws {@link InvalidKMSArn} (client fault)
+ *  <p>The KeyManagementServiceArn that you specified isn't valid to use with DNSSEC
+ * 			signing.</p>
+ *
+ * @throws {@link InvalidSigningStatus} (client fault)
+ *  <p>Your hosted zone status isn't valid for this operation. In the hosted zone, change the
+ * 			status to enable <code>DNSSEC</code> or disable <code>DNSSEC</code>.</p>
+ *
+ * @throws {@link NoSuchKeySigningKey} (client fault)
+ *  <p>The specified key-signing key (KSK) doesn't exist.</p>
+ *
  *
  */
 export class ActivateKeySigningKeyCommand extends $Command<
@@ -64,6 +96,9 @@ export class ActivateKeySigningKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ActivateKeySigningKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +128,8 @@ export class ActivateKeySigningKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ActivateKeySigningKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ActivateKeySigningKeyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +139,18 @@ export class ActivateKeySigningKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ActivateKeySigningKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlActivateKeySigningKeyCommand(input, context);
+    return se_ActivateKeySigningKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ActivateKeySigningKeyCommandOutput> {
-    return deserializeAws_restXmlActivateKeySigningKeyCommand(output, context);
+    return de_ActivateKeySigningKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

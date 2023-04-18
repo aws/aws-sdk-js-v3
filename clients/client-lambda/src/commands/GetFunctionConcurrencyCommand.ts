@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import {
-  GetFunctionConcurrencyRequest,
-  GetFunctionConcurrencyRequestFilterSensitiveLog,
-  GetFunctionConcurrencyResponse,
-  GetFunctionConcurrencyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetFunctionConcurrencyCommand,
-  serializeAws_restJson1GetFunctionConcurrencyCommand,
-} from "../protocols/Aws_restJson1";
+import { GetFunctionConcurrencyRequest, GetFunctionConcurrencyResponse } from "../models/models_0";
+import { de_GetFunctionConcurrencyCommand, se_GetFunctionConcurrencyCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetFunctionConcurrencyCommand}.
+ */
 export interface GetFunctionConcurrencyCommandInput extends GetFunctionConcurrencyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetFunctionConcurrencyCommand}.
+ */
 export interface GetFunctionConcurrencyCommandOutput extends GetFunctionConcurrencyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns details about the reserved concurrency configuration for a function. To set a concurrency limit for a
  *       function, use <a>PutFunctionConcurrency</a>.</p>
  * @example
@@ -37,13 +40,31 @@ export interface GetFunctionConcurrencyCommandOutput extends GetFunctionConcurre
  * import { LambdaClient, GetFunctionConcurrencyCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, GetFunctionConcurrencyCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = { // GetFunctionConcurrencyRequest
+ *   FunctionName: "STRING_VALUE", // required
+ * };
  * const command = new GetFunctionConcurrencyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFunctionConcurrencyCommandInput - {@link GetFunctionConcurrencyCommandInput}
+ * @returns {@link GetFunctionConcurrencyCommandOutput}
  * @see {@link GetFunctionConcurrencyCommandInput} for command's `input` shape.
  * @see {@link GetFunctionConcurrencyCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One of the parameters in the request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request does not exist.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>The Lambda service encountered an internal error.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
+ *
  *
  */
 export class GetFunctionConcurrencyCommand extends $Command<
@@ -63,6 +84,9 @@ export class GetFunctionConcurrencyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFunctionConcurrencyCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +115,8 @@ export class GetFunctionConcurrencyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFunctionConcurrencyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetFunctionConcurrencyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +126,18 @@ export class GetFunctionConcurrencyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFunctionConcurrencyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetFunctionConcurrencyCommand(input, context);
+    return se_GetFunctionConcurrencyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFunctionConcurrencyCommandOutput> {
-    return deserializeAws_restJson1GetFunctionConcurrencyCommand(output, context);
+    return de_GetFunctionConcurrencyCommand(output, context);
   }
 
   // Start section: command_body_extra

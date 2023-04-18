@@ -13,27 +13,33 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UntagInput,
-  UntagInputFilterSensitiveLog,
-  UntagOutput,
-  UntagOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_restJson1UntagCommand, serializeAws_restJson1UntagCommand } from "../protocols/Aws_restJson1";
+import { UntagInput, UntagOutput } from "../models/models_0";
+import { de_UntagCommand, se_UntagCommand } from "../protocols/Aws_restJson1";
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UntagCommand}.
+ */
 export interface UntagCommandInput extends UntagInput {}
+/**
+ * @public
+ *
+ * The output of {@link UntagCommand}.
+ */
 export interface UntagCommandOutput extends UntagOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes tags from a specified resource group.</p>
- *         <p>
+ *          <p>
  *             <b>Minimum permissions</b>
  *          </p>
  *          <p>To run this command, you must have the following permissions:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>resource-groups:Untag</code>
  *                </p>
  *             </li>
@@ -44,13 +50,41 @@ export interface UntagCommandOutput extends UntagOutput, __MetadataBearer {}
  * import { ResourceGroupsClient, UntagCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
  * // const { ResourceGroupsClient, UntagCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
  * const client = new ResourceGroupsClient(config);
+ * const input = { // UntagInput
+ *   Arn: "STRING_VALUE", // required
+ *   Keys: [ // TagKeyList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UntagCommandInput - {@link UntagCommandInput}
+ * @returns {@link UntagCommandOutput}
  * @see {@link UntagCommandInput} for command's `input` shape.
  * @see {@link UntagCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request includes one or more parameters that violate validation rules.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The caller isn't authorized to make the request. Check permissions.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>An internal error occurred while processing the request. Try again later.</p>
+ *
+ * @throws {@link MethodNotAllowedException} (client fault)
+ *  <p>The request uses an HTTP method that isn't allowed for the specified resource.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>One or more of the specified resources don't exist.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>You've exceeded throttling limits by making too many requests in a period of
+ *             time.</p>
+ *
  *
  */
 export class UntagCommand extends $Command<UntagCommandInput, UntagCommandOutput, ResourceGroupsClientResolvedConfig> {
@@ -66,6 +100,9 @@ export class UntagCommand extends $Command<UntagCommandInput, UntagCommandOutput
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UntagCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +129,8 @@ export class UntagCommand extends $Command<UntagCommandInput, UntagCommandOutput
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UntagInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UntagOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +140,18 @@ export class UntagCommand extends $Command<UntagCommandInput, UntagCommandOutput
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UntagCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UntagCommand(input, context);
+    return se_UntagCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagCommandOutput> {
-    return deserializeAws_restJson1UntagCommand(output, context);
+    return de_UntagCommand(output, context);
   }
 
   // Start section: command_body_extra

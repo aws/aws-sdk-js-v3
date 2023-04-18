@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
-import {
-  ListDiscoveredResourcesRequest,
-  ListDiscoveredResourcesRequestFilterSensitiveLog,
-  ListDiscoveredResourcesResult,
-  ListDiscoveredResourcesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListDiscoveredResourcesCommand,
-  serializeAws_json1_1ListDiscoveredResourcesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListDiscoveredResourcesRequest, ListDiscoveredResourcesResult } from "../models/models_0";
+import { de_ListDiscoveredResourcesCommand, se_ListDiscoveredResourcesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListDiscoveredResourcesCommand}.
+ */
 export interface ListDiscoveredResourcesCommandInput extends ListDiscoveredResourcesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDiscoveredResourcesCommand}.
+ */
 export interface ListDiscoveredResourcesCommandOutput extends ListDiscoveredResourcesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists discovered resources associated with the given <code>MigrationTask</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,48 @@ export interface ListDiscoveredResourcesCommandOutput extends ListDiscoveredReso
  * import { MigrationHubClient, ListDiscoveredResourcesCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
  * // const { MigrationHubClient, ListDiscoveredResourcesCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
  * const client = new MigrationHubClient(config);
+ * const input = { // ListDiscoveredResourcesRequest
+ *   ProgressUpdateStream: "STRING_VALUE", // required
+ *   MigrationTaskName: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListDiscoveredResourcesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDiscoveredResourcesCommandInput - {@link ListDiscoveredResourcesCommandInput}
+ * @returns {@link ListDiscoveredResourcesCommandOutput}
  * @see {@link ListDiscoveredResourcesCommandInput} for command's `input` shape.
  * @see {@link ListDiscoveredResourcesCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link HomeRegionNotSetException} (client fault)
+ *  <p>The home region is not set. Set the home region to continue.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Exception raised when an internal, configuration, or dependency error is
+ *          encountered.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Exception raised when the provided input violates a policy constraint or is entered in
+ *          the wrong format or data type.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Exception raised when the request references a resource (Application Discovery Service
+ *          configuration, update stream, migration task, etc.) that does not exist in Application
+ *          Discovery Service (Application Discovery Service) or in Migration Hub's repository.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>Exception raised when there is an internal, configuration, or dependency error
+ *          encountered.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
  *
  */
 export class ListDiscoveredResourcesCommand extends $Command<
@@ -62,6 +100,9 @@ export class ListDiscoveredResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDiscoveredResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +131,8 @@ export class ListDiscoveredResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDiscoveredResourcesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDiscoveredResourcesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +142,18 @@ export class ListDiscoveredResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDiscoveredResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDiscoveredResourcesCommand(input, context);
+    return se_ListDiscoveredResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDiscoveredResourcesCommandOutput> {
-    return deserializeAws_json1_1ListDiscoveredResourcesCommand(output, context);
+    return de_ListDiscoveredResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

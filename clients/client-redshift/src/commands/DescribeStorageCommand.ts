@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CustomerStorageMessage, CustomerStorageMessageFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeStorageCommand,
-  serializeAws_queryDescribeStorageCommand,
-} from "../protocols/Aws_query";
+import { CustomerStorageMessage } from "../models/models_0";
+import { de_DescribeStorageCommand, se_DescribeStorageCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeStorageCommand}.
+ */
 export interface DescribeStorageCommandInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeStorageCommand}.
+ */
 export interface DescribeStorageCommandOutput extends CustomerStorageMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns account level backups storage size and provisional storage.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +39,17 @@ export interface DescribeStorageCommandOutput extends CustomerStorageMessage, __
  * import { RedshiftClient, DescribeStorageCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeStorageCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = {};
  * const command = new DescribeStorageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStorageCommandInput - {@link DescribeStorageCommandInput}
+ * @returns {@link DescribeStorageCommandOutput}
  * @see {@link DescribeStorageCommandInput} for command's `input` shape.
  * @see {@link DescribeStorageCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
+ *
  *
  */
 export class DescribeStorageCommand extends $Command<
@@ -57,6 +69,9 @@ export class DescribeStorageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStorageCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +100,8 @@ export class DescribeStorageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: CustomerStorageMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +111,18 @@ export class DescribeStorageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeStorageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeStorageCommand(input, context);
+    return se_DescribeStorageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeStorageCommandOutput> {
-    return deserializeAws_queryDescribeStorageCommand(output, context);
+    return de_DescribeStorageCommand(output, context);
   }
 
   // Start section: command_body_extra

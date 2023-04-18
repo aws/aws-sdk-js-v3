@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetHealthCheckCountRequest,
-  GetHealthCheckCountRequestFilterSensitiveLog,
-  GetHealthCheckCountResponse,
-  GetHealthCheckCountResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlGetHealthCheckCountCommand,
-  serializeAws_restXmlGetHealthCheckCountCommand,
-} from "../protocols/Aws_restXml";
+import { GetHealthCheckCountRequest, GetHealthCheckCountResponse } from "../models/models_0";
+import { de_GetHealthCheckCountCommand, se_GetHealthCheckCountCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * @public
+ *
+ * The input for {@link GetHealthCheckCountCommand}.
+ */
 export interface GetHealthCheckCountCommandInput extends GetHealthCheckCountRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetHealthCheckCountCommand}.
+ */
 export interface GetHealthCheckCountCommandOutput extends GetHealthCheckCountResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the number of health checks that are associated with the current Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,17 @@ export interface GetHealthCheckCountCommandOutput extends GetHealthCheckCountRes
  * import { Route53Client, GetHealthCheckCountCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, GetHealthCheckCountCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = {};
  * const command = new GetHealthCheckCountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetHealthCheckCountCommandInput - {@link GetHealthCheckCountCommandInput}
+ * @returns {@link GetHealthCheckCountCommandOutput}
  * @see {@link GetHealthCheckCountCommandInput} for command's `input` shape.
  * @see {@link GetHealthCheckCountCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
+ *
  *
  */
 export class GetHealthCheckCountCommand extends $Command<
@@ -62,6 +69,9 @@ export class GetHealthCheckCountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetHealthCheckCountCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +100,8 @@ export class GetHealthCheckCountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetHealthCheckCountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetHealthCheckCountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +111,18 @@ export class GetHealthCheckCountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetHealthCheckCountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetHealthCheckCountCommand(input, context);
+    return se_GetHealthCheckCountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetHealthCheckCountCommandOutput> {
-    return deserializeAws_restXmlGetHealthCheckCountCommand(output, context);
+    return de_GetHealthCheckCountCommand(output, context);
   }
 
   // Start section: command_body_extra

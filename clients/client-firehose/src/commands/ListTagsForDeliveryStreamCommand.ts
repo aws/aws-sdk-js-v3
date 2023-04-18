@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
-import {
-  ListTagsForDeliveryStreamInput,
-  ListTagsForDeliveryStreamInputFilterSensitiveLog,
-  ListTagsForDeliveryStreamOutput,
-  ListTagsForDeliveryStreamOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListTagsForDeliveryStreamCommand,
-  serializeAws_json1_1ListTagsForDeliveryStreamCommand,
-} from "../protocols/Aws_json1_1";
+import { ListTagsForDeliveryStreamInput, ListTagsForDeliveryStreamOutput } from "../models/models_0";
+import { de_ListTagsForDeliveryStreamCommand, se_ListTagsForDeliveryStreamCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListTagsForDeliveryStreamCommand}.
+ */
 export interface ListTagsForDeliveryStreamCommandInput extends ListTagsForDeliveryStreamInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListTagsForDeliveryStreamCommand}.
+ */
 export interface ListTagsForDeliveryStreamCommandOutput extends ListTagsForDeliveryStreamOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the tags for the specified delivery stream. This operation has a limit of five
  *          transactions per second per account. </p>
  * @example
@@ -37,13 +40,30 @@ export interface ListTagsForDeliveryStreamCommandOutput extends ListTagsForDeliv
  * import { FirehoseClient, ListTagsForDeliveryStreamCommand } from "@aws-sdk/client-firehose"; // ES Modules import
  * // const { FirehoseClient, ListTagsForDeliveryStreamCommand } = require("@aws-sdk/client-firehose"); // CommonJS import
  * const client = new FirehoseClient(config);
+ * const input = { // ListTagsForDeliveryStreamInput
+ *   DeliveryStreamName: "STRING_VALUE", // required
+ *   ExclusiveStartTagKey: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListTagsForDeliveryStreamCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTagsForDeliveryStreamCommandInput - {@link ListTagsForDeliveryStreamCommandInput}
+ * @returns {@link ListTagsForDeliveryStreamCommandOutput}
  * @see {@link ListTagsForDeliveryStreamCommandInput} for command's `input` shape.
  * @see {@link ListTagsForDeliveryStreamCommandOutput} for command's `response` shape.
  * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>The specified input parameter has a value that is not valid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You have already reached the limit for a requested resource.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found.</p>
+ *
  *
  */
 export class ListTagsForDeliveryStreamCommand extends $Command<
@@ -63,6 +83,9 @@ export class ListTagsForDeliveryStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTagsForDeliveryStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +114,8 @@ export class ListTagsForDeliveryStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTagsForDeliveryStreamInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTagsForDeliveryStreamOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,15 +125,21 @@ export class ListTagsForDeliveryStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTagsForDeliveryStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTagsForDeliveryStreamCommand(input, context);
+    return se_ListTagsForDeliveryStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListTagsForDeliveryStreamCommandOutput> {
-    return deserializeAws_json1_1ListTagsForDeliveryStreamCommand(output, context);
+    return de_ListTagsForDeliveryStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

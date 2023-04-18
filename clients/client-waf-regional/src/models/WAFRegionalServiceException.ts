@@ -5,6 +5,8 @@ import {
 } from "@aws-sdk/smithy-client";
 
 /**
+ * @public
+ *
  * Base exception class for all service exceptions from WAFRegional service.
  */
 export class WAFRegionalServiceException extends __ServiceException {

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import {
-  ExpireSessionRequest,
-  ExpireSessionRequestFilterSensitiveLog,
-  ExpireSessionResult,
-  ExpireSessionResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ExpireSessionCommand,
-  serializeAws_json1_1ExpireSessionCommand,
-} from "../protocols/Aws_json1_1";
+import { ExpireSessionRequest, ExpireSessionResult } from "../models/models_0";
+import { de_ExpireSessionCommand, se_ExpireSessionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ExpireSessionCommand}.
+ */
 export interface ExpireSessionCommandInput extends ExpireSessionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ExpireSessionCommand}.
+ */
 export interface ExpireSessionCommandOutput extends ExpireSessionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Immediately stops the specified streaming session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,19 @@ export interface ExpireSessionCommandOutput extends ExpireSessionResult, __Metad
  * import { AppStreamClient, ExpireSessionCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, ExpireSessionCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = { // ExpireSessionRequest
+ *   SessionId: "STRING_VALUE", // required
+ * };
  * const command = new ExpireSessionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ExpireSessionCommandInput - {@link ExpireSessionCommandInput}
+ * @returns {@link ExpireSessionCommandOutput}
  * @see {@link ExpireSessionCommandInput} for command's `input` shape.
  * @see {@link ExpireSessionCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
+ *
  *
  */
 export class ExpireSessionCommand extends $Command<
@@ -62,6 +71,9 @@ export class ExpireSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExpireSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +100,8 @@ export class ExpireSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExpireSessionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ExpireSessionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +111,18 @@ export class ExpireSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExpireSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ExpireSessionCommand(input, context);
+    return se_ExpireSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExpireSessionCommandOutput> {
-    return deserializeAws_json1_1ExpireSessionCommand(output, context);
+    return de_ExpireSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

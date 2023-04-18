@@ -15,20 +15,27 @@ import {
 
 import {
   RetrieveDomainAuthCodeRequest,
-  RetrieveDomainAuthCodeRequestFilterSensitiveLog,
   RetrieveDomainAuthCodeResponse,
   RetrieveDomainAuthCodeResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1RetrieveDomainAuthCodeCommand,
-  serializeAws_json1_1RetrieveDomainAuthCodeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RetrieveDomainAuthCodeCommand, se_RetrieveDomainAuthCodeCommand } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
+/**
+ * @public
+ *
+ * The input for {@link RetrieveDomainAuthCodeCommand}.
+ */
 export interface RetrieveDomainAuthCodeCommandInput extends RetrieveDomainAuthCodeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RetrieveDomainAuthCodeCommand}.
+ */
 export interface RetrieveDomainAuthCodeCommandOutput extends RetrieveDomainAuthCodeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation returns the authorization code for the domain. To transfer a domain to
  * 			another registrar, you provide this value to the new registrar.</p>
  * @example
@@ -37,13 +44,28 @@ export interface RetrieveDomainAuthCodeCommandOutput extends RetrieveDomainAuthC
  * import { Route53DomainsClient, RetrieveDomainAuthCodeCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, RetrieveDomainAuthCodeCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
+ * const input = { // RetrieveDomainAuthCodeRequest
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new RetrieveDomainAuthCodeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RetrieveDomainAuthCodeCommandInput - {@link RetrieveDomainAuthCodeCommandInput}
+ * @returns {@link RetrieveDomainAuthCodeCommandOutput}
  * @see {@link RetrieveDomainAuthCodeCommandInput} for command's `input` shape.
  * @see {@link RetrieveDomainAuthCodeCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The requested item is not acceptable. For example, for APIs that accept a domain name,
+ * 			the request might specify a domain name that doesn't belong to the account that
+ * 			submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the
+ * 			password might be invalid.</p>
+ *
+ * @throws {@link UnsupportedTLD} (client fault)
+ *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+ *
  *
  */
 export class RetrieveDomainAuthCodeCommand extends $Command<
@@ -63,6 +85,9 @@ export class RetrieveDomainAuthCodeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RetrieveDomainAuthCodeCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,7 +116,7 @@ export class RetrieveDomainAuthCodeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RetrieveDomainAuthCodeRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: RetrieveDomainAuthCodeResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -102,12 +127,18 @@ export class RetrieveDomainAuthCodeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RetrieveDomainAuthCodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RetrieveDomainAuthCodeCommand(input, context);
+    return se_RetrieveDomainAuthCodeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RetrieveDomainAuthCodeCommandOutput> {
-    return deserializeAws_json1_1RetrieveDomainAuthCodeCommand(output, context);
+    return de_RetrieveDomainAuthCodeCommand(output, context);
   }
 
   // Start section: command_body_extra

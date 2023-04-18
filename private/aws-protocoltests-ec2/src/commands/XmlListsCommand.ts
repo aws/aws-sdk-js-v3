@@ -13,13 +13,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
-import { XmlListsOutput, XmlListsOutputFilterSensitiveLog } from "../models/models_0";
-import { deserializeAws_ec2XmlListsCommand, serializeAws_ec2XmlListsCommand } from "../protocols/Aws_ec2";
+import { XmlListsOutput } from "../models/models_0";
+import { de_XmlListsCommand, se_XmlListsCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link XmlListsCommand}.
+ */
 export interface XmlListsCommandInput {}
+/**
+ * @public
+ *
+ * The output of {@link XmlListsCommand}.
+ */
 export interface XmlListsCommandOutput extends XmlListsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * This test case serializes XML lists for the following cases for both
  * input and output:
  *
@@ -37,13 +48,17 @@ export interface XmlListsCommandOutput extends XmlListsOutput, __MetadataBearer 
  * import { EC2ProtocolClient, XmlListsCommand } from "@aws-sdk/aws-protocoltests-ec2"; // ES Modules import
  * // const { EC2ProtocolClient, XmlListsCommand } = require("@aws-sdk/aws-protocoltests-ec2"); // CommonJS import
  * const client = new EC2ProtocolClient(config);
+ * const input = {};
  * const command = new XmlListsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param XmlListsCommandInput - {@link XmlListsCommandInput}
+ * @returns {@link XmlListsCommandOutput}
  * @see {@link XmlListsCommandInput} for command's `input` shape.
  * @see {@link XmlListsCommandOutput} for command's `response` shape.
  * @see {@link EC2ProtocolClientResolvedConfig | config} for EC2ProtocolClient's `config` shape.
+ *
  *
  */
 export class XmlListsCommand extends $Command<
@@ -54,6 +69,9 @@ export class XmlListsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: XmlListsCommandInput) {
     // Start section: command_constructor
     super();
@@ -79,8 +97,8 @@ export class XmlListsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: XmlListsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -90,12 +108,18 @@ export class XmlListsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: XmlListsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2XmlListsCommand(input, context);
+    return se_XmlListsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlListsCommandOutput> {
-    return deserializeAws_ec2XmlListsCommand(output, context);
+    return de_XmlListsCommand(output, context);
   }
 
   // Start section: command_body_extra

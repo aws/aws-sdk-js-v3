@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteJobTemplateRequest, DeleteJobTemplateRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteJobTemplateCommand,
-  serializeAws_restJson1DeleteJobTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteJobTemplateRequest } from "../models/models_0";
+import { de_DeleteJobTemplateCommand, se_DeleteJobTemplateCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteJobTemplateCommand}.
+ */
 export interface DeleteJobTemplateCommandInput extends DeleteJobTemplateRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteJobTemplateCommand}.
+ */
 export interface DeleteJobTemplateCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified job template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +39,31 @@ export interface DeleteJobTemplateCommandOutput extends __MetadataBearer {}
  * import { IoTClient, DeleteJobTemplateCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeleteJobTemplateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // DeleteJobTemplateRequest
+ *   jobTemplateId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteJobTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteJobTemplateCommandInput - {@link DeleteJobTemplateCommandInput}
+ * @returns {@link DeleteJobTemplateCommandOutput}
  * @see {@link DeleteJobTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteJobTemplateCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
  *
  */
 export class DeleteJobTemplateCommand extends $Command<
@@ -57,6 +83,9 @@ export class DeleteJobTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteJobTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +114,8 @@ export class DeleteJobTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteJobTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +125,18 @@ export class DeleteJobTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteJobTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteJobTemplateCommand(input, context);
+    return se_DeleteJobTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteJobTemplateCommandOutput> {
-    return deserializeAws_restJson1DeleteJobTemplateCommand(output, context);
+    return de_DeleteJobTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

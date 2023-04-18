@@ -6,12 +6,11 @@ import {
   ListInvitationsCommandInput,
   ListInvitationsCommandOutput,
 } from "../commands/ListInvitationsCommand";
-import { GuardDuty } from "../GuardDuty";
 import { GuardDutyClient } from "../GuardDutyClient";
 import { GuardDutyPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: GuardDutyClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListInvitationsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: GuardDuty,
-  input: ListInvitationsCommandInput,
-  ...args: any
-): Promise<ListInvitationsCommandOutput> => {
-  // @ts-ignore
-  return await client.listInvitations(input, ...args);
-};
 export async function* paginateListInvitations(
   config: GuardDutyPaginationConfiguration,
   input: ListInvitationsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListInvitations(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof GuardDuty) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof GuardDutyClient) {
+    if (config.client instanceof GuardDutyClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected GuardDuty | GuardDutyClient");

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
-import {
-  CreateTemplateRequest,
-  CreateTemplateRequestFilterSensitiveLog,
-  CreateTemplateResponse,
-  CreateTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateTemplateCommand,
-  serializeAws_restJson1CreateTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateTemplateRequest, CreateTemplateResponse } from "../models/models_0";
+import { de_CreateTemplateCommand, se_CreateTemplateCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateTemplateCommand}.
+ */
 export interface CreateTemplateCommandInput extends CreateTemplateRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateTemplateCommand}.
+ */
 export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a template in the Cases domain. This template is used to define the case object
  *       model (that is, to define what data can be captured on cases) in a Cases domain. A template
  *       must have a unique name within a domain, and it must reference existing field IDs and layout
@@ -41,13 +44,56 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  * import { ConnectCasesClient, CreateTemplateCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, CreateTemplateCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
  * const client = new ConnectCasesClient(config);
+ * const input = { // CreateTemplateRequest
+ *   domainId: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   layoutConfiguration: { // LayoutConfiguration
+ *     defaultLayout: "STRING_VALUE",
+ *   },
+ *   requiredFields: [ // RequiredFieldList
+ *     { // RequiredField
+ *       fieldId: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   status: "STRING_VALUE",
+ * };
  * const command = new CreateTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTemplateCommandInput - {@link CreateTemplateCommandInput}
+ * @returns {@link CreateTemplateCommandOutput}
  * @see {@link CreateTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateTemplateCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The requested operation would cause a conflict with the current state of a service
+ *       resource associated with the request. Resolve the conflict before retrying this request. See
+ *       the accompanying error message for details.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>We couldn't process your request because of an issue with the server. Try again
+ *       later.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>We couldn't find the requested resource. Check that your resources exists and were created
+ *       in the same Amazon Web Services Region as your request, and try your request again.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The service quota has been exceeded. For a list of service quotas, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the <i>Amazon Connect
+ *         Administrator Guide</i>.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate has been exceeded for this API. Please try again after a few minutes.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request isn't valid. Check the syntax and try again.</p>
+ *
  *
  */
 export class CreateTemplateCommand extends $Command<
@@ -67,6 +113,9 @@ export class CreateTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +144,8 @@ export class CreateTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +155,18 @@ export class CreateTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateTemplateCommand(input, context);
+    return se_CreateTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTemplateCommandOutput> {
-    return deserializeAws_restJson1CreateTemplateCommand(output, context);
+    return de_CreateTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

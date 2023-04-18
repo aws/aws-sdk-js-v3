@@ -16,22 +16,31 @@ import {
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import {
   BatchImportEvidenceToAssessmentControlRequest,
-  BatchImportEvidenceToAssessmentControlRequestFilterSensitiveLog,
   BatchImportEvidenceToAssessmentControlResponse,
-  BatchImportEvidenceToAssessmentControlResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1BatchImportEvidenceToAssessmentControlCommand,
-  serializeAws_restJson1BatchImportEvidenceToAssessmentControlCommand,
+  de_BatchImportEvidenceToAssessmentControlCommand,
+  se_BatchImportEvidenceToAssessmentControlCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchImportEvidenceToAssessmentControlCommand}.
+ */
 export interface BatchImportEvidenceToAssessmentControlCommandInput
   extends BatchImportEvidenceToAssessmentControlRequest {}
+/**
+ * @public
+ *
+ * The output of {@link BatchImportEvidenceToAssessmentControlCommand}.
+ */
 export interface BatchImportEvidenceToAssessmentControlCommandOutput
   extends BatchImportEvidenceToAssessmentControlResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Uploads one or more pieces of evidence to a control in an Audit Manager assessment.
  *          You can upload manual evidence from any Amazon Simple Storage Service (Amazon S3) bucket by
  *          specifying the S3 URI of the evidence. </p>
@@ -60,13 +69,40 @@ export interface BatchImportEvidenceToAssessmentControlCommandOutput
  * import { AuditManagerClient, BatchImportEvidenceToAssessmentControlCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, BatchImportEvidenceToAssessmentControlCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = { // BatchImportEvidenceToAssessmentControlRequest
+ *   assessmentId: "STRING_VALUE", // required
+ *   controlSetId: "STRING_VALUE", // required
+ *   controlId: "STRING_VALUE", // required
+ *   manualEvidence: [ // ManualEvidenceList // required
+ *     { // ManualEvidence
+ *       s3ResourcePath: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new BatchImportEvidenceToAssessmentControlCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchImportEvidenceToAssessmentControlCommandInput - {@link BatchImportEvidenceToAssessmentControlCommandInput}
+ * @returns {@link BatchImportEvidenceToAssessmentControlCommandOutput}
  * @see {@link BatchImportEvidenceToAssessmentControlCommandInput} for command's `input` shape.
  * @see {@link BatchImportEvidenceToAssessmentControlCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p> Your account isn't registered with Audit Manager. Check the delegated
+ *          administrator setup on the Audit Manager settings page, and try again. </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> An internal service error occurred during the processing of your request. Try again
+ *          later. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p> The resource that's specified in the request can't be found. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p> The request has invalid or missing parameters. </p>
+ *
  *
  */
 export class BatchImportEvidenceToAssessmentControlCommand extends $Command<
@@ -86,6 +122,9 @@ export class BatchImportEvidenceToAssessmentControlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchImportEvidenceToAssessmentControlCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +153,8 @@ export class BatchImportEvidenceToAssessmentControlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchImportEvidenceToAssessmentControlRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchImportEvidenceToAssessmentControlResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,18 +164,24 @@ export class BatchImportEvidenceToAssessmentControlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchImportEvidenceToAssessmentControlCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchImportEvidenceToAssessmentControlCommand(input, context);
+    return se_BatchImportEvidenceToAssessmentControlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchImportEvidenceToAssessmentControlCommandOutput> {
-    return deserializeAws_restJson1BatchImportEvidenceToAssessmentControlCommand(output, context);
+    return de_BatchImportEvidenceToAssessmentControlCommand(output, context);
   }
 
   // Start section: command_body_extra

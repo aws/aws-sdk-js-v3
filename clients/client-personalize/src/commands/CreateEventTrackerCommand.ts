@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateEventTrackerRequest,
-  CreateEventTrackerRequestFilterSensitiveLog,
-  CreateEventTrackerResponse,
-  CreateEventTrackerResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateEventTrackerRequest, CreateEventTrackerResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1CreateEventTrackerCommand,
-  serializeAws_json1_1CreateEventTrackerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateEventTrackerCommand, se_CreateEventTrackerCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateEventTrackerCommand}.
+ */
 export interface CreateEventTrackerCommandInput extends CreateEventTrackerRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateEventTrackerCommand}.
+ */
 export interface CreateEventTrackerCommandOutput extends CreateEventTrackerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an event tracker that you use when adding event data to a specified dataset
  *       group using the
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html">PutEvents</a> API.</p>
@@ -81,13 +84,44 @@ export interface CreateEventTrackerCommandOutput extends CreateEventTrackerRespo
  * import { PersonalizeClient, CreateEventTrackerCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, CreateEventTrackerCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // CreateEventTrackerRequest
+ *   name: "STRING_VALUE", // required
+ *   datasetGroupArn: "STRING_VALUE", // required
+ *   tags: [ // Tags
+ *     { // Tag
+ *       tagKey: "STRING_VALUE", // required
+ *       tagValue: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateEventTrackerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEventTrackerCommandInput - {@link CreateEventTrackerCommandInput}
+ * @returns {@link CreateEventTrackerCommandOutput}
  * @see {@link CreateEventTrackerCommandInput} for command's `input` shape.
  * @see {@link CreateEventTrackerCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The limit on the number of requests per second has been exceeded.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The specified resource already exists.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is in use.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Could not find the specified resource.</p>
+ *
+ * @throws {@link TooManyTagsException} (client fault)
+ *  <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
+ *
  *
  */
 export class CreateEventTrackerCommand extends $Command<
@@ -107,6 +141,9 @@ export class CreateEventTrackerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEventTrackerCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,8 +172,8 @@ export class CreateEventTrackerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateEventTrackerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateEventTrackerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -146,12 +183,18 @@ export class CreateEventTrackerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEventTrackerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateEventTrackerCommand(input, context);
+    return se_CreateEventTrackerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEventTrackerCommandOutput> {
-    return deserializeAws_json1_1CreateEventTrackerCommand(output, context);
+    return de_CreateEventTrackerCommand(output, context);
   }
 
   // Start section: command_body_extra

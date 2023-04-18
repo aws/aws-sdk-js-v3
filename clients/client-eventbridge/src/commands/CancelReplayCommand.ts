@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import {
-  CancelReplayRequest,
-  CancelReplayRequestFilterSensitiveLog,
-  CancelReplayResponse,
-  CancelReplayResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CancelReplayCommand,
-  serializeAws_json1_1CancelReplayCommand,
-} from "../protocols/Aws_json1_1";
+import { CancelReplayRequest, CancelReplayResponse } from "../models/models_0";
+import { de_CancelReplayCommand, se_CancelReplayCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CancelReplayCommand}.
+ */
 export interface CancelReplayCommandInput extends CancelReplayRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CancelReplayCommand}.
+ */
 export interface CancelReplayCommandOutput extends CancelReplayResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels the specified replay.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,32 @@ export interface CancelReplayCommandOutput extends CancelReplayResponse, __Metad
  * import { EventBridgeClient, CancelReplayCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, CancelReplayCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
+ * const input = { // CancelReplayRequest
+ *   ReplayName: "STRING_VALUE", // required
+ * };
  * const command = new CancelReplayCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelReplayCommandInput - {@link CancelReplayCommandInput}
+ * @returns {@link CancelReplayCommandOutput}
  * @see {@link CancelReplayCommandInput} for command's `input` shape.
  * @see {@link CancelReplayCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+ *
+ * @throws {@link IllegalStatusException} (client fault)
+ *  <p>An error occurred because a replay can be canceled only when the state is Running or
+ *       Starting.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An entity that you specified does not exist.</p>
+ *
  *
  */
 export class CancelReplayCommand extends $Command<
@@ -62,6 +84,9 @@ export class CancelReplayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelReplayCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +113,8 @@ export class CancelReplayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelReplayRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelReplayResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +124,18 @@ export class CancelReplayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelReplayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CancelReplayCommand(input, context);
+    return se_CancelReplayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelReplayCommandOutput> {
-    return deserializeAws_json1_1CancelReplayCommand(output, context);
+    return de_CancelReplayCommand(output, context);
   }
 
   // Start section: command_body_extra

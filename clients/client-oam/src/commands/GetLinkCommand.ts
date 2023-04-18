@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetLinkInput,
-  GetLinkInputFilterSensitiveLog,
-  GetLinkOutput,
-  GetLinkOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GetLinkInput, GetLinkOutput } from "../models/models_0";
 import { OAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OAMClient";
-import {
-  deserializeAws_restJson1GetLinkCommand,
-  serializeAws_restJson1GetLinkCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetLinkCommand, se_GetLinkCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetLinkCommand}.
+ */
 export interface GetLinkCommandInput extends GetLinkInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetLinkCommand}.
+ */
 export interface GetLinkCommandOutput extends GetLinkOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns complete information about one link.</p>
  *         <p>To use this operation, provide the link ARN. To retrieve a list of link ARNs, use <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListLinks.html">ListLinks</a>.</p>
  * @example
@@ -37,13 +40,31 @@ export interface GetLinkCommandOutput extends GetLinkOutput, __MetadataBearer {}
  * import { OAMClient, GetLinkCommand } from "@aws-sdk/client-oam"; // ES Modules import
  * // const { OAMClient, GetLinkCommand } = require("@aws-sdk/client-oam"); // CommonJS import
  * const client = new OAMClient(config);
+ * const input = { // GetLinkInput
+ *   Identifier: "STRING_VALUE", // required
+ * };
  * const command = new GetLinkCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLinkCommandInput - {@link GetLinkCommandInput}
+ * @returns {@link GetLinkCommandOutput}
  * @see {@link GetLinkCommandInput} for command's `input` shape.
  * @see {@link GetLinkCommandOutput} for command's `response` shape.
  * @see {@link OAMClientResolvedConfig | config} for OAMClient's `config` shape.
+ *
+ * @throws {@link InternalServiceFault} (server fault)
+ *  <p>Unexpected error while processing the request. Retry the request.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter is specified incorrectly.</p>
+ *
+ * @throws {@link MissingRequiredParameterException} (client fault)
+ *  <p>A required parameter is missing from the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a resource that does not exist.</p>
+ *
  *
  */
 export class GetLinkCommand extends $Command<GetLinkCommandInput, GetLinkCommandOutput, OAMClientResolvedConfig> {
@@ -59,6 +80,9 @@ export class GetLinkCommand extends $Command<GetLinkCommandInput, GetLinkCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLinkCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +109,8 @@ export class GetLinkCommand extends $Command<GetLinkCommandInput, GetLinkCommand
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLinkInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetLinkOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +120,18 @@ export class GetLinkCommand extends $Command<GetLinkCommandInput, GetLinkCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetLinkCommand(input, context);
+    return se_GetLinkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLinkCommandOutput> {
-    return deserializeAws_restJson1GetLinkCommand(output, context);
+    return de_GetLinkCommand(output, context);
   }
 
   // Start section: command_body_extra

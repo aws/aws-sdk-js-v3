@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
-import {
-  DeleteGrantRequest,
-  DeleteGrantRequestFilterSensitiveLog,
-  DeleteGrantResponse,
-  DeleteGrantResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteGrantCommand,
-  serializeAws_json1_1DeleteGrantCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteGrantRequest, DeleteGrantResponse } from "../models/models_0";
+import { de_DeleteGrantCommand, se_DeleteGrantCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteGrantCommand}.
+ */
 export interface DeleteGrantCommandInput extends DeleteGrantRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteGrantCommand}.
+ */
 export interface DeleteGrantCommandOutput extends DeleteGrantResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified grant.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,43 @@ export interface DeleteGrantCommandOutput extends DeleteGrantResponse, __Metadat
  * import { LicenseManagerClient, DeleteGrantCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, DeleteGrantCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = { // DeleteGrantRequest
+ *   GrantArn: "STRING_VALUE", // required
+ *   StatusReason: "STRING_VALUE",
+ *   Version: "STRING_VALUE", // required
+ * };
  * const command = new DeleteGrantCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteGrantCommandInput - {@link DeleteGrantCommandInput}
+ * @returns {@link DeleteGrantCommandOutput}
  * @see {@link DeleteGrantCommandInput} for command's `input` shape.
  * @see {@link DeleteGrantCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to resource denied.</p>
+ *
+ * @throws {@link AuthorizationException} (client fault)
+ *  <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM
+ *          policy associated with this account.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ * @throws {@link RateLimitExceededException} (client fault)
+ *  <p>Too many requests have been submitted. Try again after a brief wait.</p>
+ *
+ * @throws {@link ResourceLimitExceededException} (client fault)
+ *  <p>Your resource limits have been exceeded.</p>
+ *
+ * @throws {@link ServerInternalException} (server fault)
+ *  <p>The server experienced an internal error. Try again.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The provided input is not valid. Try your request again.</p>
+ *
  *
  */
 export class DeleteGrantCommand extends $Command<
@@ -62,6 +95,9 @@ export class DeleteGrantCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteGrantCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +124,8 @@ export class DeleteGrantCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteGrantRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteGrantResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +135,18 @@ export class DeleteGrantCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteGrantCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteGrantCommand(input, context);
+    return se_DeleteGrantCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGrantCommandOutput> {
-    return deserializeAws_json1_1DeleteGrantCommand(output, context);
+    return de_DeleteGrantCommand(output, context);
   }
 
   // Start section: command_body_extra

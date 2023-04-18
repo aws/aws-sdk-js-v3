@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ChimeSDKMediaPipelinesClient";
-import {
-  ListMediaPipelinesRequest,
-  ListMediaPipelinesRequestFilterSensitiveLog,
-  ListMediaPipelinesResponse,
-  ListMediaPipelinesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListMediaPipelinesCommand,
-  serializeAws_restJson1ListMediaPipelinesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListMediaPipelinesRequest, ListMediaPipelinesResponse } from "../models/models_0";
+import { de_ListMediaPipelinesCommand, se_ListMediaPipelinesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListMediaPipelinesCommand}.
+ */
 export interface ListMediaPipelinesCommandInput extends ListMediaPipelinesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListMediaPipelinesCommand}.
+ */
 export interface ListMediaPipelinesCommandOutput extends ListMediaPipelinesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of media pipelines.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,41 @@ export interface ListMediaPipelinesCommandOutput extends ListMediaPipelinesRespo
  * import { ChimeSDKMediaPipelinesClient, ListMediaPipelinesCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
  * // const { ChimeSDKMediaPipelinesClient, ListMediaPipelinesCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
  * const client = new ChimeSDKMediaPipelinesClient(config);
+ * const input = { // ListMediaPipelinesRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListMediaPipelinesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMediaPipelinesCommandInput - {@link ListMediaPipelinesCommandInput}
+ * @returns {@link ListMediaPipelinesCommandOutput}
  * @see {@link ListMediaPipelinesCommandInput} for command's `input` shape.
  * @see {@link ListMediaPipelinesCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMediaPipelinesClientResolvedConfig | config} for ChimeSDKMediaPipelinesClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link ResourceLimitExceededException} (client fault)
+ *  <p>The request exceeds the resource limit.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The client exceeded its request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client is not currently authorized to make the request.</p>
+ *
  *
  */
 export class ListMediaPipelinesCommand extends $Command<
@@ -66,6 +97,9 @@ export class ListMediaPipelinesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMediaPipelinesCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +128,8 @@ export class ListMediaPipelinesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMediaPipelinesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMediaPipelinesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +139,18 @@ export class ListMediaPipelinesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMediaPipelinesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListMediaPipelinesCommand(input, context);
+    return se_ListMediaPipelinesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMediaPipelinesCommandOutput> {
-    return deserializeAws_restJson1ListMediaPipelinesCommand(output, context);
+    return de_ListMediaPipelinesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,18 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
-import {
-  RemoveTagsInput,
-  RemoveTagsInputFilterSensitiveLog,
-  RemoveTagsOutput,
-  RemoveTagsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_queryRemoveTagsCommand, serializeAws_queryRemoveTagsCommand } from "../protocols/Aws_query";
+import { RemoveTagsInput, RemoveTagsOutput } from "../models/models_0";
+import { de_RemoveTagsCommand, se_RemoveTagsCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link RemoveTagsCommand}.
+ */
 export interface RemoveTagsCommandInput extends RemoveTagsInput {}
+/**
+ * @public
+ *
+ * The output of {@link RemoveTagsCommand}.
+ */
 export interface RemoveTagsCommandOutput extends RemoveTagsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes one or more tags from the specified load balancer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,13 +43,47 @@ export interface RemoveTagsCommandOutput extends RemoveTagsOutput, __MetadataBea
  * import { ElasticLoadBalancingClient, RemoveTagsCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
  * // const { ElasticLoadBalancingClient, RemoveTagsCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
+ * const input = { // RemoveTagsInput
+ *   LoadBalancerNames: [ // LoadBalancerNames // required
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [ // TagKeyList // required
+ *     { // TagKeyOnly
+ *       Key: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new RemoveTagsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveTagsCommandInput - {@link RemoveTagsCommandInput}
+ * @returns {@link RemoveTagsCommandOutput}
  * @see {@link RemoveTagsCommandInput} for command's `input` shape.
  * @see {@link RemoveTagsCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
+ *
+ * @throws {@link AccessPointNotFoundException} (client fault)
+ *  <p>The specified load balancer does not exist.</p>
+ *
+ *
+ * @example To remove tags from a load balancer
+ * ```javascript
+ * // This example removes the specified tag from the specified load balancer.
+ * const input = {
+ *   "LoadBalancerNames": [
+ *     "my-load-balancer"
+ *   ],
+ *   "Tags": [
+ *     {
+ *       "Key": "project"
+ *     }
+ *   ]
+ * };
+ * const command = new RemoveTagsCommand(input);
+ * await client.send(command);
+ * // example id: elb-remove-tags-1
+ * ```
  *
  */
 export class RemoveTagsCommand extends $Command<
@@ -63,6 +103,9 @@ export class RemoveTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +132,8 @@ export class RemoveTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveTagsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: RemoveTagsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +143,18 @@ export class RemoveTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRemoveTagsCommand(input, context);
+    return se_RemoveTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveTagsCommandOutput> {
-    return deserializeAws_queryRemoveTagsCommand(output, context);
+    return de_RemoveTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

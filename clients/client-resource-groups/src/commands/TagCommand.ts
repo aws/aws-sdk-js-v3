@@ -13,29 +13,40 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { TagInput, TagInputFilterSensitiveLog, TagOutput, TagOutputFilterSensitiveLog } from "../models/models_0";
-import { deserializeAws_restJson1TagCommand, serializeAws_restJson1TagCommand } from "../protocols/Aws_restJson1";
+import { TagInput, TagOutput } from "../models/models_0";
+import { de_TagCommand, se_TagCommand } from "../protocols/Aws_restJson1";
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
 
+/**
+ * @public
+ *
+ * The input for {@link TagCommand}.
+ */
 export interface TagCommandInput extends TagInput {}
+/**
+ * @public
+ *
+ * The output of {@link TagCommand}.
+ */
 export interface TagCommandOutput extends TagOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds tags to a resource group with the specified ARN. Existing tags on a resource
  *             group are not changed if they are not specified in the request parameters.</p>
- *         <important>
+ *          <important>
  *             <p>Do not store personally identifiable information (PII) or other confidential or
  *                 sensitive information in tags. We use tags to provide you with billing and
  *                 administration services. Tags are not intended to be used for private or sensitive
  *                 data.</p>
- *         </important>
- *         <p>
+ *          </important>
+ *          <p>
  *             <b>Minimum permissions</b>
  *          </p>
  *          <p>To run this command, you must have the following permissions:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>resource-groups:Tag</code>
  *                </p>
  *             </li>
@@ -46,13 +57,41 @@ export interface TagCommandOutput extends TagOutput, __MetadataBearer {}
  * import { ResourceGroupsClient, TagCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
  * // const { ResourceGroupsClient, TagCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
  * const client = new ResourceGroupsClient(config);
+ * const input = { // TagInput
+ *   Arn: "STRING_VALUE", // required
+ *   Tags: { // Tags // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new TagCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TagCommandInput - {@link TagCommandInput}
+ * @returns {@link TagCommandOutput}
  * @see {@link TagCommandInput} for command's `input` shape.
  * @see {@link TagCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request includes one or more parameters that violate validation rules.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The caller isn't authorized to make the request. Check permissions.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>An internal error occurred while processing the request. Try again later.</p>
+ *
+ * @throws {@link MethodNotAllowedException} (client fault)
+ *  <p>The request uses an HTTP method that isn't allowed for the specified resource.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>One or more of the specified resources don't exist.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>You've exceeded throttling limits by making too many requests in a period of
+ *             time.</p>
+ *
  *
  */
 export class TagCommand extends $Command<TagCommandInput, TagCommandOutput, ResourceGroupsClientResolvedConfig> {
@@ -68,6 +107,9 @@ export class TagCommand extends $Command<TagCommandInput, TagCommandOutput, Reso
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TagCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +136,8 @@ export class TagCommand extends $Command<TagCommandInput, TagCommandOutput, Reso
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagInputFilterSensitiveLog,
-      outputFilterSensitiveLog: TagOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +147,18 @@ export class TagCommand extends $Command<TagCommandInput, TagCommandOutput, Reso
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TagCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1TagCommand(input, context);
+    return se_TagCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagCommandOutput> {
-    return deserializeAws_restJson1TagCommand(output, context);
+    return de_TagCommand(output, context);
   }
 
   // Start section: command_body_extra

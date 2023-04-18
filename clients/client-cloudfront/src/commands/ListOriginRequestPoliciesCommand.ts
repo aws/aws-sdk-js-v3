@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  ListOriginRequestPoliciesRequest,
-  ListOriginRequestPoliciesRequestFilterSensitiveLog,
-  ListOriginRequestPoliciesResult,
-  ListOriginRequestPoliciesResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlListOriginRequestPoliciesCommand,
-  serializeAws_restXmlListOriginRequestPoliciesCommand,
-} from "../protocols/Aws_restXml";
+import { ListOriginRequestPoliciesRequest, ListOriginRequestPoliciesResult } from "../models/models_1";
+import { de_ListOriginRequestPoliciesCommand, se_ListOriginRequestPoliciesCommand } from "../protocols/Aws_restXml";
 
+/**
+ * @public
+ *
+ * The input for {@link ListOriginRequestPoliciesCommand}.
+ */
 export interface ListOriginRequestPoliciesCommandInput extends ListOriginRequestPoliciesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListOriginRequestPoliciesCommand}.
+ */
 export interface ListOriginRequestPoliciesCommandOutput extends ListOriginRequestPoliciesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of origin request policies.</p>
  *          <p>You can optionally apply a filter to return only the managed policies created by
  * 			Amazon Web Services, or only the custom policies created in your Amazon Web Services account.</p>
@@ -43,13 +46,30 @@ export interface ListOriginRequestPoliciesCommandOutput extends ListOriginReques
  * import { CloudFrontClient, ListOriginRequestPoliciesCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListOriginRequestPoliciesCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // ListOriginRequestPoliciesRequest
+ *   Type: "managed" || "custom",
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListOriginRequestPoliciesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOriginRequestPoliciesCommandInput - {@link ListOriginRequestPoliciesCommandInput}
+ * @returns {@link ListOriginRequestPoliciesCommandOutput}
  * @see {@link ListOriginRequestPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListOriginRequestPoliciesCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link NoSuchOriginRequestPolicy} (client fault)
+ *  <p>The origin request policy does not exist.</p>
+ *
  *
  */
 export class ListOriginRequestPoliciesCommand extends $Command<
@@ -69,6 +89,9 @@ export class ListOriginRequestPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOriginRequestPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +120,8 @@ export class ListOriginRequestPoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListOriginRequestPoliciesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListOriginRequestPoliciesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,15 +131,21 @@ export class ListOriginRequestPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListOriginRequestPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListOriginRequestPoliciesCommand(input, context);
+    return se_ListOriginRequestPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListOriginRequestPoliciesCommandOutput> {
-    return deserializeAws_restXmlListOriginRequestPoliciesCommand(output, context);
+    return de_ListOriginRequestPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

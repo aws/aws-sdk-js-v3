@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteDiscovererRequest, DeleteDiscovererRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteDiscovererCommand,
-  serializeAws_restJson1DeleteDiscovererCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteDiscovererRequest } from "../models/models_0";
+import { de_DeleteDiscovererCommand, se_DeleteDiscovererCommand } from "../protocols/Aws_restJson1";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteDiscovererCommand}.
+ */
 export interface DeleteDiscovererCommandInput extends DeleteDiscovererRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteDiscovererCommand}.
+ */
 export interface DeleteDiscovererCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a discoverer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +39,31 @@ export interface DeleteDiscovererCommandOutput extends __MetadataBearer {}
  * import { SchemasClient, DeleteDiscovererCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, DeleteDiscovererCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
  * const client = new SchemasClient(config);
+ * const input = { // DeleteDiscovererRequest
+ *   DiscovererId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDiscovererCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDiscovererCommandInput - {@link DeleteDiscovererCommandInput}
+ * @returns {@link DeleteDiscovererCommandOutput}
  * @see {@link DeleteDiscovererCommandInput} for command's `input` shape.
  * @see {@link DeleteDiscovererCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *
  *
  */
 export class DeleteDiscovererCommand extends $Command<
@@ -57,6 +83,9 @@ export class DeleteDiscovererCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDiscovererCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +114,8 @@ export class DeleteDiscovererCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDiscovererRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +125,18 @@ export class DeleteDiscovererCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDiscovererCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDiscovererCommand(input, context);
+    return se_DeleteDiscovererCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDiscovererCommandOutput> {
-    return deserializeAws_restJson1DeleteDiscovererCommand(output, context);
+    return de_DeleteDiscovererCommand(output, context);
   }
 
   // Start section: command_body_extra

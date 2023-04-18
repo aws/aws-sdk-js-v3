@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import {
-  BatchGetBuildsInput,
-  BatchGetBuildsInputFilterSensitiveLog,
-  BatchGetBuildsOutput,
-  BatchGetBuildsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchGetBuildsCommand,
-  serializeAws_json1_1BatchGetBuildsCommand,
-} from "../protocols/Aws_json1_1";
+import { BatchGetBuildsInput, BatchGetBuildsOutput } from "../models/models_0";
+import { de_BatchGetBuildsCommand, se_BatchGetBuildsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchGetBuildsCommand}.
+ */
 export interface BatchGetBuildsCommandInput extends BatchGetBuildsInput {}
+/**
+ * @public
+ *
+ * The output of {@link BatchGetBuildsCommand}.
+ */
 export interface BatchGetBuildsCommandOutput extends BatchGetBuildsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about one or more builds.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,24 @@ export interface BatchGetBuildsCommandOutput extends BatchGetBuildsOutput, __Met
  * import { CodeBuildClient, BatchGetBuildsCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, BatchGetBuildsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = { // BatchGetBuildsInput
+ *   ids: [ // BuildIds // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchGetBuildsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetBuildsCommandInput - {@link BatchGetBuildsCommandInput}
+ * @returns {@link BatchGetBuildsCommandOutput}
  * @see {@link BatchGetBuildsCommandInput} for command's `input` shape.
  * @see {@link BatchGetBuildsCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input value that was provided is not valid.</p>
+ *
  *
  */
 export class BatchGetBuildsCommand extends $Command<
@@ -62,6 +76,9 @@ export class BatchGetBuildsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetBuildsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +107,8 @@ export class BatchGetBuildsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetBuildsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetBuildsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +118,18 @@ export class BatchGetBuildsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetBuildsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchGetBuildsCommand(input, context);
+    return se_BatchGetBuildsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetBuildsCommandOutput> {
-    return deserializeAws_json1_1BatchGetBuildsCommand(output, context);
+    return de_BatchGetBuildsCommand(output, context);
   }
 
   // Start section: command_body_extra

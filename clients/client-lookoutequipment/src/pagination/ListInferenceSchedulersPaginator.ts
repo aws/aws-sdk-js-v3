@@ -6,12 +6,11 @@ import {
   ListInferenceSchedulersCommandInput,
   ListInferenceSchedulersCommandOutput,
 } from "../commands/ListInferenceSchedulersCommand";
-import { LookoutEquipment } from "../LookoutEquipment";
 import { LookoutEquipmentClient } from "../LookoutEquipmentClient";
 import { LookoutEquipmentPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: LookoutEquipmentClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListInferenceSchedulersCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: LookoutEquipment,
-  input: ListInferenceSchedulersCommandInput,
-  ...args: any
-): Promise<ListInferenceSchedulersCommandOutput> => {
-  // @ts-ignore
-  return await client.listInferenceSchedulers(input, ...args);
-};
 export async function* paginateListInferenceSchedulers(
   config: LookoutEquipmentPaginationConfiguration,
   input: ListInferenceSchedulersCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListInferenceSchedulers(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof LookoutEquipment) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof LookoutEquipmentClient) {
+    if (config.client instanceof LookoutEquipmentClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected LookoutEquipment | LookoutEquipmentClient");

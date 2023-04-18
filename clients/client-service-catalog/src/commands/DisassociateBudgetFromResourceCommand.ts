@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DisassociateBudgetFromResourceInput, DisassociateBudgetFromResourceOutput } from "../models/models_0";
 import {
-  DisassociateBudgetFromResourceInput,
-  DisassociateBudgetFromResourceInputFilterSensitiveLog,
-  DisassociateBudgetFromResourceOutput,
-  DisassociateBudgetFromResourceOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DisassociateBudgetFromResourceCommand,
-  serializeAws_json1_1DisassociateBudgetFromResourceCommand,
+  de_DisassociateBudgetFromResourceCommand,
+  se_DisassociateBudgetFromResourceCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DisassociateBudgetFromResourceCommand}.
+ */
 export interface DisassociateBudgetFromResourceCommandInput extends DisassociateBudgetFromResourceInput {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateBudgetFromResourceCommand}.
+ */
 export interface DisassociateBudgetFromResourceCommandOutput
   extends DisassociateBudgetFromResourceOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates the specified budget from the specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,23 @@ export interface DisassociateBudgetFromResourceCommandOutput
  * import { ServiceCatalogClient, DisassociateBudgetFromResourceCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DisassociateBudgetFromResourceCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // DisassociateBudgetFromResourceInput
+ *   BudgetName: "STRING_VALUE", // required
+ *   ResourceId: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateBudgetFromResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateBudgetFromResourceCommandInput - {@link DisassociateBudgetFromResourceCommandInput}
+ * @returns {@link DisassociateBudgetFromResourceCommandOutput}
  * @see {@link DisassociateBudgetFromResourceCommandInput} for command's `input` shape.
  * @see {@link DisassociateBudgetFromResourceCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class DisassociateBudgetFromResourceCommand extends $Command<
@@ -64,6 +80,9 @@ export class DisassociateBudgetFromResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateBudgetFromResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +111,8 @@ export class DisassociateBudgetFromResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateBudgetFromResourceInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateBudgetFromResourceOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +122,24 @@ export class DisassociateBudgetFromResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateBudgetFromResourceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateBudgetFromResourceCommand(input, context);
+    return se_DisassociateBudgetFromResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateBudgetFromResourceCommandOutput> {
-    return deserializeAws_json1_1DisassociateBudgetFromResourceCommand(output, context);
+    return de_DisassociateBudgetFromResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

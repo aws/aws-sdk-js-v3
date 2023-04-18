@@ -18,23 +18,26 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
-import {
-  DescribeLoadBalancerPoliciesInput,
-  DescribeLoadBalancerPoliciesInputFilterSensitiveLog,
-  DescribeLoadBalancerPoliciesOutput,
-  DescribeLoadBalancerPoliciesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeLoadBalancerPoliciesCommand,
-  serializeAws_queryDescribeLoadBalancerPoliciesCommand,
-} from "../protocols/Aws_query";
+import { DescribeLoadBalancerPoliciesInput, DescribeLoadBalancerPoliciesOutput } from "../models/models_0";
+import { de_DescribeLoadBalancerPoliciesCommand, se_DescribeLoadBalancerPoliciesCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeLoadBalancerPoliciesCommand}.
+ */
 export interface DescribeLoadBalancerPoliciesCommandInput extends DescribeLoadBalancerPoliciesInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeLoadBalancerPoliciesCommand}.
+ */
 export interface DescribeLoadBalancerPoliciesCommandOutput
   extends DescribeLoadBalancerPoliciesOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified policies.</p>
  *          <p>If you specify a load balancer name, the action returns the descriptions of all policies created for the load balancer.
  *     If you specify a policy name associated with your load balancer, the action returns the description of that policy.
@@ -46,13 +49,58 @@ export interface DescribeLoadBalancerPoliciesCommandOutput
  * import { ElasticLoadBalancingClient, DescribeLoadBalancerPoliciesCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
  * // const { ElasticLoadBalancingClient, DescribeLoadBalancerPoliciesCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
+ * const input = { // DescribeLoadBalancerPoliciesInput
+ *   LoadBalancerName: "STRING_VALUE",
+ *   PolicyNames: [ // PolicyNames
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeLoadBalancerPoliciesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLoadBalancerPoliciesCommandInput - {@link DescribeLoadBalancerPoliciesCommandInput}
+ * @returns {@link DescribeLoadBalancerPoliciesCommandOutput}
  * @see {@link DescribeLoadBalancerPoliciesCommandInput} for command's `input` shape.
  * @see {@link DescribeLoadBalancerPoliciesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
+ *
+ * @throws {@link AccessPointNotFoundException} (client fault)
+ *  <p>The specified load balancer does not exist.</p>
+ *
+ * @throws {@link PolicyNotFoundException} (client fault)
+ *  <p>One or more of the specified policies do not exist.</p>
+ *
+ *
+ * @example To describe a policy associated with a load balancer
+ * ```javascript
+ * // This example describes the specified policy associated with the specified load balancer.
+ * const input = {
+ *   "LoadBalancerName": "my-load-balancer",
+ *   "PolicyNames": [
+ *     "my-authentication-policy"
+ *   ]
+ * };
+ * const command = new DescribeLoadBalancerPoliciesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "PolicyDescriptions": [
+ *     {
+ *       "PolicyAttributeDescriptions": [
+ *         {
+ *           "AttributeName": "PublicKeyPolicyName",
+ *           "AttributeValue": "my-PublicKey-policy"
+ *         }
+ *       ],
+ *       "PolicyName": "my-authentication-policy",
+ *       "PolicyTypeName": "BackendServerAuthenticationPolicyType"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: elb-describe-load-balancer-policies-1
+ * ```
  *
  */
 export class DescribeLoadBalancerPoliciesCommand extends $Command<
@@ -72,6 +120,9 @@ export class DescribeLoadBalancerPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLoadBalancerPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +151,8 @@ export class DescribeLoadBalancerPoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLoadBalancerPoliciesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLoadBalancerPoliciesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,15 +162,21 @@ export class DescribeLoadBalancerPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLoadBalancerPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeLoadBalancerPoliciesCommand(input, context);
+    return se_DescribeLoadBalancerPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeLoadBalancerPoliciesCommandOutput> {
-    return deserializeAws_queryDescribeLoadBalancerPoliciesCommand(output, context);
+    return de_DescribeLoadBalancerPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

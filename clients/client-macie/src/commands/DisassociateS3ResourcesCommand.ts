@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MacieClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MacieClient";
-import {
-  DisassociateS3ResourcesRequest,
-  DisassociateS3ResourcesRequestFilterSensitiveLog,
-  DisassociateS3ResourcesResult,
-  DisassociateS3ResourcesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DisassociateS3ResourcesCommand,
-  serializeAws_json1_1DisassociateS3ResourcesCommand,
-} from "../protocols/Aws_json1_1";
+import { DisassociateS3ResourcesRequest, DisassociateS3ResourcesResult } from "../models/models_0";
+import { de_DisassociateS3ResourcesCommand, se_DisassociateS3ResourcesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DisassociateS3ResourcesCommand}.
+ */
 export interface DisassociateS3ResourcesCommandInput extends DisassociateS3ResourcesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateS3ResourcesCommand}.
+ */
 export interface DisassociateS3ResourcesCommandOutput extends DisassociateS3ResourcesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>(Discontinued) Removes specified S3 resources from being monitored by Amazon Macie
  *       Classic. If <code>memberAccountId</code> isn't specified, the action removes specified S3 resources from
  *       Macie Classic for the current Macie Classic administrator account. If <code>memberAccountId</code> is
@@ -40,13 +43,35 @@ export interface DisassociateS3ResourcesCommandOutput extends DisassociateS3Reso
  * import { MacieClient, DisassociateS3ResourcesCommand } from "@aws-sdk/client-macie"; // ES Modules import
  * // const { MacieClient, DisassociateS3ResourcesCommand } = require("@aws-sdk/client-macie"); // CommonJS import
  * const client = new MacieClient(config);
+ * const input = { // DisassociateS3ResourcesRequest
+ *   memberAccountId: "STRING_VALUE",
+ *   associatedS3Resources: [ // S3Resources // required
+ *     { // S3Resource
+ *       bucketName: "STRING_VALUE", // required
+ *       prefix: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new DisassociateS3ResourcesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateS3ResourcesCommandInput - {@link DisassociateS3ResourcesCommandInput}
+ * @returns {@link DisassociateS3ResourcesCommandOutput}
  * @see {@link DisassociateS3ResourcesCommandInput} for command's `input` shape.
  * @see {@link DisassociateS3ResourcesCommandOutput} for command's `response` shape.
  * @see {@link MacieClientResolvedConfig | config} for MacieClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>(Discontinued) You do not have required permissions to access the requested resource.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>(Discontinued) Internal server error.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>(Discontinued) The request was rejected because an invalid or out-of-range value was supplied for an
+ *       input parameter.</p>
+ *
  *
  */
 export class DisassociateS3ResourcesCommand extends $Command<
@@ -66,6 +91,9 @@ export class DisassociateS3ResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateS3ResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +122,8 @@ export class DisassociateS3ResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateS3ResourcesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateS3ResourcesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +133,18 @@ export class DisassociateS3ResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateS3ResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateS3ResourcesCommand(input, context);
+    return se_DisassociateS3ResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateS3ResourcesCommandOutput> {
-    return deserializeAws_json1_1DisassociateS3ResourcesCommand(output, context);
+    return de_DisassociateS3ResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

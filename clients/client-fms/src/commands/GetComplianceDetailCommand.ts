@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import {
-  GetComplianceDetailRequest,
-  GetComplianceDetailRequestFilterSensitiveLog,
-  GetComplianceDetailResponse,
-  GetComplianceDetailResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetComplianceDetailCommand,
-  serializeAws_json1_1GetComplianceDetailCommand,
-} from "../protocols/Aws_json1_1";
+import { GetComplianceDetailRequest, GetComplianceDetailResponse } from "../models/models_0";
+import { de_GetComplianceDetailCommand, se_GetComplianceDetailCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetComplianceDetailCommand}.
+ */
 export interface GetComplianceDetailCommandInput extends GetComplianceDetailRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetComplianceDetailCommand}.
+ */
 export interface GetComplianceDetailCommandOutput extends GetComplianceDetailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns detailed compliance information about the specified member account. Details
  *       include resources that are in and out of compliance with the specified policy. </p>
  *          <ul>
@@ -59,13 +62,37 @@ export interface GetComplianceDetailCommandOutput extends GetComplianceDetailRes
  * import { FMSClient, GetComplianceDetailCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, GetComplianceDetailCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
+ * const input = { // GetComplianceDetailRequest
+ *   PolicyId: "STRING_VALUE", // required
+ *   MemberAccount: "STRING_VALUE", // required
+ * };
  * const command = new GetComplianceDetailCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetComplianceDetailCommandInput - {@link GetComplianceDetailCommandInput}
+ * @returns {@link GetComplianceDetailCommandOutput}
  * @see {@link GetComplianceDetailCommandInput} for command's `input` shape.
  * @see {@link GetComplianceDetailCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (client fault)
+ *  <p>The operation failed because of a system problem, even though the request was valid. Retry
+ *       your request.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The parameters of the request were invalid.</p>
+ *
+ * @throws {@link InvalidOperationException} (client fault)
+ *  <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have
+ *         submitted an <code>AssociateAdminAccount</code> request for an account ID that
+ *             was already set as the Firewall Manager administrator. Or you might have tried to access a Region
+ *   that's disabled by default, and that you need to enable for the Firewall Manager
+ *   administrator account and for Organizations before you can access it.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class GetComplianceDetailCommand extends $Command<
@@ -85,6 +112,9 @@ export class GetComplianceDetailCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetComplianceDetailCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +143,8 @@ export class GetComplianceDetailCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetComplianceDetailRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetComplianceDetailResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +154,18 @@ export class GetComplianceDetailCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetComplianceDetailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetComplianceDetailCommand(input, context);
+    return se_GetComplianceDetailCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetComplianceDetailCommandOutput> {
-    return deserializeAws_json1_1GetComplianceDetailCommand(output, context);
+    return de_GetComplianceDetailCommand(output, context);
   }
 
   // Start section: command_body_extra

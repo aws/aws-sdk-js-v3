@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ReplicateSecretToRegionsRequest,
-  ReplicateSecretToRegionsRequestFilterSensitiveLog,
-  ReplicateSecretToRegionsResponse,
-  ReplicateSecretToRegionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ReplicateSecretToRegionsCommand,
-  serializeAws_json1_1ReplicateSecretToRegionsCommand,
-} from "../protocols/Aws_json1_1";
+import { ReplicateSecretToRegionsRequest, ReplicateSecretToRegionsResponse } from "../models/models_0";
+import { de_ReplicateSecretToRegionsCommand, se_ReplicateSecretToRegionsCommand } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ReplicateSecretToRegionsCommand}.
+ */
 export interface ReplicateSecretToRegionsCommandInput extends ReplicateSecretToRegionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ReplicateSecretToRegionsCommand}.
+ */
 export interface ReplicateSecretToRegionsCommandOutput extends ReplicateSecretToRegionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Replicates the secret to a new Regions. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/create-manage-multi-region-secrets.html">Multi-Region secrets</a>.</p>
  *          <p>Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
  *          <p>
@@ -43,13 +46,53 @@ export interface ReplicateSecretToRegionsCommandOutput extends ReplicateSecretTo
  * import { SecretsManagerClient, ReplicateSecretToRegionsCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, ReplicateSecretToRegionsCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
  * const client = new SecretsManagerClient(config);
+ * const input = { // ReplicateSecretToRegionsRequest
+ *   SecretId: "STRING_VALUE", // required
+ *   AddReplicaRegions: [ // AddReplicaRegionListType // required
+ *     { // ReplicaRegionType
+ *       Region: "STRING_VALUE",
+ *       KmsKeyId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   ForceOverwriteReplicaSecret: true || false,
+ * };
  * const command = new ReplicateSecretToRegionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ReplicateSecretToRegionsCommandInput - {@link ReplicateSecretToRegionsCommandInput}
+ * @returns {@link ReplicateSecretToRegionsCommandOutput}
  * @see {@link ReplicateSecretToRegionsCommandInput} for command's `input` shape.
  * @see {@link ReplicateSecretToRegionsCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
+ *
+ * @throws {@link InternalServiceError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The parameter name or value is invalid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>A parameter value is not valid for the current state of the
+ *       resource.</p>
+ *          <p>Possible causes:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The secret is scheduled for deletion.</p>
+ *             </li>
+ *             <li>
+ *                <p>You tried to enable rotation on a secret that doesn't already have a Lambda function
+ *           ARN configured and you didn't include such an ARN as a parameter in this call. </p>
+ *             </li>
+ *             <li>
+ *                <p>The secret is managed by another service, and you must use that service to update it.
+ *           For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html">Secrets managed by other Amazon Web Services services</a>.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Secrets Manager can't find the resource that you asked for.</p>
+ *
  *
  */
 export class ReplicateSecretToRegionsCommand extends $Command<
@@ -69,6 +112,9 @@ export class ReplicateSecretToRegionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReplicateSecretToRegionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +143,8 @@ export class ReplicateSecretToRegionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReplicateSecretToRegionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ReplicateSecretToRegionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +154,18 @@ export class ReplicateSecretToRegionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReplicateSecretToRegionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ReplicateSecretToRegionsCommand(input, context);
+    return se_ReplicateSecretToRegionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReplicateSecretToRegionsCommandOutput> {
-    return deserializeAws_json1_1ReplicateSecretToRegionsCommand(output, context);
+    return de_ReplicateSecretToRegionsCommand(output, context);
   }
 
   // Start section: command_body_extra

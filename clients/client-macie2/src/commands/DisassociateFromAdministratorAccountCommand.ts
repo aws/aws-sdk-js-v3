@@ -16,21 +16,30 @@ import {
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import {
   DisassociateFromAdministratorAccountRequest,
-  DisassociateFromAdministratorAccountRequestFilterSensitiveLog,
   DisassociateFromAdministratorAccountResponse,
-  DisassociateFromAdministratorAccountResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DisassociateFromAdministratorAccountCommand,
-  serializeAws_restJson1DisassociateFromAdministratorAccountCommand,
+  de_DisassociateFromAdministratorAccountCommand,
+  se_DisassociateFromAdministratorAccountCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DisassociateFromAdministratorAccountCommand}.
+ */
 export interface DisassociateFromAdministratorAccountCommandInput extends DisassociateFromAdministratorAccountRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateFromAdministratorAccountCommand}.
+ */
 export interface DisassociateFromAdministratorAccountCommandOutput
   extends DisassociateFromAdministratorAccountResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a member account from its Amazon Macie administrator account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +47,38 @@ export interface DisassociateFromAdministratorAccountCommandOutput
  * import { Macie2Client, DisassociateFromAdministratorAccountCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, DisassociateFromAdministratorAccountCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = {};
  * const command = new DisassociateFromAdministratorAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateFromAdministratorAccountCommandInput - {@link DisassociateFromAdministratorAccountCommandInput}
+ * @returns {@link DisassociateFromAdministratorAccountCommandOutput}
  * @see {@link DisassociateFromAdministratorAccountCommandInput} for command's `input` shape.
  * @see {@link DisassociateFromAdministratorAccountCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+ *
  *
  */
 export class DisassociateFromAdministratorAccountCommand extends $Command<
@@ -64,6 +98,9 @@ export class DisassociateFromAdministratorAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateFromAdministratorAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +129,8 @@ export class DisassociateFromAdministratorAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateFromAdministratorAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateFromAdministratorAccountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +140,24 @@ export class DisassociateFromAdministratorAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateFromAdministratorAccountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateFromAdministratorAccountCommand(input, context);
+    return se_DisassociateFromAdministratorAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateFromAdministratorAccountCommandOutput> {
-    return deserializeAws_restJson1DisassociateFromAdministratorAccountCommand(output, context);
+    return de_DisassociateFromAdministratorAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

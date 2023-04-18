@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
-import {
-  GetRecommendationSummariesRequest,
-  GetRecommendationSummariesRequestFilterSensitiveLog,
-  GetRecommendationSummariesResponse,
-  GetRecommendationSummariesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0GetRecommendationSummariesCommand,
-  serializeAws_json1_0GetRecommendationSummariesCommand,
-} from "../protocols/Aws_json1_0";
+import { GetRecommendationSummariesRequest, GetRecommendationSummariesResponse } from "../models/models_0";
+import { de_GetRecommendationSummariesCommand, se_GetRecommendationSummariesCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link GetRecommendationSummariesCommand}.
+ */
 export interface GetRecommendationSummariesCommandInput extends GetRecommendationSummariesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetRecommendationSummariesCommand}.
+ */
 export interface GetRecommendationSummariesCommandOutput extends GetRecommendationSummariesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the optimization findings for an account.</p>
  *          <p>It returns the number of:</p>
  *          <ul>
@@ -60,13 +63,45 @@ export interface GetRecommendationSummariesCommandOutput extends GetRecommendati
  * import { ComputeOptimizerClient, GetRecommendationSummariesCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
  * // const { ComputeOptimizerClient, GetRecommendationSummariesCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
+ * const input = { // GetRecommendationSummariesRequest
+ *   accountIds: [ // AccountIds
+ *     "STRING_VALUE",
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new GetRecommendationSummariesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRecommendationSummariesCommandInput - {@link GetRecommendationSummariesCommandInput}
+ * @returns {@link GetRecommendationSummariesCommandOutput}
  * @see {@link GetRecommendationSummariesCommandInput} for command's `input` shape.
  * @see {@link GetRecommendationSummariesCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error has occurred. Try your call again.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value supplied for the input parameter is out of range or not valid.</p>
+ *
+ * @throws {@link MissingAuthenticationToken} (client fault)
+ *  <p>The request must contain either a valid (registered) Amazon Web Services access key ID
+ *             or X.509 certificate.</p>
+ *
+ * @throws {@link OptInRequiredException} (client fault)
+ *  <p>The account is not opted in to Compute Optimizer.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request has failed due to a temporary failure of the server.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
  *
  */
 export class GetRecommendationSummariesCommand extends $Command<
@@ -86,6 +121,9 @@ export class GetRecommendationSummariesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRecommendationSummariesCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +152,8 @@ export class GetRecommendationSummariesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRecommendationSummariesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRecommendationSummariesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,15 +163,21 @@ export class GetRecommendationSummariesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRecommendationSummariesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetRecommendationSummariesCommand(input, context);
+    return se_GetRecommendationSummariesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRecommendationSummariesCommandOutput> {
-    return deserializeAws_json1_0GetRecommendationSummariesCommand(output, context);
+    return de_GetRecommendationSummariesCommand(output, context);
   }
 
   // Start section: command_body_extra

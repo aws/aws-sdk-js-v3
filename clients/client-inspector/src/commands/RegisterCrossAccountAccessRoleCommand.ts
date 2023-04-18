@@ -14,19 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
+import { RegisterCrossAccountAccessRoleRequest } from "../models/models_0";
 import {
-  RegisterCrossAccountAccessRoleRequest,
-  RegisterCrossAccountAccessRoleRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RegisterCrossAccountAccessRoleCommand,
-  serializeAws_json1_1RegisterCrossAccountAccessRoleCommand,
+  de_RegisterCrossAccountAccessRoleCommand,
+  se_RegisterCrossAccountAccessRoleCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link RegisterCrossAccountAccessRoleCommand}.
+ */
 export interface RegisterCrossAccountAccessRoleCommandInput extends RegisterCrossAccountAccessRoleRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RegisterCrossAccountAccessRoleCommand}.
+ */
 export interface RegisterCrossAccountAccessRoleCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers the IAM role that grants Amazon Inspector access to AWS Services needed to
  *          perform security assessments.</p>
  * @example
@@ -35,13 +43,47 @@ export interface RegisterCrossAccountAccessRoleCommandOutput extends __MetadataB
  * import { InspectorClient, RegisterCrossAccountAccessRoleCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, RegisterCrossAccountAccessRoleCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = { // RegisterCrossAccountAccessRoleRequest
+ *   roleArn: "STRING_VALUE", // required
+ * };
  * const command = new RegisterCrossAccountAccessRoleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterCrossAccountAccessRoleCommandInput - {@link RegisterCrossAccountAccessRoleCommandInput}
+ * @returns {@link RegisterCrossAccountAccessRoleCommandOutput}
  * @see {@link RegisterCrossAccountAccessRoleCommandInput} for command's `input` shape.
  * @see {@link RegisterCrossAccountAccessRoleCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have required permissions to access the requested resource.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>Internal server error.</p>
+ *
+ * @throws {@link InvalidCrossAccountRoleException} (client fault)
+ *  <p>Amazon Inspector cannot assume the cross-account role that it needs to list your EC2
+ *          instances during the assessment run.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
+ *          input parameter.</p>
+ *
+ * @throws {@link ServiceTemporarilyUnavailableException} (server fault)
+ *  <p>The serice is temporary unavailable.</p>
+ *
+ *
+ * @example Register cross account access role
+ * ```javascript
+ * // Registers the IAM role that Amazon Inspector uses to list your EC2 instances at the start of the assessment run or when you call the PreviewAgents action.
+ * const input = {
+ *   "roleArn": "arn:aws:iam::123456789012:role/inspector"
+ * };
+ * const command = new RegisterCrossAccountAccessRoleCommand(input);
+ * await client.send(command);
+ * // example id: register-cross-account-access-role-1481067178301
+ * ```
  *
  */
 export class RegisterCrossAccountAccessRoleCommand extends $Command<
@@ -61,6 +103,9 @@ export class RegisterCrossAccountAccessRoleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterCrossAccountAccessRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +134,8 @@ export class RegisterCrossAccountAccessRoleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterCrossAccountAccessRoleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,18 +145,24 @@ export class RegisterCrossAccountAccessRoleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RegisterCrossAccountAccessRoleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterCrossAccountAccessRoleCommand(input, context);
+    return se_RegisterCrossAccountAccessRoleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RegisterCrossAccountAccessRoleCommandOutput> {
-    return deserializeAws_json1_1RegisterCrossAccountAccessRoleCommand(output, context);
+    return de_RegisterCrossAccountAccessRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

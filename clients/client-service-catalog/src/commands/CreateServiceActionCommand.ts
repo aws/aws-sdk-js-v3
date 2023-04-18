@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateServiceActionInput,
-  CreateServiceActionInputFilterSensitiveLog,
-  CreateServiceActionOutput,
-  CreateServiceActionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateServiceActionCommand,
-  serializeAws_json1_1CreateServiceActionCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateServiceActionInput, CreateServiceActionOutput } from "../models/models_0";
+import { de_CreateServiceActionCommand, se_CreateServiceActionCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateServiceActionCommand}.
+ */
 export interface CreateServiceActionCommandInput extends CreateServiceActionInput {}
+/**
+ * @public
+ *
+ * The output of {@link CreateServiceActionCommand}.
+ */
 export interface CreateServiceActionCommandOutput extends CreateServiceActionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a self-service action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,33 @@ export interface CreateServiceActionCommandOutput extends CreateServiceActionOut
  * import { ServiceCatalogClient, CreateServiceActionCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, CreateServiceActionCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // CreateServiceActionInput
+ *   Name: "STRING_VALUE", // required
+ *   DefinitionType: "SSM_AUTOMATION", // required
+ *   Definition: { // ServiceActionDefinitionMap // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Description: "STRING_VALUE",
+ *   AcceptLanguage: "STRING_VALUE",
+ *   IdempotencyToken: "STRING_VALUE", // required
+ * };
  * const command = new CreateServiceActionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateServiceActionCommandInput - {@link CreateServiceActionCommandInput}
+ * @returns {@link CreateServiceActionCommandOutput}
  * @see {@link CreateServiceActionCommandInput} for command's `input` shape.
  * @see {@link CreateServiceActionCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
+ *
+ * @throws {@link InvalidParametersException} (client fault)
+ *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The current limits of the service would have been exceeded by this operation. Decrease your
+ *          resource use or increase your service limits and retry the operation.</p>
+ *
  *
  */
 export class CreateServiceActionCommand extends $Command<
@@ -62,6 +85,9 @@ export class CreateServiceActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateServiceActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +116,8 @@ export class CreateServiceActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateServiceActionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateServiceActionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +127,18 @@ export class CreateServiceActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateServiceActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateServiceActionCommand(input, context);
+    return se_CreateServiceActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateServiceActionCommandOutput> {
-    return deserializeAws_json1_1CreateServiceActionCommand(output, context);
+    return de_CreateServiceActionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  StopInstanceRequest,
-  StopInstanceRequestFilterSensitiveLog,
-  StopInstanceResult,
-  StopInstanceResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1StopInstanceCommand,
-  serializeAws_json1_1StopInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { StopInstanceRequest, StopInstanceResult } from "../models/models_1";
+import { de_StopInstanceCommand, se_StopInstanceCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link StopInstanceCommand}.
+ */
 export interface StopInstanceCommandInput extends StopInstanceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StopInstanceCommand}.
+ */
 export interface StopInstanceCommandOutput extends StopInstanceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a specific Amazon Lightsail instance that is currently running.</p>
  *          <note>
  *             <p>When you start a stopped instance, Lightsail assigns a new public IP address to the
@@ -44,13 +47,50 @@ export interface StopInstanceCommandOutput extends StopInstanceResult, __Metadat
  * import { LightsailClient, StopInstanceCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, StopInstanceCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // StopInstanceRequest
+ *   instanceName: "STRING_VALUE", // required
+ *   force: true || false,
+ * };
  * const command = new StopInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopInstanceCommandInput - {@link StopInstanceCommandInput}
+ * @returns {@link StopInstanceCommandOutput}
  * @see {@link StopInstanceCommandInput} for command's `input` shape.
  * @see {@link StopInstanceCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
+ *       credentials to access a resource.</p>
+ *
+ * @throws {@link AccountSetupInProgressException} (client fault)
+ *  <p>Lightsail throws this exception when an account is still in the setup in progress
+ *       state.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Lightsail throws this exception when user input does not conform to the validation rules
+ *       of an input field.</p>
+ *          <note>
+ *             <p>Domain and distribution APIs are only available in the N. Virginia
+ *           (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services
+ *         Region configuration to <code>us-east-1</code> to create, view, or edit these
+ *         resources.</p>
+ *          </note>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Lightsail throws this exception when it cannot find a resource.</p>
+ *
+ * @throws {@link OperationFailureException} (client fault)
+ *  <p>Lightsail throws this exception when an operation fails to execute.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>A general service exception.</p>
+ *
+ * @throws {@link UnauthenticatedException} (client fault)
+ *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
+ *
  *
  */
 export class StopInstanceCommand extends $Command<
@@ -70,6 +110,9 @@ export class StopInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +139,8 @@ export class StopInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopInstanceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopInstanceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +150,18 @@ export class StopInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopInstanceCommand(input, context);
+    return se_StopInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopInstanceCommandOutput> {
-    return deserializeAws_json1_1StopInstanceCommand(output, context);
+    return de_StopInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

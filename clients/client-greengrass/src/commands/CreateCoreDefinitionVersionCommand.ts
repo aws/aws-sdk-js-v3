@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
+import { CreateCoreDefinitionVersionRequest, CreateCoreDefinitionVersionResponse } from "../models/models_0";
 import {
-  CreateCoreDefinitionVersionRequest,
-  CreateCoreDefinitionVersionRequestFilterSensitiveLog,
-  CreateCoreDefinitionVersionResponse,
-  CreateCoreDefinitionVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateCoreDefinitionVersionCommand,
-  serializeAws_restJson1CreateCoreDefinitionVersionCommand,
+  de_CreateCoreDefinitionVersionCommand,
+  se_CreateCoreDefinitionVersionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateCoreDefinitionVersionCommand}.
+ */
 export interface CreateCoreDefinitionVersionCommandInput extends CreateCoreDefinitionVersionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateCoreDefinitionVersionCommand}.
+ */
 export interface CreateCoreDefinitionVersionCommandOutput
   extends CreateCoreDefinitionVersionResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * Creates a version of a core definition that has already been defined. Greengrass groups must each contain exactly one Greengrass core.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,31 @@ export interface CreateCoreDefinitionVersionCommandOutput
  * import { GreengrassClient, CreateCoreDefinitionVersionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, CreateCoreDefinitionVersionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // CreateCoreDefinitionVersionRequest
+ *   AmznClientToken: "STRING_VALUE",
+ *   CoreDefinitionId: "STRING_VALUE", // required
+ *   Cores: [ // __listOfCore
+ *     { // Core
+ *       CertificateArn: "STRING_VALUE", // required
+ *       Id: "STRING_VALUE", // required
+ *       SyncShadow: true || false,
+ *       ThingArn: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateCoreDefinitionVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCoreDefinitionVersionCommandInput - {@link CreateCoreDefinitionVersionCommandInput}
+ * @returns {@link CreateCoreDefinitionVersionCommandOutput}
  * @see {@link CreateCoreDefinitionVersionCommandInput} for command's `input` shape.
  * @see {@link CreateCoreDefinitionVersionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  General error information.
+ *
  *
  */
 export class CreateCoreDefinitionVersionCommand extends $Command<
@@ -64,6 +88,9 @@ export class CreateCoreDefinitionVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCoreDefinitionVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +119,8 @@ export class CreateCoreDefinitionVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCoreDefinitionVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCoreDefinitionVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +130,21 @@ export class CreateCoreDefinitionVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCoreDefinitionVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateCoreDefinitionVersionCommand(input, context);
+    return se_CreateCoreDefinitionVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateCoreDefinitionVersionCommandOutput> {
-    return deserializeAws_restJson1CreateCoreDefinitionVersionCommand(output, context);
+    return de_CreateCoreDefinitionVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

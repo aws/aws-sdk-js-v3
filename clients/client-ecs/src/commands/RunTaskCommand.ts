@@ -14,24 +14,33 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  RunTaskRequest,
-  RunTaskRequestFilterSensitiveLog,
-  RunTaskResponse,
-  RunTaskResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1RunTaskCommand, serializeAws_json1_1RunTaskCommand } from "../protocols/Aws_json1_1";
+import { RunTaskRequest, RunTaskResponse } from "../models/models_0";
+import { de_RunTaskCommand, se_RunTaskCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link RunTaskCommand}.
+ */
 export interface RunTaskCommandInput extends RunTaskRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RunTaskCommand}.
+ */
 export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a new task using the specified task definition.</p>
  *          <p>You can allow Amazon ECS to place tasks for you, or you can customize how Amazon ECS places
  * 			tasks using placement constraints and placement strategies. For more information, see
  * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html">Scheduling Tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  *          <p>Alternatively, you can use <a>StartTask</a> to use your own scheduler or
  * 			place tasks manually on specific container instances.</p>
+ *          <note>
+ *             <p>Starting April 15, 2023, Amazon Web Services will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance. After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service. </p>
+ *          </note>
  *          <p>The Amazon ECS API follows an eventual consistency model. This is because of the
  * 			distributed nature of the system supporting the API. This means that the result of an
  * 			API command you run that affects your Amazon ECS resources might not be immediately visible
@@ -60,13 +69,181 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  * import { ECSClient, RunTaskCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, RunTaskCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // RunTaskRequest
+ *   capacityProviderStrategy: [ // CapacityProviderStrategy
+ *     { // CapacityProviderStrategyItem
+ *       capacityProvider: "STRING_VALUE", // required
+ *       weight: Number("int"),
+ *       base: Number("int"),
+ *     },
+ *   ],
+ *   cluster: "STRING_VALUE",
+ *   count: Number("int"),
+ *   enableECSManagedTags: true || false,
+ *   enableExecuteCommand: true || false,
+ *   group: "STRING_VALUE",
+ *   launchType: "EC2" || "FARGATE" || "EXTERNAL",
+ *   networkConfiguration: { // NetworkConfiguration
+ *     awsvpcConfiguration: { // AwsVpcConfiguration
+ *       subnets: [ // StringList // required
+ *         "STRING_VALUE",
+ *       ],
+ *       securityGroups: [
+ *         "STRING_VALUE",
+ *       ],
+ *       assignPublicIp: "ENABLED" || "DISABLED",
+ *     },
+ *   },
+ *   overrides: { // TaskOverride
+ *     containerOverrides: [ // ContainerOverrides
+ *       { // ContainerOverride
+ *         name: "STRING_VALUE",
+ *         command: [
+ *           "STRING_VALUE",
+ *         ],
+ *         environment: [ // EnvironmentVariables
+ *           { // KeyValuePair
+ *             name: "STRING_VALUE",
+ *             value: "STRING_VALUE",
+ *           },
+ *         ],
+ *         environmentFiles: [ // EnvironmentFiles
+ *           { // EnvironmentFile
+ *             value: "STRING_VALUE", // required
+ *             type: "s3", // required
+ *           },
+ *         ],
+ *         cpu: Number("int"),
+ *         memory: Number("int"),
+ *         memoryReservation: Number("int"),
+ *         resourceRequirements: [ // ResourceRequirements
+ *           { // ResourceRequirement
+ *             value: "STRING_VALUE", // required
+ *             type: "GPU" || "InferenceAccelerator", // required
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     cpu: "STRING_VALUE",
+ *     inferenceAcceleratorOverrides: [ // InferenceAcceleratorOverrides
+ *       { // InferenceAcceleratorOverride
+ *         deviceName: "STRING_VALUE",
+ *         deviceType: "STRING_VALUE",
+ *       },
+ *     ],
+ *     executionRoleArn: "STRING_VALUE",
+ *     memory: "STRING_VALUE",
+ *     taskRoleArn: "STRING_VALUE",
+ *     ephemeralStorage: { // EphemeralStorage
+ *       sizeInGiB: Number("int"), // required
+ *     },
+ *   },
+ *   placementConstraints: [ // PlacementConstraints
+ *     { // PlacementConstraint
+ *       type: "distinctInstance" || "memberOf",
+ *       expression: "STRING_VALUE",
+ *     },
+ *   ],
+ *   placementStrategy: [ // PlacementStrategies
+ *     { // PlacementStrategy
+ *       type: "random" || "spread" || "binpack",
+ *       field: "STRING_VALUE",
+ *     },
+ *   ],
+ *   platformVersion: "STRING_VALUE",
+ *   propagateTags: "TASK_DEFINITION" || "SERVICE" || "NONE",
+ *   referenceId: "STRING_VALUE",
+ *   startedBy: "STRING_VALUE",
+ *   tags: [ // Tags
+ *     { // Tag
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   taskDefinition: "STRING_VALUE", // required
+ * };
  * const command = new RunTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RunTaskCommandInput - {@link RunTaskCommandInput}
+ * @returns {@link RunTaskCommandOutput}
  * @see {@link RunTaskCommandInput} for command's `input` shape.
  * @see {@link RunTaskCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have authorization to perform the requested action.</p>
+ *
+ * @throws {@link BlockedException} (client fault)
+ *  <p>Your Amazon Web Services account was blocked. For more information, contact <a href="http://aws.amazon.com/contact-us/">
+ * 				Amazon Web Services Support</a>.</p>
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action. This client action might be using
+ * 			an action or resource on behalf of a user that doesn't have permissions to use the
+ * 			action or resource,. Or, it might be specifying an identifier that isn't valid.</p>
+ *
+ * @throws {@link ClusterNotFoundException} (client fault)
+ *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter isn't valid. Review the available parameters for the API
+ * 			request.</p>
+ *
+ * @throws {@link PlatformTaskDefinitionIncompatibilityException} (client fault)
+ *  <p>The specified platform version doesn't satisfy the required capabilities of the task
+ * 			definition.</p>
+ *
+ * @throws {@link PlatformUnknownException} (client fault)
+ *  <p>The specified platform version doesn't exist.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server issue.</p>
+ *
+ * @throws {@link UnsupportedFeatureException} (client fault)
+ *  <p>The specified task isn't supported in this Region.</p>
+ *
+ *
+ * @example To run a task on your default cluster
+ * ```javascript
+ * // This example runs the specified task definition on your default cluster.
+ * const input = {
+ *   "cluster": "default",
+ *   "taskDefinition": "sleep360:1"
+ * };
+ * const command = new RunTaskCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "tasks": [
+ *     {
+ *       "containerInstanceArn": "arn:aws:ecs:us-east-1:<aws_account_id>:container-instance/ffe3d344-77e2-476c-a4d0-bf560ad50acb",
+ *       "containers": [
+ *         {
+ *           "name": "sleep",
+ *           "containerArn": "arn:aws:ecs:us-east-1:<aws_account_id>:container/58591c8e-be29-4ddf-95aa-ee459d4c59fd",
+ *           "lastStatus": "PENDING",
+ *           "taskArn": "arn:aws:ecs:us-east-1:<aws_account_id>:task/a9f21ea7-c9f5-44b1-b8e6-b31f50ed33c0"
+ *         }
+ *       ],
+ *       "desiredStatus": "RUNNING",
+ *       "lastStatus": "PENDING",
+ *       "overrides": {
+ *         "containerOverrides": [
+ *           {
+ *             "name": "sleep"
+ *           }
+ *         ]
+ *       },
+ *       "taskArn": "arn:aws:ecs:us-east-1:<aws_account_id>:task/a9f21ea7-c9f5-44b1-b8e6-b31f50ed33c0",
+ *       "taskDefinitionArn": "arn:aws:ecs:us-east-1:<aws_account_id>:task-definition/sleep360:1"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: 6f238c83-a133-42cd-ab3d-abeca0560445
+ * ```
  *
  */
 export class RunTaskCommand extends $Command<RunTaskCommandInput, RunTaskCommandOutput, ECSClientResolvedConfig> {
@@ -82,6 +259,9 @@ export class RunTaskCommand extends $Command<RunTaskCommandInput, RunTaskCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RunTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +288,8 @@ export class RunTaskCommand extends $Command<RunTaskCommandInput, RunTaskCommand
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RunTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RunTaskResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +299,18 @@ export class RunTaskCommand extends $Command<RunTaskCommandInput, RunTaskCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RunTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RunTaskCommand(input, context);
+    return se_RunTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RunTaskCommandOutput> {
-    return deserializeAws_json1_1RunTaskCommand(output, context);
+    return de_RunTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

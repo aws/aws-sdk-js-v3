@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UndeprecateWorkflowTypeInput, UndeprecateWorkflowTypeInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_0UndeprecateWorkflowTypeCommand,
-  serializeAws_json1_0UndeprecateWorkflowTypeCommand,
-} from "../protocols/Aws_json1_0";
+import { UndeprecateWorkflowTypeInput } from "../models/models_0";
+import { de_UndeprecateWorkflowTypeCommand, se_UndeprecateWorkflowTypeCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UndeprecateWorkflowTypeCommand}.
+ */
 export interface UndeprecateWorkflowTypeCommandInput extends UndeprecateWorkflowTypeInput {}
+/**
+ * @public
+ *
+ * The output of {@link UndeprecateWorkflowTypeCommand}.
+ */
 export interface UndeprecateWorkflowTypeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Undeprecates a previously deprecated <i>workflow type</i>. After a workflow type has
  *       been undeprecated, you can create new executions of that type. </p>
  *          <note>
@@ -72,13 +80,32 @@ export interface UndeprecateWorkflowTypeCommandOutput extends __MetadataBearer {
  * import { SWFClient, UndeprecateWorkflowTypeCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, UndeprecateWorkflowTypeCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = { // UndeprecateWorkflowTypeInput
+ *   domain: "STRING_VALUE", // required
+ *   workflowType: { // WorkflowType
+ *     name: "STRING_VALUE", // required
+ *     version: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new UndeprecateWorkflowTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UndeprecateWorkflowTypeCommandInput - {@link UndeprecateWorkflowTypeCommandInput}
+ * @returns {@link UndeprecateWorkflowTypeCommandOutput}
  * @see {@link UndeprecateWorkflowTypeCommandInput} for command's `input` shape.
  * @see {@link UndeprecateWorkflowTypeCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
+ *
+ * @throws {@link OperationNotPermittedFault} (client fault)
+ *  <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+ *
+ * @throws {@link TypeAlreadyExistsFault} (client fault)
+ *  <p>Returned if the type already exists in the specified domain. You may get this fault if you are registering a type that is either already registered or deprecated, or if you undeprecate a type that is currently registered.</p>
+ *
+ * @throws {@link UnknownResourceFault} (client fault)
+ *  <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+ *
  *
  */
 export class UndeprecateWorkflowTypeCommand extends $Command<
@@ -98,6 +125,9 @@ export class UndeprecateWorkflowTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UndeprecateWorkflowTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +156,8 @@ export class UndeprecateWorkflowTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UndeprecateWorkflowTypeInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +167,18 @@ export class UndeprecateWorkflowTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UndeprecateWorkflowTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UndeprecateWorkflowTypeCommand(input, context);
+    return se_UndeprecateWorkflowTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UndeprecateWorkflowTypeCommandOutput> {
-    return deserializeAws_json1_0UndeprecateWorkflowTypeCommand(output, context);
+    return de_UndeprecateWorkflowTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

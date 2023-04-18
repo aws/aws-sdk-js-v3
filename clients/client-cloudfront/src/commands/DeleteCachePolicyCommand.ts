@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { DeleteCachePolicyRequest, DeleteCachePolicyRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_restXmlDeleteCachePolicyCommand,
-  serializeAws_restXmlDeleteCachePolicyCommand,
-} from "../protocols/Aws_restXml";
+import { DeleteCachePolicyRequest } from "../models/models_1";
+import { de_DeleteCachePolicyCommand, se_DeleteCachePolicyCommand } from "../protocols/Aws_restXml";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteCachePolicyCommand}.
+ */
 export interface DeleteCachePolicyCommandInput extends DeleteCachePolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteCachePolicyCommand}.
+ */
 export interface DeleteCachePolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a cache policy.</p>
  *          <p>You cannot delete a cache policy if it's attached to a cache behavior. First update
  * 			your distributions to remove the cache policy from all cache behaviors, then delete the
@@ -37,13 +45,40 @@ export interface DeleteCachePolicyCommandOutput extends __MetadataBearer {}
  * import { CloudFrontClient, DeleteCachePolicyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, DeleteCachePolicyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // DeleteCachePolicyRequest
+ *   Id: "STRING_VALUE", // required
+ *   IfMatch: "STRING_VALUE",
+ * };
  * const command = new DeleteCachePolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCachePolicyCommandInput - {@link DeleteCachePolicyCommandInput}
+ * @returns {@link DeleteCachePolicyCommandOutput}
  * @see {@link DeleteCachePolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteCachePolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link CachePolicyInUse} (client fault)
+ *  <p>Cannot delete the cache policy because it is attached to one or more cache
+ * 			behaviors.</p>
+ *
+ * @throws {@link IllegalDelete} (client fault)
+ *  <p>You cannot delete a managed policy.</p>
+ *
+ * @throws {@link InvalidIfMatchVersion} (client fault)
+ *  <p>The <code>If-Match</code> version is missing or not valid.</p>
+ *
+ * @throws {@link NoSuchCachePolicy} (client fault)
+ *  <p>The cache policy does not exist.</p>
+ *
+ * @throws {@link PreconditionFailed} (client fault)
+ *  <p>The precondition in one or more of the request fields evaluated to
+ * 			<code>false</code>.</p>
+ *
  *
  */
 export class DeleteCachePolicyCommand extends $Command<
@@ -63,6 +98,9 @@ export class DeleteCachePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCachePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +129,8 @@ export class DeleteCachePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCachePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +140,18 @@ export class DeleteCachePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCachePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteCachePolicyCommand(input, context);
+    return se_DeleteCachePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCachePolicyCommandOutput> {
-    return deserializeAws_restXmlDeleteCachePolicyCommand(output, context);
+    return de_DeleteCachePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

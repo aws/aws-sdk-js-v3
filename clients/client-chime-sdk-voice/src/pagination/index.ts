@@ -7,4 +7,6 @@ export * from "./ListSipMediaApplicationsPaginator";
 export * from "./ListSipRulesPaginator";
 export * from "./ListVoiceConnectorGroupsPaginator";
 export * from "./ListVoiceConnectorsPaginator";
+export * from "./ListVoiceProfileDomainsPaginator";
+export * from "./ListVoiceProfilesPaginator";
 export * from "./SearchAvailablePhoneNumbersPaginator";

@@ -5,6 +5,8 @@ import {
 } from "@aws-sdk/smithy-client";
 
 /**
+ * @public
+ *
  * Base exception class for all service exceptions from MediaPackage service.
  */
 export class MediaPackageServiceException extends __ServiceException {

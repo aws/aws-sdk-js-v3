@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  ListNetworkProfilesRequest,
-  ListNetworkProfilesRequestFilterSensitiveLog,
-  ListNetworkProfilesResult,
-  ListNetworkProfilesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListNetworkProfilesCommand,
-  serializeAws_json1_1ListNetworkProfilesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListNetworkProfilesRequest, ListNetworkProfilesResult } from "../models/models_0";
+import { de_ListNetworkProfilesCommand, se_ListNetworkProfilesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListNetworkProfilesCommand}.
+ */
 export interface ListNetworkProfilesCommandInput extends ListNetworkProfilesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListNetworkProfilesCommand}.
+ */
 export interface ListNetworkProfilesCommandOutput extends ListNetworkProfilesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the list of available network profiles.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,33 @@ export interface ListNetworkProfilesCommandOutput extends ListNetworkProfilesRes
  * import { DeviceFarmClient, ListNetworkProfilesCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, ListNetworkProfilesCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // ListNetworkProfilesRequest
+ *   arn: "STRING_VALUE", // required
+ *   type: "CURATED" || "PRIVATE",
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListNetworkProfilesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListNetworkProfilesCommandInput - {@link ListNetworkProfilesCommandInput}
+ * @returns {@link ListNetworkProfilesCommandOutput}
  * @see {@link ListNetworkProfilesCommandInput} for command's `input` shape.
  * @see {@link ListNetworkProfilesCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
+ *
+ * @throws {@link ArgumentException} (client fault)
+ *  <p>An invalid argument was specified.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A limit was exceeded.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The specified entity was not found.</p>
+ *
+ * @throws {@link ServiceAccountException} (client fault)
+ *  <p>There was a problem with the service account.</p>
+ *
  *
  */
 export class ListNetworkProfilesCommand extends $Command<
@@ -62,6 +85,9 @@ export class ListNetworkProfilesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListNetworkProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +116,8 @@ export class ListNetworkProfilesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListNetworkProfilesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListNetworkProfilesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +127,18 @@ export class ListNetworkProfilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListNetworkProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListNetworkProfilesCommand(input, context);
+    return se_ListNetworkProfilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNetworkProfilesCommandOutput> {
-    return deserializeAws_json1_1ListNetworkProfilesCommand(output, context);
+    return de_ListNetworkProfilesCommand(output, context);
   }
 
   // Start section: command_body_extra

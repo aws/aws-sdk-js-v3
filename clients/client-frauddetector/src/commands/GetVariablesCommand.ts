@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  GetVariablesRequest,
-  GetVariablesRequestFilterSensitiveLog,
-  GetVariablesResult,
-  GetVariablesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetVariablesCommand,
-  serializeAws_json1_1GetVariablesCommand,
-} from "../protocols/Aws_json1_1";
+import { GetVariablesRequest, GetVariablesResult } from "../models/models_0";
+import { de_GetVariablesCommand, se_GetVariablesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetVariablesCommand}.
+ */
 export interface GetVariablesCommandInput extends GetVariablesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetVariablesCommand}.
+ */
 export interface GetVariablesCommandOutput extends GetVariablesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets all of the variables or the specific variable. This is a
  *          paginated API. Providing null <code>maxSizePerPage</code> results in retrieving maximum of
  *          100 records per page. If you provide <code>maxSizePerPage</code> the value must be between
@@ -41,13 +44,36 @@ export interface GetVariablesCommandOutput extends GetVariablesResult, __Metadat
  * import { FraudDetectorClient, GetVariablesCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, GetVariablesCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = { // GetVariablesRequest
+ *   name: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new GetVariablesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetVariablesCommandInput - {@link GetVariablesCommandInput}
+ * @returns {@link GetVariablesCommandOutput}
  * @see {@link GetVariablesCommandInput} for command's `input` shape.
  * @see {@link GetVariablesCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An exception indicating an internal server error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An exception indicating the specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>An exception indicating a throttling error.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An exception indicating a specified value is not allowed.</p>
+ *
  *
  */
 export class GetVariablesCommand extends $Command<
@@ -67,6 +93,9 @@ export class GetVariablesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetVariablesCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +122,8 @@ export class GetVariablesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetVariablesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetVariablesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +133,18 @@ export class GetVariablesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetVariablesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetVariablesCommand(input, context);
+    return se_GetVariablesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVariablesCommandOutput> {
-    return deserializeAws_json1_1GetVariablesCommand(output, context);
+    return de_GetVariablesCommand(output, context);
   }
 
   // Start section: command_body_extra

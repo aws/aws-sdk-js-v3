@@ -18,7 +18,10 @@ import {
   ContainerImage,
   ContainerService,
   ContainerServicePowerName,
+  CostEstimate,
   Disk,
+  DiskSnapshot,
+  DistributionBundle,
   DistributionMetricName,
   Domain,
   DomainEntry,
@@ -42,6 +45,242 @@ import {
   TreatMissingData,
 } from "./models_0";
 
+/**
+ * @public
+ */
+export interface GetCostEstimateRequest {
+  /**
+   * <p>The resource name.</p>
+   */
+  resourceName: string | undefined;
+
+  /**
+   * <p>The cost estimate start time.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Specified in Coordinated Universal Time (UTC).</p>
+   *             </li>
+   *             <li>
+   *                <p>Specified in the Unix time format.</p>
+   *                <p>For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, specify
+   *             <code>1538424000</code> as the start time.</p>
+   *             </li>
+   *          </ul>
+   *          <p>You can convert a human-friendly time to Unix time format using a converter like <a href="https://www.epochconverter.com/">Epoch converter</a>.</p>
+   */
+  startTime: Date | undefined;
+
+  /**
+   * <p>The cost estimate end time.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Specified in Coordinated Universal Time (UTC).</p>
+   *             </li>
+   *             <li>
+   *                <p>Specified in the Unix time format.</p>
+   *                <p>For example, if you wish to use an end time of October 1, 2018, at 9 PM UTC, specify
+   *             <code>1538427600</code> as the end time.</p>
+   *             </li>
+   *          </ul>
+   *          <p>You can convert a human-friendly time to Unix time format using a converter like <a href="https://www.epochconverter.com/">Epoch converter</a>.</p>
+   */
+  endTime: Date | undefined;
+}
+
+/**
+ * @public
+ * <p>Describes the estimated cost or usage that a budget tracks.</p>
+ */
+export interface ResourceBudgetEstimate {
+  /**
+   * <p>The resource name.</p>
+   */
+  resourceName?: string;
+
+  /**
+   * <p>The type of resource the budget will track.</p>
+   */
+  resourceType?: ResourceType | string;
+
+  /**
+   * <p>The cost estimate for the specified budget.</p>
+   */
+  costEstimates?: CostEstimate[];
+
+  /**
+   * <p>The estimate start time.</p>
+   */
+  startTime?: Date;
+
+  /**
+   * <p>The estimate end time.</p>
+   */
+  endTime?: Date;
+}
+
+/**
+ * @public
+ */
+export interface GetCostEstimateResult {
+  /**
+   * <p>Returns the estimate's forecasted cost or usage.</p>
+   */
+  resourcesBudgetEstimate?: ResourceBudgetEstimate[];
+}
+
+/**
+ * @public
+ */
+export interface GetDiskRequest {
+  /**
+   * <p>The name of the disk (e.g., <code>my-disk</code>).</p>
+   */
+  diskName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDiskResult {
+  /**
+   * <p>An object containing information about the disk.</p>
+   */
+  disk?: Disk;
+}
+
+/**
+ * @public
+ */
+export interface GetDisksRequest {
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetDisks</code> request. If your results are
+   *       paginated, the response will return a next page token that you can specify as the page token
+   *       in a subsequent request.</p>
+   */
+  pageToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetDisksResult {
+  /**
+   * <p>An array of objects containing information about all block storage disks.</p>
+   */
+  disks?: Disk[];
+
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>A next page token is not returned if there are no more results to display.</p>
+   *          <p>To get the next page of results, perform another <code>GetDisks</code> request and specify
+   *       the next page token using the <code>pageToken</code> parameter.</p>
+   */
+  nextPageToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetDiskSnapshotRequest {
+  /**
+   * <p>The name of the disk snapshot (e.g., <code>my-disk-snapshot</code>).</p>
+   */
+  diskSnapshotName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDiskSnapshotResult {
+  /**
+   * <p>An object containing information about the disk snapshot.</p>
+   */
+  diskSnapshot?: DiskSnapshot;
+}
+
+/**
+ * @public
+ */
+export interface GetDiskSnapshotsRequest {
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetDiskSnapshots</code> request. If your
+   *       results are paginated, the response will return a next page token that you can specify as the
+   *       page token in a subsequent request.</p>
+   */
+  pageToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetDiskSnapshotsResult {
+  /**
+   * <p>An array of objects containing information about all block storage disk snapshots.</p>
+   */
+  diskSnapshots?: DiskSnapshot[];
+
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>A next page token is not returned if there are no more results to display.</p>
+   *          <p>To get the next page of results, perform another <code>GetDiskSnapshots</code> request and
+   *       specify the next page token using the <code>pageToken</code> parameter.</p>
+   */
+  nextPageToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetDistributionBundlesRequest {}
+
+/**
+ * @public
+ */
+export interface GetDistributionBundlesResult {
+  /**
+   * <p>An object that describes a distribution bundle.</p>
+   */
+  bundles?: DistributionBundle[];
+}
+
+/**
+ * @public
+ */
+export interface GetDistributionLatestCacheResetRequest {
+  /**
+   * <p>The name of the distribution for which to return the timestamp of the last cache
+   *       reset.</p>
+   *          <p>Use the <code>GetDistributions</code> action to get a list of distribution names that you
+   *       can specify.</p>
+   *          <p>When omitted, the response includes the latest cache reset timestamp of all your
+   *       distributions.</p>
+   */
+  distributionName?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetDistributionLatestCacheResetResult {
+  /**
+   * <p>The status of the last cache reset.</p>
+   */
+  status?: string;
+
+  /**
+   * <p>The timestamp of the last cache reset (e.g., <code>1479734909.17</code>) in Unix time
+   *       format.</p>
+   */
+  createTime?: Date;
+}
+
+/**
+ * @public
+ */
 export interface GetDistributionMetricDataRequest {
   /**
    * <p>The name of the distribution for which to get metric data.</p>
@@ -214,6 +453,9 @@ export interface GetDistributionMetricDataRequest {
   statistics: (MetricStatistic | string)[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDistributionMetricDataResult {
   /**
    * <p>The name of the metric returned.</p>
@@ -226,6 +468,9 @@ export interface GetDistributionMetricDataResult {
   metricData?: MetricDatapoint[];
 }
 
+/**
+ * @public
+ */
 export interface GetDistributionsRequest {
   /**
    * <p>The name of the distribution for which to return information.</p>
@@ -243,6 +488,9 @@ export interface GetDistributionsRequest {
   pageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetDistributionsResult {
   /**
    * <p>An array of objects that describe your distributions.</p>
@@ -258,6 +506,9 @@ export interface GetDistributionsResult {
   nextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetDomainRequest {
   /**
    * <p>The domain name for which your want to return information about.</p>
@@ -265,6 +516,9 @@ export interface GetDomainRequest {
   domainName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDomainResult {
   /**
    * <p>An array of key-value pairs containing information about your get domain request.</p>
@@ -272,6 +526,9 @@ export interface GetDomainResult {
   domain?: Domain;
 }
 
+/**
+ * @public
+ */
 export interface GetDomainsRequest {
   /**
    * <p>The token to advance to the next page of results from your request.</p>
@@ -282,6 +539,9 @@ export interface GetDomainsRequest {
   pageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetDomainsResult {
   /**
    * <p>An array of key-value pairs containing information about each of the domain entries in the
@@ -298,6 +558,9 @@ export interface GetDomainsResult {
   nextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetExportSnapshotRecordsRequest {
   /**
    * <p>The token to advance to the next page of results from your request.</p>
@@ -308,6 +571,9 @@ export interface GetExportSnapshotRecordsRequest {
   pageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetExportSnapshotRecordsResult {
   /**
    * <p>A list of objects describing the export snapshot records.</p>
@@ -323,6 +589,9 @@ export interface GetExportSnapshotRecordsResult {
   nextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetInstanceRequest {
   /**
    * <p>The name of the instance.</p>
@@ -331,6 +600,7 @@ export interface GetInstanceRequest {
 }
 
 /**
+ * @public
  * <p>Describes the hardware for the instance.</p>
  */
 export interface InstanceHardware {
@@ -350,27 +620,64 @@ export interface InstanceHardware {
   ramSizeInGb?: number;
 }
 
-export enum HttpEndpoint {
-  disabled = "disabled",
-  enabled = "enabled",
-}
-
-export enum HttpProtocolIpv6 {
-  disabled = "disabled",
-  enabled = "enabled",
-}
-
-export enum HttpTokens {
-  optional = "optional",
-  required = "required",
-}
-
-export enum InstanceMetadataState {
-  applied = "applied",
-  pending = "pending",
-}
+/**
+ * @public
+ * @enum
+ */
+export const HttpEndpoint = {
+  disabled: "disabled",
+  enabled: "enabled",
+} as const;
 
 /**
+ * @public
+ */
+export type HttpEndpoint = (typeof HttpEndpoint)[keyof typeof HttpEndpoint];
+
+/**
+ * @public
+ * @enum
+ */
+export const HttpProtocolIpv6 = {
+  disabled: "disabled",
+  enabled: "enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type HttpProtocolIpv6 = (typeof HttpProtocolIpv6)[keyof typeof HttpProtocolIpv6];
+
+/**
+ * @public
+ * @enum
+ */
+export const HttpTokens = {
+  optional: "optional",
+  required: "required",
+} as const;
+
+/**
+ * @public
+ */
+export type HttpTokens = (typeof HttpTokens)[keyof typeof HttpTokens];
+
+/**
+ * @public
+ * @enum
+ */
+export const InstanceMetadataState = {
+  applied: "applied",
+  pending: "pending",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceMetadataState = (typeof InstanceMetadataState)[keyof typeof InstanceMetadataState];
+
+/**
+ * @public
  * <p>The metadata options for the instance.</p>
  */
 export interface InstanceMetadataOptions {
@@ -432,6 +739,7 @@ export interface InstanceMetadataOptions {
 }
 
 /**
+ * @public
  * <p>Describes the monthly data transfer in and out of your virtual private server (or
  *         <i>instance</i>).</p>
  */
@@ -442,12 +750,22 @@ export interface MonthlyTransfer {
   gbPerMonthAllocated?: number;
 }
 
-export enum PortAccessType {
-  Private = "Private",
-  Public = "Public",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PortAccessType = {
+  Private: "Private",
+  Public: "Public",
+} as const;
 
 /**
+ * @public
+ */
+export type PortAccessType = (typeof PortAccessType)[keyof typeof PortAccessType];
+
+/**
+ * @public
  * <p>Describes information about ports for an Amazon Lightsail instance.</p>
  */
 export interface InstancePortInfo {
@@ -595,6 +913,7 @@ export interface InstancePortInfo {
 }
 
 /**
+ * @public
  * <p>Describes monthly data transfer rates and port information for an instance.</p>
  */
 export interface InstanceNetworking {
@@ -610,6 +929,7 @@ export interface InstanceNetworking {
 }
 
 /**
+ * @public
  * <p>Describes the virtual private server (or <i>instance</i>) status.</p>
  */
 export interface InstanceState {
@@ -625,6 +945,7 @@ export interface InstanceState {
 }
 
 /**
+ * @public
  * <p>Describes an instance (a virtual private server).</p>
  */
 export interface Instance {
@@ -748,6 +1069,9 @@ export interface Instance {
   metadataOptions?: InstanceMetadataOptions;
 }
 
+/**
+ * @public
+ */
 export interface GetInstanceResult {
   /**
    * <p>An array of key-value pairs containing information about the specified instance.</p>
@@ -755,11 +1079,23 @@ export interface GetInstanceResult {
   instance?: Instance;
 }
 
-export enum InstanceAccessProtocol {
-  rdp = "rdp",
-  ssh = "ssh",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InstanceAccessProtocol = {
+  rdp: "rdp",
+  ssh: "ssh",
+} as const;
 
+/**
+ * @public
+ */
+export type InstanceAccessProtocol = (typeof InstanceAccessProtocol)[keyof typeof InstanceAccessProtocol];
+
+/**
+ * @public
+ */
 export interface GetInstanceAccessDetailsRequest {
   /**
    * <p>The name of the instance to access.</p>
@@ -773,6 +1109,7 @@ export interface GetInstanceAccessDetailsRequest {
 }
 
 /**
+ * @public
  * <p>Describes the public SSH host keys or the RDP certificate.</p>
  */
 export interface HostKeyAttributes {
@@ -846,6 +1183,7 @@ export interface HostKeyAttributes {
 }
 
 /**
+ * @public
  * <p>The password data for the Windows Server-based instance, including the ciphertext and the
  *       key pair name.</p>
  */
@@ -877,6 +1215,7 @@ export interface PasswordData {
 }
 
 /**
+ * @public
  * <p>The parameters for gaining temporary access to one of your Amazon Lightsail
  *       instances.</p>
  */
@@ -947,6 +1286,9 @@ export interface InstanceAccessDetails {
   hostKeys?: HostKeyAttributes[];
 }
 
+/**
+ * @public
+ */
 export interface GetInstanceAccessDetailsResult {
   /**
    * <p>An array of key-value pairs containing information about a get instance access
@@ -955,18 +1297,30 @@ export interface GetInstanceAccessDetailsResult {
   accessDetails?: InstanceAccessDetails;
 }
 
-export enum InstanceMetricName {
-  BurstCapacityPercentage = "BurstCapacityPercentage",
-  BurstCapacityTime = "BurstCapacityTime",
-  CPUUtilization = "CPUUtilization",
-  MetadataNoToken = "MetadataNoToken",
-  NetworkIn = "NetworkIn",
-  NetworkOut = "NetworkOut",
-  StatusCheckFailed = "StatusCheckFailed",
-  StatusCheckFailed_Instance = "StatusCheckFailed_Instance",
-  StatusCheckFailed_System = "StatusCheckFailed_System",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InstanceMetricName = {
+  BurstCapacityPercentage: "BurstCapacityPercentage",
+  BurstCapacityTime: "BurstCapacityTime",
+  CPUUtilization: "CPUUtilization",
+  MetadataNoToken: "MetadataNoToken",
+  NetworkIn: "NetworkIn",
+  NetworkOut: "NetworkOut",
+  StatusCheckFailed: "StatusCheckFailed",
+  StatusCheckFailed_Instance: "StatusCheckFailed_Instance",
+  StatusCheckFailed_System: "StatusCheckFailed_System",
+} as const;
 
+/**
+ * @public
+ */
+export type InstanceMetricName = (typeof InstanceMetricName)[keyof typeof InstanceMetricName];
+
+/**
+ * @public
+ */
 export interface GetInstanceMetricDataRequest {
   /**
    * <p>The name of the instance for which you want to get metrics data.</p>
@@ -1175,6 +1529,9 @@ export interface GetInstanceMetricDataRequest {
   statistics: (MetricStatistic | string)[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetInstanceMetricDataResult {
   /**
    * <p>The name of the metric returned.</p>
@@ -1187,6 +1544,9 @@ export interface GetInstanceMetricDataResult {
   metricData?: MetricDatapoint[];
 }
 
+/**
+ * @public
+ */
 export interface GetInstancePortStatesRequest {
   /**
    * <p>The name of the instance for which to return firewall port states.</p>
@@ -1194,12 +1554,22 @@ export interface GetInstancePortStatesRequest {
   instanceName: string | undefined;
 }
 
-export enum PortState {
-  Closed = "closed",
-  Open = "open",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PortState = {
+  Closed: "closed",
+  Open: "open",
+} as const;
 
 /**
+ * @public
+ */
+export type PortState = (typeof PortState)[keyof typeof PortState];
+
+/**
+ * @public
  * <p>Describes open ports on an instance, the IP addresses allowed to connect to the instance
  *       through the ports, and the protocol.</p>
  */
@@ -1331,6 +1701,9 @@ export interface InstancePortState {
   cidrListAliases?: string[];
 }
 
+/**
+ * @public
+ */
 export interface GetInstancePortStatesResult {
   /**
    * <p>An array of objects that describe the firewall port states for the specified
@@ -1339,6 +1712,9 @@ export interface GetInstancePortStatesResult {
   portStates?: InstancePortState[];
 }
 
+/**
+ * @public
+ */
 export interface GetInstancesRequest {
   /**
    * <p>The token to advance to the next page of results from your request.</p>
@@ -1349,6 +1725,9 @@ export interface GetInstancesRequest {
   pageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetInstancesResult {
   /**
    * <p>An array of key-value pairs containing information about your instances.</p>
@@ -1364,6 +1743,9 @@ export interface GetInstancesResult {
   nextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetInstanceSnapshotRequest {
   /**
    * <p>The name of the snapshot for which you are requesting information.</p>
@@ -1371,13 +1753,23 @@ export interface GetInstanceSnapshotRequest {
   instanceSnapshotName: string | undefined;
 }
 
-export enum InstanceSnapshotState {
-  Available = "available",
-  Error = "error",
-  Pending = "pending",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InstanceSnapshotState = {
+  Available: "available",
+  Error: "error",
+  Pending: "pending",
+} as const;
 
 /**
+ * @public
+ */
+export type InstanceSnapshotState = (typeof InstanceSnapshotState)[keyof typeof InstanceSnapshotState];
+
+/**
+ * @public
  * <p>Describes an instance snapshot.</p>
  */
 export interface InstanceSnapshot {
@@ -1474,6 +1866,9 @@ export interface InstanceSnapshot {
   sizeInGb?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetInstanceSnapshotResult {
   /**
    * <p>An array of key-value pairs containing information about the results of your get instance
@@ -1482,6 +1877,9 @@ export interface GetInstanceSnapshotResult {
   instanceSnapshot?: InstanceSnapshot;
 }
 
+/**
+ * @public
+ */
 export interface GetInstanceSnapshotsRequest {
   /**
    * <p>The token to advance to the next page of results from your request.</p>
@@ -1492,6 +1890,9 @@ export interface GetInstanceSnapshotsRequest {
   pageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetInstanceSnapshotsResult {
   /**
    * <p>An array of key-value pairs containing information about the results of your get instance
@@ -1508,6 +1909,9 @@ export interface GetInstanceSnapshotsResult {
   nextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetInstanceStateRequest {
   /**
    * <p>The name of the instance to get state information about.</p>
@@ -1515,6 +1919,9 @@ export interface GetInstanceStateRequest {
   instanceName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetInstanceStateResult {
   /**
    * <p>The state of the instance.</p>
@@ -1522,6 +1929,9 @@ export interface GetInstanceStateResult {
   state?: InstanceState;
 }
 
+/**
+ * @public
+ */
 export interface GetKeyPairRequest {
   /**
    * <p>The name of the key pair for which you are requesting information.</p>
@@ -1529,6 +1939,9 @@ export interface GetKeyPairRequest {
   keyPairName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetKeyPairResult {
   /**
    * <p>An array of key-value pairs containing information about the key pair.</p>
@@ -1536,6 +1949,9 @@ export interface GetKeyPairResult {
   keyPair?: KeyPair;
 }
 
+/**
+ * @public
+ */
 export interface GetKeyPairsRequest {
   /**
    * <p>The token to advance to the next page of results from your request.</p>
@@ -1552,6 +1968,9 @@ export interface GetKeyPairsRequest {
   includeDefaultKeyPair?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetKeyPairsResult {
   /**
    * <p>An array of key-value pairs containing information about the key pairs.</p>
@@ -1567,6 +1986,9 @@ export interface GetKeyPairsResult {
   nextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetLoadBalancerRequest {
   /**
    * <p>The name of the load balancer.</p>
@@ -1574,38 +1996,66 @@ export interface GetLoadBalancerRequest {
   loadBalancerName: string | undefined;
 }
 
-export enum LoadBalancerAttributeName {
-  HealthCheckPath = "HealthCheckPath",
-  HttpsRedirectionEnabled = "HttpsRedirectionEnabled",
-  SessionStickinessEnabled = "SessionStickinessEnabled",
-  SessionStickiness_LB_CookieDurationSeconds = "SessionStickiness_LB_CookieDurationSeconds",
-  TlsPolicyName = "TlsPolicyName",
-}
-
-export enum InstanceHealthState {
-  Draining = "draining",
-  Healthy = "healthy",
-  Initial = "initial",
-  Unavailable = "unavailable",
-  Unhealthy = "unhealthy",
-  Unused = "unused",
-}
-
-export enum InstanceHealthReason {
-  InstanceDeregistrationInProgress = "Instance.DeregistrationInProgress",
-  InstanceFailedHealthChecks = "Instance.FailedHealthChecks",
-  InstanceInvalidState = "Instance.InvalidState",
-  InstanceIpUnusable = "Instance.IpUnusable",
-  InstanceNotInUse = "Instance.NotInUse",
-  InstanceNotRegistered = "Instance.NotRegistered",
-  InstanceResponseCodeMismatch = "Instance.ResponseCodeMismatch",
-  InstanceTimeout = "Instance.Timeout",
-  LbInitialHealthChecking = "Lb.InitialHealthChecking",
-  LbInternalError = "Lb.InternalError",
-  LbRegistrationInProgress = "Lb.RegistrationInProgress",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LoadBalancerAttributeName = {
+  HealthCheckPath: "HealthCheckPath",
+  HttpsRedirectionEnabled: "HttpsRedirectionEnabled",
+  SessionStickinessEnabled: "SessionStickinessEnabled",
+  SessionStickiness_LB_CookieDurationSeconds: "SessionStickiness_LB_CookieDurationSeconds",
+  TlsPolicyName: "TlsPolicyName",
+} as const;
 
 /**
+ * @public
+ */
+export type LoadBalancerAttributeName = (typeof LoadBalancerAttributeName)[keyof typeof LoadBalancerAttributeName];
+
+/**
+ * @public
+ * @enum
+ */
+export const InstanceHealthState = {
+  Draining: "draining",
+  Healthy: "healthy",
+  Initial: "initial",
+  Unavailable: "unavailable",
+  Unhealthy: "unhealthy",
+  Unused: "unused",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceHealthState = (typeof InstanceHealthState)[keyof typeof InstanceHealthState];
+
+/**
+ * @public
+ * @enum
+ */
+export const InstanceHealthReason = {
+  InstanceDeregistrationInProgress: "Instance.DeregistrationInProgress",
+  InstanceFailedHealthChecks: "Instance.FailedHealthChecks",
+  InstanceInvalidState: "Instance.InvalidState",
+  InstanceIpUnusable: "Instance.IpUnusable",
+  InstanceNotInUse: "Instance.NotInUse",
+  InstanceNotRegistered: "Instance.NotRegistered",
+  InstanceResponseCodeMismatch: "Instance.ResponseCodeMismatch",
+  InstanceTimeout: "Instance.Timeout",
+  LbInitialHealthChecking: "Lb.InitialHealthChecking",
+  LbInternalError: "Lb.InternalError",
+  LbRegistrationInProgress: "Lb.RegistrationInProgress",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceHealthReason = (typeof InstanceHealthReason)[keyof typeof InstanceHealthReason];
+
+/**
+ * @public
  * <p>Describes information about the health of the instance.</p>
  */
 export interface InstanceHealthSummary {
@@ -1746,20 +2196,39 @@ export interface InstanceHealthSummary {
   instanceHealthReason?: InstanceHealthReason | string;
 }
 
-export enum LoadBalancerProtocol {
-  HTTP = "HTTP",
-  HTTP_HTTPS = "HTTP_HTTPS",
-}
-
-export enum LoadBalancerState {
-  Active = "active",
-  ActiveImpaired = "active_impaired",
-  Failed = "failed",
-  Provisioning = "provisioning",
-  Unknown = "unknown",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LoadBalancerProtocol = {
+  HTTP: "HTTP",
+  HTTP_HTTPS: "HTTP_HTTPS",
+} as const;
 
 /**
+ * @public
+ */
+export type LoadBalancerProtocol = (typeof LoadBalancerProtocol)[keyof typeof LoadBalancerProtocol];
+
+/**
+ * @public
+ * @enum
+ */
+export const LoadBalancerState = {
+  Active: "active",
+  ActiveImpaired: "active_impaired",
+  Failed: "failed",
+  Provisioning: "provisioning",
+  Unknown: "unknown",
+} as const;
+
+/**
+ * @public
+ */
+export type LoadBalancerState = (typeof LoadBalancerState)[keyof typeof LoadBalancerState];
+
+/**
+ * @public
  * <p>Provides a summary of SSL/TLS certificate metadata.</p>
  */
 export interface LoadBalancerTlsCertificateSummary {
@@ -1776,6 +2245,7 @@ export interface LoadBalancerTlsCertificateSummary {
 }
 
 /**
+ * @public
  * <p>Describes a load balancer.</p>
  */
 export interface LoadBalancer {
@@ -1891,6 +2361,9 @@ export interface LoadBalancer {
   tlsPolicyName?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetLoadBalancerResult {
   /**
    * <p>An object containing information about your load balancer.</p>
@@ -1898,21 +2371,33 @@ export interface GetLoadBalancerResult {
   loadBalancer?: LoadBalancer;
 }
 
-export enum LoadBalancerMetricName {
-  ClientTLSNegotiationErrorCount = "ClientTLSNegotiationErrorCount",
-  HTTPCode_Instance_2XX_Count = "HTTPCode_Instance_2XX_Count",
-  HTTPCode_Instance_3XX_Count = "HTTPCode_Instance_3XX_Count",
-  HTTPCode_Instance_4XX_Count = "HTTPCode_Instance_4XX_Count",
-  HTTPCode_Instance_5XX_Count = "HTTPCode_Instance_5XX_Count",
-  HTTPCode_LB_4XX_Count = "HTTPCode_LB_4XX_Count",
-  HTTPCode_LB_5XX_Count = "HTTPCode_LB_5XX_Count",
-  HealthyHostCount = "HealthyHostCount",
-  InstanceResponseTime = "InstanceResponseTime",
-  RejectedConnectionCount = "RejectedConnectionCount",
-  RequestCount = "RequestCount",
-  UnhealthyHostCount = "UnhealthyHostCount",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LoadBalancerMetricName = {
+  ClientTLSNegotiationErrorCount: "ClientTLSNegotiationErrorCount",
+  HTTPCode_Instance_2XX_Count: "HTTPCode_Instance_2XX_Count",
+  HTTPCode_Instance_3XX_Count: "HTTPCode_Instance_3XX_Count",
+  HTTPCode_Instance_4XX_Count: "HTTPCode_Instance_4XX_Count",
+  HTTPCode_Instance_5XX_Count: "HTTPCode_Instance_5XX_Count",
+  HTTPCode_LB_4XX_Count: "HTTPCode_LB_4XX_Count",
+  HTTPCode_LB_5XX_Count: "HTTPCode_LB_5XX_Count",
+  HealthyHostCount: "HealthyHostCount",
+  InstanceResponseTime: "InstanceResponseTime",
+  RejectedConnectionCount: "RejectedConnectionCount",
+  RequestCount: "RequestCount",
+  UnhealthyHostCount: "UnhealthyHostCount",
+} as const;
 
+/**
+ * @public
+ */
+export type LoadBalancerMetricName = (typeof LoadBalancerMetricName)[keyof typeof LoadBalancerMetricName];
+
+/**
+ * @public
+ */
 export interface GetLoadBalancerMetricDataRequest {
   /**
    * <p>The name of the load balancer.</p>
@@ -2150,6 +2635,9 @@ export interface GetLoadBalancerMetricDataRequest {
   statistics: (MetricStatistic | string)[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetLoadBalancerMetricDataResult {
   /**
    * <p>The name of the metric returned.</p>
@@ -2162,6 +2650,9 @@ export interface GetLoadBalancerMetricDataResult {
   metricData?: MetricDatapoint[];
 }
 
+/**
+ * @public
+ */
 export interface GetLoadBalancersRequest {
   /**
    * <p>The token to advance to the next page of results from your request.</p>
@@ -2172,6 +2663,9 @@ export interface GetLoadBalancersRequest {
   pageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetLoadBalancersResult {
   /**
    * <p>An array of LoadBalancer objects describing your load balancers.</p>
@@ -2187,6 +2681,9 @@ export interface GetLoadBalancersResult {
   nextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetLoadBalancerTlsCertificatesRequest {
   /**
    * <p>The name of the load balancer you associated with your SSL/TLS certificate.</p>
@@ -2194,13 +2691,24 @@ export interface GetLoadBalancerTlsCertificatesRequest {
   loadBalancerName: string | undefined;
 }
 
-export enum LoadBalancerTlsCertificateDnsRecordCreationStateCode {
-  Failed = "FAILED",
-  Started = "STARTED",
-  Succeeded = "SUCCEEDED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LoadBalancerTlsCertificateDnsRecordCreationStateCode = {
+  Failed: "FAILED",
+  Started: "STARTED",
+  Succeeded: "SUCCEEDED",
+} as const;
 
 /**
+ * @public
+ */
+export type LoadBalancerTlsCertificateDnsRecordCreationStateCode =
+  (typeof LoadBalancerTlsCertificateDnsRecordCreationStateCode)[keyof typeof LoadBalancerTlsCertificateDnsRecordCreationStateCode];
+
+/**
+ * @public
  * <p>An object that describes the state of the canonical name (CNAME) records that are
  *       automatically added by Lightsail to the DNS of the domain to validate domain
  *       ownership.</p>
@@ -2232,13 +2740,24 @@ export interface LoadBalancerTlsCertificateDnsRecordCreationState {
   message?: string;
 }
 
-export enum LoadBalancerTlsCertificateDomainStatus {
-  Failed = "FAILED",
-  PendingValidation = "PENDING_VALIDATION",
-  Success = "SUCCESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LoadBalancerTlsCertificateDomainStatus = {
+  Failed: "FAILED",
+  PendingValidation: "PENDING_VALIDATION",
+  Success: "SUCCESS",
+} as const;
 
 /**
+ * @public
+ */
+export type LoadBalancerTlsCertificateDomainStatus =
+  (typeof LoadBalancerTlsCertificateDomainStatus)[keyof typeof LoadBalancerTlsCertificateDomainStatus];
+
+/**
+ * @public
  * <p>Describes the validation record of each domain name in the SSL/TLS certificate.</p>
  */
 export interface LoadBalancerTlsCertificateDomainValidationRecord {
@@ -2277,15 +2796,26 @@ export interface LoadBalancerTlsCertificateDomainValidationRecord {
   dnsRecordCreationState?: LoadBalancerTlsCertificateDnsRecordCreationState;
 }
 
-export enum LoadBalancerTlsCertificateFailureReason {
-  AdditionalVerificationRequired = "ADDITIONAL_VERIFICATION_REQUIRED",
-  DomainNotAllowed = "DOMAIN_NOT_ALLOWED",
-  InvalidPublicDomain = "INVALID_PUBLIC_DOMAIN",
-  NoAvailableContacts = "NO_AVAILABLE_CONTACTS",
-  Other = "OTHER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LoadBalancerTlsCertificateFailureReason = {
+  AdditionalVerificationRequired: "ADDITIONAL_VERIFICATION_REQUIRED",
+  DomainNotAllowed: "DOMAIN_NOT_ALLOWED",
+  InvalidPublicDomain: "INVALID_PUBLIC_DOMAIN",
+  NoAvailableContacts: "NO_AVAILABLE_CONTACTS",
+  Other: "OTHER",
+} as const;
 
 /**
+ * @public
+ */
+export type LoadBalancerTlsCertificateFailureReason =
+  (typeof LoadBalancerTlsCertificateFailureReason)[keyof typeof LoadBalancerTlsCertificateFailureReason];
+
+/**
+ * @public
  * <p>Contains information about the domain names on an SSL/TLS certificate that you will use to
  *       validate domain ownership.</p>
  */
@@ -2301,14 +2831,25 @@ export interface LoadBalancerTlsCertificateDomainValidationOption {
   validationStatus?: LoadBalancerTlsCertificateDomainStatus | string;
 }
 
-export enum LoadBalancerTlsCertificateRenewalStatus {
-  Failed = "FAILED",
-  PendingAutoRenewal = "PENDING_AUTO_RENEWAL",
-  PendingValidation = "PENDING_VALIDATION",
-  Success = "SUCCESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LoadBalancerTlsCertificateRenewalStatus = {
+  Failed: "FAILED",
+  PendingAutoRenewal: "PENDING_AUTO_RENEWAL",
+  PendingValidation: "PENDING_VALIDATION",
+  Success: "SUCCESS",
+} as const;
 
 /**
+ * @public
+ */
+export type LoadBalancerTlsCertificateRenewalStatus =
+  (typeof LoadBalancerTlsCertificateRenewalStatus)[keyof typeof LoadBalancerTlsCertificateRenewalStatus];
+
+/**
+ * @public
  * <p>Contains information about the status of Lightsail's managed renewal for the
  *       certificate.</p>
  *          <p>The renewal status of the certificate.</p>
@@ -2403,31 +2944,52 @@ export interface LoadBalancerTlsCertificateRenewalSummary {
   domainValidationOptions?: LoadBalancerTlsCertificateDomainValidationOption[];
 }
 
-export enum LoadBalancerTlsCertificateRevocationReason {
-  AACompromise = "A_A_COMPROMISE",
-  AffiliationChanged = "AFFILIATION_CHANGED",
-  CaCompromise = "CA_COMPROMISE",
-  CertificateHold = "CERTIFICATE_HOLD",
-  CessationOfOperation = "CESSATION_OF_OPERATION",
-  KeyCompromise = "KEY_COMPROMISE",
-  PrivilegeWithdrawn = "PRIVILEGE_WITHDRAWN",
-  RemoveFromCrl = "REMOVE_FROM_CRL",
-  Superceded = "SUPERCEDED",
-  Unspecified = "UNSPECIFIED",
-}
-
-export enum LoadBalancerTlsCertificateStatus {
-  Expired = "EXPIRED",
-  Failed = "FAILED",
-  Inactive = "INACTIVE",
-  Issued = "ISSUED",
-  PendingValidation = "PENDING_VALIDATION",
-  Revoked = "REVOKED",
-  Unknown = "UNKNOWN",
-  ValidationTimedOut = "VALIDATION_TIMED_OUT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LoadBalancerTlsCertificateRevocationReason = {
+  AACompromise: "A_A_COMPROMISE",
+  AffiliationChanged: "AFFILIATION_CHANGED",
+  CaCompromise: "CA_COMPROMISE",
+  CertificateHold: "CERTIFICATE_HOLD",
+  CessationOfOperation: "CESSATION_OF_OPERATION",
+  KeyCompromise: "KEY_COMPROMISE",
+  PrivilegeWithdrawn: "PRIVILEGE_WITHDRAWN",
+  RemoveFromCrl: "REMOVE_FROM_CRL",
+  Superceded: "SUPERCEDED",
+  Unspecified: "UNSPECIFIED",
+} as const;
 
 /**
+ * @public
+ */
+export type LoadBalancerTlsCertificateRevocationReason =
+  (typeof LoadBalancerTlsCertificateRevocationReason)[keyof typeof LoadBalancerTlsCertificateRevocationReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const LoadBalancerTlsCertificateStatus = {
+  Expired: "EXPIRED",
+  Failed: "FAILED",
+  Inactive: "INACTIVE",
+  Issued: "ISSUED",
+  PendingValidation: "PENDING_VALIDATION",
+  Revoked: "REVOKED",
+  Unknown: "UNKNOWN",
+  ValidationTimedOut: "VALIDATION_TIMED_OUT",
+} as const;
+
+/**
+ * @public
+ */
+export type LoadBalancerTlsCertificateStatus =
+  (typeof LoadBalancerTlsCertificateStatus)[keyof typeof LoadBalancerTlsCertificateStatus];
+
+/**
+ * @public
  * <p>Describes a load balancer SSL/TLS certificate.</p>
  *          <p>TLS is just an updated, more secure version of Secure Socket Layer (SSL).</p>
  */
@@ -2700,6 +3262,9 @@ export interface LoadBalancerTlsCertificate {
   subjectAlternativeNames?: string[];
 }
 
+/**
+ * @public
+ */
 export interface GetLoadBalancerTlsCertificatesResult {
   /**
    * <p>An array of LoadBalancerTlsCertificate objects describing your SSL/TLS
@@ -2708,6 +3273,9 @@ export interface GetLoadBalancerTlsCertificatesResult {
   tlsCertificates?: LoadBalancerTlsCertificate[];
 }
 
+/**
+ * @public
+ */
 export interface GetLoadBalancerTlsPoliciesRequest {
   /**
    * <p>The token to advance to the next page of results from your request.</p>
@@ -2719,6 +3287,7 @@ export interface GetLoadBalancerTlsPoliciesRequest {
 }
 
 /**
+ * @public
  * <p>Describes the TLS security policies that are available for Lightsail load
  *       balancers.</p>
  *          <p>For more information about load balancer TLS security policies, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configure-load-balancer-tls-security-policy">Configuring TLS security policies on your Amazon Lightsail load
@@ -2753,6 +3322,9 @@ export interface LoadBalancerTlsPolicy {
   ciphers?: string[];
 }
 
+/**
+ * @public
+ */
 export interface GetLoadBalancerTlsPoliciesResult {
   /**
    * <p>An array of objects that describe the TLS security policies that are available.</p>
@@ -2768,6 +3340,9 @@ export interface GetLoadBalancerTlsPoliciesResult {
   nextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetOperationRequest {
   /**
    * <p>A GUID used to identify the operation.</p>
@@ -2775,6 +3350,9 @@ export interface GetOperationRequest {
   operationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetOperationResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -2783,6 +3361,9 @@ export interface GetOperationResult {
   operation?: Operation;
 }
 
+/**
+ * @public
+ */
 export interface GetOperationsRequest {
   /**
    * <p>The token to advance to the next page of results from your request.</p>
@@ -2793,6 +3374,9 @@ export interface GetOperationsRequest {
   pageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetOperationsResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -2809,6 +3393,9 @@ export interface GetOperationsResult {
   nextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetOperationsForResourceRequest {
   /**
    * <p>The name of the resource for which you are requesting information.</p>
@@ -2824,6 +3411,9 @@ export interface GetOperationsForResourceRequest {
   pageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetOperationsForResourceResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -2852,6 +3442,9 @@ export interface GetOperationsForResourceResult {
   nextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetRegionsRequest {
   /**
    * <p>A Boolean value indicating whether to also include Availability Zones in your get regions
@@ -2868,6 +3461,7 @@ export interface GetRegionsRequest {
 }
 
 /**
+ * @public
  * <p>Describes the Amazon Web Services Region.</p>
  */
 export interface Region {
@@ -2905,6 +3499,9 @@ export interface Region {
   relationalDatabaseAvailabilityZones?: AvailabilityZone[];
 }
 
+/**
+ * @public
+ */
 export interface GetRegionsResult {
   /**
    * <p>An array of key-value pairs containing information about your get regions request.</p>
@@ -2912,6 +3509,9 @@ export interface GetRegionsResult {
   regions?: Region[];
 }
 
+/**
+ * @public
+ */
 export interface GetRelationalDatabaseRequest {
   /**
    * <p>The name of the database that you are looking up.</p>
@@ -2920,6 +3520,7 @@ export interface GetRelationalDatabaseRequest {
 }
 
 /**
+ * @public
  * <p>Describes the hardware of a database.</p>
  */
 export interface RelationalDatabaseHardware {
@@ -2940,6 +3541,7 @@ export interface RelationalDatabaseHardware {
 }
 
 /**
+ * @public
  * <p>Describes an endpoint for a database.</p>
  */
 export interface RelationalDatabaseEndpoint {
@@ -2955,6 +3557,7 @@ export interface RelationalDatabaseEndpoint {
 }
 
 /**
+ * @public
  * <p>Describes a pending database maintenance action.</p>
  */
 export interface PendingMaintenanceAction {
@@ -2975,6 +3578,7 @@ export interface PendingMaintenanceAction {
 }
 
 /**
+ * @public
  * <p>Describes a pending database value modification.</p>
  */
 export interface PendingModifiedRelationalDatabaseValues {
@@ -2995,6 +3599,7 @@ export interface PendingModifiedRelationalDatabaseValues {
 }
 
 /**
+ * @public
  * <p>Describes a database.</p>
  */
 export interface RelationalDatabase {
@@ -3143,6 +3748,9 @@ export interface RelationalDatabase {
   caCertificateIdentifier?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetRelationalDatabaseResult {
   /**
    * <p>An object describing the specified database.</p>
@@ -3150,6 +3758,9 @@ export interface GetRelationalDatabaseResult {
   relationalDatabase?: RelationalDatabase;
 }
 
+/**
+ * @public
+ */
 export interface GetRelationalDatabaseBlueprintsRequest {
   /**
    * <p>The token to advance to the next page of results from your request.</p>
@@ -3160,11 +3771,21 @@ export interface GetRelationalDatabaseBlueprintsRequest {
   pageToken?: string;
 }
 
-export enum RelationalDatabaseEngine {
-  MYSQL = "mysql",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RelationalDatabaseEngine = {
+  MYSQL: "mysql",
+} as const;
 
 /**
+ * @public
+ */
+export type RelationalDatabaseEngine = (typeof RelationalDatabaseEngine)[keyof typeof RelationalDatabaseEngine];
+
+/**
+ * @public
  * <p>Describes a database image, or blueprint. A blueprint describes the major engine version
  *       of a database.</p>
  */
@@ -3202,6 +3823,9 @@ export interface RelationalDatabaseBlueprint {
   isEngineDefault?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetRelationalDatabaseBlueprintsResult {
   /**
    * <p>An object describing the result of your get relational database blueprints request.</p>
@@ -3218,6 +3842,9 @@ export interface GetRelationalDatabaseBlueprintsResult {
   nextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetRelationalDatabaseBundlesRequest {
   /**
    * <p>The token to advance to the next page of results from your request.</p>
@@ -3235,6 +3862,7 @@ export interface GetRelationalDatabaseBundlesRequest {
 }
 
 /**
+ * @public
  * <p>Describes a database bundle. A bundle describes the performance specifications of the
  *       database.</p>
  */
@@ -3285,6 +3913,9 @@ export interface RelationalDatabaseBundle {
   isActive?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetRelationalDatabaseBundlesResult {
   /**
    * <p>An object describing the result of your get relational database bundles request.</p>
@@ -3300,6 +3931,9 @@ export interface GetRelationalDatabaseBundlesResult {
   nextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetRelationalDatabaseEventsRequest {
   /**
    * <p>The name of the database from which to get events.</p>
@@ -3325,6 +3959,7 @@ export interface GetRelationalDatabaseEventsRequest {
 }
 
 /**
+ * @public
  * <p>Describes an event for a database.</p>
  */
 export interface RelationalDatabaseEvent {
@@ -3349,6 +3984,9 @@ export interface RelationalDatabaseEvent {
   eventCategories?: string[];
 }
 
+/**
+ * @public
+ */
 export interface GetRelationalDatabaseEventsResult {
   /**
    * <p>An object describing the result of your get relational database events request.</p>
@@ -3364,6 +4002,9 @@ export interface GetRelationalDatabaseEventsResult {
   nextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetRelationalDatabaseLogEventsRequest {
   /**
    * <p>The name of your database for which to get log events.</p>
@@ -3430,6 +4071,7 @@ export interface GetRelationalDatabaseLogEventsRequest {
 }
 
 /**
+ * @public
  * <p>Describes a database log event.</p>
  */
 export interface LogEvent {
@@ -3444,6 +4086,9 @@ export interface LogEvent {
   message?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetRelationalDatabaseLogEventsResult {
   /**
    * <p>An object describing the result of your get relational database log events request.</p>
@@ -3463,6 +4108,9 @@ export interface GetRelationalDatabaseLogEventsResult {
   nextForwardToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetRelationalDatabaseLogStreamsRequest {
   /**
    * <p>The name of your database for which to get log streams.</p>
@@ -3470,6 +4118,9 @@ export interface GetRelationalDatabaseLogStreamsRequest {
   relationalDatabaseName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetRelationalDatabaseLogStreamsResult {
   /**
    * <p>An object describing the result of your get relational database log streams
@@ -3478,12 +4129,25 @@ export interface GetRelationalDatabaseLogStreamsResult {
   logStreams?: string[];
 }
 
-export enum RelationalDatabasePasswordVersion {
-  CURRENT = "CURRENT",
-  PENDING = "PENDING",
-  PREVIOUS = "PREVIOUS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RelationalDatabasePasswordVersion = {
+  CURRENT: "CURRENT",
+  PENDING: "PENDING",
+  PREVIOUS: "PREVIOUS",
+} as const;
 
+/**
+ * @public
+ */
+export type RelationalDatabasePasswordVersion =
+  (typeof RelationalDatabasePasswordVersion)[keyof typeof RelationalDatabasePasswordVersion];
+
+/**
+ * @public
+ */
 export interface GetRelationalDatabaseMasterUserPasswordRequest {
   /**
    * <p>The name of your database for which to get the master user password.</p>
@@ -3503,6 +4167,9 @@ export interface GetRelationalDatabaseMasterUserPasswordRequest {
   passwordVersion?: RelationalDatabasePasswordVersion | string;
 }
 
+/**
+ * @public
+ */
 export interface GetRelationalDatabaseMasterUserPasswordResult {
   /**
    * <p>The master user password for the <code>password version</code> specified.</p>
@@ -3515,15 +4182,28 @@ export interface GetRelationalDatabaseMasterUserPasswordResult {
   createdAt?: Date;
 }
 
-export enum RelationalDatabaseMetricName {
-  CPUUtilization = "CPUUtilization",
-  DatabaseConnections = "DatabaseConnections",
-  DiskQueueDepth = "DiskQueueDepth",
-  FreeStorageSpace = "FreeStorageSpace",
-  NetworkReceiveThroughput = "NetworkReceiveThroughput",
-  NetworkTransmitThroughput = "NetworkTransmitThroughput",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RelationalDatabaseMetricName = {
+  CPUUtilization: "CPUUtilization",
+  DatabaseConnections: "DatabaseConnections",
+  DiskQueueDepth: "DiskQueueDepth",
+  FreeStorageSpace: "FreeStorageSpace",
+  NetworkReceiveThroughput: "NetworkReceiveThroughput",
+  NetworkTransmitThroughput: "NetworkTransmitThroughput",
+} as const;
 
+/**
+ * @public
+ */
+export type RelationalDatabaseMetricName =
+  (typeof RelationalDatabaseMetricName)[keyof typeof RelationalDatabaseMetricName];
+
+/**
+ * @public
+ */
 export interface GetRelationalDatabaseMetricDataRequest {
   /**
    * <p>The name of your database from which to get metric data.</p>
@@ -3693,6 +4373,9 @@ export interface GetRelationalDatabaseMetricDataRequest {
   statistics: (MetricStatistic | string)[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetRelationalDatabaseMetricDataResult {
   /**
    * <p>The name of the metric returned.</p>
@@ -3705,6 +4388,9 @@ export interface GetRelationalDatabaseMetricDataResult {
   metricData?: MetricDatapoint[];
 }
 
+/**
+ * @public
+ */
 export interface GetRelationalDatabaseParametersRequest {
   /**
    * <p>The name of your database for which to get parameters.</p>
@@ -3721,6 +4407,7 @@ export interface GetRelationalDatabaseParametersRequest {
 }
 
 /**
+ * @public
  * <p>Describes the parameters of a database.</p>
  */
 export interface RelationalDatabaseParameter {
@@ -3766,6 +4453,9 @@ export interface RelationalDatabaseParameter {
   parameterValue?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetRelationalDatabaseParametersResult {
   /**
    * <p>An object describing the result of your get relational database parameters request.</p>
@@ -3782,6 +4472,9 @@ export interface GetRelationalDatabaseParametersResult {
   nextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetRelationalDatabasesRequest {
   /**
    * <p>The token to advance to the next page of results from your request.</p>
@@ -3792,6 +4485,9 @@ export interface GetRelationalDatabasesRequest {
   pageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetRelationalDatabasesResult {
   /**
    * <p>An object describing the result of your get relational databases request.</p>
@@ -3807,6 +4503,9 @@ export interface GetRelationalDatabasesResult {
   nextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetRelationalDatabaseSnapshotRequest {
   /**
    * <p>The name of the database snapshot for which to get information.</p>
@@ -3815,6 +4514,7 @@ export interface GetRelationalDatabaseSnapshotRequest {
 }
 
 /**
+ * @public
  * <p>Describes a database snapshot.</p>
  */
 export interface RelationalDatabaseSnapshot {
@@ -3901,6 +4601,9 @@ export interface RelationalDatabaseSnapshot {
   fromRelationalDatabaseBlueprintId?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetRelationalDatabaseSnapshotResult {
   /**
    * <p>An object describing the specified database snapshot.</p>
@@ -3908,6 +4611,9 @@ export interface GetRelationalDatabaseSnapshotResult {
   relationalDatabaseSnapshot?: RelationalDatabaseSnapshot;
 }
 
+/**
+ * @public
+ */
 export interface GetRelationalDatabaseSnapshotsRequest {
   /**
    * <p>The token to advance to the next page of results from your request.</p>
@@ -3918,6 +4624,9 @@ export interface GetRelationalDatabaseSnapshotsRequest {
   pageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetRelationalDatabaseSnapshotsResult {
   /**
    * <p>An object describing the result of your get relational database snapshots request.</p>
@@ -3934,6 +4643,9 @@ export interface GetRelationalDatabaseSnapshotsResult {
   nextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetStaticIpRequest {
   /**
    * <p>The name of the static IP in Lightsail.</p>
@@ -3942,6 +4654,7 @@ export interface GetStaticIpRequest {
 }
 
 /**
+ * @public
  * <p>Describes a static IP.</p>
  */
 export interface StaticIp {
@@ -3995,6 +4708,9 @@ export interface StaticIp {
   isAttached?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetStaticIpResult {
   /**
    * <p>An array of key-value pairs containing information about the requested static IP.</p>
@@ -4002,6 +4718,9 @@ export interface GetStaticIpResult {
   staticIp?: StaticIp;
 }
 
+/**
+ * @public
+ */
 export interface GetStaticIpsRequest {
   /**
    * <p>The token to advance to the next page of results from your request.</p>
@@ -4012,6 +4731,9 @@ export interface GetStaticIpsRequest {
   pageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetStaticIpsResult {
   /**
    * <p>An array of key-value pairs containing information about your get static IPs
@@ -4028,6 +4750,9 @@ export interface GetStaticIpsResult {
   nextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ImportKeyPairRequest {
   /**
    * <p>The name of the key pair for which you want to import the public key.</p>
@@ -4040,6 +4765,9 @@ export interface ImportKeyPairRequest {
   publicKeyBase64: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ImportKeyPairResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -4048,8 +4776,14 @@ export interface ImportKeyPairResult {
   operation?: Operation;
 }
 
+/**
+ * @public
+ */
 export interface IsVpcPeeredRequest {}
 
+/**
+ * @public
+ */
 export interface IsVpcPeeredResult {
   /**
    * <p>Returns <code>true</code> if the Lightsail VPC is peered; otherwise,
@@ -4058,6 +4792,9 @@ export interface IsVpcPeeredResult {
   isPeered?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface OpenInstancePublicPortsRequest {
   /**
    * <p>An object to describe the ports to open for the specified instance.</p>
@@ -4070,6 +4807,9 @@ export interface OpenInstancePublicPortsRequest {
   instanceName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface OpenInstancePublicPortsResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -4078,8 +4818,14 @@ export interface OpenInstancePublicPortsResult {
   operation?: Operation;
 }
 
+/**
+ * @public
+ */
 export interface PeerVpcRequest {}
 
+/**
+ * @public
+ */
 export interface PeerVpcResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -4088,6 +4834,9 @@ export interface PeerVpcResult {
   operation?: Operation;
 }
 
+/**
+ * @public
+ */
 export interface PutAlarmRequest {
   /**
    * <p>The name for the alarm. Specify the name of an existing alarm to update, and overwrite the
@@ -4259,6 +5008,9 @@ export interface PutAlarmRequest {
   notificationEnabled?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface PutAlarmResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -4267,6 +5019,9 @@ export interface PutAlarmResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface PutInstancePublicPortsRequest {
   /**
    * <p>An array of objects to describe the ports to open for the specified instance.</p>
@@ -4279,6 +5034,9 @@ export interface PutInstancePublicPortsRequest {
   instanceName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutInstancePublicPortsResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -4287,6 +5045,9 @@ export interface PutInstancePublicPortsResult {
   operation?: Operation;
 }
 
+/**
+ * @public
+ */
 export interface RebootInstanceRequest {
   /**
    * <p>The name of the instance to reboot.</p>
@@ -4294,6 +5055,9 @@ export interface RebootInstanceRequest {
   instanceName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RebootInstanceResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -4302,6 +5066,9 @@ export interface RebootInstanceResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface RebootRelationalDatabaseRequest {
   /**
    * <p>The name of your database to reboot.</p>
@@ -4309,6 +5076,9 @@ export interface RebootRelationalDatabaseRequest {
   relationalDatabaseName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RebootRelationalDatabaseResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -4317,6 +5087,9 @@ export interface RebootRelationalDatabaseResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface RegisterContainerImageRequest {
   /**
    * <p>The name of the container service for which to register a container image.</p>
@@ -4354,6 +5127,9 @@ export interface RegisterContainerImageRequest {
   digest: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RegisterContainerImageResult {
   /**
    * <p>An object that describes a container image that is registered to a Lightsail container
@@ -4362,6 +5138,9 @@ export interface RegisterContainerImageResult {
   containerImage?: ContainerImage;
 }
 
+/**
+ * @public
+ */
 export interface ReleaseStaticIpRequest {
   /**
    * <p>The name of the static IP to delete.</p>
@@ -4369,6 +5148,9 @@ export interface ReleaseStaticIpRequest {
   staticIpName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ReleaseStaticIpResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -4377,6 +5159,9 @@ export interface ReleaseStaticIpResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface ResetDistributionCacheRequest {
   /**
    * <p>The name of the distribution for which to reset cache.</p>
@@ -4386,6 +5171,9 @@ export interface ResetDistributionCacheRequest {
   distributionName?: string;
 }
 
+/**
+ * @public
+ */
 export interface ResetDistributionCacheResult {
   /**
    * <p>The status of the reset cache request.</p>
@@ -4405,6 +5193,9 @@ export interface ResetDistributionCacheResult {
   operation?: Operation;
 }
 
+/**
+ * @public
+ */
 export interface SendContactMethodVerificationRequest {
   /**
    * <p>The protocol to verify, such as <code>Email</code> or <code>SMS</code> (text
@@ -4413,6 +5204,9 @@ export interface SendContactMethodVerificationRequest {
   protocol: ContactMethodVerificationProtocol | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SendContactMethodVerificationResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -4421,6 +5215,9 @@ export interface SendContactMethodVerificationResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface SetIpAddressTypeRequest {
   /**
    * <p>The resource type.</p>
@@ -4447,6 +5244,9 @@ export interface SetIpAddressTypeRequest {
   ipAddressType: IpAddressType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SetIpAddressTypeResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -4455,11 +5255,23 @@ export interface SetIpAddressTypeResult {
   operations?: Operation[];
 }
 
-export enum ResourceBucketAccess {
-  Allow = "allow",
-  Deny = "deny",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResourceBucketAccess = {
+  Allow: "allow",
+  Deny: "deny",
+} as const;
 
+/**
+ * @public
+ */
+export type ResourceBucketAccess = (typeof ResourceBucketAccess)[keyof typeof ResourceBucketAccess];
+
+/**
+ * @public
+ */
 export interface SetResourceAccessForBucketRequest {
   /**
    * <p>The name of the Lightsail instance for which to set bucket access. The instance must be
@@ -4490,6 +5302,9 @@ export interface SetResourceAccessForBucketRequest {
   access: ResourceBucketAccess | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SetResourceAccessForBucketResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -4498,6 +5313,29 @@ export interface SetResourceAccessForBucketResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
+export interface StartGUISessionRequest {
+  /**
+   * <p>The resource name.</p>
+   */
+  resourceName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartGUISessionResult {
+  /**
+   * <p>The available API operations.</p>
+   */
+  operations?: Operation[];
+}
+
+/**
+ * @public
+ */
 export interface StartInstanceRequest {
   /**
    * <p>The name of the instance (a virtual private server) to start.</p>
@@ -4505,6 +5343,9 @@ export interface StartInstanceRequest {
   instanceName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartInstanceResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -4513,6 +5354,9 @@ export interface StartInstanceResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface StartRelationalDatabaseRequest {
   /**
    * <p>The name of your database to start.</p>
@@ -4520,6 +5364,9 @@ export interface StartRelationalDatabaseRequest {
   relationalDatabaseName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartRelationalDatabaseResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -4528,6 +5375,29 @@ export interface StartRelationalDatabaseResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
+export interface StopGUISessionRequest {
+  /**
+   * <p>The resource name.</p>
+   */
+  resourceName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopGUISessionResult {
+  /**
+   * <p>The available API operations.</p>
+   */
+  operations?: Operation[];
+}
+
+/**
+ * @public
+ */
 export interface StopInstanceRequest {
   /**
    * <p>The name of the instance (a virtual private server) to stop.</p>
@@ -4546,6 +5416,9 @@ export interface StopInstanceRequest {
   force?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface StopInstanceResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -4554,6 +5427,9 @@ export interface StopInstanceResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface StopRelationalDatabaseRequest {
   /**
    * <p>The name of your database to stop.</p>
@@ -4566,6 +5442,9 @@ export interface StopRelationalDatabaseRequest {
   relationalDatabaseSnapshotName?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopRelationalDatabaseResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -4574,6 +5453,9 @@ export interface StopRelationalDatabaseResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The name of the resource to which you are adding tags.</p>
@@ -4591,6 +5473,9 @@ export interface TagResourceRequest {
   tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -4599,6 +5484,9 @@ export interface TagResourceResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface TestAlarmRequest {
   /**
    * <p>The name of the alarm to test.</p>
@@ -4628,6 +5516,9 @@ export interface TestAlarmRequest {
   state: AlarmState | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TestAlarmResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -4636,8 +5527,14 @@ export interface TestAlarmResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface UnpeerVpcRequest {}
 
+/**
+ * @public
+ */
 export interface UnpeerVpcResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -4646,6 +5543,9 @@ export interface UnpeerVpcResult {
   operation?: Operation;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The name of the resource from which you are removing a tag.</p>
@@ -4663,6 +5563,9 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -4671,6 +5574,9 @@ export interface UntagResourceResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateBucketRequest {
   /**
    * <p>The name of the bucket to update.</p>
@@ -4712,6 +5618,9 @@ export interface UpdateBucketRequest {
   accessLogConfig?: BucketAccessLogConfig;
 }
 
+/**
+ * @public
+ */
 export interface UpdateBucketResult {
   /**
    * <p>An object that describes the bucket that is updated.</p>
@@ -4725,6 +5634,9 @@ export interface UpdateBucketResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateBucketBundleRequest {
   /**
    * <p>The name of the bucket for which to update the bundle.</p>
@@ -4739,6 +5651,9 @@ export interface UpdateBucketBundleRequest {
   bundleId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateBucketBundleResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -4747,6 +5662,9 @@ export interface UpdateBucketBundleResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateContainerServiceRequest {
   /**
    * <p>The name of the container service to update.</p>
@@ -4807,6 +5725,9 @@ export interface UpdateContainerServiceRequest {
   privateRegistryAccess?: PrivateRegistryAccessRequest;
 }
 
+/**
+ * @public
+ */
 export interface UpdateContainerServiceResult {
   /**
    * <p>An object that describes a container service.</p>
@@ -4814,6 +5735,9 @@ export interface UpdateContainerServiceResult {
   containerService?: ContainerService;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDistributionRequest {
   /**
    * <p>The name of the distribution to update.</p>
@@ -4855,6 +5779,9 @@ export interface UpdateDistributionRequest {
   isEnabled?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDistributionResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -4863,6 +5790,9 @@ export interface UpdateDistributionResult {
   operation?: Operation;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDistributionBundleRequest {
   /**
    * <p>The name of the distribution for which to update the bundle.</p>
@@ -4879,6 +5809,9 @@ export interface UpdateDistributionBundleRequest {
   bundleId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDistributionBundleResult {
   /**
    * <p>An object that describes the result of the action, such as the status of the request, the
@@ -4887,6 +5820,9 @@ export interface UpdateDistributionBundleResult {
   operation?: Operation;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDomainEntryRequest {
   /**
    * <p>The name of the domain recordset to update.</p>
@@ -4899,6 +5835,9 @@ export interface UpdateDomainEntryRequest {
   domainEntry: DomainEntry | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDomainEntryResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -4907,6 +5846,9 @@ export interface UpdateDomainEntryResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateInstanceMetadataOptionsRequest {
   /**
    * <p>The name of the instance for which to update metadata parameters.</p>
@@ -4952,13 +5894,20 @@ export interface UpdateInstanceMetadataOptionsRequest {
   httpProtocolIpv6?: HttpProtocolIpv6 | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateInstanceMetadataOptionsResult {
   /**
-   * <p>Describes the API operation.</p>
+   * <p>An array of objects that describe the result of the action, such as the status of the
+   *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operation?: Operation;
 }
 
+/**
+ * @public
+ */
 export interface UpdateLoadBalancerAttributeRequest {
   /**
    * <p>The name of the load balancer that you want to modify (e.g.,
@@ -5011,6 +5960,9 @@ export interface UpdateLoadBalancerAttributeRequest {
   attributeValue: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateLoadBalancerAttributeResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -5019,6 +5971,9 @@ export interface UpdateLoadBalancerAttributeResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateRelationalDatabaseRequest {
   /**
    * <p>The name of your Lightsail database resource to update.</p>
@@ -5134,6 +6089,9 @@ export interface UpdateRelationalDatabaseRequest {
   caCertificateIdentifier?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRelationalDatabaseResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -5142,6 +6100,9 @@ export interface UpdateRelationalDatabaseResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateRelationalDatabaseParametersRequest {
   /**
    * <p>The name of your database for which to update parameters.</p>
@@ -5154,6 +6115,9 @@ export interface UpdateRelationalDatabaseParametersRequest {
   parameters: RelationalDatabaseParameter[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRelationalDatabaseParametersResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -5161,680 +6125,6 @@ export interface UpdateRelationalDatabaseParametersResult {
    */
   operations?: Operation[];
 }
-
-/**
- * @internal
- */
-export const GetDistributionMetricDataRequestFilterSensitiveLog = (obj: GetDistributionMetricDataRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDistributionMetricDataResultFilterSensitiveLog = (obj: GetDistributionMetricDataResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDistributionsRequestFilterSensitiveLog = (obj: GetDistributionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDistributionsResultFilterSensitiveLog = (obj: GetDistributionsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDomainRequestFilterSensitiveLog = (obj: GetDomainRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDomainResultFilterSensitiveLog = (obj: GetDomainResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDomainsRequestFilterSensitiveLog = (obj: GetDomainsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDomainsResultFilterSensitiveLog = (obj: GetDomainsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetExportSnapshotRecordsRequestFilterSensitiveLog = (obj: GetExportSnapshotRecordsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetExportSnapshotRecordsResultFilterSensitiveLog = (obj: GetExportSnapshotRecordsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInstanceRequestFilterSensitiveLog = (obj: GetInstanceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceHardwareFilterSensitiveLog = (obj: InstanceHardware): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceMetadataOptionsFilterSensitiveLog = (obj: InstanceMetadataOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MonthlyTransferFilterSensitiveLog = (obj: MonthlyTransfer): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstancePortInfoFilterSensitiveLog = (obj: InstancePortInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceNetworkingFilterSensitiveLog = (obj: InstanceNetworking): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceStateFilterSensitiveLog = (obj: InstanceState): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceFilterSensitiveLog = (obj: Instance): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInstanceResultFilterSensitiveLog = (obj: GetInstanceResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInstanceAccessDetailsRequestFilterSensitiveLog = (obj: GetInstanceAccessDetailsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HostKeyAttributesFilterSensitiveLog = (obj: HostKeyAttributes): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PasswordDataFilterSensitiveLog = (obj: PasswordData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceAccessDetailsFilterSensitiveLog = (obj: InstanceAccessDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInstanceAccessDetailsResultFilterSensitiveLog = (obj: GetInstanceAccessDetailsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInstanceMetricDataRequestFilterSensitiveLog = (obj: GetInstanceMetricDataRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInstanceMetricDataResultFilterSensitiveLog = (obj: GetInstanceMetricDataResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInstancePortStatesRequestFilterSensitiveLog = (obj: GetInstancePortStatesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstancePortStateFilterSensitiveLog = (obj: InstancePortState): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInstancePortStatesResultFilterSensitiveLog = (obj: GetInstancePortStatesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInstancesRequestFilterSensitiveLog = (obj: GetInstancesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInstancesResultFilterSensitiveLog = (obj: GetInstancesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInstanceSnapshotRequestFilterSensitiveLog = (obj: GetInstanceSnapshotRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceSnapshotFilterSensitiveLog = (obj: InstanceSnapshot): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInstanceSnapshotResultFilterSensitiveLog = (obj: GetInstanceSnapshotResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInstanceSnapshotsRequestFilterSensitiveLog = (obj: GetInstanceSnapshotsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInstanceSnapshotsResultFilterSensitiveLog = (obj: GetInstanceSnapshotsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInstanceStateRequestFilterSensitiveLog = (obj: GetInstanceStateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInstanceStateResultFilterSensitiveLog = (obj: GetInstanceStateResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetKeyPairRequestFilterSensitiveLog = (obj: GetKeyPairRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetKeyPairResultFilterSensitiveLog = (obj: GetKeyPairResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetKeyPairsRequestFilterSensitiveLog = (obj: GetKeyPairsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetKeyPairsResultFilterSensitiveLog = (obj: GetKeyPairsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLoadBalancerRequestFilterSensitiveLog = (obj: GetLoadBalancerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceHealthSummaryFilterSensitiveLog = (obj: InstanceHealthSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LoadBalancerTlsCertificateSummaryFilterSensitiveLog = (obj: LoadBalancerTlsCertificateSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LoadBalancerFilterSensitiveLog = (obj: LoadBalancer): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLoadBalancerResultFilterSensitiveLog = (obj: GetLoadBalancerResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLoadBalancerMetricDataRequestFilterSensitiveLog = (obj: GetLoadBalancerMetricDataRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLoadBalancerMetricDataResultFilterSensitiveLog = (obj: GetLoadBalancerMetricDataResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLoadBalancersRequestFilterSensitiveLog = (obj: GetLoadBalancersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLoadBalancersResultFilterSensitiveLog = (obj: GetLoadBalancersResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLoadBalancerTlsCertificatesRequestFilterSensitiveLog = (
-  obj: GetLoadBalancerTlsCertificatesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LoadBalancerTlsCertificateDnsRecordCreationStateFilterSensitiveLog = (
-  obj: LoadBalancerTlsCertificateDnsRecordCreationState
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LoadBalancerTlsCertificateDomainValidationRecordFilterSensitiveLog = (
-  obj: LoadBalancerTlsCertificateDomainValidationRecord
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LoadBalancerTlsCertificateDomainValidationOptionFilterSensitiveLog = (
-  obj: LoadBalancerTlsCertificateDomainValidationOption
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LoadBalancerTlsCertificateRenewalSummaryFilterSensitiveLog = (
-  obj: LoadBalancerTlsCertificateRenewalSummary
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LoadBalancerTlsCertificateFilterSensitiveLog = (obj: LoadBalancerTlsCertificate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLoadBalancerTlsCertificatesResultFilterSensitiveLog = (
-  obj: GetLoadBalancerTlsCertificatesResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLoadBalancerTlsPoliciesRequestFilterSensitiveLog = (obj: GetLoadBalancerTlsPoliciesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LoadBalancerTlsPolicyFilterSensitiveLog = (obj: LoadBalancerTlsPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLoadBalancerTlsPoliciesResultFilterSensitiveLog = (obj: GetLoadBalancerTlsPoliciesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetOperationRequestFilterSensitiveLog = (obj: GetOperationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetOperationResultFilterSensitiveLog = (obj: GetOperationResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetOperationsRequestFilterSensitiveLog = (obj: GetOperationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetOperationsResultFilterSensitiveLog = (obj: GetOperationsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetOperationsForResourceRequestFilterSensitiveLog = (obj: GetOperationsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetOperationsForResourceResultFilterSensitiveLog = (obj: GetOperationsForResourceResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRegionsRequestFilterSensitiveLog = (obj: GetRegionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegionFilterSensitiveLog = (obj: Region): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRegionsResultFilterSensitiveLog = (obj: GetRegionsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRelationalDatabaseRequestFilterSensitiveLog = (obj: GetRelationalDatabaseRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RelationalDatabaseHardwareFilterSensitiveLog = (obj: RelationalDatabaseHardware): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RelationalDatabaseEndpointFilterSensitiveLog = (obj: RelationalDatabaseEndpoint): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PendingMaintenanceActionFilterSensitiveLog = (obj: PendingMaintenanceAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PendingModifiedRelationalDatabaseValuesFilterSensitiveLog = (
-  obj: PendingModifiedRelationalDatabaseValues
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RelationalDatabaseFilterSensitiveLog = (obj: RelationalDatabase): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRelationalDatabaseResultFilterSensitiveLog = (obj: GetRelationalDatabaseResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRelationalDatabaseBlueprintsRequestFilterSensitiveLog = (
-  obj: GetRelationalDatabaseBlueprintsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RelationalDatabaseBlueprintFilterSensitiveLog = (obj: RelationalDatabaseBlueprint): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRelationalDatabaseBlueprintsResultFilterSensitiveLog = (
-  obj: GetRelationalDatabaseBlueprintsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRelationalDatabaseBundlesRequestFilterSensitiveLog = (
-  obj: GetRelationalDatabaseBundlesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RelationalDatabaseBundleFilterSensitiveLog = (obj: RelationalDatabaseBundle): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRelationalDatabaseBundlesResultFilterSensitiveLog = (obj: GetRelationalDatabaseBundlesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRelationalDatabaseEventsRequestFilterSensitiveLog = (obj: GetRelationalDatabaseEventsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RelationalDatabaseEventFilterSensitiveLog = (obj: RelationalDatabaseEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRelationalDatabaseEventsResultFilterSensitiveLog = (obj: GetRelationalDatabaseEventsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRelationalDatabaseLogEventsRequestFilterSensitiveLog = (
-  obj: GetRelationalDatabaseLogEventsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LogEventFilterSensitiveLog = (obj: LogEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRelationalDatabaseLogEventsResultFilterSensitiveLog = (
-  obj: GetRelationalDatabaseLogEventsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRelationalDatabaseLogStreamsRequestFilterSensitiveLog = (
-  obj: GetRelationalDatabaseLogStreamsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRelationalDatabaseLogStreamsResultFilterSensitiveLog = (
-  obj: GetRelationalDatabaseLogStreamsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRelationalDatabaseMasterUserPasswordRequestFilterSensitiveLog = (
-  obj: GetRelationalDatabaseMasterUserPasswordRequest
-): any => ({
-  ...obj,
-});
 
 /**
  * @internal
@@ -5849,595 +6139,7 @@ export const GetRelationalDatabaseMasterUserPasswordResultFilterSensitiveLog = (
 /**
  * @internal
  */
-export const GetRelationalDatabaseMetricDataRequestFilterSensitiveLog = (
-  obj: GetRelationalDatabaseMetricDataRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRelationalDatabaseMetricDataResultFilterSensitiveLog = (
-  obj: GetRelationalDatabaseMetricDataResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRelationalDatabaseParametersRequestFilterSensitiveLog = (
-  obj: GetRelationalDatabaseParametersRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RelationalDatabaseParameterFilterSensitiveLog = (obj: RelationalDatabaseParameter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRelationalDatabaseParametersResultFilterSensitiveLog = (
-  obj: GetRelationalDatabaseParametersResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRelationalDatabasesRequestFilterSensitiveLog = (obj: GetRelationalDatabasesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRelationalDatabasesResultFilterSensitiveLog = (obj: GetRelationalDatabasesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRelationalDatabaseSnapshotRequestFilterSensitiveLog = (
-  obj: GetRelationalDatabaseSnapshotRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RelationalDatabaseSnapshotFilterSensitiveLog = (obj: RelationalDatabaseSnapshot): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRelationalDatabaseSnapshotResultFilterSensitiveLog = (
-  obj: GetRelationalDatabaseSnapshotResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRelationalDatabaseSnapshotsRequestFilterSensitiveLog = (
-  obj: GetRelationalDatabaseSnapshotsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRelationalDatabaseSnapshotsResultFilterSensitiveLog = (
-  obj: GetRelationalDatabaseSnapshotsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetStaticIpRequestFilterSensitiveLog = (obj: GetStaticIpRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StaticIpFilterSensitiveLog = (obj: StaticIp): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetStaticIpResultFilterSensitiveLog = (obj: GetStaticIpResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetStaticIpsRequestFilterSensitiveLog = (obj: GetStaticIpsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetStaticIpsResultFilterSensitiveLog = (obj: GetStaticIpsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportKeyPairRequestFilterSensitiveLog = (obj: ImportKeyPairRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportKeyPairResultFilterSensitiveLog = (obj: ImportKeyPairResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IsVpcPeeredRequestFilterSensitiveLog = (obj: IsVpcPeeredRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IsVpcPeeredResultFilterSensitiveLog = (obj: IsVpcPeeredResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OpenInstancePublicPortsRequestFilterSensitiveLog = (obj: OpenInstancePublicPortsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OpenInstancePublicPortsResultFilterSensitiveLog = (obj: OpenInstancePublicPortsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PeerVpcRequestFilterSensitiveLog = (obj: PeerVpcRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PeerVpcResultFilterSensitiveLog = (obj: PeerVpcResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutAlarmRequestFilterSensitiveLog = (obj: PutAlarmRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutAlarmResultFilterSensitiveLog = (obj: PutAlarmResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutInstancePublicPortsRequestFilterSensitiveLog = (obj: PutInstancePublicPortsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutInstancePublicPortsResultFilterSensitiveLog = (obj: PutInstancePublicPortsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RebootInstanceRequestFilterSensitiveLog = (obj: RebootInstanceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RebootInstanceResultFilterSensitiveLog = (obj: RebootInstanceResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RebootRelationalDatabaseRequestFilterSensitiveLog = (obj: RebootRelationalDatabaseRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RebootRelationalDatabaseResultFilterSensitiveLog = (obj: RebootRelationalDatabaseResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterContainerImageRequestFilterSensitiveLog = (obj: RegisterContainerImageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterContainerImageResultFilterSensitiveLog = (obj: RegisterContainerImageResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReleaseStaticIpRequestFilterSensitiveLog = (obj: ReleaseStaticIpRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReleaseStaticIpResultFilterSensitiveLog = (obj: ReleaseStaticIpResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResetDistributionCacheRequestFilterSensitiveLog = (obj: ResetDistributionCacheRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResetDistributionCacheResultFilterSensitiveLog = (obj: ResetDistributionCacheResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendContactMethodVerificationRequestFilterSensitiveLog = (
-  obj: SendContactMethodVerificationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendContactMethodVerificationResultFilterSensitiveLog = (
-  obj: SendContactMethodVerificationResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetIpAddressTypeRequestFilterSensitiveLog = (obj: SetIpAddressTypeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetIpAddressTypeResultFilterSensitiveLog = (obj: SetIpAddressTypeResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetResourceAccessForBucketRequestFilterSensitiveLog = (obj: SetResourceAccessForBucketRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetResourceAccessForBucketResultFilterSensitiveLog = (obj: SetResourceAccessForBucketResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartInstanceRequestFilterSensitiveLog = (obj: StartInstanceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartInstanceResultFilterSensitiveLog = (obj: StartInstanceResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartRelationalDatabaseRequestFilterSensitiveLog = (obj: StartRelationalDatabaseRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartRelationalDatabaseResultFilterSensitiveLog = (obj: StartRelationalDatabaseResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopInstanceRequestFilterSensitiveLog = (obj: StopInstanceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopInstanceResultFilterSensitiveLog = (obj: StopInstanceResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopRelationalDatabaseRequestFilterSensitiveLog = (obj: StopRelationalDatabaseRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopRelationalDatabaseResultFilterSensitiveLog = (obj: StopRelationalDatabaseResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResultFilterSensitiveLog = (obj: TagResourceResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TestAlarmRequestFilterSensitiveLog = (obj: TestAlarmRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TestAlarmResultFilterSensitiveLog = (obj: TestAlarmResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UnpeerVpcRequestFilterSensitiveLog = (obj: UnpeerVpcRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UnpeerVpcResultFilterSensitiveLog = (obj: UnpeerVpcResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResultFilterSensitiveLog = (obj: UntagResourceResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBucketRequestFilterSensitiveLog = (obj: UpdateBucketRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBucketResultFilterSensitiveLog = (obj: UpdateBucketResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBucketBundleRequestFilterSensitiveLog = (obj: UpdateBucketBundleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBucketBundleResultFilterSensitiveLog = (obj: UpdateBucketBundleResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateContainerServiceRequestFilterSensitiveLog = (obj: UpdateContainerServiceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateContainerServiceResultFilterSensitiveLog = (obj: UpdateContainerServiceResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDistributionRequestFilterSensitiveLog = (obj: UpdateDistributionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDistributionResultFilterSensitiveLog = (obj: UpdateDistributionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDistributionBundleRequestFilterSensitiveLog = (obj: UpdateDistributionBundleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDistributionBundleResultFilterSensitiveLog = (obj: UpdateDistributionBundleResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDomainEntryRequestFilterSensitiveLog = (obj: UpdateDomainEntryRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDomainEntryResultFilterSensitiveLog = (obj: UpdateDomainEntryResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateInstanceMetadataOptionsRequestFilterSensitiveLog = (
-  obj: UpdateInstanceMetadataOptionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateInstanceMetadataOptionsResultFilterSensitiveLog = (
-  obj: UpdateInstanceMetadataOptionsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateLoadBalancerAttributeRequestFilterSensitiveLog = (obj: UpdateLoadBalancerAttributeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateLoadBalancerAttributeResultFilterSensitiveLog = (obj: UpdateLoadBalancerAttributeResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateRelationalDatabaseRequestFilterSensitiveLog = (obj: UpdateRelationalDatabaseRequest): any => ({
   ...obj,
   ...(obj.masterUserPassword && { masterUserPassword: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateRelationalDatabaseResultFilterSensitiveLog = (obj: UpdateRelationalDatabaseResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRelationalDatabaseParametersRequestFilterSensitiveLog = (
-  obj: UpdateRelationalDatabaseParametersRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRelationalDatabaseParametersResultFilterSensitiveLog = (
-  obj: UpdateRelationalDatabaseParametersResult
-): any => ({
-  ...obj,
 });

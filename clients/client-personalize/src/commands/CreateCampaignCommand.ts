@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateCampaignRequest,
-  CreateCampaignRequestFilterSensitiveLog,
-  CreateCampaignResponse,
-  CreateCampaignResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateCampaignRequest, CreateCampaignResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1CreateCampaignCommand,
-  serializeAws_json1_1CreateCampaignCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateCampaignCommand, se_CreateCampaignCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateCampaignCommand}.
+ */
 export interface CreateCampaignCommandInput extends CreateCampaignRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateCampaignCommand}.
+ */
 export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a campaign that deploys a solution version. When a client calls the
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html">GetRecommendations</a>
  *       and
@@ -105,13 +108,50 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  * import { PersonalizeClient, CreateCampaignCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, CreateCampaignCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // CreateCampaignRequest
+ *   name: "STRING_VALUE", // required
+ *   solutionVersionArn: "STRING_VALUE", // required
+ *   minProvisionedTPS: Number("int"),
+ *   campaignConfig: { // CampaignConfig
+ *     itemExplorationConfig: { // HyperParameters
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ *   tags: [ // Tags
+ *     { // Tag
+ *       tagKey: "STRING_VALUE", // required
+ *       tagValue: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateCampaignCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCampaignCommandInput - {@link CreateCampaignCommandInput}
+ * @returns {@link CreateCampaignCommandOutput}
  * @see {@link CreateCampaignCommandInput} for command's `input` shape.
  * @see {@link CreateCampaignCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The limit on the number of requests per second has been exceeded.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The specified resource already exists.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is in use.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Could not find the specified resource.</p>
+ *
+ * @throws {@link TooManyTagsException} (client fault)
+ *  <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
+ *
  *
  */
 export class CreateCampaignCommand extends $Command<
@@ -131,6 +171,9 @@ export class CreateCampaignCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCampaignCommandInput) {
     // Start section: command_constructor
     super();
@@ -159,8 +202,8 @@ export class CreateCampaignCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCampaignRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCampaignResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -170,12 +213,18 @@ export class CreateCampaignCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCampaignCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateCampaignCommand(input, context);
+    return se_CreateCampaignCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCampaignCommandOutput> {
-    return deserializeAws_json1_1CreateCampaignCommand(output, context);
+    return de_CreateCampaignCommand(output, context);
   }
 
   // Start section: command_body_extra

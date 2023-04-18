@@ -15,20 +15,27 @@ import {
 
 import {
   GetStreamingSessionStreamRequest,
-  GetStreamingSessionStreamRequestFilterSensitiveLog,
   GetStreamingSessionStreamResponse,
   GetStreamingSessionStreamResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1GetStreamingSessionStreamCommand,
-  serializeAws_restJson1GetStreamingSessionStreamCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetStreamingSessionStreamCommand, se_GetStreamingSessionStreamCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetStreamingSessionStreamCommand}.
+ */
 export interface GetStreamingSessionStreamCommandInput extends GetStreamingSessionStreamRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetStreamingSessionStreamCommand}.
+ */
 export interface GetStreamingSessionStreamCommandOutput extends GetStreamingSessionStreamResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a StreamingSessionStream for a streaming session.</p>
  *         <p>Invoke this operation to poll the resource after invoking
  *                 <code>CreateStreamingSessionStream</code>.</p>
@@ -40,13 +47,45 @@ export interface GetStreamingSessionStreamCommandOutput extends GetStreamingSess
  * import { NimbleClient, GetStreamingSessionStreamCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, GetStreamingSessionStreamCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = { // GetStreamingSessionStreamRequest
+ *   sessionId: "STRING_VALUE", // required
+ *   streamId: "STRING_VALUE", // required
+ *   studioId: "STRING_VALUE", // required
+ * };
  * const command = new GetStreamingSessionStreamCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetStreamingSessionStreamCommandInput - {@link GetStreamingSessionStreamCommandInput}
+ * @returns {@link GetStreamingSessionStreamCommandOutput}
  * @see {@link GetStreamingSessionStreamCommandInput} for command's `input` shape.
  * @see {@link GetStreamingSessionStreamCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to perform this operation. Check your IAM
+ *             policies, and ensure that you are using the correct access keys.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Another operation is in progress. </p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>An internal error has occurred. Please retry your request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Your current quota does not allow you to perform the request action. You can request
+ *             increases for some quotas, and other quotas cannot be increased.</p>
+ *         <p>Please use Amazon Web Services Service Quotas to request an increase. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request throughput limit was exceeded.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One of the parameters in the request is invalid.</p>
+ *
  *
  */
 export class GetStreamingSessionStreamCommand extends $Command<
@@ -66,6 +105,9 @@ export class GetStreamingSessionStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetStreamingSessionStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,7 +136,7 @@ export class GetStreamingSessionStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetStreamingSessionStreamRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetStreamingSessionStreamResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -105,15 +147,21 @@ export class GetStreamingSessionStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetStreamingSessionStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetStreamingSessionStreamCommand(input, context);
+    return se_GetStreamingSessionStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetStreamingSessionStreamCommandOutput> {
-    return deserializeAws_restJson1GetStreamingSessionStreamCommand(output, context);
+    return de_GetStreamingSessionStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

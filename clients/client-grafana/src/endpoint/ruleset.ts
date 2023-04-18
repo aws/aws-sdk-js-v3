@@ -6,24 +6,27 @@ import { RuleSetObject } from "@aws-sdk/util-endpoints";
    or see "smithy.rules#endpointRuleSet"
    in codegen/sdk-codegen/aws-models/grafana.json */
 
-const p="required",
-q="fn",
-r="argv",
-s="ref";
-const a="PartitionResult",
+const s="required",
+t="fn",
+u="argv",
+v="ref";
+const a="isSet",
 b="tree",
 c="error",
 d="endpoint",
-e={[p]:false,"type":"String"},
-f={[p]:true,"default":false,"type":"Boolean"},
-g={[s]:"Endpoint"},
-h={[q]:"booleanEquals",[r]:[{[s]:"UseFIPS"},true]},
-i={[q]:"booleanEquals",[r]:[{[s]:"UseDualStack"},true]},
-j={},
-k={[q]:"booleanEquals",[r]:[true,{[q]:"getAttr",[r]:[{[s]:a},"supportsFIPS"]}]},
-l={[q]:"booleanEquals",[r]:[true,{[q]:"getAttr",[r]:[{[s]:a},"supportsDualStack"]}]},
-m=[g],
-n=[h],
-o=[i];
-const _data={version:"1.0",parameters:{Region:e,UseDualStack:f,UseFIPS:f,Endpoint:e},rules:[{conditions:[{[q]:"aws.partition",[r]:[{[s]:"Region"}],assign:a}],type:b,rules:[{conditions:[{[q]:"isSet",[r]:m},{[q]:"parseURL",[r]:m,assign:"url"}],type:b,rules:[{conditions:n,error:"Invalid Configuration: FIPS and custom endpoint are not supported",type:c},{type:b,rules:[{conditions:o,error:"Invalid Configuration: Dualstack and custom endpoint are not supported",type:c},{endpoint:{url:g,properties:j,headers:j},type:d}]}]},{conditions:[h,i],type:b,rules:[{conditions:[k,l],type:b,rules:[{endpoint:{url:"https://grafana-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:j,headers:j},type:d}]},{error:"FIPS and DualStack are enabled, but this partition does not support one or both",type:c}]},{conditions:n,type:b,rules:[{conditions:[k],type:b,rules:[{type:b,rules:[{endpoint:{url:"https://grafana-fips.{Region}.{PartitionResult#dnsSuffix}",properties:j,headers:j},type:d}]}]},{error:"FIPS is enabled but this partition does not support FIPS",type:c}]},{conditions:o,type:b,rules:[{conditions:[l],type:b,rules:[{endpoint:{url:"https://grafana.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:j,headers:j},type:d}]},{error:"DualStack is enabled but this partition does not support DualStack",type:c}]},{endpoint:{url:"https://grafana.{Region}.{PartitionResult#dnsSuffix}",properties:j,headers:j},type:d}]}]};
+e="PartitionResult",
+f="stringEquals",
+g={[s]:false,"type":"String"},
+h={[s]:true,"default":false,"type":"Boolean"},
+i={[v]:"Endpoint"},
+j={[t]:"booleanEquals",[u]:[{[v]:"UseFIPS"},true]},
+k={[t]:"booleanEquals",[u]:[{[v]:"UseDualStack"},true]},
+l={},
+m={[v]:"Region"},
+n={[t]:"booleanEquals",[u]:[true,{[t]:"getAttr",[u]:[{[v]:e},"supportsFIPS"]}]},
+o={[t]:"booleanEquals",[u]:[true,{[t]:"getAttr",[u]:[{[v]:e},"supportsDualStack"]}]},
+p=[j],
+q=[k],
+r=[m];
+const _data={version:"1.0",parameters:{Region:g,UseDualStack:h,UseFIPS:h,Endpoint:g},rules:[{conditions:[{[t]:a,[u]:[i]}],type:b,rules:[{conditions:p,error:"Invalid Configuration: FIPS and custom endpoint are not supported",type:c},{type:b,rules:[{conditions:q,error:"Invalid Configuration: Dualstack and custom endpoint are not supported",type:c},{endpoint:{url:i,properties:l,headers:l},type:d}]}]},{type:b,rules:[{conditions:[{[t]:a,[u]:r}],type:b,rules:[{conditions:[{[t]:"aws.partition",[u]:r,assign:e}],type:b,rules:[{conditions:[j,k],type:b,rules:[{conditions:[n,o],type:b,rules:[{type:b,rules:[{endpoint:{url:"https://grafana-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:l,headers:l},type:d}]}]},{error:"FIPS and DualStack are enabled, but this partition does not support one or both",type:c}]},{conditions:p,type:b,rules:[{conditions:[n],type:b,rules:[{type:b,rules:[{endpoint:{url:"https://grafana-fips.{Region}.{PartitionResult#dnsSuffix}",properties:l,headers:l},type:d}]}]},{error:"FIPS is enabled but this partition does not support FIPS",type:c}]},{conditions:q,type:b,rules:[{conditions:[o],type:b,rules:[{type:b,rules:[{endpoint:{url:"https://grafana.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:l,headers:l},type:d}]}]},{error:"DualStack is enabled but this partition does not support DualStack",type:c}]},{type:b,rules:[{conditions:[{[t]:f,[u]:[m,"ap-northeast-1"]}],endpoint:{url:"https://grafana.ap-northeast-1.amazonaws.com",properties:l,headers:l},type:d},{conditions:[{[t]:f,[u]:[m,"ap-northeast-2"]}],endpoint:{url:"https://grafana.ap-northeast-2.amazonaws.com",properties:l,headers:l},type:d},{conditions:[{[t]:f,[u]:[m,"ap-southeast-1"]}],endpoint:{url:"https://grafana.ap-southeast-1.amazonaws.com",properties:l,headers:l},type:d},{conditions:[{[t]:f,[u]:[m,"ap-southeast-2"]}],endpoint:{url:"https://grafana.ap-southeast-2.amazonaws.com",properties:l,headers:l},type:d},{conditions:[{[t]:f,[u]:[m,"eu-central-1"]}],endpoint:{url:"https://grafana.eu-central-1.amazonaws.com",properties:l,headers:l},type:d},{conditions:[{[t]:f,[u]:[m,"eu-west-1"]}],endpoint:{url:"https://grafana.eu-west-1.amazonaws.com",properties:l,headers:l},type:d},{conditions:[{[t]:f,[u]:[m,"eu-west-2"]}],endpoint:{url:"https://grafana.eu-west-2.amazonaws.com",properties:l,headers:l},type:d},{conditions:[{[t]:f,[u]:[m,"us-east-1"]}],endpoint:{url:"https://grafana.us-east-1.amazonaws.com",properties:l,headers:l},type:d},{conditions:[{[t]:f,[u]:[m,"us-east-2"]}],endpoint:{url:"https://grafana.us-east-2.amazonaws.com",properties:l,headers:l},type:d},{conditions:[{[t]:f,[u]:[m,"us-west-2"]}],endpoint:{url:"https://grafana.us-west-2.amazonaws.com",properties:l,headers:l},type:d},{endpoint:{url:"https://grafana.{Region}.{PartitionResult#dnsSuffix}",properties:l,headers:l},type:d}]}]}]},{error:"Invalid Configuration: Missing Region",type:c}]}]};
 export const ruleSet: RuleSetObject = _data;

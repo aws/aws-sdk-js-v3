@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import {
-  DeleteSuggesterRequest,
-  DeleteSuggesterRequestFilterSensitiveLog,
-  DeleteSuggesterResponse,
-  DeleteSuggesterResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteSuggesterCommand,
-  serializeAws_queryDeleteSuggesterCommand,
-} from "../protocols/Aws_query";
+import { DeleteSuggesterRequest, DeleteSuggesterResponse } from "../models/models_0";
+import { de_DeleteSuggesterCommand, se_DeleteSuggesterCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteSuggesterCommand}.
+ */
 export interface DeleteSuggesterCommandInput extends DeleteSuggesterRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteSuggesterCommand}.
+ */
 export interface DeleteSuggesterCommandOutput extends DeleteSuggesterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a suggester. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html" target="_blank">Getting Search Suggestions</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,36 @@ export interface DeleteSuggesterCommandOutput extends DeleteSuggesterResponse, _
  * import { CloudSearchClient, DeleteSuggesterCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
  * // const { CloudSearchClient, DeleteSuggesterCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
  * const client = new CloudSearchClient(config);
+ * const input = { // DeleteSuggesterRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   SuggesterName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSuggesterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSuggesterCommandInput - {@link DeleteSuggesterCommandInput}
+ * @returns {@link DeleteSuggesterCommandOutput}
  * @see {@link DeleteSuggesterCommandInput} for command's `input` shape.
  * @see {@link DeleteSuggesterCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
+ *
+ * @throws {@link BaseException} (client fault)
+ *  <p>An error occurred while processing the request.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>An internal error occurred while processing the request. If this problem persists,
+ *       report an issue from the <a href="http://status.aws.amazon.com/" target="_blank">Service Health Dashboard</a>.</p>
+ *
+ * @throws {@link InvalidTypeException} (client fault)
+ *  <p>The request was rejected because it specified an invalid type definition.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request was rejected because it attempted to reference a resource that does not exist.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request was rejected because it has invalid parameters.</p>
+ *
  *
  */
 export class DeleteSuggesterCommand extends $Command<
@@ -62,6 +88,9 @@ export class DeleteSuggesterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSuggesterCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +119,8 @@ export class DeleteSuggesterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSuggesterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSuggesterResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +130,18 @@ export class DeleteSuggesterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSuggesterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteSuggesterCommand(input, context);
+    return se_DeleteSuggesterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSuggesterCommandOutput> {
-    return deserializeAws_queryDeleteSuggesterCommand(output, context);
+    return de_DeleteSuggesterCommand(output, context);
   }
 
   // Start section: command_body_extra

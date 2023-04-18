@@ -6,12 +6,11 @@ import {
   GetEnabledStandardsCommandInput,
   GetEnabledStandardsCommandOutput,
 } from "../commands/GetEnabledStandardsCommand";
-import { SecurityHub } from "../SecurityHub";
 import { SecurityHubClient } from "../SecurityHubClient";
 import { SecurityHubPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SecurityHubClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new GetEnabledStandardsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: SecurityHub,
-  input: GetEnabledStandardsCommandInput,
-  ...args: any
-): Promise<GetEnabledStandardsCommandOutput> => {
-  // @ts-ignore
-  return await client.getEnabledStandards(input, ...args);
-};
 export async function* paginateGetEnabledStandards(
   config: SecurityHubPaginationConfiguration,
   input: GetEnabledStandardsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateGetEnabledStandards(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof SecurityHub) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SecurityHubClient) {
+    if (config.client instanceof SecurityHubClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SecurityHub | SecurityHubClient");

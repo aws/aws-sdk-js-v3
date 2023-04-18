@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RevokeDomainAccessRequest,
-  RevokeDomainAccessRequestFilterSensitiveLog,
-  RevokeDomainAccessResponse,
-  RevokeDomainAccessResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1RevokeDomainAccessCommand,
-  serializeAws_restJson1RevokeDomainAccessCommand,
-} from "../protocols/Aws_restJson1";
+import { RevokeDomainAccessRequest, RevokeDomainAccessResponse } from "../models/models_0";
+import { de_RevokeDomainAccessCommand, se_RevokeDomainAccessCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
+/**
+ * @public
+ *
+ * The input for {@link RevokeDomainAccessCommand}.
+ */
 export interface RevokeDomainAccessCommandInput extends RevokeDomainAccessRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RevokeDomainAccessCommand}.
+ */
 export interface RevokeDomainAccessCommandOutput extends RevokeDomainAccessResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Moves a domain to INACTIVE status if it was in the ACTIVE status.</p>
@@ -38,13 +41,35 @@ export interface RevokeDomainAccessCommandOutput extends RevokeDomainAccessRespo
  * import { WorkLinkClient, RevokeDomainAccessCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, RevokeDomainAccessCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
+ * const input = { // RevokeDomainAccessRequest
+ *   FleetArn: "STRING_VALUE", // required
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new RevokeDomainAccessCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RevokeDomainAccessCommandInput - {@link RevokeDomainAccessCommandInput}
+ * @returns {@link RevokeDomainAccessCommandOutput}
  * @see {@link RevokeDomainAccessCommandInput} for command's `input` shape.
  * @see {@link RevokeDomainAccessCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource was not found.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The number of requests exceeds the limit.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You are not authorized to perform this action.</p>
+ *
  *
  */
 export class RevokeDomainAccessCommand extends $Command<
@@ -64,6 +89,9 @@ export class RevokeDomainAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RevokeDomainAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +120,8 @@ export class RevokeDomainAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RevokeDomainAccessRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RevokeDomainAccessResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +131,18 @@ export class RevokeDomainAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RevokeDomainAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RevokeDomainAccessCommand(input, context);
+    return se_RevokeDomainAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RevokeDomainAccessCommandOutput> {
-    return deserializeAws_restJson1RevokeDomainAccessCommand(output, context);
+    return de_RevokeDomainAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

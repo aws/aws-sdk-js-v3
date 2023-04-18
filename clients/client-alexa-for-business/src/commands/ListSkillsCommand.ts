@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  ListSkillsRequest,
-  ListSkillsRequestFilterSensitiveLog,
-  ListSkillsResponse,
-  ListSkillsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListSkillsCommand,
-  serializeAws_json1_1ListSkillsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListSkillsRequest, ListSkillsResponse } from "../models/models_0";
+import { de_ListSkillsCommand, se_ListSkillsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListSkillsCommand}.
+ */
 export interface ListSkillsCommandInput extends ListSkillsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListSkillsCommand}.
+ */
 export interface ListSkillsCommandOutput extends ListSkillsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all enabled skills in a specific skill group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,23 @@ export interface ListSkillsCommandOutput extends ListSkillsResponse, __MetadataB
  * import { AlexaForBusinessClient, ListSkillsCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, ListSkillsCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // ListSkillsRequest
+ *   SkillGroupArn: "STRING_VALUE",
+ *   EnablementType: "STRING_VALUE",
+ *   SkillType: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListSkillsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSkillsCommandInput - {@link ListSkillsCommandInput}
+ * @returns {@link ListSkillsCommandOutput}
  * @see {@link ListSkillsCommandInput} for command's `input` shape.
  * @see {@link ListSkillsCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
  *
  */
 export class ListSkillsCommand extends $Command<
@@ -62,6 +75,9 @@ export class ListSkillsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSkillsCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +104,8 @@ export class ListSkillsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSkillsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSkillsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +115,18 @@ export class ListSkillsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSkillsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListSkillsCommand(input, context);
+    return se_ListSkillsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSkillsCommandOutput> {
-    return deserializeAws_json1_1ListSkillsCommand(output, context);
+    return de_ListSkillsCommand(output, context);
   }
 
   // Start section: command_body_extra

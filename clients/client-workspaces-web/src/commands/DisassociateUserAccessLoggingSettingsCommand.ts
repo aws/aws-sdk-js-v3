@@ -15,23 +15,32 @@ import {
 
 import {
   DisassociateUserAccessLoggingSettingsRequest,
-  DisassociateUserAccessLoggingSettingsRequestFilterSensitiveLog,
   DisassociateUserAccessLoggingSettingsResponse,
-  DisassociateUserAccessLoggingSettingsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DisassociateUserAccessLoggingSettingsCommand,
-  serializeAws_restJson1DisassociateUserAccessLoggingSettingsCommand,
+  de_DisassociateUserAccessLoggingSettingsCommand,
+  se_DisassociateUserAccessLoggingSettingsCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DisassociateUserAccessLoggingSettingsCommand}.
+ */
 export interface DisassociateUserAccessLoggingSettingsCommandInput
   extends DisassociateUserAccessLoggingSettingsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateUserAccessLoggingSettingsCommand}.
+ */
 export interface DisassociateUserAccessLoggingSettingsCommandOutput
   extends DisassociateUserAccessLoggingSettingsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates user access logging settings from a web portal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +48,34 @@ export interface DisassociateUserAccessLoggingSettingsCommandOutput
  * import { WorkSpacesWebClient, DisassociateUserAccessLoggingSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, DisassociateUserAccessLoggingSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = { // DisassociateUserAccessLoggingSettingsRequest
+ *   portalArn: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateUserAccessLoggingSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateUserAccessLoggingSettingsCommandInput - {@link DisassociateUserAccessLoggingSettingsCommandInput}
+ * @returns {@link DisassociateUserAccessLoggingSettingsCommandOutput}
  * @see {@link DisassociateUserAccessLoggingSettingsCommandInput} for command's `input` shape.
  * @see {@link DisassociateUserAccessLoggingSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access is denied.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There is an internal server error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource cannot be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>There is a throttling error.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There is a validation error.</p>
+ *
  *
  */
 export class DisassociateUserAccessLoggingSettingsCommand extends $Command<
@@ -65,6 +95,9 @@ export class DisassociateUserAccessLoggingSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateUserAccessLoggingSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +126,8 @@ export class DisassociateUserAccessLoggingSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateUserAccessLoggingSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateUserAccessLoggingSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,18 +137,24 @@ export class DisassociateUserAccessLoggingSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateUserAccessLoggingSettingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateUserAccessLoggingSettingsCommand(input, context);
+    return se_DisassociateUserAccessLoggingSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateUserAccessLoggingSettingsCommandOutput> {
-    return deserializeAws_restJson1DisassociateUserAccessLoggingSettingsCommand(output, context);
+    return de_DisassociateUserAccessLoggingSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

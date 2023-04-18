@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { CloudTrail } from "../CloudTrail";
 import { CloudTrailClient } from "../CloudTrailClient";
 import {
   ListPublicKeysCommand,
@@ -11,7 +10,7 @@ import {
 import { CloudTrailPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CloudTrailClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListPublicKeysCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: CloudTrail,
-  input: ListPublicKeysCommandInput,
-  ...args: any
-): Promise<ListPublicKeysCommandOutput> => {
-  // @ts-ignore
-  return await client.listPublicKeys(input, ...args);
-};
 export async function* paginateListPublicKeys(
   config: CloudTrailPaginationConfiguration,
   input: ListPublicKeysCommandInput,
@@ -43,9 +34,7 @@ export async function* paginateListPublicKeys(
   let page: ListPublicKeysCommandOutput;
   while (hasNext) {
     input.NextToken = token;
-    if (config.client instanceof CloudTrail) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof CloudTrailClient) {
+    if (config.client instanceof CloudTrailClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected CloudTrail | CloudTrailClient");

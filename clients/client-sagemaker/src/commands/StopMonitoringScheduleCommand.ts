@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StopMonitoringScheduleRequest, StopMonitoringScheduleRequestFilterSensitiveLog } from "../models/models_3";
-import {
-  deserializeAws_json1_1StopMonitoringScheduleCommand,
-  serializeAws_json1_1StopMonitoringScheduleCommand,
-} from "../protocols/Aws_json1_1";
+import { StopMonitoringScheduleRequest } from "../models/models_3";
+import { de_StopMonitoringScheduleCommand, se_StopMonitoringScheduleCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link StopMonitoringScheduleCommand}.
+ */
 export interface StopMonitoringScheduleCommandInput extends StopMonitoringScheduleRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StopMonitoringScheduleCommand}.
+ */
 export interface StopMonitoringScheduleCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a previously started monitoring schedule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +39,22 @@ export interface StopMonitoringScheduleCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, StopMonitoringScheduleCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, StopMonitoringScheduleCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // StopMonitoringScheduleRequest
+ *   MonitoringScheduleName: "STRING_VALUE", // required
+ * };
  * const command = new StopMonitoringScheduleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopMonitoringScheduleCommandInput - {@link StopMonitoringScheduleCommandInput}
+ * @returns {@link StopMonitoringScheduleCommandOutput}
  * @see {@link StopMonitoringScheduleCommandInput} for command's `input` shape.
  * @see {@link StopMonitoringScheduleCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class StopMonitoringScheduleCommand extends $Command<
@@ -57,6 +74,9 @@ export class StopMonitoringScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopMonitoringScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +105,8 @@ export class StopMonitoringScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopMonitoringScheduleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +116,18 @@ export class StopMonitoringScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopMonitoringScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopMonitoringScheduleCommand(input, context);
+    return se_StopMonitoringScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopMonitoringScheduleCommandOutput> {
-    return deserializeAws_json1_1StopMonitoringScheduleCommand(output, context);
+    return de_StopMonitoringScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

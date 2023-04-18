@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import {
-  CreateLocationNfsRequest,
-  CreateLocationNfsRequestFilterSensitiveLog,
-  CreateLocationNfsResponse,
-  CreateLocationNfsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateLocationNfsCommand,
-  serializeAws_json1_1CreateLocationNfsCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateLocationNfsRequest, CreateLocationNfsResponse } from "../models/models_0";
+import { de_CreateLocationNfsCommand, se_CreateLocationNfsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateLocationNfsCommand}.
+ */
 export interface CreateLocationNfsCommandInput extends CreateLocationNfsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateLocationNfsCommand}.
+ */
 export interface CreateLocationNfsCommandOutput extends CreateLocationNfsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Defines a file system on a Network File System (NFS) server that can be read from or
  *       written to.</p>
  * @example
@@ -37,13 +40,40 @@ export interface CreateLocationNfsCommandOutput extends CreateLocationNfsRespons
  * import { DataSyncClient, CreateLocationNfsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, CreateLocationNfsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = { // CreateLocationNfsRequest
+ *   Subdirectory: "STRING_VALUE", // required
+ *   ServerHostname: "STRING_VALUE", // required
+ *   OnPremConfig: { // OnPremConfig
+ *     AgentArns: [ // AgentArnList // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   MountOptions: { // NfsMountOptions
+ *     Version: "AUTOMATIC" || "NFS3" || "NFS4_0" || "NFS4_1",
+ *   },
+ *   Tags: [ // InputTagList
+ *     { // TagListEntry
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateLocationNfsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLocationNfsCommandInput - {@link CreateLocationNfsCommandInput}
+ * @returns {@link CreateLocationNfsCommandOutput}
  * @see {@link CreateLocationNfsCommandInput} for command's `input` shape.
  * @see {@link CreateLocationNfsCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception is thrown when an error occurs in the DataSync service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
  *
  */
 export class CreateLocationNfsCommand extends $Command<
@@ -63,6 +93,9 @@ export class CreateLocationNfsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLocationNfsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +124,8 @@ export class CreateLocationNfsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLocationNfsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLocationNfsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +135,18 @@ export class CreateLocationNfsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLocationNfsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateLocationNfsCommand(input, context);
+    return se_CreateLocationNfsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLocationNfsCommandOutput> {
-    return deserializeAws_json1_1CreateLocationNfsCommand(output, context);
+    return de_CreateLocationNfsCommand(output, context);
   }
 
   // Start section: command_body_extra

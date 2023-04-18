@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SearchContentRequest,
-  SearchContentRequestFilterSensitiveLog,
-  SearchContentResponse,
-  SearchContentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1SearchContentCommand,
-  serializeAws_restJson1SearchContentCommand,
-} from "../protocols/Aws_restJson1";
+import { SearchContentRequest, SearchContentResponse } from "../models/models_0";
+import { de_SearchContentCommand, se_SearchContentCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
+/**
+ * @public
+ *
+ * The input for {@link SearchContentCommand}.
+ */
 export interface SearchContentCommandInput extends SearchContentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SearchContentCommand}.
+ */
 export interface SearchContentCommandOutput extends SearchContentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Searches for content in a specified knowledge base. Can be used to get a specific content
  *       resource by its name.</p>
  * @example
@@ -37,13 +40,39 @@ export interface SearchContentCommandOutput extends SearchContentResponse, __Met
  * import { WisdomClient, SearchContentCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, SearchContentCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
+ * const input = { // SearchContentRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   knowledgeBaseId: "STRING_VALUE", // required
+ *   searchExpression: { // SearchExpression
+ *     filters: [ // FilterList // required
+ *       { // Filter
+ *         field: "STRING_VALUE", // required
+ *         operator: "STRING_VALUE", // required
+ *         value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new SearchContentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchContentCommandInput - {@link SearchContentCommandInput}
+ * @returns {@link SearchContentCommandOutput}
  * @see {@link SearchContentCommandInput} for command's `input` shape.
  * @see {@link SearchContentCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by a service.</p>
+ *
  *
  */
 export class SearchContentCommand extends $Command<
@@ -63,6 +92,9 @@ export class SearchContentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +121,8 @@ export class SearchContentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchContentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchContentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +132,18 @@ export class SearchContentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchContentCommand(input, context);
+    return se_SearchContentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchContentCommandOutput> {
-    return deserializeAws_restJson1SearchContentCommand(output, context);
+    return de_SearchContentCommand(output, context);
   }
 
   // Start section: command_body_extra

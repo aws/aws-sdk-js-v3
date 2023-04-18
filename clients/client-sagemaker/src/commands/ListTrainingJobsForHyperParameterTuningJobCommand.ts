@@ -15,23 +15,32 @@ import {
 
 import {
   ListTrainingJobsForHyperParameterTuningJobRequest,
-  ListTrainingJobsForHyperParameterTuningJobRequestFilterSensitiveLog,
   ListTrainingJobsForHyperParameterTuningJobResponse,
-  ListTrainingJobsForHyperParameterTuningJobResponseFilterSensitiveLog,
 } from "../models/models_3";
 import {
-  deserializeAws_json1_1ListTrainingJobsForHyperParameterTuningJobCommand,
-  serializeAws_json1_1ListTrainingJobsForHyperParameterTuningJobCommand,
+  de_ListTrainingJobsForHyperParameterTuningJobCommand,
+  se_ListTrainingJobsForHyperParameterTuningJobCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListTrainingJobsForHyperParameterTuningJobCommand}.
+ */
 export interface ListTrainingJobsForHyperParameterTuningJobCommandInput
   extends ListTrainingJobsForHyperParameterTuningJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListTrainingJobsForHyperParameterTuningJobCommand}.
+ */
 export interface ListTrainingJobsForHyperParameterTuningJobCommandOutput
   extends ListTrainingJobsForHyperParameterTuningJobResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of <a>TrainingJobSummary</a> objects that describe the training
  *             jobs that a hyperparameter tuning job launched.</p>
  * @example
@@ -40,13 +49,27 @@ export interface ListTrainingJobsForHyperParameterTuningJobCommandOutput
  * import { SageMakerClient, ListTrainingJobsForHyperParameterTuningJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListTrainingJobsForHyperParameterTuningJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListTrainingJobsForHyperParameterTuningJobRequest
+ *   HyperParameterTuningJobName: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   StatusEquals: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped",
+ *   SortBy: "Name" || "CreationTime" || "Status" || "FinalObjectiveMetricValue",
+ *   SortOrder: "Ascending" || "Descending",
+ * };
  * const command = new ListTrainingJobsForHyperParameterTuningJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTrainingJobsForHyperParameterTuningJobCommandInput - {@link ListTrainingJobsForHyperParameterTuningJobCommandInput}
+ * @returns {@link ListTrainingJobsForHyperParameterTuningJobCommandOutput}
  * @see {@link ListTrainingJobsForHyperParameterTuningJobCommandInput} for command's `input` shape.
  * @see {@link ListTrainingJobsForHyperParameterTuningJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class ListTrainingJobsForHyperParameterTuningJobCommand extends $Command<
@@ -66,6 +89,9 @@ export class ListTrainingJobsForHyperParameterTuningJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTrainingJobsForHyperParameterTuningJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +126,8 @@ export class ListTrainingJobsForHyperParameterTuningJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTrainingJobsForHyperParameterTuningJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTrainingJobsForHyperParameterTuningJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,18 +137,24 @@ export class ListTrainingJobsForHyperParameterTuningJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListTrainingJobsForHyperParameterTuningJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTrainingJobsForHyperParameterTuningJobCommand(input, context);
+    return se_ListTrainingJobsForHyperParameterTuningJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListTrainingJobsForHyperParameterTuningJobCommandOutput> {
-    return deserializeAws_json1_1ListTrainingJobsForHyperParameterTuningJobCommand(output, context);
+    return de_ListTrainingJobsForHyperParameterTuningJobCommand(output, context);
   }
 
   // Start section: command_body_extra

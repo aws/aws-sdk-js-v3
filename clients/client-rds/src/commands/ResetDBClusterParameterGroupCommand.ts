@@ -13,24 +13,27 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DBClusterParameterGroupNameMessage,
-  DBClusterParameterGroupNameMessageFilterSensitiveLog,
-  ResetDBClusterParameterGroupMessage,
-  ResetDBClusterParameterGroupMessageFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryResetDBClusterParameterGroupCommand,
-  serializeAws_queryResetDBClusterParameterGroupCommand,
-} from "../protocols/Aws_query";
+import { DBClusterParameterGroupNameMessage, ResetDBClusterParameterGroupMessage } from "../models/models_1";
+import { de_ResetDBClusterParameterGroupCommand, se_ResetDBClusterParameterGroupCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ResetDBClusterParameterGroupCommand}.
+ */
 export interface ResetDBClusterParameterGroupCommandInput extends ResetDBClusterParameterGroupMessage {}
+/**
+ * @public
+ *
+ * The output of {@link ResetDBClusterParameterGroupCommand}.
+ */
 export interface ResetDBClusterParameterGroupCommandOutput
   extends DBClusterParameterGroupNameMessage,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the parameters of a DB cluster parameter group to the default value. To
  *             reset specific parameters submit a list of the following: <code>ParameterName</code>
  *             and <code>ApplyMethod</code>. To reset the
@@ -43,9 +46,9 @@ export interface ResetDBClusterParameterGroupCommandOutput
  *          <p>For more information on Amazon Aurora DB clusters, see
  *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
  *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
- *          <p>For more information on Multi-AZ DB clusters, see
- *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
- *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
+ *          <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB
+ *                 cluster deployments</a> in the <i>Amazon RDS User
+ *             Guide.</i>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -53,13 +56,64 @@ export interface ResetDBClusterParameterGroupCommandOutput
  * import { RDSClient, ResetDBClusterParameterGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ResetDBClusterParameterGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // ResetDBClusterParameterGroupMessage
+ *   DBClusterParameterGroupName: "STRING_VALUE", // required
+ *   ResetAllParameters: true || false,
+ *   Parameters: [ // ParametersList
+ *     { // Parameter
+ *       ParameterName: "STRING_VALUE",
+ *       ParameterValue: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       Source: "STRING_VALUE",
+ *       ApplyType: "STRING_VALUE",
+ *       DataType: "STRING_VALUE",
+ *       AllowedValues: "STRING_VALUE",
+ *       IsModifiable: true || false,
+ *       MinimumEngineVersion: "STRING_VALUE",
+ *       ApplyMethod: "immediate" || "pending-reboot",
+ *       SupportedEngineModes: [ // EngineModeList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new ResetDBClusterParameterGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ResetDBClusterParameterGroupCommandInput - {@link ResetDBClusterParameterGroupCommandInput}
+ * @returns {@link ResetDBClusterParameterGroupCommandOutput}
  * @see {@link ResetDBClusterParameterGroupCommandInput} for command's `input` shape.
  * @see {@link ResetDBClusterParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ * @throws {@link DBParameterGroupNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBParameterGroupName</code> doesn't refer to an
+ *         existing DB parameter group.</p>
+ *
+ * @throws {@link InvalidDBParameterGroupStateFault} (client fault)
+ *  <p>The DB parameter group is in use or is in an invalid state. If you are attempting
+ *             to delete the parameter group, you can't delete it when the parameter group is in
+ *             this state.</p>
+ *
+ *
+ * @example To reset all parameters to their default values
+ * ```javascript
+ * // The following example resets all parameter values in a customer-created DB cluster parameter group to their default values.
+ * const input = {
+ *   "DBClusterParameterGroupName": "mydbclpg",
+ *   "ResetAllParameters": true
+ * };
+ * const command = new ResetDBClusterParameterGroupCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBClusterParameterGroupName": "mydbclpg"
+ * }
+ * *\/
+ * // example id: to-reset-all-parameters-to-their-default-values-1680070254216
+ * ```
  *
  */
 export class ResetDBClusterParameterGroupCommand extends $Command<
@@ -79,6 +133,9 @@ export class ResetDBClusterParameterGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResetDBClusterParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +164,8 @@ export class ResetDBClusterParameterGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResetDBClusterParameterGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DBClusterParameterGroupNameMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,15 +175,21 @@ export class ResetDBClusterParameterGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResetDBClusterParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryResetDBClusterParameterGroupCommand(input, context);
+    return se_ResetDBClusterParameterGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ResetDBClusterParameterGroupCommandOutput> {
-    return deserializeAws_queryResetDBClusterParameterGroupCommand(output, context);
+    return de_ResetDBClusterParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

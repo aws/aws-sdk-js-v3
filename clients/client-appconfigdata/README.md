@@ -9,12 +9,12 @@
 
 AWS SDK for JavaScript AppConfigData Client for Node.js, Browser and React Native.
 
-<p>AppConfig Data provides the data plane APIs your application uses to retrieve configuration data.
-Here's how it works:</p>
+<p>AppConfig Data provides the data plane APIs your application uses to retrieve
+configuration data. Here's how it works:</p>
 <p>Your application retrieves configuration data by first establishing a configuration
-session using the AppConfig Data <a>StartConfigurationSession</a> API action. Your session's
-client then makes periodic calls to <a>GetLatestConfiguration</a> to check for
-and retrieve the latest data available.</p>
+session using the AppConfig Data <a>StartConfigurationSession</a> API action.
+Your session's client then makes periodic calls to <a>GetLatestConfiguration</a>
+to check for and retrieve the latest data available.</p>
 <p>When calling <code>StartConfigurationSession</code>, your code sends the following
 information:</p>
 <ul>
@@ -30,6 +30,13 @@ to <code>GetLatestConfiguration</code>.</p>
 <p>In response, AppConfig provides an <code>InitialConfigurationToken</code> to be given to
 the session's client and used the first time it calls <code>GetLatestConfiguration</code>
 for that session.</p>
+<important>
+<p>This token should only be used once in your first call to
+<code>GetLatestConfiguration</code>. You <i>must</i> use the new token
+in the <code>GetLatestConfiguration</code> response
+(<code>NextPollConfigurationToken</code>) in each subsequent call to
+<code>GetLatestConfiguration</code>.</p>
+</important>
 <p>When calling <code>GetLatestConfiguration</code>, your client code sends the most recent
 <code>ConfigurationToken</code> value it has and receives in response:</p>
 <ul>
@@ -50,9 +57,16 @@ over the course of the session, so it should be used instead of the value sent o
 the client already has the latest version of the configuration.</p>
 </li>
 </ul>
+<important>
+<p>The <code>InitialConfigurationToken</code> and
+<code>NextPollConfigurationToken</code> should only be used once. To support long poll
+use cases, the tokens are valid for up to 24 hours. If a
+<code>GetLatestConfiguration</code> call uses an expired token, the system returns
+<code>BadRequestException</code>.</p>
+</important>
 <p>For more information and to view example CLI commands that show how to retrieve a
 configuration using the AppConfig Data <code>StartConfigurationSession</code> and
-<code>GetLatestConfiguration</code> API actions, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration">Receiving the
+<code>GetLatestConfiguration</code> API actions, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration">Retrieving the
 configuration</a> in the <i>AppConfig User Guide</i>.</p>
 
 ## Installing
@@ -247,3 +261,22 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+GetLatestConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appconfigdata/classes/getlatestconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appconfigdata/interfaces/getlatestconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appconfigdata/interfaces/getlatestconfigurationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartConfigurationSession
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appconfigdata/classes/startconfigurationsessioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appconfigdata/interfaces/startconfigurationsessioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appconfigdata/interfaces/startconfigurationsessioncommandoutput.html)
+
+</details>

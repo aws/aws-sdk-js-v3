@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
+import { ListConfiguredTableAssociationsInput, ListConfiguredTableAssociationsOutput } from "../models/models_0";
 import {
-  ListConfiguredTableAssociationsInput,
-  ListConfiguredTableAssociationsInputFilterSensitiveLog,
-  ListConfiguredTableAssociationsOutput,
-  ListConfiguredTableAssociationsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListConfiguredTableAssociationsCommand,
-  serializeAws_restJson1ListConfiguredTableAssociationsCommand,
+  de_ListConfiguredTableAssociationsCommand,
+  se_ListConfiguredTableAssociationsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListConfiguredTableAssociationsCommand}.
+ */
 export interface ListConfiguredTableAssociationsCommandInput extends ListConfiguredTableAssociationsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListConfiguredTableAssociationsCommand}.
+ */
 export interface ListConfiguredTableAssociationsCommandOutput
   extends ListConfiguredTableAssociationsOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists configured table associations for a membership.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,36 @@ export interface ListConfiguredTableAssociationsCommandOutput
  * import { CleanRoomsClient, ListConfiguredTableAssociationsCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, ListConfiguredTableAssociationsCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
+ * const input = { // ListConfiguredTableAssociationsInput
+ *   membershipIdentifier: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListConfiguredTableAssociationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListConfiguredTableAssociationsCommandInput - {@link ListConfiguredTableAssociationsCommandInput}
+ * @returns {@link ListConfiguredTableAssociationsCommandOutput}
  * @see {@link ListConfiguredTableAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListConfiguredTableAssociationsCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Caller does not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Unexpected error during processing of request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Request references a resource which does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the specified constraints.</p>
+ *
  *
  */
 export class ListConfiguredTableAssociationsCommand extends $Command<
@@ -64,6 +93,9 @@ export class ListConfiguredTableAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListConfiguredTableAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +124,8 @@ export class ListConfiguredTableAssociationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListConfiguredTableAssociationsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListConfiguredTableAssociationsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +135,24 @@ export class ListConfiguredTableAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListConfiguredTableAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListConfiguredTableAssociationsCommand(input, context);
+    return se_ListConfiguredTableAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListConfiguredTableAssociationsCommandOutput> {
-    return deserializeAws_restJson1ListConfiguredTableAssociationsCommand(output, context);
+    return de_ListConfiguredTableAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

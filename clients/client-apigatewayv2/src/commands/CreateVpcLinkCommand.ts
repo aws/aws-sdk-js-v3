@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import {
-  CreateVpcLinkRequest,
-  CreateVpcLinkRequestFilterSensitiveLog,
-  CreateVpcLinkResponse,
-  CreateVpcLinkResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateVpcLinkCommand,
-  serializeAws_restJson1CreateVpcLinkCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateVpcLinkRequest, CreateVpcLinkResponse } from "../models/models_0";
+import { de_CreateVpcLinkCommand, se_CreateVpcLinkCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateVpcLinkCommand}.
+ */
 export interface CreateVpcLinkCommandInput extends CreateVpcLinkRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateVpcLinkCommand}.
+ */
 export interface CreateVpcLinkCommandOutput extends CreateVpcLinkResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a VPC link.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,34 @@ export interface CreateVpcLinkCommandOutput extends CreateVpcLinkResponse, __Met
  * import { ApiGatewayV2Client, CreateVpcLinkCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, CreateVpcLinkCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = { // CreateVpcLinkRequest
+ *   Name: "STRING_VALUE", // required
+ *   SecurityGroupIds: [ // SecurityGroupIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   SubnetIds: [ // SubnetIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateVpcLinkCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVpcLinkCommandInput - {@link CreateVpcLinkCommandInput}
+ * @returns {@link CreateVpcLinkCommandOutput}
  * @see {@link CreateVpcLinkCommandInput} for command's `input` shape.
  * @see {@link CreateVpcLinkCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
+ *
  *
  */
 export class CreateVpcLinkCommand extends $Command<
@@ -62,6 +86,9 @@ export class CreateVpcLinkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVpcLinkCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +115,8 @@ export class CreateVpcLinkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateVpcLinkRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateVpcLinkResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +126,18 @@ export class CreateVpcLinkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVpcLinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateVpcLinkCommand(input, context);
+    return se_CreateVpcLinkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVpcLinkCommandOutput> {
-    return deserializeAws_restJson1CreateVpcLinkCommand(output, context);
+    return de_CreateVpcLinkCommand(output, context);
   }
 
   // Start section: command_body_extra

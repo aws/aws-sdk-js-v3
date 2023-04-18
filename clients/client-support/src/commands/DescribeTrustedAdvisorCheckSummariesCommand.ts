@@ -15,22 +15,31 @@ import {
 
 import {
   DescribeTrustedAdvisorCheckSummariesRequest,
-  DescribeTrustedAdvisorCheckSummariesRequestFilterSensitiveLog,
   DescribeTrustedAdvisorCheckSummariesResponse,
-  DescribeTrustedAdvisorCheckSummariesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommand,
-  serializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommand,
+  de_DescribeTrustedAdvisorCheckSummariesCommand,
+  se_DescribeTrustedAdvisorCheckSummariesCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeTrustedAdvisorCheckSummariesCommand}.
+ */
 export interface DescribeTrustedAdvisorCheckSummariesCommandInput extends DescribeTrustedAdvisorCheckSummariesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeTrustedAdvisorCheckSummariesCommand}.
+ */
 export interface DescribeTrustedAdvisorCheckSummariesCommandOutput
   extends DescribeTrustedAdvisorCheckSummariesResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the results for the Trusted Advisor check summaries for the check IDs that you
  *             specified. You can get the check IDs by calling the <a>DescribeTrustedAdvisorChecks</a> operation.</p>
  *          <p>The response contains an array of <a>TrustedAdvisorCheckSummary</a>
@@ -59,13 +68,24 @@ export interface DescribeTrustedAdvisorCheckSummariesCommandOutput
  * import { SupportClient, DescribeTrustedAdvisorCheckSummariesCommand } from "@aws-sdk/client-support"; // ES Modules import
  * // const { SupportClient, DescribeTrustedAdvisorCheckSummariesCommand } = require("@aws-sdk/client-support"); // CommonJS import
  * const client = new SupportClient(config);
+ * const input = { // DescribeTrustedAdvisorCheckSummariesRequest
+ *   checkIds: [ // StringList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeTrustedAdvisorCheckSummariesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTrustedAdvisorCheckSummariesCommandInput - {@link DescribeTrustedAdvisorCheckSummariesCommandInput}
+ * @returns {@link DescribeTrustedAdvisorCheckSummariesCommandOutput}
  * @see {@link DescribeTrustedAdvisorCheckSummariesCommandInput} for command's `input` shape.
  * @see {@link DescribeTrustedAdvisorCheckSummariesCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error occurred.</p>
+ *
  *
  */
 export class DescribeTrustedAdvisorCheckSummariesCommand extends $Command<
@@ -85,6 +105,9 @@ export class DescribeTrustedAdvisorCheckSummariesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTrustedAdvisorCheckSummariesCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +136,8 @@ export class DescribeTrustedAdvisorCheckSummariesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTrustedAdvisorCheckSummariesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTrustedAdvisorCheckSummariesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,18 +147,24 @@ export class DescribeTrustedAdvisorCheckSummariesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeTrustedAdvisorCheckSummariesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommand(input, context);
+    return se_DescribeTrustedAdvisorCheckSummariesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTrustedAdvisorCheckSummariesCommandOutput> {
-    return deserializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommand(output, context);
+    return de_DescribeTrustedAdvisorCheckSummariesCommand(output, context);
   }
 
   // Start section: command_body_extra

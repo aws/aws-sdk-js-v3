@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoT1ClickDevicesServiceClient";
-import {
-  ClaimDevicesByClaimCodeRequest,
-  ClaimDevicesByClaimCodeRequestFilterSensitiveLog,
-  ClaimDevicesByClaimCodeResponse,
-  ClaimDevicesByClaimCodeResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ClaimDevicesByClaimCodeCommand,
-  serializeAws_restJson1ClaimDevicesByClaimCodeCommand,
-} from "../protocols/Aws_restJson1";
+import { ClaimDevicesByClaimCodeRequest, ClaimDevicesByClaimCodeResponse } from "../models/models_0";
+import { de_ClaimDevicesByClaimCodeCommand, se_ClaimDevicesByClaimCodeCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ClaimDevicesByClaimCodeCommand}.
+ */
 export interface ClaimDevicesByClaimCodeCommandInput extends ClaimDevicesByClaimCodeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ClaimDevicesByClaimCodeCommand}.
+ */
 export interface ClaimDevicesByClaimCodeCommandOutput extends ClaimDevicesByClaimCodeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds device(s) to your account (i.e., claim one or more devices) if and only if you
  *  received a claim code with the device(s).</p>
  * @example
@@ -41,13 +44,25 @@ export interface ClaimDevicesByClaimCodeCommandOutput extends ClaimDevicesByClai
  * import { IoT1ClickDevicesServiceClient, ClaimDevicesByClaimCodeCommand } from "@aws-sdk/client-iot-1click-devices-service"; // ES Modules import
  * // const { IoT1ClickDevicesServiceClient, ClaimDevicesByClaimCodeCommand } = require("@aws-sdk/client-iot-1click-devices-service"); // CommonJS import
  * const client = new IoT1ClickDevicesServiceClient(config);
+ * const input = { // ClaimDevicesByClaimCodeRequest
+ *   ClaimCode: "STRING_VALUE", // required
+ * };
  * const command = new ClaimDevicesByClaimCodeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ClaimDevicesByClaimCodeCommandInput - {@link ClaimDevicesByClaimCodeCommandInput}
+ * @returns {@link ClaimDevicesByClaimCodeCommandOutput}
  * @see {@link ClaimDevicesByClaimCodeCommandInput} for command's `input` shape.
  * @see {@link ClaimDevicesByClaimCodeCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for IoT1ClickDevicesServiceClient's `config` shape.
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *
  *
  */
 export class ClaimDevicesByClaimCodeCommand extends $Command<
@@ -67,6 +82,9 @@ export class ClaimDevicesByClaimCodeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ClaimDevicesByClaimCodeCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +113,8 @@ export class ClaimDevicesByClaimCodeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ClaimDevicesByClaimCodeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ClaimDevicesByClaimCodeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +124,18 @@ export class ClaimDevicesByClaimCodeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ClaimDevicesByClaimCodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ClaimDevicesByClaimCodeCommand(input, context);
+    return se_ClaimDevicesByClaimCodeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ClaimDevicesByClaimCodeCommandOutput> {
-    return deserializeAws_restJson1ClaimDevicesByClaimCodeCommand(output, context);
+    return de_ClaimDevicesByClaimCodeCommand(output, context);
   }
 
   // Start section: command_body_extra

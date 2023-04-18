@@ -14,40 +14,46 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeSDKMeetingsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKMeetingsClient";
+import { BatchUpdateAttendeeCapabilitiesExceptRequest } from "../models/models_0";
 import {
-  BatchUpdateAttendeeCapabilitiesExceptRequest,
-  BatchUpdateAttendeeCapabilitiesExceptRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchUpdateAttendeeCapabilitiesExceptCommand,
-  serializeAws_restJson1BatchUpdateAttendeeCapabilitiesExceptCommand,
+  de_BatchUpdateAttendeeCapabilitiesExceptCommand,
+  se_BatchUpdateAttendeeCapabilitiesExceptCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchUpdateAttendeeCapabilitiesExceptCommand}.
+ */
 export interface BatchUpdateAttendeeCapabilitiesExceptCommandInput
   extends BatchUpdateAttendeeCapabilitiesExceptRequest {}
+/**
+ * @public
+ *
+ * The output of {@link BatchUpdateAttendeeCapabilitiesExceptCommand}.
+ */
 export interface BatchUpdateAttendeeCapabilitiesExceptCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates <code>AttendeeCapabilities</code> except the capabilities listed in an <code>ExcludedAttendeeIds</code> table.</p>
- *
- *         <note>
+ *          <note>
  *             <p>You use the capabilities with a set of values that control what the capabilities can do, such as <code>SendReceive</code> data. For more information about those values, see
  *             .</p>
  *          </note>
- *
- *         <p>When using capabilities, be aware of these corner cases:</p>
- *         <ul>
+ *          <p>When using capabilities, be aware of these corner cases:</p>
+ *          <ul>
  *             <li>
- *                 <p>You can't set <code>content</code> capabilities to <code>SendReceive</code> or <code>Receive</code> unless you also set <code>video</code> capabilities to <code>SendReceive</code>
+ *                <p>You can't set <code>content</code> capabilities to <code>SendReceive</code> or <code>Receive</code> unless you also set <code>video</code> capabilities to <code>SendReceive</code>
  *                     or <code>Receive</code>. If you don't set the <code>video</code> capability to receive, the response will contain an HTTP 400 Bad Request status code. However, you can set your <code>video</code> capability
  *                     to receive and you set your <code>content</code> capability to not receive.</p>
  *             </li>
  *             <li>
- *                 <p>When you change an <code>audio</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
+ *                <p>When you change an <code>audio</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
  *                     and if the attendee left their microphone unmuted, audio will flow from the attendee to the other meeting participants.</p>
  *             </li>
  *             <li>
- *                 <p>When you change a <code>video</code> or <code>content</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
+ *                <p>When you change a <code>video</code> or <code>content</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
  *                     and if the attendee turned on their video or content streams, remote attendess can receive those streams, but only after media renegotiation between the client and the Amazon Chime back-end server.</p>
  *             </li>
  *          </ul>
@@ -57,13 +63,47 @@ export interface BatchUpdateAttendeeCapabilitiesExceptCommandOutput extends __Me
  * import { ChimeSDKMeetingsClient, BatchUpdateAttendeeCapabilitiesExceptCommand } from "@aws-sdk/client-chime-sdk-meetings"; // ES Modules import
  * // const { ChimeSDKMeetingsClient, BatchUpdateAttendeeCapabilitiesExceptCommand } = require("@aws-sdk/client-chime-sdk-meetings"); // CommonJS import
  * const client = new ChimeSDKMeetingsClient(config);
+ * const input = { // BatchUpdateAttendeeCapabilitiesExceptRequest
+ *   MeetingId: "STRING_VALUE", // required
+ *   ExcludedAttendeeIds: [ // AttendeeIdsList // required
+ *     { // AttendeeIdItem
+ *       AttendeeId: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Capabilities: { // AttendeeCapabilities
+ *     Audio: "SendReceive" || "Send" || "Receive" || "None", // required
+ *     Video: "SendReceive" || "Send" || "Receive" || "None", // required
+ *     Content: "SendReceive" || "Send" || "Receive" || "None", // required
+ *   },
+ * };
  * const command = new BatchUpdateAttendeeCapabilitiesExceptCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchUpdateAttendeeCapabilitiesExceptCommandInput - {@link BatchUpdateAttendeeCapabilitiesExceptCommandInput}
+ * @returns {@link BatchUpdateAttendeeCapabilitiesExceptCommandOutput}
  * @see {@link BatchUpdateAttendeeCapabilitiesExceptCommandInput} for command's `input` shape.
  * @see {@link BatchUpdateAttendeeCapabilitiesExceptCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMeetingsClientResolvedConfig | config} for ChimeSDKMeetingsClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Multiple instances of the same request have been made simultaneously.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>One or more of the resources in the request does not exist in the system.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The user isn't authorized to request a resource.</p>
+ *
  *
  */
 export class BatchUpdateAttendeeCapabilitiesExceptCommand extends $Command<
@@ -83,6 +123,9 @@ export class BatchUpdateAttendeeCapabilitiesExceptCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchUpdateAttendeeCapabilitiesExceptCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +154,8 @@ export class BatchUpdateAttendeeCapabilitiesExceptCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchUpdateAttendeeCapabilitiesExceptRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,18 +165,24 @@ export class BatchUpdateAttendeeCapabilitiesExceptCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchUpdateAttendeeCapabilitiesExceptCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchUpdateAttendeeCapabilitiesExceptCommand(input, context);
+    return se_BatchUpdateAttendeeCapabilitiesExceptCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchUpdateAttendeeCapabilitiesExceptCommandOutput> {
-    return deserializeAws_restJson1BatchUpdateAttendeeCapabilitiesExceptCommand(output, context);
+    return de_BatchUpdateAttendeeCapabilitiesExceptCommand(output, context);
   }
 
   // Start section: command_body_extra

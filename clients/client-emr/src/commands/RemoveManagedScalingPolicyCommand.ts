@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import {
-  RemoveManagedScalingPolicyInput,
-  RemoveManagedScalingPolicyInputFilterSensitiveLog,
-  RemoveManagedScalingPolicyOutput,
-  RemoveManagedScalingPolicyOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RemoveManagedScalingPolicyCommand,
-  serializeAws_json1_1RemoveManagedScalingPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { RemoveManagedScalingPolicyInput, RemoveManagedScalingPolicyOutput } from "../models/models_0";
+import { de_RemoveManagedScalingPolicyCommand, se_RemoveManagedScalingPolicyCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link RemoveManagedScalingPolicyCommand}.
+ */
 export interface RemoveManagedScalingPolicyCommandInput extends RemoveManagedScalingPolicyInput {}
+/**
+ * @public
+ *
+ * The output of {@link RemoveManagedScalingPolicyCommand}.
+ */
 export interface RemoveManagedScalingPolicyCommandOutput extends RemoveManagedScalingPolicyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Removes a managed scaling policy from a specified EMR cluster. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,19 @@ export interface RemoveManagedScalingPolicyCommandOutput extends RemoveManagedSc
  * import { EMRClient, RemoveManagedScalingPolicyCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, RemoveManagedScalingPolicyCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = { // RemoveManagedScalingPolicyInput
+ *   ClusterId: "STRING_VALUE", // required
+ * };
  * const command = new RemoveManagedScalingPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveManagedScalingPolicyCommandInput - {@link RemoveManagedScalingPolicyCommandInput}
+ * @returns {@link RemoveManagedScalingPolicyCommandOutput}
  * @see {@link RemoveManagedScalingPolicyCommandInput} for command's `input` shape.
  * @see {@link RemoveManagedScalingPolicyCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
+ *
  *
  */
 export class RemoveManagedScalingPolicyCommand extends $Command<
@@ -62,6 +71,9 @@ export class RemoveManagedScalingPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveManagedScalingPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +102,8 @@ export class RemoveManagedScalingPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveManagedScalingPolicyInputFilterSensitiveLog,
-      outputFilterSensitiveLog: RemoveManagedScalingPolicyOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +113,21 @@ export class RemoveManagedScalingPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveManagedScalingPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RemoveManagedScalingPolicyCommand(input, context);
+    return se_RemoveManagedScalingPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveManagedScalingPolicyCommandOutput> {
-    return deserializeAws_json1_1RemoveManagedScalingPolicyCommand(output, context);
+    return de_RemoveManagedScalingPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

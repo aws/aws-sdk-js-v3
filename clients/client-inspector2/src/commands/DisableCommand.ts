@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
-import {
-  DisableRequest,
-  DisableRequestFilterSensitiveLog,
-  DisableResponse,
-  DisableResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DisableCommand,
-  serializeAws_restJson1DisableCommand,
-} from "../protocols/Aws_restJson1";
+import { DisableRequest, DisableResponse } from "../models/models_0";
+import { de_DisableCommand, se_DisableCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DisableCommand}.
+ */
 export interface DisableCommandInput extends DisableRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisableCommand}.
+ */
 export interface DisableCommandOutput extends DisableResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables Amazon Inspector scans for one or more Amazon Web Services accounts. Disabling all scan types in an account
  *          disables the Amazon Inspector service.</p>
  * @example
@@ -37,13 +40,40 @@ export interface DisableCommandOutput extends DisableResponse, __MetadataBearer 
  * import { Inspector2Client, DisableCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
  * // const { Inspector2Client, DisableCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
  * const client = new Inspector2Client(config);
+ * const input = { // DisableRequest
+ *   accountIds: [ // AccountIdSet
+ *     "STRING_VALUE",
+ *   ],
+ *   resourceTypes: [ // DisableResourceTypeList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DisableCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableCommandInput - {@link DisableCommandInput}
+ * @returns {@link DisableCommandOutput}
  * @see {@link DisableCommandInput} for command's `input` shape.
  * @see {@link DisableCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The limit on the number of requests per second was exceeded.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request has failed validation due to missing required fields or having invalid
+ *          inputs.</p>
+ *
  *
  */
 export class DisableCommand extends $Command<
@@ -63,6 +93,9 @@ export class DisableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +122,8 @@ export class DisableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisableResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +133,18 @@ export class DisableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisableCommand(input, context);
+    return se_DisableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableCommandOutput> {
-    return deserializeAws_restJson1DisableCommand(output, context);
+    return de_DisableCommand(output, context);
   }
 
   // Start section: command_body_extra

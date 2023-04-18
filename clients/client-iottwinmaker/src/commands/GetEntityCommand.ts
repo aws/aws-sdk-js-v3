@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
-import {
-  GetEntityRequest,
-  GetEntityRequestFilterSensitiveLog,
-  GetEntityResponse,
-  GetEntityResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetEntityCommand,
-  serializeAws_restJson1GetEntityCommand,
-} from "../protocols/Aws_restJson1";
+import { GetEntityRequest, GetEntityResponse } from "../models/models_0";
+import { de_GetEntityCommand, se_GetEntityCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetEntityCommand}.
+ */
 export interface GetEntityCommandInput extends GetEntityRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetEntityCommand}.
+ */
 export interface GetEntityCommandOutput extends GetEntityResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about an entity.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,35 @@ export interface GetEntityCommandOutput extends GetEntityResponse, __MetadataBea
  * import { IoTTwinMakerClient, GetEntityCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, GetEntityCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
+ * const input = { // GetEntityRequest
+ *   workspaceId: "STRING_VALUE", // required
+ *   entityId: "STRING_VALUE", // required
+ * };
  * const command = new GetEntityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEntityCommandInput - {@link GetEntityCommandInput}
+ * @returns {@link GetEntityCommandOutput}
  * @see {@link GetEntityCommandInput} for command's `input` shape.
  * @see {@link GetEntityCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource wasn't found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The service quota was exceeded.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Failed</p>
+ *
  *
  */
 export class GetEntityCommand extends $Command<
@@ -62,6 +87,9 @@ export class GetEntityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEntityCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +116,8 @@ export class GetEntityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEntityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetEntityResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +127,18 @@ export class GetEntityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEntityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetEntityCommand(input, context);
+    return se_GetEntityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEntityCommandOutput> {
-    return deserializeAws_restJson1GetEntityCommand(output, context);
+    return de_GetEntityCommand(output, context);
   }
 
   // Start section: command_body_extra

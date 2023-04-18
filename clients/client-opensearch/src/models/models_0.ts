@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { OpenSearchServiceException as __BaseException } from "./OpenSearchServiceException";
 
 /**
+ * @public
  * <p>Container for the parameters to the <code>AcceptInboundConnection</code> operation.</p>
  */
 export interface AcceptInboundConnectionRequest {
@@ -13,18 +14,43 @@ export interface AcceptInboundConnectionRequest {
   ConnectionId: string | undefined;
 }
 
-export enum InboundConnectionStatusCode {
-  ACTIVE = "ACTIVE",
-  APPROVED = "APPROVED",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  PENDING_ACCEPTANCE = "PENDING_ACCEPTANCE",
-  PROVISIONING = "PROVISIONING",
-  REJECTED = "REJECTED",
-  REJECTING = "REJECTING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ConnectionMode = {
+  DIRECT: "DIRECT",
+  VPC_ENDPOINT: "VPC_ENDPOINT",
+} as const;
 
 /**
+ * @public
+ */
+export type ConnectionMode = (typeof ConnectionMode)[keyof typeof ConnectionMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const InboundConnectionStatusCode = {
+  ACTIVE: "ACTIVE",
+  APPROVED: "APPROVED",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  PENDING_ACCEPTANCE: "PENDING_ACCEPTANCE",
+  PROVISIONING: "PROVISIONING",
+  REJECTED: "REJECTED",
+  REJECTING: "REJECTING",
+} as const;
+
+/**
+ * @public
+ */
+export type InboundConnectionStatusCode =
+  (typeof InboundConnectionStatusCode)[keyof typeof InboundConnectionStatusCode];
+
+/**
+ * @public
  * <p>The status of an inbound cross-cluster connection for OpenSearch Service.</p>
  */
 export interface InboundConnectionStatus {
@@ -81,6 +107,7 @@ export interface InboundConnectionStatus {
 }
 
 /**
+ * @public
  * <p>Information about an Amazon OpenSearch Service domain.</p>
  */
 export interface AWSDomainInformation {
@@ -101,6 +128,7 @@ export interface AWSDomainInformation {
 }
 
 /**
+ * @public
  * <p>Container for information about an OpenSearch Service domain.</p>
  */
 export interface DomainInformationContainer {
@@ -111,6 +139,7 @@ export interface DomainInformationContainer {
 }
 
 /**
+ * @public
  * <p>Describes an inbound cross-cluster connection for Amazon OpenSearch Service. For more
  *    information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html">Cross-cluster search
  *     for Amazon OpenSearch Service</a>.</p>
@@ -135,9 +164,15 @@ export interface InboundConnection {
    * <p>The current status of the connection.</p>
    */
   ConnectionStatus?: InboundConnectionStatus;
+
+  /**
+   * <p>The connection mode.</p>
+   */
+  ConnectionMode?: ConnectionMode | string;
 }
 
 /**
+ * @public
  * <p>Contains details about the accepted inbound connection.</p>
  */
 export interface AcceptInboundConnectionResponse {
@@ -148,8 +183,8 @@ export interface AcceptInboundConnectionResponse {
 }
 
 /**
- * <p>An error occured because the client wanted to access a not supported operation. Gives http status code of
- *    409.</p>
+ * @public
+ * <p>An error occured because the client wanted to access a not supported operation.</p>
  */
 export class DisabledOperationException extends __BaseException {
   readonly name: "DisabledOperationException" = "DisabledOperationException";
@@ -168,8 +203,8 @@ export class DisabledOperationException extends __BaseException {
 }
 
 /**
- * <p>An exception for trying to create more than allowed resources or sub-resources. Gives http status code of
- *    409.</p>
+ * @public
+ * <p>An exception for trying to create more than the allowed number of resources or sub-resources.</p>
  */
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
@@ -188,7 +223,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+ * @public
+ * <p>An exception for accessing or deleting a resource that does not exist..</p>
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -207,8 +243,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>An error occurred because user does not have permissions to access the resource. Returns HTTP status code
- *    403.</p>
+ * @public
+ * <p>An error occurred because you don't have permissions to access the resource.</p>
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -226,13 +262,23 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
-export enum OptionState {
-  Active = "Active",
-  Processing = "Processing",
-  RequiresIndexDocuments = "RequiresIndexDocuments",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OptionState = {
+  Active: "Active",
+  Processing: "Processing",
+  RequiresIndexDocuments: "RequiresIndexDocuments",
+} as const;
 
 /**
+ * @public
+ */
+export type OptionState = (typeof OptionState)[keyof typeof OptionState];
+
+/**
+ * @public
  * <p>Provides the current status of an entity.</p>
  */
 export interface OptionStatus {
@@ -263,6 +309,7 @@ export interface OptionStatus {
 }
 
 /**
+ * @public
  * <p>The configured access rules for the domain's search endpoint, and the current status of
  *    those rules.</p>
  */
@@ -280,6 +327,55 @@ export interface AccessPoliciesStatus {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const ActionSeverity = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+} as const;
+
+/**
+ * @public
+ */
+export type ActionSeverity = (typeof ActionSeverity)[keyof typeof ActionSeverity];
+
+/**
+ * @public
+ * @enum
+ */
+export const ActionStatus = {
+  COMPLETED: "COMPLETED",
+  ELIGIBLE: "ELIGIBLE",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_ELIGIBLE: "NOT_ELIGIBLE",
+  PENDING_UPDATE: "PENDING_UPDATE",
+} as const;
+
+/**
+ * @public
+ */
+export type ActionStatus = (typeof ActionStatus)[keyof typeof ActionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ActionType = {
+  JVM_HEAP_SIZE_TUNING: "JVM_HEAP_SIZE_TUNING",
+  JVM_YOUNG_GEN_TUNING: "JVM_YOUNG_GEN_TUNING",
+  SERVICE_SOFTWARE_UPDATE: "SERVICE_SOFTWARE_UPDATE",
+} as const;
+
+/**
+ * @public
+ */
+export type ActionType = (typeof ActionType)[keyof typeof ActionType];
+
+/**
+ * @public
  * <p> List of limits that are specific to a given instance type.</p>
  */
 export interface AdditionalLimit {
@@ -308,6 +404,7 @@ export interface AdditionalLimit {
 }
 
 /**
+ * @public
  * <p>A tag (key-value pair) for an Amazon OpenSearch Service resource.</p>
  */
 export interface Tag {
@@ -326,6 +423,7 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code>AddTags</code> operation. Specifies the tags to
  *    attach to the domain.</p>
  */
@@ -343,6 +441,7 @@ export interface AddTagsRequest {
 }
 
 /**
+ * @public
  * <p>An error occurred while processing the request.</p>
  */
 export class BaseException extends __BaseException {
@@ -362,8 +461,8 @@ export class BaseException extends __BaseException {
 }
 
 /**
- * <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to
- *    the service) . Gives http status code of 500.</p>
+ * @public
+ * <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
  */
 export class InternalException extends __BaseException {
   readonly name: "InternalException" = "InternalException";
@@ -382,7 +481,8 @@ export class InternalException extends __BaseException {
 }
 
 /**
- * <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+ * @public
+ * <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -401,6 +501,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Status of the advanced options for the specified domain. The following options are
  *    available: </p>
  *          <ul>
@@ -448,6 +549,7 @@ export interface AdvancedOptionsStatus {
 }
 
 /**
+ * @public
  * <p>The SAML identity povider information.</p>
  */
 export interface SAMLIdp {
@@ -463,6 +565,7 @@ export interface SAMLIdp {
 }
 
 /**
+ * @public
  * <p>Describes the SAML application configured for the domain.</p>
  */
 export interface SAMLOptionsOutput {
@@ -493,6 +596,7 @@ export interface SAMLOptionsOutput {
 }
 
 /**
+ * @public
  * <p>Container for fine-grained access control settings.</p>
  */
 export interface AdvancedSecurityOptions {
@@ -526,6 +630,7 @@ export interface AdvancedSecurityOptions {
 }
 
 /**
+ * @public
  * <p>Credentials for the master user for a domain.</p>
  */
 export interface MasterUserOptions {
@@ -549,6 +654,7 @@ export interface MasterUserOptions {
 }
 
 /**
+ * @public
  * <p>The SAML authentication configuration for an Amazon OpenSearch Service domain.</p>
  */
 export interface SAMLOptionsInput {
@@ -592,6 +698,7 @@ export interface SAMLOptionsInput {
 }
 
 /**
+ * @public
  * <p>Options for enabling and configuring fine-grained access control. For more information, see
  *     <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html">Fine-grained access control in Amazon OpenSearch Service</a>.</p>
  */
@@ -625,6 +732,7 @@ export interface AdvancedSecurityOptionsInput {
 }
 
 /**
+ * @public
  * <p>The status of fine-grained access control settings for a domain.</p>
  */
 export interface AdvancedSecurityOptionsStatus {
@@ -640,6 +748,7 @@ export interface AdvancedSecurityOptionsStatus {
 }
 
 /**
+ * @public
  * <p>Container for the request parameters to the <code>AssociatePackage</code> operation.</p>
  */
 export interface AssociatePackageRequest {
@@ -655,15 +764,25 @@ export interface AssociatePackageRequest {
   DomainName: string | undefined;
 }
 
-export enum DomainPackageStatus {
-  ACTIVE = "ACTIVE",
-  ASSOCIATING = "ASSOCIATING",
-  ASSOCIATION_FAILED = "ASSOCIATION_FAILED",
-  DISSOCIATING = "DISSOCIATING",
-  DISSOCIATION_FAILED = "DISSOCIATION_FAILED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DomainPackageStatus = {
+  ACTIVE: "ACTIVE",
+  ASSOCIATING: "ASSOCIATING",
+  ASSOCIATION_FAILED: "ASSOCIATION_FAILED",
+  DISSOCIATING: "DISSOCIATING",
+  DISSOCIATION_FAILED: "DISSOCIATION_FAILED",
+} as const;
 
 /**
+ * @public
+ */
+export type DomainPackageStatus = (typeof DomainPackageStatus)[keyof typeof DomainPackageStatus];
+
+/**
+ * @public
  * <p>Additional information if the package is in an error state. Null otherwise.</p>
  */
 export interface ErrorDetails {
@@ -678,11 +797,21 @@ export interface ErrorDetails {
   ErrorMessage?: string;
 }
 
-export enum PackageType {
-  TXT_DICTIONARY = "TXT-DICTIONARY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PackageType = {
+  TXT_DICTIONARY: "TXT-DICTIONARY",
+} as const;
 
 /**
+ * @public
+ */
+export type PackageType = (typeof PackageType)[keyof typeof PackageType];
+
+/**
+ * @public
  * <p>Information about a package that is associated with a domain. For more information, see
  *     <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom packages for Amazon OpenSearch Service</a>.</p>
  */
@@ -735,6 +864,7 @@ export interface DomainPackageDetails {
 }
 
 /**
+ * @public
  * <p>Container for the response returned by the <code>AssociatePackage</code> operation.</p>
  */
 export interface AssociatePackageResponse {
@@ -745,8 +875,8 @@ export interface AssociatePackageResponse {
 }
 
 /**
- * <p>An error occurred because the client attempts to remove a resource that is currently in use. Returns HTTP status
- *    code 409.</p>
+ * @public
+ * <p>An error occurred because the client attempts to remove a resource that is currently in use.</p>
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
@@ -764,6 +894,9 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AuthorizeVpcEndpointAccessRequest {
   /**
    * <p>The name of the OpenSearch Service domain to provide access to.</p>
@@ -776,12 +909,22 @@ export interface AuthorizeVpcEndpointAccessRequest {
   Account: string | undefined;
 }
 
-export enum PrincipalType {
-  AWS_ACCOUNT = "AWS_ACCOUNT",
-  AWS_SERVICE = "AWS_SERVICE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PrincipalType = {
+  AWS_ACCOUNT: "AWS_ACCOUNT",
+  AWS_SERVICE: "AWS_SERVICE",
+} as const;
 
 /**
+ * @public
+ */
+export type PrincipalType = (typeof PrincipalType)[keyof typeof PrincipalType];
+
+/**
+ * @public
  * <p>Information about an Amazon Web Services account or service that has access to an Amazon
  *    OpenSearch Service domain through the use of an interface VPC endpoint.</p>
  */
@@ -797,6 +940,9 @@ export interface AuthorizedPrincipal {
   Principal?: string;
 }
 
+/**
+ * @public
+ */
 export interface AuthorizeVpcEndpointAccessResponse {
   /**
    * <p>Information about the Amazon Web Services account or service that was provided access to the
@@ -806,6 +952,7 @@ export interface AuthorizeVpcEndpointAccessResponse {
 }
 
 /**
+ * @public
  * <p>Container for the request parameters to cancel a service software update.</p>
  */
 export interface CancelServiceSoftwareUpdateRequest {
@@ -816,15 +963,25 @@ export interface CancelServiceSoftwareUpdateRequest {
   DomainName: string | undefined;
 }
 
-export enum DeploymentStatus {
-  COMPLETED = "COMPLETED",
-  ELIGIBLE = "ELIGIBLE",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_ELIGIBLE = "NOT_ELIGIBLE",
-  PENDING_UPDATE = "PENDING_UPDATE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeploymentStatus = {
+  COMPLETED: "COMPLETED",
+  ELIGIBLE: "ELIGIBLE",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_ELIGIBLE: "NOT_ELIGIBLE",
+  PENDING_UPDATE: "PENDING_UPDATE",
+} as const;
 
 /**
+ * @public
+ */
+export type DeploymentStatus = (typeof DeploymentStatus)[keyof typeof DeploymentStatus];
+
+/**
+ * @public
  * <p>The current status of the service software for an Amazon OpenSearch Service domain. For more
  *    information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html">Service software updates in
  *     Amazon OpenSearch Service</a>.</p>
@@ -876,6 +1033,7 @@ export interface ServiceSoftwareOptions {
 }
 
 /**
+ * @public
  * <p>Container for the response to a <code>CancelServiceSoftwareUpdate</code> operation. Contains
  *    the status of the update.</p>
  */
@@ -886,16 +1044,35 @@ export interface CancelServiceSoftwareUpdateResponse {
   ServiceSoftwareOptions?: ServiceSoftwareOptions;
 }
 
-export enum AutoTuneDesiredState {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum TimeUnit {
-  HOURS = "HOURS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AutoTuneDesiredState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type AutoTuneDesiredState = (typeof AutoTuneDesiredState)[keyof typeof AutoTuneDesiredState];
+
+/**
+ * @public
+ * @enum
+ */
+export const TimeUnit = {
+  HOURS: "HOURS",
+} as const;
+
+/**
+ * @public
+ */
+export type TimeUnit = (typeof TimeUnit)[keyof typeof TimeUnit];
+
+/**
+ * @public
  * <p>The duration of a maintenance schedule. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html">Auto-Tune for
  *     Amazon OpenSearch Service</a>.</p>
  */
@@ -912,7 +1089,13 @@ export interface Duration {
 }
 
 /**
- * <p>The Auto-Tune maintenance schedule.
+ * @public
+ * <note>
+ *             <p>This object is deprecated. Use the domain's <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html">off-peak window</a> to
+ *     schedule Auto-Tune optimizations. For migration instructions, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html#off-peak-migrate">Migrating from Auto-Tune
+ *      maintenance windows</a>.</p>
+ *          </note>
+ *          <p>The Auto-Tune maintenance schedule.
  *    For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html">Auto-Tune for Amazon OpenSearch
  *     Service</a>.</p>
  */
@@ -923,8 +1106,8 @@ export interface AutoTuneMaintenanceSchedule {
   StartAt?: Date;
 
   /**
-   * <p>The duration of the maintenance schedule. For example, <code>"Duration": {"Value": 2,
-   *     "Unit": "HOURS"}</code>.</p>
+   * <p>The duration of the maintenance schedule. For example, <code>"Duration": \{"Value": 2,
+   *     "Unit": "HOURS"\}</code>.</p>
    */
   Duration?: Duration;
 
@@ -936,8 +1119,10 @@ export interface AutoTuneMaintenanceSchedule {
 }
 
 /**
+ * @public
  * <p>Options for configuring Auto-Tune. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html">Auto-Tune for Amazon OpenSearch
- *     Service</a>.</p>
+ *     Service</a>
+ *          </p>
  */
 export interface AutoTuneOptionsInput {
   /**
@@ -946,16 +1131,18 @@ export interface AutoTuneOptionsInput {
   DesiredState?: AutoTuneDesiredState | string;
 
   /**
-   * <p>A list of maintenance schedules during which Auto-Tune can deploy changes. Maintenance
-   *    schedules are overwrite, not append. If your request includes no schedules, the request deletes
-   *    all existing schedules. To preserve existing schedules, make a call to
-   *     <code>DescribeDomainConfig</code> first and use the <code>MaintenanceSchedules</code> portion of
-   *    the response as the basis for this section.</p>
+   * <p>A list of maintenance schedules during which Auto-Tune can deploy changes. Maintenance windows are deprecated and have been replaced with <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html">off-peak windows</a>.</p>
    */
   MaintenanceSchedules?: AutoTuneMaintenanceSchedule[];
+
+  /**
+   * <p>Whether to schedule Auto-Tune optimizations that require blue/green deployments during the domain's configured daily off-peak window.</p>
+   */
+  UseOffPeakWindow?: boolean;
 }
 
 /**
+ * @public
  * <p>Container for the parameters required to enable cold storage for an OpenSearch Service
  *    domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cold-storage.html">Cold storage for Amazon
  *     OpenSearch Service</a>.</p>
@@ -967,111 +1154,132 @@ export interface ColdStorageOptions {
   Enabled: boolean | undefined;
 }
 
-export enum OpenSearchPartitionInstanceType {
-  c4_2xlarge_search = "c4.2xlarge.search",
-  c4_4xlarge_search = "c4.4xlarge.search",
-  c4_8xlarge_search = "c4.8xlarge.search",
-  c4_large_search = "c4.large.search",
-  c4_xlarge_search = "c4.xlarge.search",
-  c5_18xlarge_search = "c5.18xlarge.search",
-  c5_2xlarge_search = "c5.2xlarge.search",
-  c5_4xlarge_search = "c5.4xlarge.search",
-  c5_9xlarge_search = "c5.9xlarge.search",
-  c5_large_search = "c5.large.search",
-  c5_xlarge_search = "c5.xlarge.search",
-  c6g_12xlarge_search = "c6g.12xlarge.search",
-  c6g_2xlarge_search = "c6g.2xlarge.search",
-  c6g_4xlarge_search = "c6g.4xlarge.search",
-  c6g_8xlarge_search = "c6g.8xlarge.search",
-  c6g_large_search = "c6g.large.search",
-  c6g_xlarge_search = "c6g.xlarge.search",
-  d2_2xlarge_search = "d2.2xlarge.search",
-  d2_4xlarge_search = "d2.4xlarge.search",
-  d2_8xlarge_search = "d2.8xlarge.search",
-  d2_xlarge_search = "d2.xlarge.search",
-  i2_2xlarge_search = "i2.2xlarge.search",
-  i2_xlarge_search = "i2.xlarge.search",
-  i3_16xlarge_search = "i3.16xlarge.search",
-  i3_2xlarge_search = "i3.2xlarge.search",
-  i3_4xlarge_search = "i3.4xlarge.search",
-  i3_8xlarge_search = "i3.8xlarge.search",
-  i3_large_search = "i3.large.search",
-  i3_xlarge_search = "i3.xlarge.search",
-  m3_2xlarge_search = "m3.2xlarge.search",
-  m3_large_search = "m3.large.search",
-  m3_medium_search = "m3.medium.search",
-  m3_xlarge_search = "m3.xlarge.search",
-  m4_10xlarge_search = "m4.10xlarge.search",
-  m4_2xlarge_search = "m4.2xlarge.search",
-  m4_4xlarge_search = "m4.4xlarge.search",
-  m4_large_search = "m4.large.search",
-  m4_xlarge_search = "m4.xlarge.search",
-  m5_12xlarge_search = "m5.12xlarge.search",
-  m5_24xlarge_search = "m5.24xlarge.search",
-  m5_2xlarge_search = "m5.2xlarge.search",
-  m5_4xlarge_search = "m5.4xlarge.search",
-  m5_large_search = "m5.large.search",
-  m5_xlarge_search = "m5.xlarge.search",
-  m6g_12xlarge_search = "m6g.12xlarge.search",
-  m6g_2xlarge_search = "m6g.2xlarge.search",
-  m6g_4xlarge_search = "m6g.4xlarge.search",
-  m6g_8xlarge_search = "m6g.8xlarge.search",
-  m6g_large_search = "m6g.large.search",
-  m6g_xlarge_search = "m6g.xlarge.search",
-  r3_2xlarge_search = "r3.2xlarge.search",
-  r3_4xlarge_search = "r3.4xlarge.search",
-  r3_8xlarge_search = "r3.8xlarge.search",
-  r3_large_search = "r3.large.search",
-  r3_xlarge_search = "r3.xlarge.search",
-  r4_16xlarge_search = "r4.16xlarge.search",
-  r4_2xlarge_search = "r4.2xlarge.search",
-  r4_4xlarge_search = "r4.4xlarge.search",
-  r4_8xlarge_search = "r4.8xlarge.search",
-  r4_large_search = "r4.large.search",
-  r4_xlarge_search = "r4.xlarge.search",
-  r5_12xlarge_search = "r5.12xlarge.search",
-  r5_24xlarge_search = "r5.24xlarge.search",
-  r5_2xlarge_search = "r5.2xlarge.search",
-  r5_4xlarge_search = "r5.4xlarge.search",
-  r5_large_search = "r5.large.search",
-  r5_xlarge_search = "r5.xlarge.search",
-  r6g_12xlarge_search = "r6g.12xlarge.search",
-  r6g_2xlarge_search = "r6g.2xlarge.search",
-  r6g_4xlarge_search = "r6g.4xlarge.search",
-  r6g_8xlarge_search = "r6g.8xlarge.search",
-  r6g_large_search = "r6g.large.search",
-  r6g_xlarge_search = "r6g.xlarge.search",
-  r6gd_12xlarge_search = "r6gd.12xlarge.search",
-  r6gd_16xlarge_search = "r6gd.16xlarge.search",
-  r6gd_2xlarge_search = "r6gd.2xlarge.search",
-  r6gd_4xlarge_search = "r6gd.4xlarge.search",
-  r6gd_8xlarge_search = "r6gd.8xlarge.search",
-  r6gd_large_search = "r6gd.large.search",
-  r6gd_xlarge_search = "r6gd.xlarge.search",
-  t2_medium_search = "t2.medium.search",
-  t2_micro_search = "t2.micro.search",
-  t2_small_search = "t2.small.search",
-  t3_2xlarge_search = "t3.2xlarge.search",
-  t3_large_search = "t3.large.search",
-  t3_medium_search = "t3.medium.search",
-  t3_micro_search = "t3.micro.search",
-  t3_nano_search = "t3.nano.search",
-  t3_small_search = "t3.small.search",
-  t3_xlarge_search = "t3.xlarge.search",
-  t4g_medium_search = "t4g.medium.search",
-  t4g_small_search = "t4g.small.search",
-  ultrawarm1_large_search = "ultrawarm1.large.search",
-  ultrawarm1_medium_search = "ultrawarm1.medium.search",
-  ultrawarm1_xlarge_search = "ultrawarm1.xlarge.search",
-}
-
-export enum OpenSearchWarmPartitionInstanceType {
-  ultrawarm1_large_search = "ultrawarm1.large.search",
-  ultrawarm1_medium_search = "ultrawarm1.medium.search",
-  ultrawarm1_xlarge_search = "ultrawarm1.xlarge.search",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OpenSearchPartitionInstanceType = {
+  c4_2xlarge_search: "c4.2xlarge.search",
+  c4_4xlarge_search: "c4.4xlarge.search",
+  c4_8xlarge_search: "c4.8xlarge.search",
+  c4_large_search: "c4.large.search",
+  c4_xlarge_search: "c4.xlarge.search",
+  c5_18xlarge_search: "c5.18xlarge.search",
+  c5_2xlarge_search: "c5.2xlarge.search",
+  c5_4xlarge_search: "c5.4xlarge.search",
+  c5_9xlarge_search: "c5.9xlarge.search",
+  c5_large_search: "c5.large.search",
+  c5_xlarge_search: "c5.xlarge.search",
+  c6g_12xlarge_search: "c6g.12xlarge.search",
+  c6g_2xlarge_search: "c6g.2xlarge.search",
+  c6g_4xlarge_search: "c6g.4xlarge.search",
+  c6g_8xlarge_search: "c6g.8xlarge.search",
+  c6g_large_search: "c6g.large.search",
+  c6g_xlarge_search: "c6g.xlarge.search",
+  d2_2xlarge_search: "d2.2xlarge.search",
+  d2_4xlarge_search: "d2.4xlarge.search",
+  d2_8xlarge_search: "d2.8xlarge.search",
+  d2_xlarge_search: "d2.xlarge.search",
+  i2_2xlarge_search: "i2.2xlarge.search",
+  i2_xlarge_search: "i2.xlarge.search",
+  i3_16xlarge_search: "i3.16xlarge.search",
+  i3_2xlarge_search: "i3.2xlarge.search",
+  i3_4xlarge_search: "i3.4xlarge.search",
+  i3_8xlarge_search: "i3.8xlarge.search",
+  i3_large_search: "i3.large.search",
+  i3_xlarge_search: "i3.xlarge.search",
+  m3_2xlarge_search: "m3.2xlarge.search",
+  m3_large_search: "m3.large.search",
+  m3_medium_search: "m3.medium.search",
+  m3_xlarge_search: "m3.xlarge.search",
+  m4_10xlarge_search: "m4.10xlarge.search",
+  m4_2xlarge_search: "m4.2xlarge.search",
+  m4_4xlarge_search: "m4.4xlarge.search",
+  m4_large_search: "m4.large.search",
+  m4_xlarge_search: "m4.xlarge.search",
+  m5_12xlarge_search: "m5.12xlarge.search",
+  m5_24xlarge_search: "m5.24xlarge.search",
+  m5_2xlarge_search: "m5.2xlarge.search",
+  m5_4xlarge_search: "m5.4xlarge.search",
+  m5_large_search: "m5.large.search",
+  m5_xlarge_search: "m5.xlarge.search",
+  m6g_12xlarge_search: "m6g.12xlarge.search",
+  m6g_2xlarge_search: "m6g.2xlarge.search",
+  m6g_4xlarge_search: "m6g.4xlarge.search",
+  m6g_8xlarge_search: "m6g.8xlarge.search",
+  m6g_large_search: "m6g.large.search",
+  m6g_xlarge_search: "m6g.xlarge.search",
+  r3_2xlarge_search: "r3.2xlarge.search",
+  r3_4xlarge_search: "r3.4xlarge.search",
+  r3_8xlarge_search: "r3.8xlarge.search",
+  r3_large_search: "r3.large.search",
+  r3_xlarge_search: "r3.xlarge.search",
+  r4_16xlarge_search: "r4.16xlarge.search",
+  r4_2xlarge_search: "r4.2xlarge.search",
+  r4_4xlarge_search: "r4.4xlarge.search",
+  r4_8xlarge_search: "r4.8xlarge.search",
+  r4_large_search: "r4.large.search",
+  r4_xlarge_search: "r4.xlarge.search",
+  r5_12xlarge_search: "r5.12xlarge.search",
+  r5_24xlarge_search: "r5.24xlarge.search",
+  r5_2xlarge_search: "r5.2xlarge.search",
+  r5_4xlarge_search: "r5.4xlarge.search",
+  r5_large_search: "r5.large.search",
+  r5_xlarge_search: "r5.xlarge.search",
+  r6g_12xlarge_search: "r6g.12xlarge.search",
+  r6g_2xlarge_search: "r6g.2xlarge.search",
+  r6g_4xlarge_search: "r6g.4xlarge.search",
+  r6g_8xlarge_search: "r6g.8xlarge.search",
+  r6g_large_search: "r6g.large.search",
+  r6g_xlarge_search: "r6g.xlarge.search",
+  r6gd_12xlarge_search: "r6gd.12xlarge.search",
+  r6gd_16xlarge_search: "r6gd.16xlarge.search",
+  r6gd_2xlarge_search: "r6gd.2xlarge.search",
+  r6gd_4xlarge_search: "r6gd.4xlarge.search",
+  r6gd_8xlarge_search: "r6gd.8xlarge.search",
+  r6gd_large_search: "r6gd.large.search",
+  r6gd_xlarge_search: "r6gd.xlarge.search",
+  t2_medium_search: "t2.medium.search",
+  t2_micro_search: "t2.micro.search",
+  t2_small_search: "t2.small.search",
+  t3_2xlarge_search: "t3.2xlarge.search",
+  t3_large_search: "t3.large.search",
+  t3_medium_search: "t3.medium.search",
+  t3_micro_search: "t3.micro.search",
+  t3_nano_search: "t3.nano.search",
+  t3_small_search: "t3.small.search",
+  t3_xlarge_search: "t3.xlarge.search",
+  t4g_medium_search: "t4g.medium.search",
+  t4g_small_search: "t4g.small.search",
+  ultrawarm1_large_search: "ultrawarm1.large.search",
+  ultrawarm1_medium_search: "ultrawarm1.medium.search",
+  ultrawarm1_xlarge_search: "ultrawarm1.xlarge.search",
+} as const;
 
 /**
+ * @public
+ */
+export type OpenSearchPartitionInstanceType =
+  (typeof OpenSearchPartitionInstanceType)[keyof typeof OpenSearchPartitionInstanceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const OpenSearchWarmPartitionInstanceType = {
+  ultrawarm1_large_search: "ultrawarm1.large.search",
+  ultrawarm1_medium_search: "ultrawarm1.medium.search",
+  ultrawarm1_xlarge_search: "ultrawarm1.xlarge.search",
+} as const;
+
+/**
+ * @public
+ */
+export type OpenSearchWarmPartitionInstanceType =
+  (typeof OpenSearchWarmPartitionInstanceType)[keyof typeof OpenSearchWarmPartitionInstanceType];
+
+/**
+ * @public
  * <p>The zone awareness configuration for an Amazon OpenSearch Service domain.</p>
  */
 export interface ZoneAwarenessConfig {
@@ -1084,6 +1292,7 @@ export interface ZoneAwarenessConfig {
 }
 
 /**
+ * @public
  * <p>Container for the cluster configuration of an OpenSearch Service domain. For more
  *    information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html">Creating and managing Amazon OpenSearch Service domains</a>.</p>
  */
@@ -1149,6 +1358,7 @@ export interface ClusterConfig {
 }
 
 /**
+ * @public
  * <p>Container for the parameters required to enable Cognito authentication for an OpenSearch
  *    Service domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html">Configuring Amazon Cognito
  *     authentication for OpenSearch Dashboards</a>.</p>
@@ -1178,12 +1388,22 @@ export interface CognitoOptions {
   RoleArn?: string;
 }
 
-export enum TLSSecurityPolicy {
-  POLICY_MIN_TLS_1_0_2019_07 = "Policy-Min-TLS-1-0-2019-07",
-  POLICY_MIN_TLS_1_2_2019_07 = "Policy-Min-TLS-1-2-2019-07",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TLSSecurityPolicy = {
+  POLICY_MIN_TLS_1_0_2019_07: "Policy-Min-TLS-1-0-2019-07",
+  POLICY_MIN_TLS_1_2_2019_07: "Policy-Min-TLS-1-2-2019-07",
+} as const;
 
 /**
+ * @public
+ */
+export type TLSSecurityPolicy = (typeof TLSSecurityPolicy)[keyof typeof TLSSecurityPolicy];
+
+/**
+ * @public
  * <p>Options to configure a custom endpoint for an OpenSearch Service domain.</p>
  */
 export interface DomainEndpointOptions {
@@ -1227,14 +1447,24 @@ export interface DomainEndpointOptions {
   CustomEndpointCertificateArn?: string;
 }
 
-export enum VolumeType {
-  gp2 = "gp2",
-  gp3 = "gp3",
-  io1 = "io1",
-  standard = "standard",
-}
+/**
+ * @public
+ * @enum
+ */
+export const VolumeType = {
+  gp2: "gp2",
+  gp3: "gp3",
+  io1: "io1",
+  standard: "standard",
+} as const;
 
 /**
+ * @public
+ */
+export type VolumeType = (typeof VolumeType)[keyof typeof VolumeType];
+
+/**
+ * @public
  * <p>Container for the parameters required to enable EBS-based storage for an OpenSearch Service
  *    domain.</p>
  */
@@ -1269,6 +1499,7 @@ export interface EBSOptions {
 }
 
 /**
+ * @public
  * <p>Specifies whether the domain should encrypt data at rest, and if so, the Key Management
  *    Service (KMS) key to use. Can be used only to create a new domain, not update an existing
  *    one.</p>
@@ -1285,14 +1516,24 @@ export interface EncryptionAtRestOptions {
   KmsKeyId?: string;
 }
 
-export enum LogType {
-  AUDIT_LOGS = "AUDIT_LOGS",
-  ES_APPLICATION_LOGS = "ES_APPLICATION_LOGS",
-  INDEX_SLOW_LOGS = "INDEX_SLOW_LOGS",
-  SEARCH_SLOW_LOGS = "SEARCH_SLOW_LOGS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LogType = {
+  AUDIT_LOGS: "AUDIT_LOGS",
+  ES_APPLICATION_LOGS: "ES_APPLICATION_LOGS",
+  INDEX_SLOW_LOGS: "INDEX_SLOW_LOGS",
+  SEARCH_SLOW_LOGS: "SEARCH_SLOW_LOGS",
+} as const;
 
 /**
+ * @public
+ */
+export type LogType = (typeof LogType)[keyof typeof LogType];
+
+/**
+ * @public
  * <p>Specifies whether the Amazon OpenSearch Service domain publishes the OpenSearch application
  *    and slow logs to Amazon CloudWatch. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createdomain-configure-slow-logs.html">Monitoring OpenSearch logs with Amazon CloudWatch Logs</a>.</p>
  *          <note>
@@ -1313,6 +1554,7 @@ export interface LogPublishingOption {
 }
 
 /**
+ * @public
  * <p>Enables or disables node-to-node encryption. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ntn.html">Node-to-node encryption for Amazon OpenSearch Service</a>.</p>
  */
 export interface NodeToNodeEncryptionOptions {
@@ -1323,6 +1565,63 @@ export interface NodeToNodeEncryptionOptions {
 }
 
 /**
+ * @public
+ * <p>The desired start time for an <a href="https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_OffPeakWindow.html">off-peak maintenance
+ *     window</a>.</p>
+ */
+export interface WindowStartTime {
+  /**
+   * <p>The start hour of the window in Coordinated Universal Time (UTC), using 24-hour time. For example, <code>17</code> refers to
+   *    5:00 P.M. UTC.</p>
+   */
+  Hours: number | undefined;
+
+  /**
+   * <p>The start minute of the window, in UTC.</p>
+   */
+  Minutes: number | undefined;
+}
+
+/**
+ * @public
+ * <p>A custom 10-hour, low-traffic window during which OpenSearch Service can perform mandatory
+ *    configuration changes on the domain. These actions can include scheduled service software updates
+ *    and blue/green Auto-Tune enhancements. OpenSearch Service will schedule these
+ *    actions during the window that you specify.</p>
+ *          <p>If you don't specify a window start time, it defaults to 10:00 P.M. local time.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html">Defining off-peak maintenance
+ *     windows for Amazon OpenSearch Service</a>.</p>
+ */
+export interface OffPeakWindow {
+  /**
+   * <p>A custom start time for the off-peak window, in Coordinated Universal Time (UTC). The window
+   *    length will always be 10 hours, so you can't specify an end time. For example, if you specify
+   *    11:00 P.M. UTC as a start time, the end time will automatically be set to 9:00 A.M.</p>
+   */
+  WindowStartTime?: WindowStartTime;
+}
+
+/**
+ * @public
+ * <p>Options for a domain's <a href="https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_OffPeakWindow.html">off-peak window</a>,
+ *    during which OpenSearch Service can perform mandatory configuration changes on the domain.</p>
+ */
+export interface OffPeakWindowOptions {
+  /**
+   * <p>Whether to enable an off-peak window.</p>
+   *          <p>This option is only available when modifying a domain created prior to February 13, 2023, not when creating a new domain.
+   *    All domains created after this date have the off-peak window enabled by default. You can't disable the off-peak window after it's enabled for a domain.</p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>Off-peak window settings for the domain.</p>
+   */
+  OffPeakWindow?: OffPeakWindow;
+}
+
+/**
+ * @public
  * <p>The time, in UTC format, when OpenSearch Service takes a daily automated snapshot of the
  *    specified domain. Default is <code>0</code> hours.</p>
  */
@@ -1335,6 +1634,18 @@ export interface SnapshotOptions {
 }
 
 /**
+ * @public
+ * <p>Options for configuring service software updates for a domain.</p>
+ */
+export interface SoftwareUpdateOptions {
+  /**
+   * <p>Whether automatic service software updates are enabled for the domain.</p>
+   */
+  AutoSoftwareUpdateEnabled?: boolean;
+}
+
+/**
+ * @public
  * <p>Options to specify the subnets and security groups for an Amazon OpenSearch Service VPC
  *    endpoint. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html">Launching your Amazon OpenSearch Service
  *     domains using a VPC</a>.</p>
@@ -1354,6 +1665,9 @@ export interface VPCOptions {
   SecurityGroupIds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface CreateDomainRequest {
   /**
    * <p>Name of the OpenSearch Service domain to create. Domain names are unique across the domains
@@ -1477,21 +1791,44 @@ export interface CreateDomainRequest {
    * <p>Options for Auto-Tune.</p>
    */
   AutoTuneOptions?: AutoTuneOptionsInput;
-}
 
-export enum AutoTuneState {
-  DISABLED = "DISABLED",
-  DISABLED_AND_ROLLBACK_COMPLETE = "DISABLED_AND_ROLLBACK_COMPLETE",
-  DISABLED_AND_ROLLBACK_ERROR = "DISABLED_AND_ROLLBACK_ERROR",
-  DISABLED_AND_ROLLBACK_IN_PROGRESS = "DISABLED_AND_ROLLBACK_IN_PROGRESS",
-  DISABLED_AND_ROLLBACK_SCHEDULED = "DISABLED_AND_ROLLBACK_SCHEDULED",
-  DISABLE_IN_PROGRESS = "DISABLE_IN_PROGRESS",
-  ENABLED = "ENABLED",
-  ENABLE_IN_PROGRESS = "ENABLE_IN_PROGRESS",
-  ERROR = "ERROR",
+  /**
+   * <p>Specifies a daily 10-hour time block during which OpenSearch Service can perform
+   *    configuration changes on the domain, including service software updates and Auto-Tune
+   *    enhancements that require a blue/green deployment. If no options are specified, the default start
+   *    time of 10:00 P.M. local time (for the Region that the domain is created in) is used.</p>
+   */
+  OffPeakWindowOptions?: OffPeakWindowOptions;
+
+  /**
+   * <p>Software update options for the domain.</p>
+   */
+  SoftwareUpdateOptions?: SoftwareUpdateOptions;
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const AutoTuneState = {
+  DISABLED: "DISABLED",
+  DISABLED_AND_ROLLBACK_COMPLETE: "DISABLED_AND_ROLLBACK_COMPLETE",
+  DISABLED_AND_ROLLBACK_ERROR: "DISABLED_AND_ROLLBACK_ERROR",
+  DISABLED_AND_ROLLBACK_IN_PROGRESS: "DISABLED_AND_ROLLBACK_IN_PROGRESS",
+  DISABLED_AND_ROLLBACK_SCHEDULED: "DISABLED_AND_ROLLBACK_SCHEDULED",
+  DISABLE_IN_PROGRESS: "DISABLE_IN_PROGRESS",
+  ENABLED: "ENABLED",
+  ENABLE_IN_PROGRESS: "ENABLE_IN_PROGRESS",
+  ERROR: "ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type AutoTuneState = (typeof AutoTuneState)[keyof typeof AutoTuneState];
+
+/**
+ * @public
  * <p>The Auto-Tune settings for a domain, displayed when enabling or disabling Auto-Tune.</p>
  */
 export interface AutoTuneOptionsOutput {
@@ -1504,9 +1841,16 @@ export interface AutoTuneOptionsOutput {
    * <p>Any errors that occurred while enabling or disabling Auto-Tune.</p>
    */
   ErrorMessage?: string;
+
+  /**
+   * <p>Whether the domain's off-peak window will be used to deploy Auto-Tune changes rather
+   *    than a maintenance schedule.</p>
+   */
+  UseOffPeakWindow?: boolean;
 }
 
 /**
+ * @public
  * <p>Container for information about a configuration change happening on a domain.</p>
  */
 export interface ChangeProgressDetails {
@@ -1522,6 +1866,7 @@ export interface ChangeProgressDetails {
 }
 
 /**
+ * @public
  * <p>Information about the subnets and security groups for an Amazon OpenSearch Service domain
  *    provisioned within a virtual private cloud (VPC). For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html">Launching your
  *     Amazon OpenSearch Service domains using a VPC</a>. This information only exists if the
@@ -1550,6 +1895,7 @@ export interface VPCDerivedInfo {
 }
 
 /**
+ * @public
  * <p>The current status of an OpenSearch Service domain.</p>
  */
 export interface DomainStatus {
@@ -1692,9 +2038,21 @@ export interface DomainStatus {
    * <p>Information about a configuration change happening on the domain.</p>
    */
   ChangeProgressDetails?: ChangeProgressDetails;
+
+  /**
+   * <p>Options that specify a custom 10-hour window during which OpenSearch Service can perform
+   *    configuration changes on the domain.</p>
+   */
+  OffPeakWindowOptions?: OffPeakWindowOptions;
+
+  /**
+   * <p>Service software update options for the domain.</p>
+   */
+  SoftwareUpdateOptions?: SoftwareUpdateOptions;
 }
 
 /**
+ * @public
  * <p>The result of a <code>CreateDomain</code> operation. Contains the status of the newly
  *    created domain.</p>
  */
@@ -1706,8 +2064,8 @@ export interface CreateDomainResponse {
 }
 
 /**
- * <p>An exception for trying to create or access sub-resource that is either invalid or not supported. Gives http
- *    status code of 409.</p>
+ * @public
+ * <p>An exception for trying to create or access a sub-resource that's either invalid or not supported.</p>
  */
 export class InvalidTypeException extends __BaseException {
   readonly name: "InvalidTypeException" = "InvalidTypeException";
@@ -1726,7 +2084,8 @@ export class InvalidTypeException extends __BaseException {
 }
 
 /**
- * <p>An exception for creating a resource that already exists. Gives http status code of 400.</p>
+ * @public
+ * <p>An exception for creating a resource that already exists.</p>
  */
 export class ResourceAlreadyExistsException extends __BaseException {
   readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
@@ -1745,6 +2104,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code>CreateOutboundConnection</code> operation.</p>
  */
 export interface CreateOutboundConnectionRequest {
@@ -1762,22 +2122,49 @@ export interface CreateOutboundConnectionRequest {
    * <p>Name of the connection.</p>
    */
   ConnectionAlias: string | undefined;
-}
 
-export enum OutboundConnectionStatusCode {
-  ACTIVE = "ACTIVE",
-  APPROVED = "APPROVED",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  PENDING_ACCEPTANCE = "PENDING_ACCEPTANCE",
-  PROVISIONING = "PROVISIONING",
-  REJECTED = "REJECTED",
-  REJECTING = "REJECTING",
-  VALIDATING = "VALIDATING",
-  VALIDATION_FAILED = "VALIDATION_FAILED",
+  /**
+   * <p>The connection mode.</p>
+   */
+  ConnectionMode?: ConnectionMode | string;
 }
 
 /**
+ * @public
+ * <p>The connection properties of an outbound connection.</p>
+ */
+export interface ConnectionProperties {
+  /**
+   * <p>The endpoint of the remote domain.</p>
+   */
+  Endpoint?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const OutboundConnectionStatusCode = {
+  ACTIVE: "ACTIVE",
+  APPROVED: "APPROVED",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  PENDING_ACCEPTANCE: "PENDING_ACCEPTANCE",
+  PROVISIONING: "PROVISIONING",
+  REJECTED: "REJECTED",
+  REJECTING: "REJECTING",
+  VALIDATING: "VALIDATING",
+  VALIDATION_FAILED: "VALIDATION_FAILED",
+} as const;
+
+/**
+ * @public
+ */
+export type OutboundConnectionStatusCode =
+  (typeof OutboundConnectionStatusCode)[keyof typeof OutboundConnectionStatusCode];
+
+/**
+ * @public
  * <p>The status of an outbound cross-cluster connection.</p>
  */
 export interface OutboundConnectionStatus {
@@ -1842,6 +2229,7 @@ export interface OutboundConnectionStatus {
 }
 
 /**
+ * @public
  * <p>The result of a <code>CreateOutboundConnection</code> request. Contains details about the
  *    newly created cross-cluster connection.</p>
  */
@@ -1871,9 +2259,20 @@ export interface CreateOutboundConnectionResponse {
    *    operations on the connection.</p>
    */
   ConnectionId?: string;
+
+  /**
+   * <p>The connection mode.</p>
+   */
+  ConnectionMode?: ConnectionMode | string;
+
+  /**
+   * <p>The <code>ConnectionProperties</code> for the newly created connection.</p>
+   */
+  ConnectionProperties?: ConnectionProperties;
 }
 
 /**
+ * @public
  * <p>The Amazon S3 location to import the package from.</p>
  */
 export interface PackageSource {
@@ -1889,6 +2288,7 @@ export interface PackageSource {
 }
 
 /**
+ * @public
  * <p>Container for request parameters to the <code>CreatePackage</code> operation.</p>
  */
 export interface CreatePackageRequest {
@@ -1913,18 +2313,28 @@ export interface CreatePackageRequest {
   PackageSource: PackageSource | undefined;
 }
 
-export enum PackageStatus {
-  AVAILABLE = "AVAILABLE",
-  COPYING = "COPYING",
-  COPY_FAILED = "COPY_FAILED",
-  DELETED = "DELETED",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETING = "DELETING",
-  VALIDATING = "VALIDATING",
-  VALIDATION_FAILED = "VALIDATION_FAILED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PackageStatus = {
+  AVAILABLE: "AVAILABLE",
+  COPYING: "COPYING",
+  COPY_FAILED: "COPY_FAILED",
+  DELETED: "DELETED",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+  VALIDATING: "VALIDATING",
+  VALIDATION_FAILED: "VALIDATION_FAILED",
+} as const;
 
 /**
+ * @public
+ */
+export type PackageStatus = (typeof PackageStatus)[keyof typeof PackageStatus];
+
+/**
+ * @public
  * <p>Basic information about a package.</p>
  */
 export interface PackageDetails {
@@ -1975,6 +2385,7 @@ export interface PackageDetails {
 }
 
 /**
+ * @public
  * <p>Container for the response returned by the <code>CreatePackage</code> operation.</p>
  */
 export interface CreatePackageResponse {
@@ -1984,9 +2395,12 @@ export interface CreatePackageResponse {
   PackageDetails?: PackageDetails;
 }
 
+/**
+ * @public
+ */
 export interface CreateVpcEndpointRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the domain to grant access to.</p>
+   * <p>The Amazon Resource Name (ARN) of the domain to create the endpoint for.</p>
    */
   DomainArn: string | undefined;
 
@@ -2001,17 +2415,27 @@ export interface CreateVpcEndpointRequest {
   ClientToken?: string;
 }
 
-export enum VpcEndpointStatus {
-  ACTIVE = "ACTIVE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETING = "DELETING",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATING = "UPDATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const VpcEndpointStatus = {
+  ACTIVE: "ACTIVE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
+} as const;
 
 /**
+ * @public
+ */
+export type VpcEndpointStatus = (typeof VpcEndpointStatus)[keyof typeof VpcEndpointStatus];
+
+/**
+ * @public
  * <p>The connection endpoint for connecting to an Amazon OpenSearch Service domain through a
  *    proxy.</p>
  */
@@ -2048,6 +2472,9 @@ export interface VpcEndpoint {
   Endpoint?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateVpcEndpointResponse {
   /**
    * <p>Information about the newly created VPC endpoint.</p>
@@ -2056,6 +2483,7 @@ export interface CreateVpcEndpointResponse {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code>DeleteDomain</code> operation.</p>
  */
 export interface DeleteDomainRequest {
@@ -2066,6 +2494,7 @@ export interface DeleteDomainRequest {
 }
 
 /**
+ * @public
  * <p>The results of a <code>DeleteDomain</code> request. Contains the status of the pending
  *    deletion, or a "domain not found" error if the domain and all of its resources have been deleted.</p>
  */
@@ -2077,6 +2506,7 @@ export interface DeleteDomainResponse {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code>DeleteInboundConnection</code> operation.</p>
  */
 export interface DeleteInboundConnectionRequest {
@@ -2087,6 +2517,7 @@ export interface DeleteInboundConnectionRequest {
 }
 
 /**
+ * @public
  * <p>The results of a <code>DeleteInboundConnection</code> operation. Contains details about the
  *    deleted inbound connection.</p>
  */
@@ -2098,6 +2529,7 @@ export interface DeleteInboundConnectionResponse {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code>DeleteOutboundConnection</code> operation.</p>
  */
 export interface DeleteOutboundConnectionRequest {
@@ -2108,6 +2540,7 @@ export interface DeleteOutboundConnectionRequest {
 }
 
 /**
+ * @public
  * <p>Specifies details about an outbound cross-cluster connection.</p>
  */
 export interface OutboundConnection {
@@ -2135,9 +2568,20 @@ export interface OutboundConnection {
    * <p>Status of the connection.</p>
    */
   ConnectionStatus?: OutboundConnectionStatus;
+
+  /**
+   * <p>The connection mode.</p>
+   */
+  ConnectionMode?: ConnectionMode | string;
+
+  /**
+   * <p>Properties for the outbound connection.</p>
+   */
+  ConnectionProperties?: ConnectionProperties;
 }
 
 /**
+ * @public
  * <p>Details about the deleted outbound connection.</p>
  */
 export interface DeleteOutboundConnectionResponse {
@@ -2148,6 +2592,7 @@ export interface DeleteOutboundConnectionResponse {
 }
 
 /**
+ * @public
  * <p>Deletes a package from OpenSearch Service. The package can't be associated with any
  *    OpenSearch Service domain.</p>
  */
@@ -2159,6 +2604,7 @@ export interface DeletePackageRequest {
 }
 
 /**
+ * @public
  * <p>Container for the response parameters to the <code>DeletePackage</code> operation.</p>
  */
 export interface DeletePackageResponse {
@@ -2168,6 +2614,9 @@ export interface DeletePackageResponse {
   PackageDetails?: PackageDetails;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVpcEndpointRequest {
   /**
    * <p>The unique identifier of the endpoint.</p>
@@ -2176,6 +2625,7 @@ export interface DeleteVpcEndpointRequest {
 }
 
 /**
+ * @public
  * <p>Summary information for an Amazon OpenSearch Service-managed VPC endpoint.</p>
  */
 export interface VpcEndpointSummary {
@@ -2200,6 +2650,9 @@ export interface VpcEndpointSummary {
   Status?: VpcEndpointStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVpcEndpointResponse {
   /**
    * <p>Information about the deleted endpoint, including its current status (<code>DELETING</code>
@@ -2209,6 +2662,7 @@ export interface DeleteVpcEndpointResponse {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code>DescribeDomain</code> operation.</p>
  */
 export interface DescribeDomainRequest {
@@ -2219,6 +2673,7 @@ export interface DescribeDomainRequest {
 }
 
 /**
+ * @public
  * <p>Contains the status of the domain specified in the request.</p>
  */
 export interface DescribeDomainResponse {
@@ -2229,6 +2684,7 @@ export interface DescribeDomainResponse {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code>DescribeDomainAutoTunes</code> operation.</p>
  */
 export interface DescribeDomainAutoTunesRequest {
@@ -2251,18 +2707,39 @@ export interface DescribeDomainAutoTunesRequest {
   NextToken?: string;
 }
 
-export enum ScheduledAutoTuneActionType {
-  JVM_HEAP_SIZE_TUNING = "JVM_HEAP_SIZE_TUNING",
-  JVM_YOUNG_GEN_TUNING = "JVM_YOUNG_GEN_TUNING",
-}
-
-export enum ScheduledAutoTuneSeverityType {
-  HIGH = "HIGH",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ScheduledAutoTuneActionType = {
+  JVM_HEAP_SIZE_TUNING: "JVM_HEAP_SIZE_TUNING",
+  JVM_YOUNG_GEN_TUNING: "JVM_YOUNG_GEN_TUNING",
+} as const;
 
 /**
+ * @public
+ */
+export type ScheduledAutoTuneActionType =
+  (typeof ScheduledAutoTuneActionType)[keyof typeof ScheduledAutoTuneActionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ScheduledAutoTuneSeverityType = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+} as const;
+
+/**
+ * @public
+ */
+export type ScheduledAutoTuneSeverityType =
+  (typeof ScheduledAutoTuneSeverityType)[keyof typeof ScheduledAutoTuneSeverityType];
+
+/**
+ * @public
  * <p>Specifies details about a scheduled Auto-Tune action. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html">Auto-Tune for
  *     Amazon OpenSearch Service</a>.</p>
  */
@@ -2290,6 +2767,7 @@ export interface ScheduledAutoTuneDetails {
 }
 
 /**
+ * @public
  * <p>Specifies details about a scheduled Auto-Tune action. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html">Auto-Tune for
  *     Amazon OpenSearch Service</a>.</p>
  */
@@ -2300,11 +2778,21 @@ export interface AutoTuneDetails {
   ScheduledAutoTuneDetails?: ScheduledAutoTuneDetails;
 }
 
-export enum AutoTuneType {
-  SCHEDULED_ACTION = "SCHEDULED_ACTION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AutoTuneType = {
+  SCHEDULED_ACTION: "SCHEDULED_ACTION",
+} as const;
 
 /**
+ * @public
+ */
+export type AutoTuneType = (typeof AutoTuneType)[keyof typeof AutoTuneType];
+
+/**
+ * @public
  * <p>Information about an Auto-Tune action. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html">Auto-Tune for Amazon OpenSearch
  *     Service</a>.</p>
  */
@@ -2321,6 +2809,7 @@ export interface AutoTune {
 }
 
 /**
+ * @public
  * <p>The result of a <code>DescribeDomainAutoTunes</code> request.</p>
  */
 export interface DescribeDomainAutoTunesResponse {
@@ -2338,6 +2827,7 @@ export interface DescribeDomainAutoTunesResponse {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code>DescribeDomainChangeProgress</code>
  *    operation.</p>
  */
@@ -2355,6 +2845,7 @@ export interface DescribeDomainChangeProgressRequest {
 }
 
 /**
+ * @public
  * <p>Progress details for each stage of a domain update.</p>
  */
 export interface ChangeProgressStage {
@@ -2379,14 +2870,24 @@ export interface ChangeProgressStage {
   LastUpdated?: Date;
 }
 
-export enum OverallChangeStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  PROCESSING = "PROCESSING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OverallChangeStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  PROCESSING: "PROCESSING",
+} as const;
 
 /**
+ * @public
+ */
+export type OverallChangeStatus = (typeof OverallChangeStatus)[keyof typeof OverallChangeStatus];
+
+/**
+ * @public
  * <p>The progress details of a specific domain configuration change.</p>
  */
 export interface ChangeProgressStatusDetails {
@@ -2427,6 +2928,7 @@ export interface ChangeProgressStatusDetails {
 }
 
 /**
+ * @public
  * <p>The result of a <code>DescribeDomainChangeProgress</code> request. Contains progress
  *    information for the requested domain change.</p>
  */
@@ -2438,6 +2940,7 @@ export interface DescribeDomainChangeProgressResponse {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code>DescribeDomainConfig</code> operation.</p>
  */
 export interface DescribeDomainConfigRequest {
@@ -2447,12 +2950,22 @@ export interface DescribeDomainConfigRequest {
   DomainName: string | undefined;
 }
 
-export enum RollbackOnDisable {
-  DEFAULT_ROLLBACK = "DEFAULT_ROLLBACK",
-  NO_ROLLBACK = "NO_ROLLBACK",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RollbackOnDisable = {
+  DEFAULT_ROLLBACK: "DEFAULT_ROLLBACK",
+  NO_ROLLBACK: "NO_ROLLBACK",
+} as const;
 
 /**
+ * @public
+ */
+export type RollbackOnDisable = (typeof RollbackOnDisable)[keyof typeof RollbackOnDisable];
+
+/**
+ * @public
  * <p>Auto-Tune settings when updating a domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html">Auto-Tune for
  *     Amazon OpenSearch Service</a>.</p>
  */
@@ -2471,12 +2984,21 @@ export interface AutoTuneOptions {
   RollbackOnDisable?: RollbackOnDisable | string;
 
   /**
-   * <p>A list of maintenance schedules during which Auto-Tune can deploy changes.</p>
+   * <p>DEPRECATED. Use <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html">off-peak window</a>
+   *    instead.</p>
+   *          <p>A list of maintenance schedules during which Auto-Tune can deploy changes.</p>
    */
   MaintenanceSchedules?: AutoTuneMaintenanceSchedule[];
+
+  /**
+   * <p>Whether to use the domain's <a href="https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_OffPeakWindow.html">off-peak window</a> to
+   *    deploy configuration changes on the domain rather than a maintenance schedule.</p>
+   */
+  UseOffPeakWindow?: boolean;
 }
 
 /**
+ * @public
  * <p>The current status of Auto-Tune for the domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html">Auto-Tune for
  *     Amazon OpenSearch Service</a>.</p>
  */
@@ -2513,6 +3035,7 @@ export interface AutoTuneStatus {
 }
 
 /**
+ * @public
  * <p>The Auto-Tune status for the domain.</p>
  */
 export interface AutoTuneOptionsStatus {
@@ -2528,6 +3051,7 @@ export interface AutoTuneOptionsStatus {
 }
 
 /**
+ * @public
  * <p>The cluster configuration status for a domain.</p>
  */
 export interface ClusterConfigStatus {
@@ -2543,6 +3067,7 @@ export interface ClusterConfigStatus {
 }
 
 /**
+ * @public
  * <p>The status of the Cognito options for the specified domain.</p>
  */
 export interface CognitoOptionsStatus {
@@ -2558,6 +3083,7 @@ export interface CognitoOptionsStatus {
 }
 
 /**
+ * @public
  * <p>The configured endpoint options for a domain and their current status.</p>
  */
 export interface DomainEndpointOptionsStatus {
@@ -2573,6 +3099,7 @@ export interface DomainEndpointOptionsStatus {
 }
 
 /**
+ * @public
  * <p>The status of the EBS options for the specified OpenSearch Service domain.</p>
  */
 export interface EBSOptionsStatus {
@@ -2588,6 +3115,7 @@ export interface EBSOptionsStatus {
 }
 
 /**
+ * @public
  * <p>Status of the encryption at rest options for the specified OpenSearch Service domain.</p>
  */
 export interface EncryptionAtRestOptionsStatus {
@@ -2603,6 +3131,7 @@ export interface EncryptionAtRestOptionsStatus {
 }
 
 /**
+ * @public
  * <p>The status of the the OpenSearch or Elasticsearch version options for the specified Amazon
  *    OpenSearch Service domain.</p>
  */
@@ -2619,6 +3148,7 @@ export interface VersionStatus {
 }
 
 /**
+ * @public
  * <p>The configured log publishing options for the domain and their current status.</p>
  */
 export interface LogPublishingOptionsStatus {
@@ -2634,6 +3164,7 @@ export interface LogPublishingOptionsStatus {
 }
 
 /**
+ * @public
  * <p>Status of the node-to-node encryption options for the specified domain.</p>
  */
 export interface NodeToNodeEncryptionOptionsStatus {
@@ -2649,6 +3180,24 @@ export interface NodeToNodeEncryptionOptionsStatus {
 }
 
 /**
+ * @public
+ * <p>The status of <a href="https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_OffPeakWindow.html">off-peak window</a>
+ *    options for a domain.</p>
+ */
+export interface OffPeakWindowOptionsStatus {
+  /**
+   * <p>The domain's off-peak window configuration.</p>
+   */
+  Options?: OffPeakWindowOptions;
+
+  /**
+   * <p>The current status of off-peak window options.</p>
+   */
+  Status?: OptionStatus;
+}
+
+/**
+ * @public
  * <p>Container for information about a daily automated snapshot for an OpenSearch Service
  *    domain.</p>
  */
@@ -2665,6 +3214,23 @@ export interface SnapshotOptionsStatus {
 }
 
 /**
+ * @public
+ * <p>The status of the service software options for a domain.</p>
+ */
+export interface SoftwareUpdateOptionsStatus {
+  /**
+   * <p>The service software update options for a domain.</p>
+   */
+  Options?: SoftwareUpdateOptions;
+
+  /**
+   * <p>The status of service software update options, including creation date and last updated date.</p>
+   */
+  Status?: OptionStatus;
+}
+
+/**
+ * @public
  * <p>Status of the VPC options for a specified domain.</p>
  */
 export interface VPCDerivedInfoStatus {
@@ -2680,6 +3246,7 @@ export interface VPCDerivedInfoStatus {
 }
 
 /**
+ * @public
  * <p>Container for the configuration of an OpenSearch Service domain.</p>
  */
 export interface DomainConfig {
@@ -2694,7 +3261,7 @@ export interface DomainConfig {
   ClusterConfig?: ClusterConfigStatus;
 
   /**
-   * <p>Container for EBS options configured for an OpenSearch Service domain.</p>
+   * <p>Container for EBS options configured for the domain.</p>
    */
   EBSOptions?: EBSOptionsStatus;
 
@@ -2760,9 +3327,20 @@ export interface DomainConfig {
    * <p>Container for information about the progress of an existing configuration change.</p>
    */
   ChangeProgressDetails?: ChangeProgressDetails;
+
+  /**
+   * <p>Container for off-peak window options for the domain.</p>
+   */
+  OffPeakWindowOptions?: OffPeakWindowOptionsStatus;
+
+  /**
+   * <p>Software update options for the domain.</p>
+   */
+  SoftwareUpdateOptions?: SoftwareUpdateOptionsStatus;
 }
 
 /**
+ * @public
  * <p>Contains the configuration information of the requested domain.</p>
  */
 export interface DescribeDomainConfigResponse {
@@ -2773,6 +3351,7 @@ export interface DescribeDomainConfigResponse {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code>DescribeDomains</code> operation.</p>
  */
 export interface DescribeDomainsRequest {
@@ -2785,6 +3364,7 @@ export interface DescribeDomainsRequest {
 }
 
 /**
+ * @public
  * <p>Contains the status of the specified domains or all domains owned by the account.</p>
  */
 export interface DescribeDomainsResponse {
@@ -2795,6 +3375,134 @@ export interface DescribeDomainsResponse {
 }
 
 /**
+ * @public
+ */
+export interface DescribeDryRunProgressRequest {
+  /**
+   * <p>The name of the domain.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The unique identifier of the dry run.</p>
+   */
+  DryRunId?: string;
+
+  /**
+   * <p>Whether to include the configuration of the dry run in the response. The configuration
+   *    specifies the updates that you're planning to make on the domain.</p>
+   */
+  LoadDryRunConfig?: boolean;
+}
+
+/**
+ * @public
+ * <p>A validation failure that occurred as the result of a pre-update validation check (verbose
+ *    dry run) on a domain.</p>
+ */
+export interface ValidationFailure {
+  /**
+   * <p>The error code of the failure.</p>
+   */
+  Code?: string;
+
+  /**
+   * <p>A message corresponding to the failure.</p>
+   */
+  Message?: string;
+}
+
+/**
+ * @public
+ * <p>Information about the progress of a pre-upgrade dry run analysis.</p>
+ */
+export interface DryRunProgressStatus {
+  /**
+   * <p>The unique identifier of the dry run.</p>
+   */
+  DryRunId: string | undefined;
+
+  /**
+   * <p>The current status of the dry run.</p>
+   */
+  DryRunStatus: string | undefined;
+
+  /**
+   * <p>The timestamp when the dry run was initiated.</p>
+   */
+  CreationDate: string | undefined;
+
+  /**
+   * <p>The timestamp when the dry run was last updated.</p>
+   */
+  UpdateDate: string | undefined;
+
+  /**
+   * <p>Any validation failures that occurred as a result of the dry run.</p>
+   */
+  ValidationFailures?: ValidationFailure[];
+}
+
+/**
+ * @public
+ * <p>Results of a dry run performed in an update domain request.</p>
+ */
+export interface DryRunResults {
+  /**
+   * <p> Specifies the way in which OpenSearch Service will apply an update. Possible values
+   *    are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Blue/Green</b> - The update requires a blue/green
+   *      deployment.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>DynamicUpdate</b> - No blue/green deployment required</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Undetermined</b> - The domain is in the middle of an update
+   *      and can't predict the deployment type. Try again after the update is complete.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>None</b> - The request doesn't include any configuration
+   *      changes.</p>
+   *             </li>
+   *          </ul>
+   */
+  DeploymentType?: string;
+
+  /**
+   * <p>A message corresponding to the deployment type.</p>
+   */
+  Message?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDryRunProgressResponse {
+  /**
+   * <p>The current status of the dry run, including any validation errors.</p>
+   */
+  DryRunProgressStatus?: DryRunProgressStatus;
+
+  /**
+   * <p>Details about the changes you're planning to make on the domain.</p>
+   */
+  DryRunConfig?: DomainStatus;
+
+  /**
+   * <p>The results of the dry run. </p>
+   */
+  DryRunResults?: DryRunResults;
+}
+
+/**
+ * @public
  * <p>A filter used to limit results when describing inbound or outbound cross-cluster
  *    connections. You can specify multiple values per filter. A cross-cluster connection must match at
  *    least one of the specified values for it to be returned from an operation.</p>
@@ -2812,6 +3520,7 @@ export interface Filter {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code>DescribeInboundConnections</code> operation.</p>
  */
 export interface DescribeInboundConnectionsRequest {
@@ -2836,6 +3545,7 @@ export interface DescribeInboundConnectionsRequest {
 }
 
 /**
+ * @public
  * <p>Contains a list of connections matching the filter criteria.</p>
  */
 export interface DescribeInboundConnectionsResponse {
@@ -2853,8 +3563,8 @@ export interface DescribeInboundConnectionsResponse {
 }
 
 /**
- * <p>The request processing has failed because of invalid pagination token provided by customer. Returns an HTTP
- *    status code of 400. </p>
+ * @public
+ * <p>The request processing has failed because you provided an invalid pagination token.</p>
  */
 export class InvalidPaginationTokenException extends __BaseException {
   readonly name: "InvalidPaginationTokenException" = "InvalidPaginationTokenException";
@@ -2873,6 +3583,7 @@ export class InvalidPaginationTokenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code>DescribeInstanceTypeLimits</code> operation.</p>
  */
 export interface DescribeInstanceTypeLimitsRequest {
@@ -2894,6 +3605,7 @@ export interface DescribeInstanceTypeLimitsRequest {
 }
 
 /**
+ * @public
  * <p>Limits on the number of instances that can be created in OpenSearch Service for a given
  *    instance type.</p>
  */
@@ -2910,6 +3622,7 @@ export interface InstanceCountLimits {
 }
 
 /**
+ * @public
  * <p>Instance-related attributes that are available for a given instance type.</p>
  */
 export interface InstanceLimits {
@@ -2920,6 +3633,7 @@ export interface InstanceLimits {
 }
 
 /**
+ * @public
  * <p>Limits that are applicable for the given Amazon OpenSearch Service storage type.</p>
  */
 export interface StorageTypeLimit {
@@ -2968,6 +3682,7 @@ export interface StorageTypeLimit {
 }
 
 /**
+ * @public
  * <p>A list of storage types for an Amazon OpenSearch Service domain that are available for a
  *    given intance type.</p>
  */
@@ -2989,6 +3704,7 @@ export interface StorageType {
 }
 
 /**
+ * @public
  * <p>Limits for a given instance type and for each of its roles.</p>
  */
 export interface Limits {
@@ -3010,6 +3726,7 @@ export interface Limits {
 }
 
 /**
+ * @public
  * <p>Container for the parameters received from the <code>DescribeInstanceTypeLimits</code>
  *    operation.</p>
  */
@@ -3022,6 +3739,7 @@ export interface DescribeInstanceTypeLimitsResponse {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code>DescribeOutboundConnections</code> operation.</p>
  */
 export interface DescribeOutboundConnectionsRequest {
@@ -3046,6 +3764,7 @@ export interface DescribeOutboundConnectionsRequest {
 }
 
 /**
+ * @public
  * <p>Contains a list of connections matching the filter criteria.</p>
  */
 export interface DescribeOutboundConnectionsResponse {
@@ -3062,13 +3781,23 @@ export interface DescribeOutboundConnectionsResponse {
   NextToken?: string;
 }
 
-export enum DescribePackagesFilterName {
-  PackageID = "PackageID",
-  PackageName = "PackageName",
-  PackageStatus = "PackageStatus",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DescribePackagesFilterName = {
+  PackageID: "PackageID",
+  PackageName: "PackageName",
+  PackageStatus: "PackageStatus",
+} as const;
 
 /**
+ * @public
+ */
+export type DescribePackagesFilterName = (typeof DescribePackagesFilterName)[keyof typeof DescribePackagesFilterName];
+
+/**
+ * @public
  * <p>A filter to apply to the <code>DescribePackage</code> response.</p>
  */
 export interface DescribePackagesFilter {
@@ -3084,6 +3813,7 @@ export interface DescribePackagesFilter {
 }
 
 /**
+ * @public
  * <p>Container for the request parameters to the <code>DescribePackage</code> operation.</p>
  */
 export interface DescribePackagesRequest {
@@ -3107,6 +3837,7 @@ export interface DescribePackagesRequest {
 }
 
 /**
+ * @public
  * <p>Container for the response returned by the <code>DescribePackages</code> operation.</p>
  */
 export interface DescribePackagesResponse {
@@ -3124,6 +3855,7 @@ export interface DescribePackagesResponse {
 }
 
 /**
+ * @public
  * <p>Container for the request parameters to a <code>DescribeReservedInstanceOfferings</code>
  *    operation.</p>
  */
@@ -3149,13 +3881,24 @@ export interface DescribeReservedInstanceOfferingsRequest {
   NextToken?: string;
 }
 
-export enum ReservedInstancePaymentOption {
-  ALL_UPFRONT = "ALL_UPFRONT",
-  NO_UPFRONT = "NO_UPFRONT",
-  PARTIAL_UPFRONT = "PARTIAL_UPFRONT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReservedInstancePaymentOption = {
+  ALL_UPFRONT: "ALL_UPFRONT",
+  NO_UPFRONT: "NO_UPFRONT",
+  PARTIAL_UPFRONT: "PARTIAL_UPFRONT",
+} as const;
 
 /**
+ * @public
+ */
+export type ReservedInstancePaymentOption =
+  (typeof ReservedInstancePaymentOption)[keyof typeof ReservedInstancePaymentOption];
+
+/**
+ * @public
  * <p>Contains the specific price and frequency of a recurring charges for an OpenSearch Reserved
  *    Instance, or for a Reserved Instance offering.</p>
  */
@@ -3172,6 +3915,7 @@ export interface RecurringCharge {
 }
 
 /**
+ * @public
  * <p>Details of an OpenSearch Reserved Instance offering.</p>
  */
 export interface ReservedInstanceOffering {
@@ -3219,6 +3963,7 @@ export interface ReservedInstanceOffering {
 }
 
 /**
+ * @public
  * <p>Container for results of a <code>DescribeReservedInstanceOfferings</code> request.</p>
  */
 export interface DescribeReservedInstanceOfferingsResponse {
@@ -3236,6 +3981,7 @@ export interface DescribeReservedInstanceOfferingsResponse {
 }
 
 /**
+ * @public
  * <p>Container for the request parameters to the <code>DescribeReservedInstances</code>
  *    operation.</p>
  */
@@ -3262,6 +4008,7 @@ export interface DescribeReservedInstancesRequest {
 }
 
 /**
+ * @public
  * <p>Details of an OpenSearch Reserved Instance.</p>
  */
 export interface ReservedInstance {
@@ -3339,6 +4086,7 @@ export interface ReservedInstance {
 }
 
 /**
+ * @public
  * <p>Container for results from <code>DescribeReservedInstances</code>
  *          </p>
  */
@@ -3356,6 +4104,9 @@ export interface DescribeReservedInstancesResponse {
   ReservedInstances?: ReservedInstance[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeVpcEndpointsRequest {
   /**
    * <p>The unique identifiers of the endpoints to get information about.</p>
@@ -3363,12 +4114,22 @@ export interface DescribeVpcEndpointsRequest {
   VpcEndpointIds: string[] | undefined;
 }
 
-export enum VpcEndpointErrorCode {
-  ENDPOINT_NOT_FOUND = "ENDPOINT_NOT_FOUND",
-  SERVER_ERROR = "SERVER_ERROR",
-}
+/**
+ * @public
+ * @enum
+ */
+export const VpcEndpointErrorCode = {
+  ENDPOINT_NOT_FOUND: "ENDPOINT_NOT_FOUND",
+  SERVER_ERROR: "SERVER_ERROR",
+} as const;
 
 /**
+ * @public
+ */
+export type VpcEndpointErrorCode = (typeof VpcEndpointErrorCode)[keyof typeof VpcEndpointErrorCode];
+
+/**
+ * @public
  * <p>Error information when attempting to describe an Amazon OpenSearch Service-managed VPC
  *    endpoint.</p>
  */
@@ -3389,6 +4150,9 @@ export interface VpcEndpointError {
   ErrorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVpcEndpointsResponse {
   /**
    * <p>Information about each requested VPC endpoint.</p>
@@ -3402,6 +4166,7 @@ export interface DescribeVpcEndpointsResponse {
 }
 
 /**
+ * @public
  * <p>Container for the request parameters to the <code>DissociatePackage</code> operation.</p>
  */
 export interface DissociatePackageRequest {
@@ -3418,6 +4183,7 @@ export interface DissociatePackageRequest {
 }
 
 /**
+ * @public
  * <p>Container for the response returned by an <code>DissociatePackage</code> operation.</p>
  */
 export interface DissociatePackageResponse {
@@ -3428,6 +4194,7 @@ export interface DissociatePackageResponse {
 }
 
 /**
+ * @public
  * <p>Container for the request parameters to <code>GetCompatibleVersions</code> operation.</p>
  */
 export interface GetCompatibleVersionsRequest {
@@ -3439,6 +4206,7 @@ export interface GetCompatibleVersionsRequest {
 }
 
 /**
+ * @public
  * <p>A map of OpenSearch or Elasticsearch versions and the versions you can upgrade them
  *    to.</p>
  */
@@ -3455,6 +4223,7 @@ export interface CompatibleVersionsMap {
 }
 
 /**
+ * @public
  * <p>Container for the response returned by the <code>GetCompatibleVersions</code> operation.</p>
  */
 export interface GetCompatibleVersionsResponse {
@@ -3466,6 +4235,7 @@ export interface GetCompatibleVersionsResponse {
 }
 
 /**
+ * @public
  * <p>Container for the request parameters to the <code>GetPackageVersionHistory</code> operation.</p>
  */
 export interface GetPackageVersionHistoryRequest {
@@ -3490,6 +4260,7 @@ export interface GetPackageVersionHistoryRequest {
 }
 
 /**
+ * @public
  * <p>Details about a package version.</p>
  */
 export interface PackageVersionHistory {
@@ -3510,6 +4281,7 @@ export interface PackageVersionHistory {
 }
 
 /**
+ * @public
  * <p>Container for response returned by <code>GetPackageVersionHistory</code>  operation.</p>
  */
 export interface GetPackageVersionHistoryResponse {
@@ -3532,6 +4304,7 @@ export interface GetPackageVersionHistoryResponse {
 }
 
 /**
+ * @public
  * <p>Container for the request parameters to the <code>GetUpgradeHistory</code> operation.</p>
  */
 export interface GetUpgradeHistoryRequest {
@@ -3554,20 +4327,39 @@ export interface GetUpgradeHistoryRequest {
   NextToken?: string;
 }
 
-export enum UpgradeStep {
-  PRE_UPGRADE_CHECK = "PRE_UPGRADE_CHECK",
-  SNAPSHOT = "SNAPSHOT",
-  UPGRADE = "UPGRADE",
-}
-
-export enum UpgradeStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED",
-  SUCCEEDED_WITH_ISSUES = "SUCCEEDED_WITH_ISSUES",
-}
+/**
+ * @public
+ * @enum
+ */
+export const UpgradeStep = {
+  PRE_UPGRADE_CHECK: "PRE_UPGRADE_CHECK",
+  SNAPSHOT: "SNAPSHOT",
+  UPGRADE: "UPGRADE",
+} as const;
 
 /**
+ * @public
+ */
+export type UpgradeStep = (typeof UpgradeStep)[keyof typeof UpgradeStep];
+
+/**
+ * @public
+ * @enum
+ */
+export const UpgradeStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+  SUCCEEDED_WITH_ISSUES: "SUCCEEDED_WITH_ISSUES",
+} as const;
+
+/**
+ * @public
+ */
+export type UpgradeStatus = (typeof UpgradeStatus)[keyof typeof UpgradeStatus];
+
+/**
+ * @public
  * <p>Represents a single step of an upgrade or upgrade eligibility check workflow.</p>
  */
 export interface UpgradeStepItem {
@@ -3618,6 +4410,7 @@ export interface UpgradeStepItem {
 }
 
 /**
+ * @public
  * <p>History of the last 10 upgrades and upgrade eligibility checks for an Amazon OpenSearch
  *    Service domain.</p>
  */
@@ -3659,6 +4452,7 @@ export interface UpgradeHistory {
 }
 
 /**
+ * @public
  * <p>Container for the response returned by the <code>GetUpgradeHistory</code> operation.</p>
  */
 export interface GetUpgradeHistoryResponse {
@@ -3677,6 +4471,7 @@ export interface GetUpgradeHistoryResponse {
 }
 
 /**
+ * @public
  * <p>Container for the request parameters to the <code>GetUpgradeStatus</code> operation.</p>
  */
 export interface GetUpgradeStatusRequest {
@@ -3687,6 +4482,7 @@ export interface GetUpgradeStatusRequest {
 }
 
 /**
+ * @public
  * <p>Container for the response returned by the <code>GetUpgradeStatus</code> operation.</p>
  */
 export interface GetUpgradeStatusResponse {
@@ -3706,12 +4502,22 @@ export interface GetUpgradeStatusResponse {
   UpgradeName?: string;
 }
 
-export enum EngineType {
-  Elasticsearch = "Elasticsearch",
-  OpenSearch = "OpenSearch",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EngineType = {
+  Elasticsearch: "Elasticsearch",
+  OpenSearch: "OpenSearch",
+} as const;
 
 /**
+ * @public
+ */
+export type EngineType = (typeof EngineType)[keyof typeof EngineType];
+
+/**
+ * @public
  * <p>Container for the parameters to the <code>ListDomainNames</code> operation.</p>
  */
 export interface ListDomainNamesRequest {
@@ -3722,6 +4528,7 @@ export interface ListDomainNamesRequest {
 }
 
 /**
+ * @public
  * <p>Information about an OpenSearch Service domain.</p>
  */
 export interface DomainInfo {
@@ -3738,6 +4545,7 @@ export interface DomainInfo {
 }
 
 /**
+ * @public
  * <p>The results of a <code>ListDomainNames</code> operation. Contains the names of all domains
  *    owned by this account and their respective engine types.</p>
  */
@@ -3750,6 +4558,7 @@ export interface ListDomainNamesResponse {
 }
 
 /**
+ * @public
  * <p>Container for the request parameters to the <code>ListDomainsForPackage</code> operation.</p>
  */
 export interface ListDomainsForPackageRequest {
@@ -3773,6 +4582,7 @@ export interface ListDomainsForPackageRequest {
 }
 
 /**
+ * @public
  * <p>Container for the response parameters to the <code>ListDomainsForPackage</code> operation.</p>
  */
 export interface ListDomainsForPackageResponse {
@@ -3789,6 +4599,9 @@ export interface ListDomainsForPackageResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListInstanceTypeDetailsRequest {
   /**
    * <p>Version of OpenSearch or Elasticsearch, in the format Elasticsearch_X.Y or OpenSearch_X.Y.
@@ -3816,6 +4629,7 @@ export interface ListInstanceTypeDetailsRequest {
 }
 
 /**
+ * @public
  * <p>Lists all instance types and available features for a given OpenSearch or Elasticsearch
  *    version.</p>
  */
@@ -3858,6 +4672,9 @@ export interface InstanceTypeDetails {
   InstanceRole?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListInstanceTypeDetailsResponse {
   /**
    * <p>Lists all supported instance types and features for the given OpenSearch or Elasticsearch
@@ -3874,6 +4691,7 @@ export interface ListInstanceTypeDetailsResponse {
 }
 
 /**
+ * @public
  * <p>Container for the request parameters to the <code>ListPackagesForDomain</code> operation.</p>
  */
 export interface ListPackagesForDomainRequest {
@@ -3897,6 +4715,7 @@ export interface ListPackagesForDomainRequest {
 }
 
 /**
+ * @public
  * <p>Container for the response parameters to the <code>ListPackagesForDomain</code> operation.</p>
  */
 export interface ListPackagesForDomainResponse {
@@ -3914,6 +4733,115 @@ export interface ListPackagesForDomainResponse {
 }
 
 /**
+ * @public
+ */
+export interface ListScheduledActionsRequest {
+  /**
+   * <p>The name of the domain.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>An optional parameter that specifies the maximum number of results to return. You can use
+   *    <code>nextToken</code> to get the next page of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>If your initial <code>ListScheduledActions</code> operation returns a <code>nextToken</code>, you
+   *    can include the returned <code>nextToken</code> in subsequent <code>ListScheduledActions</code>
+   *    operations, which returns results in the next page.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ScheduledBy = {
+  CUSTOMER: "CUSTOMER",
+  SYSTEM: "SYSTEM",
+} as const;
+
+/**
+ * @public
+ */
+export type ScheduledBy = (typeof ScheduledBy)[keyof typeof ScheduledBy];
+
+/**
+ * @public
+ * <p>Information about a scheduled configuration change for an OpenSearch Service domain. This
+ *    actions can be a <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html">service software
+ *     update</a> or a <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html#auto-tune-types">blue/green
+ *     Auto-Tune enhancement</a>.</p>
+ */
+export interface ScheduledAction {
+  /**
+   * <p>The unique identifier of the scheduled action.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The type of action that will be taken on the domain.</p>
+   */
+  Type: ActionType | string | undefined;
+
+  /**
+   * <p>The severity of the action.</p>
+   */
+  Severity: ActionSeverity | string | undefined;
+
+  /**
+   * <p>The time when the change is scheduled to happen.</p>
+   */
+  ScheduledTime: number | undefined;
+
+  /**
+   * <p>A description of the action to be taken.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Whether the action was scheduled manually (<code>CUSTOMER</code>, or by OpenSearch Service automatically (<code>SYSTEM</code>).</p>
+   */
+  ScheduledBy?: ScheduledBy | string;
+
+  /**
+   * <p>The current status of the scheduled action.</p>
+   */
+  Status?: ActionStatus | string;
+
+  /**
+   * <p>Whether the action is required or optional.</p>
+   */
+  Mandatory?: boolean;
+
+  /**
+   * <p>Whether or not the scheduled action is cancellable.</p>
+   */
+  Cancellable?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface ListScheduledActionsResponse {
+  /**
+   * <p>A list of actions that are scheduled for the domain.</p>
+   */
+  ScheduledActions?: ScheduledAction[];
+
+  /**
+   * <p>When <code>nextToken</code> is returned, there are more results available. The value of
+   *    <code>nextToken</code> is a unique pagination token for each page. Make the call again using the
+   *    returned token to retrieve the next page.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
  * <p>Container for the parameters to the <code>ListTags</code> operation.</p>
  */
 export interface ListTagsRequest {
@@ -3924,6 +4852,7 @@ export interface ListTagsRequest {
 }
 
 /**
+ * @public
  * <p>The results of a <code>ListTags</code> operation.</p>
  */
 export interface ListTagsResponse {
@@ -3934,6 +4863,7 @@ export interface ListTagsResponse {
 }
 
 /**
+ * @public
  * <p>Container for the request parameters to the <code>ListVersions</code> operation.</p>
  */
 export interface ListVersionsRequest {
@@ -3952,6 +4882,7 @@ export interface ListVersionsRequest {
 }
 
 /**
+ * @public
  * <p>Container for the parameters for response received from the <code>ListVersions</code>
  *    operation.</p>
  */
@@ -3970,6 +4901,9 @@ export interface ListVersionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListVpcEndpointAccessRequest {
   /**
    * <p>The name of the OpenSearch Service domain to retrieve access information for.</p>
@@ -3984,6 +4918,9 @@ export interface ListVpcEndpointAccessRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListVpcEndpointAccessResponse {
   /**
    * <p>A list of <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html">IAM principals</a>
@@ -3999,6 +4936,9 @@ export interface ListVpcEndpointAccessResponse {
   NextToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListVpcEndpointsRequest {
   /**
    * <p>If your initial <code>ListVpcEndpoints</code> operation returns a <code>nextToken</code>,
@@ -4008,6 +4948,9 @@ export interface ListVpcEndpointsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListVpcEndpointsResponse {
   /**
    * <p>Information about each endpoint.</p>
@@ -4022,6 +4965,9 @@ export interface ListVpcEndpointsResponse {
   NextToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListVpcEndpointsForDomainRequest {
   /**
    * <p>The name of the domain to list associated VPC endpoints for.</p>
@@ -4036,6 +4982,9 @@ export interface ListVpcEndpointsForDomainRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListVpcEndpointsForDomainResponse {
   /**
    * <p>Information about each endpoint associated with the domain.</p>
@@ -4051,6 +5000,7 @@ export interface ListVpcEndpointsForDomainResponse {
 }
 
 /**
+ * @public
  * <p>Container for request parameters to the <code>PurchaseReservedInstanceOffering</code>
  *    operation.</p>
  */
@@ -4072,6 +5022,7 @@ export interface PurchaseReservedInstanceOfferingRequest {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>PurchaseReservedInstanceOffering</code> operation.</p>
  */
 export interface PurchaseReservedInstanceOfferingResponse {
@@ -4087,6 +5038,7 @@ export interface PurchaseReservedInstanceOfferingResponse {
 }
 
 /**
+ * @public
  * <p>Container for the request parameters to the <code>RejectInboundConnection</code> operation.</p>
  */
 export interface RejectInboundConnectionRequest {
@@ -4097,6 +5049,7 @@ export interface RejectInboundConnectionRequest {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>RejectInboundConnection</code> operation.</p>
  */
 export interface RejectInboundConnectionResponse {
@@ -4107,6 +5060,7 @@ export interface RejectInboundConnectionResponse {
 }
 
 /**
+ * @public
  * <p>Container for the request parameters to the <code>RemoveTags</code> operation.</p>
  */
 export interface RemoveTagsRequest {
@@ -4122,6 +5076,9 @@ export interface RemoveTagsRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RevokeVpcEndpointAccessRequest {
   /**
    * <p>The name of the OpenSearch Service domain.</p>
@@ -4134,9 +5091,28 @@ export interface RevokeVpcEndpointAccessRequest {
   Account: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RevokeVpcEndpointAccessResponse {}
 
 /**
+ * @public
+ * @enum
+ */
+export const ScheduleAt = {
+  NOW: "NOW",
+  OFF_PEAK_WINDOW: "OFF_PEAK_WINDOW",
+  TIMESTAMP: "TIMESTAMP",
+} as const;
+
+/**
+ * @public
+ */
+export type ScheduleAt = (typeof ScheduleAt)[keyof typeof ScheduleAt];
+
+/**
+ * @public
  * <p>Container for the request parameters to the <code>StartServiceSoftwareUpdate</code>
  *    operation.</p>
  */
@@ -4145,9 +5121,41 @@ export interface StartServiceSoftwareUpdateRequest {
    * <p>The name of the domain that you want to update to the latest service software.</p>
    */
   DomainName: string | undefined;
+
+  /**
+   * <p>When to start the service software update.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NOW</code> - Immediately schedules the update to happen in the current hour if
+   *      there's capacity available.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TIMESTAMP</code> - Lets you specify a custom date and time to apply the update. If
+   *      you specify this value, you must also provide a value for <code>DesiredStartTime</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OFF_PEAK_WINDOW</code> - Marks the update to be picked up during an upcoming
+   *      off-peak window. There's no guarantee that the update will happen during the next immediate
+   *      window. Depending on capacity, it might happen in subsequent days.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: <code>NOW</code> if you don't specify a value for <code>DesiredStartTime</code>,
+   *    and <code>TIMESTAMP</code> if you do.</p>
+   */
+  ScheduleAt?: ScheduleAt | string;
+
+  /**
+   * <p>The Epoch timestamp when you want the service software update to start. You only need to
+   *    specify this parameter if you set <code>ScheduleAt</code> to <code>TIMESTAMP</code>.</p>
+   */
+  DesiredStartTime?: number;
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>StartServiceSoftwareUpdate</code> operation. Contains the
  *    status of the update.</p>
  */
@@ -4159,6 +5167,21 @@ export interface StartServiceSoftwareUpdateResponse {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const DryRunMode = {
+  Basic: "Basic",
+  Verbose: "Verbose",
+} as const;
+
+/**
+ * @public
+ */
+export type DryRunMode = (typeof DryRunMode)[keyof typeof DryRunMode];
+
+/**
+ * @public
  * <p>Container for the request parameters to the <code>UpdateDomain</code> operation.</p>
  */
 export interface UpdateDomainConfigRequest {
@@ -4239,7 +5262,7 @@ export interface UpdateDomainConfigRequest {
   AccessPolicies?: string;
 
   /**
-   * <p>Options to publish OpenSearch lots to Amazon CloudWatch Logs.</p>
+   * <p>Options to publish OpenSearch logs to Amazon CloudWatch Logs.</p>
    */
   LogPublishingOptions?: Record<string, LogPublishingOption>;
 
@@ -4255,7 +5278,7 @@ export interface UpdateDomainConfigRequest {
   DomainEndpointOptions?: DomainEndpointOptions;
 
   /**
-   * <p>Node-To-Node Encryption options for the domain.</p>
+   * <p>Node-to-node encryption options for the domain.</p>
    */
   NodeToNodeEncryptionOptions?: NodeToNodeEncryptionOptions;
 
@@ -4271,49 +5294,41 @@ export interface UpdateDomainConfigRequest {
 
   /**
    * <p>This flag, when set to True, specifies whether the <code>UpdateDomain</code> request should
-   *    return the results of validation check without actually applying the change.</p>
+   *    return the results of a dry run analysis without actually applying the change. A dry run
+   *    determines what type of deployment the update will cause.</p>
    */
   DryRun?: boolean;
-}
 
-/**
- * <p>Results of a dry run performed in an update domain request.</p>
- */
-export interface DryRunResults {
   /**
-   * <p> Specifies the way in which OpenSearch Service will apply an update. Possible values
-   *    are:</p>
+   * <p>The type of dry run to perform.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Blue/Green</b> - The update requires a blue/green
-   *      deployment.</p>
+   *                   <code>Basic</code> only returns the type of deployment (blue/green or dynamic) that the update
+   *      will cause.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>DynamicUpdate</b> - No blue/green deployment required</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Undetermined</b> - The domain is in the middle of an update
-   *      and can't predict the deployment type. Try again after the update is complete.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>None</b> - The request doesn't include any configuration
-   *      changes.</p>
+   *                   <code>Verbose</code> runs an additional check to validate the changes you're making. For
+   *      more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes#validation-check">Validating a domain update</a>.</p>
    *             </li>
    *          </ul>
    */
-  DeploymentType?: string;
+  DryRunMode?: DryRunMode | string;
 
   /**
-   * <p>A message corresponding to the deployment type.</p>
+   * <p>Off-peak window options for the domain.</p>
    */
-  Message?: string;
+  OffPeakWindowOptions?: OffPeakWindowOptions;
+
+  /**
+   * <p>Service software update options for the domain.</p>
+   */
+  SoftwareUpdateOptions?: SoftwareUpdateOptions;
 }
 
 /**
+ * @public
  * <p>The results of an <code>UpdateDomain</code> request. Contains the status of the domain being
  *    updated.</p>
  */
@@ -4324,12 +5339,18 @@ export interface UpdateDomainConfigResponse {
   DomainConfig: DomainConfig | undefined;
 
   /**
-   * <p>Results of a dry run performed in an update domain request.</p>
+   * <p>Results of the dry run performed in the update domain request.</p>
    */
   DryRunResults?: DryRunResults;
+
+  /**
+   * <p>The status of the dry run being performed on the domain, if any.</p>
+   */
+  DryRunProgressStatus?: DryRunProgressStatus;
 }
 
 /**
+ * @public
  * <p>Container for request parameters to the <code>UpdatePackage</code> operation.</p>
  */
 export interface UpdatePackageRequest {
@@ -4356,6 +5377,7 @@ export interface UpdatePackageRequest {
 }
 
 /**
+ * @public
  * <p>Container for the response returned by the <code>UpdatePackage</code> operation.</p>
  */
 export interface UpdatePackageResponse {
@@ -4365,6 +5387,95 @@ export interface UpdatePackageResponse {
   PackageDetails?: PackageDetails;
 }
 
+/**
+ * @public
+ * <p>An exception for attempting to schedule a domain action during an unavailable time slot.</p>
+ */
+export class SlotNotAvailableException extends __BaseException {
+  readonly name: "SlotNotAvailableException" = "SlotNotAvailableException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>Alternate time slots during which OpenSearch Service has available capacity to schedule a domain action.</p>
+   */
+  SlotSuggestions?: number[];
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SlotNotAvailableException, __BaseException>) {
+    super({
+      name: "SlotNotAvailableException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SlotNotAvailableException.prototype);
+    this.SlotSuggestions = opts.SlotSuggestions;
+  }
+}
+
+/**
+ * @public
+ */
+export interface UpdateScheduledActionRequest {
+  /**
+   * <p>The name of the domain to reschedule an action for.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The unique identifier of the action to reschedule. To retrieve this ID, send a <a href="https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListScheduledActions.html">ListScheduledActions</a> request.</p>
+   */
+  ActionID: string | undefined;
+
+  /**
+   * <p>The type of action to reschedule. Can be one of <code>SERVICE_SOFTWARE_UPDATE</code>,
+   *    <code>JVM_HEAP_SIZE_TUNING</code>, or <code>JVM_YOUNG_GEN_TUNING</code>. To retrieve this value, send a <a href="https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListScheduledActions.html">ListScheduledActions</a> request.</p>
+   */
+  ActionType: ActionType | string | undefined;
+
+  /**
+   * <p>When to schedule the action.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NOW</code> - Immediately schedules the update to happen in the current hour if
+   *      there's capacity available.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TIMESTAMP</code> - Lets you specify a custom date and time to apply the update. If
+   *      you specify this value, you must also provide a value for <code>DesiredStartTime</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OFF_PEAK_WINDOW</code> - Marks the action to be picked up during an upcoming
+   *      off-peak window. There's no guarantee that the change will be implemented during the next
+   *      immediate window. Depending on capacity, it might happen in subsequent days.</p>
+   *             </li>
+   *          </ul>
+   */
+  ScheduleAt: ScheduleAt | string | undefined;
+
+  /**
+   * <p>The time to implement the change, in Coordinated Universal Time (UTC). Only specify this
+   *    parameter if you set <code>ScheduleAt</code> to <code>TIMESTAMP</code>.</p>
+   */
+  DesiredStartTime?: number;
+}
+
+/**
+ * @public
+ */
+export interface UpdateScheduledActionResponse {
+  /**
+   * <p>Information about the rescheduled action.</p>
+   */
+  ScheduledAction?: ScheduledAction;
+}
+
+/**
+ * @public
+ */
 export interface UpdateVpcEndpointRequest {
   /**
    * <p>The unique identifier of the endpoint.</p>
@@ -4377,6 +5488,9 @@ export interface UpdateVpcEndpointRequest {
   VpcOptions: VPCOptions | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateVpcEndpointResponse {
   /**
    * <p>The endpoint to be updated.</p>
@@ -4385,6 +5499,7 @@ export interface UpdateVpcEndpointResponse {
 }
 
 /**
+ * @public
  * <p>Container for the request parameters to the <code>UpgradeDomain</code> operation.</p>
  */
 export interface UpgradeDomainRequest {
@@ -4415,6 +5530,7 @@ export interface UpgradeDomainRequest {
 }
 
 /**
+ * @public
  * <p>Container for the response returned by <code>UpgradeDomain</code> operation.</p>
  */
 export interface UpgradeDomainResponse {
@@ -4452,111 +5568,6 @@ export interface UpgradeDomainResponse {
 /**
  * @internal
  */
-export const AcceptInboundConnectionRequestFilterSensitiveLog = (obj: AcceptInboundConnectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InboundConnectionStatusFilterSensitiveLog = (obj: InboundConnectionStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AWSDomainInformationFilterSensitiveLog = (obj: AWSDomainInformation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DomainInformationContainerFilterSensitiveLog = (obj: DomainInformationContainer): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InboundConnectionFilterSensitiveLog = (obj: InboundConnection): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AcceptInboundConnectionResponseFilterSensitiveLog = (obj: AcceptInboundConnectionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OptionStatusFilterSensitiveLog = (obj: OptionStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AccessPoliciesStatusFilterSensitiveLog = (obj: AccessPoliciesStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AdditionalLimitFilterSensitiveLog = (obj: AdditionalLimit): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddTagsRequestFilterSensitiveLog = (obj: AddTagsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AdvancedOptionsStatusFilterSensitiveLog = (obj: AdvancedOptionsStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SAMLIdpFilterSensitiveLog = (obj: SAMLIdp): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SAMLOptionsOutputFilterSensitiveLog = (obj: SAMLOptionsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AdvancedSecurityOptionsFilterSensitiveLog = (obj: AdvancedSecurityOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const MasterUserOptionsFilterSensitiveLog = (obj: MasterUserOptions): any => ({
   ...obj,
   ...(obj.MasterUserName && { MasterUserName: SENSITIVE_STRING }),
@@ -4583,183 +5594,6 @@ export const AdvancedSecurityOptionsInputFilterSensitiveLog = (obj: AdvancedSecu
 /**
  * @internal
  */
-export const AdvancedSecurityOptionsStatusFilterSensitiveLog = (obj: AdvancedSecurityOptionsStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociatePackageRequestFilterSensitiveLog = (obj: AssociatePackageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ErrorDetailsFilterSensitiveLog = (obj: ErrorDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DomainPackageDetailsFilterSensitiveLog = (obj: DomainPackageDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociatePackageResponseFilterSensitiveLog = (obj: AssociatePackageResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuthorizeVpcEndpointAccessRequestFilterSensitiveLog = (obj: AuthorizeVpcEndpointAccessRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuthorizedPrincipalFilterSensitiveLog = (obj: AuthorizedPrincipal): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuthorizeVpcEndpointAccessResponseFilterSensitiveLog = (obj: AuthorizeVpcEndpointAccessResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelServiceSoftwareUpdateRequestFilterSensitiveLog = (obj: CancelServiceSoftwareUpdateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServiceSoftwareOptionsFilterSensitiveLog = (obj: ServiceSoftwareOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelServiceSoftwareUpdateResponseFilterSensitiveLog = (
-  obj: CancelServiceSoftwareUpdateResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DurationFilterSensitiveLog = (obj: Duration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoTuneMaintenanceScheduleFilterSensitiveLog = (obj: AutoTuneMaintenanceSchedule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoTuneOptionsInputFilterSensitiveLog = (obj: AutoTuneOptionsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ColdStorageOptionsFilterSensitiveLog = (obj: ColdStorageOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ZoneAwarenessConfigFilterSensitiveLog = (obj: ZoneAwarenessConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClusterConfigFilterSensitiveLog = (obj: ClusterConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CognitoOptionsFilterSensitiveLog = (obj: CognitoOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DomainEndpointOptionsFilterSensitiveLog = (obj: DomainEndpointOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EBSOptionsFilterSensitiveLog = (obj: EBSOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EncryptionAtRestOptionsFilterSensitiveLog = (obj: EncryptionAtRestOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LogPublishingOptionFilterSensitiveLog = (obj: LogPublishingOption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NodeToNodeEncryptionOptionsFilterSensitiveLog = (obj: NodeToNodeEncryptionOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SnapshotOptionsFilterSensitiveLog = (obj: SnapshotOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VPCOptionsFilterSensitiveLog = (obj: VPCOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateDomainRequestFilterSensitiveLog = (obj: CreateDomainRequest): any => ({
   ...obj,
   ...(obj.AdvancedSecurityOptions && {
@@ -4770,947 +5604,9 @@ export const CreateDomainRequestFilterSensitiveLog = (obj: CreateDomainRequest):
 /**
  * @internal
  */
-export const AutoTuneOptionsOutputFilterSensitiveLog = (obj: AutoTuneOptionsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChangeProgressDetailsFilterSensitiveLog = (obj: ChangeProgressDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VPCDerivedInfoFilterSensitiveLog = (obj: VPCDerivedInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DomainStatusFilterSensitiveLog = (obj: DomainStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDomainResponseFilterSensitiveLog = (obj: CreateDomainResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateOutboundConnectionRequestFilterSensitiveLog = (obj: CreateOutboundConnectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OutboundConnectionStatusFilterSensitiveLog = (obj: OutboundConnectionStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateOutboundConnectionResponseFilterSensitiveLog = (obj: CreateOutboundConnectionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PackageSourceFilterSensitiveLog = (obj: PackageSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePackageRequestFilterSensitiveLog = (obj: CreatePackageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PackageDetailsFilterSensitiveLog = (obj: PackageDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePackageResponseFilterSensitiveLog = (obj: CreatePackageResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateVpcEndpointRequestFilterSensitiveLog = (obj: CreateVpcEndpointRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcEndpointFilterSensitiveLog = (obj: VpcEndpoint): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateVpcEndpointResponseFilterSensitiveLog = (obj: CreateVpcEndpointResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDomainRequestFilterSensitiveLog = (obj: DeleteDomainRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDomainResponseFilterSensitiveLog = (obj: DeleteDomainResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteInboundConnectionRequestFilterSensitiveLog = (obj: DeleteInboundConnectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteInboundConnectionResponseFilterSensitiveLog = (obj: DeleteInboundConnectionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteOutboundConnectionRequestFilterSensitiveLog = (obj: DeleteOutboundConnectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OutboundConnectionFilterSensitiveLog = (obj: OutboundConnection): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteOutboundConnectionResponseFilterSensitiveLog = (obj: DeleteOutboundConnectionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePackageRequestFilterSensitiveLog = (obj: DeletePackageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePackageResponseFilterSensitiveLog = (obj: DeletePackageResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVpcEndpointRequestFilterSensitiveLog = (obj: DeleteVpcEndpointRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcEndpointSummaryFilterSensitiveLog = (obj: VpcEndpointSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVpcEndpointResponseFilterSensitiveLog = (obj: DeleteVpcEndpointResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDomainRequestFilterSensitiveLog = (obj: DescribeDomainRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDomainResponseFilterSensitiveLog = (obj: DescribeDomainResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDomainAutoTunesRequestFilterSensitiveLog = (obj: DescribeDomainAutoTunesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScheduledAutoTuneDetailsFilterSensitiveLog = (obj: ScheduledAutoTuneDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoTuneDetailsFilterSensitiveLog = (obj: AutoTuneDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoTuneFilterSensitiveLog = (obj: AutoTune): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDomainAutoTunesResponseFilterSensitiveLog = (obj: DescribeDomainAutoTunesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDomainChangeProgressRequestFilterSensitiveLog = (
-  obj: DescribeDomainChangeProgressRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChangeProgressStageFilterSensitiveLog = (obj: ChangeProgressStage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChangeProgressStatusDetailsFilterSensitiveLog = (obj: ChangeProgressStatusDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDomainChangeProgressResponseFilterSensitiveLog = (
-  obj: DescribeDomainChangeProgressResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDomainConfigRequestFilterSensitiveLog = (obj: DescribeDomainConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoTuneOptionsFilterSensitiveLog = (obj: AutoTuneOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoTuneStatusFilterSensitiveLog = (obj: AutoTuneStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoTuneOptionsStatusFilterSensitiveLog = (obj: AutoTuneOptionsStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClusterConfigStatusFilterSensitiveLog = (obj: ClusterConfigStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CognitoOptionsStatusFilterSensitiveLog = (obj: CognitoOptionsStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DomainEndpointOptionsStatusFilterSensitiveLog = (obj: DomainEndpointOptionsStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EBSOptionsStatusFilterSensitiveLog = (obj: EBSOptionsStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EncryptionAtRestOptionsStatusFilterSensitiveLog = (obj: EncryptionAtRestOptionsStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VersionStatusFilterSensitiveLog = (obj: VersionStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LogPublishingOptionsStatusFilterSensitiveLog = (obj: LogPublishingOptionsStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NodeToNodeEncryptionOptionsStatusFilterSensitiveLog = (obj: NodeToNodeEncryptionOptionsStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SnapshotOptionsStatusFilterSensitiveLog = (obj: SnapshotOptionsStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VPCDerivedInfoStatusFilterSensitiveLog = (obj: VPCDerivedInfoStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DomainConfigFilterSensitiveLog = (obj: DomainConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDomainConfigResponseFilterSensitiveLog = (obj: DescribeDomainConfigResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDomainsRequestFilterSensitiveLog = (obj: DescribeDomainsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDomainsResponseFilterSensitiveLog = (obj: DescribeDomainsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterFilterSensitiveLog = (obj: Filter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInboundConnectionsRequestFilterSensitiveLog = (obj: DescribeInboundConnectionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInboundConnectionsResponseFilterSensitiveLog = (obj: DescribeInboundConnectionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInstanceTypeLimitsRequestFilterSensitiveLog = (obj: DescribeInstanceTypeLimitsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceCountLimitsFilterSensitiveLog = (obj: InstanceCountLimits): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceLimitsFilterSensitiveLog = (obj: InstanceLimits): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StorageTypeLimitFilterSensitiveLog = (obj: StorageTypeLimit): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StorageTypeFilterSensitiveLog = (obj: StorageType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LimitsFilterSensitiveLog = (obj: Limits): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInstanceTypeLimitsResponseFilterSensitiveLog = (obj: DescribeInstanceTypeLimitsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeOutboundConnectionsRequestFilterSensitiveLog = (obj: DescribeOutboundConnectionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeOutboundConnectionsResponseFilterSensitiveLog = (
-  obj: DescribeOutboundConnectionsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePackagesFilterFilterSensitiveLog = (obj: DescribePackagesFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePackagesRequestFilterSensitiveLog = (obj: DescribePackagesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePackagesResponseFilterSensitiveLog = (obj: DescribePackagesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReservedInstanceOfferingsRequestFilterSensitiveLog = (
-  obj: DescribeReservedInstanceOfferingsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecurringChargeFilterSensitiveLog = (obj: RecurringCharge): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReservedInstanceOfferingFilterSensitiveLog = (obj: ReservedInstanceOffering): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReservedInstanceOfferingsResponseFilterSensitiveLog = (
-  obj: DescribeReservedInstanceOfferingsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReservedInstancesRequestFilterSensitiveLog = (obj: DescribeReservedInstancesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReservedInstanceFilterSensitiveLog = (obj: ReservedInstance): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReservedInstancesResponseFilterSensitiveLog = (obj: DescribeReservedInstancesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcEndpointsRequestFilterSensitiveLog = (obj: DescribeVpcEndpointsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcEndpointErrorFilterSensitiveLog = (obj: VpcEndpointError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcEndpointsResponseFilterSensitiveLog = (obj: DescribeVpcEndpointsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DissociatePackageRequestFilterSensitiveLog = (obj: DissociatePackageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DissociatePackageResponseFilterSensitiveLog = (obj: DissociatePackageResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCompatibleVersionsRequestFilterSensitiveLog = (obj: GetCompatibleVersionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CompatibleVersionsMapFilterSensitiveLog = (obj: CompatibleVersionsMap): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCompatibleVersionsResponseFilterSensitiveLog = (obj: GetCompatibleVersionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPackageVersionHistoryRequestFilterSensitiveLog = (obj: GetPackageVersionHistoryRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PackageVersionHistoryFilterSensitiveLog = (obj: PackageVersionHistory): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPackageVersionHistoryResponseFilterSensitiveLog = (obj: GetPackageVersionHistoryResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetUpgradeHistoryRequestFilterSensitiveLog = (obj: GetUpgradeHistoryRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpgradeStepItemFilterSensitiveLog = (obj: UpgradeStepItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpgradeHistoryFilterSensitiveLog = (obj: UpgradeHistory): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetUpgradeHistoryResponseFilterSensitiveLog = (obj: GetUpgradeHistoryResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetUpgradeStatusRequestFilterSensitiveLog = (obj: GetUpgradeStatusRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetUpgradeStatusResponseFilterSensitiveLog = (obj: GetUpgradeStatusResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDomainNamesRequestFilterSensitiveLog = (obj: ListDomainNamesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DomainInfoFilterSensitiveLog = (obj: DomainInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDomainNamesResponseFilterSensitiveLog = (obj: ListDomainNamesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDomainsForPackageRequestFilterSensitiveLog = (obj: ListDomainsForPackageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDomainsForPackageResponseFilterSensitiveLog = (obj: ListDomainsForPackageResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListInstanceTypeDetailsRequestFilterSensitiveLog = (obj: ListInstanceTypeDetailsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceTypeDetailsFilterSensitiveLog = (obj: InstanceTypeDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListInstanceTypeDetailsResponseFilterSensitiveLog = (obj: ListInstanceTypeDetailsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPackagesForDomainRequestFilterSensitiveLog = (obj: ListPackagesForDomainRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPackagesForDomainResponseFilterSensitiveLog = (obj: ListPackagesForDomainResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsRequestFilterSensitiveLog = (obj: ListTagsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsResponseFilterSensitiveLog = (obj: ListTagsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListVersionsRequestFilterSensitiveLog = (obj: ListVersionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListVersionsResponseFilterSensitiveLog = (obj: ListVersionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListVpcEndpointAccessRequestFilterSensitiveLog = (obj: ListVpcEndpointAccessRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListVpcEndpointAccessResponseFilterSensitiveLog = (obj: ListVpcEndpointAccessResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListVpcEndpointsRequestFilterSensitiveLog = (obj: ListVpcEndpointsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListVpcEndpointsResponseFilterSensitiveLog = (obj: ListVpcEndpointsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListVpcEndpointsForDomainRequestFilterSensitiveLog = (obj: ListVpcEndpointsForDomainRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListVpcEndpointsForDomainResponseFilterSensitiveLog = (obj: ListVpcEndpointsForDomainResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PurchaseReservedInstanceOfferingRequestFilterSensitiveLog = (
-  obj: PurchaseReservedInstanceOfferingRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PurchaseReservedInstanceOfferingResponseFilterSensitiveLog = (
-  obj: PurchaseReservedInstanceOfferingResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RejectInboundConnectionRequestFilterSensitiveLog = (obj: RejectInboundConnectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RejectInboundConnectionResponseFilterSensitiveLog = (obj: RejectInboundConnectionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveTagsRequestFilterSensitiveLog = (obj: RemoveTagsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RevokeVpcEndpointAccessRequestFilterSensitiveLog = (obj: RevokeVpcEndpointAccessRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RevokeVpcEndpointAccessResponseFilterSensitiveLog = (obj: RevokeVpcEndpointAccessResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartServiceSoftwareUpdateRequestFilterSensitiveLog = (obj: StartServiceSoftwareUpdateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartServiceSoftwareUpdateResponseFilterSensitiveLog = (obj: StartServiceSoftwareUpdateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateDomainConfigRequestFilterSensitiveLog = (obj: UpdateDomainConfigRequest): any => ({
   ...obj,
   ...(obj.AdvancedSecurityOptions && {
     AdvancedSecurityOptions: AdvancedSecurityOptionsInputFilterSensitiveLog(obj.AdvancedSecurityOptions),
   }),
-});
-
-/**
- * @internal
- */
-export const DryRunResultsFilterSensitiveLog = (obj: DryRunResults): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDomainConfigResponseFilterSensitiveLog = (obj: UpdateDomainConfigResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePackageRequestFilterSensitiveLog = (obj: UpdatePackageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePackageResponseFilterSensitiveLog = (obj: UpdatePackageResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateVpcEndpointRequestFilterSensitiveLog = (obj: UpdateVpcEndpointRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateVpcEndpointResponseFilterSensitiveLog = (obj: UpdateVpcEndpointResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpgradeDomainRequestFilterSensitiveLog = (obj: UpgradeDomainRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpgradeDomainResponseFilterSensitiveLog = (obj: UpgradeDomainResponse): any => ({
-  ...obj,
 });

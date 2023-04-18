@@ -17,18 +17,25 @@ import {
   TestIdentityProviderRequest,
   TestIdentityProviderRequestFilterSensitiveLog,
   TestIdentityProviderResponse,
-  TestIdentityProviderResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1TestIdentityProviderCommand,
-  serializeAws_json1_1TestIdentityProviderCommand,
-} from "../protocols/Aws_json1_1";
+import { de_TestIdentityProviderCommand, se_TestIdentityProviderCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
+/**
+ * @public
+ *
+ * The input for {@link TestIdentityProviderCommand}.
+ */
 export interface TestIdentityProviderCommandInput extends TestIdentityProviderRequest {}
+/**
+ * @public
+ *
+ * The output of {@link TestIdentityProviderCommand}.
+ */
 export interface TestIdentityProviderCommandOutput extends TestIdentityProviderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>If the <code>IdentityProviderType</code> of a file transfer protocol-enabled server is
  *         <code>AWS_DIRECTORY_SERVICE</code> or <code>API_Gateway</code>, tests whether your identity
  *       provider is set up successfully. We highly recommend that you call this operation to test your
@@ -74,13 +81,36 @@ export interface TestIdentityProviderCommandOutput extends TestIdentityProviderR
  * import { TransferClient, TestIdentityProviderCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, TestIdentityProviderCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = { // TestIdentityProviderRequest
+ *   ServerId: "STRING_VALUE", // required
+ *   ServerProtocol: "SFTP" || "FTP" || "FTPS" || "AS2",
+ *   SourceIp: "STRING_VALUE",
+ *   UserName: "STRING_VALUE", // required
+ *   UserPassword: "STRING_VALUE",
+ * };
  * const command = new TestIdentityProviderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TestIdentityProviderCommandInput - {@link TestIdentityProviderCommandInput}
+ * @returns {@link TestIdentityProviderCommandOutput}
  * @see {@link TestIdentityProviderCommandInput} for command's `input` shape.
  * @see {@link TestIdentityProviderCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
+ *
+ * @throws {@link InternalServiceError} (server fault)
+ *  <p>This exception is thrown when an error occurs in the Amazon Web ServicesTransfer Family service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
+ *       service.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+ *
  *
  */
 export class TestIdentityProviderCommand extends $Command<
@@ -100,6 +130,9 @@ export class TestIdentityProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TestIdentityProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,7 +162,7 @@ export class TestIdentityProviderCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: TestIdentityProviderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: TestIdentityProviderResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,12 +172,18 @@ export class TestIdentityProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TestIdentityProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1TestIdentityProviderCommand(input, context);
+    return se_TestIdentityProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestIdentityProviderCommandOutput> {
-    return deserializeAws_json1_1TestIdentityProviderCommand(output, context);
+    return de_TestIdentityProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

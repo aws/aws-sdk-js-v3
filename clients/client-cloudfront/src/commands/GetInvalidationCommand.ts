@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  GetInvalidationRequest,
-  GetInvalidationRequestFilterSensitiveLog,
-  GetInvalidationResult,
-  GetInvalidationResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlGetInvalidationCommand,
-  serializeAws_restXmlGetInvalidationCommand,
-} from "../protocols/Aws_restXml";
+import { GetInvalidationRequest, GetInvalidationResult } from "../models/models_1";
+import { de_GetInvalidationCommand, se_GetInvalidationCommand } from "../protocols/Aws_restXml";
 
+/**
+ * @public
+ *
+ * The input for {@link GetInvalidationCommand}.
+ */
 export interface GetInvalidationCommandInput extends GetInvalidationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetInvalidationCommand}.
+ */
 export interface GetInvalidationCommandOutput extends GetInvalidationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get the information about an invalidation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,29 @@ export interface GetInvalidationCommandOutput extends GetInvalidationResult, __M
  * import { CloudFrontClient, GetInvalidationCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, GetInvalidationCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // GetInvalidationRequest
+ *   DistributionId: "STRING_VALUE", // required
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetInvalidationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInvalidationCommandInput - {@link GetInvalidationCommandInput}
+ * @returns {@link GetInvalidationCommandOutput}
  * @see {@link GetInvalidationCommandInput} for command's `input` shape.
  * @see {@link GetInvalidationCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link NoSuchDistribution} (client fault)
+ *  <p>The specified distribution does not exist.</p>
+ *
+ * @throws {@link NoSuchInvalidation} (client fault)
+ *  <p>The specified invalidation does not exist.</p>
+ *
  *
  */
 export class GetInvalidationCommand extends $Command<
@@ -62,6 +81,9 @@ export class GetInvalidationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInvalidationCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +112,8 @@ export class GetInvalidationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetInvalidationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetInvalidationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +123,18 @@ export class GetInvalidationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetInvalidationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetInvalidationCommand(input, context);
+    return se_GetInvalidationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInvalidationCommandOutput> {
-    return deserializeAws_restXmlGetInvalidationCommand(output, context);
+    return de_GetInvalidationCommand(output, context);
   }
 
   // Start section: command_body_extra

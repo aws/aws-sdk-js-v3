@@ -6,12 +6,11 @@ import {
   GetEnrollmentStatusesForOrganizationCommandInput,
   GetEnrollmentStatusesForOrganizationCommandOutput,
 } from "../commands/GetEnrollmentStatusesForOrganizationCommand";
-import { ComputeOptimizer } from "../ComputeOptimizer";
 import { ComputeOptimizerClient } from "../ComputeOptimizerClient";
 import { ComputeOptimizerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ComputeOptimizerClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new GetEnrollmentStatusesForOrganizationCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ComputeOptimizer,
-  input: GetEnrollmentStatusesForOrganizationCommandInput,
-  ...args: any
-): Promise<GetEnrollmentStatusesForOrganizationCommandOutput> => {
-  // @ts-ignore
-  return await client.getEnrollmentStatusesForOrganization(input, ...args);
-};
 export async function* paginateGetEnrollmentStatusesForOrganization(
   config: ComputeOptimizerPaginationConfiguration,
   input: GetEnrollmentStatusesForOrganizationCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateGetEnrollmentStatusesForOrganization(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof ComputeOptimizer) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ComputeOptimizerClient) {
+    if (config.client instanceof ComputeOptimizerClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ComputeOptimizer | ComputeOptimizerClient");

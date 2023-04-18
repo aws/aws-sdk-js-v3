@@ -16,24 +16,33 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   CreateVpcEndpointServiceConfigurationRequest,
-  CreateVpcEndpointServiceConfigurationRequestFilterSensitiveLog,
   CreateVpcEndpointServiceConfigurationResult,
-  CreateVpcEndpointServiceConfigurationResultFilterSensitiveLog,
 } from "../models/models_2";
 import {
-  deserializeAws_ec2CreateVpcEndpointServiceConfigurationCommand,
-  serializeAws_ec2CreateVpcEndpointServiceConfigurationCommand,
+  de_CreateVpcEndpointServiceConfigurationCommand,
+  se_CreateVpcEndpointServiceConfigurationCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateVpcEndpointServiceConfigurationCommand}.
+ */
 export interface CreateVpcEndpointServiceConfigurationCommandInput
   extends CreateVpcEndpointServiceConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateVpcEndpointServiceConfigurationCommand}.
+ */
 export interface CreateVpcEndpointServiceConfigurationCommandOutput
   extends CreateVpcEndpointServiceConfigurationResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a VPC endpoint service to which service consumers (Amazon Web Services accounts,
- *             IAM users, and IAM roles) can connect.</p>
+ *             users, and IAM roles) can connect.</p>
  *          <p>Before you create an endpoint service, you must create one of the following for your service:</p>
  *          <ul>
  *             <li>
@@ -55,13 +64,42 @@ export interface CreateVpcEndpointServiceConfigurationCommandOutput
  * import { EC2Client, CreateVpcEndpointServiceConfigurationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateVpcEndpointServiceConfigurationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // CreateVpcEndpointServiceConfigurationRequest
+ *   DryRun: true || false,
+ *   AcceptanceRequired: true || false,
+ *   PrivateDnsName: "STRING_VALUE",
+ *   NetworkLoadBalancerArns: [ // ValueStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   GatewayLoadBalancerArns: [
+ *     "STRING_VALUE",
+ *   ],
+ *   SupportedIpAddressTypes: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ClientToken: "STRING_VALUE",
+ *   TagSpecifications: [ // TagSpecificationList
+ *     { // TagSpecification
+ *       ResourceType: "capacity-reservation" || "client-vpn-endpoint" || "customer-gateway" || "carrier-gateway" || "coip-pool" || "dedicated-host" || "dhcp-options" || "egress-only-internet-gateway" || "elastic-ip" || "elastic-gpu" || "export-image-task" || "export-instance-task" || "fleet" || "fpga-image" || "host-reservation" || "image" || "import-image-task" || "import-snapshot-task" || "instance" || "instance-event-window" || "internet-gateway" || "ipam" || "ipam-pool" || "ipam-scope" || "ipv4pool-ec2" || "ipv6pool-ec2" || "key-pair" || "launch-template" || "local-gateway" || "local-gateway-route-table" || "local-gateway-virtual-interface" || "local-gateway-virtual-interface-group" || "local-gateway-route-table-vpc-association" || "local-gateway-route-table-virtual-interface-group-association" || "natgateway" || "network-acl" || "network-interface" || "network-insights-analysis" || "network-insights-path" || "network-insights-access-scope" || "network-insights-access-scope-analysis" || "placement-group" || "prefix-list" || "replace-root-volume-task" || "reserved-instances" || "route-table" || "security-group" || "security-group-rule" || "snapshot" || "spot-fleet-request" || "spot-instances-request" || "subnet" || "subnet-cidr-reservation" || "traffic-mirror-filter" || "traffic-mirror-session" || "traffic-mirror-target" || "transit-gateway" || "transit-gateway-attachment" || "transit-gateway-connect-peer" || "transit-gateway-multicast-domain" || "transit-gateway-policy-table" || "transit-gateway-route-table" || "transit-gateway-route-table-announcement" || "volume" || "vpc" || "vpc-endpoint" || "vpc-endpoint-connection" || "vpc-endpoint-service" || "vpc-endpoint-service-permission" || "vpc-peering-connection" || "vpn-connection" || "vpn-gateway" || "vpc-flow-log" || "capacity-reservation-fleet" || "traffic-mirror-filter-rule" || "vpc-endpoint-connection-device-type" || "verified-access-instance" || "verified-access-group" || "verified-access-endpoint" || "verified-access-policy" || "verified-access-trust-provider" || "vpn-connection-device-type" || "vpc-block-public-access-exclusion" || "ipam-resource-discovery" || "ipam-resource-discovery-association",
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new CreateVpcEndpointServiceConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVpcEndpointServiceConfigurationCommandInput - {@link CreateVpcEndpointServiceConfigurationCommandInput}
+ * @returns {@link CreateVpcEndpointServiceConfigurationCommandOutput}
  * @see {@link CreateVpcEndpointServiceConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateVpcEndpointServiceConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class CreateVpcEndpointServiceConfigurationCommand extends $Command<
@@ -81,6 +119,9 @@ export class CreateVpcEndpointServiceConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVpcEndpointServiceConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +150,8 @@ export class CreateVpcEndpointServiceConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateVpcEndpointServiceConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateVpcEndpointServiceConfigurationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,18 +161,24 @@ export class CreateVpcEndpointServiceConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateVpcEndpointServiceConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateVpcEndpointServiceConfigurationCommand(input, context);
+    return se_CreateVpcEndpointServiceConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateVpcEndpointServiceConfigurationCommandOutput> {
-    return deserializeAws_ec2CreateVpcEndpointServiceConfigurationCommand(output, context);
+    return de_CreateVpcEndpointServiceConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

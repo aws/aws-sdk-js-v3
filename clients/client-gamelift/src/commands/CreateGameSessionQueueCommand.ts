@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  CreateGameSessionQueueInput,
-  CreateGameSessionQueueInputFilterSensitiveLog,
-  CreateGameSessionQueueOutput,
-  CreateGameSessionQueueOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateGameSessionQueueCommand,
-  serializeAws_json1_1CreateGameSessionQueueCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateGameSessionQueueInput, CreateGameSessionQueueOutput } from "../models/models_0";
+import { de_CreateGameSessionQueueCommand, se_CreateGameSessionQueueCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateGameSessionQueueCommand}.
+ */
 export interface CreateGameSessionQueueCommandInput extends CreateGameSessionQueueInput {}
+/**
+ * @public
+ *
+ * The output of {@link CreateGameSessionQueueCommand}.
+ */
 export interface CreateGameSessionQueueCommandOutput extends CreateGameSessionQueueOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a placement queue that processes requests for new game sessions. A queue uses
  *             FleetIQ algorithms to determine the best placement locations and find an available game
  *             server there, then prompts the game server process to start a new game session. </p>
@@ -81,13 +84,75 @@ export interface CreateGameSessionQueueCommandOutput extends CreateGameSessionQu
  * import { GameLiftClient, CreateGameSessionQueueCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, CreateGameSessionQueueCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // CreateGameSessionQueueInput
+ *   Name: "STRING_VALUE", // required
+ *   TimeoutInSeconds: Number("int"),
+ *   PlayerLatencyPolicies: [ // PlayerLatencyPolicyList
+ *     { // PlayerLatencyPolicy
+ *       MaximumIndividualPlayerLatencyMilliseconds: Number("int"),
+ *       PolicyDurationSeconds: Number("int"),
+ *     },
+ *   ],
+ *   Destinations: [ // GameSessionQueueDestinationList
+ *     { // GameSessionQueueDestination
+ *       DestinationArn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   FilterConfiguration: { // FilterConfiguration
+ *     AllowedLocations: [ // LocationList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   PriorityConfiguration: { // PriorityConfiguration
+ *     PriorityOrder: [ // PriorityTypeList
+ *       "LATENCY" || "COST" || "DESTINATION" || "LOCATION",
+ *     ],
+ *     LocationOrder: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   CustomEventData: "STRING_VALUE",
+ *   NotificationTarget: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateGameSessionQueueCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGameSessionQueueCommandInput - {@link CreateGameSessionQueueCommandInput}
+ * @returns {@link CreateGameSessionQueueCommandOutput}
  * @see {@link CreateGameSessionQueueCommandInput} for command's `input` shape.
  * @see {@link CreateGameSessionQueueCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an unrecoverable internal failure while processing the
+ *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
+ *             values before retrying.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The requested operation would cause the resource to exceed the allowed service limit.
+ *             Resolve the issue before retrying.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *
+ * @throws {@link TaggingFailedException} (client fault)
+ *  <p>The requested tagging operation did not succeed. This may be due to invalid tag format
+ *             or the maximum tag limit may have been exceeded. Resolve the issue before
+ *             retrying.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
  *
  */
 export class CreateGameSessionQueueCommand extends $Command<
@@ -107,6 +172,9 @@ export class CreateGameSessionQueueCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGameSessionQueueCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,8 +203,8 @@ export class CreateGameSessionQueueCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateGameSessionQueueInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateGameSessionQueueOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -146,12 +214,18 @@ export class CreateGameSessionQueueCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateGameSessionQueueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateGameSessionQueueCommand(input, context);
+    return se_CreateGameSessionQueueCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGameSessionQueueCommandOutput> {
-    return deserializeAws_json1_1CreateGameSessionQueueCommand(output, context);
+    return de_CreateGameSessionQueueCommand(output, context);
   }
 
   // Start section: command_body_extra

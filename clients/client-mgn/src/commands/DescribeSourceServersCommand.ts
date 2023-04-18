@@ -16,19 +16,26 @@ import {
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
 import {
   DescribeSourceServersRequest,
-  DescribeSourceServersRequestFilterSensitiveLog,
   DescribeSourceServersResponse,
   DescribeSourceServersResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeSourceServersCommand,
-  serializeAws_restJson1DescribeSourceServersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeSourceServersCommand, se_DescribeSourceServersCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeSourceServersCommand}.
+ */
 export interface DescribeSourceServersCommandInput extends DescribeSourceServersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeSourceServersCommand}.
+ */
 export interface DescribeSourceServersCommandOutput extends DescribeSourceServersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves all SourceServers or multiple SourceServers by ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +43,41 @@ export interface DescribeSourceServersCommandOutput extends DescribeSourceServer
  * import { MgnClient, DescribeSourceServersCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, DescribeSourceServersCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = { // DescribeSourceServersRequest
+ *   filters: { // DescribeSourceServersRequestFilters
+ *     sourceServerIDs: [ // DescribeSourceServersRequestFiltersIDs
+ *       "STRING_VALUE",
+ *     ],
+ *     isArchived: true || false,
+ *     replicationTypes: [ // ReplicationTypes
+ *       "STRING_VALUE",
+ *     ],
+ *     lifeCycleStates: [ // LifeCycleStates
+ *       "STRING_VALUE",
+ *     ],
+ *     applicationIDs: [ // DescribeSourceServersRequestApplicationIDs
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeSourceServersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSourceServersCommandInput - {@link DescribeSourceServersCommandInput}
+ * @returns {@link DescribeSourceServersCommandOutput}
  * @see {@link DescribeSourceServersCommandInput} for command's `input` shape.
  * @see {@link DescribeSourceServersCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
+ *
+ * @throws {@link UninitializedAccountException} (client fault)
+ *  <p>Uninitialized account exception.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Validate exception.</p>
+ *
  *
  */
 export class DescribeSourceServersCommand extends $Command<
@@ -62,6 +97,9 @@ export class DescribeSourceServersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSourceServersCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +128,7 @@ export class DescribeSourceServersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSourceServersRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeSourceServersResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -101,12 +139,18 @@ export class DescribeSourceServersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSourceServersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeSourceServersCommand(input, context);
+    return se_DescribeSourceServersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSourceServersCommandOutput> {
-    return deserializeAws_restJson1DescribeSourceServersCommand(output, context);
+    return de_DescribeSourceServersCommand(output, context);
   }
 
   // Start section: command_body_extra

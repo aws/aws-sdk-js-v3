@@ -15,20 +15,27 @@ import {
 
 import {
   DeleteStudioComponentRequest,
-  DeleteStudioComponentRequestFilterSensitiveLog,
   DeleteStudioComponentResponse,
   DeleteStudioComponentResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1DeleteStudioComponentCommand,
-  serializeAws_restJson1DeleteStudioComponentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteStudioComponentCommand, se_DeleteStudioComponentCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteStudioComponentCommand}.
+ */
 export interface DeleteStudioComponentCommandInput extends DeleteStudioComponentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteStudioComponentCommand}.
+ */
 export interface DeleteStudioComponentCommandOutput extends DeleteStudioComponentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a studio component resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +43,45 @@ export interface DeleteStudioComponentCommandOutput extends DeleteStudioComponen
  * import { NimbleClient, DeleteStudioComponentCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, DeleteStudioComponentCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = { // DeleteStudioComponentRequest
+ *   clientToken: "STRING_VALUE",
+ *   studioComponentId: "STRING_VALUE", // required
+ *   studioId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteStudioComponentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteStudioComponentCommandInput - {@link DeleteStudioComponentCommandInput}
+ * @returns {@link DeleteStudioComponentCommandOutput}
  * @see {@link DeleteStudioComponentCommandInput} for command's `input` shape.
  * @see {@link DeleteStudioComponentCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to perform this operation. Check your IAM
+ *             policies, and ensure that you are using the correct access keys.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Another operation is in progress. </p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>An internal error has occurred. Please retry your request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Your current quota does not allow you to perform the request action. You can request
+ *             increases for some quotas, and other quotas cannot be increased.</p>
+ *         <p>Please use Amazon Web Services Service Quotas to request an increase. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request throughput limit was exceeded.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One of the parameters in the request is invalid.</p>
+ *
  *
  */
 export class DeleteStudioComponentCommand extends $Command<
@@ -62,6 +101,9 @@ export class DeleteStudioComponentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteStudioComponentCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +132,7 @@ export class DeleteStudioComponentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteStudioComponentRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DeleteStudioComponentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -101,12 +143,18 @@ export class DeleteStudioComponentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteStudioComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteStudioComponentCommand(input, context);
+    return se_DeleteStudioComponentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteStudioComponentCommandOutput> {
-    return deserializeAws_restJson1DeleteStudioComponentCommand(output, context);
+    return de_DeleteStudioComponentCommand(output, context);
   }
 
   // Start section: command_body_extra

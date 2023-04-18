@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateInferenceExperimentRequest,
-  UpdateInferenceExperimentRequestFilterSensitiveLog,
-  UpdateInferenceExperimentResponse,
-  UpdateInferenceExperimentResponseFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_json1_1UpdateInferenceExperimentCommand,
-  serializeAws_json1_1UpdateInferenceExperimentCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateInferenceExperimentRequest, UpdateInferenceExperimentResponse } from "../models/models_4";
+import { de_UpdateInferenceExperimentCommand, se_UpdateInferenceExperimentCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateInferenceExperimentCommand}.
+ */
 export interface UpdateInferenceExperimentCommandInput extends UpdateInferenceExperimentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateInferenceExperimentCommand}.
+ */
 export interface UpdateInferenceExperimentCommandOutput extends UpdateInferenceExperimentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *            Updates an inference experiment that you created. The status of the inference experiment has to be either
  *            <code>Created</code>, <code>Running</code>. For more information on the status of an inference experiment,
@@ -40,13 +43,65 @@ export interface UpdateInferenceExperimentCommandOutput extends UpdateInferenceE
  * import { SageMakerClient, UpdateInferenceExperimentCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateInferenceExperimentCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // UpdateInferenceExperimentRequest
+ *   Name: "STRING_VALUE", // required
+ *   Schedule: { // InferenceExperimentSchedule
+ *     StartTime: new Date("TIMESTAMP"),
+ *     EndTime: new Date("TIMESTAMP"),
+ *   },
+ *   Description: "STRING_VALUE",
+ *   ModelVariants: [ // ModelVariantConfigList
+ *     { // ModelVariantConfig
+ *       ModelName: "STRING_VALUE", // required
+ *       VariantName: "STRING_VALUE", // required
+ *       InfrastructureConfig: { // ModelInfrastructureConfig
+ *         InfrastructureType: "RealTimeInference", // required
+ *         RealTimeInferenceConfig: { // RealTimeInferenceConfig
+ *           InstanceType: "ml.t2.medium" || "ml.t2.large" || "ml.t2.xlarge" || "ml.t2.2xlarge" || "ml.t3.medium" || "ml.t3.large" || "ml.t3.xlarge" || "ml.t3.2xlarge" || "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.m5d.large" || "ml.m5d.xlarge" || "ml.m5d.2xlarge" || "ml.m5d.4xlarge" || "ml.m5d.8xlarge" || "ml.m5d.12xlarge" || "ml.m5d.16xlarge" || "ml.m5d.24xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.c5d.xlarge" || "ml.c5d.2xlarge" || "ml.c5d.4xlarge" || "ml.c5d.9xlarge" || "ml.c5d.18xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.r5.large" || "ml.r5.xlarge" || "ml.r5.2xlarge" || "ml.r5.4xlarge" || "ml.r5.8xlarge" || "ml.r5.12xlarge" || "ml.r5.16xlarge" || "ml.r5.24xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge", // required
+ *           InstanceCount: Number("int"), // required
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   DataStorageConfig: { // InferenceExperimentDataStorageConfig
+ *     Destination: "STRING_VALUE", // required
+ *     KmsKey: "STRING_VALUE",
+ *     ContentType: { // CaptureContentTypeHeader
+ *       CsvContentTypes: [ // CsvContentTypes
+ *         "STRING_VALUE",
+ *       ],
+ *       JsonContentTypes: [ // JsonContentTypes
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ *   ShadowModeConfig: { // ShadowModeConfig
+ *     SourceModelVariantName: "STRING_VALUE", // required
+ *     ShadowModelVariants: [ // ShadowModelVariantConfigList // required
+ *       { // ShadowModelVariantConfig
+ *         ShadowModelVariantName: "STRING_VALUE", // required
+ *         SamplingPercentage: Number("int"), // required
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new UpdateInferenceExperimentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateInferenceExperimentCommandInput - {@link UpdateInferenceExperimentCommandInput}
+ * @returns {@link UpdateInferenceExperimentCommandOutput}
  * @see {@link UpdateInferenceExperimentCommandInput} for command's `input` shape.
  * @see {@link UpdateInferenceExperimentCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There was a conflict when you attempted to modify a SageMaker entity such as an
+ *       <code>Experiment</code> or <code>Artifact</code>.</p>
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class UpdateInferenceExperimentCommand extends $Command<
@@ -66,6 +121,9 @@ export class UpdateInferenceExperimentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateInferenceExperimentCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +152,8 @@ export class UpdateInferenceExperimentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateInferenceExperimentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateInferenceExperimentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,15 +163,21 @@ export class UpdateInferenceExperimentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateInferenceExperimentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateInferenceExperimentCommand(input, context);
+    return se_UpdateInferenceExperimentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateInferenceExperimentCommandOutput> {
-    return deserializeAws_json1_1UpdateInferenceExperimentCommand(output, context);
+    return de_UpdateInferenceExperimentCommand(output, context);
   }
 
   // Start section: command_body_extra

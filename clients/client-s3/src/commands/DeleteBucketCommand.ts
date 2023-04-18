@@ -13,20 +13,27 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteBucketRequest, DeleteBucketRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restXmlDeleteBucketCommand,
-  serializeAws_restXmlDeleteBucketCommand,
-} from "../protocols/Aws_restXml";
+import { DeleteBucketRequest } from "../models/models_0";
+import { de_DeleteBucketCommand, se_DeleteBucketCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteBucketCommand}.
+ */
 export interface DeleteBucketCommandInput extends DeleteBucketRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteBucketCommand}.
+ */
 export interface DeleteBucketCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the S3 bucket. All objects (including all object versions and delete markers) in
  *          the bucket must be deleted before the bucket itself can be deleted.</p>
- *
  *          <p class="title">
  *             <b>Related Resources</b>
  *          </p>
@@ -48,13 +55,31 @@ export interface DeleteBucketCommandOutput extends __MetadataBearer {}
  * import { S3Client, DeleteBucketCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, DeleteBucketCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // DeleteBucketRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new DeleteBucketCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBucketCommandInput - {@link DeleteBucketCommandInput}
+ * @returns {@link DeleteBucketCommandOutput}
  * @see {@link DeleteBucketCommandInput} for command's `input` shape.
  * @see {@link DeleteBucketCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
+ *
+ *
+ * @example To delete a bucket
+ * ```javascript
+ * // The following example deletes the specified bucket.
+ * const input = {
+ *   "Bucket": "forrandall2"
+ * };
+ * const command = new DeleteBucketCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-a-bucket-1473108514262
+ * ```
  *
  */
 export class DeleteBucketCommand extends $Command<
@@ -80,6 +105,9 @@ export class DeleteBucketCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBucketCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +134,8 @@ export class DeleteBucketCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBucketRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +145,18 @@ export class DeleteBucketCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBucketCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteBucketCommand(input, context);
+    return se_DeleteBucketCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBucketCommandOutput> {
-    return deserializeAws_restXmlDeleteBucketCommand(output, context);
+    return de_DeleteBucketCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FisClient";
-import {
-  ListExperimentTemplatesRequest,
-  ListExperimentTemplatesRequestFilterSensitiveLog,
-  ListExperimentTemplatesResponse,
-  ListExperimentTemplatesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListExperimentTemplatesCommand,
-  serializeAws_restJson1ListExperimentTemplatesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListExperimentTemplatesRequest, ListExperimentTemplatesResponse } from "../models/models_0";
+import { de_ListExperimentTemplatesCommand, se_ListExperimentTemplatesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListExperimentTemplatesCommand}.
+ */
 export interface ListExperimentTemplatesCommandInput extends ListExperimentTemplatesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListExperimentTemplatesCommand}.
+ */
 export interface ListExperimentTemplatesCommandOutput extends ListExperimentTemplatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists your experiment templates.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,23 @@ export interface ListExperimentTemplatesCommandOutput extends ListExperimentTemp
  * import { FisClient, ListExperimentTemplatesCommand } from "@aws-sdk/client-fis"; // ES Modules import
  * // const { FisClient, ListExperimentTemplatesCommand } = require("@aws-sdk/client-fis"); // CommonJS import
  * const client = new FisClient(config);
+ * const input = { // ListExperimentTemplatesRequest
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListExperimentTemplatesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListExperimentTemplatesCommandInput - {@link ListExperimentTemplatesCommandInput}
+ * @returns {@link ListExperimentTemplatesCommandOutput}
  * @see {@link ListExperimentTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListExperimentTemplatesCommandOutput} for command's `response` shape.
  * @see {@link FisClientResolvedConfig | config} for FisClient's `config` shape.
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
+ *
  *
  */
 export class ListExperimentTemplatesCommand extends $Command<
@@ -62,6 +75,9 @@ export class ListExperimentTemplatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListExperimentTemplatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +106,8 @@ export class ListExperimentTemplatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListExperimentTemplatesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListExperimentTemplatesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +117,18 @@ export class ListExperimentTemplatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListExperimentTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListExperimentTemplatesCommand(input, context);
+    return se_ListExperimentTemplatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListExperimentTemplatesCommandOutput> {
-    return deserializeAws_restJson1ListExperimentTemplatesCommand(output, context);
+    return de_ListExperimentTemplatesCommand(output, context);
   }
 
   // Start section: command_body_extra

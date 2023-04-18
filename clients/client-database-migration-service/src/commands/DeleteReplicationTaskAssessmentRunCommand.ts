@@ -20,21 +20,30 @@ import {
 } from "../DatabaseMigrationServiceClient";
 import {
   DeleteReplicationTaskAssessmentRunMessage,
-  DeleteReplicationTaskAssessmentRunMessageFilterSensitiveLog,
   DeleteReplicationTaskAssessmentRunResponse,
-  DeleteReplicationTaskAssessmentRunResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteReplicationTaskAssessmentRunCommand,
-  serializeAws_json1_1DeleteReplicationTaskAssessmentRunCommand,
+  de_DeleteReplicationTaskAssessmentRunCommand,
+  se_DeleteReplicationTaskAssessmentRunCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteReplicationTaskAssessmentRunCommand}.
+ */
 export interface DeleteReplicationTaskAssessmentRunCommandInput extends DeleteReplicationTaskAssessmentRunMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteReplicationTaskAssessmentRunCommand}.
+ */
 export interface DeleteReplicationTaskAssessmentRunCommandOutput
   extends DeleteReplicationTaskAssessmentRunResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the record of a single premigration assessment run.</p>
  *          <p>This operation removes all metadata that DMS maintains about this assessment run.
  *          However, the operation leaves untouched all information about this assessment run that is
@@ -45,13 +54,29 @@ export interface DeleteReplicationTaskAssessmentRunCommandOutput
  * import { DatabaseMigrationServiceClient, DeleteReplicationTaskAssessmentRunCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DeleteReplicationTaskAssessmentRunCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // DeleteReplicationTaskAssessmentRunMessage
+ *   ReplicationTaskAssessmentRunArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteReplicationTaskAssessmentRunCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteReplicationTaskAssessmentRunCommandInput - {@link DeleteReplicationTaskAssessmentRunCommandInput}
+ * @returns {@link DeleteReplicationTaskAssessmentRunCommandOutput}
  * @see {@link DeleteReplicationTaskAssessmentRunCommandInput} for command's `input` shape.
  * @see {@link DeleteReplicationTaskAssessmentRunCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedFault} (client fault)
+ *  <p>DMS was denied access to the endpoint. Check that the
+ *             role is correctly configured.</p>
+ *
+ * @throws {@link InvalidResourceStateFault} (client fault)
+ *  <p>The resource is in a state that prevents it from being used for database migration.</p>
+ *
+ * @throws {@link ResourceNotFoundFault} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
  *
  */
 export class DeleteReplicationTaskAssessmentRunCommand extends $Command<
@@ -71,6 +96,9 @@ export class DeleteReplicationTaskAssessmentRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteReplicationTaskAssessmentRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +127,8 @@ export class DeleteReplicationTaskAssessmentRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteReplicationTaskAssessmentRunMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteReplicationTaskAssessmentRunResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,18 +138,24 @@ export class DeleteReplicationTaskAssessmentRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteReplicationTaskAssessmentRunCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteReplicationTaskAssessmentRunCommand(input, context);
+    return se_DeleteReplicationTaskAssessmentRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteReplicationTaskAssessmentRunCommandOutput> {
-    return deserializeAws_json1_1DeleteReplicationTaskAssessmentRunCommand(output, context);
+    return de_DeleteReplicationTaskAssessmentRunCommand(output, context);
   }
 
   // Start section: command_body_extra

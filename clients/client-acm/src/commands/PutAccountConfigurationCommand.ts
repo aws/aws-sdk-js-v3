@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
-import { PutAccountConfigurationRequest, PutAccountConfigurationRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutAccountConfigurationCommand,
-  serializeAws_json1_1PutAccountConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { PutAccountConfigurationRequest } from "../models/models_0";
+import { de_PutAccountConfigurationCommand, se_PutAccountConfigurationCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutAccountConfigurationCommand}.
+ */
 export interface PutAccountConfigurationCommandInput extends PutAccountConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutAccountConfigurationCommand}.
+ */
 export interface PutAccountConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds or modifies account-level configurations in ACM. </p>
  *          <p>The supported configuration option is <code>DaysBeforeExpiry</code>. This option specifies
  *       the number of days prior to certificate expiration when ACM starts generating
@@ -36,13 +44,35 @@ export interface PutAccountConfigurationCommandOutput extends __MetadataBearer {
  * import { ACMClient, PutAccountConfigurationCommand } from "@aws-sdk/client-acm"; // ES Modules import
  * // const { ACMClient, PutAccountConfigurationCommand } = require("@aws-sdk/client-acm"); // CommonJS import
  * const client = new ACMClient(config);
+ * const input = { // PutAccountConfigurationRequest
+ *   ExpiryEvents: { // ExpiryEventsConfiguration
+ *     DaysBeforeExpiry: Number("int"),
+ *   },
+ *   IdempotencyToken: "STRING_VALUE", // required
+ * };
  * const command = new PutAccountConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAccountConfigurationCommandInput - {@link PutAccountConfigurationCommandInput}
+ * @returns {@link PutAccountConfigurationCommandOutput}
  * @see {@link PutAccountConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutAccountConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have access required to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>You are trying to update a resource or configuration that is already being created or
+ *       updated. Wait for the previous operation to finish and try again.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because it exceeded a quota.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The supplied input failed to satisfy constraints of an Amazon Web Services service.</p>
+ *
  *
  */
 export class PutAccountConfigurationCommand extends $Command<
@@ -62,6 +92,9 @@ export class PutAccountConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAccountConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +123,8 @@ export class PutAccountConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutAccountConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +134,18 @@ export class PutAccountConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutAccountConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutAccountConfigurationCommand(input, context);
+    return se_PutAccountConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutAccountConfigurationCommandOutput> {
-    return deserializeAws_json1_1PutAccountConfigurationCommand(output, context);
+    return de_PutAccountConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

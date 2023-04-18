@@ -6,12 +6,11 @@ import {
   ListCollectionsCommandInput,
   ListCollectionsCommandOutput,
 } from "../commands/ListCollectionsCommand";
-import { OpenSearchServerless } from "../OpenSearchServerless";
 import { OpenSearchServerlessClient } from "../OpenSearchServerlessClient";
 import { OpenSearchServerlessPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: OpenSearchServerlessClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListCollectionsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: OpenSearchServerless,
-  input: ListCollectionsCommandInput,
-  ...args: any
-): Promise<ListCollectionsCommandOutput> => {
-  // @ts-ignore
-  return await client.listCollections(input, ...args);
-};
 export async function* paginateListCollections(
   config: OpenSearchServerlessPaginationConfiguration,
   input: ListCollectionsCommandInput,
@@ -43,9 +34,7 @@ export async function* paginateListCollections(
   let page: ListCollectionsCommandOutput;
   while (hasNext) {
     input.nextToken = token;
-    if (config.client instanceof OpenSearchServerless) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof OpenSearchServerlessClient) {
+    if (config.client instanceof OpenSearchServerlessClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected OpenSearchServerless | OpenSearchServerlessClient");

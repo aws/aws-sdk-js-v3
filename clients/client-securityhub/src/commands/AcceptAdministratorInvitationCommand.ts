@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { AcceptAdministratorInvitationRequest, AcceptAdministratorInvitationResponse } from "../models/models_0";
 import {
-  AcceptAdministratorInvitationRequest,
-  AcceptAdministratorInvitationRequestFilterSensitiveLog,
-  AcceptAdministratorInvitationResponse,
-  AcceptAdministratorInvitationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1AcceptAdministratorInvitationCommand,
-  serializeAws_restJson1AcceptAdministratorInvitationCommand,
+  de_AcceptAdministratorInvitationCommand,
+  se_AcceptAdministratorInvitationCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
+/**
+ * @public
+ *
+ * The input for {@link AcceptAdministratorInvitationCommand}.
+ */
 export interface AcceptAdministratorInvitationCommandInput extends AcceptAdministratorInvitationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AcceptAdministratorInvitationCommand}.
+ */
 export interface AcceptAdministratorInvitationCommandOutput
   extends AcceptAdministratorInvitationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Accepts the invitation to be a member account and be monitored by the Security Hub administrator
  *          account that the invitation was sent from.</p>
  *          <p>This operation is only used by member accounts that are not added through
@@ -43,13 +49,37 @@ export interface AcceptAdministratorInvitationCommandOutput
  * import { SecurityHubClient, AcceptAdministratorInvitationCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, AcceptAdministratorInvitationCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = { // AcceptAdministratorInvitationRequest
+ *   AdministratorId: "STRING_VALUE", // required
+ *   InvitationId: "STRING_VALUE", // required
+ * };
  * const command = new AcceptAdministratorInvitationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AcceptAdministratorInvitationCommandInput - {@link AcceptAdministratorInvitationCommandInput}
+ * @returns {@link AcceptAdministratorInvitationCommandOutput}
  * @see {@link AcceptAdministratorInvitationCommandInput} for command's `input` shape.
  * @see {@link AcceptAdministratorInvitationCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>Internal server error.</p>
+ *
+ * @throws {@link InvalidAccessException} (client fault)
+ *  <p>The account doesn't have permission to perform this action.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because you supplied an invalid or out-of-range value for an
+ *          input parameter.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
+ *          account or throttling limits. The error code describes the limit exceeded.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request was rejected because we can't find the specified resource.</p>
+ *
  *
  */
 export class AcceptAdministratorInvitationCommand extends $Command<
@@ -69,6 +99,9 @@ export class AcceptAdministratorInvitationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcceptAdministratorInvitationCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +130,8 @@ export class AcceptAdministratorInvitationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AcceptAdministratorInvitationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AcceptAdministratorInvitationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,15 +141,21 @@ export class AcceptAdministratorInvitationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AcceptAdministratorInvitationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AcceptAdministratorInvitationCommand(input, context);
+    return se_AcceptAdministratorInvitationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AcceptAdministratorInvitationCommandOutput> {
-    return deserializeAws_restJson1AcceptAdministratorInvitationCommand(output, context);
+    return de_AcceptAdministratorInvitationCommand(output, context);
   }
 
   // Start section: command_body_extra

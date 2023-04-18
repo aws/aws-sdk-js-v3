@@ -14,20 +14,68 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
-import {
-  GetVoiceConnectorGroupRequest,
-  GetVoiceConnectorGroupRequestFilterSensitiveLog,
-  GetVoiceConnectorGroupResponse,
-  GetVoiceConnectorGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetVoiceConnectorGroupCommand,
-  serializeAws_restJson1GetVoiceConnectorGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { GetVoiceConnectorGroupRequest, GetVoiceConnectorGroupResponse } from "../models/models_0";
+import { de_GetVoiceConnectorGroupCommand, se_GetVoiceConnectorGroupCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetVoiceConnectorGroupCommand}.
+ */
 export interface GetVoiceConnectorGroupCommandInput extends GetVoiceConnectorGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetVoiceConnectorGroupCommand}.
+ */
 export interface GetVoiceConnectorGroupCommandOutput extends GetVoiceConnectorGroupResponse, __MetadataBearer {}
 
+/**
+ * @public
+ * <p>Retrieves details for the specified Amazon Chime SDK Voice Connector group,
+ *          such as timestamps,name, and associated <code>VoiceConnectorItems</code>.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeSDKVoiceClient, GetVoiceConnectorGroupCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
+ * // const { ChimeSDKVoiceClient, GetVoiceConnectorGroupCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * const client = new ChimeSDKVoiceClient(config);
+ * const input = { // GetVoiceConnectorGroupRequest
+ *   VoiceConnectorGroupId: "STRING_VALUE", // required
+ * };
+ * const command = new GetVoiceConnectorGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @param GetVoiceConnectorGroupCommandInput - {@link GetVoiceConnectorGroupCommandInput}
+ * @returns {@link GetVoiceConnectorGroupCommandOutput}
+ * @see {@link GetVoiceConnectorGroupCommandInput} for command's `input` shape.
+ * @see {@link GetVoiceConnectorGroupCommandOutput} for command's `response` shape.
+ * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The requested resource couldn't be found.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The number of customer requests exceeds the request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client isn't authorized to request a resource.</p>
+ *
+ *
+ */
 export class GetVoiceConnectorGroupCommand extends $Command<
   GetVoiceConnectorGroupCommandInput,
   GetVoiceConnectorGroupCommandOutput,
@@ -45,6 +93,9 @@ export class GetVoiceConnectorGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetVoiceConnectorGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,8 +124,8 @@ export class GetVoiceConnectorGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetVoiceConnectorGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetVoiceConnectorGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,12 +135,18 @@ export class GetVoiceConnectorGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetVoiceConnectorGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetVoiceConnectorGroupCommand(input, context);
+    return se_GetVoiceConnectorGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVoiceConnectorGroupCommandOutput> {
-    return deserializeAws_restJson1GetVoiceConnectorGroupCommand(output, context);
+    return de_GetVoiceConnectorGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

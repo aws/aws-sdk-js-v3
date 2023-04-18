@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListFiltersCommand, ListFiltersCommandInput, ListFiltersCommandOutput } from "../commands/ListFiltersCommand";
-import { GuardDuty } from "../GuardDuty";
 import { GuardDutyClient } from "../GuardDutyClient";
 import { GuardDutyPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: GuardDutyClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListFiltersCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: GuardDuty,
-  input: ListFiltersCommandInput,
-  ...args: any
-): Promise<ListFiltersCommandOutput> => {
-  // @ts-ignore
-  return await client.listFilters(input, ...args);
-};
 export async function* paginateListFilters(
   config: GuardDutyPaginationConfiguration,
   input: ListFiltersCommandInput,
@@ -40,9 +31,7 @@ export async function* paginateListFilters(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof GuardDuty) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof GuardDutyClient) {
+    if (config.client instanceof GuardDutyClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected GuardDuty | GuardDutyClient");

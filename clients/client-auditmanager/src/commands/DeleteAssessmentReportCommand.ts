@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import {
-  DeleteAssessmentReportRequest,
-  DeleteAssessmentReportRequestFilterSensitiveLog,
-  DeleteAssessmentReportResponse,
-  DeleteAssessmentReportResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAssessmentReportCommand,
-  serializeAws_restJson1DeleteAssessmentReportCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteAssessmentReportRequest, DeleteAssessmentReportResponse } from "../models/models_0";
+import { de_DeleteAssessmentReportCommand, se_DeleteAssessmentReportCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteAssessmentReportCommand}.
+ */
 export interface DeleteAssessmentReportCommandInput extends DeleteAssessmentReportRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteAssessmentReportCommand}.
+ */
 export interface DeleteAssessmentReportCommandOutput extends DeleteAssessmentReportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an assessment report in Audit Manager. </p>
  *          <p>When you run the <code>DeleteAssessmentReport</code> operation, Audit Manager
  *          attempts to delete the following data:</p>
@@ -57,13 +60,34 @@ export interface DeleteAssessmentReportCommandOutput extends DeleteAssessmentRep
  * import { AuditManagerClient, DeleteAssessmentReportCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, DeleteAssessmentReportCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = { // DeleteAssessmentReportRequest
+ *   assessmentId: "STRING_VALUE", // required
+ *   assessmentReportId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAssessmentReportCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAssessmentReportCommandInput - {@link DeleteAssessmentReportCommandInput}
+ * @returns {@link DeleteAssessmentReportCommandOutput}
  * @see {@link DeleteAssessmentReportCommandInput} for command's `input` shape.
  * @see {@link DeleteAssessmentReportCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p> Your account isn't registered with Audit Manager. Check the delegated
+ *          administrator setup on the Audit Manager settings page, and try again. </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> An internal service error occurred during the processing of your request. Try again
+ *          later. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p> The resource that's specified in the request can't be found. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p> The request has invalid or missing parameters. </p>
+ *
  *
  */
 export class DeleteAssessmentReportCommand extends $Command<
@@ -83,6 +107,9 @@ export class DeleteAssessmentReportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAssessmentReportCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +138,8 @@ export class DeleteAssessmentReportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAssessmentReportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAssessmentReportResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +149,18 @@ export class DeleteAssessmentReportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAssessmentReportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAssessmentReportCommand(input, context);
+    return se_DeleteAssessmentReportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAssessmentReportCommandOutput> {
-    return deserializeAws_restJson1DeleteAssessmentReportCommand(output, context);
+    return de_DeleteAssessmentReportCommand(output, context);
   }
 
   // Start section: command_body_extra

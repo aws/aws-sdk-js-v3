@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import {
-  Extension,
-  ExtensionFilterSensitiveLog,
-  GetExtensionRequest,
-  GetExtensionRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetExtensionCommand,
-  serializeAws_restJson1GetExtensionCommand,
-} from "../protocols/Aws_restJson1";
+import { Extension, GetExtensionRequest } from "../models/models_0";
+import { de_GetExtensionCommand, se_GetExtensionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetExtensionCommand}.
+ */
 export interface GetExtensionCommandInput extends GetExtensionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetExtensionCommand}.
+ */
 export interface GetExtensionCommandOutput extends Extension, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about an AppConfig extension.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,29 @@ export interface GetExtensionCommandOutput extends Extension, __MetadataBearer {
  * import { AppConfigClient, GetExtensionCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, GetExtensionCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = { // GetExtensionRequest
+ *   ExtensionIdentifier: "STRING_VALUE", // required
+ *   VersionNumber: Number("int"),
+ * };
  * const command = new GetExtensionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetExtensionCommandInput - {@link GetExtensionCommandInput}
+ * @returns {@link GetExtensionCommandOutput}
  * @see {@link GetExtensionCommandInput} for command's `input` shape.
  * @see {@link GetExtensionCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There was an internal failure in the AppConfig service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource could not be found.</p>
+ *
  *
  */
 export class GetExtensionCommand extends $Command<
@@ -62,6 +81,9 @@ export class GetExtensionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetExtensionCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +110,8 @@ export class GetExtensionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetExtensionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ExtensionFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +121,18 @@ export class GetExtensionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetExtensionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetExtensionCommand(input, context);
+    return se_GetExtensionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetExtensionCommandOutput> {
-    return deserializeAws_restJson1GetExtensionCommand(output, context);
+    return de_GetExtensionCommand(output, context);
   }
 
   // Start section: command_body_extra

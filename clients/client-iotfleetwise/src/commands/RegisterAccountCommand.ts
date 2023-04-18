@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import {
-  RegisterAccountRequest,
-  RegisterAccountRequestFilterSensitiveLog,
-  RegisterAccountResponse,
-  RegisterAccountResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0RegisterAccountCommand,
-  serializeAws_json1_0RegisterAccountCommand,
-} from "../protocols/Aws_json1_0";
+import { RegisterAccountRequest, RegisterAccountResponse } from "../models/models_0";
+import { de_RegisterAccountCommand, se_RegisterAccountCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link RegisterAccountCommand}.
+ */
 export interface RegisterAccountCommandInput extends RegisterAccountRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RegisterAccountCommand}.
+ */
 export interface RegisterAccountCommandOutput extends RegisterAccountResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers your Amazon Web Services account, IAM, and Amazon Timestream resources so Amazon Web Services IoT FleetWise can
  *             transfer your vehicle data to the Amazon Web Services Cloud. For more information, including
  *             step-by-step procedures, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/setting-up.html">Setting up
@@ -46,13 +49,44 @@ export interface RegisterAccountCommandOutput extends RegisterAccountResponse, _
  * import { IoTFleetWiseClient, RegisterAccountCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, RegisterAccountCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = { // RegisterAccountRequest
+ *   timestreamResources: { // TimestreamResources
+ *     timestreamDatabaseName: "STRING_VALUE", // required
+ *     timestreamTableName: "STRING_VALUE", // required
+ *   },
+ *   iamResources: { // IamResources
+ *     roleArn: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new RegisterAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterAccountCommandInput - {@link RegisterAccountCommandInput}
+ * @returns {@link RegisterAccountCommandOutput}
  * @see {@link RegisterAccountCommandInput} for command's `input` shape.
  * @see {@link RegisterAccountCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient permission to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request has conflicting operations. This can occur if you're trying to perform
+ *             more than one operation on the same resource at the same time.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request couldn't be completed because the server temporarily failed.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource wasn't found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request couldn't be completed due to throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
  *
  */
 export class RegisterAccountCommand extends $Command<
@@ -72,6 +106,9 @@ export class RegisterAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +137,8 @@ export class RegisterAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterAccountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +148,18 @@ export class RegisterAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0RegisterAccountCommand(input, context);
+    return se_RegisterAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterAccountCommandOutput> {
-    return deserializeAws_json1_0RegisterAccountCommand(output, context);
+    return de_RegisterAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

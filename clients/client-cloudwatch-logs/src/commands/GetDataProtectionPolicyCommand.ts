@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import {
-  GetDataProtectionPolicyRequest,
-  GetDataProtectionPolicyRequestFilterSensitiveLog,
-  GetDataProtectionPolicyResponse,
-  GetDataProtectionPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetDataProtectionPolicyCommand,
-  serializeAws_json1_1GetDataProtectionPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { GetDataProtectionPolicyRequest, GetDataProtectionPolicyResponse } from "../models/models_0";
+import { de_GetDataProtectionPolicyCommand, se_GetDataProtectionPolicyCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetDataProtectionPolicyCommand}.
+ */
 export interface GetDataProtectionPolicyCommandInput extends GetDataProtectionPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetDataProtectionPolicyCommand}.
+ */
 export interface GetDataProtectionPolicyCommandOutput extends GetDataProtectionPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a log group data protection policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,31 @@ export interface GetDataProtectionPolicyCommandOutput extends GetDataProtectionP
  * import { CloudWatchLogsClient, GetDataProtectionPolicyCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, GetDataProtectionPolicyCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = { // GetDataProtectionPolicyRequest
+ *   logGroupIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new GetDataProtectionPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDataProtectionPolicyCommandInput - {@link GetDataProtectionPolicyCommandInput}
+ * @returns {@link GetDataProtectionPolicyCommandOutput}
  * @see {@link GetDataProtectionPolicyCommandInput} for command's `input` shape.
  * @see {@link GetDataProtectionPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter is specified incorrectly.</p>
+ *
+ * @throws {@link OperationAbortedException} (client fault)
+ *  <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service cannot complete the request.</p>
+ *
  *
  */
 export class GetDataProtectionPolicyCommand extends $Command<
@@ -62,6 +83,9 @@ export class GetDataProtectionPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDataProtectionPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +114,8 @@ export class GetDataProtectionPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDataProtectionPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDataProtectionPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +125,18 @@ export class GetDataProtectionPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDataProtectionPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDataProtectionPolicyCommand(input, context);
+    return se_GetDataProtectionPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataProtectionPolicyCommandOutput> {
-    return deserializeAws_json1_1GetDataProtectionPolicyCommand(output, context);
+    return de_GetDataProtectionPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import {
-  ListDeploymentConfigsInput,
-  ListDeploymentConfigsInputFilterSensitiveLog,
-  ListDeploymentConfigsOutput,
-  ListDeploymentConfigsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListDeploymentConfigsCommand,
-  serializeAws_json1_1ListDeploymentConfigsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListDeploymentConfigsInput, ListDeploymentConfigsOutput } from "../models/models_0";
+import { de_ListDeploymentConfigsCommand, se_ListDeploymentConfigsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListDeploymentConfigsCommand}.
+ */
 export interface ListDeploymentConfigsCommandInput extends ListDeploymentConfigsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListDeploymentConfigsCommand}.
+ */
 export interface ListDeploymentConfigsCommandOutput extends ListDeploymentConfigsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the deployment configurations with the IAM user or Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,22 @@ export interface ListDeploymentConfigsCommandOutput extends ListDeploymentConfig
  * import { CodeDeployClient, ListDeploymentConfigsCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, ListDeploymentConfigsCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
+ * const input = { // ListDeploymentConfigsInput
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListDeploymentConfigsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDeploymentConfigsCommandInput - {@link ListDeploymentConfigsCommandInput}
+ * @returns {@link ListDeploymentConfigsCommandOutput}
  * @see {@link ListDeploymentConfigsCommandInput} for command's `input` shape.
  * @see {@link ListDeploymentConfigsCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The next token was specified in an invalid format.</p>
+ *
  *
  */
 export class ListDeploymentConfigsCommand extends $Command<
@@ -62,6 +74,9 @@ export class ListDeploymentConfigsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDeploymentConfigsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +105,8 @@ export class ListDeploymentConfigsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDeploymentConfigsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDeploymentConfigsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +116,18 @@ export class ListDeploymentConfigsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDeploymentConfigsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDeploymentConfigsCommand(input, context);
+    return se_ListDeploymentConfigsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDeploymentConfigsCommandOutput> {
-    return deserializeAws_json1_1ListDeploymentConfigsCommand(output, context);
+    return de_ListDeploymentConfigsCommand(output, context);
   }
 
   // Start section: command_body_extra

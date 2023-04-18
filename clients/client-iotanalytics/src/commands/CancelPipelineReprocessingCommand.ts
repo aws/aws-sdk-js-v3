@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
-import {
-  CancelPipelineReprocessingRequest,
-  CancelPipelineReprocessingRequestFilterSensitiveLog,
-  CancelPipelineReprocessingResponse,
-  CancelPipelineReprocessingResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CancelPipelineReprocessingCommand,
-  serializeAws_restJson1CancelPipelineReprocessingCommand,
-} from "../protocols/Aws_restJson1";
+import { CancelPipelineReprocessingRequest, CancelPipelineReprocessingResponse } from "../models/models_0";
+import { de_CancelPipelineReprocessingCommand, se_CancelPipelineReprocessingCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CancelPipelineReprocessingCommand}.
+ */
 export interface CancelPipelineReprocessingCommandInput extends CancelPipelineReprocessingRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CancelPipelineReprocessingCommand}.
+ */
 export interface CancelPipelineReprocessingCommandOutput extends CancelPipelineReprocessingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels the reprocessing of data through the pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,35 @@ export interface CancelPipelineReprocessingCommandOutput extends CancelPipelineR
  * import { IoTAnalyticsClient, CancelPipelineReprocessingCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, CancelPipelineReprocessingCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
+ * const input = { // CancelPipelineReprocessingRequest
+ *   pipelineName: "STRING_VALUE", // required
+ *   reprocessingId: "STRING_VALUE", // required
+ * };
  * const command = new CancelPipelineReprocessingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelPipelineReprocessingCommandInput - {@link CancelPipelineReprocessingCommandInput}
+ * @returns {@link CancelPipelineReprocessingCommandOutput}
  * @see {@link CancelPipelineReprocessingCommandInput} for command's `input` shape.
  * @see {@link CancelPipelineReprocessingCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>There was an internal failure.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request was not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource with the specified name could not be found.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
  *
  */
 export class CancelPipelineReprocessingCommand extends $Command<
@@ -62,6 +87,9 @@ export class CancelPipelineReprocessingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelPipelineReprocessingCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +118,8 @@ export class CancelPipelineReprocessingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelPipelineReprocessingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelPipelineReprocessingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +129,21 @@ export class CancelPipelineReprocessingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelPipelineReprocessingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelPipelineReprocessingCommand(input, context);
+    return se_CancelPipelineReprocessingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelPipelineReprocessingCommandOutput> {
-    return deserializeAws_restJson1CancelPipelineReprocessingCommand(output, context);
+    return de_CancelPipelineReprocessingCommand(output, context);
   }
 
   // Start section: command_body_extra

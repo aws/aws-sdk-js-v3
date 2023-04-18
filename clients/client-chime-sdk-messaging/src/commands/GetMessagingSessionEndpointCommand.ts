@@ -18,23 +18,29 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ChimeSDKMessagingClient";
+import { GetMessagingSessionEndpointRequest, GetMessagingSessionEndpointResponse } from "../models/models_0";
 import {
-  GetMessagingSessionEndpointRequest,
-  GetMessagingSessionEndpointRequestFilterSensitiveLog,
-  GetMessagingSessionEndpointResponse,
-  GetMessagingSessionEndpointResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetMessagingSessionEndpointCommand,
-  serializeAws_restJson1GetMessagingSessionEndpointCommand,
+  de_GetMessagingSessionEndpointCommand,
+  se_GetMessagingSessionEndpointCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetMessagingSessionEndpointCommand}.
+ */
 export interface GetMessagingSessionEndpointCommandInput extends GetMessagingSessionEndpointRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetMessagingSessionEndpointCommand}.
+ */
 export interface GetMessagingSessionEndpointCommandOutput
   extends GetMessagingSessionEndpointResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>The details of the endpoint for the messaging session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,13 +48,32 @@ export interface GetMessagingSessionEndpointCommandOutput
  * import { ChimeSDKMessagingClient, GetMessagingSessionEndpointCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, GetMessagingSessionEndpointCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
+ * const input = {};
  * const command = new GetMessagingSessionEndpointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMessagingSessionEndpointCommandInput - {@link GetMessagingSessionEndpointCommandInput}
+ * @returns {@link GetMessagingSessionEndpointCommandOutput}
  * @see {@link GetMessagingSessionEndpointCommandInput} for command's `input` shape.
  * @see {@link GetMessagingSessionEndpointCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The client exceeded its request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client is not currently authorized to make the request.</p>
+ *
  *
  */
 export class GetMessagingSessionEndpointCommand extends $Command<
@@ -68,6 +93,9 @@ export class GetMessagingSessionEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMessagingSessionEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +124,8 @@ export class GetMessagingSessionEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMessagingSessionEndpointRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMessagingSessionEndpointResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,15 +135,21 @@ export class GetMessagingSessionEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMessagingSessionEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMessagingSessionEndpointCommand(input, context);
+    return se_GetMessagingSessionEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetMessagingSessionEndpointCommandOutput> {
-    return deserializeAws_restJson1GetMessagingSessionEndpointCommand(output, context);
+    return de_GetMessagingSessionEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import {
-  UpdateEntitlementRequest,
-  UpdateEntitlementRequestFilterSensitiveLog,
-  UpdateEntitlementResult,
-  UpdateEntitlementResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateEntitlementCommand,
-  serializeAws_json1_1UpdateEntitlementCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateEntitlementRequest, UpdateEntitlementResult } from "../models/models_0";
+import { de_UpdateEntitlementCommand, se_UpdateEntitlementCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateEntitlementCommand}.
+ */
 export interface UpdateEntitlementCommandInput extends UpdateEntitlementRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateEntitlementCommand}.
+ */
 export interface UpdateEntitlementCommandOutput extends UpdateEntitlementResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified entitlement.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,40 @@ export interface UpdateEntitlementCommandOutput extends UpdateEntitlementResult,
  * import { AppStreamClient, UpdateEntitlementCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, UpdateEntitlementCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = { // UpdateEntitlementRequest
+ *   Name: "STRING_VALUE", // required
+ *   StackName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   AppVisibility: "ALL" || "ASSOCIATED",
+ *   Attributes: [ // EntitlementAttributeList
+ *     { // EntitlementAttribute
+ *       Name: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new UpdateEntitlementCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEntitlementCommandInput - {@link UpdateEntitlementCommandInput}
+ * @returns {@link UpdateEntitlementCommandOutput}
  * @see {@link UpdateEntitlementCommandInput} for command's `input` shape.
  * @see {@link UpdateEntitlementCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>An API error occurred. Wait a few minutes and try again.</p>
+ *
+ * @throws {@link EntitlementNotFoundException} (client fault)
+ *  <p>The entitlement can't be found.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>The attempted operation is not permitted.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class UpdateEntitlementCommand extends $Command<
@@ -62,6 +92,9 @@ export class UpdateEntitlementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEntitlementCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +123,8 @@ export class UpdateEntitlementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateEntitlementRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateEntitlementResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +134,18 @@ export class UpdateEntitlementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateEntitlementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateEntitlementCommand(input, context);
+    return se_UpdateEntitlementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEntitlementCommandOutput> {
-    return deserializeAws_json1_1UpdateEntitlementCommand(output, context);
+    return de_UpdateEntitlementCommand(output, context);
   }
 
   // Start section: command_body_extra

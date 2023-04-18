@@ -18,7 +18,11 @@
     "removeComments": true,
     "resolveJsonModule": true,
     "target": "es5",
-    "useUnknownInCatchVariables": false
+    "useUnknownInCatchVariables": false,
+    "experimentalDecorators": true,
+    "jsx": "react",
+    "jsxFactory": "JSX.createElement",
+    "jsxFragmentFactory": "JSX.Fragment"
   },
   "include": ["packages/", "lib/"],
   "exclude": ["node_modules/", "**/*.spec.ts"]

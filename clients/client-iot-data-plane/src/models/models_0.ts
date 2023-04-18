@@ -7,6 +7,7 @@ import {
 import { IoTDataPlaneServiceException as __BaseException } from "./IoTDataPlaneServiceException";
 
 /**
+ * @public
  * <p>The specified version does not match the version of the document.</p>
  */
 export class ConflictException extends __BaseException {
@@ -26,6 +27,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input for the DeleteThingShadow operation.</p>
  */
 export interface DeleteThingShadowRequest {
@@ -41,6 +43,7 @@ export interface DeleteThingShadowRequest {
 }
 
 /**
+ * @public
  * <p>The output from the DeleteThingShadow operation.</p>
  */
 export interface DeleteThingShadowResponse {
@@ -51,6 +54,7 @@ export interface DeleteThingShadowResponse {
 }
 
 /**
+ * @public
  * <p>An unexpected error has occurred.</p>
  */
 export class InternalFailureException extends __BaseException {
@@ -70,6 +74,7 @@ export class InternalFailureException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request is not valid.</p>
  */
 export class InvalidRequestException extends __BaseException {
@@ -89,6 +94,7 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified combination of HTTP verb and URI is not supported.</p>
  */
 export class MethodNotAllowedException extends __BaseException {
@@ -108,6 +114,7 @@ export class MethodNotAllowedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource does not exist.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -127,6 +134,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The service is temporarily unavailable.</p>
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -146,6 +154,7 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The rate exceeds the limit.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -165,6 +174,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You are not authorized to perform this operation.</p>
  */
 export class UnauthorizedException extends __BaseException {
@@ -184,6 +194,7 @@ export class UnauthorizedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The document encoding is not supported.</p>
  */
 export class UnsupportedDocumentEncodingException extends __BaseException {
@@ -203,6 +214,7 @@ export class UnsupportedDocumentEncodingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input for the GetRetainedMessage operation.</p>
  */
 export interface GetRetainedMessageRequest {
@@ -213,6 +225,7 @@ export interface GetRetainedMessageRequest {
 }
 
 /**
+ * @public
  * <p>The output from the GetRetainedMessage operation.</p>
  */
 export interface GetRetainedMessageResponse {
@@ -235,9 +248,21 @@ export interface GetRetainedMessageResponse {
    * <p>The Epoch date and time, in milliseconds, when the retained message was stored by IoT.</p>
    */
   lastModifiedTime?: number;
+
+  /**
+   * <p>A base64-encoded JSON string that includes an array of JSON objects, or null if the
+   *       retained message doesn't include any user properties.</p>
+   *          <p>The following example <code>userProperties</code> parameter is a JSON string that
+   *       represents two user properties. Note that it will be base64-encoded:</p>
+   *          <p>
+   *             <code>[\{"deviceName": "alpha"\}, \{"deviceCnt": "45"\}]</code>
+   *          </p>
+   */
+  userProperties?: Uint8Array;
 }
 
 /**
+ * @public
  * <p>The input for the GetThingShadow operation.</p>
  */
 export interface GetThingShadowRequest {
@@ -253,6 +278,7 @@ export interface GetThingShadowRequest {
 }
 
 /**
+ * @public
  * <p>The output from the GetThingShadow operation.</p>
  */
 export interface GetThingShadowResponse {
@@ -262,6 +288,9 @@ export interface GetThingShadowResponse {
   payload?: Uint8Array;
 }
 
+/**
+ * @public
+ */
 export interface ListNamedShadowsForThingRequest {
   /**
    * <p>The name of the thing.</p>
@@ -279,6 +308,9 @@ export interface ListNamedShadowsForThingRequest {
   pageSize?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListNamedShadowsForThingResponse {
   /**
    * <p>The list of shadows for the specified thing.</p>
@@ -296,6 +328,9 @@ export interface ListNamedShadowsForThingResponse {
   timestamp?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListRetainedMessagesRequest {
   /**
    * <p>To retrieve the next set of results, the <code>nextToken</code>
@@ -311,6 +346,7 @@ export interface ListRetainedMessagesRequest {
 }
 
 /**
+ * @public
  * <p>Information about a single retained message.</p>
  */
 export interface RetainedMessageSummary {
@@ -335,6 +371,9 @@ export interface RetainedMessageSummary {
   lastModifiedTime?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListRetainedMessagesResponse {
   /**
    * <p>A summary list the account's retained messages. The information returned doesn't include
@@ -348,12 +387,22 @@ export interface ListRetainedMessagesResponse {
   nextToken?: string;
 }
 
-export enum PayloadFormatIndicator {
-  UNSPECIFIED_BYTES = "UNSPECIFIED_BYTES",
-  UTF8_DATA = "UTF8_DATA",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PayloadFormatIndicator = {
+  UNSPECIFIED_BYTES: "UNSPECIFIED_BYTES",
+  UTF8_DATA: "UTF8_DATA",
+} as const;
 
 /**
+ * @public
+ */
+export type PayloadFormatIndicator = (typeof PayloadFormatIndicator)[keyof typeof PayloadFormatIndicator];
+
+/**
+ * @public
  * <p>The input for the Publish operation.</p>
  */
 export interface PublishRequest {
@@ -390,8 +439,8 @@ export interface PublishRequest {
    *         <code>userProperties</code> is an HTTP header value in the API.</p>
    *          <p>The following example <code>userProperties</code> parameter is a JSON string which
    *       represents two User Properties. Note that it needs to be base64-encoded:</p>
-   *         <p>
-   *             <code>[{"deviceName": "alpha"}, {"deviceCnt": "45"}]</code>
+   *          <p>
+   *             <code>[\{"deviceName": "alpha"\}, \{"deviceCnt": "45"\}]</code>
    *          </p>
    */
   userProperties?: __LazyJsonString | string;
@@ -431,6 +480,7 @@ export interface PublishRequest {
 }
 
 /**
+ * @public
  * <p>The payload exceeds the maximum size allowed.</p>
  */
 export class RequestEntityTooLargeException extends __BaseException {
@@ -450,6 +500,7 @@ export class RequestEntityTooLargeException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input for the UpdateThingShadow operation.</p>
  */
 export interface UpdateThingShadowRequest {
@@ -470,6 +521,7 @@ export interface UpdateThingShadowRequest {
 }
 
 /**
+ * @public
  * <p>The output from the UpdateThingShadow operation.</p>
  */
 export interface UpdateThingShadowResponse {
@@ -478,101 +530,3 @@ export interface UpdateThingShadowResponse {
    */
   payload?: Uint8Array;
 }
-
-/**
- * @internal
- */
-export const DeleteThingShadowRequestFilterSensitiveLog = (obj: DeleteThingShadowRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteThingShadowResponseFilterSensitiveLog = (obj: DeleteThingShadowResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRetainedMessageRequestFilterSensitiveLog = (obj: GetRetainedMessageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRetainedMessageResponseFilterSensitiveLog = (obj: GetRetainedMessageResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetThingShadowRequestFilterSensitiveLog = (obj: GetThingShadowRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetThingShadowResponseFilterSensitiveLog = (obj: GetThingShadowResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNamedShadowsForThingRequestFilterSensitiveLog = (obj: ListNamedShadowsForThingRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNamedShadowsForThingResponseFilterSensitiveLog = (obj: ListNamedShadowsForThingResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRetainedMessagesRequestFilterSensitiveLog = (obj: ListRetainedMessagesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RetainedMessageSummaryFilterSensitiveLog = (obj: RetainedMessageSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRetainedMessagesResponseFilterSensitiveLog = (obj: ListRetainedMessagesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PublishRequestFilterSensitiveLog = (obj: PublishRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateThingShadowRequestFilterSensitiveLog = (obj: UpdateThingShadowRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateThingShadowResponseFilterSensitiveLog = (obj: UpdateThingShadowResponse): any => ({
-  ...obj,
-});

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetFindingsRequest,
-  GetFindingsRequestFilterSensitiveLog,
-  GetFindingsResponse,
-  GetFindingsResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1GetFindingsCommand,
-  serializeAws_restJson1GetFindingsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetFindingsRequest, GetFindingsResponse } from "../models/models_2";
+import { de_GetFindingsCommand, se_GetFindingsCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetFindingsCommand}.
+ */
 export interface GetFindingsCommandInput extends GetFindingsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetFindingsCommand}.
+ */
 export interface GetFindingsCommandOutput extends GetFindingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of findings that match the specified criteria.</p>
  *          <p>If finding aggregation is enabled, then when you call <code>GetFindings</code> from the aggregation Region, the results include all of the matching findings from both the aggregation Region and the linked Regions.</p>
  * @example
@@ -37,13 +40,291 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * import { SecurityHubClient, GetFindingsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, GetFindingsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = { // GetFindingsRequest
+ *   Filters: { // AwsSecurityFindingFilters
+ *     ProductArn: [ // StringFilterList
+ *       { // StringFilter
+ *         Value: "STRING_VALUE",
+ *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
+ *       },
+ *     ],
+ *     AwsAccountId: [
+ *       {
+ *         Value: "STRING_VALUE",
+ *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
+ *       },
+ *     ],
+ *     Id: [
+ *       {
+ *         Value: "STRING_VALUE",
+ *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
+ *       },
+ *     ],
+ *     GeneratorId: [
+ *       {
+ *         Value: "STRING_VALUE",
+ *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
+ *       },
+ *     ],
+ *     Region: [
+ *       {
+ *         Value: "STRING_VALUE",
+ *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
+ *       },
+ *     ],
+ *     Type: "<StringFilterList>",
+ *     FirstObservedAt: [ // DateFilterList
+ *       { // DateFilter
+ *         Start: "STRING_VALUE",
+ *         End: "STRING_VALUE",
+ *         DateRange: { // DateRange
+ *           Value: Number("int"),
+ *           Unit: "DAYS",
+ *         },
+ *       },
+ *     ],
+ *     LastObservedAt: [
+ *       {
+ *         Start: "STRING_VALUE",
+ *         End: "STRING_VALUE",
+ *         DateRange: {
+ *           Value: Number("int"),
+ *           Unit: "DAYS",
+ *         },
+ *       },
+ *     ],
+ *     CreatedAt: [
+ *       {
+ *         Start: "STRING_VALUE",
+ *         End: "STRING_VALUE",
+ *         DateRange: {
+ *           Value: Number("int"),
+ *           Unit: "DAYS",
+ *         },
+ *       },
+ *     ],
+ *     UpdatedAt: [
+ *       {
+ *         Start: "STRING_VALUE",
+ *         End: "STRING_VALUE",
+ *         DateRange: {
+ *           Value: Number("int"),
+ *           Unit: "DAYS",
+ *         },
+ *       },
+ *     ],
+ *     SeverityProduct: [ // NumberFilterList
+ *       { // NumberFilter
+ *         Gte: Number("double"),
+ *         Lte: Number("double"),
+ *         Eq: Number("double"),
+ *       },
+ *     ],
+ *     SeverityNormalized: [
+ *       {
+ *         Gte: Number("double"),
+ *         Lte: Number("double"),
+ *         Eq: Number("double"),
+ *       },
+ *     ],
+ *     SeverityLabel: "<StringFilterList>",
+ *     Confidence: [
+ *       {
+ *         Gte: Number("double"),
+ *         Lte: Number("double"),
+ *         Eq: Number("double"),
+ *       },
+ *     ],
+ *     Criticality: [
+ *       {
+ *         Gte: Number("double"),
+ *         Lte: Number("double"),
+ *         Eq: Number("double"),
+ *       },
+ *     ],
+ *     Title: "<StringFilterList>",
+ *     Description: "<StringFilterList>",
+ *     RecommendationText: "<StringFilterList>",
+ *     SourceUrl: "<StringFilterList>",
+ *     ProductFields: [ // MapFilterList
+ *       { // MapFilter
+ *         Key: "STRING_VALUE",
+ *         Value: "STRING_VALUE",
+ *         Comparison: "EQUALS" || "NOT_EQUALS",
+ *       },
+ *     ],
+ *     ProductName: "<StringFilterList>",
+ *     CompanyName: "<StringFilterList>",
+ *     UserDefinedFields: [
+ *       {
+ *         Key: "STRING_VALUE",
+ *         Value: "STRING_VALUE",
+ *         Comparison: "EQUALS" || "NOT_EQUALS",
+ *       },
+ *     ],
+ *     MalwareName: "<StringFilterList>",
+ *     MalwareType: "<StringFilterList>",
+ *     MalwarePath: "<StringFilterList>",
+ *     MalwareState: "<StringFilterList>",
+ *     NetworkDirection: "<StringFilterList>",
+ *     NetworkProtocol: "<StringFilterList>",
+ *     NetworkSourceIpV4: [ // IpFilterList
+ *       { // IpFilter
+ *         Cidr: "STRING_VALUE",
+ *       },
+ *     ],
+ *     NetworkSourceIpV6: [
+ *       {
+ *         Cidr: "STRING_VALUE",
+ *       },
+ *     ],
+ *     NetworkSourcePort: [
+ *       {
+ *         Gte: Number("double"),
+ *         Lte: Number("double"),
+ *         Eq: Number("double"),
+ *       },
+ *     ],
+ *     NetworkSourceDomain: "<StringFilterList>",
+ *     NetworkSourceMac: "<StringFilterList>",
+ *     NetworkDestinationIpV4: [
+ *       {
+ *         Cidr: "STRING_VALUE",
+ *       },
+ *     ],
+ *     NetworkDestinationIpV6: [
+ *       {
+ *         Cidr: "STRING_VALUE",
+ *       },
+ *     ],
+ *     NetworkDestinationPort: "<NumberFilterList>",
+ *     NetworkDestinationDomain: "<StringFilterList>",
+ *     ProcessName: "<StringFilterList>",
+ *     ProcessPath: "<StringFilterList>",
+ *     ProcessPid: "<NumberFilterList>",
+ *     ProcessParentPid: "<NumberFilterList>",
+ *     ProcessLaunchedAt: [
+ *       {
+ *         Start: "STRING_VALUE",
+ *         End: "STRING_VALUE",
+ *         DateRange: {
+ *           Value: Number("int"),
+ *           Unit: "DAYS",
+ *         },
+ *       },
+ *     ],
+ *     ProcessTerminatedAt: "<DateFilterList>",
+ *     ThreatIntelIndicatorType: "<StringFilterList>",
+ *     ThreatIntelIndicatorValue: "<StringFilterList>",
+ *     ThreatIntelIndicatorCategory: "<StringFilterList>",
+ *     ThreatIntelIndicatorLastObservedAt: "<DateFilterList>",
+ *     ThreatIntelIndicatorSource: "<StringFilterList>",
+ *     ThreatIntelIndicatorSourceUrl: "<StringFilterList>",
+ *     ResourceType: "<StringFilterList>",
+ *     ResourceId: "<StringFilterList>",
+ *     ResourcePartition: "<StringFilterList>",
+ *     ResourceRegion: "<StringFilterList>",
+ *     ResourceTags: [
+ *       {
+ *         Key: "STRING_VALUE",
+ *         Value: "STRING_VALUE",
+ *         Comparison: "EQUALS" || "NOT_EQUALS",
+ *       },
+ *     ],
+ *     ResourceAwsEc2InstanceType: "<StringFilterList>",
+ *     ResourceAwsEc2InstanceImageId: "<StringFilterList>",
+ *     ResourceAwsEc2InstanceIpV4Addresses: [
+ *       {
+ *         Cidr: "STRING_VALUE",
+ *       },
+ *     ],
+ *     ResourceAwsEc2InstanceIpV6Addresses: "<IpFilterList>",
+ *     ResourceAwsEc2InstanceKeyName: "<StringFilterList>",
+ *     ResourceAwsEc2InstanceIamInstanceProfileArn: "<StringFilterList>",
+ *     ResourceAwsEc2InstanceVpcId: "<StringFilterList>",
+ *     ResourceAwsEc2InstanceSubnetId: "<StringFilterList>",
+ *     ResourceAwsEc2InstanceLaunchedAt: "<DateFilterList>",
+ *     ResourceAwsS3BucketOwnerId: "<StringFilterList>",
+ *     ResourceAwsS3BucketOwnerName: "<StringFilterList>",
+ *     ResourceAwsIamAccessKeyUserName: "<StringFilterList>",
+ *     ResourceAwsIamAccessKeyPrincipalName: "<StringFilterList>",
+ *     ResourceAwsIamAccessKeyStatus: "<StringFilterList>",
+ *     ResourceAwsIamAccessKeyCreatedAt: "<DateFilterList>",
+ *     ResourceAwsIamUserUserName: "<StringFilterList>",
+ *     ResourceContainerName: "<StringFilterList>",
+ *     ResourceContainerImageId: "<StringFilterList>",
+ *     ResourceContainerImageName: "<StringFilterList>",
+ *     ResourceContainerLaunchedAt: "<DateFilterList>",
+ *     ResourceDetailsOther: [
+ *       {
+ *         Key: "STRING_VALUE",
+ *         Value: "STRING_VALUE",
+ *         Comparison: "EQUALS" || "NOT_EQUALS",
+ *       },
+ *     ],
+ *     ComplianceStatus: "<StringFilterList>",
+ *     VerificationState: "<StringFilterList>",
+ *     WorkflowState: "<StringFilterList>",
+ *     WorkflowStatus: "<StringFilterList>",
+ *     RecordState: "<StringFilterList>",
+ *     RelatedFindingsProductArn: "<StringFilterList>",
+ *     RelatedFindingsId: "<StringFilterList>",
+ *     NoteText: "<StringFilterList>",
+ *     NoteUpdatedAt: "<DateFilterList>",
+ *     NoteUpdatedBy: "<StringFilterList>",
+ *     Keyword: [ // KeywordFilterList
+ *       { // KeywordFilter
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *     FindingProviderFieldsConfidence: "<NumberFilterList>",
+ *     FindingProviderFieldsCriticality: "<NumberFilterList>",
+ *     FindingProviderFieldsRelatedFindingsId: "<StringFilterList>",
+ *     FindingProviderFieldsRelatedFindingsProductArn: "<StringFilterList>",
+ *     FindingProviderFieldsSeverityLabel: "<StringFilterList>",
+ *     FindingProviderFieldsSeverityOriginal: "<StringFilterList>",
+ *     FindingProviderFieldsTypes: "<StringFilterList>",
+ *     Sample: [ // BooleanFilterList
+ *       { // BooleanFilter
+ *         Value: true || false,
+ *       },
+ *     ],
+ *     ComplianceSecurityControlId: "<StringFilterList>",
+ *     ComplianceAssociatedStandardsId: "<StringFilterList>",
+ *   },
+ *   SortCriteria: [ // SortCriteria
+ *     { // SortCriterion
+ *       Field: "STRING_VALUE",
+ *       SortOrder: "asc" || "desc",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new GetFindingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFindingsCommandInput - {@link GetFindingsCommandInput}
+ * @returns {@link GetFindingsCommandOutput}
  * @see {@link GetFindingsCommandInput} for command's `input` shape.
  * @see {@link GetFindingsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>Internal server error.</p>
+ *
+ * @throws {@link InvalidAccessException} (client fault)
+ *  <p>The account doesn't have permission to perform this action.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because you supplied an invalid or out-of-range value for an
+ *          input parameter.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
+ *          account or throttling limits. The error code describes the limit exceeded.</p>
+ *
  *
  */
 export class GetFindingsCommand extends $Command<
@@ -63,6 +344,9 @@ export class GetFindingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFindingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +373,8 @@ export class GetFindingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFindingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetFindingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +384,18 @@ export class GetFindingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFindingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetFindingsCommand(input, context);
+    return se_GetFindingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFindingsCommandOutput> {
-    return deserializeAws_restJson1GetFindingsCommand(output, context);
+    return de_GetFindingsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,12 +13,67 @@ import {
   StatusUpdateInterval,
 } from "./models_1";
 
-export enum InputPolicy {
-  ALLOWED = "ALLOWED",
-  DISALLOWED = "DISALLOWED",
+/**
+ * @public
+ */
+export interface GetJobRequest {
+  /**
+   * the job ID of the job.
+   */
+  Id: string | undefined;
 }
 
 /**
+ * @public
+ */
+export interface GetJobResponse {
+  /**
+   * Each job converts an input file into an output file or files. For more information, see the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+   */
+  Job?: Job;
+}
+
+/**
+ * @public
+ */
+export interface GetJobTemplateRequest {
+  /**
+   * The name of the job template.
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetJobTemplateResponse {
+  /**
+   * A job template is a pre-made set of encoding instructions that you can use to quickly create a job.
+   */
+  JobTemplate?: JobTemplate;
+}
+
+/**
+ * @public
+ */
+export interface GetPolicyRequest {}
+
+/**
+ * @public
+ * @enum
+ */
+export const InputPolicy = {
+  ALLOWED: "ALLOWED",
+  DISALLOWED: "DISALLOWED",
+} as const;
+
+/**
+ * @public
+ */
+export type InputPolicy = (typeof InputPolicy)[keyof typeof InputPolicy];
+
+/**
+ * @public
  * A policy configures behavior that you allow or disallow for your account. For information about MediaConvert policies, see the user guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
  */
 export interface Policy {
@@ -38,6 +93,9 @@ export interface Policy {
   S3Inputs?: InputPolicy | string;
 }
 
+/**
+ * @public
+ */
 export interface GetPolicyResponse {
   /**
    * A policy configures behavior that you allow or disallow for your account. For information about MediaConvert policies, see the user guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
@@ -45,6 +103,9 @@ export interface GetPolicyResponse {
   Policy?: Policy;
 }
 
+/**
+ * @public
+ */
 export interface GetPresetRequest {
   /**
    * The name of the preset.
@@ -52,6 +113,9 @@ export interface GetPresetRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetPresetResponse {
   /**
    * A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
@@ -59,6 +123,9 @@ export interface GetPresetResponse {
   Preset?: Preset;
 }
 
+/**
+ * @public
+ */
 export interface GetQueueRequest {
   /**
    * The name of the queue that you want information about.
@@ -66,6 +133,9 @@ export interface GetQueueRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetQueueResponse {
   /**
    * You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don't specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html.
@@ -73,17 +143,38 @@ export interface GetQueueResponse {
   Queue?: Queue;
 }
 
-export enum JobTemplateListBy {
-  CREATION_DATE = "CREATION_DATE",
-  NAME = "NAME",
-  SYSTEM = "SYSTEM",
-}
+/**
+ * @public
+ * @enum
+ */
+export const JobTemplateListBy = {
+  CREATION_DATE: "CREATION_DATE",
+  NAME: "NAME",
+  SYSTEM: "SYSTEM",
+} as const;
 
-export enum Order {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+/**
+ * @public
+ */
+export type JobTemplateListBy = (typeof JobTemplateListBy)[keyof typeof JobTemplateListBy];
 
+/**
+ * @public
+ * @enum
+ */
+export const Order = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type Order = (typeof Order)[keyof typeof Order];
+
+/**
+ * @public
+ */
 export interface ListJobsRequest {
   /**
    * Optional. Number of jobs, up to twenty, that will be returned at one time.
@@ -111,6 +202,9 @@ export interface ListJobsRequest {
   Status?: JobStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListJobsResponse {
   /**
    * List of jobs
@@ -123,6 +217,9 @@ export interface ListJobsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListJobTemplatesRequest {
   /**
    * Optionally, specify a job template category to limit responses to only job templates from that category.
@@ -150,6 +247,9 @@ export interface ListJobTemplatesRequest {
   Order?: Order | string;
 }
 
+/**
+ * @public
+ */
 export interface ListJobTemplatesResponse {
   /**
    * List of Job templates.
@@ -162,12 +262,24 @@ export interface ListJobTemplatesResponse {
   NextToken?: string;
 }
 
-export enum PresetListBy {
-  CREATION_DATE = "CREATION_DATE",
-  NAME = "NAME",
-  SYSTEM = "SYSTEM",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PresetListBy = {
+  CREATION_DATE: "CREATION_DATE",
+  NAME: "NAME",
+  SYSTEM: "SYSTEM",
+} as const;
 
+/**
+ * @public
+ */
+export type PresetListBy = (typeof PresetListBy)[keyof typeof PresetListBy];
+
+/**
+ * @public
+ */
 export interface ListPresetsRequest {
   /**
    * Optionally, specify a preset category to limit responses to only presets from that category.
@@ -195,6 +307,9 @@ export interface ListPresetsRequest {
   Order?: Order | string;
 }
 
+/**
+ * @public
+ */
 export interface ListPresetsResponse {
   /**
    * Use this string to request the next batch of presets.
@@ -207,11 +322,23 @@ export interface ListPresetsResponse {
   Presets?: Preset[];
 }
 
-export enum QueueListBy {
-  CREATION_DATE = "CREATION_DATE",
-  NAME = "NAME",
-}
+/**
+ * @public
+ * @enum
+ */
+export const QueueListBy = {
+  CREATION_DATE: "CREATION_DATE",
+  NAME: "NAME",
+} as const;
 
+/**
+ * @public
+ */
+export type QueueListBy = (typeof QueueListBy)[keyof typeof QueueListBy];
+
+/**
+ * @public
+ */
 export interface ListQueuesRequest {
   /**
    * Optional. When you request a list of queues, you can choose to list them alphabetically by NAME or chronologically by CREATION_DATE. If you don't specify, the service will list them by creation date.
@@ -234,6 +361,9 @@ export interface ListQueuesRequest {
   Order?: Order | string;
 }
 
+/**
+ * @public
+ */
 export interface ListQueuesResponse {
   /**
    * Use this string to request the next batch of queues.
@@ -246,6 +376,9 @@ export interface ListQueuesResponse {
   Queues?: Queue[];
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * The Amazon Resource Name (ARN) of the resource that you want to list tags for. To get the ARN, send a GET request with the resource name.
@@ -254,6 +387,7 @@ export interface ListTagsForResourceRequest {
 }
 
 /**
+ * @public
  * The Amazon Resource Name (ARN) and tags for an AWS Elemental MediaConvert resource.
  */
 export interface ResourceTags {
@@ -268,6 +402,9 @@ export interface ResourceTags {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * The Amazon Resource Name (ARN) and tags for an AWS Elemental MediaConvert resource.
@@ -275,6 +412,9 @@ export interface ListTagsForResourceResponse {
   ResourceTags?: ResourceTags;
 }
 
+/**
+ * @public
+ */
 export interface PutPolicyRequest {
   /**
    * A policy configures behavior that you allow or disallow for your account. For information about MediaConvert policies, see the user guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
@@ -282,6 +422,9 @@ export interface PutPolicyRequest {
   Policy: Policy | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutPolicyResponse {
   /**
    * A policy configures behavior that you allow or disallow for your account. For information about MediaConvert policies, see the user guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
@@ -289,6 +432,9 @@ export interface PutPolicyResponse {
   Policy?: Policy;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * The Amazon Resource Name (ARN) of the resource that you want to tag. To get the ARN, send a GET request with the resource name.
@@ -301,8 +447,14 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * The Amazon Resource Name (ARN) of the resource that you want to remove tags from. To get the ARN, send a GET request with the resource name.
@@ -315,8 +467,14 @@ export interface UntagResourceRequest {
   TagKeys?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateJobTemplateRequest {
   /**
    * Accelerated transcoding can significantly speed up jobs with long, visually complex content. Outputs that use this feature incur pro-tier pricing. For information about feature limitations, see the AWS Elemental MediaConvert User Guide.
@@ -364,6 +522,9 @@ export interface UpdateJobTemplateRequest {
   StatusUpdateInterval?: StatusUpdateInterval | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateJobTemplateResponse {
   /**
    * A job template is a pre-made set of encoding instructions that you can use to quickly create a job.
@@ -371,6 +532,9 @@ export interface UpdateJobTemplateResponse {
   JobTemplate?: JobTemplate;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePresetRequest {
   /**
    * The new category for the preset, if you are changing it.
@@ -393,6 +557,9 @@ export interface UpdatePresetRequest {
   Settings?: PresetSettings;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePresetResponse {
   /**
    * A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
@@ -400,6 +567,9 @@ export interface UpdatePresetResponse {
   Preset?: Preset;
 }
 
+/**
+ * @public
+ */
 export interface UpdateQueueRequest {
   /**
    * The new description for the queue, if you are changing it.
@@ -422,212 +592,12 @@ export interface UpdateQueueRequest {
   Status?: QueueStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateQueueResponse {
   /**
    * You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don't specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html.
    */
   Queue?: Queue;
 }
-
-/**
- * @internal
- */
-export const PolicyFilterSensitiveLog = (obj: Policy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPolicyResponseFilterSensitiveLog = (obj: GetPolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPresetRequestFilterSensitiveLog = (obj: GetPresetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPresetResponseFilterSensitiveLog = (obj: GetPresetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetQueueRequestFilterSensitiveLog = (obj: GetQueueRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetQueueResponseFilterSensitiveLog = (obj: GetQueueResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListJobsRequestFilterSensitiveLog = (obj: ListJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListJobsResponseFilterSensitiveLog = (obj: ListJobsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListJobTemplatesRequestFilterSensitiveLog = (obj: ListJobTemplatesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListJobTemplatesResponseFilterSensitiveLog = (obj: ListJobTemplatesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPresetsRequestFilterSensitiveLog = (obj: ListPresetsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPresetsResponseFilterSensitiveLog = (obj: ListPresetsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListQueuesRequestFilterSensitiveLog = (obj: ListQueuesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListQueuesResponseFilterSensitiveLog = (obj: ListQueuesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceTagsFilterSensitiveLog = (obj: ResourceTags): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutPolicyRequestFilterSensitiveLog = (obj: PutPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutPolicyResponseFilterSensitiveLog = (obj: PutPolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateJobTemplateRequestFilterSensitiveLog = (obj: UpdateJobTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateJobTemplateResponseFilterSensitiveLog = (obj: UpdateJobTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePresetRequestFilterSensitiveLog = (obj: UpdatePresetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePresetResponseFilterSensitiveLog = (obj: UpdatePresetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateQueueRequestFilterSensitiveLog = (obj: UpdateQueueRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateQueueResponseFilterSensitiveLog = (obj: UpdateQueueResponse): any => ({
-  ...obj,
-});

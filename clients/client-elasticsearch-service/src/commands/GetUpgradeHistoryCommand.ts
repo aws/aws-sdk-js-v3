@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
-import {
-  GetUpgradeHistoryRequest,
-  GetUpgradeHistoryRequestFilterSensitiveLog,
-  GetUpgradeHistoryResponse,
-  GetUpgradeHistoryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetUpgradeHistoryCommand,
-  serializeAws_restJson1GetUpgradeHistoryCommand,
-} from "../protocols/Aws_restJson1";
+import { GetUpgradeHistoryRequest, GetUpgradeHistoryResponse } from "../models/models_0";
+import { de_GetUpgradeHistoryCommand, se_GetUpgradeHistoryCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetUpgradeHistoryCommand}.
+ */
 export interface GetUpgradeHistoryCommandInput extends GetUpgradeHistoryRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetUpgradeHistoryCommand}.
+ */
 export interface GetUpgradeHistoryCommandOutput extends GetUpgradeHistoryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the complete history of the last 10 upgrades that were performed on the domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,36 @@ export interface GetUpgradeHistoryCommandOutput extends GetUpgradeHistoryRespons
  * import { ElasticsearchServiceClient, GetUpgradeHistoryCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, GetUpgradeHistoryCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
+ * const input = { // GetUpgradeHistoryRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetUpgradeHistoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetUpgradeHistoryCommandInput - {@link GetUpgradeHistoryCommandInput}
+ * @returns {@link GetUpgradeHistoryCommandOutput}
  * @see {@link GetUpgradeHistoryCommandInput} for command's `input` shape.
  * @see {@link GetUpgradeHistoryCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
+ *
+ * @throws {@link BaseException} (client fault)
+ *  <p>An error occurred while processing the request.</p>
+ *
+ * @throws {@link DisabledOperationException} (client fault)
+ *  <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+ *
  *
  */
 export class GetUpgradeHistoryCommand extends $Command<
@@ -66,6 +92,9 @@ export class GetUpgradeHistoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetUpgradeHistoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +123,8 @@ export class GetUpgradeHistoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetUpgradeHistoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetUpgradeHistoryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +134,18 @@ export class GetUpgradeHistoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetUpgradeHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetUpgradeHistoryCommand(input, context);
+    return se_GetUpgradeHistoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUpgradeHistoryCommandOutput> {
-    return deserializeAws_restJson1GetUpgradeHistoryCommand(output, context);
+    return de_GetUpgradeHistoryCommand(output, context);
   }
 
   // Start section: command_body_extra

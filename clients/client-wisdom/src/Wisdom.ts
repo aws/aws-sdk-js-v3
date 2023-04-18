@@ -147,12 +147,15 @@ import {
 import { WisdomClient } from "./WisdomClient";
 
 /**
- * <p>Amazon Connect Wisdom delivers agents the information they need to solve customer issues as they're actively
- *         speaking with customers. Agents can search across connected repositories from within their agent desktop
- *         to find answers quickly. Use the Amazon Connect Wisdom APIs to create an assistant and a knowledge base, for example, or manage content by uploading custom files.</p>
+ * @public
+ * <p>Amazon Connect Wisdom delivers agents the information they need to solve customer issues as they're
+ *       actively speaking with customers. Agents can search across connected repositories from within
+ *       their agent desktop to find answers quickly. Use Amazon Connect Wisdom to create an assistant and a
+ *       knowledge base, for example, or manage content by uploading custom files.</p>
  */
 export class Wisdom extends WisdomClient {
   /**
+   * @public
    * <p>Creates an Amazon Connect Wisdom assistant.</p>
    */
   public createAssistant(
@@ -185,6 +188,7 @@ export class Wisdom extends WisdomClient {
   }
 
   /**
+   * @public
    * <p>Creates an association between an Amazon Connect Wisdom assistant and another resource. Currently, the
    *       only supported association is with a knowledge base. An assistant can have only a single
    *       association.</p>
@@ -219,6 +223,7 @@ export class Wisdom extends WisdomClient {
   }
 
   /**
+   * @public
    * <p>Creates Wisdom content. Before to calling this API, use <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html">StartContentUpload</a> to
    *       upload an asset.</p>
    */
@@ -252,12 +257,12 @@ export class Wisdom extends WisdomClient {
   }
 
   /**
+   * @public
    * <p>Creates a knowledge base.</p>
    *          <note>
    *             <p>When using this API, you cannot reuse <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/Welcome.html">Amazon AppIntegrations</a>
    *         DataIntegrations with external knowledge bases such as Salesforce and ServiceNow. If you do,
    *         you'll get an <code>InvalidRequestException</code> error. </p>
-   *
    *             <p>For example, you're programmatically managing your external knowledge base, and you want
    *         to add or remove one of the fields that is being ingested from Salesforce. Do the
    *         following:</p>
@@ -308,9 +313,10 @@ export class Wisdom extends WisdomClient {
   }
 
   /**
+   * @public
    * <p>Creates a session. A session is a contextual container used for generating
-   *       recommendations. Amazon Connect creates a new Wisdom session for each contact on which Wisdom is
-   *       enabled.</p>
+   *       recommendations. Amazon Connect creates a new Wisdom session for each contact on which
+   *       Wisdom is enabled.</p>
    */
   public createSession(
     args: CreateSessionCommandInput,
@@ -342,6 +348,7 @@ export class Wisdom extends WisdomClient {
   }
 
   /**
+   * @public
    * <p>Deletes an assistant.</p>
    */
   public deleteAssistant(
@@ -374,6 +381,7 @@ export class Wisdom extends WisdomClient {
   }
 
   /**
+   * @public
    * <p>Deletes an assistant association.</p>
    */
   public deleteAssistantAssociation(
@@ -406,6 +414,7 @@ export class Wisdom extends WisdomClient {
   }
 
   /**
+   * @public
    * <p>Deletes the content.</p>
    */
   public deleteContent(
@@ -438,12 +447,14 @@ export class Wisdom extends WisdomClient {
   }
 
   /**
+   * @public
    * <p>Deletes the knowledge base.</p>
    *          <note>
    *             <p>When you use this API to delete an external knowledge base such as Salesforce or
-   *         ServiceNow, you must also delete the <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/Welcome.html">Amazon AppIntegrations</a> DataIntegration.
-   *         This is because you can't reuse the DataIntegration after it's been associated with an
-   *         external knowledge base. However, you can delete and recreate it. See <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_DeleteDataIntegration.html">DeleteDataIntegration</a> and <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegration.html">CreateDataIntegration</a> in the <i>Amazon AppIntegrations API
+   *         ServiceNow, you must also delete the <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/Welcome.html">Amazon AppIntegrations</a>
+   *         DataIntegration. This is because you can't reuse the DataIntegration after it's been
+   *         associated with an external knowledge base. However, you can delete and recreate it. See
+   *           <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_DeleteDataIntegration.html">DeleteDataIntegration</a> and <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegration.html">CreateDataIntegration</a> in the <i>Amazon AppIntegrations API
    *         Reference</i>.</p>
    *          </note>
    */
@@ -477,6 +488,7 @@ export class Wisdom extends WisdomClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about an assistant.</p>
    */
   public getAssistant(
@@ -506,6 +518,7 @@ export class Wisdom extends WisdomClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about an assistant association.</p>
    */
   public getAssistantAssociation(
@@ -538,6 +551,7 @@ export class Wisdom extends WisdomClient {
   }
 
   /**
+   * @public
    * <p>Retrieves content, including a pre-signed URL to download the content.</p>
    */
   public getContent(args: GetContentCommandInput, options?: __HttpHandlerOptions): Promise<GetContentCommandOutput>;
@@ -564,6 +578,7 @@ export class Wisdom extends WisdomClient {
   }
 
   /**
+   * @public
    * <p>Retrieves summary information about the content.</p>
    */
   public getContentSummary(
@@ -596,6 +611,7 @@ export class Wisdom extends WisdomClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the knowledge base.</p>
    */
   public getKnowledgeBase(
@@ -628,6 +644,7 @@ export class Wisdom extends WisdomClient {
   }
 
   /**
+   * @public
    * <p>Retrieves recommendations for the specified session. To avoid retrieving the same
    *       recommendations in subsequent calls, use <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_NotifyRecommendationsReceived.html">NotifyRecommendationsReceived</a>. This API supports long-polling behavior with the
    *         <code>waitTimeSeconds</code> parameter. Short poll is the default behavior and only returns
@@ -663,6 +680,7 @@ export class Wisdom extends WisdomClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information for a specified session.</p>
    */
   public getSession(args: GetSessionCommandInput, options?: __HttpHandlerOptions): Promise<GetSessionCommandOutput>;
@@ -689,6 +707,7 @@ export class Wisdom extends WisdomClient {
   }
 
   /**
+   * @public
    * <p>Lists information about assistant associations.</p>
    */
   public listAssistantAssociations(
@@ -721,6 +740,7 @@ export class Wisdom extends WisdomClient {
   }
 
   /**
+   * @public
    * <p>Lists information about assistants.</p>
    */
   public listAssistants(
@@ -753,6 +773,7 @@ export class Wisdom extends WisdomClient {
   }
 
   /**
+   * @public
    * <p>Lists the content.</p>
    */
   public listContents(
@@ -782,6 +803,7 @@ export class Wisdom extends WisdomClient {
   }
 
   /**
+   * @public
    * <p>Lists the knowledge bases.</p>
    */
   public listKnowledgeBases(
@@ -814,6 +836,7 @@ export class Wisdom extends WisdomClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags for the specified resource.</p>
    */
   public listTagsForResource(
@@ -846,6 +869,7 @@ export class Wisdom extends WisdomClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified recommendations from the specified assistant's queue of newly
    *       available recommendations. You can use this API in conjunction with <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetRecommendations.html">GetRecommendations</a> and a <code>waitTimeSeconds</code> input for long-polling
    *       behavior and avoiding duplicate recommendations.</p>
@@ -880,6 +904,7 @@ export class Wisdom extends WisdomClient {
   }
 
   /**
+   * @public
    * <p>Performs a manual search against the specified assistant. To retrieve recommendations for
    *       an assistant, use <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetRecommendations.html">GetRecommendations</a>.
    *     </p>
@@ -914,6 +939,7 @@ export class Wisdom extends WisdomClient {
   }
 
   /**
+   * @public
    * <p>Removes a URI template from a knowledge base.</p>
    */
   public removeKnowledgeBaseTemplateUri(
@@ -946,6 +972,7 @@ export class Wisdom extends WisdomClient {
   }
 
   /**
+   * @public
    * <p>Searches for content in a specified knowledge base. Can be used to get a specific content
    *       resource by its name.</p>
    */
@@ -979,6 +1006,7 @@ export class Wisdom extends WisdomClient {
   }
 
   /**
+   * @public
    * <p>Searches for sessions.</p>
    */
   public searchSessions(
@@ -1011,6 +1039,7 @@ export class Wisdom extends WisdomClient {
   }
 
   /**
+   * @public
    * <p>Get a URL to upload content to a knowledge base. To upload content, first make a PUT
    *       request to the returned URL with your file, making sure to include the required headers. Then
    *       use <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_CreateContent.html">CreateContent</a> to finalize the content creation process or <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_UpdateContent.html">UpdateContent</a> to modify an existing resource. You can only upload content to a
@@ -1046,6 +1075,7 @@ export class Wisdom extends WisdomClient {
   }
 
   /**
+   * @public
    * <p>Adds the specified tags to the specified resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -1072,6 +1102,7 @@ export class Wisdom extends WisdomClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified tags from the specified resource.</p>
    */
   public untagResource(
@@ -1104,6 +1135,7 @@ export class Wisdom extends WisdomClient {
   }
 
   /**
+   * @public
    * <p>Updates information about the content.</p>
    */
   public updateContent(
@@ -1136,11 +1168,12 @@ export class Wisdom extends WisdomClient {
   }
 
   /**
+   * @public
    * <p>Updates the template URI of a knowledge base. This is only supported for knowledge bases
-   *       of type EXTERNAL. Include a single variable in <code>${variable}</code> format; this
+   *       of type EXTERNAL. Include a single variable in <code>$\{variable\}</code> format; this
    *       interpolated by Wisdom using ingested content. For example, if you ingest a Salesforce
    *       article, it has an <code>Id</code> value, and you can set the template URI to
-   *         <code>https://myInstanceName.lightning.force.com/lightning/r/Knowledge__kav/*${Id}*\/view</code>.
+   *         <code>https://myInstanceName.lightning.force.com/lightning/r/Knowledge__kav/*$\{Id\}*\/view</code>.
    *     </p>
    */
   public updateKnowledgeBaseTemplateUri(

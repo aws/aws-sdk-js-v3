@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RegisterActivityTypeInput, RegisterActivityTypeInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_0RegisterActivityTypeCommand,
-  serializeAws_json1_0RegisterActivityTypeCommand,
-} from "../protocols/Aws_json1_0";
+import { RegisterActivityTypeInput } from "../models/models_0";
+import { de_RegisterActivityTypeCommand, se_RegisterActivityTypeCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
+/**
+ * @public
+ *
+ * The input for {@link RegisterActivityTypeCommand}.
+ */
 export interface RegisterActivityTypeCommandInput extends RegisterActivityTypeInput {}
+/**
+ * @public
+ *
+ * The output of {@link RegisterActivityTypeCommand}.
+ */
 export interface RegisterActivityTypeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers a new <i>activity type</i> along with its configuration
  *       settings in the specified domain.</p>
  *          <important>
@@ -77,13 +85,42 @@ export interface RegisterActivityTypeCommandOutput extends __MetadataBearer {}
  * import { SWFClient, RegisterActivityTypeCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, RegisterActivityTypeCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = { // RegisterActivityTypeInput
+ *   domain: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ *   version: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   defaultTaskStartToCloseTimeout: "STRING_VALUE",
+ *   defaultTaskHeartbeatTimeout: "STRING_VALUE",
+ *   defaultTaskList: { // TaskList
+ *     name: "STRING_VALUE", // required
+ *   },
+ *   defaultTaskPriority: "STRING_VALUE",
+ *   defaultTaskScheduleToStartTimeout: "STRING_VALUE",
+ *   defaultTaskScheduleToCloseTimeout: "STRING_VALUE",
+ * };
  * const command = new RegisterActivityTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterActivityTypeCommandInput - {@link RegisterActivityTypeCommandInput}
+ * @returns {@link RegisterActivityTypeCommandOutput}
  * @see {@link RegisterActivityTypeCommandInput} for command's `input` shape.
  * @see {@link RegisterActivityTypeCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
+ *
+ * @throws {@link LimitExceededFault} (client fault)
+ *  <p>Returned by any operation if a system imposed limitation has been reached. To address this fault you should either clean up unused resources or increase the limit by contacting AWS.</p>
+ *
+ * @throws {@link OperationNotPermittedFault} (client fault)
+ *  <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+ *
+ * @throws {@link TypeAlreadyExistsFault} (client fault)
+ *  <p>Returned if the type already exists in the specified domain. You may get this fault if you are registering a type that is either already registered or deprecated, or if you undeprecate a type that is currently registered.</p>
+ *
+ * @throws {@link UnknownResourceFault} (client fault)
+ *  <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+ *
  *
  */
 export class RegisterActivityTypeCommand extends $Command<
@@ -103,6 +140,9 @@ export class RegisterActivityTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterActivityTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,8 +171,8 @@ export class RegisterActivityTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterActivityTypeInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,12 +182,18 @@ export class RegisterActivityTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterActivityTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0RegisterActivityTypeCommand(input, context);
+    return se_RegisterActivityTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterActivityTypeCommandOutput> {
-    return deserializeAws_json1_0RegisterActivityTypeCommand(output, context);
+    return de_RegisterActivityTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

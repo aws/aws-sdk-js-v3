@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { MarketplaceMeteringServiceException as __BaseException } from "./MarketplaceMeteringServiceException";
 
 /**
+ * @public
  * <p>Metadata assigned to an allocation. Each tag is made up of a <code>key</code> and a
  *                 <code>value</code>.</p>
  */
@@ -22,6 +23,7 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>Usage allocations allow you to split usage into buckets by tags.</p>
  *         <p>Each <code>UsageAllocation</code> indicates the usage quantity for a specific set of
  *             tags.</p>
@@ -40,6 +42,7 @@ export interface UsageAllocation {
 }
 
 /**
+ * @public
  * <p>A <code>UsageRecord</code> indicates a quantity of usage for a given product,
  *             customer, dimension and time.</p>
  *         <p>Multiple requests with the same <code>UsageRecords</code> as input will be
@@ -81,6 +84,7 @@ export interface UsageRecord {
 }
 
 /**
+ * @public
  * <p>A <code>BatchMeterUsageRequest</code> contains <code>UsageRecords</code>, which
  *             indicate quantities of usage within your application.</p>
  */
@@ -98,13 +102,23 @@ export interface BatchMeterUsageRequest {
   ProductCode: string | undefined;
 }
 
-export enum UsageRecordResultStatus {
-  CUSTOMER_NOT_SUBSCRIBED = "CustomerNotSubscribed",
-  DUPLICATE_RECORD = "DuplicateRecord",
-  SUCCESS = "Success",
-}
+/**
+ * @public
+ * @enum
+ */
+export const UsageRecordResultStatus = {
+  CUSTOMER_NOT_SUBSCRIBED: "CustomerNotSubscribed",
+  DUPLICATE_RECORD: "DuplicateRecord",
+  SUCCESS: "Success",
+} as const;
 
 /**
+ * @public
+ */
+export type UsageRecordResultStatus = (typeof UsageRecordResultStatus)[keyof typeof UsageRecordResultStatus];
+
+/**
+ * @public
  * <p>A <code>UsageRecordResult</code> indicates the status of a given
  *                 <code>UsageRecord</code> processed by <code>BatchMeterUsage</code>.</p>
  */
@@ -164,6 +178,7 @@ export interface UsageRecordResult {
 }
 
 /**
+ * @public
  * <p>Contains the <code>UsageRecords</code> processed by <code>BatchMeterUsage</code> and
  *             any records that have failed due to transient error.</p>
  */
@@ -185,6 +200,7 @@ export interface BatchMeterUsageResult {
 }
 
 /**
+ * @public
  * <p>The API is disabled in the Region.</p>
  */
 export class DisabledApiException extends __BaseException {
@@ -204,6 +220,7 @@ export class DisabledApiException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An internal error has occurred. Retry your request. If the problem persists, post a
  *             message with details on the AWS forums.</p>
  */
@@ -224,6 +241,7 @@ export class InternalServiceErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You have metered usage for a <code>CustomerIdentifier</code> that does not
  *             exist.</p>
  */
@@ -244,6 +262,7 @@ export class InvalidCustomerIdentifierException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The product code passed does not match the product code used for publishing the
  *             product.</p>
  */
@@ -264,6 +283,7 @@ export class InvalidProductCodeException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The tag is invalid, or the number of tags is greater than 5.</p>
  */
 export class InvalidTagException extends __BaseException {
@@ -283,6 +303,7 @@ export class InvalidTagException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The usage allocation objects are invalid, or the number of allocations is greater than
  *             500 for a single usage record.</p>
  */
@@ -303,6 +324,7 @@ export class InvalidUsageAllocationsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The usage dimension does not match one of the <code>UsageDimensions</code> associated
  *             with products.</p>
  */
@@ -323,6 +345,7 @@ export class InvalidUsageDimensionException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The calls to the API are throttled.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -342,6 +365,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The <code>timestamp</code> value passed in the <code>UsageRecord</code> is out of
  *             allowed range.</p>
  *         <p>For <code>BatchMeterUsage</code>, if any of the records are outside of the allowed
@@ -365,6 +389,7 @@ export class TimestampOutOfBoundsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Exception thrown when the customer does not have a valid subscription for the
  *             product.</p>
  */
@@ -385,8 +410,9 @@ export class CustomerNotEntitledException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A metering record has already been emitted by the same EC2 instance, ECS task, or EKS
- *             pod for the given {<code>usageDimension</code>, <code>timestamp</code>} with a different
+ *             pod for the given \{<code>usageDimension</code>, <code>timestamp</code>\} with a different
  *                 <code>usageQuantity</code>.</p>
  */
 export class DuplicateRequestException extends __BaseException {
@@ -406,6 +432,7 @@ export class DuplicateRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The endpoint being called is in a AWS Region different from your EC2 instance, ECS
  *             task, or EKS pod. The Region of the Metering Service endpoint and the AWS Region of the
  *             resource must match.</p>
@@ -426,6 +453,9 @@ export class InvalidEndpointRegionException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface MeterUsageRequest {
   /**
    * <p>Product code is used to uniquely identify a product in AWS Marketplace. The product
@@ -469,6 +499,9 @@ export interface MeterUsageRequest {
   UsageAllocations?: UsageAllocation[];
 }
 
+/**
+ * @public
+ */
 export interface MeterUsageResult {
   /**
    * <p>Metering record id.</p>
@@ -477,6 +510,7 @@ export interface MeterUsageResult {
 }
 
 /**
+ * @public
  * <p>Public Key version is invalid.</p>
  */
 export class InvalidPublicKeyVersionException extends __BaseException {
@@ -496,6 +530,7 @@ export class InvalidPublicKeyVersionException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>
  *             <code>RegisterUsage</code> must be called in the same AWS Region the ECS task was
  *             launched in. This prevents a container from hardcoding a Region (e.g.
@@ -518,6 +553,7 @@ export class InvalidRegionException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>AWS Marketplace does not support metering usage from the underlying platform.
  *             Currently, Amazon ECS, Amazon EKS, and AWS Fargate are supported.</p>
  */
@@ -537,6 +573,9 @@ export class PlatformNotSupportedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface RegisterUsageRequest {
   /**
    * <p>Product code is used to uniquely identify a product in AWS Marketplace. The product
@@ -556,6 +595,9 @@ export interface RegisterUsageRequest {
   Nonce?: string;
 }
 
+/**
+ * @public
+ */
 export interface RegisterUsageResult {
   /**
    * <p>(Optional) Only included when public key version has expired</p>
@@ -569,6 +611,7 @@ export interface RegisterUsageResult {
 }
 
 /**
+ * @public
  * <p>The submitted registration token has expired. This can happen if the buyer's browser
  *             takes too long to redirect to your page, the buyer has resubmitted the registration
  *             token, or your application has held on to the registration token for too long. Your SaaS
@@ -592,6 +635,7 @@ export class ExpiredTokenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Registration token is invalid.</p>
  */
 export class InvalidTokenException extends __BaseException {
@@ -611,6 +655,7 @@ export class InvalidTokenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains input to the <code>ResolveCustomer</code> operation.</p>
  */
 export interface ResolveCustomerRequest {
@@ -627,6 +672,7 @@ export interface ResolveCustomerRequest {
 }
 
 /**
+ * @public
  * <p>The result of the <code>ResolveCustomer</code> operation. Contains the
  *                 <code>CustomerIdentifier</code>
  *
@@ -654,87 +700,3 @@ export interface ResolveCustomerResult {
    */
   CustomerAWSAccountId?: string;
 }
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UsageAllocationFilterSensitiveLog = (obj: UsageAllocation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UsageRecordFilterSensitiveLog = (obj: UsageRecord): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchMeterUsageRequestFilterSensitiveLog = (obj: BatchMeterUsageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UsageRecordResultFilterSensitiveLog = (obj: UsageRecordResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchMeterUsageResultFilterSensitiveLog = (obj: BatchMeterUsageResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MeterUsageRequestFilterSensitiveLog = (obj: MeterUsageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MeterUsageResultFilterSensitiveLog = (obj: MeterUsageResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterUsageRequestFilterSensitiveLog = (obj: RegisterUsageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterUsageResultFilterSensitiveLog = (obj: RegisterUsageResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResolveCustomerRequestFilterSensitiveLog = (obj: ResolveCustomerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResolveCustomerResultFilterSensitiveLog = (obj: ResolveCustomerResult): any => ({
-  ...obj,
-});

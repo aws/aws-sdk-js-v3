@@ -20,15 +20,23 @@ import {
   RefreshTokenResponse,
   RefreshTokenResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1RefreshTokenCommand,
-  serializeAws_restJson1RefreshTokenCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RefreshTokenCommand, se_RefreshTokenCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link RefreshTokenCommand}.
+ */
 export interface RefreshTokenCommandInput extends RefreshTokenRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RefreshTokenCommand}.
+ */
 export interface RefreshTokenCommandOutput extends RefreshTokenResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Refreshes a previously issued access token that might have expired.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +44,26 @@ export interface RefreshTokenCommandOutput extends RefreshTokenResponse, __Metad
  * import { AmplifyUIBuilderClient, RefreshTokenCommand } from "@aws-sdk/client-amplifyuibuilder"; // ES Modules import
  * // const { AmplifyUIBuilderClient, RefreshTokenCommand } = require("@aws-sdk/client-amplifyuibuilder"); // CommonJS import
  * const client = new AmplifyUIBuilderClient(config);
+ * const input = { // RefreshTokenRequest
+ *   provider: "STRING_VALUE", // required
+ *   refreshTokenBody: { // RefreshTokenRequestBody
+ *     token: "STRING_VALUE", // required
+ *     clientId: "STRING_VALUE",
+ *   },
+ * };
  * const command = new RefreshTokenCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RefreshTokenCommandInput - {@link RefreshTokenCommandInput}
+ * @returns {@link RefreshTokenCommandOutput}
  * @see {@link RefreshTokenCommandInput} for command's `input` shape.
  * @see {@link RefreshTokenCommandOutput} for command's `response` shape.
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>An invalid or out-of-range value was supplied for the input parameter.</p>
+ *
  *
  */
 export class RefreshTokenCommand extends $Command<
@@ -62,6 +83,9 @@ export class RefreshTokenCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RefreshTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,12 +123,18 @@ export class RefreshTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RefreshTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RefreshTokenCommand(input, context);
+    return se_RefreshTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RefreshTokenCommandOutput> {
-    return deserializeAws_restJson1RefreshTokenCommand(output, context);
+    return de_RefreshTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

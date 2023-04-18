@@ -16,21 +16,30 @@ import {
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import {
   CreateContainerServiceRegistryLoginRequest,
-  CreateContainerServiceRegistryLoginRequestFilterSensitiveLog,
   CreateContainerServiceRegistryLoginResult,
-  CreateContainerServiceRegistryLoginResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1CreateContainerServiceRegistryLoginCommand,
-  serializeAws_json1_1CreateContainerServiceRegistryLoginCommand,
+  de_CreateContainerServiceRegistryLoginCommand,
+  se_CreateContainerServiceRegistryLoginCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateContainerServiceRegistryLoginCommand}.
+ */
 export interface CreateContainerServiceRegistryLoginCommandInput extends CreateContainerServiceRegistryLoginRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateContainerServiceRegistryLoginCommand}.
+ */
 export interface CreateContainerServiceRegistryLoginCommandOutput
   extends CreateContainerServiceRegistryLoginResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a temporary set of log in credentials that you can use to log in to the Docker
  *       process on your local machine. After you're logged in, you can use the native Docker commands
  *       to push your local container images to the container image registry of your Amazon Lightsail
@@ -57,13 +66,40 @@ export interface CreateContainerServiceRegistryLoginCommandOutput
  * import { LightsailClient, CreateContainerServiceRegistryLoginCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CreateContainerServiceRegistryLoginCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {};
  * const command = new CreateContainerServiceRegistryLoginCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateContainerServiceRegistryLoginCommandInput - {@link CreateContainerServiceRegistryLoginCommandInput}
+ * @returns {@link CreateContainerServiceRegistryLoginCommandOutput}
  * @see {@link CreateContainerServiceRegistryLoginCommandInput} for command's `input` shape.
  * @see {@link CreateContainerServiceRegistryLoginCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
+ *       credentials to access a resource.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Lightsail throws this exception when user input does not conform to the validation rules
+ *       of an input field.</p>
+ *          <note>
+ *             <p>Domain and distribution APIs are only available in the N. Virginia
+ *           (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services
+ *         Region configuration to <code>us-east-1</code> to create, view, or edit these
+ *         resources.</p>
+ *          </note>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Lightsail throws this exception when it cannot find a resource.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>A general service exception.</p>
+ *
+ * @throws {@link UnauthenticatedException} (client fault)
+ *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
+ *
  *
  */
 export class CreateContainerServiceRegistryLoginCommand extends $Command<
@@ -83,6 +119,9 @@ export class CreateContainerServiceRegistryLoginCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateContainerServiceRegistryLoginCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +150,8 @@ export class CreateContainerServiceRegistryLoginCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateContainerServiceRegistryLoginRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateContainerServiceRegistryLoginResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,18 +161,24 @@ export class CreateContainerServiceRegistryLoginCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateContainerServiceRegistryLoginCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateContainerServiceRegistryLoginCommand(input, context);
+    return se_CreateContainerServiceRegistryLoginCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateContainerServiceRegistryLoginCommandOutput> {
-    return deserializeAws_json1_1CreateContainerServiceRegistryLoginCommand(output, context);
+    return de_CreateContainerServiceRegistryLoginCommand(output, context);
   }
 
   // Start section: command_body_extra

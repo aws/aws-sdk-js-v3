@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateExperimentRequest,
-  UpdateExperimentRequestFilterSensitiveLog,
-  UpdateExperimentResponse,
-  UpdateExperimentResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1UpdateExperimentCommand,
-  serializeAws_json1_1UpdateExperimentCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateExperimentRequest, UpdateExperimentResponse } from "../models/models_4";
+import { de_UpdateExperimentCommand, se_UpdateExperimentCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateExperimentCommand}.
+ */
 export interface UpdateExperimentCommandInput extends UpdateExperimentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateExperimentCommand}.
+ */
 export interface UpdateExperimentCommandOutput extends UpdateExperimentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds, updates, or removes the description of an experiment. Updates the display name of an
  *       experiment.</p>
  * @example
@@ -37,13 +40,28 @@ export interface UpdateExperimentCommandOutput extends UpdateExperimentResponse,
  * import { SageMakerClient, UpdateExperimentCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateExperimentCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // UpdateExperimentRequest
+ *   ExperimentName: "STRING_VALUE", // required
+ *   DisplayName: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ * };
  * const command = new UpdateExperimentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateExperimentCommandInput - {@link UpdateExperimentCommandInput}
+ * @returns {@link UpdateExperimentCommandOutput}
  * @see {@link UpdateExperimentCommandInput} for command's `input` shape.
  * @see {@link UpdateExperimentCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There was a conflict when you attempted to modify a SageMaker entity such as an
+ *       <code>Experiment</code> or <code>Artifact</code>.</p>
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class UpdateExperimentCommand extends $Command<
@@ -63,6 +81,9 @@ export class UpdateExperimentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateExperimentCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +112,8 @@ export class UpdateExperimentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateExperimentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateExperimentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +123,18 @@ export class UpdateExperimentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateExperimentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateExperimentCommand(input, context);
+    return se_UpdateExperimentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateExperimentCommandOutput> {
-    return deserializeAws_json1_1UpdateExperimentCommand(output, context);
+    return de_UpdateExperimentCommand(output, context);
   }
 
   // Start section: command_body_extra

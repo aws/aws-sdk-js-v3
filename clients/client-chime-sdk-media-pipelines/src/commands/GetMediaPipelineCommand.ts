@@ -20,19 +20,26 @@ import {
 } from "../ChimeSDKMediaPipelinesClient";
 import {
   GetMediaPipelineRequest,
-  GetMediaPipelineRequestFilterSensitiveLog,
   GetMediaPipelineResponse,
   GetMediaPipelineResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetMediaPipelineCommand,
-  serializeAws_restJson1GetMediaPipelineCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetMediaPipelineCommand, se_GetMediaPipelineCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetMediaPipelineCommand}.
+ */
 export interface GetMediaPipelineCommandInput extends GetMediaPipelineRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetMediaPipelineCommand}.
+ */
 export interface GetMediaPipelineCommandOutput extends GetMediaPipelineResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets an existing media pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +47,40 @@ export interface GetMediaPipelineCommandOutput extends GetMediaPipelineResponse,
  * import { ChimeSDKMediaPipelinesClient, GetMediaPipelineCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
  * // const { ChimeSDKMediaPipelinesClient, GetMediaPipelineCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
  * const client = new ChimeSDKMediaPipelinesClient(config);
+ * const input = { // GetMediaPipelineRequest
+ *   MediaPipelineId: "STRING_VALUE", // required
+ * };
  * const command = new GetMediaPipelineCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMediaPipelineCommandInput - {@link GetMediaPipelineCommandInput}
+ * @returns {@link GetMediaPipelineCommandOutput}
  * @see {@link GetMediaPipelineCommandInput} for command's `input` shape.
  * @see {@link GetMediaPipelineCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMediaPipelinesClientResolvedConfig | config} for ChimeSDKMediaPipelinesClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>One or more of the resources in the request does not exist in the system.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The client exceeded its request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client is not currently authorized to make the request.</p>
+ *
  *
  */
 export class GetMediaPipelineCommand extends $Command<
@@ -66,6 +100,9 @@ export class GetMediaPipelineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMediaPipelineCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,7 +131,7 @@ export class GetMediaPipelineCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMediaPipelineRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetMediaPipelineResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -105,12 +142,18 @@ export class GetMediaPipelineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMediaPipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMediaPipelineCommand(input, context);
+    return se_GetMediaPipelineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMediaPipelineCommandOutput> {
-    return deserializeAws_restJson1GetMediaPipelineCommand(output, context);
+    return de_GetMediaPipelineCommand(output, context);
   }
 
   // Start section: command_body_extra

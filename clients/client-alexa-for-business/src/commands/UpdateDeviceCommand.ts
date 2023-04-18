@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  UpdateDeviceRequest,
-  UpdateDeviceRequestFilterSensitiveLog,
-  UpdateDeviceResponse,
-  UpdateDeviceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateDeviceCommand,
-  serializeAws_json1_1UpdateDeviceCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateDeviceRequest, UpdateDeviceResponse } from "../models/models_0";
+import { de_UpdateDeviceCommand, se_UpdateDeviceCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateDeviceCommand}.
+ */
 export interface UpdateDeviceCommandInput extends UpdateDeviceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateDeviceCommand}.
+ */
 export interface UpdateDeviceCommandOutput extends UpdateDeviceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the device name by device ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,29 @@ export interface UpdateDeviceCommandOutput extends UpdateDeviceResponse, __Metad
  * import { AlexaForBusinessClient, UpdateDeviceCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, UpdateDeviceCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // UpdateDeviceRequest
+ *   DeviceArn: "STRING_VALUE",
+ *   DeviceName: "STRING_VALUE",
+ * };
  * const command = new UpdateDeviceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDeviceCommandInput - {@link UpdateDeviceCommandInput}
+ * @returns {@link UpdateDeviceCommandOutput}
  * @see {@link UpdateDeviceCommandInput} for command's `input` shape.
  * @see {@link UpdateDeviceCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is a concurrent modification of resources.</p>
+ *
+ * @throws {@link DeviceNotRegisteredException} (client fault)
+ *  <p>The request failed because this device is no longer registered and therefore no longer managed by this account.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
  *
  */
 export class UpdateDeviceCommand extends $Command<
@@ -62,6 +81,9 @@ export class UpdateDeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +110,8 @@ export class UpdateDeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDeviceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDeviceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +121,18 @@ export class UpdateDeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDeviceCommand(input, context);
+    return se_UpdateDeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDeviceCommandOutput> {
-    return deserializeAws_json1_1UpdateDeviceCommand(output, context);
+    return de_UpdateDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

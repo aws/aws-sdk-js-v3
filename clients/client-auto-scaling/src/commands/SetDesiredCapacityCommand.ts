@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { SetDesiredCapacityType, SetDesiredCapacityTypeFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_querySetDesiredCapacityCommand,
-  serializeAws_querySetDesiredCapacityCommand,
-} from "../protocols/Aws_query";
+import { SetDesiredCapacityType } from "../models/models_0";
+import { de_SetDesiredCapacityCommand, se_SetDesiredCapacityCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link SetDesiredCapacityCommand}.
+ */
 export interface SetDesiredCapacityCommandInput extends SetDesiredCapacityType {}
+/**
+ * @public
+ *
+ * The output of {@link SetDesiredCapacityCommand}.
+ */
 export interface SetDesiredCapacityCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the size of the specified Auto Scaling group.</p>
  *          <p>If a scale-in activity occurs as a result of a new <code>DesiredCapacity</code> value
  *             that is lower than the current size of the group, the Auto Scaling group uses its termination
@@ -36,13 +44,42 @@ export interface SetDesiredCapacityCommandOutput extends __MetadataBearer {}
  * import { AutoScalingClient, SetDesiredCapacityCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, SetDesiredCapacityCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = { // SetDesiredCapacityType
+ *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   DesiredCapacity: Number("int"), // required
+ *   HonorCooldown: true || false,
+ * };
  * const command = new SetDesiredCapacityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SetDesiredCapacityCommandInput - {@link SetDesiredCapacityCommandInput}
+ * @returns {@link SetDesiredCapacityCommandOutput}
  * @see {@link SetDesiredCapacityCommandInput} for command's `input` shape.
  * @see {@link SetDesiredCapacityCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
+ *
+ * @throws {@link ResourceContentionFault} (server fault)
+ *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
+ *             instance, or load balancer).</p>
+ *
+ * @throws {@link ScalingActivityInProgressFault} (client fault)
+ *  <p>The operation can't be performed because there are scaling activities in
+ *             progress.</p>
+ *
+ *
+ * @example To set the desired capacity for an Auto Scaling group
+ * ```javascript
+ * // This example sets the desired capacity for the specified Auto Scaling group.
+ * const input = {
+ *   "AutoScalingGroupName": "my-auto-scaling-group",
+ *   "DesiredCapacity": 2,
+ *   "HonorCooldown": true
+ * };
+ * const command = new SetDesiredCapacityCommand(input);
+ * await client.send(command);
+ * // example id: autoscaling-set-desired-capacity-1
+ * ```
  *
  */
 export class SetDesiredCapacityCommand extends $Command<
@@ -62,6 +99,9 @@ export class SetDesiredCapacityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetDesiredCapacityCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +130,8 @@ export class SetDesiredCapacityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetDesiredCapacityTypeFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +141,18 @@ export class SetDesiredCapacityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetDesiredCapacityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySetDesiredCapacityCommand(input, context);
+    return se_SetDesiredCapacityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetDesiredCapacityCommandOutput> {
-    return deserializeAws_querySetDesiredCapacityCommand(output, context);
+    return de_SetDesiredCapacityCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,23 +14,26 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ModifyVerifiedAccessInstanceRequest,
-  ModifyVerifiedAccessInstanceRequestFilterSensitiveLog,
-  ModifyVerifiedAccessInstanceResult,
-  ModifyVerifiedAccessInstanceResultFilterSensitiveLog,
-} from "../models/models_6";
-import {
-  deserializeAws_ec2ModifyVerifiedAccessInstanceCommand,
-  serializeAws_ec2ModifyVerifiedAccessInstanceCommand,
-} from "../protocols/Aws_ec2";
+import { ModifyVerifiedAccessInstanceRequest, ModifyVerifiedAccessInstanceResult } from "../models/models_6";
+import { de_ModifyVerifiedAccessInstanceCommand, se_ModifyVerifiedAccessInstanceCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link ModifyVerifiedAccessInstanceCommand}.
+ */
 export interface ModifyVerifiedAccessInstanceCommandInput extends ModifyVerifiedAccessInstanceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ModifyVerifiedAccessInstanceCommand}.
+ */
 export interface ModifyVerifiedAccessInstanceCommandOutput
   extends ModifyVerifiedAccessInstanceResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the configuration of the specified Verified Access instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +41,22 @@ export interface ModifyVerifiedAccessInstanceCommandOutput
  * import { EC2Client, ModifyVerifiedAccessInstanceCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyVerifiedAccessInstanceCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ModifyVerifiedAccessInstanceRequest
+ *   VerifiedAccessInstanceId: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   DryRun: true || false,
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new ModifyVerifiedAccessInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyVerifiedAccessInstanceCommandInput - {@link ModifyVerifiedAccessInstanceCommandInput}
+ * @returns {@link ModifyVerifiedAccessInstanceCommandOutput}
  * @see {@link ModifyVerifiedAccessInstanceCommandInput} for command's `input` shape.
  * @see {@link ModifyVerifiedAccessInstanceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class ModifyVerifiedAccessInstanceCommand extends $Command<
@@ -64,6 +76,9 @@ export class ModifyVerifiedAccessInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyVerifiedAccessInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +107,8 @@ export class ModifyVerifiedAccessInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyVerifiedAccessInstanceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyVerifiedAccessInstanceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +118,21 @@ export class ModifyVerifiedAccessInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyVerifiedAccessInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyVerifiedAccessInstanceCommand(input, context);
+    return se_ModifyVerifiedAccessInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyVerifiedAccessInstanceCommandOutput> {
-    return deserializeAws_ec2ModifyVerifiedAccessInstanceCommand(output, context);
+    return de_ModifyVerifiedAccessInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

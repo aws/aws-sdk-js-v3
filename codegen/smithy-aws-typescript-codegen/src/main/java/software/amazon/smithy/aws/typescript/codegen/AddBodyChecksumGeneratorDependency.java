@@ -51,7 +51,8 @@ public class AddBodyChecksumGeneratorDependency implements TypeScriptIntegration
         writer.addImport("HttpRequest", "__HttpRequest", "@aws-sdk/types");
         writer.writeDocs("Function that returns body checksums.\n"
                         + "@internal");
-        writer.write("bodyChecksumGenerator?: (request: __HttpRequest, options: { sha256: __HashConstructor; "
+        writer.write("bodyChecksumGenerator?: (request: __HttpRequest, "
+                + "options: { sha256: __ChecksumConstructor | __HashConstructor; "
                 + "utf8Decoder: __Decoder }) => Promise<[string, string]>;\n");
 }
 

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import {
-  CreateFargateProfileRequest,
-  CreateFargateProfileRequestFilterSensitiveLog,
-  CreateFargateProfileResponse,
-  CreateFargateProfileResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateFargateProfileCommand,
-  serializeAws_restJson1CreateFargateProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateFargateProfileRequest, CreateFargateProfileResponse } from "../models/models_0";
+import { de_CreateFargateProfileCommand, se_CreateFargateProfileCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateFargateProfileCommand}.
+ */
 export interface CreateFargateProfileCommandInput extends CreateFargateProfileRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateFargateProfileCommand}.
+ */
 export interface CreateFargateProfileCommandOutput extends CreateFargateProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Fargate profile for your Amazon EKS cluster. You
  *             must have at least one Fargate profile in a cluster to be able to run
  *             pods on Fargate.</p>
@@ -63,13 +66,61 @@ export interface CreateFargateProfileCommandOutput extends CreateFargateProfileR
  * import { EKSClient, CreateFargateProfileCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, CreateFargateProfileCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
+ * const input = { // CreateFargateProfileRequest
+ *   fargateProfileName: "STRING_VALUE", // required
+ *   clusterName: "STRING_VALUE", // required
+ *   podExecutionRoleArn: "STRING_VALUE", // required
+ *   subnets: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ *   selectors: [ // FargateProfileSelectors
+ *     { // FargateProfileSelector
+ *       namespace: "STRING_VALUE",
+ *       labels: { // FargateProfileLabel
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   clientRequestToken: "STRING_VALUE",
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateFargateProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFargateProfileCommandInput - {@link CreateFargateProfileCommandInput}
+ * @returns {@link CreateFargateProfileCommandOutput}
  * @see {@link CreateFargateProfileCommandInput} for command's `input` shape.
  * @see {@link CreateFargateProfileCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action. Actions can include using an
+ *             action or resource on behalf of a user that doesn't have permissions to use the action
+ *             or resource or specifying an identifier that is not valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *             request.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid given the state of the cluster. Check the state of the cluster
+ *             and the associated operations.</p>
+ *
+ * @throws {@link ResourceLimitExceededException} (client fault)
+ *  <p>You have encountered a service limit on the specified resource.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * @throws {@link UnsupportedAvailabilityZoneException} (client fault)
+ *  <p>At least one of your specified cluster subnets is in an Availability Zone that does
+ *             not support Amazon EKS. The exception output specifies the supported
+ *             Availability Zones for your account, from which you can choose subnets for your
+ *             cluster.</p>
+ *
  *
  */
 export class CreateFargateProfileCommand extends $Command<
@@ -89,6 +140,9 @@ export class CreateFargateProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFargateProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +171,8 @@ export class CreateFargateProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFargateProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateFargateProfileResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +182,18 @@ export class CreateFargateProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFargateProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateFargateProfileCommand(input, context);
+    return se_CreateFargateProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFargateProfileCommandOutput> {
-    return deserializeAws_restJson1CreateFargateProfileCommand(output, context);
+    return de_CreateFargateProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

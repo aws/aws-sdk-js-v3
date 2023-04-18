@@ -13,22 +13,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DescribeEndpointAuthorizationMessage, EndpointAuthorizationList } from "../models/models_0";
 import {
-  DescribeEndpointAuthorizationMessage,
-  DescribeEndpointAuthorizationMessageFilterSensitiveLog,
-  EndpointAuthorizationList,
-  EndpointAuthorizationListFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeEndpointAuthorizationCommand,
-  serializeAws_queryDescribeEndpointAuthorizationCommand,
+  de_DescribeEndpointAuthorizationCommand,
+  se_DescribeEndpointAuthorizationCommand,
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeEndpointAuthorizationCommand}.
+ */
 export interface DescribeEndpointAuthorizationCommandInput extends DescribeEndpointAuthorizationMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeEndpointAuthorizationCommand}.
+ */
 export interface DescribeEndpointAuthorizationCommandOutput extends EndpointAuthorizationList, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes an endpoint authorization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +42,30 @@ export interface DescribeEndpointAuthorizationCommandOutput extends EndpointAuth
  * import { RedshiftClient, DescribeEndpointAuthorizationCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeEndpointAuthorizationCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DescribeEndpointAuthorizationMessage
+ *   ClusterIdentifier: "STRING_VALUE",
+ *   Account: "STRING_VALUE",
+ *   Grantee: true || false,
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeEndpointAuthorizationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEndpointAuthorizationCommandInput - {@link DescribeEndpointAuthorizationCommandInput}
+ * @returns {@link DescribeEndpointAuthorizationCommandOutput}
  * @see {@link DescribeEndpointAuthorizationCommandInput} for command's `input` shape.
  * @see {@link DescribeEndpointAuthorizationCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
+ *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+ *         </p>
+ *
+ * @throws {@link UnsupportedOperationFault} (client fault)
+ *  <p>The requested operation isn't supported.</p>
+ *
  *
  */
 export class DescribeEndpointAuthorizationCommand extends $Command<
@@ -62,6 +85,9 @@ export class DescribeEndpointAuthorizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEndpointAuthorizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +116,8 @@ export class DescribeEndpointAuthorizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEndpointAuthorizationMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: EndpointAuthorizationListFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +127,21 @@ export class DescribeEndpointAuthorizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEndpointAuthorizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeEndpointAuthorizationCommand(input, context);
+    return se_DescribeEndpointAuthorizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEndpointAuthorizationCommandOutput> {
-    return deserializeAws_queryDescribeEndpointAuthorizationCommand(output, context);
+    return de_DescribeEndpointAuthorizationCommand(output, context);
   }
 
   // Start section: command_body_extra

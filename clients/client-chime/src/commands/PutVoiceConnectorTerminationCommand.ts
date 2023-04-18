@@ -21,16 +21,27 @@ import {
   PutVoiceConnectorTerminationResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1PutVoiceConnectorTerminationCommand,
-  serializeAws_restJson1PutVoiceConnectorTerminationCommand,
+  de_PutVoiceConnectorTerminationCommand,
+  se_PutVoiceConnectorTerminationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutVoiceConnectorTerminationCommand}.
+ */
 export interface PutVoiceConnectorTerminationCommandInput extends PutVoiceConnectorTerminationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutVoiceConnectorTerminationCommand}.
+ */
 export interface PutVoiceConnectorTerminationCommandOutput
   extends PutVoiceConnectorTerminationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds termination settings for the specified Amazon Chime Voice Connector.</p>
  *
  *          <note>
@@ -42,13 +53,54 @@ export interface PutVoiceConnectorTerminationCommandOutput
  * import { ChimeClient, PutVoiceConnectorTerminationCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, PutVoiceConnectorTerminationCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // PutVoiceConnectorTerminationRequest
+ *   VoiceConnectorId: "STRING_VALUE", // required
+ *   Termination: { // Termination
+ *     CpsLimit: Number("int"),
+ *     DefaultPhoneNumber: "STRING_VALUE",
+ *     CallingRegions: [ // CallingRegionList
+ *       "STRING_VALUE",
+ *     ],
+ *     CidrAllowedList: [ // StringList
+ *       "STRING_VALUE",
+ *     ],
+ *     Disabled: true || false,
+ *   },
+ * };
  * const command = new PutVoiceConnectorTerminationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutVoiceConnectorTerminationCommandInput - {@link PutVoiceConnectorTerminationCommandInput}
+ * @returns {@link PutVoiceConnectorTerminationCommandOutput}
  * @see {@link PutVoiceConnectorTerminationCommandInput} for command's `input` shape.
  * @see {@link PutVoiceConnectorTerminationCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have permissions to perform the requested operation.</p>
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>One or more of the resources in the request does not exist in the system.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The client exceeded its request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client is not currently authorized to make the request.</p>
+ *
  *
  */
 export class PutVoiceConnectorTerminationCommand extends $Command<
@@ -68,6 +120,9 @@ export class PutVoiceConnectorTerminationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutVoiceConnectorTerminationCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,15 +162,21 @@ export class PutVoiceConnectorTerminationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutVoiceConnectorTerminationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutVoiceConnectorTerminationCommand(input, context);
+    return se_PutVoiceConnectorTerminationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutVoiceConnectorTerminationCommandOutput> {
-    return deserializeAws_restJson1PutVoiceConnectorTerminationCommand(output, context);
+    return de_PutVoiceConnectorTerminationCommand(output, context);
   }
 
   // Start section: command_body_extra

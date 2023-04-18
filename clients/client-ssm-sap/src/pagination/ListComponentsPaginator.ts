@@ -6,12 +6,11 @@ import {
   ListComponentsCommandInput,
   ListComponentsCommandOutput,
 } from "../commands/ListComponentsCommand";
-import { SsmSap } from "../SsmSap";
 import { SsmSapClient } from "../SsmSapClient";
 import { SsmSapPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SsmSapClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListComponentsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: SsmSap,
-  input: ListComponentsCommandInput,
-  ...args: any
-): Promise<ListComponentsCommandOutput> => {
-  // @ts-ignore
-  return await client.listComponents(input, ...args);
-};
 export async function* paginateListComponents(
   config: SsmSapPaginationConfiguration,
   input: ListComponentsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListComponents(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof SsmSap) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SsmSapClient) {
+    if (config.client instanceof SsmSapClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SsmSap | SsmSapClient");

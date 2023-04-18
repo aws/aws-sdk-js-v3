@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import {
-  DeploySystemInstanceRequest,
-  DeploySystemInstanceRequestFilterSensitiveLog,
-  DeploySystemInstanceResponse,
-  DeploySystemInstanceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeploySystemInstanceCommand,
-  serializeAws_json1_1DeploySystemInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { DeploySystemInstanceRequest, DeploySystemInstanceResponse } from "../models/models_0";
+import { de_DeploySystemInstanceCommand, se_DeploySystemInstanceCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeploySystemInstanceCommand}.
+ */
 export interface DeploySystemInstanceCommandInput extends DeploySystemInstanceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeploySystemInstanceCommand}.
+ */
 export interface DeploySystemInstanceCommandOutput extends DeploySystemInstanceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>
@@ -49,13 +52,34 @@ export interface DeploySystemInstanceCommandOutput extends DeploySystemInstanceR
  * import { IoTThingsGraphClient, DeploySystemInstanceCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, DeploySystemInstanceCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
+ * const input = { // DeploySystemInstanceRequest
+ *   id: "STRING_VALUE",
+ * };
  * const command = new DeploySystemInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeploySystemInstanceCommandInput - {@link DeploySystemInstanceCommandInput}
+ * @returns {@link DeploySystemInstanceCommandOutput}
  * @see {@link DeploySystemInstanceCommandInput} for command's `input` shape.
  * @see {@link DeploySystemInstanceCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p></p>
+ *
  *
  */
 export class DeploySystemInstanceCommand extends $Command<
@@ -75,6 +99,9 @@ export class DeploySystemInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeploySystemInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +130,8 @@ export class DeploySystemInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeploySystemInstanceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeploySystemInstanceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +141,18 @@ export class DeploySystemInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeploySystemInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeploySystemInstanceCommand(input, context);
+    return se_DeploySystemInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeploySystemInstanceCommandOutput> {
-    return deserializeAws_json1_1DeploySystemInstanceCommand(output, context);
+    return de_DeploySystemInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

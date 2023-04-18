@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeGuruReviewerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruReviewerClient";
-import {
-  AssociateRepositoryRequest,
-  AssociateRepositoryRequestFilterSensitiveLog,
-  AssociateRepositoryResponse,
-  AssociateRepositoryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateRepositoryCommand,
-  serializeAws_restJson1AssociateRepositoryCommand,
-} from "../protocols/Aws_restJson1";
+import { AssociateRepositoryRequest, AssociateRepositoryResponse } from "../models/models_0";
+import { de_AssociateRepositoryCommand, se_AssociateRepositoryCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link AssociateRepositoryCommand}.
+ */
 export interface AssociateRepositoryCommandInput extends AssociateRepositoryRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AssociateRepositoryCommand}.
+ */
 export interface AssociateRepositoryCommandOutput extends AssociateRepositoryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use to associate an Amazon Web Services CodeCommit repository or a repository managed by Amazon Web Services
  *          CodeStar Connections with Amazon CodeGuru Reviewer. When you associate a repository, CodeGuru Reviewer reviews
  *          source code changes in the repository's pull requests and provides automatic
@@ -58,13 +61,62 @@ export interface AssociateRepositoryCommandOutput extends AssociateRepositoryRes
  * import { CodeGuruReviewerClient, AssociateRepositoryCommand } from "@aws-sdk/client-codeguru-reviewer"; // ES Modules import
  * // const { CodeGuruReviewerClient, AssociateRepositoryCommand } = require("@aws-sdk/client-codeguru-reviewer"); // CommonJS import
  * const client = new CodeGuruReviewerClient(config);
+ * const input = { // AssociateRepositoryRequest
+ *   Repository: { // Repository
+ *     CodeCommit: { // CodeCommitRepository
+ *       Name: "STRING_VALUE", // required
+ *     },
+ *     Bitbucket: { // ThirdPartySourceRepository
+ *       Name: "STRING_VALUE", // required
+ *       ConnectionArn: "STRING_VALUE", // required
+ *       Owner: "STRING_VALUE", // required
+ *     },
+ *     GitHubEnterpriseServer: {
+ *       Name: "STRING_VALUE", // required
+ *       ConnectionArn: "STRING_VALUE", // required
+ *       Owner: "STRING_VALUE", // required
+ *     },
+ *     S3Bucket: { // S3Repository
+ *       Name: "STRING_VALUE", // required
+ *       BucketName: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   ClientRequestToken: "STRING_VALUE",
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   KMSKeyDetails: { // KMSKeyDetails
+ *     KMSKeyId: "STRING_VALUE",
+ *     EncryptionOption: "AWS_OWNED_CMK" || "CUSTOMER_MANAGED_CMK",
+ *   },
+ * };
  * const command = new AssociateRepositoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateRepositoryCommandInput - {@link AssociateRepositoryCommandInput}
+ * @returns {@link AssociateRepositoryCommandOutput}
  * @see {@link AssociateRepositoryCommandInput} for command's `input` shape.
  * @see {@link AssociateRepositoryCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruReviewerClientResolvedConfig | config} for CodeGuruReviewerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The requested operation would cause a conflict with the current state of a service
+ *          resource associated with the request. Resolve the conflict before retrying this request.
+ *       </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The server encountered an internal error and is unable to complete the request.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the specified constraints.</p>
+ *
  *
  */
 export class AssociateRepositoryCommand extends $Command<
@@ -84,6 +136,9 @@ export class AssociateRepositoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateRepositoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +167,8 @@ export class AssociateRepositoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateRepositoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateRepositoryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +178,18 @@ export class AssociateRepositoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateRepositoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateRepositoryCommand(input, context);
+    return se_AssociateRepositoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateRepositoryCommandOutput> {
-    return deserializeAws_restJson1AssociateRepositoryCommand(output, context);
+    return de_AssociateRepositoryCommand(output, context);
   }
 
   // Start section: command_body_extra

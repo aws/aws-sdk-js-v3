@@ -158,6 +158,7 @@ import {
 } from "./commands/UpdateVirtualServiceCommand";
 
 /**
+ * @public
  * <p>App Mesh is a service mesh based on the Envoy proxy that makes it easy to
  *          monitor and control microservices. App Mesh standardizes how your microservices
  *          communicate, giving you end-to-end visibility and helping to ensure high availability for
@@ -176,6 +177,7 @@ import {
  */
 export class AppMesh extends AppMeshClient {
   /**
+   * @public
    * <p>Creates a gateway route.</p>
    *          <p>A gateway route is attached to a virtual gateway and routes traffic to an existing
    *          virtual service. If a route matches a request, it can distribute traffic to a target
@@ -212,6 +214,7 @@ export class AppMesh extends AppMeshClient {
   }
 
   /**
+   * @public
    * <p>Creates a service mesh.</p>
    *          <p> A service mesh is a logical boundary for network traffic between services that are
    *          represented by resources within the mesh. After you create your service mesh, you can
@@ -243,6 +246,7 @@ export class AppMesh extends AppMeshClient {
   }
 
   /**
+   * @public
    * <p>Creates a route that is associated with a virtual router.</p>
    *          <p> You can route several different protocols and define a retry policy for a route.
    *          Traffic can be routed to one or more virtual nodes.</p>
@@ -272,6 +276,7 @@ export class AppMesh extends AppMeshClient {
   }
 
   /**
+   * @public
    * <p>Creates a virtual gateway.</p>
    *          <p>A virtual gateway allows resources outside your mesh to communicate to resources that
    *          are inside your mesh. The virtual gateway represents an Envoy proxy running in an Amazon ECS task, in a Kubernetes service, or on an Amazon EC2 instance. Unlike a
@@ -309,6 +314,7 @@ export class AppMesh extends AppMeshClient {
   }
 
   /**
+   * @public
    * <p>Creates a virtual node within a service mesh.</p>
    *          <p> A virtual node acts as a logical pointer to a particular task group, such as an Amazon ECS service or a Kubernetes deployment. When you create a virtual node, you can
    *          specify the service discovery information for your task group, and whether the proxy
@@ -364,6 +370,7 @@ export class AppMesh extends AppMeshClient {
   }
 
   /**
+   * @public
    * <p>Creates a virtual router within a service mesh.</p>
    *          <p>Specify a <code>listener</code> for any inbound traffic that your virtual router
    *          receives. Create a virtual router for each protocol and port that you need to route.
@@ -402,6 +409,7 @@ export class AppMesh extends AppMeshClient {
   }
 
   /**
+   * @public
    * <p>Creates a virtual service within a service mesh.</p>
    *          <p>A virtual service is an abstraction of a real service that is provided by a virtual node
    *          directly or indirectly by means of a virtual router. Dependent services call your virtual
@@ -440,6 +448,7 @@ export class AppMesh extends AppMeshClient {
   }
 
   /**
+   * @public
    * <p>Deletes an existing gateway route.</p>
    */
   public deleteGatewayRoute(
@@ -472,6 +481,7 @@ export class AppMesh extends AppMeshClient {
   }
 
   /**
+   * @public
    * <p>Deletes an existing service mesh.</p>
    *          <p>You must delete all resources (virtual services, routes, virtual routers, and virtual
    *          nodes) in the service mesh before you can delete the mesh itself.</p>
@@ -500,6 +510,7 @@ export class AppMesh extends AppMeshClient {
   }
 
   /**
+   * @public
    * <p>Deletes an existing route.</p>
    */
   public deleteRoute(args: DeleteRouteCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRouteCommandOutput>;
@@ -526,6 +537,7 @@ export class AppMesh extends AppMeshClient {
   }
 
   /**
+   * @public
    * <p>Deletes an existing virtual gateway. You cannot delete a virtual gateway if any gateway
    *          routes are associated to it.</p>
    */
@@ -559,6 +571,7 @@ export class AppMesh extends AppMeshClient {
   }
 
   /**
+   * @public
    * <p>Deletes an existing virtual node.</p>
    *          <p>You must delete any virtual services that list a virtual node as a service provider
    *          before you can delete the virtual node itself.</p>
@@ -593,6 +606,7 @@ export class AppMesh extends AppMeshClient {
   }
 
   /**
+   * @public
    * <p>Deletes an existing virtual router.</p>
    *          <p>You must delete any routes associated with the virtual router before you can delete the
    *          router itself.</p>
@@ -627,6 +641,7 @@ export class AppMesh extends AppMeshClient {
   }
 
   /**
+   * @public
    * <p>Deletes an existing virtual service.</p>
    */
   public deleteVirtualService(
@@ -659,6 +674,7 @@ export class AppMesh extends AppMeshClient {
   }
 
   /**
+   * @public
    * <p>Describes an existing gateway route.</p>
    */
   public describeGatewayRoute(
@@ -691,6 +707,7 @@ export class AppMesh extends AppMeshClient {
   }
 
   /**
+   * @public
    * <p>Describes an existing service mesh.</p>
    */
   public describeMesh(
@@ -720,6 +737,7 @@ export class AppMesh extends AppMeshClient {
   }
 
   /**
+   * @public
    * <p>Describes an existing route.</p>
    */
   public describeRoute(
@@ -752,6 +770,7 @@ export class AppMesh extends AppMeshClient {
   }
 
   /**
+   * @public
    * <p>Describes an existing virtual gateway.</p>
    */
   public describeVirtualGateway(
@@ -784,6 +803,7 @@ export class AppMesh extends AppMeshClient {
   }
 
   /**
+   * @public
    * <p>Describes an existing virtual node.</p>
    */
   public describeVirtualNode(
@@ -816,6 +836,7 @@ export class AppMesh extends AppMeshClient {
   }
 
   /**
+   * @public
    * <p>Describes an existing virtual router.</p>
    */
   public describeVirtualRouter(
@@ -848,6 +869,7 @@ export class AppMesh extends AppMeshClient {
   }
 
   /**
+   * @public
    * <p>Describes an existing virtual service.</p>
    */
   public describeVirtualService(
@@ -880,6 +902,7 @@ export class AppMesh extends AppMeshClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of existing gateway routes that are associated to a virtual
    *          gateway.</p>
    */
@@ -913,6 +936,7 @@ export class AppMesh extends AppMeshClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of existing service meshes.</p>
    */
   public listMeshes(args: ListMeshesCommandInput, options?: __HttpHandlerOptions): Promise<ListMeshesCommandOutput>;
@@ -939,6 +963,7 @@ export class AppMesh extends AppMeshClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of existing routes in a service mesh.</p>
    */
   public listRoutes(args: ListRoutesCommandInput, options?: __HttpHandlerOptions): Promise<ListRoutesCommandOutput>;
@@ -965,6 +990,7 @@ export class AppMesh extends AppMeshClient {
   }
 
   /**
+   * @public
    * <p>List the tags for an App Mesh resource.</p>
    */
   public listTagsForResource(
@@ -997,6 +1023,7 @@ export class AppMesh extends AppMeshClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of existing virtual gateways in a service mesh.</p>
    */
   public listVirtualGateways(
@@ -1029,6 +1056,7 @@ export class AppMesh extends AppMeshClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of existing virtual nodes.</p>
    */
   public listVirtualNodes(
@@ -1061,6 +1089,7 @@ export class AppMesh extends AppMeshClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of existing virtual routers in a service mesh.</p>
    */
   public listVirtualRouters(
@@ -1093,6 +1122,7 @@ export class AppMesh extends AppMeshClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of existing virtual services in a service mesh.</p>
    */
   public listVirtualServices(
@@ -1125,6 +1155,7 @@ export class AppMesh extends AppMeshClient {
   }
 
   /**
+   * @public
    * <p>Associates the specified tags to a resource with the specified <code>resourceArn</code>.
    *          If existing tags on a resource aren't specified in the request parameters, they aren't
    *          changed. When a resource is deleted, the tags associated with that resource are also
@@ -1154,6 +1185,7 @@ export class AppMesh extends AppMeshClient {
   }
 
   /**
+   * @public
    * <p>Deletes specified tags from a resource.</p>
    */
   public untagResource(
@@ -1186,6 +1218,7 @@ export class AppMesh extends AppMeshClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing gateway route that is associated to a specified virtual gateway in a
    *          service mesh.</p>
    */
@@ -1219,6 +1252,7 @@ export class AppMesh extends AppMeshClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing service mesh.</p>
    */
   public updateMesh(args: UpdateMeshCommandInput, options?: __HttpHandlerOptions): Promise<UpdateMeshCommandOutput>;
@@ -1245,6 +1279,7 @@ export class AppMesh extends AppMeshClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing route for a specified service mesh and virtual router.</p>
    */
   public updateRoute(args: UpdateRouteCommandInput, options?: __HttpHandlerOptions): Promise<UpdateRouteCommandOutput>;
@@ -1271,6 +1306,7 @@ export class AppMesh extends AppMeshClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing virtual gateway in a specified service mesh.</p>
    */
   public updateVirtualGateway(
@@ -1303,6 +1339,7 @@ export class AppMesh extends AppMeshClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing virtual node in a specified service mesh.</p>
    */
   public updateVirtualNode(
@@ -1335,6 +1372,7 @@ export class AppMesh extends AppMeshClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing virtual router in a specified service mesh.</p>
    */
   public updateVirtualRouter(
@@ -1367,6 +1405,7 @@ export class AppMesh extends AppMeshClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing virtual service in a specified service mesh.</p>
    */
   public updateVirtualService(

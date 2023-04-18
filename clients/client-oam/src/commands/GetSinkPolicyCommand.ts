@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetSinkPolicyInput,
-  GetSinkPolicyInputFilterSensitiveLog,
-  GetSinkPolicyOutput,
-  GetSinkPolicyOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GetSinkPolicyInput, GetSinkPolicyOutput } from "../models/models_0";
 import { OAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OAMClient";
-import {
-  deserializeAws_restJson1GetSinkPolicyCommand,
-  serializeAws_restJson1GetSinkPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetSinkPolicyCommand, se_GetSinkPolicyCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetSinkPolicyCommand}.
+ */
 export interface GetSinkPolicyCommandInput extends GetSinkPolicyInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetSinkPolicyCommand}.
+ */
 export interface GetSinkPolicyCommandOutput extends GetSinkPolicyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the current sink policy attached to this sink. The sink policy specifies what
  *             accounts can attach to this sink as source accounts, and what types of data they can share.</p>
  * @example
@@ -37,13 +40,31 @@ export interface GetSinkPolicyCommandOutput extends GetSinkPolicyOutput, __Metad
  * import { OAMClient, GetSinkPolicyCommand } from "@aws-sdk/client-oam"; // ES Modules import
  * // const { OAMClient, GetSinkPolicyCommand } = require("@aws-sdk/client-oam"); // CommonJS import
  * const client = new OAMClient(config);
+ * const input = { // GetSinkPolicyInput
+ *   SinkIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new GetSinkPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSinkPolicyCommandInput - {@link GetSinkPolicyCommandInput}
+ * @returns {@link GetSinkPolicyCommandOutput}
  * @see {@link GetSinkPolicyCommandInput} for command's `input` shape.
  * @see {@link GetSinkPolicyCommandOutput} for command's `response` shape.
  * @see {@link OAMClientResolvedConfig | config} for OAMClient's `config` shape.
+ *
+ * @throws {@link InternalServiceFault} (server fault)
+ *  <p>Unexpected error while processing the request. Retry the request.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter is specified incorrectly.</p>
+ *
+ * @throws {@link MissingRequiredParameterException} (client fault)
+ *  <p>A required parameter is missing from the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a resource that does not exist.</p>
+ *
  *
  */
 export class GetSinkPolicyCommand extends $Command<
@@ -63,6 +84,9 @@ export class GetSinkPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSinkPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +113,8 @@ export class GetSinkPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSinkPolicyInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSinkPolicyOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +124,18 @@ export class GetSinkPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSinkPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSinkPolicyCommand(input, context);
+    return se_GetSinkPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSinkPolicyCommandOutput> {
-    return deserializeAws_restJson1GetSinkPolicyCommand(output, context);
+    return de_GetSinkPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

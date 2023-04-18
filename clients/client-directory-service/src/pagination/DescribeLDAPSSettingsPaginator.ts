@@ -6,12 +6,11 @@ import {
   DescribeLDAPSSettingsCommandInput,
   DescribeLDAPSSettingsCommandOutput,
 } from "../commands/DescribeLDAPSSettingsCommand";
-import { DirectoryService } from "../DirectoryService";
 import { DirectoryServiceClient } from "../DirectoryServiceClient";
 import { DirectoryServicePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DirectoryServiceClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeLDAPSSettingsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: DirectoryService,
-  input: DescribeLDAPSSettingsCommandInput,
-  ...args: any
-): Promise<DescribeLDAPSSettingsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeLDAPSSettings(input, ...args);
-};
 export async function* paginateDescribeLDAPSSettings(
   config: DirectoryServicePaginationConfiguration,
   input: DescribeLDAPSSettingsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateDescribeLDAPSSettings(
   while (hasNext) {
     input.NextToken = token;
     input["Limit"] = config.pageSize;
-    if (config.client instanceof DirectoryService) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DirectoryServiceClient) {
+    if (config.client instanceof DirectoryServiceClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected DirectoryService | DirectoryServiceClient");

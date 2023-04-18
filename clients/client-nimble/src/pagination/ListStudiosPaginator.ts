@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListStudiosCommand, ListStudiosCommandInput, ListStudiosCommandOutput } from "../commands/ListStudiosCommand";
-import { Nimble } from "../Nimble";
 import { NimbleClient } from "../NimbleClient";
 import { NimblePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: NimbleClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListStudiosCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Nimble,
-  input: ListStudiosCommandInput,
-  ...args: any
-): Promise<ListStudiosCommandOutput> => {
-  // @ts-ignore
-  return await client.listStudios(input, ...args);
-};
 export async function* paginateListStudios(
   config: NimblePaginationConfiguration,
   input: ListStudiosCommandInput,
@@ -39,9 +30,7 @@ export async function* paginateListStudios(
   let page: ListStudiosCommandOutput;
   while (hasNext) {
     input.nextToken = token;
-    if (config.client instanceof Nimble) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof NimbleClient) {
+    if (config.client instanceof NimbleClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Nimble | NimbleClient");

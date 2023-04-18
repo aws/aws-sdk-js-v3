@@ -19,16 +19,24 @@ import {
   UpdateMaintenanceWindowResult,
   UpdateMaintenanceWindowResultFilterSensitiveLog,
 } from "../models/models_2";
-import {
-  deserializeAws_json1_1UpdateMaintenanceWindowCommand,
-  serializeAws_json1_1UpdateMaintenanceWindowCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateMaintenanceWindowCommand, se_UpdateMaintenanceWindowCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateMaintenanceWindowCommand}.
+ */
 export interface UpdateMaintenanceWindowCommandInput extends UpdateMaintenanceWindowRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateMaintenanceWindowCommand}.
+ */
 export interface UpdateMaintenanceWindowCommandOutput extends UpdateMaintenanceWindowResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing maintenance window. Only specified parameters are modified.</p>
  *          <note>
  *             <p>The value you specify for <code>Duration</code> determines the specific end time for the
@@ -44,13 +52,40 @@ export interface UpdateMaintenanceWindowCommandOutput extends UpdateMaintenanceW
  * import { SSMClient, UpdateMaintenanceWindowCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, UpdateMaintenanceWindowCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // UpdateMaintenanceWindowRequest
+ *   WindowId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   StartDate: "STRING_VALUE",
+ *   EndDate: "STRING_VALUE",
+ *   Schedule: "STRING_VALUE",
+ *   ScheduleTimezone: "STRING_VALUE",
+ *   ScheduleOffset: Number("int"),
+ *   Duration: Number("int"),
+ *   Cutoff: Number("int"),
+ *   AllowUnassociatedTargets: true || false,
+ *   Enabled: true || false,
+ *   Replace: true || false,
+ * };
  * const command = new UpdateMaintenanceWindowCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateMaintenanceWindowCommandInput - {@link UpdateMaintenanceWindowCommandInput}
+ * @returns {@link UpdateMaintenanceWindowCommandOutput}
  * @see {@link UpdateMaintenanceWindowCommandInput} for command's `input` shape.
  * @see {@link UpdateMaintenanceWindowCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link DoesNotExistException} (client fault)
+ *  <p>Error returned when the ID specified for a resource, such as a maintenance window or patch
+ *    baseline, doesn't exist.</p>
+ *          <p>For information about resource quotas in Amazon Web Services Systems Manager, see <a href="https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm">Systems Manager service quotas</a> in the
+ *     <i>Amazon Web Services General Reference</i>.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
  *
  */
 export class UpdateMaintenanceWindowCommand extends $Command<
@@ -70,6 +105,9 @@ export class UpdateMaintenanceWindowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateMaintenanceWindowCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,12 +147,18 @@ export class UpdateMaintenanceWindowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateMaintenanceWindowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateMaintenanceWindowCommand(input, context);
+    return se_UpdateMaintenanceWindowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMaintenanceWindowCommandOutput> {
-    return deserializeAws_json1_1UpdateMaintenanceWindowCommand(output, context);
+    return de_UpdateMaintenanceWindowCommand(output, context);
   }
 
   // Start section: command_body_extra

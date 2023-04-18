@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListConstraintsForPortfolioInput,
-  ListConstraintsForPortfolioInputFilterSensitiveLog,
-  ListConstraintsForPortfolioOutput,
-  ListConstraintsForPortfolioOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListConstraintsForPortfolioCommand,
-  serializeAws_json1_1ListConstraintsForPortfolioCommand,
-} from "../protocols/Aws_json1_1";
+import { ListConstraintsForPortfolioInput, ListConstraintsForPortfolioOutput } from "../models/models_0";
+import { de_ListConstraintsForPortfolioCommand, se_ListConstraintsForPortfolioCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListConstraintsForPortfolioCommand}.
+ */
 export interface ListConstraintsForPortfolioCommandInput extends ListConstraintsForPortfolioInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListConstraintsForPortfolioCommand}.
+ */
 export interface ListConstraintsForPortfolioCommandOutput extends ListConstraintsForPortfolioOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the constraints for the specified portfolio and product.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,29 @@ export interface ListConstraintsForPortfolioCommandOutput extends ListConstraint
  * import { ServiceCatalogClient, ListConstraintsForPortfolioCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, ListConstraintsForPortfolioCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // ListConstraintsForPortfolioInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   PortfolioId: "STRING_VALUE", // required
+ *   ProductId: "STRING_VALUE",
+ *   PageSize: Number("int"),
+ *   PageToken: "STRING_VALUE",
+ * };
  * const command = new ListConstraintsForPortfolioCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListConstraintsForPortfolioCommandInput - {@link ListConstraintsForPortfolioCommandInput}
+ * @returns {@link ListConstraintsForPortfolioCommandOutput}
  * @see {@link ListConstraintsForPortfolioCommandInput} for command's `input` shape.
  * @see {@link ListConstraintsForPortfolioCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
+ *
+ * @throws {@link InvalidParametersException} (client fault)
+ *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class ListConstraintsForPortfolioCommand extends $Command<
@@ -62,6 +81,9 @@ export class ListConstraintsForPortfolioCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListConstraintsForPortfolioCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +112,8 @@ export class ListConstraintsForPortfolioCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListConstraintsForPortfolioInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListConstraintsForPortfolioOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +123,21 @@ export class ListConstraintsForPortfolioCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListConstraintsForPortfolioCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListConstraintsForPortfolioCommand(input, context);
+    return se_ListConstraintsForPortfolioCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListConstraintsForPortfolioCommandOutput> {
-    return deserializeAws_json1_1ListConstraintsForPortfolioCommand(output, context);
+    return de_ListConstraintsForPortfolioCommand(output, context);
   }
 
   // Start section: command_body_extra

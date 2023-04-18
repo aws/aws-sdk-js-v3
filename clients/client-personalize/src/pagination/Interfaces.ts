@@ -1,9 +1,11 @@
 // smithy-typescript generated code
 import { PaginationConfiguration } from "@aws-sdk/types";
 
-import { Personalize } from "../Personalize";
 import { PersonalizeClient } from "../PersonalizeClient";
 
+/**
+ * @public
+ */
 export interface PersonalizePaginationConfiguration extends PaginationConfiguration {
-  client: Personalize | PersonalizeClient;
+  client: PersonalizeClient;
 }

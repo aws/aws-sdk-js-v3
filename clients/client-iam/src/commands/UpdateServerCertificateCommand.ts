@@ -14,28 +14,36 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UpdateServerCertificateRequest, UpdateServerCertificateRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_queryUpdateServerCertificateCommand,
-  serializeAws_queryUpdateServerCertificateCommand,
-} from "../protocols/Aws_query";
+import { UpdateServerCertificateRequest } from "../models/models_1";
+import { de_UpdateServerCertificateCommand, se_UpdateServerCertificateCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateServerCertificateCommand}.
+ */
 export interface UpdateServerCertificateCommandInput extends UpdateServerCertificateRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateServerCertificateCommand}.
+ */
 export interface UpdateServerCertificateCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the name and/or the path of the specified server certificate stored in
  *             IAM.</p>
- *         <p>For more information about working with server certificates, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working
+ *          <p>For more information about working with server certificates, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working
  *                 with server certificates</a> in the <i>IAM User Guide</i>. This
  *             topic also includes a list of Amazon Web Services services that can use the server certificates that
  *             you manage with IAM.</p>
- *         <important>
+ *          <important>
  *             <p>You should understand the implications of changing a server certificate's path or
  *                 name. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs_manage.html#RenamingServerCerts">Renaming a server certificate</a> in the
  *                     <i>IAM User Guide</i>.</p>
- *         </important>
- *         <note>
+ *          </important>
+ *          <note>
  *             <p>The person making the request (the principal), must have permission to change the
  *                 server certificate with the old name and the new name. For example, to change the
  *                 certificate named <code>ProductionCert</code> to <code>ProdCert</code>, the
@@ -43,20 +51,44 @@ export interface UpdateServerCertificateCommandOutput extends __MetadataBearer {
  *                 principal has permission to update the <code>ProductionCert</code> group, but not
  *                 the <code>ProdCert</code> certificate, then the update fails. For more information
  *                 about permissions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access management</a> in the <i>IAM User Guide</i>.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IAMClient, UpdateServerCertificateCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, UpdateServerCertificateCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // UpdateServerCertificateRequest
+ *   ServerCertificateName: "STRING_VALUE", // required
+ *   NewPath: "STRING_VALUE",
+ *   NewServerCertificateName: "STRING_VALUE",
+ * };
  * const command = new UpdateServerCertificateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateServerCertificateCommandInput - {@link UpdateServerCertificateCommandInput}
+ * @returns {@link UpdateServerCertificateCommandOutput}
  * @see {@link UpdateServerCertificateCommandInput} for command's `input` shape.
  * @see {@link UpdateServerCertificateCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link EntityAlreadyExistsException} (client fault)
+ *  <p>The request was rejected because it attempted to create a resource that already
+ *       exists.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request was rejected because it attempted to create resources beyond the current
+ *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
  *
  */
 export class UpdateServerCertificateCommand extends $Command<
@@ -76,6 +108,9 @@ export class UpdateServerCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateServerCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +139,8 @@ export class UpdateServerCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateServerCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +150,18 @@ export class UpdateServerCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateServerCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateServerCertificateCommand(input, context);
+    return se_UpdateServerCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateServerCertificateCommandOutput> {
-    return deserializeAws_queryUpdateServerCertificateCommand(output, context);
+    return de_UpdateServerCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

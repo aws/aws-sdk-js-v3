@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { AuthorizeDBSecurityGroupIngressMessage, AuthorizeDBSecurityGroupIngressResult } from "../models/models_0";
 import {
-  AuthorizeDBSecurityGroupIngressMessage,
-  AuthorizeDBSecurityGroupIngressMessageFilterSensitiveLog,
-  AuthorizeDBSecurityGroupIngressResult,
-  AuthorizeDBSecurityGroupIngressResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryAuthorizeDBSecurityGroupIngressCommand,
-  serializeAws_queryAuthorizeDBSecurityGroupIngressCommand,
+  de_AuthorizeDBSecurityGroupIngressCommand,
+  se_AuthorizeDBSecurityGroupIngressCommand,
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link AuthorizeDBSecurityGroupIngressCommand}.
+ */
 export interface AuthorizeDBSecurityGroupIngressCommandInput extends AuthorizeDBSecurityGroupIngressMessage {}
+/**
+ * @public
+ *
+ * The output of {@link AuthorizeDBSecurityGroupIngressCommand}.
+ */
 export interface AuthorizeDBSecurityGroupIngressCommandOutput
   extends AuthorizeDBSecurityGroupIngressResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables ingress to a DBSecurityGroup using one of two forms of authorization. First, EC2 or VPC security
  *           groups can be added to the DBSecurityGroup if the application using the database is running on EC2 or VPC
  *           instances. Second, IP ranges are available if the application accessing your database is running on the internet.
@@ -53,13 +59,54 @@ export interface AuthorizeDBSecurityGroupIngressCommandOutput
  * import { RDSClient, AuthorizeDBSecurityGroupIngressCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, AuthorizeDBSecurityGroupIngressCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // AuthorizeDBSecurityGroupIngressMessage
+ *   DBSecurityGroupName: "STRING_VALUE", // required
+ *   CIDRIP: "STRING_VALUE",
+ *   EC2SecurityGroupName: "STRING_VALUE",
+ *   EC2SecurityGroupId: "STRING_VALUE",
+ *   EC2SecurityGroupOwnerId: "STRING_VALUE",
+ * };
  * const command = new AuthorizeDBSecurityGroupIngressCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AuthorizeDBSecurityGroupIngressCommandInput - {@link AuthorizeDBSecurityGroupIngressCommandInput}
+ * @returns {@link AuthorizeDBSecurityGroupIngressCommandOutput}
  * @see {@link AuthorizeDBSecurityGroupIngressCommandInput} for command's `input` shape.
  * @see {@link AuthorizeDBSecurityGroupIngressCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ * @throws {@link AuthorizationAlreadyExistsFault} (client fault)
+ *  <p>The specified CIDR IP range or Amazon EC2 security group is already authorized for
+ *             the specified DB security group.</p>
+ *
+ * @throws {@link AuthorizationQuotaExceededFault} (client fault)
+ *  <p>The DB security group authorization quota has been reached.</p>
+ *
+ * @throws {@link DBSecurityGroupNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBSecurityGroupName</code> doesn't refer to an existing DB security group.</p>
+ *
+ * @throws {@link InvalidDBSecurityGroupStateFault} (client fault)
+ *  <p>The state of the DB security group doesn't allow deletion.</p>
+ *
+ *
+ * @example To authorize DB security group integress
+ * ```javascript
+ * // This example authorizes access to the specified security group by the specified CIDR block.
+ * const input = {
+ *   "CIDRIP": "203.0.113.5/32",
+ *   "DBSecurityGroupName": "mydbsecuritygroup"
+ * };
+ * const command = new AuthorizeDBSecurityGroupIngressCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBSecurityGroup": {}
+ * }
+ * *\/
+ * // example id: authorize-db-security-group-ingress-ebf9ab91-8912-4b07-a32e-ca150668164f
+ * ```
  *
  */
 export class AuthorizeDBSecurityGroupIngressCommand extends $Command<
@@ -79,6 +126,9 @@ export class AuthorizeDBSecurityGroupIngressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AuthorizeDBSecurityGroupIngressCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +157,8 @@ export class AuthorizeDBSecurityGroupIngressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AuthorizeDBSecurityGroupIngressMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: AuthorizeDBSecurityGroupIngressResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,18 +168,24 @@ export class AuthorizeDBSecurityGroupIngressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AuthorizeDBSecurityGroupIngressCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryAuthorizeDBSecurityGroupIngressCommand(input, context);
+    return se_AuthorizeDBSecurityGroupIngressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AuthorizeDBSecurityGroupIngressCommandOutput> {
-    return deserializeAws_queryAuthorizeDBSecurityGroupIngressCommand(output, context);
+    return de_AuthorizeDBSecurityGroupIngressCommand(output, context);
   }
 
   // Start section: command_body_extra

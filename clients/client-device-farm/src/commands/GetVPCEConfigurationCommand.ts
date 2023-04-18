@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  GetVPCEConfigurationRequest,
-  GetVPCEConfigurationRequestFilterSensitiveLog,
-  GetVPCEConfigurationResult,
-  GetVPCEConfigurationResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetVPCEConfigurationCommand,
-  serializeAws_json1_1GetVPCEConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { GetVPCEConfigurationRequest, GetVPCEConfigurationResult } from "../models/models_0";
+import { de_GetVPCEConfigurationCommand, se_GetVPCEConfigurationCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetVPCEConfigurationCommand}.
+ */
 export interface GetVPCEConfigurationCommandInput extends GetVPCEConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetVPCEConfigurationCommand}.
+ */
 export interface GetVPCEConfigurationCommandOutput extends GetVPCEConfigurationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the configuration settings for your Amazon Virtual Private
  *             Cloud (VPC) endpoint.</p>
  * @example
@@ -37,13 +40,28 @@ export interface GetVPCEConfigurationCommandOutput extends GetVPCEConfigurationR
  * import { DeviceFarmClient, GetVPCEConfigurationCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, GetVPCEConfigurationCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // GetVPCEConfigurationRequest
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new GetVPCEConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetVPCEConfigurationCommandInput - {@link GetVPCEConfigurationCommandInput}
+ * @returns {@link GetVPCEConfigurationCommandOutput}
  * @see {@link GetVPCEConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetVPCEConfigurationCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
+ *
+ * @throws {@link ArgumentException} (client fault)
+ *  <p>An invalid argument was specified.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The specified entity was not found.</p>
+ *
+ * @throws {@link ServiceAccountException} (client fault)
+ *  <p>There was a problem with the service account.</p>
+ *
  *
  */
 export class GetVPCEConfigurationCommand extends $Command<
@@ -63,6 +81,9 @@ export class GetVPCEConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetVPCEConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +112,8 @@ export class GetVPCEConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetVPCEConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetVPCEConfigurationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +123,18 @@ export class GetVPCEConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetVPCEConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetVPCEConfigurationCommand(input, context);
+    return se_GetVPCEConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVPCEConfigurationCommandOutput> {
-    return deserializeAws_json1_1GetVPCEConfigurationCommand(output, context);
+    return de_GetVPCEConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

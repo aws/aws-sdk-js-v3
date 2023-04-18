@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetServiceQuotaRequest,
-  GetServiceQuotaRequestFilterSensitiveLog,
-  GetServiceQuotaResponse,
-  GetServiceQuotaResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetServiceQuotaCommand,
-  serializeAws_json1_1GetServiceQuotaCommand,
-} from "../protocols/Aws_json1_1";
+import { GetServiceQuotaRequest, GetServiceQuotaResponse } from "../models/models_0";
+import { de_GetServiceQuotaCommand, se_GetServiceQuotaCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetServiceQuotaCommand}.
+ */
 export interface GetServiceQuotaCommandInput extends GetServiceQuotaRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetServiceQuotaCommand}.
+ */
 export interface GetServiceQuotaCommandOutput extends GetServiceQuotaResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the applied quota value for the specified quota. For some quotas, only the
  *       default values are available. If the applied quota value is not available for a quota, the
  *       quota is not retrieved.</p>
@@ -38,13 +41,36 @@ export interface GetServiceQuotaCommandOutput extends GetServiceQuotaResponse, _
  * import { ServiceQuotasClient, GetServiceQuotaCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
  * // const { ServiceQuotasClient, GetServiceQuotaCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import
  * const client = new ServiceQuotasClient(config);
+ * const input = { // GetServiceQuotaRequest
+ *   ServiceCode: "STRING_VALUE", // required
+ *   QuotaCode: "STRING_VALUE", // required
+ * };
  * const command = new GetServiceQuotaCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetServiceQuotaCommandInput - {@link GetServiceQuotaCommandInput}
+ * @returns {@link GetServiceQuotaCommandOutput}
  * @see {@link GetServiceQuotaCommandInput} for command's `input` shape.
  * @see {@link GetServiceQuotaCommandOutput} for command's `response` shape.
  * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permission to perform this action.</p>
+ *
+ * @throws {@link IllegalArgumentException} (client fault)
+ *  <p>Invalid input was provided.</p>
+ *
+ * @throws {@link NoSuchResourceException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>Something went wrong.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request
+ *       an increase for this quota.</p>
+ *
  *
  */
 export class GetServiceQuotaCommand extends $Command<
@@ -64,6 +90,9 @@ export class GetServiceQuotaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetServiceQuotaCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +121,8 @@ export class GetServiceQuotaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetServiceQuotaRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetServiceQuotaResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +132,18 @@ export class GetServiceQuotaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetServiceQuotaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetServiceQuotaCommand(input, context);
+    return se_GetServiceQuotaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetServiceQuotaCommandOutput> {
-    return deserializeAws_json1_1GetServiceQuotaCommand(output, context);
+    return de_GetServiceQuotaCommand(output, context);
   }
 
   // Start section: command_body_extra

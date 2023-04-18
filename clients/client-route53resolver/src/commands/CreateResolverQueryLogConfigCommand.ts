@@ -13,31 +13,35 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { CreateResolverQueryLogConfigRequest, CreateResolverQueryLogConfigResponse } from "../models/models_0";
 import {
-  CreateResolverQueryLogConfigRequest,
-  CreateResolverQueryLogConfigRequestFilterSensitiveLog,
-  CreateResolverQueryLogConfigResponse,
-  CreateResolverQueryLogConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateResolverQueryLogConfigCommand,
-  serializeAws_json1_1CreateResolverQueryLogConfigCommand,
+  de_CreateResolverQueryLogConfigCommand,
+  se_CreateResolverQueryLogConfigCommand,
 } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateResolverQueryLogConfigCommand}.
+ */
 export interface CreateResolverQueryLogConfigCommandInput extends CreateResolverQueryLogConfigRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateResolverQueryLogConfigCommand}.
+ */
 export interface CreateResolverQueryLogConfigCommandOutput
   extends CreateResolverQueryLogConfigResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Resolver query logging configuration, which defines where you want Resolver to save DNS query logs that originate in your VPCs.
  * 			Resolver can log queries only for VPCs that are in the same Region as the query logging configuration.</p>
- *
- * 		       <p>To specify which VPCs you want to log queries for, you use <code>AssociateResolverQueryLogConfig</code>. For more information, see
+ *          <p>To specify which VPCs you want to log queries for, you use <code>AssociateResolverQueryLogConfig</code>. For more information, see
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverQueryLogConfig.html">AssociateResolverQueryLogConfig</a>. </p>
- *
- * 		       <p>You can optionally use Resource Access Manager (RAM) to share a query logging configuration with other Amazon Web Services accounts. The other accounts
+ *          <p>You can optionally use Resource Access Manager (RAM) to share a query logging configuration with other Amazon Web Services accounts. The other accounts
  * 			can then associate VPCs with the configuration. The query logs that Resolver creates for a configuration include all DNS queries that originate in all
  * 			VPCs that are associated with the configuration.</p>
  * @example
@@ -46,13 +50,51 @@ export interface CreateResolverQueryLogConfigCommandOutput
  * import { Route53ResolverClient, CreateResolverQueryLogConfigCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, CreateResolverQueryLogConfigCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = { // CreateResolverQueryLogConfigRequest
+ *   Name: "STRING_VALUE", // required
+ *   DestinationArn: "STRING_VALUE", // required
+ *   CreatorRequestId: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateResolverQueryLogConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateResolverQueryLogConfigCommandInput - {@link CreateResolverQueryLogConfigCommandInput}
+ * @returns {@link CreateResolverQueryLogConfigCommandOutput}
  * @see {@link CreateResolverQueryLogConfigCommandInput} for command's `input` shape.
  * @see {@link CreateResolverQueryLogConfigCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (client fault)
+ *  <p>We encountered an unknown error. Try again in a few minutes.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters in this request are not valid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request caused one or more limits to be exceeded.</p>
+ *
+ * @throws {@link ResourceExistsException} (client fault)
+ *  <p>The resource that you tried to create already exists.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource doesn't exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was throttled. Try again in a few minutes.</p>
+ *
  *
  */
 export class CreateResolverQueryLogConfigCommand extends $Command<
@@ -72,6 +114,9 @@ export class CreateResolverQueryLogConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateResolverQueryLogConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +145,8 @@ export class CreateResolverQueryLogConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateResolverQueryLogConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateResolverQueryLogConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,15 +156,21 @@ export class CreateResolverQueryLogConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateResolverQueryLogConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateResolverQueryLogConfigCommand(input, context);
+    return se_CreateResolverQueryLogConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateResolverQueryLogConfigCommandOutput> {
-    return deserializeAws_json1_1CreateResolverQueryLogConfigCommand(output, context);
+    return de_CreateResolverQueryLogConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

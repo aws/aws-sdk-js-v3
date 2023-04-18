@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient";
-import {
-  DescribeEventTypesRequest,
-  DescribeEventTypesRequestFilterSensitiveLog,
-  DescribeEventTypesResponse,
-  DescribeEventTypesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeEventTypesCommand,
-  serializeAws_json1_1DescribeEventTypesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeEventTypesRequest, DescribeEventTypesResponse } from "../models/models_0";
+import { de_DescribeEventTypesCommand, se_DescribeEventTypesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeEventTypesCommand}.
+ */
 export interface DescribeEventTypesCommandInput extends DescribeEventTypesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeEventTypesCommand}.
+ */
 export interface DescribeEventTypesCommandOutput extends DescribeEventTypesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the event types that meet the specified filter criteria. You can use this API
  *          operation to find information about the Health event, such as the category, Amazon Web Services
  *          service, and event code. The metadata for each event appears in the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EventType.html">EventType</a> object. </p>
@@ -43,13 +46,38 @@ export interface DescribeEventTypesCommandOutput extends DescribeEventTypesRespo
  * import { HealthClient, DescribeEventTypesCommand } from "@aws-sdk/client-health"; // ES Modules import
  * // const { HealthClient, DescribeEventTypesCommand } = require("@aws-sdk/client-health"); // CommonJS import
  * const client = new HealthClient(config);
+ * const input = { // DescribeEventTypesRequest
+ *   filter: { // EventTypeFilter
+ *     eventTypeCodes: [ // EventTypeCodeList
+ *       "STRING_VALUE",
+ *     ],
+ *     services: [ // serviceList
+ *       "STRING_VALUE",
+ *     ],
+ *     eventTypeCategories: [ // EventTypeCategoryList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   locale: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new DescribeEventTypesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEventTypesCommandInput - {@link DescribeEventTypesCommandInput}
+ * @returns {@link DescribeEventTypesCommandOutput}
  * @see {@link DescribeEventTypesCommandInput} for command's `input` shape.
  * @see {@link DescribeEventTypesCommandOutput} for command's `response` shape.
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
+ *
+ * @throws {@link InvalidPaginationToken} (client fault)
+ *  <p>The specified pagination token (<code>nextToken</code>) is not valid.</p>
+ *
+ * @throws {@link UnsupportedLocale} (client fault)
+ *  <p>The specified locale is not supported.</p>
+ *
  *
  */
 export class DescribeEventTypesCommand extends $Command<
@@ -69,6 +97,9 @@ export class DescribeEventTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEventTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +128,8 @@ export class DescribeEventTypesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEventTypesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEventTypesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +139,18 @@ export class DescribeEventTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEventTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEventTypesCommand(input, context);
+    return se_DescribeEventTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEventTypesCommandOutput> {
-    return deserializeAws_json1_1DescribeEventTypesCommand(output, context);
+    return de_DescribeEventTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

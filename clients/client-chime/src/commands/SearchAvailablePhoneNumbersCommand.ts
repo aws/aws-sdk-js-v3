@@ -16,21 +16,31 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   SearchAvailablePhoneNumbersRequest,
-  SearchAvailablePhoneNumbersRequestFilterSensitiveLog,
   SearchAvailablePhoneNumbersResponse,
   SearchAvailablePhoneNumbersResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1SearchAvailablePhoneNumbersCommand,
-  serializeAws_restJson1SearchAvailablePhoneNumbersCommand,
+  de_SearchAvailablePhoneNumbersCommand,
+  se_SearchAvailablePhoneNumbersCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link SearchAvailablePhoneNumbersCommand}.
+ */
 export interface SearchAvailablePhoneNumbersCommandInput extends SearchAvailablePhoneNumbersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SearchAvailablePhoneNumbersCommand}.
+ */
 export interface SearchAvailablePhoneNumbersCommandOutput
   extends SearchAvailablePhoneNumbersResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Searches for phone numbers that can be ordered. For US numbers, provide at least one of
  *             the following search filters: <code>AreaCode</code>, <code>City</code>,
  *                 <code>State</code>, or <code>TollFreePrefix</code>. If you provide
@@ -42,13 +52,47 @@ export interface SearchAvailablePhoneNumbersCommandOutput
  * import { ChimeClient, SearchAvailablePhoneNumbersCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, SearchAvailablePhoneNumbersCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // SearchAvailablePhoneNumbersRequest
+ *   AreaCode: "STRING_VALUE",
+ *   City: "STRING_VALUE",
+ *   Country: "STRING_VALUE",
+ *   State: "STRING_VALUE",
+ *   TollFreePrefix: "STRING_VALUE",
+ *   PhoneNumberType: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new SearchAvailablePhoneNumbersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchAvailablePhoneNumbersCommandInput - {@link SearchAvailablePhoneNumbersCommandInput}
+ * @returns {@link SearchAvailablePhoneNumbersCommandOutput}
  * @see {@link SearchAvailablePhoneNumbersCommandInput} for command's `input` shape.
  * @see {@link SearchAvailablePhoneNumbersCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have permissions to perform the requested operation.</p>
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The client exceeded its request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client is not currently authorized to make the request.</p>
+ *
  *
  */
 export class SearchAvailablePhoneNumbersCommand extends $Command<
@@ -68,6 +112,9 @@ export class SearchAvailablePhoneNumbersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchAvailablePhoneNumbersCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,7 +143,7 @@ export class SearchAvailablePhoneNumbersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchAvailablePhoneNumbersRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: SearchAvailablePhoneNumbersResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -107,15 +154,21 @@ export class SearchAvailablePhoneNumbersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchAvailablePhoneNumbersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchAvailablePhoneNumbersCommand(input, context);
+    return se_SearchAvailablePhoneNumbersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SearchAvailablePhoneNumbersCommandOutput> {
-    return deserializeAws_restJson1SearchAvailablePhoneNumbersCommand(output, context);
+    return de_SearchAvailablePhoneNumbersCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateDeploymentJobRequest,
-  CreateDeploymentJobRequestFilterSensitiveLog,
-  CreateDeploymentJobResponse,
-  CreateDeploymentJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDeploymentJobCommand,
-  serializeAws_restJson1CreateDeploymentJobCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateDeploymentJobRequest, CreateDeploymentJobResponse } from "../models/models_0";
+import { de_CreateDeploymentJobCommand, se_CreateDeploymentJobCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateDeploymentJobCommand}.
+ */
 export interface CreateDeploymentJobCommandInput extends CreateDeploymentJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateDeploymentJobCommand}.
+ */
 export interface CreateDeploymentJobCommandOutput extends CreateDeploymentJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Deploys a specific version of a robot application to robots in a fleet.</p>
@@ -48,13 +51,72 @@ export interface CreateDeploymentJobCommandOutput extends CreateDeploymentJobRes
  * import { RoboMakerClient, CreateDeploymentJobCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, CreateDeploymentJobCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = { // CreateDeploymentJobRequest
+ *   deploymentConfig: { // DeploymentConfig
+ *     concurrentDeploymentPercentage: Number("int"),
+ *     failureThresholdPercentage: Number("int"),
+ *     robotDeploymentTimeoutInSeconds: Number("long"),
+ *     downloadConditionFile: { // S3Object
+ *       bucket: "STRING_VALUE", // required
+ *       key: "STRING_VALUE", // required
+ *       etag: "STRING_VALUE",
+ *     },
+ *   },
+ *   clientRequestToken: "STRING_VALUE", // required
+ *   fleet: "STRING_VALUE", // required
+ *   deploymentApplicationConfigs: [ // DeploymentApplicationConfigs // required
+ *     { // DeploymentApplicationConfig
+ *       application: "STRING_VALUE", // required
+ *       applicationVersion: "STRING_VALUE", // required
+ *       launchConfig: { // DeploymentLaunchConfig
+ *         packageName: "STRING_VALUE", // required
+ *         preLaunchFile: "STRING_VALUE",
+ *         launchFile: "STRING_VALUE", // required
+ *         postLaunchFile: "STRING_VALUE",
+ *         environmentVariables: { // EnvironmentVariableMap
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateDeploymentJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDeploymentJobCommandInput - {@link CreateDeploymentJobCommandInput}
+ * @returns {@link CreateDeploymentJobCommandOutput}
  * @see {@link CreateDeploymentJobCommandInput} for command's `input` shape.
  * @see {@link CreateDeploymentJobCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
+ *
+ * @throws {@link ConcurrentDeploymentException} (client fault)
+ *  <p>The failure percentage threshold percentage was met.</p>
+ *
+ * @throws {@link IdempotentParameterMismatchException} (client fault)
+ *  <p>The request uses the same client token as a previous, but non-identical request. Do not
+ *          reuse a client token with different requests, unless the requests are identical. </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>AWS RoboMaker experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter specified in a request is not valid, is unsupported, or cannot be used. The
+ *          returned message provides an explanation of the error value.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
+ *          stream requests exceeds the maximum number allowed. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
+ *
  *
  */
 export class CreateDeploymentJobCommand extends $Command<
@@ -74,6 +136,9 @@ export class CreateDeploymentJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDeploymentJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +167,8 @@ export class CreateDeploymentJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDeploymentJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDeploymentJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +178,18 @@ export class CreateDeploymentJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDeploymentJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDeploymentJobCommand(input, context);
+    return se_CreateDeploymentJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDeploymentJobCommandOutput> {
-    return deserializeAws_restJson1CreateDeploymentJobCommand(output, context);
+    return de_CreateDeploymentJobCommand(output, context);
   }
 
   // Start section: command_body_extra

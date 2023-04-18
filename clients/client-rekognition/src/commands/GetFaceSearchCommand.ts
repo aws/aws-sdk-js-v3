@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetFaceSearchRequest,
-  GetFaceSearchRequestFilterSensitiveLog,
-  GetFaceSearchResponse,
-  GetFaceSearchResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetFaceSearchCommand,
-  serializeAws_json1_1GetFaceSearchCommand,
-} from "../protocols/Aws_json1_1";
+import { GetFaceSearchRequest, GetFaceSearchResponse } from "../models/models_0";
+import { de_GetFaceSearchCommand, se_GetFaceSearchCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetFaceSearchCommand}.
+ */
 export interface GetFaceSearchCommandInput extends GetFaceSearchRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetFaceSearchCommand}.
+ */
 export interface GetFaceSearchCommandOutput extends GetFaceSearchResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the face search results for Amazon Rekognition Video face search started by
  *       <a>StartFaceSearch</a>. The search returns faces in a collection that match the faces
  *     of persons detected in a video. It also includes the time(s) that faces are matched in the video.</p>
@@ -64,13 +67,45 @@ export interface GetFaceSearchCommandOutput extends GetFaceSearchResponse, __Met
  * import { RekognitionClient, GetFaceSearchCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, GetFaceSearchCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // GetFaceSearchRequest
+ *   JobId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   SortBy: "INDEX" || "TIMESTAMP",
+ * };
  * const command = new GetFaceSearchCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFaceSearchCommandInput - {@link GetFaceSearchCommandInput}
+ * @returns {@link GetFaceSearchCommandOutput}
  * @see {@link GetFaceSearchCommandInput} for command's `input` shape.
  * @see {@link GetFaceSearchCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to perform the action.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidPaginationTokenException} (client fault)
+ *  <p>Pagination token in the request is not valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
+ *       operation again.</p>
+ *
+ * @throws {@link ProvisionedThroughputExceededException} (client fault)
+ *  <p>The number of requests exceeded your throughput limit. If you want to increase this
+ *       limit, contact Amazon Rekognition.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request cannot be found.</p>
+ *
+ * @throws {@link ThrottlingException} (server fault)
+ *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
  *
  */
 export class GetFaceSearchCommand extends $Command<
@@ -90,6 +125,9 @@ export class GetFaceSearchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFaceSearchCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +154,8 @@ export class GetFaceSearchCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFaceSearchRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetFaceSearchResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +165,18 @@ export class GetFaceSearchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFaceSearchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetFaceSearchCommand(input, context);
+    return se_GetFaceSearchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFaceSearchCommandOutput> {
-    return deserializeAws_json1_1GetFaceSearchCommand(output, context);
+    return de_GetFaceSearchCommand(output, context);
   }
 
   // Start section: command_body_extra

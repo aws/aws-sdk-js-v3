@@ -74,6 +74,7 @@ import {
 import { ServerlessApplicationRepositoryClient } from "./ServerlessApplicationRepositoryClient";
 
 /**
+ * @public
  * <p>The AWS Serverless Application Repository makes it easy for developers and enterprises to quickly find
  *  and deploy serverless applications in the AWS Cloud. For more information about serverless applications,
  *  see Serverless Computing and Applications on the AWS website.</p><p>The AWS Serverless Application Repository is deeply integrated with the AWS Lambda console, so that developers of
@@ -97,6 +98,7 @@ import { ServerlessApplicationRepositoryClient } from "./ServerlessApplicationRe
  */
 export class ServerlessApplicationRepository extends ServerlessApplicationRepositoryClient {
   /**
+   * @public
    * <p>Creates an application, optionally including an AWS SAM file to create the first application version in the same call.</p>
    */
   public createApplication(
@@ -129,6 +131,7 @@ export class ServerlessApplicationRepository extends ServerlessApplicationReposi
   }
 
   /**
+   * @public
    * <p>Creates an application version.</p>
    */
   public createApplicationVersion(
@@ -161,6 +164,7 @@ export class ServerlessApplicationRepository extends ServerlessApplicationReposi
   }
 
   /**
+   * @public
    * <p>Creates an AWS CloudFormation change set for the given application.</p>
    */
   public createCloudFormationChangeSet(
@@ -193,6 +197,7 @@ export class ServerlessApplicationRepository extends ServerlessApplicationReposi
   }
 
   /**
+   * @public
    * <p>Creates an AWS CloudFormation template.</p>
    */
   public createCloudFormationTemplate(
@@ -225,6 +230,7 @@ export class ServerlessApplicationRepository extends ServerlessApplicationReposi
   }
 
   /**
+   * @public
    * <p>Deletes the specified application.</p>
    */
   public deleteApplication(
@@ -257,6 +263,7 @@ export class ServerlessApplicationRepository extends ServerlessApplicationReposi
   }
 
   /**
+   * @public
    * <p>Gets the specified application.</p>
    */
   public getApplication(
@@ -289,6 +296,7 @@ export class ServerlessApplicationRepository extends ServerlessApplicationReposi
   }
 
   /**
+   * @public
    * <p>Retrieves the policy for the application.</p>
    */
   public getApplicationPolicy(
@@ -321,6 +329,7 @@ export class ServerlessApplicationRepository extends ServerlessApplicationReposi
   }
 
   /**
+   * @public
    * <p>Gets the specified AWS CloudFormation template.</p>
    */
   public getCloudFormationTemplate(
@@ -353,6 +362,7 @@ export class ServerlessApplicationRepository extends ServerlessApplicationReposi
   }
 
   /**
+   * @public
    * <p>Retrieves the list of applications nested in the containing application.</p>
    */
   public listApplicationDependencies(
@@ -385,6 +395,7 @@ export class ServerlessApplicationRepository extends ServerlessApplicationReposi
   }
 
   /**
+   * @public
    * <p>Lists applications owned by the requester.</p>
    */
   public listApplications(
@@ -417,6 +428,7 @@ export class ServerlessApplicationRepository extends ServerlessApplicationReposi
   }
 
   /**
+   * @public
    * <p>Lists versions for the specified application.</p>
    */
   public listApplicationVersions(
@@ -449,6 +461,7 @@ export class ServerlessApplicationRepository extends ServerlessApplicationReposi
   }
 
   /**
+   * @public
    * <p>Sets the permission policy for an application. For the list of actions supported for this operation, see
    *  <a href="https://docs.aws.amazon.com/serverlessrepo/latest/devguide/access-control-resource-based.html#application-permissions">Application
    *  Permissions</a>
@@ -484,6 +497,7 @@ export class ServerlessApplicationRepository extends ServerlessApplicationReposi
   }
 
   /**
+   * @public
    * <p>Unshares an application from an AWS Organization.</p><p>This operation can be called only from the organization's master account.</p>
    */
   public unshareApplication(
@@ -516,6 +530,7 @@ export class ServerlessApplicationRepository extends ServerlessApplicationReposi
   }
 
   /**
+   * @public
    * <p>Updates the specified application.</p>
    */
   public updateApplication(

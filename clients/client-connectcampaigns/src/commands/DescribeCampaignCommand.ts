@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCampaignsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCampaignsClient";
-import {
-  DescribeCampaignRequest,
-  DescribeCampaignRequestFilterSensitiveLog,
-  DescribeCampaignResponse,
-  DescribeCampaignResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeCampaignCommand,
-  serializeAws_restJson1DescribeCampaignCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeCampaignRequest, DescribeCampaignResponse } from "../models/models_0";
+import { de_DescribeCampaignCommand, se_DescribeCampaignCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeCampaignCommand}.
+ */
 export interface DescribeCampaignCommandInput extends DescribeCampaignRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeCampaignCommand}.
+ */
 export interface DescribeCampaignCommandOutput extends DescribeCampaignResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Describes the specific campaign.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,31 @@ export interface DescribeCampaignCommandOutput extends DescribeCampaignResponse,
  * import { ConnectCampaignsClient, DescribeCampaignCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
  * // const { ConnectCampaignsClient, DescribeCampaignCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
  * const client = new ConnectCampaignsClient(config);
+ * const input = { // DescribeCampaignRequest
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new DescribeCampaignCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCampaignCommandInput - {@link DescribeCampaignCommandInput}
+ * @returns {@link DescribeCampaignCommandOutput}
  * @see {@link DescribeCampaignCommandInput} for command's `input` shape.
  * @see {@link DescribeCampaignCommandOutput} for command's `response` shape.
  * @see {@link ConnectCampaignsClientResolvedConfig | config} for ConnectCampaignsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  You do not have sufficient access to perform this action.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  Request processing failed because of an error or failure with the service.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  The specified resource was not found.
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  The input fails to satisfy the constraints specified by an AWS service.
+ *
  *
  */
 export class DescribeCampaignCommand extends $Command<
@@ -62,6 +83,9 @@ export class DescribeCampaignCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCampaignCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +114,8 @@ export class DescribeCampaignCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCampaignRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeCampaignResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +125,18 @@ export class DescribeCampaignCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCampaignCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeCampaignCommand(input, context);
+    return se_DescribeCampaignCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCampaignCommandOutput> {
-    return deserializeAws_restJson1DescribeCampaignCommand(output, context);
+    return de_DescribeCampaignCommand(output, context);
   }
 
   // Start section: command_body_extra

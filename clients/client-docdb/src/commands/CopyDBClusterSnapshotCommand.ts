@@ -15,30 +15,31 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import {
-  CopyDBClusterSnapshotMessage,
-  CopyDBClusterSnapshotMessageFilterSensitiveLog,
-  CopyDBClusterSnapshotResult,
-  CopyDBClusterSnapshotResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCopyDBClusterSnapshotCommand,
-  serializeAws_queryCopyDBClusterSnapshotCommand,
-} from "../protocols/Aws_query";
+import { CopyDBClusterSnapshotMessage, CopyDBClusterSnapshotResult } from "../models/models_0";
+import { de_CopyDBClusterSnapshotCommand, se_CopyDBClusterSnapshotCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link CopyDBClusterSnapshotCommand}.
+ */
 export interface CopyDBClusterSnapshotCommandInput extends CopyDBClusterSnapshotMessage {}
+/**
+ * @public
+ *
+ * The output of {@link CopyDBClusterSnapshotCommand}.
+ */
 export interface CopyDBClusterSnapshotCommandOutput extends CopyDBClusterSnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Copies a snapshot of a cluster.</p>
- *
- *         <p>To copy a cluster snapshot from a shared manual cluster snapshot,
+ *          <p>To copy a cluster snapshot from a shared manual cluster snapshot,
  *             <code>SourceDBClusterSnapshotIdentifier</code> must be the Amazon
  *             Resource Name (ARN) of the shared cluster snapshot. You can only
  *             copy a shared DB cluster snapshot, whether encrypted or not, in the
  *             same Amazon Web Services Region.</p>
- *
- *         <p>To cancel the copy operation after it is in progress, delete the
+ *          <p>To cancel the copy operation after it is in progress, delete the
  *             target cluster snapshot identified by
  *             <code>TargetDBClusterSnapshotIdentifier</code> while that cluster
  *             snapshot is in the <i>copying</i> status.</p>
@@ -48,13 +49,48 @@ export interface CopyDBClusterSnapshotCommandOutput extends CopyDBClusterSnapsho
  * import { DocDBClient, CopyDBClusterSnapshotCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, CopyDBClusterSnapshotCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = { // CopyDBClusterSnapshotMessage
+ *   SourceDBClusterSnapshotIdentifier: "STRING_VALUE", // required
+ *   TargetDBClusterSnapshotIdentifier: "STRING_VALUE", // required
+ *   KmsKeyId: "STRING_VALUE",
+ *   PreSignedUrl: "STRING_VALUE",
+ *   CopyTags: true || false,
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CopyDBClusterSnapshotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CopyDBClusterSnapshotCommandInput - {@link CopyDBClusterSnapshotCommandInput}
+ * @returns {@link CopyDBClusterSnapshotCommandOutput}
  * @see {@link CopyDBClusterSnapshotCommandInput} for command's `input` shape.
  * @see {@link CopyDBClusterSnapshotCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
+ *
+ * @throws {@link DBClusterSnapshotAlreadyExistsFault} (client fault)
+ *  <p>You already have a cluster snapshot with the given identifier.</p>
+ *
+ * @throws {@link DBClusterSnapshotNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing cluster snapshot. </p>
+ *
+ * @throws {@link InvalidDBClusterSnapshotStateFault} (client fault)
+ *  <p>The provided value isn't a valid cluster snapshot state.</p>
+ *
+ * @throws {@link InvalidDBClusterStateFault} (client fault)
+ *  <p>The cluster isn't in a valid state.</p>
+ *
+ * @throws {@link KMSKeyNotAccessibleFault} (client fault)
+ *  <p>An error occurred when accessing an KMS key.</p>
+ *
+ * @throws {@link SnapshotQuotaExceededFault} (client fault)
+ *  <p>The request would cause you to exceed the allowed number of snapshots.</p>
+ *
  *
  */
 export class CopyDBClusterSnapshotCommand extends $Command<
@@ -74,6 +110,9 @@ export class CopyDBClusterSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CopyDBClusterSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +142,8 @@ export class CopyDBClusterSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CopyDBClusterSnapshotMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CopyDBClusterSnapshotResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +153,18 @@ export class CopyDBClusterSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CopyDBClusterSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCopyDBClusterSnapshotCommand(input, context);
+    return se_CopyDBClusterSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyDBClusterSnapshotCommandOutput> {
-    return deserializeAws_queryCopyDBClusterSnapshotCommand(output, context);
+    return de_CopyDBClusterSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

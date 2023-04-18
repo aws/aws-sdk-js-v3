@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import {
-  DescribeRouteInput,
-  DescribeRouteInputFilterSensitiveLog,
-  DescribeRouteOutput,
-  DescribeRouteOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeRouteCommand,
-  serializeAws_restJson1DescribeRouteCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeRouteInput, DescribeRouteOutput } from "../models/models_0";
+import { de_DescribeRouteCommand, se_DescribeRouteCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeRouteCommand}.
+ */
 export interface DescribeRouteCommandInput extends DescribeRouteInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeRouteCommand}.
+ */
 export interface DescribeRouteCommandOutput extends DescribeRouteOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes an existing route.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,43 @@ export interface DescribeRouteCommandOutput extends DescribeRouteOutput, __Metad
  * import { AppMeshClient, DescribeRouteCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, DescribeRouteCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
+ * const input = { // DescribeRouteInput
+ *   routeName: "STRING_VALUE", // required
+ *   meshName: "STRING_VALUE", // required
+ *   meshOwner: "STRING_VALUE",
+ *   virtualRouterName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeRouteCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRouteCommandInput - {@link DescribeRouteCommandInput}
+ * @returns {@link DescribeRouteCommandOutput}
  * @see {@link DescribeRouteCommandInput} for command's `input` shape.
  * @see {@link DescribeRouteCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request syntax was malformed. Check your request syntax and try again.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>You don't have permissions to perform this action.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception, or
+ *          failure.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The specified resource doesn't exist. Check your request syntax and try again.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request has failed due to a temporary failure of the service.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The maximum request rate permitted by the App Mesh APIs has been exceeded for
+ *          your account. For best results, use an increasing or variable sleep interval between
+ *          requests.</p>
+ *
  *
  */
 export class DescribeRouteCommand extends $Command<
@@ -62,6 +95,9 @@ export class DescribeRouteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRouteCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +124,8 @@ export class DescribeRouteCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRouteInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRouteOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +135,18 @@ export class DescribeRouteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeRouteCommand(input, context);
+    return se_DescribeRouteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRouteCommandOutput> {
-    return deserializeAws_restJson1DescribeRouteCommand(output, context);
+    return de_DescribeRouteCommand(output, context);
   }
 
   // Start section: command_body_extra

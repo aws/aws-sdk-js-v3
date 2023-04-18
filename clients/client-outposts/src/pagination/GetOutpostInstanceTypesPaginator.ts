@@ -6,12 +6,11 @@ import {
   GetOutpostInstanceTypesCommandInput,
   GetOutpostInstanceTypesCommandOutput,
 } from "../commands/GetOutpostInstanceTypesCommand";
-import { Outposts } from "../Outposts";
 import { OutpostsClient } from "../OutpostsClient";
 import { OutpostsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: OutpostsClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new GetOutpostInstanceTypesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Outposts,
-  input: GetOutpostInstanceTypesCommandInput,
-  ...args: any
-): Promise<GetOutpostInstanceTypesCommandOutput> => {
-  // @ts-ignore
-  return await client.getOutpostInstanceTypes(input, ...args);
-};
 export async function* paginateGetOutpostInstanceTypes(
   config: OutpostsPaginationConfiguration,
   input: GetOutpostInstanceTypesCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateGetOutpostInstanceTypes(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Outposts) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof OutpostsClient) {
+    if (config.client instanceof OutpostsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Outposts | OutpostsClient");

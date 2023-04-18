@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
-import {
-  StopContinuousExportRequest,
-  StopContinuousExportRequestFilterSensitiveLog,
-  StopContinuousExportResponse,
-  StopContinuousExportResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StopContinuousExportCommand,
-  serializeAws_json1_1StopContinuousExportCommand,
-} from "../protocols/Aws_json1_1";
+import { StopContinuousExportRequest, StopContinuousExportResponse } from "../models/models_0";
+import { de_StopContinuousExportCommand, se_StopContinuousExportCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link StopContinuousExportCommand}.
+ */
 export interface StopContinuousExportCommandInput extends StopContinuousExportRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StopContinuousExportCommand}.
+ */
 export interface StopContinuousExportCommandOutput extends StopContinuousExportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stop the continuous flow of agent's discovered data into Amazon Athena.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,50 @@ export interface StopContinuousExportCommandOutput extends StopContinuousExportR
  * import { ApplicationDiscoveryServiceClient, StopContinuousExportCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
  * // const { ApplicationDiscoveryServiceClient, StopContinuousExportCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
+ * const input = { // StopContinuousExportRequest
+ *   exportId: "STRING_VALUE", // required
+ * };
  * const command = new StopContinuousExportCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopContinuousExportCommandInput - {@link StopContinuousExportCommandInput}
+ * @returns {@link StopContinuousExportCommandOutput}
  * @see {@link StopContinuousExportCommandInput} for command's `input` shape.
  * @see {@link StopContinuousExportCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
+ *
+ * @throws {@link AuthorizationErrorException} (client fault)
+ *  <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM
+ *       policy associated with this account.</p>
+ *
+ * @throws {@link HomeRegionNotSetException} (client fault)
+ *  <p>The home region is not set. Set the home region to continue.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters are not valid. Verify the parameters and try again.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value of one or more parameters are either invalid or out of range. Verify the
+ *       parameter values and try again.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This operation is not permitted.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>This issue occurs when the same <code>clientRequestToken</code> is used with the
+ *         <code>StartImportTask</code> action, but with different parameters. For example, you use the
+ *       same request token but have two different import URLs, you can encounter this issue. If the
+ *       import tasks are meant to be different, use a different <code>clientRequestToken</code>, and
+ *       try again.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified configuration ID was not located. Verify the configuration ID and try
+ *       again.</p>
+ *
+ * @throws {@link ServerInternalErrorException} (server fault)
+ *  <p>The server experienced an internal error. Try again.</p>
+ *
  *
  */
 export class StopContinuousExportCommand extends $Command<
@@ -66,6 +106,9 @@ export class StopContinuousExportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopContinuousExportCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +137,8 @@ export class StopContinuousExportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopContinuousExportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopContinuousExportResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +148,18 @@ export class StopContinuousExportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopContinuousExportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopContinuousExportCommand(input, context);
+    return se_StopContinuousExportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopContinuousExportCommandOutput> {
-    return deserializeAws_json1_1StopContinuousExportCommand(output, context);
+    return de_StopContinuousExportCommand(output, context);
   }
 
   // Start section: command_body_extra

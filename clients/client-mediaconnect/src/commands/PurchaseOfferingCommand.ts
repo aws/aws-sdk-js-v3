@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
-import {
-  PurchaseOfferingRequest,
-  PurchaseOfferingRequestFilterSensitiveLog,
-  PurchaseOfferingResponse,
-  PurchaseOfferingResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PurchaseOfferingCommand,
-  serializeAws_restJson1PurchaseOfferingCommand,
-} from "../protocols/Aws_restJson1";
+import { PurchaseOfferingRequest, PurchaseOfferingResponse } from "../models/models_0";
+import { de_PurchaseOfferingCommand, se_PurchaseOfferingCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link PurchaseOfferingCommand}.
+ */
 export interface PurchaseOfferingCommandInput extends PurchaseOfferingRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PurchaseOfferingCommand}.
+ */
 export interface PurchaseOfferingCommandOutput extends PurchaseOfferingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Submits a request to purchase an offering. If you already have an active reservation, you can't purchase another offering.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,39 @@ export interface PurchaseOfferingCommandOutput extends PurchaseOfferingResponse,
  * import { MediaConnectClient, PurchaseOfferingCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, PurchaseOfferingCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
+ * const input = { // PurchaseOfferingRequest
+ *   OfferingArn: "STRING_VALUE", // required
+ *   ReservationName: "STRING_VALUE", // required
+ *   Start: "STRING_VALUE", // required
+ * };
  * const command = new PurchaseOfferingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PurchaseOfferingCommandInput - {@link PurchaseOfferingCommandInput}
+ * @returns {@link PurchaseOfferingCommandOutput}
  * @see {@link PurchaseOfferingCommandInput} for command's `input` shape.
  * @see {@link PurchaseOfferingCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *
  *
  */
 export class PurchaseOfferingCommand extends $Command<
@@ -62,6 +91,9 @@ export class PurchaseOfferingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PurchaseOfferingCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +122,8 @@ export class PurchaseOfferingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PurchaseOfferingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PurchaseOfferingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +133,18 @@ export class PurchaseOfferingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PurchaseOfferingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PurchaseOfferingCommand(input, context);
+    return se_PurchaseOfferingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PurchaseOfferingCommandOutput> {
-    return deserializeAws_restJson1PurchaseOfferingCommand(output, context);
+    return de_PurchaseOfferingCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,21 +16,31 @@ import {
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import {
   ListDistributionsByRealtimeLogConfigRequest,
-  ListDistributionsByRealtimeLogConfigRequestFilterSensitiveLog,
   ListDistributionsByRealtimeLogConfigResult,
   ListDistributionsByRealtimeLogConfigResultFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_restXmlListDistributionsByRealtimeLogConfigCommand,
-  serializeAws_restXmlListDistributionsByRealtimeLogConfigCommand,
+  de_ListDistributionsByRealtimeLogConfigCommand,
+  se_ListDistributionsByRealtimeLogConfigCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * @public
+ *
+ * The input for {@link ListDistributionsByRealtimeLogConfigCommand}.
+ */
 export interface ListDistributionsByRealtimeLogConfigCommandInput extends ListDistributionsByRealtimeLogConfigRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDistributionsByRealtimeLogConfigCommand}.
+ */
 export interface ListDistributionsByRealtimeLogConfigCommandOutput
   extends ListDistributionsByRealtimeLogConfigResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of distributions that have a cache behavior that's associated with the
  * 			specified real-time log configuration.</p>
  *          <p>You can specify the real-time log configuration by its name or its Amazon Resource
@@ -47,13 +57,25 @@ export interface ListDistributionsByRealtimeLogConfigCommandOutput
  * import { CloudFrontClient, ListDistributionsByRealtimeLogConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListDistributionsByRealtimeLogConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // ListDistributionsByRealtimeLogConfigRequest
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ *   RealtimeLogConfigName: "STRING_VALUE",
+ *   RealtimeLogConfigArn: "STRING_VALUE",
+ * };
  * const command = new ListDistributionsByRealtimeLogConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDistributionsByRealtimeLogConfigCommandInput - {@link ListDistributionsByRealtimeLogConfigCommandInput}
+ * @returns {@link ListDistributionsByRealtimeLogConfigCommandOutput}
  * @see {@link ListDistributionsByRealtimeLogConfigCommandInput} for command's `input` shape.
  * @see {@link ListDistributionsByRealtimeLogConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
  *
  */
 export class ListDistributionsByRealtimeLogConfigCommand extends $Command<
@@ -73,6 +95,9 @@ export class ListDistributionsByRealtimeLogConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDistributionsByRealtimeLogConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,7 +126,7 @@ export class ListDistributionsByRealtimeLogConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDistributionsByRealtimeLogConfigRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListDistributionsByRealtimeLogConfigResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -112,18 +137,24 @@ export class ListDistributionsByRealtimeLogConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListDistributionsByRealtimeLogConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlListDistributionsByRealtimeLogConfigCommand(input, context);
+    return se_ListDistributionsByRealtimeLogConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDistributionsByRealtimeLogConfigCommandOutput> {
-    return deserializeAws_restXmlListDistributionsByRealtimeLogConfigCommand(output, context);
+    return de_ListDistributionsByRealtimeLogConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

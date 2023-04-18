@@ -14,18 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  CreateRoleRequest,
-  CreateRoleRequestFilterSensitiveLog,
-  CreateRoleResponse,
-  CreateRoleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_queryCreateRoleCommand, serializeAws_queryCreateRoleCommand } from "../protocols/Aws_query";
+import { CreateRoleRequest, CreateRoleResponse } from "../models/models_0";
+import { de_CreateRoleCommand, se_CreateRoleCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateRoleCommand}.
+ */
 export interface CreateRoleCommandInput extends CreateRoleRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateRoleCommand}.
+ */
 export interface CreateRoleCommandOutput extends CreateRoleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new role for your Amazon Web Services account. For more information about roles, see
  *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">IAM
  *                 roles</a>. For information about quotas for role names and the number of roles
@@ -37,13 +43,79 @@ export interface CreateRoleCommandOutput extends CreateRoleResponse, __MetadataB
  * import { IAMClient, CreateRoleCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, CreateRoleCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // CreateRoleRequest
+ *   Path: "STRING_VALUE",
+ *   RoleName: "STRING_VALUE", // required
+ *   AssumeRolePolicyDocument: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   MaxSessionDuration: Number("int"),
+ *   PermissionsBoundary: "STRING_VALUE",
+ *   Tags: [ // tagListType
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateRoleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRoleCommandInput - {@link CreateRoleCommandInput}
+ * @returns {@link CreateRoleCommandOutput}
  * @see {@link CreateRoleCommandInput} for command's `input` shape.
  * @see {@link CreateRoleCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>The request was rejected because multiple requests to change this object were submitted
+ *       simultaneously. Wait a few minutes and submit your request again.</p>
+ *
+ * @throws {@link EntityAlreadyExistsException} (client fault)
+ *  <p>The request was rejected because it attempted to create a resource that already
+ *       exists.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
+ *       input parameter.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request was rejected because it attempted to create resources beyond the current
+ *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+ *
+ * @throws {@link MalformedPolicyDocumentException} (client fault)
+ *  <p>The request was rejected because the policy document was malformed. The error message
+ *       describes the specific error.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
+ *
+ * @example To create an IAM role
+ * ```javascript
+ * // The following command creates a role named Test-Role and attaches a trust policy that you must convert from JSON to a string. Upon success, the response includes the same policy as a URL-encoded JSON string.
+ * const input = {
+ *   "AssumeRolePolicyDocument": "<Stringified-JSON>",
+ *   "Path": "/",
+ *   "RoleName": "Test-Role"
+ * };
+ * const command = new CreateRoleCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Role": {
+ *     "Arn": "arn:aws:iam::123456789012:role/Test-Role",
+ *     "AssumeRolePolicyDocument": "<URL-encoded-JSON>",
+ *     "CreateDate": "2013-06-07T20:43:32.821Z",
+ *     "Path": "/",
+ *     "RoleId": "AKIAIOSFODNN7EXAMPLE",
+ *     "RoleName": "Test-Role"
+ *   }
+ * }
+ * *\/
+ * // example id: eaaa4b5f-51f1-4f73-b0d3-30127040eff8
+ * ```
  *
  */
 export class CreateRoleCommand extends $Command<
@@ -63,6 +135,9 @@ export class CreateRoleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +164,8 @@ export class CreateRoleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRoleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRoleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +175,18 @@ export class CreateRoleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateRoleCommand(input, context);
+    return se_CreateRoleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRoleCommandOutput> {
-    return deserializeAws_queryCreateRoleCommand(output, context);
+    return de_CreateRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,16 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApiGatewayManagementApiClient";
-import { PostToConnectionRequest, PostToConnectionRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1PostToConnectionCommand,
-  serializeAws_restJson1PostToConnectionCommand,
-} from "../protocols/Aws_restJson1";
+import { PostToConnectionRequest } from "../models/models_0";
+import { de_PostToConnectionCommand, se_PostToConnectionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link PostToConnectionCommand}.
+ */
 export interface PostToConnectionCommandInput extends PostToConnectionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PostToConnectionCommand}.
+ */
 export interface PostToConnectionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends the provided data to the specified connection.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -35,13 +43,32 @@ export interface PostToConnectionCommandOutput extends __MetadataBearer {}
  * import { ApiGatewayManagementApiClient, PostToConnectionCommand } from "@aws-sdk/client-apigatewaymanagementapi"; // ES Modules import
  * // const { ApiGatewayManagementApiClient, PostToConnectionCommand } = require("@aws-sdk/client-apigatewaymanagementapi"); // CommonJS import
  * const client = new ApiGatewayManagementApiClient(config);
+ * const input = { // PostToConnectionRequest
+ *   Data: "BLOB_VALUE", // required
+ *   ConnectionId: "STRING_VALUE", // required
+ * };
  * const command = new PostToConnectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PostToConnectionCommandInput - {@link PostToConnectionCommandInput}
+ * @returns {@link PostToConnectionCommandOutput}
  * @see {@link PostToConnectionCommandInput} for command's `input` shape.
  * @see {@link PostToConnectionCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayManagementApiClientResolvedConfig | config} for ApiGatewayManagementApiClient's `config` shape.
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The caller is not authorized to invoke this operation.</p>
+ *
+ * @throws {@link GoneException} (client fault)
+ *  <p>The connection with the provided id no longer exists.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The client is sending more than the allowed number of requests per unit of time or the WebSocket client side buffer is full.</p>
+ *
+ * @throws {@link PayloadTooLargeException} (client fault)
+ *  <p>The data has exceeded the maximum size allowed.</p>
+ *
  *
  */
 export class PostToConnectionCommand extends $Command<
@@ -61,6 +88,9 @@ export class PostToConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PostToConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +119,8 @@ export class PostToConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PostToConnectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +130,18 @@ export class PostToConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PostToConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PostToConnectionCommand(input, context);
+    return se_PostToConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PostToConnectionCommandOutput> {
-    return deserializeAws_restJson1PostToConnectionCommand(output, context);
+    return de_PostToConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

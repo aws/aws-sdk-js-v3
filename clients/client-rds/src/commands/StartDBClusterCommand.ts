@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartDBClusterMessage,
-  StartDBClusterMessageFilterSensitiveLog,
-  StartDBClusterResult,
-  StartDBClusterResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryStartDBClusterCommand,
-  serializeAws_queryStartDBClusterCommand,
-} from "../protocols/Aws_query";
+import { StartDBClusterMessage, StartDBClusterResult } from "../models/models_1";
+import { de_StartDBClusterCommand, se_StartDBClusterCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link StartDBClusterCommand}.
+ */
 export interface StartDBClusterCommandInput extends StartDBClusterMessage {}
+/**
+ * @public
+ *
+ * The output of {@link StartDBClusterCommand}.
+ */
 export interface StartDBClusterCommandOutput extends StartDBClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an Amazon Aurora DB cluster that was stopped using the Amazon Web Services console, the stop-db-cluster
  *        CLI command, or the StopDBCluster action.</p>
  *          <p>For more information, see
@@ -43,13 +46,55 @@ export interface StartDBClusterCommandOutput extends StartDBClusterResult, __Met
  * import { RDSClient, StartDBClusterCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, StartDBClusterCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // StartDBClusterMessage
+ *   DBClusterIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new StartDBClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartDBClusterCommandInput - {@link StartDBClusterCommandInput}
+ * @returns {@link StartDBClusterCommandOutput}
  * @see {@link StartDBClusterCommandInput} for command's `input` shape.
  * @see {@link StartDBClusterCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ * @throws {@link DBClusterNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+ *
+ * @throws {@link InvalidDBClusterStateFault} (client fault)
+ *  <p>The requested operation can't be performed while the cluster is in this state.</p>
+ *
+ * @throws {@link InvalidDBInstanceStateFault} (client fault)
+ *  <p>The DB instance isn't in a valid state.</p>
+ *
+ *
+ * @example To start a DB cluster
+ * ```javascript
+ * // The following example starts a DB cluster and its DB instances.
+ * const input = {
+ *   "DBClusterIdentifier": "mydbcluster"
+ * };
+ * const command = new StartDBClusterCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBCluster": {
+ *     "AllocatedStorage": 1,
+ *     "AvailabilityZones": [
+ *       "us-east-1a",
+ *       "us-east-1e",
+ *       "us-east-1b"
+ *     ],
+ *     "BackupRetentionPeriod": 1,
+ *     "DBClusterIdentifier": "mydbcluster",
+ *     "DatabaseName": "mydb"
+ *   }
+ * }
+ * *\/
+ * // example id: to-start-a-db-cluster-1680035521632
+ * ```
  *
  */
 export class StartDBClusterCommand extends $Command<
@@ -69,6 +114,9 @@ export class StartDBClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartDBClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +145,8 @@ export class StartDBClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartDBClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: StartDBClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +156,18 @@ export class StartDBClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryStartDBClusterCommand(input, context);
+    return se_StartDBClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartDBClusterCommandOutput> {
-    return deserializeAws_queryStartDBClusterCommand(output, context);
+    return de_StartDBClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

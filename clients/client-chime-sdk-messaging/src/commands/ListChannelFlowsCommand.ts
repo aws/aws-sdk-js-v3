@@ -24,15 +24,23 @@ import {
   ListChannelFlowsResponse,
   ListChannelFlowsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListChannelFlowsCommand,
-  serializeAws_restJson1ListChannelFlowsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListChannelFlowsCommand, se_ListChannelFlowsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListChannelFlowsCommand}.
+ */
 export interface ListChannelFlowsCommandInput extends ListChannelFlowsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListChannelFlowsCommand}.
+ */
 export interface ListChannelFlowsCommandOutput extends ListChannelFlowsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a paginated lists of all the channel flows created under a single Chime. This is a developer API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +48,39 @@ export interface ListChannelFlowsCommandOutput extends ListChannelFlowsResponse,
  * import { ChimeSDKMessagingClient, ListChannelFlowsCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, ListChannelFlowsCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
+ * const input = { // ListChannelFlowsRequest
+ *   AppInstanceArn: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListChannelFlowsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListChannelFlowsCommandInput - {@link ListChannelFlowsCommandInput}
+ * @returns {@link ListChannelFlowsCommandOutput}
  * @see {@link ListChannelFlowsCommandInput} for command's `input` shape.
  * @see {@link ListChannelFlowsCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The client exceeded its request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client is not currently authorized to make the request.</p>
+ *
  *
  */
 export class ListChannelFlowsCommand extends $Command<
@@ -66,6 +100,9 @@ export class ListChannelFlowsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListChannelFlowsCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,12 +142,18 @@ export class ListChannelFlowsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListChannelFlowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListChannelFlowsCommand(input, context);
+    return se_ListChannelFlowsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListChannelFlowsCommandOutput> {
-    return deserializeAws_restJson1ListChannelFlowsCommand(output, context);
+    return de_ListChannelFlowsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListDeliverabilityTestReportsRequest,
-  ListDeliverabilityTestReportsRequestFilterSensitiveLog,
-  ListDeliverabilityTestReportsResponse,
-  ListDeliverabilityTestReportsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListDeliverabilityTestReportsRequest, ListDeliverabilityTestReportsResponse } from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
 import {
-  deserializeAws_restJson1ListDeliverabilityTestReportsCommand,
-  serializeAws_restJson1ListDeliverabilityTestReportsCommand,
+  de_ListDeliverabilityTestReportsCommand,
+  se_ListDeliverabilityTestReportsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListDeliverabilityTestReportsCommand}.
+ */
 export interface ListDeliverabilityTestReportsCommandInput extends ListDeliverabilityTestReportsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDeliverabilityTestReportsCommand}.
+ */
 export interface ListDeliverabilityTestReportsCommandOutput
   extends ListDeliverabilityTestReportsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Show a list of the predictive inbox placement tests that you've performed, regardless of their statuses. For
  *             predictive inbox placement tests that are complete, you can use the <code>GetDeliverabilityTestReport</code>
  *             operation to view the results.</p>
@@ -40,13 +46,29 @@ export interface ListDeliverabilityTestReportsCommandOutput
  * import { PinpointEmailClient, ListDeliverabilityTestReportsCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, ListDeliverabilityTestReportsCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
+ * const input = { // ListDeliverabilityTestReportsRequest
+ *   NextToken: "STRING_VALUE",
+ *   PageSize: Number("int"),
+ * };
  * const command = new ListDeliverabilityTestReportsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDeliverabilityTestReportsCommandInput - {@link ListDeliverabilityTestReportsCommandInput}
+ * @returns {@link ListDeliverabilityTestReportsCommandOutput}
  * @see {@link ListDeliverabilityTestReportsCommandInput} for command's `input` shape.
  * @see {@link ListDeliverabilityTestReportsCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input you provided is invalid.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource you attempted to access doesn't exist.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Too many requests have been made to the operation.</p>
+ *
  *
  */
 export class ListDeliverabilityTestReportsCommand extends $Command<
@@ -66,6 +88,9 @@ export class ListDeliverabilityTestReportsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDeliverabilityTestReportsCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +119,8 @@ export class ListDeliverabilityTestReportsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDeliverabilityTestReportsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDeliverabilityTestReportsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,15 +130,21 @@ export class ListDeliverabilityTestReportsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDeliverabilityTestReportsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDeliverabilityTestReportsCommand(input, context);
+    return se_ListDeliverabilityTestReportsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDeliverabilityTestReportsCommandOutput> {
-    return deserializeAws_restJson1ListDeliverabilityTestReportsCommand(output, context);
+    return de_ListDeliverabilityTestReportsCommand(output, context);
   }
 
   // Start section: command_body_extra

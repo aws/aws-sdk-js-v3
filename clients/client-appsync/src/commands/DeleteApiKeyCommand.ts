@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import {
-  DeleteApiKeyRequest,
-  DeleteApiKeyRequestFilterSensitiveLog,
-  DeleteApiKeyResponse,
-  DeleteApiKeyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteApiKeyCommand,
-  serializeAws_restJson1DeleteApiKeyCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteApiKeyRequest, DeleteApiKeyResponse } from "../models/models_0";
+import { de_DeleteApiKeyCommand, se_DeleteApiKeyCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteApiKeyCommand}.
+ */
 export interface DeleteApiKeyCommandInput extends DeleteApiKeyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteApiKeyCommand}.
+ */
 export interface DeleteApiKeyCommandOutput extends DeleteApiKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an API key.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,33 @@ export interface DeleteApiKeyCommandOutput extends DeleteApiKeyResponse, __Metad
  * import { AppSyncClient, DeleteApiKeyCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, DeleteApiKeyCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
+ * const input = { // DeleteApiKeyRequest
+ *   apiId: "STRING_VALUE", // required
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteApiKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteApiKeyCommandInput - {@link DeleteApiKeyCommandInput}
+ * @returns {@link DeleteApiKeyCommandOutput}
  * @see {@link DeleteApiKeyCommandInput} for command's `input` shape.
  * @see {@link DeleteApiKeyCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the
+ *          field values, and then try again.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal AppSync error occurred. Try your request again.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource specified in the request was not found. Check the resource, and then try again.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You aren't authorized to perform this operation.</p>
+ *
  *
  */
 export class DeleteApiKeyCommand extends $Command<
@@ -62,6 +85,9 @@ export class DeleteApiKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteApiKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +114,8 @@ export class DeleteApiKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteApiKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteApiKeyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +125,18 @@ export class DeleteApiKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteApiKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteApiKeyCommand(input, context);
+    return se_DeleteApiKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteApiKeyCommandOutput> {
-    return deserializeAws_restJson1DeleteApiKeyCommand(output, context);
+    return de_DeleteApiKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

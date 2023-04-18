@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListProfilesResponse,
-  ListProfilesResponseFilterSensitiveLog,
-  ListRequest,
-  ListRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListProfilesCommand,
-  serializeAws_restJson1ListProfilesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListProfilesResponse, ListRequest } from "../models/models_0";
+import { de_ListProfilesCommand, se_ListProfilesCommand } from "../protocols/Aws_restJson1";
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListProfilesCommand}.
+ */
 export interface ListProfilesCommandInput extends ListRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListProfilesCommand}.
+ */
 export interface ListProfilesCommandOutput extends ListProfilesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all profiles in the authenticated account and Amazon Web Services Region.</p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -40,13 +43,26 @@ export interface ListProfilesCommandOutput extends ListProfilesResponse, __Metad
  * import { RolesAnywhereClient, ListProfilesCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
  * // const { RolesAnywhereClient, ListProfilesCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
  * const client = new RolesAnywhereClient(config);
+ * const input = { // ListRequest
+ *   nextToken: "STRING_VALUE",
+ *   pageSize: Number("int"),
+ * };
  * const command = new ListProfilesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProfilesCommandInput - {@link ListProfilesCommandInput}
+ * @returns {@link ListProfilesCommandOutput}
  * @see {@link ListProfilesCommandInput} for command's `input` shape.
  * @see {@link ListProfilesCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Validation exception error.</p>
+ *
  *
  */
 export class ListProfilesCommand extends $Command<
@@ -66,6 +82,9 @@ export class ListProfilesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +111,8 @@ export class ListProfilesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListProfilesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +122,18 @@ export class ListProfilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListProfilesCommand(input, context);
+    return se_ListProfilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProfilesCommandOutput> {
-    return deserializeAws_restJson1ListProfilesCommand(output, context);
+    return de_ListProfilesCommand(output, context);
   }
 
   // Start section: command_body_extra

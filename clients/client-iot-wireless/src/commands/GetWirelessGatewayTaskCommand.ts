@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  GetWirelessGatewayTaskRequest,
-  GetWirelessGatewayTaskRequestFilterSensitiveLog,
-  GetWirelessGatewayTaskResponse,
-  GetWirelessGatewayTaskResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetWirelessGatewayTaskCommand,
-  serializeAws_restJson1GetWirelessGatewayTaskCommand,
-} from "../protocols/Aws_restJson1";
+import { GetWirelessGatewayTaskRequest, GetWirelessGatewayTaskResponse } from "../models/models_0";
+import { de_GetWirelessGatewayTaskCommand, se_GetWirelessGatewayTaskCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetWirelessGatewayTaskCommand}.
+ */
 export interface GetWirelessGatewayTaskCommandInput extends GetWirelessGatewayTaskRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetWirelessGatewayTaskCommand}.
+ */
 export interface GetWirelessGatewayTaskCommandOutput extends GetWirelessGatewayTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a wireless gateway task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,34 @@ export interface GetWirelessGatewayTaskCommandOutput extends GetWirelessGatewayT
  * import { IoTWirelessClient, GetWirelessGatewayTaskCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, GetWirelessGatewayTaskCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // GetWirelessGatewayTaskRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetWirelessGatewayTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetWirelessGatewayTaskCommandInput - {@link GetWirelessGatewayTaskCommandInput}
+ * @returns {@link GetWirelessGatewayTaskCommandOutput}
  * @see {@link GetWirelessGatewayTaskCommandInput} for command's `input` shape.
  * @see {@link GetWirelessGatewayTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>User does not have permission to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred while processing a request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because it exceeded the allowed API request rate.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input did not meet the specified constraints.</p>
+ *
  *
  */
 export class GetWirelessGatewayTaskCommand extends $Command<
@@ -62,6 +86,9 @@ export class GetWirelessGatewayTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetWirelessGatewayTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +117,8 @@ export class GetWirelessGatewayTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetWirelessGatewayTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetWirelessGatewayTaskResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +128,18 @@ export class GetWirelessGatewayTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetWirelessGatewayTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetWirelessGatewayTaskCommand(input, context);
+    return se_GetWirelessGatewayTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetWirelessGatewayTaskCommandOutput> {
-    return deserializeAws_restJson1GetWirelessGatewayTaskCommand(output, context);
+    return de_GetWirelessGatewayTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

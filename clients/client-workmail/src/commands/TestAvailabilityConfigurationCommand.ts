@@ -17,20 +17,30 @@ import {
   TestAvailabilityConfigurationRequest,
   TestAvailabilityConfigurationRequestFilterSensitiveLog,
   TestAvailabilityConfigurationResponse,
-  TestAvailabilityConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1TestAvailabilityConfigurationCommand,
-  serializeAws_json1_1TestAvailabilityConfigurationCommand,
+  de_TestAvailabilityConfigurationCommand,
+  se_TestAvailabilityConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * @public
+ *
+ * The input for {@link TestAvailabilityConfigurationCommand}.
+ */
 export interface TestAvailabilityConfigurationCommandInput extends TestAvailabilityConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link TestAvailabilityConfigurationCommand}.
+ */
 export interface TestAvailabilityConfigurationCommandOutput
   extends TestAvailabilityConfigurationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Performs a test on an availability provider to ensure that access is allowed. For EWS, it verifies the provided credentials can be used to successfully log in. For Lambda, it verifies that the Lambda function can be invoked and that the resource access
  *          policy was configured to deny anonymous access. An anonymous invocation is one done without providing either a <code>SourceArn</code> or <code>SourceAccount</code> header.</p>
  *          <note>
@@ -45,13 +55,42 @@ export interface TestAvailabilityConfigurationCommandOutput
  * import { WorkMailClient, TestAvailabilityConfigurationCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, TestAvailabilityConfigurationCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = { // TestAvailabilityConfigurationRequest
+ *   OrganizationId: "STRING_VALUE", // required
+ *   DomainName: "STRING_VALUE",
+ *   EwsProvider: { // EwsAvailabilityProvider
+ *     EwsEndpoint: "STRING_VALUE", // required
+ *     EwsUsername: "STRING_VALUE", // required
+ *     EwsPassword: "STRING_VALUE", // required
+ *   },
+ *   LambdaProvider: { // LambdaAvailabilityProvider
+ *     LambdaArn: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new TestAvailabilityConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TestAvailabilityConfigurationCommandInput - {@link TestAvailabilityConfigurationCommandInput}
+ * @returns {@link TestAvailabilityConfigurationCommandOutput}
  * @see {@link TestAvailabilityConfigurationCommandInput} for command's `input` shape.
  * @see {@link TestAvailabilityConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link OrganizationNotFoundException} (client fault)
+ *  <p>An operation received a valid organization identifier that either doesn't belong or
+ *          exist in the system.</p>
+ *
+ * @throws {@link OrganizationStateException} (client fault)
+ *  <p>The organization must have a valid state to perform certain
+ *          operations on the organization or its members.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource cannot be found.</p>
+ *
  *
  */
 export class TestAvailabilityConfigurationCommand extends $Command<
@@ -71,6 +110,9 @@ export class TestAvailabilityConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TestAvailabilityConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,7 +142,7 @@ export class TestAvailabilityConfigurationCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: TestAvailabilityConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: TestAvailabilityConfigurationResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,15 +152,21 @@ export class TestAvailabilityConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TestAvailabilityConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1TestAvailabilityConfigurationCommand(input, context);
+    return se_TestAvailabilityConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<TestAvailabilityConfigurationCommandOutput> {
-    return deserializeAws_json1_1TestAvailabilityConfigurationCommand(output, context);
+    return de_TestAvailabilityConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

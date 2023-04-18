@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import {
-  CreateInvitationsRequest,
-  CreateInvitationsRequestFilterSensitiveLog,
-  CreateInvitationsResponse,
-  CreateInvitationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateInvitationsCommand,
-  serializeAws_restJson1CreateInvitationsCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateInvitationsRequest, CreateInvitationsResponse } from "../models/models_0";
+import { de_CreateInvitationsCommand, se_CreateInvitationsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateInvitationsCommand}.
+ */
 export interface CreateInvitationsCommandInput extends CreateInvitationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateInvitationsCommand}.
+ */
 export interface CreateInvitationsCommandOutput extends CreateInvitationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends an Amazon Macie membership invitation to one or more accounts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,44 @@ export interface CreateInvitationsCommandOutput extends CreateInvitationsRespons
  * import { Macie2Client, CreateInvitationsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, CreateInvitationsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = { // CreateInvitationsRequest
+ *   accountIds: [ // __listOf__string // required
+ *     "STRING_VALUE",
+ *   ],
+ *   disableEmailNotification: true || false,
+ *   message: "STRING_VALUE",
+ * };
  * const command = new CreateInvitationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateInvitationsCommandInput - {@link CreateInvitationsCommandInput}
+ * @returns {@link CreateInvitationsCommandOutput}
  * @see {@link CreateInvitationsCommandInput} for command's `input` shape.
  * @see {@link CreateInvitationsCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+ *
  *
  */
 export class CreateInvitationsCommand extends $Command<
@@ -62,6 +96,9 @@ export class CreateInvitationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateInvitationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +127,8 @@ export class CreateInvitationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateInvitationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateInvitationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +138,18 @@ export class CreateInvitationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateInvitationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateInvitationsCommand(input, context);
+    return se_CreateInvitationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateInvitationsCommandOutput> {
-    return deserializeAws_restJson1CreateInvitationsCommand(output, context);
+    return de_CreateInvitationsCommand(output, context);
   }
 
   // Start section: command_body_extra

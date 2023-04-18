@@ -14,20 +14,28 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UpdateSSHPublicKeyRequest, UpdateSSHPublicKeyRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_queryUpdateSSHPublicKeyCommand,
-  serializeAws_queryUpdateSSHPublicKeyCommand,
-} from "../protocols/Aws_query";
+import { UpdateSSHPublicKeyRequest } from "../models/models_1";
+import { de_UpdateSSHPublicKeyCommand, se_UpdateSSHPublicKeyCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateSSHPublicKeyCommand}.
+ */
 export interface UpdateSSHPublicKeyCommandInput extends UpdateSSHPublicKeyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateSSHPublicKeyCommand}.
+ */
 export interface UpdateSSHPublicKeyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the status of an IAM user's SSH public key to active or inactive. SSH public
  *             keys that are inactive cannot be used for authentication. This operation can be used to
  *             disable a user's SSH public key as part of a key rotation work flow.</p>
- *         <p>The SSH public key affected by this operation is used only for authenticating the
+ *          <p>The SSH public key affected by this operation is used only for authenticating the
  *             associated IAM user to an CodeCommit repository. For more information about using SSH keys
  *             to authenticate to an CodeCommit repository, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html">Set up CodeCommit for
  *                 SSH connections</a> in the <i>CodeCommit User Guide</i>.</p>
@@ -37,13 +45,25 @@ export interface UpdateSSHPublicKeyCommandOutput extends __MetadataBearer {}
  * import { IAMClient, UpdateSSHPublicKeyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, UpdateSSHPublicKeyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // UpdateSSHPublicKeyRequest
+ *   UserName: "STRING_VALUE", // required
+ *   SSHPublicKeyId: "STRING_VALUE", // required
+ *   Status: "Active" || "Inactive", // required
+ * };
  * const command = new UpdateSSHPublicKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSSHPublicKeyCommandInput - {@link UpdateSSHPublicKeyCommandInput}
+ * @returns {@link UpdateSSHPublicKeyCommandOutput}
  * @see {@link UpdateSSHPublicKeyCommandInput} for command's `input` shape.
  * @see {@link UpdateSSHPublicKeyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ *
  *
  */
 export class UpdateSSHPublicKeyCommand extends $Command<
@@ -63,6 +83,9 @@ export class UpdateSSHPublicKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSSHPublicKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +114,8 @@ export class UpdateSSHPublicKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSSHPublicKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +125,18 @@ export class UpdateSSHPublicKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSSHPublicKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateSSHPublicKeyCommand(input, context);
+    return se_UpdateSSHPublicKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSSHPublicKeyCommandOutput> {
-    return deserializeAws_queryUpdateSSHPublicKeyCommand(output, context);
+    return de_UpdateSSHPublicKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

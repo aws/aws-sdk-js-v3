@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteDatasetGroupRequest, DeleteDatasetGroupRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteDatasetGroupRequest } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1DeleteDatasetGroupCommand,
-  serializeAws_json1_1DeleteDatasetGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteDatasetGroupCommand, se_DeleteDatasetGroupCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteDatasetGroupCommand}.
+ */
 export interface DeleteDatasetGroupCommandInput extends DeleteDatasetGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteDatasetGroupCommand}.
+ */
 export interface DeleteDatasetGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a dataset group. Before you delete a dataset group, you must
  *       delete the following:</p>
  *          <ul>
@@ -43,13 +51,28 @@ export interface DeleteDatasetGroupCommandOutput extends __MetadataBearer {}
  * import { PersonalizeClient, DeleteDatasetGroupCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DeleteDatasetGroupCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // DeleteDatasetGroupRequest
+ *   datasetGroupArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDatasetGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDatasetGroupCommandInput - {@link DeleteDatasetGroupCommandInput}
+ * @returns {@link DeleteDatasetGroupCommandOutput}
  * @see {@link DeleteDatasetGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteDatasetGroupCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is in use.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Could not find the specified resource.</p>
+ *
  *
  */
 export class DeleteDatasetGroupCommand extends $Command<
@@ -69,6 +92,9 @@ export class DeleteDatasetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDatasetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +123,8 @@ export class DeleteDatasetGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDatasetGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +134,18 @@ export class DeleteDatasetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDatasetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDatasetGroupCommand(input, context);
+    return se_DeleteDatasetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDatasetGroupCommandOutput> {
-    return deserializeAws_json1_1DeleteDatasetGroupCommand(output, context);
+    return de_DeleteDatasetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  ListEventConfigurationsRequest,
-  ListEventConfigurationsRequestFilterSensitiveLog,
-  ListEventConfigurationsResponse,
-  ListEventConfigurationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListEventConfigurationsCommand,
-  serializeAws_restJson1ListEventConfigurationsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListEventConfigurationsRequest, ListEventConfigurationsResponse } from "../models/models_0";
+import { de_ListEventConfigurationsCommand, se_ListEventConfigurationsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListEventConfigurationsCommand}.
+ */
 export interface ListEventConfigurationsCommandInput extends ListEventConfigurationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListEventConfigurationsCommand}.
+ */
 export interface ListEventConfigurationsCommandOutput extends ListEventConfigurationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List event configurations where at least one event topic has been enabled.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,33 @@ export interface ListEventConfigurationsCommandOutput extends ListEventConfigura
  * import { IoTWirelessClient, ListEventConfigurationsCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, ListEventConfigurationsCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // ListEventConfigurationsRequest
+ *   ResourceType: "SidewalkAccount" || "WirelessDevice" || "WirelessGateway", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListEventConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEventConfigurationsCommandInput - {@link ListEventConfigurationsCommandInput}
+ * @returns {@link ListEventConfigurationsCommandOutput}
  * @see {@link ListEventConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListEventConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>User does not have permission to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred while processing a request.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because it exceeded the allowed API request rate.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input did not meet the specified constraints.</p>
+ *
  *
  */
 export class ListEventConfigurationsCommand extends $Command<
@@ -62,6 +85,9 @@ export class ListEventConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEventConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +116,8 @@ export class ListEventConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEventConfigurationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEventConfigurationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +127,18 @@ export class ListEventConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEventConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListEventConfigurationsCommand(input, context);
+    return se_ListEventConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEventConfigurationsCommandOutput> {
-    return deserializeAws_restJson1ListEventConfigurationsCommand(output, context);
+    return de_ListEventConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

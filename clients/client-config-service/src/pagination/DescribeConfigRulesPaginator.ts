@@ -6,12 +6,11 @@ import {
   DescribeConfigRulesCommandInput,
   DescribeConfigRulesCommandOutput,
 } from "../commands/DescribeConfigRulesCommand";
-import { ConfigService } from "../ConfigService";
 import { ConfigServiceClient } from "../ConfigServiceClient";
 import { ConfigServicePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ConfigServiceClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeConfigRulesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ConfigService,
-  input: DescribeConfigRulesCommandInput,
-  ...args: any
-): Promise<DescribeConfigRulesCommandOutput> => {
-  // @ts-ignore
-  return await client.describeConfigRules(input, ...args);
-};
 export async function* paginateDescribeConfigRules(
   config: ConfigServicePaginationConfiguration,
   input: DescribeConfigRulesCommandInput,
@@ -43,9 +34,7 @@ export async function* paginateDescribeConfigRules(
   let page: DescribeConfigRulesCommandOutput;
   while (hasNext) {
     input.NextToken = token;
-    if (config.client instanceof ConfigService) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ConfigServiceClient) {
+    if (config.client instanceof ConfigServiceClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ConfigService | ConfigServiceClient");

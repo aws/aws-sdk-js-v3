@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateReplicationJobRequest,
-  CreateReplicationJobRequestFilterSensitiveLog,
-  CreateReplicationJobResponse,
-  CreateReplicationJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateReplicationJobCommand,
-  serializeAws_json1_1CreateReplicationJobCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateReplicationJobRequest, CreateReplicationJobResponse } from "../models/models_0";
+import { de_CreateReplicationJobCommand, se_CreateReplicationJobCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateReplicationJobCommand}.
+ */
 export interface CreateReplicationJobCommandInput extends CreateReplicationJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateReplicationJobCommand}.
+ */
 export interface CreateReplicationJobCommandOutput extends CreateReplicationJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a replication job. The replication job schedules periodic replication runs
  *             to replicate your server to Amazon Web Services. Each replication run creates an Amazon Machine Image
  *             (AMI).</p>
@@ -38,13 +41,56 @@ export interface CreateReplicationJobCommandOutput extends CreateReplicationJobR
  * import { SMSClient, CreateReplicationJobCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, CreateReplicationJobCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
+ * const input = { // CreateReplicationJobRequest
+ *   serverId: "STRING_VALUE", // required
+ *   seedReplicationTime: new Date("TIMESTAMP"), // required
+ *   frequency: Number("int"),
+ *   runOnce: true || false,
+ *   licenseType: "AWS" || "BYOL",
+ *   roleName: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   numberOfRecentAmisToKeep: Number("int"),
+ *   encrypted: true || false,
+ *   kmsKeyId: "STRING_VALUE",
+ * };
  * const command = new CreateReplicationJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateReplicationJobCommandInput - {@link CreateReplicationJobCommandInput}
+ * @returns {@link CreateReplicationJobCommandOutput}
  * @see {@link CreateReplicationJobCommandInput} for command's `input` shape.
  * @see {@link CreateReplicationJobCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
+ *
+ * @throws {@link InternalError} (server fault)
+ *  <p>An internal error occurred.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A specified parameter is not valid.</p>
+ *
+ * @throws {@link MissingRequiredParameterException} (client fault)
+ *  <p>A required parameter is missing.</p>
+ *
+ * @throws {@link NoConnectorsAvailableException} (client fault)
+ *  <p>There are no connectors available.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This operation is not allowed.</p>
+ *
+ * @throws {@link ReplicationJobAlreadyExistsException} (client fault)
+ *  <p>The specified replication job already exists.</p>
+ *
+ * @throws {@link ServerCannotBeReplicatedException} (client fault)
+ *  <p>The specified server cannot be replicated.</p>
+ *
+ * @throws {@link TemporarilyUnavailableException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link UnauthorizedOperationException} (client fault)
+ *  <p>You lack permissions needed to perform this operation. Check your IAM policies,
+ *             and ensure that you are using the correct access keys.</p>
+ *
  *
  */
 export class CreateReplicationJobCommand extends $Command<
@@ -64,6 +110,9 @@ export class CreateReplicationJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateReplicationJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +141,8 @@ export class CreateReplicationJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateReplicationJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateReplicationJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +152,18 @@ export class CreateReplicationJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateReplicationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateReplicationJobCommand(input, context);
+    return se_CreateReplicationJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateReplicationJobCommandOutput> {
-    return deserializeAws_json1_1CreateReplicationJobCommand(output, context);
+    return de_CreateReplicationJobCommand(output, context);
   }
 
   // Start section: command_body_extra

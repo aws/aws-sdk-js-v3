@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteDBSubnetGroupMessage, DeleteDBSubnetGroupMessageFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteDBSubnetGroupCommand,
-  serializeAws_queryDeleteDBSubnetGroupCommand,
-} from "../protocols/Aws_query";
+import { DeleteDBSubnetGroupMessage } from "../models/models_0";
+import { de_DeleteDBSubnetGroupCommand, se_DeleteDBSubnetGroupCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteDBSubnetGroupCommand}.
+ */
 export interface DeleteDBSubnetGroupCommandInput extends DeleteDBSubnetGroupMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteDBSubnetGroupCommand}.
+ */
 export interface DeleteDBSubnetGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a DB subnet group.</p>
  *          <note>
  *             <p>The specified database subnet group must not be associated with any DB instances.</p>
@@ -34,13 +42,40 @@ export interface DeleteDBSubnetGroupCommandOutput extends __MetadataBearer {}
  * import { RDSClient, DeleteDBSubnetGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DeleteDBSubnetGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // DeleteDBSubnetGroupMessage
+ *   DBSubnetGroupName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDBSubnetGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDBSubnetGroupCommandInput - {@link DeleteDBSubnetGroupCommandInput}
+ * @returns {@link DeleteDBSubnetGroupCommandOutput}
  * @see {@link DeleteDBSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteDBSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ * @throws {@link DBSubnetGroupNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBSubnetGroupName</code> doesn't refer to an existing DB subnet group.</p>
+ *
+ * @throws {@link InvalidDBSubnetGroupStateFault} (client fault)
+ *  <p>The DB subnet group cannot be deleted because it's in use.</p>
+ *
+ * @throws {@link InvalidDBSubnetStateFault} (client fault)
+ *  <p>The DB subnet isn't in the <i>available</i> state.</p>
+ *
+ *
+ * @example To delete a DB subnet group
+ * ```javascript
+ * // The following example deletes the DB subnet group called mysubnetgroup.
+ * const input = {
+ *   "DBSubnetGroupName": "mysubnetgroup"
+ * };
+ * const command = new DeleteDBSubnetGroupCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-a-db-subnet-group-1680127744982
+ * ```
  *
  */
 export class DeleteDBSubnetGroupCommand extends $Command<
@@ -60,6 +95,9 @@ export class DeleteDBSubnetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDBSubnetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +126,8 @@ export class DeleteDBSubnetGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDBSubnetGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +137,18 @@ export class DeleteDBSubnetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDBSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteDBSubnetGroupCommand(input, context);
+    return se_DeleteDBSubnetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDBSubnetGroupCommandOutput> {
-    return deserializeAws_queryDeleteDBSubnetGroupCommand(output, context);
+    return de_DeleteDBSubnetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { Chime } from "../Chime";
 import { ChimeClient } from "../ChimeClient";
 import {
   ListProxySessionsCommand,
@@ -11,7 +10,7 @@ import {
 import { ChimePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ChimeClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListProxySessionsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Chime,
-  input: ListProxySessionsCommandInput,
-  ...args: any
-): Promise<ListProxySessionsCommandOutput> => {
-  // @ts-ignore
-  return await client.listProxySessions(input, ...args);
-};
 export async function* paginateListProxySessions(
   config: ChimePaginationConfiguration,
   input: ListProxySessionsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListProxySessions(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Chime) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ChimeClient) {
+    if (config.client instanceof ChimeClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Chime | ChimeClient");

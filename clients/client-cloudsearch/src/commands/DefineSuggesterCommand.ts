@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import {
-  DefineSuggesterRequest,
-  DefineSuggesterRequestFilterSensitiveLog,
-  DefineSuggesterResponse,
-  DefineSuggesterResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDefineSuggesterCommand,
-  serializeAws_queryDefineSuggesterCommand,
-} from "../protocols/Aws_query";
+import { DefineSuggesterRequest, DefineSuggesterResponse } from "../models/models_0";
+import { de_DefineSuggesterCommand, se_DefineSuggesterCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DefineSuggesterCommand}.
+ */
 export interface DefineSuggesterCommandInput extends DefineSuggesterRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DefineSuggesterCommand}.
+ */
 export interface DefineSuggesterCommandOutput extends DefineSuggesterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Configures a suggester for a domain. A suggester enables you to display possible matches before users finish typing their queries. When you configure a suggester, you must specify the name of the text field you want to search for possible matches and a unique name for the suggester. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html" target="_blank">Getting Search Suggestions</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,46 @@ export interface DefineSuggesterCommandOutput extends DefineSuggesterResponse, _
  * import { CloudSearchClient, DefineSuggesterCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
  * // const { CloudSearchClient, DefineSuggesterCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
  * const client = new CloudSearchClient(config);
+ * const input = { // DefineSuggesterRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   Suggester: { // Suggester
+ *     SuggesterName: "STRING_VALUE", // required
+ *     DocumentSuggesterOptions: { // DocumentSuggesterOptions
+ *       SourceField: "STRING_VALUE", // required
+ *       FuzzyMatching: "STRING_VALUE",
+ *       SortExpression: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new DefineSuggesterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DefineSuggesterCommandInput - {@link DefineSuggesterCommandInput}
+ * @returns {@link DefineSuggesterCommandOutput}
  * @see {@link DefineSuggesterCommandInput} for command's `input` shape.
  * @see {@link DefineSuggesterCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
+ *
+ * @throws {@link BaseException} (client fault)
+ *  <p>An error occurred while processing the request.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>An internal error occurred while processing the request. If this problem persists,
+ *       report an issue from the <a href="http://status.aws.amazon.com/" target="_blank">Service Health Dashboard</a>.</p>
+ *
+ * @throws {@link InvalidTypeException} (client fault)
+ *  <p>The request was rejected because it specified an invalid type definition.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request was rejected because a resource limit has already been met.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request was rejected because it attempted to reference a resource that does not exist.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request was rejected because it has invalid parameters.</p>
+ *
  *
  */
 export class DefineSuggesterCommand extends $Command<
@@ -62,6 +98,9 @@ export class DefineSuggesterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DefineSuggesterCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +129,8 @@ export class DefineSuggesterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DefineSuggesterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DefineSuggesterResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +140,18 @@ export class DefineSuggesterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DefineSuggesterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDefineSuggesterCommand(input, context);
+    return se_DefineSuggesterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DefineSuggesterCommandOutput> {
-    return deserializeAws_queryDefineSuggesterCommand(output, context);
+    return de_DefineSuggesterCommand(output, context);
   }
 
   // Start section: command_body_extra

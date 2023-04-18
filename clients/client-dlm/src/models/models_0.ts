@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { DLMServiceException as __BaseException } from "./DLMServiceException";
 
 /**
+ * @public
  * <p>
  *             <b>[Event-based policies only]</b> Specifies the encryption settings for cross-Region snapshot copies created by
  * 			event-based policies.</p>
@@ -23,14 +24,25 @@ export interface EncryptionConfiguration {
   CmkArn?: string;
 }
 
-export enum RetentionIntervalUnitValues {
-  DAYS = "DAYS",
-  MONTHS = "MONTHS",
-  WEEKS = "WEEKS",
-  YEARS = "YEARS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RetentionIntervalUnitValues = {
+  DAYS: "DAYS",
+  MONTHS: "MONTHS",
+  WEEKS: "WEEKS",
+  YEARS: "YEARS",
+} as const;
 
 /**
+ * @public
+ */
+export type RetentionIntervalUnitValues =
+  (typeof RetentionIntervalUnitValues)[keyof typeof RetentionIntervalUnitValues];
+
+/**
+ * @public
  * <p>Specifies a retention rule for cross-Region snapshot copies created by snapshot or
  * 			event-based policies, or cross-Region AMI copies created by AMI policies. After the
  * 			retention period expires, the cross-Region copy is deleted.</p>
@@ -50,13 +62,13 @@ export interface CrossRegionCopyRetainRule {
 }
 
 /**
+ * @public
  * <p>
  *             <b>[Event-based policies only]</b> Specifies a cross-Region copy action for event-based policies.</p>
- *
- * 		       <note>
- * 			         <p>To specify a cross-Region copy rule for snapshot and AMI policies, use
+ *          <note>
+ *             <p>To specify a cross-Region copy rule for snapshot and AMI policies, use
  * 				<a>CrossRegionCopyRule</a>.</p>
- * 		       </note>
+ *          </note>
  */
 export interface CrossRegionCopyAction {
   /**
@@ -78,6 +90,7 @@ export interface CrossRegionCopyAction {
 }
 
 /**
+ * @public
  * <p>
  *             <b>[Event-based policies only]</b> Specifies an action for an event-based policy.</p>
  */
@@ -94,18 +107,18 @@ export interface Action {
 }
 
 /**
+ * @public
  * <p>
  *             <b>[Snapshot policies only]</b> Describes the retention rule for archived snapshots. Once the archive
  * 			retention threshold is met, the snapshots are permanently deleted from the archive tier.</p>
- * 		       <note>
- * 			         <p>The archive retention rule must retain snapshots in the archive tier for a minimum
+ *          <note>
+ *             <p>The archive retention rule must retain snapshots in the archive tier for a minimum
  * 				of 90 days.</p>
- * 		       </note>
- *
- * 		       <p>For <b>count-based schedules</b>, you must specify <b>Count</b>. For <b>age-based
+ *          </note>
+ *          <p>For <b>count-based schedules</b>, you must specify <b>Count</b>. For <b>age-based
  * 				schedules</b>, you must specify <b>Interval</b> and
  * 				<b> IntervalUnit</b>.</p>
- * 		       <p>For more information about using snapshot archiving, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-ami-policy.html#dlm-archive">Considerations for
+ *          <p>For more information about using snapshot archiving, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-ami-policy.html#dlm-archive">Considerations for
  * 			snapshot lifecycle policies</a>.</p>
  */
 export interface RetentionArchiveTier {
@@ -132,6 +145,7 @@ export interface RetentionArchiveTier {
 }
 
 /**
+ * @public
  * <p>
  *             <b>[Snapshot policies only]</b> Specifies information about the archive storage tier retention period.</p>
  */
@@ -145,6 +159,7 @@ export interface ArchiveRetainRule {
 }
 
 /**
+ * @public
  * <p>
  *             <b>[Snapshot policies only]</b> Specifies a snapshot archiving rule for a schedule.</p>
  */
@@ -155,11 +170,21 @@ export interface ArchiveRule {
   RetainRule: ArchiveRetainRule | undefined;
 }
 
-export enum EventTypeValues {
-  SHARE_SNAPSHOT = "shareSnapshot",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EventTypeValues = {
+  SHARE_SNAPSHOT: "shareSnapshot",
+} as const;
 
 /**
+ * @public
+ */
+export type EventTypeValues = (typeof EventTypeValues)[keyof typeof EventTypeValues];
+
+/**
+ * @public
  * <p>
  *             <b>[Event-based policies only]</b> Specifies an event that activates an event-based policy.</p>
  */
@@ -179,18 +204,28 @@ export interface EventParameters {
    * <p>The snapshot description that can trigger the policy. The description pattern is specified using
    * 			a regular expression. The policy runs only if a snapshot with a description that matches the
    * 			specified pattern is shared with your account.</p>
-   * 		       <p>For example, specifying <code>^.*Created for policy: policy-1234567890abcdef0.*$</code>
+   *          <p>For example, specifying <code>^.*Created for policy: policy-1234567890abcdef0.*$</code>
    * 			configures the policy to run only if snapshots created by policy <code>policy-1234567890abcdef0</code>
    * 			are shared with your account.</p>
    */
   DescriptionRegex: string | undefined;
 }
 
-export enum EventSourceValues {
-  MANAGED_CWE = "MANAGED_CWE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EventSourceValues = {
+  MANAGED_CWE: "MANAGED_CWE",
+} as const;
 
 /**
+ * @public
+ */
+export type EventSourceValues = (typeof EventSourceValues)[keyof typeof EventSourceValues];
+
+/**
+ * @public
  * <p>
  *             <b>[Event-based policies only]</b> Specifies an event that activates an event-based policy.</p>
  */
@@ -207,6 +242,7 @@ export interface EventSource {
 }
 
 /**
+ * @public
  * <p>Specifies a tag for a resource.</p>
  */
 export interface Tag {
@@ -222,11 +258,12 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>
  *             <b>[Snapshot and AMI policies only]</b> Specifies optional parameters for snapshot and AMI policies. The
  * 			set of valid parameters depends on the combination of policy type and target resource
  * 			type.</p>
- * 		       <p>If you choose to exclude boot volumes and you specify tags that consequently exclude
+ *          <p>If you choose to exclude boot volumes and you specify tags that consequently exclude
  * 			all of the additional data volumes attached to an instance, then Amazon Data Lifecycle Manager will not create
  * 			any snapshots for the affected instance, and it will emit a <code>SnapshotsCreateFailed</code>
  * 			Amazon CloudWatch metric. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitor-dlm-cw-metrics.html">Monitor your policies
@@ -255,54 +292,100 @@ export interface _Parameters {
    * <p>
    *             <b>[Snapshot policies that target instances only]</b> The tags used to identify data (non-root) volumes to exclude from
    * 			multi-volume snapshot sets.</p>
-   * 		       <p>If you create a snapshot lifecycle policy that targets instances and you specify tags for
+   *          <p>If you create a snapshot lifecycle policy that targets instances and you specify tags for
    * 			this parameter, then data volumes with the specified tags that are attached to targeted
    * 			instances will be excluded from the multi-volume snapshot sets created by the policy.</p>
    */
   ExcludeDataVolumeTags?: Tag[];
 }
 
-export enum PolicyTypeValues {
-  EBS_SNAPSHOT_MANAGEMENT = "EBS_SNAPSHOT_MANAGEMENT",
-  EVENT_BASED_POLICY = "EVENT_BASED_POLICY",
-  IMAGE_MANAGEMENT = "IMAGE_MANAGEMENT",
-}
-
-export enum ResourceLocationValues {
-  CLOUD = "CLOUD",
-  OUTPOST = "OUTPOST",
-}
-
-export enum ResourceTypeValues {
-  INSTANCE = "INSTANCE",
-  VOLUME = "VOLUME",
-}
-
-export enum IntervalUnitValues {
-  HOURS = "HOURS",
-}
-
-export enum LocationValues {
-  CLOUD = "CLOUD",
-  OUTPOST_LOCAL = "OUTPOST_LOCAL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PolicyTypeValues = {
+  EBS_SNAPSHOT_MANAGEMENT: "EBS_SNAPSHOT_MANAGEMENT",
+  EVENT_BASED_POLICY: "EVENT_BASED_POLICY",
+  IMAGE_MANAGEMENT: "IMAGE_MANAGEMENT",
+} as const;
 
 /**
+ * @public
+ */
+export type PolicyTypeValues = (typeof PolicyTypeValues)[keyof typeof PolicyTypeValues];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceLocationValues = {
+  CLOUD: "CLOUD",
+  OUTPOST: "OUTPOST",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceLocationValues = (typeof ResourceLocationValues)[keyof typeof ResourceLocationValues];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceTypeValues = {
+  INSTANCE: "INSTANCE",
+  VOLUME: "VOLUME",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceTypeValues = (typeof ResourceTypeValues)[keyof typeof ResourceTypeValues];
+
+/**
+ * @public
+ * @enum
+ */
+export const IntervalUnitValues = {
+  HOURS: "HOURS",
+} as const;
+
+/**
+ * @public
+ */
+export type IntervalUnitValues = (typeof IntervalUnitValues)[keyof typeof IntervalUnitValues];
+
+/**
+ * @public
+ * @enum
+ */
+export const LocationValues = {
+  CLOUD: "CLOUD",
+  OUTPOST_LOCAL: "OUTPOST_LOCAL",
+} as const;
+
+/**
+ * @public
+ */
+export type LocationValues = (typeof LocationValues)[keyof typeof LocationValues];
+
+/**
+ * @public
  * <p>
  *             <b>[Snapshot and AMI policies only]</b> Specifies when the policy should create snapshots or AMIs.</p>
- * 		       <note>
- * 			         <ul>
+ *          <note>
+ *             <ul>
  *                <li>
- * 					             <p>You must specify either <b>CronExpression</b>, or
+ *                   <p>You must specify either <b>CronExpression</b>, or
  * 						<b>Interval</b>, <b>IntervalUnit</b>,
  * 						and <b>Times</b>.</p>
- * 				           </li>
+ *                </li>
  *                <li>
- * 					             <p>If you need to specify an <a>ArchiveRule</a> for the schedule, then you must
+ *                   <p>If you need to specify an <a>ArchiveRule</a> for the schedule, then you must
  * 						specify a creation frequency of at least 28 days.</p>
- * 				           </li>
+ *                </li>
  *             </ul>
- * 		       </note>
+ *          </note>
  */
 export interface CreateRule {
   /**
@@ -311,7 +394,7 @@ export interface CreateRule {
    * 			snapshots in the same Region as the source resource, specify <code>CLOUD</code>. To create
    * 			snapshots on the same Outpost as the source resource, specify <code>OUTPOST_LOCAL</code>.
    * 			If you omit this parameter, <code>CLOUD</code> is used by default.</p>
-   * 		       <p>If the policy targets resources in an Amazon Web Services Region, then you must create
+   *          <p>If the policy targets resources in an Amazon Web Services Region, then you must create
    * 			snapshots in the same Region as the source resource. If the policy targets resources on an
    * 			Outpost, then you can create snapshots on the same Outpost as the source resource, or in
    * 			the Region of that Outpost.</p>
@@ -330,7 +413,7 @@ export interface CreateRule {
 
   /**
    * <p>The time, in UTC, to start the operation. The supported format is hh:mm.</p>
-   * 		       <p>The operation occurs within a one-hour window following the specified time. If you do
+   *          <p>The operation occurs within a one-hour window following the specified time. If you do
    * 			not specify a time, Amazon Data Lifecycle Manager selects a time within the next 24 hours.</p>
    */
   Times?: string[];
@@ -344,6 +427,7 @@ export interface CreateRule {
 }
 
 /**
+ * @public
  * <p>
  *             <b>[AMI policies only]</b> Specifies an AMI deprecation rule for cross-Region AMI copies created by an AMI policy.</p>
  */
@@ -364,29 +448,30 @@ export interface CrossRegionCopyDeprecateRule {
 }
 
 /**
+ * @public
  * <p>
  *             <b>[Snapshot and AMI policies only]</b> Specifies a cross-Region copy rule for snapshot and AMI policies.</p>
- * 		       <note>
- * 			         <p>To specify a cross-Region copy action for event-based polices, use
+ *          <note>
+ *             <p>To specify a cross-Region copy action for event-based polices, use
  * 				<a>CrossRegionCopyAction</a>.</p>
- * 		       </note>
+ *          </note>
  */
 export interface CrossRegionCopyRule {
   /**
    * <note>
-   * 			         <p>Avoid using this parameter when creating new policies. Instead, use
+   *             <p>Avoid using this parameter when creating new policies. Instead, use
    * 				<b>Target</b> to specify a target Region or a target
    * 				Outpost for snapshot copies.</p>
-   * 			         <p>For policies created before the <b>Target</b> parameter
+   *             <p>For policies created before the <b>Target</b> parameter
    * 				was introduced, this parameter indicates the target Region for snapshot copies.</p>
-   * 		       </note>
+   *          </note>
    */
   TargetRegion?: string;
 
   /**
    * <p>The target Region or the Amazon Resource Name (ARN) of the target Outpost for the
    * 			snapshot copies.</p>
-   * 		       <p>Use this parameter instead of <b>TargetRegion</b>. Do not
+   *          <p>Use this parameter instead of <b>TargetRegion</b>. Do not
    * 			specify both.</p>
    */
   Target?: string;
@@ -424,9 +509,10 @@ export interface CrossRegionCopyRule {
 }
 
 /**
+ * @public
  * <p>
  *             <b>[AMI policies only]</b> Specifies an AMI deprecation rule for AMIs created by an AMI lifecycle policy.</p>
- * 		       <p>For age-based schedules, you must specify <b>Interval</b> and
+ *          <p>For age-based schedules, you must specify <b>Interval</b> and
  * 			<b>IntervalUnit</b>. For count-based schedules, you must specify
  * 			<b>Count</b>.</p>
  */
@@ -453,6 +539,7 @@ export interface DeprecateRule {
 }
 
 /**
+ * @public
  * <p>
  *             <b>[Snapshot policies only]</b> Specifies a rule for enabling fast snapshot restore for snapshots created by
  * 			snapshot policies. You can enable fast snapshot restore based on either a count or a
@@ -482,41 +569,40 @@ export interface FastRestoreRule {
 }
 
 /**
+ * @public
  * <p>
  *             <b>[Snapshot and AMI policies only]</b> Specifies a retention rule for snapshots created by snapshot policies, or for AMIs
  * 			created by AMI policies.</p>
- *
- * 		       <note>
- * 			         <p>For snapshot policies that have an <a>ArchiveRule</a>, this retention rule
+ *          <note>
+ *             <p>For snapshot policies that have an <a>ArchiveRule</a>, this retention rule
  * 				applies to standard tier retention. When the retention threshold is met, snapshots
  * 				are moved from the standard to the archive tier.</p>
- * 			         <p>For snapshot policies that do not have an <b>ArchiveRule</b>, snapshots
+ *             <p>For snapshot policies that do not have an <b>ArchiveRule</b>, snapshots
  * 				are permanently deleted when this retention threshold is met.</p>
- * 		       </note>
- *
- * 		       <p>You can retain snapshots based on either a count or a time interval.</p>
- * 		       <ul>
+ *          </note>
+ *          <p>You can retain snapshots based on either a count or a time interval.</p>
+ *          <ul>
  *             <li>
- * 				           <p>
+ *                <p>
  *                   <b>Count-based retention</b>
  *                </p>
- * 				           <p>You must specify <b>Count</b>.
+ *                <p>You must specify <b>Count</b>.
  * 					If you specify an <a>ArchiveRule</a> for the schedule, then you can specify a retention count of
  * 					<code>0</code> to archive snapshots immediately after creation. If you specify a <a>FastRestoreRule</a>,
  * 					<a>ShareRule</a>, or a <a>CrossRegionCopyRule</a>, then you must specify a retention count
  * 					of <code>1</code> or more.</p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>
+ *                <p>
  *                   <b>Age-based retention</b>
  *                </p>
- * 				           <p>You must specify <b>Interval</b>
+ *                <p>You must specify <b>Interval</b>
  * 					and <b>IntervalUnit</b>. If you specify an <a>ArchiveRule</a> for the
  * 					schedule, then you can specify a retention interval of <code>0</code> days to archive snapshots immediately
  * 					after creation. If you specify a <a>FastRestoreRule</a>, <a>ShareRule</a>, or a
  * 					<a>CrossRegionCopyRule</a>, then you must specify a retention interval of <code>1</code> day or
  * 					more.</p>
- * 			         </li>
+ *             </li>
  *          </ul>
  */
 export interface RetainRule {
@@ -544,6 +630,7 @@ export interface RetainRule {
 }
 
 /**
+ * @public
  * <p>
  *             <b>[Snapshot policies only]</b> Specifies a rule for sharing snapshots across Amazon Web Services accounts.</p>
  */
@@ -565,6 +652,7 @@ export interface ShareRule {
 }
 
 /**
+ * @public
  * <p>
  *             <b>[Snapshot and AMI policies only]</b> Specifies a schedule for a snapshot or AMI lifecycle policy.</p>
  */
@@ -614,8 +702,7 @@ export interface Schedule {
 
   /**
    * <p>Specifies a rule for copying snapshots or AMIs across regions.</p>
-   *
-   * 		       <note>
+   *          <note>
    *             <p>You can't specify cross-Region copy rules for policies that create snapshots on an Outpost.
    * 			If the policy creates snapshots in a Region, then snapshots can be copied to up to three
    * 			Regions or Outposts.</p>
@@ -641,13 +728,14 @@ export interface Schedule {
    * 			rule, snapshots are automatically moved from the standard tier to the archive tier once the schedule's
    * 			retention threshold is met. Snapshots are then retained in the archive tier for the archive retention
    * 			period that you specify. </p>
-   * 		       <p>For more information about using snapshot archiving, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-ami-policy.html#dlm-archive">Considerations for
+   *          <p>For more information about using snapshot archiving, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-ami-policy.html#dlm-archive">Considerations for
    * 				snapshot lifecycle policies</a>.</p>
    */
   ArchiveRule?: ArchiveRule;
 }
 
 /**
+ * @public
  * <p>
  *             <b>[All policy types]</b> Specifies the configuration of a lifecycle policy.</p>
  */
@@ -658,7 +746,7 @@ export interface PolicyDetails {
    * 			to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify <code>IMAGE_MANAGEMENT</code>
    * 			to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify <code>EVENT_BASED_POLICY </code>
    * 			to create an event-based policy that performs specific actions when a defined event occurs in your Amazon Web Services account.</p>
-   * 		       <p>The default is <code>EBS_SNAPSHOT_MANAGEMENT</code>.</p>
+   *          <p>The default is <code>EBS_SNAPSHOT_MANAGEMENT</code>.</p>
    */
   PolicyType?: PolicyTypeValues | string;
 
@@ -675,7 +763,7 @@ export interface PolicyDetails {
    *             <b>[Snapshot and AMI policies only]</b> The location of the resources to backup. If the source resources are located in an
    * 			Amazon Web Services Region, specify <code>CLOUD</code>. If the source resources are located on an Outpost
    * 			in your account, specify <code>OUTPOST</code>.</p>
-   * 			      <p>If you specify <code>OUTPOST</code>, Amazon Data Lifecycle Manager backs up all resources
+   *          <p>If you specify <code>OUTPOST</code>, Amazon Data Lifecycle Manager backs up all resources
    * 				of the specified type with matching target tags across all of the Outposts in your account.</p>
    */
   ResourceLocations?: (ResourceLocationValues | string)[];
@@ -696,13 +784,12 @@ export interface PolicyDetails {
   /**
    * <p>
    *             <b>[Snapshot and AMI policies only]</b> A set of optional parameters for snapshot and AMI lifecycle policies. </p>
-   *
-   * 		       <note>
-   * 			         <p>If you are modifying a policy that was created or previously modified using the Amazon
+   *          <note>
+   *             <p>If you are modifying a policy that was created or previously modified using the Amazon
    * 				Data Lifecycle Manager console, then you must include this parameter and specify either
    * 				the default values or the new values that you require. You can't omit this parameter or
    * 				set its values to null.</p>
-   * 		       </note>
+   *          </note>
    */
   Parameters?: _Parameters;
 
@@ -720,11 +807,23 @@ export interface PolicyDetails {
   Actions?: Action[];
 }
 
-export enum SettablePolicyStateValues {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SettablePolicyStateValues = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
+/**
+ * @public
+ */
+export type SettablePolicyStateValues = (typeof SettablePolicyStateValues)[keyof typeof SettablePolicyStateValues];
+
+/**
+ * @public
+ */
 export interface CreateLifecyclePolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by
@@ -754,6 +853,9 @@ export interface CreateLifecyclePolicyRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateLifecyclePolicyResponse {
   /**
    * <p>The identifier of the lifecycle policy.</p>
@@ -762,6 +864,7 @@ export interface CreateLifecyclePolicyResponse {
 }
 
 /**
+ * @public
  * <p>The service failed in an unexpected way.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -785,6 +888,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Bad request. The request is missing required parameters or has invalid
  * 			parameters.</p>
  */
@@ -820,6 +924,7 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request failed because a limit was exceeded.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -847,6 +952,9 @@ export class LimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteLifecyclePolicyRequest {
   /**
    * <p>The identifier of the lifecycle policy.</p>
@@ -854,9 +962,13 @@ export interface DeleteLifecyclePolicyRequest {
   PolicyId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLifecyclePolicyResponse {}
 
 /**
+ * @public
  * <p>A requested resource was not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -890,12 +1002,24 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
-export enum GettablePolicyStateValues {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  ERROR = "ERROR",
-}
+/**
+ * @public
+ * @enum
+ */
+export const GettablePolicyStateValues = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  ERROR: "ERROR",
+} as const;
 
+/**
+ * @public
+ */
+export type GettablePolicyStateValues = (typeof GettablePolicyStateValues)[keyof typeof GettablePolicyStateValues];
+
+/**
+ * @public
+ */
 export interface GetLifecyclePoliciesRequest {
   /**
    * <p>The identifiers of the data lifecycle policies.</p>
@@ -914,19 +1038,20 @@ export interface GetLifecyclePoliciesRequest {
 
   /**
    * <p>The target tag for a policy.</p>
-   * 		       <p>Tags are strings in the format <code>key=value</code>.</p>
+   *          <p>Tags are strings in the format <code>key=value</code>.</p>
    */
   TargetTags?: string[];
 
   /**
    * <p>The tags to add to objects created by the policy.</p>
-   * 		       <p>Tags are strings in the format <code>key=value</code>.</p>
-   * 		       <p>These user-defined tags are added in addition to the Amazon Web Services-added lifecycle tags.</p>
+   *          <p>Tags are strings in the format <code>key=value</code>.</p>
+   *          <p>These user-defined tags are added in addition to the Amazon Web Services-added lifecycle tags.</p>
    */
   TagsToAdd?: string[];
 }
 
 /**
+ * @public
  * <p>Summary information about a lifecycle policy.</p>
  */
 export interface LifecyclePolicySummary {
@@ -960,6 +1085,9 @@ export interface LifecyclePolicySummary {
   PolicyType?: PolicyTypeValues | string;
 }
 
+/**
+ * @public
+ */
 export interface GetLifecyclePoliciesResponse {
   /**
    * <p>Summary information about the lifecycle policies.</p>
@@ -967,6 +1095,9 @@ export interface GetLifecyclePoliciesResponse {
   Policies?: LifecyclePolicySummary[];
 }
 
+/**
+ * @public
+ */
 export interface GetLifecyclePolicyRequest {
   /**
    * <p>The identifier of the lifecycle policy.</p>
@@ -975,6 +1106,7 @@ export interface GetLifecyclePolicyRequest {
 }
 
 /**
+ * @public
  * <p>
  *             <b>[All policy types]</b> Detailed information about a snapshot, AMI, or event-based lifecycle policy.</p>
  */
@@ -1031,6 +1163,9 @@ export interface LifecyclePolicy {
   PolicyArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetLifecyclePolicyResponse {
   /**
    * <p>Detailed information about the lifecycle policy.</p>
@@ -1038,6 +1173,9 @@ export interface GetLifecyclePolicyResponse {
   Policy?: LifecyclePolicy;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -1045,6 +1183,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>Information about the tags.</p>
@@ -1052,6 +1193,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -1064,8 +1208,14 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -1078,8 +1228,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateLifecyclePolicyRequest {
   /**
    * <p>The identifier of the lifecycle policy.</p>
@@ -1109,270 +1265,7 @@ export interface UpdateLifecyclePolicyRequest {
   PolicyDetails?: PolicyDetails;
 }
 
+/**
+ * @public
+ */
 export interface UpdateLifecyclePolicyResponse {}
-
-/**
- * @internal
- */
-export const EncryptionConfigurationFilterSensitiveLog = (obj: EncryptionConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CrossRegionCopyRetainRuleFilterSensitiveLog = (obj: CrossRegionCopyRetainRule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CrossRegionCopyActionFilterSensitiveLog = (obj: CrossRegionCopyAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ActionFilterSensitiveLog = (obj: Action): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RetentionArchiveTierFilterSensitiveLog = (obj: RetentionArchiveTier): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ArchiveRetainRuleFilterSensitiveLog = (obj: ArchiveRetainRule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ArchiveRuleFilterSensitiveLog = (obj: ArchiveRule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventParametersFilterSensitiveLog = (obj: EventParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventSourceFilterSensitiveLog = (obj: EventSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const _ParametersFilterSensitiveLog = (obj: _Parameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRuleFilterSensitiveLog = (obj: CreateRule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CrossRegionCopyDeprecateRuleFilterSensitiveLog = (obj: CrossRegionCopyDeprecateRule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CrossRegionCopyRuleFilterSensitiveLog = (obj: CrossRegionCopyRule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeprecateRuleFilterSensitiveLog = (obj: DeprecateRule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FastRestoreRuleFilterSensitiveLog = (obj: FastRestoreRule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RetainRuleFilterSensitiveLog = (obj: RetainRule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ShareRuleFilterSensitiveLog = (obj: ShareRule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScheduleFilterSensitiveLog = (obj: Schedule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PolicyDetailsFilterSensitiveLog = (obj: PolicyDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLifecyclePolicyRequestFilterSensitiveLog = (obj: CreateLifecyclePolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLifecyclePolicyResponseFilterSensitiveLog = (obj: CreateLifecyclePolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteLifecyclePolicyRequestFilterSensitiveLog = (obj: DeleteLifecyclePolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteLifecyclePolicyResponseFilterSensitiveLog = (obj: DeleteLifecyclePolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLifecyclePoliciesRequestFilterSensitiveLog = (obj: GetLifecyclePoliciesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LifecyclePolicySummaryFilterSensitiveLog = (obj: LifecyclePolicySummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLifecyclePoliciesResponseFilterSensitiveLog = (obj: GetLifecyclePoliciesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLifecyclePolicyRequestFilterSensitiveLog = (obj: GetLifecyclePolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LifecyclePolicyFilterSensitiveLog = (obj: LifecyclePolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLifecyclePolicyResponseFilterSensitiveLog = (obj: GetLifecyclePolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateLifecyclePolicyRequestFilterSensitiveLog = (obj: UpdateLifecyclePolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateLifecyclePolicyResponseFilterSensitiveLog = (obj: UpdateLifecyclePolicyResponse): any => ({
-  ...obj,
-});

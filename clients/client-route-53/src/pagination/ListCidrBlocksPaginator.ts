@@ -6,12 +6,11 @@ import {
   ListCidrBlocksCommandInput,
   ListCidrBlocksCommandOutput,
 } from "../commands/ListCidrBlocksCommand";
-import { Route53 } from "../Route53";
 import { Route53Client } from "../Route53Client";
 import { Route53PaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: Route53Client,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListCidrBlocksCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Route53,
-  input: ListCidrBlocksCommandInput,
-  ...args: any
-): Promise<ListCidrBlocksCommandOutput> => {
-  // @ts-ignore
-  return await client.listCidrBlocks(input, ...args);
-};
 export async function* paginateListCidrBlocks(
   config: Route53PaginationConfiguration,
   input: ListCidrBlocksCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListCidrBlocks(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Route53) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof Route53Client) {
+    if (config.client instanceof Route53Client) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Route53 | Route53Client");

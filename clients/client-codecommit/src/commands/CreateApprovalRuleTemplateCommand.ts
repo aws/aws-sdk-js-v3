@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import {
-  CreateApprovalRuleTemplateInput,
-  CreateApprovalRuleTemplateInputFilterSensitiveLog,
-  CreateApprovalRuleTemplateOutput,
-  CreateApprovalRuleTemplateOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateApprovalRuleTemplateCommand,
-  serializeAws_json1_1CreateApprovalRuleTemplateCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateApprovalRuleTemplateInput, CreateApprovalRuleTemplateOutput } from "../models/models_0";
+import { de_CreateApprovalRuleTemplateCommand, se_CreateApprovalRuleTemplateCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateApprovalRuleTemplateCommand}.
+ */
 export interface CreateApprovalRuleTemplateCommandInput extends CreateApprovalRuleTemplateInput {}
+/**
+ * @public
+ *
+ * The output of {@link CreateApprovalRuleTemplateCommand}.
+ */
 export interface CreateApprovalRuleTemplateCommandOutput extends CreateApprovalRuleTemplateOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a template for approval rules that can then be associated with one or more
  *             repositories in your AWS account. When you associate a template with a repository, AWS
  *             CodeCommit creates an approval rule that matches the conditions of the template for all
@@ -40,13 +43,50 @@ export interface CreateApprovalRuleTemplateCommandOutput extends CreateApprovalR
  * import { CodeCommitClient, CreateApprovalRuleTemplateCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, CreateApprovalRuleTemplateCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // CreateApprovalRuleTemplateInput
+ *   approvalRuleTemplateName: "STRING_VALUE", // required
+ *   approvalRuleTemplateContent: "STRING_VALUE", // required
+ *   approvalRuleTemplateDescription: "STRING_VALUE",
+ * };
  * const command = new CreateApprovalRuleTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateApprovalRuleTemplateCommandInput - {@link CreateApprovalRuleTemplateCommandInput}
+ * @returns {@link CreateApprovalRuleTemplateCommandOutput}
  * @see {@link CreateApprovalRuleTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateApprovalRuleTemplateCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
+ *
+ * @throws {@link ApprovalRuleTemplateContentRequiredException} (client fault)
+ *  <p>The content for the approval rule template is empty. You must provide some content for an approval rule template. The content cannot be null.</p>
+ *
+ * @throws {@link ApprovalRuleTemplateNameAlreadyExistsException} (client fault)
+ *  <p>You cannot create an approval rule template with that name because a template with
+ *             that name already exists in this AWS Region for your AWS account. Approval rule template
+ *             names must be unique.</p>
+ *
+ * @throws {@link ApprovalRuleTemplateNameRequiredException} (client fault)
+ *  <p>An approval rule template name is required, but was not specified.</p>
+ *
+ * @throws {@link InvalidApprovalRuleTemplateContentException} (client fault)
+ *  <p>The content of the approval rule template is not valid.</p>
+ *
+ * @throws {@link InvalidApprovalRuleTemplateDescriptionException} (client fault)
+ *  <p>The description for the approval rule template is not valid because it exceeds the
+ *             maximum characters allowed for a description. For more information about limits in AWS
+ *             CodeCommit, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">AWS CodeCommit User
+ *             Guide</a>.</p>
+ *
+ * @throws {@link InvalidApprovalRuleTemplateNameException} (client fault)
+ *  <p>The name of the approval rule template is not valid. Template names must be between 1
+ *             and 100 valid characters in length. For more information about limits in AWS CodeCommit,
+ *             see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">AWS
+ *                 CodeCommit User Guide</a>.</p>
+ *
+ * @throws {@link NumberOfRuleTemplatesExceededException} (client fault)
+ *  <p>The maximum number of approval rule templates has been exceeded for this AWS Region. </p>
+ *
  *
  */
 export class CreateApprovalRuleTemplateCommand extends $Command<
@@ -66,6 +106,9 @@ export class CreateApprovalRuleTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateApprovalRuleTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +137,8 @@ export class CreateApprovalRuleTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateApprovalRuleTemplateInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateApprovalRuleTemplateOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,15 +148,21 @@ export class CreateApprovalRuleTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateApprovalRuleTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateApprovalRuleTemplateCommand(input, context);
+    return se_CreateApprovalRuleTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateApprovalRuleTemplateCommandOutput> {
-    return deserializeAws_json1_1CreateApprovalRuleTemplateCommand(output, context);
+    return de_CreateApprovalRuleTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

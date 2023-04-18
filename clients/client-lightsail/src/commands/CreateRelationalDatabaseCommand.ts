@@ -18,17 +18,24 @@ import {
   CreateRelationalDatabaseRequest,
   CreateRelationalDatabaseRequestFilterSensitiveLog,
   CreateRelationalDatabaseResult,
-  CreateRelationalDatabaseResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateRelationalDatabaseCommand,
-  serializeAws_json1_1CreateRelationalDatabaseCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateRelationalDatabaseCommand, se_CreateRelationalDatabaseCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateRelationalDatabaseCommand}.
+ */
 export interface CreateRelationalDatabaseCommandInput extends CreateRelationalDatabaseRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateRelationalDatabaseCommand}.
+ */
 export interface CreateRelationalDatabaseCommandOutput extends CreateRelationalDatabaseResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new database in Amazon Lightsail.</p>
  *          <p>The <code>create relational database</code> operation supports tag-based access control
  *       via request tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
@@ -38,13 +45,64 @@ export interface CreateRelationalDatabaseCommandOutput extends CreateRelationalD
  * import { LightsailClient, CreateRelationalDatabaseCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CreateRelationalDatabaseCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // CreateRelationalDatabaseRequest
+ *   relationalDatabaseName: "STRING_VALUE", // required
+ *   availabilityZone: "STRING_VALUE",
+ *   relationalDatabaseBlueprintId: "STRING_VALUE", // required
+ *   relationalDatabaseBundleId: "STRING_VALUE", // required
+ *   masterDatabaseName: "STRING_VALUE", // required
+ *   masterUsername: "STRING_VALUE", // required
+ *   masterUserPassword: "STRING_VALUE",
+ *   preferredBackupWindow: "STRING_VALUE",
+ *   preferredMaintenanceWindow: "STRING_VALUE",
+ *   publiclyAccessible: true || false,
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateRelationalDatabaseCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRelationalDatabaseCommandInput - {@link CreateRelationalDatabaseCommandInput}
+ * @returns {@link CreateRelationalDatabaseCommandOutput}
  * @see {@link CreateRelationalDatabaseCommandInput} for command's `input` shape.
  * @see {@link CreateRelationalDatabaseCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
+ *       credentials to access a resource.</p>
+ *
+ * @throws {@link AccountSetupInProgressException} (client fault)
+ *  <p>Lightsail throws this exception when an account is still in the setup in progress
+ *       state.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Lightsail throws this exception when user input does not conform to the validation rules
+ *       of an input field.</p>
+ *          <note>
+ *             <p>Domain and distribution APIs are only available in the N. Virginia
+ *           (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services
+ *         Region configuration to <code>us-east-1</code> to create, view, or edit these
+ *         resources.</p>
+ *          </note>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Lightsail throws this exception when it cannot find a resource.</p>
+ *
+ * @throws {@link OperationFailureException} (client fault)
+ *  <p>Lightsail throws this exception when an operation fails to execute.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>A general service exception.</p>
+ *
+ * @throws {@link UnauthenticatedException} (client fault)
+ *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
+ *
  *
  */
 export class CreateRelationalDatabaseCommand extends $Command<
@@ -64,6 +122,9 @@ export class CreateRelationalDatabaseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRelationalDatabaseCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,7 +154,7 @@ export class CreateRelationalDatabaseCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateRelationalDatabaseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRelationalDatabaseResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +164,18 @@ export class CreateRelationalDatabaseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRelationalDatabaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateRelationalDatabaseCommand(input, context);
+    return se_CreateRelationalDatabaseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRelationalDatabaseCommandOutput> {
-    return deserializeAws_json1_1CreateRelationalDatabaseCommand(output, context);
+    return de_CreateRelationalDatabaseCommand(output, context);
   }
 
   // Start section: command_body_extra

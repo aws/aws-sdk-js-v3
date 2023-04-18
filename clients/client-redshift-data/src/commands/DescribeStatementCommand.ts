@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeStatementRequest,
-  DescribeStatementRequestFilterSensitiveLog,
-  DescribeStatementResponse,
-  DescribeStatementResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeStatementCommand,
-  serializeAws_json1_1DescribeStatementCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeStatementRequest, DescribeStatementResponse } from "../models/models_0";
+import { de_DescribeStatementCommand, se_DescribeStatementCommand } from "../protocols/Aws_json1_1";
 import { RedshiftDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftDataClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeStatementCommand}.
+ */
 export interface DescribeStatementCommandInput extends DescribeStatementRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeStatementCommand}.
+ */
 export interface DescribeStatementCommandOutput extends DescribeStatementResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the details about a specific instance when a query was run by the Amazon Redshift Data API. The information
  *       includes when the query started, when it finished, the query status, the number of rows returned, and the SQL
  *       statement. </p>
@@ -41,13 +44,28 @@ export interface DescribeStatementCommandOutput extends DescribeStatementRespons
  * import { RedshiftDataClient, DescribeStatementCommand } from "@aws-sdk/client-redshift-data"; // ES Modules import
  * // const { RedshiftDataClient, DescribeStatementCommand } = require("@aws-sdk/client-redshift-data"); // CommonJS import
  * const client = new RedshiftDataClient(config);
+ * const input = { // DescribeStatementRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new DescribeStatementCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStatementCommandInput - {@link DescribeStatementCommandInput}
+ * @returns {@link DescribeStatementCommandOutput}
  * @see {@link DescribeStatementCommandInput} for command's `input` shape.
  * @see {@link DescribeStatementCommandOutput} for command's `response` shape.
  * @see {@link RedshiftDataClientResolvedConfig | config} for RedshiftDataClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The Amazon Redshift Data API operation failed due to a missing resource. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
+ *
  *
  */
 export class DescribeStatementCommand extends $Command<
@@ -67,6 +85,9 @@ export class DescribeStatementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStatementCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +116,8 @@ export class DescribeStatementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeStatementRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeStatementResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +127,18 @@ export class DescribeStatementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeStatementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeStatementCommand(input, context);
+    return se_DescribeStatementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeStatementCommandOutput> {
-    return deserializeAws_json1_1DescribeStatementCommand(output, context);
+    return de_DescribeStatementCommand(output, context);
   }
 
   // Start section: command_body_extra

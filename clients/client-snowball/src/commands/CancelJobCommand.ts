@@ -13,19 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CancelJobRequest,
-  CancelJobRequestFilterSensitiveLog,
-  CancelJobResult,
-  CancelJobResultFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1CancelJobCommand, serializeAws_json1_1CancelJobCommand } from "../protocols/Aws_json1_1";
+import { CancelJobRequest, CancelJobResult } from "../models/models_0";
+import { de_CancelJobCommand, se_CancelJobCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CancelJobCommand}.
+ */
 export interface CancelJobCommandInput extends CancelJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CancelJobCommand}.
+ */
 export interface CancelJobCommandOutput extends CancelJobResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels the specified job. You can only cancel a job before its <code>JobState</code>
  *       value changes to <code>PreparingAppliance</code>. Requesting the <code>ListJobs</code> or
  *         <code>DescribeJob</code> action returns a job's <code>JobState</code> as part of the
@@ -36,13 +42,42 @@ export interface CancelJobCommandOutput extends CancelJobResult, __MetadataBeare
  * import { SnowballClient, CancelJobCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, CancelJobCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
  * const client = new SnowballClient(config);
+ * const input = { // CancelJobRequest
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new CancelJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelJobCommandInput - {@link CancelJobCommandInput}
+ * @returns {@link CancelJobCommandOutput}
  * @see {@link CancelJobCommandInput} for command's `input` shape.
  * @see {@link CancelJobCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
+ *
+ * @throws {@link InvalidJobStateException} (client fault)
+ *  <p>The action can't be performed because the job's current state doesn't allow that action
+ *       to be performed.</p>
+ *
+ * @throws {@link InvalidResourceException} (client fault)
+ *  <p>The specified resource can't be found. Check the information you provided in your last
+ *       request, and try again.</p>
+ *
+ * @throws {@link KMSRequestFailedException} (client fault)
+ *  <p>The provided Key Management Service key lacks the permissions to perform the specified
+ *         <a>CreateJob</a> or <a>UpdateJob</a> action.</p>
+ *
+ *
+ * @example To cancel a job for a Snowball device
+ * ```javascript
+ * // This operation cancels a job. You can only cancel a job before its JobState value changes to PreparingAppliance.
+ * const input = {
+ *   "JobId": "JID123e4567-e89b-12d3-a456-426655440000"
+ * };
+ * const command = new CancelJobCommand(input);
+ * await client.send(command);
+ * // example id: to-cancel-a-job-for-a-snowball-device-1482534699477
+ * ```
  *
  */
 export class CancelJobCommand extends $Command<
@@ -62,6 +97,9 @@ export class CancelJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +126,8 @@ export class CancelJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelJobResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +137,18 @@ export class CancelJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CancelJobCommand(input, context);
+    return se_CancelJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelJobCommandOutput> {
-    return deserializeAws_json1_1CancelJobCommand(output, context);
+    return de_CancelJobCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,20 +15,27 @@ import {
 
 import {
   DescribeMaintenanceWindowsRequest,
-  DescribeMaintenanceWindowsRequestFilterSensitiveLog,
   DescribeMaintenanceWindowsResult,
   DescribeMaintenanceWindowsResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeMaintenanceWindowsCommand,
-  serializeAws_json1_1DescribeMaintenanceWindowsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeMaintenanceWindowsCommand, se_DescribeMaintenanceWindowsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeMaintenanceWindowsCommand}.
+ */
 export interface DescribeMaintenanceWindowsCommandInput extends DescribeMaintenanceWindowsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeMaintenanceWindowsCommand}.
+ */
 export interface DescribeMaintenanceWindowsCommandOutput extends DescribeMaintenanceWindowsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the maintenance windows in an Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +43,31 @@ export interface DescribeMaintenanceWindowsCommandOutput extends DescribeMainten
  * import { SSMClient, DescribeMaintenanceWindowsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeMaintenanceWindowsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // DescribeMaintenanceWindowsRequest
+ *   Filters: [ // MaintenanceWindowFilterList
+ *     { // MaintenanceWindowFilter
+ *       Key: "STRING_VALUE",
+ *       Values: [ // MaintenanceWindowFilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeMaintenanceWindowsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMaintenanceWindowsCommandInput - {@link DescribeMaintenanceWindowsCommandInput}
+ * @returns {@link DescribeMaintenanceWindowsCommandOutput}
  * @see {@link DescribeMaintenanceWindowsCommandInput} for command's `input` shape.
  * @see {@link DescribeMaintenanceWindowsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
  *
  */
 export class DescribeMaintenanceWindowsCommand extends $Command<
@@ -62,6 +87,9 @@ export class DescribeMaintenanceWindowsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMaintenanceWindowsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +118,7 @@ export class DescribeMaintenanceWindowsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeMaintenanceWindowsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeMaintenanceWindowsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -101,15 +129,21 @@ export class DescribeMaintenanceWindowsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeMaintenanceWindowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeMaintenanceWindowsCommand(input, context);
+    return se_DescribeMaintenanceWindowsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeMaintenanceWindowsCommandOutput> {
-    return deserializeAws_json1_1DescribeMaintenanceWindowsCommand(output, context);
+    return de_DescribeMaintenanceWindowsCommand(output, context);
   }
 
   // Start section: command_body_extra

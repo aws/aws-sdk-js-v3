@@ -20,15 +20,23 @@ import {
   BatchDetectEntitiesResponse,
   BatchDetectEntitiesResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchDetectEntitiesCommand,
-  serializeAws_json1_1BatchDetectEntitiesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_BatchDetectEntitiesCommand, se_BatchDetectEntitiesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchDetectEntitiesCommand}.
+ */
 export interface BatchDetectEntitiesCommandInput extends BatchDetectEntitiesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link BatchDetectEntitiesCommand}.
+ */
 export interface BatchDetectEntitiesCommandOutput extends BatchDetectEntitiesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Inspects the text of a batch of documents for named entities and returns information
  *       about them. For more information about named entities, see
  *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html">Entities</a> in the Comprehend Developer Guide.
@@ -39,13 +47,42 @@ export interface BatchDetectEntitiesCommandOutput extends BatchDetectEntitiesRes
  * import { ComprehendClient, BatchDetectEntitiesCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, BatchDetectEntitiesCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // BatchDetectEntitiesRequest
+ *   TextList: [ // CustomerInputStringList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   LanguageCode: "en" || "es" || "fr" || "de" || "it" || "pt" || "ar" || "hi" || "ja" || "ko" || "zh" || "zh-TW", // required
+ * };
  * const command = new BatchDetectEntitiesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDetectEntitiesCommandInput - {@link BatchDetectEntitiesCommandInput}
+ * @returns {@link BatchDetectEntitiesCommandOutput}
  * @see {@link BatchDetectEntitiesCommandInput} for command's `input` shape.
  * @see {@link BatchDetectEntitiesCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
+ *
+ * @throws {@link BatchSizeLimitExceededException} (client fault)
+ *  <p>The number of documents in the request exceeds the limit of 25. Try your request again
+ *       with fewer documents.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid.</p>
+ *
+ * @throws {@link TextSizeLimitExceededException} (client fault)
+ *  <p>The size of the input text exceeds the limit. Use a smaller document.</p>
+ *
+ * @throws {@link UnsupportedLanguageException} (client fault)
+ *  <p>Amazon Comprehend can't process the language of the input text. For custom entity
+ *       recognition APIs, only English, Spanish, French, Italian, German, or Portuguese are accepted.
+ *       For a list of supported languages,
+ *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html">Supported languages</a> in the Comprehend Developer Guide.
+ *     </p>
+ *
  *
  */
 export class BatchDetectEntitiesCommand extends $Command<
@@ -65,6 +102,9 @@ export class BatchDetectEntitiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDetectEntitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,12 +144,18 @@ export class BatchDetectEntitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDetectEntitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchDetectEntitiesCommand(input, context);
+    return se_BatchDetectEntitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDetectEntitiesCommandOutput> {
-    return deserializeAws_json1_1BatchDetectEntitiesCommand(output, context);
+    return de_BatchDetectEntitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

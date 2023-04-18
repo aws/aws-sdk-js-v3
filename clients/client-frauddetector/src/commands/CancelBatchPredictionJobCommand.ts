@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  CancelBatchPredictionJobRequest,
-  CancelBatchPredictionJobRequestFilterSensitiveLog,
-  CancelBatchPredictionJobResult,
-  CancelBatchPredictionJobResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CancelBatchPredictionJobCommand,
-  serializeAws_json1_1CancelBatchPredictionJobCommand,
-} from "../protocols/Aws_json1_1";
+import { CancelBatchPredictionJobRequest, CancelBatchPredictionJobResult } from "../models/models_0";
+import { de_CancelBatchPredictionJobCommand, se_CancelBatchPredictionJobCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CancelBatchPredictionJobCommand}.
+ */
 export interface CancelBatchPredictionJobCommandInput extends CancelBatchPredictionJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CancelBatchPredictionJobCommand}.
+ */
 export interface CancelBatchPredictionJobCommandOutput extends CancelBatchPredictionJobResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels the specified batch prediction job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,34 @@ export interface CancelBatchPredictionJobCommandOutput extends CancelBatchPredic
  * import { FraudDetectorClient, CancelBatchPredictionJobCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, CancelBatchPredictionJobCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = { // CancelBatchPredictionJobRequest
+ *   jobId: "STRING_VALUE", // required
+ * };
  * const command = new CancelBatchPredictionJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelBatchPredictionJobCommandInput - {@link CancelBatchPredictionJobCommandInput}
+ * @returns {@link CancelBatchPredictionJobCommandOutput}
  * @see {@link CancelBatchPredictionJobCommandInput} for command's `input` shape.
  * @see {@link CancelBatchPredictionJobCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An exception indicating an internal server error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An exception indicating the specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>An exception indicating a throttling error.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An exception indicating a specified value is not allowed.</p>
+ *
  *
  */
 export class CancelBatchPredictionJobCommand extends $Command<
@@ -62,6 +86,9 @@ export class CancelBatchPredictionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelBatchPredictionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +117,8 @@ export class CancelBatchPredictionJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelBatchPredictionJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelBatchPredictionJobResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +128,18 @@ export class CancelBatchPredictionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelBatchPredictionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CancelBatchPredictionJobCommand(input, context);
+    return se_CancelBatchPredictionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelBatchPredictionJobCommandOutput> {
-    return deserializeAws_json1_1CancelBatchPredictionJobCommand(output, context);
+    return de_CancelBatchPredictionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

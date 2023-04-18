@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteVpcEndpointRequest,
-  DeleteVpcEndpointRequestFilterSensitiveLog,
-  DeleteVpcEndpointResponse,
-  DeleteVpcEndpointResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteVpcEndpointRequest, DeleteVpcEndpointResponse } from "../models/models_0";
 import {
   OpenSearchServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import {
-  deserializeAws_json1_0DeleteVpcEndpointCommand,
-  serializeAws_json1_0DeleteVpcEndpointCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteVpcEndpointCommand, se_DeleteVpcEndpointCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteVpcEndpointCommand}.
+ */
 export interface DeleteVpcEndpointCommandInput extends DeleteVpcEndpointRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteVpcEndpointCommand}.
+ */
 export interface DeleteVpcEndpointCommandOutput extends DeleteVpcEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an OpenSearch Serverless-managed interface endpoint. For more information, see
  *             <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html">Access Amazon OpenSearch Serverless using an interface endpoint</a>.</p>
  * @example
@@ -41,13 +44,35 @@ export interface DeleteVpcEndpointCommandOutput extends DeleteVpcEndpointRespons
  * import { OpenSearchServerlessClient, DeleteVpcEndpointCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, DeleteVpcEndpointCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
+ * const input = { // DeleteVpcEndpointRequest
+ *   id: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new DeleteVpcEndpointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVpcEndpointCommandInput - {@link DeleteVpcEndpointCommandInput}
+ * @returns {@link DeleteVpcEndpointCommandOutput}
  * @see {@link DeleteVpcEndpointCommandInput} for command's `input` shape.
  * @see {@link DeleteVpcEndpointCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>When creating a resource, thrown when a resource with the same name already exists
+ *             or is being created. When deleting a resource, thrown when the resource is not in
+ *             the ACTIVE or FAILED state.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Thrown when an error internal to the service occurs while processing a request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Thrown when accessing or deleting a resource that does not exist.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Thrown when the HTTP request contains invalid input or is missing required
+ *             input.</p>
+ *
  *
  */
 export class DeleteVpcEndpointCommand extends $Command<
@@ -67,6 +92,9 @@ export class DeleteVpcEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVpcEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +123,8 @@ export class DeleteVpcEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVpcEndpointRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteVpcEndpointResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +134,18 @@ export class DeleteVpcEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVpcEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteVpcEndpointCommand(input, context);
+    return se_DeleteVpcEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVpcEndpointCommandOutput> {
-    return deserializeAws_json1_0DeleteVpcEndpointCommand(output, context);
+    return de_DeleteVpcEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

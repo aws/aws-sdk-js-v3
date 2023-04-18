@@ -26,12 +26,14 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
@@ -53,6 +55,14 @@ import {
 } from "./commands/AddDraftAppVersionResourceMappingsCommand";
 import { CreateAppCommandInput, CreateAppCommandOutput } from "./commands/CreateAppCommand";
 import {
+  CreateAppVersionAppComponentCommandInput,
+  CreateAppVersionAppComponentCommandOutput,
+} from "./commands/CreateAppVersionAppComponentCommand";
+import {
+  CreateAppVersionResourceCommandInput,
+  CreateAppVersionResourceCommandOutput,
+} from "./commands/CreateAppVersionResourceCommand";
+import {
   CreateRecommendationTemplateCommandInput,
   CreateRecommendationTemplateCommandOutput,
 } from "./commands/CreateRecommendationTemplateCommand";
@@ -66,6 +76,18 @@ import {
 } from "./commands/DeleteAppAssessmentCommand";
 import { DeleteAppCommandInput, DeleteAppCommandOutput } from "./commands/DeleteAppCommand";
 import {
+  DeleteAppInputSourceCommandInput,
+  DeleteAppInputSourceCommandOutput,
+} from "./commands/DeleteAppInputSourceCommand";
+import {
+  DeleteAppVersionAppComponentCommandInput,
+  DeleteAppVersionAppComponentCommandOutput,
+} from "./commands/DeleteAppVersionAppComponentCommand";
+import {
+  DeleteAppVersionResourceCommandInput,
+  DeleteAppVersionResourceCommandOutput,
+} from "./commands/DeleteAppVersionResourceCommand";
+import {
   DeleteRecommendationTemplateCommandInput,
   DeleteRecommendationTemplateCommandOutput,
 } from "./commands/DeleteRecommendationTemplateCommand";
@@ -78,6 +100,15 @@ import {
   DescribeAppAssessmentCommandOutput,
 } from "./commands/DescribeAppAssessmentCommand";
 import { DescribeAppCommandInput, DescribeAppCommandOutput } from "./commands/DescribeAppCommand";
+import {
+  DescribeAppVersionAppComponentCommandInput,
+  DescribeAppVersionAppComponentCommandOutput,
+} from "./commands/DescribeAppVersionAppComponentCommand";
+import { DescribeAppVersionCommandInput, DescribeAppVersionCommandOutput } from "./commands/DescribeAppVersionCommand";
+import {
+  DescribeAppVersionResourceCommandInput,
+  DescribeAppVersionResourceCommandOutput,
+} from "./commands/DescribeAppVersionResourceCommand";
 import {
   DescribeAppVersionResourcesResolutionStatusCommandInput,
   DescribeAppVersionResourcesResolutionStatusCommandOutput,
@@ -111,7 +142,15 @@ import {
   ListAppComponentRecommendationsCommandInput,
   ListAppComponentRecommendationsCommandOutput,
 } from "./commands/ListAppComponentRecommendationsCommand";
+import {
+  ListAppInputSourcesCommandInput,
+  ListAppInputSourcesCommandOutput,
+} from "./commands/ListAppInputSourcesCommand";
 import { ListAppsCommandInput, ListAppsCommandOutput } from "./commands/ListAppsCommand";
+import {
+  ListAppVersionAppComponentsCommandInput,
+  ListAppVersionAppComponentsCommandOutput,
+} from "./commands/ListAppVersionAppComponentsCommand";
 import {
   ListAppVersionResourceMappingsCommandInput,
   ListAppVersionResourceMappingsCommandOutput,
@@ -167,6 +206,15 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/Ta
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateAppCommandInput, UpdateAppCommandOutput } from "./commands/UpdateAppCommand";
 import {
+  UpdateAppVersionAppComponentCommandInput,
+  UpdateAppVersionAppComponentCommandOutput,
+} from "./commands/UpdateAppVersionAppComponentCommand";
+import { UpdateAppVersionCommandInput, UpdateAppVersionCommandOutput } from "./commands/UpdateAppVersionCommand";
+import {
+  UpdateAppVersionResourceCommandInput,
+  UpdateAppVersionResourceCommandOutput,
+} from "./commands/UpdateAppVersionResourceCommand";
+import {
   UpdateResiliencyPolicyCommandInput,
   UpdateResiliencyPolicyCommandOutput,
 } from "./commands/UpdateResiliencyPolicyCommand";
@@ -178,17 +226,28 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AddDraftAppVersionResourceMappingsCommandInput
   | CreateAppCommandInput
+  | CreateAppVersionAppComponentCommandInput
+  | CreateAppVersionResourceCommandInput
   | CreateRecommendationTemplateCommandInput
   | CreateResiliencyPolicyCommandInput
   | DeleteAppAssessmentCommandInput
   | DeleteAppCommandInput
+  | DeleteAppInputSourceCommandInput
+  | DeleteAppVersionAppComponentCommandInput
+  | DeleteAppVersionResourceCommandInput
   | DeleteRecommendationTemplateCommandInput
   | DeleteResiliencyPolicyCommandInput
   | DescribeAppAssessmentCommandInput
   | DescribeAppCommandInput
+  | DescribeAppVersionAppComponentCommandInput
+  | DescribeAppVersionCommandInput
+  | DescribeAppVersionResourceCommandInput
   | DescribeAppVersionResourcesResolutionStatusCommandInput
   | DescribeAppVersionTemplateCommandInput
   | DescribeDraftAppVersionResourcesImportStatusCommandInput
@@ -198,6 +257,8 @@ export type ServiceInputTypes =
   | ListAppAssessmentsCommandInput
   | ListAppComponentCompliancesCommandInput
   | ListAppComponentRecommendationsCommandInput
+  | ListAppInputSourcesCommandInput
+  | ListAppVersionAppComponentsCommandInput
   | ListAppVersionResourceMappingsCommandInput
   | ListAppVersionResourcesCommandInput
   | ListAppVersionsCommandInput
@@ -217,19 +278,33 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAppCommandInput
+  | UpdateAppVersionAppComponentCommandInput
+  | UpdateAppVersionCommandInput
+  | UpdateAppVersionResourceCommandInput
   | UpdateResiliencyPolicyCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AddDraftAppVersionResourceMappingsCommandOutput
   | CreateAppCommandOutput
+  | CreateAppVersionAppComponentCommandOutput
+  | CreateAppVersionResourceCommandOutput
   | CreateRecommendationTemplateCommandOutput
   | CreateResiliencyPolicyCommandOutput
   | DeleteAppAssessmentCommandOutput
   | DeleteAppCommandOutput
+  | DeleteAppInputSourceCommandOutput
+  | DeleteAppVersionAppComponentCommandOutput
+  | DeleteAppVersionResourceCommandOutput
   | DeleteRecommendationTemplateCommandOutput
   | DeleteResiliencyPolicyCommandOutput
   | DescribeAppAssessmentCommandOutput
   | DescribeAppCommandOutput
+  | DescribeAppVersionAppComponentCommandOutput
+  | DescribeAppVersionCommandOutput
+  | DescribeAppVersionResourceCommandOutput
   | DescribeAppVersionResourcesResolutionStatusCommandOutput
   | DescribeAppVersionTemplateCommandOutput
   | DescribeDraftAppVersionResourcesImportStatusCommandOutput
@@ -239,6 +314,8 @@ export type ServiceOutputTypes =
   | ListAppAssessmentsCommandOutput
   | ListAppComponentCompliancesCommandOutput
   | ListAppComponentRecommendationsCommandOutput
+  | ListAppInputSourcesCommandOutput
+  | ListAppVersionAppComponentsCommandOutput
   | ListAppVersionResourceMappingsCommandOutput
   | ListAppVersionResourcesCommandOutput
   | ListAppVersionsCommandOutput
@@ -258,8 +335,14 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAppCommandOutput
+  | UpdateAppVersionAppComponentCommandOutput
+  | UpdateAppVersionCommandOutput
+  | UpdateAppVersionResourceCommandOutput
   | UpdateResiliencyPolicyCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -267,11 +350,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -328,19 +411,10 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
-   * Value for how many times a request will be made at most in case of retry.
+   * Unique service identifier.
+   * @internal
    */
-  maxAttempts?: number | __Provider<number>;
-
-  /**
-   * Specifies which retry algorithm to use.
-   */
-  retryMode?: string | __Provider<string>;
-
-  /**
-   * Optional logger for logging debug/info/warn/error.
-   */
-  logger?: __Logger;
+  serviceId?: string;
 
   /**
    * Enables IPv6/IPv4 dualstack endpoint.
@@ -351,12 +425,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Enables FIPS compatible endpoints.
    */
   useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
 
   /**
    * The AWS region to which this client will send requests
@@ -376,11 +444,29 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * Value for how many times a request will be made at most in case of retry.
    */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Specifies which retry algorithm to use.
+   */
+  retryMode?: string | __Provider<string>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
+
+  /**
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   */
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type ResiliencehubClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -391,10 +477,15 @@ type ResiliencehubClientConfigType = Partial<__SmithyConfiguration<__HttpHandler
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of ResiliencehubClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of ResiliencehubClient class constructor that set the region, credentials and other options.
  */
 export interface ResiliencehubClientConfig extends ResiliencehubClientConfigType {}
 
+/**
+ * @public
+ */
 type ResiliencehubClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -405,13 +496,16 @@ type ResiliencehubClientResolvedConfigType = __SmithyResolvedConfiguration<__Htt
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of ResiliencehubClient class. This is resolved and normalized from the {@link ResiliencehubClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of ResiliencehubClient class. This is resolved and normalized from the {@link ResiliencehubClientConfig | constructor configuration interface}.
  */
 export interface ResiliencehubClientResolvedConfig extends ResiliencehubClientResolvedConfigType {}
 
 /**
- * <p>AWS Resilience Hub helps you proactively prepare and protect your Amazon Web Services applications from
- *       disruptions. Resilience Hub offers continuous resiliency assessment and validation that integrates
+ * @public
+ * <p>Resilience Hub helps you proactively prepare and protect your Amazon Web Services applications from
+ *       disruptions. It offers continual resiliency assessment and validation that integrates
  *       into your software development lifecycle. This enables you to uncover resiliency weaknesses,
  *       ensure recovery time objective (RTO) and recovery point objective (RPO) targets for your
  *       applications are met, and resolve issues before they are released into production. </p>

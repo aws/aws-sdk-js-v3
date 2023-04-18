@@ -20,15 +20,23 @@ import {
   ClassifyDocumentResponse,
   ClassifyDocumentResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1ClassifyDocumentCommand,
-  serializeAws_json1_1ClassifyDocumentCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ClassifyDocumentCommand, se_ClassifyDocumentCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ClassifyDocumentCommand}.
+ */
 export interface ClassifyDocumentCommandInput extends ClassifyDocumentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ClassifyDocumentCommand}.
+ */
 export interface ClassifyDocumentCommandOutput extends ClassifyDocumentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new document classification request to analyze a single document in real-time,
  *       using a previously created and trained custom model and an endpoint.</p>
  *          <p>You can input plain text or you can upload a single-page input document (text, PDF, Word, or image). </p>
@@ -46,13 +54,41 @@ export interface ClassifyDocumentCommandOutput extends ClassifyDocumentResponse,
  * import { ComprehendClient, ClassifyDocumentCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, ClassifyDocumentCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // ClassifyDocumentRequest
+ *   Text: "STRING_VALUE",
+ *   EndpointArn: "STRING_VALUE", // required
+ *   Bytes: "BLOB_VALUE",
+ *   DocumentReaderConfig: { // DocumentReaderConfig
+ *     DocumentReadAction: "TEXTRACT_DETECT_DOCUMENT_TEXT" || "TEXTRACT_ANALYZE_DOCUMENT", // required
+ *     DocumentReadMode: "SERVICE_DEFAULT" || "FORCE_DOCUMENT_READ_ACTION",
+ *     FeatureTypes: [ // ListOfDocumentReadFeatureTypes
+ *       "TABLES" || "FORMS",
+ *     ],
+ *   },
+ * };
  * const command = new ClassifyDocumentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ClassifyDocumentCommandInput - {@link ClassifyDocumentCommandInput}
+ * @returns {@link ClassifyDocumentCommandOutput}
  * @see {@link ClassifyDocumentCommandInput} for command's `input` shape.
  * @see {@link ClassifyDocumentCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid.</p>
+ *
+ * @throws {@link ResourceUnavailableException} (client fault)
+ *  <p>The specified resource is not available. Check the resource and try your request
+ *       again.</p>
+ *
+ * @throws {@link TextSizeLimitExceededException} (client fault)
+ *  <p>The size of the input text exceeds the limit. Use a smaller document.</p>
+ *
  *
  */
 export class ClassifyDocumentCommand extends $Command<
@@ -72,6 +108,9 @@ export class ClassifyDocumentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ClassifyDocumentCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,12 +150,18 @@ export class ClassifyDocumentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ClassifyDocumentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ClassifyDocumentCommand(input, context);
+    return se_ClassifyDocumentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ClassifyDocumentCommandOutput> {
-    return deserializeAws_json1_1ClassifyDocumentCommand(output, context);
+    return de_ClassifyDocumentCommand(output, context);
   }
 
   // Start section: command_body_extra

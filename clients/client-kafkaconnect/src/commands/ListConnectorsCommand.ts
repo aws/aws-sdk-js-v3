@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KafkaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaConnectClient";
-import {
-  ListConnectorsRequest,
-  ListConnectorsRequestFilterSensitiveLog,
-  ListConnectorsResponse,
-  ListConnectorsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListConnectorsCommand,
-  serializeAws_restJson1ListConnectorsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListConnectorsRequest, ListConnectorsResponse } from "../models/models_0";
+import { de_ListConnectorsCommand, se_ListConnectorsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListConnectorsCommand}.
+ */
 export interface ListConnectorsCommandInput extends ListConnectorsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListConnectorsCommand}.
+ */
 export interface ListConnectorsCommandOutput extends ListConnectorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all the connectors in this account and Region. The list is limited to
  *          connectors whose name starts with the specified prefix. The response also includes a
  *          description of each of the listed connectors.</p>
@@ -38,13 +41,48 @@ export interface ListConnectorsCommandOutput extends ListConnectorsResponse, __M
  * import { KafkaConnectClient, ListConnectorsCommand } from "@aws-sdk/client-kafkaconnect"; // ES Modules import
  * // const { KafkaConnectClient, ListConnectorsCommand } = require("@aws-sdk/client-kafkaconnect"); // CommonJS import
  * const client = new KafkaConnectClient(config);
+ * const input = { // ListConnectorsRequest
+ *   connectorNamePrefix: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListConnectorsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListConnectorsCommandInput - {@link ListConnectorsCommandInput}
+ * @returns {@link ListConnectorsCommandOutput}
  * @see {@link ListConnectorsCommandInput} for command's `input` shape.
  * @see {@link ListConnectorsCommandOutput} for command's `response` shape.
  * @see {@link KafkaConnectClientResolvedConfig | config} for KafkaConnectClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>HTTP Status Code 400: Bad request due to incorrect input. Correct your request and then
+ *          retry it.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>HTTP Status Code 403: Access forbidden. Correct your credentials and then retry your
+ *          request.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>HTTP Status Code 500: Unexpected internal server error. Retrying your request might
+ *          resolve the issue.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>HTTP Status Code 404: Resource not found due to incorrect input. Correct your request
+ *          and then retry it.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>HTTP Status Code 503: Service Unavailable. Retrying your request in some time might
+ *          resolve the issue.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>HTTP Status Code 429: Limit exceeded. Resource limit reached.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>HTTP Status Code 401: Unauthorized request. The provided credentials couldn't be
+ *          validated.</p>
+ *
  *
  */
 export class ListConnectorsCommand extends $Command<
@@ -64,6 +102,9 @@ export class ListConnectorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListConnectorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +133,8 @@ export class ListConnectorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListConnectorsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListConnectorsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +144,18 @@ export class ListConnectorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListConnectorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListConnectorsCommand(input, context);
+    return se_ListConnectorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListConnectorsCommandOutput> {
-    return deserializeAws_restJson1ListConnectorsCommand(output, context);
+    return de_ListConnectorsCommand(output, context);
   }
 
   // Start section: command_body_extra

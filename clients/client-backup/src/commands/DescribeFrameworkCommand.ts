@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import {
-  DescribeFrameworkInput,
-  DescribeFrameworkInputFilterSensitiveLog,
-  DescribeFrameworkOutput,
-  DescribeFrameworkOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeFrameworkCommand,
-  serializeAws_restJson1DescribeFrameworkCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeFrameworkInput, DescribeFrameworkOutput } from "../models/models_0";
+import { de_DescribeFrameworkCommand, se_DescribeFrameworkCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeFrameworkCommand}.
+ */
 export interface DescribeFrameworkCommandInput extends DescribeFrameworkInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeFrameworkCommand}.
+ */
 export interface DescribeFrameworkCommandOutput extends DescribeFrameworkOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the framework details for the specified <code>FrameworkName</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,32 @@ export interface DescribeFrameworkCommandOutput extends DescribeFrameworkOutput,
  * import { BackupClient, DescribeFrameworkCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, DescribeFrameworkCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // DescribeFrameworkInput
+ *   FrameworkName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeFrameworkCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFrameworkCommandInput - {@link DescribeFrameworkCommandInput}
+ * @returns {@link DescribeFrameworkCommandOutput}
  * @see {@link DescribeFrameworkCommandInput} for command's `input` shape.
  * @see {@link DescribeFrameworkCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
+ *          out of range.</p>
+ *
+ * @throws {@link MissingParameterValueException} (client fault)
+ *  <p>Indicates that a required parameter is missing.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource that is required for the action doesn't exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request failed due to a temporary failure of the server.</p>
+ *
  *
  */
 export class DescribeFrameworkCommand extends $Command<
@@ -62,6 +84,9 @@ export class DescribeFrameworkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFrameworkCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +115,8 @@ export class DescribeFrameworkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFrameworkInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFrameworkOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +126,18 @@ export class DescribeFrameworkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFrameworkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeFrameworkCommand(input, context);
+    return se_DescribeFrameworkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFrameworkCommandOutput> {
-    return deserializeAws_restJson1DescribeFrameworkCommand(output, context);
+    return de_DescribeFrameworkCommand(output, context);
   }
 
   // Start section: command_body_extra

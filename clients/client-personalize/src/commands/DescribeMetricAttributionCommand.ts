@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeMetricAttributionRequest,
-  DescribeMetricAttributionRequestFilterSensitiveLog,
-  DescribeMetricAttributionResponse,
-  DescribeMetricAttributionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeMetricAttributionRequest, DescribeMetricAttributionResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1DescribeMetricAttributionCommand,
-  serializeAws_json1_1DescribeMetricAttributionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeMetricAttributionCommand, se_DescribeMetricAttributionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeMetricAttributionCommand}.
+ */
 export interface DescribeMetricAttributionCommandInput extends DescribeMetricAttributionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeMetricAttributionCommand}.
+ */
 export interface DescribeMetricAttributionCommandOutput extends DescribeMetricAttributionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a metric attribution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,25 @@ export interface DescribeMetricAttributionCommandOutput extends DescribeMetricAt
  * import { PersonalizeClient, DescribeMetricAttributionCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DescribeMetricAttributionCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // DescribeMetricAttributionRequest
+ *   metricAttributionArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeMetricAttributionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMetricAttributionCommandInput - {@link DescribeMetricAttributionCommandInput}
+ * @returns {@link DescribeMetricAttributionCommandOutput}
  * @see {@link DescribeMetricAttributionCommandInput} for command's `input` shape.
  * @see {@link DescribeMetricAttributionCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Could not find the specified resource.</p>
+ *
  *
  */
 export class DescribeMetricAttributionCommand extends $Command<
@@ -62,6 +77,9 @@ export class DescribeMetricAttributionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMetricAttributionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +108,8 @@ export class DescribeMetricAttributionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeMetricAttributionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeMetricAttributionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +119,21 @@ export class DescribeMetricAttributionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeMetricAttributionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeMetricAttributionCommand(input, context);
+    return se_DescribeMetricAttributionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeMetricAttributionCommandOutput> {
-    return deserializeAws_json1_1DescribeMetricAttributionCommand(output, context);
+    return de_DescribeMetricAttributionCommand(output, context);
   }
 
   // Start section: command_body_extra

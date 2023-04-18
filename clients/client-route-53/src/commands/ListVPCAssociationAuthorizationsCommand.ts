@@ -14,28 +14,34 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ListVPCAssociationAuthorizationsRequest, ListVPCAssociationAuthorizationsResponse } from "../models/models_0";
 import {
-  ListVPCAssociationAuthorizationsRequest,
-  ListVPCAssociationAuthorizationsRequestFilterSensitiveLog,
-  ListVPCAssociationAuthorizationsResponse,
-  ListVPCAssociationAuthorizationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlListVPCAssociationAuthorizationsCommand,
-  serializeAws_restXmlListVPCAssociationAuthorizationsCommand,
+  de_ListVPCAssociationAuthorizationsCommand,
+  se_ListVPCAssociationAuthorizationsCommand,
 } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * @public
+ *
+ * The input for {@link ListVPCAssociationAuthorizationsCommand}.
+ */
 export interface ListVPCAssociationAuthorizationsCommandInput extends ListVPCAssociationAuthorizationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListVPCAssociationAuthorizationsCommand}.
+ */
 export interface ListVPCAssociationAuthorizationsCommandOutput
   extends ListVPCAssociationAuthorizationsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of the VPCs that were created by other accounts and that can be associated
  * 			with a specified hosted zone because you've submitted one or more
  * 				<code>CreateVPCAssociationAuthorization</code> requests. </p>
- * 		       <p>The response includes a <code>VPCs</code> element with a <code>VPC</code> child
+ *          <p>The response includes a <code>VPCs</code> element with a <code>VPC</code> child
  * 			element for each VPC that can be associated with the hosted zone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,13 +49,31 @@ export interface ListVPCAssociationAuthorizationsCommandOutput
  * import { Route53Client, ListVPCAssociationAuthorizationsCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, ListVPCAssociationAuthorizationsCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = { // ListVPCAssociationAuthorizationsRequest
+ *   HostedZoneId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListVPCAssociationAuthorizationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListVPCAssociationAuthorizationsCommandInput - {@link ListVPCAssociationAuthorizationsCommandInput}
+ * @returns {@link ListVPCAssociationAuthorizationsCommandOutput}
  * @see {@link ListVPCAssociationAuthorizationsCommandInput} for command's `input` shape.
  * @see {@link ListVPCAssociationAuthorizationsCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link InvalidPaginationToken} (client fault)
+ *  <p>The value that you specified to get the second or subsequent page of results is
+ * 			invalid.</p>
+ *
+ * @throws {@link NoSuchHostedZone} (client fault)
+ *  <p>No hosted zone exists with the ID that you specified.</p>
+ *
  *
  */
 export class ListVPCAssociationAuthorizationsCommand extends $Command<
@@ -69,6 +93,9 @@ export class ListVPCAssociationAuthorizationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListVPCAssociationAuthorizationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +125,8 @@ export class ListVPCAssociationAuthorizationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListVPCAssociationAuthorizationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListVPCAssociationAuthorizationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,18 +136,24 @@ export class ListVPCAssociationAuthorizationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListVPCAssociationAuthorizationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlListVPCAssociationAuthorizationsCommand(input, context);
+    return se_ListVPCAssociationAuthorizationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListVPCAssociationAuthorizationsCommandOutput> {
-    return deserializeAws_restXmlListVPCAssociationAuthorizationsCommand(output, context);
+    return de_ListVPCAssociationAuthorizationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,23 +14,26 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ModifyVerifiedAccessEndpointRequest,
-  ModifyVerifiedAccessEndpointRequestFilterSensitiveLog,
-  ModifyVerifiedAccessEndpointResult,
-  ModifyVerifiedAccessEndpointResultFilterSensitiveLog,
-} from "../models/models_6";
-import {
-  deserializeAws_ec2ModifyVerifiedAccessEndpointCommand,
-  serializeAws_ec2ModifyVerifiedAccessEndpointCommand,
-} from "../protocols/Aws_ec2";
+import { ModifyVerifiedAccessEndpointRequest, ModifyVerifiedAccessEndpointResult } from "../models/models_6";
+import { de_ModifyVerifiedAccessEndpointCommand, se_ModifyVerifiedAccessEndpointCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link ModifyVerifiedAccessEndpointCommand}.
+ */
 export interface ModifyVerifiedAccessEndpointCommandInput extends ModifyVerifiedAccessEndpointRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ModifyVerifiedAccessEndpointCommand}.
+ */
 export interface ModifyVerifiedAccessEndpointCommandOutput
   extends ModifyVerifiedAccessEndpointResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the configuration of an Amazon Web Services Verified Access endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +41,34 @@ export interface ModifyVerifiedAccessEndpointCommandOutput
  * import { EC2Client, ModifyVerifiedAccessEndpointCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyVerifiedAccessEndpointCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ModifyVerifiedAccessEndpointRequest
+ *   VerifiedAccessEndpointId: "STRING_VALUE", // required
+ *   VerifiedAccessGroupId: "STRING_VALUE",
+ *   LoadBalancerOptions: { // ModifyVerifiedAccessEndpointLoadBalancerOptions
+ *     SubnetIds: [ // ModifyVerifiedAccessEndpointSubnetIdList
+ *       "STRING_VALUE",
+ *     ],
+ *     Protocol: "http" || "https",
+ *     Port: Number("int"),
+ *   },
+ *   NetworkInterfaceOptions: { // ModifyVerifiedAccessEndpointEniOptions
+ *     Protocol: "http" || "https",
+ *     Port: Number("int"),
+ *   },
+ *   Description: "STRING_VALUE",
+ *   ClientToken: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new ModifyVerifiedAccessEndpointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyVerifiedAccessEndpointCommandInput - {@link ModifyVerifiedAccessEndpointCommandInput}
+ * @returns {@link ModifyVerifiedAccessEndpointCommandOutput}
  * @see {@link ModifyVerifiedAccessEndpointCommandInput} for command's `input` shape.
  * @see {@link ModifyVerifiedAccessEndpointCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class ModifyVerifiedAccessEndpointCommand extends $Command<
@@ -64,6 +88,9 @@ export class ModifyVerifiedAccessEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyVerifiedAccessEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +119,8 @@ export class ModifyVerifiedAccessEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyVerifiedAccessEndpointRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyVerifiedAccessEndpointResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +130,21 @@ export class ModifyVerifiedAccessEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyVerifiedAccessEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyVerifiedAccessEndpointCommand(input, context);
+    return se_ModifyVerifiedAccessEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyVerifiedAccessEndpointCommandOutput> {
-    return deserializeAws_ec2ModifyVerifiedAccessEndpointCommand(output, context);
+    return de_ModifyVerifiedAccessEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

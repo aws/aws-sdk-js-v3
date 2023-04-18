@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListDocumentVersionsRequest,
-  ListDocumentVersionsRequestFilterSensitiveLog,
-  ListDocumentVersionsResult,
-  ListDocumentVersionsResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1ListDocumentVersionsCommand,
-  serializeAws_json1_1ListDocumentVersionsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListDocumentVersionsRequest, ListDocumentVersionsResult } from "../models/models_1";
+import { de_ListDocumentVersionsCommand, se_ListDocumentVersionsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListDocumentVersionsCommand}.
+ */
 export interface ListDocumentVersionsCommandInput extends ListDocumentVersionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDocumentVersionsCommand}.
+ */
 export interface ListDocumentVersionsCommandOutput extends ListDocumentVersionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List all versions for a document.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,30 @@ export interface ListDocumentVersionsCommandOutput extends ListDocumentVersionsR
  * import { SSMClient, ListDocumentVersionsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ListDocumentVersionsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // ListDocumentVersionsRequest
+ *   Name: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListDocumentVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDocumentVersionsCommandInput - {@link ListDocumentVersionsCommandInput}
+ * @returns {@link ListDocumentVersionsCommandOutput}
  * @see {@link ListDocumentVersionsCommandInput} for command's `input` shape.
  * @see {@link ListDocumentVersionsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidDocument} (client fault)
+ *  <p>The specified SSM document doesn't exist.</p>
+ *
+ * @throws {@link InvalidNextToken} (client fault)
+ *  <p>The specified token isn't valid.</p>
+ *
  *
  */
 export class ListDocumentVersionsCommand extends $Command<
@@ -62,6 +82,9 @@ export class ListDocumentVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDocumentVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +113,8 @@ export class ListDocumentVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDocumentVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDocumentVersionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +124,18 @@ export class ListDocumentVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDocumentVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDocumentVersionsCommand(input, context);
+    return se_ListDocumentVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDocumentVersionsCommandOutput> {
-    return deserializeAws_json1_1ListDocumentVersionsCommand(output, context);
+    return de_ListDocumentVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

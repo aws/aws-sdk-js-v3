@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  ListGameServersInput,
-  ListGameServersInputFilterSensitiveLog,
-  ListGameServersOutput,
-  ListGameServersOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListGameServersCommand,
-  serializeAws_json1_1ListGameServersCommand,
-} from "../protocols/Aws_json1_1";
+import { ListGameServersInput, ListGameServersOutput } from "../models/models_0";
+import { de_ListGameServersCommand, se_ListGameServersCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListGameServersCommand}.
+ */
 export interface ListGameServersCommandInput extends ListGameServersInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListGameServersCommand}.
+ */
 export interface ListGameServersCommandOutput extends ListGameServersOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
  *          </p>
@@ -49,13 +52,33 @@ export interface ListGameServersCommandOutput extends ListGameServersOutput, __M
  * import { GameLiftClient, ListGameServersCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, ListGameServersCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // ListGameServersInput
+ *   GameServerGroupName: "STRING_VALUE", // required
+ *   SortOrder: "ASCENDING" || "DESCENDING",
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListGameServersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListGameServersCommandInput - {@link ListGameServersCommandInput}
+ * @returns {@link ListGameServersCommandOutput}
  * @see {@link ListGameServersCommandInput} for command's `input` shape.
  * @see {@link ListGameServersCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an unrecoverable internal failure while processing the
+ *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
+ *             values before retrying.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
  *
  */
 export class ListGameServersCommand extends $Command<
@@ -75,6 +98,9 @@ export class ListGameServersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListGameServersCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +129,8 @@ export class ListGameServersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListGameServersInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListGameServersOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +140,18 @@ export class ListGameServersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListGameServersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListGameServersCommand(input, context);
+    return se_ListGameServersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGameServersCommandOutput> {
-    return deserializeAws_json1_1ListGameServersCommand(output, context);
+    return de_ListGameServersCommand(output, context);
   }
 
   // Start section: command_body_extra

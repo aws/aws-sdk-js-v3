@@ -6,12 +6,11 @@ import {
   ListObjectsV2CommandInput,
   ListObjectsV2CommandOutput,
 } from "../commands/ListObjectsV2Command";
-import { S3 } from "../S3";
 import { S3Client } from "../S3Client";
 import { S3PaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: S3Client,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListObjectsV2Command(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: S3,
-  input: ListObjectsV2CommandInput,
-  ...args: any
-): Promise<ListObjectsV2CommandOutput> => {
-  // @ts-ignore
-  return await client.listObjectsV2(input, ...args);
-};
 export async function* paginateListObjectsV2(
   config: S3PaginationConfiguration,
   input: ListObjectsV2CommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListObjectsV2(
   while (hasNext) {
     input.ContinuationToken = token;
     input["MaxKeys"] = config.pageSize;
-    if (config.client instanceof S3) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof S3Client) {
+    if (config.client instanceof S3Client) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected S3 | S3Client");

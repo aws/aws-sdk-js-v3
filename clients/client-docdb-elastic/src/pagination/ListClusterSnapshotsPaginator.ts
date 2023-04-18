@@ -6,12 +6,11 @@ import {
   ListClusterSnapshotsCommandInput,
   ListClusterSnapshotsCommandOutput,
 } from "../commands/ListClusterSnapshotsCommand";
-import { DocDBElastic } from "../DocDBElastic";
 import { DocDBElasticClient } from "../DocDBElasticClient";
 import { DocDBElasticPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DocDBElasticClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListClusterSnapshotsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: DocDBElastic,
-  input: ListClusterSnapshotsCommandInput,
-  ...args: any
-): Promise<ListClusterSnapshotsCommandOutput> => {
-  // @ts-ignore
-  return await client.listClusterSnapshots(input, ...args);
-};
 export async function* paginateListClusterSnapshots(
   config: DocDBElasticPaginationConfiguration,
   input: ListClusterSnapshotsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListClusterSnapshots(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof DocDBElastic) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DocDBElasticClient) {
+    if (config.client instanceof DocDBElasticClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected DocDBElastic | DocDBElasticClient");

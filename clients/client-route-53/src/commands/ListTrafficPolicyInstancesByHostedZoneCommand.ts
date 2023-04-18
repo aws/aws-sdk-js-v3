@@ -16,33 +16,42 @@ import {
 
 import {
   ListTrafficPolicyInstancesByHostedZoneRequest,
-  ListTrafficPolicyInstancesByHostedZoneRequestFilterSensitiveLog,
   ListTrafficPolicyInstancesByHostedZoneResponse,
-  ListTrafficPolicyInstancesByHostedZoneResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommand,
-  serializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommand,
+  de_ListTrafficPolicyInstancesByHostedZoneCommand,
+  se_ListTrafficPolicyInstancesByHostedZoneCommand,
 } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * @public
+ *
+ * The input for {@link ListTrafficPolicyInstancesByHostedZoneCommand}.
+ */
 export interface ListTrafficPolicyInstancesByHostedZoneCommandInput
   extends ListTrafficPolicyInstancesByHostedZoneRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListTrafficPolicyInstancesByHostedZoneCommand}.
+ */
 export interface ListTrafficPolicyInstancesByHostedZoneCommandOutput
   extends ListTrafficPolicyInstancesByHostedZoneResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the traffic policy instances that you created in a specified
  * 			hosted zone.</p>
- * 		       <note>
- * 			         <p>After you submit a <code>CreateTrafficPolicyInstance</code> or an
+ *          <note>
+ *             <p>After you submit a <code>CreateTrafficPolicyInstance</code> or an
  * 					<code>UpdateTrafficPolicyInstance</code> request, there's a brief delay while
  * 				Amazon Route 53 creates the resource record sets that are specified in the traffic
  * 				policy definition. For more information, see the <code>State</code> response
  * 				element.</p>
- * 		       </note>
- * 		       <p>Route 53 returns a maximum of 100 items in each response. If you have a lot of traffic
+ *          </note>
+ *          <p>Route 53 returns a maximum of 100 items in each response. If you have a lot of traffic
  * 			policy instances, you can use the <code>MaxItems</code> parameter to list them in groups
  * 			of up to 100.</p>
  * @example
@@ -51,13 +60,31 @@ export interface ListTrafficPolicyInstancesByHostedZoneCommandOutput
  * import { Route53Client, ListTrafficPolicyInstancesByHostedZoneCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, ListTrafficPolicyInstancesByHostedZoneCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = { // ListTrafficPolicyInstancesByHostedZoneRequest
+ *   HostedZoneId: "STRING_VALUE", // required
+ *   TrafficPolicyInstanceNameMarker: "STRING_VALUE",
+ *   TrafficPolicyInstanceTypeMarker: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListTrafficPolicyInstancesByHostedZoneCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTrafficPolicyInstancesByHostedZoneCommandInput - {@link ListTrafficPolicyInstancesByHostedZoneCommandInput}
+ * @returns {@link ListTrafficPolicyInstancesByHostedZoneCommandOutput}
  * @see {@link ListTrafficPolicyInstancesByHostedZoneCommandInput} for command's `input` shape.
  * @see {@link ListTrafficPolicyInstancesByHostedZoneCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link NoSuchHostedZone} (client fault)
+ *  <p>No hosted zone exists with the ID that you specified.</p>
+ *
+ * @throws {@link NoSuchTrafficPolicyInstance} (client fault)
+ *  <p>No traffic policy instance exists with the specified ID.</p>
+ *
  *
  */
 export class ListTrafficPolicyInstancesByHostedZoneCommand extends $Command<
@@ -77,6 +104,9 @@ export class ListTrafficPolicyInstancesByHostedZoneCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTrafficPolicyInstancesByHostedZoneCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +136,8 @@ export class ListTrafficPolicyInstancesByHostedZoneCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTrafficPolicyInstancesByHostedZoneRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTrafficPolicyInstancesByHostedZoneResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,18 +147,24 @@ export class ListTrafficPolicyInstancesByHostedZoneCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListTrafficPolicyInstancesByHostedZoneCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommand(input, context);
+    return se_ListTrafficPolicyInstancesByHostedZoneCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListTrafficPolicyInstancesByHostedZoneCommandOutput> {
-    return deserializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommand(output, context);
+    return de_ListTrafficPolicyInstancesByHostedZoneCommand(output, context);
   }
 
   // Start section: command_body_extra

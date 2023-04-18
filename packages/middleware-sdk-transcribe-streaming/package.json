@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-sdk-transcribe-streaming",
-  "version": "3.226.0",
+  "version": "3.310.0",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
@@ -21,12 +21,11 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/eventstream-serde-browser": "*",
-    "@aws-sdk/middleware-signing": "*",
     "@aws-sdk/protocol-http": "*",
     "@aws-sdk/signature-v4": "*",
     "@aws-sdk/types": "*",
     "@aws-sdk/util-format-url": "*",
-    "tslib": "^2.3.1",
+    "tslib": "^2.5.0",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
@@ -37,8 +36,8 @@
     "jest-websocket-mock": "^2.0.2",
     "mock-socket": "9.1.5",
     "rimraf": "3.0.2",
-    "typedoc": "0.19.2",
-    "typescript": "~4.6.2"
+    "typedoc": "0.23.23",
+    "typescript": "~4.9.5"
   },
   "engines": {
     "node": ">=14.0.0"
@@ -51,12 +50,15 @@
     }
   },
   "files": [
-    "dist-*"
+    "dist-*/**"
   ],
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/middleware-sdk-transcribe-streaming",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
     "directory": "packages/middleware-sdk-transcribe-streaming"
+  },
+  "typedoc": {
+    "entryPoint": "src/index.ts"
   }
 }

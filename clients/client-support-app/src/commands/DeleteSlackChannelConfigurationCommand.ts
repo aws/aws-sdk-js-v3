@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DeleteSlackChannelConfigurationRequest, DeleteSlackChannelConfigurationResult } from "../models/models_0";
 import {
-  DeleteSlackChannelConfigurationRequest,
-  DeleteSlackChannelConfigurationRequestFilterSensitiveLog,
-  DeleteSlackChannelConfigurationResult,
-  DeleteSlackChannelConfigurationResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteSlackChannelConfigurationCommand,
-  serializeAws_restJson1DeleteSlackChannelConfigurationCommand,
+  de_DeleteSlackChannelConfigurationCommand,
+  se_DeleteSlackChannelConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteSlackChannelConfigurationCommand}.
+ */
 export interface DeleteSlackChannelConfigurationCommandInput extends DeleteSlackChannelConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteSlackChannelConfigurationCommand}.
+ */
 export interface DeleteSlackChannelConfigurationCommandOutput
   extends DeleteSlackChannelConfigurationResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Slack channel configuration from your Amazon Web Services account. This operation doesn't
  *       delete your Slack channel.</p>
  * @example
@@ -39,13 +45,62 @@ export interface DeleteSlackChannelConfigurationCommandOutput
  * import { SupportAppClient, DeleteSlackChannelConfigurationCommand } from "@aws-sdk/client-support-app"; // ES Modules import
  * // const { SupportAppClient, DeleteSlackChannelConfigurationCommand } = require("@aws-sdk/client-support-app"); // CommonJS import
  * const client = new SupportAppClient(config);
+ * const input = { // DeleteSlackChannelConfigurationRequest
+ *   teamId: "STRING_VALUE", // required
+ *   channelId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSlackChannelConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSlackChannelConfigurationCommandInput - {@link DeleteSlackChannelConfigurationCommandInput}
+ * @returns {@link DeleteSlackChannelConfigurationCommandOutput}
  * @see {@link DeleteSlackChannelConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteSlackChannelConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SupportAppClientResolvedConfig | config} for SupportAppClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient permission to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Your request has a conflict. For example, you might receive this error if you try the
+ *       following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Add, update, or delete a Slack channel configuration before you add a Slack workspace
+ *           to your Amazon Web Services account.</p>
+ *             </li>
+ *             <li>
+ *                <p>Add a Slack channel configuration that already exists in your Amazon Web Services account.</p>
+ *             </li>
+ *             <li>
+ *                <p>Delete a Slack channel configuration for a live chat channel.</p>
+ *             </li>
+ *             <li>
+ *                <p>Delete a Slack workspace from your Amazon Web Services account that has an active live chat
+ *           channel.</p>
+ *             </li>
+ *             <li>
+ *                <p>Call the <code>RegisterSlackWorkspaceForOrganization</code> API from an Amazon Web Services account
+ *           that doesn't belong to an organization.</p>
+ *             </li>
+ *             <li>
+ *                <p>Call the <code>RegisterSlackWorkspaceForOrganization</code> API from a member account,
+ *           but the management account hasn't registered that workspace yet for the
+ *           organization.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>We can’t process your request right now because of a server issue. Try again later.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource is missing or doesn't exist, such as an account alias, Slack
+ *       channel configuration, or Slack workspace configuration.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Your request input doesn't meet the constraints that the Amazon Web Services Support App specifies.</p>
+ *
  *
  */
 export class DeleteSlackChannelConfigurationCommand extends $Command<
@@ -65,6 +120,9 @@ export class DeleteSlackChannelConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSlackChannelConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +151,8 @@ export class DeleteSlackChannelConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSlackChannelConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSlackChannelConfigurationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,18 +162,24 @@ export class DeleteSlackChannelConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteSlackChannelConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSlackChannelConfigurationCommand(input, context);
+    return se_DeleteSlackChannelConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteSlackChannelConfigurationCommandOutput> {
-    return deserializeAws_restJson1DeleteSlackChannelConfigurationCommand(output, context);
+    return de_DeleteSlackChannelConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

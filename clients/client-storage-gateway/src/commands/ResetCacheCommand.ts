@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ResetCacheInput,
-  ResetCacheInputFilterSensitiveLog,
-  ResetCacheOutput,
-  ResetCacheOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ResetCacheCommand,
-  serializeAws_json1_1ResetCacheCommand,
-} from "../protocols/Aws_json1_1";
+import { ResetCacheInput, ResetCacheOutput } from "../models/models_0";
+import { de_ResetCacheCommand, se_ResetCacheCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ResetCacheCommand}.
+ */
 export interface ResetCacheCommandInput extends ResetCacheInput {}
+/**
+ * @public
+ *
+ * The output of {@link ResetCacheCommand}.
+ */
 export interface ResetCacheCommandOutput extends ResetCacheOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Resets all cache disks that have encountered an error and makes the disks available for
  *          reconfiguration as cache storage. If your cache disk encounters an error, the gateway
  *          prevents read and write operations on virtual tapes in the gateway. For example, an error
@@ -48,13 +51,43 @@ export interface ResetCacheCommandOutput extends ResetCacheOutput, __MetadataBea
  * import { StorageGatewayClient, ResetCacheCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, ResetCacheCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // ResetCacheInput
+ *   GatewayARN: "STRING_VALUE", // required
+ * };
  * const command = new ResetCacheCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ResetCacheCommandInput - {@link ResetCacheCommandInput}
+ * @returns {@link ResetCacheCommandOutput}
  * @see {@link ResetCacheCommandInput} for command's `input` shape.
  * @see {@link ResetCacheCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error has occurred during the request. For more information, see the
+ *          error and message fields.</p>
+ *
+ * @throws {@link InvalidGatewayRequestException} (client fault)
+ *  <p>An exception occurred because an invalid gateway request was issued to the service. For
+ *          more information, see the error and message fields.</p>
+ *
+ *
+ * @example To reset cache disks in error status
+ * ```javascript
+ * // Resets all cache disks that have encountered a error and makes the disks available for reconfiguration as cache storage.
+ * const input = {
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-13B4567C"
+ * };
+ * const command = new ResetCacheCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-13B4567C"
+ * }
+ * *\/
+ * // example id: to-reset-cache-disks-in-error-status-1472148909807
+ * ```
  *
  */
 export class ResetCacheCommand extends $Command<
@@ -74,6 +107,9 @@ export class ResetCacheCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResetCacheCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +136,8 @@ export class ResetCacheCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResetCacheInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ResetCacheOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +147,18 @@ export class ResetCacheCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResetCacheCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ResetCacheCommand(input, context);
+    return se_ResetCacheCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetCacheCommandOutput> {
-    return deserializeAws_json1_1ResetCacheCommand(output, context);
+    return de_ResetCacheCommand(output, context);
   }
 
   // Start section: command_body_extra

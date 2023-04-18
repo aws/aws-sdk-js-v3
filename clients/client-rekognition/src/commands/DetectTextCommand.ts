@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DetectTextRequest,
-  DetectTextRequestFilterSensitiveLog,
-  DetectTextResponse,
-  DetectTextResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DetectTextCommand,
-  serializeAws_json1_1DetectTextCommand,
-} from "../protocols/Aws_json1_1";
+import { DetectTextRequest, DetectTextResponse } from "../models/models_0";
+import { de_DetectTextCommand, se_DetectTextCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DetectTextCommand}.
+ */
 export interface DetectTextCommandInput extends DetectTextRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DetectTextCommand}.
+ */
 export interface DetectTextCommandOutput extends DetectTextResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detects text in the input image and converts it into machine-readable text.</p>
  *          <p>Pass the input image as base64-encoded image bytes or as a reference to an image in an
  *       Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, you must pass it as a
@@ -58,13 +61,78 @@ export interface DetectTextCommandOutput extends DetectTextResponse, __MetadataB
  * import { RekognitionClient, DetectTextCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DetectTextCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // DetectTextRequest
+ *   Image: { // Image
+ *     Bytes: "BLOB_VALUE",
+ *     S3Object: { // S3Object
+ *       Bucket: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   },
+ *   Filters: { // DetectTextFilters
+ *     WordFilter: { // DetectionFilter
+ *       MinConfidence: Number("float"),
+ *       MinBoundingBoxHeight: Number("float"),
+ *       MinBoundingBoxWidth: Number("float"),
+ *     },
+ *     RegionsOfInterest: [ // RegionsOfInterest
+ *       { // RegionOfInterest
+ *         BoundingBox: { // BoundingBox
+ *           Width: Number("float"),
+ *           Height: Number("float"),
+ *           Left: Number("float"),
+ *           Top: Number("float"),
+ *         },
+ *         Polygon: [ // Polygon
+ *           { // Point
+ *             X: Number("float"),
+ *             Y: Number("float"),
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new DetectTextCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DetectTextCommandInput - {@link DetectTextCommandInput}
+ * @returns {@link DetectTextCommandOutput}
  * @see {@link DetectTextCommandInput} for command's `input` shape.
  * @see {@link DetectTextCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to perform the action.</p>
+ *
+ * @throws {@link ImageTooLargeException} (client fault)
+ *  <p>The input image size exceeds the allowed limit. If you are calling
+ *       DetectProtectiveEquipment, the image size or resolution exceeds the allowed limit. For more
+ *       information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide.
+ *     </p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidImageFormatException} (client fault)
+ *  <p>The provided image format is not supported. </p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
+ *       operation again.</p>
+ *
+ * @throws {@link InvalidS3ObjectException} (client fault)
+ *  <p>Amazon Rekognition is unable to access the S3 object specified in the request.</p>
+ *
+ * @throws {@link ProvisionedThroughputExceededException} (client fault)
+ *  <p>The number of requests exceeded your throughput limit. If you want to increase this
+ *       limit, contact Amazon Rekognition.</p>
+ *
+ * @throws {@link ThrottlingException} (server fault)
+ *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
  *
  */
 export class DetectTextCommand extends $Command<
@@ -84,6 +152,9 @@ export class DetectTextCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetectTextCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +181,8 @@ export class DetectTextCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetectTextRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DetectTextResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +192,18 @@ export class DetectTextCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetectTextCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DetectTextCommand(input, context);
+    return se_DetectTextCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectTextCommandOutput> {
-    return deserializeAws_json1_1DetectTextCommand(output, context);
+    return de_DetectTextCommand(output, context);
   }
 
   // Start section: command_body_extra

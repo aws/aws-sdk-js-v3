@@ -34,6 +34,7 @@ import {
 import { EBSClient } from "./EBSClient";
 
 /**
+ * @public
  * <p>You can use the Amazon Elastic Block Store (Amazon EBS) direct APIs to create Amazon EBS snapshots, write data directly to
  *     		your snapshots, read data on your snapshots, and identify the differences or changes between
  *     		two snapshots. If you’re an independent software vendor (ISV) who offers backup services for
@@ -57,6 +58,7 @@ import { EBSClient } from "./EBSClient";
  */
 export class EBS extends EBSClient {
   /**
+   * @public
    * <p>Seals and completes the snapshot after all of the required blocks of data have been
    *             written to it. Completing the snapshot changes the status to <code>completed</code>. You
    *             cannot write new blocks to a snapshot after it has been completed.</p>
@@ -91,6 +93,7 @@ export class EBS extends EBSClient {
   }
 
   /**
+   * @public
    * <p>Returns the data in a block in an Amazon Elastic Block Store snapshot.</p>
    */
   public getSnapshotBlock(
@@ -123,6 +126,7 @@ export class EBS extends EBSClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the blocks that are different between two
    *             Amazon Elastic Block Store snapshots of the same volume/snapshot lineage.</p>
    */
@@ -156,6 +160,7 @@ export class EBS extends EBSClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the blocks in an Amazon Elastic Block Store snapshot.</p>
    */
   public listSnapshotBlocks(
@@ -188,6 +193,7 @@ export class EBS extends EBSClient {
   }
 
   /**
+   * @public
    * <p>Writes a block of data to a snapshot. If the specified block contains
    *             data, the existing data is overwritten. The target snapshot must be in the
    *                 <code>pending</code> state.</p>
@@ -223,6 +229,7 @@ export class EBS extends EBSClient {
   }
 
   /**
+   * @public
    * <p>Creates a new Amazon EBS snapshot. The new snapshot enters the <code>pending</code> state
    *             after the request completes. </p>
    *         <p>After creating the snapshot, use <a href="https://docs.aws.amazon.com/ebs/latest/APIReference/API_PutSnapshotBlock.html"> PutSnapshotBlock</a> to

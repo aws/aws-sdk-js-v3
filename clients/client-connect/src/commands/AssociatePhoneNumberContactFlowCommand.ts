@@ -14,19 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import { AssociatePhoneNumberContactFlowRequest } from "../models/models_0";
 import {
-  AssociatePhoneNumberContactFlowRequest,
-  AssociatePhoneNumberContactFlowRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociatePhoneNumberContactFlowCommand,
-  serializeAws_restJson1AssociatePhoneNumberContactFlowCommand,
+  de_AssociatePhoneNumberContactFlowCommand,
+  se_AssociatePhoneNumberContactFlowCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link AssociatePhoneNumberContactFlowCommand}.
+ */
 export interface AssociatePhoneNumberContactFlowCommandInput extends AssociatePhoneNumberContactFlowRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AssociatePhoneNumberContactFlowCommand}.
+ */
 export interface AssociatePhoneNumberContactFlowCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a flow with a phone number claimed to your Amazon Connect instance.</p>
  *          <important>
  *             <p>If the number is claimed to a traffic distribution group, and you are calling this API using an instance in the
@@ -45,13 +53,36 @@ export interface AssociatePhoneNumberContactFlowCommandOutput extends __Metadata
  * import { ConnectClient, AssociatePhoneNumberContactFlowCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, AssociatePhoneNumberContactFlowCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // AssociatePhoneNumberContactFlowRequest
+ *   PhoneNumberId: "STRING_VALUE", // required
+ *   InstanceId: "STRING_VALUE", // required
+ *   ContactFlowId: "STRING_VALUE", // required
+ * };
  * const command = new AssociatePhoneNumberContactFlowCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociatePhoneNumberContactFlowCommandInput - {@link AssociatePhoneNumberContactFlowCommandInput}
+ * @returns {@link AssociatePhoneNumberContactFlowCommandOutput}
  * @see {@link AssociatePhoneNumberContactFlowCommandInput} for command's `input` shape.
  * @see {@link AssociatePhoneNumberContactFlowCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
  *
  */
 export class AssociatePhoneNumberContactFlowCommand extends $Command<
@@ -71,6 +102,9 @@ export class AssociatePhoneNumberContactFlowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociatePhoneNumberContactFlowCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +133,8 @@ export class AssociatePhoneNumberContactFlowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociatePhoneNumberContactFlowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,18 +144,24 @@ export class AssociatePhoneNumberContactFlowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociatePhoneNumberContactFlowCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociatePhoneNumberContactFlowCommand(input, context);
+    return se_AssociatePhoneNumberContactFlowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociatePhoneNumberContactFlowCommandOutput> {
-    return deserializeAws_restJson1AssociatePhoneNumberContactFlowCommand(output, context);
+    return de_AssociatePhoneNumberContactFlowCommand(output, context);
   }
 
   // Start section: command_body_extra

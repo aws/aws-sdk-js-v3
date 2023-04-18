@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { WorkSpacesServiceException as __BaseException } from "./WorkSpacesServiceException";
 
 /**
+ * @public
  * <p>The user is not authorized to access a resource.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -22,23 +23,53 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
-export enum AccessPropertyValue {
-  ALLOW = "ALLOW",
-  DENY = "DENY",
-}
-
-export enum DedicatedTenancySupportResultEnum {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum DedicatedTenancyModificationStateEnum {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AccessPropertyValue = {
+  ALLOW: "ALLOW",
+  DENY: "DENY",
+} as const;
 
 /**
+ * @public
+ */
+export type AccessPropertyValue = (typeof AccessPropertyValue)[keyof typeof AccessPropertyValue];
+
+/**
+ * @public
+ * @enum
+ */
+export const DedicatedTenancySupportResultEnum = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type DedicatedTenancySupportResultEnum =
+  (typeof DedicatedTenancySupportResultEnum)[keyof typeof DedicatedTenancySupportResultEnum];
+
+/**
+ * @public
+ * @enum
+ */
+export const DedicatedTenancyModificationStateEnum = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type DedicatedTenancyModificationStateEnum =
+  (typeof DedicatedTenancyModificationStateEnum)[keyof typeof DedicatedTenancyModificationStateEnum];
+
+/**
+ * @public
  * <p>Describes a modification to the configuration of Bring Your Own License (BYOL) for the
  *          specified account. </p>
  */
@@ -76,11 +107,23 @@ export interface AccountModification {
   ErrorMessage?: string;
 }
 
-export enum Application {
-  Microsoft_Office_2016 = "Microsoft_Office_2016",
-  Microsoft_Office_2019 = "Microsoft_Office_2019",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Application = {
+  Microsoft_Office_2016: "Microsoft_Office_2016",
+  Microsoft_Office_2019: "Microsoft_Office_2019",
+} as const;
 
+/**
+ * @public
+ */
+export type Application = (typeof Application)[keyof typeof Application];
+
+/**
+ * @public
+ */
 export interface AssociateConnectionAliasRequest {
   /**
    * <p>The identifier of the connection alias.</p>
@@ -93,6 +136,9 @@ export interface AssociateConnectionAliasRequest {
   ResourceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateConnectionAliasResult {
   /**
    * <p>The identifier of the connection alias association. You use the connection identifier in
@@ -102,6 +148,7 @@ export interface AssociateConnectionAliasResult {
 }
 
 /**
+ * @public
  * <p>One or more parameter values are not valid.</p>
  */
 export class InvalidParameterValuesException extends __BaseException {
@@ -121,6 +168,7 @@ export class InvalidParameterValuesException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The state of the resource is not valid for this operation.</p>
  */
 export class InvalidResourceStateException extends __BaseException {
@@ -140,6 +188,7 @@ export class InvalidResourceStateException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This operation is not supported.</p>
  */
 export class OperationNotSupportedException extends __BaseException {
@@ -165,6 +214,7 @@ export class OperationNotSupportedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource is associated with a directory.</p>
  */
 export class ResourceAssociatedException extends __BaseException {
@@ -184,6 +234,7 @@ export class ResourceAssociatedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource could not be found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -208,6 +259,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AssociateIpGroupsRequest {
   /**
    * <p>The identifier of the directory.</p>
@@ -220,9 +274,13 @@ export interface AssociateIpGroupsRequest {
   GroupIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateIpGroupsResult {}
 
 /**
+ * @public
  * <p>Your resource limits have been exceeded.</p>
  */
 export class ResourceLimitExceededException extends __BaseException {
@@ -241,15 +299,25 @@ export class ResourceLimitExceededException extends __BaseException {
   }
 }
 
-export enum AssociationStatus {
-  ASSOCIATED_WITH_OWNER_ACCOUNT = "ASSOCIATED_WITH_OWNER_ACCOUNT",
-  ASSOCIATED_WITH_SHARED_ACCOUNT = "ASSOCIATED_WITH_SHARED_ACCOUNT",
-  NOT_ASSOCIATED = "NOT_ASSOCIATED",
-  PENDING_ASSOCIATION = "PENDING_ASSOCIATION",
-  PENDING_DISASSOCIATION = "PENDING_DISASSOCIATION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AssociationStatus = {
+  ASSOCIATED_WITH_OWNER_ACCOUNT: "ASSOCIATED_WITH_OWNER_ACCOUNT",
+  ASSOCIATED_WITH_SHARED_ACCOUNT: "ASSOCIATED_WITH_SHARED_ACCOUNT",
+  NOT_ASSOCIATED: "NOT_ASSOCIATED",
+  PENDING_ASSOCIATION: "PENDING_ASSOCIATION",
+  PENDING_DISASSOCIATION: "PENDING_DISASSOCIATION",
+} as const;
 
 /**
+ * @public
+ */
+export type AssociationStatus = (typeof AssociationStatus)[keyof typeof AssociationStatus];
+
+/**
+ * @public
  * <p>Describes a rule for an IP access control group.</p>
  */
 export interface IpRuleItem {
@@ -264,6 +332,9 @@ export interface IpRuleItem {
   ruleDesc?: string;
 }
 
+/**
+ * @public
+ */
 export interface AuthorizeIpRulesRequest {
   /**
    * <p>The identifier of the group.</p>
@@ -276,26 +347,48 @@ export interface AuthorizeIpRulesRequest {
   UserRules: IpRuleItem[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AuthorizeIpRulesResult {}
 
-export enum BundleType {
-  REGULAR = "REGULAR",
-  STANDBY = "STANDBY",
-}
-
-export enum Compute {
-  GRAPHICS = "GRAPHICS",
-  GRAPHICSPRO = "GRAPHICSPRO",
-  GRAPHICSPRO_G4DN = "GRAPHICSPRO_G4DN",
-  GRAPHICS_G4DN = "GRAPHICS_G4DN",
-  PERFORMANCE = "PERFORMANCE",
-  POWER = "POWER",
-  POWERPRO = "POWERPRO",
-  STANDARD = "STANDARD",
-  VALUE = "VALUE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BundleType = {
+  REGULAR: "REGULAR",
+  STANDBY: "STANDBY",
+} as const;
 
 /**
+ * @public
+ */
+export type BundleType = (typeof BundleType)[keyof typeof BundleType];
+
+/**
+ * @public
+ * @enum
+ */
+export const Compute = {
+  GRAPHICS: "GRAPHICS",
+  GRAPHICSPRO: "GRAPHICSPRO",
+  GRAPHICSPRO_G4DN: "GRAPHICSPRO_G4DN",
+  GRAPHICS_G4DN: "GRAPHICS_G4DN",
+  PERFORMANCE: "PERFORMANCE",
+  POWER: "POWER",
+  POWERPRO: "POWERPRO",
+  STANDARD: "STANDARD",
+  VALUE: "VALUE",
+} as const;
+
+/**
+ * @public
+ */
+export type Compute = (typeof Compute)[keyof typeof Compute];
+
+/**
+ * @public
  * <p>Describes the compute type of the bundle.</p>
  */
 export interface ComputeType {
@@ -306,6 +399,7 @@ export interface ComputeType {
 }
 
 /**
+ * @public
  * <p>Describes the root volume for a WorkSpace bundle.</p>
  */
 export interface RootStorage {
@@ -315,13 +409,23 @@ export interface RootStorage {
   Capacity?: string;
 }
 
-export enum WorkspaceBundleState {
-  AVAILABLE = "AVAILABLE",
-  ERROR = "ERROR",
-  PENDING = "PENDING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const WorkspaceBundleState = {
+  AVAILABLE: "AVAILABLE",
+  ERROR: "ERROR",
+  PENDING: "PENDING",
+} as const;
 
 /**
+ * @public
+ */
+export type WorkspaceBundleState = (typeof WorkspaceBundleState)[keyof typeof WorkspaceBundleState];
+
+/**
+ * @public
  * <p>Describes the user volume for a WorkSpace bundle.</p>
  */
 export interface UserStorage {
@@ -332,6 +436,7 @@ export interface UserStorage {
 }
 
 /**
+ * @public
  * <p>Describes a WorkSpace bundle.</p>
  */
 export interface WorkspaceBundle {
@@ -398,12 +503,23 @@ export interface WorkspaceBundle {
   BundleType?: BundleType | string;
 }
 
-export enum CertificateBasedAuthStatusEnum {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CertificateBasedAuthStatusEnum = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type CertificateBasedAuthStatusEnum =
+  (typeof CertificateBasedAuthStatusEnum)[keyof typeof CertificateBasedAuthStatusEnum];
+
+/**
+ * @public
  * <p>Describes the properties of the certificate-based authentication you want to use
  *          with your WorkSpaces.</p>
  */
@@ -419,26 +535,54 @@ export interface CertificateBasedAuthProperties {
   CertificateAuthorityArn?: string;
 }
 
-export enum ClientDeviceType {
-  DEVICE_TYPE_ANDROID = "DeviceTypeAndroid",
-  DEVICE_TYPE_IOS = "DeviceTypeIos",
-  DEVICE_TYPE_LINUX = "DeviceTypeLinux",
-  DEVICE_TYPE_OSX = "DeviceTypeOsx",
-  DEVICE_TYPE_WEB = "DeviceTypeWeb",
-  DEVICE_TYPE_WINDOWS = "DeviceTypeWindows",
-}
-
-export enum LogUploadEnum {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum ReconnectEnum {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ClientDeviceType = {
+  DEVICE_TYPE_ANDROID: "DeviceTypeAndroid",
+  DEVICE_TYPE_IOS: "DeviceTypeIos",
+  DEVICE_TYPE_LINUX: "DeviceTypeLinux",
+  DEVICE_TYPE_OSX: "DeviceTypeOsx",
+  DEVICE_TYPE_WEB: "DeviceTypeWeb",
+  DEVICE_TYPE_WINDOWS: "DeviceTypeWindows",
+} as const;
 
 /**
+ * @public
+ */
+export type ClientDeviceType = (typeof ClientDeviceType)[keyof typeof ClientDeviceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const LogUploadEnum = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type LogUploadEnum = (typeof LogUploadEnum)[keyof typeof LogUploadEnum];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReconnectEnum = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type ReconnectEnum = (typeof ReconnectEnum)[keyof typeof ReconnectEnum];
+
+/**
+ * @public
  * <p>Describes an Amazon WorkSpaces client.</p>
  */
 export interface ClientProperties {
@@ -459,6 +603,7 @@ export interface ClientProperties {
 }
 
 /**
+ * @public
  * <p>Information about the Amazon WorkSpaces client.</p>
  */
 export interface ClientPropertiesResult {
@@ -474,6 +619,7 @@ export interface ClientPropertiesResult {
 }
 
 /**
+ * @public
  * <p>Describes an Amazon Connect client add-in.</p>
  */
 export interface ConnectClientAddIn {
@@ -499,6 +645,7 @@ export interface ConnectClientAddIn {
 }
 
 /**
+ * @public
  * <p>Describes a connection alias association that is used for cross-Region redirection. For
  *          more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html"> Cross-Region
  *             Redirection for Amazon WorkSpaces</a>.</p>
@@ -527,13 +674,23 @@ export interface ConnectionAliasAssociation {
   ConnectionIdentifier?: string;
 }
 
-export enum ConnectionAliasState {
-  CREATED = "CREATED",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ConnectionAliasState = {
+  CREATED: "CREATED",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+} as const;
 
 /**
+ * @public
+ */
+export type ConnectionAliasState = (typeof ConnectionAliasState)[keyof typeof ConnectionAliasState];
+
+/**
+ * @public
  * <p>Describes a connection alias. Connection aliases are used for cross-Region redirection.
  *          For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html"> Cross-Region
  *             Redirection for Amazon WorkSpaces</a>.</p>
@@ -568,6 +725,7 @@ export interface ConnectionAlias {
 }
 
 /**
+ * @public
  * <p>Describes the permissions for a connection alias. Connection aliases are used for
  *          cross-Region redirection. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html"> Cross-Region
  *             Redirection for Amazon WorkSpaces</a>.</p>
@@ -586,13 +744,23 @@ export interface ConnectionAliasPermission {
   AllowAssociation: boolean | undefined;
 }
 
-export enum ConnectionState {
-  CONNECTED = "CONNECTED",
-  DISCONNECTED = "DISCONNECTED",
-  UNKNOWN = "UNKNOWN",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ConnectionState = {
+  CONNECTED: "CONNECTED",
+  DISCONNECTED: "DISCONNECTED",
+  UNKNOWN: "UNKNOWN",
+} as const;
 
 /**
+ * @public
+ */
+export type ConnectionState = (typeof ConnectionState)[keyof typeof ConnectionState];
+
+/**
+ * @public
  * <p>Describes a tag.</p>
  */
 export interface Tag {
@@ -607,6 +775,9 @@ export interface Tag {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export interface CopyWorkspaceImageRequest {
   /**
    * <p>The name of the image.</p>
@@ -634,6 +805,9 @@ export interface CopyWorkspaceImageRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CopyWorkspaceImageResult {
   /**
    * <p>The identifier of the image.</p>
@@ -642,6 +816,7 @@ export interface CopyWorkspaceImageResult {
 }
 
 /**
+ * @public
  * <p>The specified resource already exists.</p>
  */
 export class ResourceAlreadyExistsException extends __BaseException {
@@ -661,6 +836,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource is not available.</p>
  */
 export class ResourceUnavailableException extends __BaseException {
@@ -685,6 +861,9 @@ export class ResourceUnavailableException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateConnectClientAddInRequest {
   /**
    * <p>The directory identifier for which to configure the client add-in.</p>
@@ -702,6 +881,9 @@ export interface CreateConnectClientAddInRequest {
   URL: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateConnectClientAddInResult {
   /**
    * <p>The client add-in identifier.</p>
@@ -710,6 +892,7 @@ export interface CreateConnectClientAddInResult {
 }
 
 /**
+ * @public
  * <p>The resource could not be created.</p>
  */
 export class ResourceCreationFailedException extends __BaseException {
@@ -728,6 +911,9 @@ export class ResourceCreationFailedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateConnectionAliasRequest {
   /**
    * <p>A connection string in the form of a fully qualified domain name (FQDN), such as
@@ -746,6 +932,9 @@ export interface CreateConnectionAliasRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateConnectionAliasResult {
   /**
    * <p>The identifier of the connection alias.</p>
@@ -753,6 +942,9 @@ export interface CreateConnectionAliasResult {
   AliasId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateIpGroupRequest {
   /**
    * <p>The name of the group.</p>
@@ -775,6 +967,9 @@ export interface CreateIpGroupRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateIpGroupResult {
   /**
    * <p>The identifier of the group.</p>
@@ -783,30 +978,34 @@ export interface CreateIpGroupResult {
 }
 
 /**
- * <p>Describes a Standby WorkSpace.</p>
+ * @public
+ * <p>Describes a standby WorkSpace.</p>
  */
 export interface StandbyWorkspace {
   /**
-   * <p>The identifier of the Standby WorkSpace.</p>
+   * <p>The identifier of the standby WorkSpace.</p>
    */
   PrimaryWorkspaceId: string | undefined;
 
   /**
-   * <p>The volume encryption key of the Standby WorkSpace.</p>
+   * <p>The volume encryption key of the standby WorkSpace.</p>
    */
   VolumeEncryptionKey?: string;
 
   /**
-   * <p>The identifier of the directory for the Standby WorkSpace.</p>
+   * <p>The identifier of the directory for the standby WorkSpace.</p>
    */
   DirectoryId: string | undefined;
 
   /**
-   * <p>The tags associated with the Standby WorkSpace.</p>
+   * <p>The tags associated with the standby WorkSpace.</p>
    */
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateStandbyWorkspacesRequest {
   /**
    * <p>The Region of the primary WorkSpace.</p>
@@ -814,57 +1013,68 @@ export interface CreateStandbyWorkspacesRequest {
   PrimaryRegion: string | undefined;
 
   /**
-   * <p>Information about the Standby WorkSpace to be created.</p>
+   * <p>Information about the standby WorkSpace to be created.</p>
    */
   StandbyWorkspaces: StandbyWorkspace[] | undefined;
 }
 
 /**
- * <p>Describes the Standby WorkSpace that could not be created.</p>
+ * @public
+ * <p>Describes the standby WorkSpace that could not be created.</p>
  */
 export interface FailedCreateStandbyWorkspacesRequest {
   /**
-   * <p>Information about the Standby WorkSpace that could not be created.</p>
+   * <p>Information about the standby WorkSpace that could not be created.</p>
    */
   StandbyWorkspaceRequest?: StandbyWorkspace;
 
   /**
-   * <p>The error code that is returned if the Standby WorkSpace could not be created.</p>
+   * <p>The error code that is returned if the standby WorkSpace could not be created.</p>
    */
   ErrorCode?: string;
 
   /**
-   * <p>The text of the error message that is returned if the Standby WorkSpace could not be created.</p>
+   * <p>The text of the error message that is returned if the standby WorkSpace could not be created.</p>
    */
   ErrorMessage?: string;
 }
 
-export enum WorkspaceState {
-  ADMIN_MAINTENANCE = "ADMIN_MAINTENANCE",
-  AVAILABLE = "AVAILABLE",
-  ERROR = "ERROR",
-  IMPAIRED = "IMPAIRED",
-  MAINTENANCE = "MAINTENANCE",
-  PENDING = "PENDING",
-  REBOOTING = "REBOOTING",
-  REBUILDING = "REBUILDING",
-  RESTORING = "RESTORING",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  SUSPENDED = "SUSPENDED",
-  TERMINATED = "TERMINATED",
-  TERMINATING = "TERMINATING",
-  UNHEALTHY = "UNHEALTHY",
-  UPDATING = "UPDATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const WorkspaceState = {
+  ADMIN_MAINTENANCE: "ADMIN_MAINTENANCE",
+  AVAILABLE: "AVAILABLE",
+  ERROR: "ERROR",
+  IMPAIRED: "IMPAIRED",
+  MAINTENANCE: "MAINTENANCE",
+  PENDING: "PENDING",
+  REBOOTING: "REBOOTING",
+  REBUILDING: "REBUILDING",
+  RESTORING: "RESTORING",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  SUSPENDED: "SUSPENDED",
+  TERMINATED: "TERMINATED",
+  TERMINATING: "TERMINATING",
+  UNHEALTHY: "UNHEALTHY",
+  UPDATING: "UPDATING",
+} as const;
 
 /**
- * <p>Information about the Standby WorkSpace.</p>
+ * @public
+ */
+export type WorkspaceState = (typeof WorkspaceState)[keyof typeof WorkspaceState];
+
+/**
+ * @public
+ * <p>Information about the standby WorkSpace.</p>
  */
 export interface PendingCreateStandbyWorkspacesRequest {
   /**
-   * <p>Describes the Standby WorkSpace that was created.</p>
+   * <p>Describes the standby WorkSpace that was created.</p>
    *          <p>Because this operation is asynchronous, the identifier returned is not immediately
    *          available for use with other operations. For example, if you call
    *          <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaces.html">
@@ -874,33 +1084,39 @@ export interface PendingCreateStandbyWorkspacesRequest {
   UserName?: string;
 
   /**
-   * <p>The identifier of the directory for the Standby WorkSpace.</p>
+   * <p>The identifier of the directory for the standby WorkSpace.</p>
    */
   DirectoryId?: string;
 
   /**
-   * <p>The operational state of the Standby WorkSpace.</p>
+   * <p>The operational state of the standby WorkSpace.</p>
    */
   State?: WorkspaceState | string;
 
   /**
-   * <p>The identifier of the Standby WorkSpace.</p>
+   * <p>The identifier of the standby WorkSpace.</p>
    */
   WorkspaceId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateStandbyWorkspacesResult {
   /**
-   * <p>Information about the Standby WorkSpace that could not be created. </p>
+   * <p>Information about the standby WorkSpace that could not be created. </p>
    */
   FailedStandbyRequests?: FailedCreateStandbyWorkspacesRequest[];
 
   /**
-   * <p>Information about the Standby WorkSpace that was created.</p>
+   * <p>Information about the standby WorkSpace that was created.</p>
    */
   PendingStandbyRequests?: PendingCreateStandbyWorkspacesRequest[];
 }
 
+/**
+ * @public
+ */
 export interface CreateTagsRequest {
   /**
    * <p>The identifier of the WorkSpaces resource. The supported resource types are WorkSpaces,
@@ -915,8 +1131,14 @@ export interface CreateTagsRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateTagsResult {}
 
+/**
+ * @public
+ */
 export interface CreateUpdatedWorkspaceImageRequest {
   /**
    * <p>The name of the new updated WorkSpace image.</p>
@@ -944,6 +1166,9 @@ export interface CreateUpdatedWorkspaceImageRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateUpdatedWorkspaceImageResult {
   /**
    * <p>The identifier of the new updated WorkSpace image.</p>
@@ -951,6 +1176,9 @@ export interface CreateUpdatedWorkspaceImageResult {
   ImageId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateWorkspaceBundleRequest {
   /**
    * <p>The name of the bundle.</p>
@@ -984,7 +1212,6 @@ export interface CreateWorkspaceBundleRequest {
 
   /**
    * <p>The tags associated with the bundle.</p>
-   *
    *          <note>
    *             <p>To add tags at the same time when you're creating the bundle, you must create an IAM policy that
    *             grants your IAM user permissions to use <code>workspaces:CreateTags</code>. </p>
@@ -993,6 +1220,9 @@ export interface CreateWorkspaceBundleRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateWorkspaceBundleResult {
   /**
    * <p>Describes a WorkSpace bundle.</p>
@@ -1000,6 +1230,9 @@ export interface CreateWorkspaceBundleResult {
   WorkspaceBundle?: WorkspaceBundle;
 }
 
+/**
+ * @public
+ */
 export interface CreateWorkspaceImageRequest {
   /**
    * <p>The name of the new WorkSpace image.</p>
@@ -1024,12 +1257,22 @@ export interface CreateWorkspaceImageRequest {
   Tags?: Tag[];
 }
 
-export enum OperatingSystemType {
-  LINUX = "LINUX",
-  WINDOWS = "WINDOWS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OperatingSystemType = {
+  LINUX: "LINUX",
+  WINDOWS: "WINDOWS",
+} as const;
 
 /**
+ * @public
+ */
+export type OperatingSystemType = (typeof OperatingSystemType)[keyof typeof OperatingSystemType];
+
+/**
+ * @public
  * <p>The operating system that the image is running.</p>
  */
 export interface OperatingSystem {
@@ -1039,17 +1282,39 @@ export interface OperatingSystem {
   Type?: OperatingSystemType | string;
 }
 
-export enum WorkspaceImageRequiredTenancy {
-  DEDICATED = "DEDICATED",
-  DEFAULT = "DEFAULT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const WorkspaceImageRequiredTenancy = {
+  DEDICATED: "DEDICATED",
+  DEFAULT: "DEFAULT",
+} as const;
 
-export enum WorkspaceImageState {
-  AVAILABLE = "AVAILABLE",
-  ERROR = "ERROR",
-  PENDING = "PENDING",
-}
+/**
+ * @public
+ */
+export type WorkspaceImageRequiredTenancy =
+  (typeof WorkspaceImageRequiredTenancy)[keyof typeof WorkspaceImageRequiredTenancy];
 
+/**
+ * @public
+ * @enum
+ */
+export const WorkspaceImageState = {
+  AVAILABLE: "AVAILABLE",
+  ERROR: "ERROR",
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkspaceImageState = (typeof WorkspaceImageState)[keyof typeof WorkspaceImageState];
+
+/**
+ * @public
+ */
 export interface CreateWorkspaceImageResult {
   /**
    * <p>The identifier of the new WorkSpace image.</p>
@@ -1096,18 +1361,37 @@ export interface CreateWorkspaceImageResult {
   OwnerAccountId?: string;
 }
 
-export enum Protocol {
-  PCOIP = "PCOIP",
-  WSP = "WSP",
-}
-
-export enum RunningMode {
-  ALWAYS_ON = "ALWAYS_ON",
-  AUTO_STOP = "AUTO_STOP",
-  MANUAL = "MANUAL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Protocol = {
+  PCOIP: "PCOIP",
+  WSP: "WSP",
+} as const;
 
 /**
+ * @public
+ */
+export type Protocol = (typeof Protocol)[keyof typeof Protocol];
+
+/**
+ * @public
+ * @enum
+ */
+export const RunningMode = {
+  ALWAYS_ON: "ALWAYS_ON",
+  AUTO_STOP: "AUTO_STOP",
+  MANUAL: "MANUAL",
+} as const;
+
+/**
+ * @public
+ */
+export type RunningMode = (typeof RunningMode)[keyof typeof RunningMode];
+
+/**
+ * @public
  * <p>Describes a WorkSpace.</p>
  */
 export interface WorkspaceProperties {
@@ -1171,6 +1455,7 @@ export interface WorkspaceProperties {
 }
 
 /**
+ * @public
  * <p>Describes the information used to create a WorkSpace.</p>
  */
 export interface WorkspaceRequest {
@@ -1216,6 +1501,9 @@ export interface WorkspaceRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateWorkspacesRequest {
   /**
    * <p>The WorkSpaces to create. You can specify up to 25 WorkSpaces.</p>
@@ -1224,6 +1512,7 @@ export interface CreateWorkspacesRequest {
 }
 
 /**
+ * @public
  * <p>Describes a WorkSpace that cannot be created.</p>
  */
 export interface FailedCreateWorkspaceRequest {
@@ -1244,18 +1533,37 @@ export interface FailedCreateWorkspaceRequest {
   ErrorMessage?: string;
 }
 
-export enum ModificationResourceEnum {
-  COMPUTE_TYPE = "COMPUTE_TYPE",
-  ROOT_VOLUME = "ROOT_VOLUME",
-  USER_VOLUME = "USER_VOLUME",
-}
-
-export enum ModificationStateEnum {
-  UPDATE_INITIATED = "UPDATE_INITIATED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ModificationResourceEnum = {
+  COMPUTE_TYPE: "COMPUTE_TYPE",
+  ROOT_VOLUME: "ROOT_VOLUME",
+  USER_VOLUME: "USER_VOLUME",
+} as const;
 
 /**
+ * @public
+ */
+export type ModificationResourceEnum = (typeof ModificationResourceEnum)[keyof typeof ModificationResourceEnum];
+
+/**
+ * @public
+ * @enum
+ */
+export const ModificationStateEnum = {
+  UPDATE_INITIATED: "UPDATE_INITIATED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type ModificationStateEnum = (typeof ModificationStateEnum)[keyof typeof ModificationStateEnum];
+
+/**
+ * @public
  * <p>Describes a WorkSpace modification.</p>
  */
 export interface ModificationState {
@@ -1270,14 +1578,25 @@ export interface ModificationState {
   State?: ModificationStateEnum | string;
 }
 
-export enum StandbyWorkspaceRelationshipType {
-  PRIMARY = "PRIMARY",
-  STANDBY = "STANDBY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StandbyWorkspaceRelationshipType = {
+  PRIMARY: "PRIMARY",
+  STANDBY: "STANDBY",
+} as const;
 
 /**
- * <p>Describes the related WorkSpace. The related WorkSpace could be a Standby WorkSpace or
- *          Primary WorkSpace related to the specified WorkSpace.</p>
+ * @public
+ */
+export type StandbyWorkspaceRelationshipType =
+  (typeof StandbyWorkspaceRelationshipType)[keyof typeof StandbyWorkspaceRelationshipType];
+
+/**
+ * @public
+ * <p>Describes the related WorkSpace. The related WorkSpace could be a standby WorkSpace or
+ *          primary WorkSpace related to the specified WorkSpace.</p>
  */
 export interface RelatedWorkspaceProperties {
   /**
@@ -1302,6 +1621,7 @@ export interface RelatedWorkspaceProperties {
 }
 
 /**
+ * @public
  * <p>Describes a WorkSpace.</p>
  */
 export interface Workspace {
@@ -1393,11 +1713,14 @@ export interface Workspace {
   ModificationStates?: ModificationState[];
 
   /**
-   * <p>The Standby WorkSpace or Primary WorkSpace related to the specified WorkSpace.</p>
+   * <p>The standby WorkSpace or primary WorkSpace related to the specified WorkSpace.</p>
    */
   RelatedWorkspaces?: RelatedWorkspaceProperties[];
 }
 
+/**
+ * @public
+ */
 export interface CreateWorkspacesResult {
   /**
    * <p>Information about the WorkSpaces that could not be created.</p>
@@ -1413,11 +1736,22 @@ export interface CreateWorkspacesResult {
   PendingRequests?: Workspace[];
 }
 
-export enum DedicatedTenancySupportEnum {
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DedicatedTenancySupportEnum = {
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type DedicatedTenancySupportEnum =
+  (typeof DedicatedTenancySupportEnum)[keyof typeof DedicatedTenancySupportEnum];
+
+/**
+ * @public
  * <p>Returns default client branding attributes that were imported. These attributes display
  *          on the client login screen.</p>
  *          <important>
@@ -1482,6 +1816,7 @@ export interface DefaultClientBrandingAttributes {
 }
 
 /**
+ * @public
  * <p>The default client branding attributes to be imported. These attributes display on the
  *          client login screen.</p>
  *          <important>
@@ -1546,6 +1881,7 @@ export interface DefaultImportClientBrandingAttributes {
 }
 
 /**
+ * @public
  * <p>Describes the default values that are used to create WorkSpaces. For more information,
  *          see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/update-directory-details.html">Update Directory
  *             Details for Your WorkSpaces</a>.</p>
@@ -1594,15 +1930,38 @@ export interface DefaultWorkspaceCreationProperties {
   EnableMaintenanceMode?: boolean;
 }
 
-export enum DeletableCertificateBasedAuthProperty {
-  CERTIFICATE_BASED_AUTH_PROPERTIES_CERTIFICATE_AUTHORITY_ARN = "CERTIFICATE_BASED_AUTH_PROPERTIES_CERTIFICATE_AUTHORITY_ARN",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeletableCertificateBasedAuthProperty = {
+  CERTIFICATE_BASED_AUTH_PROPERTIES_CERTIFICATE_AUTHORITY_ARN:
+    "CERTIFICATE_BASED_AUTH_PROPERTIES_CERTIFICATE_AUTHORITY_ARN",
+} as const;
 
-export enum DeletableSamlProperty {
-  SAML_PROPERTIES_RELAY_STATE_PARAMETER_NAME = "SAML_PROPERTIES_RELAY_STATE_PARAMETER_NAME",
-  SAML_PROPERTIES_USER_ACCESS_URL = "SAML_PROPERTIES_USER_ACCESS_URL",
-}
+/**
+ * @public
+ */
+export type DeletableCertificateBasedAuthProperty =
+  (typeof DeletableCertificateBasedAuthProperty)[keyof typeof DeletableCertificateBasedAuthProperty];
 
+/**
+ * @public
+ * @enum
+ */
+export const DeletableSamlProperty = {
+  SAML_PROPERTIES_RELAY_STATE_PARAMETER_NAME: "SAML_PROPERTIES_RELAY_STATE_PARAMETER_NAME",
+  SAML_PROPERTIES_USER_ACCESS_URL: "SAML_PROPERTIES_USER_ACCESS_URL",
+} as const;
+
+/**
+ * @public
+ */
+export type DeletableSamlProperty = (typeof DeletableSamlProperty)[keyof typeof DeletableSamlProperty];
+
+/**
+ * @public
+ */
 export interface DeleteClientBrandingRequest {
   /**
    * <p>The directory identifier of the WorkSpace for which you want to delete client
@@ -1616,8 +1975,14 @@ export interface DeleteClientBrandingRequest {
   Platforms: (ClientDeviceType | string)[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteClientBrandingResult {}
 
+/**
+ * @public
+ */
 export interface DeleteConnectClientAddInRequest {
   /**
    * <p>The identifier of the client add-in to delete.</p>
@@ -1630,8 +1995,14 @@ export interface DeleteConnectClientAddInRequest {
   ResourceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteConnectClientAddInResult {}
 
+/**
+ * @public
+ */
 export interface DeleteConnectionAliasRequest {
   /**
    * <p>The identifier of the connection alias to delete.</p>
@@ -1639,8 +2010,14 @@ export interface DeleteConnectionAliasRequest {
   AliasId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteConnectionAliasResult {}
 
+/**
+ * @public
+ */
 export interface DeleteIpGroupRequest {
   /**
    * <p>The identifier of the IP access control group.</p>
@@ -1648,8 +2025,14 @@ export interface DeleteIpGroupRequest {
   GroupId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteIpGroupResult {}
 
+/**
+ * @public
+ */
 export interface DeleteTagsRequest {
   /**
    * <p>The identifier of the WorkSpaces resource. The supported resource types are WorkSpaces,
@@ -1664,8 +2047,14 @@ export interface DeleteTagsRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTagsResult {}
 
+/**
+ * @public
+ */
 export interface DeleteWorkspaceBundleRequest {
   /**
    * <p>The identifier of the bundle.</p>
@@ -1673,8 +2062,14 @@ export interface DeleteWorkspaceBundleRequest {
   BundleId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteWorkspaceBundleResult {}
 
+/**
+ * @public
+ */
 export interface DeleteWorkspaceImageRequest {
   /**
    * <p>The identifier of the image.</p>
@@ -1682,8 +2077,14 @@ export interface DeleteWorkspaceImageRequest {
   ImageId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteWorkspaceImageResult {}
 
+/**
+ * @public
+ */
 export interface DeregisterWorkspaceDirectoryRequest {
   /**
    * <p>The identifier of the directory. If any WorkSpaces are registered to this directory, you
@@ -1693,10 +2094,19 @@ export interface DeregisterWorkspaceDirectoryRequest {
   DirectoryId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterWorkspaceDirectoryResult {}
 
+/**
+ * @public
+ */
 export interface DescribeAccountRequest {}
 
+/**
+ * @public
+ */
 export interface DescribeAccountResult {
   /**
    * <p>The status of BYOL (whether BYOL is enabled or disabled).</p>
@@ -1713,6 +2123,9 @@ export interface DescribeAccountResult {
   DedicatedTenancyManagementCidrRange?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAccountModificationsRequest {
   /**
    * <p>If you received a <code>NextToken</code> from a previous call that was paginated,
@@ -1721,6 +2134,9 @@ export interface DescribeAccountModificationsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAccountModificationsResult {
   /**
    * <p>The list of modifications to the configuration of BYOL.</p>
@@ -1734,6 +2150,9 @@ export interface DescribeAccountModificationsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeClientBrandingRequest {
   /**
    * <p>The directory identifier of the WorkSpace for which you want to view client branding
@@ -1743,6 +2162,7 @@ export interface DescribeClientBrandingRequest {
 }
 
 /**
+ * @public
  * <p>The client branding attributes for iOS device types. These attributes are displayed on
  *          the iOS client login screen only.</p>
  *          <important>
@@ -1831,6 +2251,9 @@ export interface IosClientBrandingAttributes {
   LoginMessage?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeClientBrandingResult {
   /**
    * <p>The branding information for Windows devices.</p>
@@ -1863,6 +2286,9 @@ export interface DescribeClientBrandingResult {
   DeviceTypeWeb?: DefaultClientBrandingAttributes;
 }
 
+/**
+ * @public
+ */
 export interface DescribeClientPropertiesRequest {
   /**
    * <p>The resource identifier, in the form of directory IDs.</p>
@@ -1870,6 +2296,9 @@ export interface DescribeClientPropertiesRequest {
   ResourceIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeClientPropertiesResult {
   /**
    * <p>Information about the specified Amazon WorkSpaces clients.</p>
@@ -1877,6 +2306,9 @@ export interface DescribeClientPropertiesResult {
   ClientPropertiesList?: ClientPropertiesResult[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeConnectClientAddInsRequest {
   /**
    * <p>The directory identifier for which the client add-in is configured.</p>
@@ -1895,6 +2327,9 @@ export interface DescribeConnectClientAddInsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeConnectClientAddInsResult {
   /**
    * <p>Information about client add-ins.</p>
@@ -1908,6 +2343,9 @@ export interface DescribeConnectClientAddInsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeConnectionAliasesRequest {
   /**
    * <p>The identifiers of the connection aliases to describe.</p>
@@ -1931,6 +2369,9 @@ export interface DescribeConnectionAliasesRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeConnectionAliasesResult {
   /**
    * <p>Information about the specified connection aliases.</p>
@@ -1944,6 +2385,9 @@ export interface DescribeConnectionAliasesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeConnectionAliasPermissionsRequest {
   /**
    * <p>The identifier of the connection alias.</p>
@@ -1962,6 +2406,9 @@ export interface DescribeConnectionAliasPermissionsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeConnectionAliasPermissionsResult {
   /**
    * <p>The identifier of the connection alias.</p>
@@ -1980,6 +2427,9 @@ export interface DescribeConnectionAliasPermissionsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeIpGroupsRequest {
   /**
    * <p>The identifiers of one or more IP access control groups.</p>
@@ -1999,6 +2449,7 @@ export interface DescribeIpGroupsRequest {
 }
 
 /**
+ * @public
  * <p>Describes an IP access control group.</p>
  */
 export interface WorkspacesIpGroup {
@@ -2023,6 +2474,9 @@ export interface WorkspacesIpGroup {
   userRules?: IpRuleItem[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeIpGroupsResult {
   /**
    * <p>Information about the IP access control groups.</p>
@@ -2036,6 +2490,9 @@ export interface DescribeIpGroupsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTagsRequest {
   /**
    * <p>The identifier of the WorkSpaces resource. The supported resource types are WorkSpaces,
@@ -2045,6 +2502,9 @@ export interface DescribeTagsRequest {
   ResourceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTagsResult {
   /**
    * <p>The tags.</p>
@@ -2052,6 +2512,9 @@ export interface DescribeTagsResult {
   TagList?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeWorkspaceBundlesRequest {
   /**
    * <p>The identifiers of the bundles. You cannot combine this parameter with any other filter.</p>
@@ -2071,6 +2534,9 @@ export interface DescribeWorkspaceBundlesRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWorkspaceBundlesResult {
   /**
    * <p>Information about the bundles.</p>
@@ -2085,6 +2551,9 @@ export interface DescribeWorkspaceBundlesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWorkspaceDirectoriesRequest {
   /**
    * <p>The identifiers of the directories. If the value is null, all directories are
@@ -2104,18 +2573,37 @@ export interface DescribeWorkspaceDirectoriesRequest {
   NextToken?: string;
 }
 
-export enum WorkspaceDirectoryType {
-  AD_CONNECTOR = "AD_CONNECTOR",
-  SIMPLE_AD = "SIMPLE_AD",
-}
-
-export enum SamlStatusEnum {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  ENABLED_WITH_DIRECTORY_LOGIN_FALLBACK = "ENABLED_WITH_DIRECTORY_LOGIN_FALLBACK",
-}
+/**
+ * @public
+ * @enum
+ */
+export const WorkspaceDirectoryType = {
+  AD_CONNECTOR: "AD_CONNECTOR",
+  SIMPLE_AD: "SIMPLE_AD",
+} as const;
 
 /**
+ * @public
+ */
+export type WorkspaceDirectoryType = (typeof WorkspaceDirectoryType)[keyof typeof WorkspaceDirectoryType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SamlStatusEnum = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  ENABLED_WITH_DIRECTORY_LOGIN_FALLBACK: "ENABLED_WITH_DIRECTORY_LOGIN_FALLBACK",
+} as const;
+
+/**
+ * @public
+ */
+export type SamlStatusEnum = (typeof SamlStatusEnum)[keyof typeof SamlStatusEnum];
+
+/**
+ * @public
  * <p>Describes the enablement status, user access URL, and relay state parameter name that
  *          are used for configuring federation with an SAML 2.0 identity provider.</p>
  */
@@ -2151,7 +2639,6 @@ export interface SamlProperties {
    * <p>The relay state parameter name supported by the SAML 2.0 identity provider (IdP). When the end user is redirected to
    *          the user access URL from the WorkSpaces client application, this relay state parameter name is appended as a query
    *          parameter to the URL along with the relay state endpoint to return the user to the client application session.</p>
-   *
    *          <p>To use SAML 2.0 authentication with WorkSpaces, the IdP must support IdP-initiated deep linking for the relay state
    *          URL. Consult your IdP documentation for more information.</p>
    */
@@ -2159,6 +2646,7 @@ export interface SamlProperties {
 }
 
 /**
+ * @public
  * <p>Describes the self-service permissions for a directory. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/enable-user-self-service-workspace-management.html">Enable Self-Service WorkSpace Management Capabilities for Your Users</a>.</p>
  */
 export interface SelfservicePermissions {
@@ -2190,20 +2678,39 @@ export interface SelfservicePermissions {
   RebuildWorkspace?: ReconnectEnum | string;
 }
 
-export enum WorkspaceDirectoryState {
-  DEREGISTERED = "DEREGISTERED",
-  DEREGISTERING = "DEREGISTERING",
-  ERROR = "ERROR",
-  REGISTERED = "REGISTERED",
-  REGISTERING = "REGISTERING",
-}
-
-export enum Tenancy {
-  DEDICATED = "DEDICATED",
-  SHARED = "SHARED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const WorkspaceDirectoryState = {
+  DEREGISTERED: "DEREGISTERED",
+  DEREGISTERING: "DEREGISTERING",
+  ERROR: "ERROR",
+  REGISTERED: "REGISTERED",
+  REGISTERING: "REGISTERING",
+} as const;
 
 /**
+ * @public
+ */
+export type WorkspaceDirectoryState = (typeof WorkspaceDirectoryState)[keyof typeof WorkspaceDirectoryState];
+
+/**
+ * @public
+ * @enum
+ */
+export const Tenancy = {
+  DEDICATED: "DEDICATED",
+  SHARED: "SHARED",
+} as const;
+
+/**
+ * @public
+ */
+export type Tenancy = (typeof Tenancy)[keyof typeof Tenancy];
+
+/**
+ * @public
  * <p>The device types and operating systems that can be used to access a WorkSpace. For more
  *          information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-network-requirements.html">Amazon
  *             WorkSpaces Client Network Requirements</a>.</p>
@@ -2252,6 +2759,7 @@ export interface WorkspaceAccessProperties {
 }
 
 /**
+ * @public
  * <p>Describes a directory that is used with Amazon WorkSpaces.</p>
  */
 export interface WorkspaceDirectory {
@@ -2357,6 +2865,9 @@ export interface WorkspaceDirectory {
   CertificateBasedAuthProperties?: CertificateBasedAuthProperties;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWorkspaceDirectoriesResult {
   /**
    * <p>Information about the directories.</p>
@@ -2370,6 +2881,9 @@ export interface DescribeWorkspaceDirectoriesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWorkspaceImagePermissionsRequest {
   /**
    * <p>The identifier of the image.</p>
@@ -2389,6 +2903,7 @@ export interface DescribeWorkspaceImagePermissionsRequest {
 }
 
 /**
+ * @public
  * <p>Describes the Amazon Web Services accounts that have been granted permission to use a
  *          shared image. For more information about sharing images, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/share-custom-image.html"> Share or Unshare a Custom
  *             WorkSpaces Image</a>.</p>
@@ -2401,6 +2916,9 @@ export interface ImagePermission {
   SharedAccountId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWorkspaceImagePermissionsResult {
   /**
    * <p>The identifier of the image.</p>
@@ -2420,11 +2938,23 @@ export interface DescribeWorkspaceImagePermissionsResult {
   NextToken?: string;
 }
 
-export enum ImageType {
-  OWNED = "OWNED",
-  SHARED = "SHARED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ImageType = {
+  OWNED: "OWNED",
+  SHARED: "SHARED",
+} as const;
 
+/**
+ * @public
+ */
+export type ImageType = (typeof ImageType)[keyof typeof ImageType];
+
+/**
+ * @public
+ */
 export interface DescribeWorkspaceImagesRequest {
   /**
    * <p>The identifier of the image.</p>
@@ -2449,6 +2979,7 @@ export interface DescribeWorkspaceImagesRequest {
 }
 
 /**
+ * @public
  * <p>Describes whether a WorkSpace image needs to be updated with the latest drivers and
  *          other components required by Amazon WorkSpaces.</p>
  *          <note>
@@ -2470,6 +3001,7 @@ export interface UpdateResult {
 }
 
 /**
+ * @public
  * <p>Describes a WorkSpace image.</p>
  */
 export interface WorkspaceImage {
@@ -2533,6 +3065,9 @@ export interface WorkspaceImage {
   Updates?: UpdateResult;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWorkspaceImagesResult {
   /**
    * <p>Information about the images.</p>
@@ -2546,6 +3081,9 @@ export interface DescribeWorkspaceImagesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWorkspacesRequest {
   /**
    * <p>The identifiers of the WorkSpaces. You cannot combine this parameter with any other
@@ -2586,6 +3124,9 @@ export interface DescribeWorkspacesRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWorkspacesResult {
   /**
    * <p>Information about the WorkSpaces.</p>
@@ -2601,6 +3142,9 @@ export interface DescribeWorkspacesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWorkspacesConnectionStatusRequest {
   /**
    * <p>The identifiers of the WorkSpaces. You can specify up to 25 WorkSpaces.</p>
@@ -2615,6 +3159,7 @@ export interface DescribeWorkspacesConnectionStatusRequest {
 }
 
 /**
+ * @public
  * <p>Describes the connection status of a WorkSpace.</p>
  */
 export interface WorkspaceConnectionStatus {
@@ -2640,6 +3185,9 @@ export interface WorkspaceConnectionStatus {
   LastKnownUserConnectionTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWorkspacesConnectionStatusResult {
   /**
    * <p>Information about the connection status of the WorkSpace.</p>
@@ -2653,6 +3201,9 @@ export interface DescribeWorkspacesConnectionStatusResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWorkspaceSnapshotsRequest {
   /**
    * <p>The identifier of the WorkSpace.</p>
@@ -2661,6 +3212,7 @@ export interface DescribeWorkspaceSnapshotsRequest {
 }
 
 /**
+ * @public
  * <p>Describes a snapshot.</p>
  */
 export interface Snapshot {
@@ -2670,6 +3222,9 @@ export interface Snapshot {
   SnapshotTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWorkspaceSnapshotsResult {
   /**
    * <p>Information about the snapshots that can be used to rebuild a WorkSpace. These snapshots
@@ -2684,6 +3239,9 @@ export interface DescribeWorkspaceSnapshotsResult {
   RestoreSnapshots?: Snapshot[];
 }
 
+/**
+ * @public
+ */
 export interface DisassociateConnectionAliasRequest {
   /**
    * <p>The identifier of the connection alias to disassociate.</p>
@@ -2691,8 +3249,14 @@ export interface DisassociateConnectionAliasRequest {
   AliasId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateConnectionAliasResult {}
 
+/**
+ * @public
+ */
 export interface DisassociateIpGroupsRequest {
   /**
    * <p>The identifier of the directory.</p>
@@ -2705,9 +3269,13 @@ export interface DisassociateIpGroupsRequest {
   GroupIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateIpGroupsResult {}
 
 /**
+ * @public
  * <p>Describes a WorkSpace that could not be rebooted. (<a>RebootWorkspaces</a>),
  *          rebuilt (<a>RebuildWorkspaces</a>), restored (<a>RestoreWorkspace</a>), terminated (<a>TerminateWorkspaces</a>), started (<a>StartWorkspaces</a>), or stopped (<a>StopWorkspaces</a>).</p>
  */
@@ -2730,6 +3298,7 @@ export interface FailedWorkspaceChangeRequest {
 }
 
 /**
+ * @public
  * <p>The client branding attributes to import for iOS device types. These attributes are
  *          displayed on the iOS client login screen.</p>
  *          <important>
@@ -2818,6 +3387,9 @@ export interface IosImportClientBrandingAttributes {
   LoginMessage?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ImportClientBrandingRequest {
   /**
    * <p>The directory identifier of the WorkSpace for which you want to import client
@@ -2856,6 +3428,9 @@ export interface ImportClientBrandingRequest {
   DeviceTypeWeb?: DefaultImportClientBrandingAttributes;
 }
 
+/**
+ * @public
+ */
 export interface ImportClientBrandingResult {
   /**
    * <p>The branding information configured for Windows devices.</p>
@@ -2888,16 +3463,29 @@ export interface ImportClientBrandingResult {
   DeviceTypeWeb?: DefaultClientBrandingAttributes;
 }
 
-export enum WorkspaceImageIngestionProcess {
-  BYOL_GRAPHICS = "BYOL_GRAPHICS",
-  BYOL_GRAPHICSPRO = "BYOL_GRAPHICSPRO",
-  BYOL_GRAPHICS_G4DN = "BYOL_GRAPHICS_G4DN",
-  BYOL_GRAPHICS_G4DN_BYOP = "BYOL_GRAPHICS_G4DN_BYOP",
-  BYOL_REGULAR = "BYOL_REGULAR",
-  BYOL_REGULAR_BYOP = "BYOL_REGULAR_BYOP",
-  BYOL_REGULAR_WSP = "BYOL_REGULAR_WSP",
-}
+/**
+ * @public
+ * @enum
+ */
+export const WorkspaceImageIngestionProcess = {
+  BYOL_GRAPHICS: "BYOL_GRAPHICS",
+  BYOL_GRAPHICSPRO: "BYOL_GRAPHICSPRO",
+  BYOL_GRAPHICS_G4DN: "BYOL_GRAPHICS_G4DN",
+  BYOL_GRAPHICS_G4DN_BYOP: "BYOL_GRAPHICS_G4DN_BYOP",
+  BYOL_REGULAR: "BYOL_REGULAR",
+  BYOL_REGULAR_BYOP: "BYOL_REGULAR_BYOP",
+  BYOL_REGULAR_WSP: "BYOL_REGULAR_WSP",
+} as const;
 
+/**
+ * @public
+ */
+export type WorkspaceImageIngestionProcess =
+  (typeof WorkspaceImageIngestionProcess)[keyof typeof WorkspaceImageIngestionProcess];
+
+/**
+ * @public
+ */
 export interface ImportWorkspaceImageRequest {
   /**
    * <p>The identifier of the EC2 image.</p>
@@ -2947,6 +3535,9 @@ export interface ImportWorkspaceImageRequest {
   Applications?: (Application | string)[];
 }
 
+/**
+ * @public
+ */
 export interface ImportWorkspaceImageResult {
   /**
    * <p>The identifier of the WorkSpace image.</p>
@@ -2954,6 +3545,9 @@ export interface ImportWorkspaceImageResult {
   ImageId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAvailableManagementCidrRangesRequest {
   /**
    * <p>The IP address range to search. Specify an IP address range that is compatible with your
@@ -2973,6 +3567,9 @@ export interface ListAvailableManagementCidrRangesRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAvailableManagementCidrRangesResult {
   /**
    * <p>The list of available IP address ranges, specified as IPv4 CIDR blocks.</p>
@@ -2986,6 +3583,9 @@ export interface ListAvailableManagementCidrRangesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface MigrateWorkspaceRequest {
   /**
    * <p>The identifier of the WorkSpace to migrate from.</p>
@@ -2998,6 +3598,9 @@ export interface MigrateWorkspaceRequest {
   BundleId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface MigrateWorkspaceResult {
   /**
    * <p>The original identifier of the WorkSpace that is being migrated.</p>
@@ -3013,6 +3616,7 @@ export interface MigrateWorkspaceResult {
 }
 
 /**
+ * @public
  * <p>The properties of this WorkSpace are currently being modified. Try again in a moment.</p>
  */
 export class OperationInProgressException extends __BaseException {
@@ -3031,6 +3635,9 @@ export class OperationInProgressException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ModifyAccountRequest {
   /**
    * <p>The status of BYOL.</p>
@@ -3047,8 +3654,14 @@ export interface ModifyAccountRequest {
   DedicatedTenancyManagementCidrRange?: string;
 }
 
+/**
+ * @public
+ */
 export interface ModifyAccountResult {}
 
+/**
+ * @public
+ */
 export interface ModifyCertificateBasedAuthPropertiesRequest {
   /**
    * <p>The resource identifiers, in the form of directory IDs.</p>
@@ -3066,8 +3679,14 @@ export interface ModifyCertificateBasedAuthPropertiesRequest {
   PropertiesToDelete?: (DeletableCertificateBasedAuthProperty | string)[];
 }
 
+/**
+ * @public
+ */
 export interface ModifyCertificateBasedAuthPropertiesResult {}
 
+/**
+ * @public
+ */
 export interface ModifyClientPropertiesRequest {
   /**
    * <p>The resource identifiers, in the form of directory IDs.</p>
@@ -3080,8 +3699,14 @@ export interface ModifyClientPropertiesRequest {
   ClientProperties: ClientProperties | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ModifyClientPropertiesResult {}
 
+/**
+ * @public
+ */
 export interface ModifySamlPropertiesRequest {
   /**
    * <p>The directory identifier for which you want to configure SAML properties.</p>
@@ -3111,8 +3736,14 @@ export interface ModifySamlPropertiesRequest {
   PropertiesToDelete?: (DeletableSamlProperty | string)[];
 }
 
+/**
+ * @public
+ */
 export interface ModifySamlPropertiesResult {}
 
+/**
+ * @public
+ */
 export interface ModifySelfservicePermissionsRequest {
   /**
    * <p>The identifier of the directory.</p>
@@ -3125,8 +3756,14 @@ export interface ModifySelfservicePermissionsRequest {
   SelfservicePermissions: SelfservicePermissions | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ModifySelfservicePermissionsResult {}
 
+/**
+ * @public
+ */
 export interface ModifyWorkspaceAccessPropertiesRequest {
   /**
    * <p>The identifier of the directory.</p>
@@ -3139,9 +3776,13 @@ export interface ModifyWorkspaceAccessPropertiesRequest {
   WorkspaceAccessProperties: WorkspaceAccessProperties | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ModifyWorkspaceAccessPropertiesResult {}
 
 /**
+ * @public
  * <p>Describes the default properties that are used for creating WorkSpaces. For more
  *          information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/update-directory-details.html">Update Directory
  *             Details for Your WorkSpaces</a>. </p>
@@ -3209,6 +3850,9 @@ export interface WorkspaceCreationProperties {
   EnableMaintenanceMode?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ModifyWorkspaceCreationPropertiesRequest {
   /**
    * <p>The identifier of the directory.</p>
@@ -3221,8 +3865,14 @@ export interface ModifyWorkspaceCreationPropertiesRequest {
   WorkspaceCreationProperties: WorkspaceCreationProperties | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ModifyWorkspaceCreationPropertiesResult {}
 
+/**
+ * @public
+ */
 export interface ModifyWorkspacePropertiesRequest {
   /**
    * <p>The identifier of the WorkSpace.</p>
@@ -3235,9 +3885,13 @@ export interface ModifyWorkspacePropertiesRequest {
   WorkspaceProperties: WorkspaceProperties | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ModifyWorkspacePropertiesResult {}
 
 /**
+ * @public
  * <p>The configuration of this WorkSpace is not supported for this operation. For more information, see
  *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/required-service-components.html">Required
  *             Configuration and Service Components for WorkSpaces </a>.</p>
@@ -3258,11 +3912,23 @@ export class UnsupportedWorkspaceConfigurationException extends __BaseException 
   }
 }
 
-export enum TargetWorkspaceState {
-  ADMIN_MAINTENANCE = "ADMIN_MAINTENANCE",
-  AVAILABLE = "AVAILABLE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TargetWorkspaceState = {
+  ADMIN_MAINTENANCE: "ADMIN_MAINTENANCE",
+  AVAILABLE: "AVAILABLE",
+} as const;
 
+/**
+ * @public
+ */
+export type TargetWorkspaceState = (typeof TargetWorkspaceState)[keyof typeof TargetWorkspaceState];
+
+/**
+ * @public
+ */
 export interface ModifyWorkspaceStateRequest {
   /**
    * <p>The identifier of the WorkSpace.</p>
@@ -3275,9 +3941,13 @@ export interface ModifyWorkspaceStateRequest {
   WorkspaceState: TargetWorkspaceState | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ModifyWorkspaceStateResult {}
 
 /**
+ * @public
  * <p>Describes the information used to reboot a WorkSpace.</p>
  */
 export interface RebootRequest {
@@ -3287,6 +3957,9 @@ export interface RebootRequest {
   WorkspaceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RebootWorkspacesRequest {
   /**
    * <p>The WorkSpaces to reboot. You can specify up to 25 WorkSpaces.</p>
@@ -3294,6 +3967,9 @@ export interface RebootWorkspacesRequest {
   RebootWorkspaceRequests: RebootRequest[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RebootWorkspacesResult {
   /**
    * <p>Information about the WorkSpaces that could not be rebooted.</p>
@@ -3302,6 +3978,7 @@ export interface RebootWorkspacesResult {
 }
 
 /**
+ * @public
  * <p>Describes the information used to rebuild a WorkSpace.</p>
  */
 export interface RebuildRequest {
@@ -3311,6 +3988,9 @@ export interface RebuildRequest {
   WorkspaceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RebuildWorkspacesRequest {
   /**
    * <p>The WorkSpace to rebuild. You can specify a single WorkSpace.</p>
@@ -3318,6 +3998,9 @@ export interface RebuildWorkspacesRequest {
   RebuildWorkspaceRequests: RebuildRequest[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RebuildWorkspacesResult {
   /**
    * <p>Information about the WorkSpace that could not be rebuilt.</p>
@@ -3325,6 +4008,9 @@ export interface RebuildWorkspacesResult {
   FailedRequests?: FailedWorkspaceChangeRequest[];
 }
 
+/**
+ * @public
+ */
 export interface RegisterWorkspaceDirectoryRequest {
   /**
    * <p>The identifier of the directory. You cannot register a directory if it does not have a
@@ -3372,9 +4058,13 @@ export interface RegisterWorkspaceDirectoryRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface RegisterWorkspaceDirectoryResult {}
 
 /**
+ * @public
  * <p>The configuration of this network is not supported for this operation, or your network configuration
  *          conflicts with the Amazon WorkSpaces management network IP range. For more information, see
  *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-vpc.html">
@@ -3397,6 +4087,7 @@ export class UnsupportedNetworkConfigurationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The workspaces_DefaultRole role could not be found. If this is the first time you are registering a directory, you
  *          will need to create the workspaces_DefaultRole role before you can register a directory. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role">Creating the workspaces_DefaultRole Role</a>.</p>
  */
@@ -3416,6 +4107,9 @@ export class WorkspacesDefaultRoleNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface RestoreWorkspaceRequest {
   /**
    * <p>The identifier of the WorkSpace.</p>
@@ -3423,8 +4117,14 @@ export interface RestoreWorkspaceRequest {
   WorkspaceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RestoreWorkspaceResult {}
 
+/**
+ * @public
+ */
 export interface RevokeIpRulesRequest {
   /**
    * <p>The identifier of the group.</p>
@@ -3437,9 +4137,13 @@ export interface RevokeIpRulesRequest {
   UserRules: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RevokeIpRulesResult {}
 
 /**
+ * @public
  * <p>Information used to start a WorkSpace.</p>
  */
 export interface StartRequest {
@@ -3449,6 +4153,9 @@ export interface StartRequest {
   WorkspaceId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartWorkspacesRequest {
   /**
    * <p>The WorkSpaces to start. You can specify up to 25 WorkSpaces.</p>
@@ -3456,6 +4163,9 @@ export interface StartWorkspacesRequest {
   StartWorkspaceRequests: StartRequest[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartWorkspacesResult {
   /**
    * <p>Information about the WorkSpaces that could not be started.</p>
@@ -3464,6 +4174,7 @@ export interface StartWorkspacesResult {
 }
 
 /**
+ * @public
  * <p>Describes the information used to stop a WorkSpace.</p>
  */
 export interface StopRequest {
@@ -3473,6 +4184,9 @@ export interface StopRequest {
   WorkspaceId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopWorkspacesRequest {
   /**
    * <p>The WorkSpaces to stop. You can specify up to 25 WorkSpaces.</p>
@@ -3480,6 +4194,9 @@ export interface StopWorkspacesRequest {
   StopWorkspaceRequests: StopRequest[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopWorkspacesResult {
   /**
    * <p>Information about the WorkSpaces that could not be stopped.</p>
@@ -3488,6 +4205,7 @@ export interface StopWorkspacesResult {
 }
 
 /**
+ * @public
  * <p>Describes the information used to terminate a WorkSpace.</p>
  */
 export interface TerminateRequest {
@@ -3497,6 +4215,9 @@ export interface TerminateRequest {
   WorkspaceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TerminateWorkspacesRequest {
   /**
    * <p>The WorkSpaces to terminate. You can specify up to 25 WorkSpaces.</p>
@@ -3504,6 +4225,9 @@ export interface TerminateWorkspacesRequest {
   TerminateWorkspaceRequests: TerminateRequest[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TerminateWorkspacesResult {
   /**
    * <p>Information about the WorkSpaces that could not be terminated.</p>
@@ -3511,6 +4235,9 @@ export interface TerminateWorkspacesResult {
   FailedRequests?: FailedWorkspaceChangeRequest[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateConnectClientAddInRequest {
   /**
    * <p>The identifier of the client add-in to update.</p>
@@ -3533,8 +4260,14 @@ export interface UpdateConnectClientAddInRequest {
   URL?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateConnectClientAddInResult {}
 
+/**
+ * @public
+ */
 export interface UpdateConnectionAliasPermissionRequest {
   /**
    * <p>The identifier of the connection alias that you want to update permissions for.</p>
@@ -3547,8 +4280,14 @@ export interface UpdateConnectionAliasPermissionRequest {
   ConnectionAliasPermission: ConnectionAliasPermission | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateConnectionAliasPermissionResult {}
 
+/**
+ * @public
+ */
 export interface UpdateRulesOfIpGroupRequest {
   /**
    * <p>The identifier of the group.</p>
@@ -3561,8 +4300,14 @@ export interface UpdateRulesOfIpGroupRequest {
   UserRules: IpRuleItem[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRulesOfIpGroupResult {}
 
+/**
+ * @public
+ */
 export interface UpdateWorkspaceBundleRequest {
   /**
    * <p>The identifier of the bundle.</p>
@@ -3575,8 +4320,14 @@ export interface UpdateWorkspaceBundleRequest {
   ImageId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateWorkspaceBundleResult {}
 
+/**
+ * @public
+ */
 export interface UpdateWorkspaceImagePermissionRequest {
   /**
    * <p>The identifier of the image.</p>
@@ -3599,1286 +4350,7 @@ export interface UpdateWorkspaceImagePermissionRequest {
   SharedAccountId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateWorkspaceImagePermissionResult {}
-
-/**
- * @internal
- */
-export const AccountModificationFilterSensitiveLog = (obj: AccountModification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateConnectionAliasRequestFilterSensitiveLog = (obj: AssociateConnectionAliasRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateConnectionAliasResultFilterSensitiveLog = (obj: AssociateConnectionAliasResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateIpGroupsRequestFilterSensitiveLog = (obj: AssociateIpGroupsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateIpGroupsResultFilterSensitiveLog = (obj: AssociateIpGroupsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IpRuleItemFilterSensitiveLog = (obj: IpRuleItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuthorizeIpRulesRequestFilterSensitiveLog = (obj: AuthorizeIpRulesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuthorizeIpRulesResultFilterSensitiveLog = (obj: AuthorizeIpRulesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ComputeTypeFilterSensitiveLog = (obj: ComputeType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RootStorageFilterSensitiveLog = (obj: RootStorage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UserStorageFilterSensitiveLog = (obj: UserStorage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorkspaceBundleFilterSensitiveLog = (obj: WorkspaceBundle): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CertificateBasedAuthPropertiesFilterSensitiveLog = (obj: CertificateBasedAuthProperties): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClientPropertiesFilterSensitiveLog = (obj: ClientProperties): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClientPropertiesResultFilterSensitiveLog = (obj: ClientPropertiesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConnectClientAddInFilterSensitiveLog = (obj: ConnectClientAddIn): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConnectionAliasAssociationFilterSensitiveLog = (obj: ConnectionAliasAssociation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConnectionAliasFilterSensitiveLog = (obj: ConnectionAlias): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConnectionAliasPermissionFilterSensitiveLog = (obj: ConnectionAliasPermission): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CopyWorkspaceImageRequestFilterSensitiveLog = (obj: CopyWorkspaceImageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CopyWorkspaceImageResultFilterSensitiveLog = (obj: CopyWorkspaceImageResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateConnectClientAddInRequestFilterSensitiveLog = (obj: CreateConnectClientAddInRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateConnectClientAddInResultFilterSensitiveLog = (obj: CreateConnectClientAddInResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateConnectionAliasRequestFilterSensitiveLog = (obj: CreateConnectionAliasRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateConnectionAliasResultFilterSensitiveLog = (obj: CreateConnectionAliasResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateIpGroupRequestFilterSensitiveLog = (obj: CreateIpGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateIpGroupResultFilterSensitiveLog = (obj: CreateIpGroupResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StandbyWorkspaceFilterSensitiveLog = (obj: StandbyWorkspace): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateStandbyWorkspacesRequestFilterSensitiveLog = (obj: CreateStandbyWorkspacesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FailedCreateStandbyWorkspacesRequestFilterSensitiveLog = (
-  obj: FailedCreateStandbyWorkspacesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PendingCreateStandbyWorkspacesRequestFilterSensitiveLog = (
-  obj: PendingCreateStandbyWorkspacesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateStandbyWorkspacesResultFilterSensitiveLog = (obj: CreateStandbyWorkspacesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTagsRequestFilterSensitiveLog = (obj: CreateTagsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTagsResultFilterSensitiveLog = (obj: CreateTagsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateUpdatedWorkspaceImageRequestFilterSensitiveLog = (obj: CreateUpdatedWorkspaceImageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateUpdatedWorkspaceImageResultFilterSensitiveLog = (obj: CreateUpdatedWorkspaceImageResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateWorkspaceBundleRequestFilterSensitiveLog = (obj: CreateWorkspaceBundleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateWorkspaceBundleResultFilterSensitiveLog = (obj: CreateWorkspaceBundleResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateWorkspaceImageRequestFilterSensitiveLog = (obj: CreateWorkspaceImageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OperatingSystemFilterSensitiveLog = (obj: OperatingSystem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateWorkspaceImageResultFilterSensitiveLog = (obj: CreateWorkspaceImageResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorkspacePropertiesFilterSensitiveLog = (obj: WorkspaceProperties): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorkspaceRequestFilterSensitiveLog = (obj: WorkspaceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateWorkspacesRequestFilterSensitiveLog = (obj: CreateWorkspacesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FailedCreateWorkspaceRequestFilterSensitiveLog = (obj: FailedCreateWorkspaceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModificationStateFilterSensitiveLog = (obj: ModificationState): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RelatedWorkspacePropertiesFilterSensitiveLog = (obj: RelatedWorkspaceProperties): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorkspaceFilterSensitiveLog = (obj: Workspace): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateWorkspacesResultFilterSensitiveLog = (obj: CreateWorkspacesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DefaultClientBrandingAttributesFilterSensitiveLog = (obj: DefaultClientBrandingAttributes): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DefaultImportClientBrandingAttributesFilterSensitiveLog = (
-  obj: DefaultImportClientBrandingAttributes
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DefaultWorkspaceCreationPropertiesFilterSensitiveLog = (obj: DefaultWorkspaceCreationProperties): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteClientBrandingRequestFilterSensitiveLog = (obj: DeleteClientBrandingRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteClientBrandingResultFilterSensitiveLog = (obj: DeleteClientBrandingResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteConnectClientAddInRequestFilterSensitiveLog = (obj: DeleteConnectClientAddInRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteConnectClientAddInResultFilterSensitiveLog = (obj: DeleteConnectClientAddInResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteConnectionAliasRequestFilterSensitiveLog = (obj: DeleteConnectionAliasRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteConnectionAliasResultFilterSensitiveLog = (obj: DeleteConnectionAliasResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteIpGroupRequestFilterSensitiveLog = (obj: DeleteIpGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteIpGroupResultFilterSensitiveLog = (obj: DeleteIpGroupResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTagsRequestFilterSensitiveLog = (obj: DeleteTagsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTagsResultFilterSensitiveLog = (obj: DeleteTagsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteWorkspaceBundleRequestFilterSensitiveLog = (obj: DeleteWorkspaceBundleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteWorkspaceBundleResultFilterSensitiveLog = (obj: DeleteWorkspaceBundleResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteWorkspaceImageRequestFilterSensitiveLog = (obj: DeleteWorkspaceImageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteWorkspaceImageResultFilterSensitiveLog = (obj: DeleteWorkspaceImageResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterWorkspaceDirectoryRequestFilterSensitiveLog = (
-  obj: DeregisterWorkspaceDirectoryRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterWorkspaceDirectoryResultFilterSensitiveLog = (obj: DeregisterWorkspaceDirectoryResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAccountRequestFilterSensitiveLog = (obj: DescribeAccountRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAccountResultFilterSensitiveLog = (obj: DescribeAccountResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAccountModificationsRequestFilterSensitiveLog = (
-  obj: DescribeAccountModificationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAccountModificationsResultFilterSensitiveLog = (obj: DescribeAccountModificationsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeClientBrandingRequestFilterSensitiveLog = (obj: DescribeClientBrandingRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IosClientBrandingAttributesFilterSensitiveLog = (obj: IosClientBrandingAttributes): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeClientBrandingResultFilterSensitiveLog = (obj: DescribeClientBrandingResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeClientPropertiesRequestFilterSensitiveLog = (obj: DescribeClientPropertiesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeClientPropertiesResultFilterSensitiveLog = (obj: DescribeClientPropertiesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeConnectClientAddInsRequestFilterSensitiveLog = (obj: DescribeConnectClientAddInsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeConnectClientAddInsResultFilterSensitiveLog = (obj: DescribeConnectClientAddInsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeConnectionAliasesRequestFilterSensitiveLog = (obj: DescribeConnectionAliasesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeConnectionAliasesResultFilterSensitiveLog = (obj: DescribeConnectionAliasesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeConnectionAliasPermissionsRequestFilterSensitiveLog = (
-  obj: DescribeConnectionAliasPermissionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeConnectionAliasPermissionsResultFilterSensitiveLog = (
-  obj: DescribeConnectionAliasPermissionsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeIpGroupsRequestFilterSensitiveLog = (obj: DescribeIpGroupsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorkspacesIpGroupFilterSensitiveLog = (obj: WorkspacesIpGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeIpGroupsResultFilterSensitiveLog = (obj: DescribeIpGroupsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTagsRequestFilterSensitiveLog = (obj: DescribeTagsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTagsResultFilterSensitiveLog = (obj: DescribeTagsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeWorkspaceBundlesRequestFilterSensitiveLog = (obj: DescribeWorkspaceBundlesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeWorkspaceBundlesResultFilterSensitiveLog = (obj: DescribeWorkspaceBundlesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeWorkspaceDirectoriesRequestFilterSensitiveLog = (
-  obj: DescribeWorkspaceDirectoriesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SamlPropertiesFilterSensitiveLog = (obj: SamlProperties): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SelfservicePermissionsFilterSensitiveLog = (obj: SelfservicePermissions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorkspaceAccessPropertiesFilterSensitiveLog = (obj: WorkspaceAccessProperties): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorkspaceDirectoryFilterSensitiveLog = (obj: WorkspaceDirectory): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeWorkspaceDirectoriesResultFilterSensitiveLog = (obj: DescribeWorkspaceDirectoriesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeWorkspaceImagePermissionsRequestFilterSensitiveLog = (
-  obj: DescribeWorkspaceImagePermissionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImagePermissionFilterSensitiveLog = (obj: ImagePermission): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeWorkspaceImagePermissionsResultFilterSensitiveLog = (
-  obj: DescribeWorkspaceImagePermissionsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeWorkspaceImagesRequestFilterSensitiveLog = (obj: DescribeWorkspaceImagesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateResultFilterSensitiveLog = (obj: UpdateResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorkspaceImageFilterSensitiveLog = (obj: WorkspaceImage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeWorkspaceImagesResultFilterSensitiveLog = (obj: DescribeWorkspaceImagesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeWorkspacesRequestFilterSensitiveLog = (obj: DescribeWorkspacesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeWorkspacesResultFilterSensitiveLog = (obj: DescribeWorkspacesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeWorkspacesConnectionStatusRequestFilterSensitiveLog = (
-  obj: DescribeWorkspacesConnectionStatusRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorkspaceConnectionStatusFilterSensitiveLog = (obj: WorkspaceConnectionStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeWorkspacesConnectionStatusResultFilterSensitiveLog = (
-  obj: DescribeWorkspacesConnectionStatusResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeWorkspaceSnapshotsRequestFilterSensitiveLog = (obj: DescribeWorkspaceSnapshotsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SnapshotFilterSensitiveLog = (obj: Snapshot): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeWorkspaceSnapshotsResultFilterSensitiveLog = (obj: DescribeWorkspaceSnapshotsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateConnectionAliasRequestFilterSensitiveLog = (obj: DisassociateConnectionAliasRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateConnectionAliasResultFilterSensitiveLog = (obj: DisassociateConnectionAliasResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateIpGroupsRequestFilterSensitiveLog = (obj: DisassociateIpGroupsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateIpGroupsResultFilterSensitiveLog = (obj: DisassociateIpGroupsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FailedWorkspaceChangeRequestFilterSensitiveLog = (obj: FailedWorkspaceChangeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IosImportClientBrandingAttributesFilterSensitiveLog = (obj: IosImportClientBrandingAttributes): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportClientBrandingRequestFilterSensitiveLog = (obj: ImportClientBrandingRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportClientBrandingResultFilterSensitiveLog = (obj: ImportClientBrandingResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportWorkspaceImageRequestFilterSensitiveLog = (obj: ImportWorkspaceImageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportWorkspaceImageResultFilterSensitiveLog = (obj: ImportWorkspaceImageResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAvailableManagementCidrRangesRequestFilterSensitiveLog = (
-  obj: ListAvailableManagementCidrRangesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAvailableManagementCidrRangesResultFilterSensitiveLog = (
-  obj: ListAvailableManagementCidrRangesResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MigrateWorkspaceRequestFilterSensitiveLog = (obj: MigrateWorkspaceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MigrateWorkspaceResultFilterSensitiveLog = (obj: MigrateWorkspaceResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyAccountRequestFilterSensitiveLog = (obj: ModifyAccountRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyAccountResultFilterSensitiveLog = (obj: ModifyAccountResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyCertificateBasedAuthPropertiesRequestFilterSensitiveLog = (
-  obj: ModifyCertificateBasedAuthPropertiesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyCertificateBasedAuthPropertiesResultFilterSensitiveLog = (
-  obj: ModifyCertificateBasedAuthPropertiesResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyClientPropertiesRequestFilterSensitiveLog = (obj: ModifyClientPropertiesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyClientPropertiesResultFilterSensitiveLog = (obj: ModifyClientPropertiesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifySamlPropertiesRequestFilterSensitiveLog = (obj: ModifySamlPropertiesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifySamlPropertiesResultFilterSensitiveLog = (obj: ModifySamlPropertiesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifySelfservicePermissionsRequestFilterSensitiveLog = (
-  obj: ModifySelfservicePermissionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifySelfservicePermissionsResultFilterSensitiveLog = (obj: ModifySelfservicePermissionsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyWorkspaceAccessPropertiesRequestFilterSensitiveLog = (
-  obj: ModifyWorkspaceAccessPropertiesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyWorkspaceAccessPropertiesResultFilterSensitiveLog = (
-  obj: ModifyWorkspaceAccessPropertiesResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorkspaceCreationPropertiesFilterSensitiveLog = (obj: WorkspaceCreationProperties): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyWorkspaceCreationPropertiesRequestFilterSensitiveLog = (
-  obj: ModifyWorkspaceCreationPropertiesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyWorkspaceCreationPropertiesResultFilterSensitiveLog = (
-  obj: ModifyWorkspaceCreationPropertiesResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyWorkspacePropertiesRequestFilterSensitiveLog = (obj: ModifyWorkspacePropertiesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyWorkspacePropertiesResultFilterSensitiveLog = (obj: ModifyWorkspacePropertiesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyWorkspaceStateRequestFilterSensitiveLog = (obj: ModifyWorkspaceStateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyWorkspaceStateResultFilterSensitiveLog = (obj: ModifyWorkspaceStateResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RebootRequestFilterSensitiveLog = (obj: RebootRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RebootWorkspacesRequestFilterSensitiveLog = (obj: RebootWorkspacesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RebootWorkspacesResultFilterSensitiveLog = (obj: RebootWorkspacesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RebuildRequestFilterSensitiveLog = (obj: RebuildRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RebuildWorkspacesRequestFilterSensitiveLog = (obj: RebuildWorkspacesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RebuildWorkspacesResultFilterSensitiveLog = (obj: RebuildWorkspacesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterWorkspaceDirectoryRequestFilterSensitiveLog = (obj: RegisterWorkspaceDirectoryRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterWorkspaceDirectoryResultFilterSensitiveLog = (obj: RegisterWorkspaceDirectoryResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RestoreWorkspaceRequestFilterSensitiveLog = (obj: RestoreWorkspaceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RestoreWorkspaceResultFilterSensitiveLog = (obj: RestoreWorkspaceResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RevokeIpRulesRequestFilterSensitiveLog = (obj: RevokeIpRulesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RevokeIpRulesResultFilterSensitiveLog = (obj: RevokeIpRulesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartRequestFilterSensitiveLog = (obj: StartRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartWorkspacesRequestFilterSensitiveLog = (obj: StartWorkspacesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartWorkspacesResultFilterSensitiveLog = (obj: StartWorkspacesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopRequestFilterSensitiveLog = (obj: StopRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopWorkspacesRequestFilterSensitiveLog = (obj: StopWorkspacesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopWorkspacesResultFilterSensitiveLog = (obj: StopWorkspacesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TerminateRequestFilterSensitiveLog = (obj: TerminateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TerminateWorkspacesRequestFilterSensitiveLog = (obj: TerminateWorkspacesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TerminateWorkspacesResultFilterSensitiveLog = (obj: TerminateWorkspacesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateConnectClientAddInRequestFilterSensitiveLog = (obj: UpdateConnectClientAddInRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateConnectClientAddInResultFilterSensitiveLog = (obj: UpdateConnectClientAddInResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateConnectionAliasPermissionRequestFilterSensitiveLog = (
-  obj: UpdateConnectionAliasPermissionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateConnectionAliasPermissionResultFilterSensitiveLog = (
-  obj: UpdateConnectionAliasPermissionResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRulesOfIpGroupRequestFilterSensitiveLog = (obj: UpdateRulesOfIpGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRulesOfIpGroupResultFilterSensitiveLog = (obj: UpdateRulesOfIpGroupResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateWorkspaceBundleRequestFilterSensitiveLog = (obj: UpdateWorkspaceBundleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateWorkspaceBundleResultFilterSensitiveLog = (obj: UpdateWorkspaceBundleResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateWorkspaceImagePermissionRequestFilterSensitiveLog = (
-  obj: UpdateWorkspaceImagePermissionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateWorkspaceImagePermissionResultFilterSensitiveLog = (
-  obj: UpdateWorkspaceImagePermissionResult
-): any => ({
-  ...obj,
-});

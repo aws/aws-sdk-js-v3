@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import {
-  DescribeFileCachesRequest,
-  DescribeFileCachesRequestFilterSensitiveLog,
-  DescribeFileCachesResponse,
-  DescribeFileCachesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeFileCachesCommand,
-  serializeAws_json1_1DescribeFileCachesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeFileCachesRequest, DescribeFileCachesResponse } from "../models/models_0";
+import { de_DescribeFileCachesCommand, se_DescribeFileCachesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeFileCachesCommand}.
+ */
 export interface DescribeFileCachesCommandInput extends DescribeFileCachesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeFileCachesCommand}.
+ */
 export interface DescribeFileCachesCommandOutput extends DescribeFileCachesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the description of a specific Amazon File Cache resource, if a
  *             <code>FileCacheIds</code> value is provided for that cache. Otherwise, it
  *             returns descriptions of all caches owned by your Amazon Web Services account in the
@@ -63,13 +66,32 @@ export interface DescribeFileCachesCommandOutput extends DescribeFileCachesRespo
  * import { FSxClient, DescribeFileCachesCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, DescribeFileCachesCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = { // DescribeFileCachesRequest
+ *   FileCacheIds: [ // FileCacheIds
+ *     "STRING_VALUE",
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeFileCachesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFileCachesCommandInput - {@link DescribeFileCachesCommandInput}
+ * @returns {@link DescribeFileCachesCommandOutput}
  * @see {@link DescribeFileCachesCommandInput} for command's `input` shape.
  * @see {@link DescribeFileCachesCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
+ *
+ * @throws {@link BadRequest} (client fault)
+ *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * @throws {@link FileCacheNotFound} (client fault)
+ *  <p>No caches were found based upon supplied parameters.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>A generic error indicating a server-side failure.</p>
+ *
  *
  */
 export class DescribeFileCachesCommand extends $Command<
@@ -89,6 +111,9 @@ export class DescribeFileCachesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFileCachesCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +142,8 @@ export class DescribeFileCachesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFileCachesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFileCachesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +153,18 @@ export class DescribeFileCachesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFileCachesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeFileCachesCommand(input, context);
+    return se_DescribeFileCachesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFileCachesCommandOutput> {
-    return deserializeAws_json1_1DescribeFileCachesCommand(output, context);
+    return de_DescribeFileCachesCommand(output, context);
   }
 
   // Start section: command_body_extra

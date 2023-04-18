@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  DeleteCustomMetricRequest,
-  DeleteCustomMetricRequestFilterSensitiveLog,
-  DeleteCustomMetricResponse,
-  DeleteCustomMetricResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteCustomMetricCommand,
-  serializeAws_restJson1DeleteCustomMetricCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteCustomMetricRequest, DeleteCustomMetricResponse } from "../models/models_0";
+import { de_DeleteCustomMetricCommand, se_DeleteCustomMetricCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteCustomMetricCommand}.
+ */
 export interface DeleteCustomMetricCommandInput extends DeleteCustomMetricRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteCustomMetricCommand}.
+ */
 export interface DeleteCustomMetricCommandOutput extends DeleteCustomMetricResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Deletes a Device Defender detect custom metric.
  *     </p>
@@ -47,13 +50,28 @@ export interface DeleteCustomMetricCommandOutput extends DeleteCustomMetricRespo
  * import { IoTClient, DeleteCustomMetricCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeleteCustomMetricCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // DeleteCustomMetricRequest
+ *   metricName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteCustomMetricCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCustomMetricCommandInput - {@link DeleteCustomMetricCommandInput}
+ * @returns {@link DeleteCustomMetricCommandOutput}
  * @see {@link DeleteCustomMetricCommandInput} for command's `input` shape.
  * @see {@link DeleteCustomMetricCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
  *
  */
 export class DeleteCustomMetricCommand extends $Command<
@@ -73,6 +91,9 @@ export class DeleteCustomMetricCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCustomMetricCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +122,8 @@ export class DeleteCustomMetricCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCustomMetricRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCustomMetricResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +133,18 @@ export class DeleteCustomMetricCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCustomMetricCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteCustomMetricCommand(input, context);
+    return se_DeleteCustomMetricCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCustomMetricCommandOutput> {
-    return deserializeAws_restJson1DeleteCustomMetricCommand(output, context);
+    return de_DeleteCustomMetricCommand(output, context);
   }
 
   // Start section: command_body_extra

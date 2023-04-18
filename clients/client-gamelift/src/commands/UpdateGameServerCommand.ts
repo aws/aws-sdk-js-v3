@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  UpdateGameServerInput,
-  UpdateGameServerInputFilterSensitiveLog,
-  UpdateGameServerOutput,
-  UpdateGameServerOutputFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1UpdateGameServerCommand,
-  serializeAws_json1_1UpdateGameServerCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateGameServerInput, UpdateGameServerOutput } from "../models/models_1";
+import { de_UpdateGameServerCommand, se_UpdateGameServerCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateGameServerCommand}.
+ */
 export interface UpdateGameServerCommandInput extends UpdateGameServerInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateGameServerCommand}.
+ */
 export interface UpdateGameServerCommandOutput extends UpdateGameServerOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
  *          </p>
@@ -72,13 +75,37 @@ export interface UpdateGameServerCommandOutput extends UpdateGameServerOutput, _
  * import { GameLiftClient, UpdateGameServerCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, UpdateGameServerCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // UpdateGameServerInput
+ *   GameServerGroupName: "STRING_VALUE", // required
+ *   GameServerId: "STRING_VALUE", // required
+ *   GameServerData: "STRING_VALUE",
+ *   UtilizationStatus: "AVAILABLE" || "UTILIZED",
+ *   HealthCheck: "HEALTHY",
+ * };
  * const command = new UpdateGameServerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateGameServerCommandInput - {@link UpdateGameServerCommandInput}
+ * @returns {@link UpdateGameServerCommandOutput}
  * @see {@link UpdateGameServerCommandInput} for command's `input` shape.
  * @see {@link UpdateGameServerCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an unrecoverable internal failure while processing the
+ *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
+ *             values before retrying.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
  *
  */
 export class UpdateGameServerCommand extends $Command<
@@ -98,6 +125,9 @@ export class UpdateGameServerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateGameServerCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +156,8 @@ export class UpdateGameServerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateGameServerInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateGameServerOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +167,18 @@ export class UpdateGameServerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateGameServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateGameServerCommand(input, context);
+    return se_UpdateGameServerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGameServerCommandOutput> {
-    return deserializeAws_json1_1UpdateGameServerCommand(output, context);
+    return de_UpdateGameServerCommand(output, context);
   }
 
   // Start section: command_body_extra

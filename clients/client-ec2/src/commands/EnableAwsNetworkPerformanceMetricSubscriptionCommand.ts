@@ -16,22 +16,31 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   EnableAwsNetworkPerformanceMetricSubscriptionRequest,
-  EnableAwsNetworkPerformanceMetricSubscriptionRequestFilterSensitiveLog,
   EnableAwsNetworkPerformanceMetricSubscriptionResult,
-  EnableAwsNetworkPerformanceMetricSubscriptionResultFilterSensitiveLog,
 } from "../models/models_5";
 import {
-  deserializeAws_ec2EnableAwsNetworkPerformanceMetricSubscriptionCommand,
-  serializeAws_ec2EnableAwsNetworkPerformanceMetricSubscriptionCommand,
+  de_EnableAwsNetworkPerformanceMetricSubscriptionCommand,
+  se_EnableAwsNetworkPerformanceMetricSubscriptionCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link EnableAwsNetworkPerformanceMetricSubscriptionCommand}.
+ */
 export interface EnableAwsNetworkPerformanceMetricSubscriptionCommandInput
   extends EnableAwsNetworkPerformanceMetricSubscriptionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link EnableAwsNetworkPerformanceMetricSubscriptionCommand}.
+ */
 export interface EnableAwsNetworkPerformanceMetricSubscriptionCommandOutput
   extends EnableAwsNetworkPerformanceMetricSubscriptionResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables Infrastructure Performance subscriptions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +48,23 @@ export interface EnableAwsNetworkPerformanceMetricSubscriptionCommandOutput
  * import { EC2Client, EnableAwsNetworkPerformanceMetricSubscriptionCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, EnableAwsNetworkPerformanceMetricSubscriptionCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // EnableAwsNetworkPerformanceMetricSubscriptionRequest
+ *   Source: "STRING_VALUE",
+ *   Destination: "STRING_VALUE",
+ *   Metric: "aggregate-latency",
+ *   Statistic: "p50",
+ *   DryRun: true || false,
+ * };
  * const command = new EnableAwsNetworkPerformanceMetricSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableAwsNetworkPerformanceMetricSubscriptionCommandInput - {@link EnableAwsNetworkPerformanceMetricSubscriptionCommandInput}
+ * @returns {@link EnableAwsNetworkPerformanceMetricSubscriptionCommandOutput}
  * @see {@link EnableAwsNetworkPerformanceMetricSubscriptionCommandInput} for command's `input` shape.
  * @see {@link EnableAwsNetworkPerformanceMetricSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class EnableAwsNetworkPerformanceMetricSubscriptionCommand extends $Command<
@@ -65,6 +84,9 @@ export class EnableAwsNetworkPerformanceMetricSubscriptionCommand extends $Comma
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableAwsNetworkPerformanceMetricSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +121,8 @@ export class EnableAwsNetworkPerformanceMetricSubscriptionCommand extends $Comma
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableAwsNetworkPerformanceMetricSubscriptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: EnableAwsNetworkPerformanceMetricSubscriptionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,18 +132,24 @@ export class EnableAwsNetworkPerformanceMetricSubscriptionCommand extends $Comma
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: EnableAwsNetworkPerformanceMetricSubscriptionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2EnableAwsNetworkPerformanceMetricSubscriptionCommand(input, context);
+    return se_EnableAwsNetworkPerformanceMetricSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EnableAwsNetworkPerformanceMetricSubscriptionCommandOutput> {
-    return deserializeAws_ec2EnableAwsNetworkPerformanceMetricSubscriptionCommand(output, context);
+    return de_EnableAwsNetworkPerformanceMetricSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

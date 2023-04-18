@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  DescribeCertificateRequest,
-  DescribeCertificateRequestFilterSensitiveLog,
-  DescribeCertificateResponse,
-  DescribeCertificateResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1DescribeCertificateCommand,
-  serializeAws_restJson1DescribeCertificateCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeCertificateRequest, DescribeCertificateResponse } from "../models/models_1";
+import { de_DescribeCertificateCommand, se_DescribeCertificateCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeCertificateCommand}.
+ */
 export interface DescribeCertificateCommandInput extends DescribeCertificateRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeCertificateCommand}.
+ */
 export interface DescribeCertificateCommandOutput extends DescribeCertificateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the specified certificate.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeCertificate</a> action.</p>
  * @example
@@ -37,13 +40,37 @@ export interface DescribeCertificateCommandOutput extends DescribeCertificateRes
  * import { IoTClient, DescribeCertificateCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeCertificateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // DescribeCertificateRequest
+ *   certificateId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeCertificateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCertificateCommandInput - {@link DescribeCertificateCommandInput}
+ * @returns {@link DescribeCertificateCommandOutput}
  * @see {@link DescribeCertificateCommandInput} for command's `input` shape.
  * @see {@link DescribeCertificateCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You are not authorized to perform this operation.</p>
+ *
  *
  */
 export class DescribeCertificateCommand extends $Command<
@@ -63,6 +90,9 @@ export class DescribeCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +121,8 @@ export class DescribeCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeCertificateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +132,18 @@ export class DescribeCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeCertificateCommand(input, context);
+    return se_DescribeCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCertificateCommandOutput> {
-    return deserializeAws_restJson1DescribeCertificateCommand(output, context);
+    return de_DescribeCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

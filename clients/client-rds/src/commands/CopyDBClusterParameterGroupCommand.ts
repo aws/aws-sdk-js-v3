@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CopyDBClusterParameterGroupMessage,
-  CopyDBClusterParameterGroupMessageFilterSensitiveLog,
-  CopyDBClusterParameterGroupResult,
-  CopyDBClusterParameterGroupResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCopyDBClusterParameterGroupCommand,
-  serializeAws_queryCopyDBClusterParameterGroupCommand,
-} from "../protocols/Aws_query";
+import { CopyDBClusterParameterGroupMessage, CopyDBClusterParameterGroupResult } from "../models/models_0";
+import { de_CopyDBClusterParameterGroupCommand, se_CopyDBClusterParameterGroupCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CopyDBClusterParameterGroupCommand}.
+ */
 export interface CopyDBClusterParameterGroupCommandInput extends CopyDBClusterParameterGroupMessage {}
+/**
+ * @public
+ *
+ * The output of {@link CopyDBClusterParameterGroupCommand}.
+ */
 export interface CopyDBClusterParameterGroupCommandOutput extends CopyDBClusterParameterGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Copies the specified DB cluster parameter group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,62 @@ export interface CopyDBClusterParameterGroupCommandOutput extends CopyDBClusterP
  * import { RDSClient, CopyDBClusterParameterGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CopyDBClusterParameterGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // CopyDBClusterParameterGroupMessage
+ *   SourceDBClusterParameterGroupIdentifier: "STRING_VALUE", // required
+ *   TargetDBClusterParameterGroupIdentifier: "STRING_VALUE", // required
+ *   TargetDBClusterParameterGroupDescription: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CopyDBClusterParameterGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CopyDBClusterParameterGroupCommandInput - {@link CopyDBClusterParameterGroupCommandInput}
+ * @returns {@link CopyDBClusterParameterGroupCommandOutput}
  * @see {@link CopyDBClusterParameterGroupCommandInput} for command's `input` shape.
  * @see {@link CopyDBClusterParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ * @throws {@link DBParameterGroupAlreadyExistsFault} (client fault)
+ *  <p>A DB parameter group with the same name exists.</p>
+ *
+ * @throws {@link DBParameterGroupNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBParameterGroupName</code> doesn't refer to an
+ *         existing DB parameter group.</p>
+ *
+ * @throws {@link DBParameterGroupQuotaExceededFault} (client fault)
+ *  <p>The request would result in the user exceeding the allowed number of DB parameter
+ *             groups.</p>
+ *
+ *
+ * @example To copy a DB cluster parameter group
+ * ```javascript
+ * // This example copies a DB cluster parameter group.
+ * const input = {
+ *   "SourceDBClusterParameterGroupIdentifier": "mydbclusterparametergroup",
+ *   "TargetDBClusterParameterGroupDescription": "My DB cluster parameter group copy",
+ *   "TargetDBClusterParameterGroupIdentifier": "mydbclusterparametergroup-copy"
+ * };
+ * const command = new CopyDBClusterParameterGroupCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBClusterParameterGroup": {
+ *     "DBClusterParameterGroupArn": "arn:aws:rds:us-east-1:123456789012:cluster-pg:mydbclusterparametergroup-copy",
+ *     "DBClusterParameterGroupName": "mydbclusterparametergroup-copy",
+ *     "DBParameterGroupFamily": "aurora-mysql5.7",
+ *     "Description": "My DB cluster parameter group copy"
+ *   }
+ * }
+ * *\/
+ * // example id: copy-db-cluster-parameter-group-6fefaffe-cde9-4dba-9f0b-d3f593572fe4
+ * ```
  *
  */
 export class CopyDBClusterParameterGroupCommand extends $Command<
@@ -62,6 +114,9 @@ export class CopyDBClusterParameterGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CopyDBClusterParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +145,8 @@ export class CopyDBClusterParameterGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CopyDBClusterParameterGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CopyDBClusterParameterGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +156,21 @@ export class CopyDBClusterParameterGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CopyDBClusterParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCopyDBClusterParameterGroupCommand(input, context);
+    return se_CopyDBClusterParameterGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CopyDBClusterParameterGroupCommandOutput> {
-    return deserializeAws_queryCopyDBClusterParameterGroupCommand(output, context);
+    return de_CopyDBClusterParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

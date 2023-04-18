@@ -14,35 +14,62 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  DisassociateLambdaFunctionRequest,
-  DisassociateLambdaFunctionRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateLambdaFunctionCommand,
-  serializeAws_restJson1DisassociateLambdaFunctionCommand,
-} from "../protocols/Aws_restJson1";
+import { DisassociateLambdaFunctionRequest } from "../models/models_0";
+import { de_DisassociateLambdaFunctionCommand, se_DisassociateLambdaFunctionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DisassociateLambdaFunctionCommand}.
+ */
 export interface DisassociateLambdaFunctionCommandInput extends DisassociateLambdaFunctionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateLambdaFunctionCommand}.
+ */
 export interface DisassociateLambdaFunctionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Remove the Lambda function from the dropdown options available in the relevant flow
- *    blocks.</p>
+ *          <p>Remove the Lambda function from the dropdown options available in the relevant
+ *    flow blocks.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ConnectClient, DisassociateLambdaFunctionCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DisassociateLambdaFunctionCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // DisassociateLambdaFunctionRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   FunctionArn: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateLambdaFunctionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateLambdaFunctionCommandInput - {@link DisassociateLambdaFunctionCommandInput}
+ * @returns {@link DisassociateLambdaFunctionCommandOutput}
  * @see {@link DisassociateLambdaFunctionCommandInput} for command's `input` shape.
  * @see {@link DisassociateLambdaFunctionCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
  *
  */
 export class DisassociateLambdaFunctionCommand extends $Command<
@@ -62,6 +89,9 @@ export class DisassociateLambdaFunctionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateLambdaFunctionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +120,8 @@ export class DisassociateLambdaFunctionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateLambdaFunctionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +131,21 @@ export class DisassociateLambdaFunctionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateLambdaFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateLambdaFunctionCommand(input, context);
+    return se_DisassociateLambdaFunctionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateLambdaFunctionCommandOutput> {
-    return deserializeAws_restJson1DisassociateLambdaFunctionCommand(output, context);
+    return de_DisassociateLambdaFunctionCommand(output, context);
   }
 
   // Start section: command_body_extra

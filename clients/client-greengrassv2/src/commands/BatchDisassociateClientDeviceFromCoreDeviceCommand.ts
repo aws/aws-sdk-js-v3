@@ -16,22 +16,31 @@ import {
 import { GreengrassV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassV2Client";
 import {
   BatchDisassociateClientDeviceFromCoreDeviceRequest,
-  BatchDisassociateClientDeviceFromCoreDeviceRequestFilterSensitiveLog,
   BatchDisassociateClientDeviceFromCoreDeviceResponse,
-  BatchDisassociateClientDeviceFromCoreDeviceResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1BatchDisassociateClientDeviceFromCoreDeviceCommand,
-  serializeAws_restJson1BatchDisassociateClientDeviceFromCoreDeviceCommand,
+  de_BatchDisassociateClientDeviceFromCoreDeviceCommand,
+  se_BatchDisassociateClientDeviceFromCoreDeviceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchDisassociateClientDeviceFromCoreDeviceCommand}.
+ */
 export interface BatchDisassociateClientDeviceFromCoreDeviceCommandInput
   extends BatchDisassociateClientDeviceFromCoreDeviceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link BatchDisassociateClientDeviceFromCoreDeviceCommand}.
+ */
 export interface BatchDisassociateClientDeviceFromCoreDeviceCommandOutput
   extends BatchDisassociateClientDeviceFromCoreDeviceResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a list of client devices from a core device. After you disassociate a client
  *       device from a core device, the client device won't be able to use cloud discovery to retrieve
  *       the core device's connectivity information and certificates.</p>
@@ -41,13 +50,41 @@ export interface BatchDisassociateClientDeviceFromCoreDeviceCommandOutput
  * import { GreengrassV2Client, BatchDisassociateClientDeviceFromCoreDeviceCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
  * // const { GreengrassV2Client, BatchDisassociateClientDeviceFromCoreDeviceCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
  * const client = new GreengrassV2Client(config);
+ * const input = { // BatchDisassociateClientDeviceFromCoreDeviceRequest
+ *   entries: [ // DisassociateClientDeviceFromCoreDeviceEntryList
+ *     { // DisassociateClientDeviceFromCoreDeviceEntry
+ *       thingName: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   coreDeviceThingName: "STRING_VALUE", // required
+ * };
  * const command = new BatchDisassociateClientDeviceFromCoreDeviceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDisassociateClientDeviceFromCoreDeviceCommandInput - {@link BatchDisassociateClientDeviceFromCoreDeviceCommandInput}
+ * @returns {@link BatchDisassociateClientDeviceFromCoreDeviceCommandOutput}
  * @see {@link BatchDisassociateClientDeviceFromCoreDeviceCommandInput} for command's `input` shape.
  * @see {@link BatchDisassociateClientDeviceFromCoreDeviceCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have permission to perform the action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>IoT Greengrass can't process your request right now. Try again later.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource can't be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Your request exceeded a request rate quota. For example, you might have exceeded the
+ *       amount of times that you can retrieve device or deployment status per second.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
+ *       unsupported characters.</p>
+ *
  *
  */
 export class BatchDisassociateClientDeviceFromCoreDeviceCommand extends $Command<
@@ -67,6 +104,9 @@ export class BatchDisassociateClientDeviceFromCoreDeviceCommand extends $Command
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDisassociateClientDeviceFromCoreDeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +141,8 @@ export class BatchDisassociateClientDeviceFromCoreDeviceCommand extends $Command
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDisassociateClientDeviceFromCoreDeviceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchDisassociateClientDeviceFromCoreDeviceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,18 +152,24 @@ export class BatchDisassociateClientDeviceFromCoreDeviceCommand extends $Command
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchDisassociateClientDeviceFromCoreDeviceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchDisassociateClientDeviceFromCoreDeviceCommand(input, context);
+    return se_BatchDisassociateClientDeviceFromCoreDeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchDisassociateClientDeviceFromCoreDeviceCommandOutput> {
-    return deserializeAws_restJson1BatchDisassociateClientDeviceFromCoreDeviceCommand(output, context);
+    return de_BatchDisassociateClientDeviceFromCoreDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

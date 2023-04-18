@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  Authorizer,
-  AuthorizerFilterSensitiveLog,
-  CreateAuthorizerRequest,
-  CreateAuthorizerRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateAuthorizerCommand,
-  serializeAws_restJson1CreateAuthorizerCommand,
-} from "../protocols/Aws_restJson1";
+import { Authorizer, CreateAuthorizerRequest } from "../models/models_0";
+import { de_CreateAuthorizerCommand, se_CreateAuthorizerCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateAuthorizerCommand}.
+ */
 export interface CreateAuthorizerCommandInput extends CreateAuthorizerRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateAuthorizerCommand}.
+ */
 export interface CreateAuthorizerCommandOutput extends Authorizer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a new Authorizer resource to an existing RestApi resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,48 @@ export interface CreateAuthorizerCommandOutput extends Authorizer, __MetadataBea
  * import { APIGatewayClient, CreateAuthorizerCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, CreateAuthorizerCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // CreateAuthorizerRequest
+ *   restApiId: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ *   type: "TOKEN" || "REQUEST" || "COGNITO_USER_POOLS", // required
+ *   providerARNs: [ // ListOfARNs
+ *     "STRING_VALUE",
+ *   ],
+ *   authType: "STRING_VALUE",
+ *   authorizerUri: "STRING_VALUE",
+ *   authorizerCredentials: "STRING_VALUE",
+ *   identitySource: "STRING_VALUE",
+ *   identityValidationExpression: "STRING_VALUE",
+ *   authorizerResultTtlInSeconds: Number("int"),
+ * };
  * const command = new CreateAuthorizerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAuthorizerCommandInput - {@link CreateAuthorizerCommandInput}
+ * @returns {@link CreateAuthorizerCommandOutput}
  * @see {@link CreateAuthorizerCommandInput} for command's `input` shape.
  * @see {@link CreateAuthorizerCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The request is denied because the caller has insufficient permissions.</p>
+ *
  *
  */
 export class CreateAuthorizerCommand extends $Command<
@@ -62,6 +100,9 @@ export class CreateAuthorizerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAuthorizerCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +131,8 @@ export class CreateAuthorizerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAuthorizerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AuthorizerFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +142,18 @@ export class CreateAuthorizerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAuthorizerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAuthorizerCommand(input, context);
+    return se_CreateAuthorizerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAuthorizerCommandOutput> {
-    return deserializeAws_restJson1CreateAuthorizerCommand(output, context);
+    return de_CreateAuthorizerCommand(output, context);
   }
 
   // Start section: command_body_extra

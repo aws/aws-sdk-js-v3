@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  ListCachePoliciesRequest,
-  ListCachePoliciesRequestFilterSensitiveLog,
-  ListCachePoliciesResult,
-  ListCachePoliciesResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlListCachePoliciesCommand,
-  serializeAws_restXmlListCachePoliciesCommand,
-} from "../protocols/Aws_restXml";
+import { ListCachePoliciesRequest, ListCachePoliciesResult } from "../models/models_1";
+import { de_ListCachePoliciesCommand, se_ListCachePoliciesCommand } from "../protocols/Aws_restXml";
 
+/**
+ * @public
+ *
+ * The input for {@link ListCachePoliciesCommand}.
+ */
 export interface ListCachePoliciesCommandInput extends ListCachePoliciesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListCachePoliciesCommand}.
+ */
 export interface ListCachePoliciesCommandOutput extends ListCachePoliciesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of cache policies.</p>
  *          <p>You can optionally apply a filter to return only the managed policies created by
  * 			Amazon Web Services, or only the custom policies created in your Amazon Web Services account.</p>
@@ -43,13 +46,30 @@ export interface ListCachePoliciesCommandOutput extends ListCachePoliciesResult,
  * import { CloudFrontClient, ListCachePoliciesCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListCachePoliciesCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // ListCachePoliciesRequest
+ *   Type: "managed" || "custom",
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListCachePoliciesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCachePoliciesCommandInput - {@link ListCachePoliciesCommandInput}
+ * @returns {@link ListCachePoliciesCommandOutput}
  * @see {@link ListCachePoliciesCommandInput} for command's `input` shape.
  * @see {@link ListCachePoliciesCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link NoSuchCachePolicy} (client fault)
+ *  <p>The cache policy does not exist.</p>
+ *
  *
  */
 export class ListCachePoliciesCommand extends $Command<
@@ -69,6 +89,9 @@ export class ListCachePoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCachePoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +120,8 @@ export class ListCachePoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCachePoliciesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCachePoliciesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +131,18 @@ export class ListCachePoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCachePoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListCachePoliciesCommand(input, context);
+    return se_ListCachePoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCachePoliciesCommandOutput> {
-    return deserializeAws_restXmlListCachePoliciesCommand(output, context);
+    return de_ListCachePoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

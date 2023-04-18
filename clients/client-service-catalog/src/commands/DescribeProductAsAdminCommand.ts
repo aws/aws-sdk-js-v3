@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeProductAsAdminInput,
-  DescribeProductAsAdminInputFilterSensitiveLog,
-  DescribeProductAsAdminOutput,
-  DescribeProductAsAdminOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeProductAsAdminCommand,
-  serializeAws_json1_1DescribeProductAsAdminCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeProductAsAdminInput, DescribeProductAsAdminOutput } from "../models/models_0";
+import { de_DescribeProductAsAdminCommand, se_DescribeProductAsAdminCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeProductAsAdminCommand}.
+ */
 export interface DescribeProductAsAdminCommandInput extends DescribeProductAsAdminInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeProductAsAdminCommand}.
+ */
 export interface DescribeProductAsAdminCommandOutput extends DescribeProductAsAdminOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the specified product. This operation is run with administrator access.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,28 @@ export interface DescribeProductAsAdminCommandOutput extends DescribeProductAsAd
  * import { ServiceCatalogClient, DescribeProductAsAdminCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DescribeProductAsAdminCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // DescribeProductAsAdminInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   Id: "STRING_VALUE",
+ *   Name: "STRING_VALUE",
+ *   SourcePortfolioId: "STRING_VALUE",
+ * };
  * const command = new DescribeProductAsAdminCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeProductAsAdminCommandInput - {@link DescribeProductAsAdminCommandInput}
+ * @returns {@link DescribeProductAsAdminCommandOutput}
  * @see {@link DescribeProductAsAdminCommandInput} for command's `input` shape.
  * @see {@link DescribeProductAsAdminCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
+ *
+ * @throws {@link InvalidParametersException} (client fault)
+ *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class DescribeProductAsAdminCommand extends $Command<
@@ -62,6 +80,9 @@ export class DescribeProductAsAdminCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeProductAsAdminCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +111,8 @@ export class DescribeProductAsAdminCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeProductAsAdminInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeProductAsAdminOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +122,18 @@ export class DescribeProductAsAdminCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeProductAsAdminCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeProductAsAdminCommand(input, context);
+    return se_DescribeProductAsAdminCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeProductAsAdminCommandOutput> {
-    return deserializeAws_json1_1DescribeProductAsAdminCommand(output, context);
+    return de_DescribeProductAsAdminCommand(output, context);
   }
 
   // Start section: command_body_extra

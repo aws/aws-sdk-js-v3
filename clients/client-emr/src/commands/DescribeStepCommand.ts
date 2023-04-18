@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import {
-  DescribeStepInput,
-  DescribeStepInputFilterSensitiveLog,
-  DescribeStepOutput,
-  DescribeStepOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeStepCommand,
-  serializeAws_json1_1DescribeStepCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeStepInput, DescribeStepOutput } from "../models/models_0";
+import { de_DescribeStepCommand, se_DescribeStepCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeStepCommand}.
+ */
 export interface DescribeStepCommandInput extends DescribeStepInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeStepCommand}.
+ */
 export interface DescribeStepCommandOutput extends DescribeStepOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides more detail about the cluster step.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,27 @@ export interface DescribeStepCommandOutput extends DescribeStepOutput, __Metadat
  * import { EMRClient, DescribeStepCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, DescribeStepCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = { // DescribeStepInput
+ *   ClusterId: "STRING_VALUE", // required
+ *   StepId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeStepCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStepCommandInput - {@link DescribeStepCommandInput}
+ * @returns {@link DescribeStepCommandOutput}
  * @see {@link DescribeStepCommandInput} for command's `input` shape.
  * @see {@link DescribeStepCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>This exception occurs when there is an internal failure in the Amazon EMR
+ *          service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception occurs when there is something wrong with user input.</p>
+ *
  *
  */
 export class DescribeStepCommand extends $Command<
@@ -62,6 +79,9 @@ export class DescribeStepCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStepCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +108,8 @@ export class DescribeStepCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeStepInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeStepOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +119,18 @@ export class DescribeStepCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeStepCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeStepCommand(input, context);
+    return se_DescribeStepCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeStepCommandOutput> {
-    return deserializeAws_json1_1DescribeStepCommand(output, context);
+    return de_DescribeStepCommand(output, context);
   }
 
   // Start section: command_body_extra

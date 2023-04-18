@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
-import {
-  DeleteProgressUpdateStreamRequest,
-  DeleteProgressUpdateStreamRequestFilterSensitiveLog,
-  DeleteProgressUpdateStreamResult,
-  DeleteProgressUpdateStreamResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteProgressUpdateStreamCommand,
-  serializeAws_json1_1DeleteProgressUpdateStreamCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteProgressUpdateStreamRequest, DeleteProgressUpdateStreamResult } from "../models/models_0";
+import { de_DeleteProgressUpdateStreamCommand, se_DeleteProgressUpdateStreamCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteProgressUpdateStreamCommand}.
+ */
 export interface DeleteProgressUpdateStreamCommandInput extends DeleteProgressUpdateStreamRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteProgressUpdateStreamCommand}.
+ */
 export interface DeleteProgressUpdateStreamCommandOutput extends DeleteProgressUpdateStreamResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a progress update stream, including all of its tasks, which was previously
  *          created as an AWS resource used for access control. This API has the following
  *          traits:</p>
@@ -66,13 +69,54 @@ export interface DeleteProgressUpdateStreamCommandOutput extends DeleteProgressU
  * import { MigrationHubClient, DeleteProgressUpdateStreamCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
  * // const { MigrationHubClient, DeleteProgressUpdateStreamCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
  * const client = new MigrationHubClient(config);
+ * const input = { // DeleteProgressUpdateStreamRequest
+ *   ProgressUpdateStreamName: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DeleteProgressUpdateStreamCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteProgressUpdateStreamCommandInput - {@link DeleteProgressUpdateStreamCommandInput}
+ * @returns {@link DeleteProgressUpdateStreamCommandOutput}
  * @see {@link DeleteProgressUpdateStreamCommandInput} for command's `input` shape.
  * @see {@link DeleteProgressUpdateStreamCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link DryRunOperation} (client fault)
+ *  <p>Exception raised to indicate a successfully authorized action when the
+ *             <code>DryRun</code> flag is set to "true".</p>
+ *
+ * @throws {@link HomeRegionNotSetException} (client fault)
+ *  <p>The home region is not set. Set the home region to continue.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Exception raised when an internal, configuration, or dependency error is
+ *          encountered.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Exception raised when the provided input violates a policy constraint or is entered in
+ *          the wrong format or data type.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Exception raised when the request references a resource (Application Discovery Service
+ *          configuration, update stream, migration task, etc.) that does not exist in Application
+ *          Discovery Service (Application Discovery Service) or in Migration Hub's repository.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>Exception raised when there is an internal, configuration, or dependency error
+ *          encountered.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link UnauthorizedOperation} (client fault)
+ *  <p>Exception raised to indicate a request was not authorized when the <code>DryRun</code>
+ *          flag is set to "true".</p>
+ *
  *
  */
 export class DeleteProgressUpdateStreamCommand extends $Command<
@@ -92,6 +136,9 @@ export class DeleteProgressUpdateStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteProgressUpdateStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +167,8 @@ export class DeleteProgressUpdateStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteProgressUpdateStreamRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteProgressUpdateStreamResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,15 +178,21 @@ export class DeleteProgressUpdateStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteProgressUpdateStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteProgressUpdateStreamCommand(input, context);
+    return se_DeleteProgressUpdateStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteProgressUpdateStreamCommandOutput> {
-    return deserializeAws_json1_1DeleteProgressUpdateStreamCommand(output, context);
+    return de_DeleteProgressUpdateStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

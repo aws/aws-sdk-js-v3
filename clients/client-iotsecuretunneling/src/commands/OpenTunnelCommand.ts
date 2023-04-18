@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoTSecureTunnelingClient";
-import {
-  OpenTunnelRequest,
-  OpenTunnelRequestFilterSensitiveLog,
-  OpenTunnelResponse,
-  OpenTunnelResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1OpenTunnelCommand,
-  serializeAws_json1_1OpenTunnelCommand,
-} from "../protocols/Aws_json1_1";
+import { OpenTunnelRequest, OpenTunnelResponse, OpenTunnelResponseFilterSensitiveLog } from "../models/models_0";
+import { de_OpenTunnelCommand, se_OpenTunnelCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link OpenTunnelCommand}.
+ */
 export interface OpenTunnelCommandInput extends OpenTunnelRequest {}
+/**
+ * @public
+ *
+ * The output of {@link OpenTunnelCommand}.
+ */
 export interface OpenTunnelCommandOutput extends OpenTunnelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new tunnel, and returns two client access tokens for clients to use to
  * 			connect to the IoT Secure Tunneling proxy server.</p>
  * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">OpenTunnel</a> action.</p>
@@ -42,13 +45,37 @@ export interface OpenTunnelCommandOutput extends OpenTunnelResponse, __MetadataB
  * import { IoTSecureTunnelingClient, OpenTunnelCommand } from "@aws-sdk/client-iotsecuretunneling"; // ES Modules import
  * // const { IoTSecureTunnelingClient, OpenTunnelCommand } = require("@aws-sdk/client-iotsecuretunneling"); // CommonJS import
  * const client = new IoTSecureTunnelingClient(config);
+ * const input = { // OpenTunnelRequest
+ *   description: "STRING_VALUE",
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   destinationConfig: { // DestinationConfig
+ *     thingName: "STRING_VALUE",
+ *     services: [ // ServiceList // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   timeoutConfig: { // TimeoutConfig
+ *     maxLifetimeTimeoutMinutes: Number("int"),
+ *   },
+ * };
  * const command = new OpenTunnelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param OpenTunnelCommandInput - {@link OpenTunnelCommandInput}
+ * @returns {@link OpenTunnelCommandOutput}
  * @see {@link OpenTunnelCommandInput} for command's `input` shape.
  * @see {@link OpenTunnelCommandOutput} for command's `response` shape.
  * @see {@link IoTSecureTunnelingClientResolvedConfig | config} for IoTSecureTunnelingClient's `config` shape.
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>Thrown when a tunnel limit is exceeded.</p>
+ *
  *
  */
 export class OpenTunnelCommand extends $Command<
@@ -68,6 +95,9 @@ export class OpenTunnelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: OpenTunnelCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,7 +124,7 @@ export class OpenTunnelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: OpenTunnelRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: OpenTunnelResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -105,12 +135,18 @@ export class OpenTunnelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: OpenTunnelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1OpenTunnelCommand(input, context);
+    return se_OpenTunnelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<OpenTunnelCommandOutput> {
-    return deserializeAws_json1_1OpenTunnelCommand(output, context);
+    return de_OpenTunnelCommand(output, context);
   }
 
   // Start section: command_body_extra

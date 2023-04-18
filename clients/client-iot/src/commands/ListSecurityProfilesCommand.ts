@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  ListSecurityProfilesRequest,
-  ListSecurityProfilesRequestFilterSensitiveLog,
-  ListSecurityProfilesResponse,
-  ListSecurityProfilesResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListSecurityProfilesCommand,
-  serializeAws_restJson1ListSecurityProfilesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListSecurityProfilesRequest, ListSecurityProfilesResponse } from "../models/models_1";
+import { de_ListSecurityProfilesCommand, se_ListSecurityProfilesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListSecurityProfilesCommand}.
+ */
 export interface ListSecurityProfilesCommandInput extends ListSecurityProfilesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListSecurityProfilesCommand}.
+ */
 export interface ListSecurityProfilesCommandOutput extends ListSecurityProfilesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the Device Defender security profiles
  *       you've
  *       created. You can filter security profiles by dimension or custom metric.</p>
@@ -43,13 +46,34 @@ export interface ListSecurityProfilesCommandOutput extends ListSecurityProfilesR
  * import { IoTClient, ListSecurityProfilesCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListSecurityProfilesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // ListSecurityProfilesRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   dimensionName: "STRING_VALUE",
+ *   metricName: "STRING_VALUE",
+ * };
  * const command = new ListSecurityProfilesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSecurityProfilesCommandInput - {@link ListSecurityProfilesCommandInput}
+ * @returns {@link ListSecurityProfilesCommandOutput}
  * @see {@link ListSecurityProfilesCommandInput} for command's `input` shape.
  * @see {@link ListSecurityProfilesCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
  *
  */
 export class ListSecurityProfilesCommand extends $Command<
@@ -69,6 +93,9 @@ export class ListSecurityProfilesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSecurityProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +124,8 @@ export class ListSecurityProfilesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSecurityProfilesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSecurityProfilesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +135,18 @@ export class ListSecurityProfilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSecurityProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSecurityProfilesCommand(input, context);
+    return se_ListSecurityProfilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSecurityProfilesCommandOutput> {
-    return deserializeAws_restJson1ListSecurityProfilesCommand(output, context);
+    return de_ListSecurityProfilesCommand(output, context);
   }
 
   // Start section: command_body_extra

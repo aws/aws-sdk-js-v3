@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import {
-  DescribeLagsRequest,
-  DescribeLagsRequestFilterSensitiveLog,
-  Lags,
-  LagsFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeLagsCommand,
-  serializeAws_json1_1DescribeLagsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeLagsRequest, Lags } from "../models/models_0";
+import { de_DescribeLagsCommand, se_DescribeLagsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeLagsCommand}.
+ */
 export interface DescribeLagsCommandInput extends DescribeLagsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeLagsCommand}.
+ */
 export interface DescribeLagsCommandOutput extends Lags, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes all your link aggregation groups (LAG) or the specified LAG.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,25 @@ export interface DescribeLagsCommandOutput extends Lags, __MetadataBearer {}
  * import { DirectConnectClient, DescribeLagsCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DescribeLagsCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // DescribeLagsRequest
+ *   lagId: "STRING_VALUE",
+ * };
  * const command = new DescribeLagsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLagsCommandInput - {@link DescribeLagsCommandInput}
+ * @returns {@link DescribeLagsCommandOutput}
  * @see {@link DescribeLagsCommandInput} for command's `input` shape.
  * @see {@link DescribeLagsCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
+ *
+ * @throws {@link DirectConnectClientException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link DirectConnectServerException} (server fault)
+ *  <p>A server-side error occurred.</p>
+ *
  *
  */
 export class DescribeLagsCommand extends $Command<
@@ -62,6 +77,9 @@ export class DescribeLagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +106,8 @@ export class DescribeLagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLagsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: LagsFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +117,18 @@ export class DescribeLagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeLagsCommand(input, context);
+    return se_DescribeLagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLagsCommandOutput> {
-    return deserializeAws_json1_1DescribeLagsCommand(output, context);
+    return de_DescribeLagsCommand(output, context);
   }
 
   // Start section: command_body_extra

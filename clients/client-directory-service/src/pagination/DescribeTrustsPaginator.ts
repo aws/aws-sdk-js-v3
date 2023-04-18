@@ -6,12 +6,11 @@ import {
   DescribeTrustsCommandInput,
   DescribeTrustsCommandOutput,
 } from "../commands/DescribeTrustsCommand";
-import { DirectoryService } from "../DirectoryService";
 import { DirectoryServiceClient } from "../DirectoryServiceClient";
 import { DirectoryServicePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DirectoryServiceClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeTrustsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: DirectoryService,
-  input: DescribeTrustsCommandInput,
-  ...args: any
-): Promise<DescribeTrustsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeTrusts(input, ...args);
-};
 export async function* paginateDescribeTrusts(
   config: DirectoryServicePaginationConfiguration,
   input: DescribeTrustsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateDescribeTrusts(
   while (hasNext) {
     input.NextToken = token;
     input["Limit"] = config.pageSize;
-    if (config.client instanceof DirectoryService) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DirectoryServiceClient) {
+    if (config.client instanceof DirectoryServiceClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected DirectoryService | DirectoryServiceClient");

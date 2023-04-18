@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { GetGroupsForCapacityReservationRequest, GetGroupsForCapacityReservationResult } from "../models/models_5";
 import {
-  GetGroupsForCapacityReservationRequest,
-  GetGroupsForCapacityReservationRequestFilterSensitiveLog,
-  GetGroupsForCapacityReservationResult,
-  GetGroupsForCapacityReservationResultFilterSensitiveLog,
-} from "../models/models_5";
-import {
-  deserializeAws_ec2GetGroupsForCapacityReservationCommand,
-  serializeAws_ec2GetGroupsForCapacityReservationCommand,
+  de_GetGroupsForCapacityReservationCommand,
+  se_GetGroupsForCapacityReservationCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link GetGroupsForCapacityReservationCommand}.
+ */
 export interface GetGroupsForCapacityReservationCommandInput extends GetGroupsForCapacityReservationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetGroupsForCapacityReservationCommand}.
+ */
 export interface GetGroupsForCapacityReservationCommandOutput
   extends GetGroupsForCapacityReservationResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the resource groups to which a Capacity Reservation has been added.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,22 @@ export interface GetGroupsForCapacityReservationCommandOutput
  * import { EC2Client, GetGroupsForCapacityReservationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetGroupsForCapacityReservationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // GetGroupsForCapacityReservationRequest
+ *   CapacityReservationId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   DryRun: true || false,
+ * };
  * const command = new GetGroupsForCapacityReservationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetGroupsForCapacityReservationCommandInput - {@link GetGroupsForCapacityReservationCommandInput}
+ * @returns {@link GetGroupsForCapacityReservationCommandOutput}
  * @see {@link GetGroupsForCapacityReservationCommandInput} for command's `input` shape.
  * @see {@link GetGroupsForCapacityReservationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class GetGroupsForCapacityReservationCommand extends $Command<
@@ -64,6 +79,9 @@ export class GetGroupsForCapacityReservationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetGroupsForCapacityReservationCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +110,8 @@ export class GetGroupsForCapacityReservationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetGroupsForCapacityReservationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetGroupsForCapacityReservationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +121,24 @@ export class GetGroupsForCapacityReservationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetGroupsForCapacityReservationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2GetGroupsForCapacityReservationCommand(input, context);
+    return se_GetGroupsForCapacityReservationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetGroupsForCapacityReservationCommandOutput> {
-    return deserializeAws_ec2GetGroupsForCapacityReservationCommand(output, context);
+    return de_GetGroupsForCapacityReservationCommand(output, context);
   }
 
   // Start section: command_body_extra

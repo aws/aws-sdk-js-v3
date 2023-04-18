@@ -20,17 +20,28 @@ import {
   UpdateEnvironmentTemplateVersionOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0UpdateEnvironmentTemplateVersionCommand,
-  serializeAws_json1_0UpdateEnvironmentTemplateVersionCommand,
+  de_UpdateEnvironmentTemplateVersionCommand,
+  se_UpdateEnvironmentTemplateVersionCommand,
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateEnvironmentTemplateVersionCommand}.
+ */
 export interface UpdateEnvironmentTemplateVersionCommandInput extends UpdateEnvironmentTemplateVersionInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateEnvironmentTemplateVersionCommand}.
+ */
 export interface UpdateEnvironmentTemplateVersionCommandOutput
   extends UpdateEnvironmentTemplateVersionOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update a major or minor version of an environment template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +49,41 @@ export interface UpdateEnvironmentTemplateVersionCommandOutput
  * import { ProtonClient, UpdateEnvironmentTemplateVersionCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, UpdateEnvironmentTemplateVersionCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // UpdateEnvironmentTemplateVersionInput
+ *   templateName: "STRING_VALUE", // required
+ *   majorVersion: "STRING_VALUE", // required
+ *   minorVersion: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   status: "STRING_VALUE",
+ * };
  * const command = new UpdateEnvironmentTemplateVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEnvironmentTemplateVersionCommandInput - {@link UpdateEnvironmentTemplateVersionCommandInput}
+ * @returns {@link UpdateEnvironmentTemplateVersionCommandOutput}
  * @see {@link UpdateEnvironmentTemplateVersionCommandInput} for command's `input` shape.
  * @see {@link UpdateEnvironmentTemplateVersionCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>There <i>isn't</i> sufficient access for performing this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request <i>couldn't</i> be made due to a conflicting operation or resource.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request failed to register with the service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource <i>wasn't</i> found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+ *
  *
  */
 export class UpdateEnvironmentTemplateVersionCommand extends $Command<
@@ -64,6 +103,9 @@ export class UpdateEnvironmentTemplateVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEnvironmentTemplateVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,18 +145,24 @@ export class UpdateEnvironmentTemplateVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateEnvironmentTemplateVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateEnvironmentTemplateVersionCommand(input, context);
+    return se_UpdateEnvironmentTemplateVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateEnvironmentTemplateVersionCommandOutput> {
-    return deserializeAws_json1_0UpdateEnvironmentTemplateVersionCommand(output, context);
+    return de_UpdateEnvironmentTemplateVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

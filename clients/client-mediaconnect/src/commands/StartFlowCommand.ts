@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
-import {
-  StartFlowRequest,
-  StartFlowRequestFilterSensitiveLog,
-  StartFlowResponse,
-  StartFlowResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StartFlowCommand,
-  serializeAws_restJson1StartFlowCommand,
-} from "../protocols/Aws_restJson1";
+import { StartFlowRequest, StartFlowResponse } from "../models/models_0";
+import { de_StartFlowCommand, se_StartFlowCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link StartFlowCommand}.
+ */
 export interface StartFlowCommandInput extends StartFlowRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartFlowCommand}.
+ */
 export interface StartFlowCommandOutput extends StartFlowResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Starts a flow.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,37 @@ export interface StartFlowCommandOutput extends StartFlowResponse, __MetadataBea
  * import { MediaConnectClient, StartFlowCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, StartFlowCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
+ * const input = { // StartFlowRequest
+ *   FlowArn: "STRING_VALUE", // required
+ * };
  * const command = new StartFlowCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartFlowCommandInput - {@link StartFlowCommandInput}
+ * @returns {@link StartFlowCommandOutput}
  * @see {@link StartFlowCommandInput} for command's `input` shape.
  * @see {@link StartFlowCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *
  *
  */
 export class StartFlowCommand extends $Command<
@@ -62,6 +89,9 @@ export class StartFlowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartFlowCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +118,8 @@ export class StartFlowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartFlowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartFlowResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +129,18 @@ export class StartFlowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartFlowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartFlowCommand(input, context);
+    return se_StartFlowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartFlowCommandOutput> {
-    return deserializeAws_restJson1StartFlowCommand(output, context);
+    return de_StartFlowCommand(output, context);
   }
 
   // Start section: command_body_extra

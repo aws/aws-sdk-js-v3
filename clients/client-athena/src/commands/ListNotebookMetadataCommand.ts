@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import {
-  ListNotebookMetadataInput,
-  ListNotebookMetadataInputFilterSensitiveLog,
-  ListNotebookMetadataOutput,
-  ListNotebookMetadataOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListNotebookMetadataCommand,
-  serializeAws_json1_1ListNotebookMetadataCommand,
-} from "../protocols/Aws_json1_1";
+import { ListNotebookMetadataInput, ListNotebookMetadataOutput } from "../models/models_0";
+import { de_ListNotebookMetadataCommand, se_ListNotebookMetadataCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListNotebookMetadataCommand}.
+ */
 export interface ListNotebookMetadataCommandInput extends ListNotebookMetadataInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListNotebookMetadataCommand}.
+ */
 export interface ListNotebookMetadataCommandOutput extends ListNotebookMetadataOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Displays the notebook files for the specified workgroup in paginated format.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,35 @@ export interface ListNotebookMetadataCommandOutput extends ListNotebookMetadataO
  * import { AthenaClient, ListNotebookMetadataCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, ListNotebookMetadataCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = { // ListNotebookMetadataInput
+ *   Filters: { // FilterDefinition
+ *     Name: "STRING_VALUE",
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   WorkGroup: "STRING_VALUE", // required
+ * };
  * const command = new ListNotebookMetadataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListNotebookMetadataCommandInput - {@link ListNotebookMetadataCommandInput}
+ * @returns {@link ListNotebookMetadataCommandOutput}
  * @see {@link ListNotebookMetadataCommandInput} for command's `input` shape.
  * @see {@link ListNotebookMetadataCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Indicates a platform issue, which may be due to a transient condition or
+ *             outage.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>Indicates that something is wrong with the input to the request. For example, a
+ *             required parameter may be missing or out of range.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Indicates that the request was throttled.</p>
+ *
  *
  */
 export class ListNotebookMetadataCommand extends $Command<
@@ -62,6 +87,9 @@ export class ListNotebookMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListNotebookMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +118,8 @@ export class ListNotebookMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListNotebookMetadataInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListNotebookMetadataOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +129,18 @@ export class ListNotebookMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListNotebookMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListNotebookMetadataCommand(input, context);
+    return se_ListNotebookMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNotebookMetadataCommandOutput> {
-    return deserializeAws_json1_1ListNotebookMetadataCommand(output, context);
+    return de_ListNotebookMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

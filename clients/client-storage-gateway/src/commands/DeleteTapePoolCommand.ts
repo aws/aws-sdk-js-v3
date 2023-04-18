@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteTapePoolInput,
-  DeleteTapePoolInputFilterSensitiveLog,
-  DeleteTapePoolOutput,
-  DeleteTapePoolOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteTapePoolCommand,
-  serializeAws_json1_1DeleteTapePoolCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteTapePoolInput, DeleteTapePoolOutput } from "../models/models_0";
+import { de_DeleteTapePoolCommand, se_DeleteTapePoolCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteTapePoolCommand}.
+ */
 export interface DeleteTapePoolCommandInput extends DeleteTapePoolInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteTapePoolCommand}.
+ */
 export interface DeleteTapePoolCommandOutput extends DeleteTapePoolOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete a custom tape pool. A custom tape pool can only be deleted if there are no tapes
  *          in the pool and if there are no automatic tape creation policies that reference the custom
  *          tape pool.</p>
@@ -38,13 +41,27 @@ export interface DeleteTapePoolCommandOutput extends DeleteTapePoolOutput, __Met
  * import { StorageGatewayClient, DeleteTapePoolCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DeleteTapePoolCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // DeleteTapePoolInput
+ *   PoolARN: "STRING_VALUE", // required
+ * };
  * const command = new DeleteTapePoolCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTapePoolCommandInput - {@link DeleteTapePoolCommandInput}
+ * @returns {@link DeleteTapePoolCommandOutput}
  * @see {@link DeleteTapePoolCommandInput} for command's `input` shape.
  * @see {@link DeleteTapePoolCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error has occurred during the request. For more information, see the
+ *          error and message fields.</p>
+ *
+ * @throws {@link InvalidGatewayRequestException} (client fault)
+ *  <p>An exception occurred because an invalid gateway request was issued to the service. For
+ *          more information, see the error and message fields.</p>
+ *
  *
  */
 export class DeleteTapePoolCommand extends $Command<
@@ -64,6 +81,9 @@ export class DeleteTapePoolCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTapePoolCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +112,8 @@ export class DeleteTapePoolCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTapePoolInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTapePoolOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +123,18 @@ export class DeleteTapePoolCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTapePoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteTapePoolCommand(input, context);
+    return se_DeleteTapePoolCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTapePoolCommandOutput> {
-    return deserializeAws_json1_1DeleteTapePoolCommand(output, context);
+    return de_DeleteTapePoolCommand(output, context);
   }
 
   // Start section: command_body_extra

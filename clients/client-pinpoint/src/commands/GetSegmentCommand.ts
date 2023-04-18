@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetSegmentRequest,
-  GetSegmentRequestFilterSensitiveLog,
-  GetSegmentResponse,
-  GetSegmentResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { GetSegmentRequest, GetSegmentResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1GetSegmentCommand,
-  serializeAws_restJson1GetSegmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetSegmentCommand, se_GetSegmentCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetSegmentCommand}.
+ */
 export interface GetSegmentCommandInput extends GetSegmentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetSegmentCommand}.
+ */
 export interface GetSegmentCommandOutput extends GetSegmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the configuration, dimension, and other settings for a specific segment that's associated with an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,41 @@ export interface GetSegmentCommandOutput extends GetSegmentResponse, __MetadataB
  * import { PinpointClient, GetSegmentCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetSegmentCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // GetSegmentRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   SegmentId: "STRING_VALUE", // required
+ * };
  * const command = new GetSegmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSegmentCommandInput - {@link GetSegmentCommandInput}
+ * @returns {@link GetSegmentCommandOutput}
  * @see {@link GetSegmentCommandInput} for command's `input` shape.
  * @see {@link GetSegmentCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link MethodNotAllowedException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link PayloadTooLargeException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
  *
  */
 export class GetSegmentCommand extends $Command<
@@ -62,6 +93,9 @@ export class GetSegmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSegmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +122,8 @@ export class GetSegmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSegmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSegmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +133,18 @@ export class GetSegmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSegmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSegmentCommand(input, context);
+    return se_GetSegmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSegmentCommandOutput> {
-    return deserializeAws_restJson1GetSegmentCommand(output, context);
+    return de_GetSegmentCommand(output, context);
   }
 
   // Start section: command_body_extra

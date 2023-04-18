@@ -16,22 +16,31 @@ import {
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
 import {
   GetThirdPartyFirewallAssociationStatusRequest,
-  GetThirdPartyFirewallAssociationStatusRequestFilterSensitiveLog,
   GetThirdPartyFirewallAssociationStatusResponse,
-  GetThirdPartyFirewallAssociationStatusResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetThirdPartyFirewallAssociationStatusCommand,
-  serializeAws_json1_1GetThirdPartyFirewallAssociationStatusCommand,
+  de_GetThirdPartyFirewallAssociationStatusCommand,
+  se_GetThirdPartyFirewallAssociationStatusCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetThirdPartyFirewallAssociationStatusCommand}.
+ */
 export interface GetThirdPartyFirewallAssociationStatusCommandInput
   extends GetThirdPartyFirewallAssociationStatusRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetThirdPartyFirewallAssociationStatusCommand}.
+ */
 export interface GetThirdPartyFirewallAssociationStatusCommandOutput
   extends GetThirdPartyFirewallAssociationStatusResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>The onboarding status of a Firewall Manager admin account to third-party firewall vendor tenant.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +48,36 @@ export interface GetThirdPartyFirewallAssociationStatusCommandOutput
  * import { FMSClient, GetThirdPartyFirewallAssociationStatusCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, GetThirdPartyFirewallAssociationStatusCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
+ * const input = { // GetThirdPartyFirewallAssociationStatusRequest
+ *   ThirdPartyFirewall: "PALO_ALTO_NETWORKS_CLOUD_NGFW" || "FORTIGATE_CLOUD_NATIVE_FIREWALL", // required
+ * };
  * const command = new GetThirdPartyFirewallAssociationStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetThirdPartyFirewallAssociationStatusCommandInput - {@link GetThirdPartyFirewallAssociationStatusCommandInput}
+ * @returns {@link GetThirdPartyFirewallAssociationStatusCommandOutput}
  * @see {@link GetThirdPartyFirewallAssociationStatusCommandInput} for command's `input` shape.
  * @see {@link GetThirdPartyFirewallAssociationStatusCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (client fault)
+ *  <p>The operation failed because of a system problem, even though the request was valid. Retry
+ *       your request.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The parameters of the request were invalid.</p>
+ *
+ * @throws {@link InvalidOperationException} (client fault)
+ *  <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have
+ *         submitted an <code>AssociateAdminAccount</code> request for an account ID that
+ *             was already set as the Firewall Manager administrator. Or you might have tried to access a Region
+ *   that's disabled by default, and that you need to enable for the Firewall Manager
+ *   administrator account and for Organizations before you can access it.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class GetThirdPartyFirewallAssociationStatusCommand extends $Command<
@@ -65,6 +97,9 @@ export class GetThirdPartyFirewallAssociationStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetThirdPartyFirewallAssociationStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +128,8 @@ export class GetThirdPartyFirewallAssociationStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetThirdPartyFirewallAssociationStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetThirdPartyFirewallAssociationStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,18 +139,24 @@ export class GetThirdPartyFirewallAssociationStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetThirdPartyFirewallAssociationStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetThirdPartyFirewallAssociationStatusCommand(input, context);
+    return se_GetThirdPartyFirewallAssociationStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetThirdPartyFirewallAssociationStatusCommandOutput> {
-    return deserializeAws_json1_1GetThirdPartyFirewallAssociationStatusCommand(output, context);
+    return de_GetThirdPartyFirewallAssociationStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

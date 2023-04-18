@@ -25,15 +25,23 @@ import {
   DescribeUserPoolClientResponse,
   DescribeUserPoolClientResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeUserPoolClientCommand,
-  serializeAws_json1_1DescribeUserPoolClientCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeUserPoolClientCommand, se_DescribeUserPoolClientCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeUserPoolClientCommand}.
+ */
 export interface DescribeUserPoolClientCommandInput extends DescribeUserPoolClientRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeUserPoolClientCommand}.
+ */
 export interface DescribeUserPoolClientCommandOutput extends DescribeUserPoolClientResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Client method for returning the configuration information and metadata of the
  *             specified user pool app client.</p>
  * @example
@@ -42,13 +50,38 @@ export interface DescribeUserPoolClientCommandOutput extends DescribeUserPoolCli
  * import { CognitoIdentityProviderClient, DescribeUserPoolClientCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, DescribeUserPoolClientCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // DescribeUserPoolClientRequest
+ *   UserPoolId: "STRING_VALUE", // required
+ *   ClientId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeUserPoolClientCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeUserPoolClientCommandInput - {@link DescribeUserPoolClientCommandInput}
+ * @returns {@link DescribeUserPoolClientCommandOutput}
  * @see {@link DescribeUserPoolClientCommandInput} for command's `input` shape.
  * @see {@link DescribeUserPoolClientCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
+ *             parameter.</p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
+ *             resource.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>This exception is thrown when the user has made too many requests for a given
+ *             operation.</p>
+ *
  *
  */
 export class DescribeUserPoolClientCommand extends $Command<
@@ -68,6 +101,9 @@ export class DescribeUserPoolClientCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeUserPoolClientCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,12 +144,18 @@ export class DescribeUserPoolClientCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeUserPoolClientCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeUserPoolClientCommand(input, context);
+    return se_DescribeUserPoolClientCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeUserPoolClientCommandOutput> {
-    return deserializeAws_json1_1DescribeUserPoolClientCommand(output, context);
+    return de_DescribeUserPoolClientCommand(output, context);
   }
 
   // Start section: command_body_extra

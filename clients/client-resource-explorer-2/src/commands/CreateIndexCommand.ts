@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateIndexInput,
-  CreateIndexInputFilterSensitiveLog,
-  CreateIndexOutput,
-  CreateIndexOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateIndexCommand,
-  serializeAws_restJson1CreateIndexCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateIndexInput, CreateIndexOutput } from "../models/models_0";
+import { de_CreateIndexCommand, se_CreateIndexCommand } from "../protocols/Aws_restJson1";
 import {
   ResourceExplorer2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceExplorer2Client";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateIndexCommand}.
+ */
 export interface CreateIndexCommandInput extends CreateIndexInput {}
+/**
+ * @public
+ *
+ * The output of {@link CreateIndexCommand}.
+ */
 export interface CreateIndexCommandOutput extends CreateIndexOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Turns on Amazon Web Services Resource Explorer in the Amazon Web Services Region in which you called this operation by creating
  *             an index. Resource Explorer begins discovering the resources in this Region and stores the details
  *             about the resources in the index so that they can be queried by using the <a>Search</a> operation. You can create only one index in a Region.</p>
@@ -90,13 +93,44 @@ export interface CreateIndexCommandOutput extends CreateIndexOutput, __MetadataB
  * import { ResourceExplorer2Client, CreateIndexCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
  * // const { ResourceExplorer2Client, CreateIndexCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
  * const client = new ResourceExplorer2Client(config);
+ * const input = { // CreateIndexInput
+ *   ClientToken: "STRING_VALUE",
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateIndexCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateIndexCommandInput - {@link CreateIndexCommandInput}
+ * @returns {@link CreateIndexCommandOutput}
  * @see {@link CreateIndexCommandInput} for command's `input` shape.
  * @see {@link CreateIndexCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The credentials that you used to call this operation don't have the minimum required
+ *             permissions.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request failed because either you specified parameters that didn’t match the
+ *             original request, or you attempted to create a view with a name that already exists in
+ *             this Amazon Web Services Region.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request failed because of internal service error. Try your request again
+ *             later.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request failed because you exceeded a rate limit for this operation. For more
+ *             information, see <a href="https://docs.aws.amazon.com/arexug/mainline/quotas.html">Quotas
+ *                 for Resource Explorer</a>.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax
+ *             for the operation, and try again.</p>
+ *
  *
  */
 export class CreateIndexCommand extends $Command<
@@ -115,6 +149,9 @@ export class CreateIndexCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateIndexCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,8 +178,8 @@ export class CreateIndexCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateIndexInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateIndexOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -152,12 +189,18 @@ export class CreateIndexCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateIndexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateIndexCommand(input, context);
+    return se_CreateIndexCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateIndexCommandOutput> {
-    return deserializeAws_restJson1CreateIndexCommand(output, context);
+    return de_CreateIndexCommand(output, context);
   }
 
   // Start section: command_body_extra

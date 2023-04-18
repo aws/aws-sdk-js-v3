@@ -14,19 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
-import {
-  DeleteCertificateAuthorityRequest,
-  DeleteCertificateAuthorityRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteCertificateAuthorityCommand,
-  serializeAws_json1_1DeleteCertificateAuthorityCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteCertificateAuthorityRequest } from "../models/models_0";
+import { de_DeleteCertificateAuthorityCommand, se_DeleteCertificateAuthorityCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteCertificateAuthorityCommand}.
+ */
 export interface DeleteCertificateAuthorityCommandInput extends DeleteCertificateAuthorityRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteCertificateAuthorityCommand}.
+ */
 export interface DeleteCertificateAuthorityCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a private certificate authority (CA). You must provide the Amazon Resource
  * 			Name (ARN) of the private CA that you want to delete. You can find the ARN by calling
  * 			the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html">ListCertificateAuthorities</a> action. </p>
@@ -53,13 +58,34 @@ export interface DeleteCertificateAuthorityCommandOutput extends __MetadataBeare
  * import { ACMPCAClient, DeleteCertificateAuthorityCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
  * // const { ACMPCAClient, DeleteCertificateAuthorityCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
  * const client = new ACMPCAClient(config);
+ * const input = { // DeleteCertificateAuthorityRequest
+ *   CertificateAuthorityArn: "STRING_VALUE", // required
+ *   PermanentDeletionTimeInDays: Number("int"),
+ * };
  * const command = new DeleteCertificateAuthorityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCertificateAuthorityCommandInput - {@link DeleteCertificateAuthorityCommandInput}
+ * @returns {@link DeleteCertificateAuthorityCommandOutput}
  * @see {@link DeleteCertificateAuthorityCommandInput} for command's `input` shape.
  * @see {@link DeleteCertificateAuthorityCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>A previous update to your private CA is still ongoing.</p>
+ *
+ * @throws {@link InvalidArnException} (client fault)
+ *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing
+ * 			resource.</p>
+ *
+ * @throws {@link InvalidStateException} (client fault)
+ *  <p>The state of the private CA does not allow this action to occur.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy
+ * 			cannot be found.</p>
+ *
  *
  */
 export class DeleteCertificateAuthorityCommand extends $Command<
@@ -79,6 +105,9 @@ export class DeleteCertificateAuthorityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCertificateAuthorityCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +136,8 @@ export class DeleteCertificateAuthorityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCertificateAuthorityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,15 +147,21 @@ export class DeleteCertificateAuthorityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCertificateAuthorityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteCertificateAuthorityCommand(input, context);
+    return se_DeleteCertificateAuthorityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteCertificateAuthorityCommandOutput> {
-    return deserializeAws_json1_1DeleteCertificateAuthorityCommand(output, context);
+    return de_DeleteCertificateAuthorityCommand(output, context);
   }
 
   // Start section: command_body_extra

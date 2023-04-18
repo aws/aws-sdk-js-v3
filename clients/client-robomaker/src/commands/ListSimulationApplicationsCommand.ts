@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListSimulationApplicationsRequest,
-  ListSimulationApplicationsRequestFilterSensitiveLog,
-  ListSimulationApplicationsResponse,
-  ListSimulationApplicationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSimulationApplicationsCommand,
-  serializeAws_restJson1ListSimulationApplicationsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListSimulationApplicationsRequest, ListSimulationApplicationsResponse } from "../models/models_0";
+import { de_ListSimulationApplicationsCommand, se_ListSimulationApplicationsCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListSimulationApplicationsCommand}.
+ */
 export interface ListSimulationApplicationsCommandInput extends ListSimulationApplicationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListSimulationApplicationsCommand}.
+ */
 export interface ListSimulationApplicationsCommandOutput extends ListSimulationApplicationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of simulation applications. You can optionally provide filters to
  *          retrieve specific simulation applications. </p>
  * @example
@@ -37,13 +40,39 @@ export interface ListSimulationApplicationsCommandOutput extends ListSimulationA
  * import { RoboMakerClient, ListSimulationApplicationsCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, ListSimulationApplicationsCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = { // ListSimulationApplicationsRequest
+ *   versionQualifier: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   filters: [ // Filters
+ *     { // Filter
+ *       name: "STRING_VALUE",
+ *       values: [ // FilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new ListSimulationApplicationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSimulationApplicationsCommandInput - {@link ListSimulationApplicationsCommandInput}
+ * @returns {@link ListSimulationApplicationsCommandOutput}
  * @see {@link ListSimulationApplicationsCommandInput} for command's `input` shape.
  * @see {@link ListSimulationApplicationsCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>AWS RoboMaker experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter specified in a request is not valid, is unsupported, or cannot be used. The
+ *          returned message provides an explanation of the error value.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
+ *
  *
  */
 export class ListSimulationApplicationsCommand extends $Command<
@@ -63,6 +92,9 @@ export class ListSimulationApplicationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSimulationApplicationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +123,8 @@ export class ListSimulationApplicationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSimulationApplicationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSimulationApplicationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,15 +134,21 @@ export class ListSimulationApplicationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSimulationApplicationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSimulationApplicationsCommand(input, context);
+    return se_ListSimulationApplicationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSimulationApplicationsCommandOutput> {
-    return deserializeAws_restJson1ListSimulationApplicationsCommand(output, context);
+    return de_ListSimulationApplicationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -6,12 +6,11 @@ import {
   ListFHIRImportJobsCommandInput,
   ListFHIRImportJobsCommandOutput,
 } from "../commands/ListFHIRImportJobsCommand";
-import { HealthLake } from "../HealthLake";
 import { HealthLakeClient } from "../HealthLakeClient";
 import { HealthLakePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: HealthLakeClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListFHIRImportJobsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: HealthLake,
-  input: ListFHIRImportJobsCommandInput,
-  ...args: any
-): Promise<ListFHIRImportJobsCommandOutput> => {
-  // @ts-ignore
-  return await client.listFHIRImportJobs(input, ...args);
-};
 export async function* paginateListFHIRImportJobs(
   config: HealthLakePaginationConfiguration,
   input: ListFHIRImportJobsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListFHIRImportJobs(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof HealthLake) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof HealthLakeClient) {
+    if (config.client instanceof HealthLakeClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected HealthLake | HealthLakeClient");

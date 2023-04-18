@@ -14,18 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  DescribeTypeInput,
-  DescribeTypeInputFilterSensitiveLog,
-  DescribeTypeOutput,
-  DescribeTypeOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_queryDescribeTypeCommand, serializeAws_queryDescribeTypeCommand } from "../protocols/Aws_query";
+import { DescribeTypeInput, DescribeTypeOutput } from "../models/models_0";
+import { de_DescribeTypeCommand, se_DescribeTypeCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeTypeCommand}.
+ */
 export interface DescribeTypeCommandInput extends DescribeTypeInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeTypeCommand}.
+ */
 export interface DescribeTypeCommandOutput extends DescribeTypeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns detailed information about an extension that has been registered.</p>
  *          <p>If you specify a <code>VersionId</code>, <code>DescribeType</code> returns information
  *          about that specific extension version. Otherwise, it returns information about the default
@@ -36,13 +42,30 @@ export interface DescribeTypeCommandOutput extends DescribeTypeOutput, __Metadat
  * import { CloudFormationClient, DescribeTypeCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DescribeTypeCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // DescribeTypeInput
+ *   Type: "RESOURCE" || "MODULE" || "HOOK",
+ *   TypeName: "STRING_VALUE",
+ *   Arn: "STRING_VALUE",
+ *   VersionId: "STRING_VALUE",
+ *   PublisherId: "STRING_VALUE",
+ *   PublicVersionNumber: "STRING_VALUE",
+ * };
  * const command = new DescribeTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTypeCommandInput - {@link DescribeTypeCommandInput}
+ * @returns {@link DescribeTypeCommandOutput}
  * @see {@link DescribeTypeCommandInput} for command's `input` shape.
  * @see {@link DescribeTypeCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
+ *
+ * @throws {@link CFNRegistryException} (client fault)
+ *  <p>An error occurred during a CloudFormation registry operation.</p>
+ *
+ * @throws {@link TypeNotFoundException} (client fault)
+ *  <p>The specified extension doesn't exist in the CloudFormation registry.</p>
+ *
  *
  */
 export class DescribeTypeCommand extends $Command<
@@ -62,6 +85,9 @@ export class DescribeTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +114,8 @@ export class DescribeTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTypeInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTypeOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +125,18 @@ export class DescribeTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeTypeCommand(input, context);
+    return se_DescribeTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTypeCommandOutput> {
-    return deserializeAws_queryDescribeTypeCommand(output, context);
+    return de_DescribeTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

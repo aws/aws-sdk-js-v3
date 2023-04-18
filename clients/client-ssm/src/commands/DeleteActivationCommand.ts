@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteActivationRequest,
-  DeleteActivationRequestFilterSensitiveLog,
-  DeleteActivationResult,
-  DeleteActivationResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteActivationCommand,
-  serializeAws_json1_1DeleteActivationCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteActivationRequest, DeleteActivationResult } from "../models/models_0";
+import { de_DeleteActivationCommand, se_DeleteActivationCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteActivationCommand}.
+ */
 export interface DeleteActivationCommandInput extends DeleteActivationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteActivationCommand}.
+ */
 export interface DeleteActivationCommandOutput extends DeleteActivationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an activation. You aren't required to delete an activation. If you delete an
  *    activation, you can no longer use it to register additional managed nodes. Deleting an activation
  *    doesn't de-register managed nodes. You must manually de-register managed nodes.</p>
@@ -38,13 +41,33 @@ export interface DeleteActivationCommandOutput extends DeleteActivationResult, _
  * import { SSMClient, DeleteActivationCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DeleteActivationCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // DeleteActivationRequest
+ *   ActivationId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteActivationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteActivationCommandInput - {@link DeleteActivationCommandInput}
+ * @returns {@link DeleteActivationCommandOutput}
  * @see {@link DeleteActivationCommandInput} for command's `input` shape.
  * @see {@link DeleteActivationCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidActivation} (client fault)
+ *  <p>The activation isn't valid. The activation might have been deleted, or the ActivationId and
+ *    the ActivationCode don't match.</p>
+ *
+ * @throws {@link InvalidActivationId} (client fault)
+ *  <p>The activation ID isn't valid. Verify the you entered the correct ActivationId or
+ *    ActivationCode and try again.</p>
+ *
+ * @throws {@link TooManyUpdates} (client fault)
+ *  <p>There are concurrent updates for a resource that supports one update at a time.</p>
+ *
  *
  */
 export class DeleteActivationCommand extends $Command<
@@ -64,6 +87,9 @@ export class DeleteActivationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteActivationCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +118,8 @@ export class DeleteActivationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteActivationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteActivationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +129,18 @@ export class DeleteActivationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteActivationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteActivationCommand(input, context);
+    return se_DeleteActivationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteActivationCommandOutput> {
-    return deserializeAws_json1_1DeleteActivationCommand(output, context);
+    return de_DeleteActivationCommand(output, context);
   }
 
   // Start section: command_body_extra

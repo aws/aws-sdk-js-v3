@@ -12,14 +12,21 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { XmlMapsXmlNameInputOutput, XmlMapsXmlNameInputOutputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restXmlXmlMapsXmlNameCommand,
-  serializeAws_restXmlXmlMapsXmlNameCommand,
-} from "../protocols/Aws_restXml";
+import { XmlMapsXmlNameInputOutput } from "../models/models_0";
+import { de_XmlMapsXmlNameCommand, se_XmlMapsXmlNameCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
+/**
+ * @public
+ *
+ * The input for {@link XmlMapsXmlNameCommand}.
+ */
 export interface XmlMapsXmlNameCommandInput extends XmlMapsXmlNameInputOutput {}
+/**
+ * @public
+ *
+ * The output of {@link XmlMapsXmlNameCommand}.
+ */
 export interface XmlMapsXmlNameCommandOutput extends XmlMapsXmlNameInputOutput, __MetadataBearer {}
 
 export class XmlMapsXmlNameCommand extends $Command<
@@ -30,6 +37,9 @@ export class XmlMapsXmlNameCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: XmlMapsXmlNameCommandInput) {
     // Start section: command_constructor
     super();
@@ -55,8 +65,8 @@ export class XmlMapsXmlNameCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: XmlMapsXmlNameInputOutputFilterSensitiveLog,
-      outputFilterSensitiveLog: XmlMapsXmlNameInputOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -66,12 +76,18 @@ export class XmlMapsXmlNameCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: XmlMapsXmlNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlXmlMapsXmlNameCommand(input, context);
+    return se_XmlMapsXmlNameCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlMapsXmlNameCommandOutput> {
-    return deserializeAws_restXmlXmlMapsXmlNameCommand(output, context);
+    return de_XmlMapsXmlNameCommand(output, context);
   }
 
   // Start section: command_body_extra

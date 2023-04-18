@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  DisableClientAuthenticationRequest,
-  DisableClientAuthenticationRequestFilterSensitiveLog,
-  DisableClientAuthenticationResult,
-  DisableClientAuthenticationResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DisableClientAuthenticationCommand,
-  serializeAws_json1_1DisableClientAuthenticationCommand,
-} from "../protocols/Aws_json1_1";
+import { DisableClientAuthenticationRequest, DisableClientAuthenticationResult } from "../models/models_0";
+import { de_DisableClientAuthenticationCommand, se_DisableClientAuthenticationCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DisableClientAuthenticationCommand}.
+ */
 export interface DisableClientAuthenticationCommandInput extends DisableClientAuthenticationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisableClientAuthenticationCommand}.
+ */
 export interface DisableClientAuthenticationCommandOutput extends DisableClientAuthenticationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables alternative client authentication methods for the specified directory. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,38 @@ export interface DisableClientAuthenticationCommandOutput extends DisableClientA
  * import { DirectoryServiceClient, DisableClientAuthenticationCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DisableClientAuthenticationCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // DisableClientAuthenticationRequest
+ *   DirectoryId: "STRING_VALUE", // required
+ *   Type: "SmartCard" || "SmartCardOrPassword", // required
+ * };
  * const command = new DisableClientAuthenticationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableClientAuthenticationCommandInput - {@link DisableClientAuthenticationCommandInput}
+ * @returns {@link DisableClientAuthenticationCommandOutput}
  * @see {@link DisableClientAuthenticationCommandInput} for command's `input` shape.
  * @see {@link DisableClientAuthenticationCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Client authentication is not available in this region at this time.</p>
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>A client exception has occurred.</p>
+ *
+ * @throws {@link DirectoryDoesNotExistException} (client fault)
+ *  <p>The specified directory does not exist in the system.</p>
+ *
+ * @throws {@link InvalidClientAuthStatusException} (client fault)
+ *  <p>Client authentication is already enabled.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>An exception has occurred in Directory Service.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>The operation is not supported.</p>
+ *
  *
  */
 export class DisableClientAuthenticationCommand extends $Command<
@@ -62,6 +90,9 @@ export class DisableClientAuthenticationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableClientAuthenticationCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +121,8 @@ export class DisableClientAuthenticationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableClientAuthenticationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisableClientAuthenticationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +132,21 @@ export class DisableClientAuthenticationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableClientAuthenticationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisableClientAuthenticationCommand(input, context);
+    return se_DisableClientAuthenticationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisableClientAuthenticationCommandOutput> {
-    return deserializeAws_json1_1DisableClientAuthenticationCommand(output, context);
+    return de_DisableClientAuthenticationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import {
-  StartQueryRequest,
-  StartQueryRequestFilterSensitiveLog,
-  StartQueryResponse,
-  StartQueryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartQueryCommand,
-  serializeAws_json1_1StartQueryCommand,
-} from "../protocols/Aws_json1_1";
+import { StartQueryRequest, StartQueryResponse } from "../models/models_0";
+import { de_StartQueryCommand, se_StartQueryCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link StartQueryCommand}.
+ */
 export interface StartQueryCommandInput extends StartQueryRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartQueryCommand}.
+ */
 export interface StartQueryCommandOutput extends StartQueryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Schedules a query of a log group using CloudWatch Logs Insights. You specify the log group
  *       and time range to query and the query string to use.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch Logs Insights Query Syntax</a>.</p>
@@ -47,13 +50,48 @@ export interface StartQueryCommandOutput extends StartQueryResponse, __MetadataB
  * import { CloudWatchLogsClient, StartQueryCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, StartQueryCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = { // StartQueryRequest
+ *   logGroupName: "STRING_VALUE",
+ *   logGroupNames: [ // LogGroupNames
+ *     "STRING_VALUE",
+ *   ],
+ *   logGroupIdentifiers: [ // LogGroupIdentifiers
+ *     "STRING_VALUE",
+ *   ],
+ *   startTime: Number("long"), // required
+ *   endTime: Number("long"), // required
+ *   queryString: "STRING_VALUE", // required
+ *   limit: Number("int"),
+ * };
  * const command = new StartQueryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartQueryCommandInput - {@link StartQueryCommandInput}
+ * @returns {@link StartQueryCommandOutput}
  * @see {@link StartQueryCommandInput} for command's `input` shape.
  * @see {@link StartQueryCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter is specified incorrectly.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You have reached the maximum number of resources that can be created.</p>
+ *
+ * @throws {@link MalformedQueryException} (client fault)
+ *  <p>The query string is not valid. Details about this error are displayed in a
+ *       <code>QueryCompileError</code> object. For more information, see
+ *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_QueryCompileError.html">QueryCompileError</a>.</p>
+ *          <p>For more information about valid query syntax, see
+ *       <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch Logs Insights Query Syntax</a>.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service cannot complete the request.</p>
+ *
  *
  */
 export class StartQueryCommand extends $Command<
@@ -73,6 +111,9 @@ export class StartQueryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartQueryCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +140,8 @@ export class StartQueryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartQueryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartQueryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +151,18 @@ export class StartQueryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartQueryCommand(input, context);
+    return se_StartQueryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartQueryCommandOutput> {
-    return deserializeAws_json1_1StartQueryCommand(output, context);
+    return de_StartQueryCommand(output, context);
   }
 
   // Start section: command_body_extra

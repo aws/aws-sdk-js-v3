@@ -16,19 +16,26 @@ import {
 import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
 import {
   ListBillingGroupsInput,
-  ListBillingGroupsInputFilterSensitiveLog,
   ListBillingGroupsOutput,
   ListBillingGroupsOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListBillingGroupsCommand,
-  serializeAws_restJson1ListBillingGroupsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListBillingGroupsCommand, se_ListBillingGroupsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListBillingGroupsCommand}.
+ */
 export interface ListBillingGroupsCommandInput extends ListBillingGroupsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListBillingGroupsCommand}.
+ */
 export interface ListBillingGroupsCommandOutput extends ListBillingGroupsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>A paginated call to retrieve a list of billing groups for the given billing period. If you don't provide a billing group, the current billing period is used.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +43,49 @@ export interface ListBillingGroupsCommandOutput extends ListBillingGroupsOutput,
  * import { BillingconductorClient, ListBillingGroupsCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, ListBillingGroupsCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
  * const client = new BillingconductorClient(config);
+ * const input = { // ListBillingGroupsInput
+ *   BillingPeriod: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Filters: { // ListBillingGroupsFilter
+ *     Arns: [ // BillingGroupArnList
+ *       "STRING_VALUE",
+ *     ],
+ *     PricingPlan: "STRING_VALUE",
+ *     Statuses: [ // BillingGroupStatusList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new ListBillingGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBillingGroupsCommandInput - {@link ListBillingGroupsCommandInput}
+ * @returns {@link ListBillingGroupsCommandOutput}
  * @see {@link ListBillingGroupsCommandInput} for command's `input` shape.
  * @see {@link ListBillingGroupsCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.
+ *     </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred while processing a request.
+ *     </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a resource that doesn't exist.
+ *     </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.
+ *     </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+ *
  *
  */
 export class ListBillingGroupsCommand extends $Command<
@@ -62,6 +105,9 @@ export class ListBillingGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBillingGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +136,7 @@ export class ListBillingGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBillingGroupsInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListBillingGroupsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -101,12 +147,18 @@ export class ListBillingGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBillingGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListBillingGroupsCommand(input, context);
+    return se_ListBillingGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBillingGroupsCommandOutput> {
-    return deserializeAws_restJson1ListBillingGroupsCommand(output, context);
+    return de_ListBillingGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

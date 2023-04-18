@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RenderUiTemplateRequest,
-  RenderUiTemplateRequestFilterSensitiveLog,
-  RenderUiTemplateResponse,
-  RenderUiTemplateResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1RenderUiTemplateCommand,
-  serializeAws_json1_1RenderUiTemplateCommand,
-} from "../protocols/Aws_json1_1";
+import { RenderUiTemplateRequest, RenderUiTemplateResponse } from "../models/models_3";
+import { de_RenderUiTemplateCommand, se_RenderUiTemplateCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link RenderUiTemplateCommand}.
+ */
 export interface RenderUiTemplateCommandInput extends RenderUiTemplateRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RenderUiTemplateCommand}.
+ */
 export interface RenderUiTemplateCommandOutput extends RenderUiTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Renders the UI template so that you can preview the worker's experience. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,29 @@ export interface RenderUiTemplateCommandOutput extends RenderUiTemplateResponse,
  * import { SageMakerClient, RenderUiTemplateCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, RenderUiTemplateCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // RenderUiTemplateRequest
+ *   UiTemplate: { // UiTemplate
+ *     Content: "STRING_VALUE", // required
+ *   },
+ *   Task: { // RenderableTask
+ *     Input: "STRING_VALUE", // required
+ *   },
+ *   RoleArn: "STRING_VALUE", // required
+ *   HumanTaskUiArn: "STRING_VALUE",
+ * };
  * const command = new RenderUiTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RenderUiTemplateCommandInput - {@link RenderUiTemplateCommandInput}
+ * @returns {@link RenderUiTemplateCommandOutput}
  * @see {@link RenderUiTemplateCommandInput} for command's `input` shape.
  * @see {@link RenderUiTemplateCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class RenderUiTemplateCommand extends $Command<
@@ -62,6 +81,9 @@ export class RenderUiTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RenderUiTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +112,8 @@ export class RenderUiTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RenderUiTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RenderUiTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +123,18 @@ export class RenderUiTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RenderUiTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RenderUiTemplateCommand(input, context);
+    return se_RenderUiTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RenderUiTemplateCommandOutput> {
-    return deserializeAws_json1_1RenderUiTemplateCommand(output, context);
+    return de_RenderUiTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

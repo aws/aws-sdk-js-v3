@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { TagServerCertificateRequest, TagServerCertificateRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryTagServerCertificateCommand,
-  serializeAws_queryTagServerCertificateCommand,
-} from "../protocols/Aws_query";
+import { TagServerCertificateRequest } from "../models/models_0";
+import { de_TagServerCertificateCommand, se_TagServerCertificateCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link TagServerCertificateCommand}.
+ */
 export interface TagServerCertificateCommandInput extends TagServerCertificateRequest {}
+/**
+ * @public
+ *
+ * The output of {@link TagServerCertificateCommand}.
+ */
 export interface TagServerCertificateCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds one or more tags to an IAM server certificate. If a tag with the same key name
  *       already exists, then that tag is overwritten with the new value.</p>
  *          <note>
@@ -78,13 +86,45 @@ export interface TagServerCertificateCommandOutput extends __MetadataBearer {}
  * import { IAMClient, TagServerCertificateCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, TagServerCertificateCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // TagServerCertificateRequest
+ *   ServerCertificateName: "STRING_VALUE", // required
+ *   Tags: [ // tagListType // required
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new TagServerCertificateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TagServerCertificateCommandInput - {@link TagServerCertificateCommandInput}
+ * @returns {@link TagServerCertificateCommandOutput}
  * @see {@link TagServerCertificateCommandInput} for command's `input` shape.
  * @see {@link TagServerCertificateCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>The request was rejected because multiple requests to change this object were submitted
+ *       simultaneously. Wait a few minutes and submit your request again.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
+ *       input parameter.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request was rejected because it attempted to create resources beyond the current
+ *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
  *
  */
 export class TagServerCertificateCommand extends $Command<
@@ -104,6 +144,9 @@ export class TagServerCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TagServerCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,8 +175,8 @@ export class TagServerCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagServerCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,12 +186,18 @@ export class TagServerCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TagServerCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryTagServerCertificateCommand(input, context);
+    return se_TagServerCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagServerCertificateCommandOutput> {
-    return deserializeAws_queryTagServerCertificateCommand(output, context);
+    return de_TagServerCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

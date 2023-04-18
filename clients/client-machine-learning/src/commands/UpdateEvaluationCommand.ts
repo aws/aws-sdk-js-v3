@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import {
-  UpdateEvaluationInput,
-  UpdateEvaluationInputFilterSensitiveLog,
-  UpdateEvaluationOutput,
-  UpdateEvaluationOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateEvaluationCommand,
-  serializeAws_json1_1UpdateEvaluationCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateEvaluationInput, UpdateEvaluationOutput } from "../models/models_0";
+import { de_UpdateEvaluationCommand, se_UpdateEvaluationCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateEvaluationCommand}.
+ */
 export interface UpdateEvaluationCommandInput extends UpdateEvaluationInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateEvaluationCommand}.
+ */
 export interface UpdateEvaluationCommandOutput extends UpdateEvaluationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the <code>EvaluationName</code> of an <code>Evaluation</code>.</p>
  *         <p>You can use the <code>GetEvaluation</code> operation to view the contents of the updated data element.</p>
  * @example
@@ -37,13 +40,29 @@ export interface UpdateEvaluationCommandOutput extends UpdateEvaluationOutput, _
  * import { MachineLearningClient, UpdateEvaluationCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, UpdateEvaluationCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
+ * const input = { // UpdateEvaluationInput
+ *   EvaluationId: "STRING_VALUE", // required
+ *   EvaluationName: "STRING_VALUE", // required
+ * };
  * const command = new UpdateEvaluationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEvaluationCommandInput - {@link UpdateEvaluationCommandInput}
+ * @returns {@link UpdateEvaluationCommandOutput}
  * @see {@link UpdateEvaluationCommandInput} for command's `input` shape.
  * @see {@link UpdateEvaluationCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An error on the server occurred when trying to process a request.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A specified resource cannot be located.</p>
+ *
  *
  */
 export class UpdateEvaluationCommand extends $Command<
@@ -63,6 +82,9 @@ export class UpdateEvaluationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEvaluationCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +113,8 @@ export class UpdateEvaluationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateEvaluationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateEvaluationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +124,18 @@ export class UpdateEvaluationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateEvaluationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateEvaluationCommand(input, context);
+    return se_UpdateEvaluationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEvaluationCommandOutput> {
-    return deserializeAws_json1_1UpdateEvaluationCommand(output, context);
+    return de_UpdateEvaluationCommand(output, context);
   }
 
   // Start section: command_body_extra

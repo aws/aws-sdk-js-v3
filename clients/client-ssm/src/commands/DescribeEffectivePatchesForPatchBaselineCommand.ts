@@ -15,23 +15,32 @@ import {
 
 import {
   DescribeEffectivePatchesForPatchBaselineRequest,
-  DescribeEffectivePatchesForPatchBaselineRequestFilterSensitiveLog,
   DescribeEffectivePatchesForPatchBaselineResult,
-  DescribeEffectivePatchesForPatchBaselineResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeEffectivePatchesForPatchBaselineCommand,
-  serializeAws_json1_1DescribeEffectivePatchesForPatchBaselineCommand,
+  de_DescribeEffectivePatchesForPatchBaselineCommand,
+  se_DescribeEffectivePatchesForPatchBaselineCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeEffectivePatchesForPatchBaselineCommand}.
+ */
 export interface DescribeEffectivePatchesForPatchBaselineCommandInput
   extends DescribeEffectivePatchesForPatchBaselineRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeEffectivePatchesForPatchBaselineCommand}.
+ */
 export interface DescribeEffectivePatchesForPatchBaselineCommandOutput
   extends DescribeEffectivePatchesForPatchBaselineResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the current effective patches (the patch and the approval state) for the specified
  *    patch baseline. Applies to patch baselines for Windows only.</p>
  * @example
@@ -40,13 +49,37 @@ export interface DescribeEffectivePatchesForPatchBaselineCommandOutput
  * import { SSMClient, DescribeEffectivePatchesForPatchBaselineCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeEffectivePatchesForPatchBaselineCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // DescribeEffectivePatchesForPatchBaselineRequest
+ *   BaselineId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeEffectivePatchesForPatchBaselineCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEffectivePatchesForPatchBaselineCommandInput - {@link DescribeEffectivePatchesForPatchBaselineCommandInput}
+ * @returns {@link DescribeEffectivePatchesForPatchBaselineCommandOutput}
  * @see {@link DescribeEffectivePatchesForPatchBaselineCommandInput} for command's `input` shape.
  * @see {@link DescribeEffectivePatchesForPatchBaselineCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link DoesNotExistException} (client fault)
+ *  <p>Error returned when the ID specified for a resource, such as a maintenance window or patch
+ *    baseline, doesn't exist.</p>
+ *          <p>For information about resource quotas in Amazon Web Services Systems Manager, see <a href="https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm">Systems Manager service quotas</a> in the
+ *     <i>Amazon Web Services General Reference</i>.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidResourceId} (client fault)
+ *  <p>The resource ID isn't valid. Verify that you entered the correct ID and try again.</p>
+ *
+ * @throws {@link UnsupportedOperatingSystem} (client fault)
+ *  <p>The operating systems you specified isn't supported, or the operation isn't supported for
+ *    the operating system.</p>
+ *
  *
  */
 export class DescribeEffectivePatchesForPatchBaselineCommand extends $Command<
@@ -66,6 +99,9 @@ export class DescribeEffectivePatchesForPatchBaselineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEffectivePatchesForPatchBaselineCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +136,8 @@ export class DescribeEffectivePatchesForPatchBaselineCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEffectivePatchesForPatchBaselineRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEffectivePatchesForPatchBaselineResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,18 +147,24 @@ export class DescribeEffectivePatchesForPatchBaselineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeEffectivePatchesForPatchBaselineCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEffectivePatchesForPatchBaselineCommand(input, context);
+    return se_DescribeEffectivePatchesForPatchBaselineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEffectivePatchesForPatchBaselineCommandOutput> {
-    return deserializeAws_json1_1DescribeEffectivePatchesForPatchBaselineCommand(output, context);
+    return de_DescribeEffectivePatchesForPatchBaselineCommand(output, context);
   }
 
   // Start section: command_body_extra

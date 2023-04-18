@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListScheduleGroupsInput,
-  ListScheduleGroupsInputFilterSensitiveLog,
-  ListScheduleGroupsOutput,
-  ListScheduleGroupsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListScheduleGroupsCommand,
-  serializeAws_restJson1ListScheduleGroupsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListScheduleGroupsInput, ListScheduleGroupsOutput } from "../models/models_0";
+import { de_ListScheduleGroupsCommand, se_ListScheduleGroupsCommand } from "../protocols/Aws_restJson1";
 import { SchedulerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchedulerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListScheduleGroupsCommand}.
+ */
 export interface ListScheduleGroupsCommandInput extends ListScheduleGroupsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListScheduleGroupsCommand}.
+ */
 export interface ListScheduleGroupsCommandOutput extends ListScheduleGroupsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a paginated list of your schedule groups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,30 @@ export interface ListScheduleGroupsCommandOutput extends ListScheduleGroupsOutpu
  * import { SchedulerClient, ListScheduleGroupsCommand } from "@aws-sdk/client-scheduler"; // ES Modules import
  * // const { SchedulerClient, ListScheduleGroupsCommand } = require("@aws-sdk/client-scheduler"); // CommonJS import
  * const client = new SchedulerClient(config);
+ * const input = { // ListScheduleGroupsInput
+ *   NamePrefix: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListScheduleGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListScheduleGroupsCommandInput - {@link ListScheduleGroupsCommandInput}
+ * @returns {@link ListScheduleGroupsCommandOutput}
  * @see {@link ListScheduleGroupsCommandInput} for command's `input` shape.
  * @see {@link ListScheduleGroupsCommandOutput} for command's `response` shape.
  * @see {@link SchedulerClientResolvedConfig | config} for SchedulerClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Unexpected error encountered while processing the request.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
  *
  */
 export class ListScheduleGroupsCommand extends $Command<
@@ -62,6 +82,9 @@ export class ListScheduleGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListScheduleGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +113,8 @@ export class ListScheduleGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListScheduleGroupsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListScheduleGroupsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +124,18 @@ export class ListScheduleGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListScheduleGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListScheduleGroupsCommand(input, context);
+    return se_ListScheduleGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListScheduleGroupsCommandOutput> {
-    return deserializeAws_restJson1ListScheduleGroupsCommand(output, context);
+    return de_ListScheduleGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

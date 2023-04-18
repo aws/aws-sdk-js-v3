@@ -14,19 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SendMessageRequest,
-  SendMessageRequestFilterSensitiveLog,
-  SendMessageResult,
-  SendMessageResultFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_querySendMessageCommand, serializeAws_querySendMessageCommand } from "../protocols/Aws_query";
+import { SendMessageRequest, SendMessageResult } from "../models/models_0";
+import { de_SendMessageCommand, se_SendMessageCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link SendMessageCommand}.
+ */
 export interface SendMessageCommandInput extends SendMessageRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SendMessageCommand}.
+ */
 export interface SendMessageCommandOutput extends SendMessageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delivers a message to the specified queue.</p>
  *          <important>
  *            <p>A message can include only XML, JSON, and unformatted text. The following Unicode characters are allowed:</p>
@@ -41,13 +47,55 @@ export interface SendMessageCommandOutput extends SendMessageResult, __MetadataB
  * import { SQSClient, SendMessageCommand } from "@aws-sdk/client-sqs"; // ES Modules import
  * // const { SQSClient, SendMessageCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
  * const client = new SQSClient(config);
+ * const input = { // SendMessageRequest
+ *   QueueUrl: "STRING_VALUE", // required
+ *   MessageBody: "STRING_VALUE", // required
+ *   DelaySeconds: Number("int"),
+ *   MessageAttributes: { // MessageBodyAttributeMap
+ *     "<keys>": { // MessageAttributeValue
+ *       StringValue: "STRING_VALUE",
+ *       BinaryValue: "BLOB_VALUE",
+ *       StringListValues: [ // StringList
+ *         "STRING_VALUE",
+ *       ],
+ *       BinaryListValues: [ // BinaryList
+ *         "BLOB_VALUE",
+ *       ],
+ *       DataType: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   MessageSystemAttributes: { // MessageBodySystemAttributeMap
+ *     "<keys>": { // MessageSystemAttributeValue
+ *       StringValue: "STRING_VALUE",
+ *       BinaryValue: "BLOB_VALUE",
+ *       StringListValues: [
+ *         "STRING_VALUE",
+ *       ],
+ *       BinaryListValues: [
+ *         "BLOB_VALUE",
+ *       ],
+ *       DataType: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   MessageDeduplicationId: "STRING_VALUE",
+ *   MessageGroupId: "STRING_VALUE",
+ * };
  * const command = new SendMessageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SendMessageCommandInput - {@link SendMessageCommandInput}
+ * @returns {@link SendMessageCommandOutput}
  * @see {@link SendMessageCommandInput} for command's `input` shape.
  * @see {@link SendMessageCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
+ *
+ * @throws {@link InvalidMessageContents} (client fault)
+ *  <p>The message contains characters outside the allowed set.</p>
+ *
+ * @throws {@link UnsupportedOperation} (client fault)
+ *  <p>Error code 400. Unsupported operation.</p>
+ *
  *
  */
 export class SendMessageCommand extends $Command<
@@ -67,6 +115,9 @@ export class SendMessageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendMessageCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +145,8 @@ export class SendMessageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendMessageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SendMessageResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +156,18 @@ export class SendMessageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySendMessageCommand(input, context);
+    return se_SendMessageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendMessageCommandOutput> {
-    return deserializeAws_querySendMessageCommand(output, context);
+    return de_SendMessageCommand(output, context);
   }
 
   // Start section: command_body_extra

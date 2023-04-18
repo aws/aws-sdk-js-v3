@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  EnableFastSnapshotRestoresRequest,
-  EnableFastSnapshotRestoresRequestFilterSensitiveLog,
-  EnableFastSnapshotRestoresResult,
-  EnableFastSnapshotRestoresResultFilterSensitiveLog,
-} from "../models/models_5";
-import {
-  deserializeAws_ec2EnableFastSnapshotRestoresCommand,
-  serializeAws_ec2EnableFastSnapshotRestoresCommand,
-} from "../protocols/Aws_ec2";
+import { EnableFastSnapshotRestoresRequest, EnableFastSnapshotRestoresResult } from "../models/models_5";
+import { de_EnableFastSnapshotRestoresCommand, se_EnableFastSnapshotRestoresCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link EnableFastSnapshotRestoresCommand}.
+ */
 export interface EnableFastSnapshotRestoresCommandInput extends EnableFastSnapshotRestoresRequest {}
+/**
+ * @public
+ *
+ * The output of {@link EnableFastSnapshotRestoresCommand}.
+ */
 export interface EnableFastSnapshotRestoresCommandOutput extends EnableFastSnapshotRestoresResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables fast snapshot restores for the specified snapshots in the specified Availability Zones.</p>
  *          <p>You get the full benefit of fast snapshot restores after they enter the <code>enabled</code> state.
  *       To get the current state of fast snapshot restores, use <a>DescribeFastSnapshotRestores</a>.
@@ -41,13 +44,25 @@ export interface EnableFastSnapshotRestoresCommandOutput extends EnableFastSnaps
  * import { EC2Client, EnableFastSnapshotRestoresCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, EnableFastSnapshotRestoresCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // EnableFastSnapshotRestoresRequest
+ *   AvailabilityZones: [ // AvailabilityZoneStringList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   SourceSnapshotIds: [ // SnapshotIdStringList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   DryRun: true || false,
+ * };
  * const command = new EnableFastSnapshotRestoresCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableFastSnapshotRestoresCommandInput - {@link EnableFastSnapshotRestoresCommandInput}
+ * @returns {@link EnableFastSnapshotRestoresCommandOutput}
  * @see {@link EnableFastSnapshotRestoresCommandInput} for command's `input` shape.
  * @see {@link EnableFastSnapshotRestoresCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class EnableFastSnapshotRestoresCommand extends $Command<
@@ -67,6 +82,9 @@ export class EnableFastSnapshotRestoresCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableFastSnapshotRestoresCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +113,8 @@ export class EnableFastSnapshotRestoresCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableFastSnapshotRestoresRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: EnableFastSnapshotRestoresResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,15 +124,21 @@ export class EnableFastSnapshotRestoresCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableFastSnapshotRestoresCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2EnableFastSnapshotRestoresCommand(input, context);
+    return se_EnableFastSnapshotRestoresCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EnableFastSnapshotRestoresCommandOutput> {
-    return deserializeAws_ec2EnableFastSnapshotRestoresCommand(output, context);
+    return de_EnableFastSnapshotRestoresCommand(output, context);
   }
 
   // Start section: command_body_extra

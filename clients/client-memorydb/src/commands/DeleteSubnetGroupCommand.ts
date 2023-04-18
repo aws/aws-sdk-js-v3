@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
-import {
-  DeleteSubnetGroupRequest,
-  DeleteSubnetGroupRequestFilterSensitiveLog,
-  DeleteSubnetGroupResponse,
-  DeleteSubnetGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteSubnetGroupCommand,
-  serializeAws_json1_1DeleteSubnetGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteSubnetGroupRequest, DeleteSubnetGroupResponse } from "../models/models_0";
+import { de_DeleteSubnetGroupCommand, se_DeleteSubnetGroupCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteSubnetGroupCommand}.
+ */
 export interface DeleteSubnetGroupCommandInput extends DeleteSubnetGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteSubnetGroupCommand}.
+ */
 export interface DeleteSubnetGroupCommandOutput extends DeleteSubnetGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a subnet group. You cannot delete a default subnet group or one that is associated with any clusters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,28 @@ export interface DeleteSubnetGroupCommandOutput extends DeleteSubnetGroupRespons
  * import { MemoryDBClient, DeleteSubnetGroupCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, DeleteSubnetGroupCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
  * const client = new MemoryDBClient(config);
+ * const input = { // DeleteSubnetGroupRequest
+ *   SubnetGroupName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSubnetGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSubnetGroupCommandInput - {@link DeleteSubnetGroupCommandInput}
+ * @returns {@link DeleteSubnetGroupCommandOutput}
  * @see {@link DeleteSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
+ *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link SubnetGroupInUseFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link SubnetGroupNotFoundFault} (client fault)
+ *  <p></p>
+ *
  *
  */
 export class DeleteSubnetGroupCommand extends $Command<
@@ -62,6 +80,9 @@ export class DeleteSubnetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSubnetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +111,8 @@ export class DeleteSubnetGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSubnetGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSubnetGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +122,18 @@ export class DeleteSubnetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteSubnetGroupCommand(input, context);
+    return se_DeleteSubnetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSubnetGroupCommandOutput> {
-    return deserializeAws_json1_1DeleteSubnetGroupCommand(output, context);
+    return de_DeleteSubnetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import { CancelUpdateStackInput, CancelUpdateStackInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryCancelUpdateStackCommand,
-  serializeAws_queryCancelUpdateStackCommand,
-} from "../protocols/Aws_query";
+import { CancelUpdateStackInput } from "../models/models_0";
+import { de_CancelUpdateStackCommand, se_CancelUpdateStackCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link CancelUpdateStackCommand}.
+ */
 export interface CancelUpdateStackCommandInput extends CancelUpdateStackInput {}
+/**
+ * @public
+ *
+ * The output of {@link CancelUpdateStackCommand}.
+ */
 export interface CancelUpdateStackCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels an update on the specified stack. If the call completes successfully, the stack
  *          rolls back the update and reverts to the previous stack configuration.</p>
  *          <note>
@@ -36,13 +44,23 @@ export interface CancelUpdateStackCommandOutput extends __MetadataBearer {}
  * import { CloudFormationClient, CancelUpdateStackCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, CancelUpdateStackCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // CancelUpdateStackInput
+ *   StackName: "STRING_VALUE", // required
+ *   ClientRequestToken: "STRING_VALUE",
+ * };
  * const command = new CancelUpdateStackCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelUpdateStackCommandInput - {@link CancelUpdateStackCommandInput}
+ * @returns {@link CancelUpdateStackCommandOutput}
  * @see {@link CancelUpdateStackCommandInput} for command's `input` shape.
  * @see {@link CancelUpdateStackCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
+ *
+ * @throws {@link TokenAlreadyExistsException} (client fault)
+ *  <p>A client request token already exists.</p>
+ *
  *
  */
 export class CancelUpdateStackCommand extends $Command<
@@ -62,6 +80,9 @@ export class CancelUpdateStackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelUpdateStackCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +111,8 @@ export class CancelUpdateStackCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelUpdateStackInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +122,18 @@ export class CancelUpdateStackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelUpdateStackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCancelUpdateStackCommand(input, context);
+    return se_CancelUpdateStackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelUpdateStackCommandOutput> {
-    return deserializeAws_queryCancelUpdateStackCommand(output, context);
+    return de_CancelUpdateStackCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SearchProductsInput,
-  SearchProductsInputFilterSensitiveLog,
-  SearchProductsOutput,
-  SearchProductsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1SearchProductsCommand,
-  serializeAws_json1_1SearchProductsCommand,
-} from "../protocols/Aws_json1_1";
+import { SearchProductsInput, SearchProductsOutput } from "../models/models_0";
+import { de_SearchProductsCommand, se_SearchProductsCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * @public
+ *
+ * The input for {@link SearchProductsCommand}.
+ */
 export interface SearchProductsCommandInput extends SearchProductsInput {}
+/**
+ * @public
+ *
+ * The output of {@link SearchProductsCommand}.
+ */
 export interface SearchProductsCommandOutput extends SearchProductsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the products to which the caller has access.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,31 @@ export interface SearchProductsCommandOutput extends SearchProductsOutput, __Met
  * import { ServiceCatalogClient, SearchProductsCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, SearchProductsCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // SearchProductsInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   Filters: { // ProductViewFilters
+ *     "<keys>": [ // ProductViewFilterValues
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   PageSize: Number("int"),
+ *   SortBy: "Title" || "VersionCount" || "CreationDate",
+ *   SortOrder: "ASCENDING" || "DESCENDING",
+ *   PageToken: "STRING_VALUE",
+ * };
  * const command = new SearchProductsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchProductsCommandInput - {@link SearchProductsCommandInput}
+ * @returns {@link SearchProductsCommandOutput}
  * @see {@link SearchProductsCommandInput} for command's `input` shape.
  * @see {@link SearchProductsCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
+ *
+ * @throws {@link InvalidParametersException} (client fault)
+ *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
  *
  */
 export class SearchProductsCommand extends $Command<
@@ -62,6 +83,9 @@ export class SearchProductsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchProductsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +114,8 @@ export class SearchProductsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchProductsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchProductsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +125,18 @@ export class SearchProductsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchProductsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SearchProductsCommand(input, context);
+    return se_SearchProductsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchProductsCommandOutput> {
-    return deserializeAws_json1_1SearchProductsCommand(output, context);
+    return de_SearchProductsCommand(output, context);
   }
 
   // Start section: command_body_extra

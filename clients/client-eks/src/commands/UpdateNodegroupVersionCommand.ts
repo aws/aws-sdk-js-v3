@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import {
-  UpdateNodegroupVersionRequest,
-  UpdateNodegroupVersionRequestFilterSensitiveLog,
-  UpdateNodegroupVersionResponse,
-  UpdateNodegroupVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateNodegroupVersionCommand,
-  serializeAws_restJson1UpdateNodegroupVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateNodegroupVersionRequest, UpdateNodegroupVersionResponse } from "../models/models_0";
+import { de_UpdateNodegroupVersionCommand, se_UpdateNodegroupVersionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateNodegroupVersionCommand}.
+ */
 export interface UpdateNodegroupVersionCommandInput extends UpdateNodegroupVersionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateNodegroupVersionCommand}.
+ */
 export interface UpdateNodegroupVersionCommandOutput extends UpdateNodegroupVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the Kubernetes version or AMI version of an Amazon EKS managed node
  *             group.</p>
  *          <p>You can update a node group using a launch template only if the node group was
@@ -56,13 +59,54 @@ export interface UpdateNodegroupVersionCommandOutput extends UpdateNodegroupVers
  * import { EKSClient, UpdateNodegroupVersionCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, UpdateNodegroupVersionCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
+ * const input = { // UpdateNodegroupVersionRequest
+ *   clusterName: "STRING_VALUE", // required
+ *   nodegroupName: "STRING_VALUE", // required
+ *   version: "STRING_VALUE",
+ *   releaseVersion: "STRING_VALUE",
+ *   launchTemplate: { // LaunchTemplateSpecification
+ *     name: "STRING_VALUE",
+ *     version: "STRING_VALUE",
+ *     id: "STRING_VALUE",
+ *   },
+ *   force: true || false,
+ *   clientRequestToken: "STRING_VALUE",
+ * };
  * const command = new UpdateNodegroupVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateNodegroupVersionCommandInput - {@link UpdateNodegroupVersionCommandInput}
+ * @returns {@link UpdateNodegroupVersionCommandOutput}
  * @see {@link UpdateNodegroupVersionCommandInput} for command's `input` shape.
  * @see {@link UpdateNodegroupVersionCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action. Actions can include using an
+ *             action or resource on behalf of a user that doesn't have permissions to use the action
+ *             or resource or specifying an identifier that is not valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *             request.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid given the state of the cluster. Check the state of the cluster
+ *             and the associated operations.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is in use.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found. You can view your available clusters with
+ *                 <a>ListClusters</a>. You can view your available managed node groups with
+ *                 <a>ListNodegroups</a>. Amazon EKS clusters and node groups are
+ *             Region-specific.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
  *
  */
 export class UpdateNodegroupVersionCommand extends $Command<
@@ -82,6 +126,9 @@ export class UpdateNodegroupVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateNodegroupVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +157,8 @@ export class UpdateNodegroupVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateNodegroupVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateNodegroupVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +168,18 @@ export class UpdateNodegroupVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateNodegroupVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateNodegroupVersionCommand(input, context);
+    return se_UpdateNodegroupVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateNodegroupVersionCommandOutput> {
-    return deserializeAws_restJson1UpdateNodegroupVersionCommand(output, context);
+    return de_UpdateNodegroupVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

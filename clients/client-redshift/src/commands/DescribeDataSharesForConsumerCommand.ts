@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DescribeDataSharesForConsumerMessage, DescribeDataSharesForConsumerResult } from "../models/models_0";
 import {
-  DescribeDataSharesForConsumerMessage,
-  DescribeDataSharesForConsumerMessageFilterSensitiveLog,
-  DescribeDataSharesForConsumerResult,
-  DescribeDataSharesForConsumerResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeDataSharesForConsumerCommand,
-  serializeAws_queryDescribeDataSharesForConsumerCommand,
+  de_DescribeDataSharesForConsumerCommand,
+  se_DescribeDataSharesForConsumerCommand,
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeDataSharesForConsumerCommand}.
+ */
 export interface DescribeDataSharesForConsumerCommandInput extends DescribeDataSharesForConsumerMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeDataSharesForConsumerCommand}.
+ */
 export interface DescribeDataSharesForConsumerCommandOutput
   extends DescribeDataSharesForConsumerResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of datashares where the account identifier being called is a consumer account identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,25 @@ export interface DescribeDataSharesForConsumerCommandOutput
  * import { RedshiftClient, DescribeDataSharesForConsumerCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeDataSharesForConsumerCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DescribeDataSharesForConsumerMessage
+ *   ConsumerArn: "STRING_VALUE",
+ *   Status: "ACTIVE" || "AVAILABLE",
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeDataSharesForConsumerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDataSharesForConsumerCommandInput - {@link DescribeDataSharesForConsumerCommandInput}
+ * @returns {@link DescribeDataSharesForConsumerCommandOutput}
  * @see {@link DescribeDataSharesForConsumerCommandInput} for command's `input` shape.
  * @see {@link DescribeDataSharesForConsumerCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
+ *
+ * @throws {@link InvalidNamespaceFault} (client fault)
+ *  <p>The namespace isn't valid because the namespace doesn't exist. Provide a valid namespace.</p>
+ *
  *
  */
 export class DescribeDataSharesForConsumerCommand extends $Command<
@@ -64,6 +82,9 @@ export class DescribeDataSharesForConsumerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDataSharesForConsumerCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +113,8 @@ export class DescribeDataSharesForConsumerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDataSharesForConsumerMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDataSharesForConsumerResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +124,21 @@ export class DescribeDataSharesForConsumerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDataSharesForConsumerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDataSharesForConsumerCommand(input, context);
+    return se_DescribeDataSharesForConsumerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDataSharesForConsumerCommandOutput> {
-    return deserializeAws_queryDescribeDataSharesForConsumerCommand(output, context);
+    return de_DescribeDataSharesForConsumerCommand(output, context);
   }
 
   // Start section: command_body_extra

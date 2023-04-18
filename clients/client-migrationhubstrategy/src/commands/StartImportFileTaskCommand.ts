@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
-import {
-  StartImportFileTaskRequest,
-  StartImportFileTaskRequestFilterSensitiveLog,
-  StartImportFileTaskResponse,
-  StartImportFileTaskResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StartImportFileTaskCommand,
-  serializeAws_restJson1StartImportFileTaskCommand,
-} from "../protocols/Aws_restJson1";
+import { StartImportFileTaskRequest, StartImportFileTaskResponse } from "../models/models_0";
+import { de_StartImportFileTaskCommand, se_StartImportFileTaskCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link StartImportFileTaskCommand}.
+ */
 export interface StartImportFileTaskCommandInput extends StartImportFileTaskRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartImportFileTaskCommand}.
+ */
 export interface StartImportFileTaskCommandOutput extends StartImportFileTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Starts a file import. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,46 @@ export interface StartImportFileTaskCommandOutput extends StartImportFileTaskRes
  * import { MigrationHubStrategyClient, StartImportFileTaskCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, StartImportFileTaskCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
+ * const input = { // StartImportFileTaskRequest
+ *   name: "STRING_VALUE", // required
+ *   S3Bucket: "STRING_VALUE", // required
+ *   s3key: "STRING_VALUE", // required
+ *   dataSourceType: "STRING_VALUE",
+ *   groupId: [ // GroupIds
+ *     { // Group
+ *       name: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   s3bucketForReportData: "STRING_VALUE",
+ * };
  * const command = new StartImportFileTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartImportFileTaskCommandInput - {@link StartImportFileTaskCommandInput}
+ * @returns {@link StartImportFileTaskCommandOutput}
  * @see {@link StartImportFileTaskCommandInput} for command's `input` shape.
  * @see {@link StartImportFileTaskCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p> The user does not have permission to perform the action. Check the
+ *       AWS Identity and Access Management (IAM) policy associated with this user.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> The server experienced an internal error. Try again. </p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p> The AWS account has reached its quota of imports. Contact AWS Support to increase the
+ *       quota for this account. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p> The request was denied due to request throttling. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p> The request body isn't valid. </p>
+ *
  *
  */
 export class StartImportFileTaskCommand extends $Command<
@@ -66,6 +102,9 @@ export class StartImportFileTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartImportFileTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +133,8 @@ export class StartImportFileTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartImportFileTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartImportFileTaskResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +144,18 @@ export class StartImportFileTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartImportFileTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartImportFileTaskCommand(input, context);
+    return se_StartImportFileTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartImportFileTaskCommandOutput> {
-    return deserializeAws_restJson1StartImportFileTaskCommand(output, context);
+    return de_StartImportFileTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

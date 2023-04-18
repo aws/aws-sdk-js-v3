@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeStarClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeStarClient";
-import {
-  UpdateTeamMemberRequest,
-  UpdateTeamMemberRequestFilterSensitiveLog,
-  UpdateTeamMemberResult,
-  UpdateTeamMemberResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateTeamMemberCommand,
-  serializeAws_json1_1UpdateTeamMemberCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateTeamMemberRequest, UpdateTeamMemberResult } from "../models/models_0";
+import { de_UpdateTeamMemberCommand, se_UpdateTeamMemberCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateTeamMemberCommand}.
+ */
 export interface UpdateTeamMemberCommandInput extends UpdateTeamMemberRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateTeamMemberCommand}.
+ */
 export interface UpdateTeamMemberCommandOutput extends UpdateTeamMemberResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a team member's attributes in an AWS CodeStar project. For example, you can change a
  *       team member's role in the project, or change whether they have remote access to project
  *       resources.</p>
@@ -38,13 +41,44 @@ export interface UpdateTeamMemberCommandOutput extends UpdateTeamMemberResult, _
  * import { CodeStarClient, UpdateTeamMemberCommand } from "@aws-sdk/client-codestar"; // ES Modules import
  * // const { CodeStarClient, UpdateTeamMemberCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
  * const client = new CodeStarClient(config);
+ * const input = { // UpdateTeamMemberRequest
+ *   projectId: "STRING_VALUE", // required
+ *   userArn: "STRING_VALUE", // required
+ *   projectRole: "STRING_VALUE",
+ *   remoteAccessAllowed: true || false,
+ * };
  * const command = new UpdateTeamMemberCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTeamMemberCommandInput - {@link UpdateTeamMemberCommandInput}
+ * @returns {@link UpdateTeamMemberCommandOutput}
  * @see {@link UpdateTeamMemberCommandInput} for command's `input` shape.
  * @see {@link UpdateTeamMemberCommandOutput} for command's `response` shape.
  * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (server fault)
+ *  <p>Another modification is being made. That modification must complete before you can make
+ *       your change.</p>
+ *
+ * @throws {@link InvalidServiceRoleException} (client fault)
+ *  <p>The service role is not valid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A resource limit has been exceeded.</p>
+ *
+ * @throws {@link ProjectConfigurationException} (client fault)
+ *  <p>Project configuration information is required but not specified.</p>
+ *
+ * @throws {@link ProjectNotFoundException} (client fault)
+ *  <p>The specified AWS CodeStar project was not found.</p>
+ *
+ * @throws {@link TeamMemberNotFoundException} (client fault)
+ *  <p>The specified team member was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The specified input is either not valid, or it could not be validated.</p>
+ *
  *
  */
 export class UpdateTeamMemberCommand extends $Command<
@@ -64,6 +98,9 @@ export class UpdateTeamMemberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTeamMemberCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +129,8 @@ export class UpdateTeamMemberCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTeamMemberRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTeamMemberResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +140,18 @@ export class UpdateTeamMemberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTeamMemberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateTeamMemberCommand(input, context);
+    return se_UpdateTeamMemberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTeamMemberCommandOutput> {
-    return deserializeAws_json1_1UpdateTeamMemberCommand(output, context);
+    return de_UpdateTeamMemberCommand(output, context);
   }
 
   // Start section: command_body_extra

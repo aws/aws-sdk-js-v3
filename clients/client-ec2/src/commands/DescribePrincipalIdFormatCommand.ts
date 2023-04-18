@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribePrincipalIdFormatRequest,
-  DescribePrincipalIdFormatRequestFilterSensitiveLog,
-  DescribePrincipalIdFormatResult,
-  DescribePrincipalIdFormatResultFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_ec2DescribePrincipalIdFormatCommand,
-  serializeAws_ec2DescribePrincipalIdFormatCommand,
-} from "../protocols/Aws_ec2";
+import { DescribePrincipalIdFormatRequest, DescribePrincipalIdFormatResult } from "../models/models_4";
+import { de_DescribePrincipalIdFormatCommand, se_DescribePrincipalIdFormatCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribePrincipalIdFormatCommand}.
+ */
 export interface DescribePrincipalIdFormatCommandInput extends DescribePrincipalIdFormatRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribePrincipalIdFormatCommand}.
+ */
 export interface DescribePrincipalIdFormatCommandOutput extends DescribePrincipalIdFormatResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the ID format settings for the root user and all IAM roles and IAM users
  *             that have explicitly specified a longer ID (17-character ID) preference. </p>
  *          <p>By default, all IAM roles and IAM users default to the same ID settings as the root user, unless they
@@ -53,13 +56,24 @@ export interface DescribePrincipalIdFormatCommandOutput extends DescribePrincipa
  * import { EC2Client, DescribePrincipalIdFormatCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribePrincipalIdFormatCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribePrincipalIdFormatRequest
+ *   DryRun: true || false,
+ *   Resources: [ // ResourceList
+ *     "STRING_VALUE",
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribePrincipalIdFormatCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePrincipalIdFormatCommandInput - {@link DescribePrincipalIdFormatCommandInput}
+ * @returns {@link DescribePrincipalIdFormatCommandOutput}
  * @see {@link DescribePrincipalIdFormatCommandInput} for command's `input` shape.
  * @see {@link DescribePrincipalIdFormatCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class DescribePrincipalIdFormatCommand extends $Command<
@@ -79,6 +93,9 @@ export class DescribePrincipalIdFormatCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePrincipalIdFormatCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +124,8 @@ export class DescribePrincipalIdFormatCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePrincipalIdFormatRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribePrincipalIdFormatResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,15 +135,21 @@ export class DescribePrincipalIdFormatCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePrincipalIdFormatCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribePrincipalIdFormatCommand(input, context);
+    return se_DescribePrincipalIdFormatCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribePrincipalIdFormatCommandOutput> {
-    return deserializeAws_ec2DescribePrincipalIdFormatCommand(output, context);
+    return de_DescribePrincipalIdFormatCommand(output, context);
   }
 
   // Start section: command_body_extra

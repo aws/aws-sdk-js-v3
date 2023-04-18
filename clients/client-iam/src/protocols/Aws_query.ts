@@ -8,9 +8,9 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   strictParseInt32 as __strictParseInt32,
-  throwDefaultError,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -725,397 +725,422 @@ import {
   UploadSSHPublicKeyResponse,
 } from "../models/models_1";
 
-export const serializeAws_queryAddClientIDToOpenIDConnectProviderCommand = async (
+/**
+ * serializeAws_queryAddClientIDToOpenIDConnectProviderCommand
+ */
+export const se_AddClientIDToOpenIDConnectProviderCommand = async (
   input: AddClientIDToOpenIDConnectProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryAddClientIDToOpenIDConnectProviderRequest(input, context),
+    ...se_AddClientIDToOpenIDConnectProviderRequest(input, context),
     Action: "AddClientIDToOpenIDConnectProvider",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryAddRoleToInstanceProfileCommand = async (
+/**
+ * serializeAws_queryAddRoleToInstanceProfileCommand
+ */
+export const se_AddRoleToInstanceProfileCommand = async (
   input: AddRoleToInstanceProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryAddRoleToInstanceProfileRequest(input, context),
+    ...se_AddRoleToInstanceProfileRequest(input, context),
     Action: "AddRoleToInstanceProfile",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryAddUserToGroupCommand = async (
+/**
+ * serializeAws_queryAddUserToGroupCommand
+ */
+export const se_AddUserToGroupCommand = async (
   input: AddUserToGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryAddUserToGroupRequest(input, context),
+    ...se_AddUserToGroupRequest(input, context),
     Action: "AddUserToGroup",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryAttachGroupPolicyCommand = async (
+/**
+ * serializeAws_queryAttachGroupPolicyCommand
+ */
+export const se_AttachGroupPolicyCommand = async (
   input: AttachGroupPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryAttachGroupPolicyRequest(input, context),
+    ...se_AttachGroupPolicyRequest(input, context),
     Action: "AttachGroupPolicy",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryAttachRolePolicyCommand = async (
+/**
+ * serializeAws_queryAttachRolePolicyCommand
+ */
+export const se_AttachRolePolicyCommand = async (
   input: AttachRolePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryAttachRolePolicyRequest(input, context),
+    ...se_AttachRolePolicyRequest(input, context),
     Action: "AttachRolePolicy",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryAttachUserPolicyCommand = async (
+/**
+ * serializeAws_queryAttachUserPolicyCommand
+ */
+export const se_AttachUserPolicyCommand = async (
   input: AttachUserPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryAttachUserPolicyRequest(input, context),
+    ...se_AttachUserPolicyRequest(input, context),
     Action: "AttachUserPolicy",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryChangePasswordCommand = async (
+/**
+ * serializeAws_queryChangePasswordCommand
+ */
+export const se_ChangePasswordCommand = async (
   input: ChangePasswordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryChangePasswordRequest(input, context),
+    ...se_ChangePasswordRequest(input, context),
     Action: "ChangePassword",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryCreateAccessKeyCommand = async (
+/**
+ * serializeAws_queryCreateAccessKeyCommand
+ */
+export const se_CreateAccessKeyCommand = async (
   input: CreateAccessKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryCreateAccessKeyRequest(input, context),
+    ...se_CreateAccessKeyRequest(input, context),
     Action: "CreateAccessKey",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryCreateAccountAliasCommand = async (
+/**
+ * serializeAws_queryCreateAccountAliasCommand
+ */
+export const se_CreateAccountAliasCommand = async (
   input: CreateAccountAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryCreateAccountAliasRequest(input, context),
+    ...se_CreateAccountAliasRequest(input, context),
     Action: "CreateAccountAlias",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryCreateGroupCommand = async (
+/**
+ * serializeAws_queryCreateGroupCommand
+ */
+export const se_CreateGroupCommand = async (
   input: CreateGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryCreateGroupRequest(input, context),
+    ...se_CreateGroupRequest(input, context),
     Action: "CreateGroup",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryCreateInstanceProfileCommand = async (
+/**
+ * serializeAws_queryCreateInstanceProfileCommand
+ */
+export const se_CreateInstanceProfileCommand = async (
   input: CreateInstanceProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryCreateInstanceProfileRequest(input, context),
+    ...se_CreateInstanceProfileRequest(input, context),
     Action: "CreateInstanceProfile",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryCreateLoginProfileCommand = async (
+/**
+ * serializeAws_queryCreateLoginProfileCommand
+ */
+export const se_CreateLoginProfileCommand = async (
   input: CreateLoginProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryCreateLoginProfileRequest(input, context),
+    ...se_CreateLoginProfileRequest(input, context),
     Action: "CreateLoginProfile",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryCreateOpenIDConnectProviderCommand = async (
+/**
+ * serializeAws_queryCreateOpenIDConnectProviderCommand
+ */
+export const se_CreateOpenIDConnectProviderCommand = async (
   input: CreateOpenIDConnectProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryCreateOpenIDConnectProviderRequest(input, context),
+    ...se_CreateOpenIDConnectProviderRequest(input, context),
     Action: "CreateOpenIDConnectProvider",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryCreatePolicyCommand = async (
+/**
+ * serializeAws_queryCreatePolicyCommand
+ */
+export const se_CreatePolicyCommand = async (
   input: CreatePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryCreatePolicyRequest(input, context),
+    ...se_CreatePolicyRequest(input, context),
     Action: "CreatePolicy",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryCreatePolicyVersionCommand = async (
+/**
+ * serializeAws_queryCreatePolicyVersionCommand
+ */
+export const se_CreatePolicyVersionCommand = async (
   input: CreatePolicyVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryCreatePolicyVersionRequest(input, context),
+    ...se_CreatePolicyVersionRequest(input, context),
     Action: "CreatePolicyVersion",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryCreateRoleCommand = async (
+/**
+ * serializeAws_queryCreateRoleCommand
+ */
+export const se_CreateRoleCommand = async (
   input: CreateRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryCreateRoleRequest(input, context),
+    ...se_CreateRoleRequest(input, context),
     Action: "CreateRole",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryCreateSAMLProviderCommand = async (
+/**
+ * serializeAws_queryCreateSAMLProviderCommand
+ */
+export const se_CreateSAMLProviderCommand = async (
   input: CreateSAMLProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryCreateSAMLProviderRequest(input, context),
+    ...se_CreateSAMLProviderRequest(input, context),
     Action: "CreateSAMLProvider",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryCreateServiceLinkedRoleCommand = async (
+/**
+ * serializeAws_queryCreateServiceLinkedRoleCommand
+ */
+export const se_CreateServiceLinkedRoleCommand = async (
   input: CreateServiceLinkedRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryCreateServiceLinkedRoleRequest(input, context),
+    ...se_CreateServiceLinkedRoleRequest(input, context),
     Action: "CreateServiceLinkedRole",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryCreateServiceSpecificCredentialCommand = async (
+/**
+ * serializeAws_queryCreateServiceSpecificCredentialCommand
+ */
+export const se_CreateServiceSpecificCredentialCommand = async (
   input: CreateServiceSpecificCredentialCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryCreateServiceSpecificCredentialRequest(input, context),
+    ...se_CreateServiceSpecificCredentialRequest(input, context),
     Action: "CreateServiceSpecificCredential",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryCreateUserCommand = async (
+/**
+ * serializeAws_queryCreateUserCommand
+ */
+export const se_CreateUserCommand = async (
   input: CreateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryCreateUserRequest(input, context),
+    ...se_CreateUserRequest(input, context),
     Action: "CreateUser",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryCreateVirtualMFADeviceCommand = async (
+/**
+ * serializeAws_queryCreateVirtualMFADeviceCommand
+ */
+export const se_CreateVirtualMFADeviceCommand = async (
   input: CreateVirtualMFADeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryCreateVirtualMFADeviceRequest(input, context),
+    ...se_CreateVirtualMFADeviceRequest(input, context),
     Action: "CreateVirtualMFADevice",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeactivateMFADeviceCommand = async (
+/**
+ * serializeAws_queryDeactivateMFADeviceCommand
+ */
+export const se_DeactivateMFADeviceCommand = async (
   input: DeactivateMFADeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDeactivateMFADeviceRequest(input, context),
+    ...se_DeactivateMFADeviceRequest(input, context),
     Action: "DeactivateMFADevice",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeleteAccessKeyCommand = async (
+/**
+ * serializeAws_queryDeleteAccessKeyCommand
+ */
+export const se_DeleteAccessKeyCommand = async (
   input: DeleteAccessKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDeleteAccessKeyRequest(input, context),
+    ...se_DeleteAccessKeyRequest(input, context),
     Action: "DeleteAccessKey",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeleteAccountAliasCommand = async (
+/**
+ * serializeAws_queryDeleteAccountAliasCommand
+ */
+export const se_DeleteAccountAliasCommand = async (
   input: DeleteAccountAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDeleteAccountAliasRequest(input, context),
+    ...se_DeleteAccountAliasRequest(input, context),
     Action: "DeleteAccountAlias",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeleteAccountPasswordPolicyCommand = async (
+/**
+ * serializeAws_queryDeleteAccountPasswordPolicyCommand
+ */
+export const se_DeleteAccountPasswordPolicyCommand = async (
   input: DeleteAccountPasswordPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
     Action: "DeleteAccountPasswordPolicy",
     Version: "2010-05-08",
@@ -1123,397 +1148,422 @@ export const serializeAws_queryDeleteAccountPasswordPolicyCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeleteGroupCommand = async (
+/**
+ * serializeAws_queryDeleteGroupCommand
+ */
+export const se_DeleteGroupCommand = async (
   input: DeleteGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDeleteGroupRequest(input, context),
+    ...se_DeleteGroupRequest(input, context),
     Action: "DeleteGroup",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeleteGroupPolicyCommand = async (
+/**
+ * serializeAws_queryDeleteGroupPolicyCommand
+ */
+export const se_DeleteGroupPolicyCommand = async (
   input: DeleteGroupPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDeleteGroupPolicyRequest(input, context),
+    ...se_DeleteGroupPolicyRequest(input, context),
     Action: "DeleteGroupPolicy",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeleteInstanceProfileCommand = async (
+/**
+ * serializeAws_queryDeleteInstanceProfileCommand
+ */
+export const se_DeleteInstanceProfileCommand = async (
   input: DeleteInstanceProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDeleteInstanceProfileRequest(input, context),
+    ...se_DeleteInstanceProfileRequest(input, context),
     Action: "DeleteInstanceProfile",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeleteLoginProfileCommand = async (
+/**
+ * serializeAws_queryDeleteLoginProfileCommand
+ */
+export const se_DeleteLoginProfileCommand = async (
   input: DeleteLoginProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDeleteLoginProfileRequest(input, context),
+    ...se_DeleteLoginProfileRequest(input, context),
     Action: "DeleteLoginProfile",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeleteOpenIDConnectProviderCommand = async (
+/**
+ * serializeAws_queryDeleteOpenIDConnectProviderCommand
+ */
+export const se_DeleteOpenIDConnectProviderCommand = async (
   input: DeleteOpenIDConnectProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDeleteOpenIDConnectProviderRequest(input, context),
+    ...se_DeleteOpenIDConnectProviderRequest(input, context),
     Action: "DeleteOpenIDConnectProvider",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeletePolicyCommand = async (
+/**
+ * serializeAws_queryDeletePolicyCommand
+ */
+export const se_DeletePolicyCommand = async (
   input: DeletePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDeletePolicyRequest(input, context),
+    ...se_DeletePolicyRequest(input, context),
     Action: "DeletePolicy",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeletePolicyVersionCommand = async (
+/**
+ * serializeAws_queryDeletePolicyVersionCommand
+ */
+export const se_DeletePolicyVersionCommand = async (
   input: DeletePolicyVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDeletePolicyVersionRequest(input, context),
+    ...se_DeletePolicyVersionRequest(input, context),
     Action: "DeletePolicyVersion",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeleteRoleCommand = async (
+/**
+ * serializeAws_queryDeleteRoleCommand
+ */
+export const se_DeleteRoleCommand = async (
   input: DeleteRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDeleteRoleRequest(input, context),
+    ...se_DeleteRoleRequest(input, context),
     Action: "DeleteRole",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeleteRolePermissionsBoundaryCommand = async (
+/**
+ * serializeAws_queryDeleteRolePermissionsBoundaryCommand
+ */
+export const se_DeleteRolePermissionsBoundaryCommand = async (
   input: DeleteRolePermissionsBoundaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDeleteRolePermissionsBoundaryRequest(input, context),
+    ...se_DeleteRolePermissionsBoundaryRequest(input, context),
     Action: "DeleteRolePermissionsBoundary",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeleteRolePolicyCommand = async (
+/**
+ * serializeAws_queryDeleteRolePolicyCommand
+ */
+export const se_DeleteRolePolicyCommand = async (
   input: DeleteRolePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDeleteRolePolicyRequest(input, context),
+    ...se_DeleteRolePolicyRequest(input, context),
     Action: "DeleteRolePolicy",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeleteSAMLProviderCommand = async (
+/**
+ * serializeAws_queryDeleteSAMLProviderCommand
+ */
+export const se_DeleteSAMLProviderCommand = async (
   input: DeleteSAMLProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDeleteSAMLProviderRequest(input, context),
+    ...se_DeleteSAMLProviderRequest(input, context),
     Action: "DeleteSAMLProvider",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeleteServerCertificateCommand = async (
+/**
+ * serializeAws_queryDeleteServerCertificateCommand
+ */
+export const se_DeleteServerCertificateCommand = async (
   input: DeleteServerCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDeleteServerCertificateRequest(input, context),
+    ...se_DeleteServerCertificateRequest(input, context),
     Action: "DeleteServerCertificate",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeleteServiceLinkedRoleCommand = async (
+/**
+ * serializeAws_queryDeleteServiceLinkedRoleCommand
+ */
+export const se_DeleteServiceLinkedRoleCommand = async (
   input: DeleteServiceLinkedRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDeleteServiceLinkedRoleRequest(input, context),
+    ...se_DeleteServiceLinkedRoleRequest(input, context),
     Action: "DeleteServiceLinkedRole",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeleteServiceSpecificCredentialCommand = async (
+/**
+ * serializeAws_queryDeleteServiceSpecificCredentialCommand
+ */
+export const se_DeleteServiceSpecificCredentialCommand = async (
   input: DeleteServiceSpecificCredentialCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDeleteServiceSpecificCredentialRequest(input, context),
+    ...se_DeleteServiceSpecificCredentialRequest(input, context),
     Action: "DeleteServiceSpecificCredential",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeleteSigningCertificateCommand = async (
+/**
+ * serializeAws_queryDeleteSigningCertificateCommand
+ */
+export const se_DeleteSigningCertificateCommand = async (
   input: DeleteSigningCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDeleteSigningCertificateRequest(input, context),
+    ...se_DeleteSigningCertificateRequest(input, context),
     Action: "DeleteSigningCertificate",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeleteSSHPublicKeyCommand = async (
+/**
+ * serializeAws_queryDeleteSSHPublicKeyCommand
+ */
+export const se_DeleteSSHPublicKeyCommand = async (
   input: DeleteSSHPublicKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDeleteSSHPublicKeyRequest(input, context),
+    ...se_DeleteSSHPublicKeyRequest(input, context),
     Action: "DeleteSSHPublicKey",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeleteUserCommand = async (
+/**
+ * serializeAws_queryDeleteUserCommand
+ */
+export const se_DeleteUserCommand = async (
   input: DeleteUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDeleteUserRequest(input, context),
+    ...se_DeleteUserRequest(input, context),
     Action: "DeleteUser",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeleteUserPermissionsBoundaryCommand = async (
+/**
+ * serializeAws_queryDeleteUserPermissionsBoundaryCommand
+ */
+export const se_DeleteUserPermissionsBoundaryCommand = async (
   input: DeleteUserPermissionsBoundaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDeleteUserPermissionsBoundaryRequest(input, context),
+    ...se_DeleteUserPermissionsBoundaryRequest(input, context),
     Action: "DeleteUserPermissionsBoundary",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeleteUserPolicyCommand = async (
+/**
+ * serializeAws_queryDeleteUserPolicyCommand
+ */
+export const se_DeleteUserPolicyCommand = async (
   input: DeleteUserPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDeleteUserPolicyRequest(input, context),
+    ...se_DeleteUserPolicyRequest(input, context),
     Action: "DeleteUserPolicy",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeleteVirtualMFADeviceCommand = async (
+/**
+ * serializeAws_queryDeleteVirtualMFADeviceCommand
+ */
+export const se_DeleteVirtualMFADeviceCommand = async (
   input: DeleteVirtualMFADeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDeleteVirtualMFADeviceRequest(input, context),
+    ...se_DeleteVirtualMFADeviceRequest(input, context),
     Action: "DeleteVirtualMFADevice",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDetachGroupPolicyCommand = async (
+/**
+ * serializeAws_queryDetachGroupPolicyCommand
+ */
+export const se_DetachGroupPolicyCommand = async (
   input: DetachGroupPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDetachGroupPolicyRequest(input, context),
+    ...se_DetachGroupPolicyRequest(input, context),
     Action: "DetachGroupPolicy",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDetachRolePolicyCommand = async (
+/**
+ * serializeAws_queryDetachRolePolicyCommand
+ */
+export const se_DetachRolePolicyCommand = async (
   input: DetachRolePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDetachRolePolicyRequest(input, context),
+    ...se_DetachRolePolicyRequest(input, context),
     Action: "DetachRolePolicy",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDetachUserPolicyCommand = async (
+/**
+ * serializeAws_queryDetachUserPolicyCommand
+ */
+export const se_DetachUserPolicyCommand = async (
   input: DetachUserPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDetachUserPolicyRequest(input, context),
+    ...se_DetachUserPolicyRequest(input, context),
     Action: "DetachUserPolicy",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryEnableMFADeviceCommand = async (
+/**
+ * serializeAws_queryEnableMFADeviceCommand
+ */
+export const se_EnableMFADeviceCommand = async (
   input: EnableMFADeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryEnableMFADeviceRequest(input, context),
+    ...se_EnableMFADeviceRequest(input, context),
     Action: "EnableMFADevice",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryGenerateCredentialReportCommand = async (
+/**
+ * serializeAws_queryGenerateCredentialReportCommand
+ */
+export const se_GenerateCredentialReportCommand = async (
   input: GenerateCredentialReportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
     Action: "GenerateCredentialReport",
     Version: "2010-05-08",
@@ -1521,77 +1571,82 @@ export const serializeAws_queryGenerateCredentialReportCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryGenerateOrganizationsAccessReportCommand = async (
+/**
+ * serializeAws_queryGenerateOrganizationsAccessReportCommand
+ */
+export const se_GenerateOrganizationsAccessReportCommand = async (
   input: GenerateOrganizationsAccessReportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryGenerateOrganizationsAccessReportRequest(input, context),
+    ...se_GenerateOrganizationsAccessReportRequest(input, context),
     Action: "GenerateOrganizationsAccessReport",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryGenerateServiceLastAccessedDetailsCommand = async (
+/**
+ * serializeAws_queryGenerateServiceLastAccessedDetailsCommand
+ */
+export const se_GenerateServiceLastAccessedDetailsCommand = async (
   input: GenerateServiceLastAccessedDetailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryGenerateServiceLastAccessedDetailsRequest(input, context),
+    ...se_GenerateServiceLastAccessedDetailsRequest(input, context),
     Action: "GenerateServiceLastAccessedDetails",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryGetAccessKeyLastUsedCommand = async (
+/**
+ * serializeAws_queryGetAccessKeyLastUsedCommand
+ */
+export const se_GetAccessKeyLastUsedCommand = async (
   input: GetAccessKeyLastUsedCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryGetAccessKeyLastUsedRequest(input, context),
+    ...se_GetAccessKeyLastUsedRequest(input, context),
     Action: "GetAccessKeyLastUsed",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryGetAccountAuthorizationDetailsCommand = async (
+/**
+ * serializeAws_queryGetAccountAuthorizationDetailsCommand
+ */
+export const se_GetAccountAuthorizationDetailsCommand = async (
   input: GetAccountAuthorizationDetailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryGetAccountAuthorizationDetailsRequest(input, context),
+    ...se_GetAccountAuthorizationDetailsRequest(input, context),
     Action: "GetAccountAuthorizationDetails",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryGetAccountPasswordPolicyCommand = async (
+/**
+ * serializeAws_queryGetAccountPasswordPolicyCommand
+ */
+export const se_GetAccountPasswordPolicyCommand = async (
   input: GetAccountPasswordPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
     Action: "GetAccountPasswordPolicy",
     Version: "2010-05-08",
@@ -1599,13 +1654,14 @@ export const serializeAws_queryGetAccountPasswordPolicyCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryGetAccountSummaryCommand = async (
+/**
+ * serializeAws_queryGetAccountSummaryCommand
+ */
+export const se_GetAccountSummaryCommand = async (
   input: GetAccountSummaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
     Action: "GetAccountSummary",
     Version: "2010-05-08",
@@ -1613,45 +1669,48 @@ export const serializeAws_queryGetAccountSummaryCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryGetContextKeysForCustomPolicyCommand = async (
+/**
+ * serializeAws_queryGetContextKeysForCustomPolicyCommand
+ */
+export const se_GetContextKeysForCustomPolicyCommand = async (
   input: GetContextKeysForCustomPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryGetContextKeysForCustomPolicyRequest(input, context),
+    ...se_GetContextKeysForCustomPolicyRequest(input, context),
     Action: "GetContextKeysForCustomPolicy",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryGetContextKeysForPrincipalPolicyCommand = async (
+/**
+ * serializeAws_queryGetContextKeysForPrincipalPolicyCommand
+ */
+export const se_GetContextKeysForPrincipalPolicyCommand = async (
   input: GetContextKeysForPrincipalPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryGetContextKeysForPrincipalPolicyRequest(input, context),
+    ...se_GetContextKeysForPrincipalPolicyRequest(input, context),
     Action: "GetContextKeysForPrincipalPolicy",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryGetCredentialReportCommand = async (
+/**
+ * serializeAws_queryGetCredentialReportCommand
+ */
+export const se_GetCredentialReportCommand = async (
   input: GetCredentialReportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
     Action: "GetCredentialReport",
     Version: "2010-05-08",
@@ -1659,1605 +1718,1710 @@ export const serializeAws_queryGetCredentialReportCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryGetGroupCommand = async (
+/**
+ * serializeAws_queryGetGroupCommand
+ */
+export const se_GetGroupCommand = async (
   input: GetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryGetGroupRequest(input, context),
+    ...se_GetGroupRequest(input, context),
     Action: "GetGroup",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryGetGroupPolicyCommand = async (
+/**
+ * serializeAws_queryGetGroupPolicyCommand
+ */
+export const se_GetGroupPolicyCommand = async (
   input: GetGroupPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryGetGroupPolicyRequest(input, context),
+    ...se_GetGroupPolicyRequest(input, context),
     Action: "GetGroupPolicy",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryGetInstanceProfileCommand = async (
+/**
+ * serializeAws_queryGetInstanceProfileCommand
+ */
+export const se_GetInstanceProfileCommand = async (
   input: GetInstanceProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryGetInstanceProfileRequest(input, context),
+    ...se_GetInstanceProfileRequest(input, context),
     Action: "GetInstanceProfile",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryGetLoginProfileCommand = async (
+/**
+ * serializeAws_queryGetLoginProfileCommand
+ */
+export const se_GetLoginProfileCommand = async (
   input: GetLoginProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryGetLoginProfileRequest(input, context),
+    ...se_GetLoginProfileRequest(input, context),
     Action: "GetLoginProfile",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryGetOpenIDConnectProviderCommand = async (
+/**
+ * serializeAws_queryGetOpenIDConnectProviderCommand
+ */
+export const se_GetOpenIDConnectProviderCommand = async (
   input: GetOpenIDConnectProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryGetOpenIDConnectProviderRequest(input, context),
+    ...se_GetOpenIDConnectProviderRequest(input, context),
     Action: "GetOpenIDConnectProvider",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryGetOrganizationsAccessReportCommand = async (
+/**
+ * serializeAws_queryGetOrganizationsAccessReportCommand
+ */
+export const se_GetOrganizationsAccessReportCommand = async (
   input: GetOrganizationsAccessReportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryGetOrganizationsAccessReportRequest(input, context),
+    ...se_GetOrganizationsAccessReportRequest(input, context),
     Action: "GetOrganizationsAccessReport",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryGetPolicyCommand = async (
+/**
+ * serializeAws_queryGetPolicyCommand
+ */
+export const se_GetPolicyCommand = async (
   input: GetPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryGetPolicyRequest(input, context),
+    ...se_GetPolicyRequest(input, context),
     Action: "GetPolicy",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryGetPolicyVersionCommand = async (
+/**
+ * serializeAws_queryGetPolicyVersionCommand
+ */
+export const se_GetPolicyVersionCommand = async (
   input: GetPolicyVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryGetPolicyVersionRequest(input, context),
+    ...se_GetPolicyVersionRequest(input, context),
     Action: "GetPolicyVersion",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryGetRoleCommand = async (
+/**
+ * serializeAws_queryGetRoleCommand
+ */
+export const se_GetRoleCommand = async (
   input: GetRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryGetRoleRequest(input, context),
+    ...se_GetRoleRequest(input, context),
     Action: "GetRole",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryGetRolePolicyCommand = async (
+/**
+ * serializeAws_queryGetRolePolicyCommand
+ */
+export const se_GetRolePolicyCommand = async (
   input: GetRolePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryGetRolePolicyRequest(input, context),
+    ...se_GetRolePolicyRequest(input, context),
     Action: "GetRolePolicy",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryGetSAMLProviderCommand = async (
+/**
+ * serializeAws_queryGetSAMLProviderCommand
+ */
+export const se_GetSAMLProviderCommand = async (
   input: GetSAMLProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryGetSAMLProviderRequest(input, context),
+    ...se_GetSAMLProviderRequest(input, context),
     Action: "GetSAMLProvider",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryGetServerCertificateCommand = async (
+/**
+ * serializeAws_queryGetServerCertificateCommand
+ */
+export const se_GetServerCertificateCommand = async (
   input: GetServerCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryGetServerCertificateRequest(input, context),
+    ...se_GetServerCertificateRequest(input, context),
     Action: "GetServerCertificate",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryGetServiceLastAccessedDetailsCommand = async (
+/**
+ * serializeAws_queryGetServiceLastAccessedDetailsCommand
+ */
+export const se_GetServiceLastAccessedDetailsCommand = async (
   input: GetServiceLastAccessedDetailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryGetServiceLastAccessedDetailsRequest(input, context),
+    ...se_GetServiceLastAccessedDetailsRequest(input, context),
     Action: "GetServiceLastAccessedDetails",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryGetServiceLastAccessedDetailsWithEntitiesCommand = async (
+/**
+ * serializeAws_queryGetServiceLastAccessedDetailsWithEntitiesCommand
+ */
+export const se_GetServiceLastAccessedDetailsWithEntitiesCommand = async (
   input: GetServiceLastAccessedDetailsWithEntitiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryGetServiceLastAccessedDetailsWithEntitiesRequest(input, context),
+    ...se_GetServiceLastAccessedDetailsWithEntitiesRequest(input, context),
     Action: "GetServiceLastAccessedDetailsWithEntities",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryGetServiceLinkedRoleDeletionStatusCommand = async (
+/**
+ * serializeAws_queryGetServiceLinkedRoleDeletionStatusCommand
+ */
+export const se_GetServiceLinkedRoleDeletionStatusCommand = async (
   input: GetServiceLinkedRoleDeletionStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryGetServiceLinkedRoleDeletionStatusRequest(input, context),
+    ...se_GetServiceLinkedRoleDeletionStatusRequest(input, context),
     Action: "GetServiceLinkedRoleDeletionStatus",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryGetSSHPublicKeyCommand = async (
+/**
+ * serializeAws_queryGetSSHPublicKeyCommand
+ */
+export const se_GetSSHPublicKeyCommand = async (
   input: GetSSHPublicKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryGetSSHPublicKeyRequest(input, context),
+    ...se_GetSSHPublicKeyRequest(input, context),
     Action: "GetSSHPublicKey",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryGetUserCommand = async (
+/**
+ * serializeAws_queryGetUserCommand
+ */
+export const se_GetUserCommand = async (
   input: GetUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryGetUserRequest(input, context),
+    ...se_GetUserRequest(input, context),
     Action: "GetUser",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryGetUserPolicyCommand = async (
+/**
+ * serializeAws_queryGetUserPolicyCommand
+ */
+export const se_GetUserPolicyCommand = async (
   input: GetUserPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryGetUserPolicyRequest(input, context),
+    ...se_GetUserPolicyRequest(input, context),
     Action: "GetUserPolicy",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryListAccessKeysCommand = async (
+/**
+ * serializeAws_queryListAccessKeysCommand
+ */
+export const se_ListAccessKeysCommand = async (
   input: ListAccessKeysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryListAccessKeysRequest(input, context),
+    ...se_ListAccessKeysRequest(input, context),
     Action: "ListAccessKeys",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryListAccountAliasesCommand = async (
+/**
+ * serializeAws_queryListAccountAliasesCommand
+ */
+export const se_ListAccountAliasesCommand = async (
   input: ListAccountAliasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryListAccountAliasesRequest(input, context),
+    ...se_ListAccountAliasesRequest(input, context),
     Action: "ListAccountAliases",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryListAttachedGroupPoliciesCommand = async (
+/**
+ * serializeAws_queryListAttachedGroupPoliciesCommand
+ */
+export const se_ListAttachedGroupPoliciesCommand = async (
   input: ListAttachedGroupPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryListAttachedGroupPoliciesRequest(input, context),
+    ...se_ListAttachedGroupPoliciesRequest(input, context),
     Action: "ListAttachedGroupPolicies",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryListAttachedRolePoliciesCommand = async (
+/**
+ * serializeAws_queryListAttachedRolePoliciesCommand
+ */
+export const se_ListAttachedRolePoliciesCommand = async (
   input: ListAttachedRolePoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryListAttachedRolePoliciesRequest(input, context),
+    ...se_ListAttachedRolePoliciesRequest(input, context),
     Action: "ListAttachedRolePolicies",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryListAttachedUserPoliciesCommand = async (
+/**
+ * serializeAws_queryListAttachedUserPoliciesCommand
+ */
+export const se_ListAttachedUserPoliciesCommand = async (
   input: ListAttachedUserPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryListAttachedUserPoliciesRequest(input, context),
+    ...se_ListAttachedUserPoliciesRequest(input, context),
     Action: "ListAttachedUserPolicies",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryListEntitiesForPolicyCommand = async (
+/**
+ * serializeAws_queryListEntitiesForPolicyCommand
+ */
+export const se_ListEntitiesForPolicyCommand = async (
   input: ListEntitiesForPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryListEntitiesForPolicyRequest(input, context),
+    ...se_ListEntitiesForPolicyRequest(input, context),
     Action: "ListEntitiesForPolicy",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryListGroupPoliciesCommand = async (
+/**
+ * serializeAws_queryListGroupPoliciesCommand
+ */
+export const se_ListGroupPoliciesCommand = async (
   input: ListGroupPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryListGroupPoliciesRequest(input, context),
+    ...se_ListGroupPoliciesRequest(input, context),
     Action: "ListGroupPolicies",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryListGroupsCommand = async (
+/**
+ * serializeAws_queryListGroupsCommand
+ */
+export const se_ListGroupsCommand = async (
   input: ListGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryListGroupsRequest(input, context),
+    ...se_ListGroupsRequest(input, context),
     Action: "ListGroups",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryListGroupsForUserCommand = async (
+/**
+ * serializeAws_queryListGroupsForUserCommand
+ */
+export const se_ListGroupsForUserCommand = async (
   input: ListGroupsForUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryListGroupsForUserRequest(input, context),
+    ...se_ListGroupsForUserRequest(input, context),
     Action: "ListGroupsForUser",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryListInstanceProfilesCommand = async (
+/**
+ * serializeAws_queryListInstanceProfilesCommand
+ */
+export const se_ListInstanceProfilesCommand = async (
   input: ListInstanceProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryListInstanceProfilesRequest(input, context),
+    ...se_ListInstanceProfilesRequest(input, context),
     Action: "ListInstanceProfiles",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryListInstanceProfilesForRoleCommand = async (
+/**
+ * serializeAws_queryListInstanceProfilesForRoleCommand
+ */
+export const se_ListInstanceProfilesForRoleCommand = async (
   input: ListInstanceProfilesForRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryListInstanceProfilesForRoleRequest(input, context),
+    ...se_ListInstanceProfilesForRoleRequest(input, context),
     Action: "ListInstanceProfilesForRole",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryListInstanceProfileTagsCommand = async (
+/**
+ * serializeAws_queryListInstanceProfileTagsCommand
+ */
+export const se_ListInstanceProfileTagsCommand = async (
   input: ListInstanceProfileTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryListInstanceProfileTagsRequest(input, context),
+    ...se_ListInstanceProfileTagsRequest(input, context),
     Action: "ListInstanceProfileTags",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryListMFADevicesCommand = async (
+/**
+ * serializeAws_queryListMFADevicesCommand
+ */
+export const se_ListMFADevicesCommand = async (
   input: ListMFADevicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryListMFADevicesRequest(input, context),
+    ...se_ListMFADevicesRequest(input, context),
     Action: "ListMFADevices",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryListMFADeviceTagsCommand = async (
+/**
+ * serializeAws_queryListMFADeviceTagsCommand
+ */
+export const se_ListMFADeviceTagsCommand = async (
   input: ListMFADeviceTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryListMFADeviceTagsRequest(input, context),
+    ...se_ListMFADeviceTagsRequest(input, context),
     Action: "ListMFADeviceTags",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryListOpenIDConnectProvidersCommand = async (
+/**
+ * serializeAws_queryListOpenIDConnectProvidersCommand
+ */
+export const se_ListOpenIDConnectProvidersCommand = async (
   input: ListOpenIDConnectProvidersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryListOpenIDConnectProvidersRequest(input, context),
+    ...se_ListOpenIDConnectProvidersRequest(input, context),
     Action: "ListOpenIDConnectProviders",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryListOpenIDConnectProviderTagsCommand = async (
+/**
+ * serializeAws_queryListOpenIDConnectProviderTagsCommand
+ */
+export const se_ListOpenIDConnectProviderTagsCommand = async (
   input: ListOpenIDConnectProviderTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryListOpenIDConnectProviderTagsRequest(input, context),
+    ...se_ListOpenIDConnectProviderTagsRequest(input, context),
     Action: "ListOpenIDConnectProviderTags",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryListPoliciesCommand = async (
+/**
+ * serializeAws_queryListPoliciesCommand
+ */
+export const se_ListPoliciesCommand = async (
   input: ListPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryListPoliciesRequest(input, context),
+    ...se_ListPoliciesRequest(input, context),
     Action: "ListPolicies",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryListPoliciesGrantingServiceAccessCommand = async (
+/**
+ * serializeAws_queryListPoliciesGrantingServiceAccessCommand
+ */
+export const se_ListPoliciesGrantingServiceAccessCommand = async (
   input: ListPoliciesGrantingServiceAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryListPoliciesGrantingServiceAccessRequest(input, context),
+    ...se_ListPoliciesGrantingServiceAccessRequest(input, context),
     Action: "ListPoliciesGrantingServiceAccess",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryListPolicyTagsCommand = async (
+/**
+ * serializeAws_queryListPolicyTagsCommand
+ */
+export const se_ListPolicyTagsCommand = async (
   input: ListPolicyTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryListPolicyTagsRequest(input, context),
+    ...se_ListPolicyTagsRequest(input, context),
     Action: "ListPolicyTags",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryListPolicyVersionsCommand = async (
+/**
+ * serializeAws_queryListPolicyVersionsCommand
+ */
+export const se_ListPolicyVersionsCommand = async (
   input: ListPolicyVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryListPolicyVersionsRequest(input, context),
+    ...se_ListPolicyVersionsRequest(input, context),
     Action: "ListPolicyVersions",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryListRolePoliciesCommand = async (
+/**
+ * serializeAws_queryListRolePoliciesCommand
+ */
+export const se_ListRolePoliciesCommand = async (
   input: ListRolePoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryListRolePoliciesRequest(input, context),
+    ...se_ListRolePoliciesRequest(input, context),
     Action: "ListRolePolicies",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryListRolesCommand = async (
+/**
+ * serializeAws_queryListRolesCommand
+ */
+export const se_ListRolesCommand = async (
   input: ListRolesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryListRolesRequest(input, context),
+    ...se_ListRolesRequest(input, context),
     Action: "ListRoles",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryListRoleTagsCommand = async (
+/**
+ * serializeAws_queryListRoleTagsCommand
+ */
+export const se_ListRoleTagsCommand = async (
   input: ListRoleTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryListRoleTagsRequest(input, context),
+    ...se_ListRoleTagsRequest(input, context),
     Action: "ListRoleTags",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryListSAMLProvidersCommand = async (
+/**
+ * serializeAws_queryListSAMLProvidersCommand
+ */
+export const se_ListSAMLProvidersCommand = async (
   input: ListSAMLProvidersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryListSAMLProvidersRequest(input, context),
+    ...se_ListSAMLProvidersRequest(input, context),
     Action: "ListSAMLProviders",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryListSAMLProviderTagsCommand = async (
+/**
+ * serializeAws_queryListSAMLProviderTagsCommand
+ */
+export const se_ListSAMLProviderTagsCommand = async (
   input: ListSAMLProviderTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryListSAMLProviderTagsRequest(input, context),
+    ...se_ListSAMLProviderTagsRequest(input, context),
     Action: "ListSAMLProviderTags",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryListServerCertificatesCommand = async (
+/**
+ * serializeAws_queryListServerCertificatesCommand
+ */
+export const se_ListServerCertificatesCommand = async (
   input: ListServerCertificatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryListServerCertificatesRequest(input, context),
+    ...se_ListServerCertificatesRequest(input, context),
     Action: "ListServerCertificates",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryListServerCertificateTagsCommand = async (
+/**
+ * serializeAws_queryListServerCertificateTagsCommand
+ */
+export const se_ListServerCertificateTagsCommand = async (
   input: ListServerCertificateTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryListServerCertificateTagsRequest(input, context),
+    ...se_ListServerCertificateTagsRequest(input, context),
     Action: "ListServerCertificateTags",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryListServiceSpecificCredentialsCommand = async (
+/**
+ * serializeAws_queryListServiceSpecificCredentialsCommand
+ */
+export const se_ListServiceSpecificCredentialsCommand = async (
   input: ListServiceSpecificCredentialsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryListServiceSpecificCredentialsRequest(input, context),
+    ...se_ListServiceSpecificCredentialsRequest(input, context),
     Action: "ListServiceSpecificCredentials",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryListSigningCertificatesCommand = async (
+/**
+ * serializeAws_queryListSigningCertificatesCommand
+ */
+export const se_ListSigningCertificatesCommand = async (
   input: ListSigningCertificatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryListSigningCertificatesRequest(input, context),
+    ...se_ListSigningCertificatesRequest(input, context),
     Action: "ListSigningCertificates",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryListSSHPublicKeysCommand = async (
+/**
+ * serializeAws_queryListSSHPublicKeysCommand
+ */
+export const se_ListSSHPublicKeysCommand = async (
   input: ListSSHPublicKeysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryListSSHPublicKeysRequest(input, context),
+    ...se_ListSSHPublicKeysRequest(input, context),
     Action: "ListSSHPublicKeys",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryListUserPoliciesCommand = async (
+/**
+ * serializeAws_queryListUserPoliciesCommand
+ */
+export const se_ListUserPoliciesCommand = async (
   input: ListUserPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryListUserPoliciesRequest(input, context),
+    ...se_ListUserPoliciesRequest(input, context),
     Action: "ListUserPolicies",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryListUsersCommand = async (
+/**
+ * serializeAws_queryListUsersCommand
+ */
+export const se_ListUsersCommand = async (
   input: ListUsersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryListUsersRequest(input, context),
+    ...se_ListUsersRequest(input, context),
     Action: "ListUsers",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryListUserTagsCommand = async (
+/**
+ * serializeAws_queryListUserTagsCommand
+ */
+export const se_ListUserTagsCommand = async (
   input: ListUserTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryListUserTagsRequest(input, context),
+    ...se_ListUserTagsRequest(input, context),
     Action: "ListUserTags",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryListVirtualMFADevicesCommand = async (
+/**
+ * serializeAws_queryListVirtualMFADevicesCommand
+ */
+export const se_ListVirtualMFADevicesCommand = async (
   input: ListVirtualMFADevicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryListVirtualMFADevicesRequest(input, context),
+    ...se_ListVirtualMFADevicesRequest(input, context),
     Action: "ListVirtualMFADevices",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryPutGroupPolicyCommand = async (
+/**
+ * serializeAws_queryPutGroupPolicyCommand
+ */
+export const se_PutGroupPolicyCommand = async (
   input: PutGroupPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryPutGroupPolicyRequest(input, context),
+    ...se_PutGroupPolicyRequest(input, context),
     Action: "PutGroupPolicy",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryPutRolePermissionsBoundaryCommand = async (
+/**
+ * serializeAws_queryPutRolePermissionsBoundaryCommand
+ */
+export const se_PutRolePermissionsBoundaryCommand = async (
   input: PutRolePermissionsBoundaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryPutRolePermissionsBoundaryRequest(input, context),
+    ...se_PutRolePermissionsBoundaryRequest(input, context),
     Action: "PutRolePermissionsBoundary",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryPutRolePolicyCommand = async (
+/**
+ * serializeAws_queryPutRolePolicyCommand
+ */
+export const se_PutRolePolicyCommand = async (
   input: PutRolePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryPutRolePolicyRequest(input, context),
+    ...se_PutRolePolicyRequest(input, context),
     Action: "PutRolePolicy",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryPutUserPermissionsBoundaryCommand = async (
+/**
+ * serializeAws_queryPutUserPermissionsBoundaryCommand
+ */
+export const se_PutUserPermissionsBoundaryCommand = async (
   input: PutUserPermissionsBoundaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryPutUserPermissionsBoundaryRequest(input, context),
+    ...se_PutUserPermissionsBoundaryRequest(input, context),
     Action: "PutUserPermissionsBoundary",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryPutUserPolicyCommand = async (
+/**
+ * serializeAws_queryPutUserPolicyCommand
+ */
+export const se_PutUserPolicyCommand = async (
   input: PutUserPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryPutUserPolicyRequest(input, context),
+    ...se_PutUserPolicyRequest(input, context),
     Action: "PutUserPolicy",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryRemoveClientIDFromOpenIDConnectProviderCommand = async (
+/**
+ * serializeAws_queryRemoveClientIDFromOpenIDConnectProviderCommand
+ */
+export const se_RemoveClientIDFromOpenIDConnectProviderCommand = async (
   input: RemoveClientIDFromOpenIDConnectProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryRemoveClientIDFromOpenIDConnectProviderRequest(input, context),
+    ...se_RemoveClientIDFromOpenIDConnectProviderRequest(input, context),
     Action: "RemoveClientIDFromOpenIDConnectProvider",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryRemoveRoleFromInstanceProfileCommand = async (
+/**
+ * serializeAws_queryRemoveRoleFromInstanceProfileCommand
+ */
+export const se_RemoveRoleFromInstanceProfileCommand = async (
   input: RemoveRoleFromInstanceProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryRemoveRoleFromInstanceProfileRequest(input, context),
+    ...se_RemoveRoleFromInstanceProfileRequest(input, context),
     Action: "RemoveRoleFromInstanceProfile",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryRemoveUserFromGroupCommand = async (
+/**
+ * serializeAws_queryRemoveUserFromGroupCommand
+ */
+export const se_RemoveUserFromGroupCommand = async (
   input: RemoveUserFromGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryRemoveUserFromGroupRequest(input, context),
+    ...se_RemoveUserFromGroupRequest(input, context),
     Action: "RemoveUserFromGroup",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryResetServiceSpecificCredentialCommand = async (
+/**
+ * serializeAws_queryResetServiceSpecificCredentialCommand
+ */
+export const se_ResetServiceSpecificCredentialCommand = async (
   input: ResetServiceSpecificCredentialCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryResetServiceSpecificCredentialRequest(input, context),
+    ...se_ResetServiceSpecificCredentialRequest(input, context),
     Action: "ResetServiceSpecificCredential",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryResyncMFADeviceCommand = async (
+/**
+ * serializeAws_queryResyncMFADeviceCommand
+ */
+export const se_ResyncMFADeviceCommand = async (
   input: ResyncMFADeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryResyncMFADeviceRequest(input, context),
+    ...se_ResyncMFADeviceRequest(input, context),
     Action: "ResyncMFADevice",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_querySetDefaultPolicyVersionCommand = async (
+/**
+ * serializeAws_querySetDefaultPolicyVersionCommand
+ */
+export const se_SetDefaultPolicyVersionCommand = async (
   input: SetDefaultPolicyVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_querySetDefaultPolicyVersionRequest(input, context),
+    ...se_SetDefaultPolicyVersionRequest(input, context),
     Action: "SetDefaultPolicyVersion",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_querySetSecurityTokenServicePreferencesCommand = async (
+/**
+ * serializeAws_querySetSecurityTokenServicePreferencesCommand
+ */
+export const se_SetSecurityTokenServicePreferencesCommand = async (
   input: SetSecurityTokenServicePreferencesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_querySetSecurityTokenServicePreferencesRequest(input, context),
+    ...se_SetSecurityTokenServicePreferencesRequest(input, context),
     Action: "SetSecurityTokenServicePreferences",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_querySimulateCustomPolicyCommand = async (
+/**
+ * serializeAws_querySimulateCustomPolicyCommand
+ */
+export const se_SimulateCustomPolicyCommand = async (
   input: SimulateCustomPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_querySimulateCustomPolicyRequest(input, context),
+    ...se_SimulateCustomPolicyRequest(input, context),
     Action: "SimulateCustomPolicy",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_querySimulatePrincipalPolicyCommand = async (
+/**
+ * serializeAws_querySimulatePrincipalPolicyCommand
+ */
+export const se_SimulatePrincipalPolicyCommand = async (
   input: SimulatePrincipalPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_querySimulatePrincipalPolicyRequest(input, context),
+    ...se_SimulatePrincipalPolicyRequest(input, context),
     Action: "SimulatePrincipalPolicy",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryTagInstanceProfileCommand = async (
+/**
+ * serializeAws_queryTagInstanceProfileCommand
+ */
+export const se_TagInstanceProfileCommand = async (
   input: TagInstanceProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryTagInstanceProfileRequest(input, context),
+    ...se_TagInstanceProfileRequest(input, context),
     Action: "TagInstanceProfile",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryTagMFADeviceCommand = async (
+/**
+ * serializeAws_queryTagMFADeviceCommand
+ */
+export const se_TagMFADeviceCommand = async (
   input: TagMFADeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryTagMFADeviceRequest(input, context),
+    ...se_TagMFADeviceRequest(input, context),
     Action: "TagMFADevice",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryTagOpenIDConnectProviderCommand = async (
+/**
+ * serializeAws_queryTagOpenIDConnectProviderCommand
+ */
+export const se_TagOpenIDConnectProviderCommand = async (
   input: TagOpenIDConnectProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryTagOpenIDConnectProviderRequest(input, context),
+    ...se_TagOpenIDConnectProviderRequest(input, context),
     Action: "TagOpenIDConnectProvider",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryTagPolicyCommand = async (
+/**
+ * serializeAws_queryTagPolicyCommand
+ */
+export const se_TagPolicyCommand = async (
   input: TagPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryTagPolicyRequest(input, context),
+    ...se_TagPolicyRequest(input, context),
     Action: "TagPolicy",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryTagRoleCommand = async (
+/**
+ * serializeAws_queryTagRoleCommand
+ */
+export const se_TagRoleCommand = async (
   input: TagRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryTagRoleRequest(input, context),
+    ...se_TagRoleRequest(input, context),
     Action: "TagRole",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryTagSAMLProviderCommand = async (
+/**
+ * serializeAws_queryTagSAMLProviderCommand
+ */
+export const se_TagSAMLProviderCommand = async (
   input: TagSAMLProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryTagSAMLProviderRequest(input, context),
+    ...se_TagSAMLProviderRequest(input, context),
     Action: "TagSAMLProvider",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryTagServerCertificateCommand = async (
+/**
+ * serializeAws_queryTagServerCertificateCommand
+ */
+export const se_TagServerCertificateCommand = async (
   input: TagServerCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryTagServerCertificateRequest(input, context),
+    ...se_TagServerCertificateRequest(input, context),
     Action: "TagServerCertificate",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryTagUserCommand = async (
+/**
+ * serializeAws_queryTagUserCommand
+ */
+export const se_TagUserCommand = async (
   input: TagUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryTagUserRequest(input, context),
+    ...se_TagUserRequest(input, context),
     Action: "TagUser",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryUntagInstanceProfileCommand = async (
+/**
+ * serializeAws_queryUntagInstanceProfileCommand
+ */
+export const se_UntagInstanceProfileCommand = async (
   input: UntagInstanceProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryUntagInstanceProfileRequest(input, context),
+    ...se_UntagInstanceProfileRequest(input, context),
     Action: "UntagInstanceProfile",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryUntagMFADeviceCommand = async (
+/**
+ * serializeAws_queryUntagMFADeviceCommand
+ */
+export const se_UntagMFADeviceCommand = async (
   input: UntagMFADeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryUntagMFADeviceRequest(input, context),
+    ...se_UntagMFADeviceRequest(input, context),
     Action: "UntagMFADevice",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryUntagOpenIDConnectProviderCommand = async (
+/**
+ * serializeAws_queryUntagOpenIDConnectProviderCommand
+ */
+export const se_UntagOpenIDConnectProviderCommand = async (
   input: UntagOpenIDConnectProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryUntagOpenIDConnectProviderRequest(input, context),
+    ...se_UntagOpenIDConnectProviderRequest(input, context),
     Action: "UntagOpenIDConnectProvider",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryUntagPolicyCommand = async (
+/**
+ * serializeAws_queryUntagPolicyCommand
+ */
+export const se_UntagPolicyCommand = async (
   input: UntagPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryUntagPolicyRequest(input, context),
+    ...se_UntagPolicyRequest(input, context),
     Action: "UntagPolicy",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryUntagRoleCommand = async (
+/**
+ * serializeAws_queryUntagRoleCommand
+ */
+export const se_UntagRoleCommand = async (
   input: UntagRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryUntagRoleRequest(input, context),
+    ...se_UntagRoleRequest(input, context),
     Action: "UntagRole",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryUntagSAMLProviderCommand = async (
+/**
+ * serializeAws_queryUntagSAMLProviderCommand
+ */
+export const se_UntagSAMLProviderCommand = async (
   input: UntagSAMLProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryUntagSAMLProviderRequest(input, context),
+    ...se_UntagSAMLProviderRequest(input, context),
     Action: "UntagSAMLProvider",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryUntagServerCertificateCommand = async (
+/**
+ * serializeAws_queryUntagServerCertificateCommand
+ */
+export const se_UntagServerCertificateCommand = async (
   input: UntagServerCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryUntagServerCertificateRequest(input, context),
+    ...se_UntagServerCertificateRequest(input, context),
     Action: "UntagServerCertificate",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryUntagUserCommand = async (
+/**
+ * serializeAws_queryUntagUserCommand
+ */
+export const se_UntagUserCommand = async (
   input: UntagUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryUntagUserRequest(input, context),
+    ...se_UntagUserRequest(input, context),
     Action: "UntagUser",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryUpdateAccessKeyCommand = async (
+/**
+ * serializeAws_queryUpdateAccessKeyCommand
+ */
+export const se_UpdateAccessKeyCommand = async (
   input: UpdateAccessKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryUpdateAccessKeyRequest(input, context),
+    ...se_UpdateAccessKeyRequest(input, context),
     Action: "UpdateAccessKey",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryUpdateAccountPasswordPolicyCommand = async (
+/**
+ * serializeAws_queryUpdateAccountPasswordPolicyCommand
+ */
+export const se_UpdateAccountPasswordPolicyCommand = async (
   input: UpdateAccountPasswordPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryUpdateAccountPasswordPolicyRequest(input, context),
+    ...se_UpdateAccountPasswordPolicyRequest(input, context),
     Action: "UpdateAccountPasswordPolicy",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryUpdateAssumeRolePolicyCommand = async (
+/**
+ * serializeAws_queryUpdateAssumeRolePolicyCommand
+ */
+export const se_UpdateAssumeRolePolicyCommand = async (
   input: UpdateAssumeRolePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryUpdateAssumeRolePolicyRequest(input, context),
+    ...se_UpdateAssumeRolePolicyRequest(input, context),
     Action: "UpdateAssumeRolePolicy",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryUpdateGroupCommand = async (
+/**
+ * serializeAws_queryUpdateGroupCommand
+ */
+export const se_UpdateGroupCommand = async (
   input: UpdateGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryUpdateGroupRequest(input, context),
+    ...se_UpdateGroupRequest(input, context),
     Action: "UpdateGroup",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryUpdateLoginProfileCommand = async (
+/**
+ * serializeAws_queryUpdateLoginProfileCommand
+ */
+export const se_UpdateLoginProfileCommand = async (
   input: UpdateLoginProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryUpdateLoginProfileRequest(input, context),
+    ...se_UpdateLoginProfileRequest(input, context),
     Action: "UpdateLoginProfile",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryUpdateOpenIDConnectProviderThumbprintCommand = async (
+/**
+ * serializeAws_queryUpdateOpenIDConnectProviderThumbprintCommand
+ */
+export const se_UpdateOpenIDConnectProviderThumbprintCommand = async (
   input: UpdateOpenIDConnectProviderThumbprintCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryUpdateOpenIDConnectProviderThumbprintRequest(input, context),
+    ...se_UpdateOpenIDConnectProviderThumbprintRequest(input, context),
     Action: "UpdateOpenIDConnectProviderThumbprint",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryUpdateRoleCommand = async (
+/**
+ * serializeAws_queryUpdateRoleCommand
+ */
+export const se_UpdateRoleCommand = async (
   input: UpdateRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryUpdateRoleRequest(input, context),
+    ...se_UpdateRoleRequest(input, context),
     Action: "UpdateRole",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryUpdateRoleDescriptionCommand = async (
+/**
+ * serializeAws_queryUpdateRoleDescriptionCommand
+ */
+export const se_UpdateRoleDescriptionCommand = async (
   input: UpdateRoleDescriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryUpdateRoleDescriptionRequest(input, context),
+    ...se_UpdateRoleDescriptionRequest(input, context),
     Action: "UpdateRoleDescription",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryUpdateSAMLProviderCommand = async (
+/**
+ * serializeAws_queryUpdateSAMLProviderCommand
+ */
+export const se_UpdateSAMLProviderCommand = async (
   input: UpdateSAMLProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryUpdateSAMLProviderRequest(input, context),
+    ...se_UpdateSAMLProviderRequest(input, context),
     Action: "UpdateSAMLProvider",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryUpdateServerCertificateCommand = async (
+/**
+ * serializeAws_queryUpdateServerCertificateCommand
+ */
+export const se_UpdateServerCertificateCommand = async (
   input: UpdateServerCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryUpdateServerCertificateRequest(input, context),
+    ...se_UpdateServerCertificateRequest(input, context),
     Action: "UpdateServerCertificate",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryUpdateServiceSpecificCredentialCommand = async (
+/**
+ * serializeAws_queryUpdateServiceSpecificCredentialCommand
+ */
+export const se_UpdateServiceSpecificCredentialCommand = async (
   input: UpdateServiceSpecificCredentialCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryUpdateServiceSpecificCredentialRequest(input, context),
+    ...se_UpdateServiceSpecificCredentialRequest(input, context),
     Action: "UpdateServiceSpecificCredential",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryUpdateSigningCertificateCommand = async (
+/**
+ * serializeAws_queryUpdateSigningCertificateCommand
+ */
+export const se_UpdateSigningCertificateCommand = async (
   input: UpdateSigningCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryUpdateSigningCertificateRequest(input, context),
+    ...se_UpdateSigningCertificateRequest(input, context),
     Action: "UpdateSigningCertificate",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryUpdateSSHPublicKeyCommand = async (
+/**
+ * serializeAws_queryUpdateSSHPublicKeyCommand
+ */
+export const se_UpdateSSHPublicKeyCommand = async (
   input: UpdateSSHPublicKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryUpdateSSHPublicKeyRequest(input, context),
+    ...se_UpdateSSHPublicKeyRequest(input, context),
     Action: "UpdateSSHPublicKey",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryUpdateUserCommand = async (
+/**
+ * serializeAws_queryUpdateUserCommand
+ */
+export const se_UpdateUserCommand = async (
   input: UpdateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryUpdateUserRequest(input, context),
+    ...se_UpdateUserRequest(input, context),
     Action: "UpdateUser",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryUploadServerCertificateCommand = async (
+/**
+ * serializeAws_queryUploadServerCertificateCommand
+ */
+export const se_UploadServerCertificateCommand = async (
   input: UploadServerCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryUploadServerCertificateRequest(input, context),
+    ...se_UploadServerCertificateRequest(input, context),
     Action: "UploadServerCertificate",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryUploadSigningCertificateCommand = async (
+/**
+ * serializeAws_queryUploadSigningCertificateCommand
+ */
+export const se_UploadSigningCertificateCommand = async (
   input: UploadSigningCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryUploadSigningCertificateRequest(input, context),
+    ...se_UploadSigningCertificateRequest(input, context),
     Action: "UploadSigningCertificate",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryUploadSSHPublicKeyCommand = async (
+/**
+ * serializeAws_queryUploadSSHPublicKeyCommand
+ */
+export const se_UploadSSHPublicKeyCommand = async (
   input: UploadSSHPublicKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryUploadSSHPublicKeyRequest(input, context),
+    ...se_UploadSSHPublicKeyRequest(input, context),
     Action: "UploadSSHPublicKey",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_queryAddClientIDToOpenIDConnectProviderCommand = async (
+/**
+ * deserializeAws_queryAddClientIDToOpenIDConnectProviderCommand
+ */
+export const de_AddClientIDToOpenIDConnectProviderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddClientIDToOpenIDConnectProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryAddClientIDToOpenIDConnectProviderCommandError(output, context);
+    return de_AddClientIDToOpenIDConnectProviderCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: AddClientIDToOpenIDConnectProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryAddClientIDToOpenIDConnectProviderCommandError = async (
+/**
+ * deserializeAws_queryAddClientIDToOpenIDConnectProviderCommandError
+ */
+const de_AddClientIDToOpenIDConnectProviderCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddClientIDToOpenIDConnectProviderCommandOutput> => {
@@ -3269,42 +3433,47 @@ const deserializeAws_queryAddClientIDToOpenIDConnectProviderCommandError = async
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryAddRoleToInstanceProfileCommand = async (
+/**
+ * deserializeAws_queryAddRoleToInstanceProfileCommand
+ */
+export const de_AddRoleToInstanceProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddRoleToInstanceProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryAddRoleToInstanceProfileCommandError(output, context);
+    return de_AddRoleToInstanceProfileCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: AddRoleToInstanceProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryAddRoleToInstanceProfileCommandError = async (
+/**
+ * deserializeAws_queryAddRoleToInstanceProfileCommandError
+ */
+const de_AddRoleToInstanceProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddRoleToInstanceProfileCommandOutput> => {
@@ -3316,45 +3485,50 @@ const deserializeAws_queryAddRoleToInstanceProfileCommandError = async (
   switch (errorCode) {
     case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
-      throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "UnmodifiableEntity":
     case "com.amazonaws.iam#UnmodifiableEntityException":
-      throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
+      throw await de_UnmodifiableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryAddUserToGroupCommand = async (
+/**
+ * deserializeAws_queryAddUserToGroupCommand
+ */
+export const de_AddUserToGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddUserToGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryAddUserToGroupCommandError(output, context);
+    return de_AddUserToGroupCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: AddUserToGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryAddUserToGroupCommandError = async (
+/**
+ * deserializeAws_queryAddUserToGroupCommandError
+ */
+const de_AddUserToGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddUserToGroupCommandOutput> => {
@@ -3366,39 +3540,44 @@ const deserializeAws_queryAddUserToGroupCommandError = async (
   switch (errorCode) {
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryAttachGroupPolicyCommand = async (
+/**
+ * deserializeAws_queryAttachGroupPolicyCommand
+ */
+export const de_AttachGroupPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AttachGroupPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryAttachGroupPolicyCommandError(output, context);
+    return de_AttachGroupPolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: AttachGroupPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryAttachGroupPolicyCommandError = async (
+/**
+ * deserializeAws_queryAttachGroupPolicyCommandError
+ */
+const de_AttachGroupPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AttachGroupPolicyCommandOutput> => {
@@ -3410,45 +3589,50 @@ const deserializeAws_queryAttachGroupPolicyCommandError = async (
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "PolicyNotAttachable":
     case "com.amazonaws.iam#PolicyNotAttachableException":
-      throw await deserializeAws_queryPolicyNotAttachableExceptionResponse(parsedOutput, context);
+      throw await de_PolicyNotAttachableExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryAttachRolePolicyCommand = async (
+/**
+ * deserializeAws_queryAttachRolePolicyCommand
+ */
+export const de_AttachRolePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AttachRolePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryAttachRolePolicyCommandError(output, context);
+    return de_AttachRolePolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: AttachRolePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryAttachRolePolicyCommandError = async (
+/**
+ * deserializeAws_queryAttachRolePolicyCommandError
+ */
+const de_AttachRolePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AttachRolePolicyCommandOutput> => {
@@ -3460,48 +3644,53 @@ const deserializeAws_queryAttachRolePolicyCommandError = async (
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "PolicyNotAttachable":
     case "com.amazonaws.iam#PolicyNotAttachableException":
-      throw await deserializeAws_queryPolicyNotAttachableExceptionResponse(parsedOutput, context);
+      throw await de_PolicyNotAttachableExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "UnmodifiableEntity":
     case "com.amazonaws.iam#UnmodifiableEntityException":
-      throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
+      throw await de_UnmodifiableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryAttachUserPolicyCommand = async (
+/**
+ * deserializeAws_queryAttachUserPolicyCommand
+ */
+export const de_AttachUserPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AttachUserPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryAttachUserPolicyCommandError(output, context);
+    return de_AttachUserPolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: AttachUserPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryAttachUserPolicyCommandError = async (
+/**
+ * deserializeAws_queryAttachUserPolicyCommandError
+ */
+const de_AttachUserPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AttachUserPolicyCommandOutput> => {
@@ -3513,45 +3702,50 @@ const deserializeAws_queryAttachUserPolicyCommandError = async (
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "PolicyNotAttachable":
     case "com.amazonaws.iam#PolicyNotAttachableException":
-      throw await deserializeAws_queryPolicyNotAttachableExceptionResponse(parsedOutput, context);
+      throw await de_PolicyNotAttachableExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryChangePasswordCommand = async (
+/**
+ * deserializeAws_queryChangePasswordCommand
+ */
+export const de_ChangePasswordCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ChangePasswordCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryChangePasswordCommandError(output, context);
+    return de_ChangePasswordCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: ChangePasswordCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryChangePasswordCommandError = async (
+/**
+ * deserializeAws_queryChangePasswordCommandError
+ */
+const de_ChangePasswordCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ChangePasswordCommandOutput> => {
@@ -3563,51 +3757,56 @@ const deserializeAws_queryChangePasswordCommandError = async (
   switch (errorCode) {
     case "EntityTemporarilyUnmodifiable":
     case "com.amazonaws.iam#EntityTemporarilyUnmodifiableException":
-      throw await deserializeAws_queryEntityTemporarilyUnmodifiableExceptionResponse(parsedOutput, context);
+      throw await de_EntityTemporarilyUnmodifiableExceptionRes(parsedOutput, context);
     case "InvalidUserType":
     case "com.amazonaws.iam#InvalidUserTypeException":
-      throw await deserializeAws_queryInvalidUserTypeExceptionResponse(parsedOutput, context);
+      throw await de_InvalidUserTypeExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "PasswordPolicyViolation":
     case "com.amazonaws.iam#PasswordPolicyViolationException":
-      throw await deserializeAws_queryPasswordPolicyViolationExceptionResponse(parsedOutput, context);
+      throw await de_PasswordPolicyViolationExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryCreateAccessKeyCommand = async (
+/**
+ * deserializeAws_queryCreateAccessKeyCommand
+ */
+export const de_CreateAccessKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAccessKeyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryCreateAccessKeyCommandError(output, context);
+    return de_CreateAccessKeyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCreateAccessKeyResponse(data.CreateAccessKeyResult, context);
+  contents = de_CreateAccessKeyResponse(data.CreateAccessKeyResult, context);
   const response: CreateAccessKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryCreateAccessKeyCommandError = async (
+/**
+ * deserializeAws_queryCreateAccessKeyCommandError
+ */
+const de_CreateAccessKeyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAccessKeyCommandOutput> => {
@@ -3619,39 +3818,44 @@ const deserializeAws_queryCreateAccessKeyCommandError = async (
   switch (errorCode) {
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryCreateAccountAliasCommand = async (
+/**
+ * deserializeAws_queryCreateAccountAliasCommand
+ */
+export const de_CreateAccountAliasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAccountAliasCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryCreateAccountAliasCommandError(output, context);
+    return de_CreateAccountAliasCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: CreateAccountAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryCreateAccountAliasCommandError = async (
+/**
+ * deserializeAws_queryCreateAccountAliasCommandError
+ */
+const de_CreateAccountAliasCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAccountAliasCommandOutput> => {
@@ -3663,42 +3867,47 @@ const deserializeAws_queryCreateAccountAliasCommandError = async (
   switch (errorCode) {
     case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
-      throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryCreateGroupCommand = async (
+/**
+ * deserializeAws_queryCreateGroupCommand
+ */
+export const de_CreateGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryCreateGroupCommandError(output, context);
+    return de_CreateGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCreateGroupResponse(data.CreateGroupResult, context);
+  contents = de_CreateGroupResponse(data.CreateGroupResult, context);
   const response: CreateGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryCreateGroupCommandError = async (
+/**
+ * deserializeAws_queryCreateGroupCommandError
+ */
+const de_CreateGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGroupCommandOutput> => {
@@ -3710,45 +3919,50 @@ const deserializeAws_queryCreateGroupCommandError = async (
   switch (errorCode) {
     case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
-      throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryCreateInstanceProfileCommand = async (
+/**
+ * deserializeAws_queryCreateInstanceProfileCommand
+ */
+export const de_CreateInstanceProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateInstanceProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryCreateInstanceProfileCommandError(output, context);
+    return de_CreateInstanceProfileCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCreateInstanceProfileResponse(data.CreateInstanceProfileResult, context);
+  contents = de_CreateInstanceProfileResponse(data.CreateInstanceProfileResult, context);
   const response: CreateInstanceProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryCreateInstanceProfileCommandError = async (
+/**
+ * deserializeAws_queryCreateInstanceProfileCommandError
+ */
+const de_CreateInstanceProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateInstanceProfileCommandOutput> => {
@@ -3760,48 +3974,53 @@ const deserializeAws_queryCreateInstanceProfileCommandError = async (
   switch (errorCode) {
     case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
-      throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryCreateLoginProfileCommand = async (
+/**
+ * deserializeAws_queryCreateLoginProfileCommand
+ */
+export const de_CreateLoginProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLoginProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryCreateLoginProfileCommandError(output, context);
+    return de_CreateLoginProfileCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCreateLoginProfileResponse(data.CreateLoginProfileResult, context);
+  contents = de_CreateLoginProfileResponse(data.CreateLoginProfileResult, context);
   const response: CreateLoginProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryCreateLoginProfileCommandError = async (
+/**
+ * deserializeAws_queryCreateLoginProfileCommandError
+ */
+const de_CreateLoginProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLoginProfileCommandOutput> => {
@@ -3813,48 +4032,53 @@ const deserializeAws_queryCreateLoginProfileCommandError = async (
   switch (errorCode) {
     case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
-      throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "PasswordPolicyViolation":
     case "com.amazonaws.iam#PasswordPolicyViolationException":
-      throw await deserializeAws_queryPasswordPolicyViolationExceptionResponse(parsedOutput, context);
+      throw await de_PasswordPolicyViolationExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryCreateOpenIDConnectProviderCommand = async (
+/**
+ * deserializeAws_queryCreateOpenIDConnectProviderCommand
+ */
+export const de_CreateOpenIDConnectProviderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateOpenIDConnectProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryCreateOpenIDConnectProviderCommandError(output, context);
+    return de_CreateOpenIDConnectProviderCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCreateOpenIDConnectProviderResponse(data.CreateOpenIDConnectProviderResult, context);
+  contents = de_CreateOpenIDConnectProviderResponse(data.CreateOpenIDConnectProviderResult, context);
   const response: CreateOpenIDConnectProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryCreateOpenIDConnectProviderCommandError = async (
+/**
+ * deserializeAws_queryCreateOpenIDConnectProviderCommandError
+ */
+const de_CreateOpenIDConnectProviderCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateOpenIDConnectProviderCommandOutput> => {
@@ -3866,48 +4090,53 @@ const deserializeAws_queryCreateOpenIDConnectProviderCommandError = async (
   switch (errorCode) {
     case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
-      throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryCreatePolicyCommand = async (
+/**
+ * deserializeAws_queryCreatePolicyCommand
+ */
+export const de_CreatePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryCreatePolicyCommandError(output, context);
+    return de_CreatePolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCreatePolicyResponse(data.CreatePolicyResult, context);
+  contents = de_CreatePolicyResponse(data.CreatePolicyResult, context);
   const response: CreatePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryCreatePolicyCommandError = async (
+/**
+ * deserializeAws_queryCreatePolicyCommandError
+ */
+const de_CreatePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePolicyCommandOutput> => {
@@ -3919,51 +4148,56 @@ const deserializeAws_queryCreatePolicyCommandError = async (
   switch (errorCode) {
     case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
-      throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "MalformedPolicyDocument":
     case "com.amazonaws.iam#MalformedPolicyDocumentException":
-      throw await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context);
+      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryCreatePolicyVersionCommand = async (
+/**
+ * deserializeAws_queryCreatePolicyVersionCommand
+ */
+export const de_CreatePolicyVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePolicyVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryCreatePolicyVersionCommandError(output, context);
+    return de_CreatePolicyVersionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCreatePolicyVersionResponse(data.CreatePolicyVersionResult, context);
+  contents = de_CreatePolicyVersionResponse(data.CreatePolicyVersionResult, context);
   const response: CreatePolicyVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryCreatePolicyVersionCommandError = async (
+/**
+ * deserializeAws_queryCreatePolicyVersionCommandError
+ */
+const de_CreatePolicyVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePolicyVersionCommandOutput> => {
@@ -3975,48 +4209,53 @@ const deserializeAws_queryCreatePolicyVersionCommandError = async (
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "MalformedPolicyDocument":
     case "com.amazonaws.iam#MalformedPolicyDocumentException":
-      throw await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context);
+      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryCreateRoleCommand = async (
+/**
+ * deserializeAws_queryCreateRoleCommand
+ */
+export const de_CreateRoleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRoleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryCreateRoleCommandError(output, context);
+    return de_CreateRoleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCreateRoleResponse(data.CreateRoleResult, context);
+  contents = de_CreateRoleResponse(data.CreateRoleResult, context);
   const response: CreateRoleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryCreateRoleCommandError = async (
+/**
+ * deserializeAws_queryCreateRoleCommandError
+ */
+const de_CreateRoleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRoleCommandOutput> => {
@@ -4028,51 +4267,56 @@ const deserializeAws_queryCreateRoleCommandError = async (
   switch (errorCode) {
     case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
-      throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "MalformedPolicyDocument":
     case "com.amazonaws.iam#MalformedPolicyDocumentException":
-      throw await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context);
+      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryCreateSAMLProviderCommand = async (
+/**
+ * deserializeAws_queryCreateSAMLProviderCommand
+ */
+export const de_CreateSAMLProviderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSAMLProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryCreateSAMLProviderCommandError(output, context);
+    return de_CreateSAMLProviderCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCreateSAMLProviderResponse(data.CreateSAMLProviderResult, context);
+  contents = de_CreateSAMLProviderResponse(data.CreateSAMLProviderResult, context);
   const response: CreateSAMLProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryCreateSAMLProviderCommandError = async (
+/**
+ * deserializeAws_queryCreateSAMLProviderCommandError
+ */
+const de_CreateSAMLProviderCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSAMLProviderCommandOutput> => {
@@ -4084,48 +4328,53 @@ const deserializeAws_queryCreateSAMLProviderCommandError = async (
   switch (errorCode) {
     case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
-      throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryCreateServiceLinkedRoleCommand = async (
+/**
+ * deserializeAws_queryCreateServiceLinkedRoleCommand
+ */
+export const de_CreateServiceLinkedRoleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateServiceLinkedRoleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryCreateServiceLinkedRoleCommandError(output, context);
+    return de_CreateServiceLinkedRoleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCreateServiceLinkedRoleResponse(data.CreateServiceLinkedRoleResult, context);
+  contents = de_CreateServiceLinkedRoleResponse(data.CreateServiceLinkedRoleResult, context);
   const response: CreateServiceLinkedRoleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryCreateServiceLinkedRoleCommandError = async (
+/**
+ * deserializeAws_queryCreateServiceLinkedRoleCommandError
+ */
+const de_CreateServiceLinkedRoleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateServiceLinkedRoleCommandOutput> => {
@@ -4137,48 +4386,50 @@ const deserializeAws_queryCreateServiceLinkedRoleCommandError = async (
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryCreateServiceSpecificCredentialCommand = async (
+/**
+ * deserializeAws_queryCreateServiceSpecificCredentialCommand
+ */
+export const de_CreateServiceSpecificCredentialCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateServiceSpecificCredentialCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryCreateServiceSpecificCredentialCommandError(output, context);
+    return de_CreateServiceSpecificCredentialCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCreateServiceSpecificCredentialResponse(
-    data.CreateServiceSpecificCredentialResult,
-    context
-  );
+  contents = de_CreateServiceSpecificCredentialResponse(data.CreateServiceSpecificCredentialResult, context);
   const response: CreateServiceSpecificCredentialCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryCreateServiceSpecificCredentialCommandError = async (
+/**
+ * deserializeAws_queryCreateServiceSpecificCredentialCommandError
+ */
+const de_CreateServiceSpecificCredentialCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateServiceSpecificCredentialCommandOutput> => {
@@ -4190,42 +4441,47 @@ const deserializeAws_queryCreateServiceSpecificCredentialCommandError = async (
   switch (errorCode) {
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "NotSupportedService":
     case "com.amazonaws.iam#ServiceNotSupportedException":
-      throw await deserializeAws_queryServiceNotSupportedExceptionResponse(parsedOutput, context);
+      throw await de_ServiceNotSupportedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryCreateUserCommand = async (
+/**
+ * deserializeAws_queryCreateUserCommand
+ */
+export const de_CreateUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryCreateUserCommandError(output, context);
+    return de_CreateUserCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCreateUserResponse(data.CreateUserResult, context);
+  contents = de_CreateUserResponse(data.CreateUserResult, context);
   const response: CreateUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryCreateUserCommandError = async (
+/**
+ * deserializeAws_queryCreateUserCommandError
+ */
+const de_CreateUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUserCommandOutput> => {
@@ -4237,51 +4493,56 @@ const deserializeAws_queryCreateUserCommandError = async (
   switch (errorCode) {
     case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
-      throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryCreateVirtualMFADeviceCommand = async (
+/**
+ * deserializeAws_queryCreateVirtualMFADeviceCommand
+ */
+export const de_CreateVirtualMFADeviceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVirtualMFADeviceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryCreateVirtualMFADeviceCommandError(output, context);
+    return de_CreateVirtualMFADeviceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCreateVirtualMFADeviceResponse(data.CreateVirtualMFADeviceResult, context);
+  contents = de_CreateVirtualMFADeviceResponse(data.CreateVirtualMFADeviceResult, context);
   const response: CreateVirtualMFADeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryCreateVirtualMFADeviceCommandError = async (
+/**
+ * deserializeAws_queryCreateVirtualMFADeviceCommandError
+ */
+const de_CreateVirtualMFADeviceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVirtualMFADeviceCommandOutput> => {
@@ -4293,45 +4554,50 @@ const deserializeAws_queryCreateVirtualMFADeviceCommandError = async (
   switch (errorCode) {
     case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
-      throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDeactivateMFADeviceCommand = async (
+/**
+ * deserializeAws_queryDeactivateMFADeviceCommand
+ */
+export const de_DeactivateMFADeviceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeactivateMFADeviceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDeactivateMFADeviceCommandError(output, context);
+    return de_DeactivateMFADeviceCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeactivateMFADeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDeactivateMFADeviceCommandError = async (
+/**
+ * deserializeAws_queryDeactivateMFADeviceCommandError
+ */
+const de_DeactivateMFADeviceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeactivateMFADeviceCommandOutput> => {
@@ -4343,42 +4609,47 @@ const deserializeAws_queryDeactivateMFADeviceCommandError = async (
   switch (errorCode) {
     case "EntityTemporarilyUnmodifiable":
     case "com.amazonaws.iam#EntityTemporarilyUnmodifiableException":
-      throw await deserializeAws_queryEntityTemporarilyUnmodifiableExceptionResponse(parsedOutput, context);
+      throw await de_EntityTemporarilyUnmodifiableExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDeleteAccessKeyCommand = async (
+/**
+ * deserializeAws_queryDeleteAccessKeyCommand
+ */
+export const de_DeleteAccessKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAccessKeyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDeleteAccessKeyCommandError(output, context);
+    return de_DeleteAccessKeyCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteAccessKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDeleteAccessKeyCommandError = async (
+/**
+ * deserializeAws_queryDeleteAccessKeyCommandError
+ */
+const de_DeleteAccessKeyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAccessKeyCommandOutput> => {
@@ -4390,39 +4661,44 @@ const deserializeAws_queryDeleteAccessKeyCommandError = async (
   switch (errorCode) {
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDeleteAccountAliasCommand = async (
+/**
+ * deserializeAws_queryDeleteAccountAliasCommand
+ */
+export const de_DeleteAccountAliasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAccountAliasCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDeleteAccountAliasCommandError(output, context);
+    return de_DeleteAccountAliasCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteAccountAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDeleteAccountAliasCommandError = async (
+/**
+ * deserializeAws_queryDeleteAccountAliasCommandError
+ */
+const de_DeleteAccountAliasCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAccountAliasCommandOutput> => {
@@ -4434,39 +4710,44 @@ const deserializeAws_queryDeleteAccountAliasCommandError = async (
   switch (errorCode) {
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDeleteAccountPasswordPolicyCommand = async (
+/**
+ * deserializeAws_queryDeleteAccountPasswordPolicyCommand
+ */
+export const de_DeleteAccountPasswordPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAccountPasswordPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDeleteAccountPasswordPolicyCommandError(output, context);
+    return de_DeleteAccountPasswordPolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteAccountPasswordPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDeleteAccountPasswordPolicyCommandError = async (
+/**
+ * deserializeAws_queryDeleteAccountPasswordPolicyCommandError
+ */
+const de_DeleteAccountPasswordPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAccountPasswordPolicyCommandOutput> => {
@@ -4478,39 +4759,44 @@ const deserializeAws_queryDeleteAccountPasswordPolicyCommandError = async (
   switch (errorCode) {
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDeleteGroupCommand = async (
+/**
+ * deserializeAws_queryDeleteGroupCommand
+ */
+export const de_DeleteGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDeleteGroupCommandError(output, context);
+    return de_DeleteGroupCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDeleteGroupCommandError = async (
+/**
+ * deserializeAws_queryDeleteGroupCommandError
+ */
+const de_DeleteGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGroupCommandOutput> => {
@@ -4522,42 +4808,47 @@ const deserializeAws_queryDeleteGroupCommandError = async (
   switch (errorCode) {
     case "DeleteConflict":
     case "com.amazonaws.iam#DeleteConflictException":
-      throw await deserializeAws_queryDeleteConflictExceptionResponse(parsedOutput, context);
+      throw await de_DeleteConflictExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDeleteGroupPolicyCommand = async (
+/**
+ * deserializeAws_queryDeleteGroupPolicyCommand
+ */
+export const de_DeleteGroupPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGroupPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDeleteGroupPolicyCommandError(output, context);
+    return de_DeleteGroupPolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteGroupPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDeleteGroupPolicyCommandError = async (
+/**
+ * deserializeAws_queryDeleteGroupPolicyCommandError
+ */
+const de_DeleteGroupPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGroupPolicyCommandOutput> => {
@@ -4569,39 +4860,44 @@ const deserializeAws_queryDeleteGroupPolicyCommandError = async (
   switch (errorCode) {
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDeleteInstanceProfileCommand = async (
+/**
+ * deserializeAws_queryDeleteInstanceProfileCommand
+ */
+export const de_DeleteInstanceProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteInstanceProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDeleteInstanceProfileCommandError(output, context);
+    return de_DeleteInstanceProfileCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteInstanceProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDeleteInstanceProfileCommandError = async (
+/**
+ * deserializeAws_queryDeleteInstanceProfileCommandError
+ */
+const de_DeleteInstanceProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteInstanceProfileCommandOutput> => {
@@ -4613,42 +4909,47 @@ const deserializeAws_queryDeleteInstanceProfileCommandError = async (
   switch (errorCode) {
     case "DeleteConflict":
     case "com.amazonaws.iam#DeleteConflictException":
-      throw await deserializeAws_queryDeleteConflictExceptionResponse(parsedOutput, context);
+      throw await de_DeleteConflictExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDeleteLoginProfileCommand = async (
+/**
+ * deserializeAws_queryDeleteLoginProfileCommand
+ */
+export const de_DeleteLoginProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLoginProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDeleteLoginProfileCommandError(output, context);
+    return de_DeleteLoginProfileCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteLoginProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDeleteLoginProfileCommandError = async (
+/**
+ * deserializeAws_queryDeleteLoginProfileCommandError
+ */
+const de_DeleteLoginProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLoginProfileCommandOutput> => {
@@ -4660,42 +4961,47 @@ const deserializeAws_queryDeleteLoginProfileCommandError = async (
   switch (errorCode) {
     case "EntityTemporarilyUnmodifiable":
     case "com.amazonaws.iam#EntityTemporarilyUnmodifiableException":
-      throw await deserializeAws_queryEntityTemporarilyUnmodifiableExceptionResponse(parsedOutput, context);
+      throw await de_EntityTemporarilyUnmodifiableExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDeleteOpenIDConnectProviderCommand = async (
+/**
+ * deserializeAws_queryDeleteOpenIDConnectProviderCommand
+ */
+export const de_DeleteOpenIDConnectProviderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteOpenIDConnectProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDeleteOpenIDConnectProviderCommandError(output, context);
+    return de_DeleteOpenIDConnectProviderCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteOpenIDConnectProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDeleteOpenIDConnectProviderCommandError = async (
+/**
+ * deserializeAws_queryDeleteOpenIDConnectProviderCommandError
+ */
+const de_DeleteOpenIDConnectProviderCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteOpenIDConnectProviderCommandOutput> => {
@@ -4707,39 +5013,44 @@ const deserializeAws_queryDeleteOpenIDConnectProviderCommandError = async (
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDeletePolicyCommand = async (
+/**
+ * deserializeAws_queryDeletePolicyCommand
+ */
+export const de_DeletePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDeletePolicyCommandError(output, context);
+    return de_DeletePolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeletePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDeletePolicyCommandError = async (
+/**
+ * deserializeAws_queryDeletePolicyCommandError
+ */
+const de_DeletePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePolicyCommandOutput> => {
@@ -4751,45 +5062,50 @@ const deserializeAws_queryDeletePolicyCommandError = async (
   switch (errorCode) {
     case "DeleteConflict":
     case "com.amazonaws.iam#DeleteConflictException":
-      throw await deserializeAws_queryDeleteConflictExceptionResponse(parsedOutput, context);
+      throw await de_DeleteConflictExceptionRes(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDeletePolicyVersionCommand = async (
+/**
+ * deserializeAws_queryDeletePolicyVersionCommand
+ */
+export const de_DeletePolicyVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePolicyVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDeletePolicyVersionCommandError(output, context);
+    return de_DeletePolicyVersionCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeletePolicyVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDeletePolicyVersionCommandError = async (
+/**
+ * deserializeAws_queryDeletePolicyVersionCommandError
+ */
+const de_DeletePolicyVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePolicyVersionCommandOutput> => {
@@ -4801,45 +5117,50 @@ const deserializeAws_queryDeletePolicyVersionCommandError = async (
   switch (errorCode) {
     case "DeleteConflict":
     case "com.amazonaws.iam#DeleteConflictException":
-      throw await deserializeAws_queryDeleteConflictExceptionResponse(parsedOutput, context);
+      throw await de_DeleteConflictExceptionRes(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDeleteRoleCommand = async (
+/**
+ * deserializeAws_queryDeleteRoleCommand
+ */
+export const de_DeleteRoleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRoleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDeleteRoleCommandError(output, context);
+    return de_DeleteRoleCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteRoleCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDeleteRoleCommandError = async (
+/**
+ * deserializeAws_queryDeleteRoleCommandError
+ */
+const de_DeleteRoleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRoleCommandOutput> => {
@@ -4851,48 +5172,53 @@ const deserializeAws_queryDeleteRoleCommandError = async (
   switch (errorCode) {
     case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "DeleteConflict":
     case "com.amazonaws.iam#DeleteConflictException":
-      throw await deserializeAws_queryDeleteConflictExceptionResponse(parsedOutput, context);
+      throw await de_DeleteConflictExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "UnmodifiableEntity":
     case "com.amazonaws.iam#UnmodifiableEntityException":
-      throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
+      throw await de_UnmodifiableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDeleteRolePermissionsBoundaryCommand = async (
+/**
+ * deserializeAws_queryDeleteRolePermissionsBoundaryCommand
+ */
+export const de_DeleteRolePermissionsBoundaryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRolePermissionsBoundaryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDeleteRolePermissionsBoundaryCommandError(output, context);
+    return de_DeleteRolePermissionsBoundaryCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteRolePermissionsBoundaryCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDeleteRolePermissionsBoundaryCommandError = async (
+/**
+ * deserializeAws_queryDeleteRolePermissionsBoundaryCommandError
+ */
+const de_DeleteRolePermissionsBoundaryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRolePermissionsBoundaryCommandOutput> => {
@@ -4904,39 +5230,44 @@ const deserializeAws_queryDeleteRolePermissionsBoundaryCommandError = async (
   switch (errorCode) {
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "UnmodifiableEntity":
     case "com.amazonaws.iam#UnmodifiableEntityException":
-      throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
+      throw await de_UnmodifiableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDeleteRolePolicyCommand = async (
+/**
+ * deserializeAws_queryDeleteRolePolicyCommand
+ */
+export const de_DeleteRolePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRolePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDeleteRolePolicyCommandError(output, context);
+    return de_DeleteRolePolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteRolePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDeleteRolePolicyCommandError = async (
+/**
+ * deserializeAws_queryDeleteRolePolicyCommandError
+ */
+const de_DeleteRolePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRolePolicyCommandOutput> => {
@@ -4948,42 +5279,47 @@ const deserializeAws_queryDeleteRolePolicyCommandError = async (
   switch (errorCode) {
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "UnmodifiableEntity":
     case "com.amazonaws.iam#UnmodifiableEntityException":
-      throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
+      throw await de_UnmodifiableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDeleteSAMLProviderCommand = async (
+/**
+ * deserializeAws_queryDeleteSAMLProviderCommand
+ */
+export const de_DeleteSAMLProviderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSAMLProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDeleteSAMLProviderCommandError(output, context);
+    return de_DeleteSAMLProviderCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteSAMLProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDeleteSAMLProviderCommandError = async (
+/**
+ * deserializeAws_queryDeleteSAMLProviderCommandError
+ */
+const de_DeleteSAMLProviderCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSAMLProviderCommandOutput> => {
@@ -4995,42 +5331,47 @@ const deserializeAws_queryDeleteSAMLProviderCommandError = async (
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDeleteServerCertificateCommand = async (
+/**
+ * deserializeAws_queryDeleteServerCertificateCommand
+ */
+export const de_DeleteServerCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteServerCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDeleteServerCertificateCommandError(output, context);
+    return de_DeleteServerCertificateCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteServerCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDeleteServerCertificateCommandError = async (
+/**
+ * deserializeAws_queryDeleteServerCertificateCommandError
+ */
+const de_DeleteServerCertificateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteServerCertificateCommandOutput> => {
@@ -5042,45 +5383,50 @@ const deserializeAws_queryDeleteServerCertificateCommandError = async (
   switch (errorCode) {
     case "DeleteConflict":
     case "com.amazonaws.iam#DeleteConflictException":
-      throw await deserializeAws_queryDeleteConflictExceptionResponse(parsedOutput, context);
+      throw await de_DeleteConflictExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDeleteServiceLinkedRoleCommand = async (
+/**
+ * deserializeAws_queryDeleteServiceLinkedRoleCommand
+ */
+export const de_DeleteServiceLinkedRoleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteServiceLinkedRoleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDeleteServiceLinkedRoleCommandError(output, context);
+    return de_DeleteServiceLinkedRoleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDeleteServiceLinkedRoleResponse(data.DeleteServiceLinkedRoleResult, context);
+  contents = de_DeleteServiceLinkedRoleResponse(data.DeleteServiceLinkedRoleResult, context);
   const response: DeleteServiceLinkedRoleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDeleteServiceLinkedRoleCommandError = async (
+/**
+ * deserializeAws_queryDeleteServiceLinkedRoleCommandError
+ */
+const de_DeleteServiceLinkedRoleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteServiceLinkedRoleCommandOutput> => {
@@ -5092,39 +5438,44 @@ const deserializeAws_queryDeleteServiceLinkedRoleCommandError = async (
   switch (errorCode) {
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDeleteServiceSpecificCredentialCommand = async (
+/**
+ * deserializeAws_queryDeleteServiceSpecificCredentialCommand
+ */
+export const de_DeleteServiceSpecificCredentialCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteServiceSpecificCredentialCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDeleteServiceSpecificCredentialCommandError(output, context);
+    return de_DeleteServiceSpecificCredentialCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteServiceSpecificCredentialCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDeleteServiceSpecificCredentialCommandError = async (
+/**
+ * deserializeAws_queryDeleteServiceSpecificCredentialCommandError
+ */
+const de_DeleteServiceSpecificCredentialCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteServiceSpecificCredentialCommandOutput> => {
@@ -5136,33 +5487,38 @@ const deserializeAws_queryDeleteServiceSpecificCredentialCommandError = async (
   switch (errorCode) {
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDeleteSigningCertificateCommand = async (
+/**
+ * deserializeAws_queryDeleteSigningCertificateCommand
+ */
+export const de_DeleteSigningCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSigningCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDeleteSigningCertificateCommandError(output, context);
+    return de_DeleteSigningCertificateCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteSigningCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDeleteSigningCertificateCommandError = async (
+/**
+ * deserializeAws_queryDeleteSigningCertificateCommandError
+ */
+const de_DeleteSigningCertificateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSigningCertificateCommandOutput> => {
@@ -5174,39 +5530,44 @@ const deserializeAws_queryDeleteSigningCertificateCommandError = async (
   switch (errorCode) {
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDeleteSSHPublicKeyCommand = async (
+/**
+ * deserializeAws_queryDeleteSSHPublicKeyCommand
+ */
+export const de_DeleteSSHPublicKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSSHPublicKeyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDeleteSSHPublicKeyCommandError(output, context);
+    return de_DeleteSSHPublicKeyCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteSSHPublicKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDeleteSSHPublicKeyCommandError = async (
+/**
+ * deserializeAws_queryDeleteSSHPublicKeyCommandError
+ */
+const de_DeleteSSHPublicKeyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSSHPublicKeyCommandOutput> => {
@@ -5218,33 +5579,38 @@ const deserializeAws_queryDeleteSSHPublicKeyCommandError = async (
   switch (errorCode) {
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDeleteUserCommand = async (
+/**
+ * deserializeAws_queryDeleteUserCommand
+ */
+export const de_DeleteUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDeleteUserCommandError(output, context);
+    return de_DeleteUserCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteUserCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDeleteUserCommandError = async (
+/**
+ * deserializeAws_queryDeleteUserCommandError
+ */
+const de_DeleteUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserCommandOutput> => {
@@ -5256,45 +5622,50 @@ const deserializeAws_queryDeleteUserCommandError = async (
   switch (errorCode) {
     case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "DeleteConflict":
     case "com.amazonaws.iam#DeleteConflictException":
-      throw await deserializeAws_queryDeleteConflictExceptionResponse(parsedOutput, context);
+      throw await de_DeleteConflictExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDeleteUserPermissionsBoundaryCommand = async (
+/**
+ * deserializeAws_queryDeleteUserPermissionsBoundaryCommand
+ */
+export const de_DeleteUserPermissionsBoundaryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserPermissionsBoundaryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDeleteUserPermissionsBoundaryCommandError(output, context);
+    return de_DeleteUserPermissionsBoundaryCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteUserPermissionsBoundaryCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDeleteUserPermissionsBoundaryCommandError = async (
+/**
+ * deserializeAws_queryDeleteUserPermissionsBoundaryCommandError
+ */
+const de_DeleteUserPermissionsBoundaryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserPermissionsBoundaryCommandOutput> => {
@@ -5306,36 +5677,41 @@ const deserializeAws_queryDeleteUserPermissionsBoundaryCommandError = async (
   switch (errorCode) {
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDeleteUserPolicyCommand = async (
+/**
+ * deserializeAws_queryDeleteUserPolicyCommand
+ */
+export const de_DeleteUserPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDeleteUserPolicyCommandError(output, context);
+    return de_DeleteUserPolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteUserPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDeleteUserPolicyCommandError = async (
+/**
+ * deserializeAws_queryDeleteUserPolicyCommandError
+ */
+const de_DeleteUserPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserPolicyCommandOutput> => {
@@ -5347,39 +5723,44 @@ const deserializeAws_queryDeleteUserPolicyCommandError = async (
   switch (errorCode) {
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDeleteVirtualMFADeviceCommand = async (
+/**
+ * deserializeAws_queryDeleteVirtualMFADeviceCommand
+ */
+export const de_DeleteVirtualMFADeviceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVirtualMFADeviceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDeleteVirtualMFADeviceCommandError(output, context);
+    return de_DeleteVirtualMFADeviceCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteVirtualMFADeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDeleteVirtualMFADeviceCommandError = async (
+/**
+ * deserializeAws_queryDeleteVirtualMFADeviceCommandError
+ */
+const de_DeleteVirtualMFADeviceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVirtualMFADeviceCommandOutput> => {
@@ -5391,42 +5772,47 @@ const deserializeAws_queryDeleteVirtualMFADeviceCommandError = async (
   switch (errorCode) {
     case "DeleteConflict":
     case "com.amazonaws.iam#DeleteConflictException":
-      throw await deserializeAws_queryDeleteConflictExceptionResponse(parsedOutput, context);
+      throw await de_DeleteConflictExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDetachGroupPolicyCommand = async (
+/**
+ * deserializeAws_queryDetachGroupPolicyCommand
+ */
+export const de_DetachGroupPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetachGroupPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDetachGroupPolicyCommandError(output, context);
+    return de_DetachGroupPolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DetachGroupPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDetachGroupPolicyCommandError = async (
+/**
+ * deserializeAws_queryDetachGroupPolicyCommandError
+ */
+const de_DetachGroupPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetachGroupPolicyCommandOutput> => {
@@ -5438,42 +5824,47 @@ const deserializeAws_queryDetachGroupPolicyCommandError = async (
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDetachRolePolicyCommand = async (
+/**
+ * deserializeAws_queryDetachRolePolicyCommand
+ */
+export const de_DetachRolePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetachRolePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDetachRolePolicyCommandError(output, context);
+    return de_DetachRolePolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DetachRolePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDetachRolePolicyCommandError = async (
+/**
+ * deserializeAws_queryDetachRolePolicyCommandError
+ */
+const de_DetachRolePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetachRolePolicyCommandOutput> => {
@@ -5485,45 +5876,50 @@ const deserializeAws_queryDetachRolePolicyCommandError = async (
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "UnmodifiableEntity":
     case "com.amazonaws.iam#UnmodifiableEntityException":
-      throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
+      throw await de_UnmodifiableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDetachUserPolicyCommand = async (
+/**
+ * deserializeAws_queryDetachUserPolicyCommand
+ */
+export const de_DetachUserPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetachUserPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDetachUserPolicyCommandError(output, context);
+    return de_DetachUserPolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DetachUserPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDetachUserPolicyCommandError = async (
+/**
+ * deserializeAws_queryDetachUserPolicyCommandError
+ */
+const de_DetachUserPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetachUserPolicyCommandOutput> => {
@@ -5535,42 +5931,47 @@ const deserializeAws_queryDetachUserPolicyCommandError = async (
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryEnableMFADeviceCommand = async (
+/**
+ * deserializeAws_queryEnableMFADeviceCommand
+ */
+export const de_EnableMFADeviceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableMFADeviceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryEnableMFADeviceCommandError(output, context);
+    return de_EnableMFADeviceCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: EnableMFADeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryEnableMFADeviceCommandError = async (
+/**
+ * deserializeAws_queryEnableMFADeviceCommandError
+ */
+const de_EnableMFADeviceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableMFADeviceCommandOutput> => {
@@ -5582,51 +5983,56 @@ const deserializeAws_queryEnableMFADeviceCommandError = async (
   switch (errorCode) {
     case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
-      throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
     case "EntityTemporarilyUnmodifiable":
     case "com.amazonaws.iam#EntityTemporarilyUnmodifiableException":
-      throw await deserializeAws_queryEntityTemporarilyUnmodifiableExceptionResponse(parsedOutput, context);
+      throw await de_EntityTemporarilyUnmodifiableExceptionRes(parsedOutput, context);
     case "InvalidAuthenticationCode":
     case "com.amazonaws.iam#InvalidAuthenticationCodeException":
-      throw await deserializeAws_queryInvalidAuthenticationCodeExceptionResponse(parsedOutput, context);
+      throw await de_InvalidAuthenticationCodeExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryGenerateCredentialReportCommand = async (
+/**
+ * deserializeAws_queryGenerateCredentialReportCommand
+ */
+export const de_GenerateCredentialReportCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GenerateCredentialReportCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryGenerateCredentialReportCommandError(output, context);
+    return de_GenerateCredentialReportCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryGenerateCredentialReportResponse(data.GenerateCredentialReportResult, context);
+  contents = de_GenerateCredentialReportResponse(data.GenerateCredentialReportResult, context);
   const response: GenerateCredentialReportCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryGenerateCredentialReportCommandError = async (
+/**
+ * deserializeAws_queryGenerateCredentialReportCommandError
+ */
+const de_GenerateCredentialReportCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GenerateCredentialReportCommandOutput> => {
@@ -5638,42 +6044,44 @@ const deserializeAws_queryGenerateCredentialReportCommandError = async (
   switch (errorCode) {
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryGenerateOrganizationsAccessReportCommand = async (
+/**
+ * deserializeAws_queryGenerateOrganizationsAccessReportCommand
+ */
+export const de_GenerateOrganizationsAccessReportCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GenerateOrganizationsAccessReportCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryGenerateOrganizationsAccessReportCommandError(output, context);
+    return de_GenerateOrganizationsAccessReportCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryGenerateOrganizationsAccessReportResponse(
-    data.GenerateOrganizationsAccessReportResult,
-    context
-  );
+  contents = de_GenerateOrganizationsAccessReportResponse(data.GenerateOrganizationsAccessReportResult, context);
   const response: GenerateOrganizationsAccessReportCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryGenerateOrganizationsAccessReportCommandError = async (
+/**
+ * deserializeAws_queryGenerateOrganizationsAccessReportCommandError
+ */
+const de_GenerateOrganizationsAccessReportCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GenerateOrganizationsAccessReportCommandOutput> => {
@@ -5685,39 +6093,41 @@ const deserializeAws_queryGenerateOrganizationsAccessReportCommandError = async 
   switch (errorCode) {
     case "ReportGenerationLimitExceeded":
     case "com.amazonaws.iam#ReportGenerationLimitExceededException":
-      throw await deserializeAws_queryReportGenerationLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ReportGenerationLimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryGenerateServiceLastAccessedDetailsCommand = async (
+/**
+ * deserializeAws_queryGenerateServiceLastAccessedDetailsCommand
+ */
+export const de_GenerateServiceLastAccessedDetailsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GenerateServiceLastAccessedDetailsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryGenerateServiceLastAccessedDetailsCommandError(output, context);
+    return de_GenerateServiceLastAccessedDetailsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryGenerateServiceLastAccessedDetailsResponse(
-    data.GenerateServiceLastAccessedDetailsResult,
-    context
-  );
+  contents = de_GenerateServiceLastAccessedDetailsResponse(data.GenerateServiceLastAccessedDetailsResult, context);
   const response: GenerateServiceLastAccessedDetailsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryGenerateServiceLastAccessedDetailsCommandError = async (
+/**
+ * deserializeAws_queryGenerateServiceLastAccessedDetailsCommandError
+ */
+const de_GenerateServiceLastAccessedDetailsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GenerateServiceLastAccessedDetailsCommandOutput> => {
@@ -5729,39 +6139,44 @@ const deserializeAws_queryGenerateServiceLastAccessedDetailsCommandError = async
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryGetAccessKeyLastUsedCommand = async (
+/**
+ * deserializeAws_queryGetAccessKeyLastUsedCommand
+ */
+export const de_GetAccessKeyLastUsedCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccessKeyLastUsedCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryGetAccessKeyLastUsedCommandError(output, context);
+    return de_GetAccessKeyLastUsedCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryGetAccessKeyLastUsedResponse(data.GetAccessKeyLastUsedResult, context);
+  contents = de_GetAccessKeyLastUsedResponse(data.GetAccessKeyLastUsedResult, context);
   const response: GetAccessKeyLastUsedCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryGetAccessKeyLastUsedCommandError = async (
+/**
+ * deserializeAws_queryGetAccessKeyLastUsedCommandError
+ */
+const de_GetAccessKeyLastUsedCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccessKeyLastUsedCommandOutput> => {
@@ -5773,39 +6188,41 @@ const deserializeAws_queryGetAccessKeyLastUsedCommandError = async (
   switch (errorCode) {
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryGetAccountAuthorizationDetailsCommand = async (
+/**
+ * deserializeAws_queryGetAccountAuthorizationDetailsCommand
+ */
+export const de_GetAccountAuthorizationDetailsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccountAuthorizationDetailsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryGetAccountAuthorizationDetailsCommandError(output, context);
+    return de_GetAccountAuthorizationDetailsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryGetAccountAuthorizationDetailsResponse(
-    data.GetAccountAuthorizationDetailsResult,
-    context
-  );
+  contents = de_GetAccountAuthorizationDetailsResponse(data.GetAccountAuthorizationDetailsResult, context);
   const response: GetAccountAuthorizationDetailsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryGetAccountAuthorizationDetailsCommandError = async (
+/**
+ * deserializeAws_queryGetAccountAuthorizationDetailsCommandError
+ */
+const de_GetAccountAuthorizationDetailsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccountAuthorizationDetailsCommandOutput> => {
@@ -5817,36 +6234,41 @@ const deserializeAws_queryGetAccountAuthorizationDetailsCommandError = async (
   switch (errorCode) {
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryGetAccountPasswordPolicyCommand = async (
+/**
+ * deserializeAws_queryGetAccountPasswordPolicyCommand
+ */
+export const de_GetAccountPasswordPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccountPasswordPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryGetAccountPasswordPolicyCommandError(output, context);
+    return de_GetAccountPasswordPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryGetAccountPasswordPolicyResponse(data.GetAccountPasswordPolicyResult, context);
+  contents = de_GetAccountPasswordPolicyResponse(data.GetAccountPasswordPolicyResult, context);
   const response: GetAccountPasswordPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryGetAccountPasswordPolicyCommandError = async (
+/**
+ * deserializeAws_queryGetAccountPasswordPolicyCommandError
+ */
+const de_GetAccountPasswordPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccountPasswordPolicyCommandOutput> => {
@@ -5858,39 +6280,44 @@ const deserializeAws_queryGetAccountPasswordPolicyCommandError = async (
   switch (errorCode) {
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryGetAccountSummaryCommand = async (
+/**
+ * deserializeAws_queryGetAccountSummaryCommand
+ */
+export const de_GetAccountSummaryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccountSummaryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryGetAccountSummaryCommandError(output, context);
+    return de_GetAccountSummaryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryGetAccountSummaryResponse(data.GetAccountSummaryResult, context);
+  contents = de_GetAccountSummaryResponse(data.GetAccountSummaryResult, context);
   const response: GetAccountSummaryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryGetAccountSummaryCommandError = async (
+/**
+ * deserializeAws_queryGetAccountSummaryCommandError
+ */
+const de_GetAccountSummaryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccountSummaryCommandOutput> => {
@@ -5902,36 +6329,41 @@ const deserializeAws_queryGetAccountSummaryCommandError = async (
   switch (errorCode) {
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryGetContextKeysForCustomPolicyCommand = async (
+/**
+ * deserializeAws_queryGetContextKeysForCustomPolicyCommand
+ */
+export const de_GetContextKeysForCustomPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetContextKeysForCustomPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryGetContextKeysForCustomPolicyCommandError(output, context);
+    return de_GetContextKeysForCustomPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryGetContextKeysForPolicyResponse(data.GetContextKeysForCustomPolicyResult, context);
+  contents = de_GetContextKeysForPolicyResponse(data.GetContextKeysForCustomPolicyResult, context);
   const response: GetContextKeysForCustomPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryGetContextKeysForCustomPolicyCommandError = async (
+/**
+ * deserializeAws_queryGetContextKeysForCustomPolicyCommandError
+ */
+const de_GetContextKeysForCustomPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetContextKeysForCustomPolicyCommandOutput> => {
@@ -5943,36 +6375,41 @@ const deserializeAws_queryGetContextKeysForCustomPolicyCommandError = async (
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryGetContextKeysForPrincipalPolicyCommand = async (
+/**
+ * deserializeAws_queryGetContextKeysForPrincipalPolicyCommand
+ */
+export const de_GetContextKeysForPrincipalPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetContextKeysForPrincipalPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryGetContextKeysForPrincipalPolicyCommandError(output, context);
+    return de_GetContextKeysForPrincipalPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryGetContextKeysForPolicyResponse(data.GetContextKeysForPrincipalPolicyResult, context);
+  contents = de_GetContextKeysForPolicyResponse(data.GetContextKeysForPrincipalPolicyResult, context);
   const response: GetContextKeysForPrincipalPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryGetContextKeysForPrincipalPolicyCommandError = async (
+/**
+ * deserializeAws_queryGetContextKeysForPrincipalPolicyCommandError
+ */
+const de_GetContextKeysForPrincipalPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetContextKeysForPrincipalPolicyCommandOutput> => {
@@ -5984,39 +6421,44 @@ const deserializeAws_queryGetContextKeysForPrincipalPolicyCommandError = async (
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryGetCredentialReportCommand = async (
+/**
+ * deserializeAws_queryGetCredentialReportCommand
+ */
+export const de_GetCredentialReportCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCredentialReportCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryGetCredentialReportCommandError(output, context);
+    return de_GetCredentialReportCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryGetCredentialReportResponse(data.GetCredentialReportResult, context);
+  contents = de_GetCredentialReportResponse(data.GetCredentialReportResult, context);
   const response: GetCredentialReportCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryGetCredentialReportCommandError = async (
+/**
+ * deserializeAws_queryGetCredentialReportCommandError
+ */
+const de_GetCredentialReportCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCredentialReportCommandOutput> => {
@@ -6028,45 +6470,50 @@ const deserializeAws_queryGetCredentialReportCommandError = async (
   switch (errorCode) {
     case "ReportExpired":
     case "com.amazonaws.iam#CredentialReportExpiredException":
-      throw await deserializeAws_queryCredentialReportExpiredExceptionResponse(parsedOutput, context);
+      throw await de_CredentialReportExpiredExceptionRes(parsedOutput, context);
     case "ReportInProgress":
     case "com.amazonaws.iam#CredentialReportNotReadyException":
-      throw await deserializeAws_queryCredentialReportNotReadyExceptionResponse(parsedOutput, context);
+      throw await de_CredentialReportNotReadyExceptionRes(parsedOutput, context);
     case "ReportNotPresent":
     case "com.amazonaws.iam#CredentialReportNotPresentException":
-      throw await deserializeAws_queryCredentialReportNotPresentExceptionResponse(parsedOutput, context);
+      throw await de_CredentialReportNotPresentExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryGetGroupCommand = async (
+/**
+ * deserializeAws_queryGetGroupCommand
+ */
+export const de_GetGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryGetGroupCommandError(output, context);
+    return de_GetGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryGetGroupResponse(data.GetGroupResult, context);
+  contents = de_GetGroupResponse(data.GetGroupResult, context);
   const response: GetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryGetGroupCommandError = async (
+/**
+ * deserializeAws_queryGetGroupCommandError
+ */
+const de_GetGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGroupCommandOutput> => {
@@ -6078,39 +6525,44 @@ const deserializeAws_queryGetGroupCommandError = async (
   switch (errorCode) {
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryGetGroupPolicyCommand = async (
+/**
+ * deserializeAws_queryGetGroupPolicyCommand
+ */
+export const de_GetGroupPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGroupPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryGetGroupPolicyCommandError(output, context);
+    return de_GetGroupPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryGetGroupPolicyResponse(data.GetGroupPolicyResult, context);
+  contents = de_GetGroupPolicyResponse(data.GetGroupPolicyResult, context);
   const response: GetGroupPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryGetGroupPolicyCommandError = async (
+/**
+ * deserializeAws_queryGetGroupPolicyCommandError
+ */
+const de_GetGroupPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGroupPolicyCommandOutput> => {
@@ -6122,39 +6574,44 @@ const deserializeAws_queryGetGroupPolicyCommandError = async (
   switch (errorCode) {
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryGetInstanceProfileCommand = async (
+/**
+ * deserializeAws_queryGetInstanceProfileCommand
+ */
+export const de_GetInstanceProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetInstanceProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryGetInstanceProfileCommandError(output, context);
+    return de_GetInstanceProfileCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryGetInstanceProfileResponse(data.GetInstanceProfileResult, context);
+  contents = de_GetInstanceProfileResponse(data.GetInstanceProfileResult, context);
   const response: GetInstanceProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryGetInstanceProfileCommandError = async (
+/**
+ * deserializeAws_queryGetInstanceProfileCommandError
+ */
+const de_GetInstanceProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetInstanceProfileCommandOutput> => {
@@ -6166,39 +6623,44 @@ const deserializeAws_queryGetInstanceProfileCommandError = async (
   switch (errorCode) {
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryGetLoginProfileCommand = async (
+/**
+ * deserializeAws_queryGetLoginProfileCommand
+ */
+export const de_GetLoginProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLoginProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryGetLoginProfileCommandError(output, context);
+    return de_GetLoginProfileCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryGetLoginProfileResponse(data.GetLoginProfileResult, context);
+  contents = de_GetLoginProfileResponse(data.GetLoginProfileResult, context);
   const response: GetLoginProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryGetLoginProfileCommandError = async (
+/**
+ * deserializeAws_queryGetLoginProfileCommandError
+ */
+const de_GetLoginProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLoginProfileCommandOutput> => {
@@ -6210,39 +6672,44 @@ const deserializeAws_queryGetLoginProfileCommandError = async (
   switch (errorCode) {
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryGetOpenIDConnectProviderCommand = async (
+/**
+ * deserializeAws_queryGetOpenIDConnectProviderCommand
+ */
+export const de_GetOpenIDConnectProviderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetOpenIDConnectProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryGetOpenIDConnectProviderCommandError(output, context);
+    return de_GetOpenIDConnectProviderCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryGetOpenIDConnectProviderResponse(data.GetOpenIDConnectProviderResult, context);
+  contents = de_GetOpenIDConnectProviderResponse(data.GetOpenIDConnectProviderResult, context);
   const response: GetOpenIDConnectProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryGetOpenIDConnectProviderCommandError = async (
+/**
+ * deserializeAws_queryGetOpenIDConnectProviderCommandError
+ */
+const de_GetOpenIDConnectProviderCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetOpenIDConnectProviderCommandOutput> => {
@@ -6254,42 +6721,47 @@ const deserializeAws_queryGetOpenIDConnectProviderCommandError = async (
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryGetOrganizationsAccessReportCommand = async (
+/**
+ * deserializeAws_queryGetOrganizationsAccessReportCommand
+ */
+export const de_GetOrganizationsAccessReportCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetOrganizationsAccessReportCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryGetOrganizationsAccessReportCommandError(output, context);
+    return de_GetOrganizationsAccessReportCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryGetOrganizationsAccessReportResponse(data.GetOrganizationsAccessReportResult, context);
+  contents = de_GetOrganizationsAccessReportResponse(data.GetOrganizationsAccessReportResult, context);
   const response: GetOrganizationsAccessReportCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryGetOrganizationsAccessReportCommandError = async (
+/**
+ * deserializeAws_queryGetOrganizationsAccessReportCommandError
+ */
+const de_GetOrganizationsAccessReportCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetOrganizationsAccessReportCommandOutput> => {
@@ -6301,36 +6773,41 @@ const deserializeAws_queryGetOrganizationsAccessReportCommandError = async (
   switch (errorCode) {
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryGetPolicyCommand = async (
+/**
+ * deserializeAws_queryGetPolicyCommand
+ */
+export const de_GetPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryGetPolicyCommandError(output, context);
+    return de_GetPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryGetPolicyResponse(data.GetPolicyResult, context);
+  contents = de_GetPolicyResponse(data.GetPolicyResult, context);
   const response: GetPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryGetPolicyCommandError = async (
+/**
+ * deserializeAws_queryGetPolicyCommandError
+ */
+const de_GetPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPolicyCommandOutput> => {
@@ -6342,42 +6819,47 @@ const deserializeAws_queryGetPolicyCommandError = async (
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryGetPolicyVersionCommand = async (
+/**
+ * deserializeAws_queryGetPolicyVersionCommand
+ */
+export const de_GetPolicyVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPolicyVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryGetPolicyVersionCommandError(output, context);
+    return de_GetPolicyVersionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryGetPolicyVersionResponse(data.GetPolicyVersionResult, context);
+  contents = de_GetPolicyVersionResponse(data.GetPolicyVersionResult, context);
   const response: GetPolicyVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryGetPolicyVersionCommandError = async (
+/**
+ * deserializeAws_queryGetPolicyVersionCommandError
+ */
+const de_GetPolicyVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPolicyVersionCommandOutput> => {
@@ -6389,42 +6871,47 @@ const deserializeAws_queryGetPolicyVersionCommandError = async (
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryGetRoleCommand = async (
+/**
+ * deserializeAws_queryGetRoleCommand
+ */
+export const de_GetRoleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRoleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryGetRoleCommandError(output, context);
+    return de_GetRoleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryGetRoleResponse(data.GetRoleResult, context);
+  contents = de_GetRoleResponse(data.GetRoleResult, context);
   const response: GetRoleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryGetRoleCommandError = async (
+/**
+ * deserializeAws_queryGetRoleCommandError
+ */
+const de_GetRoleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRoleCommandOutput> => {
@@ -6436,39 +6923,44 @@ const deserializeAws_queryGetRoleCommandError = async (
   switch (errorCode) {
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryGetRolePolicyCommand = async (
+/**
+ * deserializeAws_queryGetRolePolicyCommand
+ */
+export const de_GetRolePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRolePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryGetRolePolicyCommandError(output, context);
+    return de_GetRolePolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryGetRolePolicyResponse(data.GetRolePolicyResult, context);
+  contents = de_GetRolePolicyResponse(data.GetRolePolicyResult, context);
   const response: GetRolePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryGetRolePolicyCommandError = async (
+/**
+ * deserializeAws_queryGetRolePolicyCommandError
+ */
+const de_GetRolePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRolePolicyCommandOutput> => {
@@ -6480,39 +6972,44 @@ const deserializeAws_queryGetRolePolicyCommandError = async (
   switch (errorCode) {
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryGetSAMLProviderCommand = async (
+/**
+ * deserializeAws_queryGetSAMLProviderCommand
+ */
+export const de_GetSAMLProviderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSAMLProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryGetSAMLProviderCommandError(output, context);
+    return de_GetSAMLProviderCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryGetSAMLProviderResponse(data.GetSAMLProviderResult, context);
+  contents = de_GetSAMLProviderResponse(data.GetSAMLProviderResult, context);
   const response: GetSAMLProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryGetSAMLProviderCommandError = async (
+/**
+ * deserializeAws_queryGetSAMLProviderCommandError
+ */
+const de_GetSAMLProviderCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSAMLProviderCommandOutput> => {
@@ -6524,42 +7021,47 @@ const deserializeAws_queryGetSAMLProviderCommandError = async (
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryGetServerCertificateCommand = async (
+/**
+ * deserializeAws_queryGetServerCertificateCommand
+ */
+export const de_GetServerCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetServerCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryGetServerCertificateCommandError(output, context);
+    return de_GetServerCertificateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryGetServerCertificateResponse(data.GetServerCertificateResult, context);
+  contents = de_GetServerCertificateResponse(data.GetServerCertificateResult, context);
   const response: GetServerCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryGetServerCertificateCommandError = async (
+/**
+ * deserializeAws_queryGetServerCertificateCommandError
+ */
+const de_GetServerCertificateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetServerCertificateCommandOutput> => {
@@ -6571,42 +7073,44 @@ const deserializeAws_queryGetServerCertificateCommandError = async (
   switch (errorCode) {
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryGetServiceLastAccessedDetailsCommand = async (
+/**
+ * deserializeAws_queryGetServiceLastAccessedDetailsCommand
+ */
+export const de_GetServiceLastAccessedDetailsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetServiceLastAccessedDetailsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryGetServiceLastAccessedDetailsCommandError(output, context);
+    return de_GetServiceLastAccessedDetailsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryGetServiceLastAccessedDetailsResponse(
-    data.GetServiceLastAccessedDetailsResult,
-    context
-  );
+  contents = de_GetServiceLastAccessedDetailsResponse(data.GetServiceLastAccessedDetailsResult, context);
   const response: GetServiceLastAccessedDetailsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryGetServiceLastAccessedDetailsCommandError = async (
+/**
+ * deserializeAws_queryGetServiceLastAccessedDetailsCommandError
+ */
+const de_GetServiceLastAccessedDetailsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetServiceLastAccessedDetailsCommandOutput> => {
@@ -6618,31 +7122,33 @@ const deserializeAws_queryGetServiceLastAccessedDetailsCommandError = async (
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryGetServiceLastAccessedDetailsWithEntitiesCommand = async (
+/**
+ * deserializeAws_queryGetServiceLastAccessedDetailsWithEntitiesCommand
+ */
+export const de_GetServiceLastAccessedDetailsWithEntitiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetServiceLastAccessedDetailsWithEntitiesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryGetServiceLastAccessedDetailsWithEntitiesCommandError(output, context);
+    return de_GetServiceLastAccessedDetailsWithEntitiesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryGetServiceLastAccessedDetailsWithEntitiesResponse(
+  contents = de_GetServiceLastAccessedDetailsWithEntitiesResponse(
     data.GetServiceLastAccessedDetailsWithEntitiesResult,
     context
   );
@@ -6650,10 +7156,13 @@ export const deserializeAws_queryGetServiceLastAccessedDetailsWithEntitiesComman
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryGetServiceLastAccessedDetailsWithEntitiesCommandError = async (
+/**
+ * deserializeAws_queryGetServiceLastAccessedDetailsWithEntitiesCommandError
+ */
+const de_GetServiceLastAccessedDetailsWithEntitiesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetServiceLastAccessedDetailsWithEntitiesCommandOutput> => {
@@ -6665,42 +7174,44 @@ const deserializeAws_queryGetServiceLastAccessedDetailsWithEntitiesCommandError 
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryGetServiceLinkedRoleDeletionStatusCommand = async (
+/**
+ * deserializeAws_queryGetServiceLinkedRoleDeletionStatusCommand
+ */
+export const de_GetServiceLinkedRoleDeletionStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetServiceLinkedRoleDeletionStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryGetServiceLinkedRoleDeletionStatusCommandError(output, context);
+    return de_GetServiceLinkedRoleDeletionStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryGetServiceLinkedRoleDeletionStatusResponse(
-    data.GetServiceLinkedRoleDeletionStatusResult,
-    context
-  );
+  contents = de_GetServiceLinkedRoleDeletionStatusResponse(data.GetServiceLinkedRoleDeletionStatusResult, context);
   const response: GetServiceLinkedRoleDeletionStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryGetServiceLinkedRoleDeletionStatusCommandError = async (
+/**
+ * deserializeAws_queryGetServiceLinkedRoleDeletionStatusCommandError
+ */
+const de_GetServiceLinkedRoleDeletionStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetServiceLinkedRoleDeletionStatusCommandOutput> => {
@@ -6712,42 +7223,47 @@ const deserializeAws_queryGetServiceLinkedRoleDeletionStatusCommandError = async
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryGetSSHPublicKeyCommand = async (
+/**
+ * deserializeAws_queryGetSSHPublicKeyCommand
+ */
+export const de_GetSSHPublicKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSSHPublicKeyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryGetSSHPublicKeyCommandError(output, context);
+    return de_GetSSHPublicKeyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryGetSSHPublicKeyResponse(data.GetSSHPublicKeyResult, context);
+  contents = de_GetSSHPublicKeyResponse(data.GetSSHPublicKeyResult, context);
   const response: GetSSHPublicKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryGetSSHPublicKeyCommandError = async (
+/**
+ * deserializeAws_queryGetSSHPublicKeyCommandError
+ */
+const de_GetSSHPublicKeyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSSHPublicKeyCommandOutput> => {
@@ -6759,39 +7275,44 @@ const deserializeAws_queryGetSSHPublicKeyCommandError = async (
   switch (errorCode) {
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "UnrecognizedPublicKeyEncoding":
     case "com.amazonaws.iam#UnrecognizedPublicKeyEncodingException":
-      throw await deserializeAws_queryUnrecognizedPublicKeyEncodingExceptionResponse(parsedOutput, context);
+      throw await de_UnrecognizedPublicKeyEncodingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryGetUserCommand = async (
+/**
+ * deserializeAws_queryGetUserCommand
+ */
+export const de_GetUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryGetUserCommandError(output, context);
+    return de_GetUserCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryGetUserResponse(data.GetUserResult, context);
+  contents = de_GetUserResponse(data.GetUserResult, context);
   const response: GetUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryGetUserCommandError = async (
+/**
+ * deserializeAws_queryGetUserCommandError
+ */
+const de_GetUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUserCommandOutput> => {
@@ -6803,39 +7324,44 @@ const deserializeAws_queryGetUserCommandError = async (
   switch (errorCode) {
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryGetUserPolicyCommand = async (
+/**
+ * deserializeAws_queryGetUserPolicyCommand
+ */
+export const de_GetUserPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUserPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryGetUserPolicyCommandError(output, context);
+    return de_GetUserPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryGetUserPolicyResponse(data.GetUserPolicyResult, context);
+  contents = de_GetUserPolicyResponse(data.GetUserPolicyResult, context);
   const response: GetUserPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryGetUserPolicyCommandError = async (
+/**
+ * deserializeAws_queryGetUserPolicyCommandError
+ */
+const de_GetUserPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUserPolicyCommandOutput> => {
@@ -6847,39 +7373,44 @@ const deserializeAws_queryGetUserPolicyCommandError = async (
   switch (errorCode) {
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryListAccessKeysCommand = async (
+/**
+ * deserializeAws_queryListAccessKeysCommand
+ */
+export const de_ListAccessKeysCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAccessKeysCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryListAccessKeysCommandError(output, context);
+    return de_ListAccessKeysCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListAccessKeysResponse(data.ListAccessKeysResult, context);
+  contents = de_ListAccessKeysResponse(data.ListAccessKeysResult, context);
   const response: ListAccessKeysCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryListAccessKeysCommandError = async (
+/**
+ * deserializeAws_queryListAccessKeysCommandError
+ */
+const de_ListAccessKeysCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAccessKeysCommandOutput> => {
@@ -6891,39 +7422,44 @@ const deserializeAws_queryListAccessKeysCommandError = async (
   switch (errorCode) {
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryListAccountAliasesCommand = async (
+/**
+ * deserializeAws_queryListAccountAliasesCommand
+ */
+export const de_ListAccountAliasesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAccountAliasesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryListAccountAliasesCommandError(output, context);
+    return de_ListAccountAliasesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListAccountAliasesResponse(data.ListAccountAliasesResult, context);
+  contents = de_ListAccountAliasesResponse(data.ListAccountAliasesResult, context);
   const response: ListAccountAliasesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryListAccountAliasesCommandError = async (
+/**
+ * deserializeAws_queryListAccountAliasesCommandError
+ */
+const de_ListAccountAliasesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAccountAliasesCommandOutput> => {
@@ -6935,36 +7471,41 @@ const deserializeAws_queryListAccountAliasesCommandError = async (
   switch (errorCode) {
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryListAttachedGroupPoliciesCommand = async (
+/**
+ * deserializeAws_queryListAttachedGroupPoliciesCommand
+ */
+export const de_ListAttachedGroupPoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAttachedGroupPoliciesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryListAttachedGroupPoliciesCommandError(output, context);
+    return de_ListAttachedGroupPoliciesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListAttachedGroupPoliciesResponse(data.ListAttachedGroupPoliciesResult, context);
+  contents = de_ListAttachedGroupPoliciesResponse(data.ListAttachedGroupPoliciesResult, context);
   const response: ListAttachedGroupPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryListAttachedGroupPoliciesCommandError = async (
+/**
+ * deserializeAws_queryListAttachedGroupPoliciesCommandError
+ */
+const de_ListAttachedGroupPoliciesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAttachedGroupPoliciesCommandOutput> => {
@@ -6976,42 +7517,47 @@ const deserializeAws_queryListAttachedGroupPoliciesCommandError = async (
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryListAttachedRolePoliciesCommand = async (
+/**
+ * deserializeAws_queryListAttachedRolePoliciesCommand
+ */
+export const de_ListAttachedRolePoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAttachedRolePoliciesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryListAttachedRolePoliciesCommandError(output, context);
+    return de_ListAttachedRolePoliciesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListAttachedRolePoliciesResponse(data.ListAttachedRolePoliciesResult, context);
+  contents = de_ListAttachedRolePoliciesResponse(data.ListAttachedRolePoliciesResult, context);
   const response: ListAttachedRolePoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryListAttachedRolePoliciesCommandError = async (
+/**
+ * deserializeAws_queryListAttachedRolePoliciesCommandError
+ */
+const de_ListAttachedRolePoliciesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAttachedRolePoliciesCommandOutput> => {
@@ -7023,42 +7569,47 @@ const deserializeAws_queryListAttachedRolePoliciesCommandError = async (
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryListAttachedUserPoliciesCommand = async (
+/**
+ * deserializeAws_queryListAttachedUserPoliciesCommand
+ */
+export const de_ListAttachedUserPoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAttachedUserPoliciesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryListAttachedUserPoliciesCommandError(output, context);
+    return de_ListAttachedUserPoliciesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListAttachedUserPoliciesResponse(data.ListAttachedUserPoliciesResult, context);
+  contents = de_ListAttachedUserPoliciesResponse(data.ListAttachedUserPoliciesResult, context);
   const response: ListAttachedUserPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryListAttachedUserPoliciesCommandError = async (
+/**
+ * deserializeAws_queryListAttachedUserPoliciesCommandError
+ */
+const de_ListAttachedUserPoliciesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAttachedUserPoliciesCommandOutput> => {
@@ -7070,42 +7621,47 @@ const deserializeAws_queryListAttachedUserPoliciesCommandError = async (
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryListEntitiesForPolicyCommand = async (
+/**
+ * deserializeAws_queryListEntitiesForPolicyCommand
+ */
+export const de_ListEntitiesForPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEntitiesForPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryListEntitiesForPolicyCommandError(output, context);
+    return de_ListEntitiesForPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListEntitiesForPolicyResponse(data.ListEntitiesForPolicyResult, context);
+  contents = de_ListEntitiesForPolicyResponse(data.ListEntitiesForPolicyResult, context);
   const response: ListEntitiesForPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryListEntitiesForPolicyCommandError = async (
+/**
+ * deserializeAws_queryListEntitiesForPolicyCommandError
+ */
+const de_ListEntitiesForPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEntitiesForPolicyCommandOutput> => {
@@ -7117,42 +7673,47 @@ const deserializeAws_queryListEntitiesForPolicyCommandError = async (
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryListGroupPoliciesCommand = async (
+/**
+ * deserializeAws_queryListGroupPoliciesCommand
+ */
+export const de_ListGroupPoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGroupPoliciesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryListGroupPoliciesCommandError(output, context);
+    return de_ListGroupPoliciesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListGroupPoliciesResponse(data.ListGroupPoliciesResult, context);
+  contents = de_ListGroupPoliciesResponse(data.ListGroupPoliciesResult, context);
   const response: ListGroupPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryListGroupPoliciesCommandError = async (
+/**
+ * deserializeAws_queryListGroupPoliciesCommandError
+ */
+const de_ListGroupPoliciesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGroupPoliciesCommandOutput> => {
@@ -7164,39 +7725,44 @@ const deserializeAws_queryListGroupPoliciesCommandError = async (
   switch (errorCode) {
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryListGroupsCommand = async (
+/**
+ * deserializeAws_queryListGroupsCommand
+ */
+export const de_ListGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryListGroupsCommandError(output, context);
+    return de_ListGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListGroupsResponse(data.ListGroupsResult, context);
+  contents = de_ListGroupsResponse(data.ListGroupsResult, context);
   const response: ListGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryListGroupsCommandError = async (
+/**
+ * deserializeAws_queryListGroupsCommandError
+ */
+const de_ListGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGroupsCommandOutput> => {
@@ -7208,36 +7774,41 @@ const deserializeAws_queryListGroupsCommandError = async (
   switch (errorCode) {
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryListGroupsForUserCommand = async (
+/**
+ * deserializeAws_queryListGroupsForUserCommand
+ */
+export const de_ListGroupsForUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGroupsForUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryListGroupsForUserCommandError(output, context);
+    return de_ListGroupsForUserCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListGroupsForUserResponse(data.ListGroupsForUserResult, context);
+  contents = de_ListGroupsForUserResponse(data.ListGroupsForUserResult, context);
   const response: ListGroupsForUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryListGroupsForUserCommandError = async (
+/**
+ * deserializeAws_queryListGroupsForUserCommandError
+ */
+const de_ListGroupsForUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGroupsForUserCommandOutput> => {
@@ -7249,39 +7820,44 @@ const deserializeAws_queryListGroupsForUserCommandError = async (
   switch (errorCode) {
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryListInstanceProfilesCommand = async (
+/**
+ * deserializeAws_queryListInstanceProfilesCommand
+ */
+export const de_ListInstanceProfilesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListInstanceProfilesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryListInstanceProfilesCommandError(output, context);
+    return de_ListInstanceProfilesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListInstanceProfilesResponse(data.ListInstanceProfilesResult, context);
+  contents = de_ListInstanceProfilesResponse(data.ListInstanceProfilesResult, context);
   const response: ListInstanceProfilesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryListInstanceProfilesCommandError = async (
+/**
+ * deserializeAws_queryListInstanceProfilesCommandError
+ */
+const de_ListInstanceProfilesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListInstanceProfilesCommandOutput> => {
@@ -7293,36 +7869,41 @@ const deserializeAws_queryListInstanceProfilesCommandError = async (
   switch (errorCode) {
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryListInstanceProfilesForRoleCommand = async (
+/**
+ * deserializeAws_queryListInstanceProfilesForRoleCommand
+ */
+export const de_ListInstanceProfilesForRoleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListInstanceProfilesForRoleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryListInstanceProfilesForRoleCommandError(output, context);
+    return de_ListInstanceProfilesForRoleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListInstanceProfilesForRoleResponse(data.ListInstanceProfilesForRoleResult, context);
+  contents = de_ListInstanceProfilesForRoleResponse(data.ListInstanceProfilesForRoleResult, context);
   const response: ListInstanceProfilesForRoleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryListInstanceProfilesForRoleCommandError = async (
+/**
+ * deserializeAws_queryListInstanceProfilesForRoleCommandError
+ */
+const de_ListInstanceProfilesForRoleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListInstanceProfilesForRoleCommandOutput> => {
@@ -7334,39 +7915,44 @@ const deserializeAws_queryListInstanceProfilesForRoleCommandError = async (
   switch (errorCode) {
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryListInstanceProfileTagsCommand = async (
+/**
+ * deserializeAws_queryListInstanceProfileTagsCommand
+ */
+export const de_ListInstanceProfileTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListInstanceProfileTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryListInstanceProfileTagsCommandError(output, context);
+    return de_ListInstanceProfileTagsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListInstanceProfileTagsResponse(data.ListInstanceProfileTagsResult, context);
+  contents = de_ListInstanceProfileTagsResponse(data.ListInstanceProfileTagsResult, context);
   const response: ListInstanceProfileTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryListInstanceProfileTagsCommandError = async (
+/**
+ * deserializeAws_queryListInstanceProfileTagsCommandError
+ */
+const de_ListInstanceProfileTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListInstanceProfileTagsCommandOutput> => {
@@ -7378,39 +7964,44 @@ const deserializeAws_queryListInstanceProfileTagsCommandError = async (
   switch (errorCode) {
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryListMFADevicesCommand = async (
+/**
+ * deserializeAws_queryListMFADevicesCommand
+ */
+export const de_ListMFADevicesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMFADevicesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryListMFADevicesCommandError(output, context);
+    return de_ListMFADevicesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListMFADevicesResponse(data.ListMFADevicesResult, context);
+  contents = de_ListMFADevicesResponse(data.ListMFADevicesResult, context);
   const response: ListMFADevicesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryListMFADevicesCommandError = async (
+/**
+ * deserializeAws_queryListMFADevicesCommandError
+ */
+const de_ListMFADevicesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMFADevicesCommandOutput> => {
@@ -7422,39 +8013,44 @@ const deserializeAws_queryListMFADevicesCommandError = async (
   switch (errorCode) {
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryListMFADeviceTagsCommand = async (
+/**
+ * deserializeAws_queryListMFADeviceTagsCommand
+ */
+export const de_ListMFADeviceTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMFADeviceTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryListMFADeviceTagsCommandError(output, context);
+    return de_ListMFADeviceTagsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListMFADeviceTagsResponse(data.ListMFADeviceTagsResult, context);
+  contents = de_ListMFADeviceTagsResponse(data.ListMFADeviceTagsResult, context);
   const response: ListMFADeviceTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryListMFADeviceTagsCommandError = async (
+/**
+ * deserializeAws_queryListMFADeviceTagsCommandError
+ */
+const de_ListMFADeviceTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMFADeviceTagsCommandOutput> => {
@@ -7466,42 +8062,47 @@ const deserializeAws_queryListMFADeviceTagsCommandError = async (
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryListOpenIDConnectProvidersCommand = async (
+/**
+ * deserializeAws_queryListOpenIDConnectProvidersCommand
+ */
+export const de_ListOpenIDConnectProvidersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListOpenIDConnectProvidersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryListOpenIDConnectProvidersCommandError(output, context);
+    return de_ListOpenIDConnectProvidersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListOpenIDConnectProvidersResponse(data.ListOpenIDConnectProvidersResult, context);
+  contents = de_ListOpenIDConnectProvidersResponse(data.ListOpenIDConnectProvidersResult, context);
   const response: ListOpenIDConnectProvidersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryListOpenIDConnectProvidersCommandError = async (
+/**
+ * deserializeAws_queryListOpenIDConnectProvidersCommandError
+ */
+const de_ListOpenIDConnectProvidersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListOpenIDConnectProvidersCommandOutput> => {
@@ -7513,39 +8114,41 @@ const deserializeAws_queryListOpenIDConnectProvidersCommandError = async (
   switch (errorCode) {
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryListOpenIDConnectProviderTagsCommand = async (
+/**
+ * deserializeAws_queryListOpenIDConnectProviderTagsCommand
+ */
+export const de_ListOpenIDConnectProviderTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListOpenIDConnectProviderTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryListOpenIDConnectProviderTagsCommandError(output, context);
+    return de_ListOpenIDConnectProviderTagsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListOpenIDConnectProviderTagsResponse(
-    data.ListOpenIDConnectProviderTagsResult,
-    context
-  );
+  contents = de_ListOpenIDConnectProviderTagsResponse(data.ListOpenIDConnectProviderTagsResult, context);
   const response: ListOpenIDConnectProviderTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryListOpenIDConnectProviderTagsCommandError = async (
+/**
+ * deserializeAws_queryListOpenIDConnectProviderTagsCommandError
+ */
+const de_ListOpenIDConnectProviderTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListOpenIDConnectProviderTagsCommandOutput> => {
@@ -7557,42 +8160,47 @@ const deserializeAws_queryListOpenIDConnectProviderTagsCommandError = async (
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryListPoliciesCommand = async (
+/**
+ * deserializeAws_queryListPoliciesCommand
+ */
+export const de_ListPoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPoliciesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryListPoliciesCommandError(output, context);
+    return de_ListPoliciesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListPoliciesResponse(data.ListPoliciesResult, context);
+  contents = de_ListPoliciesResponse(data.ListPoliciesResult, context);
   const response: ListPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryListPoliciesCommandError = async (
+/**
+ * deserializeAws_queryListPoliciesCommandError
+ */
+const de_ListPoliciesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPoliciesCommandOutput> => {
@@ -7604,39 +8212,41 @@ const deserializeAws_queryListPoliciesCommandError = async (
   switch (errorCode) {
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryListPoliciesGrantingServiceAccessCommand = async (
+/**
+ * deserializeAws_queryListPoliciesGrantingServiceAccessCommand
+ */
+export const de_ListPoliciesGrantingServiceAccessCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPoliciesGrantingServiceAccessCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryListPoliciesGrantingServiceAccessCommandError(output, context);
+    return de_ListPoliciesGrantingServiceAccessCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListPoliciesGrantingServiceAccessResponse(
-    data.ListPoliciesGrantingServiceAccessResult,
-    context
-  );
+  contents = de_ListPoliciesGrantingServiceAccessResponse(data.ListPoliciesGrantingServiceAccessResult, context);
   const response: ListPoliciesGrantingServiceAccessCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryListPoliciesGrantingServiceAccessCommandError = async (
+/**
+ * deserializeAws_queryListPoliciesGrantingServiceAccessCommandError
+ */
+const de_ListPoliciesGrantingServiceAccessCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPoliciesGrantingServiceAccessCommandOutput> => {
@@ -7648,39 +8258,44 @@ const deserializeAws_queryListPoliciesGrantingServiceAccessCommandError = async 
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryListPolicyTagsCommand = async (
+/**
+ * deserializeAws_queryListPolicyTagsCommand
+ */
+export const de_ListPolicyTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPolicyTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryListPolicyTagsCommandError(output, context);
+    return de_ListPolicyTagsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListPolicyTagsResponse(data.ListPolicyTagsResult, context);
+  contents = de_ListPolicyTagsResponse(data.ListPolicyTagsResult, context);
   const response: ListPolicyTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryListPolicyTagsCommandError = async (
+/**
+ * deserializeAws_queryListPolicyTagsCommandError
+ */
+const de_ListPolicyTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPolicyTagsCommandOutput> => {
@@ -7692,42 +8307,47 @@ const deserializeAws_queryListPolicyTagsCommandError = async (
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryListPolicyVersionsCommand = async (
+/**
+ * deserializeAws_queryListPolicyVersionsCommand
+ */
+export const de_ListPolicyVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPolicyVersionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryListPolicyVersionsCommandError(output, context);
+    return de_ListPolicyVersionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListPolicyVersionsResponse(data.ListPolicyVersionsResult, context);
+  contents = de_ListPolicyVersionsResponse(data.ListPolicyVersionsResult, context);
   const response: ListPolicyVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryListPolicyVersionsCommandError = async (
+/**
+ * deserializeAws_queryListPolicyVersionsCommandError
+ */
+const de_ListPolicyVersionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPolicyVersionsCommandOutput> => {
@@ -7739,42 +8359,47 @@ const deserializeAws_queryListPolicyVersionsCommandError = async (
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryListRolePoliciesCommand = async (
+/**
+ * deserializeAws_queryListRolePoliciesCommand
+ */
+export const de_ListRolePoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRolePoliciesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryListRolePoliciesCommandError(output, context);
+    return de_ListRolePoliciesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListRolePoliciesResponse(data.ListRolePoliciesResult, context);
+  contents = de_ListRolePoliciesResponse(data.ListRolePoliciesResult, context);
   const response: ListRolePoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryListRolePoliciesCommandError = async (
+/**
+ * deserializeAws_queryListRolePoliciesCommandError
+ */
+const de_ListRolePoliciesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRolePoliciesCommandOutput> => {
@@ -7786,39 +8411,44 @@ const deserializeAws_queryListRolePoliciesCommandError = async (
   switch (errorCode) {
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryListRolesCommand = async (
+/**
+ * deserializeAws_queryListRolesCommand
+ */
+export const de_ListRolesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRolesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryListRolesCommandError(output, context);
+    return de_ListRolesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListRolesResponse(data.ListRolesResult, context);
+  contents = de_ListRolesResponse(data.ListRolesResult, context);
   const response: ListRolesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryListRolesCommandError = async (
+/**
+ * deserializeAws_queryListRolesCommandError
+ */
+const de_ListRolesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRolesCommandOutput> => {
@@ -7830,36 +8460,41 @@ const deserializeAws_queryListRolesCommandError = async (
   switch (errorCode) {
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryListRoleTagsCommand = async (
+/**
+ * deserializeAws_queryListRoleTagsCommand
+ */
+export const de_ListRoleTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRoleTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryListRoleTagsCommandError(output, context);
+    return de_ListRoleTagsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListRoleTagsResponse(data.ListRoleTagsResult, context);
+  contents = de_ListRoleTagsResponse(data.ListRoleTagsResult, context);
   const response: ListRoleTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryListRoleTagsCommandError = async (
+/**
+ * deserializeAws_queryListRoleTagsCommandError
+ */
+const de_ListRoleTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRoleTagsCommandOutput> => {
@@ -7871,39 +8506,44 @@ const deserializeAws_queryListRoleTagsCommandError = async (
   switch (errorCode) {
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryListSAMLProvidersCommand = async (
+/**
+ * deserializeAws_queryListSAMLProvidersCommand
+ */
+export const de_ListSAMLProvidersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSAMLProvidersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryListSAMLProvidersCommandError(output, context);
+    return de_ListSAMLProvidersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListSAMLProvidersResponse(data.ListSAMLProvidersResult, context);
+  contents = de_ListSAMLProvidersResponse(data.ListSAMLProvidersResult, context);
   const response: ListSAMLProvidersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryListSAMLProvidersCommandError = async (
+/**
+ * deserializeAws_queryListSAMLProvidersCommandError
+ */
+const de_ListSAMLProvidersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSAMLProvidersCommandOutput> => {
@@ -7915,36 +8555,41 @@ const deserializeAws_queryListSAMLProvidersCommandError = async (
   switch (errorCode) {
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryListSAMLProviderTagsCommand = async (
+/**
+ * deserializeAws_queryListSAMLProviderTagsCommand
+ */
+export const de_ListSAMLProviderTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSAMLProviderTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryListSAMLProviderTagsCommandError(output, context);
+    return de_ListSAMLProviderTagsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListSAMLProviderTagsResponse(data.ListSAMLProviderTagsResult, context);
+  contents = de_ListSAMLProviderTagsResponse(data.ListSAMLProviderTagsResult, context);
   const response: ListSAMLProviderTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryListSAMLProviderTagsCommandError = async (
+/**
+ * deserializeAws_queryListSAMLProviderTagsCommandError
+ */
+const de_ListSAMLProviderTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSAMLProviderTagsCommandOutput> => {
@@ -7956,42 +8601,47 @@ const deserializeAws_queryListSAMLProviderTagsCommandError = async (
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryListServerCertificatesCommand = async (
+/**
+ * deserializeAws_queryListServerCertificatesCommand
+ */
+export const de_ListServerCertificatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListServerCertificatesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryListServerCertificatesCommandError(output, context);
+    return de_ListServerCertificatesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListServerCertificatesResponse(data.ListServerCertificatesResult, context);
+  contents = de_ListServerCertificatesResponse(data.ListServerCertificatesResult, context);
   const response: ListServerCertificatesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryListServerCertificatesCommandError = async (
+/**
+ * deserializeAws_queryListServerCertificatesCommandError
+ */
+const de_ListServerCertificatesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListServerCertificatesCommandOutput> => {
@@ -8003,36 +8653,41 @@ const deserializeAws_queryListServerCertificatesCommandError = async (
   switch (errorCode) {
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryListServerCertificateTagsCommand = async (
+/**
+ * deserializeAws_queryListServerCertificateTagsCommand
+ */
+export const de_ListServerCertificateTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListServerCertificateTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryListServerCertificateTagsCommandError(output, context);
+    return de_ListServerCertificateTagsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListServerCertificateTagsResponse(data.ListServerCertificateTagsResult, context);
+  contents = de_ListServerCertificateTagsResponse(data.ListServerCertificateTagsResult, context);
   const response: ListServerCertificateTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryListServerCertificateTagsCommandError = async (
+/**
+ * deserializeAws_queryListServerCertificateTagsCommandError
+ */
+const de_ListServerCertificateTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListServerCertificateTagsCommandOutput> => {
@@ -8044,42 +8699,44 @@ const deserializeAws_queryListServerCertificateTagsCommandError = async (
   switch (errorCode) {
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryListServiceSpecificCredentialsCommand = async (
+/**
+ * deserializeAws_queryListServiceSpecificCredentialsCommand
+ */
+export const de_ListServiceSpecificCredentialsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListServiceSpecificCredentialsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryListServiceSpecificCredentialsCommandError(output, context);
+    return de_ListServiceSpecificCredentialsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListServiceSpecificCredentialsResponse(
-    data.ListServiceSpecificCredentialsResult,
-    context
-  );
+  contents = de_ListServiceSpecificCredentialsResponse(data.ListServiceSpecificCredentialsResult, context);
   const response: ListServiceSpecificCredentialsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryListServiceSpecificCredentialsCommandError = async (
+/**
+ * deserializeAws_queryListServiceSpecificCredentialsCommandError
+ */
+const de_ListServiceSpecificCredentialsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListServiceSpecificCredentialsCommandOutput> => {
@@ -8091,39 +8748,44 @@ const deserializeAws_queryListServiceSpecificCredentialsCommandError = async (
   switch (errorCode) {
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "NotSupportedService":
     case "com.amazonaws.iam#ServiceNotSupportedException":
-      throw await deserializeAws_queryServiceNotSupportedExceptionResponse(parsedOutput, context);
+      throw await de_ServiceNotSupportedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryListSigningCertificatesCommand = async (
+/**
+ * deserializeAws_queryListSigningCertificatesCommand
+ */
+export const de_ListSigningCertificatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSigningCertificatesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryListSigningCertificatesCommandError(output, context);
+    return de_ListSigningCertificatesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListSigningCertificatesResponse(data.ListSigningCertificatesResult, context);
+  contents = de_ListSigningCertificatesResponse(data.ListSigningCertificatesResult, context);
   const response: ListSigningCertificatesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryListSigningCertificatesCommandError = async (
+/**
+ * deserializeAws_queryListSigningCertificatesCommandError
+ */
+const de_ListSigningCertificatesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSigningCertificatesCommandOutput> => {
@@ -8135,39 +8797,44 @@ const deserializeAws_queryListSigningCertificatesCommandError = async (
   switch (errorCode) {
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryListSSHPublicKeysCommand = async (
+/**
+ * deserializeAws_queryListSSHPublicKeysCommand
+ */
+export const de_ListSSHPublicKeysCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSSHPublicKeysCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryListSSHPublicKeysCommandError(output, context);
+    return de_ListSSHPublicKeysCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListSSHPublicKeysResponse(data.ListSSHPublicKeysResult, context);
+  contents = de_ListSSHPublicKeysResponse(data.ListSSHPublicKeysResult, context);
   const response: ListSSHPublicKeysCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryListSSHPublicKeysCommandError = async (
+/**
+ * deserializeAws_queryListSSHPublicKeysCommandError
+ */
+const de_ListSSHPublicKeysCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSSHPublicKeysCommandOutput> => {
@@ -8179,36 +8846,41 @@ const deserializeAws_queryListSSHPublicKeysCommandError = async (
   switch (errorCode) {
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryListUserPoliciesCommand = async (
+/**
+ * deserializeAws_queryListUserPoliciesCommand
+ */
+export const de_ListUserPoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUserPoliciesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryListUserPoliciesCommandError(output, context);
+    return de_ListUserPoliciesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListUserPoliciesResponse(data.ListUserPoliciesResult, context);
+  contents = de_ListUserPoliciesResponse(data.ListUserPoliciesResult, context);
   const response: ListUserPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryListUserPoliciesCommandError = async (
+/**
+ * deserializeAws_queryListUserPoliciesCommandError
+ */
+const de_ListUserPoliciesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUserPoliciesCommandOutput> => {
@@ -8220,39 +8892,44 @@ const deserializeAws_queryListUserPoliciesCommandError = async (
   switch (errorCode) {
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryListUsersCommand = async (
+/**
+ * deserializeAws_queryListUsersCommand
+ */
+export const de_ListUsersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUsersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryListUsersCommandError(output, context);
+    return de_ListUsersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListUsersResponse(data.ListUsersResult, context);
+  contents = de_ListUsersResponse(data.ListUsersResult, context);
   const response: ListUsersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryListUsersCommandError = async (
+/**
+ * deserializeAws_queryListUsersCommandError
+ */
+const de_ListUsersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUsersCommandOutput> => {
@@ -8264,36 +8941,41 @@ const deserializeAws_queryListUsersCommandError = async (
   switch (errorCode) {
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryListUserTagsCommand = async (
+/**
+ * deserializeAws_queryListUserTagsCommand
+ */
+export const de_ListUserTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUserTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryListUserTagsCommandError(output, context);
+    return de_ListUserTagsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListUserTagsResponse(data.ListUserTagsResult, context);
+  contents = de_ListUserTagsResponse(data.ListUserTagsResult, context);
   const response: ListUserTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryListUserTagsCommandError = async (
+/**
+ * deserializeAws_queryListUserTagsCommandError
+ */
+const de_ListUserTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUserTagsCommandOutput> => {
@@ -8305,39 +8987,44 @@ const deserializeAws_queryListUserTagsCommandError = async (
   switch (errorCode) {
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryListVirtualMFADevicesCommand = async (
+/**
+ * deserializeAws_queryListVirtualMFADevicesCommand
+ */
+export const de_ListVirtualMFADevicesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVirtualMFADevicesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryListVirtualMFADevicesCommandError(output, context);
+    return de_ListVirtualMFADevicesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListVirtualMFADevicesResponse(data.ListVirtualMFADevicesResult, context);
+  contents = de_ListVirtualMFADevicesResponse(data.ListVirtualMFADevicesResult, context);
   const response: ListVirtualMFADevicesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryListVirtualMFADevicesCommandError = async (
+/**
+ * deserializeAws_queryListVirtualMFADevicesCommandError
+ */
+const de_ListVirtualMFADevicesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVirtualMFADevicesCommandOutput> => {
@@ -8347,29 +9034,34 @@ const deserializeAws_queryListVirtualMFADevicesCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody: parsedBody.Error,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
 
-export const deserializeAws_queryPutGroupPolicyCommand = async (
+/**
+ * deserializeAws_queryPutGroupPolicyCommand
+ */
+export const de_PutGroupPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutGroupPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryPutGroupPolicyCommandError(output, context);
+    return de_PutGroupPolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: PutGroupPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryPutGroupPolicyCommandError = async (
+/**
+ * deserializeAws_queryPutGroupPolicyCommandError
+ */
+const de_PutGroupPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutGroupPolicyCommandOutput> => {
@@ -8381,42 +9073,47 @@ const deserializeAws_queryPutGroupPolicyCommandError = async (
   switch (errorCode) {
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "MalformedPolicyDocument":
     case "com.amazonaws.iam#MalformedPolicyDocumentException":
-      throw await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context);
+      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryPutRolePermissionsBoundaryCommand = async (
+/**
+ * deserializeAws_queryPutRolePermissionsBoundaryCommand
+ */
+export const de_PutRolePermissionsBoundaryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutRolePermissionsBoundaryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryPutRolePermissionsBoundaryCommandError(output, context);
+    return de_PutRolePermissionsBoundaryCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: PutRolePermissionsBoundaryCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryPutRolePermissionsBoundaryCommandError = async (
+/**
+ * deserializeAws_queryPutRolePermissionsBoundaryCommandError
+ */
+const de_PutRolePermissionsBoundaryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutRolePermissionsBoundaryCommandOutput> => {
@@ -8428,45 +9125,50 @@ const deserializeAws_queryPutRolePermissionsBoundaryCommandError = async (
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "PolicyNotAttachable":
     case "com.amazonaws.iam#PolicyNotAttachableException":
-      throw await deserializeAws_queryPolicyNotAttachableExceptionResponse(parsedOutput, context);
+      throw await de_PolicyNotAttachableExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "UnmodifiableEntity":
     case "com.amazonaws.iam#UnmodifiableEntityException":
-      throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
+      throw await de_UnmodifiableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryPutRolePolicyCommand = async (
+/**
+ * deserializeAws_queryPutRolePolicyCommand
+ */
+export const de_PutRolePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutRolePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryPutRolePolicyCommandError(output, context);
+    return de_PutRolePolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: PutRolePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryPutRolePolicyCommandError = async (
+/**
+ * deserializeAws_queryPutRolePolicyCommandError
+ */
+const de_PutRolePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutRolePolicyCommandOutput> => {
@@ -8478,45 +9180,50 @@ const deserializeAws_queryPutRolePolicyCommandError = async (
   switch (errorCode) {
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "MalformedPolicyDocument":
     case "com.amazonaws.iam#MalformedPolicyDocumentException":
-      throw await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context);
+      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "UnmodifiableEntity":
     case "com.amazonaws.iam#UnmodifiableEntityException":
-      throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
+      throw await de_UnmodifiableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryPutUserPermissionsBoundaryCommand = async (
+/**
+ * deserializeAws_queryPutUserPermissionsBoundaryCommand
+ */
+export const de_PutUserPermissionsBoundaryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutUserPermissionsBoundaryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryPutUserPermissionsBoundaryCommandError(output, context);
+    return de_PutUserPermissionsBoundaryCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: PutUserPermissionsBoundaryCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryPutUserPermissionsBoundaryCommandError = async (
+/**
+ * deserializeAws_queryPutUserPermissionsBoundaryCommandError
+ */
+const de_PutUserPermissionsBoundaryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutUserPermissionsBoundaryCommandOutput> => {
@@ -8528,42 +9235,47 @@ const deserializeAws_queryPutUserPermissionsBoundaryCommandError = async (
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "PolicyNotAttachable":
     case "com.amazonaws.iam#PolicyNotAttachableException":
-      throw await deserializeAws_queryPolicyNotAttachableExceptionResponse(parsedOutput, context);
+      throw await de_PolicyNotAttachableExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryPutUserPolicyCommand = async (
+/**
+ * deserializeAws_queryPutUserPolicyCommand
+ */
+export const de_PutUserPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutUserPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryPutUserPolicyCommandError(output, context);
+    return de_PutUserPolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: PutUserPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryPutUserPolicyCommandError = async (
+/**
+ * deserializeAws_queryPutUserPolicyCommandError
+ */
+const de_PutUserPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutUserPolicyCommandOutput> => {
@@ -8575,42 +9287,47 @@ const deserializeAws_queryPutUserPolicyCommandError = async (
   switch (errorCode) {
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "MalformedPolicyDocument":
     case "com.amazonaws.iam#MalformedPolicyDocumentException":
-      throw await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context);
+      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryRemoveClientIDFromOpenIDConnectProviderCommand = async (
+/**
+ * deserializeAws_queryRemoveClientIDFromOpenIDConnectProviderCommand
+ */
+export const de_RemoveClientIDFromOpenIDConnectProviderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveClientIDFromOpenIDConnectProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryRemoveClientIDFromOpenIDConnectProviderCommandError(output, context);
+    return de_RemoveClientIDFromOpenIDConnectProviderCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: RemoveClientIDFromOpenIDConnectProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryRemoveClientIDFromOpenIDConnectProviderCommandError = async (
+/**
+ * deserializeAws_queryRemoveClientIDFromOpenIDConnectProviderCommandError
+ */
+const de_RemoveClientIDFromOpenIDConnectProviderCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveClientIDFromOpenIDConnectProviderCommandOutput> => {
@@ -8622,39 +9339,44 @@ const deserializeAws_queryRemoveClientIDFromOpenIDConnectProviderCommandError = 
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryRemoveRoleFromInstanceProfileCommand = async (
+/**
+ * deserializeAws_queryRemoveRoleFromInstanceProfileCommand
+ */
+export const de_RemoveRoleFromInstanceProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveRoleFromInstanceProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryRemoveRoleFromInstanceProfileCommandError(output, context);
+    return de_RemoveRoleFromInstanceProfileCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: RemoveRoleFromInstanceProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryRemoveRoleFromInstanceProfileCommandError = async (
+/**
+ * deserializeAws_queryRemoveRoleFromInstanceProfileCommandError
+ */
+const de_RemoveRoleFromInstanceProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveRoleFromInstanceProfileCommandOutput> => {
@@ -8666,42 +9388,47 @@ const deserializeAws_queryRemoveRoleFromInstanceProfileCommandError = async (
   switch (errorCode) {
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "UnmodifiableEntity":
     case "com.amazonaws.iam#UnmodifiableEntityException":
-      throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
+      throw await de_UnmodifiableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryRemoveUserFromGroupCommand = async (
+/**
+ * deserializeAws_queryRemoveUserFromGroupCommand
+ */
+export const de_RemoveUserFromGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveUserFromGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryRemoveUserFromGroupCommandError(output, context);
+    return de_RemoveUserFromGroupCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: RemoveUserFromGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryRemoveUserFromGroupCommandError = async (
+/**
+ * deserializeAws_queryRemoveUserFromGroupCommandError
+ */
+const de_RemoveUserFromGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveUserFromGroupCommandOutput> => {
@@ -8713,45 +9440,47 @@ const deserializeAws_queryRemoveUserFromGroupCommandError = async (
   switch (errorCode) {
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryResetServiceSpecificCredentialCommand = async (
+/**
+ * deserializeAws_queryResetServiceSpecificCredentialCommand
+ */
+export const de_ResetServiceSpecificCredentialCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ResetServiceSpecificCredentialCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryResetServiceSpecificCredentialCommandError(output, context);
+    return de_ResetServiceSpecificCredentialCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryResetServiceSpecificCredentialResponse(
-    data.ResetServiceSpecificCredentialResult,
-    context
-  );
+  contents = de_ResetServiceSpecificCredentialResponse(data.ResetServiceSpecificCredentialResult, context);
   const response: ResetServiceSpecificCredentialCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryResetServiceSpecificCredentialCommandError = async (
+/**
+ * deserializeAws_queryResetServiceSpecificCredentialCommandError
+ */
+const de_ResetServiceSpecificCredentialCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ResetServiceSpecificCredentialCommandOutput> => {
@@ -8763,33 +9492,38 @@ const deserializeAws_queryResetServiceSpecificCredentialCommandError = async (
   switch (errorCode) {
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryResyncMFADeviceCommand = async (
+/**
+ * deserializeAws_queryResyncMFADeviceCommand
+ */
+export const de_ResyncMFADeviceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ResyncMFADeviceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryResyncMFADeviceCommandError(output, context);
+    return de_ResyncMFADeviceCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: ResyncMFADeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryResyncMFADeviceCommandError = async (
+/**
+ * deserializeAws_queryResyncMFADeviceCommandError
+ */
+const de_ResyncMFADeviceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ResyncMFADeviceCommandOutput> => {
@@ -8801,42 +9535,47 @@ const deserializeAws_queryResyncMFADeviceCommandError = async (
   switch (errorCode) {
     case "InvalidAuthenticationCode":
     case "com.amazonaws.iam#InvalidAuthenticationCodeException":
-      throw await deserializeAws_queryInvalidAuthenticationCodeExceptionResponse(parsedOutput, context);
+      throw await de_InvalidAuthenticationCodeExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_querySetDefaultPolicyVersionCommand = async (
+/**
+ * deserializeAws_querySetDefaultPolicyVersionCommand
+ */
+export const de_SetDefaultPolicyVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetDefaultPolicyVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_querySetDefaultPolicyVersionCommandError(output, context);
+    return de_SetDefaultPolicyVersionCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: SetDefaultPolicyVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_querySetDefaultPolicyVersionCommandError = async (
+/**
+ * deserializeAws_querySetDefaultPolicyVersionCommandError
+ */
+const de_SetDefaultPolicyVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetDefaultPolicyVersionCommandOutput> => {
@@ -8848,42 +9587,47 @@ const deserializeAws_querySetDefaultPolicyVersionCommandError = async (
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_querySetSecurityTokenServicePreferencesCommand = async (
+/**
+ * deserializeAws_querySetSecurityTokenServicePreferencesCommand
+ */
+export const de_SetSecurityTokenServicePreferencesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetSecurityTokenServicePreferencesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_querySetSecurityTokenServicePreferencesCommandError(output, context);
+    return de_SetSecurityTokenServicePreferencesCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: SetSecurityTokenServicePreferencesCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_querySetSecurityTokenServicePreferencesCommandError = async (
+/**
+ * deserializeAws_querySetSecurityTokenServicePreferencesCommandError
+ */
+const de_SetSecurityTokenServicePreferencesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetSecurityTokenServicePreferencesCommandOutput> => {
@@ -8895,36 +9639,41 @@ const deserializeAws_querySetSecurityTokenServicePreferencesCommandError = async
   switch (errorCode) {
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_querySimulateCustomPolicyCommand = async (
+/**
+ * deserializeAws_querySimulateCustomPolicyCommand
+ */
+export const de_SimulateCustomPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SimulateCustomPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_querySimulateCustomPolicyCommandError(output, context);
+    return de_SimulateCustomPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_querySimulatePolicyResponse(data.SimulateCustomPolicyResult, context);
+  contents = de_SimulatePolicyResponse(data.SimulateCustomPolicyResult, context);
   const response: SimulateCustomPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_querySimulateCustomPolicyCommandError = async (
+/**
+ * deserializeAws_querySimulateCustomPolicyCommandError
+ */
+const de_SimulateCustomPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SimulateCustomPolicyCommandOutput> => {
@@ -8936,39 +9685,44 @@ const deserializeAws_querySimulateCustomPolicyCommandError = async (
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "PolicyEvaluation":
     case "com.amazonaws.iam#PolicyEvaluationException":
-      throw await deserializeAws_queryPolicyEvaluationExceptionResponse(parsedOutput, context);
+      throw await de_PolicyEvaluationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_querySimulatePrincipalPolicyCommand = async (
+/**
+ * deserializeAws_querySimulatePrincipalPolicyCommand
+ */
+export const de_SimulatePrincipalPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SimulatePrincipalPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_querySimulatePrincipalPolicyCommandError(output, context);
+    return de_SimulatePrincipalPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_querySimulatePolicyResponse(data.SimulatePrincipalPolicyResult, context);
+  contents = de_SimulatePolicyResponse(data.SimulatePrincipalPolicyResult, context);
   const response: SimulatePrincipalPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_querySimulatePrincipalPolicyCommandError = async (
+/**
+ * deserializeAws_querySimulatePrincipalPolicyCommandError
+ */
+const de_SimulatePrincipalPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SimulatePrincipalPolicyCommandOutput> => {
@@ -8980,39 +9734,44 @@ const deserializeAws_querySimulatePrincipalPolicyCommandError = async (
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "PolicyEvaluation":
     case "com.amazonaws.iam#PolicyEvaluationException":
-      throw await deserializeAws_queryPolicyEvaluationExceptionResponse(parsedOutput, context);
+      throw await de_PolicyEvaluationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryTagInstanceProfileCommand = async (
+/**
+ * deserializeAws_queryTagInstanceProfileCommand
+ */
+export const de_TagInstanceProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagInstanceProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryTagInstanceProfileCommandError(output, context);
+    return de_TagInstanceProfileCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: TagInstanceProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryTagInstanceProfileCommandError = async (
+/**
+ * deserializeAws_queryTagInstanceProfileCommandError
+ */
+const de_TagInstanceProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagInstanceProfileCommandOutput> => {
@@ -9024,45 +9783,50 @@ const deserializeAws_queryTagInstanceProfileCommandError = async (
   switch (errorCode) {
     case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryTagMFADeviceCommand = async (
+/**
+ * deserializeAws_queryTagMFADeviceCommand
+ */
+export const de_TagMFADeviceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagMFADeviceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryTagMFADeviceCommandError(output, context);
+    return de_TagMFADeviceCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: TagMFADeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryTagMFADeviceCommandError = async (
+/**
+ * deserializeAws_queryTagMFADeviceCommandError
+ */
+const de_TagMFADeviceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagMFADeviceCommandOutput> => {
@@ -9074,45 +9838,50 @@ const deserializeAws_queryTagMFADeviceCommandError = async (
   switch (errorCode) {
     case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryTagOpenIDConnectProviderCommand = async (
+/**
+ * deserializeAws_queryTagOpenIDConnectProviderCommand
+ */
+export const de_TagOpenIDConnectProviderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagOpenIDConnectProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryTagOpenIDConnectProviderCommandError(output, context);
+    return de_TagOpenIDConnectProviderCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: TagOpenIDConnectProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryTagOpenIDConnectProviderCommandError = async (
+/**
+ * deserializeAws_queryTagOpenIDConnectProviderCommandError
+ */
+const de_TagOpenIDConnectProviderCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagOpenIDConnectProviderCommandOutput> => {
@@ -9124,45 +9893,50 @@ const deserializeAws_queryTagOpenIDConnectProviderCommandError = async (
   switch (errorCode) {
     case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryTagPolicyCommand = async (
+/**
+ * deserializeAws_queryTagPolicyCommand
+ */
+export const de_TagPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryTagPolicyCommandError(output, context);
+    return de_TagPolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: TagPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryTagPolicyCommandError = async (
+/**
+ * deserializeAws_queryTagPolicyCommandError
+ */
+const de_TagPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagPolicyCommandOutput> => {
@@ -9174,45 +9948,50 @@ const deserializeAws_queryTagPolicyCommandError = async (
   switch (errorCode) {
     case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryTagRoleCommand = async (
+/**
+ * deserializeAws_queryTagRoleCommand
+ */
+export const de_TagRoleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagRoleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryTagRoleCommandError(output, context);
+    return de_TagRoleCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: TagRoleCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryTagRoleCommandError = async (
+/**
+ * deserializeAws_queryTagRoleCommandError
+ */
+const de_TagRoleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagRoleCommandOutput> => {
@@ -9224,45 +10003,50 @@ const deserializeAws_queryTagRoleCommandError = async (
   switch (errorCode) {
     case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryTagSAMLProviderCommand = async (
+/**
+ * deserializeAws_queryTagSAMLProviderCommand
+ */
+export const de_TagSAMLProviderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagSAMLProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryTagSAMLProviderCommandError(output, context);
+    return de_TagSAMLProviderCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: TagSAMLProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryTagSAMLProviderCommandError = async (
+/**
+ * deserializeAws_queryTagSAMLProviderCommandError
+ */
+const de_TagSAMLProviderCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagSAMLProviderCommandOutput> => {
@@ -9274,45 +10058,50 @@ const deserializeAws_queryTagSAMLProviderCommandError = async (
   switch (errorCode) {
     case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryTagServerCertificateCommand = async (
+/**
+ * deserializeAws_queryTagServerCertificateCommand
+ */
+export const de_TagServerCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagServerCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryTagServerCertificateCommandError(output, context);
+    return de_TagServerCertificateCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: TagServerCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryTagServerCertificateCommandError = async (
+/**
+ * deserializeAws_queryTagServerCertificateCommandError
+ */
+const de_TagServerCertificateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagServerCertificateCommandOutput> => {
@@ -9324,45 +10113,50 @@ const deserializeAws_queryTagServerCertificateCommandError = async (
   switch (errorCode) {
     case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryTagUserCommand = async (
+/**
+ * deserializeAws_queryTagUserCommand
+ */
+export const de_TagUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryTagUserCommandError(output, context);
+    return de_TagUserCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: TagUserCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryTagUserCommandError = async (
+/**
+ * deserializeAws_queryTagUserCommandError
+ */
+const de_TagUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagUserCommandOutput> => {
@@ -9374,45 +10168,50 @@ const deserializeAws_queryTagUserCommandError = async (
   switch (errorCode) {
     case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryUntagInstanceProfileCommand = async (
+/**
+ * deserializeAws_queryUntagInstanceProfileCommand
+ */
+export const de_UntagInstanceProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagInstanceProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryUntagInstanceProfileCommandError(output, context);
+    return de_UntagInstanceProfileCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UntagInstanceProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryUntagInstanceProfileCommandError = async (
+/**
+ * deserializeAws_queryUntagInstanceProfileCommandError
+ */
+const de_UntagInstanceProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagInstanceProfileCommandOutput> => {
@@ -9424,42 +10223,47 @@ const deserializeAws_queryUntagInstanceProfileCommandError = async (
   switch (errorCode) {
     case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryUntagMFADeviceCommand = async (
+/**
+ * deserializeAws_queryUntagMFADeviceCommand
+ */
+export const de_UntagMFADeviceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagMFADeviceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryUntagMFADeviceCommandError(output, context);
+    return de_UntagMFADeviceCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UntagMFADeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryUntagMFADeviceCommandError = async (
+/**
+ * deserializeAws_queryUntagMFADeviceCommandError
+ */
+const de_UntagMFADeviceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagMFADeviceCommandOutput> => {
@@ -9471,42 +10275,47 @@ const deserializeAws_queryUntagMFADeviceCommandError = async (
   switch (errorCode) {
     case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryUntagOpenIDConnectProviderCommand = async (
+/**
+ * deserializeAws_queryUntagOpenIDConnectProviderCommand
+ */
+export const de_UntagOpenIDConnectProviderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagOpenIDConnectProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryUntagOpenIDConnectProviderCommandError(output, context);
+    return de_UntagOpenIDConnectProviderCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UntagOpenIDConnectProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryUntagOpenIDConnectProviderCommandError = async (
+/**
+ * deserializeAws_queryUntagOpenIDConnectProviderCommandError
+ */
+const de_UntagOpenIDConnectProviderCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagOpenIDConnectProviderCommandOutput> => {
@@ -9518,42 +10327,47 @@ const deserializeAws_queryUntagOpenIDConnectProviderCommandError = async (
   switch (errorCode) {
     case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryUntagPolicyCommand = async (
+/**
+ * deserializeAws_queryUntagPolicyCommand
+ */
+export const de_UntagPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryUntagPolicyCommandError(output, context);
+    return de_UntagPolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UntagPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryUntagPolicyCommandError = async (
+/**
+ * deserializeAws_queryUntagPolicyCommandError
+ */
+const de_UntagPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagPolicyCommandOutput> => {
@@ -9565,42 +10379,47 @@ const deserializeAws_queryUntagPolicyCommandError = async (
   switch (errorCode) {
     case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryUntagRoleCommand = async (
+/**
+ * deserializeAws_queryUntagRoleCommand
+ */
+export const de_UntagRoleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagRoleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryUntagRoleCommandError(output, context);
+    return de_UntagRoleCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UntagRoleCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryUntagRoleCommandError = async (
+/**
+ * deserializeAws_queryUntagRoleCommandError
+ */
+const de_UntagRoleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagRoleCommandOutput> => {
@@ -9612,39 +10431,44 @@ const deserializeAws_queryUntagRoleCommandError = async (
   switch (errorCode) {
     case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryUntagSAMLProviderCommand = async (
+/**
+ * deserializeAws_queryUntagSAMLProviderCommand
+ */
+export const de_UntagSAMLProviderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagSAMLProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryUntagSAMLProviderCommandError(output, context);
+    return de_UntagSAMLProviderCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UntagSAMLProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryUntagSAMLProviderCommandError = async (
+/**
+ * deserializeAws_queryUntagSAMLProviderCommandError
+ */
+const de_UntagSAMLProviderCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagSAMLProviderCommandOutput> => {
@@ -9656,42 +10480,47 @@ const deserializeAws_queryUntagSAMLProviderCommandError = async (
   switch (errorCode) {
     case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryUntagServerCertificateCommand = async (
+/**
+ * deserializeAws_queryUntagServerCertificateCommand
+ */
+export const de_UntagServerCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagServerCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryUntagServerCertificateCommandError(output, context);
+    return de_UntagServerCertificateCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UntagServerCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryUntagServerCertificateCommandError = async (
+/**
+ * deserializeAws_queryUntagServerCertificateCommandError
+ */
+const de_UntagServerCertificateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagServerCertificateCommandOutput> => {
@@ -9703,42 +10532,47 @@ const deserializeAws_queryUntagServerCertificateCommandError = async (
   switch (errorCode) {
     case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryUntagUserCommand = async (
+/**
+ * deserializeAws_queryUntagUserCommand
+ */
+export const de_UntagUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryUntagUserCommandError(output, context);
+    return de_UntagUserCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UntagUserCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryUntagUserCommandError = async (
+/**
+ * deserializeAws_queryUntagUserCommandError
+ */
+const de_UntagUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagUserCommandOutput> => {
@@ -9750,39 +10584,44 @@ const deserializeAws_queryUntagUserCommandError = async (
   switch (errorCode) {
     case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryUpdateAccessKeyCommand = async (
+/**
+ * deserializeAws_queryUpdateAccessKeyCommand
+ */
+export const de_UpdateAccessKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAccessKeyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryUpdateAccessKeyCommandError(output, context);
+    return de_UpdateAccessKeyCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateAccessKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryUpdateAccessKeyCommandError = async (
+/**
+ * deserializeAws_queryUpdateAccessKeyCommandError
+ */
+const de_UpdateAccessKeyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAccessKeyCommandOutput> => {
@@ -9794,39 +10633,44 @@ const deserializeAws_queryUpdateAccessKeyCommandError = async (
   switch (errorCode) {
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryUpdateAccountPasswordPolicyCommand = async (
+/**
+ * deserializeAws_queryUpdateAccountPasswordPolicyCommand
+ */
+export const de_UpdateAccountPasswordPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAccountPasswordPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryUpdateAccountPasswordPolicyCommandError(output, context);
+    return de_UpdateAccountPasswordPolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateAccountPasswordPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryUpdateAccountPasswordPolicyCommandError = async (
+/**
+ * deserializeAws_queryUpdateAccountPasswordPolicyCommandError
+ */
+const de_UpdateAccountPasswordPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAccountPasswordPolicyCommandOutput> => {
@@ -9838,42 +10682,47 @@ const deserializeAws_queryUpdateAccountPasswordPolicyCommandError = async (
   switch (errorCode) {
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "MalformedPolicyDocument":
     case "com.amazonaws.iam#MalformedPolicyDocumentException":
-      throw await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context);
+      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryUpdateAssumeRolePolicyCommand = async (
+/**
+ * deserializeAws_queryUpdateAssumeRolePolicyCommand
+ */
+export const de_UpdateAssumeRolePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAssumeRolePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryUpdateAssumeRolePolicyCommandError(output, context);
+    return de_UpdateAssumeRolePolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateAssumeRolePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryUpdateAssumeRolePolicyCommandError = async (
+/**
+ * deserializeAws_queryUpdateAssumeRolePolicyCommandError
+ */
+const de_UpdateAssumeRolePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAssumeRolePolicyCommandOutput> => {
@@ -9885,45 +10734,50 @@ const deserializeAws_queryUpdateAssumeRolePolicyCommandError = async (
   switch (errorCode) {
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "MalformedPolicyDocument":
     case "com.amazonaws.iam#MalformedPolicyDocumentException":
-      throw await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context);
+      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "UnmodifiableEntity":
     case "com.amazonaws.iam#UnmodifiableEntityException":
-      throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
+      throw await de_UnmodifiableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryUpdateGroupCommand = async (
+/**
+ * deserializeAws_queryUpdateGroupCommand
+ */
+export const de_UpdateGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryUpdateGroupCommandError(output, context);
+    return de_UpdateGroupCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryUpdateGroupCommandError = async (
+/**
+ * deserializeAws_queryUpdateGroupCommandError
+ */
+const de_UpdateGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGroupCommandOutput> => {
@@ -9935,42 +10789,47 @@ const deserializeAws_queryUpdateGroupCommandError = async (
   switch (errorCode) {
     case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
-      throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryUpdateLoginProfileCommand = async (
+/**
+ * deserializeAws_queryUpdateLoginProfileCommand
+ */
+export const de_UpdateLoginProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateLoginProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryUpdateLoginProfileCommandError(output, context);
+    return de_UpdateLoginProfileCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateLoginProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryUpdateLoginProfileCommandError = async (
+/**
+ * deserializeAws_queryUpdateLoginProfileCommandError
+ */
+const de_UpdateLoginProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateLoginProfileCommandOutput> => {
@@ -9982,45 +10841,50 @@ const deserializeAws_queryUpdateLoginProfileCommandError = async (
   switch (errorCode) {
     case "EntityTemporarilyUnmodifiable":
     case "com.amazonaws.iam#EntityTemporarilyUnmodifiableException":
-      throw await deserializeAws_queryEntityTemporarilyUnmodifiableExceptionResponse(parsedOutput, context);
+      throw await de_EntityTemporarilyUnmodifiableExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "PasswordPolicyViolation":
     case "com.amazonaws.iam#PasswordPolicyViolationException":
-      throw await deserializeAws_queryPasswordPolicyViolationExceptionResponse(parsedOutput, context);
+      throw await de_PasswordPolicyViolationExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryUpdateOpenIDConnectProviderThumbprintCommand = async (
+/**
+ * deserializeAws_queryUpdateOpenIDConnectProviderThumbprintCommand
+ */
+export const de_UpdateOpenIDConnectProviderThumbprintCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateOpenIDConnectProviderThumbprintCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryUpdateOpenIDConnectProviderThumbprintCommandError(output, context);
+    return de_UpdateOpenIDConnectProviderThumbprintCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateOpenIDConnectProviderThumbprintCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryUpdateOpenIDConnectProviderThumbprintCommandError = async (
+/**
+ * deserializeAws_queryUpdateOpenIDConnectProviderThumbprintCommandError
+ */
+const de_UpdateOpenIDConnectProviderThumbprintCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateOpenIDConnectProviderThumbprintCommandOutput> => {
@@ -10032,42 +10896,47 @@ const deserializeAws_queryUpdateOpenIDConnectProviderThumbprintCommandError = as
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryUpdateRoleCommand = async (
+/**
+ * deserializeAws_queryUpdateRoleCommand
+ */
+export const de_UpdateRoleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRoleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryUpdateRoleCommandError(output, context);
+    return de_UpdateRoleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryUpdateRoleResponse(data.UpdateRoleResult, context);
+  contents = de_UpdateRoleResponse(data.UpdateRoleResult, context);
   const response: UpdateRoleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryUpdateRoleCommandError = async (
+/**
+ * deserializeAws_queryUpdateRoleCommandError
+ */
+const de_UpdateRoleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRoleCommandOutput> => {
@@ -10079,42 +10948,47 @@ const deserializeAws_queryUpdateRoleCommandError = async (
   switch (errorCode) {
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "UnmodifiableEntity":
     case "com.amazonaws.iam#UnmodifiableEntityException":
-      throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
+      throw await de_UnmodifiableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryUpdateRoleDescriptionCommand = async (
+/**
+ * deserializeAws_queryUpdateRoleDescriptionCommand
+ */
+export const de_UpdateRoleDescriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRoleDescriptionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryUpdateRoleDescriptionCommandError(output, context);
+    return de_UpdateRoleDescriptionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryUpdateRoleDescriptionResponse(data.UpdateRoleDescriptionResult, context);
+  contents = de_UpdateRoleDescriptionResponse(data.UpdateRoleDescriptionResult, context);
   const response: UpdateRoleDescriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryUpdateRoleDescriptionCommandError = async (
+/**
+ * deserializeAws_queryUpdateRoleDescriptionCommandError
+ */
+const de_UpdateRoleDescriptionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRoleDescriptionCommandOutput> => {
@@ -10126,42 +11000,47 @@ const deserializeAws_queryUpdateRoleDescriptionCommandError = async (
   switch (errorCode) {
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "UnmodifiableEntity":
     case "com.amazonaws.iam#UnmodifiableEntityException":
-      throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
+      throw await de_UnmodifiableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryUpdateSAMLProviderCommand = async (
+/**
+ * deserializeAws_queryUpdateSAMLProviderCommand
+ */
+export const de_UpdateSAMLProviderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSAMLProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryUpdateSAMLProviderCommandError(output, context);
+    return de_UpdateSAMLProviderCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryUpdateSAMLProviderResponse(data.UpdateSAMLProviderResult, context);
+  contents = de_UpdateSAMLProviderResponse(data.UpdateSAMLProviderResult, context);
   const response: UpdateSAMLProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryUpdateSAMLProviderCommandError = async (
+/**
+ * deserializeAws_queryUpdateSAMLProviderCommandError
+ */
+const de_UpdateSAMLProviderCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSAMLProviderCommandOutput> => {
@@ -10173,42 +11052,47 @@ const deserializeAws_queryUpdateSAMLProviderCommandError = async (
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryUpdateServerCertificateCommand = async (
+/**
+ * deserializeAws_queryUpdateServerCertificateCommand
+ */
+export const de_UpdateServerCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateServerCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryUpdateServerCertificateCommandError(output, context);
+    return de_UpdateServerCertificateCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateServerCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryUpdateServerCertificateCommandError = async (
+/**
+ * deserializeAws_queryUpdateServerCertificateCommandError
+ */
+const de_UpdateServerCertificateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateServerCertificateCommandOutput> => {
@@ -10220,42 +11104,47 @@ const deserializeAws_queryUpdateServerCertificateCommandError = async (
   switch (errorCode) {
     case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
-      throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryUpdateServiceSpecificCredentialCommand = async (
+/**
+ * deserializeAws_queryUpdateServiceSpecificCredentialCommand
+ */
+export const de_UpdateServiceSpecificCredentialCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateServiceSpecificCredentialCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryUpdateServiceSpecificCredentialCommandError(output, context);
+    return de_UpdateServiceSpecificCredentialCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateServiceSpecificCredentialCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryUpdateServiceSpecificCredentialCommandError = async (
+/**
+ * deserializeAws_queryUpdateServiceSpecificCredentialCommandError
+ */
+const de_UpdateServiceSpecificCredentialCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateServiceSpecificCredentialCommandOutput> => {
@@ -10267,33 +11156,38 @@ const deserializeAws_queryUpdateServiceSpecificCredentialCommandError = async (
   switch (errorCode) {
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryUpdateSigningCertificateCommand = async (
+/**
+ * deserializeAws_queryUpdateSigningCertificateCommand
+ */
+export const de_UpdateSigningCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSigningCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryUpdateSigningCertificateCommandError(output, context);
+    return de_UpdateSigningCertificateCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateSigningCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryUpdateSigningCertificateCommandError = async (
+/**
+ * deserializeAws_queryUpdateSigningCertificateCommandError
+ */
+const de_UpdateSigningCertificateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSigningCertificateCommandOutput> => {
@@ -10305,39 +11199,44 @@ const deserializeAws_queryUpdateSigningCertificateCommandError = async (
   switch (errorCode) {
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryUpdateSSHPublicKeyCommand = async (
+/**
+ * deserializeAws_queryUpdateSSHPublicKeyCommand
+ */
+export const de_UpdateSSHPublicKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSSHPublicKeyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryUpdateSSHPublicKeyCommandError(output, context);
+    return de_UpdateSSHPublicKeyCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateSSHPublicKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryUpdateSSHPublicKeyCommandError = async (
+/**
+ * deserializeAws_queryUpdateSSHPublicKeyCommandError
+ */
+const de_UpdateSSHPublicKeyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSSHPublicKeyCommandOutput> => {
@@ -10349,33 +11248,38 @@ const deserializeAws_queryUpdateSSHPublicKeyCommandError = async (
   switch (errorCode) {
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryUpdateUserCommand = async (
+/**
+ * deserializeAws_queryUpdateUserCommand
+ */
+export const de_UpdateUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryUpdateUserCommandError(output, context);
+    return de_UpdateUserCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateUserCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryUpdateUserCommandError = async (
+/**
+ * deserializeAws_queryUpdateUserCommandError
+ */
+const de_UpdateUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateUserCommandOutput> => {
@@ -10387,51 +11291,56 @@ const deserializeAws_queryUpdateUserCommandError = async (
   switch (errorCode) {
     case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
-      throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
     case "EntityTemporarilyUnmodifiable":
     case "com.amazonaws.iam#EntityTemporarilyUnmodifiableException":
-      throw await deserializeAws_queryEntityTemporarilyUnmodifiableExceptionResponse(parsedOutput, context);
+      throw await de_EntityTemporarilyUnmodifiableExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryUploadServerCertificateCommand = async (
+/**
+ * deserializeAws_queryUploadServerCertificateCommand
+ */
+export const de_UploadServerCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UploadServerCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryUploadServerCertificateCommandError(output, context);
+    return de_UploadServerCertificateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryUploadServerCertificateResponse(data.UploadServerCertificateResult, context);
+  contents = de_UploadServerCertificateResponse(data.UploadServerCertificateResult, context);
   const response: UploadServerCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryUploadServerCertificateCommandError = async (
+/**
+ * deserializeAws_queryUploadServerCertificateCommandError
+ */
+const de_UploadServerCertificateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UploadServerCertificateCommandOutput> => {
@@ -10443,54 +11352,59 @@ const deserializeAws_queryUploadServerCertificateCommandError = async (
   switch (errorCode) {
     case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
-      throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
-      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "KeyPairMismatch":
     case "com.amazonaws.iam#KeyPairMismatchException":
-      throw await deserializeAws_queryKeyPairMismatchExceptionResponse(parsedOutput, context);
+      throw await de_KeyPairMismatchExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "MalformedCertificate":
     case "com.amazonaws.iam#MalformedCertificateException":
-      throw await deserializeAws_queryMalformedCertificateExceptionResponse(parsedOutput, context);
+      throw await de_MalformedCertificateExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryUploadSigningCertificateCommand = async (
+/**
+ * deserializeAws_queryUploadSigningCertificateCommand
+ */
+export const de_UploadSigningCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UploadSigningCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryUploadSigningCertificateCommandError(output, context);
+    return de_UploadSigningCertificateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryUploadSigningCertificateResponse(data.UploadSigningCertificateResult, context);
+  contents = de_UploadSigningCertificateResponse(data.UploadSigningCertificateResult, context);
   const response: UploadSigningCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryUploadSigningCertificateCommandError = async (
+/**
+ * deserializeAws_queryUploadSigningCertificateCommandError
+ */
+const de_UploadSigningCertificateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UploadSigningCertificateCommandOutput> => {
@@ -10502,54 +11416,59 @@ const deserializeAws_queryUploadSigningCertificateCommandError = async (
   switch (errorCode) {
     case "DuplicateCertificate":
     case "com.amazonaws.iam#DuplicateCertificateException":
-      throw await deserializeAws_queryDuplicateCertificateExceptionResponse(parsedOutput, context);
+      throw await de_DuplicateCertificateExceptionRes(parsedOutput, context);
     case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
-      throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
     case "InvalidCertificate":
     case "com.amazonaws.iam#InvalidCertificateException":
-      throw await deserializeAws_queryInvalidCertificateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidCertificateExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "MalformedCertificate":
     case "com.amazonaws.iam#MalformedCertificateException":
-      throw await deserializeAws_queryMalformedCertificateExceptionResponse(parsedOutput, context);
+      throw await de_MalformedCertificateExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
-      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryUploadSSHPublicKeyCommand = async (
+/**
+ * deserializeAws_queryUploadSSHPublicKeyCommand
+ */
+export const de_UploadSSHPublicKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UploadSSHPublicKeyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryUploadSSHPublicKeyCommandError(output, context);
+    return de_UploadSSHPublicKeyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryUploadSSHPublicKeyResponse(data.UploadSSHPublicKeyResult, context);
+  contents = de_UploadSSHPublicKeyResponse(data.UploadSSHPublicKeyResult, context);
   const response: UploadSSHPublicKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryUploadSSHPublicKeyCommandError = async (
+/**
+ * deserializeAws_queryUploadSSHPublicKeyCommandError
+ */
+const de_UploadSSHPublicKeyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UploadSSHPublicKeyCommandOutput> => {
@@ -10561,36 +11480,38 @@ const deserializeAws_queryUploadSSHPublicKeyCommandError = async (
   switch (errorCode) {
     case "DuplicateSSHPublicKey":
     case "com.amazonaws.iam#DuplicateSSHPublicKeyException":
-      throw await deserializeAws_queryDuplicateSSHPublicKeyExceptionResponse(parsedOutput, context);
+      throw await de_DuplicateSSHPublicKeyExceptionRes(parsedOutput, context);
     case "InvalidPublicKey":
     case "com.amazonaws.iam#InvalidPublicKeyException":
-      throw await deserializeAws_queryInvalidPublicKeyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPublicKeyExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
-      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
+      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
     case "UnrecognizedPublicKeyEncoding":
     case "com.amazonaws.iam#UnrecognizedPublicKeyEncodingException":
-      throw await deserializeAws_queryUnrecognizedPublicKeyEncodingExceptionResponse(parsedOutput, context);
+      throw await de_UnrecognizedPublicKeyEncodingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const deserializeAws_queryConcurrentModificationExceptionResponse = async (
+/**
+ * deserializeAws_queryConcurrentModificationExceptionRes
+ */
+const de_ConcurrentModificationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ConcurrentModificationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryConcurrentModificationException(body.Error, context);
+  const deserialized: any = de_ConcurrentModificationException(body.Error, context);
   const exception = new ConcurrentModificationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10598,12 +11519,15 @@ const deserializeAws_queryConcurrentModificationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryCredentialReportExpiredExceptionResponse = async (
+/**
+ * deserializeAws_queryCredentialReportExpiredExceptionRes
+ */
+const de_CredentialReportExpiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CredentialReportExpiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryCredentialReportExpiredException(body.Error, context);
+  const deserialized: any = de_CredentialReportExpiredException(body.Error, context);
   const exception = new CredentialReportExpiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10611,12 +11535,15 @@ const deserializeAws_queryCredentialReportExpiredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryCredentialReportNotPresentExceptionResponse = async (
+/**
+ * deserializeAws_queryCredentialReportNotPresentExceptionRes
+ */
+const de_CredentialReportNotPresentExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CredentialReportNotPresentException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryCredentialReportNotPresentException(body.Error, context);
+  const deserialized: any = de_CredentialReportNotPresentException(body.Error, context);
   const exception = new CredentialReportNotPresentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10624,12 +11551,15 @@ const deserializeAws_queryCredentialReportNotPresentExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryCredentialReportNotReadyExceptionResponse = async (
+/**
+ * deserializeAws_queryCredentialReportNotReadyExceptionRes
+ */
+const de_CredentialReportNotReadyExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CredentialReportNotReadyException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryCredentialReportNotReadyException(body.Error, context);
+  const deserialized: any = de_CredentialReportNotReadyException(body.Error, context);
   const exception = new CredentialReportNotReadyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10637,12 +11567,15 @@ const deserializeAws_queryCredentialReportNotReadyExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryDeleteConflictExceptionResponse = async (
+/**
+ * deserializeAws_queryDeleteConflictExceptionRes
+ */
+const de_DeleteConflictExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DeleteConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryDeleteConflictException(body.Error, context);
+  const deserialized: any = de_DeleteConflictException(body.Error, context);
   const exception = new DeleteConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10650,12 +11583,15 @@ const deserializeAws_queryDeleteConflictExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryDuplicateCertificateExceptionResponse = async (
+/**
+ * deserializeAws_queryDuplicateCertificateExceptionRes
+ */
+const de_DuplicateCertificateExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DuplicateCertificateException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryDuplicateCertificateException(body.Error, context);
+  const deserialized: any = de_DuplicateCertificateException(body.Error, context);
   const exception = new DuplicateCertificateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10663,12 +11599,15 @@ const deserializeAws_queryDuplicateCertificateExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryDuplicateSSHPublicKeyExceptionResponse = async (
+/**
+ * deserializeAws_queryDuplicateSSHPublicKeyExceptionRes
+ */
+const de_DuplicateSSHPublicKeyExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DuplicateSSHPublicKeyException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryDuplicateSSHPublicKeyException(body.Error, context);
+  const deserialized: any = de_DuplicateSSHPublicKeyException(body.Error, context);
   const exception = new DuplicateSSHPublicKeyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10676,12 +11615,15 @@ const deserializeAws_queryDuplicateSSHPublicKeyExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryEntityAlreadyExistsExceptionResponse = async (
+/**
+ * deserializeAws_queryEntityAlreadyExistsExceptionRes
+ */
+const de_EntityAlreadyExistsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<EntityAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryEntityAlreadyExistsException(body.Error, context);
+  const deserialized: any = de_EntityAlreadyExistsException(body.Error, context);
   const exception = new EntityAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10689,12 +11631,15 @@ const deserializeAws_queryEntityAlreadyExistsExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryEntityTemporarilyUnmodifiableExceptionResponse = async (
+/**
+ * deserializeAws_queryEntityTemporarilyUnmodifiableExceptionRes
+ */
+const de_EntityTemporarilyUnmodifiableExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<EntityTemporarilyUnmodifiableException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryEntityTemporarilyUnmodifiableException(body.Error, context);
+  const deserialized: any = de_EntityTemporarilyUnmodifiableException(body.Error, context);
   const exception = new EntityTemporarilyUnmodifiableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10702,12 +11647,15 @@ const deserializeAws_queryEntityTemporarilyUnmodifiableExceptionResponse = async
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryInvalidAuthenticationCodeExceptionResponse = async (
+/**
+ * deserializeAws_queryInvalidAuthenticationCodeExceptionRes
+ */
+const de_InvalidAuthenticationCodeExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidAuthenticationCodeException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInvalidAuthenticationCodeException(body.Error, context);
+  const deserialized: any = de_InvalidAuthenticationCodeException(body.Error, context);
   const exception = new InvalidAuthenticationCodeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10715,12 +11663,15 @@ const deserializeAws_queryInvalidAuthenticationCodeExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryInvalidCertificateExceptionResponse = async (
+/**
+ * deserializeAws_queryInvalidCertificateExceptionRes
+ */
+const de_InvalidCertificateExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidCertificateException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInvalidCertificateException(body.Error, context);
+  const deserialized: any = de_InvalidCertificateException(body.Error, context);
   const exception = new InvalidCertificateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10728,12 +11679,15 @@ const deserializeAws_queryInvalidCertificateExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryInvalidInputExceptionResponse = async (
+/**
+ * deserializeAws_queryInvalidInputExceptionRes
+ */
+const de_InvalidInputExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidInputException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInvalidInputException(body.Error, context);
+  const deserialized: any = de_InvalidInputException(body.Error, context);
   const exception = new InvalidInputException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10741,12 +11695,15 @@ const deserializeAws_queryInvalidInputExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryInvalidPublicKeyExceptionResponse = async (
+/**
+ * deserializeAws_queryInvalidPublicKeyExceptionRes
+ */
+const de_InvalidPublicKeyExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidPublicKeyException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInvalidPublicKeyException(body.Error, context);
+  const deserialized: any = de_InvalidPublicKeyException(body.Error, context);
   const exception = new InvalidPublicKeyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10754,12 +11711,15 @@ const deserializeAws_queryInvalidPublicKeyExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryInvalidUserTypeExceptionResponse = async (
+/**
+ * deserializeAws_queryInvalidUserTypeExceptionRes
+ */
+const de_InvalidUserTypeExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidUserTypeException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInvalidUserTypeException(body.Error, context);
+  const deserialized: any = de_InvalidUserTypeException(body.Error, context);
   const exception = new InvalidUserTypeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10767,12 +11727,15 @@ const deserializeAws_queryInvalidUserTypeExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryKeyPairMismatchExceptionResponse = async (
+/**
+ * deserializeAws_queryKeyPairMismatchExceptionRes
+ */
+const de_KeyPairMismatchExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<KeyPairMismatchException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryKeyPairMismatchException(body.Error, context);
+  const deserialized: any = de_KeyPairMismatchException(body.Error, context);
   const exception = new KeyPairMismatchException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10780,12 +11743,15 @@ const deserializeAws_queryKeyPairMismatchExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryLimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_queryLimitExceededExceptionRes
+ */
+const de_LimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryLimitExceededException(body.Error, context);
+  const deserialized: any = de_LimitExceededException(body.Error, context);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10793,12 +11759,15 @@ const deserializeAws_queryLimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryMalformedCertificateExceptionResponse = async (
+/**
+ * deserializeAws_queryMalformedCertificateExceptionRes
+ */
+const de_MalformedCertificateExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<MalformedCertificateException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryMalformedCertificateException(body.Error, context);
+  const deserialized: any = de_MalformedCertificateException(body.Error, context);
   const exception = new MalformedCertificateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10806,12 +11775,15 @@ const deserializeAws_queryMalformedCertificateExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryMalformedPolicyDocumentExceptionResponse = async (
+/**
+ * deserializeAws_queryMalformedPolicyDocumentExceptionRes
+ */
+const de_MalformedPolicyDocumentExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<MalformedPolicyDocumentException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryMalformedPolicyDocumentException(body.Error, context);
+  const deserialized: any = de_MalformedPolicyDocumentException(body.Error, context);
   const exception = new MalformedPolicyDocumentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10819,12 +11791,15 @@ const deserializeAws_queryMalformedPolicyDocumentExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryNoSuchEntityExceptionResponse = async (
+/**
+ * deserializeAws_queryNoSuchEntityExceptionRes
+ */
+const de_NoSuchEntityExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NoSuchEntityException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryNoSuchEntityException(body.Error, context);
+  const deserialized: any = de_NoSuchEntityException(body.Error, context);
   const exception = new NoSuchEntityException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10832,12 +11807,15 @@ const deserializeAws_queryNoSuchEntityExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryPasswordPolicyViolationExceptionResponse = async (
+/**
+ * deserializeAws_queryPasswordPolicyViolationExceptionRes
+ */
+const de_PasswordPolicyViolationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PasswordPolicyViolationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryPasswordPolicyViolationException(body.Error, context);
+  const deserialized: any = de_PasswordPolicyViolationException(body.Error, context);
   const exception = new PasswordPolicyViolationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10845,12 +11823,15 @@ const deserializeAws_queryPasswordPolicyViolationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryPolicyEvaluationExceptionResponse = async (
+/**
+ * deserializeAws_queryPolicyEvaluationExceptionRes
+ */
+const de_PolicyEvaluationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PolicyEvaluationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryPolicyEvaluationException(body.Error, context);
+  const deserialized: any = de_PolicyEvaluationException(body.Error, context);
   const exception = new PolicyEvaluationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10858,12 +11839,15 @@ const deserializeAws_queryPolicyEvaluationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryPolicyNotAttachableExceptionResponse = async (
+/**
+ * deserializeAws_queryPolicyNotAttachableExceptionRes
+ */
+const de_PolicyNotAttachableExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PolicyNotAttachableException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryPolicyNotAttachableException(body.Error, context);
+  const deserialized: any = de_PolicyNotAttachableException(body.Error, context);
   const exception = new PolicyNotAttachableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10871,12 +11855,15 @@ const deserializeAws_queryPolicyNotAttachableExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryReportGenerationLimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_queryReportGenerationLimitExceededExceptionRes
+ */
+const de_ReportGenerationLimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ReportGenerationLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryReportGenerationLimitExceededException(body.Error, context);
+  const deserialized: any = de_ReportGenerationLimitExceededException(body.Error, context);
   const exception = new ReportGenerationLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10884,12 +11871,15 @@ const deserializeAws_queryReportGenerationLimitExceededExceptionResponse = async
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryServiceFailureExceptionResponse = async (
+/**
+ * deserializeAws_queryServiceFailureExceptionRes
+ */
+const de_ServiceFailureExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceFailureException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryServiceFailureException(body.Error, context);
+  const deserialized: any = de_ServiceFailureException(body.Error, context);
   const exception = new ServiceFailureException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10897,12 +11887,15 @@ const deserializeAws_queryServiceFailureExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryServiceNotSupportedExceptionResponse = async (
+/**
+ * deserializeAws_queryServiceNotSupportedExceptionRes
+ */
+const de_ServiceNotSupportedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceNotSupportedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryServiceNotSupportedException(body.Error, context);
+  const deserialized: any = de_ServiceNotSupportedException(body.Error, context);
   const exception = new ServiceNotSupportedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10910,12 +11903,15 @@ const deserializeAws_queryServiceNotSupportedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryUnmodifiableEntityExceptionResponse = async (
+/**
+ * deserializeAws_queryUnmodifiableEntityExceptionRes
+ */
+const de_UnmodifiableEntityExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnmodifiableEntityException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryUnmodifiableEntityException(body.Error, context);
+  const deserialized: any = de_UnmodifiableEntityException(body.Error, context);
   const exception = new UnmodifiableEntityException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10923,12 +11919,15 @@ const deserializeAws_queryUnmodifiableEntityExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryUnrecognizedPublicKeyEncodingExceptionResponse = async (
+/**
+ * deserializeAws_queryUnrecognizedPublicKeyEncodingExceptionRes
+ */
+const de_UnrecognizedPublicKeyEncodingExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnrecognizedPublicKeyEncodingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryUnrecognizedPublicKeyEncodingException(body.Error, context);
+  const deserialized: any = de_UnrecognizedPublicKeyEncodingException(body.Error, context);
   const exception = new UnrecognizedPublicKeyEncodingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10936,7 +11935,10 @@ const deserializeAws_queryUnrecognizedPublicKeyEncodingExceptionResponse = async
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_queryActionNameListType = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryActionNameListType
+ */
+const se_ActionNameListType = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -10949,7 +11951,10 @@ const serializeAws_queryActionNameListType = (input: string[], context: __SerdeC
   return entries;
 };
 
-const serializeAws_queryAddClientIDToOpenIDConnectProviderRequest = (
+/**
+ * serializeAws_queryAddClientIDToOpenIDConnectProviderRequest
+ */
+const se_AddClientIDToOpenIDConnectProviderRequest = (
   input: AddClientIDToOpenIDConnectProviderRequest,
   context: __SerdeContext
 ): any => {
@@ -10963,10 +11968,10 @@ const serializeAws_queryAddClientIDToOpenIDConnectProviderRequest = (
   return entries;
 };
 
-const serializeAws_queryAddRoleToInstanceProfileRequest = (
-  input: AddRoleToInstanceProfileRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryAddRoleToInstanceProfileRequest
+ */
+const se_AddRoleToInstanceProfileRequest = (input: AddRoleToInstanceProfileRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.InstanceProfileName != null) {
     entries["InstanceProfileName"] = input.InstanceProfileName;
@@ -10977,7 +11982,10 @@ const serializeAws_queryAddRoleToInstanceProfileRequest = (
   return entries;
 };
 
-const serializeAws_queryAddUserToGroupRequest = (input: AddUserToGroupRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryAddUserToGroupRequest
+ */
+const se_AddUserToGroupRequest = (input: AddUserToGroupRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.GroupName != null) {
     entries["GroupName"] = input.GroupName;
@@ -10988,7 +11996,10 @@ const serializeAws_queryAddUserToGroupRequest = (input: AddUserToGroupRequest, c
   return entries;
 };
 
-const serializeAws_queryAttachGroupPolicyRequest = (input: AttachGroupPolicyRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryAttachGroupPolicyRequest
+ */
+const se_AttachGroupPolicyRequest = (input: AttachGroupPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.GroupName != null) {
     entries["GroupName"] = input.GroupName;
@@ -10999,7 +12010,10 @@ const serializeAws_queryAttachGroupPolicyRequest = (input: AttachGroupPolicyRequ
   return entries;
 };
 
-const serializeAws_queryAttachRolePolicyRequest = (input: AttachRolePolicyRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryAttachRolePolicyRequest
+ */
+const se_AttachRolePolicyRequest = (input: AttachRolePolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.RoleName != null) {
     entries["RoleName"] = input.RoleName;
@@ -11010,7 +12024,10 @@ const serializeAws_queryAttachRolePolicyRequest = (input: AttachRolePolicyReques
   return entries;
 };
 
-const serializeAws_queryAttachUserPolicyRequest = (input: AttachUserPolicyRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryAttachUserPolicyRequest
+ */
+const se_AttachUserPolicyRequest = (input: AttachUserPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.UserName != null) {
     entries["UserName"] = input.UserName;
@@ -11021,7 +12038,10 @@ const serializeAws_queryAttachUserPolicyRequest = (input: AttachUserPolicyReques
   return entries;
 };
 
-const serializeAws_queryChangePasswordRequest = (input: ChangePasswordRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryChangePasswordRequest
+ */
+const se_ChangePasswordRequest = (input: ChangePasswordRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.OldPassword != null) {
     entries["OldPassword"] = input.OldPassword;
@@ -11032,7 +12052,10 @@ const serializeAws_queryChangePasswordRequest = (input: ChangePasswordRequest, c
   return entries;
 };
 
-const serializeAws_queryclientIDListType = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryclientIDListType
+ */
+const se_clientIDListType = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -11045,13 +12068,16 @@ const serializeAws_queryclientIDListType = (input: string[], context: __SerdeCon
   return entries;
 };
 
-const serializeAws_queryContextEntry = (input: ContextEntry, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryContextEntry
+ */
+const se_ContextEntry = (input: ContextEntry, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.ContextKeyName != null) {
     entries["ContextKeyName"] = input.ContextKeyName;
   }
   if (input.ContextKeyValues != null) {
-    const memberEntries = serializeAws_queryContextKeyValueListType(input.ContextKeyValues, context);
+    const memberEntries = se_ContextKeyValueListType(input.ContextKeyValues, context);
     if (input.ContextKeyValues?.length === 0) {
       entries.ContextKeyValues = [];
     }
@@ -11066,14 +12092,17 @@ const serializeAws_queryContextEntry = (input: ContextEntry, context: __SerdeCon
   return entries;
 };
 
-const serializeAws_queryContextEntryListType = (input: ContextEntry[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryContextEntryListType
+ */
+const se_ContextEntryListType = (input: ContextEntry[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
     if (entry === null) {
       continue;
     }
-    const memberEntries = serializeAws_queryContextEntry(entry, context);
+    const memberEntries = se_ContextEntry(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
     });
@@ -11082,7 +12111,10 @@ const serializeAws_queryContextEntryListType = (input: ContextEntry[], context: 
   return entries;
 };
 
-const serializeAws_queryContextKeyValueListType = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryContextKeyValueListType
+ */
+const se_ContextKeyValueListType = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -11095,7 +12127,10 @@ const serializeAws_queryContextKeyValueListType = (input: string[], context: __S
   return entries;
 };
 
-const serializeAws_queryCreateAccessKeyRequest = (input: CreateAccessKeyRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryCreateAccessKeyRequest
+ */
+const se_CreateAccessKeyRequest = (input: CreateAccessKeyRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.UserName != null) {
     entries["UserName"] = input.UserName;
@@ -11103,10 +12138,10 @@ const serializeAws_queryCreateAccessKeyRequest = (input: CreateAccessKeyRequest,
   return entries;
 };
 
-const serializeAws_queryCreateAccountAliasRequest = (
-  input: CreateAccountAliasRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryCreateAccountAliasRequest
+ */
+const se_CreateAccountAliasRequest = (input: CreateAccountAliasRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.AccountAlias != null) {
     entries["AccountAlias"] = input.AccountAlias;
@@ -11114,7 +12149,10 @@ const serializeAws_queryCreateAccountAliasRequest = (
   return entries;
 };
 
-const serializeAws_queryCreateGroupRequest = (input: CreateGroupRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryCreateGroupRequest
+ */
+const se_CreateGroupRequest = (input: CreateGroupRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.Path != null) {
     entries["Path"] = input.Path;
@@ -11125,10 +12163,10 @@ const serializeAws_queryCreateGroupRequest = (input: CreateGroupRequest, context
   return entries;
 };
 
-const serializeAws_queryCreateInstanceProfileRequest = (
-  input: CreateInstanceProfileRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryCreateInstanceProfileRequest
+ */
+const se_CreateInstanceProfileRequest = (input: CreateInstanceProfileRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.InstanceProfileName != null) {
     entries["InstanceProfileName"] = input.InstanceProfileName;
@@ -11137,7 +12175,7 @@ const serializeAws_queryCreateInstanceProfileRequest = (
     entries["Path"] = input.Path;
   }
   if (input.Tags != null) {
-    const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    const memberEntries = se_tagListType(input.Tags, context);
     if (input.Tags?.length === 0) {
       entries.Tags = [];
     }
@@ -11149,10 +12187,10 @@ const serializeAws_queryCreateInstanceProfileRequest = (
   return entries;
 };
 
-const serializeAws_queryCreateLoginProfileRequest = (
-  input: CreateLoginProfileRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryCreateLoginProfileRequest
+ */
+const se_CreateLoginProfileRequest = (input: CreateLoginProfileRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.UserName != null) {
     entries["UserName"] = input.UserName;
@@ -11166,7 +12204,10 @@ const serializeAws_queryCreateLoginProfileRequest = (
   return entries;
 };
 
-const serializeAws_queryCreateOpenIDConnectProviderRequest = (
+/**
+ * serializeAws_queryCreateOpenIDConnectProviderRequest
+ */
+const se_CreateOpenIDConnectProviderRequest = (
   input: CreateOpenIDConnectProviderRequest,
   context: __SerdeContext
 ): any => {
@@ -11175,7 +12216,7 @@ const serializeAws_queryCreateOpenIDConnectProviderRequest = (
     entries["Url"] = input.Url;
   }
   if (input.ClientIDList != null) {
-    const memberEntries = serializeAws_queryclientIDListType(input.ClientIDList, context);
+    const memberEntries = se_clientIDListType(input.ClientIDList, context);
     if (input.ClientIDList?.length === 0) {
       entries.ClientIDList = [];
     }
@@ -11185,7 +12226,7 @@ const serializeAws_queryCreateOpenIDConnectProviderRequest = (
     });
   }
   if (input.ThumbprintList != null) {
-    const memberEntries = serializeAws_querythumbprintListType(input.ThumbprintList, context);
+    const memberEntries = se_thumbprintListType(input.ThumbprintList, context);
     if (input.ThumbprintList?.length === 0) {
       entries.ThumbprintList = [];
     }
@@ -11195,7 +12236,7 @@ const serializeAws_queryCreateOpenIDConnectProviderRequest = (
     });
   }
   if (input.Tags != null) {
-    const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    const memberEntries = se_tagListType(input.Tags, context);
     if (input.Tags?.length === 0) {
       entries.Tags = [];
     }
@@ -11207,7 +12248,10 @@ const serializeAws_queryCreateOpenIDConnectProviderRequest = (
   return entries;
 };
 
-const serializeAws_queryCreatePolicyRequest = (input: CreatePolicyRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryCreatePolicyRequest
+ */
+const se_CreatePolicyRequest = (input: CreatePolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.PolicyName != null) {
     entries["PolicyName"] = input.PolicyName;
@@ -11222,7 +12266,7 @@ const serializeAws_queryCreatePolicyRequest = (input: CreatePolicyRequest, conte
     entries["Description"] = input.Description;
   }
   if (input.Tags != null) {
-    const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    const memberEntries = se_tagListType(input.Tags, context);
     if (input.Tags?.length === 0) {
       entries.Tags = [];
     }
@@ -11234,10 +12278,10 @@ const serializeAws_queryCreatePolicyRequest = (input: CreatePolicyRequest, conte
   return entries;
 };
 
-const serializeAws_queryCreatePolicyVersionRequest = (
-  input: CreatePolicyVersionRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryCreatePolicyVersionRequest
+ */
+const se_CreatePolicyVersionRequest = (input: CreatePolicyVersionRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.PolicyArn != null) {
     entries["PolicyArn"] = input.PolicyArn;
@@ -11251,7 +12295,10 @@ const serializeAws_queryCreatePolicyVersionRequest = (
   return entries;
 };
 
-const serializeAws_queryCreateRoleRequest = (input: CreateRoleRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryCreateRoleRequest
+ */
+const se_CreateRoleRequest = (input: CreateRoleRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.Path != null) {
     entries["Path"] = input.Path;
@@ -11272,7 +12319,7 @@ const serializeAws_queryCreateRoleRequest = (input: CreateRoleRequest, context: 
     entries["PermissionsBoundary"] = input.PermissionsBoundary;
   }
   if (input.Tags != null) {
-    const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    const memberEntries = se_tagListType(input.Tags, context);
     if (input.Tags?.length === 0) {
       entries.Tags = [];
     }
@@ -11284,10 +12331,10 @@ const serializeAws_queryCreateRoleRequest = (input: CreateRoleRequest, context: 
   return entries;
 };
 
-const serializeAws_queryCreateSAMLProviderRequest = (
-  input: CreateSAMLProviderRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryCreateSAMLProviderRequest
+ */
+const se_CreateSAMLProviderRequest = (input: CreateSAMLProviderRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.SAMLMetadataDocument != null) {
     entries["SAMLMetadataDocument"] = input.SAMLMetadataDocument;
@@ -11296,7 +12343,7 @@ const serializeAws_queryCreateSAMLProviderRequest = (
     entries["Name"] = input.Name;
   }
   if (input.Tags != null) {
-    const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    const memberEntries = se_tagListType(input.Tags, context);
     if (input.Tags?.length === 0) {
       entries.Tags = [];
     }
@@ -11308,10 +12355,10 @@ const serializeAws_queryCreateSAMLProviderRequest = (
   return entries;
 };
 
-const serializeAws_queryCreateServiceLinkedRoleRequest = (
-  input: CreateServiceLinkedRoleRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryCreateServiceLinkedRoleRequest
+ */
+const se_CreateServiceLinkedRoleRequest = (input: CreateServiceLinkedRoleRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.AWSServiceName != null) {
     entries["AWSServiceName"] = input.AWSServiceName;
@@ -11325,7 +12372,10 @@ const serializeAws_queryCreateServiceLinkedRoleRequest = (
   return entries;
 };
 
-const serializeAws_queryCreateServiceSpecificCredentialRequest = (
+/**
+ * serializeAws_queryCreateServiceSpecificCredentialRequest
+ */
+const se_CreateServiceSpecificCredentialRequest = (
   input: CreateServiceSpecificCredentialRequest,
   context: __SerdeContext
 ): any => {
@@ -11339,7 +12389,10 @@ const serializeAws_queryCreateServiceSpecificCredentialRequest = (
   return entries;
 };
 
-const serializeAws_queryCreateUserRequest = (input: CreateUserRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryCreateUserRequest
+ */
+const se_CreateUserRequest = (input: CreateUserRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.Path != null) {
     entries["Path"] = input.Path;
@@ -11351,7 +12404,7 @@ const serializeAws_queryCreateUserRequest = (input: CreateUserRequest, context: 
     entries["PermissionsBoundary"] = input.PermissionsBoundary;
   }
   if (input.Tags != null) {
-    const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    const memberEntries = se_tagListType(input.Tags, context);
     if (input.Tags?.length === 0) {
       entries.Tags = [];
     }
@@ -11363,10 +12416,10 @@ const serializeAws_queryCreateUserRequest = (input: CreateUserRequest, context: 
   return entries;
 };
 
-const serializeAws_queryCreateVirtualMFADeviceRequest = (
-  input: CreateVirtualMFADeviceRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryCreateVirtualMFADeviceRequest
+ */
+const se_CreateVirtualMFADeviceRequest = (input: CreateVirtualMFADeviceRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.Path != null) {
     entries["Path"] = input.Path;
@@ -11375,7 +12428,7 @@ const serializeAws_queryCreateVirtualMFADeviceRequest = (
     entries["VirtualMFADeviceName"] = input.VirtualMFADeviceName;
   }
   if (input.Tags != null) {
-    const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    const memberEntries = se_tagListType(input.Tags, context);
     if (input.Tags?.length === 0) {
       entries.Tags = [];
     }
@@ -11387,10 +12440,10 @@ const serializeAws_queryCreateVirtualMFADeviceRequest = (
   return entries;
 };
 
-const serializeAws_queryDeactivateMFADeviceRequest = (
-  input: DeactivateMFADeviceRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryDeactivateMFADeviceRequest
+ */
+const se_DeactivateMFADeviceRequest = (input: DeactivateMFADeviceRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.UserName != null) {
     entries["UserName"] = input.UserName;
@@ -11401,7 +12454,10 @@ const serializeAws_queryDeactivateMFADeviceRequest = (
   return entries;
 };
 
-const serializeAws_queryDeleteAccessKeyRequest = (input: DeleteAccessKeyRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryDeleteAccessKeyRequest
+ */
+const se_DeleteAccessKeyRequest = (input: DeleteAccessKeyRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.UserName != null) {
     entries["UserName"] = input.UserName;
@@ -11412,10 +12468,10 @@ const serializeAws_queryDeleteAccessKeyRequest = (input: DeleteAccessKeyRequest,
   return entries;
 };
 
-const serializeAws_queryDeleteAccountAliasRequest = (
-  input: DeleteAccountAliasRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryDeleteAccountAliasRequest
+ */
+const se_DeleteAccountAliasRequest = (input: DeleteAccountAliasRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.AccountAlias != null) {
     entries["AccountAlias"] = input.AccountAlias;
@@ -11423,7 +12479,10 @@ const serializeAws_queryDeleteAccountAliasRequest = (
   return entries;
 };
 
-const serializeAws_queryDeleteGroupPolicyRequest = (input: DeleteGroupPolicyRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryDeleteGroupPolicyRequest
+ */
+const se_DeleteGroupPolicyRequest = (input: DeleteGroupPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.GroupName != null) {
     entries["GroupName"] = input.GroupName;
@@ -11434,7 +12493,10 @@ const serializeAws_queryDeleteGroupPolicyRequest = (input: DeleteGroupPolicyRequ
   return entries;
 };
 
-const serializeAws_queryDeleteGroupRequest = (input: DeleteGroupRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryDeleteGroupRequest
+ */
+const se_DeleteGroupRequest = (input: DeleteGroupRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.GroupName != null) {
     entries["GroupName"] = input.GroupName;
@@ -11442,10 +12504,10 @@ const serializeAws_queryDeleteGroupRequest = (input: DeleteGroupRequest, context
   return entries;
 };
 
-const serializeAws_queryDeleteInstanceProfileRequest = (
-  input: DeleteInstanceProfileRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryDeleteInstanceProfileRequest
+ */
+const se_DeleteInstanceProfileRequest = (input: DeleteInstanceProfileRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.InstanceProfileName != null) {
     entries["InstanceProfileName"] = input.InstanceProfileName;
@@ -11453,10 +12515,10 @@ const serializeAws_queryDeleteInstanceProfileRequest = (
   return entries;
 };
 
-const serializeAws_queryDeleteLoginProfileRequest = (
-  input: DeleteLoginProfileRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryDeleteLoginProfileRequest
+ */
+const se_DeleteLoginProfileRequest = (input: DeleteLoginProfileRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.UserName != null) {
     entries["UserName"] = input.UserName;
@@ -11464,7 +12526,10 @@ const serializeAws_queryDeleteLoginProfileRequest = (
   return entries;
 };
 
-const serializeAws_queryDeleteOpenIDConnectProviderRequest = (
+/**
+ * serializeAws_queryDeleteOpenIDConnectProviderRequest
+ */
+const se_DeleteOpenIDConnectProviderRequest = (
   input: DeleteOpenIDConnectProviderRequest,
   context: __SerdeContext
 ): any => {
@@ -11475,7 +12540,10 @@ const serializeAws_queryDeleteOpenIDConnectProviderRequest = (
   return entries;
 };
 
-const serializeAws_queryDeletePolicyRequest = (input: DeletePolicyRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryDeletePolicyRequest
+ */
+const se_DeletePolicyRequest = (input: DeletePolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.PolicyArn != null) {
     entries["PolicyArn"] = input.PolicyArn;
@@ -11483,10 +12551,10 @@ const serializeAws_queryDeletePolicyRequest = (input: DeletePolicyRequest, conte
   return entries;
 };
 
-const serializeAws_queryDeletePolicyVersionRequest = (
-  input: DeletePolicyVersionRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryDeletePolicyVersionRequest
+ */
+const se_DeletePolicyVersionRequest = (input: DeletePolicyVersionRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.PolicyArn != null) {
     entries["PolicyArn"] = input.PolicyArn;
@@ -11497,7 +12565,10 @@ const serializeAws_queryDeletePolicyVersionRequest = (
   return entries;
 };
 
-const serializeAws_queryDeleteRolePermissionsBoundaryRequest = (
+/**
+ * serializeAws_queryDeleteRolePermissionsBoundaryRequest
+ */
+const se_DeleteRolePermissionsBoundaryRequest = (
   input: DeleteRolePermissionsBoundaryRequest,
   context: __SerdeContext
 ): any => {
@@ -11508,7 +12579,10 @@ const serializeAws_queryDeleteRolePermissionsBoundaryRequest = (
   return entries;
 };
 
-const serializeAws_queryDeleteRolePolicyRequest = (input: DeleteRolePolicyRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryDeleteRolePolicyRequest
+ */
+const se_DeleteRolePolicyRequest = (input: DeleteRolePolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.RoleName != null) {
     entries["RoleName"] = input.RoleName;
@@ -11519,7 +12593,10 @@ const serializeAws_queryDeleteRolePolicyRequest = (input: DeleteRolePolicyReques
   return entries;
 };
 
-const serializeAws_queryDeleteRoleRequest = (input: DeleteRoleRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryDeleteRoleRequest
+ */
+const se_DeleteRoleRequest = (input: DeleteRoleRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.RoleName != null) {
     entries["RoleName"] = input.RoleName;
@@ -11527,10 +12604,10 @@ const serializeAws_queryDeleteRoleRequest = (input: DeleteRoleRequest, context: 
   return entries;
 };
 
-const serializeAws_queryDeleteSAMLProviderRequest = (
-  input: DeleteSAMLProviderRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryDeleteSAMLProviderRequest
+ */
+const se_DeleteSAMLProviderRequest = (input: DeleteSAMLProviderRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.SAMLProviderArn != null) {
     entries["SAMLProviderArn"] = input.SAMLProviderArn;
@@ -11538,10 +12615,10 @@ const serializeAws_queryDeleteSAMLProviderRequest = (
   return entries;
 };
 
-const serializeAws_queryDeleteServerCertificateRequest = (
-  input: DeleteServerCertificateRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryDeleteServerCertificateRequest
+ */
+const se_DeleteServerCertificateRequest = (input: DeleteServerCertificateRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.ServerCertificateName != null) {
     entries["ServerCertificateName"] = input.ServerCertificateName;
@@ -11549,10 +12626,10 @@ const serializeAws_queryDeleteServerCertificateRequest = (
   return entries;
 };
 
-const serializeAws_queryDeleteServiceLinkedRoleRequest = (
-  input: DeleteServiceLinkedRoleRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryDeleteServiceLinkedRoleRequest
+ */
+const se_DeleteServiceLinkedRoleRequest = (input: DeleteServiceLinkedRoleRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.RoleName != null) {
     entries["RoleName"] = input.RoleName;
@@ -11560,7 +12637,10 @@ const serializeAws_queryDeleteServiceLinkedRoleRequest = (
   return entries;
 };
 
-const serializeAws_queryDeleteServiceSpecificCredentialRequest = (
+/**
+ * serializeAws_queryDeleteServiceSpecificCredentialRequest
+ */
+const se_DeleteServiceSpecificCredentialRequest = (
   input: DeleteServiceSpecificCredentialRequest,
   context: __SerdeContext
 ): any => {
@@ -11574,10 +12654,10 @@ const serializeAws_queryDeleteServiceSpecificCredentialRequest = (
   return entries;
 };
 
-const serializeAws_queryDeleteSigningCertificateRequest = (
-  input: DeleteSigningCertificateRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryDeleteSigningCertificateRequest
+ */
+const se_DeleteSigningCertificateRequest = (input: DeleteSigningCertificateRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.UserName != null) {
     entries["UserName"] = input.UserName;
@@ -11588,10 +12668,10 @@ const serializeAws_queryDeleteSigningCertificateRequest = (
   return entries;
 };
 
-const serializeAws_queryDeleteSSHPublicKeyRequest = (
-  input: DeleteSSHPublicKeyRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryDeleteSSHPublicKeyRequest
+ */
+const se_DeleteSSHPublicKeyRequest = (input: DeleteSSHPublicKeyRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.UserName != null) {
     entries["UserName"] = input.UserName;
@@ -11602,7 +12682,10 @@ const serializeAws_queryDeleteSSHPublicKeyRequest = (
   return entries;
 };
 
-const serializeAws_queryDeleteUserPermissionsBoundaryRequest = (
+/**
+ * serializeAws_queryDeleteUserPermissionsBoundaryRequest
+ */
+const se_DeleteUserPermissionsBoundaryRequest = (
   input: DeleteUserPermissionsBoundaryRequest,
   context: __SerdeContext
 ): any => {
@@ -11613,7 +12696,10 @@ const serializeAws_queryDeleteUserPermissionsBoundaryRequest = (
   return entries;
 };
 
-const serializeAws_queryDeleteUserPolicyRequest = (input: DeleteUserPolicyRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryDeleteUserPolicyRequest
+ */
+const se_DeleteUserPolicyRequest = (input: DeleteUserPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.UserName != null) {
     entries["UserName"] = input.UserName;
@@ -11624,7 +12710,10 @@ const serializeAws_queryDeleteUserPolicyRequest = (input: DeleteUserPolicyReques
   return entries;
 };
 
-const serializeAws_queryDeleteUserRequest = (input: DeleteUserRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryDeleteUserRequest
+ */
+const se_DeleteUserRequest = (input: DeleteUserRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.UserName != null) {
     entries["UserName"] = input.UserName;
@@ -11632,10 +12721,10 @@ const serializeAws_queryDeleteUserRequest = (input: DeleteUserRequest, context: 
   return entries;
 };
 
-const serializeAws_queryDeleteVirtualMFADeviceRequest = (
-  input: DeleteVirtualMFADeviceRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryDeleteVirtualMFADeviceRequest
+ */
+const se_DeleteVirtualMFADeviceRequest = (input: DeleteVirtualMFADeviceRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.SerialNumber != null) {
     entries["SerialNumber"] = input.SerialNumber;
@@ -11643,7 +12732,10 @@ const serializeAws_queryDeleteVirtualMFADeviceRequest = (
   return entries;
 };
 
-const serializeAws_queryDetachGroupPolicyRequest = (input: DetachGroupPolicyRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryDetachGroupPolicyRequest
+ */
+const se_DetachGroupPolicyRequest = (input: DetachGroupPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.GroupName != null) {
     entries["GroupName"] = input.GroupName;
@@ -11654,7 +12746,10 @@ const serializeAws_queryDetachGroupPolicyRequest = (input: DetachGroupPolicyRequ
   return entries;
 };
 
-const serializeAws_queryDetachRolePolicyRequest = (input: DetachRolePolicyRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryDetachRolePolicyRequest
+ */
+const se_DetachRolePolicyRequest = (input: DetachRolePolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.RoleName != null) {
     entries["RoleName"] = input.RoleName;
@@ -11665,7 +12760,10 @@ const serializeAws_queryDetachRolePolicyRequest = (input: DetachRolePolicyReques
   return entries;
 };
 
-const serializeAws_queryDetachUserPolicyRequest = (input: DetachUserPolicyRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryDetachUserPolicyRequest
+ */
+const se_DetachUserPolicyRequest = (input: DetachUserPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.UserName != null) {
     entries["UserName"] = input.UserName;
@@ -11676,7 +12774,10 @@ const serializeAws_queryDetachUserPolicyRequest = (input: DetachUserPolicyReques
   return entries;
 };
 
-const serializeAws_queryEnableMFADeviceRequest = (input: EnableMFADeviceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryEnableMFADeviceRequest
+ */
+const se_EnableMFADeviceRequest = (input: EnableMFADeviceRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.UserName != null) {
     entries["UserName"] = input.UserName;
@@ -11693,7 +12794,10 @@ const serializeAws_queryEnableMFADeviceRequest = (input: EnableMFADeviceRequest,
   return entries;
 };
 
-const serializeAws_queryentityListType = (input: (EntityType | string)[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryentityListType
+ */
+const se_entityListType = (input: (EntityType | string)[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -11706,7 +12810,10 @@ const serializeAws_queryentityListType = (input: (EntityType | string)[], contex
   return entries;
 };
 
-const serializeAws_queryGenerateOrganizationsAccessReportRequest = (
+/**
+ * serializeAws_queryGenerateOrganizationsAccessReportRequest
+ */
+const se_GenerateOrganizationsAccessReportRequest = (
   input: GenerateOrganizationsAccessReportRequest,
   context: __SerdeContext
 ): any => {
@@ -11720,7 +12827,10 @@ const serializeAws_queryGenerateOrganizationsAccessReportRequest = (
   return entries;
 };
 
-const serializeAws_queryGenerateServiceLastAccessedDetailsRequest = (
+/**
+ * serializeAws_queryGenerateServiceLastAccessedDetailsRequest
+ */
+const se_GenerateServiceLastAccessedDetailsRequest = (
   input: GenerateServiceLastAccessedDetailsRequest,
   context: __SerdeContext
 ): any => {
@@ -11734,10 +12844,10 @@ const serializeAws_queryGenerateServiceLastAccessedDetailsRequest = (
   return entries;
 };
 
-const serializeAws_queryGetAccessKeyLastUsedRequest = (
-  input: GetAccessKeyLastUsedRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryGetAccessKeyLastUsedRequest
+ */
+const se_GetAccessKeyLastUsedRequest = (input: GetAccessKeyLastUsedRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.AccessKeyId != null) {
     entries["AccessKeyId"] = input.AccessKeyId;
@@ -11745,13 +12855,16 @@ const serializeAws_queryGetAccessKeyLastUsedRequest = (
   return entries;
 };
 
-const serializeAws_queryGetAccountAuthorizationDetailsRequest = (
+/**
+ * serializeAws_queryGetAccountAuthorizationDetailsRequest
+ */
+const se_GetAccountAuthorizationDetailsRequest = (
   input: GetAccountAuthorizationDetailsRequest,
   context: __SerdeContext
 ): any => {
   const entries: any = {};
   if (input.Filter != null) {
-    const memberEntries = serializeAws_queryentityListType(input.Filter, context);
+    const memberEntries = se_entityListType(input.Filter, context);
     if (input.Filter?.length === 0) {
       entries.Filter = [];
     }
@@ -11769,13 +12882,16 @@ const serializeAws_queryGetAccountAuthorizationDetailsRequest = (
   return entries;
 };
 
-const serializeAws_queryGetContextKeysForCustomPolicyRequest = (
+/**
+ * serializeAws_queryGetContextKeysForCustomPolicyRequest
+ */
+const se_GetContextKeysForCustomPolicyRequest = (
   input: GetContextKeysForCustomPolicyRequest,
   context: __SerdeContext
 ): any => {
   const entries: any = {};
   if (input.PolicyInputList != null) {
-    const memberEntries = serializeAws_querySimulationPolicyListType(input.PolicyInputList, context);
+    const memberEntries = se_SimulationPolicyListType(input.PolicyInputList, context);
     if (input.PolicyInputList?.length === 0) {
       entries.PolicyInputList = [];
     }
@@ -11787,7 +12903,10 @@ const serializeAws_queryGetContextKeysForCustomPolicyRequest = (
   return entries;
 };
 
-const serializeAws_queryGetContextKeysForPrincipalPolicyRequest = (
+/**
+ * serializeAws_queryGetContextKeysForPrincipalPolicyRequest
+ */
+const se_GetContextKeysForPrincipalPolicyRequest = (
   input: GetContextKeysForPrincipalPolicyRequest,
   context: __SerdeContext
 ): any => {
@@ -11796,7 +12915,7 @@ const serializeAws_queryGetContextKeysForPrincipalPolicyRequest = (
     entries["PolicySourceArn"] = input.PolicySourceArn;
   }
   if (input.PolicyInputList != null) {
-    const memberEntries = serializeAws_querySimulationPolicyListType(input.PolicyInputList, context);
+    const memberEntries = se_SimulationPolicyListType(input.PolicyInputList, context);
     if (input.PolicyInputList?.length === 0) {
       entries.PolicyInputList = [];
     }
@@ -11808,7 +12927,10 @@ const serializeAws_queryGetContextKeysForPrincipalPolicyRequest = (
   return entries;
 };
 
-const serializeAws_queryGetGroupPolicyRequest = (input: GetGroupPolicyRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryGetGroupPolicyRequest
+ */
+const se_GetGroupPolicyRequest = (input: GetGroupPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.GroupName != null) {
     entries["GroupName"] = input.GroupName;
@@ -11819,7 +12941,10 @@ const serializeAws_queryGetGroupPolicyRequest = (input: GetGroupPolicyRequest, c
   return entries;
 };
 
-const serializeAws_queryGetGroupRequest = (input: GetGroupRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryGetGroupRequest
+ */
+const se_GetGroupRequest = (input: GetGroupRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.GroupName != null) {
     entries["GroupName"] = input.GroupName;
@@ -11833,10 +12958,10 @@ const serializeAws_queryGetGroupRequest = (input: GetGroupRequest, context: __Se
   return entries;
 };
 
-const serializeAws_queryGetInstanceProfileRequest = (
-  input: GetInstanceProfileRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryGetInstanceProfileRequest
+ */
+const se_GetInstanceProfileRequest = (input: GetInstanceProfileRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.InstanceProfileName != null) {
     entries["InstanceProfileName"] = input.InstanceProfileName;
@@ -11844,7 +12969,10 @@ const serializeAws_queryGetInstanceProfileRequest = (
   return entries;
 };
 
-const serializeAws_queryGetLoginProfileRequest = (input: GetLoginProfileRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryGetLoginProfileRequest
+ */
+const se_GetLoginProfileRequest = (input: GetLoginProfileRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.UserName != null) {
     entries["UserName"] = input.UserName;
@@ -11852,10 +12980,10 @@ const serializeAws_queryGetLoginProfileRequest = (input: GetLoginProfileRequest,
   return entries;
 };
 
-const serializeAws_queryGetOpenIDConnectProviderRequest = (
-  input: GetOpenIDConnectProviderRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryGetOpenIDConnectProviderRequest
+ */
+const se_GetOpenIDConnectProviderRequest = (input: GetOpenIDConnectProviderRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.OpenIDConnectProviderArn != null) {
     entries["OpenIDConnectProviderArn"] = input.OpenIDConnectProviderArn;
@@ -11863,7 +12991,10 @@ const serializeAws_queryGetOpenIDConnectProviderRequest = (
   return entries;
 };
 
-const serializeAws_queryGetOrganizationsAccessReportRequest = (
+/**
+ * serializeAws_queryGetOrganizationsAccessReportRequest
+ */
+const se_GetOrganizationsAccessReportRequest = (
   input: GetOrganizationsAccessReportRequest,
   context: __SerdeContext
 ): any => {
@@ -11883,7 +13014,10 @@ const serializeAws_queryGetOrganizationsAccessReportRequest = (
   return entries;
 };
 
-const serializeAws_queryGetPolicyRequest = (input: GetPolicyRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryGetPolicyRequest
+ */
+const se_GetPolicyRequest = (input: GetPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.PolicyArn != null) {
     entries["PolicyArn"] = input.PolicyArn;
@@ -11891,7 +13025,10 @@ const serializeAws_queryGetPolicyRequest = (input: GetPolicyRequest, context: __
   return entries;
 };
 
-const serializeAws_queryGetPolicyVersionRequest = (input: GetPolicyVersionRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryGetPolicyVersionRequest
+ */
+const se_GetPolicyVersionRequest = (input: GetPolicyVersionRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.PolicyArn != null) {
     entries["PolicyArn"] = input.PolicyArn;
@@ -11902,7 +13039,10 @@ const serializeAws_queryGetPolicyVersionRequest = (input: GetPolicyVersionReques
   return entries;
 };
 
-const serializeAws_queryGetRolePolicyRequest = (input: GetRolePolicyRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryGetRolePolicyRequest
+ */
+const se_GetRolePolicyRequest = (input: GetRolePolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.RoleName != null) {
     entries["RoleName"] = input.RoleName;
@@ -11913,7 +13053,10 @@ const serializeAws_queryGetRolePolicyRequest = (input: GetRolePolicyRequest, con
   return entries;
 };
 
-const serializeAws_queryGetRoleRequest = (input: GetRoleRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryGetRoleRequest
+ */
+const se_GetRoleRequest = (input: GetRoleRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.RoleName != null) {
     entries["RoleName"] = input.RoleName;
@@ -11921,7 +13064,10 @@ const serializeAws_queryGetRoleRequest = (input: GetRoleRequest, context: __Serd
   return entries;
 };
 
-const serializeAws_queryGetSAMLProviderRequest = (input: GetSAMLProviderRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryGetSAMLProviderRequest
+ */
+const se_GetSAMLProviderRequest = (input: GetSAMLProviderRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.SAMLProviderArn != null) {
     entries["SAMLProviderArn"] = input.SAMLProviderArn;
@@ -11929,10 +13075,10 @@ const serializeAws_queryGetSAMLProviderRequest = (input: GetSAMLProviderRequest,
   return entries;
 };
 
-const serializeAws_queryGetServerCertificateRequest = (
-  input: GetServerCertificateRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryGetServerCertificateRequest
+ */
+const se_GetServerCertificateRequest = (input: GetServerCertificateRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.ServerCertificateName != null) {
     entries["ServerCertificateName"] = input.ServerCertificateName;
@@ -11940,7 +13086,10 @@ const serializeAws_queryGetServerCertificateRequest = (
   return entries;
 };
 
-const serializeAws_queryGetServiceLastAccessedDetailsRequest = (
+/**
+ * serializeAws_queryGetServiceLastAccessedDetailsRequest
+ */
+const se_GetServiceLastAccessedDetailsRequest = (
   input: GetServiceLastAccessedDetailsRequest,
   context: __SerdeContext
 ): any => {
@@ -11957,7 +13106,10 @@ const serializeAws_queryGetServiceLastAccessedDetailsRequest = (
   return entries;
 };
 
-const serializeAws_queryGetServiceLastAccessedDetailsWithEntitiesRequest = (
+/**
+ * serializeAws_queryGetServiceLastAccessedDetailsWithEntitiesRequest
+ */
+const se_GetServiceLastAccessedDetailsWithEntitiesRequest = (
   input: GetServiceLastAccessedDetailsWithEntitiesRequest,
   context: __SerdeContext
 ): any => {
@@ -11977,7 +13129,10 @@ const serializeAws_queryGetServiceLastAccessedDetailsWithEntitiesRequest = (
   return entries;
 };
 
-const serializeAws_queryGetServiceLinkedRoleDeletionStatusRequest = (
+/**
+ * serializeAws_queryGetServiceLinkedRoleDeletionStatusRequest
+ */
+const se_GetServiceLinkedRoleDeletionStatusRequest = (
   input: GetServiceLinkedRoleDeletionStatusRequest,
   context: __SerdeContext
 ): any => {
@@ -11988,7 +13143,10 @@ const serializeAws_queryGetServiceLinkedRoleDeletionStatusRequest = (
   return entries;
 };
 
-const serializeAws_queryGetSSHPublicKeyRequest = (input: GetSSHPublicKeyRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryGetSSHPublicKeyRequest
+ */
+const se_GetSSHPublicKeyRequest = (input: GetSSHPublicKeyRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.UserName != null) {
     entries["UserName"] = input.UserName;
@@ -12002,7 +13160,10 @@ const serializeAws_queryGetSSHPublicKeyRequest = (input: GetSSHPublicKeyRequest,
   return entries;
 };
 
-const serializeAws_queryGetUserPolicyRequest = (input: GetUserPolicyRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryGetUserPolicyRequest
+ */
+const se_GetUserPolicyRequest = (input: GetUserPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.UserName != null) {
     entries["UserName"] = input.UserName;
@@ -12013,7 +13174,10 @@ const serializeAws_queryGetUserPolicyRequest = (input: GetUserPolicyRequest, con
   return entries;
 };
 
-const serializeAws_queryGetUserRequest = (input: GetUserRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryGetUserRequest
+ */
+const se_GetUserRequest = (input: GetUserRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.UserName != null) {
     entries["UserName"] = input.UserName;
@@ -12021,7 +13185,10 @@ const serializeAws_queryGetUserRequest = (input: GetUserRequest, context: __Serd
   return entries;
 };
 
-const serializeAws_queryListAccessKeysRequest = (input: ListAccessKeysRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryListAccessKeysRequest
+ */
+const se_ListAccessKeysRequest = (input: ListAccessKeysRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.UserName != null) {
     entries["UserName"] = input.UserName;
@@ -12035,10 +13202,10 @@ const serializeAws_queryListAccessKeysRequest = (input: ListAccessKeysRequest, c
   return entries;
 };
 
-const serializeAws_queryListAccountAliasesRequest = (
-  input: ListAccountAliasesRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryListAccountAliasesRequest
+ */
+const se_ListAccountAliasesRequest = (input: ListAccountAliasesRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.Marker != null) {
     entries["Marker"] = input.Marker;
@@ -12049,10 +13216,10 @@ const serializeAws_queryListAccountAliasesRequest = (
   return entries;
 };
 
-const serializeAws_queryListAttachedGroupPoliciesRequest = (
-  input: ListAttachedGroupPoliciesRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryListAttachedGroupPoliciesRequest
+ */
+const se_ListAttachedGroupPoliciesRequest = (input: ListAttachedGroupPoliciesRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.GroupName != null) {
     entries["GroupName"] = input.GroupName;
@@ -12069,10 +13236,10 @@ const serializeAws_queryListAttachedGroupPoliciesRequest = (
   return entries;
 };
 
-const serializeAws_queryListAttachedRolePoliciesRequest = (
-  input: ListAttachedRolePoliciesRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryListAttachedRolePoliciesRequest
+ */
+const se_ListAttachedRolePoliciesRequest = (input: ListAttachedRolePoliciesRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.RoleName != null) {
     entries["RoleName"] = input.RoleName;
@@ -12089,10 +13256,10 @@ const serializeAws_queryListAttachedRolePoliciesRequest = (
   return entries;
 };
 
-const serializeAws_queryListAttachedUserPoliciesRequest = (
-  input: ListAttachedUserPoliciesRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryListAttachedUserPoliciesRequest
+ */
+const se_ListAttachedUserPoliciesRequest = (input: ListAttachedUserPoliciesRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.UserName != null) {
     entries["UserName"] = input.UserName;
@@ -12109,10 +13276,10 @@ const serializeAws_queryListAttachedUserPoliciesRequest = (
   return entries;
 };
 
-const serializeAws_queryListEntitiesForPolicyRequest = (
-  input: ListEntitiesForPolicyRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryListEntitiesForPolicyRequest
+ */
+const se_ListEntitiesForPolicyRequest = (input: ListEntitiesForPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.PolicyArn != null) {
     entries["PolicyArn"] = input.PolicyArn;
@@ -12135,7 +13302,10 @@ const serializeAws_queryListEntitiesForPolicyRequest = (
   return entries;
 };
 
-const serializeAws_queryListGroupPoliciesRequest = (input: ListGroupPoliciesRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryListGroupPoliciesRequest
+ */
+const se_ListGroupPoliciesRequest = (input: ListGroupPoliciesRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.GroupName != null) {
     entries["GroupName"] = input.GroupName;
@@ -12149,7 +13319,10 @@ const serializeAws_queryListGroupPoliciesRequest = (input: ListGroupPoliciesRequ
   return entries;
 };
 
-const serializeAws_queryListGroupsForUserRequest = (input: ListGroupsForUserRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryListGroupsForUserRequest
+ */
+const se_ListGroupsForUserRequest = (input: ListGroupsForUserRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.UserName != null) {
     entries["UserName"] = input.UserName;
@@ -12163,7 +13336,10 @@ const serializeAws_queryListGroupsForUserRequest = (input: ListGroupsForUserRequ
   return entries;
 };
 
-const serializeAws_queryListGroupsRequest = (input: ListGroupsRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryListGroupsRequest
+ */
+const se_ListGroupsRequest = (input: ListGroupsRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.PathPrefix != null) {
     entries["PathPrefix"] = input.PathPrefix;
@@ -12177,7 +13353,10 @@ const serializeAws_queryListGroupsRequest = (input: ListGroupsRequest, context: 
   return entries;
 };
 
-const serializeAws_queryListInstanceProfilesForRoleRequest = (
+/**
+ * serializeAws_queryListInstanceProfilesForRoleRequest
+ */
+const se_ListInstanceProfilesForRoleRequest = (
   input: ListInstanceProfilesForRoleRequest,
   context: __SerdeContext
 ): any => {
@@ -12194,10 +13373,10 @@ const serializeAws_queryListInstanceProfilesForRoleRequest = (
   return entries;
 };
 
-const serializeAws_queryListInstanceProfilesRequest = (
-  input: ListInstanceProfilesRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryListInstanceProfilesRequest
+ */
+const se_ListInstanceProfilesRequest = (input: ListInstanceProfilesRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.PathPrefix != null) {
     entries["PathPrefix"] = input.PathPrefix;
@@ -12211,10 +13390,10 @@ const serializeAws_queryListInstanceProfilesRequest = (
   return entries;
 };
 
-const serializeAws_queryListInstanceProfileTagsRequest = (
-  input: ListInstanceProfileTagsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryListInstanceProfileTagsRequest
+ */
+const se_ListInstanceProfileTagsRequest = (input: ListInstanceProfileTagsRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.InstanceProfileName != null) {
     entries["InstanceProfileName"] = input.InstanceProfileName;
@@ -12228,7 +13407,10 @@ const serializeAws_queryListInstanceProfileTagsRequest = (
   return entries;
 };
 
-const serializeAws_queryListMFADevicesRequest = (input: ListMFADevicesRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryListMFADevicesRequest
+ */
+const se_ListMFADevicesRequest = (input: ListMFADevicesRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.UserName != null) {
     entries["UserName"] = input.UserName;
@@ -12242,7 +13424,10 @@ const serializeAws_queryListMFADevicesRequest = (input: ListMFADevicesRequest, c
   return entries;
 };
 
-const serializeAws_queryListMFADeviceTagsRequest = (input: ListMFADeviceTagsRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryListMFADeviceTagsRequest
+ */
+const se_ListMFADeviceTagsRequest = (input: ListMFADeviceTagsRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.SerialNumber != null) {
     entries["SerialNumber"] = input.SerialNumber;
@@ -12256,7 +13441,10 @@ const serializeAws_queryListMFADeviceTagsRequest = (input: ListMFADeviceTagsRequ
   return entries;
 };
 
-const serializeAws_queryListOpenIDConnectProvidersRequest = (
+/**
+ * serializeAws_queryListOpenIDConnectProvidersRequest
+ */
+const se_ListOpenIDConnectProvidersRequest = (
   input: ListOpenIDConnectProvidersRequest,
   context: __SerdeContext
 ): any => {
@@ -12264,7 +13452,10 @@ const serializeAws_queryListOpenIDConnectProvidersRequest = (
   return entries;
 };
 
-const serializeAws_queryListOpenIDConnectProviderTagsRequest = (
+/**
+ * serializeAws_queryListOpenIDConnectProviderTagsRequest
+ */
+const se_ListOpenIDConnectProviderTagsRequest = (
   input: ListOpenIDConnectProviderTagsRequest,
   context: __SerdeContext
 ): any => {
@@ -12281,7 +13472,10 @@ const serializeAws_queryListOpenIDConnectProviderTagsRequest = (
   return entries;
 };
 
-const serializeAws_queryListPoliciesGrantingServiceAccessRequest = (
+/**
+ * serializeAws_queryListPoliciesGrantingServiceAccessRequest
+ */
+const se_ListPoliciesGrantingServiceAccessRequest = (
   input: ListPoliciesGrantingServiceAccessRequest,
   context: __SerdeContext
 ): any => {
@@ -12293,7 +13487,7 @@ const serializeAws_queryListPoliciesGrantingServiceAccessRequest = (
     entries["Arn"] = input.Arn;
   }
   if (input.ServiceNamespaces != null) {
-    const memberEntries = serializeAws_queryserviceNamespaceListType(input.ServiceNamespaces, context);
+    const memberEntries = se_serviceNamespaceListType(input.ServiceNamespaces, context);
     if (input.ServiceNamespaces?.length === 0) {
       entries.ServiceNamespaces = [];
     }
@@ -12305,7 +13499,10 @@ const serializeAws_queryListPoliciesGrantingServiceAccessRequest = (
   return entries;
 };
 
-const serializeAws_queryListPoliciesRequest = (input: ListPoliciesRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryListPoliciesRequest
+ */
+const se_ListPoliciesRequest = (input: ListPoliciesRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.Scope != null) {
     entries["Scope"] = input.Scope;
@@ -12328,7 +13525,10 @@ const serializeAws_queryListPoliciesRequest = (input: ListPoliciesRequest, conte
   return entries;
 };
 
-const serializeAws_queryListPolicyTagsRequest = (input: ListPolicyTagsRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryListPolicyTagsRequest
+ */
+const se_ListPolicyTagsRequest = (input: ListPolicyTagsRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.PolicyArn != null) {
     entries["PolicyArn"] = input.PolicyArn;
@@ -12342,10 +13542,10 @@ const serializeAws_queryListPolicyTagsRequest = (input: ListPolicyTagsRequest, c
   return entries;
 };
 
-const serializeAws_queryListPolicyVersionsRequest = (
-  input: ListPolicyVersionsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryListPolicyVersionsRequest
+ */
+const se_ListPolicyVersionsRequest = (input: ListPolicyVersionsRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.PolicyArn != null) {
     entries["PolicyArn"] = input.PolicyArn;
@@ -12359,7 +13559,10 @@ const serializeAws_queryListPolicyVersionsRequest = (
   return entries;
 };
 
-const serializeAws_queryListRolePoliciesRequest = (input: ListRolePoliciesRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryListRolePoliciesRequest
+ */
+const se_ListRolePoliciesRequest = (input: ListRolePoliciesRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.RoleName != null) {
     entries["RoleName"] = input.RoleName;
@@ -12373,7 +13576,10 @@ const serializeAws_queryListRolePoliciesRequest = (input: ListRolePoliciesReques
   return entries;
 };
 
-const serializeAws_queryListRolesRequest = (input: ListRolesRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryListRolesRequest
+ */
+const se_ListRolesRequest = (input: ListRolesRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.PathPrefix != null) {
     entries["PathPrefix"] = input.PathPrefix;
@@ -12387,7 +13593,10 @@ const serializeAws_queryListRolesRequest = (input: ListRolesRequest, context: __
   return entries;
 };
 
-const serializeAws_queryListRoleTagsRequest = (input: ListRoleTagsRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryListRoleTagsRequest
+ */
+const se_ListRoleTagsRequest = (input: ListRoleTagsRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.RoleName != null) {
     entries["RoleName"] = input.RoleName;
@@ -12401,15 +13610,18 @@ const serializeAws_queryListRoleTagsRequest = (input: ListRoleTagsRequest, conte
   return entries;
 };
 
-const serializeAws_queryListSAMLProvidersRequest = (input: ListSAMLProvidersRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryListSAMLProvidersRequest
+ */
+const se_ListSAMLProvidersRequest = (input: ListSAMLProvidersRequest, context: __SerdeContext): any => {
   const entries: any = {};
   return entries;
 };
 
-const serializeAws_queryListSAMLProviderTagsRequest = (
-  input: ListSAMLProviderTagsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryListSAMLProviderTagsRequest
+ */
+const se_ListSAMLProviderTagsRequest = (input: ListSAMLProviderTagsRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.SAMLProviderArn != null) {
     entries["SAMLProviderArn"] = input.SAMLProviderArn;
@@ -12423,10 +13635,10 @@ const serializeAws_queryListSAMLProviderTagsRequest = (
   return entries;
 };
 
-const serializeAws_queryListServerCertificatesRequest = (
-  input: ListServerCertificatesRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryListServerCertificatesRequest
+ */
+const se_ListServerCertificatesRequest = (input: ListServerCertificatesRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.PathPrefix != null) {
     entries["PathPrefix"] = input.PathPrefix;
@@ -12440,10 +13652,10 @@ const serializeAws_queryListServerCertificatesRequest = (
   return entries;
 };
 
-const serializeAws_queryListServerCertificateTagsRequest = (
-  input: ListServerCertificateTagsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryListServerCertificateTagsRequest
+ */
+const se_ListServerCertificateTagsRequest = (input: ListServerCertificateTagsRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.ServerCertificateName != null) {
     entries["ServerCertificateName"] = input.ServerCertificateName;
@@ -12457,7 +13669,10 @@ const serializeAws_queryListServerCertificateTagsRequest = (
   return entries;
 };
 
-const serializeAws_queryListServiceSpecificCredentialsRequest = (
+/**
+ * serializeAws_queryListServiceSpecificCredentialsRequest
+ */
+const se_ListServiceSpecificCredentialsRequest = (
   input: ListServiceSpecificCredentialsRequest,
   context: __SerdeContext
 ): any => {
@@ -12471,10 +13686,10 @@ const serializeAws_queryListServiceSpecificCredentialsRequest = (
   return entries;
 };
 
-const serializeAws_queryListSigningCertificatesRequest = (
-  input: ListSigningCertificatesRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryListSigningCertificatesRequest
+ */
+const se_ListSigningCertificatesRequest = (input: ListSigningCertificatesRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.UserName != null) {
     entries["UserName"] = input.UserName;
@@ -12488,7 +13703,10 @@ const serializeAws_queryListSigningCertificatesRequest = (
   return entries;
 };
 
-const serializeAws_queryListSSHPublicKeysRequest = (input: ListSSHPublicKeysRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryListSSHPublicKeysRequest
+ */
+const se_ListSSHPublicKeysRequest = (input: ListSSHPublicKeysRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.UserName != null) {
     entries["UserName"] = input.UserName;
@@ -12502,7 +13720,10 @@ const serializeAws_queryListSSHPublicKeysRequest = (input: ListSSHPublicKeysRequ
   return entries;
 };
 
-const serializeAws_queryListUserPoliciesRequest = (input: ListUserPoliciesRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryListUserPoliciesRequest
+ */
+const se_ListUserPoliciesRequest = (input: ListUserPoliciesRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.UserName != null) {
     entries["UserName"] = input.UserName;
@@ -12516,7 +13737,10 @@ const serializeAws_queryListUserPoliciesRequest = (input: ListUserPoliciesReques
   return entries;
 };
 
-const serializeAws_queryListUsersRequest = (input: ListUsersRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryListUsersRequest
+ */
+const se_ListUsersRequest = (input: ListUsersRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.PathPrefix != null) {
     entries["PathPrefix"] = input.PathPrefix;
@@ -12530,7 +13754,10 @@ const serializeAws_queryListUsersRequest = (input: ListUsersRequest, context: __
   return entries;
 };
 
-const serializeAws_queryListUserTagsRequest = (input: ListUserTagsRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryListUserTagsRequest
+ */
+const se_ListUserTagsRequest = (input: ListUserTagsRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.UserName != null) {
     entries["UserName"] = input.UserName;
@@ -12544,10 +13771,10 @@ const serializeAws_queryListUserTagsRequest = (input: ListUserTagsRequest, conte
   return entries;
 };
 
-const serializeAws_queryListVirtualMFADevicesRequest = (
-  input: ListVirtualMFADevicesRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryListVirtualMFADevicesRequest
+ */
+const se_ListVirtualMFADevicesRequest = (input: ListVirtualMFADevicesRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.AssignmentStatus != null) {
     entries["AssignmentStatus"] = input.AssignmentStatus;
@@ -12561,7 +13788,10 @@ const serializeAws_queryListVirtualMFADevicesRequest = (
   return entries;
 };
 
-const serializeAws_queryPutGroupPolicyRequest = (input: PutGroupPolicyRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryPutGroupPolicyRequest
+ */
+const se_PutGroupPolicyRequest = (input: PutGroupPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.GroupName != null) {
     entries["GroupName"] = input.GroupName;
@@ -12575,7 +13805,10 @@ const serializeAws_queryPutGroupPolicyRequest = (input: PutGroupPolicyRequest, c
   return entries;
 };
 
-const serializeAws_queryPutRolePermissionsBoundaryRequest = (
+/**
+ * serializeAws_queryPutRolePermissionsBoundaryRequest
+ */
+const se_PutRolePermissionsBoundaryRequest = (
   input: PutRolePermissionsBoundaryRequest,
   context: __SerdeContext
 ): any => {
@@ -12589,7 +13822,10 @@ const serializeAws_queryPutRolePermissionsBoundaryRequest = (
   return entries;
 };
 
-const serializeAws_queryPutRolePolicyRequest = (input: PutRolePolicyRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryPutRolePolicyRequest
+ */
+const se_PutRolePolicyRequest = (input: PutRolePolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.RoleName != null) {
     entries["RoleName"] = input.RoleName;
@@ -12603,7 +13839,10 @@ const serializeAws_queryPutRolePolicyRequest = (input: PutRolePolicyRequest, con
   return entries;
 };
 
-const serializeAws_queryPutUserPermissionsBoundaryRequest = (
+/**
+ * serializeAws_queryPutUserPermissionsBoundaryRequest
+ */
+const se_PutUserPermissionsBoundaryRequest = (
   input: PutUserPermissionsBoundaryRequest,
   context: __SerdeContext
 ): any => {
@@ -12617,7 +13856,10 @@ const serializeAws_queryPutUserPermissionsBoundaryRequest = (
   return entries;
 };
 
-const serializeAws_queryPutUserPolicyRequest = (input: PutUserPolicyRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryPutUserPolicyRequest
+ */
+const se_PutUserPolicyRequest = (input: PutUserPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.UserName != null) {
     entries["UserName"] = input.UserName;
@@ -12631,7 +13873,10 @@ const serializeAws_queryPutUserPolicyRequest = (input: PutUserPolicyRequest, con
   return entries;
 };
 
-const serializeAws_queryRemoveClientIDFromOpenIDConnectProviderRequest = (
+/**
+ * serializeAws_queryRemoveClientIDFromOpenIDConnectProviderRequest
+ */
+const se_RemoveClientIDFromOpenIDConnectProviderRequest = (
   input: RemoveClientIDFromOpenIDConnectProviderRequest,
   context: __SerdeContext
 ): any => {
@@ -12645,7 +13890,10 @@ const serializeAws_queryRemoveClientIDFromOpenIDConnectProviderRequest = (
   return entries;
 };
 
-const serializeAws_queryRemoveRoleFromInstanceProfileRequest = (
+/**
+ * serializeAws_queryRemoveRoleFromInstanceProfileRequest
+ */
+const se_RemoveRoleFromInstanceProfileRequest = (
   input: RemoveRoleFromInstanceProfileRequest,
   context: __SerdeContext
 ): any => {
@@ -12659,10 +13907,10 @@ const serializeAws_queryRemoveRoleFromInstanceProfileRequest = (
   return entries;
 };
 
-const serializeAws_queryRemoveUserFromGroupRequest = (
-  input: RemoveUserFromGroupRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryRemoveUserFromGroupRequest
+ */
+const se_RemoveUserFromGroupRequest = (input: RemoveUserFromGroupRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.GroupName != null) {
     entries["GroupName"] = input.GroupName;
@@ -12673,7 +13921,10 @@ const serializeAws_queryRemoveUserFromGroupRequest = (
   return entries;
 };
 
-const serializeAws_queryResetServiceSpecificCredentialRequest = (
+/**
+ * serializeAws_queryResetServiceSpecificCredentialRequest
+ */
+const se_ResetServiceSpecificCredentialRequest = (
   input: ResetServiceSpecificCredentialRequest,
   context: __SerdeContext
 ): any => {
@@ -12687,7 +13938,10 @@ const serializeAws_queryResetServiceSpecificCredentialRequest = (
   return entries;
 };
 
-const serializeAws_queryResourceNameListType = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryResourceNameListType
+ */
+const se_ResourceNameListType = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -12700,7 +13954,10 @@ const serializeAws_queryResourceNameListType = (input: string[], context: __Serd
   return entries;
 };
 
-const serializeAws_queryResyncMFADeviceRequest = (input: ResyncMFADeviceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryResyncMFADeviceRequest
+ */
+const se_ResyncMFADeviceRequest = (input: ResyncMFADeviceRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.UserName != null) {
     entries["UserName"] = input.UserName;
@@ -12717,7 +13974,10 @@ const serializeAws_queryResyncMFADeviceRequest = (input: ResyncMFADeviceRequest,
   return entries;
 };
 
-const serializeAws_queryserviceNamespaceListType = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryserviceNamespaceListType
+ */
+const se_serviceNamespaceListType = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -12730,10 +13990,10 @@ const serializeAws_queryserviceNamespaceListType = (input: string[], context: __
   return entries;
 };
 
-const serializeAws_querySetDefaultPolicyVersionRequest = (
-  input: SetDefaultPolicyVersionRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_querySetDefaultPolicyVersionRequest
+ */
+const se_SetDefaultPolicyVersionRequest = (input: SetDefaultPolicyVersionRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.PolicyArn != null) {
     entries["PolicyArn"] = input.PolicyArn;
@@ -12744,7 +14004,10 @@ const serializeAws_querySetDefaultPolicyVersionRequest = (
   return entries;
 };
 
-const serializeAws_querySetSecurityTokenServicePreferencesRequest = (
+/**
+ * serializeAws_querySetSecurityTokenServicePreferencesRequest
+ */
+const se_SetSecurityTokenServicePreferencesRequest = (
   input: SetSecurityTokenServicePreferencesRequest,
   context: __SerdeContext
 ): any => {
@@ -12755,13 +14018,13 @@ const serializeAws_querySetSecurityTokenServicePreferencesRequest = (
   return entries;
 };
 
-const serializeAws_querySimulateCustomPolicyRequest = (
-  input: SimulateCustomPolicyRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_querySimulateCustomPolicyRequest
+ */
+const se_SimulateCustomPolicyRequest = (input: SimulateCustomPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.PolicyInputList != null) {
-    const memberEntries = serializeAws_querySimulationPolicyListType(input.PolicyInputList, context);
+    const memberEntries = se_SimulationPolicyListType(input.PolicyInputList, context);
     if (input.PolicyInputList?.length === 0) {
       entries.PolicyInputList = [];
     }
@@ -12771,7 +14034,7 @@ const serializeAws_querySimulateCustomPolicyRequest = (
     });
   }
   if (input.PermissionsBoundaryPolicyInputList != null) {
-    const memberEntries = serializeAws_querySimulationPolicyListType(input.PermissionsBoundaryPolicyInputList, context);
+    const memberEntries = se_SimulationPolicyListType(input.PermissionsBoundaryPolicyInputList, context);
     if (input.PermissionsBoundaryPolicyInputList?.length === 0) {
       entries.PermissionsBoundaryPolicyInputList = [];
     }
@@ -12781,7 +14044,7 @@ const serializeAws_querySimulateCustomPolicyRequest = (
     });
   }
   if (input.ActionNames != null) {
-    const memberEntries = serializeAws_queryActionNameListType(input.ActionNames, context);
+    const memberEntries = se_ActionNameListType(input.ActionNames, context);
     if (input.ActionNames?.length === 0) {
       entries.ActionNames = [];
     }
@@ -12791,7 +14054,7 @@ const serializeAws_querySimulateCustomPolicyRequest = (
     });
   }
   if (input.ResourceArns != null) {
-    const memberEntries = serializeAws_queryResourceNameListType(input.ResourceArns, context);
+    const memberEntries = se_ResourceNameListType(input.ResourceArns, context);
     if (input.ResourceArns?.length === 0) {
       entries.ResourceArns = [];
     }
@@ -12810,7 +14073,7 @@ const serializeAws_querySimulateCustomPolicyRequest = (
     entries["CallerArn"] = input.CallerArn;
   }
   if (input.ContextEntries != null) {
-    const memberEntries = serializeAws_queryContextEntryListType(input.ContextEntries, context);
+    const memberEntries = se_ContextEntryListType(input.ContextEntries, context);
     if (input.ContextEntries?.length === 0) {
       entries.ContextEntries = [];
     }
@@ -12831,16 +14094,16 @@ const serializeAws_querySimulateCustomPolicyRequest = (
   return entries;
 };
 
-const serializeAws_querySimulatePrincipalPolicyRequest = (
-  input: SimulatePrincipalPolicyRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_querySimulatePrincipalPolicyRequest
+ */
+const se_SimulatePrincipalPolicyRequest = (input: SimulatePrincipalPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.PolicySourceArn != null) {
     entries["PolicySourceArn"] = input.PolicySourceArn;
   }
   if (input.PolicyInputList != null) {
-    const memberEntries = serializeAws_querySimulationPolicyListType(input.PolicyInputList, context);
+    const memberEntries = se_SimulationPolicyListType(input.PolicyInputList, context);
     if (input.PolicyInputList?.length === 0) {
       entries.PolicyInputList = [];
     }
@@ -12850,7 +14113,7 @@ const serializeAws_querySimulatePrincipalPolicyRequest = (
     });
   }
   if (input.PermissionsBoundaryPolicyInputList != null) {
-    const memberEntries = serializeAws_querySimulationPolicyListType(input.PermissionsBoundaryPolicyInputList, context);
+    const memberEntries = se_SimulationPolicyListType(input.PermissionsBoundaryPolicyInputList, context);
     if (input.PermissionsBoundaryPolicyInputList?.length === 0) {
       entries.PermissionsBoundaryPolicyInputList = [];
     }
@@ -12860,7 +14123,7 @@ const serializeAws_querySimulatePrincipalPolicyRequest = (
     });
   }
   if (input.ActionNames != null) {
-    const memberEntries = serializeAws_queryActionNameListType(input.ActionNames, context);
+    const memberEntries = se_ActionNameListType(input.ActionNames, context);
     if (input.ActionNames?.length === 0) {
       entries.ActionNames = [];
     }
@@ -12870,7 +14133,7 @@ const serializeAws_querySimulatePrincipalPolicyRequest = (
     });
   }
   if (input.ResourceArns != null) {
-    const memberEntries = serializeAws_queryResourceNameListType(input.ResourceArns, context);
+    const memberEntries = se_ResourceNameListType(input.ResourceArns, context);
     if (input.ResourceArns?.length === 0) {
       entries.ResourceArns = [];
     }
@@ -12889,7 +14152,7 @@ const serializeAws_querySimulatePrincipalPolicyRequest = (
     entries["CallerArn"] = input.CallerArn;
   }
   if (input.ContextEntries != null) {
-    const memberEntries = serializeAws_queryContextEntryListType(input.ContextEntries, context);
+    const memberEntries = se_ContextEntryListType(input.ContextEntries, context);
     if (input.ContextEntries?.length === 0) {
       entries.ContextEntries = [];
     }
@@ -12910,7 +14173,10 @@ const serializeAws_querySimulatePrincipalPolicyRequest = (
   return entries;
 };
 
-const serializeAws_querySimulationPolicyListType = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_querySimulationPolicyListType
+ */
+const se_SimulationPolicyListType = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -12923,7 +14189,10 @@ const serializeAws_querySimulationPolicyListType = (input: string[], context: __
   return entries;
 };
 
-const serializeAws_queryTag = (input: Tag, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryTag
+ */
+const se_Tag = (input: Tag, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.Key != null) {
     entries["Key"] = input.Key;
@@ -12934,16 +14203,16 @@ const serializeAws_queryTag = (input: Tag, context: __SerdeContext): any => {
   return entries;
 };
 
-const serializeAws_queryTagInstanceProfileRequest = (
-  input: TagInstanceProfileRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryTagInstanceProfileRequest
+ */
+const se_TagInstanceProfileRequest = (input: TagInstanceProfileRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.InstanceProfileName != null) {
     entries["InstanceProfileName"] = input.InstanceProfileName;
   }
   if (input.Tags != null) {
-    const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    const memberEntries = se_tagListType(input.Tags, context);
     if (input.Tags?.length === 0) {
       entries.Tags = [];
     }
@@ -12955,7 +14224,10 @@ const serializeAws_queryTagInstanceProfileRequest = (
   return entries;
 };
 
-const serializeAws_querytagKeyListType = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_querytagKeyListType
+ */
+const se_tagKeyListType = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -12968,14 +14240,17 @@ const serializeAws_querytagKeyListType = (input: string[], context: __SerdeConte
   return entries;
 };
 
-const serializeAws_querytagListType = (input: Tag[], context: __SerdeContext): any => {
+/**
+ * serializeAws_querytagListType
+ */
+const se_tagListType = (input: Tag[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
     if (entry === null) {
       continue;
     }
-    const memberEntries = serializeAws_queryTag(entry, context);
+    const memberEntries = se_Tag(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
     });
@@ -12984,13 +14259,16 @@ const serializeAws_querytagListType = (input: Tag[], context: __SerdeContext): a
   return entries;
 };
 
-const serializeAws_queryTagMFADeviceRequest = (input: TagMFADeviceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryTagMFADeviceRequest
+ */
+const se_TagMFADeviceRequest = (input: TagMFADeviceRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.SerialNumber != null) {
     entries["SerialNumber"] = input.SerialNumber;
   }
   if (input.Tags != null) {
-    const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    const memberEntries = se_tagListType(input.Tags, context);
     if (input.Tags?.length === 0) {
       entries.Tags = [];
     }
@@ -13002,16 +14280,16 @@ const serializeAws_queryTagMFADeviceRequest = (input: TagMFADeviceRequest, conte
   return entries;
 };
 
-const serializeAws_queryTagOpenIDConnectProviderRequest = (
-  input: TagOpenIDConnectProviderRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryTagOpenIDConnectProviderRequest
+ */
+const se_TagOpenIDConnectProviderRequest = (input: TagOpenIDConnectProviderRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.OpenIDConnectProviderArn != null) {
     entries["OpenIDConnectProviderArn"] = input.OpenIDConnectProviderArn;
   }
   if (input.Tags != null) {
-    const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    const memberEntries = se_tagListType(input.Tags, context);
     if (input.Tags?.length === 0) {
       entries.Tags = [];
     }
@@ -13023,13 +14301,16 @@ const serializeAws_queryTagOpenIDConnectProviderRequest = (
   return entries;
 };
 
-const serializeAws_queryTagPolicyRequest = (input: TagPolicyRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryTagPolicyRequest
+ */
+const se_TagPolicyRequest = (input: TagPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.PolicyArn != null) {
     entries["PolicyArn"] = input.PolicyArn;
   }
   if (input.Tags != null) {
-    const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    const memberEntries = se_tagListType(input.Tags, context);
     if (input.Tags?.length === 0) {
       entries.Tags = [];
     }
@@ -13041,13 +14322,16 @@ const serializeAws_queryTagPolicyRequest = (input: TagPolicyRequest, context: __
   return entries;
 };
 
-const serializeAws_queryTagRoleRequest = (input: TagRoleRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryTagRoleRequest
+ */
+const se_TagRoleRequest = (input: TagRoleRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.RoleName != null) {
     entries["RoleName"] = input.RoleName;
   }
   if (input.Tags != null) {
-    const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    const memberEntries = se_tagListType(input.Tags, context);
     if (input.Tags?.length === 0) {
       entries.Tags = [];
     }
@@ -13059,13 +14343,16 @@ const serializeAws_queryTagRoleRequest = (input: TagRoleRequest, context: __Serd
   return entries;
 };
 
-const serializeAws_queryTagSAMLProviderRequest = (input: TagSAMLProviderRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryTagSAMLProviderRequest
+ */
+const se_TagSAMLProviderRequest = (input: TagSAMLProviderRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.SAMLProviderArn != null) {
     entries["SAMLProviderArn"] = input.SAMLProviderArn;
   }
   if (input.Tags != null) {
-    const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    const memberEntries = se_tagListType(input.Tags, context);
     if (input.Tags?.length === 0) {
       entries.Tags = [];
     }
@@ -13077,16 +14364,16 @@ const serializeAws_queryTagSAMLProviderRequest = (input: TagSAMLProviderRequest,
   return entries;
 };
 
-const serializeAws_queryTagServerCertificateRequest = (
-  input: TagServerCertificateRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryTagServerCertificateRequest
+ */
+const se_TagServerCertificateRequest = (input: TagServerCertificateRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.ServerCertificateName != null) {
     entries["ServerCertificateName"] = input.ServerCertificateName;
   }
   if (input.Tags != null) {
-    const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    const memberEntries = se_tagListType(input.Tags, context);
     if (input.Tags?.length === 0) {
       entries.Tags = [];
     }
@@ -13098,13 +14385,16 @@ const serializeAws_queryTagServerCertificateRequest = (
   return entries;
 };
 
-const serializeAws_queryTagUserRequest = (input: TagUserRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryTagUserRequest
+ */
+const se_TagUserRequest = (input: TagUserRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
   if (input.Tags != null) {
-    const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    const memberEntries = se_tagListType(input.Tags, context);
     if (input.Tags?.length === 0) {
       entries.Tags = [];
     }
@@ -13116,7 +14406,10 @@ const serializeAws_queryTagUserRequest = (input: TagUserRequest, context: __Serd
   return entries;
 };
 
-const serializeAws_querythumbprintListType = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_querythumbprintListType
+ */
+const se_thumbprintListType = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -13129,16 +14422,16 @@ const serializeAws_querythumbprintListType = (input: string[], context: __SerdeC
   return entries;
 };
 
-const serializeAws_queryUntagInstanceProfileRequest = (
-  input: UntagInstanceProfileRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryUntagInstanceProfileRequest
+ */
+const se_UntagInstanceProfileRequest = (input: UntagInstanceProfileRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.InstanceProfileName != null) {
     entries["InstanceProfileName"] = input.InstanceProfileName;
   }
   if (input.TagKeys != null) {
-    const memberEntries = serializeAws_querytagKeyListType(input.TagKeys, context);
+    const memberEntries = se_tagKeyListType(input.TagKeys, context);
     if (input.TagKeys?.length === 0) {
       entries.TagKeys = [];
     }
@@ -13150,13 +14443,16 @@ const serializeAws_queryUntagInstanceProfileRequest = (
   return entries;
 };
 
-const serializeAws_queryUntagMFADeviceRequest = (input: UntagMFADeviceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryUntagMFADeviceRequest
+ */
+const se_UntagMFADeviceRequest = (input: UntagMFADeviceRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.SerialNumber != null) {
     entries["SerialNumber"] = input.SerialNumber;
   }
   if (input.TagKeys != null) {
-    const memberEntries = serializeAws_querytagKeyListType(input.TagKeys, context);
+    const memberEntries = se_tagKeyListType(input.TagKeys, context);
     if (input.TagKeys?.length === 0) {
       entries.TagKeys = [];
     }
@@ -13168,7 +14464,10 @@ const serializeAws_queryUntagMFADeviceRequest = (input: UntagMFADeviceRequest, c
   return entries;
 };
 
-const serializeAws_queryUntagOpenIDConnectProviderRequest = (
+/**
+ * serializeAws_queryUntagOpenIDConnectProviderRequest
+ */
+const se_UntagOpenIDConnectProviderRequest = (
   input: UntagOpenIDConnectProviderRequest,
   context: __SerdeContext
 ): any => {
@@ -13177,7 +14476,7 @@ const serializeAws_queryUntagOpenIDConnectProviderRequest = (
     entries["OpenIDConnectProviderArn"] = input.OpenIDConnectProviderArn;
   }
   if (input.TagKeys != null) {
-    const memberEntries = serializeAws_querytagKeyListType(input.TagKeys, context);
+    const memberEntries = se_tagKeyListType(input.TagKeys, context);
     if (input.TagKeys?.length === 0) {
       entries.TagKeys = [];
     }
@@ -13189,13 +14488,16 @@ const serializeAws_queryUntagOpenIDConnectProviderRequest = (
   return entries;
 };
 
-const serializeAws_queryUntagPolicyRequest = (input: UntagPolicyRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryUntagPolicyRequest
+ */
+const se_UntagPolicyRequest = (input: UntagPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.PolicyArn != null) {
     entries["PolicyArn"] = input.PolicyArn;
   }
   if (input.TagKeys != null) {
-    const memberEntries = serializeAws_querytagKeyListType(input.TagKeys, context);
+    const memberEntries = se_tagKeyListType(input.TagKeys, context);
     if (input.TagKeys?.length === 0) {
       entries.TagKeys = [];
     }
@@ -13207,13 +14509,16 @@ const serializeAws_queryUntagPolicyRequest = (input: UntagPolicyRequest, context
   return entries;
 };
 
-const serializeAws_queryUntagRoleRequest = (input: UntagRoleRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryUntagRoleRequest
+ */
+const se_UntagRoleRequest = (input: UntagRoleRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.RoleName != null) {
     entries["RoleName"] = input.RoleName;
   }
   if (input.TagKeys != null) {
-    const memberEntries = serializeAws_querytagKeyListType(input.TagKeys, context);
+    const memberEntries = se_tagKeyListType(input.TagKeys, context);
     if (input.TagKeys?.length === 0) {
       entries.TagKeys = [];
     }
@@ -13225,13 +14530,16 @@ const serializeAws_queryUntagRoleRequest = (input: UntagRoleRequest, context: __
   return entries;
 };
 
-const serializeAws_queryUntagSAMLProviderRequest = (input: UntagSAMLProviderRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryUntagSAMLProviderRequest
+ */
+const se_UntagSAMLProviderRequest = (input: UntagSAMLProviderRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.SAMLProviderArn != null) {
     entries["SAMLProviderArn"] = input.SAMLProviderArn;
   }
   if (input.TagKeys != null) {
-    const memberEntries = serializeAws_querytagKeyListType(input.TagKeys, context);
+    const memberEntries = se_tagKeyListType(input.TagKeys, context);
     if (input.TagKeys?.length === 0) {
       entries.TagKeys = [];
     }
@@ -13243,16 +14551,16 @@ const serializeAws_queryUntagSAMLProviderRequest = (input: UntagSAMLProviderRequ
   return entries;
 };
 
-const serializeAws_queryUntagServerCertificateRequest = (
-  input: UntagServerCertificateRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryUntagServerCertificateRequest
+ */
+const se_UntagServerCertificateRequest = (input: UntagServerCertificateRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.ServerCertificateName != null) {
     entries["ServerCertificateName"] = input.ServerCertificateName;
   }
   if (input.TagKeys != null) {
-    const memberEntries = serializeAws_querytagKeyListType(input.TagKeys, context);
+    const memberEntries = se_tagKeyListType(input.TagKeys, context);
     if (input.TagKeys?.length === 0) {
       entries.TagKeys = [];
     }
@@ -13264,13 +14572,16 @@ const serializeAws_queryUntagServerCertificateRequest = (
   return entries;
 };
 
-const serializeAws_queryUntagUserRequest = (input: UntagUserRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryUntagUserRequest
+ */
+const se_UntagUserRequest = (input: UntagUserRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
   if (input.TagKeys != null) {
-    const memberEntries = serializeAws_querytagKeyListType(input.TagKeys, context);
+    const memberEntries = se_tagKeyListType(input.TagKeys, context);
     if (input.TagKeys?.length === 0) {
       entries.TagKeys = [];
     }
@@ -13282,7 +14593,10 @@ const serializeAws_queryUntagUserRequest = (input: UntagUserRequest, context: __
   return entries;
 };
 
-const serializeAws_queryUpdateAccessKeyRequest = (input: UpdateAccessKeyRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryUpdateAccessKeyRequest
+ */
+const se_UpdateAccessKeyRequest = (input: UpdateAccessKeyRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.UserName != null) {
     entries["UserName"] = input.UserName;
@@ -13296,7 +14610,10 @@ const serializeAws_queryUpdateAccessKeyRequest = (input: UpdateAccessKeyRequest,
   return entries;
 };
 
-const serializeAws_queryUpdateAccountPasswordPolicyRequest = (
+/**
+ * serializeAws_queryUpdateAccountPasswordPolicyRequest
+ */
+const se_UpdateAccountPasswordPolicyRequest = (
   input: UpdateAccountPasswordPolicyRequest,
   context: __SerdeContext
 ): any => {
@@ -13331,10 +14648,10 @@ const serializeAws_queryUpdateAccountPasswordPolicyRequest = (
   return entries;
 };
 
-const serializeAws_queryUpdateAssumeRolePolicyRequest = (
-  input: UpdateAssumeRolePolicyRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryUpdateAssumeRolePolicyRequest
+ */
+const se_UpdateAssumeRolePolicyRequest = (input: UpdateAssumeRolePolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.RoleName != null) {
     entries["RoleName"] = input.RoleName;
@@ -13345,7 +14662,10 @@ const serializeAws_queryUpdateAssumeRolePolicyRequest = (
   return entries;
 };
 
-const serializeAws_queryUpdateGroupRequest = (input: UpdateGroupRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryUpdateGroupRequest
+ */
+const se_UpdateGroupRequest = (input: UpdateGroupRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.GroupName != null) {
     entries["GroupName"] = input.GroupName;
@@ -13359,10 +14679,10 @@ const serializeAws_queryUpdateGroupRequest = (input: UpdateGroupRequest, context
   return entries;
 };
 
-const serializeAws_queryUpdateLoginProfileRequest = (
-  input: UpdateLoginProfileRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryUpdateLoginProfileRequest
+ */
+const se_UpdateLoginProfileRequest = (input: UpdateLoginProfileRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.UserName != null) {
     entries["UserName"] = input.UserName;
@@ -13376,7 +14696,10 @@ const serializeAws_queryUpdateLoginProfileRequest = (
   return entries;
 };
 
-const serializeAws_queryUpdateOpenIDConnectProviderThumbprintRequest = (
+/**
+ * serializeAws_queryUpdateOpenIDConnectProviderThumbprintRequest
+ */
+const se_UpdateOpenIDConnectProviderThumbprintRequest = (
   input: UpdateOpenIDConnectProviderThumbprintRequest,
   context: __SerdeContext
 ): any => {
@@ -13385,7 +14708,7 @@ const serializeAws_queryUpdateOpenIDConnectProviderThumbprintRequest = (
     entries["OpenIDConnectProviderArn"] = input.OpenIDConnectProviderArn;
   }
   if (input.ThumbprintList != null) {
-    const memberEntries = serializeAws_querythumbprintListType(input.ThumbprintList, context);
+    const memberEntries = se_thumbprintListType(input.ThumbprintList, context);
     if (input.ThumbprintList?.length === 0) {
       entries.ThumbprintList = [];
     }
@@ -13397,10 +14720,10 @@ const serializeAws_queryUpdateOpenIDConnectProviderThumbprintRequest = (
   return entries;
 };
 
-const serializeAws_queryUpdateRoleDescriptionRequest = (
-  input: UpdateRoleDescriptionRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryUpdateRoleDescriptionRequest
+ */
+const se_UpdateRoleDescriptionRequest = (input: UpdateRoleDescriptionRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.RoleName != null) {
     entries["RoleName"] = input.RoleName;
@@ -13411,7 +14734,10 @@ const serializeAws_queryUpdateRoleDescriptionRequest = (
   return entries;
 };
 
-const serializeAws_queryUpdateRoleRequest = (input: UpdateRoleRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryUpdateRoleRequest
+ */
+const se_UpdateRoleRequest = (input: UpdateRoleRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.RoleName != null) {
     entries["RoleName"] = input.RoleName;
@@ -13425,10 +14751,10 @@ const serializeAws_queryUpdateRoleRequest = (input: UpdateRoleRequest, context: 
   return entries;
 };
 
-const serializeAws_queryUpdateSAMLProviderRequest = (
-  input: UpdateSAMLProviderRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryUpdateSAMLProviderRequest
+ */
+const se_UpdateSAMLProviderRequest = (input: UpdateSAMLProviderRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.SAMLMetadataDocument != null) {
     entries["SAMLMetadataDocument"] = input.SAMLMetadataDocument;
@@ -13439,10 +14765,10 @@ const serializeAws_queryUpdateSAMLProviderRequest = (
   return entries;
 };
 
-const serializeAws_queryUpdateServerCertificateRequest = (
-  input: UpdateServerCertificateRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryUpdateServerCertificateRequest
+ */
+const se_UpdateServerCertificateRequest = (input: UpdateServerCertificateRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.ServerCertificateName != null) {
     entries["ServerCertificateName"] = input.ServerCertificateName;
@@ -13456,7 +14782,10 @@ const serializeAws_queryUpdateServerCertificateRequest = (
   return entries;
 };
 
-const serializeAws_queryUpdateServiceSpecificCredentialRequest = (
+/**
+ * serializeAws_queryUpdateServiceSpecificCredentialRequest
+ */
+const se_UpdateServiceSpecificCredentialRequest = (
   input: UpdateServiceSpecificCredentialRequest,
   context: __SerdeContext
 ): any => {
@@ -13473,10 +14802,10 @@ const serializeAws_queryUpdateServiceSpecificCredentialRequest = (
   return entries;
 };
 
-const serializeAws_queryUpdateSigningCertificateRequest = (
-  input: UpdateSigningCertificateRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryUpdateSigningCertificateRequest
+ */
+const se_UpdateSigningCertificateRequest = (input: UpdateSigningCertificateRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.UserName != null) {
     entries["UserName"] = input.UserName;
@@ -13490,10 +14819,10 @@ const serializeAws_queryUpdateSigningCertificateRequest = (
   return entries;
 };
 
-const serializeAws_queryUpdateSSHPublicKeyRequest = (
-  input: UpdateSSHPublicKeyRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryUpdateSSHPublicKeyRequest
+ */
+const se_UpdateSSHPublicKeyRequest = (input: UpdateSSHPublicKeyRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.UserName != null) {
     entries["UserName"] = input.UserName;
@@ -13507,7 +14836,10 @@ const serializeAws_queryUpdateSSHPublicKeyRequest = (
   return entries;
 };
 
-const serializeAws_queryUpdateUserRequest = (input: UpdateUserRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryUpdateUserRequest
+ */
+const se_UpdateUserRequest = (input: UpdateUserRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.UserName != null) {
     entries["UserName"] = input.UserName;
@@ -13521,10 +14853,10 @@ const serializeAws_queryUpdateUserRequest = (input: UpdateUserRequest, context: 
   return entries;
 };
 
-const serializeAws_queryUploadServerCertificateRequest = (
-  input: UploadServerCertificateRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryUploadServerCertificateRequest
+ */
+const se_UploadServerCertificateRequest = (input: UploadServerCertificateRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.Path != null) {
     entries["Path"] = input.Path;
@@ -13542,7 +14874,7 @@ const serializeAws_queryUploadServerCertificateRequest = (
     entries["CertificateChain"] = input.CertificateChain;
   }
   if (input.Tags != null) {
-    const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    const memberEntries = se_tagListType(input.Tags, context);
     if (input.Tags?.length === 0) {
       entries.Tags = [];
     }
@@ -13554,10 +14886,10 @@ const serializeAws_queryUploadServerCertificateRequest = (
   return entries;
 };
 
-const serializeAws_queryUploadSigningCertificateRequest = (
-  input: UploadSigningCertificateRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryUploadSigningCertificateRequest
+ */
+const se_UploadSigningCertificateRequest = (input: UploadSigningCertificateRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.UserName != null) {
     entries["UserName"] = input.UserName;
@@ -13568,10 +14900,10 @@ const serializeAws_queryUploadSigningCertificateRequest = (
   return entries;
 };
 
-const serializeAws_queryUploadSSHPublicKeyRequest = (
-  input: UploadSSHPublicKeyRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryUploadSSHPublicKeyRequest
+ */
+const se_UploadSSHPublicKeyRequest = (input: UploadSSHPublicKeyRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.UserName != null) {
     entries["UserName"] = input.UserName;
@@ -13582,15 +14914,11 @@ const serializeAws_queryUploadSSHPublicKeyRequest = (
   return entries;
 };
 
-const deserializeAws_queryAccessDetail = (output: any, context: __SerdeContext): AccessDetail => {
-  const contents: any = {
-    ServiceName: undefined,
-    ServiceNamespace: undefined,
-    Region: undefined,
-    EntityPath: undefined,
-    LastAuthenticatedTime: undefined,
-    TotalAuthenticatedEntities: undefined,
-  };
+/**
+ * deserializeAws_queryAccessDetail
+ */
+const de_AccessDetail = (output: any, context: __SerdeContext): AccessDetail => {
+  const contents: any = {};
   if (output["ServiceName"] !== undefined) {
     contents.ServiceName = __expectString(output["ServiceName"]);
   }
@@ -13604,7 +14932,7 @@ const deserializeAws_queryAccessDetail = (output: any, context: __SerdeContext):
     contents.EntityPath = __expectString(output["EntityPath"]);
   }
   if (output["LastAuthenticatedTime"] !== undefined) {
-    contents.LastAuthenticatedTime = __expectNonNull(__parseRfc3339DateTime(output["LastAuthenticatedTime"]));
+    contents.LastAuthenticatedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastAuthenticatedTime"]));
   }
   if (output["TotalAuthenticatedEntities"] !== undefined) {
     contents.TotalAuthenticatedEntities = __strictParseInt32(output["TotalAuthenticatedEntities"]) as number;
@@ -13612,22 +14940,22 @@ const deserializeAws_queryAccessDetail = (output: any, context: __SerdeContext):
   return contents;
 };
 
-const deserializeAws_queryAccessDetails = (output: any, context: __SerdeContext): AccessDetail[] => {
+/**
+ * deserializeAws_queryAccessDetails
+ */
+const de_AccessDetails = (output: any, context: __SerdeContext): AccessDetail[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_queryAccessDetail(entry, context);
+      return de_AccessDetail(entry, context);
     });
 };
 
-const deserializeAws_queryAccessKey = (output: any, context: __SerdeContext): AccessKey => {
-  const contents: any = {
-    UserName: undefined,
-    AccessKeyId: undefined,
-    Status: undefined,
-    SecretAccessKey: undefined,
-    CreateDate: undefined,
-  };
+/**
+ * deserializeAws_queryAccessKey
+ */
+const de_AccessKey = (output: any, context: __SerdeContext): AccessKey => {
+  const contents: any = {};
   if (output["UserName"] !== undefined) {
     contents.UserName = __expectString(output["UserName"]);
   }
@@ -13641,19 +14969,18 @@ const deserializeAws_queryAccessKey = (output: any, context: __SerdeContext): Ac
     contents.SecretAccessKey = __expectString(output["SecretAccessKey"]);
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   return contents;
 };
 
-const deserializeAws_queryAccessKeyLastUsed = (output: any, context: __SerdeContext): AccessKeyLastUsed => {
-  const contents: any = {
-    LastUsedDate: undefined,
-    ServiceName: undefined,
-    Region: undefined,
-  };
+/**
+ * deserializeAws_queryAccessKeyLastUsed
+ */
+const de_AccessKeyLastUsed = (output: any, context: __SerdeContext): AccessKeyLastUsed => {
+  const contents: any = {};
   if (output["LastUsedDate"] !== undefined) {
-    contents.LastUsedDate = __expectNonNull(__parseRfc3339DateTime(output["LastUsedDate"]));
+    contents.LastUsedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastUsedDate"]));
   }
   if (output["ServiceName"] !== undefined) {
     contents.ServiceName = __expectString(output["ServiceName"]);
@@ -13664,13 +14991,11 @@ const deserializeAws_queryAccessKeyLastUsed = (output: any, context: __SerdeCont
   return contents;
 };
 
-const deserializeAws_queryAccessKeyMetadata = (output: any, context: __SerdeContext): AccessKeyMetadata => {
-  const contents: any = {
-    UserName: undefined,
-    AccessKeyId: undefined,
-    Status: undefined,
-    CreateDate: undefined,
-  };
+/**
+ * deserializeAws_queryAccessKeyMetadata
+ */
+const de_AccessKeyMetadata = (output: any, context: __SerdeContext): AccessKeyMetadata => {
+  const contents: any = {};
   if (output["UserName"] !== undefined) {
     contents.UserName = __expectString(output["UserName"]);
   }
@@ -13681,20 +15006,26 @@ const deserializeAws_queryAccessKeyMetadata = (output: any, context: __SerdeCont
     contents.Status = __expectString(output["Status"]);
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   return contents;
 };
 
-const deserializeAws_queryaccessKeyMetadataListType = (output: any, context: __SerdeContext): AccessKeyMetadata[] => {
+/**
+ * deserializeAws_queryaccessKeyMetadataListType
+ */
+const de_accessKeyMetadataListType = (output: any, context: __SerdeContext): AccessKeyMetadata[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_queryAccessKeyMetadata(entry, context);
+      return de_AccessKeyMetadata(entry, context);
     });
 };
 
-const deserializeAws_queryaccountAliasListType = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_queryaccountAliasListType
+ */
+const de_accountAliasListType = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -13702,7 +15033,10 @@ const deserializeAws_queryaccountAliasListType = (output: any, context: __SerdeC
     });
 };
 
-const deserializeAws_queryArnListType = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_queryArnListType
+ */
+const de_ArnListType = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -13710,14 +15044,11 @@ const deserializeAws_queryArnListType = (output: any, context: __SerdeContext): 
     });
 };
 
-const deserializeAws_queryAttachedPermissionsBoundary = (
-  output: any,
-  context: __SerdeContext
-): AttachedPermissionsBoundary => {
-  const contents: any = {
-    PermissionsBoundaryType: undefined,
-    PermissionsBoundaryArn: undefined,
-  };
+/**
+ * deserializeAws_queryAttachedPermissionsBoundary
+ */
+const de_AttachedPermissionsBoundary = (output: any, context: __SerdeContext): AttachedPermissionsBoundary => {
+  const contents: any = {};
   if (output["PermissionsBoundaryType"] !== undefined) {
     contents.PermissionsBoundaryType = __expectString(output["PermissionsBoundaryType"]);
   }
@@ -13727,19 +15058,22 @@ const deserializeAws_queryAttachedPermissionsBoundary = (
   return contents;
 };
 
-const deserializeAws_queryattachedPoliciesListType = (output: any, context: __SerdeContext): AttachedPolicy[] => {
+/**
+ * deserializeAws_queryattachedPoliciesListType
+ */
+const de_attachedPoliciesListType = (output: any, context: __SerdeContext): AttachedPolicy[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_queryAttachedPolicy(entry, context);
+      return de_AttachedPolicy(entry, context);
     });
 };
 
-const deserializeAws_queryAttachedPolicy = (output: any, context: __SerdeContext): AttachedPolicy => {
-  const contents: any = {
-    PolicyName: undefined,
-    PolicyArn: undefined,
-  };
+/**
+ * deserializeAws_queryAttachedPolicy
+ */
+const de_AttachedPolicy = (output: any, context: __SerdeContext): AttachedPolicy => {
+  const contents: any = {};
   if (output["PolicyName"] !== undefined) {
     contents.PolicyName = __expectString(output["PolicyName"]);
   }
@@ -13749,15 +15083,21 @@ const deserializeAws_queryAttachedPolicy = (output: any, context: __SerdeContext
   return contents;
 };
 
-const deserializeAws_querycertificateListType = (output: any, context: __SerdeContext): SigningCertificate[] => {
+/**
+ * deserializeAws_querycertificateListType
+ */
+const de_certificateListType = (output: any, context: __SerdeContext): SigningCertificate[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_querySigningCertificate(entry, context);
+      return de_SigningCertificate(entry, context);
     });
 };
 
-const deserializeAws_queryclientIDListType = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_queryclientIDListType
+ */
+const de_clientIDListType = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -13765,20 +15105,21 @@ const deserializeAws_queryclientIDListType = (output: any, context: __SerdeConte
     });
 };
 
-const deserializeAws_queryConcurrentModificationException = (
-  output: any,
-  context: __SerdeContext
-): ConcurrentModificationException => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryConcurrentModificationException
+ */
+const de_ConcurrentModificationException = (output: any, context: __SerdeContext): ConcurrentModificationException => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryContextKeyNamesResultListType = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_queryContextKeyNamesResultListType
+ */
+const de_ContextKeyNamesResultListType = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -13786,328 +15127,308 @@ const deserializeAws_queryContextKeyNamesResultListType = (output: any, context:
     });
 };
 
-const deserializeAws_queryCreateAccessKeyResponse = (output: any, context: __SerdeContext): CreateAccessKeyResponse => {
-  const contents: any = {
-    AccessKey: undefined,
-  };
+/**
+ * deserializeAws_queryCreateAccessKeyResponse
+ */
+const de_CreateAccessKeyResponse = (output: any, context: __SerdeContext): CreateAccessKeyResponse => {
+  const contents: any = {};
   if (output["AccessKey"] !== undefined) {
-    contents.AccessKey = deserializeAws_queryAccessKey(output["AccessKey"], context);
+    contents.AccessKey = de_AccessKey(output["AccessKey"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryCreateGroupResponse = (output: any, context: __SerdeContext): CreateGroupResponse => {
-  const contents: any = {
-    Group: undefined,
-  };
+/**
+ * deserializeAws_queryCreateGroupResponse
+ */
+const de_CreateGroupResponse = (output: any, context: __SerdeContext): CreateGroupResponse => {
+  const contents: any = {};
   if (output["Group"] !== undefined) {
-    contents.Group = deserializeAws_queryGroup(output["Group"], context);
+    contents.Group = de_Group(output["Group"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryCreateInstanceProfileResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateInstanceProfileResponse => {
-  const contents: any = {
-    InstanceProfile: undefined,
-  };
+/**
+ * deserializeAws_queryCreateInstanceProfileResponse
+ */
+const de_CreateInstanceProfileResponse = (output: any, context: __SerdeContext): CreateInstanceProfileResponse => {
+  const contents: any = {};
   if (output["InstanceProfile"] !== undefined) {
-    contents.InstanceProfile = deserializeAws_queryInstanceProfile(output["InstanceProfile"], context);
+    contents.InstanceProfile = de_InstanceProfile(output["InstanceProfile"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryCreateLoginProfileResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateLoginProfileResponse => {
-  const contents: any = {
-    LoginProfile: undefined,
-  };
+/**
+ * deserializeAws_queryCreateLoginProfileResponse
+ */
+const de_CreateLoginProfileResponse = (output: any, context: __SerdeContext): CreateLoginProfileResponse => {
+  const contents: any = {};
   if (output["LoginProfile"] !== undefined) {
-    contents.LoginProfile = deserializeAws_queryLoginProfile(output["LoginProfile"], context);
+    contents.LoginProfile = de_LoginProfile(output["LoginProfile"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryCreateOpenIDConnectProviderResponse = (
+/**
+ * deserializeAws_queryCreateOpenIDConnectProviderResponse
+ */
+const de_CreateOpenIDConnectProviderResponse = (
   output: any,
   context: __SerdeContext
 ): CreateOpenIDConnectProviderResponse => {
-  const contents: any = {
-    OpenIDConnectProviderArn: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["OpenIDConnectProviderArn"] !== undefined) {
     contents.OpenIDConnectProviderArn = __expectString(output["OpenIDConnectProviderArn"]);
   }
   if (output.Tags === "") {
     contents.Tags = [];
   } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents.Tags = de_tagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   return contents;
 };
 
-const deserializeAws_queryCreatePolicyResponse = (output: any, context: __SerdeContext): CreatePolicyResponse => {
-  const contents: any = {
-    Policy: undefined,
-  };
+/**
+ * deserializeAws_queryCreatePolicyResponse
+ */
+const de_CreatePolicyResponse = (output: any, context: __SerdeContext): CreatePolicyResponse => {
+  const contents: any = {};
   if (output["Policy"] !== undefined) {
-    contents.Policy = deserializeAws_queryPolicy(output["Policy"], context);
+    contents.Policy = de_Policy(output["Policy"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryCreatePolicyVersionResponse = (
-  output: any,
-  context: __SerdeContext
-): CreatePolicyVersionResponse => {
-  const contents: any = {
-    PolicyVersion: undefined,
-  };
+/**
+ * deserializeAws_queryCreatePolicyVersionResponse
+ */
+const de_CreatePolicyVersionResponse = (output: any, context: __SerdeContext): CreatePolicyVersionResponse => {
+  const contents: any = {};
   if (output["PolicyVersion"] !== undefined) {
-    contents.PolicyVersion = deserializeAws_queryPolicyVersion(output["PolicyVersion"], context);
+    contents.PolicyVersion = de_PolicyVersion(output["PolicyVersion"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryCreateRoleResponse = (output: any, context: __SerdeContext): CreateRoleResponse => {
-  const contents: any = {
-    Role: undefined,
-  };
+/**
+ * deserializeAws_queryCreateRoleResponse
+ */
+const de_CreateRoleResponse = (output: any, context: __SerdeContext): CreateRoleResponse => {
+  const contents: any = {};
   if (output["Role"] !== undefined) {
-    contents.Role = deserializeAws_queryRole(output["Role"], context);
+    contents.Role = de_Role(output["Role"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryCreateSAMLProviderResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateSAMLProviderResponse => {
-  const contents: any = {
-    SAMLProviderArn: undefined,
-    Tags: undefined,
-  };
+/**
+ * deserializeAws_queryCreateSAMLProviderResponse
+ */
+const de_CreateSAMLProviderResponse = (output: any, context: __SerdeContext): CreateSAMLProviderResponse => {
+  const contents: any = {};
   if (output["SAMLProviderArn"] !== undefined) {
     contents.SAMLProviderArn = __expectString(output["SAMLProviderArn"]);
   }
   if (output.Tags === "") {
     contents.Tags = [];
   } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents.Tags = de_tagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   return contents;
 };
 
-const deserializeAws_queryCreateServiceLinkedRoleResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateServiceLinkedRoleResponse => {
-  const contents: any = {
-    Role: undefined,
-  };
+/**
+ * deserializeAws_queryCreateServiceLinkedRoleResponse
+ */
+const de_CreateServiceLinkedRoleResponse = (output: any, context: __SerdeContext): CreateServiceLinkedRoleResponse => {
+  const contents: any = {};
   if (output["Role"] !== undefined) {
-    contents.Role = deserializeAws_queryRole(output["Role"], context);
+    contents.Role = de_Role(output["Role"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryCreateServiceSpecificCredentialResponse = (
+/**
+ * deserializeAws_queryCreateServiceSpecificCredentialResponse
+ */
+const de_CreateServiceSpecificCredentialResponse = (
   output: any,
   context: __SerdeContext
 ): CreateServiceSpecificCredentialResponse => {
-  const contents: any = {
-    ServiceSpecificCredential: undefined,
-  };
+  const contents: any = {};
   if (output["ServiceSpecificCredential"] !== undefined) {
-    contents.ServiceSpecificCredential = deserializeAws_queryServiceSpecificCredential(
-      output["ServiceSpecificCredential"],
-      context
-    );
+    contents.ServiceSpecificCredential = de_ServiceSpecificCredential(output["ServiceSpecificCredential"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryCreateUserResponse = (output: any, context: __SerdeContext): CreateUserResponse => {
-  const contents: any = {
-    User: undefined,
-  };
+/**
+ * deserializeAws_queryCreateUserResponse
+ */
+const de_CreateUserResponse = (output: any, context: __SerdeContext): CreateUserResponse => {
+  const contents: any = {};
   if (output["User"] !== undefined) {
-    contents.User = deserializeAws_queryUser(output["User"], context);
+    contents.User = de_User(output["User"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryCreateVirtualMFADeviceResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateVirtualMFADeviceResponse => {
-  const contents: any = {
-    VirtualMFADevice: undefined,
-  };
+/**
+ * deserializeAws_queryCreateVirtualMFADeviceResponse
+ */
+const de_CreateVirtualMFADeviceResponse = (output: any, context: __SerdeContext): CreateVirtualMFADeviceResponse => {
+  const contents: any = {};
   if (output["VirtualMFADevice"] !== undefined) {
-    contents.VirtualMFADevice = deserializeAws_queryVirtualMFADevice(output["VirtualMFADevice"], context);
+    contents.VirtualMFADevice = de_VirtualMFADevice(output["VirtualMFADevice"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryCredentialReportExpiredException = (
+/**
+ * deserializeAws_queryCredentialReportExpiredException
+ */
+const de_CredentialReportExpiredException = (
   output: any,
   context: __SerdeContext
 ): CredentialReportExpiredException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryCredentialReportNotPresentException = (
+/**
+ * deserializeAws_queryCredentialReportNotPresentException
+ */
+const de_CredentialReportNotPresentException = (
   output: any,
   context: __SerdeContext
 ): CredentialReportNotPresentException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryCredentialReportNotReadyException = (
+/**
+ * deserializeAws_queryCredentialReportNotReadyException
+ */
+const de_CredentialReportNotReadyException = (
   output: any,
   context: __SerdeContext
 ): CredentialReportNotReadyException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryDeleteConflictException = (output: any, context: __SerdeContext): DeleteConflictException => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryDeleteConflictException
+ */
+const de_DeleteConflictException = (output: any, context: __SerdeContext): DeleteConflictException => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryDeleteServiceLinkedRoleResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteServiceLinkedRoleResponse => {
-  const contents: any = {
-    DeletionTaskId: undefined,
-  };
+/**
+ * deserializeAws_queryDeleteServiceLinkedRoleResponse
+ */
+const de_DeleteServiceLinkedRoleResponse = (output: any, context: __SerdeContext): DeleteServiceLinkedRoleResponse => {
+  const contents: any = {};
   if (output["DeletionTaskId"] !== undefined) {
     contents.DeletionTaskId = __expectString(output["DeletionTaskId"]);
   }
   return contents;
 };
 
-const deserializeAws_queryDeletionTaskFailureReasonType = (
-  output: any,
-  context: __SerdeContext
-): DeletionTaskFailureReasonType => {
-  const contents: any = {
-    Reason: undefined,
-    RoleUsageList: undefined,
-  };
+/**
+ * deserializeAws_queryDeletionTaskFailureReasonType
+ */
+const de_DeletionTaskFailureReasonType = (output: any, context: __SerdeContext): DeletionTaskFailureReasonType => {
+  const contents: any = {};
   if (output["Reason"] !== undefined) {
     contents.Reason = __expectString(output["Reason"]);
   }
   if (output.RoleUsageList === "") {
     contents.RoleUsageList = [];
   } else if (output["RoleUsageList"] !== undefined && output["RoleUsageList"]["member"] !== undefined) {
-    contents.RoleUsageList = deserializeAws_queryRoleUsageListType(
-      __getArrayIfSingleItem(output["RoleUsageList"]["member"]),
-      context
-    );
+    contents.RoleUsageList = de_RoleUsageListType(__getArrayIfSingleItem(output["RoleUsageList"]["member"]), context);
   }
   return contents;
 };
 
-const deserializeAws_queryDuplicateCertificateException = (
-  output: any,
-  context: __SerdeContext
-): DuplicateCertificateException => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryDuplicateCertificateException
+ */
+const de_DuplicateCertificateException = (output: any, context: __SerdeContext): DuplicateCertificateException => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryDuplicateSSHPublicKeyException = (
-  output: any,
-  context: __SerdeContext
-): DuplicateSSHPublicKeyException => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryDuplicateSSHPublicKeyException
+ */
+const de_DuplicateSSHPublicKeyException = (output: any, context: __SerdeContext): DuplicateSSHPublicKeyException => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryEntityAlreadyExistsException = (
-  output: any,
-  context: __SerdeContext
-): EntityAlreadyExistsException => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryEntityAlreadyExistsException
+ */
+const de_EntityAlreadyExistsException = (output: any, context: __SerdeContext): EntityAlreadyExistsException => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryEntityDetails = (output: any, context: __SerdeContext): EntityDetails => {
-  const contents: any = {
-    EntityInfo: undefined,
-    LastAuthenticated: undefined,
-  };
+/**
+ * deserializeAws_queryEntityDetails
+ */
+const de_EntityDetails = (output: any, context: __SerdeContext): EntityDetails => {
+  const contents: any = {};
   if (output["EntityInfo"] !== undefined) {
-    contents.EntityInfo = deserializeAws_queryEntityInfo(output["EntityInfo"], context);
+    contents.EntityInfo = de_EntityInfo(output["EntityInfo"], context);
   }
   if (output["LastAuthenticated"] !== undefined) {
-    contents.LastAuthenticated = __expectNonNull(__parseRfc3339DateTime(output["LastAuthenticated"]));
+    contents.LastAuthenticated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastAuthenticated"]));
   }
   return contents;
 };
 
-const deserializeAws_queryentityDetailsListType = (output: any, context: __SerdeContext): EntityDetails[] => {
+/**
+ * deserializeAws_queryentityDetailsListType
+ */
+const de_entityDetailsListType = (output: any, context: __SerdeContext): EntityDetails[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_queryEntityDetails(entry, context);
+      return de_EntityDetails(entry, context);
     });
 };
 
-const deserializeAws_queryEntityInfo = (output: any, context: __SerdeContext): EntityInfo => {
-  const contents: any = {
-    Arn: undefined,
-    Name: undefined,
-    Type: undefined,
-    Id: undefined,
-    Path: undefined,
-  };
+/**
+ * deserializeAws_queryEntityInfo
+ */
+const de_EntityInfo = (output: any, context: __SerdeContext): EntityInfo => {
+  const contents: any = {};
   if (output["Arn"] !== undefined) {
     contents.Arn = __expectString(output["Arn"]);
   }
@@ -14126,24 +15447,25 @@ const deserializeAws_queryEntityInfo = (output: any, context: __SerdeContext): E
   return contents;
 };
 
-const deserializeAws_queryEntityTemporarilyUnmodifiableException = (
+/**
+ * deserializeAws_queryEntityTemporarilyUnmodifiableException
+ */
+const de_EntityTemporarilyUnmodifiableException = (
   output: any,
   context: __SerdeContext
 ): EntityTemporarilyUnmodifiableException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryErrorDetails = (output: any, context: __SerdeContext): ErrorDetails => {
-  const contents: any = {
-    Message: undefined,
-    Code: undefined,
-  };
+/**
+ * deserializeAws_queryErrorDetails
+ */
+const de_ErrorDetails = (output: any, context: __SerdeContext): ErrorDetails => {
+  const contents: any = {};
   if (output["Message"] !== undefined) {
     contents.Message = __expectString(output["Message"]);
   }
@@ -14153,7 +15475,10 @@ const deserializeAws_queryErrorDetails = (output: any, context: __SerdeContext):
   return contents;
 };
 
-const deserializeAws_queryEvalDecisionDetailsType = (
+/**
+ * deserializeAws_queryEvalDecisionDetailsType
+ */
+const de_EvalDecisionDetailsType = (
   output: any,
   context: __SerdeContext
 ): Record<string, PolicyEvaluationDecisionType | string> => {
@@ -14166,18 +15491,11 @@ const deserializeAws_queryEvalDecisionDetailsType = (
   }, {});
 };
 
-const deserializeAws_queryEvaluationResult = (output: any, context: __SerdeContext): EvaluationResult => {
-  const contents: any = {
-    EvalActionName: undefined,
-    EvalResourceName: undefined,
-    EvalDecision: undefined,
-    MatchedStatements: undefined,
-    MissingContextValues: undefined,
-    OrganizationsDecisionDetail: undefined,
-    PermissionsBoundaryDecisionDetail: undefined,
-    EvalDecisionDetails: undefined,
-    ResourceSpecificResults: undefined,
-  };
+/**
+ * deserializeAws_queryEvaluationResult
+ */
+const de_EvaluationResult = (output: any, context: __SerdeContext): EvaluationResult => {
+  const contents: any = {};
   if (output["EvalActionName"] !== undefined) {
     contents.EvalActionName = __expectString(output["EvalActionName"]);
   }
@@ -14190,7 +15508,7 @@ const deserializeAws_queryEvaluationResult = (output: any, context: __SerdeConte
   if (output.MatchedStatements === "") {
     contents.MatchedStatements = [];
   } else if (output["MatchedStatements"] !== undefined && output["MatchedStatements"]["member"] !== undefined) {
-    contents.MatchedStatements = deserializeAws_queryStatementListType(
+    contents.MatchedStatements = de_StatementListType(
       __getArrayIfSingleItem(output["MatchedStatements"]["member"]),
       context
     );
@@ -14198,19 +15516,19 @@ const deserializeAws_queryEvaluationResult = (output: any, context: __SerdeConte
   if (output.MissingContextValues === "") {
     contents.MissingContextValues = [];
   } else if (output["MissingContextValues"] !== undefined && output["MissingContextValues"]["member"] !== undefined) {
-    contents.MissingContextValues = deserializeAws_queryContextKeyNamesResultListType(
+    contents.MissingContextValues = de_ContextKeyNamesResultListType(
       __getArrayIfSingleItem(output["MissingContextValues"]["member"]),
       context
     );
   }
   if (output["OrganizationsDecisionDetail"] !== undefined) {
-    contents.OrganizationsDecisionDetail = deserializeAws_queryOrganizationsDecisionDetail(
+    contents.OrganizationsDecisionDetail = de_OrganizationsDecisionDetail(
       output["OrganizationsDecisionDetail"],
       context
     );
   }
   if (output["PermissionsBoundaryDecisionDetail"] !== undefined) {
-    contents.PermissionsBoundaryDecisionDetail = deserializeAws_queryPermissionsBoundaryDecisionDetail(
+    contents.PermissionsBoundaryDecisionDetail = de_PermissionsBoundaryDecisionDetail(
       output["PermissionsBoundaryDecisionDetail"],
       context
     );
@@ -14218,7 +15536,7 @@ const deserializeAws_queryEvaluationResult = (output: any, context: __SerdeConte
   if (output.EvalDecisionDetails === "") {
     contents.EvalDecisionDetails = {};
   } else if (output["EvalDecisionDetails"] !== undefined && output["EvalDecisionDetails"]["entry"] !== undefined) {
-    contents.EvalDecisionDetails = deserializeAws_queryEvalDecisionDetailsType(
+    contents.EvalDecisionDetails = de_EvalDecisionDetailsType(
       __getArrayIfSingleItem(output["EvalDecisionDetails"]["entry"]),
       context
     );
@@ -14229,7 +15547,7 @@ const deserializeAws_queryEvaluationResult = (output: any, context: __SerdeConte
     output["ResourceSpecificResults"] !== undefined &&
     output["ResourceSpecificResults"]["member"] !== undefined
   ) {
-    contents.ResourceSpecificResults = deserializeAws_queryResourceSpecificResultListType(
+    contents.ResourceSpecificResults = de_ResourceSpecificResultListType(
       __getArrayIfSingleItem(output["ResourceSpecificResults"]["member"]),
       context
     );
@@ -14237,22 +15555,25 @@ const deserializeAws_queryEvaluationResult = (output: any, context: __SerdeConte
   return contents;
 };
 
-const deserializeAws_queryEvaluationResultsListType = (output: any, context: __SerdeContext): EvaluationResult[] => {
+/**
+ * deserializeAws_queryEvaluationResultsListType
+ */
+const de_EvaluationResultsListType = (output: any, context: __SerdeContext): EvaluationResult[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_queryEvaluationResult(entry, context);
+      return de_EvaluationResult(entry, context);
     });
 };
 
-const deserializeAws_queryGenerateCredentialReportResponse = (
+/**
+ * deserializeAws_queryGenerateCredentialReportResponse
+ */
+const de_GenerateCredentialReportResponse = (
   output: any,
   context: __SerdeContext
 ): GenerateCredentialReportResponse => {
-  const contents: any = {
-    State: undefined,
-    Description: undefined,
-  };
+  const contents: any = {};
   if (output["State"] !== undefined) {
     contents.State = __expectString(output["State"]);
   }
@@ -14262,65 +15583,60 @@ const deserializeAws_queryGenerateCredentialReportResponse = (
   return contents;
 };
 
-const deserializeAws_queryGenerateOrganizationsAccessReportResponse = (
+/**
+ * deserializeAws_queryGenerateOrganizationsAccessReportResponse
+ */
+const de_GenerateOrganizationsAccessReportResponse = (
   output: any,
   context: __SerdeContext
 ): GenerateOrganizationsAccessReportResponse => {
-  const contents: any = {
-    JobId: undefined,
-  };
+  const contents: any = {};
   if (output["JobId"] !== undefined) {
     contents.JobId = __expectString(output["JobId"]);
   }
   return contents;
 };
 
-const deserializeAws_queryGenerateServiceLastAccessedDetailsResponse = (
+/**
+ * deserializeAws_queryGenerateServiceLastAccessedDetailsResponse
+ */
+const de_GenerateServiceLastAccessedDetailsResponse = (
   output: any,
   context: __SerdeContext
 ): GenerateServiceLastAccessedDetailsResponse => {
-  const contents: any = {
-    JobId: undefined,
-  };
+  const contents: any = {};
   if (output["JobId"] !== undefined) {
     contents.JobId = __expectString(output["JobId"]);
   }
   return contents;
 };
 
-const deserializeAws_queryGetAccessKeyLastUsedResponse = (
-  output: any,
-  context: __SerdeContext
-): GetAccessKeyLastUsedResponse => {
-  const contents: any = {
-    UserName: undefined,
-    AccessKeyLastUsed: undefined,
-  };
+/**
+ * deserializeAws_queryGetAccessKeyLastUsedResponse
+ */
+const de_GetAccessKeyLastUsedResponse = (output: any, context: __SerdeContext): GetAccessKeyLastUsedResponse => {
+  const contents: any = {};
   if (output["UserName"] !== undefined) {
     contents.UserName = __expectString(output["UserName"]);
   }
   if (output["AccessKeyLastUsed"] !== undefined) {
-    contents.AccessKeyLastUsed = deserializeAws_queryAccessKeyLastUsed(output["AccessKeyLastUsed"], context);
+    contents.AccessKeyLastUsed = de_AccessKeyLastUsed(output["AccessKeyLastUsed"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryGetAccountAuthorizationDetailsResponse = (
+/**
+ * deserializeAws_queryGetAccountAuthorizationDetailsResponse
+ */
+const de_GetAccountAuthorizationDetailsResponse = (
   output: any,
   context: __SerdeContext
 ): GetAccountAuthorizationDetailsResponse => {
-  const contents: any = {
-    UserDetailList: undefined,
-    GroupDetailList: undefined,
-    RoleDetailList: undefined,
-    Policies: undefined,
-    IsTruncated: undefined,
-    Marker: undefined,
-  };
+  const contents: any = {};
   if (output.UserDetailList === "") {
     contents.UserDetailList = [];
   } else if (output["UserDetailList"] !== undefined && output["UserDetailList"]["member"] !== undefined) {
-    contents.UserDetailList = deserializeAws_queryuserDetailListType(
+    contents.UserDetailList = de_userDetailListType(
       __getArrayIfSingleItem(output["UserDetailList"]["member"]),
       context
     );
@@ -14328,7 +15644,7 @@ const deserializeAws_queryGetAccountAuthorizationDetailsResponse = (
   if (output.GroupDetailList === "") {
     contents.GroupDetailList = [];
   } else if (output["GroupDetailList"] !== undefined && output["GroupDetailList"]["member"] !== undefined) {
-    contents.GroupDetailList = deserializeAws_querygroupDetailListType(
+    contents.GroupDetailList = de_groupDetailListType(
       __getArrayIfSingleItem(output["GroupDetailList"]["member"]),
       context
     );
@@ -14336,7 +15652,7 @@ const deserializeAws_queryGetAccountAuthorizationDetailsResponse = (
   if (output.RoleDetailList === "") {
     contents.RoleDetailList = [];
   } else if (output["RoleDetailList"] !== undefined && output["RoleDetailList"]["member"] !== undefined) {
-    contents.RoleDetailList = deserializeAws_queryroleDetailListType(
+    contents.RoleDetailList = de_roleDetailListType(
       __getArrayIfSingleItem(output["RoleDetailList"]["member"]),
       context
     );
@@ -14344,10 +15660,7 @@ const deserializeAws_queryGetAccountAuthorizationDetailsResponse = (
   if (output.Policies === "") {
     contents.Policies = [];
   } else if (output["Policies"] !== undefined && output["Policies"]["member"] !== undefined) {
-    contents.Policies = deserializeAws_queryManagedPolicyDetailListType(
-      __getArrayIfSingleItem(output["Policies"]["member"]),
-      context
-    );
+    contents.Policies = de_ManagedPolicyDetailListType(__getArrayIfSingleItem(output["Policies"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
     contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
@@ -14358,48 +15671,42 @@ const deserializeAws_queryGetAccountAuthorizationDetailsResponse = (
   return contents;
 };
 
-const deserializeAws_queryGetAccountPasswordPolicyResponse = (
+/**
+ * deserializeAws_queryGetAccountPasswordPolicyResponse
+ */
+const de_GetAccountPasswordPolicyResponse = (
   output: any,
   context: __SerdeContext
 ): GetAccountPasswordPolicyResponse => {
-  const contents: any = {
-    PasswordPolicy: undefined,
-  };
+  const contents: any = {};
   if (output["PasswordPolicy"] !== undefined) {
-    contents.PasswordPolicy = deserializeAws_queryPasswordPolicy(output["PasswordPolicy"], context);
+    contents.PasswordPolicy = de_PasswordPolicy(output["PasswordPolicy"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryGetAccountSummaryResponse = (
-  output: any,
-  context: __SerdeContext
-): GetAccountSummaryResponse => {
-  const contents: any = {
-    SummaryMap: undefined,
-  };
+/**
+ * deserializeAws_queryGetAccountSummaryResponse
+ */
+const de_GetAccountSummaryResponse = (output: any, context: __SerdeContext): GetAccountSummaryResponse => {
+  const contents: any = {};
   if (output.SummaryMap === "") {
     contents.SummaryMap = {};
   } else if (output["SummaryMap"] !== undefined && output["SummaryMap"]["entry"] !== undefined) {
-    contents.SummaryMap = deserializeAws_querysummaryMapType(
-      __getArrayIfSingleItem(output["SummaryMap"]["entry"]),
-      context
-    );
+    contents.SummaryMap = de_summaryMapType(__getArrayIfSingleItem(output["SummaryMap"]["entry"]), context);
   }
   return contents;
 };
 
-const deserializeAws_queryGetContextKeysForPolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): GetContextKeysForPolicyResponse => {
-  const contents: any = {
-    ContextKeyNames: undefined,
-  };
+/**
+ * deserializeAws_queryGetContextKeysForPolicyResponse
+ */
+const de_GetContextKeysForPolicyResponse = (output: any, context: __SerdeContext): GetContextKeysForPolicyResponse => {
+  const contents: any = {};
   if (output.ContextKeyNames === "") {
     contents.ContextKeyNames = [];
   } else if (output["ContextKeyNames"] !== undefined && output["ContextKeyNames"]["member"] !== undefined) {
-    contents.ContextKeyNames = deserializeAws_queryContextKeyNamesResultListType(
+    contents.ContextKeyNames = de_ContextKeyNamesResultListType(
       __getArrayIfSingleItem(output["ContextKeyNames"]["member"]),
       context
     );
@@ -14407,15 +15714,11 @@ const deserializeAws_queryGetContextKeysForPolicyResponse = (
   return contents;
 };
 
-const deserializeAws_queryGetCredentialReportResponse = (
-  output: any,
-  context: __SerdeContext
-): GetCredentialReportResponse => {
-  const contents: any = {
-    Content: undefined,
-    ReportFormat: undefined,
-    GeneratedTime: undefined,
-  };
+/**
+ * deserializeAws_queryGetCredentialReportResponse
+ */
+const de_GetCredentialReportResponse = (output: any, context: __SerdeContext): GetCredentialReportResponse => {
+  const contents: any = {};
   if (output["Content"] !== undefined) {
     contents.Content = context.base64Decoder(output["Content"]);
   }
@@ -14423,17 +15726,16 @@ const deserializeAws_queryGetCredentialReportResponse = (
     contents.ReportFormat = __expectString(output["ReportFormat"]);
   }
   if (output["GeneratedTime"] !== undefined) {
-    contents.GeneratedTime = __expectNonNull(__parseRfc3339DateTime(output["GeneratedTime"]));
+    contents.GeneratedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["GeneratedTime"]));
   }
   return contents;
 };
 
-const deserializeAws_queryGetGroupPolicyResponse = (output: any, context: __SerdeContext): GetGroupPolicyResponse => {
-  const contents: any = {
-    GroupName: undefined,
-    PolicyName: undefined,
-    PolicyDocument: undefined,
-  };
+/**
+ * deserializeAws_queryGetGroupPolicyResponse
+ */
+const de_GetGroupPolicyResponse = (output: any, context: __SerdeContext): GetGroupPolicyResponse => {
+  const contents: any = {};
   if (output["GroupName"] !== undefined) {
     contents.GroupName = __expectString(output["GroupName"]);
   }
@@ -14446,20 +15748,18 @@ const deserializeAws_queryGetGroupPolicyResponse = (output: any, context: __Serd
   return contents;
 };
 
-const deserializeAws_queryGetGroupResponse = (output: any, context: __SerdeContext): GetGroupResponse => {
-  const contents: any = {
-    Group: undefined,
-    Users: undefined,
-    IsTruncated: undefined,
-    Marker: undefined,
-  };
+/**
+ * deserializeAws_queryGetGroupResponse
+ */
+const de_GetGroupResponse = (output: any, context: __SerdeContext): GetGroupResponse => {
+  const contents: any = {};
   if (output["Group"] !== undefined) {
-    contents.Group = deserializeAws_queryGroup(output["Group"], context);
+    contents.Group = de_Group(output["Group"], context);
   }
   if (output.Users === "") {
     contents.Users = [];
   } else if (output["Users"] !== undefined && output["Users"]["member"] !== undefined) {
-    contents.Users = deserializeAws_queryuserListType(__getArrayIfSingleItem(output["Users"]["member"]), context);
+    contents.Users = de_userListType(__getArrayIfSingleItem(output["Users"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
     contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
@@ -14470,93 +15770,79 @@ const deserializeAws_queryGetGroupResponse = (output: any, context: __SerdeConte
   return contents;
 };
 
-const deserializeAws_queryGetInstanceProfileResponse = (
-  output: any,
-  context: __SerdeContext
-): GetInstanceProfileResponse => {
-  const contents: any = {
-    InstanceProfile: undefined,
-  };
+/**
+ * deserializeAws_queryGetInstanceProfileResponse
+ */
+const de_GetInstanceProfileResponse = (output: any, context: __SerdeContext): GetInstanceProfileResponse => {
+  const contents: any = {};
   if (output["InstanceProfile"] !== undefined) {
-    contents.InstanceProfile = deserializeAws_queryInstanceProfile(output["InstanceProfile"], context);
+    contents.InstanceProfile = de_InstanceProfile(output["InstanceProfile"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryGetLoginProfileResponse = (output: any, context: __SerdeContext): GetLoginProfileResponse => {
-  const contents: any = {
-    LoginProfile: undefined,
-  };
+/**
+ * deserializeAws_queryGetLoginProfileResponse
+ */
+const de_GetLoginProfileResponse = (output: any, context: __SerdeContext): GetLoginProfileResponse => {
+  const contents: any = {};
   if (output["LoginProfile"] !== undefined) {
-    contents.LoginProfile = deserializeAws_queryLoginProfile(output["LoginProfile"], context);
+    contents.LoginProfile = de_LoginProfile(output["LoginProfile"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryGetOpenIDConnectProviderResponse = (
+/**
+ * deserializeAws_queryGetOpenIDConnectProviderResponse
+ */
+const de_GetOpenIDConnectProviderResponse = (
   output: any,
   context: __SerdeContext
 ): GetOpenIDConnectProviderResponse => {
-  const contents: any = {
-    Url: undefined,
-    ClientIDList: undefined,
-    ThumbprintList: undefined,
-    CreateDate: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["Url"] !== undefined) {
     contents.Url = __expectString(output["Url"]);
   }
   if (output.ClientIDList === "") {
     contents.ClientIDList = [];
   } else if (output["ClientIDList"] !== undefined && output["ClientIDList"]["member"] !== undefined) {
-    contents.ClientIDList = deserializeAws_queryclientIDListType(
-      __getArrayIfSingleItem(output["ClientIDList"]["member"]),
-      context
-    );
+    contents.ClientIDList = de_clientIDListType(__getArrayIfSingleItem(output["ClientIDList"]["member"]), context);
   }
   if (output.ThumbprintList === "") {
     contents.ThumbprintList = [];
   } else if (output["ThumbprintList"] !== undefined && output["ThumbprintList"]["member"] !== undefined) {
-    contents.ThumbprintList = deserializeAws_querythumbprintListType(
+    contents.ThumbprintList = de_thumbprintListType(
       __getArrayIfSingleItem(output["ThumbprintList"]["member"]),
       context
     );
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   if (output.Tags === "") {
     contents.Tags = [];
   } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents.Tags = de_tagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   return contents;
 };
 
-const deserializeAws_queryGetOrganizationsAccessReportResponse = (
+/**
+ * deserializeAws_queryGetOrganizationsAccessReportResponse
+ */
+const de_GetOrganizationsAccessReportResponse = (
   output: any,
   context: __SerdeContext
 ): GetOrganizationsAccessReportResponse => {
-  const contents: any = {
-    JobStatus: undefined,
-    JobCreationDate: undefined,
-    JobCompletionDate: undefined,
-    NumberOfServicesAccessible: undefined,
-    NumberOfServicesNotAccessed: undefined,
-    AccessDetails: undefined,
-    IsTruncated: undefined,
-    Marker: undefined,
-    ErrorDetails: undefined,
-  };
+  const contents: any = {};
   if (output["JobStatus"] !== undefined) {
     contents.JobStatus = __expectString(output["JobStatus"]);
   }
   if (output["JobCreationDate"] !== undefined) {
-    contents.JobCreationDate = __expectNonNull(__parseRfc3339DateTime(output["JobCreationDate"]));
+    contents.JobCreationDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["JobCreationDate"]));
   }
   if (output["JobCompletionDate"] !== undefined) {
-    contents.JobCompletionDate = __expectNonNull(__parseRfc3339DateTime(output["JobCompletionDate"]));
+    contents.JobCompletionDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["JobCompletionDate"]));
   }
   if (output["NumberOfServicesAccessible"] !== undefined) {
     contents.NumberOfServicesAccessible = __strictParseInt32(output["NumberOfServicesAccessible"]) as number;
@@ -14567,10 +15853,7 @@ const deserializeAws_queryGetOrganizationsAccessReportResponse = (
   if (output.AccessDetails === "") {
     contents.AccessDetails = [];
   } else if (output["AccessDetails"] !== undefined && output["AccessDetails"]["member"] !== undefined) {
-    contents.AccessDetails = deserializeAws_queryAccessDetails(
-      __getArrayIfSingleItem(output["AccessDetails"]["member"]),
-      context
-    );
+    contents.AccessDetails = de_AccessDetails(__getArrayIfSingleItem(output["AccessDetails"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
     contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
@@ -14579,40 +15862,38 @@ const deserializeAws_queryGetOrganizationsAccessReportResponse = (
     contents.Marker = __expectString(output["Marker"]);
   }
   if (output["ErrorDetails"] !== undefined) {
-    contents.ErrorDetails = deserializeAws_queryErrorDetails(output["ErrorDetails"], context);
+    contents.ErrorDetails = de_ErrorDetails(output["ErrorDetails"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryGetPolicyResponse = (output: any, context: __SerdeContext): GetPolicyResponse => {
-  const contents: any = {
-    Policy: undefined,
-  };
+/**
+ * deserializeAws_queryGetPolicyResponse
+ */
+const de_GetPolicyResponse = (output: any, context: __SerdeContext): GetPolicyResponse => {
+  const contents: any = {};
   if (output["Policy"] !== undefined) {
-    contents.Policy = deserializeAws_queryPolicy(output["Policy"], context);
+    contents.Policy = de_Policy(output["Policy"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryGetPolicyVersionResponse = (
-  output: any,
-  context: __SerdeContext
-): GetPolicyVersionResponse => {
-  const contents: any = {
-    PolicyVersion: undefined,
-  };
+/**
+ * deserializeAws_queryGetPolicyVersionResponse
+ */
+const de_GetPolicyVersionResponse = (output: any, context: __SerdeContext): GetPolicyVersionResponse => {
+  const contents: any = {};
   if (output["PolicyVersion"] !== undefined) {
-    contents.PolicyVersion = deserializeAws_queryPolicyVersion(output["PolicyVersion"], context);
+    contents.PolicyVersion = de_PolicyVersion(output["PolicyVersion"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryGetRolePolicyResponse = (output: any, context: __SerdeContext): GetRolePolicyResponse => {
-  const contents: any = {
-    RoleName: undefined,
-    PolicyName: undefined,
-    PolicyDocument: undefined,
-  };
+/**
+ * deserializeAws_queryGetRolePolicyResponse
+ */
+const de_GetRolePolicyResponse = (output: any, context: __SerdeContext): GetRolePolicyResponse => {
+  const contents: any = {};
   if (output["RoleName"] !== undefined) {
     contents.RoleName = __expectString(output["RoleName"]);
   }
@@ -14625,67 +15906,58 @@ const deserializeAws_queryGetRolePolicyResponse = (output: any, context: __Serde
   return contents;
 };
 
-const deserializeAws_queryGetRoleResponse = (output: any, context: __SerdeContext): GetRoleResponse => {
-  const contents: any = {
-    Role: undefined,
-  };
+/**
+ * deserializeAws_queryGetRoleResponse
+ */
+const de_GetRoleResponse = (output: any, context: __SerdeContext): GetRoleResponse => {
+  const contents: any = {};
   if (output["Role"] !== undefined) {
-    contents.Role = deserializeAws_queryRole(output["Role"], context);
+    contents.Role = de_Role(output["Role"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryGetSAMLProviderResponse = (output: any, context: __SerdeContext): GetSAMLProviderResponse => {
-  const contents: any = {
-    SAMLMetadataDocument: undefined,
-    CreateDate: undefined,
-    ValidUntil: undefined,
-    Tags: undefined,
-  };
+/**
+ * deserializeAws_queryGetSAMLProviderResponse
+ */
+const de_GetSAMLProviderResponse = (output: any, context: __SerdeContext): GetSAMLProviderResponse => {
+  const contents: any = {};
   if (output["SAMLMetadataDocument"] !== undefined) {
     contents.SAMLMetadataDocument = __expectString(output["SAMLMetadataDocument"]);
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   if (output["ValidUntil"] !== undefined) {
-    contents.ValidUntil = __expectNonNull(__parseRfc3339DateTime(output["ValidUntil"]));
+    contents.ValidUntil = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["ValidUntil"]));
   }
   if (output.Tags === "") {
     contents.Tags = [];
   } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents.Tags = de_tagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   return contents;
 };
 
-const deserializeAws_queryGetServerCertificateResponse = (
-  output: any,
-  context: __SerdeContext
-): GetServerCertificateResponse => {
-  const contents: any = {
-    ServerCertificate: undefined,
-  };
+/**
+ * deserializeAws_queryGetServerCertificateResponse
+ */
+const de_GetServerCertificateResponse = (output: any, context: __SerdeContext): GetServerCertificateResponse => {
+  const contents: any = {};
   if (output["ServerCertificate"] !== undefined) {
-    contents.ServerCertificate = deserializeAws_queryServerCertificate(output["ServerCertificate"], context);
+    contents.ServerCertificate = de_ServerCertificate(output["ServerCertificate"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryGetServiceLastAccessedDetailsResponse = (
+/**
+ * deserializeAws_queryGetServiceLastAccessedDetailsResponse
+ */
+const de_GetServiceLastAccessedDetailsResponse = (
   output: any,
   context: __SerdeContext
 ): GetServiceLastAccessedDetailsResponse => {
-  const contents: any = {
-    JobStatus: undefined,
-    JobType: undefined,
-    JobCreationDate: undefined,
-    ServicesLastAccessed: undefined,
-    JobCompletionDate: undefined,
-    IsTruncated: undefined,
-    Marker: undefined,
-    Error: undefined,
-  };
+  const contents: any = {};
   if (output["JobStatus"] !== undefined) {
     contents.JobStatus = __expectString(output["JobStatus"]);
   }
@@ -14693,18 +15965,18 @@ const deserializeAws_queryGetServiceLastAccessedDetailsResponse = (
     contents.JobType = __expectString(output["JobType"]);
   }
   if (output["JobCreationDate"] !== undefined) {
-    contents.JobCreationDate = __expectNonNull(__parseRfc3339DateTime(output["JobCreationDate"]));
+    contents.JobCreationDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["JobCreationDate"]));
   }
   if (output.ServicesLastAccessed === "") {
     contents.ServicesLastAccessed = [];
   } else if (output["ServicesLastAccessed"] !== undefined && output["ServicesLastAccessed"]["member"] !== undefined) {
-    contents.ServicesLastAccessed = deserializeAws_queryServicesLastAccessed(
+    contents.ServicesLastAccessed = de_ServicesLastAccessed(
       __getArrayIfSingleItem(output["ServicesLastAccessed"]["member"]),
       context
     );
   }
   if (output["JobCompletionDate"] !== undefined) {
-    contents.JobCompletionDate = __expectNonNull(__parseRfc3339DateTime(output["JobCompletionDate"]));
+    contents.JobCompletionDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["JobCompletionDate"]));
   }
   if (output["IsTruncated"] !== undefined) {
     contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
@@ -14713,37 +15985,32 @@ const deserializeAws_queryGetServiceLastAccessedDetailsResponse = (
     contents.Marker = __expectString(output["Marker"]);
   }
   if (output["Error"] !== undefined) {
-    contents.Error = deserializeAws_queryErrorDetails(output["Error"], context);
+    contents.Error = de_ErrorDetails(output["Error"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryGetServiceLastAccessedDetailsWithEntitiesResponse = (
+/**
+ * deserializeAws_queryGetServiceLastAccessedDetailsWithEntitiesResponse
+ */
+const de_GetServiceLastAccessedDetailsWithEntitiesResponse = (
   output: any,
   context: __SerdeContext
 ): GetServiceLastAccessedDetailsWithEntitiesResponse => {
-  const contents: any = {
-    JobStatus: undefined,
-    JobCreationDate: undefined,
-    JobCompletionDate: undefined,
-    EntityDetailsList: undefined,
-    IsTruncated: undefined,
-    Marker: undefined,
-    Error: undefined,
-  };
+  const contents: any = {};
   if (output["JobStatus"] !== undefined) {
     contents.JobStatus = __expectString(output["JobStatus"]);
   }
   if (output["JobCreationDate"] !== undefined) {
-    contents.JobCreationDate = __expectNonNull(__parseRfc3339DateTime(output["JobCreationDate"]));
+    contents.JobCreationDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["JobCreationDate"]));
   }
   if (output["JobCompletionDate"] !== undefined) {
-    contents.JobCompletionDate = __expectNonNull(__parseRfc3339DateTime(output["JobCompletionDate"]));
+    contents.JobCompletionDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["JobCompletionDate"]));
   }
   if (output.EntityDetailsList === "") {
     contents.EntityDetailsList = [];
   } else if (output["EntityDetailsList"] !== undefined && output["EntityDetailsList"]["member"] !== undefined) {
-    contents.EntityDetailsList = deserializeAws_queryentityDetailsListType(
+    contents.EntityDetailsList = de_entityDetailsListType(
       __getArrayIfSingleItem(output["EntityDetailsList"]["member"]),
       context
     );
@@ -14755,44 +16022,44 @@ const deserializeAws_queryGetServiceLastAccessedDetailsWithEntitiesResponse = (
     contents.Marker = __expectString(output["Marker"]);
   }
   if (output["Error"] !== undefined) {
-    contents.Error = deserializeAws_queryErrorDetails(output["Error"], context);
+    contents.Error = de_ErrorDetails(output["Error"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryGetServiceLinkedRoleDeletionStatusResponse = (
+/**
+ * deserializeAws_queryGetServiceLinkedRoleDeletionStatusResponse
+ */
+const de_GetServiceLinkedRoleDeletionStatusResponse = (
   output: any,
   context: __SerdeContext
 ): GetServiceLinkedRoleDeletionStatusResponse => {
-  const contents: any = {
-    Status: undefined,
-    Reason: undefined,
-  };
+  const contents: any = {};
   if (output["Status"] !== undefined) {
     contents.Status = __expectString(output["Status"]);
   }
   if (output["Reason"] !== undefined) {
-    contents.Reason = deserializeAws_queryDeletionTaskFailureReasonType(output["Reason"], context);
+    contents.Reason = de_DeletionTaskFailureReasonType(output["Reason"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryGetSSHPublicKeyResponse = (output: any, context: __SerdeContext): GetSSHPublicKeyResponse => {
-  const contents: any = {
-    SSHPublicKey: undefined,
-  };
+/**
+ * deserializeAws_queryGetSSHPublicKeyResponse
+ */
+const de_GetSSHPublicKeyResponse = (output: any, context: __SerdeContext): GetSSHPublicKeyResponse => {
+  const contents: any = {};
   if (output["SSHPublicKey"] !== undefined) {
-    contents.SSHPublicKey = deserializeAws_querySSHPublicKey(output["SSHPublicKey"], context);
+    contents.SSHPublicKey = de_SSHPublicKey(output["SSHPublicKey"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryGetUserPolicyResponse = (output: any, context: __SerdeContext): GetUserPolicyResponse => {
-  const contents: any = {
-    UserName: undefined,
-    PolicyName: undefined,
-    PolicyDocument: undefined,
-  };
+/**
+ * deserializeAws_queryGetUserPolicyResponse
+ */
+const de_GetUserPolicyResponse = (output: any, context: __SerdeContext): GetUserPolicyResponse => {
+  const contents: any = {};
   if (output["UserName"] !== undefined) {
     contents.UserName = __expectString(output["UserName"]);
   }
@@ -14805,24 +16072,22 @@ const deserializeAws_queryGetUserPolicyResponse = (output: any, context: __Serde
   return contents;
 };
 
-const deserializeAws_queryGetUserResponse = (output: any, context: __SerdeContext): GetUserResponse => {
-  const contents: any = {
-    User: undefined,
-  };
+/**
+ * deserializeAws_queryGetUserResponse
+ */
+const de_GetUserResponse = (output: any, context: __SerdeContext): GetUserResponse => {
+  const contents: any = {};
   if (output["User"] !== undefined) {
-    contents.User = deserializeAws_queryUser(output["User"], context);
+    contents.User = de_User(output["User"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryGroup = (output: any, context: __SerdeContext): Group => {
-  const contents: any = {
-    Path: undefined,
-    GroupName: undefined,
-    GroupId: undefined,
-    Arn: undefined,
-    CreateDate: undefined,
-  };
+/**
+ * deserializeAws_queryGroup
+ */
+const de_Group = (output: any, context: __SerdeContext): Group => {
+  const contents: any = {};
   if (output["Path"] !== undefined) {
     contents.Path = __expectString(output["Path"]);
   }
@@ -14836,21 +16101,16 @@ const deserializeAws_queryGroup = (output: any, context: __SerdeContext): Group 
     contents.Arn = __expectString(output["Arn"]);
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   return contents;
 };
 
-const deserializeAws_queryGroupDetail = (output: any, context: __SerdeContext): GroupDetail => {
-  const contents: any = {
-    Path: undefined,
-    GroupName: undefined,
-    GroupId: undefined,
-    Arn: undefined,
-    CreateDate: undefined,
-    GroupPolicyList: undefined,
-    AttachedManagedPolicies: undefined,
-  };
+/**
+ * deserializeAws_queryGroupDetail
+ */
+const de_GroupDetail = (output: any, context: __SerdeContext): GroupDetail => {
+  const contents: any = {};
   if (output["Path"] !== undefined) {
     contents.Path = __expectString(output["Path"]);
   }
@@ -14864,12 +16124,12 @@ const deserializeAws_queryGroupDetail = (output: any, context: __SerdeContext): 
     contents.Arn = __expectString(output["Arn"]);
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   if (output.GroupPolicyList === "") {
     contents.GroupPolicyList = [];
   } else if (output["GroupPolicyList"] !== undefined && output["GroupPolicyList"]["member"] !== undefined) {
-    contents.GroupPolicyList = deserializeAws_querypolicyDetailListType(
+    contents.GroupPolicyList = de_policyDetailListType(
       __getArrayIfSingleItem(output["GroupPolicyList"]["member"]),
       context
     );
@@ -14880,7 +16140,7 @@ const deserializeAws_queryGroupDetail = (output: any, context: __SerdeContext): 
     output["AttachedManagedPolicies"] !== undefined &&
     output["AttachedManagedPolicies"]["member"] !== undefined
   ) {
-    contents.AttachedManagedPolicies = deserializeAws_queryattachedPoliciesListType(
+    contents.AttachedManagedPolicies = de_attachedPoliciesListType(
       __getArrayIfSingleItem(output["AttachedManagedPolicies"]["member"]),
       context
     );
@@ -14888,23 +16148,32 @@ const deserializeAws_queryGroupDetail = (output: any, context: __SerdeContext): 
   return contents;
 };
 
-const deserializeAws_querygroupDetailListType = (output: any, context: __SerdeContext): GroupDetail[] => {
+/**
+ * deserializeAws_querygroupDetailListType
+ */
+const de_groupDetailListType = (output: any, context: __SerdeContext): GroupDetail[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_queryGroupDetail(entry, context);
+      return de_GroupDetail(entry, context);
     });
 };
 
-const deserializeAws_querygroupListType = (output: any, context: __SerdeContext): Group[] => {
+/**
+ * deserializeAws_querygroupListType
+ */
+const de_groupListType = (output: any, context: __SerdeContext): Group[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_queryGroup(entry, context);
+      return de_Group(entry, context);
     });
 };
 
-const deserializeAws_querygroupNameListType = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_querygroupNameListType
+ */
+const de_groupNameListType = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -14912,16 +16181,11 @@ const deserializeAws_querygroupNameListType = (output: any, context: __SerdeCont
     });
 };
 
-const deserializeAws_queryInstanceProfile = (output: any, context: __SerdeContext): InstanceProfile => {
-  const contents: any = {
-    Path: undefined,
-    InstanceProfileName: undefined,
-    InstanceProfileId: undefined,
-    Arn: undefined,
-    CreateDate: undefined,
-    Roles: undefined,
-    Tags: undefined,
-  };
+/**
+ * deserializeAws_queryInstanceProfile
+ */
+const de_InstanceProfile = (output: any, context: __SerdeContext): InstanceProfile => {
+  const contents: any = {};
   if (output["Path"] !== undefined) {
     contents.Path = __expectString(output["Path"]);
   }
@@ -14935,124 +16199,121 @@ const deserializeAws_queryInstanceProfile = (output: any, context: __SerdeContex
     contents.Arn = __expectString(output["Arn"]);
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   if (output.Roles === "") {
     contents.Roles = [];
   } else if (output["Roles"] !== undefined && output["Roles"]["member"] !== undefined) {
-    contents.Roles = deserializeAws_queryroleListType(__getArrayIfSingleItem(output["Roles"]["member"]), context);
+    contents.Roles = de_roleListType(__getArrayIfSingleItem(output["Roles"]["member"]), context);
   }
   if (output.Tags === "") {
     contents.Tags = [];
   } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents.Tags = de_tagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   return contents;
 };
 
-const deserializeAws_queryinstanceProfileListType = (output: any, context: __SerdeContext): InstanceProfile[] => {
+/**
+ * deserializeAws_queryinstanceProfileListType
+ */
+const de_instanceProfileListType = (output: any, context: __SerdeContext): InstanceProfile[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_queryInstanceProfile(entry, context);
+      return de_InstanceProfile(entry, context);
     });
 };
 
-const deserializeAws_queryInvalidAuthenticationCodeException = (
+/**
+ * deserializeAws_queryInvalidAuthenticationCodeException
+ */
+const de_InvalidAuthenticationCodeException = (
   output: any,
   context: __SerdeContext
 ): InvalidAuthenticationCodeException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryInvalidCertificateException = (
-  output: any,
-  context: __SerdeContext
-): InvalidCertificateException => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryInvalidCertificateException
+ */
+const de_InvalidCertificateException = (output: any, context: __SerdeContext): InvalidCertificateException => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryInvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryInvalidInputException
+ */
+const de_InvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryInvalidPublicKeyException = (
-  output: any,
-  context: __SerdeContext
-): InvalidPublicKeyException => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryInvalidPublicKeyException
+ */
+const de_InvalidPublicKeyException = (output: any, context: __SerdeContext): InvalidPublicKeyException => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryInvalidUserTypeException = (
-  output: any,
-  context: __SerdeContext
-): InvalidUserTypeException => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryInvalidUserTypeException
+ */
+const de_InvalidUserTypeException = (output: any, context: __SerdeContext): InvalidUserTypeException => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryKeyPairMismatchException = (
-  output: any,
-  context: __SerdeContext
-): KeyPairMismatchException => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryKeyPairMismatchException
+ */
+const de_KeyPairMismatchException = (output: any, context: __SerdeContext): KeyPairMismatchException => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryLimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryLimitExceededException
+ */
+const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryListAccessKeysResponse = (output: any, context: __SerdeContext): ListAccessKeysResponse => {
-  const contents: any = {
-    AccessKeyMetadata: undefined,
-    IsTruncated: undefined,
-    Marker: undefined,
-  };
+/**
+ * deserializeAws_queryListAccessKeysResponse
+ */
+const de_ListAccessKeysResponse = (output: any, context: __SerdeContext): ListAccessKeysResponse => {
+  const contents: any = {};
   if (output.AccessKeyMetadata === "") {
     contents.AccessKeyMetadata = [];
   } else if (output["AccessKeyMetadata"] !== undefined && output["AccessKeyMetadata"]["member"] !== undefined) {
-    contents.AccessKeyMetadata = deserializeAws_queryaccessKeyMetadataListType(
+    contents.AccessKeyMetadata = de_accessKeyMetadataListType(
       __getArrayIfSingleItem(output["AccessKeyMetadata"]["member"]),
       context
     );
@@ -15066,19 +16327,15 @@ const deserializeAws_queryListAccessKeysResponse = (output: any, context: __Serd
   return contents;
 };
 
-const deserializeAws_queryListAccountAliasesResponse = (
-  output: any,
-  context: __SerdeContext
-): ListAccountAliasesResponse => {
-  const contents: any = {
-    AccountAliases: undefined,
-    IsTruncated: undefined,
-    Marker: undefined,
-  };
+/**
+ * deserializeAws_queryListAccountAliasesResponse
+ */
+const de_ListAccountAliasesResponse = (output: any, context: __SerdeContext): ListAccountAliasesResponse => {
+  const contents: any = {};
   if (output.AccountAliases === "") {
     contents.AccountAliases = [];
   } else if (output["AccountAliases"] !== undefined && output["AccountAliases"]["member"] !== undefined) {
-    contents.AccountAliases = deserializeAws_queryaccountAliasListType(
+    contents.AccountAliases = de_accountAliasListType(
       __getArrayIfSingleItem(output["AccountAliases"]["member"]),
       context
     );
@@ -15092,19 +16349,18 @@ const deserializeAws_queryListAccountAliasesResponse = (
   return contents;
 };
 
-const deserializeAws_queryListAttachedGroupPoliciesResponse = (
+/**
+ * deserializeAws_queryListAttachedGroupPoliciesResponse
+ */
+const de_ListAttachedGroupPoliciesResponse = (
   output: any,
   context: __SerdeContext
 ): ListAttachedGroupPoliciesResponse => {
-  const contents: any = {
-    AttachedPolicies: undefined,
-    IsTruncated: undefined,
-    Marker: undefined,
-  };
+  const contents: any = {};
   if (output.AttachedPolicies === "") {
     contents.AttachedPolicies = [];
   } else if (output["AttachedPolicies"] !== undefined && output["AttachedPolicies"]["member"] !== undefined) {
-    contents.AttachedPolicies = deserializeAws_queryattachedPoliciesListType(
+    contents.AttachedPolicies = de_attachedPoliciesListType(
       __getArrayIfSingleItem(output["AttachedPolicies"]["member"]),
       context
     );
@@ -15118,19 +16374,18 @@ const deserializeAws_queryListAttachedGroupPoliciesResponse = (
   return contents;
 };
 
-const deserializeAws_queryListAttachedRolePoliciesResponse = (
+/**
+ * deserializeAws_queryListAttachedRolePoliciesResponse
+ */
+const de_ListAttachedRolePoliciesResponse = (
   output: any,
   context: __SerdeContext
 ): ListAttachedRolePoliciesResponse => {
-  const contents: any = {
-    AttachedPolicies: undefined,
-    IsTruncated: undefined,
-    Marker: undefined,
-  };
+  const contents: any = {};
   if (output.AttachedPolicies === "") {
     contents.AttachedPolicies = [];
   } else if (output["AttachedPolicies"] !== undefined && output["AttachedPolicies"]["member"] !== undefined) {
-    contents.AttachedPolicies = deserializeAws_queryattachedPoliciesListType(
+    contents.AttachedPolicies = de_attachedPoliciesListType(
       __getArrayIfSingleItem(output["AttachedPolicies"]["member"]),
       context
     );
@@ -15144,19 +16399,18 @@ const deserializeAws_queryListAttachedRolePoliciesResponse = (
   return contents;
 };
 
-const deserializeAws_queryListAttachedUserPoliciesResponse = (
+/**
+ * deserializeAws_queryListAttachedUserPoliciesResponse
+ */
+const de_ListAttachedUserPoliciesResponse = (
   output: any,
   context: __SerdeContext
 ): ListAttachedUserPoliciesResponse => {
-  const contents: any = {
-    AttachedPolicies: undefined,
-    IsTruncated: undefined,
-    Marker: undefined,
-  };
+  const contents: any = {};
   if (output.AttachedPolicies === "") {
     contents.AttachedPolicies = [];
   } else if (output["AttachedPolicies"] !== undefined && output["AttachedPolicies"]["member"] !== undefined) {
-    contents.AttachedPolicies = deserializeAws_queryattachedPoliciesListType(
+    contents.AttachedPolicies = de_attachedPoliciesListType(
       __getArrayIfSingleItem(output["AttachedPolicies"]["member"]),
       context
     );
@@ -15170,40 +16424,25 @@ const deserializeAws_queryListAttachedUserPoliciesResponse = (
   return contents;
 };
 
-const deserializeAws_queryListEntitiesForPolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): ListEntitiesForPolicyResponse => {
-  const contents: any = {
-    PolicyGroups: undefined,
-    PolicyUsers: undefined,
-    PolicyRoles: undefined,
-    IsTruncated: undefined,
-    Marker: undefined,
-  };
+/**
+ * deserializeAws_queryListEntitiesForPolicyResponse
+ */
+const de_ListEntitiesForPolicyResponse = (output: any, context: __SerdeContext): ListEntitiesForPolicyResponse => {
+  const contents: any = {};
   if (output.PolicyGroups === "") {
     contents.PolicyGroups = [];
   } else if (output["PolicyGroups"] !== undefined && output["PolicyGroups"]["member"] !== undefined) {
-    contents.PolicyGroups = deserializeAws_queryPolicyGroupListType(
-      __getArrayIfSingleItem(output["PolicyGroups"]["member"]),
-      context
-    );
+    contents.PolicyGroups = de_PolicyGroupListType(__getArrayIfSingleItem(output["PolicyGroups"]["member"]), context);
   }
   if (output.PolicyUsers === "") {
     contents.PolicyUsers = [];
   } else if (output["PolicyUsers"] !== undefined && output["PolicyUsers"]["member"] !== undefined) {
-    contents.PolicyUsers = deserializeAws_queryPolicyUserListType(
-      __getArrayIfSingleItem(output["PolicyUsers"]["member"]),
-      context
-    );
+    contents.PolicyUsers = de_PolicyUserListType(__getArrayIfSingleItem(output["PolicyUsers"]["member"]), context);
   }
   if (output.PolicyRoles === "") {
     contents.PolicyRoles = [];
   } else if (output["PolicyRoles"] !== undefined && output["PolicyRoles"]["member"] !== undefined) {
-    contents.PolicyRoles = deserializeAws_queryPolicyRoleListType(
-      __getArrayIfSingleItem(output["PolicyRoles"]["member"]),
-      context
-    );
+    contents.PolicyRoles = de_PolicyRoleListType(__getArrayIfSingleItem(output["PolicyRoles"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
     contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
@@ -15214,22 +16453,15 @@ const deserializeAws_queryListEntitiesForPolicyResponse = (
   return contents;
 };
 
-const deserializeAws_queryListGroupPoliciesResponse = (
-  output: any,
-  context: __SerdeContext
-): ListGroupPoliciesResponse => {
-  const contents: any = {
-    PolicyNames: undefined,
-    IsTruncated: undefined,
-    Marker: undefined,
-  };
+/**
+ * deserializeAws_queryListGroupPoliciesResponse
+ */
+const de_ListGroupPoliciesResponse = (output: any, context: __SerdeContext): ListGroupPoliciesResponse => {
+  const contents: any = {};
   if (output.PolicyNames === "") {
     contents.PolicyNames = [];
   } else if (output["PolicyNames"] !== undefined && output["PolicyNames"]["member"] !== undefined) {
-    contents.PolicyNames = deserializeAws_querypolicyNameListType(
-      __getArrayIfSingleItem(output["PolicyNames"]["member"]),
-      context
-    );
+    contents.PolicyNames = de_policyNameListType(__getArrayIfSingleItem(output["PolicyNames"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
     contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
@@ -15240,19 +16472,15 @@ const deserializeAws_queryListGroupPoliciesResponse = (
   return contents;
 };
 
-const deserializeAws_queryListGroupsForUserResponse = (
-  output: any,
-  context: __SerdeContext
-): ListGroupsForUserResponse => {
-  const contents: any = {
-    Groups: undefined,
-    IsTruncated: undefined,
-    Marker: undefined,
-  };
+/**
+ * deserializeAws_queryListGroupsForUserResponse
+ */
+const de_ListGroupsForUserResponse = (output: any, context: __SerdeContext): ListGroupsForUserResponse => {
+  const contents: any = {};
   if (output.Groups === "") {
     contents.Groups = [];
   } else if (output["Groups"] !== undefined && output["Groups"]["member"] !== undefined) {
-    contents.Groups = deserializeAws_querygroupListType(__getArrayIfSingleItem(output["Groups"]["member"]), context);
+    contents.Groups = de_groupListType(__getArrayIfSingleItem(output["Groups"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
     contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
@@ -15263,16 +16491,15 @@ const deserializeAws_queryListGroupsForUserResponse = (
   return contents;
 };
 
-const deserializeAws_queryListGroupsResponse = (output: any, context: __SerdeContext): ListGroupsResponse => {
-  const contents: any = {
-    Groups: undefined,
-    IsTruncated: undefined,
-    Marker: undefined,
-  };
+/**
+ * deserializeAws_queryListGroupsResponse
+ */
+const de_ListGroupsResponse = (output: any, context: __SerdeContext): ListGroupsResponse => {
+  const contents: any = {};
   if (output.Groups === "") {
     contents.Groups = [];
   } else if (output["Groups"] !== undefined && output["Groups"]["member"] !== undefined) {
-    contents.Groups = deserializeAws_querygroupListType(__getArrayIfSingleItem(output["Groups"]["member"]), context);
+    contents.Groups = de_groupListType(__getArrayIfSingleItem(output["Groups"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
     contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
@@ -15283,19 +16510,18 @@ const deserializeAws_queryListGroupsResponse = (output: any, context: __SerdeCon
   return contents;
 };
 
-const deserializeAws_queryListInstanceProfilesForRoleResponse = (
+/**
+ * deserializeAws_queryListInstanceProfilesForRoleResponse
+ */
+const de_ListInstanceProfilesForRoleResponse = (
   output: any,
   context: __SerdeContext
 ): ListInstanceProfilesForRoleResponse => {
-  const contents: any = {
-    InstanceProfiles: undefined,
-    IsTruncated: undefined,
-    Marker: undefined,
-  };
+  const contents: any = {};
   if (output.InstanceProfiles === "") {
     contents.InstanceProfiles = [];
   } else if (output["InstanceProfiles"] !== undefined && output["InstanceProfiles"]["member"] !== undefined) {
-    contents.InstanceProfiles = deserializeAws_queryinstanceProfileListType(
+    contents.InstanceProfiles = de_instanceProfileListType(
       __getArrayIfSingleItem(output["InstanceProfiles"]["member"]),
       context
     );
@@ -15309,19 +16535,15 @@ const deserializeAws_queryListInstanceProfilesForRoleResponse = (
   return contents;
 };
 
-const deserializeAws_queryListInstanceProfilesResponse = (
-  output: any,
-  context: __SerdeContext
-): ListInstanceProfilesResponse => {
-  const contents: any = {
-    InstanceProfiles: undefined,
-    IsTruncated: undefined,
-    Marker: undefined,
-  };
+/**
+ * deserializeAws_queryListInstanceProfilesResponse
+ */
+const de_ListInstanceProfilesResponse = (output: any, context: __SerdeContext): ListInstanceProfilesResponse => {
+  const contents: any = {};
   if (output.InstanceProfiles === "") {
     contents.InstanceProfiles = [];
   } else if (output["InstanceProfiles"] !== undefined && output["InstanceProfiles"]["member"] !== undefined) {
-    contents.InstanceProfiles = deserializeAws_queryinstanceProfileListType(
+    contents.InstanceProfiles = de_instanceProfileListType(
       __getArrayIfSingleItem(output["InstanceProfiles"]["member"]),
       context
     );
@@ -15335,19 +16557,15 @@ const deserializeAws_queryListInstanceProfilesResponse = (
   return contents;
 };
 
-const deserializeAws_queryListInstanceProfileTagsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListInstanceProfileTagsResponse => {
-  const contents: any = {
-    Tags: undefined,
-    IsTruncated: undefined,
-    Marker: undefined,
-  };
+/**
+ * deserializeAws_queryListInstanceProfileTagsResponse
+ */
+const de_ListInstanceProfileTagsResponse = (output: any, context: __SerdeContext): ListInstanceProfileTagsResponse => {
+  const contents: any = {};
   if (output.Tags === "") {
     contents.Tags = [];
   } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents.Tags = de_tagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
     contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
@@ -15358,19 +16576,15 @@ const deserializeAws_queryListInstanceProfileTagsResponse = (
   return contents;
 };
 
-const deserializeAws_queryListMFADevicesResponse = (output: any, context: __SerdeContext): ListMFADevicesResponse => {
-  const contents: any = {
-    MFADevices: undefined,
-    IsTruncated: undefined,
-    Marker: undefined,
-  };
+/**
+ * deserializeAws_queryListMFADevicesResponse
+ */
+const de_ListMFADevicesResponse = (output: any, context: __SerdeContext): ListMFADevicesResponse => {
+  const contents: any = {};
   if (output.MFADevices === "") {
     contents.MFADevices = [];
   } else if (output["MFADevices"] !== undefined && output["MFADevices"]["member"] !== undefined) {
-    contents.MFADevices = deserializeAws_querymfaDeviceListType(
-      __getArrayIfSingleItem(output["MFADevices"]["member"]),
-      context
-    );
+    contents.MFADevices = de_mfaDeviceListType(__getArrayIfSingleItem(output["MFADevices"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
     contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
@@ -15381,19 +16595,15 @@ const deserializeAws_queryListMFADevicesResponse = (output: any, context: __Serd
   return contents;
 };
 
-const deserializeAws_queryListMFADeviceTagsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListMFADeviceTagsResponse => {
-  const contents: any = {
-    Tags: undefined,
-    IsTruncated: undefined,
-    Marker: undefined,
-  };
+/**
+ * deserializeAws_queryListMFADeviceTagsResponse
+ */
+const de_ListMFADeviceTagsResponse = (output: any, context: __SerdeContext): ListMFADeviceTagsResponse => {
+  const contents: any = {};
   if (output.Tags === "") {
     contents.Tags = [];
   } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents.Tags = de_tagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
     contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
@@ -15404,20 +16614,21 @@ const deserializeAws_queryListMFADeviceTagsResponse = (
   return contents;
 };
 
-const deserializeAws_queryListOpenIDConnectProvidersResponse = (
+/**
+ * deserializeAws_queryListOpenIDConnectProvidersResponse
+ */
+const de_ListOpenIDConnectProvidersResponse = (
   output: any,
   context: __SerdeContext
 ): ListOpenIDConnectProvidersResponse => {
-  const contents: any = {
-    OpenIDConnectProviderList: undefined,
-  };
+  const contents: any = {};
   if (output.OpenIDConnectProviderList === "") {
     contents.OpenIDConnectProviderList = [];
   } else if (
     output["OpenIDConnectProviderList"] !== undefined &&
     output["OpenIDConnectProviderList"]["member"] !== undefined
   ) {
-    contents.OpenIDConnectProviderList = deserializeAws_queryOpenIDConnectProviderListType(
+    contents.OpenIDConnectProviderList = de_OpenIDConnectProviderListType(
       __getArrayIfSingleItem(output["OpenIDConnectProviderList"]["member"]),
       context
     );
@@ -15425,19 +16636,18 @@ const deserializeAws_queryListOpenIDConnectProvidersResponse = (
   return contents;
 };
 
-const deserializeAws_queryListOpenIDConnectProviderTagsResponse = (
+/**
+ * deserializeAws_queryListOpenIDConnectProviderTagsResponse
+ */
+const de_ListOpenIDConnectProviderTagsResponse = (
   output: any,
   context: __SerdeContext
 ): ListOpenIDConnectProviderTagsResponse => {
-  const contents: any = {
-    Tags: undefined,
-    IsTruncated: undefined,
-    Marker: undefined,
-  };
+  const contents: any = {};
   if (output.Tags === "") {
     contents.Tags = [];
   } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents.Tags = de_tagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
     contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
@@ -15448,21 +16658,21 @@ const deserializeAws_queryListOpenIDConnectProviderTagsResponse = (
   return contents;
 };
 
-const deserializeAws_queryListPoliciesGrantingServiceAccessEntry = (
+/**
+ * deserializeAws_queryListPoliciesGrantingServiceAccessEntry
+ */
+const de_ListPoliciesGrantingServiceAccessEntry = (
   output: any,
   context: __SerdeContext
 ): ListPoliciesGrantingServiceAccessEntry => {
-  const contents: any = {
-    ServiceNamespace: undefined,
-    Policies: undefined,
-  };
+  const contents: any = {};
   if (output["ServiceNamespace"] !== undefined) {
     contents.ServiceNamespace = __expectString(output["ServiceNamespace"]);
   }
   if (output.Policies === "") {
     contents.Policies = [];
   } else if (output["Policies"] !== undefined && output["Policies"]["member"] !== undefined) {
-    contents.Policies = deserializeAws_querypolicyGrantingServiceAccessListType(
+    contents.Policies = de_policyGrantingServiceAccessListType(
       __getArrayIfSingleItem(output["Policies"]["member"]),
       context
     );
@@ -15470,22 +16680,21 @@ const deserializeAws_queryListPoliciesGrantingServiceAccessEntry = (
   return contents;
 };
 
-const deserializeAws_queryListPoliciesGrantingServiceAccessResponse = (
+/**
+ * deserializeAws_queryListPoliciesGrantingServiceAccessResponse
+ */
+const de_ListPoliciesGrantingServiceAccessResponse = (
   output: any,
   context: __SerdeContext
 ): ListPoliciesGrantingServiceAccessResponse => {
-  const contents: any = {
-    PoliciesGrantingServiceAccess: undefined,
-    IsTruncated: undefined,
-    Marker: undefined,
-  };
+  const contents: any = {};
   if (output.PoliciesGrantingServiceAccess === "") {
     contents.PoliciesGrantingServiceAccess = [];
   } else if (
     output["PoliciesGrantingServiceAccess"] !== undefined &&
     output["PoliciesGrantingServiceAccess"]["member"] !== undefined
   ) {
-    contents.PoliciesGrantingServiceAccess = deserializeAws_querylistPolicyGrantingServiceAccessResponseListType(
+    contents.PoliciesGrantingServiceAccess = de_listPolicyGrantingServiceAccessResponseListType(
       __getArrayIfSingleItem(output["PoliciesGrantingServiceAccess"]["member"]),
       context
     );
@@ -15499,19 +16708,15 @@ const deserializeAws_queryListPoliciesGrantingServiceAccessResponse = (
   return contents;
 };
 
-const deserializeAws_queryListPoliciesResponse = (output: any, context: __SerdeContext): ListPoliciesResponse => {
-  const contents: any = {
-    Policies: undefined,
-    IsTruncated: undefined,
-    Marker: undefined,
-  };
+/**
+ * deserializeAws_queryListPoliciesResponse
+ */
+const de_ListPoliciesResponse = (output: any, context: __SerdeContext): ListPoliciesResponse => {
+  const contents: any = {};
   if (output.Policies === "") {
     contents.Policies = [];
   } else if (output["Policies"] !== undefined && output["Policies"]["member"] !== undefined) {
-    contents.Policies = deserializeAws_querypolicyListType(
-      __getArrayIfSingleItem(output["Policies"]["member"]),
-      context
-    );
+    contents.Policies = de_policyListType(__getArrayIfSingleItem(output["Policies"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
     contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
@@ -15522,27 +16727,29 @@ const deserializeAws_queryListPoliciesResponse = (output: any, context: __SerdeC
   return contents;
 };
 
-const deserializeAws_querylistPolicyGrantingServiceAccessResponseListType = (
+/**
+ * deserializeAws_querylistPolicyGrantingServiceAccessResponseListType
+ */
+const de_listPolicyGrantingServiceAccessResponseListType = (
   output: any,
   context: __SerdeContext
 ): ListPoliciesGrantingServiceAccessEntry[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_queryListPoliciesGrantingServiceAccessEntry(entry, context);
+      return de_ListPoliciesGrantingServiceAccessEntry(entry, context);
     });
 };
 
-const deserializeAws_queryListPolicyTagsResponse = (output: any, context: __SerdeContext): ListPolicyTagsResponse => {
-  const contents: any = {
-    Tags: undefined,
-    IsTruncated: undefined,
-    Marker: undefined,
-  };
+/**
+ * deserializeAws_queryListPolicyTagsResponse
+ */
+const de_ListPolicyTagsResponse = (output: any, context: __SerdeContext): ListPolicyTagsResponse => {
+  const contents: any = {};
   if (output.Tags === "") {
     contents.Tags = [];
   } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents.Tags = de_tagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
     contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
@@ -15553,22 +16760,15 @@ const deserializeAws_queryListPolicyTagsResponse = (output: any, context: __Serd
   return contents;
 };
 
-const deserializeAws_queryListPolicyVersionsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListPolicyVersionsResponse => {
-  const contents: any = {
-    Versions: undefined,
-    IsTruncated: undefined,
-    Marker: undefined,
-  };
+/**
+ * deserializeAws_queryListPolicyVersionsResponse
+ */
+const de_ListPolicyVersionsResponse = (output: any, context: __SerdeContext): ListPolicyVersionsResponse => {
+  const contents: any = {};
   if (output.Versions === "") {
     contents.Versions = [];
   } else if (output["Versions"] !== undefined && output["Versions"]["member"] !== undefined) {
-    contents.Versions = deserializeAws_querypolicyDocumentVersionListType(
-      __getArrayIfSingleItem(output["Versions"]["member"]),
-      context
-    );
+    contents.Versions = de_policyDocumentVersionListType(__getArrayIfSingleItem(output["Versions"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
     contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
@@ -15579,22 +16779,15 @@ const deserializeAws_queryListPolicyVersionsResponse = (
   return contents;
 };
 
-const deserializeAws_queryListRolePoliciesResponse = (
-  output: any,
-  context: __SerdeContext
-): ListRolePoliciesResponse => {
-  const contents: any = {
-    PolicyNames: undefined,
-    IsTruncated: undefined,
-    Marker: undefined,
-  };
+/**
+ * deserializeAws_queryListRolePoliciesResponse
+ */
+const de_ListRolePoliciesResponse = (output: any, context: __SerdeContext): ListRolePoliciesResponse => {
+  const contents: any = {};
   if (output.PolicyNames === "") {
     contents.PolicyNames = [];
   } else if (output["PolicyNames"] !== undefined && output["PolicyNames"]["member"] !== undefined) {
-    contents.PolicyNames = deserializeAws_querypolicyNameListType(
-      __getArrayIfSingleItem(output["PolicyNames"]["member"]),
-      context
-    );
+    contents.PolicyNames = de_policyNameListType(__getArrayIfSingleItem(output["PolicyNames"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
     contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
@@ -15605,16 +16798,15 @@ const deserializeAws_queryListRolePoliciesResponse = (
   return contents;
 };
 
-const deserializeAws_queryListRolesResponse = (output: any, context: __SerdeContext): ListRolesResponse => {
-  const contents: any = {
-    Roles: undefined,
-    IsTruncated: undefined,
-    Marker: undefined,
-  };
+/**
+ * deserializeAws_queryListRolesResponse
+ */
+const de_ListRolesResponse = (output: any, context: __SerdeContext): ListRolesResponse => {
+  const contents: any = {};
   if (output.Roles === "") {
     contents.Roles = [];
   } else if (output["Roles"] !== undefined && output["Roles"]["member"] !== undefined) {
-    contents.Roles = deserializeAws_queryroleListType(__getArrayIfSingleItem(output["Roles"]["member"]), context);
+    contents.Roles = de_roleListType(__getArrayIfSingleItem(output["Roles"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
     contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
@@ -15625,16 +16817,15 @@ const deserializeAws_queryListRolesResponse = (output: any, context: __SerdeCont
   return contents;
 };
 
-const deserializeAws_queryListRoleTagsResponse = (output: any, context: __SerdeContext): ListRoleTagsResponse => {
-  const contents: any = {
-    Tags: undefined,
-    IsTruncated: undefined,
-    Marker: undefined,
-  };
+/**
+ * deserializeAws_queryListRoleTagsResponse
+ */
+const de_ListRoleTagsResponse = (output: any, context: __SerdeContext): ListRoleTagsResponse => {
+  const contents: any = {};
   if (output.Tags === "") {
     contents.Tags = [];
   } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents.Tags = de_tagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
     contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
@@ -15645,17 +16836,15 @@ const deserializeAws_queryListRoleTagsResponse = (output: any, context: __SerdeC
   return contents;
 };
 
-const deserializeAws_queryListSAMLProvidersResponse = (
-  output: any,
-  context: __SerdeContext
-): ListSAMLProvidersResponse => {
-  const contents: any = {
-    SAMLProviderList: undefined,
-  };
+/**
+ * deserializeAws_queryListSAMLProvidersResponse
+ */
+const de_ListSAMLProvidersResponse = (output: any, context: __SerdeContext): ListSAMLProvidersResponse => {
+  const contents: any = {};
   if (output.SAMLProviderList === "") {
     contents.SAMLProviderList = [];
   } else if (output["SAMLProviderList"] !== undefined && output["SAMLProviderList"]["member"] !== undefined) {
-    contents.SAMLProviderList = deserializeAws_querySAMLProviderListType(
+    contents.SAMLProviderList = de_SAMLProviderListType(
       __getArrayIfSingleItem(output["SAMLProviderList"]["member"]),
       context
     );
@@ -15663,19 +16852,15 @@ const deserializeAws_queryListSAMLProvidersResponse = (
   return contents;
 };
 
-const deserializeAws_queryListSAMLProviderTagsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListSAMLProviderTagsResponse => {
-  const contents: any = {
-    Tags: undefined,
-    IsTruncated: undefined,
-    Marker: undefined,
-  };
+/**
+ * deserializeAws_queryListSAMLProviderTagsResponse
+ */
+const de_ListSAMLProviderTagsResponse = (output: any, context: __SerdeContext): ListSAMLProviderTagsResponse => {
+  const contents: any = {};
   if (output.Tags === "") {
     contents.Tags = [];
   } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents.Tags = de_tagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
     contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
@@ -15686,22 +16871,18 @@ const deserializeAws_queryListSAMLProviderTagsResponse = (
   return contents;
 };
 
-const deserializeAws_queryListServerCertificatesResponse = (
-  output: any,
-  context: __SerdeContext
-): ListServerCertificatesResponse => {
-  const contents: any = {
-    ServerCertificateMetadataList: undefined,
-    IsTruncated: undefined,
-    Marker: undefined,
-  };
+/**
+ * deserializeAws_queryListServerCertificatesResponse
+ */
+const de_ListServerCertificatesResponse = (output: any, context: __SerdeContext): ListServerCertificatesResponse => {
+  const contents: any = {};
   if (output.ServerCertificateMetadataList === "") {
     contents.ServerCertificateMetadataList = [];
   } else if (
     output["ServerCertificateMetadataList"] !== undefined &&
     output["ServerCertificateMetadataList"]["member"] !== undefined
   ) {
-    contents.ServerCertificateMetadataList = deserializeAws_queryserverCertificateMetadataListType(
+    contents.ServerCertificateMetadataList = de_serverCertificateMetadataListType(
       __getArrayIfSingleItem(output["ServerCertificateMetadataList"]["member"]),
       context
     );
@@ -15715,19 +16896,18 @@ const deserializeAws_queryListServerCertificatesResponse = (
   return contents;
 };
 
-const deserializeAws_queryListServerCertificateTagsResponse = (
+/**
+ * deserializeAws_queryListServerCertificateTagsResponse
+ */
+const de_ListServerCertificateTagsResponse = (
   output: any,
   context: __SerdeContext
 ): ListServerCertificateTagsResponse => {
-  const contents: any = {
-    Tags: undefined,
-    IsTruncated: undefined,
-    Marker: undefined,
-  };
+  const contents: any = {};
   if (output.Tags === "") {
     contents.Tags = [];
   } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents.Tags = de_tagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
     contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
@@ -15738,20 +16918,21 @@ const deserializeAws_queryListServerCertificateTagsResponse = (
   return contents;
 };
 
-const deserializeAws_queryListServiceSpecificCredentialsResponse = (
+/**
+ * deserializeAws_queryListServiceSpecificCredentialsResponse
+ */
+const de_ListServiceSpecificCredentialsResponse = (
   output: any,
   context: __SerdeContext
 ): ListServiceSpecificCredentialsResponse => {
-  const contents: any = {
-    ServiceSpecificCredentials: undefined,
-  };
+  const contents: any = {};
   if (output.ServiceSpecificCredentials === "") {
     contents.ServiceSpecificCredentials = [];
   } else if (
     output["ServiceSpecificCredentials"] !== undefined &&
     output["ServiceSpecificCredentials"]["member"] !== undefined
   ) {
-    contents.ServiceSpecificCredentials = deserializeAws_queryServiceSpecificCredentialsListType(
+    contents.ServiceSpecificCredentials = de_ServiceSpecificCredentialsListType(
       __getArrayIfSingleItem(output["ServiceSpecificCredentials"]["member"]),
       context
     );
@@ -15759,22 +16940,15 @@ const deserializeAws_queryListServiceSpecificCredentialsResponse = (
   return contents;
 };
 
-const deserializeAws_queryListSigningCertificatesResponse = (
-  output: any,
-  context: __SerdeContext
-): ListSigningCertificatesResponse => {
-  const contents: any = {
-    Certificates: undefined,
-    IsTruncated: undefined,
-    Marker: undefined,
-  };
+/**
+ * deserializeAws_queryListSigningCertificatesResponse
+ */
+const de_ListSigningCertificatesResponse = (output: any, context: __SerdeContext): ListSigningCertificatesResponse => {
+  const contents: any = {};
   if (output.Certificates === "") {
     contents.Certificates = [];
   } else if (output["Certificates"] !== undefined && output["Certificates"]["member"] !== undefined) {
-    contents.Certificates = deserializeAws_querycertificateListType(
-      __getArrayIfSingleItem(output["Certificates"]["member"]),
-      context
-    );
+    contents.Certificates = de_certificateListType(__getArrayIfSingleItem(output["Certificates"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
     contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
@@ -15785,19 +16959,15 @@ const deserializeAws_queryListSigningCertificatesResponse = (
   return contents;
 };
 
-const deserializeAws_queryListSSHPublicKeysResponse = (
-  output: any,
-  context: __SerdeContext
-): ListSSHPublicKeysResponse => {
-  const contents: any = {
-    SSHPublicKeys: undefined,
-    IsTruncated: undefined,
-    Marker: undefined,
-  };
+/**
+ * deserializeAws_queryListSSHPublicKeysResponse
+ */
+const de_ListSSHPublicKeysResponse = (output: any, context: __SerdeContext): ListSSHPublicKeysResponse => {
+  const contents: any = {};
   if (output.SSHPublicKeys === "") {
     contents.SSHPublicKeys = [];
   } else if (output["SSHPublicKeys"] !== undefined && output["SSHPublicKeys"]["member"] !== undefined) {
-    contents.SSHPublicKeys = deserializeAws_querySSHPublicKeyListType(
+    contents.SSHPublicKeys = de_SSHPublicKeyListType(
       __getArrayIfSingleItem(output["SSHPublicKeys"]["member"]),
       context
     );
@@ -15811,22 +16981,15 @@ const deserializeAws_queryListSSHPublicKeysResponse = (
   return contents;
 };
 
-const deserializeAws_queryListUserPoliciesResponse = (
-  output: any,
-  context: __SerdeContext
-): ListUserPoliciesResponse => {
-  const contents: any = {
-    PolicyNames: undefined,
-    IsTruncated: undefined,
-    Marker: undefined,
-  };
+/**
+ * deserializeAws_queryListUserPoliciesResponse
+ */
+const de_ListUserPoliciesResponse = (output: any, context: __SerdeContext): ListUserPoliciesResponse => {
+  const contents: any = {};
   if (output.PolicyNames === "") {
     contents.PolicyNames = [];
   } else if (output["PolicyNames"] !== undefined && output["PolicyNames"]["member"] !== undefined) {
-    contents.PolicyNames = deserializeAws_querypolicyNameListType(
-      __getArrayIfSingleItem(output["PolicyNames"]["member"]),
-      context
-    );
+    contents.PolicyNames = de_policyNameListType(__getArrayIfSingleItem(output["PolicyNames"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
     contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
@@ -15837,16 +17000,15 @@ const deserializeAws_queryListUserPoliciesResponse = (
   return contents;
 };
 
-const deserializeAws_queryListUsersResponse = (output: any, context: __SerdeContext): ListUsersResponse => {
-  const contents: any = {
-    Users: undefined,
-    IsTruncated: undefined,
-    Marker: undefined,
-  };
+/**
+ * deserializeAws_queryListUsersResponse
+ */
+const de_ListUsersResponse = (output: any, context: __SerdeContext): ListUsersResponse => {
+  const contents: any = {};
   if (output.Users === "") {
     contents.Users = [];
   } else if (output["Users"] !== undefined && output["Users"]["member"] !== undefined) {
-    contents.Users = deserializeAws_queryuserListType(__getArrayIfSingleItem(output["Users"]["member"]), context);
+    contents.Users = de_userListType(__getArrayIfSingleItem(output["Users"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
     contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
@@ -15857,16 +17019,15 @@ const deserializeAws_queryListUsersResponse = (output: any, context: __SerdeCont
   return contents;
 };
 
-const deserializeAws_queryListUserTagsResponse = (output: any, context: __SerdeContext): ListUserTagsResponse => {
-  const contents: any = {
-    Tags: undefined,
-    IsTruncated: undefined,
-    Marker: undefined,
-  };
+/**
+ * deserializeAws_queryListUserTagsResponse
+ */
+const de_ListUserTagsResponse = (output: any, context: __SerdeContext): ListUserTagsResponse => {
+  const contents: any = {};
   if (output.Tags === "") {
     contents.Tags = [];
   } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents.Tags = de_tagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
     contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
@@ -15877,19 +17038,15 @@ const deserializeAws_queryListUserTagsResponse = (output: any, context: __SerdeC
   return contents;
 };
 
-const deserializeAws_queryListVirtualMFADevicesResponse = (
-  output: any,
-  context: __SerdeContext
-): ListVirtualMFADevicesResponse => {
-  const contents: any = {
-    VirtualMFADevices: undefined,
-    IsTruncated: undefined,
-    Marker: undefined,
-  };
+/**
+ * deserializeAws_queryListVirtualMFADevicesResponse
+ */
+const de_ListVirtualMFADevicesResponse = (output: any, context: __SerdeContext): ListVirtualMFADevicesResponse => {
+  const contents: any = {};
   if (output.VirtualMFADevices === "") {
     contents.VirtualMFADevices = [];
   } else if (output["VirtualMFADevices"] !== undefined && output["VirtualMFADevices"]["member"] !== undefined) {
-    contents.VirtualMFADevices = deserializeAws_queryvirtualMFADeviceListType(
+    contents.VirtualMFADevices = de_virtualMFADeviceListType(
       __getArrayIfSingleItem(output["VirtualMFADevices"]["member"]),
       context
     );
@@ -15903,17 +17060,16 @@ const deserializeAws_queryListVirtualMFADevicesResponse = (
   return contents;
 };
 
-const deserializeAws_queryLoginProfile = (output: any, context: __SerdeContext): LoginProfile => {
-  const contents: any = {
-    UserName: undefined,
-    CreateDate: undefined,
-    PasswordResetRequired: undefined,
-  };
+/**
+ * deserializeAws_queryLoginProfile
+ */
+const de_LoginProfile = (output: any, context: __SerdeContext): LoginProfile => {
+  const contents: any = {};
   if (output["UserName"] !== undefined) {
     contents.UserName = __expectString(output["UserName"]);
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   if (output["PasswordResetRequired"] !== undefined) {
     contents.PasswordResetRequired = __parseBoolean(output["PasswordResetRequired"]);
@@ -15921,47 +17077,36 @@ const deserializeAws_queryLoginProfile = (output: any, context: __SerdeContext):
   return contents;
 };
 
-const deserializeAws_queryMalformedCertificateException = (
-  output: any,
-  context: __SerdeContext
-): MalformedCertificateException => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryMalformedCertificateException
+ */
+const de_MalformedCertificateException = (output: any, context: __SerdeContext): MalformedCertificateException => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryMalformedPolicyDocumentException = (
+/**
+ * deserializeAws_queryMalformedPolicyDocumentException
+ */
+const de_MalformedPolicyDocumentException = (
   output: any,
   context: __SerdeContext
 ): MalformedPolicyDocumentException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryManagedPolicyDetail = (output: any, context: __SerdeContext): ManagedPolicyDetail => {
-  const contents: any = {
-    PolicyName: undefined,
-    PolicyId: undefined,
-    Arn: undefined,
-    Path: undefined,
-    DefaultVersionId: undefined,
-    AttachmentCount: undefined,
-    PermissionsBoundaryUsageCount: undefined,
-    IsAttachable: undefined,
-    Description: undefined,
-    CreateDate: undefined,
-    UpdateDate: undefined,
-    PolicyVersionList: undefined,
-  };
+/**
+ * deserializeAws_queryManagedPolicyDetail
+ */
+const de_ManagedPolicyDetail = (output: any, context: __SerdeContext): ManagedPolicyDetail => {
+  const contents: any = {};
   if (output["PolicyName"] !== undefined) {
     contents.PolicyName = __expectString(output["PolicyName"]);
   }
@@ -15990,15 +17135,15 @@ const deserializeAws_queryManagedPolicyDetail = (output: any, context: __SerdeCo
     contents.Description = __expectString(output["Description"]);
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   if (output["UpdateDate"] !== undefined) {
-    contents.UpdateDate = __expectNonNull(__parseRfc3339DateTime(output["UpdateDate"]));
+    contents.UpdateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["UpdateDate"]));
   }
   if (output.PolicyVersionList === "") {
     contents.PolicyVersionList = [];
   } else if (output["PolicyVersionList"] !== undefined && output["PolicyVersionList"]["member"] !== undefined) {
-    contents.PolicyVersionList = deserializeAws_querypolicyDocumentVersionListType(
+    contents.PolicyVersionList = de_policyDocumentVersionListType(
       __getArrayIfSingleItem(output["PolicyVersionList"]["member"]),
       context
     );
@@ -16006,23 +17151,22 @@ const deserializeAws_queryManagedPolicyDetail = (output: any, context: __SerdeCo
   return contents;
 };
 
-const deserializeAws_queryManagedPolicyDetailListType = (
-  output: any,
-  context: __SerdeContext
-): ManagedPolicyDetail[] => {
+/**
+ * deserializeAws_queryManagedPolicyDetailListType
+ */
+const de_ManagedPolicyDetailListType = (output: any, context: __SerdeContext): ManagedPolicyDetail[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_queryManagedPolicyDetail(entry, context);
+      return de_ManagedPolicyDetail(entry, context);
     });
 };
 
-const deserializeAws_queryMFADevice = (output: any, context: __SerdeContext): MFADevice => {
-  const contents: any = {
-    UserName: undefined,
-    SerialNumber: undefined,
-    EnableDate: undefined,
-  };
+/**
+ * deserializeAws_queryMFADevice
+ */
+const de_MFADevice = (output: any, context: __SerdeContext): MFADevice => {
+  const contents: any = {};
   if (output["UserName"] !== undefined) {
     contents.UserName = __expectString(output["UserName"]);
   }
@@ -16030,79 +17174,71 @@ const deserializeAws_queryMFADevice = (output: any, context: __SerdeContext): MF
     contents.SerialNumber = __expectString(output["SerialNumber"]);
   }
   if (output["EnableDate"] !== undefined) {
-    contents.EnableDate = __expectNonNull(__parseRfc3339DateTime(output["EnableDate"]));
+    contents.EnableDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["EnableDate"]));
   }
   return contents;
 };
 
-const deserializeAws_querymfaDeviceListType = (output: any, context: __SerdeContext): MFADevice[] => {
+/**
+ * deserializeAws_querymfaDeviceListType
+ */
+const de_mfaDeviceListType = (output: any, context: __SerdeContext): MFADevice[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_queryMFADevice(entry, context);
+      return de_MFADevice(entry, context);
     });
 };
 
-const deserializeAws_queryNoSuchEntityException = (output: any, context: __SerdeContext): NoSuchEntityException => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryNoSuchEntityException
+ */
+const de_NoSuchEntityException = (output: any, context: __SerdeContext): NoSuchEntityException => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryOpenIDConnectProviderListEntry = (
-  output: any,
-  context: __SerdeContext
-): OpenIDConnectProviderListEntry => {
-  const contents: any = {
-    Arn: undefined,
-  };
+/**
+ * deserializeAws_queryOpenIDConnectProviderListEntry
+ */
+const de_OpenIDConnectProviderListEntry = (output: any, context: __SerdeContext): OpenIDConnectProviderListEntry => {
+  const contents: any = {};
   if (output["Arn"] !== undefined) {
     contents.Arn = __expectString(output["Arn"]);
   }
   return contents;
 };
 
-const deserializeAws_queryOpenIDConnectProviderListType = (
-  output: any,
-  context: __SerdeContext
-): OpenIDConnectProviderListEntry[] => {
+/**
+ * deserializeAws_queryOpenIDConnectProviderListType
+ */
+const de_OpenIDConnectProviderListType = (output: any, context: __SerdeContext): OpenIDConnectProviderListEntry[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_queryOpenIDConnectProviderListEntry(entry, context);
+      return de_OpenIDConnectProviderListEntry(entry, context);
     });
 };
 
-const deserializeAws_queryOrganizationsDecisionDetail = (
-  output: any,
-  context: __SerdeContext
-): OrganizationsDecisionDetail => {
-  const contents: any = {
-    AllowedByOrganizations: undefined,
-  };
+/**
+ * deserializeAws_queryOrganizationsDecisionDetail
+ */
+const de_OrganizationsDecisionDetail = (output: any, context: __SerdeContext): OrganizationsDecisionDetail => {
+  const contents: any = {};
   if (output["AllowedByOrganizations"] !== undefined) {
     contents.AllowedByOrganizations = __parseBoolean(output["AllowedByOrganizations"]);
   }
   return contents;
 };
 
-const deserializeAws_queryPasswordPolicy = (output: any, context: __SerdeContext): PasswordPolicy => {
-  const contents: any = {
-    MinimumPasswordLength: undefined,
-    RequireSymbols: undefined,
-    RequireNumbers: undefined,
-    RequireUppercaseCharacters: undefined,
-    RequireLowercaseCharacters: undefined,
-    AllowUsersToChangePassword: undefined,
-    ExpirePasswords: undefined,
-    MaxPasswordAge: undefined,
-    PasswordReusePrevention: undefined,
-    HardExpiry: undefined,
-  };
+/**
+ * deserializeAws_queryPasswordPolicy
+ */
+const de_PasswordPolicy = (output: any, context: __SerdeContext): PasswordPolicy => {
+  const contents: any = {};
   if (output["MinimumPasswordLength"] !== undefined) {
     contents.MinimumPasswordLength = __strictParseInt32(output["MinimumPasswordLength"]) as number;
   }
@@ -16136,47 +17272,39 @@ const deserializeAws_queryPasswordPolicy = (output: any, context: __SerdeContext
   return contents;
 };
 
-const deserializeAws_queryPasswordPolicyViolationException = (
+/**
+ * deserializeAws_queryPasswordPolicyViolationException
+ */
+const de_PasswordPolicyViolationException = (
   output: any,
   context: __SerdeContext
 ): PasswordPolicyViolationException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryPermissionsBoundaryDecisionDetail = (
+/**
+ * deserializeAws_queryPermissionsBoundaryDecisionDetail
+ */
+const de_PermissionsBoundaryDecisionDetail = (
   output: any,
   context: __SerdeContext
 ): PermissionsBoundaryDecisionDetail => {
-  const contents: any = {
-    AllowedByPermissionsBoundary: undefined,
-  };
+  const contents: any = {};
   if (output["AllowedByPermissionsBoundary"] !== undefined) {
     contents.AllowedByPermissionsBoundary = __parseBoolean(output["AllowedByPermissionsBoundary"]);
   }
   return contents;
 };
 
-const deserializeAws_queryPolicy = (output: any, context: __SerdeContext): Policy => {
-  const contents: any = {
-    PolicyName: undefined,
-    PolicyId: undefined,
-    Arn: undefined,
-    Path: undefined,
-    DefaultVersionId: undefined,
-    AttachmentCount: undefined,
-    PermissionsBoundaryUsageCount: undefined,
-    IsAttachable: undefined,
-    Description: undefined,
-    CreateDate: undefined,
-    UpdateDate: undefined,
-    Tags: undefined,
-  };
+/**
+ * deserializeAws_queryPolicy
+ */
+const de_Policy = (output: any, context: __SerdeContext): Policy => {
+  const contents: any = {};
   if (output["PolicyName"] !== undefined) {
     contents.PolicyName = __expectString(output["PolicyName"]);
   }
@@ -16205,24 +17333,24 @@ const deserializeAws_queryPolicy = (output: any, context: __SerdeContext): Polic
     contents.Description = __expectString(output["Description"]);
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   if (output["UpdateDate"] !== undefined) {
-    contents.UpdateDate = __expectNonNull(__parseRfc3339DateTime(output["UpdateDate"]));
+    contents.UpdateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["UpdateDate"]));
   }
   if (output.Tags === "") {
     contents.Tags = [];
   } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents.Tags = de_tagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   return contents;
 };
 
-const deserializeAws_queryPolicyDetail = (output: any, context: __SerdeContext): PolicyDetail => {
-  const contents: any = {
-    PolicyName: undefined,
-    PolicyDocument: undefined,
-  };
+/**
+ * deserializeAws_queryPolicyDetail
+ */
+const de_PolicyDetail = (output: any, context: __SerdeContext): PolicyDetail => {
+  const contents: any = {};
   if (output["PolicyName"] !== undefined) {
     contents.PolicyName = __expectString(output["PolicyName"]);
   }
@@ -16232,46 +17360,44 @@ const deserializeAws_queryPolicyDetail = (output: any, context: __SerdeContext):
   return contents;
 };
 
-const deserializeAws_querypolicyDetailListType = (output: any, context: __SerdeContext): PolicyDetail[] => {
+/**
+ * deserializeAws_querypolicyDetailListType
+ */
+const de_policyDetailListType = (output: any, context: __SerdeContext): PolicyDetail[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_queryPolicyDetail(entry, context);
+      return de_PolicyDetail(entry, context);
     });
 };
 
-const deserializeAws_querypolicyDocumentVersionListType = (output: any, context: __SerdeContext): PolicyVersion[] => {
+/**
+ * deserializeAws_querypolicyDocumentVersionListType
+ */
+const de_policyDocumentVersionListType = (output: any, context: __SerdeContext): PolicyVersion[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_queryPolicyVersion(entry, context);
+      return de_PolicyVersion(entry, context);
     });
 };
 
-const deserializeAws_queryPolicyEvaluationException = (
-  output: any,
-  context: __SerdeContext
-): PolicyEvaluationException => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryPolicyEvaluationException
+ */
+const de_PolicyEvaluationException = (output: any, context: __SerdeContext): PolicyEvaluationException => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryPolicyGrantingServiceAccess = (
-  output: any,
-  context: __SerdeContext
-): PolicyGrantingServiceAccess => {
-  const contents: any = {
-    PolicyName: undefined,
-    PolicyType: undefined,
-    PolicyArn: undefined,
-    EntityType: undefined,
-    EntityName: undefined,
-  };
+/**
+ * deserializeAws_queryPolicyGrantingServiceAccess
+ */
+const de_PolicyGrantingServiceAccess = (output: any, context: __SerdeContext): PolicyGrantingServiceAccess => {
+  const contents: any = {};
   if (output["PolicyName"] !== undefined) {
     contents.PolicyName = __expectString(output["PolicyName"]);
   }
@@ -16290,22 +17416,25 @@ const deserializeAws_queryPolicyGrantingServiceAccess = (
   return contents;
 };
 
-const deserializeAws_querypolicyGrantingServiceAccessListType = (
+/**
+ * deserializeAws_querypolicyGrantingServiceAccessListType
+ */
+const de_policyGrantingServiceAccessListType = (
   output: any,
   context: __SerdeContext
 ): PolicyGrantingServiceAccess[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_queryPolicyGrantingServiceAccess(entry, context);
+      return de_PolicyGrantingServiceAccess(entry, context);
     });
 };
 
-const deserializeAws_queryPolicyGroup = (output: any, context: __SerdeContext): PolicyGroup => {
-  const contents: any = {
-    GroupName: undefined,
-    GroupId: undefined,
-  };
+/**
+ * deserializeAws_queryPolicyGroup
+ */
+const de_PolicyGroup = (output: any, context: __SerdeContext): PolicyGroup => {
+  const contents: any = {};
   if (output["GroupName"] !== undefined) {
     contents.GroupName = __expectString(output["GroupName"]);
   }
@@ -16315,23 +17444,32 @@ const deserializeAws_queryPolicyGroup = (output: any, context: __SerdeContext): 
   return contents;
 };
 
-const deserializeAws_queryPolicyGroupListType = (output: any, context: __SerdeContext): PolicyGroup[] => {
+/**
+ * deserializeAws_queryPolicyGroupListType
+ */
+const de_PolicyGroupListType = (output: any, context: __SerdeContext): PolicyGroup[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_queryPolicyGroup(entry, context);
+      return de_PolicyGroup(entry, context);
     });
 };
 
-const deserializeAws_querypolicyListType = (output: any, context: __SerdeContext): Policy[] => {
+/**
+ * deserializeAws_querypolicyListType
+ */
+const de_policyListType = (output: any, context: __SerdeContext): Policy[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_queryPolicy(entry, context);
+      return de_Policy(entry, context);
     });
 };
 
-const deserializeAws_querypolicyNameListType = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_querypolicyNameListType
+ */
+const de_policyNameListType = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -16339,24 +17477,22 @@ const deserializeAws_querypolicyNameListType = (output: any, context: __SerdeCon
     });
 };
 
-const deserializeAws_queryPolicyNotAttachableException = (
-  output: any,
-  context: __SerdeContext
-): PolicyNotAttachableException => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryPolicyNotAttachableException
+ */
+const de_PolicyNotAttachableException = (output: any, context: __SerdeContext): PolicyNotAttachableException => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryPolicyRole = (output: any, context: __SerdeContext): PolicyRole => {
-  const contents: any = {
-    RoleName: undefined,
-    RoleId: undefined,
-  };
+/**
+ * deserializeAws_queryPolicyRole
+ */
+const de_PolicyRole = (output: any, context: __SerdeContext): PolicyRole => {
+  const contents: any = {};
   if (output["RoleName"] !== undefined) {
     contents.RoleName = __expectString(output["RoleName"]);
   }
@@ -16366,19 +17502,22 @@ const deserializeAws_queryPolicyRole = (output: any, context: __SerdeContext): P
   return contents;
 };
 
-const deserializeAws_queryPolicyRoleListType = (output: any, context: __SerdeContext): PolicyRole[] => {
+/**
+ * deserializeAws_queryPolicyRoleListType
+ */
+const de_PolicyRoleListType = (output: any, context: __SerdeContext): PolicyRole[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_queryPolicyRole(entry, context);
+      return de_PolicyRole(entry, context);
     });
 };
 
-const deserializeAws_queryPolicyUser = (output: any, context: __SerdeContext): PolicyUser => {
-  const contents: any = {
-    UserName: undefined,
-    UserId: undefined,
-  };
+/**
+ * deserializeAws_queryPolicyUser
+ */
+const de_PolicyUser = (output: any, context: __SerdeContext): PolicyUser => {
+  const contents: any = {};
   if (output["UserName"] !== undefined) {
     contents.UserName = __expectString(output["UserName"]);
   }
@@ -16388,21 +17527,22 @@ const deserializeAws_queryPolicyUser = (output: any, context: __SerdeContext): P
   return contents;
 };
 
-const deserializeAws_queryPolicyUserListType = (output: any, context: __SerdeContext): PolicyUser[] => {
+/**
+ * deserializeAws_queryPolicyUserListType
+ */
+const de_PolicyUserListType = (output: any, context: __SerdeContext): PolicyUser[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_queryPolicyUser(entry, context);
+      return de_PolicyUser(entry, context);
     });
 };
 
-const deserializeAws_queryPolicyVersion = (output: any, context: __SerdeContext): PolicyVersion => {
-  const contents: any = {
-    Document: undefined,
-    VersionId: undefined,
-    IsDefaultVersion: undefined,
-    CreateDate: undefined,
-  };
+/**
+ * deserializeAws_queryPolicyVersion
+ */
+const de_PolicyVersion = (output: any, context: __SerdeContext): PolicyVersion => {
+  const contents: any = {};
   if (output["Document"] !== undefined) {
     contents.Document = __expectString(output["Document"]);
   }
@@ -16413,16 +17553,16 @@ const deserializeAws_queryPolicyVersion = (output: any, context: __SerdeContext)
     contents.IsDefaultVersion = __parseBoolean(output["IsDefaultVersion"]);
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   return contents;
 };
 
-const deserializeAws_queryPosition = (output: any, context: __SerdeContext): Position => {
-  const contents: any = {
-    Line: undefined,
-    Column: undefined,
-  };
+/**
+ * deserializeAws_queryPosition
+ */
+const de_Position = (output: any, context: __SerdeContext): Position => {
+  const contents: any = {};
   if (output["Line"] !== undefined) {
     contents.Line = __strictParseInt32(output["Line"]) as number;
   }
@@ -16432,44 +17572,39 @@ const deserializeAws_queryPosition = (output: any, context: __SerdeContext): Pos
   return contents;
 };
 
-const deserializeAws_queryReportGenerationLimitExceededException = (
+/**
+ * deserializeAws_queryReportGenerationLimitExceededException
+ */
+const de_ReportGenerationLimitExceededException = (
   output: any,
   context: __SerdeContext
 ): ReportGenerationLimitExceededException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryResetServiceSpecificCredentialResponse = (
+/**
+ * deserializeAws_queryResetServiceSpecificCredentialResponse
+ */
+const de_ResetServiceSpecificCredentialResponse = (
   output: any,
   context: __SerdeContext
 ): ResetServiceSpecificCredentialResponse => {
-  const contents: any = {
-    ServiceSpecificCredential: undefined,
-  };
+  const contents: any = {};
   if (output["ServiceSpecificCredential"] !== undefined) {
-    contents.ServiceSpecificCredential = deserializeAws_queryServiceSpecificCredential(
-      output["ServiceSpecificCredential"],
-      context
-    );
+    contents.ServiceSpecificCredential = de_ServiceSpecificCredential(output["ServiceSpecificCredential"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryResourceSpecificResult = (output: any, context: __SerdeContext): ResourceSpecificResult => {
-  const contents: any = {
-    EvalResourceName: undefined,
-    EvalResourceDecision: undefined,
-    MatchedStatements: undefined,
-    MissingContextValues: undefined,
-    EvalDecisionDetails: undefined,
-    PermissionsBoundaryDecisionDetail: undefined,
-  };
+/**
+ * deserializeAws_queryResourceSpecificResult
+ */
+const de_ResourceSpecificResult = (output: any, context: __SerdeContext): ResourceSpecificResult => {
+  const contents: any = {};
   if (output["EvalResourceName"] !== undefined) {
     contents.EvalResourceName = __expectString(output["EvalResourceName"]);
   }
@@ -16479,7 +17614,7 @@ const deserializeAws_queryResourceSpecificResult = (output: any, context: __Serd
   if (output.MatchedStatements === "") {
     contents.MatchedStatements = [];
   } else if (output["MatchedStatements"] !== undefined && output["MatchedStatements"]["member"] !== undefined) {
-    contents.MatchedStatements = deserializeAws_queryStatementListType(
+    contents.MatchedStatements = de_StatementListType(
       __getArrayIfSingleItem(output["MatchedStatements"]["member"]),
       context
     );
@@ -16487,7 +17622,7 @@ const deserializeAws_queryResourceSpecificResult = (output: any, context: __Serd
   if (output.MissingContextValues === "") {
     contents.MissingContextValues = [];
   } else if (output["MissingContextValues"] !== undefined && output["MissingContextValues"]["member"] !== undefined) {
-    contents.MissingContextValues = deserializeAws_queryContextKeyNamesResultListType(
+    contents.MissingContextValues = de_ContextKeyNamesResultListType(
       __getArrayIfSingleItem(output["MissingContextValues"]["member"]),
       context
     );
@@ -16495,13 +17630,13 @@ const deserializeAws_queryResourceSpecificResult = (output: any, context: __Serd
   if (output.EvalDecisionDetails === "") {
     contents.EvalDecisionDetails = {};
   } else if (output["EvalDecisionDetails"] !== undefined && output["EvalDecisionDetails"]["entry"] !== undefined) {
-    contents.EvalDecisionDetails = deserializeAws_queryEvalDecisionDetailsType(
+    contents.EvalDecisionDetails = de_EvalDecisionDetailsType(
       __getArrayIfSingleItem(output["EvalDecisionDetails"]["entry"]),
       context
     );
   }
   if (output["PermissionsBoundaryDecisionDetail"] !== undefined) {
-    contents.PermissionsBoundaryDecisionDetail = deserializeAws_queryPermissionsBoundaryDecisionDetail(
+    contents.PermissionsBoundaryDecisionDetail = de_PermissionsBoundaryDecisionDetail(
       output["PermissionsBoundaryDecisionDetail"],
       context
     );
@@ -16509,31 +17644,22 @@ const deserializeAws_queryResourceSpecificResult = (output: any, context: __Serd
   return contents;
 };
 
-const deserializeAws_queryResourceSpecificResultListType = (
-  output: any,
-  context: __SerdeContext
-): ResourceSpecificResult[] => {
+/**
+ * deserializeAws_queryResourceSpecificResultListType
+ */
+const de_ResourceSpecificResultListType = (output: any, context: __SerdeContext): ResourceSpecificResult[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_queryResourceSpecificResult(entry, context);
+      return de_ResourceSpecificResult(entry, context);
     });
 };
 
-const deserializeAws_queryRole = (output: any, context: __SerdeContext): Role => {
-  const contents: any = {
-    Path: undefined,
-    RoleName: undefined,
-    RoleId: undefined,
-    Arn: undefined,
-    CreateDate: undefined,
-    AssumeRolePolicyDocument: undefined,
-    Description: undefined,
-    MaxSessionDuration: undefined,
-    PermissionsBoundary: undefined,
-    Tags: undefined,
-    RoleLastUsed: undefined,
-  };
+/**
+ * deserializeAws_queryRole
+ */
+const de_Role = (output: any, context: __SerdeContext): Role => {
+  const contents: any = {};
   if (output["Path"] !== undefined) {
     contents.Path = __expectString(output["Path"]);
   }
@@ -16547,7 +17673,7 @@ const deserializeAws_queryRole = (output: any, context: __SerdeContext): Role =>
     contents.Arn = __expectString(output["Arn"]);
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   if (output["AssumeRolePolicyDocument"] !== undefined) {
     contents.AssumeRolePolicyDocument = __expectString(output["AssumeRolePolicyDocument"]);
@@ -16559,37 +17685,24 @@ const deserializeAws_queryRole = (output: any, context: __SerdeContext): Role =>
     contents.MaxSessionDuration = __strictParseInt32(output["MaxSessionDuration"]) as number;
   }
   if (output["PermissionsBoundary"] !== undefined) {
-    contents.PermissionsBoundary = deserializeAws_queryAttachedPermissionsBoundary(
-      output["PermissionsBoundary"],
-      context
-    );
+    contents.PermissionsBoundary = de_AttachedPermissionsBoundary(output["PermissionsBoundary"], context);
   }
   if (output.Tags === "") {
     contents.Tags = [];
   } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents.Tags = de_tagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   if (output["RoleLastUsed"] !== undefined) {
-    contents.RoleLastUsed = deserializeAws_queryRoleLastUsed(output["RoleLastUsed"], context);
+    contents.RoleLastUsed = de_RoleLastUsed(output["RoleLastUsed"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryRoleDetail = (output: any, context: __SerdeContext): RoleDetail => {
-  const contents: any = {
-    Path: undefined,
-    RoleName: undefined,
-    RoleId: undefined,
-    Arn: undefined,
-    CreateDate: undefined,
-    AssumeRolePolicyDocument: undefined,
-    InstanceProfileList: undefined,
-    RolePolicyList: undefined,
-    AttachedManagedPolicies: undefined,
-    PermissionsBoundary: undefined,
-    Tags: undefined,
-    RoleLastUsed: undefined,
-  };
+/**
+ * deserializeAws_queryRoleDetail
+ */
+const de_RoleDetail = (output: any, context: __SerdeContext): RoleDetail => {
+  const contents: any = {};
   if (output["Path"] !== undefined) {
     contents.Path = __expectString(output["Path"]);
   }
@@ -16603,7 +17716,7 @@ const deserializeAws_queryRoleDetail = (output: any, context: __SerdeContext): R
     contents.Arn = __expectString(output["Arn"]);
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   if (output["AssumeRolePolicyDocument"] !== undefined) {
     contents.AssumeRolePolicyDocument = __expectString(output["AssumeRolePolicyDocument"]);
@@ -16611,7 +17724,7 @@ const deserializeAws_queryRoleDetail = (output: any, context: __SerdeContext): R
   if (output.InstanceProfileList === "") {
     contents.InstanceProfileList = [];
   } else if (output["InstanceProfileList"] !== undefined && output["InstanceProfileList"]["member"] !== undefined) {
-    contents.InstanceProfileList = deserializeAws_queryinstanceProfileListType(
+    contents.InstanceProfileList = de_instanceProfileListType(
       __getArrayIfSingleItem(output["InstanceProfileList"]["member"]),
       context
     );
@@ -16619,7 +17732,7 @@ const deserializeAws_queryRoleDetail = (output: any, context: __SerdeContext): R
   if (output.RolePolicyList === "") {
     contents.RolePolicyList = [];
   } else if (output["RolePolicyList"] !== undefined && output["RolePolicyList"]["member"] !== undefined) {
-    contents.RolePolicyList = deserializeAws_querypolicyDetailListType(
+    contents.RolePolicyList = de_policyDetailListType(
       __getArrayIfSingleItem(output["RolePolicyList"]["member"]),
       context
     );
@@ -16630,43 +17743,43 @@ const deserializeAws_queryRoleDetail = (output: any, context: __SerdeContext): R
     output["AttachedManagedPolicies"] !== undefined &&
     output["AttachedManagedPolicies"]["member"] !== undefined
   ) {
-    contents.AttachedManagedPolicies = deserializeAws_queryattachedPoliciesListType(
+    contents.AttachedManagedPolicies = de_attachedPoliciesListType(
       __getArrayIfSingleItem(output["AttachedManagedPolicies"]["member"]),
       context
     );
   }
   if (output["PermissionsBoundary"] !== undefined) {
-    contents.PermissionsBoundary = deserializeAws_queryAttachedPermissionsBoundary(
-      output["PermissionsBoundary"],
-      context
-    );
+    contents.PermissionsBoundary = de_AttachedPermissionsBoundary(output["PermissionsBoundary"], context);
   }
   if (output.Tags === "") {
     contents.Tags = [];
   } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents.Tags = de_tagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   if (output["RoleLastUsed"] !== undefined) {
-    contents.RoleLastUsed = deserializeAws_queryRoleLastUsed(output["RoleLastUsed"], context);
+    contents.RoleLastUsed = de_RoleLastUsed(output["RoleLastUsed"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryroleDetailListType = (output: any, context: __SerdeContext): RoleDetail[] => {
+/**
+ * deserializeAws_queryroleDetailListType
+ */
+const de_roleDetailListType = (output: any, context: __SerdeContext): RoleDetail[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_queryRoleDetail(entry, context);
+      return de_RoleDetail(entry, context);
     });
 };
 
-const deserializeAws_queryRoleLastUsed = (output: any, context: __SerdeContext): RoleLastUsed => {
-  const contents: any = {
-    LastUsedDate: undefined,
-    Region: undefined,
-  };
+/**
+ * deserializeAws_queryRoleLastUsed
+ */
+const de_RoleLastUsed = (output: any, context: __SerdeContext): RoleLastUsed => {
+  const contents: any = {};
   if (output["LastUsedDate"] !== undefined) {
-    contents.LastUsedDate = __expectNonNull(__parseRfc3339DateTime(output["LastUsedDate"]));
+    contents.LastUsedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastUsedDate"]));
   }
   if (output["Region"] !== undefined) {
     contents.Region = __expectString(output["Region"]);
@@ -16674,79 +17787,79 @@ const deserializeAws_queryRoleLastUsed = (output: any, context: __SerdeContext):
   return contents;
 };
 
-const deserializeAws_queryroleListType = (output: any, context: __SerdeContext): Role[] => {
+/**
+ * deserializeAws_queryroleListType
+ */
+const de_roleListType = (output: any, context: __SerdeContext): Role[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_queryRole(entry, context);
+      return de_Role(entry, context);
     });
 };
 
-const deserializeAws_queryRoleUsageListType = (output: any, context: __SerdeContext): RoleUsageType[] => {
+/**
+ * deserializeAws_queryRoleUsageListType
+ */
+const de_RoleUsageListType = (output: any, context: __SerdeContext): RoleUsageType[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_queryRoleUsageType(entry, context);
+      return de_RoleUsageType(entry, context);
     });
 };
 
-const deserializeAws_queryRoleUsageType = (output: any, context: __SerdeContext): RoleUsageType => {
-  const contents: any = {
-    Region: undefined,
-    Resources: undefined,
-  };
+/**
+ * deserializeAws_queryRoleUsageType
+ */
+const de_RoleUsageType = (output: any, context: __SerdeContext): RoleUsageType => {
+  const contents: any = {};
   if (output["Region"] !== undefined) {
     contents.Region = __expectString(output["Region"]);
   }
   if (output.Resources === "") {
     contents.Resources = [];
   } else if (output["Resources"] !== undefined && output["Resources"]["member"] !== undefined) {
-    contents.Resources = deserializeAws_queryArnListType(
-      __getArrayIfSingleItem(output["Resources"]["member"]),
-      context
-    );
+    contents.Resources = de_ArnListType(__getArrayIfSingleItem(output["Resources"]["member"]), context);
   }
   return contents;
 };
 
-const deserializeAws_querySAMLProviderListEntry = (output: any, context: __SerdeContext): SAMLProviderListEntry => {
-  const contents: any = {
-    Arn: undefined,
-    ValidUntil: undefined,
-    CreateDate: undefined,
-  };
+/**
+ * deserializeAws_querySAMLProviderListEntry
+ */
+const de_SAMLProviderListEntry = (output: any, context: __SerdeContext): SAMLProviderListEntry => {
+  const contents: any = {};
   if (output["Arn"] !== undefined) {
     contents.Arn = __expectString(output["Arn"]);
   }
   if (output["ValidUntil"] !== undefined) {
-    contents.ValidUntil = __expectNonNull(__parseRfc3339DateTime(output["ValidUntil"]));
+    contents.ValidUntil = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["ValidUntil"]));
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   return contents;
 };
 
-const deserializeAws_querySAMLProviderListType = (output: any, context: __SerdeContext): SAMLProviderListEntry[] => {
+/**
+ * deserializeAws_querySAMLProviderListType
+ */
+const de_SAMLProviderListType = (output: any, context: __SerdeContext): SAMLProviderListEntry[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_querySAMLProviderListEntry(entry, context);
+      return de_SAMLProviderListEntry(entry, context);
     });
 };
 
-const deserializeAws_queryServerCertificate = (output: any, context: __SerdeContext): ServerCertificate => {
-  const contents: any = {
-    ServerCertificateMetadata: undefined,
-    CertificateBody: undefined,
-    CertificateChain: undefined,
-    Tags: undefined,
-  };
+/**
+ * deserializeAws_queryServerCertificate
+ */
+const de_ServerCertificate = (output: any, context: __SerdeContext): ServerCertificate => {
+  const contents: any = {};
   if (output["ServerCertificateMetadata"] !== undefined) {
-    contents.ServerCertificateMetadata = deserializeAws_queryServerCertificateMetadata(
-      output["ServerCertificateMetadata"],
-      context
-    );
+    contents.ServerCertificateMetadata = de_ServerCertificateMetadata(output["ServerCertificateMetadata"], context);
   }
   if (output["CertificateBody"] !== undefined) {
     contents.CertificateBody = __expectString(output["CertificateBody"]);
@@ -16757,23 +17870,16 @@ const deserializeAws_queryServerCertificate = (output: any, context: __SerdeCont
   if (output.Tags === "") {
     contents.Tags = [];
   } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents.Tags = de_tagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   return contents;
 };
 
-const deserializeAws_queryServerCertificateMetadata = (
-  output: any,
-  context: __SerdeContext
-): ServerCertificateMetadata => {
-  const contents: any = {
-    Path: undefined,
-    ServerCertificateName: undefined,
-    ServerCertificateId: undefined,
-    Arn: undefined,
-    UploadDate: undefined,
-    Expiration: undefined,
-  };
+/**
+ * deserializeAws_queryServerCertificateMetadata
+ */
+const de_ServerCertificateMetadata = (output: any, context: __SerdeContext): ServerCertificateMetadata => {
+  const contents: any = {};
   if (output["Path"] !== undefined) {
     contents.Path = __expectString(output["Path"]);
   }
@@ -16787,50 +17893,46 @@ const deserializeAws_queryServerCertificateMetadata = (
     contents.Arn = __expectString(output["Arn"]);
   }
   if (output["UploadDate"] !== undefined) {
-    contents.UploadDate = __expectNonNull(__parseRfc3339DateTime(output["UploadDate"]));
+    contents.UploadDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["UploadDate"]));
   }
   if (output["Expiration"] !== undefined) {
-    contents.Expiration = __expectNonNull(__parseRfc3339DateTime(output["Expiration"]));
+    contents.Expiration = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Expiration"]));
   }
   return contents;
 };
 
-const deserializeAws_queryserverCertificateMetadataListType = (
-  output: any,
-  context: __SerdeContext
-): ServerCertificateMetadata[] => {
+/**
+ * deserializeAws_queryserverCertificateMetadataListType
+ */
+const de_serverCertificateMetadataListType = (output: any, context: __SerdeContext): ServerCertificateMetadata[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_queryServerCertificateMetadata(entry, context);
+      return de_ServerCertificateMetadata(entry, context);
     });
 };
 
-const deserializeAws_queryServiceFailureException = (output: any, context: __SerdeContext): ServiceFailureException => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryServiceFailureException
+ */
+const de_ServiceFailureException = (output: any, context: __SerdeContext): ServiceFailureException => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryServiceLastAccessed = (output: any, context: __SerdeContext): ServiceLastAccessed => {
-  const contents: any = {
-    ServiceName: undefined,
-    LastAuthenticated: undefined,
-    ServiceNamespace: undefined,
-    LastAuthenticatedEntity: undefined,
-    LastAuthenticatedRegion: undefined,
-    TotalAuthenticatedEntities: undefined,
-    TrackedActionsLastAccessed: undefined,
-  };
+/**
+ * deserializeAws_queryServiceLastAccessed
+ */
+const de_ServiceLastAccessed = (output: any, context: __SerdeContext): ServiceLastAccessed => {
+  const contents: any = {};
   if (output["ServiceName"] !== undefined) {
     contents.ServiceName = __expectString(output["ServiceName"]);
   }
   if (output["LastAuthenticated"] !== undefined) {
-    contents.LastAuthenticated = __expectNonNull(__parseRfc3339DateTime(output["LastAuthenticated"]));
+    contents.LastAuthenticated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastAuthenticated"]));
   }
   if (output["ServiceNamespace"] !== undefined) {
     contents.ServiceNamespace = __expectString(output["ServiceNamespace"]);
@@ -16850,7 +17952,7 @@ const deserializeAws_queryServiceLastAccessed = (output: any, context: __SerdeCo
     output["TrackedActionsLastAccessed"] !== undefined &&
     output["TrackedActionsLastAccessed"]["member"] !== undefined
   ) {
-    contents.TrackedActionsLastAccessed = deserializeAws_queryTrackedActionsLastAccessed(
+    contents.TrackedActionsLastAccessed = de_TrackedActionsLastAccessed(
       __getArrayIfSingleItem(output["TrackedActionsLastAccessed"]["member"]),
       context
     );
@@ -16858,42 +17960,35 @@ const deserializeAws_queryServiceLastAccessed = (output: any, context: __SerdeCo
   return contents;
 };
 
-const deserializeAws_queryServiceNotSupportedException = (
-  output: any,
-  context: __SerdeContext
-): ServiceNotSupportedException => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryServiceNotSupportedException
+ */
+const de_ServiceNotSupportedException = (output: any, context: __SerdeContext): ServiceNotSupportedException => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryServicesLastAccessed = (output: any, context: __SerdeContext): ServiceLastAccessed[] => {
+/**
+ * deserializeAws_queryServicesLastAccessed
+ */
+const de_ServicesLastAccessed = (output: any, context: __SerdeContext): ServiceLastAccessed[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_queryServiceLastAccessed(entry, context);
+      return de_ServiceLastAccessed(entry, context);
     });
 };
 
-const deserializeAws_queryServiceSpecificCredential = (
-  output: any,
-  context: __SerdeContext
-): ServiceSpecificCredential => {
-  const contents: any = {
-    CreateDate: undefined,
-    ServiceName: undefined,
-    ServiceUserName: undefined,
-    ServicePassword: undefined,
-    ServiceSpecificCredentialId: undefined,
-    UserName: undefined,
-    Status: undefined,
-  };
+/**
+ * deserializeAws_queryServiceSpecificCredential
+ */
+const de_ServiceSpecificCredential = (output: any, context: __SerdeContext): ServiceSpecificCredential => {
+  const contents: any = {};
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   if (output["ServiceName"] !== undefined) {
     contents.ServiceName = __expectString(output["ServiceName"]);
@@ -16916,18 +18011,14 @@ const deserializeAws_queryServiceSpecificCredential = (
   return contents;
 };
 
-const deserializeAws_queryServiceSpecificCredentialMetadata = (
+/**
+ * deserializeAws_queryServiceSpecificCredentialMetadata
+ */
+const de_ServiceSpecificCredentialMetadata = (
   output: any,
   context: __SerdeContext
 ): ServiceSpecificCredentialMetadata => {
-  const contents: any = {
-    UserName: undefined,
-    Status: undefined,
-    ServiceUserName: undefined,
-    CreateDate: undefined,
-    ServiceSpecificCredentialId: undefined,
-    ServiceName: undefined,
-  };
+  const contents: any = {};
   if (output["UserName"] !== undefined) {
     contents.UserName = __expectString(output["UserName"]);
   }
@@ -16938,7 +18029,7 @@ const deserializeAws_queryServiceSpecificCredentialMetadata = (
     contents.ServiceUserName = __expectString(output["ServiceUserName"]);
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   if (output["ServiceSpecificCredentialId"] !== undefined) {
     contents.ServiceSpecificCredentialId = __expectString(output["ServiceSpecificCredentialId"]);
@@ -16949,25 +18040,25 @@ const deserializeAws_queryServiceSpecificCredentialMetadata = (
   return contents;
 };
 
-const deserializeAws_queryServiceSpecificCredentialsListType = (
+/**
+ * deserializeAws_queryServiceSpecificCredentialsListType
+ */
+const de_ServiceSpecificCredentialsListType = (
   output: any,
   context: __SerdeContext
 ): ServiceSpecificCredentialMetadata[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_queryServiceSpecificCredentialMetadata(entry, context);
+      return de_ServiceSpecificCredentialMetadata(entry, context);
     });
 };
 
-const deserializeAws_querySigningCertificate = (output: any, context: __SerdeContext): SigningCertificate => {
-  const contents: any = {
-    UserName: undefined,
-    CertificateId: undefined,
-    CertificateBody: undefined,
-    Status: undefined,
-    UploadDate: undefined,
-  };
+/**
+ * deserializeAws_querySigningCertificate
+ */
+const de_SigningCertificate = (output: any, context: __SerdeContext): SigningCertificate => {
+  const contents: any = {};
   if (output["UserName"] !== undefined) {
     contents.UserName = __expectString(output["UserName"]);
   }
@@ -16981,21 +18072,20 @@ const deserializeAws_querySigningCertificate = (output: any, context: __SerdeCon
     contents.Status = __expectString(output["Status"]);
   }
   if (output["UploadDate"] !== undefined) {
-    contents.UploadDate = __expectNonNull(__parseRfc3339DateTime(output["UploadDate"]));
+    contents.UploadDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["UploadDate"]));
   }
   return contents;
 };
 
-const deserializeAws_querySimulatePolicyResponse = (output: any, context: __SerdeContext): SimulatePolicyResponse => {
-  const contents: any = {
-    EvaluationResults: undefined,
-    IsTruncated: undefined,
-    Marker: undefined,
-  };
+/**
+ * deserializeAws_querySimulatePolicyResponse
+ */
+const de_SimulatePolicyResponse = (output: any, context: __SerdeContext): SimulatePolicyResponse => {
+  const contents: any = {};
   if (output.EvaluationResults === "") {
     contents.EvaluationResults = [];
   } else if (output["EvaluationResults"] !== undefined && output["EvaluationResults"]["member"] !== undefined) {
-    contents.EvaluationResults = deserializeAws_queryEvaluationResultsListType(
+    contents.EvaluationResults = de_EvaluationResultsListType(
       __getArrayIfSingleItem(output["EvaluationResults"]["member"]),
       context
     );
@@ -17009,15 +18099,11 @@ const deserializeAws_querySimulatePolicyResponse = (output: any, context: __Serd
   return contents;
 };
 
-const deserializeAws_querySSHPublicKey = (output: any, context: __SerdeContext): SSHPublicKey => {
-  const contents: any = {
-    UserName: undefined,
-    SSHPublicKeyId: undefined,
-    Fingerprint: undefined,
-    SSHPublicKeyBody: undefined,
-    Status: undefined,
-    UploadDate: undefined,
-  };
+/**
+ * deserializeAws_querySSHPublicKey
+ */
+const de_SSHPublicKey = (output: any, context: __SerdeContext): SSHPublicKey => {
+  const contents: any = {};
   if (output["UserName"] !== undefined) {
     contents.UserName = __expectString(output["UserName"]);
   }
@@ -17034,26 +18120,27 @@ const deserializeAws_querySSHPublicKey = (output: any, context: __SerdeContext):
     contents.Status = __expectString(output["Status"]);
   }
   if (output["UploadDate"] !== undefined) {
-    contents.UploadDate = __expectNonNull(__parseRfc3339DateTime(output["UploadDate"]));
+    contents.UploadDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["UploadDate"]));
   }
   return contents;
 };
 
-const deserializeAws_querySSHPublicKeyListType = (output: any, context: __SerdeContext): SSHPublicKeyMetadata[] => {
+/**
+ * deserializeAws_querySSHPublicKeyListType
+ */
+const de_SSHPublicKeyListType = (output: any, context: __SerdeContext): SSHPublicKeyMetadata[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_querySSHPublicKeyMetadata(entry, context);
+      return de_SSHPublicKeyMetadata(entry, context);
     });
 };
 
-const deserializeAws_querySSHPublicKeyMetadata = (output: any, context: __SerdeContext): SSHPublicKeyMetadata => {
-  const contents: any = {
-    UserName: undefined,
-    SSHPublicKeyId: undefined,
-    Status: undefined,
-    UploadDate: undefined,
-  };
+/**
+ * deserializeAws_querySSHPublicKeyMetadata
+ */
+const de_SSHPublicKeyMetadata = (output: any, context: __SerdeContext): SSHPublicKeyMetadata => {
+  const contents: any = {};
   if (output["UserName"] !== undefined) {
     contents.UserName = __expectString(output["UserName"]);
   }
@@ -17064,18 +18151,16 @@ const deserializeAws_querySSHPublicKeyMetadata = (output: any, context: __SerdeC
     contents.Status = __expectString(output["Status"]);
   }
   if (output["UploadDate"] !== undefined) {
-    contents.UploadDate = __expectNonNull(__parseRfc3339DateTime(output["UploadDate"]));
+    contents.UploadDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["UploadDate"]));
   }
   return contents;
 };
 
-const deserializeAws_queryStatement = (output: any, context: __SerdeContext): Statement => {
-  const contents: any = {
-    SourcePolicyId: undefined,
-    SourcePolicyType: undefined,
-    StartPosition: undefined,
-    EndPosition: undefined,
-  };
+/**
+ * deserializeAws_queryStatement
+ */
+const de_Statement = (output: any, context: __SerdeContext): Statement => {
+  const contents: any = {};
   if (output["SourcePolicyId"] !== undefined) {
     contents.SourcePolicyId = __expectString(output["SourcePolicyId"]);
   }
@@ -17083,23 +18168,29 @@ const deserializeAws_queryStatement = (output: any, context: __SerdeContext): St
     contents.SourcePolicyType = __expectString(output["SourcePolicyType"]);
   }
   if (output["StartPosition"] !== undefined) {
-    contents.StartPosition = deserializeAws_queryPosition(output["StartPosition"], context);
+    contents.StartPosition = de_Position(output["StartPosition"], context);
   }
   if (output["EndPosition"] !== undefined) {
-    contents.EndPosition = deserializeAws_queryPosition(output["EndPosition"], context);
+    contents.EndPosition = de_Position(output["EndPosition"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryStatementListType = (output: any, context: __SerdeContext): Statement[] => {
+/**
+ * deserializeAws_queryStatementListType
+ */
+const de_StatementListType = (output: any, context: __SerdeContext): Statement[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_queryStatement(entry, context);
+      return de_Statement(entry, context);
     });
 };
 
-const deserializeAws_querysummaryMapType = (output: any, context: __SerdeContext): Record<string, number> => {
+/**
+ * deserializeAws_querysummaryMapType
+ */
+const de_summaryMapType = (output: any, context: __SerdeContext): Record<string, number> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["value"] === null) {
       return acc;
@@ -17109,11 +18200,11 @@ const deserializeAws_querysummaryMapType = (output: any, context: __SerdeContext
   }, {});
 };
 
-const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
-  const contents: any = {
-    Key: undefined,
-    Value: undefined,
-  };
+/**
+ * deserializeAws_queryTag
+ */
+const de_Tag = (output: any, context: __SerdeContext): Tag => {
+  const contents: any = {};
   if (output["Key"] !== undefined) {
     contents.Key = __expectString(output["Key"]);
   }
@@ -17123,15 +18214,21 @@ const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
   return contents;
 };
 
-const deserializeAws_querytagListType = (output: any, context: __SerdeContext): Tag[] => {
+/**
+ * deserializeAws_querytagListType
+ */
+const de_tagListType = (output: any, context: __SerdeContext): Tag[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_queryTag(entry, context);
+      return de_Tag(entry, context);
     });
 };
 
-const deserializeAws_querythumbprintListType = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_querythumbprintListType
+ */
+const de_thumbprintListType = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -17139,16 +18236,11 @@ const deserializeAws_querythumbprintListType = (output: any, context: __SerdeCon
     });
 };
 
-const deserializeAws_queryTrackedActionLastAccessed = (
-  output: any,
-  context: __SerdeContext
-): TrackedActionLastAccessed => {
-  const contents: any = {
-    ActionName: undefined,
-    LastAccessedEntity: undefined,
-    LastAccessedTime: undefined,
-    LastAccessedRegion: undefined,
-  };
+/**
+ * deserializeAws_queryTrackedActionLastAccessed
+ */
+const de_TrackedActionLastAccessed = (output: any, context: __SerdeContext): TrackedActionLastAccessed => {
+  const contents: any = {};
   if (output["ActionName"] !== undefined) {
     contents.ActionName = __expectString(output["ActionName"]);
   }
@@ -17156,7 +18248,7 @@ const deserializeAws_queryTrackedActionLastAccessed = (
     contents.LastAccessedEntity = __expectString(output["LastAccessedEntity"]);
   }
   if (output["LastAccessedTime"] !== undefined) {
-    contents.LastAccessedTime = __expectNonNull(__parseRfc3339DateTime(output["LastAccessedTime"]));
+    contents.LastAccessedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastAccessedTime"]));
   }
   if (output["LastAccessedRegion"] !== undefined) {
     contents.LastAccessedRegion = __expectString(output["LastAccessedRegion"]);
@@ -17164,133 +18256,118 @@ const deserializeAws_queryTrackedActionLastAccessed = (
   return contents;
 };
 
-const deserializeAws_queryTrackedActionsLastAccessed = (
-  output: any,
-  context: __SerdeContext
-): TrackedActionLastAccessed[] => {
+/**
+ * deserializeAws_queryTrackedActionsLastAccessed
+ */
+const de_TrackedActionsLastAccessed = (output: any, context: __SerdeContext): TrackedActionLastAccessed[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_queryTrackedActionLastAccessed(entry, context);
+      return de_TrackedActionLastAccessed(entry, context);
     });
 };
 
-const deserializeAws_queryUnmodifiableEntityException = (
-  output: any,
-  context: __SerdeContext
-): UnmodifiableEntityException => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryUnmodifiableEntityException
+ */
+const de_UnmodifiableEntityException = (output: any, context: __SerdeContext): UnmodifiableEntityException => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryUnrecognizedPublicKeyEncodingException = (
+/**
+ * deserializeAws_queryUnrecognizedPublicKeyEncodingException
+ */
+const de_UnrecognizedPublicKeyEncodingException = (
   output: any,
   context: __SerdeContext
 ): UnrecognizedPublicKeyEncodingException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryUpdateRoleDescriptionResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateRoleDescriptionResponse => {
-  const contents: any = {
-    Role: undefined,
-  };
+/**
+ * deserializeAws_queryUpdateRoleDescriptionResponse
+ */
+const de_UpdateRoleDescriptionResponse = (output: any, context: __SerdeContext): UpdateRoleDescriptionResponse => {
+  const contents: any = {};
   if (output["Role"] !== undefined) {
-    contents.Role = deserializeAws_queryRole(output["Role"], context);
+    contents.Role = de_Role(output["Role"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryUpdateRoleResponse = (output: any, context: __SerdeContext): UpdateRoleResponse => {
+/**
+ * deserializeAws_queryUpdateRoleResponse
+ */
+const de_UpdateRoleResponse = (output: any, context: __SerdeContext): UpdateRoleResponse => {
   const contents: any = {};
   return contents;
 };
 
-const deserializeAws_queryUpdateSAMLProviderResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateSAMLProviderResponse => {
-  const contents: any = {
-    SAMLProviderArn: undefined,
-  };
+/**
+ * deserializeAws_queryUpdateSAMLProviderResponse
+ */
+const de_UpdateSAMLProviderResponse = (output: any, context: __SerdeContext): UpdateSAMLProviderResponse => {
+  const contents: any = {};
   if (output["SAMLProviderArn"] !== undefined) {
     contents.SAMLProviderArn = __expectString(output["SAMLProviderArn"]);
   }
   return contents;
 };
 
-const deserializeAws_queryUploadServerCertificateResponse = (
-  output: any,
-  context: __SerdeContext
-): UploadServerCertificateResponse => {
-  const contents: any = {
-    ServerCertificateMetadata: undefined,
-    Tags: undefined,
-  };
+/**
+ * deserializeAws_queryUploadServerCertificateResponse
+ */
+const de_UploadServerCertificateResponse = (output: any, context: __SerdeContext): UploadServerCertificateResponse => {
+  const contents: any = {};
   if (output["ServerCertificateMetadata"] !== undefined) {
-    contents.ServerCertificateMetadata = deserializeAws_queryServerCertificateMetadata(
-      output["ServerCertificateMetadata"],
-      context
-    );
+    contents.ServerCertificateMetadata = de_ServerCertificateMetadata(output["ServerCertificateMetadata"], context);
   }
   if (output.Tags === "") {
     contents.Tags = [];
   } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents.Tags = de_tagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   return contents;
 };
 
-const deserializeAws_queryUploadSigningCertificateResponse = (
+/**
+ * deserializeAws_queryUploadSigningCertificateResponse
+ */
+const de_UploadSigningCertificateResponse = (
   output: any,
   context: __SerdeContext
 ): UploadSigningCertificateResponse => {
-  const contents: any = {
-    Certificate: undefined,
-  };
+  const contents: any = {};
   if (output["Certificate"] !== undefined) {
-    contents.Certificate = deserializeAws_querySigningCertificate(output["Certificate"], context);
+    contents.Certificate = de_SigningCertificate(output["Certificate"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryUploadSSHPublicKeyResponse = (
-  output: any,
-  context: __SerdeContext
-): UploadSSHPublicKeyResponse => {
-  const contents: any = {
-    SSHPublicKey: undefined,
-  };
+/**
+ * deserializeAws_queryUploadSSHPublicKeyResponse
+ */
+const de_UploadSSHPublicKeyResponse = (output: any, context: __SerdeContext): UploadSSHPublicKeyResponse => {
+  const contents: any = {};
   if (output["SSHPublicKey"] !== undefined) {
-    contents.SSHPublicKey = deserializeAws_querySSHPublicKey(output["SSHPublicKey"], context);
+    contents.SSHPublicKey = de_SSHPublicKey(output["SSHPublicKey"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryUser = (output: any, context: __SerdeContext): User => {
-  const contents: any = {
-    Path: undefined,
-    UserName: undefined,
-    UserId: undefined,
-    Arn: undefined,
-    CreateDate: undefined,
-    PasswordLastUsed: undefined,
-    PermissionsBoundary: undefined,
-    Tags: undefined,
-  };
+/**
+ * deserializeAws_queryUser
+ */
+const de_User = (output: any, context: __SerdeContext): User => {
+  const contents: any = {};
   if (output["Path"] !== undefined) {
     contents.Path = __expectString(output["Path"]);
   }
@@ -17304,38 +18381,27 @@ const deserializeAws_queryUser = (output: any, context: __SerdeContext): User =>
     contents.Arn = __expectString(output["Arn"]);
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   if (output["PasswordLastUsed"] !== undefined) {
-    contents.PasswordLastUsed = __expectNonNull(__parseRfc3339DateTime(output["PasswordLastUsed"]));
+    contents.PasswordLastUsed = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["PasswordLastUsed"]));
   }
   if (output["PermissionsBoundary"] !== undefined) {
-    contents.PermissionsBoundary = deserializeAws_queryAttachedPermissionsBoundary(
-      output["PermissionsBoundary"],
-      context
-    );
+    contents.PermissionsBoundary = de_AttachedPermissionsBoundary(output["PermissionsBoundary"], context);
   }
   if (output.Tags === "") {
     contents.Tags = [];
   } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents.Tags = de_tagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   return contents;
 };
 
-const deserializeAws_queryUserDetail = (output: any, context: __SerdeContext): UserDetail => {
-  const contents: any = {
-    Path: undefined,
-    UserName: undefined,
-    UserId: undefined,
-    Arn: undefined,
-    CreateDate: undefined,
-    UserPolicyList: undefined,
-    GroupList: undefined,
-    AttachedManagedPolicies: undefined,
-    PermissionsBoundary: undefined,
-    Tags: undefined,
-  };
+/**
+ * deserializeAws_queryUserDetail
+ */
+const de_UserDetail = (output: any, context: __SerdeContext): UserDetail => {
+  const contents: any = {};
   if (output["Path"] !== undefined) {
     contents.Path = __expectString(output["Path"]);
   }
@@ -17349,12 +18415,12 @@ const deserializeAws_queryUserDetail = (output: any, context: __SerdeContext): U
     contents.Arn = __expectString(output["Arn"]);
   }
   if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["CreateDate"]));
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
   }
   if (output.UserPolicyList === "") {
     contents.UserPolicyList = [];
   } else if (output["UserPolicyList"] !== undefined && output["UserPolicyList"]["member"] !== undefined) {
-    contents.UserPolicyList = deserializeAws_querypolicyDetailListType(
+    contents.UserPolicyList = de_policyDetailListType(
       __getArrayIfSingleItem(output["UserPolicyList"]["member"]),
       context
     );
@@ -17362,10 +18428,7 @@ const deserializeAws_queryUserDetail = (output: any, context: __SerdeContext): U
   if (output.GroupList === "") {
     contents.GroupList = [];
   } else if (output["GroupList"] !== undefined && output["GroupList"]["member"] !== undefined) {
-    contents.GroupList = deserializeAws_querygroupNameListType(
-      __getArrayIfSingleItem(output["GroupList"]["member"]),
-      context
-    );
+    contents.GroupList = de_groupNameListType(__getArrayIfSingleItem(output["GroupList"]["member"]), context);
   }
   if (output.AttachedManagedPolicies === "") {
     contents.AttachedManagedPolicies = [];
@@ -17373,50 +18436,49 @@ const deserializeAws_queryUserDetail = (output: any, context: __SerdeContext): U
     output["AttachedManagedPolicies"] !== undefined &&
     output["AttachedManagedPolicies"]["member"] !== undefined
   ) {
-    contents.AttachedManagedPolicies = deserializeAws_queryattachedPoliciesListType(
+    contents.AttachedManagedPolicies = de_attachedPoliciesListType(
       __getArrayIfSingleItem(output["AttachedManagedPolicies"]["member"]),
       context
     );
   }
   if (output["PermissionsBoundary"] !== undefined) {
-    contents.PermissionsBoundary = deserializeAws_queryAttachedPermissionsBoundary(
-      output["PermissionsBoundary"],
-      context
-    );
+    contents.PermissionsBoundary = de_AttachedPermissionsBoundary(output["PermissionsBoundary"], context);
   }
   if (output.Tags === "") {
     contents.Tags = [];
   } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents.Tags = de_tagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   return contents;
 };
 
-const deserializeAws_queryuserDetailListType = (output: any, context: __SerdeContext): UserDetail[] => {
+/**
+ * deserializeAws_queryuserDetailListType
+ */
+const de_userDetailListType = (output: any, context: __SerdeContext): UserDetail[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_queryUserDetail(entry, context);
+      return de_UserDetail(entry, context);
     });
 };
 
-const deserializeAws_queryuserListType = (output: any, context: __SerdeContext): User[] => {
+/**
+ * deserializeAws_queryuserListType
+ */
+const de_userListType = (output: any, context: __SerdeContext): User[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_queryUser(entry, context);
+      return de_User(entry, context);
     });
 };
 
-const deserializeAws_queryVirtualMFADevice = (output: any, context: __SerdeContext): VirtualMFADevice => {
-  const contents: any = {
-    SerialNumber: undefined,
-    Base32StringSeed: undefined,
-    QRCodePNG: undefined,
-    User: undefined,
-    EnableDate: undefined,
-    Tags: undefined,
-  };
+/**
+ * deserializeAws_queryVirtualMFADevice
+ */
+const de_VirtualMFADevice = (output: any, context: __SerdeContext): VirtualMFADevice => {
+  const contents: any = {};
   if (output["SerialNumber"] !== undefined) {
     contents.SerialNumber = __expectString(output["SerialNumber"]);
   }
@@ -17427,24 +18489,27 @@ const deserializeAws_queryVirtualMFADevice = (output: any, context: __SerdeConte
     contents.QRCodePNG = context.base64Decoder(output["QRCodePNG"]);
   }
   if (output["User"] !== undefined) {
-    contents.User = deserializeAws_queryUser(output["User"], context);
+    contents.User = de_User(output["User"], context);
   }
   if (output["EnableDate"] !== undefined) {
-    contents.EnableDate = __expectNonNull(__parseRfc3339DateTime(output["EnableDate"]));
+    contents.EnableDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["EnableDate"]));
   }
   if (output.Tags === "") {
     contents.Tags = [];
   } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents.Tags = de_tagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   return contents;
 };
 
-const deserializeAws_queryvirtualMFADeviceListType = (output: any, context: __SerdeContext): VirtualMFADevice[] => {
+/**
+ * deserializeAws_queryvirtualMFADeviceListType
+ */
+const de_virtualMFADeviceListType = (output: any, context: __SerdeContext): VirtualMFADevice[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_queryVirtualMFADevice(entry, context);
+      return de_VirtualMFADevice(entry, context);
     });
 };
 
@@ -17468,6 +18533,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,
@@ -17491,6 +18557,9 @@ const buildHttpRpcRequest = async (
     contents.body = body;
   }
   return new __HttpRequest(contents);
+};
+const SHARED_HEADERS: __HeaderBag = {
+  "content-type": "application/x-www-form-urlencoded",
 };
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
@@ -17534,7 +18603,7 @@ const buildFormUrlencodedString = (formEntries: Record<string, string>): string 
     .join("&");
 
 const loadQueryErrorCode = (output: __HttpResponse, data: any): string | undefined => {
-  if (data.Error.Code !== undefined) {
+  if (data.Error?.Code !== undefined) {
     return data.Error.Code;
   }
   if (output.statusCode == 404) {

@@ -13,18 +13,26 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { EndpointAuthorization, EndpointAuthorizationFilterSensitiveLog } from "../models/models_0";
-import { RevokeEndpointAccessMessage, RevokeEndpointAccessMessageFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_queryRevokeEndpointAccessCommand,
-  serializeAws_queryRevokeEndpointAccessCommand,
-} from "../protocols/Aws_query";
+import { EndpointAuthorization } from "../models/models_0";
+import { RevokeEndpointAccessMessage } from "../models/models_1";
+import { de_RevokeEndpointAccessCommand, se_RevokeEndpointAccessCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * @public
+ *
+ * The input for {@link RevokeEndpointAccessCommand}.
+ */
 export interface RevokeEndpointAccessCommandInput extends RevokeEndpointAccessMessage {}
+/**
+ * @public
+ *
+ * The output of {@link RevokeEndpointAccessCommand}.
+ */
 export interface RevokeEndpointAccessCommandOutput extends EndpointAuthorization, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Revokes access to a cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -32,13 +40,46 @@ export interface RevokeEndpointAccessCommandOutput extends EndpointAuthorization
  * import { RedshiftClient, RevokeEndpointAccessCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, RevokeEndpointAccessCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // RevokeEndpointAccessMessage
+ *   ClusterIdentifier: "STRING_VALUE",
+ *   Account: "STRING_VALUE",
+ *   VpcIds: [ // VpcIdentifierList
+ *     "STRING_VALUE",
+ *   ],
+ *   Force: true || false,
+ * };
  * const command = new RevokeEndpointAccessCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RevokeEndpointAccessCommandInput - {@link RevokeEndpointAccessCommandInput}
+ * @returns {@link RevokeEndpointAccessCommandOutput}
  * @see {@link RevokeEndpointAccessCommandInput} for command's `input` shape.
  * @see {@link RevokeEndpointAccessCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
+ *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+ *         </p>
+ *
+ * @throws {@link EndpointAuthorizationNotFoundFault} (client fault)
+ *  <p>The authorization for this endpoint can't be found.</p>
+ *
+ * @throws {@link EndpointNotFoundFault} (client fault)
+ *  <p>The endpoint name doesn't refer to an existing endpoint.</p>
+ *
+ * @throws {@link InvalidAuthorizationStateFault} (client fault)
+ *  <p>The status of the authorization is not valid.</p>
+ *
+ * @throws {@link InvalidClusterSecurityGroupStateFault} (client fault)
+ *  <p>The state of the cluster security group is not <code>available</code>. </p>
+ *
+ * @throws {@link InvalidClusterStateFault} (client fault)
+ *  <p>The specified cluster is not in the <code>available</code> state. </p>
+ *
+ * @throws {@link InvalidEndpointStateFault} (client fault)
+ *  <p>The status of the endpoint is not valid.</p>
+ *
  *
  */
 export class RevokeEndpointAccessCommand extends $Command<
@@ -58,6 +99,9 @@ export class RevokeEndpointAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RevokeEndpointAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -86,8 +130,8 @@ export class RevokeEndpointAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RevokeEndpointAccessMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: EndpointAuthorizationFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -97,12 +141,18 @@ export class RevokeEndpointAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RevokeEndpointAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRevokeEndpointAccessCommand(input, context);
+    return se_RevokeEndpointAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RevokeEndpointAccessCommandOutput> {
-    return deserializeAws_queryRevokeEndpointAccessCommand(output, context);
+    return de_RevokeEndpointAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

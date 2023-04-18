@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
+import { DescribeOrderableDBInstanceOptionsMessage, OrderableDBInstanceOptionsMessage } from "../models/models_0";
 import {
-  DescribeOrderableDBInstanceOptionsMessage,
-  DescribeOrderableDBInstanceOptionsMessageFilterSensitiveLog,
-  OrderableDBInstanceOptionsMessage,
-  OrderableDBInstanceOptionsMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeOrderableDBInstanceOptionsCommand,
-  serializeAws_queryDescribeOrderableDBInstanceOptionsCommand,
+  de_DescribeOrderableDBInstanceOptionsCommand,
+  se_DescribeOrderableDBInstanceOptionsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeOrderableDBInstanceOptionsCommand}.
+ */
 export interface DescribeOrderableDBInstanceOptionsCommandInput extends DescribeOrderableDBInstanceOptionsMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeOrderableDBInstanceOptionsCommand}.
+ */
 export interface DescribeOrderableDBInstanceOptionsCommandOutput
   extends OrderableDBInstanceOptionsMessage,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of orderable instance options for the specified engine.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,33 @@ export interface DescribeOrderableDBInstanceOptionsCommandOutput
  * import { DocDBClient, DescribeOrderableDBInstanceOptionsCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, DescribeOrderableDBInstanceOptionsCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = { // DescribeOrderableDBInstanceOptionsMessage
+ *   Engine: "STRING_VALUE", // required
+ *   EngineVersion: "STRING_VALUE",
+ *   DBInstanceClass: "STRING_VALUE",
+ *   LicenseModel: "STRING_VALUE",
+ *   Vpc: true || false,
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeOrderableDBInstanceOptionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeOrderableDBInstanceOptionsCommandInput - {@link DescribeOrderableDBInstanceOptionsCommandInput}
+ * @returns {@link DescribeOrderableDBInstanceOptionsCommandOutput}
  * @see {@link DescribeOrderableDBInstanceOptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeOrderableDBInstanceOptionsCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
+ *
  *
  */
 export class DescribeOrderableDBInstanceOptionsCommand extends $Command<
@@ -64,6 +90,9 @@ export class DescribeOrderableDBInstanceOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeOrderableDBInstanceOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +121,8 @@ export class DescribeOrderableDBInstanceOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeOrderableDBInstanceOptionsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: OrderableDBInstanceOptionsMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +132,24 @@ export class DescribeOrderableDBInstanceOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeOrderableDBInstanceOptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeOrderableDBInstanceOptionsCommand(input, context);
+    return se_DescribeOrderableDBInstanceOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeOrderableDBInstanceOptionsCommandOutput> {
-    return deserializeAws_queryDescribeOrderableDBInstanceOptionsCommand(output, context);
+    return de_DescribeOrderableDBInstanceOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeCanariesLastRunRequest,
-  DescribeCanariesLastRunRequestFilterSensitiveLog,
-  DescribeCanariesLastRunResponse,
-  DescribeCanariesLastRunResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeCanariesLastRunCommand,
-  serializeAws_restJson1DescribeCanariesLastRunCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeCanariesLastRunRequest, DescribeCanariesLastRunResponse } from "../models/models_0";
+import { de_DescribeCanariesLastRunCommand, se_DescribeCanariesLastRunCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeCanariesLastRunCommand}.
+ */
 export interface DescribeCanariesLastRunCommandInput extends DescribeCanariesLastRunRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeCanariesLastRunCommand}.
+ */
 export interface DescribeCanariesLastRunCommandOutput extends DescribeCanariesLastRunResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this operation to see information from the most recent run of each canary that you have created.</p>
  *
  *          <p>This operation supports resource-level authorization using an IAM policy and
@@ -45,13 +48,29 @@ export interface DescribeCanariesLastRunCommandOutput extends DescribeCanariesLa
  * import { SyntheticsClient, DescribeCanariesLastRunCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
  * // const { SyntheticsClient, DescribeCanariesLastRunCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
  * const client = new SyntheticsClient(config);
+ * const input = { // DescribeCanariesLastRunRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Names: [ // DescribeCanariesLastRunNameFilter
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeCanariesLastRunCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCanariesLastRunCommandInput - {@link DescribeCanariesLastRunCommandInput}
+ * @returns {@link DescribeCanariesLastRunCommandOutput}
  * @see {@link DescribeCanariesLastRunCommandInput} for command's `input` shape.
  * @see {@link DescribeCanariesLastRunCommandOutput} for command's `response` shape.
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unknown internal error occurred.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>A parameter could not be validated.</p>
+ *
  *
  */
 export class DescribeCanariesLastRunCommand extends $Command<
@@ -71,6 +90,9 @@ export class DescribeCanariesLastRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCanariesLastRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +121,8 @@ export class DescribeCanariesLastRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCanariesLastRunRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeCanariesLastRunResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +132,18 @@ export class DescribeCanariesLastRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCanariesLastRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeCanariesLastRunCommand(input, context);
+    return se_DescribeCanariesLastRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCanariesLastRunCommandOutput> {
-    return deserializeAws_restJson1DescribeCanariesLastRunCommand(output, context);
+    return de_DescribeCanariesLastRunCommand(output, context);
   }
 
   // Start section: command_body_extra

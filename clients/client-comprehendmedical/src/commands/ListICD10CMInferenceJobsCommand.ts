@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
-import {
-  ListICD10CMInferenceJobsRequest,
-  ListICD10CMInferenceJobsRequestFilterSensitiveLog,
-  ListICD10CMInferenceJobsResponse,
-  ListICD10CMInferenceJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListICD10CMInferenceJobsCommand,
-  serializeAws_json1_1ListICD10CMInferenceJobsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListICD10CMInferenceJobsRequest, ListICD10CMInferenceJobsResponse } from "../models/models_0";
+import { de_ListICD10CMInferenceJobsCommand, se_ListICD10CMInferenceJobsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListICD10CMInferenceJobsCommand}.
+ */
 export interface ListICD10CMInferenceJobsCommandInput extends ListICD10CMInferenceJobsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListICD10CMInferenceJobsCommand}.
+ */
 export interface ListICD10CMInferenceJobsCommandOutput extends ListICD10CMInferenceJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of InferICD10CM jobs that you have submitted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,42 @@ export interface ListICD10CMInferenceJobsCommandOutput extends ListICD10CMInfere
  * import { ComprehendMedicalClient, ListICD10CMInferenceJobsCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, ListICD10CMInferenceJobsCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
  * const client = new ComprehendMedicalClient(config);
+ * const input = { // ListICD10CMInferenceJobsRequest
+ *   Filter: { // ComprehendMedicalAsyncJobFilter
+ *     JobName: "STRING_VALUE",
+ *     JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "PARTIAL_SUCCESS" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
+ *     SubmitTimeBefore: new Date("TIMESTAMP"),
+ *     SubmitTimeAfter: new Date("TIMESTAMP"),
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListICD10CMInferenceJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListICD10CMInferenceJobsCommandInput - {@link ListICD10CMInferenceJobsCommandInput}
+ * @returns {@link ListICD10CMInferenceJobsCommandOutput}
  * @see {@link ListICD10CMInferenceJobsCommandInput} for command's `input` shape.
  * @see {@link ListICD10CMInferenceJobsCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> An internal server error occurred. Retry your request. </p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p> The request that you made is invalid. Check your request to determine why it's invalid
+ *       and then retry the request.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p> You have made too many requests within a short period of time. Wait for a short time and
+ *       then try your request again. Contact customer support for more information about a service
+ *       limit increase. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The filter that you specified for the operation is invalid. Check the filter values that
+ *       you entered and try your request again.</p>
+ *
  *
  */
 export class ListICD10CMInferenceJobsCommand extends $Command<
@@ -66,6 +98,9 @@ export class ListICD10CMInferenceJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListICD10CMInferenceJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +129,8 @@ export class ListICD10CMInferenceJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListICD10CMInferenceJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListICD10CMInferenceJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +140,18 @@ export class ListICD10CMInferenceJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListICD10CMInferenceJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListICD10CMInferenceJobsCommand(input, context);
+    return se_ListICD10CMInferenceJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListICD10CMInferenceJobsCommandOutput> {
-    return deserializeAws_json1_1ListICD10CMInferenceJobsCommand(output, context);
+    return de_ListICD10CMInferenceJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

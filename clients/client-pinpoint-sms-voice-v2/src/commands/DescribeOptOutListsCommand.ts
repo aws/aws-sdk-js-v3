@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeOptOutListsRequest,
-  DescribeOptOutListsRequestFilterSensitiveLog,
-  DescribeOptOutListsResult,
-  DescribeOptOutListsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeOptOutListsRequest, DescribeOptOutListsResult } from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import {
-  deserializeAws_json1_0DescribeOptOutListsCommand,
-  serializeAws_json1_0DescribeOptOutListsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DescribeOptOutListsCommand, se_DescribeOptOutListsCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeOptOutListsCommand}.
+ */
 export interface DescribeOptOutListsCommandInput extends DescribeOptOutListsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeOptOutListsCommand}.
+ */
 export interface DescribeOptOutListsCommandOutput extends DescribeOptOutListsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified opt-out list or all opt-out lists in your account.</p>
  *         <p>If you specify opt-out list names, the output includes information for only the
  *             specified opt-out lists. Opt-out lists include only those that meet the filter criteria.
@@ -45,13 +48,41 @@ export interface DescribeOptOutListsCommandOutput extends DescribeOptOutListsRes
  * import { PinpointSMSVoiceV2Client, DescribeOptOutListsCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, DescribeOptOutListsCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
+ * const input = { // DescribeOptOutListsRequest
+ *   OptOutListNames: [ // OptOutListNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeOptOutListsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeOptOutListsCommandInput - {@link DescribeOptOutListsCommandInput}
+ * @returns {@link DescribeOptOutListsCommandOutput}
  * @see {@link DescribeOptOutListsCommandInput} for command's `input` shape.
  * @see {@link DescribeOptOutListsCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The request was denied because you don't have sufficient permissions to access the
+ *             resource.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The API encountered an unexpected error and couldn't complete the request. You might
+ *             be able to successfully issue the request again in the future.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A requested resource couldn't be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>An error that occurred because too many requests were sent during a certain amount of
+ *             time.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>A validation exception for a field.</p>
+ *
  *
  */
 export class DescribeOptOutListsCommand extends $Command<
@@ -71,6 +102,9 @@ export class DescribeOptOutListsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeOptOutListsCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +133,8 @@ export class DescribeOptOutListsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeOptOutListsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeOptOutListsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +144,18 @@ export class DescribeOptOutListsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeOptOutListsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeOptOutListsCommand(input, context);
+    return se_DescribeOptOutListsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeOptOutListsCommandOutput> {
-    return deserializeAws_json1_0DescribeOptOutListsCommand(output, context);
+    return de_DescribeOptOutListsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { LocationServiceException as __BaseException } from "./LocationServiceException";
 
 /**
+ * @public
  * <p>The request was denied because of insufficient access or permissions. Check with an
  *       administrator to verify your permissions.</p>
  */
@@ -25,29 +26,24 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
-export interface AssociateTrackerConsumerRequest {
-  /**
-   * <p>The name of the tracker resource to be associated with a geofence collection.</p>
-   */
-  TrackerName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker
-   *             resource. Used when you need to specify a resource across all AWS.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Format example:
-   *                         <code>arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  ConsumerArn: string | undefined;
-}
-
-export interface AssociateTrackerConsumerResponse {}
+/**
+ * @public
+ */
+export type Status = "Active" | "Expired";
 
 /**
+ * @public
+ * <p>Options for filtering API keys.</p>
+ */
+export interface ApiKeyFilter {
+  /**
+   * <p>Filter on <code>Active</code> or <code>Expired</code> API keys.</p>
+   */
+  KeyStatus?: Status | string;
+}
+
+/**
+ * @public
  * <p>The request was unsuccessful because of a conflict.</p>
  */
 export class ConflictException extends __BaseException {
@@ -69,6 +65,211 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
+ * <p>API Restrictions on the allowed actions, resources, and referers for an API key
+ *             resource.</p>
+ */
+export interface ApiKeyRestrictions {
+  /**
+   * <p>A list of allowed actions that an API key resource grants permissions to
+   *             perform</p>
+   *          <note>
+   *             <p>Currently, the only valid action is <code>geo:GetMap*</code> as an input to the
+   *                 list. For example, <code>["geo:GetMap*"]</code> is valid but
+   *                     <code>["geo:GetMapTile"]</code> is not.</p>
+   *          </note>
+   */
+  AllowActions: string[] | undefined;
+
+  /**
+   * <p>A list of allowed resource ARNs that a API key bearer can perform actions on</p>
+   *          <p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names
+   *                 (ARNs)</a>.</p>
+   *          <note>
+   *             <p>In this preview, you can allow only map resources.</p>
+   *          </note>
+   *          <p>Requirements:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must be prefixed with <code>arn</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>partition</code> and <code>service</code> must not be empty and should
+   *                     begin with only alphanumeric characters (A–Z, a–z, 0–9) and contain only
+   *                     alphanumeric numbers, hyphens (-) and periods (.).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>region</code> and <code>account-id</code> can be empty or should begin
+   *                     with only alphanumeric characters (A–Z, a–z, 0–9) and contain only alphanumeric
+   *                     numbers, hyphens (-) and periods (.).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resource-id</code> can begin with any character except for forward slash
+   *                     (/) and contain any characters after, including forward slashes to form a
+   *                     path.</p>
+   *                <p>
+   *                   <code>resource-id</code> can also include wildcard characters, denoted by an
+   *                     asterisk (*).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn</code>, <code>partition</code>, <code>service</code>,
+   *                         <code>region</code>, <code>account-id</code> and <code>resource-id</code>
+   *                     must be delimited by a colon (:).</p>
+   *             </li>
+   *             <li>
+   *                <p>No spaces allowed. For example,
+   *                             <code>arn:aws:geo:region:<i>account-id</i>:map/ExampleMap*</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  AllowResources: string[] | undefined;
+
+  /**
+   * <p>An optional list of allowed HTTP referers for which requests must originate from.
+   *             Requests using this API key from other domains will not be allowed.</p>
+   *          <p>Requirements:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Contain only alphanumeric characters (A–Z, a–z, 0–9) or any symbols in this
+   *                     list <code>$\-._+!*`(),;/?:@=&amp;</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>May contain a percent (%) if followed by 2 hexadecimal digits (A-F, a-f, 0-9);
+   *                     this is used for URL encoding purposes.</p>
+   *             </li>
+   *             <li>
+   *                <p>May contain wildcard characters question mark (?) and asterisk (*).</p>
+   *                <p>Question mark (?) will replace any single character (including hexadecimal
+   *                     digits).</p>
+   *                <p>Asterisk (*) will replace any multiple characters (including multiple
+   *                     hexadecimal digits).</p>
+   *             </li>
+   *             <li>
+   *                <p>No spaces allowed. For example, <code>https://example.com</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  AllowReferers?: string[];
+}
+
+/**
+ * @public
+ */
+export interface CreateKeyRequest {
+  /**
+   * <p>A custom name for the API key resource.</p>
+   *          <p>Requirements:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods
+   *                     (.), and underscores (_). </p>
+   *             </li>
+   *             <li>
+   *                <p>Must be a unique API key name.</p>
+   *             </li>
+   *             <li>
+   *                <p>No spaces allowed. For example, <code>ExampleAPIKey</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  KeyName: string | undefined;
+
+  /**
+   * <p>The API key restrictions for the API key resource.</p>
+   */
+  Restrictions: ApiKeyRestrictions | undefined;
+
+  /**
+   * <p>An optional description for the API key resource.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The optional timestamp for when the API key resource will expire in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
+   *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. One of <code>NoExpiry</code> or
+   *                 <code>ExpireTime</code> must be set.</p>
+   */
+  ExpireTime?: Date;
+
+  /**
+   * <p>Optionally set to <code>true</code> to set no expiration time for the API key. One of
+   *                 <code>NoExpiry</code> or <code>ExpireTime</code> must be set.</p>
+   */
+  NoExpiry?: boolean;
+
+  /**
+   * <p>Applies one or more tags to the map resource. A tag is a key-value pair that helps
+   *             manage, identify, search, and filter your resources by labelling them.</p>
+   *          <p>Format: <code>"key" : "value"</code>
+   *          </p>
+   *          <p>Restrictions:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Maximum 50 tags per resource</p>
+   *             </li>
+   *             <li>
+   *                <p>Each resource tag must be unique with a maximum of one value.</p>
+   *             </li>
+   *             <li>
+   *                <p>Maximum key length: 128 Unicode characters in UTF-8</p>
+   *             </li>
+   *             <li>
+   *                <p>Maximum value length: 256 Unicode characters in UTF-8</p>
+   *             </li>
+   *             <li>
+   *                <p>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters:
+   *                     + - = . _ : / @. </p>
+   *             </li>
+   *             <li>
+   *                <p>Cannot use "aws:" as a prefix for a key.</p>
+   *             </li>
+   *          </ul>
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface CreateKeyResponse {
+  /**
+   * <p>The key value/string of an API key. This value is used when making API calls to
+   *             authorize the call. For example, see <a href="https://docs.aws.amazon.com/location/latest/APIReference/API_GetMapGlyphs.html">GetMapGlyphs</a>.</p>
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the API key resource. Used when you need to specify
+   *             a resource across all Amazon Web Services.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Format example:
+   *                     <code>arn:aws:geo:region:account-id:key/ExampleKey</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  KeyArn: string | undefined;
+
+  /**
+   * <p>The name of the API key resource.</p>
+   */
+  KeyName: string | undefined;
+
+  /**
+   * <p>The timestamp for when the API key resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
+   *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
+   */
+  CreateTime: Date | undefined;
+}
+
+/**
+ * @public
  * <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -91,27 +292,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The resource that you've entered was not found in your AWS account.</p>
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
+ * @public
  * <p>The operation was denied because the request would exceed the maximum <a href="https://docs.aws.amazon.com/location/latest/developerguide/location-quotas.html">quota</a>
  *       set for Amazon Location Service.</p>
  */
@@ -137,6 +318,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied because of request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -159,6 +341,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input failed to meet the constraints specified by the AWS service in a specified
  *       field. </p>
  */
@@ -174,6 +357,9 @@ export interface ValidationExceptionField {
   Message: string | undefined;
 }
 
+/**
+ * @public
+ */
 export type ValidationExceptionReason =
   | "CannotParse"
   | "FieldValidationFailed"
@@ -182,6 +368,7 @@ export type ValidationExceptionReason =
   | "UnknownOperation";
 
 /**
+ * @public
  * <p>The input failed to meet the constraints specified by the AWS service. </p>
  */
 export class ValidationException extends __BaseException {
@@ -213,6 +400,302 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
+export interface DeleteKeyRequest {
+  /**
+   * <p>The name of the API key to delete.</p>
+   */
+  KeyName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteKeyResponse {}
+
+/**
+ * @public
+ * <p>The resource that you've entered was not found in your AWS account.</p>
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
+export interface DescribeKeyRequest {
+  /**
+   * <p>The name of the API key resource.</p>
+   */
+  KeyName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeKeyResponse {
+  /**
+   * <p>The key value/string of an API key.</p>
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the API key resource. Used when you need to specify
+   *             a resource across all Amazon Web Services.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Format example:
+   *                     <code>arn:aws:geo:region:account-id:key/ExampleKey</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  KeyArn: string | undefined;
+
+  /**
+   * <p>The name of the API key resource.</p>
+   */
+  KeyName: string | undefined;
+
+  /**
+   * <p>API Restrictions on the allowed actions, resources, and referers for an API key
+   *             resource.</p>
+   */
+  Restrictions: ApiKeyRestrictions | undefined;
+
+  /**
+   * <p>The timestamp for when the API key resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
+   *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
+   */
+  CreateTime: Date | undefined;
+
+  /**
+   * <p>The timestamp for when the API key resource will expire in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
+   *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
+   */
+  ExpireTime: Date | undefined;
+
+  /**
+   * <p>The timestamp for when the API key resource was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
+   *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
+   */
+  UpdateTime: Date | undefined;
+
+  /**
+   * <p>The optional description for the API key resource.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Tags associated with the API key resource.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface ListKeysRequest {
+  /**
+   * <p>An optional limit for the number of resources returned in a single call. </p>
+   *          <p>Default value: <code>100</code>
+   *          </p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The pagination token specifying which page of results to return in the response. If no
+   *             token is provided, the default page is the first page. </p>
+   *          <p>Default value: <code>null</code>
+   *          </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Optionally filter the list to only <code>Active</code> or <code>Expired</code> API
+   *             keys.</p>
+   */
+  Filter?: ApiKeyFilter;
+}
+
+/**
+ * @public
+ * <p>An API key resource listed in your Amazon Web Services account.</p>
+ */
+export interface ListKeysResponseEntry {
+  /**
+   * <p>The name of the API key resource.</p>
+   */
+  KeyName: string | undefined;
+
+  /**
+   * <p>The timestamp for when the API key resource will expire, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
+   *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>.</p>
+   */
+  ExpireTime: Date | undefined;
+
+  /**
+   * <p>The optional description for the API key resource.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>API Restrictions on the allowed actions, resources, and referers for an API key
+   *             resource.</p>
+   */
+  Restrictions: ApiKeyRestrictions | undefined;
+
+  /**
+   * <p>The timestamp of when the API key was created, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
+   *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>.</p>
+   */
+  CreateTime: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the API key was last updated, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
+   *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>.</p>
+   */
+  UpdateTime: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListKeysResponse {
+  /**
+   * <p>Contains API key resources in your Amazon Web Services account. Details include API key
+   *             name, allowed referers and timestamp for when the API key will expire.</p>
+   */
+  Entries: ListKeysResponseEntry[] | undefined;
+
+  /**
+   * <p>A pagination token indicating there are additional pages available. You can use the
+   *             token in a following request to fetch the next set of results. </p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateKeyRequest {
+  /**
+   * <p>The name of the API key resource to update.</p>
+   */
+  KeyName: string | undefined;
+
+  /**
+   * <p>Updates the description for the API key resource.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Updates the timestamp for when the API key resource will expire in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
+   *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
+   */
+  ExpireTime?: Date;
+
+  /**
+   * <p>Whether the API key should expire. Set to <code>true</code> to set the API key to have
+   *             no expiration time.</p>
+   */
+  NoExpiry?: boolean;
+
+  /**
+   * <p>The boolean flag to be included for updating <code>ExpireTime</code> or
+   *                 <code>Restrictions</code> details.</p>
+   *          <p>Must be set to <code>true</code> to update an API key resource that has been used in
+   *             the past 7 days.</p>
+   *          <p>
+   *             <code>False</code> if force update is not preferred</p>
+   *          <p>Default value: <code>False</code>
+   *          </p>
+   */
+  ForceUpdate?: boolean;
+
+  /**
+   * <p>Updates the API key restrictions for the API key resource.</p>
+   */
+  Restrictions?: ApiKeyRestrictions;
+}
+
+/**
+ * @public
+ */
+export interface UpdateKeyResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the API key resource. Used when you need to specify
+   *             a resource across all Amazon Web Services.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Format example:
+   *                     <code>arn:aws:geo:region:account-id:key/ExampleKey</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  KeyArn: string | undefined;
+
+  /**
+   * <p>The name of the API key resource.</p>
+   */
+  KeyName: string | undefined;
+
+  /**
+   * <p>The timestamp for when the API key resource was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
+   *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
+   */
+  UpdateTime: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateTrackerConsumerRequest {
+  /**
+   * <p>The name of the tracker resource to be associated with a geofence collection.</p>
+   */
+  TrackerName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker
+   *             resource. Used when you need to specify a resource across all Amazon Web Services.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Format example:
+   *                         <code>arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  ConsumerArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateTrackerConsumerResponse {}
+
+/**
+ * @public
+ */
 export interface BatchDeleteDevicePositionHistoryRequest {
   /**
    * <p>The name of the tracker resource to delete the device position history from.</p>
@@ -232,6 +715,9 @@ export interface BatchDeleteDevicePositionHistoryRequest {
   DeviceIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export type BatchItemErrorCode =
   | "AccessDeniedError"
   | "ConflictError"
@@ -241,6 +727,7 @@ export type BatchItemErrorCode =
   | "ValidationError";
 
 /**
+ * @public
  * <p>Contains the batch request error details associated with the request.</p>
  */
 export interface BatchItemError {
@@ -256,6 +743,7 @@ export interface BatchItemError {
 }
 
 /**
+ * @public
  * <p>Contains the tracker resource details.</p>
  */
 export interface BatchDeleteDevicePositionHistoryError {
@@ -270,6 +758,9 @@ export interface BatchDeleteDevicePositionHistoryError {
   Error: BatchItemError | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchDeleteDevicePositionHistoryResponse {
   /**
    * <p>Contains error details for each device history that failed to delete.</p>
@@ -277,6 +768,9 @@ export interface BatchDeleteDevicePositionHistoryResponse {
   Errors: BatchDeleteDevicePositionHistoryError[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchDeleteGeofenceRequest {
   /**
    * <p>The geofence collection storing the geofences to be deleted.</p>
@@ -290,6 +784,7 @@ export interface BatchDeleteGeofenceRequest {
 }
 
 /**
+ * @public
  * <p>Contains error details for each geofence that failed to delete from the geofence
  *             collection.</p>
  */
@@ -305,6 +800,9 @@ export interface BatchDeleteGeofenceError {
   Error: BatchItemError | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchDeleteGeofenceResponse {
   /**
    * <p>Contains error details for each geofence that failed to delete.</p>
@@ -313,6 +811,7 @@ export interface BatchDeleteGeofenceResponse {
 }
 
 /**
+ * @public
  * <p>Defines the level of certainty of the position.</p>
  */
 export interface PositionalAccuracy {
@@ -324,6 +823,7 @@ export interface PositionalAccuracy {
 }
 
 /**
+ * @public
  * <p>Contains the position update details for a device.</p>
  */
 export interface DevicePositionUpdate {
@@ -360,6 +860,9 @@ export interface DevicePositionUpdate {
   PositionProperties?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface BatchEvaluateGeofencesRequest {
   /**
    * <p>The geofence collection used in evaluating the position of devices against its
@@ -375,6 +878,7 @@ export interface BatchEvaluateGeofencesRequest {
 }
 
 /**
+ * @public
  * <p>Contains error details for each device that failed to evaluate its position against
  *             the geofences in a given geofence collection.</p>
  */
@@ -397,6 +901,9 @@ export interface BatchEvaluateGeofencesError {
   Error: BatchItemError | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchEvaluateGeofencesResponse {
   /**
    * <p>Contains error details for each device that failed to evaluate its position against
@@ -405,6 +912,9 @@ export interface BatchEvaluateGeofencesResponse {
   Errors: BatchEvaluateGeofencesError[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetDevicePositionRequest {
   /**
    * <p>The tracker resource retrieving the device position.</p>
@@ -425,6 +935,7 @@ export interface BatchGetDevicePositionRequest {
 }
 
 /**
+ * @public
  * <p>Contains the device position details.</p>
  */
 export interface DevicePosition {
@@ -462,6 +973,7 @@ export interface DevicePosition {
 }
 
 /**
+ * @public
  * <p>Contains error details for each device that didn't return a position.</p>
  */
 export interface BatchGetDevicePositionError {
@@ -476,6 +988,9 @@ export interface BatchGetDevicePositionError {
   Error: BatchItemError | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetDevicePositionResponse {
   /**
    * <p>Contains  error details for each device that failed to send its position to the tracker
@@ -491,6 +1006,7 @@ export interface BatchGetDevicePositionResponse {
 }
 
 /**
+ * @public
  * <p>A circle on the earth, as defined by a center point and a radius.</p>
  */
 export interface Circle {
@@ -508,6 +1024,7 @@ export interface Circle {
 }
 
 /**
+ * @public
  * <p>Contains the geofence geometry details.</p>
  *          <p>A geofence geometry is made up of either a polygon or a circle. Can be either a
  *             polygon or a circle. Including both will return a validation error.</p>
@@ -541,6 +1058,7 @@ export interface GeofenceGeometry {
 }
 
 /**
+ * @public
  * <p>Contains geofence geometry details. </p>
  */
 export interface BatchPutGeofenceRequestEntry {
@@ -560,6 +1078,9 @@ export interface BatchPutGeofenceRequestEntry {
   Geometry: GeofenceGeometry | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchPutGeofenceRequest {
   /**
    * <p>The geofence collection storing the geofences.</p>
@@ -573,6 +1094,7 @@ export interface BatchPutGeofenceRequest {
 }
 
 /**
+ * @public
  * <p>Contains error details for each geofence that failed to be stored in a given geofence
  *             collection.</p>
  */
@@ -589,6 +1111,7 @@ export interface BatchPutGeofenceError {
 }
 
 /**
+ * @public
  * <p>Contains a summary of each geofence that was successfully stored in a given geofence
  *             collection.</p>
  */
@@ -613,6 +1136,9 @@ export interface BatchPutGeofenceSuccess {
   UpdateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchPutGeofenceResponse {
   /**
    * <p>Contains each geofence that was successfully stored in a geofence collection.</p>
@@ -626,6 +1152,9 @@ export interface BatchPutGeofenceResponse {
   Errors: BatchPutGeofenceError[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchUpdateDevicePositionRequest {
   /**
    * <p>The name of the tracker resource to update.</p>
@@ -639,6 +1168,7 @@ export interface BatchUpdateDevicePositionRequest {
 }
 
 /**
+ * @public
  * <p>Contains  error details for each device that failed to update its position.</p>
  */
 export interface BatchUpdateDevicePositionError {
@@ -660,6 +1190,9 @@ export interface BatchUpdateDevicePositionError {
   Error: BatchItemError | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchUpdateDevicePositionResponse {
   /**
    * <p>Contains  error details for each device that failed to update its position.</p>
@@ -668,6 +1201,7 @@ export interface BatchUpdateDevicePositionResponse {
 }
 
 /**
+ * @public
  * <p>Contains details about additional route preferences for requests that specify
  *                 <code>TravelMode</code> as <code>Car</code>.</p>
  */
@@ -691,13 +1225,23 @@ export interface CalculateRouteCarModeOptions {
   AvoidTolls?: boolean;
 }
 
+/**
+ * @public
+ */
 export type DistanceUnit = "Kilometers" | "Miles";
 
+/**
+ * @public
+ */
 export type TravelMode = "Bicycle" | "Car" | "Motorcycle" | "Truck" | "Walking";
 
+/**
+ * @public
+ */
 export type DimensionUnit = "Feet" | "Meters";
 
 /**
+ * @public
  * <p>Contains details about the truck dimensions in the unit of measurement that you
  *             specify. Used to filter out roads that can't support or allow the specified dimensions
  *             for requests that specify <code>TravelMode</code> as <code>Truck</code>.</p>
@@ -756,9 +1300,13 @@ export interface TruckDimensions {
   Unit?: DimensionUnit | string;
 }
 
+/**
+ * @public
+ */
 export type VehicleWeightUnit = "Kilograms" | "Pounds";
 
 /**
+ * @public
  * <p>Contains details about the truck's weight specifications. Used to avoid roads that
  *             can't support or allow the total weight for requests that specify
  *                 <code>TravelMode</code> as <code>Truck</code>.</p>
@@ -783,6 +1331,7 @@ export interface TruckWeight {
 }
 
 /**
+ * @public
  * <p>Contains details about additional route preferences for requests that specify
  *                 <code>TravelMode</code> as <code>Truck</code>.</p>
  */
@@ -819,6 +1368,9 @@ export interface CalculateRouteTruckModeOptions {
   Weight?: TruckWeight;
 }
 
+/**
+ * @public
+ */
 export interface CalculateRouteRequest {
   /**
    * <p>The name of the route calculator resource that you want to use to calculate the route.
@@ -986,6 +1538,7 @@ export interface CalculateRouteRequest {
 }
 
 /**
+ * @public
  * <p>Contains the geometry details for each path between a pair of positions. Used in
  *             plotting a route leg on a map.</p>
  */
@@ -1006,6 +1559,7 @@ export interface LegGeometry {
 }
 
 /**
+ * @public
  * <p> Represents an element of a leg within a route. A step contains instructions for how
  *             to move to the next step in the leg. </p>
  */
@@ -1046,6 +1600,7 @@ export interface Step {
 }
 
 /**
+ * @public
  * <p>Contains the calculated route's details for each path between a pair of positions. The
  *             number of legs returned corresponds to one fewer than the total number of positions in
  *             the request. </p>
@@ -1127,6 +1682,7 @@ export interface Leg {
 }
 
 /**
+ * @public
  * <p>A summary of the calculated route.</p>
  */
 export interface CalculateRouteSummary {
@@ -1207,6 +1763,7 @@ export interface CalculateRouteSummary {
 }
 
 /**
+ * @public
  * <p>Returns the result of the route calculation. Metadata includes legs and route
  *             summary.</p>
  */
@@ -1251,6 +1808,9 @@ export interface CalculateRouteResponse {
   Summary: CalculateRouteSummary | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CalculateRouteMatrixRequest {
   /**
    * <p>The name of the route calculator resource that you want to use to calculate the route
@@ -1384,6 +1944,9 @@ export interface CalculateRouteMatrixRequest {
   TruckModeOptions?: CalculateRouteTruckModeOptions;
 }
 
+/**
+ * @public
+ */
 export type RouteMatrixErrorCode =
   | "DeparturePositionNotFound"
   | "DestinationPositionNotFound"
@@ -1393,6 +1956,7 @@ export type RouteMatrixErrorCode =
   | "RouteTooLong";
 
 /**
+ * @public
  * <p>An error corresponding to the calculation of a route between the
  *                 <code>DeparturePosition</code> and <code>DestinationPosition</code>.</p>
  *          <p>The error code can be one of the following:</p>
@@ -1454,6 +2018,7 @@ export interface RouteMatrixEntryError {
 }
 
 /**
+ * @public
  * <p>The result for the calculated route of one <code>DeparturePosition</code>
  *             <code>DestinationPosition</code> pair.</p>
  */
@@ -1476,6 +2041,7 @@ export interface RouteMatrixEntry {
 }
 
 /**
+ * @public
  * <p>A summary of the calculated route matrix.</p>
  */
 export interface CalculateRouteMatrixSummary {
@@ -1524,6 +2090,7 @@ export interface CalculateRouteMatrixSummary {
 }
 
 /**
+ * @public
  * <p>Returns the result of the route matrix calculation.</p>
  */
 export interface CalculateRouteMatrixResponse {
@@ -1558,8 +2125,14 @@ export interface CalculateRouteMatrixResponse {
   Summary: CalculateRouteMatrixSummary | undefined;
 }
 
+/**
+ * @public
+ */
 export type PricingPlan = "MobileAssetManagement" | "MobileAssetTracking" | "RequestBasedUsage";
 
+/**
+ * @public
+ */
 export interface CreateGeofenceCollectionRequest {
   /**
    * <p>A custom name for the geofence collection.</p>
@@ -1630,12 +2203,17 @@ export interface CreateGeofenceCollectionRequest {
   Tags?: Record<string, string>;
 
   /**
-   * <p>A key identifier for an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">AWS KMS customer managed key</a>. Enter a key ID, key ARN, alias name, or alias ARN.
+   * <p>A key identifier for an
+   *             <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">Amazon Web Services
+   *                 KMS customer managed key</a>. Enter a key ID, key ARN, alias name, or alias ARN.
    * 	</p>
    */
   KmsKeyId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateGeofenceCollectionResponse {
   /**
    * <p>The name for the geofence collection.</p>
@@ -1644,7 +2222,7 @@ export interface CreateGeofenceCollectionResponse {
 
   /**
    * <p>The Amazon Resource Name (ARN) for the geofence collection resource. Used when you
-   *             need to specify a resource across all AWS. </p>
+   *             need to specify a resource across all Amazon Web Services. </p>
    *          <ul>
    *             <li>
    *                <p>Format example:
@@ -1664,6 +2242,7 @@ export interface CreateGeofenceCollectionResponse {
 }
 
 /**
+ * @public
  * <p>Specifies the map tile style selected from an available provider.</p>
  */
 export interface MapConfiguration {
@@ -1777,26 +2356,44 @@ export interface MapConfiguration {
    *                 in the Asia Pacific (Singapore) Region (<code>ap-southeast-1</code>).
    *                 For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html#grab-coverage-area">GrabMaps countries and area covered</a>.</p>
    *          </note>
-   *          <p>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/open-data.html">Open Data (Preview) map styles</a>:</p>
+   *          <p>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/open-data.html">Open Data map styles</a>:</p>
    *          <ul>
    *             <li>
    *                <p>
    *                   <code>VectorOpenDataStandardLight</code> – The Open Data Standard Light
-   *                     (preview) map style provides a detailed basemap for the world suitable for
+   *                     map style provides a detailed basemap for the world suitable for
    *                     website and mobile application use. The map includes highways major roads,
    *                     minor roads, railways, water features, cities, parks, landmarks, building
    *                     footprints, and administrative boundaries.</p>
-   *                <important>
-   *                   <p>Open Data maps is in preview. We may add, change, or remove
-   *                     features before announcing general availability. For more information, see
-   *                     <a href="https://docs.aws.amazon.com/location/latest/developerguide/open-data.html#open-data-preview">Open Data is in preview release</a>.</p>
-   *                </important>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VectorOpenDataStandardDark</code> – Open Data Standard Dark is a
+   *                     dark-themed map style that provides a detailed basemap for the world
+   *                     suitable for website and mobile application use. The map includes highways
+   *                     major roads, minor roads, railways, water features, cities, parks,
+   *                     landmarks, building footprints, and administrative boundaries.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VectorOpenDataVisualizationLight</code> – The Open Data
+   *                     Visualization Light map style is a light-themed style with muted colors and
+   *                     fewer features that aids in understanding overlaid data.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VectorOpenDataVisualizationDark</code> – The Open Data
+   *                     Visualization Dark map style is a dark-themed style with muted colors and
+   *                     fewer features that aids in understanding overlaid data.</p>
    *             </li>
    *          </ul>
    */
   Style: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateMapRequest {
   /**
    * <p>The name for the map resource.</p>
@@ -1866,6 +2463,9 @@ export interface CreateMapRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateMapResponse {
   /**
    * <p>The name of the map resource.</p>
@@ -1874,7 +2474,7 @@ export interface CreateMapResponse {
 
   /**
    * <p>The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across
-   *             all AWS.</p>
+   *             all Amazon Web Services.</p>
    *          <ul>
    *             <li>
    *                <p>Format example:
@@ -1892,9 +2492,13 @@ export interface CreateMapResponse {
   CreateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export type IntendedUse = "SingleUse" | "Storage";
 
 /**
+ * @public
  * <p>Specifies the data storage option chosen for requesting Places.</p>
  *          <important>
  *             <p>When using Amazon Location Places:</p>
@@ -1935,6 +2539,9 @@ export interface DataSourceConfiguration {
   IntendedUse?: IntendedUse | string;
 }
 
+/**
+ * @public
+ */
 export interface CreatePlaceIndexRequest {
   /**
    * <p>The name of the place index resource. </p>
@@ -1978,7 +2585,7 @@ export interface CreatePlaceIndexRequest {
    *                <important>
    *                   <p>If you specify HERE Technologies (<code>Here</code>) as the data provider,
    *                         you may not <a href="https://docs.aws.amazon.com/location-places/latest/APIReference/API_DataSourceConfiguration.html">store results</a> for locations in Japan. For more information, see
-   *                         the <a href="https://aws.amazon.com/service-terms/">AWS Service
+   *                         the <a href="http://aws.amazon.com/service-terms/">Amazon Web Services Service
    *                             Terms</a> for Amazon Location Service.</p>
    *                </important>
    *             </li>
@@ -2037,6 +2644,9 @@ export interface CreatePlaceIndexRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreatePlaceIndexResponse {
   /**
    * <p>The name for the place index resource.</p>
@@ -2045,7 +2655,7 @@ export interface CreatePlaceIndexResponse {
 
   /**
    * <p>The Amazon Resource Name (ARN) for the place index resource. Used to specify a
-   *             resource across AWS. </p>
+   *             resource across Amazon Web Services. </p>
    *          <ul>
    *             <li>
    *                <p>Format example:
@@ -2063,6 +2673,9 @@ export interface CreatePlaceIndexResponse {
   CreateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateRouteCalculatorRequest {
   /**
    * <p>The name of the route calculator resource. </p>
@@ -2132,8 +2745,8 @@ export interface CreateRouteCalculatorRequest {
    *             helps manage, identify, search, and filter your resources by labelling them.</p>
    *          <ul>
    *             <li>
-   *                <p>For example: { <code>"tag1" : "value1"</code>, <code>"tag2" :
-   *                     "value2"</code>}</p>
+   *                <p>For example: \{ <code>"tag1" : "value1"</code>, <code>"tag2" :
+   *                     "value2"</code>\}</p>
    *             </li>
    *          </ul>
    *          <p>Format: <code>"key" : "value"</code>
@@ -2164,6 +2777,9 @@ export interface CreateRouteCalculatorRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateRouteCalculatorResponse {
   /**
    * <p>The name of the route calculator resource. </p>
@@ -2177,7 +2793,7 @@ export interface CreateRouteCalculatorResponse {
 
   /**
    * <p>The Amazon Resource Name (ARN) for the route calculator resource. Use the ARN when you
-   *             specify a resource across all AWS.</p>
+   *             specify a resource across all Amazon Web Services.</p>
    *          <ul>
    *             <li>
    *                <p>Format example:
@@ -2201,8 +2817,14 @@ export interface CreateRouteCalculatorResponse {
   CreateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export type PositionFiltering = "AccuracyBased" | "DistanceBased" | "TimeBased";
 
+/**
+ * @public
+ */
 export interface CreateTrackerRequest {
   /**
    * <p>The name for the tracker resource.</p>
@@ -2230,7 +2852,9 @@ export interface CreateTrackerRequest {
   PricingPlan?: PricingPlan | string;
 
   /**
-   * <p>A key identifier for an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">AWS KMS customer managed key</a>. Enter a key ID, key ARN, alias name, or alias ARN.</p>
+   * <p>A key identifier for an
+   *            <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">Amazon Web Services
+   *                KMS customer managed key</a>. Enter a key ID, key ARN, alias name, or alias ARN.</p>
    */
   KmsKeyId?: string;
 
@@ -2312,6 +2936,9 @@ export interface CreateTrackerRequest {
   PositionFiltering?: PositionFiltering | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateTrackerResponse {
   /**
    * <p>The name of the tracker resource.</p>
@@ -2320,7 +2947,7 @@ export interface CreateTrackerResponse {
 
   /**
    * <p>The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify
-   *             a resource across all AWS.</p>
+   *             a resource across all Amazon Web Services.</p>
    *          <ul>
    *             <li>
    *                <p>Format example:
@@ -2338,6 +2965,9 @@ export interface CreateTrackerResponse {
   CreateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteGeofenceCollectionRequest {
   /**
    * <p>The name of the geofence collection to be deleted.</p>
@@ -2345,8 +2975,14 @@ export interface DeleteGeofenceCollectionRequest {
   CollectionName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteGeofenceCollectionResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteMapRequest {
   /**
    * <p>The name of the map resource to be deleted.</p>
@@ -2354,8 +2990,14 @@ export interface DeleteMapRequest {
   MapName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMapResponse {}
 
+/**
+ * @public
+ */
 export interface DeletePlaceIndexRequest {
   /**
    * <p>The name of the place index resource to be deleted.</p>
@@ -2363,8 +3005,14 @@ export interface DeletePlaceIndexRequest {
   IndexName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePlaceIndexResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteRouteCalculatorRequest {
   /**
    * <p>The name of the route calculator resource to be deleted.</p>
@@ -2372,8 +3020,14 @@ export interface DeleteRouteCalculatorRequest {
   CalculatorName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRouteCalculatorResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteTrackerRequest {
   /**
    * <p>The name of the tracker resource to be deleted.</p>
@@ -2381,8 +3035,14 @@ export interface DeleteTrackerRequest {
   TrackerName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTrackerResponse {}
 
+/**
+ * @public
+ */
 export interface DescribeGeofenceCollectionRequest {
   /**
    * <p>The name of the geofence collection.</p>
@@ -2390,6 +3050,9 @@ export interface DescribeGeofenceCollectionRequest {
   CollectionName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGeofenceCollectionResponse {
   /**
    * <p>The name of the geofence collection.</p>
@@ -2398,7 +3061,7 @@ export interface DescribeGeofenceCollectionResponse {
 
   /**
    * <p>The Amazon Resource Name (ARN) for the geofence collection resource. Used when you
-   *             need to specify a resource across all AWS. </p>
+   *             need to specify a resource across all Amazon Web Services. </p>
    *          <ul>
    *             <li>
    *                <p>Format example:
@@ -2429,7 +3092,9 @@ export interface DescribeGeofenceCollectionResponse {
   PricingPlanDataSource?: string;
 
   /**
-   * <p>A key identifier for an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">AWS KMS customer managed key</a> assigned to the Amazon Location resource</p>
+   * <p>A key identifier for an
+   *             <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">Amazon Web Services
+   *                 KMS customer managed key</a> assigned to the Amazon Location resource</p>
    */
   KmsKeyId?: string;
 
@@ -2453,6 +3118,9 @@ export interface DescribeGeofenceCollectionResponse {
   UpdateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMapRequest {
   /**
    * <p>The name of the map resource.</p>
@@ -2460,6 +3128,9 @@ export interface DescribeMapRequest {
   MapName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMapResponse {
   /**
    * <p>The map style selected from an available provider.</p>
@@ -2468,7 +3139,7 @@ export interface DescribeMapResponse {
 
   /**
    * <p>The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across
-   *             all AWS.</p>
+   *             all Amazon Web Services.</p>
    *          <ul>
    *             <li>
    *                <p>Format example:
@@ -2519,6 +3190,9 @@ export interface DescribeMapResponse {
   UpdateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribePlaceIndexRequest {
   /**
    * <p>The name of the place index resource.</p>
@@ -2526,6 +3200,9 @@ export interface DescribePlaceIndexRequest {
   IndexName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribePlaceIndexResponse {
   /**
    * <p>The name of the place index resource being described.</p>
@@ -2534,7 +3211,7 @@ export interface DescribePlaceIndexResponse {
 
   /**
    * <p>The Amazon Resource Name (ARN) for the place index resource. Used to specify a
-   *             resource across AWS. </p>
+   *             resource across Amazon Web Services. </p>
    *          <ul>
    *             <li>
    *                <p>Format example:
@@ -2603,6 +3280,9 @@ export interface DescribePlaceIndexResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRouteCalculatorRequest {
   /**
    * <p>The name of the route calculator resource.</p>
@@ -2610,6 +3290,9 @@ export interface DescribeRouteCalculatorRequest {
   CalculatorName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRouteCalculatorResponse {
   /**
    * <p>The name of the route calculator resource being described.</p>
@@ -2618,7 +3301,7 @@ export interface DescribeRouteCalculatorResponse {
 
   /**
    * <p>The Amazon Resource Name (ARN) for the Route calculator resource. Use the ARN when you
-   *             specify a resource across AWS.</p>
+   *             specify a resource across Amazon Web Services.</p>
    *          <ul>
    *             <li>
    *                <p>Format example:
@@ -2695,6 +3378,9 @@ export interface DescribeRouteCalculatorResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTrackerRequest {
   /**
    * <p>The name of the tracker resource.</p>
@@ -2702,6 +3388,9 @@ export interface DescribeTrackerRequest {
   TrackerName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTrackerResponse {
   /**
    * <p>The name of the tracker resource.</p>
@@ -2710,7 +3399,7 @@ export interface DescribeTrackerResponse {
 
   /**
    * <p>The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify
-   *             a resource across all AWS.</p>
+   *             a resource across all Amazon Web Services.</p>
    *          <ul>
    *             <li>
    *                <p>Format example:
@@ -2758,7 +3447,8 @@ export interface DescribeTrackerResponse {
   UpdateTime: Date | undefined;
 
   /**
-   * <p>A key identifier for an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">AWS KMS customer managed key</a> assigned to the Amazon Location resource.</p>
+   * <p>A key identifier for an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">Amazon Web Services
+   *             KMS customer managed key</a> assigned to the Amazon Location resource.</p>
    */
   KmsKeyId?: string;
 
@@ -2768,6 +3458,9 @@ export interface DescribeTrackerResponse {
   PositionFiltering?: PositionFiltering | string;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateTrackerConsumerRequest {
   /**
    * <p>The name of the tracker resource to be dissociated from the consumer.</p>
@@ -2776,7 +3469,7 @@ export interface DisassociateTrackerConsumerRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) for the geofence collection to be disassociated from
-   *             the tracker resource. Used when you need to specify a resource across all AWS. </p>
+   *             the tracker resource. Used when you need to specify a resource across all Amazon Web Services. </p>
    *          <ul>
    *             <li>
    *                <p>Format example:
@@ -2788,14 +3481,21 @@ export interface DisassociateTrackerConsumerRequest {
   ConsumerArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateTrackerConsumerResponse {}
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource whose tags you want to retrieve.</p>
    *          <ul>
    *             <li>
-   *                <p>Format example: <code>arn:aws:geo:region:account-id:resourcetype/ExampleResource</code>
+   *                <p>Format example:
+   *                         <code>arn:aws:geo:region:account-id:resourcetype/ExampleResource</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -2803,12 +3503,16 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>Tags that have been applied to the specified resource. Tags are mapped from the tag key to the tag value: <code>"TagKey" : "TagValue"</code>.</p>
+   * <p>Tags that have been applied to the specified resource. Tags are mapped from the tag
+   *             key to the tag value: <code>"TagKey" : "TagValue"</code>.</p>
    *          <ul>
    *             <li>
-   *                <p>Format example: <code>{"tag1" : "value1", "tag2" : "value2"} </code>
+   *                <p>Format example: <code>\{"tag1" : "value1", "tag2" : "value2"\} </code>
    *                </p>
    *             </li>
    *          </ul>
@@ -2816,12 +3520,16 @@ export interface ListTagsForResourceResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource whose tags you want to update.</p>
    *          <ul>
    *             <li>
-   *                <p>Format example: <code>arn:aws:geo:region:account-id:resourcetype/ExampleResource</code>
+   *                <p>Format example:
+   *                         <code>arn:aws:geo:region:account-id:resourcetype/ExampleResource</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -2829,8 +3537,8 @@ export interface TagResourceRequest {
   ResourceArn: string | undefined;
 
   /**
-   * <p>Applies one or more tags to specific resource. A tag is a key-value pair that helps you
-   *             manage, identify, search, and filter your resources.</p>
+   * <p>Applies one or more tags to specific resource. A tag is a key-value pair that helps
+   *             you manage, identify, search, and filter your resources.</p>
    *          <p>Format: <code>"key" : "value"</code>
    *          </p>
    *          <p>Restrictions:</p>
@@ -2848,8 +3556,8 @@ export interface TagResourceRequest {
    *                <p>Maximum value length: 256 Unicode characters in UTF-8.</p>
    *             </li>
    *             <li>
-   *                <p>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters: + -
-   *                     = . _ : / @</p>
+   *                <p>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters:
+   *                     + - = . _ : / @</p>
    *             </li>
    *             <li>
    *                <p>Cannot use "aws:" as a prefix for a key.</p>
@@ -2859,14 +3567,22 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource from which you want to remove tags.</p>
+   * <p>The Amazon Resource Name (ARN) of the resource from which you want to remove
+   *             tags.</p>
    *          <ul>
    *             <li>
-   *                <p>Format example: <code>arn:aws:geo:region:account-id:resourcetype/ExampleResource</code>
+   *                <p>Format example:
+   *                         <code>arn:aws:geo:region:account-id:resourcetype/ExampleResource</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -2879,8 +3595,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface GetGeofenceRequest {
   /**
    * <p>The geofence collection storing the target geofence.</p>
@@ -2893,6 +3615,9 @@ export interface GetGeofenceRequest {
   GeofenceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetGeofenceResponse {
   /**
    * <p>The geofence identifier.</p>
@@ -2949,6 +3674,9 @@ export interface GetGeofenceResponse {
   UpdateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListGeofenceCollectionsRequest {
   /**
    * <p>An optional limit for the number of resources returned in a single call. </p>
@@ -2967,6 +3695,7 @@ export interface ListGeofenceCollectionsRequest {
 }
 
 /**
+ * @public
  * <p>Contains the geofence collection details.</p>
  */
 export interface ListGeofenceCollectionsResponseEntry {
@@ -3009,9 +3738,12 @@ export interface ListGeofenceCollectionsResponseEntry {
   UpdateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListGeofenceCollectionsResponse {
   /**
-   * <p>Lists the geofence collections that exist in your AWS account.</p>
+   * <p>Lists the geofence collections that exist in your Amazon Web Services account.</p>
    */
   Entries: ListGeofenceCollectionsResponseEntry[] | undefined;
 
@@ -3022,6 +3754,9 @@ export interface ListGeofenceCollectionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListGeofencesRequest {
   /**
    * <p>The name of the geofence collection storing the list of geofences.</p>
@@ -3045,6 +3780,7 @@ export interface ListGeofencesRequest {
 }
 
 /**
+ * @public
  * <p>Contains a list of geofences stored in a given geofence collection.</p>
  */
 export interface ListGeofenceResponseEntry {
@@ -3103,6 +3839,9 @@ export interface ListGeofenceResponseEntry {
   UpdateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListGeofencesResponse {
   /**
    * <p>Contains a list of geofences stored in the geofence collection.</p>
@@ -3116,6 +3855,9 @@ export interface ListGeofencesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutGeofenceRequest {
   /**
    * <p>The geofence collection to store the geofence in.</p>
@@ -3138,6 +3880,9 @@ export interface PutGeofenceRequest {
   Geometry: GeofenceGeometry | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutGeofenceResponse {
   /**
    * <p>The geofence identifier entered in the request.</p>
@@ -3159,6 +3904,9 @@ export interface PutGeofenceResponse {
   UpdateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGeofenceCollectionRequest {
   /**
    * <p>The name of the geofence collection to update.</p>
@@ -3186,6 +3934,9 @@ export interface UpdateGeofenceCollectionRequest {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGeofenceCollectionResponse {
   /**
    * <p>The name of the updated geofence collection.</p>
@@ -3194,7 +3945,7 @@ export interface UpdateGeofenceCollectionResponse {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the updated geofence collection. Used to specify a
-   *             resource across AWS.</p>
+   *             resource across Amazon Web Services.</p>
    *          <ul>
    *             <li>
    *                <p>Format example:
@@ -3213,6 +3964,9 @@ export interface UpdateGeofenceCollectionResponse {
   UpdateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDevicePositionRequest {
   /**
    * <p>The tracker resource receiving the position update.</p>
@@ -3225,6 +3979,9 @@ export interface GetDevicePositionRequest {
   DeviceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDevicePositionResponse {
   /**
    * <p>The device whose position you retrieved.</p>
@@ -3259,6 +4016,9 @@ export interface GetDevicePositionResponse {
   PositionProperties?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetDevicePositionHistoryRequest {
   /**
    * <p>The tracker resource receiving the request for the device position history.</p>
@@ -3314,6 +4074,9 @@ export interface GetDevicePositionHistoryRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetDevicePositionHistoryResponse {
   /**
    * <p>Contains the position history details for the requested device.</p>
@@ -3327,6 +4090,9 @@ export interface GetDevicePositionHistoryResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetMapGlyphsRequest {
   /**
    * <p>The map resource associated with the glyph ﬁle.</p>
@@ -3392,10 +4158,11 @@ export interface GetMapGlyphsRequest {
    *                </p>
    *             </li>
    *          </ul>
-   *          <p>Valid font stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/open-data.html">Open Data (Preview)</a> styles:</p>
+   *          <p>Valid font stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/open-data.html">Open Data</a> styles:</p>
    *          <ul>
    *             <li>
-   *                <p>VectorOpenDataStandardLight –
+   *                <p>VectorOpenDataStandardLight, VectorOpenDataStandardDark,
+   *                     VectorOpenDataVisualizationLight, VectorOpenDataVisualizationDark –
    *                     <code>Amazon Ember Regular,Noto Sans Regular</code> |
    *                     <code>Amazon Ember Bold,Noto Sans Bold</code> |
    *                     <code>Amazon Ember Medium,Noto Sans Medium</code> |
@@ -3406,7 +4173,7 @@ export interface GetMapGlyphsRequest {
    *             </li>
    *          </ul>
    *          <note>
-   *             <p>The fonts used by <code>VectorOpenDataStandardLight</code> are combined fonts
+   *             <p>The fonts used by the Open Data map styles are combined fonts
    *                 that use <code>Amazon Ember</code> for most glyphs but <code>Noto Sans</code>
    *                 for glyphs unsupported by <code>Amazon Ember</code>.</p>
    *          </note>
@@ -3419,11 +4186,20 @@ export interface GetMapGlyphsRequest {
    *                 <code>00FF</code>. Must be aligned to multiples of 256.</p>
    */
   FontUnicodeRange: string | undefined;
+
+  /**
+   * <p>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize
+   *             the request.</p>
+   */
+  Key?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetMapGlyphsResponse {
   /**
-   * <p>The blob's content type.</p>
+   * <p>The glyph, as binary blob.</p>
    */
   Blob?: Uint8Array;
 
@@ -3431,8 +4207,16 @@ export interface GetMapGlyphsResponse {
    * <p>The map glyph content type. For example, <code>application/octet-stream</code>.</p>
    */
   ContentType?: string;
+
+  /**
+   * <p>The HTTP Cache-Control directive for the value.</p>
+   */
+  CacheControl?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetMapSpritesRequest {
   /**
    * <p>The map resource associated with the sprite ﬁle.</p>
@@ -3466,8 +4250,17 @@ export interface GetMapSpritesRequest {
    *          </ul>
    */
   FileName: string | undefined;
+
+  /**
+   * <p>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize
+   *             the request.</p>
+   */
+  Key?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetMapSpritesResponse {
   /**
    * <p>Contains the body of the sprite sheet or JSON offset ﬁle.</p>
@@ -3480,15 +4273,32 @@ export interface GetMapSpritesResponse {
    *                 <code>application/json</code>. </p>
    */
   ContentType?: string;
+
+  /**
+   * <p>The HTTP Cache-Control directive for the value.</p>
+   */
+  CacheControl?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetMapStyleDescriptorRequest {
   /**
    * <p>The map resource to retrieve the style descriptor from.</p>
    */
   MapName: string | undefined;
+
+  /**
+   * <p>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize
+   *             the request.</p>
+   */
+  Key?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetMapStyleDescriptorResponse {
   /**
    * <p>Contains the body of the style descriptor.</p>
@@ -3500,8 +4310,16 @@ export interface GetMapStyleDescriptorResponse {
    *             <code>application/json</code>.</p>
    */
   ContentType?: string;
+
+  /**
+   * <p>The HTTP Cache-Control directive for the value.</p>
+   */
+  CacheControl?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetMapTileRequest {
   /**
    * <p>The map resource to retrieve the map tiles from.</p>
@@ -3522,8 +4340,17 @@ export interface GetMapTileRequest {
    * <p>The Y axis value for the map tile. </p>
    */
   Y: string | undefined;
+
+  /**
+   * <p>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize
+   *             the request.</p>
+   */
+  Key?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetMapTileResponse {
   /**
    * <p>Contains Mapbox Vector Tile (MVT) data.</p>
@@ -3535,8 +4362,16 @@ export interface GetMapTileResponse {
    *                 <code>application/vnd.mapbox-vector-tile</code>.</p>
    */
   ContentType?: string;
+
+  /**
+   * <p>The HTTP Cache-Control directive for the value.</p>
+   */
+  CacheControl?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetPlaceRequest {
   /**
    * <p>The name of the place index resource that you want to use for the search.</p>
@@ -3568,6 +4403,7 @@ export interface GetPlaceRequest {
 }
 
 /**
+ * @public
  * <p>Places uses a point geometry to specify a location or a Place.</p>
  */
 export interface PlaceGeometry {
@@ -3589,6 +4425,7 @@ export interface PlaceGeometry {
 }
 
 /**
+ * @public
  * <p>Information about a time zone. Includes the name of the time zone and the offset from
  *             UTC in seconds.</p>
  */
@@ -3607,6 +4444,7 @@ export interface TimeZone {
 }
 
 /**
+ * @public
  * <p>Contains details about addresses or points of interest that match the search
  *             criteria.</p>
  *          <p>Not all details are included with all responses. Some details may only be returned by
@@ -3706,6 +4544,9 @@ export interface Place {
   UnitNumber?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetPlaceResponse {
   /**
    * <p>Details about the result, such as its address and position.</p>
@@ -3713,6 +4554,9 @@ export interface GetPlaceResponse {
   Place: Place | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListDevicePositionsRequest {
   /**
    * <p>The tracker resource containing the requested devices.</p>
@@ -3736,6 +4580,7 @@ export interface ListDevicePositionsRequest {
 }
 
 /**
+ * @public
  * <p>Contains the tracker resource details.</p>
  */
 export interface ListDevicePositionsResponseEntry {
@@ -3766,6 +4611,9 @@ export interface ListDevicePositionsResponseEntry {
   PositionProperties?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListDevicePositionsResponse {
   /**
    * <p>Contains details about each device's last known position. These details includes the device ID,
@@ -3780,6 +4628,9 @@ export interface ListDevicePositionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListMapsRequest {
   /**
    * <p>An optional limit for the number of resources returned in a single call. </p>
@@ -3798,7 +4649,8 @@ export interface ListMapsRequest {
 }
 
 /**
- * <p>Contains details of an existing map resource in your AWS account.</p>
+ * @public
+ * <p>Contains details of an existing map resource in your Amazon Web Services account.</p>
  */
 export interface ListMapsResponseEntry {
   /**
@@ -3836,9 +4688,12 @@ export interface ListMapsResponseEntry {
   UpdateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListMapsResponse {
   /**
-   * <p>Contains a list of maps in your AWS account</p>
+   * <p>Contains a list of maps in your Amazon Web Services account</p>
    */
   Entries: ListMapsResponseEntry[] | undefined;
 
@@ -3848,6 +4703,9 @@ export interface ListMapsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPlaceIndexesRequest {
   /**
    * <p>An optional limit for the maximum number of results returned in a single call.</p>
@@ -3866,7 +4724,8 @@ export interface ListPlaceIndexesRequest {
 }
 
 /**
- * <p>A place index resource listed in your AWS account.</p>
+ * @public
+ * <p>A place index resource listed in your Amazon Web Services account.</p>
  */
 export interface ListPlaceIndexesResponseEntry {
   /**
@@ -3922,9 +4781,12 @@ export interface ListPlaceIndexesResponseEntry {
   UpdateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListPlaceIndexesResponse {
   /**
-   * <p>Lists the place index resources that exist in your AWS account</p>
+   * <p>Lists the place index resources that exist in your Amazon Web Services account</p>
    */
   Entries: ListPlaceIndexesResponseEntry[] | undefined;
 
@@ -3935,6 +4797,9 @@ export interface ListPlaceIndexesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRouteCalculatorsRequest {
   /**
    * <p>An optional maximum number of results returned in a single call.</p>
@@ -3953,7 +4818,8 @@ export interface ListRouteCalculatorsRequest {
 }
 
 /**
- * <p>A route calculator resource listed in your AWS account.</p>
+ * @public
+ * <p>A route calculator resource listed in your Amazon Web Services account.</p>
  */
 export interface ListRouteCalculatorsResponseEntry {
   /**
@@ -4022,9 +4888,12 @@ export interface ListRouteCalculatorsResponseEntry {
   UpdateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListRouteCalculatorsResponse {
   /**
-   * <p>Lists the route calculator resources that exist in your AWS account</p>
+   * <p>Lists the route calculator resources that exist in your Amazon Web Services account</p>
    */
   Entries: ListRouteCalculatorsResponseEntry[] | undefined;
 
@@ -4035,6 +4904,9 @@ export interface ListRouteCalculatorsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTrackerConsumersRequest {
   /**
    * <p>The tracker resource whose associated geofence collections you want to list.</p>
@@ -4057,6 +4929,9 @@ export interface ListTrackerConsumersRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTrackerConsumersResponse {
   /**
    * <p>Contains the list of geofence collection ARNs associated to the tracker resource.</p>
@@ -4070,6 +4945,9 @@ export interface ListTrackerConsumersResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTrackersRequest {
   /**
    * <p>An optional limit for the number of resources returned in a single call. </p>
@@ -4088,6 +4966,7 @@ export interface ListTrackersRequest {
 }
 
 /**
+ * @public
  * <p>Contains the tracker resource details.</p>
  */
 export interface ListTrackersResponseEntry {
@@ -4128,9 +5007,12 @@ export interface ListTrackersResponseEntry {
   UpdateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTrackersResponse {
   /**
-   * <p>Contains tracker resources in your AWS account. Details include tracker name,
+   * <p>Contains tracker resources in your Amazon Web Services account. Details include tracker name,
    *             description and timestamps for when the tracker was created and last updated.</p>
    */
   Entries: ListTrackersResponseEntry[] | undefined;
@@ -4142,6 +5024,9 @@ export interface ListTrackersResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMapRequest {
   /**
    * <p>The name of the map resource to update.</p>
@@ -4162,6 +5047,9 @@ export interface UpdateMapRequest {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMapResponse {
   /**
    * <p>The name of the updated map resource.</p>
@@ -4187,6 +5075,9 @@ export interface UpdateMapResponse {
   UpdateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SearchPlaceIndexForPositionRequest {
   /**
    * <p>The name of the place index resource you want to use for the search.</p>
@@ -4230,6 +5121,7 @@ export interface SearchPlaceIndexForPositionRequest {
 }
 
 /**
+ * @public
  * <p>Contains a search result from a position search query that is run on a place index
  *             resource.</p>
  */
@@ -4261,6 +5153,7 @@ export interface SearchForPositionResult {
 }
 
 /**
+ * @public
  * <p>A summary of the request sent by using
  *             <code>SearchPlaceIndexForPosition</code>.</p>
  */
@@ -4303,6 +5196,9 @@ export interface SearchPlaceIndexForPositionSummary {
   Language?: string;
 }
 
+/**
+ * @public
+ */
 export interface SearchPlaceIndexForPositionResponse {
   /**
    * <p>Contains a summary of the request. Echoes the input values for <code>Position</code>,
@@ -4318,6 +5214,9 @@ export interface SearchPlaceIndexForPositionResponse {
   Results: SearchForPositionResult[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SearchPlaceIndexForSuggestionsRequest {
   /**
    * <p>The name of the place index resource you want to use for the search.</p>
@@ -4404,6 +5303,7 @@ export interface SearchPlaceIndexForSuggestionsRequest {
 }
 
 /**
+ * @public
  * <p>Contains a place suggestion resulting from a place suggestion query that is run on a
  *             place index resource.</p>
  */
@@ -4426,6 +5326,7 @@ export interface SearchForSuggestionsResult {
 }
 
 /**
+ * @public
  * <p>A summary of the request sent by using
  *             <code>SearchPlaceIndexForSuggestions</code>.</p>
  */
@@ -4488,6 +5389,9 @@ export interface SearchPlaceIndexForSuggestionsSummary {
   Language?: string;
 }
 
+/**
+ * @public
+ */
 export interface SearchPlaceIndexForSuggestionsResponse {
   /**
    * <p>Contains a summary of the request. Echoes the input values for
@@ -4503,6 +5407,9 @@ export interface SearchPlaceIndexForSuggestionsResponse {
   Results: SearchForSuggestionsResult[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SearchPlaceIndexForTextRequest {
   /**
    * <p>The name of the place index resource you want to use for the search.</p>
@@ -4589,6 +5496,7 @@ export interface SearchPlaceIndexForTextRequest {
 }
 
 /**
+ * @public
  * <p>Contains a search result from a text search query that is run on a place index
  *             resource.</p>
  */
@@ -4629,6 +5537,7 @@ export interface SearchForTextResult {
 }
 
 /**
+ * @public
  * <p>A summary of the request sent by using <code>SearchPlaceIndexForText</code>.</p>
  */
 export interface SearchPlaceIndexForTextSummary {
@@ -4699,6 +5608,9 @@ export interface SearchPlaceIndexForTextSummary {
   Language?: string;
 }
 
+/**
+ * @public
+ */
 export interface SearchPlaceIndexForTextResponse {
   /**
    * <p>Contains a summary of the request. Echoes the input values for
@@ -4718,6 +5630,9 @@ export interface SearchPlaceIndexForTextResponse {
   Results: SearchForTextResult[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePlaceIndexRequest {
   /**
    * <p>The name of the place index resource to update.</p>
@@ -4743,6 +5658,9 @@ export interface UpdatePlaceIndexRequest {
   DataSourceConfiguration?: DataSourceConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePlaceIndexResponse {
   /**
    * <p>The name of the updated place index resource.</p>
@@ -4751,7 +5669,7 @@ export interface UpdatePlaceIndexResponse {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the upated place index resource. Used to specify a
-   *             resource across AWS.</p>
+   *             resource across Amazon Web Services.</p>
    *          <ul>
    *             <li>
    *                <p>Format example: <code>arn:aws:geo:region:account-id:place-
@@ -4769,6 +5687,9 @@ export interface UpdatePlaceIndexResponse {
   UpdateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRouteCalculatorRequest {
   /**
    * <p>The name of the route calculator resource to update.</p>
@@ -4789,6 +5710,9 @@ export interface UpdateRouteCalculatorRequest {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRouteCalculatorResponse {
   /**
    * <p>The name of the updated route calculator resource.</p>
@@ -4815,6 +5739,9 @@ export interface UpdateRouteCalculatorResponse {
   UpdateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTrackerRequest {
   /**
    * <p>The name of the tracker resource to update.</p>
@@ -4876,6 +5803,9 @@ export interface UpdateTrackerRequest {
   PositionFiltering?: PositionFiltering | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTrackerResponse {
   /**
    * <p>The name of the updated tracker resource.</p>
@@ -4904,84 +5834,17 @@ export interface UpdateTrackerResponse {
 /**
  * @internal
  */
-export const AssociateTrackerConsumerRequestFilterSensitiveLog = (obj: AssociateTrackerConsumerRequest): any => ({
+export const CreateKeyResponseFilterSensitiveLog = (obj: CreateKeyResponse): any => ({
   ...obj,
+  ...(obj.Key && { Key: SENSITIVE_STRING }),
 });
 
 /**
  * @internal
  */
-export const AssociateTrackerConsumerResponseFilterSensitiveLog = (obj: AssociateTrackerConsumerResponse): any => ({
+export const DescribeKeyResponseFilterSensitiveLog = (obj: DescribeKeyResponse): any => ({
   ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDeleteDevicePositionHistoryRequestFilterSensitiveLog = (
-  obj: BatchDeleteDevicePositionHistoryRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchItemErrorFilterSensitiveLog = (obj: BatchItemError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDeleteDevicePositionHistoryErrorFilterSensitiveLog = (
-  obj: BatchDeleteDevicePositionHistoryError
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDeleteDevicePositionHistoryResponseFilterSensitiveLog = (
-  obj: BatchDeleteDevicePositionHistoryResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDeleteGeofenceRequestFilterSensitiveLog = (obj: BatchDeleteGeofenceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDeleteGeofenceErrorFilterSensitiveLog = (obj: BatchDeleteGeofenceError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDeleteGeofenceResponseFilterSensitiveLog = (obj: BatchDeleteGeofenceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PositionalAccuracyFilterSensitiveLog = (obj: PositionalAccuracy): any => ({
-  ...obj,
+  ...(obj.Key && { Key: SENSITIVE_STRING }),
 });
 
 /**
@@ -5006,38 +5869,10 @@ export const BatchEvaluateGeofencesRequestFilterSensitiveLog = (obj: BatchEvalua
 /**
  * @internal
  */
-export const BatchEvaluateGeofencesErrorFilterSensitiveLog = (obj: BatchEvaluateGeofencesError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchEvaluateGeofencesResponseFilterSensitiveLog = (obj: BatchEvaluateGeofencesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetDevicePositionRequestFilterSensitiveLog = (obj: BatchGetDevicePositionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DevicePositionFilterSensitiveLog = (obj: DevicePosition): any => ({
   ...obj,
   ...(obj.Position && { Position: SENSITIVE_STRING }),
   ...(obj.PositionProperties && { PositionProperties: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const BatchGetDevicePositionErrorFilterSensitiveLog = (obj: BatchGetDevicePositionError): any => ({
-  ...obj,
 });
 
 /**
@@ -5086,72 +5921,9 @@ export const BatchPutGeofenceRequestFilterSensitiveLog = (obj: BatchPutGeofenceR
 /**
  * @internal
  */
-export const BatchPutGeofenceErrorFilterSensitiveLog = (obj: BatchPutGeofenceError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchPutGeofenceSuccessFilterSensitiveLog = (obj: BatchPutGeofenceSuccess): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchPutGeofenceResponseFilterSensitiveLog = (obj: BatchPutGeofenceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const BatchUpdateDevicePositionRequestFilterSensitiveLog = (obj: BatchUpdateDevicePositionRequest): any => ({
   ...obj,
   ...(obj.Updates && { Updates: obj.Updates.map((item) => DevicePositionUpdateFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const BatchUpdateDevicePositionErrorFilterSensitiveLog = (obj: BatchUpdateDevicePositionError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchUpdateDevicePositionResponseFilterSensitiveLog = (obj: BatchUpdateDevicePositionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CalculateRouteCarModeOptionsFilterSensitiveLog = (obj: CalculateRouteCarModeOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TruckDimensionsFilterSensitiveLog = (obj: TruckDimensions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TruckWeightFilterSensitiveLog = (obj: TruckWeight): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CalculateRouteTruckModeOptionsFilterSensitiveLog = (obj: CalculateRouteTruckModeOptions): any => ({
-  ...obj,
 });
 
 /**
@@ -5221,27 +5993,6 @@ export const CalculateRouteMatrixRequestFilterSensitiveLog = (obj: CalculateRout
 /**
  * @internal
  */
-export const RouteMatrixEntryErrorFilterSensitiveLog = (obj: RouteMatrixEntryError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RouteMatrixEntryFilterSensitiveLog = (obj: RouteMatrixEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CalculateRouteMatrixSummaryFilterSensitiveLog = (obj: CalculateRouteMatrixSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CalculateRouteMatrixResponseFilterSensitiveLog = (obj: CalculateRouteMatrixResponse): any => ({
   ...obj,
   ...(obj.SnappedDeparturePositions && { SnappedDeparturePositions: SENSITIVE_STRING }),
@@ -5251,328 +6002,9 @@ export const CalculateRouteMatrixResponseFilterSensitiveLog = (obj: CalculateRou
 /**
  * @internal
  */
-export const CreateGeofenceCollectionRequestFilterSensitiveLog = (obj: CreateGeofenceCollectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateGeofenceCollectionResponseFilterSensitiveLog = (obj: CreateGeofenceCollectionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MapConfigurationFilterSensitiveLog = (obj: MapConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateMapRequestFilterSensitiveLog = (obj: CreateMapRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateMapResponseFilterSensitiveLog = (obj: CreateMapResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataSourceConfigurationFilterSensitiveLog = (obj: DataSourceConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePlaceIndexRequestFilterSensitiveLog = (obj: CreatePlaceIndexRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePlaceIndexResponseFilterSensitiveLog = (obj: CreatePlaceIndexResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRouteCalculatorRequestFilterSensitiveLog = (obj: CreateRouteCalculatorRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRouteCalculatorResponseFilterSensitiveLog = (obj: CreateRouteCalculatorResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTrackerRequestFilterSensitiveLog = (obj: CreateTrackerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTrackerResponseFilterSensitiveLog = (obj: CreateTrackerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteGeofenceCollectionRequestFilterSensitiveLog = (obj: DeleteGeofenceCollectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteGeofenceCollectionResponseFilterSensitiveLog = (obj: DeleteGeofenceCollectionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMapRequestFilterSensitiveLog = (obj: DeleteMapRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMapResponseFilterSensitiveLog = (obj: DeleteMapResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePlaceIndexRequestFilterSensitiveLog = (obj: DeletePlaceIndexRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePlaceIndexResponseFilterSensitiveLog = (obj: DeletePlaceIndexResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRouteCalculatorRequestFilterSensitiveLog = (obj: DeleteRouteCalculatorRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRouteCalculatorResponseFilterSensitiveLog = (obj: DeleteRouteCalculatorResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTrackerRequestFilterSensitiveLog = (obj: DeleteTrackerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTrackerResponseFilterSensitiveLog = (obj: DeleteTrackerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeGeofenceCollectionRequestFilterSensitiveLog = (obj: DescribeGeofenceCollectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeGeofenceCollectionResponseFilterSensitiveLog = (obj: DescribeGeofenceCollectionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeMapRequestFilterSensitiveLog = (obj: DescribeMapRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeMapResponseFilterSensitiveLog = (obj: DescribeMapResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePlaceIndexRequestFilterSensitiveLog = (obj: DescribePlaceIndexRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePlaceIndexResponseFilterSensitiveLog = (obj: DescribePlaceIndexResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRouteCalculatorRequestFilterSensitiveLog = (obj: DescribeRouteCalculatorRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRouteCalculatorResponseFilterSensitiveLog = (obj: DescribeRouteCalculatorResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTrackerRequestFilterSensitiveLog = (obj: DescribeTrackerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTrackerResponseFilterSensitiveLog = (obj: DescribeTrackerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateTrackerConsumerRequestFilterSensitiveLog = (obj: DisassociateTrackerConsumerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateTrackerConsumerResponseFilterSensitiveLog = (
-  obj: DisassociateTrackerConsumerResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetGeofenceRequestFilterSensitiveLog = (obj: GetGeofenceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetGeofenceResponseFilterSensitiveLog = (obj: GetGeofenceResponse): any => ({
   ...obj,
   ...(obj.Geometry && { Geometry: GeofenceGeometryFilterSensitiveLog(obj.Geometry) }),
-});
-
-/**
- * @internal
- */
-export const ListGeofenceCollectionsRequestFilterSensitiveLog = (obj: ListGeofenceCollectionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListGeofenceCollectionsResponseEntryFilterSensitiveLog = (
-  obj: ListGeofenceCollectionsResponseEntry
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListGeofenceCollectionsResponseFilterSensitiveLog = (obj: ListGeofenceCollectionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListGeofencesRequestFilterSensitiveLog = (obj: ListGeofencesRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -5602,45 +6034,10 @@ export const PutGeofenceRequestFilterSensitiveLog = (obj: PutGeofenceRequest): a
 /**
  * @internal
  */
-export const PutGeofenceResponseFilterSensitiveLog = (obj: PutGeofenceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateGeofenceCollectionRequestFilterSensitiveLog = (obj: UpdateGeofenceCollectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateGeofenceCollectionResponseFilterSensitiveLog = (obj: UpdateGeofenceCollectionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDevicePositionRequestFilterSensitiveLog = (obj: GetDevicePositionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetDevicePositionResponseFilterSensitiveLog = (obj: GetDevicePositionResponse): any => ({
   ...obj,
   ...(obj.Position && { Position: SENSITIVE_STRING }),
   ...(obj.PositionProperties && { PositionProperties: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetDevicePositionHistoryRequestFilterSensitiveLog = (obj: GetDevicePositionHistoryRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -5658,13 +6055,7 @@ export const GetDevicePositionHistoryResponseFilterSensitiveLog = (obj: GetDevic
  */
 export const GetMapGlyphsRequestFilterSensitiveLog = (obj: GetMapGlyphsRequest): any => ({
   ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMapGlyphsResponseFilterSensitiveLog = (obj: GetMapGlyphsResponse): any => ({
-  ...obj,
+  ...(obj.Key && { Key: SENSITIVE_STRING }),
 });
 
 /**
@@ -5672,13 +6063,7 @@ export const GetMapGlyphsResponseFilterSensitiveLog = (obj: GetMapGlyphsResponse
  */
 export const GetMapSpritesRequestFilterSensitiveLog = (obj: GetMapSpritesRequest): any => ({
   ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMapSpritesResponseFilterSensitiveLog = (obj: GetMapSpritesResponse): any => ({
-  ...obj,
+  ...(obj.Key && { Key: SENSITIVE_STRING }),
 });
 
 /**
@@ -5686,13 +6071,7 @@ export const GetMapSpritesResponseFilterSensitiveLog = (obj: GetMapSpritesRespon
  */
 export const GetMapStyleDescriptorRequestFilterSensitiveLog = (obj: GetMapStyleDescriptorRequest): any => ({
   ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMapStyleDescriptorResponseFilterSensitiveLog = (obj: GetMapStyleDescriptorResponse): any => ({
-  ...obj,
+  ...(obj.Key && { Key: SENSITIVE_STRING }),
 });
 
 /**
@@ -5700,20 +6079,7 @@ export const GetMapStyleDescriptorResponseFilterSensitiveLog = (obj: GetMapStyle
  */
 export const GetMapTileRequestFilterSensitiveLog = (obj: GetMapTileRequest): any => ({
   ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMapTileResponseFilterSensitiveLog = (obj: GetMapTileResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPlaceRequestFilterSensitiveLog = (obj: GetPlaceRequest): any => ({
-  ...obj,
+  ...(obj.Key && { Key: SENSITIVE_STRING }),
 });
 
 /**
@@ -5722,13 +6088,6 @@ export const GetPlaceRequestFilterSensitiveLog = (obj: GetPlaceRequest): any => 
 export const PlaceGeometryFilterSensitiveLog = (obj: PlaceGeometry): any => ({
   ...obj,
   ...(obj.Point && { Point: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const TimeZoneFilterSensitiveLog = (obj: TimeZone): any => ({
-  ...obj,
 });
 
 /**
@@ -5750,13 +6109,6 @@ export const GetPlaceResponseFilterSensitiveLog = (obj: GetPlaceResponse): any =
 /**
  * @internal
  */
-export const ListDevicePositionsRequestFilterSensitiveLog = (obj: ListDevicePositionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListDevicePositionsResponseEntryFilterSensitiveLog = (obj: ListDevicePositionsResponseEntry): any => ({
   ...obj,
   ...(obj.Position && { Position: SENSITIVE_STRING }),
@@ -5769,118 +6121,6 @@ export const ListDevicePositionsResponseEntryFilterSensitiveLog = (obj: ListDevi
 export const ListDevicePositionsResponseFilterSensitiveLog = (obj: ListDevicePositionsResponse): any => ({
   ...obj,
   ...(obj.Entries && { Entries: obj.Entries.map((item) => ListDevicePositionsResponseEntryFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ListMapsRequestFilterSensitiveLog = (obj: ListMapsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMapsResponseEntryFilterSensitiveLog = (obj: ListMapsResponseEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMapsResponseFilterSensitiveLog = (obj: ListMapsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPlaceIndexesRequestFilterSensitiveLog = (obj: ListPlaceIndexesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPlaceIndexesResponseEntryFilterSensitiveLog = (obj: ListPlaceIndexesResponseEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPlaceIndexesResponseFilterSensitiveLog = (obj: ListPlaceIndexesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRouteCalculatorsRequestFilterSensitiveLog = (obj: ListRouteCalculatorsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRouteCalculatorsResponseEntryFilterSensitiveLog = (obj: ListRouteCalculatorsResponseEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRouteCalculatorsResponseFilterSensitiveLog = (obj: ListRouteCalculatorsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTrackerConsumersRequestFilterSensitiveLog = (obj: ListTrackerConsumersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTrackerConsumersResponseFilterSensitiveLog = (obj: ListTrackerConsumersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTrackersRequestFilterSensitiveLog = (obj: ListTrackersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTrackersResponseEntryFilterSensitiveLog = (obj: ListTrackersResponseEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTrackersResponseFilterSensitiveLog = (obj: ListTrackersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateMapRequestFilterSensitiveLog = (obj: UpdateMapRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateMapResponseFilterSensitiveLog = (obj: UpdateMapResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -5928,13 +6168,6 @@ export const SearchPlaceIndexForSuggestionsRequestFilterSensitiveLog = (
   ...(obj.Text && { Text: SENSITIVE_STRING }),
   ...(obj.BiasPosition && { BiasPosition: SENSITIVE_STRING }),
   ...(obj.FilterBBox && { FilterBBox: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const SearchForSuggestionsResultFilterSensitiveLog = (obj: SearchForSuggestionsResult): any => ({
-  ...obj,
 });
 
 /**
@@ -5995,46 +6228,4 @@ export const SearchPlaceIndexForTextResponseFilterSensitiveLog = (obj: SearchPla
   ...obj,
   ...(obj.Summary && { Summary: SearchPlaceIndexForTextSummaryFilterSensitiveLog(obj.Summary) }),
   ...(obj.Results && { Results: obj.Results.map((item) => SearchForTextResultFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const UpdatePlaceIndexRequestFilterSensitiveLog = (obj: UpdatePlaceIndexRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePlaceIndexResponseFilterSensitiveLog = (obj: UpdatePlaceIndexResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRouteCalculatorRequestFilterSensitiveLog = (obj: UpdateRouteCalculatorRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRouteCalculatorResponseFilterSensitiveLog = (obj: UpdateRouteCalculatorResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTrackerRequestFilterSensitiveLog = (obj: UpdateTrackerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTrackerResponseFilterSensitiveLog = (obj: UpdateTrackerResponse): any => ({
-  ...obj,
 });

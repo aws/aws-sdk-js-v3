@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteIdentityRequest,
-  DeleteIdentityRequestFilterSensitiveLog,
-  DeleteIdentityResponse,
-  DeleteIdentityResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteIdentityCommand,
-  serializeAws_queryDeleteIdentityCommand,
-} from "../protocols/Aws_query";
+import { DeleteIdentityRequest, DeleteIdentityResponse } from "../models/models_0";
+import { de_DeleteIdentityCommand, se_DeleteIdentityCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteIdentityCommand}.
+ */
 export interface DeleteIdentityCommandInput extends DeleteIdentityRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteIdentityCommand}.
+ */
 export interface DeleteIdentityCommandOutput extends DeleteIdentityResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified identity (an email address or a domain) from the list of
  *             verified identities.</p>
  *         <p>You can execute this operation no more than once per second.</p>
@@ -38,13 +41,30 @@ export interface DeleteIdentityCommandOutput extends DeleteIdentityResponse, __M
  * import { SESClient, DeleteIdentityCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, DeleteIdentityCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // DeleteIdentityRequest
+ *   Identity: "STRING_VALUE", // required
+ * };
  * const command = new DeleteIdentityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteIdentityCommandInput - {@link DeleteIdentityCommandInput}
+ * @returns {@link DeleteIdentityCommandOutput}
  * @see {@link DeleteIdentityCommandInput} for command's `input` shape.
  * @see {@link DeleteIdentityCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
+ *
+ *
+ * @example DeleteIdentity
+ * ```javascript
+ * // The following example deletes an identity from the list of identities that have been submitted for verification with Amazon SES:
+ * const input = {
+ *   "Identity": "user@example.com"
+ * };
+ * const command = new DeleteIdentityCommand(input);
+ * await client.send(command);
+ * // example id: deleteidentity-1469047858906
+ * ```
  *
  */
 export class DeleteIdentityCommand extends $Command<
@@ -64,6 +84,9 @@ export class DeleteIdentityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteIdentityCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +115,8 @@ export class DeleteIdentityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteIdentityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteIdentityResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +126,18 @@ export class DeleteIdentityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteIdentityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteIdentityCommand(input, context);
+    return se_DeleteIdentityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIdentityCommandOutput> {
-    return deserializeAws_queryDeleteIdentityCommand(output, context);
+    return de_DeleteIdentityCommand(output, context);
   }
 
   // Start section: command_body_extra

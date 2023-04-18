@@ -15,20 +15,27 @@ import {
 
 import {
   AcknowledgeOrderReceiptRequest,
-  AcknowledgeOrderReceiptRequestFilterSensitiveLog,
   AcknowledgeOrderReceiptResponse,
   AcknowledgeOrderReceiptResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { PrivateNetworksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PrivateNetworksClient";
-import {
-  deserializeAws_restJson1AcknowledgeOrderReceiptCommand,
-  serializeAws_restJson1AcknowledgeOrderReceiptCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AcknowledgeOrderReceiptCommand, se_AcknowledgeOrderReceiptCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link AcknowledgeOrderReceiptCommand}.
+ */
 export interface AcknowledgeOrderReceiptCommandInput extends AcknowledgeOrderReceiptRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AcknowledgeOrderReceiptCommand}.
+ */
 export interface AcknowledgeOrderReceiptCommandOutput extends AcknowledgeOrderReceiptResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Acknowledges that the specified network order was received.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +43,28 @@ export interface AcknowledgeOrderReceiptCommandOutput extends AcknowledgeOrderRe
  * import { PrivateNetworksClient, AcknowledgeOrderReceiptCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
  * // const { PrivateNetworksClient, AcknowledgeOrderReceiptCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
  * const client = new PrivateNetworksClient(config);
+ * const input = { // AcknowledgeOrderReceiptRequest
+ *   orderArn: "STRING_VALUE", // required
+ * };
  * const command = new AcknowledgeOrderReceiptCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AcknowledgeOrderReceiptCommandInput - {@link AcknowledgeOrderReceiptCommandInput}
+ * @returns {@link AcknowledgeOrderReceiptCommandOutput}
  * @see {@link AcknowledgeOrderReceiptCommandInput} for command's `input` shape.
  * @see {@link AcknowledgeOrderReceiptCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Information about an internal error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request failed validation.</p>
+ *
  *
  */
 export class AcknowledgeOrderReceiptCommand extends $Command<
@@ -62,6 +84,9 @@ export class AcknowledgeOrderReceiptCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcknowledgeOrderReceiptCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +115,7 @@ export class AcknowledgeOrderReceiptCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AcknowledgeOrderReceiptRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: AcknowledgeOrderReceiptResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -101,12 +126,18 @@ export class AcknowledgeOrderReceiptCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AcknowledgeOrderReceiptCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AcknowledgeOrderReceiptCommand(input, context);
+    return se_AcknowledgeOrderReceiptCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AcknowledgeOrderReceiptCommandOutput> {
-    return deserializeAws_restJson1AcknowledgeOrderReceiptCommand(output, context);
+    return de_AcknowledgeOrderReceiptCommand(output, context);
   }
 
   // Start section: command_body_extra

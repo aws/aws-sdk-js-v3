@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import { UpdateAssessmentTargetRequest, UpdateAssessmentTargetRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateAssessmentTargetCommand,
-  serializeAws_json1_1UpdateAssessmentTargetCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateAssessmentTargetRequest } from "../models/models_0";
+import { de_UpdateAssessmentTargetCommand, se_UpdateAssessmentTargetCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateAssessmentTargetCommand}.
+ */
 export interface UpdateAssessmentTargetCommandInput extends UpdateAssessmentTargetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateAssessmentTargetCommand}.
+ */
 export interface UpdateAssessmentTargetCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the assessment target that is specified by the ARN of the assessment
  *          target.</p>
  *          <p>If resourceGroupArn is not specified, all EC2 instances in the current AWS account
@@ -34,13 +42,51 @@ export interface UpdateAssessmentTargetCommandOutput extends __MetadataBearer {}
  * import { InspectorClient, UpdateAssessmentTargetCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, UpdateAssessmentTargetCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = { // UpdateAssessmentTargetRequest
+ *   assessmentTargetArn: "STRING_VALUE", // required
+ *   assessmentTargetName: "STRING_VALUE", // required
+ *   resourceGroupArn: "STRING_VALUE",
+ * };
  * const command = new UpdateAssessmentTargetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAssessmentTargetCommandInput - {@link UpdateAssessmentTargetCommandInput}
+ * @returns {@link UpdateAssessmentTargetCommandOutput}
  * @see {@link UpdateAssessmentTargetCommandInput} for command's `input` shape.
  * @see {@link UpdateAssessmentTargetCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have required permissions to access the requested resource.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>Internal server error.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
+ *          input parameter.</p>
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced an entity that does not exist. The
+ *          error code describes the entity.</p>
+ *
+ * @throws {@link ServiceTemporarilyUnavailableException} (server fault)
+ *  <p>The serice is temporary unavailable.</p>
+ *
+ *
+ * @example Update assessment target
+ * ```javascript
+ * // Updates the assessment target that is specified by the ARN of the assessment target.
+ * const input = {
+ *   "assessmentTargetArn": "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX",
+ *   "assessmentTargetName": "Example",
+ *   "resourceGroupArn": "arn:aws:inspector:us-west-2:123456789012:resourcegroup/0-yNbgL5Pt"
+ * };
+ * const command = new UpdateAssessmentTargetCommand(input);
+ * await client.send(command);
+ * // example id: update-assessment-target-1481067866692
+ * ```
  *
  */
 export class UpdateAssessmentTargetCommand extends $Command<
@@ -60,6 +106,9 @@ export class UpdateAssessmentTargetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAssessmentTargetCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +137,8 @@ export class UpdateAssessmentTargetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAssessmentTargetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +148,18 @@ export class UpdateAssessmentTargetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAssessmentTargetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateAssessmentTargetCommand(input, context);
+    return se_UpdateAssessmentTargetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAssessmentTargetCommandOutput> {
-    return deserializeAws_json1_1UpdateAssessmentTargetCommand(output, context);
+    return de_UpdateAssessmentTargetCommand(output, context);
   }
 
   // Start section: command_body_extra

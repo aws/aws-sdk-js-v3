@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetResourceSetRequest,
-  GetResourceSetRequestFilterSensitiveLog,
-  GetResourceSetResponse,
-  GetResourceSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetResourceSetCommand,
-  serializeAws_restJson1GetResourceSetCommand,
-} from "../protocols/Aws_restJson1";
+import { GetResourceSetRequest, GetResourceSetResponse } from "../models/models_0";
+import { de_GetResourceSetCommand, se_GetResourceSetCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryReadinessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53RecoveryReadinessClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetResourceSetCommand}.
+ */
 export interface GetResourceSetCommandInput extends GetResourceSetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetResourceSetCommand}.
+ */
 export interface GetResourceSetCommandOutput extends GetResourceSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Displays the details about a resource set, including a list of the resources in the set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,34 @@ export interface GetResourceSetCommandOutput extends GetResourceSetResponse, __M
  * import { Route53RecoveryReadinessClient, GetResourceSetCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
  * // const { Route53RecoveryReadinessClient, GetResourceSetCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
+ * const input = { // GetResourceSetRequest
+ *   ResourceSetName: "STRING_VALUE", // required
+ * };
  * const command = new GetResourceSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResourceSetCommandInput - {@link GetResourceSetCommandInput}
+ * @returns {@link GetResourceSetCommandOutput}
  * @see {@link GetResourceSetCommandInput} for command's `input` shape.
  * @see {@link GetResourceSetCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  User does not have sufficient access to perform this action.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  An unexpected error occurred.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  The requested resource does not exist.
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  Request was denied due to request throttling.
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  The input fails to satisfy the constraints specified by an AWS service.
+ *
  *
  */
 export class GetResourceSetCommand extends $Command<
@@ -66,6 +90,9 @@ export class GetResourceSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResourceSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +121,8 @@ export class GetResourceSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetResourceSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetResourceSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +132,18 @@ export class GetResourceSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResourceSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetResourceSetCommand(input, context);
+    return se_GetResourceSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourceSetCommandOutput> {
-    return deserializeAws_restJson1GetResourceSetCommand(output, context);
+    return de_GetResourceSetCommand(output, context);
   }
 
   // Start section: command_body_extra

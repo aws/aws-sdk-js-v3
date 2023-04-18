@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetMilestoneInput,
-  GetMilestoneInputFilterSensitiveLog,
-  GetMilestoneOutput,
-  GetMilestoneOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetMilestoneCommand,
-  serializeAws_restJson1GetMilestoneCommand,
-} from "../protocols/Aws_restJson1";
+import { GetMilestoneInput, GetMilestoneOutput } from "../models/models_0";
+import { de_GetMilestoneCommand, se_GetMilestoneCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetMilestoneCommand}.
+ */
 export interface GetMilestoneCommandInput extends GetMilestoneInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetMilestoneCommand}.
+ */
 export interface GetMilestoneCommandOutput extends GetMilestoneOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get a milestone for an existing workload.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,35 @@ export interface GetMilestoneCommandOutput extends GetMilestoneOutput, __Metadat
  * import { WellArchitectedClient, GetMilestoneCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, GetMilestoneCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
+ * const input = { // GetMilestoneInput
+ *   WorkloadId: "STRING_VALUE", // required
+ *   MilestoneNumber: Number("int"), // required
+ * };
  * const command = new GetMilestoneCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMilestoneCommandInput - {@link GetMilestoneCommandInput}
+ * @returns {@link GetMilestoneCommandOutput}
  * @see {@link GetMilestoneCommandInput} for command's `input` shape.
  * @see {@link GetMilestoneCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>User does not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There is a problem with the Well-Architected Tool API service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The user input is not valid.</p>
+ *
  *
  */
 export class GetMilestoneCommand extends $Command<
@@ -62,6 +87,9 @@ export class GetMilestoneCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMilestoneCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +116,8 @@ export class GetMilestoneCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMilestoneInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMilestoneOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +127,18 @@ export class GetMilestoneCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMilestoneCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMilestoneCommand(input, context);
+    return se_GetMilestoneCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMilestoneCommandOutput> {
-    return deserializeAws_restJson1GetMilestoneCommand(output, context);
+    return de_GetMilestoneCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -20,14 +20,67 @@ import {
   GetPhoneNumberResponse,
   GetPhoneNumberResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetPhoneNumberCommand,
-  serializeAws_restJson1GetPhoneNumberCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetPhoneNumberCommand, se_GetPhoneNumberCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetPhoneNumberCommand}.
+ */
 export interface GetPhoneNumberCommandInput extends GetPhoneNumberRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetPhoneNumberCommand}.
+ */
 export interface GetPhoneNumberCommandOutput extends GetPhoneNumberResponse, __MetadataBearer {}
 
+/**
+ * @public
+ * <p>Retrieves details for the specified phone number ID, such as associations,
+ *          capabilities, and product type.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeSDKVoiceClient, GetPhoneNumberCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
+ * // const { ChimeSDKVoiceClient, GetPhoneNumberCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * const client = new ChimeSDKVoiceClient(config);
+ * const input = { // GetPhoneNumberRequest
+ *   PhoneNumberId: "STRING_VALUE", // required
+ * };
+ * const command = new GetPhoneNumberCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @param GetPhoneNumberCommandInput - {@link GetPhoneNumberCommandInput}
+ * @returns {@link GetPhoneNumberCommandOutput}
+ * @see {@link GetPhoneNumberCommandInput} for command's `input` shape.
+ * @see {@link GetPhoneNumberCommandOutput} for command's `response` shape.
+ * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The requested resource couldn't be found.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The number of customer requests exceeds the request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client isn't authorized to request a resource.</p>
+ *
+ *
+ */
 export class GetPhoneNumberCommand extends $Command<
   GetPhoneNumberCommandInput,
   GetPhoneNumberCommandOutput,
@@ -45,6 +98,9 @@ export class GetPhoneNumberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPhoneNumberCommandInput) {
     // Start section: command_constructor
     super();
@@ -84,12 +140,18 @@ export class GetPhoneNumberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPhoneNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetPhoneNumberCommand(input, context);
+    return se_GetPhoneNumberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPhoneNumberCommandOutput> {
-    return deserializeAws_restJson1GetPhoneNumberCommand(output, context);
+    return de_GetPhoneNumberCommand(output, context);
   }
 
   // Start section: command_body_extra

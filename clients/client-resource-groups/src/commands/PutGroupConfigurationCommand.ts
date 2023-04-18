@@ -13,32 +13,35 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutGroupConfigurationInput,
-  PutGroupConfigurationInputFilterSensitiveLog,
-  PutGroupConfigurationOutput,
-  PutGroupConfigurationOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutGroupConfigurationCommand,
-  serializeAws_restJson1PutGroupConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { PutGroupConfigurationInput, PutGroupConfigurationOutput } from "../models/models_0";
+import { de_PutGroupConfigurationCommand, se_PutGroupConfigurationCommand } from "../protocols/Aws_restJson1";
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
 
+/**
+ * @public
+ *
+ * The input for {@link PutGroupConfigurationCommand}.
+ */
 export interface PutGroupConfigurationCommandInput extends PutGroupConfigurationInput {}
+/**
+ * @public
+ *
+ * The output of {@link PutGroupConfigurationCommand}.
+ */
 export interface PutGroupConfigurationCommandOutput extends PutGroupConfigurationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches a service configuration to the specified group. This occurs asynchronously,
  *             and can take time to complete. You can use <a>GetGroupConfiguration</a> to
  *             check the status of the update.</p>
- *         <p>
+ *          <p>
  *             <b>Minimum permissions</b>
  *          </p>
  *          <p>To run this command, you must have the following permissions:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>resource-groups:PutGroupConfiguration</code>
  *                </p>
  *             </li>
@@ -49,13 +52,51 @@ export interface PutGroupConfigurationCommandOutput extends PutGroupConfiguratio
  * import { ResourceGroupsClient, PutGroupConfigurationCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
  * // const { ResourceGroupsClient, PutGroupConfigurationCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
  * const client = new ResourceGroupsClient(config);
+ * const input = { // PutGroupConfigurationInput
+ *   Group: "STRING_VALUE",
+ *   Configuration: [ // GroupConfigurationList
+ *     { // GroupConfigurationItem
+ *       Type: "STRING_VALUE", // required
+ *       Parameters: [ // GroupParameterList
+ *         { // GroupConfigurationParameter
+ *           Name: "STRING_VALUE", // required
+ *           Values: [ // GroupConfigurationParameterValueList
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new PutGroupConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutGroupConfigurationCommandInput - {@link PutGroupConfigurationCommandInput}
+ * @returns {@link PutGroupConfigurationCommandOutput}
  * @see {@link PutGroupConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutGroupConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request includes one or more parameters that violate validation rules.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The caller isn't authorized to make the request. Check permissions.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>An internal error occurred while processing the request. Try again later.</p>
+ *
+ * @throws {@link MethodNotAllowedException} (client fault)
+ *  <p>The request uses an HTTP method that isn't allowed for the specified resource.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>One or more of the specified resources don't exist.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>You've exceeded throttling limits by making too many requests in a period of
+ *             time.</p>
+ *
  *
  */
 export class PutGroupConfigurationCommand extends $Command<
@@ -75,6 +116,9 @@ export class PutGroupConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutGroupConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +147,8 @@ export class PutGroupConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutGroupConfigurationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutGroupConfigurationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +158,18 @@ export class PutGroupConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutGroupConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutGroupConfigurationCommand(input, context);
+    return se_PutGroupConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutGroupConfigurationCommandOutput> {
-    return deserializeAws_restJson1PutGroupConfigurationCommand(output, context);
+    return de_PutGroupConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

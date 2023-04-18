@@ -16,26 +16,29 @@ import {
   WithSdkStreamMixin as __WithSdkStreamMixin,
 } from "@aws-sdk/types";
 
-import {
-  GetTileInput,
-  GetTileInputFilterSensitiveLog,
-  GetTileOutput,
-  GetTileOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetTileCommand,
-  serializeAws_restJson1GetTileCommand,
-} from "../protocols/Aws_restJson1";
+import { GetTileInput, GetTileOutput, GetTileOutputFilterSensitiveLog } from "../models/models_0";
+import { de_GetTileCommand, se_GetTileCommand } from "../protocols/Aws_restJson1";
 import {
   SageMakerGeospatialClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../SageMakerGeospatialClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetTileCommand}.
+ */
 export interface GetTileCommandInput extends GetTileInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetTileCommand}.
+ */
 export interface GetTileCommandOutput extends __WithSdkStreamMixin<GetTileOutput, "BinaryFile">, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a web mercator tile for the given Earth Observation job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,13 +46,47 @@ export interface GetTileCommandOutput extends __WithSdkStreamMixin<GetTileOutput
  * import { SageMakerGeospatialClient, GetTileCommand } from "@aws-sdk/client-sagemaker-geospatial"; // ES Modules import
  * // const { SageMakerGeospatialClient, GetTileCommand } = require("@aws-sdk/client-sagemaker-geospatial"); // CommonJS import
  * const client = new SageMakerGeospatialClient(config);
+ * const input = { // GetTileInput
+ *   x: Number("int"), // required
+ *   y: Number("int"), // required
+ *   z: Number("int"), // required
+ *   ImageAssets: [ // StringListInput // required
+ *     "STRING_VALUE",
+ *   ],
+ *   Target: "STRING_VALUE", // required
+ *   Arn: "STRING_VALUE", // required
+ *   ImageMask: true || false,
+ *   OutputFormat: "STRING_VALUE",
+ *   TimeRangeFilter: "STRING_VALUE",
+ *   PropertyFilters: "STRING_VALUE",
+ *   OutputDataType: "STRING_VALUE",
+ *   ExecutionRoleArn: "STRING_VALUE",
+ * };
  * const command = new GetTileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTileCommandInput - {@link GetTileCommandInput}
+ * @returns {@link GetTileCommandOutput}
  * @see {@link GetTileCommandInput} for command's `input` shape.
  * @see {@link GetTileCommandOutput} for command's `response` shape.
  * @see {@link SageMakerGeospatialClientResolvedConfig | config} for SageMakerGeospatialClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a resource which does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
  *
  */
 export class GetTileCommand extends $Command<
@@ -69,6 +106,9 @@ export class GetTileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTileCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,7 +135,7 @@ export class GetTileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTileInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetTileOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -106,15 +146,21 @@ export class GetTileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTileCommand(input, context);
+    return se_GetTileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext
   ): Promise<GetTileCommandOutput> {
-    return deserializeAws_restJson1GetTileCommand(output, context);
+    return de_GetTileCommand(output, context);
   }
 
   // Start section: command_body_extra

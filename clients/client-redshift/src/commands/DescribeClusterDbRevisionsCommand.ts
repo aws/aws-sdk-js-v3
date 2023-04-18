@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ClusterDbRevisionsMessage,
-  ClusterDbRevisionsMessageFilterSensitiveLog,
-  DescribeClusterDbRevisionsMessage,
-  DescribeClusterDbRevisionsMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeClusterDbRevisionsCommand,
-  serializeAws_queryDescribeClusterDbRevisionsCommand,
-} from "../protocols/Aws_query";
+import { ClusterDbRevisionsMessage, DescribeClusterDbRevisionsMessage } from "../models/models_0";
+import { de_DescribeClusterDbRevisionsCommand, se_DescribeClusterDbRevisionsCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeClusterDbRevisionsCommand}.
+ */
 export interface DescribeClusterDbRevisionsCommandInput extends DescribeClusterDbRevisionsMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeClusterDbRevisionsCommand}.
+ */
 export interface DescribeClusterDbRevisionsCommandOutput extends ClusterDbRevisionsMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an array of <code>ClusterDbRevision</code> objects.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,28 @@ export interface DescribeClusterDbRevisionsCommandOutput extends ClusterDbRevisi
  * import { RedshiftClient, DescribeClusterDbRevisionsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeClusterDbRevisionsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DescribeClusterDbRevisionsMessage
+ *   ClusterIdentifier: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeClusterDbRevisionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeClusterDbRevisionsCommandInput - {@link DescribeClusterDbRevisionsCommandInput}
+ * @returns {@link DescribeClusterDbRevisionsCommandOutput}
  * @see {@link DescribeClusterDbRevisionsCommandInput} for command's `input` shape.
  * @see {@link DescribeClusterDbRevisionsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
+ *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+ *         </p>
+ *
+ * @throws {@link InvalidClusterStateFault} (client fault)
+ *  <p>The specified cluster is not in the <code>available</code> state. </p>
+ *
  *
  */
 export class DescribeClusterDbRevisionsCommand extends $Command<
@@ -62,6 +80,9 @@ export class DescribeClusterDbRevisionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeClusterDbRevisionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +111,8 @@ export class DescribeClusterDbRevisionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeClusterDbRevisionsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ClusterDbRevisionsMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +122,21 @@ export class DescribeClusterDbRevisionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeClusterDbRevisionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeClusterDbRevisionsCommand(input, context);
+    return se_DescribeClusterDbRevisionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeClusterDbRevisionsCommandOutput> {
-    return deserializeAws_queryDescribeClusterDbRevisionsCommand(output, context);
+    return de_DescribeClusterDbRevisionsCommand(output, context);
   }
 
   // Start section: command_body_extra

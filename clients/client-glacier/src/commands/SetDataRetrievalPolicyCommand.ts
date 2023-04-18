@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import { SetDataRetrievalPolicyInput, SetDataRetrievalPolicyInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1SetDataRetrievalPolicyCommand,
-  serializeAws_restJson1SetDataRetrievalPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { SetDataRetrievalPolicyInput } from "../models/models_0";
+import { de_SetDataRetrievalPolicyCommand, se_SetDataRetrievalPolicyCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link SetDataRetrievalPolicyCommand}.
+ */
 export interface SetDataRetrievalPolicyCommandInput extends SetDataRetrievalPolicyInput {}
+/**
+ * @public
+ *
+ * The output of {@link SetDataRetrievalPolicyCommand}.
+ */
 export interface SetDataRetrievalPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation sets and then enacts a data retrieval policy in the region specified
  *          in the PUT request. You can set one policy per region for an AWS account. The policy is
  *          enacted within a few minutes of a successful PUT operation.</p>
@@ -36,13 +44,55 @@ export interface SetDataRetrievalPolicyCommandOutput extends __MetadataBearer {}
  * import { GlacierClient, SetDataRetrievalPolicyCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, SetDataRetrievalPolicyCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
+ * const input = { // SetDataRetrievalPolicyInput
+ *   accountId: "STRING_VALUE", // required
+ *   Policy: { // DataRetrievalPolicy
+ *     Rules: [ // DataRetrievalRulesList
+ *       { // DataRetrievalRule
+ *         Strategy: "STRING_VALUE",
+ *         BytesPerHour: Number("long"),
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new SetDataRetrievalPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SetDataRetrievalPolicyCommandInput - {@link SetDataRetrievalPolicyCommandInput}
+ * @returns {@link SetDataRetrievalPolicyCommandOutput}
  * @see {@link SetDataRetrievalPolicyCommandInput} for command's `input` shape.
  * @see {@link SetDataRetrievalPolicyCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>Returned if a parameter of the request is incorrectly specified.</p>
+ *
+ * @throws {@link MissingParameterValueException} (client fault)
+ *  <p>Returned if a required header or parameter is missing from the request.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>Returned if the service cannot complete the request.</p>
+ *
+ *
+ * @example To set and then enact a data retrieval policy
+ * ```javascript
+ * // The example sets and then enacts a data retrieval policy.
+ * const input = {
+ *   "Policy": {
+ *     "Rules": [
+ *       {
+ *         "BytesPerHour": 10737418240,
+ *         "Strategy": "BytesPerHour"
+ *       }
+ *     ]
+ *   },
+ *   "accountId": "-"
+ * };
+ * const command = new SetDataRetrievalPolicyCommand(input);
+ * await client.send(command);
+ * // example id: to-set-and-then-enact-a-data-retrieval-policy--1481928352408
+ * ```
  *
  */
 export class SetDataRetrievalPolicyCommand extends $Command<
@@ -62,6 +112,9 @@ export class SetDataRetrievalPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetDataRetrievalPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +143,8 @@ export class SetDataRetrievalPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetDataRetrievalPolicyInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +154,18 @@ export class SetDataRetrievalPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetDataRetrievalPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SetDataRetrievalPolicyCommand(input, context);
+    return se_SetDataRetrievalPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetDataRetrievalPolicyCommandOutput> {
-    return deserializeAws_restJson1SetDataRetrievalPolicyCommand(output, context);
+    return de_SetDataRetrievalPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

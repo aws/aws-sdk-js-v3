@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
-import {
-  ListVirtualMachinesInput,
-  ListVirtualMachinesInputFilterSensitiveLog,
-  ListVirtualMachinesOutput,
-  ListVirtualMachinesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListVirtualMachinesCommand,
-  serializeAws_json1_0ListVirtualMachinesCommand,
-} from "../protocols/Aws_json1_0";
+import { ListVirtualMachinesInput, ListVirtualMachinesOutput } from "../models/models_0";
+import { de_ListVirtualMachinesCommand, se_ListVirtualMachinesCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link ListVirtualMachinesCommand}.
+ */
 export interface ListVirtualMachinesCommandInput extends ListVirtualMachinesInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListVirtualMachinesCommand}.
+ */
 export interface ListVirtualMachinesCommandOutput extends ListVirtualMachinesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists your virtual machines.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,31 @@ export interface ListVirtualMachinesCommandOutput extends ListVirtualMachinesOut
  * import { BackupGatewayClient, ListVirtualMachinesCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
  * // const { BackupGatewayClient, ListVirtualMachinesCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
  * const client = new BackupGatewayClient(config);
+ * const input = { // ListVirtualMachinesInput
+ *   HypervisorArn: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListVirtualMachinesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListVirtualMachinesCommandInput - {@link ListVirtualMachinesCommandInput}
+ * @returns {@link ListVirtualMachinesCommandOutput}
  * @see {@link ListVirtualMachinesCommandInput} for command's `input` shape.
  * @see {@link ListVirtualMachinesCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The operation did not succeed because an internal error occurred. Try again later.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>TPS has been limited to protect against intentional or unintentional
+ *     high request volumes.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The operation did not succeed because a validation error occurred.</p>
+ *
  *
  */
 export class ListVirtualMachinesCommand extends $Command<
@@ -62,6 +83,9 @@ export class ListVirtualMachinesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListVirtualMachinesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +114,8 @@ export class ListVirtualMachinesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListVirtualMachinesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListVirtualMachinesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +125,18 @@ export class ListVirtualMachinesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListVirtualMachinesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListVirtualMachinesCommand(input, context);
+    return se_ListVirtualMachinesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVirtualMachinesCommandOutput> {
-    return deserializeAws_json1_0ListVirtualMachinesCommand(output, context);
+    return de_ListVirtualMachinesCommand(output, context);
   }
 
   // Start section: command_body_extra

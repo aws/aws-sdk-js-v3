@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StopAppReplicationRequest,
-  StopAppReplicationRequestFilterSensitiveLog,
-  StopAppReplicationResponse,
-  StopAppReplicationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StopAppReplicationCommand,
-  serializeAws_json1_1StopAppReplicationCommand,
-} from "../protocols/Aws_json1_1";
+import { StopAppReplicationRequest, StopAppReplicationResponse } from "../models/models_0";
+import { de_StopAppReplicationCommand, se_StopAppReplicationCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link StopAppReplicationCommand}.
+ */
 export interface StopAppReplicationCommandInput extends StopAppReplicationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StopAppReplicationCommand}.
+ */
 export interface StopAppReplicationCommandOutput extends StopAppReplicationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops replicating the specified application by deleting the replication job for each server in
  *             the application.</p>
  * @example
@@ -37,13 +40,35 @@ export interface StopAppReplicationCommandOutput extends StopAppReplicationRespo
  * import { SMSClient, StopAppReplicationCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, StopAppReplicationCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
+ * const input = { // StopAppReplicationRequest
+ *   appId: "STRING_VALUE",
+ * };
  * const command = new StopAppReplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopAppReplicationCommandInput - {@link StopAppReplicationCommandInput}
+ * @returns {@link StopAppReplicationCommandOutput}
  * @see {@link StopAppReplicationCommandInput} for command's `input` shape.
  * @see {@link StopAppReplicationCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
+ *
+ * @throws {@link InternalError} (server fault)
+ *  <p>An internal error occurred.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A specified parameter is not valid.</p>
+ *
+ * @throws {@link MissingRequiredParameterException} (client fault)
+ *  <p>A required parameter is missing.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This operation is not allowed.</p>
+ *
+ * @throws {@link UnauthorizedOperationException} (client fault)
+ *  <p>You lack permissions needed to perform this operation. Check your IAM policies,
+ *             and ensure that you are using the correct access keys.</p>
+ *
  *
  */
 export class StopAppReplicationCommand extends $Command<
@@ -63,6 +88,9 @@ export class StopAppReplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopAppReplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +119,8 @@ export class StopAppReplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopAppReplicationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopAppReplicationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +130,18 @@ export class StopAppReplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopAppReplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopAppReplicationCommand(input, context);
+    return se_StopAppReplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopAppReplicationCommandOutput> {
-    return deserializeAws_json1_1StopAppReplicationCommand(output, context);
+    return de_StopAppReplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

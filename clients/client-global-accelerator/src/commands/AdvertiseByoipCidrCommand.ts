@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import {
-  AdvertiseByoipCidrRequest,
-  AdvertiseByoipCidrRequestFilterSensitiveLog,
-  AdvertiseByoipCidrResponse,
-  AdvertiseByoipCidrResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AdvertiseByoipCidrCommand,
-  serializeAws_json1_1AdvertiseByoipCidrCommand,
-} from "../protocols/Aws_json1_1";
+import { AdvertiseByoipCidrRequest, AdvertiseByoipCidrResponse } from "../models/models_0";
+import { de_AdvertiseByoipCidrCommand, se_AdvertiseByoipCidrCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link AdvertiseByoipCidrCommand}.
+ */
 export interface AdvertiseByoipCidrCommandInput extends AdvertiseByoipCidrRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AdvertiseByoipCidrCommand}.
+ */
 export interface AdvertiseByoipCidrCommandOutput extends AdvertiseByoipCidrResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Advertises an IPv4 address range that is provisioned for use with your Amazon Web Services resources
  * 			through bring your own IP addresses (BYOIP). It can take a few minutes before traffic to
  * 			the specified addresses starts routing to Amazon Web Services because of propagation delays. </p>
@@ -46,13 +49,35 @@ export interface AdvertiseByoipCidrCommandOutput extends AdvertiseByoipCidrRespo
  * import { GlobalAcceleratorClient, AdvertiseByoipCidrCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, AdvertiseByoipCidrCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
+ * const input = { // AdvertiseByoipCidrRequest
+ *   Cidr: "STRING_VALUE", // required
+ * };
  * const command = new AdvertiseByoipCidrCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AdvertiseByoipCidrCommandInput - {@link AdvertiseByoipCidrCommandInput}
+ * @returns {@link AdvertiseByoipCidrCommandOutput}
  * @see {@link AdvertiseByoipCidrCommandInput} for command's `input` shape.
  * @see {@link AdvertiseByoipCidrCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have access permission.</p>
+ *
+ * @throws {@link ByoipCidrNotFoundException} (client fault)
+ *  <p>The CIDR that you specified was not found or is incorrect.</p>
+ *
+ * @throws {@link IncorrectCidrStateException} (client fault)
+ *  <p>The CIDR that you specified is not valid for this action. For example, the state of the CIDR might be
+ * 		incorrect for this action.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>There was an internal error for Global Accelerator.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>An argument that you specified is invalid.</p>
+ *
  *
  */
 export class AdvertiseByoipCidrCommand extends $Command<
@@ -72,6 +97,9 @@ export class AdvertiseByoipCidrCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AdvertiseByoipCidrCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +128,8 @@ export class AdvertiseByoipCidrCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AdvertiseByoipCidrRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AdvertiseByoipCidrResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +139,18 @@ export class AdvertiseByoipCidrCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AdvertiseByoipCidrCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AdvertiseByoipCidrCommand(input, context);
+    return se_AdvertiseByoipCidrCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdvertiseByoipCidrCommandOutput> {
-    return deserializeAws_json1_1AdvertiseByoipCidrCommand(output, context);
+    return de_AdvertiseByoipCidrCommand(output, context);
   }
 
   // Start section: command_body_extra

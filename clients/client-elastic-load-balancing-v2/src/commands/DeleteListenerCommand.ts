@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import {
-  DeleteListenerInput,
-  DeleteListenerInputFilterSensitiveLog,
-  DeleteListenerOutput,
-  DeleteListenerOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteListenerCommand,
-  serializeAws_queryDeleteListenerCommand,
-} from "../protocols/Aws_query";
+import { DeleteListenerInput, DeleteListenerOutput } from "../models/models_0";
+import { de_DeleteListenerCommand, se_DeleteListenerCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteListenerCommand}.
+ */
 export interface DeleteListenerCommandInput extends DeleteListenerInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteListenerCommand}.
+ */
 export interface DeleteListenerCommandOutput extends DeleteListenerOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified listener.</p>
  *          <p>Alternatively, your listener is deleted when you delete the load balancer to which it is
  *         attached.</p>
@@ -42,13 +45,36 @@ export interface DeleteListenerCommandOutput extends DeleteListenerOutput, __Met
  * import { ElasticLoadBalancingV2Client, DeleteListenerCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, DeleteListenerCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
+ * const input = { // DeleteListenerInput
+ *   ListenerArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteListenerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteListenerCommandInput - {@link DeleteListenerCommandInput}
+ * @returns {@link DeleteListenerCommandOutput}
  * @see {@link DeleteListenerCommandInput} for command's `input` shape.
  * @see {@link DeleteListenerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
+ *
+ * @throws {@link ListenerNotFoundException} (client fault)
+ *  <p>The specified listener does not exist.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>A specified resource is in use.</p>
+ *
+ *
+ * @example To delete a listener
+ * ```javascript
+ * // This example deletes the specified listener.
+ * const input = {
+ *   "ListenerArn": "arn:aws:elasticloadbalancing:ua-west-2:123456789012:listener/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2"
+ * };
+ * const command = new DeleteListenerCommand(input);
+ * await client.send(command);
+ * // example id: elbv2-delete-listener-1
+ * ```
  *
  */
 export class DeleteListenerCommand extends $Command<
@@ -68,6 +94,9 @@ export class DeleteListenerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteListenerCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +125,8 @@ export class DeleteListenerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteListenerInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteListenerOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +136,18 @@ export class DeleteListenerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteListenerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteListenerCommand(input, context);
+    return se_DeleteListenerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteListenerCommandOutput> {
-    return deserializeAws_queryDeleteListenerCommand(output, context);
+    return de_DeleteListenerCommand(output, context);
   }
 
   // Start section: command_body_extra

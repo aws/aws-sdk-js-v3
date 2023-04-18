@@ -14,24 +14,38 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
+import { DescribeLoadBalancerTargetGroupsRequest, DescribeLoadBalancerTargetGroupsResponse } from "../models/models_0";
 import {
-  DescribeLoadBalancerTargetGroupsRequest,
-  DescribeLoadBalancerTargetGroupsRequestFilterSensitiveLog,
-  DescribeLoadBalancerTargetGroupsResponse,
-  DescribeLoadBalancerTargetGroupsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeLoadBalancerTargetGroupsCommand,
-  serializeAws_queryDescribeLoadBalancerTargetGroupsCommand,
+  de_DescribeLoadBalancerTargetGroupsCommand,
+  se_DescribeLoadBalancerTargetGroupsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeLoadBalancerTargetGroupsCommand}.
+ */
 export interface DescribeLoadBalancerTargetGroupsCommandInput extends DescribeLoadBalancerTargetGroupsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeLoadBalancerTargetGroupsCommand}.
+ */
 export interface DescribeLoadBalancerTargetGroupsCommandOutput
   extends DescribeLoadBalancerTargetGroupsResponse,
     __MetadataBearer {}
 
 /**
- * <p>Gets information about the Elastic Load Balancing target groups for the specified Auto Scaling group.</p>
+ * @public
+ * <note>
+ *             <p>This API operation is superseded by <a>DescribeTrafficSources</a>,
+ *                 which can describe multiple traffic sources types. We recommend using
+ *                     <code>DetachTrafficSources</code> to simplify how you manage traffic sources.
+ *                 However, we continue to support <code>DescribeLoadBalancerTargetGroups</code>. You
+ *                 can use both the original <code>DescribeLoadBalancerTargetGroups</code> API
+ *                 operation and <code>DescribeTrafficSources</code> on the same Auto Scaling group.</p>
+ *          </note>
+ *          <p>Gets information about the Elastic Load Balancing target groups for the specified Auto Scaling group.</p>
  *          <p>To determine the attachment status of the target group, use the <code>State</code>
  *             element in the response. When you attach a target group to an Auto Scaling group, the initial
  *                 <code>State</code> value is <code>Adding</code>. The state transitions to
@@ -62,13 +76,49 @@ export interface DescribeLoadBalancerTargetGroupsCommandOutput
  * import { AutoScalingClient, DescribeLoadBalancerTargetGroupsCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DescribeLoadBalancerTargetGroupsCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = { // DescribeLoadBalancerTargetGroupsRequest
+ *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ * };
  * const command = new DescribeLoadBalancerTargetGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLoadBalancerTargetGroupsCommandInput - {@link DescribeLoadBalancerTargetGroupsCommandInput}
+ * @returns {@link DescribeLoadBalancerTargetGroupsCommandOutput}
  * @see {@link DescribeLoadBalancerTargetGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeLoadBalancerTargetGroupsCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
+ *
+ * @throws {@link InvalidNextToken} (client fault)
+ *  <p>The <code>NextToken</code> value is not valid.</p>
+ *
+ * @throws {@link ResourceContentionFault} (server fault)
+ *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
+ *             instance, or load balancer).</p>
+ *
+ *
+ * @example To describe the target groups for an Auto Scaling group
+ * ```javascript
+ * // This example describes the target groups attached to the specified Auto Scaling group.
+ * const input = {
+ *   "AutoScalingGroupName": "my-auto-scaling-group"
+ * };
+ * const command = new DescribeLoadBalancerTargetGroupsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "LoadBalancerTargetGroups": [
+ *     {
+ *       "LoadBalancerTargetGroupARN": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
+ *       "State": "Added"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: autoscaling-describe-load-balancer-target-groups-1
+ * ```
  *
  */
 export class DescribeLoadBalancerTargetGroupsCommand extends $Command<
@@ -88,6 +138,9 @@ export class DescribeLoadBalancerTargetGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLoadBalancerTargetGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +169,8 @@ export class DescribeLoadBalancerTargetGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLoadBalancerTargetGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLoadBalancerTargetGroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,18 +180,24 @@ export class DescribeLoadBalancerTargetGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeLoadBalancerTargetGroupsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeLoadBalancerTargetGroupsCommand(input, context);
+    return se_DescribeLoadBalancerTargetGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeLoadBalancerTargetGroupsCommandOutput> {
-    return deserializeAws_queryDescribeLoadBalancerTargetGroupsCommand(output, context);
+    return de_DescribeLoadBalancerTargetGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,21 +16,30 @@ import {
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import {
   ListCloudFrontOriginAccessIdentitiesRequest,
-  ListCloudFrontOriginAccessIdentitiesRequestFilterSensitiveLog,
   ListCloudFrontOriginAccessIdentitiesResult,
-  ListCloudFrontOriginAccessIdentitiesResultFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommand,
-  serializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommand,
+  de_ListCloudFrontOriginAccessIdentitiesCommand,
+  se_ListCloudFrontOriginAccessIdentitiesCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * @public
+ *
+ * The input for {@link ListCloudFrontOriginAccessIdentitiesCommand}.
+ */
 export interface ListCloudFrontOriginAccessIdentitiesCommandInput extends ListCloudFrontOriginAccessIdentitiesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListCloudFrontOriginAccessIdentitiesCommand}.
+ */
 export interface ListCloudFrontOriginAccessIdentitiesCommandOutput
   extends ListCloudFrontOriginAccessIdentitiesResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists origin access identities.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +47,23 @@ export interface ListCloudFrontOriginAccessIdentitiesCommandOutput
  * import { CloudFrontClient, ListCloudFrontOriginAccessIdentitiesCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListCloudFrontOriginAccessIdentitiesCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // ListCloudFrontOriginAccessIdentitiesRequest
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListCloudFrontOriginAccessIdentitiesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCloudFrontOriginAccessIdentitiesCommandInput - {@link ListCloudFrontOriginAccessIdentitiesCommandInput}
+ * @returns {@link ListCloudFrontOriginAccessIdentitiesCommandOutput}
  * @see {@link ListCloudFrontOriginAccessIdentitiesCommandInput} for command's `input` shape.
  * @see {@link ListCloudFrontOriginAccessIdentitiesCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
  *
  */
 export class ListCloudFrontOriginAccessIdentitiesCommand extends $Command<
@@ -64,6 +83,9 @@ export class ListCloudFrontOriginAccessIdentitiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCloudFrontOriginAccessIdentitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +114,8 @@ export class ListCloudFrontOriginAccessIdentitiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCloudFrontOriginAccessIdentitiesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCloudFrontOriginAccessIdentitiesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +125,24 @@ export class ListCloudFrontOriginAccessIdentitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListCloudFrontOriginAccessIdentitiesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommand(input, context);
+    return se_ListCloudFrontOriginAccessIdentitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListCloudFrontOriginAccessIdentitiesCommandOutput> {
-    return deserializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommand(output, context);
+    return de_ListCloudFrontOriginAccessIdentitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

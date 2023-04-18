@@ -12,14 +12,21 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { XmlMapsInputOutput, XmlMapsInputOutputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restXmlXmlEmptyMapsCommand,
-  serializeAws_restXmlXmlEmptyMapsCommand,
-} from "../protocols/Aws_restXml";
+import { XmlMapsInputOutput } from "../models/models_0";
+import { de_XmlEmptyMapsCommand, se_XmlEmptyMapsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
+/**
+ * @public
+ *
+ * The input for {@link XmlEmptyMapsCommand}.
+ */
 export interface XmlEmptyMapsCommandInput extends XmlMapsInputOutput {}
+/**
+ * @public
+ *
+ * The output of {@link XmlEmptyMapsCommand}.
+ */
 export interface XmlEmptyMapsCommandOutput extends XmlMapsInputOutput, __MetadataBearer {}
 
 export class XmlEmptyMapsCommand extends $Command<
@@ -30,6 +37,9 @@ export class XmlEmptyMapsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: XmlEmptyMapsCommandInput) {
     // Start section: command_constructor
     super();
@@ -55,8 +65,8 @@ export class XmlEmptyMapsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: XmlMapsInputOutputFilterSensitiveLog,
-      outputFilterSensitiveLog: XmlMapsInputOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -66,12 +76,18 @@ export class XmlEmptyMapsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: XmlEmptyMapsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlXmlEmptyMapsCommand(input, context);
+    return se_XmlEmptyMapsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlEmptyMapsCommandOutput> {
-    return deserializeAws_restXmlXmlEmptyMapsCommand(output, context);
+    return de_XmlEmptyMapsCommand(output, context);
   }
 
   // Start section: command_body_extra

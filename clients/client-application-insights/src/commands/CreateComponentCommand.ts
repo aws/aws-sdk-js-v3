@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient";
-import {
-  CreateComponentRequest,
-  CreateComponentRequestFilterSensitiveLog,
-  CreateComponentResponse,
-  CreateComponentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateComponentCommand,
-  serializeAws_json1_1CreateComponentCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateComponentRequest, CreateComponentResponse } from "../models/models_0";
+import { de_CreateComponentCommand, se_CreateComponentCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateComponentCommand}.
+ */
 export interface CreateComponentCommandInput extends CreateComponentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateComponentCommand}.
+ */
 export interface CreateComponentCommandOutput extends CreateComponentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a custom component by grouping similar standalone instances to monitor.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,35 @@ export interface CreateComponentCommandOutput extends CreateComponentResponse, _
  * import { ApplicationInsightsClient, CreateComponentCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
  * // const { ApplicationInsightsClient, CreateComponentCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
+ * const input = { // CreateComponentRequest
+ *   ResourceGroupName: "STRING_VALUE", // required
+ *   ComponentName: "STRING_VALUE", // required
+ *   ResourceList: [ // ResourceList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new CreateComponentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateComponentCommandInput - {@link CreateComponentCommandInput}
+ * @returns {@link CreateComponentCommandOutput}
  * @see {@link CreateComponentCommandInput} for command's `input` shape.
  * @see {@link CreateComponentCommandOutput} for command's `response` shape.
  * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The server encountered an internal error and is unable to complete the request.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The resource is already created or in use.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource does not exist in the customer account.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The parameter is not valid.</p>
+ *
  *
  */
 export class CreateComponentCommand extends $Command<
@@ -66,6 +91,9 @@ export class CreateComponentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateComponentCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +122,8 @@ export class CreateComponentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateComponentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateComponentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +133,18 @@ export class CreateComponentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateComponentCommand(input, context);
+    return se_CreateComponentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateComponentCommandOutput> {
-    return deserializeAws_json1_1CreateComponentCommand(output, context);
+    return de_CreateComponentCommand(output, context);
   }
 
   // Start section: command_body_extra

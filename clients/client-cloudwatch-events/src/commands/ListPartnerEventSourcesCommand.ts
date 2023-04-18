@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import {
-  ListPartnerEventSourcesRequest,
-  ListPartnerEventSourcesRequestFilterSensitiveLog,
-  ListPartnerEventSourcesResponse,
-  ListPartnerEventSourcesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListPartnerEventSourcesCommand,
-  serializeAws_json1_1ListPartnerEventSourcesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListPartnerEventSourcesRequest, ListPartnerEventSourcesResponse } from "../models/models_0";
+import { de_ListPartnerEventSourcesCommand, se_ListPartnerEventSourcesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListPartnerEventSourcesCommand}.
+ */
 export interface ListPartnerEventSourcesCommandInput extends ListPartnerEventSourcesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListPartnerEventSourcesCommand}.
+ */
 export interface ListPartnerEventSourcesCommandOutput extends ListPartnerEventSourcesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>An SaaS partner can use this operation to list all the partner event source names that
  *       they have created. This operation is not used by Amazon Web Services customers.</p>
  * @example
@@ -37,13 +40,27 @@ export interface ListPartnerEventSourcesCommandOutput extends ListPartnerEventSo
  * import { CloudWatchEventsClient, ListPartnerEventSourcesCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, ListPartnerEventSourcesCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
+ * const input = { // ListPartnerEventSourcesRequest
+ *   NamePrefix: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListPartnerEventSourcesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPartnerEventSourcesCommandInput - {@link ListPartnerEventSourcesCommandInput}
+ * @returns {@link ListPartnerEventSourcesCommandOutput}
  * @see {@link ListPartnerEventSourcesCommandInput} for command's `input` shape.
  * @see {@link ListPartnerEventSourcesCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * @throws {@link OperationDisabledException} (client fault)
+ *  <p>The operation you are attempting is not available in this region.</p>
+ *
  *
  */
 export class ListPartnerEventSourcesCommand extends $Command<
@@ -63,6 +80,9 @@ export class ListPartnerEventSourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPartnerEventSourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +111,8 @@ export class ListPartnerEventSourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPartnerEventSourcesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPartnerEventSourcesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +122,18 @@ export class ListPartnerEventSourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPartnerEventSourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListPartnerEventSourcesCommand(input, context);
+    return se_ListPartnerEventSourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPartnerEventSourcesCommandOutput> {
-    return deserializeAws_json1_1ListPartnerEventSourcesCommand(output, context);
+    return de_ListPartnerEventSourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

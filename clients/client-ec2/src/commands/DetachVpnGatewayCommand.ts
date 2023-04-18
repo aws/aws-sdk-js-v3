@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DetachVpnGatewayRequest, DetachVpnGatewayRequestFilterSensitiveLog } from "../models/models_5";
-import {
-  deserializeAws_ec2DetachVpnGatewayCommand,
-  serializeAws_ec2DetachVpnGatewayCommand,
-} from "../protocols/Aws_ec2";
+import { DetachVpnGatewayRequest } from "../models/models_5";
+import { de_DetachVpnGatewayCommand, se_DetachVpnGatewayCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DetachVpnGatewayCommand}.
+ */
 export interface DetachVpnGatewayCommandInput extends DetachVpnGatewayRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DetachVpnGatewayCommand}.
+ */
 export interface DetachVpnGatewayCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detaches a virtual private gateway from a VPC. You do this if you're planning to turn
  *             off the VPC and not use it anymore. You can confirm a virtual private gateway has been
  *             completely detached from a VPC by describing the virtual private gateway (any
@@ -36,13 +44,21 @@ export interface DetachVpnGatewayCommandOutput extends __MetadataBearer {}
  * import { EC2Client, DetachVpnGatewayCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DetachVpnGatewayCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DetachVpnGatewayRequest
+ *   VpcId: "STRING_VALUE", // required
+ *   VpnGatewayId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DetachVpnGatewayCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DetachVpnGatewayCommandInput - {@link DetachVpnGatewayCommandInput}
+ * @returns {@link DetachVpnGatewayCommandOutput}
  * @see {@link DetachVpnGatewayCommandInput} for command's `input` shape.
  * @see {@link DetachVpnGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class DetachVpnGatewayCommand extends $Command<
@@ -62,6 +78,9 @@ export class DetachVpnGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetachVpnGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +109,8 @@ export class DetachVpnGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetachVpnGatewayRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +120,18 @@ export class DetachVpnGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetachVpnGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DetachVpnGatewayCommand(input, context);
+    return se_DetachVpnGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachVpnGatewayCommandOutput> {
-    return deserializeAws_ec2DetachVpnGatewayCommand(output, context);
+    return de_DetachVpnGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

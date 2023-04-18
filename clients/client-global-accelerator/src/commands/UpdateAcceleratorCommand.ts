@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import {
-  UpdateAcceleratorRequest,
-  UpdateAcceleratorRequestFilterSensitiveLog,
-  UpdateAcceleratorResponse,
-  UpdateAcceleratorResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateAcceleratorCommand,
-  serializeAws_json1_1UpdateAcceleratorCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateAcceleratorRequest, UpdateAcceleratorResponse } from "../models/models_0";
+import { de_UpdateAcceleratorCommand, se_UpdateAcceleratorCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateAcceleratorCommand}.
+ */
 export interface UpdateAcceleratorCommandInput extends UpdateAcceleratorRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateAcceleratorCommand}.
+ */
 export interface UpdateAcceleratorCommandOutput extends UpdateAcceleratorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update an accelerator. </p>
  *
  * 		       <important>
@@ -46,13 +49,34 @@ export interface UpdateAcceleratorCommandOutput extends UpdateAcceleratorRespons
  * import { GlobalAcceleratorClient, UpdateAcceleratorCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, UpdateAcceleratorCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
+ * const input = { // UpdateAcceleratorRequest
+ *   AcceleratorArn: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   IpAddressType: "IPV4" || "DUAL_STACK",
+ *   Enabled: true || false,
+ * };
  * const command = new UpdateAcceleratorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAcceleratorCommandInput - {@link UpdateAcceleratorCommandInput}
+ * @returns {@link UpdateAcceleratorCommandOutput}
  * @see {@link UpdateAcceleratorCommandInput} for command's `input` shape.
  * @see {@link UpdateAcceleratorCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
+ *
+ * @throws {@link AcceleratorNotFoundException} (client fault)
+ *  <p>The accelerator that you specified doesn't exist.</p>
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have access permission.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>There was an internal error for Global Accelerator.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>An argument that you specified is invalid.</p>
+ *
  *
  */
 export class UpdateAcceleratorCommand extends $Command<
@@ -72,6 +96,9 @@ export class UpdateAcceleratorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAcceleratorCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +127,8 @@ export class UpdateAcceleratorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAcceleratorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAcceleratorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +138,18 @@ export class UpdateAcceleratorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAcceleratorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateAcceleratorCommand(input, context);
+    return se_UpdateAcceleratorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAcceleratorCommandOutput> {
-    return deserializeAws_json1_1UpdateAcceleratorCommand(output, context);
+    return de_UpdateAcceleratorCommand(output, context);
   }
 
   // Start section: command_body_extra

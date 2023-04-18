@@ -6,12 +6,11 @@ import {
   ListResiliencyPoliciesCommandInput,
   ListResiliencyPoliciesCommandOutput,
 } from "../commands/ListResiliencyPoliciesCommand";
-import { Resiliencehub } from "../Resiliencehub";
 import { ResiliencehubClient } from "../ResiliencehubClient";
 import { ResiliencehubPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ResiliencehubClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListResiliencyPoliciesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Resiliencehub,
-  input: ListResiliencyPoliciesCommandInput,
-  ...args: any
-): Promise<ListResiliencyPoliciesCommandOutput> => {
-  // @ts-ignore
-  return await client.listResiliencyPolicies(input, ...args);
-};
 export async function* paginateListResiliencyPolicies(
   config: ResiliencehubPaginationConfiguration,
   input: ListResiliencyPoliciesCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListResiliencyPolicies(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Resiliencehub) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ResiliencehubClient) {
+    if (config.client instanceof ResiliencehubClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Resiliencehub | ResiliencehubClient");

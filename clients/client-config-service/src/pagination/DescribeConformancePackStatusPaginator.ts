@@ -6,12 +6,11 @@ import {
   DescribeConformancePackStatusCommandInput,
   DescribeConformancePackStatusCommandOutput,
 } from "../commands/DescribeConformancePackStatusCommand";
-import { ConfigService } from "../ConfigService";
 import { ConfigServiceClient } from "../ConfigServiceClient";
 import { ConfigServicePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ConfigServiceClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeConformancePackStatusCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ConfigService,
-  input: DescribeConformancePackStatusCommandInput,
-  ...args: any
-): Promise<DescribeConformancePackStatusCommandOutput> => {
-  // @ts-ignore
-  return await client.describeConformancePackStatus(input, ...args);
-};
 export async function* paginateDescribeConformancePackStatus(
   config: ConfigServicePaginationConfiguration,
   input: DescribeConformancePackStatusCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateDescribeConformancePackStatus(
   while (hasNext) {
     input.NextToken = token;
     input["Limit"] = config.pageSize;
-    if (config.client instanceof ConfigService) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ConfigServiceClient) {
+    if (config.client instanceof ConfigServiceClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ConfigService | ConfigServiceClient");

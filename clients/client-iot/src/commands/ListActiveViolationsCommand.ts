@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  ListActiveViolationsRequest,
-  ListActiveViolationsRequestFilterSensitiveLog,
-  ListActiveViolationsResponse,
-  ListActiveViolationsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListActiveViolationsCommand,
-  serializeAws_restJson1ListActiveViolationsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListActiveViolationsRequest, ListActiveViolationsResponse } from "../models/models_1";
+import { de_ListActiveViolationsCommand, se_ListActiveViolationsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListActiveViolationsCommand}.
+ */
 export interface ListActiveViolationsCommandInput extends ListActiveViolationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListActiveViolationsCommand}.
+ */
 export interface ListActiveViolationsCommandOutput extends ListActiveViolationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the active violations for a given Device Defender security profile.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListActiveViolations</a> action.</p>
  * @example
@@ -37,13 +40,37 @@ export interface ListActiveViolationsCommandOutput extends ListActiveViolationsR
  * import { IoTClient, ListActiveViolationsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListActiveViolationsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // ListActiveViolationsRequest
+ *   thingName: "STRING_VALUE",
+ *   securityProfileName: "STRING_VALUE",
+ *   behaviorCriteriaType: "STATIC" || "STATISTICAL" || "MACHINE_LEARNING",
+ *   listSuppressedAlerts: true || false,
+ *   verificationState: "FALSE_POSITIVE" || "BENIGN_POSITIVE" || "TRUE_POSITIVE" || "UNKNOWN",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListActiveViolationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListActiveViolationsCommandInput - {@link ListActiveViolationsCommandInput}
+ * @returns {@link ListActiveViolationsCommandOutput}
  * @see {@link ListActiveViolationsCommandInput} for command's `input` shape.
  * @see {@link ListActiveViolationsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
  *
  */
 export class ListActiveViolationsCommand extends $Command<
@@ -63,6 +90,9 @@ export class ListActiveViolationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListActiveViolationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +121,8 @@ export class ListActiveViolationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListActiveViolationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListActiveViolationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +132,18 @@ export class ListActiveViolationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListActiveViolationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListActiveViolationsCommand(input, context);
+    return se_ListActiveViolationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListActiveViolationsCommandOutput> {
-    return deserializeAws_restJson1ListActiveViolationsCommand(output, context);
+    return de_ListActiveViolationsCommand(output, context);
   }
 
   // Start section: command_body_extra

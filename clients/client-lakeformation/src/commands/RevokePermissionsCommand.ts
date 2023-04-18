@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import {
-  RevokePermissionsRequest,
-  RevokePermissionsRequestFilterSensitiveLog,
-  RevokePermissionsResponse,
-  RevokePermissionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1RevokePermissionsCommand,
-  serializeAws_restJson1RevokePermissionsCommand,
-} from "../protocols/Aws_restJson1";
+import { RevokePermissionsRequest, RevokePermissionsResponse } from "../models/models_0";
+import { de_RevokePermissionsCommand, se_RevokePermissionsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link RevokePermissionsCommand}.
+ */
 export interface RevokePermissionsCommandInput extends RevokePermissionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RevokePermissionsCommand}.
+ */
 export interface RevokePermissionsCommandOutput extends RevokePermissionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Revokes permissions to the principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,92 @@ export interface RevokePermissionsCommandOutput extends RevokePermissionsRespons
  * import { LakeFormationClient, RevokePermissionsCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, RevokePermissionsCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
+ * const input = { // RevokePermissionsRequest
+ *   CatalogId: "STRING_VALUE",
+ *   Principal: { // DataLakePrincipal
+ *     DataLakePrincipalIdentifier: "STRING_VALUE",
+ *   },
+ *   Resource: { // Resource
+ *     Catalog: {},
+ *     Database: { // DatabaseResource
+ *       CatalogId: "STRING_VALUE",
+ *       Name: "STRING_VALUE", // required
+ *     },
+ *     Table: { // TableResource
+ *       CatalogId: "STRING_VALUE",
+ *       DatabaseName: "STRING_VALUE", // required
+ *       Name: "STRING_VALUE",
+ *       TableWildcard: {},
+ *     },
+ *     TableWithColumns: { // TableWithColumnsResource
+ *       CatalogId: "STRING_VALUE",
+ *       DatabaseName: "STRING_VALUE", // required
+ *       Name: "STRING_VALUE", // required
+ *       ColumnNames: [ // ColumnNames
+ *         "STRING_VALUE",
+ *       ],
+ *       ColumnWildcard: { // ColumnWildcard
+ *         ExcludedColumnNames: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *     DataLocation: { // DataLocationResource
+ *       CatalogId: "STRING_VALUE",
+ *       ResourceArn: "STRING_VALUE", // required
+ *     },
+ *     DataCellsFilter: { // DataCellsFilterResource
+ *       TableCatalogId: "STRING_VALUE",
+ *       DatabaseName: "STRING_VALUE",
+ *       TableName: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *     },
+ *     LFTag: { // LFTagKeyResource
+ *       CatalogId: "STRING_VALUE",
+ *       TagKey: "STRING_VALUE", // required
+ *       TagValues: [ // TagValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     LFTagPolicy: { // LFTagPolicyResource
+ *       CatalogId: "STRING_VALUE",
+ *       ResourceType: "DATABASE" || "TABLE", // required
+ *       Expression: [ // Expression // required
+ *         { // LFTag
+ *           TagKey: "STRING_VALUE", // required
+ *           TagValues: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   Permissions: [ // PermissionList // required
+ *     "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_TAG" || "ASSOCIATE",
+ *   ],
+ *   PermissionsWithGrantOption: [
+ *     "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_TAG" || "ASSOCIATE",
+ *   ],
+ * };
  * const command = new RevokePermissionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RevokePermissionsCommandInput - {@link RevokePermissionsCommandInput}
+ * @returns {@link RevokePermissionsCommandOutput}
  * @see {@link RevokePermissionsCommandInput} for command's `input` shape.
  * @see {@link RevokePermissionsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>Two processes are trying to modify a resource simultaneously.</p>
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
  *
  */
 export class RevokePermissionsCommand extends $Command<
@@ -62,6 +144,9 @@ export class RevokePermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RevokePermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +175,8 @@ export class RevokePermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RevokePermissionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RevokePermissionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +186,18 @@ export class RevokePermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RevokePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RevokePermissionsCommand(input, context);
+    return se_RevokePermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RevokePermissionsCommandOutput> {
-    return deserializeAws_restJson1RevokePermissionsCommand(output, context);
+    return de_RevokePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

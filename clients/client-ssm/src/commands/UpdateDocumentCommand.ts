@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateDocumentRequest,
-  UpdateDocumentRequestFilterSensitiveLog,
-  UpdateDocumentResult,
-  UpdateDocumentResultFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1UpdateDocumentCommand,
-  serializeAws_json1_1UpdateDocumentCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateDocumentRequest, UpdateDocumentResult } from "../models/models_2";
+import { de_UpdateDocumentCommand, se_UpdateDocumentCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateDocumentCommand}.
+ */
 export interface UpdateDocumentCommandInput extends UpdateDocumentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateDocumentCommand}.
+ */
 export interface UpdateDocumentCommandOutput extends UpdateDocumentResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates one or more values for an SSM document.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,68 @@ export interface UpdateDocumentCommandOutput extends UpdateDocumentResult, __Met
  * import { SSMClient, UpdateDocumentCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, UpdateDocumentCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // UpdateDocumentRequest
+ *   Content: "STRING_VALUE", // required
+ *   Attachments: [ // AttachmentsSourceList
+ *     { // AttachmentsSource
+ *       Key: "SourceUrl" || "S3FileUrl" || "AttachmentReference",
+ *       Values: [ // AttachmentsSourceValues
+ *         "STRING_VALUE",
+ *       ],
+ *       Name: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Name: "STRING_VALUE", // required
+ *   DisplayName: "STRING_VALUE",
+ *   VersionName: "STRING_VALUE",
+ *   DocumentVersion: "STRING_VALUE",
+ *   DocumentFormat: "YAML" || "JSON" || "TEXT",
+ *   TargetType: "STRING_VALUE",
+ * };
  * const command = new UpdateDocumentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDocumentCommandInput - {@link UpdateDocumentCommandInput}
+ * @returns {@link UpdateDocumentCommandOutput}
  * @see {@link UpdateDocumentCommandInput} for command's `input` shape.
  * @see {@link UpdateDocumentCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link DocumentVersionLimitExceeded} (client fault)
+ *  <p>The document has too many versions. Delete one or more document versions and try
+ *    again.</p>
+ *
+ * @throws {@link DuplicateDocumentContent} (client fault)
+ *  <p>The content of the association document matches another document. Change the content of the
+ *    document and try again.</p>
+ *
+ * @throws {@link DuplicateDocumentVersionName} (client fault)
+ *  <p>The version name has already been used in this document. Specify a different version name,
+ *    and then try again.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidDocument} (client fault)
+ *  <p>The specified SSM document doesn't exist.</p>
+ *
+ * @throws {@link InvalidDocumentContent} (client fault)
+ *  <p>The content for the document isn't valid.</p>
+ *
+ * @throws {@link InvalidDocumentOperation} (client fault)
+ *  <p>You attempted to delete a document while it is still shared. You must stop sharing the
+ *    document before you can delete it.</p>
+ *
+ * @throws {@link InvalidDocumentSchemaVersion} (client fault)
+ *  <p>The version of the document schema isn't supported.</p>
+ *
+ * @throws {@link InvalidDocumentVersion} (client fault)
+ *  <p>The document version isn't valid or doesn't exist.</p>
+ *
+ * @throws {@link MaxDocumentSizeExceeded} (client fault)
+ *  <p>The size limit of a document is 64 KB.</p>
+ *
  *
  */
 export class UpdateDocumentCommand extends $Command<
@@ -62,6 +120,9 @@ export class UpdateDocumentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDocumentCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +151,8 @@ export class UpdateDocumentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDocumentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDocumentResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +162,18 @@ export class UpdateDocumentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDocumentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDocumentCommand(input, context);
+    return se_UpdateDocumentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDocumentCommandOutput> {
-    return deserializeAws_json1_1UpdateDocumentCommand(output, context);
+    return de_UpdateDocumentCommand(output, context);
   }
 
   // Start section: command_body_extra

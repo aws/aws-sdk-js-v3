@@ -19,15 +19,26 @@ import {
   PutVoiceConnectorTerminationCredentialsRequestFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1PutVoiceConnectorTerminationCredentialsCommand,
-  serializeAws_restJson1PutVoiceConnectorTerminationCredentialsCommand,
+  de_PutVoiceConnectorTerminationCredentialsCommand,
+  se_PutVoiceConnectorTerminationCredentialsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutVoiceConnectorTerminationCredentialsCommand}.
+ */
 export interface PutVoiceConnectorTerminationCredentialsCommandInput
   extends PutVoiceConnectorTerminationCredentialsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutVoiceConnectorTerminationCredentialsCommand}.
+ */
 export interface PutVoiceConnectorTerminationCredentialsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds termination SIP credentials for the specified Amazon Chime Voice Connector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -35,13 +46,46 @@ export interface PutVoiceConnectorTerminationCredentialsCommandOutput extends __
  * import { ChimeClient, PutVoiceConnectorTerminationCredentialsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, PutVoiceConnectorTerminationCredentialsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // PutVoiceConnectorTerminationCredentialsRequest
+ *   VoiceConnectorId: "STRING_VALUE", // required
+ *   Credentials: [ // CredentialList
+ *     { // Credential
+ *       Username: "STRING_VALUE",
+ *       Password: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new PutVoiceConnectorTerminationCredentialsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutVoiceConnectorTerminationCredentialsCommandInput - {@link PutVoiceConnectorTerminationCredentialsCommandInput}
+ * @returns {@link PutVoiceConnectorTerminationCredentialsCommandOutput}
  * @see {@link PutVoiceConnectorTerminationCredentialsCommandInput} for command's `input` shape.
  * @see {@link PutVoiceConnectorTerminationCredentialsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>One or more of the resources in the request does not exist in the system.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The client exceeded its request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client is not currently authorized to make the request.</p>
+ *
  *
  */
 export class PutVoiceConnectorTerminationCredentialsCommand extends $Command<
@@ -61,6 +105,9 @@ export class PutVoiceConnectorTerminationCredentialsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutVoiceConnectorTerminationCredentialsCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,7 +143,7 @@ export class PutVoiceConnectorTerminationCredentialsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: PutVoiceConnectorTerminationCredentialsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,18 +153,24 @@ export class PutVoiceConnectorTerminationCredentialsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutVoiceConnectorTerminationCredentialsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutVoiceConnectorTerminationCredentialsCommand(input, context);
+    return se_PutVoiceConnectorTerminationCredentialsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutVoiceConnectorTerminationCredentialsCommandOutput> {
-    return deserializeAws_restJson1PutVoiceConnectorTerminationCredentialsCommand(output, context);
+    return de_PutVoiceConnectorTerminationCredentialsCommand(output, context);
   }
 
   // Start section: command_body_extra

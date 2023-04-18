@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListDevicesCommand, ListDevicesCommandInput, ListDevicesCommandOutput } from "../commands/ListDevicesCommand";
-import { DeviceFarm } from "../DeviceFarm";
 import { DeviceFarmClient } from "../DeviceFarmClient";
 import { DeviceFarmPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DeviceFarmClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListDevicesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: DeviceFarm,
-  input: ListDevicesCommandInput,
-  ...args: any
-): Promise<ListDevicesCommandOutput> => {
-  // @ts-ignore
-  return await client.listDevices(input, ...args);
-};
 export async function* paginateListDevices(
   config: DeviceFarmPaginationConfiguration,
   input: ListDevicesCommandInput,
@@ -39,9 +30,7 @@ export async function* paginateListDevices(
   let page: ListDevicesCommandOutput;
   while (hasNext) {
     input.nextToken = token;
-    if (config.client instanceof DeviceFarm) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DeviceFarmClient) {
+    if (config.client instanceof DeviceFarmClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected DeviceFarm | DeviceFarmClient");

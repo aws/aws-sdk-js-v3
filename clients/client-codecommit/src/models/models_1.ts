@@ -18,17 +18,36 @@ import {
   RepositoryTrigger,
 } from "./models_0";
 
-export enum OrderEnum {
-  ASCENDING = "ascending",
-  DESCENDING = "descending",
-}
-
-export enum SortByEnum {
-  MODIFIED_DATE = "lastModifiedDate",
-  REPOSITORY_NAME = "repositoryName",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OrderEnum = {
+  ASCENDING: "ascending",
+  DESCENDING: "descending",
+} as const;
 
 /**
+ * @public
+ */
+export type OrderEnum = (typeof OrderEnum)[keyof typeof OrderEnum];
+
+/**
+ * @public
+ * @enum
+ */
+export const SortByEnum = {
+  MODIFIED_DATE: "lastModifiedDate",
+  REPOSITORY_NAME: "repositoryName",
+} as const;
+
+/**
+ * @public
+ */
+export type SortByEnum = (typeof SortByEnum)[keyof typeof SortByEnum];
+
+/**
+ * @public
  * <p>Represents the input of a list repositories operation.</p>
  */
 export interface ListRepositoriesInput {
@@ -51,6 +70,7 @@ export interface ListRepositoriesInput {
 }
 
 /**
+ * @public
  * <p>Information about a repository name and ID.</p>
  */
 export interface RepositoryNameIdPair {
@@ -66,6 +86,7 @@ export interface RepositoryNameIdPair {
 }
 
 /**
+ * @public
  * <p>Represents the output of a list repositories operation.</p>
  */
 export interface ListRepositoriesOutput {
@@ -82,6 +103,9 @@ export interface ListRepositoriesOutput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRepositoriesForApprovalRuleTemplateInput {
   /**
    * <p>The name of the approval rule template for which you want to list repositories that are associated with that template.</p>
@@ -100,6 +124,9 @@ export interface ListRepositoriesForApprovalRuleTemplateInput {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListRepositoriesForApprovalRuleTemplateOutput {
   /**
    * <p>A list of repository names that are associated with the specified approval rule template.</p>
@@ -113,6 +140,7 @@ export interface ListRepositoriesForApprovalRuleTemplateOutput {
 }
 
 /**
+ * @public
  * <p>The value for the resource ARN is not valid. For more information about resources in AWS CodeCommit, see
  *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats">CodeCommit Resources and Operations</a>
  *             in the AWS CodeCommit User Guide.</p>
@@ -133,6 +161,9 @@ export class InvalidResourceArnException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource for which you want to get information
@@ -147,6 +178,9 @@ export interface ListTagsForResourceInput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceOutput {
   /**
    * <p>A list of tag key and value pairs associated with the specified resource.</p>
@@ -160,6 +194,7 @@ export interface ListTagsForResourceOutput {
 }
 
 /**
+ * @public
  * <p>A valid Amazon Resource Name (ARN) for an AWS CodeCommit resource is required. For a list of valid resources in AWS CodeCommit, see
  *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats">CodeCommit Resources and Operations</a>
  *             in the AWS CodeCommit User Guide.</p>
@@ -181,6 +216,7 @@ export class ResourceArnRequiredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified target branch is not valid.</p>
  */
 export class InvalidTargetBranchException extends __BaseException {
@@ -199,6 +235,9 @@ export class InvalidTargetBranchException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface MergeBranchesByFastForwardInput {
   /**
    * <p>The name of the repository where you want to merge two branches.</p>
@@ -223,6 +262,9 @@ export interface MergeBranchesByFastForwardInput {
   targetBranch?: string;
 }
 
+/**
+ * @public
+ */
 export interface MergeBranchesByFastForwardOutput {
   /**
    * <p>The commit ID of the merge in the destination or target branch.</p>
@@ -235,6 +277,9 @@ export interface MergeBranchesByFastForwardOutput {
   treeId?: string;
 }
 
+/**
+ * @public
+ */
 export interface MergeBranchesBySquashInput {
   /**
    * <p>The name of the repository where you want to merge two branches.</p>
@@ -304,6 +349,9 @@ export interface MergeBranchesBySquashInput {
   conflictResolution?: ConflictResolution;
 }
 
+/**
+ * @public
+ */
 export interface MergeBranchesBySquashOutput {
   /**
    * <p>The commit ID of the merge in the destination or target branch.</p>
@@ -316,6 +364,9 @@ export interface MergeBranchesBySquashOutput {
   treeId?: string;
 }
 
+/**
+ * @public
+ */
 export interface MergeBranchesByThreeWayInput {
   /**
    * <p>The name of the repository where you want to merge two branches.</p>
@@ -385,6 +436,9 @@ export interface MergeBranchesByThreeWayInput {
   conflictResolution?: ConflictResolution;
 }
 
+/**
+ * @public
+ */
 export interface MergeBranchesByThreeWayOutput {
   /**
    * <p>The commit ID of the merge in the destination or target branch.</p>
@@ -397,6 +451,9 @@ export interface MergeBranchesByThreeWayOutput {
   treeId?: string;
 }
 
+/**
+ * @public
+ */
 export interface MergePullRequestByFastForwardInput {
   /**
    * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
@@ -415,6 +472,9 @@ export interface MergePullRequestByFastForwardInput {
   sourceCommitId?: string;
 }
 
+/**
+ * @public
+ */
 export interface MergePullRequestByFastForwardOutput {
   /**
    * <p>Information about the specified pull request, including the merge.</p>
@@ -423,6 +483,7 @@ export interface MergePullRequestByFastForwardOutput {
 }
 
 /**
+ * @public
  * <p>The pull request cannot be merged because one or more approval rules applied to the pull request have conditions that have not been met.</p>
  */
 export class PullRequestApprovalRulesNotSatisfiedException extends __BaseException {
@@ -442,6 +503,7 @@ export class PullRequestApprovalRulesNotSatisfiedException extends __BaseExcepti
 }
 
 /**
+ * @public
  * <p>The tip of the source branch in the destination repository does not match the tip of the source branch specified in your request.
  *             The pull request might have been updated. Make sure that you have the latest changes.</p>
  */
@@ -461,6 +523,9 @@ export class TipOfSourceReferenceIsDifferentException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface MergePullRequestBySquashInput {
   /**
    * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
@@ -524,6 +589,9 @@ export interface MergePullRequestBySquashInput {
   conflictResolution?: ConflictResolution;
 }
 
+/**
+ * @public
+ */
 export interface MergePullRequestBySquashOutput {
   /**
    * <p>Returns information about a pull request.</p>
@@ -531,6 +599,9 @@ export interface MergePullRequestBySquashOutput {
   pullRequest?: PullRequest;
 }
 
+/**
+ * @public
+ */
 export interface MergePullRequestByThreeWayInput {
   /**
    * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
@@ -594,6 +665,9 @@ export interface MergePullRequestByThreeWayInput {
   conflictResolution?: ConflictResolution;
 }
 
+/**
+ * @public
+ */
 export interface MergePullRequestByThreeWayOutput {
   /**
    * <p>Returns information about a pull request.</p>
@@ -602,6 +676,7 @@ export interface MergePullRequestByThreeWayOutput {
 }
 
 /**
+ * @public
  * <p>The override status is not valid. Valid statuses are OVERRIDE and REVOKE.</p>
  */
 export class InvalidOverrideStatusException extends __BaseException {
@@ -621,6 +696,7 @@ export class InvalidOverrideStatusException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The pull request has already had its approval rules set to override.</p>
  */
 export class OverrideAlreadySetException extends __BaseException {
@@ -639,6 +715,9 @@ export class OverrideAlreadySetException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface OverridePullRequestApprovalRulesInput {
   /**
    * <p>The system-generated ID of the pull request for which you want to override all
@@ -661,6 +740,7 @@ export interface OverridePullRequestApprovalRulesInput {
 }
 
 /**
+ * @public
  * <p>An override status is required, but no value was provided. Valid values include OVERRIDE and REVOKE.</p>
  */
 export class OverrideStatusRequiredException extends __BaseException {
@@ -680,6 +760,7 @@ export class OverrideStatusRequiredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The comment is empty. You must provide some content for a comment. The content cannot be null.</p>
  */
 export class CommentContentRequiredException extends __BaseException {
@@ -699,6 +780,7 @@ export class CommentContentRequiredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The comment is too large. Comments are limited to 1,000 characters.</p>
  */
 export class CommentContentSizeLimitExceededException extends __BaseException {
@@ -718,6 +800,7 @@ export class CommentContentSizeLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The location of the file is not valid. Make sure that you include the file name and
  *             extension.</p>
  */
@@ -738,6 +821,7 @@ export class InvalidFileLocationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The position is not valid. Make sure that the line number exists in the version of the file you want to comment on.</p>
  */
 export class InvalidFilePositionException extends __BaseException {
@@ -757,6 +841,7 @@ export class InvalidFilePositionException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Either the enum is not in a valid format, or the specified file version enum is not valid in respect to the current file version.</p>
  */
 export class InvalidRelativeFileVersionEnumException extends __BaseException {
@@ -775,6 +860,9 @@ export class InvalidRelativeFileVersionEnumException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface PostCommentForComparedCommitInput {
   /**
    * <p>The name of the repository where you want to post a comment on the comparison between commits.</p>
@@ -813,6 +901,9 @@ export interface PostCommentForComparedCommitInput {
   clientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface PostCommentForComparedCommitOutput {
   /**
    * <p>The name of the repository where you posted a comment on the comparison between commits.</p>
@@ -850,6 +941,9 @@ export interface PostCommentForComparedCommitOutput {
   comment?: Comment;
 }
 
+/**
+ * @public
+ */
 export interface PostCommentForPullRequestInput {
   /**
    * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
@@ -892,6 +986,9 @@ export interface PostCommentForPullRequestInput {
   clientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface PostCommentForPullRequestOutput {
   /**
    * <p>The name of the repository where you posted a comment on a pull request.</p>
@@ -936,6 +1033,9 @@ export interface PostCommentForPullRequestOutput {
   comment?: Comment;
 }
 
+/**
+ * @public
+ */
 export interface PostCommentReplyInput {
   /**
    * <p>The system-generated ID of the comment to which you want to reply. To get this ID, use <a>GetCommentsForComparedCommit</a>
@@ -957,6 +1057,9 @@ export interface PostCommentReplyInput {
   content: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PostCommentReplyOutput {
   /**
    * <p>Information about the reply to a comment.</p>
@@ -965,6 +1068,7 @@ export interface PostCommentReplyOutput {
 }
 
 /**
+ * @public
  * <p>The value of the reaction is not valid. For more information, see the <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit User Guide</a>.</p>
  */
 export class InvalidReactionValueException extends __BaseException {
@@ -983,6 +1087,9 @@ export class InvalidReactionValueException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface PutCommentReactionInput {
   /**
    * <p>The ID of the comment to which you want to add or update a reaction.</p>
@@ -997,6 +1104,7 @@ export interface PutCommentReactionInput {
 }
 
 /**
+ * @public
  * <p>The number of reactions has been exceeded. Reactions are limited to one reaction per user for each individual comment ID.</p>
  */
 export class ReactionLimitExceededException extends __BaseException {
@@ -1016,6 +1124,7 @@ export class ReactionLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A reaction value is required. </p>
  */
 export class ReactionValueRequiredException extends __BaseException {
@@ -1035,6 +1144,7 @@ export class ReactionValueRequiredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The file cannot be added because it is empty. Empty files cannot be added to the repository with this API.</p>
  */
 export class FileContentRequiredException extends __BaseException {
@@ -1053,6 +1163,9 @@ export class FileContentRequiredException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface PutFileInput {
   /**
    * <p>The name of the repository where you want to add or update the file.</p>
@@ -1111,6 +1224,9 @@ export interface PutFileInput {
   email?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutFileOutput {
   /**
    * <p>The full SHA ID of the commit that contains this file change.</p>
@@ -1129,6 +1245,7 @@ export interface PutFileOutput {
 }
 
 /**
+ * @public
  * <p>The file was not added or updated because the content of the file is exactly the same as the content of that file in the repository and branch
  *         that you specified.</p>
  */
@@ -1149,6 +1266,7 @@ export class SameFileContentException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One or more branch names specified for the trigger is not valid.</p>
  */
 export class InvalidRepositoryTriggerBranchNameException extends __BaseException {
@@ -1168,6 +1286,7 @@ export class InvalidRepositoryTriggerBranchNameException extends __BaseException
 }
 
 /**
+ * @public
  * <p>The custom data provided for the trigger is not valid.</p>
  */
 export class InvalidRepositoryTriggerCustomDataException extends __BaseException {
@@ -1187,6 +1306,7 @@ export class InvalidRepositoryTriggerCustomDataException extends __BaseException
 }
 
 /**
+ * @public
  * <p>The Amazon Resource Name (ARN) for the trigger is not valid for the specified destination. The most common reason for this error is that the ARN does not meet the requirements for the service type.</p>
  */
 export class InvalidRepositoryTriggerDestinationArnException extends __BaseException {
@@ -1206,6 +1326,7 @@ export class InvalidRepositoryTriggerDestinationArnException extends __BaseExcep
 }
 
 /**
+ * @public
  * <p>One or more events specified for the trigger is not valid. Check to make sure that all events specified match the requirements for allowed events.</p>
  */
 export class InvalidRepositoryTriggerEventsException extends __BaseException {
@@ -1225,6 +1346,7 @@ export class InvalidRepositoryTriggerEventsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The name of the trigger is not valid.</p>
  */
 export class InvalidRepositoryTriggerNameException extends __BaseException {
@@ -1244,6 +1366,7 @@ export class InvalidRepositoryTriggerNameException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The AWS Region for the trigger target does not match the AWS Region for the
  *             repository. Triggers must be created in the same Region as the target for the
  *             trigger.</p>
@@ -1265,6 +1388,7 @@ export class InvalidRepositoryTriggerRegionException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The number of branches for the trigger was exceeded.</p>
  */
 export class MaximumBranchesExceededException extends __BaseException {
@@ -1284,6 +1408,7 @@ export class MaximumBranchesExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The number of triggers allowed for the repository was exceeded.</p>
  */
 export class MaximumRepositoryTriggersExceededException extends __BaseException {
@@ -1303,6 +1428,7 @@ export class MaximumRepositoryTriggersExceededException extends __BaseException 
 }
 
 /**
+ * @public
  * <p>Represents the input of a put repository triggers operation.</p>
  */
 export interface PutRepositoryTriggersInput {
@@ -1318,6 +1444,7 @@ export interface PutRepositoryTriggersInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a put repository triggers operation.</p>
  */
 export interface PutRepositoryTriggersOutput {
@@ -1328,6 +1455,7 @@ export interface PutRepositoryTriggersOutput {
 }
 
 /**
+ * @public
  * <p>At least one branch name is required, but was not specified in the trigger
  *             configuration.</p>
  */
@@ -1349,6 +1477,7 @@ export class RepositoryTriggerBranchNameListRequiredException extends __BaseExce
 }
 
 /**
+ * @public
  * <p>A destination ARN for the target service for the trigger is required, but was not
  *             specified.</p>
  */
@@ -1370,6 +1499,7 @@ export class RepositoryTriggerDestinationArnRequiredException extends __BaseExce
 }
 
 /**
+ * @public
  * <p>At least one event for the trigger is required, but was not specified.</p>
  */
 export class RepositoryTriggerEventsListRequiredException extends __BaseException {
@@ -1389,6 +1519,7 @@ export class RepositoryTriggerEventsListRequiredException extends __BaseExceptio
 }
 
 /**
+ * @public
  * <p>A name for the trigger is required, but was not specified.</p>
  */
 export class RepositoryTriggerNameRequiredException extends __BaseException {
@@ -1408,6 +1539,7 @@ export class RepositoryTriggerNameRequiredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The list of triggers for the repository is required, but was not specified.</p>
  */
 export class RepositoryTriggersListRequiredException extends __BaseException {
@@ -1426,6 +1558,9 @@ export class RepositoryTriggersListRequiredException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface TagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to which you want to add or update tags.</p>
@@ -1439,6 +1574,7 @@ export interface TagResourceInput {
 }
 
 /**
+ * @public
  * <p>A map of tags is required.</p>
  */
 export class TagsMapRequiredException extends __BaseException {
@@ -1458,6 +1594,7 @@ export class TagsMapRequiredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input of a test repository triggers operation.</p>
  */
 export interface TestRepositoryTriggersInput {
@@ -1473,6 +1610,7 @@ export interface TestRepositoryTriggersInput {
 }
 
 /**
+ * @public
  * <p>A trigger failed to run.</p>
  */
 export interface RepositoryTriggerExecutionFailure {
@@ -1488,6 +1626,7 @@ export interface RepositoryTriggerExecutionFailure {
 }
 
 /**
+ * @public
  * <p>Represents the output of a test repository triggers operation.</p>
  */
 export interface TestRepositoryTriggersOutput {
@@ -1504,6 +1643,7 @@ export interface TestRepositoryTriggersOutput {
 }
 
 /**
+ * @public
  * <p>The list of tags is not valid.</p>
  */
 export class InvalidTagKeysListException extends __BaseException {
@@ -1523,6 +1663,7 @@ export class InvalidTagKeysListException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A list of tag keys is required. The list cannot be empty or null.</p>
  */
 export class TagKeysListRequiredException extends __BaseException {
@@ -1541,6 +1682,9 @@ export class TagKeysListRequiredException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to which you want to remove tags.</p>
@@ -1554,6 +1698,7 @@ export interface UntagResourceInput {
 }
 
 /**
+ * @public
  * <p>The SHA-256 hash signature for the rule content is not valid.</p>
  */
 export class InvalidRuleContentSha256Exception extends __BaseException {
@@ -1572,6 +1717,9 @@ export class InvalidRuleContentSha256Exception extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UpdateApprovalRuleTemplateContentInput {
   /**
    * <p>The name of the approval rule template where you want to update the content of the rule. </p>
@@ -1592,6 +1740,9 @@ export interface UpdateApprovalRuleTemplateContentInput {
   existingRuleContentSha256?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateApprovalRuleTemplateContentOutput {
   /**
    * <p>Returns information about an approval rule template.</p>
@@ -1599,6 +1750,9 @@ export interface UpdateApprovalRuleTemplateContentOutput {
   approvalRuleTemplate: ApprovalRuleTemplate | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateApprovalRuleTemplateDescriptionInput {
   /**
    * <p>The name of the template for which you want to update the description.</p>
@@ -1611,6 +1765,9 @@ export interface UpdateApprovalRuleTemplateDescriptionInput {
   approvalRuleTemplateDescription: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateApprovalRuleTemplateDescriptionOutput {
   /**
    * <p>The structure and content of the updated approval rule template.</p>
@@ -1618,6 +1775,9 @@ export interface UpdateApprovalRuleTemplateDescriptionOutput {
   approvalRuleTemplate: ApprovalRuleTemplate | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateApprovalRuleTemplateNameInput {
   /**
    * <p>The current name of the approval rule template.</p>
@@ -1630,6 +1790,9 @@ export interface UpdateApprovalRuleTemplateNameInput {
   newApprovalRuleTemplateName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateApprovalRuleTemplateNameOutput {
   /**
    * <p>The structure and content of the updated approval rule template.</p>
@@ -1638,6 +1801,7 @@ export interface UpdateApprovalRuleTemplateNameOutput {
 }
 
 /**
+ * @public
  * <p>You cannot modify or delete this comment. Only comment authors can modify or delete their comments.</p>
  */
 export class CommentNotCreatedByCallerException extends __BaseException {
@@ -1656,6 +1820,9 @@ export class CommentNotCreatedByCallerException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UpdateCommentInput {
   /**
    * <p>The system-generated ID of the comment you want to update. To get this ID, use <a>GetCommentsForComparedCommit</a>
@@ -1669,6 +1836,9 @@ export interface UpdateCommentInput {
   content: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCommentOutput {
   /**
    * <p>Information about the updated comment.</p>
@@ -1677,6 +1847,7 @@ export interface UpdateCommentOutput {
 }
 
 /**
+ * @public
  * <p>Represents the input of an update default branch operation.</p>
  */
 export interface UpdateDefaultBranchInput {
@@ -1691,6 +1862,9 @@ export interface UpdateDefaultBranchInput {
   defaultBranchName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePullRequestApprovalRuleContentInput {
   /**
    * <p>The system-generated ID of the pull request.</p>
@@ -1755,6 +1929,9 @@ export interface UpdatePullRequestApprovalRuleContentInput {
   newRuleContent: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePullRequestApprovalRuleContentOutput {
   /**
    * <p>Information about the updated approval rule.</p>
@@ -1763,6 +1940,7 @@ export interface UpdatePullRequestApprovalRuleContentOutput {
 }
 
 /**
+ * @public
  * <p>The state for the approval is not valid. Valid values include APPROVE and REVOKE. </p>
  */
 export class InvalidApprovalStateException extends __BaseException {
@@ -1782,6 +1960,7 @@ export class InvalidApprovalStateException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The number of approvals required for the approval rule exceeds the maximum number allowed.</p>
  */
 export class MaximumNumberOfApprovalsExceededException extends __BaseException {
@@ -1801,6 +1980,7 @@ export class MaximumNumberOfApprovalsExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The approval cannot be applied because the user approving the pull request matches the user who created the pull request. You cannot approve a pull
  *         request that you created.</p>
  */
@@ -1820,6 +2000,9 @@ export class PullRequestCannotBeApprovedByAuthorException extends __BaseExceptio
   }
 }
 
+/**
+ * @public
+ */
 export interface UpdatePullRequestApprovalStateInput {
   /**
    * <p>The system-generated ID of the pull request.</p>
@@ -1837,6 +2020,9 @@ export interface UpdatePullRequestApprovalStateInput {
   approvalState: ApprovalState | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePullRequestDescriptionInput {
   /**
    * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
@@ -1850,6 +2036,9 @@ export interface UpdatePullRequestDescriptionInput {
   description: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePullRequestDescriptionOutput {
   /**
    * <p>Information about the updated pull request.</p>
@@ -1858,6 +2047,7 @@ export interface UpdatePullRequestDescriptionOutput {
 }
 
 /**
+ * @public
  * <p>The pull request status update is not valid. The only valid update is from <code>OPEN</code> to <code>CLOSED</code>.</p>
  */
 export class InvalidPullRequestStatusUpdateException extends __BaseException {
@@ -1877,6 +2067,7 @@ export class InvalidPullRequestStatusUpdateException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A pull request status is required, but none was provided.</p>
  */
 export class PullRequestStatusRequiredException extends __BaseException {
@@ -1895,6 +2086,9 @@ export class PullRequestStatusRequiredException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UpdatePullRequestStatusInput {
   /**
    * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
@@ -1909,6 +2103,9 @@ export interface UpdatePullRequestStatusInput {
   pullRequestStatus: PullRequestStatusEnum | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePullRequestStatusOutput {
   /**
    * <p>Information about the pull request.</p>
@@ -1916,6 +2113,9 @@ export interface UpdatePullRequestStatusOutput {
   pullRequest: PullRequest | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePullRequestTitleInput {
   /**
    * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
@@ -1928,6 +2128,9 @@ export interface UpdatePullRequestTitleInput {
   title: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePullRequestTitleOutput {
   /**
    * <p>Information about the updated pull request.</p>
@@ -1936,6 +2139,7 @@ export interface UpdatePullRequestTitleOutput {
 }
 
 /**
+ * @public
  * <p>Represents the input of an update repository description operation.</p>
  */
 export interface UpdateRepositoryDescriptionInput {
@@ -1951,6 +2155,7 @@ export interface UpdateRepositoryDescriptionInput {
 }
 
 /**
+ * @public
  * <p>Represents the input of an update repository description operation.</p>
  */
 export interface UpdateRepositoryNameInput {
@@ -1964,421 +2169,3 @@ export interface UpdateRepositoryNameInput {
    */
   newName: string | undefined;
 }
-
-/**
- * @internal
- */
-export const ListRepositoriesInputFilterSensitiveLog = (obj: ListRepositoriesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RepositoryNameIdPairFilterSensitiveLog = (obj: RepositoryNameIdPair): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRepositoriesOutputFilterSensitiveLog = (obj: ListRepositoriesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRepositoriesForApprovalRuleTemplateInputFilterSensitiveLog = (
-  obj: ListRepositoriesForApprovalRuleTemplateInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRepositoriesForApprovalRuleTemplateOutputFilterSensitiveLog = (
-  obj: ListRepositoriesForApprovalRuleTemplateOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceInputFilterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceOutputFilterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MergeBranchesByFastForwardInputFilterSensitiveLog = (obj: MergeBranchesByFastForwardInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MergeBranchesByFastForwardOutputFilterSensitiveLog = (obj: MergeBranchesByFastForwardOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MergeBranchesBySquashInputFilterSensitiveLog = (obj: MergeBranchesBySquashInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MergeBranchesBySquashOutputFilterSensitiveLog = (obj: MergeBranchesBySquashOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MergeBranchesByThreeWayInputFilterSensitiveLog = (obj: MergeBranchesByThreeWayInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MergeBranchesByThreeWayOutputFilterSensitiveLog = (obj: MergeBranchesByThreeWayOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MergePullRequestByFastForwardInputFilterSensitiveLog = (obj: MergePullRequestByFastForwardInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MergePullRequestByFastForwardOutputFilterSensitiveLog = (
-  obj: MergePullRequestByFastForwardOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MergePullRequestBySquashInputFilterSensitiveLog = (obj: MergePullRequestBySquashInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MergePullRequestBySquashOutputFilterSensitiveLog = (obj: MergePullRequestBySquashOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MergePullRequestByThreeWayInputFilterSensitiveLog = (obj: MergePullRequestByThreeWayInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MergePullRequestByThreeWayOutputFilterSensitiveLog = (obj: MergePullRequestByThreeWayOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OverridePullRequestApprovalRulesInputFilterSensitiveLog = (
-  obj: OverridePullRequestApprovalRulesInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PostCommentForComparedCommitInputFilterSensitiveLog = (obj: PostCommentForComparedCommitInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PostCommentForComparedCommitOutputFilterSensitiveLog = (obj: PostCommentForComparedCommitOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PostCommentForPullRequestInputFilterSensitiveLog = (obj: PostCommentForPullRequestInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PostCommentForPullRequestOutputFilterSensitiveLog = (obj: PostCommentForPullRequestOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PostCommentReplyInputFilterSensitiveLog = (obj: PostCommentReplyInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PostCommentReplyOutputFilterSensitiveLog = (obj: PostCommentReplyOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutCommentReactionInputFilterSensitiveLog = (obj: PutCommentReactionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutFileInputFilterSensitiveLog = (obj: PutFileInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutFileOutputFilterSensitiveLog = (obj: PutFileOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutRepositoryTriggersInputFilterSensitiveLog = (obj: PutRepositoryTriggersInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutRepositoryTriggersOutputFilterSensitiveLog = (obj: PutRepositoryTriggersOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceInputFilterSensitiveLog = (obj: TagResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TestRepositoryTriggersInputFilterSensitiveLog = (obj: TestRepositoryTriggersInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RepositoryTriggerExecutionFailureFilterSensitiveLog = (obj: RepositoryTriggerExecutionFailure): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TestRepositoryTriggersOutputFilterSensitiveLog = (obj: TestRepositoryTriggersOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceInputFilterSensitiveLog = (obj: UntagResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateApprovalRuleTemplateContentInputFilterSensitiveLog = (
-  obj: UpdateApprovalRuleTemplateContentInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateApprovalRuleTemplateContentOutputFilterSensitiveLog = (
-  obj: UpdateApprovalRuleTemplateContentOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateApprovalRuleTemplateDescriptionInputFilterSensitiveLog = (
-  obj: UpdateApprovalRuleTemplateDescriptionInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateApprovalRuleTemplateDescriptionOutputFilterSensitiveLog = (
-  obj: UpdateApprovalRuleTemplateDescriptionOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateApprovalRuleTemplateNameInputFilterSensitiveLog = (
-  obj: UpdateApprovalRuleTemplateNameInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateApprovalRuleTemplateNameOutputFilterSensitiveLog = (
-  obj: UpdateApprovalRuleTemplateNameOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCommentInputFilterSensitiveLog = (obj: UpdateCommentInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCommentOutputFilterSensitiveLog = (obj: UpdateCommentOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDefaultBranchInputFilterSensitiveLog = (obj: UpdateDefaultBranchInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePullRequestApprovalRuleContentInputFilterSensitiveLog = (
-  obj: UpdatePullRequestApprovalRuleContentInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePullRequestApprovalRuleContentOutputFilterSensitiveLog = (
-  obj: UpdatePullRequestApprovalRuleContentOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePullRequestApprovalStateInputFilterSensitiveLog = (
-  obj: UpdatePullRequestApprovalStateInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePullRequestDescriptionInputFilterSensitiveLog = (obj: UpdatePullRequestDescriptionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePullRequestDescriptionOutputFilterSensitiveLog = (obj: UpdatePullRequestDescriptionOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePullRequestStatusInputFilterSensitiveLog = (obj: UpdatePullRequestStatusInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePullRequestStatusOutputFilterSensitiveLog = (obj: UpdatePullRequestStatusOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePullRequestTitleInputFilterSensitiveLog = (obj: UpdatePullRequestTitleInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePullRequestTitleOutputFilterSensitiveLog = (obj: UpdatePullRequestTitleOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRepositoryDescriptionInputFilterSensitiveLog = (obj: UpdateRepositoryDescriptionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRepositoryNameInputFilterSensitiveLog = (obj: UpdateRepositoryNameInput): any => ({
-  ...obj,
-});

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsClient";
-import {
-  UpdateInputRequest,
-  UpdateInputRequestFilterSensitiveLog,
-  UpdateInputResponse,
-  UpdateInputResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateInputCommand,
-  serializeAws_restJson1UpdateInputCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateInputRequest, UpdateInputResponse } from "../models/models_0";
+import { de_UpdateInputCommand, se_UpdateInputCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateInputCommand}.
+ */
 export interface UpdateInputCommandInput extends UpdateInputRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateInputCommand}.
+ */
 export interface UpdateInputCommandOutput extends UpdateInputResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an input.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,45 @@ export interface UpdateInputCommandOutput extends UpdateInputResponse, __Metadat
  * import { IoTEventsClient, UpdateInputCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
  * // const { IoTEventsClient, UpdateInputCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
  * const client = new IoTEventsClient(config);
+ * const input = { // UpdateInputRequest
+ *   inputName: "STRING_VALUE", // required
+ *   inputDescription: "STRING_VALUE",
+ *   inputDefinition: { // InputDefinition
+ *     attributes: [ // Attributes // required
+ *       { // Attribute
+ *         jsonPath: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new UpdateInputCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateInputCommandInput - {@link UpdateInputCommandInput}
+ * @returns {@link UpdateInputCommandOutput}
  * @see {@link UpdateInputCommandInput} for command's `input` shape.
  * @see {@link UpdateInputCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsClientResolvedConfig | config} for IoTEventsClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal failure occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request was invalid.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The resource is in use.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource was not found.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request could not be completed due to throttling.</p>
+ *
  *
  */
 export class UpdateInputCommand extends $Command<
@@ -62,6 +97,9 @@ export class UpdateInputCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateInputCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +126,8 @@ export class UpdateInputCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateInputRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateInputResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +137,18 @@ export class UpdateInputCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateInputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateInputCommand(input, context);
+    return se_UpdateInputCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateInputCommandOutput> {
-    return deserializeAws_restJson1UpdateInputCommand(output, context);
+    return de_UpdateInputCommand(output, context);
   }
 
   // Start section: command_body_extra

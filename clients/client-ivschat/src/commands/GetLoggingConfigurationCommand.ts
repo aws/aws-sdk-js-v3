@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IvschatClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvschatClient";
-import {
-  GetLoggingConfigurationRequest,
-  GetLoggingConfigurationRequestFilterSensitiveLog,
-  GetLoggingConfigurationResponse,
-  GetLoggingConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetLoggingConfigurationCommand,
-  serializeAws_restJson1GetLoggingConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { GetLoggingConfigurationRequest, GetLoggingConfigurationResponse } from "../models/models_0";
+import { de_GetLoggingConfigurationCommand, se_GetLoggingConfigurationCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetLoggingConfigurationCommand}.
+ */
 export interface GetLoggingConfigurationCommandInput extends GetLoggingConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetLoggingConfigurationCommand}.
+ */
 export interface GetLoggingConfigurationCommandOutput extends GetLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the specified logging configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,28 @@ export interface GetLoggingConfigurationCommandOutput extends GetLoggingConfigur
  * import { IvschatClient, GetLoggingConfigurationCommand } from "@aws-sdk/client-ivschat"; // ES Modules import
  * // const { IvschatClient, GetLoggingConfigurationCommand } = require("@aws-sdk/client-ivschat"); // CommonJS import
  * const client = new IvschatClient(config);
+ * const input = { // GetLoggingConfigurationRequest
+ *   identifier: "STRING_VALUE", // required
+ * };
  * const command = new GetLoggingConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLoggingConfigurationCommandInput - {@link GetLoggingConfigurationCommandInput}
+ * @returns {@link GetLoggingConfigurationCommandOutput}
  * @see {@link GetLoggingConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetLoggingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IvschatClientResolvedConfig | config} for IvschatClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p/>
+ *
  *
  */
 export class GetLoggingConfigurationCommand extends $Command<
@@ -62,6 +80,9 @@ export class GetLoggingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLoggingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +111,8 @@ export class GetLoggingConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLoggingConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetLoggingConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +122,18 @@ export class GetLoggingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLoggingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetLoggingConfigurationCommand(input, context);
+    return se_GetLoggingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLoggingConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetLoggingConfigurationCommand(output, context);
+    return de_GetLoggingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

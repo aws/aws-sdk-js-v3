@@ -13,20 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteVerifiedEmailAddressRequest,
-  DeleteVerifiedEmailAddressRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteVerifiedEmailAddressCommand,
-  serializeAws_queryDeleteVerifiedEmailAddressCommand,
-} from "../protocols/Aws_query";
+import { DeleteVerifiedEmailAddressRequest } from "../models/models_0";
+import { de_DeleteVerifiedEmailAddressCommand, se_DeleteVerifiedEmailAddressCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteVerifiedEmailAddressCommand}.
+ */
 export interface DeleteVerifiedEmailAddressCommandInput extends DeleteVerifiedEmailAddressRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteVerifiedEmailAddressCommand}.
+ */
 export interface DeleteVerifiedEmailAddressCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deprecated. Use the <code>DeleteIdentity</code> operation to delete email addresses
  *             and domains.</p>
  * @example
@@ -35,13 +40,30 @@ export interface DeleteVerifiedEmailAddressCommandOutput extends __MetadataBeare
  * import { SESClient, DeleteVerifiedEmailAddressCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, DeleteVerifiedEmailAddressCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // DeleteVerifiedEmailAddressRequest
+ *   EmailAddress: "STRING_VALUE", // required
+ * };
  * const command = new DeleteVerifiedEmailAddressCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVerifiedEmailAddressCommandInput - {@link DeleteVerifiedEmailAddressCommandInput}
+ * @returns {@link DeleteVerifiedEmailAddressCommandOutput}
  * @see {@link DeleteVerifiedEmailAddressCommandInput} for command's `input` shape.
  * @see {@link DeleteVerifiedEmailAddressCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
+ *
+ *
+ * @example DeleteVerifiedEmailAddress
+ * ```javascript
+ * // The following example deletes an email address from the list of identities that have been submitted for verification with Amazon SES:
+ * const input = {
+ *   "EmailAddress": "user@example.com"
+ * };
+ * const command = new DeleteVerifiedEmailAddressCommand(input);
+ * await client.send(command);
+ * // example id: deleteverifiedemailaddress-1469051086444
+ * ```
  *
  */
 export class DeleteVerifiedEmailAddressCommand extends $Command<
@@ -61,6 +83,9 @@ export class DeleteVerifiedEmailAddressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVerifiedEmailAddressCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +114,8 @@ export class DeleteVerifiedEmailAddressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVerifiedEmailAddressRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,15 +125,21 @@ export class DeleteVerifiedEmailAddressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVerifiedEmailAddressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteVerifiedEmailAddressCommand(input, context);
+    return se_DeleteVerifiedEmailAddressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteVerifiedEmailAddressCommandOutput> {
-    return deserializeAws_queryDeleteVerifiedEmailAddressCommand(output, context);
+    return de_DeleteVerifiedEmailAddressCommand(output, context);
   }
 
   // Start section: command_body_extra

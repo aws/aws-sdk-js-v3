@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  DescribeFleetPortSettingsInput,
-  DescribeFleetPortSettingsInputFilterSensitiveLog,
-  DescribeFleetPortSettingsOutput,
-  DescribeFleetPortSettingsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeFleetPortSettingsCommand,
-  serializeAws_json1_1DescribeFleetPortSettingsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeFleetPortSettingsInput, DescribeFleetPortSettingsOutput } from "../models/models_0";
+import { de_DescribeFleetPortSettingsCommand, se_DescribeFleetPortSettingsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeFleetPortSettingsCommand}.
+ */
 export interface DescribeFleetPortSettingsCommandInput extends DescribeFleetPortSettingsInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeFleetPortSettingsCommand}.
+ */
 export interface DescribeFleetPortSettingsCommandOutput extends DescribeFleetPortSettingsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a fleet's inbound connection permissions. Connection permissions specify the
  *             range of IP addresses and port settings that incoming traffic can use to access server
  *             processes in the fleet. Game sessions that are running on instances in the fleet must
@@ -61,13 +64,37 @@ export interface DescribeFleetPortSettingsCommandOutput extends DescribeFleetPor
  * import { GameLiftClient, DescribeFleetPortSettingsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeFleetPortSettingsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // DescribeFleetPortSettingsInput
+ *   FleetId: "STRING_VALUE", // required
+ *   Location: "STRING_VALUE",
+ * };
  * const command = new DescribeFleetPortSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFleetPortSettingsCommandInput - {@link DescribeFleetPortSettingsCommandInput}
+ * @returns {@link DescribeFleetPortSettingsCommandOutput}
  * @see {@link DescribeFleetPortSettingsCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetPortSettingsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an unrecoverable internal failure while processing the
+ *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
+ *             values before retrying.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
+ * @throws {@link UnsupportedRegionException} (client fault)
+ *  <p>The requested operation is not supported in the Region specified.</p>
+ *
  *
  */
 export class DescribeFleetPortSettingsCommand extends $Command<
@@ -87,6 +114,9 @@ export class DescribeFleetPortSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFleetPortSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +145,8 @@ export class DescribeFleetPortSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFleetPortSettingsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFleetPortSettingsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,15 +156,21 @@ export class DescribeFleetPortSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFleetPortSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeFleetPortSettingsCommand(input, context);
+    return se_DescribeFleetPortSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeFleetPortSettingsCommandOutput> {
-    return deserializeAws_json1_1DescribeFleetPortSettingsCommand(output, context);
+    return de_DescribeFleetPortSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

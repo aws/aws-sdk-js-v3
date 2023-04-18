@@ -13,37 +13,74 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateReplicationSetInput,
-  CreateReplicationSetInputFilterSensitiveLog,
-  CreateReplicationSetOutput,
-  CreateReplicationSetOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateReplicationSetCommand,
-  serializeAws_restJson1CreateReplicationSetCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateReplicationSetInput, CreateReplicationSetOutput } from "../models/models_0";
+import { de_CreateReplicationSetCommand, se_CreateReplicationSetCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateReplicationSetCommand}.
+ */
 export interface CreateReplicationSetCommandInput extends CreateReplicationSetInput {}
+/**
+ * @public
+ *
+ * The output of {@link CreateReplicationSetCommand}.
+ */
 export interface CreateReplicationSetCommandOutput extends CreateReplicationSetOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>A replication set replicates and encrypts your data to the provided Regions with the
- *             provided KMS key. </p>
+ *       provided KMS key. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SSMIncidentsClient, CreateReplicationSetCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, CreateReplicationSetCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
  * const client = new SSMIncidentsClient(config);
+ * const input = { // CreateReplicationSetInput
+ *   regions: { // RegionMapInput // required
+ *     "<keys>": { // RegionMapInputValue
+ *       sseKmsKeyId: "STRING_VALUE",
+ *     },
+ *   },
+ *   clientToken: "STRING_VALUE",
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateReplicationSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateReplicationSetCommandInput - {@link CreateReplicationSetCommandInput}
+ * @returns {@link CreateReplicationSetCommandOutput}
  * @see {@link CreateReplicationSetCommandInput} for command's `input` shape.
  * @see {@link CreateReplicationSetCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient access to perform this operation.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Updating or deleting a resource causes an inconsistent state.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Request would cause a service quota to be exceeded.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
+ *       service.</p>
+ *
  *
  */
 export class CreateReplicationSetCommand extends $Command<
@@ -63,6 +100,9 @@ export class CreateReplicationSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateReplicationSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +131,8 @@ export class CreateReplicationSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateReplicationSetInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateReplicationSetOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +142,18 @@ export class CreateReplicationSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateReplicationSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateReplicationSetCommand(input, context);
+    return se_CreateReplicationSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateReplicationSetCommandOutput> {
-    return deserializeAws_restJson1CreateReplicationSetCommand(output, context);
+    return de_CreateReplicationSetCommand(output, context);
   }
 
   // Start section: command_body_extra

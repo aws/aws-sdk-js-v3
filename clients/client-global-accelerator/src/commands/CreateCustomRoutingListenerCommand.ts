@@ -18,23 +18,26 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import {
-  CreateCustomRoutingListenerRequest,
-  CreateCustomRoutingListenerRequestFilterSensitiveLog,
-  CreateCustomRoutingListenerResponse,
-  CreateCustomRoutingListenerResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateCustomRoutingListenerCommand,
-  serializeAws_json1_1CreateCustomRoutingListenerCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateCustomRoutingListenerRequest, CreateCustomRoutingListenerResponse } from "../models/models_0";
+import { de_CreateCustomRoutingListenerCommand, se_CreateCustomRoutingListenerCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateCustomRoutingListenerCommand}.
+ */
 export interface CreateCustomRoutingListenerCommandInput extends CreateCustomRoutingListenerRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateCustomRoutingListenerCommand}.
+ */
 export interface CreateCustomRoutingListenerCommandOutput
   extends CreateCustomRoutingListenerResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a listener to process inbound connections from clients to a custom routing accelerator.
  * 			Connections arrive to assigned static IP addresses on the port range that you specify. </p>
  * @example
@@ -43,13 +46,41 @@ export interface CreateCustomRoutingListenerCommandOutput
  * import { GlobalAcceleratorClient, CreateCustomRoutingListenerCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, CreateCustomRoutingListenerCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
+ * const input = { // CreateCustomRoutingListenerRequest
+ *   AcceleratorArn: "STRING_VALUE", // required
+ *   PortRanges: [ // PortRanges // required
+ *     { // PortRange
+ *       FromPort: Number("int"),
+ *       ToPort: Number("int"),
+ *     },
+ *   ],
+ *   IdempotencyToken: "STRING_VALUE", // required
+ * };
  * const command = new CreateCustomRoutingListenerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCustomRoutingListenerCommandInput - {@link CreateCustomRoutingListenerCommandInput}
+ * @returns {@link CreateCustomRoutingListenerCommandOutput}
  * @see {@link CreateCustomRoutingListenerCommandInput} for command's `input` shape.
  * @see {@link CreateCustomRoutingListenerCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
+ *
+ * @throws {@link AcceleratorNotFoundException} (client fault)
+ *  <p>The accelerator that you specified doesn't exist.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>There was an internal error for Global Accelerator.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>An argument that you specified is invalid.</p>
+ *
+ * @throws {@link InvalidPortRangeException} (client fault)
+ *  <p>The port numbers that you specified are not valid numbers or are not unique for this accelerator.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>Processing your request would cause you to exceed an Global Accelerator limit.</p>
+ *
  *
  */
 export class CreateCustomRoutingListenerCommand extends $Command<
@@ -69,6 +100,9 @@ export class CreateCustomRoutingListenerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCustomRoutingListenerCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +131,8 @@ export class CreateCustomRoutingListenerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCustomRoutingListenerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCustomRoutingListenerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,15 +142,21 @@ export class CreateCustomRoutingListenerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCustomRoutingListenerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateCustomRoutingListenerCommand(input, context);
+    return se_CreateCustomRoutingListenerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateCustomRoutingListenerCommandOutput> {
-    return deserializeAws_json1_1CreateCustomRoutingListenerCommand(output, context);
+    return de_CreateCustomRoutingListenerCommand(output, context);
   }
 
   // Start section: command_body_extra

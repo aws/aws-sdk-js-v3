@@ -18,17 +18,24 @@ import {
   CreateWhatIfForecastExportRequest,
   CreateWhatIfForecastExportRequestFilterSensitiveLog,
   CreateWhatIfForecastExportResponse,
-  CreateWhatIfForecastExportResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateWhatIfForecastExportCommand,
-  serializeAws_json1_1CreateWhatIfForecastExportCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateWhatIfForecastExportCommand, se_CreateWhatIfForecastExportCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateWhatIfForecastExportCommand}.
+ */
 export interface CreateWhatIfForecastExportCommandInput extends CreateWhatIfForecastExportRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateWhatIfForecastExportCommand}.
+ */
 export interface CreateWhatIfForecastExportCommandOutput extends CreateWhatIfForecastExportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Exports a forecast created by the <a>CreateWhatIfForecast</a> operation to your
  *       Amazon Simple Storage Service (Amazon S3) bucket. The forecast file name will match the following conventions:</p>
  *          <p>
@@ -36,7 +43,7 @@ export interface CreateWhatIfForecastExportCommandOutput extends CreateWhatIfFor
  *          </p>
  *          <p>The <ExportTimestamp> component is in Java SimpleDateFormat
  *       (yyyy-MM-ddTHH-mm-ssZ).</p>
- *          <p>You must specify a <a>DataDestination</a> object that includes an AWS Identity and Access Management
+ *          <p>You must specify a <a>DataDestination</a> object that includes an Identity and Access Management
  *       (IAM) role that Amazon Forecast can assume to access the Amazon S3 bucket. For more information, see
  *       <a>aws-forecast-iam-roles</a>.</p>
  *          <p>For more information, see <a>howitworks-forecast</a>.</p>
@@ -52,13 +59,53 @@ export interface CreateWhatIfForecastExportCommandOutput extends CreateWhatIfFor
  * import { ForecastClient, CreateWhatIfForecastExportCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, CreateWhatIfForecastExportCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = { // CreateWhatIfForecastExportRequest
+ *   WhatIfForecastExportName: "STRING_VALUE", // required
+ *   WhatIfForecastArns: [ // WhatIfForecastArnListForExport // required
+ *     "STRING_VALUE",
+ *   ],
+ *   Destination: { // DataDestination
+ *     S3Config: { // S3Config
+ *       Path: "STRING_VALUE", // required
+ *       RoleArn: "STRING_VALUE", // required
+ *       KMSKeyArn: "STRING_VALUE",
+ *     },
+ *   },
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Format: "STRING_VALUE",
+ * };
  * const command = new CreateWhatIfForecastExportCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWhatIfForecastExportCommandInput - {@link CreateWhatIfForecastExportCommandInput}
+ * @returns {@link CreateWhatIfForecastExportCommandOutput}
  * @see {@link CreateWhatIfForecastExportCommandInput} for command's `input` shape.
  * @see {@link CreateWhatIfForecastExportCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>We can't process the request because it includes an invalid value or a value that exceeds
+ *       the valid range.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The limit on the number of resources per account has been exceeded.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>There is already a resource with this name. Try again with a different name.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is in use.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
+ *       again.</p>
+ *
  *
  */
 export class CreateWhatIfForecastExportCommand extends $Command<
@@ -78,6 +125,9 @@ export class CreateWhatIfForecastExportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWhatIfForecastExportCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,7 +157,7 @@ export class CreateWhatIfForecastExportCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateWhatIfForecastExportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateWhatIfForecastExportResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,15 +167,21 @@ export class CreateWhatIfForecastExportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWhatIfForecastExportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateWhatIfForecastExportCommand(input, context);
+    return se_CreateWhatIfForecastExportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateWhatIfForecastExportCommandOutput> {
-    return deserializeAws_json1_1CreateWhatIfForecastExportCommand(output, context);
+    return de_CreateWhatIfForecastExportCommand(output, context);
   }
 
   // Start section: command_body_extra

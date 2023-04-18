@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
+import { DescribeGlobalReplicationGroupsMessage, DescribeGlobalReplicationGroupsResult } from "../models/models_0";
 import {
-  DescribeGlobalReplicationGroupsMessage,
-  DescribeGlobalReplicationGroupsMessageFilterSensitiveLog,
-  DescribeGlobalReplicationGroupsResult,
-  DescribeGlobalReplicationGroupsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeGlobalReplicationGroupsCommand,
-  serializeAws_queryDescribeGlobalReplicationGroupsCommand,
+  de_DescribeGlobalReplicationGroupsCommand,
+  se_DescribeGlobalReplicationGroupsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeGlobalReplicationGroupsCommand}.
+ */
 export interface DescribeGlobalReplicationGroupsCommandInput extends DescribeGlobalReplicationGroupsMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeGlobalReplicationGroupsCommand}.
+ */
 export interface DescribeGlobalReplicationGroupsCommandOutput
   extends DescribeGlobalReplicationGroupsResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a particular global replication group. If no identifier is specified, returns information about all Global datastores. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,31 @@ export interface DescribeGlobalReplicationGroupsCommandOutput
  * import { ElastiCacheClient, DescribeGlobalReplicationGroupsCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DescribeGlobalReplicationGroupsCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // DescribeGlobalReplicationGroupsMessage
+ *   GlobalReplicationGroupId: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ *   ShowMemberInfo: true || false,
+ * };
  * const command = new DescribeGlobalReplicationGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeGlobalReplicationGroupsCommandInput - {@link DescribeGlobalReplicationGroupsCommandInput}
+ * @returns {@link DescribeGlobalReplicationGroupsCommandOutput}
  * @see {@link DescribeGlobalReplicationGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeGlobalReplicationGroupsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
+ *
+ * @throws {@link GlobalReplicationGroupNotFoundFault} (client fault)
+ *  <p>The Global datastore does not exist</p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
  *
  */
 export class DescribeGlobalReplicationGroupsCommand extends $Command<
@@ -64,6 +88,9 @@ export class DescribeGlobalReplicationGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeGlobalReplicationGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +119,8 @@ export class DescribeGlobalReplicationGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeGlobalReplicationGroupsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeGlobalReplicationGroupsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +130,24 @@ export class DescribeGlobalReplicationGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeGlobalReplicationGroupsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeGlobalReplicationGroupsCommand(input, context);
+    return se_DescribeGlobalReplicationGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeGlobalReplicationGroupsCommandOutput> {
-    return deserializeAws_queryDescribeGlobalReplicationGroupsCommand(output, context);
+    return de_DescribeGlobalReplicationGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

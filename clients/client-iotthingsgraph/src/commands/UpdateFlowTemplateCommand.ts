@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import {
-  UpdateFlowTemplateRequest,
-  UpdateFlowTemplateRequestFilterSensitiveLog,
-  UpdateFlowTemplateResponse,
-  UpdateFlowTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateFlowTemplateCommand,
-  serializeAws_json1_1UpdateFlowTemplateCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateFlowTemplateRequest, UpdateFlowTemplateResponse } from "../models/models_0";
+import { de_UpdateFlowTemplateCommand, se_UpdateFlowTemplateCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateFlowTemplateCommand}.
+ */
 export interface UpdateFlowTemplateCommandInput extends UpdateFlowTemplateRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateFlowTemplateCommand}.
+ */
 export interface UpdateFlowTemplateCommandOutput extends UpdateFlowTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Updates the specified workflow. All deployed systems and system instances that use the workflow will see the changes in the flow when it is redeployed. If you don't want this
@@ -39,13 +42,36 @@ export interface UpdateFlowTemplateCommandOutput extends UpdateFlowTemplateRespo
  * import { IoTThingsGraphClient, UpdateFlowTemplateCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, UpdateFlowTemplateCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
+ * const input = { // UpdateFlowTemplateRequest
+ *   id: "STRING_VALUE", // required
+ *   definition: { // DefinitionDocument
+ *     language: "STRING_VALUE", // required
+ *     text: "STRING_VALUE", // required
+ *   },
+ *   compatibleNamespaceVersion: Number("long"),
+ * };
  * const command = new UpdateFlowTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFlowTemplateCommandInput - {@link UpdateFlowTemplateCommandInput}
+ * @returns {@link UpdateFlowTemplateCommandOutput}
  * @see {@link UpdateFlowTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateFlowTemplateCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p></p>
+ *
  *
  */
 export class UpdateFlowTemplateCommand extends $Command<
@@ -65,6 +91,9 @@ export class UpdateFlowTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFlowTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +122,8 @@ export class UpdateFlowTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFlowTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFlowTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +133,18 @@ export class UpdateFlowTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFlowTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateFlowTemplateCommand(input, context);
+    return se_UpdateFlowTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFlowTemplateCommandOutput> {
-    return deserializeAws_json1_1UpdateFlowTemplateCommand(output, context);
+    return de_UpdateFlowTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,29 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetConnectionRequest,
-  GetConnectionRequestFilterSensitiveLog,
-  GetConnectionResponse,
-  GetConnectionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetConnectionRequest, GetConnectionResponse } from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import {
-  deserializeAws_restJson1GetConnectionCommand,
-  serializeAws_restJson1GetConnectionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetConnectionCommand, se_GetConnectionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetConnectionCommand}.
+ */
 export interface GetConnectionCommandInput extends GetConnectionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetConnectionCommand}.
+ */
 export interface GetConnectionCommandOutput extends GetConnectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>
  *       Amazon Web Services uses this action to install Outpost servers.</p>
  *          </note>
- *          <p>
- *       Gets information about the specified connection.
- *     </p>
+ *          <p> Gets information about the specified connection. </p>
  *          <p>
  *       Use CloudTrail to monitor this action or Amazon Web Services managed policy for Amazon Web Services Outposts to secure it. For
  *       more information, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/security-iam-awsmanpol.html">
@@ -48,13 +49,31 @@ export interface GetConnectionCommandOutput extends GetConnectionResponse, __Met
  * import { OutpostsClient, GetConnectionCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, GetConnectionCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
+ * const input = { // GetConnectionRequest
+ *   ConnectionId: "STRING_VALUE", // required
+ * };
  * const command = new GetConnectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetConnectionCommandInput - {@link GetConnectionCommandInput}
+ * @returns {@link GetConnectionCommandOutput}
  * @see {@link GetConnectionCommandInput} for command's `input` shape.
  * @see {@link GetConnectionCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have permission to perform this operation.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error has occurred.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The specified request is not valid.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>A parameter is not valid.</p>
+ *
  *
  */
 export class GetConnectionCommand extends $Command<
@@ -74,6 +93,9 @@ export class GetConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +122,8 @@ export class GetConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetConnectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetConnectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +133,18 @@ export class GetConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetConnectionCommand(input, context);
+    return se_GetConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConnectionCommandOutput> {
-    return deserializeAws_restJson1GetConnectionCommand(output, context);
+    return de_GetConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

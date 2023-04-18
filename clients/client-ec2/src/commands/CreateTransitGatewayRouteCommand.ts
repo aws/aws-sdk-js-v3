@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  CreateTransitGatewayRouteRequest,
-  CreateTransitGatewayRouteRequestFilterSensitiveLog,
-  CreateTransitGatewayRouteResult,
-  CreateTransitGatewayRouteResultFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_ec2CreateTransitGatewayRouteCommand,
-  serializeAws_ec2CreateTransitGatewayRouteCommand,
-} from "../protocols/Aws_ec2";
+import { CreateTransitGatewayRouteRequest, CreateTransitGatewayRouteResult } from "../models/models_2";
+import { de_CreateTransitGatewayRouteCommand, se_CreateTransitGatewayRouteCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateTransitGatewayRouteCommand}.
+ */
 export interface CreateTransitGatewayRouteCommandInput extends CreateTransitGatewayRouteRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateTransitGatewayRouteCommand}.
+ */
 export interface CreateTransitGatewayRouteCommandOutput extends CreateTransitGatewayRouteResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a static route for the specified transit gateway route table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,23 @@ export interface CreateTransitGatewayRouteCommandOutput extends CreateTransitGat
  * import { EC2Client, CreateTransitGatewayRouteCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateTransitGatewayRouteCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // CreateTransitGatewayRouteRequest
+ *   DestinationCidrBlock: "STRING_VALUE", // required
+ *   TransitGatewayRouteTableId: "STRING_VALUE", // required
+ *   TransitGatewayAttachmentId: "STRING_VALUE",
+ *   Blackhole: true || false,
+ *   DryRun: true || false,
+ * };
  * const command = new CreateTransitGatewayRouteCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTransitGatewayRouteCommandInput - {@link CreateTransitGatewayRouteCommandInput}
+ * @returns {@link CreateTransitGatewayRouteCommandOutput}
  * @see {@link CreateTransitGatewayRouteCommandInput} for command's `input` shape.
  * @see {@link CreateTransitGatewayRouteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class CreateTransitGatewayRouteCommand extends $Command<
@@ -62,6 +75,9 @@ export class CreateTransitGatewayRouteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTransitGatewayRouteCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +106,8 @@ export class CreateTransitGatewayRouteCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTransitGatewayRouteRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateTransitGatewayRouteResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +117,21 @@ export class CreateTransitGatewayRouteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTransitGatewayRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateTransitGatewayRouteCommand(input, context);
+    return se_CreateTransitGatewayRouteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateTransitGatewayRouteCommandOutput> {
-    return deserializeAws_ec2CreateTransitGatewayRouteCommand(output, context);
+    return de_CreateTransitGatewayRouteCommand(output, context);
   }
 
   // Start section: command_body_extra

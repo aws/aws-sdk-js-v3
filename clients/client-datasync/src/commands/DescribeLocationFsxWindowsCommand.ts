@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import {
-  DescribeLocationFsxWindowsRequest,
-  DescribeLocationFsxWindowsRequestFilterSensitiveLog,
-  DescribeLocationFsxWindowsResponse,
-  DescribeLocationFsxWindowsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeLocationFsxWindowsCommand,
-  serializeAws_json1_1DescribeLocationFsxWindowsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeLocationFsxWindowsRequest, DescribeLocationFsxWindowsResponse } from "../models/models_0";
+import { de_DescribeLocationFsxWindowsCommand, se_DescribeLocationFsxWindowsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeLocationFsxWindowsCommand}.
+ */
 export interface DescribeLocationFsxWindowsCommandInput extends DescribeLocationFsxWindowsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeLocationFsxWindowsCommand}.
+ */
 export interface DescribeLocationFsxWindowsCommandOutput extends DescribeLocationFsxWindowsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns metadata about an Amazon FSx for Windows File Server
  *       location, such as information about its path.</p>
  * @example
@@ -37,13 +40,25 @@ export interface DescribeLocationFsxWindowsCommandOutput extends DescribeLocatio
  * import { DataSyncClient, DescribeLocationFsxWindowsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, DescribeLocationFsxWindowsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = { // DescribeLocationFsxWindowsRequest
+ *   LocationArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeLocationFsxWindowsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLocationFsxWindowsCommandInput - {@link DescribeLocationFsxWindowsCommandInput}
+ * @returns {@link DescribeLocationFsxWindowsCommandOutput}
  * @see {@link DescribeLocationFsxWindowsCommandInput} for command's `input` shape.
  * @see {@link DescribeLocationFsxWindowsCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception is thrown when an error occurs in the DataSync service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
  *
  */
 export class DescribeLocationFsxWindowsCommand extends $Command<
@@ -63,6 +78,9 @@ export class DescribeLocationFsxWindowsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLocationFsxWindowsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +109,8 @@ export class DescribeLocationFsxWindowsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLocationFsxWindowsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLocationFsxWindowsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,15 +120,21 @@ export class DescribeLocationFsxWindowsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLocationFsxWindowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeLocationFsxWindowsCommand(input, context);
+    return se_DescribeLocationFsxWindowsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeLocationFsxWindowsCommandOutput> {
-    return deserializeAws_json1_1DescribeLocationFsxWindowsCommand(output, context);
+    return de_DescribeLocationFsxWindowsCommand(output, context);
   }
 
   // Start section: command_body_extra

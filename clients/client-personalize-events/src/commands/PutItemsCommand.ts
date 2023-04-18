@@ -19,15 +19,23 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PersonalizeEventsClient";
-import {
-  deserializeAws_restJson1PutItemsCommand,
-  serializeAws_restJson1PutItemsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutItemsCommand, se_PutItemsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutItemsCommand}.
+ */
 export interface PutItemsCommandInput extends PutItemsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutItemsCommand}.
+ */
 export interface PutItemsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds one or more items to an Items dataset. For more information see
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/importing-items.html">Importing Items Incrementally</a>.
  *      </p>
@@ -37,13 +45,34 @@ export interface PutItemsCommandOutput extends __MetadataBearer {}
  * import { PersonalizeEventsClient, PutItemsCommand } from "@aws-sdk/client-personalize-events"; // ES Modules import
  * // const { PersonalizeEventsClient, PutItemsCommand } = require("@aws-sdk/client-personalize-events"); // CommonJS import
  * const client = new PersonalizeEventsClient(config);
+ * const input = { // PutItemsRequest
+ *   datasetArn: "STRING_VALUE", // required
+ *   items: [ // ItemList // required
+ *     { // Item
+ *       itemId: "STRING_VALUE", // required
+ *       properties: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new PutItemsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutItemsCommandInput - {@link PutItemsCommandInput}
+ * @returns {@link PutItemsCommandOutput}
  * @see {@link PutItemsCommandInput} for command's `input` shape.
  * @see {@link PutItemsCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeEventsClientResolvedConfig | config} for PersonalizeEventsClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is in use.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Could not find the specified resource.</p>
+ *
  *
  */
 export class PutItemsCommand extends $Command<
@@ -63,6 +92,9 @@ export class PutItemsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutItemsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +122,7 @@ export class PutItemsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: PutItemsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +132,18 @@ export class PutItemsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutItemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutItemsCommand(input, context);
+    return se_PutItemsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutItemsCommandOutput> {
-    return deserializeAws_restJson1PutItemsCommand(output, context);
+    return de_PutItemsCommand(output, context);
   }
 
   // Start section: command_body_extra

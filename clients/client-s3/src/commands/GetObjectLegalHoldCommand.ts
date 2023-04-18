@@ -13,26 +13,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetObjectLegalHoldOutput,
-  GetObjectLegalHoldOutputFilterSensitiveLog,
-  GetObjectLegalHoldRequest,
-  GetObjectLegalHoldRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlGetObjectLegalHoldCommand,
-  serializeAws_restXmlGetObjectLegalHoldCommand,
-} from "../protocols/Aws_restXml";
+import { GetObjectLegalHoldOutput, GetObjectLegalHoldRequest } from "../models/models_0";
+import { de_GetObjectLegalHoldCommand, se_GetObjectLegalHoldCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * @public
+ *
+ * The input for {@link GetObjectLegalHoldCommand}.
+ */
 export interface GetObjectLegalHoldCommandInput extends GetObjectLegalHoldRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetObjectLegalHoldCommand}.
+ */
 export interface GetObjectLegalHoldCommandOutput extends GetObjectLegalHoldOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets an object's current legal hold status. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking
  *          Objects</a>.</p>
  *          <p>This action is not supported by Amazon S3 on Outposts.</p>
- *
  *          <p>The following action is related to <code>GetObjectLegalHold</code>:</p>
  *          <ul>
  *             <li>
@@ -47,13 +49,23 @@ export interface GetObjectLegalHoldCommandOutput extends GetObjectLegalHoldOutpu
  * import { S3Client, GetObjectLegalHoldCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetObjectLegalHoldCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // GetObjectLegalHoldRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   Key: "STRING_VALUE", // required
+ *   VersionId: "STRING_VALUE",
+ *   RequestPayer: "requester",
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new GetObjectLegalHoldCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetObjectLegalHoldCommandInput - {@link GetObjectLegalHoldCommandInput}
+ * @returns {@link GetObjectLegalHoldCommandOutput}
  * @see {@link GetObjectLegalHoldCommandInput} for command's `input` shape.
  * @see {@link GetObjectLegalHoldCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
+ *
  *
  */
 export class GetObjectLegalHoldCommand extends $Command<
@@ -79,6 +91,9 @@ export class GetObjectLegalHoldCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetObjectLegalHoldCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +122,8 @@ export class GetObjectLegalHoldCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetObjectLegalHoldRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetObjectLegalHoldOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +133,18 @@ export class GetObjectLegalHoldCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetObjectLegalHoldCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetObjectLegalHoldCommand(input, context);
+    return se_GetObjectLegalHoldCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetObjectLegalHoldCommandOutput> {
-    return deserializeAws_restXmlGetObjectLegalHoldCommand(output, context);
+    return de_GetObjectLegalHoldCommand(output, context);
   }
 
   // Start section: command_body_extra

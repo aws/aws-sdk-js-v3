@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import {
-  DescribeEndpointSettingsMessage,
-  DescribeEndpointSettingsMessageFilterSensitiveLog,
-  DescribeEndpointSettingsResponse,
-  DescribeEndpointSettingsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeEndpointSettingsCommand,
-  serializeAws_json1_1DescribeEndpointSettingsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeEndpointSettingsMessage, DescribeEndpointSettingsResponse } from "../models/models_0";
+import { de_DescribeEndpointSettingsCommand, se_DescribeEndpointSettingsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeEndpointSettingsCommand}.
+ */
 export interface DescribeEndpointSettingsCommandInput extends DescribeEndpointSettingsMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeEndpointSettingsCommand}.
+ */
 export interface DescribeEndpointSettingsCommandOutput extends DescribeEndpointSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the possible endpoint settings available
  *          when you create an endpoint for a specific database engine.</p>
  * @example
@@ -41,13 +44,21 @@ export interface DescribeEndpointSettingsCommandOutput extends DescribeEndpointS
  * import { DatabaseMigrationServiceClient, DescribeEndpointSettingsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DescribeEndpointSettingsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // DescribeEndpointSettingsMessage
+ *   EngineName: "STRING_VALUE", // required
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeEndpointSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEndpointSettingsCommandInput - {@link DescribeEndpointSettingsCommandInput}
+ * @returns {@link DescribeEndpointSettingsCommandOutput}
  * @see {@link DescribeEndpointSettingsCommandInput} for command's `input` shape.
  * @see {@link DescribeEndpointSettingsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
+ *
  *
  */
 export class DescribeEndpointSettingsCommand extends $Command<
@@ -67,6 +78,9 @@ export class DescribeEndpointSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEndpointSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +109,8 @@ export class DescribeEndpointSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEndpointSettingsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEndpointSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +120,18 @@ export class DescribeEndpointSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEndpointSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEndpointSettingsCommand(input, context);
+    return se_DescribeEndpointSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEndpointSettingsCommandOutput> {
-    return deserializeAws_json1_1DescribeEndpointSettingsCommand(output, context);
+    return de_DescribeEndpointSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

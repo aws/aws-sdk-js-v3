@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DeleteTransitGatewayConnectRequest,
-  DeleteTransitGatewayConnectRequestFilterSensitiveLog,
-  DeleteTransitGatewayConnectResult,
-  DeleteTransitGatewayConnectResultFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_ec2DeleteTransitGatewayConnectCommand,
-  serializeAws_ec2DeleteTransitGatewayConnectCommand,
-} from "../protocols/Aws_ec2";
+import { DeleteTransitGatewayConnectRequest, DeleteTransitGatewayConnectResult } from "../models/models_3";
+import { de_DeleteTransitGatewayConnectCommand, se_DeleteTransitGatewayConnectCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteTransitGatewayConnectCommand}.
+ */
 export interface DeleteTransitGatewayConnectCommandInput extends DeleteTransitGatewayConnectRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteTransitGatewayConnectCommand}.
+ */
 export interface DeleteTransitGatewayConnectCommandOutput extends DeleteTransitGatewayConnectResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified Connect attachment. You must first delete any Connect peers for
  *             the attachment.</p>
  * @example
@@ -37,13 +40,20 @@ export interface DeleteTransitGatewayConnectCommandOutput extends DeleteTransitG
  * import { EC2Client, DeleteTransitGatewayConnectCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteTransitGatewayConnectCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteTransitGatewayConnectRequest
+ *   TransitGatewayAttachmentId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DeleteTransitGatewayConnectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTransitGatewayConnectCommandInput - {@link DeleteTransitGatewayConnectCommandInput}
+ * @returns {@link DeleteTransitGatewayConnectCommandOutput}
  * @see {@link DeleteTransitGatewayConnectCommandInput} for command's `input` shape.
  * @see {@link DeleteTransitGatewayConnectCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class DeleteTransitGatewayConnectCommand extends $Command<
@@ -63,6 +73,9 @@ export class DeleteTransitGatewayConnectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTransitGatewayConnectCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +104,8 @@ export class DeleteTransitGatewayConnectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTransitGatewayConnectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTransitGatewayConnectResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,15 +115,21 @@ export class DeleteTransitGatewayConnectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTransitGatewayConnectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteTransitGatewayConnectCommand(input, context);
+    return se_DeleteTransitGatewayConnectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteTransitGatewayConnectCommandOutput> {
-    return deserializeAws_ec2DeleteTransitGatewayConnectCommand(output, context);
+    return de_DeleteTransitGatewayConnectCommand(output, context);
   }
 
   // Start section: command_body_extra

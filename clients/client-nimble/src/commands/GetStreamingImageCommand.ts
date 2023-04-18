@@ -15,20 +15,27 @@ import {
 
 import {
   GetStreamingImageRequest,
-  GetStreamingImageRequestFilterSensitiveLog,
   GetStreamingImageResponse,
   GetStreamingImageResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1GetStreamingImageCommand,
-  serializeAws_restJson1GetStreamingImageCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetStreamingImageCommand, se_GetStreamingImageCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetStreamingImageCommand}.
+ */
 export interface GetStreamingImageCommandInput extends GetStreamingImageRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetStreamingImageCommand}.
+ */
 export interface GetStreamingImageCommandOutput extends GetStreamingImageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get streaming image.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +43,44 @@ export interface GetStreamingImageCommandOutput extends GetStreamingImageRespons
  * import { NimbleClient, GetStreamingImageCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, GetStreamingImageCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = { // GetStreamingImageRequest
+ *   streamingImageId: "STRING_VALUE", // required
+ *   studioId: "STRING_VALUE", // required
+ * };
  * const command = new GetStreamingImageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetStreamingImageCommandInput - {@link GetStreamingImageCommandInput}
+ * @returns {@link GetStreamingImageCommandOutput}
  * @see {@link GetStreamingImageCommandInput} for command's `input` shape.
  * @see {@link GetStreamingImageCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to perform this operation. Check your IAM
+ *             policies, and ensure that you are using the correct access keys.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Another operation is in progress. </p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>An internal error has occurred. Please retry your request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Your current quota does not allow you to perform the request action. You can request
+ *             increases for some quotas, and other quotas cannot be increased.</p>
+ *         <p>Please use Amazon Web Services Service Quotas to request an increase. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request throughput limit was exceeded.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One of the parameters in the request is invalid.</p>
+ *
  *
  */
 export class GetStreamingImageCommand extends $Command<
@@ -62,6 +100,9 @@ export class GetStreamingImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetStreamingImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +131,7 @@ export class GetStreamingImageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetStreamingImageRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetStreamingImageResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -101,12 +142,18 @@ export class GetStreamingImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetStreamingImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetStreamingImageCommand(input, context);
+    return se_GetStreamingImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetStreamingImageCommandOutput> {
-    return deserializeAws_restJson1GetStreamingImageCommand(output, context);
+    return de_GetStreamingImageCommand(output, context);
   }
 
   // Start section: command_body_extra

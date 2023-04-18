@@ -5,6 +5,8 @@ import {
 } from "@aws-sdk/smithy-client";
 
 /**
+ * @public
+ *
  * Base exception class for all service exceptions from Imagebuilder service.
  */
 export class ImagebuilderServiceException extends __ServiceException {

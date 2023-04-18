@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticTranscoderClient";
-import {
-  ReadPipelineRequest,
-  ReadPipelineRequestFilterSensitiveLog,
-  ReadPipelineResponse,
-  ReadPipelineResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ReadPipelineCommand,
-  serializeAws_restJson1ReadPipelineCommand,
-} from "../protocols/Aws_restJson1";
+import { ReadPipelineRequest, ReadPipelineResponse } from "../models/models_0";
+import { de_ReadPipelineCommand, se_ReadPipelineCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ReadPipelineCommand}.
+ */
 export interface ReadPipelineCommandInput extends ReadPipelineRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ReadPipelineCommand}.
+ */
 export interface ReadPipelineCommandOutput extends ReadPipelineResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The ReadPipeline operation gets detailed information about a pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,34 @@ export interface ReadPipelineCommandOutput extends ReadPipelineResponse, __Metad
  * import { ElasticTranscoderClient, ReadPipelineCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
  * // const { ElasticTranscoderClient, ReadPipelineCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import
  * const client = new ElasticTranscoderClient(config);
+ * const input = { // ReadPipelineRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new ReadPipelineCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ReadPipelineCommandInput - {@link ReadPipelineCommandInput}
+ * @returns {@link ReadPipelineCommandOutput}
  * @see {@link ReadPipelineCommandInput} for command's `input` shape.
  * @see {@link ReadPipelineCommandOutput} for command's `response` shape.
  * @see {@link ElasticTranscoderClientResolvedConfig | config} for ElasticTranscoderClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>General authentication failure. The request was not signed correctly.</p>
+ *
+ * @throws {@link IncompatibleVersionException} (client fault)
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Elastic Transcoder encountered an unexpected exception while trying to fulfill the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource does not exist or is not available. For example, the pipeline
+ *             to which you're trying to add a job doesn't exist or is still being created.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One or more required parameter values were not provided in the request.</p>
+ *
  *
  */
 export class ReadPipelineCommand extends $Command<
@@ -66,6 +90,9 @@ export class ReadPipelineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReadPipelineCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +119,8 @@ export class ReadPipelineCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReadPipelineRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ReadPipelineResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +130,18 @@ export class ReadPipelineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReadPipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ReadPipelineCommand(input, context);
+    return se_ReadPipelineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReadPipelineCommandOutput> {
-    return deserializeAws_restJson1ReadPipelineCommand(output, context);
+    return de_ReadPipelineCommand(output, context);
   }
 
   // Start section: command_body_extra

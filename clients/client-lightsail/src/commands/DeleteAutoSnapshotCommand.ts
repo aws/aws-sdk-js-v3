@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  DeleteAutoSnapshotRequest,
-  DeleteAutoSnapshotRequestFilterSensitiveLog,
-  DeleteAutoSnapshotResult,
-  DeleteAutoSnapshotResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteAutoSnapshotCommand,
-  serializeAws_json1_1DeleteAutoSnapshotCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteAutoSnapshotRequest, DeleteAutoSnapshotResult } from "../models/models_0";
+import { de_DeleteAutoSnapshotCommand, se_DeleteAutoSnapshotCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteAutoSnapshotCommand}.
+ */
 export interface DeleteAutoSnapshotCommandInput extends DeleteAutoSnapshotRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteAutoSnapshotCommand}.
+ */
 export interface DeleteAutoSnapshotCommandOutput extends DeleteAutoSnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an automatic snapshot of an instance or disk. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Amazon Lightsail Developer Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,46 @@ export interface DeleteAutoSnapshotCommandOutput extends DeleteAutoSnapshotResul
  * import { LightsailClient, DeleteAutoSnapshotCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DeleteAutoSnapshotCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // DeleteAutoSnapshotRequest
+ *   resourceName: "STRING_VALUE", // required
+ *   date: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAutoSnapshotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAutoSnapshotCommandInput - {@link DeleteAutoSnapshotCommandInput}
+ * @returns {@link DeleteAutoSnapshotCommandOutput}
  * @see {@link DeleteAutoSnapshotCommandInput} for command's `input` shape.
  * @see {@link DeleteAutoSnapshotCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
+ *       credentials to access a resource.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Lightsail throws this exception when user input does not conform to the validation rules
+ *       of an input field.</p>
+ *          <note>
+ *             <p>Domain and distribution APIs are only available in the N. Virginia
+ *           (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services
+ *         Region configuration to <code>us-east-1</code> to create, view, or edit these
+ *         resources.</p>
+ *          </note>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Lightsail throws this exception when it cannot find a resource.</p>
+ *
+ * @throws {@link OperationFailureException} (client fault)
+ *  <p>Lightsail throws this exception when an operation fails to execute.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>A general service exception.</p>
+ *
+ * @throws {@link UnauthenticatedException} (client fault)
+ *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
+ *
  *
  */
 export class DeleteAutoSnapshotCommand extends $Command<
@@ -62,6 +98,9 @@ export class DeleteAutoSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAutoSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +129,8 @@ export class DeleteAutoSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAutoSnapshotRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAutoSnapshotResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +140,18 @@ export class DeleteAutoSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAutoSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteAutoSnapshotCommand(input, context);
+    return se_DeleteAutoSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAutoSnapshotCommandOutput> {
-    return deserializeAws_json1_1DeleteAutoSnapshotCommand(output, context);
+    return de_DeleteAutoSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -6,12 +6,11 @@ import {
   ListResourcesCommandInput,
   ListResourcesCommandOutput,
 } from "../commands/ListResourcesCommand";
-import { WorkMail } from "../WorkMail";
 import { WorkMailClient } from "../WorkMailClient";
 import { WorkMailPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: WorkMailClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListResourcesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: WorkMail,
-  input: ListResourcesCommandInput,
-  ...args: any
-): Promise<ListResourcesCommandOutput> => {
-  // @ts-ignore
-  return await client.listResources(input, ...args);
-};
 export async function* paginateListResources(
   config: WorkMailPaginationConfiguration,
   input: ListResourcesCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListResources(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof WorkMail) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof WorkMailClient) {
+    if (config.client instanceof WorkMailClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected WorkMail | WorkMailClient");

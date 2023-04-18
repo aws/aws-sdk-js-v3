@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import { StopResourceRequest, StopResourceRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1StopResourceCommand,
-  serializeAws_json1_1StopResourceCommand,
-} from "../protocols/Aws_json1_1";
+import { StopResourceRequest } from "../models/models_0";
+import { de_StopResourceCommand, se_StopResourceCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link StopResourceCommand}.
+ */
 export interface StopResourceCommandInput extends StopResourceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StopResourceCommand}.
+ */
 export interface StopResourceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a resource.</p>
  *          <p>The resource undergoes the following states: <code>CREATE_STOPPING</code> and
  *             <code>CREATE_STOPPED</code>. You cannot resume a resource once it has been
@@ -59,13 +67,30 @@ export interface StopResourceCommandOutput extends __MetadataBearer {}
  * import { ForecastClient, StopResourceCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, StopResourceCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = { // StopResourceRequest
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new StopResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopResourceCommandInput - {@link StopResourceCommandInput}
+ * @returns {@link StopResourceCommandOutput}
  * @see {@link StopResourceCommandInput} for command's `input` shape.
  * @see {@link StopResourceCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>We can't process the request because it includes an invalid value or a value that exceeds
+ *       the valid range.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The limit on the number of resources per account has been exceeded.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
+ *       again.</p>
+ *
  *
  */
 export class StopResourceCommand extends $Command<
@@ -85,6 +110,9 @@ export class StopResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +139,8 @@ export class StopResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +150,18 @@ export class StopResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopResourceCommand(input, context);
+    return se_StopResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopResourceCommandOutput> {
-    return deserializeAws_json1_1StopResourceCommand(output, context);
+    return de_StopResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

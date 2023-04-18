@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import {
-  DescribeExpressionsRequest,
-  DescribeExpressionsRequestFilterSensitiveLog,
-  DescribeExpressionsResponse,
-  DescribeExpressionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeExpressionsCommand,
-  serializeAws_queryDescribeExpressionsCommand,
-} from "../protocols/Aws_query";
+import { DescribeExpressionsRequest, DescribeExpressionsResponse } from "../models/models_0";
+import { de_DescribeExpressionsCommand, se_DescribeExpressionsCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeExpressionsCommand}.
+ */
 export interface DescribeExpressionsCommandInput extends DescribeExpressionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeExpressionsCommand}.
+ */
 export interface DescribeExpressionsCommandOutput extends DescribeExpressionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the expressions configured for the search domain. Can be limited to specific expressions by name. By default, shows all expressions and includes any pending changes to the configuration. Set the <code>Deployed</code> option to <code>true</code> to show the active configuration and exclude pending changes. For more information, see  <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html" target="_blank">Configuring Expressions</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,33 @@ export interface DescribeExpressionsCommandOutput extends DescribeExpressionsRes
  * import { CloudSearchClient, DescribeExpressionsCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
  * // const { CloudSearchClient, DescribeExpressionsCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
  * const client = new CloudSearchClient(config);
+ * const input = { // DescribeExpressionsRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   ExpressionNames: [ // StandardNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   Deployed: true || false,
+ * };
  * const command = new DescribeExpressionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeExpressionsCommandInput - {@link DescribeExpressionsCommandInput}
+ * @returns {@link DescribeExpressionsCommandOutput}
  * @see {@link DescribeExpressionsCommandInput} for command's `input` shape.
  * @see {@link DescribeExpressionsCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
+ *
+ * @throws {@link BaseException} (client fault)
+ *  <p>An error occurred while processing the request.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>An internal error occurred while processing the request. If this problem persists,
+ *       report an issue from the <a href="http://status.aws.amazon.com/" target="_blank">Service Health Dashboard</a>.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request was rejected because it attempted to reference a resource that does not exist.</p>
+ *
  *
  */
 export class DescribeExpressionsCommand extends $Command<
@@ -62,6 +85,9 @@ export class DescribeExpressionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeExpressionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +116,8 @@ export class DescribeExpressionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeExpressionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeExpressionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +127,18 @@ export class DescribeExpressionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeExpressionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeExpressionsCommand(input, context);
+    return se_DescribeExpressionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeExpressionsCommandOutput> {
-    return deserializeAws_queryDescribeExpressionsCommand(output, context);
+    return de_DescribeExpressionsCommand(output, context);
   }
 
   // Start section: command_body_extra

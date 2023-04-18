@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeAttackRequest,
-  DescribeAttackRequestFilterSensitiveLog,
-  DescribeAttackResponse,
-  DescribeAttackResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeAttackCommand,
-  serializeAws_json1_1DescribeAttackCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeAttackRequest, DescribeAttackResponse } from "../models/models_0";
+import { de_DescribeAttackCommand, se_DescribeAttackCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeAttackCommand}.
+ */
 export interface DescribeAttackCommandInput extends DescribeAttackRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeAttackCommand}.
+ */
 export interface DescribeAttackCommandOutput extends DescribeAttackResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the details of a DDoS attack. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,25 @@ export interface DescribeAttackCommandOutput extends DescribeAttackResponse, __M
  * import { ShieldClient, DescribeAttackCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, DescribeAttackCommand } = require("@aws-sdk/client-shield"); // CommonJS import
  * const client = new ShieldClient(config);
+ * const input = { // DescribeAttackRequest
+ *   AttackId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeAttackCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAttackCommandInput - {@link DescribeAttackCommandInput}
+ * @returns {@link DescribeAttackCommandOutput}
  * @see {@link DescribeAttackCommandInput} for command's `input` shape.
  * @see {@link DescribeAttackCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Exception that indicates the specified <code>AttackId</code> does not exist, or the requester does not have the appropriate permissions to access the <code>AttackId</code>.</p>
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+ *
  *
  */
 export class DescribeAttackCommand extends $Command<
@@ -62,6 +77,9 @@ export class DescribeAttackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAttackCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +108,8 @@ export class DescribeAttackCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAttackRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAttackResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +119,18 @@ export class DescribeAttackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAttackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAttackCommand(input, context);
+    return se_DescribeAttackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAttackCommandOutput> {
-    return deserializeAws_json1_1DescribeAttackCommand(output, context);
+    return de_DescribeAttackCommand(output, context);
   }
 
   // Start section: command_body_extra

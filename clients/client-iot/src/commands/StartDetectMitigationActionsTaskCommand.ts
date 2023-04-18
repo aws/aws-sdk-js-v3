@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { StartDetectMitigationActionsTaskRequest, StartDetectMitigationActionsTaskResponse } from "../models/models_2";
 import {
-  StartDetectMitigationActionsTaskRequest,
-  StartDetectMitigationActionsTaskRequestFilterSensitiveLog,
-  StartDetectMitigationActionsTaskResponse,
-  StartDetectMitigationActionsTaskResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1StartDetectMitigationActionsTaskCommand,
-  serializeAws_restJson1StartDetectMitigationActionsTaskCommand,
+  de_StartDetectMitigationActionsTaskCommand,
+  se_StartDetectMitigationActionsTaskCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link StartDetectMitigationActionsTaskCommand}.
+ */
 export interface StartDetectMitigationActionsTaskCommandInput extends StartDetectMitigationActionsTaskRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartDetectMitigationActionsTaskCommand}.
+ */
 export interface StartDetectMitigationActionsTaskCommandOutput
   extends StartDetectMitigationActionsTaskResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Starts a Device Defender ML Detect mitigation actions task.
  *     </p>
@@ -41,13 +47,53 @@ export interface StartDetectMitigationActionsTaskCommandOutput
  * import { IoTClient, StartDetectMitigationActionsTaskCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, StartDetectMitigationActionsTaskCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // StartDetectMitigationActionsTaskRequest
+ *   taskId: "STRING_VALUE", // required
+ *   target: { // DetectMitigationActionsTaskTarget
+ *     violationIds: [ // TargetViolationIdsForDetectMitigationActions
+ *       "STRING_VALUE",
+ *     ],
+ *     securityProfileName: "STRING_VALUE",
+ *     behaviorName: "STRING_VALUE",
+ *   },
+ *   actions: [ // DetectMitigationActionsToExecuteList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   violationEventOccurrenceRange: { // ViolationEventOccurrenceRange
+ *     startTime: new Date("TIMESTAMP"), // required
+ *     endTime: new Date("TIMESTAMP"), // required
+ *   },
+ *   includeOnlyActiveViolations: true || false,
+ *   includeSuppressedAlerts: true || false,
+ *   clientRequestToken: "STRING_VALUE", // required
+ * };
  * const command = new StartDetectMitigationActionsTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartDetectMitigationActionsTaskCommandInput - {@link StartDetectMitigationActionsTaskCommandInput}
+ * @returns {@link StartDetectMitigationActionsTaskCommandOutput}
  * @see {@link StartDetectMitigationActionsTaskCommandInput} for command's `input` shape.
  * @see {@link StartDetectMitigationActionsTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A limit has been exceeded.</p>
+ *
+ * @throws {@link TaskAlreadyExistsException} (client fault)
+ *  <p>
+ *             This exception occurs if you attempt to start a task with the same task-id as an existing task but with a different clientRequestToken.
+ *         </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
  *
  */
 export class StartDetectMitigationActionsTaskCommand extends $Command<
@@ -67,6 +113,9 @@ export class StartDetectMitigationActionsTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartDetectMitigationActionsTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +144,8 @@ export class StartDetectMitigationActionsTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartDetectMitigationActionsTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartDetectMitigationActionsTaskResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,18 +155,24 @@ export class StartDetectMitigationActionsTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StartDetectMitigationActionsTaskCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartDetectMitigationActionsTaskCommand(input, context);
+    return se_StartDetectMitigationActionsTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartDetectMitigationActionsTaskCommandOutput> {
-    return deserializeAws_restJson1StartDetectMitigationActionsTaskCommand(output, context);
+    return de_StartDetectMitigationActionsTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

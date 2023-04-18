@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteRecommenderConfigurationRequest,
-  DeleteRecommenderConfigurationRequestFilterSensitiveLog,
-  DeleteRecommenderConfigurationResponse,
-  DeleteRecommenderConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteRecommenderConfigurationRequest, DeleteRecommenderConfigurationResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
-  deserializeAws_restJson1DeleteRecommenderConfigurationCommand,
-  serializeAws_restJson1DeleteRecommenderConfigurationCommand,
+  de_DeleteRecommenderConfigurationCommand,
+  se_DeleteRecommenderConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteRecommenderConfigurationCommand}.
+ */
 export interface DeleteRecommenderConfigurationCommandInput extends DeleteRecommenderConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteRecommenderConfigurationCommand}.
+ */
 export interface DeleteRecommenderConfigurationCommandOutput
   extends DeleteRecommenderConfigurationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Amazon Pinpoint configuration for a recommender model.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,40 @@ export interface DeleteRecommenderConfigurationCommandOutput
  * import { PinpointClient, DeleteRecommenderConfigurationCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, DeleteRecommenderConfigurationCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // DeleteRecommenderConfigurationRequest
+ *   RecommenderId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRecommenderConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRecommenderConfigurationCommandInput - {@link DeleteRecommenderConfigurationCommandInput}
+ * @returns {@link DeleteRecommenderConfigurationCommandOutput}
  * @see {@link DeleteRecommenderConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteRecommenderConfigurationCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link MethodNotAllowedException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link PayloadTooLargeException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
  *
  */
 export class DeleteRecommenderConfigurationCommand extends $Command<
@@ -64,6 +97,9 @@ export class DeleteRecommenderConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRecommenderConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +128,8 @@ export class DeleteRecommenderConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRecommenderConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRecommenderConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +139,24 @@ export class DeleteRecommenderConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteRecommenderConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteRecommenderConfigurationCommand(input, context);
+    return se_DeleteRecommenderConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteRecommenderConfigurationCommandOutput> {
-    return deserializeAws_restJson1DeleteRecommenderConfigurationCommand(output, context);
+    return de_DeleteRecommenderConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

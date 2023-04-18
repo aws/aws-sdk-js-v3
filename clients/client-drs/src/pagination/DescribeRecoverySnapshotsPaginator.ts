@@ -6,12 +6,11 @@ import {
   DescribeRecoverySnapshotsCommandInput,
   DescribeRecoverySnapshotsCommandOutput,
 } from "../commands/DescribeRecoverySnapshotsCommand";
-import { Drs } from "../Drs";
 import { DrsClient } from "../DrsClient";
 import { DrsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DrsClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeRecoverySnapshotsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Drs,
-  input: DescribeRecoverySnapshotsCommandInput,
-  ...args: any
-): Promise<DescribeRecoverySnapshotsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeRecoverySnapshots(input, ...args);
-};
 export async function* paginateDescribeRecoverySnapshots(
   config: DrsPaginationConfiguration,
   input: DescribeRecoverySnapshotsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateDescribeRecoverySnapshots(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Drs) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DrsClient) {
+    if (config.client instanceof DrsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Drs | DrsClient");

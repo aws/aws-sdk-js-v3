@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DescribeWorkspaceDirectoriesRequest, DescribeWorkspaceDirectoriesResult } from "../models/models_0";
 import {
-  DescribeWorkspaceDirectoriesRequest,
-  DescribeWorkspaceDirectoriesRequestFilterSensitiveLog,
-  DescribeWorkspaceDirectoriesResult,
-  DescribeWorkspaceDirectoriesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeWorkspaceDirectoriesCommand,
-  serializeAws_json1_1DescribeWorkspaceDirectoriesCommand,
+  de_DescribeWorkspaceDirectoriesCommand,
+  se_DescribeWorkspaceDirectoriesCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeWorkspaceDirectoriesCommand}.
+ */
 export interface DescribeWorkspaceDirectoriesCommandInput extends DescribeWorkspaceDirectoriesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeWorkspaceDirectoriesCommand}.
+ */
 export interface DescribeWorkspaceDirectoriesCommandOutput
   extends DescribeWorkspaceDirectoriesResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the available directories that are registered with Amazon WorkSpaces.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,26 @@ export interface DescribeWorkspaceDirectoriesCommandOutput
  * import { WorkSpacesClient, DescribeWorkspaceDirectoriesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DescribeWorkspaceDirectoriesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // DescribeWorkspaceDirectoriesRequest
+ *   DirectoryIds: [ // DirectoryIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeWorkspaceDirectoriesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeWorkspaceDirectoriesCommandInput - {@link DescribeWorkspaceDirectoriesCommandInput}
+ * @returns {@link DescribeWorkspaceDirectoriesCommandOutput}
  * @see {@link DescribeWorkspaceDirectoriesCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkspaceDirectoriesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValuesException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
  *
  */
 export class DescribeWorkspaceDirectoriesCommand extends $Command<
@@ -64,6 +83,9 @@ export class DescribeWorkspaceDirectoriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeWorkspaceDirectoriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +114,8 @@ export class DescribeWorkspaceDirectoriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeWorkspaceDirectoriesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeWorkspaceDirectoriesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +125,21 @@ export class DescribeWorkspaceDirectoriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeWorkspaceDirectoriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeWorkspaceDirectoriesCommand(input, context);
+    return se_DescribeWorkspaceDirectoriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeWorkspaceDirectoriesCommandOutput> {
-    return deserializeAws_json1_1DescribeWorkspaceDirectoriesCommand(output, context);
+    return de_DescribeWorkspaceDirectoriesCommand(output, context);
   }
 
   // Start section: command_body_extra

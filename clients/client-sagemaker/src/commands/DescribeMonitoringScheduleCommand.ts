@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeMonitoringScheduleRequest,
-  DescribeMonitoringScheduleRequestFilterSensitiveLog,
-  DescribeMonitoringScheduleResponse,
-  DescribeMonitoringScheduleResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeMonitoringScheduleCommand,
-  serializeAws_json1_1DescribeMonitoringScheduleCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeMonitoringScheduleRequest, DescribeMonitoringScheduleResponse } from "../models/models_2";
+import { de_DescribeMonitoringScheduleCommand, se_DescribeMonitoringScheduleCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeMonitoringScheduleCommand}.
+ */
 export interface DescribeMonitoringScheduleCommandInput extends DescribeMonitoringScheduleRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeMonitoringScheduleCommand}.
+ */
 export interface DescribeMonitoringScheduleCommandOutput extends DescribeMonitoringScheduleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the schedule for a monitoring job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,22 @@ export interface DescribeMonitoringScheduleCommandOutput extends DescribeMonitor
  * import { SageMakerClient, DescribeMonitoringScheduleCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeMonitoringScheduleCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DescribeMonitoringScheduleRequest
+ *   MonitoringScheduleName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeMonitoringScheduleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMonitoringScheduleCommandInput - {@link DescribeMonitoringScheduleCommandInput}
+ * @returns {@link DescribeMonitoringScheduleCommandOutput}
  * @see {@link DescribeMonitoringScheduleCommandInput} for command's `input` shape.
  * @see {@link DescribeMonitoringScheduleCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class DescribeMonitoringScheduleCommand extends $Command<
@@ -62,6 +74,9 @@ export class DescribeMonitoringScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMonitoringScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +105,8 @@ export class DescribeMonitoringScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeMonitoringScheduleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeMonitoringScheduleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +116,21 @@ export class DescribeMonitoringScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeMonitoringScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeMonitoringScheduleCommand(input, context);
+    return se_DescribeMonitoringScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeMonitoringScheduleCommandOutput> {
-    return deserializeAws_json1_1DescribeMonitoringScheduleCommand(output, context);
+    return de_DescribeMonitoringScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

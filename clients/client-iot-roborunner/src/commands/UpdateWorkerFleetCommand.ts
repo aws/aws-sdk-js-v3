@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTRoboRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTRoboRunnerClient";
-import {
-  UpdateWorkerFleetRequest,
-  UpdateWorkerFleetRequestFilterSensitiveLog,
-  UpdateWorkerFleetResponse,
-  UpdateWorkerFleetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateWorkerFleetCommand,
-  serializeAws_restJson1UpdateWorkerFleetCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateWorkerFleetRequest, UpdateWorkerFleetResponse } from "../models/models_0";
+import { de_UpdateWorkerFleetCommand, se_UpdateWorkerFleetCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateWorkerFleetCommand}.
+ */
 export interface UpdateWorkerFleetCommandInput extends UpdateWorkerFleetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateWorkerFleetCommand}.
+ */
 export interface UpdateWorkerFleetCommandOutput extends UpdateWorkerFleetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Grants permission to update a worker fleet
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,36 @@ export interface UpdateWorkerFleetCommandOutput extends UpdateWorkerFleetRespons
  * import { IoTRoboRunnerClient, UpdateWorkerFleetCommand } from "@aws-sdk/client-iot-roborunner"; // ES Modules import
  * // const { IoTRoboRunnerClient, UpdateWorkerFleetCommand } = require("@aws-sdk/client-iot-roborunner"); // CommonJS import
  * const client = new IoTRoboRunnerClient(config);
+ * const input = { // UpdateWorkerFleetRequest
+ *   id: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   additionalFixedProperties: "STRING_VALUE",
+ * };
  * const command = new UpdateWorkerFleetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateWorkerFleetCommandInput - {@link UpdateWorkerFleetCommandInput}
+ * @returns {@link UpdateWorkerFleetCommandOutput}
  * @see {@link UpdateWorkerFleetCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkerFleetCommandOutput} for command's `response` shape.
  * @see {@link IoTRoboRunnerClientResolvedConfig | config} for IoTRoboRunnerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *   User does not have sufficient access to perform this action.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  Exception thrown if something goes wrong within the service.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  Exception thrown if a resource referenced in the request doesn't exist.
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  Exception thrown if the api has been called too quickly be the client.
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  Exception thrown if an invalid parameter is provided to an API.
+ *
  *
  */
 export class UpdateWorkerFleetCommand extends $Command<
@@ -62,6 +88,9 @@ export class UpdateWorkerFleetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateWorkerFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +119,8 @@ export class UpdateWorkerFleetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateWorkerFleetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateWorkerFleetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +130,18 @@ export class UpdateWorkerFleetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateWorkerFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateWorkerFleetCommand(input, context);
+    return se_UpdateWorkerFleetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWorkerFleetCommandOutput> {
-    return deserializeAws_restJson1UpdateWorkerFleetCommand(output, context);
+    return de_UpdateWorkerFleetCommand(output, context);
   }
 
   // Start section: command_body_extra

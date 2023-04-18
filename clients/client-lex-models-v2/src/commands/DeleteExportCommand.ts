@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import {
-  DeleteExportRequest,
-  DeleteExportRequestFilterSensitiveLog,
-  DeleteExportResponse,
-  DeleteExportResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteExportCommand,
-  serializeAws_restJson1DeleteExportCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteExportRequest, DeleteExportResponse } from "../models/models_0";
+import { de_DeleteExportCommand, se_DeleteExportCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteExportCommand}.
+ */
 export interface DeleteExportCommandInput extends DeleteExportRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteExportCommand}.
+ */
 export interface DeleteExportCommandOutput extends DeleteExportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a previous export and the associated files stored in an S3
  *          bucket.</p>
  * @example
@@ -37,13 +40,39 @@ export interface DeleteExportCommandOutput extends DeleteExportResponse, __Metad
  * import { LexModelsV2Client, DeleteExportCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, DeleteExportCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = { // DeleteExportRequest
+ *   exportId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteExportCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteExportCommandInput - {@link DeleteExportCommandInput}
+ * @returns {@link DeleteExportCommandOutput}
  * @see {@link DeleteExportCommandInput} for command's `input` shape.
  * @see {@link DeleteExportCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The service encountered an unexpected condition. Try your request
+ *          again.</p>
+ *
+ * @throws {@link PreconditionFailedException} (client fault)
+ *  <p>Your request couldn't be completed because one or more request
+ *          fields aren't valid. Check the fields in your request and try
+ *          again.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>You have reached a quota for your bot. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Your request rate is too high. Reduce the frequency of
+ *          requests.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One of the input parameters in your request isn't valid. Check the
+ *          parameters and try your request again.</p>
+ *
  *
  */
 export class DeleteExportCommand extends $Command<
@@ -63,6 +92,9 @@ export class DeleteExportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteExportCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +121,8 @@ export class DeleteExportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteExportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteExportResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +132,18 @@ export class DeleteExportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteExportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteExportCommand(input, context);
+    return se_DeleteExportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteExportCommandOutput> {
-    return deserializeAws_restJson1DeleteExportCommand(output, context);
+    return de_DeleteExportCommand(output, context);
   }
 
   // Start section: command_body_extra

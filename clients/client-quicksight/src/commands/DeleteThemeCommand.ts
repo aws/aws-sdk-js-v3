@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteThemeRequest,
-  DeleteThemeRequestFilterSensitiveLog,
-  DeleteThemeResponse,
-  DeleteThemeResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1DeleteThemeCommand,
-  serializeAws_restJson1DeleteThemeCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteThemeRequest, DeleteThemeResponse } from "../models/models_2";
+import { de_DeleteThemeCommand, se_DeleteThemeCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteThemeCommand}.
+ */
 export interface DeleteThemeCommandInput extends DeleteThemeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteThemeCommand}.
+ */
 export interface DeleteThemeCommandOutput extends DeleteThemeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a theme.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,48 @@ export interface DeleteThemeCommandOutput extends DeleteThemeResponse, __Metadat
  * import { QuickSightClient, DeleteThemeCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DeleteThemeCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // DeleteThemeRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   ThemeId: "STRING_VALUE", // required
+ *   VersionNumber: Number("long"),
+ * };
  * const command = new DeleteThemeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteThemeCommandInput - {@link DeleteThemeCommandInput}
+ * @returns {@link DeleteThemeCommandOutput}
  * @see {@link DeleteThemeCommandInput} for command's `input` shape.
  * @see {@link DeleteThemeCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have access to this item. The provided credentials couldn't be
+ * 			validated. You might not be authorized to carry out the request. Make sure that your
+ * 			account is authorized to use the Amazon QuickSight service, that your policies have the
+ * 			correct permissions, and that you are using the correct credentials.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal failure occurred.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One or more parameters has a value that isn't valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>One or more resources can't be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Access is throttled.</p>
+ *
+ * @throws {@link UnsupportedUserEditionException} (client fault)
+ *  <p>This error indicates that you are calling an operation on an Amazon QuickSight
+ * 			subscription where the edition doesn't include support for that operation. Amazon
+ * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
+ * 			capability is available in every edition.</p>
+ *
  *
  */
 export class DeleteThemeCommand extends $Command<
@@ -62,6 +100,9 @@ export class DeleteThemeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteThemeCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +129,8 @@ export class DeleteThemeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteThemeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteThemeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +140,18 @@ export class DeleteThemeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteThemeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteThemeCommand(input, context);
+    return se_DeleteThemeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteThemeCommandOutput> {
-    return deserializeAws_restJson1DeleteThemeCommand(output, context);
+    return de_DeleteThemeCommand(output, context);
   }
 
   // Start section: command_body_extra

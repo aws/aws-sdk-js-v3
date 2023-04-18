@@ -6,12 +6,11 @@ import {
   DescribeCustomKeyStoresCommandInput,
   DescribeCustomKeyStoresCommandOutput,
 } from "../commands/DescribeCustomKeyStoresCommand";
-import { KMS } from "../KMS";
 import { KMSClient } from "../KMSClient";
 import { KMSPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: KMSClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeCustomKeyStoresCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: KMS,
-  input: DescribeCustomKeyStoresCommandInput,
-  ...args: any
-): Promise<DescribeCustomKeyStoresCommandOutput> => {
-  // @ts-ignore
-  return await client.describeCustomKeyStores(input, ...args);
-};
 export async function* paginateDescribeCustomKeyStores(
   config: KMSPaginationConfiguration,
   input: DescribeCustomKeyStoresCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateDescribeCustomKeyStores(
   while (hasNext) {
     input.Marker = token;
     input["Limit"] = config.pageSize;
-    if (config.client instanceof KMS) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof KMSClient) {
+    if (config.client instanceof KMSClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected KMS | KMSClient");

@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeExecutionInput,
-  DescribeExecutionInputFilterSensitiveLog,
-  DescribeExecutionOutput,
-  DescribeExecutionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeExecutionCommand,
-  serializeAws_restJson1DescribeExecutionCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeExecutionInput, DescribeExecutionOutput } from "../models/models_0";
+import { de_DescribeExecutionCommand, se_DescribeExecutionCommand } from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
   SnowDeviceManagementClientResolvedConfig,
 } from "../SnowDeviceManagementClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeExecutionCommand}.
+ */
 export interface DescribeExecutionCommandInput extends DescribeExecutionInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeExecutionCommand}.
+ */
 export interface DescribeExecutionCommandOutput extends DescribeExecutionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Checks the status of a remote task running on one or more target devices.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,35 @@ export interface DescribeExecutionCommandOutput extends DescribeExecutionOutput,
  * import { SnowDeviceManagementClient, DescribeExecutionCommand } from "@aws-sdk/client-snow-device-management"; // ES Modules import
  * // const { SnowDeviceManagementClient, DescribeExecutionCommand } = require("@aws-sdk/client-snow-device-management"); // CommonJS import
  * const client = new SnowDeviceManagementClient(config);
+ * const input = { // DescribeExecutionInput
+ *   taskId: "STRING_VALUE", // required
+ *   managedDeviceId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeExecutionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeExecutionCommandInput - {@link DescribeExecutionCommandInput}
+ * @returns {@link DescribeExecutionCommandOutput}
  * @see {@link DescribeExecutionCommandInput} for command's `input` shape.
  * @see {@link DescribeExecutionCommandOutput} for command's `response` shape.
  * @see {@link SnowDeviceManagementClientResolvedConfig | config} for SnowDeviceManagementClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred while processing the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a resource that doesn't exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
  *
  */
 export class DescribeExecutionCommand extends $Command<
@@ -66,6 +91,9 @@ export class DescribeExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +122,8 @@ export class DescribeExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeExecutionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeExecutionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +133,18 @@ export class DescribeExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeExecutionCommand(input, context);
+    return se_DescribeExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeExecutionCommandOutput> {
-    return deserializeAws_restJson1DescribeExecutionCommand(output, context);
+    return de_DescribeExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,21 +16,30 @@ import {
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import {
   GetBehaviorModelTrainingSummariesRequest,
-  GetBehaviorModelTrainingSummariesRequestFilterSensitiveLog,
   GetBehaviorModelTrainingSummariesResponse,
-  GetBehaviorModelTrainingSummariesResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1GetBehaviorModelTrainingSummariesCommand,
-  serializeAws_restJson1GetBehaviorModelTrainingSummariesCommand,
+  de_GetBehaviorModelTrainingSummariesCommand,
+  se_GetBehaviorModelTrainingSummariesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetBehaviorModelTrainingSummariesCommand}.
+ */
 export interface GetBehaviorModelTrainingSummariesCommandInput extends GetBehaviorModelTrainingSummariesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetBehaviorModelTrainingSummariesCommand}.
+ */
 export interface GetBehaviorModelTrainingSummariesCommandOutput
   extends GetBehaviorModelTrainingSummariesResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Returns a Device Defender's ML Detect Security Profile training model's status.
  *     </p>
@@ -41,13 +50,33 @@ export interface GetBehaviorModelTrainingSummariesCommandOutput
  * import { IoTClient, GetBehaviorModelTrainingSummariesCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, GetBehaviorModelTrainingSummariesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // GetBehaviorModelTrainingSummariesRequest
+ *   securityProfileName: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new GetBehaviorModelTrainingSummariesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBehaviorModelTrainingSummariesCommandInput - {@link GetBehaviorModelTrainingSummariesCommandInput}
+ * @returns {@link GetBehaviorModelTrainingSummariesCommandOutput}
  * @see {@link GetBehaviorModelTrainingSummariesCommandInput} for command's `input` shape.
  * @see {@link GetBehaviorModelTrainingSummariesCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
  *
  */
 export class GetBehaviorModelTrainingSummariesCommand extends $Command<
@@ -67,6 +96,9 @@ export class GetBehaviorModelTrainingSummariesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBehaviorModelTrainingSummariesCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +127,8 @@ export class GetBehaviorModelTrainingSummariesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBehaviorModelTrainingSummariesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBehaviorModelTrainingSummariesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,18 +138,24 @@ export class GetBehaviorModelTrainingSummariesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetBehaviorModelTrainingSummariesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetBehaviorModelTrainingSummariesCommand(input, context);
+    return se_GetBehaviorModelTrainingSummariesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBehaviorModelTrainingSummariesCommandOutput> {
-    return deserializeAws_restJson1GetBehaviorModelTrainingSummariesCommand(output, context);
+    return de_GetBehaviorModelTrainingSummariesCommand(output, context);
   }
 
   // Start section: command_body_extra

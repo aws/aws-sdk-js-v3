@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
-import {
-  DeleteAnomalyMonitorRequest,
-  DeleteAnomalyMonitorRequestFilterSensitiveLog,
-  DeleteAnomalyMonitorResponse,
-  DeleteAnomalyMonitorResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteAnomalyMonitorCommand,
-  serializeAws_json1_1DeleteAnomalyMonitorCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteAnomalyMonitorRequest, DeleteAnomalyMonitorResponse } from "../models/models_0";
+import { de_DeleteAnomalyMonitorCommand, se_DeleteAnomalyMonitorCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteAnomalyMonitorCommand}.
+ */
 export interface DeleteAnomalyMonitorCommandInput extends DeleteAnomalyMonitorRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteAnomalyMonitorCommand}.
+ */
 export interface DeleteAnomalyMonitorCommandOutput extends DeleteAnomalyMonitorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a cost anomaly monitor. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,25 @@ export interface DeleteAnomalyMonitorCommandOutput extends DeleteAnomalyMonitorR
  * import { CostExplorerClient, DeleteAnomalyMonitorCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, DeleteAnomalyMonitorCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
  * const client = new CostExplorerClient(config);
+ * const input = { // DeleteAnomalyMonitorRequest
+ *   MonitorArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAnomalyMonitorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAnomalyMonitorCommandInput - {@link DeleteAnomalyMonitorCommandInput}
+ * @returns {@link DeleteAnomalyMonitorCommandOutput}
  * @see {@link DeleteAnomalyMonitorCommandInput} for command's `input` shape.
  * @see {@link DeleteAnomalyMonitorCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You made too many calls in a short period of time. Try again later.</p>
+ *
+ * @throws {@link UnknownMonitorException} (client fault)
+ *  <p>The cost anomaly monitor does not exist for the account. </p>
+ *
  *
  */
 export class DeleteAnomalyMonitorCommand extends $Command<
@@ -62,6 +77,9 @@ export class DeleteAnomalyMonitorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAnomalyMonitorCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +108,8 @@ export class DeleteAnomalyMonitorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAnomalyMonitorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAnomalyMonitorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +119,18 @@ export class DeleteAnomalyMonitorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAnomalyMonitorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteAnomalyMonitorCommand(input, context);
+    return se_DeleteAnomalyMonitorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAnomalyMonitorCommandOutput> {
-    return deserializeAws_json1_1DeleteAnomalyMonitorCommand(output, context);
+    return de_DeleteAnomalyMonitorCommand(output, context);
   }
 
   // Start section: command_body_extra

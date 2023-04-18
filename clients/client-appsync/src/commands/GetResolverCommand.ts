@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import {
-  GetResolverRequest,
-  GetResolverRequestFilterSensitiveLog,
-  GetResolverResponse,
-  GetResolverResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetResolverCommand,
-  serializeAws_restJson1GetResolverCommand,
-} from "../protocols/Aws_restJson1";
+import { GetResolverRequest, GetResolverResponse } from "../models/models_0";
+import { de_GetResolverCommand, se_GetResolverCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetResolverCommand}.
+ */
 export interface GetResolverCommandInput extends GetResolverRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetResolverCommand}.
+ */
 export interface GetResolverCommandOutput extends GetResolverResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a <code>Resolver</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,31 @@ export interface GetResolverCommandOutput extends GetResolverResponse, __Metadat
  * import { AppSyncClient, GetResolverCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, GetResolverCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
+ * const input = { // GetResolverRequest
+ *   apiId: "STRING_VALUE", // required
+ *   typeName: "STRING_VALUE", // required
+ *   fieldName: "STRING_VALUE", // required
+ * };
  * const command = new GetResolverCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResolverCommandInput - {@link GetResolverCommandInput}
+ * @returns {@link GetResolverCommandOutput}
  * @see {@link GetResolverCommandInput} for command's `input` shape.
  * @see {@link GetResolverCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>Another modification is in progress at this time and it must complete before you can make your
+ *          change.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource specified in the request was not found. Check the resource, and then try again.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You aren't authorized to perform this operation.</p>
+ *
  *
  */
 export class GetResolverCommand extends $Command<
@@ -62,6 +83,9 @@ export class GetResolverCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResolverCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +112,8 @@ export class GetResolverCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetResolverRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetResolverResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +123,18 @@ export class GetResolverCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResolverCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetResolverCommand(input, context);
+    return se_GetResolverCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResolverCommandOutput> {
-    return deserializeAws_restJson1GetResolverCommand(output, context);
+    return de_GetResolverCommand(output, context);
   }
 
   // Start section: command_body_extra

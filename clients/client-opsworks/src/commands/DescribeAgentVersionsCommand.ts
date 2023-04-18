@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeAgentVersionsRequest,
-  DescribeAgentVersionsRequestFilterSensitiveLog,
-  DescribeAgentVersionsResult,
-  DescribeAgentVersionsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeAgentVersionsRequest, DescribeAgentVersionsResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1DescribeAgentVersionsCommand,
-  serializeAws_json1_1DescribeAgentVersionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeAgentVersionsCommand, se_DescribeAgentVersionsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeAgentVersionsCommand}.
+ */
 export interface DescribeAgentVersionsCommandInput extends DescribeAgentVersionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeAgentVersionsCommand}.
+ */
 export interface DescribeAgentVersionsCommandOutput extends DescribeAgentVersionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the available AWS OpsWorks Stacks agent versions. You must specify a stack ID or a
  *     configuration manager. <code>DescribeAgentVersions</code> returns a list of available
  *     agent versions for the specified stack or configuration manager.</p>
@@ -38,13 +41,29 @@ export interface DescribeAgentVersionsCommandOutput extends DescribeAgentVersion
  * import { OpsWorksClient, DescribeAgentVersionsCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DescribeAgentVersionsCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // DescribeAgentVersionsRequest
+ *   StackId: "STRING_VALUE",
+ *   ConfigurationManager: { // StackConfigurationManager
+ *     Name: "STRING_VALUE",
+ *     Version: "STRING_VALUE",
+ *   },
+ * };
  * const command = new DescribeAgentVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAgentVersionsCommandInput - {@link DescribeAgentVersionsCommandInput}
+ * @returns {@link DescribeAgentVersionsCommandOutput}
  * @see {@link DescribeAgentVersionsCommandInput} for command's `input` shape.
  * @see {@link DescribeAgentVersionsCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Indicates that a resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that a request was not valid.</p>
+ *
  *
  */
 export class DescribeAgentVersionsCommand extends $Command<
@@ -64,6 +83,9 @@ export class DescribeAgentVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAgentVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +114,8 @@ export class DescribeAgentVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAgentVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAgentVersionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +125,18 @@ export class DescribeAgentVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAgentVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAgentVersionsCommand(input, context);
+    return se_DescribeAgentVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAgentVersionsCommandOutput> {
-    return deserializeAws_json1_1DescribeAgentVersionsCommand(output, context);
+    return de_DescribeAgentVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

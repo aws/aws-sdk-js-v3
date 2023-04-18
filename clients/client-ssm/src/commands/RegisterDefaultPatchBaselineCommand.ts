@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { RegisterDefaultPatchBaselineRequest, RegisterDefaultPatchBaselineResult } from "../models/models_1";
 import {
-  RegisterDefaultPatchBaselineRequest,
-  RegisterDefaultPatchBaselineRequestFilterSensitiveLog,
-  RegisterDefaultPatchBaselineResult,
-  RegisterDefaultPatchBaselineResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1RegisterDefaultPatchBaselineCommand,
-  serializeAws_json1_1RegisterDefaultPatchBaselineCommand,
+  de_RegisterDefaultPatchBaselineCommand,
+  se_RegisterDefaultPatchBaselineCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link RegisterDefaultPatchBaselineCommand}.
+ */
 export interface RegisterDefaultPatchBaselineCommandInput extends RegisterDefaultPatchBaselineRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RegisterDefaultPatchBaselineCommand}.
+ */
 export interface RegisterDefaultPatchBaselineCommandOutput
   extends RegisterDefaultPatchBaselineResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Defines the default patch baseline for the relevant operating system.</p>
  *          <p>To reset the Amazon Web Services-predefined patch baseline as the default, specify the full patch baseline
  *    Amazon Resource Name (ARN) as the baseline ID value. For example, for CentOS, specify
@@ -42,13 +48,31 @@ export interface RegisterDefaultPatchBaselineCommandOutput
  * import { SSMClient, RegisterDefaultPatchBaselineCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, RegisterDefaultPatchBaselineCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // RegisterDefaultPatchBaselineRequest
+ *   BaselineId: "STRING_VALUE", // required
+ * };
  * const command = new RegisterDefaultPatchBaselineCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterDefaultPatchBaselineCommandInput - {@link RegisterDefaultPatchBaselineCommandInput}
+ * @returns {@link RegisterDefaultPatchBaselineCommandOutput}
  * @see {@link RegisterDefaultPatchBaselineCommandInput} for command's `input` shape.
  * @see {@link RegisterDefaultPatchBaselineCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link DoesNotExistException} (client fault)
+ *  <p>Error returned when the ID specified for a resource, such as a maintenance window or patch
+ *    baseline, doesn't exist.</p>
+ *          <p>For information about resource quotas in Amazon Web Services Systems Manager, see <a href="https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm">Systems Manager service quotas</a> in the
+ *     <i>Amazon Web Services General Reference</i>.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidResourceId} (client fault)
+ *  <p>The resource ID isn't valid. Verify that you entered the correct ID and try again.</p>
+ *
  *
  */
 export class RegisterDefaultPatchBaselineCommand extends $Command<
@@ -68,6 +92,9 @@ export class RegisterDefaultPatchBaselineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterDefaultPatchBaselineCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +123,8 @@ export class RegisterDefaultPatchBaselineCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterDefaultPatchBaselineRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterDefaultPatchBaselineResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,15 +134,21 @@ export class RegisterDefaultPatchBaselineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterDefaultPatchBaselineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterDefaultPatchBaselineCommand(input, context);
+    return se_RegisterDefaultPatchBaselineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RegisterDefaultPatchBaselineCommandOutput> {
-    return deserializeAws_json1_1RegisterDefaultPatchBaselineCommand(output, context);
+    return de_RegisterDefaultPatchBaselineCommand(output, context);
   }
 
   // Start section: command_body_extra

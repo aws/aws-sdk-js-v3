@@ -93,6 +93,11 @@ import {
   DescribeDomainsCommandOutput,
 } from "./commands/DescribeDomainsCommand";
 import {
+  DescribeDryRunProgressCommand,
+  DescribeDryRunProgressCommandInput,
+  DescribeDryRunProgressCommandOutput,
+} from "./commands/DescribeDryRunProgressCommand";
+import {
   DescribeInboundConnectionsCommand,
   DescribeInboundConnectionsCommandInput,
   DescribeInboundConnectionsCommandOutput,
@@ -172,6 +177,11 @@ import {
   ListPackagesForDomainCommandInput,
   ListPackagesForDomainCommandOutput,
 } from "./commands/ListPackagesForDomainCommand";
+import {
+  ListScheduledActionsCommand,
+  ListScheduledActionsCommandInput,
+  ListScheduledActionsCommandOutput,
+} from "./commands/ListScheduledActionsCommand";
 import { ListTagsCommand, ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
 import {
   ListVersionsCommand,
@@ -225,6 +235,11 @@ import {
   UpdatePackageCommandOutput,
 } from "./commands/UpdatePackageCommand";
 import {
+  UpdateScheduledActionCommand,
+  UpdateScheduledActionCommandInput,
+  UpdateScheduledActionCommandOutput,
+} from "./commands/UpdateScheduledActionCommand";
+import {
   UpdateVpcEndpointCommand,
   UpdateVpcEndpointCommandInput,
   UpdateVpcEndpointCommandOutput,
@@ -237,6 +252,7 @@ import {
 import { OpenSearchClient } from "./OpenSearchClient";
 
 /**
+ * @public
  * <p>Use the Amazon OpenSearch Service configuration API to create, configure, and manage
  *    OpenSearch Service domains.</p>
  *          <p>For sample code that uses the configuration API, see the <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/opensearch-configuration-samples.html">
@@ -250,6 +266,7 @@ import { OpenSearchClient } from "./OpenSearchClient";
  */
 export class OpenSearch extends OpenSearchClient {
   /**
+   * @public
    * <p>Allows the destination Amazon OpenSearch Service domain owner to accept an inbound
    *    cross-cluster search connection request. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html">Cross-cluster search
    *     for Amazon OpenSearch Service</a>.</p>
@@ -284,9 +301,10 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
    * <p>Attaches tags to an existing Amazon OpenSearch Service domain. Tags are a set of
-   *    case-sensitive key-value pairs. An domain can have up to 10 tags. For more information, see
-   *     <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains.html#managedomains-awsresorcetagging"> Tagging Amazon OpenSearch Service domains</a>.</p>
+   *    case-sensitive key-value pairs. A domain can have up to 10 tags. For more information, see
+   *     <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-awsresourcetagging.html">Tagging Amazon OpenSearch Service domains</a>.</p>
    */
   public addTags(args: AddTagsCommandInput, options?: __HttpHandlerOptions): Promise<AddTagsCommandOutput>;
   public addTags(args: AddTagsCommandInput, cb: (err: any, data?: AddTagsCommandOutput) => void): void;
@@ -312,6 +330,7 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
    * <p>Associates a package with an Amazon OpenSearch Service domain. For more information, see
    *     <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom packages
    *     for Amazon OpenSearch Service</a>.</p>
@@ -346,6 +365,7 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
    * <p>Provides access to an Amazon OpenSearch Service domain through the use of an interface VPC
    *    endpoint.</p>
    */
@@ -379,6 +399,7 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
    * <p>Cancels a scheduled service software update for an Amazon OpenSearch Service domain. You can
    *    only perform this operation before the <code>AutomatedUpdateDate</code> and when the domain's
    *     <code>UpdateStatus</code> is <code>PENDING_UPDATE</code>. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html">Service software updates in Amazon OpenSearch Service</a>.</p>
@@ -413,6 +434,7 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
    * <p>Creates an Amazon OpenSearch Service domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html">Creating and managing Amazon OpenSearch Service domains</a>.</p>
    */
   public createDomain(
@@ -442,6 +464,7 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
    * <p>Creates a new cross-cluster search connection from a source Amazon OpenSearch Service domain
    *    to a destination domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html">Cross-cluster search
    *     for Amazon OpenSearch Service</a>.</p>
@@ -476,6 +499,7 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
    * <p>Creates a package for use with Amazon OpenSearch Service domains. For more information, see
    *     <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom packages for Amazon OpenSearch Service</a>.</p>
    */
@@ -509,6 +533,7 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
    * <p>Creates an Amazon OpenSearch Service-managed VPC endpoint.</p>
    */
   public createVpcEndpoint(
@@ -541,6 +566,7 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
    * <p>Deletes an Amazon OpenSearch Service domain and all of its data. You can't recover a domain
    *    after you delete it.</p>
    */
@@ -571,6 +597,7 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
    * <p>Allows the destination Amazon OpenSearch Service domain owner to delete an existing inbound
    *    cross-cluster search connection. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html">Cross-cluster search
    *     for Amazon OpenSearch Service</a>.</p>
@@ -605,6 +632,7 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
    * <p>Allows the source Amazon OpenSearch Service domain owner to delete an existing outbound
    *    cross-cluster search connection. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html">Cross-cluster search
    *     for Amazon OpenSearch Service</a>.</p>
@@ -639,6 +667,7 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
    * <p>Deletes an Amazon OpenSearch Service package. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom
    *     packages for Amazon OpenSearch Service</a>.</p>
    */
@@ -672,6 +701,7 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
    * <p>Deletes an Amazon OpenSearch Service-managed interface VPC endpoint.</p>
    */
   public deleteVpcEndpoint(
@@ -704,6 +734,7 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
    * <p>Describes the domain configuration for the specified Amazon OpenSearch Service domain,
    *    including the domain ID, domain service endpoint, and domain ARN.</p>
    */
@@ -737,6 +768,7 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
    * <p>Returns the list of optimizations that Auto-Tune has made to an Amazon OpenSearch Service
    *    domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html">Auto-Tune for Amazon OpenSearch
    *     Service</a>.</p>
@@ -771,6 +803,7 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the current blue/green deployment happening on an Amazon
    *    OpenSearch Service domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes.html">Making configuration changes in Amazon OpenSearch Service</a>.</p>
    */
@@ -804,6 +837,7 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
    * <p>Returns the configuration of an Amazon OpenSearch Service domain.</p>
    */
   public describeDomainConfig(
@@ -836,6 +870,7 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
    * <p>Returns domain configuration information about the specified Amazon OpenSearch Service
    *    domains.</p>
    */
@@ -869,6 +904,41 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
+   * <p>Describes the progress of a pre-update dry run analysis on an Amazon OpenSearch
+   *    Service domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes#dryrun">Determining whether a change will cause a blue/green deployment</a>.</p>
+   */
+  public describeDryRunProgress(
+    args: DescribeDryRunProgressCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDryRunProgressCommandOutput>;
+  public describeDryRunProgress(
+    args: DescribeDryRunProgressCommandInput,
+    cb: (err: any, data?: DescribeDryRunProgressCommandOutput) => void
+  ): void;
+  public describeDryRunProgress(
+    args: DescribeDryRunProgressCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDryRunProgressCommandOutput) => void
+  ): void;
+  public describeDryRunProgress(
+    args: DescribeDryRunProgressCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDryRunProgressCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDryRunProgressCommandOutput) => void
+  ): Promise<DescribeDryRunProgressCommandOutput> | void {
+    const command = new DescribeDryRunProgressCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Lists all the inbound cross-cluster search connections for a destination (remote) Amazon
    *    OpenSearch Service domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html">Cross-cluster search
    *     for Amazon OpenSearch Service</a>.</p>
@@ -903,6 +973,7 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
    * <p>Describes the instance count, storage, and master node limits for a given OpenSearch or
    *    Elasticsearch version and instance type.</p>
    */
@@ -936,6 +1007,7 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
    * <p>Lists all the outbound cross-cluster connections for a local (source) Amazon OpenSearch
    *    Service domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html">Cross-cluster search
    *     for Amazon OpenSearch Service</a>.</p>
@@ -970,6 +1042,7 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
    * <p>Describes all packages available to OpenSearch Service. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom
    *     packages for Amazon OpenSearch Service</a>.</p>
    */
@@ -1003,6 +1076,7 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
    * <p>Describes the available Amazon OpenSearch Service Reserved Instance offerings for a given
    *    Region. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ri.html">Reserved Instances in Amazon OpenSearch Service</a>.</p>
    */
@@ -1036,6 +1110,7 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
    * <p>Describes the Amazon OpenSearch Service instances that you have reserved in a given Region.
    *    For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ri.html">Reserved Instances in Amazon OpenSearch
    *     Service</a>.</p>
@@ -1070,6 +1145,7 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
    * <p>Describes one or more Amazon OpenSearch Service-managed VPC endpoints.</p>
    */
   public describeVpcEndpoints(
@@ -1102,6 +1178,7 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
    * <p>Removes a package from the specified Amazon OpenSearch Service domain. The package can't be
    *    in use with any OpenSearch index for the dissociation to succeed. The package is still available
    *    in OpenSearch Service for association later. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom
@@ -1137,6 +1214,7 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
    * <p>Returns a map of OpenSearch or Elasticsearch versions and the versions you can upgrade them
    *    to.</p>
    */
@@ -1170,6 +1248,7 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of Amazon OpenSearch Service package versions, along with their creation time
    *    and commit message. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom packages for Amazon
    *     OpenSearch Service</a>.</p>
@@ -1204,6 +1283,7 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the complete history of the last 10 upgrades performed on an Amazon OpenSearch
    *    Service domain.</p>
    */
@@ -1237,6 +1317,7 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
    * <p>Returns the most recent status of the last upgrade or upgrade eligibility check performed on
    *    an Amazon OpenSearch Service domain.</p>
    */
@@ -1270,6 +1351,7 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
    * <p>Returns the names of all Amazon OpenSearch Service domains owned by the current user in the
    *    active Region.</p>
    */
@@ -1303,6 +1385,7 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
    * <p>Lists all Amazon OpenSearch Service domains associated with a given package. For more
    *    information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom packages for Amazon
    *     OpenSearch Service</a>.</p>
@@ -1337,6 +1420,7 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
    * <p>Lists all instance types and available features for a given OpenSearch or Elasticsearch
    *    version.</p>
    */
@@ -1370,6 +1454,7 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
    * <p>Lists all packages associated with an Amazon OpenSearch Service domain. For more
    *    information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom packages for Amazon
    *     OpenSearch Service</a>.</p>
@@ -1404,6 +1489,43 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
+   * <p>Retrieves a list of configuration changes that are scheduled for a domain. These changes can
+   *    be <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html">service software
+   *     updates</a> or <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html#auto-tune-types">blue/green
+   *      Auto-Tune enhancements</a>.</p>
+   */
+  public listScheduledActions(
+    args: ListScheduledActionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListScheduledActionsCommandOutput>;
+  public listScheduledActions(
+    args: ListScheduledActionsCommandInput,
+    cb: (err: any, data?: ListScheduledActionsCommandOutput) => void
+  ): void;
+  public listScheduledActions(
+    args: ListScheduledActionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListScheduledActionsCommandOutput) => void
+  ): void;
+  public listScheduledActions(
+    args: ListScheduledActionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListScheduledActionsCommandOutput) => void),
+    cb?: (err: any, data?: ListScheduledActionsCommandOutput) => void
+  ): Promise<ListScheduledActionsCommandOutput> | void {
+    const command = new ListScheduledActionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Returns all resource tags for an Amazon OpenSearch Service domain. For more information, see
    *    <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-awsresourcetagging.html">Tagging Amazon OpenSearch Service domains</a>.</p>
    */
@@ -1431,6 +1553,7 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
    * <p>Lists all versions of OpenSearch and Elasticsearch that Amazon OpenSearch Service
    *    supports.</p>
    */
@@ -1461,6 +1584,7 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about each Amazon Web Services principal that is allowed to access a
    *    given Amazon OpenSearch Service domain through the use of an interface VPC endpoint.</p>
    */
@@ -1494,6 +1618,7 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
    * <p>Retrieves all Amazon OpenSearch Service-managed VPC endpoints in the current Amazon Web Services account and Region.</p>
    */
   public listVpcEndpoints(
@@ -1526,6 +1651,7 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
    * <p>Retrieves all Amazon OpenSearch Service-managed VPC endpoints associated with a particular
    *    domain.</p>
    */
@@ -1559,6 +1685,7 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
    * <p>Allows you to purchase Amazon OpenSearch Service Reserved Instances.</p>
    */
   public purchaseReservedInstanceOffering(
@@ -1591,6 +1718,7 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
    * <p>Allows the remote Amazon OpenSearch Service domain owner to reject an inbound cross-cluster
    *    connection request.</p>
    */
@@ -1624,6 +1752,7 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified set of tags from an Amazon OpenSearch Service domain. For more
    *    information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains.html#managedomains-awsresorcetagging"> Tagging Amazon OpenSearch Service domains</a>.</p>
    */
@@ -1651,6 +1780,7 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
    * <p>Revokes access to an Amazon OpenSearch Service domain that was provided through an interface
    *    VPC endpoint.</p>
    */
@@ -1684,6 +1814,7 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
    * <p>Schedules a service software update for an Amazon OpenSearch Service domain. For more
    *    information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html">Service software updates in
    *     Amazon OpenSearch Service</a>.</p>
@@ -1718,6 +1849,7 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
    * <p>Modifies the cluster configuration of the specified Amazon OpenSearch Service domain.</p>
    */
   public updateDomainConfig(
@@ -1750,6 +1882,7 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
    * <p>Updates a package for use with Amazon OpenSearch Service domains. For more information, see
    *     <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom packages for Amazon OpenSearch Service</a>.</p>
    */
@@ -1783,6 +1916,43 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
+   * <p>Reschedules a planned domain configuration change for a later time. This change can be a
+   *    scheduled <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html">service software
+   *     update</a> or a <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html#auto-tune-types">blue/green
+   *      Auto-Tune enhancement</a>.</p>
+   */
+  public updateScheduledAction(
+    args: UpdateScheduledActionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateScheduledActionCommandOutput>;
+  public updateScheduledAction(
+    args: UpdateScheduledActionCommandInput,
+    cb: (err: any, data?: UpdateScheduledActionCommandOutput) => void
+  ): void;
+  public updateScheduledAction(
+    args: UpdateScheduledActionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateScheduledActionCommandOutput) => void
+  ): void;
+  public updateScheduledAction(
+    args: UpdateScheduledActionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateScheduledActionCommandOutput) => void),
+    cb?: (err: any, data?: UpdateScheduledActionCommandOutput) => void
+  ): Promise<UpdateScheduledActionCommandOutput> | void {
+    const command = new UpdateScheduledActionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Modifies an Amazon OpenSearch Service-managed interface VPC endpoint.</p>
    */
   public updateVpcEndpoint(
@@ -1815,6 +1985,7 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * @public
    * <p>Allows you to either upgrade your Amazon OpenSearch Service domain or perform an upgrade
    *    eligibility check to a compatible version of OpenSearch or Elasticsearch.</p>
    */

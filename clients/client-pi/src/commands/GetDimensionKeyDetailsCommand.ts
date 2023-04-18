@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetDimensionKeyDetailsRequest,
-  GetDimensionKeyDetailsRequestFilterSensitiveLog,
-  GetDimensionKeyDetailsResponse,
-  GetDimensionKeyDetailsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetDimensionKeyDetailsRequest, GetDimensionKeyDetailsResponse } from "../models/models_0";
 import { PIClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PIClient";
-import {
-  deserializeAws_json1_1GetDimensionKeyDetailsCommand,
-  serializeAws_json1_1GetDimensionKeyDetailsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetDimensionKeyDetailsCommand, se_GetDimensionKeyDetailsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetDimensionKeyDetailsCommand}.
+ */
 export interface GetDimensionKeyDetailsCommandInput extends GetDimensionKeyDetailsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetDimensionKeyDetailsCommand}.
+ */
 export interface GetDimensionKeyDetailsCommandOutput extends GetDimensionKeyDetailsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get the attributes of the specified dimension group for a DB instance or data source. For example, if you specify a SQL ID,
  *                 <code>GetDimensionKeyDetails</code> retrieves the full text of the dimension <code>db.sql.statement</code> associated with this ID.
  *             This operation is useful because <code>GetResourceMetrics</code> and <code>DescribeDimensionKeys</code> don't support retrieval of large
@@ -39,13 +42,34 @@ export interface GetDimensionKeyDetailsCommandOutput extends GetDimensionKeyDeta
  * import { PIClient, GetDimensionKeyDetailsCommand } from "@aws-sdk/client-pi"; // ES Modules import
  * // const { PIClient, GetDimensionKeyDetailsCommand } = require("@aws-sdk/client-pi"); // CommonJS import
  * const client = new PIClient(config);
+ * const input = { // GetDimensionKeyDetailsRequest
+ *   ServiceType: "RDS" || "DOCDB", // required
+ *   Identifier: "STRING_VALUE", // required
+ *   Group: "STRING_VALUE", // required
+ *   GroupIdentifier: "STRING_VALUE", // required
+ *   RequestedDimensions: [ // RequestedDimensionList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetDimensionKeyDetailsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDimensionKeyDetailsCommandInput - {@link GetDimensionKeyDetailsCommandInput}
+ * @returns {@link GetDimensionKeyDetailsCommandOutput}
  * @see {@link GetDimensionKeyDetailsCommandInput} for command's `input` shape.
  * @see {@link GetDimensionKeyDetailsCommandOutput} for command's `response` shape.
  * @see {@link PIClientResolvedConfig | config} for PIClient's `config` shape.
+ *
+ * @throws {@link InternalServiceError} (server fault)
+ *  <p>The request failed due to an unknown error.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>One of the arguments provided is invalid for this request.</p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>The user is not authorized to perform this request.</p>
+ *
  *
  */
 export class GetDimensionKeyDetailsCommand extends $Command<
@@ -65,6 +89,9 @@ export class GetDimensionKeyDetailsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDimensionKeyDetailsCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +120,8 @@ export class GetDimensionKeyDetailsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDimensionKeyDetailsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDimensionKeyDetailsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +131,18 @@ export class GetDimensionKeyDetailsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDimensionKeyDetailsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDimensionKeyDetailsCommand(input, context);
+    return se_GetDimensionKeyDetailsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDimensionKeyDetailsCommandOutput> {
-    return deserializeAws_json1_1GetDimensionKeyDetailsCommand(output, context);
+    return de_GetDimensionKeyDetailsCommand(output, context);
   }
 
   // Start section: command_body_extra

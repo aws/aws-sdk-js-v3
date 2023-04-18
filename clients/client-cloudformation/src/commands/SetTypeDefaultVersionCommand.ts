@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  SetTypeDefaultVersionInput,
-  SetTypeDefaultVersionInputFilterSensitiveLog,
-  SetTypeDefaultVersionOutput,
-  SetTypeDefaultVersionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_querySetTypeDefaultVersionCommand,
-  serializeAws_querySetTypeDefaultVersionCommand,
-} from "../protocols/Aws_query";
+import { SetTypeDefaultVersionInput, SetTypeDefaultVersionOutput } from "../models/models_0";
+import { de_SetTypeDefaultVersionCommand, se_SetTypeDefaultVersionCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link SetTypeDefaultVersionCommand}.
+ */
 export interface SetTypeDefaultVersionCommandInput extends SetTypeDefaultVersionInput {}
+/**
+ * @public
+ *
+ * The output of {@link SetTypeDefaultVersionCommand}.
+ */
 export interface SetTypeDefaultVersionCommandOutput extends SetTypeDefaultVersionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Specify the default version of an extension. The default version of an extension will be
  *          used in CloudFormation operations.</p>
  * @example
@@ -37,13 +40,28 @@ export interface SetTypeDefaultVersionCommandOutput extends SetTypeDefaultVersio
  * import { CloudFormationClient, SetTypeDefaultVersionCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, SetTypeDefaultVersionCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // SetTypeDefaultVersionInput
+ *   Arn: "STRING_VALUE",
+ *   Type: "RESOURCE" || "MODULE" || "HOOK",
+ *   TypeName: "STRING_VALUE",
+ *   VersionId: "STRING_VALUE",
+ * };
  * const command = new SetTypeDefaultVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SetTypeDefaultVersionCommandInput - {@link SetTypeDefaultVersionCommandInput}
+ * @returns {@link SetTypeDefaultVersionCommandOutput}
  * @see {@link SetTypeDefaultVersionCommandInput} for command's `input` shape.
  * @see {@link SetTypeDefaultVersionCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
+ *
+ * @throws {@link CFNRegistryException} (client fault)
+ *  <p>An error occurred during a CloudFormation registry operation.</p>
+ *
+ * @throws {@link TypeNotFoundException} (client fault)
+ *  <p>The specified extension doesn't exist in the CloudFormation registry.</p>
+ *
  *
  */
 export class SetTypeDefaultVersionCommand extends $Command<
@@ -63,6 +81,9 @@ export class SetTypeDefaultVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetTypeDefaultVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +112,8 @@ export class SetTypeDefaultVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetTypeDefaultVersionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: SetTypeDefaultVersionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +123,18 @@ export class SetTypeDefaultVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetTypeDefaultVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySetTypeDefaultVersionCommand(input, context);
+    return se_SetTypeDefaultVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetTypeDefaultVersionCommandOutput> {
-    return deserializeAws_querySetTypeDefaultVersionCommand(output, context);
+    return de_SetTypeDefaultVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

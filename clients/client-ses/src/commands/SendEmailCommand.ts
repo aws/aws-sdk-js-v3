@@ -13,19 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SendEmailRequest,
-  SendEmailRequestFilterSensitiveLog,
-  SendEmailResponse,
-  SendEmailResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_querySendEmailCommand, serializeAws_querySendEmailCommand } from "../protocols/Aws_query";
+import { SendEmailRequest, SendEmailResponse } from "../models/models_0";
+import { de_SendEmailCommand, se_SendEmailCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * @public
+ *
+ * The input for {@link SendEmailCommand}.
+ */
 export interface SendEmailCommandInput extends SendEmailRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SendEmailCommand}.
+ */
 export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Composes an email message and immediately queues it for sending. In order to send
  *             email using the <code>SendEmail</code> operation, your message must meet the following
  *             requirements:</p>
@@ -77,13 +83,126 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  * import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, SendEmailCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // SendEmailRequest
+ *   Source: "STRING_VALUE", // required
+ *   Destination: { // Destination
+ *     ToAddresses: [ // AddressList
+ *       "STRING_VALUE",
+ *     ],
+ *     CcAddresses: [
+ *       "STRING_VALUE",
+ *     ],
+ *     BccAddresses: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   Message: { // Message
+ *     Subject: { // Content
+ *       Data: "STRING_VALUE", // required
+ *       Charset: "STRING_VALUE",
+ *     },
+ *     Body: { // Body
+ *       Text: {
+ *         Data: "STRING_VALUE", // required
+ *         Charset: "STRING_VALUE",
+ *       },
+ *       Html: {
+ *         Data: "STRING_VALUE", // required
+ *         Charset: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   ReplyToAddresses: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ReturnPath: "STRING_VALUE",
+ *   SourceArn: "STRING_VALUE",
+ *   ReturnPathArn: "STRING_VALUE",
+ *   Tags: [ // MessageTagList
+ *     { // MessageTag
+ *       Name: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ConfigurationSetName: "STRING_VALUE",
+ * };
  * const command = new SendEmailCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SendEmailCommandInput - {@link SendEmailCommandInput}
+ * @returns {@link SendEmailCommandOutput}
  * @see {@link SendEmailCommandInput} for command's `input` shape.
  * @see {@link SendEmailCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
+ *
+ * @throws {@link AccountSendingPausedException} (client fault)
+ *  <p>Indicates that email sending is disabled for your entire Amazon SES account.</p>
+ *         <p>You can enable or disable email sending for your Amazon SES account using <a>UpdateAccountSendingEnabled</a>.</p>
+ *
+ * @throws {@link ConfigurationSetDoesNotExistException} (client fault)
+ *  <p>Indicates that the configuration set does not exist.</p>
+ *
+ * @throws {@link ConfigurationSetSendingPausedException} (client fault)
+ *  <p>Indicates that email sending is disabled for the configuration set.</p>
+ *         <p>You can enable or disable email sending for a configuration set using <a>UpdateConfigurationSetSendingEnabled</a>.</p>
+ *
+ * @throws {@link MailFromDomainNotVerifiedException} (client fault)
+ *  <p> Indicates that the message could not be sent because Amazon SES could not read the MX
+ *             record required to use the specified MAIL FROM domain. For information about editing the
+ *             custom MAIL FROM domain settings for an identity, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-edit.html">Amazon SES Developer
+ *                 Guide</a>.</p>
+ *
+ * @throws {@link MessageRejected} (client fault)
+ *  <p>Indicates that the action failed, and the message could not be sent. Check the error
+ *             stack for more information about what caused the error.</p>
+ *
+ *
+ * @example SendEmail
+ * ```javascript
+ * // The following example sends a formatted email:
+ * const input = {
+ *   "Destination": {
+ *     "BccAddresses": [],
+ *     "CcAddresses": [
+ *       "recipient3@example.com"
+ *     ],
+ *     "ToAddresses": [
+ *       "recipient1@example.com",
+ *       "recipient2@example.com"
+ *     ]
+ *   },
+ *   "Message": {
+ *     "Body": {
+ *       "Html": {
+ *         "Charset": "UTF-8",
+ *         "Data": "This message body contains HTML formatting. It can, for example, contain links like this one: <a class=\"ulink\" href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide\" target=\"_blank\">Amazon SES Developer Guide</a>."
+ *       },
+ *       "Text": {
+ *         "Charset": "UTF-8",
+ *         "Data": "This is the message body in text format."
+ *       }
+ *     },
+ *     "Subject": {
+ *       "Charset": "UTF-8",
+ *       "Data": "Test email"
+ *     }
+ *   },
+ *   "ReplyToAddresses": [],
+ *   "ReturnPath": "",
+ *   "ReturnPathArn": "",
+ *   "Source": "sender@example.com",
+ *   "SourceArn": ""
+ * };
+ * const command = new SendEmailCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "MessageId": "EXAMPLE78603177f-7a5433e7-8edb-42ae-af10-f0181f34d6ee-000000"
+ * }
+ * *\/
+ * // example id: sendemail-1469049656296
+ * ```
  *
  */
 export class SendEmailCommand extends $Command<SendEmailCommandInput, SendEmailCommandOutput, SESClientResolvedConfig> {
@@ -99,6 +218,9 @@ export class SendEmailCommand extends $Command<SendEmailCommandInput, SendEmailC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendEmailCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +247,8 @@ export class SendEmailCommand extends $Command<SendEmailCommandInput, SendEmailC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendEmailRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SendEmailResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +258,18 @@ export class SendEmailCommand extends $Command<SendEmailCommandInput, SendEmailC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendEmailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySendEmailCommand(input, context);
+    return se_SendEmailCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendEmailCommandOutput> {
-    return deserializeAws_querySendEmailCommand(output, context);
+    return de_SendEmailCommand(output, context);
   }
 
   // Start section: command_body_extra

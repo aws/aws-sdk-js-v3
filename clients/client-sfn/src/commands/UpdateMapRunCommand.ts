@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateMapRunInput,
-  UpdateMapRunInputFilterSensitiveLog,
-  UpdateMapRunOutput,
-  UpdateMapRunOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateMapRunCommand,
-  serializeAws_json1_0UpdateMapRunCommand,
-} from "../protocols/Aws_json1_0";
+import { UpdateMapRunInput, UpdateMapRunOutput } from "../models/models_0";
+import { de_UpdateMapRunCommand, se_UpdateMapRunCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateMapRunCommand}.
+ */
 export interface UpdateMapRunCommandInput extends UpdateMapRunInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateMapRunCommand}.
+ */
 export interface UpdateMapRunCommandOutput extends UpdateMapRunOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an in-progress Map Run's configuration to include changes to the settings that control maximum concurrency and Map Run failure.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,32 @@ export interface UpdateMapRunCommandOutput extends UpdateMapRunOutput, __Metadat
  * import { SFNClient, UpdateMapRunCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, UpdateMapRunCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
+ * const input = { // UpdateMapRunInput
+ *   mapRunArn: "STRING_VALUE", // required
+ *   maxConcurrency: Number("int"),
+ *   toleratedFailurePercentage: Number("float"),
+ *   toleratedFailureCount: Number("long"),
+ * };
  * const command = new UpdateMapRunCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateMapRunCommandInput - {@link UpdateMapRunCommandInput}
+ * @returns {@link UpdateMapRunCommandOutput}
  * @see {@link UpdateMapRunCommandInput} for command's `input` shape.
  * @see {@link UpdateMapRunCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
+ *
+ * @throws {@link InvalidArn} (client fault)
+ *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Could not find the referenced resource. Only state machine and activity ARNs are
+ *       supported.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
  *
  */
 export class UpdateMapRunCommand extends $Command<
@@ -62,6 +84,9 @@ export class UpdateMapRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateMapRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +113,8 @@ export class UpdateMapRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateMapRunInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateMapRunOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +124,18 @@ export class UpdateMapRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateMapRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateMapRunCommand(input, context);
+    return se_UpdateMapRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMapRunCommandOutput> {
-    return deserializeAws_json1_0UpdateMapRunCommand(output, context);
+    return de_UpdateMapRunCommand(output, context);
   }
 
   // Start section: command_body_extra

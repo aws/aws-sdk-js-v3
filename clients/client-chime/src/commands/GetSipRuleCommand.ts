@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import {
-  GetSipRuleRequest,
-  GetSipRuleRequestFilterSensitiveLog,
-  GetSipRuleResponse,
-  GetSipRuleResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1GetSipRuleCommand,
-  serializeAws_restJson1GetSipRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { GetSipRuleRequest, GetSipRuleResponse } from "../models/models_1";
+import { de_GetSipRuleCommand, se_GetSipRuleCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetSipRuleCommand}.
+ */
 export interface GetSipRuleCommandInput extends GetSipRuleRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetSipRuleCommand}.
+ */
 export interface GetSipRuleCommandOutput extends GetSipRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the details of a SIP rule, such as the rule ID, name, triggers, and target endpoints.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,40 @@ export interface GetSipRuleCommandOutput extends GetSipRuleResponse, __MetadataB
  * import { ChimeClient, GetSipRuleCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, GetSipRuleCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // GetSipRuleRequest
+ *   SipRuleId: "STRING_VALUE", // required
+ * };
  * const command = new GetSipRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSipRuleCommandInput - {@link GetSipRuleCommandInput}
+ * @returns {@link GetSipRuleCommandOutput}
  * @see {@link GetSipRuleCommandInput} for command's `input` shape.
  * @see {@link GetSipRuleCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>One or more of the resources in the request does not exist in the system.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The client exceeded its request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client is not currently authorized to make the request.</p>
+ *
  *
  */
 export class GetSipRuleCommand extends $Command<
@@ -62,6 +92,9 @@ export class GetSipRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSipRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +121,8 @@ export class GetSipRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSipRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSipRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +132,18 @@ export class GetSipRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSipRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSipRuleCommand(input, context);
+    return se_GetSipRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSipRuleCommandOutput> {
-    return deserializeAws_restJson1GetSipRuleCommand(output, context);
+    return de_GetSipRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

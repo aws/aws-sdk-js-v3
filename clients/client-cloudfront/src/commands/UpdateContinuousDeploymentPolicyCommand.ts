@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
+import { UpdateContinuousDeploymentPolicyRequest, UpdateContinuousDeploymentPolicyResult } from "../models/models_1";
 import {
-  UpdateContinuousDeploymentPolicyRequest,
-  UpdateContinuousDeploymentPolicyRequestFilterSensitiveLog,
-  UpdateContinuousDeploymentPolicyResult,
-  UpdateContinuousDeploymentPolicyResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlUpdateContinuousDeploymentPolicyCommand,
-  serializeAws_restXmlUpdateContinuousDeploymentPolicyCommand,
+  de_UpdateContinuousDeploymentPolicyCommand,
+  se_UpdateContinuousDeploymentPolicyCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateContinuousDeploymentPolicyCommand}.
+ */
 export interface UpdateContinuousDeploymentPolicyCommandInput extends UpdateContinuousDeploymentPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateContinuousDeploymentPolicyCommand}.
+ */
 export interface UpdateContinuousDeploymentPolicyCommandOutput
   extends UpdateContinuousDeploymentPolicyResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a continuous deployment policy. You can update a continuous deployment policy
  * 			to enable or disable it, to change the percentage of traffic that it sends to the
  * 			staging distribution, or to change the staging distribution that it sends traffic
@@ -59,13 +65,66 @@ export interface UpdateContinuousDeploymentPolicyCommandOutput
  * import { CloudFrontClient, UpdateContinuousDeploymentPolicyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, UpdateContinuousDeploymentPolicyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // UpdateContinuousDeploymentPolicyRequest
+ *   ContinuousDeploymentPolicyConfig: { // ContinuousDeploymentPolicyConfig
+ *     StagingDistributionDnsNames: { // StagingDistributionDnsNames
+ *       Quantity: Number("int"), // required
+ *       Items: [ // StagingDistributionDnsNameList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     Enabled: true || false, // required
+ *     TrafficConfig: { // TrafficConfig
+ *       SingleWeightConfig: { // ContinuousDeploymentSingleWeightConfig
+ *         Weight: Number("float"), // required
+ *         SessionStickinessConfig: { // SessionStickinessConfig
+ *           IdleTTL: Number("int"), // required
+ *           MaximumTTL: Number("int"), // required
+ *         },
+ *       },
+ *       SingleHeaderConfig: { // ContinuousDeploymentSingleHeaderConfig
+ *         Header: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *       Type: "SingleWeight" || "SingleHeader", // required
+ *     },
+ *   },
+ *   Id: "STRING_VALUE", // required
+ *   IfMatch: "STRING_VALUE",
+ * };
  * const command = new UpdateContinuousDeploymentPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateContinuousDeploymentPolicyCommandInput - {@link UpdateContinuousDeploymentPolicyCommandInput}
+ * @returns {@link UpdateContinuousDeploymentPolicyCommandOutput}
  * @see {@link UpdateContinuousDeploymentPolicyCommandInput} for command's `input` shape.
  * @see {@link UpdateContinuousDeploymentPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link InconsistentQuantities} (client fault)
+ *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't
+ * 			match.</p>
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link InvalidIfMatchVersion} (client fault)
+ *  <p>The <code>If-Match</code> version is missing or not valid.</p>
+ *
+ * @throws {@link NoSuchContinuousDeploymentPolicy} (client fault)
+ *  <p>The continuous deployment policy doesn't exist.</p>
+ *
+ * @throws {@link PreconditionFailed} (client fault)
+ *  <p>The precondition in one or more of the request fields evaluated to
+ * 			<code>false</code>.</p>
+ *
+ * @throws {@link StagingDistributionInUse} (client fault)
+ *  <p>A continuous deployment policy for this staging distribution already exists.</p>
+ *
  *
  */
 export class UpdateContinuousDeploymentPolicyCommand extends $Command<
@@ -85,6 +144,9 @@ export class UpdateContinuousDeploymentPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateContinuousDeploymentPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +175,8 @@ export class UpdateContinuousDeploymentPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateContinuousDeploymentPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateContinuousDeploymentPolicyResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,18 +186,24 @@ export class UpdateContinuousDeploymentPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateContinuousDeploymentPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlUpdateContinuousDeploymentPolicyCommand(input, context);
+    return se_UpdateContinuousDeploymentPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateContinuousDeploymentPolicyCommandOutput> {
-    return deserializeAws_restXmlUpdateContinuousDeploymentPolicyCommand(output, context);
+    return de_UpdateContinuousDeploymentPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

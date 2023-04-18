@@ -20,24 +20,30 @@ import {
 } from "../ChimeSDKMessagingClient";
 import {
   GetChannelMessageRequest,
-  GetChannelMessageRequestFilterSensitiveLog,
   GetChannelMessageResponse,
   GetChannelMessageResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetChannelMessageCommand,
-  serializeAws_restJson1GetChannelMessageCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetChannelMessageCommand, se_GetChannelMessageCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetChannelMessageCommand}.
+ */
 export interface GetChannelMessageCommandInput extends GetChannelMessageRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetChannelMessageCommand}.
+ */
 export interface GetChannelMessageCommandOutput extends GetChannelMessageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the full details of a channel message.</p>
- *
  *          <note>
- *             <p>The x-amz-chime-bearer request header is mandatory. Use the
- *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+ *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
+ *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
  *             the header.</p>
  *          </note>
  * @example
@@ -46,13 +52,43 @@ export interface GetChannelMessageCommandOutput extends GetChannelMessageRespons
  * import { ChimeSDKMessagingClient, GetChannelMessageCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, GetChannelMessageCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
+ * const input = { // GetChannelMessageRequest
+ *   ChannelArn: "STRING_VALUE", // required
+ *   MessageId: "STRING_VALUE", // required
+ *   ChimeBearer: "STRING_VALUE", // required
+ *   SubChannelId: "STRING_VALUE",
+ * };
  * const command = new GetChannelMessageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetChannelMessageCommandInput - {@link GetChannelMessageCommandInput}
+ * @returns {@link GetChannelMessageCommandOutput}
  * @see {@link GetChannelMessageCommandInput} for command's `input` shape.
  * @see {@link GetChannelMessageCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>One or more of the resources in the request does not exist in the system.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The client exceeded its request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client is not currently authorized to make the request.</p>
+ *
  *
  */
 export class GetChannelMessageCommand extends $Command<
@@ -72,6 +108,9 @@ export class GetChannelMessageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetChannelMessageCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,7 +139,7 @@ export class GetChannelMessageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetChannelMessageRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetChannelMessageResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -111,12 +150,18 @@ export class GetChannelMessageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetChannelMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetChannelMessageCommand(input, context);
+    return se_GetChannelMessageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetChannelMessageCommandOutput> {
-    return deserializeAws_restJson1GetChannelMessageCommand(output, context);
+    return de_GetChannelMessageCommand(output, context);
   }
 
   // Start section: command_body_extra

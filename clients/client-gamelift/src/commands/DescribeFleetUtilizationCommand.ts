@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  DescribeFleetUtilizationInput,
-  DescribeFleetUtilizationInputFilterSensitiveLog,
-  DescribeFleetUtilizationOutput,
-  DescribeFleetUtilizationOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeFleetUtilizationCommand,
-  serializeAws_json1_1DescribeFleetUtilizationCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeFleetUtilizationInput, DescribeFleetUtilizationOutput } from "../models/models_0";
+import { de_DescribeFleetUtilizationCommand, se_DescribeFleetUtilizationCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeFleetUtilizationCommand}.
+ */
 export interface DescribeFleetUtilizationCommandInput extends DescribeFleetUtilizationInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeFleetUtilizationCommand}.
+ */
 export interface DescribeFleetUtilizationCommandOutput extends DescribeFleetUtilizationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves utilization statistics for one or more fleets. Utilization data provides a
  *             snapshot of how the fleet's hosting resources are currently being used. For fleets with
  *             remote locations, this operation retrieves data for the fleet's home Region only. See
@@ -71,13 +74,37 @@ export interface DescribeFleetUtilizationCommandOutput extends DescribeFleetUtil
  * import { GameLiftClient, DescribeFleetUtilizationCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeFleetUtilizationCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // DescribeFleetUtilizationInput
+ *   FleetIds: [ // FleetIdOrArnList
+ *     "STRING_VALUE",
+ *   ],
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeFleetUtilizationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFleetUtilizationCommandInput - {@link DescribeFleetUtilizationCommandInput}
+ * @returns {@link DescribeFleetUtilizationCommandOutput}
  * @see {@link DescribeFleetUtilizationCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetUtilizationCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an unrecoverable internal failure while processing the
+ *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
+ *             values before retrying.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
  *
  */
 export class DescribeFleetUtilizationCommand extends $Command<
@@ -97,6 +124,9 @@ export class DescribeFleetUtilizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFleetUtilizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +155,8 @@ export class DescribeFleetUtilizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFleetUtilizationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFleetUtilizationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +166,18 @@ export class DescribeFleetUtilizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFleetUtilizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeFleetUtilizationCommand(input, context);
+    return se_DescribeFleetUtilizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFleetUtilizationCommandOutput> {
-    return deserializeAws_json1_1DescribeFleetUtilizationCommand(output, context);
+    return de_DescribeFleetUtilizationCommand(output, context);
   }
 
   // Start section: command_body_extra

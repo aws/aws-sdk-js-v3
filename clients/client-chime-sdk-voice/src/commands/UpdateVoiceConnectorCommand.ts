@@ -14,20 +14,69 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
-import {
-  UpdateVoiceConnectorRequest,
-  UpdateVoiceConnectorRequestFilterSensitiveLog,
-  UpdateVoiceConnectorResponse,
-  UpdateVoiceConnectorResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateVoiceConnectorCommand,
-  serializeAws_restJson1UpdateVoiceConnectorCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateVoiceConnectorRequest, UpdateVoiceConnectorResponse } from "../models/models_0";
+import { de_UpdateVoiceConnectorCommand, se_UpdateVoiceConnectorCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateVoiceConnectorCommand}.
+ */
 export interface UpdateVoiceConnectorCommandInput extends UpdateVoiceConnectorRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateVoiceConnectorCommand}.
+ */
 export interface UpdateVoiceConnectorCommandOutput extends UpdateVoiceConnectorResponse, __MetadataBearer {}
 
+/**
+ * @public
+ * <p>Updates the details for the specified Amazon Chime SDK Voice Connector.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeSDKVoiceClient, UpdateVoiceConnectorCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
+ * // const { ChimeSDKVoiceClient, UpdateVoiceConnectorCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * const client = new ChimeSDKVoiceClient(config);
+ * const input = { // UpdateVoiceConnectorRequest
+ *   VoiceConnectorId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   RequireEncryption: true || false, // required
+ * };
+ * const command = new UpdateVoiceConnectorCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @param UpdateVoiceConnectorCommandInput - {@link UpdateVoiceConnectorCommandInput}
+ * @returns {@link UpdateVoiceConnectorCommandOutput}
+ * @see {@link UpdateVoiceConnectorCommandInput} for command's `input` shape.
+ * @see {@link UpdateVoiceConnectorCommandOutput} for command's `response` shape.
+ * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The requested resource couldn't be found.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The number of customer requests exceeds the request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client isn't authorized to request a resource.</p>
+ *
+ *
+ */
 export class UpdateVoiceConnectorCommand extends $Command<
   UpdateVoiceConnectorCommandInput,
   UpdateVoiceConnectorCommandOutput,
@@ -45,6 +94,9 @@ export class UpdateVoiceConnectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateVoiceConnectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,8 +125,8 @@ export class UpdateVoiceConnectorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateVoiceConnectorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateVoiceConnectorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,12 +136,18 @@ export class UpdateVoiceConnectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateVoiceConnectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateVoiceConnectorCommand(input, context);
+    return se_UpdateVoiceConnectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVoiceConnectorCommandOutput> {
-    return deserializeAws_restJson1UpdateVoiceConnectorCommand(output, context);
+    return de_UpdateVoiceConnectorCommand(output, context);
   }
 
   // Start section: command_body_extra

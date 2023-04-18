@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
-import {
-  DescribeVpcEndpointsRequest,
-  DescribeVpcEndpointsRequestFilterSensitiveLog,
-  DescribeVpcEndpointsResponse,
-  DescribeVpcEndpointsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeVpcEndpointsCommand,
-  serializeAws_restJson1DescribeVpcEndpointsCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeVpcEndpointsRequest, DescribeVpcEndpointsResponse } from "../models/models_0";
+import { de_DescribeVpcEndpointsCommand, se_DescribeVpcEndpointsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeVpcEndpointsCommand}.
+ */
 export interface DescribeVpcEndpointsCommandInput extends DescribeVpcEndpointsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeVpcEndpointsCommand}.
+ */
 export interface DescribeVpcEndpointsCommandOutput extends DescribeVpcEndpointsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more Amazon OpenSearch Service-managed VPC endpoints.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,33 @@ export interface DescribeVpcEndpointsCommandOutput extends DescribeVpcEndpointsR
  * import { ElasticsearchServiceClient, DescribeVpcEndpointsCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, DescribeVpcEndpointsCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
+ * const input = { // DescribeVpcEndpointsRequest
+ *   VpcEndpointIds: [ // VpcEndpointIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeVpcEndpointsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVpcEndpointsCommandInput - {@link DescribeVpcEndpointsCommandInput}
+ * @returns {@link DescribeVpcEndpointsCommandOutput}
  * @see {@link DescribeVpcEndpointsCommandInput} for command's `input` shape.
  * @see {@link DescribeVpcEndpointsCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
+ *
+ * @throws {@link BaseException} (client fault)
+ *  <p>An error occurred while processing the request.</p>
+ *
+ * @throws {@link DisabledOperationException} (client fault)
+ *  <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+ *
  *
  */
 export class DescribeVpcEndpointsCommand extends $Command<
@@ -66,6 +89,9 @@ export class DescribeVpcEndpointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVpcEndpointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +120,8 @@ export class DescribeVpcEndpointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVpcEndpointsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeVpcEndpointsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +131,18 @@ export class DescribeVpcEndpointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVpcEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeVpcEndpointsCommand(input, context);
+    return se_DescribeVpcEndpointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVpcEndpointsCommandOutput> {
-    return deserializeAws_restJson1DescribeVpcEndpointsCommand(output, context);
+    return de_DescribeVpcEndpointsCommand(output, context);
   }
 
   // Start section: command_body_extra

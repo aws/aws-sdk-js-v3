@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListMonitoringAlertsRequest,
-  ListMonitoringAlertsRequestFilterSensitiveLog,
-  ListMonitoringAlertsResponse,
-  ListMonitoringAlertsResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1ListMonitoringAlertsCommand,
-  serializeAws_json1_1ListMonitoringAlertsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListMonitoringAlertsRequest, ListMonitoringAlertsResponse } from "../models/models_3";
+import { de_ListMonitoringAlertsCommand, se_ListMonitoringAlertsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListMonitoringAlertsCommand}.
+ */
 export interface ListMonitoringAlertsCommandInput extends ListMonitoringAlertsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListMonitoringAlertsCommand}.
+ */
 export interface ListMonitoringAlertsCommandOutput extends ListMonitoringAlertsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the alerts for a single monitoring schedule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,24 @@ export interface ListMonitoringAlertsCommandOutput extends ListMonitoringAlertsR
  * import { SageMakerClient, ListMonitoringAlertsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListMonitoringAlertsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListMonitoringAlertsRequest
+ *   MonitoringScheduleName: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListMonitoringAlertsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMonitoringAlertsCommandInput - {@link ListMonitoringAlertsCommandInput}
+ * @returns {@link ListMonitoringAlertsCommandOutput}
  * @see {@link ListMonitoringAlertsCommandInput} for command's `input` shape.
  * @see {@link ListMonitoringAlertsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class ListMonitoringAlertsCommand extends $Command<
@@ -62,6 +76,9 @@ export class ListMonitoringAlertsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMonitoringAlertsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +107,8 @@ export class ListMonitoringAlertsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMonitoringAlertsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMonitoringAlertsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +118,18 @@ export class ListMonitoringAlertsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMonitoringAlertsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListMonitoringAlertsCommand(input, context);
+    return se_ListMonitoringAlertsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMonitoringAlertsCommandOutput> {
-    return deserializeAws_json1_1ListMonitoringAlertsCommand(output, context);
+    return de_ListMonitoringAlertsCommand(output, context);
   }
 
   // Start section: command_body_extra

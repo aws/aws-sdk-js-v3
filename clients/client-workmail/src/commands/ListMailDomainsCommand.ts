@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListMailDomainsRequest,
-  ListMailDomainsRequestFilterSensitiveLog,
-  ListMailDomainsResponse,
-  ListMailDomainsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListMailDomainsCommand,
-  serializeAws_json1_1ListMailDomainsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListMailDomainsRequest, ListMailDomainsResponse } from "../models/models_0";
+import { de_ListMailDomainsCommand, se_ListMailDomainsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListMailDomainsCommand}.
+ */
 export interface ListMailDomainsCommandInput extends ListMailDomainsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListMailDomainsCommand}.
+ */
 export interface ListMailDomainsCommandOutput extends ListMailDomainsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the mail domains in a given WorkMail organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,32 @@ export interface ListMailDomainsCommandOutput extends ListMailDomainsResponse, _
  * import { WorkMailClient, ListMailDomainsCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, ListMailDomainsCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = { // ListMailDomainsRequest
+ *   OrganizationId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListMailDomainsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMailDomainsCommandInput - {@link ListMailDomainsCommandInput}
+ * @returns {@link ListMailDomainsCommandOutput}
  * @see {@link ListMailDomainsCommandInput} for command's `input` shape.
  * @see {@link ListMailDomainsCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link OrganizationNotFoundException} (client fault)
+ *  <p>An operation received a valid organization identifier that either doesn't belong or
+ *          exist in the system.</p>
+ *
+ * @throws {@link OrganizationStateException} (client fault)
+ *  <p>The organization must have a valid state to perform certain
+ *          operations on the organization or its members.</p>
+ *
  *
  */
 export class ListMailDomainsCommand extends $Command<
@@ -62,6 +84,9 @@ export class ListMailDomainsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMailDomainsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +115,8 @@ export class ListMailDomainsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMailDomainsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMailDomainsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +126,18 @@ export class ListMailDomainsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMailDomainsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListMailDomainsCommand(input, context);
+    return se_ListMailDomainsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMailDomainsCommandOutput> {
-    return deserializeAws_json1_1ListMailDomainsCommand(output, context);
+    return de_ListMailDomainsCommand(output, context);
   }
 
   // Start section: command_body_extra

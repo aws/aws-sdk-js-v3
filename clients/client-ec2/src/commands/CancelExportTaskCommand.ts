@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CancelExportTaskRequest, CancelExportTaskRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_ec2CancelExportTaskCommand,
-  serializeAws_ec2CancelExportTaskCommand,
-} from "../protocols/Aws_ec2";
+import { CancelExportTaskRequest } from "../models/models_0";
+import { de_CancelExportTaskCommand, se_CancelExportTaskCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link CancelExportTaskCommand}.
+ */
 export interface CancelExportTaskCommandInput extends CancelExportTaskRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CancelExportTaskCommand}.
+ */
 export interface CancelExportTaskCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels an active export task. The request removes all artifacts of the export, including any partially-created
  *    Amazon S3 objects. If the export task is complete or is in the process of transferring the final disk image, the
  *    command fails and returns an error.</p>
@@ -33,13 +41,19 @@ export interface CancelExportTaskCommandOutput extends __MetadataBearer {}
  * import { EC2Client, CancelExportTaskCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CancelExportTaskCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // CancelExportTaskRequest
+ *   ExportTaskId: "STRING_VALUE", // required
+ * };
  * const command = new CancelExportTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelExportTaskCommandInput - {@link CancelExportTaskCommandInput}
+ * @returns {@link CancelExportTaskCommandOutput}
  * @see {@link CancelExportTaskCommandInput} for command's `input` shape.
  * @see {@link CancelExportTaskCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class CancelExportTaskCommand extends $Command<
@@ -59,6 +73,9 @@ export class CancelExportTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelExportTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -87,8 +104,8 @@ export class CancelExportTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelExportTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -98,12 +115,18 @@ export class CancelExportTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelExportTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CancelExportTaskCommand(input, context);
+    return se_CancelExportTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelExportTaskCommandOutput> {
-    return deserializeAws_ec2CancelExportTaskCommand(output, context);
+    return de_CancelExportTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

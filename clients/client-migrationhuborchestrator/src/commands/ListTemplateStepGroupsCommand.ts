@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubOrchestratorClient";
-import {
-  ListTemplateStepGroupsRequest,
-  ListTemplateStepGroupsRequestFilterSensitiveLog,
-  ListTemplateStepGroupsResponse,
-  ListTemplateStepGroupsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListTemplateStepGroupsCommand,
-  serializeAws_restJson1ListTemplateStepGroupsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListTemplateStepGroupsRequest, ListTemplateStepGroupsResponse } from "../models/models_0";
+import { de_ListTemplateStepGroupsCommand, se_ListTemplateStepGroupsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListTemplateStepGroupsCommand}.
+ */
 export interface ListTemplateStepGroupsCommandInput extends ListTemplateStepGroupsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListTemplateStepGroupsCommand}.
+ */
 export interface ListTemplateStepGroupsCommandOutput extends ListTemplateStepGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the step groups in a template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,33 @@ export interface ListTemplateStepGroupsCommandOutput extends ListTemplateStepGro
  * import { MigrationHubOrchestratorClient, ListTemplateStepGroupsCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
  * // const { MigrationHubOrchestratorClient, ListTemplateStepGroupsCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
  * const client = new MigrationHubOrchestratorClient(config);
+ * const input = { // ListTemplateStepGroupsRequest
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   templateId: "STRING_VALUE", // required
+ * };
  * const command = new ListTemplateStepGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTemplateStepGroupsCommandInput - {@link ListTemplateStepGroupsCommandInput}
+ * @returns {@link ListTemplateStepGroupsCommandOutput}
  * @see {@link ListTemplateStepGroupsCommandInput} for command's `input` shape.
  * @see {@link ListTemplateStepGroupsCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error has occurred.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource is not available.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
  *
  */
 export class ListTemplateStepGroupsCommand extends $Command<
@@ -66,6 +89,9 @@ export class ListTemplateStepGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTemplateStepGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +120,8 @@ export class ListTemplateStepGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTemplateStepGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTemplateStepGroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +131,18 @@ export class ListTemplateStepGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTemplateStepGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListTemplateStepGroupsCommand(input, context);
+    return se_ListTemplateStepGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTemplateStepGroupsCommandOutput> {
-    return deserializeAws_restJson1ListTemplateStepGroupsCommand(output, context);
+    return de_ListTemplateStepGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

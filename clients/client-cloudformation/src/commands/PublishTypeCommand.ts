@@ -14,18 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  PublishTypeInput,
-  PublishTypeInputFilterSensitiveLog,
-  PublishTypeOutput,
-  PublishTypeOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_queryPublishTypeCommand, serializeAws_queryPublishTypeCommand } from "../protocols/Aws_query";
+import { PublishTypeInput, PublishTypeOutput } from "../models/models_0";
+import { de_PublishTypeCommand, se_PublishTypeCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link PublishTypeCommand}.
+ */
 export interface PublishTypeCommandInput extends PublishTypeInput {}
+/**
+ * @public
+ *
+ * The output of {@link PublishTypeCommand}.
+ */
 export interface PublishTypeCommandOutput extends PublishTypeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Publishes the specified extension to the CloudFormation registry as a public
  *          extension in this region. Public extensions are available for use by all CloudFormation users. For more information about publishing extensions, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html">Publishing extensions to make them available for public use</a> in the
  *                <i>CloudFormation CLI User Guide</i>.</p>
@@ -36,13 +42,28 @@ export interface PublishTypeCommandOutput extends PublishTypeOutput, __MetadataB
  * import { CloudFormationClient, PublishTypeCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, PublishTypeCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // PublishTypeInput
+ *   Type: "RESOURCE" || "MODULE" || "HOOK",
+ *   Arn: "STRING_VALUE",
+ *   TypeName: "STRING_VALUE",
+ *   PublicVersionNumber: "STRING_VALUE",
+ * };
  * const command = new PublishTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PublishTypeCommandInput - {@link PublishTypeCommandInput}
+ * @returns {@link PublishTypeCommandOutput}
  * @see {@link PublishTypeCommandInput} for command's `input` shape.
  * @see {@link PublishTypeCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
+ *
+ * @throws {@link CFNRegistryException} (client fault)
+ *  <p>An error occurred during a CloudFormation registry operation.</p>
+ *
+ * @throws {@link TypeNotFoundException} (client fault)
+ *  <p>The specified extension doesn't exist in the CloudFormation registry.</p>
+ *
  *
  */
 export class PublishTypeCommand extends $Command<
@@ -62,6 +83,9 @@ export class PublishTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PublishTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +112,8 @@ export class PublishTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PublishTypeInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PublishTypeOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +123,18 @@ export class PublishTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PublishTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryPublishTypeCommand(input, context);
+    return se_PublishTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PublishTypeCommandOutput> {
-    return deserializeAws_queryPublishTypeCommand(output, context);
+    return de_PublishTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

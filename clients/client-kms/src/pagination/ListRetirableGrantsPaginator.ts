@@ -6,12 +6,11 @@ import {
   ListRetirableGrantsCommandInput,
   ListRetirableGrantsCommandOutput,
 } from "../commands/ListRetirableGrantsCommand";
-import { KMS } from "../KMS";
 import { KMSClient } from "../KMSClient";
 import { KMSPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: KMSClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListRetirableGrantsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: KMS,
-  input: ListRetirableGrantsCommandInput,
-  ...args: any
-): Promise<ListRetirableGrantsCommandOutput> => {
-  // @ts-ignore
-  return await client.listRetirableGrants(input, ...args);
-};
 export async function* paginateListRetirableGrants(
   config: KMSPaginationConfiguration,
   input: ListRetirableGrantsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListRetirableGrants(
   while (hasNext) {
     input.Marker = token;
     input["Limit"] = config.pageSize;
-    if (config.client instanceof KMS) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof KMSClient) {
+    if (config.client instanceof KMSClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected KMS | KMSClient");

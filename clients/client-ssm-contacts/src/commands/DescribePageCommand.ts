@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribePageRequest,
-  DescribePageRequestFilterSensitiveLog,
-  DescribePageResult,
-  DescribePageResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribePageCommand,
-  serializeAws_json1_1DescribePageCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribePageRequest, DescribePageResult } from "../models/models_0";
+import { de_DescribePageCommand, se_DescribePageCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribePageCommand}.
+ */
 export interface DescribePageCommandInput extends DescribePageRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribePageCommand}.
+ */
 export interface DescribePageCommandOutput extends DescribePageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists details of the engagement to a contact channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,38 @@ export interface DescribePageCommandOutput extends DescribePageResult, __Metadat
  * import { SSMContactsClient, DescribePageCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, DescribePageCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
  * const client = new SSMContactsClient(config);
+ * const input = { // DescribePageRequest
+ *   PageId: "STRING_VALUE", // required
+ * };
  * const command = new DescribePageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePageCommandInput - {@link DescribePageCommandInput}
+ * @returns {@link DescribePageCommandOutput}
  * @see {@link DescribePageCommandInput} for command's `input` shape.
  * @see {@link DescribePageCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient access to perform this operation.</p>
+ *
+ * @throws {@link DataEncryptionException} (client fault)
+ *  <p>The operation failed to due an encryption key error.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Unexpected error occurred while processing the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Request references a resource that doesn't exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
+ *          service.</p>
+ *
  *
  */
 export class DescribePageCommand extends $Command<
@@ -62,6 +90,9 @@ export class DescribePageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePageCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +119,8 @@ export class DescribePageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribePageResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +130,18 @@ export class DescribePageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribePageCommand(input, context);
+    return se_DescribePageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePageCommandOutput> {
-    return deserializeAws_json1_1DescribePageCommand(output, context);
+    return de_DescribePageCommand(output, context);
   }
 
   // Start section: command_body_extra

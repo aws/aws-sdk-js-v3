@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameSparksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameSparksClient";
-import {
-  UpdateGameConfigurationRequest,
-  UpdateGameConfigurationRequestFilterSensitiveLog,
-  UpdateGameConfigurationResult,
-  UpdateGameConfigurationResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateGameConfigurationCommand,
-  serializeAws_restJson1UpdateGameConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateGameConfigurationRequest, UpdateGameConfigurationResult } from "../models/models_0";
+import { de_UpdateGameConfigurationCommand, se_UpdateGameConfigurationCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateGameConfigurationCommand}.
+ */
 export interface UpdateGameConfigurationCommandInput extends UpdateGameConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateGameConfigurationCommand}.
+ */
 export interface UpdateGameConfigurationCommandOutput extends UpdateGameConfigurationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates one or more sections of the game configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,45 @@ export interface UpdateGameConfigurationCommandOutput extends UpdateGameConfigur
  * import { GameSparksClient, UpdateGameConfigurationCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, UpdateGameConfigurationCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
+ * const input = { // UpdateGameConfigurationRequest
+ *   GameName: "STRING_VALUE", // required
+ *   Modifications: [ // SectionModificationList // required
+ *     { // SectionModification
+ *       Section: "STRING_VALUE", // required
+ *       Path: "STRING_VALUE", // required
+ *       Operation: "STRING_VALUE", // required
+ *       Value: "DOCUMENT_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateGameConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateGameConfigurationCommandInput - {@link UpdateGameConfigurationCommandInput}
+ * @returns {@link UpdateGameConfigurationCommandOutput}
  * @see {@link UpdateGameConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateGameConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The service encountered an internal error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request does not exist.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request would result in exceeding service quota.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request throughput limit was exceeded.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One of the parameters in the request is invalid.</p>
+ *
  *
  */
 export class UpdateGameConfigurationCommand extends $Command<
@@ -62,6 +97,9 @@ export class UpdateGameConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateGameConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +128,8 @@ export class UpdateGameConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateGameConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateGameConfigurationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +139,18 @@ export class UpdateGameConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateGameConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateGameConfigurationCommand(input, context);
+    return se_UpdateGameConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGameConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateGameConfigurationCommand(output, context);
+    return de_UpdateGameConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

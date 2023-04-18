@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import {
-  SearchFlowExecutionsRequest,
-  SearchFlowExecutionsRequestFilterSensitiveLog,
-  SearchFlowExecutionsResponse,
-  SearchFlowExecutionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1SearchFlowExecutionsCommand,
-  serializeAws_json1_1SearchFlowExecutionsCommand,
-} from "../protocols/Aws_json1_1";
+import { SearchFlowExecutionsRequest, SearchFlowExecutionsResponse } from "../models/models_0";
+import { de_SearchFlowExecutionsCommand, se_SearchFlowExecutionsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link SearchFlowExecutionsCommand}.
+ */
 export interface SearchFlowExecutionsCommandInput extends SearchFlowExecutionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SearchFlowExecutionsCommand}.
+ */
 export interface SearchFlowExecutionsCommandOutput extends SearchFlowExecutionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Searches for AWS IoT Things Graph workflow execution instances.</p>
@@ -38,13 +41,36 @@ export interface SearchFlowExecutionsCommandOutput extends SearchFlowExecutionsR
  * import { IoTThingsGraphClient, SearchFlowExecutionsCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, SearchFlowExecutionsCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
+ * const input = { // SearchFlowExecutionsRequest
+ *   systemInstanceId: "STRING_VALUE", // required
+ *   flowExecutionId: "STRING_VALUE",
+ *   startTime: new Date("TIMESTAMP"),
+ *   endTime: new Date("TIMESTAMP"),
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new SearchFlowExecutionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchFlowExecutionsCommandInput - {@link SearchFlowExecutionsCommandInput}
+ * @returns {@link SearchFlowExecutionsCommandOutput}
  * @see {@link SearchFlowExecutionsCommandInput} for command's `input` shape.
  * @see {@link SearchFlowExecutionsCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p></p>
+ *
  *
  */
 export class SearchFlowExecutionsCommand extends $Command<
@@ -64,6 +90,9 @@ export class SearchFlowExecutionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchFlowExecutionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +121,8 @@ export class SearchFlowExecutionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchFlowExecutionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchFlowExecutionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +132,18 @@ export class SearchFlowExecutionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchFlowExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SearchFlowExecutionsCommand(input, context);
+    return se_SearchFlowExecutionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchFlowExecutionsCommandOutput> {
-    return deserializeAws_json1_1SearchFlowExecutionsCommand(output, context);
+    return de_SearchFlowExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  CreateCacheParameterGroupMessage,
-  CreateCacheParameterGroupMessageFilterSensitiveLog,
-  CreateCacheParameterGroupResult,
-  CreateCacheParameterGroupResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCreateCacheParameterGroupCommand,
-  serializeAws_queryCreateCacheParameterGroupCommand,
-} from "../protocols/Aws_query";
+import { CreateCacheParameterGroupMessage, CreateCacheParameterGroupResult } from "../models/models_0";
+import { de_CreateCacheParameterGroupCommand, se_CreateCacheParameterGroupCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateCacheParameterGroupCommand}.
+ */
 export interface CreateCacheParameterGroupCommandInput extends CreateCacheParameterGroupMessage {}
+/**
+ * @public
+ *
+ * The output of {@link CreateCacheParameterGroupCommand}.
+ */
 export interface CreateCacheParameterGroupCommandOutput extends CreateCacheParameterGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new Amazon ElastiCache cache parameter group. An ElastiCache
  *             cache parameter group is a collection of parameters and their values that are applied to all of the nodes
  *             in any cluster or replication group using the CacheParameterGroup.</p>
@@ -51,13 +54,67 @@ export interface CreateCacheParameterGroupCommandOutput extends CreateCacheParam
  * import { ElastiCacheClient, CreateCacheParameterGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, CreateCacheParameterGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // CreateCacheParameterGroupMessage
+ *   CacheParameterGroupName: "STRING_VALUE", // required
+ *   CacheParameterGroupFamily: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateCacheParameterGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCacheParameterGroupCommandInput - {@link CreateCacheParameterGroupCommandInput}
+ * @returns {@link CreateCacheParameterGroupCommandOutput}
  * @see {@link CreateCacheParameterGroupCommandInput} for command's `input` shape.
  * @see {@link CreateCacheParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
+ *
+ * @throws {@link CacheParameterGroupAlreadyExistsFault} (client fault)
+ *  <p>A cache parameter group with the requested name already exists.</p>
+ *
+ * @throws {@link CacheParameterGroupQuotaExceededFault} (client fault)
+ *  <p>The request cannot be processed because it would exceed the maximum number of cache security groups.</p>
+ *
+ * @throws {@link InvalidCacheParameterGroupStateFault} (client fault)
+ *  <p>The current state of the cache parameter group does not allow the requested operation to occur.</p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
+ * @throws {@link TagQuotaPerResourceExceeded} (client fault)
+ *  <p>The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.</p>
+ *
+ *
+ * @example CreateCacheParameterGroup
+ * ```javascript
+ * // Creates the Amazon ElastiCache parameter group custom-redis2-8.
+ * const input = {
+ *   "CacheParameterGroupFamily": "redis2.8",
+ *   "CacheParameterGroupName": "custom-redis2-8",
+ *   "Description": "Custom Redis 2.8 parameter group."
+ * };
+ * const command = new CreateCacheParameterGroupCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "CacheParameterGroup": {
+ *     "CacheParameterGroupFamily": "redis2.8",
+ *     "CacheParameterGroupName": "custom-redis2-8",
+ *     "Description": "Custom Redis 2.8 parameter group."
+ *   }
+ * }
+ * *\/
+ * // example id: createcacheparametergroup-1474997699362
+ * ```
  *
  */
 export class CreateCacheParameterGroupCommand extends $Command<
@@ -77,6 +134,9 @@ export class CreateCacheParameterGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCacheParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +165,8 @@ export class CreateCacheParameterGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCacheParameterGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCacheParameterGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,15 +176,21 @@ export class CreateCacheParameterGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCacheParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateCacheParameterGroupCommand(input, context);
+    return se_CreateCacheParameterGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateCacheParameterGroupCommandOutput> {
-    return deserializeAws_queryCreateCacheParameterGroupCommand(output, context);
+    return de_CreateCacheParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

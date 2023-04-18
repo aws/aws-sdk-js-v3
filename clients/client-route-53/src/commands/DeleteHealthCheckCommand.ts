@@ -13,33 +13,36 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteHealthCheckRequest,
-  DeleteHealthCheckRequestFilterSensitiveLog,
-  DeleteHealthCheckResponse,
-  DeleteHealthCheckResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlDeleteHealthCheckCommand,
-  serializeAws_restXmlDeleteHealthCheckCommand,
-} from "../protocols/Aws_restXml";
+import { DeleteHealthCheckRequest, DeleteHealthCheckResponse } from "../models/models_0";
+import { de_DeleteHealthCheckCommand, se_DeleteHealthCheckCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteHealthCheckCommand}.
+ */
 export interface DeleteHealthCheckCommandInput extends DeleteHealthCheckRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteHealthCheckCommand}.
+ */
 export interface DeleteHealthCheckCommandOutput extends DeleteHealthCheckResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a health check.</p>
- * 		       <important>
- * 			         <p>Amazon Route 53 does not prevent you from deleting a health check even if the
+ *          <important>
+ *             <p>Amazon Route 53 does not prevent you from deleting a health check even if the
  * 				health check is associated with one or more resource record sets. If you delete a
  * 				health check and you don't update the associated resource record sets, the future
  * 				status of the health check can't be predicted and may change. This will affect the
  * 				routing of DNS queries for your DNS failover configuration. For more information,
  * 				see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-creating-deleting.html#health-checks-deleting.html">Replacing and Deleting Health Checks</a> in the <i>Amazon Route 53
  * 					Developer Guide</i>.</p>
- * 		       </important>
- * 		       <p>If you're using Cloud Map and you configured Cloud Map to create a Route 53
+ *          </important>
+ *          <p>If you're using Cloud Map and you configured Cloud Map to create a Route 53
  * 			health check when you register an instance, you can't use the Route 53
  * 				<code>DeleteHealthCheck</code> command to delete the health check. The health check
  * 			is deleted automatically when you deregister the instance; there can be a delay of
@@ -50,13 +53,28 @@ export interface DeleteHealthCheckCommandOutput extends DeleteHealthCheckRespons
  * import { Route53Client, DeleteHealthCheckCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, DeleteHealthCheckCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = { // DeleteHealthCheckRequest
+ *   HealthCheckId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteHealthCheckCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteHealthCheckCommandInput - {@link DeleteHealthCheckCommandInput}
+ * @returns {@link DeleteHealthCheckCommandOutput}
  * @see {@link DeleteHealthCheckCommandInput} for command's `input` shape.
  * @see {@link DeleteHealthCheckCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
+ *
+ * @throws {@link HealthCheckInUse} (client fault)
+ *  <p>This error code is not in use.</p>
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link NoSuchHealthCheck} (client fault)
+ *  <p>No health check exists with the specified ID.</p>
+ *
  *
  */
 export class DeleteHealthCheckCommand extends $Command<
@@ -76,6 +94,9 @@ export class DeleteHealthCheckCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteHealthCheckCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +125,8 @@ export class DeleteHealthCheckCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteHealthCheckRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteHealthCheckResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +136,18 @@ export class DeleteHealthCheckCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteHealthCheckCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteHealthCheckCommand(input, context);
+    return se_DeleteHealthCheckCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteHealthCheckCommandOutput> {
-    return deserializeAws_restXmlDeleteHealthCheckCommand(output, context);
+    return de_DeleteHealthCheckCommand(output, context);
   }
 
   // Start section: command_body_extra

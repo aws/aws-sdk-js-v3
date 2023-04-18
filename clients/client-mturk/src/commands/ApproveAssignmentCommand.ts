@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ApproveAssignmentRequest,
-  ApproveAssignmentRequestFilterSensitiveLog,
-  ApproveAssignmentResponse,
-  ApproveAssignmentResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ApproveAssignmentRequest, ApproveAssignmentResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import {
-  deserializeAws_json1_1ApproveAssignmentCommand,
-  serializeAws_json1_1ApproveAssignmentCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ApproveAssignmentCommand, se_ApproveAssignmentCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ApproveAssignmentCommand}.
+ */
 export interface ApproveAssignmentCommandInput extends ApproveAssignmentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ApproveAssignmentCommand}.
+ */
 export interface ApproveAssignmentCommandOutput extends ApproveAssignmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The <code>ApproveAssignment</code> operation approves the results of a completed assignment.
  *         </p>
@@ -65,13 +68,27 @@ export interface ApproveAssignmentCommandOutput extends ApproveAssignmentRespons
  * import { MTurkClient, ApproveAssignmentCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, ApproveAssignmentCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = { // ApproveAssignmentRequest
+ *   AssignmentId: "STRING_VALUE", // required
+ *   RequesterFeedback: "STRING_VALUE",
+ *   OverrideRejection: true || false,
+ * };
  * const command = new ApproveAssignmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ApproveAssignmentCommandInput - {@link ApproveAssignmentCommandInput}
+ * @returns {@link ApproveAssignmentCommandOutput}
  * @see {@link ApproveAssignmentCommandInput} for command's `input` shape.
  * @see {@link ApproveAssignmentCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
+ *
+ * @throws {@link RequestError} (client fault)
+ *  <p>Your request is invalid.</p>
+ *
+ * @throws {@link ServiceFault} (server fault)
+ *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
  *
  */
 export class ApproveAssignmentCommand extends $Command<
@@ -91,6 +108,9 @@ export class ApproveAssignmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ApproveAssignmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +139,8 @@ export class ApproveAssignmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ApproveAssignmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ApproveAssignmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +150,18 @@ export class ApproveAssignmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ApproveAssignmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ApproveAssignmentCommand(input, context);
+    return se_ApproveAssignmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ApproveAssignmentCommandOutput> {
-    return deserializeAws_json1_1ApproveAssignmentCommand(output, context);
+    return de_ApproveAssignmentCommand(output, context);
   }
 
   // Start section: command_body_extra

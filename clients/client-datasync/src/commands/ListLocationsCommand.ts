@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import {
-  ListLocationsRequest,
-  ListLocationsRequestFilterSensitiveLog,
-  ListLocationsResponse,
-  ListLocationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListLocationsCommand,
-  serializeAws_json1_1ListLocationsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListLocationsRequest, ListLocationsResponse } from "../models/models_0";
+import { de_ListLocationsCommand, se_ListLocationsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListLocationsCommand}.
+ */
 export interface ListLocationsCommandInput extends ListLocationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListLocationsCommand}.
+ */
 export interface ListLocationsCommandOutput extends ListLocationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of source and destination locations.</p>
  *          <p>If you have more locations than are returned in a response (that is, the response
  *       returns only a truncated list of your agents), the response contains a token that you can
@@ -39,13 +42,35 @@ export interface ListLocationsCommandOutput extends ListLocationsResponse, __Met
  * import { DataSyncClient, ListLocationsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, ListLocationsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = { // ListLocationsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Filters: [ // LocationFilters
+ *     { // LocationFilter
+ *       Name: "LocationUri" || "LocationType" || "CreationTime", // required
+ *       Values: [ // FilterValues // required
+ *         "STRING_VALUE",
+ *       ],
+ *       Operator: "Equals" || "NotEquals" || "In" || "LessThanOrEqual" || "LessThan" || "GreaterThanOrEqual" || "GreaterThan" || "Contains" || "NotContains" || "BeginsWith", // required
+ *     },
+ *   ],
+ * };
  * const command = new ListLocationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLocationsCommandInput - {@link ListLocationsCommandInput}
+ * @returns {@link ListLocationsCommandOutput}
  * @see {@link ListLocationsCommandInput} for command's `input` shape.
  * @see {@link ListLocationsCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception is thrown when an error occurs in the DataSync service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
  *
  */
 export class ListLocationsCommand extends $Command<
@@ -65,6 +90,9 @@ export class ListLocationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLocationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +119,8 @@ export class ListLocationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLocationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListLocationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +130,18 @@ export class ListLocationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLocationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListLocationsCommand(input, context);
+    return se_ListLocationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLocationsCommandOutput> {
-    return deserializeAws_json1_1ListLocationsCommand(output, context);
+    return de_ListLocationsCommand(output, context);
   }
 
   // Start section: command_body_extra

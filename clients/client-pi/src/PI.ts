@@ -34,6 +34,7 @@ import {
 import { PIClient } from "./PIClient";
 
 /**
+ * @public
  * <fullname>Amazon RDS Performance Insights</fullname>
  *          <p>Amazon RDS Performance Insights enables you to monitor and explore different dimensions of database load based on data captured from a running DB instance. The guide
  *             provides detailed information about Performance Insights data types, parameters and errors.</p>
@@ -54,7 +55,7 @@ import { PIClient } from "./PIClient";
  *                   </i>. </p>
  *             </li>
  *             <li>
- *               <p>To learn more about Performance Insights and Amazon DocumentDB clusters, go to the <i>
+ *                <p>To learn more about Performance Insights and Amazon DocumentDB clusters, go to the <i>
  *                      <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html"> Amazon DocumentDB Developer Guide</a>
  *                   </i>.</p>
  *             </li>
@@ -62,6 +63,7 @@ import { PIClient } from "./PIClient";
  */
 export class PI extends PIClient {
   /**
+   * @public
    * <p>For a specific time period, retrieve the top <code>N</code> dimension keys for a metric.
    *       </p>
    *          <note>
@@ -99,6 +101,7 @@ export class PI extends PIClient {
   }
 
   /**
+   * @public
    * <p>Get the attributes of the specified dimension group for a DB instance or data source. For example, if you specify a SQL ID,
    *                 <code>GetDimensionKeyDetails</code> retrieves the full text of the dimension <code>db.sql.statement</code> associated with this ID.
    *             This operation is useful because <code>GetResourceMetrics</code> and <code>DescribeDimensionKeys</code> don't support retrieval of large
@@ -134,6 +137,7 @@ export class PI extends PIClient {
   }
 
   /**
+   * @public
    * <p>Retrieve the metadata for different features. For example, the metadata might indicate
    *             that a feature is turned on or off on a specific DB instance.
    *         </p>
@@ -168,6 +172,7 @@ export class PI extends PIClient {
   }
 
   /**
+   * @public
    * <p>Retrieve Performance Insights metrics for a set of data sources over a time period. You can provide
    *       specific dimension groups and dimensions, and provide aggregation and filtering criteria for
    *       each group.</p>
@@ -206,6 +211,7 @@ export class PI extends PIClient {
   }
 
   /**
+   * @public
    * <p>Retrieve the dimensions that can be queried for each specified metric type on a specified DB instance.</p>
    */
   public listAvailableResourceDimensions(
@@ -238,6 +244,7 @@ export class PI extends PIClient {
   }
 
   /**
+   * @public
    * <p>Retrieve metrics of the specified types that can be queried for a specified DB instance.
    *       </p>
    */
